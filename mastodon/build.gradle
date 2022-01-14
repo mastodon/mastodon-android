@@ -1,0 +1,38 @@
+plugins {
+	id 'com.android.application'
+}
+
+android {
+	compileSdk 31
+	buildToolsVersion "32.0.0"
+	defaultConfig {
+		applicationId "org.joinmastodon.android"
+		minSdk 23
+		targetSdk 31
+		versionCode 1
+		versionName "1.0"
+	}
+
+	buildTypes {
+		release {
+			minifyEnabled false
+			proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+		}
+	}
+	compileOptions {
+		sourceCompatibility JavaVersion.VERSION_15
+		targetCompatibility JavaVersion.VERSION_15
+		coreLibraryDesugaringEnabled true
+	}
+}
+
+dependencies {
+	api 'androidx.annotation:annotation:1.3.0'
+	implementation 'com.squareup.okhttp3:okhttp:3.14.9'
+	implementation 'me.grishka.litex:recyclerview:1.2.1'
+	implementation 'me.grishka.litex:swiperefreshlayout:1.1.0'
+	implementation 'me.grishka.litex:browser:1.4.0'
+	implementation 'me.grishka.appkit:appkit:1.0'
+	implementation 'com.google.code.gson:gson:2.8.9'
+	coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.1.5'
+}

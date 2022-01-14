@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content">
+
+	<TextView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:textStyle="bold"
+		android:text="title text"/>
+
+	<TextView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:text="explanation text"/>
+
+	<me.grishka.appkit.views.UsableRecyclerView
+		android:id="@+id/categories_list"
+		android:layout_width="match_parent"
+		android:layout_height="50dp"/>
+
+	<EditText
+		android:id="@+id/search_edit"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:inputType="textFilter"
+		android:singleLine="true"
+		android:imeOptions="actionGo"
+		android:hint="search"/>
+
+</LinearLayout>
