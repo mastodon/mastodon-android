@@ -34,11 +34,18 @@ public class HomeTimelineFragment extends StatusListFragment{
 
 	@Override
 	protected void doLoadData(int offset, int count){
-		new GetHomeTimeline(null, null, count)
+		String maxID;
+		if(offset>0 && !preloadedData.isEmpty())
+			maxID=preloadedData.get(preloadedData.size()-1).id;
+		else if(offset>0 && !data.isEmpty())
+			maxID=data.get(data.size()-1).id;
+		else
+			maxID=null;
+		new GetHomeTimeline(maxID, null, count)
 				.setCallback(new SimpleCallback<>(this){
 					@Override
 					public void onSuccess(List<Status> result){
-						onDataLoaded(result, false);
+						onDataLoaded(result, !result.isEmpty());
 					}
 				})
 				.exec(accountID);
