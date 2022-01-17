@@ -25,6 +25,7 @@ import java.io.Reader;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Map;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -75,6 +76,12 @@ public class MastodonAPIController{
 
 				if(token!=null)
 					builder.header("Authorization", "Bearer "+token);
+
+				if(req.headers!=null){
+					for(Map.Entry<String, String> header:req.headers.entrySet()){
+						builder.header(header.getKey(), header.getValue());
+					}
+				}
 
 				Request hreq=builder.build();
 				Call call=httpClient.newCall(hreq);

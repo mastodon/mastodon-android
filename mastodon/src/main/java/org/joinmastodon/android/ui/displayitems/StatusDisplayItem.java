@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 
 import org.joinmastodon.android.model.Attachment;
 import org.joinmastodon.android.model.Status;
+import org.joinmastodon.android.ui.text.HtmlParser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,7 +50,7 @@ public abstract class StatusDisplayItem{
 		}
 		items.add(new HeaderStatusDisplayItem(status, statusForContent.account, statusForContent.createdAt));
 		if(!TextUtils.isEmpty(statusForContent.content))
-			items.add(new TextStatusDisplayItem(status, statusForContent.processedContent, fragment));
+			items.add(new TextStatusDisplayItem(status, HtmlParser.parse(statusForContent.content, statusForContent.emojis), fragment));
 		for(Attachment attachment:statusForContent.mediaAttachments){
 			if(attachment.type==Attachment.Type.IMAGE){
 				items.add(new PhotoStatusDisplayItem(status, attachment));

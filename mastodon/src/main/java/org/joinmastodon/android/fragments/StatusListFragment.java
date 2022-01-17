@@ -18,6 +18,7 @@ import me.grishka.appkit.views.UsableRecyclerView;
 
 public abstract class StatusListFragment extends BaseRecyclerFragment<Status>{
 	protected ArrayList<StatusDisplayItem> displayItems=new ArrayList<>();
+	private DisplayItemsAdapter adapter;
 
 	public StatusListFragment(){
 		super(20);
@@ -25,7 +26,7 @@ public abstract class StatusListFragment extends BaseRecyclerFragment<Status>{
 
 	@Override
 	protected RecyclerView.Adapter getAdapter(){
-		return new DisplayItemsAdapter();
+		return adapter=new DisplayItemsAdapter();
 	}
 
 	@Override
@@ -40,6 +41,17 @@ public abstract class StatusListFragment extends BaseRecyclerFragment<Status>{
 	public void onClearItems(){
 		super.onClearItems();
 		displayItems.clear();
+	}
+
+	protected void prependItems(List<Status> items){
+		data.addAll(0, items);
+		int offset=0;
+		for(Status s:items){
+			List<StatusDisplayItem> toAdd=StatusDisplayItem.buildItems(this, s);
+			displayItems.addAll(offset, toAdd);
+			offset+=toAdd.size();
+		}
+		adapter.notifyItemRangeInserted(0, offset);
 	}
 
 	protected class DisplayItemsAdapter extends UsableRecyclerView.Adapter<BindableViewHolder<StatusDisplayItem>> implements ImageLoaderRecyclerAdapter{

@@ -2,6 +2,7 @@ package org.joinmastodon.android.model;
 
 import android.text.Html;
 import android.text.TextUtils;
+import android.util.Log;
 
 import org.joinmastodon.android.api.ObjectValidationException;
 import org.joinmastodon.android.api.RequiredField;
@@ -54,8 +55,6 @@ public class Status extends BaseModel{
 	public boolean bookmarked;
 	public boolean pinned;
 
-	public transient CharSequence processedContent;
-
 	@Override
 	public void postprocess() throws ObjectValidationException{
 		super.postprocess();
@@ -76,10 +75,6 @@ public class Status extends BaseModel{
 			card.postprocess();
 		if(reblog!=null)
 			reblog.postprocess();
-
-		if(!TextUtils.isEmpty(content)){
-			processedContent=HtmlParser.parse(content, emojis);
-		}
 	}
 
 	@Override
@@ -114,7 +109,6 @@ public class Status extends BaseModel{
 				", muted="+muted+
 				", bookmarked="+bookmarked+
 				", pinned="+pinned+
-				", processedContent="+processedContent+
 				'}';
 	}
 }

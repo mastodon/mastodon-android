@@ -33,6 +33,7 @@ public abstract class MastodonAPIRequest<T> extends APIRequest<T>{
 	Call okhttpCall;
 	Token token;
 	boolean canceled;
+	Map<String, String> headers;
 
 	public MastodonAPIRequest(HttpMethod method, String path, Class<T> respClass){
 		this.path=path;
@@ -87,6 +88,12 @@ public abstract class MastodonAPIRequest<T> extends APIRequest<T>{
 		if(queryParams==null)
 			queryParams=new HashMap<>();
 		queryParams.put(key, value);
+	}
+
+	protected void addHeader(String key, String value){
+		if(headers==null)
+			headers=new HashMap<>();
+		headers.put(key, value);
 	}
 
 	protected String getPathPrefix(){
