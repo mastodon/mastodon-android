@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import me.grishka.appkit.fragments.BaseRecyclerFragment;
 import me.grishka.appkit.imageloader.ImageLoaderRecyclerAdapter;
+import me.grishka.appkit.imageloader.ImageLoaderViewHolder;
 import me.grishka.appkit.imageloader.requests.ImageLoaderRequest;
 import me.grishka.appkit.utils.BindableViewHolder;
 import me.grishka.appkit.views.UsableRecyclerView;
@@ -52,6 +53,27 @@ public abstract class StatusListFragment extends BaseRecyclerFragment<Status>{
 			offset+=toAdd.size();
 		}
 		adapter.notifyItemRangeInserted(0, offset);
+	}
+
+	@Override
+	protected void onHidden(){
+		super.onHidden();
+		imgLoader.deactivate();
+		UsableRecyclerView list=(UsableRecyclerView) this.list;
+		for(int i=0;i<list.getChildCount();i++){
+			RecyclerView.ViewHolder holder=list.getChildViewHolder(list.getChildAt(i));
+			if(holder instanceof ImageLoaderViewHolder){
+				for(int j=0;j<list.getImageCountForItem(holder.getAbsoluteAdapterPosition());j++){
+					((ImageLoaderViewHolder) holder).clearImage(j);
+				}
+			}
+		}
+	}
+
+	@Override
+	protected void onShown(){
+		super.onShown();
+		imgLoader.activate();
 	}
 
 	protected class DisplayItemsAdapter extends UsableRecyclerView.Adapter<BindableViewHolder<StatusDisplayItem>> implements ImageLoaderRecyclerAdapter{

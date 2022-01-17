@@ -43,4 +43,10 @@ public class HomeFragment extends AppKitFragment{
 
 		return content;
 	}
+
+	@Override
+	public void onHiddenChanged(boolean hidden){
+		super.onHiddenChanged(hidden);
+		homeTimelineFragment.onHiddenChanged(hidden);
+	}
 }
