@@ -42,4 +42,16 @@ public class Source extends BaseModel{
 		for(AccountField f:fields)
 			f.postprocess();
 	}
+
+	@Override
+	public String toString(){
+		return "Source{"+
+				"note='"+note+'\''+
+				", fields="+fields+
+				", privacy="+privacy+
+				", sensitive="+sensitive+
+				", language='"+language+'\''+
+				", followRequestCount="+followRequestCount+
+				'}';
+	}
 }

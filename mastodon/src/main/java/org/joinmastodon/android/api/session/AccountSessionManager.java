@@ -159,6 +159,7 @@ public class AccountSessionManager{
 								.build();
 
 						new CustomTabsIntent.Builder()
+								.setShareState(CustomTabsIntent.SHARE_STATE_OFF)
 								.build()
 								.launchUrl(context, uri);
 					}

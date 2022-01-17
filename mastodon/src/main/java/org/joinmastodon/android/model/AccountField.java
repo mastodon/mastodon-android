@@ -22,4 +22,13 @@ public class AccountField extends BaseModel{
 	 * Timestamp of when the server verified a URL value for a rel="me” link.
 	 */
 	public Instant verifiedAt;
+
+	@Override
+	public String toString(){
+		return "AccountField{"+
+				"name='"+name+'\''+
+				", value='"+value+'\''+
+				", verifiedAt="+verifiedAt+
+				'}';
+	}
 }

@@ -32,6 +32,7 @@ public abstract class MastodonAPIRequest<T> extends APIRequest<T>{
 	TypeToken<T> respTypeToken;
 	Call okhttpCall;
 	Token token;
+	boolean canceled;
 
 	public MastodonAPIRequest(HttpMethod method, String path, Class<T> respClass){
 		this.path=path;
@@ -47,6 +48,7 @@ public abstract class MastodonAPIRequest<T> extends APIRequest<T>{
 
 	@Override
 	public synchronized void cancel(){
+		canceled=true;
 		if(okhttpCall!=null){
 			okhttpCall.cancel();
 		}

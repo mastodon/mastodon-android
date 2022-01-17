@@ -1,0 +1,120 @@
+package org.joinmastodon.android.model;
+
+import android.text.Html;
+import android.text.TextUtils;
+
+import org.joinmastodon.android.api.ObjectValidationException;
+import org.joinmastodon.android.api.RequiredField;
+import org.joinmastodon.android.ui.text.HtmlParser;
+
+import java.time.Instant;
+import java.util.List;
+
+public class Status extends BaseModel{
+	@RequiredField
+	public String id;
+	@RequiredField
+	public String uri;
+	@RequiredField
+	public Instant createdAt;
+	@RequiredField
+	public Account account;
+	@RequiredField
+	public String content;
+	@RequiredField
+	public StatusPrivacy visibility;
+	public boolean sensitive;
+	@RequiredField
+	public String spoilerText;
+	@RequiredField
+	public List<Attachment> mediaAttachments;
+	public Application application;
+	@RequiredField
+	public List<Mention> mentions;
+	@RequiredField
+	public List<Hashtag> tags;
+	@RequiredField
+	public List<Emoji> emojis;
+	public int reblogsCount;
+	public int favouritesCount;
+	public int repliesCount;
+
+	public String url;
+	public String inReplyToId;
+	public String inReplyToAccountId;
+	public Status reblog;
+	public Poll poll;
+	public Card card;
+	public String language;
+	public String text;
+
+	public boolean favourited;
+	public boolean reblogged;
+	public boolean muted;
+	public boolean bookmarked;
+	public boolean pinned;
+
+	public transient CharSequence processedContent;
+
+	@Override
+	public void postprocess() throws ObjectValidationException{
+		super.postprocess();
+		if(application!=null)
+			application.postprocess();
+		for(Mention m:mentions)
+			m.postprocess();
+		for(Hashtag t:tags)
+			t.postprocess();
+		for(Emoji e:emojis)
+			e.postprocess();
+		for(Attachment a:mediaAttachments)
+			a.postprocess();
+		account.postprocess();
+		if(poll!=null)
+			poll.postprocess();
+		if(card!=null)
+			card.postprocess();
+		if(reblog!=null)
+			reblog.postprocess();
+
+		if(!TextUtils.isEmpty(content)){
+			processedContent=HtmlParser.parse(content, emojis);
+		}
+	}
+
+	@Override
+	public String toString(){
+		return "Status{"+
+				"id='"+id+'\''+
+				", uri='"+uri+'\''+
+				", createdAt="+createdAt+
+				", account="+account+
+				", content='"+content+'\''+
+				", visibility="+visibility+
+				", sensitive="+sensitive+
+				", spoilerText='"+spoilerText+'\''+
+				", mediaAttachments="+mediaAttachments+
+				", application="+application+
+				", mentions="+mentions+
+				", tags="+tags+
+				", emojis="+emojis+
+				", reblogsCount="+reblogsCount+
+				", favouritesCount="+favouritesCount+
+				", repliesCount="+repliesCount+
+				", url='"+url+'\''+
+				", inReplyToId='"+inReplyToId+'\''+
+				", inReplyToAccountId='"+inReplyToAccountId+'\''+
+				", reblog="+reblog+
+				", poll="+poll+
+				", card="+card+
+				", language='"+language+'\''+
+				", text='"+text+'\''+
+				", favourited="+favourited+
+				", reblogged="+reblogged+
+				", muted="+muted+
+				", bookmarked="+bookmarked+
+				", pinned="+pinned+
+				", processedContent="+processedContent+
+				'}';
+	}
+}

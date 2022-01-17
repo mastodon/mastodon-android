@@ -32,7 +32,8 @@ dependencies {
 	implementation 'me.grishka.litex:recyclerview:1.2.1'
 	implementation 'me.grishka.litex:swiperefreshlayout:1.1.0'
 	implementation 'me.grishka.litex:browser:1.4.0'
-	implementation 'me.grishka.appkit:appkit:1.0'
+	implementation 'me.grishka.appkit:appkit:1.1'
 	implementation 'com.google.code.gson:gson:2.8.9'
+	implementation 'org.jsoup:jsoup:1.14.3'
 	coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.1.5'
 }

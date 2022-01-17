@@ -127,7 +127,7 @@ public class InstanceCatalogFragment extends BaseRecyclerFragment<CatalogInstanc
 								group.activeUsers+=instance.lastWeekUsers;
 							}
 							return group;
-						}).sorted(Comparator.comparingInt(g->g.activeUsers)).forEachOrdered(ig->sortedList.addAll(ig.instances));
+						}).sorted(Comparator.comparingInt((InstanceGroup g)->g.activeUsers).reversed()).forEachOrdered(ig->sortedList.addAll(ig.instances));
 						onDataLoaded(sortedList, false);
 						updateFilteredList();
 					}
@@ -299,18 +299,13 @@ public class InstanceCatalogFragment extends BaseRecyclerFragment<CatalogInstanc
 		}
 		Instance cachedInstance=instancesCache.get(domain);
 		if(cachedInstance!=null){
-			boolean found=false;
 			for(CatalogInstance ci:filteredData){
-				if(ci.domain.equals(currentSearchQuery)){
-					found=true;
-					break;
-				}
+				if(ci.domain.equals(currentSearchQuery))
+					return;
 			}
-			if(!found){
-				CatalogInstance ci=cachedInstance.toCatalogInstance();
-				filteredData.add(0, ci);
-				adapter.notifyItemInserted(0);
-			}
+			CatalogInstance ci=cachedInstance.toCatalogInstance();
+			filteredData.add(0, ci);
+			adapter.notifyItemInserted(0);
 			return;
 		}
 		if(loadingInstanceDomain!=null){

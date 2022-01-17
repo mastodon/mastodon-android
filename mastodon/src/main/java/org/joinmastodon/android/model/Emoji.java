@@ -30,4 +30,15 @@ public class Emoji extends BaseModel{
 	 * Used for sorting custom emoji in the picker.
 	 */
 	public String category;
+
+	@Override
+	public String toString(){
+		return "Emoji{"+
+				"shortcode='"+shortcode+'\''+
+				", url='"+url+'\''+
+				", staticUrl='"+staticUrl+'\''+
+				", visibleInPicker="+visibleInPicker+
+				", category='"+category+'\''+
+				'}';
+	}
 }

@@ -60,6 +60,8 @@ public class MastodonAPIController{
 	public <T> void submitRequest(final MastodonAPIRequest<T> req){
 		thread.postRunnable(()->{
 			try{
+				if(req.canceled)
+					return;
 				Request.Builder builder=new Request.Builder()
 						.url(req.getURL().toString())
 						.method(req.getMethod(), req.getRequestBody())
