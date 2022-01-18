@@ -2,6 +2,7 @@ package org.joinmastodon.android.model;
 
 import org.joinmastodon.android.api.ObjectValidationException;
 import org.joinmastodon.android.api.RequiredField;
+import org.parceler.Parcel;
 
 import java.time.Instant;
 import java.time.LocalDate;
@@ -10,6 +11,7 @@ import java.util.List;
 /**
  * Represents a user of Mastodon and their associated profile.
  */
+@Parcel
 public class Account extends BaseModel{
 	// Base attributes
 

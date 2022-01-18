@@ -1,5 +1,6 @@
 package org.joinmastodon.android.fragments;
 
+import android.app.Activity;
 import android.view.ViewGroup;
 
 import org.joinmastodon.android.model.Status;
@@ -19,7 +20,8 @@ import me.grishka.appkit.views.UsableRecyclerView;
 
 public abstract class StatusListFragment extends BaseRecyclerFragment<Status>{
 	protected ArrayList<StatusDisplayItem> displayItems=new ArrayList<>();
-	private DisplayItemsAdapter adapter;
+	protected DisplayItemsAdapter adapter;
+	protected String accountID;
 
 	public StatusListFragment(){
 		super(20);
@@ -31,10 +33,16 @@ public abstract class StatusListFragment extends BaseRecyclerFragment<Status>{
 	}
 
 	@Override
+	public void onAttach(Activity activity){
+		super.onAttach(activity);
+		accountID=getArguments().getString("account");
+	}
+
+	@Override
 	public void onAppendItems(List<Status> items){
 		super.onAppendItems(items);
 		for(Status s:items){
-			displayItems.addAll(StatusDisplayItem.buildItems(this, s));
+			displayItems.addAll(StatusDisplayItem.buildItems(this, s, accountID));
 		}
 	}
 
@@ -48,7 +56,7 @@ public abstract class StatusListFragment extends BaseRecyclerFragment<Status>{
 		data.addAll(0, items);
 		int offset=0;
 		for(Status s:items){
-			List<StatusDisplayItem> toAdd=StatusDisplayItem.buildItems(this, s);
+			List<StatusDisplayItem> toAdd=StatusDisplayItem.buildItems(this, s, accountID);
 			displayItems.addAll(offset, toAdd);
 			offset+=toAdd.size();
 		}

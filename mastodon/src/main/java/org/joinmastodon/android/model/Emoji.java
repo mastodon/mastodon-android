@@ -1,10 +1,12 @@
 package org.joinmastodon.android.model;
 
 import org.joinmastodon.android.api.RequiredField;
+import org.parceler.Parcel;
 
 /**
  * Represents a custom emoji.
  */
+@Parcel
 public class Emoji extends BaseModel{
 	/**
 	 * The name of the custom emoji.

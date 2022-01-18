@@ -21,14 +21,12 @@ import me.grishka.appkit.Nav;
 import me.grishka.appkit.api.SimpleCallback;
 
 public class HomeTimelineFragment extends StatusListFragment{
-	private String accountID;
 
 	@Override
 	public void onAttach(Activity activity){
 		super.onAttach(activity);
 		setTitle(R.string.app_name);
 		setHasOptionsMenu(true);
-		accountID=getArguments().getString("account");
 		loadData();
 	}
 

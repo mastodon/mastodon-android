@@ -1,12 +1,14 @@
 package org.joinmastodon.android.model;
 
 import org.joinmastodon.android.api.RequiredField;
+import org.parceler.Parcel;
 
 import java.time.Instant;
 
 /**
  * Represents a profile field as a name-value pair with optional verification.
  */
+@Parcel
 public class AccountField extends BaseModel{
 	/**
 	 * The key of a given field's key-value pair.

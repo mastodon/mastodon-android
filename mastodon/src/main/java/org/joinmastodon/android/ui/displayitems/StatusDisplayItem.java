@@ -42,13 +42,13 @@ public abstract class StatusDisplayItem{
 		};
 	}
 
-	public static List<StatusDisplayItem> buildItems(Fragment fragment, Status status){
+	public static List<StatusDisplayItem> buildItems(Fragment fragment, Status status, String accountID){
 		ArrayList<StatusDisplayItem> items=new ArrayList<>();
 		Status statusForContent=status.reblog==null ? status : status.reblog;
 		if(status.reblog!=null){
 			items.add(new ReblogOrReplyLineStatusDisplayItem(status));
 		}
-		items.add(new HeaderStatusDisplayItem(status, statusForContent.account, statusForContent.createdAt));
+		items.add(new HeaderStatusDisplayItem(status, statusForContent.account, statusForContent.createdAt, fragment, accountID));
 		if(!TextUtils.isEmpty(statusForContent.content))
 			items.add(new TextStatusDisplayItem(status, HtmlParser.parse(statusForContent.content, statusForContent.emojis), fragment));
 		for(Attachment attachment:statusForContent.mediaAttachments){
