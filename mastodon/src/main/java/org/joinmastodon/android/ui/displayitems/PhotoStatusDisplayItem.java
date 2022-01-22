@@ -1,14 +1,16 @@
 package org.joinmastodon.android.ui.displayitems;
 
 import android.app.Activity;
-import android.graphics.Bitmap;
+import android.app.Fragment;
 import android.graphics.drawable.Drawable;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.model.Attachment;
 import org.joinmastodon.android.model.Status;
+import org.joinmastodon.android.ui.photoviewer.PhotoViewerHost;
 
 import me.grishka.appkit.imageloader.ImageLoaderViewHolder;
 import me.grishka.appkit.imageloader.requests.ImageLoaderRequest;
@@ -18,10 +20,12 @@ import me.grishka.appkit.utils.BindableViewHolder;
 public class PhotoStatusDisplayItem extends StatusDisplayItem{
 	private Attachment attachment;
 	private ImageLoaderRequest request;
-	public PhotoStatusDisplayItem(Status status, Attachment photo){
+	private Fragment parentFragment;
+	public PhotoStatusDisplayItem(Status status, Attachment photo, Fragment parentFragment){
 		super(status);
 		this.attachment=photo;
 		request=new UrlImageLoaderRequest(photo.url, 1000, 1000);
+		this.parentFragment=parentFragment;
 	}
 
 	@Override
@@ -40,10 +44,11 @@ public class PhotoStatusDisplayItem extends StatusDisplayItem{
 	}
 
 	public static class Holder extends BindableViewHolder<PhotoStatusDisplayItem> implements ImageLoaderViewHolder{
-		private final ImageView photo;
+		public final ImageView photo;
 		public Holder(Activity activity, ViewGroup parent){
 			super(activity, R.layout.display_item_photo, parent);
 			photo=findViewById(R.id.photo);
+			photo.setOnClickListener(this::onViewClick);
 		}
 
 		@Override
@@ -59,6 +64,13 @@ public class PhotoStatusDisplayItem extends StatusDisplayItem{
 		@Override
 		public void clearImage(int index){
 			photo.setImageDrawable(item.attachment.blurhashPlaceholder);
+		}
+
+		private void onViewClick(View v){
+			if(item.parentFragment instanceof PhotoViewerHost){
+				Status contentStatus=item.status.reblog!=null ? item.status.reblog : item.status;
+				((PhotoViewerHost) item.parentFragment).openPhotoViewer(item.status, contentStatus.mediaAttachments.indexOf(item.attachment));
+			}
 		}
 	}
 }

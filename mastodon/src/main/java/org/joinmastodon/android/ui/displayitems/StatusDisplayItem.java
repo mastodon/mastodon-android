@@ -53,7 +53,7 @@ public abstract class StatusDisplayItem{
 			items.add(new TextStatusDisplayItem(status, HtmlParser.parse(statusForContent.content, statusForContent.emojis), fragment));
 		for(Attachment attachment:statusForContent.mediaAttachments){
 			if(attachment.type==Attachment.Type.IMAGE){
-				items.add(new PhotoStatusDisplayItem(status, attachment));
+				items.add(new PhotoStatusDisplayItem(status, attachment, fragment));
 			}
 		}
 		return items;

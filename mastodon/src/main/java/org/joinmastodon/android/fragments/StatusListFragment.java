@@ -1,10 +1,19 @@
 package org.joinmastodon.android.fragments;
 
 import android.app.Activity;
+import android.graphics.Rect;
+import android.graphics.drawable.Drawable;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import org.joinmastodon.android.model.Status;
+import org.joinmastodon.android.ui.displayitems.PhotoStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.StatusDisplayItem;
+import org.joinmastodon.android.ui.photoviewer.PhotoViewer;
+import org.joinmastodon.android.ui.photoviewer.PhotoViewerHost;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,10 +27,11 @@ import me.grishka.appkit.imageloader.requests.ImageLoaderRequest;
 import me.grishka.appkit.utils.BindableViewHolder;
 import me.grishka.appkit.views.UsableRecyclerView;
 
-public abstract class StatusListFragment extends BaseRecyclerFragment<Status>{
+public abstract class StatusListFragment extends BaseRecyclerFragment<Status> implements PhotoViewerHost{
 	protected ArrayList<StatusDisplayItem> displayItems=new ArrayList<>();
 	protected DisplayItemsAdapter adapter;
 	protected String accountID;
+	protected PhotoViewer currentPhotoViewer;
 
 	public StatusListFragment(){
 		super(20);
@@ -82,6 +92,104 @@ public abstract class StatusListFragment extends BaseRecyclerFragment<Status>{
 	protected void onShown(){
 		super.onShown();
 		imgLoader.activate();
+	}
+
+	@Override
+	public void openPhotoViewer(Status _status, int attachmentIndex){
+		final Status status=_status.reblog!=null ? _status.reblog : _status;
+		currentPhotoViewer=new PhotoViewer(getActivity(), status.mediaAttachments, attachmentIndex, new PhotoViewer.Listener(){
+			private PhotoStatusDisplayItem.Holder transitioningHolder;
+
+			@Override
+			public void setPhotoViewVisibility(int index, boolean visible){
+				PhotoStatusDisplayItem.Holder holder=findPhotoViewHolder(index);
+				if(holder!=null)
+					holder.photo.setAlpha(visible ? 1f : 0f);
+			}
+
+			@Override
+			public boolean startPhotoViewTransition(int index, @NonNull Rect outRect, @NonNull int[] outCornerRadius){
+				PhotoStatusDisplayItem.Holder holder=findPhotoViewHolder(index);
+				if(holder!=null){
+					transitioningHolder=holder;
+					View view=transitioningHolder.photo;
+					int[] pos={0, 0};
+					view.getLocationOnScreen(pos);
+					outRect.set(pos[0], pos[1], pos[0]+view.getWidth(), pos[1]+view.getHeight());
+					list.setClipChildren(false);
+					transitioningHolder.itemView.setElevation(1f);
+					return true;
+				}
+				return false;
+			}
+
+			@Override
+			public void setTransitioningViewTransform(float translateX, float translateY, float scale){
+				View view=transitioningHolder.photo;
+				view.setTranslationX(translateX);
+				view.setTranslationY(translateY);
+				view.setScaleX(scale);
+				view.setScaleY(scale);
+			}
+
+			@Override
+			public void endPhotoViewTransition(){
+				View view=transitioningHolder.photo;
+				view.setTranslationX(0f);
+				view.setTranslationY(0f);
+				view.setScaleX(1f);
+				view.setScaleY(1f);
+				transitioningHolder.itemView.setElevation(0f);
+				list.setClipChildren(true);
+				transitioningHolder=null;
+			}
+
+			@Override
+			public Drawable getPhotoViewCurrentDrawable(int index){
+				PhotoStatusDisplayItem.Holder holder=findPhotoViewHolder(index);
+				if(holder!=null)
+					return holder.photo.getDrawable();
+				return null;
+			}
+
+			@Override
+			public void photoViewerDismissed(){
+				currentPhotoViewer=null;
+			}
+
+			private PhotoStatusDisplayItem.Holder findPhotoViewHolder(int index){
+				int offset=0;
+				for(StatusDisplayItem item:displayItems){
+					if(item.status==_status){
+						if(item instanceof PhotoStatusDisplayItem){
+							RecyclerView.ViewHolder holder=list.findViewHolderForAdapterPosition(getMainAdapterOffset()+offset+index);
+							if(holder instanceof PhotoStatusDisplayItem.Holder){
+								return (PhotoStatusDisplayItem.Holder) holder;
+							}
+							return null;
+						}
+					}
+					offset++;
+				}
+				return null;
+			}
+		});
+	}
+
+	@Override
+	public void onViewCreated(View view, Bundle savedInstanceState){
+		super.onViewCreated(view, savedInstanceState);
+		list.addOnScrollListener(new RecyclerView.OnScrollListener(){
+			@Override
+			public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy){
+				if(currentPhotoViewer!=null)
+					currentPhotoViewer.offsetView(-dx, -dy);
+			}
+		});
+	}
+
+	protected int getMainAdapterOffset(){
+		return 0;
 	}
 
 	protected class DisplayItemsAdapter extends UsableRecyclerView.Adapter<BindableViewHolder<StatusDisplayItem>> implements ImageLoaderRecyclerAdapter{
