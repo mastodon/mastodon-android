@@ -21,8 +21,10 @@ public class PhotoStatusDisplayItem extends StatusDisplayItem{
 	private Attachment attachment;
 	private ImageLoaderRequest request;
 	private Fragment parentFragment;
-	public PhotoStatusDisplayItem(Status status, Attachment photo, Fragment parentFragment){
-		super(status);
+	private Status status;
+	public PhotoStatusDisplayItem(String parentID, Status status, Attachment photo, Fragment parentFragment){
+		super(parentID);
+		this.status=status;
 		this.attachment=photo;
 		request=new UrlImageLoaderRequest(photo.url, 1000, 1000);
 		this.parentFragment=parentFragment;
@@ -69,7 +71,7 @@ public class PhotoStatusDisplayItem extends StatusDisplayItem{
 		private void onViewClick(View v){
 			if(item.parentFragment instanceof PhotoViewerHost){
 				Status contentStatus=item.status.reblog!=null ? item.status.reblog : item.status;
-				((PhotoViewerHost) item.parentFragment).openPhotoViewer(item.status, contentStatus.mediaAttachments.indexOf(item.attachment));
+				((PhotoViewerHost) item.parentFragment).openPhotoViewer(item.parentID, item.status, contentStatus.mediaAttachments.indexOf(item.attachment));
 			}
 		}
 	}

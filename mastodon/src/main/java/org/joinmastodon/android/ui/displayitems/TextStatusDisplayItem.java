@@ -26,8 +26,8 @@ public class TextStatusDisplayItem extends StatusDisplayItem implements LinkSpan
 	private CharSequence text;
 	private ImageLoaderRequest[] emojiRequests;
 	private Fragment parentFragment;
-	public TextStatusDisplayItem(Status status, CharSequence text, Fragment parentFragment){
-		super(status);
+	public TextStatusDisplayItem(String parentID, CharSequence text, Fragment parentFragment){
+		super(parentID);
 		this.text=text;
 		this.parentFragment=parentFragment;
 		if(text instanceof Spanned){

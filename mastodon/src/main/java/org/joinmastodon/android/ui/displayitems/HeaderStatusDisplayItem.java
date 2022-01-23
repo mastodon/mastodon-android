@@ -31,8 +31,8 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 	private Fragment parentFragment;
 	private String accountID;
 
-	public HeaderStatusDisplayItem(Status status, Account user, Instant createdAt, Fragment parentFragment, String accountID){
-		super(status);
+	public HeaderStatusDisplayItem(String parentID, Account user, Instant createdAt, Fragment parentFragment, String accountID){
+		super(parentID);
 		this.user=user;
 		this.createdAt=createdAt;
 		avaRequest=new UrlImageLoaderRequest(user.avatar);

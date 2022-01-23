@@ -10,8 +10,11 @@ import org.joinmastodon.android.model.Status;
 import me.grishka.appkit.utils.BindableViewHolder;
 
 public class ReblogOrReplyLineStatusDisplayItem extends StatusDisplayItem{
-	public ReblogOrReplyLineStatusDisplayItem(Status status){
-		super(status);
+	private CharSequence text;
+
+	public ReblogOrReplyLineStatusDisplayItem(String parentID, CharSequence text){
+		super(parentID);
+		this.text=text;
 	}
 
 	@Override
@@ -28,9 +31,7 @@ public class ReblogOrReplyLineStatusDisplayItem extends StatusDisplayItem{
 
 		@Override
 		public void onBind(ReblogOrReplyLineStatusDisplayItem item){
-			if(item.status.reblog!=null){
-				text.setText(itemView.getContext().getString(R.string.user_boosted, item.status.account.displayName));
-			}
+			text.setText(item.text);
 		}
 	}
 }

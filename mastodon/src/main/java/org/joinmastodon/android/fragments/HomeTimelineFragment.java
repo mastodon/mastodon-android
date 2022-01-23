@@ -11,8 +11,10 @@ import com.squareup.otto.Subscribe;
 import org.joinmastodon.android.E;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.requests.timelines.GetHomeTimeline;
+import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.events.StatusCreatedEvent;
 import org.joinmastodon.android.model.Status;
+import org.parceler.Parcels;
 
 import java.util.Collections;
 import java.util.List;
@@ -32,14 +34,7 @@ public class HomeTimelineFragment extends StatusListFragment{
 
 	@Override
 	protected void doLoadData(int offset, int count){
-		String maxID;
-		if(offset>0 && !preloadedData.isEmpty())
-			maxID=preloadedData.get(preloadedData.size()-1).id;
-		else if(offset>0 && !data.isEmpty())
-			maxID=data.get(data.size()-1).id;
-		else
-			maxID=null;
-		new GetHomeTimeline(maxID, null, count)
+		new GetHomeTimeline(offset>0 ? getMaxID() : null, null, count)
 				.setCallback(new SimpleCallback<>(this){
 					@Override
 					public void onSuccess(List<Status> result){
@@ -51,14 +46,22 @@ public class HomeTimelineFragment extends StatusListFragment{
 
 	@Override
 	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater){
-		menu.add("New toot");
+		inflater.inflate(R.menu.home, menu);
 	}
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item){
 		Bundle args=new Bundle();
 		args.putString("account", accountID);
-		Nav.go(getActivity(), CreateTootFragment.class, args);
+		int id=item.getItemId();
+		if(id==R.id.new_toot){
+			Nav.go(getActivity(), CreateTootFragment.class, args);
+		}else if(id==R.id.notifications){
+			Nav.go(getActivity(), NotificationsFragment.class, args);
+		}else if(id==R.id.my_profile){
+			args.putParcelable("profileAccount", Parcels.wrap(AccountSessionManager.getInstance().getAccount(accountID).self));
+			Nav.go(getActivity(), ProfileFragment.class, args);
+		}
 		return true;
 	}
 

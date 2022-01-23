@@ -5,21 +5,22 @@ import android.app.Fragment;
 import android.text.TextUtils;
 import android.view.ViewGroup;
 
+import org.joinmastodon.android.R;
 import org.joinmastodon.android.model.Attachment;
+import org.joinmastodon.android.model.DisplayItemsParent;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.text.HtmlParser;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import me.grishka.appkit.imageloader.requests.ImageLoaderRequest;
 import me.grishka.appkit.utils.BindableViewHolder;
 
 public abstract class StatusDisplayItem{
-	public final Status status;
+	public final String parentID;
 
-	public StatusDisplayItem(Status status){
-		this.status=status;
+	public StatusDisplayItem(String parentID){
+		this.parentID=parentID;
 	}
 
 	public abstract Type getType();
@@ -42,18 +43,19 @@ public abstract class StatusDisplayItem{
 		};
 	}
 
-	public static List<StatusDisplayItem> buildItems(Fragment fragment, Status status, String accountID){
+	public static ArrayList<StatusDisplayItem> buildItems(Fragment fragment, Status status, String accountID, DisplayItemsParent parentObject){
+		String parentID=parentObject.getID();
 		ArrayList<StatusDisplayItem> items=new ArrayList<>();
 		Status statusForContent=status.reblog==null ? status : status.reblog;
 		if(status.reblog!=null){
-			items.add(new ReblogOrReplyLineStatusDisplayItem(status));
+			items.add(new ReblogOrReplyLineStatusDisplayItem(parentID, fragment.getString(R.string.user_boosted, status.account.displayName)));
 		}
-		items.add(new HeaderStatusDisplayItem(status, statusForContent.account, statusForContent.createdAt, fragment, accountID));
+		items.add(new HeaderStatusDisplayItem(parentID, statusForContent.account, statusForContent.createdAt, fragment, accountID));
 		if(!TextUtils.isEmpty(statusForContent.content))
-			items.add(new TextStatusDisplayItem(status, HtmlParser.parse(statusForContent.content, statusForContent.emojis), fragment));
+			items.add(new TextStatusDisplayItem(parentID, HtmlParser.parse(statusForContent.content, statusForContent.emojis), fragment));
 		for(Attachment attachment:statusForContent.mediaAttachments){
 			if(attachment.type==Attachment.Type.IMAGE){
-				items.add(new PhotoStatusDisplayItem(status, attachment, fragment));
+				items.add(new PhotoStatusDisplayItem(parentID, status, attachment, fragment));
 			}
 		}
 		return items;

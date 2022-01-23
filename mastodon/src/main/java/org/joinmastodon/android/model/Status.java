@@ -1,17 +1,12 @@
 package org.joinmastodon.android.model;
 
-import android.text.Html;
-import android.text.TextUtils;
-import android.util.Log;
-
 import org.joinmastodon.android.api.ObjectValidationException;
 import org.joinmastodon.android.api.RequiredField;
-import org.joinmastodon.android.ui.text.HtmlParser;
 
 import java.time.Instant;
 import java.util.List;
 
-public class Status extends BaseModel{
+public class Status extends BaseModel implements DisplayItemsParent{
 	@RequiredField
 	public String id;
 	@RequiredField
@@ -110,5 +105,10 @@ public class Status extends BaseModel{
 				", bookmarked="+bookmarked+
 				", pinned="+pinned+
 				'}';
+	}
+
+	@Override
+	public String getID(){
+		return id;
 	}
 }
