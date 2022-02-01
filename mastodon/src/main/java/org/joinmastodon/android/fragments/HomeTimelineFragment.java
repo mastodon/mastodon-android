@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageButton;
 
 import com.squareup.otto.Subscribe;
 
@@ -23,6 +25,11 @@ import me.grishka.appkit.Nav;
 import me.grishka.appkit.api.SimpleCallback;
 
 public class HomeTimelineFragment extends StatusListFragment{
+	private ImageButton fab;
+
+	public HomeTimelineFragment(){
+		setListLayoutId(R.layout.recycler_fragment_with_fab);
+	}
 
 	@Override
 	public void onAttach(Activity activity){
@@ -45,6 +52,13 @@ public class HomeTimelineFragment extends StatusListFragment{
 	}
 
 	@Override
+	public void onViewCreated(View view, Bundle savedInstanceState){
+		super.onViewCreated(view, savedInstanceState);
+		fab=view.findViewById(R.id.fab);
+		fab.setOnClickListener(this::onFabClick);
+	}
+
+	@Override
 	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater){
 		inflater.inflate(R.menu.home, menu);
 	}
@@ -55,7 +69,7 @@ public class HomeTimelineFragment extends StatusListFragment{
 		args.putString("account", accountID);
 		int id=item.getItemId();
 		if(id==R.id.new_toot){
-			Nav.go(getActivity(), CreateTootFragment.class, args);
+			Nav.go(getActivity(), ComposeFragment.class, args);
 		}else if(id==R.id.notifications){
 			Nav.go(getActivity(), NotificationsFragment.class, args);
 		}else if(id==R.id.my_profile){
@@ -80,5 +94,11 @@ public class HomeTimelineFragment extends StatusListFragment{
 	@Subscribe
 	public void onStatusCreated(StatusCreatedEvent ev){
 		prependItems(Collections.singletonList(ev.status));
+	}
+
+	private void onFabClick(View v){
+		Bundle args=new Bundle();
+		args.putString("account", accountID);
+		Nav.go(getActivity(), ComposeFragment.class, args);
 	}
 }

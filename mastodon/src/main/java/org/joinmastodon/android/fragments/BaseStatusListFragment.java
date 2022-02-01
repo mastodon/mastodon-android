@@ -1,6 +1,8 @@
 package org.joinmastodon.android.fragments;
 
 import android.app.Activity;
+import android.graphics.Canvas;
+import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -9,8 +11,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import org.joinmastodon.android.R;
 import org.joinmastodon.android.model.DisplayItemsParent;
 import org.joinmastodon.android.model.Status;
+import org.joinmastodon.android.ui.displayitems.FooterStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.PhotoStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.StatusDisplayItem;
 import org.joinmastodon.android.ui.photoviewer.PhotoViewer;
@@ -26,6 +30,7 @@ import me.grishka.appkit.imageloader.ImageLoaderRecyclerAdapter;
 import me.grishka.appkit.imageloader.ImageLoaderViewHolder;
 import me.grishka.appkit.imageloader.requests.ImageLoaderRequest;
 import me.grishka.appkit.utils.BindableViewHolder;
+import me.grishka.appkit.utils.V;
 import me.grishka.appkit.views.UsableRecyclerView;
 
 public abstract class BaseStatusListFragment<T extends DisplayItemsParent> extends BaseRecyclerFragment<T> implements PhotoViewerHost{
@@ -202,6 +207,26 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 			public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy){
 				if(currentPhotoViewer!=null)
 					currentPhotoViewer.offsetView(-dx, -dy);
+			}
+		});
+		list.addItemDecoration(new RecyclerView.ItemDecoration(){
+			private Paint paint=new Paint();
+			{
+				paint.setColor(0xFFD0D5DD);
+				paint.setStyle(Paint.Style.STROKE);
+				paint.setStrokeWidth(V.dp(1));
+			}
+
+			@Override
+			public void onDraw(@NonNull Canvas c, @NonNull RecyclerView parent, @NonNull RecyclerView.State state){
+				for(int i=0;i<parent.getChildCount();i++){
+					View child=parent.getChildAt(i);
+					RecyclerView.ViewHolder holder=parent.getChildViewHolder(child);
+					if(holder instanceof FooterStatusDisplayItem.Holder){
+						float y=child.getY()+child.getHeight()-V.dp(.5f);
+						c.drawLine(child.getX(), y, child.getX()+child.getWidth(), y, paint);
+					}
+				}
 			}
 		});
 	}

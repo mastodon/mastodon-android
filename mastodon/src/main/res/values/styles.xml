@@ -4,5 +4,30 @@
 		<!-- needed to disable scrim on API 29+ -->
 		<item name="android:enforceNavigationBarContrast">false</item>
 		<item name="android:enforceStatusBarContrast">false</item>
+		<item name="android:windowLightStatusBar">true</item>
+		<item name="android:windowBackground">@color/white</item>
+	</style>
+
+	<style name="m3_body_large">
+		<item name="android:textSize">16dp</item>
+		<item name="android:textColor">@color/text_primary</item>
+	</style>
+
+	<style name="m3_title_medium">
+		<item name="android:fontFamily">sans-serif-medium</item>
+		<item name="android:textSize">16dp</item>
+		<item name="android:textColor">@color/text_primary</item>
+	</style>
+
+	<style name="m3_title_small">
+		<item name="android:fontFamily">sans-serif-medium</item>
+		<item name="android:textSize">14dp</item>
+		<item name="android:textColor">@color/text_secondary</item>
+	</style>
+
+	<style name="m3_label_large">
+		<item name="android:fontFamily">sans-serif-medium</item>
+		<item name="android:textColor">@color/text_secondary</item>
+		<item name="android:textSize">14dp</item>
 	</style>
 </resources>

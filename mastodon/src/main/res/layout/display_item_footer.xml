@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:orientation="horizontal"
+	android:layout_width="match_parent"
+	android:layout_height="48dp"
+	android:paddingTop="12dp"
+	android:paddingLeft="20dp"
+	android:paddingRight="20dp">
+
+	<FrameLayout
+		android:layout_width="wrap_content"
+		android:layout_height="24dp"
+		android:minWidth="56dp">
+		<CheckedTextView
+			android:id="@+id/reply"
+			android:layout_width="wrap_content"
+			android:layout_height="24dp"
+			android:layout_gravity="center_horizontal"
+			android:drawableStart="@drawable/ic_fluent_chat_multiple_24_regular"
+			android:drawablePadding="8dp"
+			android:drawableTint="@color/text_secondary"
+			android:gravity="center_vertical"
+			android:textAppearance="@style/m3_label_large"
+			tools:text="123"/>
+	</FrameLayout>
+
+	<View
+		android:layout_width="0px"
+		android:layout_height="1px"
+		android:layout_weight="1"/>
+
+	<FrameLayout
+		android:layout_width="wrap_content"
+		android:layout_height="24dp"
+		android:minWidth="56dp">
+		<CheckedTextView
+			android:id="@+id/boost"
+			android:layout_width="wrap_content"
+			android:layout_height="24dp"
+			android:layout_gravity="center_horizontal"
+			android:drawableStart="@drawable/ic_fluent_arrow_repeat_all_24_regular"
+			android:drawablePadding="8dp"
+			android:drawableTint="@color/text_secondary"
+			android:gravity="center_vertical"
+			android:textAppearance="@style/m3_label_large"
+			tools:text="123"/>
+	</FrameLayout>
+
+	<View
+		android:layout_width="0px"
+		android:layout_height="1px"
+		android:layout_weight="1"/>
+
+	<FrameLayout
+		android:layout_width="wrap_content"
+		android:layout_height="24dp"
+		android:minWidth="56dp">
+		<CheckedTextView
+			android:id="@+id/favorite"
+			android:layout_width="wrap_content"
+			android:layout_height="24dp"
+			android:layout_gravity="center_horizontal"
+			android:drawableStart="@drawable/ic_fluent_star_24_regular"
+			android:drawablePadding="8dp"
+			android:drawableTint="@color/text_secondary"
+			android:gravity="center_vertical"
+			android:textAppearance="@style/m3_label_large"
+			tools:text="123"/>
+	</FrameLayout>
+
+	<View
+		android:layout_width="0px"
+		android:layout_height="1px"
+		android:layout_weight="1"/>
+
+	<FrameLayout
+		android:layout_width="wrap_content"
+		android:layout_height="24dp"
+		android:minWidth="56dp">
+		<ImageView
+			android:id="@+id/share"
+			android:layout_width="wrap_content"
+			android:layout_height="24dp"
+			android:layout_gravity="center_horizontal"
+			android:src="@drawable/ic_fluent_share_24_regular"
+			android:tint="@color/text_secondary"
+			android:gravity="center_vertical"/>
+	</FrameLayout>
+
+</LinearLayout>

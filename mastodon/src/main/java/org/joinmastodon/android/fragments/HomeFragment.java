@@ -49,4 +49,9 @@ public class HomeFragment extends AppKitFragment{
 		super.onHiddenChanged(hidden);
 		homeTimelineFragment.onHiddenChanged(hidden);
 	}
+
+	@Override
+	public boolean wantsLightStatusBar(){
+		return true;
+	}
 }

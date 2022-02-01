@@ -39,6 +39,7 @@ public abstract class StatusDisplayItem{
 			case REBLOG_OR_REPLY_LINE -> new ReblogOrReplyLineStatusDisplayItem.Holder(activity, parent);
 			case TEXT -> new TextStatusDisplayItem.Holder(activity, parent);
 			case PHOTO -> new PhotoStatusDisplayItem.Holder(activity, parent);
+			case FOOTER -> new FooterStatusDisplayItem.Holder(activity, parent);
 			default -> throw new UnsupportedOperationException();
 		};
 	}
@@ -58,6 +59,7 @@ public abstract class StatusDisplayItem{
 				items.add(new PhotoStatusDisplayItem(parentID, status, attachment, fragment));
 			}
 		}
+		items.add(new FooterStatusDisplayItem(parentID, status, accountID));
 		return items;
 	}
 
