@@ -1,7 +1,10 @@
 package org.joinmastodon.android.fragments;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.res.Configuration;
 import android.graphics.Outline;
+import android.icu.text.BreakIterator;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -14,10 +17,12 @@ import android.view.ViewGroup;
 import android.view.ViewOutlineProvider;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.twitter.twittertext.Regex;
+import com.twitter.twittertext.TwitterTextEmojiRegex;
 
 import org.joinmastodon.android.E;
 import org.joinmastodon.android.R;
@@ -26,9 +31,14 @@ import org.joinmastodon.android.api.session.AccountSession;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.events.StatusCreatedEvent;
 import org.joinmastodon.android.model.Account;
+import org.joinmastodon.android.model.Emoji;
+import org.joinmastodon.android.model.EmojiCategory;
 import org.joinmastodon.android.model.Status;
+import org.joinmastodon.android.ui.CustomEmojiPopupKeyboard;
+import org.joinmastodon.android.ui.PopupKeyboard;
+import org.joinmastodon.android.ui.views.SizeListenerLinearLayout;
 
-import java.text.BreakIterator;
+import java.util.List;
 import java.util.UUID;
 import java.util.regex.Pattern;
 
@@ -59,8 +69,10 @@ public class ComposeFragment extends ToolbarFragment{
 						")" +
 					")";
 	private static final Pattern URL_PATTERN=Pattern.compile(VALID_URL_PATTERN_STRING, Pattern.CASE_INSENSITIVE);
+	@SuppressLint("NewApi") // this class actually exists on 6.0
 	private final BreakIterator breakIterator=BreakIterator.getCharacterInstance();
 
+	private SizeListenerLinearLayout contentView;
 	private TextView selfName, selfUsername;
 	private ImageView selfAvatar;
 	private Account self;
@@ -72,6 +84,10 @@ public class ComposeFragment extends ToolbarFragment{
 	private int charCount, charLimit;
 
 	private MenuItem publishButton;
+	private ImageButton emojiBtn;
+
+	private List<EmojiCategory> customEmojis;
+	private CustomEmojiPopupKeyboard emojiKeyboard;
 
 	@Override
 	public void onAttach(Activity activity){
@@ -84,6 +100,9 @@ public class ComposeFragment extends ToolbarFragment{
 			charLimit=500;
 		self=session.self;
 		instanceDomain=session.domain;
+		customEmojis=AccountSessionManager.getInstance().getCustomEmojis(instanceDomain);
+		emojiKeyboard=new CustomEmojiPopupKeyboard(activity, customEmojis, instanceDomain);
+		emojiKeyboard.setListener(this::onCustomEmojiClick);
 	}
 
 	@Override
@@ -108,6 +127,18 @@ public class ComposeFragment extends ToolbarFragment{
 		selfAvatar.setOutlineProvider(roundCornersOutline);
 		selfAvatar.setClipToOutline(true);
 
+		emojiBtn=view.findViewById(R.id.btn_emoji);
+		emojiBtn.setOnClickListener(v->emojiKeyboard.toggleKeyboardPopup(mainEditText));
+		emojiKeyboard.setOnIconChangedListener(new PopupKeyboard.OnIconChangeListener(){
+			@Override
+			public void onIconChanged(int icon){
+				emojiBtn.setSelected(icon!=PopupKeyboard.ICON_HIDDEN);
+			}
+		});
+
+		contentView=(SizeListenerLinearLayout) view;
+		contentView.addView(emojiKeyboard.getView());
+
 		return view;
 	}
 
@@ -119,9 +150,10 @@ public class ComposeFragment extends ToolbarFragment{
 	@Override
 	public void onViewCreated(View view, Bundle savedInstanceState){
 		super.onViewCreated(view, savedInstanceState);
+		contentView.setSizeListener(emojiKeyboard::onContentViewSizeChanged);
 		InputMethodManager imm=getActivity().getSystemService(InputMethodManager.class);
+		mainEditText.requestFocus();
 		view.postDelayed(()->{
-			mainEditText.requestFocus();
 			imm.showSoftInput(mainEditText, 0);
 		}, 100);
 
@@ -173,10 +205,21 @@ public class ComposeFragment extends ToolbarFragment{
 		return true;
 	}
 
+	@Override
+	public void onConfigurationChanged(Configuration newConfig){
+		super.onConfigurationChanged(newConfig);
+		emojiKeyboard.onConfigurationChanged();
+	}
+
+	@SuppressLint("NewApi")
 	private void updateCharCounter(CharSequence text){
-		String countableText=MENTION_PATTERN.matcher(URL_PATTERN.matcher(text).replaceAll("$2xxxxxxxxxxxxxxxxxxxxxxx")).replaceAll("$1@$3");
-		breakIterator.setText(countableText);
+		String countableText=TwitterTextEmojiRegex.VALID_EMOJI_PATTERN.matcher(
+				MENTION_PATTERN.matcher(
+						URL_PATTERN.matcher(text).replaceAll("$2xxxxxxxxxxxxxxxxxxxxxxx")
+				).replaceAll("$1@$3")
+		).replaceAll("x");
 		charCount=0;
+		breakIterator.setText(countableText);
 		while(breakIterator.next()!=BreakIterator.DONE){
 			charCount++;
 		}
@@ -187,5 +230,9 @@ public class ComposeFragment extends ToolbarFragment{
 
 	private void updatePublishButtonState(){
 		publishButton.setEnabled(charCount>0 && charCount<=charLimit);
+	}
+
+	private void onCustomEmojiClick(Emoji emoji){
+		mainEditText.getText().replace(mainEditText.getSelectionStart(), mainEditText.getSelectionEnd(), ':'+emoji.shortcode+':');
 	}
 }

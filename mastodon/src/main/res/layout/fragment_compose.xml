@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<org.joinmastodon.android.ui.views.SizeListenerLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:tools="http://schemas.android.com/tools"
 	android:orientation="vertical"
 	android:layout_width="match_parent"
@@ -57,18 +57,41 @@
 		android:background="@null"
 		android:inputType="textMultiLine|textCapSentences"/>
 
+	<View
+		android:layout_width="match_parent"
+		android:layout_height="1dp"
+		android:background="#20000000"/>
+
 	<LinearLayout
 		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
+		android:layout_height="48dp"
 		android:orientation="horizontal"
-		android:padding="8dp">
+		android:gravity="center_vertical"
+		android:background="@color/gray_25"
+		android:paddingLeft="16dp"
+		android:paddingRight="16dp">
+
+		<ImageButton
+			android:id="@+id/btn_emoji"
+			android:layout_width="24dp"
+			android:layout_height="24dp"
+			android:background="?android:attr/selectableItemBackgroundBorderless"
+			android:padding="0px"
+			android:src="@drawable/ic_fluent_emoji_24_selector"/>
+
+		<View
+			android:layout_width="0px"
+			android:layout_height="1px"
+			android:layout_weight="1"/>
 
 		<TextView
 			android:id="@+id/char_counter"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
+			android:textAppearance="@style/m3_body_large"
+			android:textColor="@color/gray_500"
 			tools:text="500"/>
 
 	</LinearLayout>
 
-</LinearLayout>
+</org.joinmastodon.android.ui.views.SizeListenerLinearLayout>

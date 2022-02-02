@@ -163,4 +163,8 @@ public class MastodonAPIController{
 			}
 		}, 0);
 	}
+
+	public static void runInBackground(Runnable action){
+		thread.postRunnable(action, 0);
+	}
 }

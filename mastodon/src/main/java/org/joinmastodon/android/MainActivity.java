@@ -18,6 +18,7 @@ public class MainActivity extends FragmentStackActivity{
 			if(AccountSessionManager.getInstance().getLoggedInAccounts().isEmpty()){
 				showFragmentClearingBackStack(new SplashFragment());
 			}else{
+				AccountSessionManager.getInstance().maybeUpdateLocalInfo();
 				Bundle args=new Bundle();
 				args.putString("account", AccountSessionManager.getInstance().getLastActiveAccountID());
 				HomeFragment fragment=new HomeFragment();

@@ -11,6 +11,7 @@ public class AccountSession{
 	public String domain;
 	public int tootCharLimit;
 	public Application app;
+	public long infoLastUpdated;
 	private transient MastodonAPIController apiController;
 
 	AccountSession(Token token, Account self, Application app, String domain, int tootCharLimit){
@@ -19,6 +20,7 @@ public class AccountSession{
 		this.domain=domain;
 		this.app=app;
 		this.tootCharLimit=tootCharLimit;
+		infoLastUpdated=System.currentTimeMillis();
 	}
 
 	AccountSession(){}
