@@ -22,12 +22,15 @@ public class PhotoStatusDisplayItem extends StatusDisplayItem{
 	private ImageLoaderRequest request;
 	private Fragment parentFragment;
 	private Status status;
-	public PhotoStatusDisplayItem(String parentID, Status status, Attachment photo, Fragment parentFragment){
+	public final int index, totalPhotos;
+	public PhotoStatusDisplayItem(String parentID, Status status, Attachment photo, Fragment parentFragment, int index, int totalPhotos){
 		super(parentID);
 		this.status=status;
 		this.attachment=photo;
 		request=new UrlImageLoaderRequest(photo.url, 1000, 1000);
 		this.parentFragment=parentFragment;
+		this.index=index;
+		this.totalPhotos=totalPhotos;
 	}
 
 	@Override

@@ -54,9 +54,17 @@ public abstract class StatusDisplayItem{
 		items.add(new HeaderStatusDisplayItem(parentID, statusForContent.account, statusForContent.createdAt, fragment, accountID));
 		if(!TextUtils.isEmpty(statusForContent.content))
 			items.add(new TextStatusDisplayItem(parentID, HtmlParser.parse(statusForContent.content, statusForContent.emojis), fragment));
+		int photoIndex=0;
+		int totalPhotos=0;
 		for(Attachment attachment:statusForContent.mediaAttachments){
 			if(attachment.type==Attachment.Type.IMAGE){
-				items.add(new PhotoStatusDisplayItem(parentID, status, attachment, fragment));
+				totalPhotos++;
+			}
+		}
+		for(Attachment attachment:statusForContent.mediaAttachments){
+			if(attachment.type==Attachment.Type.IMAGE){
+				items.add(new PhotoStatusDisplayItem(parentID, status, attachment, fragment, photoIndex, totalPhotos));
+				photoIndex++;
 			}
 		}
 		items.add(new FooterStatusDisplayItem(parentID, status, accountID));

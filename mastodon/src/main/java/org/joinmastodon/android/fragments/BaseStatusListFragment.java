@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import me.grishka.appkit.fragments.BaseRecyclerFragment;
 import me.grishka.appkit.imageloader.ImageLoaderRecyclerAdapter;
@@ -229,6 +230,29 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 				}
 			}
 		});
+	}
+
+	@Override
+	protected RecyclerView.LayoutManager onCreateLayoutManager(){
+		GridLayoutManager lm=new GridLayoutManager(getActivity(), 2);
+		lm.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup(){
+			@Override
+			public int getSpanSize(int position){
+				position-=getMainAdapterOffset();
+				if(position>=0 && position<displayItems.size()){
+					StatusDisplayItem item=displayItems.get(position);
+					if(item instanceof PhotoStatusDisplayItem){
+						int total=((PhotoStatusDisplayItem) item).totalPhotos;
+						if(total>1){
+							int index=((PhotoStatusDisplayItem) item).index;
+							return 1;
+						}
+					}
+				}
+				return 2;
+			}
+		});
+		return lm;
 	}
 
 	protected int getMainAdapterOffset(){
