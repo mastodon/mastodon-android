@@ -19,7 +19,8 @@ public class ProfileFragment extends StatusListFragment{
 		super.onAttach(activity);
 		user=Parcels.unwrap(getArguments().getParcelable("profileAccount"));
 		setTitle("@"+user.acct);
-		loadData();
+		if(!getArguments().getBoolean("noAutoLoad"))
+			loadData();
 	}
 
 	@Override

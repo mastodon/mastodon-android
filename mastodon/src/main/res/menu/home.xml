@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-	<item android:id="@+id/new_toot" android:title="New toot"/>
-	<item android:id="@+id/notifications" android:title="@string/notifications"/>
-	<item android:id="@+id/my_profile" android:title="My profile"/>
+	<item
+		android:id="@+id/settings"
+		android:icon="@drawable/ic_fluent_settings_24_regular"
+		android:showAsAction="always"
+		android:title="@string/settings" />
 </menu>

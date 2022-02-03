@@ -19,7 +19,6 @@ public class NotificationsFragment extends BaseStatusListFragment<Notification>{
 	public void onAttach(Activity activity){
 		super.onAttach(activity);
 		setTitle(R.string.notifications);
-		loadData();
 	}
 
 	@Override

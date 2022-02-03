@@ -1,12 +1,17 @@
 package org.joinmastodon.android.fragments;
 
 import android.app.Activity;
+import android.content.res.Configuration;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.Toolbar;
 
 import com.squareup.otto.Subscribe;
 
@@ -34,7 +39,6 @@ public class HomeTimelineFragment extends StatusListFragment{
 	@Override
 	public void onAttach(Activity activity){
 		super.onAttach(activity);
-		setTitle(R.string.app_name);
 		setHasOptionsMenu(true);
 		loadData();
 	}
@@ -56,6 +60,7 @@ public class HomeTimelineFragment extends StatusListFragment{
 		super.onViewCreated(view, savedInstanceState);
 		fab=view.findViewById(R.id.fab);
 		fab.setOnClickListener(this::onFabClick);
+		updateToolbarLogo();
 	}
 
 	@Override
@@ -65,18 +70,24 @@ public class HomeTimelineFragment extends StatusListFragment{
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item){
-		Bundle args=new Bundle();
-		args.putString("account", accountID);
-		int id=item.getItemId();
-		if(id==R.id.new_toot){
-			Nav.go(getActivity(), ComposeFragment.class, args);
-		}else if(id==R.id.notifications){
-			Nav.go(getActivity(), NotificationsFragment.class, args);
-		}else if(id==R.id.my_profile){
-			args.putParcelable("profileAccount", Parcels.wrap(AccountSessionManager.getInstance().getAccount(accountID).self));
-			Nav.go(getActivity(), ProfileFragment.class, args);
-		}
+//		Bundle args=new Bundle();
+//		args.putString("account", accountID);
+//		int id=item.getItemId();
+//		if(id==R.id.new_toot){
+//			Nav.go(getActivity(), ComposeFragment.class, args);
+//		}else if(id==R.id.notifications){
+//			Nav.go(getActivity(), NotificationsFragment.class, args);
+//		}else if(id==R.id.my_profile){
+//			args.putParcelable("profileAccount", Parcels.wrap(AccountSessionManager.getInstance().getAccount(accountID).self));
+//			Nav.go(getActivity(), ProfileFragment.class, args);
+//		}
 		return true;
+	}
+
+	@Override
+	public void onConfigurationChanged(Configuration newConfig){
+		super.onConfigurationChanged(newConfig);
+		updateToolbarLogo();
 	}
 
 	@Subscribe
@@ -88,5 +99,13 @@ public class HomeTimelineFragment extends StatusListFragment{
 		Bundle args=new Bundle();
 		args.putString("account", accountID);
 		Nav.go(getActivity(), ComposeFragment.class, args);
+	}
+
+	private void updateToolbarLogo(){
+		ImageView logo=new ImageView(getActivity());
+		logo.setScaleType(ImageView.ScaleType.CENTER);
+		logo.setImageResource(R.drawable.logo);
+		Toolbar toolbar=getToolbar();
+		toolbar.addView(logo, new Toolbar.LayoutParams(Gravity.CENTER));
 	}
 }

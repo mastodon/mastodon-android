@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/tabbar_wrap"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:background="@color/actionbar_bg"
+	android:elevation="3dp"
+	android:outlineProvider="bounds"
+	android:clipChildren="false">
+
+	<org.joinmastodon.android.ui.views.TabBar
+		android:id="@+id/tabbar"
+		android:layout_width="match_parent"
+		android:layout_height="52dp"
+		android:paddingLeft="20dp"
+		android:paddingRight="20dp">
+		<ImageView
+			android:id="@+id/tab_home"
+			android:layout_width="52dp"
+			android:layout_height="52dp"
+			android:scaleType="center"
+			android:background="?android:selectableItemBackgroundBorderless"
+			android:src="@drawable/ic_fluent_home_28_selector"/>
+
+		<Space
+			android:layout_width="0px"
+			android:layout_height="1px"
+			android:layout_weight="1"/>
+
+		<ImageView
+			android:id="@+id/tab_search"
+			android:layout_width="52dp"
+			android:layout_height="52dp"
+			android:scaleType="center"
+			android:background="?android:selectableItemBackgroundBorderless"
+			android:src="@drawable/ic_fluent_search_28_selector"/>
+
+		<Space
+			android:layout_width="0px"
+			android:layout_height="1px"
+			android:layout_weight="1"/>
+
+		<ImageView
+			android:id="@+id/tab_notifications"
+			android:layout_width="52dp"
+			android:layout_height="52dp"
+			android:scaleType="center"
+			android:background="?android:selectableItemBackgroundBorderless"
+			android:src="@drawable/ic_fluent_alert_28_selector"/>
+
+		<Space
+			android:layout_width="0px"
+			android:layout_height="1px"
+			android:layout_weight="1"/>
+
+		<FrameLayout
+			android:id="@+id/tab_profile"
+			android:layout_width="52dp"
+			android:layout_height="52dp"
+			android:foreground="@drawable/bg_tab_profile"
+			android:background="?android:selectableItemBackgroundBorderless">
+			<ImageView
+				android:id="@+id/tab_profile_ava"
+				android:layout_width="28dp"
+				android:layout_height="28dp"
+				android:layout_gravity="center"
+				android:scaleType="centerCrop"
+				android:src="@null"/>
+		</FrameLayout>
+	</org.joinmastodon.android.ui.views.TabBar>
+
+</FrameLayout>

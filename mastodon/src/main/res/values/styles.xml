@@ -5,7 +5,19 @@
 		<item name="android:enforceNavigationBarContrast">false</item>
 		<item name="android:enforceStatusBarContrast">false</item>
 		<item name="android:windowLightStatusBar">true</item>
+		<item name="android:windowLightNavigationBar">true</item>
 		<item name="android:windowBackground">@color/white</item>
+		<item name="android:statusBarColor">@color/actionbar_bg</item>
+		<item name="android:navigationBarColor">@color/navigation_bar_bg</item>
+		<item name="android:colorAccent">@color/gray_800</item>
+		<item name="android:colorPrimary">@color/gray_800</item>
+		<item name="android:actionBarTheme">@style/Theme.Mastodon.Toolbar</item>
+	</style>
+
+	<style name="Theme.Mastodon.Toolbar" parent="android:ThemeOverlay.Material.ActionBar">
+		<item name="android:colorPrimary">@color/actionbar_bg</item>
+		<item name="android:textColorPrimary">@color/gray_800</item>
+		<item name="android:textColorSecondary">@color/gray_800</item>
 	</style>
 
 	<style name="m3_body_large">
