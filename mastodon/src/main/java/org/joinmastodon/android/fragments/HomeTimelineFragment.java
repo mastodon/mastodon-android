@@ -79,18 +79,6 @@ public class HomeTimelineFragment extends StatusListFragment{
 		return true;
 	}
 
-	@Override
-	public void onCreate(Bundle savedInstanceState){
-		super.onCreate(savedInstanceState);
-		E.register(this);
-	}
-
-	@Override
-	public void onDestroy(){
-		super.onDestroy();
-		E.unregister(this);
-	}
-
 	@Subscribe
 	public void onStatusCreated(StatusCreatedEvent ev){
 		prependItems(Collections.singletonList(ev.status));

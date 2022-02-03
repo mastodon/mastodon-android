@@ -12,7 +12,7 @@
 		android:layout_width="wrap_content"
 		android:layout_height="24dp"
 		android:minWidth="56dp">
-		<CheckedTextView
+		<TextView
 			android:id="@+id/reply"
 			android:layout_width="wrap_content"
 			android:layout_height="24dp"
@@ -34,14 +34,15 @@
 		android:layout_width="wrap_content"
 		android:layout_height="24dp"
 		android:minWidth="56dp">
-		<CheckedTextView
+		<TextView
 			android:id="@+id/boost"
 			android:layout_width="wrap_content"
 			android:layout_height="24dp"
 			android:layout_gravity="center_horizontal"
-			android:drawableStart="@drawable/ic_fluent_arrow_repeat_all_24_regular"
+			android:drawableStart="@drawable/ic_boost"
 			android:drawablePadding="8dp"
-			android:drawableTint="@color/text_secondary"
+			android:drawableTint="@color/boost_icon"
+			android:textColor="@color/boost_icon"
 			android:gravity="center_vertical"
 			android:textAppearance="@style/m3_label_large"
 			tools:text="123"/>
@@ -56,14 +57,15 @@
 		android:layout_width="wrap_content"
 		android:layout_height="24dp"
 		android:minWidth="56dp">
-		<CheckedTextView
+		<TextView
 			android:id="@+id/favorite"
 			android:layout_width="wrap_content"
 			android:layout_height="24dp"
 			android:layout_gravity="center_horizontal"
-			android:drawableStart="@drawable/ic_fluent_star_24_regular"
+			android:drawableStart="@drawable/ic_fluent_star_24_selector"
 			android:drawablePadding="8dp"
-			android:drawableTint="@color/text_secondary"
+			android:drawableTint="@color/favorite_icon"
+			android:textColor="@color/favorite_icon"
 			android:gravity="center_vertical"
 			android:textAppearance="@style/m3_label_large"
 			tools:text="123"/>

@@ -47,7 +47,7 @@ public abstract class StatusDisplayItem{
 	public static ArrayList<StatusDisplayItem> buildItems(Fragment fragment, Status status, String accountID, DisplayItemsParent parentObject){
 		String parentID=parentObject.getID();
 		ArrayList<StatusDisplayItem> items=new ArrayList<>();
-		Status statusForContent=status.reblog==null ? status : status.reblog;
+		Status statusForContent=status.getContentStatus();
 		if(status.reblog!=null){
 			items.add(new ReblogOrReplyLineStatusDisplayItem(parentID, fragment.getString(R.string.user_boosted, status.account.displayName)));
 		}
@@ -67,7 +67,7 @@ public abstract class StatusDisplayItem{
 				photoIndex++;
 			}
 		}
-		items.add(new FooterStatusDisplayItem(parentID, status, accountID));
+		items.add(new FooterStatusDisplayItem(parentID, statusForContent, accountID));
 		return items;
 	}
 

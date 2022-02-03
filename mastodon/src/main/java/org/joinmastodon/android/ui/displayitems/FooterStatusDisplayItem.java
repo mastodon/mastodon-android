@@ -1,14 +1,18 @@
 package org.joinmastodon.android.ui.displayitems;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.os.Build;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.joinmastodon.android.R;
+import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.model.Status;
+import org.joinmastodon.android.model.StatusPrivacy;
 import org.joinmastodon.android.ui.utils.UiUtils;
 
 import java.text.DecimalFormat;
@@ -17,7 +21,7 @@ import me.grishka.appkit.utils.BindableViewHolder;
 import me.grishka.appkit.utils.V;
 
 public class FooterStatusDisplayItem extends StatusDisplayItem{
-	private final Status status;
+	public final Status status;
 	private final String accountID;
 
 	public FooterStatusDisplayItem(String parentID, Status status, String accountID){
@@ -43,9 +47,13 @@ public class FooterStatusDisplayItem extends StatusDisplayItem{
 			share=findViewById(R.id.share);
 			if(Build.VERSION.SDK_INT<Build.VERSION_CODES.N){
 				UiUtils.fixCompoundDrawableTintOnAndroid6(reply, R.color.text_secondary);
-				UiUtils.fixCompoundDrawableTintOnAndroid6(boost, R.color.text_secondary);
-				UiUtils.fixCompoundDrawableTintOnAndroid6(favorite, R.color.text_secondary);
+				UiUtils.fixCompoundDrawableTintOnAndroid6(boost, R.color.boost_icon);
+				UiUtils.fixCompoundDrawableTintOnAndroid6(favorite, R.color.favorite_icon);
 			}
+			reply.setOnClickListener(this::onReplyClick);
+			boost.setOnClickListener(this::onBoostClick);
+			favorite.setOnClickListener(this::onFavoriteClick);
+			share.setOnClickListener(this::onShareClick);
 		}
 
 		@Override
@@ -53,6 +61,10 @@ public class FooterStatusDisplayItem extends StatusDisplayItem{
 			bindButton(reply, item.status.repliesCount);
 			bindButton(boost, item.status.reblogsCount);
 			bindButton(favorite, item.status.favouritesCount);
+			boost.setSelected(item.status.reblogged);
+			favorite.setSelected(item.status.favourited);
+			boost.setEnabled(item.status.visibility==StatusPrivacy.PUBLIC || item.status.visibility==StatusPrivacy.UNLISTED
+					|| (item.status.visibility==StatusPrivacy.PRIVATE && item.status.account.id.equals(AccountSessionManager.getInstance().getAccount(item.accountID).self.id)));
 		}
 
 		private void bindButton(TextView btn, int count){
@@ -63,6 +75,29 @@ public class FooterStatusDisplayItem extends StatusDisplayItem{
 				btn.setText("");
 				btn.setCompoundDrawablePadding(0);
 			}
+		}
+
+		private void onReplyClick(View v){
+
+		}
+
+		private void onBoostClick(View v){
+			AccountSessionManager.getInstance().getAccount(item.accountID).getStatusInteractionController().setReblogged(item.status, !item.status.reblogged);
+			boost.setSelected(item.status.reblogged);
+			bindButton(boost, item.status.reblogsCount);
+		}
+
+		private void onFavoriteClick(View v){
+			AccountSessionManager.getInstance().getAccount(item.accountID).getStatusInteractionController().setFavorited(item.status, !item.status.favourited);
+			favorite.setSelected(item.status.favourited);
+			bindButton(favorite, item.status.favouritesCount);
+		}
+
+		private void onShareClick(View v){
+			Intent intent=new Intent(Intent.ACTION_SEND);
+			intent.setType("text/plain");
+			intent.putExtra(Intent.EXTRA_TEXT, item.status.url);
+			v.getContext().startActivity(Intent.createChooser(intent, v.getContext().getString(R.string.share_toot_title)));
 		}
 	}
 }

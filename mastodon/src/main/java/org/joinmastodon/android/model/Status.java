@@ -2,6 +2,7 @@ package org.joinmastodon.android.model;
 
 import org.joinmastodon.android.api.ObjectValidationException;
 import org.joinmastodon.android.api.RequiredField;
+import org.joinmastodon.android.events.StatusCountersUpdatedEvent;
 
 import java.time.Instant;
 import java.util.List;
@@ -110,5 +111,16 @@ public class Status extends BaseModel implements DisplayItemsParent{
 	@Override
 	public String getID(){
 		return id;
+	}
+
+	public void update(StatusCountersUpdatedEvent ev){
+		favouritesCount=ev.favorites;
+		reblogsCount=ev.reblogs;
+		favourited=ev.favorited;
+		reblogged=ev.reblogged;
+	}
+
+	public Status getContentStatus(){
+		return reblog!=null ? reblog : this;
 	}
 }
