@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.res.ColorStateList;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
 import android.widget.TextView;
 
@@ -15,6 +17,8 @@ import androidx.annotation.ColorRes;
 import androidx.browser.customtabs.CustomTabsIntent;
 
 public class UiUtils{
+	private static Handler mainHandler=new Handler(Looper.getMainLooper());
+
 	private UiUtils(){}
 
 	public static void launchWebBrowser(Context context, String url){
@@ -55,5 +59,9 @@ public class UiUtils{
 			}
 		}
 		textView.setCompoundDrawablesRelative(drawables[0], drawables[1], drawables[2], drawables[3]);
+	}
+
+	public static void runOnUiThread(Runnable runnable){
+		mainHandler.post(runnable);
 	}
 }

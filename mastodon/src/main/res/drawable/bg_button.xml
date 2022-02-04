@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+	<item>
+		<ripple android:color="@color/highlight_over_dark">
+			<item>
+				<shape>
+					<solid android:color="@color/button_bg"/>
+					<corners android:radius="10dp"/>
+					<padding android:left="16dp" android:right="16dp" android:top="8dp" android:bottom="8dp"/>
+				</shape>
+			</item>
+		</ripple>
+	</item>
+</selector>
