@@ -1,15 +1,21 @@
 package org.joinmastodon.android.fragments;
 
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import org.joinmastodon.android.api.requests.trends.GetTrendingStatuses;
+import org.joinmastodon.android.model.Status;
 
-import me.grishka.appkit.fragments.ToolbarFragment;
+import java.util.List;
 
-public class SearchFragment extends ToolbarFragment{
+import me.grishka.appkit.api.SimpleCallback;
+
+public class SearchFragment extends StatusListFragment{
 	@Override
-	public View onCreateContentView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-		return new View(getActivity());
+	protected void doLoadData(int offset, int count){
+		currentRequest=new GetTrendingStatuses(offset>0 ? getMaxID() : null, null, count)
+				.setCallback(new SimpleCallback<>(this){
+					@Override
+					public void onSuccess(List<Status> result){
+						onDataLoaded(result, !result.isEmpty());
+					}
+				}).exec(accountID);
 	}
 }
