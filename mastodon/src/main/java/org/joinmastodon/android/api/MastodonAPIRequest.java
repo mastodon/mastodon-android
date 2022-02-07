@@ -1,6 +1,7 @@
 package org.joinmastodon.android.api;
 
 import android.net.Uri;
+import android.util.Pair;
 
 import com.google.gson.reflect.TypeToken;
 
@@ -10,6 +11,7 @@ import org.joinmastodon.android.model.BaseModel;
 import org.joinmastodon.android.model.Token;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -27,7 +29,7 @@ public abstract class MastodonAPIRequest<T> extends APIRequest<T>{
 	private String path;
 	private String method;
 	private Object requestBody;
-	private Map<String, String> queryParams;
+	private List<Pair<String, String>> queryParams;
 	Class<T> respClass;
 	TypeToken<T> respTypeToken;
 	Call okhttpCall;
@@ -86,8 +88,8 @@ public abstract class MastodonAPIRequest<T> extends APIRequest<T>{
 
 	protected void addQueryParameter(String key, String value){
 		if(queryParams==null)
-			queryParams=new HashMap<>();
-		queryParams.put(key, value);
+			queryParams=new ArrayList<>();
+		queryParams.add(new Pair<>(key, value));
 	}
 
 	protected void addHeader(String key, String value){
@@ -106,8 +108,8 @@ public abstract class MastodonAPIRequest<T> extends APIRequest<T>{
 				.authority(domain)
 				.path(getPathPrefix()+path);
 		if(queryParams!=null){
-			for(Map.Entry<String, String> param:queryParams.entrySet()){
-				builder.appendQueryParameter(param.getKey(), param.getValue());
+			for(Pair<String, String> param:queryParams){
+				builder.appendQueryParameter(param.first, param.second);
 			}
 		}
 		return builder.build();

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (C) 2015 The Android Open Source Project
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~      http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+-->
+<resources>
+
+  <style name="Widget.Design.TabLayout" parent="Base.Widget.Design.TabLayout">
+    <item name="tabGravity">fill</item>
+    <item name="tabMode">fixed</item>
+    <item name="tabIndicatorFullWidth">true</item>
+  </style>
+
+  <style name="Base.Widget.Design.TabLayout" parent="android:Widget">
+    <item name="android:background">@null</item>
+    <item name="tabIconTint">@null</item>
+    <item name="tabMaxWidth">@dimen/design_tab_max_width</item>
+    <item name="tabIndicatorAnimationDuration">@integer/design_tab_indicator_anim_duration_ms</item>
+    <item name="tabIndicatorColor">?android:attr/colorAccent</item>
+    <item name="tabIndicatorGravity">bottom</item>
+    <item name="tabIndicatorAnimationMode">linear</item>
+    <item name="tabIndicator">@drawable/mtrl_tabs_default_indicator</item>
+    <item name="tabPaddingStart">12dp</item>
+    <item name="tabPaddingEnd">12dp</item>
+    <item name="tabTextAppearance">@style/TextAppearance.Design.Tab</item>
+    <item name="tabTextColor">@null</item>
+    <item name="tabRippleColor">?android:attr/colorControlHighlight</item>
+    <item name="tabUnboundedRipple">false</item>
+  </style>
+
+  <style name="TextAppearance.Design.Tab" parent="android:TextAppearance.Material.Button">
+    <item name="android:textSize">@dimen/design_tab_text_size</item>
+<!--    <item name="android:textColor">@color/mtrl_tabs_legacy_text_color_selector</item>-->
+    <item name="android:textAllCaps">false</item>
+  </style>
+
+  <style name="Widget.MaterialComponents.TabLayout" parent="Widget.Design.TabLayout">
+<!--    <item name="enforceMaterialTheme">true</item>-->
+<!--    <item name="enforceTextAppearance">true</item>-->
+<!--    <item name="android:background">?android:attr/colorSurface</item>-->
+<!--    <item name="tabIconTint">@color/mtrl_tabs_icon_color_selector</item>-->
+    <item name="tabIndicatorAnimationDuration">@integer/mtrl_tab_indicator_anim_duration_ms</item>
+    <item name="tabIndicatorColor">?android:attr/colorPrimary</item>
+    <item name="tabTextAppearance">?android:attr/textAppearanceButton</item>
+<!--    <item name="tabTextColor">@color/mtrl_tabs_icon_color_selector</item>-->
+<!--    <item name="tabRippleColor">@color/mtrl_tabs_ripple_color</item>-->
+    <item name="tabUnboundedRipple">true</item>
+  </style>
+
+  <style name="Widget.MaterialComponents.TabLayout.Colored">
+    <item name="android:background">?android:attr/colorPrimary</item>
+<!--    <item name="tabIconTint">@color/mtrl_tabs_icon_color_selector_colored</item>-->
+    <item name="tabIndicatorColor">?android:attr/colorAccent</item>
+<!--    <item name="tabTextColor">@color/mtrl_tabs_icon_color_selector_colored</item>-->
+<!--    <item name="tabRippleColor">@color/mtrl_tabs_colored_ripple_color</item>-->
+  </style>
+
+  <style name="Widget.MaterialComponents.TabLayout.PrimarySurface" parent="Widget.MaterialComponents.TabLayout.Colored"/>
+
+  <!-- Styles for M3 Tabs -->
+  <style name="Base.Widget.Material3.TabLayout" parent="Widget.MaterialComponents.TabLayout">
+<!--    <item name="enforceTextAppearance">false</item>-->
+<!--    <item name="tabIconTint">@color/m3_tabs_icon_color</item>-->
+<!--    <item name="tabTextAppearance">?android:attr/textAppearanceLabelLarge</item>-->
+<!--    <item name="tabTextColor">@color/m3_tabs_icon_color</item>-->
+    <item name="tabIndicator">@drawable/m3_tabs_rounded_line_indicator</item>
+    <item name="tabIndicatorAnimationMode">elastic</item>
+    <item name="tabIndicatorColor">?android:attr/colorPrimary</item>
+<!--    <item name="tabRippleColor">@color/m3_tabs_ripple_color</item>-->
+    <item name="tabIndicatorFullWidth">false</item>
+  </style>
+
+  <style name="Widget.Material3.TabLayout" parent="Base.Widget.Material3.TabLayout"/>
+
+  <!-- Styles for M3 Tabs used on an elevatable surface. -->
+  <style name="Base.Widget.Material3.TabLayout.OnSurface" parent="Widget.Material3.TabLayout">
+    <item name="android:background">@android:color/transparent</item>
+  </style>
+
+  <style name="Widget.Material3.TabLayout.OnSurface" parent="Base.Widget.Material3.TabLayout.OnSurface"/>
+
+  <!-- Style for M3 secondary tabs, which are used as an alternate when primary tabs are already
+       present in the UI. This style does not have a bottom divider, which is added in v21 because
+       the drawable cannot use theme colors pre-21. -->
+  <style name="Base.Widget.Material3.TabLayout.Secondary" parent="Widget.Material3.TabLayout">
+    <item name="tabIndicator">@drawable/m3_tabs_line_indicator</item>
+    <item name="tabIndicatorFullWidth">true</item>
+  </style>
+
+  <style name="Widget.Material3.TabLayout.Secondary" parent="Base.Widget.Material3.TabLayout.Secondary"/>
+
+</resources>

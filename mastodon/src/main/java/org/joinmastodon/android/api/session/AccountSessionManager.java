@@ -189,6 +189,10 @@ public class AccountSessionManager{
 				.execNoAuth(instance.uri);
 	}
 
+	public boolean isSelf(String id, Account other){
+		return getAccount(id).self.id.equals(other.id);
+	}
+
 	public Instance getAuthenticatingInstance(){
 		return authenticatingInstance;
 	}

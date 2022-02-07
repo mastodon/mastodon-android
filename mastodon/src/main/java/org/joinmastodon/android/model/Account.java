@@ -1,5 +1,7 @@
 package org.joinmastodon.android.model;
 
+import android.text.TextUtils;
+
 import org.joinmastodon.android.api.ObjectValidationException;
 import org.joinmastodon.android.api.RequiredField;
 import org.parceler.Parcel;
@@ -145,6 +147,15 @@ public class Account extends BaseModel{
 		}
 		if(moved!=null)
 			moved.postprocess();
+	}
+
+	public boolean isLocal(){
+		return !acct.contains("@");
+	}
+
+	public String getDomain(){
+		String[] parts=acct.split("@", 2);
+		return parts.length==1 ? null : parts[1];
 	}
 
 	@Override

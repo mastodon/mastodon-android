@@ -21,6 +21,7 @@ import org.parceler.Parcels;
 
 import androidx.annotation.IdRes;
 import androidx.annotation.Nullable;
+import me.grishka.appkit.FragmentStackActivity;
 import me.grishka.appkit.fragments.AppKitFragment;
 import me.grishka.appkit.fragments.LoaderFragment;
 import me.grishka.appkit.imageloader.ViewImageLoader;
@@ -106,7 +107,7 @@ public class HomeFragment extends AppKitFragment{
 
 	@Override
 	public boolean wantsLightStatusBar(){
-		return true;
+		return currentTab!=R.id.tab_profile;
 	}
 
 	@Override
@@ -119,10 +120,15 @@ public class HomeFragment extends AppKitFragment{
 		if(Build.VERSION.SDK_INT>=27){
 			int inset=insets.getSystemWindowInsetBottom();
 			tabBarWrap.setPadding(0, 0, 0, inset>0 ? Math.max(inset, V.dp(36)) : 0);
-			super.onApplyWindowInsets(insets.replaceSystemWindowInsets(insets.getSystemWindowInsetLeft(), insets.getSystemWindowInsetTop(), insets.getSystemWindowInsetRight(), 0));
+			super.onApplyWindowInsets(insets.replaceSystemWindowInsets(insets.getSystemWindowInsetLeft(), 0, insets.getSystemWindowInsetRight(), 0));
 		}else{
-			super.onApplyWindowInsets(insets);
+			super.onApplyWindowInsets(insets.replaceSystemWindowInsets(insets.getSystemWindowInsetLeft(), 0, insets.getSystemWindowInsetRight(), insets.getSystemWindowInsetBottom()));
 		}
+		WindowInsets topOnlyInsets=insets.replaceSystemWindowInsets(0, insets.getSystemWindowInsetTop(), 0, 0);
+		homeTimelineFragment.onApplyWindowInsets(topOnlyInsets);
+		searchFragment.onApplyWindowInsets(topOnlyInsets);
+		notificationsFragment.onApplyWindowInsets(topOnlyInsets);
+		profileFragment.onApplyWindowInsets(topOnlyInsets);
 	}
 
 	private Fragment fragmentForTab(@IdRes int tab){
@@ -147,5 +153,6 @@ public class HomeFragment extends AppKitFragment{
 				lf.loadData();
 		}
 		currentTab=tab;
+		((FragmentStackActivity)getActivity()).invalidateSystemBarColors(this);
 	}
 }

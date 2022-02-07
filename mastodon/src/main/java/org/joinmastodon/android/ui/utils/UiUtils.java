@@ -1,5 +1,6 @@
 package org.joinmastodon.android.ui.utils;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.graphics.drawable.Drawable;
@@ -43,6 +44,16 @@ public class UiUtils{
 		}
 	}
 
+	@SuppressLint("DefaultLocale")
+	public static String abbreviateNumber(int n){
+		if(n<1000)
+			return String.format("%,d", n);
+		else if(n<1_000_000)
+			return String.format("%,.1fK", n/1000f);
+		else
+			return String.format("%,.1fM", n/1_000_000f);
+	}
+
 	/**
 	 * Android 6.0 has a bug where start and end compound drawables don't get tinted.
 	 * This works around it by setting the tint colors directly to the drawables.
@@ -63,5 +74,10 @@ public class UiUtils{
 
 	public static void runOnUiThread(Runnable runnable){
 		mainHandler.post(runnable);
+	}
+
+	/** Linear interpolation between {@code startValue} and {@code endValue} by {@code fraction}. */
+	public static int lerp(int startValue, int endValue, float fraction) {
+		return startValue + Math.round(fraction * (endValue - startValue));
 	}
 }

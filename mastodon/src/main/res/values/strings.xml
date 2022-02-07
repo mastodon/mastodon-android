@@ -33,4 +33,37 @@
 	<string name="discard">Discard</string>
 	<string name="cancel">Cancel</string>
 	<string name="publishing">Your toot is being tooted</string>
+
+	<plurals name="followers">
+		<item quantity="one">follower</item>
+		<item quantity="other">followers</item>
+	</plurals>
+	<plurals name="following">
+		<item quantity="one">following</item>
+		<item quantity="other">following</item>
+	</plurals>
+	<plurals name="posts">
+		<item quantity="one">post</item>
+		<item quantity="other">posts</item>
+	</plurals>
+	<string name="posts">Posts</string>
+	<string name="posts_and_replies">Posts and Replies</string>
+	<string name="media">Media</string>
+	<string name="profile_about">About</string>
+	<string name="button_follow">Follow</string>
+	<string name="button_following">Following</string>
+	<string name="edit_profile">Edit Profile</string>
+	<string name="mention_user">Mention %s</string>
+	<string name="share_user">Share %s</string>
+	<string name="mute_user">Mute %s</string>
+	<string name="unmute_user">Unmute %s</string>
+	<string name="block_user">Block %s</string>
+	<string name="unblock_user">Unblock %s</string>
+	<string name="report_user">Report %s</string>
+	<string name="block_domain">Block %s</string>
+	<string name="unblock_domain">Unblock %s</string>
+	<plurals name="x_posts">
+		<item quantity="one">%,d post</item>
+		<item quantity="other">%,d posts</item>
+	</plurals>
 </resources>
