@@ -10,7 +10,9 @@ import org.joinmastodon.android.api.ObjectValidationException;
 import org.joinmastodon.android.api.RequiredField;
 import org.joinmastodon.android.ui.utils.BlurHashDecoder;
 import org.joinmastodon.android.ui.utils.BlurHashDrawable;
+import org.parceler.Parcel;
 
+@Parcel
 public class Attachment extends BaseModel{
 	@RequiredField
 	public String id;
@@ -88,6 +90,7 @@ public class Attachment extends BaseModel{
 		UNKNOWN
 	}
 
+	@Parcel
 	public static class Metadata{
 		public double duration;
 		public int width;
@@ -111,6 +114,7 @@ public class Attachment extends BaseModel{
 		}
 	}
 
+	@Parcel
 	public static class SizeMetadata{
 		public int width;
 		public int height;

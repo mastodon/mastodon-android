@@ -2,8 +2,8 @@ package org.joinmastodon.android.ui.displayitems;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.content.res.ColorStateList;
 import android.os.Build;
+import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -11,12 +11,16 @@ import android.widget.TextView;
 
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.session.AccountSessionManager;
+import org.joinmastodon.android.fragments.BaseStatusListFragment;
+import org.joinmastodon.android.fragments.ComposeFragment;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.model.StatusPrivacy;
 import org.joinmastodon.android.ui.utils.UiUtils;
+import org.parceler.Parcels;
 
 import java.text.DecimalFormat;
 
+import me.grishka.appkit.Nav;
 import me.grishka.appkit.utils.BindableViewHolder;
 import me.grishka.appkit.utils.V;
 
@@ -24,8 +28,8 @@ public class FooterStatusDisplayItem extends StatusDisplayItem{
 	public final Status status;
 	private final String accountID;
 
-	public FooterStatusDisplayItem(String parentID, Status status, String accountID){
-		super(parentID);
+	public FooterStatusDisplayItem(String parentID, BaseStatusListFragment parentFragment, Status status, String accountID){
+		super(parentID, parentFragment);
 		this.status=status;
 		this.accountID=accountID;
 	}
@@ -78,7 +82,10 @@ public class FooterStatusDisplayItem extends StatusDisplayItem{
 		}
 
 		private void onReplyClick(View v){
-
+			Bundle args=new Bundle();
+			args.putString("account", item.accountID);
+			args.putParcelable("replyTo", Parcels.wrap(item.status));
+			Nav.go(item.parentFragment.getActivity(), ComposeFragment.class, args);
 		}
 
 		private void onBoostClick(View v){

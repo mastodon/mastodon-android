@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import org.joinmastodon.android.R;
-import org.joinmastodon.android.model.Status;
+import org.joinmastodon.android.fragments.BaseStatusListFragment;
 import org.joinmastodon.android.ui.text.CustomEmojiSpan;
 import org.joinmastodon.android.ui.text.LinkSpan;
 import org.joinmastodon.android.ui.utils.UiUtils;
@@ -26,8 +26,8 @@ public class TextStatusDisplayItem extends StatusDisplayItem implements LinkSpan
 	private CharSequence text;
 	private ImageLoaderRequest[] emojiRequests;
 	private Fragment parentFragment;
-	public TextStatusDisplayItem(String parentID, CharSequence text, Fragment parentFragment){
-		super(parentID);
+	public TextStatusDisplayItem(String parentID, CharSequence text, BaseStatusListFragment parentFragment){
+		super(parentID, parentFragment);
 		this.text=text;
 		this.parentFragment=parentFragment;
 		if(text instanceof Spanned){

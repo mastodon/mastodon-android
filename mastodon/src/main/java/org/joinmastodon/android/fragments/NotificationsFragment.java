@@ -23,7 +23,7 @@ public class NotificationsFragment extends BaseStatusListFragment<Notification>{
 
 	@Override
 	protected List<StatusDisplayItem> buildDisplayItems(Notification n){
-		ReblogOrReplyLineStatusDisplayItem titleItem=new ReblogOrReplyLineStatusDisplayItem(n.id, switch(n.type){
+		ReblogOrReplyLineStatusDisplayItem titleItem=new ReblogOrReplyLineStatusDisplayItem(n.id, this, switch(n.type){
 			case FOLLOW -> getString(R.string.user_followed_you, n.account.displayName);
 			case FOLLOW_REQUEST -> getString(R.string.user_sent_follow_request, n.account.displayName);
 			case MENTION -> getString(R.string.user_mentioned_you, n.account.displayName);

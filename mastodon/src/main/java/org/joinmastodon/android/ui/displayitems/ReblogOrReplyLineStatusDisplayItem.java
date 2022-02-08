@@ -6,6 +6,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import org.joinmastodon.android.R;
+import org.joinmastodon.android.fragments.BaseStatusListFragment;
 import org.joinmastodon.android.ui.utils.UiUtils;
 
 import me.grishka.appkit.utils.BindableViewHolder;
@@ -13,8 +14,8 @@ import me.grishka.appkit.utils.BindableViewHolder;
 public class ReblogOrReplyLineStatusDisplayItem extends StatusDisplayItem{
 	private CharSequence text;
 
-	public ReblogOrReplyLineStatusDisplayItem(String parentID, CharSequence text){
-		super(parentID);
+	public ReblogOrReplyLineStatusDisplayItem(String parentID, BaseStatusListFragment parentFragment, CharSequence text){
+		super(parentID, parentFragment);
 		this.text=text;
 	}
 

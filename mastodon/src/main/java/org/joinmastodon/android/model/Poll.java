@@ -2,12 +2,14 @@ package org.joinmastodon.android.model;
 
 import org.joinmastodon.android.api.AllFieldsAreRequired;
 import org.joinmastodon.android.api.ObjectValidationException;
+import org.parceler.Parcel;
 
 import java.time.Instant;
 import java.util.Arrays;
 import java.util.List;
 
 @AllFieldsAreRequired
+@Parcel
 public class Poll extends BaseModel{
 	public String id;
 	public Instant expiresAt;
@@ -41,6 +43,7 @@ public class Poll extends BaseModel{
 				'}';
 	}
 
+	@Parcel
 	public static class Option{
 		public String title;
 		public Integer votesCount;

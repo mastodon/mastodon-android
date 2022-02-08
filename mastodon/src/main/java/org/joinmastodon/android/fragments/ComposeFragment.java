@@ -12,6 +12,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.Gravity;
@@ -42,16 +43,19 @@ import org.joinmastodon.android.api.requests.statuses.CreateStatus;
 import org.joinmastodon.android.api.requests.statuses.UploadAttachment;
 import org.joinmastodon.android.api.session.AccountSession;
 import org.joinmastodon.android.api.session.AccountSessionManager;
+import org.joinmastodon.android.events.StatusCountersUpdatedEvent;
 import org.joinmastodon.android.events.StatusCreatedEvent;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.Attachment;
 import org.joinmastodon.android.model.Emoji;
 import org.joinmastodon.android.model.EmojiCategory;
+import org.joinmastodon.android.model.Mention;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.CustomEmojiPopupKeyboard;
 import org.joinmastodon.android.ui.M3AlertDialogBuilder;
 import org.joinmastodon.android.ui.PopupKeyboard;
 import org.joinmastodon.android.ui.views.SizeListenerLinearLayout;
+import org.parceler.Parcels;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -106,12 +110,15 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 	private Button publishButton;
 	private ImageButton mediaBtn, pollBtn, emojiBtn, spoilerBtn, visibilityBtn;
 	private LinearLayout attachmentsView;
+	private TextView replyText;
 
 	private ArrayList<DraftMediaAttachment> queuedAttachments=new ArrayList<>(), failedAttachments=new ArrayList<>(), attachments=new ArrayList<>();
 	private DraftMediaAttachment uploadingAttachment;
 
 	private List<EmojiCategory> customEmojis;
 	private CustomEmojiPopupKeyboard emojiKeyboard;
+	private Status replyTo;
+	private String initialReplyMentions;
 
 	@Override
 	public void onAttach(Activity activity){
@@ -127,6 +134,9 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 		customEmojis=AccountSessionManager.getInstance().getCustomEmojis(instanceDomain);
 		emojiKeyboard=new CustomEmojiPopupKeyboard(activity, customEmojis, instanceDomain);
 		emojiKeyboard.setListener(this::onCustomEmojiClick);
+
+		if(getArguments().containsKey("replyTo"))
+			replyTo=Parcels.unwrap(getArguments().getParcelable("replyTo"));
 	}
 
 	@Override
@@ -156,6 +166,7 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 		emojiBtn=view.findViewById(R.id.btn_emoji);
 		spoilerBtn=view.findViewById(R.id.btn_spoiler);
 		visibilityBtn=view.findViewById(R.id.btn_visibility);
+		replyText=view.findViewById(R.id.reply_text);
 
 		mediaBtn.setOnClickListener(v->openFilePicker());
 		emojiBtn.setOnClickListener(v->emojiKeyboard.toggleKeyboardPopup(mainEditText));
@@ -207,6 +218,23 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 			}
 		});
 		updateToolbar();
+		if(replyTo!=null){
+			replyText.setText(getString(R.string.in_reply_to, replyTo.account.displayName));
+			ArrayList<String> mentions=new ArrayList<>();
+			mentions.add('@'+replyTo.account.acct);
+			for(Mention mention : replyTo.mentions){
+				String m='@'+mention.acct;
+				if(!mentions.contains(m))
+					mentions.add(m);
+			}
+			initialReplyMentions=TextUtils.join(" ", mentions)+" ";
+			if(savedInstanceState==null){
+				mainEditText.setText(initialReplyMentions);
+				mainEditText.setSelection(mainEditText.length());
+			}
+		}else{
+			replyText.setVisibility(View.GONE);
+		}
 	}
 
 	@Override
@@ -277,6 +305,9 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 		if(!attachments.isEmpty()){
 			req.mediaIds=attachments.stream().map(a->a.serverAttachment.id).collect(Collectors.toList());
 		}
+		if(replyTo!=null){
+			req.inReplyToId=replyTo.id;
+		}
 		String uuid=UUID.randomUUID().toString();
 		ProgressDialog progress=new ProgressDialog(getActivity());
 		progress.setMessage(getString(R.string.publishing));
@@ -289,6 +320,8 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 						progress.dismiss();
 						Nav.finish(ComposeFragment.this);
 						E.post(new StatusCreatedEvent(result));
+						replyTo.repliesCount++;
+						E.post(new StatusCountersUpdatedEvent(replyTo));
 					}
 
 					@Override
@@ -301,7 +334,8 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 	}
 
 	private boolean hasDraft(){
-		return mainEditText.length()>0;
+		return (mainEditText.length()>0 && !mainEditText.getText().toString().equals(initialReplyMentions)) || !attachments.isEmpty()
+				|| uploadingAttachment!=null || !queuedAttachments.isEmpty() || !failedAttachments.isEmpty();
 	}
 
 	@Override

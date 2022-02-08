@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.joinmastodon.android.R;
+import org.joinmastodon.android.fragments.BaseStatusListFragment;
 import org.joinmastodon.android.fragments.ProfileFragment;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.ui.utils.UiUtils;
@@ -34,8 +35,8 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 	private Fragment parentFragment;
 	private String accountID;
 
-	public HeaderStatusDisplayItem(String parentID, Account user, Instant createdAt, Fragment parentFragment, String accountID){
-		super(parentID);
+	public HeaderStatusDisplayItem(String parentID, Account user, Instant createdAt, BaseStatusListFragment parentFragment, String accountID){
+		super(parentID, parentFragment);
 		this.user=user;
 		this.createdAt=createdAt;
 		avaRequest=new UrlImageLoaderRequest(user.avatar);

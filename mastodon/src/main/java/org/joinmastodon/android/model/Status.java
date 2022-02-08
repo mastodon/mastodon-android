@@ -3,10 +3,12 @@ package org.joinmastodon.android.model;
 import org.joinmastodon.android.api.ObjectValidationException;
 import org.joinmastodon.android.api.RequiredField;
 import org.joinmastodon.android.events.StatusCountersUpdatedEvent;
+import org.parceler.Parcel;
 
 import java.time.Instant;
 import java.util.List;
 
+@Parcel
 public class Status extends BaseModel implements DisplayItemsParent{
 	@RequiredField
 	public String id;
@@ -116,6 +118,7 @@ public class Status extends BaseModel implements DisplayItemsParent{
 	public void update(StatusCountersUpdatedEvent ev){
 		favouritesCount=ev.favorites;
 		reblogsCount=ev.reblogs;
+		repliesCount=ev.replies;
 		favourited=ev.favorited;
 		reblogged=ev.reblogged;
 	}

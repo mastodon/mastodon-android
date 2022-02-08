@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import android.view.ViewGroup;
 
 import org.joinmastodon.android.R;
+import org.joinmastodon.android.fragments.BaseStatusListFragment;
 import org.joinmastodon.android.model.Attachment;
 import org.joinmastodon.android.model.DisplayItemsParent;
 import org.joinmastodon.android.model.Status;
@@ -18,9 +19,11 @@ import me.grishka.appkit.utils.BindableViewHolder;
 
 public abstract class StatusDisplayItem{
 	public final String parentID;
+	public final BaseStatusListFragment parentFragment;
 
-	public StatusDisplayItem(String parentID){
+	public StatusDisplayItem(String parentID, BaseStatusListFragment parentFragment){
 		this.parentID=parentID;
+		this.parentFragment=parentFragment;
 	}
 
 	public abstract Type getType();
@@ -44,12 +47,12 @@ public abstract class StatusDisplayItem{
 		};
 	}
 
-	public static ArrayList<StatusDisplayItem> buildItems(Fragment fragment, Status status, String accountID, DisplayItemsParent parentObject){
+	public static ArrayList<StatusDisplayItem> buildItems(BaseStatusListFragment fragment, Status status, String accountID, DisplayItemsParent parentObject){
 		String parentID=parentObject.getID();
 		ArrayList<StatusDisplayItem> items=new ArrayList<>();
 		Status statusForContent=status.getContentStatus();
 		if(status.reblog!=null){
-			items.add(new ReblogOrReplyLineStatusDisplayItem(parentID, fragment.getString(R.string.user_boosted, status.account.displayName)));
+			items.add(new ReblogOrReplyLineStatusDisplayItem(parentID, fragment, fragment.getString(R.string.user_boosted, status.account.displayName)));
 		}
 		items.add(new HeaderStatusDisplayItem(parentID, statusForContent.account, statusForContent.createdAt, fragment, accountID));
 		if(!TextUtils.isEmpty(statusForContent.content))
@@ -67,7 +70,7 @@ public abstract class StatusDisplayItem{
 				photoIndex++;
 			}
 		}
-		items.add(new FooterStatusDisplayItem(parentID, statusForContent, accountID));
+		items.add(new FooterStatusDisplayItem(parentID, fragment, statusForContent, accountID));
 		return items;
 	}
 

@@ -1,7 +1,9 @@
 package org.joinmastodon.android.model;
 
 import org.joinmastodon.android.api.RequiredField;
+import org.parceler.Parcel;
 
+@Parcel
 public class Application extends BaseModel{
 	@RequiredField
 	public String name;

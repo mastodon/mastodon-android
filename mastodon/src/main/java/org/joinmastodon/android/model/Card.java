@@ -9,7 +9,9 @@ import org.joinmastodon.android.api.ObjectValidationException;
 import org.joinmastodon.android.api.RequiredField;
 import org.joinmastodon.android.ui.utils.BlurHashDecoder;
 import org.joinmastodon.android.ui.utils.BlurHashDrawable;
+import org.parceler.Parcel;
 
+@Parcel
 public class Card extends BaseModel{
 	@RequiredField
 	public String url;

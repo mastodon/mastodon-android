@@ -16,6 +16,20 @@
 			android:layout_height="wrap_content"
 			android:orientation="vertical">
 
+			<TextView
+				android:id="@+id/reply_text"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginLeft="16dp"
+				android:layout_marginRight="16dp"
+				android:layout_marginTop="16dp"
+				android:textAppearance="@style/m3_title_small"
+				android:drawableStart="@drawable/ic_fluent_arrow_reply_20_filled"
+				android:drawableTint="@color/gray_500"
+				android:drawablePadding="6dp"
+				android:singleLine="true"
+				android:ellipsize="end"/>
+
 			<RelativeLayout
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"

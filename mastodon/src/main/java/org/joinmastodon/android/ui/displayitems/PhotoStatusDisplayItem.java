@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import org.joinmastodon.android.R;
+import org.joinmastodon.android.fragments.BaseStatusListFragment;
 import org.joinmastodon.android.model.Attachment;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.photoviewer.PhotoViewerHost;
@@ -23,8 +24,8 @@ public class PhotoStatusDisplayItem extends StatusDisplayItem{
 	private Fragment parentFragment;
 	private Status status;
 	public final int index, totalPhotos;
-	public PhotoStatusDisplayItem(String parentID, Status status, Attachment photo, Fragment parentFragment, int index, int totalPhotos){
-		super(parentID);
+	public PhotoStatusDisplayItem(String parentID, Status status, Attachment photo, BaseStatusListFragment parentFragment, int index, int totalPhotos){
+		super(parentID, parentFragment);
 		this.status=status;
 		this.attachment=photo;
 		request=new UrlImageLoaderRequest(photo.url, 1000, 1000);
