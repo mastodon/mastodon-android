@@ -49,7 +49,7 @@ public class PhotoStatusDisplayItem extends StatusDisplayItem{
 		return request;
 	}
 
-	public static class Holder extends BindableViewHolder<PhotoStatusDisplayItem> implements ImageLoaderViewHolder{
+	public static class Holder extends StatusDisplayItem.Holder<PhotoStatusDisplayItem> implements ImageLoaderViewHolder{
 		public final ImageView photo;
 		public Holder(Activity activity, ViewGroup parent){
 			super(activity, R.layout.display_item_photo, parent);

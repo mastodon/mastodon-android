@@ -119,6 +119,7 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 	private CustomEmojiPopupKeyboard emojiKeyboard;
 	private Status replyTo;
 	private String initialReplyMentions;
+	private String uuid;
 
 	@Override
 	public void onAttach(Activity activity){
@@ -283,6 +284,7 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 	}
 
 	private void updatePublishButtonState(){
+		uuid=null;
 		publishButton.setEnabled((trimmedCharCount>0 || !attachments.isEmpty()) && charCount<=charLimit && uploadingAttachment==null && failedAttachments.isEmpty() && queuedAttachments.isEmpty());
 	}
 
@@ -308,7 +310,8 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 		if(replyTo!=null){
 			req.inReplyToId=replyTo.id;
 		}
-		String uuid=UUID.randomUUID().toString();
+		if(uuid==null)
+			uuid=UUID.randomUUID().toString();
 		ProgressDialog progress=new ProgressDialog(getActivity());
 		progress.setMessage(getString(R.string.publishing));
 		progress.setCancelable(false);

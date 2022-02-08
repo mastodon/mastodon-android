@@ -39,7 +39,7 @@ public class FooterStatusDisplayItem extends StatusDisplayItem{
 		return Type.FOOTER;
 	}
 
-	public static class Holder extends BindableViewHolder<FooterStatusDisplayItem>{
+	public static class Holder extends StatusDisplayItem.Holder<FooterStatusDisplayItem>{
 		private final TextView reply, boost, favorite;
 		private final ImageView share;
 

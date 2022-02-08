@@ -24,7 +24,7 @@ public class ReblogOrReplyLineStatusDisplayItem extends StatusDisplayItem{
 		return Type.REBLOG_OR_REPLY_LINE;
 	}
 
-	public static class Holder extends BindableViewHolder<ReblogOrReplyLineStatusDisplayItem>{
+	public static class Holder extends StatusDisplayItem.Holder<ReblogOrReplyLineStatusDisplayItem>{
 		private final TextView text;
 		public Holder(Activity activity, ViewGroup parent){
 			super(activity, R.layout.display_item_reblog_or_reply_line, parent);

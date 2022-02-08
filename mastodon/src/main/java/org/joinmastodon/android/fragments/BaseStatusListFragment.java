@@ -230,6 +230,29 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 				}
 			}
 		});
+		((UsableRecyclerView)list).setSelectorBoundsProvider(new UsableRecyclerView.SelectorBoundsProvider(){
+			@Override
+			public void getSelectorBounds(View view, Rect outRect){
+				outRect.set(view.getLeft(), view.getTop(), view.getRight(), view.getBottom());
+				RecyclerView.ViewHolder holder=list.getChildViewHolder(view);
+				if(holder instanceof StatusDisplayItem.Holder){
+					String id=((StatusDisplayItem.Holder<?>) holder).getItemID();
+					for(int i=0;i<list.getChildCount();i++){
+						View child=list.getChildAt(i);
+						holder=list.getChildViewHolder(child);
+						if(holder instanceof StatusDisplayItem.Holder){
+							String otherID=((StatusDisplayItem.Holder<?>) holder).getItemID();
+							if(otherID.equals(id)){
+								outRect.left=Math.min(outRect.left, child.getLeft());
+								outRect.top=Math.min(outRect.top, child.getTop());
+								outRect.right=Math.max(outRect.right, child.getRight());
+								outRect.bottom=Math.max(outRect.bottom, child.getBottom());
+							}
+						}
+					}
+				}
+			}
+		});
 	}
 
 	@Override
@@ -257,6 +280,10 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 
 	protected int getMainAdapterOffset(){
 		return 0;
+	}
+
+	public void onItemClick(String id){
+
 	}
 
 	protected class DisplayItemsAdapter extends UsableRecyclerView.Adapter<BindableViewHolder<StatusDisplayItem>> implements ImageLoaderRecyclerAdapter{

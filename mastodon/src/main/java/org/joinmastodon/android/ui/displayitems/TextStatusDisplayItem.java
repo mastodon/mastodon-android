@@ -69,7 +69,7 @@ public class TextStatusDisplayItem extends StatusDisplayItem implements LinkSpan
 		}
 	}
 
-	public static class Holder extends BindableViewHolder<TextStatusDisplayItem> implements ImageLoaderViewHolder{
+	public static class Holder extends StatusDisplayItem.Holder<TextStatusDisplayItem> implements ImageLoaderViewHolder{
 		private final LinkedTextView text;
 		private CustomEmojiSpan[] emojiSpans;
 

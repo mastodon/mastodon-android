@@ -59,7 +59,7 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 		return avaRequest;
 	}
 
-	public static class Holder extends BindableViewHolder<HeaderStatusDisplayItem> implements ImageLoaderViewHolder{
+	public static class Holder extends StatusDisplayItem.Holder<HeaderStatusDisplayItem> implements ImageLoaderViewHolder{
 		private final TextView name, username, timestamp;
 		private final ImageView avatar, more;
 

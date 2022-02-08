@@ -2,7 +2,9 @@ package org.joinmastodon.android.ui.displayitems;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.content.Context;
 import android.text.TextUtils;
+import android.view.View;
 import android.view.ViewGroup;
 
 import org.joinmastodon.android.R;
@@ -16,6 +18,7 @@ import java.util.ArrayList;
 
 import me.grishka.appkit.imageloader.requests.ImageLoaderRequest;
 import me.grishka.appkit.utils.BindableViewHolder;
+import me.grishka.appkit.views.UsableRecyclerView;
 
 public abstract class StatusDisplayItem{
 	public final String parentID;
@@ -87,5 +90,24 @@ public abstract class StatusDisplayItem{
 		POLL_FOOTER,
 		CARD,
 		FOOTER,
+	}
+
+	public static abstract class Holder<T extends StatusDisplayItem> extends BindableViewHolder<T> implements UsableRecyclerView.Clickable{
+		public Holder(View itemView){
+			super(itemView);
+		}
+
+		public Holder(Context context, int layout, ViewGroup parent){
+			super(context, layout, parent);
+		}
+
+		public String getItemID(){
+			return item.parentID;
+		}
+
+		@Override
+		public void onClick(){
+			item.parentFragment.onItemClick(item.parentID);
+		}
 	}
 }
