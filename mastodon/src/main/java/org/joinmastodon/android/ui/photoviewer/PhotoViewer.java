@@ -3,10 +3,16 @@ package org.joinmastodon.android.ui.photoviewer;
 import android.app.Activity;
 import android.graphics.PixelFormat;
 import android.graphics.Rect;
+import android.graphics.SurfaceTexture;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
+import android.media.MediaPlayer;
+import android.net.Uri;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
+import android.view.Surface;
+import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
@@ -16,6 +22,8 @@ import android.widget.ImageView;
 
 import org.joinmastodon.android.model.Attachment;
 
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import androidx.annotation.NonNull;
@@ -28,6 +36,8 @@ import me.grishka.appkit.utils.BindableViewHolder;
 import me.grishka.appkit.utils.CubicBezierInterpolator;
 
 public class PhotoViewer implements ZoomPanView.Listener{
+	private static final String TAG="PhotoViewer";
+
 	private Activity activity;
 	private List<Attachment> attachments;
 	private int currentIndex;
@@ -37,6 +47,7 @@ public class PhotoViewer implements ZoomPanView.Listener{
 	private FrameLayout windowView;
 	private ViewPager2 pager;
 	private ColorDrawable background=new ColorDrawable(0xff000000);
+	private ArrayList<MediaPlayer> players=new ArrayList<>();
 
 	public PhotoViewer(Activity activity, List<Attachment> attachments, int index, Listener listener){
 		this.activity=activity;
@@ -79,7 +90,7 @@ public class PhotoViewer implements ZoomPanView.Listener{
 				int[] radius=new int[4];
 				if(listener.startPhotoViewTransition(index, rect, radius)){
 					RecyclerView rv=(RecyclerView) pager.getChildAt(0);
-					PhotoViewHolder holder=(PhotoViewHolder) rv.findViewHolderForAdapterPosition(index);
+					BaseHolder holder=(BaseHolder) rv.findViewHolderForAdapterPosition(index);
 					holder.zoomPanView.animateIn(rect, radius);
 				}
 
@@ -121,7 +132,7 @@ public class PhotoViewer implements ZoomPanView.Listener{
 		int[] radius=new int[4];
 		if(listener.startPhotoViewTransition(index, rect, radius)){
 			RecyclerView rv=(RecyclerView) pager.getChildAt(0);
-			PhotoViewHolder holder=(PhotoViewHolder) rv.findViewHolderForAdapterPosition(index);
+			BaseHolder holder=(BaseHolder) rv.findViewHolderForAdapterPosition(index);
 			holder.zoomPanView.animateOut(rect, radius, velocityY);
 		}else{
 			windowView.animate()
@@ -140,6 +151,8 @@ public class PhotoViewer implements ZoomPanView.Listener{
 
 	@Override
 	public void onDismissed(){
+		for(MediaPlayer player:players)
+			player.release();
 		listener.setPhotoViewVisibility(pager.getCurrentItem(), true);
 		wm.removeView(windowView);
 		listener.photoViewerDismissed();
@@ -193,16 +206,20 @@ public class PhotoViewer implements ZoomPanView.Listener{
 		void photoViewerDismissed();
 	}
 
-	private class PhotoViewAdapter extends RecyclerView.Adapter<PhotoViewHolder>{
+	private class PhotoViewAdapter extends RecyclerView.Adapter<BaseHolder>{
 
 		@NonNull
 		@Override
-		public PhotoViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType){
-			return new PhotoViewHolder();
+		public BaseHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType){
+			return switch(viewType){
+				case 0 -> new PhotoViewHolder();
+				case 1 -> new GifVViewHolder();
+				default -> throw new IllegalStateException("Unexpected value: "+viewType);
+			};
 		}
 
 		@Override
-		public void onBindViewHolder(@NonNull PhotoViewHolder holder, int position){
+		public void onBindViewHolder(@NonNull BaseHolder holder, int position){
 			holder.bind(attachments.get(position));
 		}
 
@@ -210,27 +227,63 @@ public class PhotoViewer implements ZoomPanView.Listener{
 		public int getItemCount(){
 			return attachments.size();
 		}
+
+		@Override
+		public int getItemViewType(int position){
+			Attachment att=attachments.get(position);
+			return switch(att.type){
+				case IMAGE -> 0;
+				case GIFV -> 1;
+				default -> throw new IllegalStateException("Unexpected value: "+att.type);
+			};
+		}
+
+		@Override
+		public void onViewDetachedFromWindow(@NonNull BaseHolder holder){
+			super.onViewDetachedFromWindow(holder);
+			if(holder instanceof GifVViewHolder){
+				((GifVViewHolder) holder).reset();
+			}
+		}
+
+		@Override
+		public void onViewAttachedToWindow(@NonNull BaseHolder holder){
+			super.onViewAttachedToWindow(holder);
+			if(holder instanceof GifVViewHolder){
+				((GifVViewHolder) holder).prepareAndStartPlayer();
+			}
+		}
 	}
 
-	private class PhotoViewHolder extends BindableViewHolder<Attachment> implements ViewImageLoader.Target{
-		public ImageView imageView;
+	private abstract class BaseHolder extends BindableViewHolder<Attachment>{
 		public ZoomPanView zoomPanView;
-
-		public PhotoViewHolder(){
+		public BaseHolder(){
 			super(new ZoomPanView(activity));
 			zoomPanView=(ZoomPanView) itemView;
 			zoomPanView.setListener(PhotoViewer.this);
-			itemView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-			imageView=new ImageView(activity);
-			((FrameLayout)itemView).addView(imageView, new FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, Gravity.CENTER));
+			zoomPanView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
 		}
 
 		@Override
 		public void onBind(Attachment item){
+			zoomPanView.setScrollDirections(getAbsoluteAdapterPosition()>0, getAbsoluteAdapterPosition()<attachments.size()-1);
+		}
+	}
+
+	private class PhotoViewHolder extends BaseHolder implements ViewImageLoader.Target{
+		public ImageView imageView;
+
+		public PhotoViewHolder(){
+			imageView=new ImageView(activity);
+			zoomPanView.addView(imageView, new FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, Gravity.CENTER));
+		}
+
+		@Override
+		public void onBind(Attachment item){
+			super.onBind(item);
 			FrameLayout.LayoutParams params=(FrameLayout.LayoutParams) imageView.getLayoutParams();
 			params.width=item.getWidth();
 			params.height=item.getHeight();
-			zoomPanView.setScrollDirections(getAbsoluteAdapterPosition()>0, getAbsoluteAdapterPosition()<attachments.size()-1);
 			ViewImageLoader.load(this, listener.getPhotoViewCurrentDrawable(getAbsoluteAdapterPosition()), new UrlImageLoaderRequest(item.url), false);
 		}
 
@@ -242,6 +295,100 @@ public class PhotoViewer implements ZoomPanView.Listener{
 		@Override
 		public View getView(){
 			return imageView;
+		}
+	}
+
+	private class GifVViewHolder extends BaseHolder implements MediaPlayer.OnPreparedListener, MediaPlayer.OnErrorListener, TextureView.SurfaceTextureListener{
+		public TextureView textureView;
+		public FrameLayout wrap;
+		public MediaPlayer player;
+		private Surface surface;
+		private boolean playerReady;
+
+		public GifVViewHolder(){
+			textureView=new TextureView(activity);
+			wrap=new FrameLayout(activity);
+			zoomPanView.addView(wrap, new FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, Gravity.CENTER));
+			wrap.addView(textureView);
+
+			textureView.setSurfaceTextureListener(this);
+		}
+
+		@Override
+		public void onBind(Attachment item){
+			super.onBind(item);
+			playerReady=false;
+			FrameLayout.LayoutParams params=(FrameLayout.LayoutParams) wrap.getLayoutParams();
+			params.width=item.getWidth();
+			params.height=item.getHeight();
+			wrap.setBackground(listener.getPhotoViewCurrentDrawable(getAbsoluteAdapterPosition()));
+			if(itemView.isAttachedToWindow()){
+				prepareAndStartPlayer();
+			}
+		}
+
+		@Override
+		public void onPrepared(MediaPlayer mp){
+			Log.d(TAG, "onPrepared() called with: mp = ["+mp+"]");
+			playerReady=true;
+			if(surface!=null)
+				startPlayer();
+		}
+
+		@Override
+		public void onSurfaceTextureAvailable(@NonNull SurfaceTexture surface, int width, int height){
+			this.surface=new Surface(surface);
+			if(playerReady)
+				startPlayer();
+		}
+
+		@Override
+		public void onSurfaceTextureSizeChanged(@NonNull SurfaceTexture surface, int width, int height){
+
+		}
+
+		@Override
+		public boolean onSurfaceTextureDestroyed(@NonNull SurfaceTexture surface){
+			this.surface=null;
+			return true;
+		}
+
+		@Override
+		public void onSurfaceTextureUpdated(@NonNull SurfaceTexture surface){
+
+		}
+
+		private void startPlayer(){
+			player.setSurface(surface);
+			player.setLooping(true);
+			player.start();
+		}
+
+		@Override
+		public boolean onError(MediaPlayer mp, int what, int extra){
+			Log.e(TAG, "gif player onError() called with: mp = ["+mp+"], what = ["+what+"], extra = ["+extra+"]");
+			return false;
+		}
+
+		public void prepareAndStartPlayer(){
+			playerReady=false;
+			player=new MediaPlayer();
+			players.add(player);
+			player.setOnPreparedListener(this);
+			player.setOnErrorListener(this);
+			try{
+				player.setDataSource(activity, Uri.parse(item.url));
+				player.prepareAsync();
+			}catch(IOException x){
+				Log.w(TAG, "Error initializing gif player", x);
+			}
+		}
+
+		public void reset(){
+			playerReady=false;
+			player.release();
+			players.remove(player);
+			player=null;
 		}
 	}
 }

@@ -15,6 +15,7 @@ import org.joinmastodon.android.R;
 import org.joinmastodon.android.model.DisplayItemsParent;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.displayitems.FooterStatusDisplayItem;
+import org.joinmastodon.android.ui.displayitems.ImageStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.PhotoStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.StatusDisplayItem;
 import org.joinmastodon.android.ui.photoviewer.PhotoViewer;
@@ -122,18 +123,18 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 	public void openPhotoViewer(String parentID, Status _status, int attachmentIndex){
 		final Status status=_status.reblog!=null ? _status.reblog : _status;
 		currentPhotoViewer=new PhotoViewer(getActivity(), status.mediaAttachments, attachmentIndex, new PhotoViewer.Listener(){
-			private PhotoStatusDisplayItem.Holder transitioningHolder;
+			private ImageStatusDisplayItem.Holder transitioningHolder;
 
 			@Override
 			public void setPhotoViewVisibility(int index, boolean visible){
-				PhotoStatusDisplayItem.Holder holder=findPhotoViewHolder(index);
+				ImageStatusDisplayItem.Holder holder=findPhotoViewHolder(index);
 				if(holder!=null)
 					holder.photo.setAlpha(visible ? 1f : 0f);
 			}
 
 			@Override
 			public boolean startPhotoViewTransition(int index, @NonNull Rect outRect, @NonNull int[] outCornerRadius){
-				PhotoStatusDisplayItem.Holder holder=findPhotoViewHolder(index);
+				ImageStatusDisplayItem.Holder holder=findPhotoViewHolder(index);
 				if(holder!=null){
 					transitioningHolder=holder;
 					View view=transitioningHolder.photo;
@@ -170,7 +171,7 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 
 			@Override
 			public Drawable getPhotoViewCurrentDrawable(int index){
-				PhotoStatusDisplayItem.Holder holder=findPhotoViewHolder(index);
+				ImageStatusDisplayItem.Holder holder=findPhotoViewHolder(index);
 				if(holder!=null)
 					return holder.photo.getDrawable();
 				return null;
@@ -181,14 +182,14 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 				currentPhotoViewer=null;
 			}
 
-			private PhotoStatusDisplayItem.Holder findPhotoViewHolder(int index){
+			private ImageStatusDisplayItem.Holder findPhotoViewHolder(int index){
 				int offset=0;
 				for(StatusDisplayItem item:displayItems){
 					if(item.parentID.equals(parentID)){
-						if(item instanceof PhotoStatusDisplayItem){
+						if(item instanceof ImageStatusDisplayItem){
 							RecyclerView.ViewHolder holder=list.findViewHolderForAdapterPosition(getMainAdapterOffset()+offset+index);
-							if(holder instanceof PhotoStatusDisplayItem.Holder){
-								return (PhotoStatusDisplayItem.Holder) holder;
+							if(holder instanceof ImageStatusDisplayItem.Holder){
+								return (ImageStatusDisplayItem.Holder) holder;
 							}
 							return null;
 						}
@@ -264,10 +265,10 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 				position-=getMainAdapterOffset();
 				if(position>=0 && position<displayItems.size()){
 					StatusDisplayItem item=displayItems.get(position);
-					if(item instanceof PhotoStatusDisplayItem){
-						int total=((PhotoStatusDisplayItem) item).totalPhotos;
+					if(item instanceof ImageStatusDisplayItem){
+						int total=((ImageStatusDisplayItem) item).totalPhotos;
 						if(total>1){
-							int index=((PhotoStatusDisplayItem) item).index;
+							int index=((ImageStatusDisplayItem) item).index;
 							return 1;
 						}
 					}

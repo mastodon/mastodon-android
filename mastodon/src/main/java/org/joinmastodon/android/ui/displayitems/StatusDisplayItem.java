@@ -45,6 +45,7 @@ public abstract class StatusDisplayItem{
 			case REBLOG_OR_REPLY_LINE -> new ReblogOrReplyLineStatusDisplayItem.Holder(activity, parent);
 			case TEXT -> new TextStatusDisplayItem.Holder(activity, parent);
 			case PHOTO -> new PhotoStatusDisplayItem.Holder(activity, parent);
+			case GIFV -> new GifVStatusDisplayItem.Holder(activity, parent);
 			case FOOTER -> new FooterStatusDisplayItem.Holder(activity, parent);
 			default -> throw new UnsupportedOperationException();
 		};
@@ -63,13 +64,16 @@ public abstract class StatusDisplayItem{
 		int photoIndex=0;
 		int totalPhotos=0;
 		for(Attachment attachment:statusForContent.mediaAttachments){
-			if(attachment.type==Attachment.Type.IMAGE){
+			if(attachment.type==Attachment.Type.IMAGE || attachment.type==Attachment.Type.GIFV){
 				totalPhotos++;
 			}
 		}
 		for(Attachment attachment:statusForContent.mediaAttachments){
 			if(attachment.type==Attachment.Type.IMAGE){
 				items.add(new PhotoStatusDisplayItem(parentID, status, attachment, fragment, photoIndex, totalPhotos));
+				photoIndex++;
+			}else if(attachment.type==Attachment.Type.GIFV){
+				items.add(new GifVStatusDisplayItem(parentID, status, attachment, fragment, photoIndex, totalPhotos));
 				photoIndex++;
 			}
 		}
