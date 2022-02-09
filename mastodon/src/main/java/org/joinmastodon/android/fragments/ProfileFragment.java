@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.content.Intent;
 import android.content.res.Configuration;
-import android.graphics.Matrix;
 import android.graphics.Outline;
 import android.os.Bundle;
 import android.util.Log;
@@ -28,6 +27,7 @@ import org.joinmastodon.android.api.requests.accounts.GetAccountRelationships;
 import org.joinmastodon.android.api.requests.accounts.GetAccountStatuses;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.model.Account;
+import org.joinmastodon.android.model.AccountField;
 import org.joinmastodon.android.model.Relationship;
 import org.joinmastodon.android.ui.drawables.CoverOverlayGradientDrawable;
 import org.joinmastodon.android.ui.tabs.TabLayout;
@@ -38,6 +38,12 @@ import org.joinmastodon.android.ui.views.CoverImageView;
 import org.joinmastodon.android.ui.views.NestedRecyclerScrollView;
 import org.parceler.Parcels;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -63,16 +69,18 @@ public class ProfileFragment extends LoaderFragment{
 	private ViewPager2 pager;
 	private NestedRecyclerScrollView scrollView;
 	private AccountTimelineFragment postsFragment, postsWithRepliesFragment, mediaFragment;
+	private ProfileAboutFragment aboutFragment;
 	private TabLayout tabbar;
 	private SwipeRefreshLayout refreshLayout;
 	private CoverOverlayGradientDrawable coverGradient=new CoverOverlayGradientDrawable();
-	private Matrix coverMatrix=new Matrix();
 	private float titleTransY;
 
 	private Account account;
 	private String accountID;
 	private Relationship relationship;
 	private int statusBarHeight;
+	private boolean isOwnProfile;
+	private ArrayList<AccountField> fields=new ArrayList<>();
 
 	public ProfileFragment(){
 		super(R.layout.loader_fragment_overlay_toolbar);
@@ -123,9 +131,11 @@ public class ProfileFragment extends LoaderFragment{
 
 		if(getArguments().containsKey("profileAccount")){
 			account=Parcels.unwrap(getArguments().getParcelable("profileAccount"));
+			isOwnProfile=AccountSessionManager.getInstance().isSelf(accountID, account);
 			bindHeaderView();
 			dataLoaded();
-			loadRelationship();
+			if(!isOwnProfile)
+				loadRelationship();
 		}
 
 		scrollView.setScrollableChildSupplier(this::getScrollableRecyclerView);
@@ -157,6 +167,12 @@ public class ProfileFragment extends LoaderFragment{
 		}).attach();
 
 		cover.setForeground(coverGradient);
+		cover.setOutlineProvider(new ViewOutlineProvider(){
+			@Override
+			public void getOutline(View view, Outline outline){
+				outline.setEmpty();
+			}
+		});
 
 		return sizeWrapper;
 	}
@@ -184,9 +200,12 @@ public class ProfileFragment extends LoaderFragment{
 					public void onPageSelected(int position){
 						if(position==0)
 							return;
-						BaseRecyclerFragment<?> page=getFragmentForPage(position);
-						if(!page.loaded && !page.isDataLoading())
-							page.loadData();
+						Fragment _page=getFragmentForPage(position);
+						if(_page instanceof BaseRecyclerFragment){
+							BaseRecyclerFragment page=(BaseRecyclerFragment) _page;
+							if(!page.loaded && !page.isDataLoading())
+								page.loadData();
+						}
 					}
 				});
 				return true;
@@ -234,6 +253,22 @@ public class ProfileFragment extends LoaderFragment{
 			actionButton.setText(R.string.edit_profile);
 		}else{
 			actionButton.setVisibility(View.GONE);
+		}
+
+		fields.clear();
+
+		AccountField joined=new AccountField();
+		joined.name=getString(R.string.profile_joined);
+		joined.parsedValue=joined.value=DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM).format(LocalDateTime.ofInstant(account.createdAt, ZoneId.systemDefault()));
+		fields.add(joined);
+
+		for(AccountField field:account.fields){
+			field.parsedValue=HtmlParser.parse(field.value, account.emojis);
+			fields.add(field);
+		}
+
+		if(aboutFragment!=null){
+			aboutFragment.setFields(fields);
 		}
 	}
 
@@ -334,11 +369,12 @@ public class ProfileFragment extends LoaderFragment{
 		}
 	}
 
-	private BaseRecyclerFragment<?> getFragmentForPage(int page){
+	private Fragment getFragmentForPage(int page){
 		return switch(page){
 			case 0 -> postsFragment;
 			case 1 -> postsWithRepliesFragment;
 			case 2 -> mediaFragment;
+			case 3 -> aboutFragment;
 			default -> throw new IllegalStateException();
 		};
 	}
@@ -363,6 +399,11 @@ public class ProfileFragment extends LoaderFragment{
 				case 0 -> postsFragment=AccountTimelineFragment.newInstance(accountID, account, GetAccountStatuses.Filter.DEFAULT, true);
 				case 1 -> postsWithRepliesFragment=AccountTimelineFragment.newInstance(accountID, account, GetAccountStatuses.Filter.INCLUDE_REPLIES, false);
 				case 2 -> mediaFragment=AccountTimelineFragment.newInstance(accountID, account, GetAccountStatuses.Filter.MEDIA, false);
+				case 3 -> {
+					aboutFragment=new ProfileAboutFragment();
+					aboutFragment.setFields(fields);
+					yield aboutFragment;
+				}
 				default -> throw new IllegalArgumentException();
 			};
 			getChildFragmentManager().beginTransaction().add(holder.itemView.getId(), fragment).commit();
@@ -370,7 +411,7 @@ public class ProfileFragment extends LoaderFragment{
 
 		@Override
 		public int getItemCount(){
-			return 3;
+			return 4;
 		}
 
 		@Override

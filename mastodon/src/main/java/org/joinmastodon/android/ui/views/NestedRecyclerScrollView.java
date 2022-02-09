@@ -52,7 +52,7 @@ public class NestedRecyclerScrollView extends CustomScrollView{
 	private boolean isScrolledToTop(RecyclerView rv) {
 		final LinearLayoutManager lm = (LinearLayoutManager) rv.getLayoutManager();
 		return lm.findFirstVisibleItemPosition() == 0
-				&& lm.findViewByPosition(0).getTop() == 0;
+				&& lm.findViewByPosition(0).getTop() == rv.getPaddingTop();
 	}
 
 	public void setScrollableChildSupplier(Supplier<RecyclerView> scrollableChildSupplier){

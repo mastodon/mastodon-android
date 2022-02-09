@@ -15,6 +15,7 @@
 		<item name="android:actionBarTheme">@style/Theme.Mastodon.Toolbar</item>
 		<item name="android:buttonStyle">@style/Widget.Mastodon.Button</item>
 		<item name="android:alertDialogTheme">@style/Theme.Mastodon.Dialog.Alert</item>
+		<item name="appkitBackDrawable">@drawable/ic_fluent_arrow_left_24_regular</item>
 	</style>
 
 	<style name="Theme.Mastodon.Toolbar" parent="android:ThemeOverlay.Material.ActionBar">
@@ -28,6 +29,10 @@
 		<item name="android:textColorSecondary">@color/gray_50</item>
 		<item name="android:drawableTint">@color/gray_50</item>
 		<item name="android:popupTheme">@style/Theme.Mastodon</item>
+		<item name="android:titleTextAppearance">@style/m3_title_medium</item>
+		<item name="android:titleTextColor">@color/gray_50</item>
+		<item name="android:subtitleTextAppearance">@style/m3_body_medium</item>
+		<item name="android:subtitleTextColor">@color/gray_50</item>
 	</style>
 
 	<style name="Widget.Mastodon.Button" parent="android:Widget.Material.Button">
@@ -44,20 +49,7 @@
 		<item name="android:dialogPreferredPadding">24dp</item>
 		<item name="android:windowBackground">@drawable/bg_alert</item>
 		<item name="android:colorBackground">@color/gray_100</item>
-		<item name="android:buttonBarStyle">@style/Widget.Mastodon.ButtonBar</item>
 		<item name="android:buttonBarButtonStyle">@style/Widget.Mastodon.ButtonBarButton</item>
-	</style>
-
-	<style name="Widget.Mastodon.ButtonBar" parent="android:Widget.Material.Light.ButtonBar.AlertDialog">
-<!--		<item name="android:layout_marginEnd">4dp</item>-->
-<!--		<item name="android:layout_marginStart">12dp</item>-->
-<!--		<item name="android:layout_marginTop">20dp</item>-->
-<!--		<item name="android:layout_marginBottom">20dp</item>-->
-
-<!--		<item name="android:paddingEnd">4dp</item>-->
-<!--		<item name="android:paddingStart">12dp</item>-->
-<!--		<item name="android:paddingTop">20dp</item>-->
-<!--		<item name="android:paddingBottom">20dp</item>-->
 	</style>
 
 	<style name="Widget.Mastodon.ButtonBarButton" parent="android:Widget.Material.Button.Borderless">
@@ -82,6 +74,11 @@
 		<item name="android:textColor">@color/text_primary</item>
 	</style>
 
+	<style name="m3_body_medium">
+		<item name="android:textSize">14dp</item>
+		<item name="android:textColor">@color/text_primary</item>
+	</style>
+
 	<style name="m3_title_medium">
 		<item name="android:fontFamily">sans-serif-medium</item>
 		<item name="android:textSize">16dp</item>
@@ -92,6 +89,13 @@
 		<item name="android:fontFamily">sans-serif-medium</item>
 		<item name="android:textSize">14dp</item>
 		<item name="android:textColor">@color/text_secondary</item>
+	</style>
+
+	<style name="m3_label_medium">
+		<item name="android:fontFamily">sans-serif-medium</item>
+		<item name="android:textSize">12dp</item>
+		<item name="android:textColor">@color/text_primary</item>
+		<item name="android:lineSpacingMultiplier">1.14</item>
 	</style>
 
 	<style name="m3_label_large">

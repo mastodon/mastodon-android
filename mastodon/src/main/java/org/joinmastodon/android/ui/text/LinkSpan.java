@@ -3,6 +3,9 @@ package org.joinmastodon.android.ui.text;
 import android.content.Context;
 import android.text.TextPaint;
 import android.text.style.CharacterStyle;
+import android.widget.Toast;
+
+import org.joinmastodon.android.ui.utils.UiUtils;
 
 public class LinkSpan extends CharacterStyle {
 
@@ -31,8 +34,10 @@ public class LinkSpan extends CharacterStyle {
 	}
 	
 	public void onClick(Context context){
-		if(listener!=null)
-			listener.onLinkClick(this);
+		switch(getType()){
+			case URL -> UiUtils.launchWebBrowser(context, link);
+			case HASHTAG, MENTION -> Toast.makeText(context, "Not implemented yet", Toast.LENGTH_SHORT).show();
+		}
 	}
 
 	public String getLink(){

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:orientation="vertical"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:background="@color/gray_50"
+	android:elevation="3dp"
+	android:outlineProvider="background"
+	android:padding="16dp">
+
+	<TextView
+		android:id="@+id/title"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:textAppearance="@style/m3_label_medium"
+		android:minHeight="16dp"
+		android:textAllCaps="true"
+		tools:text="Field title"/>
+
+	<org.joinmastodon.android.ui.views.LinkedTextView
+		android:id="@+id/value"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:textAppearance="@style/m3_body_large"
+		tools:text="Field value"/>
+
+</LinearLayout>

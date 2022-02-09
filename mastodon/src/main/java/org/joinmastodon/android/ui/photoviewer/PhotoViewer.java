@@ -323,6 +323,7 @@ public class PhotoViewer implements ZoomPanView.Listener{
 			params.height=item.getHeight();
 			wrap.setBackground(listener.getPhotoViewCurrentDrawable(getAbsoluteAdapterPosition()));
 			if(itemView.isAttachedToWindow()){
+				reset();
 				prepareAndStartPlayer();
 			}
 		}

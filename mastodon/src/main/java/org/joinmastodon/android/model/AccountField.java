@@ -2,6 +2,7 @@ package org.joinmastodon.android.model;
 
 import org.joinmastodon.android.api.RequiredField;
 import org.parceler.Parcel;
+import org.parceler.Transient;
 
 import java.time.Instant;
 
@@ -24,6 +25,8 @@ public class AccountField extends BaseModel{
 	 * Timestamp of when the server verified a URL value for a rel="me” link.
 	 */
 	public Instant verifiedAt;
+
+	public transient CharSequence parsedValue;
 
 	@Override
 	public String toString(){

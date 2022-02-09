@@ -22,7 +22,7 @@ import me.grishka.appkit.imageloader.requests.UrlImageLoaderRequest;
 import me.grishka.appkit.utils.BindableViewHolder;
 import me.grishka.appkit.utils.V;
 
-public class TextStatusDisplayItem extends StatusDisplayItem implements LinkSpan.OnLinkClickListener{
+public class TextStatusDisplayItem extends StatusDisplayItem{
 	private CharSequence text;
 	private ImageLoaderRequest[] emojiRequests;
 	private Fragment parentFragment;
@@ -36,10 +36,6 @@ public class TextStatusDisplayItem extends StatusDisplayItem implements LinkSpan
 			int emojiSize=V.dp(20);
 			for(int i=0; i<emojiSpans.length; i++){
 				emojiRequests[i]=new UrlImageLoaderRequest(emojiSpans[i].emoji.url, emojiSize, emojiSize);
-			}
-			LinkSpan[] linkSpans=((Spanned) text).getSpans(0, text.length(), LinkSpan.class);
-			for(LinkSpan span:linkSpans){
-				span.setListener(this);
 			}
 		}else{
 			emojiRequests=new ImageLoaderRequest[0];
@@ -59,14 +55,6 @@ public class TextStatusDisplayItem extends StatusDisplayItem implements LinkSpan
 	@Override
 	public ImageLoaderRequest getImageRequest(int index){
 		return emojiRequests[index];
-	}
-
-	@Override
-	public void onLinkClick(LinkSpan span){
-		switch(span.getType()){
-			case URL -> UiUtils.launchWebBrowser(parentFragment.getActivity(), span.getLink());
-			case HASHTAG, MENTION -> Toast.makeText(parentFragment.getActivity(), "Not implemented yet", Toast.LENGTH_SHORT).show();
-		}
 	}
 
 	public static class Holder extends StatusDisplayItem.Holder<TextStatusDisplayItem> implements ImageLoaderViewHolder{
