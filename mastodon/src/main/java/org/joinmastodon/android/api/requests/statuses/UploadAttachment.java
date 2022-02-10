@@ -9,6 +9,7 @@ import org.joinmastodon.android.api.ContentUriRequestBody;
 import org.joinmastodon.android.api.MastodonAPIRequest;
 import org.joinmastodon.android.api.ProgressListener;
 import org.joinmastodon.android.model.Attachment;
+import org.joinmastodon.android.ui.utils.UiUtils;
 
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
@@ -29,16 +30,9 @@ public class UploadAttachment extends MastodonAPIRequest<Attachment>{
 
 	@Override
 	public RequestBody getRequestBody(){
-		String fileName;
-		try(Cursor cursor=MastodonApp.context.getContentResolver().query(uri, new String[]{OpenableColumns.DISPLAY_NAME}, null, null, null)){
-			cursor.moveToFirst();
-			fileName=cursor.getString(0);
-		}
-		if(fileName==null)
-			fileName=uri.getLastPathSegment();
 		return new MultipartBody.Builder()
 				.setType(MultipartBody.FORM)
-				.addFormDataPart("file", fileName, new ContentUriRequestBody(uri, progressListener))
+				.addFormDataPart("file", UiUtils.getFileName(uri), new ContentUriRequestBody(uri, progressListener))
 				.build();
 	}
 }

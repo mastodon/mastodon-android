@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+	<item>
+		<shape android:tint="@color/gray_800">
+			<solid android:color="#CC000000"/>
+		</shape>
+	</item>
+	<item android:drawable="@drawable/ic_fluent_image_edit_24_regular"
+		android:width="44dp"
+		android:height="44dp"
+		android:gravity="center"/>
+</layer-list>

@@ -45,10 +45,16 @@ public class ContentUriRequestBody extends RequestBody{
 
 	@Override
 	public void writeTo(BufferedSink sink) throws IOException{
-		try(Source source=Okio.source(MastodonApp.context.getContentResolver().openInputStream(uri))){
-			BufferedSink wrappedSink=Okio.buffer(new CountingSink(sink));
-			wrappedSink.writeAll(source);
-			wrappedSink.flush();
+		if(progressListener!=null){
+			try(Source source=Okio.source(MastodonApp.context.getContentResolver().openInputStream(uri))){
+				BufferedSink wrappedSink=Okio.buffer(new CountingSink(sink));
+				wrappedSink.writeAll(source);
+				wrappedSink.flush();
+			}
+		}else{
+			try(Source source=Okio.source(MastodonApp.context.getContentResolver().openInputStream(uri))){
+				sink.writeAll(source);
+			}
 		}
 	}
 

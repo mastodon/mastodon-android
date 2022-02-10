@@ -311,6 +311,13 @@ public class AccountSessionManager{
 		return r==null ? Collections.emptyList() : r;
 	}
 
+	public void updateAccountInfo(String id, Account account){
+		AccountSession session=getAccount(id);
+		session.self=account;
+		session.infoLastUpdated=System.currentTimeMillis();
+		writeAccountsFile();
+	}
+
 	private static class SessionsStorageWrapper{
 		public List<AccountSession> accounts;
 	}

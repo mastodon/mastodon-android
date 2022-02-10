@@ -1,5 +1,8 @@
 package org.joinmastodon.android.api;
 
+import android.app.Activity;
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.net.Uri;
 import android.util.Pair;
 
@@ -17,6 +20,7 @@ import java.util.List;
 import java.util.Map;
 
 import androidx.annotation.CallSuper;
+import androidx.annotation.StringRes;
 import me.grishka.appkit.api.APIRequest;
 import me.grishka.appkit.api.Callback;
 import okhttp3.Call;
@@ -36,6 +40,7 @@ public abstract class MastodonAPIRequest<T> extends APIRequest<T>{
 	Token token;
 	boolean canceled;
 	Map<String, String> headers;
+	private ProgressDialog progressDialog;
 
 	public MastodonAPIRequest(HttpMethod method, String path, Class<T> respClass){
 		this.path=path;
@@ -79,6 +84,17 @@ public abstract class MastodonAPIRequest<T> extends APIRequest<T>{
 		this.domain=domain;
 		this.token=token;
 		AccountSessionManager.getInstance().getUnauthenticatedApiController().submitRequest(this);
+		return this;
+	}
+
+	public MastodonAPIRequest<T> wrapProgress(Activity activity, @StringRes int message, boolean cancelable){
+		progressDialog=new ProgressDialog(activity);
+		progressDialog.setMessage(activity.getString(message));
+		progressDialog.setCancelable(cancelable);
+		if(cancelable){
+			progressDialog.setOnCancelListener(dialog->cancel());
+		}
+		progressDialog.show();
 		return this;
 	}
 
@@ -149,10 +165,18 @@ public abstract class MastodonAPIRequest<T> extends APIRequest<T>{
 		invokeSuccessCallback(resp);
 	}
 
+	@Override
+	protected void onRequestDone(){
+		if(progressDialog!=null){
+			progressDialog.dismiss();
+		}
+	}
+
 	public enum HttpMethod{
 		GET,
 		POST,
 		PUT,
-		DELETE
+		DELETE,
+		PATCH
 	}
 }

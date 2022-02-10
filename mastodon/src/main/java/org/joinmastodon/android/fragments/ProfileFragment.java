@@ -1,12 +1,18 @@
 package org.joinmastodon.android.fragments;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.app.Fragment;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Outline;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -17,14 +23,18 @@ import android.view.ViewOutlineProvider;
 import android.view.ViewTreeObserver;
 import android.view.WindowInsets;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toolbar;
 
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.requests.accounts.GetAccountRelationships;
 import org.joinmastodon.android.api.requests.accounts.GetAccountStatuses;
+import org.joinmastodon.android.api.requests.accounts.GetOwnAccount;
+import org.joinmastodon.android.api.requests.accounts.UpdateAccountCredentials;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.AccountField;
@@ -38,7 +48,6 @@ import org.joinmastodon.android.ui.views.CoverImageView;
 import org.joinmastodon.android.ui.views.NestedRecyclerScrollView;
 import org.parceler.Parcels;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
@@ -55,11 +64,15 @@ import me.grishka.appkit.api.Callback;
 import me.grishka.appkit.api.ErrorResponse;
 import me.grishka.appkit.fragments.BaseRecyclerFragment;
 import me.grishka.appkit.fragments.LoaderFragment;
+import me.grishka.appkit.fragments.OnBackPressedListener;
 import me.grishka.appkit.imageloader.ViewImageLoader;
 import me.grishka.appkit.imageloader.requests.UrlImageLoaderRequest;
+import me.grishka.appkit.utils.CubicBezierInterpolator;
 import me.grishka.appkit.utils.V;
 
-public class ProfileFragment extends LoaderFragment{
+public class ProfileFragment extends LoaderFragment implements OnBackPressedListener{
+	private static final int AVATAR_RESULT=722;
+	private static final int COVER_RESULT=343;
 
 	private ImageView avatar;
 	private CoverImageView cover;
@@ -74,6 +87,8 @@ public class ProfileFragment extends LoaderFragment{
 	private SwipeRefreshLayout refreshLayout;
 	private CoverOverlayGradientDrawable coverGradient=new CoverOverlayGradientDrawable();
 	private float titleTransY;
+	private View postsBtn, followersBtn, followingBtn;
+	private EditText nameEdit, bioEdit;
 
 	private Account account;
 	private String accountID;
@@ -81,6 +96,9 @@ public class ProfileFragment extends LoaderFragment{
 	private int statusBarHeight;
 	private boolean isOwnProfile;
 	private ArrayList<AccountField> fields=new ArrayList<>();
+
+	private boolean isInEditMode;
+	private Uri editNewAvatar, editNewCover;
 
 	public ProfileFragment(){
 		super(R.layout.loader_fragment_overlay_toolbar);
@@ -107,15 +125,20 @@ public class ProfileFragment extends LoaderFragment{
 		bio=content.findViewById(R.id.bio);
 		followersCount=content.findViewById(R.id.followers_count);
 		followersLabel=content.findViewById(R.id.followers_label);
+		followersBtn=content.findViewById(R.id.followers_btn);
 		followingCount=content.findViewById(R.id.following_count);
 		followingLabel=content.findViewById(R.id.following_label);
+		followingBtn=content.findViewById(R.id.following_btn);
 		postsCount=content.findViewById(R.id.posts_count);
 		postsLabel=content.findViewById(R.id.posts_label);
+		postsBtn=content.findViewById(R.id.posts_btn);
 		actionButton=content.findViewById(R.id.profile_action_btn);
 		pager=content.findViewById(R.id.pager);
 		scrollView=content.findViewById(R.id.scroller);
 		tabbar=content.findViewById(R.id.tabbar);
 		refreshLayout=content.findViewById(R.id.refresh_layout);
+		nameEdit=content.findViewById(R.id.name_edit);
+		bioEdit=content.findViewById(R.id.bio_edit);
 
 		avatar.setOutlineProvider(new ViewOutlineProvider(){
 			@Override
@@ -173,6 +196,10 @@ public class ProfileFragment extends LoaderFragment{
 				outline.setEmpty();
 			}
 		});
+
+		actionButton.setOnClickListener(this::onActionButtonClick);
+		avatar.setOnClickListener(this::onAvatarClick);
+		cover.setOnClickListener(this::onCoverClick);
 
 		return sizeWrapper;
 	}
@@ -287,6 +314,19 @@ public class ProfileFragment extends LoaderFragment{
 
 	@Override
 	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater){
+		if(isOwnProfile && isInEditMode){
+			Button cancelButton=new Button(getActivity(), null, 0, R.style.Widget_Mastodon_Button_Secondary);
+			cancelButton.setText(R.string.cancel);
+			cancelButton.setOnClickListener(v->exitEditMode());
+			FrameLayout wrap=new FrameLayout(getActivity());
+			wrap.addView(cancelButton, new FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, Gravity.TOP|Gravity.LEFT));
+			wrap.setPadding(V.dp(16), V.dp(4), V.dp(16), V.dp(8));
+			wrap.setClipToPadding(false);
+			MenuItem item=menu.add(R.string.cancel);
+			item.setActionView(wrap);
+			item.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+			return;
+		}
 		if(relationship==null)
 			return;
 		inflater.inflate(R.menu.profile, menu);
@@ -381,6 +421,179 @@ public class ProfileFragment extends LoaderFragment{
 
 	private RecyclerView getScrollableRecyclerView(){
 		return getFragmentForPage(pager.getCurrentItem()).getView().findViewById(R.id.list);
+	}
+
+	private void onActionButtonClick(View v){
+		if(isOwnProfile){
+			if(!isInEditMode)
+				loadAccountInfoAndEnterEditMode();
+			else
+				saveAndExitEditMode();
+		}
+	}
+
+	private void loadAccountInfoAndEnterEditMode(){
+		new GetOwnAccount()
+				.setCallback(new Callback<>(){
+					@Override
+					public void onSuccess(Account result){
+						enterEditMode(result);
+					}
+
+					@Override
+					public void onError(ErrorResponse error){
+						error.showToast(getActivity());
+					}
+				})
+				.wrapProgress(getActivity(), R.string.loading, true)
+				.exec(accountID);
+	}
+
+	private void enterEditMode(Account account){
+		if(isInEditMode)
+			throw new IllegalStateException();
+		isInEditMode=true;
+		invalidateOptionsMenu();
+		pager.setUserInputEnabled(false);
+		actionButton.setText(R.string.done);
+		pager.setCurrentItem(3);
+		ArrayList<Animator> animators=new ArrayList<>();
+		for(int i=0;i<3;i++){
+			animators.add(ObjectAnimator.ofFloat(tabbar.getTabAt(i).view, View.ALPHA, .3f));
+			tabbar.getTabAt(i).view.setEnabled(false);
+		}
+		Drawable overlay=getResources().getDrawable(R.drawable.edit_avatar_overlay).mutate();
+		avatar.setForeground(overlay);
+		animators.add(ObjectAnimator.ofInt(overlay, "alpha", 0, 255));
+
+		nameEdit.setVisibility(View.VISIBLE);
+		nameEdit.setText(account.displayName);
+		RelativeLayout.LayoutParams lp=(RelativeLayout.LayoutParams) username.getLayoutParams();
+		lp.addRule(RelativeLayout.BELOW, R.id.name_edit);
+		username.getParent().requestLayout();
+		animators.add(ObjectAnimator.ofFloat(nameEdit, View.ALPHA, 0f, 1f));
+
+		bioEdit.setVisibility(View.VISIBLE);
+		bioEdit.setText(account.source.note);
+		animators.add(ObjectAnimator.ofFloat(bioEdit, View.ALPHA, 0f, 1f));
+		animators.add(ObjectAnimator.ofFloat(bio, View.ALPHA, 0f));
+
+		animators.add(ObjectAnimator.ofFloat(postsBtn, View.ALPHA, .3f));
+		animators.add(ObjectAnimator.ofFloat(followersBtn, View.ALPHA, .3f));
+		animators.add(ObjectAnimator.ofFloat(followingBtn, View.ALPHA, .3f));
+
+		AnimatorSet set=new AnimatorSet();
+		set.playTogether(animators);
+		set.setDuration(300);
+		set.setInterpolator(CubicBezierInterpolator.DEFAULT);
+		set.start();
+
+		aboutFragment.enterEditMode(account.source.fields);
+	}
+
+	private void exitEditMode(){
+		if(!isInEditMode)
+			throw new IllegalStateException();
+		isInEditMode=false;
+
+		invalidateOptionsMenu();
+		ArrayList<Animator> animators=new ArrayList<>();
+		actionButton.setText(R.string.edit_profile);
+		for(int i=0;i<3;i++){
+			animators.add(ObjectAnimator.ofFloat(tabbar.getTabAt(i).view, View.ALPHA, 1f));
+		}
+		animators.add(ObjectAnimator.ofInt(avatar.getForeground(), "alpha", 0));
+		animators.add(ObjectAnimator.ofFloat(nameEdit, View.ALPHA, 0f));
+		animators.add(ObjectAnimator.ofFloat(bioEdit, View.ALPHA, 0f));
+		animators.add(ObjectAnimator.ofFloat(bio, View.ALPHA, 1f));
+		animators.add(ObjectAnimator.ofFloat(postsBtn, View.ALPHA, 1f));
+		animators.add(ObjectAnimator.ofFloat(followersBtn, View.ALPHA, 1f));
+		animators.add(ObjectAnimator.ofFloat(followingBtn, View.ALPHA, 1f));
+
+		AnimatorSet set=new AnimatorSet();
+		set.playTogether(animators);
+		set.setDuration(200);
+		set.setInterpolator(CubicBezierInterpolator.DEFAULT);
+		set.addListener(new AnimatorListenerAdapter(){
+			@Override
+			public void onAnimationEnd(Animator animation){
+				for(int i=0;i<3;i++){
+					tabbar.getTabAt(i).view.setEnabled(true);
+				}
+				pager.setUserInputEnabled(true);
+				nameEdit.setVisibility(View.GONE);
+				bioEdit.setVisibility(View.GONE);
+				RelativeLayout.LayoutParams lp=(RelativeLayout.LayoutParams) username.getLayoutParams();
+				lp.addRule(RelativeLayout.BELOW, R.id.name);
+				username.getParent().requestLayout();
+				avatar.setForeground(null);
+			}
+		});
+		set.start();
+
+		bindHeaderView();
+	}
+
+	private void saveAndExitEditMode(){
+		if(!isInEditMode)
+			throw new IllegalStateException();
+		new UpdateAccountCredentials(nameEdit.getText().toString(), bioEdit.getText().toString(), editNewAvatar, editNewCover, aboutFragment.getFields())
+				.setCallback(new Callback<>(){
+					@Override
+					public void onSuccess(Account result){
+						account=result;
+						AccountSessionManager.getInstance().updateAccountInfo(accountID, account);
+						exitEditMode();
+					}
+
+					@Override
+					public void onError(ErrorResponse error){
+						error.showToast(getActivity());
+					}
+				})
+				.wrapProgress(getActivity(), R.string.saving, false)
+				.exec(accountID);
+	}
+
+	@Override
+	public boolean onBackPressed(){
+		if(isInEditMode){
+			exitEditMode();
+			return true;
+		}
+		return false;
+	}
+
+	private void onAvatarClick(View v){
+		if(isInEditMode){
+			startImagePicker(AVATAR_RESULT);
+		}
+	}
+
+	private void onCoverClick(View v){
+		if(isInEditMode){
+			startImagePicker(COVER_RESULT);
+		}
+	}
+
+	private void startImagePicker(int requestCode){
+		Intent intent=new Intent(Intent.ACTION_GET_CONTENT);
+		intent.setType("image/*");
+		intent.addCategory(Intent.CATEGORY_OPENABLE);
+		startActivityForResult(intent, requestCode);
+	}
+
+	@Override
+	public void onActivityResult(int requestCode, int resultCode, Intent data){
+		if(resultCode==Activity.RESULT_OK){
+			if(requestCode==AVATAR_RESULT){
+				editNewAvatar=data.getData();
+				ViewImageLoader.load(avatar, null, new UrlImageLoaderRequest(editNewAvatar, V.dp(100), V.dp(100)));
+			}else if(requestCode==COVER_RESULT){
+				editNewCover=data.getData();
+				ViewImageLoader.load(cover, null, new UrlImageLoaderRequest(editNewCover, V.dp(1000), V.dp(1000)));
+			}
+		}
 	}
 
 	private class ProfilePagerAdapter extends RecyclerView.Adapter<SimpleViewHolder>{

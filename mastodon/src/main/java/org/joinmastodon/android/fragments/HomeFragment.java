@@ -24,12 +24,13 @@ import androidx.annotation.Nullable;
 import me.grishka.appkit.FragmentStackActivity;
 import me.grishka.appkit.fragments.AppKitFragment;
 import me.grishka.appkit.fragments.LoaderFragment;
+import me.grishka.appkit.fragments.OnBackPressedListener;
 import me.grishka.appkit.imageloader.ViewImageLoader;
 import me.grishka.appkit.imageloader.requests.UrlImageLoaderRequest;
 import me.grishka.appkit.utils.V;
 import me.grishka.appkit.views.FragmentRootLinearLayout;
 
-public class HomeFragment extends AppKitFragment{
+public class HomeFragment extends AppKitFragment implements OnBackPressedListener{
 	private FragmentRootLinearLayout content;
 	private HomeTimelineFragment homeTimelineFragment;
 	private NotificationsFragment notificationsFragment;
@@ -154,5 +155,12 @@ public class HomeFragment extends AppKitFragment{
 		}
 		currentTab=tab;
 		((FragmentStackActivity)getActivity()).invalidateSystemBarColors(this);
+	}
+
+	@Override
+	public boolean onBackPressed(){
+		if(currentTab==R.id.tab_profile)
+			return profileFragment.onBackPressed();
+		return false;
 	}
 }

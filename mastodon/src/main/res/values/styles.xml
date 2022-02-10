@@ -44,6 +44,10 @@
 		<item name="android:minWidth">0px</item>
 	</style>
 
+	<style name="Widget.Mastodon.Button.Secondary">
+		<item name="android:background">@drawable/bg_button_secondary</item>
+	</style>
+
 	<style name="Theme.Mastodon.Dialog.Alert" parent="android:Theme.Material.Light.Dialog.Alert">
 		<item name="android:windowTitleStyle">@style/alert_title</item>
 		<item name="android:dialogPreferredPadding">24dp</item>

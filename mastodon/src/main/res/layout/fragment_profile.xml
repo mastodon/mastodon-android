@@ -45,6 +45,7 @@
 					android:layout_alignParentStart="true"
 					android:layout_marginStart="16dp"
 					android:layout_marginTop="-38dp"
+					android:scaleType="centerCrop"
 					tools:src="#0f0" />
 
 				<LinearLayout
@@ -101,25 +102,27 @@
 					android:id="@+id/posts_btn"
 					android:layout_width="wrap_content"
 					android:layout_height="56dp"
-					android:layout_toStartOf="@id/followers_btn"
 					android:layout_below="@id/cover"
 					android:layout_marginTop="12dp"
 					android:layout_marginEnd="12dp"
-					android:padding="4dp"
+					android:layout_toStartOf="@id/followers_btn"
+					android:gravity="center_horizontal"
 					android:orientation="vertical"
-					android:gravity="center_horizontal">
+					android:padding="4dp">
+
 					<TextView
 						android:id="@+id/posts_count"
 						android:layout_width="wrap_content"
 						android:layout_height="wrap_content"
 						android:textAppearance="@style/m3_title_large"
-						tools:text="123"/>
+						tools:text="123" />
+
 					<TextView
 						android:id="@+id/posts_label"
 						android:layout_width="wrap_content"
 						android:layout_height="wrap_content"
 						android:textAppearance="@style/m3_title_small"
-						tools:text="following"/>
+						tools:text="following" />
 				</LinearLayout>
 
 				<Button
@@ -137,11 +140,11 @@
 					android:layout_height="wrap_content"
 					android:layout_below="@id/avatar"
 					android:layout_alignParentStart="true"
-					android:layout_toStartOf="@id/profile_action_btn"
 					android:layout_marginStart="16dp"
 					android:layout_marginTop="16dp"
+					android:layout_toStartOf="@id/profile_action_btn"
 					android:textAppearance="@style/m3_headline_small"
-					tools:text="Eugen"/>
+					tools:text="Eugen" />
 
 				<TextView
 					android:id="@+id/username"
@@ -163,6 +166,36 @@
 					android:layout_marginTop="8dp"
 					android:layout_marginRight="16dp"
 					android:textAppearance="@style/m3_body_large"
+					tools:text="Founder, CEO and lead developer @Mastodon, Germany." />
+
+				<EditText
+					android:id="@+id/name_edit"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_below="@id/avatar"
+					android:layout_alignParentStart="true"
+					android:layout_marginStart="16dp"
+					android:layout_marginTop="16dp"
+					android:layout_toStartOf="@id/profile_action_btn"
+					android:textAppearance="@style/m3_body_large"
+					android:background="@drawable/edit_text_border"
+					android:inputType="textPersonName|textCapWords"
+					android:visibility="gone"
+					tools:text="Eugen" />
+
+				<EditText
+					android:id="@+id/bio_edit"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_below="@id/username"
+					android:layout_marginLeft="16dp"
+					android:layout_marginTop="8dp"
+					android:layout_marginRight="16dp"
+					android:textAppearance="@style/m3_body_large"
+					android:background="@null"
+					android:padding="0px"
+					android:inputType="textMultiLine|textCapSentences"
+					android:visibility="gone"
 					tools:text="Founder, CEO and lead developer @Mastodon, Germany." />
 
 			</RelativeLayout>

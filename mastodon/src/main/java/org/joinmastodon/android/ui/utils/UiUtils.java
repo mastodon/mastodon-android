@@ -3,13 +3,16 @@ package org.joinmastodon.android.ui.utils;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.ColorStateList;
+import android.database.Cursor;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Handler;
 import android.os.Looper;
+import android.provider.OpenableColumns;
 import android.util.Log;
 import android.widget.TextView;
 
+import org.joinmastodon.android.MastodonApp;
 import org.joinmastodon.android.R;
 
 import java.time.Instant;
@@ -79,5 +82,15 @@ public class UiUtils{
 	/** Linear interpolation between {@code startValue} and {@code endValue} by {@code fraction}. */
 	public static int lerp(int startValue, int endValue, float fraction) {
 		return startValue + Math.round(fraction * (endValue - startValue));
+	}
+
+	public static String getFileName(Uri uri){
+		try(Cursor cursor=MastodonApp.context.getContentResolver().query(uri, new String[]{OpenableColumns.DISPLAY_NAME}, null, null, null)){
+			cursor.moveToFirst();
+			String name=cursor.getString(0);
+			if(name!=null)
+				return name;
+		}
+		return uri.getLastPathSegment();
 	}
 }
