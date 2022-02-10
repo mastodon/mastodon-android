@@ -10,6 +10,8 @@ import org.joinmastodon.android.model.Emoji;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import me.grishka.appkit.imageloader.requests.UrlImageLoaderRequest;
+import me.grishka.appkit.utils.V;
 
 public class CustomEmojiSpan extends ReplacementSpan{
 	public final Emoji emoji;
@@ -47,5 +49,10 @@ public class CustomEmojiSpan extends ReplacementSpan{
 
 	public void setDrawable(Drawable drawable){
 		this.drawable=drawable;
+	}
+
+	public UrlImageLoaderRequest createImageLoaderRequest(){
+		int size=V.dp(20);
+		return new UrlImageLoaderRequest(emoji.url, size, size);
 	}
 }

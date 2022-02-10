@@ -5,6 +5,7 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Outline;
 import android.graphics.Paint;
+import android.graphics.drawable.Drawable;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.RoundRectShape;
 import android.os.Bundle;
@@ -17,6 +18,7 @@ import android.widget.TextView;
 
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.model.AccountField;
+import org.joinmastodon.android.ui.text.CustomEmojiSpan;
 import org.joinmastodon.android.ui.utils.SimpleTextWatcher;
 import org.joinmastodon.android.ui.views.LinkedTextView;
 
@@ -28,7 +30,11 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import me.grishka.appkit.imageloader.ImageLoaderRecyclerAdapter;
+import me.grishka.appkit.imageloader.ImageLoaderViewHolder;
 import me.grishka.appkit.imageloader.ListImageLoaderWrapper;
+import me.grishka.appkit.imageloader.RecyclerViewDelegate;
+import me.grishka.appkit.imageloader.requests.ImageLoaderRequest;
 import me.grishka.appkit.utils.BindableViewHolder;
 import me.grishka.appkit.utils.CubicBezierInterpolator;
 import me.grishka.appkit.utils.V;
@@ -44,6 +50,7 @@ public class ProfileAboutFragment extends Fragment{
 	private boolean isInEditMode;
 	private ItemTouchHelper dragHelper=new ItemTouchHelper(new ReorderCallback());
 	private RecyclerView.ViewHolder draggedViewHolder;
+	private ListImageLoaderWrapper imgLoader;
 
 	public void setFields(List<AccountField> fields){
 		this.fields=fields;
@@ -61,6 +68,7 @@ public class ProfileAboutFragment extends Fragment{
 		list=new UsableRecyclerView(getActivity());
 		list.setId(R.id.list);
 		list.setLayoutManager(new LinearLayoutManager(getActivity()));
+		imgLoader=new ListImageLoaderWrapper(getActivity(), list, new RecyclerViewDelegate(list), null);
 		list.setAdapter(adapter=new AboutAdapter());
 		int pad=V.dp(16);
 		list.setPadding(pad, pad, pad, pad);
@@ -95,9 +103,9 @@ public class ProfileAboutFragment extends Fragment{
 		return fields;
 	}
 
-	private class AboutAdapter extends UsableRecyclerView.Adapter<BaseViewHolder>{
+	private class AboutAdapter extends UsableRecyclerView.Adapter<BaseViewHolder> implements ImageLoaderRecyclerAdapter{
 		public AboutAdapter(){
-			super(null);
+			super(imgLoader);
 		}
 
 		@NonNull
@@ -139,6 +147,16 @@ public class ProfileAboutFragment extends Fragment{
 			}
 			return 0;
 		}
+
+		@Override
+		public int getImageCountForItem(int position){
+			return isInEditMode || fields.get(position).emojiRequests==null ? 0 : fields.get(position).emojiRequests.size();
+		}
+
+		@Override
+		public ImageLoaderRequest getImageRequest(int position, int image){
+			return fields.get(position).emojiRequests.get(image);
+		}
 	}
 
 	private abstract class BaseViewHolder extends BindableViewHolder<AccountField>{
@@ -164,7 +182,7 @@ public class ProfileAboutFragment extends Fragment{
 		}
 	}
 
-	private class AboutViewHolder extends BaseViewHolder{
+	private class AboutViewHolder extends BaseViewHolder implements ImageLoaderViewHolder{
 		private TextView title;
 		private LinkedTextView value;
 
@@ -177,8 +195,21 @@ public class ProfileAboutFragment extends Fragment{
 		@Override
 		public void onBind(AccountField item){
 			super.onBind(item);
-			title.setText(item.name);
+			title.setText(item.parsedName);
 			value.setText(item.parsedValue);
+		}
+
+		@Override
+		public void setImage(int index, Drawable image){
+			CustomEmojiSpan span=index>=item.nameEmojis.length ? item.valueEmojis[index-item.nameEmojis.length] : item.nameEmojis[index];
+			span.setDrawable(image);
+			title.invalidate();
+			value.invalidate();
+		}
+
+		@Override
+		public void clearImage(int index){
+			setImage(index, null);
 		}
 	}
 

@@ -12,6 +12,7 @@ import android.graphics.Outline;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.SpannableStringBuilder;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -42,6 +43,7 @@ import org.joinmastodon.android.model.Relationship;
 import org.joinmastodon.android.ui.drawables.CoverOverlayGradientDrawable;
 import org.joinmastodon.android.ui.tabs.TabLayout;
 import org.joinmastodon.android.ui.tabs.TabLayoutMediator;
+import org.joinmastodon.android.ui.text.CustomEmojiSpan;
 import org.joinmastodon.android.ui.text.HtmlParser;
 import org.joinmastodon.android.ui.utils.UiUtils;
 import org.joinmastodon.android.ui.views.CoverImageView;
@@ -266,7 +268,10 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 		setSubtitle(getResources().getQuantityString(R.plurals.x_posts, account.statusesCount, account.statusesCount));
 		ViewImageLoader.load(avatar, null, new UrlImageLoaderRequest(account.avatar, V.dp(100), V.dp(100)));
 		ViewImageLoader.load(cover, null, new UrlImageLoaderRequest(account.header, 1000, 1000));
-		name.setText(account.displayName);
+		SpannableStringBuilder ssb=new SpannableStringBuilder(account.displayName);
+		HtmlParser.parseCustomEmoji(ssb, account.emojis);
+		name.setText(ssb);
+		setTitle(ssb);
 		username.setText('@'+account.acct);
 		bio.setText(HtmlParser.parse(account.note, account.emojis));
 		followersCount.setText(UiUtils.abbreviateNumber(account.followersCount));
@@ -275,6 +280,9 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 		followersLabel.setText(getResources().getQuantityString(R.plurals.followers, account.followersCount));
 		followingLabel.setText(getResources().getQuantityString(R.plurals.following, account.followingCount));
 		postsLabel.setText(getResources().getQuantityString(R.plurals.posts, account.statusesCount));
+
+		UiUtils.loadCustomEmojiInTextView(name);
+		UiUtils.loadCustomEmojiInTextView(bio);
 
 		if(AccountSessionManager.getInstance().isSelf(accountID, account)){
 			actionButton.setText(R.string.edit_profile);
@@ -285,12 +293,24 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 		fields.clear();
 
 		AccountField joined=new AccountField();
-		joined.name=getString(R.string.profile_joined);
+		joined.parsedName=joined.name=getString(R.string.profile_joined);
 		joined.parsedValue=joined.value=DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM).format(LocalDateTime.ofInstant(account.createdAt, ZoneId.systemDefault()));
 		fields.add(joined);
 
 		for(AccountField field:account.fields){
-			field.parsedValue=HtmlParser.parse(field.value, account.emojis);
+			field.parsedValue=ssb=HtmlParser.parse(field.value, account.emojis);
+			field.valueEmojis=ssb.getSpans(0, ssb.length(), CustomEmojiSpan.class);
+			ssb=new SpannableStringBuilder(field.name);
+			HtmlParser.parseCustomEmoji(ssb, account.emojis);
+			field.parsedName=ssb;
+			field.nameEmojis=ssb.getSpans(0, ssb.length(), CustomEmojiSpan.class);
+			field.emojiRequests=new ArrayList<>(field.nameEmojis.length+field.valueEmojis.length);
+			for(CustomEmojiSpan span:field.nameEmojis){
+				field.emojiRequests.add(span.createImageLoaderRequest());
+			}
+			for(CustomEmojiSpan span:field.valueEmojis){
+				field.emojiRequests.add(span.createImageLoaderRequest());
+			}
 			fields.add(field);
 		}
 

@@ -6,6 +6,8 @@ import android.graphics.Outline;
 import android.graphics.drawable.Animatable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.text.SpannableStringBuilder;
+import android.text.Spanned;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewOutlineProvider;
@@ -16,6 +18,8 @@ import org.joinmastodon.android.R;
 import org.joinmastodon.android.fragments.BaseStatusListFragment;
 import org.joinmastodon.android.fragments.ProfileFragment;
 import org.joinmastodon.android.model.Account;
+import org.joinmastodon.android.ui.text.CustomEmojiSpan;
+import org.joinmastodon.android.ui.text.HtmlParser;
 import org.joinmastodon.android.ui.utils.UiUtils;
 import org.parceler.Parcels;
 
@@ -34,6 +38,9 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 	private ImageLoaderRequest avaRequest;
 	private Fragment parentFragment;
 	private String accountID;
+	private ImageLoaderRequest[] emojiRequests;
+	private CustomEmojiSpan[] emojiSpans;
+	private SpannableStringBuilder parsedName;
 
 	public HeaderStatusDisplayItem(String parentID, Account user, Instant createdAt, BaseStatusListFragment parentFragment, String accountID){
 		super(parentID, parentFragment);
@@ -42,6 +49,13 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 		avaRequest=new UrlImageLoaderRequest(user.avatar);
 		this.parentFragment=parentFragment;
 		this.accountID=accountID;
+		parsedName=new SpannableStringBuilder(user.displayName);
+		HtmlParser.parseCustomEmoji(parsedName, user.emojis);
+		emojiSpans=parsedName.getSpans(0, parsedName.length(), CustomEmojiSpan.class);
+		emojiRequests=new ImageLoaderRequest[emojiSpans.length];
+		for(int i=0; i<emojiSpans.length; i++){
+			emojiRequests[i]=emojiSpans[i].createImageLoaderRequest();
+		}
 	}
 
 	@Override
@@ -51,11 +65,14 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 
 	@Override
 	public int getImageCount(){
-		return 1;
+		return 1+emojiRequests.length;
 	}
 
 	@Override
 	public ImageLoaderRequest getImageRequest(int index){
+		if(index>0){
+			return emojiRequests[index-1];
+		}
 		return avaRequest;
 	}
 
@@ -85,21 +102,25 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 
 		@Override
 		public void onBind(HeaderStatusDisplayItem item){
-			name.setText(item.user.displayName);
+			name.setText(item.parsedName);
 			username.setText('@'+item.user.acct);
 			timestamp.setText(UiUtils.formatRelativeTimestamp(itemView.getContext(), item.createdAt));
 		}
 
 		@Override
 		public void setImage(int index, Drawable drawable){
-			avatar.setImageDrawable(drawable);
+			if(index>0){
+				item.emojiSpans[index-1].setDrawable(drawable);
+			}else{
+				avatar.setImageDrawable(drawable);
+			}
 			if(drawable instanceof Animatable)
 				((Animatable) drawable).start();
 		}
 
 		@Override
 		public void clearImage(int index){
-			avatar.setImageBitmap(null);
+			setImage(index, null);
 		}
 
 		private void onAvaClick(View v){

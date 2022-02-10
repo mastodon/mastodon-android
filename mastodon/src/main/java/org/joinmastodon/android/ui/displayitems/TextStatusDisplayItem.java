@@ -33,9 +33,8 @@ public class TextStatusDisplayItem extends StatusDisplayItem{
 		if(text instanceof Spanned){
 			CustomEmojiSpan[] emojiSpans=((Spanned) text).getSpans(0, text.length(), CustomEmojiSpan.class);
 			emojiRequests=new ImageLoaderRequest[emojiSpans.length];
-			int emojiSize=V.dp(20);
 			for(int i=0; i<emojiSpans.length; i++){
-				emojiRequests[i]=new UrlImageLoaderRequest(emojiSpans[i].emoji.url, emojiSize, emojiSize);
+				emojiRequests[i]=emojiSpans[i].createImageLoaderRequest();
 			}
 		}else{
 			emojiRequests=new ImageLoaderRequest[0];

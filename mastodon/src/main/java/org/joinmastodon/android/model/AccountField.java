@@ -1,10 +1,13 @@
 package org.joinmastodon.android.model;
 
 import org.joinmastodon.android.api.RequiredField;
+import org.joinmastodon.android.ui.text.CustomEmojiSpan;
 import org.parceler.Parcel;
-import org.parceler.Transient;
 
 import java.time.Instant;
+import java.util.ArrayList;
+
+import me.grishka.appkit.imageloader.requests.UrlImageLoaderRequest;
 
 /**
  * Represents a profile field as a name-value pair with optional verification.
@@ -26,7 +29,9 @@ public class AccountField extends BaseModel{
 	 */
 	public Instant verifiedAt;
 
-	public transient CharSequence parsedValue;
+	public transient CharSequence parsedValue, parsedName;
+	public transient CustomEmojiSpan[] valueEmojis, nameEmojis;
+	public transient ArrayList<UrlImageLoaderRequest> emojiRequests;
 
 	@Override
 	public String toString(){
