@@ -103,6 +103,7 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 		public void setImage(int index, Drawable drawable){
 			if(index>0){
 				item.emojiHelper.setImageDrawable(index-1, drawable);
+				name.invalidate();
 			}else{
 				avatar.setImageDrawable(drawable);
 			}

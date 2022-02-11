@@ -67,6 +67,7 @@ public class ReblogOrReplyLineStatusDisplayItem extends StatusDisplayItem{
 		@Override
 		public void setImage(int index, Drawable image){
 			item.emojiHelper.setImageDrawable(index, image);
+			text.invalidate();
 		}
 
 		@Override

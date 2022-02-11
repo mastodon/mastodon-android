@@ -361,8 +361,7 @@ public class ZoomPanView extends FrameLayout implements ScaleGestureDetector.OnS
 	}
 
 	private void onTransitionAnimationEnd(DynamicAnimation<?> animation, boolean canceled, float value, float velocity){
-		runningTransitionAnimations.remove(animation);
-		if(runningTransitionAnimations.isEmpty()){
+		if(runningTransitionAnimations.remove(animation) && runningTransitionAnimations.isEmpty()){
 			animatingTransition=false;
 			wasAnimatingTransition=true;
 			listener.onTransitionAnimationFinished();
@@ -389,8 +388,13 @@ public class ZoomPanView extends FrameLayout implements ScaleGestureDetector.OnS
 	@Override
 	public boolean onTouchEvent(MotionEvent ev){
 		boolean isUp=ev.getAction()==MotionEvent.ACTION_UP || ev.getAction()==MotionEvent.ACTION_CANCEL;
-		if(animatingTransition || (wasAnimatingTransition && ev.getAction()!=MotionEvent.ACTION_DOWN))
-			return true;
+		if(animatingTransition && ev.getAction()==MotionEvent.ACTION_DOWN){
+			ArrayList<SpringAnimation> anims=new ArrayList<>(runningTransitionAnimations);
+			for(SpringAnimation anim:anims){
+				anim.skipToEnd();
+				onTransitionAnimationEnd(anim, true, 0f, 0f);
+			}
+		}
 		scaleDetector.onTouchEvent(ev);
 		if(!swipingToDismiss && isUp){
 			if(scrolling || wasScaling){

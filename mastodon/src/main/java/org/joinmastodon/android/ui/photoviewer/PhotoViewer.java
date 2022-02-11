@@ -16,6 +16,7 @@ import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
+import android.view.WindowInsets;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -65,6 +66,12 @@ public class PhotoViewer implements ZoomPanView.Listener{
 				}
 				return true;
 			}
+
+			@Override
+			public WindowInsets dispatchApplyWindowInsets(WindowInsets insets){
+				Log.w(TAG, "dispatchApplyWindowInsets() called with: insets = ["+insets+"]");
+				return insets.consumeSystemWindowInsets();
+			}
 		};
 		windowView.setBackground(background);
 		background.setAlpha(0);
@@ -78,7 +85,8 @@ public class PhotoViewer implements ZoomPanView.Listener{
 		wlp.type=WindowManager.LayoutParams.TYPE_APPLICATION;
 		wlp.flags=WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN | WindowManager.LayoutParams.FLAG_LAYOUT_INSET_DECOR
 				| WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS;
-		wlp.format=PixelFormat.RGBA_8888;
+		wlp.format=PixelFormat.TRANSLUCENT;
+		windowView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
 		wm.addView(windowView, wlp);
 
 		windowView.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener(){
@@ -124,6 +132,7 @@ public class PhotoViewer implements ZoomPanView.Listener{
 		// stop receiving input events to allow the user to interact with the underlying UI while the animation is still running
 		WindowManager.LayoutParams wlp=(WindowManager.LayoutParams) windowView.getLayoutParams();
 		wlp.flags|=WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE | WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE;
+		windowView.setSystemUiVisibility(windowView.getSystemUiVisibility() | (activity.getWindow().getDecorView().getSystemUiVisibility() & (View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR | View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR)));
 		wm.updateViewLayout(windowView, wlp);
 
 		int index=pager.getCurrentItem();
