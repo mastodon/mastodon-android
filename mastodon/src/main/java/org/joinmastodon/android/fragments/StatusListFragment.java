@@ -9,10 +9,12 @@ import org.joinmastodon.android.events.StatusCountersUpdatedEvent;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.displayitems.FooterStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.StatusDisplayItem;
+import org.parceler.Parcels;
 
 import java.util.List;
 
 import androidx.recyclerview.widget.RecyclerView;
+import me.grishka.appkit.Nav;
 
 public abstract class StatusListFragment extends BaseStatusListFragment<Status>{
 	protected List<StatusDisplayItem> buildDisplayItems(Status s){
@@ -35,6 +37,25 @@ public abstract class StatusListFragment extends BaseStatusListFragment<Status>{
 	public void onDestroy(){
 		super.onDestroy();
 		E.unregister(this);
+	}
+
+	@Override
+	public void onItemClick(String id){
+		Status status=null;
+		for(Status s:data){
+			if(s.id.equals(id)){
+				status=s.getContentStatus();
+				break;
+			}
+		}
+		if(status==null)
+			return;
+		Bundle args=new Bundle();
+		args.putString("account", accountID);
+		args.putParcelable("status", Parcels.wrap(status));
+		if(status.inReplyToAccountId!=null && knownAccounts.containsKey(status.inReplyToAccountId))
+			args.putParcelable("inReplyToAccount", Parcels.wrap(knownAccounts.get(status.inReplyToAccountId)));
+		Nav.go(getActivity(), ThreadFragment.class, args);
 	}
 
 	@Subscribe

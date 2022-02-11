@@ -45,7 +45,7 @@ public class HomeTimelineFragment extends StatusListFragment{
 
 	@Override
 	protected void doLoadData(int offset, int count){
-		new GetHomeTimeline(offset>0 ? getMaxID() : null, null, count)
+		currentRequest=new GetHomeTimeline(offset>0 ? getMaxID() : null, null, count)
 				.setCallback(new SimpleCallback<>(this){
 					@Override
 					public void onSuccess(List<Status> result){
@@ -88,6 +88,13 @@ public class HomeTimelineFragment extends StatusListFragment{
 	public void onConfigurationChanged(Configuration newConfig){
 		super.onConfigurationChanged(newConfig);
 		updateToolbarLogo();
+	}
+
+	@Override
+	protected void onShown(){
+		super.onShown();
+		if(!getArguments().getBoolean("noAutoLoad") && !loaded && !dataLoading)
+			loadData();
 	}
 
 	@Subscribe

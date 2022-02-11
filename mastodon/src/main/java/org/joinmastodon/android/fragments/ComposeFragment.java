@@ -54,6 +54,7 @@ import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.CustomEmojiPopupKeyboard;
 import org.joinmastodon.android.ui.M3AlertDialogBuilder;
 import org.joinmastodon.android.ui.PopupKeyboard;
+import org.joinmastodon.android.ui.text.HtmlParser;
 import org.joinmastodon.android.ui.views.SizeListenerLinearLayout;
 import org.parceler.Parcels;
 
@@ -150,7 +151,7 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 		selfName=view.findViewById(R.id.name);
 		selfUsername=view.findViewById(R.id.username);
 		selfAvatar=view.findViewById(R.id.avatar);
-		selfName.setText(self.displayName);
+		HtmlParser.setTextWithCustomEmoji(selfName, self.displayName, self.emojis);
 		selfUsername.setText('@'+self.username+'@'+instanceDomain);
 		ViewImageLoader.load(selfAvatar, null, new UrlImageLoaderRequest(self.avatar));
 		ViewOutlineProvider roundCornersOutline=new ViewOutlineProvider(){

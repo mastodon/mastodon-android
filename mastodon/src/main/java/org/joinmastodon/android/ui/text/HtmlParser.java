@@ -2,8 +2,10 @@ package org.joinmastodon.android.ui.text;
 
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
+import android.widget.TextView;
 
 import org.joinmastodon.android.model.Emoji;
+import org.joinmastodon.android.ui.utils.UiUtils;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Node;
@@ -116,5 +118,20 @@ public class HtmlParser{
 				continue;
 			ssb.setSpan(new CustomEmojiSpan(emoji), matcher.start(), matcher.end(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 		}
+	}
+
+	public static SpannableStringBuilder parseCustomEmoji(String text, List<Emoji> emojis){
+		SpannableStringBuilder ssb=new SpannableStringBuilder(text);
+		parseCustomEmoji(ssb, emojis);
+		return ssb;
+	}
+
+	public static void setTextWithCustomEmoji(TextView view, String text, List<Emoji> emojis){
+		if(!EMOJI_CODE_PATTERN.matcher(text).find()){
+			view.setText(text);
+			return;
+		}
+		view.setText(parseCustomEmoji(text, emojis));
+		UiUtils.loadCustomEmojiInTextView(view);
 	}
 }

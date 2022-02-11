@@ -40,8 +40,6 @@ public class AccountTimelineFragment extends StatusListFragment{
 		super.onAttach(activity);
 		user=Parcels.unwrap(getArguments().getParcelable("profileAccount"));
 		filter=GetAccountStatuses.Filter.valueOf(getArguments().getString("filter"));
-		if(!getArguments().getBoolean("noAutoLoad"))
-			loadData();
 	}
 
 	@Override
@@ -59,5 +57,12 @@ public class AccountTimelineFragment extends StatusListFragment{
 	@Override
 	public void onViewCreated(View view, Bundle savedInstanceState){
 		super.onViewCreated(view, savedInstanceState);
+	}
+
+	@Override
+	protected void onShown(){
+		super.onShown();
+		if(!getArguments().getBoolean("noAutoLoad") && !loaded && !dataLoading)
+			loadData();
 	}
 }

@@ -335,14 +335,14 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 			return displayItems.get(position).getImageRequest(image);
 		}
 
-		@Override
-		public void onViewDetachedFromWindow(@NonNull BindableViewHolder<StatusDisplayItem> holder){
-			if(holder instanceof ImageLoaderViewHolder){
-				int count=holder.getItem().getImageCount();
-				for(int i=0;i<count;i++){
-					((ImageLoaderViewHolder) holder).clearImage(i);
-				}
-			}
-		}
+//		@Override
+//		public void onViewDetachedFromWindow(@NonNull BindableViewHolder<StatusDisplayItem> holder){
+//			if(holder instanceof ImageLoaderViewHolder){
+//				int count=holder.getItem().getImageCount();
+//				for(int i=0;i<count;i++){
+//					((ImageLoaderViewHolder) holder).clearImage(i);
+//				}
+//			}
+//		}
 	}
 }

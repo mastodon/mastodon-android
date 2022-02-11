@@ -60,4 +60,11 @@ public class NotificationsFragment extends BaseStatusListFragment<Notification>{
 				})
 				.exec(accountID);
 	}
+
+	@Override
+	protected void onShown(){
+		super.onShown();
+		if(!getArguments().getBoolean("noAutoLoad") && !loaded && !dataLoading)
+			loadData();
+	}
 }

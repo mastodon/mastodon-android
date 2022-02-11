@@ -80,6 +80,8 @@ public class HomeFragment extends AppKitFragment implements OnBackPressedListene
 		args.putString("account", accountID);
 		homeTimelineFragment=new HomeTimelineFragment();
 		homeTimelineFragment.setArguments(args);
+		args=new Bundle(args);
+		args.putBoolean("noAutoLoad", true);
 		searchFragment=new SearchFragment();
 		searchFragment.setArguments(args);
 		notificationsFragment=new NotificationsFragment();
@@ -150,7 +152,7 @@ public class HomeFragment extends AppKitFragment implements OnBackPressedListene
 		getChildFragmentManager().beginTransaction().hide(fragmentForTab(currentTab)).show(newFragment).commit();
 		if(newFragment instanceof LoaderFragment){
 			LoaderFragment lf=(LoaderFragment) newFragment;
-			if(!lf.loaded)
+			if(!lf.loaded && !lf.dataLoading)
 				lf.loadData();
 		}
 		currentTab=tab;
