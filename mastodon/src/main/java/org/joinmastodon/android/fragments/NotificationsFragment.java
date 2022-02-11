@@ -31,14 +31,22 @@ public class NotificationsFragment extends BaseStatusListFragment<Notification>{
 			case FAVORITE -> getString(R.string.user_favorited, n.account.displayName);
 			case POLL -> getString(R.string.poll_ended);
 			case STATUS -> getString(R.string.user_posted, n.account.displayName);
-		});
+		}, n.account.emojis, R.drawable.ic_fluent_arrow_reply_20_filled);
 		if(n.status!=null){
-			ArrayList<StatusDisplayItem> items=StatusDisplayItem.buildItems(this, n.status, accountID, n);
+			ArrayList<StatusDisplayItem> items=StatusDisplayItem.buildItems(this, n.status, accountID, n, knownAccounts);
 			items.add(0, titleItem);
 			return items;
 		}else{
 			return Collections.singletonList(titleItem);
 		}
+	}
+
+	@Override
+	protected void addAccountToKnown(Notification s){
+		if(!knownAccounts.containsKey(s.account.id))
+			knownAccounts.put(s.account.id, s.account);
+		if(s.status!=null && !knownAccounts.containsKey(s.status.account.id))
+			knownAccounts.put(s.status.account.id, s.status.account);
 	}
 
 	@Override

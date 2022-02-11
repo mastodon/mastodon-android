@@ -1,22 +1,37 @@
 package org.joinmastodon.android.ui.displayitems;
 
 import android.app.Activity;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
+import android.text.SpannableStringBuilder;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.fragments.BaseStatusListFragment;
+import org.joinmastodon.android.model.Emoji;
+import org.joinmastodon.android.ui.text.HtmlParser;
 import org.joinmastodon.android.ui.utils.UiUtils;
 
-import me.grishka.appkit.utils.BindableViewHolder;
+import java.util.List;
+
+import androidx.annotation.DrawableRes;
+import me.grishka.appkit.imageloader.ImageLoaderViewHolder;
+import me.grishka.appkit.imageloader.requests.ImageLoaderRequest;
 
 public class ReblogOrReplyLineStatusDisplayItem extends StatusDisplayItem{
 	private CharSequence text;
+	@DrawableRes
+	private int icon;
+	private CustomEmojiHelper emojiHelper=new CustomEmojiHelper();
 
-	public ReblogOrReplyLineStatusDisplayItem(String parentID, BaseStatusListFragment parentFragment, CharSequence text){
+	public ReblogOrReplyLineStatusDisplayItem(String parentID, BaseStatusListFragment parentFragment, CharSequence text, List<Emoji> emojis, @DrawableRes int icon){
 		super(parentID, parentFragment);
-		this.text=text;
+		SpannableStringBuilder ssb=new SpannableStringBuilder(text);
+		HtmlParser.parseCustomEmoji(ssb, emojis);
+		this.text=ssb;
+		emojiHelper.setText(ssb);
+		this.icon=icon;
 	}
 
 	@Override
@@ -24,7 +39,17 @@ public class ReblogOrReplyLineStatusDisplayItem extends StatusDisplayItem{
 		return Type.REBLOG_OR_REPLY_LINE;
 	}
 
-	public static class Holder extends StatusDisplayItem.Holder<ReblogOrReplyLineStatusDisplayItem>{
+	@Override
+	public int getImageCount(){
+		return emojiHelper.getImageCount();
+	}
+
+	@Override
+	public ImageLoaderRequest getImageRequest(int index){
+		return emojiHelper.getImageRequest(index);
+	}
+
+	public static class Holder extends StatusDisplayItem.Holder<ReblogOrReplyLineStatusDisplayItem> implements ImageLoaderViewHolder{
 		private final TextView text;
 		public Holder(Activity activity, ViewGroup parent){
 			super(activity, R.layout.display_item_reblog_or_reply_line, parent);
@@ -36,6 +61,17 @@ public class ReblogOrReplyLineStatusDisplayItem extends StatusDisplayItem{
 		@Override
 		public void onBind(ReblogOrReplyLineStatusDisplayItem item){
 			text.setText(item.text);
+			text.setCompoundDrawablesRelativeWithIntrinsicBounds(item.icon, 0, 0, 0);
+		}
+
+		@Override
+		public void setImage(int index, Drawable image){
+			item.emojiHelper.setImageDrawable(index, image);
+		}
+
+		@Override
+		public void clearImage(int index){
+			setImage(index, null);
 		}
 	}
 }

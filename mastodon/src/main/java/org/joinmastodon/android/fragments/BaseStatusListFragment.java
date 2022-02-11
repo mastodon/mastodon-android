@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import org.joinmastodon.android.R;
+import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.DisplayItemsParent;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.displayitems.FooterStatusDisplayItem;
@@ -22,6 +23,7 @@ import org.joinmastodon.android.ui.photoviewer.PhotoViewer;
 import org.joinmastodon.android.ui.photoviewer.PhotoViewerHost;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import androidx.annotation.NonNull;
@@ -40,6 +42,7 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 	protected DisplayItemsAdapter adapter;
 	protected String accountID;
 	protected PhotoViewer currentPhotoViewer;
+	protected HashMap<String, Account> knownAccounts=new HashMap<>();
 
 	public BaseStatusListFragment(){
 		super(20);
@@ -60,6 +63,9 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 	public void onAppendItems(List<T> items){
 		super.onAppendItems(items);
 		for(T s:items){
+			addAccountToKnown(s);
+		}
+		for(T s:items){
 			displayItems.addAll(buildDisplayItems(s));
 		}
 	}
@@ -73,6 +79,9 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 	protected void prependItems(List<T> items){
 		data.addAll(0, items);
 		int offset=0;
+		for(T s:items){
+			addAccountToKnown(s);
+		}
 		for(T s:items){
 			List<StatusDisplayItem> toAdd=buildDisplayItems(s);
 			displayItems.addAll(offset, toAdd);
@@ -91,6 +100,7 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 	}
 
 	protected abstract List<StatusDisplayItem> buildDisplayItems(T s);
+	protected abstract void addAccountToKnown(T s);
 
 	@Override
 	protected void onHidden(){
@@ -323,6 +333,16 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 		@Override
 		public ImageLoaderRequest getImageRequest(int position, int image){
 			return displayItems.get(position).getImageRequest(image);
+		}
+
+		@Override
+		public void onViewDetachedFromWindow(@NonNull BindableViewHolder<StatusDisplayItem> holder){
+			if(holder instanceof ImageLoaderViewHolder){
+				int count=holder.getItem().getImageCount();
+				for(int i=0;i<count;i++){
+					((ImageLoaderViewHolder) holder).clearImage(i);
+				}
+			}
 		}
 	}
 }

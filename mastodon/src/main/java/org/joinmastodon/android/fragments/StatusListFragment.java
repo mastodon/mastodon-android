@@ -16,7 +16,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public abstract class StatusListFragment extends BaseStatusListFragment<Status>{
 	protected List<StatusDisplayItem> buildDisplayItems(Status s){
-		return StatusDisplayItem.buildItems(this, s, accountID, s);
+		return StatusDisplayItem.buildItems(this, s, accountID, s, knownAccounts);
+	}
+
+	@Override
+	protected void addAccountToKnown(Status s){
+		if(!knownAccounts.containsKey(s.account.id))
+			knownAccounts.put(s.account.id, s.account);
 	}
 
 	@Override

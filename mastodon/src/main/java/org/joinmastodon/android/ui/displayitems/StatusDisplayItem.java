@@ -1,7 +1,6 @@
 package org.joinmastodon.android.ui.displayitems;
 
 import android.app.Activity;
-import android.app.Fragment;
 import android.content.Context;
 import android.text.TextUtils;
 import android.view.View;
@@ -9,12 +8,15 @@ import android.view.ViewGroup;
 
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.fragments.BaseStatusListFragment;
+import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.Attachment;
 import org.joinmastodon.android.model.DisplayItemsParent;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.text.HtmlParser;
 
 import java.util.ArrayList;
+import java.util.Map;
+import java.util.Objects;
 
 import me.grishka.appkit.imageloader.requests.ImageLoaderRequest;
 import me.grishka.appkit.utils.BindableViewHolder;
@@ -51,12 +53,15 @@ public abstract class StatusDisplayItem{
 		};
 	}
 
-	public static ArrayList<StatusDisplayItem> buildItems(BaseStatusListFragment fragment, Status status, String accountID, DisplayItemsParent parentObject){
+	public static ArrayList<StatusDisplayItem> buildItems(BaseStatusListFragment fragment, Status status, String accountID, DisplayItemsParent parentObject, Map<String, Account> knownAccounts){
 		String parentID=parentObject.getID();
 		ArrayList<StatusDisplayItem> items=new ArrayList<>();
 		Status statusForContent=status.getContentStatus();
 		if(status.reblog!=null){
-			items.add(new ReblogOrReplyLineStatusDisplayItem(parentID, fragment, fragment.getString(R.string.user_boosted, status.account.displayName)));
+			items.add(new ReblogOrReplyLineStatusDisplayItem(parentID, fragment, fragment.getString(R.string.user_boosted, status.account.displayName), status.account.emojis, R.drawable.ic_fluent_arrow_repeat_all_20_filled));
+		}else if(status.inReplyToAccountId!=null && knownAccounts.containsKey(status.inReplyToAccountId)){
+			Account account=Objects.requireNonNull(knownAccounts.get(status.inReplyToAccountId));
+			items.add(new ReblogOrReplyLineStatusDisplayItem(parentID, fragment, fragment.getString(R.string.in_reply_to, account.displayName), account.emojis, R.drawable.ic_fluent_arrow_reply_20_filled));
 		}
 		items.add(new HeaderStatusDisplayItem(parentID, statusForContent.account, statusForContent.createdAt, fragment, accountID));
 		if(!TextUtils.isEmpty(statusForContent.content))
