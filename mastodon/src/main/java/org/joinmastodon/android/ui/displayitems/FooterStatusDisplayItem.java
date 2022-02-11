@@ -54,10 +54,10 @@ public class FooterStatusDisplayItem extends StatusDisplayItem{
 				UiUtils.fixCompoundDrawableTintOnAndroid6(boost, R.color.boost_icon);
 				UiUtils.fixCompoundDrawableTintOnAndroid6(favorite, R.color.favorite_icon);
 			}
-			reply.setOnClickListener(this::onReplyClick);
-			boost.setOnClickListener(this::onBoostClick);
-			favorite.setOnClickListener(this::onFavoriteClick);
-			share.setOnClickListener(this::onShareClick);
+			findViewById(R.id.reply_btn).setOnClickListener(this::onReplyClick);
+			findViewById(R.id.boost_btn).setOnClickListener(this::onBoostClick);
+			findViewById(R.id.favorite_btn).setOnClickListener(this::onFavoriteClick);
+			findViewById(R.id.share_btn).setOnClickListener(this::onShareClick);
 		}
 
 		@Override

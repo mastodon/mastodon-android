@@ -1,6 +1,7 @@
 package org.joinmastodon.android.fragments;
 
 import android.app.Activity;
+import android.content.res.Configuration;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
@@ -9,7 +10,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 import android.widget.ImageView;
+import android.widget.Toolbar;
 
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.model.Account;
@@ -264,6 +267,7 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 				}
 			}
 		});
+		updateToolbar();
 	}
 
 	@Override
@@ -287,6 +291,34 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 			}
 		});
 		return lm;
+	}
+
+	@Override
+	public void onConfigurationChanged(Configuration newConfig){
+		super.onConfigurationChanged(newConfig);
+		updateToolbar();
+	}
+
+	private void updateToolbar(){
+		Toolbar toolbar=getToolbar();
+		if(toolbar==null)
+			return;
+		toolbar.setOnClickListener(v->{
+			if(list.getChildCount()>0 && list.getChildAdapterPosition(list.getChildAt(0))>10){
+				list.scrollToPosition(0);
+				list.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener(){
+					@Override
+					public boolean onPreDraw(){
+						list.getViewTreeObserver().removeOnPreDrawListener(this);
+						list.scrollBy(0, V.dp(300));
+						list.smoothScrollToPosition(0);
+						return true;
+					}
+				});
+			}else{
+				list.smoothScrollToPosition(0);
+			}
+		});
 	}
 
 	protected int getMainAdapterOffset(){

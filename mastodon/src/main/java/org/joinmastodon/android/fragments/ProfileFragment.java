@@ -325,6 +325,10 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 			toolbarTitleView.setTranslationY(titleTransY);
 			toolbarSubtitleView.setTranslationY(titleTransY);
 		}
+		getToolbar().setOnClickListener(v->{
+			getScrollableRecyclerView().scrollToPosition(0);
+			scrollView.smoothScrollTo(0, 0);
+		});
 	}
 
 	@Override
