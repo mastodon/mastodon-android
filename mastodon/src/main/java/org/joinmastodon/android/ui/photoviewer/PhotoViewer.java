@@ -26,6 +26,7 @@ import org.joinmastodon.android.model.Attachment;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -52,7 +53,7 @@ public class PhotoViewer implements ZoomPanView.Listener{
 
 	public PhotoViewer(Activity activity, List<Attachment> attachments, int index, Listener listener){
 		this.activity=activity;
-		this.attachments=attachments;
+		this.attachments=attachments.stream().filter(a->a.type==Attachment.Type.IMAGE || a.type==Attachment.Type.GIFV || a.type==Attachment.Type.VIDEO).collect(Collectors.toList());
 		currentIndex=index;
 		this.listener=listener;
 
@@ -242,7 +243,7 @@ public class PhotoViewer implements ZoomPanView.Listener{
 			Attachment att=attachments.get(position);
 			return switch(att.type){
 				case IMAGE -> 0;
-				case GIFV -> 1;
+				case GIFV, VIDEO -> 1;
 				default -> throw new IllegalStateException("Unexpected value: "+att.type);
 			};
 		}

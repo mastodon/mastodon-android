@@ -20,7 +20,6 @@ public class Attachment extends BaseModel{
 	public Type type;
 	@RequiredField
 	public String url;
-	@RequiredField
 	public String previewUrl;
 	public String remoteUrl;
 	public String description;

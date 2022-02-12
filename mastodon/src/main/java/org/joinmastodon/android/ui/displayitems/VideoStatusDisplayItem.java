@@ -13,21 +13,21 @@ import org.joinmastodon.android.model.Status;
 
 import me.grishka.appkit.imageloader.requests.UrlImageLoaderRequest;
 
-public class GifVStatusDisplayItem extends ImageStatusDisplayItem{
-	public GifVStatusDisplayItem(String parentID, Status status, Attachment attachment, BaseStatusListFragment parentFragment, int index, int totalPhotos){
+public class VideoStatusDisplayItem extends ImageStatusDisplayItem{
+	public VideoStatusDisplayItem(String parentID, Status status, Attachment attachment, BaseStatusListFragment parentFragment, int index, int totalPhotos){
 		super(parentID, parentFragment, attachment, status, index, totalPhotos);
 		request=new UrlImageLoaderRequest(attachment.previewUrl, 1000, 1000);
 	}
 
 	@Override
 	public Type getType(){
-		return Type.GIFV;
+		return Type.VIDEO;
 	}
 
-	public static class Holder extends ImageStatusDisplayItem.Holder<GifVStatusDisplayItem>{
+	public static class Holder extends ImageStatusDisplayItem.Holder<VideoStatusDisplayItem>{
 
 		public Holder(Activity activity, ViewGroup parent){
-			super(activity, R.layout.display_item_gifv, parent);
+			super(activity, R.layout.display_item_video, parent);
 			View play=findViewById(R.id.play_button);
 			play.setOutlineProvider(new ViewOutlineProvider(){
 				@Override

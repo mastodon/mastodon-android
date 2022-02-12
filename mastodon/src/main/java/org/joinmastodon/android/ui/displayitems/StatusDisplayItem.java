@@ -48,6 +48,7 @@ public abstract class StatusDisplayItem{
 			case TEXT -> new TextStatusDisplayItem.Holder(activity, parent);
 			case PHOTO -> new PhotoStatusDisplayItem.Holder(activity, parent);
 			case GIFV -> new GifVStatusDisplayItem.Holder(activity, parent);
+			case VIDEO -> new VideoStatusDisplayItem.Holder(activity, parent);
 			case FOOTER -> new FooterStatusDisplayItem.Holder(activity, parent);
 			default -> throw new UnsupportedOperationException();
 		};
@@ -69,7 +70,7 @@ public abstract class StatusDisplayItem{
 		int photoIndex=0;
 		int totalPhotos=0;
 		for(Attachment attachment:statusForContent.mediaAttachments){
-			if(attachment.type==Attachment.Type.IMAGE || attachment.type==Attachment.Type.GIFV){
+			if(attachment.type==Attachment.Type.IMAGE || attachment.type==Attachment.Type.GIFV || attachment.type==Attachment.Type.VIDEO){
 				totalPhotos++;
 			}
 		}
@@ -79,6 +80,9 @@ public abstract class StatusDisplayItem{
 				photoIndex++;
 			}else if(attachment.type==Attachment.Type.GIFV){
 				items.add(new GifVStatusDisplayItem(parentID, status, attachment, fragment, photoIndex, totalPhotos));
+				photoIndex++;
+			}else if(attachment.type==Attachment.Type.VIDEO){
+				items.add(new VideoStatusDisplayItem(parentID, status, attachment, fragment, photoIndex, totalPhotos));
 				photoIndex++;
 			}
 		}
