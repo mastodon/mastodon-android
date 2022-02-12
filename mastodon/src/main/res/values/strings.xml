@@ -73,4 +73,18 @@
 	<string name="field_content">Content</string>
 	<string name="saving">Saving…</string>
 	<string name="post_from_user">Post from %s</string>
+	<string name="poll_option_hint">Option %d</string>
+	<plurals name="x_minutes">
+		<item quantity="one">%d minute</item>
+		<item quantity="other">%d minutes</item>
+	</plurals>
+	<plurals name="x_hours">
+		<item quantity="one">%d hour</item>
+		<item quantity="other">%d hours</item>
+	</plurals>
+	<plurals name="x_days">
+		<item quantity="one">%d day</item>
+		<item quantity="other">%d days</item>
+	</plurals>
+	<string name="compose_poll_duration">Duration: %s</string>
 </resources>

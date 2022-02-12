@@ -16,6 +16,7 @@
 		<item name="android:buttonStyle">@style/Widget.Mastodon.Button</item>
 		<item name="android:alertDialogTheme">@style/Theme.Mastodon.Dialog.Alert</item>
 		<item name="appkitBackDrawable">@drawable/ic_fluent_arrow_left_24_regular</item>
+		<item name="android:splitMotionEvents">false</item>
 	</style>
 
 	<style name="Theme.Mastodon.Toolbar" parent="android:ThemeOverlay.Material.ActionBar">

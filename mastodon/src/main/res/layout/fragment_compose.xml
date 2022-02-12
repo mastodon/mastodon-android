@@ -82,6 +82,46 @@
 				android:inputType="textMultiLine|textCapSentences"/>
 
 			<LinearLayout
+				android:id="@+id/poll_wrap"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:orientation="vertical"
+				android:visibility="gone"
+				tools:visibility="visible">
+				<org.joinmastodon.android.ui.views.ReorderableLinearLayout
+					android:id="@+id/poll_options"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:orientation="vertical"/>
+				<LinearLayout
+					android:id="@+id/add_poll_option"
+					android:layout_width="match_parent"
+					android:layout_height="56dp"
+					android:layout_marginStart="16dp"
+					android:layout_marginEnd="56dp"
+					android:layout_marginBottom="8dp"
+					android:background="@drawable/bg_poll_option"
+					android:outlineProvider="background"
+					android:elevation="2dp">
+					<ImageView
+						android:layout_width="24dp"
+						android:layout_height="24dp"
+						android:layout_margin="16dp"
+						android:src="@drawable/ic_fluent_add_circle_24_regular"/>
+				</LinearLayout>
+				<TextView
+					android:id="@+id/poll_duration"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginLeft="16dp"
+					android:layout_marginRight="16dp"
+					android:layout_marginBottom="8dp"
+					android:textAppearance="@style/m3_label_large"
+					android:textColor="@color/gray_800"
+					tools:text="Duration: 7 days"/>
+			</LinearLayout>
+
+			<LinearLayout
 				android:id="@+id/attachments"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
@@ -109,6 +149,8 @@
 			android:layout_marginEnd="24dp"
 			android:background="?android:attr/selectableItemBackgroundBorderless"
 			android:padding="0px"
+			android:tint="@color/compose_button"
+			android:tintMode="src_in"
 			android:src="@drawable/ic_fluent_image_24_regular"/>
 
 		<ImageButton
@@ -118,6 +160,8 @@
 			android:layout_marginEnd="24dp"
 			android:background="?android:attr/selectableItemBackgroundBorderless"
 			android:padding="0px"
+			android:tint="@color/compose_button"
+			android:tintMode="src_in"
 			android:src="@drawable/ic_fluent_poll_24_selector"/>
 
 		<ImageButton
@@ -127,6 +171,8 @@
 			android:layout_marginEnd="24dp"
 			android:background="?android:attr/selectableItemBackgroundBorderless"
 			android:padding="0px"
+			android:tint="@color/compose_button"
+			android:tintMode="src_in"
 			android:src="@drawable/ic_fluent_emoji_24_selector"/>
 
 		<ImageButton
@@ -136,6 +182,8 @@
 			android:layout_marginEnd="24dp"
 			android:background="?android:attr/selectableItemBackgroundBorderless"
 			android:padding="0px"
+			android:tint="@color/compose_button"
+			android:tintMode="src_in"
 			android:src="@drawable/ic_fluent_chat_warning_24_selector"/>
 
 		<ImageButton
@@ -145,6 +193,8 @@
 			android:layout_marginEnd="24dp"
 			android:background="?android:attr/selectableItemBackgroundBorderless"
 			android:padding="0px"
+			android:tint="@color/compose_button"
+			android:tintMode="src_in"
 			android:src="@drawable/ic_fluent_people_community_24_regular"/>
 
 		<Space

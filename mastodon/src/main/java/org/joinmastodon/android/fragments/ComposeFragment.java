@@ -14,7 +14,6 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -30,6 +29,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.PopupMenu;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -50,11 +50,14 @@ import org.joinmastodon.android.model.Attachment;
 import org.joinmastodon.android.model.Emoji;
 import org.joinmastodon.android.model.EmojiCategory;
 import org.joinmastodon.android.model.Mention;
+import org.joinmastodon.android.model.Poll;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.CustomEmojiPopupKeyboard;
 import org.joinmastodon.android.ui.M3AlertDialogBuilder;
 import org.joinmastodon.android.ui.PopupKeyboard;
 import org.joinmastodon.android.ui.text.HtmlParser;
+import org.joinmastodon.android.ui.utils.SimpleTextWatcher;
+import org.joinmastodon.android.ui.views.ReorderableLinearLayout;
 import org.joinmastodon.android.ui.views.SizeListenerLinearLayout;
 import org.parceler.Parcels;
 
@@ -76,6 +79,7 @@ import me.grishka.appkit.utils.V;
 public class ComposeFragment extends ToolbarFragment implements OnBackPressedListener{
 
 	private static final int MEDIA_RESULT=717;
+	private static final int MAX_POLL_OPTIONS=4;
 
 	private static final Pattern MENTION_PATTERN=Pattern.compile("(^|[^\\/\\w])@(([a-z0-9_]+)@[a-z0-9\\.\\-]+[a-z0-9]+)", Pattern.CASE_INSENSITIVE);
 
@@ -112,6 +116,12 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 	private ImageButton mediaBtn, pollBtn, emojiBtn, spoilerBtn, visibilityBtn;
 	private LinearLayout attachmentsView;
 	private TextView replyText;
+	private ReorderableLinearLayout pollOptionsView;
+	private View pollWrap;
+	private View addPollOptionBtn;
+	private TextView pollDurationView;
+
+	private ArrayList<DraftPollOption> pollOptions=new ArrayList<>();
 
 	private ArrayList<DraftMediaAttachment> queuedAttachments=new ArrayList<>(), failedAttachments=new ArrayList<>(), attachments=new ArrayList<>();
 	private DraftMediaAttachment uploadingAttachment;
@@ -121,6 +131,7 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 	private Status replyTo;
 	private String initialReplyMentions;
 	private String uuid;
+	private int pollDuration=24*3600;
 
 	@Override
 	public void onAttach(Activity activity){
@@ -171,6 +182,7 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 		replyText=view.findViewById(R.id.reply_text);
 
 		mediaBtn.setOnClickListener(v->openFilePicker());
+		pollBtn.setOnClickListener(v->togglePoll());
 		emojiBtn.setOnClickListener(v->emojiKeyboard.toggleKeyboardPopup(mainEditText));
 		emojiKeyboard.setOnIconChangedListener(new PopupKeyboard.OnIconChangeListener(){
 			@Override
@@ -184,6 +196,18 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 		emojiKeyboard.getView().setElevation(V.dp(2));
 
 		attachmentsView=view.findViewById(R.id.attachments);
+		pollOptionsView=view.findViewById(R.id.poll_options);
+		pollWrap=view.findViewById(R.id.poll_wrap);
+		addPollOptionBtn=view.findViewById(R.id.add_poll_option);
+
+		addPollOptionBtn.setOnClickListener(v->{
+			createDraftPollOption().edit.requestFocus();
+			updatePollOptionHints();
+		});
+		pollOptionsView.setDragListener(this::onSwapPollOptions);
+		pollDurationView=view.findViewById(R.id.poll_duration);
+		pollDurationView.setText(getString(R.string.compose_poll_duration, getResources().getQuantityString(R.plurals.x_days, 1, 1)));
+		pollDurationView.setOnClickListener(v->showPollDurationMenu());
 
 		return view;
 	}
@@ -286,7 +310,13 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 
 	private void updatePublishButtonState(){
 		uuid=null;
-		publishButton.setEnabled((trimmedCharCount>0 || !attachments.isEmpty()) && charCount<=charLimit && uploadingAttachment==null && failedAttachments.isEmpty() && queuedAttachments.isEmpty());
+		int nonEmptyPollOptionsCount=0;
+		for(DraftPollOption opt:pollOptions){
+			if(opt.edit.length()>0)
+				nonEmptyPollOptionsCount++;
+		}
+		publishButton.setEnabled((trimmedCharCount>0 || !attachments.isEmpty()) && charCount<=charLimit && uploadingAttachment==null && failedAttachments.isEmpty() && queuedAttachments.isEmpty()
+				&& (pollOptions.isEmpty() || nonEmptyPollOptionsCount>1));
 	}
 
 	private void onCustomEmojiClick(Emoji emoji){
@@ -311,6 +341,12 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 		if(replyTo!=null){
 			req.inReplyToId=replyTo.id;
 		}
+		if(!pollOptions.isEmpty()){
+			req.poll=new CreateStatus.Request.Poll();
+			req.poll.expiresIn=pollDuration;
+			for(DraftPollOption opt:pollOptions)
+				req.poll.options.add(opt.edit.getText().toString());
+		}
 		if(uuid==null)
 			uuid=UUID.randomUUID().toString();
 		ProgressDialog progress=new ProgressDialog(getActivity());
@@ -324,8 +360,10 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 						progress.dismiss();
 						Nav.finish(ComposeFragment.this);
 						E.post(new StatusCreatedEvent(result));
-						replyTo.repliesCount++;
-						E.post(new StatusCountersUpdatedEvent(replyTo));
+						if(replyTo!=null){
+							replyTo.repliesCount++;
+							E.post(new StatusCountersUpdatedEvent(replyTo));
+						}
 					}
 
 					@Override
@@ -338,8 +376,11 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 	}
 
 	private boolean hasDraft(){
+		boolean pollFieldsHaveContent=false;
+		for(DraftPollOption opt:pollOptions)
+			pollFieldsHaveContent|=opt.edit.length()>0;
 		return (mainEditText.length()>0 && !mainEditText.getText().toString().equals(initialReplyMentions)) || !attachments.isEmpty()
-				|| uploadingAttachment!=null || !queuedAttachments.isEmpty() || !failedAttachments.isEmpty();
+				|| uploadingAttachment!=null || !queuedAttachments.isEmpty() || !failedAttachments.isEmpty() || pollFieldsHaveContent;
 	}
 
 	@Override
@@ -397,6 +438,7 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 	}
 
 	private void addMediaAttachment(Uri uri){
+		pollBtn.setEnabled(false);
 		View thumb=getActivity().getLayoutInflater().inflate(R.layout.compose_media_thumb, attachmentsView, false);
 		ImageView img=thumb.findViewById(R.id.thumb);
 		ViewImageLoader.load(img, null, new UrlImageLoaderRequest(uri, V.dp(250), V.dp(250)));
@@ -467,6 +509,8 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 			att.uploadRequest.cancel();
 			if(!queuedAttachments.isEmpty())
 				uploadMediaAttachment(queuedAttachments.remove(0));
+			else
+				uploadingAttachment=null;
 		}else{
 			attachments.remove(att);
 			queuedAttachments.remove(att);
@@ -474,6 +518,84 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 		}
 		attachmentsView.removeView(att.view);
 		updatePublishButtonState();
+		pollBtn.setEnabled(attachments.isEmpty() && queuedAttachments.isEmpty() && failedAttachments.isEmpty() && uploadingAttachment==null);
+	}
+
+	private void togglePoll(){
+		if(pollOptions.isEmpty()){
+			pollBtn.setSelected(true);
+			mediaBtn.setEnabled(false);
+			pollWrap.setVisibility(View.VISIBLE);
+			for(int i=0;i<2;i++)
+				createDraftPollOption();
+			updatePollOptionHints();
+		}else{
+			pollBtn.setSelected(false);
+			mediaBtn.setEnabled(true);
+			pollWrap.setVisibility(View.GONE);
+			addPollOptionBtn.setVisibility(View.VISIBLE);
+			pollOptionsView.removeAllViews();
+			pollOptions.clear();
+			pollDuration=24*3600;
+		}
+		updatePublishButtonState();
+	}
+
+	private DraftPollOption createDraftPollOption(){
+		DraftPollOption option=new DraftPollOption();
+		option.view=LayoutInflater.from(getActivity()).inflate(R.layout.compose_poll_option, pollOptionsView, false);
+		option.edit=option.view.findViewById(R.id.edit);
+		option.dragger=option.view.findViewById(R.id.dragger_thingy);
+
+		option.dragger.setOnLongClickListener(v->{
+			pollOptionsView.startDragging(option.view);
+			return true;
+		});
+		option.edit.addTextChangedListener(new SimpleTextWatcher(e->updatePublishButtonState()));
+
+		pollOptionsView.addView(option.view);
+		pollOptions.add(option);
+		if(pollOptions.size()==MAX_POLL_OPTIONS)
+			addPollOptionBtn.setVisibility(View.GONE);
+		return option;
+	}
+
+	private void updatePollOptionHints(){
+		int i=0;
+		for(DraftPollOption option:pollOptions){
+			option.edit.setHint(getString(R.string.poll_option_hint, ++i));
+		}
+	}
+
+	private void onSwapPollOptions(int oldIndex, int newIndex){
+		pollOptions.add(newIndex, pollOptions.remove(oldIndex));
+		updatePollOptionHints();
+	}
+
+	private void showPollDurationMenu(){
+		PopupMenu menu=new PopupMenu(getActivity(), pollDurationView);
+		menu.getMenu().add(0, 1, 0, getResources().getQuantityString(R.plurals.x_minutes, 5, 5));
+		menu.getMenu().add(0, 2, 0, getResources().getQuantityString(R.plurals.x_minutes, 30, 30));
+		menu.getMenu().add(0, 3, 0, getResources().getQuantityString(R.plurals.x_hours, 1, 1));
+		menu.getMenu().add(0, 4, 0, getResources().getQuantityString(R.plurals.x_hours, 6, 6));
+		menu.getMenu().add(0, 5, 0, getResources().getQuantityString(R.plurals.x_days, 1, 1));
+		menu.getMenu().add(0, 6, 0, getResources().getQuantityString(R.plurals.x_days, 3, 3));
+		menu.getMenu().add(0, 7, 0, getResources().getQuantityString(R.plurals.x_days, 7, 7));
+		menu.setOnMenuItemClickListener(item->{
+			pollDuration=switch(item.getItemId()){
+				case 1 -> 5*60;
+				case 2 -> 30*60;
+				case 3 -> 3600;
+				case 4 -> 6*3600;
+				case 5 -> 24*3600;
+				case 6 -> 3*24*3600;
+				case 7 -> 7*24*3600;
+				default -> throw new IllegalStateException("Unexpected value: "+item.getItemId());
+			};
+			pollDurationView.setText(getString(R.string.compose_poll_duration, item.getTitle()));
+			return true;
+		});
+		menu.show();
 	}
 
 	private static class DraftMediaAttachment{
@@ -483,5 +605,11 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 
 		public View view;
 		public ProgressBar progressBar;
+	}
+
+	private static class DraftPollOption{
+		public EditText edit;
+		public View view;
+		public View dragger;
 	}
 }
