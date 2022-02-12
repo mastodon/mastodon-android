@@ -58,6 +58,25 @@ public class UiUtils{
 		}
 	}
 
+	public static String formatTimeLeft(Context context, Instant instant){
+		long t=instant.toEpochMilli();
+		long now=System.currentTimeMillis();
+		long diff=t-now;
+		if(diff<60_000L){
+			int secs=(int)(diff/1000L);
+			return context.getResources().getQuantityString(R.plurals.x_seconds_left, secs, secs);
+		}else if(diff<3600_000L){
+			int mins=(int)(diff/60_000L);
+			return context.getResources().getQuantityString(R.plurals.x_minutes_left, mins, mins);
+		}else if(diff<3600_000L*24L){
+			int hours=(int)(diff/3600_000L);
+			return context.getResources().getQuantityString(R.plurals.x_hours_left, hours, hours);
+		}else{
+			int days=(int)(diff/(3600_000L*24L));
+			return context.getResources().getQuantityString(R.plurals.x_days_left, days, days);
+		}
+	}
+
 	@SuppressLint("DefaultLocale")
 	public static String abbreviateNumber(int n){
 		if(n<1000)

@@ -17,7 +17,7 @@ public class Poll extends BaseModel{
 	public boolean multiple;
 	public int votersCount;
 	public boolean voted;
-	public int[] ownVotes;
+	public List<Integer> ownVotes;
 	public List<Option> options;
 	public List<Emoji> emojis;
 
@@ -37,7 +37,7 @@ public class Poll extends BaseModel{
 				", multiple="+multiple+
 				", votersCount="+votersCount+
 				", voted="+voted+
-				", ownVotes="+Arrays.toString(ownVotes)+
+				", ownVotes="+ownVotes+
 				", options="+options+
 				", emojis="+emojis+
 				'}';

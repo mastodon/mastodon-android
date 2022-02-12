@@ -87,4 +87,25 @@
 		<item quantity="other">%d days</item>
 	</plurals>
 	<string name="compose_poll_duration">Duration: %s</string>
+	<plurals name="x_seconds_left">
+		<item quantity="one">%d second left</item>
+		<item quantity="other">%d seconds left</item>
+	</plurals>
+	<plurals name="x_minutes_left">
+		<item quantity="one">%d minute left</item>
+		<item quantity="other">%d minutes left</item>
+	</plurals>
+	<plurals name="x_hours_left">
+		<item quantity="one">%d hour left</item>
+		<item quantity="other">%d hours left</item>
+	</plurals>
+	<plurals name="x_days_left">
+		<item quantity="one">%d day left</item>
+		<item quantity="other">%d days left</item>
+	</plurals>
+	<plurals name="x_voters">
+		<item quantity="one">%,d voter</item>
+		<item quantity="other">%,d voters</item>
+	</plurals>
+	<string name="poll_closed">Closed</string>
 </resources>

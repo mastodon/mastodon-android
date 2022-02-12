@@ -11,6 +11,7 @@ import org.joinmastodon.android.fragments.BaseStatusListFragment;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.Attachment;
 import org.joinmastodon.android.model.DisplayItemsParent;
+import org.joinmastodon.android.model.Poll;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.text.HtmlParser;
 
@@ -49,6 +50,8 @@ public abstract class StatusDisplayItem{
 			case PHOTO -> new PhotoStatusDisplayItem.Holder(activity, parent);
 			case GIFV -> new GifVStatusDisplayItem.Holder(activity, parent);
 			case VIDEO -> new VideoStatusDisplayItem.Holder(activity, parent);
+			case POLL_OPTION -> new PollOptionStatusDisplayItem.Holder(activity, parent);
+			case POLL_FOOTER -> new PollFooterStatusDisplayItem.Holder(activity, parent);
 			case FOOTER -> new FooterStatusDisplayItem.Holder(activity, parent);
 			default -> throw new UnsupportedOperationException();
 		};
@@ -86,6 +89,12 @@ public abstract class StatusDisplayItem{
 				photoIndex++;
 			}
 		}
+		if(statusForContent.poll!=null){
+			for(Poll.Option opt:statusForContent.poll.options){
+				items.add(new PollOptionStatusDisplayItem(parentID, statusForContent.poll, opt, fragment));
+			}
+			items.add(new PollFooterStatusDisplayItem(parentID, fragment, statusForContent.poll));
+		}
 		items.add(new FooterStatusDisplayItem(parentID, fragment, statusForContent, accountID));
 		return items;
 	}
@@ -98,7 +107,6 @@ public abstract class StatusDisplayItem{
 		VIDEO,
 		GIFV,
 		AUDIO,
-		POLL_HEADER,
 		POLL_OPTION,
 		POLL_FOOTER,
 		CARD,

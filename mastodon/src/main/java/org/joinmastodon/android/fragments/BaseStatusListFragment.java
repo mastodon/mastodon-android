@@ -21,6 +21,7 @@ import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.displayitems.FooterStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.ImageStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.PhotoStatusDisplayItem;
+import org.joinmastodon.android.ui.displayitems.PollOptionStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.StatusDisplayItem;
 import org.joinmastodon.android.ui.photoviewer.PhotoViewer;
 import org.joinmastodon.android.ui.photoviewer.PhotoViewerHost;
@@ -327,6 +328,9 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 
 	public void onItemClick(String id){
 
+	}
+
+	public void onPollOptionClick(PollOptionStatusDisplayItem.Holder holder){
 	}
 
 	protected class DisplayItemsAdapter extends UsableRecyclerView.Adapter<BindableViewHolder<StatusDisplayItem>> implements ImageLoaderRecyclerAdapter{
