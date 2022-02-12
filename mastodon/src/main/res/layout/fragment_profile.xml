@@ -125,14 +125,31 @@
 						tools:text="following" />
 				</LinearLayout>
 
-				<Button
-					android:id="@+id/profile_action_btn"
+				<FrameLayout
+					android:id="@+id/profile_action_btn_wrap"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
 					android:layout_alignParentEnd="true"
 					android:layout_below="@id/following_btn"
-					android:layout_margin="16dp"
-					tools:text="Edit Profile"/>
+					android:padding="16dp"
+					android:clipToPadding="false">
+					<org.joinmastodon.android.ui.views.ProgressBarButton
+						android:id="@+id/profile_action_btn"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						tools:text="Edit Profile"/>
+					<ProgressBar
+						android:id="@+id/action_progress"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_gravity="center"
+						android:indeterminate="true"
+						style="?android:progressBarStyleSmall"
+						android:elevation="10dp"
+						android:outlineProvider="none"
+						android:indeterminateTint="@color/text_button"
+						android:visibility="gone"/>
+				</FrameLayout>
 
 				<TextView
 					android:id="@+id/name"
@@ -142,7 +159,7 @@
 					android:layout_alignParentStart="true"
 					android:layout_marginStart="16dp"
 					android:layout_marginTop="16dp"
-					android:layout_toStartOf="@id/profile_action_btn"
+					android:layout_toStartOf="@id/profile_action_btn_wrap"
 					android:textAppearance="@style/m3_headline_small"
 					tools:text="Eugen" />
 
@@ -152,7 +169,7 @@
 					android:layout_height="wrap_content"
 					android:layout_below="@id/name"
 					android:layout_marginStart="16dp"
-					android:layout_toStartOf="@id/profile_action_btn"
+					android:layout_toStartOf="@id/profile_action_btn_wrap"
 					android:textAppearance="@style/m3_title_medium"
 					android:textColor="@color/light_ui_action_button"
 					tools:text="\@Gargron"/>
@@ -176,7 +193,7 @@
 					android:layout_alignParentStart="true"
 					android:layout_marginStart="16dp"
 					android:layout_marginTop="16dp"
-					android:layout_toStartOf="@id/profile_action_btn"
+					android:layout_toStartOf="@id/profile_action_btn_wrap"
 					android:textAppearance="@style/m3_body_large"
 					android:background="@drawable/edit_text_border"
 					android:inputType="textPersonName|textCapWords"

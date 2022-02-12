@@ -27,6 +27,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toolbar;
@@ -35,6 +36,7 @@ import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.requests.accounts.GetAccountRelationships;
 import org.joinmastodon.android.api.requests.accounts.GetAccountStatuses;
 import org.joinmastodon.android.api.requests.accounts.GetOwnAccount;
+import org.joinmastodon.android.api.requests.accounts.SetAccountFollowed;
 import org.joinmastodon.android.api.requests.accounts.UpdateAccountCredentials;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.model.Account;
@@ -48,6 +50,7 @@ import org.joinmastodon.android.ui.text.HtmlParser;
 import org.joinmastodon.android.ui.utils.UiUtils;
 import org.joinmastodon.android.ui.views.CoverImageView;
 import org.joinmastodon.android.ui.views.NestedRecyclerScrollView;
+import org.joinmastodon.android.ui.views.ProgressBarButton;
 import org.parceler.Parcels;
 
 import java.time.LocalDateTime;
@@ -80,7 +83,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 	private CoverImageView cover;
 	private View avatarBorder;
 	private TextView name, username, bio, followersCount, followersLabel, followingCount, followingLabel, postsCount, postsLabel;
-	private Button actionButton;
+	private ProgressBarButton actionButton;
 	private ViewPager2 pager;
 	private NestedRecyclerScrollView scrollView;
 	private AccountTimelineFragment postsFragment, postsWithRepliesFragment, mediaFragment;
@@ -91,6 +94,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 	private float titleTransY;
 	private View postsBtn, followersBtn, followingBtn;
 	private EditText nameEdit, bioEdit;
+	private ProgressBar actionProgress;
 
 	private Account account;
 	private String accountID;
@@ -141,6 +145,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 		refreshLayout=content.findViewById(R.id.refresh_layout);
 		nameEdit=content.findViewById(R.id.name_edit);
 		bioEdit=content.findViewById(R.id.bio_edit);
+		actionProgress=content.findViewById(R.id.action_progress);
 
 		avatar.setOutlineProvider(new ViewOutlineProvider(){
 			@Override
@@ -389,9 +394,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 					@Override
 					public void onSuccess(List<Relationship> result){
 						relationship=result.get(0);
-						invalidateOptionsMenu();
-						actionButton.setVisibility(View.VISIBLE);
-						actionButton.setText(relationship.following ? R.string.button_following : R.string.button_follow);
+						updateRelationship();
 					}
 
 					@Override
@@ -400,6 +403,12 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 					}
 				})
 				.exec(accountID);
+	}
+
+	private void updateRelationship(){
+		invalidateOptionsMenu();
+		actionButton.setVisibility(View.VISIBLE);
+		actionButton.setText(relationship.following ? R.string.button_following : R.string.button_follow);
 	}
 
 	private void onScrollChanged(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY){
@@ -453,23 +462,33 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 				loadAccountInfoAndEnterEditMode();
 			else
 				saveAndExitEditMode();
+		}else{
+			toggleFollowing();
 		}
 	}
 
+	private void setActionProgressVisible(boolean visible){
+		actionButton.setTextVisible(!visible);
+		actionProgress.setVisibility(visible ? View.VISIBLE : View.GONE);
+		actionButton.setClickable(!visible);
+	}
+
 	private void loadAccountInfoAndEnterEditMode(){
+		setActionProgressVisible(true);
 		new GetOwnAccount()
 				.setCallback(new Callback<>(){
 					@Override
 					public void onSuccess(Account result){
 						enterEditMode(result);
+						setActionProgressVisible(false);
 					}
 
 					@Override
 					public void onError(ErrorResponse error){
 						error.showToast(getActivity());
+						setActionProgressVisible(false);
 					}
 				})
-				.wrapProgress(getActivity(), R.string.loading, true)
 				.exec(accountID);
 	}
 
@@ -561,6 +580,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 	private void saveAndExitEditMode(){
 		if(!isInEditMode)
 			throw new IllegalStateException();
+		setActionProgressVisible(true);
 		new UpdateAccountCredentials(nameEdit.getText().toString(), bioEdit.getText().toString(), editNewAvatar, editNewCover, aboutFragment.getFields())
 				.setCallback(new Callback<>(){
 					@Override
@@ -568,14 +588,35 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 						account=result;
 						AccountSessionManager.getInstance().updateAccountInfo(accountID, account);
 						exitEditMode();
+						setActionProgressVisible(false);
 					}
 
 					@Override
 					public void onError(ErrorResponse error){
 						error.showToast(getActivity());
+						setActionProgressVisible(false);
 					}
 				})
-				.wrapProgress(getActivity(), R.string.saving, false)
+				.exec(accountID);
+	}
+
+	private void toggleFollowing(){
+		setActionProgressVisible(true);
+		new SetAccountFollowed(account.id, !relationship.following)
+				.setCallback(new Callback<>(){
+					@Override
+					public void onSuccess(Relationship result){
+						relationship=result;
+						updateRelationship();
+						setActionProgressVisible(false);
+					}
+
+					@Override
+					public void onError(ErrorResponse error){
+						error.showToast(getActivity());
+						setActionProgressVisible(false);
+					}
+				})
 				.exec(accountID);
 	}
 
