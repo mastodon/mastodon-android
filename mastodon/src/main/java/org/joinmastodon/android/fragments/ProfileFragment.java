@@ -5,6 +5,7 @@ import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Fragment;
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -36,12 +37,15 @@ import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.requests.accounts.GetAccountRelationships;
 import org.joinmastodon.android.api.requests.accounts.GetAccountStatuses;
 import org.joinmastodon.android.api.requests.accounts.GetOwnAccount;
+import org.joinmastodon.android.api.requests.accounts.SetAccountBlocked;
 import org.joinmastodon.android.api.requests.accounts.SetAccountFollowed;
+import org.joinmastodon.android.api.requests.accounts.SetAccountMuted;
 import org.joinmastodon.android.api.requests.accounts.UpdateAccountCredentials;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.AccountField;
 import org.joinmastodon.android.model.Relationship;
+import org.joinmastodon.android.ui.M3AlertDialogBuilder;
 import org.joinmastodon.android.ui.drawables.CoverOverlayGradientDrawable;
 import org.joinmastodon.android.ui.tabs.TabLayout;
 import org.joinmastodon.android.ui.tabs.TabLayoutMediator;
@@ -364,10 +368,10 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 		menu.findItem(R.id.mute).setTitle(getString(relationship.muting ? R.string.unmute_user : R.string.mute_user, account.displayName));
 		menu.findItem(R.id.block).setTitle(getString(relationship.blocking ? R.string.unblock_user : R.string.block_user, account.displayName));
 		menu.findItem(R.id.report).setTitle(getString(R.string.report_user, account.displayName));
-		String domain=account.getDomain();
-		if(domain!=null)
-			menu.findItem(R.id.block_domain).setTitle(getString(relationship.domainBlocking ? R.string.unblock_domain : R.string.block_domain, domain));
-		else
+//		String domain=account.getDomain();
+//		if(domain!=null)
+//			menu.findItem(R.id.block_domain).setTitle(getString(relationship.domainBlocking ? R.string.unblock_domain : R.string.block_domain, domain));
+//		else
 			menu.findItem(R.id.block_domain).setVisible(false);
 	}
 
@@ -379,6 +383,10 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 			intent.setType("text/plain");
 			intent.putExtra(Intent.EXTRA_TEXT, account.url);
 			startActivity(Intent.createChooser(intent, item.getTitle()));
+		}else if(id==R.id.mute){
+			confirmToggleMuted();
+		}else if(id==R.id.block){
+			confirmToggleBlocked();
 		}
 		return true;
 	}
@@ -408,7 +416,13 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 	private void updateRelationship(){
 		invalidateOptionsMenu();
 		actionButton.setVisibility(View.VISIBLE);
-		actionButton.setText(relationship.following ? R.string.button_following : R.string.button_follow);
+		if(relationship.blocking){
+			actionButton.setText(R.string.button_blocked);
+		}else if(relationship.muting){
+			actionButton.setText(R.string.button_muted);
+		}else{
+			actionButton.setText(relationship.following ? R.string.button_following : R.string.button_follow);
+		}
 	}
 
 	private void onScrollChanged(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY){
@@ -463,7 +477,13 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 			else
 				saveAndExitEditMode();
 		}else{
-			toggleFollowing();
+			if(relationship.blocking){
+				confirmToggleBlocked();
+			}else if(relationship.muting){
+				confirmToggleMuted();
+			}else{
+				toggleFollowing();
+			}
 		}
 	}
 
@@ -617,6 +637,60 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 						setActionProgressVisible(false);
 					}
 				})
+				.exec(accountID);
+	}
+
+	private void confirmToggleMuted(){
+		new M3AlertDialogBuilder(getActivity())
+				.setTitle(relationship.muting ? R.string.confirm_unmute_title : R.string.confirm_mute_title)
+				.setMessage(getString(relationship.muting ? R.string.confirm_unmute : R.string.confirm_mute, account.displayName))
+				.setPositiveButton(relationship.muting ? R.string.do_unmute : R.string.do_mute, (dlg, i)->toggleMuted())
+				.setNegativeButton(R.string.cancel, null)
+				.show();
+	}
+
+	private void confirmToggleBlocked(){
+		new M3AlertDialogBuilder(getActivity())
+				.setTitle(relationship.blocking ? R.string.confirm_unblock_title : R.string.confirm_block_title)
+				.setMessage(getString(relationship.blocking ? R.string.confirm_unblock : R.string.confirm_block, account.displayName))
+				.setPositiveButton(relationship.blocking ? R.string.do_block : R.string.do_unblock, (dlg, i)->toggleBlocked())
+				.setNegativeButton(R.string.cancel, null)
+				.show();
+	}
+
+	private void toggleMuted(){
+		new SetAccountMuted(account.id, !relationship.muting)
+				.setCallback(new Callback<>(){
+					@Override
+					public void onSuccess(Relationship result){
+						relationship=result;
+						updateRelationship();
+					}
+
+					@Override
+					public void onError(ErrorResponse error){
+						error.showToast(getActivity());
+					}
+				})
+				.wrapProgress(getActivity(), R.string.loading, false)
+				.exec(accountID);
+	}
+
+	private void toggleBlocked(){
+		new SetAccountBlocked(account.id, !relationship.blocking)
+				.setCallback(new Callback<>(){
+					@Override
+					public void onSuccess(Relationship result){
+						relationship=result;
+						updateRelationship();
+					}
+
+					@Override
+					public void onError(ErrorResponse error){
+						error.showToast(getActivity());
+					}
+				})
+				.wrapProgress(getActivity(), R.string.loading, false)
 				.exec(accountID);
 	}
 
