@@ -278,13 +278,13 @@ public class ZoomPanView extends FrameLayout implements ScaleGestureDetector.OnS
 		float scaledWidth=child.getWidth()*targetScale;
 		float scaledHeight=child.getHeight()*targetScale;
 		if(scaledWidth>getWidth()){
-			minTransX=(getWidth()-scaledWidth)/2f;
+			minTransX=(getWidth()-Math.round(scaledWidth))/2f;
 			maxTransX=-minTransX;
 		}else{
 			minTransX=maxTransX=0f;
 		}
 		if(scaledHeight>getHeight()){
-			minTransY=(getHeight()-scaledHeight)/2f;
+			minTransY=(getHeight()-Math.round(scaledHeight))/2f;
 			maxTransY=-minTransY;
 		}else{
 			minTransY=maxTransY=0f;
