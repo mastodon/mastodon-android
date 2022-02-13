@@ -54,14 +54,14 @@ public class ReblogOrReplyLineStatusDisplayItem extends StatusDisplayItem{
 		public Holder(Activity activity, ViewGroup parent){
 			super(activity, R.layout.display_item_reblog_or_reply_line, parent);
 			text=findViewById(R.id.text);
-			if(Build.VERSION.SDK_INT<Build.VERSION_CODES.N)
-				UiUtils.fixCompoundDrawableTintOnAndroid6(text, R.color.text_secondary);
 		}
 
 		@Override
 		public void onBind(ReblogOrReplyLineStatusDisplayItem item){
 			text.setText(item.text);
 			text.setCompoundDrawablesRelativeWithIntrinsicBounds(item.icon, 0, 0, 0);
+			if(Build.VERSION.SDK_INT<Build.VERSION_CODES.N)
+				UiUtils.fixCompoundDrawableTintOnAndroid6(text);
 		}
 
 		@Override

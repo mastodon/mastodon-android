@@ -50,9 +50,9 @@ public class FooterStatusDisplayItem extends StatusDisplayItem{
 			favorite=findViewById(R.id.favorite);
 			share=findViewById(R.id.share);
 			if(Build.VERSION.SDK_INT<Build.VERSION_CODES.N){
-				UiUtils.fixCompoundDrawableTintOnAndroid6(reply, R.color.text_secondary);
-				UiUtils.fixCompoundDrawableTintOnAndroid6(boost, R.color.boost_icon);
-				UiUtils.fixCompoundDrawableTintOnAndroid6(favorite, R.color.favorite_icon);
+				UiUtils.fixCompoundDrawableTintOnAndroid6(reply);
+				UiUtils.fixCompoundDrawableTintOnAndroid6(boost);
+				UiUtils.fixCompoundDrawableTintOnAndroid6(favorite);
 			}
 			findViewById(R.id.reply_btn).setOnClickListener(this::onReplyClick);
 			findViewById(R.id.boost_btn).setOnClickListener(this::onBoostClick);

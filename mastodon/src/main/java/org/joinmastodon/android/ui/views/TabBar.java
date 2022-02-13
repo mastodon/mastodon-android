@@ -1,6 +1,7 @@
 package org.joinmastodon.android.ui.views;
 
 import android.content.Context;
+import android.os.Parcelable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -10,6 +11,7 @@ import org.joinmastodon.android.R;
 import java.util.function.IntConsumer;
 
 import androidx.annotation.IdRes;
+import androidx.annotation.Nullable;
 
 public class TabBar extends LinearLayout{
 	@IdRes
@@ -51,5 +53,11 @@ public class TabBar extends LinearLayout{
 
 	public void setListener(IntConsumer listener){
 		this.listener=listener;
+	}
+
+	public void selectTab(int id){
+		findViewById(selectedTabID).setSelected(false);
+		selectedTabID=id;
+		findViewById(selectedTabID).setSelected(true);
 	}
 }

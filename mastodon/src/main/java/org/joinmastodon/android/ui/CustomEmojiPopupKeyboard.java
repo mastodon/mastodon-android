@@ -14,6 +14,7 @@ import android.widget.TextView;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.model.Emoji;
 import org.joinmastodon.android.model.EmojiCategory;
+import org.joinmastodon.android.ui.utils.UiUtils;
 
 import java.util.List;
 import java.util.function.Consumer;
@@ -91,7 +92,7 @@ public class CustomEmojiPopupKeyboard extends PopupKeyboard{
 				}
 			}
 		});
-		list.setBackgroundResource(R.color.gray_100);
+		list.setBackgroundColor(UiUtils.getThemeColor(activity, android.R.attr.colorBackground));
 		list.setSelector(null);
 
 		return list;

@@ -29,6 +29,7 @@
 			android:paddingEnd="16dp"
 			android:textAppearance="@style/m3_title_medium"
 			android:inputType="textCapSentences"
+			android:saveEnabled="false"
 			android:singleLine="true"/>
 	</LinearLayout>
 

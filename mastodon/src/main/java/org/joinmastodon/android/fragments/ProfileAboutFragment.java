@@ -20,6 +20,7 @@ import org.joinmastodon.android.R;
 import org.joinmastodon.android.model.AccountField;
 import org.joinmastodon.android.ui.text.CustomEmojiSpan;
 import org.joinmastodon.android.ui.utils.SimpleTextWatcher;
+import org.joinmastodon.android.ui.utils.UiUtils;
 import org.joinmastodon.android.ui.views.LinkedTextView;
 
 import java.util.Collections;
@@ -164,7 +165,7 @@ public class ProfileAboutFragment extends Fragment{
 
 		public BaseViewHolder(int layout){
 			super(getActivity(), layout, list);
-			background.getPaint().setColor(getResources().getColor(R.color.gray_50));
+			background.getPaint().setColor(UiUtils.getThemeColor(getActivity(), R.attr.colorBackgroundLight));
 			itemView.setBackground(background);
 		}
 

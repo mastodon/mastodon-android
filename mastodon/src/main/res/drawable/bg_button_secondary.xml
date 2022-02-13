@@ -4,7 +4,7 @@
 		<ripple android:color="@color/highlight_over_dark">
 			<item>
 				<shape>
-					<solid android:color="@color/gray_600"/>
+					<solid android:color="@color/button_bg_secondary"/>
 					<corners android:radius="10dp"/>
 					<padding android:left="16dp" android:right="16dp" android:top="8dp" android:bottom="8dp"/>
 				</shape>

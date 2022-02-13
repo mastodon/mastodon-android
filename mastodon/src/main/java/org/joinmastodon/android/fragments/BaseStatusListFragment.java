@@ -53,6 +53,12 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 	}
 
 	@Override
+	public void onCreate(Bundle savedInstanceState){
+		super.onCreate(savedInstanceState);
+		setRetainInstance(true);
+	}
+
+	@Override
 	protected RecyclerView.Adapter getAdapter(){
 		return adapter=new DisplayItemsAdapter();
 	}

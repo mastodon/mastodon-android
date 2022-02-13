@@ -48,6 +48,24 @@ public class HomeFragment extends AppKitFragment implements OnBackPressedListene
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		accountID=getArguments().getString("account");
+
+		setRetainInstance(true);
+
+		Bundle args=new Bundle();
+		args.putString("account", accountID);
+		homeTimelineFragment=new HomeTimelineFragment();
+		homeTimelineFragment.setArguments(args);
+		args=new Bundle(args);
+		args.putBoolean("noAutoLoad", true);
+		searchFragment=new SearchFragment();
+		searchFragment.setArguments(args);
+		notificationsFragment=new NotificationsFragment();
+		notificationsFragment.setArguments(args);
+		args=new Bundle(args);
+		args.putParcelable("profileAccount", Parcels.wrap(AccountSessionManager.getInstance().getAccount(accountID).self));
+		args.putBoolean("noAutoLoad", true);
+		profileFragment=new ProfileFragment();
+		profileFragment.setArguments(args);
 	}
 
 	@Nullable
@@ -76,28 +94,16 @@ public class HomeFragment extends AppKitFragment implements OnBackPressedListene
 		Account self=AccountSessionManager.getInstance().getAccount(accountID).self;
 		ViewImageLoader.load(tabBarAvatar, null, new UrlImageLoaderRequest(self.avatar, V.dp(28), V.dp(28)));
 
-		Bundle args=new Bundle();
-		args.putString("account", accountID);
-		homeTimelineFragment=new HomeTimelineFragment();
-		homeTimelineFragment.setArguments(args);
-		args=new Bundle(args);
-		args.putBoolean("noAutoLoad", true);
-		searchFragment=new SearchFragment();
-		searchFragment.setArguments(args);
-		notificationsFragment=new NotificationsFragment();
-		notificationsFragment.setArguments(args);
-		args=new Bundle(args);
-		args.putParcelable("profileAccount", Parcels.wrap(AccountSessionManager.getInstance().getAccount(accountID).self));
-		args.putBoolean("noAutoLoad", true);
-		profileFragment=new ProfileFragment();
-		profileFragment.setArguments(args);
-
-		getChildFragmentManager().beginTransaction()
-				.add(R.id.fragment_wrap, homeTimelineFragment)
-				.add(R.id.fragment_wrap, searchFragment).hide(searchFragment)
-				.add(R.id.fragment_wrap, notificationsFragment).hide(notificationsFragment)
-				.add(R.id.fragment_wrap, profileFragment).hide(profileFragment)
-				.commit();
+		if(savedInstanceState==null){
+			getChildFragmentManager().beginTransaction()
+					.add(R.id.fragment_wrap, homeTimelineFragment)
+					.add(R.id.fragment_wrap, searchFragment).hide(searchFragment)
+					.add(R.id.fragment_wrap, notificationsFragment).hide(notificationsFragment)
+					.add(R.id.fragment_wrap, profileFragment).hide(profileFragment)
+					.commit();
+		}else{
+			tabBar.selectTab(currentTab);
+		}
 
 		return content;
 	}

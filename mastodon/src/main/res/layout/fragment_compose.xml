@@ -25,7 +25,7 @@
 				android:layout_marginTop="16dp"
 				android:textAppearance="@style/m3_title_small"
 				android:drawableStart="@drawable/ic_fluent_arrow_reply_20_filled"
-				android:drawableTint="@color/gray_500"
+				android:drawableTint="?android:textColorSecondary"
 				android:drawablePadding="6dp"
 				android:singleLine="true"
 				android:ellipsize="end"/>
@@ -117,7 +117,7 @@
 					android:layout_marginRight="16dp"
 					android:layout_marginBottom="8dp"
 					android:textAppearance="@style/m3_label_large"
-					android:textColor="@color/gray_800"
+					android:textColor="?android:textColorPrimary"
 					tools:text="Duration: 7 days"/>
 			</LinearLayout>
 
@@ -135,7 +135,7 @@
 		android:layout_height="48dp"
 		android:orientation="horizontal"
 		android:gravity="center_vertical"
-		android:background="@color/gray_25"
+		android:background="?colorBackgroundLightest"
 		android:elevation="2dp"
 		android:outlineProvider="bounds"
 		android:paddingLeft="16dp"
@@ -207,7 +207,7 @@
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:textAppearance="@style/m3_body_large"
-			android:textColor="@color/gray_500"
+			android:textColor="?android:textColorSecondary"
 			tools:text="500"/>
 
 	</LinearLayout>

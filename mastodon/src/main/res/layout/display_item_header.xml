@@ -34,6 +34,7 @@
 		android:ellipsize="end"
 		android:singleLine="true"
 		android:textAppearance="@style/m3_title_medium"
+		android:textAlignment="viewStart"
 		tools:text="Eugen" />
 
 	<org.joinmastodon.android.ui.views.HeaderSubtitleLinearLayout

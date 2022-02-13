@@ -2,6 +2,7 @@ package org.joinmastodon.android.ui.utils;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.database.Cursor;
 import android.graphics.drawable.Animatable;
 import android.graphics.drawable.Drawable;
@@ -25,6 +26,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import androidx.annotation.AttrRes;
 import androidx.annotation.ColorRes;
 import androidx.browser.customtabs.CustomTabsIntent;
 import me.grishka.appkit.imageloader.ViewImageLoader;
@@ -91,14 +93,13 @@ public class UiUtils{
 	 * Android 6.0 has a bug where start and end compound drawables don't get tinted.
 	 * This works around it by setting the tint colors directly to the drawables.
 	 * @param textView
-	 * @param color
 	 */
-	public static void fixCompoundDrawableTintOnAndroid6(TextView textView, @ColorRes int color){
+	public static void fixCompoundDrawableTintOnAndroid6(TextView textView){
 		Drawable[] drawables=textView.getCompoundDrawablesRelative();
 		for(int i=0;i<drawables.length;i++){
 			if(drawables[i]!=null){
 				Drawable tinted=drawables[i].mutate();
-				tinted.setTintList(textView.getContext().getColorStateList(color));
+				tinted.setTintList(textView.getTextColors());
 				drawables[i]=tinted;
 			}
 		}
@@ -152,5 +153,12 @@ public class UiUtils{
 				}
 			}, null, new UrlImageLoaderRequest(emoji.getKey().url, emojiSize, emojiSize), null, false, true);
 		}
+	}
+
+	public static int getThemeColor(Context context, @AttrRes int attr){
+		TypedArray ta=context.obtainStyledAttributes(new int[]{attr});
+		int color=ta.getColor(0, 0xff00ff00);
+		ta.recycle();
+		return color;
 	}
 }

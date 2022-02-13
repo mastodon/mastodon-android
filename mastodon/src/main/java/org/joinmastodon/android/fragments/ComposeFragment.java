@@ -132,11 +132,13 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 	private String initialReplyMentions;
 	private String uuid;
 	private int pollDuration=24*3600;
+	private String pollDurationStr;
 
 	@Override
-	public void onAttach(Activity activity){
-		super.onAttach(activity);
-		setHasOptionsMenu(true);
+	public void onCreate(Bundle savedInstanceState){
+		super.onCreate(savedInstanceState);
+		setRetainInstance(true);
+
 		accountID=getArguments().getString("account");
 		AccountSession session=AccountSessionManager.getInstance().getAccount(accountID);
 		charLimit=session.tootCharLimit;
@@ -145,15 +147,21 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 		self=session.self;
 		instanceDomain=session.domain;
 		customEmojis=AccountSessionManager.getInstance().getCustomEmojis(instanceDomain);
-		emojiKeyboard=new CustomEmojiPopupKeyboard(activity, customEmojis, instanceDomain);
-		emojiKeyboard.setListener(this::onCustomEmojiClick);
-
 		if(getArguments().containsKey("replyTo"))
 			replyTo=Parcels.unwrap(getArguments().getParcelable("replyTo"));
 	}
 
 	@Override
+	public void onAttach(Activity activity){
+		super.onAttach(activity);
+		setHasOptionsMenu(true);
+	}
+
+	@Override
 	public View onCreateContentView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+		emojiKeyboard=new CustomEmojiPopupKeyboard(getActivity(), customEmojis, instanceDomain);
+		emojiKeyboard.setListener(this::onCustomEmojiClick);
+
 		View view=inflater.inflate(R.layout.fragment_compose, container, false);
 		mainEditText=view.findViewById(R.id.toot_text);
 		charCounter=view.findViewById(R.id.char_counter);
@@ -206,10 +214,40 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 		});
 		pollOptionsView.setDragListener(this::onSwapPollOptions);
 		pollDurationView=view.findViewById(R.id.poll_duration);
-		pollDurationView.setText(getString(R.string.compose_poll_duration, getResources().getQuantityString(R.plurals.x_days, 1, 1)));
 		pollDurationView.setOnClickListener(v->showPollDurationMenu());
 
+		pollOptions.clear();
+		if(savedInstanceState!=null && savedInstanceState.containsKey("pollOptions")){
+			pollBtn.setSelected(true);
+			mediaBtn.setEnabled(false);
+			pollWrap.setVisibility(View.VISIBLE);
+			for(String oldText:savedInstanceState.getStringArrayList("pollOptions")){
+				DraftPollOption opt=createDraftPollOption();
+				opt.edit.setText(oldText);
+			}
+			updatePollOptionHints();
+			pollDurationView.setText(getString(R.string.compose_poll_duration, pollDurationStr));
+		}else{
+			pollDurationView.setText(getString(R.string.compose_poll_duration, pollDurationStr=getResources().getQuantityString(R.plurals.x_days, 1, 1)));
+		}
+
+		// TODO save and restore media attachments (when design is ready)
+
 		return view;
+	}
+
+	@Override
+	public void onSaveInstanceState(Bundle outState){
+		super.onSaveInstanceState(outState);
+		if(!pollOptions.isEmpty()){
+			ArrayList<String> opts=new ArrayList<>();
+			for(DraftPollOption opt:pollOptions){
+				opts.add(opt.edit.getText().toString());
+			}
+			outState.putStringArrayList("pollOptions", opts);
+			outState.putInt("pollDuration", pollDuration);
+			outState.putString("pollDurationStr", pollDurationStr);
+		}
 	}
 
 	@Override
@@ -592,7 +630,7 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 				case 7 -> 7*24*3600;
 				default -> throw new IllegalStateException("Unexpected value: "+item.getItemId());
 			};
-			pollDurationView.setText(getString(R.string.compose_poll_duration, item.getTitle()));
+			pollDurationView.setText(getString(R.string.compose_poll_duration, pollDurationStr=item.getTitle().toString()));
 			return true;
 		});
 		menu.show();

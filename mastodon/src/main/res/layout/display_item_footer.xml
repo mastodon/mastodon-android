@@ -19,7 +19,7 @@
 			android:layout_gravity="center"
 			android:drawableStart="@drawable/ic_fluent_chat_multiple_24_regular"
 			android:drawablePadding="8dp"
-			android:drawableTint="@color/text_secondary"
+			android:drawableTint="?android:textColorSecondary"
 			android:gravity="center_vertical"
 			android:textAppearance="@style/m3_label_large"
 			tools:text="123"/>
@@ -89,7 +89,7 @@
 			android:layout_height="24dp"
 			android:layout_gravity="center"
 			android:src="@drawable/ic_fluent_share_24_regular"
-			android:tint="@color/text_secondary"
+			android:tint="?android:textColorSecondary"
 			android:gravity="center_vertical"/>
 	</FrameLayout>
 

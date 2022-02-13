@@ -99,6 +99,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 	private View postsBtn, followersBtn, followingBtn;
 	private EditText nameEdit, bioEdit;
 	private ProgressBar actionProgress;
+	private FrameLayout[] tabViews;
 
 	private Account account;
 	private String accountID;
@@ -115,9 +116,16 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 	}
 
 	@Override
+	public void onCreate(Bundle savedInstanceState){
+		super.onCreate(savedInstanceState);
+		setRetainInstance(true);
+		accountID=getArguments().getString("account");
+
+	}
+
+	@Override
 	public void onAttach(Activity activity){
 		super.onAttach(activity);
-		accountID=getArguments().getString("account");
 		setHasOptionsMenu(true);
 		if(!getArguments().getBoolean("noAutoLoad", false))
 			loadData();
@@ -159,6 +167,31 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 		});
 		avatar.setClipToOutline(true);
 
+		FrameLayout sizeWrapper=new FrameLayout(getActivity()){
+			@Override
+			protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec){
+				Toolbar toolbar=getToolbar();
+				pager.getLayoutParams().height=MeasureSpec.getSize(heightMeasureSpec)-getPaddingTop()-getPaddingBottom()-toolbar.getLayoutParams().height-statusBarHeight-V.dp(38);
+				coverGradient.setTopPadding(statusBarHeight+toolbar.getLayoutParams().height);
+				super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+			}
+		};
+
+		tabViews=new FrameLayout[4];
+		for(int i=0;i<tabViews.length;i++){
+			FrameLayout tabView=new FrameLayout(getActivity());
+			tabView.setId(switch(i){
+				case 0 -> R.id.profile_posts;
+				case 1 -> R.id.profile_posts_with_replies;
+				case 2 -> R.id.profile_media;
+				case 3 -> R.id.profile_about;
+				default -> throw new IllegalStateException("Unexpected value: "+i);
+			});
+			tabView.setVisibility(View.GONE);
+			sizeWrapper.addView(tabView); // needed so the fragment manager will have somewhere to restore the tab fragment
+			tabViews[i]=tabView;
+		}
+
 		pager.setOffscreenPageLimit(4);
 		pager.setAdapter(new ProfilePagerAdapter());
 		pager.getLayoutParams().height=getResources().getDisplayMetrics().heightPixels;
@@ -174,18 +207,9 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 
 		scrollView.setScrollableChildSupplier(this::getScrollableRecyclerView);
 
-		FrameLayout sizeWrapper=new FrameLayout(getActivity()){
-			@Override
-			protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec){
-				Toolbar toolbar=getToolbar();
-				pager.getLayoutParams().height=MeasureSpec.getSize(heightMeasureSpec)-getPaddingTop()-getPaddingBottom()-toolbar.getLayoutParams().height-statusBarHeight-V.dp(38);
-				coverGradient.setTopPadding(statusBarHeight+toolbar.getLayoutParams().height);
-				super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-			}
-		};
 		sizeWrapper.addView(content);
 
-		tabbar.setTabTextColors(getResources().getColor(R.color.gray_500), getResources().getColor(R.color.gray_800));
+		tabbar.setTabTextColors(UiUtils.getThemeColor(getActivity(), android.R.attr.textColorSecondary), UiUtils.getThemeColor(getActivity(), android.R.attr.textColorPrimary));
 		tabbar.setTabTextSize(V.dp(16));
 		new TabLayoutMediator(tabbar, pager, new TabLayoutMediator.TabConfigurationStrategy(){
 			@Override
@@ -225,6 +249,17 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 	}
 
 	@Override
+	public void dataLoaded(){
+		postsFragment=AccountTimelineFragment.newInstance(accountID, account, GetAccountStatuses.Filter.DEFAULT, true);
+		postsWithRepliesFragment=AccountTimelineFragment.newInstance(accountID, account, GetAccountStatuses.Filter.INCLUDE_REPLIES, false);
+		mediaFragment=AccountTimelineFragment.newInstance(accountID, account, GetAccountStatuses.Filter.MEDIA, false);
+		aboutFragment=new ProfileAboutFragment();
+		aboutFragment.setFields(fields);
+		pager.getAdapter().notifyDataSetChanged();
+		super.dataLoaded();
+	}
+
+	@Override
 	public void onViewCreated(View view, Bundle savedInstanceState){
 		super.onViewCreated(view, savedInstanceState);
 		updateToolbar();
@@ -256,6 +291,11 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 			toolbarTitleView.setTranslationY(titleTransY);
 			toolbarSubtitleView.setTranslationY(titleTransY);
 		}
+	}
+
+	@Override
+	public void onDestroyView(){
+		super.onDestroyView();
 	}
 
 	@Override
@@ -739,31 +779,23 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 		@NonNull
 		@Override
 		public SimpleViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType){
-			FrameLayout view=new FrameLayout(getActivity());
-			view.setId(View.generateViewId());
+			FrameLayout view=tabViews[viewType];
+			((ViewGroup)view.getParent()).removeView(view);
+			view.setVisibility(View.VISIBLE);
 			view.setLayoutParams(new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
 			return new SimpleViewHolder(view);
 		}
 
 		@Override
 		public void onBindViewHolder(@NonNull SimpleViewHolder holder, int position){
-			Fragment fragment=switch(position){
-				case 0 -> postsFragment=AccountTimelineFragment.newInstance(accountID, account, GetAccountStatuses.Filter.DEFAULT, true);
-				case 1 -> postsWithRepliesFragment=AccountTimelineFragment.newInstance(accountID, account, GetAccountStatuses.Filter.INCLUDE_REPLIES, false);
-				case 2 -> mediaFragment=AccountTimelineFragment.newInstance(accountID, account, GetAccountStatuses.Filter.MEDIA, false);
-				case 3 -> {
-					aboutFragment=new ProfileAboutFragment();
-					aboutFragment.setFields(fields);
-					yield aboutFragment;
-				}
-				default -> throw new IllegalArgumentException();
-			};
-			getChildFragmentManager().beginTransaction().add(holder.itemView.getId(), fragment).commit();
+			Fragment fragment=getFragmentForPage(position);
+			if(!fragment.isAdded())
+				getChildFragmentManager().beginTransaction().add(holder.itemView.getId(), getFragmentForPage(position)).commit();
 		}
 
 		@Override
 		public int getItemCount(){
-			return 4;
+			return loaded ? 4 : 0;
 		}
 
 		@Override

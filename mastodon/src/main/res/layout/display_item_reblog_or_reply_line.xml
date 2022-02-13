@@ -13,7 +13,7 @@
 		android:layout_height="wrap_content"
 		android:textAppearance="@style/m3_title_small"
 		android:drawableStart="@drawable/ic_fluent_arrow_repeat_all_20_filled"
-		android:drawableTint="@color/gray_500"
+		android:drawableTint="?android:textColorSecondary"
 		android:drawablePadding="6dp"
 		android:singleLine="true"
 		android:ellipsize="end"/>

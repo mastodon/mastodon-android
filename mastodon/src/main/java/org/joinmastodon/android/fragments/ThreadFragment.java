@@ -22,15 +22,15 @@ public class ThreadFragment extends StatusListFragment{
 	private Status mainStatus;
 
 	@Override
-	public void onAttach(Activity activity){
-		super.onAttach(activity);
+	public void onCreate(Bundle savedInstanceState){
+		super.onCreate(savedInstanceState);
 		mainStatus=Parcels.unwrap(getArguments().getParcelable("status"));
 		Account inReplyToAccount=Parcels.unwrap(getArguments().getParcelable("inReplyToAccount"));
 		if(inReplyToAccount!=null)
 			knownAccounts.put(inReplyToAccount.id, inReplyToAccount);
-		setTitle(HtmlParser.parseCustomEmoji(getString(R.string.post_from_user, mainStatus.account.displayName), mainStatus.account.emojis));
 		data.add(mainStatus);
 		onAppendItems(Collections.singletonList(mainStatus));
+		setTitle(HtmlParser.parseCustomEmoji(getString(R.string.post_from_user, mainStatus.account.displayName), mainStatus.account.emojis));
 	}
 
 	@Override

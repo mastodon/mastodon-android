@@ -147,7 +147,7 @@
 						style="?android:progressBarStyleSmall"
 						android:elevation="10dp"
 						android:outlineProvider="none"
-						android:indeterminateTint="@color/text_button"
+						android:indeterminateTint="?colorButtonText"
 						android:visibility="gone"/>
 				</FrameLayout>
 
@@ -161,6 +161,7 @@
 					android:layout_marginTop="16dp"
 					android:layout_toStartOf="@id/profile_action_btn_wrap"
 					android:textAppearance="@style/m3_headline_small"
+					android:textAlignment="viewStart"
 					tools:text="Eugen" />
 
 				<TextView
@@ -171,7 +172,7 @@
 					android:layout_marginStart="16dp"
 					android:layout_toStartOf="@id/profile_action_btn_wrap"
 					android:textAppearance="@style/m3_title_medium"
-					android:textColor="@color/light_ui_action_button"
+					android:textColor="?android:textColorSecondary"
 					tools:text="\@Gargron"/>
 
 				<org.joinmastodon.android.ui.views.LinkedTextView
@@ -227,6 +228,7 @@
 				app:tabMinWidth="0dp"
 				app:tabIndicator="@drawable/tab_indicator_inset"
 				app:tabIndicatorAnimationMode="elastic"
+				app:tabIndicatorColor="?android:textColorPrimary"
 				app:tabMode="scrollable"
 				app:tabGravity="start"/>
 			<androidx.viewpager2.widget.ViewPager2
