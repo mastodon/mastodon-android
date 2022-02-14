@@ -34,6 +34,7 @@ import android.widget.TextView;
 import android.widget.Toolbar;
 
 import org.joinmastodon.android.R;
+import org.joinmastodon.android.api.requests.accounts.GetAccountByID;
 import org.joinmastodon.android.api.requests.accounts.GetAccountRelationships;
 import org.joinmastodon.android.api.requests.accounts.GetAccountStatuses;
 import org.joinmastodon.android.api.requests.accounts.GetOwnAccount;
@@ -71,6 +72,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import androidx.viewpager2.widget.ViewPager2;
 import me.grishka.appkit.api.Callback;
 import me.grishka.appkit.api.ErrorResponse;
+import me.grishka.appkit.api.SimpleCallback;
 import me.grishka.appkit.fragments.BaseRecyclerFragment;
 import me.grishka.appkit.fragments.LoaderFragment;
 import me.grishka.appkit.fragments.OnBackPressedListener;
@@ -100,6 +102,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 	private EditText nameEdit, bioEdit;
 	private ProgressBar actionProgress;
 	private FrameLayout[] tabViews;
+	private TabLayoutMediator tabLayoutMediator;
 
 	private Account account;
 	private String accountID;
@@ -110,6 +113,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 
 	private boolean isInEditMode;
 	private Uri editNewAvatar, editNewCover;
+	private String profileAccountID;
 
 	public ProfileFragment(){
 		super(R.layout.loader_fragment_overlay_toolbar);
@@ -119,16 +123,25 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		setRetainInstance(true);
-		accountID=getArguments().getString("account");
 
+		accountID=getArguments().getString("account");
+		if(getArguments().containsKey("profileAccount")){
+			account=Parcels.unwrap(getArguments().getParcelable("profileAccount"));
+			isOwnProfile=AccountSessionManager.getInstance().isSelf(accountID, account);
+			loaded=true;
+			if(!isOwnProfile)
+				loadRelationship();
+		}else{
+			profileAccountID=getArguments().getString("profileAccountID");
+			if(!getArguments().getBoolean("noAutoLoad", false))
+				loadData();
+		}
 	}
 
 	@Override
 	public void onAttach(Activity activity){
 		super.onAttach(activity);
 		setHasOptionsMenu(true);
-		if(!getArguments().getBoolean("noAutoLoad", false))
-			loadData();
 	}
 
 	@Override
@@ -196,22 +209,13 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 		pager.setAdapter(new ProfilePagerAdapter());
 		pager.getLayoutParams().height=getResources().getDisplayMetrics().heightPixels;
 
-		if(getArguments().containsKey("profileAccount")){
-			account=Parcels.unwrap(getArguments().getParcelable("profileAccount"));
-			isOwnProfile=AccountSessionManager.getInstance().isSelf(accountID, account);
-			bindHeaderView();
-			dataLoaded();
-			if(!isOwnProfile)
-				loadRelationship();
-		}
-
 		scrollView.setScrollableChildSupplier(this::getScrollableRecyclerView);
 
 		sizeWrapper.addView(content);
 
 		tabbar.setTabTextColors(UiUtils.getThemeColor(getActivity(), android.R.attr.textColorSecondary), UiUtils.getThemeColor(getActivity(), android.R.attr.textColorPrimary));
 		tabbar.setTabTextSize(V.dp(16));
-		new TabLayoutMediator(tabbar, pager, new TabLayoutMediator.TabConfigurationStrategy(){
+		tabLayoutMediator=new TabLayoutMediator(tabbar, pager, new TabLayoutMediator.TabConfigurationStrategy(){
 			@Override
 			public void onConfigureTab(@NonNull TabLayout.Tab tab, int position){
 				tab.setText(switch(position){
@@ -222,7 +226,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 					default -> throw new IllegalStateException();
 				});
 			}
-		}).attach();
+		});
 
 		cover.setForeground(coverGradient);
 		cover.setOutlineProvider(new ViewOutlineProvider(){
@@ -236,11 +240,31 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 		avatar.setOnClickListener(this::onAvatarClick);
 		cover.setOnClickListener(this::onCoverClick);
 
+		if(loaded){
+			bindHeaderView();
+			dataLoaded();
+			tabLayoutMediator.attach();
+		}
+
 		return sizeWrapper;
 	}
 
 	@Override
 	protected void doLoadData(){
+		currentRequest=new GetAccountByID(profileAccountID)
+				.setCallback(new SimpleCallback<>(this){
+					@Override
+					public void onSuccess(Account result){
+						account=result;
+						isOwnProfile=AccountSessionManager.getInstance().isSelf(accountID, account);
+						bindHeaderView();
+						dataLoaded();
+						tabLayoutMediator.attach();
+						if(!isOwnProfile)
+							loadRelationship();
+					}
+				})
+				.exec(accountID);
 	}
 
 	@Override
@@ -250,11 +274,15 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 
 	@Override
 	public void dataLoaded(){
-		postsFragment=AccountTimelineFragment.newInstance(accountID, account, GetAccountStatuses.Filter.DEFAULT, true);
-		postsWithRepliesFragment=AccountTimelineFragment.newInstance(accountID, account, GetAccountStatuses.Filter.INCLUDE_REPLIES, false);
-		mediaFragment=AccountTimelineFragment.newInstance(accountID, account, GetAccountStatuses.Filter.MEDIA, false);
-		aboutFragment=new ProfileAboutFragment();
-		aboutFragment.setFields(fields);
+		if(getActivity()==null)
+			return;
+		if(postsFragment==null){
+			postsFragment=AccountTimelineFragment.newInstance(accountID, account, GetAccountStatuses.Filter.DEFAULT, true);
+			postsWithRepliesFragment=AccountTimelineFragment.newInstance(accountID, account, GetAccountStatuses.Filter.INCLUDE_REPLIES, false);
+			mediaFragment=AccountTimelineFragment.newInstance(accountID, account, GetAccountStatuses.Filter.MEDIA, false);
+			aboutFragment=new ProfileAboutFragment();
+			aboutFragment.setFields(fields);
+		}
 		pager.getAdapter().notifyDataSetChanged();
 		super.dataLoaded();
 	}
@@ -322,7 +350,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 		name.setText(ssb);
 		setTitle(ssb);
 		username.setText('@'+account.acct);
-		bio.setText(HtmlParser.parse(account.note, account.emojis));
+		bio.setText(HtmlParser.parse(account.note, account.emojis, Collections.emptyList(), accountID));
 		followersCount.setText(UiUtils.abbreviateNumber(account.followersCount));
 		followingCount.setText(UiUtils.abbreviateNumber(account.followingCount));
 		postsCount.setText(UiUtils.abbreviateNumber(account.statusesCount));
@@ -347,7 +375,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 		fields.add(joined);
 
 		for(AccountField field:account.fields){
-			field.parsedValue=ssb=HtmlParser.parse(field.value, account.emojis);
+			field.parsedValue=ssb=HtmlParser.parse(field.value, account.emojis, Collections.emptyList(), accountID);
 			field.valueEmojis=ssb.getSpans(0, ssb.length(), CustomEmojiSpan.class);
 			ssb=new SpannableStringBuilder(field.name);
 			HtmlParser.parseCustomEmoji(ssb, account.emojis);

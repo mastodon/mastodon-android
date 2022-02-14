@@ -69,7 +69,7 @@ public abstract class StatusDisplayItem{
 		}
 		items.add(new HeaderStatusDisplayItem(parentID, statusForContent.account, statusForContent.createdAt, fragment, accountID));
 		if(!TextUtils.isEmpty(statusForContent.content))
-			items.add(new TextStatusDisplayItem(parentID, HtmlParser.parse(statusForContent.content, statusForContent.emojis), fragment));
+			items.add(new TextStatusDisplayItem(parentID, HtmlParser.parse(statusForContent.content, statusForContent.emojis, statusForContent.mentions, accountID), fragment));
 		int photoIndex=0;
 		int totalPhotos=0;
 		for(Attachment attachment:statusForContent.mediaAttachments){

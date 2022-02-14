@@ -1,12 +1,14 @@
 package org.joinmastodon.android.ui.utils;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.database.Cursor;
 import android.graphics.drawable.Animatable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.provider.OpenableColumns;
@@ -17,6 +19,7 @@ import android.widget.TextView;
 
 import org.joinmastodon.android.MastodonApp;
 import org.joinmastodon.android.R;
+import org.joinmastodon.android.fragments.ProfileFragment;
 import org.joinmastodon.android.model.Emoji;
 import org.joinmastodon.android.ui.text.CustomEmojiSpan;
 
@@ -29,6 +32,7 @@ import java.util.stream.Collectors;
 import androidx.annotation.AttrRes;
 import androidx.annotation.ColorRes;
 import androidx.browser.customtabs.CustomTabsIntent;
+import me.grishka.appkit.Nav;
 import me.grishka.appkit.imageloader.ViewImageLoader;
 import me.grishka.appkit.imageloader.requests.UrlImageLoaderRequest;
 import me.grishka.appkit.utils.V;
@@ -160,5 +164,12 @@ public class UiUtils{
 		int color=ta.getColor(0, 0xff00ff00);
 		ta.recycle();
 		return color;
+	}
+
+	public static void openProfileByID(Context context, String selfID, String id){
+		Bundle args=new Bundle();
+		args.putString("account", selfID);
+		args.putString("profileAccountID", id);
+		Nav.go((Activity)context, ProfileFragment.class, args);
 	}
 }

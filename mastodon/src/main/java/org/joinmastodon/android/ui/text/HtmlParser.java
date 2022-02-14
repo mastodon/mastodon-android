@@ -5,6 +5,7 @@ import android.text.Spanned;
 import android.widget.TextView;
 
 import org.joinmastodon.android.model.Emoji;
+import org.joinmastodon.android.model.Mention;
 import org.joinmastodon.android.ui.utils.UiUtils;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Element;
@@ -40,7 +41,7 @@ public class HtmlParser{
 	 * @param emojis Custom emojis that are present in source as <code>:code:</code>
 	 * @return a spanned string
 	 */
-	public static SpannableStringBuilder parse(String source, List<Emoji> emojis){
+	public static SpannableStringBuilder parse(String source, List<Emoji> emojis, List<Mention> mentions, String accountID){
 		class SpanInfo{
 			public Object span;
 			public int start;
@@ -52,6 +53,8 @@ public class HtmlParser{
 				this.element=element;
 			}
 		}
+
+		Map<String, String> idsByUrl=mentions.stream().collect(Collectors.toMap(m->m.url, m->m.id));
 
 		final SpannableStringBuilder ssb=new SpannableStringBuilder();
 		Jsoup.parseBodyFragment(source).body().traverse(new NodeVisitor(){
@@ -65,15 +68,22 @@ public class HtmlParser{
 					Element el=(Element)node;
 					switch(el.nodeName()){
 						case "a" -> {
+							String href=el.attr("href");
 							LinkSpan.Type linkType;
 							if(el.hasClass("hashtag")){
 								linkType=LinkSpan.Type.HASHTAG;
 							}else if(el.hasClass("mention")){
-								linkType=LinkSpan.Type.MENTION;
+								String id=idsByUrl.get(href);
+								if(id!=null){
+									linkType=LinkSpan.Type.MENTION;
+									href=id;
+								}else{
+									linkType=LinkSpan.Type.URL;
+								}
 							}else{
 								linkType=LinkSpan.Type.URL;
 							}
-							openSpans.add(new SpanInfo(new LinkSpan(el.attr("href"), null, linkType), ssb.length(), el));
+							openSpans.add(new SpanInfo(new LinkSpan(href, null, linkType, accountID), ssb.length(), el));
 						}
 						case "br" -> ssb.append('\n');
 						case "span" -> {

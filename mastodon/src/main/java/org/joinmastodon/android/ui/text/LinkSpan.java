@@ -13,11 +13,13 @@ public class LinkSpan extends CharacterStyle {
 	private OnLinkClickListener listener;
 	private String link;
 	private Type type;
+	private String accountID;
 
-	public LinkSpan(String link, OnLinkClickListener listener, Type type) {
+	public LinkSpan(String link, OnLinkClickListener listener, Type type, String accountID){
 		this.listener=listener;
 		this.link=link;
 		this.type=type;
+		this.accountID=accountID;
 	}
 
 	public void setColor(int c){
@@ -36,7 +38,8 @@ public class LinkSpan extends CharacterStyle {
 	public void onClick(Context context){
 		switch(getType()){
 			case URL -> UiUtils.launchWebBrowser(context, link);
-			case HASHTAG, MENTION -> Toast.makeText(context, "Not implemented yet", Toast.LENGTH_SHORT).show();
+			case MENTION -> UiUtils.openProfileByID(context, accountID, link);
+			case HASHTAG -> Toast.makeText(context, "Not implemented yet", Toast.LENGTH_SHORT).show();
 		}
 	}
 
