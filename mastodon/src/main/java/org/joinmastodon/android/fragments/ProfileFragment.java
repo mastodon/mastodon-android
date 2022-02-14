@@ -114,6 +114,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 	private boolean isInEditMode;
 	private Uri editNewAvatar, editNewCover;
 	private String profileAccountID;
+	private boolean refreshing;
 
 	public ProfileFragment(){
 		super(R.layout.loader_fragment_overlay_toolbar);
@@ -127,6 +128,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 		accountID=getArguments().getString("account");
 		if(getArguments().containsKey("profileAccount")){
 			account=Parcels.unwrap(getArguments().getParcelable("profileAccount"));
+			profileAccountID=account.id;
 			isOwnProfile=AccountSessionManager.getInstance().isSelf(accountID, account);
 			loaded=true;
 			if(!isOwnProfile)
@@ -239,6 +241,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 		actionButton.setOnClickListener(this::onActionButtonClick);
 		avatar.setOnClickListener(this::onAvatarClick);
 		cover.setOnClickListener(this::onCoverClick);
+		refreshLayout.setOnRefreshListener(this);
 
 		if(loaded){
 			bindHeaderView();
@@ -259,9 +262,22 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 						isOwnProfile=AccountSessionManager.getInstance().isSelf(accountID, account);
 						bindHeaderView();
 						dataLoaded();
-						tabLayoutMediator.attach();
+						if(!tabLayoutMediator.isAttached())
+							tabLayoutMediator.attach();
 						if(!isOwnProfile)
 							loadRelationship();
+						else
+							AccountSessionManager.getInstance().updateAccountInfo(accountID, account);
+						if(refreshing){
+							refreshing=false;
+							refreshLayout.setRefreshing(false);
+							if(postsFragment.loaded)
+								postsFragment.onRefresh();
+							if(postsWithRepliesFragment.loaded)
+								postsWithRepliesFragment.onRefresh();
+							if(mediaFragment.loaded)
+								mediaFragment.onRefresh();
+						}
 					}
 				})
 				.exec(accountID);
@@ -269,7 +285,10 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 
 	@Override
 	public void onRefresh(){
-
+		if(refreshing)
+			return;
+		refreshing=true;
+		doLoadData();
 	}
 
 	@Override
