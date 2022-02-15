@@ -16,6 +16,6 @@ public class CreateOAuthApp extends MastodonAPIRequest<Application>{
 		public String clientName="Mastodon for Android";
 		public String redirectUris=AccountSessionManager.REDIRECT_URI;
 		public String scopes=AccountSessionManager.SCOPE;
-		public String website="https://joinmastodon.org";
+		public String website="https://app.joinmastodon.org/android";
 	}
 }
