@@ -4,6 +4,8 @@ import android.annotation.SuppressLint;
 import android.app.Application;
 import android.content.Context;
 
+import java.lang.reflect.InvocationTargetException;
+
 import me.grishka.appkit.imageloader.ImageCache;
 import me.grishka.appkit.utils.NetworkUtils;
 
@@ -21,5 +23,10 @@ public class MastodonApp extends Application{
 		ImageCache.setParams(params);
 		NetworkUtils.setUserAgent("MastodonAndroid/"+BuildConfig.VERSION_NAME);
 		context=getApplicationContext();
+
+		// Call the appcenter SDK wrapper through reflection because it is only present in beta builds
+		try{
+			Class.forName("org.joinmastodon.android.AppCenterWrapper").getMethod("init", Application.class).invoke(null, this);
+		}catch(ClassNotFoundException|NoSuchMethodException|IllegalAccessException|InvocationTargetException ignore){}
 	}
 }

@@ -1,5 +1,6 @@
 plugins {
 	id 'com.android.application'
+	id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
 }
 
 android {
@@ -10,7 +11,7 @@ android {
 		minSdk 23
 		targetSdk 31
 		versionCode 1
-		versionName "1.0"
+		versionName "0.1"
 	}
 
 	buildTypes {
@@ -18,11 +19,30 @@ android {
 			minifyEnabled false
 			proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
 		}
+		debug{
+			debuggable true
+		}
+		appcenterPrivateBeta{
+			initWith debug
+			versionNameSuffix "-priv-beta"
+		}
+		appcenterPublicBeta{
+			initWith release
+			versionNameSuffix "-beta"
+		}
 	}
 	compileOptions {
 		sourceCompatibility JavaVersion.VERSION_15
 		targetCompatibility JavaVersion.VERSION_15
 		coreLibraryDesugaringEnabled true
+	}
+	sourceSets{
+		appcenterPrivateBeta{
+			setRoot "src/appcenter"
+		}
+		appcenterPublicBeta{
+			setRoot "src/appcenter"
+		}
 	}
 }
 
@@ -43,4 +63,10 @@ dependencies {
 	implementation 'org.parceler:parceler-api:1.1.12'
 	annotationProcessor 'org.parceler:parceler:1.1.12'
 	coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.1.5'
+
+	def appCenterSdkVersion = "4.4.2"
+	appcenterPrivateBetaImplementation "com.microsoft.appcenter:appcenter-crashes:${appCenterSdkVersion}"
+	appcenterPrivateBetaImplementation "com.microsoft.appcenter:appcenter-distribute:${appCenterSdkVersion}"
+	appcenterPublicBetaImplementation "com.microsoft.appcenter:appcenter-crashes:${appCenterSdkVersion}"
+	appcenterPublicBetaImplementation "com.microsoft.appcenter:appcenter-distribute:${appCenterSdkVersion}"
 }
