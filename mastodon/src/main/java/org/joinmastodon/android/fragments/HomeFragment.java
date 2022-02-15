@@ -49,7 +49,8 @@ public class HomeFragment extends AppKitFragment implements OnBackPressedListene
 		super.onCreate(savedInstanceState);
 		accountID=getArguments().getString("account");
 
-		setRetainInstance(true);
+		if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.N)
+			setRetainInstance(true);
 
 		Bundle args=new Bundle();
 		args.putString("account", accountID);

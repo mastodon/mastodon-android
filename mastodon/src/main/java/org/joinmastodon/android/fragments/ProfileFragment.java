@@ -12,6 +12,7 @@ import android.content.res.Configuration;
 import android.graphics.Outline;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.SpannableStringBuilder;
 import android.view.Gravity;
@@ -123,7 +124,8 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 	@Override
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
-		setRetainInstance(true);
+		if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.N)
+			setRetainInstance(true);
 
 		accountID=getArguments().getString("account");
 		if(getArguments().containsKey("profileAccount")){
@@ -435,7 +437,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 	@Override
 	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater){
 		if(isOwnProfile && isInEditMode){
-			Button cancelButton=new Button(getActivity(), null, 0, R.style.Widget_Mastodon_Button_Secondary);
+			Button cancelButton=new Button(getActivity(), null, 0, R.style.Widget_Mastodon_Button_Secondary_LightOnDark);
 			cancelButton.setText(R.string.cancel);
 			cancelButton.setOnClickListener(v->exitEditMode());
 			FrameLayout wrap=new FrameLayout(getActivity());

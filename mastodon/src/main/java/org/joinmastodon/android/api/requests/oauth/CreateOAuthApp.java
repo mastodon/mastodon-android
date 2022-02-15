@@ -1,7 +1,5 @@
 package org.joinmastodon.android.api.requests.oauth;
 
-import android.net.Uri;
-
 import org.joinmastodon.android.api.MastodonAPIRequest;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.model.Application;

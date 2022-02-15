@@ -4,9 +4,8 @@
 		<ripple android:color="@color/highlight_over_dark">
 			<item>
 				<shape>
-					<solid android:color="@color/button_bg_secondary"/>
+					<solid android:color="@color/button_bg_primary_dark_on_light"/>
 					<corners android:radius="10dp"/>
-					<padding android:left="16dp" android:right="16dp" android:top="8dp" android:bottom="8dp"/>
 				</shape>
 			</item>
 		</ripple>
