@@ -16,6 +16,7 @@ import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.text.HtmlParser;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -90,13 +91,17 @@ public abstract class StatusDisplayItem{
 			}
 		}
 		if(statusForContent.poll!=null){
-			for(Poll.Option opt:statusForContent.poll.options){
-				items.add(new PollOptionStatusDisplayItem(parentID, statusForContent.poll, opt, fragment));
-			}
-			items.add(new PollFooterStatusDisplayItem(parentID, fragment, statusForContent.poll));
+			buildPollItems(parentID, fragment, statusForContent.poll, items);
 		}
 		items.add(new FooterStatusDisplayItem(parentID, fragment, statusForContent, accountID));
 		return items;
+	}
+
+	public static void buildPollItems(String parentID, BaseStatusListFragment fragment, Poll poll, List<StatusDisplayItem> items){
+		for(Poll.Option opt:poll.options){
+			items.add(new PollOptionStatusDisplayItem(parentID, poll, opt, fragment));
+		}
+		items.add(new PollFooterStatusDisplayItem(parentID, fragment, poll));
 	}
 
 	public enum Type{

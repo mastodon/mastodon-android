@@ -2,7 +2,9 @@ package org.joinmastodon.android.ui.displayitems;
 
 import android.app.Activity;
 import android.content.Context;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import org.joinmastodon.android.R;
@@ -11,7 +13,7 @@ import org.joinmastodon.android.model.Poll;
 import org.joinmastodon.android.ui.utils.UiUtils;
 
 public class PollFooterStatusDisplayItem extends StatusDisplayItem{
-	private Poll poll;
+	public final Poll poll;
 
 	public PollFooterStatusDisplayItem(String parentID, BaseStatusListFragment parentFragment, Poll poll){
 		super(parentID, parentFragment);
@@ -25,10 +27,13 @@ public class PollFooterStatusDisplayItem extends StatusDisplayItem{
 
 	public static class Holder extends StatusDisplayItem.Holder<PollFooterStatusDisplayItem>{
 		private TextView text;
+		private Button button;
 
 		public Holder(Activity activity, ViewGroup parent){
 			super(activity, R.layout.display_item_poll_footer, parent);
-			text=(TextView) itemView;
+			text=findViewById(R.id.text);
+			button=findViewById(R.id.vote_btn);
+			button.setOnClickListener(v->item.parentFragment.onPollVoteButtonClick(this));
 		}
 
 		@Override
@@ -40,6 +45,8 @@ public class PollFooterStatusDisplayItem extends StatusDisplayItem{
 				text+=" · "+item.parentFragment.getString(R.string.poll_closed);
 			}
 			this.text.setText(text);
+			button.setVisibility(item.poll.expired || item.poll.voted || !item.poll.multiple ? View.GONE : View.VISIBLE);
+			button.setEnabled(item.poll.selectedOptions!=null && !item.poll.selectedOptions.isEmpty());
 		}
 	}
 }

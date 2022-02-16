@@ -5,6 +5,7 @@ import android.app.Activity;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.requests.notifications.GetNotifications;
 import org.joinmastodon.android.model.Notification;
+import org.joinmastodon.android.model.Poll;
 import org.joinmastodon.android.ui.displayitems.ReblogOrReplyLineStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.StatusDisplayItem;
 
@@ -66,5 +67,27 @@ public class NotificationsFragment extends BaseStatusListFragment<Notification>{
 		super.onShown();
 		if(!getArguments().getBoolean("noAutoLoad") && !loaded && !dataLoading)
 			loadData();
+	}
+
+	@Override
+	public void onItemClick(String id){
+
+	}
+
+	@Override
+	protected void updatePoll(String itemID, Poll poll){
+		Notification notification=getNotificationByID(itemID);
+		if(notification==null || notification.status==null)
+			return;
+		notification.status.poll=poll;
+		super.updatePoll(itemID, poll);
+	}
+
+	private Notification getNotificationByID(String id){
+		for(Notification n:data){
+			if(n.id.equals(id))
+				return n;
+		}
+		return null;
 	}
 }

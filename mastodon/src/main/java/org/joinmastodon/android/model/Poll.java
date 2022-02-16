@@ -5,6 +5,7 @@ import org.joinmastodon.android.api.ObjectValidationException;
 import org.parceler.Parcel;
 
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -20,6 +21,8 @@ public class Poll extends BaseModel{
 	public List<Integer> ownVotes;
 	public List<Option> options;
 	public List<Emoji> emojis;
+
+	public transient ArrayList<Option> selectedOptions;
 
 	@Override
 	public void postprocess() throws ObjectValidationException{

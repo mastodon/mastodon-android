@@ -20,11 +20,24 @@
 		android:layoutDirection="locale">
 
 		<ImageView
+			android:id="@+id/icon"
 			android:layout_width="24dp"
 			android:layout_height="24dp"
 			android:layout_marginStart="12dp"
 			android:layout_gravity="center_vertical"
-			android:src="@drawable/ic_fluent_circle_24_regular"/>
+			android:duplicateParentState="true"
+			android:src="@drawable/ic_poll_option_button"/>
+
+		<TextView
+			android:id="@+id/percent"
+			android:layout_width="46dp"
+			android:layout_height="wrap_content"
+			android:layout_gravity="center_vertical"
+			android:layout_marginStart="16dp"
+			android:textAppearance="@style/m3_title_medium"
+			android:visibility="gone"
+			tools:visibility="visible"
+			tools:text="00.0%"/>
 
 		<TextView
 			android:id="@+id/text"

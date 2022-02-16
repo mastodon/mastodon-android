@@ -16,24 +16,31 @@ import android.widget.ImageView;
 import android.widget.Toolbar;
 
 import org.joinmastodon.android.R;
+import org.joinmastodon.android.api.requests.polls.SubmitPollVote;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.DisplayItemsParent;
+import org.joinmastodon.android.model.Poll;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.displayitems.FooterStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.ImageStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.PhotoStatusDisplayItem;
+import org.joinmastodon.android.ui.displayitems.PollFooterStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.PollOptionStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.StatusDisplayItem;
 import org.joinmastodon.android.ui.photoviewer.PhotoViewer;
 import org.joinmastodon.android.ui.photoviewer.PhotoViewerHost;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import me.grishka.appkit.api.Callback;
+import me.grishka.appkit.api.ErrorResponse;
 import me.grishka.appkit.fragments.BaseRecyclerFragment;
 import me.grishka.appkit.imageloader.ImageLoaderRecyclerAdapter;
 import me.grishka.appkit.imageloader.ImageLoaderViewHolder;
@@ -334,11 +341,86 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 		return 0;
 	}
 
-	public void onItemClick(String id){
+	public abstract void onItemClick(String id);
 
+	protected void updatePoll(String itemID, Poll poll){
+		int firstOptionIndex=-1, footerIndex=-1;
+		int i=0;
+		for(StatusDisplayItem item:displayItems){
+			if(item.parentID.equals(itemID)){
+				if(item instanceof PollOptionStatusDisplayItem && firstOptionIndex==-1){
+					firstOptionIndex=i;
+				}else if(item instanceof PollFooterStatusDisplayItem){
+					footerIndex=i;
+					break;
+				}
+			}
+			i++;
+		}
+		if(firstOptionIndex==-1 || footerIndex==-1)
+			throw new IllegalStateException("Can't find all poll items in displayItems");
+		List<StatusDisplayItem> pollItems=displayItems.subList(firstOptionIndex, footerIndex+1);
+		int prevSize=pollItems.size();
+		pollItems.clear();
+		StatusDisplayItem.buildPollItems(itemID, this, poll, pollItems);
+		if(prevSize!=pollItems.size()){
+			adapter.notifyItemRangeRemoved(firstOptionIndex, prevSize);
+			adapter.notifyItemRangeInserted(firstOptionIndex, pollItems.size());
+		}else{
+			adapter.notifyItemRangeChanged(firstOptionIndex, pollItems.size());
+		}
 	}
 
 	public void onPollOptionClick(PollOptionStatusDisplayItem.Holder holder){
+		Poll poll=holder.getItem().poll;
+		Poll.Option option=holder.getItem().option;
+		if(poll.multiple){
+			if(poll.selectedOptions==null)
+				poll.selectedOptions=new ArrayList<>();
+			if(poll.selectedOptions.contains(option)){
+				poll.selectedOptions.remove(option);
+				holder.itemView.setSelected(false);
+			}else{
+				poll.selectedOptions.add(option);
+				holder.itemView.setSelected(true);
+			}
+			for(int i=0;i<list.getChildCount();i++){
+				RecyclerView.ViewHolder vh=list.getChildViewHolder(list.getChildAt(i));
+				if(vh instanceof PollFooterStatusDisplayItem.Holder){
+					PollFooterStatusDisplayItem.Holder footer=(PollFooterStatusDisplayItem.Holder) vh;
+					if(footer.getItemID().equals(holder.getItemID())){
+						footer.rebind();
+						break;
+					}
+				}
+			}
+		}else{
+			submitPollVote(holder.getItemID(), poll.id, Collections.singletonList(poll.options.indexOf(option)));
+		}
+	}
+
+	public void onPollVoteButtonClick(PollFooterStatusDisplayItem.Holder holder){
+		Poll poll=holder.getItem().poll;
+		submitPollVote(holder.getItemID(), poll.id, poll.selectedOptions.stream().map(opt->poll.options.indexOf(opt)).collect(Collectors.toList()));
+	}
+
+	protected void submitPollVote(String parentID, String pollID, List<Integer> choices){
+		if(refreshing)
+			return;
+		new SubmitPollVote(pollID, choices)
+				.setCallback(new Callback<>(){
+					@Override
+					public void onSuccess(Poll result){
+						updatePoll(parentID, result);
+					}
+
+					@Override
+					public void onError(ErrorResponse error){
+						error.showToast(getActivity());
+					}
+				})
+				.wrapProgress(getActivity(), R.string.loading, false)
+				.exec(accountID);
 	}
 
 	protected class DisplayItemsAdapter extends UsableRecyclerView.Adapter<BindableViewHolder<StatusDisplayItem>> implements ImageLoaderRecyclerAdapter{

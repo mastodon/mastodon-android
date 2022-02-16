@@ -6,8 +6,11 @@ import com.squareup.otto.Subscribe;
 
 import org.joinmastodon.android.E;
 import org.joinmastodon.android.events.StatusCountersUpdatedEvent;
+import org.joinmastodon.android.model.Poll;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.displayitems.FooterStatusDisplayItem;
+import org.joinmastodon.android.ui.displayitems.PollFooterStatusDisplayItem;
+import org.joinmastodon.android.ui.displayitems.PollOptionStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.StatusDisplayItem;
 import org.parceler.Parcels;
 
@@ -41,13 +44,7 @@ public abstract class StatusListFragment extends BaseStatusListFragment<Status>{
 
 	@Override
 	public void onItemClick(String id){
-		Status status=null;
-		for(Status s:data){
-			if(s.id.equals(id)){
-				status=s.getContentStatus();
-				break;
-			}
-		}
+		Status status=getContentStatusByID(id);
 		if(status==null)
 			return;
 		Bundle args=new Bundle();
@@ -56,6 +53,15 @@ public abstract class StatusListFragment extends BaseStatusListFragment<Status>{
 		if(status.inReplyToAccountId!=null && knownAccounts.containsKey(status.inReplyToAccountId))
 			args.putParcelable("inReplyToAccount", Parcels.wrap(knownAccounts.get(status.inReplyToAccountId)));
 		Nav.go(getActivity(), ThreadFragment.class, args);
+	}
+
+	@Override
+	protected void updatePoll(String itemID, Poll poll){
+		Status status=getContentStatusByID(itemID);
+		if(status==null)
+			return;
+		status.poll=poll;
+		super.updatePoll(itemID, poll);
 	}
 
 	@Subscribe
@@ -79,5 +85,14 @@ public abstract class StatusListFragment extends BaseStatusListFragment<Status>{
 				return;
 			}
 		}
+	}
+
+	protected Status getContentStatusByID(String id){
+		for(Status s:data){
+			if(s.id.equals(id)){
+				return s.getContentStatus();
+			}
+		}
+		return null;
 	}
 }
