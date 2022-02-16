@@ -62,10 +62,13 @@ public class PhotoViewer implements ZoomPanView.Listener{
 		windowView=new FrameLayout(activity){
 			@Override
 			public boolean dispatchKeyEvent(KeyEvent event){
-				if(event.getAction()==KeyEvent.ACTION_DOWN && event.getKeyCode()==KeyEvent.KEYCODE_BACK){
-					onStartSwipeToDismissTransition(0f);
+				if(event.getKeyCode()==KeyEvent.KEYCODE_BACK){
+					if(event.getAction()==KeyEvent.ACTION_DOWN){
+						onStartSwipeToDismissTransition(0f);
+					}
+					return true;
 				}
-				return true;
+				return false;
 			}
 
 			@Override
