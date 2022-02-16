@@ -378,6 +378,7 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 		}
 		if(replyTo!=null){
 			req.inReplyToId=replyTo.id;
+			req.visibility=replyTo.visibility; // TODO
 		}
 		if(!pollOptions.isEmpty()){
 			req.poll=new CreateStatus.Request.Poll();
