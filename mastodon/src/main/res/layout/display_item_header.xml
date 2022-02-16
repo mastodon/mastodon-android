@@ -18,6 +18,17 @@
 		android:src="@drawable/ic_post_more" />
 
 	<ImageView
+		android:id="@+id/visibility"
+		android:layout_width="24dp"
+		android:layout_height="20dp"
+		android:layout_alignParentEnd="true"
+		android:layout_below="@id/more"
+		android:background="?android:selectableItemBackgroundBorderless"
+		android:scaleType="center"
+		android:tint="?android:textColorSecondary"
+		android:src="@drawable/ic_visibility" />
+
+	<ImageView
 		android:id="@+id/avatar"
 		android:layout_width="46dp"
 		android:layout_height="46dp"
@@ -42,6 +53,7 @@
 		android:layout_height="20dp"
 		android:layout_below="@id/name"
 		android:layout_toEndOf="@id/avatar"
+		android:layout_toStartOf="@id/visibility"
 		android:layoutDirection="locale"
 		android:orientation="horizontal">
 

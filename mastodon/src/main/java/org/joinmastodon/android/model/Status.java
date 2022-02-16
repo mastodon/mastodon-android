@@ -53,6 +53,8 @@ public class Status extends BaseModel implements DisplayItemsParent{
 	public boolean bookmarked;
 	public boolean pinned;
 
+	public transient boolean spoilerRevealed;
+
 	@Override
 	public void postprocess() throws ObjectValidationException{
 		super.postprocess();
@@ -73,6 +75,8 @@ public class Status extends BaseModel implements DisplayItemsParent{
 			card.postprocess();
 		if(reblog!=null)
 			reblog.postprocess();
+
+		spoilerRevealed=!sensitive;
 	}
 
 	@Override

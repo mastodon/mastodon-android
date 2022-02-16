@@ -7,6 +7,7 @@ import android.graphics.drawable.Animatable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.SpannableStringBuilder;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewOutlineProvider;
@@ -17,6 +18,8 @@ import org.joinmastodon.android.R;
 import org.joinmastodon.android.fragments.BaseStatusListFragment;
 import org.joinmastodon.android.fragments.ProfileFragment;
 import org.joinmastodon.android.model.Account;
+import org.joinmastodon.android.model.Attachment;
+import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.text.HtmlParser;
 import org.joinmastodon.android.ui.utils.UiUtils;
 import org.parceler.Parcels;
@@ -33,21 +36,31 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 	private Account user;
 	private Instant createdAt;
 	private ImageLoaderRequest avaRequest;
-	private Fragment parentFragment;
 	private String accountID;
 	private CustomEmojiHelper emojiHelper=new CustomEmojiHelper();
 	private SpannableStringBuilder parsedName;
+	public final Status status;
+	private boolean hasVisibilityToggle;
 
-	public HeaderStatusDisplayItem(String parentID, Account user, Instant createdAt, BaseStatusListFragment parentFragment, String accountID){
+	public HeaderStatusDisplayItem(String parentID, Account user, Instant createdAt, BaseStatusListFragment parentFragment, String accountID, Status status){
 		super(parentID, parentFragment);
 		this.user=user;
 		this.createdAt=createdAt;
 		avaRequest=new UrlImageLoaderRequest(user.avatar);
-		this.parentFragment=parentFragment;
 		this.accountID=accountID;
 		parsedName=new SpannableStringBuilder(user.displayName);
+		this.status=status;
 		HtmlParser.parseCustomEmoji(parsedName, user.emojis);
 		emojiHelper.setText(parsedName);
+		hasVisibilityToggle=status.sensitive || !TextUtils.isEmpty(status.spoilerText);
+		if(!hasVisibilityToggle && !status.mediaAttachments.isEmpty()){
+			for(Attachment att:status.mediaAttachments){
+				if(att.type!=Attachment.Type.AUDIO){
+					hasVisibilityToggle=true;
+					break;
+				}
+			}
+		}
 	}
 
 	@Override
@@ -70,7 +83,7 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 
 	public static class Holder extends StatusDisplayItem.Holder<HeaderStatusDisplayItem> implements ImageLoaderViewHolder{
 		private final TextView name, username, timestamp;
-		private final ImageView avatar, more;
+		private final ImageView avatar, more, visibility;
 
 		private static final ViewOutlineProvider roundCornersOutline=new ViewOutlineProvider(){
 			@Override
@@ -86,10 +99,12 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 			timestamp=findViewById(R.id.timestamp);
 			avatar=findViewById(R.id.avatar);
 			more=findViewById(R.id.more);
+			visibility=findViewById(R.id.visibility);
 			avatar.setOnClickListener(this::onAvaClick);
 			avatar.setOutlineProvider(roundCornersOutline);
 			avatar.setClipToOutline(true);
 			more.setOnClickListener(this::onMoreClick);
+			visibility.setOnClickListener(v->item.parentFragment.onVisibilityIconClick(this));
 		}
 
 		@Override
@@ -97,6 +112,10 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 			name.setText(item.parsedName);
 			username.setText('@'+item.user.acct);
 			timestamp.setText(UiUtils.formatRelativeTimestamp(itemView.getContext(), item.createdAt));
+			visibility.setVisibility(item.hasVisibilityToggle ? View.VISIBLE : View.GONE);
+			if(item.hasVisibilityToggle){
+				visibility.setImageResource(item.status.spoilerRevealed ? R.drawable.ic_visibility_off : R.drawable.ic_visibility);
+			}
 		}
 
 		@Override

@@ -8,6 +8,7 @@ import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,12 +22,15 @@ import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.DisplayItemsParent;
 import org.joinmastodon.android.model.Poll;
 import org.joinmastodon.android.model.Status;
+import org.joinmastodon.android.ui.BetterItemAnimator;
 import org.joinmastodon.android.ui.displayitems.FooterStatusDisplayItem;
+import org.joinmastodon.android.ui.displayitems.HeaderStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.ImageStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.PhotoStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.PollFooterStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.PollOptionStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.StatusDisplayItem;
+import org.joinmastodon.android.ui.displayitems.TextStatusDisplayItem;
 import org.joinmastodon.android.ui.photoviewer.PhotoViewer;
 import org.joinmastodon.android.ui.photoviewer.PhotoViewerHost;
 
@@ -34,9 +38,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import me.grishka.appkit.api.Callback;
@@ -283,6 +289,7 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 				}
 			}
 		});
+		list.setItemAnimator(new BetterItemAnimator());
 		updateToolbar();
 	}
 
@@ -421,6 +428,73 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 				})
 				.wrapProgress(getActivity(), R.string.loading, false)
 				.exec(accountID);
+	}
+
+	public void onRevealSpoilerClick(TextStatusDisplayItem.Holder holder){
+		Status status=holder.getItem().status;
+		revealSpoiler(status, holder.getItemID());
+	}
+
+	public void onRevealSpoilerClick(ImageStatusDisplayItem.Holder<?> holder){
+		Status status=holder.getItem().status;
+		revealSpoiler(status, holder.getItemID());
+	}
+
+	protected void revealSpoiler(Status status, String itemID){
+		status.spoilerRevealed=true;
+		TextStatusDisplayItem.Holder text=findHolderOfType(itemID, TextStatusDisplayItem.Holder.class);
+		if(text!=null)
+			adapter.notifyItemChanged(text.getAbsoluteAdapterPosition());
+		HeaderStatusDisplayItem.Holder header=findHolderOfType(itemID, HeaderStatusDisplayItem.Holder.class);
+		if(header!=null)
+			header.rebind();
+		for(ImageStatusDisplayItem.Holder photo:(List<ImageStatusDisplayItem.Holder>)findAllHoldersOfType(itemID, ImageStatusDisplayItem.Holder.class)){
+			photo.setRevealed(true);
+		}
+	}
+
+	public void onVisibilityIconClick(HeaderStatusDisplayItem.Holder holder){
+		Status status=holder.getItem().status;
+		status.spoilerRevealed=!status.spoilerRevealed;
+		if(!TextUtils.isEmpty(status.spoilerText)){
+			TextStatusDisplayItem.Holder text=findHolderOfType(holder.getItemID(), TextStatusDisplayItem.Holder.class);
+			if(text!=null){
+				adapter.notifyItemChanged(text.getAbsoluteAdapterPosition());
+			}
+		}
+		holder.rebind();
+		for(ImageStatusDisplayItem.Holder<?> photo:(List<ImageStatusDisplayItem.Holder>)findAllHoldersOfType(holder.getItemID(), ImageStatusDisplayItem.Holder.class)){
+			photo.setRevealed(status.spoilerRevealed);
+		}
+	}
+
+	@Nullable
+	protected <I extends StatusDisplayItem> I findItemOfType(String id, Class<I> type){
+		for(StatusDisplayItem item:displayItems){
+			if(item.parentID.equals(id) && type.isInstance(item))
+				return type.cast(item);
+		}
+		return null;
+	}
+
+	@Nullable
+	protected <I extends StatusDisplayItem, H extends StatusDisplayItem.Holder<I>> H findHolderOfType(String id, Class<H> type){
+		for(int i=0;i<list.getChildCount();i++){
+			RecyclerView.ViewHolder holder=list.getChildViewHolder(list.getChildAt(i));
+			if(holder instanceof StatusDisplayItem.Holder && ((StatusDisplayItem.Holder<?>) holder).getItemID().equals(id) && type.isInstance(holder))
+				return type.cast(holder);
+		}
+		return null;
+	}
+
+	protected <I extends StatusDisplayItem, H extends StatusDisplayItem.Holder<I>> List<H> findAllHoldersOfType(String id, Class<H> type){
+		ArrayList<H> holders=new ArrayList<>();
+		for(int i=0;i<list.getChildCount();i++){
+			RecyclerView.ViewHolder holder=list.getChildViewHolder(list.getChildAt(i));
+			if(holder instanceof StatusDisplayItem.Holder && ((StatusDisplayItem.Holder<?>) holder).getItemID().equals(id) && type.isInstance(holder))
+				holders.add(type.cast(holder));
+		}
+		return holders;
 	}
 
 	protected class DisplayItemsAdapter extends UsableRecyclerView.Adapter<BindableViewHolder<StatusDisplayItem>> implements ImageLoaderRecyclerAdapter{

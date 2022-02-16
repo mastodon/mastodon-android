@@ -68,9 +68,9 @@ public abstract class StatusDisplayItem{
 			Account account=Objects.requireNonNull(knownAccounts.get(status.inReplyToAccountId));
 			items.add(new ReblogOrReplyLineStatusDisplayItem(parentID, fragment, fragment.getString(R.string.in_reply_to, account.displayName), account.emojis, R.drawable.ic_fluent_arrow_reply_20_filled));
 		}
-		items.add(new HeaderStatusDisplayItem(parentID, statusForContent.account, statusForContent.createdAt, fragment, accountID));
+		items.add(new HeaderStatusDisplayItem(parentID, statusForContent.account, statusForContent.createdAt, fragment, accountID, statusForContent));
 		if(!TextUtils.isEmpty(statusForContent.content))
-			items.add(new TextStatusDisplayItem(parentID, HtmlParser.parse(statusForContent.content, statusForContent.emojis, statusForContent.mentions, accountID), fragment));
+			items.add(new TextStatusDisplayItem(parentID, HtmlParser.parse(statusForContent.content, statusForContent.emojis, statusForContent.mentions, accountID), fragment, statusForContent));
 		int photoIndex=0;
 		int totalPhotos=0;
 		for(Attachment attachment:statusForContent.mediaAttachments){
@@ -80,13 +80,13 @@ public abstract class StatusDisplayItem{
 		}
 		for(Attachment attachment:statusForContent.mediaAttachments){
 			if(attachment.type==Attachment.Type.IMAGE){
-				items.add(new PhotoStatusDisplayItem(parentID, status, attachment, fragment, photoIndex, totalPhotos));
+				items.add(new PhotoStatusDisplayItem(parentID, statusForContent, attachment, fragment, photoIndex, totalPhotos));
 				photoIndex++;
 			}else if(attachment.type==Attachment.Type.GIFV){
-				items.add(new GifVStatusDisplayItem(parentID, status, attachment, fragment, photoIndex, totalPhotos));
+				items.add(new GifVStatusDisplayItem(parentID, statusForContent, attachment, fragment, photoIndex, totalPhotos));
 				photoIndex++;
 			}else if(attachment.type==Attachment.Type.VIDEO){
-				items.add(new VideoStatusDisplayItem(parentID, status, attachment, fragment, photoIndex, totalPhotos));
+				items.add(new VideoStatusDisplayItem(parentID, statusForContent, attachment, fragment, photoIndex, totalPhotos));
 				photoIndex++;
 			}
 		}

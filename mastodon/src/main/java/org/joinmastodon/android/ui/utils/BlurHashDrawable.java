@@ -13,7 +13,7 @@ import androidx.annotation.Nullable;
 public class BlurHashDrawable extends Drawable{
 	private final Bitmap bitmap;
 	private final int width, height;
-	private static final Paint PAINT=new Paint(Paint.FILTER_BITMAP_FLAG);
+	private final Paint paint=new Paint(Paint.FILTER_BITMAP_FLAG);
 
 	public BlurHashDrawable(Bitmap bitmap, int width, int height){
 		this.bitmap=bitmap;
@@ -23,12 +23,12 @@ public class BlurHashDrawable extends Drawable{
 
 	@Override
 	public void draw(@NonNull Canvas canvas){
-		canvas.drawBitmap(bitmap, null, getBounds(), PAINT);
+		canvas.drawBitmap(bitmap, null, getBounds(), paint);
 	}
 
 	@Override
 	public void setAlpha(int alpha){
-
+		paint.setAlpha(alpha);
 	}
 
 	@Override
