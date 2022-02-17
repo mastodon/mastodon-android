@@ -5,235 +5,256 @@
 	android:id="@+id/refresh_layout"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent">
-	<org.joinmastodon.android.ui.views.NestedRecyclerScrollView
-		android:id="@+id/scroller"
+
+	<FrameLayout
 		android:layout_width="match_parent"
-		android:layout_height="match_parent"
-		android:nestedScrollingEnabled="true">
-		<LinearLayout
+		android:layout_height="match_parent">
+
+		<org.joinmastodon.android.ui.views.NestedRecyclerScrollView
+			android:id="@+id/scroller"
 			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:orientation="vertical">
-			<RelativeLayout
+			android:layout_height="match_parent"
+			android:nestedScrollingEnabled="true">
+			<LinearLayout
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
-				android:paddingBottom="23dp"
-				android:clipToPadding="false">
-
-				<org.joinmastodon.android.ui.views.CoverImageView
-					android:id="@+id/cover"
+				android:orientation="vertical">
+				<RelativeLayout
 					android:layout_width="match_parent"
-					android:layout_height="229dp"
-					android:background="#808080"
-					android:scaleType="centerCrop"/>
-
-				<View
-					android:id="@+id/avatar_border"
-					android:layout_width="102dp"
-					android:layout_height="102dp"
-					android:layout_below="@id/cover"
-					android:layout_alignParentStart="true"
-					android:layout_marginTop="-40dp"
-					android:layout_marginStart="14dp"
-					android:background="@drawable/profile_ava_bg"/>
-
-				<ImageView
-					android:id="@+id/avatar"
-					android:layout_width="98dp"
-					android:layout_height="98dp"
-					android:layout_below="@id/cover"
-					android:layout_alignParentStart="true"
-					android:layout_marginStart="16dp"
-					android:layout_marginTop="-38dp"
-					android:scaleType="centerCrop"
-					tools:src="#0f0" />
-
-				<LinearLayout
-					android:id="@+id/following_btn"
-					android:layout_width="wrap_content"
-					android:layout_height="56dp"
-					android:layout_alignParentEnd="true"
-					android:layout_below="@id/cover"
-					android:layout_marginTop="12dp"
-					android:layout_marginEnd="16dp"
-					android:padding="4dp"
-					android:orientation="vertical"
-					android:gravity="center_horizontal">
-					<TextView
-						android:id="@+id/following_count"
-						android:layout_width="wrap_content"
-						android:layout_height="wrap_content"
-						android:textAppearance="@style/m3_title_large"
-						tools:text="123"/>
-					<TextView
-						android:id="@+id/following_label"
-						android:layout_width="wrap_content"
-						android:layout_height="wrap_content"
-						android:textAppearance="@style/m3_title_small"
-						tools:text="following"/>
-				</LinearLayout>
-
-				<LinearLayout
-					android:id="@+id/followers_btn"
-					android:layout_width="wrap_content"
-					android:layout_height="56dp"
-					android:layout_toStartOf="@id/following_btn"
-					android:layout_below="@id/cover"
-					android:layout_marginTop="12dp"
-					android:layout_marginEnd="12dp"
-					android:padding="4dp"
-					android:orientation="vertical"
-					android:gravity="center_horizontal">
-					<TextView
-						android:id="@+id/followers_count"
-						android:layout_width="wrap_content"
-						android:layout_height="wrap_content"
-						android:textAppearance="@style/m3_title_large"
-						tools:text="123"/>
-					<TextView
-						android:id="@+id/followers_label"
-						android:layout_width="wrap_content"
-						android:layout_height="wrap_content"
-						android:textAppearance="@style/m3_title_small"
-						tools:text="following"/>
-				</LinearLayout>
-
-				<LinearLayout
-					android:id="@+id/posts_btn"
-					android:layout_width="wrap_content"
-					android:layout_height="56dp"
-					android:layout_below="@id/cover"
-					android:layout_marginTop="12dp"
-					android:layout_marginEnd="12dp"
-					android:layout_toStartOf="@id/followers_btn"
-					android:gravity="center_horizontal"
-					android:orientation="vertical"
-					android:padding="4dp">
-
-					<TextView
-						android:id="@+id/posts_count"
-						android:layout_width="wrap_content"
-						android:layout_height="wrap_content"
-						android:textAppearance="@style/m3_title_large"
-						tools:text="123" />
-
-					<TextView
-						android:id="@+id/posts_label"
-						android:layout_width="wrap_content"
-						android:layout_height="wrap_content"
-						android:textAppearance="@style/m3_title_small"
-						tools:text="following" />
-				</LinearLayout>
-
-				<FrameLayout
-					android:id="@+id/profile_action_btn_wrap"
-					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
-					android:layout_alignParentEnd="true"
-					android:layout_below="@id/following_btn"
-					android:padding="16dp"
+					android:paddingBottom="23dp"
 					android:clipToPadding="false">
-					<org.joinmastodon.android.ui.views.ProgressBarButton
-						android:id="@+id/profile_action_btn"
+
+					<org.joinmastodon.android.ui.views.CoverImageView
+						android:id="@+id/cover"
+						android:layout_width="match_parent"
+						android:layout_height="229dp"
+						android:background="#808080"
+						android:scaleType="centerCrop"/>
+
+					<View
+						android:id="@+id/avatar_border"
+						android:layout_width="102dp"
+						android:layout_height="102dp"
+						android:layout_below="@id/cover"
+						android:layout_alignParentStart="true"
+						android:layout_marginTop="-40dp"
+						android:layout_marginStart="14dp"
+						android:background="@drawable/profile_ava_bg"/>
+
+					<ImageView
+						android:id="@+id/avatar"
+						android:layout_width="98dp"
+						android:layout_height="98dp"
+						android:layout_below="@id/cover"
+						android:layout_alignParentStart="true"
+						android:layout_marginStart="16dp"
+						android:layout_marginTop="-38dp"
+						android:scaleType="centerCrop"
+						tools:src="#0f0" />
+
+					<LinearLayout
+						android:id="@+id/following_btn"
+						android:layout_width="wrap_content"
+						android:layout_height="56dp"
+						android:layout_alignParentEnd="true"
+						android:layout_below="@id/cover"
+						android:layout_marginTop="12dp"
+						android:layout_marginEnd="16dp"
+						android:padding="4dp"
+						android:orientation="vertical"
+						android:gravity="center_horizontal">
+						<TextView
+							android:id="@+id/following_count"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:textAppearance="@style/m3_title_large"
+							tools:text="123"/>
+						<TextView
+							android:id="@+id/following_label"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:textAppearance="@style/m3_title_small"
+							tools:text="following"/>
+					</LinearLayout>
+
+					<LinearLayout
+						android:id="@+id/followers_btn"
+						android:layout_width="wrap_content"
+						android:layout_height="56dp"
+						android:layout_toStartOf="@id/following_btn"
+						android:layout_below="@id/cover"
+						android:layout_marginTop="12dp"
+						android:layout_marginEnd="12dp"
+						android:padding="4dp"
+						android:orientation="vertical"
+						android:gravity="center_horizontal">
+						<TextView
+							android:id="@+id/followers_count"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:textAppearance="@style/m3_title_large"
+							tools:text="123"/>
+						<TextView
+							android:id="@+id/followers_label"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:textAppearance="@style/m3_title_small"
+							tools:text="following"/>
+					</LinearLayout>
+
+					<LinearLayout
+						android:id="@+id/posts_btn"
+						android:layout_width="wrap_content"
+						android:layout_height="56dp"
+						android:layout_below="@id/cover"
+						android:layout_marginTop="12dp"
+						android:layout_marginEnd="12dp"
+						android:layout_toStartOf="@id/followers_btn"
+						android:gravity="center_horizontal"
+						android:orientation="vertical"
+						android:padding="4dp">
+
+						<TextView
+							android:id="@+id/posts_count"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:textAppearance="@style/m3_title_large"
+							tools:text="123" />
+
+						<TextView
+							android:id="@+id/posts_label"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:textAppearance="@style/m3_title_small"
+							tools:text="following" />
+					</LinearLayout>
+
+					<FrameLayout
+						android:id="@+id/profile_action_btn_wrap"
 						android:layout_width="wrap_content"
 						android:layout_height="wrap_content"
-						tools:text="Edit Profile"/>
-					<ProgressBar
-						android:id="@+id/action_progress"
-						android:layout_width="wrap_content"
+						android:layout_alignParentEnd="true"
+						android:layout_below="@id/following_btn"
+						android:padding="16dp"
+						android:clipToPadding="false">
+						<org.joinmastodon.android.ui.views.ProgressBarButton
+							android:id="@+id/profile_action_btn"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							tools:text="Edit Profile"/>
+						<ProgressBar
+							android:id="@+id/action_progress"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:layout_gravity="center"
+							android:indeterminate="true"
+							style="?android:progressBarStyleSmall"
+							android:elevation="10dp"
+							android:outlineProvider="none"
+							android:indeterminateTint="?colorButtonText"
+							android:visibility="gone"/>
+					</FrameLayout>
+
+					<TextView
+						android:id="@+id/name"
+						android:layout_width="match_parent"
 						android:layout_height="wrap_content"
-						android:layout_gravity="center"
-						android:indeterminate="true"
-						style="?android:progressBarStyleSmall"
-						android:elevation="10dp"
-						android:outlineProvider="none"
-						android:indeterminateTint="?colorButtonText"
-						android:visibility="gone"/>
-				</FrameLayout>
+						android:layout_below="@id/avatar"
+						android:layout_alignParentStart="true"
+						android:layout_marginStart="16dp"
+						android:layout_marginTop="16dp"
+						android:layout_toStartOf="@id/profile_action_btn_wrap"
+						android:textAppearance="@style/m3_headline_small"
+						android:textAlignment="viewStart"
+						tools:text="Eugen" />
 
-				<TextView
-					android:id="@+id/name"
+					<TextView
+						android:id="@+id/username"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:layout_below="@id/name"
+						android:layout_marginStart="16dp"
+						android:layout_toStartOf="@id/profile_action_btn_wrap"
+						android:textAppearance="@style/m3_title_medium"
+						android:textColor="?android:textColorSecondary"
+						tools:text="\@Gargron"/>
+
+					<org.joinmastodon.android.ui.views.LinkedTextView
+						android:id="@+id/bio"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:layout_below="@id/username"
+						android:layout_marginLeft="16dp"
+						android:layout_marginTop="8dp"
+						android:layout_marginRight="16dp"
+						android:textAppearance="@style/m3_body_large"
+						tools:text="Founder, CEO and lead developer @Mastodon, Germany." />
+
+					<EditText
+						android:id="@+id/name_edit"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:layout_below="@id/avatar"
+						android:layout_alignParentStart="true"
+						android:layout_marginStart="16dp"
+						android:layout_marginTop="16dp"
+						android:layout_toStartOf="@id/profile_action_btn_wrap"
+						android:textAppearance="@style/m3_body_large"
+						android:background="@drawable/edit_text_border"
+						android:inputType="textPersonName|textCapWords"
+						android:visibility="gone"
+						tools:text="Eugen" />
+
+					<EditText
+						android:id="@+id/bio_edit"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:layout_below="@id/username"
+						android:layout_marginLeft="16dp"
+						android:layout_marginTop="8dp"
+						android:layout_marginRight="16dp"
+						android:textAppearance="@style/m3_body_large"
+						android:background="@drawable/edit_text_border"
+						android:inputType="textMultiLine|textCapSentences"
+						android:visibility="gone"
+						tools:text="Founder, CEO and lead developer @Mastodon, Germany." />
+
+				</RelativeLayout>
+				<org.joinmastodon.android.ui.tabs.TabLayout
+					android:id="@+id/tabbar"
 					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:layout_below="@id/avatar"
-					android:layout_alignParentStart="true"
-					android:layout_marginStart="16dp"
-					android:layout_marginTop="16dp"
-					android:layout_toStartOf="@id/profile_action_btn_wrap"
-					android:textAppearance="@style/m3_headline_small"
-					android:textAlignment="viewStart"
-					tools:text="Eugen" />
-
-				<TextView
-					android:id="@+id/username"
+					android:layout_height="38dp"
+					android:layout_marginLeft="4dp"
+					android:layout_marginRight="4dp"
+					app:tabPaddingStart="12dp"
+					app:tabPaddingEnd="12dp"
+					app:tabMinWidth="0dp"
+					app:tabIndicator="@drawable/tab_indicator_inset"
+					app:tabIndicatorAnimationMode="elastic"
+					app:tabIndicatorColor="?android:textColorPrimary"
+					app:tabMode="scrollable"
+					app:tabGravity="start"/>
+				<androidx.viewpager2.widget.ViewPager2
+					android:id="@+id/pager"
 					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:layout_below="@id/name"
-					android:layout_marginStart="16dp"
-					android:layout_toStartOf="@id/profile_action_btn_wrap"
-					android:textAppearance="@style/m3_title_medium"
-					android:textColor="?android:textColorSecondary"
-					tools:text="\@Gargron"/>
+					android:layout_height="wrap_content"/>
+			</LinearLayout>
+		</org.joinmastodon.android.ui.views.NestedRecyclerScrollView>
 
-				<org.joinmastodon.android.ui.views.LinkedTextView
-					android:id="@+id/bio"
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:layout_below="@id/username"
-					android:layout_marginLeft="16dp"
-					android:layout_marginTop="8dp"
-					android:layout_marginRight="16dp"
-					android:textAppearance="@style/m3_body_large"
-					tools:text="Founder, CEO and lead developer @Mastodon, Germany." />
+		<ImageButton
+			android:id="@+id/fab"
+			android:layout_width="64dp"
+			android:layout_height="64dp"
+			android:layout_gravity="end|bottom"
+			android:layout_marginEnd="16dp"
+			android:layout_marginBottom="24dp"
+			android:background="@drawable/bg_fab"
+			android:tint="@color/fab_icon"
+			android:scaleType="center"
+			android:stateListAnimator="@animator/fab_shadow"
+			android:src="@drawable/ic_edit_34"/>
 
-				<EditText
-					android:id="@+id/name_edit"
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:layout_below="@id/avatar"
-					android:layout_alignParentStart="true"
-					android:layout_marginStart="16dp"
-					android:layout_marginTop="16dp"
-					android:layout_toStartOf="@id/profile_action_btn_wrap"
-					android:textAppearance="@style/m3_body_large"
-					android:background="@drawable/edit_text_border"
-					android:inputType="textPersonName|textCapWords"
-					android:visibility="gone"
-					tools:text="Eugen" />
+	</FrameLayout>
 
-				<EditText
-					android:id="@+id/bio_edit"
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:layout_below="@id/username"
-					android:layout_marginLeft="16dp"
-					android:layout_marginTop="8dp"
-					android:layout_marginRight="16dp"
-					android:textAppearance="@style/m3_body_large"
-					android:background="@drawable/edit_text_border"
-					android:inputType="textMultiLine|textCapSentences"
-					android:visibility="gone"
-					tools:text="Founder, CEO and lead developer @Mastodon, Germany." />
-
-			</RelativeLayout>
-			<org.joinmastodon.android.ui.tabs.TabLayout
-				android:id="@+id/tabbar"
-				android:layout_width="match_parent"
-				android:layout_height="38dp"
-				android:layout_marginLeft="4dp"
-				android:layout_marginRight="4dp"
-				app:tabPaddingStart="12dp"
-				app:tabPaddingEnd="12dp"
-				app:tabMinWidth="0dp"
-				app:tabIndicator="@drawable/tab_indicator_inset"
-				app:tabIndicatorAnimationMode="elastic"
-				app:tabIndicatorColor="?android:textColorPrimary"
-				app:tabMode="scrollable"
-				app:tabGravity="start"/>
-			<androidx.viewpager2.widget.ViewPager2
-				android:id="@+id/pager"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"/>
-		</LinearLayout>
-	</org.joinmastodon.android.ui.views.NestedRecyclerScrollView>
 </me.grishka.appkit.views.RecursiveSwipeRefreshLayout>

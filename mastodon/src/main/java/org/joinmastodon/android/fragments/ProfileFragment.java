@@ -71,6 +71,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import androidx.viewpager2.widget.ViewPager2;
+import me.grishka.appkit.Nav;
 import me.grishka.appkit.api.Callback;
 import me.grishka.appkit.api.ErrorResponse;
 import me.grishka.appkit.api.SimpleCallback;
@@ -116,6 +117,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 	private Uri editNewAvatar, editNewCover;
 	private String profileAccountID;
 	private boolean refreshing;
+	private View fab;
 
 	public ProfileFragment(){
 		super(R.layout.loader_fragment_overlay_toolbar);
@@ -175,6 +177,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 		nameEdit=content.findViewById(R.id.name_edit);
 		bioEdit=content.findViewById(R.id.bio_edit);
 		actionProgress=content.findViewById(R.id.action_progress);
+		fab=content.findViewById(R.id.fab);
 
 		avatar.setOutlineProvider(new ViewOutlineProvider(){
 			@Override
@@ -244,11 +247,14 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 		avatar.setOnClickListener(this::onAvatarClick);
 		cover.setOnClickListener(this::onCoverClick);
 		refreshLayout.setOnRefreshListener(this);
+		fab.setOnClickListener(this::onFabClick);
 
 		if(loaded){
 			bindHeaderView();
 			dataLoaded();
 			tabLayoutMediator.attach();
+		}else{
+			fab.setVisibility(View.GONE);
 		}
 
 		return sizeWrapper;
@@ -280,6 +286,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 							if(mediaFragment.loaded)
 								mediaFragment.onRefresh();
 						}
+						V.setVisibilityAnimated(fab, View.VISIBLE);
 					}
 				})
 				.exec(accountID);
@@ -452,7 +459,6 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 		if(relationship==null)
 			return;
 		inflater.inflate(R.menu.profile, menu);
-		menu.findItem(R.id.mention).setTitle(getString(R.string.mention_user, account.displayName));
 		menu.findItem(R.id.share).setTitle(getString(R.string.share_user, account.displayName));
 		menu.findItem(R.id.mute).setTitle(getString(relationship.muting ? R.string.unmute_user : R.string.mute_user, account.displayName));
 		menu.findItem(R.id.block).setTitle(getString(relationship.blocking ? R.string.unblock_user : R.string.block_user, account.displayName));
@@ -802,6 +808,15 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 		if(isInEditMode){
 			startImagePicker(COVER_RESULT);
 		}
+	}
+
+	private void onFabClick(View v){
+		Bundle args=new Bundle();
+		args.putString("account", accountID);
+		if(!AccountSessionManager.getInstance().isSelf(accountID, account)){
+			args.putString("prefilledText", '@'+account.acct+' ');
+		}
+		Nav.go(getActivity(), ComposeFragment.class, args);
 	}
 
 	private void startImagePicker(int requestCode){

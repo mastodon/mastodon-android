@@ -50,7 +50,6 @@ import org.joinmastodon.android.model.Attachment;
 import org.joinmastodon.android.model.Emoji;
 import org.joinmastodon.android.model.EmojiCategory;
 import org.joinmastodon.android.model.Mention;
-import org.joinmastodon.android.model.Poll;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.CustomEmojiPopupKeyboard;
 import org.joinmastodon.android.ui.M3AlertDialogBuilder;
@@ -129,7 +128,7 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 	private List<EmojiCategory> customEmojis;
 	private CustomEmojiPopupKeyboard emojiKeyboard;
 	private Status replyTo;
-	private String initialReplyMentions;
+	private String initialText;
 	private String uuid;
 	private int pollDuration=24*3600;
 	private String pollDurationStr;
@@ -291,13 +290,21 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 				if(!mentions.contains(m))
 					mentions.add(m);
 			}
-			initialReplyMentions=TextUtils.join(" ", mentions)+" ";
+			initialText=TextUtils.join(" ", mentions)+" ";
 			if(savedInstanceState==null){
-				mainEditText.setText(initialReplyMentions);
+				mainEditText.setText(initialText);
 				mainEditText.setSelection(mainEditText.length());
 			}
 		}else{
 			replyText.setVisibility(View.GONE);
+		}
+		if(savedInstanceState==null){
+			String prefilledText=getArguments().getString("prefilledText");
+			if(!TextUtils.isEmpty(prefilledText)){
+				mainEditText.setText(prefilledText);
+				mainEditText.setSelection(mainEditText.length());
+				initialText=prefilledText;
+			}
 		}
 	}
 
@@ -418,7 +425,7 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 		boolean pollFieldsHaveContent=false;
 		for(DraftPollOption opt:pollOptions)
 			pollFieldsHaveContent|=opt.edit.length()>0;
-		return (mainEditText.length()>0 && !mainEditText.getText().toString().equals(initialReplyMentions)) || !attachments.isEmpty()
+		return (mainEditText.length()>0 && !mainEditText.getText().toString().equals(initialText)) || !attachments.isEmpty()
 				|| uploadingAttachment!=null || !queuedAttachments.isEmpty() || !failedAttachments.isEmpty() || pollFieldsHaveContent;
 	}
 
