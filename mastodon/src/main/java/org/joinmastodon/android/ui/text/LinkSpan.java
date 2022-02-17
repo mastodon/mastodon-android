@@ -9,7 +9,7 @@ import org.joinmastodon.android.ui.utils.UiUtils;
 
 public class LinkSpan extends CharacterStyle {
 
-	private int color=0xFF569ace;
+	private int color=0xFF00FF00;
 	private OnLinkClickListener listener;
 	private String link;
 	private Type type;
@@ -22,17 +22,13 @@ public class LinkSpan extends CharacterStyle {
 		this.accountID=accountID;
 	}
 
-	public void setColor(int c){
-		color=c;
-	}
-
 	public int getColor(){
 		return color;
 	}
 
 	@Override
 	public void updateDrawState(TextPaint tp) {
-		tp.setColor(color);
+		tp.setColor(color=tp.linkColor);
 	}
 	
 	public void onClick(Context context){

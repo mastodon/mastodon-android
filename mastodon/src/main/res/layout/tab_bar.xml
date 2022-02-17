@@ -3,7 +3,7 @@
 	android:id="@+id/tabbar_wrap"
 	android:layout_width="match_parent"
 	android:layout_height="wrap_content"
-	android:background="@color/actionbar_bg"
+	android:background="?android:statusBarColor"
 	android:elevation="3dp"
 	android:outlineProvider="bounds"
 	android:clipChildren="false">
@@ -20,6 +20,7 @@
 			android:layout_height="52dp"
 			android:scaleType="center"
 			android:background="?android:selectableItemBackgroundBorderless"
+			android:tint="?android:colorPrimary"
 			android:src="@drawable/ic_fluent_home_28_selector"/>
 
 		<Space
@@ -33,6 +34,7 @@
 			android:layout_height="52dp"
 			android:scaleType="center"
 			android:background="?android:selectableItemBackgroundBorderless"
+			android:tint="?android:colorPrimary"
 			android:src="@drawable/ic_fluent_search_28_selector"/>
 
 		<Space
@@ -46,6 +48,7 @@
 			android:layout_height="52dp"
 			android:scaleType="center"
 			android:background="?android:selectableItemBackgroundBorderless"
+			android:tint="?android:colorPrimary"
 			android:src="@drawable/ic_fluent_alert_28_selector"/>
 
 		<Space

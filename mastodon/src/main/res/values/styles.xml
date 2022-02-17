@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-	<style name="Theme.Mastodon" parent="Theme.AppKit.Light">
+	<style name="Theme.Mastodon.Light" parent="Theme.AppKit.Light">
 		<!-- needed to disable scrim on API 29+ -->
 		<item name="android:enforceNavigationBarContrast" tools:ignore="NewApi">false</item>
 		<item name="android:enforceStatusBarContrast" tools:ignore="NewApi">false</item>
-
 		<item name="appkitBackDrawable">@drawable/ic_fluent_arrow_left_24_regular</item>
 		<item name="android:splitMotionEvents">false</item>
 
-		<!-- below depends on light/dark theme -->
 		<item name="android:buttonStyle">@style/Widget.Mastodon.Button.Primary_DarkOnLight</item>
 		<item name="secondaryButtonStyle">@style/Widget.Mastodon.Button.Secondary_DarkOnLight</item>
 		<item name="android:colorAccent">@color/primary_700</item>
@@ -24,13 +22,47 @@
 		<item name="android:windowBackground">@color/white</item>
 		<item name="android:statusBarColor">@color/actionbar_bg</item>
 		<item name="android:navigationBarColor">@color/navigation_bar_bg</item>
-		<item name="android:windowLightStatusBar">true</item>
-		<item name="android:windowLightNavigationBar" tools:ignore="NewApi">true</item>
 		<item name="android:actionBarTheme">@style/Theme.Mastodon.Toolbar</item>
 		<item name="android:alertDialogTheme">@style/Theme.Mastodon.Dialog.Alert</item>
 		<item name="colorPollMostVoted">@color/primary_500</item>
 		<item name="colorPollVoted">@color/gray_300</item>
+
+		<item name="android:windowLightStatusBar">true</item>
+		<item name="android:windowLightNavigationBar" tools:ignore="NewApi">true</item>
 	</style>
+
+	<style name="Theme.Mastodon.Dark" parent="Theme.AppKit">
+		<!-- needed to disable scrim on API 29+ -->
+		<item name="android:enforceNavigationBarContrast" tools:ignore="NewApi">false</item>
+		<item name="android:enforceStatusBarContrast" tools:ignore="NewApi">false</item>
+		<item name="appkitBackDrawable">@drawable/ic_fluent_arrow_left_24_regular</item>
+		<item name="android:splitMotionEvents">false</item>
+
+		<item name="android:buttonStyle">@style/Widget.Mastodon.Button.Primary_LightOnDark</item>
+		<item name="secondaryButtonStyle">@style/Widget.Mastodon.Button.Secondary_LightOnDark</item>
+		<item name="android:colorAccent">@color/primary_600</item>
+		<item name="android:colorPrimary">@color/gray_50</item>
+		<item name="android:colorBackground">@color/gray_700</item>
+		<item name="android:textColorPrimary">@color/gray_50</item>
+		<item name="android:textColorSecondary">@color/gray_400</item>
+		<item name="colorButtonText">@color/gray_800</item>
+		<item name="colorSecondary">#E9EDF2</item>
+		<item name="colorBackgroundLight">@color/gray_700</item>
+		<item name="colorBackgroundLightest">@color/gray_700</item>
+		<item name="colorDarkIcon">@color/gray_25</item>
+		<item name="android:windowBackground">@color/gray_800</item>
+		<item name="android:statusBarColor">@color/actionbar_bg_dark</item>
+		<item name="android:navigationBarColor">@color/actionbar_bg_dark</item>
+		<item name="android:actionBarTheme">@style/Theme.Mastodon.Toolbar.Dark</item>
+		<item name="android:alertDialogTheme">@style/Theme.Mastodon.Dialog.Alert.Dark</item>
+		<item name="colorPollMostVoted">@color/primary_700</item>
+		<item name="colorPollVoted">@color/gray_600</item>
+
+		<item name="android:windowLightStatusBar">false</item>
+		<item name="android:windowLightNavigationBar" tools:ignore="NewApi">false</item>
+	</style>
+
+	<style name="Theme.Mastodon.AutoLightDark" parent="Theme.Mastodon.Light"/>
 
 	<style name="Theme.Mastodon.Toolbar" parent="android:ThemeOverlay.Material.ActionBar">
 		<item name="android:colorPrimary">@color/actionbar_bg</item>
@@ -38,11 +70,17 @@
 		<item name="android:textColorSecondary">@color/gray_800</item>
 	</style>
 
+	<style name="Theme.Mastodon.Toolbar.Dark" parent="android:ThemeOverlay.Material.Dark.ActionBar">
+		<item name="android:colorPrimary">@color/actionbar_bg_dark</item>
+		<item name="android:textColorPrimary">@color/gray_50</item>
+		<item name="android:textColorSecondary">@color/gray_50</item>
+	</style>
+
 	<style name="Theme.Mastodon.Toolbar.Profile">
 		<item name="android:textColorPrimary">@color/gray_50</item>
 		<item name="android:textColorSecondary">@color/gray_50</item>
 		<item name="android:drawableTint">@color/gray_50</item>
-		<item name="android:popupTheme">@style/Theme.Mastodon</item>
+		<item name="android:popupTheme">@style/Theme.Mastodon.AutoLightDark</item>
 		<item name="android:titleTextAppearance">@style/m3_title_medium</item>
 		<item name="android:titleTextColor">@color/gray_50</item>
 		<item name="android:subtitleTextAppearance">@style/m3_body_medium</item>
@@ -90,6 +128,20 @@
 		<item name="android:colorBackground">@color/gray_100</item>
 		<item name="android:textColorPrimary">@color/gray_800</item>
 		<item name="android:textColorSecondary">@color/gray_500</item>
+	</style>
+
+	<style name="Theme.Mastodon.Dialog.Alert.Dark" parent="android:Theme.Material.Dialog.Alert">
+		<item name="android:windowTitleStyle">@style/alert_title</item>
+		<item name="android:dialogPreferredPadding">24dp</item>
+		<item name="android:windowBackground">@drawable/bg_alert</item>
+		<item name="android:buttonBarButtonStyle">@style/Widget.Mastodon.ButtonBarButton</item>
+
+		<!-- colors -->
+		<item name="android:colorAccent">@color/primary_600</item>
+		<item name="android:colorPrimary">@color/gray_50</item>
+		<item name="android:colorBackground">@color/gray_700</item>
+		<item name="android:textColorPrimary">@color/gray_50</item>
+		<item name="android:textColorSecondary">@color/gray_400</item>
 	</style>
 
 	<style name="Widget.Mastodon.ButtonBarButton" parent="android:Widget.Material.Button.Borderless">

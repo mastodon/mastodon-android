@@ -18,6 +18,7 @@
 			android:layout_width="24dp"
 			android:layout_height="24dp"
 			android:layout_margin="16dp"
+			android:tint="?colorDarkIcon"
 			android:src="@drawable/ic_fluent_circle_24_regular"/>
 		<EditText
 			android:id="@+id/edit"
@@ -38,6 +39,7 @@
 		android:layout_width="56dp"
 		android:layout_height="56dp"
 		android:scaleType="center"
+		android:tint="?colorDarkIcon"
 		android:src="@drawable/ic_fluent_re_order_dots_vertical_24_regular"/>
 
 </LinearLayout>

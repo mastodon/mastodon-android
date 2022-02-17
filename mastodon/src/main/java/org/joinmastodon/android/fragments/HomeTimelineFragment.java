@@ -1,6 +1,7 @@
 package org.joinmastodon.android.fragments;
 
 import android.app.Activity;
+import android.content.res.ColorStateList;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -21,6 +22,7 @@ import org.joinmastodon.android.api.requests.timelines.GetHomeTimeline;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.events.StatusCreatedEvent;
 import org.joinmastodon.android.model.Status;
+import org.joinmastodon.android.ui.utils.UiUtils;
 import org.parceler.Parcels;
 
 import java.util.Collections;
@@ -70,17 +72,6 @@ public class HomeTimelineFragment extends StatusListFragment{
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item){
-//		Bundle args=new Bundle();
-//		args.putString("account", accountID);
-//		int id=item.getItemId();
-//		if(id==R.id.new_toot){
-//			Nav.go(getActivity(), ComposeFragment.class, args);
-//		}else if(id==R.id.notifications){
-//			Nav.go(getActivity(), NotificationsFragment.class, args);
-//		}else if(id==R.id.my_profile){
-//			args.putParcelable("profileAccount", Parcels.wrap(AccountSessionManager.getInstance().getAccount(accountID).self));
-//			Nav.go(getActivity(), ProfileFragment.class, args);
-//		}
 		return true;
 	}
 
@@ -112,6 +103,7 @@ public class HomeTimelineFragment extends StatusListFragment{
 		ImageView logo=new ImageView(getActivity());
 		logo.setScaleType(ImageView.ScaleType.CENTER);
 		logo.setImageResource(R.drawable.logo);
+		logo.setImageTintList(ColorStateList.valueOf(UiUtils.getThemeColor(getActivity(), android.R.attr.textColorPrimary)));
 		Toolbar toolbar=getToolbar();
 		toolbar.addView(logo, new Toolbar.LayoutParams(Gravity.CENTER));
 	}

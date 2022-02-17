@@ -1,6 +1,7 @@
 package org.joinmastodon.android.fragments;
 
 import android.app.Fragment;
+import android.content.res.Configuration;
 import android.graphics.Outline;
 import android.os.Build;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import org.joinmastodon.android.MastodonApp;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.model.Account;
@@ -117,12 +119,12 @@ public class HomeFragment extends AppKitFragment implements OnBackPressedListene
 
 	@Override
 	public boolean wantsLightStatusBar(){
-		return currentTab!=R.id.tab_profile;
+		return currentTab!=R.id.tab_profile && (MastodonApp.context.getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK)!=Configuration.UI_MODE_NIGHT_YES;
 	}
 
 	@Override
 	public boolean wantsLightNavigationBar(){
-		return true;
+		return (MastodonApp.context.getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK)!=Configuration.UI_MODE_NIGHT_YES;
 	}
 
 	@Override

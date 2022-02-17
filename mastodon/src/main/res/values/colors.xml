@@ -3,7 +3,7 @@
 	<color name="black">#FF000000</color>
 	<color name="white">#FFFFFFFF</color>
 
-	<color name="fluent_default_icon_tint">@color/gray_800</color>
+	<color name="fluent_default_icon_tint">?android:textColorPrimary</color>
 
 	<color name="gray_25">#FCFCFD</color>
 	<color name="gray_50t">#CCF9FAFB</color>
@@ -88,6 +88,7 @@
 
 	<color name="fab_icon">#282C37</color>
 	<color name="actionbar_bg">#FAFBFC</color>
+	<color name="actionbar_bg_dark">#4C4F58</color>
 	<color name="navigation_bar_bg">#282C37</color>
 	<color name="highlight_over_dark">#80FFFFFF</color>
 
