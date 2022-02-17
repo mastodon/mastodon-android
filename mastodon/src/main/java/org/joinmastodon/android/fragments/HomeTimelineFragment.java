@@ -20,7 +20,9 @@ import org.joinmastodon.android.E;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.requests.timelines.GetHomeTimeline;
 import org.joinmastodon.android.api.session.AccountSessionManager;
+import org.joinmastodon.android.events.StatusCountersUpdatedEvent;
 import org.joinmastodon.android.events.StatusCreatedEvent;
+import org.joinmastodon.android.events.StatusDeletedEvent;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.utils.UiUtils;
 import org.parceler.Parcels;
@@ -106,5 +108,17 @@ public class HomeTimelineFragment extends StatusListFragment{
 		logo.setImageTintList(ColorStateList.valueOf(UiUtils.getThemeColor(getActivity(), android.R.attr.textColorPrimary)));
 		Toolbar toolbar=getToolbar();
 		toolbar.addView(logo, new Toolbar.LayoutParams(Gravity.CENTER));
+	}
+
+	@Override
+	@Subscribe
+	public void onStatusCountersUpdated(StatusCountersUpdatedEvent ev){
+		super.onStatusCountersUpdated(ev);
+	}
+
+	@Override
+	@Subscribe
+	public void onStatusDeleted(StatusDeletedEvent ev){
+		super.onStatusDeleted(ev);
 	}
 }

@@ -1,14 +1,17 @@
 package org.joinmastodon.android.fragments;
 
 import android.os.Bundle;
+import android.util.Log;
 
 import com.squareup.otto.Subscribe;
 
 import org.joinmastodon.android.E;
 import org.joinmastodon.android.events.StatusCountersUpdatedEvent;
+import org.joinmastodon.android.events.StatusDeletedEvent;
 import org.joinmastodon.android.model.Poll;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.displayitems.FooterStatusDisplayItem;
+import org.joinmastodon.android.ui.displayitems.HeaderStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.PollFooterStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.PollOptionStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.StatusDisplayItem;
@@ -87,10 +90,43 @@ public abstract class StatusListFragment extends BaseStatusListFragment<Status>{
 		}
 	}
 
+	@Subscribe
+	public void onStatusDeleted(StatusDeletedEvent ev){
+		Log.i("11", "on status deleted!");
+		if(!ev.accountID.equals(accountID))
+			return;
+		Status status=getStatusByID(ev.id);
+		if(status==null)
+			return;
+		data.remove(status);
+		preloadedData.remove(status);
+		HeaderStatusDisplayItem item=findItemOfType(ev.id, HeaderStatusDisplayItem.class);
+		if(item==null)
+			return;
+		int index=displayItems.indexOf(item);
+		int lastIndex;
+		for(lastIndex=index;lastIndex<displayItems.size();lastIndex++){
+			if(!displayItems.get(lastIndex).parentID.equals(ev.id))
+				break;
+		}
+		displayItems.subList(index, lastIndex).clear();
+		adapter.notifyItemRangeRemoved(index, lastIndex-index);
+	}
+
 	protected Status getContentStatusByID(String id){
+		Status s=getStatusByID(id);
+		return s==null ? null : s.getContentStatus();
+	}
+
+	protected Status getStatusByID(String id){
 		for(Status s:data){
 			if(s.id.equals(id)){
-				return s.getContentStatus();
+				return s;
+			}
+		}
+		for(Status s:preloadedData){
+			if(s.id.equals(id)){
+				return s;
 			}
 		}
 		return null;

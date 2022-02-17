@@ -736,57 +736,16 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 	}
 
 	private void confirmToggleMuted(){
-		new M3AlertDialogBuilder(getActivity())
-				.setTitle(relationship.muting ? R.string.confirm_unmute_title : R.string.confirm_mute_title)
-				.setMessage(getString(relationship.muting ? R.string.confirm_unmute : R.string.confirm_mute, account.displayName))
-				.setPositiveButton(relationship.muting ? R.string.do_unmute : R.string.do_mute, (dlg, i)->toggleMuted())
-				.setNegativeButton(R.string.cancel, null)
-				.show();
+		UiUtils.confirmToggleMuteUser(getActivity(), accountID, account, relationship.muting, this::updateRelationship);
 	}
 
 	private void confirmToggleBlocked(){
-		new M3AlertDialogBuilder(getActivity())
-				.setTitle(relationship.blocking ? R.string.confirm_unblock_title : R.string.confirm_block_title)
-				.setMessage(getString(relationship.blocking ? R.string.confirm_unblock : R.string.confirm_block, account.displayName))
-				.setPositiveButton(relationship.blocking ? R.string.do_block : R.string.do_unblock, (dlg, i)->toggleBlocked())
-				.setNegativeButton(R.string.cancel, null)
-				.show();
+		UiUtils.confirmToggleBlockUser(getActivity(), accountID, account, relationship.blocking, this::updateRelationship);
 	}
 
-	private void toggleMuted(){
-		new SetAccountMuted(account.id, !relationship.muting)
-				.setCallback(new Callback<>(){
-					@Override
-					public void onSuccess(Relationship result){
-						relationship=result;
-						updateRelationship();
-					}
-
-					@Override
-					public void onError(ErrorResponse error){
-						error.showToast(getActivity());
-					}
-				})
-				.wrapProgress(getActivity(), R.string.loading, false)
-				.exec(accountID);
-	}
-
-	private void toggleBlocked(){
-		new SetAccountBlocked(account.id, !relationship.blocking)
-				.setCallback(new Callback<>(){
-					@Override
-					public void onSuccess(Relationship result){
-						relationship=result;
-						updateRelationship();
-					}
-
-					@Override
-					public void onError(ErrorResponse error){
-						error.showToast(getActivity());
-					}
-				})
-				.wrapProgress(getActivity(), R.string.loading, false)
-				.exec(accountID);
+	private void updateRelationship(Relationship r){
+		relationship=r;
+		updateRelationship();
 	}
 
 	@Override

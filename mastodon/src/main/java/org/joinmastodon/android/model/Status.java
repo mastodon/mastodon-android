@@ -18,7 +18,7 @@ public class Status extends BaseModel implements DisplayItemsParent{
 	public Instant createdAt;
 	@RequiredField
 	public Account account;
-	@RequiredField
+//	@RequiredField
 	public String content;
 	@RequiredField
 	public StatusPrivacy visibility;

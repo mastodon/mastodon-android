@@ -260,6 +260,7 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 					RecyclerView.ViewHolder holder=parent.getChildViewHolder(child);
 					if(holder instanceof FooterStatusDisplayItem.Holder){
 						float y=child.getY()+child.getHeight()-V.dp(.5f);
+						paint.setAlpha(Math.round(255*child.getAlpha()));
 						c.drawLine(child.getX(), y, child.getX()+child.getWidth(), y, paint);
 					}
 				}
@@ -465,6 +466,10 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 		for(ImageStatusDisplayItem.Holder<?> photo:(List<ImageStatusDisplayItem.Holder>)findAllHoldersOfType(holder.getItemID(), ImageStatusDisplayItem.Holder.class)){
 			photo.setRevealed(status.spoilerRevealed);
 		}
+	}
+
+	public String getAccountID(){
+		return accountID;
 	}
 
 	@Nullable

@@ -5,8 +5,12 @@ import android.os.Bundle;
 import android.text.SpannableStringBuilder;
 import android.view.View;
 
+import com.squareup.otto.Subscribe;
+
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.requests.statuses.GetStatusContext;
+import org.joinmastodon.android.events.StatusCountersUpdatedEvent;
+import org.joinmastodon.android.events.StatusDeletedEvent;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.StatusContext;
 import org.joinmastodon.android.model.Status;
@@ -80,5 +84,17 @@ public class ThreadFragment extends StatusListFragment{
 		showContent();
 		if(!loaded)
 			footerProgress.setVisibility(View.VISIBLE);
+	}
+
+	@Override
+	@Subscribe
+	public void onStatusCountersUpdated(StatusCountersUpdatedEvent ev){
+		super.onStatusCountersUpdated(ev);
+	}
+
+	@Override
+	@Subscribe
+	public void onStatusDeleted(StatusDeletedEvent ev){
+		super.onStatusDeleted(ev);
 	}
 }

@@ -8,13 +8,16 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
+import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewOutlineProvider;
 import android.widget.ImageView;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 
 import org.joinmastodon.android.R;
+import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.fragments.BaseStatusListFragment;
 import org.joinmastodon.android.fragments.ProfileFragment;
 import org.joinmastodon.android.model.Account;
@@ -143,7 +146,29 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 		}
 
 		private void onMoreClick(View v){
+			Account account=item.status.account;
+			PopupMenu popup=new PopupMenu(v.getContext(), v);
+			Menu menu=popup.getMenu();
+			popup.getMenuInflater().inflate(R.menu.post, menu);
+			if(!AccountSessionManager.getInstance().isSelf(item.parentFragment.getAccountID(), account))
+				menu.findItem(R.id.delete).setVisible(false);
+			menu.findItem(R.id.mute).setTitle(v.getResources().getString(/*relationship.muting ? R.string.unmute_user :*/ R.string.mute_user, account.displayName));
+			menu.findItem(R.id.block).setTitle(v.getResources().getString(/*relationship.blocking ? R.string.unblock_user :*/ R.string.block_user, account.displayName));
+			menu.findItem(R.id.report).setTitle(v.getResources().getString(R.string.report_user, account.displayName));
+			popup.setOnMenuItemClickListener(menuItem->{
+				int id=menuItem.getItemId();
+				if(id==R.id.delete){
+					UiUtils.confirmDeletePost(item.parentFragment.getActivity(), item.parentFragment.getAccountID(), item.status, s->{});
+				}else if(id==R.id.mute){
+					UiUtils.confirmToggleMuteUser(item.parentFragment.getActivity(), item.parentFragment.getAccountID(), account, false, r->{});
+				}else if(id==R.id.block){
+					UiUtils.confirmToggleBlockUser(item.parentFragment.getActivity(), item.parentFragment.getAccountID(), account, false, r->{});
+				}else if(id==R.id.report){
 
+				}
+				return true;
+			});
+			popup.show();
 		}
 	}
 }
