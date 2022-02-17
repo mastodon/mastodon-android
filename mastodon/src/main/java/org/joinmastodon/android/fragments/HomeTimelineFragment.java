@@ -90,7 +90,7 @@ public class HomeTimelineFragment extends StatusListFragment{
 
 	@Subscribe
 	public void onStatusCreated(StatusCreatedEvent ev){
-		prependItems(Collections.singletonList(ev.status));
+		prependItems(Collections.singletonList(ev.status), true);
 	}
 
 	private void onFabClick(View v){

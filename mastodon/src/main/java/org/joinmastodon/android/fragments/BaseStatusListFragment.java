@@ -99,7 +99,7 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 		displayItems.clear();
 	}
 
-	protected void prependItems(List<T> items){
+	protected void prependItems(List<T> items, boolean notify){
 		data.addAll(0, items);
 		int offset=0;
 		for(T s:items){
@@ -110,7 +110,8 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 			displayItems.addAll(offset, toAdd);
 			offset+=toAdd.size();
 		}
-		adapter.notifyItemRangeInserted(0, offset);
+		if(notify)
+			adapter.notifyItemRangeInserted(0, offset);
 	}
 
 	protected String getMaxID(){

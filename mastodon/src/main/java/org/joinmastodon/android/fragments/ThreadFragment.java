@@ -47,12 +47,17 @@ public class ThreadFragment extends StatusListFragment{
 						}
 						footerProgress.setVisibility(View.GONE);
 						data.addAll(result.descendants);
+						int prevCount=displayItems.size();
 						onAppendItems(result.descendants);
 						int count=displayItems.size();
-						prependItems(result.ancestors);
+						if(!refreshing)
+							adapter.notifyItemRangeInserted(prevCount, count-prevCount);
+						prependItems(result.ancestors, !refreshing);
 						dataLoaded();
-						if(refreshing)
+						if(refreshing){
 							refreshDone();
+							adapter.notifyDataSetChanged();
+						}
 						list.scrollToPosition(displayItems.size()-count);
 					}
 				})
