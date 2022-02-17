@@ -210,8 +210,7 @@
 					android:layout_marginTop="8dp"
 					android:layout_marginRight="16dp"
 					android:textAppearance="@style/m3_body_large"
-					android:background="@null"
-					android:padding="0px"
+					android:background="@drawable/edit_text_border"
 					android:inputType="textMultiLine|textCapSentences"
 					android:visibility="gone"
 					tools:text="Founder, CEO and lead developer @Mastodon, Germany." />

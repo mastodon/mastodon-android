@@ -13,11 +13,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewOutlineProvider;
+import android.view.ViewTreeObserver;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.model.AccountField;
+import org.joinmastodon.android.ui.BetterItemAnimator;
+import org.joinmastodon.android.ui.OutlineProviders;
 import org.joinmastodon.android.ui.text.CustomEmojiSpan;
 import org.joinmastodon.android.ui.utils.SimpleTextWatcher;
 import org.joinmastodon.android.ui.utils.UiUtils;
@@ -68,6 +71,8 @@ public class ProfileAboutFragment extends Fragment{
 	public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState){
 		list=new UsableRecyclerView(getActivity());
 		list.setId(R.id.list);
+		list.setItemAnimator(new BetterItemAnimator());
+		list.setDrawSelectorOnTop(true);
 		list.setLayoutManager(new LinearLayoutManager(getActivity()));
 		imgLoader=new ListImageLoaderWrapper(getActivity(), list, new RecyclerViewDelegate(list), null);
 		list.setAdapter(adapter=new AboutAdapter());
@@ -76,7 +81,7 @@ public class ProfileAboutFragment extends Fragment{
 		list.setClipToPadding(false);
 		dividerPaint.setStyle(Paint.Style.STROKE);
 		dividerPaint.setStrokeWidth(V.dp(1));
-		dividerPaint.setColor(getResources().getColor(R.color.gray_200));
+		dividerPaint.setColor(getResources().getColor(R.color.gray_200)); // TODO themes
 		list.addItemDecoration(new RecyclerView.ItemDecoration(){
 			@Override
 			public void onDrawOver(@NonNull Canvas c, @NonNull RecyclerView parent, @NonNull RecyclerView.State state){
@@ -85,7 +90,9 @@ public class ProfileAboutFragment extends Fragment{
 					int pos=parent.getChildAdapterPosition(item);
 					int draggedPos=draggedViewHolder==null ? -1 : draggedViewHolder.getAbsoluteAdapterPosition();
 					if(pos<adapter.getItemCount()-1 && pos!=draggedPos && pos!=draggedPos-1){
-						c.drawLine(item.getLeft(), item.getBottom(), item.getRight(), item.getBottom(), dividerPaint);
+						float y=item.getY()+item.getHeight();
+						dividerPaint.setAlpha(Math.round(255*item.getAlpha()));
+						c.drawLine(item.getLeft(), y, item.getRight(), y, dividerPaint);
 					}
 				}
 			}
@@ -228,6 +235,7 @@ public class ProfileAboutFragment extends Fragment{
 			});
 			title.addTextChangedListener(new SimpleTextWatcher(e->item.name=e.toString()));
 			value.addTextChangedListener(new SimpleTextWatcher(e->item.value=e.toString()));
+			findViewById(R.id.remove_row_btn).setOnClickListener(this::onRemoveRowClick);
 		}
 
 		@Override
@@ -235,6 +243,16 @@ public class ProfileAboutFragment extends Fragment{
 			super.onBind(item);
 			title.setText(item.name);
 			value.setText(item.value);
+		}
+
+		private void onRemoveRowClick(View v){
+			int pos=getAbsoluteAdapterPosition();
+			fields.remove(pos);
+			adapter.notifyItemRemoved(pos);
+			for(int i=0;i<list.getChildCount();i++){
+				BaseViewHolder vh=(BaseViewHolder) list.getChildViewHolder(list.getChildAt(i));
+				vh.rebind();
+			}
 		}
 	}
 

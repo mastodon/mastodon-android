@@ -6,14 +6,26 @@
 	android:layout_height="wrap_content"
 	android:background="?colorBackgroundLight"
 	android:elevation="2dp"
-	android:outlineProvider="background"
-	android:padding="16dp">
+	android:outlineProvider="background">
+
+	<ImageButton
+		android:id="@+id/remove_row_btn"
+		android:layout_width="56dp"
+		android:layout_height="56dp"
+		android:layout_centerVertical="true"
+		android:src="@drawable/ic_fluent_subtract_circle_24_filled"
+		android:tint="@color/error_500"
+		android:stateListAnimator="@null"
+		android:padding="0px"
+		android:background="@null"/>
 
 	<EditText
 		android:id="@+id/title"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:layout_toStartOf="@id/dragger_thingy"
+		android:layout_toEndOf="@id/remove_row_btn"
+		android:layout_marginTop="16dp"
 		android:textAppearance="@style/m3_label_medium"
 		android:background="@drawable/bg_profile_field_edit_text"
 		android:hint="@string/field_label"
@@ -27,6 +39,8 @@
 		android:layout_height="wrap_content"
 		android:layout_below="@id/title"
 		android:layout_toStartOf="@id/dragger_thingy"
+		android:layout_toEndOf="@id/remove_row_btn"
+		android:layout_marginBottom="16dp"
 		android:textAppearance="@style/m3_body_large"
 		android:background="@drawable/bg_profile_field_edit_text"
 		android:hint="@string/field_content"
@@ -38,9 +52,9 @@
 		android:layout_width="56dp"
 		android:layout_height="wrap_content"
 		android:layout_alignParentEnd="true"
-		android:layout_marginEnd="-16dp"
 		android:layout_alignParentTop="true"
 		android:layout_alignBottom="@id/value"
+		android:layout_marginBottom="-16dp"
 		android:scaleType="center"
 		android:src="@drawable/ic_fluent_re_order_dots_vertical_24_regular"/>
 
