@@ -13,12 +13,14 @@ import org.joinmastodon.android.model.Attachment;
 import org.joinmastodon.android.model.DisplayItemsParent;
 import org.joinmastodon.android.model.Poll;
 import org.joinmastodon.android.model.Status;
+import org.joinmastodon.android.ui.PhotoLayoutHelper;
 import org.joinmastodon.android.ui.text.HtmlParser;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 import me.grishka.appkit.imageloader.requests.ImageLoaderRequest;
 import me.grishka.appkit.utils.BindableViewHolder;
@@ -71,22 +73,20 @@ public abstract class StatusDisplayItem{
 		items.add(new HeaderStatusDisplayItem(parentID, statusForContent.account, statusForContent.createdAt, fragment, accountID, statusForContent));
 		if(!TextUtils.isEmpty(statusForContent.content))
 			items.add(new TextStatusDisplayItem(parentID, HtmlParser.parse(statusForContent.content, statusForContent.emojis, statusForContent.mentions, accountID), fragment, statusForContent));
-		int photoIndex=0;
-		int totalPhotos=0;
-		for(Attachment attachment:statusForContent.mediaAttachments){
-			if(attachment.type==Attachment.Type.IMAGE || attachment.type==Attachment.Type.GIFV || attachment.type==Attachment.Type.VIDEO){
-				totalPhotos++;
-			}
-		}
-		for(Attachment attachment:statusForContent.mediaAttachments){
-			if(attachment.type==Attachment.Type.IMAGE){
-				items.add(new PhotoStatusDisplayItem(parentID, statusForContent, attachment, fragment, photoIndex, totalPhotos));
-				photoIndex++;
-			}else if(attachment.type==Attachment.Type.GIFV){
-				items.add(new GifVStatusDisplayItem(parentID, statusForContent, attachment, fragment, photoIndex, totalPhotos));
-				photoIndex++;
-			}else if(attachment.type==Attachment.Type.VIDEO){
-				items.add(new VideoStatusDisplayItem(parentID, statusForContent, attachment, fragment, photoIndex, totalPhotos));
+		List<Attachment> imageAttachments=statusForContent.mediaAttachments.stream().filter(att->att.type.isImage()).collect(Collectors.toList());
+		if(!imageAttachments.isEmpty()){
+			int photoIndex=0;
+			PhotoLayoutHelper.TiledLayoutResult layout=PhotoLayoutHelper.processThumbs(1000, 1910, imageAttachments);
+			for(Attachment attachment:imageAttachments){
+				if(attachment.type==Attachment.Type.IMAGE){
+					items.add(new PhotoStatusDisplayItem(parentID, statusForContent, attachment, fragment, photoIndex, imageAttachments.size(), layout, layout.tiles[photoIndex]));
+				}else if(attachment.type==Attachment.Type.GIFV){
+					items.add(new GifVStatusDisplayItem(parentID, statusForContent, attachment, fragment, photoIndex, imageAttachments.size(), layout, layout.tiles[photoIndex]));
+				}else if(attachment.type==Attachment.Type.VIDEO){
+					items.add(new VideoStatusDisplayItem(parentID, statusForContent, attachment, fragment, photoIndex, imageAttachments.size(), layout, layout.tiles[photoIndex]));
+				}else{
+					throw new IllegalStateException("This isn't supposed to happen, type is "+attachment.type);
+				}
 				photoIndex++;
 			}
 		}

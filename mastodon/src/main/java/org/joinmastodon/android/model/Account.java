@@ -147,6 +147,8 @@ public class Account extends BaseModel{
 		}
 		if(moved!=null)
 			moved.postprocess();
+		if(TextUtils.isEmpty(displayName))
+			displayName=username;
 	}
 
 	public boolean isLocal(){

@@ -1,18 +1,22 @@
 package org.joinmastodon.android.fragments;
 
 import android.app.Activity;
+import android.os.Bundle;
 
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.requests.notifications.GetNotifications;
 import org.joinmastodon.android.model.Notification;
 import org.joinmastodon.android.model.Poll;
+import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.displayitems.ReblogOrReplyLineStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.StatusDisplayItem;
+import org.parceler.Parcels;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import me.grishka.appkit.Nav;
 import me.grishka.appkit.api.SimpleCallback;
 
 public class NotificationsFragment extends BaseStatusListFragment<Notification>{
@@ -71,7 +75,16 @@ public class NotificationsFragment extends BaseStatusListFragment<Notification>{
 
 	@Override
 	public void onItemClick(String id){
-
+		Notification n=getNotificationByID(id);
+		if(n.status!=null){
+			Status status=n.status;
+			Bundle args=new Bundle();
+			args.putString("account", accountID);
+			args.putParcelable("status", Parcels.wrap(status));
+			if(status.inReplyToAccountId!=null && knownAccounts.containsKey(status.inReplyToAccountId))
+				args.putParcelable("inReplyToAccount", Parcels.wrap(knownAccounts.get(status.inReplyToAccountId)));
+			Nav.go(getActivity(), ThreadFragment.class, args);
+		}
 	}
 
 	@Override

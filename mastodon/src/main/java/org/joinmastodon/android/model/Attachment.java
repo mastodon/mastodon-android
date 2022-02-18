@@ -11,6 +11,8 @@ import org.joinmastodon.android.api.RequiredField;
 import org.joinmastodon.android.ui.utils.BlurHashDecoder;
 import org.joinmastodon.android.ui.utils.BlurHashDrawable;
 import org.parceler.Parcel;
+import org.parceler.ParcelConstructor;
+import org.parceler.ParcelProperty;
 
 @Parcel
 public class Attachment extends BaseModel{
@@ -23,10 +25,23 @@ public class Attachment extends BaseModel{
 	public String previewUrl;
 	public String remoteUrl;
 	public String description;
+	@ParcelProperty("blurhash")
 	public String blurhash;
 	public Metadata meta;
 
 	public transient Drawable blurhashPlaceholder;
+
+	public Attachment(){}
+
+	@ParcelConstructor
+	public Attachment(@ParcelProperty("blurhash") String blurhash){
+		this.blurhash=blurhash;
+		if(blurhash!=null){
+			Bitmap placeholder=BlurHashDecoder.decode(blurhash, 16, 16);
+			if(placeholder!=null)
+				blurhashPlaceholder=new BlurHashDrawable(placeholder, getWidth(), getHeight());
+		}
+	}
 
 	public int getWidth(){
 		if(meta==null)
@@ -86,7 +101,11 @@ public class Attachment extends BaseModel{
 		@SerializedName("audio")
 		AUDIO,
 		@SerializedName("unknown")
-		UNKNOWN
+		UNKNOWN;
+
+		public boolean isImage(){
+			return this==IMAGE || this==GIFV || this==VIDEO;
+		}
 	}
 
 	@Parcel

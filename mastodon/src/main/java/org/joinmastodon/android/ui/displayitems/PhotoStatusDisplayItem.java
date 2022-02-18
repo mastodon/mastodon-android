@@ -7,12 +7,13 @@ import org.joinmastodon.android.R;
 import org.joinmastodon.android.fragments.BaseStatusListFragment;
 import org.joinmastodon.android.model.Attachment;
 import org.joinmastodon.android.model.Status;
+import org.joinmastodon.android.ui.PhotoLayoutHelper;
 
 import me.grishka.appkit.imageloader.requests.UrlImageLoaderRequest;
 
 public class PhotoStatusDisplayItem extends ImageStatusDisplayItem{
-	public PhotoStatusDisplayItem(String parentID, Status status, Attachment photo, BaseStatusListFragment parentFragment, int index, int totalPhotos){
-		super(parentID, parentFragment, photo, status, index, totalPhotos);
+	public PhotoStatusDisplayItem(String parentID, Status status, Attachment photo, BaseStatusListFragment parentFragment, int index, int totalPhotos, PhotoLayoutHelper.TiledLayoutResult tiledLayout, PhotoLayoutHelper.TiledLayoutResult.Tile thisTile){
+		super(parentID, parentFragment, photo, status, index, totalPhotos, tiledLayout, thisTile);
 		request=new UrlImageLoaderRequest(photo.url, 1000, 1000);
 	}
 

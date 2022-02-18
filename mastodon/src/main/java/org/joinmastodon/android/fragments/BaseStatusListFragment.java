@@ -22,6 +22,8 @@ import org.joinmastodon.android.model.DisplayItemsParent;
 import org.joinmastodon.android.model.Poll;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.BetterItemAnimator;
+import org.joinmastodon.android.ui.PhotoLayoutHelper;
+import org.joinmastodon.android.ui.TileGridLayoutManager;
 import org.joinmastodon.android.ui.displayitems.FooterStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.HeaderStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.ImageStatusDisplayItem;
@@ -32,6 +34,7 @@ import org.joinmastodon.android.ui.displayitems.TextStatusDisplayItem;
 import org.joinmastodon.android.ui.photoviewer.PhotoViewer;
 import org.joinmastodon.android.ui.photoviewer.PhotoViewerHost;
 import org.joinmastodon.android.ui.utils.UiUtils;
+import org.joinmastodon.android.ui.views.ImageAttachmentFrameLayout;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -193,6 +196,11 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 
 			@Override
 			public void endPhotoViewTransition(){
+				// fix drawable callback
+				Drawable d=transitioningHolder.photo.getDrawable();
+				transitioningHolder.photo.setImageDrawable(null);
+				transitioningHolder.photo.setImageDrawable(d);
+
 				View view=transitioningHolder.photo;
 				view.setTranslationX(0f);
 				view.setTranslationY(0f);
@@ -265,6 +273,46 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 					}
 				}
 			}
+
+			@Override
+			public void getItemOffsets(@NonNull Rect outRect, @NonNull View view, @NonNull RecyclerView parent, @NonNull RecyclerView.State state){
+				RecyclerView.ViewHolder holder=parent.getChildViewHolder(view);
+				if(holder instanceof ImageStatusDisplayItem.Holder){
+					int width=Math.min(parent.getWidth(), V.dp(ImageAttachmentFrameLayout.MAX_WIDTH));
+					PhotoLayoutHelper.TiledLayoutResult layout=((ImageStatusDisplayItem.Holder<?>) holder).getItem().tiledLayout;
+					PhotoLayoutHelper.TiledLayoutResult.Tile tile=((ImageStatusDisplayItem.Holder<?>) holder).getItem().thisTile;
+					if(tile.startCol+tile.colSpan<layout.columnSizes.length){
+						outRect.right=V.dp(1);
+					}
+					if(tile.startRow+tile.rowSpan<layout.rowSizes.length){
+						outRect.bottom=V.dp(1);
+					}
+
+					// For a view that spans rows, compensate its additional height so the row it's in stays the right height
+					if(tile.rowSpan>1){
+						outRect.bottom=-(Math.round(tile.height/1000f*width)-Math.round(layout.rowSizes[tile.startRow]/1000f*width));
+					}
+					// ...and for its siblings, offset those on rows below first to the right where they belong
+					if(tile.startCol>0 && layout.tiles[0].rowSpan>1 && tile.startRow>layout.tiles[0].startRow){
+						int xOffset=Math.round(layout.tiles[0].width/1000f*parent.getWidth());
+						outRect.left=xOffset;
+						outRect.right=-xOffset;
+					}
+
+					// If the width of the media block is smaller than that of the RecyclerView, offset the views horizontally to center them
+					if(parent.getWidth()>width){
+						outRect.left+=(parent.getWidth()-V.dp(ImageAttachmentFrameLayout.MAX_WIDTH))/2;
+						if(tile.startCol>0){
+							int spanOffset=0;
+							for(int i=0;i<tile.startCol;i++){
+								spanOffset+=layout.columnSizes[i];
+							}
+							outRect.left-=Math.round(spanOffset/1000f*parent.getWidth());
+							outRect.left+=Math.round(spanOffset/1000f*width);
+						}
+					}
+				}
+			}
 		});
 		((UsableRecyclerView)list).setSelectorBoundsProvider(new UsableRecyclerView.SelectorBoundsProvider(){
 			@Override
@@ -295,7 +343,7 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 
 	@Override
 	protected RecyclerView.LayoutManager onCreateLayoutManager(){
-		GridLayoutManager lm=new GridLayoutManager(getActivity(), 2);
+		GridLayoutManager lm=new TileGridLayoutManager(getActivity(), 1000);
 		lm.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup(){
 			@Override
 			public int getSpanSize(int position){
@@ -303,14 +351,16 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 				if(position>=0 && position<displayItems.size()){
 					StatusDisplayItem item=displayItems.get(position);
 					if(item instanceof ImageStatusDisplayItem){
-						int total=((ImageStatusDisplayItem) item).totalPhotos;
-						if(total>1){
-							int index=((ImageStatusDisplayItem) item).index;
-							return 1;
+						PhotoLayoutHelper.TiledLayoutResult layout=((ImageStatusDisplayItem) item).tiledLayout;
+						PhotoLayoutHelper.TiledLayoutResult.Tile tile=((ImageStatusDisplayItem) item).thisTile;
+						int spans=0;
+						for(int i=0;i<tile.colSpan;i++){
+							spans+=layout.columnSizes[tile.startCol+i];
 						}
+						return spans;
 					}
 				}
-				return 2;
+				return 1000;
 			}
 		});
 		return lm;
@@ -320,6 +370,7 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 	public void onConfigurationChanged(Configuration newConfig){
 		super.onConfigurationChanged(newConfig);
 		updateToolbar();
+		list.invalidateItemDecorations();
 	}
 
 	private void updateToolbar(){

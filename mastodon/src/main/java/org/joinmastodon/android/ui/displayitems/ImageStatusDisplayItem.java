@@ -1,7 +1,6 @@
 package org.joinmastodon.android.ui.displayitems;
 
 import android.app.Activity;
-import android.app.Fragment;
 import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,13 +10,14 @@ import org.joinmastodon.android.R;
 import org.joinmastodon.android.fragments.BaseStatusListFragment;
 import org.joinmastodon.android.model.Attachment;
 import org.joinmastodon.android.model.Status;
+import org.joinmastodon.android.ui.PhotoLayoutHelper;
 import org.joinmastodon.android.ui.drawables.BlurhashCrossfadeDrawable;
 import org.joinmastodon.android.ui.photoviewer.PhotoViewerHost;
+import org.joinmastodon.android.ui.views.ImageAttachmentFrameLayout;
 
 import androidx.annotation.LayoutRes;
 import me.grishka.appkit.imageloader.ImageLoaderViewHolder;
 import me.grishka.appkit.imageloader.requests.ImageLoaderRequest;
-import me.grishka.appkit.imageloader.requests.UrlImageLoaderRequest;
 
 public abstract class ImageStatusDisplayItem extends StatusDisplayItem{
 	public final int index;
@@ -25,13 +25,17 @@ public abstract class ImageStatusDisplayItem extends StatusDisplayItem{
 	protected Attachment attachment;
 	protected ImageLoaderRequest request;
 	public final Status status;
+	public final PhotoLayoutHelper.TiledLayoutResult tiledLayout;
+	public final PhotoLayoutHelper.TiledLayoutResult.Tile thisTile;
 
-	public ImageStatusDisplayItem(String parentID, BaseStatusListFragment parentFragment, Attachment photo, Status status, int index, int totalPhotos){
+	public ImageStatusDisplayItem(String parentID, BaseStatusListFragment parentFragment, Attachment photo, Status status, int index, int totalPhotos, PhotoLayoutHelper.TiledLayoutResult tiledLayout, PhotoLayoutHelper.TiledLayoutResult.Tile thisTile){
 		super(parentID, parentFragment);
 		this.attachment=photo;
 		this.status=status;
 		this.index=index;
 		this.totalPhotos=totalPhotos;
+		this.tiledLayout=tiledLayout;
+		this.thisTile=thisTile;
 	}
 
 	@Override
@@ -46,6 +50,7 @@ public abstract class ImageStatusDisplayItem extends StatusDisplayItem{
 
 	public static abstract class Holder<T extends ImageStatusDisplayItem> extends StatusDisplayItem.Holder<T> implements ImageLoaderViewHolder{
 		public final ImageView photo;
+		private ImageAttachmentFrameLayout layout;
 		private BlurhashCrossfadeDrawable crossfadeDrawable=new BlurhashCrossfadeDrawable();
 		private boolean didClear;
 
@@ -53,10 +58,12 @@ public abstract class ImageStatusDisplayItem extends StatusDisplayItem{
 			super(activity, layout, parent);
 			photo=findViewById(R.id.photo);
 			photo.setOnClickListener(this::onViewClick);
+			this.layout=(ImageAttachmentFrameLayout)itemView;
 		}
 
 		@Override
 		public void onBind(ImageStatusDisplayItem item){
+			layout.setLayout(item.tiledLayout, item.thisTile);
 			crossfadeDrawable.setSize(item.attachment.getWidth(), item.attachment.getHeight());
 			crossfadeDrawable.setBlurhashDrawable(item.attachment.blurhashPlaceholder);
 			crossfadeDrawable.setCrossfadeAlpha(item.status.spoilerRevealed ? 0f : 1f);
