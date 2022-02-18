@@ -70,9 +70,12 @@ public abstract class StatusDisplayItem{
 			Account account=Objects.requireNonNull(knownAccounts.get(status.inReplyToAccountId));
 			items.add(new ReblogOrReplyLineStatusDisplayItem(parentID, fragment, fragment.getString(R.string.in_reply_to, account.displayName), account.emojis, R.drawable.ic_fluent_arrow_reply_20_filled));
 		}
-		items.add(new HeaderStatusDisplayItem(parentID, statusForContent.account, statusForContent.createdAt, fragment, accountID, statusForContent));
+		HeaderStatusDisplayItem header;
+		items.add(header=new HeaderStatusDisplayItem(parentID, statusForContent.account, statusForContent.createdAt, fragment, accountID, statusForContent));
 		if(!TextUtils.isEmpty(statusForContent.content))
 			items.add(new TextStatusDisplayItem(parentID, HtmlParser.parse(statusForContent.content, statusForContent.emojis, statusForContent.mentions, accountID), fragment, statusForContent));
+		else
+			header.needBottomPadding=true;
 		List<Attachment> imageAttachments=statusForContent.mediaAttachments.stream().filter(att->att.type.isImage()).collect(Collectors.toList());
 		if(!imageAttachments.isEmpty()){
 			int photoIndex=0;

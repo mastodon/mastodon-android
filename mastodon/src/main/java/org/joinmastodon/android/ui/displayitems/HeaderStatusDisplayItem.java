@@ -44,6 +44,7 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 	private SpannableStringBuilder parsedName;
 	public final Status status;
 	private boolean hasVisibilityToggle;
+	boolean needBottomPadding;
 
 	public HeaderStatusDisplayItem(String parentID, Account user, Instant createdAt, BaseStatusListFragment parentFragment, String accountID, Status status){
 		super(parentID, parentFragment);
@@ -119,6 +120,7 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 			if(item.hasVisibilityToggle){
 				visibility.setImageResource(item.status.spoilerRevealed ? R.drawable.ic_visibility_off : R.drawable.ic_visibility);
 			}
+			itemView.setPadding(itemView.getPaddingLeft(), itemView.getPaddingTop(), itemView.getPaddingRight(), item.needBottomPadding ? V.dp(16) : 0);
 		}
 
 		@Override
