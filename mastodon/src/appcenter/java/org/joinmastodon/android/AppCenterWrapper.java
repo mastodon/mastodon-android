@@ -12,6 +12,8 @@ public class AppCenterWrapper{
 	private static final String TAG="AppCenterWrapper";
 
 	public static void init(Application app){
+		if(AppCenter.isConfigured())
+			return;
 		Log.i(TAG, "initializing AppCenter SDK, build type is "+BuildConfig.BUILD_TYPE);
 
 		if(BuildConfig.BUILD_TYPE.equals("appcenterPrivateBeta"))

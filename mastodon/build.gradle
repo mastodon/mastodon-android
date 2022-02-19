@@ -10,7 +10,7 @@ android {
 		applicationId "org.joinmastodon.android"
 		minSdk 23
 		targetSdk 31
-		versionCode 2
+		versionCode 3
 		versionName "0.1"
 	}
 
@@ -23,7 +23,8 @@ android {
 			debuggable true
 		}
 		appcenterPrivateBeta{
-			initWith debug
+			initWith release
+			minifyEnabled false
 			versionNameSuffix "-priv-beta"
 		}
 		appcenterPublicBeta{
