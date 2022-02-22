@@ -16,6 +16,8 @@ public class Card extends BaseModel{
 	@RequiredField
 	public String url;
 	@RequiredField
+	public String title;
+	@RequiredField
 	public String description;
 	@RequiredField
 	public Type type;
@@ -46,6 +48,7 @@ public class Card extends BaseModel{
 	public String toString(){
 		return "Card{"+
 				"url='"+url+'\''+
+				", title='"+title+'\''+
 				", description='"+description+'\''+
 				", type="+type+
 				", authorName='"+authorName+'\''+

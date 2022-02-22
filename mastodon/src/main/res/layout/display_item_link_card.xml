@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content">
+
+	<org.joinmastodon.android.ui.views.MaxWidthFrameLayout
+		android:id="@+id/inner"
+		android:layout_width="match_parent"
+		android:layout_height="250dp"
+		android:layout_gravity="center_horizontal"
+		android:foreground="?android:selectableItemBackground"
+		android:maxWidth="400dp">
+		<ImageView
+			android:id="@+id/photo"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:scaleType="centerCrop"
+			tools:src="#0f0"/>
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_gravity="bottom"
+			android:padding="8dp"
+			android:orientation="vertical"
+			android:background="@drawable/window_bg_alpha95">
+			<TextView
+				android:id="@+id/title"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:textAppearance="@style/m3_body_large"
+				android:singleLine="true"
+				android:ellipsize="end"
+				tools:text="Link title"/>
+			<TextView
+				android:id="@+id/description"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:maxLines="2"
+				android:ellipsize="end"
+				android:textAppearance="@style/m3_body_medium"
+				tools:text="Link description"/>
+			<TextView
+				android:id="@+id/domain"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:textAppearance="@style/m3_body_medium"
+				android:textColor="?android:textColorSecondary"
+				tools:text="example.com"/>
+		</LinearLayout>
+	</org.joinmastodon.android.ui.views.MaxWidthFrameLayout>
+
+</FrameLayout>

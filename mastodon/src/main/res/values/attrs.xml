@@ -7,5 +7,10 @@
 	<attr name="colorDarkIcon" format="color"/>
 	<attr name="colorPollMostVoted" format="color"/>
 	<attr name="colorPollVoted" format="color"/>
+	<attr name="colorWindowBackground" format="color"/>
 	<attr name="secondaryButtonStyle" format="reference"/>
+
+	<declare-styleable name="MaxWidthFrameLayout">
+		<attr name="android:maxWidth" format="dimension"/>
+	</declare-styleable>
 </resources>

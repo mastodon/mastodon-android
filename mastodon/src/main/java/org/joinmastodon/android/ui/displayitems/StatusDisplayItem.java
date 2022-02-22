@@ -55,6 +55,7 @@ public abstract class StatusDisplayItem{
 			case VIDEO -> new VideoStatusDisplayItem.Holder(activity, parent);
 			case POLL_OPTION -> new PollOptionStatusDisplayItem.Holder(activity, parent);
 			case POLL_FOOTER -> new PollFooterStatusDisplayItem.Holder(activity, parent);
+			case CARD -> new LinkCardStatusDisplayItem.Holder(activity, parent);
 			case FOOTER -> new FooterStatusDisplayItem.Holder(activity, parent);
 			default -> throw new UnsupportedOperationException();
 		};
@@ -95,6 +96,9 @@ public abstract class StatusDisplayItem{
 		}
 		if(statusForContent.poll!=null){
 			buildPollItems(parentID, fragment, statusForContent.poll, items);
+		}
+		if(statusForContent.card!=null){
+			items.add(new LinkCardStatusDisplayItem(parentID, fragment, statusForContent));
 		}
 		items.add(new FooterStatusDisplayItem(parentID, fragment, statusForContent, accountID));
 		return items;

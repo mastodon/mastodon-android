@@ -6,6 +6,7 @@
 		<item name="android:enforceStatusBarContrast" tools:ignore="NewApi">false</item>
 		<item name="appkitBackDrawable">@drawable/ic_fluent_arrow_left_24_regular</item>
 		<item name="android:splitMotionEvents">false</item>
+		<item name="android:windowBackground">?colorWindowBackground</item>
 
 		<item name="android:buttonStyle">@style/Widget.Mastodon.Button.Primary_DarkOnLight</item>
 		<item name="secondaryButtonStyle">@style/Widget.Mastodon.Button.Secondary_DarkOnLight</item>
@@ -19,7 +20,7 @@
 		<item name="colorBackgroundLight">@color/gray_50</item>
 		<item name="colorBackgroundLightest">@color/gray_25</item>
 		<item name="colorDarkIcon">@color/gray_900</item>
-		<item name="android:windowBackground">@color/white</item>
+		<item name="colorWindowBackground">@color/white</item>
 		<item name="android:statusBarColor">@color/actionbar_bg</item>
 		<item name="android:navigationBarColor">@color/navigation_bar_bg</item>
 		<item name="android:actionBarTheme">@style/Theme.Mastodon.Toolbar</item>
@@ -37,6 +38,7 @@
 		<item name="android:enforceStatusBarContrast" tools:ignore="NewApi">false</item>
 		<item name="appkitBackDrawable">@drawable/ic_fluent_arrow_left_24_regular</item>
 		<item name="android:splitMotionEvents">false</item>
+		<item name="android:windowBackground">?colorWindowBackground</item>
 
 		<item name="android:buttonStyle">@style/Widget.Mastodon.Button.Primary_LightOnDark</item>
 		<item name="secondaryButtonStyle">@style/Widget.Mastodon.Button.Secondary_LightOnDark</item>
@@ -50,7 +52,7 @@
 		<item name="colorBackgroundLight">@color/gray_700</item>
 		<item name="colorBackgroundLightest">@color/gray_700</item>
 		<item name="colorDarkIcon">@color/gray_25</item>
-		<item name="android:windowBackground">@color/gray_800</item>
+		<item name="colorWindowBackground">@color/gray_800</item>
 		<item name="android:statusBarColor">@color/actionbar_bg_dark</item>
 		<item name="android:navigationBarColor">@color/actionbar_bg_dark</item>
 		<item name="android:actionBarTheme">@style/Theme.Mastodon.Toolbar.Dark</item>
