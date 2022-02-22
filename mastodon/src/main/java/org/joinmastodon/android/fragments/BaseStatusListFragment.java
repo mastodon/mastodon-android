@@ -56,7 +56,7 @@ import me.grishka.appkit.utils.BindableViewHolder;
 import me.grishka.appkit.utils.V;
 import me.grishka.appkit.views.UsableRecyclerView;
 
-public abstract class BaseStatusListFragment<T extends DisplayItemsParent> extends BaseRecyclerFragment<T> implements PhotoViewerHost{
+public abstract class BaseStatusListFragment<T extends DisplayItemsParent> extends BaseRecyclerFragment<T> implements PhotoViewerHost, ScrollableToTop{
 	protected ArrayList<StatusDisplayItem> displayItems=new ArrayList<>();
 	protected DisplayItemsAdapter adapter;
 	protected String accountID;
@@ -377,22 +377,7 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 		Toolbar toolbar=getToolbar();
 		if(toolbar==null)
 			return;
-		toolbar.setOnClickListener(v->{
-			if(list.getChildCount()>0 && list.getChildAdapterPosition(list.getChildAt(0))>10){
-				list.scrollToPosition(0);
-				list.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener(){
-					@Override
-					public boolean onPreDraw(){
-						list.getViewTreeObserver().removeOnPreDrawListener(this);
-						list.scrollBy(0, V.dp(300));
-						list.smoothScrollToPosition(0);
-						return true;
-					}
-				});
-			}else{
-				list.smoothScrollToPosition(0);
-			}
-		});
+		toolbar.setOnClickListener(v->scrollToTop());
 	}
 
 	protected int getMainAdapterOffset(){
@@ -550,6 +535,24 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 				holders.add(type.cast(holder));
 		}
 		return holders;
+	}
+
+	@Override
+	public void scrollToTop(){
+		if(list.getChildCount()>0 && list.getChildAdapterPosition(list.getChildAt(0))>10){
+			list.scrollToPosition(0);
+			list.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener(){
+				@Override
+				public boolean onPreDraw(){
+					list.getViewTreeObserver().removeOnPreDrawListener(this);
+					list.scrollBy(0, V.dp(300));
+					list.smoothScrollToPosition(0);
+					return true;
+				}
+			});
+		}else{
+			list.smoothScrollToPosition(0);
+		}
 	}
 
 	protected class DisplayItemsAdapter extends UsableRecyclerView.Adapter<BindableViewHolder<StatusDisplayItem>> implements ImageLoaderRecyclerAdapter{

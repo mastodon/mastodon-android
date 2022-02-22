@@ -83,7 +83,7 @@ import me.grishka.appkit.imageloader.requests.UrlImageLoaderRequest;
 import me.grishka.appkit.utils.CubicBezierInterpolator;
 import me.grishka.appkit.utils.V;
 
-public class ProfileFragment extends LoaderFragment implements OnBackPressedListener{
+public class ProfileFragment extends LoaderFragment implements OnBackPressedListener, ScrollableToTop{
 	private static final int AVATAR_RESULT=722;
 	private static final int COVER_RESULT=343;
 
@@ -430,10 +430,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 			toolbarTitleView.setTranslationY(titleTransY);
 			toolbarSubtitleView.setTranslationY(titleTransY);
 		}
-		getToolbar().setOnClickListener(v->{
-			getScrollableRecyclerView().scrollToPosition(0);
-			scrollView.smoothScrollTo(0, 0);
-		});
+		getToolbar().setOnClickListener(v->scrollToTop());
 	}
 
 	@Override
@@ -796,6 +793,12 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 				ViewImageLoader.load(cover, null, new UrlImageLoaderRequest(editNewCover, V.dp(1000), V.dp(1000)));
 			}
 		}
+	}
+
+	@Override
+	public void scrollToTop(){
+		getScrollableRecyclerView().scrollToPosition(0);
+		scrollView.smoothScrollTo(0, 0);
 	}
 
 	private class ProfilePagerAdapter extends RecyclerView.Adapter<SimpleViewHolder>{

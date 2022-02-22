@@ -43,12 +43,12 @@ public class TabBar extends LinearLayout{
 	}
 
 	private void onChildClick(View v){
+		listener.accept(selectedTabID);
 		if(v.getId()==selectedTabID)
 			return;
 		findViewById(selectedTabID).setSelected(false);
 		v.setSelected(true);
 		selectedTabID=v.getId();
-		listener.accept(selectedTabID);
 	}
 
 	public void setListener(IntConsumer listener){

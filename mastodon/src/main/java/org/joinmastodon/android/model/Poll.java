@@ -1,25 +1,27 @@
 package org.joinmastodon.android.model;
 
-import org.joinmastodon.android.api.AllFieldsAreRequired;
 import org.joinmastodon.android.api.ObjectValidationException;
+import org.joinmastodon.android.api.RequiredField;
 import org.parceler.Parcel;
 
 import java.time.Instant;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
-@AllFieldsAreRequired
 @Parcel
 public class Poll extends BaseModel{
+	@RequiredField
 	public String id;
 	public Instant expiresAt;
 	public boolean expired;
 	public boolean multiple;
 	public int votersCount;
 	public boolean voted;
+	@RequiredField
 	public List<Integer> ownVotes;
+	@RequiredField
 	public List<Option> options;
+	@RequiredField
 	public List<Emoji> emojis;
 
 	public transient ArrayList<Option> selectedOptions;

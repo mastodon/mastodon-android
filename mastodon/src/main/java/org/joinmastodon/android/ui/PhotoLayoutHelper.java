@@ -123,7 +123,7 @@ public class PhotoLayoutHelper{
 				};
 			}
 		}else if(cnt==4){
-			if(/*(ratios.get(0) > 1.2 * maxRatio || avgRatio > 1.5 * maxRatio) &&*/ orients.equals("wwww")){ // 2nd, 3rd and 4th photos are on the next line
+			if(/*(ratios.get(0) > 1.2 * maxRatio || avgRatio > 1.5 * maxRatio) &&*/ orients.equals("wwww") || true /* temporary fix */){ // 2nd, 3rd and 4th photos are on the next line
 				float hCover=Math.min(maxW/ratios.get(0), (maxH-marginH)*0.66f);
 				float h=(maxW-2*marginW)/(ratios.get(1)+ratios.get(2)+ratios.get(3));
 				float w0=h*ratios.get(1);
