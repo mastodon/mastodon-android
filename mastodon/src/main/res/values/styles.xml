@@ -27,6 +27,9 @@
 		<item name="android:alertDialogTheme">@style/Theme.Mastodon.Dialog.Alert</item>
 		<item name="colorPollMostVoted">@color/primary_500</item>
 		<item name="colorPollVoted">@color/gray_300</item>
+		<item name="colorAccentLight">@color/primary_600</item>
+
+		<item name="buttonBackground">@drawable/bg_button_primary_dark_on_light</item>
 
 		<item name="android:windowLightStatusBar">true</item>
 		<item name="android:windowLightNavigationBar" tools:ignore="NewApi">true</item>
@@ -59,6 +62,9 @@
 		<item name="android:alertDialogTheme">@style/Theme.Mastodon.Dialog.Alert.Dark</item>
 		<item name="colorPollMostVoted">@color/primary_700</item>
 		<item name="colorPollVoted">@color/gray_600</item>
+		<item name="colorAccentLight">@color/primary_600</item>
+
+		<item name="buttonBackground">@drawable/bg_button_primary_light_on_dark</item>
 
 		<item name="android:windowLightStatusBar">false</item>
 		<item name="android:windowLightNavigationBar" tools:ignore="NewApi">false</item>

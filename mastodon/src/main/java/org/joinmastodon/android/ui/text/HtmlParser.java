@@ -11,6 +11,8 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Node;
 import org.jsoup.nodes.TextNode;
+import org.jsoup.safety.Cleaner;
+import org.jsoup.safety.Safelist;
 import org.jsoup.select.NodeVisitor;
 
 import java.util.ArrayList;
@@ -143,5 +145,9 @@ public class HtmlParser{
 		}
 		view.setText(parseCustomEmoji(text, emojis));
 		UiUtils.loadCustomEmojiInTextView(view);
+	}
+
+	public static String strip(String html){
+		return Jsoup.clean(html, Safelist.none());
 	}
 }

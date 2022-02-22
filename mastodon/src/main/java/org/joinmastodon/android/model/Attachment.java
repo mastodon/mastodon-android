@@ -67,6 +67,16 @@ public class Attachment extends BaseModel{
 		return 0;
 	}
 
+	public double getDuration(){
+		if(meta==null)
+			return 0;
+		if(meta.duration>0)
+			return meta.duration;
+		if(meta.original!=null && meta.original.duration>0)
+			return meta.original.duration;
+		return 0;
+	}
+
 	@Override
 	public void postprocess() throws ObjectValidationException{
 		super.postprocess();
@@ -137,6 +147,8 @@ public class Attachment extends BaseModel{
 		public int width;
 		public int height;
 		public double aspect;
+		public double duration;
+		public int bitrate;
 
 		@Override
 		public String toString(){
@@ -144,6 +156,8 @@ public class Attachment extends BaseModel{
 					"width="+width+
 					", height="+height+
 					", aspect="+aspect+
+					", duration="+duration+
+					", bitrate="+bitrate+
 					'}';
 		}
 	}

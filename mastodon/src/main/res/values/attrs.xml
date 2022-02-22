@@ -9,6 +9,8 @@
 	<attr name="colorPollVoted" format="color"/>
 	<attr name="colorWindowBackground" format="color"/>
 	<attr name="secondaryButtonStyle" format="reference"/>
+	<attr name="buttonBackground" format="reference"/>
+	<attr name="colorAccentLight" format="color"/>
 
 	<declare-styleable name="MaxWidthFrameLayout">
 		<attr name="android:maxWidth" format="dimension"/>

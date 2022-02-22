@@ -5,7 +5,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.database.Cursor;
-import android.graphics.drawable.Animatable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
@@ -13,7 +12,6 @@ import android.os.Handler;
 import android.os.Looper;
 import android.provider.OpenableColumns;
 import android.text.Spanned;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -40,7 +38,6 @@ import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 import androidx.annotation.AttrRes;
-import androidx.annotation.ColorRes;
 import androidx.annotation.StringRes;
 import androidx.browser.customtabs.CustomTabsIntent;
 import me.grishka.appkit.Nav;
@@ -58,6 +55,7 @@ public class UiUtils{
 	public static void launchWebBrowser(Context context, String url){
 		// TODO setting for custom tabs
 		new CustomTabsIntent.Builder()
+				.setShowTitle(true)
 				.build()
 				.launchUrl(context, Uri.parse(url));
 	}

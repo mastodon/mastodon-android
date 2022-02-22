@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:layout_marginTop="-8dp"
+	android:layout_marginBottom="-8dp"
+	android:paddingLeft="16dp"
+	android:paddingRight="16dp"
+	android:paddingTop="8dp"
+	android:paddingBottom="8dp"
+	android:clipToPadding="false">
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="40dp"
+		android:orientation="horizontal"
+		android:gravity="center_vertical"
+		android:paddingLeft="12dp"
+		android:paddingRight="12dp"
+		android:background="?buttonBackground"
+		android:outlineProvider="background"
+		android:elevation="2dp">
+
+		<ImageButton
+			android:id="@+id/play_pause_btn"
+			android:layout_width="24dp"
+			android:layout_height="24dp"
+			android:background="?android:selectableItemBackgroundBorderless"
+			android:tint="?colorButtonText"
+			android:src="@drawable/ic_fluent_play_circle_24_filled"/>
+
+		<SeekBar
+			android:id="@+id/seekbar"
+			android:layout_width="0dp"
+			android:layout_height="match_parent"
+			android:layout_weight="1"
+			android:progressDrawable="@drawable/seekbar_progress"
+			android:max="10000"
+			android:splitTrack="false"/>
+
+		<TextView
+			android:id="@+id/time"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textAppearance="@style/m3_label_medium"
+			android:textColor="?colorButtonText"
+			android:gravity="end"
+			tools:text="1:23"/>
+
+	</LinearLayout>
+
+</FrameLayout>

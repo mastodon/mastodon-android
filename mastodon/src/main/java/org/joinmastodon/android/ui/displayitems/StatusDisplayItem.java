@@ -52,12 +52,12 @@ public abstract class StatusDisplayItem{
 			case TEXT -> new TextStatusDisplayItem.Holder(activity, parent);
 			case PHOTO -> new PhotoStatusDisplayItem.Holder(activity, parent);
 			case GIFV -> new GifVStatusDisplayItem.Holder(activity, parent);
+			case AUDIO -> new AudioStatusDisplayItem.Holder(activity, parent);
 			case VIDEO -> new VideoStatusDisplayItem.Holder(activity, parent);
 			case POLL_OPTION -> new PollOptionStatusDisplayItem.Holder(activity, parent);
 			case POLL_FOOTER -> new PollFooterStatusDisplayItem.Holder(activity, parent);
 			case CARD -> new LinkCardStatusDisplayItem.Holder(activity, parent);
 			case FOOTER -> new FooterStatusDisplayItem.Holder(activity, parent);
-			default -> throw new UnsupportedOperationException();
 		};
 	}
 
@@ -92,6 +92,11 @@ public abstract class StatusDisplayItem{
 					throw new IllegalStateException("This isn't supposed to happen, type is "+attachment.type);
 				}
 				photoIndex++;
+			}
+		}
+		for(Attachment att:statusForContent.mediaAttachments){
+			if(att.type==Attachment.Type.AUDIO){
+				items.add(new AudioStatusDisplayItem(parentID, fragment, statusForContent, att));
 			}
 		}
 		if(statusForContent.poll!=null){
