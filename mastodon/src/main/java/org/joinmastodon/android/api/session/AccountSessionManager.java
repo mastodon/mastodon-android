@@ -131,6 +131,13 @@ public class AccountSessionManager{
 		return lastActiveAccountID;
 	}
 
+	public void setLastActiveAccountID(String id){
+		if(!sessions.containsKey(id))
+			throw new IllegalStateException("Account session "+id+" not found");
+		lastActiveAccountID=id;
+		prefs.edit().putString("lastActiveAccount", id).apply();
+	}
+
 	public void removeAccount(String id){
 		AccountSession session=getAccount(id);
 		sessions.remove(id);

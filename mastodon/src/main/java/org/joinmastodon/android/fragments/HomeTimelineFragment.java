@@ -1,6 +1,8 @@
 package org.joinmastodon.android.fragments;
 
 import android.app.Activity;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -17,20 +19,27 @@ import android.widget.Toolbar;
 import com.squareup.otto.Subscribe;
 
 import org.joinmastodon.android.E;
+import org.joinmastodon.android.MainActivity;
 import org.joinmastodon.android.R;
+import org.joinmastodon.android.api.requests.oauth.RevokeOauthToken;
 import org.joinmastodon.android.api.requests.timelines.GetHomeTimeline;
+import org.joinmastodon.android.api.session.AccountSession;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.events.StatusCountersUpdatedEvent;
 import org.joinmastodon.android.events.StatusCreatedEvent;
 import org.joinmastodon.android.events.StatusDeletedEvent;
 import org.joinmastodon.android.model.Status;
+import org.joinmastodon.android.ui.M3AlertDialogBuilder;
 import org.joinmastodon.android.ui.utils.UiUtils;
 import org.parceler.Parcels;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 import me.grishka.appkit.Nav;
+import me.grishka.appkit.api.Callback;
+import me.grishka.appkit.api.ErrorResponse;
 import me.grishka.appkit.api.SimpleCallback;
 
 public class HomeTimelineFragment extends StatusListFragment{
@@ -74,6 +83,42 @@ public class HomeTimelineFragment extends StatusListFragment{
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item){
+		ArrayList<String> options=new ArrayList<>();
+		for(AccountSession session:AccountSessionManager.getInstance().getLoggedInAccounts()){
+			options.add(session.self.displayName+"\n("+session.self.username+"@"+session.domain+")");
+		}
+		new M3AlertDialogBuilder(getActivity())
+				.setItems(options.toArray(new String[0]), (dialog, which)->{
+					AccountSession session=AccountSessionManager.getInstance().getLoggedInAccounts().get(which);
+					AccountSessionManager.getInstance().setLastActiveAccountID(session.getID());
+					getActivity().finish();
+					getActivity().startActivity(new Intent(getActivity(), MainActivity.class));
+				})
+				.setPositiveButton(R.string.log_out, (dialog, which)->{
+					AccountSession session=AccountSessionManager.getInstance().getAccount(accountID);
+					new RevokeOauthToken(session.app.clientId, session.app.clientSecret, session.token.accessToken)
+							.setCallback(new Callback<>(){
+								@Override
+								public void onSuccess(Object result){
+									AccountSessionManager.getInstance().removeAccount(session.getID());
+									getActivity().finish();
+									getActivity().startActivity(new Intent(getActivity(), MainActivity.class));
+								}
+
+								@Override
+								public void onError(ErrorResponse error){
+									AccountSessionManager.getInstance().removeAccount(session.getID());
+									getActivity().finish();
+									getActivity().startActivity(new Intent(getActivity(), MainActivity.class));
+								}
+							})
+							.wrapProgress(getActivity(), R.string.loading, false)
+							.execNoAuth(session.domain);
+				})
+				.setNegativeButton(R.string.add_account, (dialog, which)->{
+					Nav.go(getActivity(), SplashFragment.class, null);
+				})
+				.show();
 		return true;
 	}
 
