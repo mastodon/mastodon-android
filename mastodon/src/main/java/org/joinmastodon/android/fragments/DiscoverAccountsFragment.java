@@ -270,7 +270,7 @@ public class DiscoverAccountsFragment extends BaseRecyclerFragment<DiscoverAccou
 				avaRequest=new UrlImageLoaderRequest(account.avatar, V.dp(50), V.dp(50));
 			if(!TextUtils.isEmpty(account.header))
 				coverRequest=new UrlImageLoaderRequest(account.header, 1000, 1000);
-			parsedBio=HtmlParser.parse(account.note, account.emojis, Collections.emptyList(), accountID);
+			parsedBio=HtmlParser.parse(account.note, account.emojis, Collections.emptyList(), Collections.emptyList(), accountID);
 			if(account.emojis.isEmpty()){
 				parsedName=account.displayName;
 			}else{

@@ -24,6 +24,7 @@ import org.joinmastodon.android.api.requests.accounts.SetAccountFollowed;
 import org.joinmastodon.android.api.requests.accounts.SetAccountMuted;
 import org.joinmastodon.android.api.requests.statuses.DeleteStatus;
 import org.joinmastodon.android.events.StatusDeletedEvent;
+import org.joinmastodon.android.fragments.HashtagTimelineFragment;
 import org.joinmastodon.android.fragments.ProfileFragment;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.Emoji;
@@ -184,6 +185,13 @@ public class UiUtils{
 		args.putString("account", selfID);
 		args.putString("profileAccountID", id);
 		Nav.go((Activity)context, ProfileFragment.class, args);
+	}
+
+	public static void openHashtagTimeline(Context context, String accountID, String hashtag){
+		Bundle args=new Bundle();
+		args.putString("account", accountID);
+		args.putString("hashtag", hashtag);
+		Nav.go((Activity)context, HashtagTimelineFragment.class, args);
 	}
 
 	public static void showConfirmationAlert(Context context, @StringRes int title, @StringRes int message, @StringRes int confirmButton, Runnable onConfirmed){

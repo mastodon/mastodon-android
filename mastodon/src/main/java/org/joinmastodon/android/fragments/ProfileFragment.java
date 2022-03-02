@@ -375,7 +375,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 		name.setText(ssb);
 		setTitle(ssb);
 		username.setText('@'+account.acct);
-		bio.setText(HtmlParser.parse(account.note, account.emojis, Collections.emptyList(), accountID));
+		bio.setText(HtmlParser.parse(account.note, account.emojis, Collections.emptyList(), Collections.emptyList(), accountID));
 		followersCount.setText(UiUtils.abbreviateNumber(account.followersCount));
 		followingCount.setText(UiUtils.abbreviateNumber(account.followingCount));
 		postsCount.setText(UiUtils.abbreviateNumber(account.statusesCount));
@@ -400,7 +400,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 		fields.add(joined);
 
 		for(AccountField field:account.fields){
-			field.parsedValue=ssb=HtmlParser.parse(field.value, account.emojis, Collections.emptyList(), accountID);
+			field.parsedValue=ssb=HtmlParser.parse(field.value, account.emojis, Collections.emptyList(), Collections.emptyList(), accountID);
 			field.valueEmojis=ssb.getSpans(0, ssb.length(), CustomEmojiSpan.class);
 			ssb=new SpannableStringBuilder(field.name);
 			HtmlParser.parseCustomEmoji(ssb, account.emojis);

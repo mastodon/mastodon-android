@@ -5,6 +5,7 @@ import android.text.Spanned;
 import android.widget.TextView;
 
 import org.joinmastodon.android.model.Emoji;
+import org.joinmastodon.android.model.Hashtag;
 import org.joinmastodon.android.model.Mention;
 import org.joinmastodon.android.ui.utils.UiUtils;
 import org.jsoup.Jsoup;
@@ -43,7 +44,7 @@ public class HtmlParser{
 	 * @param emojis Custom emojis that are present in source as <code>:code:</code>
 	 * @return a spanned string
 	 */
-	public static SpannableStringBuilder parse(String source, List<Emoji> emojis, List<Mention> mentions, String accountID){
+	public static SpannableStringBuilder parse(String source, List<Emoji> emojis, List<Mention> mentions, List<Hashtag> tags, String accountID){
 		class SpanInfo{
 			public Object span;
 			public int start;
@@ -57,6 +58,8 @@ public class HtmlParser{
 		}
 
 		Map<String, String> idsByUrl=mentions.stream().collect(Collectors.toMap(m->m.url, m->m.id));
+		// Hashtags in remote posts have remote URLs, these have local URLs so they don't match.
+//		Map<String, String> tagsByUrl=tags.stream().collect(Collectors.toMap(t->t.url, t->t.name));
 
 		final SpannableStringBuilder ssb=new SpannableStringBuilder();
 		Jsoup.parseBodyFragment(source).body().traverse(new NodeVisitor(){
@@ -73,7 +76,13 @@ public class HtmlParser{
 							String href=el.attr("href");
 							LinkSpan.Type linkType;
 							if(el.hasClass("hashtag")){
-								linkType=LinkSpan.Type.HASHTAG;
+								String text=el.text();
+								if(text.startsWith("#")){
+									linkType=LinkSpan.Type.HASHTAG;
+									href=text.substring(1);
+								}else{
+									linkType=LinkSpan.Type.URL;
+								}
 							}else if(el.hasClass("mention")){
 								String id=idsByUrl.get(href);
 								if(id!=null){

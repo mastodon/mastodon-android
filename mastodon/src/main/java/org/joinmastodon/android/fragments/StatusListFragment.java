@@ -1,7 +1,6 @@
 package org.joinmastodon.android.fragments;
 
 import android.os.Bundle;
-import android.util.Log;
 
 import com.squareup.otto.Subscribe;
 
@@ -12,8 +11,6 @@ import org.joinmastodon.android.model.Poll;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.displayitems.FooterStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.HeaderStatusDisplayItem;
-import org.joinmastodon.android.ui.displayitems.PollFooterStatusDisplayItem;
-import org.joinmastodon.android.ui.displayitems.PollOptionStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.StatusDisplayItem;
 import org.parceler.Parcels;
 
@@ -92,7 +89,6 @@ public abstract class StatusListFragment extends BaseStatusListFragment<Status>{
 
 	@Subscribe
 	public void onStatusDeleted(StatusDeletedEvent ev){
-		Log.i("11", "on status deleted!");
 		if(!ev.accountID.equals(accountID))
 			return;
 		Status status=getStatusByID(ev.id);
