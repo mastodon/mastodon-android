@@ -3,7 +3,6 @@ package org.joinmastodon.android.ui.displayitems;
 import android.app.Activity;
 import android.graphics.drawable.Animatable;
 import android.graphics.drawable.Drawable;
-import android.util.StateSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -12,6 +11,7 @@ import org.joinmastodon.android.R;
 import org.joinmastodon.android.fragments.BaseStatusListFragment;
 import org.joinmastodon.android.model.Poll;
 import org.joinmastodon.android.ui.text.HtmlParser;
+import org.joinmastodon.android.ui.utils.CustomEmojiHelper;
 
 import java.util.Locale;
 

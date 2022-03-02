@@ -11,6 +11,10 @@
 	<attr name="secondaryButtonStyle" format="reference"/>
 	<attr name="buttonBackground" format="reference"/>
 	<attr name="colorAccentLight" format="color"/>
+	<attr name="colorSearchField" format="color"/>
+	<attr name="colorSearchHint" format="color"/>
+	<attr name="colorTabInactive" format="color"/>
+	<attr name="colorAccentLightest" format="color"/>
 
 	<declare-styleable name="MaxWidthFrameLayout">
 		<attr name="android:maxWidth" format="dimension"/>

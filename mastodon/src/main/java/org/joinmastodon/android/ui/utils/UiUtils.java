@@ -13,12 +13,14 @@ import android.os.Looper;
 import android.provider.OpenableColumns;
 import android.text.Spanned;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import org.joinmastodon.android.E;
 import org.joinmastodon.android.MastodonApp;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.requests.accounts.SetAccountBlocked;
+import org.joinmastodon.android.api.requests.accounts.SetAccountFollowed;
 import org.joinmastodon.android.api.requests.accounts.SetAccountMuted;
 import org.joinmastodon.android.api.requests.statuses.DeleteStatus;
 import org.joinmastodon.android.events.StatusDeletedEvent;
@@ -200,7 +202,7 @@ public class UiUtils{
 	public static void confirmToggleBlockUser(Activity activity, String accountID, Account account, boolean currentlyBlocked, Consumer<Relationship> resultCallback){
 		showConfirmationAlert(activity, activity.getString(currentlyBlocked ? R.string.confirm_unblock_title : R.string.confirm_block_title),
 				activity.getString(currentlyBlocked ? R.string.confirm_unblock : R.string.confirm_block, account.displayName),
-				activity.getString(currentlyBlocked ? R.string.do_block : R.string.do_unblock), ()->{
+				activity.getString(currentlyBlocked ? R.string.do_unblock : R.string.do_block), ()->{
 					new SetAccountBlocked(account.id, !currentlyBlocked)
 							.setCallback(new Callback<>(){
 								@Override
@@ -257,5 +259,40 @@ public class UiUtils{
 					.wrapProgress(activity, R.string.deleting, false)
 					.exec(accountID);
 		});
+	}
+
+	public static void setRelationshipToActionButton(Relationship relationship, Button button){
+		if(relationship.blocking){
+			button.setText(R.string.button_blocked);
+		}else if(relationship.muting){
+			button.setText(R.string.button_muted);
+		}else{
+			button.setText(relationship.following ? R.string.button_following : R.string.button_follow);
+		}
+	}
+
+	public static void performAccountAction(Activity activity, Account account, String accountID, Relationship relationship, Button button, Consumer<Boolean> progressCallback, Consumer<Relationship> resultCallback){
+		if(relationship.blocking){
+			confirmToggleBlockUser(activity, accountID, account, true, resultCallback);
+		}else if(relationship.muting){
+			confirmToggleMuteUser(activity, accountID, account, true, resultCallback);
+		}else{
+			progressCallback.accept(true);
+			new SetAccountFollowed(account.id, !relationship.following)
+					.setCallback(new Callback<>(){
+						@Override
+						public void onSuccess(Relationship result){
+							resultCallback.accept(result);
+							progressCallback.accept(false);
+						}
+
+						@Override
+						public void onError(ErrorResponse error){
+							error.showToast(activity);
+							progressCallback.accept(false);
+						}
+					})
+					.exec(accountID);
+		}
 	}
 }

@@ -11,6 +11,8 @@ import org.joinmastodon.android.ui.utils.BlurHashDecoder;
 import org.joinmastodon.android.ui.utils.BlurHashDrawable;
 import org.parceler.Parcel;
 
+import java.util.List;
+
 @Parcel
 public class Card extends BaseModel{
 	@RequiredField
@@ -31,6 +33,7 @@ public class Card extends BaseModel{
 	public String image;
 	public String embedUrl;
 	public String blurhash;
+	public List<History> history;
 
 	public transient Drawable blurhashPlaceholder;
 
@@ -60,6 +63,7 @@ public class Card extends BaseModel{
 				", image='"+image+'\''+
 				", embedUrl='"+embedUrl+'\''+
 				", blurhash='"+blurhash+'\''+
+				", history="+history+
 				'}';
 	}
 

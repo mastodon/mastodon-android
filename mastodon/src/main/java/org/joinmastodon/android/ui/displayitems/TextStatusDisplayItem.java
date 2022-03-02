@@ -11,6 +11,7 @@ import android.widget.TextView;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.fragments.BaseStatusListFragment;
 import org.joinmastodon.android.model.Status;
+import org.joinmastodon.android.ui.utils.CustomEmojiHelper;
 import org.joinmastodon.android.ui.views.LinkedTextView;
 
 import me.grishka.appkit.imageloader.ImageLoaderViewHolder;

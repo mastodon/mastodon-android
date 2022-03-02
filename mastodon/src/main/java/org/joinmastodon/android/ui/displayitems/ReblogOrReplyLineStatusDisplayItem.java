@@ -11,6 +11,7 @@ import org.joinmastodon.android.R;
 import org.joinmastodon.android.fragments.BaseStatusListFragment;
 import org.joinmastodon.android.model.Emoji;
 import org.joinmastodon.android.ui.text.HtmlParser;
+import org.joinmastodon.android.ui.utils.CustomEmojiHelper;
 import org.joinmastodon.android.ui.utils.UiUtils;
 
 import java.util.List;

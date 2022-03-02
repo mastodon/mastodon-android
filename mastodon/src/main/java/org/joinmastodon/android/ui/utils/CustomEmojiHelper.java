@@ -1,4 +1,4 @@
-package org.joinmastodon.android.ui.displayitems;
+package org.joinmastodon.android.ui.utils;
 
 import android.graphics.drawable.Drawable;
 import android.text.Spanned;
@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 
 import me.grishka.appkit.imageloader.requests.ImageLoaderRequest;
 
-class CustomEmojiHelper{
+public class CustomEmojiHelper{
 	public List<List<CustomEmojiSpan>> spans=new ArrayList<>();
 	public List<ImageLoaderRequest> requests=new ArrayList<>();
 

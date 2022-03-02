@@ -28,6 +28,10 @@
 		<item name="colorPollMostVoted">@color/primary_500</item>
 		<item name="colorPollVoted">@color/gray_300</item>
 		<item name="colorAccentLight">@color/primary_600</item>
+		<item name="colorSearchField">@color/gray_200</item>
+		<item name="colorSearchHint">@color/gray_600</item>
+		<item name="colorTabInactive">@color/gray_400</item>
+		<item name="colorAccentLightest">@color/primary_100</item>
 
 		<item name="buttonBackground">@drawable/bg_button_primary_dark_on_light</item>
 
@@ -63,6 +67,12 @@
 		<item name="colorPollMostVoted">@color/primary_700</item>
 		<item name="colorPollVoted">@color/gray_600</item>
 		<item name="colorAccentLight">@color/primary_600</item>
+
+		<!-- TODO dark colors -->
+		<item name="colorSearchField">@color/gray_200</item>
+		<item name="colorSearchHint">@color/gray_600</item>
+		<item name="colorTabInactive">@color/gray_400</item>
+		<item name="colorAccentLightest">@color/primary_100</item>
 
 		<item name="buttonBackground">@drawable/bg_button_primary_light_on_dark</item>
 
@@ -172,6 +182,7 @@
 	<style name="m3_body_large">
 		<item name="android:textSize">16dp</item>
 		<item name="android:textColor">?android:textColorPrimary</item>
+		<item name="android:lineSpacingExtra">5dp</item>
 	</style>
 
 	<style name="m3_body_medium">
@@ -183,6 +194,7 @@
 		<item name="android:fontFamily">sans-serif-medium</item>
 		<item name="android:textSize">16dp</item>
 		<item name="android:textColor">?android:textColorPrimary</item>
+		<item name="android:lineSpacingExtra">5dp</item>
 	</style>
 
 	<style name="m3_title_small">

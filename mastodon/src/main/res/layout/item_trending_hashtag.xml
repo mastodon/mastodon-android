@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="64dp"
+	android:paddingLeft="16dp"
+	android:paddingRight="16dp"
+	android:paddingTop="12dp">
+
+	<org.joinmastodon.android.ui.views.HashtagChartView
+		android:id="@+id/chart"
+		android:layout_width="64dp"
+		android:layout_height="32dp"
+		android:layout_marginTop="4dp"
+		android:layout_marginEnd="7dp"
+		android:layout_alignParentEnd="true"/>
+
+	<TextView
+		android:id="@+id/title"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_toStartOf="@id/chart"
+		android:textAppearance="@style/m3_title_medium"
+		android:singleLine="true"
+		android:ellipsize="end"
+		tools:text="#mastodev"/>
+
+	<TextView
+		android:id="@+id/subtitle"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_below="@id/title"
+		android:layout_toStartOf="@id/chart"
+		android:textAppearance="@style/m3_body_medium"
+		android:textColor="?android:textColorSecondary"
+		android:singleLine="true"
+		android:ellipsize="end"
+		tools:text="over 9000 people talking"/>
+
+</RelativeLayout>

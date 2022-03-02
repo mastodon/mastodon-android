@@ -1,4 +1,4 @@
-package org.joinmastodon.android.api.requests;
+package org.joinmastodon.android.api.requests.instance;
 
 import org.joinmastodon.android.api.MastodonAPIRequest;
 import org.joinmastodon.android.model.Instance;

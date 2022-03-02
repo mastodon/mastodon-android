@@ -11,14 +11,14 @@ import java.util.List;
 
 import me.grishka.appkit.api.SimpleCallback;
 
-public class SearchFragment extends StatusListFragment{
+public class DiscoverPostsFragment extends StatusListFragment{
 	@Override
 	protected void doLoadData(int offset, int count){
-		currentRequest=new GetTrendingStatuses(offset>0 ? getMaxID() : null, null, count)
+		currentRequest=new GetTrendingStatuses(count)
 				.setCallback(new SimpleCallback<>(this){
 					@Override
 					public void onSuccess(List<Status> result){
-						onDataLoaded(result, !result.isEmpty());
+						onDataLoaded(result, false);
 					}
 				}).exec(accountID);
 	}

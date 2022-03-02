@@ -5,7 +5,6 @@ import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.Fragment;
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -39,15 +38,13 @@ import org.joinmastodon.android.api.requests.accounts.GetAccountByID;
 import org.joinmastodon.android.api.requests.accounts.GetAccountRelationships;
 import org.joinmastodon.android.api.requests.accounts.GetAccountStatuses;
 import org.joinmastodon.android.api.requests.accounts.GetOwnAccount;
-import org.joinmastodon.android.api.requests.accounts.SetAccountBlocked;
 import org.joinmastodon.android.api.requests.accounts.SetAccountFollowed;
-import org.joinmastodon.android.api.requests.accounts.SetAccountMuted;
 import org.joinmastodon.android.api.requests.accounts.UpdateAccountCredentials;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.AccountField;
 import org.joinmastodon.android.model.Relationship;
-import org.joinmastodon.android.ui.M3AlertDialogBuilder;
+import org.joinmastodon.android.ui.SimpleViewHolder;
 import org.joinmastodon.android.ui.drawables.CoverOverlayGradientDrawable;
 import org.joinmastodon.android.ui.tabs.TabLayout;
 import org.joinmastodon.android.ui.tabs.TabLayoutMediator;
@@ -382,9 +379,9 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 		followersCount.setText(UiUtils.abbreviateNumber(account.followersCount));
 		followingCount.setText(UiUtils.abbreviateNumber(account.followingCount));
 		postsCount.setText(UiUtils.abbreviateNumber(account.statusesCount));
-		followersLabel.setText(getResources().getQuantityString(R.plurals.followers, account.followersCount));
-		followingLabel.setText(getResources().getQuantityString(R.plurals.following, account.followingCount));
-		postsLabel.setText(getResources().getQuantityString(R.plurals.posts, account.statusesCount));
+		followersLabel.setText(getResources().getQuantityString(R.plurals.followers, Math.min(999, account.followersCount)));
+		followingLabel.setText(getResources().getQuantityString(R.plurals.following, Math.min(999, account.followingCount)));
+		postsLabel.setText(getResources().getQuantityString(R.plurals.posts, Math.min(999, account.statusesCount)));
 
 		UiUtils.loadCustomEmojiInTextView(name);
 		UiUtils.loadCustomEmojiInTextView(bio);
@@ -508,13 +505,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 	private void updateRelationship(){
 		invalidateOptionsMenu();
 		actionButton.setVisibility(View.VISIBLE);
-		if(relationship.blocking){
-			actionButton.setText(R.string.button_blocked);
-		}else if(relationship.muting){
-			actionButton.setText(R.string.button_muted);
-		}else{
-			actionButton.setText(relationship.following ? R.string.button_following : R.string.button_follow);
-		}
+		UiUtils.setRelationshipToActionButton(relationship, actionButton);
 	}
 
 	private void onScrollChanged(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY){
@@ -569,13 +560,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 			else
 				saveAndExitEditMode();
 		}else{
-			if(relationship.blocking){
-				confirmToggleBlocked();
-			}else if(relationship.muting){
-				confirmToggleMuted();
-			}else{
-				toggleFollowing();
-			}
+			UiUtils.performAccountAction(getActivity(), account, accountID, relationship, actionButton, this::setActionProgressVisible, this::updateRelationship);
 		}
 	}
 
@@ -712,26 +697,6 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 				.exec(accountID);
 	}
 
-	private void toggleFollowing(){
-		setActionProgressVisible(true);
-		new SetAccountFollowed(account.id, !relationship.following)
-				.setCallback(new Callback<>(){
-					@Override
-					public void onSuccess(Relationship result){
-						relationship=result;
-						updateRelationship();
-						setActionProgressVisible(false);
-					}
-
-					@Override
-					public void onError(ErrorResponse error){
-						error.showToast(getActivity());
-						setActionProgressVisible(false);
-					}
-				})
-				.exec(accountID);
-	}
-
 	private void confirmToggleMuted(){
 		UiUtils.confirmToggleMuteUser(getActivity(), accountID, account, relationship.muting, this::updateRelationship);
 	}
@@ -827,12 +792,6 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 		@Override
 		public int getItemViewType(int position){
 			return position;
-		}
-	}
-
-	private class SimpleViewHolder extends RecyclerView.ViewHolder{
-		public SimpleViewHolder(@NonNull View itemView){
-			super(itemView);
 		}
 	}
 }

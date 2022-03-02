@@ -36,7 +36,7 @@ public class HomeFragment extends AppKitFragment implements OnBackPressedListene
 	private FragmentRootLinearLayout content;
 	private HomeTimelineFragment homeTimelineFragment;
 	private NotificationsFragment notificationsFragment;
-	private SearchFragment searchFragment;
+	private DiscoverFragment searchFragment;
 	private ProfileFragment profileFragment;
 	private TabBar tabBar;
 	private View tabBarWrap;
@@ -60,7 +60,7 @@ public class HomeFragment extends AppKitFragment implements OnBackPressedListene
 		homeTimelineFragment.setArguments(args);
 		args=new Bundle(args);
 		args.putBoolean("noAutoLoad", true);
-		searchFragment=new SearchFragment();
+		searchFragment=new DiscoverFragment();
 		searchFragment.setArguments(args);
 		notificationsFragment=new NotificationsFragment();
 		notificationsFragment.setArguments(args);
@@ -168,6 +168,8 @@ public class HomeFragment extends AppKitFragment implements OnBackPressedListene
 			LoaderFragment lf=(LoaderFragment) newFragment;
 			if(!lf.loaded && !lf.dataLoading)
 				lf.loadData();
+		}else if(newFragment instanceof DiscoverFragment){
+			((DiscoverFragment) newFragment).loadData();
 		}
 		currentTab=tab;
 		((FragmentStackActivity)getActivity()).invalidateSystemBarColors(this);

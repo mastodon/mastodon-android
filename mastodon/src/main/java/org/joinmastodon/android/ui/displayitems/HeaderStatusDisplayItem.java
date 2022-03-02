@@ -1,7 +1,6 @@
 package org.joinmastodon.android.ui.displayitems;
 
 import android.app.Activity;
-import android.app.Fragment;
 import android.graphics.Outline;
 import android.graphics.drawable.Animatable;
 import android.graphics.drawable.Drawable;
@@ -24,6 +23,7 @@ import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.Attachment;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.text.HtmlParser;
+import org.joinmastodon.android.ui.utils.CustomEmojiHelper;
 import org.joinmastodon.android.ui.utils.UiUtils;
 import org.parceler.Parcels;
 
@@ -50,7 +50,7 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 		super(parentID, parentFragment);
 		this.user=user;
 		this.createdAt=createdAt;
-		avaRequest=new UrlImageLoaderRequest(user.avatar);
+		avaRequest=new UrlImageLoaderRequest(user.avatar, V.dp(50), V.dp(50));
 		this.accountID=accountID;
 		parsedName=new SpannableStringBuilder(user.displayName);
 		this.status=status;

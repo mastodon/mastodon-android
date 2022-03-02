@@ -2325,8 +2325,8 @@ public class TabLayout extends HorizontalScrollView {
   /** A {@link LinearLayout} containing {@link Tab} instances for use with {@link TabLayout}. */
   public final class TabView extends LinearLayout {
     private Tab tab;
-    private TextView textView;
-    private ImageView iconView;
+    public TextView textView;
+    public ImageView iconView;
     @Nullable private View badgeAnchorView;
 //    @Nullable private BadgeDrawable badgeDrawable;
 

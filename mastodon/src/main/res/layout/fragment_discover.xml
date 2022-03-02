@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<me.grishka.appkit.views.FragmentRootLinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:orientation="vertical"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+
+	<FrameLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:paddingTop="8dp"
+		android:paddingLeft="16dp"
+		android:paddingRight="16dp"
+		android:paddingBottom="16dp"
+		android:background="?android:statusBarColor">
+
+		<EditText
+			android:id="@+id/search_edit"
+			android:layout_width="match_parent"
+			android:layout_height="40dp"
+			android:hint="@string/search_hint"
+			android:textColorHint="?colorSearchHint"
+			android:textColor="?android:textColorPrimary"
+			android:textSize="16dp"
+			android:singleLine="true"
+			android:inputType="textFilter"
+			android:paddingLeft="48dp"
+			android:paddingRight="48dp"
+			android:elevation="0dp"
+			android:background="@drawable/bg_search_field"/>
+
+		<ImageButton
+			android:layout_width="40dp"
+			android:layout_height="40dp"
+			android:layout_gravity="start"
+			android:layout_marginStart="4dp"
+			android:background="?android:selectableItemBackgroundBorderless"
+			android:tint="?colorSearchHint"
+			android:src="@drawable/ic_fluent_search_24_regular"/>
+
+	</FrameLayout>
+
+	<org.joinmastodon.android.ui.tabs.TabLayout
+		android:id="@+id/tabbar"
+		android:layout_width="match_parent"
+		android:layout_height="48dp"
+		app:tabGravity="start"
+		app:tabMinWidth="120dp"
+		app:tabIndicator="@drawable/mtrl_tabs_default_indicator"
+		app:tabIndicatorAnimationMode="elastic"
+		app:tabIndicatorColor="?android:textColorPrimary"
+		app:tabMode="scrollable"
+		android:background="@drawable/bg_discover_tabs"/>
+
+	<androidx.viewpager2.widget.ViewPager2
+		android:id="@+id/pager"
+		android:layout_width="match_parent"
+		android:layout_height="0dp"
+		android:layout_weight="1"/>
+
+</me.grishka.appkit.views.FragmentRootLinearLayout>
