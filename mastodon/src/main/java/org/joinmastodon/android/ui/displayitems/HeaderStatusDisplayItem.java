@@ -45,8 +45,9 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 	public final Status status;
 	private boolean hasVisibilityToggle;
 	boolean needBottomPadding;
+	private String extraText;
 
-	public HeaderStatusDisplayItem(String parentID, Account user, Instant createdAt, BaseStatusListFragment parentFragment, String accountID, Status status){
+	public HeaderStatusDisplayItem(String parentID, Account user, Instant createdAt, BaseStatusListFragment parentFragment, String accountID, Status status, String extraText){
 		super(parentID, parentFragment);
 		this.user=user;
 		this.createdAt=createdAt;
@@ -56,15 +57,18 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 		this.status=status;
 		HtmlParser.parseCustomEmoji(parsedName, user.emojis);
 		emojiHelper.setText(parsedName);
-		hasVisibilityToggle=status.sensitive || !TextUtils.isEmpty(status.spoilerText);
-		if(!hasVisibilityToggle && !status.mediaAttachments.isEmpty()){
-			for(Attachment att:status.mediaAttachments){
-				if(att.type!=Attachment.Type.AUDIO){
-					hasVisibilityToggle=true;
-					break;
+		if(status!=null){
+			hasVisibilityToggle=status.sensitive || !TextUtils.isEmpty(status.spoilerText);
+			if(!hasVisibilityToggle && !status.mediaAttachments.isEmpty()){
+				for(Attachment att:status.mediaAttachments){
+					if(att.type!=Attachment.Type.AUDIO){
+						hasVisibilityToggle=true;
+						break;
+					}
 				}
 			}
 		}
+		this.extraText=extraText;
 	}
 
 	@Override
@@ -86,7 +90,7 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 	}
 
 	public static class Holder extends StatusDisplayItem.Holder<HeaderStatusDisplayItem> implements ImageLoaderViewHolder{
-		private final TextView name, username, timestamp;
+		private final TextView name, username, timestamp, extraText;
 		private final ImageView avatar, more, visibility;
 
 		private static final ViewOutlineProvider roundCornersOutline=new ViewOutlineProvider(){
@@ -104,6 +108,7 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 			avatar=findViewById(R.id.avatar);
 			more=findViewById(R.id.more);
 			visibility=findViewById(R.id.visibility);
+			extraText=findViewById(R.id.extra_text);
 			avatar.setOnClickListener(this::onAvaClick);
 			avatar.setOutlineProvider(roundCornersOutline);
 			avatar.setClipToOutline(true);
@@ -121,6 +126,13 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 				visibility.setImageResource(item.status.spoilerRevealed ? R.drawable.ic_visibility_off : R.drawable.ic_visibility);
 			}
 			itemView.setPadding(itemView.getPaddingLeft(), itemView.getPaddingTop(), itemView.getPaddingRight(), item.needBottomPadding ? V.dp(16) : 0);
+			if(TextUtils.isEmpty(item.extraText)){
+				extraText.setVisibility(View.GONE);
+			}else{
+				extraText.setVisibility(View.VISIBLE);
+				extraText.setText(item.extraText);
+			}
+			more.setVisibility(item.inset ? View.GONE : View.VISIBLE);
 		}
 
 		@Override
@@ -148,11 +160,11 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 		}
 
 		private void onMoreClick(View v){
-			Account account=item.status.account;
+			Account account=item.user;
 			PopupMenu popup=new PopupMenu(v.getContext(), v);
 			Menu menu=popup.getMenu();
 			popup.getMenuInflater().inflate(R.menu.post, menu);
-			if(!AccountSessionManager.getInstance().isSelf(item.parentFragment.getAccountID(), account))
+			if(item.status==null || !AccountSessionManager.getInstance().isSelf(item.parentFragment.getAccountID(), account))
 				menu.findItem(R.id.delete).setVisible(false);
 			menu.findItem(R.id.mute).setTitle(v.getResources().getString(/*relationship.muting ? R.string.unmute_user :*/ R.string.mute_user, account.displayName));
 			menu.findItem(R.id.block).setTitle(v.getResources().getString(/*relationship.blocking ? R.string.unblock_user :*/ R.string.block_user, account.displayName));

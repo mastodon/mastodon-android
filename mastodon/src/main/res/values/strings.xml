@@ -14,12 +14,10 @@
 	<string name="in_reply_to">In reply to %s</string>
 	<string name="notifications">Notifications</string>
 
-	<string name="user_followed_you">%s followed you</string>
-	<string name="user_sent_follow_request">%s sent you a follow request</string>
-	<string name="user_mentioned_you">%s mentioned you</string>
-	<string name="user_favorited">%s favorited your toot</string>
-	<string name="poll_ended">Poll you voted in has ended</string>
-	<string name="user_posted">%s posted</string>
+	<string name="user_followed_you">followed you</string>
+	<string name="user_sent_follow_request">sent you a follow request</string>
+	<string name="user_favorited">favorited your toot</string>
+	<string name="poll_ended">poll ended</string>
 
 	<string name="time_seconds">%ds</string>
 	<string name="time_minutes">%dm</string>
@@ -137,6 +135,8 @@
 	<string name="hashtags">Hashtags</string>
 	<string name="news">News</string>
 	<string name="for_you">For you</string>
+	<string name="all_notifications">All</string>
+	<string name="mentions">Mentions</string>
 	<plurals name="x_people_talking">
 		<item quantity="one">%d person is talking</item>
 		<item quantity="other">%d people are talking</item>

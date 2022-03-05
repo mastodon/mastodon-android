@@ -37,6 +37,7 @@ import java.util.HashSet;
 import androidx.annotation.Nullable;
 import me.grishka.appkit.imageloader.ImageCache;
 import me.grishka.appkit.imageloader.requests.UrlImageLoaderRequest;
+import me.grishka.appkit.utils.V;
 
 public class AudioPlayerService extends Service{
 	private static final int NOTIFICATION_SERVICE=1;
@@ -153,10 +154,10 @@ public class AudioPlayerService extends Service{
 			}
 		});
 
-		Drawable d=ImageCache.getInstance(this).getFromTop(new UrlImageLoaderRequest(status.account.avatar));
+		Drawable d=ImageCache.getInstance(this).getFromTop(new UrlImageLoaderRequest(status.account.avatar, V.dp(50), V.dp(50)));
 		if(d instanceof BitmapDrawable){
 			statusAvatar=((BitmapDrawable) d).getBitmap();
-		}else{
+		}else if(d!=null){
 			statusAvatar=Bitmap.createBitmap(d.getIntrinsicWidth(), d.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
 			d.setBounds(0, 0, d.getIntrinsicWidth(), d.getIntrinsicHeight());
 			d.draw(new Canvas(statusAvatar));

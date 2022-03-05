@@ -37,22 +37,42 @@
 		android:layout_alignParentTop="true"
 		android:layout_marginEnd="12dp" />
 
-	<TextView
-		android:id="@+id/name"
+	<org.joinmastodon.android.ui.views.HeaderSubtitleLinearLayout
+		android:id="@+id/name_wrap"
 		android:layout_width="match_parent"
 		android:layout_height="24dp"
 		android:layout_toEndOf="@id/avatar"
 		android:layout_toStartOf="@id/more"
-		android:ellipsize="end"
-		android:singleLine="true"
-		android:textAppearance="@style/m3_title_medium"
-		android:textAlignment="viewStart"
-		tools:text="Eugen" />
+		android:layout_marginEnd="8dp">
+
+		<TextView
+			android:id="@+id/name"
+			android:layout_width="wrap_content"
+			android:layout_height="24dp"
+			android:ellipsize="end"
+			android:singleLine="true"
+			android:textAppearance="@style/m3_title_medium"
+			android:textAlignment="viewStart"
+			tools:text="Eugen" />
+
+		<TextView
+			android:id="@+id/extra_text"
+			android:layout_width="wrap_content"
+			android:layout_height="24dp"
+			android:layout_marginStart="8dp"
+			android:ellipsize="end"
+			android:singleLine="true"
+			android:textAppearance="@style/m3_title_medium"
+			android:fontFamily="sans-serif"
+			android:textAlignment="viewStart"
+			tools:text="boosted your cat picture" />
+
+	</org.joinmastodon.android.ui.views.HeaderSubtitleLinearLayout>
 
 	<org.joinmastodon.android.ui.views.HeaderSubtitleLinearLayout
 		android:layout_width="match_parent"
 		android:layout_height="20dp"
-		android:layout_below="@id/name"
+		android:layout_below="@id/name_wrap"
 		android:layout_toEndOf="@id/avatar"
 		android:layout_toStartOf="@id/visibility"
 		android:layoutDirection="locale"

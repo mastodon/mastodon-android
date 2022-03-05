@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:orientation="vertical"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+
+	<org.joinmastodon.android.ui.tabs.TabLayout
+		android:id="@+id/tabbar"
+		android:layout_width="match_parent"
+		android:layout_height="48dp"
+		app:tabGravity="fill"
+		app:tabIndicator="@drawable/mtrl_tabs_default_indicator"
+		app:tabIndicatorAnimationMode="elastic"
+		app:tabIndicatorColor="?android:textColorPrimary"
+		app:tabMode="fixed"
+		android:background="@drawable/bg_discover_tabs"/>
+
+	<androidx.viewpager2.widget.ViewPager2
+		android:id="@+id/pager"
+		android:layout_width="match_parent"
+		android:layout_height="0dp"
+		android:layout_weight="1"/>
+
+</LinearLayout>

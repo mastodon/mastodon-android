@@ -170,6 +170,9 @@ public class HomeFragment extends AppKitFragment implements OnBackPressedListene
 				lf.loadData();
 		}else if(newFragment instanceof DiscoverFragment){
 			((DiscoverFragment) newFragment).loadData();
+		}else if(newFragment instanceof NotificationsFragment){
+			((NotificationsFragment) newFragment).loadData();
+			// TODO make an interface?
 		}
 		currentTab=tab;
 		((FragmentStackActivity)getActivity()).invalidateSystemBarColors(this);

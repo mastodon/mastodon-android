@@ -21,7 +21,7 @@ import me.grishka.appkit.Nav;
 
 public abstract class StatusListFragment extends BaseStatusListFragment<Status>{
 	protected List<StatusDisplayItem> buildDisplayItems(Status s){
-		return StatusDisplayItem.buildItems(this, s, accountID, s, knownAccounts);
+		return StatusDisplayItem.buildItems(this, s, accountID, s, knownAccounts, false, true);
 	}
 
 	@Override

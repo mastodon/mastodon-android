@@ -29,6 +29,7 @@ import me.grishka.appkit.views.UsableRecyclerView;
 public abstract class StatusDisplayItem{
 	public final String parentID;
 	public final BaseStatusListFragment parentFragment;
+	public boolean inset;
 
 	public StatusDisplayItem(String parentID, BaseStatusListFragment parentFragment){
 		this.parentID=parentID;
@@ -58,10 +59,11 @@ public abstract class StatusDisplayItem{
 			case POLL_FOOTER -> new PollFooterStatusDisplayItem.Holder(activity, parent);
 			case CARD -> new LinkCardStatusDisplayItem.Holder(activity, parent);
 			case FOOTER -> new FooterStatusDisplayItem.Holder(activity, parent);
+			case ACCOUNT_CARD -> new AccountCardStatusDisplayItem.Holder(activity, parent);
 		};
 	}
 
-	public static ArrayList<StatusDisplayItem> buildItems(BaseStatusListFragment fragment, Status status, String accountID, DisplayItemsParent parentObject, Map<String, Account> knownAccounts){
+	public static ArrayList<StatusDisplayItem> buildItems(BaseStatusListFragment fragment, Status status, String accountID, DisplayItemsParent parentObject, Map<String, Account> knownAccounts, boolean inset, boolean addFooter){
 		String parentID=parentObject.getID();
 		ArrayList<StatusDisplayItem> items=new ArrayList<>();
 		Status statusForContent=status.getContentStatus();
@@ -72,7 +74,7 @@ public abstract class StatusDisplayItem{
 			items.add(new ReblogOrReplyLineStatusDisplayItem(parentID, fragment, fragment.getString(R.string.in_reply_to, account.displayName), account.emojis, R.drawable.ic_fluent_arrow_reply_20_filled));
 		}
 		HeaderStatusDisplayItem header;
-		items.add(header=new HeaderStatusDisplayItem(parentID, statusForContent.account, statusForContent.createdAt, fragment, accountID, statusForContent));
+		items.add(header=new HeaderStatusDisplayItem(parentID, statusForContent.account, statusForContent.createdAt, fragment, accountID, statusForContent, null));
 		if(!TextUtils.isEmpty(statusForContent.content))
 			items.add(new TextStatusDisplayItem(parentID, HtmlParser.parse(statusForContent.content, statusForContent.emojis, statusForContent.mentions, statusForContent.tags, accountID), fragment, statusForContent));
 		else
@@ -102,10 +104,14 @@ public abstract class StatusDisplayItem{
 		if(statusForContent.poll!=null){
 			buildPollItems(parentID, fragment, statusForContent.poll, items);
 		}
-		if(statusForContent.card!=null){
+		if(statusForContent.card!=null && statusForContent.mediaAttachments.isEmpty()){
 			items.add(new LinkCardStatusDisplayItem(parentID, fragment, statusForContent));
 		}
-		items.add(new FooterStatusDisplayItem(parentID, fragment, statusForContent, accountID));
+		if(addFooter){
+			items.add(new FooterStatusDisplayItem(parentID, fragment, statusForContent, accountID));
+		}
+		for(StatusDisplayItem item:items)
+			item.inset=inset;
 		return items;
 	}
 
@@ -128,6 +134,7 @@ public abstract class StatusDisplayItem{
 		POLL_FOOTER,
 		CARD,
 		FOOTER,
+		ACCOUNT_CARD,
 	}
 
 	public static abstract class Holder<T extends StatusDisplayItem> extends BindableViewHolder<T> implements UsableRecyclerView.Clickable{

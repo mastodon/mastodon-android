@@ -16,10 +16,12 @@ import android.view.ViewTreeObserver;
 import android.widget.Toolbar;
 
 import org.joinmastodon.android.R;
+import org.joinmastodon.android.api.requests.accounts.GetAccountRelationships;
 import org.joinmastodon.android.api.requests.polls.SubmitPollVote;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.DisplayItemsParent;
 import org.joinmastodon.android.model.Poll;
+import org.joinmastodon.android.model.Relationship;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.BetterItemAnimator;
 import org.joinmastodon.android.ui.PhotoLayoutHelper;
@@ -41,6 +43,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import androidx.annotation.NonNull;
@@ -63,6 +66,7 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 	protected String accountID;
 	protected PhotoViewer currentPhotoViewer;
 	protected HashMap<String, Account> knownAccounts=new HashMap<>();
+	protected HashMap<String, Relationship> relationships=new HashMap<>();
 
 	public BaseStatusListFragment(){
 		super(20);
@@ -255,6 +259,7 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 			}
 		});
 		list.addItemDecoration(new RecyclerView.ItemDecoration(){
+			private Rect tmpRect=new Rect();
 			private Paint paint=new Paint();
 			{
 				paint.setColor(UiUtils.getThemeColor(getActivity(), R.attr.colorPollVoted));
@@ -264,13 +269,18 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 
 			@Override
 			public void onDraw(@NonNull Canvas c, @NonNull RecyclerView parent, @NonNull RecyclerView.State state){
-				for(int i=0;i<parent.getChildCount();i++){
+				for(int i=0;i<parent.getChildCount()-1;i++){
 					View child=parent.getChildAt(i);
+					View bottomSibling=parent.getChildAt(i+1);
 					RecyclerView.ViewHolder holder=parent.getChildViewHolder(child);
-					if(holder instanceof FooterStatusDisplayItem.Holder){
-						float y=child.getY()+child.getHeight()-V.dp(.5f);
+					RecyclerView.ViewHolder siblingHolder=parent.getChildViewHolder(bottomSibling);
+					if(holder instanceof StatusDisplayItem.Holder && siblingHolder instanceof StatusDisplayItem.Holder
+							&& !((StatusDisplayItem.Holder<?>) holder).getItemID().equals(((StatusDisplayItem.Holder<?>) siblingHolder).getItemID())){
+						parent.getDecoratedBoundsWithMargins(child, tmpRect);
+						tmpRect.offset(0, Math.round(child.getTranslationY()));
+						float y=tmpRect.bottom-V.dp(.5f);
 						paint.setAlpha(Math.round(255*child.getAlpha()));
-						c.drawLine(child.getX(), y, child.getX()+child.getWidth(), y, paint);
+						c.drawLine(0, y, parent.getWidth(), y, paint);
 					}
 				}
 			}
@@ -316,9 +326,10 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 			}
 		});
 		((UsableRecyclerView)list).setSelectorBoundsProvider(new UsableRecyclerView.SelectorBoundsProvider(){
+			private Rect tmpRect=new Rect();
 			@Override
 			public void getSelectorBounds(View view, Rect outRect){
-				outRect.set(view.getLeft(), view.getTop(), view.getRight(), view.getBottom());
+				list.getDecoratedBoundsWithMargins(view, outRect);
 				RecyclerView.ViewHolder holder=list.getChildViewHolder(view);
 				if(holder instanceof StatusDisplayItem.Holder){
 					String id=((StatusDisplayItem.Holder<?>) holder).getItemID();
@@ -328,10 +339,11 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 						if(holder instanceof StatusDisplayItem.Holder){
 							String otherID=((StatusDisplayItem.Holder<?>) holder).getItemID();
 							if(otherID.equals(id)){
-								outRect.left=Math.min(outRect.left, child.getLeft());
-								outRect.top=Math.min(outRect.top, child.getTop());
-								outRect.right=Math.max(outRect.right, child.getRight());
-								outRect.bottom=Math.max(outRect.bottom, child.getBottom());
+								list.getDecoratedBoundsWithMargins(child, tmpRect);
+								outRect.left=Math.min(outRect.left, tmpRect.left);
+								outRect.top=Math.min(outRect.top, tmpRect.top);
+								outRect.right=Math.max(outRect.right, tmpRect.right);
+								outRect.bottom=Math.max(outRect.bottom, tmpRect.bottom);
 							}
 						}
 					}
@@ -508,6 +520,37 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 	public String getAccountID(){
 		return accountID;
 	}
+
+	public Relationship getRelationship(String id){
+		return relationships.get(id);
+	}
+
+	public void putRelationship(String id, Relationship rel){
+		relationships.put(id, rel);
+	}
+
+	protected void loadRelationships(Set<String> ids){
+		if(ids.isEmpty())
+			return;
+		// TODO somehow manage these and cancel outstanding requests on refresh
+		new GetAccountRelationships(ids)
+				.setCallback(new Callback<>(){
+					@Override
+					public void onSuccess(List<Relationship> result){
+						for(Relationship r:result)
+							relationships.put(r.id, r);
+						onRelationshipsLoaded();
+					}
+
+					@Override
+					public void onError(ErrorResponse error){
+
+					}
+				})
+				.exec(accountID);
+	}
+
+	protected void onRelationshipsLoaded(){}
 
 	@Nullable
 	protected <I extends StatusDisplayItem> I findItemOfType(String id, Class<I> type){

@@ -1,0 +1,222 @@
+package org.joinmastodon.android.fragments;
+
+import android.app.Activity;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.Rect;
+import android.graphics.RectF;
+import android.os.Bundle;
+import android.view.View;
+
+import org.joinmastodon.android.R;
+import org.joinmastodon.android.api.requests.notifications.GetNotifications;
+import org.joinmastodon.android.model.Notification;
+import org.joinmastodon.android.model.Poll;
+import org.joinmastodon.android.model.Status;
+import org.joinmastodon.android.ui.displayitems.AccountCardStatusDisplayItem;
+import org.joinmastodon.android.ui.displayitems.HeaderStatusDisplayItem;
+import org.joinmastodon.android.ui.displayitems.ImageStatusDisplayItem;
+import org.joinmastodon.android.ui.displayitems.LinkCardStatusDisplayItem;
+import org.joinmastodon.android.ui.displayitems.StatusDisplayItem;
+import org.joinmastodon.android.ui.utils.UiUtils;
+import org.parceler.Parcels;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.EnumSet;
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+import me.grishka.appkit.Nav;
+import me.grishka.appkit.api.SimpleCallback;
+import me.grishka.appkit.utils.V;
+
+public class NotificationsListFragment extends BaseStatusListFragment<Notification>{
+	private EnumSet<Notification.Type> types;
+
+	@Override
+	public void onAttach(Activity activity){
+		super.onAttach(activity);
+		setTitle(R.string.notifications);
+		if(getArguments().getBoolean("onlyMentions", false)){
+			types=EnumSet.complementOf(EnumSet.of(Notification.Type.MENTION));
+		}
+	}
+
+	@Override
+	protected List<StatusDisplayItem> buildDisplayItems(Notification n){
+		String extraText=switch(n.type){
+			case FOLLOW -> getString(R.string.user_followed_you);
+			case FOLLOW_REQUEST -> getString(R.string.user_sent_follow_request);
+			case MENTION, STATUS -> null;
+			case REBLOG -> getString(R.string.user_boosted);
+			case FAVORITE -> getString(R.string.user_favorited);
+			case POLL -> getString(R.string.poll_ended);
+		};
+		HeaderStatusDisplayItem titleItem=extraText!=null ? new HeaderStatusDisplayItem(n.id, n.account, n.createdAt, this, accountID, null, extraText) : null;
+		if(n.status!=null){
+			ArrayList<StatusDisplayItem> items=StatusDisplayItem.buildItems(this, n.status, accountID, n, knownAccounts, titleItem!=null, titleItem==null);
+			if(titleItem!=null)
+				items.add(0, titleItem);
+			return items;
+		}else{
+			AccountCardStatusDisplayItem card=new AccountCardStatusDisplayItem(n.id, this, n.account);
+			return Arrays.asList(titleItem, card);
+		}
+	}
+
+	@Override
+	protected void addAccountToKnown(Notification s){
+		if(!knownAccounts.containsKey(s.account.id))
+			knownAccounts.put(s.account.id, s.account);
+		if(s.status!=null && !knownAccounts.containsKey(s.status.account.id))
+			knownAccounts.put(s.status.account.id, s.status.account);
+	}
+
+	@Override
+	protected void doLoadData(int offset, int count){
+		new GetNotifications(offset>0 ? getMaxID() : null, count, types)
+				.setCallback(new SimpleCallback<>(this){
+					@Override
+					public void onSuccess(List<Notification> result){
+						if(refreshing)
+							relationships.clear();
+						onDataLoaded(result, !result.isEmpty());
+						Set<String> needRelationships=result.stream()
+								.filter(ntf->ntf.status==null && !relationships.containsKey(ntf.account.id))
+								.map(ntf->ntf.account.id)
+								.collect(Collectors.toSet());
+						loadRelationships(needRelationships);
+					}
+				})
+				.exec(accountID);
+	}
+
+	@Override
+	protected void onRelationshipsLoaded(){
+		if(getActivity()==null)
+			return;
+		for(int i=0;i<list.getChildCount();i++){
+			RecyclerView.ViewHolder holder=list.getChildViewHolder(list.getChildAt(i));
+			if(holder instanceof AccountCardStatusDisplayItem.Holder)
+				((AccountCardStatusDisplayItem.Holder) holder).rebind();
+		}
+	}
+
+	@Override
+	protected void onShown(){
+		super.onShown();
+//		if(!getArguments().getBoolean("noAutoLoad") && !loaded && !dataLoading)
+//			loadData();
+	}
+
+	@Override
+	public void onItemClick(String id){
+		Notification n=getNotificationByID(id);
+		if(n.status!=null){
+			Status status=n.status;
+			Bundle args=new Bundle();
+			args.putString("account", accountID);
+			args.putParcelable("status", Parcels.wrap(status));
+			if(status.inReplyToAccountId!=null && knownAccounts.containsKey(status.inReplyToAccountId))
+				args.putParcelable("inReplyToAccount", Parcels.wrap(knownAccounts.get(status.inReplyToAccountId)));
+			Nav.go(getActivity(), ThreadFragment.class, args);
+		}
+	}
+
+	@Override
+	protected void updatePoll(String itemID, Poll poll){
+		Notification notification=getNotificationByID(itemID);
+		if(notification==null || notification.status==null)
+			return;
+		notification.status.poll=poll;
+		super.updatePoll(itemID, poll);
+	}
+
+	@Override
+	public void onViewCreated(View view, Bundle savedInstanceState){
+		super.onViewCreated(view, savedInstanceState);
+		list.addItemDecoration(new RecyclerView.ItemDecoration(){
+			private Paint paint=new Paint(Paint.ANTI_ALIAS_FLAG);
+			private int bgColor=UiUtils.getThemeColor(getActivity(), android.R.attr.colorBackground);
+			private int borderColor=UiUtils.getThemeColor(getActivity(), R.attr.colorPollVoted);
+			private RectF rect=new RectF();
+
+			@Override
+			public void onDraw(@NonNull Canvas c, @NonNull RecyclerView parent, @NonNull RecyclerView.State state){
+				int pos=0;
+				for(int i=0;i<parent.getChildCount();i++){
+					View child=parent.getChildAt(i);
+					RecyclerView.ViewHolder holder=parent.getChildViewHolder(child);
+					pos=holder.getAbsoluteAdapterPosition();
+					boolean inset=(holder instanceof StatusDisplayItem.Holder) && ((StatusDisplayItem.Holder<?>) holder).getItem().inset;
+					if(inset){
+						if(rect.isEmpty()){
+							rect.set(child.getX(), i==0 && pos>0 && displayItems.get(pos-1).inset ? V.dp(-10) : child.getY(), child.getX()+child.getWidth(), child.getY()+child.getHeight());
+						}else{
+							rect.bottom=Math.max(rect.bottom, child.getY()+child.getHeight());
+							rect.right=Math.max(rect.right, child.getX()+child.getHeight());
+						}
+					}else if(!rect.isEmpty()){
+						drawInsetBackground(c);
+						rect.setEmpty();
+					}
+				}
+				if(!rect.isEmpty()){
+					if(pos<displayItems.size()-1 && displayItems.get(pos+1).inset){
+						rect.bottom=parent.getHeight()+V.dp(10);
+					}
+					drawInsetBackground(c);
+					rect.setEmpty();
+				}
+			}
+
+			private void drawInsetBackground(Canvas c){
+				paint.setStyle(Paint.Style.FILL);
+				paint.setColor(bgColor);
+				rect.inset(V.dp(4), V.dp(4));
+				c.drawRoundRect(rect, V.dp(4), V.dp(4), paint);
+				paint.setStyle(Paint.Style.STROKE);
+				paint.setStrokeWidth(V.dp(1));
+				paint.setColor(borderColor);
+				rect.inset(paint.getStrokeWidth()/2f, paint.getStrokeWidth()/2f);
+				c.drawRoundRect(rect, V.dp(4), V.dp(4), paint);
+			}
+
+			@Override
+			public void getItemOffsets(@NonNull Rect outRect, @NonNull View view, @NonNull RecyclerView parent, @NonNull RecyclerView.State state){
+				RecyclerView.ViewHolder holder=parent.getChildViewHolder(view);
+				if(holder instanceof StatusDisplayItem.Holder){
+					boolean inset=((StatusDisplayItem.Holder<?>) holder).getItem().inset;
+					int pos=holder.getAbsoluteAdapterPosition();
+					if(inset){
+						boolean topSiblingInset=pos>0 && displayItems.get(pos-1).inset;
+						boolean bottomSiblingInset=pos<displayItems.size()-1 && displayItems.get(pos+1).inset;
+						int pad;
+						if(holder instanceof ImageStatusDisplayItem.Holder || holder instanceof LinkCardStatusDisplayItem.Holder)
+							pad=V.dp(16);
+						else
+							pad=V.dp(12);
+						outRect.left=outRect.right=pad;
+						if(!topSiblingInset)
+							outRect.top=pad;
+						if(!bottomSiblingInset)
+							outRect.bottom=pad;
+					}
+				}
+			}
+		});
+	}
+
+	private Notification getNotificationByID(String id){
+		for(Notification n:data){
+			if(n.id.equals(id))
+				return n;
+		}
+		return null;
+	}
+}
