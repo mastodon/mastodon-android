@@ -125,6 +125,11 @@ public class NotificationsListFragment extends BaseStatusListFragment<Notificati
 			if(status.inReplyToAccountId!=null && knownAccounts.containsKey(status.inReplyToAccountId))
 				args.putParcelable("inReplyToAccount", Parcels.wrap(knownAccounts.get(status.inReplyToAccountId)));
 			Nav.go(getActivity(), ThreadFragment.class, args);
+		}else{
+			Bundle args=new Bundle();
+			args.putString("account", accountID);
+			args.putParcelable("profileAccount", Parcels.wrap(n.account));
+			Nav.go(getActivity(), ProfileFragment.class, args);
 		}
 	}
 

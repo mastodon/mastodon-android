@@ -351,6 +351,7 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 			}
 		});
 		list.setItemAnimator(new BetterItemAnimator());
+		((UsableRecyclerView) list).setIncludeMarginsInItemHitbox(true);
 		updateToolbar();
 	}
 
