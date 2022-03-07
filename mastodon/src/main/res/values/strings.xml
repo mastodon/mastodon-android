@@ -145,4 +145,31 @@
 		<item quantity="one">Discussed %d time</item>
 		<item quantity="other">Discussed %d times</item>
 	</plurals>
+	<string name="report_title">Report %s</string>
+	<string name="report_choose_reason">Tell us what\'s going on with this post.</string>
+	<string name="report_choose_reason_subtitle">Choose the best match</string>
+	<string name="report_reason_personal">I don\'t like it</string>
+	<string name="report_reason_personal_subtitle">It is not something you want to see</string>
+	<string name="report_reason_spam">It\'s spam</string>
+	<string name="report_reason_spam_subtitle">Malicious links, fake engagement, or repetitive replies</string>
+	<string name="report_reason_violation">It violates server rules</string>
+	<string name="report_reason_violation_subtitle">You are aware that it breaks specific rules</string>
+	<string name="report_reason_other">It\'s something else</string>
+	<string name="report_reason_other_subtitle">The issue does not fit into other categories</string>
+	<string name="report_choose_rule">Which rules are being violated?</string>
+	<string name="report_choose_rule_subtitle">Select all that apply</string>
+	<string name="report_choose_posts">Are there any posts that back up this report?</string>
+	<string name="report_choose_posts_subtitle">Optional. Select all that apply</string>
+	<string name="report_comment_title">Is there anything else you think we should know?</string>
+	<string name="report_comment_subtitle">Optional.</string>
+	<string name="report_comment_hint">Additional comments</string>
+	<string name="sending_report">Sending report…</string>
+	<string name="report_sent_title">Thanks for reporting, we\'ll look into this.</string>
+	<string name="report_sent_subtitle">While we review this, you can take action against %s.</string>
+	<string name="unfollow_user">Unfollow %s</string>
+	<string name="unfollow">Unfollow</string>
+	<string name="mute_user_explain">You won\'t see their posts or reblogs in your home feed. They won\'t know they\'ve been muted.</string>
+	<string name="block_user_explain">They will no longer be able to follow or see your posts, but thye can see if they\'ve been blocked.</string>
+	<string name="report_personal_title">Don\'t want to see this?</string>
+	<string name="report_personal_subtitle">When you see something you don\'t like on Mastodon, you can remove the person from your experience.</string>
 </resources>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:orientation="vertical"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+
+	<ScrollView
+		android:layout_width="match_parent"
+		android:layout_height="0dp"
+		android:layout_weight="1">
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:paddingLeft="16dp"
+			android:paddingRight="16dp"
+			android:paddingTop="32dp"
+			android:paddingBottom="8dp"
+			android:clipToPadding="false"
+			android:orientation="vertical">
+
+			<TextView
+				android:id="@+id/title"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginBottom="12dp"
+				android:textAppearance="@style/m3_headline_medium"
+				android:minHeight="36dp"
+				android:gravity="center_vertical"
+				tools:text="Title"/>
+
+			<FrameLayout
+				android:id="@+id/ava_reported"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:paddingTop="8dp"
+				android:paddingBottom="8dp"
+				android:layout_marginBottom="24dp"
+				android:clipToPadding="false">
+				<ImageView
+					android:id="@+id/avatar"
+					android:layout_width="104dp"
+					android:layout_height="104dp"
+					android:layout_gravity="center_horizontal"
+					tools:src="#0f0"/>
+				<View
+					android:id="@+id/reported_overlay"
+					android:layout_width="205dp"
+					android:layout_height="69dp"
+					android:layout_gravity="center"
+					android:elevation="2dp"
+					android:background="@drawable/reported_overlay"/>
+			</FrameLayout>
+
+			<TextView
+				android:id="@+id/subtitle"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:textAppearance="@style/m3_title_medium"
+				android:textColor="?android:textColorSecondary"
+				tools:text="Subtitle"/>
+
+			<TextView
+				android:id="@+id/unfollow_title"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="24dp"
+				android:textAppearance="@style/m3_title_medium"
+				tools:text="@string/unfollow_user"/>
+
+			<Button
+				android:id="@+id/unfollow_btn"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="4dp"
+				style="?secondaryLargeButtonStyle"
+				android:text="@string/unfollow"/>
+
+			<TextView
+				android:id="@+id/mute_title"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="24dp"
+				android:textAppearance="@style/m3_title_medium"
+				tools:text="@string/mute_user"/>
+
+			<TextView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="4dp"
+				android:textAppearance="@style/m3_body_medium"
+				android:textColor="?android:textColorSecondary"
+				android:text="@string/mute_user_explain"/>
+
+			<Button
+				android:id="@+id/mute_btn"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="4dp"
+				style="?secondaryLargeButtonStyle"
+				android:text="@string/do_mute"/>
+
+			<TextView
+				android:id="@+id/block_title"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="24dp"
+				android:textAppearance="@style/m3_title_medium"
+				tools:text="@string/block_user"/>
+
+			<TextView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="4dp"
+				android:textAppearance="@style/m3_body_medium"
+				android:textColor="?android:textColorSecondary"
+				android:text="@string/block_user_explain"/>
+
+			<Button
+				android:id="@+id/block_btn"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="4dp"
+				style="?secondaryLargeButtonStyle"
+				android:text="@string/do_block"/>
+
+		</LinearLayout>
+
+	</ScrollView>
+
+	<include layout="@layout/button_bar_one"/>
+
+</LinearLayout>

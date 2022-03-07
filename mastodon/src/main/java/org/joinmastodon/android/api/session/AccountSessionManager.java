@@ -13,6 +13,7 @@ import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.MastodonAPIController;
 import org.joinmastodon.android.api.requests.instance.GetCustomEmojis;
 import org.joinmastodon.android.api.requests.accounts.GetOwnAccount;
+import org.joinmastodon.android.api.requests.instance.GetInstance;
 import org.joinmastodon.android.api.requests.oauth.CreateOAuthApp;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.Application;
@@ -84,7 +85,7 @@ public class AccountSessionManager{
 	}
 
 	public void addAccount(Instance instance, Token token, Account self, Application app){
-		AccountSession session=new AccountSession(token, self, app, instance.uri, instance.maxTootChars);
+		AccountSession session=new AccountSession(token, self, app, instance.uri, instance.maxTootChars, instance);
 		sessions.put(session.getID(), session);
 		lastActiveAccountID=session.getID();
 		writeAccountsFile();
@@ -212,7 +213,7 @@ public class AccountSessionManager{
 		HashSet<String> domains=new HashSet<>();
 		for(AccountSession session:sessions.values()){
 			domains.add(session.domain.toLowerCase());
-			if(now-session.infoLastUpdated>24L*3600_000L){
+			if(now-session.infoLastUpdated>24L*3600_000L || now-session.instanceLastUpdated>24L*360_000L*3L){
 				updateSessionLocalInfo(session);
 			}
 		}
@@ -238,6 +239,21 @@ public class AccountSessionManager{
 					public void onSuccess(Account result){
 						session.self=result;
 						session.infoLastUpdated=System.currentTimeMillis();
+						writeAccountsFile();
+					}
+
+					@Override
+					public void onError(ErrorResponse error){
+
+					}
+				})
+				.exec(session.getID());
+		new GetInstance()
+				.setCallback(new Callback<>(){
+					@Override
+					public void onSuccess(Instance result){
+						session.instance=result;
+						session.instanceLastUpdated=System.currentTimeMillis();
 						writeAccountsFile();
 					}
 

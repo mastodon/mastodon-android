@@ -16,6 +16,9 @@
 	<attr name="colorTabInactive" format="color"/>
 	<attr name="colorAccentLightest" format="color"/>
 
+	<attr name="primaryLargeButtonStyle" format="reference"/>
+	<attr name="secondaryLargeButtonStyle" format="reference"/>
+
 	<declare-styleable name="MaxWidthFrameLayout">
 		<attr name="android:maxWidth" format="dimension"/>
 	</declare-styleable>

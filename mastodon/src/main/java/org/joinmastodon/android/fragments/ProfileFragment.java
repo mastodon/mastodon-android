@@ -476,6 +476,11 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 			confirmToggleMuted();
 		}else if(id==R.id.block){
 			confirmToggleBlocked();
+		}else if(id==R.id.report){
+			Bundle args=new Bundle();
+			args.putString("account", accountID);
+			args.putParcelable("reportAccount", Parcels.wrap(account));
+			Nav.go(getActivity(), ReportReasonChoiceFragment.class, args);
 		}
 		return true;
 	}

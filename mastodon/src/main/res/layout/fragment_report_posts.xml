@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<me.grishka.appkit.views.FragmentRootLinearLayout
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:orientation="vertical"
+	android:id="@+id/appkit_loader_root"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:background="?android:colorBackground">
+
+	<include layout="@layout/appkit_toolbar"/>
+
+	<FrameLayout
+		android:id="@+id/appkit_loader_content"
+		android:layout_width="match_parent"
+		android:layout_height="0dp"
+		android:layout_weight="1">
+
+		<include layout="@layout/loading"
+				 android:id="@+id/loading"/>
+
+		<ViewStub android:layout="?errorViewLayout"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+				 android:id="@+id/error"
+				 android:visibility="gone"/>
+
+		<View
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:id="@+id/content_stub"/>
+
+	</FrameLayout>
+
+	<include layout="@layout/button_bar_one"/>
+
+</me.grishka.appkit.views.FragmentRootLinearLayout>

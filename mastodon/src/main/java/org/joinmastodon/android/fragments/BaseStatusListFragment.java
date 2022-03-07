@@ -67,6 +67,7 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 	protected PhotoViewer currentPhotoViewer;
 	protected HashMap<String, Account> knownAccounts=new HashMap<>();
 	protected HashMap<String, Relationship> relationships=new HashMap<>();
+	protected Rect tmpRect=new Rect();
 
 	public BaseStatusListFragment(){
 		super(20);
@@ -259,7 +260,6 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 			}
 		});
 		list.addItemDecoration(new RecyclerView.ItemDecoration(){
-			private Rect tmpRect=new Rect();
 			private Paint paint=new Paint();
 			{
 				paint.setColor(UiUtils.getThemeColor(getActivity(), R.attr.colorPollVoted));
@@ -276,11 +276,7 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 					RecyclerView.ViewHolder siblingHolder=parent.getChildViewHolder(bottomSibling);
 					if(holder instanceof StatusDisplayItem.Holder && siblingHolder instanceof StatusDisplayItem.Holder
 							&& !((StatusDisplayItem.Holder<?>) holder).getItemID().equals(((StatusDisplayItem.Holder<?>) siblingHolder).getItemID())){
-						parent.getDecoratedBoundsWithMargins(child, tmpRect);
-						tmpRect.offset(0, Math.round(child.getTranslationY()));
-						float y=tmpRect.bottom-V.dp(.5f);
-						paint.setAlpha(Math.round(255*child.getAlpha()));
-						c.drawLine(0, y, parent.getWidth(), y, paint);
+						drawDivider(child, bottomSibling, holder, siblingHolder, parent, c, paint);
 					}
 				}
 			}
@@ -398,6 +394,14 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 		return 0;
 	}
 
+	protected void drawDivider(View child, View bottomSibling, RecyclerView.ViewHolder holder, RecyclerView.ViewHolder siblingHolder, RecyclerView parent, Canvas c, Paint paint){
+		parent.getDecoratedBoundsWithMargins(child, tmpRect);
+		tmpRect.offset(0, Math.round(child.getTranslationY()));
+		float y=tmpRect.bottom-V.dp(.5f);
+		paint.setAlpha(Math.round(255*child.getAlpha()));
+		c.drawLine(0, y, parent.getWidth(), y, paint);
+	}
+
 	public abstract void onItemClick(String id);
 
 	protected void updatePoll(String itemID, Poll poll){
@@ -494,7 +498,7 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 		status.spoilerRevealed=true;
 		TextStatusDisplayItem.Holder text=findHolderOfType(itemID, TextStatusDisplayItem.Holder.class);
 		if(text!=null)
-			adapter.notifyItemChanged(text.getAbsoluteAdapterPosition());
+			adapter.notifyItemChanged(text.getAbsoluteAdapterPosition()+getMainAdapterOffset());
 		HeaderStatusDisplayItem.Holder header=findHolderOfType(itemID, HeaderStatusDisplayItem.Holder.class);
 		if(header!=null)
 			header.rebind();
@@ -509,7 +513,7 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 		if(!TextUtils.isEmpty(status.spoilerText)){
 			TextStatusDisplayItem.Holder text=findHolderOfType(holder.getItemID(), TextStatusDisplayItem.Holder.class);
 			if(text!=null){
-				adapter.notifyItemChanged(text.getAbsoluteAdapterPosition());
+				adapter.notifyItemChanged(text.getAbsoluteAdapterPosition()+getMainAdapterOffset());
 			}
 		}
 		holder.rebind();
@@ -609,7 +613,7 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 		@NonNull
 		@Override
 		public BindableViewHolder<StatusDisplayItem> onCreateViewHolder(@NonNull ViewGroup parent, int viewType){
-			return (BindableViewHolder<StatusDisplayItem>) StatusDisplayItem.createViewHolder(StatusDisplayItem.Type.values()[viewType], getActivity(), parent);
+			return (BindableViewHolder<StatusDisplayItem>) StatusDisplayItem.createViewHolder(StatusDisplayItem.Type.values()[viewType & (~0x80000000)], getActivity(), parent);
 		}
 
 		@Override
@@ -625,7 +629,7 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 
 		@Override
 		public int getItemViewType(int position){
-			return displayItems.get(position).getType().ordinal();
+			return displayItems.get(position).getType().ordinal() | 0x80000000;
 		}
 
 		@Override

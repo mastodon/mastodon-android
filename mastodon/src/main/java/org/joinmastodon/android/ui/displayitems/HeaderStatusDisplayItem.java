@@ -19,6 +19,7 @@ import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.fragments.BaseStatusListFragment;
 import org.joinmastodon.android.fragments.ProfileFragment;
+import org.joinmastodon.android.fragments.ReportReasonChoiceFragment;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.Attachment;
 import org.joinmastodon.android.model.Status;
@@ -121,7 +122,7 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 			name.setText(item.parsedName);
 			username.setText('@'+item.user.acct);
 			timestamp.setText(UiUtils.formatRelativeTimestamp(itemView.getContext(), item.createdAt));
-			visibility.setVisibility(item.hasVisibilityToggle ? View.VISIBLE : View.GONE);
+			visibility.setVisibility(item.hasVisibilityToggle && !item.inset ? View.VISIBLE : View.GONE);
 			if(item.hasVisibilityToggle){
 				visibility.setImageResource(item.status.spoilerRevealed ? R.drawable.ic_visibility_off : R.drawable.ic_visibility);
 			}
@@ -133,6 +134,7 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 				extraText.setText(item.extraText);
 			}
 			more.setVisibility(item.inset ? View.GONE : View.VISIBLE);
+			avatar.setClickable(!item.inset);
 		}
 
 		@Override
@@ -178,7 +180,11 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 				}else if(id==R.id.block){
 					UiUtils.confirmToggleBlockUser(item.parentFragment.getActivity(), item.parentFragment.getAccountID(), account, false, r->{});
 				}else if(id==R.id.report){
-
+					Bundle args=new Bundle();
+					args.putString("account", item.parentFragment.getAccountID());
+					args.putParcelable("status", Parcels.wrap(item.status));
+					args.putParcelable("reportAccount", Parcels.wrap(item.status.account));
+					Nav.go(item.parentFragment.getActivity(), ReportReasonChoiceFragment.class, args);
 				}
 				return true;
 			});

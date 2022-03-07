@@ -94,7 +94,7 @@ public class PhotoLayoutHelper{
 				};
 			}
 		}else if(cnt==3){
-			if(/*(ratios.get(0) > 1.2 * maxRatio || avgRatio > 1.5 * maxRatio) &&*/ orients.equals("www")){ // 2nd and 3rd photos are on the next line
+			if(/*(ratios.get(0) > 1.2 * maxRatio || avgRatio > 1.5 * maxRatio) &&*/ orients.equals("www") || true){ // 2nd and 3rd photos are on the next line
 				float hCover=Math.min(maxW/ratios.get(0), (maxH-marginH)*0.66f);
 				float w2=((maxW-marginW)/2);
 				float h=Math.min(maxH-hCover-marginH, Math.min(w2/ratios.get(1), w2/ratios.get(2)));

@@ -4,6 +4,7 @@ import org.joinmastodon.android.api.MastodonAPIController;
 import org.joinmastodon.android.api.StatusInteractionController;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.Application;
+import org.joinmastodon.android.model.Instance;
 import org.joinmastodon.android.model.Token;
 
 public class AccountSession{
@@ -13,16 +14,19 @@ public class AccountSession{
 	public int tootCharLimit;
 	public Application app;
 	public long infoLastUpdated;
+	public long instanceLastUpdated;
+	public Instance instance;
 	private transient MastodonAPIController apiController;
 	private transient StatusInteractionController statusInteractionController;
 
-	AccountSession(Token token, Account self, Application app, String domain, int tootCharLimit){
+	AccountSession(Token token, Account self, Application app, String domain, int tootCharLimit, Instance instance){
 		this.token=token;
 		this.self=self;
 		this.domain=domain;
 		this.app=app;
 		this.tootCharLimit=tootCharLimit;
-		infoLastUpdated=System.currentTimeMillis();
+		this.instance=instance;
+		instanceLastUpdated=infoLastUpdated=System.currentTimeMillis();
 	}
 
 	AccountSession(){}

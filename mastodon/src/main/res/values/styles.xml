@@ -7,9 +7,12 @@
 		<item name="appkitBackDrawable">@drawable/ic_fluent_arrow_left_24_regular</item>
 		<item name="android:splitMotionEvents">false</item>
 		<item name="android:windowBackground">?colorWindowBackground</item>
+		<item name="android:editTextStyle">@style/Widget.Mastodon.EditText</item>
 
 		<item name="android:buttonStyle">@style/Widget.Mastodon.Button.Primary_DarkOnLight</item>
 		<item name="secondaryButtonStyle">@style/Widget.Mastodon.Button.Secondary_DarkOnLight</item>
+		<item name="primaryLargeButtonStyle">@style/Widget.Mastodon.Button.Large.Primary_DarkOnLight</item>
+		<item name="secondaryLargeButtonStyle">@style/Widget.Mastodon.Button.Large.Secondary_DarkOnLight</item>
 		<item name="android:colorAccent">@color/primary_700</item>
 		<item name="android:colorPrimary">@color/gray_800</item>
 		<item name="android:colorBackground">@color/gray_100</item>
@@ -34,6 +37,7 @@
 		<item name="colorAccentLightest">@color/primary_100</item>
 
 		<item name="buttonBackground">@drawable/bg_button_primary_dark_on_light</item>
+		<item name="android:editTextBackground">@drawable/bg_edittext_light</item>
 
 		<item name="android:windowLightStatusBar">true</item>
 		<item name="android:windowLightNavigationBar" tools:ignore="NewApi">true</item>
@@ -46,9 +50,12 @@
 		<item name="appkitBackDrawable">@drawable/ic_fluent_arrow_left_24_regular</item>
 		<item name="android:splitMotionEvents">false</item>
 		<item name="android:windowBackground">?colorWindowBackground</item>
+		<item name="android:editTextStyle">@style/Widget.Mastodon.EditText</item>
 
 		<item name="android:buttonStyle">@style/Widget.Mastodon.Button.Primary_LightOnDark</item>
 		<item name="secondaryButtonStyle">@style/Widget.Mastodon.Button.Secondary_LightOnDark</item>
+		<item name="primaryLargeButtonStyle">@style/Widget.Mastodon.Button.Large.Primary_LightOnDark</item>
+		<item name="secondaryLargeButtonStyle">@style/Widget.Mastodon.Button.Large.Secondary_LightOnDark</item>
 		<item name="android:colorAccent">@color/primary_600</item>
 		<item name="android:colorPrimary">@color/gray_50</item>
 		<item name="android:colorBackground">@color/gray_700</item>
@@ -75,6 +82,7 @@
 		<item name="colorAccentLightest">@color/primary_100</item>
 
 		<item name="buttonBackground">@drawable/bg_button_primary_light_on_dark</item>
+		<item name="android:editTextBackground">@drawable/bg_edittext_light</item>
 
 		<item name="android:windowLightStatusBar">false</item>
 		<item name="android:windowLightNavigationBar" tools:ignore="NewApi">false</item>
@@ -114,6 +122,13 @@
 		<item name="android:paddingRight">16dp</item>
 	</style>
 
+	<style name="Widget.Mastodon.Button.Large">
+		<item name="android:minHeight">56dp</item>
+		<item name="android:paddingLeft">32dp</item>
+		<item name="android:paddingRight">32dp</item>
+		<item name="android:textAppearance">@style/m3_title_medium</item>
+	</style>
+
 	<style name="Widget.Mastodon.Button.Primary_DarkOnLight">
 		<item name="android:background">@drawable/bg_button_primary_dark_on_light</item>
 		<item name="android:textColor">@color/button_text_primary_dark_on_light</item>
@@ -132,6 +147,32 @@
 	<style name="Widget.Mastodon.Button.Secondary_LightOnDark">
 		<item name="android:background">@drawable/bg_button_secondary_light_on_dark</item>
 		<item name="android:textColor">@color/button_text_secondary_light_on_dark</item>
+	</style>
+
+	<style name="Widget.Mastodon.Button.Large.Primary_DarkOnLight">
+		<item name="android:background">@drawable/bg_button_primary_dark_on_light</item>
+		<item name="android:textColor">@color/button_text_primary_dark_on_light</item>
+	</style>
+
+	<style name="Widget.Mastodon.Button.Large.Secondary_DarkOnLight">
+		<item name="android:background">@drawable/bg_button_secondary_dark_on_light</item>
+		<item name="android:textColor">@color/button_text_secondary_dark_on_light</item>
+	</style>
+
+	<style name="Widget.Mastodon.Button.Large.Primary_LightOnDark">
+		<item name="android:background">@drawable/bg_button_primary_light_on_dark</item>
+		<item name="android:textColor">@color/button_text_primary_light_on_dark</item>
+	</style>
+
+	<style name="Widget.Mastodon.Button.Large.Secondary_LightOnDark">
+		<item name="android:background">@drawable/bg_button_secondary_light_on_dark</item>
+		<item name="android:textColor">@color/button_text_secondary_light_on_dark</item>
+	</style>
+
+	<style name="Widget.Mastodon.EditText" parent="android:Widget.Material.Light.EditText">
+		<item name="android:textColorHint">?android:textColorSecondary</item>
+		<item name="android:elevation">2dp</item>
+		<item name="android:textAppearance">@style/m3_body_large</item>
 	</style>
 
 	<style name="Theme.Mastodon.Dialog.Alert" parent="android:Theme.Material.Light.Dialog.Alert">
@@ -188,6 +229,7 @@
 	<style name="m3_body_medium">
 		<item name="android:textSize">14dp</item>
 		<item name="android:textColor">?android:textColorPrimary</item>
+		<item name="android:lineSpacingExtra">4dp</item>
 	</style>
 
 	<style name="m3_title_medium">
@@ -225,5 +267,11 @@
 	<style name="m3_headline_small">
 		<item name="android:textSize">24dp</item>
 		<item name="android:textColor">?android:textColorPrimary</item>
+	</style>
+
+	<style name="m3_headline_medium">
+		<item name="android:textSize">28dp</item>
+		<item name="android:textColor">?android:textColorPrimary</item>
+		<item name="android:lineSpacingExtra">3dp</item>
 	</style>
 </resources>
