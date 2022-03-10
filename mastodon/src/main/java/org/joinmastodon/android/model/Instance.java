@@ -1,18 +1,18 @@
 package org.joinmastodon.android.model;
 
-import android.os.Parcel;
-import android.os.Parcelable;
 import android.text.Html;
 
 import org.joinmastodon.android.api.ObjectValidationException;
 import org.joinmastodon.android.api.RequiredField;
 import org.joinmastodon.android.model.catalog.CatalogInstance;
+import org.parceler.Parcel;
 
 import java.net.IDN;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
+@Parcel
 public class Instance extends BaseModel{
 	/**
 	 * The domain name of the instance.
@@ -84,6 +84,8 @@ public class Instance extends BaseModel{
 		super.postprocess();
 		if(contactAccount!=null)
 			contactAccount.postprocess();
+		if(rules==null)
+			rules=Collections.emptyList();
 	}
 
 	@Override
@@ -123,93 +125,16 @@ public class Instance extends BaseModel{
 		return ci;
 	}
 
-
-
-	public static class Rule implements Parcelable{
+	@Parcel
+	public static class Rule{
 		public String id;
 		public String text;
-
-
-		@Override
-		public int describeContents(){
-			return 0;
-		}
-
-		@Override
-		public void writeToParcel(Parcel dest, int flags){
-			dest.writeString(this.id);
-			dest.writeString(this.text);
-		}
-
-		public void readFromParcel(Parcel source){
-			this.id=source.readString();
-			this.text=source.readString();
-		}
-
-		public Rule(){
-		}
-
-		protected Rule(Parcel in){
-			this.id=in.readString();
-			this.text=in.readString();
-		}
-
-		public static final Parcelable.Creator<Rule> CREATOR=new Parcelable.Creator<Rule>(){
-			@Override
-			public Rule createFromParcel(Parcel source){
-				return new Rule(source);
-			}
-
-			@Override
-			public Rule[] newArray(int size){
-				return new Rule[size];
-			}
-		};
 	}
 
-	public static class Stats implements Parcelable{
+	@Parcel
+	public static class Stats{
 		public int userCount;
 		public int statusCount;
 		public int domainCount;
-
-
-		@Override
-		public int describeContents(){
-			return 0;
-		}
-
-		@Override
-		public void writeToParcel(Parcel dest, int flags){
-			dest.writeInt(this.userCount);
-			dest.writeInt(this.statusCount);
-			dest.writeInt(this.domainCount);
-		}
-
-		public void readFromParcel(Parcel source){
-			this.userCount=source.readInt();
-			this.statusCount=source.readInt();
-			this.domainCount=source.readInt();
-		}
-
-		public Stats(){
-		}
-
-		protected Stats(Parcel in){
-			this.userCount=in.readInt();
-			this.statusCount=in.readInt();
-			this.domainCount=in.readInt();
-		}
-
-		public static final Parcelable.Creator<Stats> CREATOR=new Parcelable.Creator<Stats>(){
-			@Override
-			public Stats createFromParcel(Parcel source){
-				return new Stats(source);
-			}
-
-			@Override
-			public Stats[] newArray(int size){
-				return new Stats[size];
-			}
-		};
 	}
 }

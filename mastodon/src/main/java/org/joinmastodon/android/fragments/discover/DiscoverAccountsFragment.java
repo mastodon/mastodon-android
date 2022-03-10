@@ -1,4 +1,4 @@
-package org.joinmastodon.android.fragments;
+package org.joinmastodon.android.fragments.discover;
 
 import android.graphics.Rect;
 import android.graphics.drawable.Animatable;
@@ -15,6 +15,7 @@ import android.widget.TextView;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.requests.accounts.GetAccountRelationships;
 import org.joinmastodon.android.api.requests.accounts.GetFollowSuggestions;
+import org.joinmastodon.android.fragments.ProfileFragment;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.FollowSuggestion;
 import org.joinmastodon.android.model.Relationship;

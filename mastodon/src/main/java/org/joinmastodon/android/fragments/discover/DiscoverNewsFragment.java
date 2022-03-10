@@ -1,4 +1,4 @@
-package org.joinmastodon.android.fragments;
+package org.joinmastodon.android.fragments.discover;
 
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;

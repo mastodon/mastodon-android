@@ -1,4 +1,4 @@
-package org.joinmastodon.android.fragments;
+package org.joinmastodon.android.fragments.report;
 
 import android.app.Activity;
 import android.os.Build;
@@ -8,25 +8,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowInsets;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.squareup.otto.Subscribe;
-
-import org.joinmastodon.android.E;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.requests.accounts.SetAccountFollowed;
-import org.joinmastodon.android.api.requests.reports.SendReport;
-import org.joinmastodon.android.events.FinishReportFragmentsEvent;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.Relationship;
 import org.joinmastodon.android.model.ReportReason;
 import org.joinmastodon.android.ui.OutlineProviders;
 import org.joinmastodon.android.ui.utils.UiUtils;
 import org.parceler.Parcels;
-
-import java.util.ArrayList;
 
 import me.grishka.appkit.Nav;
 import me.grishka.appkit.api.Callback;

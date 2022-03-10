@@ -6,9 +6,7 @@
 	android:orientation="vertical"
 	android:id="@+id/appkit_loader_root"
 	xmlns:android="http://schemas.android.com/apk/res/android"
-	android:background="?android:windowBackground">
-
-	<include layout="@layout/appkit_toolbar"/>
+	android:background="?colorBackgroundLight">
 
 	<FrameLayout
 		android:id="@+id/appkit_loader_content"
@@ -31,10 +29,37 @@
 			android:id="@+id/content_stub"/>
 
 	</FrameLayout>
-	<Button
-		android:id="@+id/btn_next"
+	<LinearLayout
+		android:id="@+id/button_bar"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:enabled="false"
-		android:text="@string/next"/>
+		android:background="?colorBackgroundLight"
+		android:outlineProvider="bounds"
+		android:orientation="horizontal"
+		android:elevation="3dp">
+
+		<Button
+			android:id="@+id/btn_back"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_margin="16dp"
+			android:minWidth="145dp"
+			style="?secondaryLargeButtonStyle"
+			android:text="@string/back"/>
+
+		<Space
+			android:layout_width="0dp"
+			android:layout_height="1dp"
+			android:layout_weight="1"/>
+
+		<Button
+			android:id="@+id/btn_next"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_margin="16dp"
+			android:minWidth="145dp"
+			style="?primaryLargeButtonStyle"
+			android:text="@string/next" />
+
+	</LinearLayout>
 </me.grishka.appkit.views.FragmentRootLinearLayout>

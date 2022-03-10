@@ -1,10 +1,11 @@
-package org.joinmastodon.android.fragments;
+package org.joinmastodon.android.fragments.discover;
 
 import com.squareup.otto.Subscribe;
 
 import org.joinmastodon.android.api.requests.trends.GetTrendingStatuses;
 import org.joinmastodon.android.events.StatusCountersUpdatedEvent;
 import org.joinmastodon.android.events.StatusDeletedEvent;
+import org.joinmastodon.android.fragments.StatusListFragment;
 import org.joinmastodon.android.model.Status;
 
 import java.util.List;

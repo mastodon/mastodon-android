@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<me.grishka.appkit.views.FragmentRootLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:orientation="vertical"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+
+	<ScrollView
+		android:layout_width="match_parent"
+		android:layout_height="0dp"
+		android:layout_weight="1"
+		android:background="?colorBackgroundLight">
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical"
+			android:clipChildren="false">
+
+			<TextView
+				android:id="@+id/title"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginBottom="24dp"
+				android:textAppearance="@style/m3_headline_medium"
+				android:minHeight="36dp"
+				android:layout_marginTop="32dp"
+				android:layout_marginLeft="16dp"
+				android:layout_marginRight="16dp"
+				android:gravity="center_vertical"
+				tools:text="@string/signup_title"/>
+
+			<FrameLayout
+				android:id="@+id/ava_wrap"
+				android:layout_width="88dp"
+				android:layout_height="88dp"
+				android:layout_gravity="center_horizontal"
+				android:layout_marginBottom="24dp">
+
+				<ImageView
+					android:id="@+id/avatar"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:scaleType="centerCrop"
+					android:src="@drawable/default_avatar"/>
+
+				<TextView
+					android:layout_width="match_parent"
+					android:layout_height="22dp"
+					android:layout_gravity="bottom"
+					android:gravity="center"
+					android:background="@color/gray_800t"
+					android:textAppearance="@style/m3_label_large"
+					android:textColor="#eee"
+					android:text="@string/edit_photo"/>
+
+			</FrameLayout>
+
+			<EditText
+				android:id="@+id/display_name"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginLeft="16dp"
+				android:layout_marginRight="16dp"
+				android:inputType="textPersonName|textCapWords"
+				android:autofillHints="name"
+				android:singleLine="true"
+				android:hint="@string/display_name"/>
+
+			<FrameLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="8dp"
+				android:layout_marginBottom="24dp"
+				android:layout_marginLeft="16dp"
+				android:layout_marginRight="16dp">
+
+				<EditText
+					android:id="@+id/username"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:inputType="textFilter|textNoSuggestions"
+					android:autofillHints="username"
+					android:singleLine="true"
+					android:layoutDirection="ltr"
+					android:hint="@string/username"/>
+
+				<TextView
+					android:id="@+id/domain"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:elevation="5dp"
+					android:layout_gravity="right|center_vertical"
+					android:paddingLeft="8dp"
+					android:paddingRight="16dp"
+					android:textAppearance="@style/m3_title_medium"
+					tools:text="\@mastodon.social"/>
+
+			</FrameLayout>
+
+			<EditText
+				android:id="@+id/email"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginLeft="16dp"
+				android:layout_marginRight="16dp"
+				android:layout_marginBottom="8dp"
+				android:inputType="textEmailAddress"
+				android:autofillHints="emailAddress"
+				android:singleLine="true"
+				android:hint="@string/email"/>
+
+			<EditText
+				android:id="@+id/password"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginLeft="16dp"
+				android:layout_marginRight="16dp"
+				android:inputType="textPassword"
+				android:autofillHints="password"
+				android:singleLine="true"
+				android:fontFamily="sans-serif"
+				android:hint="@string/password"/>
+
+			<TextView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="8dp"
+				android:layout_marginLeft="16dp"
+				android:layout_marginRight="16dp"
+				android:layout_marginBottom="16dp"
+				android:textAppearance="@style/m3_body_medium"
+				android:textColor="?android:textColorSecondary"
+				android:text="@string/password_note"/>
+
+		</LinearLayout>
+
+	</ScrollView>
+
+	<LinearLayout
+		android:id="@+id/button_bar"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:background="?colorBackgroundLight"
+		android:outlineProvider="bounds"
+		android:orientation="horizontal"
+		android:elevation="3dp">
+
+		<Button
+			android:id="@+id/btn_back"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_margin="16dp"
+			android:minWidth="145dp"
+			style="?secondaryLargeButtonStyle"
+			android:text="@string/back"/>
+
+		<Space
+			android:layout_width="0dp"
+			android:layout_height="1dp"
+			android:layout_weight="1"/>
+
+		<Button
+			android:id="@+id/btn_next"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_margin="16dp"
+			android:minWidth="145dp"
+			style="?primaryLargeButtonStyle"
+			android:text="@string/next" />
+
+	</LinearLayout>
+
+</me.grishka.appkit.views.FragmentRootLinearLayout>

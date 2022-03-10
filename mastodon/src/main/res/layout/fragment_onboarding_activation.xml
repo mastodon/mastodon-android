@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<me.grishka.appkit.views.FragmentRootLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:orientation="vertical"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+
+	<ScrollView
+		android:layout_width="match_parent"
+		android:layout_height="0dp"
+		android:layout_weight="1"
+		android:background="?colorBackgroundLight">
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical"
+			android:clipChildren="false">
+
+			<TextView
+				android:id="@+id/title"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:textAppearance="@style/m3_headline_medium"
+				android:minHeight="36dp"
+				android:layout_marginTop="32dp"
+				android:layout_marginLeft="16dp"
+				android:layout_marginRight="16dp"
+				android:layout_marginBottom="12dp"
+				android:gravity="center_vertical"
+				android:text="@string/confirm_email_title"/>
+
+			<TextView
+				android:id="@+id/subtitle"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginLeft="16dp"
+				android:layout_marginRight="16dp"
+				android:textAppearance="@style/m3_title_medium"
+				android:textColor="?android:textColorSecondary"
+				android:text="@string/confirm_email_subtitle"/>
+
+			<ImageView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center_horizontal"
+				android:layout_margin="32dp"
+				android:src="@drawable/confirm_email_art"/>
+
+		</LinearLayout>
+
+	</ScrollView>
+
+	<LinearLayout
+		android:id="@+id/button_bar"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:background="?colorBackgroundLight"
+		android:outlineProvider="bounds"
+		android:orientation="horizontal"
+		android:clipToPadding="false"
+		android:elevation="3dp">
+
+		<Button
+			android:id="@+id/btn_back"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="16dp"
+			android:layout_marginTop="16dp"
+			android:layout_marginBottom="16dp"
+			style="?secondaryLargeButtonStyle"
+			android:text="@string/resend"/>
+
+		<Space
+			android:layout_width="0dp"
+			android:layout_height="1dp"
+			android:layout_weight="1"/>
+
+		<Button
+			android:id="@+id/btn_next"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginEnd="16dp"
+			android:layout_marginTop="16dp"
+			android:layout_marginBottom="16dp"
+			style="?primaryLargeButtonStyle"
+			android:text="@string/open_email_app" />
+
+	</LinearLayout>
+
+</me.grishka.appkit.views.FragmentRootLinearLayout>

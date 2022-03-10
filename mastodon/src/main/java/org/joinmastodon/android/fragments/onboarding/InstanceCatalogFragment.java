@@ -1,6 +1,5 @@
 package org.joinmastodon.android.fragments.onboarding;
 
-import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Build;
@@ -12,11 +11,12 @@ import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowInsets;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.MastodonAPIRequest;
@@ -28,6 +28,12 @@ import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.model.Instance;
 import org.joinmastodon.android.model.catalog.CatalogCategory;
 import org.joinmastodon.android.model.catalog.CatalogInstance;
+import org.joinmastodon.android.ui.BetterItemAnimator;
+import org.joinmastodon.android.ui.DividerItemDecoration;
+import org.joinmastodon.android.ui.M3AlertDialogBuilder;
+import org.joinmastodon.android.ui.tabs.TabLayout;
+import org.joinmastodon.android.ui.utils.UiUtils;
+import org.parceler.Parcels;
 
 import java.net.IDN;
 import java.util.ArrayList;
@@ -40,14 +46,15 @@ import java.util.stream.Collectors;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.DiffUtil;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import me.grishka.appkit.Nav;
 import me.grishka.appkit.api.Callback;
 import me.grishka.appkit.api.ErrorResponse;
 import me.grishka.appkit.fragments.BaseRecyclerFragment;
 import me.grishka.appkit.utils.BindableViewHolder;
 import me.grishka.appkit.utils.MergeRecyclerAdapter;
 import me.grishka.appkit.utils.SingleViewRecyclerAdapter;
+import me.grishka.appkit.utils.V;
 import me.grishka.appkit.views.UsableRecyclerView;
 
 public class InstanceCatalogFragment extends BaseRecyclerFragment<CatalogInstance>{
@@ -59,7 +66,7 @@ public class InstanceCatalogFragment extends BaseRecyclerFragment<CatalogInstanc
 	private Button nextButton;
 	private MastodonAPIRequest<?> getCategoriesRequest;
 	private EditText searchEdit;
-	private UsableRecyclerView categoriesList;
+	private TabLayout categoriesList;
 	private Runnable searchDebouncer=this::onSearchChangedDebounced;
 	private String currentSearchQuery;
 	private String currentCategory="all";
@@ -68,6 +75,7 @@ public class InstanceCatalogFragment extends BaseRecyclerFragment<CatalogInstanc
 	private GetInstance loadingInstanceRequest;
 	private HashMap<String, Instance> instancesCache=new HashMap<>();
 	private ProgressDialog instanceProgressDialog;
+	private View buttonBar;
 
 	private boolean isSignup;
 
@@ -145,8 +153,14 @@ public class InstanceCatalogFragment extends BaseRecyclerFragment<CatalogInstanc
 						CatalogCategory all=new CatalogCategory();
 						all.category="all";
 						categories.add(all);
-						categories.addAll(result);
-						categoriesList.getAdapter().notifyItemRangeInserted(0, categories.size());
+						result.stream().sorted(Comparator.comparingInt((CatalogCategory cc)->cc.serversCount).reversed()).forEach(categories::add);
+						for(CatalogCategory cat:categories){
+							int titleRes=getTitleForCategory(cat.category);
+							TabLayout.Tab tab=categoriesList.newTab().setText(titleRes!=0 ? getString(titleRes) : cat.category).setCustomView(R.layout.item_instance_category);
+							ImageView emoji=tab.getCustomView().findViewById(R.id.emoji);
+							emoji.setImageResource(getEmojiForCategory(cat.category));
+							categoriesList.addTab(tab);
+						}
 					}
 
 					@Override
@@ -170,6 +184,24 @@ public class InstanceCatalogFragment extends BaseRecyclerFragment<CatalogInstanc
 		headerView=getActivity().getLayoutInflater().inflate(R.layout.header_onboarding_instance_catalog, list, false);
 		searchEdit=headerView.findViewById(R.id.search_edit);
 		categoriesList=headerView.findViewById(R.id.categories_list);
+		categoriesList.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener(){
+			@Override
+			public void onTabSelected(TabLayout.Tab tab){
+				CatalogCategory category=categories.get(tab.getPosition());
+				currentCategory=category.category;
+				updateFilteredList();
+			}
+
+			@Override
+			public void onTabUnselected(TabLayout.Tab tab){
+
+			}
+
+			@Override
+			public void onTabReselected(TabLayout.Tab tab){
+
+			}
+		});
 		searchEdit.setOnEditorActionListener(this::onSearchEnterPressed);
 		searchEdit.addTextChangedListener(new TextWatcher(){
 			@Override
@@ -187,8 +219,6 @@ public class InstanceCatalogFragment extends BaseRecyclerFragment<CatalogInstanc
 			public void afterTextChanged(Editable s){
 			}
 		});
-		categoriesList.setAdapter(new CategoriesAdapter());
-		categoriesList.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
 
 		mergeAdapter=new MergeRecyclerAdapter();
 		mergeAdapter.addAdapter(new SingleViewRecyclerAdapter(headerView));
@@ -201,6 +231,13 @@ public class InstanceCatalogFragment extends BaseRecyclerFragment<CatalogInstanc
 		super.onViewCreated(view, savedInstanceState);
 		nextButton=view.findViewById(R.id.btn_next);
 		nextButton.setOnClickListener(this::onNextClick);
+		nextButton.setEnabled(chosenInstance!=null);
+		view.findViewById(R.id.btn_back).setOnClickListener(v->Nav.finish(this));
+		list.setItemAnimator(new BetterItemAnimator());
+		list.addItemDecoration(new DividerItemDecoration(getActivity(), R.attr.colorPollVoted, 1, 16, 16, DividerItemDecoration.NOT_FIRST));
+		view.setBackgroundColor(UiUtils.getThemeColor(getActivity(), R.attr.colorBackgroundLight));
+		buttonBar=view.findViewById(R.id.button_bar);
+		setStatusBarColor(UiUtils.getThemeColor(getActivity(), R.attr.colorBackgroundLight));
 	}
 
 	private void onNextClick(View v){
@@ -218,10 +255,69 @@ public class InstanceCatalogFragment extends BaseRecyclerFragment<CatalogInstanc
 
 	private void proceedWithAuthOrSignup(Instance instance){
 		if(isSignup){
-			Toast.makeText(getActivity(), "not implemented yet", Toast.LENGTH_SHORT).show();
+			Bundle args=new Bundle();
+			args.putParcelable("instance", Parcels.wrap(instance));
+			Nav.go(getActivity(), InstanceRulesFragment.class, args);
 		}else{
 			AccountSessionManager.getInstance().authenticate(getActivity(), instance);
 		}
+	}
+
+//	private String getEmojiForCategory(String category){
+//		return switch(category){
+//			case "all" -> "💬";
+//			case "academia" -> "📚";
+//			case "activism" -> "✊";
+//			case "food" -> "🍕";
+//			case "furry" -> "🦁";
+//			case "games" -> "🕹";
+//			case "general" -> "🐘";
+//			case "journalism" -> "📰";
+//			case "lgbt" -> "🏳️‍🌈";
+//			case "regional" -> "📍";
+//			case "art" -> "🎨";
+//			case "music" -> "🎼";
+//			case "tech" -> "📱";
+//			default -> "❓";
+//		};
+//	}
+
+	private int getEmojiForCategory(String category){
+		return switch(category){
+			case "all" -> R.drawable.ic_category_all;
+			case "academia" -> R.drawable.ic_category_academia;
+			case "activism" -> R.drawable.ic_category_activism;
+			case "food" -> R.drawable.ic_category_food;
+			case "furry" -> R.drawable.ic_category_furry;
+			case "games" -> R.drawable.ic_category_games;
+			case "general" -> R.drawable.ic_category_general;
+			case "journalism" -> R.drawable.ic_category_journalism;
+			case "lgbt" -> R.drawable.ic_category_lgbt;
+			case "regional" -> R.drawable.ic_category_regional;
+			case "art" -> R.drawable.ic_category_art;
+			case "music" -> R.drawable.ic_category_music;
+			case "tech" -> R.drawable.ic_category_tech;
+			default -> R.drawable.ic_category_unknown;
+		};
+	}
+
+	private int getTitleForCategory(String category){
+		return switch(category){
+			case "all" -> R.string.category_all;
+			case "academia" -> R.string.category_academia;
+			case "activism" -> R.string.category_activism;
+			case "food" -> R.string.category_food;
+			case "furry" -> R.string.category_furry;
+			case "games" -> R.string.category_games;
+			case "general" -> R.string.category_general;
+			case "journalism" -> R.string.category_journalism;
+			case "lgbt" -> R.string.category_lgbt;
+			case "regional" -> R.string.category_regional;
+			case "art" -> R.string.category_art;
+			case "music" -> R.string.category_music;
+			case "tech" -> R.string.category_tech;
+			default -> 0;
+		};
 	}
 
 	private boolean onSearchEnterPressed(TextView v, int actionId, KeyEvent event){
@@ -290,6 +386,8 @@ public class InstanceCatalogFragment extends BaseRecyclerFragment<CatalogInstanc
 	}
 
 	private void loadInstanceInfo(String _domain){
+		if(TextUtils.isEmpty(_domain))
+			return;
 		String domain;
 		try{
 			domain=IDN.toASCII(_domain);
@@ -299,7 +397,7 @@ public class InstanceCatalogFragment extends BaseRecyclerFragment<CatalogInstanc
 		Instance cachedInstance=instancesCache.get(domain);
 		if(cachedInstance!=null){
 			for(CatalogInstance ci:filteredData){
-				if(ci.domain.equals(currentSearchQuery))
+				if(ci.domain.equals(domain))
 					return;
 			}
 			CatalogInstance ci=cachedInstance.toCatalogInstance();
@@ -330,7 +428,7 @@ public class InstanceCatalogFragment extends BaseRecyclerFragment<CatalogInstanc
 						if(domain.equals(currentSearchQuery)){
 							boolean found=false;
 							for(CatalogInstance ci:filteredData){
-								if(ci.domain.equals(currentSearchQuery)){
+								if(ci.domain.equals(domain)){
 									found=true;
 									break;
 								}
@@ -350,7 +448,7 @@ public class InstanceCatalogFragment extends BaseRecyclerFragment<CatalogInstanc
 						if(instanceProgressDialog!=null){
 							instanceProgressDialog.dismiss();
 							instanceProgressDialog=null;
-							new AlertDialog.Builder(getActivity())
+							new M3AlertDialogBuilder(getActivity())
 									.setTitle(R.string.error)
 									.setMessage(getString(R.string.not_a_mastodon_instance, domain)+"\n\n"+((MastodonErrorResponse)error).error)
 									.setPositiveButton(R.string.ok, null)
@@ -358,6 +456,17 @@ public class InstanceCatalogFragment extends BaseRecyclerFragment<CatalogInstanc
 						}
 					}
 				}).execNoAuth(domain);
+	}
+
+	@Override
+	public void onApplyWindowInsets(WindowInsets insets){
+		if(Build.VERSION.SDK_INT>=27){
+			int inset=insets.getSystemWindowInsetBottom();
+			buttonBar.setPadding(0, 0, 0, inset>0 ? Math.max(inset, V.dp(36)) : 0);
+			super.onApplyWindowInsets(insets.replaceSystemWindowInsets(insets.getSystemWindowInsetLeft(), insets.getSystemWindowInsetTop(), insets.getSystemWindowInsetRight(), 0));
+		}else{
+			super.onApplyWindowInsets(insets.replaceSystemWindowInsets(insets.getSystemWindowInsetLeft(), insets.getSystemWindowInsetTop(), insets.getSystemWindowInsetRight(), insets.getSystemWindowInsetBottom()));
+		}
 	}
 
 	private class InstancesAdapter extends UsableRecyclerView.Adapter<InstanceViewHolder>{
@@ -399,13 +508,17 @@ public class InstanceCatalogFragment extends BaseRecyclerFragment<CatalogInstanc
 			userCount=findViewById(R.id.user_count);
 			lang=findViewById(R.id.lang);
 			radioButton=findViewById(R.id.radiobtn);
+			if(Build.VERSION.SDK_INT<Build.VERSION_CODES.N){
+				UiUtils.fixCompoundDrawableTintOnAndroid6(userCount);
+				UiUtils.fixCompoundDrawableTintOnAndroid6(lang);
+			}
 		}
 
 		@Override
 		public void onBind(CatalogInstance item){
 			title.setText(item.normalizedDomain);
 			description.setText(item.description);
-			userCount.setText(""+item.totalUsers);
+			userCount.setText(UiUtils.abbreviateNumber(item.totalUsers));
 			lang.setText(item.language.toUpperCase());
 			radioButton.setChecked(chosenInstance==item);
 		}
@@ -428,59 +541,6 @@ public class InstanceCatalogFragment extends BaseRecyclerFragment<CatalogInstanc
 				nextButton.setEnabled(true);
 			chosenInstance=item;
 			loadInstanceInfo(chosenInstance.domain);
-		}
-	}
-
-	private class CategoriesAdapter extends RecyclerView.Adapter<CategoryViewHolder>{
-		@NonNull
-		@Override
-		public CategoryViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType){
-			return new CategoryViewHolder();
-		}
-
-		@Override
-		public void onBindViewHolder(@NonNull CategoryViewHolder holder, int position){
-			holder.bind(categories.get(position));
-		}
-
-		@Override
-		public int getItemCount(){
-			return categories.size();
-		}
-	}
-
-	private class CategoryViewHolder extends BindableViewHolder<CatalogCategory> implements UsableRecyclerView.Clickable{
-		private final RadioButton radioButton;
-
-		public CategoryViewHolder(){
-			super(getActivity(), R.layout.item_instance_category, categoriesList);
-			radioButton=findViewById(R.id.radiobtn);
-		}
-
-		@Override
-		public void onBind(CatalogCategory item){
-			radioButton.setText(item.category);
-			radioButton.setChecked(item.category.equals(currentCategory));
-		}
-
-		@Override
-		public void onClick(){
-			if(currentCategory.equals(item.category))
-				return;
-			int i=0;
-			for(CatalogCategory c:categories){
-				if(c.category.equals(currentCategory)){
-					RecyclerView.ViewHolder holder=categoriesList.findViewHolderForAdapterPosition(i);
-					if(holder!=null){
-						((CategoryViewHolder)holder).radioButton.setChecked(false);
-					}
-					break;
-				}
-				i++;
-			}
-			currentCategory=item.category;
-			radioButton.setChecked(true);
-			updateFilteredList();
 		}
 	}
 }

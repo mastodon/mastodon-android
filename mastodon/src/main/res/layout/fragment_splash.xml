@@ -1,22 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<org.joinmastodon.android.ui.views.SizeListenerFrameLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	android:orientation="vertical"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	android:fitsSystemWindows="true"
-	android:gravity="bottom"
-	android:background="#808080">
+	android:clipToPadding="false"
+	android:clipChildren="false">
 
-	<Button
-		android:id="@+id/btn_get_started"
+	<View
+		android:id="@+id/blue_fill"
+		android:layout_width="match_parent"
+		android:layout_height="1px"
+		android:layout_gravity="top"
+		android:transformPivotY="0px"
+		android:background="#50D5ED"/>
+
+	<FrameLayout
+		android:id="@+id/art_container"
+		android:layout_width="450dp"
+		android:layout_height="631dp"
+		android:layout_marginTop="40dp"
+		android:layout_gravity="center">
+		
+		<ImageView
+			android:id="@+id/art_clouds"
+			android:layout_width="450dp"
+			android:layout_height="589dp"
+			android:layout_gravity="bottom|center_horizontal"
+			android:src="@drawable/splash_art_layer0"/>
+		
+		<ImageView
+			android:id="@+id/art_right_hill"
+			android:layout_width="218dp"
+			android:layout_height="255dp"
+			android:layout_gravity="bottom|right"
+			android:layout_marginBottom="156dp"
+			android:layout_marginRight="11dp"
+			android:src="@drawable/splash_art_layer1"/>
+
+		<ImageView
+			android:id="@+id/art_left_hill"
+			android:layout_width="285dp"
+			android:layout_height="222dp"
+			android:layout_gravity="bottom|left"
+			android:layout_marginLeft="-6dp"
+			android:layout_marginBottom="243dp"
+			android:src="@drawable/splash_art_layer2"/>
+
+		<ImageView
+			android:id="@+id/art_center_hill"
+			android:layout_width="457dp"
+			android:layout_height="397dp"
+			android:layout_gravity="bottom|center_horizontal"
+			android:layout_marginBottom="51dp"
+			android:src="@drawable/splash_art_layer3"/>
+
+		<ImageView
+			android:id="@+id/art_plane_elephant"
+			android:layout_width="355dp"
+			android:layout_height="105dp"
+			android:layout_gravity="left|top"
+			android:src="@drawable/splash_art_layer4"/>
+		
+	</FrameLayout>
+
+	<View
+		android:id="@+id/green_fill"
+		android:layout_width="match_parent"
+		android:layout_height="1px"
+		android:layout_gravity="bottom"
+		android:transformPivotY="1px"
+		android:background="#478E6A"/>
+
+	<ImageView
+		android:layout_width="261dp"
+		android:layout_height="67dp"
+		android:layout_gravity="center_horizontal|top"
+		android:layout_marginTop="24dp"
+		android:src="@drawable/splash_logo"/>
+
+	<LinearLayout
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:text="@string/get_started"/>
-	<Button
-		android:id="@+id/btn_log_in"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:text="@string/log_in"/>
+		android:layout_gravity="bottom"
+		android:padding="16dp"
+		android:clipToPadding="false"
+		android:orientation="vertical">
+		<Button
+			android:id="@+id/btn_get_started"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginBottom="13dp"
+			style="@style/Widget.Mastodon.Button.Large.Primary_LightOnDark"
+			android:text="@string/get_started"/>
+		<Button
+			android:id="@+id/btn_log_in"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			style="@style/Widget.Mastodon.Button.Large.Primary_DarkOnLight"
+			android:background="@drawable/bg_button_green"
+			android:text="@string/log_in"/>
+	</LinearLayout>
 
-</LinearLayout>
+</org.joinmastodon.android.ui.views.SizeListenerFrameLayout>

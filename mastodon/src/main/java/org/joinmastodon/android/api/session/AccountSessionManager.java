@@ -1,5 +1,6 @@
 package org.joinmastodon.android.api.session;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -36,10 +37,12 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.StringRes;
 import androidx.browser.customtabs.CustomTabsIntent;
 import me.grishka.appkit.api.Callback;
 import me.grishka.appkit.api.ErrorResponse;
@@ -84,8 +87,8 @@ public class AccountSessionManager{
 		MastodonAPIController.runInBackground(()->readCustomEmojis(domains));
 	}
 
-	public void addAccount(Instance instance, Token token, Account self, Application app){
-		AccountSession session=new AccountSession(token, self, app, instance.uri, instance.maxTootChars, instance);
+	public void addAccount(Instance instance, Token token, Account self, Application app, boolean active){
+		AccountSession session=new AccountSession(token, self, app, instance.uri, instance.maxTootChars, instance, active);
 		sessions.put(session.getID(), session);
 		lastActiveAccountID=session.getID();
 		writeAccountsFile();
@@ -159,18 +162,13 @@ public class AccountSessionManager{
 		return unauthenticatedApiController;
 	}
 
-	public void authenticate(Context context, Instance instance){
+	public void authenticate(Activity activity, Instance instance){
 		authenticatingInstance=instance;
-		ProgressDialog progress=new ProgressDialog(context);
-		progress.setMessage(context.getString(R.string.preparing_auth));
-		progress.setCancelable(false);
-		progress.show();
 		new CreateOAuthApp()
-				.setCallback(new Callback<Application>(){
+				.setCallback(new Callback<>(){
 					@Override
 					public void onSuccess(Application result){
 						authenticatingApp=result;
-						progress.dismiss();
 						Uri uri=new Uri.Builder()
 								.scheme("https")
 								.authority(instance.uri)
@@ -184,15 +182,15 @@ public class AccountSessionManager{
 						new CustomTabsIntent.Builder()
 								.setShareState(CustomTabsIntent.SHARE_STATE_OFF)
 								.build()
-								.launchUrl(context, uri);
+								.launchUrl(activity, uri);
 					}
 
 					@Override
 					public void onError(ErrorResponse error){
-						error.showToast(context);
-						progress.dismiss();
+						error.showToast(activity);
 					}
 				})
+				.wrapProgress(activity, R.string.preparing_auth, false)
 				.execNoAuth(instance.uri);
 	}
 

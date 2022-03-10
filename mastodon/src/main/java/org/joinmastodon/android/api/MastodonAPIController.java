@@ -8,6 +8,7 @@ import android.util.Log;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonIOException;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
@@ -119,10 +120,19 @@ public class MastodonAPIController{
 							if(response.isSuccessful()){
 								T respObj;
 								try{
-									if(req.respTypeToken!=null)
-										respObj=gson.fromJson(reader, req.respTypeToken.getType());
-									else
-										respObj=gson.fromJson(reader, req.respClass);
+									if(BuildConfig.DEBUG){
+										JsonElement respJson=JsonParser.parseReader(reader);
+										Log.d(TAG, "["+(session==null ? "no-auth" : session.getID())+"] response body: "+respJson);
+										if(req.respTypeToken!=null)
+											respObj=gson.fromJson(respJson, req.respTypeToken.getType());
+										else
+											respObj=gson.fromJson(respJson, req.respClass);
+									}else{
+										if(req.respTypeToken!=null)
+											respObj=gson.fromJson(reader, req.respTypeToken.getType());
+										else
+											respObj=gson.fromJson(reader, req.respClass);
+									}
 								}catch(JsonIOException|JsonSyntaxException x){
 									if(BuildConfig.DEBUG)
 										Log.w(TAG, "["+(session==null ? "no-auth" : session.getID())+"] "+response+" error parsing or reading body", x);
@@ -146,6 +156,7 @@ public class MastodonAPIController{
 							}else{
 								try{
 									JsonObject error=JsonParser.parseReader(reader).getAsJsonObject();
+									Log.w(TAG, "["+(session==null ? "no-auth" : session.getID())+"] "+response+" received error: "+error);
 									req.onError(error.get("error").getAsString());
 								}catch(JsonIOException|JsonSyntaxException x){
 									req.onError(response.code()+" "+response.message());

@@ -44,7 +44,8 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration{
 			View child=parent.getChildAt(i);
 			int pos=parent.getChildAdapterPosition(child);
 			if(pos<totalItems-1 && (drawDividerPredicate==null || drawDividerPredicate.test(parent.getChildViewHolder(child)))){
-				float y=Math.round(child.getY()+child.getHeight()-paint.getStrokeWidth()/2f);
+				float y=Math.round(child.getY()+child.getHeight());
+				y-=(y-paint.getStrokeWidth()/2f)%1f; // Make sure the line aligns with the pixel grid
 				paint.setAlpha(Math.round(255f*child.getAlpha()));
 				c.drawLine(padLeft+child.getX(), y, child.getX()+child.getWidth()-padRight, y, paint);
 			}

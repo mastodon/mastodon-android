@@ -3,24 +3,31 @@
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="wrap_content"
-	android:padding="8dp">
+	android:padding="16dp">
 
 	<RadioButton
 		android:id="@+id/radiobtn"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_marginRight="8dp"
+		android:layout_width="24dp"
+		android:layout_height="24dp"
+		android:layout_marginEnd="16dp"
 		android:layout_centerVertical="true"
 		android:layout_alignParentStart="true"
+		android:button="@drawable/ic_round_checkbox"
+		android:buttonTint="?android:textColorSecondary"
+		android:background="@null"
 		android:clickable="false"/>
 
 	<TextView
 		android:id="@+id/title"
 		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
+		android:layout_height="24dp"
 		android:layout_toEndOf="@id/radiobtn"
 		android:layout_alignParentTop="true"
-		android:textStyle="bold"
+		android:layout_marginBottom="4dp"
+		android:textAppearance="@style/m3_title_medium"
+		android:singleLine="true"
+		android:ellipsize="end"
+		android:gravity="center_vertical"
 		tools:text="mastodon.social"/>
 
 	<TextView
@@ -29,6 +36,9 @@
 		android:layout_height="wrap_content"
 		android:layout_toEndOf="@id/radiobtn"
 		android:layout_below="@id/title"
+		android:layout_marginBottom="8dp"
+		android:textAppearance="@style/m3_body_medium"
+		android:textColor="?android:textColorSecondary"
 		tools:text="General-purpose server run by the lead developer of Mastodon"/>
 
 	<TextView
@@ -37,6 +47,11 @@
 		android:layout_height="wrap_content"
 		android:layout_toEndOf="@id/radiobtn"
 		android:layout_below="@id/description"
+		android:textAppearance="@style/m3_label_medium"
+		android:textColor="?android:textColorSecondary"
+		android:drawableStart="@drawable/ic_fluent_people_community_16_regular"
+		android:drawableTint="?android:textColorSecondary"
+		android:drawablePadding="8dp"
 		tools:text="588.8K"/>
 
 	<TextView
@@ -45,7 +60,12 @@
 		android:layout_height="wrap_content"
 		android:layout_toEndOf="@id/user_count"
 		android:layout_below="@id/description"
-		android:layout_marginStart="8dp"
+		android:layout_marginStart="24dp"
+		android:textAppearance="@style/m3_label_medium"
+		android:textColor="?android:textColorSecondary"
+		android:drawableStart="@drawable/ic_fluent_local_language_16_regular"
+		android:drawableTint="?android:textColorSecondary"
+		android:drawablePadding="8dp"
 		tools:text="EN"/>
 
 </RelativeLayout>

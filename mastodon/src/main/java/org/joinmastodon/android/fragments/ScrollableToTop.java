@@ -1,5 +1,5 @@
 package org.joinmastodon.android.fragments;
 
-/*package*/ interface ScrollableToTop{
+public interface ScrollableToTop{
 	void scrollToTop();
 }

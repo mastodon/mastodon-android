@@ -1,11 +1,14 @@
 package org.joinmastodon.android;
 
 import android.app.Application;
+import android.app.Fragment;
 import android.os.Bundle;
 
+import org.joinmastodon.android.api.session.AccountSession;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.fragments.HomeFragment;
 import org.joinmastodon.android.fragments.SplashFragment;
+import org.joinmastodon.android.fragments.onboarding.AccountActivationFragment;
 
 import java.lang.reflect.InvocationTargetException;
 
@@ -22,9 +25,10 @@ public class MainActivity extends FragmentStackActivity{
 				showFragmentClearingBackStack(new SplashFragment());
 			}else{
 				AccountSessionManager.getInstance().maybeUpdateLocalInfo();
+				AccountSession session=AccountSessionManager.getInstance().getLastActiveAccount();
 				Bundle args=new Bundle();
-				args.putString("account", AccountSessionManager.getInstance().getLastActiveAccountID());
-				HomeFragment fragment=new HomeFragment();
+				args.putString("account", session.getID());
+				Fragment fragment=session.activated ? new HomeFragment() : new AccountActivationFragment();
 				fragment.setArguments(args);
 				showFragmentClearingBackStack(fragment);
 			}

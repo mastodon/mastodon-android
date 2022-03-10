@@ -1,9 +1,9 @@
-package org.joinmastodon.android.fragments;
+package org.joinmastodon.android.fragments.onboarding;
 
 import android.app.Activity;
+import android.graphics.Rect;
 import android.os.Build;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,74 +12,54 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import org.joinmastodon.android.E;
 import org.joinmastodon.android.R;
-import org.joinmastodon.android.model.Account;
-import org.joinmastodon.android.model.Status;
+import org.joinmastodon.android.model.Instance;
 import org.joinmastodon.android.ui.DividerItemDecoration;
 import org.joinmastodon.android.ui.utils.UiUtils;
 import org.parceler.Parcels;
 
-import java.util.ArrayList;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import me.grishka.appkit.fragments.ToolbarFragment;
+import me.grishka.appkit.Nav;
+import me.grishka.appkit.fragments.AppKitFragment;
 import me.grishka.appkit.utils.BindableViewHolder;
 import me.grishka.appkit.utils.MergeRecyclerAdapter;
 import me.grishka.appkit.utils.SingleViewRecyclerAdapter;
 import me.grishka.appkit.utils.V;
 import me.grishka.appkit.views.UsableRecyclerView;
 
-public abstract class BaseReportChoiceFragment extends ToolbarFragment{
+public class InstanceRulesFragment extends AppKitFragment{
 	private UsableRecyclerView list;
 	private MergeRecyclerAdapter adapter;
 	private Button btn;
 	private View buttonBar;
-	protected ArrayList<Item> items=new ArrayList<>();
-	protected boolean isMultipleChoice;
-	protected ArrayList<String> selectedIDs=new ArrayList<>();
-	protected String accountID;
-	protected Account reportAccount;
-	protected Status reportStatus;
+	private Instance instance;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		setRetainInstance(true);
-		E.register(this);
-	}
-
-	@Override
-	public void onDestroy(){
-		E.unregister(this);
-		super.onDestroy();
 	}
 
 	@Override
 	public void onAttach(Activity activity){
 		super.onAttach(activity);
 		setNavigationBarColor(UiUtils.getThemeColor(activity, R.attr.colorWindowBackground));
-		accountID=getArguments().getString("account");
-		reportAccount=Parcels.unwrap(getArguments().getParcelable("reportAccount"));
-		reportStatus=Parcels.unwrap(getArguments().getParcelable("status"));
-		setTitle(getString(R.string.report_title, reportAccount.acct));
+		instance=Parcels.unwrap(getArguments().getParcelable("instance"));
 	}
 
 	@Override
-	public View onCreateContentView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-		View view=inflater.inflate(R.layout.fragment_report_choice, container, false);
+	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+		View view=inflater.inflate(R.layout.fragment_onboarding_rules, container, false);
 
 		list=view.findViewById(R.id.list);
 		list.setLayoutManager(new LinearLayoutManager(getActivity()));
-		populateItems();
-		Item header=getHeaderItem();
 		View headerView=inflater.inflate(R.layout.item_list_header, list, false);
 		TextView title=headerView.findViewById(R.id.title);
 		TextView subtitle=headerView.findViewById(R.id.subtitle);
-		title.setText(header.title);
-		subtitle.setText(header.subtitle);
+		title.setText(R.string.instance_rules_title);
+		subtitle.setText(getString(R.string.instance_rules_subtitle, instance.uri));
 
 		adapter=new MergeRecyclerAdapter();
 		adapter.addAdapter(new SingleViewRecyclerAdapter(headerView));
@@ -88,16 +68,24 @@ public abstract class BaseReportChoiceFragment extends ToolbarFragment{
 		list.addItemDecoration(new DividerItemDecoration(getActivity(), R.attr.colorPollVoted, 1, 16, 16, DividerItemDecoration.NOT_FIRST));
 
 		btn=view.findViewById(R.id.btn_next);
-		btn.setEnabled(!selectedIDs.isEmpty());
 		btn.setOnClickListener(v->onButtonClick());
 		buttonBar=view.findViewById(R.id.button_bar);
+		view.findViewById(R.id.btn_back).setOnClickListener(v->Nav.finish(this));
 
 		return view;
 	}
 
-	protected abstract Item getHeaderItem();
-	protected abstract void populateItems();
-	protected abstract void onButtonClick();
+	@Override
+	public void onViewCreated(View view, Bundle savedInstanceState){
+		super.onViewCreated(view, savedInstanceState);
+		setStatusBarColor(UiUtils.getThemeColor(getActivity(), R.attr.colorBackgroundLight));
+	}
+
+	protected void onButtonClick(){
+		Bundle args=new Bundle();
+		args.putParcelable("instance", Parcels.wrap(instance));
+		Nav.go(getActivity(), SignupFragment.class, args);
+	}
 
 	@Override
 	public void onApplyWindowInsets(WindowInsets insets){
@@ -107,16 +95,6 @@ public abstract class BaseReportChoiceFragment extends ToolbarFragment{
 			super.onApplyWindowInsets(insets.replaceSystemWindowInsets(insets.getSystemWindowInsetLeft(), insets.getSystemWindowInsetTop(), insets.getSystemWindowInsetRight(), 0));
 		}else{
 			super.onApplyWindowInsets(insets.replaceSystemWindowInsets(insets.getSystemWindowInsetLeft(), insets.getSystemWindowInsetTop(), insets.getSystemWindowInsetRight(), insets.getSystemWindowInsetBottom()));
-		}
-	}
-
-	protected static class Item{
-		public String title, subtitle, id;
-
-		public Item(String title, String subtitle, String id){
-			this.title=title;
-			this.subtitle=subtitle;
-			this.id=id;
 		}
 	}
 
@@ -130,16 +108,16 @@ public abstract class BaseReportChoiceFragment extends ToolbarFragment{
 
 		@Override
 		public void onBindViewHolder(@NonNull ItemViewHolder holder, int position){
-			holder.bind(items.get(position));
+			holder.bind(instance.rules.get(position));
 		}
 
 		@Override
 		public int getItemCount(){
-			return items.size();
+			return instance.rules.size();
 		}
 	}
 
-	private class ItemViewHolder extends BindableViewHolder<Item> implements UsableRecyclerView.Clickable{
+	private class ItemViewHolder extends BindableViewHolder<Instance.Rule>{
 		private final TextView title, subtitle;
 		private final ImageView checkbox;
 
@@ -148,45 +126,12 @@ public abstract class BaseReportChoiceFragment extends ToolbarFragment{
 			title=findViewById(R.id.title);
 			subtitle=findViewById(R.id.subtitle);
 			checkbox=findViewById(R.id.checkbox);
+			subtitle.setVisibility(View.GONE);
 		}
 
 		@Override
-		public void onBind(Item item){
-			title.setText(item.title);
-			if(TextUtils.isEmpty(item.subtitle)){
-				subtitle.setVisibility(View.GONE);
-			}else{
-				subtitle.setVisibility(View.VISIBLE);
-				subtitle.setText(item.subtitle);
-			}
-			checkbox.setSelected(selectedIDs.contains(item.id));
-		}
-
-		@Override
-		public void onClick(){
-			if(isMultipleChoice){
-				if(selectedIDs.contains(item.id))
-					selectedIDs.remove(item.id);
-				else
-					selectedIDs.add(item.id);
-				rebind();
-			}else{
-				if(!selectedIDs.contains(item.id)){
-					if(!selectedIDs.isEmpty()){
-						String prev=selectedIDs.remove(0);
-						for(int i=0;i<list.getChildCount();i++){
-							RecyclerView.ViewHolder holder=list.getChildViewHolder(list.getChildAt(i));
-							if(holder instanceof ItemViewHolder && ((ItemViewHolder) holder).getItem().id.equals(prev)){
-								((ItemViewHolder) holder).rebind();
-								break;
-							}
-						}
-					}
-					selectedIDs.add(item.id);
-					rebind();
-				}
-			}
-			btn.setEnabled(!selectedIDs.isEmpty());
+		public void onBind(Instance.Rule item){
+			title.setText(item.text);
 		}
 	}
 }

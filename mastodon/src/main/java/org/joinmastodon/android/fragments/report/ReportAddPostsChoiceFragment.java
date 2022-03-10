@@ -1,4 +1,4 @@
-package org.joinmastodon.android.fragments;
+package org.joinmastodon.android.fragments.report;
 
 import android.app.Activity;
 import android.graphics.Canvas;
@@ -15,10 +15,10 @@ import android.widget.TextView;
 
 import com.squareup.otto.Subscribe;
 
-import org.joinmastodon.android.E;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.requests.accounts.GetAccountStatuses;
 import org.joinmastodon.android.events.FinishReportFragmentsEvent;
+import org.joinmastodon.android.fragments.StatusListFragment;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.displayitems.AudioStatusDisplayItem;
@@ -33,7 +33,6 @@ import org.parceler.Parcels;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;

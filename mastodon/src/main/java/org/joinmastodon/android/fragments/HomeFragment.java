@@ -17,6 +17,7 @@ import android.widget.LinearLayout;
 import org.joinmastodon.android.MastodonApp;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.session.AccountSessionManager;
+import org.joinmastodon.android.fragments.discover.DiscoverFragment;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.ui.views.TabBar;
 import org.parceler.Parcels;

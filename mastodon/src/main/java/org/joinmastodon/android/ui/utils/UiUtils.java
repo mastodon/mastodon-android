@@ -13,6 +13,7 @@ import android.os.Looper;
 import android.provider.OpenableColumns;
 import android.text.Spanned;
 import android.view.View;
+import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -33,6 +34,7 @@ import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.M3AlertDialogBuilder;
 import org.joinmastodon.android.ui.text.CustomEmojiSpan;
 
+import java.io.File;
 import java.time.Instant;
 import java.util.Arrays;
 import java.util.List;
@@ -49,6 +51,7 @@ import me.grishka.appkit.api.ErrorResponse;
 import me.grishka.appkit.imageloader.ViewImageLoader;
 import me.grishka.appkit.imageloader.requests.UrlImageLoaderRequest;
 import me.grishka.appkit.utils.V;
+import okhttp3.MediaType;
 
 public class UiUtils{
 	private static Handler mainHandler=new Handler(Looper.getMainLooper());
@@ -141,6 +144,11 @@ public class UiUtils{
 				return name;
 		}
 		return uri.getLastPathSegment();
+	}
+
+	public static MediaType getFileMediaType(File file){
+		String name=file.getName();
+		return MediaType.parse(MimeTypeMap.getSingleton().getMimeTypeFromExtension(name.substring(name.lastIndexOf('.')+1)));
 	}
 
 	public static void loadCustomEmojiInTextView(TextView view){

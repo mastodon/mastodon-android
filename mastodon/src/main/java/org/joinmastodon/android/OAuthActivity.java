@@ -54,7 +54,7 @@ public class OAuthActivity extends Activity{
 		progress.setMessage(getString(R.string.finishing_auth));
 		progress.setCancelable(false);
 		progress.show();
-		new GetOauthToken(app.clientId, app.clientSecret, code)
+		new GetOauthToken(app.clientId, app.clientSecret, code, GetOauthToken.GrantType.AUTHORIZATION_CODE)
 				.setCallback(new Callback<>(){
 					@Override
 					public void onSuccess(Token token){
@@ -62,7 +62,7 @@ public class OAuthActivity extends Activity{
 								.setCallback(new Callback<>(){
 									@Override
 									public void onSuccess(Account account){
-										AccountSessionManager.getInstance().addAccount(instance, token, account, app);
+										AccountSessionManager.getInstance().addAccount(instance, token, account, app, true);
 										progress.dismiss();
 										finish();
 										// not calling restartMainActivity() here on purpose to have it recreated (notice different flags)

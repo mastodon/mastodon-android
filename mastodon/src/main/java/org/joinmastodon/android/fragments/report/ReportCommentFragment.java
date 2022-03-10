@@ -1,4 +1,4 @@
-package org.joinmastodon.android.fragments;
+package org.joinmastodon.android.fragments.report;
 
 import android.app.Activity;
 import android.os.Build;

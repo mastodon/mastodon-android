@@ -2,8 +2,6 @@ package org.joinmastodon.android.ui.views;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.util.Log;
-import android.view.View;
 import android.widget.LinearLayout;
 
 import androidx.annotation.Nullable;
@@ -32,13 +30,6 @@ public class SizeListenerLinearLayout extends LinearLayout{
 	public void setSizeListener(OnSizeChangedListener sizeListener){
 		this.sizeListener=sizeListener;
 	}
-//
-//	@Override
-//	public View findFocus(){
-//		View v=super.findFocus();
-//		Log.w("11", "findFocus() "+v);
-//		return v;
-//	}
 
 	@FunctionalInterface
 	public interface OnSizeChangedListener{
