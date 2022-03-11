@@ -78,24 +78,9 @@ public class NotificationsListFragment extends BaseStatusListFragment<Notificati
 
 	@Override
 	protected void doLoadData(int offset, int count){
-//		new GetNotifications(offset>0 ? getMaxID() : null, count, types)
-//				.setCallback(new SimpleCallback<>(this){
-//					@Override
-//					public void onSuccess(List<Notification> result){
-//						if(refreshing)
-//							relationships.clear();
-//						onDataLoaded(result, !result.isEmpty());
-//						Set<String> needRelationships=result.stream()
-//								.filter(ntf->ntf.status==null && !relationships.containsKey(ntf.account.id))
-//								.map(ntf->ntf.account.id)
-//								.collect(Collectors.toSet());
-//						loadRelationships(needRelationships);
-//					}
-//				})
-//				.exec(accountID);
 		AccountSessionManager.getInstance()
 				.getAccount(accountID).getCacheController()
-				.getNotifications(offset>0 ? getMaxID() : null, count, onlyMentions, new SimpleCallback<>(this){
+				.getNotifications(offset>0 ? getMaxID() : null, count, onlyMentions, refreshing, new SimpleCallback<>(this){
 					@Override
 					public void onSuccess(List<Notification> result){
 						if(refreshing)

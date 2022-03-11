@@ -45,25 +45,27 @@ public class CacheController{
 		this.accountID=accountID;
 	}
 
-	public void getHomeTimeline(String maxID, int count, Callback<List<Status>> callback){
+	public void getHomeTimeline(String maxID, int count, boolean forceReload, Callback<List<Status>> callback){
 		cancelDelayedClose();
 		databaseThread.postRunnable(()->{
 			try{
-				SQLiteDatabase db=getOrOpenDatabase();
-				try(Cursor cursor=db.query("home_timeline", new String[]{"json"}, maxID==null ? null : "`id`<?", maxID==null ? null : new String[]{maxID}, null, null, "`id` DESC", count+"")){
-					if(cursor.getCount()==count){
-						ArrayList<Status> result=new ArrayList<>();
-						cursor.moveToFirst();
-						do{
-							Status status=MastodonAPIController.gson.fromJson(cursor.getString(0), Status.class);
-							status.postprocess();
-							result.add(status);
-						}while(cursor.moveToNext());
-						uiHandler.post(()->callback.onSuccess(result));
-						return;
+				if(!forceReload){
+					SQLiteDatabase db=getOrOpenDatabase();
+					try(Cursor cursor=db.query("home_timeline", new String[]{"json"}, maxID==null ? null : "`id`<?", maxID==null ? null : new String[]{maxID}, null, null, "`id` DESC", count+"")){
+						if(cursor.getCount()==count){
+							ArrayList<Status> result=new ArrayList<>();
+							cursor.moveToFirst();
+							do{
+								Status status=MastodonAPIController.gson.fromJson(cursor.getString(0), Status.class);
+								status.postprocess();
+								result.add(status);
+							}while(cursor.moveToNext());
+							uiHandler.post(()->callback.onSuccess(result));
+							return;
+						}
+					}catch(IOException x){
+						Log.w(TAG, "getHomeTimeline: corrupted status object in database", x);
 					}
-				}catch(IOException x){
-					Log.w(TAG, "getHomeTimeline: corrupted status object in database", x);
 				}
 				new GetHomeTimeline(maxID, null, count)
 						.setCallback(new Callback<>(){
@@ -109,25 +111,27 @@ public class CacheController{
 		}, 0);
 	}
 
-	public void getNotifications(String maxID, int count, boolean onlyMentions, Callback<List<Notification>> callback){
+	public void getNotifications(String maxID, int count, boolean onlyMentions, boolean forceReload, Callback<List<Notification>> callback){
 		cancelDelayedClose();
 		databaseThread.postRunnable(()->{
 			try{
-				SQLiteDatabase db=getOrOpenDatabase();
-				try(Cursor cursor=db.query(onlyMentions ? "notifications_mentions" : "notifications_all", new String[]{"json"}, maxID==null ? null : "`id`<?", maxID==null ? null : new String[]{maxID}, null, null, "`id` DESC", count+"")){
-					if(cursor.getCount()==count){
-						ArrayList<Notification> result=new ArrayList<>();
-						cursor.moveToFirst();
-						do{
-							Notification ntf=MastodonAPIController.gson.fromJson(cursor.getString(0), Notification.class);
-							ntf.postprocess();
-							result.add(ntf);
-						}while(cursor.moveToNext());
-						uiHandler.post(()->callback.onSuccess(result));
-						return;
+				if(!forceReload){
+					SQLiteDatabase db=getOrOpenDatabase();
+					try(Cursor cursor=db.query(onlyMentions ? "notifications_mentions" : "notifications_all", new String[]{"json"}, maxID==null ? null : "`id`<?", maxID==null ? null : new String[]{maxID}, null, null, "`id` DESC", count+"")){
+						if(cursor.getCount()==count){
+							ArrayList<Notification> result=new ArrayList<>();
+							cursor.moveToFirst();
+							do{
+								Notification ntf=MastodonAPIController.gson.fromJson(cursor.getString(0), Notification.class);
+								ntf.postprocess();
+								result.add(ntf);
+							}while(cursor.moveToNext());
+							uiHandler.post(()->callback.onSuccess(result));
+							return;
+						}
+					}catch(IOException x){
+						Log.w(TAG, "getNotifications: corrupted notification object in database", x);
 					}
-				}catch(IOException x){
-					Log.w(TAG, "getNotifications: corrupted notification object in database", x);
 				}
 				new GetNotifications(maxID, count, onlyMentions ? EnumSet.complementOf(EnumSet.of(Notification.Type.MENTION)): null)
 						.setCallback(new Callback<>(){
