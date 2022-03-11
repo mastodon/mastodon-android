@@ -95,7 +95,7 @@ public class NotificationsListFragment extends BaseStatusListFragment<Notificati
 //				.exec(accountID);
 		AccountSessionManager.getInstance()
 				.getAccount(accountID).getCacheController()
-				.getNotifications(offset>0 ? getMaxID() : null, count, onlyMentions, new SimpleCallback<List<Notification>>(this){
+				.getNotifications(offset>0 ? getMaxID() : null, count, onlyMentions, new SimpleCallback<>(this){
 					@Override
 					public void onSuccess(List<Notification> result){
 						if(refreshing)

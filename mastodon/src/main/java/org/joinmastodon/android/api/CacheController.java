@@ -50,7 +50,7 @@ public class CacheController{
 		databaseThread.postRunnable(()->{
 			try{
 				SQLiteDatabase db=getOrOpenDatabase();
-				try(Cursor cursor=db.query("home_timeline", new String[]{"json"}, maxID==null ? null : "`id`>?", maxID==null ? null : new String[]{maxID}, null, null, "`id` DESC", count+"")){
+				try(Cursor cursor=db.query("home_timeline", new String[]{"json"}, maxID==null ? null : "`id`<?", maxID==null ? null : new String[]{maxID}, null, null, "`id` DESC", count+"")){
 					if(cursor.getCount()==count){
 						ArrayList<Status> result=new ArrayList<>();
 						cursor.moveToFirst();
@@ -114,7 +114,7 @@ public class CacheController{
 		databaseThread.postRunnable(()->{
 			try{
 				SQLiteDatabase db=getOrOpenDatabase();
-				try(Cursor cursor=db.query(onlyMentions ? "notifications_mentions" : "notifications_all", new String[]{"json"}, maxID==null ? null : "`id`>?", maxID==null ? null : new String[]{maxID}, null, null, "`id` DESC", count+"")){
+				try(Cursor cursor=db.query(onlyMentions ? "notifications_mentions" : "notifications_all", new String[]{"json"}, maxID==null ? null : "`id`<?", maxID==null ? null : new String[]{maxID}, null, null, "`id` DESC", count+"")){
 					if(cursor.getCount()==count){
 						ArrayList<Notification> result=new ArrayList<>();
 						cursor.moveToFirst();
