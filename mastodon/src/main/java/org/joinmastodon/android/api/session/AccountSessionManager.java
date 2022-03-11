@@ -143,6 +143,8 @@ public class AccountSessionManager{
 
 	public void removeAccount(String id){
 		AccountSession session=getAccount(id);
+		session.getCacheController().closeDatabase();
+		MastodonApp.context.deleteDatabase(id+".db");
 		sessions.remove(id);
 		if(lastActiveAccountID.equals(id)){
 			if(sessions.isEmpty())

@@ -1,5 +1,6 @@
 package org.joinmastodon.android.api.session;
 
+import org.joinmastodon.android.api.CacheController;
 import org.joinmastodon.android.api.MastodonAPIController;
 import org.joinmastodon.android.api.StatusInteractionController;
 import org.joinmastodon.android.model.Account;
@@ -19,6 +20,7 @@ public class AccountSession{
 	public boolean activated=true;
 	private transient MastodonAPIController apiController;
 	private transient StatusInteractionController statusInteractionController;
+	private transient CacheController cacheController;
 
 	AccountSession(Token token, Account self, Application app, String domain, int tootCharLimit, Instance instance, boolean activated){
 		this.token=token;
@@ -47,5 +49,11 @@ public class AccountSession{
 		if(statusInteractionController==null)
 			statusInteractionController=new StatusInteractionController(getID());
 		return statusInteractionController;
+	}
+
+	public CacheController getCacheController(){
+		if(cacheController==null)
+			cacheController=new CacheController(getID());
+		return cacheController;
 	}
 }

@@ -10,6 +10,7 @@ import android.view.View;
 
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.requests.notifications.GetNotifications;
+import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.model.Notification;
 import org.joinmastodon.android.model.Poll;
 import org.joinmastodon.android.model.Status;
@@ -36,15 +37,13 @@ import me.grishka.appkit.api.SimpleCallback;
 import me.grishka.appkit.utils.V;
 
 public class NotificationsListFragment extends BaseStatusListFragment<Notification>{
-	private EnumSet<Notification.Type> types;
+	private boolean onlyMentions;
 
 	@Override
 	public void onAttach(Activity activity){
 		super.onAttach(activity);
 		setTitle(R.string.notifications);
-		if(getArguments().getBoolean("onlyMentions", false)){
-			types=EnumSet.complementOf(EnumSet.of(Notification.Type.MENTION));
-		}
+		onlyMentions=getArguments().getBoolean("onlyMentions", false);
 	}
 
 	@Override
@@ -79,8 +78,24 @@ public class NotificationsListFragment extends BaseStatusListFragment<Notificati
 
 	@Override
 	protected void doLoadData(int offset, int count){
-		new GetNotifications(offset>0 ? getMaxID() : null, count, types)
-				.setCallback(new SimpleCallback<>(this){
+//		new GetNotifications(offset>0 ? getMaxID() : null, count, types)
+//				.setCallback(new SimpleCallback<>(this){
+//					@Override
+//					public void onSuccess(List<Notification> result){
+//						if(refreshing)
+//							relationships.clear();
+//						onDataLoaded(result, !result.isEmpty());
+//						Set<String> needRelationships=result.stream()
+//								.filter(ntf->ntf.status==null && !relationships.containsKey(ntf.account.id))
+//								.map(ntf->ntf.account.id)
+//								.collect(Collectors.toSet());
+//						loadRelationships(needRelationships);
+//					}
+//				})
+//				.exec(accountID);
+		AccountSessionManager.getInstance()
+				.getAccount(accountID).getCacheController()
+				.getNotifications(offset>0 ? getMaxID() : null, count, onlyMentions, new SimpleCallback<List<Notification>>(this){
 					@Override
 					public void onSuccess(List<Notification> result){
 						if(refreshing)
@@ -92,8 +107,7 @@ public class NotificationsListFragment extends BaseStatusListFragment<Notificati
 								.collect(Collectors.toSet());
 						loadRelationships(needRelationships);
 					}
-				})
-				.exec(accountID);
+				});
 	}
 
 	@Override

@@ -58,14 +58,22 @@ public class HomeTimelineFragment extends StatusListFragment{
 
 	@Override
 	protected void doLoadData(int offset, int count){
-		currentRequest=new GetHomeTimeline(offset>0 ? getMaxID() : null, null, count)
-				.setCallback(new SimpleCallback<>(this){
+//		currentRequest=new GetHomeTimeline(offset>0 ? getMaxID() : null, null, count)
+//				.setCallback(new SimpleCallback<>(this){
+//					@Override
+//					public void onSuccess(List<Status> result){
+//						onDataLoaded(result, !result.isEmpty());
+//					}
+//				})
+//				.exec(accountID);
+		AccountSessionManager.getInstance()
+				.getAccount(accountID).getCacheController()
+				.getHomeTimeline(offset>0 ? getMaxID() : null, count, new SimpleCallback<>(this){
 					@Override
 					public void onSuccess(List<Status> result){
 						onDataLoaded(result, !result.isEmpty());
 					}
-				})
-				.exec(accountID);
+				});
 	}
 
 	@Override
