@@ -284,8 +284,12 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 		if(replyTo!=null){
 			replyText.setText(getString(R.string.in_reply_to, replyTo.account.displayName));
 			ArrayList<String> mentions=new ArrayList<>();
-			mentions.add('@'+replyTo.account.acct);
-			for(Mention mention : replyTo.mentions){
+			String ownID=AccountSessionManager.getInstance().getAccount(accountID).self.id;
+			if(!replyTo.account.id.equals(ownID))
+				mentions.add('@'+replyTo.account.acct);
+			for(Mention mention:replyTo.mentions){
+				if(mention.id.equals(ownID))
+					continue;
 				String m='@'+mention.acct;
 				if(!mentions.contains(m))
 					mentions.add(m);

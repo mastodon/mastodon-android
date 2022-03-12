@@ -24,7 +24,7 @@
 		<item name="colorBackgroundLightest">@color/gray_25</item>
 		<item name="colorDarkIcon">@color/gray_900</item>
 		<item name="colorWindowBackground">@color/white</item>
-		<item name="android:statusBarColor">@color/actionbar_bg</item>
+		<item name="android:statusBarColor">@color/gray_50</item>
 		<item name="android:navigationBarColor">@color/navigation_bar_bg</item>
 		<item name="android:actionBarTheme">@style/Theme.Mastodon.Toolbar</item>
 		<item name="android:alertDialogTheme">@style/Theme.Mastodon.Dialog.Alert</item>
@@ -67,8 +67,8 @@
 		<item name="colorBackgroundLightest">@color/gray_700</item>
 		<item name="colorDarkIcon">@color/gray_25</item>
 		<item name="colorWindowBackground">@color/gray_800</item>
-		<item name="android:statusBarColor">@color/actionbar_bg_dark</item>
-		<item name="android:navigationBarColor">@color/actionbar_bg_dark</item>
+		<item name="android:statusBarColor">@color/gray_800</item>
+		<item name="android:navigationBarColor">@color/gray_800</item>
 		<item name="android:actionBarTheme">@style/Theme.Mastodon.Toolbar.Dark</item>
 		<item name="android:alertDialogTheme">@style/Theme.Mastodon.Dialog.Alert.Dark</item>
 		<item name="colorPollMostVoted">@color/primary_700</item>
@@ -91,13 +91,13 @@
 	<style name="Theme.Mastodon.AutoLightDark" parent="Theme.Mastodon.Light"/>
 
 	<style name="Theme.Mastodon.Toolbar" parent="android:ThemeOverlay.Material.ActionBar">
-		<item name="android:colorPrimary">@color/actionbar_bg</item>
+		<item name="android:colorPrimary">@color/gray_50</item>
 		<item name="android:textColorPrimary">@color/gray_800</item>
 		<item name="android:textColorSecondary">@color/gray_800</item>
 	</style>
 
 	<style name="Theme.Mastodon.Toolbar.Dark" parent="android:ThemeOverlay.Material.Dark.ActionBar">
-		<item name="android:colorPrimary">@color/actionbar_bg_dark</item>
+		<item name="android:colorPrimary">@color/gray_800</item>
 		<item name="android:textColorPrimary">@color/gray_50</item>
 		<item name="android:textColorSecondary">@color/gray_50</item>
 	</style>

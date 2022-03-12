@@ -79,6 +79,7 @@
 				android:textAppearance="@style/m3_body_large"
 				android:gravity="top"
 				android:background="@null"
+				android:hint="@string/compose_hint"
 				android:inputType="textMultiLine|textCapSentences"/>
 
 			<LinearLayout

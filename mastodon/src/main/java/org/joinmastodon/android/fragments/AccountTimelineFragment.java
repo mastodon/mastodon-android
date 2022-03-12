@@ -8,12 +8,15 @@ import com.squareup.otto.Subscribe;
 
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.requests.accounts.GetAccountStatuses;
+import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.events.StatusCountersUpdatedEvent;
+import org.joinmastodon.android.events.StatusCreatedEvent;
 import org.joinmastodon.android.events.StatusDeletedEvent;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.Status;
 import org.parceler.Parcels;
 
+import java.util.Collections;
 import java.util.List;
 
 import me.grishka.appkit.api.SimpleCallback;
@@ -80,5 +83,20 @@ public class AccountTimelineFragment extends StatusListFragment{
 	@Subscribe
 	public void onStatusDeleted(StatusDeletedEvent ev){
 		super.onStatusDeleted(ev);
+	}
+
+	@Subscribe
+	public void onStatusCreated(StatusCreatedEvent ev){
+		if(!AccountSessionManager.getInstance().isSelf(accountID, ev.status.account))
+			return;
+		if(filter==GetAccountStatuses.Filter.DEFAULT){
+			// Keep replies to self, discard all other replies
+			if(ev.status.inReplyToAccountId!=null && !ev.status.inReplyToAccountId.equals(AccountSessionManager.getInstance().getAccount(accountID).self.id))
+				return;
+		}else if(filter==GetAccountStatuses.Filter.MEDIA){
+			if(ev.status.mediaAttachments.isEmpty())
+				return;
+		}
+		prependItems(Collections.singletonList(ev.status), true);
 	}
 }

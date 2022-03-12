@@ -10,6 +10,7 @@ import com.squareup.otto.Subscribe;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.requests.statuses.GetStatusContext;
 import org.joinmastodon.android.events.StatusCountersUpdatedEvent;
+import org.joinmastodon.android.events.StatusCreatedEvent;
 import org.joinmastodon.android.events.StatusDeletedEvent;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.StatusContext;
@@ -96,5 +97,12 @@ public class ThreadFragment extends StatusListFragment{
 	@Subscribe
 	public void onStatusDeleted(StatusDeletedEvent ev){
 		super.onStatusDeleted(ev);
+	}
+
+	@Subscribe
+	public void onStatusCreated(StatusCreatedEvent ev){
+		if(ev.status.inReplyToId!=null && getStatusByID(ev.status.inReplyToId)!=null){
+			onAppendItems(Collections.singletonList(ev.status));
+		}
 	}
 }
