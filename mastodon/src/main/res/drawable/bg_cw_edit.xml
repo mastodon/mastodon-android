@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+	<item>
+		<color android:color="?colorSearchField"/>
+	</item>
+	<item android:gravity="left" android:width="8dp">
+		<shape>
+			<gradient android:type="linear" android:angle="270" android:startColor="#FEC84B" android:endColor="#F79009"/>
+		</shape>
+	</item>
+	<item android:id="@+id/left_drawable" android:width="8dp" android:gravity="left">
+		<color android:color="#0f0"/>
+	</item>
+	<item android:gravity="right" android:width="8dp">
+		<shape>
+			<gradient android:type="linear" android:angle="270" android:startColor="#FEC84B" android:endColor="#F79009"/>
+		</shape>
+	</item>
+	<item android:id="@+id/right_drawable" android:width="8dp" android:gravity="right">
+		<color android:color="#0f0"/>
+	</item>
+</layer-list>

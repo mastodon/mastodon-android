@@ -16,6 +16,20 @@
 			android:layout_height="wrap_content"
 			android:orientation="vertical">
 
+			<EditText
+				android:id="@+id/content_warning"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:elevation="0dp"
+				android:hint="@string/content_warning"
+				android:inputType="textMultiLine|textCapSentences"
+				android:visibility="gone"
+				android:textColorHint="?android:textColorSecondary"
+				android:background="@drawable/bg_cw_edit"
+				android:padding="16dp"
+				android:minHeight="56dp"
+				tools:visibility="visible"/>
+
 			<TextView
 				android:id="@+id/reply_text"
 				android:layout_width="match_parent"

@@ -7,6 +7,7 @@ import android.content.ClipData;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Outline;
+import android.graphics.drawable.LayerDrawable;
 import android.icu.text.BreakIterator;
 import android.net.Uri;
 import android.os.Build;
@@ -54,6 +55,7 @@ import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.CustomEmojiPopupKeyboard;
 import org.joinmastodon.android.ui.M3AlertDialogBuilder;
 import org.joinmastodon.android.ui.PopupKeyboard;
+import org.joinmastodon.android.ui.drawables.SpoilerStripesDrawable;
 import org.joinmastodon.android.ui.text.HtmlParser;
 import org.joinmastodon.android.ui.utils.SimpleTextWatcher;
 import org.joinmastodon.android.ui.views.ReorderableLinearLayout;
@@ -132,6 +134,8 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 	private String uuid;
 	private int pollDuration=24*3600;
 	private String pollDurationStr;
+	private EditText spoilerEdit;
+	private boolean hasSpoiler;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState){
@@ -191,6 +195,7 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 		mediaBtn.setOnClickListener(v->openFilePicker());
 		pollBtn.setOnClickListener(v->togglePoll());
 		emojiBtn.setOnClickListener(v->emojiKeyboard.toggleKeyboardPopup(mainEditText));
+		spoilerBtn.setOnClickListener(v->toggleSpoiler());
 		emojiKeyboard.setOnIconChangedListener(new PopupKeyboard.OnIconChangeListener(){
 			@Override
 			public void onIconChanged(int icon){
@@ -230,6 +235,15 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 			pollDurationView.setText(getString(R.string.compose_poll_duration, pollDurationStr=getResources().getQuantityString(R.plurals.x_days, 1, 1)));
 		}
 
+		spoilerEdit=view.findViewById(R.id.content_warning);
+		LayerDrawable spoilerBg=(LayerDrawable) spoilerEdit.getBackground();
+		spoilerBg.setDrawableByLayerId(R.id.left_drawable, new SpoilerStripesDrawable());
+		spoilerBg.setDrawableByLayerId(R.id.right_drawable, new SpoilerStripesDrawable());
+		if((savedInstanceState!=null && savedInstanceState.getBoolean("hasSpoiler", false)) || hasSpoiler){
+			spoilerEdit.setVisibility(View.VISIBLE);
+			spoilerBtn.setSelected(true);
+		}
+
 		// TODO save and restore media attachments (when design is ready)
 
 		return view;
@@ -246,6 +260,7 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 			outState.putStringArrayList("pollOptions", opts);
 			outState.putInt("pollDuration", pollDuration);
 			outState.putString("pollDurationStr", pollDurationStr);
+			outState.putBoolean("hasSpoiler", hasSpoiler);
 		}
 	}
 
@@ -396,6 +411,9 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 			req.poll.expiresIn=pollDuration;
 			for(DraftPollOption opt:pollOptions)
 				req.poll.options.add(opt.edit.getText().toString());
+		}
+		if(hasSpoiler && spoilerEdit.length()>0){
+			req.spoilerText=spoilerEdit.getText().toString();
 		}
 		if(uuid==null)
 			uuid=UUID.randomUUID().toString();
@@ -646,6 +664,20 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 			return true;
 		});
 		menu.show();
+	}
+
+	private void toggleSpoiler(){
+		hasSpoiler=!hasSpoiler;
+		if(hasSpoiler){
+			spoilerEdit.setVisibility(View.VISIBLE);
+			spoilerBtn.setSelected(true);
+			spoilerEdit.requestFocus();
+		}else{
+			spoilerEdit.setVisibility(View.GONE);
+			spoilerEdit.setText("");
+			spoilerBtn.setSelected(false);
+			mainEditText.requestFocus();
+		}
 	}
 
 	private static class DraftMediaAttachment{
