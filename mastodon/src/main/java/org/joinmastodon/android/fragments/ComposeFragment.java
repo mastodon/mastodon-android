@@ -12,6 +12,7 @@ import android.icu.text.BreakIterator;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -33,6 +34,7 @@ import android.widget.LinearLayout;
 import android.widget.PopupMenu;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.twitter.twittertext.Regex;
 import com.twitter.twittertext.TwitterTextEmojiRegex;
@@ -58,8 +60,11 @@ import org.joinmastodon.android.ui.PopupKeyboard;
 import org.joinmastodon.android.ui.drawables.SpoilerStripesDrawable;
 import org.joinmastodon.android.ui.text.HtmlParser;
 import org.joinmastodon.android.ui.utils.SimpleTextWatcher;
+import org.joinmastodon.android.ui.utils.UiUtils;
+import org.joinmastodon.android.ui.views.ComposeMediaLayout;
 import org.joinmastodon.android.ui.views.ReorderableLinearLayout;
 import org.joinmastodon.android.ui.views.SizeListenerLinearLayout;
+import org.parceler.Parcel;
 import org.parceler.Parcels;
 
 import java.util.ArrayList;
@@ -80,7 +85,9 @@ import me.grishka.appkit.utils.V;
 public class ComposeFragment extends ToolbarFragment implements OnBackPressedListener{
 
 	private static final int MEDIA_RESULT=717;
+	private static final int IMAGE_DESCRIPTION_RESULT=363;
 	private static final int MAX_POLL_OPTIONS=4;
+	private static final int MAX_ATTACHMENTS=4;
 
 	private static final Pattern MENTION_PATTERN=Pattern.compile("(^|[^\\/\\w])@(([a-z0-9_]+)@[a-z0-9\\.\\-]+[a-z0-9]+)", Pattern.CASE_INSENSITIVE);
 
@@ -115,7 +122,7 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 
 	private Button publishButton;
 	private ImageButton mediaBtn, pollBtn, emojiBtn, spoilerBtn, visibilityBtn;
-	private LinearLayout attachmentsView;
+	private ComposeMediaLayout attachmentsView;
 	private TextView replyText;
 	private ReorderableLinearLayout pollOptionsView;
 	private View pollWrap;
@@ -124,7 +131,7 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 
 	private ArrayList<DraftPollOption> pollOptions=new ArrayList<>();
 
-	private ArrayList<DraftMediaAttachment> queuedAttachments=new ArrayList<>(), failedAttachments=new ArrayList<>(), attachments=new ArrayList<>();
+	private ArrayList<DraftMediaAttachment> queuedAttachments=new ArrayList<>(), failedAttachments=new ArrayList<>(), attachments=new ArrayList<>(), allAttachments=new ArrayList<>();
 	private DraftMediaAttachment uploadingAttachment;
 
 	private List<EmojiCategory> customEmojis;
@@ -244,7 +251,20 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 			spoilerBtn.setSelected(true);
 		}
 
-		// TODO save and restore media attachments (when design is ready)
+		if(savedInstanceState!=null && savedInstanceState.containsKey("attachments")){
+			ArrayList<Parcelable> serializedAttachments=savedInstanceState.getParcelableArrayList("attachments");
+			for(Parcelable a:serializedAttachments){
+				DraftMediaAttachment att=Parcels.unwrap(a);
+				attachmentsView.addView(createMediaAttachmentView(att));
+				attachments.add(att);
+			}
+			attachmentsView.setVisibility(View.VISIBLE);
+		}else if(!allAttachments.isEmpty()){
+			attachmentsView.setVisibility(View.VISIBLE);
+			for(DraftMediaAttachment att:allAttachments){
+				attachmentsView.addView(createMediaAttachmentView(att));
+			}
+		}
 
 		return view;
 	}
@@ -261,6 +281,13 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 			outState.putInt("pollDuration", pollDuration);
 			outState.putString("pollDurationStr", pollDurationStr);
 			outState.putBoolean("hasSpoiler", hasSpoiler);
+			if(!attachments.isEmpty()){
+				ArrayList<Parcelable> serializedAttachments=new ArrayList<>(attachments.size());
+				for(DraftMediaAttachment att:attachments){
+					serializedAttachments.add(Parcels.wrap(att));
+				}
+				outState.putParcelableArrayList("attachments", serializedAttachments);
+			}
 		}
 	}
 
@@ -473,6 +500,21 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 		}
 	}
 
+	@Override
+	public void onFragmentResult(int reqCode, boolean success, Bundle result){
+		if(reqCode==IMAGE_DESCRIPTION_RESULT && success){
+			Attachment updated=Parcels.unwrap(result.getParcelable("attachment"));
+			for(DraftMediaAttachment att:attachments){
+				if(att.serverAttachment.id.equals(updated.id)){
+					att.serverAttachment=updated;
+					att.description=updated.description;
+					att.descriptionView.setText(att.description);
+					break;
+				}
+			}
+		}
+	}
+
 	private void confirmDiscardDraftAndFinish(){
 		new M3AlertDialogBuilder(getActivity())
 				.setTitle(R.string.discard_draft)
@@ -506,26 +548,61 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 	}
 
 	private void addMediaAttachment(Uri uri){
+		if(getMediaAttachmentsCount()==MAX_ATTACHMENTS)
+			return;
 		pollBtn.setEnabled(false);
-		View thumb=getActivity().getLayoutInflater().inflate(R.layout.compose_media_thumb, attachmentsView, false);
-		ImageView img=thumb.findViewById(R.id.thumb);
-		ViewImageLoader.load(img, null, new UrlImageLoaderRequest(uri, V.dp(250), V.dp(250)));
-		attachmentsView.addView(thumb);
-
 		DraftMediaAttachment draft=new DraftMediaAttachment();
 		draft.uri=uri;
-		draft.view=thumb;
-		draft.progressBar=thumb.findViewById(R.id.progress);
-		Button btn=thumb.findViewById(R.id.remove_btn);
-		btn.setTag(draft);
-		btn.setOnClickListener(this::onRemoveMediaAttachmentClick);
 
+		attachmentsView.addView(createMediaAttachmentView(draft));
+		allAttachments.add(draft);
+		attachmentsView.setVisibility(View.VISIBLE);
 		if(uploadingAttachment==null){
 			uploadMediaAttachment(draft);
 		}else{
 			queuedAttachments.add(draft);
 		}
 		updatePublishButtonState();
+		if(getMediaAttachmentsCount()==MAX_ATTACHMENTS)
+			mediaBtn.setEnabled(false);
+	}
+
+	private View createMediaAttachmentView(DraftMediaAttachment draft){
+		View thumb=getActivity().getLayoutInflater().inflate(R.layout.compose_media_thumb, attachmentsView, false);
+		ImageView img=thumb.findViewById(R.id.thumb);
+		ViewImageLoader.load(img, null, new UrlImageLoaderRequest(draft.uri, V.dp(250), V.dp(250)));
+		TextView fileName=thumb.findViewById(R.id.file_name);
+		fileName.setText(UiUtils.getFileName(draft.uri));
+
+		draft.view=thumb;
+		draft.progressBar=thumb.findViewById(R.id.progress);
+		draft.infoBar=thumb.findViewById(R.id.info_bar);
+		draft.errorOverlay=thumb.findViewById(R.id.error_overlay);
+		draft.descriptionView=thumb.findViewById(R.id.description);
+		ImageButton btn=thumb.findViewById(R.id.remove_btn);
+		btn.setTag(draft);
+		btn.setOnClickListener(this::onRemoveMediaAttachmentClick);
+		btn=thumb.findViewById(R.id.remove_btn2);
+		btn.setTag(draft);
+		btn.setOnClickListener(this::onRemoveMediaAttachmentClick);
+		Button retry=thumb.findViewById(R.id.retry_upload);
+		retry.setTag(draft);
+		retry.setOnClickListener(this::onRetryMediaUploadClick);
+		draft.infoBar.setTag(draft);
+		draft.infoBar.setOnClickListener(this::onEditMediaDescriptionClick);
+
+		if(!TextUtils.isEmpty(draft.description))
+			draft.descriptionView.setText(draft.description);
+
+		if(uploadingAttachment!=draft && !queuedAttachments.contains(draft)){
+			draft.progressBar.setVisibility(View.GONE);
+		}
+		if(failedAttachments.contains(draft)){
+			draft.infoBar.setVisibility(View.GONE);
+			draft.errorOverlay.setVisibility(View.VISIBLE);
+		}
+
+		return thumb;
 	}
 
 	private void uploadMediaAttachment(DraftMediaAttachment attachment){
@@ -561,8 +638,11 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 						attachment.uploadRequest=null;
 						uploadingAttachment=null;
 						failedAttachments.add(attachment);
-						error.showToast(getActivity());
-						// TODO show the error state in the attachment view
+//						error.showToast(getActivity());
+						Toast.makeText(getActivity(), R.string.image_upload_failed, Toast.LENGTH_SHORT).show();
+
+						V.setVisibilityAnimated(attachment.errorOverlay, View.VISIBLE);
+						V.setVisibilityAnimated(attachment.infoBar, View.GONE);
 
 						if(!queuedAttachments.isEmpty())
 							uploadMediaAttachment(queuedAttachments.remove(0));
@@ -584,9 +664,38 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 			queuedAttachments.remove(att);
 			failedAttachments.remove(att);
 		}
+		allAttachments.remove(att);
 		attachmentsView.removeView(att.view);
+		if(getMediaAttachmentsCount()==0)
+			attachmentsView.setVisibility(View.GONE);
 		updatePublishButtonState();
 		pollBtn.setEnabled(attachments.isEmpty() && queuedAttachments.isEmpty() && failedAttachments.isEmpty() && uploadingAttachment==null);
+		mediaBtn.setEnabled(true);
+	}
+
+	private void onRetryMediaUploadClick(View v){
+		DraftMediaAttachment att=(DraftMediaAttachment) v.getTag();
+		if(failedAttachments.remove(att)){
+			V.setVisibilityAnimated(att.errorOverlay, View.GONE);
+			V.setVisibilityAnimated(att.infoBar, View.VISIBLE);
+			V.setVisibilityAnimated(att.progressBar, View.VISIBLE);
+			if(uploadingAttachment==null)
+				uploadMediaAttachment(att);
+			else
+				queuedAttachments.add(att);
+		}
+	}
+
+	private void onEditMediaDescriptionClick(View v){
+		DraftMediaAttachment att=(DraftMediaAttachment) v.getTag();
+		if(att.serverAttachment==null)
+			return;
+		Bundle args=new Bundle();
+		args.putString("account", accountID);
+		args.putString("attachment", att.serverAttachment.id);
+		args.putParcelable("uri", att.uri);
+		args.putString("existingDescription", att.description);
+		Nav.goForResult(getActivity(), ComposeImageDescriptionFragment.class, args, IMAGE_DESCRIPTION_RESULT, this);
 	}
 
 	private void togglePoll(){
@@ -680,13 +789,22 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 		}
 	}
 
-	private static class DraftMediaAttachment{
+	private int getMediaAttachmentsCount(){
+		return allAttachments.size();
+	}
+
+	@Parcel
+	static class DraftMediaAttachment{
 		public Attachment serverAttachment;
 		public Uri uri;
-		public UploadAttachment uploadRequest;
+		public transient UploadAttachment uploadRequest;
+		public String description;
 
-		public View view;
-		public ProgressBar progressBar;
+		public transient View view;
+		public transient ProgressBar progressBar;
+		public transient TextView descriptionView;
+		public transient View errorOverlay;
+		public transient View infoBar;
 	}
 
 	private static class DraftPollOption{

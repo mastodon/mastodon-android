@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="250dp"
 	android:layout_height="150dp">
 
@@ -7,20 +8,93 @@
 		android:id="@+id/thumb"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
-		android:scaleType="centerCrop"/>
-
-	<Button
-		android:id="@+id/remove_btn"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_gravity="top|right"
-		android:text="X"/>
+		android:scaleType="centerCrop"
+		tools:src="#0f0"/>
 
 	<ProgressBar
 		android:id="@+id/progress"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:layout_gravity="bottom"
+		android:layout_gravity="top"
 		style="?android:progressBarStyleHorizontal"/>
+
+	<RelativeLayout
+		android:id="@+id/info_bar"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_gravity="bottom"
+		android:background="#f2000000"
+		android:backgroundTint="?colorWindowBackground">
+
+		<ImageButton
+			android:id="@+id/remove_btn"
+			android:layout_width="36dp"
+			android:layout_height="36dp"
+			android:layout_alignParentTop="true"
+			android:layout_alignParentEnd="true"
+			android:layout_marginTop="2dp"
+			android:layout_marginStart="2dp"
+			android:background="?android:selectableItemBackgroundBorderless"
+			android:tint="#D92C2C"
+			android:src="@drawable/ic_fluent_delete_20_regular"/>
+
+		<TextView
+			android:id="@+id/file_name"
+			android:layout_width="match_parent"
+			android:layout_height="24dp"
+			android:textAppearance="@style/m3_body_large"
+			android:layout_marginStart="8dp"
+			android:layout_marginTop="8dp"
+			android:layout_toStartOf="@id/remove_btn"
+			android:gravity="center_vertical"
+			android:singleLine="true"
+			android:ellipsize="middle"
+			tools:text="asdf.jpg"/>
+
+		<TextView
+			android:id="@+id/description"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_below="@id/file_name"
+			android:layout_marginLeft="8dp"
+			android:layout_marginRight="8dp"
+			android:layout_marginBottom="8dp"
+			android:maxLines="2"
+			android:ellipsize="end"
+			android:textAppearance="@style/m3_body_medium"
+			android:textColor="?android:textColorSecondary"
+			android:text="@string/add_image_description"/>
+
+	</RelativeLayout>
+
+	<FrameLayout
+		android:id="@+id/error_overlay"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:background="#cc000000"
+		android:backgroundTint="?colorWindowBackground"
+		android:padding="8dp"
+		android:clipToPadding="false"
+		android:visibility="gone">
+
+		<Button
+			android:id="@+id/retry_upload"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="start|bottom"
+			style="?secondaryButtonStyle"
+			android:text="@string/retry_upload"/>
+
+		<ImageButton
+			android:id="@+id/remove_btn2"
+			android:layout_width="28dp"
+			android:layout_height="28dp"
+			android:layout_marginBottom="4dp"
+			android:layout_gravity="end|bottom"
+			android:background="?android:selectableItemBackgroundBorderless"
+			android:tint="#D92C2C"
+			android:src="@drawable/ic_fluent_delete_20_regular"/>
+
+	</FrameLayout>
 
 </FrameLayout>

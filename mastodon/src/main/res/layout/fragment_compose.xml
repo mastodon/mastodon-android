@@ -6,7 +6,7 @@
 	android:layout_height="match_parent">
 
 	<ScrollView
-		android:layout_width="wrap_content"
+		android:layout_width="match_parent"
 		android:layout_height="0dp"
 		android:layout_weight="1"
 		android:fillViewport="true">
@@ -137,11 +137,12 @@
 					tools:text="Duration: 7 days"/>
 			</LinearLayout>
 
-			<LinearLayout
+			<org.joinmastodon.android.ui.views.ComposeMediaLayout
 				android:id="@+id/attachments"
-				android:layout_width="match_parent"
+				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
-				android:orientation="vertical"/>
+				android:layout_gravity="center_horizontal"
+				android:visibility="gone"/>
 
 		</LinearLayout>
 	</ScrollView>
