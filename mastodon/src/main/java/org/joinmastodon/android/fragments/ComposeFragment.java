@@ -6,9 +6,12 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.ClipData;
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.content.res.Configuration;
 import android.graphics.Outline;
 import android.graphics.PixelFormat;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.InsetDrawable;
 import android.graphics.drawable.LayerDrawable;
 import android.icu.text.BreakIterator;
 import android.net.Uri;
@@ -16,8 +19,10 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.text.Editable;
+import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.text.style.ImageSpan;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -60,11 +65,13 @@ import org.joinmastodon.android.model.Emoji;
 import org.joinmastodon.android.model.EmojiCategory;
 import org.joinmastodon.android.model.Mention;
 import org.joinmastodon.android.model.Status;
+import org.joinmastodon.android.model.StatusPrivacy;
 import org.joinmastodon.android.ui.CustomEmojiPopupKeyboard;
 import org.joinmastodon.android.ui.M3AlertDialogBuilder;
 import org.joinmastodon.android.ui.PopupKeyboard;
 import org.joinmastodon.android.ui.drawables.SpoilerStripesDrawable;
 import org.joinmastodon.android.ui.text.HtmlParser;
+import org.joinmastodon.android.ui.text.SpacerSpan;
 import org.joinmastodon.android.ui.utils.SimpleTextWatcher;
 import org.joinmastodon.android.ui.utils.UiUtils;
 import org.joinmastodon.android.ui.views.ComposeMediaLayout;
@@ -73,6 +80,8 @@ import org.joinmastodon.android.ui.views.SizeListenerLinearLayout;
 import org.parceler.Parcel;
 import org.parceler.Parcels;
 
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -153,6 +162,7 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 	private ImageView sendError;
 	private View sendingOverlay;
 	private WindowManager wm;
+	private StatusPrivacy statusVisibility=StatusPrivacy.PUBLIC;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState){
@@ -167,8 +177,13 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 		self=session.self;
 		instanceDomain=session.domain;
 		customEmojis=AccountSessionManager.getInstance().getCustomEmojis(instanceDomain);
-		if(getArguments().containsKey("replyTo"))
+		if(getArguments().containsKey("replyTo")){
 			replyTo=Parcels.unwrap(getArguments().getParcelable("replyTo"));
+			statusVisibility=replyTo.visibility;
+		}
+		if(savedInstanceState!=null){
+			statusVisibility=(StatusPrivacy) savedInstanceState.getSerializable("visibility");
+		}
 	}
 
 	@Override
@@ -214,6 +229,7 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 		pollBtn.setOnClickListener(v->togglePoll());
 		emojiBtn.setOnClickListener(v->emojiKeyboard.toggleKeyboardPopup(mainEditText));
 		spoilerBtn.setOnClickListener(v->toggleSpoiler());
+		visibilityBtn.setOnClickListener(this::onVisibilityClick);
 		emojiKeyboard.setOnIconChangedListener(new PopupKeyboard.OnIconChangeListener(){
 			@Override
 			public void onIconChanged(int icon){
@@ -254,9 +270,10 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 		}
 
 		spoilerEdit=view.findViewById(R.id.content_warning);
-		LayerDrawable spoilerBg=(LayerDrawable) spoilerEdit.getBackground();
+		LayerDrawable spoilerBg=(LayerDrawable) spoilerEdit.getBackground().mutate();
 		spoilerBg.setDrawableByLayerId(R.id.left_drawable, new SpoilerStripesDrawable());
 		spoilerBg.setDrawableByLayerId(R.id.right_drawable, new SpoilerStripesDrawable());
+		spoilerEdit.setBackground(spoilerBg);
 		if((savedInstanceState!=null && savedInstanceState.getBoolean("hasSpoiler", false)) || hasSpoiler){
 			spoilerEdit.setVisibility(View.VISIBLE);
 			spoilerBtn.setSelected(true);
@@ -276,6 +293,7 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 				attachmentsView.addView(createMediaAttachmentView(att));
 			}
 		}
+		updateVisibilityIcon();
 
 		return view;
 	}
@@ -299,6 +317,7 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 				}
 				outState.putParcelableArrayList("attachments", serializedAttachments);
 			}
+			outState.putSerializable("visibility", statusVisibility);
 		}
 	}
 
@@ -454,12 +473,12 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 		String text=mainEditText.getText().toString();
 		CreateStatus.Request req=new CreateStatus.Request();
 		req.status=text;
+		req.visibility=statusVisibility;
 		if(!attachments.isEmpty()){
 			req.mediaIds=attachments.stream().map(a->a.serverAttachment.id).collect(Collectors.toList());
 		}
 		if(replyTo!=null){
 			req.inReplyToId=replyTo.id;
-			req.visibility=replyTo.visibility; // TODO
 		}
 		if(!pollOptions.isEmpty()){
 			req.poll=new CreateStatus.Request.Poll();
@@ -848,6 +867,70 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 
 	private int getMediaAttachmentsCount(){
 		return allAttachments.size();
+	}
+
+	private void onVisibilityClick(View v){
+		PopupMenu menu=new PopupMenu(getActivity(), v);
+		menu.inflate(R.menu.compose_visibility);
+		Menu m=menu.getMenu();
+		if(Build.VERSION.SDK_INT>=29){
+			menu.setForceShowIcon(true);
+		}else{
+			try{
+				Method setOptionalIconsVisible=m.getClass().getDeclaredMethod("setOptionalIconsVisible", boolean.class);
+				setOptionalIconsVisible.setAccessible(true);
+				setOptionalIconsVisible.invoke(m, true);
+			}catch(Exception ignore){}
+		}
+		ColorStateList iconTint=ColorStateList.valueOf(UiUtils.getThemeColor(getActivity(), android.R.attr.textColorSecondary));
+		for(int i=0;i<m.size();i++){
+			MenuItem item=m.getItem(i);
+			Drawable icon=item.getIcon().mutate();
+			if(Build.VERSION.SDK_INT>=26){
+				item.setIconTintList(iconTint);
+			}else{
+				icon.setTintList(iconTint);
+			}
+			icon=new InsetDrawable(icon, V.dp(8), 0, 0, 0);
+			item.setIcon(icon);
+			SpannableStringBuilder ssb=new SpannableStringBuilder(item.getTitle());
+			ssb.insert(0, " ");
+			ssb.setSpan(new SpacerSpan(V.dp(24), 1), 0, 1, 0);
+			ssb.append(" ", new SpacerSpan(V.dp(8), 1), 0);
+			item.setTitle(ssb);
+		}
+		m.setGroupCheckable(0, true, true);
+		m.findItem(switch(statusVisibility){
+			case PUBLIC, UNLISTED -> R.id.vis_public;
+			case PRIVATE -> R.id.vis_followers;
+			case DIRECT -> R.id.vis_private;
+		}).setChecked(true);
+		menu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener(){
+			@Override
+			public boolean onMenuItemClick(MenuItem item){
+				int id=item.getItemId();
+				if(id==R.id.vis_public){
+					statusVisibility=StatusPrivacy.PUBLIC;
+				}else if(id==R.id.vis_followers){
+					statusVisibility=StatusPrivacy.PRIVATE;
+				}else if(id==R.id.vis_private){
+					statusVisibility=StatusPrivacy.DIRECT;
+				}
+				item.setChecked(true);
+				updateVisibilityIcon();
+				return true;
+			}
+		});
+		menu.show();
+	}
+
+	private void updateVisibilityIcon(){
+		visibilityBtn.setImageResource(switch(statusVisibility){
+			case PUBLIC -> R.drawable.ic_fluent_earth_24_filled;
+			case UNLISTED -> R.drawable.ic_fluent_people_community_24_regular;
+			case PRIVATE -> R.drawable.ic_fluent_people_checkmark_24_regular;
+			case DIRECT -> R.drawable.ic_at_symbol;
+		});
 	}
 
 	@Parcel

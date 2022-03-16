@@ -41,6 +41,7 @@
 
 		<item name="android:windowLightStatusBar">true</item>
 		<item name="android:windowLightNavigationBar" tools:ignore="NewApi">true</item>
+		<item name="android:popupMenuStyle">@style/Widget.Mastodon.PopupMenu</item>
 	</style>
 
 	<style name="Theme.Mastodon.Dark" parent="Theme.AppKit">
@@ -211,6 +212,10 @@
 		<item name="android:background">@drawable/bg_alert_button</item>
 		<item name="android:textAppearance">@style/m3_label_large</item>
 		<item name="android:textColor">?android:textColorPrimary</item>
+	</style>
+
+	<style name="Widget.Mastodon.PopupMenu" parent="android:Widget.Material.Light.PopupMenu">
+		<item name="android:popupBackground">@drawable/bg_popup</item>
 	</style>
 
 	<style name="alert_title">
