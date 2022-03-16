@@ -11,13 +11,6 @@
 		android:scaleType="centerCrop"
 		tools:src="#0f0"/>
 
-	<ProgressBar
-		android:id="@+id/progress"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:layout_gravity="top"
-		style="?android:progressBarStyleHorizontal"/>
-
 	<RelativeLayout
 		android:id="@+id/info_bar"
 		android:layout_width="match_parent"
@@ -68,14 +61,26 @@
 	</RelativeLayout>
 
 	<FrameLayout
-		android:id="@+id/error_overlay"
+		android:id="@+id/overlay"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
 		android:background="#cc000000"
 		android:backgroundTint="?colorWindowBackground"
 		android:padding="8dp"
 		android:clipToPadding="false"
+		tools:visibility="visible"
 		android:visibility="gone">
+
+		<ProgressBar
+			android:id="@+id/progress"
+			android:layout_width="44dp"
+			android:layout_height="44dp"
+			android:layout_gravity="center"
+			android:progressDrawable="@drawable/upload_progress"
+			android:max="1000"
+			android:padding="0dp"
+			android:indeterminateOnly="false"
+			android:indeterminate="false"/>
 
 		<Button
 			android:id="@+id/retry_upload"

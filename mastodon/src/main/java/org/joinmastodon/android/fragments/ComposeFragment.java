@@ -1,5 +1,6 @@
 package org.joinmastodon.android.fragments;
 
+import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -7,6 +8,7 @@ import android.content.ClipData;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Outline;
+import android.graphics.PixelFormat;
 import android.graphics.drawable.LayerDrawable;
 import android.icu.text.BreakIterator;
 import android.net.Uri;
@@ -16,14 +18,18 @@ import android.os.Parcelable;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewOutlineProvider;
+import android.view.WindowManager;
+import android.view.animation.LinearInterpolator;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
@@ -143,6 +149,10 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 	private String pollDurationStr;
 	private EditText spoilerEdit;
 	private boolean hasSpoiler;
+	private ProgressBar sendProgress;
+	private ImageView sendError;
+	private View sendingOverlay;
+	private WindowManager wm;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState){
@@ -165,6 +175,7 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 	public void onAttach(Activity activity){
 		super.onAttach(activity);
 		setHasOptionsMenu(true);
+		wm=activity.getSystemService(WindowManager.class);
 	}
 
 	@Override
@@ -359,8 +370,25 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 		publishButton=new Button(getActivity());
 		publishButton.setText(R.string.publish);
 		publishButton.setOnClickListener(this::onPublishClick);
-		FrameLayout wrap=new FrameLayout(getActivity());
-		wrap.addView(publishButton, new FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, Gravity.TOP|Gravity.LEFT));
+		LinearLayout wrap=new LinearLayout(getActivity());
+		wrap.setOrientation(LinearLayout.HORIZONTAL);
+
+		sendProgress=new ProgressBar(getActivity());
+		LinearLayout.LayoutParams progressLP=new LinearLayout.LayoutParams(V.dp(24), V.dp(24));
+		progressLP.setMarginEnd(V.dp(16));
+		progressLP.gravity=Gravity.CENTER_VERTICAL;
+		wrap.addView(sendProgress, progressLP);
+
+		sendError=new ImageView(getActivity());
+		sendError.setImageResource(R.drawable.ic_fluent_error_circle_24_regular);
+		sendError.setImageTintList(getResources().getColorStateList(R.color.error_600));
+		sendError.setScaleType(ImageView.ScaleType.CENTER);
+		wrap.addView(sendError, progressLP);
+
+		sendError.setVisibility(View.GONE);
+		sendProgress.setVisibility(View.GONE);
+
+		wrap.addView(publishButton, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
 		wrap.setPadding(V.dp(16), V.dp(4), V.dp(16), V.dp(8));
 		wrap.setClipToPadding(false);
 		MenuItem item=menu.add(R.string.publish);
@@ -444,15 +472,26 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 		}
 		if(uuid==null)
 			uuid=UUID.randomUUID().toString();
-		ProgressDialog progress=new ProgressDialog(getActivity());
-		progress.setMessage(getString(R.string.publishing));
-		progress.setCancelable(false);
-		progress.show();
+
+		sendingOverlay=new View(getActivity());
+		WindowManager.LayoutParams overlayParams=new WindowManager.LayoutParams();
+		overlayParams.type=WindowManager.LayoutParams.TYPE_APPLICATION_PANEL;
+		overlayParams.flags=WindowManager.LayoutParams.FLAG_LAYOUT_INSET_DECOR | WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS | WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM;
+		overlayParams.width=overlayParams.height=WindowManager.LayoutParams.MATCH_PARENT;
+		overlayParams.format=PixelFormat.TRANSLUCENT;
+		overlayParams.softInputMode=WindowManager.LayoutParams.SOFT_INPUT_STATE_UNCHANGED;
+		overlayParams.token=mainEditText.getWindowToken();
+		wm.addView(sendingOverlay, overlayParams);
+
+		publishButton.setEnabled(false);
+		sendProgress.setVisibility(View.VISIBLE);
+		sendError.setVisibility(View.GONE);
+
 		new CreateStatus(req, uuid)
 				.setCallback(new Callback<>(){
 					@Override
 					public void onSuccess(Status result){
-						progress.dismiss();
+						wm.removeView(sendingOverlay);
 						Nav.finish(ComposeFragment.this);
 						E.post(new StatusCreatedEvent(result));
 						if(replyTo!=null){
@@ -463,7 +502,10 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 
 					@Override
 					public void onError(ErrorResponse error){
-						progress.dismiss();
+						wm.removeView(sendingOverlay);
+						sendProgress.setVisibility(View.GONE);
+						sendError.setVisibility(View.VISIBLE);
+						publishButton.setEnabled(true);
 						error.showToast(getActivity());
 					}
 				})
@@ -557,6 +599,9 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 		attachmentsView.addView(createMediaAttachmentView(draft));
 		allAttachments.add(draft);
 		attachmentsView.setVisibility(View.VISIBLE);
+		draft.overlay.setVisibility(View.VISIBLE);
+		draft.infoBar.setVisibility(View.GONE);
+
 		if(uploadingAttachment==null){
 			uploadMediaAttachment(draft);
 		}else{
@@ -577,7 +622,7 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 		draft.view=thumb;
 		draft.progressBar=thumb.findViewById(R.id.progress);
 		draft.infoBar=thumb.findViewById(R.id.info_bar);
-		draft.errorOverlay=thumb.findViewById(R.id.error_overlay);
+		draft.overlay=thumb.findViewById(R.id.overlay);
 		draft.descriptionView=thumb.findViewById(R.id.description);
 		ImageButton btn=thumb.findViewById(R.id.remove_btn);
 		btn.setTag(draft);
@@ -588,6 +633,8 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 		Button retry=thumb.findViewById(R.id.retry_upload);
 		retry.setTag(draft);
 		retry.setOnClickListener(this::onRetryMediaUploadClick);
+		retry.setVisibility(View.GONE);
+		draft.retryButton=retry;
 		draft.infoBar.setTag(draft);
 		draft.infoBar.setOnClickListener(this::onEditMediaDescriptionClick);
 
@@ -599,7 +646,7 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 		}
 		if(failedAttachments.contains(draft)){
 			draft.infoBar.setVisibility(View.GONE);
-			draft.errorOverlay.setVisibility(View.VISIBLE);
+			draft.overlay.setVisibility(View.VISIBLE);
 		}
 
 		return thumb;
@@ -609,6 +656,12 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 		if(uploadingAttachment!=null)
 			throw new IllegalStateException("there is already an attachment being uploaded");
 		uploadingAttachment=attachment;
+		attachment.progressBar.setVisibility(View.VISIBLE);
+		ObjectAnimator rotationAnimator=ObjectAnimator.ofFloat(attachment.progressBar, View.ROTATION, 0f, 360f);
+		rotationAnimator.setInterpolator(new LinearInterpolator());
+		rotationAnimator.setDuration(1500);
+		rotationAnimator.setRepeatCount(ObjectAnimator.INFINITE);
+		rotationAnimator.start();
 		attachment.uploadRequest=(UploadAttachment) new UploadAttachment(attachment.uri)
 				.setProgressListener(new ProgressListener(){
 					@Override
@@ -631,6 +684,10 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 						if(!queuedAttachments.isEmpty())
 							uploadMediaAttachment(queuedAttachments.remove(0));
 						updatePublishButtonState();
+
+						rotationAnimator.cancel();
+						V.setVisibilityAnimated(attachment.overlay, View.GONE);
+						V.setVisibilityAnimated(attachment.infoBar, View.VISIBLE);
 					}
 
 					@Override
@@ -641,8 +698,9 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 //						error.showToast(getActivity());
 						Toast.makeText(getActivity(), R.string.image_upload_failed, Toast.LENGTH_SHORT).show();
 
-						V.setVisibilityAnimated(attachment.errorOverlay, View.VISIBLE);
-						V.setVisibilityAnimated(attachment.infoBar, View.GONE);
+						rotationAnimator.cancel();
+						V.setVisibilityAnimated(attachment.retryButton, View.VISIBLE);
+						V.setVisibilityAnimated(attachment.progressBar, View.GONE);
 
 						if(!queuedAttachments.isEmpty())
 							uploadMediaAttachment(queuedAttachments.remove(0));
@@ -676,8 +734,7 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 	private void onRetryMediaUploadClick(View v){
 		DraftMediaAttachment att=(DraftMediaAttachment) v.getTag();
 		if(failedAttachments.remove(att)){
-			V.setVisibilityAnimated(att.errorOverlay, View.GONE);
-			V.setVisibilityAnimated(att.infoBar, View.VISIBLE);
+			V.setVisibilityAnimated(att.retryButton, View.GONE);
 			V.setVisibilityAnimated(att.progressBar, View.VISIBLE);
 			if(uploadingAttachment==null)
 				uploadMediaAttachment(att);
@@ -803,8 +860,9 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 		public transient View view;
 		public transient ProgressBar progressBar;
 		public transient TextView descriptionView;
-		public transient View errorOverlay;
+		public transient View overlay;
 		public transient View infoBar;
+		public transient Button retryButton;
 	}
 
 	private static class DraftPollOption{
