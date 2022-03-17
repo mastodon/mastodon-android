@@ -3,7 +3,6 @@ package org.joinmastodon.android.fragments;
 import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.app.ProgressDialog;
 import android.content.ClipData;
 import android.content.Intent;
 import android.content.res.ColorStateList;
@@ -19,17 +18,17 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.text.Editable;
+import android.text.Layout;
 import android.text.SpannableStringBuilder;
+import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.TextWatcher;
-import android.text.style.ImageSpan;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewOutlineProvider;
@@ -66,25 +65,29 @@ import org.joinmastodon.android.model.EmojiCategory;
 import org.joinmastodon.android.model.Mention;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.model.StatusPrivacy;
+import org.joinmastodon.android.ui.ComposeAutocompleteViewController;
 import org.joinmastodon.android.ui.CustomEmojiPopupKeyboard;
 import org.joinmastodon.android.ui.M3AlertDialogBuilder;
 import org.joinmastodon.android.ui.PopupKeyboard;
 import org.joinmastodon.android.ui.drawables.SpoilerStripesDrawable;
+import org.joinmastodon.android.ui.text.ComposeAutocompleteSpan;
+import org.joinmastodon.android.ui.text.ComposeHashtagOrMentionSpan;
 import org.joinmastodon.android.ui.text.HtmlParser;
 import org.joinmastodon.android.ui.text.SpacerSpan;
 import org.joinmastodon.android.ui.utils.SimpleTextWatcher;
 import org.joinmastodon.android.ui.utils.UiUtils;
 import org.joinmastodon.android.ui.views.ComposeMediaLayout;
 import org.joinmastodon.android.ui.views.ReorderableLinearLayout;
+import org.joinmastodon.android.ui.views.SelectionListenerEditText;
 import org.joinmastodon.android.ui.views.SizeListenerLinearLayout;
 import org.parceler.Parcel;
 import org.parceler.Parcels;
 
-import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
@@ -97,7 +100,7 @@ import me.grishka.appkit.imageloader.ViewImageLoader;
 import me.grishka.appkit.imageloader.requests.UrlImageLoaderRequest;
 import me.grishka.appkit.utils.V;
 
-public class ComposeFragment extends ToolbarFragment implements OnBackPressedListener{
+public class ComposeFragment extends ToolbarFragment implements OnBackPressedListener, SelectionListenerEditText.SelectionListener{
 
 	private static final int MEDIA_RESULT=717;
 	private static final int IMAGE_DESCRIPTION_RESULT=363;
@@ -105,6 +108,10 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 	private static final int MAX_ATTACHMENTS=4;
 
 	private static final Pattern MENTION_PATTERN=Pattern.compile("(^|[^\\/\\w])@(([a-z0-9_]+)@[a-z0-9\\.\\-]+[a-z0-9]+)", Pattern.CASE_INSENSITIVE);
+
+	// from https://github.com/mastodon/mastodon-ios/blob/main/Mastodon/Helper/MastodonRegex.swift
+	private static final Pattern AUTO_COMPLETE_PATTERN=Pattern.compile("(?:@([a-zA-Z0-9_]+)(@[a-zA-Z0-9_.-]+)?|#([^\\s.]+))|(^\\B:|\\s:)([a-zA-Z0-9_]+)");
+	private static final Pattern HIGHLIGHT_PATTERN=Pattern.compile("(?:@([a-zA-Z0-9_]+)(@[a-zA-Z0-9_.-]+)?|#([^\\s.]+))");
 
 	private static final String VALID_URL_PATTERN_STRING =
 					"(" +                                                            //  $1 total match
@@ -130,7 +137,7 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 	private Account self;
 	private String instanceDomain;
 
-	private EditText mainEditText;
+	private SelectionListenerEditText mainEditText;
 	private TextView charCounter;
 	private String accountID;
 	private int charCount, charLimit, trimmedCharCount;
@@ -163,6 +170,9 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 	private View sendingOverlay;
 	private WindowManager wm;
 	private StatusPrivacy statusVisibility=StatusPrivacy.PUBLIC;
+	private ComposeAutocompleteSpan currentAutocompleteSpan;
+	private FrameLayout mainEditTextWrap;
+	private ComposeAutocompleteViewController autocompleteViewController;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState){
@@ -200,6 +210,7 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 
 		View view=inflater.inflate(R.layout.fragment_compose, container, false);
 		mainEditText=view.findViewById(R.id.toot_text);
+		mainEditTextWrap=view.findViewById(R.id.toot_text_wrap);
 		charCounter=view.findViewById(R.id.char_counter);
 		charCounter.setText(String.valueOf(charLimit));
 
@@ -295,6 +306,12 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 		}
 		updateVisibilityIcon();
 
+		autocompleteViewController=new ComposeAutocompleteViewController(getActivity(), accountID);
+		autocompleteViewController.setCompletionSelectedListener(this::onAutocompleteOptionSelected);
+		View autocompleteView=autocompleteViewController.getView();
+		autocompleteView.setVisibility(View.GONE);
+		mainEditTextWrap.addView(autocompleteView, new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, V.dp(178), Gravity.TOP));
+
 		return view;
 	}
 
@@ -336,6 +353,7 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 			imm.showSoftInput(mainEditText, 0);
 		}, 100);
 
+		mainEditText.setSelectionListener(this);
 		mainEditText.addTextChangedListener(new TextWatcher(){
 			@Override
 			public void beforeTextChanged(CharSequence s, int start, int count, int after){
@@ -344,7 +362,49 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 
 			@Override
 			public void onTextChanged(CharSequence s, int start, int before, int count){
-
+				// offset one char back to catch an already typed '@' or '#' or ':'
+				int realStart=start;
+				start=Math.max(0, start-1);
+				CharSequence changedText=s.subSequence(start, realStart+count);
+				String raw=changedText.toString();
+				Editable editable=(Editable) s;
+				// 1. find mentions, hashtags, and emoji shortcodes in any freshly inserted text, and put spans over them
+				if(raw.contains("@") || raw.contains("#") || raw.contains(":")){
+					Matcher matcher=AUTO_COMPLETE_PATTERN.matcher(changedText);
+					while(matcher.find()){
+						if(editable.getSpans(start+matcher.start(), start+matcher.end(), ComposeAutocompleteSpan.class).length>0)
+							continue;
+						Log.w("11", "found: "+matcher);
+						ComposeAutocompleteSpan span;
+						if(TextUtils.isEmpty(matcher.group(4))){ // not an emoji
+							span=new ComposeHashtagOrMentionSpan();
+						}else{
+							span=new ComposeAutocompleteSpan();
+						}
+						editable.setSpan(span, start+matcher.start(), start+matcher.end(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
+					}
+				}
+				// 2. go over existing spans in the affected range, adjust end offsets and remove no longer valid spans
+				ComposeAutocompleteSpan[] spans=editable.getSpans(realStart, realStart+count, ComposeAutocompleteSpan.class);
+				for(ComposeAutocompleteSpan span:spans){
+					int spanStart=editable.getSpanStart(span);
+					int spanEnd=editable.getSpanEnd(span);
+					if(spanStart==spanEnd){ // empty, remove
+						editable.removeSpan(span);
+						continue;
+					}
+					char firstChar=editable.charAt(spanStart);
+					String spanText=s.subSequence(spanStart, spanEnd).toString();
+					if(firstChar=='@' || firstChar=='#'){
+						Matcher matcher=HIGHLIGHT_PATTERN.matcher(spanText);
+						if(!matcher.find()){ // invalid mention, remove
+							editable.removeSpan(span);
+							continue;
+						}else if(matcher.end()+spanStart<spanEnd){ // mention with something at the end, move the end offset
+							editable.setSpan(span, spanStart, spanStart+matcher.end(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
+						}
+					}
+				}
 			}
 
 			@Override
@@ -931,6 +991,66 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 			case PRIVATE -> R.drawable.ic_fluent_people_checkmark_24_regular;
 			case DIRECT -> R.drawable.ic_at_symbol;
 		});
+	}
+
+	@Override
+	public void onSelectionChanged(int start, int end){
+		if(start==end){
+			ComposeAutocompleteSpan[] spans=mainEditText.getText().getSpans(start, end, ComposeAutocompleteSpan.class);
+			if(spans.length>0){
+				assert spans.length==1;
+				ComposeAutocompleteSpan span=spans[0];
+				if(currentAutocompleteSpan==null && end==mainEditText.getText().getSpanEnd(span)){
+					startAutocomplete(span);
+				}else if(currentAutocompleteSpan!=null){
+					Editable e=mainEditText.getText();
+					String spanText=e.toString().substring(e.getSpanStart(span), e.getSpanEnd(span));
+					autocompleteViewController.setText(spanText);
+				}
+
+				View autocompleteView=autocompleteViewController.getView();
+				Layout layout=mainEditText.getLayout();
+				int line=layout.getLineForOffset(start);
+				int offsetY=layout.getLineBottom(line);
+				FrameLayout.LayoutParams lp=(FrameLayout.LayoutParams) autocompleteView.getLayoutParams();
+				if(lp.topMargin!=offsetY){
+					lp.topMargin=offsetY;
+					mainEditTextWrap.requestLayout();
+				}
+				int offsetX=Math.round(layout.getPrimaryHorizontal(start))+mainEditText.getPaddingLeft();
+				autocompleteViewController.setArrowOffset(offsetX);
+			}else if(currentAutocompleteSpan!=null){
+				finishAutocomplete();
+			}
+		}else if(currentAutocompleteSpan!=null){
+			finishAutocomplete();
+		}
+	}
+
+	private void startAutocomplete(ComposeAutocompleteSpan span){
+		currentAutocompleteSpan=span;
+		Editable e=mainEditText.getText();
+		String spanText=e.toString().substring(e.getSpanStart(span), e.getSpanEnd(span));
+		autocompleteViewController.setText(spanText);
+		View autocompleteView=autocompleteViewController.getView();
+		autocompleteView.setVisibility(View.VISIBLE);
+	}
+
+	private void finishAutocomplete(){
+		if(currentAutocompleteSpan==null)
+			return;
+		autocompleteViewController.setText(null);
+		currentAutocompleteSpan=null;
+		autocompleteViewController.getView().setVisibility(View.GONE);
+	}
+
+	private void onAutocompleteOptionSelected(String text){
+		Editable e=mainEditText.getText();
+		int start=e.getSpanStart(currentAutocompleteSpan);
+		int end=e.getSpanEnd(currentAutocompleteSpan);
+		e.replace(start, end, text+" ");
+		mainEditText.setSelection(start+text.length()+1);
+		finishAutocomplete();
 	}
 
 	@Parcel

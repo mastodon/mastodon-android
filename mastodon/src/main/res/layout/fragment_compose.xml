@@ -82,19 +82,27 @@
 
 			</RelativeLayout>
 
-			<EditText
-				android:id="@+id/toot_text"
+			<FrameLayout
+				android:id="@+id/toot_text_wrap"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
-				android:layout_marginTop="10dp"
-				android:paddingLeft="16dp"
-				android:paddingRight="16dp"
-				android:paddingBottom="16dp"
-				android:textAppearance="@style/m3_body_large"
-				android:gravity="top"
-				android:background="@null"
-				android:hint="@string/compose_hint"
-				android:inputType="textMultiLine|textCapSentences"/>
+				android:layout_marginTop="10dp">
+
+				<org.joinmastodon.android.ui.views.SelectionListenerEditText
+					android:id="@+id/toot_text"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:paddingLeft="16dp"
+					android:paddingRight="16dp"
+					android:paddingBottom="16dp"
+					android:textAppearance="@style/m3_body_large"
+					android:gravity="top"
+					android:background="@null"
+					android:hint="@string/compose_hint"
+					android:elevation="0dp"
+					android:inputType="textMultiLine|textCapSentences"/>
+
+			</FrameLayout>
 
 			<LinearLayout
 				android:id="@+id/poll_wrap"

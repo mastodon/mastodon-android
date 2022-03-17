@@ -1,5 +1,6 @@
 package org.joinmastodon.android.ui.utils;
 
+import android.graphics.drawable.Animatable;
 import android.graphics.drawable.Drawable;
 import android.text.Spanned;
 
@@ -40,5 +41,7 @@ public class CustomEmojiHelper{
 		for(CustomEmojiSpan span:spans.get(image)){
 			span.setDrawable(drawable);
 		}
+		if(drawable instanceof Animatable && !((Animatable) drawable).isRunning())
+			((Animatable) drawable).start();
 	}
 }
