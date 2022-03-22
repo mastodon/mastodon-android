@@ -27,6 +27,7 @@ public abstract class ImageStatusDisplayItem extends StatusDisplayItem{
 	public final Status status;
 	public final PhotoLayoutHelper.TiledLayoutResult tiledLayout;
 	public final PhotoLayoutHelper.TiledLayoutResult.Tile thisTile;
+	public int horizontalInset;
 
 	public ImageStatusDisplayItem(String parentID, BaseStatusListFragment parentFragment, Attachment photo, Status status, int index, int totalPhotos, PhotoLayoutHelper.TiledLayoutResult tiledLayout, PhotoLayoutHelper.TiledLayoutResult.Tile thisTile){
 		super(parentID, parentFragment);
@@ -63,7 +64,7 @@ public abstract class ImageStatusDisplayItem extends StatusDisplayItem{
 
 		@Override
 		public void onBind(ImageStatusDisplayItem item){
-			layout.setLayout(item.tiledLayout, item.thisTile);
+			layout.setLayout(item.tiledLayout, item.thisTile, item.horizontalInset);
 			crossfadeDrawable.setSize(item.attachment.getWidth(), item.attachment.getHeight());
 			crossfadeDrawable.setBlurhashDrawable(item.attachment.blurhashPlaceholder);
 			crossfadeDrawable.setCrossfadeAlpha(item.status.spoilerRevealed ? 0f : 1f);

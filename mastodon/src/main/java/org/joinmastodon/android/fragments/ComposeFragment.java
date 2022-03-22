@@ -374,7 +374,6 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 					while(matcher.find()){
 						if(editable.getSpans(start+matcher.start(), start+matcher.end(), ComposeAutocompleteSpan.class).length>0)
 							continue;
-						Log.w("11", "found: "+matcher);
 						ComposeAutocompleteSpan span;
 						if(TextUtils.isEmpty(matcher.group(4))){ // not an emoji
 							span=new ComposeHashtagOrMentionSpan();

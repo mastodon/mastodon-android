@@ -2,7 +2,6 @@ package org.joinmastodon.android.fragments;
 
 import android.app.Activity;
 import android.content.res.Configuration;
-import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
@@ -26,8 +25,6 @@ import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.BetterItemAnimator;
 import org.joinmastodon.android.ui.PhotoLayoutHelper;
 import org.joinmastodon.android.ui.TileGridLayoutManager;
-import org.joinmastodon.android.ui.displayitems.AudioStatusDisplayItem;
-import org.joinmastodon.android.ui.displayitems.FooterStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.HeaderStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.ImageStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.PollFooterStatusDisplayItem;
@@ -285,7 +282,8 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 			public void getItemOffsets(@NonNull Rect outRect, @NonNull View view, @NonNull RecyclerView parent, @NonNull RecyclerView.State state){
 				RecyclerView.ViewHolder holder=parent.getChildViewHolder(view);
 				if(holder instanceof ImageStatusDisplayItem.Holder){
-					int width=Math.min(parent.getWidth(), V.dp(ImageAttachmentFrameLayout.MAX_WIDTH));
+					int listWidth=getListWidthForMediaLayout();
+					int width=Math.min(listWidth, V.dp(ImageAttachmentFrameLayout.MAX_WIDTH));
 					PhotoLayoutHelper.TiledLayoutResult layout=((ImageStatusDisplayItem.Holder<?>) holder).getItem().tiledLayout;
 					PhotoLayoutHelper.TiledLayoutResult.Tile tile=((ImageStatusDisplayItem.Holder<?>) holder).getItem().thisTile;
 					if(tile.startCol+tile.colSpan<layout.columnSizes.length){
@@ -301,20 +299,20 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 					}
 					// ...and for its siblings, offset those on rows below first to the right where they belong
 					if(tile.startCol>0 && layout.tiles[0].rowSpan>1 && tile.startRow>layout.tiles[0].startRow){
-						int xOffset=Math.round(layout.tiles[0].width/1000f*parent.getWidth());
+						int xOffset=Math.round(layout.tiles[0].width/1000f*listWidth);
 						outRect.left=xOffset;
 						outRect.right=-xOffset;
 					}
 
 					// If the width of the media block is smaller than that of the RecyclerView, offset the views horizontally to center them
-					if(parent.getWidth()>width){
-						outRect.left+=(parent.getWidth()-V.dp(ImageAttachmentFrameLayout.MAX_WIDTH))/2;
+					if(listWidth>width){
+						outRect.left+=(listWidth-V.dp(ImageAttachmentFrameLayout.MAX_WIDTH))/2;
 						if(tile.startCol>0){
 							int spanOffset=0;
 							for(int i=0;i<tile.startCol;i++){
 								spanOffset+=layout.columnSizes[i];
 							}
-							outRect.left-=Math.round(spanOffset/1000f*parent.getWidth());
+							outRect.left-=Math.round(spanOffset/1000f*listWidth);
 							outRect.left+=Math.round(spanOffset/1000f*width);
 						}
 					}
@@ -602,6 +600,10 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 		}else{
 			list.smoothScrollToPosition(0);
 		}
+	}
+
+	protected int getListWidthForMediaLayout(){
+		return list.getWidth();
 	}
 
 	protected class DisplayItemsAdapter extends UsableRecyclerView.Adapter<BindableViewHolder<StatusDisplayItem>> implements ImageLoaderRecyclerAdapter{

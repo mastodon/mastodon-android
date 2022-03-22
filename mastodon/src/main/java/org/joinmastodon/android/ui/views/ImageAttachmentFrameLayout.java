@@ -16,6 +16,7 @@ public class ImageAttachmentFrameLayout extends FrameLayout{
 
 	private PhotoLayoutHelper.TiledLayoutResult tileLayout;
 	private PhotoLayoutHelper.TiledLayoutResult.Tile tile;
+	private int horizontalInset;
 
 	public ImageAttachmentFrameLayout(@NonNull Context context){
 		super(context);
@@ -35,7 +36,7 @@ public class ImageAttachmentFrameLayout extends FrameLayout{
 			super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 			return;
 		}
-		int w=Math.min(((View)getParent()).getMeasuredWidth(), V.dp(MAX_WIDTH));
+		int w=Math.min(((View)getParent()).getMeasuredWidth()-horizontalInset, V.dp(MAX_WIDTH));
 		int actualHeight=Math.round(tile.height/1000f*w)+V.dp(1)*(tile.rowSpan-1);
 		int actualWidth=Math.round(tile.width/1000f*w);
 		if(tile.startCol+tile.colSpan<tileLayout.columnSizes.length)
@@ -45,8 +46,9 @@ public class ImageAttachmentFrameLayout extends FrameLayout{
 		super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 	}
 
-	public void setLayout(PhotoLayoutHelper.TiledLayoutResult layout, PhotoLayoutHelper.TiledLayoutResult.Tile tile){
+	public void setLayout(PhotoLayoutHelper.TiledLayoutResult layout, PhotoLayoutHelper.TiledLayoutResult.Tile tile, int horizontalInset){
 		tileLayout=layout;
 		this.tile=tile;
+		this.horizontalInset=horizontalInset;
 	}
 }

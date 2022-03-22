@@ -5,6 +5,7 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.RectF;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 
@@ -14,6 +15,7 @@ import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.model.Notification;
 import org.joinmastodon.android.model.Poll;
 import org.joinmastodon.android.model.Status;
+import org.joinmastodon.android.ui.PhotoLayoutHelper;
 import org.joinmastodon.android.ui.displayitems.AccountCardStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.HeaderStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.ImageStatusDisplayItem;
@@ -59,6 +61,13 @@ public class NotificationsListFragment extends BaseStatusListFragment<Notificati
 		HeaderStatusDisplayItem titleItem=extraText!=null ? new HeaderStatusDisplayItem(n.id, n.account, n.createdAt, this, accountID, null, extraText) : null;
 		if(n.status!=null){
 			ArrayList<StatusDisplayItem> items=StatusDisplayItem.buildItems(this, n.status, accountID, n, knownAccounts, titleItem!=null, titleItem==null);
+			if(titleItem!=null){
+				for(StatusDisplayItem item:items){
+					if(item instanceof ImageStatusDisplayItem){
+						((ImageStatusDisplayItem) item).horizontalInset=V.dp(32);
+					}
+				}
+			}
 			if(titleItem!=null)
 				items.add(0, titleItem);
 			return items;
@@ -205,7 +214,21 @@ public class NotificationsListFragment extends BaseStatusListFragment<Notificati
 							pad=V.dp(16);
 						else
 							pad=V.dp(12);
-						outRect.left=outRect.right=pad;
+						boolean insetLeft=true, insetRight=true;
+						if(holder instanceof ImageStatusDisplayItem.Holder){
+							PhotoLayoutHelper.TiledLayoutResult layout=((ImageStatusDisplayItem.Holder<?>) holder).getItem().tiledLayout;
+							PhotoLayoutHelper.TiledLayoutResult.Tile tile=((ImageStatusDisplayItem.Holder<?>) holder).getItem().thisTile;
+							// only inset those items that are on the edges of the layout
+							insetLeft=tile.startCol==0;
+							insetRight=tile.startCol+tile.colSpan==layout.columnSizes.length;
+							// inset all items in the bottom row
+							if(tile.startRow+tile.rowSpan==layout.rowSizes.length)
+								bottomSiblingInset=false;
+						}
+						if(insetLeft)
+							outRect.left=pad;
+						if(insetRight)
+							outRect.right=pad;
 						if(!topSiblingInset)
 							outRect.top=pad;
 						if(!bottomSiblingInset)
