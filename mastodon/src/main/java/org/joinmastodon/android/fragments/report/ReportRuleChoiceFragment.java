@@ -21,7 +21,7 @@ public class ReportRuleChoiceFragment extends BaseReportChoiceFragment{
 	@Override
 	protected void populateItems(){
 		isMultipleChoice=true;
-		Instance inst=AccountSessionManager.getInstance().getAccount(accountID).instance;
+		Instance inst=AccountSessionManager.getInstance().getInstanceInfo(AccountSessionManager.getInstance().getAccount(accountID).domain);
 		if(inst!=null && inst.rules!=null){
 			for(Instance.Rule rule:inst.rules){
 				items.add(new Item(rule.text, null, rule.id));

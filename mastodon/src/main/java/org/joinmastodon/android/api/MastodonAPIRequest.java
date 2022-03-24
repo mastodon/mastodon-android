@@ -135,7 +135,7 @@ public abstract class MastodonAPIRequest<T> extends APIRequest<T>{
 		return method;
 	}
 
-	public RequestBody getRequestBody(){
+	public RequestBody getRequestBody() throws IOException{
 		return requestBody==null ? null : new JsonObjectRequestBody(requestBody);
 	}
 

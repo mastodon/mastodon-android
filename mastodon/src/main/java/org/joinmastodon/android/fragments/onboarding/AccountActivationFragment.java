@@ -132,7 +132,7 @@ public class AccountActivationFragment extends AppKitFragment{
 						AccountSessionManager mgr=AccountSessionManager.getInstance();
 						AccountSession session=mgr.getAccount(accountID);
 						mgr.removeAccount(accountID);
-						mgr.addAccount(session.instance, session.token, result, session.app, true);
+						mgr.addAccount(mgr.getInstanceInfo(session.domain), session.token, result, session.app, true);
 						String newID=mgr.getLastActiveAccountID();
 						Bundle args=new Bundle();
 						args.putString("account", newID);

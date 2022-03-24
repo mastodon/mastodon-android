@@ -76,8 +76,11 @@ public class Instance extends BaseModel{
 	public Account contactAccount;
 	public Stats stats;
 
-	public int maxTootChars;
 	public List<Rule> rules;
+	public Configuration configuration;
+
+	// non-standard field in some Mastodon forks
+	public int maxTootChars;
 
 	@Override
 	public void postprocess() throws ObjectValidationException{
@@ -136,5 +139,37 @@ public class Instance extends BaseModel{
 		public int userCount;
 		public int statusCount;
 		public int domainCount;
+	}
+
+	@Parcel
+	public static class Configuration{
+		public StatusesConfiguration statuses;
+		public MediaAttachmentsConfiguration mediaAttachments;
+		public PollsConfiguration polls;
+	}
+
+	@Parcel
+	public static class StatusesConfiguration{
+		public int maxCharacters;
+		public int maxMediaAttachments;
+		public int charactersReservedPerUrl;
+	}
+
+	@Parcel
+	public static class MediaAttachmentsConfiguration{
+		public List<String> supportedMimeTypes;
+		public int imageSizeLimit;
+		public int imageMatrixLimit;
+		public int videoSizeLimit;
+		public int videoFrameRateLimit;
+		public int videoMatrixLimit;
+	}
+
+	@Parcel
+	public static class PollsConfiguration{
+		public int maxOptions;
+		public int maxCharactersPerOption;
+		public int minExpiration;
+		public int maxExpiration;
 	}
 }

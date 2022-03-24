@@ -18,6 +18,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.text.Editable;
+import android.text.InputFilter;
 import android.text.Layout;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
@@ -62,6 +63,7 @@ import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.Attachment;
 import org.joinmastodon.android.model.Emoji;
 import org.joinmastodon.android.model.EmojiCategory;
+import org.joinmastodon.android.model.Instance;
 import org.joinmastodon.android.model.Mention;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.model.StatusPrivacy;
@@ -104,7 +106,6 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 
 	private static final int MEDIA_RESULT=717;
 	private static final int IMAGE_DESCRIPTION_RESULT=363;
-	private static final int MAX_POLL_OPTIONS=4;
 	private static final int MAX_ATTACHMENTS=4;
 
 	private static final Pattern MENTION_PATTERN=Pattern.compile("(^|[^\\/\\w])@(([a-z0-9_]+)@[a-z0-9\\.\\-]+[a-z0-9]+)", Pattern.CASE_INSENSITIVE);
@@ -173,6 +174,7 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 	private ComposeAutocompleteSpan currentAutocompleteSpan;
 	private FrameLayout mainEditTextWrap;
 	private ComposeAutocompleteViewController autocompleteViewController;
+	private Instance instance;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState){
@@ -181,12 +183,22 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 
 		accountID=getArguments().getString("account");
 		AccountSession session=AccountSessionManager.getInstance().getAccount(accountID);
-		charLimit=session.tootCharLimit;
-		if(charLimit==0)
-			charLimit=500;
 		self=session.self;
 		instanceDomain=session.domain;
 		customEmojis=AccountSessionManager.getInstance().getCustomEmojis(instanceDomain);
+		instance=AccountSessionManager.getInstance().getInstanceInfo(instanceDomain);
+		if(instance==null){
+			Nav.finish(this);
+			return;
+		}
+
+		if(instance.maxTootChars>0)
+			charLimit=instance.maxTootChars;
+		else if(instance.configuration!=null && instance.configuration.statuses!=null && instance.configuration.statuses.maxCharacters>0)
+			charLimit=instance.configuration.statuses.maxCharacters;
+		else
+			charLimit=500;
+
 		if(getArguments().containsKey("replyTo")){
 			replyTo=Parcels.unwrap(getArguments().getParcelable("replyTo"));
 			statusVisibility=replyTo.visibility;
@@ -647,7 +659,11 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 		Intent intent=new Intent(Intent.ACTION_GET_CONTENT);
 		intent.addCategory(Intent.CATEGORY_OPENABLE);
 		intent.setType("*/*");
-		intent.putExtra(Intent.EXTRA_MIME_TYPES, new String[]{"image/*", "video/*"});
+		if(instance.configuration!=null && instance.configuration.mediaAttachments!=null && instance.configuration.mediaAttachments.supportedMimeTypes!=null && !instance.configuration.mediaAttachments.supportedMimeTypes.isEmpty()){
+			intent.putExtra(Intent.EXTRA_MIME_TYPES, instance.configuration.mediaAttachments.supportedMimeTypes.toArray(new String[0]));
+		}else{
+			intent.putExtra(Intent.EXTRA_MIME_TYPES, new String[]{"image/*", "video/*"});
+		}
 		intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
 		startActivityForResult(intent, MEDIA_RESULT);
 	}
@@ -740,7 +756,12 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 		rotationAnimator.setDuration(1500);
 		rotationAnimator.setRepeatCount(ObjectAnimator.INFINITE);
 		rotationAnimator.start();
-		attachment.uploadRequest=(UploadAttachment) new UploadAttachment(attachment.uri)
+		int maxSize=0;
+		String contentType=getActivity().getContentResolver().getType(attachment.uri);
+		if(contentType!=null && contentType.startsWith("image/")){
+			maxSize=2_073_600; // TODO get this from instance configuration when it gets added there
+		}
+		attachment.uploadRequest=(UploadAttachment) new UploadAttachment(attachment.uri, maxSize)
 				.setProgressListener(new ProgressListener(){
 					@Override
 					public void onProgress(long transferred, long total){
@@ -864,10 +885,11 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 			return true;
 		});
 		option.edit.addTextChangedListener(new SimpleTextWatcher(e->updatePublishButtonState()));
+		option.edit.setFilters(new InputFilter[]{new InputFilter.LengthFilter(instance.configuration!=null && instance.configuration.polls!=null && instance.configuration.polls.maxCharactersPerOption>0 ? instance.configuration.polls.maxCharactersPerOption : 50)});
 
 		pollOptionsView.addView(option.view);
 		pollOptions.add(option);
-		if(pollOptions.size()==MAX_POLL_OPTIONS)
+		if(pollOptions.size()==(instance.configuration!=null && instance.configuration.polls!=null && instance.configuration.polls.maxOptions>0 ? instance.configuration.polls.maxOptions : 4))
 			addPollOptionBtn.setVisibility(View.GONE);
 		return option;
 	}

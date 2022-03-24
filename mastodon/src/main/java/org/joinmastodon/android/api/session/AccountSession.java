@@ -12,25 +12,20 @@ public class AccountSession{
 	public Token token;
 	public Account self;
 	public String domain;
-	public int tootCharLimit;
 	public Application app;
 	public long infoLastUpdated;
-	public long instanceLastUpdated;
-	public Instance instance;
 	public boolean activated=true;
 	private transient MastodonAPIController apiController;
 	private transient StatusInteractionController statusInteractionController;
 	private transient CacheController cacheController;
 
-	AccountSession(Token token, Account self, Application app, String domain, int tootCharLimit, Instance instance, boolean activated){
+	AccountSession(Token token, Account self, Application app, String domain, boolean activated){
 		this.token=token;
 		this.self=self;
 		this.domain=domain;
 		this.app=app;
-		this.tootCharLimit=tootCharLimit;
-		this.instance=instance;
 		this.activated=activated;
-		instanceLastUpdated=infoLastUpdated=System.currentTimeMillis();
+		infoLastUpdated=System.currentTimeMillis();
 	}
 
 	AccountSession(){}

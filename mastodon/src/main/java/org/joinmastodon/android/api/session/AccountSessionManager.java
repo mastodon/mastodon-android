@@ -1,7 +1,6 @@
 package org.joinmastodon.android.api.session;
 
 import android.app.Activity;
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.net.Uri;
@@ -37,12 +36,10 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.annotation.StringRes;
 import androidx.browser.customtabs.CustomTabsIntent;
 import me.grishka.appkit.api.Callback;
 import me.grishka.appkit.api.ErrorResponse;
@@ -56,13 +53,14 @@ public class AccountSessionManager{
 
 	private HashMap<String, AccountSession> sessions=new HashMap<>();
 	private HashMap<String, List<EmojiCategory>> customEmojis=new HashMap<>();
-	private HashMap<String, Long> customEmojisLastUpdated=new HashMap<>();
+	private HashMap<String, Long> instancesLastUpdated=new HashMap<>();
+	private HashMap<String, Instance> instances=new HashMap<>();
 	private MastodonAPIController unauthenticatedApiController=new MastodonAPIController(null);
 	private Instance authenticatingInstance;
 	private Application authenticatingApp;
 	private String lastActiveAccountID;
 	private SharedPreferences prefs;
-	private boolean loadedCustomEmojis;
+	private boolean loadedInstances;
 
 	public static AccountSessionManager getInstance(){
 		return instance;
@@ -84,14 +82,16 @@ public class AccountSessionManager{
 			Log.e(TAG, "Error loading accounts", x);
 		}
 		lastActiveAccountID=prefs.getString("lastActiveAccount", null);
-		MastodonAPIController.runInBackground(()->readCustomEmojis(domains));
+		MastodonAPIController.runInBackground(()->readInstanceInfo(domains));
 	}
 
 	public void addAccount(Instance instance, Token token, Account self, Application app, boolean active){
-		AccountSession session=new AccountSession(token, self, app, instance.uri, instance.maxTootChars, instance, active);
+		instances.put(instance.uri, instance);
+		AccountSession session=new AccountSession(token, self, app, instance.uri, active);
 		sessions.put(session.getID(), session);
 		lastActiveAccountID=session.getID();
 		writeAccountsFile();
+		maybeUpdateLocalInfo();
 	}
 
 	private void writeAccountsFile(){
@@ -155,7 +155,7 @@ public class AccountSessionManager{
 		writeAccountsFile();
 		String domain=session.domain.toLowerCase();
 		if(sessions.isEmpty() || !sessions.values().stream().map(s->s.domain.toLowerCase()).collect(Collectors.toSet()).contains(domain)){
-			getCustomEmojisFile(domain).delete();
+			getInstanceInfoFile(domain).delete();
 		}
 	}
 
@@ -213,11 +213,11 @@ public class AccountSessionManager{
 		HashSet<String> domains=new HashSet<>();
 		for(AccountSession session:sessions.values()){
 			domains.add(session.domain.toLowerCase());
-			if(now-session.infoLastUpdated>24L*3600_000L || now-session.instanceLastUpdated>24L*360_000L*3L){
+			if(now-session.infoLastUpdated>24L*3600_000L){
 				updateSessionLocalInfo(session);
 			}
 		}
-		if(loadedCustomEmojis){
+		if(loadedInstances){
 			maybeUpdateCustomEmojis(domains);
 		}
 	}
@@ -225,9 +225,9 @@ public class AccountSessionManager{
 	private void maybeUpdateCustomEmojis(Set<String> domains){
 		long now=System.currentTimeMillis();
 		for(String domain:domains){
-			Long lastUpdated=customEmojisLastUpdated.get(domain);
+			Long lastUpdated=instancesLastUpdated.get(domain);
 			if(lastUpdated==null || now-lastUpdated>24L*3600_000L){
-				updateCustomEmojis(domain);
+				updateInstanceInfo(domain);
 			}
 		}
 	}
@@ -248,34 +248,33 @@ public class AccountSessionManager{
 					}
 				})
 				.exec(session.getID());
+	}
+
+	private void updateInstanceInfo(String domain){
 		new GetInstance()
 				.setCallback(new Callback<>(){
 					@Override
-					public void onSuccess(Instance result){
-						session.instance=result;
-						session.instanceLastUpdated=System.currentTimeMillis();
-						writeAccountsFile();
-					}
+					public void onSuccess(Instance instance){
+						instances.put(domain, instance);
+						new GetCustomEmojis()
+								.setCallback(new Callback<>(){
+									@Override
+									public void onSuccess(List<Emoji> result){
+										InstanceInfoStorageWrapper emojis=new InstanceInfoStorageWrapper();
+										emojis.lastUpdated=System.currentTimeMillis();
+										emojis.emojis=result;
+										emojis.instance=instance;
+										customEmojis.put(domain, groupCustomEmojis(emojis));
+										instancesLastUpdated.put(domain, emojis.lastUpdated);
+										MastodonAPIController.runInBackground(()->writeInstanceInfoFile(emojis, domain));
+									}
 
-					@Override
-					public void onError(ErrorResponse error){
+									@Override
+									public void onError(ErrorResponse error){
 
-					}
-				})
-				.exec(session.getID());
-	}
-
-	private void updateCustomEmojis(String domain){
-		new GetCustomEmojis()
-				.setCallback(new Callback<>(){
-					@Override
-					public void onSuccess(List<Emoji> result){
-						CustomEmojisStorageWrapper emojis=new CustomEmojisStorageWrapper();
-						emojis.lastUpdated=System.currentTimeMillis();
-						emojis.emojis=result;
-						customEmojis.put(domain, groupCustomEmojis(emojis));
-						customEmojisLastUpdated.put(domain, emojis.lastUpdated);
-						MastodonAPIController.runInBackground(()->writeCustomEmojisFile(emojis, domain));
+									}
+								})
+								.execNoAuth(domain);
 					}
 
 					@Override
@@ -286,38 +285,39 @@ public class AccountSessionManager{
 				.execNoAuth(domain);
 	}
 
-	private File getCustomEmojisFile(String domain){
-		return new File(MastodonApp.context.getFilesDir(), "emojis_"+domain.replace('.', '_')+".json");
+	private File getInstanceInfoFile(String domain){
+		return new File(MastodonApp.context.getFilesDir(), "instance_"+domain.replace('.', '_')+".json");
 	}
 
-	private void writeCustomEmojisFile(CustomEmojisStorageWrapper emojis, String domain){
-		try(FileOutputStream out=new FileOutputStream(getCustomEmojisFile(domain))){
+	private void writeInstanceInfoFile(InstanceInfoStorageWrapper emojis, String domain){
+		try(FileOutputStream out=new FileOutputStream(getInstanceInfoFile(domain))){
 			OutputStreamWriter writer=new OutputStreamWriter(out, StandardCharsets.UTF_8);
 			MastodonAPIController.gson.toJson(emojis, writer);
 			writer.flush();
 		}catch(IOException x){
-			Log.w(TAG, "Error writing emojis file for "+domain, x);
+			Log.w(TAG, "Error writing instance info file for "+domain, x);
 		}
 	}
 
-	private void readCustomEmojis(Set<String> domains){
+	private void readInstanceInfo(Set<String> domains){
 		for(String domain:domains){
-			try(FileInputStream in=new FileInputStream(getCustomEmojisFile(domain))){
+			try(FileInputStream in=new FileInputStream(getInstanceInfoFile(domain))){
 				InputStreamReader reader=new InputStreamReader(in, StandardCharsets.UTF_8);
-				CustomEmojisStorageWrapper emojis=MastodonAPIController.gson.fromJson(reader, CustomEmojisStorageWrapper.class);
+				InstanceInfoStorageWrapper emojis=MastodonAPIController.gson.fromJson(reader, InstanceInfoStorageWrapper.class);
 				customEmojis.put(domain, groupCustomEmojis(emojis));
-				customEmojisLastUpdated.put(domain, emojis.lastUpdated);
+				instances.put(domain, emojis.instance);
+				instancesLastUpdated.put(domain, emojis.lastUpdated);
 			}catch(IOException|JsonParseException x){
-				Log.w(TAG, "Error reading emojis file for "+domain, x);
+				Log.w(TAG, "Error reading instance info file for "+domain, x);
 			}
 		}
-		if(!loadedCustomEmojis){
-			loadedCustomEmojis=true;
+		if(!loadedInstances){
+			loadedInstances=true;
 			maybeUpdateCustomEmojis(domains);
 		}
 	}
 
-	private List<EmojiCategory> groupCustomEmojis(CustomEmojisStorageWrapper emojis){
+	private List<EmojiCategory> groupCustomEmojis(InstanceInfoStorageWrapper emojis){
 		return emojis.emojis.stream()
 				.filter(e->e.visibleInPicker)
 				.collect(Collectors.groupingBy(e->e.category==null ? "" : e.category))
@@ -333,6 +333,10 @@ public class AccountSessionManager{
 		return r==null ? Collections.emptyList() : r;
 	}
 
+	public Instance getInstanceInfo(String domain){
+		return instances.get(domain);
+	}
+
 	public void updateAccountInfo(String id, Account account){
 		AccountSession session=getAccount(id);
 		session.self=account;
@@ -344,7 +348,8 @@ public class AccountSessionManager{
 		public List<AccountSession> accounts;
 	}
 
-	private static class CustomEmojisStorageWrapper{
+	private static class InstanceInfoStorageWrapper{
+		public Instance instance;
 		public List<Emoji> emojis;
 		public long lastUpdated;
 	}
