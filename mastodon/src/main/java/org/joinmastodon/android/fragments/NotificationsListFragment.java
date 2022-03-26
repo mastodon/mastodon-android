@@ -5,12 +5,10 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.RectF;
-import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 
 import org.joinmastodon.android.R;
-import org.joinmastodon.android.api.requests.notifications.GetNotifications;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.model.Notification;
 import org.joinmastodon.android.model.Poll;
@@ -26,8 +24,6 @@ import org.parceler.Parcels;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.EnumSet;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -54,7 +50,7 @@ public class NotificationsListFragment extends BaseStatusListFragment<Notificati
 			case FOLLOW -> getString(R.string.user_followed_you);
 			case FOLLOW_REQUEST -> getString(R.string.user_sent_follow_request);
 			case MENTION, STATUS -> null;
-			case REBLOG -> getString(R.string.user_boosted);
+			case REBLOG -> getString(R.string.notification_boosted);
 			case FAVORITE -> getString(R.string.user_favorited);
 			case POLL -> getString(R.string.poll_ended);
 		};
