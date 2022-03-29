@@ -204,6 +204,7 @@
 						android:background="@drawable/edit_text_border"
 						android:inputType="textPersonName|textCapWords"
 						android:visibility="gone"
+						android:elevation="0dp"
 						tools:text="Eugen" />
 
 					<EditText
@@ -218,6 +219,7 @@
 						android:background="@drawable/edit_text_border"
 						android:inputType="textMultiLine|textCapSentences"
 						android:visibility="gone"
+						android:elevation="0dp"
 						tools:text="Founder, CEO and lead developer @Mastodon, Germany." />
 
 				</RelativeLayout>

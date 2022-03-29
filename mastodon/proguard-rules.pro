@@ -19,3 +19,23 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+# Keep all model classes as they're used with gson and their names are shown in errors
+-keep public class org.joinmastodon.android.model.**{
+	<fields>;
+}
+
+# Inner classes in api requests are used with gson
+-keepclassmembers class org.joinmastodon.android.api.**$*{
+	*;
+}
+
+# Keep all enums for debugging purposes
+-keepnames public enum * {
+	*;
+}
+
+-keepclassmembers,allowobfuscation class * {
+  @com.google.gson.annotations.SerializedName <fields>;
+  @com.squareup.otto.Subscribe <methods>;
+}

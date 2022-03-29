@@ -10,14 +10,15 @@ android {
 		applicationId "org.joinmastodon.android"
 		minSdk 23
 		targetSdk 31
-		versionCode 16
+		versionCode 17
 		versionName "0.1"
 	}
 
 	buildTypes {
 		release {
-			minifyEnabled false
-			proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+			minifyEnabled true
+			shrinkResources true
+			proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
 		}
 		debug{
 			debuggable true
@@ -25,6 +26,7 @@ android {
 		appcenterPrivateBeta{
 			initWith release
 			minifyEnabled false
+			shrinkResources false
 			versionNameSuffix "-priv-beta"
 		}
 		appcenterPublicBeta{
