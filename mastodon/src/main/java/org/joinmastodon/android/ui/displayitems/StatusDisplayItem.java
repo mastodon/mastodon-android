@@ -30,6 +30,7 @@ public abstract class StatusDisplayItem{
 	public final String parentID;
 	public final BaseStatusListFragment parentFragment;
 	public boolean inset;
+	public int index;
 
 	public StatusDisplayItem(String parentID, BaseStatusListFragment parentFragment){
 		this.parentID=parentID;
@@ -60,6 +61,8 @@ public abstract class StatusDisplayItem{
 			case CARD -> new LinkCardStatusDisplayItem.Holder(activity, parent);
 			case FOOTER -> new FooterStatusDisplayItem.Holder(activity, parent);
 			case ACCOUNT_CARD -> new AccountCardStatusDisplayItem.Holder(activity, parent);
+			case ACCOUNT -> new AccountStatusDisplayItem.Holder(activity, parent);
+			case HASHTAG -> new HashtagStatusDisplayItem.Holder(activity, parent);
 		};
 	}
 
@@ -110,8 +113,11 @@ public abstract class StatusDisplayItem{
 		if(addFooter){
 			items.add(new FooterStatusDisplayItem(parentID, fragment, statusForContent, accountID));
 		}
-		for(StatusDisplayItem item:items)
+		int i=1;
+		for(StatusDisplayItem item:items){
 			item.inset=inset;
+			item.index=i++;
+		}
 		return items;
 	}
 
@@ -135,6 +141,8 @@ public abstract class StatusDisplayItem{
 		CARD,
 		FOOTER,
 		ACCOUNT_CARD,
+		ACCOUNT,
+		HASHTAG
 	}
 
 	public static abstract class Holder<T extends StatusDisplayItem> extends BindableViewHolder<T> implements UsableRecyclerView.Clickable{

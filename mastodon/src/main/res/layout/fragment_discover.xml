@@ -15,29 +15,65 @@
 		android:paddingBottom="16dp"
 		android:background="?android:statusBarColor">
 
-		<EditText
-			android:id="@+id/search_edit"
+		<FrameLayout
 			android:layout_width="match_parent"
-			android:layout_height="40dp"
-			android:hint="@string/search_hint"
-			android:textColorHint="?colorSearchHint"
-			android:textColor="?android:textColorPrimary"
-			android:textSize="16dp"
-			android:singleLine="true"
-			android:inputType="textFilter"
-			android:paddingLeft="48dp"
-			android:paddingRight="48dp"
-			android:elevation="0dp"
-			android:background="@drawable/bg_search_field"/>
+			android:layout_height="wrap_content"
+			android:background="@drawable/bg_search_field"
+			android:outlineProvider="background"
+			android:clipToOutline="true">
 
-		<ImageButton
-			android:layout_width="40dp"
-			android:layout_height="40dp"
-			android:layout_gravity="start"
-			android:layout_marginStart="4dp"
-			android:background="?android:selectableItemBackgroundBorderless"
-			android:tint="?colorSearchHint"
-			android:src="@drawable/ic_fluent_search_24_regular"/>
+			<EditText
+				android:id="@+id/search_edit"
+				android:layout_width="match_parent"
+				android:layout_height="40dp"
+				android:hint="@string/search_hint"
+				android:textColorHint="?colorSearchHint"
+				android:textColor="?android:textColorPrimary"
+				android:textSize="16dp"
+				android:singleLine="true"
+				android:inputType="textFilter"
+				android:imeOptions="actionSearch"
+				android:paddingLeft="48dp"
+				android:paddingRight="48dp"
+				android:paddingTop="0dp"
+				android:paddingBottom="0dp"
+				android:background="@null"
+				android:elevation="0dp"/>
+
+			<ImageButton
+				android:id="@+id/search_back"
+				android:layout_width="40dp"
+				android:layout_height="40dp"
+				android:layout_gravity="start"
+				android:layout_marginStart="4dp"
+				android:background="?android:selectableItemBackgroundBorderless"
+				android:tint="?colorSearchHint"
+				android:elevation="1dp"
+				android:src="@drawable/ic_fluent_search_24_regular"/>
+
+			<ImageButton
+				android:id="@+id/search_clear"
+				android:layout_width="40dp"
+				android:layout_height="40dp"
+				android:layout_gravity="end"
+				android:layout_marginEnd="4dp"
+				android:background="?android:selectableItemBackgroundBorderless"
+				android:tint="?colorSearchHint"
+				android:elevation="1dp"
+				android:visibility="invisible"
+				android:src="@drawable/ic_fluent_dismiss_24_regular"/>
+
+			<ProgressBar
+				android:id="@+id/search_progress"
+				android:layout_width="20dp"
+				android:layout_height="20dp"
+				android:layout_gravity="end|center_vertical"
+				android:layout_marginEnd="14dp"
+				android:indeterminateTint="?colorSearchHint"
+				style="?android:progressBarStyleSmall"
+				android:visibility="invisible"/>
+
+		</FrameLayout>
 
 	</FrameLayout>
 
@@ -58,5 +94,12 @@
 		android:layout_width="match_parent"
 		android:layout_height="0dp"
 		android:layout_weight="1"/>
+
+	<FrameLayout
+		android:id="@+id/search_fragment"
+		android:layout_width="match_parent"
+		android:layout_height="0dp"
+		android:layout_weight="1"
+		android:visibility="gone"/>
 
 </me.grishka.appkit.views.FragmentRootLinearLayout>

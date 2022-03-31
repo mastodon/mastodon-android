@@ -39,12 +39,15 @@ import java.time.Instant;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.function.BiPredicate;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 import androidx.annotation.AttrRes;
 import androidx.annotation.StringRes;
 import androidx.browser.customtabs.CustomTabsIntent;
+import androidx.recyclerview.widget.DiffUtil;
+import androidx.recyclerview.widget.RecyclerView;
 import me.grishka.appkit.Nav;
 import me.grishka.appkit.api.Callback;
 import me.grishka.appkit.api.ErrorResponse;
@@ -310,5 +313,40 @@ public class UiUtils{
 					})
 					.exec(accountID);
 		}
+	}
+
+	public static <T> void updateList(List<T> oldList, List<T> newList, RecyclerView list, RecyclerView.Adapter<?> adapter, BiPredicate<T, T> areItemsSame){
+		// Save topmost item position and offset because for some reason RecyclerView would scroll the list to weird places when you insert items at the top
+		int topItem, topItemOffset;
+		if(list.getChildCount()==0){
+			topItem=topItemOffset=0;
+		}else{
+			View child=list.getChildAt(0);
+			topItem=list.getChildAdapterPosition(child);
+			topItemOffset=child.getTop();
+		}
+		DiffUtil.calculateDiff(new DiffUtil.Callback(){
+			@Override
+			public int getOldListSize(){
+				return oldList.size();
+			}
+
+			@Override
+			public int getNewListSize(){
+				return newList.size();
+			}
+
+			@Override
+			public boolean areItemsTheSame(int oldItemPosition, int newItemPosition){
+				return areItemsSame.test(oldList.get(oldItemPosition), newList.get(newItemPosition));
+			}
+
+			@Override
+			public boolean areContentsTheSame(int oldItemPosition, int newItemPosition){
+				return true;
+			}
+		}).dispatchUpdatesTo(adapter);
+		list.scrollToPosition(topItem);
+		list.scrollBy(0, topItemOffset);
 	}
 }

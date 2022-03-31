@@ -16,6 +16,7 @@ import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.requests.accounts.GetAccountRelationships;
 import org.joinmastodon.android.api.requests.accounts.GetFollowSuggestions;
 import org.joinmastodon.android.fragments.ProfileFragment;
+import org.joinmastodon.android.fragments.ScrollableToTop;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.FollowSuggestion;
 import org.joinmastodon.android.model.Relationship;
@@ -47,7 +48,7 @@ import me.grishka.appkit.utils.BindableViewHolder;
 import me.grishka.appkit.utils.V;
 import me.grishka.appkit.views.UsableRecyclerView;
 
-public class DiscoverAccountsFragment extends BaseRecyclerFragment<DiscoverAccountsFragment.AccountWrapper>{
+public class DiscoverAccountsFragment extends BaseRecyclerFragment<DiscoverAccountsFragment.AccountWrapper> implements ScrollableToTop{
 	private String accountID;
 	private Map<String, Relationship> relationships=Collections.emptyMap();
 	private GetAccountRelationships relationshipsRequest;
@@ -118,6 +119,11 @@ public class DiscoverAccountsFragment extends BaseRecyclerFragment<DiscoverAccou
 				relationshipsRequest=null;
 			}
 		}).exec(accountID);
+	}
+
+	@Override
+	public void scrollToTop(){
+		smoothScrollRecyclerViewToTop(list);
 	}
 
 	private class AccountsAdapter extends UsableRecyclerView.Adapter<AccountViewHolder> implements ImageLoaderRecyclerAdapter{

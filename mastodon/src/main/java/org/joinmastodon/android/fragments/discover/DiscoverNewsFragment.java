@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.requests.trends.GetTrendingLinks;
+import org.joinmastodon.android.fragments.ScrollableToTop;
 import org.joinmastodon.android.model.Card;
 import org.joinmastodon.android.ui.DividerItemDecoration;
 import org.joinmastodon.android.ui.OutlineProviders;
@@ -32,7 +33,7 @@ import me.grishka.appkit.utils.BindableViewHolder;
 import me.grishka.appkit.utils.V;
 import me.grishka.appkit.views.UsableRecyclerView;
 
-public class DiscoverNewsFragment extends BaseRecyclerFragment<Card>{
+public class DiscoverNewsFragment extends BaseRecyclerFragment<Card> implements ScrollableToTop{
 	private String accountID;
 	private List<ImageLoaderRequest> imageRequests=Collections.emptyList();
 
@@ -70,6 +71,11 @@ public class DiscoverNewsFragment extends BaseRecyclerFragment<Card>{
 	public void onViewCreated(View view, Bundle savedInstanceState){
 		super.onViewCreated(view, savedInstanceState);
 		list.addItemDecoration(new DividerItemDecoration(getActivity(), R.attr.colorPollVoted, 1, 0, 0));
+	}
+
+	@Override
+	public void scrollToTop(){
+		smoothScrollRecyclerViewToTop(list);
 	}
 
 	private class LinksAdapter extends UsableRecyclerView.Adapter<LinkViewHolder> implements ImageLoaderRecyclerAdapter{

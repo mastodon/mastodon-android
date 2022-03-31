@@ -38,7 +38,7 @@ public class HashtagChartView extends View{
 	}
 
 	public void setData(List<History> data){
-		int max=0;
+		int max=1; // avoid dividing by zero
 		for(History h:data){
 			max=Math.max(h.accounts, max);
 		}

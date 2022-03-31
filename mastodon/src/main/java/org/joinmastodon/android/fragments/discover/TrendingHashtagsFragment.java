@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.requests.trends.GetTrendingHashtags;
+import org.joinmastodon.android.fragments.ScrollableToTop;
 import org.joinmastodon.android.model.Hashtag;
 import org.joinmastodon.android.ui.DividerItemDecoration;
 import org.joinmastodon.android.ui.utils.UiUtils;
@@ -24,7 +25,7 @@ import me.grishka.appkit.utils.BindableViewHolder;
 import me.grishka.appkit.utils.V;
 import me.grishka.appkit.views.UsableRecyclerView;
 
-public class TrendingHashtagsFragment extends BaseRecyclerFragment<Hashtag>{
+public class TrendingHashtagsFragment extends BaseRecyclerFragment<Hashtag> implements ScrollableToTop{
 	private String accountID;
 
 	public TrendingHashtagsFragment(){
@@ -58,6 +59,11 @@ public class TrendingHashtagsFragment extends BaseRecyclerFragment<Hashtag>{
 	public void onViewCreated(View view, Bundle savedInstanceState){
 		super.onViewCreated(view, savedInstanceState);
 		list.addItemDecoration(new DividerItemDecoration(getActivity(), R.attr.colorPollVoted, .5f, 16, 16));
+	}
+
+	@Override
+	public void scrollToTop(){
+		smoothScrollRecyclerViewToTop(list);
 	}
 
 	private class HashtagsAdapter extends RecyclerView.Adapter<HashtagViewHolder>{

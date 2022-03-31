@@ -75,15 +75,15 @@
 		<item name="colorPollMostVoted">@color/primary_700</item>
 		<item name="colorPollVoted">@color/gray_600</item>
 		<item name="colorAccentLight">@color/primary_600</item>
+		<item name="colorAccentLightest">@color/primary_800</item>
+		<item name="colorTabInactive">@color/gray_400</item>
 
 		<!-- TODO dark colors -->
-		<item name="colorSearchField">@color/gray_200</item>
-		<item name="colorSearchHint">@color/gray_600</item>
-		<item name="colorTabInactive">@color/gray_400</item>
-		<item name="colorAccentLightest">@color/primary_100</item>
+		<item name="colorSearchField">@color/gray_700</item>
+		<item name="colorSearchHint">@color/gray_300</item>
 
 		<item name="buttonBackground">@drawable/bg_button_primary_light_on_dark</item>
-		<item name="android:editTextBackground">@drawable/bg_edittext_light</item>
+		<item name="android:editTextBackground">@drawable/bg_edittext_dark</item>
 
 		<item name="android:windowLightStatusBar">false</item>
 		<item name="android:windowLightNavigationBar" tools:ignore="NewApi">false</item>

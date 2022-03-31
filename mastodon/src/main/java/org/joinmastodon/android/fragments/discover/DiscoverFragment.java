@@ -3,11 +3,19 @@ package org.joinmastodon.android.fragments.discover;
 import android.app.Fragment;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.fragments.ScrollableToTop;
@@ -22,21 +30,29 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
 import me.grishka.appkit.fragments.AppKitFragment;
 import me.grishka.appkit.fragments.BaseRecyclerFragment;
+import me.grishka.appkit.fragments.OnBackPressedListener;
 import me.grishka.appkit.utils.V;
 
-public class DiscoverFragment extends AppKitFragment implements ScrollableToTop{
+public class DiscoverFragment extends AppKitFragment implements ScrollableToTop, OnBackPressedListener{
 
 	private TabLayout tabLayout;
 	private ViewPager2 pager;
 	private FrameLayout[] tabViews;
 	private TabLayoutMediator tabLayoutMediator;
+	private EditText searchEdit;
+	private boolean searchActive;
+	private FrameLayout searchView;
+	private ImageButton searchBack, searchClear;
+	private ProgressBar searchProgress;
 
 	private DiscoverPostsFragment postsFragment;
 	private TrendingHashtagsFragment hashtagsFragment;
 	private DiscoverNewsFragment newsFragment;
 	private DiscoverAccountsFragment accountsFragment;
+	private SearchFragment searchFragment;
 
 	private String accountID;
+	private Runnable searchDebouncer=this::onSearchChangedDebounced;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState){
@@ -129,17 +145,102 @@ public class DiscoverFragment extends AppKitFragment implements ScrollableToTop{
 		});
 		tabLayoutMediator.attach();
 
+		searchEdit=view.findViewById(R.id.search_edit);
+		searchEdit.setOnFocusChangeListener(this::onSearchEditFocusChanged);
+		searchEdit.setOnEditorActionListener(this::onSearchEnterPressed);
+		searchEdit.addTextChangedListener(new TextWatcher(){
+			@Override
+			public void beforeTextChanged(CharSequence s, int start, int count, int after){
+				if(s.length()==0){
+					V.setVisibilityAnimated(searchClear, View.VISIBLE);
+				}
+			}
+
+			@Override
+			public void onTextChanged(CharSequence s, int start, int before, int count){
+				searchEdit.removeCallbacks(searchDebouncer);
+				searchEdit.postDelayed(searchDebouncer, 300);
+			}
+
+			@Override
+			public void afterTextChanged(Editable s){
+				if(s.length()==0){
+					V.setVisibilityAnimated(searchClear, View.INVISIBLE);
+				}
+			}
+		});
+
+		searchView=view.findViewById(R.id.search_fragment);
+		if(searchFragment==null){
+			searchFragment=new SearchFragment();
+			Bundle args=new Bundle();
+			args.putString("account", accountID);
+			searchFragment.setArguments(args);
+			searchFragment.setProgressVisibilityListener(this::onSearchProgressVisibilityChanged);
+			getChildFragmentManager().beginTransaction().add(R.id.search_fragment, searchFragment).commit();
+		}
+
+		searchBack=view.findViewById(R.id.search_back);
+		searchClear=view.findViewById(R.id.search_clear);
+		searchProgress=view.findViewById(R.id.search_progress);
+		searchBack.setEnabled(searchActive);
+		searchBack.setOnClickListener(v->exitSearch());
+		if(searchActive){
+			searchBack.setImageResource(R.drawable.ic_fluent_arrow_left_24_regular);
+			pager.setVisibility(View.GONE);
+			tabLayout.setVisibility(View.GONE);
+			searchView.setVisibility(View.VISIBLE);
+		}
+		searchClear.setOnClickListener(v->{
+			searchEdit.setText("");
+			searchEdit.removeCallbacks(searchDebouncer);
+			onSearchChangedDebounced();
+		});
+
 		return view;
 	}
 
 	@Override
 	public void scrollToTop(){
-
+		if(!searchActive){
+			((ScrollableToTop)getFragmentForPage(pager.getCurrentItem())).scrollToTop();
+		}else{
+			searchFragment.scrollToTop();
+		}
 	}
 
 	public void loadData(){
 		if(postsFragment!=null && !postsFragment.loaded && !postsFragment.dataLoading)
 			postsFragment.loadData();
+	}
+
+	private void onSearchEditFocusChanged(View v, boolean hasFocus){
+		if(!searchActive && hasFocus){
+			searchActive=true;
+			pager.setVisibility(View.GONE);
+			tabLayout.setVisibility(View.GONE);
+			searchView.setVisibility(View.VISIBLE);
+			searchBack.setImageResource(R.drawable.ic_fluent_arrow_left_24_regular);
+			searchBack.setEnabled(true);
+		}
+	}
+
+	private void exitSearch(){
+		searchActive=false;
+		pager.setVisibility(View.VISIBLE);
+		tabLayout.setVisibility(View.VISIBLE);
+		searchView.setVisibility(View.GONE);
+		searchEdit.clearFocus();
+		searchEdit.setText("");
+		searchBack.setImageResource(R.drawable.ic_fluent_search_24_regular);
+		searchBack.setEnabled(false);
+		getActivity().getSystemService(InputMethodManager.class).hideSoftInputFromWindow(searchEdit.getWindowToken(), 0);
+	}
+
+	@Override
+	protected void onHidden(){
+		super.onHidden();
+		getActivity().getSystemService(InputMethodManager.class).hideSoftInputFromWindow(searchEdit.getWindowToken(), 0);
 	}
 
 	private Fragment getFragmentForPage(int page){
@@ -150,6 +251,34 @@ public class DiscoverFragment extends AppKitFragment implements ScrollableToTop{
 			case 3 -> accountsFragment;
 			default -> throw new IllegalStateException("Unexpected value: "+page);
 		};
+	}
+
+	@Override
+	public boolean onBackPressed(){
+		if(searchActive){
+			exitSearch();
+			return true;
+		}
+		return false;
+	}
+
+	private void onSearchChangedDebounced(){
+		searchFragment.setQuery(searchEdit.getText().toString());
+	}
+
+	private boolean onSearchEnterPressed(TextView v, int actionId, KeyEvent event){
+		if(event!=null && event.getAction()!=KeyEvent.ACTION_DOWN)
+			return true;
+		searchEdit.removeCallbacks(searchDebouncer);
+		onSearchChangedDebounced();
+		getActivity().getSystemService(InputMethodManager.class).hideSoftInputFromWindow(searchEdit.getWindowToken(), 0);
+		return true;
+	}
+
+	private void onSearchProgressVisibilityChanged(boolean visible){
+		V.setVisibilityAnimated(searchProgress, visible ? View.VISIBLE : View.INVISIBLE);
+		if(searchEdit.length()>0)
+			V.setVisibilityAnimated(searchClear, visible ? View.INVISIBLE : View.VISIBLE);
 	}
 
 	private class DiscoverPagerAdapter extends RecyclerView.Adapter<SimpleViewHolder>{

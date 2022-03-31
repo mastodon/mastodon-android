@@ -11,7 +11,6 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
 import android.widget.Toolbar;
 
 import org.joinmastodon.android.R;
@@ -586,20 +585,7 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 
 	@Override
 	public void scrollToTop(){
-		if(list.getChildCount()>0 && list.getChildAdapterPosition(list.getChildAt(0))>10){
-			list.scrollToPosition(0);
-			list.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener(){
-				@Override
-				public boolean onPreDraw(){
-					list.getViewTreeObserver().removeOnPreDrawListener(this);
-					list.scrollBy(0, V.dp(300));
-					list.smoothScrollToPosition(0);
-					return true;
-				}
-			});
-		}else{
-			list.smoothScrollToPosition(0);
-		}
+		smoothScrollRecyclerViewToTop(list);
 	}
 
 	protected int getListWidthForMediaLayout(){

@@ -34,7 +34,7 @@ public class CustomEmojiHelper{
 	}
 
 	public ImageLoaderRequest getImageRequest(int image){
-		return requests.get(image);
+		return image<requests.size() ? requests.get(image) : null; // TODO fix this in the image loader
 	}
 
 	public void setImageDrawable(int image, Drawable drawable){

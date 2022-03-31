@@ -17,7 +17,6 @@ import org.joinmastodon.android.api.requests.search.GetSearchResults;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.Emoji;
-import org.joinmastodon.android.model.EmojiCategory;
 import org.joinmastodon.android.model.Hashtag;
 import org.joinmastodon.android.model.SearchResults;
 import org.joinmastodon.android.ui.drawables.ComposeAutocompleteBackgroundDrawable;
@@ -27,13 +26,10 @@ import org.joinmastodon.android.ui.utils.UiUtils;
 
 import java.util.Collections;
 import java.util.List;
-import java.util.function.BiPredicate;
 import java.util.function.Consumer;
-import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import me.grishka.appkit.api.APIRequest;
@@ -165,7 +161,7 @@ public class ComposeAutocompleteViewController{
 					.filter(e->e.visibleInPicker && e.shortcode.startsWith(_text))
 					.map(WrappedEmoji::new)
 					.collect(Collectors.toList());
-			updateList(oldList, emojis, emojisAdapter, (e1, e2)->e1.emoji.shortcode.equals(e2.emoji.shortcode));
+			UiUtils.updateList(oldList, emojis, list, emojisAdapter, (e1, e2)->e1.emoji.shortcode.equals(e2.emoji.shortcode));
 		}
 	}
 
@@ -181,39 +177,15 @@ public class ComposeAutocompleteViewController{
 		return contentView;
 	}
 
-	private <T> void updateList(List<T> oldList, List<T> newList, RecyclerView.Adapter<?> adapter, BiPredicate<T, T> areItemsSame){
-		DiffUtil.calculateDiff(new DiffUtil.Callback(){
-			@Override
-			public int getOldListSize(){
-				return oldList.size();
-			}
-
-			@Override
-			public int getNewListSize(){
-				return newList.size();
-			}
-
-			@Override
-			public boolean areItemsTheSame(int oldItemPosition, int newItemPosition){
-				return areItemsSame.test(oldList.get(oldItemPosition), newList.get(newItemPosition));
-			}
-
-			@Override
-			public boolean areContentsTheSame(int oldItemPosition, int newItemPosition){
-				return true;
-			}
-		}).dispatchUpdatesTo(adapter);
-	}
-
 	private void doSearchUsers(){
-		currentRequest=new GetSearchResults(lastText, GetSearchResults.Type.ACCOUNTS)
+		currentRequest=new GetSearchResults(lastText, GetSearchResults.Type.ACCOUNTS, false)
 				.setCallback(new Callback<>(){
 					@Override
 					public void onSuccess(SearchResults result){
 						currentRequest=null;
 						List<WrappedAccount> oldList=users;
 						users=result.accounts.stream().map(WrappedAccount::new).collect(Collectors.toList());
-						updateList(oldList, users, usersAdapter, (a1, a2)->a1.account.id.equals(a2.account.id));
+						UiUtils.updateList(oldList, users, list, usersAdapter, (a1, a2)->a1.account.id.equals(a2.account.id));
 						if(listIsHidden){
 							listIsHidden=false;
 							V.setVisibilityAnimated(list, View.VISIBLE);
@@ -230,14 +202,14 @@ public class ComposeAutocompleteViewController{
 	}
 
 	private void doSearchHashtags(){
-		currentRequest=new GetSearchResults(lastText, GetSearchResults.Type.HASHTAGS)
+		currentRequest=new GetSearchResults(lastText, GetSearchResults.Type.HASHTAGS, false)
 				.setCallback(new Callback<>(){
 					@Override
 					public void onSuccess(SearchResults result){
 						currentRequest=null;
 						List<Hashtag> oldList=hashtags;
 						hashtags=result.hashtags;
-						updateList(oldList, hashtags, hashtagsAdapter, (t1, t2)->t1.name.equals(t2.name));
+						UiUtils.updateList(oldList, hashtags, list, hashtagsAdapter, (t1, t2)->t1.name.equals(t2.name));
 						if(listIsHidden){
 							listIsHidden=false;
 							V.setVisibilityAnimated(list, View.VISIBLE);
