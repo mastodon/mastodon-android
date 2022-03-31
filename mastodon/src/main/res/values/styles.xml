@@ -42,6 +42,7 @@
 		<item name="android:windowLightStatusBar">true</item>
 		<item name="android:windowLightNavigationBar" tools:ignore="NewApi">true</item>
 		<item name="android:popupMenuStyle">@style/Widget.Mastodon.PopupMenu</item>
+		<item name="android:actionOverflowMenuStyle">@style/Widget.Mastodon.PopupMenu</item>
 	</style>
 
 	<style name="Theme.Mastodon.Dark" parent="Theme.AppKit">
@@ -87,6 +88,8 @@
 
 		<item name="android:windowLightStatusBar">false</item>
 		<item name="android:windowLightNavigationBar" tools:ignore="NewApi">false</item>
+		<item name="android:popupMenuStyle">@style/Widget.Mastodon.PopupMenu</item>
+		<item name="android:actionOverflowMenuStyle">@style/Widget.Mastodon.PopupMenu</item>
 	</style>
 
 	<style name="Theme.Mastodon.AutoLightDark" parent="Theme.Mastodon.Light"/>

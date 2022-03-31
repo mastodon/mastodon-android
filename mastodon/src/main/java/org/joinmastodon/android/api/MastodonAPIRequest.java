@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.net.Uri;
+import android.util.Log;
 import android.util.Pair;
 
 import com.google.gson.reflect.TypeToken;
@@ -16,6 +17,7 @@ import org.joinmastodon.android.model.Token;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -27,6 +29,7 @@ import okhttp3.Call;
 import okhttp3.RequestBody;
 
 public abstract class MastodonAPIRequest<T> extends APIRequest<T>{
+	private static final String TAG="MastodonAPIRequest";
 
 	private String domain;
 	private AccountSession account;
@@ -41,6 +44,7 @@ public abstract class MastodonAPIRequest<T> extends APIRequest<T>{
 	boolean canceled;
 	Map<String, String> headers;
 	private ProgressDialog progressDialog;
+	protected boolean removeUnsupportedItems;
 
 	public MastodonAPIRequest(HttpMethod method, String path, Class<T> respClass){
 		this.path=path;
@@ -150,9 +154,29 @@ public abstract class MastodonAPIRequest<T> extends APIRequest<T>{
 		if(respObj instanceof BaseModel){
 			((BaseModel) respObj).postprocess();
 		}else if(respObj instanceof List){
-			for(Object item : ((List) respObj)){
-				if(item instanceof BaseModel)
-					((BaseModel) item).postprocess();
+			if(removeUnsupportedItems){
+				Iterator<?> itr=((List<?>) respObj).iterator();
+				while(itr.hasNext()){
+					Object item=itr.next();
+					if(item instanceof BaseModel){
+						try{
+							((BaseModel) item).postprocess();
+						}catch(ObjectValidationException x){
+							Log.w(TAG, "Removing invalid object from list", x);
+							itr.remove();
+						}
+					}
+				}
+				for(Object item:((List<?>) respObj)){
+					if(item instanceof BaseModel){
+						((BaseModel) item).postprocess();
+					}
+				}
+			}else{
+				for(Object item:((List<?>) respObj)){
+					if(item instanceof BaseModel)
+						((BaseModel) item).postprocess();
+				}
 			}
 		}
 	}

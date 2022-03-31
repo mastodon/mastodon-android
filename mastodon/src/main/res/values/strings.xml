@@ -147,8 +147,9 @@
 		<item quantity="other">Discussed %d times</item>
 	</plurals>
 	<string name="report_title">Report %s</string>
-	<string name="report_choose_reason">Tell us what\'s going on with this post.</string>
-	<string name="report_choose_reason_subtitle">Choose the best match</string>
+	<string name="report_choose_reason">What\'s wrong with this post?</string>
+	<string name="report_choose_reason_account">What\'s wrong with %s?</string>
+	<string name="report_choose_reason_subtitle">Select the best match</string>
 	<string name="report_reason_personal">I don\'t like it</string>
 	<string name="report_reason_personal_subtitle">It is not something you want to see</string>
 	<string name="report_reason_spam">It\'s spam</string>
@@ -160,9 +161,8 @@
 	<string name="report_choose_rule">Which rules are being violated?</string>
 	<string name="report_choose_rule_subtitle">Select all that apply</string>
 	<string name="report_choose_posts">Are there any posts that back up this report?</string>
-	<string name="report_choose_posts_subtitle">Optional. Select all that apply</string>
-	<string name="report_comment_title">Is there anything else you think we should know?</string>
-	<string name="report_comment_subtitle">Optional.</string>
+	<string name="report_choose_posts_subtitle">Select all that apply</string>
+	<string name="report_comment_title">Is there anything else we should know?</string>
 	<string name="report_comment_hint">Additional comments</string>
 	<string name="sending_report">Sending report…</string>
 	<string name="report_sent_title">Thanks for reporting, we\'ll look into this.</string>
@@ -221,4 +221,6 @@
 	<string name="search_all">All</string>
 	<string name="search_people">People</string>
 	<string name="recent_searches">Recent searches</string>
+	<string name="step_x_of_n">Step %1$d of %2$d</string>
+	<string name="skip">Skip</string>
 </resources>

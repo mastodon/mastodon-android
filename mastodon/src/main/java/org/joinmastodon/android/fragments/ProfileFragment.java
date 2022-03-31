@@ -333,6 +333,11 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 								page.loadData();
 						}
 					}
+
+					@Override
+					public void onPageScrollStateChanged(int state){
+						refreshLayout.setEnabled(state!=ViewPager2.SCROLL_STATE_DRAGGING);
+					}
 				});
 				return true;
 			}

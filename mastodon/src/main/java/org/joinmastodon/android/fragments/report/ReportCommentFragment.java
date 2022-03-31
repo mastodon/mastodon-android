@@ -66,11 +66,14 @@ public class ReportCommentFragment extends ToolbarFragment{
 
 		TextView title=view.findViewById(R.id.title);
 		TextView subtitle=view.findViewById(R.id.subtitle);
+		TextView stepCounter=view.findViewById(R.id.step_counter);
 		title.setText(R.string.report_comment_title);
-		subtitle.setText(R.string.report_comment_subtitle);
+		subtitle.setVisibility(View.GONE);
+		stepCounter.setText(getString(R.string.step_x_of_n, 3, 3));
 
 		btn=view.findViewById(R.id.btn_next);
 		btn.setOnClickListener(this::onButtonClick);
+		view.findViewById(R.id.btn_back).setOnClickListener(this::onButtonClick);
 		buttonBar=view.findViewById(R.id.button_bar);
 		commentEdit=view.findViewById(R.id.text);
 
@@ -98,7 +101,7 @@ public class ReportCommentFragment extends ToolbarFragment{
 		ReportReason reason=ReportReason.valueOf(getArguments().getString("reason"));
 		ArrayList<String> statusIDs=getArguments().getStringArrayList("statusIDs");
 		ArrayList<String> ruleIDs=getArguments().getStringArrayList("ruleIDs");
-		new SendReport(reportAccount.id, reason, statusIDs, ruleIDs, commentEdit.getText().toString(), false)
+		new SendReport(reportAccount.id, reason, statusIDs, ruleIDs, v.getId()==R.id.btn_back ? null : commentEdit.getText().toString(), false)
 				.setCallback(new Callback<>(){
 					@Override
 					public void onSuccess(Object result){

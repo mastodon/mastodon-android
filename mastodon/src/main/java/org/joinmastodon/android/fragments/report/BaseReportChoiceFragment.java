@@ -78,8 +78,10 @@ public abstract class BaseReportChoiceFragment extends ToolbarFragment{
 		View headerView=inflater.inflate(R.layout.item_list_header, list, false);
 		TextView title=headerView.findViewById(R.id.title);
 		TextView subtitle=headerView.findViewById(R.id.subtitle);
+		TextView stepCounter=headerView.findViewById(R.id.step_counter);
 		title.setText(header.title);
 		subtitle.setText(header.subtitle);
+		stepCounter.setText(getString(R.string.step_x_of_n, getStepNumber(), 3));
 
 		adapter=new MergeRecyclerAdapter();
 		adapter.addAdapter(new SingleViewRecyclerAdapter(headerView));
@@ -98,6 +100,7 @@ public abstract class BaseReportChoiceFragment extends ToolbarFragment{
 	protected abstract Item getHeaderItem();
 	protected abstract void populateItems();
 	protected abstract void onButtonClick();
+	protected abstract int getStepNumber();
 
 	@Override
 	public void onApplyWindowInsets(WindowInsets insets){

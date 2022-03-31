@@ -58,6 +58,7 @@ public class InstanceRulesFragment extends AppKitFragment{
 		View headerView=inflater.inflate(R.layout.item_list_header, list, false);
 		TextView title=headerView.findViewById(R.id.title);
 		TextView subtitle=headerView.findViewById(R.id.subtitle);
+		headerView.findViewById(R.id.step_counter).setVisibility(View.GONE);
 		title.setText(R.string.instance_rules_title);
 		subtitle.setText(getString(R.string.instance_rules_subtitle, instance.uri));
 

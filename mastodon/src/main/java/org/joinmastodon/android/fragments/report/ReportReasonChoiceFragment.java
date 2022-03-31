@@ -14,7 +14,7 @@ import me.grishka.appkit.Nav;
 public class ReportReasonChoiceFragment extends BaseReportChoiceFragment{
 	@Override
 	protected Item getHeaderItem(){
-		return new Item(getString(R.string.report_choose_reason), getString(R.string.report_choose_reason_subtitle), null);
+		return new Item(reportStatus!=null ? getString(R.string.report_choose_reason) : getString(R.string.report_choose_reason_account, reportAccount.acct), getString(R.string.report_choose_reason_subtitle), null);
 	}
 
 	@Override
@@ -41,6 +41,11 @@ public class ReportReasonChoiceFragment extends BaseReportChoiceFragment{
 			case SPAM, OTHER -> Nav.go(getActivity(), ReportAddPostsChoiceFragment.class, args);
 			case VIOLATION -> Nav.go(getActivity(), ReportRuleChoiceFragment.class, args);
 		}
+	}
+
+	@Override
+	protected int getStepNumber(){
+		return 1;
 	}
 
 	@Subscribe

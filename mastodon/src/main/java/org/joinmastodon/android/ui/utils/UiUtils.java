@@ -36,6 +36,9 @@ import org.joinmastodon.android.ui.text.CustomEmojiSpan;
 
 import java.io.File;
 import java.time.Instant;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -58,6 +61,7 @@ import okhttp3.MediaType;
 
 public class UiUtils{
 	private static Handler mainHandler=new Handler(Looper.getMainLooper());
+	private static final DateTimeFormatter DATE_FORMATTER_SHORT_WITH_YEAR=DateTimeFormatter.ofPattern("d MMM uuuu"), DATE_FORMATTER_SHORT=DateTimeFormatter.ofPattern("d MMM");
 
 	private UiUtils(){}
 
@@ -80,7 +84,16 @@ public class UiUtils{
 		}else if(diff<3600_000L*24L){
 			return context.getString(R.string.time_hours, diff/3600_000L);
 		}else{
-			return context.getString(R.string.time_days, diff/(3600_000L*24L));
+			int days=(int)(diff/(3600_000L*24L));
+			if(days>30){
+				ZonedDateTime dt=instant.atZone(ZoneId.systemDefault());
+				if(dt.getYear()==ZonedDateTime.now().getYear()){
+					return DATE_FORMATTER_SHORT.format(dt);
+				}else{
+					return DATE_FORMATTER_SHORT_WITH_YEAR.format(dt);
+				}
+			}
+			return context.getString(R.string.time_days, days);
 		}
 	}
 

@@ -40,6 +40,11 @@ public class ReportRuleChoiceFragment extends BaseReportChoiceFragment{
 		Nav.go(getActivity(), ReportAddPostsChoiceFragment.class, args);
 	}
 
+	@Override
+	protected int getStepNumber(){
+		return 1;
+	}
+
 	@Subscribe
 	public void onFinishReportFragments(FinishReportFragmentsEvent ev){
 		if(ev.reportAccountID.equals(reportAccount.id))

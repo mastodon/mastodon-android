@@ -10,6 +10,15 @@
 	android:paddingBottom="8dp">
 
 	<TextView
+		android:id="@+id/step_counter"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginBottom="12dp"
+		android:textAppearance="@style/m3_title_medium"
+		android:textColor="?android:textColorSecondary"
+		tools:text="@string/step_x_of_n"/>
+
+	<TextView
 		android:id="@+id/title"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"

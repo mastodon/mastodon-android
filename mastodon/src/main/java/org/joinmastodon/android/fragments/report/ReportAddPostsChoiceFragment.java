@@ -32,6 +32,7 @@ import org.joinmastodon.android.ui.utils.UiUtils;
 import org.parceler.Parcels;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 
@@ -102,6 +103,7 @@ public class ReportAddPostsChoiceFragment extends StatusListFragment{
 		btn=view.findViewById(R.id.btn_next);
 		btn.setEnabled(!selectedIDs.isEmpty());
 		btn.setOnClickListener(this::onButtonClick);
+		view.findViewById(R.id.btn_back).setOnClickListener(this::onButtonClick);
 		buttonBar=view.findViewById(R.id.button_bar);
 
 		list.addItemDecoration(new RecyclerView.ItemDecoration(){
@@ -216,8 +218,10 @@ public class ReportAddPostsChoiceFragment extends StatusListFragment{
 		View headerView=getActivity().getLayoutInflater().inflate(R.layout.item_list_header, list, false);
 		TextView title=headerView.findViewById(R.id.title);
 		TextView subtitle=headerView.findViewById(R.id.subtitle);
+		TextView stepCounter=headerView.findViewById(R.id.step_counter);
 		title.setText(R.string.report_choose_posts);
 		subtitle.setText(R.string.report_choose_posts_subtitle);
+		stepCounter.setText(getString(R.string.step_x_of_n, 2, 3));
 
 		MergeRecyclerAdapter adapter=new MergeRecyclerAdapter();
 		adapter.addAdapter(new SingleViewRecyclerAdapter(headerView));
@@ -248,7 +252,14 @@ public class ReportAddPostsChoiceFragment extends StatusListFragment{
 		Bundle args=new Bundle();
 		args.putString("account", accountID);
 		args.putParcelable("reportAccount", Parcels.wrap(reportAccount));
-		args.putStringArrayList("statusIDs", selectedIDs);
+		if(v.getId()==R.id.btn_next){
+			args.putStringArrayList("statusIDs", selectedIDs);
+		}else{
+			ArrayList<String> ids=new ArrayList<>();
+			if(reportStatus!=null)
+				ids.add(reportStatus.id);
+			args.putStringArrayList("statusIDs", ids);
+		}
 		args.putStringArrayList("ruleIDs", getArguments().getStringArrayList("ruleIDs"));
 		args.putString("reason", getArguments().getString("reason"));
 		Nav.go(getActivity(), ReportCommentFragment.class, args);

@@ -129,7 +129,7 @@ public class CacheController{
 						Log.w(TAG, "getNotifications: corrupted notification object in database", x);
 					}
 				}
-				new GetNotifications(maxID, count, onlyMentions ? EnumSet.complementOf(EnumSet.of(Notification.Type.MENTION)): null)
+				new GetNotifications(maxID, count, onlyMentions ? EnumSet.of(Notification.Type.MENTION): EnumSet.allOf(Notification.Type.class))
 						.setCallback(new Callback<>(){
 							@Override
 							public void onSuccess(List<Notification> result){
