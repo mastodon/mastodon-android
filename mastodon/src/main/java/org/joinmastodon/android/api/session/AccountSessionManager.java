@@ -1,9 +1,11 @@
 package org.joinmastodon.android.api.session;
 
 import android.app.Activity;
+import android.app.NotificationManager;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.net.Uri;
+import android.os.Build;
 import android.util.Log;
 
 import com.google.gson.JsonParseException;
@@ -11,6 +13,7 @@ import com.google.gson.JsonParseException;
 import org.joinmastodon.android.MastodonApp;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.MastodonAPIController;
+import org.joinmastodon.android.api.PushSubscriptionManager;
 import org.joinmastodon.android.api.requests.instance.GetCustomEmojis;
 import org.joinmastodon.android.api.requests.accounts.GetOwnAccount;
 import org.joinmastodon.android.api.requests.instance.GetInstance;
@@ -92,9 +95,12 @@ public class AccountSessionManager{
 		lastActiveAccountID=session.getID();
 		writeAccountsFile();
 		maybeUpdateLocalInfo();
+		if(PushSubscriptionManager.arePushNotificationsAvailable()){
+			session.getPushSubscriptionManager().registerAccountForPush();
+		}
 	}
 
-	private void writeAccountsFile(){
+	public synchronized void writeAccountsFile(){
 		File file=new File(MastodonApp.context.getFilesDir(), "accounts.json");
 		try{
 			try(FileOutputStream out=new FileOutputStream(file)){
@@ -157,6 +163,10 @@ public class AccountSessionManager{
 		if(sessions.isEmpty() || !sessions.values().stream().map(s->s.domain.toLowerCase()).collect(Collectors.toSet()).contains(domain)){
 			getInstanceInfoFile(domain).delete();
 		}
+		if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.O){
+			NotificationManager nm=MastodonApp.context.getSystemService(NotificationManager.class);
+			nm.deleteNotificationChannelGroup(id);
+		}
 	}
 
 	@NonNull
@@ -178,7 +188,7 @@ public class AccountSessionManager{
 								.appendQueryParameter("response_type", "code")
 								.appendQueryParameter("client_id", result.clientId)
 								.appendQueryParameter("redirect_uri", "mastodon-android-auth://callback")
-								.appendQueryParameter("scope", "read write follow push")
+								.appendQueryParameter("scope", SCOPE)
 								.build();
 
 						new CustomTabsIntent.Builder()

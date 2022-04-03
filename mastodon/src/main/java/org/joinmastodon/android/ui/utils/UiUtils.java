@@ -5,6 +5,9 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
@@ -361,5 +364,14 @@ public class UiUtils{
 		}).dispatchUpdatesTo(adapter);
 		list.scrollToPosition(topItem);
 		list.scrollBy(0, topItemOffset);
+	}
+
+	public static Bitmap getBitmapFromDrawable(Drawable d){
+		if(d instanceof BitmapDrawable)
+			return ((BitmapDrawable) d).getBitmap();
+		Bitmap bitmap=Bitmap.createBitmap(d.getIntrinsicWidth(), d.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
+		d.setBounds(0, 0, d.getIntrinsicWidth(), d.getIntrinsicHeight());
+		d.draw(new Canvas(bitmap));
+		return bitmap;
 	}
 }

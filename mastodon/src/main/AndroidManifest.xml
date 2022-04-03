@@ -4,6 +4,10 @@
 
 	<uses-permission android:name="android.permission.INTERNET"/>
 	<uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+	<uses-permission android:name="${applicationId}.permission.C2D_MESSAGE"/>
+	<uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+
+	<permission android:name="${applicationId}.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
 
 	<application
 		android:name=".MastodonApp"
@@ -15,7 +19,7 @@
 		android:theme="@style/Theme.Mastodon.AutoLightDark"
 		android:largeHeap="true">
 
-		<activity android:name=".MainActivity" android:exported="true" android:configChanges="orientation|screenSize" android:windowSoftInputMode="adjustResize">
+		<activity android:name=".MainActivity" android:exported="true" android:configChanges="orientation|screenSize" android:windowSoftInputMode="adjustResize" android:launchMode="singleTask">
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN"/>
 				<category android:name="android.intent.category.LAUNCHER"/>
@@ -31,6 +35,18 @@
 		</activity>
 
 		<service android:name=".AudioPlayerService" android:foregroundServiceType="mediaPlayback"/>
+
+		<receiver android:name=".PushNotificationReceiver" android:exported="true" android:permission="com.google.android.c2dm.permission.SEND">
+			<intent-filter>
+				<action android:name="com.google.android.c2dm.intent.RECEIVE" />
+			</intent-filter>
+		</receiver>
+		<receiver android:name=".api.PushSubscriptionManager$RegistrationReceiver" android:exported="true" android:permission="com.google.android.c2dm.permission.SEND">
+			<intent-filter>
+				<action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
+				<category android:name="me.grishka.fcmtest"/>
+			</intent-filter>
+		</receiver>
 
 	</application>
 

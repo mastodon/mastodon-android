@@ -2,6 +2,7 @@ package org.joinmastodon.android.api.session;
 
 import org.joinmastodon.android.api.CacheController;
 import org.joinmastodon.android.api.MastodonAPIController;
+import org.joinmastodon.android.api.PushSubscriptionManager;
 import org.joinmastodon.android.api.StatusInteractionController;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.Application;
@@ -15,9 +16,14 @@ public class AccountSession{
 	public Application app;
 	public long infoLastUpdated;
 	public boolean activated=true;
+	public String pushPrivateKey;
+	public String pushPublicKey;
+	public String pushAuthKey;
+	public String pushServerKey;
 	private transient MastodonAPIController apiController;
 	private transient StatusInteractionController statusInteractionController;
 	private transient CacheController cacheController;
+	private transient PushSubscriptionManager pushSubscriptionManager;
 
 	AccountSession(Token token, Account self, Application app, String domain, boolean activated){
 		this.token=token;
@@ -50,5 +56,11 @@ public class AccountSession{
 		if(cacheController==null)
 			cacheController=new CacheController(getID());
 		return cacheController;
+	}
+
+	public PushSubscriptionManager getPushSubscriptionManager(){
+		if(pushSubscriptionManager==null)
+			pushSubscriptionManager=new PushSubscriptionManager(getID());
+		return pushSubscriptionManager;
 	}
 }

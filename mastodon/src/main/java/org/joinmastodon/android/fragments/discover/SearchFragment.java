@@ -169,7 +169,8 @@ public class SearchFragment extends BaseStatusListFragment<SearchResult>{
 	@Override
 	protected void onDataLoaded(List<SearchResult> d, boolean more){
 		super.onDataLoaded(d, more);
-		progressVisibilityListener.onProgressVisibilityChanged(false);
+		if(progressVisibilityListener!=null)
+			progressVisibilityListener.onProgressVisibilityChanged(false);
 	}
 
 	@Override

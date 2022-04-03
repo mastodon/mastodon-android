@@ -2,13 +2,20 @@ package org.joinmastodon.android;
 
 import android.app.Application;
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
+import org.joinmastodon.android.api.ObjectValidationException;
 import org.joinmastodon.android.api.session.AccountSession;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.fragments.HomeFragment;
+import org.joinmastodon.android.fragments.ProfileFragment;
 import org.joinmastodon.android.fragments.SplashFragment;
+import org.joinmastodon.android.fragments.ThreadFragment;
 import org.joinmastodon.android.fragments.onboarding.AccountActivationFragment;
+import org.joinmastodon.android.model.Notification;
+import org.parceler.Parcels;
 
 import java.lang.reflect.InvocationTargetException;
 
@@ -25,12 +32,29 @@ public class MainActivity extends FragmentStackActivity{
 				showFragmentClearingBackStack(new SplashFragment());
 			}else{
 				AccountSessionManager.getInstance().maybeUpdateLocalInfo();
-				AccountSession session=AccountSessionManager.getInstance().getLastActiveAccount();
+				AccountSession session;
 				Bundle args=new Bundle();
+				Intent intent=getIntent();
+				if(intent.getBooleanExtra("fromNotification", false)){
+					String accountID=intent.getStringExtra("accountID");
+					try{
+						session=AccountSessionManager.getInstance().getAccount(accountID);
+						if(!intent.hasExtra("notification"))
+							args.putString("tab", "notifications");
+					}catch(IllegalStateException x){
+						session=AccountSessionManager.getInstance().getLastActiveAccount();
+					}
+				}else{
+					session=AccountSessionManager.getInstance().getLastActiveAccount();
+				}
 				args.putString("account", session.getID());
 				Fragment fragment=session.activated ? new HomeFragment() : new AccountActivationFragment();
 				fragment.setArguments(args);
 				showFragmentClearingBackStack(fragment);
+				if(intent.getBooleanExtra("fromNotification", false) && intent.hasExtra("notification")){
+					Notification notification=Parcels.unwrap(intent.getParcelableExtra("notification"));
+					showFragmentForNotification(notification, session.getID());
+				}
 			}
 		}
 
@@ -40,5 +64,53 @@ public class MainActivity extends FragmentStackActivity{
 				Class.forName("org.joinmastodon.android.AppCenterWrapper").getMethod("init", Application.class).invoke(null, getApplication());
 			}catch(ClassNotFoundException|NoSuchMethodException|IllegalAccessException|InvocationTargetException ignore){}
 		}
+	}
+
+	@Override
+	protected void onNewIntent(Intent intent){
+		super.onNewIntent(intent);
+		if(intent.getBooleanExtra("fromNotification", false)){
+			String accountID=intent.getStringExtra("accountID");
+			AccountSession accountSession;
+			try{
+				accountSession=AccountSessionManager.getInstance().getAccount(accountID);
+			}catch(IllegalStateException x){
+				return;
+			}
+			if(intent.hasExtra("notification")){
+				Notification notification=Parcels.unwrap(intent.getParcelableExtra("notification"));
+				showFragmentForNotification(notification, accountID);
+			}else{
+				AccountSessionManager.getInstance().setLastActiveAccountID(accountID);
+				Bundle args=new Bundle();
+				args.putString("account", accountID);
+				args.putString("tab", "notifications");
+				Fragment fragment=new HomeFragment();
+				fragment.setArguments(args);
+				showFragmentClearingBackStack(fragment);
+			}
+		}
+	}
+
+	private void showFragmentForNotification(Notification notification, String accountID){
+		Fragment fragment;
+		Bundle args=new Bundle();
+		args.putString("account", accountID);
+		args.putBoolean("_can_go_back", true);
+		try{
+			notification.postprocess();
+		}catch(ObjectValidationException x){
+			Log.w("MainActivity", x);
+			return;
+		}
+		if(notification.status!=null){
+			fragment=new ThreadFragment();
+			args.putParcelable("status", Parcels.wrap(notification.status));
+		}else{
+			fragment=new ProfileFragment();
+			args.putParcelable("profileAccount", Parcels.wrap(notification.account));
+		}
+		fragment.setArguments(args);
+		showFragment(fragment);
 	}
 }

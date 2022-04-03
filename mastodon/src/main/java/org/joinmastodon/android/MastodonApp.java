@@ -4,6 +4,8 @@ import android.annotation.SuppressLint;
 import android.app.Application;
 import android.content.Context;
 
+import org.joinmastodon.android.api.PushSubscriptionManager;
+
 import java.lang.reflect.InvocationTargetException;
 
 import me.grishka.appkit.imageloader.ImageCache;
@@ -23,5 +25,7 @@ public class MastodonApp extends Application{
 		ImageCache.setParams(params);
 		NetworkUtils.setUserAgent("MastodonAndroid/"+BuildConfig.VERSION_NAME);
 		context=getApplicationContext();
+
+		PushSubscriptionManager.tryRegisterFCM();
 	}
 }

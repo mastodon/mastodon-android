@@ -1,6 +1,7 @@
 package org.joinmastodon.android.fragments;
 
 import android.app.Fragment;
+import android.app.NotificationManager;
 import android.content.res.Configuration;
 import android.graphics.Outline;
 import android.os.Build;
@@ -9,12 +10,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewOutlineProvider;
+import android.view.ViewTreeObserver;
 import android.view.WindowInsets;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import org.joinmastodon.android.MastodonApp;
+import org.joinmastodon.android.PushNotificationReceiver;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.fragments.discover.DiscoverFragment;
@@ -70,6 +73,7 @@ public class HomeFragment extends AppKitFragment implements OnBackPressedListene
 		args.putBoolean("noAutoLoad", true);
 		profileFragment=new ProfileFragment();
 		profileFragment.setArguments(args);
+
 	}
 
 	@Nullable
@@ -105,6 +109,19 @@ public class HomeFragment extends AppKitFragment implements OnBackPressedListene
 					.add(R.id.fragment_wrap, notificationsFragment).hide(notificationsFragment)
 					.add(R.id.fragment_wrap, profileFragment).hide(profileFragment)
 					.commit();
+
+			String defaultTab=getArguments().getString("tab");
+			if("notifications".equals(defaultTab)){
+				tabBar.selectTab(R.id.tab_notifications);
+				fragmentContainer.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener(){
+					@Override
+					public boolean onPreDraw(){
+						fragmentContainer.getViewTreeObserver().removeOnPreDrawListener(this);
+						onTabSelected(R.id.tab_notifications);
+						return true;
+					}
+				});
+			}
 		}else{
 			tabBar.selectTab(currentTab);
 		}
@@ -174,6 +191,8 @@ public class HomeFragment extends AppKitFragment implements OnBackPressedListene
 		}else if(newFragment instanceof NotificationsFragment){
 			((NotificationsFragment) newFragment).loadData();
 			// TODO make an interface?
+			NotificationManager nm=getActivity().getSystemService(NotificationManager.class);
+			nm.cancel(accountID, PushNotificationReceiver.NOTIFICATION_ID);
 		}
 		currentTab=tab;
 		((FragmentStackActivity)getActivity()).invalidateSystemBarColors(this);
