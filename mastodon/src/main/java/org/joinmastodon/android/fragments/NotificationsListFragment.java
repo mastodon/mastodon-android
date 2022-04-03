@@ -90,7 +90,7 @@ public class NotificationsListFragment extends BaseStatusListFragment<Notificati
 					public void onSuccess(List<Notification> result){
 						if(refreshing)
 							relationships.clear();
-						onDataLoaded(result, !result.isEmpty());
+						onDataLoaded(result.stream().filter(n->n.type!=null).collect(Collectors.toList()), !result.isEmpty());
 						Set<String> needRelationships=result.stream()
 								.filter(ntf->ntf.status==null && !relationships.containsKey(ntf.account.id))
 								.map(ntf->ntf.account.id)

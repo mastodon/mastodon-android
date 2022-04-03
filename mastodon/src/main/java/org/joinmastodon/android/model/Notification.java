@@ -12,7 +12,7 @@ import java.time.Instant;
 public class Notification extends BaseModel implements DisplayItemsParent{
 	@RequiredField
 	public String id;
-	@RequiredField
+//	@RequiredField
 	public Type type;
 	@RequiredField
 	public Instant createdAt;
