@@ -228,4 +228,12 @@
 	<string name="notification_type_reblog">Boosts</string>
 	<string name="notification_type_mention">Mentions</string>
 	<string name="notification_type_poll">Polls</string>
+	<string name="choose_account">Choose account</string>
+	<string name="err_not_logged_in">Please log into Mastodon first</string>
+	<plurals name="cant_add_more_than_x_attachments">
+		<item quantity="one">You can\'t add more than %d media attachment</item>
+		<item quantity="other">You can\'t add more than %d media attachments</item>
+	</plurals>
+	<string name="media_attachment_unsupported_type">File %s is of an unsupported type</string>
+	<string name="media_attachment_too_big">File %1$s exceeds the size limit of %2$s MB</string>
 </resources>

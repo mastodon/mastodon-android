@@ -7,6 +7,7 @@ import android.content.ClipData;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.content.res.Configuration;
+import android.database.Cursor;
 import android.graphics.Outline;
 import android.graphics.PixelFormat;
 import android.graphics.drawable.Drawable;
@@ -17,6 +18,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.provider.OpenableColumns;
 import android.text.Editable;
 import android.text.InputFilter;
 import android.text.Layout;
@@ -51,6 +53,7 @@ import com.twitter.twittertext.Regex;
 import com.twitter.twittertext.TwitterTextEmojiRegex;
 
 import org.joinmastodon.android.E;
+import org.joinmastodon.android.MastodonApp;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.ProgressListener;
 import org.joinmastodon.android.api.requests.statuses.CreateStatus;
@@ -88,6 +91,7 @@ import org.parceler.Parcels;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -175,6 +179,7 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 	private FrameLayout mainEditTextWrap;
 	private ComposeAutocompleteViewController autocompleteViewController;
 	private Instance instance;
+	private boolean attachmentsErrorShowing;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState){
@@ -452,6 +457,12 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 				mainEditText.setSelection(mainEditText.length());
 				initialText=prefilledText;
 			}
+			ArrayList<Uri> mediaUris=getArguments().getParcelableArrayList("mediaAttachments");
+			if(mediaUris!=null && !mediaUris.isEmpty()){
+				for(Uri uri:mediaUris){
+					addMediaAttachment(uri);
+				}
+			}
 		}
 	}
 
@@ -684,8 +695,29 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 	}
 
 	private void addMediaAttachment(Uri uri){
-		if(getMediaAttachmentsCount()==MAX_ATTACHMENTS)
+		if(getMediaAttachmentsCount()==MAX_ATTACHMENTS){
+			showMediaAttachmentError(getResources().getQuantityString(R.plurals.cant_add_more_than_x_attachments, MAX_ATTACHMENTS, MAX_ATTACHMENTS));
 			return;
+		}
+		String type=getActivity().getContentResolver().getType(uri);
+		if(instance.configuration!=null && instance.configuration.mediaAttachments!=null){
+			if(instance.configuration.mediaAttachments.supportedMimeTypes!=null && !instance.configuration.mediaAttachments.supportedMimeTypes.contains(type)){
+				showMediaAttachmentError(getString(R.string.media_attachment_unsupported_type, UiUtils.getFileName(uri)));
+				return;
+			}
+			int sizeLimit=type.startsWith("image/") ? instance.configuration.mediaAttachments.imageSizeLimit : instance.configuration.mediaAttachments.videoSizeLimit;
+			int size;
+			try(Cursor cursor=MastodonApp.context.getContentResolver().query(uri, new String[]{OpenableColumns.SIZE}, null, null, null)){
+				cursor.moveToFirst();
+				size=cursor.getInt(0);
+			}
+			if(size>sizeLimit){
+				float mb=sizeLimit/(float)(1024*1024);
+				String sMb=String.format(Locale.getDefault(), mb%1f==0f ? "%f" : "%.2f", mb);
+				showMediaAttachmentError(getString(R.string.media_attachment_too_big, UiUtils.getFileName(uri), sMb));
+				return;
+			}
+		}
 		pollBtn.setEnabled(false);
 		DraftMediaAttachment draft=new DraftMediaAttachment();
 		draft.uri=uri;
@@ -704,6 +736,14 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 		updatePublishButtonState();
 		if(getMediaAttachmentsCount()==MAX_ATTACHMENTS)
 			mediaBtn.setEnabled(false);
+	}
+
+	private void showMediaAttachmentError(String text){
+		if(!attachmentsErrorShowing){
+			Toast.makeText(getActivity(), text, Toast.LENGTH_SHORT).show();
+			attachmentsErrorShowing=true;
+			contentView.postDelayed(()->attachmentsErrorShowing=false, 2000);
+		}
 	}
 
 	private View createMediaAttachmentView(DraftMediaAttachment draft){
@@ -812,10 +852,9 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 		DraftMediaAttachment att=(DraftMediaAttachment) v.getTag();
 		if(att==uploadingAttachment){
 			att.uploadRequest.cancel();
+			uploadingAttachment=null;
 			if(!queuedAttachments.isEmpty())
 				uploadMediaAttachment(queuedAttachments.remove(0));
-			else
-				uploadingAttachment=null;
 		}else{
 			attachments.remove(att);
 			queuedAttachments.remove(att);

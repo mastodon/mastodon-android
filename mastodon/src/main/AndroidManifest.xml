@@ -33,6 +33,18 @@
 				<data android:scheme="mastodon-android-auth" android:host="callback"/>
 			</intent-filter>
 		</activity>
+		<activity android:name=".ExternalShareActivity" android:exported="true" android:configChanges="orientation|screenSize" android:windowSoftInputMode="adjustResize">
+			<intent-filter>
+				<action android:name="android.intent.action.SEND"/>
+				<category android:name="android.intent.category.DEFAULT"/>
+				<data android:mimeType="*/*"/>
+			</intent-filter>
+			<intent-filter>
+				<action android:name="android.intent.action.SEND_MULTIPLE"/>
+				<category android:name="android.intent.category.DEFAULT"/>
+				<data android:mimeType="*/*"/>
+			</intent-filter>
+		</activity>
 
 		<service android:name=".AudioPlayerService" android:foregroundServiceType="mediaPlayback"/>
 
