@@ -6,7 +6,7 @@ import org.joinmastodon.android.api.PushSubscriptionManager;
 import org.joinmastodon.android.api.StatusInteractionController;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.Application;
-import org.joinmastodon.android.model.Instance;
+import org.joinmastodon.android.model.PushSubscription;
 import org.joinmastodon.android.model.Token;
 
 public class AccountSession{
@@ -19,7 +19,8 @@ public class AccountSession{
 	public String pushPrivateKey;
 	public String pushPublicKey;
 	public String pushAuthKey;
-	public String pushServerKey;
+	public PushSubscription pushSubscription;
+	public boolean needUpdatePushSettings;
 	private transient MastodonAPIController apiController;
 	private transient StatusInteractionController statusInteractionController;
 	private transient CacheController cacheController;

@@ -83,42 +83,9 @@ public class HomeTimelineFragment extends StatusListFragment{
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item){
-		ArrayList<String> options=new ArrayList<>();
-		for(AccountSession session:AccountSessionManager.getInstance().getLoggedInAccounts()){
-			options.add(session.self.displayName+"\n("+session.self.username+"@"+session.domain+")");
-		}
-		new M3AlertDialogBuilder(getActivity())
-				.setItems(options.toArray(new String[0]), (dialog, which)->{
-					AccountSession session=AccountSessionManager.getInstance().getLoggedInAccounts().get(which);
-					AccountSessionManager.getInstance().setLastActiveAccountID(session.getID());
-					getActivity().finish();
-					getActivity().startActivity(new Intent(getActivity(), MainActivity.class));
-				})
-				.setPositiveButton(R.string.log_out, (dialog, which)->{
-					AccountSession session=AccountSessionManager.getInstance().getAccount(accountID);
-					new RevokeOauthToken(session.app.clientId, session.app.clientSecret, session.token.accessToken)
-							.setCallback(new Callback<>(){
-								@Override
-								public void onSuccess(Object result){
-									AccountSessionManager.getInstance().removeAccount(session.getID());
-									getActivity().finish();
-									getActivity().startActivity(new Intent(getActivity(), MainActivity.class));
-								}
-
-								@Override
-								public void onError(ErrorResponse error){
-									AccountSessionManager.getInstance().removeAccount(session.getID());
-									getActivity().finish();
-									getActivity().startActivity(new Intent(getActivity(), MainActivity.class));
-								}
-							})
-							.wrapProgress(getActivity(), R.string.loading, false)
-							.execNoAuth(session.domain);
-				})
-				.setNegativeButton(R.string.add_account, (dialog, which)->{
-					Nav.go(getActivity(), SplashFragment.class, null);
-				})
-				.show();
+		Bundle args=new Bundle();
+		args.putString("account", accountID);
+		Nav.go(getActivity(), SettingsFragment.class, args);
 		return true;
 	}
 

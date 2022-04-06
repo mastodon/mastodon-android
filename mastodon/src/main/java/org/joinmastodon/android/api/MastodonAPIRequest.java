@@ -2,13 +2,13 @@ package org.joinmastodon.android.api;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
-import android.content.DialogInterface;
 import android.net.Uri;
 import android.util.Log;
 import android.util.Pair;
 
 import com.google.gson.reflect.TypeToken;
 
+import org.joinmastodon.android.BuildConfig;
 import org.joinmastodon.android.api.session.AccountSession;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.model.BaseModel;
@@ -60,6 +60,8 @@ public abstract class MastodonAPIRequest<T> extends APIRequest<T>{
 
 	@Override
 	public synchronized void cancel(){
+		if(BuildConfig.DEBUG)
+			Log.d(TAG, "canceling request "+this);
 		canceled=true;
 		if(okhttpCall!=null){
 			okhttpCall.cancel();
@@ -181,8 +183,8 @@ public abstract class MastodonAPIRequest<T> extends APIRequest<T>{
 		}
 	}
 
-	void onError(String msg){
-		invokeErrorCallback(new MastodonErrorResponse(msg));
+	void onError(String msg, int httpStatus){
+		invokeErrorCallback(new MastodonErrorResponse(msg, httpStatus));
 	}
 
 	void onSuccess(T resp){

@@ -3,6 +3,7 @@ package org.joinmastodon.android.fragments;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageButton;
 
 import org.joinmastodon.android.R;
@@ -13,6 +14,7 @@ import java.util.List;
 
 import me.grishka.appkit.Nav;
 import me.grishka.appkit.api.SimpleCallback;
+import me.grishka.appkit.utils.V;
 
 public class HashtagTimelineFragment extends StatusListFragment{
 	private String hashtag;
@@ -60,5 +62,10 @@ public class HashtagTimelineFragment extends StatusListFragment{
 		args.putString("account", accountID);
 		args.putString("prefilledText", '#'+hashtag+' ');
 		Nav.go(getActivity(), ComposeFragment.class, args);
+	}
+
+	@Override
+	protected void onSetFabBottomInset(int inset){
+		((ViewGroup.MarginLayoutParams) fab.getLayoutParams()).bottomMargin=V.dp(24)+inset;
 	}
 }

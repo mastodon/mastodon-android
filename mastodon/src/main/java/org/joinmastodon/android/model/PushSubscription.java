@@ -1,13 +1,20 @@
 package org.joinmastodon.android.model;
 
+import com.google.gson.annotations.SerializedName;
+
 import org.joinmastodon.android.api.AllFieldsAreRequired;
 
+import androidx.annotation.NonNull;
+
 @AllFieldsAreRequired
-public class PushSubscription extends BaseModel{
+public class PushSubscription extends BaseModel implements Cloneable{
 	public int id;
 	public String endpoint;
 	public Alerts alerts;
 	public String serverKey;
+	public Policy policy=Policy.ALL;
+
+	public PushSubscription(){}
 
 	@Override
 	public String toString(){
@@ -19,7 +26,18 @@ public class PushSubscription extends BaseModel{
 				'}';
 	}
 
-	public static class Alerts{
+	@NonNull
+	@Override
+	public PushSubscription clone(){
+		PushSubscription copy=null;
+		try{
+			copy=(PushSubscription) super.clone();
+		}catch(CloneNotSupportedException ignore){}
+		copy.alerts=alerts.clone();
+		return copy;
+	}
+
+	public static class Alerts implements Cloneable{
 		public boolean follow;
 		public boolean favourite;
 		public boolean reblog;
@@ -42,5 +60,26 @@ public class PushSubscription extends BaseModel{
 					", poll="+poll+
 					'}';
 		}
+
+		@NonNull
+		@Override
+		public Alerts clone(){
+			try{
+				return (Alerts) super.clone();
+			}catch(CloneNotSupportedException e){
+				return null;
+			}
+		}
+	}
+
+	public enum Policy{
+		@SerializedName("all")
+		ALL,
+		@SerializedName("followed")
+		FOLLOWED,
+		@SerializedName("follower")
+		FOLLOWER,
+		@SerializedName("none")
+		NONE
 	}
 }

@@ -13,6 +13,7 @@ import android.util.Log;
 import org.joinmastodon.android.BuildConfig;
 import org.joinmastodon.android.MastodonApp;
 import org.joinmastodon.android.api.requests.notifications.RegisterForPushNotifications;
+import org.joinmastodon.android.api.requests.notifications.UpdatePushSettings;
 import org.joinmastodon.android.api.session.AccountSession;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.model.PushNotification;
@@ -119,6 +120,10 @@ public class PushSubscriptionManager{
 	}
 
 	public void registerAccountForPush(){
+		registerAccountForPush(null);
+	}
+
+	public void registerAccountForPush(PushSubscription subscription){
 		if(TextUtils.isEmpty(deviceToken))
 			throw new IllegalStateException("No device push token available");
 		MastodonAPIController.runInBackground(()->{
@@ -143,19 +148,22 @@ public class PushSubscriptionManager{
 				Log.e(TAG, "registerAccountForPush: error generating encryption key", e);
 				return;
 			}
-			new RegisterForPushNotifications(deviceToken, encodedPublicKey, encodedAuthKey, PushSubscription.Alerts.ofAll(), accountID)
+			new RegisterForPushNotifications(deviceToken,
+					encodedPublicKey,
+					encodedAuthKey,
+					subscription==null ? PushSubscription.Alerts.ofAll() : subscription.alerts,
+					subscription==null ? PushSubscription.Policy.ALL : subscription.policy,
+					accountID)
 					.setCallback(new Callback<>(){
 						@Override
 						public void onSuccess(PushSubscription result){
 							MastodonAPIController.runInBackground(()->{
 								serverKey=deserializeRawPublicKey(Base64.decode(result.serverKey, Base64.URL_SAFE));
 
-								if(serverKey!=null){
-									AccountSession session=AccountSessionManager.getInstance().getAccount(accountID);
-									session.pushServerKey=Base64.encodeToString(serverKey.getEncoded(), Base64.URL_SAFE | Base64.NO_WRAP | Base64.NO_PADDING);
-									AccountSessionManager.getInstance().writeAccountsFile();
-									Log.d(TAG, "Successfully registered "+accountID+" for push notifications");
-								}
+								AccountSession session=AccountSessionManager.getInstance().getAccount(accountID);
+								session.pushSubscription=result;
+								AccountSessionManager.getInstance().writeAccountsFile();
+								Log.d(TAG, "Successfully registered "+accountID+" for push notifications");
 							});
 						}
 
@@ -166,6 +174,34 @@ public class PushSubscriptionManager{
 					})
 					.exec(accountID);
 		});
+	}
+
+	public void updatePushSettings(PushSubscription subscription){
+		new UpdatePushSettings(subscription.alerts, subscription.policy)
+				.setCallback(new Callback<>(){
+					@Override
+					public void onSuccess(PushSubscription result){
+						AccountSession session=AccountSessionManager.getInstance().getAccount(accountID);
+						if(result.policy!=subscription.policy)
+							result.policy=subscription.policy;
+						session.pushSubscription=result;
+						session.needUpdatePushSettings=false;
+						AccountSessionManager.getInstance().writeAccountsFile();
+					}
+
+					@Override
+					public void onError(ErrorResponse error){
+						if(((MastodonErrorResponse)error).httpStatus==404){ // Not registered for push, register now
+							registerAccountForPush(subscription);
+						}else{
+							AccountSession session=AccountSessionManager.getInstance().getAccount(accountID);
+							session.needUpdatePushSettings=true;
+							session.pushSubscription=subscription;
+							AccountSessionManager.getInstance().writeAccountsFile();
+						}
+					}
+				})
+				.exec(accountID);
 	}
 
 	private PublicKey deserializeRawPublicKey(byte[] rawBytes){
@@ -320,8 +356,10 @@ public class PushSubscriptionManager{
 
 	private static void registerAllAccountsForPush(){
 		for(AccountSession session:AccountSessionManager.getInstance().getLoggedInAccounts()){
-			if(TextUtils.isEmpty(session.pushServerKey))
+			if(session.pushSubscription==null)
 				session.getPushSubscriptionManager().registerAccountForPush();
+			else if(session.needUpdatePushSettings)
+				session.getPushSubscriptionManager().updatePushSettings(session.pushSubscription);
 		}
 	}
 

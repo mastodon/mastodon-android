@@ -1,7 +1,6 @@
 package org.joinmastodon.android.api;
 
 import android.content.ContentValues;
-import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
@@ -14,8 +13,6 @@ import org.joinmastodon.android.BuildConfig;
 import org.joinmastodon.android.MastodonApp;
 import org.joinmastodon.android.api.requests.notifications.GetNotifications;
 import org.joinmastodon.android.api.requests.timelines.GetHomeTimeline;
-import org.joinmastodon.android.model.Account;
-import org.joinmastodon.android.model.Hashtag;
 import org.joinmastodon.android.model.Notification;
 import org.joinmastodon.android.model.SearchResult;
 import org.joinmastodon.android.model.Status;
@@ -26,7 +23,6 @@ import java.util.EnumSet;
 import java.util.List;
 import java.util.function.Consumer;
 
-import androidx.annotation.Nullable;
 import me.grishka.appkit.api.Callback;
 import me.grishka.appkit.api.ErrorResponse;
 import me.grishka.appkit.utils.WorkerThread;
@@ -87,7 +83,7 @@ public class CacheController{
 						.exec(accountID);
 			}catch(SQLiteException x){
 				Log.w(TAG, x);
-				uiHandler.post(()->callback.onError(new MastodonErrorResponse(x.getLocalizedMessage())));
+				uiHandler.post(()->callback.onError(new MastodonErrorResponse(x.getLocalizedMessage(), 500)));
 			}finally{
 				closeDelayed();
 			}
@@ -145,7 +141,7 @@ public class CacheController{
 						.exec(accountID);
 			}catch(SQLiteException x){
 				Log.w(TAG, x);
-				uiHandler.post(()->callback.onError(new MastodonErrorResponse(x.getLocalizedMessage())));
+				uiHandler.post(()->callback.onError(new MastodonErrorResponse(x.getLocalizedMessage(), 500)));
 			}finally{
 				closeDelayed();
 			}

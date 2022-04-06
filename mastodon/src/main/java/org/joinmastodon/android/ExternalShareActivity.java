@@ -2,7 +2,6 @@ package org.joinmastodon.android;
 
 import android.app.Fragment;
 import android.content.ClipData;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
@@ -14,11 +13,11 @@ import org.joinmastodon.android.api.session.AccountSession;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.fragments.ComposeFragment;
 import org.joinmastodon.android.ui.M3AlertDialogBuilder;
+import org.joinmastodon.android.ui.utils.UiUtils;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import androidx.annotation.Nullable;
 import me.grishka.appkit.FragmentStackActivity;
@@ -26,6 +25,7 @@ import me.grishka.appkit.FragmentStackActivity;
 public class ExternalShareActivity extends FragmentStackActivity{
 	@Override
 	protected void onCreate(@Nullable Bundle savedInstanceState){
+		UiUtils.setUserPreferredTheme(this);
 		super.onCreate(savedInstanceState);
 		if(savedInstanceState==null){
 			List<AccountSession> sessions=AccountSessionManager.getInstance().getLoggedInAccounts();

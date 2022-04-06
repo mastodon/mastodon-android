@@ -281,4 +281,9 @@ public class ReportAddPostsChoiceFragment extends StatusListFragment{
 		if(ev.reportAccountID.equals(reportAccount.id))
 			Nav.finish(this);
 	}
+
+	@Override
+	protected boolean wantsOverlaySystemNavigation(){
+		return false;
+	}
 }

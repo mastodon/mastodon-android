@@ -33,6 +33,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toolbar;
 
+import org.joinmastodon.android.GlobalUserPreferences;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.requests.accounts.GetAccountByID;
 import org.joinmastodon.android.api.requests.accounts.GetAccountRelationships;
@@ -115,6 +116,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 	private String profileAccountID;
 	private boolean refreshing;
 	private View fab;
+	private WindowInsets childInsets;
 
 	public ProfileFragment(){
 		super(R.layout.loader_fragment_overlay_toolbar);
@@ -365,16 +367,35 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 	@Override
 	public void onApplyWindowInsets(WindowInsets insets){
 		statusBarHeight=insets.getSystemWindowInsetTop();
-		((ViewGroup.MarginLayoutParams)getToolbar().getLayoutParams()).topMargin=statusBarHeight;
-		refreshLayout.setProgressViewEndTarget(true, statusBarHeight+refreshLayout.getProgressCircleDiameter()+V.dp(24));
+		if(contentView!=null){
+			((ViewGroup.MarginLayoutParams) getToolbar().getLayoutParams()).topMargin=statusBarHeight;
+			refreshLayout.setProgressViewEndTarget(true, statusBarHeight+refreshLayout.getProgressCircleDiameter()+V.dp(24));
+			if(Build.VERSION.SDK_INT>=29 && insets.getTappableElementInsets().bottom==0){
+				int insetBottom=insets.getSystemWindowInsetBottom();
+				childInsets=insets.inset(insets.getSystemWindowInsetLeft(), insets.getSystemWindowInsetTop(), insets.getSystemWindowInsetRight(), 0);
+				((ViewGroup.MarginLayoutParams) fab.getLayoutParams()).bottomMargin=V.dp(24)+insetBottom;
+				applyChildWindowInsets();
+				insets=insets.inset(0, 0, 0, insetBottom);
+			}else{
+				((ViewGroup.MarginLayoutParams) fab.getLayoutParams()).bottomMargin=V.dp(24);
+			}
+		}
 		super.onApplyWindowInsets(insets.replaceSystemWindowInsets(insets.getSystemWindowInsetLeft(), 0, insets.getSystemWindowInsetRight(), insets.getSystemWindowInsetBottom()));
+	}
+
+	private void applyChildWindowInsets(){
+		if(postsFragment!=null && postsFragment.isAdded() && childInsets!=null){
+			postsFragment.onApplyWindowInsets(childInsets);
+			postsWithRepliesFragment.onApplyWindowInsets(childInsets);
+			mediaFragment.onApplyWindowInsets(childInsets);
+		}
 	}
 
 	private void bindHeaderView(){
 		setTitle(account.displayName);
 		setSubtitle(getResources().getQuantityString(R.plurals.x_posts, account.statusesCount, account.statusesCount));
-		ViewImageLoader.load(avatar, null, new UrlImageLoaderRequest(account.avatar, V.dp(100), V.dp(100)));
-		ViewImageLoader.load(cover, null, new UrlImageLoaderRequest(account.header, 1000, 1000));
+		ViewImageLoader.load(avatar, null, new UrlImageLoaderRequest(GlobalUserPreferences.playGifs ? account.avatar : account.avatarStatic, V.dp(100), V.dp(100)));
+		ViewImageLoader.load(cover, null, new UrlImageLoaderRequest(GlobalUserPreferences.playGifs ? account.header : account.headerStatic, 1000, 1000));
 		SpannableStringBuilder ssb=new SpannableStringBuilder(account.displayName);
 		HtmlParser.parseCustomEmoji(ssb, account.emojis);
 		name.setText(ssb);
@@ -790,8 +811,19 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 		@Override
 		public void onBindViewHolder(@NonNull SimpleViewHolder holder, int position){
 			Fragment fragment=getFragmentForPage(position);
-			if(!fragment.isAdded())
-				getChildFragmentManager().beginTransaction().add(holder.itemView.getId(), getFragmentForPage(position)).commit();
+			if(!fragment.isAdded()){
+				getChildFragmentManager().beginTransaction().add(holder.itemView.getId(), fragment).commit();
+				holder.itemView.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener(){
+					@Override
+					public boolean onPreDraw(){
+						if(fragment.isAdded()){
+							holder.itemView.getViewTreeObserver().removeOnPreDrawListener(this);
+							applyChildWindowInsets();
+						}
+						return true;
+					}
+				});
+			}
 		}
 
 		@Override

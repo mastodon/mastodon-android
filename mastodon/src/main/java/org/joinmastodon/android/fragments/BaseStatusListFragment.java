@@ -9,8 +9,10 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowInsets;
 import android.widget.Toolbar;
 
 import org.joinmastodon.android.R;
@@ -590,6 +592,26 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 
 	protected int getListWidthForMediaLayout(){
 		return list.getWidth();
+	}
+
+	protected boolean wantsOverlaySystemNavigation(){
+		return true;
+	}
+
+	protected void onSetFabBottomInset(int inset){
+
+	}
+
+	@Override
+	public void onApplyWindowInsets(WindowInsets insets){
+		if(Build.VERSION.SDK_INT>=29 && insets.getTappableElementInsets().bottom==0 && wantsOverlaySystemNavigation()){
+			list.setPadding(0, 0, 0, insets.getSystemWindowInsetBottom());
+			onSetFabBottomInset(insets.getSystemWindowInsetBottom());
+			insets=insets.inset(0, 0, 0, insets.getSystemWindowInsetBottom());
+		}else{
+			onSetFabBottomInset(0);
+		}
+		super.onApplyWindowInsets(insets);
 	}
 
 	protected class DisplayItemsAdapter extends UsableRecyclerView.Adapter<BindableViewHolder<StatusDisplayItem>> implements ImageLoaderRecyclerAdapter{

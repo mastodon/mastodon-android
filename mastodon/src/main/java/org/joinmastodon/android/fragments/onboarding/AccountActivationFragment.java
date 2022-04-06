@@ -65,7 +65,7 @@ public class AccountActivationFragment extends AppKitFragment{
 
 	@Override
 	public boolean wantsLightStatusBar(){
-		return (MastodonApp.context.getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK)!=Configuration.UI_MODE_NIGHT_YES;
+		return !UiUtils.isDarkTheme();
 	}
 
 	@Override

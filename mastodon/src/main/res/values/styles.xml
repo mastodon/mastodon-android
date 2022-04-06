@@ -92,7 +92,12 @@
 		<item name="android:actionOverflowMenuStyle">@style/Widget.Mastodon.PopupMenu</item>
 	</style>
 
+	<style name="Theme.Mastodon.Dark.TrueBlack">
+		<item name="colorWindowBackground">#000</item>
+	</style>
+
 	<style name="Theme.Mastodon.AutoLightDark" parent="Theme.Mastodon.Light"/>
+	<style name="Theme.Mastodon.AutoLightDark.TrueBlack" parent="Theme.Mastodon.Light"/>
 
 	<style name="Theme.Mastodon.Toolbar" parent="android:ThemeOverlay.Material.ActionBar">
 		<item name="android:colorPrimary">@color/gray_50</item>
@@ -281,5 +286,9 @@
 		<item name="android:textSize">28dp</item>
 		<item name="android:textColor">?android:textColorPrimary</item>
 		<item name="android:lineSpacingExtra">3dp</item>
+	</style>
+
+	<style name="window_fade_out">
+		<item name="android:windowExitAnimation">@anim/fade_out_fast</item>
 	</style>
 </resources>

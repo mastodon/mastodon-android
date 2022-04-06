@@ -11,9 +11,11 @@ import me.grishka.appkit.api.ErrorResponse;
 
 public class MastodonErrorResponse extends ErrorResponse{
 	public final String error;
+	public final int httpStatus;
 
-	public MastodonErrorResponse(String error){
+	public MastodonErrorResponse(String error, int httpStatus){
 		this.error=error;
+		this.httpStatus=httpStatus;
 	}
 
 	@Override

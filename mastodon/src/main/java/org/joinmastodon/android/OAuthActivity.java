@@ -16,6 +16,7 @@ import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.Application;
 import org.joinmastodon.android.model.Instance;
 import org.joinmastodon.android.model.Token;
+import org.joinmastodon.android.ui.utils.UiUtils;
 
 import androidx.annotation.Nullable;
 import me.grishka.appkit.api.Callback;
@@ -24,6 +25,7 @@ import me.grishka.appkit.api.ErrorResponse;
 public class OAuthActivity extends Activity{
 	@Override
 	protected void onCreate(@Nullable Bundle savedInstanceState){
+		UiUtils.setUserPreferredTheme(this);
 		super.onCreate(savedInstanceState);
 		Uri uri=getIntent().getData();
 		if(uri==null || isTaskRoot()){

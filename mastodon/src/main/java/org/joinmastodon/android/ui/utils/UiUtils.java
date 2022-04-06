@@ -3,24 +3,34 @@ package org.joinmastodon.android.ui.utils;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.content.res.ColorStateList;
+import android.content.res.Configuration;
 import android.content.res.TypedArray;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.InsetDrawable;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.provider.OpenableColumns;
+import android.text.SpannableStringBuilder;
 import android.text.Spanned;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 
 import org.joinmastodon.android.E;
+import org.joinmastodon.android.GlobalUserPreferences;
 import org.joinmastodon.android.MastodonApp;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.requests.accounts.SetAccountBlocked;
@@ -36,8 +46,10 @@ import org.joinmastodon.android.model.Relationship;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.M3AlertDialogBuilder;
 import org.joinmastodon.android.ui.text.CustomEmojiSpan;
+import org.joinmastodon.android.ui.text.SpacerSpan;
 
 import java.io.File;
+import java.lang.reflect.Method;
 import java.time.Instant;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
@@ -69,11 +81,14 @@ public class UiUtils{
 	private UiUtils(){}
 
 	public static void launchWebBrowser(Context context, String url){
-		// TODO setting for custom tabs
-		new CustomTabsIntent.Builder()
-				.setShowTitle(true)
-				.build()
-				.launchUrl(context, Uri.parse(url));
+		if(GlobalUserPreferences.useCustomTabs){
+			new CustomTabsIntent.Builder()
+					.setShowTitle(true)
+					.build()
+					.launchUrl(context, Uri.parse(url));
+		}else{
+			context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
+		}
 	}
 
 	public static String formatRelativeTimestamp(Context context, Instant instant){
@@ -373,5 +388,49 @@ public class UiUtils{
 		d.setBounds(0, 0, d.getIntrinsicWidth(), d.getIntrinsicHeight());
 		d.draw(new Canvas(bitmap));
 		return bitmap;
+	}
+
+	public static void enablePopupMenuIcons(Context context, PopupMenu menu){
+		Menu m=menu.getMenu();
+		if(Build.VERSION.SDK_INT>=29){
+			menu.setForceShowIcon(true);
+		}else{
+			try{
+				Method setOptionalIconsVisible=m.getClass().getDeclaredMethod("setOptionalIconsVisible", boolean.class);
+				setOptionalIconsVisible.setAccessible(true);
+				setOptionalIconsVisible.invoke(m, true);
+			}catch(Exception ignore){}
+		}
+		ColorStateList iconTint=ColorStateList.valueOf(UiUtils.getThemeColor(context, android.R.attr.textColorSecondary));
+		for(int i=0;i<m.size();i++){
+			MenuItem item=m.getItem(i);
+			Drawable icon=item.getIcon().mutate();
+			if(Build.VERSION.SDK_INT>=26){
+				item.setIconTintList(iconTint);
+			}else{
+				icon.setTintList(iconTint);
+			}
+			icon=new InsetDrawable(icon, V.dp(8), 0, 0, 0);
+			item.setIcon(icon);
+			SpannableStringBuilder ssb=new SpannableStringBuilder(item.getTitle());
+			ssb.insert(0, " ");
+			ssb.setSpan(new SpacerSpan(V.dp(24), 1), 0, 1, 0);
+			ssb.append(" ", new SpacerSpan(V.dp(8), 1), 0);
+			item.setTitle(ssb);
+		}
+	}
+
+	public static void setUserPreferredTheme(Context context){
+		context.setTheme(switch(GlobalUserPreferences.theme){
+			case AUTO -> GlobalUserPreferences.trueBlackTheme ? R.style.Theme_Mastodon_AutoLightDark_TrueBlack : R.style.Theme_Mastodon_AutoLightDark;
+			case LIGHT -> R.style.Theme_Mastodon_Light;
+			case DARK -> GlobalUserPreferences.trueBlackTheme ? R.style.Theme_Mastodon_Dark_TrueBlack : R.style.Theme_Mastodon_Dark;
+		});
+	}
+
+	public static boolean isDarkTheme(){
+		if(GlobalUserPreferences.theme==GlobalUserPreferences.ThemePreference.AUTO)
+			return (MastodonApp.context.getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK)==Configuration.UI_MODE_NIGHT_YES;
+		return GlobalUserPreferences.theme==GlobalUserPreferences.ThemePreference.DARK;
 	}
 }

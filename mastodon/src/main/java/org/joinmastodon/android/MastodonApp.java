@@ -27,5 +27,6 @@ public class MastodonApp extends Application{
 		context=getApplicationContext();
 
 		PushSubscriptionManager.tryRegisterFCM();
+		GlobalUserPreferences.load();
 	}
 }

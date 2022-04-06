@@ -993,32 +993,7 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 		PopupMenu menu=new PopupMenu(getActivity(), v);
 		menu.inflate(R.menu.compose_visibility);
 		Menu m=menu.getMenu();
-		if(Build.VERSION.SDK_INT>=29){
-			menu.setForceShowIcon(true);
-		}else{
-			try{
-				Method setOptionalIconsVisible=m.getClass().getDeclaredMethod("setOptionalIconsVisible", boolean.class);
-				setOptionalIconsVisible.setAccessible(true);
-				setOptionalIconsVisible.invoke(m, true);
-			}catch(Exception ignore){}
-		}
-		ColorStateList iconTint=ColorStateList.valueOf(UiUtils.getThemeColor(getActivity(), android.R.attr.textColorSecondary));
-		for(int i=0;i<m.size();i++){
-			MenuItem item=m.getItem(i);
-			Drawable icon=item.getIcon().mutate();
-			if(Build.VERSION.SDK_INT>=26){
-				item.setIconTintList(iconTint);
-			}else{
-				icon.setTintList(iconTint);
-			}
-			icon=new InsetDrawable(icon, V.dp(8), 0, 0, 0);
-			item.setIcon(icon);
-			SpannableStringBuilder ssb=new SpannableStringBuilder(item.getTitle());
-			ssb.insert(0, " ");
-			ssb.setSpan(new SpacerSpan(V.dp(24), 1), 0, 1, 0);
-			ssb.append(" ", new SpacerSpan(V.dp(8), 1), 0);
-			item.setTitle(ssb);
-		}
+		UiUtils.enablePopupMenuIcons(getActivity(), menu);
 		m.setGroupCheckable(0, true, true);
 		m.findItem(switch(statusVisibility){
 			case PUBLIC, UNLISTED -> R.id.vis_public;
@@ -1111,6 +1086,16 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 		e.replace(start, end, text+" ");
 		mainEditText.setSelection(start+text.length()+1);
 		finishAutocomplete();
+	}
+
+	@Override
+	public boolean wantsLightStatusBar(){
+		return !UiUtils.isDarkTheme();
+	}
+
+	@Override
+	public boolean wantsLightNavigationBar(){
+		return !UiUtils.isDarkTheme();
 	}
 
 	@Parcel

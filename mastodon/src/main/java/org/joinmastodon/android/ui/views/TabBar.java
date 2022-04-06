@@ -9,6 +9,7 @@ import android.widget.LinearLayout;
 import org.joinmastodon.android.R;
 
 import java.util.function.IntConsumer;
+import java.util.function.IntPredicate;
 
 import androidx.annotation.IdRes;
 import androidx.annotation.Nullable;
@@ -17,6 +18,7 @@ public class TabBar extends LinearLayout{
 	@IdRes
 	private int selectedTabID;
 	private IntConsumer listener;
+	private IntPredicate longClickListener;
 
 	public TabBar(Context context){
 		this(context, null);
@@ -39,6 +41,7 @@ public class TabBar extends LinearLayout{
 				child.setSelected(true);
 			}
 			child.setOnClickListener(this::onChildClick);
+			child.setOnLongClickListener(this::onChildLongClick);
 		}
 	}
 
@@ -51,8 +54,13 @@ public class TabBar extends LinearLayout{
 		selectedTabID=v.getId();
 	}
 
-	public void setListener(IntConsumer listener){
+	private boolean onChildLongClick(View v){
+		return longClickListener.test(v.getId());
+	}
+
+	public void setListeners(IntConsumer listener, IntPredicate longClickListener){
 		this.listener=listener;
+		this.longClickListener=longClickListener;
 	}
 
 	public void selectTab(int id){

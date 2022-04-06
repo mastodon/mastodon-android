@@ -8,12 +8,14 @@ import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.RoundRectShape;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewOutlineProvider;
 import android.view.ViewTreeObserver;
+import android.view.WindowInsets;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -34,6 +36,7 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import me.grishka.appkit.fragments.WindowInsetsAwareFragment;
 import me.grishka.appkit.imageloader.ImageLoaderRecyclerAdapter;
 import me.grishka.appkit.imageloader.ImageLoaderViewHolder;
 import me.grishka.appkit.imageloader.ListImageLoaderWrapper;
@@ -44,7 +47,7 @@ import me.grishka.appkit.utils.CubicBezierInterpolator;
 import me.grishka.appkit.utils.V;
 import me.grishka.appkit.views.UsableRecyclerView;
 
-public class ProfileAboutFragment extends Fragment{
+public class ProfileAboutFragment extends Fragment implements WindowInsetsAwareFragment{
 	private static final int MAX_FIELDS=4;
 
 	public UsableRecyclerView list;
@@ -109,6 +112,23 @@ public class ProfileAboutFragment extends Fragment{
 
 	public List<AccountField> getFields(){
 		return fields;
+	}
+
+	@Override
+	public void onApplyWindowInsets(WindowInsets insets){
+		if(Build.VERSION.SDK_INT>=29 && insets.getTappableElementInsets().bottom==0){
+			list.setPadding(0, V.dp(16), 0, V.dp(12)+insets.getSystemWindowInsetBottom());
+		}
+	}
+
+	@Override
+	public boolean wantsLightStatusBar(){
+		return false;
+	}
+
+	@Override
+	public boolean wantsLightNavigationBar(){
+		return false;
 	}
 
 	private class AboutAdapter extends UsableRecyclerView.Adapter<BaseViewHolder> implements ImageLoaderRecyclerAdapter{

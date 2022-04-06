@@ -15,6 +15,7 @@ import org.joinmastodon.android.fragments.SplashFragment;
 import org.joinmastodon.android.fragments.ThreadFragment;
 import org.joinmastodon.android.fragments.onboarding.AccountActivationFragment;
 import org.joinmastodon.android.model.Notification;
+import org.joinmastodon.android.ui.utils.UiUtils;
 import org.parceler.Parcels;
 
 import java.lang.reflect.InvocationTargetException;
@@ -25,6 +26,7 @@ import me.grishka.appkit.FragmentStackActivity;
 public class MainActivity extends FragmentStackActivity{
 	@Override
 	protected void onCreate(@Nullable Bundle savedInstanceState){
+		UiUtils.setUserPreferredTheme(this);
 		super.onCreate(savedInstanceState);
 
 		if(savedInstanceState==null){

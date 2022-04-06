@@ -103,7 +103,7 @@ public class MastodonAPIController{
 						synchronized(req){
 							req.okhttpCall=null;
 						}
-						req.onError(e.getLocalizedMessage());
+						req.onError(e.getLocalizedMessage(), 0);
 					}
 
 					@Override
@@ -136,7 +136,7 @@ public class MastodonAPIController{
 								}catch(JsonIOException|JsonSyntaxException x){
 									if(BuildConfig.DEBUG)
 										Log.w(TAG, "["+(session==null ? "no-auth" : session.getID())+"] "+response+" error parsing or reading body", x);
-									req.onError(x.getLocalizedMessage());
+									req.onError(x.getLocalizedMessage(), response.code());
 									return;
 								}
 
@@ -145,7 +145,7 @@ public class MastodonAPIController{
 								}catch(IOException x){
 									if(BuildConfig.DEBUG)
 										Log.w(TAG, "["+(session==null ? "no-auth" : session.getID())+"] "+response+" error post-processing or validating response", x);
-									req.onError(x.getLocalizedMessage());
+									req.onError(x.getLocalizedMessage(), response.code());
 									return;
 								}
 
@@ -157,11 +157,11 @@ public class MastodonAPIController{
 								try{
 									JsonObject error=JsonParser.parseReader(reader).getAsJsonObject();
 									Log.w(TAG, "["+(session==null ? "no-auth" : session.getID())+"] "+response+" received error: "+error);
-									req.onError(error.get("error").getAsString());
+									req.onError(error.get("error").getAsString(), response.code());
 								}catch(JsonIOException|JsonSyntaxException x){
-									req.onError(response.code()+" "+response.message());
+									req.onError(response.code()+" "+response.message(), response.code());
 								}catch(IllegalStateException x){
-									req.onError("Error parsing an API error");
+									req.onError("Error parsing an API error", response.code());
 								}
 							}
 						}
@@ -170,7 +170,7 @@ public class MastodonAPIController{
 			}catch(Exception x){
 				if(BuildConfig.DEBUG)
 					Log.w(TAG, "["+(session==null ? "no-auth" : session.getID())+"] error creating and sending http request", x);
-				req.onError(x.getLocalizedMessage());
+				req.onError(x.getLocalizedMessage(), 0);
 			}
 		}, 0);
 	}

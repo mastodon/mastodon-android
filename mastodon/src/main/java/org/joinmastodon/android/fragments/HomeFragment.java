@@ -2,10 +2,12 @@ package org.joinmastodon.android.fragments;
 
 import android.app.Fragment;
 import android.app.NotificationManager;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Outline;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,18 +18,28 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import org.joinmastodon.android.MainActivity;
 import org.joinmastodon.android.MastodonApp;
 import org.joinmastodon.android.PushNotificationReceiver;
 import org.joinmastodon.android.R;
+import org.joinmastodon.android.api.requests.oauth.RevokeOauthToken;
+import org.joinmastodon.android.api.session.AccountSession;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.fragments.discover.DiscoverFragment;
+import org.joinmastodon.android.fragments.discover.SearchFragment;
 import org.joinmastodon.android.model.Account;
+import org.joinmastodon.android.ui.M3AlertDialogBuilder;
+import org.joinmastodon.android.ui.utils.UiUtils;
 import org.joinmastodon.android.ui.views.TabBar;
 import org.parceler.Parcels;
+
+import java.util.ArrayList;
 
 import androidx.annotation.IdRes;
 import androidx.annotation.Nullable;
 import me.grishka.appkit.FragmentStackActivity;
+import me.grishka.appkit.Nav;
+import me.grishka.appkit.api.ErrorResponse;
 import me.grishka.appkit.fragments.AppKitFragment;
 import me.grishka.appkit.fragments.LoaderFragment;
 import me.grishka.appkit.fragments.OnBackPressedListener;
@@ -58,21 +70,23 @@ public class HomeFragment extends AppKitFragment implements OnBackPressedListene
 		if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.N)
 			setRetainInstance(true);
 
-		Bundle args=new Bundle();
-		args.putString("account", accountID);
-		homeTimelineFragment=new HomeTimelineFragment();
-		homeTimelineFragment.setArguments(args);
-		args=new Bundle(args);
-		args.putBoolean("noAutoLoad", true);
-		searchFragment=new DiscoverFragment();
-		searchFragment.setArguments(args);
-		notificationsFragment=new NotificationsFragment();
-		notificationsFragment.setArguments(args);
-		args=new Bundle(args);
-		args.putParcelable("profileAccount", Parcels.wrap(AccountSessionManager.getInstance().getAccount(accountID).self));
-		args.putBoolean("noAutoLoad", true);
-		profileFragment=new ProfileFragment();
-		profileFragment.setArguments(args);
+		if(savedInstanceState==null){
+			Bundle args=new Bundle();
+			args.putString("account", accountID);
+			homeTimelineFragment=new HomeTimelineFragment();
+			homeTimelineFragment.setArguments(args);
+			args=new Bundle(args);
+			args.putBoolean("noAutoLoad", true);
+			searchFragment=new DiscoverFragment();
+			searchFragment.setArguments(args);
+			notificationsFragment=new NotificationsFragment();
+			notificationsFragment.setArguments(args);
+			args=new Bundle(args);
+			args.putParcelable("profileAccount", Parcels.wrap(AccountSessionManager.getInstance().getAccount(accountID).self));
+			args.putBoolean("noAutoLoad", true);
+			profileFragment=new ProfileFragment();
+			profileFragment.setArguments(args);
+		}
 
 	}
 
@@ -88,7 +102,7 @@ public class HomeFragment extends AppKitFragment implements OnBackPressedListene
 
 		inflater.inflate(R.layout.tab_bar, content);
 		tabBar=content.findViewById(R.id.tabbar);
-		tabBar.setListener(this::onTabSelected);
+		tabBar.setListeners(this::onTabSelected, this::onTabLongClick);
 		tabBarWrap=content.findViewById(R.id.tabbar_wrap);
 
 		tabBarAvatar=tabBar.findViewById(R.id.tab_profile_ava);
@@ -123,10 +137,30 @@ public class HomeFragment extends AppKitFragment implements OnBackPressedListene
 				});
 			}
 		}else{
-			tabBar.selectTab(currentTab);
 		}
 
 		return content;
+	}
+
+	@Override
+	public void onViewStateRestored(Bundle savedInstanceState){
+		super.onViewStateRestored(savedInstanceState);
+		if(savedInstanceState==null || homeTimelineFragment!=null)
+			return;
+		homeTimelineFragment=(HomeTimelineFragment) getChildFragmentManager().getFragment(savedInstanceState, "homeTimelineFragment");
+		searchFragment=(DiscoverFragment) getChildFragmentManager().getFragment(savedInstanceState, "searchFragment");
+		notificationsFragment=(NotificationsFragment) getChildFragmentManager().getFragment(savedInstanceState, "notificationsFragment");
+		profileFragment=(ProfileFragment) getChildFragmentManager().getFragment(savedInstanceState, "profileFragment");
+		currentTab=savedInstanceState.getInt("selectedTab");
+		Fragment current=fragmentForTab(currentTab);
+		getChildFragmentManager().beginTransaction()
+				.hide(homeTimelineFragment)
+				.hide(searchFragment)
+				.hide(notificationsFragment)
+				.hide(profileFragment)
+				.show(current)
+				.commit();
+		maybeTriggerLoading(current);
 	}
 
 	@Override
@@ -137,12 +171,12 @@ public class HomeFragment extends AppKitFragment implements OnBackPressedListene
 
 	@Override
 	public boolean wantsLightStatusBar(){
-		return currentTab!=R.id.tab_profile && (MastodonApp.context.getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK)!=Configuration.UI_MODE_NIGHT_YES;
+		return currentTab!=R.id.tab_profile && !UiUtils.isDarkTheme();
 	}
 
 	@Override
 	public boolean wantsLightNavigationBar(){
-		return (MastodonApp.context.getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK)!=Configuration.UI_MODE_NIGHT_YES;
+		return !UiUtils.isDarkTheme();
 	}
 
 	@Override
@@ -182,6 +216,12 @@ public class HomeFragment extends AppKitFragment implements OnBackPressedListene
 			return;
 		}
 		getChildFragmentManager().beginTransaction().hide(fragmentForTab(currentTab)).show(newFragment).commit();
+		maybeTriggerLoading(newFragment);
+		currentTab=tab;
+		((FragmentStackActivity)getActivity()).invalidateSystemBarColors(this);
+	}
+
+	private void maybeTriggerLoading(Fragment newFragment){
 		if(newFragment instanceof LoaderFragment){
 			LoaderFragment lf=(LoaderFragment) newFragment;
 			if(!lf.loaded && !lf.dataLoading)
@@ -194,8 +234,28 @@ public class HomeFragment extends AppKitFragment implements OnBackPressedListene
 			NotificationManager nm=getActivity().getSystemService(NotificationManager.class);
 			nm.cancel(accountID, PushNotificationReceiver.NOTIFICATION_ID);
 		}
-		currentTab=tab;
-		((FragmentStackActivity)getActivity()).invalidateSystemBarColors(this);
+	}
+
+	private boolean onTabLongClick(@IdRes int tab){
+		if(tab==R.id.tab_profile){
+		ArrayList<String> options=new ArrayList<>();
+		for(AccountSession session:AccountSessionManager.getInstance().getLoggedInAccounts()){
+			options.add(session.self.displayName+"\n("+session.self.username+"@"+session.domain+")");
+		}
+		new M3AlertDialogBuilder(getActivity())
+				.setItems(options.toArray(new String[0]), (dialog, which)->{
+					AccountSession session=AccountSessionManager.getInstance().getLoggedInAccounts().get(which);
+					AccountSessionManager.getInstance().setLastActiveAccountID(session.getID());
+					getActivity().finish();
+					getActivity().startActivity(new Intent(getActivity(), MainActivity.class));
+				})
+				.setNegativeButton(R.string.add_account, (dialog, which)->{
+					Nav.go(getActivity(), SplashFragment.class, null);
+				})
+				.show();
+			return true;
+		}
+		return false;
 	}
 
 	@Override
@@ -205,5 +265,15 @@ public class HomeFragment extends AppKitFragment implements OnBackPressedListene
 		if(currentTab==R.id.tab_search)
 			return searchFragment.onBackPressed();
 		return false;
+	}
+
+	@Override
+	public void onSaveInstanceState(Bundle outState){
+		super.onSaveInstanceState(outState);
+		outState.putInt("selectedTab", currentTab);
+		getChildFragmentManager().putFragment(outState, "homeTimelineFragment", homeTimelineFragment);
+		getChildFragmentManager().putFragment(outState, "searchFragment", searchFragment);
+		getChildFragmentManager().putFragment(outState, "notificationsFragment", notificationsFragment);
+		getChildFragmentManager().putFragment(outState, "profileFragment", profileFragment);
 	}
 }

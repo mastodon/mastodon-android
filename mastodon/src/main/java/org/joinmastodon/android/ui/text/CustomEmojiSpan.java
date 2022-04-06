@@ -6,6 +6,7 @@ import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.text.style.ReplacementSpan;
 
+import org.joinmastodon.android.GlobalUserPreferences;
 import org.joinmastodon.android.model.Emoji;
 
 import androidx.annotation.NonNull;
@@ -53,6 +54,6 @@ public class CustomEmojiSpan extends ReplacementSpan{
 
 	public UrlImageLoaderRequest createImageLoaderRequest(){
 		int size=V.dp(20);
-		return new UrlImageLoaderRequest(emoji.url, size, size);
+		return new UrlImageLoaderRequest(GlobalUserPreferences.playGifs ? emoji.url : emoji.staticUrl, size, size);
 	}
 }

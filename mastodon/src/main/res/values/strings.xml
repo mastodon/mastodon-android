@@ -130,7 +130,7 @@
 	<string name="notification_channel_audio_player">Audio playback</string>
 	<string name="play">Play</string>
 	<string name="pause">Pause</string>
-	<string name="log_out">Log out</string>
+	<string name="log_out">Sign out</string>
 	<string name="add_account">Add account</string>
 	<string name="search_hint">Search</string>
 	<string name="hashtags">Hashtags</string>
@@ -236,4 +236,32 @@
 	</plurals>
 	<string name="media_attachment_unsupported_type">File %s is of an unsupported type</string>
 	<string name="media_attachment_too_big">File %1$s exceeds the size limit of %2$s MB</string>
+	<string name="settings_theme">Visual appearance</string>
+	<string name="theme_auto">Automatic</string>
+	<string name="theme_light">Light</string>
+	<string name="theme_dark">Dark</string>
+	<string name="theme_true_black">True black mode</string>
+	<string name="settings_behavior">Behavior</string>
+	<string name="settings_gif">Play animated avatars and emoji</string>
+	<string name="settings_custom_tabs">Use in-app browser</string>
+	<string name="settings_notifications">Notifications</string>
+	<string name="notify_me_when">Notify me when</string>
+	<string name="notify_anyone">anyone</string>
+	<string name="notify_follower">a follower</string>
+	<string name="notify_followed">someone I follow</string>
+	<string name="notify_none">no one</string>
+	<string name="notify_favorites">Favorites my post</string>
+	<string name="notify_follow">Follows me</string>
+	<string name="notify_reblog">Reblogs my post</string>
+	<string name="notify_mention">Mentions me</string>
+	<string name="settings_boring">The boring zone</string>
+	<string name="settings_account">Account settings</string>
+	<string name="settings_contribute">Contribute to Mastodon</string>
+	<string name="settings_tos">Terms of service</string>
+	<string name="settings_privacy_policy">Privacy policy</string>
+	<string name="settings_spicy">The spicy zone</string>
+	<string name="settings_clear_cache">Clear media cache</string>
+	<string name="settings_app_version">Mastodon for Android v%1$s (%2$d)</string>
+	<string name="media_cache_cleared">Media cache cleared</string>
+	<string name="confirm_log_out">Are you sure you want to sign out?</string>
 </resources>
