@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -17,11 +18,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.MastodonAPIController;
-import org.joinmastodon.android.api.MastodonAPIRequest;
+import org.joinmastodon.android.api.MastodonDetailedErrorResponse;
 import org.joinmastodon.android.api.requests.accounts.RegisterAccount;
 import org.joinmastodon.android.api.requests.oauth.CreateOAuthApp;
 import org.joinmastodon.android.api.requests.oauth.GetOauthToken;
@@ -39,8 +39,11 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
-import java.nio.file.Files;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.function.Consumer;
+import java.util.stream.Collectors;
 
 import androidx.annotation.Nullable;
 import me.grishka.appkit.Nav;
@@ -70,6 +73,7 @@ public class SignupFragment extends AppKitFragment{
 	private ProgressDialog progressDialog;
 	private Uri avatarUri;
 	private File avatarFile;
+	private HashSet<EditText> errorFields=new HashSet<>();
 
 	@Override
 	public void onCreate(Bundle savedInstanceState){
@@ -114,6 +118,10 @@ public class SignupFragment extends AppKitFragment{
 		username.addTextChangedListener(buttonStateUpdater);
 		email.addTextChangedListener(buttonStateUpdater);
 		password.addTextChangedListener(buttonStateUpdater);
+
+		username.addTextChangedListener(new ErrorClearingListener(username));
+		email.addTextChangedListener(new ErrorClearingListener(email));
+		password.addTextChangedListener(new ErrorClearingListener(password));
 
 		avaWrap.setOutlineProvider(OutlineProviders.roundedRect(22));
 		avaWrap.setClipToOutline(true);
@@ -172,8 +180,12 @@ public class SignupFragment extends AppKitFragment{
 	}
 
 	private void actuallySubmit(){
-		String username=this.username.getText().toString();
-		String email=this.email.getText().toString();
+		String username=this.username.getText().toString().trim();
+		String email=this.email.getText().toString().trim();
+		for(EditText edit:errorFields){
+			edit.setError(null);
+		}
+		errorFields.clear();
 		new RegisterAccount(username, email, password.getText().toString(), getResources().getConfiguration().locale.getLanguage(), null)
 				.setCallback(new Callback<>(){
 					@Override
@@ -194,12 +206,37 @@ public class SignupFragment extends AppKitFragment{
 
 					@Override
 					public void onError(ErrorResponse error){
-						error.showToast(getActivity());
+						if(error instanceof MastodonDetailedErrorResponse){
+							Map<String, List<MastodonDetailedErrorResponse.FieldError>> fieldErrors=((MastodonDetailedErrorResponse) error).detailedErrors;
+							boolean first=true;
+							for(String fieldName:fieldErrors.keySet()){
+								EditText field=getFieldByName(fieldName);
+								if(field==null)
+									continue;
+								field.setError(fieldErrors.get(fieldName).stream().map(err->err.description).collect(Collectors.joining("\n")));
+								errorFields.add(field);
+								if(first){
+									first=false;
+									field.requestFocus();
+								}
+							}
+						}else{
+							error.showToast(getActivity());
+						}
 						progressDialog.dismiss();
 						progressDialog=null;
 					}
 				})
 				.exec(instance.uri, apiToken);
+	}
+
+	private EditText getFieldByName(String name){
+		return switch(name){
+			case "email" -> email;
+			case "username" -> username;
+			case "password" -> password;
+			default -> null;
+		};
 	}
 
 	private void showProgressDialog(){
@@ -286,5 +323,31 @@ public class SignupFragment extends AppKitFragment{
 
 	private void onAvatarClick(){
 		startActivityForResult(new Intent(Intent.ACTION_GET_CONTENT).setType("image/*").addCategory(Intent.CATEGORY_OPENABLE), AVATAR_RESULT);
+	}
+
+	private class ErrorClearingListener implements TextWatcher{
+		public final EditText editText;
+
+		private ErrorClearingListener(EditText editText){
+			this.editText=editText;
+		}
+
+		@Override
+		public void beforeTextChanged(CharSequence s, int start, int count, int after){
+
+		}
+
+		@Override
+		public void onTextChanged(CharSequence s, int start, int before, int count){
+
+		}
+
+		@Override
+		public void afterTextChanged(Editable s){
+			if(errorFields.contains(editText)){
+				errorFields.remove(editText);
+				editText.setError(null);
+			}
+		}
 	}
 }

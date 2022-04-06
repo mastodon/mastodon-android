@@ -25,6 +25,7 @@ import androidx.annotation.CallSuper;
 import androidx.annotation.StringRes;
 import me.grishka.appkit.api.APIRequest;
 import me.grishka.appkit.api.Callback;
+import me.grishka.appkit.api.ErrorResponse;
 import okhttp3.Call;
 import okhttp3.RequestBody;
 
@@ -181,6 +182,10 @@ public abstract class MastodonAPIRequest<T> extends APIRequest<T>{
 				}
 			}
 		}
+	}
+
+	void onError(ErrorResponse err){
+		invokeErrorCallback(err);
 	}
 
 	void onError(String msg, int httpStatus){

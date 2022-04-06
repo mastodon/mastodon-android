@@ -8,6 +8,7 @@ import android.util.Log;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonIOException;
 import com.google.gson.JsonObject;
@@ -25,6 +26,8 @@ import java.io.IOException;
 import java.io.Reader;
 import java.time.Instant;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -157,10 +160,29 @@ public class MastodonAPIController{
 								try{
 									JsonObject error=JsonParser.parseReader(reader).getAsJsonObject();
 									Log.w(TAG, "["+(session==null ? "no-auth" : session.getID())+"] "+response+" received error: "+error);
-									req.onError(error.get("error").getAsString(), response.code());
+									if(error.has("details")){
+										MastodonDetailedErrorResponse err=new MastodonDetailedErrorResponse(error.get("error").getAsString(), response.code());
+										HashMap<String, List<MastodonDetailedErrorResponse.FieldError>> details=new HashMap<>();
+										JsonObject errorDetails=error.getAsJsonObject("details");
+										for(String key:errorDetails.keySet()){
+											ArrayList<MastodonDetailedErrorResponse.FieldError> fieldErrors=new ArrayList<>();
+											for(JsonElement el:errorDetails.getAsJsonArray(key)){
+												JsonObject eobj=el.getAsJsonObject();
+												MastodonDetailedErrorResponse.FieldError fe=new MastodonDetailedErrorResponse.FieldError();
+												fe.description=eobj.get("description").getAsString();
+												fe.error=eobj.get("error").getAsString();
+												fieldErrors.add(fe);
+											}
+											details.put(key, fieldErrors);
+										}
+										err.detailedErrors=details;
+										req.onError(err);
+									}else{
+										req.onError(error.get("error").getAsString(), response.code());
+									}
 								}catch(JsonIOException|JsonSyntaxException x){
 									req.onError(response.code()+" "+response.message(), response.code());
-								}catch(IllegalStateException x){
+								}catch(Exception x){
 									req.onError("Error parsing an API error", response.code());
 								}
 							}
