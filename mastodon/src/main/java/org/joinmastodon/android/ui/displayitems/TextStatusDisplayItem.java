@@ -21,6 +21,7 @@ import me.grishka.appkit.imageloader.requests.ImageLoaderRequest;
 public class TextStatusDisplayItem extends StatusDisplayItem{
 	private CharSequence text;
 	private CustomEmojiHelper emojiHelper=new CustomEmojiHelper();
+	public boolean textSelectable;
 	public final Status status;
 
 	public TextStatusDisplayItem(String parentID, CharSequence text, BaseStatusListFragment parentFragment, Status status){
@@ -61,6 +62,7 @@ public class TextStatusDisplayItem extends StatusDisplayItem{
 		@Override
 		public void onBind(TextStatusDisplayItem item){
 			text.setText(item.text);
+			text.setTextIsSelectable(item.textSelectable);
 			text.setInvalidateOnEveryFrame(false);
 			if(!TextUtils.isEmpty(item.status.spoilerText)){
 				spoilerTitle.setText(item.status.spoilerText);

@@ -543,6 +543,10 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 
 	}
 
+	public boolean isItemEnabled(String id){
+		return true;
+	}
+
 	@Override
 	public void onApplyWindowInsets(WindowInsets insets){
 		if(Build.VERSION.SDK_INT>=29 && insets.getTappableElementInsets().bottom==0 && wantsOverlaySystemNavigation()){

@@ -15,11 +15,14 @@ import org.joinmastodon.android.events.StatusDeletedEvent;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.StatusContext;
 import org.joinmastodon.android.model.Status;
+import org.joinmastodon.android.ui.displayitems.StatusDisplayItem;
+import org.joinmastodon.android.ui.displayitems.TextStatusDisplayItem;
 import org.joinmastodon.android.ui.text.HtmlParser;
 import org.joinmastodon.android.ui.utils.UiUtils;
 import org.parceler.Parcels;
 
 import java.util.Collections;
+import java.util.List;
 
 import me.grishka.appkit.api.SimpleCallback;
 
@@ -36,6 +39,18 @@ public class ThreadFragment extends StatusListFragment{
 		data.add(mainStatus);
 		onAppendItems(Collections.singletonList(mainStatus));
 		setTitle(HtmlParser.parseCustomEmoji(getString(R.string.post_from_user, mainStatus.account.displayName), mainStatus.account.emojis));
+	}
+
+	@Override
+	protected List<StatusDisplayItem> buildDisplayItems(Status s){
+		List<StatusDisplayItem> items=super.buildDisplayItems(s);
+		if(s==mainStatus){
+			for(StatusDisplayItem item:items){
+				if(item instanceof TextStatusDisplayItem)
+					((TextStatusDisplayItem) item).textSelectable=true;
+			}
+		}
+		return items;
 	}
 
 	@Override
@@ -104,5 +119,10 @@ public class ThreadFragment extends StatusListFragment{
 		if(ev.status.inReplyToId!=null && getStatusByID(ev.status.inReplyToId)!=null){
 			onAppendItems(Collections.singletonList(ev.status));
 		}
+	}
+
+	@Override
+	public boolean isItemEnabled(String id){
+		return !id.equals(mainStatus.id);
 	}
 }

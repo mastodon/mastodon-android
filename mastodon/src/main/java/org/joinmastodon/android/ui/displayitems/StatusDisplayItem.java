@@ -145,7 +145,7 @@ public abstract class StatusDisplayItem{
 		HASHTAG
 	}
 
-	public static abstract class Holder<T extends StatusDisplayItem> extends BindableViewHolder<T> implements UsableRecyclerView.Clickable{
+	public static abstract class Holder<T extends StatusDisplayItem> extends BindableViewHolder<T> implements UsableRecyclerView.DisableableClickable{
 		public Holder(View itemView){
 			super(itemView);
 		}
@@ -161,6 +161,11 @@ public abstract class StatusDisplayItem{
 		@Override
 		public void onClick(){
 			item.parentFragment.onItemClick(item.parentID);
+		}
+
+		@Override
+		public boolean isEnabled(){
+			return item.parentFragment.isItemEnabled(item.parentID);
 		}
 	}
 }
