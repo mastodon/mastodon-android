@@ -40,7 +40,6 @@ public class NotificationsListFragment extends BaseStatusListFragment<Notificati
 	@Override
 	public void onAttach(Activity activity){
 		super.onAttach(activity);
-		setTitle(R.string.notifications);
 		onlyMentions=getArguments().getBoolean("onlyMentions", false);
 	}
 

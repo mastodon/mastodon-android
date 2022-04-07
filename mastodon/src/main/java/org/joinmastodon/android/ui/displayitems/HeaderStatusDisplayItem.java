@@ -126,6 +126,7 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 			visibility.setVisibility(item.hasVisibilityToggle && !item.inset ? View.VISIBLE : View.GONE);
 			if(item.hasVisibilityToggle){
 				visibility.setImageResource(item.status.spoilerRevealed ? R.drawable.ic_visibility_off : R.drawable.ic_visibility);
+				visibility.setContentDescription(item.parentFragment.getString(item.status.spoilerRevealed ? R.string.hide_content : R.string.reveal_content));
 			}
 			itemView.setPadding(itemView.getPaddingLeft(), itemView.getPaddingTop(), itemView.getPaddingRight(), item.needBottomPadding ? V.dp(16) : 0);
 			if(TextUtils.isEmpty(item.extraText)){
@@ -136,6 +137,7 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 			}
 			more.setVisibility(item.inset ? View.GONE : View.VISIBLE);
 			avatar.setClickable(!item.inset);
+			avatar.setContentDescription(item.parentFragment.getString(R.string.avatar_description, item.user.acct));
 		}
 
 		@Override

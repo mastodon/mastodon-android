@@ -178,6 +178,7 @@
 			android:padding="0px"
 			android:tint="@color/compose_button"
 			android:tintMode="src_in"
+			android:contentDescription="@string/add_media"
 			android:src="@drawable/ic_fluent_image_24_regular"/>
 
 		<ImageButton
@@ -189,6 +190,7 @@
 			android:padding="0px"
 			android:tint="@color/compose_button"
 			android:tintMode="src_in"
+			android:contentDescription="@string/add_poll"
 			android:src="@drawable/ic_fluent_poll_24_selector"/>
 
 		<ImageButton
@@ -200,6 +202,7 @@
 			android:padding="0px"
 			android:tint="@color/compose_button"
 			android:tintMode="src_in"
+			android:contentDescription="@string/emoji"
 			android:src="@drawable/ic_fluent_emoji_24_selector"/>
 
 		<ImageButton
@@ -211,6 +214,7 @@
 			android:padding="0px"
 			android:tint="@color/compose_button"
 			android:tintMode="src_in"
+			android:contentDescription="@string/content_warning"
 			android:src="@drawable/ic_fluent_chat_warning_24_selector"/>
 
 		<ImageButton
@@ -222,6 +226,7 @@
 			android:padding="0px"
 			android:tint="@color/compose_button"
 			android:tintMode="src_in"
+			android:contentDescription="@string/post_visibility"
 			android:src="@drawable/ic_fluent_earth_24_filled"/>
 
 		<Space

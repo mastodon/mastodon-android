@@ -2,6 +2,7 @@ package org.joinmastodon.android.ui.displayitems;
 
 import android.app.Activity;
 import android.graphics.drawable.Drawable;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -70,6 +71,7 @@ public abstract class ImageStatusDisplayItem extends StatusDisplayItem{
 			crossfadeDrawable.setCrossfadeAlpha(item.status.spoilerRevealed ? 0f : 1f);
 			photo.setImageDrawable(null);
 			photo.setImageDrawable(crossfadeDrawable);
+			photo.setContentDescription(TextUtils.isEmpty(item.attachment.description) ? item.parentFragment.getString(R.string.media_no_description) : item.attachment.description);
 			didClear=false;
 		}
 

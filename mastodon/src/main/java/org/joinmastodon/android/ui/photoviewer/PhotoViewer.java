@@ -21,6 +21,7 @@ import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 
+import org.joinmastodon.android.R;
 import org.joinmastodon.android.model.Attachment;
 
 import java.io.IOException;
@@ -90,6 +91,7 @@ public class PhotoViewer implements ZoomPanView.Listener{
 		wlp.flags=WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN | WindowManager.LayoutParams.FLAG_LAYOUT_INSET_DECOR
 				| WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS;
 		wlp.format=PixelFormat.TRANSLUCENT;
+		wlp.setTitle(activity.getString(R.string.media_viewer));
 		windowView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
 		wm.addView(windowView, wlp);
 

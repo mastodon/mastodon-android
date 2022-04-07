@@ -1095,6 +1095,11 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 	}
 
 	@Override
+	public CharSequence getTitle(){
+		return getString(R.string.new_post);
+	}
+
+	@Override
 	public boolean wantsLightStatusBar(){
 		return !UiUtils.isDarkTheme();
 	}

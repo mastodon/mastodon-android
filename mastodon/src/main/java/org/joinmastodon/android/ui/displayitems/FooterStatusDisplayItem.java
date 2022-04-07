@@ -6,6 +6,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.accessibility.AccessibilityNodeInfo;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -43,6 +45,15 @@ public class FooterStatusDisplayItem extends StatusDisplayItem{
 		private final TextView reply, boost, favorite;
 		private final ImageView share;
 
+		private final View.AccessibilityDelegate buttonAccessibilityDelegate=new View.AccessibilityDelegate(){
+			@Override
+			public void onInitializeAccessibilityNodeInfo(View host, AccessibilityNodeInfo info){
+				super.onInitializeAccessibilityNodeInfo(host, info);
+				info.setClassName(Button.class.getName());
+				info.setText(item.parentFragment.getString(descriptionForId(host.getId())));
+			}
+		};
+
 		public Holder(Activity activity, ViewGroup parent){
 			super(activity, R.layout.display_item_footer, parent);
 			reply=findViewById(R.id.reply);
@@ -54,10 +65,18 @@ public class FooterStatusDisplayItem extends StatusDisplayItem{
 				UiUtils.fixCompoundDrawableTintOnAndroid6(boost);
 				UiUtils.fixCompoundDrawableTintOnAndroid6(favorite);
 			}
-			findViewById(R.id.reply_btn).setOnClickListener(this::onReplyClick);
-			findViewById(R.id.boost_btn).setOnClickListener(this::onBoostClick);
-			findViewById(R.id.favorite_btn).setOnClickListener(this::onFavoriteClick);
-			findViewById(R.id.share_btn).setOnClickListener(this::onShareClick);
+			View reply=findViewById(R.id.reply_btn);
+			View boost=findViewById(R.id.boost_btn);
+			View favorite=findViewById(R.id.favorite_btn);
+			View share=findViewById(R.id.share_btn);
+			reply.setOnClickListener(this::onReplyClick);
+			reply.setAccessibilityDelegate(buttonAccessibilityDelegate);
+			boost.setOnClickListener(this::onBoostClick);
+			boost.setAccessibilityDelegate(buttonAccessibilityDelegate);
+			favorite.setOnClickListener(this::onFavoriteClick);
+			favorite.setAccessibilityDelegate(buttonAccessibilityDelegate);
+			share.setOnClickListener(this::onShareClick);
+			share.setAccessibilityDelegate(buttonAccessibilityDelegate);
 		}
 
 		@Override
@@ -105,6 +124,18 @@ public class FooterStatusDisplayItem extends StatusDisplayItem{
 			intent.setType("text/plain");
 			intent.putExtra(Intent.EXTRA_TEXT, item.status.url);
 			v.getContext().startActivity(Intent.createChooser(intent, v.getContext().getString(R.string.share_toot_title)));
+		}
+
+		private int descriptionForId(int id){
+			if(id==R.id.reply_btn)
+				return R.string.button_reply;
+			if(id==R.id.boost_btn)
+				return R.string.button_reblog;
+			if(id==R.id.favorite_btn)
+				return R.string.button_favorite;
+			if(id==R.id.share_btn)
+				return R.string.button_share;
+			return 0;
 		}
 	}
 }

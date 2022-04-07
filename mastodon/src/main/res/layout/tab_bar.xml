@@ -19,6 +19,7 @@
 			android:layout_width="52dp"
 			android:layout_height="52dp"
 			android:scaleType="center"
+			android:contentDescription="@string/home_timeline"
 			android:background="?android:selectableItemBackgroundBorderless"
 			android:tint="?android:colorPrimary"
 			android:src="@drawable/ic_fluent_home_28_selector"/>
@@ -33,6 +34,7 @@
 			android:layout_width="52dp"
 			android:layout_height="52dp"
 			android:scaleType="center"
+			android:contentDescription="@string/search_hint"
 			android:background="?android:selectableItemBackgroundBorderless"
 			android:tint="?android:colorPrimary"
 			android:src="@drawable/ic_fluent_search_28_selector"/>
@@ -47,6 +49,7 @@
 			android:layout_width="52dp"
 			android:layout_height="52dp"
 			android:scaleType="center"
+			android:contentDescription="@string/notifications"
 			android:background="?android:selectableItemBackgroundBorderless"
 			android:tint="?android:colorPrimary"
 			android:src="@drawable/ic_fluent_alert_28_selector"/>
@@ -60,6 +63,7 @@
 			android:id="@+id/tab_profile"
 			android:layout_width="52dp"
 			android:layout_height="52dp"
+			android:contentDescription="@string/my_profile"
 			android:foreground="@drawable/bg_tab_profile"
 			android:background="?android:selectableItemBackgroundBorderless">
 			<ImageView

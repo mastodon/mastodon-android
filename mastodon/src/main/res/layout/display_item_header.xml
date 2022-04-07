@@ -16,6 +16,7 @@
 		android:background="?android:selectableItemBackgroundBorderless"
 		android:scaleType="center"
 		android:tint="?android:textColorSecondary"
+		android:contentDescription="@string/more_options"
 		android:src="@drawable/ic_post_more" />
 
 	<ImageView

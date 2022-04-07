@@ -31,6 +31,7 @@
 			android:tint="@color/fab_icon"
 			android:scaleType="center"
 			android:stateListAnimator="@animator/fab_shadow"
+			android:contentDescription="@string/new_post"
 			android:src="@drawable/ic_edit_34"/>
 
 	</FrameLayout>
