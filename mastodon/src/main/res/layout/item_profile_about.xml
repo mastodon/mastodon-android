@@ -16,6 +16,7 @@
 		android:textAppearance="@style/m3_label_medium"
 		android:minHeight="16dp"
 		android:textAllCaps="true"
+		android:textSize="12sp"
 		tools:text="Field title"/>
 
 	<org.joinmastodon.android.ui.views.LinkedTextView
@@ -23,6 +24,7 @@
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:textAppearance="@style/m3_body_large"
+		android:textSize="16sp"
 		tools:text="Field value"/>
 
 </LinearLayout>

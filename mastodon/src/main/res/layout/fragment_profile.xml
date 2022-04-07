@@ -189,6 +189,7 @@
 						android:layout_marginTop="8dp"
 						android:layout_marginRight="16dp"
 						android:textAppearance="@style/m3_body_large"
+						android:textSize="16sp"
 						tools:text="Founder, CEO and lead developer @Mastodon, Germany." />
 
 					<EditText
@@ -201,6 +202,7 @@
 						android:layout_marginTop="16dp"
 						android:layout_toStartOf="@id/profile_action_btn_wrap"
 						android:textAppearance="@style/m3_body_large"
+						android:textSize="16sp"
 						android:background="@drawable/edit_text_border"
 						android:inputType="textPersonName|textCapWords"
 						android:visibility="gone"
@@ -216,6 +218,7 @@
 						android:layout_marginTop="8dp"
 						android:layout_marginRight="16dp"
 						android:textAppearance="@style/m3_body_large"
+						android:textSize="16sp"
 						android:background="@drawable/edit_text_border"
 						android:inputType="textMultiLine|textCapSentences"
 						android:visibility="gone"

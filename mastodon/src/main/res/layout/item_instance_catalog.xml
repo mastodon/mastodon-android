@@ -20,7 +20,7 @@
 	<TextView
 		android:id="@+id/title"
 		android:layout_width="match_parent"
-		android:layout_height="24dp"
+		android:layout_height="wrap_content"
 		android:layout_toEndOf="@id/radiobtn"
 		android:layout_alignParentTop="true"
 		android:layout_marginBottom="4dp"
@@ -28,6 +28,8 @@
 		android:singleLine="true"
 		android:ellipsize="end"
 		android:gravity="center_vertical"
+		android:textSize="16sp"
+		android:minHeight="24dp"
 		tools:text="mastodon.social"/>
 
 	<TextView
@@ -39,6 +41,7 @@
 		android:layout_marginBottom="8dp"
 		android:textAppearance="@style/m3_body_medium"
 		android:textColor="?android:textColorSecondary"
+		android:textSize="14sp"
 		tools:text="General-purpose server run by the lead developer of Mastodon"/>
 
 	<TextView
