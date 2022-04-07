@@ -96,7 +96,7 @@ public class AccountSessionManager{
 		sessions.put(session.getID(), session);
 		lastActiveAccountID=session.getID();
 		writeAccountsFile();
-		maybeUpdateLocalInfo();
+		updateInstanceEmojis(instance, instance.uri);
 		if(PushSubscriptionManager.arePushNotificationsAvailable()){
 			session.getPushSubscriptionManager().registerAccountForPush();
 		}
@@ -268,26 +268,30 @@ public class AccountSessionManager{
 					@Override
 					public void onSuccess(Instance instance){
 						instances.put(domain, instance);
-						new GetCustomEmojis()
-								.setCallback(new Callback<>(){
-									@Override
-									public void onSuccess(List<Emoji> result){
-										InstanceInfoStorageWrapper emojis=new InstanceInfoStorageWrapper();
-										emojis.lastUpdated=System.currentTimeMillis();
-										emojis.emojis=result;
-										emojis.instance=instance;
-										customEmojis.put(domain, groupCustomEmojis(emojis));
-										instancesLastUpdated.put(domain, emojis.lastUpdated);
-										MastodonAPIController.runInBackground(()->writeInstanceInfoFile(emojis, domain));
-										E.post(new EmojiUpdatedEvent(domain));
-									}
+						updateInstanceEmojis(instance, domain);
+					}
 
-									@Override
-									public void onError(ErrorResponse error){
+					@Override
+					public void onError(ErrorResponse error){
 
-									}
-								})
-								.execNoAuth(domain);
+					}
+				})
+				.execNoAuth(domain);
+	}
+
+	private void updateInstanceEmojis(Instance instance, String domain){
+		new GetCustomEmojis()
+				.setCallback(new Callback<>(){
+					@Override
+					public void onSuccess(List<Emoji> result){
+						InstanceInfoStorageWrapper emojis=new InstanceInfoStorageWrapper();
+						emojis.lastUpdated=System.currentTimeMillis();
+						emojis.emojis=result;
+						emojis.instance=instance;
+						customEmojis.put(domain, groupCustomEmojis(emojis));
+						instancesLastUpdated.put(domain, emojis.lastUpdated);
+						MastodonAPIController.runInBackground(()->writeInstanceInfoFile(emojis, domain));
+						E.post(new EmojiUpdatedEvent(domain));
 					}
 
 					@Override
