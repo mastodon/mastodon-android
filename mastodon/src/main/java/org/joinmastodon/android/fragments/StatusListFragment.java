@@ -5,7 +5,9 @@ import android.os.Bundle;
 import com.squareup.otto.Subscribe;
 
 import org.joinmastodon.android.E;
+import org.joinmastodon.android.events.PollUpdatedEvent;
 import org.joinmastodon.android.events.StatusCountersUpdatedEvent;
+import org.joinmastodon.android.events.StatusCreatedEvent;
 import org.joinmastodon.android.events.StatusDeletedEvent;
 import org.joinmastodon.android.model.Poll;
 import org.joinmastodon.android.model.Status;
@@ -20,6 +22,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import me.grishka.appkit.Nav;
 
 public abstract class StatusListFragment extends BaseStatusListFragment<Status>{
+	protected EventListener eventListener=new EventListener();
+
 	protected List<StatusDisplayItem> buildDisplayItems(Status s){
 		return StatusDisplayItem.buildItems(this, s, accountID, s, knownAccounts, false, true);
 	}
@@ -33,13 +37,13 @@ public abstract class StatusListFragment extends BaseStatusListFragment<Status>{
 	@Override
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
-		E.register(this);
+		E.register(eventListener);
 	}
 
 	@Override
 	public void onDestroy(){
 		super.onDestroy();
-		E.unregister(this);
+		E.unregister(eventListener);
 	}
 
 	@Override
@@ -55,59 +59,7 @@ public abstract class StatusListFragment extends BaseStatusListFragment<Status>{
 		Nav.go(getActivity(), ThreadFragment.class, args);
 	}
 
-	@Override
-	protected void updatePoll(String itemID, Poll poll){
-		Status status=getContentStatusByID(itemID);
-		if(status==null)
-			return;
-		status.poll=poll;
-		super.updatePoll(itemID, poll);
-	}
-
-	@Subscribe
-	public void onStatusCountersUpdated(StatusCountersUpdatedEvent ev){
-		for(Status s:data){
-			if(s.getContentStatus().id.equals(ev.id)){
-				s.update(ev);
-				for(int i=0;i<list.getChildCount();i++){
-					RecyclerView.ViewHolder holder=list.getChildViewHolder(list.getChildAt(i));
-					if(holder instanceof FooterStatusDisplayItem.Holder && ((FooterStatusDisplayItem.Holder) holder).getItem().status==s.getContentStatus()){
-						((FooterStatusDisplayItem.Holder) holder).rebind();
-						return;
-					}
-				}
-				return;
-			}
-		}
-		for(Status s:preloadedData){
-			if(s.id.equals(ev.id)){
-				s.update(ev);
-				return;
-			}
-		}
-	}
-
-	@Subscribe
-	public void onStatusDeleted(StatusDeletedEvent ev){
-		if(!ev.accountID.equals(accountID))
-			return;
-		Status status=getStatusByID(ev.id);
-		if(status==null)
-			return;
-		data.remove(status);
-		preloadedData.remove(status);
-		HeaderStatusDisplayItem item=findItemOfType(ev.id, HeaderStatusDisplayItem.class);
-		if(item==null)
-			return;
-		int index=displayItems.indexOf(item);
-		int lastIndex;
-		for(lastIndex=index;lastIndex<displayItems.size();lastIndex++){
-			if(!displayItems.get(lastIndex).parentID.equals(ev.id))
-				break;
-		}
-		displayItems.subList(index, lastIndex).clear();
-		adapter.notifyItemRangeRemoved(index, lastIndex-index);
-	}
+	protected void onStatusCreated(StatusCreatedEvent ev){}
 
 	protected Status getContentStatusByID(String id){
 		Status s=getStatusByID(id);
@@ -126,5 +78,70 @@ public abstract class StatusListFragment extends BaseStatusListFragment<Status>{
 			}
 		}
 		return null;
+	}
+
+	public class EventListener{
+
+		@Subscribe
+		public void onStatusCountersUpdated(StatusCountersUpdatedEvent ev){
+			for(Status s:data){
+				if(s.getContentStatus().id.equals(ev.id)){
+					s.update(ev);
+					for(int i=0;i<list.getChildCount();i++){
+						RecyclerView.ViewHolder holder=list.getChildViewHolder(list.getChildAt(i));
+						if(holder instanceof FooterStatusDisplayItem.Holder && ((FooterStatusDisplayItem.Holder) holder).getItem().status==s.getContentStatus()){
+							((FooterStatusDisplayItem.Holder) holder).rebind();
+							return;
+						}
+					}
+					return;
+				}
+			}
+			for(Status s:preloadedData){
+				if(s.id.equals(ev.id)){
+					s.update(ev);
+					return;
+				}
+			}
+		}
+
+		@Subscribe
+		public void onStatusDeleted(StatusDeletedEvent ev){
+			if(!ev.accountID.equals(accountID))
+				return;
+			Status status=getStatusByID(ev.id);
+			if(status==null)
+				return;
+			data.remove(status);
+			preloadedData.remove(status);
+			HeaderStatusDisplayItem item=findItemOfType(ev.id, HeaderStatusDisplayItem.class);
+			if(item==null)
+				return;
+			int index=displayItems.indexOf(item);
+			int lastIndex;
+			for(lastIndex=index;lastIndex<displayItems.size();lastIndex++){
+				if(!displayItems.get(lastIndex).parentID.equals(ev.id))
+					break;
+			}
+			displayItems.subList(index, lastIndex).clear();
+			adapter.notifyItemRangeRemoved(index, lastIndex-index);
+		}
+
+		@Subscribe
+		public void onStatusCreated(StatusCreatedEvent ev){
+			StatusListFragment.this.onStatusCreated(ev);
+		}
+
+		@Subscribe
+		public void onPollUpdated(PollUpdatedEvent ev){
+			if(!ev.accountID.equals(accountID))
+				return;
+			for(Status status:data){
+				Status contentStatus=status.getContentStatus();
+				if(contentStatus.poll!=null && contentStatus.poll.id.equals(ev.poll.id)){
+					updatePoll(status.id, status, ev.poll);
+				}
+			}
+		}
 	}
 }

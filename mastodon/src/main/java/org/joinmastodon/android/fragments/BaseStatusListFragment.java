@@ -18,9 +18,11 @@ import android.view.ViewGroup;
 import android.view.WindowInsets;
 import android.widget.Toolbar;
 
+import org.joinmastodon.android.E;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.requests.accounts.GetAccountRelationships;
 import org.joinmastodon.android.api.requests.polls.SubmitPollVote;
+import org.joinmastodon.android.events.PollUpdatedEvent;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.DisplayItemsParent;
 import org.joinmastodon.android.model.Poll;
@@ -344,7 +346,7 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 
 	public abstract void onItemClick(String id);
 
-	protected void updatePoll(String itemID, Poll poll){
+	protected void updatePoll(String itemID, Status status, Poll poll){
 		int firstOptionIndex=-1, footerIndex=-1;
 		int i=0;
 		for(StatusDisplayItem item:displayItems){
@@ -412,7 +414,7 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 				.setCallback(new Callback<>(){
 					@Override
 					public void onSuccess(Poll result){
-						updatePoll(parentID, result);
+						E.post(new PollUpdatedEvent(accountID, result));
 					}
 
 					@Override

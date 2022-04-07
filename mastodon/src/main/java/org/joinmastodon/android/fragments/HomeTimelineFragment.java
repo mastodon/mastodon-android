@@ -1,8 +1,6 @@
 package org.joinmastodon.android.fragments;
 
 import android.app.Activity;
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -11,35 +9,22 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toolbar;
 
 import com.squareup.otto.Subscribe;
 
-import org.joinmastodon.android.E;
-import org.joinmastodon.android.MainActivity;
 import org.joinmastodon.android.R;
-import org.joinmastodon.android.api.requests.oauth.RevokeOauthToken;
-import org.joinmastodon.android.api.requests.timelines.GetHomeTimeline;
-import org.joinmastodon.android.api.session.AccountSession;
 import org.joinmastodon.android.api.session.AccountSessionManager;
-import org.joinmastodon.android.events.StatusCountersUpdatedEvent;
 import org.joinmastodon.android.events.StatusCreatedEvent;
-import org.joinmastodon.android.events.StatusDeletedEvent;
 import org.joinmastodon.android.model.Status;
-import org.joinmastodon.android.ui.M3AlertDialogBuilder;
 import org.joinmastodon.android.ui.utils.UiUtils;
-import org.parceler.Parcels;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 import me.grishka.appkit.Nav;
-import me.grishka.appkit.api.Callback;
-import me.grishka.appkit.api.ErrorResponse;
 import me.grishka.appkit.api.SimpleCallback;
 
 public class HomeTimelineFragment extends StatusListFragment{
@@ -120,17 +105,5 @@ public class HomeTimelineFragment extends StatusListFragment{
 		logo.setImageTintList(ColorStateList.valueOf(UiUtils.getThemeColor(getActivity(), android.R.attr.textColorPrimary)));
 		Toolbar toolbar=getToolbar();
 		toolbar.addView(logo, new Toolbar.LayoutParams(Gravity.CENTER));
-	}
-
-	@Override
-	@Subscribe
-	public void onStatusCountersUpdated(StatusCountersUpdatedEvent ev){
-		super.onStatusCountersUpdated(ev);
-	}
-
-	@Override
-	@Subscribe
-	public void onStatusDeleted(StatusDeletedEvent ev){
-		super.onStatusDeleted(ev);
 	}
 }

@@ -8,8 +8,12 @@ import android.graphics.RectF;
 import android.os.Bundle;
 import android.view.View;
 
+import com.squareup.otto.Subscribe;
+
+import org.joinmastodon.android.E;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.session.AccountSessionManager;
+import org.joinmastodon.android.events.PollUpdatedEvent;
 import org.joinmastodon.android.model.Notification;
 import org.joinmastodon.android.model.Poll;
 import org.joinmastodon.android.model.Status;
@@ -36,6 +40,18 @@ import me.grishka.appkit.utils.V;
 
 public class NotificationsListFragment extends BaseStatusListFragment<Notification>{
 	private boolean onlyMentions;
+
+	@Override
+	public void onCreate(Bundle savedInstanceState){
+		super.onCreate(savedInstanceState);
+		E.register(this);
+	}
+
+	@Override
+	public void onDestroy(){
+		super.onDestroy();
+		E.unregister(this);
+	}
 
 	@Override
 	public void onAttach(Activity activity){
@@ -137,15 +153,6 @@ public class NotificationsListFragment extends BaseStatusListFragment<Notificati
 	}
 
 	@Override
-	protected void updatePoll(String itemID, Poll poll){
-		Notification notification=getNotificationByID(itemID);
-		if(notification==null || notification.status==null)
-			return;
-		notification.status.poll=poll;
-		super.updatePoll(itemID, poll);
-	}
-
-	@Override
 	public void onViewCreated(View view, Bundle savedInstanceState){
 		super.onViewCreated(view, savedInstanceState);
 		list.addItemDecoration(new RecyclerView.ItemDecoration(){
@@ -240,5 +247,19 @@ public class NotificationsListFragment extends BaseStatusListFragment<Notificati
 				return n;
 		}
 		return null;
+	}
+
+	@Subscribe
+	public void onPollUpdated(PollUpdatedEvent ev){
+		if(!ev.accountID.equals(accountID))
+			return;
+		for(Notification ntf:data){
+			if(ntf.status==null)
+				continue;
+			Status contentStatus=ntf.status.getContentStatus();
+			if(contentStatus.poll!=null && contentStatus.poll.id.equals(ev.poll.id)){
+				updatePoll(ntf.id, ntf.status, ev.poll);
+			}
+		}
 	}
 }

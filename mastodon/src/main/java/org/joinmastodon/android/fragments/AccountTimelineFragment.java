@@ -4,14 +4,10 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 
-import com.squareup.otto.Subscribe;
-
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.requests.accounts.GetAccountStatuses;
 import org.joinmastodon.android.api.session.AccountSessionManager;
-import org.joinmastodon.android.events.StatusCountersUpdatedEvent;
 import org.joinmastodon.android.events.StatusCreatedEvent;
-import org.joinmastodon.android.events.StatusDeletedEvent;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.Status;
 import org.parceler.Parcels;
@@ -73,20 +69,7 @@ public class AccountTimelineFragment extends StatusListFragment{
 			loadData();
 	}
 
-	@Override
-	@Subscribe
-	public void onStatusCountersUpdated(StatusCountersUpdatedEvent ev){
-		super.onStatusCountersUpdated(ev);
-	}
-
-	@Override
-	@Subscribe
-	public void onStatusDeleted(StatusDeletedEvent ev){
-		super.onStatusDeleted(ev);
-	}
-
-	@Subscribe
-	public void onStatusCreated(StatusCreatedEvent ev){
+	protected void onStatusCreated(StatusCreatedEvent ev){
 		if(!AccountSessionManager.getInstance().isSelf(accountID, ev.status.account))
 			return;
 		if(filter==GetAccountStatuses.Filter.DEFAULT){

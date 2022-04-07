@@ -1,7 +1,6 @@
 package org.joinmastodon.android.ui.displayitems;
 
 import android.app.Activity;
-import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
