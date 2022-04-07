@@ -446,6 +446,12 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 			if(savedInstanceState==null){
 				mainEditText.setText(initialText);
 				mainEditText.setSelection(mainEditText.length());
+				if(!TextUtils.isEmpty(replyTo.spoilerText) && AccountSessionManager.getInstance().isSelf(accountID, replyTo.account)){
+					hasSpoiler=true;
+					spoilerEdit.setVisibility(View.VISIBLE);
+					spoilerEdit.setText(replyTo.spoilerText);
+					spoilerBtn.setSelected(true);
+				}
 			}
 		}else{
 			replyText.setVisibility(View.GONE);
