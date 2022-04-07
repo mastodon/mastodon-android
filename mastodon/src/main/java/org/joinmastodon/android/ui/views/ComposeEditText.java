@@ -1,0 +1,120 @@
+package org.joinmastodon.android.ui.views;
+
+import android.app.Activity;
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
+import android.net.Uri;
+import android.os.Build;
+import android.os.Bundle;
+import android.util.AttributeSet;
+import android.util.Log;
+import android.view.DragEvent;
+import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputConnection;
+import android.view.inputmethod.InputConnectionWrapper;
+import android.view.inputmethod.InputContentInfo;
+import android.widget.EditText;
+
+import androidx.annotation.RequiresApi;
+
+public class ComposeEditText extends EditText{
+	private SelectionListener selectionListener;
+	private MediaAcceptingInputConnection inputConnectionWrapper=new MediaAcceptingInputConnection();
+
+	public ComposeEditText(Context context){
+		super(context);
+	}
+
+	public ComposeEditText(Context context, AttributeSet attrs){
+		super(context, attrs);
+	}
+
+	public ComposeEditText(Context context, AttributeSet attrs, int defStyleAttr){
+		super(context, attrs, defStyleAttr);
+	}
+
+	public ComposeEditText(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes){
+		super(context, attrs, defStyleAttr, defStyleRes);
+	}
+
+	@Override
+	protected void onSelectionChanged(int selStart, int selEnd){
+		super.onSelectionChanged(selStart, selEnd);
+		if(selectionListener!=null)
+			selectionListener.onSelectionChanged(selStart, selEnd);
+	}
+
+	public void setSelectionListener(SelectionListener selectionListener){
+		this.selectionListener=selectionListener;
+	}
+
+	// Support receiving images from keyboards
+	@Override
+	public InputConnection onCreateInputConnection(EditorInfo outAttrs){
+		if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.N_MR1){
+			outAttrs.contentMimeTypes=selectionListener.onGetAllowedMediaMimeTypes();
+			inputConnectionWrapper.setTarget(super.onCreateInputConnection(outAttrs));
+			return inputConnectionWrapper;
+		}
+		return super.onCreateInputConnection(outAttrs);
+	}
+
+	// Support pasting images
+	@Override
+	public boolean onTextContextMenuItem(int id){
+		if(id==android.R.id.paste){
+			ClipboardManager clipboard=getContext().getSystemService(ClipboardManager.class);
+			ClipData clip=clipboard.getPrimaryClip();
+			if(processClipData(clip))
+				return true;
+		}
+		return super.onTextContextMenuItem(id);
+	}
+
+	// Support drag-and-dropping images in multiwindow mode
+	@Override
+	public boolean onDragEvent(DragEvent event){
+		if(event.getAction()==DragEvent.ACTION_DROP && Build.VERSION.SDK_INT>=Build.VERSION_CODES.N){
+			if(((Activity) getContext()).requestDragAndDropPermissions(event)!=null)
+				return processClipData(event.getClipData());
+		}
+		return super.onDragEvent(event);
+	}
+
+	private boolean processClipData(ClipData clip){
+		if(clip==null)
+			return false;
+		boolean processedAny=false;
+		for(int i=0;i<clip.getItemCount();i++){
+			Uri uri=clip.getItemAt(i).getUri();
+			if(uri!=null){
+				processedAny=true;
+				selectionListener.onAddMediaAttachmentFromEditText(uri);
+			}
+		}
+		return processedAny;
+	}
+
+	public interface SelectionListener{
+		void onSelectionChanged(int start, int end);
+		String[] onGetAllowedMediaMimeTypes();
+		boolean onAddMediaAttachmentFromEditText(Uri uri);
+	}
+
+	private class MediaAcceptingInputConnection extends InputConnectionWrapper{
+		public MediaAcceptingInputConnection(){
+			super(null, true);
+		}
+
+		@RequiresApi(api=Build.VERSION_CODES.N_MR1)
+		@Override
+		public boolean commitContent(InputContentInfo inputContentInfo, int flags, Bundle opts){
+			Uri contentUri=inputContentInfo.getContentUri();
+			if(contentUri==null)
+				return false;
+			inputContentInfo.requestPermission();
+			return selectionListener.onAddMediaAttachmentFromEditText(contentUri);
+		}
+	}
+}

@@ -5,13 +5,10 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.ClipData;
 import android.content.Intent;
-import android.content.res.ColorStateList;
 import android.content.res.Configuration;
 import android.database.Cursor;
 import android.graphics.Outline;
 import android.graphics.PixelFormat;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.InsetDrawable;
 import android.graphics.drawable.LayerDrawable;
 import android.icu.text.BreakIterator;
 import android.net.Uri;
@@ -22,7 +19,6 @@ import android.provider.OpenableColumns;
 import android.text.Editable;
 import android.text.InputFilter;
 import android.text.Layout;
-import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -78,17 +74,15 @@ import org.joinmastodon.android.ui.drawables.SpoilerStripesDrawable;
 import org.joinmastodon.android.ui.text.ComposeAutocompleteSpan;
 import org.joinmastodon.android.ui.text.ComposeHashtagOrMentionSpan;
 import org.joinmastodon.android.ui.text.HtmlParser;
-import org.joinmastodon.android.ui.text.SpacerSpan;
 import org.joinmastodon.android.ui.utils.SimpleTextWatcher;
 import org.joinmastodon.android.ui.utils.UiUtils;
 import org.joinmastodon.android.ui.views.ComposeMediaLayout;
 import org.joinmastodon.android.ui.views.ReorderableLinearLayout;
-import org.joinmastodon.android.ui.views.SelectionListenerEditText;
+import org.joinmastodon.android.ui.views.ComposeEditText;
 import org.joinmastodon.android.ui.views.SizeListenerLinearLayout;
 import org.parceler.Parcel;
 import org.parceler.Parcels;
 
-import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -106,7 +100,7 @@ import me.grishka.appkit.imageloader.ViewImageLoader;
 import me.grishka.appkit.imageloader.requests.UrlImageLoaderRequest;
 import me.grishka.appkit.utils.V;
 
-public class ComposeFragment extends ToolbarFragment implements OnBackPressedListener, SelectionListenerEditText.SelectionListener{
+public class ComposeFragment extends ToolbarFragment implements OnBackPressedListener, ComposeEditText.SelectionListener{
 
 	private static final int MEDIA_RESULT=717;
 	private static final int IMAGE_DESCRIPTION_RESULT=363;
@@ -142,7 +136,7 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 	private Account self;
 	private String instanceDomain;
 
-	private SelectionListenerEditText mainEditText;
+	private ComposeEditText mainEditText;
 	private TextView charCounter;
 	private String accountID;
 	private int charCount, charLimit, trimmedCharCount;
@@ -705,28 +699,31 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 		}
 	}
 
-	private void addMediaAttachment(Uri uri){
+	private boolean addMediaAttachment(Uri uri){
 		if(getMediaAttachmentsCount()==MAX_ATTACHMENTS){
 			showMediaAttachmentError(getResources().getQuantityString(R.plurals.cant_add_more_than_x_attachments, MAX_ATTACHMENTS, MAX_ATTACHMENTS));
-			return;
+			return false;
 		}
 		String type=getActivity().getContentResolver().getType(uri);
 		if(instance.configuration!=null && instance.configuration.mediaAttachments!=null){
 			if(instance.configuration.mediaAttachments.supportedMimeTypes!=null && !instance.configuration.mediaAttachments.supportedMimeTypes.contains(type)){
 				showMediaAttachmentError(getString(R.string.media_attachment_unsupported_type, UiUtils.getFileName(uri)));
-				return;
+				return false;
 			}
 			int sizeLimit=type.startsWith("image/") ? instance.configuration.mediaAttachments.imageSizeLimit : instance.configuration.mediaAttachments.videoSizeLimit;
 			int size;
 			try(Cursor cursor=MastodonApp.context.getContentResolver().query(uri, new String[]{OpenableColumns.SIZE}, null, null, null)){
 				cursor.moveToFirst();
 				size=cursor.getInt(0);
+			}catch(Exception x){
+				Log.w("ComposeFragment", x);
+				return false;
 			}
 			if(size>sizeLimit){
 				float mb=sizeLimit/(float)(1024*1024);
 				String sMb=String.format(Locale.getDefault(), mb%1f==0f ? "%f" : "%.2f", mb);
 				showMediaAttachmentError(getString(R.string.media_attachment_too_big, UiUtils.getFileName(uri), sMb));
-				return;
+				return false;
 			}
 		}
 		pollBtn.setEnabled(false);
@@ -747,6 +744,7 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 		updatePublishButtonState();
 		if(getMediaAttachmentsCount()==MAX_ATTACHMENTS)
 			mediaBtn.setEnabled(false);
+		return true;
 	}
 
 	private void showMediaAttachmentError(String text){
@@ -1071,6 +1069,18 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 		}else if(currentAutocompleteSpan!=null){
 			finishAutocomplete();
 		}
+	}
+
+	@Override
+	public String[] onGetAllowedMediaMimeTypes(){
+		if(instance.configuration!=null && instance.configuration.mediaAttachments!=null && instance.configuration.mediaAttachments.supportedMimeTypes!=null)
+			return instance.configuration.mediaAttachments.supportedMimeTypes.toArray(new String[0]);
+		return new String[]{"image/jpeg", "image/gif", "image/png", "video/mp4"};
+	}
+
+	@Override
+	public boolean onAddMediaAttachmentFromEditText(Uri uri){
+		return addMediaAttachment(uri);
 	}
 
 	private void startAutocomplete(ComposeAutocompleteSpan span){
