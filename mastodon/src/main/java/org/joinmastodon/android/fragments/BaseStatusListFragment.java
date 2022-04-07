@@ -5,11 +5,14 @@ import android.content.res.Configuration;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.Layout;
+import android.text.StaticLayout;
+import android.text.TextPaint;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowInsets;
@@ -257,69 +260,7 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 					currentPhotoViewer.offsetView(-dx, -dy);
 			}
 		});
-		list.addItemDecoration(new RecyclerView.ItemDecoration(){
-			private Paint paint=new Paint();
-			{
-				paint.setColor(UiUtils.getThemeColor(getActivity(), R.attr.colorPollVoted));
-				paint.setStyle(Paint.Style.STROKE);
-				paint.setStrokeWidth(V.dp(1));
-			}
-
-			@Override
-			public void onDraw(@NonNull Canvas c, @NonNull RecyclerView parent, @NonNull RecyclerView.State state){
-				for(int i=0;i<parent.getChildCount()-1;i++){
-					View child=parent.getChildAt(i);
-					View bottomSibling=parent.getChildAt(i+1);
-					RecyclerView.ViewHolder holder=parent.getChildViewHolder(child);
-					RecyclerView.ViewHolder siblingHolder=parent.getChildViewHolder(bottomSibling);
-					if(holder instanceof StatusDisplayItem.Holder && siblingHolder instanceof StatusDisplayItem.Holder
-							&& !((StatusDisplayItem.Holder<?>) holder).getItemID().equals(((StatusDisplayItem.Holder<?>) siblingHolder).getItemID())){
-						drawDivider(child, bottomSibling, holder, siblingHolder, parent, c, paint);
-					}
-				}
-			}
-
-			@Override
-			public void getItemOffsets(@NonNull Rect outRect, @NonNull View view, @NonNull RecyclerView parent, @NonNull RecyclerView.State state){
-				RecyclerView.ViewHolder holder=parent.getChildViewHolder(view);
-				if(holder instanceof ImageStatusDisplayItem.Holder){
-					int listWidth=getListWidthForMediaLayout();
-					int width=Math.min(listWidth, V.dp(ImageAttachmentFrameLayout.MAX_WIDTH));
-					PhotoLayoutHelper.TiledLayoutResult layout=((ImageStatusDisplayItem.Holder<?>) holder).getItem().tiledLayout;
-					PhotoLayoutHelper.TiledLayoutResult.Tile tile=((ImageStatusDisplayItem.Holder<?>) holder).getItem().thisTile;
-					if(tile.startCol+tile.colSpan<layout.columnSizes.length){
-						outRect.right=V.dp(1);
-					}
-					if(tile.startRow+tile.rowSpan<layout.rowSizes.length){
-						outRect.bottom=V.dp(1);
-					}
-
-					// For a view that spans rows, compensate its additional height so the row it's in stays the right height
-					if(tile.rowSpan>1){
-						outRect.bottom=-(Math.round(tile.height/1000f*width)-Math.round(layout.rowSizes[tile.startRow]/1000f*width));
-					}
-					// ...and for its siblings, offset those on rows below first to the right where they belong
-					if(tile.startCol>0 && layout.tiles[0].rowSpan>1 && tile.startRow>layout.tiles[0].startRow){
-						int xOffset=Math.round(layout.tiles[0].width/1000f*listWidth);
-						outRect.left=xOffset;
-						outRect.right=-xOffset;
-					}
-
-					// If the width of the media block is smaller than that of the RecyclerView, offset the views horizontally to center them
-					if(listWidth>width){
-						outRect.left+=(listWidth-V.dp(ImageAttachmentFrameLayout.MAX_WIDTH))/2;
-						if(tile.startCol>0){
-							int spanOffset=0;
-							for(int i=0;i<tile.startCol;i++){
-								spanOffset+=layout.columnSizes[i];
-							}
-							outRect.left-=Math.round(spanOffset/1000f*listWidth);
-							outRect.left+=Math.round(spanOffset/1000f*width);
-						}
-					}
-				}
-			}
-		});
+		list.addItemDecoration(new StatusListItemDecoration());
 		((UsableRecyclerView)list).setSelectorBoundsProvider(new UsableRecyclerView.SelectorBoundsProvider(){
 			private Rect tmpRect=new Rect();
 			@Override
@@ -661,5 +602,146 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 //				}
 //			}
 //		}
+	}
+
+	private class StatusListItemDecoration extends RecyclerView.ItemDecoration{
+		private Paint dividerPaint=new Paint(), hiddenMediaPaint=new Paint(Paint.ANTI_ALIAS_FLAG);
+		private Typeface mediumTypeface=Typeface.create("sans-serif-medium", Typeface.NORMAL);
+		private Layout mediaHiddenTitleLayout, mediaHiddenTextLayout, tapToRevealTextLayout;
+		private int currentMediaHiddenLayoutsWidth=0;
+
+		{
+			dividerPaint.setColor(UiUtils.getThemeColor(getActivity(), R.attr.colorPollVoted));
+			dividerPaint.setStyle(Paint.Style.STROKE);
+			dividerPaint.setStrokeWidth(V.dp(1));
+		}
+
+		@Override
+		public void onDraw(@NonNull Canvas c, @NonNull RecyclerView parent, @NonNull RecyclerView.State state){
+			for(int i=0;i<parent.getChildCount()-1;i++){
+				View child=parent.getChildAt(i);
+				View bottomSibling=parent.getChildAt(i+1);
+				RecyclerView.ViewHolder holder=parent.getChildViewHolder(child);
+				RecyclerView.ViewHolder siblingHolder=parent.getChildViewHolder(bottomSibling);
+				if(holder instanceof StatusDisplayItem.Holder && siblingHolder instanceof StatusDisplayItem.Holder
+						&& !((StatusDisplayItem.Holder<?>) holder).getItemID().equals(((StatusDisplayItem.Holder<?>) siblingHolder).getItemID())){
+					drawDivider(child, bottomSibling, holder, siblingHolder, parent, c, dividerPaint);
+				}
+			}
+		}
+
+		@Override
+		public void onDrawOver(@NonNull Canvas c, @NonNull RecyclerView parent, @NonNull RecyclerView.State state){
+			for(int i=0;i<parent.getChildCount();i++){
+				View child=parent.getChildAt(i);
+				RecyclerView.ViewHolder holder=parent.getChildViewHolder(child);
+				if(holder instanceof ImageStatusDisplayItem.Holder){
+					ImageStatusDisplayItem.Holder<?> imgHolder=(ImageStatusDisplayItem.Holder<?>) holder;
+					if(!imgHolder.getItem().status.spoilerRevealed && TextUtils.isEmpty(imgHolder.getItem().status.spoilerText)){
+						hiddenMediaPaint.setColor(0x80000000);
+						PhotoLayoutHelper.TiledLayoutResult.Tile tile=imgHolder.getItem().thisTile;
+						float hGap=tile.startCol>0 ? V.dp(1) : 0;
+						float vGap=tile.startRow>0 ? V.dp(1) : 0;
+						c.drawRect(child.getX()-hGap, child.getY()-vGap, child.getX()+child.getWidth(), child.getY()+child.getHeight(), hiddenMediaPaint);
+					}
+				}
+			}
+			for(int i=0;i<parent.getChildCount();i++){
+				View child=parent.getChildAt(i);
+				RecyclerView.ViewHolder holder=parent.getChildViewHolder(child);
+				if(holder instanceof ImageStatusDisplayItem.Holder){
+					ImageStatusDisplayItem.Holder<?> imgHolder=(ImageStatusDisplayItem.Holder<?>) holder;
+					if(!imgHolder.getItem().status.spoilerRevealed){
+						PhotoLayoutHelper.TiledLayoutResult.Tile tile=imgHolder.getItem().thisTile;
+						if(tile.startCol==0 && tile.startRow==0 && TextUtils.isEmpty(imgHolder.getItem().status.spoilerText)){
+							int listWidth=getListWidthForMediaLayout();
+							int width=Math.min(listWidth, V.dp(ImageAttachmentFrameLayout.MAX_WIDTH));
+							if(currentMediaHiddenLayoutsWidth!=width)
+								rebuildMediaHiddenLayouts(width-V.dp(32));
+							c.save();
+							float totalHeight;
+							boolean hiddenByAuthor=imgHolder.getItem().status.sensitive;
+							if(hiddenByAuthor)
+								totalHeight=mediaHiddenTitleLayout.getHeight()+mediaHiddenTextLayout.getHeight()+V.dp(8);
+							else
+								totalHeight=tapToRevealTextLayout.getHeight();
+							c.translate(child.getX()+V.dp(16), child.getY()+child.getHeight()/2f-totalHeight/2f);
+							if(hiddenByAuthor){
+								mediaHiddenTitleLayout.draw(c);
+								c.translate(0, mediaHiddenTitleLayout.getHeight()+V.dp(8));
+								mediaHiddenTextLayout.draw(c);
+							}else{
+								tapToRevealTextLayout.draw(c);
+							}
+							c.restore();
+						}
+					}
+				}
+			}
+		}
+
+		@Override
+		public void getItemOffsets(@NonNull Rect outRect, @NonNull View view, @NonNull RecyclerView parent, @NonNull RecyclerView.State state){
+			RecyclerView.ViewHolder holder=parent.getChildViewHolder(view);
+			if(holder instanceof ImageStatusDisplayItem.Holder){
+				int listWidth=getListWidthForMediaLayout();
+				int width=Math.min(listWidth, V.dp(ImageAttachmentFrameLayout.MAX_WIDTH));
+				PhotoLayoutHelper.TiledLayoutResult layout=((ImageStatusDisplayItem.Holder<?>) holder).getItem().tiledLayout;
+				PhotoLayoutHelper.TiledLayoutResult.Tile tile=((ImageStatusDisplayItem.Holder<?>) holder).getItem().thisTile;
+				if(tile.startCol+tile.colSpan<layout.columnSizes.length){
+					outRect.right=V.dp(1);
+				}
+				if(tile.startRow+tile.rowSpan<layout.rowSizes.length){
+					outRect.bottom=V.dp(1);
+				}
+
+				// For a view that spans rows, compensate its additional height so the row it's in stays the right height
+				if(tile.rowSpan>1){
+					outRect.bottom=-(Math.round(tile.height/1000f*width)-Math.round(layout.rowSizes[tile.startRow]/1000f*width));
+				}
+				// ...and for its siblings, offset those on rows below first to the right where they belong
+				if(tile.startCol>0 && layout.tiles[0].rowSpan>1 && tile.startRow>layout.tiles[0].startRow){
+					int xOffset=Math.round(layout.tiles[0].width/1000f*listWidth);
+					outRect.left=xOffset;
+					outRect.right=-xOffset;
+				}
+
+				// If the width of the media block is smaller than that of the RecyclerView, offset the views horizontally to center them
+				if(listWidth>width){
+					outRect.left+=(listWidth-V.dp(ImageAttachmentFrameLayout.MAX_WIDTH))/2;
+					if(tile.startCol>0){
+						int spanOffset=0;
+						for(int i=0;i<tile.startCol;i++){
+							spanOffset+=layout.columnSizes[i];
+						}
+						outRect.left-=Math.round(spanOffset/1000f*listWidth);
+						outRect.left+=Math.round(spanOffset/1000f*width);
+					}
+				}
+			}
+		}
+
+		private void rebuildMediaHiddenLayouts(int width){
+			String title=getString(R.string.sensitive_content);
+			TextPaint titlePaint=new TextPaint(Paint.ANTI_ALIAS_FLAG);
+			titlePaint.setColor(getResources().getColor(R.color.gray_50));
+			titlePaint.setTextSize(V.dp(22));
+			titlePaint.setTypeface(mediumTypeface);
+			mediaHiddenTitleLayout=StaticLayout.Builder.obtain(title, 0, title.length(), titlePaint, width)
+					.setAlignment(Layout.Alignment.ALIGN_CENTER)
+					.build();
+			String tapToReveal=getString(R.string.tap_to_reveal);
+			tapToRevealTextLayout=StaticLayout.Builder.obtain(tapToReveal, 0, tapToReveal.length(), titlePaint, width)
+					.setAlignment(Layout.Alignment.ALIGN_CENTER)
+					.build();
+			TextPaint textPaint=new TextPaint(Paint.ANTI_ALIAS_FLAG);
+			textPaint.setColor(getResources().getColor(R.color.gray_200));
+			textPaint.setTextSize(V.dp(16));
+			String text=getString(R.string.sensitive_content_explain);
+			mediaHiddenTextLayout=StaticLayout.Builder.obtain(text, 0, text.length(), textPaint, width)
+					.setAlignment(Layout.Alignment.ALIGN_CENTER)
+					.setLineSpacing(V.dp(5), 1f)
+					.build();
+		}
 	}
 }
