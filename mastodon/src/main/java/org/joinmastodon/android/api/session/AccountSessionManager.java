@@ -10,6 +10,7 @@ import android.util.Log;
 
 import com.google.gson.JsonParseException;
 
+import org.joinmastodon.android.E;
 import org.joinmastodon.android.MastodonApp;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.MastodonAPIController;
@@ -18,6 +19,7 @@ import org.joinmastodon.android.api.requests.instance.GetCustomEmojis;
 import org.joinmastodon.android.api.requests.accounts.GetOwnAccount;
 import org.joinmastodon.android.api.requests.instance.GetInstance;
 import org.joinmastodon.android.api.requests.oauth.CreateOAuthApp;
+import org.joinmastodon.android.events.EmojiUpdatedEvent;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.Application;
 import org.joinmastodon.android.model.Emoji;
@@ -260,7 +262,7 @@ public class AccountSessionManager{
 				.exec(session.getID());
 	}
 
-	private void updateInstanceInfo(String domain){
+	public void updateInstanceInfo(String domain){
 		new GetInstance()
 				.setCallback(new Callback<>(){
 					@Override
@@ -277,6 +279,7 @@ public class AccountSessionManager{
 										customEmojis.put(domain, groupCustomEmojis(emojis));
 										instancesLastUpdated.put(domain, emojis.lastUpdated);
 										MastodonAPIController.runInBackground(()->writeInstanceInfoFile(emojis, domain));
+										E.post(new EmojiUpdatedEvent(domain));
 									}
 
 									@Override

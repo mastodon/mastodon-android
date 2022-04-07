@@ -1,5 +1,6 @@
 package org.joinmastodon.android.ui;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.res.TypedArray;
 import android.graphics.Rect;
@@ -11,7 +12,11 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.otto.Subscribe;
+
 import org.joinmastodon.android.R;
+import org.joinmastodon.android.api.session.AccountSessionManager;
+import org.joinmastodon.android.events.EmojiUpdatedEvent;
 import org.joinmastodon.android.model.Emoji;
 import org.joinmastodon.android.model.EmojiCategory;
 import org.joinmastodon.android.ui.utils.UiUtils;
@@ -100,6 +105,15 @@ public class CustomEmojiPopupKeyboard extends PopupKeyboard{
 
 	public void setListener(Consumer<Emoji> listener){
 		this.listener=listener;
+	}
+
+	@SuppressLint("NotifyDataSetChanged")
+	@Subscribe
+	public void onEmojiUpdated(EmojiUpdatedEvent ev){
+		if(ev.instanceDomain.equals(domain)){
+			emojis=AccountSessionManager.getInstance().getCustomEmojis(domain);
+			adapter.notifyDataSetChanged();
+		}
 	}
 
 	private class SingleCategoryAdapter extends UsableRecyclerView.Adapter<RecyclerView.ViewHolder> implements ImageLoaderRecyclerAdapter{

@@ -196,6 +196,9 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 			Nav.finish(this);
 			return;
 		}
+		if(customEmojis.isEmpty()){
+			AccountSessionManager.getInstance().updateInstanceInfo(instanceDomain);
+		}
 
 		if(instance.maxTootChars>0)
 			charLimit=instance.maxTootChars;
@@ -546,7 +549,9 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 	}
 
 	private void onCustomEmojiClick(Emoji emoji){
-		mainEditText.getText().replace(mainEditText.getSelectionStart(), mainEditText.getSelectionEnd(), ':'+emoji.shortcode+':');
+		int start=mainEditText.getSelectionStart();
+		String prefix=start>0 && !Character.isWhitespace(mainEditText.getText().charAt(start-1)) ? " :" : ":";
+		mainEditText.getText().replace(start, mainEditText.getSelectionEnd(), prefix+emoji.shortcode+':');
 	}
 
 	private void updateToolbar(){
