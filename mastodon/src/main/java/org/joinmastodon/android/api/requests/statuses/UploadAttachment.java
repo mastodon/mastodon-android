@@ -3,6 +3,7 @@ package org.joinmastodon.android.api.requests.statuses;
 import android.database.Cursor;
 import android.net.Uri;
 import android.provider.OpenableColumns;
+import android.text.TextUtils;
 
 import org.joinmastodon.android.MastodonApp;
 import org.joinmastodon.android.api.ContentUriRequestBody;
@@ -21,15 +22,17 @@ public class UploadAttachment extends MastodonAPIRequest<Attachment>{
 	private Uri uri;
 	private ProgressListener progressListener;
 	private int maxImageSize;
+	private String description;
 
 	public UploadAttachment(Uri uri){
 		super(HttpMethod.POST, "/media", Attachment.class);
 		this.uri=uri;
 	}
 
-	public UploadAttachment(Uri uri, int maxImageSize){
+	public UploadAttachment(Uri uri, int maxImageSize, String description){
 		this(uri);
 		this.maxImageSize=maxImageSize;
+		this.description=description;
 	}
 
 	public UploadAttachment setProgressListener(ProgressListener progressListener){
@@ -39,9 +42,11 @@ public class UploadAttachment extends MastodonAPIRequest<Attachment>{
 
 	@Override
 	public RequestBody getRequestBody() throws IOException{
-		return new MultipartBody.Builder()
+		MultipartBody.Builder builder=new MultipartBody.Builder()
 				.setType(MultipartBody.FORM)
-				.addFormDataPart("file", UiUtils.getFileName(uri), maxImageSize>0 ? new ResizedImageRequestBody(uri, maxImageSize, progressListener) : new ContentUriRequestBody(uri, progressListener))
-				.build();
+				.addFormDataPart("file", UiUtils.getFileName(uri), maxImageSize>0 ? new ResizedImageRequestBody(uri, maxImageSize, progressListener) : new ContentUriRequestBody(uri, progressListener));
+		if(!TextUtils.isEmpty(description))
+			builder.addFormDataPart("description", description);
+		return builder.build();
 	}
 }

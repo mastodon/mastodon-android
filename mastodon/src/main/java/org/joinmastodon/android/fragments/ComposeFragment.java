@@ -463,7 +463,7 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 			ArrayList<Uri> mediaUris=getArguments().getParcelableArrayList("mediaAttachments");
 			if(mediaUris!=null && !mediaUris.isEmpty()){
 				for(Uri uri:mediaUris){
-					addMediaAttachment(uri);
+					addMediaAttachment(uri, null);
 				}
 			}
 		}
@@ -689,17 +689,17 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 		if(requestCode==MEDIA_RESULT && resultCode==Activity.RESULT_OK){
 			Uri single=data.getData();
 			if(single!=null){
-				addMediaAttachment(single);
+				addMediaAttachment(single, null);
 			}else{
 				ClipData clipData=data.getClipData();
 				for(int i=0;i<clipData.getItemCount();i++){
-					addMediaAttachment(clipData.getItemAt(i).getUri());
+					addMediaAttachment(clipData.getItemAt(i).getUri(), null);
 				}
 			}
 		}
 	}
 
-	private boolean addMediaAttachment(Uri uri){
+	private boolean addMediaAttachment(Uri uri, String description){
 		if(getMediaAttachmentsCount()==MAX_ATTACHMENTS){
 			showMediaAttachmentError(getResources().getQuantityString(R.plurals.cant_add_more_than_x_attachments, MAX_ATTACHMENTS, MAX_ATTACHMENTS));
 			return false;
@@ -729,6 +729,7 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 		pollBtn.setEnabled(false);
 		DraftMediaAttachment draft=new DraftMediaAttachment();
 		draft.uri=uri;
+		draft.description=description;
 
 		attachmentsView.addView(createMediaAttachmentView(draft));
 		allAttachments.add(draft);
@@ -810,7 +811,7 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 		if(contentType!=null && contentType.startsWith("image/")){
 			maxSize=2_073_600; // TODO get this from instance configuration when it gets added there
 		}
-		attachment.uploadRequest=(UploadAttachment) new UploadAttachment(attachment.uri, maxSize)
+		attachment.uploadRequest=(UploadAttachment) new UploadAttachment(attachment.uri, maxSize, attachment.description)
 				.setProgressListener(new ProgressListener(){
 					@Override
 					public void onProgress(long transferred, long total){
@@ -1079,8 +1080,8 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 	}
 
 	@Override
-	public boolean onAddMediaAttachmentFromEditText(Uri uri){
-		return addMediaAttachment(uri);
+	public boolean onAddMediaAttachmentFromEditText(Uri uri, String description){
+		return addMediaAttachment(uri, description);
 	}
 
 	private void startAutocomplete(ComposeAutocompleteSpan span){

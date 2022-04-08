@@ -16,6 +16,8 @@ import android.view.inputmethod.InputConnectionWrapper;
 import android.view.inputmethod.InputContentInfo;
 import android.widget.EditText;
 
+import java.util.Objects;
+
 import androidx.annotation.RequiresApi;
 
 public class ComposeEditText extends EditText{
@@ -90,7 +92,7 @@ public class ComposeEditText extends EditText{
 			Uri uri=clip.getItemAt(i).getUri();
 			if(uri!=null){
 				processedAny=true;
-				selectionListener.onAddMediaAttachmentFromEditText(uri);
+				selectionListener.onAddMediaAttachmentFromEditText(uri, Objects.toString(clip.getItemAt(i).getText(), null));
 			}
 		}
 		return processedAny;
@@ -99,7 +101,7 @@ public class ComposeEditText extends EditText{
 	public interface SelectionListener{
 		void onSelectionChanged(int start, int end);
 		String[] onGetAllowedMediaMimeTypes();
-		boolean onAddMediaAttachmentFromEditText(Uri uri);
+		boolean onAddMediaAttachmentFromEditText(Uri uri, String description);
 	}
 
 	private class MediaAcceptingInputConnection extends InputConnectionWrapper{
@@ -114,7 +116,7 @@ public class ComposeEditText extends EditText{
 			if(contentUri==null)
 				return false;
 			inputContentInfo.requestPermission();
-			return selectionListener.onAddMediaAttachmentFromEditText(contentUri);
+			return selectionListener.onAddMediaAttachmentFromEditText(contentUri, Objects.toString(inputContentInfo.getDescription().getLabel(), null));
 		}
 	}
 }
