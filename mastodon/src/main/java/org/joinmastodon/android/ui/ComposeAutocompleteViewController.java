@@ -375,6 +375,8 @@ public class ComposeAutocompleteViewController{
 
 		@Override
 		public ImageLoaderRequest getImageRequest(int position, int image){
+			if(position>=emojis.size())
+				return null;
 			return emojis.get(position).request;
 		}
 	}
