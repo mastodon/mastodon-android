@@ -39,3 +39,9 @@
   @com.google.gson.annotations.SerializedName <fields>;
   @com.squareup.otto.Subscribe <methods>;
 }
+
+-keep class com.microsoft.appcenter.** {
+	*;
+}
+
+-keep class org.joinmastodon.android.AppCenterWrapper { *; }
