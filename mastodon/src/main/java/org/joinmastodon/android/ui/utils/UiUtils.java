@@ -36,6 +36,7 @@ import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.requests.accounts.SetAccountBlocked;
 import org.joinmastodon.android.api.requests.accounts.SetAccountFollowed;
 import org.joinmastodon.android.api.requests.accounts.SetAccountMuted;
+import org.joinmastodon.android.api.requests.accounts.SetDomainBlocked;
 import org.joinmastodon.android.api.requests.statuses.DeleteStatus;
 import org.joinmastodon.android.events.StatusDeletedEvent;
 import org.joinmastodon.android.fragments.HashtagTimelineFragment;
@@ -270,6 +271,27 @@ public class UiUtils{
 				});
 	}
 
+	public static void confirmToggleBlockDomain(Activity activity, String accountID, String domain, boolean currentlyBlocked, Runnable resultCallback){
+		showConfirmationAlert(activity, activity.getString(currentlyBlocked ? R.string.confirm_unblock_domain_title : R.string.confirm_block_domain_title),
+				activity.getString(currentlyBlocked ? R.string.confirm_unblock : R.string.confirm_block, domain),
+				activity.getString(currentlyBlocked ? R.string.do_unblock : R.string.do_block), ()->{
+					new SetDomainBlocked(domain, !currentlyBlocked)
+							.setCallback(new Callback<>(){
+								@Override
+								public void onSuccess(Object result){
+									resultCallback.run();
+								}
+
+								@Override
+								public void onError(ErrorResponse error){
+									error.showToast(activity);
+								}
+							})
+							.wrapProgress(activity, R.string.loading, false)
+							.exec(accountID);
+				});
+	}
+
 	public static void confirmToggleMuteUser(Activity activity, String accountID, Account account, boolean currentlyMuted, Consumer<Relationship> resultCallback){
 		showConfirmationAlert(activity, activity.getString(currentlyMuted ? R.string.confirm_unmute_title : R.string.confirm_mute_title),
 				activity.getString(currentlyMuted ? R.string.confirm_unmute : R.string.confirm_mute, account.displayName),
@@ -328,7 +350,7 @@ public class UiUtils{
 			confirmToggleMuteUser(activity, accountID, account, true, resultCallback);
 		}else{
 			progressCallback.accept(true);
-			new SetAccountFollowed(account.id, !relationship.following)
+			new SetAccountFollowed(account.id, !relationship.following, true)
 					.setCallback(new Callback<>(){
 						@Override
 						public void onSuccess(Relationship result){

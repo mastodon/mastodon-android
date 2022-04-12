@@ -160,6 +160,10 @@ public class Account extends BaseModel{
 		return parts.length==1 ? null : parts[1];
 	}
 
+	public String getDisplayUsername(){
+		return '@'+acct;
+	}
+
 	@Override
 	public String toString(){
 		return "Account{"+

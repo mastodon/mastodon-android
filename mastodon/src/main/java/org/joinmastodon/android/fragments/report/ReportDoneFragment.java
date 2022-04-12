@@ -124,7 +124,7 @@ public class ReportDoneFragment extends ToolbarFragment{
 	}
 
 	private void onUnfollowClick(){
-		new SetAccountFollowed(reportAccount.id, false)
+		new SetAccountFollowed(reportAccount.id, false, false)
 				.setCallback(new Callback<>(){
 					@Override
 					public void onSuccess(Relationship result){

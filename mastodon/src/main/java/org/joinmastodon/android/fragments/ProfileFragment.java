@@ -39,6 +39,7 @@ import org.joinmastodon.android.api.requests.accounts.GetAccountByID;
 import org.joinmastodon.android.api.requests.accounts.GetAccountRelationships;
 import org.joinmastodon.android.api.requests.accounts.GetAccountStatuses;
 import org.joinmastodon.android.api.requests.accounts.GetOwnAccount;
+import org.joinmastodon.android.api.requests.accounts.SetAccountFollowed;
 import org.joinmastodon.android.api.requests.accounts.UpdateAccountCredentials;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.fragments.report.ReportReasonChoiceFragment;
@@ -479,14 +480,17 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 		if(relationship==null)
 			return;
 		inflater.inflate(R.menu.profile, menu);
-		menu.findItem(R.id.share).setTitle(getString(R.string.share_user, account.displayName));
-		menu.findItem(R.id.mute).setTitle(getString(relationship.muting ? R.string.unmute_user : R.string.mute_user, account.displayName));
-		menu.findItem(R.id.block).setTitle(getString(relationship.blocking ? R.string.unblock_user : R.string.block_user, account.displayName));
-		menu.findItem(R.id.report).setTitle(getString(R.string.report_user, account.displayName));
-//		String domain=account.getDomain();
-//		if(domain!=null)
-//			menu.findItem(R.id.block_domain).setTitle(getString(relationship.domainBlocking ? R.string.unblock_domain : R.string.block_domain, domain));
-//		else
+		menu.findItem(R.id.share).setTitle(getString(R.string.share_user, account.getDisplayUsername()));
+		menu.findItem(R.id.mute).setTitle(getString(relationship.muting ? R.string.unmute_user : R.string.mute_user, account.getDisplayUsername()));
+		menu.findItem(R.id.block).setTitle(getString(relationship.blocking ? R.string.unblock_user : R.string.block_user, account.getDisplayUsername()));
+		menu.findItem(R.id.report).setTitle(getString(R.string.report_user, account.getDisplayUsername()));
+		if(relationship.following)
+			menu.findItem(R.id.hide_boosts).setTitle(getString(relationship.showingReblogs ? R.string.hide_boosts_from_user : R.string.show_boosts_from_user, account.getDisplayUsername()));
+		else
+			menu.findItem(R.id.hide_boosts).setVisible(false);
+		if(!account.isLocal())
+			menu.findItem(R.id.block_domain).setTitle(getString(relationship.domainBlocking ? R.string.unblock_domain : R.string.block_domain, account.getDomain()));
+		else
 			menu.findItem(R.id.block_domain).setVisible(false);
 	}
 
@@ -507,6 +511,28 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 			args.putString("account", accountID);
 			args.putParcelable("reportAccount", Parcels.wrap(account));
 			Nav.go(getActivity(), ReportReasonChoiceFragment.class, args);
+		}else if(id==R.id.open_in_browser){
+			UiUtils.launchWebBrowser(getActivity(), account.url);
+		}else if(id==R.id.block_domain){
+			UiUtils.confirmToggleBlockDomain(getActivity(), accountID, account.getDomain(), relationship.domainBlocking, ()->{
+				relationship.domainBlocking=!relationship.domainBlocking;
+				updateRelationship();
+			});
+		}else if(id==R.id.hide_boosts){
+			new SetAccountFollowed(account.id, true, !relationship.showingReblogs)
+					.setCallback(new Callback<>(){
+						@Override
+						public void onSuccess(Relationship result){
+							updateRelationship(result);
+						}
+
+						@Override
+						public void onError(ErrorResponse error){
+							error.showToast(getActivity());
+						}
+					})
+					.wrapProgress(getActivity(), R.string.loading, false)
+					.exec(accountID);
 		}
 		return true;
 	}
