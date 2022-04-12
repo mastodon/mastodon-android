@@ -45,3 +45,5 @@
 }
 
 -keep class org.joinmastodon.android.AppCenterWrapper { *; }
+
+-keepattributes LineNumberTable

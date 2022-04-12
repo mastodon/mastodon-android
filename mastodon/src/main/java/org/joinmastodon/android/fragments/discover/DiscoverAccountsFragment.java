@@ -122,6 +122,15 @@ public class DiscoverAccountsFragment extends BaseRecyclerFragment<DiscoverAccou
 	}
 
 	@Override
+	public void onDestroyView(){
+		super.onDestroyView();
+		if(relationshipsRequest!=null){
+			relationshipsRequest.cancel();
+			relationshipsRequest=null;
+		}
+	}
+
+	@Override
 	public void scrollToTop(){
 		smoothScrollRecyclerViewToTop(list);
 	}

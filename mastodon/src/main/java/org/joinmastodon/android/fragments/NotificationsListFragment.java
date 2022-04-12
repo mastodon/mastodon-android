@@ -103,6 +103,8 @@ public class NotificationsListFragment extends BaseStatusListFragment<Notificati
 				.getNotifications(offset>0 ? getMaxID() : null, count, onlyMentions, refreshing, new SimpleCallback<>(this){
 					@Override
 					public void onSuccess(List<Notification> result){
+						if(getActivity()==null)
+							return;
 						if(refreshing)
 							relationships.clear();
 						onDataLoaded(result.stream().filter(n->n.type!=null).collect(Collectors.toList()), !result.isEmpty());

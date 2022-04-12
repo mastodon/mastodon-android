@@ -48,6 +48,8 @@ public class HomeTimelineFragment extends StatusListFragment{
 				.getHomeTimeline(offset>0 ? getMaxID() : null, count, refreshing, new SimpleCallback<>(this){
 					@Override
 					public void onSuccess(List<Status> result){
+						if(getActivity()==null)
+							return;
 						onDataLoaded(result, !result.isEmpty());
 					}
 				});
