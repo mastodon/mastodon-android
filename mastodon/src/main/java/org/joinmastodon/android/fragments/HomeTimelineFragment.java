@@ -18,6 +18,7 @@ import com.squareup.otto.Subscribe;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.events.StatusCreatedEvent;
+import org.joinmastodon.android.model.PaginatedResponse;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.utils.UiUtils;
 
@@ -29,6 +30,8 @@ import me.grishka.appkit.api.SimpleCallback;
 
 public class HomeTimelineFragment extends StatusListFragment{
 	private ImageButton fab;
+
+	private String maxID;
 
 	public HomeTimelineFragment(){
 		setListLayoutId(R.layout.recycler_fragment_with_fab);
@@ -45,12 +48,13 @@ public class HomeTimelineFragment extends StatusListFragment{
 	protected void doLoadData(int offset, int count){
 		AccountSessionManager.getInstance()
 				.getAccount(accountID).getCacheController()
-				.getHomeTimeline(offset>0 ? getMaxID() : null, count, refreshing, new SimpleCallback<>(this){
+				.getHomeTimeline(offset>0 ? maxID : null, count, refreshing, new SimpleCallback<>(this){
 					@Override
-					public void onSuccess(List<Status> result){
+					public void onSuccess(PaginatedResponse<List<Status>> result){
 						if(getActivity()==null)
 							return;
-						onDataLoaded(result, !result.isEmpty());
+						onDataLoaded(result.items, !result.items.isEmpty());
+						maxID=result.maxID;
 					}
 				});
 	}

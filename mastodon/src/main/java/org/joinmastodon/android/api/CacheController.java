@@ -13,7 +13,10 @@ import org.joinmastodon.android.BuildConfig;
 import org.joinmastodon.android.MastodonApp;
 import org.joinmastodon.android.api.requests.notifications.GetNotifications;
 import org.joinmastodon.android.api.requests.timelines.GetHomeTimeline;
+import org.joinmastodon.android.api.session.AccountSessionManager;
+import org.joinmastodon.android.model.Filter;
 import org.joinmastodon.android.model.Notification;
+import org.joinmastodon.android.model.PaginatedResponse;
 import org.joinmastodon.android.model.SearchResult;
 import org.joinmastodon.android.model.Status;
 
@@ -22,6 +25,7 @@ import java.util.ArrayList;
 import java.util.EnumSet;
 import java.util.List;
 import java.util.function.Consumer;
+import java.util.stream.Collectors;
 
 import me.grishka.appkit.api.Callback;
 import me.grishka.appkit.api.ErrorResponse;
@@ -45,22 +49,31 @@ public class CacheController{
 		this.accountID=accountID;
 	}
 
-	public void getHomeTimeline(String maxID, int count, boolean forceReload, Callback<List<Status>> callback){
+	public void getHomeTimeline(String maxID, int count, boolean forceReload, Callback<PaginatedResponse<List<Status>>> callback){
 		cancelDelayedClose();
 		databaseThread.postRunnable(()->{
 			try{
+				List<Filter> filters=AccountSessionManager.getInstance().getAccount(accountID).wordFilters.stream().filter(f->f.context.contains(Filter.FilterContext.HOME)).collect(Collectors.toList());
 				if(!forceReload){
 					SQLiteDatabase db=getOrOpenDatabase();
 					try(Cursor cursor=db.query("home_timeline", new String[]{"json"}, maxID==null ? null : "`id`<?", maxID==null ? null : new String[]{maxID}, null, null, "`id` DESC", count+"")){
 						if(cursor.getCount()==count){
 							ArrayList<Status> result=new ArrayList<>();
 							cursor.moveToFirst();
+							String newMaxID;
+							outer:
 							do{
 								Status status=MastodonAPIController.gson.fromJson(cursor.getString(0), Status.class);
 								status.postprocess();
+								newMaxID=status.id;
+								for(Filter filter:filters){
+									if(filter.matches(status.getContentStatus().content))
+										continue outer;
+								}
 								result.add(status);
 							}while(cursor.moveToNext());
-							uiHandler.post(()->callback.onSuccess(result));
+							String _newMaxID=newMaxID;
+							uiHandler.post(()->callback.onSuccess(new PaginatedResponse<>(result, _newMaxID)));
 							return;
 						}
 					}catch(IOException x){
@@ -71,7 +84,14 @@ public class CacheController{
 						.setCallback(new Callback<>(){
 							@Override
 							public void onSuccess(List<Status> result){
-								callback.onSuccess(result);
+								callback.onSuccess(new PaginatedResponse<>(result.stream().filter(post->{
+									for(Filter filter:filters){
+										if(filter.matches(post.getContentStatus().content)){
+											return false;
+										}
+									}
+									return true;
+								}).collect(Collectors.toList()), result.isEmpty() ? null : result.get(result.size()-1).id));
 								putHomeTimeline(result, maxID==null);
 							}
 
@@ -103,22 +123,33 @@ public class CacheController{
 		});
 	}
 
-	public void getNotifications(String maxID, int count, boolean onlyMentions, boolean forceReload, Callback<List<Notification>> callback){
+	public void getNotifications(String maxID, int count, boolean onlyMentions, boolean forceReload, Callback<PaginatedResponse<List<Notification>>> callback){
 		cancelDelayedClose();
 		databaseThread.postRunnable(()->{
 			try{
+				List<Filter> filters=AccountSessionManager.getInstance().getAccount(accountID).wordFilters.stream().filter(f->f.context.contains(Filter.FilterContext.NOTIFICATIONS)).collect(Collectors.toList());
 				if(!forceReload){
 					SQLiteDatabase db=getOrOpenDatabase();
 					try(Cursor cursor=db.query(onlyMentions ? "notifications_mentions" : "notifications_all", new String[]{"json"}, maxID==null ? null : "`id`<?", maxID==null ? null : new String[]{maxID}, null, null, "`id` DESC", count+"")){
 						if(cursor.getCount()==count){
 							ArrayList<Notification> result=new ArrayList<>();
 							cursor.moveToFirst();
+							String newMaxID;
+							outer:
 							do{
 								Notification ntf=MastodonAPIController.gson.fromJson(cursor.getString(0), Notification.class);
 								ntf.postprocess();
+								newMaxID=ntf.id;
+								if(ntf.status!=null){
+									for(Filter filter:filters){
+										if(filter.matches(ntf.status.getContentStatus().content))
+											continue outer;
+									}
+								}
 								result.add(ntf);
 							}while(cursor.moveToNext());
-							uiHandler.post(()->callback.onSuccess(result));
+							String _newMaxID=newMaxID;
+							uiHandler.post(()->callback.onSuccess(new PaginatedResponse<>(result, _newMaxID)));
 							return;
 						}
 					}catch(IOException x){
@@ -129,7 +160,16 @@ public class CacheController{
 						.setCallback(new Callback<>(){
 							@Override
 							public void onSuccess(List<Notification> result){
-								callback.onSuccess(result);
+								callback.onSuccess(new PaginatedResponse<>(result.stream().filter(ntf->{
+									if(ntf.status!=null){
+										for(Filter filter:filters){
+											if(filter.matches(ntf.status.getContentStatus().content)){
+												return false;
+											}
+										}
+									}
+									return true;
+								}).collect(Collectors.toList()), result.isEmpty() ? null : result.get(result.size()-1).id));
 								putNotifications(result, onlyMentions, maxID==null);
 							}
 

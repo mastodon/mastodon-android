@@ -15,6 +15,7 @@ import org.joinmastodon.android.MastodonApp;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.MastodonAPIController;
 import org.joinmastodon.android.api.PushSubscriptionManager;
+import org.joinmastodon.android.api.requests.accounts.GetWordFilters;
 import org.joinmastodon.android.api.requests.instance.GetCustomEmojis;
 import org.joinmastodon.android.api.requests.accounts.GetOwnAccount;
 import org.joinmastodon.android.api.requests.instance.GetInstance;
@@ -24,6 +25,7 @@ import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.Application;
 import org.joinmastodon.android.model.Emoji;
 import org.joinmastodon.android.model.EmojiCategory;
+import org.joinmastodon.android.model.Filter;
 import org.joinmastodon.android.model.Instance;
 import org.joinmastodon.android.model.Token;
 
@@ -228,6 +230,9 @@ public class AccountSessionManager{
 			if(now-session.infoLastUpdated>24L*3600_000L){
 				updateSessionLocalInfo(session);
 			}
+			if(now-session.filtersLastUpdated>3600_000L){
+				updateSessionWordFilters(session);
+			}
 		}
 		if(loadedInstances){
 			maybeUpdateCustomEmojis(domains);
@@ -251,6 +256,24 @@ public class AccountSessionManager{
 					public void onSuccess(Account result){
 						session.self=result;
 						session.infoLastUpdated=System.currentTimeMillis();
+						writeAccountsFile();
+					}
+
+					@Override
+					public void onError(ErrorResponse error){
+
+					}
+				})
+				.exec(session.getID());
+	}
+
+	private void updateSessionWordFilters(AccountSession session){
+		new GetWordFilters()
+				.setCallback(new Callback<>(){
+					@Override
+					public void onSuccess(List<Filter> result){
+						session.wordFilters=result;
+						session.filtersLastUpdated=System.currentTimeMillis();
 						writeAccountsFile();
 					}
 

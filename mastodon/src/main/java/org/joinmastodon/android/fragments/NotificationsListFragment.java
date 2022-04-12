@@ -15,6 +15,7 @@ import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.events.PollUpdatedEvent;
 import org.joinmastodon.android.model.Notification;
+import org.joinmastodon.android.model.PaginatedResponse;
 import org.joinmastodon.android.model.Poll;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.PhotoLayoutHelper;
@@ -40,6 +41,7 @@ import me.grishka.appkit.utils.V;
 
 public class NotificationsListFragment extends BaseStatusListFragment<Notification>{
 	private boolean onlyMentions;
+	private String maxID;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState){
@@ -100,19 +102,20 @@ public class NotificationsListFragment extends BaseStatusListFragment<Notificati
 	protected void doLoadData(int offset, int count){
 		AccountSessionManager.getInstance()
 				.getAccount(accountID).getCacheController()
-				.getNotifications(offset>0 ? getMaxID() : null, count, onlyMentions, refreshing, new SimpleCallback<>(this){
+				.getNotifications(offset>0 ? maxID : null, count, onlyMentions, refreshing, new SimpleCallback<>(this){
 					@Override
-					public void onSuccess(List<Notification> result){
+					public void onSuccess(PaginatedResponse<List<Notification>> result){
 						if(getActivity()==null)
 							return;
 						if(refreshing)
 							relationships.clear();
-						onDataLoaded(result.stream().filter(n->n.type!=null).collect(Collectors.toList()), !result.isEmpty());
-						Set<String> needRelationships=result.stream()
+						onDataLoaded(result.items.stream().filter(n->n.type!=null).collect(Collectors.toList()), !result.items.isEmpty());
+						Set<String> needRelationships=result.items.stream()
 								.filter(ntf->ntf.status==null && !relationships.containsKey(ntf.account.id))
 								.map(ntf->ntf.account.id)
 								.collect(Collectors.toSet());
 						loadRelationships(needRelationships);
+						maxID=result.maxID;
 					}
 				});
 	}

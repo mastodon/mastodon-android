@@ -6,8 +6,12 @@ import org.joinmastodon.android.api.PushSubscriptionManager;
 import org.joinmastodon.android.api.StatusInteractionController;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.Application;
+import org.joinmastodon.android.model.Filter;
 import org.joinmastodon.android.model.PushSubscription;
 import org.joinmastodon.android.model.Token;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class AccountSession{
 	public Token token;
@@ -21,6 +25,8 @@ public class AccountSession{
 	public String pushAuthKey;
 	public PushSubscription pushSubscription;
 	public boolean needUpdatePushSettings;
+	public long filtersLastUpdated;
+	public List<Filter> wordFilters=new ArrayList<>();
 	private transient MastodonAPIController apiController;
 	private transient StatusInteractionController statusInteractionController;
 	private transient CacheController cacheController;
