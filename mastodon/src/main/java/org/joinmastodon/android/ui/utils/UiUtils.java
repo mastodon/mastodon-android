@@ -172,11 +172,13 @@ public class UiUtils{
 	}
 
 	public static String getFileName(Uri uri){
-		try(Cursor cursor=MastodonApp.context.getContentResolver().query(uri, new String[]{OpenableColumns.DISPLAY_NAME}, null, null, null)){
-			cursor.moveToFirst();
-			String name=cursor.getString(0);
-			if(name!=null)
-				return name;
+		if(uri.getScheme().equals("content")){
+			try(Cursor cursor=MastodonApp.context.getContentResolver().query(uri, new String[]{OpenableColumns.DISPLAY_NAME}, null, null, null)){
+				cursor.moveToFirst();
+				String name=cursor.getString(0);
+				if(name!=null)
+					return name;
+			}
 		}
 		return uri.getLastPathSegment();
 	}

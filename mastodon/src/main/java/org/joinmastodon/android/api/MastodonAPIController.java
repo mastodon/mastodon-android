@@ -186,6 +186,9 @@ public class MastodonAPIController{
 									req.onError("Error parsing an API error", response.code());
 								}
 							}
+						}catch(Exception x){
+							Log.w(TAG, "onResponse: error processing response", x);
+							onFailure(call, (IOException) new IOException(x).fillInStackTrace());
 						}
 					}
 				});

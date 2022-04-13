@@ -12,6 +12,7 @@ android {
 		targetSdk 31
 		versionCode 26
 		versionName "0.1"
+		testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 	}
 
 	buildTypes {
@@ -72,4 +73,9 @@ dependencies {
 	appcenterPrivateBetaImplementation "com.microsoft.appcenter:appcenter-distribute:${appCenterSdkVersion}"
 	appcenterPublicBetaImplementation "com.microsoft.appcenter:appcenter-crashes:${appCenterSdkVersion}"
 	appcenterPublicBetaImplementation "com.microsoft.appcenter:appcenter-distribute:${appCenterSdkVersion}"
+
+	androidTestImplementation 'androidx.test:core:1.4.1-alpha05'
+	androidTestImplementation 'androidx.test.ext:junit:1.1.4-alpha05'
+	androidTestImplementation 'androidx.test:runner:1.5.0-alpha02'
+	androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0-alpha05'
 }

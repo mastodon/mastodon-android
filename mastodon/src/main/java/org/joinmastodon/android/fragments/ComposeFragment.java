@@ -91,6 +91,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
+import androidx.annotation.DrawableRes;
 import me.grishka.appkit.Nav;
 import me.grishka.appkit.api.Callback;
 import me.grishka.appkit.api.ErrorResponse;
@@ -794,6 +795,16 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 		}
 
 		return thumb;
+	}
+
+	public void addFakeMediaAttachment(Uri uri, String description){
+		pollBtn.setEnabled(false);
+		DraftMediaAttachment draft=new DraftMediaAttachment();
+		draft.uri=uri;
+		draft.description=description;
+		attachmentsView.addView(createMediaAttachmentView(draft));
+		allAttachments.add(draft);
+		attachmentsView.setVisibility(View.VISIBLE);
 	}
 
 	private void uploadMediaAttachment(DraftMediaAttachment attachment){
