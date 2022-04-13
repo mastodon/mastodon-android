@@ -216,7 +216,8 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 				view.setScaleX(1f);
 				view.setScaleY(1f);
 				transitioningHolder.itemView.setElevation(0f);
-				list.setClipChildren(true);
+				if(list!=null)
+					list.setClipChildren(true);
 				transitioningHolder=null;
 			}
 
@@ -596,6 +597,8 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 
 		@Override
 		public ImageLoaderRequest getImageRequest(int position, int image){
+			if(position>=displayItems.size()) // TODO fix this in the image loader, these crashes are driving me crazy
+				return null;
 			return displayItems.get(position).getImageRequest(image);
 		}
 

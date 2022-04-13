@@ -107,6 +107,8 @@ public class DiscoverAccountsFragment extends BaseRecyclerFragment<DiscoverAccou
 			public void onSuccess(List<Relationship> result){
 				relationshipsRequest=null;
 				relationships=result.stream().collect(Collectors.toMap(rel->rel.id, Function.identity()));
+				if(list==null)
+					return;
 				for(int i=0;i<list.getChildCount();i++){
 					RecyclerView.ViewHolder holder=list.getChildViewHolder(list.getChildAt(i));
 					if(holder instanceof AccountViewHolder)

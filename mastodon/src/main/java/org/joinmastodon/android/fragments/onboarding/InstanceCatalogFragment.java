@@ -493,7 +493,7 @@ public class InstanceCatalogFragment extends BaseRecyclerFragment<CatalogInstanc
 
 		@Override
 		public int getItemViewType(int position){
-			return 1;
+			return -1;
 		}
 	}
 
