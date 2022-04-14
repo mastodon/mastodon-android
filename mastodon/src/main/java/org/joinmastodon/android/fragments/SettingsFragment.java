@@ -436,7 +436,7 @@ public class SettingsFragment extends ToolbarFragment{
 			super(getActivity(), R.layout.item_settings_header, list);
 			text=(TextView) itemView;
 			if(red)
-				text.setTextColor(getResources().getColor(R.color.error_700));
+				text.setTextColor(getResources().getColor(UiUtils.isDarkTheme() ? R.color.error_400 : R.color.error_700));
 		}
 
 		@Override
