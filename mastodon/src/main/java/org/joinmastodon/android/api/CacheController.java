@@ -195,6 +195,9 @@ public class CacheController{
 				db.delete(table, null, null);
 			ContentValues values=new ContentValues(3);
 			for(Notification n:notifications){
+				if(n.type==null){
+					continue;
+				}
 				values.put("id", n.id);
 				values.put("json", MastodonAPIController.gson.toJson(n));
 				values.put("type", n.type.ordinal());
