@@ -8,6 +8,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.media.MediaPlayer;
 import android.net.Uri;
+import android.os.PowerManager;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
@@ -51,6 +52,7 @@ public class PhotoViewer implements ZoomPanView.Listener{
 	private ViewPager2 pager;
 	private ColorDrawable background=new ColorDrawable(0xff000000);
 	private ArrayList<MediaPlayer> players=new ArrayList<>();
+	private int screenOnRefCount=0;
 
 	public PhotoViewer(Activity activity, List<Attachment> attachments, int index, Listener listener){
 		this.activity=activity;
@@ -181,6 +183,26 @@ public class PhotoViewer implements ZoomPanView.Listener{
 	public void offsetView(float x, float y){
 		pager.setTranslationX(pager.getTranslationX()+x);
 		pager.setTranslationY(pager.getTranslationY()+y);
+	}
+
+	private void incKeepScreenOn(){
+		if(screenOnRefCount==0){
+			WindowManager.LayoutParams wlp=(WindowManager.LayoutParams) windowView.getLayoutParams();
+			wlp.flags|=WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON;
+			wm.updateViewLayout(windowView, wlp);
+		}
+		screenOnRefCount++;
+	}
+
+	private void decKeepScreenOn(){
+		screenOnRefCount--;
+		if(screenOnRefCount<0)
+			throw new IllegalStateException();
+		if(screenOnRefCount==0){
+			WindowManager.LayoutParams wlp=(WindowManager.LayoutParams) windowView.getLayoutParams();
+			wlp.flags&=~WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON;
+			wm.updateViewLayout(windowView, wlp);
+		}
 	}
 
 	public interface Listener{
@@ -319,6 +341,7 @@ public class PhotoViewer implements ZoomPanView.Listener{
 		public MediaPlayer player;
 		private Surface surface;
 		private boolean playerReady;
+		private boolean keepingScreenOn;
 
 		public GifVViewHolder(){
 			textureView=new TextureView(activity);
@@ -378,6 +401,12 @@ public class PhotoViewer implements ZoomPanView.Listener{
 			player.setSurface(surface);
 			player.setLooping(true);
 			player.start();
+			if(item.type==Attachment.Type.VIDEO){
+				incKeepScreenOn();
+				keepingScreenOn=true;
+			}else{
+				keepingScreenOn=false;
+			}
 		}
 
 		@Override
@@ -405,6 +434,10 @@ public class PhotoViewer implements ZoomPanView.Listener{
 			player.release();
 			players.remove(player);
 			player=null;
+			if(keepingScreenOn){
+				decKeepScreenOn();
+				keepingScreenOn=false;
+			}
 		}
 	}
 }
