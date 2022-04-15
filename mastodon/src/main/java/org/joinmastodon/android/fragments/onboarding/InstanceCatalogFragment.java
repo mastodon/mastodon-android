@@ -348,7 +348,7 @@ public class InstanceCatalogFragment extends BaseRecyclerFragment<CatalogInstanc
 		for(CatalogInstance instance:data){
 			if(currentCategory.equals("all") || instance.categories.contains(currentCategory)){
 				if(TextUtils.isEmpty(currentSearchQuery) || instance.domain.contains(currentSearchQuery)){
-					if(instance.domain.equals(currentSearchQuery) || !instance.approvalRequired)
+					if(instance.domain.equals(currentSearchQuery) || !isSignup || !instance.approvalRequired)
 						filteredData.add(instance);
 				}
 			}
