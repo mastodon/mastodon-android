@@ -96,10 +96,12 @@ public class PushSubscriptionManager{
 
 	public static void tryRegisterFCM(){
 		deviceToken=getPrefs().getString("deviceToken", null);
-		if(!TextUtils.isEmpty(deviceToken)){
-			registerAllAccountsForPush();
+		int tokenVersion=getPrefs().getInt("version", 0);
+		if(!TextUtils.isEmpty(deviceToken) && tokenVersion==BuildConfig.VERSION_CODE){
+			registerAllAccountsForPush(false);
 			return;
 		}
+		Log.i(TAG, "tryRegisterFCM: no token found or app was updated. Trying to get push token...");
 		Intent intent = new Intent("com.google.iid.TOKEN_REQUEST");
 		intent.setPackage(GSF_PACKAGE);
 		intent.putExtra(EXTRA_APPLICATION_PENDING_INTENT,
@@ -354,9 +356,9 @@ public class PushSubscriptionManager{
 		return info.toByteArray();
 	}
 
-	private static void registerAllAccountsForPush(){
+	private static void registerAllAccountsForPush(boolean forceReRegister){
 		for(AccountSession session:AccountSessionManager.getInstance().getLoggedInAccounts()){
-			if(session.pushSubscription==null)
+			if(session.pushSubscription==null || forceReRegister)
 				session.getPushSubscriptionManager().registerAccountForPush();
 			else if(session.needUpdatePushSettings)
 				session.getPushSubscriptionManager().updatePushSettings(session.pushSubscription);
@@ -371,9 +373,9 @@ public class PushSubscriptionManager{
 					deviceToken=intent.getStringExtra("registration_id");
 					if(deviceToken.startsWith(KID_VALUE))
 						deviceToken=deviceToken.substring(KID_VALUE.length()+1);
-					getPrefs().edit().putString("deviceToken", deviceToken).apply();
+					getPrefs().edit().putString("deviceToken", deviceToken).putInt("version", BuildConfig.VERSION_CODE).apply();
 					Log.i(TAG, "Successfully registered for FCM");
-					registerAllAccountsForPush();
+					registerAllAccountsForPush(true);
 				}else{
 					Log.e(TAG, "FCM registration intent did not contain registration_id: "+intent);
 					Bundle extras=intent.getExtras();
