@@ -38,9 +38,12 @@ import org.joinmastodon.android.api.requests.accounts.SetAccountFollowed;
 import org.joinmastodon.android.api.requests.accounts.SetAccountMuted;
 import org.joinmastodon.android.api.requests.accounts.SetDomainBlocked;
 import org.joinmastodon.android.api.requests.statuses.DeleteStatus;
+import org.joinmastodon.android.api.requests.statuses.GetStatusByID;
+import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.events.StatusDeletedEvent;
 import org.joinmastodon.android.fragments.HashtagTimelineFragment;
 import org.joinmastodon.android.fragments.ProfileFragment;
+import org.joinmastodon.android.fragments.ThreadFragment;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.Emoji;
 import org.joinmastodon.android.model.Relationship;
@@ -48,6 +51,7 @@ import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.M3AlertDialogBuilder;
 import org.joinmastodon.android.ui.text.CustomEmojiSpan;
 import org.joinmastodon.android.ui.text.SpacerSpan;
+import org.parceler.Parcels;
 
 import java.io.File;
 import java.lang.reflect.Method;
@@ -456,5 +460,36 @@ public class UiUtils{
 		if(GlobalUserPreferences.theme==GlobalUserPreferences.ThemePreference.AUTO)
 			return (MastodonApp.context.getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK)==Configuration.UI_MODE_NIGHT_YES;
 		return GlobalUserPreferences.theme==GlobalUserPreferences.ThemePreference.DARK;
+	}
+
+	public static void openURL(Context context, String accountID, String url){
+		Uri uri=Uri.parse(url);
+		String accountDomain=AccountSessionManager.getInstance().getAccount(accountID).domain;
+		if("https".equals(uri.getScheme()) && accountDomain.equalsIgnoreCase(uri.getAuthority())){
+			List<String> path=uri.getPathSegments();
+			// Match URLs like https://mastodon.social/@Gargron/108132679274083591
+			if(path.size()==2 && path.get(0).matches("^@[a-zA-Z0-9_]+$") && path.get(1).matches("^[0-9]+$")){
+				new GetStatusByID(path.get(1))
+						.setCallback(new Callback<>(){
+							@Override
+							public void onSuccess(Status result){
+								Bundle args=new Bundle();
+								args.putString("account", accountID);
+								args.putParcelable("status", Parcels.wrap(result));
+								Nav.go((Activity) context, ThreadFragment.class, args);
+							}
+
+							@Override
+							public void onError(ErrorResponse error){
+								error.showToast(context);
+								launchWebBrowser(context, url);
+							}
+						})
+						.wrapProgress((Activity)context, R.string.loading, true)
+						.exec(accountID);
+				return;
+			}
+		}
+		launchWebBrowser(context, url);
 	}
 }
