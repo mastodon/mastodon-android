@@ -12,6 +12,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowInsets;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -254,6 +255,7 @@ public class InstanceCatalogFragment extends BaseRecyclerFragment<CatalogInstanc
 	}
 
 	private void proceedWithAuthOrSignup(Instance instance){
+		getActivity().getSystemService(InputMethodManager.class).hideSoftInputFromWindow(contentView.getWindowToken(), 0);
 		if(isSignup){
 			Bundle args=new Bundle();
 			args.putParcelable("instance", Parcels.wrap(instance));

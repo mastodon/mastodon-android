@@ -61,7 +61,8 @@ public class SignupFragment extends AppKitFragment{
 
 	private Instance instance;
 
-	private EditText displayName, username, email, password;
+	private EditText displayName, username, email, password, reason;
+	private TextView reasonExplain;
 	private Button btn;
 	private View buttonBar;
 	private TextWatcher buttonStateUpdater=new SimpleTextWatcher(e->updateButtonState());
@@ -95,6 +96,8 @@ public class SignupFragment extends AppKitFragment{
 		email=view.findViewById(R.id.email);
 		password=view.findViewById(R.id.password);
 		avatar=view.findViewById(R.id.avatar);
+		reason=view.findViewById(R.id.reason);
+		reasonExplain=view.findViewById(R.id.reason_explain);
 		View avaWrap=view.findViewById(R.id.ava_wrap);
 
 		title.setText(getString(R.string.signup_title, instance.uri));
@@ -118,14 +121,21 @@ public class SignupFragment extends AppKitFragment{
 		username.addTextChangedListener(buttonStateUpdater);
 		email.addTextChangedListener(buttonStateUpdater);
 		password.addTextChangedListener(buttonStateUpdater);
+		reason.addTextChangedListener(buttonStateUpdater);
 
 		username.addTextChangedListener(new ErrorClearingListener(username));
 		email.addTextChangedListener(new ErrorClearingListener(email));
 		password.addTextChangedListener(new ErrorClearingListener(password));
+		reason.addTextChangedListener(new ErrorClearingListener(reason));
 
 		avaWrap.setOutlineProvider(OutlineProviders.roundedRect(22));
 		avaWrap.setClipToOutline(true);
 		avaWrap.setOnClickListener(v->onAvatarClick());
+
+		if(!instance.approvalRequired){
+			reason.setVisibility(View.GONE);
+			reasonExplain.setVisibility(View.GONE);
+		}
 
 		return view;
 	}
@@ -186,7 +196,7 @@ public class SignupFragment extends AppKitFragment{
 			edit.setError(null);
 		}
 		errorFields.clear();
-		new RegisterAccount(username, email, password.getText().toString(), getResources().getConfiguration().locale.getLanguage(), null)
+		new RegisterAccount(username, email, password.getText().toString(), getResources().getConfiguration().locale.getLanguage(), reason.getText().toString())
 				.setCallback(new Callback<>(){
 					@Override
 					public void onSuccess(Token result){
@@ -209,10 +219,13 @@ public class SignupFragment extends AppKitFragment{
 						if(error instanceof MastodonDetailedErrorResponse){
 							Map<String, List<MastodonDetailedErrorResponse.FieldError>> fieldErrors=((MastodonDetailedErrorResponse) error).detailedErrors;
 							boolean first=true;
+							boolean anyFieldsSkipped=false;
 							for(String fieldName:fieldErrors.keySet()){
 								EditText field=getFieldByName(fieldName);
-								if(field==null)
+								if(field==null){
+									anyFieldsSkipped=true;
 									continue;
+								}
 								field.setError(fieldErrors.get(fieldName).stream().map(err->err.description).collect(Collectors.joining("\n")));
 								errorFields.add(field);
 								if(first){
@@ -220,6 +233,8 @@ public class SignupFragment extends AppKitFragment{
 									field.requestFocus();
 								}
 							}
+							if(anyFieldsSkipped)
+								error.showToast(getActivity());
 						}else{
 							error.showToast(getActivity());
 						}
@@ -235,6 +250,7 @@ public class SignupFragment extends AppKitFragment{
 			case "email" -> email;
 			case "username" -> username;
 			case "password" -> password;
+			case "reason" -> reason;
 			default -> null;
 		};
 	}
@@ -247,7 +263,7 @@ public class SignupFragment extends AppKitFragment{
 	}
 
 	private void updateButtonState(){
-		btn.setEnabled(username.length()>0 && email.length()>0 && email.getText().toString().contains("@") && password.length()>=8);
+		btn.setEnabled(username.length()>0 && email.length()>0 && email.getText().toString().contains("@") && password.length()>=8 && (!instance.approvalRequired || reason.length()>0));
 	}
 
 	private void createAppAndGetToken(){

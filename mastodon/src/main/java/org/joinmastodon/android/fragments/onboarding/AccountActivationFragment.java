@@ -21,6 +21,7 @@ import org.joinmastodon.android.api.requests.accounts.UpdateAccountCredentials;
 import org.joinmastodon.android.api.session.AccountSession;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.fragments.HomeFragment;
+import org.joinmastodon.android.fragments.SettingsFragment;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.ui.utils.UiUtils;
 
@@ -57,6 +58,12 @@ public class AccountActivationFragment extends AppKitFragment{
 
 		btn=view.findViewById(R.id.btn_next);
 		btn.setOnClickListener(v->onButtonClick());
+		btn.setOnLongClickListener(v->{
+			Bundle args=new Bundle();
+			args.putString("account", accountID);
+			Nav.go(getActivity(), SettingsFragment.class, args);
+			return true;
+		});
 		buttonBar=view.findViewById(R.id.button_bar);
 		view.findViewById(R.id.btn_back).setOnClickListener(v->onBackButtonClick());
 

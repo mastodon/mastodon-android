@@ -133,6 +133,28 @@
 				android:textColor="?android:textColorSecondary"
 				android:text="@string/password_note"/>
 
+			<EditText
+				android:id="@+id/reason"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="8dp"
+				android:layout_marginLeft="16dp"
+				android:layout_marginRight="16dp"
+				android:inputType="textCapSentences|textMultiLine"
+				android:hint="@string/signup_reason"/>
+
+			<TextView
+				android:id="@+id/reason_explain"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="8dp"
+				android:layout_marginLeft="16dp"
+				android:layout_marginRight="16dp"
+				android:layout_marginBottom="16dp"
+				android:textAppearance="@style/m3_body_medium"
+				android:textColor="?android:textColorSecondary"
+				android:text="@string/signup_reason_note"/>
+
 		</LinearLayout>
 
 	</ScrollView>

@@ -283,9 +283,9 @@ public class SettingsFragment extends ToolbarFragment{
 
 	private void onLoggedOut(){
 		AccountSessionManager.getInstance().removeAccount(accountID);
+		getActivity().finish();
 		Intent intent=new Intent(getActivity(), MainActivity.class);
 		startActivity(intent);
-		getActivity().finish();
 	}
 
 	private void clearImageCache(){
