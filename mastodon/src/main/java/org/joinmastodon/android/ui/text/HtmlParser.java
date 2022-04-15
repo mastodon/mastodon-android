@@ -133,11 +133,17 @@ public class HtmlParser{
 	public static void parseCustomEmoji(SpannableStringBuilder ssb, List<Emoji> emojis){
 		Map<String, Emoji> emojiByCode=emojis.stream().collect(Collectors.toMap(e->e.shortcode, Function.identity()));
 		Matcher matcher=EMOJI_CODE_PATTERN.matcher(ssb);
+		int spanCount=0;
+		CustomEmojiSpan lastSpan=null;
 		while(matcher.find()){
 			Emoji emoji=emojiByCode.get(matcher.group(1));
 			if(emoji==null)
 				continue;
-			ssb.setSpan(new CustomEmojiSpan(emoji), matcher.start(), matcher.end(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+			ssb.setSpan(lastSpan=new CustomEmojiSpan(emoji), matcher.start(), matcher.end(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+			spanCount++;
+		}
+		if(spanCount==1 && ssb.getSpanStart(lastSpan)==0 && ssb.getSpanEnd(lastSpan)==ssb.length()){
+			ssb.append(' '); // To fix line height
 		}
 	}
 
