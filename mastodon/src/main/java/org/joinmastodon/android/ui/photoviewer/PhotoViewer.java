@@ -8,7 +8,6 @@ import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.media.MediaPlayer;
 import android.net.Uri;
-import android.os.PowerManager;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;

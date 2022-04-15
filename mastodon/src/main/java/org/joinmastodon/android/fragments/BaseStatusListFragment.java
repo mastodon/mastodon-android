@@ -597,8 +597,6 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 
 		@Override
 		public ImageLoaderRequest getImageRequest(int position, int image){
-			if(position>=displayItems.size()) // TODO fix this in the image loader, these crashes are driving me crazy
-				return null;
 			return displayItems.get(position).getImageRequest(image);
 		}
 

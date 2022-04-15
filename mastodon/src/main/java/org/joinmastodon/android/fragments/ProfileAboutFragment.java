@@ -84,7 +84,7 @@ public class ProfileAboutFragment extends Fragment implements WindowInsetsAwareF
 		list.setClipToPadding(false);
 		dividerPaint.setStyle(Paint.Style.STROKE);
 		dividerPaint.setStrokeWidth(V.dp(1));
-		dividerPaint.setColor(getResources().getColor(R.color.gray_200)); // TODO themes
+		dividerPaint.setColor(UiUtils.getThemeColor(getActivity(), R.attr.colorPollVoted));
 		list.addItemDecoration(new RecyclerView.ItemDecoration(){
 			@Override
 			public void onDrawOver(@NonNull Canvas c, @NonNull RecyclerView parent, @NonNull RecyclerView.State state){
