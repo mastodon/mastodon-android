@@ -142,7 +142,8 @@ public class InstanceCatalogFragment extends BaseRecyclerFragment<CatalogInstanc
 
 					@Override
 					public void onError(ErrorResponse error){
-						InstanceCatalogFragment.this.onError(error);
+						error.showToast(getActivity());
+						onDataLoaded(Collections.emptyList(), false);
 					}
 				})
 				.execNoAuth("");
@@ -155,22 +156,31 @@ public class InstanceCatalogFragment extends BaseRecyclerFragment<CatalogInstanc
 						all.category="all";
 						categories.add(all);
 						result.stream().sorted(Comparator.comparingInt((CatalogCategory cc)->cc.serversCount).reversed()).forEach(categories::add);
-						for(CatalogCategory cat:categories){
-							int titleRes=getTitleForCategory(cat.category);
-							TabLayout.Tab tab=categoriesList.newTab().setText(titleRes!=0 ? getString(titleRes) : cat.category).setCustomView(R.layout.item_instance_category);
-							ImageView emoji=tab.getCustomView().findViewById(R.id.emoji);
-							emoji.setImageResource(getEmojiForCategory(cat.category));
-							categoriesList.addTab(tab);
-						}
+						updateCategories();
 					}
 
 					@Override
 					public void onError(ErrorResponse error){
 						getCategoriesRequest=null;
 						error.showToast(getActivity());
+						CatalogCategory all=new CatalogCategory();
+						all.category="all";
+						categories.add(all);
+						updateCategories();
 					}
 				})
 				.execNoAuth("");
+	}
+
+	private void updateCategories(){
+		categoriesList.removeAllTabs();
+		for(CatalogCategory cat:categories){
+			int titleRes=getTitleForCategory(cat.category);
+			TabLayout.Tab tab=categoriesList.newTab().setText(titleRes!=0 ? getString(titleRes) : cat.category).setCustomView(R.layout.item_instance_category);
+			ImageView emoji=tab.getCustomView().findViewById(R.id.emoji);
+			emoji.setImageResource(getEmojiForCategory(cat.category));
+			categoriesList.addTab(tab);
+		}
 	}
 
 	@Override
