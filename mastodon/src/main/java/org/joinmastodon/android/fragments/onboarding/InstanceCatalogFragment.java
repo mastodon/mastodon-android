@@ -545,8 +545,8 @@ public class InstanceCatalogFragment extends BaseRecyclerFragment<CatalogInstanc
 				int idx=filteredData.indexOf(chosenInstance);
 				if(idx!=-1){
 					RecyclerView.ViewHolder holder=list.findViewHolderForAdapterPosition(mergeAdapter.getPositionForAdapter(adapter)+idx);
-					if(holder instanceof InstanceViewHolder){
-						((InstanceViewHolder)holder).radioButton.setChecked(false);
+					if(holder instanceof InstanceViewHolder ivh){
+						ivh.radioButton.setChecked(false);
 					}
 				}
 			}

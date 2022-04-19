@@ -43,8 +43,8 @@ public class ThreadFragment extends StatusListFragment{
 		List<StatusDisplayItem> items=super.buildDisplayItems(s);
 		if(s==mainStatus){
 			for(StatusDisplayItem item:items){
-				if(item instanceof TextStatusDisplayItem)
-					((TextStatusDisplayItem) item).textSelectable=true;
+				if(item instanceof TextStatusDisplayItem text)
+					text.textSelectable=true;
 			}
 		}
 		return items;

@@ -32,7 +32,6 @@ import org.joinmastodon.android.ui.utils.UiUtils;
 import org.parceler.Parcels;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 
@@ -123,8 +122,7 @@ public class ReportAddPostsChoiceFragment extends StatusListFragment{
 				if(holder.getAbsoluteAdapterPosition()==0)
 					return;
 				outRect.left=V.dp(40);
-				if(holder instanceof ImageStatusDisplayItem.Holder){
-					ImageStatusDisplayItem.Holder<?> imgHolder=(ImageStatusDisplayItem.Holder<?>) holder;
+				if(holder instanceof ImageStatusDisplayItem.Holder<?> imgHolder){
 					PhotoLayoutHelper.TiledLayoutResult layout=imgHolder.getItem().tiledLayout;
 					PhotoLayoutHelper.TiledLayoutResult.Tile tile=imgHolder.getItem().thisTile;
 					String siblingID;
@@ -154,12 +152,11 @@ public class ReportAddPostsChoiceFragment extends StatusListFragment{
 				for(int i=0;i<parent.getChildCount();i++){
 					View child=parent.getChildAt(i);
 					RecyclerView.ViewHolder holder=parent.getChildViewHolder(child);
-					if(holder instanceof StatusDisplayItem.Holder){
+					if(holder instanceof StatusDisplayItem.Holder sdiHolder){
 						parent.getDecoratedBoundsWithMargins(child, tmpRect);
-						String id=((StatusDisplayItem.Holder<?>) holder).getItemID();
+						String id=sdiHolder.getItemID();
 						int height=tmpRect.height();
-						if(holder instanceof ImageStatusDisplayItem.Holder){
-							ImageStatusDisplayItem.Holder<ImageStatusDisplayItem> imgHolder=(ImageStatusDisplayItem.Holder<ImageStatusDisplayItem>) holder;
+						if(holder instanceof ImageStatusDisplayItem.Holder<?> imgHolder){
 							if(imgHolder.getItem().thisTile.startCol+imgHolder.getItem().thisTile.colSpan<imgHolder.getItem().tiledLayout.columnSizes.length)
 								height=0;
 						}
@@ -173,8 +170,8 @@ public class ReportAddPostsChoiceFragment extends StatusListFragment{
 				for(int i=0;i<parent.getChildCount();i++){
 					View child=parent.getChildAt(i);
 					RecyclerView.ViewHolder holder=parent.getChildViewHolder(child);
-					if(holder instanceof StatusDisplayItem.Holder){
-						String postID=((StatusDisplayItem.Holder<?>) holder).getItemID();
+					if(holder instanceof StatusDisplayItem.Holder<?> sdiHolder){
+						String postID=sdiHolder.getItemID();
 						if(!postID.equals(lastPostID)){
 							lastPostID=postID;
 							if(!postsWithKnownNonHeaderHeights.contains(postID))
@@ -233,8 +230,8 @@ public class ReportAddPostsChoiceFragment extends StatusListFragment{
 	protected List<StatusDisplayItem> buildDisplayItems(Status s){
 		List<StatusDisplayItem> items=StatusDisplayItem.buildItems(this, s, accountID, s, knownAccounts, true, false);
 		for(StatusDisplayItem item:items){
-			if(item instanceof ImageStatusDisplayItem){
-				((ImageStatusDisplayItem) item).horizontalInset=V.dp(40+32);
+			if(item instanceof ImageStatusDisplayItem isdi){
+				isdi.horizontalInset=V.dp(40+32);
 			}
 		}
 		return items;

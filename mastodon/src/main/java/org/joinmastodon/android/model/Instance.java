@@ -32,7 +32,7 @@ public class Instance extends BaseModel{
 	/**
 	 * A shorter description defined by the admin.
 	 */
-	@RequiredField
+//	@RequiredField
 	public String shortDescription;
 	/**
 	 * An email that may be contacted for any inquiries.
@@ -89,6 +89,8 @@ public class Instance extends BaseModel{
 			contactAccount.postprocess();
 		if(rules==null)
 			rules=Collections.emptyList();
+		if(shortDescription==null)
+			shortDescription="";
 	}
 
 	@Override

@@ -179,8 +179,8 @@ public abstract class BaseReportChoiceFragment extends ToolbarFragment{
 						String prev=selectedIDs.remove(0);
 						for(int i=0;i<list.getChildCount();i++){
 							RecyclerView.ViewHolder holder=list.getChildViewHolder(list.getChildAt(i));
-							if(holder instanceof ItemViewHolder && ((ItemViewHolder) holder).getItem().id.equals(prev)){
-								((ItemViewHolder) holder).rebind();
+							if(holder instanceof ItemViewHolder ivh && ivh.getItem().id.equals(prev)){
+								ivh.rebind();
 								break;
 							}
 						}

@@ -111,8 +111,8 @@ public class DiscoverAccountsFragment extends BaseRecyclerFragment<DiscoverAccou
 					return;
 				for(int i=0;i<list.getChildCount();i++){
 					RecyclerView.ViewHolder holder=list.getChildViewHolder(list.getChildAt(i));
-					if(holder instanceof AccountViewHolder)
-						((AccountViewHolder) holder).rebind();
+					if(holder instanceof AccountViewHolder avh)
+						avh.rebind();
 				}
 			}
 
@@ -243,8 +243,8 @@ public class DiscoverAccountsFragment extends BaseRecyclerFragment<DiscoverAccou
 				name.invalidate();
 				bio.invalidate();
 			}
-			if(image instanceof Animatable && !((Animatable) image).isRunning())
-				((Animatable) image).start();
+			if(image instanceof Animatable a && !a.isRunning())
+				a.start();
 		}
 
 		@Override

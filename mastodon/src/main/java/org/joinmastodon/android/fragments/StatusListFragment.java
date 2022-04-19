@@ -9,7 +9,6 @@ import org.joinmastodon.android.events.PollUpdatedEvent;
 import org.joinmastodon.android.events.StatusCountersUpdatedEvent;
 import org.joinmastodon.android.events.StatusCreatedEvent;
 import org.joinmastodon.android.events.StatusDeletedEvent;
-import org.joinmastodon.android.model.Poll;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.displayitems.FooterStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.HeaderStatusDisplayItem;
@@ -89,8 +88,8 @@ public abstract class StatusListFragment extends BaseStatusListFragment<Status>{
 					s.update(ev);
 					for(int i=0;i<list.getChildCount();i++){
 						RecyclerView.ViewHolder holder=list.getChildViewHolder(list.getChildAt(i));
-						if(holder instanceof FooterStatusDisplayItem.Holder && ((FooterStatusDisplayItem.Holder) holder).getItem().status==s.getContentStatus()){
-							((FooterStatusDisplayItem.Holder) holder).rebind();
+						if(holder instanceof FooterStatusDisplayItem.Holder footer && footer.getItem().status==s.getContentStatus()){
+							footer.rebind();
 							return;
 						}
 					}

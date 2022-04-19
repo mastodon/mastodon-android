@@ -277,16 +277,16 @@ public class PhotoViewer implements ZoomPanView.Listener{
 		@Override
 		public void onViewDetachedFromWindow(@NonNull BaseHolder holder){
 			super.onViewDetachedFromWindow(holder);
-			if(holder instanceof GifVViewHolder){
-				((GifVViewHolder) holder).reset();
+			if(holder instanceof GifVViewHolder gifHolder){
+				gifHolder.reset();
 			}
 		}
 
 		@Override
 		public void onViewAttachedToWindow(@NonNull BaseHolder holder){
 			super.onViewAttachedToWindow(holder);
-			if(holder instanceof GifVViewHolder){
-				((GifVViewHolder) holder).prepareAndStartPlayer();
+			if(holder instanceof GifVViewHolder gifHolder){
+				gifHolder.prepareAndStartPlayer();
 			}
 		}
 	}

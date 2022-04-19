@@ -212,8 +212,8 @@ public class HomeFragment extends AppKitFragment implements OnBackPressedListene
 	private void onTabSelected(@IdRes int tab){
 		Fragment newFragment=fragmentForTab(tab);
 		if(tab==currentTab){
-			if(newFragment instanceof ScrollableToTop)
-				((ScrollableToTop) newFragment).scrollToTop();
+			if(newFragment instanceof ScrollableToTop scrollable)
+				scrollable.scrollToTop();
 			return;
 		}
 		getChildFragmentManager().beginTransaction().hide(fragmentForTab(currentTab)).show(newFragment).commit();
@@ -223,8 +223,7 @@ public class HomeFragment extends AppKitFragment implements OnBackPressedListene
 	}
 
 	private void maybeTriggerLoading(Fragment newFragment){
-		if(newFragment instanceof LoaderFragment){
-			LoaderFragment lf=(LoaderFragment) newFragment;
+		if(newFragment instanceof LoaderFragment lf){
 			if(!lf.loaded && !lf.dataLoading)
 				lf.loadData();
 		}else if(newFragment instanceof DiscoverFragment){

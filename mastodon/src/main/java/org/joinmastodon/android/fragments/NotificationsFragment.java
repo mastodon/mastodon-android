@@ -81,8 +81,7 @@ public class NotificationsFragment extends ToolbarFragment implements Scrollable
 				if(position==0)
 					return;
 				Fragment _page=getFragmentForPage(position);
-				if(_page instanceof BaseRecyclerFragment){
-					BaseRecyclerFragment page=(BaseRecyclerFragment) _page;
+				if(_page instanceof BaseRecyclerFragment<?> page){
 					if(!page.loaded && !page.isDataLoading())
 						page.loadData();
 				}

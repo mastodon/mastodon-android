@@ -150,9 +150,9 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 			UsableRecyclerView list=(UsableRecyclerView) this.list;
 			for(int i=0; i<list.getChildCount(); i++){
 				RecyclerView.ViewHolder holder=list.getChildViewHolder(list.getChildAt(i));
-				if(holder instanceof ImageLoaderViewHolder){
+				if(holder instanceof ImageLoaderViewHolder ivh){
 					for(int j=0; j<list.getImageCountForItem(holder.getAbsoluteAdapterPosition()); j++){
-						((ImageLoaderViewHolder) holder).clearImage(j);
+						ivh.clearImage(j);
 					}
 				}
 			}
@@ -169,18 +169,18 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 	public void openPhotoViewer(String parentID, Status _status, int attachmentIndex){
 		final Status status=_status.reblog!=null ? _status.reblog : _status;
 		currentPhotoViewer=new PhotoViewer(getActivity(), status.mediaAttachments, attachmentIndex, new PhotoViewer.Listener(){
-			private ImageStatusDisplayItem.Holder transitioningHolder;
+			private ImageStatusDisplayItem.Holder<?> transitioningHolder;
 
 			@Override
 			public void setPhotoViewVisibility(int index, boolean visible){
-				ImageStatusDisplayItem.Holder holder=findPhotoViewHolder(index);
+				ImageStatusDisplayItem.Holder<?> holder=findPhotoViewHolder(index);
 				if(holder!=null)
 					holder.photo.setAlpha(visible ? 1f : 0f);
 			}
 
 			@Override
 			public boolean startPhotoViewTransition(int index, @NonNull Rect outRect, @NonNull int[] outCornerRadius){
-				ImageStatusDisplayItem.Holder holder=findPhotoViewHolder(index);
+				ImageStatusDisplayItem.Holder<?> holder=findPhotoViewHolder(index);
 				if(holder!=null){
 					transitioningHolder=holder;
 					View view=transitioningHolder.photo;
@@ -223,7 +223,7 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 
 			@Override
 			public Drawable getPhotoViewCurrentDrawable(int index){
-				ImageStatusDisplayItem.Holder holder=findPhotoViewHolder(index);
+				ImageStatusDisplayItem.Holder<?> holder=findPhotoViewHolder(index);
 				if(holder!=null)
 					return holder.photo.getDrawable();
 				return null;
@@ -234,14 +234,14 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 				currentPhotoViewer=null;
 			}
 
-			private ImageStatusDisplayItem.Holder findPhotoViewHolder(int index){
+			private ImageStatusDisplayItem.Holder<?> findPhotoViewHolder(int index){
 				int offset=0;
 				for(StatusDisplayItem item:displayItems){
 					if(item.parentID.equals(parentID)){
 						if(item instanceof ImageStatusDisplayItem){
 							RecyclerView.ViewHolder holder=list.findViewHolderForAdapterPosition(getMainAdapterOffset()+offset+index);
-							if(holder instanceof ImageStatusDisplayItem.Holder){
-								return (ImageStatusDisplayItem.Holder) holder;
+							if(holder instanceof ImageStatusDisplayItem.Holder<?> imgHolder){
+								return imgHolder;
 							}
 							return null;
 						}
@@ -303,9 +303,9 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 				position-=getMainAdapterOffset();
 				if(position>=0 && position<displayItems.size()){
 					StatusDisplayItem item=displayItems.get(position);
-					if(item instanceof ImageStatusDisplayItem){
-						PhotoLayoutHelper.TiledLayoutResult layout=((ImageStatusDisplayItem) item).tiledLayout;
-						PhotoLayoutHelper.TiledLayoutResult.Tile tile=((ImageStatusDisplayItem) item).thisTile;
+					if(item instanceof ImageStatusDisplayItem imgItem){
+						PhotoLayoutHelper.TiledLayoutResult layout=imgItem.tiledLayout;
+						PhotoLayoutHelper.TiledLayoutResult.Tile tile=imgItem.thisTile;
 						int spans=0;
 						for(int i=0;i<tile.colSpan;i++){
 							spans+=layout.columnSizes[tile.startCol+i];
@@ -390,8 +390,7 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 			}
 			for(int i=0;i<list.getChildCount();i++){
 				RecyclerView.ViewHolder vh=list.getChildViewHolder(list.getChildAt(i));
-				if(vh instanceof PollFooterStatusDisplayItem.Holder){
-					PollFooterStatusDisplayItem.Holder footer=(PollFooterStatusDisplayItem.Holder) vh;
+				if(vh instanceof PollFooterStatusDisplayItem.Holder footer){
 					if(footer.getItemID().equals(holder.getItemID())){
 						footer.rebind();
 						break;
@@ -513,7 +512,7 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 	protected <I extends StatusDisplayItem, H extends StatusDisplayItem.Holder<I>> H findHolderOfType(String id, Class<H> type){
 		for(int i=0;i<list.getChildCount();i++){
 			RecyclerView.ViewHolder holder=list.getChildViewHolder(list.getChildAt(i));
-			if(holder instanceof StatusDisplayItem.Holder && ((StatusDisplayItem.Holder<?>) holder).getItemID().equals(id) && type.isInstance(holder))
+			if(holder instanceof StatusDisplayItem.Holder<?> itemHolder && itemHolder.getItemID().equals(id) && type.isInstance(holder))
 				return type.cast(holder);
 		}
 		return null;
@@ -523,7 +522,7 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 		ArrayList<H> holders=new ArrayList<>();
 		for(int i=0;i<list.getChildCount();i++){
 			RecyclerView.ViewHolder holder=list.getChildViewHolder(list.getChildAt(i));
-			if(holder instanceof StatusDisplayItem.Holder && ((StatusDisplayItem.Holder<?>) holder).getItemID().equals(id) && type.isInstance(holder))
+			if(holder instanceof StatusDisplayItem.Holder<?> itemHolder && itemHolder.getItemID().equals(id) && type.isInstance(holder))
 				holders.add(type.cast(holder));
 		}
 		return holders;
@@ -642,8 +641,7 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 			for(int i=0;i<parent.getChildCount();i++){
 				View child=parent.getChildAt(i);
 				RecyclerView.ViewHolder holder=parent.getChildViewHolder(child);
-				if(holder instanceof ImageStatusDisplayItem.Holder){
-					ImageStatusDisplayItem.Holder<?> imgHolder=(ImageStatusDisplayItem.Holder<?>) holder;
+				if(holder instanceof ImageStatusDisplayItem.Holder<?> imgHolder){
 					if(!imgHolder.getItem().status.spoilerRevealed && TextUtils.isEmpty(imgHolder.getItem().status.spoilerText)){
 						hiddenMediaPaint.setColor(0x80000000);
 						PhotoLayoutHelper.TiledLayoutResult.Tile tile=imgHolder.getItem().thisTile;
@@ -656,8 +654,7 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 			for(int i=0;i<parent.getChildCount();i++){
 				View child=parent.getChildAt(i);
 				RecyclerView.ViewHolder holder=parent.getChildViewHolder(child);
-				if(holder instanceof ImageStatusDisplayItem.Holder){
-					ImageStatusDisplayItem.Holder<?> imgHolder=(ImageStatusDisplayItem.Holder<?>) holder;
+				if(holder instanceof ImageStatusDisplayItem.Holder<?> imgHolder){
 					if(!imgHolder.getItem().status.spoilerRevealed){
 						PhotoLayoutHelper.TiledLayoutResult.Tile tile=imgHolder.getItem().thisTile;
 						if(tile.startCol==0 && tile.startRow==0 && TextUtils.isEmpty(imgHolder.getItem().status.spoilerText)){
@@ -729,6 +726,7 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 		}
 
 		private void rebuildMediaHiddenLayouts(int width){
+			currentMediaHiddenLayoutsWidth=width;
 			String title=getString(R.string.sensitive_content);
 			TextPaint titlePaint=new TextPaint(Paint.ANTI_ALIAS_FLAG);
 			titlePaint.setColor(getResources().getColor(R.color.gray_50));

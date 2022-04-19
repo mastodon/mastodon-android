@@ -1,9 +1,7 @@
 package org.joinmastodon.android.fragments;
 
 import android.app.Fragment;
-import android.content.Context;
 import android.graphics.Canvas;
-import android.graphics.Outline;
 import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.ShapeDrawable;
@@ -13,8 +11,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewOutlineProvider;
-import android.view.ViewTreeObserver;
 import android.view.WindowInsets;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -22,7 +18,6 @@ import android.widget.TextView;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.model.AccountField;
 import org.joinmastodon.android.ui.BetterItemAnimator;
-import org.joinmastodon.android.ui.OutlineProviders;
 import org.joinmastodon.android.ui.text.CustomEmojiSpan;
 import org.joinmastodon.android.ui.utils.SimpleTextWatcher;
 import org.joinmastodon.android.ui.utils.UiUtils;

@@ -42,7 +42,6 @@ import java.io.InputStream;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 import androidx.annotation.Nullable;
@@ -216,8 +215,8 @@ public class SignupFragment extends AppKitFragment{
 
 					@Override
 					public void onError(ErrorResponse error){
-						if(error instanceof MastodonDetailedErrorResponse){
-							Map<String, List<MastodonDetailedErrorResponse.FieldError>> fieldErrors=((MastodonDetailedErrorResponse) error).detailedErrors;
+						if(error instanceof MastodonDetailedErrorResponse derr){
+							Map<String, List<MastodonDetailedErrorResponse.FieldError>> fieldErrors=derr.detailedErrors;
 							boolean first=true;
 							boolean anyFieldsSkipped=false;
 							for(String fieldName:fieldErrors.keySet()){

@@ -2,9 +2,7 @@ package org.joinmastodon.android.fragments;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Intent;
-import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Rect;
@@ -240,8 +238,7 @@ public class SettingsFragment extends ToolbarFragment{
 		}
 		if((prevPolicy==PushSubscription.Policy.NONE)!=(policy==PushSubscription.Policy.NONE)){
 			index++;
-			while(items.get(index) instanceof SwitchItem){
-				SwitchItem si=(SwitchItem) items.get(index);
+			while(items.get(index) instanceof SwitchItem si){
 				si.enabled=si.checked=policy!=PushSubscription.Policy.NONE;
 				RecyclerView.ViewHolder holder=list.findViewHolderForAdapterPosition(index);
 				if(holder!=null)

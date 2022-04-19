@@ -76,8 +76,8 @@ public class NotificationsListFragment extends BaseStatusListFragment<Notificati
 			ArrayList<StatusDisplayItem> items=StatusDisplayItem.buildItems(this, n.status, accountID, n, knownAccounts, titleItem!=null, titleItem==null);
 			if(titleItem!=null){
 				for(StatusDisplayItem item:items){
-					if(item instanceof ImageStatusDisplayItem){
-						((ImageStatusDisplayItem) item).horizontalInset=V.dp(32);
+					if(item instanceof ImageStatusDisplayItem imgItem){
+						imgItem.horizontalInset=V.dp(32);
 					}
 				}
 			}
@@ -126,8 +126,8 @@ public class NotificationsListFragment extends BaseStatusListFragment<Notificati
 			return;
 		for(int i=0;i<list.getChildCount();i++){
 			RecyclerView.ViewHolder holder=list.getChildViewHolder(list.getChildAt(i));
-			if(holder instanceof AccountCardStatusDisplayItem.Holder)
-				((AccountCardStatusDisplayItem.Holder) holder).rebind();
+			if(holder instanceof AccountCardStatusDisplayItem.Holder accountHolder)
+				accountHolder.rebind();
 		}
 	}
 
@@ -173,7 +173,7 @@ public class NotificationsListFragment extends BaseStatusListFragment<Notificati
 					View child=parent.getChildAt(i);
 					RecyclerView.ViewHolder holder=parent.getChildViewHolder(child);
 					pos=holder.getAbsoluteAdapterPosition();
-					boolean inset=(holder instanceof StatusDisplayItem.Holder) && ((StatusDisplayItem.Holder<?>) holder).getItem().inset;
+					boolean inset=(holder instanceof StatusDisplayItem.Holder<?> sdi) && sdi.getItem().inset;
 					if(inset){
 						if(rect.isEmpty()){
 							rect.set(child.getX(), i==0 && pos>0 && displayItems.get(pos-1).inset ? V.dp(-10) : child.getY(), child.getX()+child.getWidth(), child.getY()+child.getHeight());
@@ -210,8 +210,8 @@ public class NotificationsListFragment extends BaseStatusListFragment<Notificati
 			@Override
 			public void getItemOffsets(@NonNull Rect outRect, @NonNull View view, @NonNull RecyclerView parent, @NonNull RecyclerView.State state){
 				RecyclerView.ViewHolder holder=parent.getChildViewHolder(view);
-				if(holder instanceof StatusDisplayItem.Holder){
-					boolean inset=((StatusDisplayItem.Holder<?>) holder).getItem().inset;
+				if(holder instanceof StatusDisplayItem.Holder<?> sdi){
+					boolean inset=sdi.getItem().inset;
 					int pos=holder.getAbsoluteAdapterPosition();
 					if(inset){
 						boolean topSiblingInset=pos>0 && displayItems.get(pos-1).inset;
@@ -222,9 +222,9 @@ public class NotificationsListFragment extends BaseStatusListFragment<Notificati
 						else
 							pad=V.dp(12);
 						boolean insetLeft=true, insetRight=true;
-						if(holder instanceof ImageStatusDisplayItem.Holder){
-							PhotoLayoutHelper.TiledLayoutResult layout=((ImageStatusDisplayItem.Holder<?>) holder).getItem().tiledLayout;
-							PhotoLayoutHelper.TiledLayoutResult.Tile tile=((ImageStatusDisplayItem.Holder<?>) holder).getItem().thisTile;
+						if(holder instanceof ImageStatusDisplayItem.Holder<?> img){
+							PhotoLayoutHelper.TiledLayoutResult layout=img.getItem().tiledLayout;
+							PhotoLayoutHelper.TiledLayoutResult.Tile tile=img.getItem().thisTile;
 							// only inset those items that are on the edges of the layout
 							insetLeft=tile.startCol==0;
 							insetRight=tile.startCol+tile.colSpan==layout.columnSizes.length;
