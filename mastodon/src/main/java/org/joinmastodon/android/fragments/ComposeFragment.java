@@ -212,6 +212,13 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 	}
 
 	@Override
+	public void onDestroy(){
+		super.onDestroy();
+		if(uploadingAttachment!=null && uploadingAttachment.uploadRequest!=null)
+			uploadingAttachment.uploadRequest.cancel();
+	}
+
+	@Override
 	public void onAttach(Activity activity){
 		super.onAttach(activity);
 		setHasOptionsMenu(true);
