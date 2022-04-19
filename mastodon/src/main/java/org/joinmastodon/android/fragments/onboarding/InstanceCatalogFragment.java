@@ -335,6 +335,8 @@ public class InstanceCatalogFragment extends BaseRecyclerFragment<CatalogInstanc
 	private boolean onSearchEnterPressed(TextView v, int actionId, KeyEvent event){
 		if(event!=null && event.getAction()!=KeyEvent.ACTION_DOWN)
 			return true;
+		currentSearchQuery=searchEdit.getText().toString().toUpperCase();
+		updateFilteredList();
 		searchEdit.removeCallbacks(searchDebouncer);
 		Instance instance=instancesCache.get(currentSearchQuery);
 		if(instance==null){
