@@ -80,6 +80,8 @@ public class InstanceCatalogFragment extends BaseRecyclerFragment<CatalogInstanc
 
 	private boolean isSignup;
 
+	private static final double DUNBAR=Math.log(800);
+
 	public InstanceCatalogFragment(){
 		super(R.layout.fragment_onboarding_common, 10);
 	}
@@ -104,6 +106,13 @@ public class InstanceCatalogFragment extends BaseRecyclerFragment<CatalogInstanc
 					@Override
 					public void onSuccess(List<CatalogInstance> result){
 						Map<String, List<CatalogInstance>> byLang=result.stream().collect(Collectors.groupingBy(ci->ci.language));
+						for(List<CatalogInstance> group:byLang.values()){
+							Collections.sort(group, (a, b)->{
+								double aa=Math.abs(DUNBAR-Math.log(a.lastWeekUsers));
+								double bb=Math.abs(DUNBAR-Math.log(b.lastWeekUsers));
+								return Double.compare(aa, bb);
+							});
+						}
 						// get the list of user-configured system languages
 						List<String> userLangs;
 						if(Build.VERSION.SDK_INT<24){
