@@ -27,12 +27,14 @@
 		android:ellipsize="end"
 		tools:text="@string/theme_auto"/>
 
-	<ImageView
+	<RadioButton
 		android:id="@+id/checkbox"
 		android:layout_width="24dp"
 		android:layout_height="24dp"
 		android:layout_marginTop="8dp"
 		android:layout_gravity="center_horizontal"
-		android:src="@drawable/ic_round_checkbox"/>
+		android:focusable="false"
+		android:clickable="false"
+		android:button="@drawable/ic_round_checkbox"/>
 
 </LinearLayout>

@@ -17,6 +17,7 @@
 		android:tint="@color/error_500"
 		android:stateListAnimator="@null"
 		android:padding="0px"
+		android:contentDescription="@string/delete"
 		android:background="@null"/>
 
 	<EditText
@@ -56,6 +57,7 @@
 		android:layout_alignBottom="@id/value"
 		android:layout_marginBottom="-16dp"
 		android:scaleType="center"
+		android:contentDescription="@string/reorder"
 		android:src="@drawable/ic_fluent_re_order_dots_vertical_24_regular"/>
 
 </RelativeLayout>

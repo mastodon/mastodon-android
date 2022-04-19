@@ -17,6 +17,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
+import android.widget.RadioButton;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -52,7 +53,7 @@ import me.grishka.appkit.utils.BindableViewHolder;
 import me.grishka.appkit.utils.V;
 import me.grishka.appkit.views.UsableRecyclerView;
 
-public class SettingsFragment extends ToolbarFragment{
+public class SettingsFragment extends MastodonToolbarFragment{
 	private UsableRecyclerView list;
 	private ArrayList<Item> items=new ArrayList<>();
 	private ThemeItem themeItem;
@@ -511,7 +512,8 @@ public class SettingsFragment extends ToolbarFragment{
 
 		private class SubitemHolder{
 			public TextView text;
-			public ImageView icon, checkbox;
+			public ImageView icon;
+			public RadioButton checkbox;
 
 			public SubitemHolder(View view){
 				text=view.findViewById(R.id.text);
@@ -526,11 +528,11 @@ public class SettingsFragment extends ToolbarFragment{
 			public void bind(int text, int icon, boolean checked){
 				this.text.setText(text);
 				this.icon.setImageResource(icon);
-				checkbox.setSelected(checked);
+				checkbox.setChecked(checked);
 			}
 
 			public void setChecked(boolean checked){
-				checkbox.setSelected(checked);
+				checkbox.setChecked(checked);
 			}
 		}
 	}

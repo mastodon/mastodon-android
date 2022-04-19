@@ -49,6 +49,7 @@
 				android:background="?android:selectableItemBackgroundBorderless"
 				android:tint="?colorSearchHint"
 				android:elevation="1dp"
+				android:contentDescription="@string/back"
 				android:src="@drawable/ic_fluent_search_24_regular"/>
 
 			<ImageButton
@@ -61,6 +62,7 @@
 				android:tint="?colorSearchHint"
 				android:elevation="1dp"
 				android:visibility="invisible"
+				android:contentDescription="@string/clear"
 				android:src="@drawable/ic_fluent_dismiss_24_regular"/>
 
 			<ProgressBar

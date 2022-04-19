@@ -331,6 +331,7 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 		if(toolbar==null)
 			return;
 		toolbar.setOnClickListener(v->scrollToTop());
+		toolbar.setNavigationContentDescription(R.string.back);
 	}
 
 	protected int getMainAdapterOffset(){

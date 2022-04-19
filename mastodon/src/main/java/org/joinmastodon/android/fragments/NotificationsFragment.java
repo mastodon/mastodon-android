@@ -24,7 +24,7 @@ import me.grishka.appkit.fragments.BaseRecyclerFragment;
 import me.grishka.appkit.fragments.ToolbarFragment;
 import me.grishka.appkit.utils.V;
 
-public class NotificationsFragment extends ToolbarFragment implements ScrollableToTop{
+public class NotificationsFragment extends MastodonToolbarFragment implements ScrollableToTop{
 
 	private TabLayout tabLayout;
 	private ViewPager2 pager;
@@ -124,18 +124,6 @@ public class NotificationsFragment extends ToolbarFragment implements Scrollable
 	}
 
 	@Override
-	public void onViewCreated(View view, Bundle savedInstanceState){
-		super.onViewCreated(view, savedInstanceState);
-		updateToolbar();
-	}
-
-	@Override
-	public void onConfigurationChanged(Configuration newConfig){
-		super.onConfigurationChanged(newConfig);
-		updateToolbar();
-	}
-
-	@Override
 	public void scrollToTop(){
 		getFragmentForPage(pager.getCurrentItem()).scrollToTop();
 	}
@@ -145,7 +133,9 @@ public class NotificationsFragment extends ToolbarFragment implements Scrollable
 			allNotificationsFragment.loadData();
 	}
 
-	private void updateToolbar(){
+	@Override
+	protected void updateToolbar(){
+		super.updateToolbar();
 		getToolbar().setOutlineProvider(null);
 	}
 

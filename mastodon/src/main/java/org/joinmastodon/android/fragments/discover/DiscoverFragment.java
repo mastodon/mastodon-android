@@ -183,6 +183,7 @@ public class DiscoverFragment extends AppKitFragment implements ScrollableToTop,
 		searchClear=view.findViewById(R.id.search_clear);
 		searchProgress=view.findViewById(R.id.search_progress);
 		searchBack.setEnabled(searchActive);
+		searchBack.setImportantForAccessibility(searchActive ? View.IMPORTANT_FOR_ACCESSIBILITY_YES : View.IMPORTANT_FOR_ACCESSIBILITY_NO);
 		searchBack.setOnClickListener(v->exitSearch());
 		if(searchActive){
 			searchBack.setImageResource(R.drawable.ic_fluent_arrow_left_24_regular);
@@ -221,6 +222,7 @@ public class DiscoverFragment extends AppKitFragment implements ScrollableToTop,
 			searchView.setVisibility(View.VISIBLE);
 			searchBack.setImageResource(R.drawable.ic_fluent_arrow_left_24_regular);
 			searchBack.setEnabled(true);
+			searchBack.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_YES);
 		}
 	}
 
@@ -233,6 +235,7 @@ public class DiscoverFragment extends AppKitFragment implements ScrollableToTop,
 		searchEdit.setText("");
 		searchBack.setImageResource(R.drawable.ic_fluent_search_24_regular);
 		searchBack.setEnabled(false);
+		searchBack.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
 		getActivity().getSystemService(InputMethodManager.class).hideSoftInputFromWindow(searchEdit.getWindowToken(), 0);
 	}
 

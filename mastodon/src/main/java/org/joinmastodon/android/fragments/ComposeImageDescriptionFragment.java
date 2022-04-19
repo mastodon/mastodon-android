@@ -30,7 +30,7 @@ import me.grishka.appkit.imageloader.ViewImageLoader;
 import me.grishka.appkit.imageloader.requests.UrlImageLoaderRequest;
 import me.grishka.appkit.utils.V;
 
-public class ComposeImageDescriptionFragment extends ToolbarFragment{
+public class ComposeImageDescriptionFragment extends MastodonToolbarFragment{
 	private String accountID, attachmentID;
 	private EditText edit;
 	private Button saveButton;

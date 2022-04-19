@@ -17,6 +17,7 @@ import org.joinmastodon.android.E;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.requests.reports.SendReport;
 import org.joinmastodon.android.events.FinishReportFragmentsEvent;
+import org.joinmastodon.android.fragments.MastodonToolbarFragment;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.ReportReason;
 import org.joinmastodon.android.ui.utils.UiUtils;
@@ -30,7 +31,7 @@ import me.grishka.appkit.api.ErrorResponse;
 import me.grishka.appkit.fragments.ToolbarFragment;
 import me.grishka.appkit.utils.V;
 
-public class ReportCommentFragment extends ToolbarFragment{
+public class ReportCommentFragment extends MastodonToolbarFragment{
 	private String accountID;
 	private Account reportAccount;
 	private Button btn;

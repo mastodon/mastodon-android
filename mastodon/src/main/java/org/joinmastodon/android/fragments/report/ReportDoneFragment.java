@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.requests.accounts.SetAccountFollowed;
+import org.joinmastodon.android.fragments.MastodonToolbarFragment;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.Relationship;
 import org.joinmastodon.android.model.ReportReason;
@@ -29,7 +30,7 @@ import me.grishka.appkit.imageloader.requests.UrlImageLoaderRequest;
 import me.grishka.appkit.utils.CubicBezierInterpolator;
 import me.grishka.appkit.utils.V;
 
-public class ReportDoneFragment extends ToolbarFragment{
+public class ReportDoneFragment extends MastodonToolbarFragment{
 	private String accountID;
 	private Account reportAccount;
 	private Button btn;

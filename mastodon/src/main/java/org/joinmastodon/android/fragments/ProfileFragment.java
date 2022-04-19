@@ -454,6 +454,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 			toolbarSubtitleView.setTranslationY(titleTransY);
 		}
 		getToolbar().setOnClickListener(v->scrollToTop());
+		getToolbar().setNavigationContentDescription(R.string.back);
 	}
 
 	@Override

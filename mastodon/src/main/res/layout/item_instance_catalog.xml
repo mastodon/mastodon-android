@@ -15,6 +15,7 @@
 		android:button="@drawable/ic_round_checkbox"
 		android:buttonTint="?android:textColorSecondary"
 		android:background="@null"
+		android:focusable="false"
 		android:clickable="false"/>
 
 	<TextView

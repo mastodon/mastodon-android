@@ -101,7 +101,7 @@ import me.grishka.appkit.imageloader.ViewImageLoader;
 import me.grishka.appkit.imageloader.requests.UrlImageLoaderRequest;
 import me.grishka.appkit.utils.V;
 
-public class ComposeFragment extends ToolbarFragment implements OnBackPressedListener, ComposeEditText.SelectionListener{
+public class ComposeFragment extends MastodonToolbarFragment implements OnBackPressedListener, ComposeEditText.SelectionListener{
 
 	private static final int MEDIA_RESULT=717;
 	private static final int IMAGE_DESCRIPTION_RESULT=363;
@@ -433,7 +433,6 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 				updateCharCounter(s);
 			}
 		});
-		updateToolbar();
 		if(replyTo!=null){
 			replyText.setText(getString(R.string.in_reply_to, replyTo.account.displayName));
 			ArrayList<String> mentions=new ArrayList<>();
@@ -518,7 +517,6 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 	public void onConfigurationChanged(Configuration newConfig){
 		super.onConfigurationChanged(newConfig);
 		emojiKeyboard.onConfigurationChanged();
-		updateToolbar();
 	}
 
 	@SuppressLint("NewApi")
@@ -556,7 +554,9 @@ public class ComposeFragment extends ToolbarFragment implements OnBackPressedLis
 		mainEditText.getText().replace(start, mainEditText.getSelectionEnd(), prefix+emoji.shortcode+':');
 	}
 
-	private void updateToolbar(){
+	@Override
+	protected void updateToolbar(){
+		super.updateToolbar();
 		getToolbar().setNavigationIcon(R.drawable.ic_fluent_dismiss_24_regular);
 	}
 

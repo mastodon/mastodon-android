@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import org.joinmastodon.android.E;
 import org.joinmastodon.android.R;
+import org.joinmastodon.android.fragments.MastodonToolbarFragment;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.DividerItemDecoration;
@@ -32,7 +33,7 @@ import me.grishka.appkit.utils.SingleViewRecyclerAdapter;
 import me.grishka.appkit.utils.V;
 import me.grishka.appkit.views.UsableRecyclerView;
 
-public abstract class BaseReportChoiceFragment extends ToolbarFragment{
+public abstract class BaseReportChoiceFragment extends MastodonToolbarFragment{
 	private UsableRecyclerView list;
 	private MergeRecyclerAdapter adapter;
 	private Button btn;

@@ -30,6 +30,7 @@
 						android:layout_width="match_parent"
 						android:layout_height="229dp"
 						android:background="#808080"
+						android:contentDescription="@string/profile_header"
 						android:scaleType="centerCrop"/>
 
 					<View
@@ -51,6 +52,7 @@
 						android:layout_marginStart="16dp"
 						android:layout_marginTop="-38dp"
 						android:scaleType="centerCrop"
+						android:contentDescription="@string/profile_picture"
 						tools:src="#0f0" />
 
 					<LinearLayout
