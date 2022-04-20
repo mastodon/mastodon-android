@@ -28,14 +28,75 @@
 	<string name="discard_draft">Abandonner le brouillon ?</string>
 	<string name="discard">Abandonner</string>
 	<string name="cancel">Annuler</string>
+	<plurals name="followers">
+		<item quantity="one">abonné·e</item>
+		<item quantity="other">abonné·e·s</item>
+	</plurals>
 	<string name="posts">Publication</string>
 	<string name="posts_and_replies">Messages et réponses</string>
 	<string name="media">Médias</string>
+	<string name="profile_about">À propos</string>
 	<string name="button_follow">Suivre</string>
 	<string name="button_following">Abonnement</string>
 	<string name="edit_profile">Modifier le profil</string>
+	<string name="mention_user">Mentionner %s</string>
+	<string name="share_user">Partager %s</string>
+	<string name="mute_user">Mettre %s en sourdine</string>
+	<string name="unmute_user">Rétablir le son de %s</string>
+	<string name="block_user">Bloquer %s</string>
+	<string name="unblock_user">Débloquer %s</string>
+	<string name="report_user">Signaler %s</string>
+	<string name="block_domain">Bloquer %s</string>
+	<string name="unblock_domain">Débloquer %s</string>
 	<string name="profile_joined">Rejoint</string>
 	<string name="done">Terminé</string>
 	<string name="loading">Chargement…</string>
 	<string name="field_label">Étiquette</string>
+	<string name="field_content">Contenu</string>
+	<string name="saving">Enregistrement en cours…</string>
+	<string name="post_from_user">Publication de %s</string>
+	<string name="poll_option_hint">Option %d</string>
+	<plurals name="x_minutes">
+		<item quantity="one">%d minute</item>
+		<item quantity="other">%d minutes</item>
+	</plurals>
+	<plurals name="x_hours">
+		<item quantity="one">%d heure</item>
+		<item quantity="other">%d heures</item>
+	</plurals>
+	<plurals name="x_days">
+		<item quantity="one">%d jour</item>
+		<item quantity="other">%d jours</item>
+	</plurals>
+	<string name="compose_poll_duration">Durée: %s</string>
+	<plurals name="x_seconds_left">
+		<item quantity="one">%d seconde restante</item>
+		<item quantity="other">%d secondes restantes</item>
+	</plurals>
+	<plurals name="x_minutes_left">
+		<item quantity="one">%d minute restante</item>
+		<item quantity="other">%d minutes restantes</item>
+	</plurals>
+	<plurals name="x_hours_left">
+		<item quantity="one">%d heure restante</item>
+		<item quantity="other">%d heures restantes</item>
+	</plurals>
+	<plurals name="x_days_left">
+		<item quantity="one">%d jour restant</item>
+		<item quantity="other">%d jours restants</item>
+	</plurals>
+	<string name="poll_closed">Fermé</string>
+	<string name="confirm_mute_title">Masquer le compte</string>
+	<string name="confirm_mute">Êtes-vous sûr de vouloir mettre en sourdine %s</string>
+	<string name="do_mute">Mettre en sourdine</string>
+	<string name="confirm_unmute_title">Ne plus mettre en sourdine ce compte</string>
+	<string name="confirm_unmute">Êtes-vous sûr de vouloir désactiver la sourdine de %s</string>
+	<string name="do_unmute">Ne plus ignorer</string>
+	<string name="confirm_block_title">Bloquer le compte</string>
+	<string name="confirm_block_domain_title">Bloquer le domaine</string>
+	<string name="confirm_block">Confirmer le blocage de %s</string>
+	<string name="do_block">Bloquer</string>
+	<string name="confirm_unblock_title">Débloquer le compte</string>
+	<string name="confirm_unblock_domain_title">Débloquer le domaine</string>
+	<string name="confirm_unblock">Confirmer le déblocage de %s</string>
 </resources>
