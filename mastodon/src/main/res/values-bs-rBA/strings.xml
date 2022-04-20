@@ -33,6 +33,16 @@
 		<item quantity="few">prati</item>
 		<item quantity="other">pratilaca</item>
 	</plurals>
+	<plurals name="following">
+		<item quantity="one">prati</item>
+		<item quantity="few">prati</item>
+		<item quantity="other">prati</item>
+	</plurals>
+	<plurals name="posts">
+		<item quantity="one">objava</item>
+		<item quantity="few">objave</item>
+		<item quantity="other">objave</item>
+	</plurals>
 	<string name="posts">Objave</string>
 	<string name="posts_and_replies">Objave i Odgovori</string>
 	<string name="media">Slike / Video</string>
@@ -92,6 +102,11 @@
 	<string name="for_you">Za vas</string>
 	<string name="all_notifications">Sve</string>
 	<string name="mentions">Spominjanja</string>
+	<plurals name="discussed_x_times">
+		<item quantity="one">Komentarisano %d puta</item>
+		<item quantity="few">Komentarisano %d puta</item>
+		<item quantity="other">Komentarisano %d puta</item>
+	</plurals>
 	<string name="report_title">Prijavi %s</string>
 	<string name="report_choose_reason">Šta nije u redu sa ovom objavom?</string>
 	<string name="report_choose_reason_account">Šta nije u redu sa %s?</string>
@@ -176,6 +191,11 @@
 	<string name="notification_type_poll">Ankete</string>
 	<string name="choose_account">Odaberi račun</string>
 	<string name="err_not_logged_in">Molimo prvo se logujte</string>
+	<plurals name="cant_add_more_than_x_attachments">
+		<item quantity="one">Nemožete dodati više od %d slika</item>
+		<item quantity="few">Možete dodati više od %d slika</item>
+		<item quantity="other">Možete dodati više od %d slika</item>
+	</plurals>
 	<string name="media_attachment_unsupported_type">Ne podržavamo %s fajlove</string>
 	<string name="media_attachment_too_big">Fajl %1$s prelazi limit od %2$s MB</string>
 	<string name="settings_theme">Vizuelni prikaz</string>
@@ -240,7 +260,7 @@
 	<string name="reorder">Poredaj</string>
 	<string name="download">Download</string>
 	<string name="permission_required">Potrebno odobrenje</string>
-	<string name="storage_permission_to_download">Aplikacija treba pristup vasem uredjaju da sačuva ovu datoteku.</string>
+	<string name="storage_permission_to_download">Aplikacija treba pristup vašem uredjaju da sačuva ovu datoteku.</string>
 	<string name="open_settings">Otvori postavke</string>
 	<string name="error_saving_file">Greška prilikom procesiranja</string>
 	<string name="file_saved">Datoteka sačuvana</string>
