@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="app_name">Mastodon</string>
 
@@ -174,7 +175,7 @@
 	<string name="mute_user_explain">Ana sayfa akışınızda gönderilerini görmezsiniz. Sessize alındıklarını bilmeyecekler.</string>
 	<string name="block_user_explain">Artık gönderilerinizi takip edemez veya göremezler, ancak engellenip engellenmediklerini görebilirler.</string>
 	<string name="report_personal_title">Bunu görmek istemiyor musun?</string>
-	<string name="report_personal_subtitle">Mastodon'da beğenmediğiniz bir şey gördüğünüzde, o kişiyi deneyiminizden çıkarabilirsiniz.</string>
+	<string name="report_personal_subtitle">Mastodon\'da beğenmediğiniz bir şey gördüğünüzde, o kişiyi deneyiminizden çıkarabilirsiniz.</string>
 	<string name="back">Geri</string>
 	<string name="instance_catalog_title">Mastodon, farklı topluluklardaki kullanıcılardan oluşur.</string>
 	<string name="instance_catalog_subtitle">İlgi alanlarınıza, bölgenize veya genel amaçlı bir topluluk seçin. Topluluktan bağımsız olarak yine de herkesle bağlantı kurabilirsiniz.</string>
@@ -231,13 +232,13 @@
 	<string name="notification_type_mention">Bahsetmeler</string>
 	<string name="notification_type_poll">Anketler</string>
 	<string name="choose_account">Hesap seç</string>
-	<string name="err_not_logged_in">Lütfen önce Mastodon'da oturum açın</string>
+	<string name="err_not_logged_in">Lütfen önce Mastodon\'da oturum açın</string>
 	<plurals name="cant_add_more_than_x_attachments">
-		<item quantity="one">%d'den fazla medya ekleyemezsiniz</item>
-		<item quantity="other">%d'den fazla medya ekleyemezsiniz</item>
+		<item quantity="one">%d\'den fazla medya ekleyemezsiniz</item>
+		<item quantity="other">%d\'den fazla medya ekleyemezsiniz</item>
 	</plurals>
 	<string name="media_attachment_unsupported_type">%s dosyası desteklenmeyen türde</string>
-	<string name="media_attachment_too_big">%1$s dosyası, %2$s MB'lik boyut sınırını aşıyor</string>
+	<string name="media_attachment_too_big">%1$s dosyası, %2$s MB\'lik boyut sınırını aşıyor</string>
 	<string name="settings_theme">Görünüm</string>
 	<string name="theme_auto">Otomatik</string>
 	<string name="theme_light">Aydınlık</string>
@@ -258,7 +259,7 @@
 	<string name="notify_mention">Benden bahsedildiğinde</string>
 	<string name="settings_boring">Sıkıcı bölge</string>
 	<string name="settings_account">Hesap ayarları</string>
-	<string name="settings_contribute">Mastodon'a katkıda bulunun</string>
+	<string name="settings_contribute">Mastodon\'a katkıda bulunun</string>
 	<string name="settings_tos">Kullanım Şartları</string>
 	<string name="settings_privacy_policy">Gizlilik Politikası</string>
 	<string name="settings_spicy">kırmızı bölge</string>
@@ -286,9 +287,9 @@
 	<string name="home_timeline">Anasayfa</string>
 	<string name="my_profile">Profilim</string>
 	<string name="media_viewer">Medya görüntüleyici</string>
-	<string name="follow_user">%s'yi takip et</string>
+	<string name="follow_user">%s\'yi takip et</string>
 	<string name="unfollowed_user">%s takip edilmedi</string>
-	<string name="followed_user">%s'i takip ediyorsunuz</string>
+	<string name="followed_user">%s\'i takip ediyorsunuz</string>
 	<string name="open_in_browser">Tarayıcıda aç</string>
 	<string name="hide_boosts_from_user">%s tarafından sağlanan desteklemeleri gizle</string>
 	<string name="show_boosts_from_user">%s tarafından sağlanan desteklemeleri göster</string>
