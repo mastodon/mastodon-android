@@ -1,3 +1,9 @@
 files:
   - source: /mastodon/src/main/res/values/strings.xml
     translation: /mastodon/src/main/res/values-%android_code%/strings.xml
+  - source: /fastlane/metadata/android/en-US/short_description.txt
+    translation: /fastlane/metadata/android/%android_code%/short_description.txt
+  - source: /fastlane/metadata/android/en-US/full_description.txt
+    translation: /fastlane/metadata/android/%android_code%/full_description.txt
+  - source: /fastlane/metadata/android/en-US/title.txt
+    translation: /fastlane/metadata/android/%android_code%/title.txt
