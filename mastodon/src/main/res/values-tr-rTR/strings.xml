@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="app_name">Mastodon</string>
-	<string name="get_started">Başlarken</string>
+	<string name="get_started">Başlayın</string>
 	<string name="log_in">Giriş Yap</string>
 	<string name="next">Sonraki</string>
-	<string name="loading_instance">Sunucu bilgisi alınıyor...</string>
+	<string name="loading_instance">Sunucu bilgisi alınıyor…</string>
 	<string name="error">Hata</string>
-	<string name="not_a_mastodon_instance">%s bir Mastodon örneği gibi görünmüyor.</string>
+	<string name="not_a_mastodon_instance">%s bir Mastodon sunucusu gibi görünmüyor.</string>
 	<string name="ok">Tamam</string>
 	<string name="preparing_auth">Kimlik doğrulama için hazırlanıyor…</string>
 	<string name="finishing_auth">Kimlik doğrulama tamamlanıyor…</string>
 	<string name="user_boosted">%s Paylaştı</string>
-	<string name="in_reply_to">Cevapladı %s</string>
+	<string name="in_reply_to">%s için yanıt</string>
 	<string name="notifications">Bildirimler</string>
 	<string name="user_followed_you">seni takip etti</string>
 	<string name="user_sent_follow_request">sana bir takip isteği gönderdi</string>
@@ -167,6 +167,7 @@
 	<string name="unfollow_user">Takipten çık %s</string>
 	<string name="unfollow">Takipten çık</string>
 	<string name="mute_user_explain">Ana sayfa akışınızda gönderilerini görmezsiniz. Sessize alındıklarını bilmeyecekler.</string>
+	<string name="block_user_explain">Artık gönderilerinizi takip edemez veya göremezler, ancak engellenip engellenmediklerini görebilirler.</string>
 	<string name="report_personal_title">Bunu görmek istemiyor musun?</string>
 	<string name="report_personal_subtitle">Mastodon\'da beğenmediğiniz bir şey gördüğünüzde, o kişiyi deneyiminizden çıkarabilirsiniz.</string>
 	<string name="back">Geri</string>
