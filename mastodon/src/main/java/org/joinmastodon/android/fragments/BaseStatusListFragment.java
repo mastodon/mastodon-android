@@ -328,7 +328,6 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 	public void onConfigurationChanged(Configuration newConfig){
 		super.onConfigurationChanged(newConfig);
 		updateToolbar();
-		list.invalidateItemDecorations();
 	}
 
 	private void updateToolbar(){
