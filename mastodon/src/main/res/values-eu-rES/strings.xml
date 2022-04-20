@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="app_name">Mastodon</string>
+	<string name="get_started">Nola hasi</string>
+	<string name="log_in">Hasi saioa</string>
+	<string name="next">Hurrengoa</string>
+	<string name="loading_instance">Instantziaren informazioa eskuratzen…</string>
+	<string name="error">Errorea</string>
+	<string name="ok">Ados</string>
+	<string name="user_boosted">%s(e)k bultzatu du</string>
+	<string name="in_reply_to">%s-(r)i erantzunez</string>
+	<string name="notifications">Jakinarazpenak</string>
+	<string name="user_followed_you">jarraitu zaitu</string>
+	<string name="user_sent_follow_request">jarraitzeko eskaera bidali dizu</string>
+	<string name="user_favorited">zure mezua gogoko du</string>
+	<string name="notification_boosted">zure tuta bultza du</string>
+	<string name="poll_ended">inkesta amaitu da</string>
+	<string name="time_seconds">%ds</string>
+	<string name="time_minutes">%dm</string>
+	<string name="time_hours">%dh</string>
+	<string name="time_days">%de</string>
+	<string name="share_toot_title">Partekatu</string>
+	<string name="settings">Ezarpenak</string>
+	<string name="publish">Argitaratu</string>
+	<string name="discard_draft">Zirriborroa baztertu?</string>
+	<string name="discard">Baztertu</string>
+	<string name="cancel">Utzi</string>
+	<plurals name="followers">
+		<item quantity="one">jarraitzaile</item>
+		<item quantity="other">jarraitzaile</item>
+	</plurals>
+	<plurals name="following">
+		<item quantity="one">jarraitzen</item>
+		<item quantity="other">jarraitzen</item>
+	</plurals>
+	<plurals name="posts">
+		<item quantity="one">bidalketa</item>
+		<item quantity="other">bidalketa</item>
+	</plurals>
+	<string name="posts">Bidalketak</string>
+	<string name="posts_and_replies">Bidalketak eta erantzunak</string>
+	<string name="media">Multimedia</string>
+	<string name="profile_about">Honi buruz</string>
+	<string name="button_follow">Jarraitu</string>
+	<string name="button_following">Jarraitzen</string>
+	<string name="edit_profile">Editatu profila</string>
+	<string name="mention_user">Aipatu %s</string>
+	<string name="share_user">Partekatu %s</string>
+	<string name="mute_user">Mututu %s</string>
+	<string name="unmute_user">Desmututu %s</string>
+	<string name="block_user">Blokeatu %s</string>
+	<string name="unblock_user">Desblokeatu %s</string>
+	<string name="report_user">Salatu %s</string>
+	<string name="block_domain">Blokeatu %s</string>
+	<string name="unblock_domain">Desblokeatu %s</string>
+	<plurals name="x_posts">
+		<item quantity="one">Bidalketa %,d</item>
+		<item quantity="other">%,d bidalketa</item>
+	</plurals>
+	<string name="profile_joined">Elkartuta</string>
+	<string name="done">Egina</string>
+	<string name="loading">Kargatzen…</string>
+	<string name="field_label">Etiketa</string>
+	<string name="field_content">Edukia</string>
+	<string name="saving">Gordetzen…</string>
+	<string name="post_from_user">%s(r)en bidalketa</string>
+	<string name="poll_option_hint">%d aukera</string>
+	<plurals name="x_minutes">
+		<item quantity="one">Minutu %d</item>
+		<item quantity="other">%d minutu</item>
+	</plurals>
+	<plurals name="x_hours">
+		<item quantity="one">Ordu %d</item>
+		<item quantity="other">%d ordu</item>
+	</plurals>
+	<plurals name="x_days">
+		<item quantity="one">Egun %d</item>
+		<item quantity="other">%d egun</item>
+	</plurals>
+	<string name="compose_poll_duration">Iraupena: %s</string>
+</resources>
