@@ -76,9 +76,9 @@ import org.joinmastodon.android.ui.text.ComposeHashtagOrMentionSpan;
 import org.joinmastodon.android.ui.text.HtmlParser;
 import org.joinmastodon.android.ui.utils.SimpleTextWatcher;
 import org.joinmastodon.android.ui.utils.UiUtils;
+import org.joinmastodon.android.ui.views.ComposeEditText;
 import org.joinmastodon.android.ui.views.ComposeMediaLayout;
 import org.joinmastodon.android.ui.views.ReorderableLinearLayout;
-import org.joinmastodon.android.ui.views.ComposeEditText;
 import org.joinmastodon.android.ui.views.SizeListenerLinearLayout;
 import org.parceler.Parcel;
 import org.parceler.Parcels;
@@ -91,12 +91,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
-import androidx.annotation.DrawableRes;
 import me.grishka.appkit.Nav;
 import me.grishka.appkit.api.Callback;
 import me.grishka.appkit.api.ErrorResponse;
 import me.grishka.appkit.fragments.OnBackPressedListener;
-import me.grishka.appkit.fragments.ToolbarFragment;
 import me.grishka.appkit.imageloader.ViewImageLoader;
 import me.grishka.appkit.imageloader.requests.UrlImageLoaderRequest;
 import me.grishka.appkit.utils.V;
@@ -416,14 +414,17 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 					}
 					char firstChar=editable.charAt(spanStart);
 					String spanText=s.subSequence(spanStart, spanEnd).toString();
-					if(firstChar=='@' || firstChar=='#'){
-						Matcher matcher=HIGHLIGHT_PATTERN.matcher(spanText);
-						if(!matcher.find()){ // invalid mention, remove
+					if(firstChar=='@' || firstChar=='#' || firstChar==':'){
+						Matcher matcher=AUTO_COMPLETE_PATTERN.matcher(spanText);
+						char prevChar=spanStart>0 ? editable.charAt(spanStart-1) : ' ';
+						if(!matcher.find() || !Character.isWhitespace(prevChar)){ // invalid mention, remove
 							editable.removeSpan(span);
 							continue;
 						}else if(matcher.end()+spanStart<spanEnd){ // mention with something at the end, move the end offset
 							editable.setSpan(span, spanStart, spanStart+matcher.end(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
 						}
+					}else{
+						editable.removeSpan(span);
 					}
 				}
 			}
