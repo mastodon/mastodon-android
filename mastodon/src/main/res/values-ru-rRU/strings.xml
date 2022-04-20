@@ -190,7 +190,11 @@
 	<string name="unfollow">Отписаться</string>
 	<string name="mute_user_explain">Вы перестаните видеть посты и продвижения этого пользователя в домашней ленте. Он(а) не узнает, что вы игнорируете его/её.</string>
 	<string name="report_personal_title">Не хотите видеть это?</string>
+	<string name="report_personal_subtitle">Если кто-то в Mastodon публикует то, что вам не нравится, вы можете скрыть его.</string>
 	<string name="back">Назад</string>
+	<string name="instance_catalog_title">Mastodon состоит из пользователей разнообразных сообществ.</string>
+	<string name="instance_catalog_subtitle">Выберите сообщество общей принадлежности, либо на основе своих интересов или региона. Вы по-прежнему сможете взаимодействовать с кем захотите, независимо от выбранного сообщества.</string>
+	<string name="search_communities">Поиск по сообществам или ссылке</string>
 	<string name="instance_rules_title">Несколько основных правил</string>
 	<string name="edit_photo">изменить</string>
 	<string name="display_name">отображаемое имя</string>
@@ -223,6 +227,7 @@
 	<string name="save">Сохранить</string>
 	<string name="add_alt_text">Добавить альтернативный текст</string>
 	<string name="alt_text_subtitle">Альтернативный текст служит описанием ваших фотографий для незрячих людей. Постарайтесь обойтись подробностями, которые позволят понять контекст.</string>
+	<string name="alt_text_hint">Пример: собака с подозрительным прищуром глядит в камеру.</string>
 	<string name="visibility_public">Публичный</string>
 	<string name="visibility_followers_only">Для подписчиков</string>
 	<string name="visibility_private">Только для упомянутых людей</string>
@@ -250,7 +255,10 @@
 	<string name="theme_auto">Автоматически</string>
 	<string name="theme_light">Светлый</string>
 	<string name="theme_dark">Тёмный</string>
+	<string name="theme_true_black">OLED режим</string>
 	<string name="settings_behavior">Поведение</string>
+	<string name="settings_gif">Проигрывать анимированные аватарки и эмодзи</string>
+	<string name="settings_custom_tabs">Использовать браузер в приложении</string>
 	<string name="settings_notifications">Уведомления</string>
 	<string name="notify_me_when">Уведомлять меня, когда</string>
 	<string name="notify_anyone">кто угодно</string>
@@ -263,6 +271,7 @@
 	<string name="notify_mention">Упоминает меня</string>
 	<string name="settings_boring">Зона скукотищи</string>
 	<string name="settings_account">Настройки учётной записи</string>
+	<string name="settings_contribute">Внести вклад в Mastodon</string>
 	<string name="settings_tos">Условия использования</string>
 	<string name="settings_privacy_policy">Политика конфиденциальности</string>
 	<string name="settings_spicy">Пикантная зона</string>
@@ -271,8 +280,12 @@
 	<string name="media_cache_cleared">Кэш медиа очищен</string>
 	<string name="confirm_log_out">Вы действительно хотите выйти из учётной записи?</string>
 	<string name="sensitive_content">Содержимое «деликатного характера»</string>
+	<string name="sensitive_content_explain">Автор отметил это содержимое как «деликатного характера». Нажмите, чтобы отобразить.</string>
 	<string name="media_hidden">Нажмите, чтобы показать</string>
 	<string name="avatar_description">Перейти к профилю %s</string>
+	<string name="more_options">Дополнительные настройки</string>
+	<string name="reveal_content">Отобразить содержимое</string>
+	<string name="hide_content">Скрыть содержимое</string>
 	<string name="new_post">Новый пост</string>
 	<string name="button_reply">Ответить</string>
 	<string name="button_reblog">Продвинуть</string>
@@ -295,6 +308,8 @@
 	<string name="signup_reason">почему вы хотите присоединиться?</string>
 	<string name="signup_reason_note">Это поможет нам рассмотреть вашу заявку.</string>
 	<string name="clear">Очистить</string>
+	<string name="profile_header">Изображение шапки</string>
+	<string name="profile_picture">Аватарка</string>
 	<string name="reorder">Изменить порядок</string>
 	<string name="download">Скачать</string>
 	<string name="permission_required">Требуется доступ</string>
