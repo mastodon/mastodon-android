@@ -547,8 +547,10 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 				.setCallback(new Callback<>(){
 					@Override
 					public void onSuccess(List<Relationship> result){
-						relationship=result.get(0);
-						updateRelationship();
+						if(!result.isEmpty()){
+							relationship=result.get(0);
+							updateRelationship();
+						}
 					}
 
 					@Override

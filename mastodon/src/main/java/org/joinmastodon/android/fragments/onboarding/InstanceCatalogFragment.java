@@ -401,9 +401,11 @@ public class InstanceCatalogFragment extends BaseRecyclerFragment<CatalogInstanc
 		instanceProgressDialog=new ProgressDialog(getActivity());
 		instanceProgressDialog.setMessage(getString(R.string.loading_instance));
 		instanceProgressDialog.setOnCancelListener(dialog->{
-			loadingInstanceRequest.cancel();
-			loadingInstanceRequest=null;
-			loadingInstanceDomain=null;
+			if(loadingInstanceRequest!=null){
+				loadingInstanceRequest.cancel();
+				loadingInstanceRequest=null;
+				loadingInstanceDomain=null;
+			}
 		});
 		instanceProgressDialog.show();
 	}
