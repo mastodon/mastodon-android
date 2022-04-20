@@ -234,6 +234,11 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 				currentPhotoViewer=null;
 			}
 
+			@Override
+			public void onRequestPermissions(String[] permissions){
+				requestPermissions(permissions, PhotoViewer.PERMISSION_REQUEST);
+			}
+
 			private ImageStatusDisplayItem.Holder<?> findPhotoViewHolder(int index){
 				int offset=0;
 				for(StatusDisplayItem item:displayItems){
@@ -560,6 +565,20 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 			onSetFabBottomInset(0);
 		}
 		super.onApplyWindowInsets(insets);
+	}
+
+	@Override
+	public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults){
+		if(requestCode==PhotoViewer.PERMISSION_REQUEST && currentPhotoViewer!=null){
+			currentPhotoViewer.onRequestPermissionsResult(permissions, grantResults);
+		}
+	}
+
+	@Override
+	public void onPause(){
+		super.onPause();
+		if(currentPhotoViewer!=null)
+			currentPhotoViewer.onPause();
 	}
 
 	protected class DisplayItemsAdapter extends UsableRecyclerView.Adapter<BindableViewHolder<StatusDisplayItem>> implements ImageLoaderRecyclerAdapter{

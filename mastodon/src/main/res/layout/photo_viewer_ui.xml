@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<me.grishka.appkit.views.FragmentRootLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:id="@+id/photo_viewer_overlay"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:theme="@style/Theme.Mastodon.Dark">
+
+	<FrameLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+
+		<FrameLayout
+			android:id="@+id/toolbar_wrap"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_gravity="top"
+			android:background="#80000000">
+
+			<Toolbar
+				android:id="@+id/toolbar"
+				android:layout_width="match_parent"
+				android:layout_height="?android:attr/actionBarSize"
+				android:elevation="0dp"
+				android:navigationIcon="@drawable/ic_fluent_arrow_left_24_regular"
+				android:navigationContentDescription="@string/back"
+				android:theme="@style/Theme.Mastodon.Toolbar.Profile"
+				android:background="@null"/>
+
+		</FrameLayout>
+
+		<RelativeLayout
+			android:id="@+id/video_player_controls"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_gravity="bottom"
+			android:background="#80000000">
+
+			<SeekBar
+				android:id="@+id/seekbar"
+				android:layout_width="match_parent"
+				android:layout_height="34dp"
+				android:layout_marginTop="8dp"
+				android:max="10000"
+				android:progressDrawable="@drawable/seekbar_video_player"
+				android:thumb="@drawable/seekbar_video_player_thumb"/>
+
+			<ImageButton
+				android:id="@+id/play_pause_btn"
+				android:layout_width="40dp"
+				android:layout_height="40dp"
+				android:layout_below="@id/seekbar"
+				android:layout_alignParentStart="true"
+				android:layout_marginLeft="8dp"
+				android:layout_marginRight="8dp"
+				android:layout_marginBottom="8dp"
+				android:src="@drawable/ic_pause_24"
+				android:tint="@color/gray_50"
+				android:contentDescription="@string/pause"
+				android:background="?android:selectableItemBackgroundBorderless"/>
+
+			<TextView
+				android:id="@+id/time"
+				android:layout_width="wrap_content"
+				android:layout_height="24dp"
+				android:layout_below="@id/seekbar"
+				android:layout_alignParentEnd="true"
+				android:layout_marginTop="16dp"
+				android:layout_marginEnd="16dp"
+				android:gravity="center_vertical"
+				android:textAppearance="@style/m3_body_large"
+				android:textColor="#fff"
+				tools:text="1:23 / 4:56"/>
+
+		</RelativeLayout>
+
+	</FrameLayout>
+
+</me.grishka.appkit.views.FragmentRootLinearLayout>

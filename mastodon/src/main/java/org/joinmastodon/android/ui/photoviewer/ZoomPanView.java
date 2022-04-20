@@ -53,6 +53,7 @@ public class ZoomPanView extends FrameLayout implements ScaleGestureDetector.OnS
 	private float cropAnimationValue, rawCropAndFadeValue;
 	private float lastFlingVelocityY;
 	private float backgroundAlphaForTransition=1f;
+	private boolean forceUpdateLayout;
 
 	private static final String TAG="ZoomPanView";
 
@@ -106,6 +107,8 @@ public class ZoomPanView extends FrameLayout implements ScaleGestureDetector.OnS
 	@Override
 	protected void onLayout(boolean changed, int left, int top, int right, int bottom){
 		super.onLayout(changed, left, top, right, bottom);
+		if(!changed && child!=null && !forceUpdateLayout)
+			return;
 		child=getChildAt(0);
 		if(child==null)
 			return;
@@ -120,6 +123,13 @@ public class ZoomPanView extends FrameLayout implements ScaleGestureDetector.OnS
 			updateViewTransform(false);
 		updateLimits(scale);
 		transX=transY=0;
+		if(forceUpdateLayout)
+			forceUpdateLayout=false;
+	}
+
+	public void updateLayout(){
+		forceUpdateLayout=true;
+		requestLayout();
 	}
 
 	private float interpolate(float a, float b, float k){
@@ -445,7 +455,8 @@ public class ZoomPanView extends FrameLayout implements ScaleGestureDetector.OnS
 
 	@Override
 	public boolean onSingleTapConfirmed(MotionEvent e){
-		return false;
+		listener.onSingleTap();
+		return true;
 	}
 
 	@Override
@@ -589,5 +600,6 @@ public class ZoomPanView extends FrameLayout implements ScaleGestureDetector.OnS
 		void onStartSwipeToDismissTransition(float velocityY);
 		void onSwipeToDismissCanceled();
 		void onDismissed();
+		void onSingleTap();
 	}
 }
