@@ -59,6 +59,11 @@
 	<string name="report_user">Prijavi %s</string>
 	<string name="block_domain">Blokiraj %s</string>
 	<string name="unblock_domain">Deblokiraj %s</string>
+	<plurals name="x_posts">
+		<item quantity="one">%,d objava</item>
+		<item quantity="few">%,d objave</item>
+		<item quantity="other">%,d objava</item>
+	</plurals>
 	<string name="profile_joined">Pridružen</string>
 	<string name="done">Učinjeno</string>
 	<string name="loading">Učitavanje…</string>
@@ -66,4 +71,49 @@
 	<string name="field_content">Sadržaj</string>
 	<string name="saving">Snimam…</string>
 	<string name="post_from_user">Post od %s</string>
+	<string name="poll_option_hint">Opcija %d</string>
+	<plurals name="x_minutes">
+		<item quantity="one">%d minuta</item>
+		<item quantity="few">%d minute</item>
+		<item quantity="other">%d minuta</item>
+	</plurals>
+	<plurals name="x_hours">
+		<item quantity="one">%d sat</item>
+		<item quantity="few">%d sata</item>
+		<item quantity="other">%d sati</item>
+	</plurals>
+	<plurals name="x_days">
+		<item quantity="one">%d dan</item>
+		<item quantity="few">%d dana</item>
+		<item quantity="other">%d dana</item>
+	</plurals>
+	<string name="compose_poll_duration">Trajanje: %s</string>
+	<plurals name="x_seconds_left">
+		<item quantity="one">%d sekunda preostala</item>
+		<item quantity="few">%d sekunde preostalo</item>
+		<item quantity="other">%d sekundi preostalo</item>
+	</plurals>
+	<plurals name="x_minutes_left">
+		<item quantity="one">%d minuta preostala</item>
+		<item quantity="few">%d minute preostalo</item>
+		<item quantity="other">%d minuta preostalo</item>
+	</plurals>
+	<plurals name="x_hours_left">
+		<item quantity="one">%d sat preostalo</item>
+		<item quantity="few">%d sata preostalo</item>
+		<item quantity="other">%d sati preostalo</item>
+	</plurals>
+	<plurals name="x_days_left">
+		<item quantity="one">%d dan preostalo</item>
+		<item quantity="few">%d dana preostalo</item>
+		<item quantity="other">%d dana preostalo</item>
+	</plurals>
+	<plurals name="x_voters">
+		<item quantity="one">%,d glasač</item>
+		<item quantity="few">%,d glasača</item>
+		<item quantity="other">%,d glasača</item>
+	</plurals>
+	<string name="poll_closed">Završeno</string>
+	<string name="confirm_mute_title">Utišaj Račun</string>
+	<string name="confirm_mute">Potvrdi utišavanje %s</string>
 </resources>
