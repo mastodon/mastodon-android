@@ -19,6 +19,7 @@
 		android:ellipsize="end"
 		android:text="@string/notify_me_when"/>
 
+	<!-- TODO make this LL vertical when the button doesn't fit -->
 	<Button
 		android:id="@+id/button"
 		android:layout_width="wrap_content"
@@ -32,6 +33,8 @@
 		android:paddingRight="4dp"
 		android:stateListAnimator="@null"
 		android:elevation="0dp"
+		android:singleLine="true"
+		android:ellipsize="middle"
 		tools:text="@string/notify_followed"/>
 
 </LinearLayout>
