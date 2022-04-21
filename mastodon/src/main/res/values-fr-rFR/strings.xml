@@ -45,7 +45,7 @@
 	<string name="edit_profile">Modifier le profil</string>
 	<string name="mention_user">Mentionner %s</string>
 	<string name="share_user">Partager %s</string>
-	<string name="mute_user">Mettre %s en sourdine</string>
+	<string name="mute_user">Masquer %s</string>
 	<string name="unmute_user">Ne plus masquer %s</string>
 	<string name="block_user">Bloquer %s</string>
 	<string name="unblock_user">Débloquer %s</string>
@@ -56,7 +56,7 @@
 		<item quantity="one">%,d message</item>
 		<item quantity="other">%,d messages</item>
 	</plurals>
-	<string name="profile_joined">Rejoint</string>
+	<string name="profile_joined">Ici depuis</string>
 	<string name="done">Terminé</string>
 	<string name="loading">Chargement…</string>
 	<string name="field_label">Étiquette</string>
@@ -103,7 +103,7 @@
 	<string name="do_mute">Mettre en sourdine</string>
 	<string name="confirm_unmute_title">Ne plus mettre en sourdine ce compte</string>
 	<string name="confirm_unmute">Êtes-vous sûr de vouloir désactiver la sourdine de %s</string>
-	<string name="do_unmute">Ne plus ignorer</string>
+	<string name="do_unmute">Ne plus masquer</string>
 	<string name="confirm_block_title">Bloquer le compte</string>
 	<string name="confirm_block_domain_title">Bloquer le domaine</string>
 	<string name="confirm_block">Confirmer le blocage de %s</string>
@@ -112,7 +112,7 @@
 	<string name="confirm_unblock_domain_title">Débloquer le domaine</string>
 	<string name="confirm_unblock">Confirmer le déblocage de %s</string>
 	<string name="do_unblock">Débloquer</string>
-	<string name="button_muted">En sourdine</string>
+	<string name="button_muted">Masqué</string>
 	<string name="button_blocked">Bloqué</string>
 	<string name="action_vote">Voter</string>
 	<string name="tap_to_reveal">Appuyer pour afficher</string>
@@ -170,7 +170,7 @@
 	<string name="instance_catalog_title">Mastodon est composé d’utilisateurs de différentes communautés.</string>
 	<string name="instance_catalog_subtitle">Choisissez une communauté basée sur vos intérêts, votre région ou un but général. Vous pouvez toujours vous connecter avec tout le monde, quelle que soit la communauté.</string>
 	<string name="search_communities">Rechercher parmi les communautés ou entrer une URL</string>
-	<string name="instance_rules_title">Règles de base</string>
+	<string name="instance_rules_title">Quelques règles de base</string>
 	<string name="instance_rules_subtitle">Prenez une minute pour revoir les règles définies et appliquées par les administrateurs de %s.</string>
 	<string name="signup_title">Mettons les choses en place pour %s</string>
 	<string name="edit_photo">modifier</string>
@@ -208,9 +208,9 @@
 	<string name="add_alt_text">Ajouter un texte alternatif</string>
 	<string name="alt_text_subtitle">Le texte alternatif décrit vos photos pour les personnes qui ont une vision faible ou nulle. Essayez d’inclure uniquement assez de détails pour comprendre le contexte.</string>
 	<string name="alt_text_hint">p. ex. : Chien regardant autour suspectement avec les yeux fixés sur la caméra.</string>
-	<string name="visibility_public">Publique</string>
-	<string name="visibility_followers_only">Abonné·e·s seulement</string>
-	<string name="visibility_private">Seulement les personnes que je mentionne</string>
+	<string name="visibility_public">Public</string>
+	<string name="visibility_followers_only">Abonné·e·s uniquement</string>
+	<string name="visibility_private">Seulement les personnes mentionnées</string>
 	<string name="search_all">Tout</string>
 	<string name="search_people">Personnes</string>
 	<string name="recent_searches">Recherches récentes</string>
@@ -218,7 +218,7 @@
 	<string name="skip">Passer</string>
 	<string name="notification_type_follow">Nouveaux⋅elles abonné⋅e⋅s</string>
 	<string name="notification_type_favorite">Favoris</string>
-	<string name="notification_type_reblog">Boosts</string>
+	<string name="notification_type_reblog">Partages</string>
 	<string name="notification_type_mention">Mentions</string>
 	<string name="notification_type_poll">Sondages</string>
 	<string name="choose_account">Choisir un compte</string>
@@ -243,9 +243,9 @@
 	<string name="notify_follower">un·e abonné·e</string>
 	<string name="notify_followed">quelqu’un que je suis</string>
 	<string name="notify_none">personne</string>
-	<string name="notify_favorites">Ajoute une de mes messages à ses favoris</string>
+	<string name="notify_favorites">Ajoute un de mes messages à ses favoris</string>
 	<string name="notify_follow">Me suit</string>
-	<string name="notify_reblog">Reblogue mon message</string>
+	<string name="notify_reblog">Partage mon message</string>
 	<string name="notify_mention">Me mentionne</string>
 	<string name="settings_boring">La zone ennuyeuse</string>
 	<string name="settings_account">Paramètres du compte</string>
@@ -258,7 +258,7 @@
 	<string name="media_cache_cleared">Cache des médias vidé</string>
 	<string name="confirm_log_out">Êtes-vous sûr de vouloir vous déconnecter ?</string>
 	<string name="sensitive_content">Contenu sensible</string>
-	<string name="sensitive_content_explain">L’auteur a marqué ce média comme sensible. Appuyez pour le révéler.</string>
+	<string name="sensitive_content_explain">L’auteur·rice a marqué ce média comme sensible. Appuyez pour le révéler.</string>
 	<string name="media_hidden">Appuyez pour révéler</string>
 	<string name="avatar_description">Aller au profil de %s</string>
 	<string name="more_options">Paramètres supplémentaires</string>
@@ -274,7 +274,7 @@
 	<string name="add_poll">Ajouter un sondage</string>
 	<string name="emoji">Émoji</string>
 	<string name="post_visibility">Visibilité du message</string>
-	<string name="home_timeline">Accueil</string>
+	<string name="home_timeline">Fil principal</string>
 	<string name="my_profile">Mon profil</string>
 	<string name="media_viewer">Visionneuse de média</string>
 	<string name="follow_user">Suivre %s</string>
