@@ -32,6 +32,10 @@
 		<item quantity="one">abonné·e</item>
 		<item quantity="other">abonné·e·s</item>
 	</plurals>
+	<plurals name="posts">
+		<item quantity="one">publication</item>
+		<item quantity="other">publications</item>
+	</plurals>
 	<string name="posts">Publication</string>
 	<string name="posts_and_replies">Messages et réponses</string>
 	<string name="media">Médias</string>
@@ -48,6 +52,10 @@
 	<string name="report_user">Signaler %s</string>
 	<string name="block_domain">Bloquer %s</string>
 	<string name="unblock_domain">Débloquer %s</string>
+	<plurals name="x_posts">
+		<item quantity="one">%,d publication</item>
+		<item quantity="other">%,d publications</item>
+	</plurals>
 	<string name="profile_joined">Rejoint</string>
 	<string name="done">Terminé</string>
 	<string name="loading">Chargement…</string>
@@ -183,6 +191,44 @@
 	<string name="category_lgbt">LGBT</string>
 	<string name="category_music">Musique</string>
 	<string name="category_regional">Régional</string>
+	<string name="category_tech">Technologie</string>
+	<string name="confirm_email_title">Une dernière chose</string>
+	<string name="confirm_email_subtitle">Appuyez sur le lien que nous vous avons envoyé par courriel pour vérifier votre compte.</string>
+	<string name="resend">Renvoyer</string>
+	<string name="open_email_app">Ouvrir l’application courriel</string>
+	<string name="resent_email">Courriel de confirmation envoyé</string>
+	<string name="compose_hint">Saisissez ou collez ce qui vous passe par la tête</string>
+	<string name="content_warning">Avertissement sur le contenu</string>
+	<string name="add_image_description">Ajouter une description de l’image…</string>
+	<string name="retry_upload">Réessayer le téléversement</string>
+	<string name="image_upload_failed">Échec du téléversement de l’image</string>
+	<string name="video_upload_failed">Échec du téléversement de la vidéo</string>
+	<string name="edit_image">Modifier l’image</string>
+	<string name="save">Enregistrer</string>
+	<string name="add_alt_text">Ajouter un texte alternatif</string>
+	<string name="alt_text_subtitle">Le texte alternatif décrit vos photos pour les personnes qui ont une vision faible ou nulle. Essayez d’inclure uniquement assez de détails pour comprendre le contexte.</string>
+	<string name="alt_text_hint">p. ex. : Chien regardant autour suspectement avec les yeux fixés sur la caméra.</string>
+	<string name="visibility_public">Publique</string>
+	<string name="visibility_followers_only">Abonnés seulement</string>
+	<string name="visibility_private">Seulement les personnes que je mentionne</string>
+	<string name="search_all">Tout</string>
+	<string name="search_people">Personnes</string>
+	<string name="recent_searches">Recherches récentes</string>
+	<string name="step_x_of_n">Étape %1$d de %2$d</string>
+	<string name="skip">Passer</string>
+	<string name="notification_type_follow">Nouveaux abonnés</string>
+	<string name="notification_type_favorite">Favoris</string>
+	<string name="notification_type_reblog">Boosts</string>
+	<string name="notification_type_mention">Mentions</string>
+	<string name="notification_type_poll">Sondages</string>
+	<string name="choose_account">Choisir un compte</string>
+	<string name="err_not_logged_in">Veuillez d’abord vous connecter à Mastodon</string>
+	<plurals name="cant_add_more_than_x_attachments">
+		<item quantity="one">Vous ne pouvez pas ajouter plus d’une pièce jointe</item>
+		<item quantity="other">Vous ne pouvez pas ajouter plus de %d pièces jointes</item>
+	</plurals>
+	<string name="media_attachment_unsupported_type">Le fichier %s n’est pas pris en charge</string>
+	<string name="media_attachment_too_big">Le fichier %1$s dépasse la taille limite de %2$s Mo</string>
 	<string name="settings_theme">Apparence visuelle</string>
 	<string name="theme_auto">Automatique</string>
 	<string name="theme_light">Clair</string>
@@ -233,4 +279,15 @@
 	<string name="media_viewer">Visionneuse de média</string>
 	<string name="follow_user">Suivre %s</string>
 	<string name="unfollowed_user">Vous ne suivez plus %s</string>
+	<string name="followed_user">Vous suivez maintenant %s</string>
+	<string name="open_in_browser">Ouvrir dans le navigateur</string>
+	<string name="clear">Effacer</string>
+	<string name="profile_header">Image d’en-tête</string>
+	<string name="profile_picture">Image de profil</string>
+	<string name="reorder">Réordonner</string>
+	<string name="download">Télécharger</string>
+	<string name="permission_required">Autorisation requise</string>
+	<string name="open_settings">Ouvrir les paramètres</string>
+	<string name="file_saved">Fichier enregistré</string>
+	<string name="downloading">Téléchargement…</string>
 </resources>
