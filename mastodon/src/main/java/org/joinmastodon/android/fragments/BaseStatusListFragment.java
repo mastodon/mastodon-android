@@ -151,7 +151,10 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 			for(int i=0; i<list.getChildCount(); i++){
 				RecyclerView.ViewHolder holder=list.getChildViewHolder(list.getChildAt(i));
 				if(holder instanceof ImageLoaderViewHolder ivh){
-					for(int j=0; j<list.getImageCountForItem(holder.getAbsoluteAdapterPosition()); j++){
+					int pos=holder.getAbsoluteAdapterPosition();
+					if(pos<0)
+						continue;
+					for(int j=0;j<list.getImageCountForItem(pos);j++){
 						ivh.clearImage(j);
 					}
 				}
