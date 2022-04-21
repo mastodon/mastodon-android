@@ -28,6 +28,18 @@
 	<string name="discard_draft">Eliminare bozza?</string>
 	<string name="discard">Scarta</string>
 	<string name="cancel">Cancella</string>
+	<plurals name="followers">
+		<item quantity="one">seguace</item>
+		<item quantity="other">seguaci</item>
+	</plurals>
+	<plurals name="following">
+		<item quantity="one">seguito</item>
+		<item quantity="other">seguiti</item>
+	</plurals>
+	<plurals name="posts">
+		<item quantity="one">post</item>
+		<item quantity="other">posts</item>
+	</plurals>
 	<string name="posts">Posts</string>
 	<string name="posts_and_replies">Post e Risposte</string>
 	<string name="media">Media</string>
@@ -44,8 +56,93 @@
 	<string name="report_user">Segnala %s</string>
 	<string name="block_domain">Blocca %s</string>
 	<string name="unblock_domain">Sblocca %s</string>
+	<plurals name="x_posts">
+		<item quantity="one">%,d post</item>
+		<item quantity="other">%,d posts</item>
+	</plurals>
 	<string name="profile_joined">Iscritto</string>
 	<string name="done">Fatto</string>
+	<string name="loading">Caricamento…</string>
+	<string name="field_label">Etichetta</string>
+	<string name="field_content">Contenuto</string>
+	<string name="saving">Salvataggio…</string>
+	<string name="post_from_user">Post da %s</string>
+	<string name="poll_option_hint">Opzione %d</string>
+	<plurals name="x_minutes">
+		<item quantity="one">%d minuto</item>
+		<item quantity="other">%d minuti</item>
+	</plurals>
+	<plurals name="x_hours">
+		<item quantity="one">%d ora</item>
+		<item quantity="other">%d ore</item>
+	</plurals>
+	<plurals name="x_days">
+		<item quantity="one">%d giorno</item>
+		<item quantity="other">%d giorni</item>
+	</plurals>
+	<string name="compose_poll_duration">Durata: %s</string>
+	<plurals name="x_seconds_left">
+		<item quantity="one">%d secondo rimanente</item>
+		<item quantity="other">%d secondi rimanenti</item>
+	</plurals>
+	<plurals name="x_minutes_left">
+		<item quantity="one">%d minuto rimanente</item>
+		<item quantity="other">%d minuti rimanenti</item>
+	</plurals>
+	<plurals name="x_hours_left">
+		<item quantity="one">%d ora rimanente</item>
+		<item quantity="other">%d ore rimanenti</item>
+	</plurals>
+	<plurals name="x_days_left">
+		<item quantity="one">%d giorno rimanente</item>
+		<item quantity="other">%d giorni rimanenti</item>
+	</plurals>
+	<plurals name="x_voters">
+		<item quantity="one">%,d votante</item>
+		<item quantity="other">%,d votanti</item>
+	</plurals>
+	<string name="poll_closed">Chiuso</string>
+	<string name="confirm_mute_title">Silenzia account</string>
+	<string name="confirm_mute">Confermi di silenziare %s</string>
+	<string name="do_mute">Silenzia</string>
+	<string name="confirm_unmute_title">Riattiva account</string>
+	<string name="confirm_unmute">Confermi di riattivare %s</string>
+	<string name="do_unmute">Riattiva</string>
+	<string name="confirm_block_title">Blocca account</string>
+	<string name="confirm_block_domain_title">Blocca dominio</string>
+	<string name="confirm_block">Confermi di bloccare %s</string>
+	<string name="do_block">Blocca</string>
+	<string name="confirm_unblock_title">Sblocca account</string>
+	<string name="confirm_unblock_domain_title">Sblocca dominio</string>
+	<string name="confirm_unblock">Conferma per sbloccare %s</string>
+	<string name="do_unblock">Sblocca</string>
+	<string name="button_muted">Silenziato</string>
+	<string name="button_blocked">Bloccato</string>
+	<string name="action_vote">Vota</string>
+	<string name="tap_to_reveal">Tocca per mostrare</string>
+	<string name="delete">Cancella</string>
+	<string name="confirm_delete_title">Cancella Post</string>
+	<string name="confirm_delete">Sei sicuro di voler cancellare questo post?</string>
+	<string name="deleting">Eliminazione…</string>
+	<string name="notification_channel_audio_player">Riproduzione audio</string>
+	<string name="play">Riproduci</string>
+	<string name="pause">Pausa</string>
+	<string name="log_out">Disconnettiti</string>
+	<string name="add_account">Aggiungi account</string>
+	<string name="search_hint">Cerca</string>
+	<string name="hashtags">Hashtags</string>
+	<string name="news">Notizie</string>
+	<string name="for_you">Per te</string>
+	<string name="all_notifications">Tutti</string>
+	<string name="mentions">Menzioni</string>
+	<plurals name="x_people_talking">
+		<item quantity="one">%d persona ne parla</item>
+		<item quantity="other">%d persone ne parlano</item>
+	</plurals>
+	<plurals name="discussed_x_times">
+		<item quantity="one">Discusso %d volta</item>
+		<item quantity="other">Discusso %d volte</item>
+	</plurals>
 	<string name="report_title">Segnala %s</string>
 	<string name="report_choose_reason">Cosa c\'è che non va con questo post?</string>
 	<string name="report_choose_reason_account">Cosa c\'è che non va con %s?</string>
@@ -94,6 +191,59 @@
 	<string name="category_furry">Peloso</string>
 	<string name="category_games">Giochi</string>
 	<string name="category_general">Generale</string>
+	<string name="category_journalism">Giornalismo</string>
+	<string name="category_lgbt">LGBT</string>
+	<string name="category_music">Musica</string>
+	<string name="category_regional">Regionale</string>
+	<string name="category_tech">Tecnologia</string>
+	<string name="confirm_email_title">Un\'ultima cosa</string>
+	<string name="confirm_email_subtitle">Tocca il link che ti abbiamo inviato per verificare il tuo account.</string>
+	<string name="resend">Invia di nuovo</string>
+	<string name="open_email_app">Apri l\'app email</string>
+	<string name="resent_email">Email di conferma inviata</string>
+	<string name="compose_hint">Digita o incolla quello che hai in mente</string>
+	<string name="content_warning">Avviso sul contenuto</string>
+	<string name="add_image_description">Aggiungi descrizione immagine…</string>
+	<string name="retry_upload">Riprova caricamento</string>
+	<string name="image_upload_failed">Impossibile caricare il file</string>
+	<string name="video_upload_failed">Impossibile caricare il video</string>
+	<string name="edit_image">Modifica immagine</string>
+	<string name="save">Salva</string>
+	<string name="add_alt_text">Aggiungi testo alt</string>
+	<string name="alt_text_subtitle">Il testo altro descrive le tue foto per persone con una visione bassa o assente. Prova a includere solo dettagli sufficienti per capire il contesto.</string>
+	<string name="alt_text_hint">ad esempio un cane che guarda in giro sospettosamente con occhi ristretti alla telecamera.</string>
+	<string name="visibility_public">Pubblico</string>
+	<string name="visibility_followers_only">Solo i seguaci</string>
+	<string name="visibility_private">Solo le persone che menziono</string>
+	<string name="search_all">Tutti</string>
+	<string name="search_people">Persone</string>
+	<string name="recent_searches">Ricerche recenti</string>
+	<string name="step_x_of_n">Fase %1$d di %2$d</string>
+	<string name="skip">Salta</string>
+	<string name="notification_type_follow">Nuovi seguaci</string>
+	<string name="notification_type_favorite">Preferiti</string>
+	<string name="notification_type_reblog">Condivisioni</string>
+	<string name="notification_type_mention">Menzioni</string>
+	<string name="notification_type_poll">Sondaggi</string>
+	<string name="choose_account">Seleziona l\'account</string>
+	<string name="err_not_logged_in">Per favore accedi prima a Mastodon</string>
+	<plurals name="cant_add_more_than_x_attachments">
+		<item quantity="one">Non puoi aggiungere più di %d allegato multimediale</item>
+		<item quantity="other">Non puoi aggiungere più di %d allegati multimediali</item>
+	</plurals>
+	<string name="media_attachment_unsupported_type">Il file %s è un formato non supportato</string>
+	<string name="media_attachment_too_big">Il file %1$s supera il limite di dimensione di %2$s MB</string>
+	<string name="settings_theme">Aspetto visivo</string>
+	<string name="theme_auto">Automatico</string>
+	<string name="theme_light">Chiaro</string>
+	<string name="theme_dark">Scuro</string>
+	<string name="theme_true_black">Modalità True Black</string>
+	<string name="settings_behavior">Comportamento</string>
+	<string name="settings_gif">Riproduci avatar ed emoji animati</string>
+	<string name="settings_custom_tabs">Usa browser integrato</string>
+	<string name="settings_notifications">Notifiche</string>
+	<string name="notify_me_when">Avvisami quando</string>
+	<string name="notify_anyone">chiunque</string>
 	<string name="notify_follower">un seguace</string>
 	<string name="notify_followed">chiunque io segua</string>
 	<string name="notify_none">nessuno</string>
@@ -144,4 +294,10 @@
 	<string name="profile_picture">Immagine del profilo</string>
 	<string name="reorder">Riordina</string>
 	<string name="download">Scarica</string>
+	<string name="permission_required">Autorizzazione necessaria</string>
+	<string name="storage_permission_to_download">L\'app ha bisogno di accedere alla memoria del dispositivo per salvare questo file.</string>
+	<string name="open_settings">Apri impostazioni</string>
+	<string name="error_saving_file">Errore durante il salvataggio del file</string>
+	<string name="file_saved">File salvato</string>
+	<string name="downloading">Scaricamento…</string>
 </resources>
