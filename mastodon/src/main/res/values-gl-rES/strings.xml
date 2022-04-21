@@ -56,6 +56,10 @@
 	<string name="report_user">Denunciar a %s</string>
 	<string name="block_domain">Bloquear a %s</string>
 	<string name="unblock_domain">Desbloquear a %s</string>
+	<plurals name="x_posts">
+		<item quantity="one">%,d publicación</item>
+		<item quantity="other">%,d publicacións</item>
+	</plurals>
 	<string name="profile_joined">Uniuse</string>
 	<string name="done">Feito</string>
 	<string name="loading">Estase a cargar…</string>
@@ -92,6 +96,10 @@
 	<plurals name="x_days_left">
 		<item quantity="one">Queda %d día</item>
 		<item quantity="other">Quedan %d días</item>
+	</plurals>
+	<plurals name="x_voters">
+		<item quantity="one">%,d votante</item>
+		<item quantity="other">%,d votantes</item>
 	</plurals>
 	<string name="poll_closed">Pechada</string>
 	<string name="confirm_mute_title">Acalar conta</string>
@@ -225,6 +233,53 @@
 	</plurals>
 	<string name="media_attachment_unsupported_type">O ficheiro %s é dun tipo non permitido</string>
 	<string name="media_attachment_too_big">O ficheiro %1$s supera o límite de %2$s MB</string>
+	<string name="settings_theme">Aparencia</string>
+	<string name="theme_auto">Automático</string>
+	<string name="theme_light">Claro</string>
+	<string name="theme_dark">Escuro</string>
+	<string name="theme_true_black">Modo negro verdadeiro</string>
+	<string name="settings_behavior">Comportamento</string>
+	<string name="settings_gif">Reproducir avatares e emoji animados</string>
+	<string name="settings_custom_tabs">Usar navegador incluído na app</string>
+	<string name="settings_notifications">Notificacións</string>
+	<string name="notify_me_when">Avisarme cando</string>
+	<string name="notify_anyone">calquera</string>
+	<string name="notify_follower">unha seguidora</string>
+	<string name="notify_followed">alguén a quen sigo</string>
+	<string name="notify_none">ninguén</string>
+	<string name="notify_favorites">Favorece unha publicación miña</string>
+	<string name="notify_follow">Me segue</string>
+	<string name="notify_reblog">Promove a miña publicación</string>
+	<string name="notify_mention">Me menciona</string>
+	<string name="settings_boring">A zona aburrida</string>
+	<string name="settings_account">Axustes da conta</string>
+	<string name="settings_contribute">Colaborar con Mastodon</string>
+	<string name="settings_tos">Termos do servizo</string>
+	<string name="settings_privacy_policy">Política de privacidade</string>
+	<string name="settings_spicy">A zona picante</string>
+	<string name="settings_clear_cache">Limpar caché multimedia</string>
+	<string name="settings_app_version">Mastodon para Android v%1$s (%2$d)</string>
+	<string name="media_cache_cleared">Baleiramos a memoria caché</string>
+	<string name="confirm_log_out">Tes a certeza de queres pechar a sesión?</string>
+	<string name="sensitive_content">Contido sensible</string>
+	<string name="sensitive_content_explain">A autora marcou este multimedia como sensible. Toca para mostralo.</string>
+	<string name="media_hidden">Toca para mostrar</string>
+	<string name="avatar_description">Ir ao perfil de %s</string>
+	<string name="more_options">Máis opcións</string>
+	<string name="reveal_content">Mostrar contido</string>
+	<string name="hide_content">Agochar contido</string>
+	<string name="new_post">Nova publicación</string>
+	<string name="button_reply">Responder</string>
+	<string name="button_reblog">Promover</string>
+	<string name="button_favorite">Favorecer</string>
+	<string name="button_share">Compartir</string>
+	<string name="media_no_description">Multimedia sen descrición</string>
+	<string name="add_media">Engadir multimedia</string>
+	<string name="add_poll">Engadir unha enquisa</string>
+	<string name="emoji">Emoji</string>
+	<string name="post_visibility">Visibilidade da publicación</string>
+	<string name="home_timeline">Cronoloxía de inicio</string>
+	<string name="my_profile">O meu perfil</string>
 	<string name="media_viewer">Visor multimedia</string>
 	<string name="follow_user">Segue a %s</string>
 	<string name="unfollowed_user">Deixaches de seguir a %s</string>
@@ -237,6 +292,7 @@
 	<string name="clear">Limpar</string>
 	<string name="profile_header">Imaxe de cabeceira</string>
 	<string name="profile_picture">Imaxe de perfil</string>
+	<string name="reorder">Reordenar</string>
 	<string name="download">Descargar</string>
 	<string name="permission_required">Permiso necesario</string>
 	<string name="storage_permission_to_download">A app precisa acceder á almacenaxe para poder gardar o ficheiro.</string>
