@@ -20,20 +20,16 @@
 	<string name="user_favorited">favorisierte deinen Beitrag</string>
 	<string name="notification_boosted">teilte deinen Beitrag</string>
 	<string name="poll_ended">Abstimmung beendet</string>
-
-	<string name="time_seconds">%ds</string>
-	<string name="time_minutes">%dm</string>
-	<string name="time_hours">%dh</string>
-	<string name="time_days">%dd</string>
-
+	<string name="time_seconds">%dSek.</string>
+	<string name="time_minutes">%dMin.</string>
+	<string name="time_hours">%d Std.</string>
+	<string name="time_days">%d T</string>
 	<string name="share_toot_title">Teilen</string>
 	<string name="settings">Einstellungen</string>
 	<string name="publish">Tröt</string>
 	<string name="discard_draft">Entwurf verwerfen?</string>
 	<string name="discard">Verwerfen</string>
 	<string name="cancel">Abbrechen</string>
-	<string name="publishing">Dein Beitrag wird veröffentlicht</string>
-
 	<plurals name="followers">
 		<item quantity="one">Follower</item>
 		<item quantity="other">Follower</item>
@@ -73,7 +69,7 @@
 	<string name="field_content">Inhalt</string>
 	<string name="saving">Speichern…</string>
 	<string name="post_from_user">Beitrag von %s</string>
-	<string name="poll_option_hint">Option %d</string>
+	<string name="poll_option_hint">Auswahlmöglichkeit %d</string>
 	<plurals name="x_minutes">
 		<item quantity="one">%d Minute</item>
 		<item quantity="other">%d Minuten</item>
@@ -131,8 +127,8 @@
 	<string name="confirm_delete">Bist du dir sicher, dass du den Beitrag löschen möchtest?</string>
 	<string name="deleting">Wird gelöscht…</string>
 	<string name="notification_channel_audio_player">Audiowiedergabe</string>
-	<string name="play">Play</string>
-	<string name="pause">Pause</string>
+	<string name="play">Abspielen</string>
+	<string name="pause">Pausieren</string>
 	<string name="log_out">Abmelden</string>
 	<string name="add_account">Konto hinzufügen</string>
 	<string name="search_hint">Suchen</string>
@@ -186,7 +182,7 @@
 	<string name="edit_photo">bearbeiten</string>
 	<string name="display_name">anzeigename</string>
 	<string name="username">nutzername</string>
-	<string name="email">email</string>
+	<string name="email">E-Mail</string>
 	<string name="password">passwort</string>
 	<string name="password_note">Verwende Großbuchstaben, Sonderzeichen und Zahlen, um deine Passwortstärke zu erhöhen.</string>
 	<string name="category_academia">Bildung</string>
@@ -293,4 +289,17 @@
 	<string name="open_in_browser">Im Browser öffnen</string>
 	<string name="hide_boosts_from_user">Verstecke Boosts von %s</string>
 	<string name="show_boosts_from_user">Zeige Boosts von %s</string>
+	<string name="signup_reason">Warum möchtest du beitreten?</string>
+	<string name="signup_reason_note">Dies wird uns dabei helfen, deine Anmeldungsanfrage besser zu verarbeiten.</string>
+	<string name="clear">Löschen</string>
+	<string name="profile_header">Header-Bild</string>
+	<string name="profile_picture">Profilbild</string>
+	<string name="reorder">Neu sortieren</string>
+	<string name="download">Herunterladen</string>
+	<string name="permission_required">Berechtigung erforderlich</string>
+	<string name="storage_permission_to_download">Die App benötigt Zugriff auf Ihren Speicher, um diese Datei zu speichern.</string>
+	<string name="open_settings">Einstellungen öffnen</string>
+	<string name="error_saving_file">Fehler beim Speichern der Datei</string>
+	<string name="file_saved">Datei gespeichert</string>
+	<string name="downloading">Herunterladen…</string>
 </resources>

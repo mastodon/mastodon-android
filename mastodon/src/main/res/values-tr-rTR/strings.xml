@@ -1,39 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="app_name">Mastodon</string>
-
-	<string name="get_started">Başlarken</string>
+	<string name="get_started">Başlayın</string>
 	<string name="log_in">Giriş Yap</string>
 	<string name="next">Sonraki</string>
-	<string name="loading_instance">Sunucu bilgisi alınıyor...</string>
+	<string name="loading_instance">Sunucu bilgisi alınıyor…</string>
 	<string name="error">Hata</string>
-	<string name="not_a_mastodon_instance">%s bir Mastodon örneği gibi görünmüyor.</string>
+	<string name="not_a_mastodon_instance">%s bir Mastodon sunucusu gibi görünmüyor.</string>
 	<string name="ok">Tamam</string>
 	<string name="preparing_auth">Kimlik doğrulama için hazırlanıyor…</string>
 	<string name="finishing_auth">Kimlik doğrulama tamamlanıyor…</string>
 	<string name="user_boosted">%s Paylaştı</string>
-	<string name="in_reply_to">Cevapladı %s</string>
+	<string name="in_reply_to">%s için yanıt</string>
 	<string name="notifications">Bildirimler</string>
-
 	<string name="user_followed_you">seni takip etti</string>
 	<string name="user_sent_follow_request">sana bir takip isteği gönderdi</string>
 	<string name="user_favorited">gönderinizi favorilere ekledi</string>
 	<string name="notification_boosted">gönderinizi paylaştı</string>
 	<string name="poll_ended">oylama sona erdi</string>
-
 	<string name="time_seconds">%ds</string>
-	<string name="time_minutes">%dm</string>
-	<string name="time_hours">%dh</string>
-	<string name="time_days">%dd</string>
-
+	<string name="time_minutes">%dd</string>
+	<string name="time_hours">%dsaat</string>
+	<string name="time_days">%dgün</string>
 	<string name="share_toot_title">Paylaş</string>
 	<string name="settings">Ayarlar</string>
 	<string name="publish">Yayınla</string>
 	<string name="discard_draft">Taslak temizlensin mi?</string>
 	<string name="discard">Temizle</string>
 	<string name="cancel">İptal</string>
-	<string name="publishing">Gönderiniz yayınlandı</string>
-
 	<plurals name="followers">
 		<item quantity="one">Takipçi</item>
 		<item quantity="other">Takipçiler</item>
@@ -142,8 +136,8 @@
 	<string name="all_notifications">Hepsi</string>
 	<string name="mentions">Behsetmeler</string>
 	<plurals name="x_people_talking">
-		<item quantity="one">%d kişi bahsediyor</item>
-		<item quantity="other">%d kişiler bahsediyor</item>
+		<item quantity="one">%d kişi bahsetti</item>
+		<item quantity="other">%d kişi bahsetti</item>
 	</plurals>
 	<plurals name="discussed_x_times">
 		<item quantity="one">%d kez tartışıldı</item>
@@ -293,4 +287,17 @@
 	<string name="open_in_browser">Tarayıcıda aç</string>
 	<string name="hide_boosts_from_user">%s tarafından sağlanan desteklemeleri gizle</string>
 	<string name="show_boosts_from_user">%s tarafından sağlanan desteklemeleri göster</string>
+	<string name="signup_reason">neden katılmak istiyorsun?</string>
+	<string name="signup_reason_note">Bu, başvurunuzu incelememize yardımcı olacaktır.</string>
+	<string name="clear">Temizle</string>
+	<string name="profile_header">Üstbaşlık görseli</string>
+	<string name="profile_picture">Profil fotoğrafı</string>
+	<string name="reorder">Sırala</string>
+	<string name="download">İndir</string>
+	<string name="permission_required">İzin gerekiyor</string>
+	<string name="storage_permission_to_download">Bu dosyayı kaydetmek için uygulamanın depolama alanınıza erişmesi gerekiyor.</string>
+	<string name="open_settings">Ayarları aç</string>
+	<string name="error_saving_file">Dosya kaydedilirken hata oluştu</string>
+	<string name="file_saved">Dosya kaydedildi</string>
+	<string name="downloading">İndiriliyor…</string>
 </resources>

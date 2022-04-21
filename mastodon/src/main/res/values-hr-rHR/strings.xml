@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="app_name">Mastodon</string>
+	<string name="get_started">Započni</string>
+	<string name="log_in">Prijavi se</string>
+	<string name="next">Nastavi</string>
+	<string name="loading_instance">Pribavljam info o instanci…</string>
+	<string name="error">Pogreška</string>
+	<string name="not_a_mastodon_instance">%s ne djeluje kao Mastodon instanca.</string>
+	<string name="ok">U redu</string>
+	<string name="preparing_auth">Priprema za autorizaciju…</string>
+	<string name="finishing_auth">Završetak autorizacije…</string>
+	<string name="user_boosted">%s je boostao/la</string>
+	<string name="in_reply_to">Kao odgovor korisniku %s</string>
+	<string name="notifications">Obavijesti</string>
+	<string name="user_followed_you">te prati</string>
+	<string name="user_sent_follow_request">ti šalje zahtjev za praćenje</string>
+	<string name="user_favorited">je favorizirao/la tvoj toot</string>
+	<string name="notification_boosted">je boostao/la tvoj status</string>
+	<string name="poll_ended">anketa je završila</string>
+	<string name="time_seconds">%ds</string>
+	<string name="time_minutes">%dm</string>
+	<string name="time_hours">%dh</string>
+	<string name="time_days">%dd</string>
+	<string name="share_toot_title">Podijeli</string>
+	<string name="settings">Postavke</string>
+	<string name="publish">Objavi</string>
+	<string name="discard_draft">Odbaciti skicu?</string>
+	<string name="discard">Odbaci</string>
+	<string name="cancel">Odustani</string>
+	<plurals name="followers">
+		<item quantity="one">pratitelj</item>
+		<item quantity="few">pratitelja</item>
+		<item quantity="other">pratitelja</item>
+	</plurals>
+	<plurals name="following">
+		<item quantity="one">praćen</item>
+		<item quantity="few">praćena</item>
+		<item quantity="other">praćenih</item>
+	</plurals>
+	<plurals name="posts">
+		<item quantity="one">objava</item>
+		<item quantity="few">objave</item>
+		<item quantity="other">objava</item>
+	</plurals>
+	<string name="posts">Objave</string>
+	<string name="posts_and_replies">Objave i Odgovori</string>
+	<string name="media">Mediji</string>
+	<string name="profile_about">O</string>
+	<string name="button_follow">Prati</string>
+	<string name="button_following">Pratim</string>
+	<string name="edit_profile">Uredi Profil</string>
+	<string name="mention_user">Spomeni %s</string>
+	<string name="share_user">Podijeli %s</string>
+	<string name="mute_user">Utišaj %s</string>
+	<string name="unmute_user">Uključi %s</string>
+	<string name="block_user">Blokiraj %s</string>
+	<string name="unblock_user">Deblokiraj %s</string>
+	<string name="report_user">Prijavi %s</string>
+	<string name="block_domain">Blokiraj %s</string>
+	<string name="unblock_domain">Deblokiraj %s</string>
+	<string name="profile_joined">Pridružen</string>
+	<string name="done">Učinjeno</string>
+	<string name="loading">Učitavanje…</string>
+	<string name="field_label">Oznaka</string>
+	<string name="field_content">Sadržaj</string>
+	<string name="saving">Snimam…</string>
+	<string name="post_from_user">Post od %s</string>
+</resources>
