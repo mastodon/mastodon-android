@@ -64,7 +64,8 @@ public class ThreadFragment extends StatusListFragment{
 						}
 						result.descendants=filterStatuses(result.descendants);
 						result.ancestors=filterStatuses(result.ancestors);
-						footerProgress.setVisibility(View.GONE);
+						if(footerProgress!=null)
+							footerProgress.setVisibility(View.GONE);
 						data.addAll(result.descendants);
 						int prevCount=displayItems.size();
 						onAppendItems(result.descendants);

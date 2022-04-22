@@ -1,5 +1,6 @@
 package org.joinmastodon.android.fragments.onboarding;
 
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Build;
@@ -110,7 +111,11 @@ public class AccountActivationFragment extends AppKitFragment{
 	}
 
 	private void onButtonClick(){
-		startActivity(Intent.makeMainSelectorActivity(Intent.ACTION_MAIN, Intent.CATEGORY_APP_EMAIL).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+		try{
+			startActivity(Intent.makeMainSelectorActivity(Intent.ACTION_MAIN, Intent.CATEGORY_APP_EMAIL).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+		}catch(ActivityNotFoundException x){
+			Toast.makeText(getActivity(), R.string.no_app_to_handle_action, Toast.LENGTH_SHORT).show();
+		}
 	}
 
 	private void onBackButtonClick(){

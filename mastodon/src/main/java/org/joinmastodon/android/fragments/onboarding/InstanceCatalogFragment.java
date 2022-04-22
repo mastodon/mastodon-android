@@ -105,6 +105,8 @@ public class InstanceCatalogFragment extends BaseRecyclerFragment<CatalogInstanc
 				.setCallback(new Callback<>(){
 					@Override
 					public void onSuccess(List<CatalogInstance> result){
+						if(getActivity()==null)
+							return;
 						Map<String, List<CatalogInstance>> byLang=result.stream().collect(Collectors.groupingBy(ci->ci.language));
 						for(List<CatalogInstance> group:byLang.values()){
 							Collections.sort(group, (a, b)->{

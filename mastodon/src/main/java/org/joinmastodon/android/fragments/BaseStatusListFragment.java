@@ -243,6 +243,8 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 			}
 
 			private ImageStatusDisplayItem.Holder<?> findPhotoViewHolder(int index){
+				if(list==null)
+					return null;
 				int offset=0;
 				for(StatusDisplayItem item:displayItems){
 					if(item.parentID.equals(parentID)){
