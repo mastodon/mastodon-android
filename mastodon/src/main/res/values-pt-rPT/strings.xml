@@ -11,4 +11,52 @@
 	<string name="preparing_auth">A preparar a autenticação…</string>
 	<string name="finishing_auth">A finalizar a autenticação…</string>
 	<string name="user_boosted">%s impulsionado</string>
+	<string name="in_reply_to">Responder a %s</string>
+	<string name="notifications">Notificações</string>
+	<string name="user_followed_you">seguiu-te</string>
+	<string name="user_sent_follow_request">pediu para te seguir</string>
+	<string name="user_favorited">adicionou a tua publicação aos favoritos</string>
+	<string name="notification_boosted">partilhou a tua publicação</string>
+	<string name="poll_ended">sondagem terminada</string>
+	<string name="share_toot_title">Partilhar</string>
+	<string name="settings">Configurações</string>
+	<string name="publish">Publicar</string>
+	<string name="discard_draft">Descartar o rascunho?</string>
+	<string name="discard">Descartar</string>
+	<string name="cancel">Cancelar</string>
+	<plurals name="followers">
+		<item quantity="one">seguidor</item>
+		<item quantity="other">seguidores</item>
+	</plurals>
+	<plurals name="following">
+		<item quantity="one">a seguir</item>
+		<item quantity="other">a seguir</item>
+	</plurals>
+	<plurals name="posts">
+		<item quantity="one">publicação</item>
+		<item quantity="other">publicações</item>
+	</plurals>
+	<string name="posts">Publicações</string>
+	<string name="posts_and_replies">Publicações e respostas</string>
+	<string name="media">Multimédia</string>
+	<string name="profile_about">Sobre</string>
+	<string name="button_follow">Seguir</string>
+	<string name="button_following">A seguir</string>
+	<string name="edit_profile">Editar Perfil</string>
+	<string name="mention_user">Mencionar @%s</string>
+	<string name="share_user">Partilhar %s</string>
+	<string name="mute_user">Silenciar %s</string>
+	<string name="unmute_user">Deixar de silenciar @%s</string>
+	<string name="block_user">Bloquear %s</string>
+	<string name="unblock_user">Desbloquear @%s</string>
+	<string name="report_user">Denunciar %s</string>
+	<string name="block_domain">Bloquear %s</string>
+	<string name="unblock_domain">Desbloquear @%s</string>
+	<plurals name="x_posts">
+		<item quantity="one">%,d publicação</item>
+		<item quantity="other">%,d publicações</item>
+	</plurals>
+	<string name="profile_joined">Juntou-se a</string>
+	<string name="done">Concluído</string>
+	<string name="for_you">Para si</string>
 </resources>
