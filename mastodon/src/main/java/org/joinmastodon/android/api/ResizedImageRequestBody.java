@@ -60,7 +60,7 @@ public class ResizedImageRequestBody extends CountingRequestBody{
 				}
 				if(factor%1f!=0f){
 					Bitmap scaled=Bitmap.createBitmap(targetWidth, targetHeight, Bitmap.Config.ARGB_8888);
-					new Canvas(scaled).drawBitmap(bitmap, null, new Rect(0, 0, bitmap.getWidth(), bitmap.getHeight()), new Paint(Paint.FILTER_BITMAP_FLAG));
+					new Canvas(scaled).drawBitmap(bitmap, null, new Rect(0, 0, targetWidth, targetHeight), new Paint(Paint.FILTER_BITMAP_FLAG));
 					bitmap=scaled;
 				}
 				if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.N){
