@@ -179,7 +179,6 @@ public class NotificationsListFragment extends BaseStatusListFragment<Notificati
 							rect.set(child.getX(), i==0 && pos>0 && displayItems.get(pos-1).inset ? V.dp(-10) : child.getY(), child.getX()+child.getWidth(), child.getY()+child.getHeight());
 						}else{
 							rect.bottom=Math.max(rect.bottom, child.getY()+child.getHeight());
-							rect.right=Math.max(rect.right, child.getX()+child.getHeight());
 						}
 					}else if(!rect.isEmpty()){
 						drawInsetBackground(c);
@@ -198,6 +197,8 @@ public class NotificationsListFragment extends BaseStatusListFragment<Notificati
 			private void drawInsetBackground(Canvas c){
 				paint.setStyle(Paint.Style.FILL);
 				paint.setColor(bgColor);
+				rect.left=V.dp(12);
+				rect.right=list.getWidth()-V.dp(12);
 				rect.inset(V.dp(4), V.dp(4));
 				c.drawRoundRect(rect, V.dp(4), V.dp(4), paint);
 				paint.setStyle(Paint.Style.STROKE);
