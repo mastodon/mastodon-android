@@ -514,7 +514,11 @@ public class PhotoViewer implements ZoomPanView.Listener{
 	}
 
 	private void saveViaDownloadManager(Attachment att){
-		DownloadManager.Request req=new DownloadManager.Request(Uri.parse(att.url));
+		Uri uri=Uri.parse(att.url);
+		DownloadManager.Request req=new DownloadManager.Request(uri);
+		req.allowScanningByMediaScanner();
+		req.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+		req.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, uri.getLastPathSegment());
 		activity.getSystemService(DownloadManager.class).enqueue(req);
 		Toast.makeText(activity, R.string.downloading, Toast.LENGTH_SHORT).show();
 	}
