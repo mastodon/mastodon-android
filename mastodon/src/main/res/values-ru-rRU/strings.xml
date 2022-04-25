@@ -160,10 +160,16 @@
 	<string name="all_notifications">Все</string>
 	<string name="mentions">Упоминания</string>
 	<plurals name="x_people_talking">
-		<item quantity="one">%d человек разговаривает</item>
-		<item quantity="few">%d человека разговаривают</item>
-		<item quantity="many">%d людей разговаривают</item>
-		<item quantity="other">%d людей разговаривают</item>
+		<item quantity="one">%d человек обсуждает</item>
+		<item quantity="few">%d человека обсуждают</item>
+		<item quantity="many">%d человек обсуждают</item>
+		<item quantity="other">%d человека обсуждает</item>
+	</plurals>
+	<plurals name="discussed_x_times">
+		<item quantity="one">Обсуждалась %d раз</item>
+		<item quantity="few">Обсуждалась %d раза</item>
+		<item quantity="many">Обсуждалась %d раз</item>
+		<item quantity="other">Обсуждалась %d раза</item>
 	</plurals>
 	<string name="report_title">Пожаловаться на %s</string>
 	<string name="report_choose_reason">Что не так с этим постом?</string>
@@ -189,6 +195,7 @@
 	<string name="unfollow_user">Отписаться от %s</string>
 	<string name="unfollow">Отписаться</string>
 	<string name="mute_user_explain">Вы перестаните видеть посты и продвижения этого пользователя в домашней ленте. Он(а) не узнает, что вы игнорируете его/её.</string>
+	<string name="block_user_explain">Этот пользователь больше не сможет подписаться на вас или читать ваши посты. Он(а) сможет видеть, что заблокирован(а).</string>
 	<string name="report_personal_title">Не хотите видеть это?</string>
 	<string name="report_personal_subtitle">Если кто-то в Mastodon публикует то, что вам не нравится, вы можете скрыть его.</string>
 	<string name="back">Назад</string>
@@ -218,6 +225,7 @@
 	<string name="category_regional">Региональные</string>
 	<string name="category_tech">Технологии</string>
 	<string name="confirm_email_title">И ещё кое-что</string>
+	<string name="confirm_email_subtitle">Мы отправили вам письмо со специальной ссылкой. Нажмите её, чтобы подтвердить свою учётную запись.</string>
 	<string name="resend">Отправить заново</string>
 	<string name="open_email_app">Открыть почту</string>
 	<string name="resent_email">Письмо подтверждения отправлено</string>
@@ -234,7 +242,7 @@
 	<string name="alt_text_hint">Пример: собака с подозрительным прищуром глядит в камеру.</string>
 	<string name="visibility_public">Публичный</string>
 	<string name="visibility_followers_only">Для подписчиков</string>
-	<string name="visibility_private">Только для упомянутых людей</string>
+	<string name="visibility_private">Для упомянутых</string>
 	<string name="search_all">Все</string>
 	<string name="search_people">Люди</string>
 	<string name="recent_searches">Последние запросы</string>
@@ -270,7 +278,7 @@
 	<string name="notify_followed">любой, на кого я подписан(а)</string>
 	<string name="notify_none">никто</string>
 	<string name="notify_favorites">Добавляет мой пост в избранное</string>
-	<string name="notify_follow">Подписался на меня</string>
+	<string name="notify_follow">Подписывается на меня</string>
 	<string name="notify_reblog">Продвигает мой пост</string>
 	<string name="notify_mention">Упоминает меня</string>
 	<string name="settings_boring">Зона скукотищи</string>
@@ -278,7 +286,7 @@
 	<string name="settings_contribute">Внести вклад в Mastodon</string>
 	<string name="settings_tos">Условия использования</string>
 	<string name="settings_privacy_policy">Политика конфиденциальности</string>
-	<string name="settings_spicy">Пикантная зона</string>
+	<string name="settings_spicy">Зона остряка</string>
 	<string name="settings_clear_cache">Очистить кэш медиа</string>
 	<string name="settings_app_version">Mastodon для Android v%1$s (%2$d)</string>
 	<string name="media_cache_cleared">Кэш медиа очищен</string>

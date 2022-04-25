@@ -11,12 +11,12 @@
 	<string name="preparing_auth">Chuẩn bị xác thực…</string>
 	<string name="finishing_auth">Hoàn tất xác thực…</string>
 	<string name="user_boosted">%s đăng lại</string>
-	<string name="in_reply_to">Trả lời đến %s</string>
+	<string name="in_reply_to">trả lời %s</string>
 	<string name="notifications">Thông báo</string>
 	<string name="user_followed_you">đã theo dõi bạn</string>
 	<string name="user_sent_follow_request">đã yêu cầu theo dõi bạn</string>
-	<string name="user_favorited">đã thích tút của bạn</string>
-	<string name="notification_boosted">đã đăng lại tút của bạn</string>
+	<string name="user_favorited">thích tút của bạn</string>
+	<string name="notification_boosted">đăng lại tút của bạn</string>
 	<string name="poll_ended">cuộc bình chọn kết thúc</string>
 	<string name="time_seconds">%ds</string>
 	<string name="time_minutes">%dm</string>
@@ -54,7 +54,7 @@
 	<string name="block_domain">Chặn %s</string>
 	<string name="unblock_domain">Bỏ chặn %s</string>
 	<plurals name="x_posts">
-		<item quantity="other">%d tút</item>
+		<item quantity="other">%,d tút</item>
 	</plurals>
 	<string name="profile_joined">Đã tham gia</string>
 	<string name="done">Xong</string>
@@ -87,7 +87,7 @@
 		<item quantity="other">%d ngày còn lại</item>
 	</plurals>
 	<plurals name="x_voters">
-		<item quantity="other">%d người bình chọn</item>
+		<item quantity="other">%,d người bình chọn</item>
 	</plurals>
 	<string name="poll_closed">Kết thúc</string>
 	<string name="confirm_mute_title">Ẩn người dùng</string>
@@ -200,7 +200,7 @@
 	<string name="alt_text_hint">vd: Một con chó nhíu mắt lại nhìn máy ảnh.</string>
 	<string name="visibility_public">Công khai</string>
 	<string name="visibility_followers_only">Riêng tư</string>
-	<string name="visibility_private">Chỉ người được nhắc đến</string>
+	<string name="visibility_private">Nhắn riêng</string>
 	<string name="search_all">Tất cả</string>
 	<string name="search_people">Người dùng</string>
 	<string name="recent_searches">Tìm kiếm gần đây</string>
@@ -224,12 +224,12 @@
 	<string name="theme_dark">Tối</string>
 	<string name="theme_true_black">Chế độ tối chân thật</string>
 	<string name="settings_behavior">Thao tác</string>
-	<string name="settings_gif">Phát ảnh đại diện và emoji động</string>
+	<string name="settings_gif">Ảnh đại diện và emoji động</string>
 	<string name="settings_custom_tabs">Dùng trình duyệt tích hợp</string>
 	<string name="settings_notifications">Thông báo</string>
 	<string name="notify_me_when">Thông báo khi</string>
 	<string name="notify_anyone">ai đó</string>
-	<string name="notify_follower">một người theo dõi</string>
+	<string name="notify_follower">người theo dõi tôi</string>
 	<string name="notify_followed">người tôi theo dõi</string>
 	<string name="notify_none">không một ai</string>
 	<string name="notify_favorites">Thích tút của tôi</string>
@@ -285,4 +285,6 @@
 	<string name="error_saving_file">Lỗi lưu tập tin</string>
 	<string name="file_saved">Đã lưu tập tin</string>
 	<string name="downloading">Đang tải về…</string>
+	<string name="no_app_to_handle_action">Không tìm thấy ứng dụng để thực hiện thao tác này</string>
+	<string name="local_timeline">Cộng đồng</string>
 </resources>

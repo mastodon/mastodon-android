@@ -81,6 +81,22 @@
 		<item quantity="other">%d egun</item>
 	</plurals>
 	<string name="compose_poll_duration">Iraupena: %s</string>
+	<plurals name="x_seconds_left">
+		<item quantity="one">%d segundo geratzen da</item>
+		<item quantity="other">%d segundo geratzen dira</item>
+	</plurals>
+	<plurals name="x_minutes_left">
+		<item quantity="one">%d minutu geratzen da</item>
+		<item quantity="other">%d minutu geratzen dira</item>
+	</plurals>
+	<plurals name="x_hours_left">
+		<item quantity="one">%d ordu geratzen da</item>
+		<item quantity="other">%d ordu geratzen dira</item>
+	</plurals>
+	<plurals name="x_days_left">
+		<item quantity="one">%d egun falta da</item>
+		<item quantity="other">%d egun falta dira</item>
+	</plurals>
 	<string name="poll_closed">Itxita</string>
 	<string name="confirm_mute_title">Mututu kontua</string>
 	<string name="confirm_mute">Berretsi %s mututzea</string>
@@ -115,6 +131,10 @@
 	<string name="for_you">Zuretzat</string>
 	<string name="all_notifications">Denak</string>
 	<string name="mentions">Aipamenak</string>
+	<plurals name="x_people_talking">
+		<item quantity="one">Pertsona %d hizketan</item>
+		<item quantity="other">%d pertsona hizketan</item>
+	</plurals>
 	<string name="report_title">Salatu %s</string>
 	<string name="report_choose_reason">Zer du txarra argitalpen honek?</string>
 	<string name="report_choose_reason_account">Zer du txarra %s?</string>
@@ -140,12 +160,15 @@
 	<string name="unfollow">Utzi jarraitzeari</string>
 	<string name="report_personal_title">Ez duzu hau ikusi nahi?</string>
 	<string name="back">Atzera</string>
+	<string name="instance_catalog_title">Mastodon komunitate ezberdinetako erabiltzaileez egina dago.</string>
+	<string name="search_communities">Buscar comunidades o ingresar URL</string>
 	<string name="instance_rules_title">Oinarrizko arau batzuk</string>
 	<string name="edit_photo">editatu</string>
 	<string name="display_name">pantaila-izena</string>
 	<string name="username">erabiltzaile-izena</string>
 	<string name="email">eposta</string>
 	<string name="password">pasahitza</string>
+	<string name="password_note">Sartu letra larriak, karaktere bereziak eta zenbakiak zure pasahitzaren segurtasuna areagotzeko.</string>
 	<string name="category_academia">Akademia</string>
 	<string name="category_activism">Aktibismoa</string>
 	<string name="category_all">Denak</string>
@@ -159,6 +182,7 @@
 	<string name="category_regional">Herrialdekoa</string>
 	<string name="category_tech">Teknologia</string>
 	<string name="confirm_email_title">Eta azkenik...</string>
+	<string name="confirm_email_subtitle">Sakatu epostaz bidali dizugun loturan zure kontua egiaztatzeko.</string>
 	<string name="resend">Berbidali</string>
 	<string name="open_email_app">Ireki eposta aplikazioa</string>
 	<string name="resent_email">Berretzi eposta bidaltzea</string>
@@ -184,6 +208,7 @@
 	<string name="notification_type_mention">Aipamenak</string>
 	<string name="notification_type_poll">Inkestak</string>
 	<string name="choose_account">Aukeratu kontua</string>
+	<string name="err_not_logged_in">Mesedez, hasi saioa lehenengo Mastodonen</string>
 	<string name="theme_auto">Automatikoa</string>
 	<string name="theme_light">Argia</string>
 	<string name="theme_dark">Iluna</string>
@@ -200,6 +225,7 @@
 	<string name="notify_mention">Aipatu nau</string>
 	<string name="settings_boring">Eremu aspergarria</string>
 	<string name="settings_account">Kontuaren ezarpenak</string>
+	<string name="settings_contribute">Lagundu Mastodon</string>
 	<string name="settings_tos">Erabilera baldintzak</string>
 	<string name="settings_privacy_policy">Pribatutasun gidalerroak</string>
 	<string name="settings_spicy">Eremu beroa</string>
@@ -235,6 +261,7 @@
 	<string name="reorder">Berriro antolatu</string>
 	<string name="download">Jeitsi</string>
 	<string name="permission_required">Baimena beharrezkoa</string>
+	<string name="storage_permission_to_download">Aplikazioak zure biltegira sarbidea behar du fitxategia gordetzeko.</string>
 	<string name="open_settings">Ireki ezarpenak</string>
 	<string name="error_saving_file">Errorea fitxategia gordetzerakoan</string>
 	<string name="file_saved">Fitxategia gorde da</string>
