@@ -10,6 +10,7 @@ import org.joinmastodon.android.api.requests.trends.GetTrendingHashtags;
 import org.joinmastodon.android.fragments.ScrollableToTop;
 import org.joinmastodon.android.model.Hashtag;
 import org.joinmastodon.android.ui.DividerItemDecoration;
+import org.joinmastodon.android.ui.utils.DiscoverInfoBannerHelper;
 import org.joinmastodon.android.ui.utils.UiUtils;
 import org.joinmastodon.android.ui.views.HashtagChartView;
 
@@ -24,6 +25,7 @@ import me.grishka.appkit.views.UsableRecyclerView;
 
 public class TrendingHashtagsFragment extends BaseRecyclerFragment<Hashtag> implements ScrollableToTop{
 	private String accountID;
+	private DiscoverInfoBannerHelper bannerHelper=new DiscoverInfoBannerHelper(DiscoverInfoBannerHelper.BannerType.TRENDING_HASHTAGS);
 
 	public TrendingHashtagsFragment(){
 		super(10);
@@ -56,6 +58,7 @@ public class TrendingHashtagsFragment extends BaseRecyclerFragment<Hashtag> impl
 	public void onViewCreated(View view, Bundle savedInstanceState){
 		super.onViewCreated(view, savedInstanceState);
 		list.addItemDecoration(new DividerItemDecoration(getActivity(), R.attr.colorPollVoted, .5f, 16, 16));
+		bannerHelper.maybeAddBanner(contentWrap);
 	}
 
 	@Override

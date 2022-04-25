@@ -77,9 +77,9 @@ public class DiscoverFragment extends AppKitFragment implements ScrollableToTop,
 			FrameLayout tabView=new FrameLayout(getActivity());
 			tabView.setId(switch(i){
 				case 0 -> R.id.discover_posts;
-				case 1 -> R.id.discover_local_timeline;
-				case 2 -> R.id.discover_hashtags;
-				case 3 -> R.id.discover_news;
+				case 1 -> R.id.discover_hashtags;
+				case 2 -> R.id.discover_news;
+				case 3 -> R.id.discover_local_timeline;
 				case 4 -> R.id.discover_users;
 				default -> throw new IllegalStateException("Unexpected value: "+i);
 			});
@@ -139,10 +139,10 @@ public class DiscoverFragment extends AppKitFragment implements ScrollableToTop,
 			@Override
 			public void onConfigureTab(@NonNull TabLayout.Tab tab, int position){
 				tab.setText(switch(position){
-					case 0 -> R.string.trending_posts;
-					case 1 -> R.string.local_timeline;
-					case 2 -> R.string.hashtags;
-					case 3 -> R.string.news;
+					case 0 -> R.string.posts;
+					case 1 -> R.string.hashtags;
+					case 2 -> R.string.news;
+					case 3 -> R.string.local_timeline;
 					case 4 -> R.string.for_you;
 					default -> throw new IllegalStateException("Unexpected value: "+position);
 				});
@@ -255,9 +255,9 @@ public class DiscoverFragment extends AppKitFragment implements ScrollableToTop,
 	private Fragment getFragmentForPage(int page){
 		return switch(page){
 			case 0 -> postsFragment;
-			case 1 -> localTimelineFragment;
-			case 2 -> hashtagsFragment;
-			case 3 -> newsFragment;
+			case 1 -> hashtagsFragment;
+			case 2 -> newsFragment;
+			case 3 -> localTimelineFragment;
 			case 4 -> accountsFragment;
 			default -> throw new IllegalStateException("Unexpected value: "+page);
 		};

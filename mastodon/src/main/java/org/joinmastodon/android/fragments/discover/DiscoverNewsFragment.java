@@ -15,6 +15,7 @@ import org.joinmastodon.android.model.Card;
 import org.joinmastodon.android.ui.DividerItemDecoration;
 import org.joinmastodon.android.ui.OutlineProviders;
 import org.joinmastodon.android.ui.drawables.BlurhashCrossfadeDrawable;
+import org.joinmastodon.android.ui.utils.DiscoverInfoBannerHelper;
 import org.joinmastodon.android.ui.utils.UiUtils;
 
 import java.util.Collections;
@@ -36,6 +37,7 @@ import me.grishka.appkit.views.UsableRecyclerView;
 public class DiscoverNewsFragment extends BaseRecyclerFragment<Card> implements ScrollableToTop{
 	private String accountID;
 	private List<ImageLoaderRequest> imageRequests=Collections.emptyList();
+	private DiscoverInfoBannerHelper bannerHelper=new DiscoverInfoBannerHelper(DiscoverInfoBannerHelper.BannerType.TRENDING_LINKS);
 
 	public DiscoverNewsFragment(){
 		super(10);
@@ -71,6 +73,7 @@ public class DiscoverNewsFragment extends BaseRecyclerFragment<Card> implements 
 	public void onViewCreated(View view, Bundle savedInstanceState){
 		super.onViewCreated(view, savedInstanceState);
 		list.addItemDecoration(new DividerItemDecoration(getActivity(), R.attr.colorPollVoted, 1, 0, 0));
+		bannerHelper.maybeAddBanner(contentWrap);
 	}
 
 	@Override

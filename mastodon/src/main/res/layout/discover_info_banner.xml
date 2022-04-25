@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:id="@+id/discover_info_banner"
+	android:orientation="horizontal"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:layout_gravity="top"
+	android:elevation="1dp"
+	android:outlineProvider="background"
+	android:background="?colorWindowBackground">
+
+	<TextView
+		android:id="@+id/banner_text"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_weight="1"
+		android:layout_marginStart="16dp"
+		android:layout_marginTop="16dp"
+		android:layout_marginBottom="16dp"
+		android:textAppearance="@style/m3_body_large"
+		tools:text="@string/trending_posts_info_banner"/>
+
+	<ImageButton
+		android:id="@+id/banner_dismiss"
+		android:layout_width="40dp"
+		android:layout_height="40dp"
+		android:layout_margin="8dp"
+		android:src="@drawable/ic_fluent_dismiss_circle_24_filled"
+		android:tint="?android:textColorSecondary"
+		android:contentDescription="@string/dismiss"
+		android:background="?android:selectableItemBackgroundBorderless"/>
+
+</LinearLayout>
