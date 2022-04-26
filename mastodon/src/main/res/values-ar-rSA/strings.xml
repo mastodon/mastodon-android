@@ -1,4 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+	<string name="get_started">ابدأ</string>
+	<string name="log_in">تسجيل الدخول</string>
+	<string name="next">التالي</string>
 	<string name="error">خطأ</string>
+	<string name="not_a_mastodon_instance">%s لا يبدو كمثيل ماستدون.</string>
+	<string name="ok">حسنًا</string>
+	<string name="preparing_auth">يُعد المصادقة…</string>
+	<string name="finishing_auth">يُنهي المصادقة…</string>
+	<string name="user_boosted">شارَكَه %s</string>
+	<string name="in_reply_to">ردًا على %s</string>
+	<string name="notifications">الإشعارات</string>
+	<string name="user_followed_you">تابعك</string>
+	<string name="user_sent_follow_request">أرسل لك طلب متابعة</string>
+	<string name="user_favorited">فَضلَ تبويقتك</string>
+	<string name="notification_boosted">شارك تبويقتك</string>
+	<string name="poll_ended">انتهى استطلاع الرأي</string>
+	<string name="time_seconds">%d ثا</string>
+	<string name="time_minutes">%d د</string>
+	<string name="time_hours">%d سا</string>
+	<string name="share_toot_title">شارك</string>
+	<string name="settings">الإعدادات</string>
+	<string name="publish">انشر</string>
+	<string name="discard_draft">أتريد التخلص من المسودة؟</string>
+	<string name="cancel">إلغاء</string>
+	<plurals name="followers">
+		<item quantity="zero">لا متابِعين</item>
+		<item quantity="one">متابِع</item>
+		<item quantity="two">متابِعان</item>
+		<item quantity="few">متابِعين</item>
+		<item quantity="many">متابِعًا</item>
+		<item quantity="other">متابِع</item>
+	</plurals>
+	<plurals name="following">
+		<item quantity="zero">لا متابَعين</item>
+		<item quantity="one">متابَع</item>
+		<item quantity="two">متابَعان</item>
+		<item quantity="few">متابَعين</item>
+		<item quantity="many">متابَعًا</item>
+		<item quantity="other">متابَع</item>
+	</plurals>
+	<plurals name="posts">
+		<item quantity="zero">لا منشورات</item>
+		<item quantity="one">منشور</item>
+		<item quantity="two">منشوران</item>
+		<item quantity="few">منشورات</item>
+		<item quantity="many">منشورًا</item>
+		<item quantity="other">منشور</item>
+	</plurals>
+	<string name="posts">منشورات</string>
+	<string name="posts_and_replies">مَنشُوراتٌ وَرُدُود</string>
+	<string name="media">وسائط</string>
+	<string name="profile_about">حَول</string>
+	<string name="button_follow">تابِع</string>
+	<string name="mention_user">اذكر %s</string>
+	<string name="share_user">شارك %s</string>
+	<string name="mute_user">اكتم %s</string>
+	<string name="unmute_user">ارفع الكتم عن %s</string>
+	<string name="block_user">احجب %s</string>
+	<string name="unblock_user">ارفع الحجب عن %s</string>
+	<string name="report_user">بلّغ عن %s</string>
+	<string name="block_domain">احجب %s</string>
+	<string name="unblock_domain">ارفع الحجب عن %s</string>
 </resources>
