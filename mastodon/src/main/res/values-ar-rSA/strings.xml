@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+	<string name="app_name">ماستدون</string>
 	<string name="get_started">ابدأ</string>
 	<string name="log_in">تسجيل الدخول</string>
 	<string name="next">التالي</string>
@@ -221,6 +222,8 @@
 	<string name="report_sent_subtitle">في أثناء مراجعتنا للبلاغ، يمكنك اتخاذ إجراء ضد @%s.</string>
 	<string name="unfollow_user">ألغ متابعة %s</string>
 	<string name="unfollow">ألغ المتابعة</string>
+	<string name="mute_user_explain">لن ترى منشوراتهم أو إعادة تدوينهم في التغذية الرئيسية. ولن يعلموا أنهم كتموا.</string>
+	<string name="block_user_explain">لن يتمكنوا من متابعتك أو رؤية منشوراتك، وسيكون بديهيًا لهم أنهم حجبوا.</string>
 	<string name="report_personal_title">لاترغب في مشاهدة هذا؟</string>
 	<string name="back">العودة</string>
 	<string name="instance_catalog_title">ماستدون مكون من مستخدمين منقسمين عبر مجتمعات مختلفة.</string>
@@ -228,11 +231,13 @@
 	<string name="search_communities">ابحث عن مجتمع أو أدخل رابطًا</string>
 	<string name="instance_rules_title">بعض القواعد الأساسية</string>
 	<string name="instance_rules_subtitle">خذ دقيقة لمراجعة القواعد التي حددها وفرضها مديروا %s.</string>
+	<string name="signup_title">دعنا نجهزك في %s</string>
 	<string name="edit_photo">حرّر</string>
 	<string name="display_name">الاسم العلني</string>
 	<string name="username">اسم المستخدم</string>
 	<string name="email">البريد الإلكتروني</string>
 	<string name="password">كلمة المرور</string>
+	<string name="password_note">ضمّن الأحرف الكبيرة والأحرف الخاصة والأرقام لزيادة قوة كلمة المرور.</string>
 	<string name="category_academia">أكاديمي</string>
 	<string name="category_activism">النشطاء</string>
 	<string name="category_all">الكل</string>
@@ -277,20 +282,31 @@
 	<string name="notification_type_poll">استطلاع رأي</string>
 	<string name="choose_account">اختر حسابًا</string>
 	<string name="err_not_logged_in">سجل الدخول إلى حساب ماستودون أولًا</string>
+	<plurals name="cant_add_more_than_x_attachments">
+		<item quantity="zero">يجب عليك إرفاق ملف</item>
+		<item quantity="one">لا يمكنك إرفاق ملف</item>
+		<item quantity="two">لا يمكنك إرفاق أكثر من ملفين</item>
+		<item quantity="few">لا يمكنك إرفاق أكثر من %d ملفات</item>
+		<item quantity="many">لا يمكنك إرفاق أكثر من %d ملفًا</item>
+		<item quantity="other">لا يمكنك إرفاق أكثر من %d ملف</item>
+	</plurals>
 	<string name="media_attachment_unsupported_type">نوع الملف %s غير مدعوم</string>
 	<string name="media_attachment_too_big">الملف %1$s يتجاوز حدّ %2$s مب</string>
 	<string name="settings_theme">المظهر</string>
 	<string name="theme_auto">تلقائي</string>
 	<string name="theme_light">فاتح</string>
 	<string name="theme_dark">داكن</string>
+	<string name="theme_true_black">الوضع الداكن الحقيقي</string>
 	<string name="settings_behavior">السلوك</string>
 	<string name="settings_gif">تشغيل الصور الرمزية المتحركة والرموز التعبيرية المتحركة</string>
+	<string name="settings_custom_tabs">استخدم المتصفح المضمن</string>
 	<string name="settings_notifications">الإشعارات</string>
 	<string name="notify_me_when">أشعِرني بـ</string>
 	<string name="notify_anyone">أيُّ شخصٍ</string>
 	<string name="notify_follower">مُتابِعٌ</string>
 	<string name="notify_followed">شخص أُتابِعُه</string>
 	<string name="notify_none">لَا أحد</string>
+	<string name="notify_favorites">بِالإعْجاب بِمَنشوري</string>
 	<string name="notify_follow">متابعتي</string>
 	<string name="notify_reblog">إعادة تدوين مَنشوري</string>
 	<string name="notify_mention">ذكرني</string>
@@ -333,6 +349,7 @@
 	<string name="signup_reason_note">هذا سوف يساعدنا في مراجعة تطبيقك.</string>
 	<string name="clear">امسح</string>
 	<string name="profile_picture">صورة الملفّ الشخصي</string>
+	<string name="reorder">أعد الترتيب</string>
 	<string name="download">نزّل</string>
 	<string name="permission_required">يتطلب أذونات</string>
 	<string name="storage_permission_to_download">يحتاج هذا التطبيق أذن الوصول للتخزين لحفظ الملف.</string>
