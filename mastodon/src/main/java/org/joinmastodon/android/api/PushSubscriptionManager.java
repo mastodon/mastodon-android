@@ -141,7 +141,9 @@ public class PushSubscriptionManager{
 				encodedPublicKey=Base64.encodeToString(serializeRawPublicKey(publicKey), Base64.URL_SAFE | Base64.NO_WRAP | Base64.NO_PADDING);
 				authKey=new byte[16];
 				new SecureRandom().nextBytes(authKey);
-				AccountSession session=AccountSessionManager.getInstance().getAccount(accountID);
+				AccountSession session=AccountSessionManager.getInstance().tryGetAccount(accountID);
+				if(session==null)
+					return;
 				session.pushPrivateKey=Base64.encodeToString(privateKey.getEncoded(), Base64.URL_SAFE | Base64.NO_WRAP | Base64.NO_PADDING);
 				session.pushPublicKey=Base64.encodeToString(publicKey.getEncoded(), Base64.URL_SAFE | Base64.NO_WRAP | Base64.NO_PADDING);
 				session.pushAuthKey=encodedAuthKey=Base64.encodeToString(authKey, Base64.URL_SAFE | Base64.NO_WRAP | Base64.NO_PADDING);
@@ -162,7 +164,9 @@ public class PushSubscriptionManager{
 							MastodonAPIController.runInBackground(()->{
 								serverKey=deserializeRawPublicKey(Base64.decode(result.serverKey, Base64.URL_SAFE));
 
-								AccountSession session=AccountSessionManager.getInstance().getAccount(accountID);
+								AccountSession session=AccountSessionManager.getInstance().tryGetAccount(accountID);
+								if(session==null)
+									return;
 								session.pushSubscription=result;
 								AccountSessionManager.getInstance().writeAccountsFile();
 								Log.d(TAG, "Successfully registered "+accountID+" for push notifications");
@@ -183,7 +187,9 @@ public class PushSubscriptionManager{
 				.setCallback(new Callback<>(){
 					@Override
 					public void onSuccess(PushSubscription result){
-						AccountSession session=AccountSessionManager.getInstance().getAccount(accountID);
+						AccountSession session=AccountSessionManager.getInstance().tryGetAccount(accountID);
+						if(session==null)
+							return;
 						if(result.policy!=subscription.policy)
 							result.policy=subscription.policy;
 						session.pushSubscription=result;
@@ -196,7 +202,9 @@ public class PushSubscriptionManager{
 						if(((MastodonErrorResponse)error).httpStatus==404){ // Not registered for push, register now
 							registerAccountForPush(subscription);
 						}else{
-							AccountSession session=AccountSessionManager.getInstance().getAccount(accountID);
+							AccountSession session=AccountSessionManager.getInstance().tryGetAccount(accountID);
+							if(session==null)
+								return;
 							session.needUpdatePushSettings=true;
 							session.pushSubscription=subscription;
 							AccountSessionManager.getInstance().writeAccountsFile();

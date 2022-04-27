@@ -1049,6 +1049,9 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 	}
 
 	private void updateVisibilityIcon(){
+		if(statusVisibility==null){ // TODO find out why this happens
+			statusVisibility=StatusPrivacy.PUBLIC;
+		}
 		visibilityBtn.setImageResource(switch(statusVisibility){
 			case PUBLIC -> R.drawable.ic_fluent_earth_24_filled;
 			case UNLISTED -> R.drawable.ic_fluent_people_community_24_regular;

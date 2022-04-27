@@ -250,6 +250,7 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 			Menu menu=optionsMenu.getMenu();
 			boolean isOwnPost=AccountSessionManager.getInstance().isSelf(item.parentFragment.getAccountID(), account);
 			menu.findItem(R.id.delete).setVisible(item.status!=null && isOwnPost);
+			menu.findItem(R.id.open_in_browser).setVisible(item.status!=null);
 			MenuItem blockDomain=menu.findItem(R.id.block_domain);
 			MenuItem mute=menu.findItem(R.id.mute);
 			MenuItem block=menu.findItem(R.id.block);

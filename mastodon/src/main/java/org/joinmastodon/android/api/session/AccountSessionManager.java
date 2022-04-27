@@ -134,9 +134,19 @@ public class AccountSessionManager{
 	}
 
 	@Nullable
+	public AccountSession tryGetAccount(String id){
+		return sessions.get(id);
+	}
+
+	@Nullable
 	public AccountSession getLastActiveAccount(){
 		if(sessions.isEmpty() || lastActiveAccountID==null)
 			return null;
+		if(!sessions.containsKey(lastActiveAccountID)){
+			// TODO figure out why this happens. It should not be possible.
+			lastActiveAccountID=getLoggedInAccounts().get(0).getID();
+			writeAccountsFile();
+		}
 		return getAccount(lastActiveAccountID);
 	}
 
@@ -197,6 +207,7 @@ public class AccountSessionManager{
 
 						new CustomTabsIntent.Builder()
 								.setShareState(CustomTabsIntent.SHARE_STATE_OFF)
+								.setShowTitle(true)
 								.build()
 								.launchUrl(activity, uri);
 					}
