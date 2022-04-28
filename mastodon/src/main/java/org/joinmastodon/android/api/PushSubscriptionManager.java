@@ -121,10 +121,6 @@ public class PushSubscriptionManager{
 		return !TextUtils.isEmpty(deviceToken);
 	}
 
-	public void registerAccountForPush(){
-		registerAccountForPush(null);
-	}
-
 	public void registerAccountForPush(PushSubscription subscription){
 		if(TextUtils.isEmpty(deviceToken))
 			throw new IllegalStateException("No device push token available");
@@ -367,7 +363,7 @@ public class PushSubscriptionManager{
 	private static void registerAllAccountsForPush(boolean forceReRegister){
 		for(AccountSession session:AccountSessionManager.getInstance().getLoggedInAccounts()){
 			if(session.pushSubscription==null || forceReRegister)
-				session.getPushSubscriptionManager().registerAccountForPush();
+				session.getPushSubscriptionManager().registerAccountForPush(session.pushSubscription);
 			else if(session.needUpdatePushSettings)
 				session.getPushSubscriptionManager().updatePushSettings(session.pushSubscription);
 		}

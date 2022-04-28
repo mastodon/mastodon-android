@@ -100,7 +100,7 @@ public class AccountSessionManager{
 		writeAccountsFile();
 		updateInstanceEmojis(instance, instance.uri);
 		if(PushSubscriptionManager.arePushNotificationsAvailable()){
-			session.getPushSubscriptionManager().registerAccountForPush();
+			session.getPushSubscriptionManager().registerAccountForPush(null);
 		}
 	}
 
