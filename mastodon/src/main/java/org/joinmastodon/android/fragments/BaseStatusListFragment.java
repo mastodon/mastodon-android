@@ -31,6 +31,7 @@ import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.BetterItemAnimator;
 import org.joinmastodon.android.ui.PhotoLayoutHelper;
 import org.joinmastodon.android.ui.TileGridLayoutManager;
+import org.joinmastodon.android.ui.displayitems.GapStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.HeaderStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.ImageStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.PollFooterStatusDisplayItem;
@@ -281,6 +282,10 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 				list.getDecoratedBoundsWithMargins(view, outRect);
 				RecyclerView.ViewHolder holder=list.getChildViewHolder(view);
 				if(holder instanceof StatusDisplayItem.Holder){
+					if(((StatusDisplayItem.Holder<?>) holder).getItem().getType()==StatusDisplayItem.Type.GAP){
+						outRect.setEmpty();
+						return;
+					}
 					String id=((StatusDisplayItem.Holder<?>) holder).getItemID();
 					for(int i=0;i<list.getChildCount();i++){
 						View child=list.getChildAt(i);
@@ -474,6 +479,8 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 		}
 	}
 
+	public void onGapClick(GapStatusDisplayItem.Holder item){}
+
 	public String getAccountID(){
 		return accountID;
 	}
@@ -653,8 +660,8 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 				View bottomSibling=parent.getChildAt(i+1);
 				RecyclerView.ViewHolder holder=parent.getChildViewHolder(child);
 				RecyclerView.ViewHolder siblingHolder=parent.getChildViewHolder(bottomSibling);
-				if(holder instanceof StatusDisplayItem.Holder && siblingHolder instanceof StatusDisplayItem.Holder
-						&& !((StatusDisplayItem.Holder<?>) holder).getItemID().equals(((StatusDisplayItem.Holder<?>) siblingHolder).getItemID())){
+				if(holder instanceof StatusDisplayItem.Holder<?> ih && siblingHolder instanceof StatusDisplayItem.Holder<?> sh
+						&& !ih.getItemID().equals(sh.getItemID()) && ih.getItem().getType()!=StatusDisplayItem.Type.GAP){
 					drawDivider(child, bottomSibling, holder, siblingHolder, parent, c, dividerPaint);
 				}
 			}

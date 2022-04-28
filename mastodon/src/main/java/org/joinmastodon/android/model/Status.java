@@ -54,6 +54,7 @@ public class Status extends BaseModel implements DisplayItemsParent{
 	public boolean pinned;
 
 	public transient boolean spoilerRevealed;
+	public transient boolean hasGapAfter;
 
 	@Override
 	public void postprocess() throws ObjectValidationException{

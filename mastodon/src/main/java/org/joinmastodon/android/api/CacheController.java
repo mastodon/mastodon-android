@@ -14,6 +14,7 @@ import org.joinmastodon.android.MastodonApp;
 import org.joinmastodon.android.api.requests.notifications.GetNotifications;
 import org.joinmastodon.android.api.requests.timelines.GetHomeTimeline;
 import org.joinmastodon.android.api.session.AccountSessionManager;
+import org.joinmastodon.android.model.CacheablePaginatedResponse;
 import org.joinmastodon.android.model.Filter;
 import org.joinmastodon.android.model.Notification;
 import org.joinmastodon.android.model.PaginatedResponse;
@@ -41,6 +42,8 @@ public class CacheController{
 	private DatabaseHelper db;
 	private final Runnable databaseCloseRunnable=this::closeDatabase;
 
+	private static final int POST_FLAG_GAP_AFTER=1;
+
 	static{
 		databaseThread.start();
 	}
@@ -49,14 +52,14 @@ public class CacheController{
 		this.accountID=accountID;
 	}
 
-	public void getHomeTimeline(String maxID, int count, boolean forceReload, Callback<PaginatedResponse<List<Status>>> callback){
+	public void getHomeTimeline(String maxID, int count, boolean forceReload, Callback<CacheablePaginatedResponse<List<Status>>> callback){
 		cancelDelayedClose();
 		databaseThread.postRunnable(()->{
 			try{
 				List<Filter> filters=AccountSessionManager.getInstance().getAccount(accountID).wordFilters.stream().filter(f->f.context.contains(Filter.FilterContext.HOME)).collect(Collectors.toList());
 				if(!forceReload){
 					SQLiteDatabase db=getOrOpenDatabase();
-					try(Cursor cursor=db.query("home_timeline", new String[]{"json"}, maxID==null ? null : "`id`<?", maxID==null ? null : new String[]{maxID}, null, null, "`id` DESC", count+"")){
+					try(Cursor cursor=db.query("home_timeline", new String[]{"json", "flags"}, maxID==null ? null : "`id`<?", maxID==null ? null : new String[]{maxID}, null, null, "`id` DESC", count+"")){
 						if(cursor.getCount()==count){
 							ArrayList<Status> result=new ArrayList<>();
 							cursor.moveToFirst();
@@ -65,6 +68,8 @@ public class CacheController{
 							do{
 								Status status=MastodonAPIController.gson.fromJson(cursor.getString(0), Status.class);
 								status.postprocess();
+								int flags=cursor.getInt(1);
+								status.hasGapAfter=((flags & POST_FLAG_GAP_AFTER)!=0);
 								newMaxID=status.id;
 								for(Filter filter:filters){
 									if(filter.matches(status.getContentStatus().content))
@@ -73,25 +78,25 @@ public class CacheController{
 								result.add(status);
 							}while(cursor.moveToNext());
 							String _newMaxID=newMaxID;
-							uiHandler.post(()->callback.onSuccess(new PaginatedResponse<>(result, _newMaxID)));
+							uiHandler.post(()->callback.onSuccess(new CacheablePaginatedResponse<>(result, _newMaxID, true)));
 							return;
 						}
 					}catch(IOException x){
 						Log.w(TAG, "getHomeTimeline: corrupted status object in database", x);
 					}
 				}
-				new GetHomeTimeline(maxID, null, count)
+				new GetHomeTimeline(maxID, null, count, null)
 						.setCallback(new Callback<>(){
 							@Override
 							public void onSuccess(List<Status> result){
-								callback.onSuccess(new PaginatedResponse<>(result.stream().filter(post->{
+								callback.onSuccess(new CacheablePaginatedResponse<>(result.stream().filter(post->{
 									for(Filter filter:filters){
 										if(filter.matches(post.getContentStatus().content)){
 											return false;
 										}
 									}
 									return true;
-								}).collect(Collectors.toList()), result.isEmpty() ? null : result.get(result.size()-1).id));
+								}).collect(Collectors.toList()), result.isEmpty() ? null : result.get(result.size()-1).id, false));
 								putHomeTimeline(result, maxID==null);
 							}
 
@@ -110,14 +115,18 @@ public class CacheController{
 		}, 0);
 	}
 
-	private void putHomeTimeline(List<Status> posts, boolean clear){
+	public void putHomeTimeline(List<Status> posts, boolean clear){
 		runOnDbThread((db)->{
 			if(clear)
 				db.delete("home_timeline", null, null);
-			ContentValues values=new ContentValues(2);
+			ContentValues values=new ContentValues(3);
 			for(Status s:posts){
 				values.put("id", s.id);
 				values.put("json", MastodonAPIController.gson.toJson(s));
+				int flags=0;
+				if(s.hasGapAfter)
+					flags|=POST_FLAG_GAP_AFTER;
+				values.put("flags", flags);
 				db.insertWithOnConflict("home_timeline", null, values, SQLiteDatabase.CONFLICT_REPLACE);
 			}
 		});

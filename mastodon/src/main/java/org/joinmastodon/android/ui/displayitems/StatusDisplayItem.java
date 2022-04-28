@@ -63,6 +63,7 @@ public abstract class StatusDisplayItem{
 			case ACCOUNT_CARD -> new AccountCardStatusDisplayItem.Holder(activity, parent);
 			case ACCOUNT -> new AccountStatusDisplayItem.Holder(activity, parent);
 			case HASHTAG -> new HashtagStatusDisplayItem.Holder(activity, parent);
+			case GAP -> new GapStatusDisplayItem.Holder(activity, parent);
 		};
 	}
 
@@ -112,6 +113,8 @@ public abstract class StatusDisplayItem{
 		}
 		if(addFooter){
 			items.add(new FooterStatusDisplayItem(parentID, fragment, statusForContent, accountID));
+			if(status.hasGapAfter)
+				items.add(new GapStatusDisplayItem(parentID, fragment));
 		}
 		int i=1;
 		for(StatusDisplayItem item:items){
@@ -142,7 +145,8 @@ public abstract class StatusDisplayItem{
 		FOOTER,
 		ACCOUNT_CARD,
 		ACCOUNT,
-		HASHTAG
+		HASHTAG,
+		GAP
 	}
 
 	public static abstract class Holder<T extends StatusDisplayItem> extends BindableViewHolder<T> implements UsableRecyclerView.DisableableClickable{
