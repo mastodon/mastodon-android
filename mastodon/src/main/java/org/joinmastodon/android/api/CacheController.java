@@ -20,6 +20,7 @@ import org.joinmastodon.android.model.Notification;
 import org.joinmastodon.android.model.PaginatedResponse;
 import org.joinmastodon.android.model.SearchResult;
 import org.joinmastodon.android.model.Status;
+import org.joinmastodon.android.utils.StatusFilterPredicate;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -89,14 +90,7 @@ public class CacheController{
 						.setCallback(new Callback<>(){
 							@Override
 							public void onSuccess(List<Status> result){
-								callback.onSuccess(new CacheablePaginatedResponse<>(result.stream().filter(post->{
-									for(Filter filter:filters){
-										if(filter.matches(post.getContentStatus().content)){
-											return false;
-										}
-									}
-									return true;
-								}).collect(Collectors.toList()), result.isEmpty() ? null : result.get(result.size()-1).id, false));
+								callback.onSuccess(new CacheablePaginatedResponse<>(result.stream().filter(new StatusFilterPredicate(filters)).collect(Collectors.toList()), result.isEmpty() ? null : result.get(result.size()-1).id, false));
 								putHomeTimeline(result, maxID==null);
 							}
 

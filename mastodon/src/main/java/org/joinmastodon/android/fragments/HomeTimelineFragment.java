@@ -28,15 +28,18 @@ import org.joinmastodon.android.api.requests.timelines.GetHomeTimeline;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.events.StatusCreatedEvent;
 import org.joinmastodon.android.model.CacheablePaginatedResponse;
+import org.joinmastodon.android.model.Filter;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.displayitems.GapStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.StatusDisplayItem;
 import org.joinmastodon.android.ui.utils.UiUtils;
+import org.joinmastodon.android.utils.StatusFilterPredicate;
 
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -164,6 +167,10 @@ public class HomeTimelineFragment extends StatusListFragment{
 							result.get(result.size()-1).hasGapAfter=true;
 							toAdd=result;
 						}
+						List<Filter> filters=AccountSessionManager.getInstance().getAccount(accountID).wordFilters.stream().filter(f->f.context.contains(Filter.FilterContext.HOME)).collect(Collectors.toList());
+						if(!filters.isEmpty()){
+							toAdd=toAdd.stream().filter(new StatusFilterPredicate(filters)).collect(Collectors.toList());
+						}
 						if(!toAdd.isEmpty()){
 							prependItems(toAdd, true);
 							showNewPostsButton();
@@ -237,9 +244,16 @@ public class HomeTimelineFragment extends StatusListFragment{
 							List<StatusDisplayItem> targetList=displayItems.subList(gapPos, gapPos+1);
 							targetList.clear();
 							List<Status> insertedPosts=data.subList(gapPostIndex+1, gapPostIndex+1);
+							List<Filter> filters=AccountSessionManager.getInstance().getAccount(accountID).wordFilters.stream().filter(f->f.context.contains(Filter.FilterContext.HOME)).collect(Collectors.toList());
+							outer:
 							for(Status s:result){
 								if(idsBelowGap.contains(s.id))
 									break;
+								for(Filter filter:filters){
+									if(filter.matches(s.getContentStatus().content)){
+										continue outer;
+									}
+								}
 								targetList.addAll(buildDisplayItems(s));
 								insertedPosts.add(s);
 							}
