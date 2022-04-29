@@ -14,6 +14,8 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.SpannableStringBuilder;
+import android.text.TextUtils;
+import android.text.style.ImageSpan;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -104,6 +106,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 	private ProgressBar actionProgress;
 	private FrameLayout[] tabViews;
 	private TabLayoutMediator tabLayoutMediator;
+	private TextView followsYouView;
 
 	private Account account;
 	private String accountID;
@@ -178,6 +181,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 		bioEdit=content.findViewById(R.id.bio_edit);
 		actionProgress=content.findViewById(R.id.action_progress);
 		fab=content.findViewById(R.id.fab);
+		followsYouView=content.findViewById(R.id.follows_you);
 
 		avatar.setOutlineProvider(new ViewOutlineProvider(){
 			@Override
@@ -400,8 +404,25 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 		HtmlParser.parseCustomEmoji(ssb, account.emojis);
 		name.setText(ssb);
 		setTitle(ssb);
-		username.setText('@'+account.acct);
-		bio.setText(HtmlParser.parse(account.note, account.emojis, Collections.emptyList(), Collections.emptyList(), accountID));
+		if(account.locked){
+			ssb=new SpannableStringBuilder("@");
+			ssb.append(account.acct);
+			ssb.append(" ");
+			Drawable lock=username.getResources().getDrawable(R.drawable.ic_fluent_lock_closed_20_filled, getActivity().getTheme()).mutate();
+			lock.setBounds(0, 0, lock.getIntrinsicWidth(), lock.getIntrinsicHeight());
+			lock.setTint(username.getCurrentTextColor());
+			ssb.append(getString(R.string.manually_approves_followers), new ImageSpan(lock, ImageSpan.ALIGN_BOTTOM), 0);
+			username.setText(ssb);
+		}else{
+			username.setText('@'+account.acct);
+		}
+		CharSequence parsedBio=HtmlParser.parse(account.note, account.emojis, Collections.emptyList(), Collections.emptyList(), accountID);
+		if(TextUtils.isEmpty(parsedBio)){
+			bio.setVisibility(View.GONE);
+		}else{
+			bio.setVisibility(View.VISIBLE);
+			bio.setText(parsedBio);
+		}
 		followersCount.setText(UiUtils.abbreviateNumber(account.followersCount));
 		followingCount.setText(UiUtils.abbreviateNumber(account.followingCount));
 		postsCount.setText(UiUtils.abbreviateNumber(account.statusesCount));
@@ -565,6 +586,8 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 		invalidateOptionsMenu();
 		actionButton.setVisibility(View.VISIBLE);
 		UiUtils.setRelationshipToActionButton(relationship, actionButton);
+		actionProgress.setIndeterminateTintList(actionButton.getTextColors());
+		followsYouView.setVisibility(relationship.followedBy ? View.VISIBLE : View.GONE);
 	}
 
 	private void onScrollChanged(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY){

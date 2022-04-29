@@ -22,7 +22,7 @@
 				<RelativeLayout
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
-					android:paddingBottom="23dp"
+					android:paddingBottom="15dp"
 					android:clipToPadding="false">
 
 					<org.joinmastodon.android.ui.views.CoverImageView
@@ -32,6 +32,25 @@
 						android:background="#808080"
 						android:contentDescription="@string/profile_header"
 						android:scaleType="centerCrop"/>
+
+					<TextView
+						android:id="@+id/follows_you"
+						android:layout_width="wrap_content"
+						android:layout_height="28dp"
+						android:layout_alignEnd="@id/cover"
+						android:layout_alignBottom="@id/cover"
+						android:layout_margin="16dp"
+						android:paddingRight="8dp"
+						android:paddingLeft="8dp"
+						android:textColor="@color/gray_50t"
+						android:textAllCaps="true"
+						android:fontFamily="sans-serif-medium"
+						android:textSize="14dp"
+						android:gravity="center"
+						android:background="@drawable/bg_profile_follows_you"
+						android:visibility="gone"
+						tools:visibility="visible"
+						android:text="@string/follows_you"/>
 
 					<View
 						android:id="@+id/avatar_border"

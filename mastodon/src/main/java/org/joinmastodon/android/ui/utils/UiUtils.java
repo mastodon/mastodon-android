@@ -141,12 +141,15 @@ public class UiUtils{
 
 	@SuppressLint("DefaultLocale")
 	public static String abbreviateNumber(int n){
-		if(n<1000)
+		if(n<1000){
 			return String.format("%,d", n);
-		else if(n<1_000_000)
-			return String.format("%,.1fK", n/1000f);
-		else
-			return String.format("%,.1fM", n/1_000_000f);
+		}else if(n<1_000_000){
+			float a=n/1000f;
+			return a>99f ? String.format("%,dK", (int)Math.floor(a)) : String.format("%,.1fK", a);
+		}else{
+			float a=n/1_000_000f;
+			return a>99f ? String.format("%,dM", (int)Math.floor(a)) : String.format("%,.1fM", n/1_000_000f);
+		}
 	}
 
 	/**
@@ -340,13 +343,38 @@ public class UiUtils{
 	}
 
 	public static void setRelationshipToActionButton(Relationship relationship, Button button){
+		boolean secondaryStyle;
 		if(relationship.blocking){
 			button.setText(R.string.button_blocked);
-		}else if(relationship.muting){
-			button.setText(R.string.button_muted);
+			secondaryStyle=true;
+		}else if(relationship.blockedBy){
+			button.setText(R.string.button_follow);
+			secondaryStyle=false;
+		}else if(relationship.requested){
+			button.setText(R.string.button_follow_pending);
+			secondaryStyle=true;
+		}else if(!relationship.following){
+			button.setText(relationship.followedBy ? R.string.follow_back : R.string.button_follow);
+			secondaryStyle=false;
 		}else{
-			button.setText(relationship.following ? R.string.button_following : R.string.button_follow);
+			button.setText(R.string.button_following);
+			secondaryStyle=true;
 		}
+
+		button.setEnabled(!relationship.blockedBy);
+		int attr=secondaryStyle ? R.attr.secondaryButtonStyle : android.R.attr.buttonStyle;
+		TypedArray ta=button.getContext().obtainStyledAttributes(new int[]{attr});
+		int styleRes=ta.getResourceId(0, 0);
+		ta.recycle();
+		ta=button.getContext().obtainStyledAttributes(styleRes, new int[]{android.R.attr.background});
+		button.setBackground(ta.getDrawable(0));
+		ta.recycle();
+		ta=button.getContext().obtainStyledAttributes(styleRes, new int[]{android.R.attr.textColor});
+		if(relationship.blocking)
+			button.setTextColor(button.getResources().getColorStateList(R.color.error_600));
+		else
+			button.setTextColor(ta.getColorStateList(0));
+		ta.recycle();
 	}
 
 	public static void performAccountAction(Activity activity, Account account, String accountID, Relationship relationship, Button button, Consumer<Boolean> progressCallback, Consumer<Relationship> resultCallback){
@@ -356,7 +384,7 @@ public class UiUtils{
 			confirmToggleMuteUser(activity, accountID, account, true, resultCallback);
 		}else{
 			progressCallback.accept(true);
-			new SetAccountFollowed(account.id, !relationship.following, true)
+			new SetAccountFollowed(account.id, !relationship.following && !relationship.requested, true)
 					.setCallback(new Callback<>(){
 						@Override
 						public void onSuccess(Relationship result){
