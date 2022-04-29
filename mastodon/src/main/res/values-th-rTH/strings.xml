@@ -123,6 +123,9 @@
 	<plurals name="x_people_talking">
 		<item quantity="other">%d คนกำลังพูดคุย</item>
 	</plurals>
+	<plurals name="discussed_x_times">
+		<item quantity="other">พูดคุย %d ครั้ง</item>
+	</plurals>
 	<string name="report_title">รายงาน %s</string>
 	<string name="report_choose_reason_subtitle">เลือกที่ตรงกันที่สุด</string>
 	<string name="report_reason_personal">ฉันไม่ชอบโพสต์</string>
@@ -137,9 +140,11 @@
 	<string name="report_choose_rule_subtitle">เลือกทั้งหมดที่นำไปใช้</string>
 	<string name="report_choose_posts">มีโพสต์ใด ๆ ที่สนับสนุนรายงานนี้หรือไม่?</string>
 	<string name="report_choose_posts_subtitle">เลือกทั้งหมดที่นำไปใช้</string>
+	<string name="report_comment_title">มีสิ่งอื่นใดที่เราควรทราบหรือไม่?</string>
 	<string name="report_comment_hint">ความคิดเห็นเพิ่มเติม</string>
 	<string name="sending_report">กำลังส่งรายงาน…</string>
 	<string name="report_sent_title">ขอบคุณสำหรับการรายงาน เราจะตรวจสอบสิ่งนี้</string>
+	<string name="report_sent_subtitle">ขณะที่เราตรวจทานสิ่งนี้ คุณสามารถดำเนินการกับ %s</string>
 	<string name="unfollow_user">เลิกติดตาม %s</string>
 	<string name="unfollow">เลิกติดตาม</string>
 	<string name="report_personal_title">ไม่ต้องการเห็นสิ่งนี้?</string>
@@ -160,13 +165,20 @@
 	<string name="resent_email">ส่งอีเมลยืนยันแล้ว</string>
 	<string name="compose_hint">พิมพ์หรือวางสิ่งที่คุณกำลังคิด</string>
 	<string name="content_warning">คำเตือนเนื้อหา</string>
+	<string name="add_image_description">เพิ่มคำอธิบายภาพ…</string>
+	<string name="retry_upload">ลองอัปโหลดใหม่</string>
+	<string name="image_upload_failed">ไม่สามารถอัปโหลดภาพ</string>
+	<string name="video_upload_failed">ไม่สามารถอัปโหลดวิดีโอ</string>
+	<string name="edit_image">แก้ไขภาพ</string>
 	<string name="save">บันทึก</string>
+	<string name="add_alt_text">เพิ่มข้อความแสดงแทน</string>
 	<string name="visibility_public">สาธารณะ</string>
 	<string name="visibility_followers_only">ผู้ติดตามเท่านั้น</string>
 	<string name="visibility_private">เฉพาะผู้คนที่ฉันกล่าวถึงเท่านั้น</string>
 	<string name="search_all">ทั้งหมด</string>
 	<string name="search_people">ผู้คน</string>
 	<string name="recent_searches">การค้นหาล่าสุด</string>
+	<string name="step_x_of_n">ขั้นตอนที่ %1$d จาก %2$d</string>
 	<string name="skip">ข้าม</string>
 	<string name="notification_type_follow">ผู้ติดตามใหม่</string>
 	<string name="notification_type_favorite">รายการโปรด</string>
@@ -174,10 +186,15 @@
 	<string name="notification_type_mention">การกล่าวถึง</string>
 	<string name="notification_type_poll">การสำรวจความคิดเห็น</string>
 	<string name="choose_account">เลือกบัญชี</string>
+	<string name="err_not_logged_in">โปรดเข้าสู่ระบบ Mastodon ก่อน</string>
+	<plurals name="cant_add_more_than_x_attachments">
+		<item quantity="other">คุณไม่สามารถเพิ่มมากกว่า %d ไฟล์แนบสื่อ</item>
+	</plurals>
 	<string name="theme_auto">อัตโนมัติ</string>
 	<string name="theme_light">สว่าง</string>
 	<string name="theme_dark">มืด</string>
 	<string name="theme_true_black">โหมดดำสนิท</string>
+	<string name="settings_behavior">ลักษณะการทำงาน</string>
 	<string name="settings_gif">เล่นภาพประจำตัวและอีโมจิแบบเคลื่อนไหว</string>
 	<string name="settings_notifications">การแจ้งเตือน</string>
 	<string name="notify_me_when">แจ้งเตือนฉันเมื่อ</string>
@@ -214,17 +231,23 @@
 	<string name="post_visibility">การมองเห็นโพสต์</string>
 	<string name="home_timeline">เส้นเวลาหน้าแรก</string>
 	<string name="my_profile">โปรไฟล์ของฉัน</string>
+	<string name="media_viewer">ตัวดูสื่อ</string>
 	<string name="follow_user">ติดตาม %s</string>
 	<string name="unfollowed_user">เลิกติดตาม %s แล้ว</string>
 	<string name="open_in_browser">เปิดในเบราว์เซอร์</string>
 	<string name="hide_boosts_from_user">ซ่อนการดันจาก %s</string>
 	<string name="show_boosts_from_user">แสดงการดันจาก %s</string>
+	<string name="signup_reason">ทำไมคุณจึงต้องการเข้าร่วม?</string>
+	<string name="signup_reason_note">นี่จะช่วยให้เราตรวจทานใบสมัครของคุณ</string>
 	<string name="clear">ล้าง</string>
 	<string name="download">ดาวน์โหลด</string>
 	<string name="open_settings">เปิดการตั้งค่า</string>
+	<string name="error_saving_file">เกิดข้อผิดพลาดในการบันทึกไฟล์</string>
 	<string name="file_saved">บันทึกไฟล์แล้ว</string>
 	<string name="downloading">กำลังดาวน์โหลด…</string>
 	<string name="local_timeline">ชุมชน</string>
+	<string name="trending_posts_info_banner">นี่คือโพสต์ที่กำลังได้รับความสนใจในมุมของ Mastodon ของคุณ</string>
+	<string name="trending_hashtags_info_banner">นี่คือแฮชแท็กที่กำลังได้รับความสนใจในมุมของ Mastodon ของคุณ</string>
 	<string name="dismiss">ปิด</string>
 	<string name="see_new_posts">ดูโพสต์ใหม่</string>
 	<string name="load_missing_posts">โหลดโพสต์ที่ขาดหายไป</string>
