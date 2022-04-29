@@ -24,7 +24,7 @@ public class AutoOrientationLinearLayout extends LinearLayout{
 		int childrenTotalWidth=0;
 		for(int i=0;i<getChildCount();i++){
 			View child=getChildAt(i);
-			measureChildWithMargins(child, widthMeasureSpec, hPadding, heightMeasureSpec, 0);
+			measureChildWithMargins(child, widthMeasureSpec, 0, heightMeasureSpec, 0);
 			childrenTotalWidth+=child.getMeasuredWidth();
 		}
 		if(childrenTotalWidth>MeasureSpec.getSize(widthMeasureSpec)-hPadding){
