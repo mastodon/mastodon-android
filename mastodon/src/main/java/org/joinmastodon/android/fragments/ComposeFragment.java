@@ -714,25 +714,27 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 			return false;
 		}
 		String type=getActivity().getContentResolver().getType(uri);
-		if(instance.configuration!=null && instance.configuration.mediaAttachments!=null){
+		if(instance!=null && instance.configuration!=null && instance.configuration.mediaAttachments!=null){
 			if(instance.configuration.mediaAttachments.supportedMimeTypes!=null && !instance.configuration.mediaAttachments.supportedMimeTypes.contains(type)){
 				showMediaAttachmentError(getString(R.string.media_attachment_unsupported_type, UiUtils.getFileName(uri)));
 				return false;
 			}
-			int sizeLimit=type.startsWith("image/") ? instance.configuration.mediaAttachments.imageSizeLimit : instance.configuration.mediaAttachments.videoSizeLimit;
-			int size;
-			try(Cursor cursor=MastodonApp.context.getContentResolver().query(uri, new String[]{OpenableColumns.SIZE}, null, null, null)){
-				cursor.moveToFirst();
-				size=cursor.getInt(0);
-			}catch(Exception x){
-				Log.w("ComposeFragment", x);
-				return false;
-			}
-			if(size>sizeLimit){
-				float mb=sizeLimit/(float)(1024*1024);
-				String sMb=String.format(Locale.getDefault(), mb%1f==0f ? "%f" : "%.2f", mb);
-				showMediaAttachmentError(getString(R.string.media_attachment_too_big, UiUtils.getFileName(uri), sMb));
-				return false;
+			if(!type.startsWith("image/")){
+				int sizeLimit=instance.configuration.mediaAttachments.videoSizeLimit;
+				int size;
+				try(Cursor cursor=MastodonApp.context.getContentResolver().query(uri, new String[]{OpenableColumns.SIZE}, null, null, null)){
+					cursor.moveToFirst();
+					size=cursor.getInt(0);
+				}catch(Exception x){
+					Log.w("ComposeFragment", x);
+					return false;
+				}
+				if(size>sizeLimit){
+					float mb=sizeLimit/(float) (1024*1024);
+					String sMb=String.format(Locale.getDefault(), mb%1f==0f ? "%f" : "%.2f", mb);
+					showMediaAttachmentError(getString(R.string.media_attachment_too_big, UiUtils.getFileName(uri), sMb));
+					return false;
+				}
 			}
 		}
 		pollBtn.setEnabled(false);
