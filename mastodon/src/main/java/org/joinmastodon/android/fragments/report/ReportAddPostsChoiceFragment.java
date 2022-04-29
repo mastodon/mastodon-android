@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.squareup.otto.Subscribe;
 
+import org.joinmastodon.android.E;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.requests.accounts.GetAccountStatuses;
 import org.joinmastodon.android.events.FinishReportFragmentsEvent;
@@ -60,6 +61,13 @@ public class ReportAddPostsChoiceFragment extends StatusListFragment{
 		setRetainInstance(true);
 		setListLayoutId(R.layout.fragment_content_report_posts);
 		setLayout(R.layout.fragment_report_posts);
+		E.register(this);
+	}
+
+	@Override
+	public void onDestroy(){
+		E.unregister(this);
+		super.onDestroy();
 	}
 
 	@Override

@@ -5,7 +5,9 @@ import android.os.Bundle;
 import com.squareup.otto.Subscribe;
 
 import org.joinmastodon.android.R;
+import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.events.FinishReportFragmentsEvent;
+import org.joinmastodon.android.model.Instance;
 import org.joinmastodon.android.model.ReportReason;
 import org.parceler.Parcels;
 
@@ -21,7 +23,10 @@ public class ReportReasonChoiceFragment extends BaseReportChoiceFragment{
 	protected void populateItems(){
 		items.add(new Item(getString(R.string.report_reason_personal), getString(R.string.report_reason_personal_subtitle), ReportReason.PERSONAL.name()));
 		items.add(new Item(getString(R.string.report_reason_spam), getString(R.string.report_reason_spam_subtitle), ReportReason.SPAM.name()));
-		items.add(new Item(getString(R.string.report_reason_violation), getString(R.string.report_reason_violation_subtitle), ReportReason.VIOLATION.name()));
+		Instance inst=AccountSessionManager.getInstance().getInstanceInfo(AccountSessionManager.getInstance().getAccount(accountID).domain);
+		if(inst!=null && inst.rules!=null && !inst.rules.isEmpty()){
+			items.add(new Item(getString(R.string.report_reason_violation), getString(R.string.report_reason_violation_subtitle), ReportReason.VIOLATION.name()));
+		}
 		items.add(new Item(getString(R.string.report_reason_other), getString(R.string.report_reason_other_subtitle), ReportReason.OTHER.name()));
 	}
 
