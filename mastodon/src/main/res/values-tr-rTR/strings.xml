@@ -167,7 +167,7 @@
 	<string name="unfollow_user">Takipten çık %s</string>
 	<string name="unfollow">Takipten çık</string>
 	<string name="mute_user_explain">Ana sayfa akışınızda gönderilerini görmezsiniz. Sessize alındıklarını bilmeyecekler.</string>
-	<string name="block_user_explain">Artık gönderilerinizi takip edemez veya göremezler, ancak engellenip engellenmediklerini görebilirler.</string>
+	<string name="block_user_explain">Artık sizi takip edemez ve gönderilerinizi göremezler ama engellendiklerini görebilirler.</string>
 	<string name="report_personal_title">Bunu görmek istemiyor musun?</string>
 	<string name="report_personal_subtitle">Mastodon\'da beğenmediğiniz bir şey gördüğünüzde, o kişiyi deneyiminizden çıkarabilirsiniz.</string>
 	<string name="back">Geri</string>
@@ -302,7 +302,15 @@
 	<string name="downloading">İndiriliyor…</string>
 	<string name="no_app_to_handle_action">Bu eylemi gerçekleştirebilecek bir uygulama bulunmuyor</string>
 	<string name="local_timeline">Topluluk</string>
+	<string name="trending_posts_info_banner">Bu gönderiler, bulunduğun topluluktaki ilgi çeken gönderilerdir.</string>
+	<string name="trending_hashtags_info_banner">Bunlar, bulunduğun topluluktaki ilgi çeken etiketlerdir.</string>
+	<string name="trending_links_info_banner">Bunlar bulunduğun topluluktaki en fazla paylaşılan haberler.</string>
 	<string name="local_timeline_info_banner">Bu gönderiler seninle aynı Mastodon sunucusunda olan kişilerin paylaştığı son gönderilerdir.</string>
 	<string name="dismiss">Yoksay</string>
 	<string name="see_new_posts">Yeni gönderileri gör</string>
+	<string name="load_missing_posts">Daha fazla gönderi yükle</string>
+	<string name="follow_back">Geri Takip Et</string>
+	<string name="button_follow_pending">Bekliyor</string>
+	<string name="follows_you">Seni takip ediyor</string>
+	<string name="manually_approves_followers">Takipçileri manuel kabul eder</string>
 </resources>
