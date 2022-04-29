@@ -1,2 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+	<string name="app_name">Mastodon</string>
+	<string name="get_started">เริ่มต้นใช้งาน</string>
+	<string name="log_in">เข้าสู่ระบบ</string>
+	<string name="next">ถัดไป</string>
+	<string name="error">ข้อผิดพลาด</string>
+	<string name="ok">ตกลง</string>
+	<string name="user_boosted">%s ได้ดัน</string>
+	<string name="notifications">การแจ้งเตือน</string>
+	<string name="user_followed_you">ได้ติดตามคุณ</string>
+	<string name="share_toot_title">แบ่งปัน</string>
+	<string name="settings">การตั้งค่า</string>
+	<string name="publish">เผยแพร่</string>
+	<string name="discard_draft">ละทิ้งแบบร่าง?</string>
+	<string name="discard">ละทิ้ง</string>
+	<string name="cancel">ยกเลิก</string>
+	<plurals name="followers">
+		<item quantity="other">ผู้ติดตาม</item>
+	</plurals>
+	<plurals name="following">
+		<item quantity="other">กำลังติดตาม</item>
+	</plurals>
+	<plurals name="posts">
+		<item quantity="other">โพสต์</item>
+	</plurals>
+	<string name="posts">โพสต์</string>
+	<string name="posts_and_replies">โพสต์และการตอบกลับ</string>
+	<string name="media">สื่อ</string>
+	<string name="profile_about">เกี่ยวกับ</string>
+	<string name="button_follow">ติดตาม</string>
+	<string name="button_following">กำลังติดตาม</string>
+	<string name="edit_profile">แก้ไขโปรไฟล์</string>
+	<string name="mention_user">กล่าวถึง %s</string>
+	<string name="share_user">แบ่งปัน %s</string>
+	<string name="mute_user">ซ่อน %s</string>
+	<string name="unmute_user">เลิกซ่อน %s</string>
+	<string name="block_user">ปิดกั้น %s</string>
+	<string name="unblock_user">เลิกปิดกั้น %s</string>
+	<string name="report_user">รายงาน %s</string>
+	<string name="block_domain">ปิดกั้น %s</string>
+	<string name="unblock_domain">เลิกปิดกั้น %s</string>
+	<plurals name="x_posts">
+		<item quantity="other">%,d โพสต์</item>
+	</plurals>
+	<string name="profile_joined">เข้าร่วมเมื่อ</string>
+	<string name="done">เสร็จสิ้น</string>
+	<string name="loading">กำลังโหลด…</string>
+	<string name="field_label">ป้ายชื่อ</string>
+	<string name="field_content">เนื้อหา</string>
+	<string name="saving">กำลังบันทึก…</string>
+	<string name="post_from_user">โพสต์จาก %s</string>
+	<string name="poll_option_hint">ตัวเลือก %d</string>
+	<plurals name="x_minutes">
+		<item quantity="other">%d นาที</item>
+	</plurals>
+	<plurals name="x_hours">
+		<item quantity="other">%d ชั่วโมง</item>
+	</plurals>
+	<plurals name="x_days">
+		<item quantity="other">%d วัน</item>
+	</plurals>
+	<string name="compose_poll_duration">ระยะเวลา: %s</string>
+	<string name="poll_closed">ปิดแล้ว</string>
+	<string name="confirm_mute_title">ซ่อนบัญชี</string>
+	<string name="confirm_mute">ยืนยันเพื่อซ่อน %s</string>
+	<string name="do_mute">ซ่อน</string>
+	<string name="confirm_unmute_title">เลิกซ่อนบัญชี</string>
+	<string name="confirm_unmute">ยืนยันเพื่อเลิกซ่อน %s</string>
+	<string name="do_unmute">เลิกซ่อน</string>
+	<string name="confirm_block_title">ปิดกั้นบัญชี</string>
+	<string name="confirm_block_domain_title">ปิดกั้นโดเมน</string>
+	<string name="confirm_block">ยืนยันเพื่อปิดกั้น %s</string>
+	<string name="do_block">ปิดกั้น</string>
+	<string name="confirm_unblock_title">เลิกปิดกั้นบัญชี</string>
+	<string name="confirm_unblock_domain_title">เลิกปิดกั้นโดเมน</string>
+	<string name="confirm_unblock">ยืนยันเพื่อเลิกปิดกั้น %s</string>
+	<string name="do_unblock">เลิกปิดกั้น</string>
+	<string name="button_muted">ซ่อนอยู่</string>
+	<string name="button_blocked">ปิดกั้นอยู่</string>
+	<string name="action_vote">ลงคะแนน</string>
+	<string name="tap_to_reveal">แตะเพื่อเปิดเผย</string>
+	<string name="delete">ลบ</string>
+	<string name="confirm_delete_title">ลบโพสต์</string>
+	<string name="confirm_delete">คุณแน่ใจหรือไม่ว่าต้องการลบโพสต์นี้?</string>
+	<string name="deleting">กำลังลบ…</string>
+	<string name="play">เล่น</string>
+	<string name="pause">หยุดชั่วคราว</string>
+	<string name="log_out">ลงชื่อออก</string>
+	<string name="add_account">เพิ่มบัญชี</string>
+	<string name="search_hint">ค้นหา</string>
+	<string name="hashtags">แฮชแท็ก</string>
+	<string name="news">ข่าว</string>
+	<string name="for_you">สำหรับคุณ</string>
+	<string name="all_notifications">ทั้งหมด</string>
+	<string name="mentions">การกล่าวถึง</string>
+	<plurals name="x_people_talking">
+		<item quantity="other">%d คนกำลังพูดคุย</item>
+	</plurals>
+	<string name="report_title">รายงาน %s</string>
+	<string name="report_comment_hint">ความคิดเห็นเพิ่มเติม</string>
+	<string name="sending_report">กำลังส่งรายงาน…</string>
+	<string name="unfollow_user">เลิกติดตาม %s</string>
+	<string name="unfollow">เลิกติดตาม</string>
+	<string name="back">ย้อนกลับ</string>
+	<string name="instance_catalog_title">Mastodon ประกอบด้วยผู้ใช้ในเซิร์ฟเวอร์ต่าง ๆ</string>
+	<string name="search_communities">ค้นหาเซิร์ฟเวอร์หรือป้อน URL</string>
+	<string name="instance_rules_title">กฎพื้นฐานบางประการ</string>
+	<string name="signup_title">มาตั้งค่าของคุณใน %s กันเลย</string>
+	<string name="edit_photo">แก้ไข</string>
+	<string name="display_name">ชื่อที่แสดง</string>
+	<string name="username">ชื่อผู้ใช้</string>
+	<string name="email">อีเมล</string>
+	<string name="password">รหัสผ่าน</string>
+	<string name="confirm_email_title">หนึ่งสิ่งสุดท้าย</string>
+	<string name="confirm_email_subtitle">แตะลิงก์ที่เราส่งอีเมลถึงคุณเพื่อยืนยันบัญชีของคุณ</string>
+	<string name="resend">ส่งใหม่</string>
+	<string name="open_email_app">เปิดแอปอีเมล</string>
+	<string name="resent_email">ส่งอีเมลยืนยันแล้ว</string>
+	<string name="compose_hint">พิมพ์หรือวางสิ่งที่คุณกำลังคิด</string>
+	<string name="content_warning">คำเตือนเนื้อหา</string>
+	<string name="save">บันทึก</string>
+	<string name="visibility_public">สาธารณะ</string>
+</resources>
