@@ -13,15 +13,15 @@
 	<string name="user_boosted">%s 已轉嘟</string>
 	<string name="in_reply_to">回覆給 %s</string>
 	<string name="notifications">通知</string>
-	<string name="user_followed_you">已追隨您</string>
-	<string name="user_sent_follow_request">傳送追隨請求給您</string>
+	<string name="user_followed_you">已跟隨您</string>
+	<string name="user_sent_follow_request">傳送跟隨請求給您</string>
 	<string name="user_favorited">將您的嘟文加入最愛</string>
 	<string name="notification_boosted">轉嘟了您的嘟文</string>
 	<string name="poll_ended">投票已結束</string>
-	<string name="time_seconds">%d秒</string>
-	<string name="time_minutes">%d分</string>
-	<string name="time_hours">%d小時</string>
-	<string name="time_days">%d天</string>
+	<string name="time_seconds">%d 秒</string>
+	<string name="time_minutes">%d 分</string>
+	<string name="time_hours">%d 小時</string>
+	<string name="time_days">%d 天</string>
 	<string name="share_toot_title">分享</string>
 	<string name="settings">設定</string>
 	<string name="publish">發佈</string>
@@ -29,20 +29,20 @@
 	<string name="discard">捨棄</string>
 	<string name="cancel">取消</string>
 	<plurals name="followers">
-		<item quantity="other">追隨者</item>
+		<item quantity="other">跟隨者</item>
 	</plurals>
 	<plurals name="following">
-		<item quantity="other">追隨中</item>
+		<item quantity="other">跟隨中</item>
 	</plurals>
 	<plurals name="posts">
-		<item quantity="other">貼文</item>
+		<item quantity="other">嘟文</item>
 	</plurals>
 	<string name="posts">嘟文</string>
 	<string name="posts_and_replies">嘟文及回覆</string>
 	<string name="media">媒體</string>
 	<string name="profile_about">關於</string>
-	<string name="button_follow">追隨</string>
-	<string name="button_following">正在追隨</string>
+	<string name="button_follow">跟隨</string>
+	<string name="button_following">正在跟隨</string>
 	<string name="edit_profile">編輯個人檔案</string>
 	<string name="mention_user">提及 %s</string>
 	<string name="share_user">分享 %s</string>
@@ -54,7 +54,7 @@
 	<string name="block_domain">封鎖 %s</string>
 	<string name="unblock_domain">解除封鎖 %s</string>
 	<plurals name="x_posts">
-		<item quantity="other">%,d 則貼文</item>
+		<item quantity="other">%,d 則嘟文</item>
 	</plurals>
 	<string name="profile_joined">已加入</string>
 	<string name="done">完成</string>
@@ -65,26 +65,26 @@
 	<string name="post_from_user">來自 %s 的嘟文</string>
 	<string name="poll_option_hint">選項 %d</string>
 	<plurals name="x_minutes">
-		<item quantity="other">%d分鐘</item>
+		<item quantity="other">%d 分鐘</item>
 	</plurals>
 	<plurals name="x_hours">
-		<item quantity="other">%d小時</item>
+		<item quantity="other">%d 小時</item>
 	</plurals>
 	<plurals name="x_days">
-		<item quantity="other">%d天</item>
+		<item quantity="other">%d 天</item>
 	</plurals>
 	<string name="compose_poll_duration">持續時間：%s</string>
 	<plurals name="x_seconds_left">
-		<item quantity="other">剩餘%d秒</item>
+		<item quantity="other">剩餘 %d 秒</item>
 	</plurals>
 	<plurals name="x_minutes_left">
-		<item quantity="other">剩餘%d分鐘</item>
+		<item quantity="other">剩餘 %d 分鐘</item>
 	</plurals>
 	<plurals name="x_hours_left">
-		<item quantity="other">剩餘%d小時</item>
+		<item quantity="other">剩餘 %d 小時</item>
 	</plurals>
 	<plurals name="x_days_left">
-		<item quantity="other">剩餘%d天</item>
+		<item quantity="other">剩餘 %d 天</item>
 	</plurals>
 	<plurals name="x_voters">
 		<item quantity="other">%,d 位投票者</item>
@@ -100,16 +100,16 @@
 	<string name="confirm_block_domain_title">封鎖網域</string>
 	<string name="confirm_block">確認將 %s 封鎖</string>
 	<string name="do_block">封鎖</string>
-	<string name="confirm_unblock_title">取消封鎖帳號</string>
+	<string name="confirm_unblock_title">解除封鎖帳號</string>
 	<string name="confirm_unblock_domain_title">解除封鎖網域</string>
-	<string name="confirm_unblock">確認將 %s 取消封鎖</string>
+	<string name="confirm_unblock">確認將 %s 解除封鎖</string>
 	<string name="do_unblock">解除封鎖</string>
 	<string name="button_muted">已靜音</string>
 	<string name="button_blocked">已封鎖</string>
 	<string name="action_vote">投票</string>
 	<string name="tap_to_reveal">輕觸以顯示</string>
 	<string name="delete">刪除</string>
-	<string name="confirm_delete_title">刪除貼文</string>
+	<string name="confirm_delete_title">刪除嘟文</string>
 	<string name="confirm_delete">您確定要刪除此嘟文？</string>
 	<string name="deleting">正在刪除……</string>
 	<string name="notification_channel_audio_player">音訊播放</string>
@@ -130,13 +130,13 @@
 		<item quantity="other">已討論過 %d 次</item>
 	</plurals>
 	<string name="report_title">檢舉 %s</string>
-	<string name="report_choose_reason">此貼文有什麼問題？</string>
+	<string name="report_choose_reason">這則嘟文有什麼問題嗎？</string>
 	<string name="report_choose_reason_account">%s 有什麼問題？</string>
 	<string name="report_choose_reason_subtitle">選取最符合的</string>
 	<string name="report_reason_personal">我不喜歡</string>
 	<string name="report_reason_personal_subtitle">這是您不想看到的</string>
 	<string name="report_reason_spam">垃圾訊息</string>
-	<string name="report_reason_spam_subtitle">有害連結、假造的互動，或是重複性回覆</string>
+	<string name="report_reason_spam_subtitle">有害連結、假造的互動、或是重複性回覆</string>
 	<string name="report_reason_violation">違反伺服器規則</string>
 	<string name="report_reason_violation_subtitle">您知道它違反特定規則</string>
 	<string name="report_reason_other">其他原因</string>
@@ -150,8 +150,8 @@
 	<string name="sending_report">正在傳送回報……</string>
 	<string name="report_sent_title">感謝您的檢舉，我們將會著手處理。</string>
 	<string name="report_sent_subtitle">當我們正在審核時，您可以對 %s 採取以下措施。</string>
-	<string name="unfollow_user">取消追隨 %s</string>
-	<string name="unfollow">取消追隨</string>
+	<string name="unfollow_user">取消跟隨 %s</string>
+	<string name="unfollow">取消跟隨</string>
 	<string name="mute_user_explain">您不會在您的首頁時間軸中再見到他們的嘟文或轉嘟。他們不會知道他們已被靜音。</string>
 	<string name="block_user_explain">他們將無法跟隨您或是看到您的嘟文。他們能看到他們是否已被封鎖。</string>
 	<string name="report_personal_title">不想再看到這個？</string>
@@ -206,8 +206,8 @@
 	<string name="recent_searches">最近的搜尋</string>
 	<string name="step_x_of_n">第 %1$d 步，共 %2$d 步</string>
 	<string name="skip">跳過</string>
-	<string name="notification_type_follow">新的追隨者</string>
-	<string name="notification_type_favorite">收藏</string>
+	<string name="notification_type_follow">新的跟隨者</string>
+	<string name="notification_type_favorite">最愛</string>
 	<string name="notification_type_reblog">轉嘟</string>
 	<string name="notification_type_mention">提及</string>
 	<string name="notification_type_poll">投票</string>
@@ -224,17 +224,17 @@
 	<string name="theme_dark">深色</string>
 	<string name="theme_true_black">純黑模式</string>
 	<string name="settings_behavior">行為</string>
-	<string name="settings_gif">播放動畫大頭照與表情符號</string>
+	<string name="settings_gif">播放動畫大頭貼與表情符號</string>
 	<string name="settings_custom_tabs">使用應用程式內建瀏覽器</string>
 	<string name="settings_notifications">通知</string>
 	<string name="notify_me_when">以下狀況請通知我</string>
 	<string name="notify_anyone">任何人</string>
-	<string name="notify_follower">追隨者</string>
-	<string name="notify_followed">我追隨的某人</string>
+	<string name="notify_follower">跟隨者</string>
+	<string name="notify_followed">我跟隨的某人</string>
 	<string name="notify_none">沒有人</string>
-	<string name="notify_favorites">將我的貼文加到最愛</string>
-	<string name="notify_follow">追隨我</string>
-	<string name="notify_reblog">轉發我的貼文</string>
+	<string name="notify_favorites">將我的嘟文加到最愛</string>
+	<string name="notify_follow">跟隨我</string>
+	<string name="notify_reblog">轉嘟我的嘟文</string>
 	<string name="notify_mention">提及我</string>
 	<string name="settings_boring">無聊的區域</string>
 	<string name="settings_account">帳號設定</string>
@@ -253,7 +253,7 @@
 	<string name="more_options">更多選項</string>
 	<string name="reveal_content">顯示內容</string>
 	<string name="hide_content">隱藏內容</string>
-	<string name="new_post">新貼文</string>
+	<string name="new_post">新嘟文</string>
 	<string name="button_reply">回覆</string>
 	<string name="button_reblog">轉嘟</string>
 	<string name="button_favorite">最愛</string>
@@ -263,11 +263,11 @@
 	<string name="add_poll">建立投票</string>
 	<string name="emoji">emoji</string>
 	<string name="post_visibility">嘟文可見性</string>
-	<string name="home_timeline">本站時間軸</string>
+	<string name="home_timeline">首頁時間軸</string>
 	<string name="my_profile">我的個人檔案</string>
 	<string name="media_viewer">媒體檢視器</string>
 	<string name="follow_user">跟隨 %s</string>
-	<string name="unfollowed_user">取消追隨 %s</string>
+	<string name="unfollowed_user">取消跟隨 %s</string>
 	<string name="followed_user">您現在開始跟隨 %s</string>
 	<string name="open_in_browser">在瀏覽器中開啟</string>
 	<string name="hide_boosts_from_user">隱藏來自 %s 的轉嘟</string>
@@ -294,4 +294,8 @@
 	<string name="dismiss">關閉</string>
 	<string name="see_new_posts">檢視最新嘟文</string>
 	<string name="load_missing_posts">讀取錯過的嘟文</string>
+	<string name="follow_back">跟隨回去</string>
+	<string name="button_follow_pending">等待中</string>
+	<string name="follows_you">跟隨了您</string>
+	<string name="manually_approves_followers">手動審核跟隨者</string>
 </resources>
