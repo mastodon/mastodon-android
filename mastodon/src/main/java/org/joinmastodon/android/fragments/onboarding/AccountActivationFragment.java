@@ -14,6 +14,7 @@ import android.view.WindowInsets;
 import android.widget.Button;
 import android.widget.Toast;
 
+import org.joinmastodon.android.MainActivity;
 import org.joinmastodon.android.MastodonApp;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.requests.accounts.GetOwnAccount;
@@ -136,6 +137,13 @@ public class AccountActivationFragment extends AppKitFragment{
 	}
 
 	private void tryGetAccount(){
+		if(AccountSessionManager.getInstance().tryGetAccount(accountID)==null){
+			uiHandler.removeCallbacks(pollRunnable);
+			getActivity().finish();
+			Intent intent=new Intent(getActivity(), MainActivity.class);
+			startActivity(intent);
+			return;
+		}
 		currentRequest=new GetOwnAccount()
 				.setCallback(new Callback<>(){
 					@Override
