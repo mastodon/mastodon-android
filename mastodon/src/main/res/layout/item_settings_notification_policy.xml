@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<org.joinmastodon.android.ui.views.AutoOrientationLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:tools="http://schemas.android.com/tools"
 	android:orientation="horizontal"
 	android:layout_width="match_parent"
-	android:layout_height="32dp"
+	android:layout_height="wrap_content"
 	android:layoutDirection="locale"
 	android:paddingLeft="16dp"
 	android:paddingRight="16dp">
 
 	<TextView
 		android:layout_width="wrap_content"
-		android:layout_height="match_parent"
+		android:layout_height="32dp"
+		android:layout_marginEnd="8dp"
 		android:gravity="center_vertical"
 		android:textColor="?android:textColorPrimary"
 		android:textSize="20dp"
@@ -19,12 +20,10 @@
 		android:ellipsize="end"
 		android:text="@string/notify_me_when"/>
 
-	<!-- TODO make this LL vertical when the button doesn't fit -->
 	<Button
 		android:id="@+id/button"
 		android:layout_width="wrap_content"
-		android:layout_height="match_parent"
-		android:layout_marginStart="8dp"
+		android:layout_height="32dp"
 		android:background="@drawable/bg_inline_button"
 		android:textColor="?android:textColorPrimary"
 		android:textSize="20dp"
@@ -37,4 +36,4 @@
 		android:ellipsize="middle"
 		tools:text="@string/notify_followed"/>
 
-</LinearLayout>
+</org.joinmastodon.android.ui.views.AutoOrientationLinearLayout>
