@@ -129,6 +129,8 @@
 		<item quantity="other">พูดคุย %d ครั้ง</item>
 	</plurals>
 	<string name="report_title">รายงาน %s</string>
+	<string name="report_choose_reason">โพสต์นี้มีอะไรผิดปกติ?</string>
+	<string name="report_choose_reason_account">%s มีอะไรผิดปกติ?</string>
 	<string name="report_choose_reason_subtitle">เลือกที่ตรงกันที่สุด</string>
 	<string name="report_reason_personal">ฉันไม่ชอบโพสต์</string>
 	<string name="report_reason_personal_subtitle">โพสต์ไม่ใช่บางอย่างที่คุณต้องการเห็น</string>
@@ -150,9 +152,12 @@
 	<string name="unfollow_user">เลิกติดตาม %s</string>
 	<string name="unfollow">เลิกติดตาม</string>
 	<string name="mute_user_explain">คุณจะไม่เห็นโพสต์หรือการดันของเขาในฟีดหน้าแรกของคุณ เขาจะไม่ทราบว่ามีการซ่อนเขา</string>
+	<string name="block_user_explain">เขาจะไม่สามารถติดตามหรือเห็นโพสต์ของคุณได้อีกต่อไป แต่เขาสามารถเห็นว่ามีการปิดกั้นเขาหรือไม่</string>
 	<string name="report_personal_title">ไม่ต้องการเห็นสิ่งนี้?</string>
+	<string name="report_personal_subtitle">เมื่อคุณเห็นบางอย่างที่คุณไม่ชอบใน Mastodon คุณสามารถเอาบุคคลออกจากประสบการณ์ของคุณ</string>
 	<string name="back">ย้อนกลับ</string>
 	<string name="instance_catalog_title">Mastodon ประกอบด้วยผู้ใช้ในเซิร์ฟเวอร์ต่าง ๆ</string>
+	<string name="instance_catalog_subtitle">เลือกเซิร์ฟเวอร์ตามความสนใจ, ภูมิภาค หรือวัตถุประสงค์ทั่วไปของคุณ คุณยังคงสามารถเชื่อมต่อกับทุกคน โดยไม่คำนึงถึงเซิร์ฟเวอร์</string>
 	<string name="search_communities">ค้นหาเซิร์ฟเวอร์หรือป้อน URL</string>
 	<string name="instance_rules_title">กฎพื้นฐานบางประการ</string>
 	<string name="signup_title">มาตั้งค่าของคุณใน %s กันเลย</string>
@@ -212,6 +217,7 @@
 	<string name="notify_mention">กล่าวถึงฉัน</string>
 	<string name="settings_boring">โซนน่าเบื่อ</string>
 	<string name="settings_account">การตั้งค่าบัญชี</string>
+	<string name="settings_contribute">มีส่วนร่วมกับ Mastodon</string>
 	<string name="settings_tos">เงื่อนไขการให้บริการ</string>
 	<string name="settings_privacy_policy">นโยบายความเป็นส่วนตัว</string>
 	<string name="settings_spicy">โซนเผ็ดร้อน</string>
@@ -248,6 +254,7 @@
 	<string name="signup_reason_note">นี่จะช่วยให้เราตรวจทานใบสมัครของคุณ</string>
 	<string name="clear">ล้าง</string>
 	<string name="profile_header">ภาพส่วนหัว</string>
+	<string name="reorder">เรียงลำดับใหม่</string>
 	<string name="download">ดาวน์โหลด</string>
 	<string name="open_settings">เปิดการตั้งค่า</string>
 	<string name="error_saving_file">เกิดข้อผิดพลาดในการบันทึกไฟล์</string>
@@ -256,6 +263,8 @@
 	<string name="local_timeline">ชุมชน</string>
 	<string name="trending_posts_info_banner">นี่คือโพสต์ที่กำลังได้รับความสนใจในมุมของ Mastodon ของคุณ</string>
 	<string name="trending_hashtags_info_banner">นี่คือแฮชแท็กที่กำลังได้รับความสนใจในมุมของ Mastodon ของคุณ</string>
+	<string name="trending_links_info_banner">นี่คือเรื่องข่าวที่กำลังได้รับการแบ่งปันมากที่สุดในมุมของ Mastodon ของคุณ</string>
+	<string name="local_timeline_info_banner">นี่คือโพสต์ล่าสุดโดยผู้คนที่ใช้เซิร์ฟเวอร์ Mastodon เดียวกันกับคุณ</string>
 	<string name="dismiss">ปิด</string>
 	<string name="see_new_posts">ดูโพสต์ใหม่</string>
 	<string name="load_missing_posts">โหลดโพสต์ที่ขาดหายไป</string>
