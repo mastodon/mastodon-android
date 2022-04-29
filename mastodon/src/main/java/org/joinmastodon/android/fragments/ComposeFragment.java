@@ -1096,7 +1096,7 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 
 	@Override
 	public String[] onGetAllowedMediaMimeTypes(){
-		if(instance.configuration!=null && instance.configuration.mediaAttachments!=null && instance.configuration.mediaAttachments.supportedMimeTypes!=null)
+		if(instance!=null && instance.configuration!=null && instance.configuration.mediaAttachments!=null && instance.configuration.mediaAttachments.supportedMimeTypes!=null)
 			return instance.configuration.mediaAttachments.supportedMimeTypes.toArray(new String[0]);
 		return new String[]{"image/jpeg", "image/gif", "image/png", "video/mp4"};
 	}

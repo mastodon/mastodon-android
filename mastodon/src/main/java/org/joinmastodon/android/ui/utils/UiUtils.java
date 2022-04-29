@@ -182,7 +182,7 @@ public class UiUtils{
 				String name=cursor.getString(0);
 				if(name!=null)
 					return name;
-			}
+			}catch(Throwable ignore){}
 		}
 		return uri.getLastPathSegment();
 	}

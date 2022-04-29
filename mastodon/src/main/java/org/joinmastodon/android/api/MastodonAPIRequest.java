@@ -75,9 +75,14 @@ public abstract class MastodonAPIRequest<T> extends APIRequest<T>{
 	}
 
 	public MastodonAPIRequest<T> exec(String accountID){
-		account=AccountSessionManager.getInstance().getAccount(accountID);
-		domain=account.domain;
-		account.getApiController().submitRequest(this);
+		try{
+			account=AccountSessionManager.getInstance().getAccount(accountID);
+			domain=account.domain;
+			account.getApiController().submitRequest(this);
+		}catch(Exception x){
+			Log.e(TAG, "exec: this shouldn't happen, but it still did", x);
+			invokeErrorCallback(new MastodonErrorResponse(x.getLocalizedMessage(), -1));
+		}
 		return this;
 	}
 
