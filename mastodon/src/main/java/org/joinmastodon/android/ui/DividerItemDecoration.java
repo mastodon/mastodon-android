@@ -18,6 +18,7 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration{
 	private Paint paint=new Paint();
 	private int paddingStart, paddingEnd;
 	private Predicate<RecyclerView.ViewHolder> drawDividerPredicate;
+	private boolean drawBelowLastItem;
 
 	public static final Predicate<RecyclerView.ViewHolder> NOT_FIRST=vh->vh.getAbsoluteAdapterPosition()>0;
 
@@ -34,6 +35,10 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration{
 		this.drawDividerPredicate=drawDividerPredicate;
 	}
 
+	public void setDrawBelowLastItem(boolean drawBelowLastItem){
+		this.drawBelowLastItem=drawBelowLastItem;
+	}
+
 	@Override
 	public void onDraw(@NonNull Canvas c, @NonNull RecyclerView parent, @NonNull RecyclerView.State state){
 		boolean isRTL=parent.getLayoutDirection()==View.LAYOUT_DIRECTION_RTL;
@@ -43,7 +48,7 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration{
 		for(int i=0;i<parent.getChildCount();i++){
 			View child=parent.getChildAt(i);
 			int pos=parent.getChildAdapterPosition(child);
-			if(pos<totalItems-1 && (drawDividerPredicate==null || drawDividerPredicate.test(parent.getChildViewHolder(child)))){
+			if((drawBelowLastItem || pos<totalItems-1) && (drawDividerPredicate==null || drawDividerPredicate.test(parent.getChildViewHolder(child)))){
 				float y=Math.round(child.getY()+child.getHeight());
 				y-=(y-paint.getStrokeWidth()/2f)%1f; // Make sure the line aligns with the pixel grid
 				paint.setAlpha(Math.round(255f*child.getAlpha()));

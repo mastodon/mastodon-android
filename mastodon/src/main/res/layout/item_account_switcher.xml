@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="horizontal"
+	android:layout_width="match_parent"
+	android:layout_height="48dp"
+	android:paddingLeft="20dp"
+	android:paddingRight="20dp"
+	android:gravity="center_vertical">
+	
+	<ImageView
+		android:id="@+id/avatar"
+		android:layout_width="32dp"
+		android:layout_height="32dp"
+		android:importantForAccessibility="no"/>
+
+	<TextView
+		android:id="@+id/name"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_weight="1"
+		android:layout_marginStart="24dp"
+		android:textSize="16dp"
+		android:textColor="?android:textColorPrimary"
+		android:singleLine="true"
+		android:ellipsize="end"/>
+
+	<View
+		android:id="@+id/current"
+		android:layout_width="24dp"
+		android:layout_height="24dp"
+		android:background="@drawable/ic_fluent_checkmark_24_filled"
+		android:backgroundTint="?android:textColorSecondary"
+		android:contentDescription="@string/current_account"/>
+
+	<ImageButton
+		android:id="@+id/more"
+		android:layout_width="24dp"
+		android:layout_height="24dp"
+		android:src="@drawable/ic_fluent_more_vertical_24_regular"
+		android:tint="?android:textColorSecondary"
+		android:contentDescription="@string/more_options"
+		android:background="?android:selectableItemBackgroundBorderless"/>
+
+</LinearLayout>
