@@ -382,6 +382,8 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 
 			@Override
 			public void onTextChanged(CharSequence s, int start, int before, int count){
+				if(s.length()==0)
+					return;
 				// offset one char back to catch an already typed '@' or '#' or ':'
 				int realStart=start;
 				start=Math.max(0, start-1);
@@ -1064,7 +1066,7 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 
 	@Override
 	public void onSelectionChanged(int start, int end){
-		if(start==end){
+		if(start==end && mainEditText.length()>0){
 			ComposeAutocompleteSpan[] spans=mainEditText.getText().getSpans(start, end, ComposeAutocompleteSpan.class);
 			if(spans.length>0){
 				assert spans.length==1;
