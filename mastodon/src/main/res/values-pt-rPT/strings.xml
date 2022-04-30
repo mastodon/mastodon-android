@@ -18,6 +18,10 @@
 	<string name="user_favorited">adicionou a tua publicação aos favoritos</string>
 	<string name="notification_boosted">partilhou a tua publicação</string>
 	<string name="poll_ended">sondagem terminada</string>
+	<string name="time_seconds">%ds</string>
+	<string name="time_minutes">%dm</string>
+	<string name="time_hours">%dh</string>
+	<string name="time_days">%dd</string>
 	<string name="share_toot_title">Partilhar</string>
 	<string name="settings">Configurações</string>
 	<string name="publish">Publicar</string>
@@ -58,5 +62,48 @@
 	</plurals>
 	<string name="profile_joined">Juntou-se a</string>
 	<string name="done">Concluído</string>
+	<string name="loading">A carregar…</string>
+	<string name="field_label">Etiqueta</string>
+	<string name="field_content">Conteúdo</string>
+	<string name="saving">A salvar…</string>
+	<string name="post_from_user">Publicação de %s</string>
+	<string name="poll_option_hint">Opção %d</string>
+	<plurals name="x_minutes">
+		<item quantity="one">%d minuto</item>
+		<item quantity="other">%d minutos</item>
+	</plurals>
+	<plurals name="x_hours">
+		<item quantity="one">%d hora</item>
+		<item quantity="other">%d horas</item>
+	</plurals>
+	<plurals name="x_days">
+		<item quantity="one">%d dia</item>
+		<item quantity="other">%d dias</item>
+	</plurals>
+	<string name="compose_poll_duration">Duração: %s</string>
+	<plurals name="x_seconds_left">
+		<item quantity="one">%d segundo restante</item>
+		<item quantity="other">%d segundos restantes</item>
+	</plurals>
+	<plurals name="x_minutes_left">
+		<item quantity="one">%d minuto restante</item>
+		<item quantity="other">%d minutos restantes</item>
+	</plurals>
+	<plurals name="x_hours_left">
+		<item quantity="one">%d hora restante</item>
+		<item quantity="other">%d horas restantes</item>
+	</plurals>
+	<plurals name="x_days_left">
+		<item quantity="one">%d dia restante</item>
+		<item quantity="other">%d dias restantes</item>
+	</plurals>
+	<plurals name="x_voters">
+		<item quantity="one">%,d votante</item>
+		<item quantity="other">%,d votantes</item>
+	</plurals>
+	<string name="poll_closed">Fechado</string>
+	<string name="confirm_mute_title">Silenciar Conta</string>
+	<string name="confirm_mute">Confirme para silenciar %s</string>
+	<string name="do_mute">Silenciar</string>
 	<string name="for_you">Para si</string>
 </resources>
