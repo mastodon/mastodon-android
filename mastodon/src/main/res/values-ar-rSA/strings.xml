@@ -64,14 +64,14 @@
 	<string name="mute_user">كَتمُ %s</string>
 	<string name="unmute_user">إلغاء الكَتم عن @%s</string>
 	<string name="block_user">حَظرُ %s</string>
-	<string name="unblock_user">ارفع الحجب عن %s</string>
-	<string name="report_user">بلّغ عن %s</string>
-	<string name="block_domain">احجب %s</string>
-	<string name="unblock_domain">ارفع الحجب عن %s</string>
+	<string name="unblock_user">رفع الحَظر عن %s</string>
+	<string name="report_user">الإبلاغُ عَن %s</string>
+	<string name="block_domain">حَظرُ %s</string>
+	<string name="unblock_domain">رفع الحَظر عن %s</string>
 	<plurals name="x_posts">
-		<item quantity="zero">لا منشورات</item>
-		<item quantity="one">منشور واحد</item>
-		<item quantity="two">منشوران</item>
+		<item quantity="zero">لا مَنشورات</item>
+		<item quantity="one">منشورٌ واحِد</item>
+		<item quantity="two">منشورانِ اثنان</item>
 		<item quantity="few">%,d منشورات</item>
 		<item quantity="many">%,d منشورًا</item>
 		<item quantity="other">%,d منشور</item>
@@ -102,20 +102,20 @@
 	</plurals>
 	<plurals name="x_days">
 		<item quantity="zero">أقل من يوم</item>
-		<item quantity="one">يوم واحد</item>
-		<item quantity="two">يومان</item>
+		<item quantity="one">يُومٌ واحِد</item>
+		<item quantity="two">يَومان اِثنان</item>
 		<item quantity="few">%d أيام</item>
 		<item quantity="many">%d يومًا</item>
 		<item quantity="other">%d يوم</item>
 	</plurals>
 	<string name="compose_poll_duration">المُدَّة: %s</string>
 	<plurals name="x_seconds_left">
-		<item quantity="zero">تبقت %d ثانية</item>
-		<item quantity="one">تبقت ثانية واحدة</item>
-		<item quantity="two">تبقت ثانيتان</item>
-		<item quantity="few">تبقت %d ثوان</item>
-		<item quantity="many">تبقت %d ثانية</item>
-		<item quantity="other">تبقت %d ثانية</item>
+		<item quantity="zero">تتبقى لَحظة</item>
+		<item quantity="one">تتبقى ثانية واحِدة</item>
+		<item quantity="two">تتبقى ثانيتان</item>
+		<item quantity="few">تتبقى %d ثوان</item>
+		<item quantity="many">تتبقى %d ثانية</item>
+		<item quantity="other">تتبقى %d ثانية</item>
 	</plurals>
 	<plurals name="x_minutes_left">
 		<item quantity="zero">تبقت أقل من دقيقة</item>
@@ -362,6 +362,9 @@
 	<string name="downloading">ينزّل…</string>
 	<string name="no_app_to_handle_action">لا يوجد تطبيق لمعالجة هذا الإجراء</string>
 	<string name="local_timeline">المجتمع</string>
+	<string name="trending_posts_info_banner">هَذِهِ هِيَ المَنشُوراتُ الَّتي تَكْتَسِبُ شَعبِيَّةً فِي الرُّكنِ الخاصِّ بِكَ مِن مَاستودُون.</string>
+	<string name="trending_hashtags_info_banner">هَذِهِ هِيَ الوُسُومُ الَّتي تَكْتَسِبُ شَعبِيَّةً فِي الرُّكنِ الخاصِّ بِكَ مِن مَاستودُون.</string>
+	<string name="trending_links_info_banner">هَذِهِ هِيَ القِصَصُ الأخبارِيَّةُ المُتَنَاقَلَةُ بِكِثرَةٍ فِي الرُّكنِ الخاصِّ بِكَ مِن مَاستودُون.</string>
 	<string name="local_timeline_info_banner">هذه هي أحدث منشورات المستخدمين المتواجدين على نفس الخادم الذي تستخدمه.</string>
 	<string name="dismiss">رفض</string>
 	<string name="see_new_posts">استعرض المنشورات الجديدة</string>
