@@ -35,7 +35,7 @@
 		<item quantity="other">フォロー中</item>
 	</plurals>
 	<plurals name="posts">
-		<item quantity="other">トゥート</item>
+		<item quantity="other">投稿</item>
 	</plurals>
 	<string name="posts">投稿</string>
 	<string name="posts_and_replies">投稿と返信</string>
@@ -54,7 +54,7 @@
 	<string name="block_domain">ブロック %s</string>
 	<string name="unblock_domain">ブロック %s</string>
 	<plurals name="x_posts">
-		<item quantity="other">%d 件のトゥート</item>
+		<item quantity="other">%d 件の投稿</item>
 	</plurals>
 	<string name="profile_joined">登録日</string>
 	<string name="done">完了</string>
@@ -204,6 +204,7 @@
 	<string name="search_all">全て</string>
 	<string name="search_people">人々</string>
 	<string name="recent_searches">最近の検索</string>
+	<string name="step_x_of_n">%2$d ステップの %1$d</string>
 	<string name="skip">スキップ</string>
 	<string name="notification_type_follow">新しいフォロワー</string>
 	<string name="notification_type_favorite">いいね</string>
@@ -212,6 +213,9 @@
 	<string name="notification_type_poll">投票</string>
 	<string name="choose_account">アカウントを選択</string>
 	<string name="err_not_logged_in">まずはアカウントにログインしてください</string>
+	<plurals name="cant_add_more_than_x_attachments">
+		<item quantity="other">%d 件以上のメディア添付ファイルを追加することはできません</item>
+	</plurals>
 	<string name="media_attachment_unsupported_type">ファイル %s はサポートされていないファイル形式です</string>
 	<string name="media_attachment_too_big">f</string>
 	<string name="settings_theme">テーマを選択</string>
@@ -273,6 +277,7 @@
 	<string name="clear">クリア</string>
 	<string name="profile_header">ヘッダー画像</string>
 	<string name="profile_picture">プロフィール画像</string>
+	<string name="reorder">並べ替え</string>
 	<string name="download">ダウンロード</string>
 	<string name="permission_required">権限が必要です</string>
 	<string name="storage_permission_to_download">デバイスのストレージに、このファイルを保存するには許可が必要です。</string>
@@ -281,8 +286,16 @@
 	<string name="file_saved">ファイルが保存されました</string>
 	<string name="downloading">ダウンロード中…</string>
 	<string name="no_app_to_handle_action">この操作を処理するアプリが見つかりません</string>
+	<string name="local_timeline">コミュニティ</string>
+	<string name="trending_posts_info_banner">これらの投稿は、あなたのMastodonサーバーで注目を集めている投稿です。</string>
+	<string name="trending_hashtags_info_banner">これらのハッシュタグは、あなたのMastodonサーバーで注目を集めている記事です。</string>
+	<string name="trending_links_info_banner">これらは、あなたのMastodonサーバーで最も共有されているニュースです。</string>
+	<string name="local_timeline_info_banner">これらはあなたと同じMastodonサーバーを使用している人々の最新の投稿です。</string>
+	<string name="dismiss">却下</string>
 	<string name="see_new_posts">新しい投稿を見る</string>
 	<string name="load_missing_posts">不足している投稿を読み込む</string>
 	<string name="follow_back">フォローバック</string>
+	<string name="button_follow_pending">保留</string>
 	<string name="follows_you">フォローされています</string>
+	<string name="manually_approves_followers">フォロワーを手動で承認</string>
 </resources>
