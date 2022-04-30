@@ -8,13 +8,13 @@
 	<string name="error">خطأ</string>
 	<string name="not_a_mastodon_instance">%s لا يبدو كمثيل ماستدون.</string>
 	<string name="ok">حسنًا</string>
-	<string name="preparing_auth">يُعد المصادقة…</string>
+	<string name="preparing_auth">جَارٍ الإعدَادُ لِلمُصادَقَة…</string>
 	<string name="finishing_auth">يُنهي المصادقة…</string>
 	<string name="user_boosted">شارَكَه %s</string>
 	<string name="in_reply_to">ردًا على %s</string>
 	<string name="notifications">الإشعارات</string>
-	<string name="user_followed_you">تابعك</string>
-	<string name="user_sent_follow_request">أرسل لك طلب متابعة</string>
+	<string name="user_followed_you">بَدَأ بِمُتابَعَتِك</string>
+	<string name="user_sent_follow_request">أرسَلَ طَلَبًا لِمُتابَعَتِك</string>
 	<string name="user_favorited">فَضلَ تبويقتك</string>
 	<string name="notification_boosted">شارك تبويقتك</string>
 	<string name="poll_ended">انتهى استطلاع الرأي</string>
@@ -373,4 +373,6 @@
 	<string name="button_follow_pending">معلق</string>
 	<string name="follows_you">يُتابِعُك</string>
 	<string name="manually_approves_followers">الموافقة اليدوية على طلبات المتابعة</string>
+	<string name="current_account">الحِسابُ الحاليّ</string>
+	<string name="log_out_account">تَسجيلُ الخُرُوجِ مِن %s</string>
 </resources>
