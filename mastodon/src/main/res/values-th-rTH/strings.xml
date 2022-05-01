@@ -6,6 +6,7 @@
 	<string name="next">ถัดไป</string>
 	<string name="loading_instance">กำลังรับข้อมูลอินสแตนซ์…</string>
 	<string name="error">ข้อผิดพลาด</string>
+	<string name="not_a_mastodon_instance">ดูเหมือนว่า %s จะไม่ใช่อินสแตนซ์ Mastodon</string>
 	<string name="ok">ตกลง</string>
 	<string name="preparing_auth">กำลังเตรียมการรับรองความถูกต้อง…</string>
 	<string name="finishing_auth">กำลังเสร็จสิ้นการรับรองความถูกต้อง…</string>
@@ -199,12 +200,14 @@
 	<plurals name="cant_add_more_than_x_attachments">
 		<item quantity="other">คุณไม่สามารถเพิ่มมากกว่า %d ไฟล์แนบสื่อ</item>
 	</plurals>
+	<string name="settings_theme">ลักษณะที่มองเห็น</string>
 	<string name="theme_auto">อัตโนมัติ</string>
 	<string name="theme_light">สว่าง</string>
 	<string name="theme_dark">มืด</string>
 	<string name="theme_true_black">โหมดดำสนิท</string>
 	<string name="settings_behavior">พฤติกรรม</string>
 	<string name="settings_gif">เล่นภาพประจำตัวและอีโมจิแบบเคลื่อนไหว</string>
+	<string name="settings_custom_tabs">ใช้เบราว์เซอร์ในแอป</string>
 	<string name="settings_notifications">การแจ้งเตือน</string>
 	<string name="notify_me_when">แจ้งเตือนฉันเมื่อ</string>
 	<string name="notify_anyone">ใครก็ตาม</string>
@@ -254,12 +257,15 @@
 	<string name="signup_reason_note">นี่จะช่วยให้เราตรวจทานใบสมัครของคุณ</string>
 	<string name="clear">ล้าง</string>
 	<string name="profile_header">ภาพส่วนหัว</string>
+	<string name="profile_picture">รูปภาพโปรไฟล์</string>
 	<string name="reorder">เรียงลำดับใหม่</string>
 	<string name="download">ดาวน์โหลด</string>
+	<string name="storage_permission_to_download">แอปจำเป็นต้องเข้าถึงที่เก็บข้อมูลของคุณเพื่อบันทึกไฟล์นี้</string>
 	<string name="open_settings">เปิดการตั้งค่า</string>
 	<string name="error_saving_file">เกิดข้อผิดพลาดในการบันทึกไฟล์</string>
 	<string name="file_saved">บันทึกไฟล์แล้ว</string>
 	<string name="downloading">กำลังดาวน์โหลด…</string>
+	<string name="no_app_to_handle_action">ไม่มีแอปที่จะจัดการกับการกระทำนี้</string>
 	<string name="local_timeline">ชุมชน</string>
 	<string name="trending_posts_info_banner">นี่คือโพสต์ที่กำลังได้รับความสนใจในมุมของ Mastodon ของคุณ</string>
 	<string name="trending_hashtags_info_banner">นี่คือแฮชแท็กที่กำลังได้รับความสนใจในมุมของ Mastodon ของคุณ</string>
