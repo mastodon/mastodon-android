@@ -15,6 +15,13 @@
 		android:paddingBottom="16dp"
 		android:background="?android:statusBarColor">
 
+		<!-- https://github.com/mastodon/mastodon-android/issues/95 -->
+		<View
+			android:layout_width="1px"
+			android:layout_height="1px"
+			android:focusable="true"
+			android:focusableInTouchMode="true"/>
+
 		<FrameLayout
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
