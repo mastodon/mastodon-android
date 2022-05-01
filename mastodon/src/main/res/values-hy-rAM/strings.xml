@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+	<string name="app_name">Մաստոդոն</string>
 	<string name="get_started">Սկսել</string>
+	<string name="log_in">Մուտք գործել</string>
+	<string name="next">Հաջորդը</string>
+	<string name="loading_instance">Ստանում ենք օրինակի ինֆորմացիան…</string>
+	<string name="error">Սխալ</string>
+	<string name="not_a_mastodon_instance">%sՉի երևում որ դա Մաստադոնի օրինակ է.</string>
 	<string name="ok">Լավ</string>
+	<string name="preparing_auth">Պատրաստում ենք ավտոենտիֆիկացիայի…</string>
+	<string name="finishing_auth">Ավարտում ենք ավտոենտիֆիկացիան…</string>
 	<string name="user_boosted">%s տարածել է</string>
 	<string name="in_reply_to">Ի պատասխան %s-ին</string>
+	<string name="notifications">Ծանուցումներ</string>
 	<string name="user_followed_you">սկսեց հետեւել քեզ</string>
 	<string name="user_sent_follow_request">հետեւելու հարցում է ուղարկել</string>
 	<string name="user_favorited">հավանել է քո թութը</string>
@@ -39,4 +48,10 @@
 	<string name="button_following">Հետեւում ես</string>
 	<string name="edit_profile">Խմբագրել անձնական էջը</string>
 	<string name="mention_user">Նշել %s-ին</string>
+	<string name="share_user">Տարածել%s</string>
+	<string name="mute_user">Անջատել ձայնը%s</string>
+	<string name="unmute_user">Միացնել ձայնը%s</string>
+	<string name="block_user">Արգելափակել%s</string>
+	<string name="unblock_user">Հանել արգելափակումից %s</string>
+	<string name="report_user">Բողոքել %s</string>
 </resources>
