@@ -10,13 +10,10 @@
 	<string name="ok">OK</string>
 	<string name="preparing_auth">Przygotowywanie do uwierzytelniania…</string>
 	<string name="finishing_auth">Kończenie uwierzytelniania…</string>
-	<string name="user_boosted">%s podbił(a)</string>
 	<string name="in_reply_to">W odpowiedzi do %s</string>
 	<string name="notifications">Powiadomienia</string>
 	<string name="user_followed_you">zaczął(-ęła) Cię śledzić</string>
 	<string name="user_sent_follow_request">wysłał(-a) prośbę o możliwość obserwacji</string>
-	<string name="user_favorited">dodał(a) Twój wpis do ulubionych</string>
-	<string name="notification_boosted">podbił(a) Twój wpis</string>
 	<string name="poll_ended">głosowanie zakończyło się</string>
 	<string name="time_seconds">%d sek.</string>
 	<string name="time_minutes">%d min.</string>
@@ -160,7 +157,6 @@
 	<string name="skip">Pomiń</string>
 	<string name="notification_type_follow">Nowi śledzący</string>
 	<string name="notification_type_favorite">Polubienia</string>
-	<string name="notification_type_reblog">Podbicia</string>
 	<string name="notification_type_mention">Wspomienia</string>
 	<string name="notification_type_poll">Głosowania</string>
 	<string name="choose_account">Wybierz konto</string>
@@ -219,8 +215,6 @@
 	<string name="unfollowed_user">Przestano obserwować %s</string>
 	<string name="followed_user">Od teraz śledzisz %s</string>
 	<string name="open_in_browser">Otwórz w przeglądarce</string>
-	<string name="hide_boosts_from_user">Ukrywaj podbicia od %s</string>
-	<string name="show_boosts_from_user">Pokazuj podbicia od %s</string>
 	<string name="signup_reason">dlaczego chcesz dołączyć?</string>
 	<string name="signup_reason_note">To pomoże nam ocenić Twoją aplikację.</string>
 	<string name="clear">Wyczyść</string>
@@ -235,4 +229,5 @@
 	<string name="file_saved">Zapisano plik</string>
 	<string name="downloading">Pobieranie…</string>
 	<string name="no_app_to_handle_action">Brak aplikacji mogącej obsłużyć tę akcję</string>
+	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 </resources>
