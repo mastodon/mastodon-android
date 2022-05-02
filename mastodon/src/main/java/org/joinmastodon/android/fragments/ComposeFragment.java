@@ -1029,7 +1029,8 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 		UiUtils.enablePopupMenuIcons(getActivity(), menu);
 		m.setGroupCheckable(0, true, true);
 		m.findItem(switch(statusVisibility){
-			case PUBLIC, UNLISTED -> R.id.vis_public;
+			case PUBLIC -> R.id.vis_public;
+			case UNLISTED -> R.id.vis_unlisted;
 			case PRIVATE -> R.id.vis_followers;
 			case DIRECT -> R.id.vis_private;
 		}).setChecked(true);
@@ -1039,6 +1040,8 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 				int id=item.getItemId();
 				if(id==R.id.vis_public){
 					statusVisibility=StatusPrivacy.PUBLIC;
+				}else if(id==R.id.vis_unlisted){
+					statusVisibility=StatusPrivacy.UNLISTED;
 				}else if(id==R.id.vis_followers){
 					statusVisibility=StatusPrivacy.PRIVATE;
 				}else if(id==R.id.vis_private){

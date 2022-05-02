@@ -3,6 +3,9 @@
 	<item android:id="@+id/vis_public"
 		android:icon="@drawable/ic_fluent_earth_24_filled"
 		android:title="@string/visibility_public"/>
+	<item android:id="@+id/vis_unlisted"
+		android:icon="@drawable/ic_fluent_people_community_24_regular"
+		android:title="@string/visibility_unlisted"/>
 	<item android:id="@+id/vis_followers"
 		android:icon="@drawable/ic_fluent_people_checkmark_24_regular"
 		android:title="@string/visibility_followers_only"/>
