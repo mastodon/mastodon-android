@@ -10,13 +10,10 @@
 	<string name="ok">حسنًا</string>
 	<string name="preparing_auth">جَارٍ الإعدَادُ لِلمُصادَقَة…</string>
 	<string name="finishing_auth">يُنهي المصادقة…</string>
-	<string name="user_boosted">شارَكَه %s</string>
 	<string name="in_reply_to">ردًا على %s</string>
 	<string name="notifications">الإشعارات</string>
 	<string name="user_followed_you">بَدَأ بِمُتابَعَتِك</string>
 	<string name="user_sent_follow_request">أرسَلَ طَلَبًا لِمُتابَعَتِك</string>
-	<string name="user_favorited">فَضلَ تبويقتك</string>
-	<string name="notification_boosted">شارك تبويقتك</string>
 	<string name="poll_ended">انتهى استطلاع الرأي</string>
 	<string name="time_seconds">%d ثا</string>
 	<string name="time_minutes">%d د</string>
@@ -278,7 +275,6 @@
 	<string name="skip">تخطى</string>
 	<string name="notification_type_follow">متابعُون جُدُد</string>
 	<string name="notification_type_favorite">المفضلة</string>
-	<string name="notification_type_reblog">مشاركات</string>
 	<string name="notification_type_mention">الذِكر</string>
 	<string name="notification_type_poll">استطلاع رأي</string>
 	<string name="choose_account">اختر حسابًا</string>
@@ -345,8 +341,6 @@
 	<string name="unfollowed_user">ألغ متابعة %s</string>
 	<string name="followed_user">أنت تتابع %s</string>
 	<string name="open_in_browser">افتح في المتصفح</string>
-	<string name="hide_boosts_from_user">اخف مشاركات %s</string>
-	<string name="show_boosts_from_user">أظهر مشاركات %s</string>
 	<string name="signup_reason">لماذا ترغب في الانضمام؟</string>
 	<string name="signup_reason_note">هذا سوف يساعدنا في مراجعة تطبيقك.</string>
 	<string name="clear">امسح</string>
@@ -375,4 +369,5 @@
 	<string name="manually_approves_followers">الموافقة اليدوية على طلبات المتابعة</string>
 	<string name="current_account">الحِسابُ الحاليّ</string>
 	<string name="log_out_account">تَسجيلُ الخُرُوجِ مِن %s</string>
+	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 </resources>
