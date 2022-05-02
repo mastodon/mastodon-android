@@ -1,14 +1,10 @@
 package org.joinmastodon.android.api;
 
-import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
 import android.util.Log;
 
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonIOException;
 import com.google.gson.JsonObject;
@@ -16,11 +12,9 @@ import com.google.gson.JsonParser;
 import com.google.gson.JsonSyntaxException;
 
 import org.joinmastodon.android.BuildConfig;
-import org.joinmastodon.android.MastodonApp;
 import org.joinmastodon.android.api.gson.IsoInstantTypeAdapter;
 import org.joinmastodon.android.api.gson.IsoLocalDateTypeAdapter;
 import org.joinmastodon.android.api.session.AccountSession;
-import org.joinmastodon.android.model.BaseModel;
 
 import java.io.IOException;
 import java.io.Reader;
@@ -144,7 +138,7 @@ public class MastodonAPIController{
 								}
 
 								try{
-									req.validateAndPostprocessResponse(respObj);
+									req.validateAndPostprocessResponse(respObj, response);
 								}catch(IOException x){
 									if(BuildConfig.DEBUG)
 										Log.w(TAG, "["+(session==null ? "no-auth" : session.getID())+"] "+response+" error post-processing or validating response", x);

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="62dp"
+	android:paddingLeft="16dp"
+	android:paddingRight="16dp"
+	android:paddingTop="8dp"
+	android:paddingBottom="8dp"
+	android:clipToPadding="false">
+
+	<ImageView
+		android:id="@+id/avatar"
+		android:layout_width="46dp"
+		android:layout_height="46dp"
+		android:layout_marginEnd="10dp"
+		android:importantForAccessibility="no"
+		tools:src="#0f0"/>
+
+	<Button
+		android:id="@+id/button"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_alignParentEnd="true"
+		android:layout_centerVertical="true"
+		android:layout_marginStart="8dp"
+		tools:text="Follow"/>
+
+	<TextView
+		android:id="@+id/name"
+		android:layout_width="match_parent"
+		android:layout_height="24dp"
+		android:layout_toEndOf="@id/avatar"
+		android:layout_toStartOf="@id/button"
+		android:singleLine="true"
+		android:ellipsize="end"
+		android:gravity="center_vertical"
+		android:textAppearance="@style/m3_title_medium"
+		tools:text="User"/>
+
+	<TextView
+		android:id="@+id/username"
+		android:layout_width="match_parent"
+		android:layout_height="20dp"
+		android:layout_below="@id/name"
+		android:layout_toEndOf="@id/avatar"
+		android:layout_toStartOf="@id/button"
+		android:singleLine="true"
+		android:ellipsize="end"
+		android:gravity="center_vertical"
+		android:textAppearance="@style/m3_title_small"
+		tools:text="\@user@server"/>
+
+	<View
+		android:id="@+id/menu_anchor"
+		android:layout_width="1px"
+		android:layout_height="1px"
+		android:layout_alignParentTop="true"
+		android:layout_alignParentLeft="true"
+		android:layout_marginLeft="-16dp"/>
+
+</RelativeLayout>

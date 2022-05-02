@@ -136,8 +136,10 @@ public class AccountSwitcherSheet extends BottomSheet{
 			if(tappableBottom==0 && insetBottom>0){
 				list.setPadding(0, 0, 0, V.dp(48)-insetBottom);
 			}else{
-				list.setPadding(0, 0, 0, 0);
+				list.setPadding(0, 0, 0, V.dp(24));
 			}
+		}else{
+			list.setPadding(0, 0, 0, V.dp(24));
 		}
 	}
 

@@ -75,80 +75,95 @@
 						tools:src="#0f0" />
 
 					<LinearLayout
-						android:id="@+id/following_btn"
-						android:layout_width="wrap_content"
-						android:layout_height="56dp"
-						android:layout_alignParentEnd="true"
+						android:id="@+id/profile_counters"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
 						android:layout_below="@id/cover"
-						android:layout_marginTop="12dp"
-						android:layout_marginEnd="16dp"
-						android:padding="4dp"
-						android:orientation="vertical"
-						android:gravity="center_horizontal">
-						<TextView
-							android:id="@+id/following_count"
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content"
-							android:textAppearance="@style/m3_title_large"
-							tools:text="123"/>
-						<TextView
-							android:id="@+id/following_label"
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content"
-							android:textAppearance="@style/m3_title_small"
-							tools:text="following"/>
-					</LinearLayout>
+						android:layout_toEndOf="@id/avatar_border"
+						android:gravity="end">
 
-					<LinearLayout
-						android:id="@+id/followers_btn"
-						android:layout_width="wrap_content"
-						android:layout_height="56dp"
-						android:layout_toStartOf="@id/following_btn"
-						android:layout_below="@id/cover"
-						android:layout_marginTop="12dp"
-						android:layout_marginEnd="12dp"
-						android:padding="4dp"
-						android:orientation="vertical"
-						android:gravity="center_horizontal">
-						<TextView
-							android:id="@+id/followers_count"
+						<LinearLayout
+							android:id="@+id/posts_btn"
 							android:layout_width="wrap_content"
-							android:layout_height="wrap_content"
-							android:textAppearance="@style/m3_title_large"
-							tools:text="123"/>
-						<TextView
-							android:id="@+id/followers_label"
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content"
-							android:textAppearance="@style/m3_title_small"
-							tools:text="following"/>
-					</LinearLayout>
+							android:layout_height="56dp"
+							android:layout_marginTop="12dp"
+							android:layout_marginEnd="12dp"
+							android:gravity="center_horizontal"
+							android:orientation="vertical"
+							android:padding="4dp">
+							<TextView
+								android:id="@+id/posts_count"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:textAppearance="@style/m3_title_large"
+								android:singleLine="true"
+								android:ellipsize="end"
+								tools:text="123" />
+							<TextView
+								android:id="@+id/posts_label"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:textAppearance="@style/m3_title_small"
+								android:singleLine="true"
+								android:ellipsize="middle"
+								tools:text="posts" />
+						</LinearLayout>
 
-					<LinearLayout
-						android:id="@+id/posts_btn"
-						android:layout_width="wrap_content"
-						android:layout_height="56dp"
-						android:layout_below="@id/cover"
-						android:layout_marginTop="12dp"
-						android:layout_marginEnd="12dp"
-						android:layout_toStartOf="@id/followers_btn"
-						android:gravity="center_horizontal"
-						android:orientation="vertical"
-						android:padding="4dp">
-
-						<TextView
-							android:id="@+id/posts_count"
+						<LinearLayout
+							android:id="@+id/following_btn"
 							android:layout_width="wrap_content"
-							android:layout_height="wrap_content"
-							android:textAppearance="@style/m3_title_large"
-							tools:text="123" />
+							android:layout_height="56dp"
+							android:layout_marginTop="12dp"
+							android:layout_marginEnd="16dp"
+							android:padding="4dp"
+							android:orientation="vertical"
+							android:background="?android:selectableItemBackgroundBorderless"
+							android:gravity="center_horizontal">
+							<TextView
+								android:id="@+id/following_count"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:textAppearance="@style/m3_title_large"
+								android:singleLine="true"
+								android:ellipsize="end"
+								tools:text="123"/>
+							<TextView
+								android:id="@+id/following_label"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:textAppearance="@style/m3_title_small"
+								android:singleLine="true"
+								android:ellipsize="middle"
+								tools:text="following"/>
+						</LinearLayout>
 
-						<TextView
-							android:id="@+id/posts_label"
+						<LinearLayout
+							android:id="@+id/followers_btn"
 							android:layout_width="wrap_content"
-							android:layout_height="wrap_content"
-							android:textAppearance="@style/m3_title_small"
-							tools:text="following" />
+							android:layout_height="56dp"
+							android:layout_marginTop="12dp"
+							android:layout_marginEnd="12dp"
+							android:padding="4dp"
+							android:orientation="vertical"
+							android:background="?android:selectableItemBackgroundBorderless"
+							android:gravity="center_horizontal">
+							<TextView
+								android:id="@+id/followers_count"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:textAppearance="@style/m3_title_large"
+								android:singleLine="true"
+								android:ellipsize="end"
+								tools:text="123"/>
+							<TextView
+								android:id="@+id/followers_label"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:textAppearance="@style/m3_title_small"
+								android:singleLine="true"
+								android:ellipsize="middle"
+								tools:text="followers"/>
+						</LinearLayout>
 					</LinearLayout>
 
 					<FrameLayout
@@ -156,7 +171,7 @@
 						android:layout_width="wrap_content"
 						android:layout_height="wrap_content"
 						android:layout_alignParentEnd="true"
-						android:layout_below="@id/following_btn"
+						android:layout_below="@id/profile_counters"
 						android:padding="16dp"
 						android:clipToPadding="false">
 						<org.joinmastodon.android.ui.views.ProgressBarButton

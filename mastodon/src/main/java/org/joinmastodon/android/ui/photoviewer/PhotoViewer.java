@@ -133,18 +133,18 @@ public class PhotoViewer implements ZoomPanView.Listener{
 			public WindowInsets dispatchApplyWindowInsets(WindowInsets insets){
 				if(Build.VERSION.SDK_INT>=29){
 					DisplayCutout cutout=insets.getDisplayCutout();
+					Insets tappable=insets.getTappableElementInsets();
 					if(cutout!=null){
 						// Make controls extend beneath the cutout, and replace insets to avoid cutout insets being filled with "navigation bar color"
-						Insets tappable=insets.getTappableElementInsets();
 						int leftInset=Math.max(0, cutout.getSafeInsetLeft()-tappable.left);
 						int rightInset=Math.max(0, cutout.getSafeInsetRight()-tappable.right);
-						insets=insets.replaceSystemWindowInsets(tappable.left, tappable.top, tappable.right, tappable.bottom);
 						toolbarWrap.setPadding(leftInset, 0, rightInset, 0);
 						videoControls.setPadding(leftInset, 0, rightInset, 0);
 					}else{
 						toolbarWrap.setPadding(0, 0, 0, 0);
 						videoControls.setPadding(0, 0, 0, 0);
 					}
+					insets=insets.replaceSystemWindowInsets(tappable.left, tappable.top, tappable.right, tappable.bottom);
 				}
 				uiOverlay.dispatchApplyWindowInsets(insets);
 				int bottomInset=insets.getSystemWindowInsetBottom();

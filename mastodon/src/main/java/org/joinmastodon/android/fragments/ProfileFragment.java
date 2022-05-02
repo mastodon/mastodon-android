@@ -261,6 +261,9 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 			fab.setVisibility(View.GONE);
 		}
 
+		followersBtn.setOnClickListener(this::onFollowersOrFollowingClick);
+		followingBtn.setOnClickListener(this::onFollowersOrFollowingClick);
+
 		return sizeWrapper;
 	}
 
@@ -846,6 +849,20 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 	public void scrollToTop(){
 		getScrollableRecyclerView().scrollToPosition(0);
 		scrollView.smoothScrollTo(0, 0);
+	}
+
+	private void onFollowersOrFollowingClick(View v){
+		Bundle args=new Bundle();
+		args.putString("account", accountID);
+		args.putParcelable("targetAccount", Parcels.wrap(account));
+		Class<? extends Fragment> cls;
+		if(v.getId()==R.id.followers_btn)
+			cls=FollowerListFragment.class;
+		else if(v.getId()==R.id.following_btn)
+			cls=FollowingListFragment.class;
+		else
+			return;
+		Nav.go(getActivity(), cls, args);
 	}
 
 	private class ProfilePagerAdapter extends RecyclerView.Adapter<SimpleViewHolder>{

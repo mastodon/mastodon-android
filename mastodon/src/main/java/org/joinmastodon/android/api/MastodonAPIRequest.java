@@ -28,6 +28,7 @@ import me.grishka.appkit.api.Callback;
 import me.grishka.appkit.api.ErrorResponse;
 import okhttp3.Call;
 import okhttp3.RequestBody;
+import okhttp3.Response;
 
 public abstract class MastodonAPIRequest<T> extends APIRequest<T>{
 	private static final String TAG="MastodonAPIRequest";
@@ -158,7 +159,7 @@ public abstract class MastodonAPIRequest<T> extends APIRequest<T>{
 	}
 
 	@CallSuper
-	public void validateAndPostprocessResponse(T respObj) throws IOException{
+	public void validateAndPostprocessResponse(T respObj, Response httpResponse) throws IOException{
 		if(respObj instanceof BaseModel){
 			((BaseModel) respObj).postprocess();
 		}else if(respObj instanceof List){
