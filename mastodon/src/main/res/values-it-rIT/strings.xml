@@ -10,13 +10,10 @@
 	<string name="ok">OK</string>
 	<string name="preparing_auth">Preparazione all\'autenticazione…</string>
 	<string name="finishing_auth">Completamento autenticazione…</string>
-	<string name="user_boosted">%s ha condiviso</string>
 	<string name="in_reply_to">In risposta a %s</string>
 	<string name="notifications">Notifiche</string>
 	<string name="user_followed_you">ti segue</string>
 	<string name="user_sent_follow_request">ha richiesto di seguirti</string>
-	<string name="user_favorited">ha apprezzato il tuo toot</string>
-	<string name="notification_boosted">ha potenziato il tuo toot</string>
 	<string name="poll_ended">sondaggio terminato</string>
 	<string name="time_seconds">%ds</string>
 	<string name="time_minutes">%dm</string>
@@ -222,7 +219,6 @@
 	<string name="skip">Salta</string>
 	<string name="notification_type_follow">Nuovi seguaci</string>
 	<string name="notification_type_favorite">Preferiti</string>
-	<string name="notification_type_reblog">Condivisioni</string>
 	<string name="notification_type_mention">Menzioni</string>
 	<string name="notification_type_poll">Sondaggi</string>
 	<string name="choose_account">Seleziona l\'account</string>
@@ -285,8 +281,6 @@
 	<string name="unfollowed_user">Smetti di seguire %s</string>
 	<string name="followed_user">Hai cominciato a seguire %s</string>
 	<string name="open_in_browser">Apri nel browser</string>
-	<string name="hide_boosts_from_user">Nascondi condivisioni da %s</string>
-	<string name="show_boosts_from_user">Mostra condivisioni da %s</string>
 	<string name="signup_reason">perché vuoi unirti?</string>
 	<string name="signup_reason_note">Questo ci aiuterà ad esaminare la tua richiesta.</string>
 	<string name="clear">Cancella</string>
@@ -315,4 +309,5 @@
 	<string name="manually_approves_followers">Approva manualmente i followers</string>
 	<string name="current_account">Account corrente</string>
 	<string name="log_out_account">Disconnetti %s</string>
+	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 </resources>
