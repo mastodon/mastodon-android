@@ -10,13 +10,10 @@
 	<string name="ok">OK</string>
 	<string name="preparing_auth">Bereite Authentifizierung vor…</string>
 	<string name="finishing_auth">Authentifizierung erfolgt…</string>
-	<string name="user_boosted">%s hat geteilt</string>
 	<string name="in_reply_to">Antwort auf %s</string>
 	<string name="notifications">Benachrichtigungen</string>
 	<string name="user_followed_you">ist dir gefolgt</string>
 	<string name="user_sent_follow_request">hat dir eine Folgeanfrage gesendet</string>
-	<string name="user_favorited">favorisierte deinen Beitrag</string>
-	<string name="notification_boosted">teilte deinen Beitrag</string>
 	<string name="poll_ended">Abstimmung beendet</string>
 	<string name="time_seconds">%dSek.</string>
 	<string name="time_minutes">%dMin.</string>
@@ -219,7 +216,6 @@
 	<string name="skip">Überspringen</string>
 	<string name="notification_type_follow">Neue Follower</string>
 	<string name="notification_type_favorite">Favoriten</string>
-	<string name="notification_type_reblog">Geteilte Beiträge</string>
 	<string name="notification_type_mention">Erwähnungen</string>
 	<string name="notification_type_poll">Umfragen</string>
 	<string name="choose_account">Konto auswählen</string>
@@ -282,8 +278,6 @@
 	<string name="unfollowed_user">%s entfolgt</string>
 	<string name="followed_user">Du folgst nun %s</string>
 	<string name="open_in_browser">Im Browser öffnen</string>
-	<string name="hide_boosts_from_user">Verstecke Boosts von %s</string>
-	<string name="show_boosts_from_user">Zeige Boosts von %s</string>
 	<string name="signup_reason">Warum möchtest du beitreten?</string>
 	<string name="signup_reason_note">Dies wird uns dabei helfen, deine Anmeldungsanfrage besser zu verarbeiten.</string>
 	<string name="clear">Löschen</string>
@@ -304,4 +298,5 @@
 	<string name="trending_links_info_banner">Dies sind die Nachrichten, die am meisten in deiner Umgebung auf Mastodon geteilt werden.</string>
 	<string name="local_timeline_info_banner">Dies sind die neuesten Beiträge der Leute, die den gleichen Mastodon-Server verwenden wie du.</string>
 	<string name="dismiss">Verwerfen</string>
+	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 </resources>
