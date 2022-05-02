@@ -449,7 +449,7 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 				if(!mentions.contains(m))
 					mentions.add(m);
 			}
-			initialText=TextUtils.join(" ", mentions)+" ";
+			initialText=mentions.isEmpty() ? "" : TextUtils.join(" ", mentions)+" ";
 			if(savedInstanceState==null){
 				mainEditText.setText(initialText);
 				mainEditText.setSelection(mainEditText.length());
