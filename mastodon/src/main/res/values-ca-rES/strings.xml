@@ -10,13 +10,10 @@
 	<string name="ok">D\'acord</string>
 	<string name="preparing_auth">Preparant a l\'autenticació…</string>
 	<string name="finishing_auth">Finalitzant autentificació…</string>
-	<string name="user_boosted">%s ha impulsat</string>
 	<string name="in_reply_to">En resposta a %s</string>
 	<string name="notifications">Notificacions</string>
 	<string name="user_followed_you">t\'ha començat a seguir</string>
 	<string name="user_sent_follow_request">t\'ha enviat una sol·licitud de seguiment</string>
-	<string name="user_favorited">ha afavorit la teva publicació</string>
-	<string name="notification_boosted">ha impulsat la teva publicació</string>
 	<string name="poll_ended">l\'enquesta ha finalitzat</string>
 	<string name="time_seconds">%ds</string>
 	<string name="time_minutes">%dm</string>
@@ -219,7 +216,6 @@
 	<string name="skip">Ometre</string>
 	<string name="notification_type_follow">Nous seguidors</string>
 	<string name="notification_type_favorite">Preferits</string>
-	<string name="notification_type_reblog">Impulsos</string>
 	<string name="notification_type_mention">Mencions</string>
 	<string name="notification_type_poll">Enquestes</string>
 	<string name="choose_account">Seleccionar compte</string>
@@ -282,8 +278,6 @@
 	<string name="unfollowed_user">S\'ha deixat de seguir %s</string>
 	<string name="followed_user">Ara estàs seguint %s</string>
 	<string name="open_in_browser">Obrir al navegador</string>
-	<string name="hide_boosts_from_user">Amagar els impulsos de %s</string>
-	<string name="show_boosts_from_user">Mostrar els impulsos de %s</string>
 	<string name="signup_reason">per què vols unir-te?</string>
 	<string name="signup_reason_note">Això ens ajudarà a revisar la teva petició.</string>
 	<string name="clear">Netejar</string>
@@ -304,4 +298,5 @@
 	<string name="trending_links_info_banner">Aquestes són les notícies que més es comparteixen en el teu racó de Mastodon.</string>
 	<string name="local_timeline_info_banner">Aquestes són les publicacions més recents de les persones que utilitzen el mateix servidor Mastodon que tu.</string>
 	<string name="dismiss">Ometre</string>
+	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 </resources>
