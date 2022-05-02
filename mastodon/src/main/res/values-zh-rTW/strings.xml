@@ -10,13 +10,10 @@
 	<string name="ok">確定</string>
 	<string name="preparing_auth">正在準備認證……</string>
 	<string name="finishing_auth">正在結束認證……</string>
-	<string name="user_boosted">%s 已轉嘟</string>
 	<string name="in_reply_to">回覆給 %s</string>
 	<string name="notifications">通知</string>
 	<string name="user_followed_you">已跟隨您</string>
 	<string name="user_sent_follow_request">傳送跟隨請求給您</string>
-	<string name="user_favorited">將您的嘟文加入最愛</string>
-	<string name="notification_boosted">轉嘟了您的嘟文</string>
 	<string name="poll_ended">投票已結束</string>
 	<string name="time_seconds">%d 秒</string>
 	<string name="time_minutes">%d 分</string>
@@ -208,7 +205,6 @@
 	<string name="skip">跳過</string>
 	<string name="notification_type_follow">新的跟隨者</string>
 	<string name="notification_type_favorite">最愛</string>
-	<string name="notification_type_reblog">轉嘟</string>
 	<string name="notification_type_mention">提及</string>
 	<string name="notification_type_poll">投票</string>
 	<string name="choose_account">選擇帳號</string>
@@ -270,8 +266,6 @@
 	<string name="unfollowed_user">取消跟隨 %s</string>
 	<string name="followed_user">您現在開始跟隨 %s</string>
 	<string name="open_in_browser">在瀏覽器中開啟</string>
-	<string name="hide_boosts_from_user">隱藏來自 %s 的轉嘟</string>
-	<string name="show_boosts_from_user">顯示來自 %s 的嘟文</string>
 	<string name="signup_reason">為什麼想要加入呢？</string>
 	<string name="signup_reason_note">這會協助我們審核您的申請。</string>
 	<string name="clear">清除</string>
@@ -298,4 +292,5 @@
 	<string name="button_follow_pending">等待中</string>
 	<string name="follows_you">跟隨了您</string>
 	<string name="manually_approves_followers">手動審核跟隨者</string>
+	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 </resources>
