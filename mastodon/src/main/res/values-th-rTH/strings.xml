@@ -10,10 +10,13 @@
 	<string name="ok">ตกลง</string>
 	<string name="preparing_auth">กำลังเตรียมการรับรองความถูกต้อง…</string>
 	<string name="finishing_auth">กำลังเสร็จสิ้นการรับรองความถูกต้อง…</string>
+	<string name="user_boosted">%s ได้ดัน</string>
 	<string name="in_reply_to">ในการตอบกลับถึง %s</string>
 	<string name="notifications">การแจ้งเตือน</string>
 	<string name="user_followed_you">ได้ติดตามคุณ</string>
 	<string name="user_sent_follow_request">ได้ส่งคำขอติดตามถึงคุณ</string>
+	<string name="user_favorited">ได้ชื่นชอบโพสต์ของคุณ</string>
+	<string name="notification_boosted">ได้ดันโพสต์ของคุณ</string>
 	<string name="poll_ended">การสำรวจความคิดเห็นได้สิ้นสุดแล้ว</string>
 	<string name="time_seconds">%d วินาที</string>
 	<string name="time_minutes">%d นาที</string>
@@ -189,6 +192,7 @@
 	<string name="skip">ข้าม</string>
 	<string name="notification_type_follow">ผู้ติดตามใหม่</string>
 	<string name="notification_type_favorite">รายการโปรด</string>
+	<string name="notification_type_reblog">การดัน</string>
 	<string name="notification_type_mention">การกล่าวถึง</string>
 	<string name="notification_type_poll">การสำรวจความคิดเห็น</string>
 	<string name="choose_account">เลือกบัญชี</string>
@@ -247,6 +251,8 @@
 	<string name="follow_user">ติดตาม %s</string>
 	<string name="unfollowed_user">เลิกติดตาม %s แล้ว</string>
 	<string name="open_in_browser">เปิดในเบราว์เซอร์</string>
+	<string name="hide_boosts_from_user">ซ่อนการดันจาก %s</string>
+	<string name="show_boosts_from_user">แสดงการดันจาก %s</string>
 	<string name="signup_reason">ทำไมคุณจึงต้องการเข้าร่วม?</string>
 	<string name="signup_reason_note">นี่จะช่วยให้เราตรวจทานใบสมัครของคุณ</string>
 	<string name="clear">ล้าง</string>
@@ -275,4 +281,16 @@
 	<string name="current_account">บัญชีปัจจุบัน</string>
 	<string name="log_out_account">ออกจากระบบ %s</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
+	<plurals name="x_followers">
+		<item quantity="other">%,d ผู้ติดตาม</item>
+	</plurals>
+	<plurals name="x_following">
+		<item quantity="other">%,d กำลังติดตาม</item>
+	</plurals>
+	<plurals name="x_favorites">
+		<item quantity="other">%,d รายการโปรด</item>
+	</plurals>
+	<plurals name="x_reblogs">
+		<item quantity="other">%,d การดัน</item>
+	</plurals>
 </resources>
