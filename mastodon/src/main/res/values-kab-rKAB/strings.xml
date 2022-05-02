@@ -10,13 +10,10 @@
 	<string name="ok">IH</string>
 	<string name="preparing_auth">Aheyyi i usesteb…</string>
 	<string name="finishing_auth">Keffu n usesteb…</string>
-	<string name="user_boosted">%s yebḍa</string>
 	<string name="in_reply_to">D tiririt i %s</string>
 	<string name="notifications">Ilɣa</string>
 	<string name="user_followed_you">iṭṭafar-ik·ikem</string>
 	<string name="user_sent_follow_request">yuzen-ak•am-d assuter n uḍfar</string>
-	<string name="user_favorited">yesmenyaf tajewwaqt-ik·im</string>
-	<string name="notification_boosted">y•tebḍa tajewwiqt-ik•im i tikkelt-nniḍen</string>
 	<string name="poll_ended">asenqed iffuk</string>
 	<string name="time_seconds">%dtsn</string>
 	<string name="time_minutes">%dtsd</string>
@@ -219,7 +216,6 @@
 	<string name="skip">Zgel</string>
 	<string name="notification_type_follow">Ineḍfanen imaynuten</string>
 	<string name="notification_type_favorite">Imenyafen</string>
-	<string name="notification_type_reblog">Beṭṭu</string>
 	<string name="notification_type_mention">Tibdarin</string>
 	<string name="notification_type_poll">Isenqaden</string>
 	<string name="choose_account">Fren amiḍan</string>
@@ -282,8 +278,6 @@
 	<string name="unfollowed_user">Y•Teḥbes aḍfar n %s</string>
 	<string name="followed_user">Aql-ak·akem teṭṭafareḍ %s</string>
 	<string name="open_in_browser">Ldi deg yiminig</string>
-	<string name="hide_boosts_from_user">Ffer ayen i ibeṭṭu %s</string>
-	<string name="show_boosts_from_user">Ssken-d inebḍa n %s</string>
 	<string name="signup_reason">acimi tebγiḍ ad ternuḍ iman-ik•im?</string>
 	<string name="signup_reason_note">Aya ad aɣ-iɛiwen ad nessenqed tuttra-inek•inem.</string>
 	<string name="clear">Sfeḍ</string>
@@ -304,4 +298,5 @@
 	<string name="trending_links_info_banner">Tigi d tiqsiḍin timaynutin i yettwabḍan s waṭas deg tama-inek•inem n Mastodon.</string>
 	<string name="local_timeline_info_banner">Tigi d tuget n tsuffaɣ timaynutin sɣur yimdanen ara yesseqdacen aqeddac n Mastodon kifkif d win i tesseqdaceḍ.</string>
 	<string name="dismiss">Ffer</string>
+	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 </resources>
