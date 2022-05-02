@@ -10,13 +10,10 @@
 	<string name="ok">OK</string>
 	<string name="preparing_auth">Chuẩn bị xác thực…</string>
 	<string name="finishing_auth">Hoàn tất xác thực…</string>
-	<string name="user_boosted">%s đăng lại</string>
 	<string name="in_reply_to">Trả lời đến %s</string>
 	<string name="notifications">Thông báo</string>
 	<string name="user_followed_you">đã theo dõi bạn</string>
 	<string name="user_sent_follow_request">đã yêu cầu theo dõi bạn</string>
-	<string name="user_favorited">thích tút của bạn</string>
-	<string name="notification_boosted">đăng lại tút của bạn</string>
 	<string name="poll_ended">cuộc bình chọn kết thúc</string>
 	<string name="time_seconds">%ds</string>
 	<string name="time_minutes">%dm</string>
@@ -208,7 +205,6 @@
 	<string name="skip">Bỏ qua</string>
 	<string name="notification_type_follow">Người theo dõi mới</string>
 	<string name="notification_type_favorite">Lượt thích</string>
-	<string name="notification_type_reblog">Đăng lại</string>
 	<string name="notification_type_mention">Lượt nhắc đến</string>
 	<string name="notification_type_poll">Cuộc bình chọn</string>
 	<string name="choose_account">Chọn tài khoản</string>
@@ -270,8 +266,6 @@
 	<string name="unfollowed_user">Ngưng theo dõi %s</string>
 	<string name="followed_user">Bạn đã theo dõi %s</string>
 	<string name="open_in_browser">Mở trong trình duyệt</string>
-	<string name="hide_boosts_from_user">Ẩn đăng lại từ %s</string>
-	<string name="show_boosts_from_user">Hiện đăng lại từ %s</string>
 	<string name="signup_reason">vì sao bạn muốn tham gia?</string>
 	<string name="signup_reason_note">Điều này sẽ giúp chúng tôi phê duyệt đăng ký của bạn.</string>
 	<string name="clear">Xóa</string>
@@ -298,4 +292,5 @@
 	<string name="button_follow_pending">Đang chờ</string>
 	<string name="follows_you">Đang theo dõi bạn</string>
 	<string name="manually_approves_followers">Duyệt người theo dõi thủ công</string>
+	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 </resources>
