@@ -27,6 +27,7 @@ public class AccountSession{
 	public boolean needUpdatePushSettings;
 	public long filtersLastUpdated;
 	public List<Filter> wordFilters=new ArrayList<>();
+	public String pushAccountID;
 	private transient MastodonAPIController apiController;
 	private transient StatusInteractionController statusInteractionController;
 	private transient CacheController cacheController;

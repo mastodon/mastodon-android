@@ -126,7 +126,7 @@ public class PushSubscriptionManager{
 			throw new IllegalStateException("No device push token available");
 		MastodonAPIController.runInBackground(()->{
 			Log.d(TAG, "registerAccountForPush: started for "+accountID);
-			String encodedPublicKey, encodedAuthKey;
+			String encodedPublicKey, encodedAuthKey, pushAccountID;
 			try{
 				KeyPairGenerator generator=KeyPairGenerator.getInstance("EC");
 				ECGenParameterSpec spec=new ECGenParameterSpec(EC_CURVE_NAME);
@@ -136,13 +136,17 @@ public class PushSubscriptionManager{
 				privateKey=keyPair.getPrivate();
 				encodedPublicKey=Base64.encodeToString(serializeRawPublicKey(publicKey), Base64.URL_SAFE | Base64.NO_WRAP | Base64.NO_PADDING);
 				authKey=new byte[16];
-				new SecureRandom().nextBytes(authKey);
+				SecureRandom secureRandom=new SecureRandom();
+				secureRandom.nextBytes(authKey);
+				byte[] randomAccountID=new byte[16];
+				secureRandom.nextBytes(randomAccountID);
 				AccountSession session=AccountSessionManager.getInstance().tryGetAccount(accountID);
 				if(session==null)
 					return;
 				session.pushPrivateKey=Base64.encodeToString(privateKey.getEncoded(), Base64.URL_SAFE | Base64.NO_WRAP | Base64.NO_PADDING);
 				session.pushPublicKey=Base64.encodeToString(publicKey.getEncoded(), Base64.URL_SAFE | Base64.NO_WRAP | Base64.NO_PADDING);
 				session.pushAuthKey=encodedAuthKey=Base64.encodeToString(authKey, Base64.URL_SAFE | Base64.NO_WRAP | Base64.NO_PADDING);
+				session.pushAccountID=pushAccountID=Base64.encodeToString(randomAccountID, Base64.URL_SAFE | Base64.NO_WRAP | Base64.NO_PADDING);
 				AccountSessionManager.getInstance().writeAccountsFile();
 			}catch(NoSuchAlgorithmException|InvalidAlgorithmParameterException e){
 				Log.e(TAG, "registerAccountForPush: error generating encryption key", e);
@@ -153,7 +157,7 @@ public class PushSubscriptionManager{
 					encodedAuthKey,
 					subscription==null ? PushSubscription.Alerts.ofAll() : subscription.alerts,
 					subscription==null ? PushSubscription.Policy.ALL : subscription.policy,
-					accountID)
+					pushAccountID)
 					.setCallback(new Callback<>(){
 						@Override
 						public void onSuccess(PushSubscription result){

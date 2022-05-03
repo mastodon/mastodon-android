@@ -18,6 +18,7 @@ import android.util.Log;
 
 import org.joinmastodon.android.api.MastodonAPIController;
 import org.joinmastodon.android.api.requests.notifications.GetNotificationByID;
+import org.joinmastodon.android.api.session.AccountSession;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.PushNotification;
@@ -52,10 +53,23 @@ public class PushNotificationReceiver extends BroadcastReceiver{
 			String k=intent.getStringExtra("k");
 			String p=intent.getStringExtra("p");
 			String s=intent.getStringExtra("s");
-			String accountID=intent.getStringExtra("x");
-			if(!TextUtils.isEmpty(accountID) && !TextUtils.isEmpty(k) && !TextUtils.isEmpty(p) && !TextUtils.isEmpty(s)){
+			String pushAccountID=intent.getStringExtra("x");
+			if(!TextUtils.isEmpty(pushAccountID) && !TextUtils.isEmpty(k) && !TextUtils.isEmpty(p) && !TextUtils.isEmpty(s)){
 				MastodonAPIController.runInBackground(()->{
 					try{
+						List<AccountSession> accounts=AccountSessionManager.getInstance().getLoggedInAccounts();
+						AccountSession account=null;
+						for(AccountSession acc:accounts){
+							if(pushAccountID.equals(acc.pushAccountID)){
+								account=acc;
+								break;
+							}
+						}
+						if(account==null){
+							Log.w(TAG, "onReceive: account for id '"+pushAccountID+"' not found");
+							return;
+						}
+						String accountID=account.getID();
 						PushNotification pn=AccountSessionManager.getInstance().getAccount(accountID).getPushSubscriptionManager().decryptNotification(k, p, s);
 						new GetNotificationByID(pn.notificationId+"")
 								.setCallback(new Callback<>(){
