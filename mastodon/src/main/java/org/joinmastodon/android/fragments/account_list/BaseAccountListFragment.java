@@ -1,4 +1,4 @@
-package org.joinmastodon.android.fragments;
+package org.joinmastodon.android.fragments.account_list;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -7,7 +7,6 @@ import android.graphics.drawable.Animatable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
-import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -23,6 +22,7 @@ import org.joinmastodon.android.GlobalUserPreferences;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.requests.accounts.GetAccountRelationships;
 import org.joinmastodon.android.api.requests.accounts.SetAccountFollowed;
+import org.joinmastodon.android.fragments.ProfileFragment;
 import org.joinmastodon.android.fragments.report.ReportReasonChoiceFragment;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.Relationship;
@@ -141,12 +141,18 @@ public abstract class BaseAccountListFragment extends BaseRecyclerFragment<BaseA
 		Toolbar toolbar=getToolbar();
 		if(toolbar!=null && toolbar.getNavigationIcon()!=null){
 			toolbar.setNavigationContentDescription(R.string.back);
-			toolbar.setTitleTextAppearance(getActivity(), R.style.m3_title_medium);
-			toolbar.setSubtitleTextAppearance(getActivity(), R.style.m3_body_medium);
-			int color=UiUtils.getThemeColor(getActivity(), android.R.attr.textColorPrimary);
-			toolbar.setTitleTextColor(color);
-			toolbar.setSubtitleTextColor(color);
+			if(hasSubtitle()){
+				toolbar.setTitleTextAppearance(getActivity(), R.style.m3_title_medium);
+				toolbar.setSubtitleTextAppearance(getActivity(), R.style.m3_body_medium);
+				int color=UiUtils.getThemeColor(getActivity(), android.R.attr.textColorPrimary);
+				toolbar.setTitleTextColor(color);
+				toolbar.setSubtitleTextColor(color);
+			}
 		}
+	}
+
+	protected boolean hasSubtitle(){
+		return true;
 	}
 
 	@Override

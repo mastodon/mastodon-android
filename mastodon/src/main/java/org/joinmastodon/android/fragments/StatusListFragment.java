@@ -10,6 +10,7 @@ import org.joinmastodon.android.events.StatusCountersUpdatedEvent;
 import org.joinmastodon.android.events.StatusCreatedEvent;
 import org.joinmastodon.android.events.StatusDeletedEvent;
 import org.joinmastodon.android.model.Status;
+import org.joinmastodon.android.ui.displayitems.ExtendedFooterStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.FooterStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.HeaderStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.StatusDisplayItem;
@@ -90,16 +91,15 @@ public abstract class StatusListFragment extends BaseStatusListFragment<Status>{
 						RecyclerView.ViewHolder holder=list.getChildViewHolder(list.getChildAt(i));
 						if(holder instanceof FooterStatusDisplayItem.Holder footer && footer.getItem().status==s.getContentStatus()){
 							footer.rebind();
-							return;
+						}else if(holder instanceof ExtendedFooterStatusDisplayItem.Holder footer && footer.getItem().status==s.getContentStatus()){
+							footer.rebind();
 						}
 					}
-					return;
 				}
 			}
 			for(Status s:preloadedData){
 				if(s.id.equals(ev.id)){
 					s.update(ev);
-					return;
 				}
 			}
 		}

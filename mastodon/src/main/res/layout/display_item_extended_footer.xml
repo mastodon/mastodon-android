@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:orientation="vertical"
+	android:padding="8dp"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:background="?colorBackgroundLightest">
+
+	<org.joinmastodon.android.ui.views.AutoOrientationLinearLayout
+		android:id="@+id/button_bar"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content">
+
+		<Button
+			android:id="@+id/reblogs"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:gravity="center"
+			android:padding="8dp"
+			android:textSize="14sp"
+			android:minHeight="36dp"
+			android:textColor="?android:textColorSecondary"
+			android:background="@drawable/bg_text_button"
+			android:fontFamily="sans-serif"
+			tools:text="4 reblogs"/>
+
+		<Button
+			android:id="@+id/favorites"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:gravity="center"
+			android:padding="8dp"
+			android:textSize="14sp"
+			android:minHeight="36dp"
+			android:textColor="?android:textColorSecondary"
+			android:background="@drawable/bg_text_button"
+			android:fontFamily="sans-serif"
+			tools:text="12 favorites"/>
+
+	</org.joinmastodon.android.ui.views.AutoOrientationLinearLayout>
+
+	<TextView
+		android:id="@+id/timestamp"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_margin="8dp"
+		android:minHeight="20dp"
+		android:gravity="center_vertical"
+		android:textSize="14sp"
+		android:textColor="?android:textColorSecondary"
+		tools:text="Dec 12, 2021, 12:42 PM via Mastodon for Android"/>
+
+</LinearLayout>

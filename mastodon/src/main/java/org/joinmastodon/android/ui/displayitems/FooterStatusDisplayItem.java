@@ -29,6 +29,7 @@ import me.grishka.appkit.utils.V;
 public class FooterStatusDisplayItem extends StatusDisplayItem{
 	public final Status status;
 	private final String accountID;
+	public boolean hideCounts;
 
 	public FooterStatusDisplayItem(String parentID, BaseStatusListFragment parentFragment, Status status, String accountID){
 		super(parentID, parentFragment);
@@ -91,7 +92,7 @@ public class FooterStatusDisplayItem extends StatusDisplayItem{
 		}
 
 		private void bindButton(TextView btn, int count){
-			if(count>0){
+			if(count>0 && !item.hideCounts){
 				btn.setText(DecimalFormat.getIntegerInstance().format(count));
 				btn.setCompoundDrawablePadding(V.dp(8));
 			}else{

@@ -11,6 +11,8 @@ import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.Filter;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.model.StatusContext;
+import org.joinmastodon.android.ui.displayitems.ExtendedFooterStatusDisplayItem;
+import org.joinmastodon.android.ui.displayitems.FooterStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.StatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.TextStatusDisplayItem;
 import org.joinmastodon.android.ui.text.HtmlParser;
@@ -45,7 +47,10 @@ public class ThreadFragment extends StatusListFragment{
 			for(StatusDisplayItem item:items){
 				if(item instanceof TextStatusDisplayItem text)
 					text.textSelectable=true;
+				else if(item instanceof FooterStatusDisplayItem footer)
+					footer.hideCounts=true;
 			}
+			items.add(new ExtendedFooterStatusDisplayItem(s.id, this, s.getContentStatus()));
 		}
 		return items;
 	}

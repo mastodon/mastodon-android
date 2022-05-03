@@ -31,6 +31,7 @@ import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.BetterItemAnimator;
 import org.joinmastodon.android.ui.PhotoLayoutHelper;
 import org.joinmastodon.android.ui.TileGridLayoutManager;
+import org.joinmastodon.android.ui.displayitems.ExtendedFooterStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.GapStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.HeaderStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.ImageStatusDisplayItem;
@@ -662,7 +663,7 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 				RecyclerView.ViewHolder holder=parent.getChildViewHolder(child);
 				RecyclerView.ViewHolder siblingHolder=parent.getChildViewHolder(bottomSibling);
 				if(holder instanceof StatusDisplayItem.Holder<?> ih && siblingHolder instanceof StatusDisplayItem.Holder<?> sh
-						&& !ih.getItemID().equals(sh.getItemID()) && ih.getItem().getType()!=StatusDisplayItem.Type.GAP){
+						&& (!ih.getItemID().equals(sh.getItemID()) || sh instanceof ExtendedFooterStatusDisplayItem.Holder) && ih.getItem().getType()!=StatusDisplayItem.Type.GAP){
 					drawDivider(child, bottomSibling, holder, siblingHolder, parent, c, dividerPaint);
 				}
 			}

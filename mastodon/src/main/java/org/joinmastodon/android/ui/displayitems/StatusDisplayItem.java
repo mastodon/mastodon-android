@@ -64,6 +64,7 @@ public abstract class StatusDisplayItem{
 			case ACCOUNT -> new AccountStatusDisplayItem.Holder(activity, parent);
 			case HASHTAG -> new HashtagStatusDisplayItem.Holder(activity, parent);
 			case GAP -> new GapStatusDisplayItem.Holder(activity, parent);
+			case EXTENDED_FOOTER -> new ExtendedFooterStatusDisplayItem.Holder(activity, parent);
 		};
 	}
 
@@ -146,7 +147,8 @@ public abstract class StatusDisplayItem{
 		ACCOUNT_CARD,
 		ACCOUNT,
 		HASHTAG,
-		GAP
+		GAP,
+		EXTENDED_FOOTER
 	}
 
 	public static abstract class Holder<T extends StatusDisplayItem> extends BindableViewHolder<T> implements UsableRecyclerView.DisableableClickable{

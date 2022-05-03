@@ -58,6 +58,7 @@ public class StatusInteractionController{
 			status.favouritesCount++;
 		else
 			status.favouritesCount--;
+		E.post(new StatusCountersUpdatedEvent(status));
 	}
 
 	public void setReblogged(Status status, boolean reblogged){
@@ -95,5 +96,6 @@ public class StatusInteractionController{
 			status.reblogsCount++;
 		else
 			status.reblogsCount--;
+		E.post(new StatusCountersUpdatedEvent(status));
 	}
 }
