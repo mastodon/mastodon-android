@@ -52,7 +52,7 @@
 						tools:visibility="visible"
 						android:text="@string/follows_you"/>
 
-					<View
+					<FrameLayout
 						android:id="@+id/avatar_border"
 						android:layout_width="102dp"
 						android:layout_height="102dp"
@@ -60,19 +60,19 @@
 						android:layout_alignParentStart="true"
 						android:layout_marginTop="-40dp"
 						android:layout_marginStart="14dp"
-						android:background="@drawable/profile_ava_bg"/>
+						android:outlineProvider="@null"
+						android:background="@drawable/profile_ava_bg">
 
-					<ImageView
-						android:id="@+id/avatar"
-						android:layout_width="98dp"
-						android:layout_height="98dp"
-						android:layout_below="@id/cover"
-						android:layout_alignParentStart="true"
-						android:layout_marginStart="16dp"
-						android:layout_marginTop="-38dp"
-						android:scaleType="centerCrop"
-						android:contentDescription="@string/profile_picture"
-						tools:src="#0f0" />
+						<ImageView
+							android:id="@+id/avatar"
+							android:layout_width="98dp"
+							android:layout_height="98dp"
+							android:layout_gravity="center"
+							android:scaleType="centerCrop"
+							android:contentDescription="@string/profile_picture"
+							tools:src="#0f0" />
+
+					</FrameLayout>
 
 					<LinearLayout
 						android:id="@+id/profile_counters"
@@ -196,10 +196,10 @@
 						android:id="@+id/name"
 						android:layout_width="match_parent"
 						android:layout_height="wrap_content"
-						android:layout_below="@id/avatar"
+						android:layout_below="@id/avatar_border"
 						android:layout_alignParentStart="true"
 						android:layout_marginStart="16dp"
-						android:layout_marginTop="16dp"
+						android:layout_marginTop="12dp"
 						android:layout_toStartOf="@id/profile_action_btn_wrap"
 						android:textAppearance="@style/m3_headline_small"
 						android:textAlignment="viewStart"
@@ -232,10 +232,10 @@
 						android:id="@+id/name_edit"
 						android:layout_width="match_parent"
 						android:layout_height="wrap_content"
-						android:layout_below="@id/avatar"
+						android:layout_below="@id/avatar_border"
 						android:layout_alignParentStart="true"
 						android:layout_marginStart="16dp"
-						android:layout_marginTop="16dp"
+						android:layout_marginTop="12dp"
 						android:layout_toStartOf="@id/profile_action_btn_wrap"
 						android:textAppearance="@style/m3_body_large"
 						android:textSize="16sp"

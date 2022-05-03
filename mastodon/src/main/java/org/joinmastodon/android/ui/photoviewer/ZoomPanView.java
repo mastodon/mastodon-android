@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Matrix;
+import android.graphics.Path;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.util.AttributeSet;
@@ -54,6 +55,9 @@ public class ZoomPanView extends FrameLayout implements ScaleGestureDetector.OnS
 	private float lastFlingVelocityY;
 	private float backgroundAlphaForTransition=1f;
 	private boolean forceUpdateLayout;
+	private int[] transitionCornerRadius;
+	private Path transitionClipPath=new Path();
+	private float[] tmpFloatArray=new float[8];
 
 	private static final String TAG="ZoomPanView";
 
@@ -148,10 +152,25 @@ public class ZoomPanView extends FrameLayout implements ScaleGestureDetector.OnS
 			child.getMatrix().mapRect(tmpRect2);
 			tmpRect2.offset(child.getLeft(), child.getTop());
 			canvas.save();
-			canvas.clipRect(interpolate(tmpRect2.left, tmpRect.left, cropAnimationValue),
-					interpolate(tmpRect2.top, tmpRect.top, cropAnimationValue),
-					interpolate(tmpRect2.right, tmpRect.right, cropAnimationValue),
-					interpolate(tmpRect2.bottom, tmpRect.bottom, cropAnimationValue));
+			if(transitionCornerRadius!=null){
+				float radiusScale=child.getScaleX();
+				tmpFloatArray[0]=tmpFloatArray[1]=(float)transitionCornerRadius[0]*radiusScale*(1f-cropAnimationValue);
+				tmpFloatArray[2]=tmpFloatArray[3]=(float)transitionCornerRadius[1]*radiusScale*(1f-cropAnimationValue);
+				tmpFloatArray[4]=tmpFloatArray[5]=(float)transitionCornerRadius[2]*radiusScale*(1f-cropAnimationValue);
+				tmpFloatArray[6]=tmpFloatArray[7]=(float)transitionCornerRadius[3]*radiusScale*(1f-cropAnimationValue);
+				transitionClipPath.rewind();
+				transitionClipPath.addRoundRect(interpolate(tmpRect2.left, tmpRect.left, cropAnimationValue),
+						interpolate(tmpRect2.top, tmpRect.top, cropAnimationValue),
+						interpolate(tmpRect2.right, tmpRect.right, cropAnimationValue),
+						interpolate(tmpRect2.bottom, tmpRect.bottom, cropAnimationValue),
+						tmpFloatArray, Path.Direction.CW);
+				canvas.clipPath(transitionClipPath);
+			}else{
+				canvas.clipRect(interpolate(tmpRect2.left, tmpRect.left, cropAnimationValue),
+						interpolate(tmpRect2.top, tmpRect.top, cropAnimationValue),
+						interpolate(tmpRect2.right, tmpRect.right, cropAnimationValue),
+						interpolate(tmpRect2.bottom, tmpRect.bottom, cropAnimationValue));
+			}
 			boolean res=super.drawChild(canvas, child, drawingTime);
 			canvas.restore();
 			return res;
@@ -189,6 +208,18 @@ public class ZoomPanView extends FrameLayout implements ScaleGestureDetector.OnS
 		return initialScale;
 	}
 
+	private void validateAndSetCornerRadius(int[] cornerRadius){
+		transitionCornerRadius=null;
+		if(cornerRadius!=null && cornerRadius.length==4){
+			for(int corner:cornerRadius){
+				if(corner>0){
+					transitionCornerRadius=cornerRadius;
+					break;
+				}
+			}
+		}
+	}
+
 	public void animateIn(Rect rect, int[] cornerRadius){
 		int[] loc={0, 0};
 		getLocationOnScreen(loc);
@@ -204,6 +235,7 @@ public class ZoomPanView extends FrameLayout implements ScaleGestureDetector.OnS
 		animatingTransition=true;
 
 		matrix.getValues(matrixValues);
+		validateAndSetCornerRadius(cornerRadius);
 
 		child.setAlpha(0f);
 		setupAndStartTransitionAnim(new SpringAnimation(this, CROP_AND_FADE, 1f).setMinimumVisibleChange(DynamicAnimation.MIN_VISIBLE_CHANGE_SCALE));
@@ -233,6 +265,7 @@ public class ZoomPanView extends FrameLayout implements ScaleGestureDetector.OnS
 		animatingTransition=true;
 		dismissAfterTransition=true;
 		rawCropAndFadeValue=1f;
+		validateAndSetCornerRadius(cornerRadius);
 
 		setupAndStartTransitionAnim(new SpringAnimation(this, CROP_AND_FADE, 0f).setMinimumVisibleChange(DynamicAnimation.MIN_VISIBLE_CHANGE_SCALE));
 		setupAndStartTransitionAnim(new SpringAnimation(child, DynamicAnimation.SCALE_X, initialScale));

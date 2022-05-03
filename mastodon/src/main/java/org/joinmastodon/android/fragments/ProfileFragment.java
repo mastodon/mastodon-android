@@ -9,6 +9,7 @@ import android.app.Fragment;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Outline;
+import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
@@ -47,9 +48,12 @@ import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.fragments.report.ReportReasonChoiceFragment;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.AccountField;
+import org.joinmastodon.android.model.Attachment;
 import org.joinmastodon.android.model.Relationship;
 import org.joinmastodon.android.ui.SimpleViewHolder;
+import org.joinmastodon.android.ui.SingleImagePhotoViewerListener;
 import org.joinmastodon.android.ui.drawables.CoverOverlayGradientDrawable;
+import org.joinmastodon.android.ui.photoviewer.PhotoViewer;
 import org.joinmastodon.android.ui.tabs.TabLayout;
 import org.joinmastodon.android.ui.tabs.TabLayoutMediator;
 import org.joinmastodon.android.ui.text.CustomEmojiSpan;
@@ -121,6 +125,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 	private boolean refreshing;
 	private View fab;
 	private WindowInsets childInsets;
+	private PhotoViewer currentPhotoViewer;
 
 	public ProfileFragment(){
 		super(R.layout.loader_fragment_overlay_toolbar);
@@ -595,12 +600,10 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 
 	private void onScrollChanged(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY){
 		int topBarsH=getToolbar().getHeight()+statusBarHeight;
-		if(scrollY>avatar.getTop()-topBarsH){
-			float avaAlpha=Math.max(1f-((scrollY-(avatar.getTop()-topBarsH))/(float)V.dp(38)), 0f);
-			avatar.setAlpha(avaAlpha);
+		if(scrollY>avatarBorder.getTop()-topBarsH){
+			float avaAlpha=Math.max(1f-((scrollY-(avatarBorder.getTop()-topBarsH))/(float)V.dp(38)), 0f);
 			avatarBorder.setAlpha(avaAlpha);
 		}else{
-			avatar.setAlpha(1f);
 			avatarBorder.setAlpha(1f);
 		}
 		if(scrollY>cover.getHeight()-topBarsH){
@@ -621,6 +624,9 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 		if(toolbarTitleView!=null){
 			toolbarTitleView.setTranslationY(titleTransY);
 			toolbarSubtitleView.setTranslationY(titleTransY);
+		}
+		if(currentPhotoViewer!=null){
+			currentPhotoViewer.offsetView(0, oldScrollY-scrollY);
 		}
 	}
 
@@ -804,15 +810,38 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 		return false;
 	}
 
+	private List<Attachment> createFakeAttachments(String url, Drawable drawable){
+		Attachment att=new Attachment();
+		att.type=Attachment.Type.IMAGE;
+		att.url=url;
+		att.meta=new Attachment.Metadata();
+		att.meta.width=drawable.getIntrinsicWidth();
+		att.meta.height=drawable.getIntrinsicHeight();
+		return Collections.singletonList(att);
+	}
+
 	private void onAvatarClick(View v){
 		if(isInEditMode){
 			startImagePicker(AVATAR_RESULT);
+		}else{
+			Drawable ava=avatar.getDrawable();
+			if(ava==null)
+				return;
+			int radius=V.dp(25);
+			currentPhotoViewer=new PhotoViewer(getActivity(), createFakeAttachments(account.avatar, ava), 0,
+					new SingleImagePhotoViewerListener(avatar, avatarBorder, new int[]{radius, radius, radius, radius}, this, ()->currentPhotoViewer=null, ()->ava, null, null));
 		}
 	}
 
 	private void onCoverClick(View v){
 		if(isInEditMode){
 			startImagePicker(COVER_RESULT);
+		}else{
+			Drawable drawable=cover.getDrawable();
+			if(drawable==null || drawable instanceof ColorDrawable)
+				return;
+			currentPhotoViewer=new PhotoViewer(getActivity(), createFakeAttachments(account.header, drawable), 0,
+					new SingleImagePhotoViewerListener(cover, cover, null, this, ()->currentPhotoViewer=null, ()->drawable, ()->avatarBorder.setTranslationZ(2), ()->avatarBorder.setTranslationZ(0)));
 		}
 	}
 
