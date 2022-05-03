@@ -373,4 +373,20 @@
 	<string name="current_account">الحِسابُ الحاليّ</string>
 	<string name="log_out_account">تَسجيلُ الخُرُوجِ مِن %s</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
+	<plurals name="x_followers">
+		<item quantity="zero">ليس له متابِعون</item>
+		<item quantity="one">متابِع واحد</item>
+		<item quantity="two">متابِعان</item>
+		<item quantity="few">%,d متابِعين</item>
+		<item quantity="many">%,d متابِعًا</item>
+		<item quantity="other">%,d متابِع</item>
+	</plurals>
+	<plurals name="x_following">
+		<item quantity="zero">ليس له متابَعون</item>
+		<item quantity="one">متابَع واحد</item>
+		<item quantity="two">متابَعان</item>
+		<item quantity="few">%,d متابَعين</item>
+		<item quantity="many">%,d متابَعًا</item>
+		<item quantity="other">%,d متابَع</item>
+	</plurals>
 </resources>
