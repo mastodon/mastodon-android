@@ -10,10 +10,13 @@
 	<string name="ok">OK</string>
 	<string name="preparing_auth">Preparándose para a autenticación…</string>
 	<string name="finishing_auth">Rematando coa autenticación…</string>
+	<string name="user_boosted">%s promoveu</string>
 	<string name="in_reply_to">Como resposta a %s</string>
 	<string name="notifications">Notificacións</string>
 	<string name="user_followed_you">séguete</string>
 	<string name="user_sent_follow_request">enviouche unha solicitude de seguimento</string>
+	<string name="user_favorited">marcou a túa publicación como favorita</string>
+	<string name="notification_boosted">compartiu a túa publicación</string>
 	<string name="poll_ended">rematou a enquisa</string>
 	<string name="time_seconds">%ds</string>
 	<string name="time_minutes">%dm</string>
@@ -219,6 +222,7 @@
 	<string name="skip">Omitir</string>
 	<string name="notification_type_follow">Novas seguidoras</string>
 	<string name="notification_type_favorite">Favoritos</string>
+	<string name="notification_type_reblog">Promocións</string>
 	<string name="notification_type_mention">Mencións</string>
 	<string name="notification_type_poll">Enquisas</string>
 	<string name="choose_account">Elixir conta</string>
@@ -281,6 +285,8 @@
 	<string name="unfollowed_user">Deixaches de seguir a %s</string>
 	<string name="followed_user">Estás a seguir a %s</string>
 	<string name="open_in_browser">Abrir nun navegador</string>
+	<string name="hide_boosts_from_user">Agochar promocións de @%s</string>
+	<string name="show_boosts_from_user">Mostrar promocións de %s</string>
 	<string name="signup_reason">por que queres unirte?</string>
 	<string name="signup_reason_note">Esto axudaranos a revisar a tua solicitude.</string>
 	<string name="clear">Limpar</string>
@@ -307,5 +313,23 @@
 	<string name="button_follow_pending">Pendente</string>
 	<string name="follows_you">Séguete</string>
 	<string name="manually_approves_followers">Aprobar manualmente os seguimentos</string>
+	<string name="current_account">Conta actual</string>
+	<string name="log_out_account">Pechar sesión %s</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
+	<plurals name="x_followers">
+		<item quantity="one">%,d seguidora</item>
+		<item quantity="other">%,d seguidoras</item>
+	</plurals>
+	<plurals name="x_following">
+		<item quantity="one">%,d seguimento</item>
+		<item quantity="other">%,d seguimentos</item>
+	</plurals>
+	<plurals name="x_favorites">
+		<item quantity="one">%,d favorita</item>
+		<item quantity="other">%,d favoritas</item>
+	</plurals>
+	<plurals name="x_reblogs">
+		<item quantity="one">%,d promoción</item>
+		<item quantity="other">%,d promocións</item>
+	</plurals>
 </resources>
