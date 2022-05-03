@@ -301,4 +301,16 @@
 	<string name="current_account">現在のアカウント</string>
 	<string name="log_out_account">%sからログアウト</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
+	<plurals name="x_followers">
+		<item quantity="other">%,d フォロワー</item>
+	</plurals>
+	<plurals name="x_following">
+		<item quantity="other">%,d フォロー中</item>
+	</plurals>
+	<plurals name="x_favorites">
+		<item quantity="other">%,d お気に入り</item>
+	</plurals>
+	<plurals name="x_reblogs">
+		<item quantity="other">%,d ブースト</item>
+	</plurals>
 </resources>
