@@ -363,6 +363,7 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 	public abstract void onItemClick(String id);
 
 	protected void updatePoll(String itemID, Status status, Poll poll){
+		status.poll=poll;
 		int firstOptionIndex=-1, footerIndex=-1;
 		int i=0;
 		for(StatusDisplayItem item:displayItems){
