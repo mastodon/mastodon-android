@@ -2,6 +2,7 @@ package org.joinmastodon.android.fragments.onboarding;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.LocaleList;
@@ -349,7 +350,7 @@ public class InstanceCatalogFragment extends BaseRecyclerFragment<CatalogInstanc
 		currentSearchQuery=searchEdit.getText().toString().toLowerCase();
 		updateFilteredList();
 		searchEdit.removeCallbacks(searchDebouncer);
-		Instance instance=instancesCache.get(currentSearchQuery);
+		Instance instance=instancesCache.get(normalizeInstanceDomain(currentSearchQuery));
 		if(instance==null){
 			showProgressDialog();
 			loadInstanceInfo(currentSearchQuery);
@@ -412,15 +413,27 @@ public class InstanceCatalogFragment extends BaseRecyclerFragment<CatalogInstanc
 		instanceProgressDialog.show();
 	}
 
-	private void loadInstanceInfo(String _domain){
+	private String normalizeInstanceDomain(String _domain){
 		if(TextUtils.isEmpty(_domain))
-			return;
+			return null;
+		if(_domain.contains(":")){
+			try{
+				_domain=Uri.parse(_domain).getAuthority();
+			}catch(Exception ignore){}
+			if(TextUtils.isEmpty(_domain))
+				return null;
+		}
 		String domain;
 		try{
 			domain=IDN.toASCII(_domain);
 		}catch(IllegalArgumentException x){
-			return;
+			return null;
 		}
+		return domain;
+	}
+
+	private void loadInstanceInfo(String _domain){
+		String domain=normalizeInstanceDomain(_domain);
 		Instance cachedInstance=instancesCache.get(domain);
 		if(cachedInstance!=null){
 			for(CatalogInstance ci:filteredData){
