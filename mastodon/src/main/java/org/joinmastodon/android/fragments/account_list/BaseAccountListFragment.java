@@ -285,14 +285,20 @@ public abstract class BaseAccountListFragment extends BaseRecyclerFragment<BaseA
 			menu.findItem(R.id.mute).setTitle(getString(relationship.muting ? R.string.unmute_user : R.string.mute_user, account.getDisplayUsername()));
 			menu.findItem(R.id.block).setTitle(getString(relationship.blocking ? R.string.unblock_user : R.string.block_user, account.getDisplayUsername()));
 			menu.findItem(R.id.report).setTitle(getString(R.string.report_user, account.getDisplayUsername()));
-			if(relationship.following)
-				menu.findItem(R.id.hide_boosts).setTitle(getString(relationship.showingReblogs ? R.string.hide_boosts_from_user : R.string.show_boosts_from_user, account.getDisplayUsername()));
-			else
-				menu.findItem(R.id.hide_boosts).setVisible(false);
-			if(!account.isLocal())
-				menu.findItem(R.id.block_domain).setTitle(getString(relationship.domainBlocking ? R.string.unblock_domain : R.string.block_domain, account.getDomain()));
-			else
-				menu.findItem(R.id.block_domain).setVisible(false);
+			MenuItem hideBoosts=menu.findItem(R.id.hide_boosts);
+			if(relationship.following){
+				hideBoosts.setTitle(getString(relationship.showingReblogs ? R.string.hide_boosts_from_user : R.string.show_boosts_from_user, account.getDisplayUsername()));
+				hideBoosts.setVisible(true);
+			}else{
+				hideBoosts.setVisible(false);
+			}
+			MenuItem blockDomain=menu.findItem(R.id.block_domain);
+			if(!account.isLocal()){
+				blockDomain.setTitle(getString(relationship.domainBlocking ? R.string.unblock_domain : R.string.block_domain, account.getDomain()));
+				blockDomain.setVisible(true);
+			}else{
+				blockDomain.setVisible(false);
+			}
 
 			menuAnchor.setTranslationX(x);
 			menuAnchor.setTranslationY(y);
