@@ -10,13 +10,10 @@
 	<string name="ok">OK</string>
 	<string name="preparing_auth">Pripremamo autorizaciju…</string>
 	<string name="finishing_auth">Završavamo autorizaciju…</string>
-	<string name="user_boosted">%s dijeljeno</string>
 	<string name="in_reply_to">Odgovor za %s</string>
 	<string name="notifications">Obavijesti</string>
 	<string name="user_followed_you">vas prati</string>
 	<string name="user_sent_follow_request">poslao/la zahtjev za prijateljstvo</string>
-	<string name="user_favorited">se svidja vaša objava</string>
-	<string name="notification_boosted">objavio/la vašu objavu</string>
 	<string name="poll_ended">anketa je završena</string>
 	<string name="time_seconds">%ds</string>
 	<string name="time_minutes">%dm</string>
@@ -135,9 +132,6 @@
 	<string name="report_personal_title">Ne želite ovo vidjeti?</string>
 	<string name="report_personal_subtitle">Kada vidite nešto nepoželjno na Mastodon-u, možete blokirati odredjeni profil.</string>
 	<string name="back">Nazad</string>
-	<string name="instance_catalog_title">Mastodon sačinjava mnogo korisnika na više različitih platformi.</string>
-	<string name="instance_catalog_subtitle">Odaberite platformu / zajednicu baziranu na vašim interesima, regionu ili neku sa generalnim sadržajem. Možete se povezati sa bilo kim, bez obzira na kojoj platformi su oni.</string>
-	<string name="search_communities">Pretražite platforme / zajednice ili unesite URL / link</string>
 	<string name="instance_rules_title">Važna pravila</string>
 	<string name="instance_rules_subtitle">Pogledajte pravila koja je odredila %s administracija.</string>
 	<string name="signup_title">Krenimo sa postavkama na %s</string>
@@ -186,7 +180,6 @@
 	<string name="skip">Preskoči</string>
 	<string name="notification_type_follow">Novi pratioci</string>
 	<string name="notification_type_favorite">Favoriti</string>
-	<string name="notification_type_reblog">Re-objave</string>
 	<string name="notification_type_mention">Spominjanja</string>
 	<string name="notification_type_poll">Ankete</string>
 	<string name="choose_account">Odaberi račun</string>
@@ -250,8 +243,6 @@
 	<string name="unfollowed_user">Ne pratite %s</string>
 	<string name="followed_user">Sada pratite %s</string>
 	<string name="open_in_browser">Otvori u pregledniku</string>
-	<string name="hide_boosts_from_user">Sakrij re-objave od %s</string>
-	<string name="show_boosts_from_user">Vidi re-objave od %s</string>
 	<string name="signup_reason">zašto se želite pridružiti?</string>
 	<string name="signup_reason_note">Ovo nam pomaže prilikom odobravanja vašeg zahtjeva.</string>
 	<string name="clear">Briši</string>
@@ -265,4 +256,5 @@
 	<string name="error_saving_file">Greška prilikom procesiranja</string>
 	<string name="file_saved">Datoteka sačuvana</string>
 	<string name="downloading">Downloading…</string>
+	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 </resources>

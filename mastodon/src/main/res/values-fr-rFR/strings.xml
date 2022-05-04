@@ -10,13 +10,10 @@
 	<string name="ok">OK</string>
 	<string name="preparing_auth">Préparation à l’authentification…</string>
 	<string name="finishing_auth">Fin de l’authentification…</string>
-	<string name="user_boosted">%s a partagé</string>
 	<string name="in_reply_to">En réponse à %s</string>
 	<string name="notifications">Notifications</string>
 	<string name="user_followed_you">s’est abonné à vous</string>
 	<string name="user_sent_follow_request">vous a envoyé une demande de suivi</string>
-	<string name="user_favorited">a mis votre pouet en favori</string>
-	<string name="notification_boosted">a partagé votre pouet</string>
 	<string name="poll_ended">sondage terminé</string>
 	<string name="time_seconds">%d s</string>
 	<string name="time_minutes">%d m</string>
@@ -98,8 +95,8 @@
 		<item quantity="other">%d jours restants</item>
 	</plurals>
 	<plurals name="x_voters">
-		<item quantity="one">%,d votant</item>
-		<item quantity="other">%,d votants</item>
+		<item quantity="one">%,d personne a voté</item>
+		<item quantity="other">%,d personnes ont voté</item>
 	</plurals>
 	<string name="poll_closed">Fermé</string>
 	<string name="confirm_mute_title">Masquer le compte</string>
@@ -171,9 +168,9 @@
 	<string name="report_personal_title">Vous ne voulez pas voir cela ?</string>
 	<string name="report_personal_subtitle">Quand vous voyez quelque chose que vous n’aimez pas sur Mastodon, vous pouvez retirer la personne de votre expérience.</string>
 	<string name="back">Retour</string>
-	<string name="instance_catalog_title">Mastodon est composé d’utilisateurs de différentes communautés.</string>
-	<string name="instance_catalog_subtitle">Choisissez une communauté basée sur vos intérêts, votre région ou un but général. Vous pouvez toujours vous connecter avec tout le monde, quelle que soit la communauté.</string>
-	<string name="search_communities">Rechercher parmi les communautés ou entrer une URL</string>
+	<string name="instance_catalog_title">Mastodon est composé d\'utilisateurs sur différents serveurs.</string>
+	<string name="instance_catalog_subtitle">Choisissez un serveur en fonction de vos intérêts, de votre région ou alors rejoignez un serveur général. Vous pouvez toujours vous connecter avec tout le monde, quel que soit le serveur.</string>
+	<string name="search_communities">Rechercher des serveurs ou entrer une URL</string>
 	<string name="instance_rules_title">Quelques règles de base</string>
 	<string name="instance_rules_subtitle">Prenez une minute pour revoir les règles définies et appliquées par les administrateurs de %s.</string>
 	<string name="signup_title">Mettons les choses en place pour %s</string>
@@ -222,7 +219,6 @@
 	<string name="skip">Passer</string>
 	<string name="notification_type_follow">Nouveaux⋅elles abonné⋅e⋅s</string>
 	<string name="notification_type_favorite">Favoris</string>
-	<string name="notification_type_reblog">Partages</string>
 	<string name="notification_type_mention">Mentions</string>
 	<string name="notification_type_poll">Sondages</string>
 	<string name="choose_account">Choisir un compte</string>
@@ -285,8 +281,6 @@
 	<string name="unfollowed_user">Vous ne suivez plus %s</string>
 	<string name="followed_user">Vous suivez maintenant %s</string>
 	<string name="open_in_browser">Ouvrir dans le navigateur</string>
-	<string name="hide_boosts_from_user">Masquer les partages de %s</string>
-	<string name="show_boosts_from_user">Afficher les partages de %s</string>
 	<string name="signup_reason">pourquoi voulez-vous vous inscrire ?</string>
 	<string name="signup_reason_note">Cela nous aidera à examiner votre demande.</string>
 	<string name="clear">Effacer</string>
@@ -301,4 +295,17 @@
 	<string name="file_saved">Fichier enregistré</string>
 	<string name="downloading">Téléchargement…</string>
 	<string name="no_app_to_handle_action">Aucune application ne permet de gérer ce type d\'action</string>
+	<string name="local_timeline">Communauté</string>
+	<string name="trending_posts_info_banner">Ce sont les postes qui gagnent en popularité sur votre serveur Mastodon.</string>
+	<string name="trending_hashtags_info_banner">Ce sont les hashtags qui gagnent en popularité sur votre serveur Mastodon.</string>
+	<string name="trending_links_info_banner">Ce sont les nouvelles les plus partagées sur votre serveur Mastodon.</string>
+	<string name="local_timeline_info_banner">Ce sont les messages les plus récents des personnes qui utilisent le même serveur Mastodon que vous.</string>
+	<string name="dismiss">Rejeter</string>
+	<string name="see_new_posts">Voir les nouveaux postes</string>
+	<string name="load_missing_posts">Charger les postes manquants</string>
+	<string name="follow_back">Suivre en retour</string>
+	<string name="button_follow_pending">En attente</string>
+	<string name="follows_you">Vous suit</string>
+	<string name="manually_approves_followers">Approuver manuellement les demande de suivie</string>
+	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 </resources>

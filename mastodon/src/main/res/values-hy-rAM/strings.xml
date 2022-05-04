@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="app_name">Մաստոդոն</string>
+	<string name="get_started">Սկսել</string>
+	<string name="log_in">Մուտք գործել</string>
+	<string name="next">Հաջորդը</string>
+	<string name="loading_instance">Ստանում ենք օրինակի ինֆորմացիան…</string>
+	<string name="error">Սխալ</string>
+	<string name="not_a_mastodon_instance">%sՉի երևում որ դա Մաստադոնի օրինակ է.</string>
+	<string name="ok">Լավ</string>
+	<string name="preparing_auth">Պատրաստում ենք ավտոենտիֆիկացիայի…</string>
+	<string name="finishing_auth">Ավարտում ենք ավտոենտիֆիկացիան…</string>
+	<string name="in_reply_to">Ի պատասխան %s-ին</string>
+	<string name="notifications">Ծանուցումներ</string>
+	<string name="user_followed_you">սկսեց հետեւել քեզ</string>
+	<string name="user_sent_follow_request">հետեւելու հարցում է ուղարկել</string>
+	<string name="poll_ended">հարցումն ավարտվել է</string>
+	<string name="time_seconds">%dվրկ</string>
+	<string name="time_minutes">%dր</string>
+	<string name="time_hours">%dժ</string>
+	<string name="time_days">%dօր</string>
+	<string name="share_toot_title">Տարածել</string>
+	<string name="settings">Կարգավորումներ</string>
+	<string name="publish">Հրապարակել</string>
+	<string name="discard_draft">Հեռացնե՞լ սեւագիրը</string>
+	<string name="discard">Հեռացնել</string>
+	<string name="cancel">Չեղարկել</string>
+	<plurals name="followers">
+		<item quantity="one">հետեւորդ</item>
+		<item quantity="other">հետեւորդներ</item>
+	</plurals>
+	<plurals name="following">
+		<item quantity="one">հետեւում ես</item>
+		<item quantity="other">հետեւում ես</item>
+	</plurals>
+	<plurals name="posts">
+		<item quantity="one">գրառում</item>
+		<item quantity="other">գրառումներ</item>
+	</plurals>
+	<string name="posts">Գրառումներ</string>
+	<string name="posts_and_replies">Գրառումներ եւ պատասխաններ</string>
+	<string name="media">Մեդիա</string>
+	<string name="profile_about">Իմ մասին</string>
+	<string name="button_follow">Հետեւել</string>
+	<string name="button_following">Հետեւում ես</string>
+	<string name="edit_profile">Խմբագրել անձնական էջը</string>
+	<string name="mention_user">Նշել %s-ին</string>
+	<string name="share_user">Տարածել%s</string>
+	<string name="mute_user">Անջատել ձայնը%s</string>
+	<string name="unmute_user">Միացնել ձայնը%s</string>
+	<string name="block_user">Արգելափակել%s</string>
+	<string name="unblock_user">Հանել արգելափակումից %s</string>
+	<string name="report_user">Բողոքել %s</string>
+	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
+</resources>

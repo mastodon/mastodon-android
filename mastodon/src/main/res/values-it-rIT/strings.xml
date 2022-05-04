@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="app_name">Mastodon</string>
-	<string name="get_started">Iniziamo</string>
+	<string name="app_name">Mastodonte</string>
+	<string name="get_started">Iniziare</string>
 	<string name="log_in">Accedi</string>
-	<string name="next">Avanti</string>
-	<string name="loading_instance">Recupero informazioni istanza…</string>
+	<string name="next">Prossimo</string>
+	<string name="loading_instance">Recupero delle informazioni sull\'istanza…</string>
 	<string name="error">Errore</string>
 	<string name="not_a_mastodon_instance">%s non sembra essere un\'istanza Mastodon.</string>
 	<string name="ok">OK</string>
 	<string name="preparing_auth">Preparazione all\'autenticazione…</string>
 	<string name="finishing_auth">Completamento autenticazione…</string>
-	<string name="user_boosted">%s ha condiviso</string>
+	<string name="user_boosted">%s ribloggato</string>
 	<string name="in_reply_to">In risposta a %s</string>
 	<string name="notifications">Notifiche</string>
 	<string name="user_followed_you">ti segue</string>
 	<string name="user_sent_follow_request">ha richiesto di seguirti</string>
-	<string name="user_favorited">ha apprezzato il tuo toot</string>
-	<string name="notification_boosted">ha potenziato il tuo toot</string>
+	<string name="user_favorited">ha preferito il tuo post</string>
+	<string name="notification_boosted">ha ribloggato il tuo post</string>
 	<string name="poll_ended">sondaggio terminato</string>
 	<string name="time_seconds">%ds</string>
 	<string name="time_minutes">%dm</string>
@@ -27,7 +27,7 @@
 	<string name="publish">Pubblica</string>
 	<string name="discard_draft">Eliminare bozza?</string>
 	<string name="discard">Scarta</string>
-	<string name="cancel">Cancella</string>
+	<string name="cancel">Annulla</string>
 	<plurals name="followers">
 		<item quantity="one">seguace</item>
 		<item quantity="other">seguaci</item>
@@ -66,7 +66,7 @@
 	<string name="field_label">Etichetta</string>
 	<string name="field_content">Contenuto</string>
 	<string name="saving">Salvataggio…</string>
-	<string name="post_from_user">Post da %s</string>
+	<string name="post_from_user">Post di %s</string>
 	<string name="poll_option_hint">Opzione %d</string>
 	<plurals name="x_minutes">
 		<item quantity="one">%d minuto</item>
@@ -120,9 +120,9 @@
 	<string name="button_blocked">Bloccato</string>
 	<string name="action_vote">Vota</string>
 	<string name="tap_to_reveal">Tocca per mostrare</string>
-	<string name="delete">Cancella</string>
-	<string name="confirm_delete_title">Cancella Post</string>
-	<string name="confirm_delete">Sei sicuro di voler cancellare questo post?</string>
+	<string name="delete">Elimina</string>
+	<string name="confirm_delete_title">Elimina Post</string>
+	<string name="confirm_delete">Sei sicuro di voler eliminare questo post?</string>
 	<string name="deleting">Eliminazione…</string>
 	<string name="notification_channel_audio_player">Riproduzione audio</string>
 	<string name="play">Riproduci</string>
@@ -133,7 +133,7 @@
 	<string name="hashtags">Hashtags</string>
 	<string name="news">Notizie</string>
 	<string name="for_you">Per te</string>
-	<string name="all_notifications">Tutti</string>
+	<string name="all_notifications">Tutte</string>
 	<string name="mentions">Menzioni</string>
 	<plurals name="x_people_talking">
 		<item quantity="one">%d persona ne parla</item>
@@ -172,8 +172,8 @@
 	<string name="report_personal_subtitle">Quando vedi qualcosa che non ti piace su Mastodon, puoi rimuovere la persona dalla tua esperienza.</string>
 	<string name="back">Indietro</string>
 	<string name="instance_catalog_title">Mastodon è fatto di utenti in diverse comunità.</string>
-	<string name="instance_catalog_subtitle">Scegli una comunità basata sui tuoi interessi, alla tua regione o una generica. Puoi comunque connetterti con tutti, indipendentemente dalla comunità.</string>
-	<string name="search_communities">Cerca comunità o inserisci URL</string>
+	<string name="instance_catalog_subtitle">Scegli una comunità basata sui tuoi interessi, regionale o una generica. Puoi comunque connetterti con tutti, indipendentemente dalla comunità.</string>
+	<string name="search_communities">Cerca servers o inserisci URL</string>
 	<string name="instance_rules_title">Alcune regole di base</string>
 	<string name="instance_rules_subtitle">Prenditi un minuto per rivedere le regole impostate e applicate dagli amministratori di %s.</string>
 	<string name="signup_title">Facciamo in modo che sia configurato su %s</string>
@@ -201,7 +201,7 @@
 	<string name="resend">Invia di nuovo</string>
 	<string name="open_email_app">Apri l\'app email</string>
 	<string name="resent_email">Email di conferma inviata</string>
-	<string name="compose_hint">Digita o incolla quello che hai in mente</string>
+	<string name="compose_hint">Scrivi quello che hai in mente</string>
 	<string name="content_warning">Avviso sul contenuto</string>
 	<string name="add_image_description">Aggiungi descrizione immagine…</string>
 	<string name="retry_upload">Riprova caricamento</string>
@@ -222,7 +222,7 @@
 	<string name="skip">Salta</string>
 	<string name="notification_type_follow">Nuovi seguaci</string>
 	<string name="notification_type_favorite">Preferiti</string>
-	<string name="notification_type_reblog">Condivisioni</string>
+	<string name="notification_type_reblog">Reblog</string>
 	<string name="notification_type_mention">Menzioni</string>
 	<string name="notification_type_poll">Sondaggi</string>
 	<string name="choose_account">Seleziona l\'account</string>
@@ -285,8 +285,8 @@
 	<string name="unfollowed_user">Smetti di seguire %s</string>
 	<string name="followed_user">Hai cominciato a seguire %s</string>
 	<string name="open_in_browser">Apri nel browser</string>
-	<string name="hide_boosts_from_user">Nascondi condivisioni da %s</string>
-	<string name="show_boosts_from_user">Mostra condivisioni da %s</string>
+	<string name="hide_boosts_from_user">Nascondi i reblog da %s</string>
+	<string name="show_boosts_from_user">Mostra i reblog da %s</string>
 	<string name="signup_reason">perché vuoi unirti?</string>
 	<string name="signup_reason_note">Questo ci aiuterà ad esaminare la tua richiesta.</string>
 	<string name="clear">Cancella</string>
@@ -302,4 +302,34 @@
 	<string name="downloading">Scaricamento…</string>
 	<string name="no_app_to_handle_action">Impossibile trovare applicazioni per gestire quest\'azione</string>
 	<string name="local_timeline">Comunità</string>
+	<string name="trending_posts_info_banner">Questi sono i post che stanno guadagnando popolarità nel tuo angolo di Mastodon.</string>
+	<string name="trending_hashtags_info_banner">Questi sono gli hashtags che stanno guadagnando popolarità nel tuo angolo di Mastodon.</string>
+	<string name="trending_links_info_banner">Queste sono le notizie che vengono condivise più nel tuo angolo di Mastodon.</string>
+	<string name="local_timeline_info_banner">Questi sono i post più recenti delle persone che utilizzano il tuo stesso server Mastodon.</string>
+	<string name="dismiss">Ignora</string>
+	<string name="see_new_posts">Visualizza nuovi posts</string>
+	<string name="load_missing_posts">Carica i posts mancanti</string>
+	<string name="follow_back">Segui anche tu</string>
+	<string name="button_follow_pending">In attesa</string>
+	<string name="follows_you">Ha iniziato a seguirti</string>
+	<string name="manually_approves_followers">Approva manualmente i followers</string>
+	<string name="current_account">Account corrente</string>
+	<string name="log_out_account">Disconnetti %s</string>
+	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
+	<plurals name="x_followers">
+		<item quantity="one">%,d follower</item>
+		<item quantity="other">%,d follower</item>
+	</plurals>
+	<plurals name="x_following">
+		<item quantity="one">%,d seguiti</item>
+		<item quantity="other">%,d seguiti</item>
+	</plurals>
+	<plurals name="x_favorites">
+		<item quantity="one">%,d preferito</item>
+		<item quantity="other">%,d favoriti</item>
+	</plurals>
+	<plurals name="x_reblogs">
+		<item quantity="one">%,d reblog</item>
+		<item quantity="other">%,d reblog</item>
+	</plurals>
 </resources>

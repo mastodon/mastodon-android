@@ -15,8 +15,8 @@
 	<string name="notifications">Notificacións</string>
 	<string name="user_followed_you">séguete</string>
 	<string name="user_sent_follow_request">enviouche unha solicitude de seguimento</string>
-	<string name="user_favorited">marcou o teu toot coma favorito</string>
-	<string name="notification_boosted">promoveu a túa publicación</string>
+	<string name="user_favorited">marcou a túa publicación como favorita</string>
+	<string name="notification_boosted">compartiu a túa publicación</string>
 	<string name="poll_ended">rematou a enquisa</string>
 	<string name="time_seconds">%ds</string>
 	<string name="time_minutes">%dm</string>
@@ -173,7 +173,7 @@
 	<string name="back">Volver</string>
 	<string name="instance_catalog_title">Mastodon fórmano as persoas das diferentes comunidades.</string>
 	<string name="instance_catalog_subtitle">Elixe unha comunidade en función dos teus intereses, rexión ou de propósito xeral. Poderás conectar con calquera outra usuaria igualmente, independentemente da comunidade que elixas.</string>
-	<string name="search_communities">Busca comunidades ou escribe o URL</string>
+	<string name="search_communities">Busca un servidor ou escribe URL</string>
 	<string name="instance_rules_title">Algunhas regras básicas</string>
 	<string name="instance_rules_subtitle">Adica un minuto a revisar as regras establecidas pola administración de %s.</string>
 	<string name="signup_title">Imos crear a túa conta en %s</string>
@@ -302,4 +302,35 @@
 	<string name="downloading">Descargando…</string>
 	<string name="no_app_to_handle_action">Non hai apps para esta acción</string>
 	<string name="local_timeline">Comunidade</string>
+	<string name="trending_posts_info_banner">Estas son as publicacións en voga no teu recuncho de Mastodon.</string>
+	<string name="trending_hashtags_info_banner">Estes son os cancelos en voga no teu recuncho de Mastodon.</string>
+	<string name="trending_links_info_banner">Estas son as novas máis compartidas no teu recuncho de Mastodon.</string>
+	<string name="local_timeline_info_banner">Estas son as publicacións máis recentes da xente que usa o mesmo servidor de Mastodon ca ti.</string>
+	<string name="dismiss">Desbotar</string>
+	<string name="see_new_posts">Ver novas publicacións</string>
+	<string name="load_missing_posts">Cargar publicacións que faltan</string>
+	<string name="follow_back">Seguir recíprocamente</string>
+	<string name="button_follow_pending">Pendente</string>
+	<string name="follows_you">Séguete</string>
+	<string name="manually_approves_followers">Aprobar manualmente os seguimentos</string>
+	<string name="current_account">Conta actual</string>
+	<string name="log_out_account">Pechar sesión %s</string>
+	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
+	<plurals name="x_followers">
+		<item quantity="one">%,d seguidora</item>
+		<item quantity="other">%,d seguidoras</item>
+	</plurals>
+	<plurals name="x_following">
+		<item quantity="one">%,d seguimento</item>
+		<item quantity="other">%,d seguimentos</item>
+	</plurals>
+	<plurals name="x_favorites">
+		<item quantity="one">%,d favorita</item>
+		<item quantity="other">%,d favoritas</item>
+	</plurals>
+	<plurals name="x_reblogs">
+		<item quantity="one">%,d promoción</item>
+		<item quantity="other">%,d promocións</item>
+	</plurals>
+	<string name="timestamp_via_app">%1$s vía %2$s</string>
 </resources>

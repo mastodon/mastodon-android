@@ -199,9 +199,9 @@
 	<string name="report_personal_title">Не хотите видеть это?</string>
 	<string name="report_personal_subtitle">Если кто-то в Mastodon публикует то, что вам не нравится, вы можете скрыть его.</string>
 	<string name="back">Назад</string>
-	<string name="instance_catalog_title">Mastodon состоит из пользователей разнообразных сообществ.</string>
-	<string name="instance_catalog_subtitle">Выберите сообщество общей принадлежности, либо на основе своих интересов или региона. Вы по-прежнему сможете взаимодействовать с кем захотите, независимо от выбранного сообщества.</string>
-	<string name="search_communities">Поиск по сообществам или ссылке</string>
+	<string name="instance_catalog_title">Mastodon состоит из пользователей разнообразных серверов.</string>
+	<string name="instance_catalog_subtitle">Выберите сервер общей принадлежности, либо на основе своих интересов или региона. Вы по-прежнему сможете взаимодействовать с кем захотите, независимо от выбранного сервера.</string>
+	<string name="search_communities">Поиск по серверам или ссылке</string>
 	<string name="instance_rules_title">Несколько основных правил</string>
 	<string name="instance_rules_subtitle">Уделите минуту, чтобы изучить правила сообщества %s.</string>
 	<string name="signup_title">Давайте зарегистрируем вас на %s</string>
@@ -250,7 +250,6 @@
 	<string name="skip">Пропустить</string>
 	<string name="notification_type_follow">Новые подписчики</string>
 	<string name="notification_type_favorite">Избранное</string>
-	<string name="notification_type_reblog">Продвижения</string>
 	<string name="notification_type_mention">Упоминания</string>
 	<string name="notification_type_poll">Опросы</string>
 	<string name="choose_account">Выберите аккаунт</string>
@@ -330,4 +329,33 @@
 	<string name="error_saving_file">Ошабка при сохранении файла</string>
 	<string name="file_saved">Файл сохранён</string>
 	<string name="downloading">Скачивание…</string>
+	<string name="no_app_to_handle_action">Нет приложения для обработки этого действия</string>
+	<string name="local_timeline">Сообщество</string>
+	<string name="trending_posts_info_banner">Эти посты набирают популярность в вашем уголке Mastodon.</string>
+	<string name="trending_hashtags_info_banner">Эти хэштеги набирают популярность в вашем уголке Mastodon.</string>
+	<string name="trending_links_info_banner">Этими новостями в вашем уголке Mastodon делятся больше всего.</string>
+	<string name="local_timeline_info_banner">Это самые последние посты людей, которые используют тот же сервер Mastodon, что и вы.</string>
+	<string name="dismiss">Закрыть</string>
+	<string name="see_new_posts">Показать новые</string>
+	<string name="load_missing_posts">Загрузить недостающие посты</string>
+	<string name="follow_back">Подписаться в ответ</string>
+	<string name="button_follow_pending">В ожидании</string>
+	<string name="follows_you">Подписан(а) на вас</string>
+	<string name="manually_approves_followers">Вручную подтверждает подписки</string>
+	<string name="current_account">Текущий аккаунт</string>
+	<string name="log_out_account">Выйти (@%s)</string>
+	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
+	<plurals name="x_followers">
+		<item quantity="one">%,d подписчик</item>
+		<item quantity="few">%,d подписчика</item>
+		<item quantity="many">%,d подписчиков</item>
+		<item quantity="other">%,d подписчиков</item>
+	</plurals>
+	<plurals name="x_following">
+		<item quantity="one">%,d подписка</item>
+		<item quantity="few">%,d подписки</item>
+		<item quantity="many">%,d подписок</item>
+		<item quantity="other">%,d подписок</item>
+	</plurals>
+	<string name="timestamp_via_app">%1$s через %2$s</string>
 </resources>

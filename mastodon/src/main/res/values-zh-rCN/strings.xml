@@ -10,13 +10,10 @@
 	<string name="ok">确定</string>
 	<string name="preparing_auth">正在跳转...</string>
 	<string name="finishing_auth">正在完成身份验证…</string>
-	<string name="user_boosted">%s 加成</string>
 	<string name="in_reply_to">回复给 %s</string>
 	<string name="notifications">通知</string>
 	<string name="user_followed_you">关注了你</string>
 	<string name="user_sent_follow_request">向您发送了关注请求</string>
-	<string name="user_favorited">喜欢了你的帖子</string>
-	<string name="notification_boosted">加成了你的帖子</string>
 	<string name="poll_ended">投票已结束</string>
 	<string name="time_seconds">%d 秒前</string>
 	<string name="time_minutes">%d 分钟前</string>
@@ -58,6 +55,38 @@
 	</plurals>
 	<string name="profile_joined">加入于</string>
 	<string name="done">完成</string>
+	<string name="loading">加载中...</string>
+	<string name="field_label">标签</string>
+	<string name="saving">保存中...</string>
+	<string name="post_from_user">来自 %s 的帖子</string>
+	<string name="poll_option_hint">选项 %d</string>
+	<plurals name="x_minutes">
+		<item quantity="other">%d分钟</item>
+	</plurals>
+	<plurals name="x_hours">
+		<item quantity="other">%d小时</item>
+	</plurals>
+	<plurals name="x_days">
+		<item quantity="other">%d天</item>
+	</plurals>
+	<string name="compose_poll_duration">时长: %s</string>
+	<plurals name="x_seconds_left">
+		<item quantity="other">剩余 %d 秒</item>
+	</plurals>
+	<plurals name="x_minutes_left">
+		<item quantity="other">剩余 %d 分钟</item>
+	</plurals>
+	<string name="poll_closed">已关闭</string>
+	<string name="tap_to_reveal">点击以显示</string>
+	<string name="play">播放</string>
+	<string name="pause">暂停</string>
+	<string name="log_out">登出</string>
+	<string name="add_account">添加账户</string>
+	<string name="search_hint">搜索</string>
+	<string name="hashtags">话题</string>
+	<string name="for_you">推荐</string>
+	<string name="all_notifications">全部</string>
+	<string name="mentions">提及我</string>
 	<plurals name="discussed_x_times">
 		<item quantity="other">讨论了 %d 次</item>
 	</plurals>
@@ -89,9 +118,7 @@
 	<string name="report_personal_title">不想看到这个内容？</string>
 	<string name="report_personal_subtitle">当您在Mastodon看到您不喜欢的东西时，您可以从您的体验中移除该人。</string>
 	<string name="back">返回</string>
-	<string name="instance_catalog_title">Mastodon是由不同社区的用户制作的。</string>
-	<string name="instance_catalog_subtitle">选择一个基于您的兴趣、区域或一般目的的社区。您仍然可以与每个人联系，不管社区如何。</string>
-	<string name="search_communities">搜索社区或输入 URL</string>
+	<string name="search_communities">搜索或输入网址</string>
 	<string name="instance_rules_title">一些基本规则</string>
 	<string name="instance_rules_subtitle">请花一分钟来审阅规则设置，并由 %s 管理员执行。</string>
 	<string name="signup_title">让我们让您在 %s 上设置</string>
@@ -110,6 +137,18 @@
 	<string name="category_games">游戏</string>
 	<string name="category_general">通用</string>
 	<string name="category_journalism">新闻</string>
+	<string name="category_music">音乐</string>
+	<string name="category_regional">地区</string>
+	<string name="category_tech">科技</string>
+	<string name="resend">重新发送</string>
+	<string name="open_email_app">打开电子邮件应用</string>
+	<string name="resent_email">确认邮件已发送</string>
+	<string name="visibility_public">公开</string>
+	<string name="visibility_followers_only">仅关注者</string>
+	<string name="visibility_private">仅我提到的人</string>
+	<string name="search_all">全部</string>
+	<string name="search_people">用户</string>
+	<string name="recent_searches">最近搜索</string>
 	<string name="notify_followed">我关注的</string>
 	<string name="notify_none">没有人</string>
 	<string name="notify_favorites">喜欢我的帖子</string>
@@ -150,8 +189,6 @@
 	<string name="unfollowed_user">取消关注 %s</string>
 	<string name="followed_user">您正在关注 %s</string>
 	<string name="open_in_browser">在浏览器中打开</string>
-	<string name="hide_boosts_from_user">不接收来自 %s 的动态</string>
-	<string name="show_boosts_from_user">接收来自 %s 的动态</string>
 	<string name="signup_reason">加入的理由是？</string>
 	<string name="signup_reason_note">这会有助于我们处理你的申请.</string>
 	<string name="clear">清除</string>
@@ -160,4 +197,10 @@
 	<string name="reorder">重新排序</string>
 	<string name="download">下载</string>
 	<string name="permission_required">需要相应权限</string>
+	<string name="trending_posts_info_banner">这些是在你的 Mastodon 宇宙中备受关注的内容。</string>
+	<string name="trending_hashtags_info_banner">这些是在你的 Mastodon 宇宙中备受关注的话题</string>
+	<string name="local_timeline_info_banner">这些是与您使用相同 Mastodon 服务器的人的最新帖子。</string>
+	<string name="follows_you">关注了你</string>
+	<string name="current_account">当前账号</string>
+	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 </resources>

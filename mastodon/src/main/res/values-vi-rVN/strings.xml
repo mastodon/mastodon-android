@@ -11,7 +11,7 @@
 	<string name="preparing_auth">Chuẩn bị xác thực…</string>
 	<string name="finishing_auth">Hoàn tất xác thực…</string>
 	<string name="user_boosted">%s đăng lại</string>
-	<string name="in_reply_to">trả lời %s</string>
+	<string name="in_reply_to">Trả lời đến %s</string>
 	<string name="notifications">Thông báo</string>
 	<string name="user_followed_you">đã theo dõi bạn</string>
 	<string name="user_sent_follow_request">đã yêu cầu theo dõi bạn</string>
@@ -157,9 +157,9 @@
 	<string name="report_personal_title">Không muốn xem thứ này?</string>
 	<string name="report_personal_subtitle">Khi bạn thấy có gì đó mà bạn không thích trên Mastodon, bạn có thể tự loại bỏ chúng.</string>
 	<string name="back">Quay lại</string>
-	<string name="instance_catalog_title">Mastodon gồm nhiều cộng đồng với nhiều thành viên khác nhau.</string>
-	<string name="instance_catalog_subtitle">Chọn một cộng đồng dựa theo sở thích, tôn giáo, hoặc ý muốn của bạn. Bạn vẫn có thể giao tiếp với bất cứ ai mà không phụ thuộc vào cộng đồng của họ.</string>
-	<string name="search_communities">Tìm một cộng đồng hoặc nhập URL</string>
+	<string name="instance_catalog_title">Mastodon gồm nhiều máy chủ với thành viên riêng.</string>
+	<string name="instance_catalog_subtitle">Chọn một máy chủ dựa theo sở thích, tôn giáo, hoặc ý muốn của bạn. Bạn vẫn có thể giao tiếp với bất cứ ai mà không phụ thuộc vào máy chủ của họ.</string>
+	<string name="search_communities">Tìm máy chủ hoặc nhập URL</string>
 	<string name="instance_rules_title">Quy tắc máy chủ</string>
 	<string name="instance_rules_subtitle">Hãy đọc kỹ quy tắc máy chủ của %s và cân nhắc.</string>
 	<string name="signup_title">Hãy để tôi đăng ký trên %s</string>
@@ -286,5 +286,32 @@
 	<string name="file_saved">Đã lưu tập tin</string>
 	<string name="downloading">Đang tải về…</string>
 	<string name="no_app_to_handle_action">Không tìm thấy ứng dụng để thực hiện thao tác này</string>
-	<string name="local_timeline">Cộng đồng</string>
+	<string name="local_timeline">Máy chủ</string>
+	<string name="trending_posts_info_banner">Đây là những tút đang thu hút nhiều sự chú ý trên Mastodon.</string>
+	<string name="trending_hashtags_info_banner">Đây là những hashtag đang thu hút nhiều sự chú ý trên Mastodon.</string>
+	<string name="trending_links_info_banner">Đây là những liên kết đang được chia sẻ nhiều nhất trên Mastodon.</string>
+	<string name="local_timeline_info_banner">Đây là những tút gần đây nhất từ những người cùng máy chủ Mastodon với bạn.</string>
+	<string name="dismiss">Bỏ qua</string>
+	<string name="see_new_posts">Đọc những tút mới</string>
+	<string name="load_missing_posts">Tải tút chưa đọc</string>
+	<string name="follow_back">Theo dõi lại</string>
+	<string name="button_follow_pending">Đang chờ</string>
+	<string name="follows_you">Đang theo dõi bạn</string>
+	<string name="manually_approves_followers">Duyệt người theo dõi thủ công</string>
+	<string name="current_account">Tài khoản hiện tại</string>
+	<string name="log_out_account">Đăng xuất %s</string>
+	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
+	<plurals name="x_followers">
+		<item quantity="other">%,d người theo dõi</item>
+	</plurals>
+	<plurals name="x_following">
+		<item quantity="other">%,d theo dõi</item>
+	</plurals>
+	<plurals name="x_favorites">
+		<item quantity="other">%,d lượt thích</item>
+	</plurals>
+	<plurals name="x_reblogs">
+		<item quantity="other">%,d đăng lại</item>
+	</plurals>
+	<string name="timestamp_via_app">%1$s qua %2$s</string>
 </resources>

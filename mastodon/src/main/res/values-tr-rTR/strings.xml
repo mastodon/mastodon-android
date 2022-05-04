@@ -10,13 +10,10 @@
 	<string name="ok">Tamam</string>
 	<string name="preparing_auth">Kimlik doğrulama için hazırlanıyor…</string>
 	<string name="finishing_auth">Kimlik doğrulama tamamlanıyor…</string>
-	<string name="user_boosted">%s Paylaştı</string>
 	<string name="in_reply_to">%s için yanıt</string>
 	<string name="notifications">Bildirimler</string>
 	<string name="user_followed_you">seni takip etti</string>
 	<string name="user_sent_follow_request">sana bir takip isteği gönderdi</string>
-	<string name="user_favorited">gönderinizi favorilere ekledi</string>
-	<string name="notification_boosted">gönderinizi paylaştı</string>
 	<string name="poll_ended">oylama sona erdi</string>
 	<string name="time_seconds">%ds</string>
 	<string name="time_minutes">%dd</string>
@@ -167,13 +164,13 @@
 	<string name="unfollow_user">Takipten çık %s</string>
 	<string name="unfollow">Takipten çık</string>
 	<string name="mute_user_explain">Ana sayfa akışınızda gönderilerini görmezsiniz. Sessize alındıklarını bilmeyecekler.</string>
-	<string name="block_user_explain">Artık gönderilerinizi takip edemez veya göremezler, ancak engellenip engellenmediklerini görebilirler.</string>
+	<string name="block_user_explain">Artık sizi takip edemez ve gönderilerinizi göremezler ama engellendiklerini görebilirler.</string>
 	<string name="report_personal_title">Bunu görmek istemiyor musun?</string>
 	<string name="report_personal_subtitle">Mastodon\'da beğenmediğiniz bir şey gördüğünüzde, o kişiyi deneyiminizden çıkarabilirsiniz.</string>
 	<string name="back">Geri</string>
-	<string name="instance_catalog_title">Mastodon, farklı topluluklardaki kullanıcılardan oluşur.</string>
-	<string name="instance_catalog_subtitle">İlgi alanlarınıza, bölgenize veya genel amaçlı bir topluluk seçin. Topluluktan bağımsız olarak yine de herkesle bağlantı kurabilirsiniz.</string>
-	<string name="search_communities">Toplulukları arayın veya URL girin</string>
+	<string name="instance_catalog_title">Mastodon, farklı sunuculardaki kullanıcılardan oluşur.</string>
+	<string name="instance_catalog_subtitle">İlgi alanlarına, bölgene hitap eden bir sunucu ya da genel amaçlı bir sunucu seç. Hangi sunucuda olduğun fark etmeksizin herkes ile bağlantı kurabilirsin.</string>
+	<string name="search_communities">Sunucuları ya da bir bağlantı gir</string>
 	<string name="instance_rules_title">Bazı temel kurallar</string>
 	<string name="instance_rules_subtitle">%s yöneticileri tarafından belirlenen ve uygulanan kuralları incelemek için bir dakikanızı ayırın.</string>
 	<string name="signup_title">%s için kurulumunuzu yapalım</string>
@@ -188,7 +185,7 @@
 	<string name="category_all">Hepsi</string>
 	<string name="category_art">Sanat</string>
 	<string name="category_food">Yiyecek</string>
-	<string name="category_furry">Hayvanlar</string>
+	<string name="category_furry">Furry</string>
 	<string name="category_games">Oyunlar</string>
 	<string name="category_general">Genel</string>
 	<string name="category_journalism">Gazetecilik</string>
@@ -222,7 +219,6 @@
 	<string name="skip">Atla</string>
 	<string name="notification_type_follow">Yeni takipçiler</string>
 	<string name="notification_type_favorite">Favoriler</string>
-	<string name="notification_type_reblog">Paylaşımlar</string>
 	<string name="notification_type_mention">Bahsetmeler</string>
 	<string name="notification_type_poll">Anketler</string>
 	<string name="choose_account">Hesap seç</string>
@@ -270,7 +266,7 @@
 	<string name="hide_content">İçeriği gizle</string>
 	<string name="new_post">Yeni gönderi</string>
 	<string name="button_reply">Cevapla</string>
-	<string name="button_reblog">Destekle</string>
+	<string name="button_reblog">Yeniden paylaş</string>
 	<string name="button_favorite">Favorile</string>
 	<string name="button_share">Paylaş</string>
 	<string name="media_no_description">Açıklamasız medya</string>
@@ -285,8 +281,6 @@
 	<string name="unfollowed_user">%s takip edilmedi</string>
 	<string name="followed_user">%s\'i takip ediyorsunuz</string>
 	<string name="open_in_browser">Tarayıcıda aç</string>
-	<string name="hide_boosts_from_user">%s kişisinin alıntı paylaşımlarını gizle</string>
-	<string name="show_boosts_from_user">%s kişisinin alıntı paylaşımlarını göster</string>
 	<string name="signup_reason">neden katılmak istiyorsun?</string>
 	<string name="signup_reason_note">Bu, başvurunuzu incelememize yardımcı olacaktır.</string>
 	<string name="clear">Temizle</string>
@@ -302,4 +296,18 @@
 	<string name="downloading">İndiriliyor…</string>
 	<string name="no_app_to_handle_action">Bu eylemi gerçekleştirebilecek bir uygulama bulunmuyor</string>
 	<string name="local_timeline">Topluluk</string>
+	<string name="trending_posts_info_banner">Bu gönderiler, bulunduğun topluluktaki ilgi çeken gönderilerdir.</string>
+	<string name="trending_hashtags_info_banner">Bunlar, bulunduğun topluluktaki ilgi çeken etiketlerdir.</string>
+	<string name="trending_links_info_banner">Bunlar bulunduğun topluluktaki en fazla paylaşılan haberler.</string>
+	<string name="local_timeline_info_banner">Bu gönderiler seninle aynı Mastodon sunucusunda olan kişilerin paylaştığı son gönderilerdir.</string>
+	<string name="dismiss">Yoksay</string>
+	<string name="see_new_posts">Yeni gönderileri gör</string>
+	<string name="load_missing_posts">Daha fazla gönderi yükle</string>
+	<string name="follow_back">Geri Takip Et</string>
+	<string name="button_follow_pending">Bekliyor</string>
+	<string name="follows_you">Seni takip ediyor</string>
+	<string name="manually_approves_followers">Takipçileri manuel kabul eder</string>
+	<string name="current_account">Kullanılan hesap</string>
+	<string name="log_out_account">%s oturumunu kapat</string>
+	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 </resources>
