@@ -22,6 +22,7 @@ import org.joinmastodon.android.GlobalUserPreferences;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.requests.accounts.GetAccountRelationships;
 import org.joinmastodon.android.api.requests.accounts.SetAccountFollowed;
+import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.fragments.ProfileFragment;
 import org.joinmastodon.android.fragments.report.ReportReasonChoiceFragment;
 import org.joinmastodon.android.model.Account;
@@ -234,7 +235,7 @@ public abstract class BaseAccountListFragment extends BaseRecyclerFragment<BaseA
 
 		public void bindRelationship(){
 			Relationship rel=relationships.get(item.account.id);
-			if(rel==null){
+			if(rel==null || AccountSessionManager.getInstance().isSelf(accountID, item.account)){
 				button.setVisibility(View.GONE);
 			}else{
 				button.setVisibility(View.VISIBLE);
