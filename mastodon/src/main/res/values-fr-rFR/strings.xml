@@ -316,5 +316,21 @@
 	<string name="current_account">Compte actuel</string>
 	<string name="log_out_account">Déconnexion %s</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
+	<plurals name="x_followers">
+		<item quantity="one">%,d abonné·e</item>
+		<item quantity="other">%,d abonné·e·s</item>
+	</plurals>
+	<plurals name="x_following">
+		<item quantity="one">%,d abonnement</item>
+		<item quantity="other">%,d abonnements</item>
+	</plurals>
+	<plurals name="x_favorites">
+		<item quantity="one">%,d favori</item>
+		<item quantity="other">%,d favoris</item>
+	</plurals>
+	<plurals name="x_reblogs">
+		<item quantity="one">%,d partage</item>
+		<item quantity="other">%,d partages</item>
+	</plurals>
 	<string name="timestamp_via_app">%1$s via %2$s</string>
 </resources>
