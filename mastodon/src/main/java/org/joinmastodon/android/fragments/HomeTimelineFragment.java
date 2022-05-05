@@ -161,7 +161,7 @@ public class HomeTimelineFragment extends StatusListFragment{
 							return;
 						Status last=result.get(result.size()-1);
 						List<Status> toAdd;
-						if(last.id.equals(data.get(0).id)){ // This part intersects with the existing one
+						if(!data.isEmpty() && last.id.equals(data.get(0).id)){ // This part intersects with the existing one
 							toAdd=result.subList(0, result.size()-1); // Remove the already known last post
 						}else{
 							result.get(result.size()-1).hasGapAfter=true;
