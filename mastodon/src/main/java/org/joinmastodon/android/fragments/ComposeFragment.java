@@ -609,6 +609,7 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 					@Override
 					public void onSuccess(Status result){
 						wm.removeView(sendingOverlay);
+						sendingOverlay=null;
 						Nav.finish(ComposeFragment.this);
 						E.post(new StatusCreatedEvent(result));
 						if(replyTo!=null){
@@ -620,6 +621,7 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 					@Override
 					public void onError(ErrorResponse error){
 						wm.removeView(sendingOverlay);
+						sendingOverlay=null;
 						sendProgress.setVisibility(View.GONE);
 						sendError.setVisibility(View.VISIBLE);
 						publishButton.setEnabled(true);
@@ -647,6 +649,8 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 			confirmDiscardDraftAndFinish();
 			return true;
 		}
+		if(sendingOverlay!=null)
+			return true;
 		return false;
 	}
 

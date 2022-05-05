@@ -117,6 +117,8 @@ public class SearchFragment extends BaseStatusListFragment<SearchResult>{
 	protected void doLoadData(int offset, int count){
 		if(isInRecentMode()){
 			AccountSessionManager.getInstance().getAccount(accountID).getCacheController().getRecentSearches(sr->{
+				if(getActivity()==null)
+					return;
 				unfilteredResults=sr;
 				prevDisplayItems=new ArrayList<>(displayItems);
 				onDataLoaded(sr, false);

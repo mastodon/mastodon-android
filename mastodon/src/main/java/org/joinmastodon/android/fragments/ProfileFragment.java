@@ -128,6 +128,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 	private View fab;
 	private WindowInsets childInsets;
 	private PhotoViewer currentPhotoViewer;
+	private boolean editModeLoading;
 
 	public ProfileFragment(){
 		super(R.layout.loader_fragment_overlay_toolbar);
@@ -664,17 +665,26 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 	}
 
 	private void loadAccountInfoAndEnterEditMode(){
+		if(editModeLoading)
+			return;
+		editModeLoading=true;
 		setActionProgressVisible(true);
 		new GetOwnAccount()
 				.setCallback(new Callback<>(){
 					@Override
 					public void onSuccess(Account result){
+						editModeLoading=false;
+						if(getActivity()==null)
+							return;
 						enterEditMode(result);
 						setActionProgressVisible(false);
 					}
 
 					@Override
 					public void onError(ErrorResponse error){
+						editModeLoading=false;
+						if(getActivity()==null)
+							return;
 						error.showToast(getActivity());
 						setActionProgressVisible(false);
 					}
