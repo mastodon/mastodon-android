@@ -19,6 +19,7 @@ import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.media.MediaScannerConnection;
 import android.net.Uri;
+import android.opengl.Visibility;
 import android.os.Build;
 import android.os.Environment;
 import android.os.SystemClock;
@@ -101,6 +102,7 @@ public class PhotoViewer implements ZoomPanView.Listener{
 	private TextView videoTimeView;
 	private ImageButton videoPlayPauseButton;
 	private View videoControls;
+	private MenuItem imageDescriptionButton;
 	private boolean uiVisible=true;
 	private AudioManager.OnAudioFocusChangeListener audioFocusListener=this::onAudioFocusChanged;
 	private Runnable uiAutoHider=()->{
@@ -178,14 +180,16 @@ public class PhotoViewer implements ZoomPanView.Listener{
 		toolbarWrap=uiOverlay.findViewById(R.id.toolbar_wrap);
 		toolbar=uiOverlay.findViewById(R.id.toolbar);
 		toolbar.setNavigationOnClickListener(v->onStartSwipeToDismissTransition(0));
-		toolbar.getMenu()
+		imageDescriptionButton = toolbar.getMenu()
 				.add(R.string.image_description)
 				.setIcon(R.drawable.ic_fluent_image_alt_text_24_regular)
+				.setVisible(attachments.get(pager.getCurrentItem()).description != null
+						&& !attachments.get(pager.getCurrentItem()).description.isEmpty())
 				.setOnMenuItemClickListener(item -> {
 					new ImageDescriptionSheet(activity,attachments.get(pager.getCurrentItem())).show();
 					return true;
-				})
-				.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+				});
+		imageDescriptionButton.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
 		toolbar.getMenu()
 				.add(R.string.download)
 				.setIcon(R.drawable.ic_fluent_arrow_download_24_regular)
@@ -389,6 +393,8 @@ public class PhotoViewer implements ZoomPanView.Listener{
 	private void onPageChanged(int index){
 		currentIndex=index;
 		Attachment att=attachments.get(index);
+		imageDescriptionButton.setVisible(att.description != null && !att.description.isEmpty());
+		toolbar.invalidate();
 		V.setVisibilityAnimated(videoControls, att.type==Attachment.Type.VIDEO ? View.VISIBLE : View.GONE);
 		if(att.type==Attachment.Type.VIDEO){
 			videoSeekBar.setSecondaryProgress(0);
