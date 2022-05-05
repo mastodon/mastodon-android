@@ -14,6 +14,7 @@
 	<string name="notifications">Powiadomienia</string>
 	<string name="user_followed_you">zaczął(-ęła) Cię śledzić</string>
 	<string name="user_sent_follow_request">wysłał(-a) prośbę o możliwość obserwacji</string>
+	<string name="user_favorited">dodał(a) Twój wpis do ulubionych</string>
 	<string name="poll_ended">głosowanie zakończyło się</string>
 	<string name="time_seconds">%d sek.</string>
 	<string name="time_minutes">%d min.</string>
@@ -111,6 +112,7 @@
 	<string name="block_user_explain">Ta osoba nie będzie mogła mogła Cię śledzić ani widzieć Twoich wpisów, ale może dowiedzieć się, że została zablokowana.</string>
 	<string name="report_personal_title">Nie chcesz tego widzieć?</string>
 	<string name="back">Wróć</string>
+	<string name="search_communities">Szukaj serwerów lub wprowadź adres URL</string>
 	<string name="instance_rules_subtitle">Poświęć chwilę, aby przejrzeć reguły ustalone i realizowane przez administratorów %s.</string>
 	<string name="edit_photo">edytuj</string>
 	<string name="display_name">wyświetlana nazwa</string>
@@ -229,5 +231,13 @@
 	<string name="file_saved">Zapisano plik</string>
 	<string name="downloading">Pobieranie…</string>
 	<string name="no_app_to_handle_action">Brak aplikacji mogącej obsłużyć tę akcję</string>
+	<string name="local_timeline">Społeczność</string>
+	<string name="dismiss">Odrzuć</string>
+	<string name="see_new_posts">Zobacz nowe wpisy</string>
+	<string name="load_missing_posts">Załaduj brakujące wpisy</string>
+	<string name="button_follow_pending">Oczekujące</string>
+	<string name="follows_you">Obserwuje cię</string>
+	<string name="current_account">Bieżące konto</string>
+	<string name="log_out_account">Wyloguj %s</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 </resources>
