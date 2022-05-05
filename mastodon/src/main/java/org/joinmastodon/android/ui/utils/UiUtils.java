@@ -2,6 +2,7 @@ package org.joinmastodon.android.ui.utils;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.ColorStateList;
@@ -29,6 +30,7 @@ import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.PopupMenu;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.joinmastodon.android.E;
 import org.joinmastodon.android.GlobalUserPreferences;
@@ -87,13 +89,17 @@ public class UiUtils{
 	private UiUtils(){}
 
 	public static void launchWebBrowser(Context context, String url){
-		if(GlobalUserPreferences.useCustomTabs){
-			new CustomTabsIntent.Builder()
-					.setShowTitle(true)
-					.build()
-					.launchUrl(context, Uri.parse(url));
-		}else{
-			context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
+		try{
+			if(GlobalUserPreferences.useCustomTabs){
+				new CustomTabsIntent.Builder()
+						.setShowTitle(true)
+						.build()
+						.launchUrl(context, Uri.parse(url));
+			}else{
+				context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
+			}
+		}catch(ActivityNotFoundException x){
+			Toast.makeText(context, R.string.no_app_to_handle_action, Toast.LENGTH_SHORT).show();
 		}
 	}
 

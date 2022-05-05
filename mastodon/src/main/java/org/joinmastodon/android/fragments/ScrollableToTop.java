@@ -13,6 +13,8 @@ public interface ScrollableToTop{
 	 * @param list
 	 */
 	default void smoothScrollRecyclerViewToTop(RecyclerView list){
+		if(list==null) // TODO find out why this happens because it should not be possible
+			return;
 		if(list.getChildCount()>0 && list.getChildAdapterPosition(list.getChildAt(0))>10){
 			list.scrollToPosition(0);
 			list.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener(){

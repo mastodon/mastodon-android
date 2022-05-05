@@ -26,6 +26,8 @@ public class MastodonErrorResponse extends ErrorResponse{
 
 	@Override
 	public void showToast(Context context){
+		if(context==null)
+			return;
 		Toast.makeText(context, error, Toast.LENGTH_SHORT).show();
 	}
 }
