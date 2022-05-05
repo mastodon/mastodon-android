@@ -184,6 +184,7 @@
 	<string name="edit_image">แก้ไขภาพ</string>
 	<string name="save">บันทึก</string>
 	<string name="add_alt_text">เพิ่มข้อความแสดงแทน</string>
+	<string name="alt_text_hint">เช่น สุนัขมองไปรอบ ๆ อย่างสงสัยโดยหรี่ตาลงที่กล้อง</string>
 	<string name="visibility_public">สาธารณะ</string>
 	<string name="visibility_followers_only">ผู้ติดตามเท่านั้น</string>
 	<string name="visibility_private">เฉพาะผู้คนที่ฉันกล่าวถึงเท่านั้น</string>
@@ -202,6 +203,8 @@
 	<plurals name="cant_add_more_than_x_attachments">
 		<item quantity="other">คุณไม่สามารถเพิ่มมากกว่า %d ไฟล์แนบสื่อ</item>
 	</plurals>
+	<string name="media_attachment_unsupported_type">ไฟล์ %s เป็นชนิดที่ไม่รองรับ</string>
+	<string name="media_attachment_too_big">ไฟล์ %1$s เกินขีดจำกัดขนาด %2$s MB</string>
 	<string name="settings_theme">ลักษณะที่มองเห็น</string>
 	<string name="theme_auto">อัตโนมัติ</string>
 	<string name="theme_light">สว่าง</string>
@@ -297,4 +300,5 @@
 	<plurals name="x_reblogs">
 		<item quantity="other">%,d การดัน</item>
 	</plurals>
+	<string name="timestamp_via_app">%1$s ผ่าน %2$s</string>
 </resources>
