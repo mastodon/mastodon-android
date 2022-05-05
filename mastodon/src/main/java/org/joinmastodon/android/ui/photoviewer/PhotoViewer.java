@@ -39,6 +39,7 @@ import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.PopupWindow;
 import android.widget.ProgressBar;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -54,6 +55,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -697,6 +699,10 @@ public class PhotoViewer implements ZoomPanView.Listener{
 		@Override
 		public void onBind(Attachment item){
 			zoomPanView.setScrollDirections(getAbsoluteAdapterPosition()>0, getAbsoluteAdapterPosition()<attachments.size()-1);
+			zoomPanView.getChildAt(0).setOnLongClickListener(view -> {
+				Toast.makeText(activity, item.description, Toast.LENGTH_LONG).show();
+				return true;
+			});
 		}
 	}
 
