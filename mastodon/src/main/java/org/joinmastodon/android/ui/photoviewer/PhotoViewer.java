@@ -49,6 +49,7 @@ import android.widget.Toolbar;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.MastodonAPIController;
 import org.joinmastodon.android.model.Attachment;
+import org.joinmastodon.android.ui.ImageDescriptionSheet;
 import org.joinmastodon.android.ui.M3AlertDialogBuilder;
 
 import java.io.File;
@@ -71,6 +72,7 @@ import me.grishka.appkit.imageloader.requests.UrlImageLoaderRequest;
 import me.grishka.appkit.utils.BindableViewHolder;
 import me.grishka.appkit.utils.CubicBezierInterpolator;
 import me.grishka.appkit.utils.V;
+import me.grishka.appkit.views.BottomSheet;
 import me.grishka.appkit.views.FragmentRootLinearLayout;
 import okio.BufferedSink;
 import okio.Okio;
@@ -176,11 +178,22 @@ public class PhotoViewer implements ZoomPanView.Listener{
 		toolbarWrap=uiOverlay.findViewById(R.id.toolbar_wrap);
 		toolbar=uiOverlay.findViewById(R.id.toolbar);
 		toolbar.setNavigationOnClickListener(v->onStartSwipeToDismissTransition(0));
-		toolbar.getMenu().add(R.string.download).setIcon(R.drawable.ic_fluent_arrow_download_24_regular).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
-		toolbar.setOnMenuItemClickListener(item->{
-			saveCurrentFile();
-			return true;
-		});
+		toolbar.getMenu()
+				.add(R.string.image_description)
+				.setIcon(R.drawable.ic_fluent_image_alt_text_24_regular)
+				.setOnMenuItemClickListener(item -> {
+					new ImageDescriptionSheet(activity,attachments.get(pager.getCurrentItem())).show();
+					return true;
+				})
+				.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+		toolbar.getMenu()
+				.add(R.string.download)
+				.setIcon(R.drawable.ic_fluent_arrow_download_24_regular)
+				.setOnMenuItemClickListener(item -> {
+					saveCurrentFile();
+					return true;
+				})
+				.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
 		uiOverlay.setAlpha(0f);
 		videoControls=uiOverlay.findViewById(R.id.video_player_controls);
 		videoSeekBar=uiOverlay.findViewById(R.id.seekbar);
@@ -699,10 +712,6 @@ public class PhotoViewer implements ZoomPanView.Listener{
 		@Override
 		public void onBind(Attachment item){
 			zoomPanView.setScrollDirections(getAbsoluteAdapterPosition()>0, getAbsoluteAdapterPosition()<attachments.size()-1);
-			zoomPanView.getChildAt(0).setOnLongClickListener(view -> {
-				Toast.makeText(activity, item.description, Toast.LENGTH_LONG).show();
-				return true;
-			});
 		}
 	}
 
