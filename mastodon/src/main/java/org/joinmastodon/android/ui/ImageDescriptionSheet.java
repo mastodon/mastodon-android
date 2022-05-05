@@ -12,16 +12,19 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.model.Attachment;
 import org.joinmastodon.android.ui.utils.UiUtils;
 
+import me.grishka.appkit.utils.SingleViewRecyclerAdapter;
 import me.grishka.appkit.utils.V;
 import me.grishka.appkit.views.BottomSheet;
+import me.grishka.appkit.views.UsableRecyclerView;
 
 public class ImageDescriptionSheet extends BottomSheet{
-	private LinearLayout layout;
+	private UsableRecyclerView list;
 
 	public ImageDescriptionSheet(@NonNull Activity activity, Attachment attachment){
 		super(activity);
@@ -38,26 +41,32 @@ public class ImageDescriptionSheet extends BottomSheet{
 			textView.setTypeface(null, Typeface.ITALIC);
 		} else {
 			textView.setText(attachment.description);
+			textView.setTextIsSelectable(true);
 		}
 
-		TextView header = new TextView(activity);
-		header.setText(R.string.image_description);
-		header.setAllCaps(true);
-		header.setTypeface(null, Typeface.BOLD);
-		header.setPadding(0, V.dp(24), 0, V.dp(8));
+		TextView heading=new TextView(activity);
+		heading.setText(R.string.image_description);
+		heading.setAllCaps(true);
+		heading.setTypeface(null, Typeface.BOLD);
+		heading.setPadding(0, V.dp(24), 0, V.dp(8));
 
-		layout = new LinearLayout(activity);
-		layout.setOrientation(LinearLayout.VERTICAL);
-		layout.addView(header);
-		layout.addView(textView);
+		LinearLayout linearLayout = new LinearLayout(activity);
+		linearLayout.setOrientation(LinearLayout.VERTICAL);
+		linearLayout.setPadding(V.dp(24), 0, V.dp(24), 0);
+		linearLayout.addView(heading);
+		linearLayout.addView(textView);
 
-		FrameLayout content=new FrameLayout(activity);
-		content.setBackgroundResource(R.drawable.bg_bottom_sheet);
-		content.addView(handle);
-		content.addView(layout);
-		content.setPadding(V.dp(24), V.dp(0), V.dp(24), V.dp(0));
+		FrameLayout layout=new FrameLayout(activity);
+		layout.addView(handle);
+		layout.addView(linearLayout);
 
-		setContentView(content);
+		list=new UsableRecyclerView(activity);
+		list.setLayoutManager(new LinearLayoutManager(activity));
+		list.setBackgroundResource(R.drawable.bg_bottom_sheet);
+		list.setAdapter(new SingleViewRecyclerAdapter(layout));
+		list.setClipToPadding(false);
+
+		setContentView(list);
 		setNavigationBarBackground(new ColorDrawable(UiUtils.getThemeColor(activity, R.attr.colorWindowBackground)), !UiUtils.isDarkTheme());
 	}
 
@@ -67,12 +76,12 @@ public class ImageDescriptionSheet extends BottomSheet{
 			int tappableBottom=insets.getTappableElementInsets().bottom;
 			int insetBottom=insets.getSystemWindowInsetBottom();
 			if(tappableBottom==0 && insetBottom>0){
-				layout.setPadding(0, 0, 0, V.dp(48)-insetBottom);
+				list.setPadding(0, 0, 0, V.dp(48)-insetBottom);
 			}else{
-				layout.setPadding(0, 0, 0, V.dp(24));
+				list.setPadding(0, 0, 0, V.dp(24));
 			}
 		}else{
-			layout.setPadding(0, 0, 0, V.dp(24));
+			list.setPadding(0, 0, 0, V.dp(24));
 		}
 	}
 }
