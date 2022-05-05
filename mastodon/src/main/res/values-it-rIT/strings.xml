@@ -16,7 +16,7 @@
 	<string name="user_followed_you">ti segue</string>
 	<string name="user_sent_follow_request">ha richiesto di seguirti</string>
 	<string name="user_favorited">ha apprezzato il tuo post</string>
-	<string name="notification_boosted">ha ripostato il tuo post</string>
+	<string name="notification_boosted">ha condiviso il tuo post</string>
 	<string name="poll_ended">sondaggio terminato</string>
 	<string name="time_seconds">%ds</string>
 	<string name="time_minutes">%dm</string>
@@ -222,7 +222,7 @@
 	<string name="skip">Salta</string>
 	<string name="notification_type_follow">Nuovi seguaci</string>
 	<string name="notification_type_favorite">Preferiti</string>
-	<string name="notification_type_reblog">Reblog</string>
+	<string name="notification_type_reblog">Condivisioni</string>
 	<string name="notification_type_mention">Menzioni</string>
 	<string name="notification_type_poll">Sondaggi</string>
 	<string name="choose_account">Seleziona l\'account</string>
@@ -285,8 +285,8 @@
 	<string name="unfollowed_user">Smetti di seguire %s</string>
 	<string name="followed_user">Hai cominciato a seguire %s</string>
 	<string name="open_in_browser">Apri nel browser</string>
-	<string name="hide_boosts_from_user">Nascondi i reblog da %s</string>
-	<string name="show_boosts_from_user">Mostra i reblog da %s</string>
+	<string name="hide_boosts_from_user">Nascondi le condivisioni di %s</string>
+	<string name="show_boosts_from_user">Mostra le condivisioni di %s</string>
 	<string name="signup_reason">perché vuoi unirti?</string>
 	<string name="signup_reason_note">Questo ci aiuterà ad esaminare la tua richiesta.</string>
 	<string name="clear">Cancella</string>
@@ -326,11 +326,11 @@
 	</plurals>
 	<plurals name="x_favorites">
 		<item quantity="one">%,d preferito</item>
-		<item quantity="other">%,d favoriti</item>
+		<item quantity="other">%,d preferiti</item>
 	</plurals>
 	<plurals name="x_reblogs">
-		<item quantity="one">%,d reblog</item>
-		<item quantity="other">%,d reblog</item>
+		<item quantity="one">%,d condivisione</item>
+		<item quantity="other">%,d condivisioni</item>
 	</plurals>
 	<string name="timestamp_via_app">%1$s tramite %2$s</string>
 </resources>
