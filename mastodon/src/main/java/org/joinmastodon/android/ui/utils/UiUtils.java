@@ -43,6 +43,7 @@ import org.joinmastodon.android.api.requests.statuses.DeleteStatus;
 import org.joinmastodon.android.api.requests.statuses.GetStatusByID;
 import org.joinmastodon.android.api.requests.statuses.SetStatusPinned;
 import org.joinmastodon.android.api.session.AccountSessionManager;
+import org.joinmastodon.android.events.StatusCountersUpdatedEvent;
 import org.joinmastodon.android.events.StatusDeletedEvent;
 import org.joinmastodon.android.events.StatusUnpinnedEvent;
 import org.joinmastodon.android.fragments.HashtagTimelineFragment;
@@ -361,6 +362,7 @@ public class UiUtils{
 								@Override
 								public void onSuccess(Status result) {
 									resultCallback.accept(result);
+									E.post(new StatusCountersUpdatedEvent(result));
 									if (!result.pinned)
 										E.post(new StatusUnpinnedEvent(status.id, accountID));
 								}

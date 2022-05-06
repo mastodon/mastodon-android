@@ -126,6 +126,7 @@ public class Status extends BaseModel implements DisplayItemsParent{
 		repliesCount=ev.replies;
 		favourited=ev.favorited;
 		reblogged=ev.reblogged;
+		pinned=ev.pinned;
 	}
 
 	public Status getContentStatus(){
