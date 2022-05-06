@@ -209,7 +209,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 			}
 		};
 
-		tabViews=new FrameLayout[4];
+		tabViews=new FrameLayout[5];
 		for(int i=0;i<tabViews.length;i++){
 			FrameLayout tabView=new FrameLayout(getActivity());
 			tabView.setId(switch(i){
@@ -225,7 +225,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 			tabViews[i]=tabView;
 		}
 
-		pager.setOffscreenPageLimit(4);
+		pager.setOffscreenPageLimit(5);
 		pager.setAdapter(new ProfilePagerAdapter());
 		pager.getLayoutParams().height=getResources().getDisplayMetrics().heightPixels;
 
@@ -706,9 +706,9 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 		invalidateOptionsMenu();
 		pager.setUserInputEnabled(false);
 		actionButton.setText(R.string.done);
-		pager.setCurrentItem(3);
+		pager.setCurrentItem(4);
 		ArrayList<Animator> animators=new ArrayList<>();
-		for(int i=0;i<3;i++){
+		for(int i=0;i<tabViews.length-1;i++){
 			animators.add(ObjectAnimator.ofFloat(tabbar.getTabAt(i).view, View.ALPHA, .3f));
 			tabbar.getTabAt(i).view.setEnabled(false);
 		}
@@ -749,7 +749,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 		invalidateOptionsMenu();
 		ArrayList<Animator> animators=new ArrayList<>();
 		actionButton.setText(R.string.edit_profile);
-		for(int i=0;i<3;i++){
+		for(int i=0;i<tabViews.length-1;i++){
 			animators.add(ObjectAnimator.ofFloat(tabbar.getTabAt(i).view, View.ALPHA, 1f));
 		}
 		animators.add(ObjectAnimator.ofInt(avatar.getForeground(), "alpha", 0));
@@ -767,7 +767,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 		set.addListener(new AnimatorListenerAdapter(){
 			@Override
 			public void onAnimationEnd(Animator animation){
-				for(int i=0;i<3;i++){
+				for(int i=0;i<tabViews.length-1;i++){
 					tabbar.getTabAt(i).view.setEnabled(true);
 				}
 				pager.setUserInputEnabled(true);
@@ -944,7 +944,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 
 		@Override
 		public int getItemCount(){
-			return loaded ? 4 : 0;
+			return loaded ? tabViews.length : 0;
 		}
 
 		@Override
