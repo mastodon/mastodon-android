@@ -316,4 +316,21 @@
 	<string name="current_account">Kullanılan hesap</string>
 	<string name="log_out_account">%s oturumunu kapat</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
+	<plurals name="x_followers">
+		<item quantity="one">%,d takipçi</item>
+		<item quantity="other">%,d takipçi</item>
+	</plurals>
+	<plurals name="x_following">
+		<item quantity="one">%,d takip edilen</item>
+		<item quantity="other">%,d takip edilen</item>
+	</plurals>
+	<plurals name="x_favorites">
+		<item quantity="one">%,d favori</item>
+		<item quantity="other">%,d favori</item>
+	</plurals>
+	<plurals name="x_reblogs">
+		<item quantity="one">%,d yeniden paylaşım</item>
+		<item quantity="other">%,d yeniden paylaşım</item>
+	</plurals>
+	<string name="timestamp_via_app">%1$s tarihinde %2$s uygulamasıyla</string>
 </resources>
