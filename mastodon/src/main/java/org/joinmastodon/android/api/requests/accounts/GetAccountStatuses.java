@@ -21,6 +21,7 @@ public class GetAccountStatuses extends MastodonAPIRequest<List<Status>>{
 		switch(filter){
 			case DEFAULT -> addQueryParameter("exclude_replies", "true");
 			case INCLUDE_REPLIES -> {}
+			case PINNED -> addQueryParameter("pinned", "true");
 			case MEDIA -> addQueryParameter("only_media", "true");
 			case NO_REBLOGS -> {
 				addQueryParameter("exclude_replies", "true");
@@ -32,6 +33,7 @@ public class GetAccountStatuses extends MastodonAPIRequest<List<Status>>{
 	public enum Filter{
 		DEFAULT,
 		INCLUDE_REPLIES,
+		PINNED,
 		MEDIA,
 		NO_REBLOGS
 	}

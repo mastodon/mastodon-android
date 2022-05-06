@@ -101,7 +101,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 	private ProgressBarButton actionButton;
 	private ViewPager2 pager;
 	private NestedRecyclerScrollView scrollView;
-	private AccountTimelineFragment postsFragment, postsWithRepliesFragment, mediaFragment;
+	private AccountTimelineFragment postsFragment, postsWithRepliesFragment, pinnedPostsFragment, mediaFragment;
 	private ProfileAboutFragment aboutFragment;
 	private TabLayout tabbar;
 	private SwipeRefreshLayout refreshLayout;
@@ -215,8 +215,9 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 			tabView.setId(switch(i){
 				case 0 -> R.id.profile_posts;
 				case 1 -> R.id.profile_posts_with_replies;
-				case 2 -> R.id.profile_media;
-				case 3 -> R.id.profile_about;
+				case 2 -> R.id.profile_pinned_posts;
+				case 3 -> R.id.profile_media;
+				case 4 -> R.id.profile_about;
 				default -> throw new IllegalStateException("Unexpected value: "+i);
 			});
 			tabView.setVisibility(View.GONE);
@@ -240,8 +241,9 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 				tab.setText(switch(position){
 					case 0 -> R.string.posts;
 					case 1 -> R.string.posts_and_replies;
-					case 2 -> R.string.media;
-					case 3 -> R.string.profile_about;
+					case 2 -> R.string.pinned_posts;
+					case 3 -> R.string.media;
+					case 4 -> R.string.profile_about;
 					default -> throw new IllegalStateException();
 				});
 			}
@@ -298,6 +300,8 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 								postsFragment.onRefresh();
 							if(postsWithRepliesFragment.loaded)
 								postsWithRepliesFragment.onRefresh();
+							if(pinnedPostsFragment.loaded)
+								pinnedPostsFragment.onRefresh();
 							if(mediaFragment.loaded)
 								mediaFragment.onRefresh();
 						}
@@ -322,6 +326,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 		if(postsFragment==null){
 			postsFragment=AccountTimelineFragment.newInstance(accountID, account, GetAccountStatuses.Filter.DEFAULT, true);
 			postsWithRepliesFragment=AccountTimelineFragment.newInstance(accountID, account, GetAccountStatuses.Filter.INCLUDE_REPLIES, false);
+			pinnedPostsFragment =AccountTimelineFragment.newInstance(accountID, account, GetAccountStatuses.Filter.PINNED, false);
 			mediaFragment=AccountTimelineFragment.newInstance(accountID, account, GetAccountStatuses.Filter.MEDIA, false);
 			aboutFragment=new ProfileAboutFragment();
 			aboutFragment.setFields(fields);
@@ -402,6 +407,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 		if(postsFragment!=null && postsFragment.isAdded() && childInsets!=null){
 			postsFragment.onApplyWindowInsets(childInsets);
 			postsWithRepliesFragment.onApplyWindowInsets(childInsets);
+			pinnedPostsFragment.onApplyWindowInsets(childInsets);
 			mediaFragment.onApplyWindowInsets(childInsets);
 		}
 	}
@@ -637,8 +643,9 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 		return switch(page){
 			case 0 -> postsFragment;
 			case 1 -> postsWithRepliesFragment;
-			case 2 -> mediaFragment;
-			case 3 -> aboutFragment;
+			case 2 -> pinnedPostsFragment;
+			case 3 -> mediaFragment;
+			case 4 -> aboutFragment;
 			default -> throw new IllegalStateException();
 		};
 	}
