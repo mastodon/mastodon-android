@@ -8,8 +8,10 @@ import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.requests.accounts.GetAccountStatuses;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.events.StatusCreatedEvent;
+import org.joinmastodon.android.events.StatusUnpinnedEvent;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.Status;
+import org.joinmastodon.android.ui.displayitems.HeaderStatusDisplayItem;
 import org.parceler.Parcels;
 
 import java.util.Collections;
@@ -85,5 +87,25 @@ public class AccountTimelineFragment extends StatusListFragment{
 				return;
 		}
 		prependItems(Collections.singletonList(ev.status), true);
+	}
+
+	protected void onStatusUnpinned(StatusUnpinnedEvent ev){
+		if(!ev.accountID.equals(accountID) || filter!=GetAccountStatuses.Filter.PINNED)
+			return;
+
+		Status status=getStatusByID(ev.id);
+		data.remove(status);
+		preloadedData.remove(status);
+		HeaderStatusDisplayItem item=findItemOfType(ev.id, HeaderStatusDisplayItem.class);
+		if(item==null)
+			return;
+		int index=displayItems.indexOf(item);
+		int lastIndex;
+		for(lastIndex=index;lastIndex<displayItems.size();lastIndex++){
+			if(!displayItems.get(lastIndex).parentID.equals(ev.id))
+				break;
+		}
+		displayItems.subList(index, lastIndex).clear();
+		adapter.notifyItemRangeRemoved(index, lastIndex-index);
 	}
 }

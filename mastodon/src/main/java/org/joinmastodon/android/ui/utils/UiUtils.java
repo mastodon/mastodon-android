@@ -11,7 +11,6 @@ import android.content.res.TypedArray;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
-import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.InsetDrawable;
@@ -42,8 +41,10 @@ import org.joinmastodon.android.api.requests.accounts.SetAccountMuted;
 import org.joinmastodon.android.api.requests.accounts.SetDomainBlocked;
 import org.joinmastodon.android.api.requests.statuses.DeleteStatus;
 import org.joinmastodon.android.api.requests.statuses.GetStatusByID;
+import org.joinmastodon.android.api.requests.statuses.SetStatusPinned;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.events.StatusDeletedEvent;
+import org.joinmastodon.android.events.StatusUnpinnedEvent;
 import org.joinmastodon.android.fragments.HashtagTimelineFragment;
 import org.joinmastodon.android.fragments.ProfileFragment;
 import org.joinmastodon.android.fragments.ThreadFragment;
@@ -347,6 +348,31 @@ public class UiUtils{
 					.wrapProgress(activity, R.string.deleting, false)
 					.exec(accountID);
 		});
+	}
+
+	public static void confirmPinPost(Activity activity, String accountID, Status status, boolean pinned, Consumer<Status> resultCallback){
+		showConfirmationAlert(activity,
+				pinned ? R.string.confirm_pin_post_title : R.string.confirm_unpin_post_title,
+				pinned ? R.string.confirm_pin_post : R.string.confirm_unpin_post,
+				pinned ? R.string.pin_post : R.string.unpin_post,
+				()->{
+					new SetStatusPinned(status.id, pinned)
+							.setCallback(new Callback<>() {
+								@Override
+								public void onSuccess(Status result) {
+									resultCallback.accept(result);
+									if (!result.pinned)
+										E.post(new StatusUnpinnedEvent(status.id, accountID));
+								}
+
+								@Override
+								public void onError(ErrorResponse error) {
+									error.showToast(activity);
+								}
+							})
+							.wrapProgress(activity, pinned ? R.string.pinning : R.string.unpinning, false)
+							.exec(accountID);
+				});
 	}
 
 	public static void setRelationshipToActionButton(Relationship relationship, Button button){
