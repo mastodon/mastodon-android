@@ -78,6 +78,7 @@ public class AccountTimelineFragment extends StatusListFragment{
 	protected void onStatusCreated(StatusCreatedEvent ev){
 		if(!AccountSessionManager.getInstance().isSelf(accountID, ev.status.account))
 			return;
+		if(filter==GetAccountStatuses.Filter.PINNED) return;
 		if(filter==GetAccountStatuses.Filter.DEFAULT){
 			// Keep replies to self, discard all other replies
 			if(ev.status.inReplyToAccountId!=null && !ev.status.inReplyToAccountId.equals(AccountSessionManager.getInstance().getAccount(accountID).self.id))
