@@ -10,10 +10,13 @@
 	<string name="ok">Tamam</string>
 	<string name="preparing_auth">Kimlik doğrulama için hazırlanıyor…</string>
 	<string name="finishing_auth">Kimlik doğrulama tamamlanıyor…</string>
+	<string name="user_boosted">%s gönderinizi yeniden paylaştı</string>
 	<string name="in_reply_to">%s için yanıt</string>
 	<string name="notifications">Bildirimler</string>
 	<string name="user_followed_you">seni takip etti</string>
 	<string name="user_sent_follow_request">sana bir takip isteği gönderdi</string>
+	<string name="user_favorited">gönderinizi favorilerine ekledi</string>
+	<string name="notification_boosted">gönderinizi yeniden paylaştı</string>
 	<string name="poll_ended">oylama sona erdi</string>
 	<string name="time_seconds">%ds</string>
 	<string name="time_minutes">%dd</string>
@@ -219,6 +222,7 @@
 	<string name="skip">Atla</string>
 	<string name="notification_type_follow">Yeni takipçiler</string>
 	<string name="notification_type_favorite">Favoriler</string>
+	<string name="notification_type_reblog">Yeniden paylaşımlar</string>
 	<string name="notification_type_mention">Bahsetmeler</string>
 	<string name="notification_type_poll">Anketler</string>
 	<string name="choose_account">Hesap seç</string>
@@ -281,6 +285,8 @@
 	<string name="unfollowed_user">%s takip edilmedi</string>
 	<string name="followed_user">%s\'i takip ediyorsunuz</string>
 	<string name="open_in_browser">Tarayıcıda aç</string>
+	<string name="hide_boosts_from_user">%s kişisinin yeniden paylaşımlarını gizle</string>
+	<string name="show_boosts_from_user">%s kişisinin yeniden paylaşımlarını göster</string>
 	<string name="signup_reason">neden katılmak istiyorsun?</string>
 	<string name="signup_reason_note">Bu, başvurunuzu incelememize yardımcı olacaktır.</string>
 	<string name="clear">Temizle</string>
