@@ -15,6 +15,8 @@
 	<string name="notifications">알림</string>
 	<string name="user_followed_you">나를 팔로우함</string>
 	<string name="user_sent_follow_request">나에게 팔로우 요청을 보냄</string>
+	<string name="user_favorited">당신의 게시물을 마음에 들어했습니다</string>
+	<string name="notification_boosted">당신의 게시물을 리블로그했습니다</string>
 	<string name="poll_ended">투표 종료됨</string>
 	<string name="time_seconds">%d 초</string>
 	<string name="time_minutes">%d 분</string>
@@ -159,11 +161,14 @@
 	<string name="instance_catalog_subtitle">당신의 관심사, 지역에 맞거나 일반적인 목적의 서버 중에서 원하는 것을 고르세요. 어떤 서버를 고르더라도, 다른 모두와 소통할 수 있습니다.</string>
 	<string name="search_communities">서버를 검색하거나 URL 입력</string>
 	<string name="instance_rules_title">몇 개의 규칙이 있습니다</string>
+	<string name="instance_rules_subtitle">%s의 관리자들이 정한 규칙들에 대해 살펴보세요.</string>
+	<string name="signup_title">%s에 가입하기 위한 정보들을 입력하세요</string>
 	<string name="edit_photo">수정</string>
 	<string name="display_name">표시되는 이름</string>
 	<string name="username">사용자명</string>
 	<string name="email">이메일</string>
 	<string name="password">암호</string>
+	<string name="password_note">대문자, 특수문자, 숫자를 포함해서 암호의 강도를 높이세요.</string>
 	<string name="category_academia">학술</string>
 	<string name="category_activism">사회운동</string>
 	<string name="category_all">모두</string>
@@ -178,9 +183,11 @@
 	<string name="category_regional">지역</string>
 	<string name="category_tech">기술</string>
 	<string name="confirm_email_title">마지막으로</string>
+	<string name="confirm_email_subtitle">계정을 확인하기 위해 우리가 보낸 이메일의 링크를 누르세요.</string>
 	<string name="resend">재전송</string>
 	<string name="open_email_app">이메일 앱 열기</string>
 	<string name="resent_email">확인용 이메일이 보내졌습니다</string>
+	<string name="compose_hint">무슨 생각을 하고 있는지 입력하거나 붙여넣으세요</string>
 	<string name="content_warning">열람 주의</string>
 	<string name="add_image_description">이미지 설명 추가…</string>
 	<string name="retry_upload">업로드 재시도</string>
@@ -189,6 +196,7 @@
 	<string name="edit_image">이미지 편집</string>
 	<string name="save">저장</string>
 	<string name="add_alt_text">대체 텍스트 추가</string>
+	<string name="alt_text_subtitle">대체 텍스트는 저시력자나 시각장애인들에게 당신의 사진을 설명합니다. 문맥을 파악할 수 있는 설명들만 넣도록 하세요.</string>
 	<string name="alt_text_hint">예시: 강아지가 의심스러운 가는 눈초리로 카메라를 쳐다보고 있습니다.</string>
 	<string name="visibility_public">공개</string>
 	<string name="visibility_followers_only">팔로워 전용</string>
@@ -205,6 +213,9 @@
 	<string name="notification_type_poll">투표</string>
 	<string name="choose_account">계정 선택</string>
 	<string name="err_not_logged_in">먼저 마스토돈에 로그인해야 합니다</string>
+	<plurals name="cant_add_more_than_x_attachments">
+		<item quantity="other">%d개의 미디어를 초과해서 첨부할 수 없습니다</item>
+	</plurals>
 	<string name="settings_theme">테마</string>
 	<string name="theme_auto">자동</string>
 	<string name="theme_light">밝음</string>
@@ -253,10 +264,13 @@
 	<string name="my_profile">내 프로필</string>
 	<string name="media_viewer">미디어 뷰어</string>
 	<string name="follow_user">%s 님을 팔로우</string>
+	<string name="unfollowed_user">%s 님을 팔로우 해제했습니다</string>
+	<string name="followed_user">이제 %s 님을 팔로우 합니다</string>
 	<string name="open_in_browser">브라우저에서 열기</string>
 	<string name="hide_boosts_from_user">%s의 리블로그를 숨기기</string>
 	<string name="show_boosts_from_user">%s의 리블로그를 보이기</string>
 	<string name="signup_reason">가입하려는 이유가 무엇인가요?</string>
+	<string name="signup_reason_note">이 정보는 우리가 심사를 하는 데에 참고할 수 있습니다.</string>
 	<string name="clear">모두 지우기</string>
 	<string name="profile_header">헤더 이미지</string>
 	<string name="profile_picture">프로필 이미지</string>
