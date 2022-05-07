@@ -216,12 +216,15 @@
 	<plurals name="cant_add_more_than_x_attachments">
 		<item quantity="other">%d개의 미디어를 초과해서 첨부할 수 없습니다</item>
 	</plurals>
+	<string name="media_attachment_unsupported_type">%s 파일은 지원되지 않는 타입입니다</string>
+	<string name="media_attachment_too_big">%1$s 파일은 업로드 제한인 %2$s MB를 초과합니다</string>
 	<string name="settings_theme">테마</string>
 	<string name="theme_auto">자동</string>
 	<string name="theme_light">밝음</string>
 	<string name="theme_dark">어두움</string>
 	<string name="theme_true_black">진정한 검정 모드</string>
 	<string name="settings_behavior">동작</string>
+	<string name="settings_gif">아바타와 에모지의 애니메이션을 재생</string>
 	<string name="settings_custom_tabs">앱내 브라우저 사용</string>
 	<string name="settings_notifications">알림</string>
 	<string name="notify_me_when">알림을 보낼 조건</string>
