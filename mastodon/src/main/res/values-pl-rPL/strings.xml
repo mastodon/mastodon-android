@@ -26,6 +26,24 @@
 	<string name="discard_draft">Odrzucić szkic?</string>
 	<string name="discard">Odrzuć</string>
 	<string name="cancel">Anuluj</string>
+	<plurals name="followers">
+		<item quantity="one">śledzący</item>
+		<item quantity="few">śledzących</item>
+		<item quantity="many">śledzących</item>
+		<item quantity="other">śledzących</item>
+	</plurals>
+	<plurals name="following">
+		<item quantity="one">śledzony</item>
+		<item quantity="few">śledzonych</item>
+		<item quantity="many">śledzonych</item>
+		<item quantity="other">śledzonych</item>
+	</plurals>
+	<plurals name="posts">
+		<item quantity="one">post</item>
+		<item quantity="few">posty</item>
+		<item quantity="many">postów</item>
+		<item quantity="other">postów</item>
+	</plurals>
 	<string name="posts">Wpisy</string>
 	<string name="posts_and_replies">Wpisy i odpowiedzi</string>
 	<string name="media">Media</string>
@@ -51,6 +69,12 @@
 	<string name="post_from_user">Wpis od %s</string>
 	<string name="poll_option_hint">Opcja %d</string>
 	<string name="compose_poll_duration">Czas trwania: %s</string>
+	<plurals name="x_voters">
+		<item quantity="one">%,d głosujący</item>
+		<item quantity="few">%,d głosujących</item>
+		<item quantity="many">%,d głosujących</item>
+		<item quantity="other">%,d głosujących</item>
+	</plurals>
 	<string name="poll_closed">Zamknięte</string>
 	<string name="confirm_mute_title">Wycisz konto</string>
 	<string name="confirm_mute">Potwierdź wyciszenie %s</string>
@@ -85,6 +109,18 @@
 	<string name="for_you">Dla Ciebie</string>
 	<string name="all_notifications">Wszystkie</string>
 	<string name="mentions">Wspomienia</string>
+	<plurals name="x_people_talking">
+		<item quantity="one">%d mówi o tym</item>
+		<item quantity="few">%d osoby mówią o tym</item>
+		<item quantity="many">%d osób mówi o tym</item>
+		<item quantity="other">%d osób mówi o tym</item>
+	</plurals>
+	<plurals name="discussed_x_times">
+		<item quantity="one">Omówione %d raz</item>
+		<item quantity="few">Omawiane %d razy</item>
+		<item quantity="many">Omawiane %d razy</item>
+		<item quantity="other">Omawiane %d razy</item>
+	</plurals>
 	<string name="report_title">Zgłoś %s</string>
 	<string name="report_choose_reason">Co jest nie tak z tym wpisem?</string>
 	<string name="report_choose_reason_account">Co jest nie tak z %s?</string>
@@ -111,11 +147,14 @@
 	<string name="mute_user_explain">Nie będziesz widzieć wpisów ani podbić tego użytkownika na stronie głównej. Ta osoba nie dowie się, że została wyciszona.</string>
 	<string name="block_user_explain">Ta osoba nie będzie mogła mogła Cię śledzić ani widzieć Twoich wpisów, ale może dowiedzieć się, że została zablokowana.</string>
 	<string name="report_personal_title">Nie chcesz tego widzieć?</string>
+	<string name="report_personal_subtitle">Gdy zobaczysz na Mastodonie coś, co Ci się nie spodoba, możesz usunąć daną osobę ze swojego doświadczenia.</string>
 	<string name="back">Wróć</string>
+	<string name="instance_catalog_title">Mastodon składa się z użytkowników na różnych serwerach.</string>
 	<string name="instance_catalog_subtitle">Wybierz serwer według Twoich zainteresowań, regionu lub ogólnotematyczny. Możesz nadal łączyć się ze wszystkimi, niezależnie od serwera.</string>
 	<string name="search_communities">Szukaj serwerów lub wprowadź adres URL</string>
 	<string name="instance_rules_title">Kilka podstawowych zasad</string>
 	<string name="instance_rules_subtitle">Poświęć chwilę, aby przejrzeć reguły ustalone i realizowane przez administratorów %s.</string>
+	<string name="signup_title">Skonfigurujmy Twoje konto na %s</string>
 	<string name="edit_photo">edytuj</string>
 	<string name="display_name">wyświetlana nazwa</string>
 	<string name="username">nazwa użytkownika</string>
@@ -161,10 +200,17 @@
 	<string name="skip">Pomiń</string>
 	<string name="notification_type_follow">Nowi śledzący</string>
 	<string name="notification_type_favorite">Polubienia</string>
+	<string name="notification_type_reblog">Reblogi</string>
 	<string name="notification_type_mention">Wspomienia</string>
 	<string name="notification_type_poll">Głosowania</string>
 	<string name="choose_account">Wybierz konto</string>
 	<string name="err_not_logged_in">Najpierw zaloguj się do Mastodona</string>
+	<plurals name="cant_add_more_than_x_attachments">
+		<item quantity="one">Nie możesz dodać więcej niż %d załącznik</item>
+		<item quantity="few">Nie możesz dodać więcej niż %d załączniki</item>
+		<item quantity="many">Nie możesz dodać więcej niż %d załączników</item>
+		<item quantity="other">Nie możesz dodać więcej niż %d załączników</item>
+	</plurals>
 	<string name="media_attachment_unsupported_type">Plik %s jest nieobsługiwanego rodzaju</string>
 	<string name="media_attachment_too_big">Plik %1$s przekracza limit rozmiaru %2$s MB</string>
 	<string name="settings_theme">Ustawienia wizualne</string>
@@ -241,10 +287,36 @@
 	<string name="dismiss">Odrzuć</string>
 	<string name="see_new_posts">Zobacz nowe wpisy</string>
 	<string name="load_missing_posts">Załaduj brakujące wpisy</string>
+	<string name="follow_back">Śledź wzajemnie</string>
 	<string name="button_follow_pending">Oczekujące</string>
 	<string name="follows_you">Obserwuje cię</string>
 	<string name="manually_approves_followers">Ręcznie zatwierdza obserwujących</string>
 	<string name="current_account">Bieżące konto</string>
 	<string name="log_out_account">Wyloguj %s</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
+	<plurals name="x_followers">
+		<item quantity="one">%,d śledzący</item>
+		<item quantity="few">%,d śledzących</item>
+		<item quantity="many">%,d śledzących</item>
+		<item quantity="other">%,d śledzących</item>
+	</plurals>
+	<plurals name="x_following">
+		<item quantity="one">%,d śledzący</item>
+		<item quantity="few">%,d śledzących</item>
+		<item quantity="many">%,d śledzących</item>
+		<item quantity="other">%,d śledzących</item>
+	</plurals>
+	<plurals name="x_favorites">
+		<item quantity="one">%,d ulubiony</item>
+		<item quantity="few">%,d ulubione</item>
+		<item quantity="many">%,d ulubionych</item>
+		<item quantity="other">%,d ulubionych</item>
+	</plurals>
+	<plurals name="x_reblogs">
+		<item quantity="one">%,d reblog</item>
+		<item quantity="few">%,d reblogi</item>
+		<item quantity="many">%,d reblogów</item>
+		<item quantity="other">%,d reblogów</item>
+	</plurals>
+	<string name="timestamp_via_app">%1$s przez %2$s</string>
 </resources>
