@@ -400,5 +400,13 @@
 		<item quantity="many">%,d تفضيلًا</item>
 		<item quantity="other">%,d تفضيل</item>
 	</plurals>
+	<plurals name="x_reblogs">
+		<item quantity="zero">لا إعادات تدوين</item>
+		<item quantity="one">إعاد تدوين واحدة</item>
+		<item quantity="two">إعادتا تدوين</item>
+		<item quantity="few">%,d إعادات تدوين</item>
+		<item quantity="many">%,d إعادة تدوين</item>
+		<item quantity="other">%,d إعادة تدوين</item>
+	</plurals>
 	<string name="timestamp_via_app">%1$s عبر %2$s</string>
 </resources>
