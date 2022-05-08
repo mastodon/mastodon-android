@@ -112,7 +112,9 @@
 	<string name="block_user_explain">Ta osoba nie będzie mogła mogła Cię śledzić ani widzieć Twoich wpisów, ale może dowiedzieć się, że została zablokowana.</string>
 	<string name="report_personal_title">Nie chcesz tego widzieć?</string>
 	<string name="back">Wróć</string>
+	<string name="instance_catalog_subtitle">Wybierz serwer według Twoich zainteresowań, regionu lub ogólnotematyczny. Możesz nadal łączyć się ze wszystkimi, niezależnie od serwera.</string>
 	<string name="search_communities">Szukaj serwerów lub wprowadź adres URL</string>
+	<string name="instance_rules_title">Kilka podstawowych zasad</string>
 	<string name="instance_rules_subtitle">Poświęć chwilę, aby przejrzeć reguły ustalone i realizowane przez administratorów %s.</string>
 	<string name="edit_photo">edytuj</string>
 	<string name="display_name">wyświetlana nazwa</string>
@@ -232,11 +234,16 @@
 	<string name="downloading">Pobieranie…</string>
 	<string name="no_app_to_handle_action">Brak aplikacji mogącej obsłużyć tę akcję</string>
 	<string name="local_timeline">Społeczność</string>
+	<string name="trending_posts_info_banner">Oto posty zyskujące popularność w Twoim zakątku Mastodona.</string>
+	<string name="trending_hashtags_info_banner">Oto hashtagi zyskujące popularność w Twoim zakątku Mastodona.</string>
+	<string name="trending_links_info_banner">Oto wiadomości, które są najczęściej udostępniane w Twoim zakątku Mastodona.</string>
+	<string name="local_timeline_info_banner">To są najnowsze posty osób używających tego samego serwera Mastodon co Ty.</string>
 	<string name="dismiss">Odrzuć</string>
 	<string name="see_new_posts">Zobacz nowe wpisy</string>
 	<string name="load_missing_posts">Załaduj brakujące wpisy</string>
 	<string name="button_follow_pending">Oczekujące</string>
 	<string name="follows_you">Obserwuje cię</string>
+	<string name="manually_approves_followers">Ręcznie zatwierdza obserwujących</string>
 	<string name="current_account">Bieżące konto</string>
 	<string name="log_out_account">Wyloguj %s</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
