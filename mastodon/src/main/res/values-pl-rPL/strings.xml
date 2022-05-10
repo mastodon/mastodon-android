@@ -10,11 +10,13 @@
 	<string name="ok">OK</string>
 	<string name="preparing_auth">Przygotowywanie do uwierzytelniania…</string>
 	<string name="finishing_auth">Kończenie uwierzytelniania…</string>
+	<string name="user_boosted">%s podbił</string>
 	<string name="in_reply_to">W odpowiedzi do %s</string>
 	<string name="notifications">Powiadomienia</string>
 	<string name="user_followed_you">zaczął(-ęła) Cię śledzić</string>
 	<string name="user_sent_follow_request">wysłał(-a) prośbę o możliwość obserwacji</string>
 	<string name="user_favorited">dodał(a) Twój wpis do ulubionych</string>
+	<string name="notification_boosted">podbił Twój wpis</string>
 	<string name="poll_ended">głosowanie zakończyło się</string>
 	<string name="time_seconds">%d sek.</string>
 	<string name="time_minutes">%d min.</string>
@@ -39,10 +41,10 @@
 		<item quantity="other">śledzonych</item>
 	</plurals>
 	<plurals name="posts">
-		<item quantity="one">post</item>
-		<item quantity="few">posty</item>
-		<item quantity="many">postów</item>
-		<item quantity="other">postów</item>
+		<item quantity="one">wpis</item>
+		<item quantity="few">wpisy</item>
+		<item quantity="many">wpisów</item>
+		<item quantity="other">wpisów</item>
 	</plurals>
 	<string name="posts">Wpisy</string>
 	<string name="posts_and_replies">Wpisy i odpowiedzi</string>
@@ -60,6 +62,12 @@
 	<string name="report_user">Zgłoś %s</string>
 	<string name="block_domain">Zablokuj %s</string>
 	<string name="unblock_domain">Odblokuj %s</string>
+	<plurals name="x_posts">
+		<item quantity="one">%,d wpis</item>
+		<item quantity="few">%,d wpisy</item>
+		<item quantity="many">%,d wpisów</item>
+		<item quantity="other">%,d wpisów</item>
+	</plurals>
 	<string name="profile_joined">Dołączył(a)</string>
 	<string name="done">Gotowe</string>
 	<string name="loading">Ładowanie…</string>
@@ -68,7 +76,49 @@
 	<string name="saving">Zapisywanie…</string>
 	<string name="post_from_user">Wpis od %s</string>
 	<string name="poll_option_hint">Opcja %d</string>
+	<plurals name="x_minutes">
+		<item quantity="one">%d minuta</item>
+		<item quantity="few">%d minuty</item>
+		<item quantity="many">%d minut</item>
+		<item quantity="other">%d minut</item>
+	</plurals>
+	<plurals name="x_hours">
+		<item quantity="one">%d godzina</item>
+		<item quantity="few">%d godziny</item>
+		<item quantity="many">%d godzin</item>
+		<item quantity="other">%d godzin</item>
+	</plurals>
+	<plurals name="x_days">
+		<item quantity="one">%d dzień</item>
+		<item quantity="few">%d dni</item>
+		<item quantity="many">%d dni</item>
+		<item quantity="other">%d dni</item>
+	</plurals>
 	<string name="compose_poll_duration">Czas trwania: %s</string>
+	<plurals name="x_seconds_left">
+		<item quantity="one">Została %d sekunda</item>
+		<item quantity="few">Zostały %d sekundy</item>
+		<item quantity="many">Zostało %d sekund</item>
+		<item quantity="other">Zostało %d sekund</item>
+	</plurals>
+	<plurals name="x_minutes_left">
+		<item quantity="one">Została %d minuta</item>
+		<item quantity="few">Zostały %d minuty</item>
+		<item quantity="many">Zostało %d minut</item>
+		<item quantity="other">Zostało %d minut</item>
+	</plurals>
+	<plurals name="x_hours_left">
+		<item quantity="one">Została %d godzina</item>
+		<item quantity="few">Zostały %d godziny</item>
+		<item quantity="many">Zostało %d godzin</item>
+		<item quantity="other">Zostało %d godzin</item>
+	</plurals>
+	<plurals name="x_days_left">
+		<item quantity="one">Został %d dzień</item>
+		<item quantity="few">Zostały %d dni</item>
+		<item quantity="many">Zostało %d dni</item>
+		<item quantity="other">Zostało %d dni</item>
+	</plurals>
 	<plurals name="x_voters">
 		<item quantity="one">%,d głosujący</item>
 		<item quantity="few">%,d głosujących</item>
@@ -200,7 +250,7 @@
 	<string name="skip">Pomiń</string>
 	<string name="notification_type_follow">Nowi śledzący</string>
 	<string name="notification_type_favorite">Polubienia</string>
-	<string name="notification_type_reblog">Reblogi</string>
+	<string name="notification_type_reblog">Podbicia</string>
 	<string name="notification_type_mention">Wspomienia</string>
 	<string name="notification_type_poll">Głosowania</string>
 	<string name="choose_account">Wybierz konto</string>
@@ -229,7 +279,7 @@
 	<string name="notify_none">nikt</string>
 	<string name="notify_favorites">Doda mój wpis do ulubionych</string>
 	<string name="notify_follow">Zacznie mnie śledzić</string>
-	<string name="notify_reblog">Podbije mój wpis</string>
+	<string name="notify_reblog">Podbija mój wpis</string>
 	<string name="notify_mention">Wspomni o mnie</string>
 	<string name="settings_boring">Nudne opcje</string>
 	<string name="settings_account">Ustawienia konta</string>
@@ -265,6 +315,8 @@
 	<string name="unfollowed_user">Przestano obserwować %s</string>
 	<string name="followed_user">Od teraz śledzisz %s</string>
 	<string name="open_in_browser">Otwórz w przeglądarce</string>
+	<string name="hide_boosts_from_user">Ukryj podbicia od %s</string>
+	<string name="show_boosts_from_user">Pokaż podbicia od %s</string>
 	<string name="signup_reason">dlaczego chcesz dołączyć?</string>
 	<string name="signup_reason_note">To pomoże nam ocenić Twoją aplikację.</string>
 	<string name="clear">Wyczyść</string>
@@ -280,10 +332,10 @@
 	<string name="downloading">Pobieranie…</string>
 	<string name="no_app_to_handle_action">Brak aplikacji mogącej obsłużyć tę akcję</string>
 	<string name="local_timeline">Społeczność</string>
-	<string name="trending_posts_info_banner">Oto posty zyskujące popularność w Twoim zakątku Mastodona.</string>
+	<string name="trending_posts_info_banner">Oto wpisy zyskujące popularność w Twoim zakątku Mastodona.</string>
 	<string name="trending_hashtags_info_banner">Oto hashtagi zyskujące popularność w Twoim zakątku Mastodona.</string>
 	<string name="trending_links_info_banner">Oto wiadomości, które są najczęściej udostępniane w Twoim zakątku Mastodona.</string>
-	<string name="local_timeline_info_banner">To są najnowsze posty osób używających tego samego serwera Mastodon co Ty.</string>
+	<string name="local_timeline_info_banner">To są najnowsze wpisy osób używających tego samego serwera Mastodon co Ty.</string>
 	<string name="dismiss">Odrzuć</string>
 	<string name="see_new_posts">Zobacz nowe wpisy</string>
 	<string name="load_missing_posts">Załaduj brakujące wpisy</string>
@@ -313,10 +365,10 @@
 		<item quantity="other">%,d ulubionych</item>
 	</plurals>
 	<plurals name="x_reblogs">
-		<item quantity="one">%,d reblog</item>
-		<item quantity="few">%,d reblogi</item>
-		<item quantity="many">%,d reblogów</item>
-		<item quantity="other">%,d reblogów</item>
+		<item quantity="one">%,d podbicie</item>
+		<item quantity="few">%,d podbicia</item>
+		<item quantity="many">%,d podbić</item>
+		<item quantity="other">%,d podbić</item>
 	</plurals>
 	<string name="timestamp_via_app">%1$s przez %2$s</string>
 </resources>
