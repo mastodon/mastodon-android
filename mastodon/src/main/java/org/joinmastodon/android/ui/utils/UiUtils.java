@@ -336,6 +336,7 @@ public class UiUtils{
 						@Override
 						public void onSuccess(Status result){
 							resultCallback.accept(result);
+							AccountSessionManager.getInstance().getAccount(accountID).getCacheController().deleteStatus(status.id);
 							E.post(new StatusDeletedEvent(status.id, accountID));
 						}
 

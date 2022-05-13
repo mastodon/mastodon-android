@@ -610,12 +610,12 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 					public void onSuccess(Status result){
 						wm.removeView(sendingOverlay);
 						sendingOverlay=null;
-						Nav.finish(ComposeFragment.this);
 						E.post(new StatusCreatedEvent(result));
 						if(replyTo!=null){
 							replyTo.repliesCount++;
 							E.post(new StatusCountersUpdatedEvent(replyTo));
 						}
+						Nav.finish(ComposeFragment.this);
 					}
 
 					@Override
