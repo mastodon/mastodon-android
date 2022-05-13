@@ -111,7 +111,7 @@ public class HtmlParser{
 				if(node instanceof Element){
 					Element el=(Element)node;
 					if("span".equals(el.nodeName()) && el.hasClass("ellipsis")){
-						ssb.append('…');
+						ssb.append("…", new DeleteWhenCopiedSpan(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 					}else if("p".equals(el.nodeName())){
 						if(node.nextSibling()!=null)
 							ssb.append("\n\n");
