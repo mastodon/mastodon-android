@@ -509,10 +509,17 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 			item.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
 			return;
 		}
-		if(relationship==null)
+		if(relationship==null && !isOwnProfile)
 			return;
 		inflater.inflate(R.menu.profile, menu);
 		menu.findItem(R.id.share).setTitle(getString(R.string.share_user, account.getDisplayUsername()));
+		if(isOwnProfile){
+			for(int i=0;i<menu.size();i++){
+				MenuItem item=menu.getItem(i);
+				item.setVisible(item.getItemId()==R.id.share);
+			}
+			return;
+		}
 		menu.findItem(R.id.mute).setTitle(getString(relationship.muting ? R.string.unmute_user : R.string.mute_user, account.getDisplayUsername()));
 		menu.findItem(R.id.block).setTitle(getString(relationship.blocking ? R.string.unblock_user : R.string.block_user, account.getDisplayUsername()));
 		menu.findItem(R.id.report).setTitle(getString(R.string.report_user, account.getDisplayUsername()));
