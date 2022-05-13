@@ -11,6 +11,7 @@ import android.widget.TextView;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.fragments.BaseStatusListFragment;
 import org.joinmastodon.android.model.Status;
+import org.joinmastodon.android.ui.text.HtmlParser;
 import org.joinmastodon.android.ui.utils.CustomEmojiHelper;
 import org.joinmastodon.android.ui.views.LinkedTextView;
 
@@ -20,7 +21,8 @@ import me.grishka.appkit.imageloader.requests.ImageLoaderRequest;
 
 public class TextStatusDisplayItem extends StatusDisplayItem{
 	private CharSequence text;
-	private CustomEmojiHelper emojiHelper=new CustomEmojiHelper();
+	private CustomEmojiHelper emojiHelper=new CustomEmojiHelper(), spoilerEmojiHelper;
+	private CharSequence parsedSpoilerText;
 	public boolean textSelectable;
 	public final Status status;
 
@@ -29,6 +31,11 @@ public class TextStatusDisplayItem extends StatusDisplayItem{
 		this.text=text;
 		this.status=status;
 		emojiHelper.setText(text);
+		if(!TextUtils.isEmpty(status.spoilerText)){
+			parsedSpoilerText=HtmlParser.parseCustomEmoji(status.spoilerText, status.emojis);
+			spoilerEmojiHelper=new CustomEmojiHelper();
+			spoilerEmojiHelper.setText(parsedSpoilerText);
+		}
 	}
 
 	@Override
@@ -38,11 +45,15 @@ public class TextStatusDisplayItem extends StatusDisplayItem{
 
 	@Override
 	public int getImageCount(){
+		if(spoilerEmojiHelper!=null && !status.spoilerRevealed)
+			return spoilerEmojiHelper.getImageCount();
 		return emojiHelper.getImageCount();
 	}
 
 	@Override
 	public ImageLoaderRequest getImageRequest(int index){
+		if(spoilerEmojiHelper!=null && !status.spoilerRevealed)
+			return spoilerEmojiHelper.getImageRequest(index);
 		return emojiHelper.getImageRequest(index);
 	}
 
@@ -65,7 +76,7 @@ public class TextStatusDisplayItem extends StatusDisplayItem{
 			text.setTextIsSelectable(item.textSelectable);
 			text.setInvalidateOnEveryFrame(false);
 			if(!TextUtils.isEmpty(item.status.spoilerText)){
-				spoilerTitle.setText(item.status.spoilerText);
+				spoilerTitle.setText(item.parsedSpoilerText);
 				if(item.status.spoilerRevealed){
 					spoilerOverlay.setVisibility(View.GONE);
 					text.setVisibility(View.VISIBLE);
@@ -84,8 +95,9 @@ public class TextStatusDisplayItem extends StatusDisplayItem{
 
 		@Override
 		public void setImage(int index, Drawable image){
-			item.emojiHelper.setImageDrawable(index, image);
+			getEmojiHelper().setImageDrawable(index, image);
 			text.invalidate();
+			spoilerTitle.invalidate();
 			if(image instanceof Animatable){
 				((Animatable) image).start();
 				if(image instanceof MovieDrawable)
@@ -95,8 +107,12 @@ public class TextStatusDisplayItem extends StatusDisplayItem{
 
 		@Override
 		public void clearImage(int index){
-			item.emojiHelper.setImageDrawable(index, null);
+			getEmojiHelper().setImageDrawable(index, null);
 			text.invalidate();
+		}
+
+		private CustomEmojiHelper getEmojiHelper(){
+			return item.spoilerEmojiHelper!=null && !item.status.spoilerRevealed ? item.spoilerEmojiHelper : item.emojiHelper;
 		}
 	}
 }

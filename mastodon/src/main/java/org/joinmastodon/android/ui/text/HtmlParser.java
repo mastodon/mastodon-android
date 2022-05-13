@@ -67,10 +67,9 @@ public class HtmlParser{
 
 			@Override
 			public void head(@NonNull Node node, int depth){
-				if(node instanceof TextNode){
-					ssb.append(((TextNode) node).text());
-				}else if(node instanceof Element){
-					Element el=(Element)node;
+				if(node instanceof TextNode textNode){
+					ssb.append(textNode.text());
+				}else if(node instanceof Element el){
 					switch(el.nodeName()){
 						case "a" -> {
 							String href=el.attr("href");
@@ -108,8 +107,7 @@ public class HtmlParser{
 
 			@Override
 			public void tail(@NonNull Node node, int depth){
-				if(node instanceof Element){
-					Element el=(Element)node;
+				if(node instanceof Element el){
 					if("span".equals(el.nodeName()) && el.hasClass("ellipsis")){
 						ssb.append("…", new DeleteWhenCopiedSpan(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 					}else if("p".equals(el.nodeName())){
