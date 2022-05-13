@@ -150,6 +150,18 @@ public class DiscoverFragment extends AppKitFragment implements ScrollableToTop,
 			}
 		});
 		tabLayoutMediator.attach();
+		tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener(){
+			@Override
+			public void onTabSelected(TabLayout.Tab tab){}
+
+			@Override
+			public void onTabUnselected(TabLayout.Tab tab){}
+
+			@Override
+			public void onTabReselected(TabLayout.Tab tab){
+				scrollToTop();
+			}
+		});
 
 		searchEdit=view.findViewById(R.id.search_edit);
 		searchEdit.setOnFocusChangeListener(this::onSearchEditFocusChanged);

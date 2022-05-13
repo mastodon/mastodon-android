@@ -205,7 +205,7 @@ public class SearchFragment extends BaseStatusListFragment<SearchResult>{
 
 			@Override
 			public void onTabReselected(TabLayout.Tab tab){
-
+				scrollToTop();
 			}
 		});
 	}
