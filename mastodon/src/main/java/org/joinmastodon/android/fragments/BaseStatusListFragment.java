@@ -461,9 +461,7 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 		HeaderStatusDisplayItem.Holder header=findHolderOfType(itemID, HeaderStatusDisplayItem.Holder.class);
 		if(header!=null)
 			header.rebind();
-		for(ImageStatusDisplayItem.Holder photo:(List<ImageStatusDisplayItem.Holder>)findAllHoldersOfType(itemID, ImageStatusDisplayItem.Holder.class)){
-			photo.setRevealed(true);
-		}
+		updateImagesSpoilerState(status, itemID);
 	}
 
 	public void onVisibilityIconClick(HeaderStatusDisplayItem.Holder holder){
@@ -472,12 +470,25 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 		if(!TextUtils.isEmpty(status.spoilerText)){
 			TextStatusDisplayItem.Holder text=findHolderOfType(holder.getItemID(), TextStatusDisplayItem.Holder.class);
 			if(text!=null){
-				adapter.notifyItemChanged(text.getAbsoluteAdapterPosition()+getMainAdapterOffset());
+				adapter.notifyItemChanged(text.getAbsoluteAdapterPosition());
 			}
 		}
 		holder.rebind();
-		for(ImageStatusDisplayItem.Holder<?> photo:(List<ImageStatusDisplayItem.Holder>)findAllHoldersOfType(holder.getItemID(), ImageStatusDisplayItem.Holder.class)){
+		updateImagesSpoilerState(status, holder.getItemID());
+	}
+
+	protected void updateImagesSpoilerState(Status status, String itemID){
+		ArrayList<Integer> updatedPositions=new ArrayList<>();
+		for(ImageStatusDisplayItem.Holder photo:(List<ImageStatusDisplayItem.Holder>)findAllHoldersOfType(itemID, ImageStatusDisplayItem.Holder.class)){
 			photo.setRevealed(status.spoilerRevealed);
+			updatedPositions.add(photo.getAbsoluteAdapterPosition()-getMainAdapterOffset());
+		}
+		int i=0;
+		for(StatusDisplayItem item:displayItems){
+			if(itemID.equals(item.parentID) && item instanceof ImageStatusDisplayItem && !updatedPositions.contains(i)){
+				adapter.notifyItemChanged(i);
+			}
+			i++;
 		}
 	}
 
