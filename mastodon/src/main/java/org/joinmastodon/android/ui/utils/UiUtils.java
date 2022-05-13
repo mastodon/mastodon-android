@@ -107,7 +107,9 @@ public class UiUtils{
 		long t=instant.toEpochMilli();
 		long now=System.currentTimeMillis();
 		long diff=now-t;
-		if(diff<60_000L){
+		if(diff<1000L){
+			return context.getString(R.string.time_now);
+		}else if(diff<60_000L){
 			return context.getString(R.string.time_seconds, diff/1000L);
 		}else if(diff<3600_000L){
 			return context.getString(R.string.time_minutes, diff/60_000L);
