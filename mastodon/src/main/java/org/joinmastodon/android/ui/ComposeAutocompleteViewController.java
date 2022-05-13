@@ -162,6 +162,7 @@ public class ComposeAutocompleteViewController{
 					.map(WrappedEmoji::new)
 					.collect(Collectors.toList());
 			UiUtils.updateList(oldList, emojis, list, emojisAdapter, (e1, e2)->e1.emoji.shortcode.equals(e2.emoji.shortcode));
+			imgLoader.updateImages();
 		}
 	}
 
@@ -186,6 +187,7 @@ public class ComposeAutocompleteViewController{
 						List<WrappedAccount> oldList=users;
 						users=result.accounts.stream().map(WrappedAccount::new).collect(Collectors.toList());
 						UiUtils.updateList(oldList, users, list, usersAdapter, (a1, a2)->a1.account.id.equals(a2.account.id));
+						imgLoader.updateImages();
 						if(listIsHidden){
 							listIsHidden=false;
 							V.setVisibilityAnimated(list, View.VISIBLE);
@@ -210,6 +212,7 @@ public class ComposeAutocompleteViewController{
 						List<Hashtag> oldList=hashtags;
 						hashtags=result.hashtags;
 						UiUtils.updateList(oldList, hashtags, list, hashtagsAdapter, (t1, t2)->t1.name.equals(t2.name));
+						imgLoader.updateImages();
 						if(listIsHidden){
 							listIsHidden=false;
 							V.setVisibilityAnimated(list, View.VISIBLE);

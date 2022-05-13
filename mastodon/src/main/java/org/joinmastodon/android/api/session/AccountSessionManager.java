@@ -85,7 +85,7 @@ public class AccountSessionManager{
 				domains.add(session.domain.toLowerCase());
 				sessions.put(session.getID(), session);
 			}
-		}catch(IOException|JsonParseException x){
+		}catch(Exception x){
 			Log.e(TAG, "Error loading accounts", x);
 		}
 		lastActiveAccountID=prefs.getString("lastActiveAccount", null);
@@ -358,7 +358,7 @@ public class AccountSessionManager{
 				customEmojis.put(domain, groupCustomEmojis(emojis));
 				instances.put(domain, emojis.instance);
 				instancesLastUpdated.put(domain, emojis.lastUpdated);
-			}catch(IOException|JsonParseException x){
+			}catch(Exception x){
 				Log.w(TAG, "Error reading instance info file for "+domain, x);
 			}
 		}
