@@ -2,15 +2,22 @@ package org.joinmastodon.android.api.session;
 
 import android.app.Activity;
 import android.app.NotificationManager;
+import android.content.ComponentName;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.ShortcutInfo;
+import android.content.pm.ShortcutManager;
+import android.graphics.drawable.Icon;
 import android.net.Uri;
 import android.os.Build;
 import android.util.Log;
 
 import com.google.gson.JsonParseException;
 
+import org.joinmastodon.android.BuildConfig;
 import org.joinmastodon.android.E;
+import org.joinmastodon.android.MainActivity;
 import org.joinmastodon.android.MastodonApp;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.MastodonAPIController;
@@ -90,6 +97,7 @@ public class AccountSessionManager{
 		}
 		lastActiveAccountID=prefs.getString("lastActiveAccount", null);
 		MastodonAPIController.runInBackground(()->readInstanceInfo(domains));
+		maybeUpdateShortcuts();
 	}
 
 	public void addAccount(Instance instance, Token token, Account self, Application app, boolean active){
@@ -102,6 +110,7 @@ public class AccountSessionManager{
 		if(PushSubscriptionManager.arePushNotificationsAvailable()){
 			session.getPushSubscriptionManager().registerAccountForPush(null);
 		}
+		maybeUpdateShortcuts();
 	}
 
 	public synchronized void writeAccountsFile(){
@@ -181,6 +190,7 @@ public class AccountSessionManager{
 			NotificationManager nm=MastodonApp.context.getSystemService(NotificationManager.class);
 			nm.deleteNotificationChannelGroup(id);
 		}
+		maybeUpdateShortcuts();
 	}
 
 	@NonNull
@@ -393,6 +403,29 @@ public class AccountSessionManager{
 		session.self=account;
 		session.infoLastUpdated=System.currentTimeMillis();
 		writeAccountsFile();
+	}
+
+	private void maybeUpdateShortcuts(){
+		if(Build.VERSION.SDK_INT<26)
+			return;
+		ShortcutManager sm=MastodonApp.context.getSystemService(ShortcutManager.class);
+		if((sm.getDynamicShortcuts().isEmpty() || BuildConfig.DEBUG) && !sessions.isEmpty()){
+			// There are no shortcuts, but there are accounts. Add a compose shortcut.
+			ShortcutInfo info=new ShortcutInfo.Builder(MastodonApp.context, "compose")
+					.setActivity(ComponentName.createRelative(MastodonApp.context, MainActivity.class.getName()))
+					.setShortLabel(MastodonApp.context.getString(R.string.new_post))
+					.setIcon(Icon.createWithResource(MastodonApp.context, R.mipmap.ic_shortcut_compose))
+					.setIntent(new Intent(MastodonApp.context, MainActivity.class)
+							.setAction(Intent.ACTION_MAIN)
+							.putExtra("compose", true))
+					.build();
+			sm.setDynamicShortcuts(Collections.singletonList(info));
+		}else if(sessions.isEmpty()){
+			// There are shortcuts, but no accounts. Disable existing shortcuts.
+			sm.disableShortcuts(Collections.singletonList("compose"), MastodonApp.context.getString(R.string.err_not_logged_in));
+		}else{
+			sm.enableShortcuts(Collections.singletonList("compose"));
+		}
 	}
 
 	private static class SessionsStorageWrapper{
