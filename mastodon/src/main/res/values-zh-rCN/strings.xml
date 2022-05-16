@@ -10,10 +10,13 @@
 	<string name="ok">确定</string>
 	<string name="preparing_auth">正在跳转...</string>
 	<string name="finishing_auth">正在完成身份验证…</string>
+	<string name="user_boosted">%s 转发了</string>
 	<string name="in_reply_to">回复给 %s</string>
 	<string name="notifications">通知</string>
 	<string name="user_followed_you">关注了你</string>
 	<string name="user_sent_follow_request">向您发送了关注请求</string>
+	<string name="user_favorited">喜欢了你的嘟文</string>
+	<string name="notification_boosted">转发了你的嘟文</string>
 	<string name="poll_ended">投票已结束</string>
 	<string name="time_seconds">%d 秒前</string>
 	<string name="time_minutes">%d 分钟前</string>
@@ -76,7 +79,11 @@
 	<plurals name="x_minutes_left">
 		<item quantity="other">剩余 %d 分钟</item>
 	</plurals>
+	<plurals name="x_hours_left">
+		<item quantity="other">%d小时后结束</item>
+	</plurals>
 	<string name="poll_closed">已关闭</string>
+	<string name="do_mute">静音</string>
 	<string name="tap_to_reveal">点击以显示</string>
 	<string name="play">播放</string>
 	<string name="pause">暂停</string>
@@ -149,6 +156,8 @@
 	<string name="search_all">全部</string>
 	<string name="search_people">用户</string>
 	<string name="recent_searches">最近搜索</string>
+	<string name="settings_theme">外观</string>
+	<string name="settings_behavior">行为</string>
 	<string name="notify_followed">我关注的</string>
 	<string name="notify_none">没有人</string>
 	<string name="notify_favorites">喜欢我的帖子</string>
@@ -197,6 +206,8 @@
 	<string name="reorder">重新排序</string>
 	<string name="download">下载</string>
 	<string name="permission_required">需要相应权限</string>
+	<string name="open_settings">打开「设置」</string>
+	<string name="local_timeline">本站时间线</string>
 	<string name="trending_posts_info_banner">这些是在你的 Mastodon 宇宙中备受关注的内容。</string>
 	<string name="trending_hashtags_info_banner">这些是在你的 Mastodon 宇宙中备受关注的话题</string>
 	<string name="local_timeline_info_banner">这些是与您使用相同 Mastodon 服务器的人的最新帖子。</string>
