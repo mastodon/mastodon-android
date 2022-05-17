@@ -229,7 +229,7 @@
 	<string name="settings_notifications">通知</string>
 	<string name="notify_me_when">接收通知的范围</string>
 	<string name="notify_anyone">任何人</string>
-	<string name="notify_follower">关注着</string>
+	<string name="notify_follower">关注者</string>
 	<string name="notify_followed">我关注的</string>
 	<string name="notify_none">没有人</string>
 	<string name="notify_favorites">喜欢我的帖子</string>
@@ -297,12 +297,12 @@
 	<string name="follow_back">关注</string>
 	<string name="button_follow_pending">待处理</string>
 	<string name="follows_you">关注了你</string>
-	<string name="manually_approves_followers">手动批准关注着</string>
+	<string name="manually_approves_followers">手动批准关注者</string>
 	<string name="current_account">当前账号</string>
 	<string name="log_out_account">退出%s的登陆</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<plurals name="x_followers">
-		<item quantity="other">%ld个关注着</item>
+		<item quantity="other">%ld个关注者</item>
 	</plurals>
 	<plurals name="x_following">
 		<item quantity="other">关注%d人</item>
