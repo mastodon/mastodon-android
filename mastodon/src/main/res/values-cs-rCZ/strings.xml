@@ -1,4 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+	<string name="get_started">Začínáme</string>
+	<string name="log_in">Přihlásit</string>
+	<string name="next">Další</string>
+	<string name="loading_instance">Získávání informací o instanci…</string>
+	<string name="error">Chyba</string>
+	<string name="not_a_mastodon_instance">Zdá se, že %s není instancí Mastodonu.</string>
+	<string name="ok">OK</string>
+	<string name="preparing_auth">Příprava na ověřování…</string>
+	<string name="finishing_auth">Dokončení ověřování…</string>
+	<string name="user_boosted">%s sdíleno</string>
+	<string name="in_reply_to">V odpovědi na %s</string>
+	<string name="notifications">Upozornění</string>
+	<string name="user_followed_you">vás sleduje</string>
+	<string name="user_sent_follow_request">vám poslal žádost o sledování</string>
+	<string name="user_favorited">si oblíbil váš příspěvek</string>
+	<string name="notification_boosted">sdílel váš příspěvek</string>
+	<string name="time_seconds">%d s</string>
+	<string name="time_minutes">%d m</string>
+	<string name="time_hours">%d h</string>
+	<string name="time_days">%d d</string>
+	<string name="share_toot_title">Sdílet</string>
+	<string name="settings">Nastavení</string>
+	<string name="publish">Zveřejnit</string>
+	<string name="discard_draft">Zahodit koncept?</string>
+	<string name="discard">Zahodit</string>
+	<string name="cancel">Zrušit</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 </resources>
