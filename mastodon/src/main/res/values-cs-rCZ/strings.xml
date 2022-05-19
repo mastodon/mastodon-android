@@ -51,6 +51,101 @@
 	<string name="saving">Ukládání…</string>
 	<string name="post_from_user">Příspěvek od %s</string>
 	<string name="poll_option_hint">Možnost %d</string>
+	<plurals name="x_minutes">
+		<item quantity="one">%d minuta</item>
+		<item quantity="few">%d minuty</item>
+		<item quantity="many">%d minut</item>
+		<item quantity="other">%d minut</item>
+	</plurals>
+	<plurals name="x_hours">
+		<item quantity="one">%d hodina</item>
+		<item quantity="few">%d hodiny</item>
+		<item quantity="many">%d hodin</item>
+		<item quantity="other">%d hodin</item>
+	</plurals>
+	<plurals name="x_days">
+		<item quantity="one">%d den</item>
+		<item quantity="few">%d dny</item>
+		<item quantity="many">%d dnů</item>
+		<item quantity="other">%d dnů</item>
+	</plurals>
+	<string name="compose_poll_duration">Doba trvání: %s</string>
+	<plurals name="x_seconds_left">
+		<item quantity="one">Zbývá %d sekunda</item>
+		<item quantity="few">Zbývá %d sekundy</item>
+		<item quantity="many">Zbývá %d sekund</item>
+		<item quantity="other">Zbývá %d sekund</item>
+	</plurals>
+	<plurals name="x_minutes_left">
+		<item quantity="one">Zbývá %d minuta</item>
+		<item quantity="few">Zbývá %d minuty</item>
+		<item quantity="many">Zbývá %d minut</item>
+		<item quantity="other">Zbývá %d minut</item>
+	</plurals>
+	<plurals name="x_hours_left">
+		<item quantity="one">Zbývá %d hodina</item>
+		<item quantity="few">Zbývá %d hodiny</item>
+		<item quantity="many">Zbývá %d hodin</item>
+		<item quantity="other">Zbývá %d hodin</item>
+	</plurals>
+	<plurals name="x_days_left">
+		<item quantity="one">Zbývá %d den</item>
+		<item quantity="few">Zbývají %d dny</item>
+		<item quantity="many">Zbývá %d dní</item>
+		<item quantity="other">Zbývá %d dní</item>
+	</plurals>
+	<plurals name="x_voters">
+		<item quantity="one">%,d hlasující</item>
+		<item quantity="few">%,d hlasující</item>
+		<item quantity="many">%,d hlasujících</item>
+		<item quantity="other">%,d hlasujících</item>
+	</plurals>
+	<string name="poll_closed">Uzavřeno</string>
+	<string name="confirm_mute_title">Skrýt účet</string>
+	<string name="confirm_mute">Potvrdit skrytí %s</string>
+	<string name="do_mute">Skrýt</string>
+	<string name="confirm_unmute_title">Zrušit skrytí účtu</string>
+	<string name="confirm_unmute">Potvrďte zrušení skrytí %s</string>
+	<string name="do_unmute">Odkrýt</string>
+	<string name="confirm_block_title">Blokovat účet</string>
+	<string name="confirm_block_domain_title">Blokovat doménu</string>
+	<string name="confirm_block">Potvrďte blokování %s</string>
+	<string name="do_block">Blokovat</string>
+	<string name="confirm_unblock_title">Odblokovat účet</string>
+	<string name="confirm_unblock_domain_title">Odblokovat doménu</string>
+	<string name="confirm_unblock">Potvrďte odblokování %s</string>
+	<string name="do_unblock">Odblokovat</string>
+	<string name="button_muted">Skrytý</string>
+	<string name="button_blocked">Blokovaný</string>
+	<string name="action_vote">Hlasovat</string>
+	<string name="tap_to_reveal">Klepnutím zobraz</string>
+	<string name="delete">Smazat</string>
+	<string name="confirm_delete_title">Smazat příspěvek</string>
+	<string name="confirm_delete">Opravdu chcete smazat tento příspěvek?</string>
+	<string name="deleting">Mazání…</string>
+	<string name="notification_channel_audio_player">Přehrávání zvuku</string>
+	<string name="play">Přehrát</string>
+	<string name="pause">Pozastavit</string>
+	<string name="log_out">Odhlásit se</string>
+	<string name="add_account">Přidat účet</string>
+	<string name="search_hint">Hledat</string>
+	<string name="hashtags">Hashtagy</string>
+	<string name="news">Zprávy</string>
+	<string name="for_you">Pro vás</string>
+	<string name="all_notifications">Vše</string>
+	<string name="mentions">Zmínky</string>
+	<plurals name="x_people_talking">
+		<item quantity="one">%d člověk mluví</item>
+		<item quantity="few">%d lidé mluví</item>
+		<item quantity="many">%d lidí mluví</item>
+		<item quantity="other">%d lidí mluví</item>
+	</plurals>
+	<plurals name="discussed_x_times">
+		<item quantity="one">Diskutováno %d krát</item>
+		<item quantity="few">Diskutováno %d krát</item>
+		<item quantity="many">Diskutováno %d krát</item>
+		<item quantity="other">Diskutováno %d krát</item>
+	</plurals>
 	<string name="report_title">Nahlásit %s</string>
 	<string name="report_choose_reason">Co je na tomto příspěvku špatně?</string>
 	<string name="report_choose_reason_account">Co je špatně na %s?</string>
