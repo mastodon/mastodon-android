@@ -261,6 +261,7 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 		emojiBtn.setOnClickListener(v->emojiKeyboard.toggleKeyboardPopup(mainEditText));
 		spoilerBtn.setOnClickListener(v->toggleSpoiler());
 		visibilityBtn.setOnClickListener(this::onVisibilityClick);
+		visibilityBtn.setOnLongClickListener(this::onVisibilityLongClick);
 		emojiKeyboard.setOnIconChangedListener(new PopupKeyboard.OnIconChangeListener(){
 			@Override
 			public void onIconChanged(int icon){
@@ -1033,16 +1034,23 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 		UiUtils.enablePopupMenuIcons(getActivity(), menu);
 		m.setGroupCheckable(0, true, true);
 		m.findItem(switch(statusVisibility){
-			case PUBLIC, UNLISTED -> R.id.vis_public;
+			case PUBLIC -> R.id.vis_public;
+			case UNLISTED -> R.id.vis_unlisted;
 			case PRIVATE -> R.id.vis_followers;
 			case DIRECT -> R.id.vis_private;
 		}).setChecked(true);
+
+		if (statusVisibility != StatusPrivacy.UNLISTED) {
+			m.findItem(R.id.vis_unlisted).setVisible(false);
+		}
 		menu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener(){
 			@Override
 			public boolean onMenuItemClick(MenuItem item){
 				int id=item.getItemId();
-				if(id==R.id.vis_public){
+				if(id==R.id.vis_public) {
 					statusVisibility=StatusPrivacy.PUBLIC;
+				}else if(id==R.id.vis_unlisted) {
+					statusVisibility=StatusPrivacy.UNLISTED;
 				}else if(id==R.id.vis_followers){
 					statusVisibility=StatusPrivacy.PRIVATE;
 				}else if(id==R.id.vis_private){
@@ -1054,6 +1062,12 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 			}
 		});
 		menu.show();
+	}
+
+	private boolean onVisibilityLongClick(View v) {
+		statusVisibility = StatusPrivacy.UNLISTED;
+		updateVisibilityIcon();
+		return true;
 	}
 
 	private void updateVisibilityIcon(){
