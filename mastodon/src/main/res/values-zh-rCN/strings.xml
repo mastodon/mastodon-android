@@ -7,8 +7,8 @@
 	<string name="error">错误</string>
 	<string name="not_a_mastodon_instance">%s 似乎不是Mastodon实例。</string>
 	<string name="ok">确定</string>
-	<string name="preparing_auth">正在跳转...</string>
-	<string name="finishing_auth">正在完成身份验证…</string>
+	<string name="preparing_auth">正在准备身份验证…</string>
+	<string name="finishing_auth">正在完成身份认证…</string>
 	<string name="user_boosted">%s 转发了</string>
 	<string name="in_reply_to">回复 %s</string>
 	<string name="notifications">通知</string>
@@ -51,57 +51,57 @@
 	<string name="unblock_user">不再屏蔽 %s</string>
 	<string name="report_user">举报 %s</string>
 	<string name="block_domain">屏蔽 %s 实例</string>
-	<string name="unblock_domain">不再屏蔽 %s</string>
+	<string name="unblock_domain">不再屏蔽 %s 实例</string>
 	<plurals name="x_posts">
-		<item quantity="other">%d 个嘟文</item>
+		<item quantity="other">%d 条嘟文</item>
 	</plurals>
 	<string name="profile_joined">加入于</string>
 	<string name="done">完成</string>
-	<string name="loading">加载中...</string>
+	<string name="loading">正在加载…</string>
 	<string name="field_label">标签</string>
 	<string name="field_content">内容</string>
-	<string name="saving">保存中...</string>
+	<string name="saving">正在保存…</string>
 	<string name="post_from_user">来自 %s 的嘟文</string>
 	<string name="poll_option_hint">选项 %d</string>
 	<plurals name="x_minutes">
 		<item quantity="other">%d分钟</item>
 	</plurals>
 	<plurals name="x_hours">
-		<item quantity="other">%d小时</item>
+		<item quantity="other">%d 小时</item>
 	</plurals>
 	<plurals name="x_days">
-		<item quantity="other">%d天</item>
+		<item quantity="other">%d 天</item>
 	</plurals>
 	<string name="compose_poll_duration">时长：%s</string>
 	<plurals name="x_seconds_left">
-		<item quantity="other">%d秒后结束</item>
+		<item quantity="other">%d 秒后结束</item>
 	</plurals>
 	<plurals name="x_minutes_left">
-		<item quantity="other">%d分钟后结束</item>
+		<item quantity="other">%d 分钟后结束</item>
 	</plurals>
 	<plurals name="x_hours_left">
-		<item quantity="other">%d小时后结束</item>
+		<item quantity="other">%d 小时后结束</item>
 	</plurals>
 	<plurals name="x_days_left">
-		<item quantity="other">%d天后结束</item>
+		<item quantity="other">%d 天后结束</item>
 	</plurals>
 	<plurals name="x_voters">
-		<item quantity="other">%d位投票者</item>
+		<item quantity="other">%d 人已投票</item>
 	</plurals>
 	<string name="poll_closed">已关闭</string>
 	<string name="confirm_mute_title">隐藏用户</string>
-	<string name="confirm_mute">确定要隐藏 %s吗？</string>
+	<string name="confirm_mute">确定要隐藏 %s 吗？</string>
 	<string name="do_mute">确定</string>
 	<string name="confirm_unmute_title">取消隐藏</string>
-	<string name="confirm_unmute">确定不再隐藏 %s吗？</string>
+	<string name="confirm_unmute">确定不再隐藏 %s 吗？</string>
 	<string name="do_unmute">确定</string>
 	<string name="confirm_block_title">屏蔽用户</string>
 	<string name="confirm_block_domain_title">屏蔽域名</string>
-	<string name="confirm_block">确定要屏蔽 %s吗？</string>
+	<string name="confirm_block">确定要屏蔽 %s 吗？</string>
 	<string name="do_block">确定</string>
 	<string name="confirm_unblock_title">解除屏蔽</string>
 	<string name="confirm_unblock_domain_title">解除屏蔽</string>
-	<string name="confirm_unblock">确定不再屏蔽 %s</string>
+	<string name="confirm_unblock">确定不再屏蔽 %s 吗？</string>
 	<string name="do_unblock">确定</string>
 	<string name="button_muted">已隐藏</string>
 	<string name="button_blocked">已屏蔽</string>
@@ -114,7 +114,7 @@
 	<string name="notification_channel_audio_player">音频播放</string>
 	<string name="play">播放</string>
 	<string name="pause">暂停</string>
-	<string name="log_out">登出</string>
+	<string name="log_out">退出账户</string>
 	<string name="add_account">添加账户</string>
 	<string name="search_hint">搜索</string>
 	<string name="hashtags">话题</string>
@@ -123,10 +123,10 @@
 	<string name="all_notifications">全部</string>
 	<string name="mentions">提及</string>
 	<plurals name="x_people_talking">
-		<item quantity="other">%d人在讨论</item>
+		<item quantity="other">%d 人在讨论</item>
 	</plurals>
 	<plurals name="discussed_x_times">
-		<item quantity="other">讨论了%d次</item>
+		<item quantity="other">讨论了 %d 次</item>
 	</plurals>
 	<string name="report_title">举报 %s</string>
 	<string name="report_choose_reason">这条嘟文有什么问题？</string>
@@ -146,9 +146,9 @@
 	<string name="report_choose_posts_subtitle">选择所有适用项</string>
 	<string name="report_comment_title">还有什么要告诉我们的吗？</string>
 	<string name="report_comment_hint">备注</string>
-	<string name="sending_report">正在发送举报…</string>
+	<string name="sending_report">正在提交举报…</string>
 	<string name="report_sent_title">感谢举报，我们将会处理。</string>
-	<string name="report_sent_subtitle">我们审查此问题期间，你可以对 %s 采取行动。</string>
+	<string name="report_sent_subtitle">我们审查此问题期间，你也可以对 %s 采取行动。</string>
 	<string name="unfollow_user">不再关注 %s</string>
 	<string name="unfollow">取消关注</string>
 	<string name="mute_user_explain">你不会在你的主页里看到他们的嘟文和转发，他们也不会知道你隐藏了他们。</string>
@@ -185,38 +185,38 @@
 	<string name="confirm_email_subtitle">点击我们发送给你的链接来验证你的账户。</string>
 	<string name="resend">重新发送</string>
 	<string name="open_email_app">打开电子邮件应用</string>
-	<string name="resent_email">确认邮件已发送</string>
+	<string name="resent_email">邮件已发送</string>
 	<string name="compose_hint">写下你的想法</string>
 	<string name="content_warning">内容警告</string>
 	<string name="add_image_description">添加图片描述…</string>
 	<string name="retry_upload">重新上传</string>
 	<string name="image_upload_failed">图片上传失败</string>
 	<string name="video_upload_failed">视频上传失败</string>
-	<string name="edit_image">编辑图像</string>
+	<string name="edit_image">编辑图片</string>
 	<string name="save">保存</string>
 	<string name="add_alt_text">添加备注</string>
 	<string name="alt_text_subtitle">备注可以为视障人士描述你的图片，请尽量只包含足以理解内容的信息。</string>
-	<string name="alt_text_hint">例如，镜头前有一只狗眯着眼睛怀疑地看着四周。</string>
+	<string name="alt_text_hint">例如，镜头前有一只狗眯着眼睛警惕地看着四周。</string>
 	<string name="visibility_public">公开</string>
 	<string name="visibility_followers_only">仅关注者</string>
 	<string name="visibility_private">仅提及的人</string>
 	<string name="search_all">全部</string>
 	<string name="search_people">用户</string>
 	<string name="recent_searches">最近搜索</string>
-	<string name="step_x_of_n">第%1$d步（共%2$d步）</string>
+	<string name="step_x_of_n">第 %1$d 步（共 %2$d 步）</string>
 	<string name="skip">跳过</string>
 	<string name="notification_type_follow">新关注者</string>
-	<string name="notification_type_favorite">个喜欢</string>
-	<string name="notification_type_reblog">次转发</string>
+	<string name="notification_type_favorite">喜欢</string>
+	<string name="notification_type_reblog">转发</string>
 	<string name="notification_type_mention">提及</string>
 	<string name="notification_type_poll">投票</string>
 	<string name="choose_account">选择账户</string>
 	<string name="err_not_logged_in">请先登陆到Mastodon</string>
 	<plurals name="cant_add_more_than_x_attachments">
-		<item quantity="other">你不能添加超过%d个媒体附件</item>
+		<item quantity="other">你不能添加超过 %d 个媒体附件</item>
 	</plurals>
 	<string name="media_attachment_unsupported_type">文件 %s 是不支持的类型</string>
-	<string name="media_attachment_too_big">文件%1$s的大小超出了%2$s MB的限制</string>
+	<string name="media_attachment_too_big">文件 %1$s 的大小超出 %2$s MB的限制</string>
 	<string name="settings_theme">外观</string>
 	<string name="theme_auto">自动</string>
 	<string name="theme_light">浅色</string>
@@ -271,7 +271,7 @@
 	<string name="open_in_browser">在浏览器中打开</string>
 	<string name="hide_boosts_from_user">隐藏来自 %s 的转发</string>
 	<string name="show_boosts_from_user">不再隐藏来自 %s 的转发</string>
-	<string name="signup_reason">加入的理由是？</string>
+	<string name="signup_reason">为什么想要加入？</string>
 	<string name="signup_reason_note">这会帮助我们评估你的申请。</string>
 	<string name="clear">清除</string>
 	<string name="profile_header">资料页横幅图片</string>
@@ -285,33 +285,33 @@
 	<string name="file_saved">文件已保存</string>
 	<string name="downloading">正在下载…</string>
 	<string name="no_app_to_handle_action">未找到可处理此操作的应用</string>
-	<string name="local_timeline">本站时间线</string>
-	<string name="trending_posts_info_banner">这些是在你的Mastodon宇宙中备受关注的内容。</string>
-	<string name="trending_hashtags_info_banner">这些是在你的Mastodon宇宙中备受关注的话题</string>
-	<string name="trending_links_info_banner">这些是在你的Mastodon角落分享最多的新闻故事。</string>
+	<string name="local_timeline">本站时间轴</string>
+	<string name="trending_posts_info_banner">这是在你的Mastodon角落备受关注的内容。</string>
+	<string name="trending_hashtags_info_banner">这是在你的Mastodon角落备受关注的话题。</string>
+	<string name="trending_links_info_banner">这是在你的Mastodon角落分享最多的新闻故事。</string>
 	<string name="local_timeline_info_banner">这是你所在的Mastodon服务器上的用户发布的最新嘟文。</string>
 	<string name="dismiss">驳回</string>
 	<string name="see_new_posts">查看新嘟文</string>
 	<string name="load_missing_posts">加载嘟文</string>
 	<string name="follow_back">关注</string>
-	<string name="button_follow_pending">待处理</string>
-	<string name="follows_you">关注了你</string>
-	<string name="manually_approves_followers">手动批准关注者</string>
+	<string name="button_follow_pending">已发送关注请求</string>
+	<string name="follows_you">已关注你</string>
+	<string name="manually_approves_followers">手动批准关注请求</string>
 	<string name="current_account">当前账号</string>
 	<string name="log_out_account">退出 %s</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<plurals name="x_followers">
-		<item quantity="other">%ld名关注者</item>
+		<item quantity="other">%,d 名关注者</item>
 	</plurals>
 	<plurals name="x_following">
-		<item quantity="other">关注%ld人</item>
+		<item quantity="other">关注 %,d 人</item>
 	</plurals>
 	<plurals name="x_favorites">
-		<item quantity="other">%ld个喜欢</item>
+		<item quantity="other">%,d 次喜欢</item>
 	</plurals>
 	<plurals name="x_reblogs">
-		<item quantity="other">%ld次转发</item>
+		<item quantity="other">%,d 次转发</item>
 	</plurals>
-	<string name="timestamp_via_app">%1$s来自 %2$s</string>
+	<string name="timestamp_via_app">%1$s 来自 %2$s</string>
 	<string name="time_now">刚刚</string>
 </resources>
