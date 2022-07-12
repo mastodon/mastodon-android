@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="app_name">Mastodon</string>
-	<string name="get_started">Comezar</string>
+	<string name="get_started">Crear conta</string>
 	<string name="log_in">Acceder</string>
 	<string name="next">Seguinte</string>
 	<string name="loading_instance">Obtendo info da instancia…</string>
@@ -214,7 +213,7 @@
 	<string name="alt_text_hint">ex. Un can mirando excépticamente á cámara como se non entendese nada.</string>
 	<string name="visibility_public">Público</string>
 	<string name="visibility_followers_only">Só para seguidoras</string>
-	<string name="visibility_private">Só para persoas mencionadas</string>
+	<string name="visibility_private">Só para as mencionadas</string>
 	<string name="search_all">Todo</string>
 	<string name="search_people">Persoas</string>
 	<string name="recent_searches">Buscas recentes</string>
@@ -309,7 +308,7 @@
 	<string name="dismiss">Desbotar</string>
 	<string name="see_new_posts">Ver novas publicacións</string>
 	<string name="load_missing_posts">Cargar publicacións que faltan</string>
-	<string name="follow_back">Seguir recíprocamente</string>
+	<string name="follow_back">Seguir tamén</string>
 	<string name="button_follow_pending">Pendente</string>
 	<string name="follows_you">Séguete</string>
 	<string name="manually_approves_followers">Aprobar manualmente os seguimentos</string>
@@ -333,4 +332,5 @@
 		<item quantity="other">%,d promocións</item>
 	</plurals>
 	<string name="timestamp_via_app">%1$s vía %2$s</string>
+	<string name="time_now">agora</string>
 </resources>

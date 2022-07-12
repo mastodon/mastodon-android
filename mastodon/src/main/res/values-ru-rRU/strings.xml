@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="app_name">Mastodon</string>
 	<string name="get_started">Присоединиться</string>
 	<string name="log_in">Войти</string>
 	<string name="next">Далее</string>
@@ -250,6 +249,7 @@
 	<string name="skip">Пропустить</string>
 	<string name="notification_type_follow">Новые подписчики</string>
 	<string name="notification_type_favorite">Избранное</string>
+	<string name="notification_type_reblog">Продвижения</string>
 	<string name="notification_type_mention">Упоминания</string>
 	<string name="notification_type_poll">Опросы</string>
 	<string name="choose_account">Выберите аккаунт</string>
@@ -358,4 +358,5 @@
 		<item quantity="other">%,d подписок</item>
 	</plurals>
 	<string name="timestamp_via_app">%1$s через %2$s</string>
+	<string name="time_now">только что</string>
 </resources>

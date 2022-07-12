@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="app_name">Mastodon</string>
 	<string name="get_started">Rozpocznij</string>
 	<string name="log_in">Zaloguj się</string>
 	<string name="next">Dalej</string>
@@ -10,10 +9,13 @@
 	<string name="ok">OK</string>
 	<string name="preparing_auth">Przygotowywanie do uwierzytelniania…</string>
 	<string name="finishing_auth">Kończenie uwierzytelniania…</string>
+	<string name="user_boosted">%s podbił</string>
 	<string name="in_reply_to">W odpowiedzi do %s</string>
 	<string name="notifications">Powiadomienia</string>
 	<string name="user_followed_you">zaczął(-ęła) Cię śledzić</string>
 	<string name="user_sent_follow_request">wysłał(-a) prośbę o możliwość obserwacji</string>
+	<string name="user_favorited">dodał(a) Twój wpis do ulubionych</string>
+	<string name="notification_boosted">podbił Twój wpis</string>
 	<string name="poll_ended">głosowanie zakończyło się</string>
 	<string name="time_seconds">%d sek.</string>
 	<string name="time_minutes">%d min.</string>
@@ -25,6 +27,24 @@
 	<string name="discard_draft">Odrzucić szkic?</string>
 	<string name="discard">Odrzuć</string>
 	<string name="cancel">Anuluj</string>
+	<plurals name="followers">
+		<item quantity="one">śledzący</item>
+		<item quantity="few">śledzących</item>
+		<item quantity="many">śledzących</item>
+		<item quantity="other">śledzących</item>
+	</plurals>
+	<plurals name="following">
+		<item quantity="one">śledzony</item>
+		<item quantity="few">śledzonych</item>
+		<item quantity="many">śledzonych</item>
+		<item quantity="other">śledzonych</item>
+	</plurals>
+	<plurals name="posts">
+		<item quantity="one">wpis</item>
+		<item quantity="few">wpisy</item>
+		<item quantity="many">wpisów</item>
+		<item quantity="other">wpisów</item>
+	</plurals>
 	<string name="posts">Wpisy</string>
 	<string name="posts_and_replies">Wpisy i odpowiedzi</string>
 	<string name="media">Media</string>
@@ -41,6 +61,12 @@
 	<string name="report_user">Zgłoś %s</string>
 	<string name="block_domain">Zablokuj %s</string>
 	<string name="unblock_domain">Odblokuj %s</string>
+	<plurals name="x_posts">
+		<item quantity="one">%,d wpis</item>
+		<item quantity="few">%,d wpisy</item>
+		<item quantity="many">%,d wpisów</item>
+		<item quantity="other">%,d wpisów</item>
+	</plurals>
 	<string name="profile_joined">Dołączył(a)</string>
 	<string name="done">Gotowe</string>
 	<string name="loading">Ładowanie…</string>
@@ -49,7 +75,55 @@
 	<string name="saving">Zapisywanie…</string>
 	<string name="post_from_user">Wpis od %s</string>
 	<string name="poll_option_hint">Opcja %d</string>
+	<plurals name="x_minutes">
+		<item quantity="one">%d minuta</item>
+		<item quantity="few">%d minuty</item>
+		<item quantity="many">%d minut</item>
+		<item quantity="other">%d minut</item>
+	</plurals>
+	<plurals name="x_hours">
+		<item quantity="one">%d godzina</item>
+		<item quantity="few">%d godziny</item>
+		<item quantity="many">%d godzin</item>
+		<item quantity="other">%d godzin</item>
+	</plurals>
+	<plurals name="x_days">
+		<item quantity="one">%d dzień</item>
+		<item quantity="few">%d dni</item>
+		<item quantity="many">%d dni</item>
+		<item quantity="other">%d dni</item>
+	</plurals>
 	<string name="compose_poll_duration">Czas trwania: %s</string>
+	<plurals name="x_seconds_left">
+		<item quantity="one">Została %d sekunda</item>
+		<item quantity="few">Zostały %d sekundy</item>
+		<item quantity="many">Zostało %d sekund</item>
+		<item quantity="other">Zostało %d sekund</item>
+	</plurals>
+	<plurals name="x_minutes_left">
+		<item quantity="one">Została %d minuta</item>
+		<item quantity="few">Zostały %d minuty</item>
+		<item quantity="many">Zostało %d minut</item>
+		<item quantity="other">Zostało %d minut</item>
+	</plurals>
+	<plurals name="x_hours_left">
+		<item quantity="one">Została %d godzina</item>
+		<item quantity="few">Zostały %d godziny</item>
+		<item quantity="many">Zostało %d godzin</item>
+		<item quantity="other">Zostało %d godzin</item>
+	</plurals>
+	<plurals name="x_days_left">
+		<item quantity="one">Został %d dzień</item>
+		<item quantity="few">Zostały %d dni</item>
+		<item quantity="many">Zostało %d dni</item>
+		<item quantity="other">Zostało %d dni</item>
+	</plurals>
+	<plurals name="x_voters">
+		<item quantity="one">%,d głosujący</item>
+		<item quantity="few">%,d głosujących</item>
+		<item quantity="many">%,d głosujących</item>
+		<item quantity="other">%,d głosujących</item>
+	</plurals>
 	<string name="poll_closed">Zamknięte</string>
 	<string name="confirm_mute_title">Wycisz konto</string>
 	<string name="confirm_mute">Potwierdź wyciszenie %s</string>
@@ -84,6 +158,18 @@
 	<string name="for_you">Dla Ciebie</string>
 	<string name="all_notifications">Wszystkie</string>
 	<string name="mentions">Wspomienia</string>
+	<plurals name="x_people_talking">
+		<item quantity="one">%d mówi o tym</item>
+		<item quantity="few">%d osoby mówią o tym</item>
+		<item quantity="many">%d osób mówi o tym</item>
+		<item quantity="other">%d osób mówi o tym</item>
+	</plurals>
+	<plurals name="discussed_x_times">
+		<item quantity="one">Omówione %d raz</item>
+		<item quantity="few">Omawiane %d razy</item>
+		<item quantity="many">Omawiane %d razy</item>
+		<item quantity="other">Omawiane %d razy</item>
+	</plurals>
 	<string name="report_title">Zgłoś %s</string>
 	<string name="report_choose_reason">Co jest nie tak z tym wpisem?</string>
 	<string name="report_choose_reason_account">Co jest nie tak z %s?</string>
@@ -110,8 +196,14 @@
 	<string name="mute_user_explain">Nie będziesz widzieć wpisów ani podbić tego użytkownika na stronie głównej. Ta osoba nie dowie się, że została wyciszona.</string>
 	<string name="block_user_explain">Ta osoba nie będzie mogła mogła Cię śledzić ani widzieć Twoich wpisów, ale może dowiedzieć się, że została zablokowana.</string>
 	<string name="report_personal_title">Nie chcesz tego widzieć?</string>
+	<string name="report_personal_subtitle">Gdy zobaczysz na Mastodonie coś, co Ci się nie spodoba, możesz usunąć daną osobę ze swojego doświadczenia.</string>
 	<string name="back">Wróć</string>
+	<string name="instance_catalog_title">Mastodon składa się z użytkowników na różnych serwerach.</string>
+	<string name="instance_catalog_subtitle">Wybierz serwer według Twoich zainteresowań, regionu lub ogólnotematyczny. Możesz nadal łączyć się ze wszystkimi, niezależnie od serwera.</string>
+	<string name="search_communities">Szukaj serwerów lub wprowadź adres URL</string>
+	<string name="instance_rules_title">Kilka podstawowych zasad</string>
 	<string name="instance_rules_subtitle">Poświęć chwilę, aby przejrzeć reguły ustalone i realizowane przez administratorów %s.</string>
+	<string name="signup_title">Skonfigurujmy Twoje konto na %s</string>
 	<string name="edit_photo">edytuj</string>
 	<string name="display_name">wyświetlana nazwa</string>
 	<string name="username">nazwa użytkownika</string>
@@ -157,10 +249,17 @@
 	<string name="skip">Pomiń</string>
 	<string name="notification_type_follow">Nowi śledzący</string>
 	<string name="notification_type_favorite">Polubienia</string>
+	<string name="notification_type_reblog">Podbicia</string>
 	<string name="notification_type_mention">Wspomienia</string>
 	<string name="notification_type_poll">Głosowania</string>
 	<string name="choose_account">Wybierz konto</string>
 	<string name="err_not_logged_in">Najpierw zaloguj się do Mastodona</string>
+	<plurals name="cant_add_more_than_x_attachments">
+		<item quantity="one">Nie możesz dodać więcej niż %d załącznik</item>
+		<item quantity="few">Nie możesz dodać więcej niż %d załączniki</item>
+		<item quantity="many">Nie możesz dodać więcej niż %d załączników</item>
+		<item quantity="other">Nie możesz dodać więcej niż %d załączników</item>
+	</plurals>
 	<string name="media_attachment_unsupported_type">Plik %s jest nieobsługiwanego rodzaju</string>
 	<string name="media_attachment_too_big">Plik %1$s przekracza limit rozmiaru %2$s MB</string>
 	<string name="settings_theme">Ustawienia wizualne</string>
@@ -179,7 +278,7 @@
 	<string name="notify_none">nikt</string>
 	<string name="notify_favorites">Doda mój wpis do ulubionych</string>
 	<string name="notify_follow">Zacznie mnie śledzić</string>
-	<string name="notify_reblog">Podbije mój wpis</string>
+	<string name="notify_reblog">Podbija mój wpis</string>
 	<string name="notify_mention">Wspomni o mnie</string>
 	<string name="settings_boring">Nudne opcje</string>
 	<string name="settings_account">Ustawienia konta</string>
@@ -215,6 +314,8 @@
 	<string name="unfollowed_user">Przestano obserwować %s</string>
 	<string name="followed_user">Od teraz śledzisz %s</string>
 	<string name="open_in_browser">Otwórz w przeglądarce</string>
+	<string name="hide_boosts_from_user">Ukryj podbicia od %s</string>
+	<string name="show_boosts_from_user">Pokaż podbicia od %s</string>
 	<string name="signup_reason">dlaczego chcesz dołączyć?</string>
 	<string name="signup_reason_note">To pomoże nam ocenić Twoją aplikację.</string>
 	<string name="clear">Wyczyść</string>
@@ -229,5 +330,45 @@
 	<string name="file_saved">Zapisano plik</string>
 	<string name="downloading">Pobieranie…</string>
 	<string name="no_app_to_handle_action">Brak aplikacji mogącej obsłużyć tę akcję</string>
+	<string name="local_timeline">Społeczność</string>
+	<string name="trending_posts_info_banner">Oto wpisy zyskujące popularność w Twoim zakątku Mastodona.</string>
+	<string name="trending_hashtags_info_banner">Oto hashtagi zyskujące popularność w Twoim zakątku Mastodona.</string>
+	<string name="trending_links_info_banner">Oto wiadomości, które są najczęściej udostępniane w Twoim zakątku Mastodona.</string>
+	<string name="local_timeline_info_banner">To są najnowsze wpisy osób używających tego samego serwera Mastodon co Ty.</string>
+	<string name="dismiss">Odrzuć</string>
+	<string name="see_new_posts">Zobacz nowe wpisy</string>
+	<string name="load_missing_posts">Załaduj brakujące wpisy</string>
+	<string name="follow_back">Śledź wzajemnie</string>
+	<string name="button_follow_pending">Oczekujące</string>
+	<string name="follows_you">Obserwuje cię</string>
+	<string name="manually_approves_followers">Ręcznie zatwierdza obserwujących</string>
+	<string name="current_account">Bieżące konto</string>
+	<string name="log_out_account">Wyloguj %s</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
+	<plurals name="x_followers">
+		<item quantity="one">%,d śledzący</item>
+		<item quantity="few">%,d śledzących</item>
+		<item quantity="many">%,d śledzących</item>
+		<item quantity="other">%,d śledzących</item>
+	</plurals>
+	<plurals name="x_following">
+		<item quantity="one">%,d śledzący</item>
+		<item quantity="few">%,d śledzących</item>
+		<item quantity="many">%,d śledzących</item>
+		<item quantity="other">%,d śledzących</item>
+	</plurals>
+	<plurals name="x_favorites">
+		<item quantity="one">%,d ulubiony</item>
+		<item quantity="few">%,d ulubione</item>
+		<item quantity="many">%,d ulubionych</item>
+		<item quantity="other">%,d ulubionych</item>
+	</plurals>
+	<plurals name="x_reblogs">
+		<item quantity="one">%,d podbicie</item>
+		<item quantity="few">%,d podbicia</item>
+		<item quantity="many">%,d podbić</item>
+		<item quantity="other">%,d podbić</item>
+	</plurals>
+	<string name="timestamp_via_app">%1$s przez %2$s</string>
+	<string name="time_now">przed chwilą</string>
 </resources>

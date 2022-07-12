@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="app_name">Mastodon</string>
 	<string name="get_started">Començar</string>
 	<string name="log_in">Iniciar sessió</string>
 	<string name="next">Següent</string>
@@ -168,6 +167,7 @@
 	<string name="report_personal_title">No vols veure això?</string>
 	<string name="report_personal_subtitle">Quan veus alguna cosa que no t\'agrada a Mastodon, pots eliminar la persona de la vostra experiència.</string>
 	<string name="back">Enrere</string>
+	<string name="search_communities">Cerca servidors o introdueix l\'URL</string>
 	<string name="instance_rules_title">Algunes normes bàsiques</string>
 	<string name="instance_rules_subtitle">Pren un minut per revisar les normes establertes i aplicades pels administradors de %s.</string>
 	<string name="signup_title">Deixa que et posem en marxa a %s</string>
@@ -298,5 +298,25 @@
 	<string name="trending_links_info_banner">Aquestes són les notícies que més es comparteixen en el teu racó de Mastodon.</string>
 	<string name="local_timeline_info_banner">Aquestes són les publicacions més recents de les persones que utilitzen el mateix servidor Mastodon que tu.</string>
 	<string name="dismiss">Ometre</string>
+	<string name="see_new_posts">Veure noves publicacions</string>
+	<string name="load_missing_posts">Carregar les publicacions faltants</string>
+	<string name="button_follow_pending">Pendent</string>
+	<string name="follows_you">Te segueix</string>
+	<string name="current_account">Compte actual</string>
+	<string name="log_out_account">Tancar sessió %s</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
+	<plurals name="x_followers">
+		<item quantity="one">%,d seguidor</item>
+		<item quantity="other">%,d seguidors</item>
+	</plurals>
+	<plurals name="x_following">
+		<item quantity="one">%,d seguint</item>
+		<item quantity="other">%,d seguint</item>
+	</plurals>
+	<plurals name="x_favorites">
+		<item quantity="one">%,d favorit</item>
+		<item quantity="other">%,d favorits</item>
+	</plurals>
+	<string name="timestamp_via_app">%1$s través de %2$s</string>
+	<string name="time_now">ara</string>
 </resources>

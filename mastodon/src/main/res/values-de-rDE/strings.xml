@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="app_name">Mastodon</string>
 	<string name="get_started">Loslegen</string>
 	<string name="log_in">Anmelden</string>
 	<string name="next">Weiter</string>
@@ -106,7 +105,7 @@
 	<string name="confirm_mute">Bestätigen um %s stummzuschalten</string>
 	<string name="do_mute">Stummschalten</string>
 	<string name="confirm_unmute_title">Konto nicht mehr stummschalten</string>
-	<string name="confirm_unmute">Bestätigen um %s nicht mehr stummzuschalten</string>
+	<string name="confirm_unmute">Bestätigen, um %s nicht mehr stummzuschalten</string>
 	<string name="do_unmute">Nicht mehr stummschalten</string>
 	<string name="confirm_block_title">Konto blockieren</string>
 	<string name="confirm_block_domain_title">Domain blockieren</string>
@@ -166,7 +165,7 @@
 	<string name="report_sent_subtitle">Während wir dies überprüfen, kannst du gegen %s vorgehen.</string>
 	<string name="unfollow_user">%s entfolgen</string>
 	<string name="unfollow">Entfolgen</string>
-	<string name="mute_user_explain">Du wirst die Beiträge vom Konto nicht mehr sehen. Das Konto kann dir immernoch folgen und die Person hinter dem Konto wird deine Beiträge sehen können und nicht wissen, dass du sie stumm geschaltet hast.</string>
+	<string name="mute_user_explain">Du wirst die Beiträge vom Konto nicht mehr sehen. Das Konto kann dir immer noch folgen, und die Person hinter dem Konto wird deine Beiträge sehen können und nicht wissen, dass du sie stummgeschaltet hast.</string>
 	<string name="block_user_explain">Du wirst die Beiträge von diesem Konto nicht sehen. Das Konto wird nicht in der Lage sein, deine Beiträge zu sehen oder dir zu folgen. Die Person hinter dem Konto wird wissen, dass du das Konto blockiert hast.</string>
 	<string name="report_personal_title">Du willst das nicht mehr sehen?</string>
 	<string name="report_personal_subtitle">Wenn du etwas auf Mastodon nicht sehen willst, kannst du den Nutzer aus deiner Erfahrung streichen.</string>
@@ -242,10 +241,10 @@
 	<string name="settings_gif">Spiele animierte Avatare und Emojis ab</string>
 	<string name="settings_custom_tabs">Verwende In-App-Browser</string>
 	<string name="settings_notifications">Benachrichtigungen</string>
-	<string name="notify_me_when">Benachrichtige mich wenn</string>
+	<string name="notify_me_when">Benachrichtige mich, wenn</string>
 	<string name="notify_anyone">jeder</string>
 	<string name="notify_follower">ein Follower</string>
-	<string name="notify_followed">jemand, den ich folge</string>
+	<string name="notify_followed">jemand, dem ich folge</string>
 	<string name="notify_none">niemand</string>
 	<string name="notify_favorites">Meinen Beitrag favorisiert</string>
 	<string name="notify_follow">Mir folgt</string>
@@ -308,13 +307,13 @@
 	<string name="local_timeline_info_banner">Dies sind die neuesten Beiträge der Leute, die den gleichen Mastodon-Server verwenden wie du.</string>
 	<string name="dismiss">Verwerfen</string>
 	<string name="see_new_posts">Neue Beiträge anzeigen</string>
-	<string name="load_missing_posts">Fehlende Beiträge Laden</string>
+	<string name="load_missing_posts">Fehlende Beiträge laden</string>
 	<string name="follow_back">Zurück folgen</string>
 	<string name="button_follow_pending">Ausstehend</string>
 	<string name="follows_you">Folgt dir</string>
 	<string name="manually_approves_followers">Genehmigt Folgende manuell</string>
 	<string name="current_account">Aktuelles Konto</string>
-	<string name="log_out_account">%s ausloggen</string>
+	<string name="log_out_account">Ausloggen</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<plurals name="x_followers">
 		<item quantity="one">%,d Follower</item>
@@ -332,4 +331,6 @@
 		<item quantity="one">%,d Reblog</item>
 		<item quantity="other">%,d Reblogs</item>
 	</plurals>
+	<string name="timestamp_via_app">%1$s via %2$s</string>
+	<string name="time_now">jetzt</string>
 </resources>
