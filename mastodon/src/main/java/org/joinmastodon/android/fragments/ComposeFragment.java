@@ -1040,16 +1040,16 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 			case DIRECT -> R.id.vis_private;
 		}).setChecked(true);
 
-		if (statusVisibility != StatusPrivacy.UNLISTED) {
+		if (statusVisibility != StatusPrivacy.UNLISTED){
 			m.findItem(R.id.vis_unlisted).setVisible(false);
 		}
 		menu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener(){
 			@Override
 			public boolean onMenuItemClick(MenuItem item){
 				int id=item.getItemId();
-				if(id==R.id.vis_public) {
+				if(id==R.id.vis_public){
 					statusVisibility=StatusPrivacy.PUBLIC;
-				}else if(id==R.id.vis_unlisted) {
+				}else if(id==R.id.vis_unlisted){
 					statusVisibility=StatusPrivacy.UNLISTED;
 				}else if(id==R.id.vis_followers){
 					statusVisibility=StatusPrivacy.PRIVATE;
@@ -1064,7 +1064,7 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 		menu.show();
 	}
 
-	private boolean onVisibilityLongClick(View v) {
+	private boolean onVisibilityLongClick(View v){
 		statusVisibility = StatusPrivacy.UNLISTED;
 		updateVisibilityIcon();
 		return true;
