@@ -94,6 +94,10 @@
 
 	<style name="Theme.Mastodon.Dark.TrueBlack">
 		<item name="colorWindowBackground">#000</item>
+		<item name="android:navigationBarColor">#000</item>
+		<item name="colorButtonText">#000</item>
+		<item name="android:colorBackground">#000</item>
+		<item name="colorBackgroundLightest">#000</item>
 	</style>
 
 	<style name="Theme.Mastodon.AutoLightDark" parent="Theme.Mastodon.Light"/>
@@ -115,7 +119,7 @@
 		<item name="android:textColorPrimary">@color/gray_50</item>
 		<item name="android:textColorSecondary">@color/gray_50</item>
 		<item name="android:drawableTint">@color/gray_50</item>
-		<item name="android:popupTheme">@style/Theme.Mastodon.AutoLightDark</item>
+		<item name="android:popupBackground">@drawable/bg_popup</item>
 		<item name="android:titleTextAppearance">@style/m3_title_medium</item>
 		<item name="android:titleTextColor">@color/gray_50</item>
 		<item name="android:subtitleTextAppearance">@style/m3_body_medium</item>
