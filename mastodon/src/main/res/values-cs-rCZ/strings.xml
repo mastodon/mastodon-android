@@ -230,6 +230,27 @@
 	<string name="notification_type_poll">Ankety</string>
 	<string name="choose_account">Vybrat účet</string>
 	<string name="err_not_logged_in">Nejprve se přihlaste do Mastodonu</string>
+	<plurals name="cant_add_more_than_x_attachments">
+		<item quantity="one">Nelze přidat více než %d multimediálních příloh</item>
+		<item quantity="few">Nelze přidat více než %d multimediální přílohy</item>
+		<item quantity="many">Nelze přidat více než %d multimediálních příloh</item>
+		<item quantity="other">Nelze přidat více než %d multimediálních příloh</item>
+	</plurals>
+	<string name="media_attachment_unsupported_type">Soubor %s nepatří mezi podporované typy</string>
+	<string name="media_attachment_too_big">Soubor %1$s překračuje limit velikosti %2$s MB</string>
+	<string name="settings_theme">Vizuální podoba</string>
+	<string name="theme_auto">Automatická</string>
+	<string name="theme_light">Světlá</string>
+	<string name="theme_dark">Tmavá</string>
+	<string name="theme_true_black">Režim skutečně černé</string>
+	<string name="settings_behavior">Chování</string>
+	<string name="settings_gif">Přehrávat animované avatary a emoji</string>
+	<string name="settings_custom_tabs">Používat interní prohlížeč</string>
+	<string name="settings_notifications">Upozornění</string>
+	<string name="notify_me_when">Upozornit mě, když</string>
+	<string name="notify_anyone">kdokoliv</string>
+	<string name="notify_follower">sledující</string>
+	<string name="notify_followed">někdo, koho sleduji</string>
 	<string name="notify_none">nikoho</string>
 	<string name="notify_favorites">Oblíbil si můj příspěvek</string>
 	<string name="notify_follow">Sleduje mě</string>
@@ -240,5 +261,12 @@
 	<string name="settings_contribute">Přispějte do Mastodonu</string>
 	<string name="settings_tos">Podmínky používání</string>
 	<string name="settings_privacy_policy">Zásady ochrany osobních údajů</string>
+	<string name="settings_spicy">Ostrá část</string>
+	<string name="settings_clear_cache">Vymazat mezipaměť médií</string>
+	<string name="settings_app_version">Mastodon pro Android v%1$s (%2$d)</string>
+	<string name="media_cache_cleared">Mezipaměť médií vymazána</string>
+	<string name="confirm_log_out">Opravdu se chcete odhlásit?</string>
+	<string name="sensitive_content">Citlivý obsah</string>
+	<string name="sensitive_content_explain">Autor označil toto médium za citlivé. Klepnutím zobrazíte.</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 </resources>
