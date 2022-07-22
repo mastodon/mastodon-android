@@ -5,7 +5,7 @@ import org.joinmastodon.android.model.Status;
 public class StatusCountersUpdatedEvent{
 	public String id;
 	public int favorites, reblogs, replies;
-	public boolean favorited, reblogged;
+	public boolean favorited, reblogged, pinned;
 
 	public StatusCountersUpdatedEvent(Status s){
 		id=s.id;
@@ -14,5 +14,6 @@ public class StatusCountersUpdatedEvent{
 		replies=s.repliesCount;
 		favorited=s.favourited;
 		reblogged=s.reblogged;
+		pinned=s.pinned;
 	}
 }
