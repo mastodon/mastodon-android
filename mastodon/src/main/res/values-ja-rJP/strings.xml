@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="app_name">Mastodon</string>
 	<string name="get_started">はじめる</string>
 	<string name="log_in">ログイン</string>
 	<string name="next">次へ</string>
@@ -13,15 +12,15 @@
 	<string name="user_boosted">%sがブースト</string>
 	<string name="in_reply_to">%s へ返信</string>
 	<string name="notifications">通知</string>
-	<string name="user_followed_you">フォローされました</string>
+	<string name="user_followed_you">がフォロー</string>
 	<string name="user_sent_follow_request">フォローリクエストを送信しました</string>
-	<string name="user_favorited">あなたの投稿をお気に入りに登録</string>
-	<string name="notification_boosted">さんがあなたの投稿をブーストしました</string>
+	<string name="user_favorited">がお気に入りに登録</string>
+	<string name="notification_boosted">がブースト</string>
 	<string name="poll_ended">アンケートが終了しました</string>
-	<string name="time_seconds">%d 秒前</string>
-	<string name="time_minutes">%d 分前</string>
-	<string name="time_hours">%d 時間前</string>
-	<string name="time_days">%d 日前</string>
+	<string name="time_seconds">%d秒前</string>
+	<string name="time_minutes">%d分前</string>
+	<string name="time_hours">%d時間前</string>
+	<string name="time_days">%d日前</string>
 	<string name="share_toot_title">共有</string>
 	<string name="settings">設定</string>
 	<string name="publish">公開</string>
@@ -54,7 +53,7 @@
 	<string name="block_domain">ブロック %s</string>
 	<string name="unblock_domain">ブロック %s</string>
 	<plurals name="x_posts">
-		<item quantity="other">%d 件の投稿</item>
+		<item quantity="other">%d件の投稿</item>
 	</plurals>
 	<string name="profile_joined">登録日</string>
 	<string name="done">完了</string>
@@ -214,12 +213,12 @@
 	<string name="choose_account">アカウントを選択</string>
 	<string name="err_not_logged_in">まずはアカウントにログインしてください</string>
 	<plurals name="cant_add_more_than_x_attachments">
-		<item quantity="other">%d 件以上のメディア添付ファイルを追加することはできません</item>
+		<item quantity="other">%d件以上のメディア添付ファイルを追加することはできません</item>
 	</plurals>
 	<string name="media_attachment_unsupported_type">ファイル %s はサポートされていないファイル形式です</string>
 	<string name="media_attachment_too_big">f</string>
 	<string name="settings_theme">テーマを選択</string>
-	<string name="theme_auto">システムに合わせる</string>
+	<string name="theme_auto">システム</string>
 	<string name="theme_light">ライト</string>
 	<string name="theme_dark">ダーク</string>
 	<string name="theme_true_black">真っ黒なダークテーマを使用する</string>
@@ -314,4 +313,5 @@
 		<item quantity="other">%,d ブースト</item>
 	</plurals>
 	<string name="timestamp_via_app">%1$sに%2$s経由</string>
+	<string name="time_now">今</string>
 </resources>

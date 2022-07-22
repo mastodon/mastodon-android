@@ -2,13 +2,16 @@ package org.joinmastodon.android.api.requests.accounts;
 
 import android.net.Uri;
 
+import org.joinmastodon.android.api.AvatarResizedImageRequestBody;
 import org.joinmastodon.android.api.ContentUriRequestBody;
 import org.joinmastodon.android.api.MastodonAPIRequest;
+import org.joinmastodon.android.api.ResizedImageRequestBody;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.AccountField;
 import org.joinmastodon.android.ui.utils.UiUtils;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 import okhttp3.MultipartBody;
@@ -39,21 +42,21 @@ public class UpdateAccountCredentials extends MastodonAPIRequest<Account>{
 	}
 
 	@Override
-	public RequestBody getRequestBody(){
+	public RequestBody getRequestBody() throws IOException{
 		MultipartBody.Builder bldr=new MultipartBody.Builder()
 				.setType(MultipartBody.FORM)
 				.addFormDataPart("display_name", displayName)
 				.addFormDataPart("note", bio);
 
 		if(avatar!=null){
-			bldr.addFormDataPart("avatar", UiUtils.getFileName(avatar), new ContentUriRequestBody(avatar, null));
+			bldr.addFormDataPart("avatar", UiUtils.getFileName(avatar), new AvatarResizedImageRequestBody(avatar, null));
 		}else if(avatarFile!=null){
-			bldr.addFormDataPart("avatar", avatarFile.getName(), RequestBody.create(UiUtils.getFileMediaType(avatarFile), avatarFile));
+			bldr.addFormDataPart("avatar", avatarFile.getName(), new AvatarResizedImageRequestBody(Uri.fromFile(avatarFile), null));
 		}
 		if(cover!=null){
-			bldr.addFormDataPart("header", UiUtils.getFileName(cover), new ContentUriRequestBody(cover, null));
+			bldr.addFormDataPart("header", UiUtils.getFileName(cover), new ResizedImageRequestBody(cover, 1500*500, null));
 		}else if(coverFile!=null){
-			bldr.addFormDataPart("header", coverFile.getName(), RequestBody.create(UiUtils.getFileMediaType(coverFile), coverFile));
+			bldr.addFormDataPart("header", coverFile.getName(), new ResizedImageRequestBody(Uri.fromFile(coverFile), 1500*500, null));
 		}
 		if(fields.isEmpty()){
 			bldr.addFormDataPart("fields_attributes[0][name]", "").addFormDataPart("fields_attributes[0][value]", "");

@@ -9,6 +9,7 @@ import android.util.Log;
 import org.joinmastodon.android.api.ObjectValidationException;
 import org.joinmastodon.android.api.session.AccountSession;
 import org.joinmastodon.android.api.session.AccountSessionManager;
+import org.joinmastodon.android.fragments.ComposeFragment;
 import org.joinmastodon.android.fragments.HomeFragment;
 import org.joinmastodon.android.fragments.ProfileFragment;
 import org.joinmastodon.android.fragments.SplashFragment;
@@ -56,6 +57,8 @@ public class MainActivity extends FragmentStackActivity{
 				if(intent.getBooleanExtra("fromNotification", false) && intent.hasExtra("notification")){
 					Notification notification=Parcels.unwrap(intent.getParcelableExtra("notification"));
 					showFragmentForNotification(notification, session.getID());
+				}else if(intent.getBooleanExtra("compose", false)){
+					showCompose();
 				}
 			}
 		}
@@ -91,6 +94,8 @@ public class MainActivity extends FragmentStackActivity{
 				fragment.setArguments(args);
 				showFragmentClearingBackStack(fragment);
 			}
+		}else if(intent.getBooleanExtra("compose", false)){
+			showCompose();
 		}
 	}
 
@@ -114,5 +119,16 @@ public class MainActivity extends FragmentStackActivity{
 		}
 		fragment.setArguments(args);
 		showFragment(fragment);
+	}
+
+	private void showCompose(){
+		AccountSession session=AccountSessionManager.getInstance().getLastActiveAccount();
+		if(session==null || !session.activated)
+			return;
+		ComposeFragment compose=new ComposeFragment();
+		Bundle composeArgs=new Bundle();
+		composeArgs.putString("account", session.getID());
+		compose.setArguments(composeArgs);
+		showFragment(compose);
 	}
 }

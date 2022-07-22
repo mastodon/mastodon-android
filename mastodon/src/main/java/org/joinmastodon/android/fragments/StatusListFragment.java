@@ -13,7 +13,6 @@ import org.joinmastodon.android.events.StatusUnpinnedEvent;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.displayitems.ExtendedFooterStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.FooterStatusDisplayItem;
-import org.joinmastodon.android.ui.displayitems.HeaderStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.StatusDisplayItem;
 import org.parceler.Parcels;
 
@@ -116,10 +115,15 @@ public abstract class StatusListFragment extends BaseStatusListFragment<Status>{
 				return;
 			data.remove(status);
 			preloadedData.remove(status);
-			HeaderStatusDisplayItem item=findItemOfType(ev.id, HeaderStatusDisplayItem.class);
-			if(item==null)
+			int index=-1;
+			for(int i=0;i<displayItems.size();i++){
+				if(ev.id.equals(displayItems.get(i).parentID)){
+					index=i;
+					break;
+				}
+			}
+			if(index==-1)
 				return;
-			int index=displayItems.indexOf(item);
 			int lastIndex;
 			for(lastIndex=index;lastIndex<displayItems.size();lastIndex++){
 				if(!displayItems.get(lastIndex).parentID.equals(ev.id))

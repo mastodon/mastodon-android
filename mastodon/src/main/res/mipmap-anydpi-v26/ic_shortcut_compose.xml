@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+    <background>
+        <shape>
+            <solid android:color="@color/shortcut_icon_background"/>
+            <size android:width="108dp" android:height="108dp"/>
+        </shape>
+    </background>
+    <foreground android:drawable="@drawable/ic_compose_foreground"/>
+</adaptive-icon>

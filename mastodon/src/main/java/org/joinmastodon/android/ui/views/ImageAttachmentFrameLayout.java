@@ -36,7 +36,7 @@ public class ImageAttachmentFrameLayout extends FrameLayout{
 			super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 			return;
 		}
-		int w=Math.min(((View)getParent()).getMeasuredWidth()-horizontalInset, V.dp(MAX_WIDTH));
+		int w=Math.min(((View)getParent()).getMeasuredWidth(), V.dp(MAX_WIDTH))-horizontalInset;
 		int actualHeight=Math.round(tile.height/1000f*w)+V.dp(1)*(tile.rowSpan-1);
 		int actualWidth=Math.round(tile.width/1000f*w);
 		if(tile.startCol+tile.colSpan<tileLayout.columnSizes.length)

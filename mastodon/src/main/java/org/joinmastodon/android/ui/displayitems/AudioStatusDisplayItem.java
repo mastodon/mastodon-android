@@ -92,7 +92,9 @@ public class AudioStatusDisplayItem extends StatusDisplayItem{
 		public void onBind(AudioStatusDisplayItem item){
 			int seconds=(int)item.attachment.getDuration();
 			String duration=formatDuration(seconds);
-			time.getLayoutParams().width=(int)Math.ceil(time.getPaint().measureText("-"+duration));
+			// Some fonts (not Roboto) have different-width digits. 0 is supposedly the widest.
+			time.getLayoutParams().width=(int)Math.ceil(Math.max(time.getPaint().measureText("-"+duration),
+					time.getPaint().measureText("-"+duration.replaceAll("\\d", "0"))));
 			time.setText(duration);
 			AudioPlayerService service=AudioPlayerService.getInstance();
 			if(service!=null && service.getAttachmentID().equals(item.attachment.id)){
