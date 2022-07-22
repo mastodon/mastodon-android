@@ -326,7 +326,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 		if(postsFragment==null){
 			postsFragment=AccountTimelineFragment.newInstance(accountID, account, GetAccountStatuses.Filter.DEFAULT, true);
 			postsWithRepliesFragment=AccountTimelineFragment.newInstance(accountID, account, GetAccountStatuses.Filter.INCLUDE_REPLIES, false);
-			pinnedPostsFragment =AccountTimelineFragment.newInstance(accountID, account, GetAccountStatuses.Filter.PINNED, false);
+			pinnedPostsFragment=AccountTimelineFragment.newInstance(accountID, account, GetAccountStatuses.Filter.PINNED, false);
 			mediaFragment=AccountTimelineFragment.newInstance(accountID, account, GetAccountStatuses.Filter.MEDIA, false);
 			aboutFragment=new ProfileAboutFragment();
 			aboutFragment.setFields(fields);
