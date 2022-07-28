@@ -9,20 +9,21 @@
 		android:layout_height="wrap_content"
 		android:orientation="vertical">
 
-		<org.joinmastodon.android.ui.views.ComposeMediaLayout
-			android:layout_width="wrap_content"
+		<org.joinmastodon.android.ui.views.MaxWidthFrameLayout
+			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:layout_gravity="center_horizontal">
+			android:layout_gravity="center"
+			android:maxWidth="400dp">
 
 			<ImageView
 				android:id="@+id/photo"
 				android:layout_width="match_parent"
-				android:layout_height="match_parent"
-				android:scaleType="centerCrop"
+				android:layout_height="wrap_content"
+				android:adjustViewBounds="true"
 				android:importantForAccessibility="no"
 				tools:src="#0f0"/>
 
-		</org.joinmastodon.android.ui.views.ComposeMediaLayout>
+		</org.joinmastodon.android.ui.views.MaxWidthFrameLayout>
 
 		<TextView
 			android:id="@+id/title"
