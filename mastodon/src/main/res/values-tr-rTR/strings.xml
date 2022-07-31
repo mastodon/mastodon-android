@@ -29,11 +29,11 @@
 	<string name="cancel">İptal</string>
 	<plurals name="followers">
 		<item quantity="one">Takipçi</item>
-		<item quantity="other">Takipçiler</item>
+		<item quantity="other">Takipçi</item>
 	</plurals>
 	<plurals name="following">
-		<item quantity="one">Takip edilen</item>
-		<item quantity="other">Takip edilenler</item>
+		<item quantity="one">Takip</item>
+		<item quantity="other">Takip</item>
 	</plurals>
 	<plurals name="posts">
 		<item quantity="one">gönderi</item>
@@ -332,4 +332,5 @@
 		<item quantity="other">%,d yeniden paylaşım</item>
 	</plurals>
 	<string name="timestamp_via_app">%1$s tarihinde %2$s uygulamasıyla</string>
+	<string name="time_now">şimdi</string>
 </resources>
