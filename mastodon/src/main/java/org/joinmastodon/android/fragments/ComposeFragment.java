@@ -433,9 +433,10 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 
 			@Override
 			public void afterTextChanged(Editable s){
-				updateCharCounter(s);
+				updateCharCounter();
 			}
 		});
+		spoilerEdit.addTextChangedListener(new SimpleTextWatcher(e->updateCharCounter()));
 		if(replyTo!=null){
 			replyText.setText(getString(R.string.in_reply_to, replyTo.account.displayName));
 			ArrayList<String> mentions=new ArrayList<>();
@@ -523,7 +524,9 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 	}
 
 	@SuppressLint("NewApi")
-	private void updateCharCounter(CharSequence text){
+	private void updateCharCounter(){
+		CharSequence text=mainEditText.getText();
+
 		String countableText=TwitterTextEmojiRegex.VALID_EMOJI_PATTERN.matcher(
 				MENTION_PATTERN.matcher(
 						URL_PATTERN.matcher(text).replaceAll("$2xxxxxxxxxxxxxxxxxxxxxxx")
@@ -535,6 +538,9 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 			charCount++;
 		}
 
+		if(hasSpoiler){
+			charCount+=spoilerEdit.length();
+		}
 		charCounter.setText(String.valueOf(charLimit-charCount));
 		trimmedCharCount=text.toString().trim().length();
 		updatePublishButtonState();
@@ -1019,6 +1025,7 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 			spoilerEdit.setText("");
 			spoilerBtn.setSelected(false);
 			mainEditText.requestFocus();
+			updateCharCounter();
 		}
 	}
 
