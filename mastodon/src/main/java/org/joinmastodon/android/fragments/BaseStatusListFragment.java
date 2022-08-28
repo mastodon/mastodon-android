@@ -457,7 +457,7 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 		status.spoilerRevealed=true;
 		TextStatusDisplayItem.Holder text=findHolderOfType(itemID, TextStatusDisplayItem.Holder.class);
 		if(text!=null)
-			adapter.notifyItemChanged(text.getAbsoluteAdapterPosition()+getMainAdapterOffset());
+			adapter.notifyItemChanged(text.getAbsoluteAdapterPosition()-getMainAdapterOffset());
 		HeaderStatusDisplayItem.Holder header=findHolderOfType(itemID, HeaderStatusDisplayItem.Holder.class);
 		if(header!=null)
 			header.rebind();

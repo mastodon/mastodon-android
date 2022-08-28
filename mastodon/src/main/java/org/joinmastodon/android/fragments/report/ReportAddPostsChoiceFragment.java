@@ -85,7 +85,7 @@ public class ReportAddPostsChoiceFragment extends StatusListFragment{
 
 	@Override
 	protected void doLoadData(int offset, int count){
-		currentRequest=new GetAccountStatuses(reportAccount.id, offset>0 ? getMaxID() : null, null, count, GetAccountStatuses.Filter.NO_REBLOGS)
+		currentRequest=new GetAccountStatuses(reportAccount.id, offset>0 ? getMaxID() : null, null, count, GetAccountStatuses.Filter.OWN_POSTS_AND_REPLIES)
 				.setCallback(new SimpleCallback<>(this){
 					@Override
 					public void onSuccess(List<Status> result){
