@@ -579,6 +579,10 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 		return true;
 	}
 
+	public ArrayList<StatusDisplayItem> getDisplayItems(){
+		return displayItems;
+	}
+
 	@Override
 	public void onApplyWindowInsets(WindowInsets insets){
 		if(Build.VERSION.SDK_INT>=29 && insets.getTappableElementInsets().bottom==0 && wantsOverlaySystemNavigation()){

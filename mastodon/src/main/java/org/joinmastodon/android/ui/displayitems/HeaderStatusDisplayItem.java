@@ -175,7 +175,10 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 		public void onBind(HeaderStatusDisplayItem item){
 			name.setText(item.parsedName);
 			username.setText('@'+item.user.acct);
-			timestamp.setText(UiUtils.formatRelativeTimestamp(itemView.getContext(), item.createdAt));
+			if(item.status==null || item.status.editedAt==null)
+				timestamp.setText(UiUtils.formatRelativeTimestamp(itemView.getContext(), item.createdAt));
+			else
+				timestamp.setText(item.parentFragment.getString(R.string.edited_timestamp, UiUtils.formatRelativeTimestamp(itemView.getContext(), item.status.editedAt)));
 			visibility.setVisibility(item.hasVisibilityToggle && !item.inset ? View.VISIBLE : View.GONE);
 			if(item.hasVisibilityToggle){
 				visibility.setImageResource(item.status.spoilerRevealed ? R.drawable.ic_visibility_off : R.drawable.ic_visibility);

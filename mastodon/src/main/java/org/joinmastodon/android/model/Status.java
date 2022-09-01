@@ -37,6 +37,7 @@ public class Status extends BaseModel implements DisplayItemsParent{
 	public int reblogsCount;
 	public int favouritesCount;
 	public int repliesCount;
+	public Instant editedAt;
 
 	public String url;
 	public String inReplyToId;

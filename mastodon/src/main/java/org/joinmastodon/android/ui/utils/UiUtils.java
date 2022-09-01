@@ -62,6 +62,7 @@ import java.time.Instant;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -85,6 +86,7 @@ import okhttp3.MediaType;
 public class UiUtils{
 	private static Handler mainHandler=new Handler(Looper.getMainLooper());
 	private static final DateTimeFormatter DATE_FORMATTER_SHORT_WITH_YEAR=DateTimeFormatter.ofPattern("d MMM uuuu"), DATE_FORMATTER_SHORT=DateTimeFormatter.ofPattern("d MMM");
+	public static final DateTimeFormatter DATE_TIME_FORMATTER=DateTimeFormatter.ofLocalizedDateTime(FormatStyle.LONG, FormatStyle.SHORT);
 
 	private UiUtils(){}
 
@@ -126,6 +128,23 @@ public class UiUtils{
 				}
 			}
 			return context.getString(R.string.time_days, days);
+		}
+	}
+
+	public static String formatRelativeTimestampAsMinutesAgo(Context context, Instant instant){
+		long t=instant.toEpochMilli();
+		long now=System.currentTimeMillis();
+		long diff=now-t;
+		if(diff<1000L){
+			return context.getString(R.string.time_just_now);
+		}else if(diff<60_000L){
+			int secs=(int)(diff/1000L);
+			return context.getResources().getQuantityString(R.plurals.x_seconds_ago, secs, secs);
+		}else if(diff<3600_000L){
+			int mins=(int)(diff/60_000L);
+			return context.getResources().getQuantityString(R.plurals.x_minutes_ago, mins, mins);
+		}else{
+			return DATE_TIME_FORMATTER.format(instant.atZone(ZoneId.systemDefault()));
 		}
 	}
 

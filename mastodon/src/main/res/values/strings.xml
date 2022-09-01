@@ -340,4 +340,32 @@
 	</plurals>
 	<string name="timestamp_via_app">%1$s via %2$s</string>
 	<string name="time_now">now</string>
+	<string name="post_info_reblogs">Reblogs</string>
+	<string name="post_info_favorites">Favorites</string>
+	<string name="edit_history">Edit history</string>
+	<string name="last_edit_at_x">Last edit %s</string>
+	<string name="time_just_now">just now</string>
+	<plurals name="x_seconds_ago">
+		<item quantity="one">%d second ago</item>
+		<item quantity="other">%d seconds ago</item>
+	</plurals>
+	<plurals name="x_minutes_ago">
+		<item quantity="one">%d minute ago</item>
+		<item quantity="other">%d minutes ago</item>
+	</plurals>
+	<string name="edited_timestamp">edited %s</string>
+	<string name="edit_original_post">Original post</string>
+	<string name="edit_text_edited">Text edited</string>
+	<string name="edit_spoiler_added">Content warning added</string>
+	<string name="edit_spoiler_edited">Content warning edited</string>
+	<string name="edit_spoiler_removed">Content warning removed</string>
+	<string name="edit_poll_added">Poll added</string>
+	<string name="edit_poll_edited">Poll edited</string>
+	<string name="edit_poll_removed">Poll removed</string>
+	<string name="edit_media_added">Media added</string>
+	<string name="edit_media_removed">Media removed</string>
+	<string name="edit_media_reordered">Media reordered</string>
+	<string name="edit_marked_sensitive">Marked sensitive</string>
+	<string name="edit_marked_not_sensitive">Marked not sensitive</string>
+	<string name="edit_multiple_changed">Post edited</string>
 </resources>

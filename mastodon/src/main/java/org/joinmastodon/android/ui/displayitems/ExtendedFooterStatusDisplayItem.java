@@ -1,5 +1,6 @@
 package org.joinmastodon.android.ui.displayitems;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
 import android.text.SpannableStringBuilder;
@@ -12,6 +13,7 @@ import android.widget.TextView;
 
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.fragments.BaseStatusListFragment;
+import org.joinmastodon.android.fragments.StatusEditHistoryFragment;
 import org.joinmastodon.android.fragments.account_list.StatusFavoritesListFragment;
 import org.joinmastodon.android.fragments.account_list.StatusReblogsListFragment;
 import org.joinmastodon.android.fragments.account_list.StatusRelatedAccountListFragment;
@@ -43,39 +45,35 @@ public class ExtendedFooterStatusDisplayItem extends StatusDisplayItem{
 	}
 
 	public static class Holder extends StatusDisplayItem.Holder<ExtendedFooterStatusDisplayItem>{
-		private final TextView reblogs, favorites, time;
-		private final View buttonsView;
+		private final TextView time, favoritesCount, reblogsCount, lastEditTime;
+		private final View favorites, reblogs, editHistory;
 
 		public Holder(Context context, ViewGroup parent){
 			super(context, R.layout.display_item_extended_footer, parent);
 			reblogs=findViewById(R.id.reblogs);
 			favorites=findViewById(R.id.favorites);
+			editHistory=findViewById(R.id.edit_history);
 			time=findViewById(R.id.timestamp);
-			buttonsView=findViewById(R.id.button_bar);
+			favoritesCount=findViewById(R.id.favorites_count);
+			reblogsCount=findViewById(R.id.reblogs_count);
+			lastEditTime=findViewById(R.id.last_edited);
 
 			reblogs.setOnClickListener(v->startAccountListFragment(StatusReblogsListFragment.class));
 			favorites.setOnClickListener(v->startAccountListFragment(StatusFavoritesListFragment.class));
+			editHistory.setOnClickListener(v->startEditHistoryFragment());
 		}
 
+		@SuppressLint("DefaultLocale")
 		@Override
 		public void onBind(ExtendedFooterStatusDisplayItem item){
 			Status s=item.status;
-			if(s.favouritesCount>0){
-				favorites.setVisibility(View.VISIBLE);
-				favorites.setText(getFormattedPlural(R.plurals.x_favorites, s.favouritesCount));
+			favoritesCount.setText(String.format("%,d", s.favouritesCount));
+			reblogsCount.setText(String.format("%,d", s.reblogsCount));
+			if(s.editedAt!=null){
+				editHistory.setVisibility(View.VISIBLE);
+				lastEditTime.setText(item.parentFragment.getString(R.string.last_edit_at_x, UiUtils.formatRelativeTimestampAsMinutesAgo(itemView.getContext(), s.editedAt)));
 			}else{
-				favorites.setVisibility(View.GONE);
-			}
-			if(s.reblogsCount>0){
-				reblogs.setVisibility(View.VISIBLE);
-				reblogs.setText(getFormattedPlural(R.plurals.x_reblogs, s.reblogsCount));
-			}else{
-				reblogs.setVisibility(View.GONE);
-			}
-			if(s.favouritesCount==0 && s.reblogsCount==0){
-				buttonsView.setVisibility(View.GONE);
-			}else{
-				buttonsView.setVisibility(View.VISIBLE);
+				editHistory.setVisibility(View.GONE);
 			}
 			String timeStr=TIME_FORMATTER.format(item.status.createdAt.atZone(ZoneId.systemDefault()));
 			if(item.status.application!=null && !TextUtils.isEmpty(item.status.application.name)){
@@ -107,6 +105,13 @@ public class ExtendedFooterStatusDisplayItem extends StatusDisplayItem{
 			args.putString("account", item.parentFragment.getAccountID());
 			args.putParcelable("status", Parcels.wrap(item.status));
 			Nav.go(item.parentFragment.getActivity(), cls, args);
+		}
+
+		private void startEditHistoryFragment(){
+			Bundle args=new Bundle();
+			args.putString("account", item.parentFragment.getAccountID());
+			args.putString("id", item.status.id);
+			Nav.go(item.parentFragment.getActivity(), StatusEditHistoryFragment.class, args);
 		}
 	}
 }
