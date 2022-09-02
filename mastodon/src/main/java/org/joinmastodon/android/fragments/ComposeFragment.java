@@ -53,17 +53,20 @@ import org.joinmastodon.android.MastodonApp;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.ProgressListener;
 import org.joinmastodon.android.api.requests.statuses.CreateStatus;
+import org.joinmastodon.android.api.requests.statuses.EditStatus;
 import org.joinmastodon.android.api.requests.statuses.UploadAttachment;
 import org.joinmastodon.android.api.session.AccountSession;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.events.StatusCountersUpdatedEvent;
 import org.joinmastodon.android.events.StatusCreatedEvent;
+import org.joinmastodon.android.events.StatusUpdatedEvent;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.Attachment;
 import org.joinmastodon.android.model.Emoji;
 import org.joinmastodon.android.model.EmojiCategory;
 import org.joinmastodon.android.model.Instance;
 import org.joinmastodon.android.model.Mention;
+import org.joinmastodon.android.model.Poll;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.model.StatusPrivacy;
 import org.joinmastodon.android.ui.ComposeAutocompleteViewController;
@@ -174,6 +177,8 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 	private Instance instance;
 	private boolean attachmentsErrorShowing;
 
+	private Status editingStatus;
+
 	@Override
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
@@ -185,6 +190,9 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 		instanceDomain=session.domain;
 		customEmojis=AccountSessionManager.getInstance().getCustomEmojis(instanceDomain);
 		instance=AccountSessionManager.getInstance().getInstanceInfo(instanceDomain);
+		if(getArguments().containsKey("editStatus")){
+			editingStatus=Parcels.unwrap(getArguments().getParcelable("editStatus"));
+		}
 		if(instance==null){
 			Nav.finish(this);
 			return;
@@ -296,6 +304,16 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 			}
 			updatePollOptionHints();
 			pollDurationView.setText(getString(R.string.compose_poll_duration, pollDurationStr));
+		}else if(savedInstanceState==null && editingStatus!=null && editingStatus.poll!=null){
+			pollBtn.setSelected(true);
+			mediaBtn.setEnabled(false);
+			pollWrap.setVisibility(View.VISIBLE);
+			for(Poll.Option eopt:editingStatus.poll.options){
+				DraftPollOption opt=createDraftPollOption();
+				opt.edit.setText(eopt.title);
+			}
+			updatePollOptionHints();
+			pollDurationView.setText(getString(R.string.compose_poll_duration, pollDurationStr));
 		}else{
 			pollDurationView.setText(getString(R.string.compose_poll_duration, pollDurationStr=getResources().getQuantityString(R.plurals.x_days, 1, 1)));
 		}
@@ -307,6 +325,10 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 		spoilerEdit.setBackground(spoilerBg);
 		if((savedInstanceState!=null && savedInstanceState.getBoolean("hasSpoiler", false)) || hasSpoiler){
 			spoilerEdit.setVisibility(View.VISIBLE);
+			spoilerBtn.setSelected(true);
+		}else if(editingStatus!=null && !TextUtils.isEmpty(editingStatus.spoilerText)){
+			spoilerEdit.setVisibility(View.VISIBLE);
+			spoilerEdit.setText(editingStatus.spoilerText);
 			spoilerBtn.setSelected(true);
 		}
 
@@ -465,25 +487,46 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 			replyText.setVisibility(View.GONE);
 		}
 		if(savedInstanceState==null){
-			String prefilledText=getArguments().getString("prefilledText");
-			if(!TextUtils.isEmpty(prefilledText)){
-				mainEditText.setText(prefilledText);
+			if(editingStatus!=null){
+				mainEditText.setText(initialText=HtmlParser.strip(editingStatus.content));
 				mainEditText.setSelection(mainEditText.length());
-				initialText=prefilledText;
-			}
-			ArrayList<Uri> mediaUris=getArguments().getParcelableArrayList("mediaAttachments");
-			if(mediaUris!=null && !mediaUris.isEmpty()){
-				for(Uri uri:mediaUris){
-					addMediaAttachment(uri, null);
+				if(!editingStatus.mediaAttachments.isEmpty()){
+					attachmentsView.setVisibility(View.VISIBLE);
+					for(Attachment att:editingStatus.mediaAttachments){
+						DraftMediaAttachment da=new DraftMediaAttachment();
+						da.serverAttachment=att;
+						da.description=att.description;
+						da.uri=Uri.parse(att.previewUrl);
+						attachmentsView.addView(createMediaAttachmentView(da));
+						attachments.add(da);
+					}
+					pollBtn.setEnabled(false);
+				}
+			}else{
+				String prefilledText=getArguments().getString("prefilledText");
+				if(!TextUtils.isEmpty(prefilledText)){
+					mainEditText.setText(prefilledText);
+					mainEditText.setSelection(mainEditText.length());
+					initialText=prefilledText;
+				}
+				ArrayList<Uri> mediaUris=getArguments().getParcelableArrayList("mediaAttachments");
+				if(mediaUris!=null && !mediaUris.isEmpty()){
+					for(Uri uri:mediaUris){
+						addMediaAttachment(uri, null);
+					}
 				}
 			}
+		}
+
+		if(editingStatus!=null){
+			updateCharCounter();
 		}
 	}
 
 	@Override
 	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater){
 		publishButton=new Button(getActivity());
-		publishButton.setText(R.string.publish);
+		publishButton.setText(editingStatus==null ? R.string.publish : R.string.save);
 		publishButton.setOnClickListener(this::onPublishClick);
 		LinearLayout wrap=new LinearLayout(getActivity());
 		wrap.setOrientation(LinearLayout.HORIZONTAL);
@@ -506,7 +549,7 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 		wrap.addView(publishButton, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
 		wrap.setPadding(V.dp(16), V.dp(4), V.dp(16), V.dp(8));
 		wrap.setClipToPadding(false);
-		MenuItem item=menu.add(R.string.publish);
+		MenuItem item=menu.add(editingStatus==null ? R.string.publish : R.string.save);
 		item.setActionView(wrap);
 		item.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
 		updatePublishButtonState();
@@ -610,31 +653,43 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 		sendProgress.setVisibility(View.VISIBLE);
 		sendError.setVisibility(View.GONE);
 
-		new CreateStatus(req, uuid)
-				.setCallback(new Callback<>(){
-					@Override
-					public void onSuccess(Status result){
-						wm.removeView(sendingOverlay);
-						sendingOverlay=null;
-						E.post(new StatusCreatedEvent(result));
-						if(replyTo!=null){
-							replyTo.repliesCount++;
-							E.post(new StatusCountersUpdatedEvent(replyTo));
-						}
-						Nav.finish(ComposeFragment.this);
+		Callback<Status> resCallback=new Callback<>(){
+			@Override
+			public void onSuccess(Status result){
+				wm.removeView(sendingOverlay);
+				sendingOverlay=null;
+				if(editingStatus==null){
+					E.post(new StatusCreatedEvent(result));
+					if(replyTo!=null){
+						replyTo.repliesCount++;
+						E.post(new StatusCountersUpdatedEvent(replyTo));
 					}
+				}else{
+					E.post(new StatusUpdatedEvent(result));
+				}
+				Nav.finish(ComposeFragment.this);
+			}
 
-					@Override
-					public void onError(ErrorResponse error){
-						wm.removeView(sendingOverlay);
-						sendingOverlay=null;
-						sendProgress.setVisibility(View.GONE);
-						sendError.setVisibility(View.VISIBLE);
-						publishButton.setEnabled(true);
-						error.showToast(getActivity());
-					}
-				})
-				.exec(accountID);
+			@Override
+			public void onError(ErrorResponse error){
+				wm.removeView(sendingOverlay);
+				sendingOverlay=null;
+				sendProgress.setVisibility(View.GONE);
+				sendError.setVisibility(View.VISIBLE);
+				publishButton.setEnabled(true);
+				error.showToast(getActivity());
+			}
+		};
+
+		if(editingStatus!=null){
+			new EditStatus(req, editingStatus.id)
+					.setCallback(resCallback)
+					.exec(accountID);
+		}else{
+			new CreateStatus(req, uuid)
+					.setCallback(resCallback)
+					.exec(accountID);
+		}
 	}
 
 	private boolean hasDraft(){
@@ -686,7 +741,7 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 
 	private void confirmDiscardDraftAndFinish(){
 		new M3AlertDialogBuilder(getActivity())
-				.setTitle(R.string.discard_draft)
+				.setTitle(editingStatus==null ? R.string.discard_draft : R.string.discard_changes)
 				.setPositiveButton(R.string.discard, (dialog, which)->Nav.finish(this))
 				.setNegativeButton(R.string.cancel, null)
 				.show();

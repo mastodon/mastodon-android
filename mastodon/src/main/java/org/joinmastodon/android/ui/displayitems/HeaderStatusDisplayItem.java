@@ -23,6 +23,7 @@ import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.requests.accounts.GetAccountRelationships;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.fragments.BaseStatusListFragment;
+import org.joinmastodon.android.fragments.ComposeFragment;
 import org.joinmastodon.android.fragments.ProfileFragment;
 import org.joinmastodon.android.fragments.report.ReportReasonChoiceFragment;
 import org.joinmastodon.android.model.Account;
@@ -135,7 +136,12 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 			optionsMenu.setOnMenuItemClickListener(menuItem->{
 				Account account=item.user;
 				int id=menuItem.getItemId();
-				if(id==R.id.delete){
+				if(id==R.id.edit){
+					Bundle args=new Bundle();
+					args.putString("account", item.parentFragment.getAccountID());
+					args.putParcelable("editStatus", Parcels.wrap(item.status));
+					Nav.go(item.parentFragment.getActivity(), ComposeFragment.class, args);
+				}else if(id==R.id.delete){
 					UiUtils.confirmDeletePost(item.parentFragment.getActivity(), item.parentFragment.getAccountID(), item.status, s->{});
 				}else if(id==R.id.mute){
 					UiUtils.confirmToggleMuteUser(item.parentFragment.getActivity(), item.parentFragment.getAccountID(), account, relationship!=null && relationship.muting, r->{});
@@ -252,6 +258,7 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 			Account account=item.user;
 			Menu menu=optionsMenu.getMenu();
 			boolean isOwnPost=AccountSessionManager.getInstance().isSelf(item.parentFragment.getAccountID(), account);
+			menu.findItem(R.id.edit).setVisible(item.status!=null && isOwnPost);
 			menu.findItem(R.id.delete).setVisible(item.status!=null && isOwnPost);
 			menu.findItem(R.id.open_in_browser).setVisible(item.status!=null);
 			MenuItem blockDomain=menu.findItem(R.id.block_domain);

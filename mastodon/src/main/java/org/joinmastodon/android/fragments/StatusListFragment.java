@@ -9,12 +9,14 @@ import org.joinmastodon.android.events.PollUpdatedEvent;
 import org.joinmastodon.android.events.StatusCountersUpdatedEvent;
 import org.joinmastodon.android.events.StatusCreatedEvent;
 import org.joinmastodon.android.events.StatusDeletedEvent;
+import org.joinmastodon.android.events.StatusUpdatedEvent;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.displayitems.ExtendedFooterStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.FooterStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.StatusDisplayItem;
 import org.parceler.Parcels;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -59,6 +61,59 @@ public abstract class StatusListFragment extends BaseStatusListFragment<Status>{
 	}
 
 	protected void onStatusCreated(StatusCreatedEvent ev){}
+
+	protected void onStatusUpdated(StatusUpdatedEvent ev){
+		ArrayList<Status> statusesForDisplayItems=new ArrayList<>();
+		for(int i=0;i<data.size();i++){
+			Status s=data.get(i);
+			if(s.reblog!=null && s.reblog.id.equals(ev.status.id)){
+				s.reblog=ev.status;
+				statusesForDisplayItems.add(s);
+			}else if(s.id.equals(ev.status.id)){
+				data.set(i, ev.status);
+				statusesForDisplayItems.add(ev.status);
+			}
+		}
+		for(int i=0;i<preloadedData.size();i++){
+			Status s=preloadedData.get(i);
+			if(s.reblog!=null && s.reblog.id.equals(ev.status.id)){
+				s.reblog=ev.status;
+			}else if(s.id.equals(ev.status.id)){
+				preloadedData.set(i, ev.status);
+			}
+		}
+
+		if(statusesForDisplayItems.isEmpty())
+			return;
+
+		for(Status s:statusesForDisplayItems){
+			int i=0;
+			for(StatusDisplayItem item:displayItems){
+				if(item.parentID.equals(s.id)){
+					int start=i;
+					for(;i<displayItems.size();i++){
+						if(!displayItems.get(i).parentID.equals(s.id))
+							break;
+					}
+					List<StatusDisplayItem> postItems=displayItems.subList(start, i);
+					postItems.clear();
+					postItems.addAll(buildDisplayItems(s));
+					int oldSize=i-start, newSize=postItems.size();
+					if(oldSize==newSize){
+						adapter.notifyItemRangeChanged(start, newSize);
+					}else if(oldSize<newSize){
+						adapter.notifyItemRangeChanged(start, oldSize);
+						adapter.notifyItemRangeInserted(start+oldSize, newSize-oldSize);
+					}else{
+						adapter.notifyItemRangeChanged(start, newSize);
+						adapter.notifyItemRangeRemoved(start+newSize, oldSize-newSize);
+					}
+					break;
+				}
+				i++;
+			}
+		}
+	}
 
 	protected Status getContentStatusByID(String id){
 		Status s=getStatusByID(id);
@@ -133,6 +188,11 @@ public abstract class StatusListFragment extends BaseStatusListFragment<Status>{
 		@Subscribe
 		public void onStatusCreated(StatusCreatedEvent ev){
 			StatusListFragment.this.onStatusCreated(ev);
+		}
+
+		@Subscribe
+		public void onStatusUpdated(StatusUpdatedEvent ev){
+			StatusListFragment.this.onStatusUpdated(ev);
 		}
 
 		@Subscribe
