@@ -178,6 +178,8 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 	private boolean attachmentsErrorShowing;
 
 	private Status editingStatus;
+	private boolean pollChanged;
+	private boolean creatingView;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState){
@@ -233,6 +235,7 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 
 	@Override
 	public View onCreateContentView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+		creatingView=true;
 		emojiKeyboard=new CustomEmojiPopupKeyboard(getActivity(), customEmojis, instanceDomain);
 		emojiKeyboard.setListener(this::onCustomEmojiClick);
 
@@ -328,7 +331,7 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 			spoilerBtn.setSelected(true);
 		}else if(editingStatus!=null && !TextUtils.isEmpty(editingStatus.spoilerText)){
 			spoilerEdit.setVisibility(View.VISIBLE);
-			spoilerEdit.setText(editingStatus.spoilerText);
+			spoilerEdit.setText(getArguments().getString("sourceSpoiler", editingStatus.spoilerText));
 			spoilerBtn.setSelected(true);
 		}
 
@@ -353,6 +356,8 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 		View autocompleteView=autocompleteViewController.getView();
 		autocompleteView.setVisibility(View.GONE);
 		mainEditTextWrap.addView(autocompleteView, new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, V.dp(178), Gravity.TOP));
+
+		creatingView=false;
 
 		return view;
 	}
@@ -488,7 +493,8 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 		}
 		if(savedInstanceState==null){
 			if(editingStatus!=null){
-				mainEditText.setText(initialText=HtmlParser.strip(editingStatus.content));
+				initialText=getArguments().getString("sourceText", "");
+				mainEditText.setText(initialText);
 				mainEditText.setSelection(mainEditText.length());
 				if(!editingStatus.mediaAttachments.isEmpty()){
 					attachmentsView.setVisibility(View.VISIBLE);
@@ -596,6 +602,8 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 			if(opt.edit.length()>0)
 				nonEmptyPollOptionsCount++;
 		}
+		if(publishButton==null)
+			return;
 		publishButton.setEnabled((trimmedCharCount>0 || !attachments.isEmpty()) && charCount<=charLimit && uploadingAttachment==null && failedAttachments.isEmpty() && queuedAttachments.isEmpty()
 				&& (pollOptions.isEmpty() || nonEmptyPollOptionsCount>1));
 	}
@@ -693,6 +701,14 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 	}
 
 	private boolean hasDraft(){
+		if(editingStatus!=null){
+			if(!mainEditText.getText().toString().equals(initialText))
+				return true;
+			List<String> existingMediaIDs=editingStatus.mediaAttachments.stream().map(a->a.id).collect(Collectors.toList());
+			if(!existingMediaIDs.equals(attachments.stream().map(a->a.serverAttachment.id).collect(Collectors.toList())))
+				return true;
+			return pollChanged;
+		}
 		boolean pollFieldsHaveContent=false;
 		for(DraftPollOption opt:pollOptions)
 			pollFieldsHaveContent|=opt.edit.length()>0;
@@ -1021,7 +1037,11 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 			pollOptionsView.startDragging(option.view);
 			return true;
 		});
-		option.edit.addTextChangedListener(new SimpleTextWatcher(e->updatePublishButtonState()));
+		option.edit.addTextChangedListener(new SimpleTextWatcher(e->{
+			if(!creatingView)
+				pollChanged=true;
+			updatePublishButtonState();
+		}));
 		option.edit.setFilters(new InputFilter[]{new InputFilter.LengthFilter(instance.configuration!=null && instance.configuration.polls!=null && instance.configuration.polls.maxCharactersPerOption>0 ? instance.configuration.polls.maxCharactersPerOption : 50)});
 
 		pollOptionsView.addView(option.view);
@@ -1041,6 +1061,7 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 	private void onSwapPollOptions(int oldIndex, int newIndex){
 		pollOptions.add(newIndex, pollOptions.remove(oldIndex));
 		updatePollOptionHints();
+		pollChanged=true;
 	}
 
 	private void showPollDurationMenu(){
@@ -1064,6 +1085,7 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 				default -> throw new IllegalStateException("Unexpected value: "+item.getItemId());
 			};
 			pollDurationView.setText(getString(R.string.compose_poll_duration, pollDurationStr=item.getTitle().toString()));
+			pollChanged=true;
 			return true;
 		});
 		menu.show();

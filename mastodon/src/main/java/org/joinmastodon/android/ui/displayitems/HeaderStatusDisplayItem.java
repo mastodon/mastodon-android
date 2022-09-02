@@ -21,6 +21,7 @@ import android.widget.Toast;
 import org.joinmastodon.android.GlobalUserPreferences;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.requests.accounts.GetAccountRelationships;
+import org.joinmastodon.android.api.requests.statuses.GetStatusSourceText;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.fragments.BaseStatusListFragment;
 import org.joinmastodon.android.fragments.ComposeFragment;
@@ -137,10 +138,29 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 				Account account=item.user;
 				int id=menuItem.getItemId();
 				if(id==R.id.edit){
-					Bundle args=new Bundle();
+					final Bundle args=new Bundle();
 					args.putString("account", item.parentFragment.getAccountID());
 					args.putParcelable("editStatus", Parcels.wrap(item.status));
-					Nav.go(item.parentFragment.getActivity(), ComposeFragment.class, args);
+					if(TextUtils.isEmpty(item.status.content) && TextUtils.isEmpty(item.status.spoilerText)){
+						Nav.go(item.parentFragment.getActivity(), ComposeFragment.class, args);
+					}else{
+						new GetStatusSourceText(item.status.id)
+								.setCallback(new Callback<>(){
+									@Override
+									public void onSuccess(GetStatusSourceText.Response result){
+										args.putString("sourceText", result.text);
+										args.putString("sourceSpoiler", result.spoilerText);
+										Nav.go(item.parentFragment.getActivity(), ComposeFragment.class, args);
+									}
+
+									@Override
+									public void onError(ErrorResponse error){
+										error.showToast(item.parentFragment.getActivity());
+									}
+								})
+								.wrapProgress(item.parentFragment.getActivity(), R.string.loading, true)
+								.exec(item.parentFragment.getAccountID());
+					}
 				}else if(id==R.id.delete){
 					UiUtils.confirmDeletePost(item.parentFragment.getActivity(), item.parentFragment.getAccountID(), item.status, s->{});
 				}else if(id==R.id.mute){
