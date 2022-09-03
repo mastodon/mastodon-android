@@ -314,4 +314,29 @@
 	</plurals>
 	<string name="timestamp_via_app">%1$s 透過 %2$s</string>
 	<string name="time_now">剛剛</string>
+	<string name="post_info_reblogs">轉嘟</string>
+	<string name="post_info_favorites">最愛</string>
+	<string name="edit_history">編輯記錄</string>
+	<string name="last_edit_at_x">上次編輯於 %s</string>
+	<string name="time_just_now">剛剛</string>
+	<plurals name="x_seconds_ago">
+		<item quantity="other">%d 秒前</item>
+	</plurals>
+	<plurals name="x_minutes_ago">
+		<item quantity="other">%d 分鐘前</item>
+	</plurals>
+	<string name="edited_timestamp">編輯於 %s</string>
+	<string name="edit_original_post">原始嘟文</string>
+	<string name="edit_text_edited">已編輯文字</string>
+	<string name="edit_spoiler_added">已新增內容警告</string>
+	<string name="edit_spoiler_edited">已編輯內容警告</string>
+	<string name="edit_spoiler_removed">已移除內容警告</string>
+	<string name="edit_poll_added">已新增投票</string>
+	<string name="edit_poll_edited">已編輯投票</string>
+	<string name="edit_poll_removed">已移除投票</string>
+	<string name="edit_media_added">已新增媒體</string>
+	<string name="edit_media_removed">已移除媒體</string>
+	<string name="edit_media_reordered">已更換媒體順序</string>
+	<string name="edit_marked_sensitive">已標記為敏感內容</string>
+	<string name="edit_marked_not_sensitive">已標記為非敏感內容</string>
 </resources>
