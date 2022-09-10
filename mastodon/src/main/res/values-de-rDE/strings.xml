@@ -102,18 +102,18 @@
 	</plurals>
 	<string name="poll_closed">Geschlossen</string>
 	<string name="confirm_mute_title">Konto stummschalten</string>
-	<string name="confirm_mute">Bestätigen um %s stummzuschalten</string>
+	<string name="confirm_mute">Bestätigen, um %s stummzuschalten</string>
 	<string name="do_mute">Stummschalten</string>
 	<string name="confirm_unmute_title">Konto nicht mehr stummschalten</string>
 	<string name="confirm_unmute">Bestätigen, um %s nicht mehr stummzuschalten</string>
 	<string name="do_unmute">Nicht mehr stummschalten</string>
 	<string name="confirm_block_title">Konto blockieren</string>
 	<string name="confirm_block_domain_title">Domain blockieren</string>
-	<string name="confirm_block">Bestätigen um %s zu blockieren</string>
+	<string name="confirm_block">Bestätigen, um %s zu blockieren</string>
 	<string name="do_block">Blockieren</string>
 	<string name="confirm_unblock_title">Konto nicht mehr blockieren</string>
 	<string name="confirm_unblock_domain_title">Domain nicht mehr blockieren</string>
-	<string name="confirm_unblock">Bestätigen um %s nicht mehr zu blockieren</string>
+	<string name="confirm_unblock">Bestätigen, um %s nicht mehr zu blockieren</string>
 	<string name="do_unblock">Nicht mehr blockieren</string>
 	<string name="button_muted">Stummgeschaltet</string>
 	<string name="button_blocked">Blockiert</string>
@@ -139,15 +139,15 @@
 		<item quantity="other">%d Personen reden darüber</item>
 	</plurals>
 	<plurals name="discussed_x_times">
-		<item quantity="one">%d mal diskutiert</item>
-		<item quantity="other">%d mal diskutiert</item>
+		<item quantity="one">%d Mal diskutiert</item>
+		<item quantity="other">%d Mal diskutiert</item>
 	</plurals>
 	<string name="report_title">%s melden</string>
-	<string name="report_choose_reason">Sag uns, was mit diesem Beitrag vor sich geht?</string>
+	<string name="report_choose_reason">Was stimmt mit diesem Beitrag nicht?</string>
 	<string name="report_choose_reason_account">Was ist los mit %s?</string>
 	<string name="report_choose_reason_subtitle">Wähle die beste Zugehörigkeit</string>
 	<string name="report_reason_personal">Das gefällt mir nicht</string>
-	<string name="report_reason_personal_subtitle">Das ist nicht etwas, was ihr nicht sehen wollt</string>
+	<string name="report_reason_personal_subtitle">Das ist etwas, das man nicht sehen möchte</string>
 	<string name="report_reason_spam">Das ist Spam</string>
 	<string name="report_reason_spam_subtitle">Bösartige Links, gefälschtes Engagement oder wiederholte Antworten</string>
 	<string name="report_reason_violation">Es verstößt gegen Serverregeln</string>
@@ -161,7 +161,7 @@
 	<string name="report_comment_title">Gibt es etwas anderes, was wir wissen sollten?</string>
 	<string name="report_comment_hint">Zusätzliche Kommentare</string>
 	<string name="sending_report">Sende Meldung…</string>
-	<string name="report_sent_title">Vielen Dank für die Berichterstattung, wir werden uns damit befassen.</string>
+	<string name="report_sent_title">Vielen Dank für die Meldung, wir werden uns damit befassen.</string>
 	<string name="report_sent_subtitle">Während wir dies überprüfen, kannst du gegen %s vorgehen.</string>
 	<string name="unfollow_user">%s entfolgen</string>
 	<string name="unfollow">Entfolgen</string>
@@ -333,4 +333,25 @@
 	</plurals>
 	<string name="timestamp_via_app">%1$s via %2$s</string>
 	<string name="time_now">jetzt</string>
+	<string name="post_info_reblogs">Teilungen</string>
+	<string name="post_info_favorites">Favoriten</string>
+	<string name="edit_history">Verlauf bearbeiten</string>
+	<string name="last_edit_at_x">Letzte Bearbeitung: %s</string>
+	<string name="time_just_now">gerade eben</string>
+	<string name="edit_original_post">Ursprünglicher Beitrag</string>
+	<string name="edit_text_edited">Text bearbeitet</string>
+	<string name="edit_spoiler_added">Inhaltswarnung hinzugefügt</string>
+	<string name="edit_spoiler_edited">Inhaltswarnung bearbeitet</string>
+	<string name="edit_spoiler_removed">Inhaltswarnung entfernt</string>
+	<string name="edit_poll_added">Umfrage hinzugefügt</string>
+	<string name="edit_poll_edited">Umfrage bearbeitet</string>
+	<string name="edit_poll_removed">Umfrage entfernt</string>
+	<string name="edit_media_added">Medien hinzugefügt</string>
+	<string name="edit_media_removed">Medien entfernt</string>
+	<string name="edit_media_reordered">Medien umsortiert</string>
+	<string name="edit_marked_sensitive">Als NSFW markiert</string>
+	<string name="edit_marked_not_sensitive">Als nicht NSFW markiert</string>
+	<string name="edit_multiple_changed">Beitrag bearbeitet</string>
+	<string name="edit">Bearbeiten</string>
+	<string name="discard_changes">Änderungen verwerfen?</string>
 </resources>
