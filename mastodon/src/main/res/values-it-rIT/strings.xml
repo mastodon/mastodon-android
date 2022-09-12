@@ -333,4 +333,13 @@
 	</plurals>
 	<string name="timestamp_via_app">%1$s tramite %2$s</string>
 	<string name="time_now">ora</string>
+	<plurals name="x_seconds_ago">
+		<item quantity="one">%d secondo fa</item>
+		<item quantity="other">%d secondi fa</item>
+	</plurals>
+	<plurals name="x_minutes_ago">
+		<item quantity="one">%d minuto fa</item>
+		<item quantity="other">%d minuti fa</item>
+	</plurals>
+	<string name="edit">Modifica</string>
 </resources>
