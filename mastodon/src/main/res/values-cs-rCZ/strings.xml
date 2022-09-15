@@ -371,4 +371,32 @@
 	</plurals>
 	<string name="timestamp_via_app">%1$s přes %2$s</string>
 	<string name="time_now">teď</string>
+	<string name="post_info_reblogs">Reblogy</string>
+	<string name="post_info_favorites">Oblíbené</string>
+	<string name="edit_history">Historie změn</string>
+	<string name="last_edit_at_x">Poslední úprava %s</string>
+	<string name="time_just_now">právě teď</string>
+	<plurals name="x_seconds_ago">
+		<item quantity="one">Před 1 vteřinou</item>
+		<item quantity="few">Před %d vteřinami</item>
+		<item quantity="many">Před %d vteřinami</item>
+		<item quantity="other">Před %d vteřinami</item>
+	</plurals>
+	<string name="edited_timestamp">upraveno %s</string>
+	<string name="edit_original_post">Původní příspěvek</string>
+	<string name="edit_text_edited">Text upraven</string>
+	<string name="edit_spoiler_added">Upozornění na obsah bylo přidáno</string>
+	<string name="edit_spoiler_edited">Upozornění na obsah upraveno</string>
+	<string name="edit_spoiler_removed">Upozornění na obsah odstraněno</string>
+	<string name="edit_poll_added">Anketa přidána</string>
+	<string name="edit_poll_edited">Anketa upravena</string>
+	<string name="edit_poll_removed">Anketa odstraněna</string>
+	<string name="edit_media_added">Média přidána</string>
+	<string name="edit_media_removed">Média odstraněna</string>
+	<string name="edit_media_reordered">Média přeřazena</string>
+	<string name="edit_marked_sensitive">Označeno jako citlivé</string>
+	<string name="edit_marked_not_sensitive">Označeno, že není citlivé</string>
+	<string name="edit_multiple_changed">Příspěvek upraven</string>
+	<string name="edit">Upravit</string>
+	<string name="discard_changes">Zrušit změny?</string>
 </resources>
