@@ -314,9 +314,32 @@
 	</plurals>
 	<string name="timestamp_via_app">%1$s 来自 %2$s</string>
 	<string name="time_now">刚刚</string>
+	<string name="post_info_reblogs">转发</string>
+	<string name="post_info_favorites">喜欢</string>
+	<string name="edit_history">编辑记录</string>
+	<string name="last_edit_at_x">编辑于 %s</string>
+	<string name="time_just_now">不久前</string>
+	<plurals name="x_seconds_ago">
+		<item quantity="other">%d 秒前</item>
+	</plurals>
+	<plurals name="x_minutes_ago">
+		<item quantity="other">%d 分钟前</item>
+	</plurals>
+	<string name="edited_timestamp">已编辑 %s</string>
+	<string name="edit_original_post">初始嘟文</string>
+	<string name="edit_text_edited">修改了文本</string>
+	<string name="edit_spoiler_added">添加了内容警告</string>
+	<string name="edit_spoiler_edited">修改了内容警告</string>
+	<string name="edit_spoiler_removed">移除了内容警告</string>
+	<string name="edit_poll_added">添加了投票</string>
+	<string name="edit_poll_edited">修改了投票</string>
+	<string name="edit_poll_removed">移除了投票</string>
+	<string name="edit_media_added">添加了媒体</string>
+	<string name="edit_media_removed">移除了媒体</string>
+	<string name="edit_media_reordered">调整了媒体顺序</string>
 	<string name="edit_marked_sensitive">标记为敏感内容</string>
-	<string name="edit_marked_not_sensitive">标记为非敏感内容</string>
-	<string name="edit_multiple_changed">嘟文已编辑</string>
+	<string name="edit_marked_not_sensitive">不再标记为敏感内容</string>
+	<string name="edit_multiple_changed">编辑了嘟文</string>
 	<string name="edit">编辑</string>
 	<string name="discard_changes">放弃更改？</string>
 </resources>
