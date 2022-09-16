@@ -338,6 +338,14 @@
 	<string name="edit_history">Editar historial</string>
 	<string name="last_edit_at_x">Última edición: %s</string>
 	<string name="time_just_now">justo ahora</string>
+	<plurals name="x_seconds_ago">
+		<item quantity="one">Hace %d segundo</item>
+		<item quantity="other">Hace %d segundos</item>
+	</plurals>
+	<plurals name="x_minutes_ago">
+		<item quantity="one">Hace %d minuto</item>
+		<item quantity="other">Hace %d minutos</item>
+	</plurals>
 	<string name="edited_timestamp">editado %s</string>
 	<string name="edit_original_post">Publicación original</string>
 	<string name="edit_text_edited">Texto editado</string>
