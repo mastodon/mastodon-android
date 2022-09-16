@@ -376,6 +376,32 @@
 	<string name="edit_history">Historia edycji</string>
 	<string name="last_edit_at_x">Ostatnia zmiana: %s</string>
 	<string name="time_just_now">przed chwilą</string>
+	<plurals name="x_seconds_ago">
+		<item quantity="one">%d sekundę temu</item>
+		<item quantity="few">%d sekund temu</item>
+		<item quantity="many">%d sekund temu</item>
+		<item quantity="other">%d sekund temu</item>
+	</plurals>
+	<plurals name="x_minutes_ago">
+		<item quantity="one">%d minutę temu</item>
+		<item quantity="few">%d minuty temu</item>
+		<item quantity="many">%d minut temu</item>
+		<item quantity="other">%d min temu</item>
+	</plurals>
+	<string name="edited_timestamp">edytowano %s</string>
+	<string name="edit_original_post">Oryginalny post</string>
+	<string name="edit_text_edited">Tekst edytowany</string>
+	<string name="edit_spoiler_added">Ostrzeżenie o zawartości</string>
+	<string name="edit_spoiler_edited">Ostrzeżenie o zawartości edytowane</string>
+	<string name="edit_spoiler_removed">Ostrzeżenie o treści usunięte</string>
+	<string name="edit_poll_added">Dodano ankietę</string>
+	<string name="edit_poll_edited">Edytowano ankietę</string>
+	<string name="edit_poll_removed">Ankieta usunięta</string>
+	<string name="edit_media_added">Dodano media</string>
+	<string name="edit_media_removed">Media usunięte</string>
+	<string name="edit_media_reordered">Kolejność mediów</string>
+	<string name="edit_marked_sensitive">Oznaczono jako wrażliwe</string>
+	<string name="edit_marked_not_sensitive">Oznaczono jako wrażliwe</string>
 	<string name="edit_multiple_changed">Edytowano post</string>
 	<string name="edit">Edytuj</string>
 	<string name="discard_changes">Odrzucić zmiany?</string>
