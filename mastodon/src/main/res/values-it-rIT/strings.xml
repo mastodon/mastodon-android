@@ -333,6 +333,11 @@
 	</plurals>
 	<string name="timestamp_via_app">%1$s tramite %2$s</string>
 	<string name="time_now">ora</string>
+	<string name="post_info_reblogs">Condivisioni</string>
+	<string name="post_info_favorites">Preferiti</string>
+	<string name="edit_history">Modifica cronologia</string>
+	<string name="last_edit_at_x">Ultima modifica: %s</string>
+	<string name="time_just_now">proprio ora</string>
 	<plurals name="x_seconds_ago">
 		<item quantity="one">%d secondo fa</item>
 		<item quantity="other">%d secondi fa</item>
@@ -341,5 +346,18 @@
 		<item quantity="one">%d minuto fa</item>
 		<item quantity="other">%d minuti fa</item>
 	</plurals>
+	<string name="edited_timestamp">modificato %s</string>
+	<string name="edit_original_post">Post originale</string>
+	<string name="edit_text_edited">Testo modificato</string>
+	<string name="edit_spoiler_added">Avviso sul contenuto aggiunto</string>
+	<string name="edit_spoiler_edited">Avviso sul contenuto modificato</string>
+	<string name="edit_spoiler_removed">Avviso sul contenuto rimosso</string>
+	<string name="edit_poll_added">Sondaggio aggiunto</string>
+	<string name="edit_poll_edited">Sondaggio modificato</string>
+	<string name="edit_poll_removed">Sondaggio rimosso</string>
+	<string name="edit_media_added">Media aggiunto</string>
+	<string name="edit_media_removed">Media rimosso</string>
+	<string name="edit_media_reordered">Media riordinati</string>
+	<string name="edit_marked_sensitive">Contrassegnato come sensibile</string>
 	<string name="edit">Modifica</string>
 </resources>
