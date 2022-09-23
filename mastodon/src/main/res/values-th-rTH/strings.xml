@@ -317,7 +317,16 @@
 	<string name="post_info_reblogs">การดัน</string>
 	<string name="post_info_favorites">รายการโปรด</string>
 	<string name="edit_history">ประวัติการแก้ไข</string>
+	<string name="last_edit_at_x">การแก้ไขล่าสุดเมื่อ %s</string>
 	<string name="time_just_now">เมื่อกี้นี้</string>
+	<plurals name="x_seconds_ago">
+		<item quantity="other">%d วินาทีที่แล้ว</item>
+	</plurals>
+	<plurals name="x_minutes_ago">
+		<item quantity="other">%d นาทีที่แล้ว</item>
+	</plurals>
+	<string name="edited_timestamp">แก้ไขเมื่อ %s</string>
+	<string name="edit_original_post">โพสต์ดั้งเดิม</string>
 	<string name="edit_text_edited">แก้ไขข้อความแล้ว</string>
 	<string name="edit_spoiler_added">เพิ่มคำเตือนเนื้อหาแล้ว</string>
 	<string name="edit_spoiler_edited">แก้ไขคำเตือนเนื้อหาแล้ว</string>
@@ -327,6 +336,7 @@
 	<string name="edit_poll_removed">เอาการสำรวจความคิดเห็นออกแล้ว</string>
 	<string name="edit_media_added">เพิ่มสื่อแล้ว</string>
 	<string name="edit_media_removed">เอาสื่อออกแล้ว</string>
+	<string name="edit_media_reordered">เรียงลำดับสื่อใหม่แล้ว</string>
 	<string name="edit_marked_sensitive">ทำเครื่องหมายว่าละเอียดอ่อนแล้ว</string>
 	<string name="edit_marked_not_sensitive">ทำเครื่องหมายว่าไม่ละเอียดอ่อนแล้ว</string>
 	<string name="edit_multiple_changed">แก้ไขโพสต์แล้ว</string>
