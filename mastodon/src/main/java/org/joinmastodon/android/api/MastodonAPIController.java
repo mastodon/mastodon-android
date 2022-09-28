@@ -96,7 +96,7 @@ public class MastodonAPIController{
 						if(call.isCanceled())
 							return;
 						if(BuildConfig.DEBUG)
-							Log.w(TAG, "["+(session==null ? "no-auth" : session.getID())+"] "+hreq+" failed: "+e);
+							Log.w(TAG, "["+(session==null ? "no-auth" : session.getID())+"] "+hreq+" failed", e);
 						synchronized(req){
 							req.okhttpCall=null;
 						}
