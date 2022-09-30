@@ -180,6 +180,7 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 	private Status editingStatus;
 	private boolean pollChanged;
 	private boolean creatingView;
+	private boolean ignoreSelectionChanges=false;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState){
@@ -480,7 +481,9 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 			initialText=mentions.isEmpty() ? "" : TextUtils.join(" ", mentions)+" ";
 			if(savedInstanceState==null){
 				mainEditText.setText(initialText);
+				ignoreSelectionChanges=true;
 				mainEditText.setSelection(mainEditText.length());
+				ignoreSelectionChanges=false;
 				if(!TextUtils.isEmpty(replyTo.spoilerText) && AccountSessionManager.getInstance().isSelf(accountID, replyTo.account)){
 					hasSpoiler=true;
 					spoilerEdit.setVisibility(View.VISIBLE);
@@ -495,7 +498,9 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 			if(editingStatus!=null){
 				initialText=getArguments().getString("sourceText", "");
 				mainEditText.setText(initialText);
+				ignoreSelectionChanges=true;
 				mainEditText.setSelection(mainEditText.length());
+				ignoreSelectionChanges=false;
 				if(!editingStatus.mediaAttachments.isEmpty()){
 					attachmentsView.setVisibility(View.VISIBLE);
 					for(Attachment att:editingStatus.mediaAttachments){
@@ -512,7 +517,9 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 				String prefilledText=getArguments().getString("prefilledText");
 				if(!TextUtils.isEmpty(prefilledText)){
 					mainEditText.setText(prefilledText);
+					ignoreSelectionChanges=true;
 					mainEditText.setSelection(mainEditText.length());
+					ignoreSelectionChanges=false;
 					initialText=prefilledText;
 				}
 				ArrayList<Uri> mediaUris=getArguments().getParcelableArrayList("mediaAttachments");
@@ -1154,6 +1161,8 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 
 	@Override
 	public void onSelectionChanged(int start, int end){
+		if(ignoreSelectionChanges)
+			return;
 		if(start==end && mainEditText.length()>0){
 			ComposeAutocompleteSpan[] spans=mainEditText.getText().getSpans(start, end, ComposeAutocompleteSpan.class);
 			if(spans.length>0){
