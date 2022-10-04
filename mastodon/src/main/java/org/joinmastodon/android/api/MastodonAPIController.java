@@ -100,7 +100,7 @@ public class MastodonAPIController{
 						synchronized(req){
 							req.okhttpCall=null;
 						}
-						req.onError(e.getLocalizedMessage(), 0);
+						req.onError(e.getLocalizedMessage(), 0, e);
 					}
 
 					@Override
@@ -133,7 +133,7 @@ public class MastodonAPIController{
 								}catch(JsonIOException|JsonSyntaxException x){
 									if(BuildConfig.DEBUG)
 										Log.w(TAG, "["+(session==null ? "no-auth" : session.getID())+"] "+response+" error parsing or reading body", x);
-									req.onError(x.getLocalizedMessage(), response.code());
+									req.onError(x.getLocalizedMessage(), response.code(), x);
 									return;
 								}
 
@@ -142,7 +142,7 @@ public class MastodonAPIController{
 								}catch(IOException x){
 									if(BuildConfig.DEBUG)
 										Log.w(TAG, "["+(session==null ? "no-auth" : session.getID())+"] "+response+" error post-processing or validating response", x);
-									req.onError(x.getLocalizedMessage(), response.code());
+									req.onError(x.getLocalizedMessage(), response.code(), x);
 									return;
 								}
 
@@ -155,7 +155,7 @@ public class MastodonAPIController{
 									JsonObject error=JsonParser.parseReader(reader).getAsJsonObject();
 									Log.w(TAG, "["+(session==null ? "no-auth" : session.getID())+"] "+response+" received error: "+error);
 									if(error.has("details")){
-										MastodonDetailedErrorResponse err=new MastodonDetailedErrorResponse(error.get("error").getAsString(), response.code());
+										MastodonDetailedErrorResponse err=new MastodonDetailedErrorResponse(error.get("error").getAsString(), response.code(), null);
 										HashMap<String, List<MastodonDetailedErrorResponse.FieldError>> details=new HashMap<>();
 										JsonObject errorDetails=error.getAsJsonObject("details");
 										for(String key:errorDetails.keySet()){
@@ -172,12 +172,12 @@ public class MastodonAPIController{
 										err.detailedErrors=details;
 										req.onError(err);
 									}else{
-										req.onError(error.get("error").getAsString(), response.code());
+										req.onError(error.get("error").getAsString(), response.code(), null);
 									}
 								}catch(JsonIOException|JsonSyntaxException x){
-									req.onError(response.code()+" "+response.message(), response.code());
+									req.onError(response.code()+" "+response.message(), response.code(), x);
 								}catch(Exception x){
-									req.onError("Error parsing an API error", response.code());
+									req.onError("Error parsing an API error", response.code(), x);
 								}
 							}
 						}catch(Exception x){
@@ -189,7 +189,7 @@ public class MastodonAPIController{
 			}catch(Exception x){
 				if(BuildConfig.DEBUG)
 					Log.w(TAG, "["+(session==null ? "no-auth" : session.getID())+"] error creating and sending http request", x);
-				req.onError(x.getLocalizedMessage(), 0);
+				req.onError(x.getLocalizedMessage(), 0, x);
 			}
 		}, 0);
 	}

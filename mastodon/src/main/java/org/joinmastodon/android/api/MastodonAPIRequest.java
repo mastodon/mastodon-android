@@ -82,7 +82,7 @@ public abstract class MastodonAPIRequest<T> extends APIRequest<T>{
 			account.getApiController().submitRequest(this);
 		}catch(Exception x){
 			Log.e(TAG, "exec: this shouldn't happen, but it still did", x);
-			invokeErrorCallback(new MastodonErrorResponse(x.getLocalizedMessage(), -1));
+			invokeErrorCallback(new MastodonErrorResponse(x.getLocalizedMessage(), -1, x));
 		}
 		return this;
 	}
@@ -194,8 +194,8 @@ public abstract class MastodonAPIRequest<T> extends APIRequest<T>{
 		invokeErrorCallback(err);
 	}
 
-	void onError(String msg, int httpStatus){
-		invokeErrorCallback(new MastodonErrorResponse(msg, httpStatus));
+	void onError(String msg, int httpStatus, Throwable exception){
+		invokeErrorCallback(new MastodonErrorResponse(msg, httpStatus, exception));
 	}
 
 	void onSuccess(T resp){

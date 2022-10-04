@@ -7,8 +7,8 @@ import java.util.Map;
 public class MastodonDetailedErrorResponse extends MastodonErrorResponse{
 	public Map<String, List<FieldError>> detailedErrors;
 
-	public MastodonDetailedErrorResponse(String error, int httpStatus){
-		super(error, httpStatus);
+	public MastodonDetailedErrorResponse(String error, int httpStatus, Throwable exception){
+		super(error, httpStatus, exception);
 	}
 
 	public static class FieldError{

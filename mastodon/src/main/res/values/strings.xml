@@ -210,8 +210,6 @@
 	<string name="content_warning">Content warning</string>
 	<string name="add_image_description">Add image description…</string>
 	<string name="retry_upload">Retry upload</string>
-	<string name="image_upload_failed">Image failed to upload</string>
-	<string name="video_upload_failed">Video failed to upload</string>
 	<string name="edit_image">Edit image</string>
 	<string name="save">Save</string>
 	<string name="add_alt_text">Add alt text</string>
@@ -370,4 +368,13 @@
 	<string name="edit_multiple_changed">Post edited</string>
 	<string name="edit">Edit</string>
 	<string name="discard_changes">Discard changes?</string>
+	<string name="upload_failed">Upload failed</string>
+	<string name="file_size_bytes">%d bytes</string>
+	<string name="file_size_kb">%.2f KB</string>
+	<string name="file_size_mb">%.2f MB</string>
+	<string name="file_size_gb">%.2f GB</string>
+	<string name="file_upload_progress">%1$s of %2$s</string>
+	<string name="file_upload_time_remaining">%s remaining</string>
+	<string name="upload_error_connection_lost">Your device lost connection to the internet</string>
+	<string name="upload_processing">Processing…</string>
 </resources>

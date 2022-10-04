@@ -65,30 +65,68 @@
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
 		android:background="#cc000000"
-		android:backgroundTint="?colorWindowBackground"
 		android:padding="8dp"
 		android:clipToPadding="false"
 		tools:visibility="visible"
 		android:visibility="gone">
 
-		<ProgressBar
-			android:id="@+id/progress"
-			android:layout_width="44dp"
-			android:layout_height="44dp"
-			android:layout_gravity="center"
-			android:progressDrawable="@drawable/upload_progress"
-			android:max="1000"
-			android:padding="0dp"
-			android:indeterminateOnly="false"
-			android:indeterminate="false"/>
-
-		<Button
-			android:id="@+id/retry_upload"
-			android:layout_width="wrap_content"
+		<RelativeLayout
+			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:layout_gravity="start|bottom"
-			style="?secondaryButtonStyle"
-			android:text="@string/retry_upload"/>
+			android:layout_gravity="center_vertical">
+
+			<ImageButton
+				android:id="@+id/retry_or_cancel_upload"
+				android:layout_width="44dp"
+				android:layout_height="44dp"
+				android:layout_centerHorizontal="true"
+				android:layout_alignParentTop="true"
+				android:src="@drawable/ic_fluent_dismiss_24_filled"
+				android:contentDescription="@string/cancel"
+				android:tint="@color/gray_100"
+				android:background="@drawable/bg_upload_progress"/>
+
+			<ProgressBar
+				android:id="@+id/progress"
+				android:layout_width="44dp"
+				android:layout_height="44dp"
+				android:layout_centerHorizontal="true"
+				android:layout_alignParentTop="true"
+				android:progressDrawable="@drawable/upload_progress"
+				android:max="1000"
+				android:padding="0dp"
+				android:indeterminateOnly="false"
+				android:indeterminate="false"/>
+
+			<TextView
+				android:id="@+id/state_title"
+				android:layout_width="match_parent"
+				android:layout_height="16dp"
+				android:layout_below="@id/retry_or_cancel_upload"
+				android:layout_marginTop="16dp"
+				android:textColor="@color/gray_200"
+				android:textSize="14dp"
+				android:gravity="center_horizontal"
+				android:singleLine="true"
+				android:ellipsize="end"
+				android:fontFamily="sans-serif-medium"
+				android:includeFontPadding="false"
+				tools:text="Upload failed"/>
+			
+			<TextView
+				android:id="@+id/state_text"
+				android:layout_width="match_parent"
+				android:layout_height="32dp"
+				android:layout_below="@id/state_title"
+				android:includeFontPadding="false"
+				android:textColor="@color/gray_200"
+				android:gravity="center_horizontal|top"
+				android:lines="2"
+				android:maxLines="2"
+				android:ellipsize="end"
+				tools:text="Your device lost connection to the internet"/>
+
+		</RelativeLayout>
 
 		<ImageButton
 			android:id="@+id/remove_btn2"
@@ -98,6 +136,7 @@
 			android:layout_gravity="end|bottom"
 			android:background="?android:selectableItemBackgroundBorderless"
 			android:tint="#D92C2C"
+			android:contentDescription="@string/delete"
 			android:src="@drawable/ic_fluent_delete_20_regular"/>
 
 	</FrameLayout>

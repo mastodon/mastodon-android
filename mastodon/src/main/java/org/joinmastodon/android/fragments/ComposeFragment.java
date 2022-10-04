@@ -4,13 +4,18 @@ import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.ClipData;
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.database.Cursor;
+import android.graphics.Bitmap;
 import android.graphics.Outline;
 import android.graphics.PixelFormat;
+import android.graphics.RenderEffect;
+import android.graphics.Shader;
 import android.graphics.drawable.LayerDrawable;
 import android.icu.text.BreakIterator;
+import android.media.MediaMetadataRetriever;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -51,9 +56,12 @@ import com.twitter.twittertext.TwitterTextEmojiRegex;
 import org.joinmastodon.android.E;
 import org.joinmastodon.android.MastodonApp;
 import org.joinmastodon.android.R;
+import org.joinmastodon.android.api.MastodonAPIController;
+import org.joinmastodon.android.api.MastodonErrorResponse;
 import org.joinmastodon.android.api.ProgressListener;
 import org.joinmastodon.android.api.requests.statuses.CreateStatus;
 import org.joinmastodon.android.api.requests.statuses.EditStatus;
+import org.joinmastodon.android.api.requests.statuses.GetAttachmentByID;
 import org.joinmastodon.android.api.requests.statuses.UploadAttachment;
 import org.joinmastodon.android.api.session.AccountSession;
 import org.joinmastodon.android.api.session.AccountSessionManager;
@@ -78,6 +86,7 @@ import org.joinmastodon.android.ui.text.ComposeAutocompleteSpan;
 import org.joinmastodon.android.ui.text.ComposeHashtagOrMentionSpan;
 import org.joinmastodon.android.ui.text.HtmlParser;
 import org.joinmastodon.android.ui.utils.SimpleTextWatcher;
+import org.joinmastodon.android.ui.utils.TransferSpeedTracker;
 import org.joinmastodon.android.ui.utils.UiUtils;
 import org.joinmastodon.android.ui.views.ComposeEditText;
 import org.joinmastodon.android.ui.views.ComposeMediaLayout;
@@ -86,6 +95,9 @@ import org.joinmastodon.android.ui.views.SizeListenerLinearLayout;
 import org.parceler.Parcel;
 import org.parceler.Parcels;
 
+import java.io.InterruptedIOException;
+import java.net.SocketException;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -107,6 +119,7 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 	private static final int MEDIA_RESULT=717;
 	private static final int IMAGE_DESCRIPTION_RESULT=363;
 	private static final int MAX_ATTACHMENTS=4;
+	private static final String TAG="ComposeFragment";
 
 	private static final Pattern MENTION_PATTERN=Pattern.compile("(^|[^\\/\\w])@(([a-z0-9_]+)@[a-z0-9\\.\\-]+[a-z0-9]+)", Pattern.CASE_INSENSITIVE);
 
@@ -154,8 +167,7 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 
 	private ArrayList<DraftPollOption> pollOptions=new ArrayList<>();
 
-	private ArrayList<DraftMediaAttachment> queuedAttachments=new ArrayList<>(), failedAttachments=new ArrayList<>(), attachments=new ArrayList<>(), allAttachments=new ArrayList<>();
-	private DraftMediaAttachment uploadingAttachment;
+	private ArrayList<DraftMediaAttachment> attachments=new ArrayList<>();
 
 	private List<EmojiCategory> customEmojis;
 	private CustomEmojiPopupKeyboard emojiKeyboard;
@@ -181,6 +193,7 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 	private boolean pollChanged;
 	private boolean creatingView;
 	private boolean ignoreSelectionChanges=false;
+	private Runnable updateUploadEtaRunnable;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState){
@@ -223,8 +236,14 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 	@Override
 	public void onDestroy(){
 		super.onDestroy();
-		if(uploadingAttachment!=null && uploadingAttachment.uploadRequest!=null)
-			uploadingAttachment.uploadRequest.cancel();
+		for(DraftMediaAttachment att:attachments){
+			if(att.isUploadingOrProcessing())
+				att.cancelUpload();
+		}
+		if(updateUploadEtaRunnable!=null){
+			UiUtils.removeCallbacks(updateUploadEtaRunnable);
+			updateUploadEtaRunnable=null;
+		}
 	}
 
 	@Override
@@ -344,9 +363,9 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 				attachments.add(att);
 			}
 			attachmentsView.setVisibility(View.VISIBLE);
-		}else if(!allAttachments.isEmpty()){
+		}else if(!attachments.isEmpty()){
 			attachmentsView.setVisibility(View.VISIBLE);
-			for(DraftMediaAttachment att:allAttachments){
+			for(DraftMediaAttachment att:attachments){
 				attachmentsView.addView(createMediaAttachmentView(att));
 			}
 		}
@@ -611,8 +630,12 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 		}
 		if(publishButton==null)
 			return;
-		publishButton.setEnabled((trimmedCharCount>0 || !attachments.isEmpty()) && charCount<=charLimit && uploadingAttachment==null && failedAttachments.isEmpty() && queuedAttachments.isEmpty()
-				&& (pollOptions.isEmpty() || nonEmptyPollOptionsCount>1));
+		int nonDoneAttachmentCount=0;
+		for(DraftMediaAttachment att:attachments){
+			if(att.state!=AttachmentUploadState.DONE)
+				nonDoneAttachmentCount++;
+		}
+		publishButton.setEnabled((trimmedCharCount>0 || !attachments.isEmpty()) && charCount<=charLimit && nonDoneAttachmentCount==0 && (pollOptions.isEmpty() || nonEmptyPollOptionsCount>1));
 	}
 
 	private void onCustomEmojiClick(Emoji emoji){
@@ -719,8 +742,7 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 		boolean pollFieldsHaveContent=false;
 		for(DraftPollOption opt:pollOptions)
 			pollFieldsHaveContent|=opt.edit.length()>0;
-		return (mainEditText.length()>0 && !mainEditText.getText().toString().equals(initialText)) || !attachments.isEmpty()
-				|| uploadingAttachment!=null || !queuedAttachments.isEmpty() || !failedAttachments.isEmpty() || pollFieldsHaveContent;
+		return (mainEditText.length()>0 && !mainEditText.getText().toString().equals(initialText)) || !attachments.isEmpty() || pollFieldsHaveContent;
 	}
 
 	@Override
@@ -821,7 +843,7 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 				}
 				if(size>sizeLimit){
 					float mb=sizeLimit/(float) (1024*1024);
-					String sMb=String.format(Locale.getDefault(), mb%1f==0f ? "%f" : "%.2f", mb);
+					String sMb=String.format(Locale.getDefault(), mb%1f==0f ? "%.0f" : "%.2f", mb);
 					showMediaAttachmentError(getString(R.string.media_attachment_too_big, UiUtils.getFileName(uri), sMb));
 					return false;
 				}
@@ -830,18 +852,16 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 		pollBtn.setEnabled(false);
 		DraftMediaAttachment draft=new DraftMediaAttachment();
 		draft.uri=uri;
+		draft.mimeType=type;
 		draft.description=description;
 
 		attachmentsView.addView(createMediaAttachmentView(draft));
-		allAttachments.add(draft);
+		attachments.add(draft);
 		attachmentsView.setVisibility(View.VISIBLE);
-		draft.overlay.setVisibility(View.VISIBLE);
-		draft.infoBar.setVisibility(View.GONE);
+		draft.setOverlayVisible(true, false);
 
-		if(uploadingAttachment==null){
-			uploadMediaAttachment(draft);
-		}else{
-			queuedAttachments.add(draft);
+		if(!areThereAnyUploadingAttachments()){
+			uploadNextQueuedAttachment();
 		}
 		updatePublishButtonState();
 		if(getMediaAttachmentsCount()==MAX_ATTACHMENTS)
@@ -860,25 +880,31 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 	private View createMediaAttachmentView(DraftMediaAttachment draft){
 		View thumb=getActivity().getLayoutInflater().inflate(R.layout.compose_media_thumb, attachmentsView, false);
 		ImageView img=thumb.findViewById(R.id.thumb);
-		ViewImageLoader.load(img, null, new UrlImageLoaderRequest(draft.uri, V.dp(250), V.dp(250)));
+		if(draft.mimeType.startsWith("image/")){
+			ViewImageLoader.load(img, null, new UrlImageLoaderRequest(draft.uri, V.dp(250), V.dp(250)));
+		}else if(draft.mimeType.startsWith("video/")){
+			loadVideoThumbIntoView(img, draft.uri);
+		}
 		TextView fileName=thumb.findViewById(R.id.file_name);
 		fileName.setText(UiUtils.getFileName(draft.uri));
 
 		draft.view=thumb;
+		draft.imageView=img;
 		draft.progressBar=thumb.findViewById(R.id.progress);
 		draft.infoBar=thumb.findViewById(R.id.info_bar);
 		draft.overlay=thumb.findViewById(R.id.overlay);
 		draft.descriptionView=thumb.findViewById(R.id.description);
+		draft.uploadStateTitle=thumb.findViewById(R.id.state_title);
+		draft.uploadStateText=thumb.findViewById(R.id.state_text);
 		ImageButton btn=thumb.findViewById(R.id.remove_btn);
 		btn.setTag(draft);
 		btn.setOnClickListener(this::onRemoveMediaAttachmentClick);
 		btn=thumb.findViewById(R.id.remove_btn2);
 		btn.setTag(draft);
 		btn.setOnClickListener(this::onRemoveMediaAttachmentClick);
-		Button retry=thumb.findViewById(R.id.retry_upload);
+		ImageButton retry=thumb.findViewById(R.id.retry_or_cancel_upload);
 		retry.setTag(draft);
-		retry.setOnClickListener(this::onRetryMediaUploadClick);
-		retry.setVisibility(View.GONE);
+		retry.setOnClickListener(this::onRetryOrCancelMediaUploadClick);
 		draft.retryButton=retry;
 		draft.infoBar.setTag(draft);
 		draft.infoBar.setOnClickListener(this::onEditMediaDescriptionClick);
@@ -886,12 +912,14 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 		if(!TextUtils.isEmpty(draft.description))
 			draft.descriptionView.setText(draft.description);
 
-		if(uploadingAttachment!=draft && !queuedAttachments.contains(draft)){
-			draft.progressBar.setVisibility(View.GONE);
+		if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.S){
+			draft.overlay.setBackgroundColor(0xA6000000);
 		}
-		if(failedAttachments.contains(draft)){
-			draft.infoBar.setVisibility(View.GONE);
-			draft.overlay.setVisibility(View.VISIBLE);
+
+		if(draft.state==AttachmentUploadState.UPLOADING || draft.state==AttachmentUploadState.PROCESSING || draft.state==AttachmentUploadState.QUEUED){
+			draft.progressBar.setVisibility(View.GONE);
+		}else if(draft.state==AttachmentUploadState.ERROR){
+			draft.setOverlayVisible(true, false);
 		}
 
 		return thumb;
@@ -903,67 +931,92 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 		draft.uri=uri;
 		draft.description=description;
 		attachmentsView.addView(createMediaAttachmentView(draft));
-		allAttachments.add(draft);
+		attachments.add(draft);
 		attachmentsView.setVisibility(View.VISIBLE);
 	}
 
 	private void uploadMediaAttachment(DraftMediaAttachment attachment){
-		if(uploadingAttachment!=null)
-			throw new IllegalStateException("there is already an attachment being uploaded");
-		uploadingAttachment=attachment;
+		if(areThereAnyUploadingAttachments()){
+			 throw new IllegalStateException("there is already an attachment being uploaded");
+		}
+		attachment.state=AttachmentUploadState.UPLOADING;
 		attachment.progressBar.setVisibility(View.VISIBLE);
 		ObjectAnimator rotationAnimator=ObjectAnimator.ofFloat(attachment.progressBar, View.ROTATION, 0f, 360f);
 		rotationAnimator.setInterpolator(new LinearInterpolator());
 		rotationAnimator.setDuration(1500);
 		rotationAnimator.setRepeatCount(ObjectAnimator.INFINITE);
 		rotationAnimator.start();
+		attachment.progressBarAnimator=rotationAnimator;
 		int maxSize=0;
 		String contentType=getActivity().getContentResolver().getType(attachment.uri);
 		if(contentType!=null && contentType.startsWith("image/")){
 			maxSize=2_073_600; // TODO get this from instance configuration when it gets added there
 		}
+		attachment.uploadStateTitle.setText("");
+		attachment.uploadStateText.setText("");
+		attachment.progressBar.setProgress(0);
+		attachment.speedTracker.reset();
+		attachment.speedTracker.addSample(0);
 		attachment.uploadRequest=(UploadAttachment) new UploadAttachment(attachment.uri, maxSize, attachment.description)
 				.setProgressListener(new ProgressListener(){
 					@Override
 					public void onProgress(long transferred, long total){
+						if(updateUploadEtaRunnable==null){
+							UiUtils.runOnUiThread(updateUploadEtaRunnable=ComposeFragment.this::updateUploadETAs, 100);
+						}
 						int progress=Math.round(transferred/(float)total*attachment.progressBar.getMax());
 						if(Build.VERSION.SDK_INT>=24)
 							attachment.progressBar.setProgress(progress, true);
 						else
 							attachment.progressBar.setProgress(progress);
+
+						attachment.speedTracker.setTotalBytes(total);
+						attachment.uploadStateTitle.setText(getString(R.string.file_upload_progress, UiUtils.formatFileSize(getActivity(), transferred, true), UiUtils.formatFileSize(getActivity(), total, true)));
+						attachment.speedTracker.addSample(transferred);
 					}
 				})
 				.setCallback(new Callback<>(){
 					@Override
 					public void onSuccess(Attachment result){
 						attachment.serverAttachment=result;
-						attachment.uploadRequest=null;
-						uploadingAttachment=null;
-						attachments.add(attachment);
-						attachment.progressBar.setVisibility(View.GONE);
-						if(!queuedAttachments.isEmpty())
-							uploadMediaAttachment(queuedAttachments.remove(0));
-						updatePublishButtonState();
-
-						rotationAnimator.cancel();
-						V.setVisibilityAnimated(attachment.overlay, View.GONE);
-						V.setVisibilityAnimated(attachment.infoBar, View.VISIBLE);
+						if(TextUtils.isEmpty(result.url)){
+							attachment.state=AttachmentUploadState.PROCESSING;
+							attachment.processingPollingRunnable=()->pollForMediaAttachmentProcessing(attachment);
+							if(getActivity()==null)
+								return;
+							attachment.uploadStateTitle.setText(R.string.upload_processing);
+							attachment.uploadStateText.setText("");
+							UiUtils.runOnUiThread(attachment.processingPollingRunnable, 1000);
+							if(!areThereAnyUploadingAttachments())
+								uploadNextQueuedAttachment();
+						}else{
+							finishMediaAttachmentUpload(attachment);
+						}
 					}
 
 					@Override
 					public void onError(ErrorResponse error){
 						attachment.uploadRequest=null;
-						uploadingAttachment=null;
-						failedAttachments.add(attachment);
-//						error.showToast(getActivity());
-						Toast.makeText(getActivity(), R.string.image_upload_failed, Toast.LENGTH_SHORT).show();
+						attachment.progressBarAnimator=null;
+						attachment.state=AttachmentUploadState.ERROR;
+						attachment.uploadStateTitle.setText(R.string.upload_failed);
+						if(error instanceof MastodonErrorResponse er){
+							if(er.underlyingException instanceof SocketException || er.underlyingException instanceof UnknownHostException || er.underlyingException instanceof InterruptedIOException)
+								attachment.uploadStateText.setText(R.string.upload_error_connection_lost);
+							else
+								attachment.uploadStateText.setText(er.error);
+						}else{
+							attachment.uploadStateText.setText("");
+						}
+						attachment.retryButton.setImageResource(R.drawable.ic_fluent_arrow_clockwise_24_filled);
+						attachment.retryButton.setContentDescription(getString(R.string.retry_upload));
 
 						rotationAnimator.cancel();
 						V.setVisibilityAnimated(attachment.retryButton, View.VISIBLE);
 						V.setVisibilityAnimated(attachment.progressBar, View.GONE);
 
-						if(!queuedAttachments.isEmpty())
-							uploadMediaAttachment(queuedAttachments.remove(0));
+						if(!areThereAnyUploadingAttachments())
+							uploadNextQueuedAttachment();
 					}
 				})
 				.exec(accountID);
@@ -971,35 +1024,107 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 
 	private void onRemoveMediaAttachmentClick(View v){
 		DraftMediaAttachment att=(DraftMediaAttachment) v.getTag();
-		if(att==uploadingAttachment){
-			att.uploadRequest.cancel();
-			uploadingAttachment=null;
-			if(!queuedAttachments.isEmpty())
-				uploadMediaAttachment(queuedAttachments.remove(0));
-		}else{
-			attachments.remove(att);
-			queuedAttachments.remove(att);
-			failedAttachments.remove(att);
-		}
-		allAttachments.remove(att);
+		if(att.isUploadingOrProcessing())
+			att.cancelUpload();
+		attachments.remove(att);
+		uploadNextQueuedAttachment();
 		attachmentsView.removeView(att.view);
 		if(getMediaAttachmentsCount()==0)
 			attachmentsView.setVisibility(View.GONE);
 		updatePublishButtonState();
-		pollBtn.setEnabled(attachments.isEmpty() && queuedAttachments.isEmpty() && failedAttachments.isEmpty() && uploadingAttachment==null);
+		pollBtn.setEnabled(attachments.isEmpty());
 		mediaBtn.setEnabled(true);
 	}
 
-	private void onRetryMediaUploadClick(View v){
+	private void onRetryOrCancelMediaUploadClick(View v){
 		DraftMediaAttachment att=(DraftMediaAttachment) v.getTag();
-		if(failedAttachments.remove(att)){
-			V.setVisibilityAnimated(att.retryButton, View.GONE);
+		if(att.state==AttachmentUploadState.ERROR){
+			att.retryButton.setImageResource(R.drawable.ic_fluent_dismiss_24_filled);
+			att.retryButton.setContentDescription(getString(R.string.cancel));
 			V.setVisibilityAnimated(att.progressBar, View.VISIBLE);
-			if(uploadingAttachment==null)
-				uploadMediaAttachment(att);
-			else
-				queuedAttachments.add(att);
+			att.state=AttachmentUploadState.QUEUED;
+			if(!areThereAnyUploadingAttachments()){
+				uploadNextQueuedAttachment();
+			}
+		}else{
+			onRemoveMediaAttachmentClick(v);
 		}
+	}
+
+	private void pollForMediaAttachmentProcessing(DraftMediaAttachment attachment){
+		attachment.processingPollingRequest=(GetAttachmentByID) new GetAttachmentByID(attachment.serverAttachment.id)
+				.setCallback(new Callback<>(){
+					@Override
+					public void onSuccess(Attachment result){
+						attachment.processingPollingRequest=null;
+						if(!TextUtils.isEmpty(result.url)){
+							attachment.processingPollingRunnable=null;
+							attachment.serverAttachment=result;
+							finishMediaAttachmentUpload(attachment);
+						}else if(getActivity()!=null){
+							UiUtils.runOnUiThread(attachment.processingPollingRunnable, 1000);
+						}
+					}
+
+					@Override
+					public void onError(ErrorResponse error){
+						attachment.processingPollingRequest=null;
+						if(getActivity()!=null)
+							UiUtils.runOnUiThread(attachment.processingPollingRunnable, 1000);
+					}
+				})
+				.exec(accountID);
+	}
+
+	private void finishMediaAttachmentUpload(DraftMediaAttachment attachment){
+		if(attachment.state!=AttachmentUploadState.PROCESSING && attachment.state!=AttachmentUploadState.UPLOADING)
+			throw new IllegalStateException("Unexpected state "+attachment.state);
+		attachment.uploadRequest=null;
+		attachment.state=AttachmentUploadState.DONE;
+		attachment.progressBar.setVisibility(View.GONE);
+		if(!areThereAnyUploadingAttachments())
+			uploadNextQueuedAttachment();
+		updatePublishButtonState();
+
+		if(attachment.progressBarAnimator!=null){
+			attachment.progressBarAnimator.cancel();
+			attachment.progressBarAnimator=null;
+		}
+		attachment.setOverlayVisible(false, true);
+	}
+
+	private void uploadNextQueuedAttachment(){
+		for(DraftMediaAttachment att:attachments){
+			if(att.state==AttachmentUploadState.QUEUED){
+				uploadMediaAttachment(att);
+				return;
+			}
+		}
+	}
+
+	private boolean areThereAnyUploadingAttachments(){
+		for(DraftMediaAttachment att:attachments){
+			if(att.state==AttachmentUploadState.UPLOADING)
+				return true;
+		}
+		return false;
+	}
+
+	private void updateUploadETAs(){
+		if(!areThereAnyUploadingAttachments()){
+			UiUtils.removeCallbacks(updateUploadEtaRunnable);
+			updateUploadEtaRunnable=null;
+			return;
+		}
+		for(DraftMediaAttachment att:attachments){
+			if(att.state==AttachmentUploadState.UPLOADING){
+				long eta=att.speedTracker.updateAndGetETA();
+//				Log.i(TAG, "onProgress: transfer speed "+UiUtils.formatFileSize(getActivity(), Math.round(att.speedTracker.getLastSpeed()), false)+" average "+UiUtils.formatFileSize(getActivity(), Math.round(att.speedTracker.getAverageSpeed()), false)+" eta "+eta);
+				String time=String.format("%d:%02d", eta/60, eta%60);
+				att.uploadStateText.setText(getString(R.string.file_upload_time_remaining, time));
+			}
+		}
+		UiUtils.runOnUiThread(updateUploadEtaRunnable, 100);
 	}
 
 	private void onEditMediaDescriptionClick(View v){
@@ -1114,7 +1239,7 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 	}
 
 	private int getMediaAttachmentsCount(){
-		return allAttachments.size();
+		return attachments.size();
 	}
 
 	private void onVisibilityClick(View v){
@@ -1233,6 +1358,30 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 		finishAutocomplete();
 	}
 
+	private void loadVideoThumbIntoView(ImageView target, Uri uri){
+		MastodonAPIController.runInBackground(()->{
+			Context context=getActivity();
+			if(context==null)
+				return;
+			try{
+				MediaMetadataRetriever mmr=new MediaMetadataRetriever();
+				mmr.setDataSource(context, uri);
+				Bitmap frame=mmr.getFrameAtTime(3_000_000);
+				mmr.release();
+				int size=Math.max(frame.getWidth(), frame.getHeight());
+				int maxSize=V.dp(250);
+				if(size>maxSize){
+					float factor=maxSize/(float)size;
+					frame=Bitmap.createScaledBitmap(frame, Math.round(frame.getWidth()*factor), Math.round(frame.getHeight()*factor), true);
+				}
+				Bitmap finalFrame=frame;
+				target.post(()->target.setImageBitmap(finalFrame));
+			}catch(Exception x){
+				Log.w(TAG, "loadVideoThumbIntoView: error getting video frame", x);
+			}
+		});
+	}
+
 	@Override
 	public CharSequence getTitle(){
 		return getString(R.string.new_post);
@@ -1253,14 +1402,75 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 		public Attachment serverAttachment;
 		public Uri uri;
 		public transient UploadAttachment uploadRequest;
+		public transient GetAttachmentByID processingPollingRequest;
 		public String description;
+		public String mimeType;
+		public AttachmentUploadState state=AttachmentUploadState.QUEUED;
 
 		public transient View view;
 		public transient ProgressBar progressBar;
 		public transient TextView descriptionView;
 		public transient View overlay;
 		public transient View infoBar;
-		public transient Button retryButton;
+		public transient ImageButton retryButton;
+		public transient ObjectAnimator progressBarAnimator;
+		public transient Runnable processingPollingRunnable;
+		public transient ImageView imageView;
+		public transient TextView uploadStateTitle, uploadStateText;
+		public transient TransferSpeedTracker speedTracker=new TransferSpeedTracker();
+
+		public void cancelUpload(){
+			switch(state){
+				case UPLOADING -> {
+					if(uploadRequest!=null){
+						uploadRequest.cancel();
+						uploadRequest=null;
+					}
+				}
+				case PROCESSING -> {
+					if(processingPollingRunnable!=null){
+						UiUtils.removeCallbacks(processingPollingRunnable);
+						processingPollingRunnable=null;
+					}
+					if(processingPollingRequest!=null){
+						processingPollingRequest.cancel();
+						processingPollingRequest=null;
+					}
+				}
+				default -> throw new IllegalStateException("Unexpected state "+state);
+			}
+		}
+
+		public boolean isUploadingOrProcessing(){
+			return state==AttachmentUploadState.UPLOADING || state==AttachmentUploadState.PROCESSING;
+		}
+
+		public void setOverlayVisible(boolean visible, boolean animated){
+			if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.S){
+				if(visible){
+					imageView.setRenderEffect(RenderEffect.createBlurEffect(V.dp(16), V.dp(16), Shader.TileMode.REPEAT));
+				}else{
+					imageView.setRenderEffect(null);
+				}
+			}
+			int infoBarVis=visible ? View.GONE : View.VISIBLE;
+			int overlayVis=visible ? View.VISIBLE : View.GONE;
+			if(animated){
+				V.setVisibilityAnimated(infoBar, infoBarVis);
+				V.setVisibilityAnimated(overlay, overlayVis);
+			}else{
+				infoBar.setVisibility(infoBarVis);
+				overlay.setVisibility(overlayVis);
+			}
+		}
+	}
+
+	enum AttachmentUploadState{
+		QUEUED,
+		UPLOADING,
+		PROCESSING,
+		ERROR,
+		DONE
 	}
 
 	private static class DraftPollOption{

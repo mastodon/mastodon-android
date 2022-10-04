@@ -201,6 +201,14 @@ public class UiUtils{
 		mainHandler.post(runnable);
 	}
 
+	public static void runOnUiThread(Runnable runnable, long delay){
+		mainHandler.postDelayed(runnable, delay);
+	}
+
+	public static void removeCallbacks(Runnable runnable){
+		mainHandler.removeCallbacks(runnable);
+	}
+
 	/** Linear interpolation between {@code startValue} and {@code endValue} by {@code fraction}. */
 	public static int lerp(int startValue, int endValue, float fraction) {
 		return startValue + Math.round(fraction * (endValue - startValue));
@@ -216,6 +224,18 @@ public class UiUtils{
 			}catch(Throwable ignore){}
 		}
 		return uri.getLastPathSegment();
+	}
+
+	public static String formatFileSize(Context context, long size, boolean atLeastKB){
+		if(size<1024 && !atLeastKB){
+			return context.getString(R.string.file_size_bytes, size);
+		}else if(size<1024*1024){
+			return context.getString(R.string.file_size_kb, size/1024.0);
+		}else if(size<1024*1024*1024){
+			return context.getString(R.string.file_size_mb, size/(1024.0*1024.0));
+		}else{
+			return context.getString(R.string.file_size_gb, size/(1024.0*1024.0*1024.0));
+		}
 	}
 
 	public static MediaType getFileMediaType(File file){
