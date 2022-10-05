@@ -341,6 +341,12 @@
 	<string name="edit">编辑</string>
 	<string name="discard_changes">放弃更改？</string>
 	<string name="upload_failed">上传失败</string>
+	<string name="file_size_bytes">%d 字节</string>
+	<string name="file_size_kb">%.2f KB</string>
+	<string name="file_size_mb">%.2f MB</string>
+	<string name="file_size_gb">%.2f GB</string>
+	<string name="file_upload_progress">已上传 %1$s，共 %2$s</string>
 	<string name="file_upload_time_remaining">剩余 %s</string>
 	<string name="upload_error_connection_lost">网络连接已断开</string>
+	<string name="upload_processing">正在处理…</string>
 </resources>
