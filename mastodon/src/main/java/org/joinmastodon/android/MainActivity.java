@@ -1,8 +1,11 @@
 package org.joinmastodon.android;
 
+import android.Manifest;
 import android.app.Application;
 import android.app.Fragment;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -59,6 +62,8 @@ public class MainActivity extends FragmentStackActivity{
 					showFragmentForNotification(notification, session.getID());
 				}else if(intent.getBooleanExtra("compose", false)){
 					showCompose();
+				}else{
+					maybeRequestNotificationsPermission();
 				}
 			}
 		}
@@ -130,5 +135,11 @@ public class MainActivity extends FragmentStackActivity{
 		composeArgs.putString("account", session.getID());
 		compose.setArguments(composeArgs);
 		showFragment(compose);
+	}
+
+	private void maybeRequestNotificationsPermission(){
+		if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.TIRAMISU && checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS)!=PackageManager.PERMISSION_GRANTED){
+			requestPermissions(new String[]{Manifest.permission.POST_NOTIFICATIONS}, 100);
+		}
 	}
 }
