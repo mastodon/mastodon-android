@@ -415,9 +415,16 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 		HtmlParser.parseCustomEmoji(ssb, account.emojis);
 		name.setText(ssb);
 		setTitle(ssb);
+
+		boolean isSelf=AccountSessionManager.getInstance().isSelf(accountID, account);
+
 		if(account.locked){
 			ssb=new SpannableStringBuilder("@");
 			ssb.append(account.acct);
+			if(isSelf){
+				ssb.append('@');
+				ssb.append(AccountSessionManager.getInstance().getAccount(accountID).domain);
+			}
 			ssb.append(" ");
 			Drawable lock=username.getResources().getDrawable(R.drawable.ic_fluent_lock_closed_20_filled, getActivity().getTheme()).mutate();
 			lock.setBounds(0, 0, lock.getIntrinsicWidth(), lock.getIntrinsicHeight());
@@ -425,7 +432,8 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 			ssb.append(getString(R.string.manually_approves_followers), new ImageSpan(lock, ImageSpan.ALIGN_BOTTOM), 0);
 			username.setText(ssb);
 		}else{
-			username.setText('@'+account.acct);
+			// noinspection SetTextI18n
+			username.setText('@'+account.acct+(isSelf ? ('@'+AccountSessionManager.getInstance().getAccount(accountID).domain) : ""));
 		}
 		CharSequence parsedBio=HtmlParser.parse(account.note, account.emojis, Collections.emptyList(), Collections.emptyList(), accountID);
 		if(TextUtils.isEmpty(parsedBio)){
