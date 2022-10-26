@@ -880,13 +880,17 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 	private View createMediaAttachmentView(DraftMediaAttachment draft){
 		View thumb=getActivity().getLayoutInflater().inflate(R.layout.compose_media_thumb, attachmentsView, false);
 		ImageView img=thumb.findViewById(R.id.thumb);
-		if(draft.mimeType.startsWith("image/")){
-			ViewImageLoader.load(img, null, new UrlImageLoaderRequest(draft.uri, V.dp(250), V.dp(250)));
-		}else if(draft.mimeType.startsWith("video/")){
-			loadVideoThumbIntoView(img, draft.uri);
+		if(draft.serverAttachment!=null){
+			ViewImageLoader.load(img, draft.serverAttachment.blurhashPlaceholder, new UrlImageLoaderRequest(draft.serverAttachment.previewUrl, V.dp(250), V.dp(250)));
+		}else{
+			if(draft.mimeType.startsWith("image/")){
+				ViewImageLoader.load(img, null, new UrlImageLoaderRequest(draft.uri, V.dp(250), V.dp(250)));
+			}else if(draft.mimeType.startsWith("video/")){
+				loadVideoThumbIntoView(img, draft.uri);
+			}
 		}
 		TextView fileName=thumb.findViewById(R.id.file_name);
-		fileName.setText(UiUtils.getFileName(draft.uri));
+		fileName.setText(UiUtils.getFileName(draft.serverAttachment!=null ? Uri.parse(draft.serverAttachment.url) : draft.uri));
 
 		draft.view=thumb;
 		draft.imageView=img;
