@@ -7,10 +7,10 @@
 	<string name="error">Fehler</string>
 	<string name="not_a_mastodon_instance">%s scheint keine Mastodon-Instanz zu sein.</string>
 	<string name="ok">OK</string>
-	<string name="preparing_auth">Bereite für Authentifizierung vor …</string>
-	<string name="finishing_auth">Authentifizierung abschließen …</string>
+	<string name="preparing_auth">Bereite Authentisierung vor…</string>
+	<string name="finishing_auth">Authentisierung abschließen…</string>
 	<string name="user_boosted">%s teilte</string>
-	<string name="in_reply_to">Antwort auf %s</string>
+	<string name="in_reply_to">Als Antwort auf %s</string>
 	<string name="notifications">Benachrichtigungen</string>
 	<string name="user_followed_you">ist dir gefolgt</string>
 	<string name="user_sent_follow_request">hat dir eine Folgeanfrage gesendet</string>
@@ -44,7 +44,7 @@
 	<string name="media">Medien</string>
 	<string name="profile_about">Über</string>
 	<string name="button_follow">Folgen</string>
-	<string name="button_following">Folgt</string>
+	<string name="button_following">Folge ich</string>
 	<string name="edit_profile">Profil bearbeiten</string>
 	<string name="mention_user">%s erwähen</string>
 	<string name="share_user">Teile das Profil von %s</string>
@@ -165,7 +165,7 @@
 	<string name="report_sent_subtitle">Während wir dies überprüfen, kannst du gegen %s vorgehen.</string>
 	<string name="unfollow_user">%s entfolgen</string>
 	<string name="unfollow">Entfolgen</string>
-	<string name="mute_user_explain">Du wirst die Beiträge vom Konto nicht mehr sehen. Das Konto kann dir immer noch folgen, und die Person hinter dem Konto wird deine Beiträge sehen können und nicht wissen, dass du sie stummgeschaltet hast.</string>
+	<string name="mute_user_explain">Du wirst die eigenen und geteilten Beiträge des Kontos nicht mehr sehen können. Dass du das Profil stummgeschaltet hast, erfährt die Person hinter dem Account aber nicht.</string>
 	<string name="block_user_explain">Du wirst die Beiträge von diesem Konto nicht sehen. Das Konto wird nicht in der Lage sein, deine Beiträge zu sehen oder dir zu folgen. Die Person hinter dem Konto wird wissen, dass du das Konto blockiert hast.</string>
 	<string name="report_personal_title">Du willst das nicht mehr sehen?</string>
 	<string name="report_personal_subtitle">Wenn du etwas auf Mastodon nicht sehen willst, kannst du den Nutzer aus deiner Erfahrung streichen.</string>
@@ -219,7 +219,7 @@
 	<string name="skip">Überspringen</string>
 	<string name="notification_type_follow">Neue Follower</string>
 	<string name="notification_type_favorite">Favoriten</string>
-	<string name="notification_type_reblog">Teilungen</string>
+	<string name="notification_type_reblog">Geteilte Beiträge</string>
 	<string name="notification_type_mention">Erwähnungen</string>
 	<string name="notification_type_poll">Umfragen</string>
 	<string name="choose_account">Konto auswählen</string>
@@ -246,7 +246,7 @@
 	<string name="notify_none">niemand</string>
 	<string name="notify_favorites">Meinen Beitrag favorisiert</string>
 	<string name="notify_follow">Mir folgt</string>
-	<string name="notify_reblog">Meinen Beitrag teilt</string>
+	<string name="notify_reblog">Meinen Beitrag geteilt</string>
 	<string name="notify_mention">Mich erwähnt</string>
 	<string name="settings_boring">Die Langeweile-Zone</string>
 	<string name="settings_account">Kontoeinstellungen</string>
@@ -267,7 +267,7 @@
 	<string name="hide_content">Inhalt verstecken</string>
 	<string name="new_post">Neuer Beitrag</string>
 	<string name="button_reply">Antworten</string>
-	<string name="button_reblog">Erneut teilen</string>
+	<string name="button_reblog">Teilen</string>
 	<string name="button_favorite">Favorisieren</string>
 	<string name="button_share">Teilen</string>
 	<string name="media_no_description">Medien ohne Beschreibung</string>
@@ -282,7 +282,7 @@
 	<string name="unfollowed_user">%s entfolgt</string>
 	<string name="followed_user">Du folgst nun %s</string>
 	<string name="open_in_browser">Im Browser öffnen</string>
-	<string name="hide_boosts_from_user">Verstecke Teilungen von %s</string>
+	<string name="hide_boosts_from_user">Verstecke geteilte Beiträge von %s</string>
 	<string name="show_boosts_from_user">Zeige Teilungen von %s</string>
 	<string name="signup_reason">Warum möchtest du beitreten?</string>
 	<string name="signup_reason_note">Dies wird uns dabei helfen, deine Anmeldungsanfrage besser zu verarbeiten.</string>
@@ -326,12 +326,12 @@
 		<item quantity="other">%,d Favoriten</item>
 	</plurals>
 	<plurals name="x_reblogs">
-		<item quantity="one">%,d Reblog</item>
+		<item quantity="one">%,d geteilt</item>
 		<item quantity="other">%,d Reblogs</item>
 	</plurals>
 	<string name="timestamp_via_app">%1$s via %2$s</string>
 	<string name="time_now">jetzt</string>
-	<string name="post_info_reblogs">Teilungen</string>
+	<string name="post_info_reblogs">Geteilte Beiträge</string>
 	<string name="post_info_favorites">Favoriten</string>
 	<string name="edit_history">Verlauf bearbeiten</string>
 	<string name="last_edit_at_x">Letzte Bearbeitung: %s</string>
