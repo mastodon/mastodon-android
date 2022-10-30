@@ -23,7 +23,7 @@
 	<string name="time_days">%d T</string>
 	<string name="share_toot_title">Teilen</string>
 	<string name="settings">Einstellungen</string>
-	<string name="publish">Tröt</string>
+	<string name="publish">Veröffentlichen</string>
 	<string name="discard_draft">Entwurf verwerfen?</string>
 	<string name="discard">Verwerfen</string>
 	<string name="cancel">Abbrechen</string>
@@ -32,7 +32,7 @@
 		<item quantity="other">Follower</item>
 	</plurals>
 	<plurals name="following">
-		<item quantity="one">Folgender</item>
+		<item quantity="one">Folge ich</item>
 		<item quantity="other">Folgende</item>
 	</plurals>
 	<plurals name="posts">
@@ -40,7 +40,7 @@
 		<item quantity="other">Beiträge</item>
 	</plurals>
 	<string name="posts">Beiträge</string>
-	<string name="posts_and_replies">Beiträge und Antworten</string>
+	<string name="posts_and_replies">Beiträge &amp; Antworten</string>
 	<string name="media">Medien</string>
 	<string name="profile_about">Über</string>
 	<string name="button_follow">Folgen</string>
@@ -53,8 +53,8 @@
 	<string name="block_user">%s blockieren</string>
 	<string name="unblock_user">%s nicht mehr blockieren</string>
 	<string name="report_user">%s melden</string>
-	<string name="block_domain">%s blockieren</string>
-	<string name="unblock_domain">%s nicht mehr blockieren</string>
+	<string name="block_domain">Domain %s blockieren</string>
+	<string name="unblock_domain">Domain %s nicht mehr blockieren</string>
 	<plurals name="x_posts">
 		<item quantity="one">%,d Beitrag</item>
 		<item quantity="other">%,d Beiträge</item>
@@ -66,7 +66,7 @@
 	<string name="field_content">Inhalt</string>
 	<string name="saving">Speichern …</string>
 	<string name="post_from_user">Beitrag von %s</string>
-	<string name="poll_option_hint">Auswahlmöglichkeit %d</string>
+	<string name="poll_option_hint">%d. Auswahl</string>
 	<plurals name="x_minutes">
 		<item quantity="one">%d Minute</item>
 		<item quantity="other">%d Minuten</item>
@@ -100,7 +100,7 @@
 		<item quantity="one">%,d hat gewählt</item>
 		<item quantity="other">%,d haben gewählt</item>
 	</plurals>
-	<string name="poll_closed">Geschlossen</string>
+	<string name="poll_closed">Beendet</string>
 	<string name="confirm_mute_title">Konto stummschalten</string>
 	<string name="confirm_mute">Bestätigen, um %s stummzuschalten</string>
 	<string name="do_mute">Stummschalten</string>
@@ -140,7 +140,7 @@
 	</plurals>
 	<plurals name="discussed_x_times">
 		<item quantity="one">%d Mal diskutiert</item>
-		<item quantity="other">%d Mal diskutiert</item>
+		<item quantity="other">%d × auf dieser Mastodon-Instanz geteilt</item>
 	</plurals>
 	<string name="report_title">%s melden</string>
 	<string name="report_choose_reason">Was stimmt mit diesem Beitrag nicht?</string>
@@ -210,8 +210,8 @@
 	<string name="alt_text_subtitle">Alternativtext erscheint für blinde Menschen. Versuche, nur so viele Details einzubeziehen, dass der Kontext verständlich wird.</string>
 	<string name="alt_text_hint">z.B. „Eine Giraffe auf einem Dreirad, während sie eine Banane isst“</string>
 	<string name="visibility_public">Öffentlich</string>
-	<string name="visibility_followers_only">Nur Folgende</string>
-	<string name="visibility_private">Nur Leute, die ich erwähne</string>
+	<string name="visibility_followers_only">Nur Follower</string>
+	<string name="visibility_private">Nur erwähnte Profile</string>
 	<string name="search_all">Alle</string>
 	<string name="search_people">Personen</string>
 	<string name="recent_searches">Letzte Suchanfragen</string>
@@ -230,29 +230,29 @@
 	</plurals>
 	<string name="media_attachment_unsupported_type">Datei %s wird nicht unterstützt</string>
 	<string name="media_attachment_too_big">Die Dateigröße %1$s übersteigt das Uploadlimit von %2$s MB</string>
-	<string name="settings_theme">Visuelle Darstellung</string>
-	<string name="theme_auto">Automatisch</string>
+	<string name="settings_theme">Design</string>
+	<string name="theme_auto">Systembedingt</string>
 	<string name="theme_light">Hell</string>
 	<string name="theme_dark">Dunkel</string>
 	<string name="theme_true_black">AMOLED-Modus</string>
-	<string name="settings_behavior">Verhalten</string>
-	<string name="settings_gif">Spiele animierte Avatare und Emojis ab</string>
-	<string name="settings_custom_tabs">Verwende In-App-Browser</string>
+	<string name="settings_behavior">App-Verhalten</string>
+	<string name="settings_gif">Spiele animierte GIFs, Avatare und Emojis ab</string>
+	<string name="settings_custom_tabs">In-App-Browser verwenden</string>
 	<string name="settings_notifications">Benachrichtigungen</string>
 	<string name="notify_me_when">Benachrichtige mich, wenn</string>
-	<string name="notify_anyone">jeder</string>
-	<string name="notify_follower">ein Follower</string>
-	<string name="notify_followed">jemand, dem ich folge</string>
+	<string name="notify_anyone">irgendjemand</string>
+	<string name="notify_follower">ein Follower von mir</string>
+	<string name="notify_followed">jemand, dem ich folge,</string>
 	<string name="notify_none">niemand</string>
-	<string name="notify_favorites">Meinen Beitrag favorisiert</string>
-	<string name="notify_follow">Mir folgt</string>
-	<string name="notify_reblog">Meinen Beitrag geteilt</string>
-	<string name="notify_mention">Mich erwähnt</string>
-	<string name="settings_boring">Die Langeweile-Zone</string>
+	<string name="notify_favorites">meinen Beitrag favorisiert</string>
+	<string name="notify_follow">mir folgt</string>
+	<string name="notify_reblog">einen meiner Beiträge geteilt hat</string>
+	<string name="notify_mention">mich erwähnt</string>
+	<string name="settings_boring">Die langweilige Zone</string>
 	<string name="settings_account">Kontoeinstellungen</string>
-	<string name="settings_contribute">Zu Mastodon beitragen</string>
-	<string name="settings_tos">AGBs</string>
-	<string name="settings_privacy_policy">Datenschutzerklärung</string>
+	<string name="settings_contribute">Bei Mastodon unterstützen und mitmachen</string>
+	<string name="settings_tos">Nutzungsbedingungen</string>
+	<string name="settings_privacy_policy">Datenschutzbestimmungen</string>
 	<string name="settings_spicy">Die gefährliche Zone</string>
 	<string name="settings_clear_cache">Medien-Cache leeren</string>
 	<string name="settings_app_version">Mastodon für Android v%1$s (%2$d)</string>
@@ -322,12 +322,12 @@
 		<item quantity="other">%,d Gefolgt</item>
 	</plurals>
 	<plurals name="x_favorites">
-		<item quantity="one">%,d Favorit</item>
+		<item quantity="one">%,d × favorisiert</item>
 		<item quantity="other">%,d Favoriten</item>
 	</plurals>
 	<plurals name="x_reblogs">
-		<item quantity="one">%,d geteilt</item>
-		<item quantity="other">%,d Reblogs</item>
+		<item quantity="one">%,d × geteilt</item>
+		<item quantity="other">%,d × geteilt</item>
 	</plurals>
 	<string name="timestamp_via_app">%1$s via %2$s</string>
 	<string name="time_now">jetzt</string>
