@@ -26,6 +26,13 @@
 				<action android:name="android.intent.action.MAIN"/>
 				<category android:name="android.intent.category.LAUNCHER"/>
 			</intent-filter>
+			<intent-filter android:autoVerify="true">
+				<action android:name="android.intent.action.VIEW" />
+				<category android:name="android.intent.category.DEFAULT" />
+				<category android:name="android.intent.category.BROWSABLE" />
+				<data android:scheme="https" />
+				<data android:host="mastodon.social" />
+			</intent-filter>
 		</activity>
 		<activity android:name=".OAuthActivity" android:exported="true" android:configChanges="orientation|screenSize" android:launchMode="singleTask">
 			<intent-filter>
@@ -61,7 +68,6 @@
 				<category android:name="me.grishka.fcmtest"/>
 			</intent-filter>
 		</receiver>
-
 	</application>
 
 </manifest>
