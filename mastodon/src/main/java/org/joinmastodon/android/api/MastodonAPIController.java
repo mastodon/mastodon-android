@@ -197,4 +197,8 @@ public class MastodonAPIController{
 	public static void runInBackground(Runnable action){
 		thread.postRunnable(action, 0);
 	}
+
+	public static OkHttpClient getHttpClient(){
+		return httpClient;
+	}
 }

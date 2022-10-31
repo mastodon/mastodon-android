@@ -33,6 +33,9 @@ android {
 			initWith release
 			versionNameSuffix "-beta"
 		}
+		githubRelease{
+			initWith release
+		}
 	}
 	compileOptions {
 		sourceCompatibility JavaVersion.VERSION_17
@@ -45,6 +48,9 @@ android {
 		}
 		appcenterPublicBeta{
 			setRoot "src/appcenter"
+		}
+		githubRelease{
+			setRoot "src/github"
 		}
 	}
 	lintOptions{

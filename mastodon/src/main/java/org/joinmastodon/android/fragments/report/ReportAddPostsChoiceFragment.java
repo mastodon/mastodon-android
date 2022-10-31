@@ -102,6 +102,7 @@ public class ReportAddPostsChoiceFragment extends StatusListFragment{
 		else
 			selectedIDs.add(id);
 		list.invalidate();
+		btn.setEnabled(!selectedIDs.isEmpty());
 	}
 
 	@Override

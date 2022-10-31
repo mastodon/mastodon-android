@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+	package="org.joinmastodon.android">
+
+	<uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
+
+	<application>
+		<!--		<receiver android:name=".updater.GithubSelfUpdaterImpl$InstallerStatusReceiver" android:exported="false"/>-->
+		<!--		<receiver android:name=".updater.GithubSelfUpdaterImpl$AfterUpdateRestartReceiver" android:exported="true" android:enabled="false">-->
+		<!--			<intent-filter>-->
+		<!--				<action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>-->
+		<!--			</intent-filter>-->
+		<!--		</receiver>-->
+		<provider
+			android:authorities="${applicationId}.self_update_provider"
+			android:name=".updater.SelfUpdateContentProvider"
+			android:grantUriPermissions="true"
+			android:exported="false"/>
+	</application>
+
+</manifest>

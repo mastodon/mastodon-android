@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:padding="8dp">
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:minHeight="64dp"
+		android:gravity="center_vertical"
+		android:paddingStart="16dp"
+		android:background="@drawable/bg_settings_update"
+		android:orientation="horizontal">
+
+		<TextView
+			android:id="@+id/text"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:layout_marginEnd="4dp"
+			android:layout_marginTop="16dp"
+			android:layout_marginBottom="16dp"
+			android:textAppearance="@style/m3_body_medium"
+			tools:text="@string/update_available"/>
+
+		<FrameLayout
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content">
+
+			<Button
+				android:id="@+id/button"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center_vertical|end"
+				android:background="?android:selectableItemBackground"
+				android:textColor="?colorAccentLight"
+				android:textAllCaps="true"
+				android:textSize="14dp"
+				android:paddingLeft="16dp"
+				android:paddingRight="16dp"
+				android:stateListAnimator="@null"
+				tools:text="@string/install_update"/>
+
+			<ImageButton
+				android:id="@+id/cancel_btn"
+				android:layout_width="40dp"
+				android:layout_height="40dp"
+				android:layout_gravity="end|center_vertical"
+				android:layout_marginEnd="16dp"
+				android:background="@drawable/bg_update_download_progress"
+				android:tint="?colorSearchHint"
+				android:contentDescription="@string/cancel"
+				android:visibility="gone"
+				android:src="@drawable/ic_fluent_dismiss_16_filled"/>
+
+			<ProgressBar
+				android:id="@+id/progress"
+				android:layout_width="40dp"
+				android:layout_height="40dp"
+				android:layout_gravity="end|center_vertical"
+				android:layout_marginEnd="16dp"
+				android:progressDrawable="@drawable/update_progress"
+				android:max="1000"
+				android:padding="0dp"
+				android:visibility="gone"
+				android:indeterminateOnly="false"
+				android:indeterminate="false"/>
+
+		</FrameLayout>
+
+	</LinearLayout>
+
+</FrameLayout>

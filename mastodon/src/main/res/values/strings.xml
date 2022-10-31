@@ -377,4 +377,11 @@
 	<string name="file_upload_time_remaining">%s remaining</string>
 	<string name="upload_error_connection_lost">Your device lost connection to the internet</string>
 	<string name="upload_processing">Processing…</string>
+	<!-- %s is version like 1.2.3 -->
+	<string name="update_available">Mastodon for Android %s is ready to download.</string>
+	<!-- %s is version like 1.2.3 -->
+	<string name="update_ready">Mastodon for Android %s is downloaded and ready to install.</string>
+	<!-- %s is file size -->
+	<string name="download_update">Download (%s)</string>
+	<string name="install_update">Install</string>
 </resources>
