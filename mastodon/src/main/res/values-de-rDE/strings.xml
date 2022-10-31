@@ -12,7 +12,7 @@
 	<string name="user_boosted">%s teilte</string>
 	<string name="in_reply_to">Antwort auf den Beitrag von %s</string>
 	<string name="notifications">Benachrichtigungen</string>
-	<string name="user_followed_you">ist dir gefolgt</string>
+	<string name="user_followed_you">folgt dir jetzt</string>
 	<string name="user_sent_follow_request">hat dir eine Folgeanfrage gesendet</string>
 	<string name="user_favorited">hat deinen Beitrag favorisiert</string>
 	<string name="notification_boosted">hat deinen Beitrag geteilt</string>
@@ -101,17 +101,17 @@
 		<item quantity="other">%,d haben gewählt</item>
 	</plurals>
 	<string name="poll_closed">Beendet</string>
-	<string name="confirm_mute_title">Konto stummschalten</string>
+	<string name="confirm_mute_title">Account stummschalten</string>
 	<string name="confirm_mute">Bestätigen, um %s stummzuschalten</string>
-	<string name="do_mute">Stummschalten</string>
-	<string name="confirm_unmute_title">Konto nicht mehr stummschalten</string>
+	<string name="do_mute">Ja, stummschalten</string>
+	<string name="confirm_unmute_title">Account nicht mehr stummschalten</string>
 	<string name="confirm_unmute">Bestätigen, um %s nicht mehr stummzuschalten</string>
 	<string name="do_unmute">Nicht mehr stummschalten</string>
-	<string name="confirm_block_title">Konto blockieren</string>
+	<string name="confirm_block_title">Account blockieren</string>
 	<string name="confirm_block_domain_title">Domain blockieren</string>
 	<string name="confirm_block">Bestätigen, um %s zu blockieren</string>
-	<string name="do_block">Blockieren</string>
-	<string name="confirm_unblock_title">Konto nicht mehr blockieren</string>
+	<string name="do_block">Ja, blockieren</string>
+	<string name="confirm_unblock_title">Account nicht mehr blockieren</string>
 	<string name="confirm_unblock_domain_title">Domain nicht mehr blockieren</string>
 	<string name="confirm_unblock">Bestätigen, um %s nicht mehr zu blockieren</string>
 	<string name="do_unblock">Nicht mehr blockieren</string>
@@ -135,8 +135,8 @@
 	<string name="all_notifications">Alle</string>
 	<string name="mentions">Erwähnungen</string>
 	<plurals name="x_people_talking">
-		<item quantity="one">%d Person redet darüber</item>
-		<item quantity="other">%d Personen reden darüber</item>
+		<item quantity="one">%d Profil erwähnte diesen Hashtag</item>
+		<item quantity="other">%d Profile erwähnten diesen Hashtag</item>
 	</plurals>
 	<plurals name="discussed_x_times">
 		<item quantity="one">%d Mal diskutiert</item>
@@ -145,7 +145,7 @@
 	<string name="report_title">%s melden</string>
 	<string name="report_choose_reason">Was stimmt mit diesem Beitrag nicht?</string>
 	<string name="report_choose_reason_account">Was ist los mit %s?</string>
-	<string name="report_choose_reason_subtitle">Wähle die beste Zugehörigkeit</string>
+	<string name="report_choose_reason_subtitle">Wähle die bestmögliche Option aus</string>
 	<string name="report_reason_personal">Das gefällt mir nicht</string>
 	<string name="report_reason_personal_subtitle">Das ist etwas, das man nicht sehen möchte</string>
 	<string name="report_reason_spam">Das ist Spam</string>
@@ -281,7 +281,7 @@
 	<string name="follow_user">%s folgen</string>
 	<string name="unfollowed_user">%s entfolgt</string>
 	<string name="followed_user">Du folgst nun %s</string>
-	<string name="open_in_browser">Im Browser öffnen</string>
+	<string name="open_in_browser">Beitrag im Browser öffnen</string>
 	<string name="hide_boosts_from_user">Verberge geteilte Beiträge von %s</string>
 	<string name="show_boosts_from_user">Zeige geteilte Beiträge von %s</string>
 	<string name="signup_reason">Warum möchtest du beitreten?</string>
@@ -299,13 +299,13 @@
 	<string name="downloading">Herunterladen …</string>
 	<string name="no_app_to_handle_action">Es gibt keine App, um diese Aktion auszuführen</string>
 	<string name="local_timeline">Community</string>
-	<string name="trending_posts_info_banner">Dies sind die Beiträge, die in deiner Mastodon-Bubble beliebter werden.</string>
-	<string name="trending_hashtags_info_banner">Dies sind die Hashtags in deiner Mastodon-Bubble.</string>
-	<string name="trending_links_info_banner">Dies sind die Nachrichten, die am häufigsten in deiner Mastodon-Instanz geteilt wurden.</string>
+	<string name="trending_posts_info_banner">Dies sind Beiträge, die auf deinem Mastodon-Server gerade angesagt sind.</string>
+	<string name="trending_hashtags_info_banner">Dies sind Hashtags, die auf deinem Mastodon-Server gerade angesagt sind.</string>
+	<string name="trending_links_info_banner">Dies sind journalistische Nachrichten, die auf deinem Mastodon-Server gerade am häufigsten geteilt werden.</string>
 	<string name="local_timeline_info_banner">Dies sind die neuesten Beiträge der Leute, die den gleichen Mastodon-Server verwenden wie du.</string>
 	<string name="dismiss">Verwerfen</string>
 	<string name="see_new_posts">Neue Beiträge anzeigen</string>
-	<string name="load_missing_posts">Fehlende Beiträge laden</string>
+	<string name="load_missing_posts">Weitere Beiträge laden</string>
 	<string name="follow_back">Zurück folgen</string>
 	<string name="button_follow_pending">Ausstehend</string>
 	<string name="follows_you">Folgt dir</string>
@@ -318,8 +318,8 @@
 		<item quantity="other">%,d Follower</item>
 	</plurals>
 	<plurals name="x_following">
-		<item quantity="one">%,d Gefolgt</item>
-		<item quantity="other">%,d Gefolgt</item>
+		<item quantity="one">%,d Folge ich</item>
+		<item quantity="other">%,d Folge ich</item>
 	</plurals>
 	<plurals name="x_favorites">
 		<item quantity="one">%,d × favorisiert</item>
@@ -371,6 +371,10 @@
 	<string name="upload_error_connection_lost">Ihr Gerät hat die Internetverbindung verloren</string>
 	<string name="upload_processing">Verarbeite …</string>
 	<!-- %s is version like 1.2.3 -->
+	<string name="update_available">Mastodon für Android %s kann nun heruntergeladen werden.</string>
 	<!-- %s is version like 1.2.3 -->
+	<string name="update_ready">Mastodon für Android %s wurde heruntergeladen und kann nun installiert werden.</string>
 	<!-- %s is file size -->
+	<string name="download_update">Download (%s)</string>
+	<string name="install_update">Installieren</string>
 </resources>
