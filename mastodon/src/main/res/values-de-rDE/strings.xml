@@ -7,8 +7,8 @@
 	<string name="error">Fehler</string>
 	<string name="not_a_mastodon_instance">%s scheint keine Mastodon-Instanz zu sein.</string>
 	<string name="ok">OK</string>
-	<string name="preparing_auth">Bereite Authentisierung vor…</string>
-	<string name="finishing_auth">Authentisierung abschließen…</string>
+	<string name="preparing_auth">Authentifizierung wird vorbereitet …</string>
+	<string name="finishing_auth">Authentifizierung abschließen …</string>
 	<string name="user_boosted">%s hat diesen Beitrag geteilt</string>
 	<string name="in_reply_to">Antwort auf den Beitrag von %s</string>
 	<string name="notifications">Benachrichtigungen</string>
@@ -33,7 +33,7 @@
 	</plurals>
 	<plurals name="following">
 		<item quantity="one">Folge ich</item>
-		<item quantity="other">Folgende</item>
+		<item quantity="other">Folge ich</item>
 	</plurals>
 	<plurals name="posts">
 		<item quantity="one">Beitrag</item>
@@ -61,7 +61,7 @@
 	</plurals>
 	<string name="profile_joined">Beigetreten</string>
 	<string name="done">Fertig</string>
-	<string name="loading">Lade …</string>
+	<string name="loading">wird geladen …</string>
 	<string name="field_label">Beschriftung</string>
 	<string name="field_content">Inhalt</string>
 	<string name="saving">Speichern …</string>
@@ -101,17 +101,17 @@
 		<item quantity="other">%,d Stimmen</item>
 	</plurals>
 	<string name="poll_closed">Beendet</string>
-	<string name="confirm_mute_title">Account stummschalten</string>
+	<string name="confirm_mute_title">Konto stummschalten</string>
 	<string name="confirm_mute">Bestätigen, um %s stummzuschalten</string>
-	<string name="do_mute">Ja, stummschalten</string>
-	<string name="confirm_unmute_title">Account nicht mehr stummschalten</string>
+	<string name="do_mute">Stummschalten</string>
+	<string name="confirm_unmute_title">Konto nicht mehr stummschalten</string>
 	<string name="confirm_unmute">Bestätigen, um %s nicht mehr stummzuschalten</string>
 	<string name="do_unmute">Nicht mehr stummschalten</string>
-	<string name="confirm_block_title">Account blockieren</string>
+	<string name="confirm_block_title">Konto sperren</string>
 	<string name="confirm_block_domain_title">Domain blockieren</string>
 	<string name="confirm_block">Bestätigen, um %s zu blockieren</string>
 	<string name="do_block">Ja, blockieren</string>
-	<string name="confirm_unblock_title">Account nicht mehr blockieren</string>
+	<string name="confirm_unblock_title">Konto nicht mehr sperren</string>
 	<string name="confirm_unblock_domain_title">Domain nicht mehr blockieren</string>
 	<string name="confirm_unblock">Bestätigen, um %s nicht mehr zu blockieren</string>
 	<string name="do_unblock">Nicht mehr blockieren</string>
@@ -172,8 +172,8 @@
 	<string name="back">Zurück</string>
 	<string name="instance_catalog_title">Mastodon besteht aus Benutzern auf verschiedenen Servern.</string>
 	<string name="instance_catalog_subtitle">Wähle einen Server basierend auf deinen Interessen oder deiner Region – oder einfach einen allgemeinen. Du kannst trotzdem mit jedem interagieren, egal auf welchem Server.</string>
-	<string name="search_communities">Nach Server suchen oder URL eingeben</string>
-	<string name="instance_rules_title">Hier ein paar Regeln</string>
+	<string name="search_communities">Server suchen oder Adresse eingeben</string>
+	<string name="instance_rules_title">Einige Grundregeln</string>
 	<string name="instance_rules_subtitle">Nimm dir eine Minute Zeit, und gehe kurz alle Regeln von %s durch.</string>
 	<string name="signup_title">Okay, lass uns mit %s anfangen</string>
 	<string name="edit_photo">bearbeiten</string>
@@ -201,7 +201,7 @@
 	<string name="open_email_app">Öffne meine E-Mail-App</string>
 	<string name="resent_email">Bestätigungs-E-Mail gesendet</string>
 	<string name="compose_hint">Was gibt\'s Neues?</string>
-	<string name="content_warning">Inhaltswarnung</string>
+	<string name="content_warning">Inhaltwarnung</string>
 	<string name="add_image_description">Bildbeschreibung hinzufügen …</string>
 	<string name="retry_upload">Hochladen erneut versuchen</string>
 	<string name="edit_image">Bild bearbeiten</string>
@@ -217,13 +217,13 @@
 	<string name="recent_searches">Letzte Suchanfragen</string>
 	<string name="step_x_of_n">Schritt %1$d von %2$d</string>
 	<string name="skip">Überspringen</string>
-	<string name="notification_type_follow">Neue Follower</string>
+	<string name="notification_type_follow">Neue Folgende</string>
 	<string name="notification_type_favorite">Favoriten</string>
 	<string name="notification_type_reblog">Geteilte Beiträge</string>
 	<string name="notification_type_mention">Erwähnungen</string>
 	<string name="notification_type_poll">Umfragen</string>
 	<string name="choose_account">Konto auswählen</string>
-	<string name="err_not_logged_in">Melde dich zuerst mit Mastodon an</string>
+	<string name="err_not_logged_in">Bitte zuerst in Mastodon anmelden</string>
 	<plurals name="cant_add_more_than_x_attachments">
 		<item quantity="one">Du kannst nicht mehr als %d Medien-Datei anhängen</item>
 		<item quantity="other">Du kannst nicht mehr als %d Medien-Dateien anhängen</item>
@@ -258,8 +258,8 @@
 	<string name="settings_app_version">Mastodon für Android v%1$s (%2$d)</string>
 	<string name="media_cache_cleared">Medien-Cache geleert</string>
 	<string name="confirm_log_out">Bist du dir sicher, dass du dich abmelden möchtest?</string>
-	<string name="sensitive_content">NSFW-Inhalt</string>
-	<string name="sensitive_content_explain">Der Autor hat den Inhalt als NSFW markiert. Tippen zum Öffnen.</string>
+	<string name="sensitive_content">Sensibler Inhalt</string>
+	<string name="sensitive_content_explain">Der Autor hat den Inhalt als sensiblen Inhalt markiert. Tippen zum Anzeigen.</string>
 	<string name="media_hidden">Tippen zum Öffnen</string>
 	<string name="avatar_description">Gehe zu %s\'s Profil</string>
 	<string name="more_options">Mehr Optionen</string>
@@ -296,7 +296,7 @@
 	<string name="open_settings">Einstellungen öffnen</string>
 	<string name="error_saving_file">Fehler beim Speichern der Datei</string>
 	<string name="file_saved">Datei gespeichert</string>
-	<string name="downloading">Herunterladen …</string>
+	<string name="downloading">wird heruntergeladen …</string>
 	<string name="no_app_to_handle_action">Es gibt keine App, um diese Aktion auszuführen</string>
 	<string name="local_timeline">Community</string>
 	<string name="trending_posts_info_banner">Dies sind Beiträge, die auf deinem Mastodon-Server gerade angesagt sind.</string>
@@ -311,15 +311,15 @@
 	<string name="follows_you">Folgt dir</string>
 	<string name="manually_approves_followers">Genehmigt Folgende manuell</string>
 	<string name="current_account">Aktuelles Konto</string>
-	<string name="log_out_account">Ausloggen</string>
+	<string name="log_out_account">%s abmelden</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<plurals name="x_followers">
 		<item quantity="one">%,d Follower</item>
 		<item quantity="other">%,d Follower</item>
 	</plurals>
 	<plurals name="x_following">
-		<item quantity="one">%,d Folge ich</item>
-		<item quantity="other">%,d Folge ich</item>
+		<item quantity="one">%,d folge ich</item>
+		<item quantity="other">%,d folge ich</item>
 	</plurals>
 	<plurals name="x_favorites">
 		<item quantity="one">%,d × favorisiert</item>
@@ -347,9 +347,9 @@
 	<string name="edited_timestamp">bearbeitet %s</string>
 	<string name="edit_original_post">Ursprünglicher Beitrag</string>
 	<string name="edit_text_edited">Text bearbeitet</string>
-	<string name="edit_spoiler_added">Inhaltswarnung hinzugefügt</string>
-	<string name="edit_spoiler_edited">Inhaltswarnung bearbeitet</string>
-	<string name="edit_spoiler_removed">Inhaltswarnung entfernt</string>
+	<string name="edit_spoiler_added">Inhaltwarnung hinzugefügt</string>
+	<string name="edit_spoiler_edited">Inhaltwarnung bearbeitet</string>
+	<string name="edit_spoiler_removed">Inhaltwarnung entfernt</string>
 	<string name="edit_poll_added">Umfrage hinzugefügt</string>
 	<string name="edit_poll_edited">Umfrage bearbeitet</string>
 	<string name="edit_poll_removed">Umfrage entfernt</string>
@@ -369,7 +369,7 @@
 	<string name="file_upload_progress">%1$s von %2$s</string>
 	<string name="file_upload_time_remaining">%s verbleibend</string>
 	<string name="upload_error_connection_lost">Dein Gerät hat gerade keinen Zugang zum Internet</string>
-	<string name="upload_processing">Verarbeite …</string>
+	<string name="upload_processing">wird verarbeitet …</string>
 	<!-- %s is version like 1.2.3 -->
 	<string name="update_available">Mastodon für Android %s kann nun heruntergeladen werden.</string>
 	<!-- %s is version like 1.2.3 -->
