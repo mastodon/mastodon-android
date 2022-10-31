@@ -9,7 +9,7 @@
 	<string name="ok">OK</string>
 	<string name="preparing_auth">Bereite Authentisierung vor…</string>
 	<string name="finishing_auth">Authentisierung abschließen…</string>
-	<string name="user_boosted">%s teilte</string>
+	<string name="user_boosted">%s hat diesen Beitrag geteilt</string>
 	<string name="in_reply_to">Antwort auf den Beitrag von %s</string>
 	<string name="notifications">Benachrichtigungen</string>
 	<string name="user_followed_you">folgt dir jetzt</string>
@@ -17,10 +17,10 @@
 	<string name="user_favorited">hat deinen Beitrag favorisiert</string>
 	<string name="notification_boosted">hat deinen Beitrag geteilt</string>
 	<string name="poll_ended">Abstimmung beendet</string>
-	<string name="time_seconds">%dSek.</string>
-	<string name="time_minutes">%dMin.</string>
-	<string name="time_hours">%d Std.</string>
-	<string name="time_days">%d T</string>
+	<string name="time_seconds">vor %d Sekunden</string>
+	<string name="time_minutes">vor %d Minuten</string>
+	<string name="time_hours">vor %d Stunden</string>
+	<string name="time_days">vor %d Tagen</string>
 	<string name="share_toot_title">Teilen</string>
 	<string name="settings">Einstellungen</string>
 	<string name="publish">Veröffentlichen</string>
@@ -97,8 +97,8 @@
 		<item quantity="other">%d Tage verbleibend</item>
 	</plurals>
 	<plurals name="x_voters">
-		<item quantity="one">%,d hat gewählt</item>
-		<item quantity="other">%,d haben gewählt</item>
+		<item quantity="one">%,d Stimme</item>
+		<item quantity="other">%,d Stimmen</item>
 	</plurals>
 	<string name="poll_closed">Beendet</string>
 	<string name="confirm_mute_title">Account stummschalten</string>
@@ -131,7 +131,7 @@
 	<string name="search_hint">Suchen</string>
 	<string name="hashtags">Hashtags</string>
 	<string name="news">Nachrichten</string>
-	<string name="for_you">Für dich</string>
+	<string name="for_you">Vorschläge</string>
 	<string name="all_notifications">Alle</string>
 	<string name="mentions">Erwähnungen</string>
 	<plurals name="x_people_talking">
@@ -146,8 +146,8 @@
 	<string name="report_choose_reason">Was stimmt mit diesem Beitrag nicht?</string>
 	<string name="report_choose_reason_account">Was ist los mit %s?</string>
 	<string name="report_choose_reason_subtitle">Wähle die bestmögliche Option aus</string>
-	<string name="report_reason_personal">Das gefällt mir nicht</string>
-	<string name="report_reason_personal_subtitle">Das ist etwas, das man nicht sehen möchte</string>
+	<string name="report_reason_personal">Der Beitrag gefällt mir nicht</string>
+	<string name="report_reason_personal_subtitle">Den Inhalt kann man nicht allen zumuten</string>
 	<string name="report_reason_spam">Das ist Spam</string>
 	<string name="report_reason_spam_subtitle">Bösartige Links, gefälschtes Engagement oder wiederholte Antworten</string>
 	<string name="report_reason_violation">Es verstößt gegen Serverregeln</string>
@@ -206,9 +206,9 @@
 	<string name="retry_upload">Hochladen erneut versuchen</string>
 	<string name="edit_image">Bild bearbeiten</string>
 	<string name="save">Speichern</string>
-	<string name="add_alt_text">Alternativtext hinzufügen</string>
-	<string name="alt_text_subtitle">Alternativtext erscheint für blinde Menschen. Versuche, nur so viele Details einzubeziehen, dass der Kontext verständlich wird.</string>
-	<string name="alt_text_hint">z.B. „Eine Giraffe auf einem Dreirad, während sie eine Banane isst“</string>
+	<string name="add_alt_text">Bildbeschreibung hinzufügen</string>
+	<string name="alt_text_subtitle">Die Bildbeschreibung („Alt-Text“) ist eine wichtige Unterstützung für blinde und sehbehinderte Menschen. Beschränke dich bei der Formulierung auf das nötigste, interpretiere nicht und beschreibe nur, was zu sehen ist, damit der Kontext verständlich ist und alle Menschen daran teilhaben können.</string>
+	<string name="alt_text_hint">z. B. „Eine Giraffe auf einem Dreirad, während sie eine Banane isst.“</string>
 	<string name="visibility_public">Öffentlich</string>
 	<string name="visibility_followers_only">Nur Follower</string>
 	<string name="visibility_private">Nur erwähnte Profile</string>
@@ -225,8 +225,8 @@
 	<string name="choose_account">Konto auswählen</string>
 	<string name="err_not_logged_in">Melde dich zuerst mit Mastodon an</string>
 	<plurals name="cant_add_more_than_x_attachments">
-		<item quantity="one">Du kannst nicht mehr als %d Medienanhang hinzufügen</item>
-		<item quantity="other">Du kannst nicht mehr als %d Medienanhänge hinzufügen</item>
+		<item quantity="one">Du kannst nicht mehr als %d Medien-Datei anhängen</item>
+		<item quantity="other">Du kannst nicht mehr als %d Medien-Dateien anhängen</item>
 	</plurals>
 	<string name="media_attachment_unsupported_type">Datei %s wird nicht unterstützt</string>
 	<string name="media_attachment_too_big">Die Dateigröße %1$s übersteigt das Uploadlimit von %2$s MB</string>
@@ -248,12 +248,12 @@
 	<string name="notify_follow">mir folgt</string>
 	<string name="notify_reblog">einen meiner Beiträge geteilt hat</string>
 	<string name="notify_mention">mich erwähnt</string>
-	<string name="settings_boring">Die langweilige Zone</string>
+	<string name="settings_boring">Langweiliges</string>
 	<string name="settings_account">Kontoeinstellungen</string>
 	<string name="settings_contribute">Bei Mastodon unterstützen und mitmachen</string>
 	<string name="settings_tos">Nutzungsbedingungen</string>
 	<string name="settings_privacy_policy">Datenschutzbestimmungen</string>
-	<string name="settings_spicy">Die gefährliche Zone</string>
+	<string name="settings_spicy">Gefährliches</string>
 	<string name="settings_clear_cache">Medien-Cache leeren</string>
 	<string name="settings_app_version">Mastodon für Android v%1$s (%2$d)</string>
 	<string name="media_cache_cleared">Medien-Cache geleert</string>
@@ -284,7 +284,7 @@
 	<string name="open_in_browser">Beitrag im Browser öffnen</string>
 	<string name="hide_boosts_from_user">Verberge geteilte Beiträge von %s</string>
 	<string name="show_boosts_from_user">Zeige geteilte Beiträge von %s</string>
-	<string name="signup_reason">Warum möchtest du beitreten?</string>
+	<string name="signup_reason">Weshalb möchtest du beitreten?</string>
 	<string name="signup_reason_note">Dies wird uns dabei helfen, deine Anmeldungsanfrage besser zu verarbeiten.</string>
 	<string name="clear">Löschen</string>
 	<string name="profile_header">Header-Bild</string>
@@ -292,7 +292,7 @@
 	<string name="reorder">Neu sortieren</string>
 	<string name="download">Herunterladen</string>
 	<string name="permission_required">Berechtigung erforderlich</string>
-	<string name="storage_permission_to_download">Die App benötigt Zugriff auf Ihren Speicher, um diese Datei zu speichern.</string>
+	<string name="storage_permission_to_download">Die App benötigt Zugriff auf den Speicher deines Geräts, um diese Datei zu speichern.</string>
 	<string name="open_settings">Einstellungen öffnen</string>
 	<string name="error_saving_file">Fehler beim Speichern der Datei</string>
 	<string name="file_saved">Datei gespeichert</string>
@@ -368,7 +368,7 @@
 	<string name="file_size_gb">%.2f GB</string>
 	<string name="file_upload_progress">%1$s von %2$s</string>
 	<string name="file_upload_time_remaining">%s verbleibend</string>
-	<string name="upload_error_connection_lost">Ihr Gerät hat die Internetverbindung verloren</string>
+	<string name="upload_error_connection_lost">Dein Gerät hat gerade keinen Zugang zum Internet</string>
 	<string name="upload_processing">Verarbeite …</string>
 	<!-- %s is version like 1.2.3 -->
 	<string name="update_available">Mastodon für Android %s kann nun heruntergeladen werden.</string>
