@@ -59,6 +59,7 @@ import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.MastodonAPIController;
 import org.joinmastodon.android.api.MastodonErrorResponse;
 import org.joinmastodon.android.api.ProgressListener;
+import org.joinmastodon.android.api.requests.accounts.GetPreferences;
 import org.joinmastodon.android.api.requests.statuses.CreateStatus;
 import org.joinmastodon.android.api.requests.statuses.EditStatus;
 import org.joinmastodon.android.api.requests.statuses.GetAttachmentByID;
@@ -75,6 +76,7 @@ import org.joinmastodon.android.model.EmojiCategory;
 import org.joinmastodon.android.model.Instance;
 import org.joinmastodon.android.model.Mention;
 import org.joinmastodon.android.model.Poll;
+import org.joinmastodon.android.model.Preferences;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.model.StatusPrivacy;
 import org.joinmastodon.android.ui.ComposeAutocompleteViewController;
@@ -224,13 +226,7 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 		else
 			charLimit=500;
 
-		if(getArguments().containsKey("replyTo")){
-			replyTo=Parcels.unwrap(getArguments().getParcelable("replyTo"));
-			statusVisibility=replyTo.visibility;
-		}
-		if(savedInstanceState!=null){
-			statusVisibility=(StatusPrivacy) savedInstanceState.getSerializable("visibility");
-		}
+		loadDefaultStatusVisibility(savedInstanceState);
 	}
 
 	@Override
@@ -1274,6 +1270,47 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 			}
 		});
 		menu.show();
+	}
+
+	private void loadDefaultStatusVisibility(Bundle savedInstanceState) {
+		if(getArguments().containsKey("replyTo")){
+			replyTo=Parcels.unwrap(getArguments().getParcelable("replyTo"));
+			statusVisibility = replyTo.visibility;
+		}
+
+		// A saved privacy setting from a previous compose session wins over the reply visibility
+		if(savedInstanceState !=null){
+			statusVisibility = (StatusPrivacy) savedInstanceState.getSerializable("visibility");
+		}
+
+		new GetPreferences()
+				.setCallback(new Callback<>(){
+					@Override
+					public void onSuccess(Preferences result){
+						// Only override the reply visibility if our preference is more private
+						if (result.postingDefaultVisibility.isLessVisibleThan(statusVisibility)) {
+							// Map unlisted from the API onto public, because we don't have unlisted in the UI
+							statusVisibility = switch (result.postingDefaultVisibility) {
+								case PUBLIC, UNLISTED -> StatusPrivacy.PUBLIC;
+								case PRIVATE -> StatusPrivacy.PRIVATE;
+								case DIRECT -> StatusPrivacy.DIRECT;
+							};
+						}
+
+						// A saved privacy setting from a previous compose session wins over all
+						if(savedInstanceState !=null){
+							statusVisibility = (StatusPrivacy) savedInstanceState.getSerializable("visibility");
+						}
+
+						updateVisibilityIcon ();
+					}
+
+					@Override
+					public void onError(ErrorResponse error){
+						Log.w(TAG, "Unable to get user preferences to set default post privacy");
+					}
+				})
+				.exec(accountID);
 	}
 
 	private void updateVisibilityIcon(){
