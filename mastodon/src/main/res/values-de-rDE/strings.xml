@@ -47,7 +47,7 @@
 	<string name="button_following">Folge ich</string>
 	<string name="edit_profile">Profil bearbeiten</string>
 	<string name="mention_user">%s erwähen</string>
-	<string name="share_user">Teile das Profil von %s</string>
+	<string name="share_user">%s teilen</string>
 	<string name="mute_user">%s stummschalten</string>
 	<string name="unmute_user">%s nicht mehr stummschalten</string>
 	<string name="block_user">%s blockieren</string>
@@ -135,8 +135,8 @@
 	<string name="all_notifications">Alle</string>
 	<string name="mentions">Erwähnungen</string>
 	<plurals name="x_people_talking">
-		<item quantity="one">%d Profil erwähnte diesen Hashtag</item>
-		<item quantity="other">%d Profile erwähnten diesen Hashtag</item>
+		<item quantity="one">%d Person redet darüber</item>
+		<item quantity="other">%d Personen reden darüber</item>
 	</plurals>
 	<plurals name="discussed_x_times">
 		<item quantity="one">%d Mal diskutiert</item>
@@ -261,7 +261,7 @@
 	<string name="sensitive_content">Sensibler Inhalt</string>
 	<string name="sensitive_content_explain">Der Autor hat den Inhalt als sensiblen Inhalt markiert. Tippen zum Anzeigen.</string>
 	<string name="media_hidden">Tippen zum Öffnen</string>
-	<string name="avatar_description">Gehe zu %s\'s Profil</string>
+	<string name="avatar_description">Das Profil von %s öffnen</string>
 	<string name="more_options">Mehr Optionen</string>
 	<string name="reveal_content">Inhalt anzeigen</string>
 	<string name="hide_content">Inhalt verstecken</string>
@@ -287,7 +287,7 @@
 	<string name="signup_reason">Weshalb möchtest du beitreten?</string>
 	<string name="signup_reason_note">Dies wird uns dabei helfen, deine Anmeldungsanfrage besser zu verarbeiten.</string>
 	<string name="clear">Löschen</string>
-	<string name="profile_header">Header-Bild</string>
+	<string name="profile_header">Kopfbild</string>
 	<string name="profile_picture">Profilbild</string>
 	<string name="reorder">Neu sortieren</string>
 	<string name="download">Herunterladen</string>
