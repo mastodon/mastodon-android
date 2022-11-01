@@ -331,9 +331,50 @@
 	</plurals>
 	<string name="timestamp_via_app">%1$s via %2$s</string>
 	<string name="time_now">à l’instant</string>
+	<string name="post_info_reblogs">Partages</string>
 	<string name="post_info_favorites">Favoris</string>
 	<string name="edit_history">Historique des éditions</string>
+	<string name="last_edit_at_x">Dernière édition %s</string>
+	<string name="time_just_now">à l’instant</string>
+	<plurals name="x_seconds_ago">
+		<item quantity="one">Il y a %d seconde</item>
+		<item quantity="other">Il y a %d secondes</item>
+	</plurals>
+	<plurals name="x_minutes_ago">
+		<item quantity="one">Il y a %d minute</item>
+		<item quantity="other">Il y a %d minutes</item>
+	</plurals>
+	<string name="edited_timestamp">édité %s</string>
+	<string name="edit_original_post">Message originel</string>
+	<string name="edit_text_edited">Texte modifié</string>
+	<string name="edit_spoiler_added">Avertissement de contenu ajouté</string>
+	<string name="edit_spoiler_edited">Avertissement de contenu modifié</string>
+	<string name="edit_spoiler_removed">Avertissement de contenu supprimé</string>
+	<string name="edit_poll_added">Sondage ajouté</string>
+	<string name="edit_poll_edited">Sondage édité</string>
+	<string name="edit_poll_removed">Sondage supprimé</string>
+	<string name="edit_media_added">Média ajouté</string>
+	<string name="edit_media_removed">Média supprimé</string>
+	<string name="edit_media_reordered">Média réordonné</string>
+	<string name="edit_marked_sensitive">Marqué comme sensible</string>
+	<string name="edit_marked_not_sensitive">Marqué comme non-sensible</string>
+	<string name="edit_multiple_changed">Message édité</string>
+	<string name="edit">Éditer</string>
+	<string name="discard_changes">Ignorer les modifications ?</string>
+	<string name="upload_failed">Échec de l’envoi</string>
+	<string name="file_size_bytes">%d octets</string>
+	<string name="file_size_kb">%.2f Ko</string>
+	<string name="file_size_mb">%.2f Mo</string>
+	<string name="file_size_gb">%.2f Go</string>
+	<string name="file_upload_progress">%1$s sur %2$s</string>
+	<string name="file_upload_time_remaining">%s restant</string>
+	<string name="upload_error_connection_lost">Votre appareil a perdu la connexion à internet</string>
+	<string name="upload_processing">Traitement en cours…</string>
 	<!-- %s is version like 1.2.3 -->
+	<string name="update_available">Mastodon pour Android %s est prêt à être téléchargé.</string>
 	<!-- %s is version like 1.2.3 -->
+	<string name="update_ready">Mastodon pour Android %s est téléchargé et prêt à être installé.</string>
 	<!-- %s is file size -->
+	<string name="download_update">Téléchargement (%s)</string>
+	<string name="install_update">Installer</string>
 </resources>
