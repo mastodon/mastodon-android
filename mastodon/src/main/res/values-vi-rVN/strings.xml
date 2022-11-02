@@ -163,7 +163,7 @@
 	<string name="instance_rules_subtitle">Hãy đọc kỹ quy tắc máy chủ của %s và cân nhắc.</string>
 	<string name="signup_title">Hãy để tôi đăng ký trên %s</string>
 	<string name="edit_photo">sửa</string>
-	<string name="display_name">tên hiển thị</string>
+	<string name="display_name">biệt danh</string>
 	<string name="username">tên người dùng</string>
 	<string name="email">email</string>
 	<string name="password">mật khẩu</string>
@@ -190,8 +190,6 @@
 	<string name="content_warning">Nội dung ẩn</string>
 	<string name="add_image_description">Thêm mô tả ảnh…</string>
 	<string name="retry_upload">Thử tải lên lại</string>
-	<string name="image_upload_failed">Không thể tải ảnh lên</string>
-	<string name="video_upload_failed">Không thể tải video lên</string>
 	<string name="edit_image">Sửa ảnh</string>
 	<string name="save">Lưu</string>
 	<string name="add_alt_text">Thêm văn bản thay thế</string>
@@ -246,7 +244,7 @@
 	<string name="media_cache_cleared">Đã xóa bộ nhớ đệm</string>
 	<string name="confirm_log_out">Bạn có chắc muốn đăng xuất không?</string>
 	<string name="sensitive_content">Nội dung nhạy cảm</string>
-	<string name="sensitive_content_explain">Người đăng đã đánh dấu media này nhạy cảm. Nhấn để xem.</string>
+	<string name="sensitive_content_explain">Media này có thể nhạy cảm. Nhấn để xem.</string>
 	<string name="media_hidden">Nhấn để xem</string>
 	<string name="avatar_description">Xem hồ sơ %s</string>
 	<string name="more_options">Nhiều tùy chọn hơn</string>
@@ -314,4 +312,48 @@
 	</plurals>
 	<string name="timestamp_via_app">%1$s qua %2$s</string>
 	<string name="time_now">vừa xong</string>
+	<string name="post_info_reblogs">Lượt đăng lại</string>
+	<string name="post_info_favorites">Lượt thích</string>
+	<string name="edit_history">Lịch sử chỉnh sửa</string>
+	<string name="last_edit_at_x">Sửa lần cuối %s</string>
+	<string name="time_just_now">vừa xong</string>
+	<plurals name="x_seconds_ago">
+		<item quantity="other">%d giây trước</item>
+	</plurals>
+	<plurals name="x_minutes_ago">
+		<item quantity="other">%d phút trước</item>
+	</plurals>
+	<string name="edited_timestamp">đã sửa %s</string>
+	<string name="edit_original_post">Tút gốc</string>
+	<string name="edit_text_edited">Nội dung chỉnh sửa</string>
+	<string name="edit_spoiler_added">Thêm cảnh báo nội dung</string>
+	<string name="edit_spoiler_edited">Sửa cảnh báo nội dung</string>
+	<string name="edit_spoiler_removed">Xóa cảnh báo nội dung</string>
+	<string name="edit_poll_added">Thêm bình chọn</string>
+	<string name="edit_poll_edited">Sửa bình chọn</string>
+	<string name="edit_poll_removed">Xóa bình chọn</string>
+	<string name="edit_media_added">Thêm media</string>
+	<string name="edit_media_removed">Xóa media</string>
+	<string name="edit_media_reordered">Xếp lại media</string>
+	<string name="edit_marked_sensitive">Đánh dấu nhạy cảm</string>
+	<string name="edit_marked_not_sensitive">Đánh dấu là bình thường</string>
+	<string name="edit_multiple_changed">Tút đã sửa</string>
+	<string name="edit">Sửa</string>
+	<string name="discard_changes">Hủy bỏ các thay đổi?</string>
+	<string name="upload_failed">Tải lên không thành công</string>
+	<string name="file_size_bytes">%d bytes</string>
+	<string name="file_size_kb">%.2f KB</string>
+	<string name="file_size_mb">%.2f MB</string>
+	<string name="file_size_gb">%.2f GB</string>
+	<string name="file_upload_progress">%1$s trong %2$s</string>
+	<string name="file_upload_time_remaining">%s còn lại</string>
+	<string name="upload_error_connection_lost">Thiết bị của bạn bị rớt mạng</string>
+	<string name="upload_processing">Đang tải lên…</string>
+	<!-- %s is version like 1.2.3 -->
+	<string name="update_available">Mastodon Android %s đã sẵn sàng tải về.</string>
+	<!-- %s is version like 1.2.3 -->
+	<string name="update_ready">Mastodon Android %s đã được tải về và sẵn sàng cài đặt.</string>
+	<!-- %s is file size -->
+	<string name="download_update">Tải về (%s)</string>
+	<string name="install_update">Cài đặt</string>
 </resources>

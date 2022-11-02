@@ -190,8 +190,6 @@
 	<string name="content_warning">內容警告</string>
 	<string name="add_image_description">新增圖片描述...</string>
 	<string name="retry_upload">重新嘗試上傳</string>
-	<string name="image_upload_failed">圖片上傳失敗</string>
-	<string name="video_upload_failed">影片上傳失敗</string>
 	<string name="edit_image">編輯圖片</string>
 	<string name="save">儲存</string>
 	<string name="add_alt_text">新增說明文字</string>
@@ -314,4 +312,44 @@
 	</plurals>
 	<string name="timestamp_via_app">%1$s 透過 %2$s</string>
 	<string name="time_now">剛剛</string>
+	<string name="post_info_reblogs">轉嘟</string>
+	<string name="post_info_favorites">最愛</string>
+	<string name="edit_history">編輯記錄</string>
+	<string name="last_edit_at_x">上次編輯於 %s</string>
+	<string name="time_just_now">剛剛</string>
+	<plurals name="x_seconds_ago">
+		<item quantity="other">%d 秒前</item>
+	</plurals>
+	<plurals name="x_minutes_ago">
+		<item quantity="other">%d 分鐘前</item>
+	</plurals>
+	<string name="edited_timestamp">編輯於 %s</string>
+	<string name="edit_original_post">原始嘟文</string>
+	<string name="edit_text_edited">已編輯文字</string>
+	<string name="edit_spoiler_added">已新增內容警告</string>
+	<string name="edit_spoiler_edited">已編輯內容警告</string>
+	<string name="edit_spoiler_removed">已移除內容警告</string>
+	<string name="edit_poll_added">已新增投票</string>
+	<string name="edit_poll_edited">已編輯投票</string>
+	<string name="edit_poll_removed">已移除投票</string>
+	<string name="edit_media_added">已新增媒體</string>
+	<string name="edit_media_removed">已移除媒體</string>
+	<string name="edit_media_reordered">已更換媒體順序</string>
+	<string name="edit_marked_sensitive">已標記為敏感內容</string>
+	<string name="edit_marked_not_sensitive">已標記為非敏感內容</string>
+	<string name="edit_multiple_changed">已編輯嘟文</string>
+	<string name="edit">編輯</string>
+	<string name="discard_changes">要放棄變更嗎？</string>
+	<string name="upload_failed">上傳失敗</string>
+	<string name="file_size_bytes">%d 位元組</string>
+	<string name="file_size_kb">%.2f KB</string>
+	<string name="file_size_mb">%.2f MB</string>
+	<string name="file_size_gb">%.2f GB</string>
+	<string name="file_upload_progress">%2$s 中的 %1$s</string>
+	<string name="file_upload_time_remaining">剩餘 %s</string>
+	<string name="upload_error_connection_lost">您的裝置失去網路連線</string>
+	<string name="upload_processing">處理中...</string>
+	<!-- %s is version like 1.2.3 -->
+	<!-- %s is version like 1.2.3 -->
+	<!-- %s is file size -->
 </resources>

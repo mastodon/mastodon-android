@@ -9,7 +9,7 @@
 	<string name="ok">Tamam</string>
 	<string name="preparing_auth">Kimlik doğrulama için hazırlanıyor…</string>
 	<string name="finishing_auth">Kimlik doğrulama tamamlanıyor…</string>
-	<string name="user_boosted">%s gönderinizi yeniden paylaştı</string>
+	<string name="user_boosted">%s yeniden paylaştı</string>
 	<string name="in_reply_to">%s için yanıt</string>
 	<string name="notifications">Bildirimler</string>
 	<string name="user_followed_you">seni takip etti</string>
@@ -29,11 +29,11 @@
 	<string name="cancel">İptal</string>
 	<plurals name="followers">
 		<item quantity="one">Takipçi</item>
-		<item quantity="other">Takipçiler</item>
+		<item quantity="other">Takipçi</item>
 	</plurals>
 	<plurals name="following">
-		<item quantity="one">Takip edilen</item>
-		<item quantity="other">Takip edilenler</item>
+		<item quantity="one">Takip</item>
+		<item quantity="other">Takip</item>
 	</plurals>
 	<plurals name="posts">
 		<item quantity="one">gönderi</item>
@@ -44,7 +44,7 @@
 	<string name="media">Medya</string>
 	<string name="profile_about">Hakkında</string>
 	<string name="button_follow">Takip et</string>
-	<string name="button_following">Takip ediyor</string>
+	<string name="button_following">Takip ediliyor</string>
 	<string name="edit_profile">Profili düzenle</string>
 	<string name="mention_user">Bahset %s</string>
 	<string name="share_user">Paylaş %s</string>
@@ -204,8 +204,6 @@
 	<string name="content_warning">İçerik Uyarısı</string>
 	<string name="add_image_description">Resim açıklaması ekle…</string>
 	<string name="retry_upload">Yüklemeyi yeniden dene</string>
-	<string name="image_upload_failed">Resim yüklenemedi</string>
-	<string name="video_upload_failed">Video yüklenemedi</string>
 	<string name="edit_image">Resmi Düzenle</string>
 	<string name="save">Kaydet</string>
 	<string name="add_alt_text">Alternatif metin ekle</string>
@@ -282,7 +280,7 @@
 	<string name="media_viewer">Medya görüntüleyici</string>
 	<string name="follow_user">%s\'yi takip et</string>
 	<string name="unfollowed_user">%s takip edilmedi</string>
-	<string name="followed_user">%s\'i takip ediyorsunuz</string>
+	<string name="followed_user">%s kişisini takip ediyorsunuz</string>
 	<string name="open_in_browser">Tarayıcıda aç</string>
 	<string name="hide_boosts_from_user">%s kişisinin yeniden paylaşımlarını gizle</string>
 	<string name="show_boosts_from_user">%s kişisinin yeniden paylaşımlarını göster</string>
@@ -320,8 +318,8 @@
 		<item quantity="other">%,d takipçi</item>
 	</plurals>
 	<plurals name="x_following">
-		<item quantity="one">%,d takip edilen</item>
-		<item quantity="other">%,d takip edilen</item>
+		<item quantity="one">%,d takip</item>
+		<item quantity="other">%,d takip</item>
 	</plurals>
 	<plurals name="x_favorites">
 		<item quantity="one">%,d favori</item>
@@ -332,4 +330,10 @@
 		<item quantity="other">%,d yeniden paylaşım</item>
 	</plurals>
 	<string name="timestamp_via_app">%1$s tarihinde %2$s uygulamasıyla</string>
+	<string name="time_now">şimdi</string>
+	<string name="post_info_reblogs">Yeniden Paylaşımlar</string>
+	<string name="post_info_favorites">Favoriler</string>
+	<!-- %s is version like 1.2.3 -->
+	<!-- %s is version like 1.2.3 -->
+	<!-- %s is file size -->
 </resources>

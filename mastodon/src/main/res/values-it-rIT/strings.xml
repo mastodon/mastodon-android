@@ -204,8 +204,6 @@
 	<string name="content_warning">Avviso sul contenuto</string>
 	<string name="add_image_description">Aggiungi descrizione immagine…</string>
 	<string name="retry_upload">Riprova caricamento</string>
-	<string name="image_upload_failed">Impossibile caricare il file</string>
-	<string name="video_upload_failed">Impossibile caricare il video</string>
 	<string name="edit_image">Modifica immagine</string>
 	<string name="save">Salva</string>
 	<string name="add_alt_text">Aggiungi testo alt</string>
@@ -333,4 +331,50 @@
 	</plurals>
 	<string name="timestamp_via_app">%1$s tramite %2$s</string>
 	<string name="time_now">ora</string>
+	<string name="post_info_reblogs">Condivisioni</string>
+	<string name="post_info_favorites">Preferiti</string>
+	<string name="edit_history">Modifica cronologia</string>
+	<string name="last_edit_at_x">Ultima modifica: %s</string>
+	<string name="time_just_now">proprio ora</string>
+	<plurals name="x_seconds_ago">
+		<item quantity="one">%d secondo fa</item>
+		<item quantity="other">%d secondi fa</item>
+	</plurals>
+	<plurals name="x_minutes_ago">
+		<item quantity="one">%d minuto fa</item>
+		<item quantity="other">%d minuti fa</item>
+	</plurals>
+	<string name="edited_timestamp">modificato %s</string>
+	<string name="edit_original_post">Post originale</string>
+	<string name="edit_text_edited">Testo modificato</string>
+	<string name="edit_spoiler_added">Avviso sul contenuto aggiunto</string>
+	<string name="edit_spoiler_edited">Avviso sul contenuto modificato</string>
+	<string name="edit_spoiler_removed">Avviso sul contenuto rimosso</string>
+	<string name="edit_poll_added">Sondaggio aggiunto</string>
+	<string name="edit_poll_edited">Sondaggio modificato</string>
+	<string name="edit_poll_removed">Sondaggio rimosso</string>
+	<string name="edit_media_added">Media aggiunto</string>
+	<string name="edit_media_removed">Media rimosso</string>
+	<string name="edit_media_reordered">Media riordinati</string>
+	<string name="edit_marked_sensitive">Contrassegnato come sensibile</string>
+	<string name="edit_marked_not_sensitive">Contrassegnato come non sensibile</string>
+	<string name="edit_multiple_changed">Post modificato</string>
+	<string name="edit">Modifica</string>
+	<string name="discard_changes">Annullare le modifiche?</string>
+	<string name="upload_failed">Caricamento fallito</string>
+	<string name="file_size_bytes">%d bytes</string>
+	<string name="file_size_kb">%.2f KB</string>
+	<string name="file_size_mb">%.2f MB</string>
+	<string name="file_size_gb">%.2f GB</string>
+	<string name="file_upload_progress">%1$s di %2$s</string>
+	<string name="file_upload_time_remaining">%s rimanenti</string>
+	<string name="upload_error_connection_lost">Il tuo dispositivo ha perso la connessione a internet</string>
+	<string name="upload_processing">In elaborazione…</string>
+	<!-- %s is version like 1.2.3 -->
+	<string name="update_available">Mastodon per Android %s è pronto per il download.</string>
+	<!-- %s is version like 1.2.3 -->
+	<string name="update_ready">Mastodon per Android %s è scaricato e pronto per l\'installazione.</string>
+	<!-- %s is file size -->
+	<string name="download_update">Scarica (%s)</string>
+	<string name="install_update">Installa</string>
 </resources>

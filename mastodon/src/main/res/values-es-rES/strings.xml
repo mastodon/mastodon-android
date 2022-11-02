@@ -204,8 +204,6 @@
 	<string name="content_warning">Advertencia de contenido</string>
 	<string name="add_image_description">Añadir descripción de la imagen…</string>
 	<string name="retry_upload">Reintentar subida</string>
-	<string name="image_upload_failed">Error al subir la imagen</string>
-	<string name="video_upload_failed">Error al subir el vídeo</string>
 	<string name="edit_image">Editar imagen</string>
 	<string name="save">Guardar</string>
 	<string name="add_alt_text">Añadir texto alternativo</string>
@@ -333,4 +331,37 @@
 	</plurals>
 	<string name="timestamp_via_app">%1$s a través de %2$s</string>
 	<string name="time_now">ahora</string>
+	<string name="post_info_reblogs">Reblogueos</string>
+	<string name="post_info_favorites">Favoritos</string>
+	<string name="edit_history">Editar historial</string>
+	<string name="last_edit_at_x">Última edición: %s</string>
+	<string name="time_just_now">justo ahora</string>
+	<plurals name="x_seconds_ago">
+		<item quantity="one">Hace %d segundo</item>
+		<item quantity="other">Hace %d segundos</item>
+	</plurals>
+	<plurals name="x_minutes_ago">
+		<item quantity="one">Hace %d minuto</item>
+		<item quantity="other">Hace %d minutos</item>
+	</plurals>
+	<string name="edited_timestamp">editado %s</string>
+	<string name="edit_original_post">Publicación original</string>
+	<string name="edit_text_edited">Texto editado</string>
+	<string name="edit_spoiler_added">Advertencia de contenido añadida</string>
+	<string name="edit_spoiler_edited">Advertencia de contenido editada</string>
+	<string name="edit_spoiler_removed">Advertencia de contenido eliminada</string>
+	<string name="edit_poll_added">Encuesta añadida</string>
+	<string name="edit_poll_edited">Encuesta editada</string>
+	<string name="edit_poll_removed">Encuesta eliminada</string>
+	<string name="edit_media_added">Contenido multimedia añadido</string>
+	<string name="edit_media_removed">Contenido multimedia eliminado</string>
+	<string name="edit_media_reordered">Contenido multimedia reordenado</string>
+	<string name="edit_marked_sensitive">Marcado como sensible</string>
+	<string name="edit_marked_not_sensitive">Marcado como no sensible</string>
+	<string name="edit_multiple_changed">Publicación editada</string>
+	<string name="edit">Editar</string>
+	<string name="discard_changes">¿Descartar cambios?</string>
+	<!-- %s is version like 1.2.3 -->
+	<!-- %s is version like 1.2.3 -->
+	<!-- %s is file size -->
 </resources>
