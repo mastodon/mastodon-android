@@ -84,7 +84,7 @@ public class InstanceRulesFragment extends AppKitFragment{
 	protected void onButtonClick(){
 		Bundle args=new Bundle();
 		args.putParcelable("instance", Parcels.wrap(instance));
-		Nav.go(getActivity(), SignupFragment.class, args);
+		Nav.go(getActivity(), GoogleMadeMeAddThisFragment.class, args);
 	}
 
 	@Override
