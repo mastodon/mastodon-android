@@ -22,6 +22,7 @@ import org.parceler.Parcels;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -76,9 +77,11 @@ public class NotificationsListFragment extends BaseStatusListFragment<Notificati
 			if(titleItem!=null)
 				items.add(0, titleItem);
 			return items;
-		}else{
+		}else if(titleItem!=null){
 			AccountCardStatusDisplayItem card=new AccountCardStatusDisplayItem(n.id, this, n.account);
 			return Arrays.asList(titleItem, card);
+		}else{
+			return Collections.emptyList();
 		}
 	}
 
