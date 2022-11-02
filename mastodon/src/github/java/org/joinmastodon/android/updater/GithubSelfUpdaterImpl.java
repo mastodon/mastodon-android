@@ -109,14 +109,19 @@ public class GithubSelfUpdaterImpl extends GithubSelfUpdater{
 		try(Response resp=call.execute()){
 			JsonObject obj=JsonParser.parseReader(resp.body().charStream()).getAsJsonObject();
 			String tag=obj.get("tag_name").getAsString();
-			Matcher matcher=Pattern.compile("v(\\d+)\\.(\\d+)\\.(\\d+)").matcher(tag);
+			Pattern pattern=Pattern.compile("v?(\\d+)\\.(\\d+)\\.(\\d+)");
+			Matcher matcher=pattern.matcher(tag);
 			if(!matcher.find()){
 				Log.w(TAG, "actuallyCheckForUpdates: release tag has wrong format: "+tag);
 				return;
 			}
 			int newMajor=Integer.parseInt(matcher.group(1)), newMinor=Integer.parseInt(matcher.group(2)), newRevision=Integer.parseInt(matcher.group(3));
-			String[] currentParts=BuildConfig.VERSION_NAME.split("\\.");
-			int curMajor=Integer.parseInt(currentParts[0]), curMinor=Integer.parseInt(currentParts[1]), curRevision=Integer.parseInt(currentParts[2]);
+			matcher=pattern.matcher(BuildConfig.VERSION_NAME);
+			if(!matcher.find()){
+				Log.w(TAG, "actuallyCheckForUpdates: current version has wrong format: "+BuildConfig.VERSION_NAME);
+				return;
+			}
+			int curMajor=Integer.parseInt(matcher.group(1)), curMinor=Integer.parseInt(matcher.group(2)), curRevision=Integer.parseInt(matcher.group(3));
 			long newVersion=((long)newMajor << 32) | ((long)newMinor << 16) | newRevision;
 			long curVersion=((long)curMajor << 32) | ((long)curMinor << 16) | curRevision;
 			if(newVersion>curVersion || BuildConfig.DEBUG){
