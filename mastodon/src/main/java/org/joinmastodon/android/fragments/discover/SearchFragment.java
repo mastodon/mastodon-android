@@ -1,6 +1,7 @@
 package org.joinmastodon.android.fragments.discover;
 
 import android.app.Activity;
+import android.app.DialogFragment;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -11,6 +12,7 @@ import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.requests.search.GetSearchResults;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.fragments.BaseStatusListFragment;
+import org.joinmastodon.android.fragments.ClearRecentSearchDialogFragment;
 import org.joinmastodon.android.fragments.ProfileFragment;
 import org.joinmastodon.android.fragments.ThreadFragment;
 import org.joinmastodon.android.model.Account;
@@ -39,7 +41,7 @@ import me.grishka.appkit.api.SimpleCallback;
 import me.grishka.appkit.utils.MergeRecyclerAdapter;
 import me.grishka.appkit.utils.V;
 
-public class SearchFragment extends BaseStatusListFragment<SearchResult>{
+public class SearchFragment extends BaseStatusListFragment<SearchResult> implements ClearRecentSearchDialogFragment.DialogListener {
 	private String currentQuery;
 	private List<StatusDisplayItem> prevDisplayItems;
 	private EnumSet<SearchResult.Type> currentFilter=EnumSet.allOf(SearchResult.Type.class);
@@ -111,6 +113,40 @@ public class SearchFragment extends BaseStatusListFragment<SearchResult>{
 		}
 		if(res.type!=SearchResult.Type.STATUS)
 			AccountSessionManager.getInstance().getAccount(accountID).getCacheController().putRecentSearch(res);
+	}
+
+	@Override
+	public boolean onItemLongPress(String id){
+		if(isInRecentMode()) {
+			SearchResult res=getResultByID(id);
+			if (res.type==SearchResult.Type.STATUS) {
+				return false;
+			}
+
+			var dialog = new ClearRecentSearchDialogFragment();
+			Bundle b = new Bundle();
+			switch(res.type) {
+				case ACCOUNT -> b.putString("itemName", res.account.displayName);
+				case HASHTAG -> b.putString("itemName", res.hashtag.name);
+			}
+			b.putString("itemId", id);
+			dialog.setArguments(b);
+			dialog.show(getChildFragmentManager(), "ClearRecentsDialogFragment");
+
+			return true;
+		}
+
+		return false;
+	}
+
+	@Override
+	public void onDialogClearClicked(String id) {
+		var item = getResultByID(id);
+		AccountSessionManager.getInstance().getAccount(accountID).getCacheController().deleteRecentSearch(id);
+		unfilteredResults.remove(item);
+		prevDisplayItems=new ArrayList<>(displayItems);
+		refreshing=true;
+		onDataLoaded(unfilteredResults, false);
 	}
 
 	@Override

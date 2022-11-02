@@ -152,7 +152,7 @@ public abstract class StatusDisplayItem{
 		EXTENDED_FOOTER
 	}
 
-	public static abstract class Holder<T extends StatusDisplayItem> extends BindableViewHolder<T> implements UsableRecyclerView.DisableableClickable{
+	public static abstract class Holder<T extends StatusDisplayItem> extends BindableViewHolder<T> implements UsableRecyclerView.DisableableClickable, UsableRecyclerView.LongClickable{
 		public Holder(View itemView){
 			super(itemView);
 		}
@@ -168,6 +168,11 @@ public abstract class StatusDisplayItem{
 		@Override
 		public void onClick(){
 			item.parentFragment.onItemClick(item.parentID);
+		}
+
+		@Override
+		public boolean onLongClick(){
+			return item.parentFragment.onItemLongPress(item.parentID);
 		}
 
 		@Override

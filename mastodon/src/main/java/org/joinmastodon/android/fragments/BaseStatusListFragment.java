@@ -362,6 +362,7 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 	}
 
 	public abstract void onItemClick(String id);
+	public boolean onItemLongPress(String id) { return false; }
 
 	protected void updatePoll(String itemID, Status status, Poll poll){
 		status.poll=poll;

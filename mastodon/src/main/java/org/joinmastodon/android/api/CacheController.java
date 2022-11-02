@@ -223,6 +223,12 @@ public class CacheController{
 		});
 	}
 
+	public void deleteRecentSearch(String id){
+		runOnDbThread((db)->{
+			db.delete("recent_searches", "`id`=?", new String[]{id});
+		});
+	}
+
 	public void putRecentSearch(SearchResult result){
 		runOnDbThread((db)->{
 			ContentValues values=new ContentValues(4);
