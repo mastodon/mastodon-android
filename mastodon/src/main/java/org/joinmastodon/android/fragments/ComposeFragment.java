@@ -1318,7 +1318,7 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 			statusVisibility=StatusPrivacy.PUBLIC;
 		}
 		visibilityBtn.setImageResource(switch(statusVisibility){
-			case PUBLIC -> R.drawable.ic_fluent_earth_24_filled;
+			case PUBLIC -> R.drawable.ic_fluent_earth_24_regular;
 			case UNLISTED -> R.drawable.ic_fluent_people_community_24_regular;
 			case PRIVATE -> R.drawable.ic_fluent_people_checkmark_24_regular;
 			case DIRECT -> R.drawable.ic_at_symbol;
