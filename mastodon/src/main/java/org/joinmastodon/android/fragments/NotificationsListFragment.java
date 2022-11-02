@@ -22,10 +22,12 @@ import org.parceler.Parcels;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import me.grishka.appkit.Nav;
 import me.grishka.appkit.api.SimpleCallback;
@@ -76,9 +78,11 @@ public class NotificationsListFragment extends BaseStatusListFragment<Notificati
 			if(titleItem!=null)
 				items.add(0, titleItem);
 			return items;
-		}else{
+		}else if(extraText!=null){
 			AccountCardStatusDisplayItem card=new AccountCardStatusDisplayItem(n.id, this, n.account);
 			return Arrays.asList(titleItem, card);
+		}else{
+			return Collections.emptyList();
 		}
 	}
 
