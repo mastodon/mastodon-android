@@ -10,12 +10,12 @@
 	<string name="preparing_auth">Authentifizierung wird vorbereitet …</string>
 	<string name="finishing_auth">Authentifizierung abschließen …</string>
 	<string name="user_boosted">%s hat diesen Beitrag geteilt</string>
-	<string name="in_reply_to">Antwort auf den Beitrag von %s</string>
+	<string name="in_reply_to">Als Antwort auf %s</string>
 	<string name="notifications">Benachrichtigungen</string>
 	<string name="user_followed_you">folgt dir jetzt</string>
 	<string name="user_sent_follow_request">hat dir eine Folgeanfrage gesendet</string>
 	<string name="user_favorited">hat deinen Beitrag favorisiert</string>
-	<string name="notification_boosted">hat deinen Beitrag geteilt</string>
+	<string name="notification_boosted">hat deinen Beitrag übernommen</string>
 	<string name="poll_ended">Abstimmung beendet</string>
 	<string name="time_seconds">vor %d Sekunden</string>
 	<string name="time_minutes">vor %d Minuten</string>
@@ -46,7 +46,7 @@
 	<string name="button_follow">Folgen</string>
 	<string name="button_following">Folge ich</string>
 	<string name="edit_profile">Profil bearbeiten</string>
-	<string name="mention_user">%s erwähen</string>
+	<string name="mention_user">%s erwähnen</string>
 	<string name="share_user">%s teilen</string>
 	<string name="mute_user">%s stummschalten</string>
 	<string name="unmute_user">%s nicht mehr stummschalten</string>
@@ -144,7 +144,7 @@
 	</plurals>
 	<string name="report_title">%s melden</string>
 	<string name="report_choose_reason">Was stimmt mit diesem Beitrag nicht?</string>
-	<string name="report_choose_reason_account">Was ist los mit %s?</string>
+	<string name="report_choose_reason_account">Was stimmt mit %s nicht?</string>
 	<string name="report_choose_reason_subtitle">Wähle die bestmögliche Option aus</string>
 	<string name="report_reason_personal">Der Beitrag gefällt mir nicht</string>
 	<string name="report_reason_personal_subtitle">Den Inhalt kann man nicht allen zumuten</string>
@@ -152,7 +152,7 @@
 	<string name="report_reason_spam_subtitle">Bösartige Links, gefälschtes Engagement oder wiederholte Antworten</string>
 	<string name="report_reason_violation">Es verstößt gegen Serverregeln</string>
 	<string name="report_reason_violation_subtitle">Du weißt, welche Regeln verletzt werden</string>
-	<string name="report_reason_other">Da ist was anderes</string>
+	<string name="report_reason_other">Es ist etwas anderes</string>
 	<string name="report_reason_other_subtitle">Das Problem passt nicht in eine der Kategorien</string>
 	<string name="report_choose_rule">Welche Regeln werden verletzt?</string>
 	<string name="report_choose_rule_subtitle">Alles Zutreffende auswählen</string>
@@ -198,9 +198,9 @@
 	<string name="confirm_email_title">Eine letzte Sache noch</string>
 	<string name="confirm_email_subtitle">Schaue kurz in dein E-Mail-Postfach und tippe den Link an, den wir dir gesendet haben.</string>
 	<string name="resend">Erneut senden</string>
-	<string name="open_email_app">Öffne meine E-Mail-App</string>
+	<string name="open_email_app">E-Mail-App öffnen</string>
 	<string name="resent_email">Bestätigungs-E-Mail gesendet</string>
-	<string name="compose_hint">Was gibt\'s Neues?</string>
+	<string name="compose_hint">Eintippen oder einfügen, was dir am Herzen liegt</string>
 	<string name="content_warning">Inhaltwarnung</string>
 	<string name="add_image_description">Bildbeschreibung hinzufügen …</string>
 	<string name="retry_upload">Hochladen erneut versuchen</string>
@@ -371,10 +371,13 @@
 	<string name="upload_error_connection_lost">Dein Gerät hat gerade keinen Zugang zum Internet</string>
 	<string name="upload_processing">wird verarbeitet …</string>
 	<!-- %s is version like 1.2.3 -->
-	<string name="update_available">Mastodon für Android %s kann nun heruntergeladen werden.</string>
+	<string name="update_available">Mastodon für Android %s ist bereit zum Herunterladen.</string>
 	<!-- %s is version like 1.2.3 -->
-	<string name="update_ready">Mastodon für Android %s wurde heruntergeladen und kann nun installiert werden.</string>
+	<string name="update_ready">Mastodon für Android %s wurde heruntergeladen und ist bereit zum Installieren.</string>
 	<!-- %s is file size -->
 	<string name="download_update">Download (%s)</string>
 	<string name="install_update">Installieren</string>
+	<string name="privacy_policy_title">Mastodon und Ihre Privatsphäre</string>
+	<string name="privacy_policy_subtitle">Obwohl die Mastodon-App keine Daten sammelt, kann der Server, über den Sie sich anmelden, eine andere Richtlinie haben. Nehmen Sie sich eine Minute Zeit, um die Mastodon-Datenschutzrichtlinien und die Datenschutzrichtlinien Ihres Servers zu lesen und zu akzeptieren.</string>
+	<string name="i_agree">Ich stimme zu</string>
 </resources>
