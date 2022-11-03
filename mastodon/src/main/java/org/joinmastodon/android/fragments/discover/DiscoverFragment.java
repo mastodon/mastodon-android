@@ -19,6 +19,7 @@ import android.widget.TextView;
 
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.fragments.ScrollableToTop;
+import org.joinmastodon.android.fragments.ListTimelinesFragment;
 import org.joinmastodon.android.ui.SimpleViewHolder;
 import org.joinmastodon.android.ui.tabs.TabLayout;
 import org.joinmastodon.android.ui.tabs.TabLayoutMediator;
@@ -51,6 +52,7 @@ public class DiscoverFragment extends AppKitFragment implements ScrollableToTop,
 	private DiscoverAccountsFragment accountsFragment;
 	private SearchFragment searchFragment;
 	private LocalTimelineFragment localTimelineFragment;
+	private ListTimelinesFragment listTimelinesFragment;
 
 	private String accountID;
 	private Runnable searchDebouncer=this::onSearchChangedDebounced;
@@ -72,7 +74,7 @@ public class DiscoverFragment extends AppKitFragment implements ScrollableToTop,
 		tabLayout=view.findViewById(R.id.tabbar);
 		pager=view.findViewById(R.id.pager);
 
-		tabViews=new FrameLayout[5];
+		tabViews=new FrameLayout[6];
 		for(int i=0;i<tabViews.length;i++){
 			FrameLayout tabView=new FrameLayout(getActivity());
 			tabView.setId(switch(i){
@@ -81,6 +83,7 @@ public class DiscoverFragment extends AppKitFragment implements ScrollableToTop,
 				case 2 -> R.id.discover_news;
 				case 3 -> R.id.discover_local_timeline;
 				case 4 -> R.id.discover_users;
+				case 5 -> R.id.discover_lists;
 				default -> throw new IllegalStateException("Unexpected value: "+i);
 			});
 			tabView.setVisibility(View.GONE);
@@ -126,12 +129,16 @@ public class DiscoverFragment extends AppKitFragment implements ScrollableToTop,
 			localTimelineFragment=new LocalTimelineFragment();
 			localTimelineFragment.setArguments(args);
 
+			listTimelinesFragment=new ListTimelinesFragment();
+			listTimelinesFragment.setArguments(args);
+
 			getChildFragmentManager().beginTransaction()
 					.add(R.id.discover_posts, postsFragment)
 					.add(R.id.discover_local_timeline, localTimelineFragment)
 					.add(R.id.discover_hashtags, hashtagsFragment)
 					.add(R.id.discover_news, newsFragment)
 					.add(R.id.discover_users, accountsFragment)
+					.add(R.id.discover_lists, listTimelinesFragment)
 					.commit();
 		}
 
@@ -144,6 +151,7 @@ public class DiscoverFragment extends AppKitFragment implements ScrollableToTop,
 					case 2 -> R.string.news;
 					case 3 -> R.string.local_timeline;
 					case 4 -> R.string.for_you;
+					case 5 -> R.string.list_timelines;
 					default -> throw new IllegalStateException("Unexpected value: "+position);
 				});
 				tab.view.textView.setAllCaps(true);
@@ -271,6 +279,7 @@ public class DiscoverFragment extends AppKitFragment implements ScrollableToTop,
 			case 2 -> newsFragment;
 			case 3 -> localTimelineFragment;
 			case 4 -> accountsFragment;
+			case 5 -> listTimelinesFragment;
 			default -> throw new IllegalStateException("Unexpected value: "+page);
 		};
 	}

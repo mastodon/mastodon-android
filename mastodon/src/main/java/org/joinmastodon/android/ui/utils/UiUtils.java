@@ -45,10 +45,12 @@ import org.joinmastodon.android.api.requests.statuses.GetStatusByID;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.events.StatusDeletedEvent;
 import org.joinmastodon.android.fragments.HashtagTimelineFragment;
+import org.joinmastodon.android.fragments.ListTimelineFragment;
 import org.joinmastodon.android.fragments.ProfileFragment;
 import org.joinmastodon.android.fragments.ThreadFragment;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.Emoji;
+import org.joinmastodon.android.model.ListTimeline;
 import org.joinmastodon.android.model.Relationship;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.M3AlertDialogBuilder;
@@ -292,6 +294,14 @@ public class UiUtils{
 		args.putString("account", accountID);
 		args.putString("hashtag", hashtag);
 		Nav.go((Activity)context, HashtagTimelineFragment.class, args);
+	}
+
+	public static void openListTimeline(Context context, String accountID, ListTimeline list){
+		Bundle args=new Bundle();
+		args.putString("account", accountID);
+		args.putString("listID", list.id);
+		args.putString("listTitle", list.title);
+		Nav.go((Activity)context, ListTimelineFragment.class, args);
 	}
 
 	public static void showConfirmationAlert(Context context, @StringRes int title, @StringRes int message, @StringRes int confirmButton, Runnable onConfirmed){
