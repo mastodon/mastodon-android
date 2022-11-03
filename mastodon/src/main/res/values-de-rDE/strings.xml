@@ -165,7 +165,7 @@
 	<string name="report_sent_subtitle">Während wir dies überprüfen, kannst du gegen %s vorgehen.</string>
 	<string name="unfollow_user">%s entfolgen</string>
 	<string name="unfollow">Entfolgen</string>
-	<string name="mute_user_explain">Du wirst die eigenen und geteilten Beiträge des Kontos nicht mehr sehen können. Dass du das Profil stummgeschaltet hast, erfährt die Person hinter dem Account aber nicht.</string>
+	<string name="mute_user_explain">Du wirst die eigenen und geteilten Beiträge des Kontos nicht mehr sehen können. Dass du das Profil stummgeschaltet hast, erfährt die Person nicht.</string>
 	<string name="block_user_explain">Du wirst die Beiträge von diesem Konto nicht sehen. Das Konto wird nicht in der Lage sein, deine Beiträge zu sehen oder dir zu folgen. Die Person hinter dem Konto wird wissen, dass du das Konto blockiert hast.</string>
 	<string name="report_personal_title">Du willst das nicht mehr sehen?</string>
 	<string name="report_personal_subtitle">Wenn du etwas auf Mastodon nicht sehen willst, kannst du den Nutzer aus deiner Erfahrung streichen.</string>
@@ -258,8 +258,8 @@
 	<string name="settings_app_version">Mastodon für Android v%1$s (%2$d)</string>
 	<string name="media_cache_cleared">Medien-Cache geleert</string>
 	<string name="confirm_log_out">Bist du dir sicher, dass du dich abmelden möchtest?</string>
-	<string name="sensitive_content">Sensibler Inhalt</string>
-	<string name="sensitive_content_explain">Der Autor hat den Inhalt als sensiblen Inhalt markiert. Tippen zum Anzeigen.</string>
+	<string name="sensitive_content">Inhaltswarnung</string>
+	<string name="sensitive_content_explain">Autor*in hat den Inhalt mit einer Inhaltswarnung versehen. Tippen zum Anzeigen.</string>
 	<string name="media_hidden">Tippen zum Öffnen</string>
 	<string name="avatar_description">Das Profil von %s öffnen</string>
 	<string name="more_options">Mehr Optionen</string>
@@ -282,8 +282,8 @@
 	<string name="unfollowed_user">%s entfolgt</string>
 	<string name="followed_user">Du folgst nun %s</string>
 	<string name="open_in_browser">Beitrag im Browser öffnen</string>
-	<string name="hide_boosts_from_user">Verberge geteilte Beiträge von %s</string>
-	<string name="show_boosts_from_user">Zeige geteilte Beiträge von %s</string>
+	<string name="hide_boosts_from_user">geteilte Beiträge von %s verbergen</string>
+	<string name="show_boosts_from_user">geteilte Beiträge von %s anzeigen</string>
 	<string name="signup_reason">Weshalb möchtest du beitreten?</string>
 	<string name="signup_reason_note">Dies wird uns dabei helfen, deine Anmeldungsanfrage besser zu verarbeiten.</string>
 	<string name="clear">Löschen</string>
@@ -302,14 +302,14 @@
 	<string name="trending_posts_info_banner">Dies sind Beiträge, die auf deinem Mastodon-Server gerade angesagt sind.</string>
 	<string name="trending_hashtags_info_banner">Dies sind Hashtags, die auf deinem Mastodon-Server gerade angesagt sind.</string>
 	<string name="trending_links_info_banner">Dies sind journalistische Nachrichten, die auf deinem Mastodon-Server gerade am häufigsten geteilt werden.</string>
-	<string name="local_timeline_info_banner">Dies sind die neuesten Beiträge der Leute, die den gleichen Mastodon-Server verwenden wie du.</string>
+	<string name="local_timeline_info_banner">Das sind die neuesten Beiträge von Personen, die denselben Mastodon-Server benutzen.</string>
 	<string name="dismiss">Verwerfen</string>
 	<string name="see_new_posts">Neue Beiträge anzeigen</string>
 	<string name="load_missing_posts">Weitere Beiträge laden</string>
 	<string name="follow_back">Zurückfolgen</string>
 	<string name="button_follow_pending">Ausstehend</string>
 	<string name="follows_you">Folgt dir</string>
-	<string name="manually_approves_followers">Genehmigt Folgende manuell</string>
+	<string name="manually_approves_followers">Manuelles Genehmigen von Followern</string>
 	<string name="current_account">Aktuelles Konto</string>
 	<string name="log_out_account">%s abmelden</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
@@ -356,13 +356,13 @@
 	<string name="edit_media_added">Medien hinzugefügt</string>
 	<string name="edit_media_removed">Medien entfernt</string>
 	<string name="edit_media_reordered">Medien umsortiert</string>
-	<string name="edit_marked_sensitive">Als NSFW markiert</string>
-	<string name="edit_marked_not_sensitive">Als nicht NSFW markiert</string>
+	<string name="edit_marked_sensitive">Mit Inhaltswarnung versehen</string>
+	<string name="edit_marked_not_sensitive">Ohne Inhaltswarnung</string>
 	<string name="edit_multiple_changed">Beitrag bearbeitet</string>
 	<string name="edit">Bearbeiten</string>
 	<string name="discard_changes">Änderungen verwerfen?</string>
-	<string name="upload_failed">Upload fehlgeschlagen</string>
-	<string name="file_size_bytes">%d bytes</string>
+	<string name="upload_failed">Hochladen fehlgeschlagen</string>
+	<string name="file_size_bytes">%d Bytes</string>
 	<string name="file_size_kb">%.2f KB</string>
 	<string name="file_size_mb">%.2f MB</string>
 	<string name="file_size_gb">%.2f GB</string>
