@@ -14,7 +14,7 @@
 	<string name="notifications">Meldingen</string>
 	<string name="user_followed_you">volgt jou</string>
 	<string name="user_sent_follow_request">heeft je een volgverzoek gestuurd</string>
-	<string name="user_favorited">markeerde jouw bericht als favoriet</string>
+	<string name="user_favorited">markeerde als favoriet</string>
 	<string name="notification_boosted">boostte jouw bericht</string>
 	<string name="poll_ended">poll is beëindigd</string>
 	<string name="time_seconds">%ds</string>
@@ -31,6 +31,72 @@
 		<item quantity="one">volger</item>
 		<item quantity="other">volgers</item>
 	</plurals>
+	<plurals name="following">
+		<item quantity="one">volgend</item>
+		<item quantity="other">volgend</item>
+	</plurals>
+	<plurals name="posts">
+		<item quantity="one">bericht</item>
+		<item quantity="other">berichten</item>
+	</plurals>
+	<string name="posts">Berichten</string>
+	<string name="posts_and_replies">Berichten en reacties</string>
+	<string name="media">Media</string>
+	<string name="profile_about">Over</string>
+	<string name="button_follow">Volgen</string>
+	<string name="button_following">Volgend</string>
+	<string name="edit_profile">Profiel bewerken</string>
+	<string name="mention_user">Vermelden</string>
+	<string name="share_user">Delen</string>
+	<string name="mute_user">Negeren</string>
+	<string name="unmute_user">Niet langer negeren</string>
+	<string name="block_user">Blokkeren</string>
+	<string name="unblock_user">Deblokkeren</string>
+	<string name="report_user">Rapporteren</string>
+	<string name="block_domain">Blokkeren</string>
+	<string name="unblock_domain">Deblokkeren</string>
+	<plurals name="x_posts">
+		<item quantity="one">%,d bericht</item>
+		<item quantity="other">%,d berichten</item>
+	</plurals>
+	<string name="profile_joined">Geregistreerd op</string>
+	<string name="done">Klaar</string>
+	<string name="loading">Aan het laden…</string>
+	<string name="field_label">Label</string>
+	<string name="field_content">Inhoud</string>
+	<string name="saving">Opslaan…</string>
+	<string name="post_from_user">Bericht van %s</string>
+	<string name="poll_option_hint">Optie %d</string>
+	<plurals name="x_minutes">
+		<item quantity="one">%d minuut</item>
+		<item quantity="other">%d minuten</item>
+	</plurals>
+	<plurals name="x_hours">
+		<item quantity="one">%d uur</item>
+		<item quantity="other">%d uur</item>
+	</plurals>
+	<plurals name="x_days">
+		<item quantity="one">%d dag</item>
+		<item quantity="other">%d dagen</item>
+	</plurals>
+	<string name="compose_poll_duration">Duur: %s</string>
+	<plurals name="x_seconds_left">
+		<item quantity="one">%d seconde resterend</item>
+		<item quantity="other">%d seconden resterend</item>
+	</plurals>
+	<plurals name="x_minutes_left">
+		<item quantity="one">%d minuut resterend</item>
+		<item quantity="other">%d minuten resterend</item>
+	</plurals>
+	<plurals name="x_hours_left">
+		<item quantity="one">%d uur resterend</item>
+		<item quantity="other">%d uur resterend</item>
+	</plurals>
+	<plurals name="x_days_left">
+		<item quantity="one">%d dag resterend</item>
+		<item quantity="other">%d dagen resterend</item>
+	</plurals>
+	<string name="report_title">Rapporteren</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<!-- %s is version like 1.2.3 -->
 	<!-- %s is version like 1.2.3 -->
