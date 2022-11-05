@@ -61,7 +61,7 @@ android {
 }
 
 dependencies {
-	api 'androidx.annotation:annotation:1.3.0'
+	api 'androidx.annotation:annotation:1.5.0'
 	implementation 'com.squareup.okhttp3:okhttp:3.14.9'
 	implementation 'me.grishka.litex:recyclerview:1.2.1.1'
 	implementation 'me.grishka.litex:swiperefreshlayout:1.1.0.1'
