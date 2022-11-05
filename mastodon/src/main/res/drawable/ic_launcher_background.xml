@@ -1,0 +1,11 @@
+<shape
+    android:width="50dp"
+    android:height="50dp"
+    android:viewportHeight="200"
+    android:viewportWidth="200"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <gradient
+        android:startColor="@color/ic_launcher_background_dark"
+        android:endColor="@color/ic_launcher_background_light"
+        android:angle="90"/>
+</shape>
