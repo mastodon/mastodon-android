@@ -91,7 +91,7 @@ public class FooterStatusDisplayItem extends StatusDisplayItem{
 					|| (item.status.visibility==StatusPrivacy.PRIVATE && item.status.account.id.equals(AccountSessionManager.getInstance().getAccount(item.accountID).self.id)));
 		}
 
-		private void bindButton(TextView btn, int count){
+		private void bindButton(TextView btn, long count){
 			if(count>0 && !item.hideCounts){
 				btn.setText(DecimalFormat.getIntegerInstance().format(count));
 				btn.setCompoundDrawablePadding(V.dp(8));

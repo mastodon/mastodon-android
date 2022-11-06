@@ -34,9 +34,9 @@ public class Status extends BaseModel implements DisplayItemsParent{
 	public List<Hashtag> tags;
 	@RequiredField
 	public List<Emoji> emojis;
-	public int reblogsCount;
-	public int favouritesCount;
-	public int repliesCount;
+	public long reblogsCount;
+	public long favouritesCount;
+	public long repliesCount;
 	public Instant editedAt;
 
 	public String url;

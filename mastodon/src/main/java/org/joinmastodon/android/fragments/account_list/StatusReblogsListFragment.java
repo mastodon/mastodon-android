@@ -11,7 +11,7 @@ public class StatusReblogsListFragment extends StatusRelatedAccountListFragment{
 	@Override
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
-		setTitle(getResources().getQuantityString(R.plurals.x_reblogs, status.reblogsCount, status.reblogsCount));
+		setTitle(getResources().getQuantityString(R.plurals.x_reblogs, (int)(status.reblogsCount%1000), status.reblogsCount));
 	}
 
 	@Override

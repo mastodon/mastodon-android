@@ -180,6 +180,15 @@ public class UiUtils{
 		}
 	}
 
+	@SuppressLint("DefaultLocale")
+	public static String abbreviateNumber(long n){
+		if(n<Integer.MAX_VALUE)
+			return abbreviateNumber((int)n);
+
+		double a=n/1_000_000_000.0;
+		return a>99f ? String.format("%,dB", (int)Math.floor(a)) : String.format("%,.1fB", n/1_000_000_000.0);
+	}
+
 	/**
 	 * Android 6.0 has a bug where start and end compound drawables don't get tinted.
 	 * This works around it by setting the tint colors directly to the drawables.
