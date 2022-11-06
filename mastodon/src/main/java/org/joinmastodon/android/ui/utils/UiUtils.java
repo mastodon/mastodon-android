@@ -182,7 +182,7 @@ public class UiUtils{
 
 	@SuppressLint("DefaultLocale")
 	public static String abbreviateNumber(long n){
-		if(n<Integer.MAX_VALUE)
+		if(n<1_000_000_000L)
 			return abbreviateNumber((int)n);
 
 		double a=n/1_000_000_000.0;
