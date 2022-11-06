@@ -5,7 +5,7 @@
 	<string name="next">次へ</string>
 	<string name="loading_instance">インスタンスを取得しています…</string>
 	<string name="error">エラー</string>
-	<string name="not_a_mastodon_instance">%s はMastodonインスタンスではありません。</string>
+	<string name="not_a_mastodon_instance">%sはMastodonインスタンスではありません。</string>
 	<string name="ok">OK</string>
 	<string name="preparing_auth">認証を開始中…</string>
 	<string name="finishing_auth">認証を完了中…</string>
@@ -209,7 +209,7 @@
 	<string name="notification_type_mention">メンション</string>
 	<string name="notification_type_poll">投票</string>
 	<string name="choose_account">アカウントを選択</string>
-	<string name="err_not_logged_in">まずはアカウントにログインしてください</string>
+	<string name="err_not_logged_in">まずはMastodonにログインしてください</string>
 	<plurals name="cant_add_more_than_x_attachments">
 		<item quantity="other">%d件以上のメディア添付ファイルを追加することはできません</item>
 	</plurals>
@@ -334,7 +334,29 @@
 	<string name="edit_poll_removed">アンケートを削除しました</string>
 	<string name="edit_media_added">メディアを追加しました</string>
 	<string name="edit_media_removed">メディアを削除しました</string>
+	<string name="edit_media_reordered">メディアの並び順を変更しました</string>
+	<string name="edit_marked_sensitive">閲覧注意とマークしました</string>
+	<string name="edit_marked_not_sensitive">閲覧注意をはずしました</string>
+	<string name="edit_multiple_changed">投稿を編集しました</string>
+	<string name="edit">編集</string>
+	<string name="discard_changes">変更を破棄しますか？</string>
+	<string name="upload_failed">アップロードに失敗しました</string>
+	<string name="file_size_bytes">%dバイト</string>
+	<string name="file_size_kb">%.2f KB</string>
+	<string name="file_size_mb">%.2f MB</string>
+	<string name="file_size_gb">%.2f GB</string>
+	<string name="file_upload_progress">%1$s / %2$s</string>
+	<string name="file_upload_time_remaining">残り %s</string>
+	<string name="upload_error_connection_lost">インターネットの接続を失いました</string>
+	<string name="upload_processing">処理中…</string>
 	<!-- %s is version like 1.2.3 -->
+	<string name="update_available">Mastodon for Android %s がダウンロードできます。</string>
 	<!-- %s is version like 1.2.3 -->
+	<string name="update_ready">Mastodon for Android %s のダウンロードとインストールの準備ができました。</string>
 	<!-- %s is file size -->
+	<string name="download_update">ダウンロード (%s)</string>
+	<string name="install_update">インストール</string>
+	<string name="privacy_policy_title">Mastodonとあなたのプライバシー</string>
+	<string name="privacy_policy_subtitle">Mastodonアプリはいかなるデータも収集しませんが、サインアップするサーバーは別のポリシーを持っている場合があります。Mastodonアプリのプライバシーポリシーとサーバーのプライバシーポリシーを確認をし、同意してください。</string>
+	<string name="i_agree">同意する</string>
 </resources>
