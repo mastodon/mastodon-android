@@ -553,6 +553,7 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 
 		if(editingStatus!=null){
 			updateCharCounter();
+			visibilityBtn.setEnabled(false);
 		}
 	}
 
