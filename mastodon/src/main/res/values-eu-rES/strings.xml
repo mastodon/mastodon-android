@@ -9,10 +9,13 @@
 	<string name="ok">Ados</string>
 	<string name="preparing_auth">Autentifikaziorako prestatzen…</string>
 	<string name="finishing_auth">Autentikazioa bukatzen…</string>
+	<string name="user_boosted">%s(e)k zure bidalketa bultzatu du</string>
 	<string name="in_reply_to">%s-(r)i erantzunez</string>
 	<string name="notifications">Jakinarazpenak</string>
 	<string name="user_followed_you">jarraitu zaitu</string>
 	<string name="user_sent_follow_request">jarraitzeko eskaera bidali dizu</string>
+	<string name="user_favorited">zure bidalketa gogoko du</string>
+	<string name="notification_boosted">zure bidalketa bultzatu du</string>
 	<string name="poll_ended">inkesta amaitu da</string>
 	<string name="time_seconds">%ds</string>
 	<string name="time_minutes">%dm</string>
@@ -156,6 +159,8 @@
 	<string name="unfollow">Utzi jarraitzeari</string>
 	<string name="report_personal_title">Ez duzu hau ikusi nahi?</string>
 	<string name="back">Atzera</string>
+	<string name="instance_catalog_title">Mastodon zerbitzari desberdinetako erabiltzaileez egina dago.</string>
+	<string name="search_communities">Bilatu zerbitzariak edo idatzi URL-a</string>
 	<string name="instance_rules_title">Oinarrizko arau batzuk</string>
 	<string name="edit_photo">editatu</string>
 	<string name="display_name">pantaila-izena</string>
@@ -168,6 +173,7 @@
 	<string name="category_all">Denak</string>
 	<string name="category_art">Artea</string>
 	<string name="category_food">Janaria</string>
+	<string name="category_furry">Furry</string>
 	<string name="category_games">Jokoak</string>
 	<string name="category_general">Orokorra</string>
 	<string name="category_journalism">Kazetaritza</string>
@@ -187,6 +193,7 @@
 	<string name="edit_image">Editatu irudia</string>
 	<string name="save">Gorde</string>
 	<string name="add_alt_text">Gehitu ordezko testua</string>
+	<string name="alt_text_subtitle">Alt testuak zure argazkiak deskribatzen ditu ikusmen txikia edo ikuspenik ez duten pertsonentzat. Testuingurua ulertzeko behar adina xehetasun bakarrik sartu.</string>
 	<string name="visibility_public">Publikoa</string>
 	<string name="visibility_followers_only">Jarraitzaileak soilik</string>
 	<string name="visibility_private">Aipatzen dudan jendea soilik</string>
@@ -196,14 +203,19 @@
 	<string name="skip">Saltatu</string>
 	<string name="notification_type_follow">Jarraitzaile berriak</string>
 	<string name="notification_type_favorite">Gogokoak</string>
+	<string name="notification_type_reblog">Bultzadak</string>
 	<string name="notification_type_mention">Aipamenak</string>
 	<string name="notification_type_poll">Inkestak</string>
 	<string name="choose_account">Aukeratu kontua</string>
 	<string name="err_not_logged_in">Mesedez, hasi saioa lehenengo Mastodonen</string>
+	<string name="settings_theme">Itxura bisuala</string>
 	<string name="theme_auto">Automatikoa</string>
 	<string name="theme_light">Argia</string>
 	<string name="theme_dark">Iluna</string>
 	<string name="theme_true_black">Benetako modu beltz iluna</string>
+	<string name="settings_behavior">Jokabidea</string>
+	<string name="settings_gif">Erreproduzitu animatutako abatarrak eta emojiak</string>
+	<string name="settings_custom_tabs">Erabili aplikazio barneko nabigatzailea</string>
 	<string name="settings_notifications">Jakinarazpenak</string>
 	<string name="notify_me_when">Noiz jakinarazi:</string>
 	<string name="notify_anyone">edozein</string>
@@ -224,6 +236,7 @@
 	<string name="settings_app_version">Mastodon Android-entzat v%1$s (%2$d)</string>
 	<string name="confirm_log_out">Ziur saioa amaitu nahi duzula?</string>
 	<string name="sensitive_content">Eduki hunkigarria</string>
+	<string name="sensitive_content_explain">Egileak multimedia hau hunkigarritzat markatu du. Sakatu erakusteko.</string>
 	<string name="media_hidden">Sakatu erakusteko</string>
 	<string name="more_options">Aukera gehiago</string>
 	<string name="reveal_content">Erakutsi edukia</string>
@@ -233,12 +246,14 @@
 	<string name="button_reblog">Bultzada</string>
 	<string name="button_favorite">Gogokoa</string>
 	<string name="button_share">Partekatu</string>
+	<string name="media_no_description">Deskribapenik gabeko multimedia</string>
 	<string name="add_media">Gehitu multimedia</string>
 	<string name="add_poll">Gehitu inkesta bat</string>
 	<string name="emoji">Emojia</string>
 	<string name="post_visibility">Bidalketaren ikusgaitasuna</string>
 	<string name="home_timeline">Hasierako denbora-lerroa</string>
 	<string name="my_profile">Nire profila</string>
+	<string name="media_viewer">Multimedia ikuskatzailea</string>
 	<string name="follow_user">Jarraitu %s</string>
 	<string name="unfollowed_user">Utzi %s jarraitzeari</string>
 	<string name="open_in_browser">Ireki nabigatzailean</string>
@@ -255,8 +270,37 @@
 	<string name="error_saving_file">Errorea fitxategia gordetzerakoan</string>
 	<string name="file_saved">Fitxategia gorde da</string>
 	<string name="downloading">Jeisten…</string>
+	<string name="local_timeline">Komunitatea</string>
+	<string name="dismiss">Baztertu</string>
+	<string name="see_new_posts">Ikusi bidalketa berriak</string>
+	<string name="load_missing_posts">Falta diren bidalketak kargatu</string>
+	<string name="button_follow_pending">Zain</string>
+	<string name="follows_you">Jarraitzen zaitu</string>
+	<string name="manually_approves_followers">Jarraitzaileak eskuz onartu</string>
+	<string name="current_account">Oraingo kontua</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
+	<string name="time_now">orain</string>
+	<string name="post_info_reblogs">Bultzadak</string>
+	<string name="post_info_favorites">Gogokoak</string>
+	<string name="edit_history">Editatu historia</string>
+	<string name="time_just_now">oraintxe</string>
+	<string name="edited_timestamp">editatua %s</string>
+	<string name="edit_original_post">Jatorrizko bidalketa</string>
+	<string name="edit_text_edited">Editatutako testua</string>
+	<string name="edit_media_added">Multimedia gehituta</string>
+	<string name="edit_media_removed">Multimedia ezabatuta</string>
+	<string name="edit_multiple_changed">Editatutako bidalketak</string>
+	<string name="edit">Editatu</string>
+	<string name="discard_changes">Baztertu aldaketak?</string>
+	<string name="upload_failed">Kargatzeak huts egin du</string>
+	<string name="file_size_bytes">%d bytes</string>
+	<string name="upload_error_connection_lost">Zure gailuak interneterako konexioa galdu du</string>
+	<string name="upload_processing">Prozesatzen…</string>
 	<!-- %s is version like 1.2.3 -->
 	<!-- %s is version like 1.2.3 -->
 	<!-- %s is file size -->
+	<string name="download_update">(%s) deskargatu</string>
+	<string name="install_update">Instalatu</string>
+	<string name="privacy_policy_title">Mastodon eta zure pribatutasuna</string>
+	<string name="i_agree">Ados nago</string>
 </resources>
