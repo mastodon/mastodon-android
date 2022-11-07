@@ -170,8 +170,11 @@
 	<string name="report_personal_title">Wil je dit niet zien?</string>
 	<string name="report_personal_subtitle">Als je iets ziet dat je niet leuk vindt op Mastodon, dan kun je de persoon op meerdere manieren van je tijdlijn verwijderen.</string>
 	<string name="back">Terug</string>
+	<string name="instance_catalog_title">Mastodon is bestaat uit gebruikers op verschillende servers.</string>
+	<string name="instance_catalog_subtitle">Kies een server gebaseerd op je interesses, regio, of een algemeen doel. Je kan nog steeds met iedereen in contact komen, ongeacht de server.</string>
 	<string name="search_communities">Zoek servers of voer een URL in</string>
 	<string name="instance_rules_title">Enkele basisregels</string>
+	<string name="instance_rules_subtitle">Neem een minuut de tijd om de regels te bekijken die zijn ingesteld en gehandhaafd worden door %s admins.</string>
 	<string name="signup_title">Laten we je account op %s instellen</string>
 	<string name="edit_photo">bewerken</string>
 	<string name="display_name">weergavenaam</string>
@@ -179,6 +182,17 @@
 	<string name="email">e-mail</string>
 	<string name="password">wachtwoord</string>
 	<string name="password_note">Voeg hoofdletters, speciale tekens en cijfers toe om je wachtwoord veiliger te maken.</string>
+	<string name="category_academia">Academisch</string>
+	<string name="category_activism">Activisme</string>
+	<string name="category_all">Alle</string>
+	<string name="category_art">Kunst</string>
+	<string name="category_food">Voedsel</string>
+	<string name="category_furry">Furry</string>
+	<string name="category_games">Spellen</string>
+	<string name="category_general">Algemeen</string>
+	<string name="category_journalism">Journalistiek</string>
+	<string name="category_lgbt">LGBT</string>
+	<string name="category_music">Muziek</string>
 	<string name="category_regional">Regionaal</string>
 	<string name="category_tech">Tech</string>
 	<string name="confirm_email_title">Nog één ding</string>
@@ -193,6 +207,8 @@
 	<string name="edit_image">Afbeelding bewerken</string>
 	<string name="save">Opslaan</string>
 	<string name="add_alt_text">Alt-tekst toevoegen</string>
+	<string name="alt_text_subtitle">Alt-tekst beschrijft uw foto\'s voor mensen met weinig of geen visie. Probeer alleen genoeg details toe te voegen om de context te begrijpen.</string>
+	<string name="alt_text_hint">bijv.: ‘een hond die met versmalde ogen verdacht rondkijkt naar de camera’.</string>
 	<string name="visibility_public">Openbaar</string>
 	<string name="visibility_followers_only">Alleen volgers</string>
 	<string name="visibility_private">Direct bericht</string>
@@ -231,6 +247,7 @@
 	<string name="notify_favorites">Mijn bericht als favoriet markeert</string>
 	<string name="notify_follow">Mij volgt</string>
 	<string name="notify_reblog">Boost mijn bericht</string>
+	<string name="notify_mention">Mij vermeldt</string>
 	<string name="button_reblog">Boost</string>
 	<string name="hide_boosts_from_user">Boosts van %s verbergen</string>
 	<string name="show_boosts_from_user">Boosts van %s tonen</string>
