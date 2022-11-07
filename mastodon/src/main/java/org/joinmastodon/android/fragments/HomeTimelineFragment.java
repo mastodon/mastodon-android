@@ -24,6 +24,7 @@ import android.widget.Toolbar;
 import com.squareup.otto.Subscribe;
 
 import org.joinmastodon.android.E;
+import org.joinmastodon.android.GlobalUserPreferences;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.requests.timelines.GetHomeTimeline;
 import org.joinmastodon.android.api.session.AccountSessionManager;
@@ -82,7 +83,12 @@ public class HomeTimelineFragment extends StatusListFragment{
 					public void onSuccess(CacheablePaginatedResponse<List<Status>> result){
 						if(getActivity()==null)
 							return;
-						onDataLoaded(result.items, !result.items.isEmpty());
+						List<Status> filteredItems = result.items.stream().filter(i ->
+								(GlobalUserPreferences.showReplies || i.inReplyToId == null) &&
+								(GlobalUserPreferences.showBoosts || i.reblog == null)
+						).collect(Collectors.toList());
+
+						onDataLoaded(filteredItems, !result.items.isEmpty());
 						maxID=result.maxID;
 						if(result.isFromCache())
 							loadNewPosts();
