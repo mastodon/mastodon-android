@@ -232,8 +232,6 @@
 	<string name="content_warning">Ostrzeżenie o zawartości</string>
 	<string name="add_image_description">Dodaj opis obrazu…</string>
 	<string name="retry_upload">Ponów wysyłanie</string>
-	<string name="image_upload_failed">Nie udało się wysłać obrazu</string>
-	<string name="video_upload_failed">Nie udało się wysłać filmu</string>
 	<string name="edit_image">Edytuj obraz</string>
 	<string name="save">Zapisz</string>
 	<string name="add_alt_text">Dodaj tekst alternatywny</string>
@@ -371,4 +369,50 @@
 	</plurals>
 	<string name="timestamp_via_app">%1$s przez %2$s</string>
 	<string name="time_now">przed chwilą</string>
+	<string name="post_info_reblogs">Podbicia</string>
+	<string name="post_info_favorites">Ulubione</string>
+	<string name="edit_history">Historia edycji</string>
+	<string name="last_edit_at_x">Ostatnia zmiana: %s</string>
+	<string name="time_just_now">przed chwilą</string>
+	<plurals name="x_seconds_ago">
+		<item quantity="one">%d sekundę temu</item>
+		<item quantity="few">%d sekund temu</item>
+		<item quantity="many">%d sekund temu</item>
+		<item quantity="other">%d sekund temu</item>
+	</plurals>
+	<plurals name="x_minutes_ago">
+		<item quantity="one">%d minutę temu</item>
+		<item quantity="few">%d minuty temu</item>
+		<item quantity="many">%d minut temu</item>
+		<item quantity="other">%d min temu</item>
+	</plurals>
+	<string name="edited_timestamp">edytowano %s</string>
+	<string name="edit_original_post">Oryginalny post</string>
+	<string name="edit_text_edited">Tekst edytowany</string>
+	<string name="edit_spoiler_added">Ostrzeżenie o zawartości</string>
+	<string name="edit_spoiler_edited">Ostrzeżenie o zawartości edytowane</string>
+	<string name="edit_spoiler_removed">Ostrzeżenie o treści usunięte</string>
+	<string name="edit_poll_added">Dodano ankietę</string>
+	<string name="edit_poll_edited">Edytowano ankietę</string>
+	<string name="edit_poll_removed">Ankieta usunięta</string>
+	<string name="edit_media_added">Dodano media</string>
+	<string name="edit_media_removed">Media usunięte</string>
+	<string name="edit_media_reordered">Kolejność mediów</string>
+	<string name="edit_marked_sensitive">Oznaczono jako wrażliwe</string>
+	<string name="edit_marked_not_sensitive">Oznaczono jako wrażliwe</string>
+	<string name="edit_multiple_changed">Edytowano post</string>
+	<string name="edit">Edytuj</string>
+	<string name="discard_changes">Odrzucić zmiany?</string>
+	<string name="upload_failed">Przesyłanie nie powiodło się</string>
+	<string name="file_size_bytes">%d bajtów</string>
+	<string name="file_size_kb">%.2f KB</string>
+	<string name="file_size_mb">%.2f MB</string>
+	<string name="file_size_gb">%.2f GB</string>
+	<string name="file_upload_progress">%1$s z %2$s</string>
+	<string name="file_upload_time_remaining">Pozostało %s</string>
+	<string name="upload_error_connection_lost">Twoje urządzenie utraciło połączenie z Internetem</string>
+	<string name="upload_processing">Przetwarzanie…</string>
+	<!-- %s is version like 1.2.3 -->
+	<!-- %s is version like 1.2.3 -->
+	<!-- %s is file size -->
 </resources>

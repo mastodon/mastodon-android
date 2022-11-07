@@ -4,13 +4,13 @@ plugins {
 }
 
 android {
-	compileSdk 31
+	compileSdk 33
 	defaultConfig {
 		applicationId "org.joinmastodon.android"
 		minSdk 23
-		targetSdk 31
-		versionCode 39
-		versionName "1.1.3"
+		targetSdk 33
+		versionCode 43
+		versionName "1.1.4"
 		testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 	}
 
@@ -33,6 +33,9 @@ android {
 			initWith release
 			versionNameSuffix "-beta"
 		}
+		githubRelease{
+			initWith release
+		}
 	}
 	compileOptions {
 		sourceCompatibility JavaVersion.VERSION_17
@@ -46,6 +49,13 @@ android {
 		appcenterPublicBeta{
 			setRoot "src/appcenter"
 		}
+		githubRelease{
+			setRoot "src/github"
+		}
+	}
+	lintOptions{
+		checkReleaseBuilds false
+		abortOnError false
 	}
 }
 

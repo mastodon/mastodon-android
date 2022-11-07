@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="get_started">الخطوات الأولى</string>
-	<string name="log_in">تسجيل الدخول</string>
+	<string name="log_in">تسجيلُ الدخول</string>
 	<string name="next">التالي</string>
 	<string name="loading_instance">يَجري الحُصُول على معلومات المَثيل…</string>
 	<string name="error">خطأ</string>
@@ -16,7 +16,7 @@
 	<string name="user_sent_follow_request">أرسَلَ طَلَبًا لِمُتابَعَتِك</string>
 	<string name="user_favorited">فَضَّلَ مَنشُورَك</string>
 	<string name="notification_boosted">أعادَ تَدوينَ مَنشُورَك</string>
-	<string name="poll_ended">انتهى استطلاع الرأي</string>
+	<string name="poll_ended">انتهى استطلاعُ الرأي</string>
 	<string name="time_seconds">%d ثا</string>
 	<string name="time_minutes">%d د</string>
 	<string name="time_hours">%d سا</string>
@@ -54,7 +54,7 @@
 	<string name="posts">منشورات</string>
 	<string name="posts_and_replies">مَنشُوراتٌ وَرُدُود</string>
 	<string name="media">وسائط</string>
-	<string name="profile_about">عن</string>
+	<string name="profile_about">حَول</string>
 	<string name="button_follow">تابِع</string>
 	<string name="button_following">يُتابِع</string>
 	<string name="edit_profile">حرّر الملف الشخصي</string>
@@ -260,8 +260,6 @@
 	<string name="content_warning">تحذير من المحتوى</string>
 	<string name="add_image_description">أضف وصفًا للصورة…</string>
 	<string name="retry_upload">حاول الرفع مجددًا</string>
-	<string name="image_upload_failed">فشل رفع الصورة</string>
-	<string name="video_upload_failed">فشل رفع الفيديو</string>
 	<string name="edit_image">حرّر الصورة</string>
 	<string name="save">احفظ</string>
 	<string name="add_alt_text">أضف نصًا بديلًا</string>
@@ -409,4 +407,32 @@
 	</plurals>
 	<string name="timestamp_via_app">%1$s عبر %2$s</string>
 	<string name="time_now">الآن</string>
+	<string name="post_info_reblogs">إعادات التدوين</string>
+	<string name="post_info_favorites">المفضلة</string>
+	<string name="last_edit_at_x">آخر تعديل %s</string>
+	<string name="time_just_now">للتوّ</string>
+	<string name="edited_timestamp">عُدّل في %s</string>
+	<string name="edit_original_post">المنشور الأصلي</string>
+	<string name="edit_text_edited">تم تعديل النص</string>
+	<string name="edit_spoiler_added">تم إضافة تحذير المحتوى</string>
+	<string name="edit_spoiler_edited">تم تعديل تحذير المحتوى</string>
+	<string name="edit_spoiler_removed">تم حذف تحذير المحتوى</string>
+	<string name="edit_poll_added">تمت إضافة استطلاع للرأي</string>
+	<string name="edit_poll_edited">تم تعديل الاستطلاع</string>
+	<string name="edit_poll_removed">تمت إزالة الاستطلاع</string>
+	<string name="edit_media_added">تمت إضافة الوسائط</string>
+	<string name="edit_media_removed">تمت إزالة الوسائط</string>
+	<string name="edit_media_reordered">تمت إعادة ترتيب الوسائط</string>
+	<string name="edit_marked_sensitive">مُعَين كحساس</string>
+	<string name="edit_marked_not_sensitive">مُعَين كمنشور غير حساس</string>
+	<string name="edit_multiple_changed">عُدّل المنشور</string>
+	<string name="edit">تعديل</string>
+	<string name="discard_changes">تجاهل التغييرات؟</string>
+	<string name="upload_failed">فشلت عملية التحميل</string>
+	<string name="file_upload_time_remaining">%s متبقية</string>
+	<string name="upload_error_connection_lost">فقد جهازك الاتصال بالإنترنت</string>
+	<string name="upload_processing">قيد المعالجة…</string>
+	<!-- %s is version like 1.2.3 -->
+	<!-- %s is version like 1.2.3 -->
+	<!-- %s is file size -->
 </resources>

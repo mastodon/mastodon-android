@@ -12,10 +12,12 @@ import me.grishka.appkit.api.ErrorResponse;
 public class MastodonErrorResponse extends ErrorResponse{
 	public final String error;
 	public final int httpStatus;
+	public final Throwable underlyingException;
 
-	public MastodonErrorResponse(String error, int httpStatus){
+	public MastodonErrorResponse(String error, int httpStatus, Throwable exception){
 		this.error=error;
 		this.httpStatus=httpStatus;
+		this.underlyingException=exception;
 	}
 
 	@Override

@@ -25,7 +25,7 @@
 	<string name="settings">設定</string>
 	<string name="publish">公開</string>
 	<string name="discard_draft">下書きを削除しますか？</string>
-	<string name="discard">下書き</string>
+	<string name="discard">破棄</string>
 	<string name="cancel">キャンセル</string>
 	<plurals name="followers">
 		<item quantity="other">フォロワー</item>
@@ -190,8 +190,6 @@
 	<string name="content_warning">コンテンツ警告</string>
 	<string name="add_image_description">画像の説明を追加</string>
 	<string name="retry_upload">アップロードを再試行</string>
-	<string name="image_upload_failed">画像のアップロードに失敗しました</string>
-	<string name="video_upload_failed">ビデオのアップロードに失敗しました。</string>
 	<string name="edit_image">画像を編集</string>
 	<string name="save">保存</string>
 	<string name="add_alt_text">代替テキストを追加</string>
@@ -314,4 +312,7 @@
 	</plurals>
 	<string name="timestamp_via_app">%1$sに%2$s経由</string>
 	<string name="time_now">今</string>
+	<!-- %s is version like 1.2.3 -->
+	<!-- %s is version like 1.2.3 -->
+	<!-- %s is file size -->
 </resources>

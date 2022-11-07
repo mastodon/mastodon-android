@@ -2,13 +2,9 @@ package org.joinmastodon.android.fragments;
 
 import android.app.Fragment;
 import android.app.NotificationManager;
-import android.content.Intent;
-import android.content.res.Configuration;
 import android.graphics.Outline;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,20 +14,14 @@ import android.view.WindowInsets;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
-import org.joinmastodon.android.MainActivity;
-import org.joinmastodon.android.MastodonApp;
 import org.joinmastodon.android.PushNotificationReceiver;
 import org.joinmastodon.android.R;
-import org.joinmastodon.android.api.requests.oauth.RevokeOauthToken;
 import org.joinmastodon.android.api.session.AccountSession;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.fragments.discover.DiscoverFragment;
-import org.joinmastodon.android.fragments.discover.SearchFragment;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.ui.AccountSwitcherSheet;
-import org.joinmastodon.android.ui.M3AlertDialogBuilder;
 import org.joinmastodon.android.ui.utils.UiUtils;
 import org.joinmastodon.android.ui.views.TabBar;
 import org.parceler.Parcels;
@@ -41,15 +31,12 @@ import java.util.ArrayList;
 import androidx.annotation.IdRes;
 import androidx.annotation.Nullable;
 import me.grishka.appkit.FragmentStackActivity;
-import me.grishka.appkit.Nav;
-import me.grishka.appkit.api.ErrorResponse;
 import me.grishka.appkit.fragments.AppKitFragment;
 import me.grishka.appkit.fragments.LoaderFragment;
 import me.grishka.appkit.fragments.OnBackPressedListener;
 import me.grishka.appkit.imageloader.ViewImageLoader;
 import me.grishka.appkit.imageloader.requests.UrlImageLoaderRequest;
 import me.grishka.appkit.utils.V;
-import me.grishka.appkit.views.BottomSheet;
 import me.grishka.appkit.views.FragmentRootLinearLayout;
 
 public class HomeFragment extends AppKitFragment implements OnBackPressedListener{
@@ -141,7 +128,6 @@ public class HomeFragment extends AppKitFragment implements OnBackPressedListene
 					}
 				});
 			}
-		}else{
 		}
 
 		return content;

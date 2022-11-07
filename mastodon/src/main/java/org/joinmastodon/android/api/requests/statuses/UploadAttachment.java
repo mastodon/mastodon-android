@@ -17,6 +17,7 @@ import java.io.IOException;
 
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
+import okhttp3.Response;
 
 public class UploadAttachment extends MastodonAPIRequest<Attachment>{
 	private Uri uri;
@@ -38,6 +39,18 @@ public class UploadAttachment extends MastodonAPIRequest<Attachment>{
 	public UploadAttachment setProgressListener(ProgressListener progressListener){
 		this.progressListener=progressListener;
 		return this;
+	}
+
+	@Override
+	protected String getPathPrefix(){
+		return "/api/v2";
+	}
+
+	@Override
+	public void validateAndPostprocessResponse(Attachment respObj, Response httpResponse) throws IOException{
+		if(respObj.url==null)
+			respObj.url="";
+		super.validateAndPostprocessResponse(respObj, httpResponse);
 	}
 
 	@Override

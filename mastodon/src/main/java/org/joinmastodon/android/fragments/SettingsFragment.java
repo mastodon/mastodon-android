@@ -1,5 +1,6 @@
 package org.joinmastodon.android.fragments;
 
+import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
@@ -14,15 +15,21 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowInsets;
 import android.view.WindowManager;
+import android.view.animation.LinearInterpolator;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
+import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.squareup.otto.Subscribe;
+
 import org.joinmastodon.android.BuildConfig;
+import org.joinmastodon.android.E;
 import org.joinmastodon.android.GlobalUserPreferences;
 import org.joinmastodon.android.MainActivity;
 import org.joinmastodon.android.MastodonApp;
@@ -31,11 +38,13 @@ import org.joinmastodon.android.api.MastodonAPIController;
 import org.joinmastodon.android.api.requests.oauth.RevokeOauthToken;
 import org.joinmastodon.android.api.session.AccountSession;
 import org.joinmastodon.android.api.session.AccountSessionManager;
+import org.joinmastodon.android.events.SelfUpdateStateChangedEvent;
 import org.joinmastodon.android.model.PushNotification;
 import org.joinmastodon.android.model.PushSubscription;
 import org.joinmastodon.android.ui.M3AlertDialogBuilder;
 import org.joinmastodon.android.ui.OutlineProviders;
 import org.joinmastodon.android.ui.utils.UiUtils;
+import org.joinmastodon.android.updater.GithubSelfUpdater;
 
 import java.util.ArrayList;
 import java.util.function.Consumer;
@@ -47,7 +56,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import me.grishka.appkit.api.Callback;
 import me.grishka.appkit.api.ErrorResponse;
-import me.grishka.appkit.fragments.ToolbarFragment;
 import me.grishka.appkit.imageloader.ImageCache;
 import me.grishka.appkit.utils.BindableViewHolder;
 import me.grishka.appkit.utils.V;
@@ -72,6 +80,14 @@ public class SettingsFragment extends MastodonToolbarFragment{
 		setTitle(R.string.settings);
 		accountID=getArguments().getString("account");
 		AccountSession session=AccountSessionManager.getInstance().getAccount(accountID);
+
+		if(GithubSelfUpdater.needSelfUpdating()){
+			GithubSelfUpdater updater=GithubSelfUpdater.getInstance();
+			GithubSelfUpdater.UpdateState state=updater.getState();
+			if(state!=GithubSelfUpdater.UpdateState.NO_UPDATE && state!=GithubSelfUpdater.UpdateState.CHECKING){
+				items.add(new UpdateItem());
+			}
+		}
 
 		items.add(new HeaderItem(R.string.settings_theme));
 		items.add(themeItem=new ThemeItem());
@@ -131,7 +147,7 @@ public class SettingsFragment extends MastodonToolbarFragment{
 			public void getItemOffsets(@NonNull Rect outRect, @NonNull View view, @NonNull RecyclerView parent, @NonNull RecyclerView.State state){
 				// Add 32dp gaps between sections
 				RecyclerView.ViewHolder holder=parent.getChildViewHolder(view);
-				if((holder instanceof HeaderViewHolder || holder instanceof FooterViewHolder) && holder.getAbsoluteAdapterPosition()>0)
+				if((holder instanceof HeaderViewHolder || holder instanceof FooterViewHolder) && holder.getAbsoluteAdapterPosition()>1)
 					outRect.top=V.dp(32);
 			}
 		});
@@ -153,6 +169,20 @@ public class SettingsFragment extends MastodonToolbarFragment{
 		if(needUpdateNotificationSettings){
 			AccountSessionManager.getInstance().getAccount(accountID).getPushSubscriptionManager().updatePushSettings(pushSubscription);
 		}
+	}
+
+	@Override
+	public void onViewCreated(View view, Bundle savedInstanceState){
+		super.onViewCreated(view, savedInstanceState);
+		if(GithubSelfUpdater.needSelfUpdating())
+			E.register(this);
+	}
+
+	@Override
+	public void onDestroyView(){
+		super.onDestroyView();
+		if(GithubSelfUpdater.needSelfUpdating())
+			E.unregister(this);
 	}
 
 	private void onThemePreferenceClick(GlobalUserPreferences.ThemePreference theme){
@@ -294,6 +324,16 @@ public class SettingsFragment extends MastodonToolbarFragment{
 		});
 	}
 
+	@Subscribe
+	public void onSelfUpdateStateChanged(SelfUpdateStateChangedEvent ev){
+		if(items.get(0) instanceof UpdateItem item){
+			RecyclerView.ViewHolder holder=list.findViewHolderForAdapterPosition(0);
+			if(holder instanceof UpdateViewHolder uvh){
+				uvh.bind(item);
+			}
+		}
+	}
+
 	private static abstract class Item{
 		public abstract int getViewType();
 	}
@@ -395,6 +435,14 @@ public class SettingsFragment extends MastodonToolbarFragment{
 		}
 	}
 
+	private class UpdateItem extends Item{
+
+		@Override
+		public int getViewType(){
+			return 7;
+		}
+	}
+
 	private class SettingsAdapter extends RecyclerView.Adapter<BindableViewHolder<Item>>{
 		@NonNull
 		@Override
@@ -408,6 +456,7 @@ public class SettingsFragment extends MastodonToolbarFragment{
 				case 4 -> new TextViewHolder();
 				case 5 -> new HeaderViewHolder(true);
 				case 6 -> new FooterViewHolder();
+				case 7 -> new UpdateViewHolder();
 				default -> throw new IllegalStateException("Unexpected value: "+viewType);
 			};
 		}
@@ -607,6 +656,76 @@ public class SettingsFragment extends MastodonToolbarFragment{
 		@Override
 		public void onBind(FooterItem item){
 			text.setText(item.text);
+		}
+	}
+
+	private class UpdateViewHolder extends BindableViewHolder<UpdateItem>{
+
+		private final TextView text;
+		private final Button button;
+		private final ImageButton cancelBtn;
+		private final ProgressBar progress;
+
+		private ObjectAnimator rotationAnimator;
+		private Runnable progressUpdater=this::updateProgress;
+
+		public UpdateViewHolder(){
+			super(getActivity(), R.layout.item_settings_update, list);
+			text=findViewById(R.id.text);
+			button=findViewById(R.id.button);
+			cancelBtn=findViewById(R.id.cancel_btn);
+			progress=findViewById(R.id.progress);
+			button.setOnClickListener(v->{
+				GithubSelfUpdater updater=GithubSelfUpdater.getInstance();
+				switch(updater.getState()){
+					case UPDATE_AVAILABLE -> updater.downloadUpdate();
+					case DOWNLOADED -> updater.installUpdate(getActivity());
+				}
+			});
+			cancelBtn.setOnClickListener(v->GithubSelfUpdater.getInstance().cancelDownload());
+			rotationAnimator=ObjectAnimator.ofFloat(progress, View.ROTATION, 0f, 360f);
+			rotationAnimator.setInterpolator(new LinearInterpolator());
+			rotationAnimator.setDuration(1500);
+			rotationAnimator.setRepeatCount(ObjectAnimator.INFINITE);
+		}
+
+		@Override
+		public void onBind(UpdateItem item){
+			GithubSelfUpdater updater=GithubSelfUpdater.getInstance();
+			GithubSelfUpdater.UpdateInfo info=updater.getUpdateInfo();
+			GithubSelfUpdater.UpdateState state=updater.getState();
+			if(state!=GithubSelfUpdater.UpdateState.DOWNLOADED){
+				text.setText(getString(R.string.update_available, info.version));
+				button.setText(getString(R.string.download_update, UiUtils.formatFileSize(getActivity(), info.size, false)));
+			}else{
+				text.setText(getString(R.string.update_ready, info.version));
+				button.setText(R.string.install_update);
+			}
+			if(state==GithubSelfUpdater.UpdateState.DOWNLOADING){
+				rotationAnimator.start();
+				button.setVisibility(View.INVISIBLE);
+				cancelBtn.setVisibility(View.VISIBLE);
+				progress.setVisibility(View.VISIBLE);
+				updateProgress();
+			}else{
+				rotationAnimator.cancel();
+				button.setVisibility(View.VISIBLE);
+				cancelBtn.setVisibility(View.GONE);
+				progress.setVisibility(View.GONE);
+				progress.removeCallbacks(progressUpdater);
+			}
+		}
+
+		private void updateProgress(){
+			GithubSelfUpdater updater=GithubSelfUpdater.getInstance();
+			if(updater.getState()!=GithubSelfUpdater.UpdateState.DOWNLOADING)
+				return;
+			int value=Math.round(progress.getMax()*updater.getDownloadProgress());
+			if(Build.VERSION.SDK_INT>=24)
+				progress.setProgress(value, true);
+			else
+				progress.setProgress(value);
+			progress.postDelayed(progressUpdater, 1000);
 		}
 	}
 }

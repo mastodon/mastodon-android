@@ -102,7 +102,7 @@ public class CacheController{
 						.exec(accountID);
 			}catch(SQLiteException x){
 				Log.w(TAG, x);
-				uiHandler.post(()->callback.onError(new MastodonErrorResponse(x.getLocalizedMessage(), 500)));
+				uiHandler.post(()->callback.onError(new MastodonErrorResponse(x.getLocalizedMessage(), 500, x)));
 			}finally{
 				closeDelayed();
 			}
@@ -184,7 +184,7 @@ public class CacheController{
 						.exec(accountID);
 			}catch(SQLiteException x){
 				Log.w(TAG, x);
-				uiHandler.post(()->callback.onError(new MastodonErrorResponse(x.getLocalizedMessage(), 500)));
+				uiHandler.post(()->callback.onError(new MastodonErrorResponse(x.getLocalizedMessage(), 500, x)));
 			}finally{
 				closeDelayed();
 			}

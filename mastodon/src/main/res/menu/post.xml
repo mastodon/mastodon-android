@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+	<item android:id="@+id/edit" android:title="@string/edit"/>
 	<item android:id="@+id/delete" android:title="@string/delete"/>
 	<item android:id="@+id/pin" android:title="@string/pin_post"/>
 	<item android:id="@+id/unpin" android:title="@string/unpin_post"/>

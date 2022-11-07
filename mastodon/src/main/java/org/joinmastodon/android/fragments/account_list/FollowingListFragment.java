@@ -12,7 +12,7 @@ public class FollowingListFragment extends AccountRelatedAccountListFragment{
 	@Override
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
-		setSubtitle(getResources().getQuantityString(R.plurals.x_following, account.followingCount, account.followingCount));
+		setSubtitle(getResources().getQuantityString(R.plurals.x_following, (int)(account.followingCount%1000), account.followingCount));
 	}
 
 	@Override

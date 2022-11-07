@@ -129,7 +129,16 @@ public class HtmlParser{
 	}
 
 	public static void parseCustomEmoji(SpannableStringBuilder ssb, List<Emoji> emojis){
-		Map<String, Emoji> emojiByCode=emojis.stream().collect(Collectors.toMap(e->e.shortcode, Function.identity()));
+		Map<String, Emoji> emojiByCode =
+			emojis.stream()
+			.collect(
+				Collectors.toMap(e->e.shortcode, Function.identity(), (emoji1, emoji2) -> {
+					// Ignore duplicate shortcodes and just take the first, it will be
+					// the same emoji anyway
+					return emoji1;
+				})
+			);
+
 		Matcher matcher=EMOJI_CODE_PATTERN.matcher(ssb);
 		int spanCount=0;
 		CustomEmojiSpan lastSpan=null;

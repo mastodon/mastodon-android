@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:padding="16dp"
+	android:elevation="3dp"
+	android:background="?colorBackgroundLightest"
+	android:foreground="?android:selectableItemBackground">
+
+	<ImageView
+		android:id="@+id/favicon"
+		android:layout_width="16dp"
+		android:layout_height="16dp"
+		android:layout_marginTop="2dp"
+		android:importantForAccessibility="no"
+		tools:src="#0f0"/>
+	
+	<TextView
+		android:id="@+id/domain"
+		android:layout_width="match_parent"
+		android:layout_height="20dp"
+		android:layout_toEndOf="@id/favicon"
+		android:layout_marginStart="4dp"
+		android:singleLine="true"
+		android:ellipsize="end"
+		android:textAppearance="@style/m3_title_small"
+		android:textColor="?android:textColorPrimary"
+		android:gravity="center_vertical"
+		tools:text="joinmastodon.org"/>
+	
+	<TextView
+		android:id="@+id/title"
+		android:layout_width="match_parent"
+		android:layout_height="24dp"
+		android:layout_below="@id/domain"
+		android:layout_marginTop="6dp"
+		android:textAppearance="@style/m3_title_medium"
+		android:singleLine="true"
+		android:ellipsize="end"
+		android:gravity="center_vertical"
+		tools:text="Mastodon for Android privacy policy"/>
+
+</RelativeLayout>

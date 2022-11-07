@@ -1,8 +1,12 @@
 package org.joinmastodon.android;
 
+import android.Manifest;
 import android.app.Application;
 import android.app.Fragment;
 import android.content.Intent;
+import android.content.pm.PackageInstaller;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -17,6 +21,7 @@ import org.joinmastodon.android.fragments.ThreadFragment;
 import org.joinmastodon.android.fragments.onboarding.AccountActivationFragment;
 import org.joinmastodon.android.model.Notification;
 import org.joinmastodon.android.ui.utils.UiUtils;
+import org.joinmastodon.android.updater.GithubSelfUpdater;
 import org.parceler.Parcels;
 
 import java.lang.reflect.InvocationTargetException;
@@ -59,6 +64,8 @@ public class MainActivity extends FragmentStackActivity{
 					showFragmentForNotification(notification, session.getID());
 				}else if(intent.getBooleanExtra("compose", false)){
 					showCompose();
+				}else{
+					maybeRequestNotificationsPermission();
 				}
 			}
 		}
@@ -68,6 +75,8 @@ public class MainActivity extends FragmentStackActivity{
 			try{
 				Class.forName("org.joinmastodon.android.AppCenterWrapper").getMethod("init", Application.class).invoke(null, getApplication());
 			}catch(ClassNotFoundException|NoSuchMethodException|IllegalAccessException|InvocationTargetException ignore){}
+		}else if(GithubSelfUpdater.needSelfUpdating()){
+			GithubSelfUpdater.getInstance().maybeCheckForUpdates();
 		}
 	}
 
@@ -96,7 +105,9 @@ public class MainActivity extends FragmentStackActivity{
 			}
 		}else if(intent.getBooleanExtra("compose", false)){
 			showCompose();
-		}
+		}/*else if(intent.hasExtra(PackageInstaller.EXTRA_STATUS) && GithubSelfUpdater.needSelfUpdating()){
+			GithubSelfUpdater.getInstance().handleIntentFromInstaller(intent, this);
+		}*/
 	}
 
 	private void showFragmentForNotification(Notification notification, String accountID){
@@ -130,5 +141,11 @@ public class MainActivity extends FragmentStackActivity{
 		composeArgs.putString("account", session.getID());
 		compose.setArguments(composeArgs);
 		showFragment(compose);
+	}
+
+	private void maybeRequestNotificationsPermission(){
+		if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.TIRAMISU && checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS)!=PackageManager.PERMISSION_GRANTED){
+			requestPermissions(new String[]{Manifest.permission.POST_NOTIFICATIONS}, 100);
+		}
 	}
 }

@@ -27,6 +27,7 @@ public class GetAccountStatuses extends MastodonAPIRequest<List<Status>>{
 				addQueryParameter("exclude_replies", "true");
 				addQueryParameter("exclude_reblogs", "true");
 			}
+			case OWN_POSTS_AND_REPLIES -> addQueryParameter("exclude_reblogs", "true");
 		}
 	}
 
@@ -35,6 +36,7 @@ public class GetAccountStatuses extends MastodonAPIRequest<List<Status>>{
 		INCLUDE_REPLIES,
 		PINNED,
 		MEDIA,
-		NO_REBLOGS
+		NO_REBLOGS,
+		OWN_POSTS_AND_REPLIES
 	}
 }

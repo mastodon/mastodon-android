@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.fragments.BaseStatusListFragment;
+import org.joinmastodon.android.fragments.ThreadFragment;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.Attachment;
 import org.joinmastodon.android.model.DisplayItemsParent;
@@ -114,7 +115,7 @@ public abstract class StatusDisplayItem{
 		}
 		if(addFooter){
 			items.add(new FooterStatusDisplayItem(parentID, fragment, statusForContent, accountID));
-			if(status.hasGapAfter)
+			if(status.hasGapAfter && !(fragment instanceof ThreadFragment))
 				items.add(new GapStatusDisplayItem(parentID, fragment));
 		}
 		int i=1;

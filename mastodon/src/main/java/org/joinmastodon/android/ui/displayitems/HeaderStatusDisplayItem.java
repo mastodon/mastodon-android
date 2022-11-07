@@ -21,8 +21,10 @@ import android.widget.Toast;
 import org.joinmastodon.android.GlobalUserPreferences;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.requests.accounts.GetAccountRelationships;
+import org.joinmastodon.android.api.requests.statuses.GetStatusSourceText;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.fragments.BaseStatusListFragment;
+import org.joinmastodon.android.fragments.ComposeFragment;
 import org.joinmastodon.android.fragments.ProfileFragment;
 import org.joinmastodon.android.fragments.report.ReportReasonChoiceFragment;
 import org.joinmastodon.android.model.Account;
@@ -135,7 +137,31 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 			optionsMenu.setOnMenuItemClickListener(menuItem->{
 				Account account=item.user;
 				int id=menuItem.getItemId();
-				if(id==R.id.delete){
+				if(id==R.id.edit){
+					final Bundle args=new Bundle();
+					args.putString("account", item.parentFragment.getAccountID());
+					args.putParcelable("editStatus", Parcels.wrap(item.status));
+					if(TextUtils.isEmpty(item.status.content) && TextUtils.isEmpty(item.status.spoilerText)){
+						Nav.go(item.parentFragment.getActivity(), ComposeFragment.class, args);
+					}else{
+						new GetStatusSourceText(item.status.id)
+								.setCallback(new Callback<>(){
+									@Override
+									public void onSuccess(GetStatusSourceText.Response result){
+										args.putString("sourceText", result.text);
+										args.putString("sourceSpoiler", result.spoilerText);
+										Nav.go(item.parentFragment.getActivity(), ComposeFragment.class, args);
+									}
+
+									@Override
+									public void onError(ErrorResponse error){
+										error.showToast(item.parentFragment.getActivity());
+									}
+								})
+								.wrapProgress(item.parentFragment.getActivity(), R.string.loading, true)
+								.exec(item.parentFragment.getAccountID());
+					}
+				}else if(id==R.id.delete){
 					UiUtils.confirmDeletePost(item.parentFragment.getActivity(), item.parentFragment.getAccountID(), item.status, s->{});
 				}else if(id==R.id.pin || id==R.id.unpin){
 					UiUtils.confirmPinPost(item.parentFragment.getActivity(), item.parentFragment.getAccountID(), item.status, !item.status.pinned, s->{});
@@ -177,7 +203,10 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 		public void onBind(HeaderStatusDisplayItem item){
 			name.setText(item.parsedName);
 			username.setText('@'+item.user.acct);
-			timestamp.setText(UiUtils.formatRelativeTimestamp(itemView.getContext(), item.createdAt));
+			if(item.status==null || item.status.editedAt==null)
+				timestamp.setText(UiUtils.formatRelativeTimestamp(itemView.getContext(), item.createdAt));
+			else
+				timestamp.setText(item.parentFragment.getString(R.string.edited_timestamp, UiUtils.formatRelativeTimestamp(itemView.getContext(), item.status.editedAt)));
 			visibility.setVisibility(item.hasVisibilityToggle && !item.inset ? View.VISIBLE : View.GONE);
 			if(item.hasVisibilityToggle){
 				visibility.setImageResource(item.status.spoilerRevealed ? R.drawable.ic_visibility_off : R.drawable.ic_visibility);
@@ -251,6 +280,7 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 			Account account=item.user;
 			Menu menu=optionsMenu.getMenu();
 			boolean isOwnPost=AccountSessionManager.getInstance().isSelf(item.parentFragment.getAccountID(), account);
+			menu.findItem(R.id.edit).setVisible(item.status!=null && isOwnPost);
 			menu.findItem(R.id.delete).setVisible(item.status!=null && isOwnPost);
 			menu.findItem(R.id.pin).setVisible(item.status!=null && isOwnPost && !item.status.pinned);
 			menu.findItem(R.id.unpin).setVisible(item.status!=null && isOwnPost && item.status.pinned);

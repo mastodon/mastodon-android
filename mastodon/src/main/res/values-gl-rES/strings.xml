@@ -204,8 +204,6 @@
 	<string name="content_warning">Aviso sobre o contido</string>
 	<string name="add_image_description">Engadir descrición da imaxe…</string>
 	<string name="retry_upload">Reintentar a suba</string>
-	<string name="image_upload_failed">Non se puido subir a imaxe</string>
-	<string name="video_upload_failed">Non se puido subir o vídeo</string>
 	<string name="edit_image">Editar imaxe</string>
 	<string name="save">Gardar</string>
 	<string name="add_alt_text">Engadir texto descritivo</string>
@@ -333,4 +331,46 @@
 	</plurals>
 	<string name="timestamp_via_app">%1$s vía %2$s</string>
 	<string name="time_now">agora</string>
+	<string name="post_info_reblogs">Promocións</string>
+	<string name="post_info_favorites">Favoritos</string>
+	<string name="edit_history">Editar historial</string>
+	<string name="last_edit_at_x">Última edición %s</string>
+	<string name="time_just_now">xusto agora</string>
+	<plurals name="x_seconds_ago">
+		<item quantity="one">fai %d segundo</item>
+		<item quantity="other">fai %d segundos</item>
+	</plurals>
+	<plurals name="x_minutes_ago">
+		<item quantity="one">fai %d minuto</item>
+		<item quantity="other">fai %d minutos</item>
+	</plurals>
+	<string name="edited_timestamp">editado %s</string>
+	<string name="edit_original_post">Publicación orixinal</string>
+	<string name="edit_text_edited">Texto editado</string>
+	<string name="edit_spoiler_added">Engadido aviso sobre o contido</string>
+	<string name="edit_spoiler_edited">Editado o aviso sobre o contido</string>
+	<string name="edit_spoiler_removed">Eliminado o aviso sobre o contido</string>
+	<string name="edit_poll_added">Enquisa engadida</string>
+	<string name="edit_poll_edited">Enquisa editada</string>
+	<string name="edit_poll_removed">Enquisa eliminada</string>
+	<string name="edit_media_added">Engadido multimedia</string>
+	<string name="edit_media_removed">Engadido eliminado</string>
+	<string name="edit_media_reordered">Multimedia reordenado</string>
+	<string name="edit_marked_sensitive">Marcado como sensible</string>
+	<string name="edit_marked_not_sensitive">Marcado como non sensible</string>
+	<string name="edit_multiple_changed">Publicación editada</string>
+	<string name="edit">Editar</string>
+	<string name="discard_changes">Descartar cambios?</string>
+	<string name="upload_failed">Fallou a carga</string>
+	<string name="file_size_bytes">%d bytes</string>
+	<string name="file_size_kb">%.2f KB</string>
+	<string name="file_size_mb">%.2f MB</string>
+	<string name="file_size_gb">%.2f GB</string>
+	<string name="file_upload_progress">%1$s de %2$s</string>
+	<string name="file_upload_time_remaining">%s restante</string>
+	<string name="upload_error_connection_lost">O dispositivo perdeu a conexión a internet</string>
+	<string name="upload_processing">Procesando…</string>
+	<!-- %s is version like 1.2.3 -->
+	<!-- %s is version like 1.2.3 -->
+	<!-- %s is file size -->
 </resources>

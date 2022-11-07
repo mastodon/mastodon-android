@@ -212,8 +212,6 @@
 	<string name="content_warning">Upozorenje za sadržaj</string>
 	<string name="add_image_description">Dodaj opis slike…</string>
 	<string name="retry_upload">Ponovi prijenos</string>
-	<string name="image_upload_failed">Prijenos slike nije uspio</string>
-	<string name="video_upload_failed">Prijenos videa nije uspio</string>
 	<string name="edit_image">Uredi sliku</string>
 	<string name="save">Spremi</string>
 	<string name="add_alt_text">Dodaj altenativni tekst</string>
@@ -307,4 +305,7 @@
 	<string name="downloading">Preuzimanje…</string>
 	<string name="no_app_to_handle_action">Ne postoji aplikacija za rukovanje ovom radnjom</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
+	<!-- %s is version like 1.2.3 -->
+	<!-- %s is version like 1.2.3 -->
+	<!-- %s is file size -->
 </resources>

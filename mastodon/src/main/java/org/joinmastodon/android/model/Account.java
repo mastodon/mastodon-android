@@ -96,15 +96,15 @@ public class Account extends BaseModel{
 	/**
 	 * How many statuses are attached to this account.
 	 */
-	public int statusesCount;
+	public long statusesCount;
 	/**
 	 * The reported followers of this profile.
 	 */
-	public int followersCount;
+	public long followersCount;
 	/**
 	 * The reported follows of this profile.
 	 */
-	public int followingCount;
+	public long followingCount;
 
 	// Optional attributes
 

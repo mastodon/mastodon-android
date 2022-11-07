@@ -414,16 +414,23 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 
 	private void bindHeaderView(){
 		setTitle(account.displayName);
-		setSubtitle(getResources().getQuantityString(R.plurals.x_posts, account.statusesCount, account.statusesCount));
+		setSubtitle(getResources().getQuantityString(R.plurals.x_posts, (int)(account.statusesCount%1000), account.statusesCount));
 		ViewImageLoader.load(avatar, null, new UrlImageLoaderRequest(GlobalUserPreferences.playGifs ? account.avatar : account.avatarStatic, V.dp(100), V.dp(100)));
 		ViewImageLoader.load(cover, null, new UrlImageLoaderRequest(GlobalUserPreferences.playGifs ? account.header : account.headerStatic, 1000, 1000));
 		SpannableStringBuilder ssb=new SpannableStringBuilder(account.displayName);
 		HtmlParser.parseCustomEmoji(ssb, account.emojis);
 		name.setText(ssb);
 		setTitle(ssb);
+
+		boolean isSelf=AccountSessionManager.getInstance().isSelf(accountID, account);
+
 		if(account.locked){
 			ssb=new SpannableStringBuilder("@");
 			ssb.append(account.acct);
+			if(isSelf){
+				ssb.append('@');
+				ssb.append(AccountSessionManager.getInstance().getAccount(accountID).domain);
+			}
 			ssb.append(" ");
 			Drawable lock=username.getResources().getDrawable(R.drawable.ic_fluent_lock_closed_20_filled, getActivity().getTheme()).mutate();
 			lock.setBounds(0, 0, lock.getIntrinsicWidth(), lock.getIntrinsicHeight());
@@ -431,7 +438,8 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 			ssb.append(getString(R.string.manually_approves_followers), new ImageSpan(lock, ImageSpan.ALIGN_BOTTOM), 0);
 			username.setText(ssb);
 		}else{
-			username.setText('@'+account.acct);
+			// noinspection SetTextI18n
+			username.setText('@'+account.acct+(isSelf ? ('@'+AccountSessionManager.getInstance().getAccount(accountID).domain) : ""));
 		}
 		CharSequence parsedBio=HtmlParser.parse(account.note, account.emojis, Collections.emptyList(), Collections.emptyList(), accountID);
 		if(TextUtils.isEmpty(parsedBio)){
@@ -443,9 +451,9 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 		followersCount.setText(UiUtils.abbreviateNumber(account.followersCount));
 		followingCount.setText(UiUtils.abbreviateNumber(account.followingCount));
 		postsCount.setText(UiUtils.abbreviateNumber(account.statusesCount));
-		followersLabel.setText(getResources().getQuantityString(R.plurals.followers, Math.min(999, account.followersCount)));
-		followingLabel.setText(getResources().getQuantityString(R.plurals.following, Math.min(999, account.followingCount)));
-		postsLabel.setText(getResources().getQuantityString(R.plurals.posts, Math.min(999, account.statusesCount)));
+		followersLabel.setText(getResources().getQuantityString(R.plurals.followers, (int)Math.min(999, account.followersCount)));
+		followingLabel.setText(getResources().getQuantityString(R.plurals.following, (int)Math.min(999, account.followingCount)));
+		postsLabel.setText(getResources().getQuantityString(R.plurals.posts, (int)Math.min(999, account.statusesCount)));
 
 		UiUtils.loadCustomEmojiInTextView(name);
 		UiUtils.loadCustomEmojiInTextView(bio);

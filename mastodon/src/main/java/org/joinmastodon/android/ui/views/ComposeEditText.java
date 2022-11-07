@@ -54,12 +54,13 @@ public class ComposeEditText extends EditText{
 	// Support receiving images from keyboards
 	@Override
 	public InputConnection onCreateInputConnection(EditorInfo outAttrs){
+		final var ic = super.onCreateInputConnection(outAttrs);
 		if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.N_MR1){
 			outAttrs.contentMimeTypes=selectionListener.onGetAllowedMediaMimeTypes();
-			inputConnectionWrapper.setTarget(super.onCreateInputConnection(outAttrs));
+			inputConnectionWrapper.setTarget(ic);
 			return inputConnectionWrapper;
 		}
-		return super.onCreateInputConnection(outAttrs);
+		return ic;
 	}
 
 	// Support pasting images

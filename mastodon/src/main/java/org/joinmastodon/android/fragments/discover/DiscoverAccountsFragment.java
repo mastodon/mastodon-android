@@ -220,9 +220,9 @@ public class DiscoverAccountsFragment extends BaseRecyclerFragment<DiscoverAccou
 			followersCount.setText(UiUtils.abbreviateNumber(item.account.followersCount));
 			followingCount.setText(UiUtils.abbreviateNumber(item.account.followingCount));
 			postsCount.setText(UiUtils.abbreviateNumber(item.account.statusesCount));
-			followersLabel.setText(getResources().getQuantityString(R.plurals.followers, Math.min(999, item.account.followersCount)));
-			followingLabel.setText(getResources().getQuantityString(R.plurals.following, Math.min(999, item.account.followingCount)));
-			postsLabel.setText(getResources().getQuantityString(R.plurals.posts, Math.min(999, item.account.statusesCount)));
+			followersLabel.setText(getResources().getQuantityString(R.plurals.followers, (int)Math.min(999, item.account.followersCount)));
+			followingLabel.setText(getResources().getQuantityString(R.plurals.following, (int)Math.min(999, item.account.followingCount)));
+			postsLabel.setText(getResources().getQuantityString(R.plurals.posts, (int)Math.min(999, item.account.statusesCount)));
 			relationship=relationships.get(item.account.id);
 			if(relationship==null){
 				actionWrap.setVisibility(View.GONE);

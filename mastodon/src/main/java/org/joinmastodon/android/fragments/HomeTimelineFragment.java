@@ -23,9 +23,11 @@ import android.widget.Toolbar;
 
 import com.squareup.otto.Subscribe;
 
+import org.joinmastodon.android.E;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.requests.timelines.GetHomeTimeline;
 import org.joinmastodon.android.api.session.AccountSessionManager;
+import org.joinmastodon.android.events.SelfUpdateStateChangedEvent;
 import org.joinmastodon.android.events.StatusCreatedEvent;
 import org.joinmastodon.android.model.CacheablePaginatedResponse;
 import org.joinmastodon.android.model.Filter;
@@ -33,6 +35,7 @@ import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.displayitems.GapStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.StatusDisplayItem;
 import org.joinmastodon.android.ui.utils.UiUtils;
+import org.joinmastodon.android.updater.GithubSelfUpdater;
 import org.joinmastodon.android.utils.StatusFilterPredicate;
 
 import java.util.Collections;
@@ -101,6 +104,11 @@ public class HomeTimelineFragment extends StatusListFragment{
 				}
 			}
 		});
+
+		if(GithubSelfUpdater.needSelfUpdating()){
+			E.register(this);
+			updateUpdateState(GithubSelfUpdater.getInstance().getState());
+		}
 	}
 
 	@Override
@@ -396,5 +404,23 @@ public class HomeTimelineFragment extends StatusListFragment{
 			hideNewPostsButton();
 			scrollToTop();
 		}
+	}
+
+	@Override
+	public void onDestroyView(){
+		super.onDestroyView();
+		if(GithubSelfUpdater.needSelfUpdating()){
+			E.unregister(this);
+		}
+	}
+
+	private void updateUpdateState(GithubSelfUpdater.UpdateState state){
+		if(state!=GithubSelfUpdater.UpdateState.NO_UPDATE && state!=GithubSelfUpdater.UpdateState.CHECKING)
+			getToolbar().getMenu().findItem(R.id.settings).setIcon(R.drawable.ic_settings_24_badged);
+	}
+
+	@Subscribe
+	public void onSelfUpdateStateChanged(SelfUpdateStateChangedEvent ev){
+		updateUpdateState(ev.state);
 	}
 }

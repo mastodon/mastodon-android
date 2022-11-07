@@ -64,6 +64,7 @@ import java.time.Instant;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -87,6 +88,7 @@ import okhttp3.MediaType;
 public class UiUtils{
 	private static Handler mainHandler=new Handler(Looper.getMainLooper());
 	private static final DateTimeFormatter DATE_FORMATTER_SHORT_WITH_YEAR=DateTimeFormatter.ofPattern("d MMM uuuu"), DATE_FORMATTER_SHORT=DateTimeFormatter.ofPattern("d MMM");
+	public static final DateTimeFormatter DATE_TIME_FORMATTER=DateTimeFormatter.ofLocalizedDateTime(FormatStyle.LONG, FormatStyle.SHORT);
 
 	private UiUtils(){}
 
@@ -131,6 +133,23 @@ public class UiUtils{
 		}
 	}
 
+	public static String formatRelativeTimestampAsMinutesAgo(Context context, Instant instant){
+		long t=instant.toEpochMilli();
+		long now=System.currentTimeMillis();
+		long diff=now-t;
+		if(diff<1000L){
+			return context.getString(R.string.time_just_now);
+		}else if(diff<60_000L){
+			int secs=(int)(diff/1000L);
+			return context.getResources().getQuantityString(R.plurals.x_seconds_ago, secs, secs);
+		}else if(diff<3600_000L){
+			int mins=(int)(diff/60_000L);
+			return context.getResources().getQuantityString(R.plurals.x_minutes_ago, mins, mins);
+		}else{
+			return DATE_TIME_FORMATTER.format(instant.atZone(ZoneId.systemDefault()));
+		}
+	}
+
 	public static String formatTimeLeft(Context context, Instant instant){
 		long t=instant.toEpochMilli();
 		long now=System.currentTimeMillis();
@@ -163,6 +182,15 @@ public class UiUtils{
 		}
 	}
 
+	@SuppressLint("DefaultLocale")
+	public static String abbreviateNumber(long n){
+		if(n<1_000_000_000L)
+			return abbreviateNumber((int)n);
+
+		double a=n/1_000_000_000.0;
+		return a>99f ? String.format("%,dB", (int)Math.floor(a)) : String.format("%,.1fB", n/1_000_000_000.0);
+	}
+
 	/**
 	 * Android 6.0 has a bug where start and end compound drawables don't get tinted.
 	 * This works around it by setting the tint colors directly to the drawables.
@@ -184,6 +212,14 @@ public class UiUtils{
 		mainHandler.post(runnable);
 	}
 
+	public static void runOnUiThread(Runnable runnable, long delay){
+		mainHandler.postDelayed(runnable, delay);
+	}
+
+	public static void removeCallbacks(Runnable runnable){
+		mainHandler.removeCallbacks(runnable);
+	}
+
 	/** Linear interpolation between {@code startValue} and {@code endValue} by {@code fraction}. */
 	public static int lerp(int startValue, int endValue, float fraction) {
 		return startValue + Math.round(fraction * (endValue - startValue));
@@ -199,6 +235,18 @@ public class UiUtils{
 			}catch(Throwable ignore){}
 		}
 		return uri.getLastPathSegment();
+	}
+
+	public static String formatFileSize(Context context, long size, boolean atLeastKB){
+		if(size<1024 && !atLeastKB){
+			return context.getString(R.string.file_size_bytes, size);
+		}else if(size<1024*1024){
+			return context.getString(R.string.file_size_kb, size/1024.0);
+		}else if(size<1024*1024*1024){
+			return context.getString(R.string.file_size_mb, size/(1024.0*1024.0));
+		}else{
+			return context.getString(R.string.file_size_gb, size/(1024.0*1024.0*1024.0));
+		}
 	}
 
 	public static MediaType getFileMediaType(File file){

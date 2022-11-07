@@ -219,8 +219,6 @@
 	<string name="content_warning">Content warning</string>
 	<string name="add_image_description">Add image description…</string>
 	<string name="retry_upload">Retry upload</string>
-	<string name="image_upload_failed">Image failed to upload</string>
-	<string name="video_upload_failed">Video failed to upload</string>
 	<string name="edit_image">Edit image</string>
 	<string name="save">Save</string>
 	<string name="add_alt_text">Add alt text</string>
@@ -349,4 +347,53 @@
 	</plurals>
 	<string name="timestamp_via_app">%1$s via %2$s</string>
 	<string name="time_now">now</string>
+	<string name="post_info_reblogs">Reblogs</string>
+	<string name="post_info_favorites">Favorites</string>
+	<string name="edit_history">Edit history</string>
+	<string name="last_edit_at_x">Last edit %s</string>
+	<string name="time_just_now">just now</string>
+	<plurals name="x_seconds_ago">
+		<item quantity="one">%d second ago</item>
+		<item quantity="other">%d seconds ago</item>
+	</plurals>
+	<plurals name="x_minutes_ago">
+		<item quantity="one">%d minute ago</item>
+		<item quantity="other">%d minutes ago</item>
+	</plurals>
+	<string name="edited_timestamp">edited %s</string>
+	<string name="edit_original_post">Original post</string>
+	<string name="edit_text_edited">Text edited</string>
+	<string name="edit_spoiler_added">Content warning added</string>
+	<string name="edit_spoiler_edited">Content warning edited</string>
+	<string name="edit_spoiler_removed">Content warning removed</string>
+	<string name="edit_poll_added">Poll added</string>
+	<string name="edit_poll_edited">Poll edited</string>
+	<string name="edit_poll_removed">Poll removed</string>
+	<string name="edit_media_added">Media added</string>
+	<string name="edit_media_removed">Media removed</string>
+	<string name="edit_media_reordered">Media reordered</string>
+	<string name="edit_marked_sensitive">Marked sensitive</string>
+	<string name="edit_marked_not_sensitive">Marked not sensitive</string>
+	<string name="edit_multiple_changed">Post edited</string>
+	<string name="edit">Edit</string>
+	<string name="discard_changes">Discard changes?</string>
+	<string name="upload_failed">Upload failed</string>
+	<string name="file_size_bytes">%d bytes</string>
+	<string name="file_size_kb">%.2f KB</string>
+	<string name="file_size_mb">%.2f MB</string>
+	<string name="file_size_gb">%.2f GB</string>
+	<string name="file_upload_progress">%1$s of %2$s</string>
+	<string name="file_upload_time_remaining">%s remaining</string>
+	<string name="upload_error_connection_lost">Your device lost connection to the internet</string>
+	<string name="upload_processing">Processing…</string>
+	<!-- %s is version like 1.2.3 -->
+	<string name="update_available">Mastodon for Android %s is ready to download.</string>
+	<!-- %s is version like 1.2.3 -->
+	<string name="update_ready">Mastodon for Android %s is downloaded and ready to install.</string>
+	<!-- %s is file size -->
+	<string name="download_update">Download (%s)</string>
+	<string name="install_update">Install</string>
+	<string name="privacy_policy_title">Mastodon and your privacy</string>
+	<string name="privacy_policy_subtitle">Although the Mastodon app does not collect any data, the server you sign up through may have a different policy. Take a minute to review and agree to the Mastodon app privacy policy and your server\'s privacy policy.</string>
+	<string name="i_agree">I Agree</string>
 </resources>

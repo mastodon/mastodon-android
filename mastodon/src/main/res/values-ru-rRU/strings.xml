@@ -232,8 +232,6 @@
 	<string name="content_warning">Предупреждение о содержании</string>
 	<string name="add_image_description">Добавить описание…</string>
 	<string name="retry_upload">Повторить попытку</string>
-	<string name="image_upload_failed">Не удалось загрузить изображение</string>
-	<string name="video_upload_failed">Не удалось загрузить видео</string>
 	<string name="edit_image">Редактировать изображение</string>
 	<string name="save">Сохранить</string>
 	<string name="add_alt_text">Добавить альтернативный текст</string>
@@ -359,4 +357,7 @@
 	</plurals>
 	<string name="timestamp_via_app">%1$s через %2$s</string>
 	<string name="time_now">только что</string>
+	<!-- %s is version like 1.2.3 -->
+	<!-- %s is version like 1.2.3 -->
+	<!-- %s is file size -->
 </resources>

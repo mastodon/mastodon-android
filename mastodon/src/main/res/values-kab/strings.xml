@@ -199,8 +199,6 @@
 	<string name="content_warning">Alɣu ɣef ugbur</string>
 	<string name="add_image_description">Rnu aglam n tugna…</string>
 	<string name="retry_upload">Ɛreḍ asali i tikkelt-nniḍen</string>
-	<string name="image_upload_failed">Asali n tugna yecceḍ</string>
-	<string name="video_upload_failed">Asali n tvidyut yecceḍ</string>
 	<string name="edit_image">Ẓreg tugna</string>
 	<string name="save">Sekles</string>
 	<string name="add_alt_text">Rnu ɣer uḍris</string>
@@ -300,9 +298,15 @@
 	<string name="dismiss">Ffer</string>
 	<string name="see_new_posts">Ẓer tissufaɣ timaynutin</string>
 	<string name="load_missing_posts">Sali tisuffaɣ i iruḥen</string>
+	<string name="follow_back">Ḍfeṛ</string>
 	<string name="button_follow_pending">Yettraǧu</string>
+	<string name="follows_you">Yeṭṭafaṛ-ik·em-id</string>
 	<string name="current_account">Amiḍan amiran</string>
+	<string name="log_out_account">Ffeɣ seg %s</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<string name="timestamp_via_app">%1$s s %2$s</string>
 	<string name="time_now">tura</string>
+	<!-- %s is version like 1.2.3 -->
+	<!-- %s is version like 1.2.3 -->
+	<!-- %s is file size -->
 </resources>
