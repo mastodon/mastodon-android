@@ -103,7 +103,7 @@ public class SettingsFragment extends MastodonToolbarFragment{
 			GlobalUserPreferences.save();
 		}));
 
-		items.add(new HeaderItem(R.string.settings_timeline));
+		items.add(new HeaderItem(R.string.home_timeline));
 		items.add(new SwitchItem(R.string.settings_show_replies, R.drawable.ic_fluent_chat_multiple_24_regular, GlobalUserPreferences.showReplies, i->{
 			GlobalUserPreferences.showReplies=i.checked;
 			GlobalUserPreferences.save();
