@@ -12,6 +12,10 @@ android {
 		versionCode 43
 		versionName "1.1.4"
 		testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+		resConfigs "en", "ar-rSA", "bs-rBA", "ca-rES", "cs-rCZ", "de-rDE", "el-rGR", "es-rES",
+				"eu-rES", "fi-rFI", "fr-rFR", "gl-rES", "hr-rHR", "hy-rAM", "it-rIT", "iw-rIL",
+				"ja-rJP", "kab", "ko-rKR", "oc-rFR", "pl-rPL", "pt-rBR", "pt-rPT", "ru-rRU",
+				"sv-rSE", "th-rTH", "tr-rTR", "uk-rUA", "vi-rVN", "zh-rCN", "zh-rTW"
 	}
 
 	buildTypes {
