@@ -200,7 +200,6 @@ public class SignupFragment extends AppKitFragment{
 					@Override
 					public void onSuccess(Token result){
 						progressDialog.dismiss();
-						progressDialog=null;
 						Account fakeAccount=new Account();
 						fakeAccount.acct=fakeAccount.username=username;
 						fakeAccount.id="tmp"+System.currentTimeMillis();
@@ -238,7 +237,6 @@ public class SignupFragment extends AppKitFragment{
 							error.showToast(getActivity());
 						}
 						progressDialog.dismiss();
-						progressDialog=null;
 					}
 				})
 				.exec(instance.uri, apiToken);
@@ -255,9 +253,11 @@ public class SignupFragment extends AppKitFragment{
 	}
 
 	private void showProgressDialog(){
-		progressDialog=new ProgressDialog(getActivity());
-		progressDialog.setMessage(getString(R.string.loading));
-		progressDialog.setCancelable(false);
+		if(progressDialog==null){
+			progressDialog=new ProgressDialog(getActivity());
+			progressDialog.setMessage(getString(R.string.loading));
+			progressDialog.setCancelable(false);
+		}
 		progressDialog.show();
 	}
 
@@ -280,7 +280,6 @@ public class SignupFragment extends AppKitFragment{
 						if(submitAfterGettingToken){
 							submitAfterGettingToken=false;
 							progressDialog.dismiss();
-							progressDialog=null;
 							error.showToast(getActivity());
 						}
 					}
@@ -307,7 +306,6 @@ public class SignupFragment extends AppKitFragment{
 						if(submitAfterGettingToken){
 							submitAfterGettingToken=false;
 							progressDialog.dismiss();
-							progressDialog=null;
 							error.showToast(getActivity());
 						}
 					}

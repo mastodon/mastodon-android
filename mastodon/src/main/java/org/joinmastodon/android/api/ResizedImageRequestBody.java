@@ -12,6 +12,7 @@ import android.media.ExifInterface;
 import android.net.Uri;
 import android.os.Build;
 import android.provider.OpenableColumns;
+import android.text.TextUtils;
 
 import org.joinmastodon.android.MastodonApp;
 import org.joinmastodon.android.ui.utils.UiUtils;
@@ -48,6 +49,8 @@ public class ResizedImageRequestBody extends CountingRequestBody{
 			}
 			contentType=MastodonApp.context.getContentResolver().getType(uri);
 		}
+		if(TextUtils.isEmpty(contentType))
+			contentType="image/jpeg";
 		if(needResize(opts.outWidth, opts.outHeight) || needCrop(opts.outWidth, opts.outHeight)){
 			Bitmap bitmap;
 			if(Build.VERSION.SDK_INT>=28){
