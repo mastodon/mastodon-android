@@ -53,8 +53,8 @@
 	<string name="block_user">%s blockieren</string>
 	<string name="unblock_user">%s nicht mehr blockieren</string>
 	<string name="report_user">%s melden</string>
-	<string name="block_domain">Domain %s blockieren</string>
-	<string name="unblock_domain">Domain %s nicht mehr blockieren</string>
+	<string name="block_domain">%s sperren</string>
+	<string name="unblock_domain">%s nicht mehr sperren</string>
 	<plurals name="x_posts">
 		<item quantity="one">%,d Beitrag</item>
 		<item quantity="other">%,d Beiträge</item>
@@ -121,7 +121,7 @@
 	<string name="tap_to_reveal">Tippen zum Anzeigen</string>
 	<string name="delete">Löschen</string>
 	<string name="confirm_delete_title">Beitrag löschen</string>
-	<string name="confirm_delete">Bist du dir sicher, dass du den Beitrag löschen möchtest?</string>
+	<string name="confirm_delete">Bist du dir sicher, dass du diesen Beitrag löschen möchtest?</string>
 	<string name="deleting">Wird gelöscht…</string>
 	<string name="notification_channel_audio_player">Audiowiedergabe</string>
 	<string name="play">Abspielen</string>
@@ -145,11 +145,11 @@
 	<string name="report_title">%s melden</string>
 	<string name="report_choose_reason">Was stimmt mit diesem Beitrag nicht?</string>
 	<string name="report_choose_reason_account">Was stimmt mit %s nicht?</string>
-	<string name="report_choose_reason_subtitle">Wähle die bestmögliche Option aus</string>
-	<string name="report_reason_personal">Der Beitrag gefällt mir nicht</string>
+	<string name="report_choose_reason_subtitle">Bitte das Bestmögliche auswählen</string>
+	<string name="report_reason_personal">Das gefällt mir nicht</string>
 	<string name="report_reason_personal_subtitle">Den Inhalt kann man nicht allen zumuten</string>
 	<string name="report_reason_spam">Das ist Spam</string>
-	<string name="report_reason_spam_subtitle">Bösartige Links, gefälschtes Engagement oder wiederholte Antworten</string>
+	<string name="report_reason_spam_subtitle">Bösartige Links, vorgetäuschtes Verhalten oder wiederholtes Antworten</string>
 	<string name="report_reason_violation">Es verstößt gegen Serverregeln</string>
 	<string name="report_reason_violation_subtitle">Du weißt, welche Regeln verletzt werden</string>
 	<string name="report_reason_other">Es ist etwas anderes</string>
@@ -229,7 +229,7 @@
 		<item quantity="other">Du kannst nicht mehr als %d Medien-Dateien anhängen</item>
 	</plurals>
 	<string name="media_attachment_unsupported_type">Datei %s wird nicht unterstützt</string>
-	<string name="media_attachment_too_big">Die Dateigröße %1$s übersteigt das Uploadlimit von %2$s MB</string>
+	<string name="media_attachment_too_big">Datei %1$s übersteigt die Größengrenze von %2$s MB</string>
 	<string name="settings_theme">Design</string>
 	<string name="theme_auto">Systembedingt</string>
 	<string name="theme_light">Hell</string>
@@ -250,7 +250,7 @@
 	<string name="notify_mention">mich erwähnt</string>
 	<string name="settings_boring">Langweiliges</string>
 	<string name="settings_account">Kontoeinstellungen</string>
-	<string name="settings_contribute">Bei Mastodon unterstützen und mitmachen</string>
+	<string name="settings_contribute">Zu Mastodon beitragen</string>
 	<string name="settings_tos">Nutzungsbedingungen</string>
 	<string name="settings_privacy_policy">Datenschutzbestimmungen</string>
 	<string name="settings_spicy">Gefährliches</string>
@@ -300,8 +300,8 @@
 	<string name="no_app_to_handle_action">Es gibt keine App, um diese Aktion auszuführen</string>
 	<string name="local_timeline">Lokal</string>
 	<string name="trending_posts_info_banner">Dies sind Beiträge, die auf deinem Mastodon-Server gerade angesagt sind.</string>
-	<string name="trending_hashtags_info_banner">Dies sind Hashtags, die auf deinem Mastodon-Server gerade angesagt sind.</string>
-	<string name="trending_links_info_banner">Dies sind journalistische Nachrichten, die auf deinem Mastodon-Server gerade am häufigsten geteilt werden.</string>
+	<string name="trending_hashtags_info_banner">Diese Hashtags sind auf deinem Mastodon-Server gerade angesagt.</string>
+	<string name="trending_links_info_banner">Diese journalistischen Nachrichten werden auf deinem Mastodon-Server gerade am häufigsten geteilt.</string>
 	<string name="local_timeline_info_banner">Das sind die neuesten Beiträge von Personen, die denselben Mastodon-Server benutzen.</string>
 	<string name="dismiss">Verwerfen</string>
 	<string name="see_new_posts">Neue Beiträge anzeigen</string>
