@@ -528,6 +528,7 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 						da.serverAttachment=att;
 						da.description=att.description;
 						da.uri=Uri.parse(att.previewUrl);
+						da.state=AttachmentUploadState.DONE;
 						attachmentsView.addView(createMediaAttachmentView(da));
 						attachments.add(da);
 					}
