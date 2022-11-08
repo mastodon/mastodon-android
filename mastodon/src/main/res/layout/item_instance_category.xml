@@ -4,8 +4,8 @@
 	android:orientation="vertical"
 	android:layout_width="120dp"
 	android:layout_height="72dp"
-	android:paddingTop="13dp"
-	android:paddingBottom="13dp">
+	android:paddingTop="12dp"
+	android:paddingBottom="12dp">
 
 	<ImageView
 		android:id="@+id/emoji"
@@ -17,7 +17,7 @@
 	<TextView
 		android:id="@android:id/text1"
 		android:layout_width="wrap_content"
-		android:layout_height="16dp"
+		android:layout_height="18dp"
 		android:layout_gravity="center_horizontal"
 		android:textAllCaps="true"
 		android:textColor="?android:textColorPrimary"
