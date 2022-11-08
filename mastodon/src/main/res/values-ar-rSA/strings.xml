@@ -412,6 +412,22 @@
 	<string name="edit_history">تاريخ التعديل</string>
 	<string name="last_edit_at_x">آخر تعديل %s</string>
 	<string name="time_just_now">للتوّ</string>
+	<plurals name="x_seconds_ago">
+		<item quantity="zero">منذ %d ثانية</item>
+		<item quantity="one">منذ ثانية</item>
+		<item quantity="two">منذ ثانيتان</item>
+		<item quantity="few">%d ثواني</item>
+		<item quantity="many">منذ %d ثانية</item>
+		<item quantity="other">%d ثواني مضت</item>
+	</plurals>
+	<plurals name="x_minutes_ago">
+		<item quantity="zero">الان</item>
+		<item quantity="one">منذ دقيقة</item>
+		<item quantity="two">منذ دقيقتان</item>
+		<item quantity="few">%d دقائق مضت</item>
+		<item quantity="many">منذ %d دقائق</item>
+		<item quantity="other">منذ %d دقائق</item>
+	</plurals>
 	<string name="edited_timestamp">عُدّل في %s</string>
 	<string name="edit_original_post">المنشور الأصلي</string>
 	<string name="edit_text_edited">تم تعديل النص</string>
