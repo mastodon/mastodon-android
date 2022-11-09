@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="get_started">Aan de slag</string>
-	<string name="log_in">Aanmelden</string>
+	<string name="log_in">Inloggen</string>
 	<string name="next">Volgende</string>
 	<string name="loading_instance">Serverinformatie ophalen…</string>
 	<string name="error">Fout</string>
@@ -126,7 +126,7 @@
 	<string name="notification_channel_audio_player">Geluid afspelen</string>
 	<string name="play">Afspelen</string>
 	<string name="pause">Pauze</string>
-	<string name="log_out">Afmelden</string>
+	<string name="log_out">Uitloggen</string>
 	<string name="add_account">Account toevoegen</string>
 	<string name="search_hint">Zoeken</string>
 	<string name="hashtags">Hashtags</string>
@@ -149,7 +149,7 @@
 	<string name="report_reason_personal">Ik vind het niet leuk</string>
 	<string name="report_reason_personal_subtitle">Het is iets wat je niet wilt zien</string>
 	<string name="report_reason_spam">Het is spam</string>
-	<string name="report_reason_spam_subtitle">Schadelijke koppelingen, reclame, misleiding of herhalende antwoorden</string>
+	<string name="report_reason_spam_subtitle">Schadelijke links, reclame, misleiding of herhalende antwoorden</string>
 	<string name="report_reason_violation">Het schendt de serverregels</string>
 	<string name="report_reason_violation_subtitle">Je weet dat het specifieke regels schendt</string>
 	<string name="report_reason_other">Het is iets anders</string>
@@ -161,16 +161,16 @@
 	<string name="report_comment_title">Zijn er nog andere dingen die wij moeten weten?</string>
 	<string name="report_comment_hint">Extra opmerkingen</string>
 	<string name="sending_report">Rapport verzenden…</string>
-	<string name="report_sent_title">Dank voor het rapporteren. Wij gaan ernaar kijken.</string>
+	<string name="report_sent_title">Dank je voor het rapporteren. Wij gaan er naar kijken.</string>
 	<string name="report_sent_subtitle">Terwijl wij jouw rapportage beoordelen, kun je deze acties tegen %s ondernemen.</string>
-	<string name="unfollow_user">%s ontvolgen</string>
+	<string name="unfollow_user">Ontvolgen</string>
 	<string name="unfollow">Ontvolgen</string>
 	<string name="mute_user_explain">Je ziet hun berichten en boosts niet op je starttijdlijn. Ze zullen niet weten dat ze worden genegeerd.</string>
 	<string name="block_user_explain">Het is niet meer mogelijk om je te volgen of om je berichten te zien, maar het is wel mogelijk om erachter te komen dat je dit account hebt geblokkeerd.</string>
 	<string name="report_personal_title">Wil je dit niet zien?</string>
 	<string name="report_personal_subtitle">Als je iets ziet dat je niet leuk vindt op Mastodon, dan kun je de persoon op meerdere manieren van je tijdlijn verwijderen.</string>
 	<string name="back">Terug</string>
-	<string name="instance_catalog_title">Mastodon is bestaat uit gebruikers op verschillende servers.</string>
+	<string name="instance_catalog_title">Mastodon bestaat uit gebruikers op verschillende servers.</string>
 	<string name="instance_catalog_subtitle">Kies een server gebaseerd op je interesses, regio, of een algemeen doel. Je kan nog steeds met iedereen in contact komen, ongeacht de server.</string>
 	<string name="search_communities">Zoek servers of voer een URL in</string>
 	<string name="instance_rules_title">Enkele basisregels</string>
@@ -196,10 +196,10 @@
 	<string name="category_regional">Regionaal</string>
 	<string name="category_tech">Tech</string>
 	<string name="confirm_email_title">Nog één ding</string>
-	<string name="confirm_email_subtitle">Klik op de koppeling die we naar je e-mailadres hebben gestuurd om je account te verifiëren.</string>
+	<string name="confirm_email_subtitle">Klik op de link die we naar je e-mailadres hebben gestuurd om je account te verifiëren.</string>
 	<string name="resend">Opnieuw verzenden</string>
 	<string name="open_email_app">E-mail-app openen</string>
-	<string name="resent_email">Bevestigings-e-mailbericht verzonden</string>
+	<string name="resent_email">Bevestigingsmail verzonden</string>
 	<string name="compose_hint">Wat wil je kwijt?</string>
 	<string name="content_warning">Inhoudswaarschuwing</string>
 	<string name="add_image_description">Afbeeldingsomschrijving toevoegen…</string>
@@ -211,8 +211,8 @@
 	<string name="alt_text_hint">bijv.: ‘een hond die met versmalde ogen verdacht rondkijkt naar de camera’.</string>
 	<string name="visibility_public">Openbaar</string>
 	<string name="visibility_followers_only">Alleen volgers</string>
-	<string name="visibility_private">Alleen gebruikers die ik vermeld</string>
-	<string name="search_all">Alle</string>
+	<string name="visibility_private">Direct bericht</string>
+	<string name="search_all">Alles</string>
 	<string name="search_people">Mensen</string>
 	<string name="recent_searches">Recente zoekopdrachten</string>
 	<string name="step_x_of_n">Stap %1$d van %2$d</string>
@@ -223,7 +223,7 @@
 	<string name="notification_type_mention">Vermeldingen</string>
 	<string name="notification_type_poll">Polls</string>
 	<string name="choose_account">Account kiezen</string>
-	<string name="err_not_logged_in">Eerst op Mastodon aanmelden</string>
+	<string name="err_not_logged_in">Eerst op Mastodon inloggen</string>
 	<plurals name="cant_add_more_than_x_attachments">
 		<item quantity="one">Je kunt niet meer dan %d mediabestand toevoegen</item>
 		<item quantity="other">Je kunt niet meer dan %d mediabestanden toevoegen</item>
@@ -236,7 +236,7 @@
 	<string name="theme_dark">Donker</string>
 	<string name="theme_true_black">Echt zwart gebruiken</string>
 	<string name="settings_behavior">Gedrag</string>
-	<string name="settings_gif">Geanimeerde avatars en emoji afspelen</string>
+	<string name="settings_gif">Geanimeerde avatars en emoji\'s afspelen</string>
 	<string name="settings_custom_tabs">In-appbrowser gebruiken</string>
 	<string name="settings_notifications">Meldingen</string>
 	<string name="notify_me_when">Melding tonen wanneer</string>
@@ -246,7 +246,7 @@
 	<string name="notify_none">niemand</string>
 	<string name="notify_favorites">Mijn bericht als favoriet markeert</string>
 	<string name="notify_follow">Mij volgt</string>
-	<string name="notify_reblog">Mijn bericht boost</string>
+	<string name="notify_reblog">Boost mijn bericht</string>
 	<string name="notify_mention">Mij vermeldt</string>
 	<string name="settings_boring">De saaie zone</string>
 	<string name="settings_account">Accountinstellingen</string>
@@ -288,7 +288,7 @@
 	<string name="file_saved">Bestand opgeslagen</string>
 	<string name="downloading">Downloaden…</string>
 	<string name="no_app_to_handle_action">Kon geen app vinden om deze actie uit te voeren</string>
-	<string name="local_timeline">Gemeenschap</string>
+	<string name="local_timeline">Community</string>
 	<string name="trending_posts_info_banner">Dit zijn berichten die populair zijn op jouw Mastodon-server.</string>
 	<string name="trending_hashtags_info_banner">Dit zijn hashtags die populair zijn op jouw Mastodon-server.</string>
 	<string name="trending_links_info_banner">Dit zijn nieuwsartikelen die populair zijn op jouw Mastodon-server.</string>
@@ -301,7 +301,7 @@
 	<string name="follows_you">Volgt jou</string>
 	<string name="manually_approves_followers">Handmatig volgers goedkeuren</string>
 	<string name="current_account">Huidig account</string>
-	<string name="log_out_account">%s afmelden</string>
+	<string name="log_out_account">%s uitloggen</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<plurals name="x_followers">
 		<item quantity="one">%,d volger</item>
