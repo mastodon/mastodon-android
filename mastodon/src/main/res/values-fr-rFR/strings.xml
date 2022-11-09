@@ -23,12 +23,12 @@
 	<string name="time_days">%d j</string>
 	<string name="share_toot_title">Partager</string>
 	<string name="settings">Paramètres</string>
-	<string name="publish">Publier</string>
+	<string name="publish">Pouet !</string>
 	<string name="discard_draft">Abandonner le brouillon ?</string>
 	<string name="discard">Abandonner</string>
 	<string name="cancel">Annuler</string>
 	<plurals name="followers">
-		<item quantity="one">abonné·e</item>
+		<item quantity="one">abonné·e·s</item>
 		<item quantity="other">abonné·e·s</item>
 	</plurals>
 	<plurals name="following">
@@ -44,7 +44,7 @@
 	<string name="media">Médias</string>
 	<string name="profile_about">À propos</string>
 	<string name="button_follow">Suivre</string>
-	<string name="button_following">Abonné·e</string>
+	<string name="button_following">Abonné·e·s</string>
 	<string name="edit_profile">Modifier le profil</string>
 	<string name="mention_user">Mentionner %s</string>
 	<string name="share_user">Partager %s</string>
@@ -79,7 +79,7 @@
 		<item quantity="one">%d jour</item>
 		<item quantity="other">%d jours</item>
 	</plurals>
-	<string name="compose_poll_duration">Durée: %s</string>
+	<string name="compose_poll_duration">Durée : %s</string>
 	<plurals name="x_seconds_left">
 		<item quantity="one">%d seconde restante</item>
 		<item quantity="other">%d secondes restantes</item>
@@ -143,7 +143,7 @@
 		<item quantity="other">Discuté %d fois</item>
 	</plurals>
 	<string name="report_title">Signaler %s</string>
-	<string name="report_choose_reason">Quel est le problème avec ce post ?</string>
+	<string name="report_choose_reason">Quel est le problème avec ce message ?</string>
 	<string name="report_choose_reason_account">Quel est le problème avec %s ?</string>
 	<string name="report_choose_reason_subtitle">Sélectionnez la meilleure correspondance</string>
 	<string name="report_reason_personal">Je n’aime pas ça</string>
@@ -165,7 +165,7 @@
 	<string name="report_sent_subtitle">Pendant que nous étudions votre requête, vous pouvez prendre des mesures contre %s.</string>
 	<string name="unfollow_user">Ne plus suivre %s</string>
 	<string name="unfollow">Ne plus suivre</string>
-	<string name="mute_user_explain">Vous ne verrez pas leurs messages ou leurs reblogs dans votre flux personnel. Ils ne sauront pas qu’ils ont été mis en sourdine.</string>
+	<string name="mute_user_explain">Vous ne verrez pas leurs messages ou leurs partages dans votre flux personnel. Ils ne sauront pas qu’ils ont été mis en sourdine.</string>
 	<string name="block_user_explain">Ils ne seront plus en mesure de suivre ou de voir vos messages, mais ils peuvent voir s’ils ont été bloqués.</string>
 	<string name="report_personal_title">Vous ne voulez pas voir cela ?</string>
 	<string name="report_personal_subtitle">Quand vous voyez quelque chose que vous n’aimez pas sur Mastodon, vous pouvez retirer la personne de votre expérience.</string>
@@ -248,12 +248,12 @@
 	<string name="notify_follow">Me suit</string>
 	<string name="notify_reblog">Partage mon message</string>
 	<string name="notify_mention">Me mentionne</string>
-	<string name="settings_boring">La zone ennuyeuse</string>
+	<string name="settings_boring">Zone ennuyeuse</string>
 	<string name="settings_account">Paramètres du compte</string>
 	<string name="settings_contribute">Contribuer à Mastodon</string>
 	<string name="settings_tos">Conditions d’utilisation</string>
 	<string name="settings_privacy_policy">Politique de confidentialité</string>
-	<string name="settings_spicy">La zone épicée</string>
+	<string name="settings_spicy">Zone épicée</string>
 	<string name="settings_clear_cache">Vider le cache des médias</string>
 	<string name="settings_app_version">Mastodon pour Android v%1$s (%2$d)</string>
 	<string name="media_cache_cleared">Cache des médias vidé</string>
@@ -267,7 +267,7 @@
 	<string name="hide_content">Masquer le contenu</string>
 	<string name="new_post">Nouveau message</string>
 	<string name="button_reply">Répondre</string>
-	<string name="button_reblog">Rebloguer</string>
+	<string name="button_reblog">Partager</string>
 	<string name="button_favorite">Ajouter aux favoris</string>
 	<string name="button_share">Partager</string>
 	<string name="media_no_description">Média sans description</string>
@@ -314,7 +314,7 @@
 	<string name="log_out_account">Déconnexion %s</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<plurals name="x_followers">
-		<item quantity="one">%,d abonné·e</item>
+		<item quantity="one">%,d abonné·e·s</item>
 		<item quantity="other">%,d abonné·e·s</item>
 	</plurals>
 	<plurals name="x_following">
