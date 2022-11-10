@@ -17,7 +17,6 @@ import android.widget.TextView;
 
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.model.AccountField;
-import org.joinmastodon.android.ui.BetterItemAnimator;
 import org.joinmastodon.android.ui.text.CustomEmojiSpan;
 import org.joinmastodon.android.ui.utils.SimpleTextWatcher;
 import org.joinmastodon.android.ui.utils.UiUtils;
@@ -28,6 +27,7 @@ import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -69,7 +69,7 @@ public class ProfileAboutFragment extends Fragment implements WindowInsetsAwareF
 	public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState){
 		list=new UsableRecyclerView(getActivity());
 		list.setId(R.id.list);
-		list.setItemAnimator(new BetterItemAnimator());
+		list.setItemAnimator(new DefaultItemAnimator());
 		list.setDrawSelectorOnTop(true);
 		list.setLayoutManager(new LinearLayoutManager(getActivity()));
 		imgLoader=new ListImageLoaderWrapper(getActivity(), list, new RecyclerViewDelegate(list), null);

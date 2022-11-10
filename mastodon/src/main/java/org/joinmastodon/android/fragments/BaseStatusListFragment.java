@@ -28,7 +28,6 @@ import org.joinmastodon.android.model.DisplayItemsParent;
 import org.joinmastodon.android.model.Poll;
 import org.joinmastodon.android.model.Relationship;
 import org.joinmastodon.android.model.Status;
-import org.joinmastodon.android.ui.BetterItemAnimator;
 import org.joinmastodon.android.ui.PhotoLayoutHelper;
 import org.joinmastodon.android.ui.TileGridLayoutManager;
 import org.joinmastodon.android.ui.displayitems.ExtendedFooterStatusDisplayItem;
@@ -53,6 +52,7 @@ import java.util.stream.Collectors;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import me.grishka.appkit.api.Callback;
@@ -305,7 +305,7 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 				}
 			}
 		});
-		list.setItemAnimator(new BetterItemAnimator());
+		list.setItemAnimator(new DefaultItemAnimator());
 		((UsableRecyclerView) list).setIncludeMarginsInItemHitbox(true);
 		updateToolbar();
 	}

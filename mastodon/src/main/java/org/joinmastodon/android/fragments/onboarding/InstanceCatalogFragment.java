@@ -30,7 +30,6 @@ import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.model.Instance;
 import org.joinmastodon.android.model.catalog.CatalogCategory;
 import org.joinmastodon.android.model.catalog.CatalogInstance;
-import org.joinmastodon.android.ui.BetterItemAnimator;
 import org.joinmastodon.android.ui.DividerItemDecoration;
 import org.joinmastodon.android.ui.M3AlertDialogBuilder;
 import org.joinmastodon.android.ui.tabs.TabLayout;
@@ -47,6 +46,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.RecyclerView;
 import me.grishka.appkit.Nav;
@@ -256,7 +256,7 @@ public class InstanceCatalogFragment extends BaseRecyclerFragment<CatalogInstanc
 		nextButton.setOnClickListener(this::onNextClick);
 		nextButton.setEnabled(chosenInstance!=null);
 		view.findViewById(R.id.btn_back).setOnClickListener(v->Nav.finish(this));
-		list.setItemAnimator(new BetterItemAnimator());
+		list.setItemAnimator(new DefaultItemAnimator());
 		list.addItemDecoration(new DividerItemDecoration(getActivity(), R.attr.colorPollVoted, 1, 16, 16, DividerItemDecoration.NOT_FIRST));
 		view.setBackgroundColor(UiUtils.getThemeColor(getActivity(), R.attr.colorBackgroundLight));
 		buttonBar=view.findViewById(R.id.button_bar);

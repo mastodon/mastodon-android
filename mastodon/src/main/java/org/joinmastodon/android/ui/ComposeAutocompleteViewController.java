@@ -30,6 +30,7 @@ import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import me.grishka.appkit.api.APIRequest;
@@ -79,7 +80,7 @@ public class ComposeAutocompleteViewController{
 
 		list=new UsableRecyclerView(activity);
 		list.setLayoutManager(new LinearLayoutManager(activity));
-		list.setItemAnimator(new BetterItemAnimator());
+		list.setItemAnimator(new DefaultItemAnimator());
 		list.setVisibility(View.GONE);
 		contentView.addView(list, new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
 
