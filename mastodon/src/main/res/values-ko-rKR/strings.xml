@@ -14,18 +14,18 @@
 	<string name="notifications">알림</string>
 	<string name="user_followed_you">나를 팔로우함</string>
 	<string name="user_sent_follow_request">나에게 팔로우 요청을 보냄</string>
-	<string name="user_favorited">당신의 게시물을 마음에 들어했습니다</string>
-	<string name="notification_boosted">당신의 게시물을 리블로그했습니다</string>
-	<string name="poll_ended">투표 종료됨</string>
-	<string name="time_seconds">%d 초</string>
-	<string name="time_minutes">%d 분</string>
-	<string name="time_hours">%d 시간</string>
-	<string name="time_days">%d 일</string>
+	<string name="user_favorited">내 게시글을 즐겨찾기에 추가하였습니다</string>
+	<string name="notification_boosted">내 게시물을 공유하였습니다</string>
+	<string name="poll_ended">투표 종료</string>
+	<string name="time_seconds">%d초 전</string>
+	<string name="time_minutes">%d분 전</string>
+	<string name="time_hours">%d시간 전</string>
+	<string name="time_days">%d일 전</string>
 	<string name="share_toot_title">공유</string>
 	<string name="settings">설정</string>
-	<string name="publish">게시</string>
-	<string name="discard_draft">작성 중인 글을 삭제하시겠습니까?</string>
-	<string name="discard">저장 안함</string>
+	<string name="publish">작성</string>
+	<string name="discard_draft">작성중인 글을 삭제하시겠습니까?</string>
+	<string name="discard">저장하지 않음</string>
 	<string name="cancel">취소</string>
 	<plurals name="followers">
 		<item quantity="other">팔로워</item>
@@ -53,42 +53,42 @@
 	<string name="block_domain">%s 차단</string>
 	<string name="unblock_domain">%s 차단 해제</string>
 	<plurals name="x_posts">
-		<item quantity="other">게시물 %,d 개</item>
+		<item quantity="other">게시글 %,d 개</item>
 	</plurals>
 	<string name="profile_joined">가입</string>
 	<string name="done">완료</string>
 	<string name="loading">불러오는 중…</string>
 	<string name="field_label">라벨</string>
 	<string name="field_content">내용</string>
-	<string name="saving">저장 중...</string>
-	<string name="post_from_user">%s의 게시물</string>
+	<string name="saving">저장중...</string>
+	<string name="post_from_user">%s의 게시글</string>
 	<string name="poll_option_hint">옵션 %d</string>
 	<plurals name="x_minutes">
-		<item quantity="other">%d 분</item>
+		<item quantity="other">%d분</item>
 	</plurals>
 	<plurals name="x_hours">
-		<item quantity="other">%d 시간</item>
+		<item quantity="other">%d시간</item>
 	</plurals>
 	<plurals name="x_days">
-		<item quantity="other">%d 일</item>
+		<item quantity="other">%d일</item>
 	</plurals>
 	<string name="compose_poll_duration">기간: %s</string>
 	<plurals name="x_seconds_left">
-		<item quantity="other">%d 초 남았습니다</item>
+		<item quantity="other">%d초 남았습니다</item>
 	</plurals>
 	<plurals name="x_minutes_left">
-		<item quantity="other">%d 분 남았습니다</item>
+		<item quantity="other">%d분 남았습니다</item>
 	</plurals>
 	<plurals name="x_hours_left">
-		<item quantity="other">%d 시간 남았습니다</item>
+		<item quantity="other">%d시간 남았습니다</item>
 	</plurals>
 	<plurals name="x_days_left">
 		<item quantity="other">%d일 남았습니다</item>
 	</plurals>
 	<plurals name="x_voters">
-		<item quantity="other">%,d 명의 투표자</item>
+		<item quantity="other">%,d명 투표</item>
 	</plurals>
-	<string name="poll_closed">마감됨</string>
+	<string name="poll_closed">닫힘</string>
 	<string name="confirm_mute_title">계정 뮤트</string>
 	<string name="confirm_mute">%s 뮤트 확인</string>
 	<string name="do_mute">뮤트</string>
@@ -108,7 +108,7 @@
 	<string name="action_vote">투표</string>
 	<string name="tap_to_reveal">눌러서 확인</string>
 	<string name="delete">삭제</string>
-	<string name="confirm_delete_title">게시물 삭제</string>
+	<string name="confirm_delete_title">게시글 삭제</string>
 	<string name="confirm_delete">정말로 이 게시물을 삭제하시겠습니까?</string>
 	<string name="deleting">삭제 중…</string>
 	<string name="notification_channel_audio_player">오디오 재생</string>
@@ -119,7 +119,7 @@
 	<string name="search_hint">검색</string>
 	<string name="hashtags">해시태그</string>
 	<string name="news">소식</string>
-	<string name="for_you">당신을 위한 추천</string>
+	<string name="for_you">추천</string>
 	<string name="all_notifications">모두</string>
 	<string name="mentions">멘션</string>
 	<plurals name="x_people_talking">
@@ -190,7 +190,7 @@
 	<string name="content_warning">열람 주의</string>
 	<string name="add_image_description">이미지 설명 추가…</string>
 	<string name="retry_upload">업로드 재시도</string>
-	<string name="edit_image">이미지 편집</string>
+	<string name="edit_image">영상물 수정</string>
 	<string name="save">저장</string>
 	<string name="add_alt_text">대체 텍스트 추가</string>
 	<string name="alt_text_subtitle">대체 텍스트는 저시력자나 시각장애인들에게 당신의 사진을 설명합니다. 문맥을 파악할 수 있는 설명들만 넣도록 하세요.</string>
@@ -312,7 +312,42 @@
 	</plurals>
 	<string name="timestamp_via_app">%1$s에 %2$s에서</string>
 	<string name="time_now">방금</string>
+	<string name="post_info_reblogs">공유</string>
+	<string name="post_info_favorites">즐겨찾기</string>
+	<string name="edit_history">수정 내역</string>
+	<string name="last_edit_at_x">마지막 수정: %s</string>
+	<string name="time_just_now">방금 전</string>
+	<plurals name="x_seconds_ago">
+		<item quantity="other">%d초 전</item>
+	</plurals>
+	<plurals name="x_minutes_ago">
+		<item quantity="other">%d분 전</item>
+	</plurals>
+	<string name="edited_timestamp">%s에 수정함</string>
+	<string name="edit_original_post">원본 게시글</string>
+	<string name="edit_text_edited">내용을 수정함</string>
+	<string name="edit_poll_added">투표를 넣음</string>
+	<string name="edit_poll_edited">투표를 수정함</string>
+	<string name="edit_poll_removed">투표를 뺌</string>
+	<string name="edit_media_added">영상물을 넣음</string>
+	<string name="edit_media_removed">영상물을 뺌</string>
+	<string name="edit_multiple_changed">게시글을 수정함</string>
+	<string name="edit">수정</string>
+	<string name="discard_changes">변경사항을 삭제하겠습니까?</string>
+	<string name="upload_failed">올리기 실패</string>
+	<string name="file_size_bytes">%d바이트</string>
+	<string name="file_size_kb">%.2fKB</string>
+	<string name="file_size_mb">%.2fMB</string>
+	<string name="file_size_gb">%.2fGB</string>
+	<string name="file_upload_progress">%2$s 중 %1$s</string>
+	<string name="file_upload_time_remaining">%s 남음</string>
+	<string name="upload_error_connection_lost">디바이스의 인터넷 연결이 끊어졌습니다</string>
+	<string name="upload_processing">처리중…</string>
 	<!-- %s is version like 1.2.3 -->
 	<!-- %s is version like 1.2.3 -->
 	<!-- %s is file size -->
+	<string name="download_update">내려받기(%s)</string>
+	<string name="install_update">설치</string>
+	<string name="privacy_policy_title">마스토돈 및 개인정보</string>
+	<string name="i_agree">동의합니다</string>
 </resources>
