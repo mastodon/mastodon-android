@@ -1,5 +1,6 @@
 package org.joinmastodon.android;
 
+import android.app.AlertDialog;
 import android.app.Fragment;
 import android.content.ClipData;
 import android.content.Intent;
@@ -12,7 +13,6 @@ import android.widget.Toast;
 import org.joinmastodon.android.api.session.AccountSession;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.fragments.ComposeFragment;
-import org.joinmastodon.android.ui.M3AlertDialogBuilder;
 import org.joinmastodon.android.ui.utils.UiUtils;
 
 import java.util.ArrayList;
@@ -36,7 +36,7 @@ public class ExternalShareActivity extends FragmentStackActivity{
 				openComposeFragment(sessions.get(0).getID());
 			}else{
 				getWindow().setBackgroundDrawable(new ColorDrawable(0xff000000));
-				new M3AlertDialogBuilder(this)
+				new AlertDialog.Builder(this)
 						.setItems(sessions.stream().map(as->"@"+as.self.username+"@"+as.domain).toArray(String[]::new), (dialog, which)->{
 							openComposeFragment(sessions.get(which).getID());
 						})

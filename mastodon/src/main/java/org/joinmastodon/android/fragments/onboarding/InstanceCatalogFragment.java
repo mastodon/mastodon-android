@@ -1,5 +1,6 @@
 package org.joinmastodon.android.fragments.onboarding;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.net.Uri;
@@ -32,7 +33,6 @@ import org.joinmastodon.android.model.catalog.CatalogCategory;
 import org.joinmastodon.android.model.catalog.CatalogInstance;
 import org.joinmastodon.android.ui.BetterItemAnimator;
 import org.joinmastodon.android.ui.DividerItemDecoration;
-import org.joinmastodon.android.ui.M3AlertDialogBuilder;
 import org.joinmastodon.android.ui.tabs.TabLayout;
 import org.joinmastodon.android.ui.utils.UiUtils;
 import org.parceler.Parcels;
@@ -488,7 +488,7 @@ public class InstanceCatalogFragment extends BaseRecyclerFragment<CatalogInstanc
 						if(instanceProgressDialog!=null){
 							instanceProgressDialog.dismiss();
 							instanceProgressDialog=null;
-							new M3AlertDialogBuilder(getActivity())
+							new AlertDialog.Builder(getActivity())
 									.setTitle(R.string.error)
 									.setMessage(getString(R.string.not_a_mastodon_instance, domain)+"\n\n"+((MastodonErrorResponse)error).error)
 									.setPositiveButton(R.string.ok, null)

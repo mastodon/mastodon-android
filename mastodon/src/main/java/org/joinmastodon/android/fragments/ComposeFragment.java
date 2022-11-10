@@ -3,6 +3,7 @@ package org.joinmastodon.android.fragments;
 import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.ClipData;
 import android.content.Context;
 import android.content.Intent;
@@ -81,7 +82,6 @@ import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.model.StatusPrivacy;
 import org.joinmastodon.android.ui.ComposeAutocompleteViewController;
 import org.joinmastodon.android.ui.CustomEmojiPopupKeyboard;
-import org.joinmastodon.android.ui.M3AlertDialogBuilder;
 import org.joinmastodon.android.ui.PopupKeyboard;
 import org.joinmastodon.android.ui.drawables.SpoilerStripesDrawable;
 import org.joinmastodon.android.ui.text.ComposeAutocompleteSpan;
@@ -788,7 +788,7 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 	}
 
 	private void confirmDiscardDraftAndFinish(){
-		new M3AlertDialogBuilder(getActivity())
+		new AlertDialog.Builder(getActivity())
 				.setTitle(editingStatus==null ? R.string.discard_draft : R.string.discard_changes)
 				.setPositiveButton(R.string.discard, (dialog, which)->Nav.finish(this))
 				.setNegativeButton(R.string.cancel, null)

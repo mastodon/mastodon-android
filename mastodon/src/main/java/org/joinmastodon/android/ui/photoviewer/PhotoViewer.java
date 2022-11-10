@@ -3,6 +3,7 @@ package org.joinmastodon.android.ui.photoviewer;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.DownloadManager;
 import android.content.ContentResolver;
 import android.content.ContentValues;
@@ -48,7 +49,6 @@ import android.widget.Toolbar;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.MastodonAPIController;
 import org.joinmastodon.android.model.Attachment;
-import org.joinmastodon.android.ui.M3AlertDialogBuilder;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -435,7 +435,7 @@ public class PhotoViewer implements ZoomPanView.Listener{
 		if(results[0]==PackageManager.PERMISSION_GRANTED){
 			doSaveCurrentFile();
 		}else if(!activity.shouldShowRequestPermissionRationale(Manifest.permission.WRITE_EXTERNAL_STORAGE)){
-			new M3AlertDialogBuilder(activity)
+			new AlertDialog.Builder(activity)
 					.setTitle(R.string.permission_required)
 					.setMessage(R.string.storage_permission_to_download)
 					.setPositiveButton(R.string.open_settings, (dialog, which)->activity.startActivity(new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.fromParts("package", activity.getPackageName(), null))))

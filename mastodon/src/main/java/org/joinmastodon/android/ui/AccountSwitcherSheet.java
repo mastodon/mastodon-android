@@ -2,6 +2,7 @@ package org.joinmastodon.android.ui;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.ColorStateList;
@@ -97,7 +98,7 @@ public class AccountSwitcherSheet extends BottomSheet{
 	}
 
 	private void confirmLogOut(String accountID){
-		new M3AlertDialogBuilder(activity)
+		new AlertDialog.Builder(activity)
 				.setTitle(R.string.log_out)
 				.setMessage(R.string.confirm_log_out)
 				.setPositiveButton(R.string.log_out, (dialog, which) -> logOut(accountID))

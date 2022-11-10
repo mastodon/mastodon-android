@@ -3,6 +3,7 @@ package org.joinmastodon.android.fragments;
 import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -41,7 +42,6 @@ import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.events.SelfUpdateStateChangedEvent;
 import org.joinmastodon.android.model.PushNotification;
 import org.joinmastodon.android.model.PushSubscription;
-import org.joinmastodon.android.ui.M3AlertDialogBuilder;
 import org.joinmastodon.android.ui.OutlineProviders;
 import org.joinmastodon.android.ui.utils.UiUtils;
 import org.joinmastodon.android.updater.GithubSelfUpdater;
@@ -283,7 +283,7 @@ public class SettingsFragment extends MastodonToolbarFragment{
 	}
 
 	private void confirmLogOut(){
-		new M3AlertDialogBuilder(getActivity())
+		new AlertDialog.Builder(getActivity())
 				.setTitle(R.string.log_out)
 				.setMessage(R.string.confirm_log_out)
 				.setPositiveButton(R.string.log_out, (dialog, which) -> logOut())

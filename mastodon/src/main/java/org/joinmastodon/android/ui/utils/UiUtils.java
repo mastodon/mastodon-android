@@ -2,6 +2,7 @@ package org.joinmastodon.android.ui.utils;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
@@ -51,7 +52,6 @@ import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.Emoji;
 import org.joinmastodon.android.model.Relationship;
 import org.joinmastodon.android.model.Status;
-import org.joinmastodon.android.ui.M3AlertDialogBuilder;
 import org.joinmastodon.android.ui.text.CustomEmojiSpan;
 import org.joinmastodon.android.ui.text.SpacerSpan;
 import org.parceler.Parcels;
@@ -308,7 +308,7 @@ public class UiUtils{
 	}
 
 	public static void showConfirmationAlert(Context context, CharSequence title, CharSequence message, CharSequence confirmButton, Runnable onConfirmed){
-		new M3AlertDialogBuilder(context)
+		new AlertDialog.Builder(context)
 				.setTitle(title)
 				.setMessage(message)
 				.setPositiveButton(confirmButton, (dlg, i)->onConfirmed.run())
