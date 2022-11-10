@@ -336,6 +336,14 @@
 	<string name="edit_history">Düzenleme geçmişi</string>
 	<string name="last_edit_at_x">Son düzenleme: %s</string>
 	<string name="time_just_now">yeni</string>
+	<plurals name="x_seconds_ago">
+		<item quantity="one">%d saniye önce</item>
+		<item quantity="other">%d saniye önce</item>
+	</plurals>
+	<plurals name="x_minutes_ago">
+		<item quantity="one">%d dakika önce</item>
+		<item quantity="other">%d dakika önce</item>
+	</plurals>
 	<string name="edited_timestamp">%s tarihinde düzenlendi</string>
 	<string name="edit_original_post">Asıl gönderi</string>
 	<string name="edit_text_edited">Düzenlenmiş gönderi</string>
