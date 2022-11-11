@@ -27,6 +27,7 @@ import android.text.Layout;
 import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.text.format.DateUtils;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -100,6 +101,8 @@ import org.parceler.Parcels;
 import java.io.InterruptedIOException;
 import java.net.SocketException;
 import java.net.UnknownHostException;
+import java.time.Instant;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -331,6 +334,8 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 				DraftPollOption opt=createDraftPollOption();
 				opt.edit.setText(eopt.title);
 			}
+			pollDuration=(int)editingStatus.poll.expiresAt.minus(System.currentTimeMillis(), ChronoUnit.MILLIS).getEpochSecond();
+			pollDurationStr=UiUtils.formatTimeLeft(getActivity(), editingStatus.poll.expiresAt);
 			updatePollOptionHints();
 			pollDurationView.setText(getString(R.string.compose_poll_duration, pollDurationStr));
 		}else{
