@@ -204,7 +204,7 @@
 	<string name="step_x_of_n">%2$d개 중 %1$d번째 단계</string>
 	<string name="skip">건너뛰기</string>
 	<string name="notification_type_follow">새 팔로워</string>
-	<string name="notification_type_favorite">관심글 지정</string>
+	<string name="notification_type_favorite">마음에 들어함</string>
 	<string name="notification_type_reblog">리블로그</string>
 	<string name="notification_type_mention">멘션</string>
 	<string name="notification_type_poll">투표</string>
@@ -313,7 +313,7 @@
 	<string name="timestamp_via_app">%1$s에 %2$s에서</string>
 	<string name="time_now">방금</string>
 	<string name="post_info_reblogs">리블로그</string>
-	<string name="post_info_favorites">즐겨찾기</string>
+	<string name="post_info_favorites">좋아요</string>
 	<string name="edit_history">수정 내역</string>
 	<string name="last_edit_at_x">마지막 수정: %s</string>
 	<string name="time_just_now">방금</string>
@@ -326,11 +326,17 @@
 	<string name="edited_timestamp">%s에 수정함</string>
 	<string name="edit_original_post">원본 게시물</string>
 	<string name="edit_text_edited">내용을 수정함</string>
+	<string name="edit_spoiler_added">열람 주의 추가됨</string>
+	<string name="edit_spoiler_edited">열람 주의 수정됨</string>
+	<string name="edit_spoiler_removed">열람 주의 삭제됨</string>
 	<string name="edit_poll_added">투표를 추가함</string>
 	<string name="edit_poll_edited">투표를 수정함</string>
 	<string name="edit_poll_removed">투표를 삭제함</string>
 	<string name="edit_media_added">미디어를 추가함</string>
 	<string name="edit_media_removed">영상물을 뺌</string>
+	<string name="edit_media_reordered">미디어 순서 바뀜</string>
+	<string name="edit_marked_sensitive">민감함으로 설정됨</string>
+	<string name="edit_marked_not_sensitive">민감하지 않음으로 설정됨</string>
 	<string name="edit_multiple_changed">게시물 수정됨</string>
 	<string name="edit">수정</string>
 	<string name="discard_changes">변경사항을 삭제하겠습니까?</string>
@@ -344,7 +350,9 @@
 	<string name="upload_error_connection_lost">디바이스의 인터넷 연결이 끊어졌습니다</string>
 	<string name="upload_processing">처리중…</string>
 	<!-- %s is version like 1.2.3 -->
+	<string name="update_available">안드로이드용 마스토돈 %s 버전을 다운로드 할 수 있습니다.</string>
 	<!-- %s is version like 1.2.3 -->
+	<string name="update_ready">안드로이드용 마스토돈 %s 버전이 다운로드 되었으며 설치할 준비가 되었습니다.</string>
 	<!-- %s is file size -->
 	<string name="download_update">다운로드 (%s)</string>
 	<string name="install_update">설치</string>
