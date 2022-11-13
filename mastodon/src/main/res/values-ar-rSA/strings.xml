@@ -409,8 +409,25 @@
 	<string name="time_now">الآن</string>
 	<string name="post_info_reblogs">إعادات التدوين</string>
 	<string name="post_info_favorites">المفضلة</string>
+	<string name="edit_history">تاريخ التعديل</string>
 	<string name="last_edit_at_x">آخر تعديل %s</string>
 	<string name="time_just_now">للتوّ</string>
+	<plurals name="x_seconds_ago">
+		<item quantity="zero">منذ %d ثانية</item>
+		<item quantity="one">منذ ثانية</item>
+		<item quantity="two">منذ ثانيتان</item>
+		<item quantity="few">%d ثواني</item>
+		<item quantity="many">منذ %d ثانية</item>
+		<item quantity="other">%d ثواني مضت</item>
+	</plurals>
+	<plurals name="x_minutes_ago">
+		<item quantity="zero">الان</item>
+		<item quantity="one">منذ دقيقة</item>
+		<item quantity="two">منذ دقيقتان</item>
+		<item quantity="few">%d دقائق مضت</item>
+		<item quantity="many">منذ %d دقائق</item>
+		<item quantity="other">منذ %d دقائق</item>
+	</plurals>
 	<string name="edited_timestamp">عُدّل في %s</string>
 	<string name="edit_original_post">المنشور الأصلي</string>
 	<string name="edit_text_edited">تم تعديل النص</string>
@@ -429,10 +446,22 @@
 	<string name="edit">تعديل</string>
 	<string name="discard_changes">تجاهل التغييرات؟</string>
 	<string name="upload_failed">فشلت عملية التحميل</string>
+	<string name="file_size_bytes">%d بايت</string>
+	<string name="file_size_kb">%.2f كيلوبايت</string>
+	<string name="file_size_mb">%.2f ميغابايت</string>
+	<string name="file_size_gb">%.2f جيجابايت</string>
+	<string name="file_upload_progress">%1$s من %2$s</string>
 	<string name="file_upload_time_remaining">%s متبقية</string>
 	<string name="upload_error_connection_lost">فقد جهازك الاتصال بالإنترنت</string>
 	<string name="upload_processing">قيد المعالجة…</string>
 	<!-- %s is version like 1.2.3 -->
+	<string name="update_available">ماستدون %s للأندرويد جاهز للتنزيل.</string>
 	<!-- %s is version like 1.2.3 -->
+	<string name="update_ready">تم تنزيل ماستدون %s للأندرويد ومستعد لتثبيته.</string>
 	<!-- %s is file size -->
+	<string name="download_update">جارٍ التنزيل (%s)</string>
+	<string name="install_update">تثبيت</string>
+	<string name="privacy_policy_title">ماستدون وخصوصيتك</string>
+	<string name="privacy_policy_subtitle">على الرغم من أن تطبيق ماستدون لا يجمع أي بيانات، فإن الخادم الذي قمت بالتسجيل من خلاله قد تكون له سياسة مختلفة. خذ دقيقة للمراجعة والموافقة على سياسة خصوصية التطبيق ماستدون وسياسة الخصوصية للخادم الخاص بك.</string>
+	<string name="i_agree">أنا مُوافِق</string>
 </resources>
