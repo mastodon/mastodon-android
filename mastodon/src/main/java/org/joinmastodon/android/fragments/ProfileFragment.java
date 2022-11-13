@@ -234,7 +234,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 
 		tabbar.setTabTextColors(UiUtils.getThemeColor(getActivity(), android.R.attr.textColorSecondary), UiUtils.getThemeColor(getActivity(), android.R.attr.textColorPrimary));
 		tabbar.setTabTextSize(V.dp(16));
-		tabLayoutMediator=new TabLayoutMediator(tabbar, pager, new TabLayoutMediator.TabConfigurationStrategy(){
+		tabLayoutMediator=new TabLayoutMediator(tabbar, pager, true, false, new TabLayoutMediator.TabConfigurationStrategy(){
 			@Override
 			public void onConfigureTab(@NonNull TabLayout.Tab tab, int position){
 				tab.setText(switch(position){
@@ -714,7 +714,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 		invalidateOptionsMenu();
 		pager.setUserInputEnabled(false);
 		actionButton.setText(R.string.done);
-		pager.setCurrentItem(3);
+		pager.setCurrentItem(3, false);
 		ArrayList<Animator> animators=new ArrayList<>();
 		for(int i=0;i<3;i++){
 			animators.add(ObjectAnimator.ofFloat(tabbar.getTabAt(i).view, View.ALPHA, .3f));
