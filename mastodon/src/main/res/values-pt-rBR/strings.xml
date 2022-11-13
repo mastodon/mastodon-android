@@ -138,6 +138,10 @@
 		<item quantity="one">%d pessoa está conversando</item>
 		<item quantity="other">%d pessoas estão conversando</item>
 	</plurals>
+	<plurals name="discussed_x_times">
+		<item quantity="one">Discutido %d vez</item>
+		<item quantity="other">Discutido %d vezes</item>
+	</plurals>
 	<string name="report_title">Denunciar %s</string>
 	<string name="report_choose_reason">O que há de errado com esta publicação?</string>
 	<string name="report_choose_reason_account">O que há de errado com %s?</string>
@@ -159,7 +163,7 @@
 	<string name="sending_report">Enviando denúncia…</string>
 	<string name="report_sent_title">Obrigado por reportar. Vamos analisar.</string>
 	<string name="report_sent_subtitle">Enquanto revisamos isso, você pode tomar medidas contra @%s.</string>
-	<string name="unfollow_user">Deixar de seguir @%s</string>
+	<string name="unfollow_user">Deixar de seguir %s</string>
 	<string name="unfollow">Deixar de seguir</string>
 	<string name="mute_user_explain">Você não verá suas postagens ou reblogs em seu feed inicial. Eles não saberão que foram silenciados.</string>
 	<string name="block_user_explain">Eles não poderão mais seguir ou ver seus post, mas poderão ver se foram bloqueados.</string>
@@ -275,7 +279,7 @@
 	<string name="my_profile">Meu perfil</string>
 	<string name="media_viewer">Visualizador de mídia</string>
 	<string name="follow_user">Seguir %s</string>
-	<string name="unfollowed_user">Deixar de seguir @%s</string>
+	<string name="unfollowed_user">Deixou de seguir %s</string>
 	<string name="followed_user">Você agora está seguindo %s</string>
 	<string name="open_in_browser">Abrir no navegador</string>
 	<string name="hide_boosts_from_user">Ocultar reblogues de %s</string>
@@ -321,6 +325,10 @@
 		<item quantity="one">%,d favorito</item>
 		<item quantity="other">%,d favoritos</item>
 	</plurals>
+	<plurals name="x_reblogs">
+		<item quantity="one">%,d reblog</item>
+		<item quantity="other">%,d reblogs</item>
+	</plurals>
 	<string name="timestamp_via_app">%1$s via %2$s</string>
 	<string name="time_now">agora</string>
 	<string name="post_info_reblogs">Reblogues</string>
@@ -332,21 +340,44 @@
 		<item quantity="one">%d segundo atrás</item>
 		<item quantity="other">%d segundos atrás</item>
 	</plurals>
+	<plurals name="x_minutes_ago">
+		<item quantity="one">%d minuto atrás</item>
+		<item quantity="other">%d minutos atrás</item>
+	</plurals>
 	<string name="edited_timestamp">editado %s</string>
 	<string name="edit_original_post">Postagem original</string>
 	<string name="edit_text_edited">Texto editado</string>
 	<string name="edit_spoiler_added">Aviso de conteúdo adicionado</string>
 	<string name="edit_spoiler_edited">Aviso de conteúdo editado</string>
 	<string name="edit_spoiler_removed">Aviso de conteúdo removido</string>
+	<string name="edit_poll_added">Enquete adicionada</string>
+	<string name="edit_poll_edited">Enquete editada</string>
+	<string name="edit_poll_removed">Enquete removida</string>
+	<string name="edit_media_added">Mídia adicionada</string>
+	<string name="edit_media_removed">Mídia removida</string>
+	<string name="edit_media_reordered">Mídia reordenada</string>
 	<string name="edit_marked_sensitive">Marcadas como sensíveis</string>
 	<string name="edit_marked_not_sensitive">Marcado como não sensível</string>
 	<string name="edit_multiple_changed">Publicação editada</string>
 	<string name="edit">Editar</string>
 	<string name="discard_changes">Descartar alterações?</string>
 	<string name="upload_failed">Falha no upload</string>
+	<string name="file_size_bytes">%d bytes</string>
+	<string name="file_size_kb">%.2f KB</string>
+	<string name="file_size_mb">%.2f MB</string>
+	<string name="file_size_gb">%.2f GB</string>
+	<string name="file_upload_progress">%1$s de %2$s</string>
+	<string name="file_upload_time_remaining">%s restante</string>
 	<string name="upload_error_connection_lost">Seu dispositivo perdeu a conexão com a internet</string>
 	<string name="upload_processing">Processando…</string>
 	<!-- %s is version like 1.2.3 -->
+	<string name="update_available">Mastodon para Android %s está pronto para ser baixado.</string>
 	<!-- %s is version like 1.2.3 -->
+	<string name="update_ready">Mastodon para Android %s foi baixado e está pronto para ser instalado.</string>
 	<!-- %s is file size -->
+	<string name="download_update">Baixar (%s)</string>
+	<string name="install_update">Instalar</string>
+	<string name="privacy_policy_title">Mastodon e sua privacidade</string>
+	<string name="privacy_policy_subtitle">Embora o aplicativo Mastodon não colete nenhum dado, o servidor que você se inscrever pode ter uma política diferente. Dedique um minuto para revisar e aceitar a política de privacidade do aplicativo Mastodon e a política de privacidade do seu servidor.</string>
+	<string name="i_agree">Eu concordo</string>
 </resources>
