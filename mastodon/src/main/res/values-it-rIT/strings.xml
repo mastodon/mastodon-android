@@ -285,7 +285,7 @@
 	<string name="hide_boosts_from_user">Nascondi le condivisioni di %s</string>
 	<string name="show_boosts_from_user">Mostra le condivisioni di %s</string>
 	<string name="signup_reason">perché vuoi unirti?</string>
-	<string name="signup_reason_note">Questo ci aiuterà ad esaminare la tua richiesta.</string>
+	<string name="signup_reason_note" comment="This string is displayed in the signup form, when the server you're registering on has pre-approval enabled.">Questo ci aiuterà ad esaminare la tua richiesta.</string>
 	<string name="clear">Cancella</string>
 	<string name="profile_header">Immagine di intestazione</string>
 	<string name="profile_picture">Immagine del profilo</string>
@@ -344,7 +344,7 @@
 		<item quantity="one">%d minuto fa</item>
 		<item quantity="other">%d minuti fa</item>
 	</plurals>
-	<string name="edited_timestamp">modificato %s</string>
+	<string name="edited_timestamp" comment="Displayed instead of the timestamp on posts that were edited. %s is the time (2m, 3h, 25 Oct, etc)">modificato %s</string>
 	<string name="edit_original_post">Post originale</string>
 	<string name="edit_text_edited">Testo modificato</string>
 	<string name="edit_spoiler_added">Avviso sul contenuto aggiunto</string>
