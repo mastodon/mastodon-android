@@ -285,7 +285,7 @@
 	<string name="hide_boosts_from_user">geteilte Beiträge von %s ausblenden</string>
 	<string name="show_boosts_from_user">geteilte Beiträge von %s anzeigen</string>
 	<string name="signup_reason">Weshalb möchtest du beitreten?</string>
-	<string name="signup_reason_note">Dies wird uns dabei helfen, deine Anmeldungsanfrage besser zu verarbeiten.</string>
+	<string name="signup_reason_note" comment="This string is displayed in the signup form, when the server you're registering on has pre-approval enabled.">Dies wird uns dabei helfen, deine Anmeldungsanfrage besser zu verarbeiten.</string>
 	<string name="clear">Löschen</string>
 	<string name="profile_header">Kopfbild</string>
 	<string name="profile_picture">Profilbild</string>
@@ -344,7 +344,7 @@
 		<item quantity="one">vor %d Minute</item>
 		<item quantity="other">vor %d Minuten</item>
 	</plurals>
-	<string name="edited_timestamp">bearbeitet %s</string>
+	<string name="edited_timestamp" comment="Displayed instead of the timestamp on posts that were edited. %s is the time (2m, 3h, 25 Oct, etc)">bearbeitet %s</string>
 	<string name="edit_original_post">Ursprünglicher Beitrag</string>
 	<string name="edit_text_edited">Text bearbeitet</string>
 	<string name="edit_spoiler_added">Inhaltwarnung hinzugefügt</string>
