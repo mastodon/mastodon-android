@@ -270,7 +270,7 @@
 	<string name="hide_boosts_from_user">隐藏来自 %s 的转发</string>
 	<string name="show_boosts_from_user">不再隐藏来自 %s 的转发</string>
 	<string name="signup_reason">为什么想要加入？</string>
-	<string name="signup_reason_note">这会帮助我们评估你的申请。</string>
+	<string name="signup_reason_note" comment="This string is displayed in the signup form, when the server you're registering on has pre-approval enabled.">这会帮助我们评估你的申请。</string>
 	<string name="clear">清除</string>
 	<string name="profile_header">资料页横幅图片</string>
 	<string name="profile_picture">头像</string>
@@ -323,7 +323,7 @@
 	<plurals name="x_minutes_ago">
 		<item quantity="other">%d 分钟前</item>
 	</plurals>
-	<string name="edited_timestamp">已编辑 %s</string>
+	<string name="edited_timestamp" comment="Displayed instead of the timestamp on posts that were edited. %s is the time (2m, 3h, 25 Oct, etc)">已编辑 %s</string>
 	<string name="edit_original_post">初始嘟文</string>
 	<string name="edit_text_edited">修改了文本</string>
 	<string name="edit_spoiler_added">添加了内容警告</string>
