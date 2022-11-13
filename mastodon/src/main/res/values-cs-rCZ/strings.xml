@@ -50,7 +50,7 @@
 	<string name="media">Média</string>
 	<string name="profile_about">O uživateli</string>
 	<string name="button_follow">Sledovat</string>
-	<string name="button_following">Sledovaní</string>
+	<string name="button_following">Sleduji</string>
 	<string name="edit_profile">Upravit profil</string>
 	<string name="mention_user">Zmínit @%s</string>
 	<string name="share_user">Sdílet %s</string>
@@ -403,7 +403,23 @@
 	<string name="edit_multiple_changed">Příspěvek upraven</string>
 	<string name="edit">Upravit</string>
 	<string name="discard_changes">Zrušit změny?</string>
+	<string name="upload_failed">Nahrávání se nezdařilo</string>
+	<string name="file_size_bytes">%d bajtů</string>
+	<string name="file_size_kb">%.2f KB</string>
+	<string name="file_size_mb">%.2f MB</string>
+	<string name="file_size_gb">%.2f GB</string>
+	<string name="file_upload_progress">%1$s z %2$s</string>
+	<string name="file_upload_time_remaining">Zbývá %s</string>
+	<string name="upload_error_connection_lost">Vaše zařízení ztratilo připojení k internetu</string>
+	<string name="upload_processing">Zpracovávání…</string>
 	<!-- %s is version like 1.2.3 -->
+	<string name="update_available">Mastodon pro Android %s je připravený ke stažení.</string>
 	<!-- %s is version like 1.2.3 -->
+	<string name="update_ready">Mastodon pro Android %s je stažený a připravený k instalaci.</string>
 	<!-- %s is file size -->
+	<string name="download_update">Stáhnout (%s)</string>
+	<string name="install_update">Instalovat</string>
+	<string name="privacy_policy_title">Mastodon a vaše soukromí</string>
+	<string name="privacy_policy_subtitle">Ačkoliv aplikace Mastodon neshromažďuje žádná data, server, na kterém se registrujete, může mít jiné zásady. Věnujte minutu kontrole a odsouhlasení zásad soukromí aplikace Mastodon a vašeho serveru.</string>
+	<string name="i_agree">Souhlasím</string>
 </resources>
