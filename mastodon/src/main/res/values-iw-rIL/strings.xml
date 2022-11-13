@@ -1,5 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+	<string name="get_started">בואו נתחיל</string>
+	<string name="log_in">התחברו</string>
+	<string name="next">הבא</string>
+	<string name="loading_instance">אוסף מידע על פרט…</string>
+	<string name="error">שגיאה</string>
+	<string name="not_a_mastodon_instance">לא נראה ש־%s הוא פרט במסטודון.</string>
+	<string name="ok">אוקיי</string>
+	<string name="preparing_auth">מתכונן לאימות…</string>
+	<string name="finishing_auth">מסיים אימות…</string>
+	<string name="user_boosted">%s עשה ריבלוג</string>
+	<string name="in_reply_to">בתגובה ל־%s</string>
+	<string name="notifications">עדכונים</string>
+	<string name="user_followed_you">עקבו אחריכם</string>
+	<string name="user_sent_follow_request">שלחו בקשה לעכוב אחריכם</string>
+	<string name="user_favorited">אהבו את הרשומה שלכם</string>
+	<string name="notification_boosted">עשו ריבלוג לרשומה שלכם</string>
+	<string name="poll_ended">הסקר נסגר</string>
+	<string name="time_seconds">%dשנ׳</string>
+	<string name="time_minutes">%dדק׳</string>
+	<string name="time_hours">%dשע׳</string>
+	<string name="time_days">%dי׳</string>
+	<string name="share_toot_title">שיתוף</string>
+	<string name="settings">הגדרות</string>
+	<string name="publish">פרסם</string>
+	<string name="discard_draft">מחק טיוטה?</string>
+	<string name="discard">מחק</string>
+	<string name="cancel">ביטול</string>
+	<plurals name="followers">
+		<item quantity="one">עוקב</item>
+		<item quantity="two">עוקבים</item>
+		<item quantity="many">עוקבים</item>
+		<item quantity="other">עוקבים</item>
+	</plurals>
+	<plurals name="following">
+		<item quantity="one">עוקב</item>
+		<item quantity="two">עוקבים</item>
+		<item quantity="many">עוקבים</item>
+		<item quantity="other">עוקבים</item>
+	</plurals>
+	<plurals name="posts">
+		<item quantity="one">רשומה</item>
+		<item quantity="two">רשומות</item>
+		<item quantity="many">רשומות</item>
+		<item quantity="other">רשומות</item>
+	</plurals>
+	<string name="posts">רשומות</string>
+	<string name="posts_and_replies">רשומות ותגובות</string>
+	<string name="media">מדיה</string>
+	<string name="profile_about">אודות</string>
+	<string name="button_follow">לעקוב</string>
+	<string name="button_following">עוקב</string>
+	<string name="edit_profile">עריכת הפרופיל</string>
+	<string name="mention_user">ציין את %s</string>
+	<string name="share_user">שתף את %s</string>
+	<string name="mute_user">השתק את %s</string>
+	<string name="unmute_user">הפסק השתקה של %s</string>
+	<string name="block_user">חסום את %s</string>
+	<string name="unblock_user">הסר חסימה מ־%s</string>
+	<string name="report_user">דווח על %s</string>
+	<string name="block_domain">חסום את %s</string>
+	<string name="unblock_domain">הסר חסימה של %s</string>
+	<plurals name="x_posts">
+		<item quantity="one">רשומה %,d</item>
+		<item quantity="two">%,d רשומות</item>
+		<item quantity="many">%,d רשומות</item>
+		<item quantity="other">%,d רשומות</item>
+	</plurals>
+	<string name="profile_joined">מצורף</string>
+	<string name="done">בוצע</string>
+	<string name="loading">טוען…</string>
+	<string name="report_title">דווח על %s</string>
+	<string name="report_choose_reason">מה לא בסדר ברשומה הזאת?</string>
+	<string name="report_choose_reason_account">מה לא בסדר ב־%s?</string>
+	<string name="report_choose_reason_subtitle">בחרו את האפשרות המתאימה ביותר</string>
+	<string name="report_reason_personal">אני לא אוהב/ת את זה</string>
+	<string name="report_reason_personal_subtitle">זה לא משהו שאתם רוצים לראות</string>
+	<string name="report_reason_spam">זה ספאם</string>
+	<string name="report_reason_spam_subtitle">קישורים מסוכנים, התערבות מזוייפת, או תגובות חוזרות ונשנות</string>
+	<string name="report_reason_violation">זה עובר על חוקי שרת</string>
+	<string name="report_reason_violation_subtitle">רתם מודעים לכך שזה עובר על חוקים ספציפיים</string>
+	<string name="report_reason_other">זה משהו אחר</string>
+	<string name="report_reason_other_subtitle">הבעיה לא מתאימה לקטגוריות האחרות</string>
+	<string name="report_choose_rule">אילו חוקים נשברים כאן?</string>
+	<string name="report_choose_rule_subtitle">בחרו את כל מה שרלוונטי</string>
+	<string name="category_academia">אקדמיה</string>
+	<string name="category_activism">אקטיביזם</string>
+	<string name="category_all">הכל</string>
+	<string name="category_art">אומנות</string>
+	<string name="category_food">אוכל</string>
+	<string name="category_furry">פרוותי</string>
+	<string name="category_games">משחקים</string>
+	<string name="category_general">כללי</string>
+	<string name="category_journalism">עיתונאות</string>
+	<string name="category_lgbt">להט״ב</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<!-- %s is version like 1.2.3 -->
 	<!-- %s is version like 1.2.3 -->
