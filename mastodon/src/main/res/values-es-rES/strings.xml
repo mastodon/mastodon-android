@@ -361,7 +361,23 @@
 	<string name="edit_multiple_changed">Publicación editada</string>
 	<string name="edit">Editar</string>
 	<string name="discard_changes">¿Descartar cambios?</string>
+	<string name="upload_failed">Subida fallida</string>
+	<string name="file_size_bytes">%d bytes</string>
+	<string name="file_size_kb">%.2f KB</string>
+	<string name="file_size_mb">%.2f MB</string>
+	<string name="file_size_gb">%.2f GB</string>
+	<string name="file_upload_progress">%1$s de %2$s</string>
+	<string name="file_upload_time_remaining">%s restantes</string>
+	<string name="upload_error_connection_lost">Tu dispositivo ha perdido la conexión a internet</string>
+	<string name="upload_processing">Procesando…</string>
 	<!-- %s is version like 1.2.3 -->
+	<string name="update_available">Mastodon para Android %s está listo para descargar.</string>
 	<!-- %s is version like 1.2.3 -->
+	<string name="update_ready">Mastodon para Android %s ha sido descargado y está listo para instalar.</string>
 	<!-- %s is file size -->
+	<string name="download_update">Descargar (%s)</string>
+	<string name="install_update">Instalar</string>
+	<string name="privacy_policy_title">Mastodon y su privacidad</string>
+	<string name="privacy_policy_subtitle">Aunque la aplicación de Mastodon no recolecta ningún dato, el servidor al que se registre puede tener una política diferente. Tómese un minuto para revisar y aceptar las políticas de privacidad de la aplicación de Mastodon y las políticas de privacidad de su servidor.</string>
+	<string name="i_agree">Acepto</string>
 </resources>
