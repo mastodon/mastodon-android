@@ -23,12 +23,12 @@
 	<string name="time_days">%d j</string>
 	<string name="share_toot_title">Partager</string>
 	<string name="settings">Paramètres</string>
-	<string name="publish">Publier</string>
-	<string name="discard_draft">Abandonner le brouillon ?</string>
-	<string name="discard">Abandonner</string>
+	<string name="publish">Pouet !</string>
+	<string name="discard_draft">Supprimer le brouillon ?</string>
+	<string name="discard">Supprimer</string>
 	<string name="cancel">Annuler</string>
 	<plurals name="followers">
-		<item quantity="one">abonné·e</item>
+		<item quantity="one">abonné·e·s</item>
 		<item quantity="other">abonné·e·s</item>
 	</plurals>
 	<plurals name="following">
@@ -44,7 +44,7 @@
 	<string name="media">Médias</string>
 	<string name="profile_about">À propos</string>
 	<string name="button_follow">Suivre</string>
-	<string name="button_following">Abonné·e</string>
+	<string name="button_following">Abonné·e·s</string>
 	<string name="edit_profile">Modifier le profil</string>
 	<string name="mention_user">Mentionner %s</string>
 	<string name="share_user">Partager %s</string>
@@ -79,7 +79,7 @@
 		<item quantity="one">%d jour</item>
 		<item quantity="other">%d jours</item>
 	</plurals>
-	<string name="compose_poll_duration">Durée: %s</string>
+	<string name="compose_poll_duration">Durée : %s</string>
 	<plurals name="x_seconds_left">
 		<item quantity="one">%d seconde restante</item>
 		<item quantity="other">%d secondes restantes</item>
@@ -118,7 +118,7 @@
 	<string name="button_muted">Masqué</string>
 	<string name="button_blocked">Bloqué</string>
 	<string name="action_vote">Voter</string>
-	<string name="tap_to_reveal">Appuyer pour afficher</string>
+	<string name="tap_to_reveal">Appuyez pour révéler</string>
 	<string name="delete">Supprimer</string>
 	<string name="confirm_delete_title">Supprimer le message</string>
 	<string name="confirm_delete">Voulez-vous vraiment supprimer ce message ?</string>
@@ -143,7 +143,7 @@
 		<item quantity="other">Discuté %d fois</item>
 	</plurals>
 	<string name="report_title">Signaler %s</string>
-	<string name="report_choose_reason">Quel est le problème avec ce post ?</string>
+	<string name="report_choose_reason">Quel est le problème avec ce message ?</string>
 	<string name="report_choose_reason_account">Quel est le problème avec %s ?</string>
 	<string name="report_choose_reason_subtitle">Sélectionnez la meilleure correspondance</string>
 	<string name="report_reason_personal">Je n’aime pas ça</string>
@@ -165,12 +165,12 @@
 	<string name="report_sent_subtitle">Pendant que nous étudions votre requête, vous pouvez prendre des mesures contre %s.</string>
 	<string name="unfollow_user">Ne plus suivre %s</string>
 	<string name="unfollow">Ne plus suivre</string>
-	<string name="mute_user_explain">Vous ne verrez pas leurs messages ou leurs reblogs dans votre flux personnel. Ils ne sauront pas qu’ils ont été mis en sourdine.</string>
+	<string name="mute_user_explain">Vous ne verrez pas leurs messages ou leurs partages dans votre flux personnel. Ils ne sauront pas qu’ils ont été mis en sourdine.</string>
 	<string name="block_user_explain">Ils ne seront plus en mesure de suivre ou de voir vos messages, mais ils peuvent voir s’ils ont été bloqués.</string>
 	<string name="report_personal_title">Vous ne voulez pas voir cela ?</string>
 	<string name="report_personal_subtitle">Quand vous voyez quelque chose que vous n’aimez pas sur Mastodon, vous pouvez retirer la personne de votre expérience.</string>
 	<string name="back">Retour</string>
-	<string name="instance_catalog_title">Mastodon est composé d\'utilisateurs sur différents serveurs.</string>
+	<string name="instance_catalog_title">Mastodon est composé d’utilisateurs sur différents serveurs.</string>
 	<string name="instance_catalog_subtitle">Choisissez un serveur en fonction de vos intérêts, de votre région ou alors rejoignez un serveur général. Vous pouvez toujours vous connecter avec tout le monde, quel que soit le serveur.</string>
 	<string name="search_communities">Rechercher des serveurs ou entrer une URL</string>
 	<string name="instance_rules_title">Quelques règles de base</string>
@@ -208,7 +208,7 @@
 	<string name="save">Enregistrer</string>
 	<string name="add_alt_text">Ajouter un texte alternatif</string>
 	<string name="alt_text_subtitle">Le texte alternatif décrit vos photos pour les personnes qui ont une vision faible ou nulle. Essayez d’inclure uniquement assez de détails pour comprendre le contexte.</string>
-	<string name="alt_text_hint">p. ex. : Chien regardant autour suspectement avec les yeux fixés sur la caméra.</string>
+	<string name="alt_text_hint">p. ex. : Chien regardant autour de manière suspecte avec les yeux fixés sur la caméra.</string>
 	<string name="visibility_public">Public</string>
 	<string name="visibility_followers_only">Abonné·e·s uniquement</string>
 	<string name="visibility_private">Seulement les personnes mentionnées</string>
@@ -248,12 +248,12 @@
 	<string name="notify_follow">Me suit</string>
 	<string name="notify_reblog">Partage mon message</string>
 	<string name="notify_mention">Me mentionne</string>
-	<string name="settings_boring">La zone ennuyeuse</string>
+	<string name="settings_boring">Zone ennuyeuse</string>
 	<string name="settings_account">Paramètres du compte</string>
 	<string name="settings_contribute">Contribuer à Mastodon</string>
 	<string name="settings_tos">Conditions d’utilisation</string>
 	<string name="settings_privacy_policy">Politique de confidentialité</string>
-	<string name="settings_spicy">La zone épicée</string>
+	<string name="settings_spicy">Zone épicée</string>
 	<string name="settings_clear_cache">Vider le cache des médias</string>
 	<string name="settings_app_version">Mastodon pour Android v%1$s (%2$d)</string>
 	<string name="media_cache_cleared">Cache des médias vidé</string>
@@ -267,7 +267,7 @@
 	<string name="hide_content">Masquer le contenu</string>
 	<string name="new_post">Nouveau message</string>
 	<string name="button_reply">Répondre</string>
-	<string name="button_reblog">Rebloguer</string>
+	<string name="button_reblog">Partager</string>
 	<string name="button_favorite">Ajouter aux favoris</string>
 	<string name="button_share">Partager</string>
 	<string name="media_no_description">Média sans description</string>
@@ -297,7 +297,7 @@
 	<string name="error_saving_file">Erreur lors de l’enregistrement du fichier</string>
 	<string name="file_saved">Fichier enregistré</string>
 	<string name="downloading">Téléchargement…</string>
-	<string name="no_app_to_handle_action">Aucune application ne permet de gérer ce type d\'action</string>
+	<string name="no_app_to_handle_action">Aucune application ne permet de gérer ce type d’action</string>
 	<string name="local_timeline">Communauté</string>
 	<string name="trending_posts_info_banner">Ce sont les messages qui gagnent en popularité sur votre serveur Mastodon.</string>
 	<string name="trending_hashtags_info_banner">Ce sont les hashtags qui gagnent en popularité sur votre serveur Mastodon.</string>
@@ -314,7 +314,7 @@
 	<string name="log_out_account">Déconnexion %s</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<plurals name="x_followers">
-		<item quantity="one">%,d abonné·e</item>
+		<item quantity="one">%,d abonné·e·s</item>
 		<item quantity="other">%,d abonné·e·s</item>
 	</plurals>
 	<plurals name="x_following">
@@ -333,8 +333,8 @@
 	<string name="time_now">à l’instant</string>
 	<string name="post_info_reblogs">Partages</string>
 	<string name="post_info_favorites">Favoris</string>
-	<string name="edit_history">Historique des éditions</string>
-	<string name="last_edit_at_x">Dernière édition %s</string>
+	<string name="edit_history">Historique des modifications</string>
+	<string name="last_edit_at_x">Dernière modification %s</string>
 	<string name="time_just_now">à l’instant</string>
 	<plurals name="x_seconds_ago">
 		<item quantity="one">Il y a %d seconde</item>
@@ -344,22 +344,22 @@
 		<item quantity="one">Il y a %d minute</item>
 		<item quantity="other">Il y a %d minutes</item>
 	</plurals>
-	<string name="edited_timestamp">édité %s</string>
+	<string name="edited_timestamp">modifié %s</string>
 	<string name="edit_original_post">Message originel</string>
 	<string name="edit_text_edited">Texte modifié</string>
 	<string name="edit_spoiler_added">Avertissement de contenu ajouté</string>
 	<string name="edit_spoiler_edited">Avertissement de contenu modifié</string>
 	<string name="edit_spoiler_removed">Avertissement de contenu supprimé</string>
 	<string name="edit_poll_added">Sondage ajouté</string>
-	<string name="edit_poll_edited">Sondage édité</string>
+	<string name="edit_poll_edited">Sondage modifié</string>
 	<string name="edit_poll_removed">Sondage supprimé</string>
 	<string name="edit_media_added">Média ajouté</string>
 	<string name="edit_media_removed">Média supprimé</string>
 	<string name="edit_media_reordered">Média réordonné</string>
 	<string name="edit_marked_sensitive">Marqué comme sensible</string>
 	<string name="edit_marked_not_sensitive">Marqué comme non-sensible</string>
-	<string name="edit_multiple_changed">Message édité</string>
-	<string name="edit">Éditer</string>
+	<string name="edit_multiple_changed">Message modifié</string>
+	<string name="edit">Modifier</string>
 	<string name="discard_changes">Ignorer les modifications ?</string>
 	<string name="upload_failed">Échec de l’envoi</string>
 	<string name="file_size_bytes">%d octets</string>
@@ -377,4 +377,7 @@
 	<!-- %s is file size -->
 	<string name="download_update">Téléchargement (%s)</string>
 	<string name="install_update">Installer</string>
+	<string name="privacy_policy_title">Mastodon et votre vie privée</string>
+	<string name="privacy_policy_subtitle">Bien que l’application Mastodon ne collecte aucune donnée, le serveur auquel vous vous inscrivez peut avoir une politique différente. Prenez une minute pour examiner et accepter la politique de confidentialité de l’application Mastodon ainsi que celle de votre serveur.</string>
+	<string name="i_agree">J’accepte</string>
 </resources>

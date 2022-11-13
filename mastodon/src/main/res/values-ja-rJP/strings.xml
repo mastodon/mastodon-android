@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="get_started">はじめる</string>
+	<string name="get_started">はじめよう</string>
 	<string name="log_in">ログイン</string>
 	<string name="next">次へ</string>
 	<string name="loading_instance">インスタンスを取得しています…</string>
 	<string name="error">エラー</string>
-	<string name="not_a_mastodon_instance">%s はMastodonインスタンスではありません。</string>
+	<string name="not_a_mastodon_instance">%sはMastodonインスタンスではありません。</string>
 	<string name="ok">OK</string>
 	<string name="preparing_auth">認証を開始中…</string>
 	<string name="finishing_auth">認証を完了中…</string>
@@ -14,7 +14,7 @@
 	<string name="notifications">通知</string>
 	<string name="user_followed_you">がフォロー</string>
 	<string name="user_sent_follow_request">フォローリクエストを送信しました</string>
-	<string name="user_favorited">がお気に入りに登録</string>
+	<string name="user_favorited">がお気に入り登録</string>
 	<string name="notification_boosted">がブースト</string>
 	<string name="poll_ended">アンケートが終了しました</string>
 	<string name="time_seconds">%d秒前</string>
@@ -204,12 +204,12 @@
 	<string name="step_x_of_n">%2$d ステップの %1$d</string>
 	<string name="skip">スキップ</string>
 	<string name="notification_type_follow">新しいフォロワー</string>
-	<string name="notification_type_favorite">いいね</string>
+	<string name="notification_type_favorite">お気に入り</string>
 	<string name="notification_type_reblog">ブースト</string>
 	<string name="notification_type_mention">メンション</string>
 	<string name="notification_type_poll">投票</string>
 	<string name="choose_account">アカウントを選択</string>
-	<string name="err_not_logged_in">まずはアカウントにログインしてください</string>
+	<string name="err_not_logged_in">まずはMastodonにログインしてください</string>
 	<plurals name="cant_add_more_than_x_attachments">
 		<item quantity="other">%d件以上のメディア添付ファイルを追加することはできません</item>
 	</plurals>
@@ -280,7 +280,7 @@
 	<string name="storage_permission_to_download">デバイスのストレージに、このファイルを保存するには許可が必要です。</string>
 	<string name="open_settings">設定を開く</string>
 	<string name="error_saving_file">ファイル保存エラー</string>
-	<string name="file_saved">ファイルが保存されました</string>
+	<string name="file_saved">ファイルを保存しました</string>
 	<string name="downloading">ダウンロード中…</string>
 	<string name="no_app_to_handle_action">この操作を処理するアプリが見つかりません</string>
 	<string name="local_timeline">コミュニティ</string>
@@ -312,7 +312,51 @@
 	</plurals>
 	<string name="timestamp_via_app">%1$sに%2$s経由</string>
 	<string name="time_now">今</string>
+	<string name="post_info_reblogs">ブースト</string>
+	<string name="post_info_favorites">お気に入り</string>
+	<string name="edit_history">編集履歴</string>
+	<string name="last_edit_at_x">最終更新日%s</string>
+	<string name="time_just_now">今</string>
+	<plurals name="x_seconds_ago">
+		<item quantity="other">%d秒前</item>
+	</plurals>
+	<plurals name="x_minutes_ago">
+		<item quantity="other">%d分前</item>
+	</plurals>
+	<string name="edited_timestamp">%sに編集</string>
+	<string name="edit_original_post">オリジナルの投稿</string>
+	<string name="edit_text_edited">テキストを編集しました</string>
+	<string name="edit_spoiler_added">コンテンツ警告を追加しました</string>
+	<string name="edit_spoiler_edited">コンテンツ警告を編集しました</string>
+	<string name="edit_spoiler_removed">コンテンツ警告を削除しました</string>
+	<string name="edit_poll_added">アンケートを追加しました</string>
+	<string name="edit_poll_edited">アンケートを編集しました</string>
+	<string name="edit_poll_removed">アンケートを削除しました</string>
+	<string name="edit_media_added">メディアを追加しました</string>
+	<string name="edit_media_removed">メディアを削除しました</string>
+	<string name="edit_media_reordered">メディアの並び順を変更しました</string>
+	<string name="edit_marked_sensitive">閲覧注意とマークしました</string>
+	<string name="edit_marked_not_sensitive">閲覧注意をはずしました</string>
+	<string name="edit_multiple_changed">投稿を編集しました</string>
+	<string name="edit">編集</string>
+	<string name="discard_changes">変更を破棄しますか？</string>
+	<string name="upload_failed">アップロードに失敗しました</string>
+	<string name="file_size_bytes">%dバイト</string>
+	<string name="file_size_kb">%.2f KB</string>
+	<string name="file_size_mb">%.2f MB</string>
+	<string name="file_size_gb">%.2f GB</string>
+	<string name="file_upload_progress">%1$s / %2$s</string>
+	<string name="file_upload_time_remaining">残り %s</string>
+	<string name="upload_error_connection_lost">インターネットの接続を失いました</string>
+	<string name="upload_processing">処理中…</string>
 	<!-- %s is version like 1.2.3 -->
+	<string name="update_available">Mastodon for Android %s がダウンロードできます。</string>
 	<!-- %s is version like 1.2.3 -->
+	<string name="update_ready">Mastodon for Android %s のダウンロードとインストールの準備ができました。</string>
 	<!-- %s is file size -->
+	<string name="download_update">ダウンロード (%s)</string>
+	<string name="install_update">インストール</string>
+	<string name="privacy_policy_title">Mastodonとあなたのプライバシー</string>
+	<string name="privacy_policy_subtitle">Mastodonアプリはいかなるデータも収集しませんが、サインアップするサーバーは別のポリシーを持っている場合があります。Mastodonアプリのプライバシーポリシーとサーバーのプライバシーポリシーを確認をし、同意してください。</string>
+	<string name="i_agree">同意する</string>
 </resources>
