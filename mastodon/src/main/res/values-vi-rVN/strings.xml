@@ -89,17 +89,17 @@
 		<item quantity="other">%,d người bình chọn</item>
 	</plurals>
 	<string name="poll_closed">Kết thúc</string>
-	<string name="confirm_mute_title">Ẩn người dùng</string>
+	<string name="confirm_mute_title">Ẩn người này</string>
 	<string name="confirm_mute">Xác nhận ẩn %s</string>
 	<string name="do_mute">Ẩn</string>
-	<string name="confirm_unmute_title">Bỏ ẩn người dùng</string>
+	<string name="confirm_unmute_title">Bỏ ẩn người này</string>
 	<string name="confirm_unmute">Xác nhận bỏ ẩn %s</string>
 	<string name="do_unmute">Bỏ ẩn</string>
-	<string name="confirm_block_title">Chặn người dùng</string>
+	<string name="confirm_block_title">Chặn người này</string>
 	<string name="confirm_block_domain_title">Chặn máy chủ</string>
 	<string name="confirm_block">Xác nhận chặn %s</string>
 	<string name="do_block">Chặn</string>
-	<string name="confirm_unblock_title">Bỏ chặn người dùng</string>
+	<string name="confirm_unblock_title">Bỏ chặn người này</string>
 	<string name="confirm_unblock_domain_title">Bỏ chặn máy chủ</string>
 	<string name="confirm_unblock">Xác nhận bỏ chặn %s</string>
 	<string name="do_unblock">Bỏ chặn</string>
@@ -196,10 +196,10 @@
 	<string name="alt_text_subtitle">Văn bản thay thế giúp mô tả ảnh của bạn cho những người khiếm thị. Chỉ cần cho biết ngắn gọn bối cảnh của ảnh.</string>
 	<string name="alt_text_hint">vd: Một con chó nhíu mắt lại nhìn máy ảnh.</string>
 	<string name="visibility_public">Công khai</string>
-	<string name="visibility_followers_only">Riêng tư</string>
+	<string name="visibility_followers_only">Chỉ người theo dõi</string>
 	<string name="visibility_private">Nhắn riêng</string>
 	<string name="search_all">Tất cả</string>
-	<string name="search_people">Người dùng</string>
+	<string name="search_people">Người</string>
 	<string name="recent_searches">Tìm kiếm gần đây</string>
 	<string name="step_x_of_n">Bước %1$d trong %2$d</string>
 	<string name="skip">Bỏ qua</string>
@@ -356,4 +356,7 @@
 	<!-- %s is file size -->
 	<string name="download_update">Tải về (%s)</string>
 	<string name="install_update">Cài đặt</string>
+	<string name="privacy_policy_title">Mastodon và sự riêng tư của bạn</string>
+	<string name="privacy_policy_subtitle">Mặc dù ứng dụng Mastodon không thu thập thông tin của bạn, máy chủ mà bạn dùng để đăng kí tài khoản có thể có một điều khoản sử dụng khác. Dành một chút thời gian để đọc và chấp nhận điều khoản riêng tư của ứng dụng Mastodon và máy chủ của bạn.</string>
+	<string name="i_agree">Tôi đồng ý</string>
 </resources>

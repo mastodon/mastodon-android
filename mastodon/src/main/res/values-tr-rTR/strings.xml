@@ -333,7 +333,51 @@
 	<string name="time_now">şimdi</string>
 	<string name="post_info_reblogs">Yeniden Paylaşımlar</string>
 	<string name="post_info_favorites">Favoriler</string>
+	<string name="edit_history">Düzenleme geçmişi</string>
+	<string name="last_edit_at_x">Son düzenleme: %s</string>
+	<string name="time_just_now">yeni</string>
+	<plurals name="x_seconds_ago">
+		<item quantity="one">%d saniye önce</item>
+		<item quantity="other">%d saniye önce</item>
+	</plurals>
+	<plurals name="x_minutes_ago">
+		<item quantity="one">%d dakika önce</item>
+		<item quantity="other">%d dakika önce</item>
+	</plurals>
+	<string name="edited_timestamp">%s tarihinde düzenlendi</string>
+	<string name="edit_original_post">Asıl gönderi</string>
+	<string name="edit_text_edited">Düzenlenmiş gönderi</string>
+	<string name="edit_spoiler_added">İçerik uyarısı eklendi</string>
+	<string name="edit_spoiler_edited">İçerik uyarısı düzenlendi</string>
+	<string name="edit_spoiler_removed">İçerik uyarısı kaldırıldı</string>
+	<string name="edit_poll_added">Anket eklendi</string>
+	<string name="edit_poll_edited">Anket düzenlendi</string>
+	<string name="edit_poll_removed">Anket kaldırıldı</string>
+	<string name="edit_media_added">Medya eklendi</string>
+	<string name="edit_media_removed">Medya kaldırıldı</string>
+	<string name="edit_media_reordered">Medya düzenlendi</string>
+	<string name="edit_marked_sensitive">Hassas olarak işarlendi</string>
+	<string name="edit_marked_not_sensitive">Hassas değil olarak işaretlendi</string>
+	<string name="edit_multiple_changed">Gönderi düzenlendi</string>
+	<string name="edit">Düzenle</string>
+	<string name="discard_changes">Değişikliklerden vazgeçilsin mi?</string>
+	<string name="upload_failed">Yükleme başarısız</string>
+	<string name="file_size_bytes">%d bayt</string>
+	<string name="file_size_kb">%.2f KB</string>
+	<string name="file_size_mb">%.2f MB</string>
+	<string name="file_size_gb">%.2f GB</string>
+	<string name="file_upload_progress">%2$s dosyadan %1$s</string>
+	<string name="file_upload_time_remaining">%s kaldı</string>
+	<string name="upload_error_connection_lost">Cihazınızın internet bağlantısı koptu</string>
+	<string name="upload_processing">İşleniyor…</string>
 	<!-- %s is version like 1.2.3 -->
+	<string name="update_available">Mastodon Android uygulamasının %s versiyonu indirmeye hazır.</string>
 	<!-- %s is version like 1.2.3 -->
+	<string name="update_ready">Mastodon Android uygulamasının %s versiyonu indirildi ve kurulmaya hazır.</string>
 	<!-- %s is file size -->
+	<string name="download_update">İndir (%s)</string>
+	<string name="install_update">Kur</string>
+	<string name="privacy_policy_title">Mastodon ve gizliliğiniz</string>
+	<string name="privacy_policy_subtitle">Mastodon uygulaması herhangi bir veri toplamasa da kayıt olduğunuz sunucu farklı bir politika izliyor olabilir. Bir dakikanızı ayırarak Mastodon uygulamasının ve sunucunuzun gizlilik politikasını okuyup onaylayın.</string>
+	<string name="i_agree">Kabul ediyorum</string>
 </resources>

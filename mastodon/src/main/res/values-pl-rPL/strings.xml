@@ -12,7 +12,7 @@
 	<string name="user_boosted">%s podbił</string>
 	<string name="in_reply_to">W odpowiedzi do %s</string>
 	<string name="notifications">Powiadomienia</string>
-	<string name="user_followed_you">zaczął(-ęła) Cię śledzić</string>
+	<string name="user_followed_you">zaczął(-ęła) Cię obserwować</string>
 	<string name="user_sent_follow_request">wysłał(-a) prośbę o możliwość obserwacji</string>
 	<string name="user_favorited">dodał(a) Twój wpis do ulubionych</string>
 	<string name="notification_boosted">podbił Twój wpis</string>
@@ -28,15 +28,15 @@
 	<string name="discard">Odrzuć</string>
 	<string name="cancel">Anuluj</string>
 	<plurals name="followers">
-		<item quantity="one">śledzący</item>
-		<item quantity="few">śledzących</item>
-		<item quantity="many">śledzących</item>
-		<item quantity="other">śledzących</item>
+		<item quantity="one">obserwujący</item>
+		<item quantity="few">obserwujących</item>
+		<item quantity="many">obserwujących</item>
+		<item quantity="other">obserwujących</item>
 	</plurals>
 	<plurals name="following">
-		<item quantity="one">śledzony</item>
-		<item quantity="few">śledzonych</item>
-		<item quantity="many">śledzonych</item>
+		<item quantity="one">obserwowany</item>
+		<item quantity="few">obserwowanych</item>
+		<item quantity="many">obserwowanych</item>
 		<item quantity="other">śledzonych</item>
 	</plurals>
 	<plurals name="posts">
@@ -49,8 +49,8 @@
 	<string name="posts_and_replies">Wpisy i odpowiedzi</string>
 	<string name="media">Media</string>
 	<string name="profile_about">Informacje</string>
-	<string name="button_follow">Śledź</string>
-	<string name="button_following">Śledzisz</string>
+	<string name="button_follow">Obserwuj</string>
+	<string name="button_following">Obserwujesz</string>
 	<string name="edit_profile">Edytuj profil</string>
 	<string name="mention_user">Wspomnij o %s</string>
 	<string name="share_user">Udostępnij %s</string>
@@ -69,8 +69,8 @@
 	</plurals>
 	<string name="profile_joined">Dołączył(a)</string>
 	<string name="done">Gotowe</string>
-	<string name="loading">Ładowanie…</string>
-	<string name="field_label">Podpis</string>
+	<string name="loading">Pobieranie…</string>
+	<string name="field_label">Etykieta</string>
 	<string name="field_content">Zawartość</string>
 	<string name="saving">Zapisywanie…</string>
 	<string name="post_from_user">Wpis od %s</string>
@@ -114,7 +114,7 @@
 	</plurals>
 	<plurals name="x_days_left">
 		<item quantity="one">Został %d dzień</item>
-		<item quantity="few">Zostały %d dni</item>
+		<item quantity="few">Zostało %d dni</item>
 		<item quantity="many">Zostało %d dni</item>
 		<item quantity="other">Zostało %d dni</item>
 	</plurals>
@@ -124,7 +124,7 @@
 		<item quantity="many">%,d głosujących</item>
 		<item quantity="other">%,d głosujących</item>
 	</plurals>
-	<string name="poll_closed">Zamknięte</string>
+	<string name="poll_closed">Zakończone</string>
 	<string name="confirm_mute_title">Wycisz konto</string>
 	<string name="confirm_mute">Potwierdź wyciszenie %s</string>
 	<string name="do_mute">Wycisz</string>
@@ -191,8 +191,8 @@
 	<string name="sending_report">Wysyłanie zgłoszenia…</string>
 	<string name="report_sent_title">Dziękujemy za zgłoszenie. Przyjrzymy się tej sprawie.</string>
 	<string name="report_sent_subtitle">W trakcie gdy będziemy się przyglądać tej sprawie, możesz podjąć działania dotyczące %s.</string>
-	<string name="unfollow_user">Przestań śledzić %s</string>
-	<string name="unfollow">Przestań śledzić</string>
+	<string name="unfollow_user">Przestań obserwować %s</string>
+	<string name="unfollow">Przestań obserwować</string>
 	<string name="mute_user_explain">Nie będziesz widzieć wpisów ani podbić tego użytkownika na stronie głównej. Ta osoba nie dowie się, że została wyciszona.</string>
 	<string name="block_user_explain">Ta osoba nie będzie mogła mogła Cię śledzić ani widzieć Twoich wpisów, ale może dowiedzieć się, że została zablokowana.</string>
 	<string name="report_personal_title">Nie chcesz tego widzieć?</string>
@@ -224,7 +224,7 @@
 	<string name="category_regional">Regionalne</string>
 	<string name="category_tech">Technologia</string>
 	<string name="confirm_email_title">Jeszcze jedno</string>
-	<string name="confirm_email_subtitle">Aby zweryfikować oknto, naciśnij link który wysłaliśmy do Ciebie.</string>
+	<string name="confirm_email_subtitle">Aby zweryfikować konto, naciśnij link, który wysłaliśmy na twój adres email.</string>
 	<string name="resend">Wyślij ponownie</string>
 	<string name="open_email_app">Otwórz aplikację e-mail</string>
 	<string name="resent_email">Wysłano potwierdzający e-mail</string>
@@ -238,14 +238,14 @@
 	<string name="alt_text_subtitle">Tekst alternatywny opisuje zdjęcia dla osób niewidomych lub niedowidzących. Spróbuj opisać tylko tyle, ile potrzeba aby zrozumieć kontekst.</string>
 	<string name="alt_text_hint">np. pies rozglądający się podejrzliwie wokół kamery z przymrużonymi oczami.</string>
 	<string name="visibility_public">Publiczny</string>
-	<string name="visibility_followers_only">Tylko dla śledzących</string>
+	<string name="visibility_followers_only">Tylko dla obserwujących</string>
 	<string name="visibility_private">Tylko dla wspomnianych</string>
 	<string name="search_all">Wszystko</string>
 	<string name="search_people">Ludzie</string>
 	<string name="recent_searches">Niedawno wyszukiwane</string>
 	<string name="step_x_of_n">Krok %1$d z %2$d</string>
 	<string name="skip">Pomiń</string>
-	<string name="notification_type_follow">Nowi śledzący</string>
+	<string name="notification_type_follow">Nowi obserwujący</string>
 	<string name="notification_type_favorite">Polubienia</string>
 	<string name="notification_type_reblog">Podbicia</string>
 	<string name="notification_type_mention">Wspomienia</string>
@@ -271,11 +271,11 @@
 	<string name="settings_notifications">Powiadomienia</string>
 	<string name="notify_me_when">Powiadom mnie, gdy</string>
 	<string name="notify_anyone">ktokolwiek</string>
-	<string name="notify_follower">śledzący</string>
-	<string name="notify_followed">ktoś, kogo śledzę</string>
+	<string name="notify_follower">obserwujący</string>
+	<string name="notify_followed">ktoś, kogo obserwuję</string>
 	<string name="notify_none">nikt</string>
 	<string name="notify_favorites">Doda mój wpis do ulubionych</string>
-	<string name="notify_follow">Zacznie mnie śledzić</string>
+	<string name="notify_follow">Zacznie mnie obserwować</string>
 	<string name="notify_reblog">Podbija mój wpis</string>
 	<string name="notify_mention">Wspomni o mnie</string>
 	<string name="settings_boring">Nudne opcje</string>
@@ -308,9 +308,9 @@
 	<string name="home_timeline">Strona główna</string>
 	<string name="my_profile">Mój profil</string>
 	<string name="media_viewer">Przeglądarka mediów</string>
-	<string name="follow_user">Śledź %s</string>
+	<string name="follow_user">Obserwuj %s</string>
 	<string name="unfollowed_user">Przestano obserwować %s</string>
-	<string name="followed_user">Od teraz śledzisz %s</string>
+	<string name="followed_user">Od teraz obserwujesz %s</string>
 	<string name="open_in_browser">Otwórz w przeglądarce</string>
 	<string name="hide_boosts_from_user">Ukryj podbicia od %s</string>
 	<string name="show_boosts_from_user">Pokaż podbicia od %s</string>
@@ -336,7 +336,7 @@
 	<string name="dismiss">Odrzuć</string>
 	<string name="see_new_posts">Zobacz nowe wpisy</string>
 	<string name="load_missing_posts">Załaduj brakujące wpisy</string>
-	<string name="follow_back">Śledź wzajemnie</string>
+	<string name="follow_back">Obserwuj wzajemnie</string>
 	<string name="button_follow_pending">Oczekujące</string>
 	<string name="follows_you">Obserwuje cię</string>
 	<string name="manually_approves_followers">Ręcznie zatwierdza obserwujących</string>
@@ -344,16 +344,16 @@
 	<string name="log_out_account">Wyloguj %s</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<plurals name="x_followers">
-		<item quantity="one">%,d śledzący</item>
-		<item quantity="few">%,d śledzących</item>
-		<item quantity="many">%,d śledzących</item>
-		<item quantity="other">%,d śledzących</item>
+		<item quantity="one">%,d obserwujący</item>
+		<item quantity="few">%,d obserwujących</item>
+		<item quantity="many">%,d obserwujących</item>
+		<item quantity="other">%,d obserwujących</item>
 	</plurals>
 	<plurals name="x_following">
-		<item quantity="one">%,d śledzący</item>
-		<item quantity="few">%,d śledzących</item>
-		<item quantity="many">%,d śledzących</item>
-		<item quantity="other">%,d śledzących</item>
+		<item quantity="one">%,d obserwujący</item>
+		<item quantity="few">%,d obserwujących</item>
+		<item quantity="many">%,d obserwujących</item>
+		<item quantity="other">%,d obserwujących</item>
 	</plurals>
 	<plurals name="x_favorites">
 		<item quantity="one">%,d ulubiony</item>
@@ -413,6 +413,13 @@
 	<string name="upload_error_connection_lost">Twoje urządzenie utraciło połączenie z Internetem</string>
 	<string name="upload_processing">Przetwarzanie…</string>
 	<!-- %s is version like 1.2.3 -->
+	<string name="update_available">Mastodon dla Android %s jest gotowy do pobrania.</string>
 	<!-- %s is version like 1.2.3 -->
+	<string name="update_ready">Mastodon dla Android %s jest gotowy do pobrania i instalacji.</string>
 	<!-- %s is file size -->
+	<string name="download_update">Pobierz (%s)</string>
+	<string name="install_update">Zainstaluj</string>
+	<string name="privacy_policy_title">Mastodon i Twoja prywatność</string>
+	<string name="privacy_policy_subtitle">Choć aplikacja Mastodona nie zbiera żadnych danych na Twój temat, serwer na którym się rejestrujesz może działać zgodnie z inną polityką. Poświęć chwilę na przejrzenie i akceptację polityki prywatności aplikacji Mastodona oraz Twojego serwera.</string>
+	<string name="i_agree">Wyrażam zgodę</string>
 </resources>

@@ -93,6 +93,8 @@ public class SearchFragment extends BaseStatusListFragment<SearchResult> impleme
 	@Override
 	public void onItemClick(String id){
 		SearchResult res=getResultByID(id);
+		if(res==null)
+			return;
 		switch(res.type){
 			case ACCOUNT -> {
 				Bundle args=new Bundle();

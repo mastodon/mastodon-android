@@ -115,9 +115,9 @@ public class AccountCardStatusDisplayItem extends StatusDisplayItem{
 			followersCount.setText(UiUtils.abbreviateNumber(item.account.followersCount));
 			followingCount.setText(UiUtils.abbreviateNumber(item.account.followingCount));
 			postsCount.setText(UiUtils.abbreviateNumber(item.account.statusesCount));
-			followersLabel.setText(item.parentFragment.getResources().getQuantityString(R.plurals.followers, Math.min(999, item.account.followersCount)));
-			followingLabel.setText(item.parentFragment.getResources().getQuantityString(R.plurals.following, Math.min(999, item.account.followingCount)));
-			postsLabel.setText(item.parentFragment.getResources().getQuantityString(R.plurals.posts, Math.min(999, item.account.statusesCount)));
+			followersLabel.setText(item.parentFragment.getResources().getQuantityString(R.plurals.followers, (int)Math.min(999, item.account.followersCount)));
+			followingLabel.setText(item.parentFragment.getResources().getQuantityString(R.plurals.following, (int)Math.min(999, item.account.followingCount)));
+			postsLabel.setText(item.parentFragment.getResources().getQuantityString(R.plurals.posts, (int)Math.min(999, item.account.statusesCount)));
 			relationship=item.parentFragment.getRelationship(item.account.id);
 			if(relationship==null){
 				actionWrap.setVisibility(View.GONE);

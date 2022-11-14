@@ -15,7 +15,7 @@
 	<string name="user_followed_you">나를 팔로우함</string>
 	<string name="user_sent_follow_request">나에게 팔로우 요청을 보냄</string>
 	<string name="user_favorited">당신의 게시물을 마음에 들어했습니다</string>
-	<string name="notification_boosted">당신의 게시물을 리블로그했습니다</string>
+	<string name="notification_boosted">내 게시물을 리블로그했습니다</string>
 	<string name="poll_ended">투표 종료됨</string>
 	<string name="time_seconds">%d 초</string>
 	<string name="time_minutes">%d 분</string>
@@ -25,7 +25,7 @@
 	<string name="settings">설정</string>
 	<string name="publish">게시</string>
 	<string name="discard_draft">작성 중인 글을 삭제하시겠습니까?</string>
-	<string name="discard">저장 안함</string>
+	<string name="discard">저장하지 않음</string>
 	<string name="cancel">취소</string>
 	<plurals name="followers">
 		<item quantity="other">팔로워</item>
@@ -53,7 +53,7 @@
 	<string name="block_domain">%s 차단</string>
 	<string name="unblock_domain">%s 차단 해제</string>
 	<plurals name="x_posts">
-		<item quantity="other">게시물 %,d 개</item>
+		<item quantity="other">게시물 %,d개</item>
 	</plurals>
 	<string name="profile_joined">가입</string>
 	<string name="done">완료</string>
@@ -64,29 +64,29 @@
 	<string name="post_from_user">%s의 게시물</string>
 	<string name="poll_option_hint">옵션 %d</string>
 	<plurals name="x_minutes">
-		<item quantity="other">%d 분</item>
+		<item quantity="other">%d분</item>
 	</plurals>
 	<plurals name="x_hours">
-		<item quantity="other">%d 시간</item>
+		<item quantity="other">%d시간</item>
 	</plurals>
 	<plurals name="x_days">
-		<item quantity="other">%d 일</item>
+		<item quantity="other">%d일</item>
 	</plurals>
 	<string name="compose_poll_duration">기간: %s</string>
 	<plurals name="x_seconds_left">
-		<item quantity="other">%d 초 남았습니다</item>
+		<item quantity="other">%d초 남았습니다</item>
 	</plurals>
 	<plurals name="x_minutes_left">
-		<item quantity="other">%d 분 남았습니다</item>
+		<item quantity="other">%d분 남았습니다</item>
 	</plurals>
 	<plurals name="x_hours_left">
-		<item quantity="other">%d 시간 남았습니다</item>
+		<item quantity="other">%d시간 남았습니다</item>
 	</plurals>
 	<plurals name="x_days_left">
 		<item quantity="other">%d일 남았습니다</item>
 	</plurals>
 	<plurals name="x_voters">
-		<item quantity="other">%,d 명의 투표자</item>
+		<item quantity="other">%,d명의 투표자</item>
 	</plurals>
 	<string name="poll_closed">마감됨</string>
 	<string name="confirm_mute_title">계정 뮤트</string>
@@ -119,7 +119,7 @@
 	<string name="search_hint">검색</string>
 	<string name="hashtags">해시태그</string>
 	<string name="news">소식</string>
-	<string name="for_you">당신을 위한 추천</string>
+	<string name="for_you">추천</string>
 	<string name="all_notifications">모두</string>
 	<string name="mentions">멘션</string>
 	<plurals name="x_people_talking">
@@ -204,7 +204,7 @@
 	<string name="step_x_of_n">%2$d개 중 %1$d번째 단계</string>
 	<string name="skip">건너뛰기</string>
 	<string name="notification_type_follow">새 팔로워</string>
-	<string name="notification_type_favorite">관심글 지정</string>
+	<string name="notification_type_favorite">마음에 들어함</string>
 	<string name="notification_type_reblog">리블로그</string>
 	<string name="notification_type_mention">멘션</string>
 	<string name="notification_type_poll">투표</string>
@@ -312,7 +312,50 @@
 	</plurals>
 	<string name="timestamp_via_app">%1$s에 %2$s에서</string>
 	<string name="time_now">방금</string>
+	<string name="post_info_reblogs">리블로그</string>
+	<string name="post_info_favorites">좋아요</string>
+	<string name="edit_history">수정 내역</string>
+	<string name="last_edit_at_x">마지막 수정: %s</string>
+	<string name="time_just_now">방금</string>
+	<plurals name="x_seconds_ago">
+		<item quantity="other">%d초 전</item>
+	</plurals>
+	<plurals name="x_minutes_ago">
+		<item quantity="other">%d분 전</item>
+	</plurals>
+	<string name="edited_timestamp">%s에 수정함</string>
+	<string name="edit_original_post">원본 게시물</string>
+	<string name="edit_text_edited">내용을 수정함</string>
+	<string name="edit_spoiler_added">열람 주의 추가됨</string>
+	<string name="edit_spoiler_edited">열람 주의 수정됨</string>
+	<string name="edit_spoiler_removed">열람 주의 삭제됨</string>
+	<string name="edit_poll_added">투표를 추가함</string>
+	<string name="edit_poll_edited">투표를 수정함</string>
+	<string name="edit_poll_removed">투표를 삭제함</string>
+	<string name="edit_media_added">미디어를 추가함</string>
+	<string name="edit_media_removed">영상물을 뺌</string>
+	<string name="edit_media_reordered">미디어 순서 바뀜</string>
+	<string name="edit_marked_sensitive">민감함으로 설정됨</string>
+	<string name="edit_marked_not_sensitive">민감하지 않음으로 설정됨</string>
+	<string name="edit_multiple_changed">게시물 수정됨</string>
+	<string name="edit">수정</string>
+	<string name="discard_changes">변경사항을 삭제하겠습니까?</string>
+	<string name="upload_failed">업로드 실패</string>
+	<string name="file_size_bytes">%d바이트</string>
+	<string name="file_size_kb">%.2fkB</string>
+	<string name="file_size_mb">%.2fMB</string>
+	<string name="file_size_gb">%.2fGB</string>
+	<string name="file_upload_progress">%1$s / %2$s</string>
+	<string name="file_upload_time_remaining">%s 남음</string>
+	<string name="upload_error_connection_lost">디바이스의 인터넷 연결이 끊어졌습니다</string>
+	<string name="upload_processing">처리중…</string>
 	<!-- %s is version like 1.2.3 -->
+	<string name="update_available">안드로이드용 마스토돈 %s 버전을 다운로드 할 수 있습니다.</string>
 	<!-- %s is version like 1.2.3 -->
+	<string name="update_ready">안드로이드용 마스토돈 %s 버전이 다운로드 되었으며 설치할 준비가 되었습니다.</string>
 	<!-- %s is file size -->
+	<string name="download_update">다운로드 (%s)</string>
+	<string name="install_update">설치</string>
+	<string name="privacy_policy_title">마스토돈 및 개인정보</string>
+	<string name="i_agree">동의합니다</string>
 </resources>

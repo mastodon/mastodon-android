@@ -191,15 +191,18 @@ public abstract class MastodonAPIRequest<T> extends APIRequest<T>{
 	}
 
 	void onError(ErrorResponse err){
-		invokeErrorCallback(err);
+		if(!canceled)
+			invokeErrorCallback(err);
 	}
 
 	void onError(String msg, int httpStatus, Throwable exception){
-		invokeErrorCallback(new MastodonErrorResponse(msg, httpStatus, exception));
+		if(!canceled)
+			invokeErrorCallback(new MastodonErrorResponse(msg, httpStatus, exception));
 	}
 
 	void onSuccess(T resp){
-		invokeSuccessCallback(resp);
+		if(!canceled)
+			invokeSuccessCallback(resp);
 	}
 
 	@Override

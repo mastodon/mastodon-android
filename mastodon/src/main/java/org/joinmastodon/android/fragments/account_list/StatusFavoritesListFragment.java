@@ -11,7 +11,7 @@ public class StatusFavoritesListFragment extends StatusRelatedAccountListFragmen
 	@Override
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
-		setTitle(getResources().getQuantityString(R.plurals.x_favorites, status.favouritesCount, status.favouritesCount));
+		setTitle(getResources().getQuantityString(R.plurals.x_favorites, (int)(status.favouritesCount%1000), status.favouritesCount));
 	}
 
 	@Override

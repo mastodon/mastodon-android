@@ -9,10 +9,13 @@
 	<string name="ok">D\'acord</string>
 	<string name="preparing_auth">Preparant a l\'autenticació…</string>
 	<string name="finishing_auth">Finalitzant autentificació…</string>
+	<string name="user_boosted">%s ha impulsat</string>
 	<string name="in_reply_to">En resposta a %s</string>
 	<string name="notifications">Notificacions</string>
 	<string name="user_followed_you">t\'ha començat a seguir</string>
 	<string name="user_sent_follow_request">t\'ha enviat una sol·licitud de seguiment</string>
+	<string name="user_favorited">ha afavorit la teva publicació</string>
+	<string name="notification_boosted">ha impulsat la teva publicació</string>
 	<string name="poll_ended">l\'enquesta ha finalitzat</string>
 	<string name="time_seconds">%ds</string>
 	<string name="time_minutes">%dm</string>
@@ -167,6 +170,8 @@
 	<string name="report_personal_title">No vols veure això?</string>
 	<string name="report_personal_subtitle">Quan veus alguna cosa que no t\'agrada a Mastodon, pots eliminar la persona de la vostra experiència.</string>
 	<string name="back">Enrere</string>
+	<string name="instance_catalog_title">Mastodon està format per usuaris de diferents servidors.</string>
+	<string name="instance_catalog_subtitle">Tria un servidor en funció dels teus interessos, regió o un de propòsit general. Seguiràs podent connectar amb tothom, independentment del servidor.</string>
 	<string name="search_communities">Cerca servidors o introdueix l\'URL</string>
 	<string name="instance_rules_title">Algunes normes bàsiques</string>
 	<string name="instance_rules_subtitle">Pren un minut per revisar les normes establertes i aplicades pels administradors de %s.</string>
@@ -214,6 +219,7 @@
 	<string name="skip">Ometre</string>
 	<string name="notification_type_follow">Nous seguidors</string>
 	<string name="notification_type_favorite">Preferits</string>
+	<string name="notification_type_reblog">Impulsos</string>
 	<string name="notification_type_mention">Mencions</string>
 	<string name="notification_type_poll">Enquestes</string>
 	<string name="choose_account">Seleccionar compte</string>
@@ -276,6 +282,8 @@
 	<string name="unfollowed_user">S\'ha deixat de seguir %s</string>
 	<string name="followed_user">Ara estàs seguint %s</string>
 	<string name="open_in_browser">Obrir al navegador</string>
+	<string name="hide_boosts_from_user">Amagar els impulsos de %s</string>
+	<string name="show_boosts_from_user">Mostrar els impulsos de %s</string>
 	<string name="signup_reason">per què vols unir-te?</string>
 	<string name="signup_reason_note">Això ens ajudarà a revisar la teva petició.</string>
 	<string name="clear">Netejar</string>
@@ -298,8 +306,10 @@
 	<string name="dismiss">Ometre</string>
 	<string name="see_new_posts">Veure noves publicacions</string>
 	<string name="load_missing_posts">Carregar les publicacions faltants</string>
+	<string name="follow_back">Seguir</string>
 	<string name="button_follow_pending">Pendent</string>
 	<string name="follows_you">Te segueix</string>
+	<string name="manually_approves_followers">Aprova seguidors manualment</string>
 	<string name="current_account">Compte actual</string>
 	<string name="log_out_account">Tancar sessió %s</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
@@ -317,7 +327,45 @@
 	</plurals>
 	<string name="timestamp_via_app">%1$s través de %2$s</string>
 	<string name="time_now">ara</string>
+	<string name="post_info_reblogs">Impulsos</string>
+	<string name="post_info_favorites">Preferits</string>
+	<string name="edit_history">Editar l’historial</string>
+	<string name="last_edit_at_x">Darrera edició: %s</string>
+	<string name="time_just_now">ara mateix</string>
+	<string name="edited_timestamp">editat %s</string>
+	<string name="edit_original_post">Publicació original</string>
+	<string name="edit_text_edited">Text editat</string>
+	<string name="edit_spoiler_added">Avís de contingut afegit</string>
+	<string name="edit_spoiler_edited">Avís de contingut editat</string>
+	<string name="edit_spoiler_removed">Avís de contingut suprimit</string>
+	<string name="edit_poll_added">Enquesta afegida</string>
+	<string name="edit_poll_edited">Enquesta editada</string>
+	<string name="edit_poll_removed">Enquesta suprimida</string>
+	<string name="edit_media_added">Multimèdia afegit</string>
+	<string name="edit_media_removed">Multimèdia suprimit</string>
+	<string name="edit_media_reordered">Multimèdia reordenat</string>
+	<string name="edit_marked_sensitive">Marcat com a sensible</string>
+	<string name="edit_marked_not_sensitive">Marcat com a no sensible</string>
+	<string name="edit_multiple_changed">Publicació editada</string>
+	<string name="edit">Edita</string>
+	<string name="discard_changes">Descartar els canvis?</string>
+	<string name="upload_failed">Ha fallat la càrrega</string>
+	<string name="file_size_bytes">%d bytes</string>
+	<string name="file_size_kb">%.2f KB</string>
+	<string name="file_size_mb">%.2f MB</string>
+	<string name="file_size_gb">%.2f GB</string>
+	<string name="file_upload_progress">%1$s de %2$s</string>
+	<string name="file_upload_time_remaining">%s restants</string>
+	<string name="upload_error_connection_lost">El teu dispositiu ha perdut la connexió a internet</string>
+	<string name="upload_processing">S\'està processant…</string>
 	<!-- %s is version like 1.2.3 -->
+	<string name="update_available">Mastodon per a Android %s està preparat per a descarregar.</string>
 	<!-- %s is version like 1.2.3 -->
+	<string name="update_ready">Mastodon per a Android %s s\'ha descarregat i està llest per ser instal·lat.</string>
 	<!-- %s is file size -->
+	<string name="download_update">Baixada (%s)</string>
+	<string name="install_update">Instal·lar</string>
+	<string name="privacy_policy_title">Mastodon i la teva privacitat</string>
+	<string name="privacy_policy_subtitle">Tot i que l\'aplicació Mastodon no recull cap dada, el servidor mitjançant el qual et registres pot tenir una política diferent. Pren un minut per revisar i acceptar la política de privadesa de l\'aplicació Mastodon i la política de privadesa del teu servidor.</string>
+	<string name="i_agree">Hi estic d\'acord</string>
 </resources>

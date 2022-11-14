@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/button_bar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?colorBackgroundLight"
+    android:clipToPadding="false"
+    android:elevation="3dp"
+    android:orientation="horizontal"
+    android:outlineProvider="bounds"
+    android:gravity="center_vertical"
+    tools:showIn="@layout/fragment_onboarding_activation">
+
+    <Button
+        android:id="@+id/btn_back"
+        style="?secondaryLargeButtonStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_weight="1"
+        android:text="@string/resend" />
+
+    <Button
+        android:id="@+id/btn_next"
+        style="?primaryLargeButtonStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="16dp"
+        android:layout_weight="1"
+        android:text="@string/open_email_app" />
+
+</LinearLayout>

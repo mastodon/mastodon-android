@@ -27,6 +27,7 @@ import android.text.Layout;
 import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.text.format.DateUtils;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -100,6 +101,8 @@ import org.parceler.Parcels;
 import java.io.InterruptedIOException;
 import java.net.SocketException;
 import java.net.UnknownHostException;
+import java.time.Instant;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -331,6 +334,8 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 				DraftPollOption opt=createDraftPollOption();
 				opt.edit.setText(eopt.title);
 			}
+			pollDuration=(int)editingStatus.poll.expiresAt.minus(System.currentTimeMillis(), ChronoUnit.MILLIS).getEpochSecond();
+			pollDurationStr=UiUtils.formatTimeLeft(getActivity(), editingStatus.poll.expiresAt);
 			updatePollOptionHints();
 			pollDurationView.setText(getString(R.string.compose_poll_duration, pollDurationStr));
 		}else{
@@ -346,6 +351,7 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 			spoilerEdit.setVisibility(View.VISIBLE);
 			spoilerBtn.setSelected(true);
 		}else if(editingStatus!=null && !TextUtils.isEmpty(editingStatus.spoilerText)){
+			hasSpoiler=true;
 			spoilerEdit.setVisibility(View.VISIBLE);
 			spoilerEdit.setText(getArguments().getString("sourceSpoiler", editingStatus.spoilerText));
 			spoilerBtn.setSelected(true);
@@ -364,6 +370,10 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 			for(DraftMediaAttachment att:attachments){
 				attachmentsView.addView(createMediaAttachmentView(att));
 			}
+		}
+
+		if(editingStatus!=null && editingStatus.visibility!=null) {
+			statusVisibility=editingStatus.visibility;
 		}
 		updateVisibilityIcon();
 
@@ -389,16 +399,16 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 			outState.putStringArrayList("pollOptions", opts);
 			outState.putInt("pollDuration", pollDuration);
 			outState.putString("pollDurationStr", pollDurationStr);
-			outState.putBoolean("hasSpoiler", hasSpoiler);
-			if(!attachments.isEmpty()){
-				ArrayList<Parcelable> serializedAttachments=new ArrayList<>(attachments.size());
-				for(DraftMediaAttachment att:attachments){
-					serializedAttachments.add(Parcels.wrap(att));
-				}
-				outState.putParcelableArrayList("attachments", serializedAttachments);
-			}
-			outState.putSerializable("visibility", statusVisibility);
 		}
+		outState.putBoolean("hasSpoiler", hasSpoiler);
+		if(!attachments.isEmpty()){
+			ArrayList<Parcelable> serializedAttachments=new ArrayList<>(attachments.size());
+			for(DraftMediaAttachment att:attachments){
+				serializedAttachments.add(Parcels.wrap(att));
+			}
+			outState.putParcelableArrayList("attachments", serializedAttachments);
+		}
+		outState.putSerializable("visibility", statusVisibility);
 	}
 
 	@Override
@@ -523,6 +533,7 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 						da.serverAttachment=att;
 						da.description=att.description;
 						da.uri=Uri.parse(att.previewUrl);
+						da.state=AttachmentUploadState.DONE;
 						attachmentsView.addView(createMediaAttachmentView(da));
 						attachments.add(da);
 					}
@@ -548,6 +559,7 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 
 		if(editingStatus!=null){
 			updateCharCounter();
+			visibilityBtn.setEnabled(false);
 		}
 	}
 

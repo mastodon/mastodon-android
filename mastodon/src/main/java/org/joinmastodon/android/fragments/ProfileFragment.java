@@ -408,7 +408,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 
 	private void bindHeaderView(){
 		setTitle(account.displayName);
-		setSubtitle(getResources().getQuantityString(R.plurals.x_posts, account.statusesCount, account.statusesCount));
+		setSubtitle(getResources().getQuantityString(R.plurals.x_posts, (int)(account.statusesCount%1000), account.statusesCount));
 		ViewImageLoader.load(avatar, null, new UrlImageLoaderRequest(GlobalUserPreferences.playGifs ? account.avatar : account.avatarStatic, V.dp(100), V.dp(100)));
 		ViewImageLoader.load(cover, null, new UrlImageLoaderRequest(GlobalUserPreferences.playGifs ? account.header : account.headerStatic, 1000, 1000));
 		SpannableStringBuilder ssb=new SpannableStringBuilder(account.displayName);
@@ -445,9 +445,9 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 		followersCount.setText(UiUtils.abbreviateNumber(account.followersCount));
 		followingCount.setText(UiUtils.abbreviateNumber(account.followingCount));
 		postsCount.setText(UiUtils.abbreviateNumber(account.statusesCount));
-		followersLabel.setText(getResources().getQuantityString(R.plurals.followers, Math.min(999, account.followersCount)));
-		followingLabel.setText(getResources().getQuantityString(R.plurals.following, Math.min(999, account.followingCount)));
-		postsLabel.setText(getResources().getQuantityString(R.plurals.posts, Math.min(999, account.statusesCount)));
+		followersLabel.setText(getResources().getQuantityString(R.plurals.followers, (int)Math.min(999, account.followersCount)));
+		followingLabel.setText(getResources().getQuantityString(R.plurals.following, (int)Math.min(999, account.followingCount)));
+		postsLabel.setText(getResources().getQuantityString(R.plurals.posts, (int)Math.min(999, account.statusesCount)));
 
 		UiUtils.loadCustomEmojiInTextView(name);
 		UiUtils.loadCustomEmojiInTextView(bio);
