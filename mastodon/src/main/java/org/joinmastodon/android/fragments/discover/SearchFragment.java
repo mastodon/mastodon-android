@@ -35,6 +35,8 @@ import java.util.stream.Collectors;
 
 import androidx.recyclerview.widget.RecyclerView;
 import me.grishka.appkit.Nav;
+import me.grishka.appkit.api.Callback;
+import me.grishka.appkit.api.ErrorResponse;
 import me.grishka.appkit.api.SimpleCallback;
 import me.grishka.appkit.utils.MergeRecyclerAdapter;
 import me.grishka.appkit.utils.V;
@@ -128,7 +130,7 @@ public class SearchFragment extends BaseStatusListFragment<SearchResult>{
 		}else{
 			progressVisibilityListener.onProgressVisibilityChanged(true);
 			currentRequest=new GetSearchResults(currentQuery, null, true)
-					.setCallback(new SimpleCallback<>(this){
+					.setCallback(new Callback<>(){
 						@Override
 						public void onSuccess(SearchResults result){
 							ArrayList<SearchResult> results=new ArrayList<>();
@@ -147,6 +149,17 @@ public class SearchFragment extends BaseStatusListFragment<SearchResult>{
 							prevDisplayItems=new ArrayList<>(displayItems);
 							unfilteredResults=results;
 							onDataLoaded(filterSearchResults(results), false);
+						}
+
+						@Override
+						public void onError(ErrorResponse error){
+							currentRequest=null;
+							Activity a=getActivity();
+							if(a==null)
+								return;
+							error.showToast(a);
+							if(progressVisibilityListener!=null)
+								progressVisibilityListener.onProgressVisibilityChanged(false);
 						}
 					})
 					.exec(accountID);
