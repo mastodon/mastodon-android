@@ -27,6 +27,24 @@
 	<string name="discard_draft">Видалити чернетку?</string>
 	<string name="discard">Відхилити</string>
 	<string name="cancel">Скасувати</string>
+	<plurals name="followers">
+		<item quantity="one">підписник</item>
+		<item quantity="few">підписників</item>
+		<item quantity="many">підписників</item>
+		<item quantity="other">підписників</item>
+	</plurals>
+	<plurals name="following">
+		<item quantity="one">підписаний</item>
+		<item quantity="few">підписаний</item>
+		<item quantity="many">підписаний</item>
+		<item quantity="other">підписаний</item>
+	</plurals>
+	<plurals name="posts">
+		<item quantity="one">допис</item>
+		<item quantity="few">дописи</item>
+		<item quantity="many">дописів</item>
+		<item quantity="other">дописів</item>
+	</plurals>
 	<string name="posts">Дописи</string>
 	<string name="posts_and_replies">Дописи й відповіді</string>
 	<string name="media">Медіа</string>
@@ -43,6 +61,12 @@
 	<string name="report_user">Поскаржитися на %s</string>
 	<string name="block_domain">Блокувати %s</string>
 	<string name="unblock_domain">Розблокувати %s</string>
+	<plurals name="x_posts">
+		<item quantity="one">%,d Публікація</item>
+		<item quantity="few">%,d Публікації(-ій)</item>
+		<item quantity="many">%,d Публікацій</item>
+		<item quantity="other">%,d Публікацій</item>
+	</plurals>
 	<string name="profile_joined">Приєднався</string>
 	<string name="done">Готово</string>
 	<string name="loading">Завантаження…</string>
@@ -51,12 +75,36 @@
 	<string name="saving">Збереження…</string>
 	<string name="post_from_user">Публікація від %s</string>
 	<string name="poll_option_hint">Параметр %d</string>
+	<plurals name="x_minutes">
+		<item quantity="one">%d Хвилина</item>
+		<item quantity="few">%d Хвилини</item>
+		<item quantity="many">%d Хвилин</item>
+		<item quantity="other">%d Хвилин</item>
+	</plurals>
+	<plurals name="x_hours">
+		<item quantity="one">%d Година</item>
+		<item quantity="few">%d Години</item>
+		<item quantity="many">%d Годин</item>
+		<item quantity="other">%d Годин</item>
+	</plurals>
+	<plurals name="x_days">
+		<item quantity="one">%d День</item>
+		<item quantity="few">%d Дні</item>
+		<item quantity="many">%d Днів</item>
+		<item quantity="other">%d Днів</item>
+	</plurals>
 	<string name="compose_poll_duration">Тривалість: %s</string>
 	<plurals name="x_seconds_left">
 		<item quantity="one">%d Секунд залишилося</item>
 		<item quantity="few">%d Секунд залишилося</item>
 		<item quantity="many">%d Секунд залишилося</item>
 		<item quantity="other">%d Секунд залишилося</item>
+	</plurals>
+	<plurals name="x_minutes_left">
+		<item quantity="one">%d Хвилина залишилася</item>
+		<item quantity="few">%d Хвилини залишилося</item>
+		<item quantity="many">%d Хвилин залишилося</item>
+		<item quantity="other">%d Хвилин залишилося</item>
 	</plurals>
 	<plurals name="x_hours_left">
 		<item quantity="one">%d Година залишилася</item>
@@ -110,6 +158,18 @@
 	<string name="for_you">Для Вас</string>
 	<string name="all_notifications">Все</string>
 	<string name="mentions">Згадки</string>
+	<plurals name="x_people_talking">
+		<item quantity="one">%d особа розмовляє</item>
+		<item quantity="few">%d особи розмовляють</item>
+		<item quantity="many">%d особ розмовляє</item>
+		<item quantity="other">%d осіб розмовляє</item>
+	</plurals>
+	<plurals name="discussed_x_times">
+		<item quantity="one">Обговорено %d раз</item>
+		<item quantity="few">Обговорено %d рази</item>
+		<item quantity="many">Обговорено %d раз</item>
+		<item quantity="other">Обговорено %d раз</item>
+	</plurals>
 	<string name="report_title">Поскаржитись на %s</string>
 	<string name="report_choose_reason">Що не так з цим постом?</string>
 	<string name="report_choose_reason_account">Що не так з %s?</string>
@@ -192,6 +252,14 @@
 	<string name="notification_type_poll">Опитування</string>
 	<string name="choose_account">Виберіть обліковий запис</string>
 	<string name="err_not_logged_in">Спочатку увійдіть у Mastodon</string>
+	<plurals name="cant_add_more_than_x_attachments">
+		<item quantity="one">Ви не можете додати більше ніж %d медіа</item>
+		<item quantity="few">Ви не можете додати більше ніж %d медіа</item>
+		<item quantity="many">Ви не можете додати більше ніж %d медіа</item>
+		<item quantity="other">Ви не можете додати більше ніж %d медіа</item>
+	</plurals>
+	<string name="media_attachment_unsupported_type">Файл %s непідтримуваного формату</string>
+	<string name="media_attachment_too_big">Розмір %1$s перевищує ліміт %2$s MB</string>
 	<string name="settings_theme">Зовнішній вигляд</string>
 	<string name="theme_auto">Автоматичний</string>
 	<string name="theme_light">Світлий</string>
@@ -216,6 +284,26 @@
 	<string name="settings_tos">Умови використання</string>
 	<string name="settings_privacy_policy">Політика конфіденційності</string>
 	<string name="settings_spicy">Гостра зона</string>
+	<string name="settings_clear_cache">Очистити кеш медіа</string>
+	<string name="settings_app_version">Mastodon для Android v%1$s (%2$d)</string>
+	<string name="media_cache_cleared">Кеш медіа очищено</string>
+	<string name="confirm_log_out">Ви справді бажаєте вийти?</string>
+	<string name="sensitive_content">Делікатний зміст</string>
+	<string name="sensitive_content_explain">Автор позначив цей медіафайл чутливим. Торкніться, щоб показати.</string>
+	<string name="media_hidden">Натисніть, щоб показати</string>
+	<string name="avatar_description">Перейти до профілю %s</string>
+	<string name="more_options">Більше опцій</string>
+	<string name="reveal_content">Показати вміст</string>
+	<string name="hide_content">Приховати вміст</string>
+	<string name="new_post">Новий допис</string>
+	<string name="button_reply">Відповісти</string>
+	<string name="button_reblog">Репост</string>
+	<string name="button_favorite">Улюблене</string>
+	<string name="button_share">Поділитись</string>
+	<string name="media_no_description">Медіа без опису</string>
+	<string name="add_media">Додати медіа</string>
+	<string name="add_poll">Додати опитування</string>
+	<string name="emoji">Емоджі</string>
 	<string name="post_visibility">Видимість допису</string>
 	<string name="home_timeline">Домашня стрічка</string>
 	<string name="my_profile">Мій профіль</string>
@@ -255,6 +343,30 @@
 	<string name="current_account">Поточний обліковий запис</string>
 	<string name="log_out_account">Вийти з %s</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
+	<plurals name="x_followers">
+		<item quantity="one">%,d підписник</item>
+		<item quantity="few">%,d підписників</item>
+		<item quantity="many">%,d підписників</item>
+		<item quantity="other">%,d підписників</item>
+	</plurals>
+	<plurals name="x_following">
+		<item quantity="one">Підписаний на %,d</item>
+		<item quantity="few">Підписаний на %,d</item>
+		<item quantity="many">Підписаний на %,d</item>
+		<item quantity="other">Підписаний на %,d</item>
+	</plurals>
+	<plurals name="x_favorites">
+		<item quantity="one">%,d, улюблене</item>
+		<item quantity="few">%,d, улюблені</item>
+		<item quantity="many">%,d, улюблені</item>
+		<item quantity="other">%,d, улюблені</item>
+	</plurals>
+	<plurals name="x_reblogs">
+		<item quantity="one">%,d репост</item>
+		<item quantity="few">%,d репости</item>
+		<item quantity="many">%,d репостів</item>
+		<item quantity="other">%,d репостів</item>
+	</plurals>
 	<string name="timestamp_via_app">%1$s через %2$s</string>
 	<string name="time_now">щойно</string>
 	<string name="post_info_reblogs">Репости</string>
@@ -262,6 +374,19 @@
 	<string name="edit_history">Змінити історію</string>
 	<string name="last_edit_at_x">Останнє редагування %s</string>
 	<string name="time_just_now">тільки що</string>
+	<plurals name="x_seconds_ago">
+		<item quantity="one">%d Секунду тому</item>
+		<item quantity="few">%d Секунди тому</item>
+		<item quantity="many">%d Секунд тому</item>
+		<item quantity="other">%d Секунд тому</item>
+	</plurals>
+	<plurals name="x_minutes_ago">
+		<item quantity="one">%d Хвилину тому</item>
+		<item quantity="few">%d Хвилини тому</item>
+		<item quantity="many">%d Хвилин тому</item>
+		<item quantity="other">%d Хвилин тому</item>
+	</plurals>
+	<string name="edited_timestamp">відредаговано %s</string>
 	<string name="edit_original_post">Оригінальний допис</string>
 	<string name="edit_text_edited">Текст відредаговано</string>
 	<string name="edit_spoiler_added">Повідомлення про вміст додано</string>
@@ -294,4 +419,8 @@
 	<!-- %s is file size -->
 	<string name="download_update">Завантажити (%s)</string>
 	<string name="install_update">Встановити</string>
+	<string name="privacy_policy_title">Mastodon і ваша конфіденційність</string>
+	<string name="privacy_policy_subtitle">Хоча додаток Mastodon не збирає жодних даних, сервер, на якому ви зареєструвались, може мати іншу політику. Витратьте хвилину, щоб переглянути та погодитися з політикою конфіденційності Mastodon і політикою конфіденційності Вашого сервера.</string>
+	<string name="i_agree">Я погоджуюся</string>
+	<string name="empty_list">Цей список порожній</string>
 </resources>
