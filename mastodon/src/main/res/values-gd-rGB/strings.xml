@@ -269,6 +269,15 @@
 	<string name="settings_gif">Cluich beothachadh nan avataran ’s nan emoji</string>
 	<string name="settings_custom_tabs">Cleachd am brabhsair am broinn na h-aplacaid</string>
 	<string name="settings_notifications">Brathan</string>
+	<string name="notify_me_when">Cuir brath thugam nuair</string>
+	<string name="notify_anyone">a bhios duine sam bith</string>
+	<string name="notify_follower">a bhios neach-leantainn</string>
+	<string name="notify_followed">a bhios cuideigin a leanas mi</string>
+	<string name="notify_none">nach bi duine sam bith</string>
+	<string name="notify_favorites">air post uam a chur ris na h-annsachdan</string>
+	<string name="notify_follow">air mo leantainn</string>
+	<string name="notify_reblog">air post uam a bhrosnachadh</string>
+	<string name="notify_mention">air iomradh a thoirt orm</string>
 	<string name="settings_boring">An earrann ràsanach</string>
 	<string name="settings_account">Roghainnean a’ chunntais</string>
 	<string name="settings_contribute">Cuidich le leasachadh Mastodon</string>
@@ -294,6 +303,7 @@
 	<string name="media_no_description">Meadhan gun tuairisgeul</string>
 	<string name="add_media">Cuir meadhan ris</string>
 	<string name="add_poll">Cuir cunntas-bheachd ris</string>
+	<string name="emoji">Emoji</string>
 	<string name="post_visibility">Faicsinneachd a’ phuist</string>
 	<string name="home_timeline">Loidhne-ama na dachaighe</string>
 	<string name="my_profile">A’ phròifil agam</string>
@@ -376,6 +386,7 @@
 		<item quantity="few">%d mionaidean air ais</item>
 		<item quantity="other">%d mionaid air ais</item>
 	</plurals>
+	<string name="edited_timestamp">air a dheasachadh %s</string>
 	<string name="edit_original_post">Am post tùsail</string>
 	<string name="edit_text_edited">Chaidh an teacsa a dheasachadh</string>
 	<string name="edit_spoiler_added">Chaidh rabhadh susbainte a chur ris</string>
@@ -394,6 +405,9 @@
 	<string name="discard_changes">A bheil thu airson na h-atharraichean a thilgeil air falbh?</string>
 	<string name="upload_failed">Dh’fhàillig leis an luchdadh suas</string>
 	<string name="file_size_bytes">%d baidht</string>
+	<string name="file_size_kb">%.2f KB</string>
+	<string name="file_size_mb">%.2f MB</string>
+	<string name="file_size_gb">%.2f GB</string>
 	<string name="file_upload_progress">%1$s à %2$s</string>
 	<string name="file_upload_time_remaining">%s air fhàgail</string>
 	<string name="upload_error_connection_lost">Chaill an t-uidheam agad an ceangal ris an eadar-lìon</string>
