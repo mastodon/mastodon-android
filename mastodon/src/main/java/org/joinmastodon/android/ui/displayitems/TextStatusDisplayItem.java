@@ -83,7 +83,7 @@ public class TextStatusDisplayItem extends StatusDisplayItem{
 					itemView.setClickable(false);
 				}else{
 					spoilerOverlay.setVisibility(View.VISIBLE);
-					text.setVisibility(View.INVISIBLE);
+					text.setVisibility(View.GONE);
 					itemView.setClickable(true);
 				}
 			}else{
