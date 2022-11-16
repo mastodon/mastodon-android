@@ -61,6 +61,76 @@
 	<string name="field_label">Label</string>
 	<string name="field_content">Konten</string>
 	<string name="saving">Menyimpan…</string>
+	<string name="post_from_user">Kiriman dari %s</string>
+	<string name="poll_option_hint">Opsi %d</string>
+	<plurals name="x_minutes">
+		<item quantity="other">%d menit</item>
+	</plurals>
+	<plurals name="x_hours">
+		<item quantity="other">%d jam</item>
+	</plurals>
+	<plurals name="x_days">
+		<item quantity="other">%d hari</item>
+	</plurals>
+	<string name="compose_poll_duration">Durasi: %s</string>
+	<plurals name="x_seconds_left">
+		<item quantity="other">Tersisa %d detik</item>
+	</plurals>
+	<plurals name="x_minutes_left">
+		<item quantity="other">Tersisa %d menit</item>
+	</plurals>
+	<plurals name="x_hours_left">
+		<item quantity="other">Tersisa %d jam</item>
+	</plurals>
+	<plurals name="x_days_left">
+		<item quantity="other">Tersisa %d hari</item>
+	</plurals>
+	<plurals name="x_voters">
+		<item quantity="other">%,d pemilih</item>
+	</plurals>
+	<string name="poll_closed">Ditutup</string>
+	<string name="confirm_mute_title">Bisukan Akun</string>
+	<string name="confirm_mute">Konfirmasi membisukan %s</string>
+	<string name="do_mute">Bisukan</string>
+	<string name="confirm_unmute_title">Berhenti Membisukan Akun</string>
+	<string name="confirm_unmute">Konfirmasi berhenti membisukan %s</string>
+	<string name="do_unmute">Berhenti membisukan</string>
+	<string name="confirm_block_title">Blokir Akun</string>
+	<string name="confirm_block_domain_title">Blokir Domain</string>
+	<string name="confirm_block">Konfirmasi memblokir %s</string>
+	<string name="do_block">Blokir</string>
+	<string name="confirm_unblock_title">Berhenti Memblokir Akun</string>
+	<string name="confirm_unblock_domain_title">Berhenti Blokir Domain</string>
+	<string name="confirm_unblock">Konfirmasi berhenti memblokir %s</string>
+	<string name="do_unblock">Berhenti memblokir</string>
+	<string name="button_muted">Dibisukan</string>
+	<string name="button_blocked">Diblokir</string>
+	<string name="action_vote">Pilih</string>
+	<string name="tap_to_reveal">Ketuk untuk melihat</string>
+	<string name="delete">Hapus</string>
+	<string name="confirm_delete_title">Hapus Kiriman</string>
+	<string name="confirm_delete">Apakah Anda yakin untuk menghapus kiriman ini?</string>
+	<string name="deleting">Menghapus…</string>
+	<string name="notification_channel_audio_player">Pemutaran audio</string>
+	<string name="play">Putar</string>
+	<string name="pause">Jeda</string>
+	<string name="log_out">Keluar</string>
+	<string name="add_account">Tambahkan akun</string>
+	<string name="search_hint">Cari</string>
+	<string name="hashtags">Tagar</string>
+	<string name="news">Berita</string>
+	<string name="for_you">Untuk Anda</string>
+	<string name="all_notifications">Semua</string>
+	<string name="mentions">Sebutan</string>
+	<plurals name="x_people_talking">
+		<item quantity="other">%d orang sedang membicarakan</item>
+	</plurals>
+	<plurals name="discussed_x_times">
+		<item quantity="other">Dibahas %d kali</item>
+	</plurals>
+	<string name="report_title">Laporkan %s</string>
+	<string name="report_choose_reason">Ada apa dengan kiriman ini?</string>
+	<string name="report_choose_reason_account">Ada apa dengan %s?</string>
 	<string name="report_choose_reason_subtitle">Pilih alasan yang cocok</string>
 	<string name="report_reason_personal">Saya tidak suka</string>
 	<string name="report_reason_personal_subtitle">Ini bukan hal yang ingin Anda lihat</string>
@@ -87,6 +157,30 @@
 	<string name="report_personal_subtitle">Ketika Anda melihat sesuatu yang Anda tidak suka di Mastodon, Anda dapat menghapus orang dari pengalaman Anda.</string>
 	<string name="back">Kembali</string>
 	<string name="instance_catalog_title">Mastodon dibuat oleh pengguna di server yang berbeda-beda.</string>
+	<string name="instance_catalog_subtitle">Pilih sebuah server berdasarkan minat atau wilayah Anda, atau yang umum. Anda masih dapat berkomunikasi dengan semua orang, tanpa memedulikan server yang Anda berada.</string>
+	<string name="search_communities">Cari server atau masukkan URL</string>
+	<string name="instance_rules_title">Beberapa aturan dasar</string>
+	<string name="instance_rules_subtitle">Luangkan beberapa menit untuk melihat peraturan yang ditetapkan oleh admin %s.</string>
+	<string name="signup_title">Mari kita siapkan Anda di %s</string>
+	<string name="edit_photo">sunting</string>
+	<string name="display_name">nama tampilan</string>
+	<string name="username">nama pengguna</string>
+	<string name="email">surel</string>
+	<string name="password">kata sandi</string>
+	<string name="password_note">Tambahkan huruf besar, karakter spesial, dan nomor untuk meningkatkan kekuatan kata sandi Anda.</string>
+	<string name="category_academia">Akademisi</string>
+	<string name="category_activism">Aktivisme</string>
+	<string name="category_all">Semua</string>
+	<string name="category_art">Seni</string>
+	<string name="category_food">Makanan</string>
+	<string name="category_furry">Furry</string>
+	<string name="category_games">Permainan</string>
+	<string name="category_general">Umum</string>
+	<string name="category_journalism">Jurnalisme</string>
+	<string name="category_lgbt">LGBT</string>
+	<string name="category_music">Musik</string>
+	<string name="category_regional">Regional</string>
+	<string name="category_tech">Teknologi</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<!-- %s is version like 1.2.3 -->
 	<!-- %s is version like 1.2.3 -->
