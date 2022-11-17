@@ -183,7 +183,7 @@ public class ProfileAboutFragment extends Fragment implements WindowInsetsAwareF
 	}
 
 	private abstract class BaseViewHolder extends BindableViewHolder<AccountField>{
-		private ShapeDrawable background=new ShapeDrawable();
+		protected ShapeDrawable background=new ShapeDrawable();
 
 		public BaseViewHolder(int layout){
 			super(getActivity(), layout, list);
@@ -220,6 +220,10 @@ public class ProfileAboutFragment extends Fragment implements WindowInsetsAwareF
 			super.onBind(item);
 			title.setText(item.parsedName);
 			value.setText(item.parsedValue);
+			if(item.verifiedAt != null){
+				background.getPaint().setARGB(255,213,228, 217);
+				itemView.setBackground(background);
+			}
 		}
 
 		@Override
