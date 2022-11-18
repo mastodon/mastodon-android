@@ -40,7 +40,7 @@ public class CacheController{
 	private static final Handler uiHandler=new Handler(Looper.getMainLooper());
 
 	private final String accountID;
-	private DatabaseHelper db;
+	private DatabaseHelper dbHelper;
 	private final Runnable databaseCloseRunnable=this::closeDatabase;
 
 	private static final int POST_FLAG_GAP_AFTER=1;
@@ -110,7 +110,7 @@ public class CacheController{
 	}
 
 	public void putHomeTimeline(List<Status> posts, boolean clear){
-		runOnDbThread((db)->{
+		runOnDbThread(db->{
 			if(clear)
 				db.delete("home_timeline", null, null);
 			ContentValues values=new ContentValues(3);
@@ -192,7 +192,7 @@ public class CacheController{
 	}
 
 	private void putNotifications(List<Notification> notifications, boolean onlyMentions, boolean clear){
-		runOnDbThread((db)->{
+		runOnDbThread(db->{
 			String table=onlyMentions ? "notifications_mentions" : "notifications_all";
 			if(clear)
 				db.delete(table, null, null);
@@ -210,7 +210,7 @@ public class CacheController{
 	}
 
 	public void getRecentSearches(Consumer<List<SearchResult>> callback){
-		runOnDbThread((db)->{
+		runOnDbThread(db->{
 			try(Cursor cursor=db.query("recent_searches", new String[]{"json"}, null, null, null, null, "time DESC")){
 				List<SearchResult> results=new ArrayList<>();
 				while(cursor.moveToNext()){
@@ -224,7 +224,7 @@ public class CacheController{
 	}
 
 	public void putRecentSearch(SearchResult result){
-		runOnDbThread((db)->{
+		runOnDbThread(db->{
 			ContentValues values=new ContentValues(4);
 			values.put("id", result.getID());
 			values.put("json", MastodonAPIController.gson.toJson(result));
@@ -234,13 +234,11 @@ public class CacheController{
 	}
 
 	public void deleteStatus(String id){
-		runOnDbThread((db)->{
-			db.delete("home_timeline", "`id`=?", new String[]{id});
-		});
+		runOnDbThread(db->db.delete("home_timeline", "`id`=?", new String[]{id}));
 	}
 
 	public void clearRecentSearches(){
-		runOnDbThread((db)->db.delete("recent_searches", null, null));
+		runOnDbThread(db->db.delete("recent_searches", null, null));
 	}
 
 	private void closeDelayed(){
@@ -248,24 +246,24 @@ public class CacheController{
 	}
 
 	public void closeDatabase(){
-		if(db!=null){
+		if(dbHelper!=null){
 			if(BuildConfig.DEBUG)
 				Log.d(TAG, "closeDatabase");
-			db.close();
-			db=null;
+			dbHelper.close();
+			dbHelper=null;
 		}
 	}
 
 	private void cancelDelayedClose(){
-		if(db!=null){
+		if(dbHelper!=null){
 			databaseThread.handler.removeCallbacks(databaseCloseRunnable);
 		}
 	}
 
 	private SQLiteDatabase getOrOpenDatabase(){
-		if(db==null)
-			db=new DatabaseHelper();
-		return db.getWritableDatabase();
+		if(dbHelper==null)
+			dbHelper=new DatabaseHelper();
+		return dbHelper.getWritableDatabase();
 	}
 
 	private void runOnDbThread(DatabaseRunnable r){

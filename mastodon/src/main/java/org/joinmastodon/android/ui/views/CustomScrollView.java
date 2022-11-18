@@ -17,8 +17,6 @@
 package org.joinmastodon.android.ui.views;
 
 import android.content.Context;
-import android.content.res.Configuration;
-import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.os.Build;
@@ -26,7 +24,6 @@ import android.os.Build.VERSION_CODES;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.os.StrictMode;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.FocusFinder;
@@ -650,7 +647,7 @@ public class CustomScrollView extends FrameLayout{
 
             case MotionEvent.ACTION_DOWN: {
                 final int y = (int) ev.getY();
-                if (!inChild((int) ev.getX(), (int) y)) {
+                if (!inChild((int) ev.getX(), y)) {
                     mIsBeingDragged = false;
                     recycleVelocityTracker();
                     break;

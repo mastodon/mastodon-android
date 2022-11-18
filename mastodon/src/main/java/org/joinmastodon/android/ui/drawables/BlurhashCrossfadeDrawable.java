@@ -22,7 +22,7 @@ public class BlurhashCrossfadeDrawable extends Drawable{
 	private float blurhashAlpha=1f;
 	private ObjectAnimator currentAnim;
 
-	private static Property<BlurhashCrossfadeDrawable, Float> BLURHASH_ALPHA;
+	private static final Property<BlurhashCrossfadeDrawable, Float> BLURHASH_ALPHA;
 
 	static{
 		if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.N){

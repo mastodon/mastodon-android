@@ -154,8 +154,8 @@ public class AccountCardStatusDisplayItem extends StatusDisplayItem{
 				name.invalidate();
 				bio.invalidate();
 			}
-			if(image instanceof Animatable && !((Animatable) image).isRunning())
-				((Animatable) image).start();
+			if(image instanceof Animatable animatable && !animatable.isRunning())
+				animatable.start();
 		}
 
 		@Override

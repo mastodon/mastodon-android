@@ -20,10 +20,9 @@ import org.joinmastodon.android.model.StatusPrivacy;
 import org.joinmastodon.android.ui.utils.UiUtils;
 import org.parceler.Parcels;
 
-import java.text.DecimalFormat;
+import java.text.NumberFormat;
 
 import me.grishka.appkit.Nav;
-import me.grishka.appkit.utils.BindableViewHolder;
 import me.grishka.appkit.utils.V;
 
 public class FooterStatusDisplayItem extends StatusDisplayItem{
@@ -53,6 +52,18 @@ public class FooterStatusDisplayItem extends StatusDisplayItem{
 				info.setClassName(Button.class.getName());
 				info.setText(item.parentFragment.getString(descriptionForId(host.getId())));
 			}
+
+			private int descriptionForId(int id){
+				if(id==R.id.reply_btn)
+					return R.string.button_reply;
+				if(id==R.id.boost_btn)
+					return R.string.button_reblog;
+				if(id==R.id.favorite_btn)
+					return R.string.button_favorite;
+				if(id==R.id.share_btn)
+					return R.string.button_share;
+				return 0;
+			}
 		};
 
 		public Holder(Activity activity, ViewGroup parent){
@@ -66,18 +77,18 @@ public class FooterStatusDisplayItem extends StatusDisplayItem{
 				UiUtils.fixCompoundDrawableTintOnAndroid6(boost);
 				UiUtils.fixCompoundDrawableTintOnAndroid6(favorite);
 			}
-			View reply=findViewById(R.id.reply_btn);
-			View boost=findViewById(R.id.boost_btn);
-			View favorite=findViewById(R.id.favorite_btn);
-			View share=findViewById(R.id.share_btn);
-			reply.setOnClickListener(this::onReplyClick);
-			reply.setAccessibilityDelegate(buttonAccessibilityDelegate);
-			boost.setOnClickListener(this::onBoostClick);
-			boost.setAccessibilityDelegate(buttonAccessibilityDelegate);
-			favorite.setOnClickListener(this::onFavoriteClick);
-			favorite.setAccessibilityDelegate(buttonAccessibilityDelegate);
-			share.setOnClickListener(this::onShareClick);
-			share.setAccessibilityDelegate(buttonAccessibilityDelegate);
+			View replyBtn=findViewById(R.id.reply_btn);
+			View boostBtn=findViewById(R.id.boost_btn);
+			View favoriteBtn=findViewById(R.id.favorite_btn);
+			View shareBtn=findViewById(R.id.share_btn);
+			replyBtn.setOnClickListener(this::onReplyClick);
+			replyBtn.setAccessibilityDelegate(buttonAccessibilityDelegate);
+			boostBtn.setOnClickListener(this::onBoostClick);
+			boostBtn.setAccessibilityDelegate(buttonAccessibilityDelegate);
+			favoriteBtn.setOnClickListener(this::onFavoriteClick);
+			favoriteBtn.setAccessibilityDelegate(buttonAccessibilityDelegate);
+			shareBtn.setOnClickListener(this::onShareClick);
+			shareBtn.setAccessibilityDelegate(buttonAccessibilityDelegate);
 		}
 
 		@Override
@@ -93,7 +104,7 @@ public class FooterStatusDisplayItem extends StatusDisplayItem{
 
 		private void bindButton(TextView btn, long count){
 			if(count>0 && !item.hideCounts){
-				btn.setText(DecimalFormat.getIntegerInstance().format(count));
+				btn.setText(NumberFormat.getIntegerInstance().format(count));
 				btn.setCompoundDrawablePadding(V.dp(8));
 			}else{
 				btn.setText("");
@@ -125,18 +136,6 @@ public class FooterStatusDisplayItem extends StatusDisplayItem{
 			intent.setType("text/plain");
 			intent.putExtra(Intent.EXTRA_TEXT, item.status.url);
 			v.getContext().startActivity(Intent.createChooser(intent, v.getContext().getString(R.string.share_toot_title)));
-		}
-
-		private int descriptionForId(int id){
-			if(id==R.id.reply_btn)
-				return R.string.button_reply;
-			if(id==R.id.boost_btn)
-				return R.string.button_reblog;
-			if(id==R.id.favorite_btn)
-				return R.string.button_favorite;
-			if(id==R.id.share_btn)
-				return R.string.button_share;
-			return 0;
 		}
 	}
 }

@@ -41,7 +41,7 @@ public class CustomEmojiHelper{
 		for(CustomEmojiSpan span:spans.get(image)){
 			span.setDrawable(drawable);
 		}
-		if(drawable instanceof Animatable && !((Animatable) drawable).isRunning())
-			((Animatable) drawable).start();
+		if(drawable instanceof Animatable animatable && !animatable.isRunning())
+			animatable.start();
 	}
 }

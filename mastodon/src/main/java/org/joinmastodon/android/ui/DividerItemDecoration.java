@@ -15,9 +15,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import me.grishka.appkit.utils.V;
 
 public class DividerItemDecoration extends RecyclerView.ItemDecoration{
-	private Paint paint=new Paint();
-	private int paddingStart, paddingEnd;
-	private Predicate<RecyclerView.ViewHolder> drawDividerPredicate;
+	private final Paint paint=new Paint();
+	private final int paddingStart, paddingEnd;
+	private final Predicate<RecyclerView.ViewHolder> drawDividerPredicate;
 	private boolean drawBelowLastItem;
 
 	public static final Predicate<RecyclerView.ViewHolder> NOT_FIRST=vh->vh.getAbsoluteAdapterPosition()>0;

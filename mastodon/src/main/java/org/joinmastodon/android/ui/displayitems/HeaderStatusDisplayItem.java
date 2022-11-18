@@ -234,8 +234,8 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 			}else{
 				avatar.setImageDrawable(drawable);
 			}
-			if(drawable instanceof Animatable)
-				((Animatable) drawable).start();
+			if(drawable instanceof Animatable animatable)
+				animatable.start();
 		}
 
 		@Override

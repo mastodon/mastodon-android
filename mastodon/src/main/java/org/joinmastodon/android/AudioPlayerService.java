@@ -155,8 +155,8 @@ public class AudioPlayerService extends Service{
 		});
 
 		Drawable d=ImageCache.getInstance(this).getFromTop(new UrlImageLoaderRequest(status.account.avatar, V.dp(50), V.dp(50)));
-		if(d instanceof BitmapDrawable){
-			statusAvatar=((BitmapDrawable) d).getBitmap();
+		if(d instanceof BitmapDrawable bitmapDrawable){
+			statusAvatar=bitmapDrawable.getBitmap();
 		}else if(d!=null){
 			statusAvatar=Bitmap.createBitmap(d.getIntrinsicWidth(), d.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
 			d.setBounds(0, 0, d.getIntrinsicWidth(), d.getIntrinsicHeight());

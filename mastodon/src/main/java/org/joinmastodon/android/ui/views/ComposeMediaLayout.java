@@ -3,7 +3,6 @@ package org.joinmastodon.android.ui.views;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.AttributeSet;
-import android.view.View;
 import android.view.ViewGroup;
 
 import me.grishka.appkit.utils.V;

@@ -56,10 +56,10 @@ public class ComposeAutocompleteViewController{
 	private List<Hashtag> hashtags=Collections.emptyList();
 	private List<WrappedEmoji> emojis=Collections.emptyList();
 	private Mode mode;
-	private APIRequest currentRequest;
-	private Runnable usersDebouncer=this::doSearchUsers, hashtagsDebouncer=this::doSearchHashtags;
+	private APIRequest<SearchResults> currentRequest;
+	private final Runnable usersDebouncer=this::doSearchUsers, hashtagsDebouncer=this::doSearchHashtags;
 	private String lastText;
-	private ComposeAutocompleteBackgroundDrawable background;
+	private final ComposeAutocompleteBackgroundDrawable background;
 	private boolean listIsHidden=true;
 
 	private UsersAdapter usersAdapter;

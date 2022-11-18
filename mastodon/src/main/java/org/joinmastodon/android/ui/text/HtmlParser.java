@@ -27,8 +27,7 @@ import java.util.stream.Collectors;
 import androidx.annotation.NonNull;
 
 public class HtmlParser{
-	private static final String TAG="HtmlParser";
-	private static Pattern EMOJI_CODE_PATTERN=Pattern.compile(":([\\w]+):");
+	private static final Pattern EMOJI_CODE_PATTERN=Pattern.compile(":([\\w]+):");
 
 	private HtmlParser(){}
 

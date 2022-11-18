@@ -134,11 +134,11 @@ public class CustomEmojiPopupKeyboard extends PopupKeyboard{
 
 		@Override
 		public void onBindViewHolder(RecyclerView.ViewHolder holder, int position){
-			if(holder instanceof EmojiViewHolder){
-				((EmojiViewHolder) holder).bind(category.emojis.get(position-1));
-				((EmojiViewHolder) holder).positionWithinCategory=position-1;
-			}else if(holder instanceof SectionHeaderViewHolder){
-				((SectionHeaderViewHolder) holder).bind(TextUtils.isEmpty(category.title) ? domain : category.title);
+			if(holder instanceof EmojiViewHolder emojiViewHolder){
+				emojiViewHolder.bind(category.emojis.get(position-1));
+				emojiViewHolder.positionWithinCategory=position-1;
+			}else if(holder instanceof SectionHeaderViewHolder sectionHeaderViewHolder){
+				sectionHeaderViewHolder.bind(TextUtils.isEmpty(category.title) ? domain : category.title);
 			}
 			super.onBindViewHolder(holder, position);
 		}

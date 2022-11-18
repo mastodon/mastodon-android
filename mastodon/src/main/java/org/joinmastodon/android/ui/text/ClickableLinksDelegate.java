@@ -45,8 +45,7 @@ public class ClickableLinksDelegate {
 				return false;
 			}
 			CharSequence text=view.getText();
-			if(text instanceof Spanned){
-				Spanned s=(Spanned)text;
+			if(text instanceof Spanned s){
 				LinkSpan[] spans=s.getSpans(0, s.length()-1, LinkSpan.class);
 				if(spans.length>0){
 					for(LinkSpan span:spans){

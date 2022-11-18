@@ -27,7 +27,6 @@ public class Card extends BaseModel{
 	public String authorUrl;
 	public String providerName;
 	public String providerUrl;
-//	public String html;
 	public int width;
 	public int height;
 	public String image;

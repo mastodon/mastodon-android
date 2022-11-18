@@ -6,7 +6,6 @@ import org.joinmastodon.android.api.RequiredField;
 public class FollowSuggestion extends BaseModel{
 	@RequiredField
 	public Account account;
-//	public String source;
 
 	@Override
 	public void postprocess() throws ObjectValidationException{

@@ -8,17 +8,15 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.DragEvent;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
 import android.view.inputmethod.InputConnectionWrapper;
 import android.view.inputmethod.InputContentInfo;
 import android.widget.EditText;
+import androidx.annotation.RequiresApi;
 
 import java.util.Objects;
-
-import androidx.annotation.RequiresApi;
 
 public class ComposeEditText extends EditText{
 	private SelectionListener selectionListener;

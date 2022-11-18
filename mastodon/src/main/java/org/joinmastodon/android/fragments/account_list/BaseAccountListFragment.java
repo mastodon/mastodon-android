@@ -57,6 +57,8 @@ import me.grishka.appkit.utils.V;
 import me.grishka.appkit.views.UsableRecyclerView;
 
 public abstract class BaseAccountListFragment extends BaseRecyclerFragment<BaseAccountListFragment.AccountItem>{
+	private static final String ACCOUNT_KEY = "account";
+
 	protected HashMap<String, Relationship> relationships=new HashMap<>();
 	protected String accountID;
 	protected ArrayList<APIRequest<?>> relationshipsRequests=new ArrayList<>();
@@ -68,7 +70,7 @@ public abstract class BaseAccountListFragment extends BaseRecyclerFragment<BaseA
 	@Override
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
-		accountID=getArguments().getString("account");
+		accountID=getArguments().getString(ACCOUNT_KEY);
 	}
 
 	@Override
@@ -264,7 +266,7 @@ public abstract class BaseAccountListFragment extends BaseRecyclerFragment<BaseA
 		@Override
 		public void onClick(){
 			Bundle args=new Bundle();
-			args.putString("account", accountID);
+			args.putString(ACCOUNT_KEY, accountID);
 			args.putParcelable("profileAccount", Parcels.wrap(item.account));
 			Nav.go(getActivity(), ProfileFragment.class, args);
 		}
@@ -342,7 +344,7 @@ public abstract class BaseAccountListFragment extends BaseRecyclerFragment<BaseA
 				UiUtils.confirmToggleBlockUser(getActivity(), accountID, account, relationship.blocking, this::updateRelationship);
 			}else if(id==R.id.report){
 				Bundle args=new Bundle();
-				args.putString("account", accountID);
+				args.putString(ACCOUNT_KEY, accountID);
 				args.putParcelable("reportAccount", Parcels.wrap(account));
 				Nav.go(getActivity(), ReportReasonChoiceFragment.class, args);
 			}else if(id==R.id.open_in_browser){
