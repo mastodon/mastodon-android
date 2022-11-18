@@ -50,8 +50,8 @@
 	<string name="share_user">%s teilen</string>
 	<string name="mute_user">%s stummschalten</string>
 	<string name="unmute_user">%s nicht mehr stummschalten</string>
-	<string name="block_user">%s blockieren</string>
-	<string name="unblock_user">%s nicht mehr blockieren</string>
+	<string name="block_user">%s sperren</string>
+	<string name="unblock_user">%s nicht mehr sperren</string>
 	<string name="report_user">%s melden</string>
 	<string name="block_domain">%s sperren</string>
 	<string name="unblock_domain">%s nicht mehr sperren</string>
@@ -108,7 +108,7 @@
 	<string name="confirm_unmute">Bestätigen, um %s nicht mehr stummzuschalten</string>
 	<string name="do_unmute">Nicht mehr stummschalten</string>
 	<string name="confirm_block_title">Konto sperren</string>
-	<string name="confirm_block_domain_title">Domain blockieren</string>
+	<string name="confirm_block_domain_title">Domain sperren</string>
 	<string name="confirm_block">Bestätigen, um %s zu blockieren</string>
 	<string name="do_block">Ja, blockieren</string>
 	<string name="confirm_unblock_title">Konto nicht mehr sperren</string>
@@ -225,8 +225,8 @@
 	<string name="choose_account">Konto auswählen</string>
 	<string name="err_not_logged_in">Bitte zuerst in Mastodon anmelden</string>
 	<plurals name="cant_add_more_than_x_attachments">
-		<item quantity="one">Du kannst nicht mehr als %d Medien-Datei anhängen</item>
-		<item quantity="other">Du kannst nicht mehr als %d Medien-Dateien anhängen</item>
+		<item quantity="one">Du kannst nicht mehr als %d Mediendatei anhängen</item>
+		<item quantity="other">Du kannst nicht mehr als %d Mediendateien anhängen</item>
 	</plurals>
 	<string name="media_attachment_unsupported_type">Datei %s wird nicht unterstützt</string>
 	<string name="media_attachment_too_big">Datei %1$s übersteigt die Größengrenze von %2$s MB</string>
@@ -241,7 +241,7 @@
 	<string name="settings_notifications">Benachrichtigungen</string>
 	<string name="notify_me_when">Benachrichtige mich, wenn</string>
 	<string name="notify_anyone">irgendjemand</string>
-	<string name="notify_follower">ein Follower von mir</string>
+	<string name="notify_follower">ein Follower</string>
 	<string name="notify_followed">jemand, dem ich folge,</string>
 	<string name="notify_none">niemand</string>
 	<string name="notify_favorites">meinen Beitrag favorisiert</string>
@@ -281,7 +281,7 @@
 	<string name="follow_user">%s folgen</string>
 	<string name="unfollowed_user">%s entfolgt</string>
 	<string name="followed_user">Du folgst nun %s</string>
-	<string name="open_in_browser">Beitrag im Browser öffnen</string>
+	<string name="open_in_browser">Im Browser öffnen</string>
 	<string name="hide_boosts_from_user">geteilte Beiträge von %s ausblenden</string>
 	<string name="show_boosts_from_user">geteilte Beiträge von %s anzeigen</string>
 	<string name="signup_reason">Weshalb möchtest du beitreten?</string>
@@ -335,7 +335,7 @@
 	<string name="post_info_favorites">Favoriten</string>
 	<string name="edit_history">Verlauf bearbeiten</string>
 	<string name="last_edit_at_x">Letzte Bearbeitung: %s</string>
-	<string name="time_just_now">gerade eben</string>
+	<string name="time_just_now">gerade jetzt</string>
 	<plurals name="x_seconds_ago">
 		<item quantity="one">vor %d Sekunde</item>
 		<item quantity="other">vor %d Sekunden</item>
