@@ -5,15 +5,17 @@ import android.content.Intent;
 
 import org.joinmastodon.android.BuildConfig;
 
+import java.lang.reflect.InvocationTargetException;
+
 public abstract class GithubSelfUpdater{
 	private static GithubSelfUpdater instance;
 
-	public static GithubSelfUpdater getInstance(){
-		if(instance==null){
-			try{
-				Class<?> c=Class.forName("org.joinmastodon.android.updater.GithubSelfUpdaterImpl");
-				instance=(GithubSelfUpdater) c.newInstance();
-			}catch(IllegalAccessException|InstantiationException|ClassNotFoundException ignored){
+	public static GithubSelfUpdater getInstance() {
+		if (instance == null) {
+			try {
+				Class<?> c = Class.forName("org.joinmastodon.android.updater.GithubSelfUpdaterImpl");
+				instance = (GithubSelfUpdater) c.getConstructor().newInstance();
+			} catch (IllegalAccessException | InstantiationException | NoSuchMethodException | InvocationTargetException | ClassNotFoundException ignored) {
 			}
 		}
 		return instance;

@@ -218,13 +218,13 @@ public class SignupFragment extends AppKitFragment{
 							Map<String, List<MastodonDetailedErrorResponse.FieldError>> fieldErrors=derr.detailedErrors;
 							boolean first=true;
 							boolean anyFieldsSkipped=false;
-							for(String fieldName:fieldErrors.keySet()){
-								EditText field=getFieldByName(fieldName);
+							for(Map.Entry<String, List<MastodonDetailedErrorResponse.FieldError>> entry : fieldErrors.entrySet()){
+								EditText field=getFieldByName(entry.getKey());
 								if(field==null){
 									anyFieldsSkipped=true;
 									continue;
 								}
-								field.setError(fieldErrors.get(fieldName).stream().map(err->err.description).collect(Collectors.joining("\n")));
+								field.setError(entry.getValue().stream().map(err->err.description).collect(Collectors.joining("\n")));
 								errorFields.add(field);
 								if(first){
 									first=false;
@@ -330,7 +330,7 @@ public class SignupFragment extends AppKitFragment{
 			avatarUri=data.getData();
 			if(avatarFile!=null && avatarFile.exists())
 				avatarFile.delete();
-			ViewImageLoader.load(avatar, getResources().getDrawable(R.drawable.default_avatar), new UrlImageLoaderRequest(avatarUri, V.dp(100), V.dp(100)));
+			ViewImageLoader.load(avatar, getResources().getDrawable(R.drawable.default_avatar, null), new UrlImageLoaderRequest(avatarUri, V.dp(100), V.dp(100)));
 		}
 	}
 

@@ -14,9 +14,7 @@ public class PushSubscription extends BaseModel implements Cloneable{
 	public String serverKey;
 	public Policy policy=Policy.ALL;
 
-	public PushSubscription(){}
-
-	@Override
+    @Override
 	public String toString(){
 		return "PushSubscription{"+
 				"id="+id+

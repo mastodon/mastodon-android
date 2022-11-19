@@ -50,7 +50,7 @@ public abstract class ImageStatusDisplayItem extends StatusDisplayItem{
 		return request;
 	}
 
-	public static abstract class Holder<T extends ImageStatusDisplayItem> extends StatusDisplayItem.Holder<T> implements ImageLoaderViewHolder{
+	public abstract static class Holder<T extends ImageStatusDisplayItem> extends StatusDisplayItem.Holder<T> implements ImageLoaderViewHolder{
 		public final ImageView photo;
 		private ImageAttachmentFrameLayout layout;
 		private BlurhashCrossfadeDrawable crossfadeDrawable=new BlurhashCrossfadeDrawable();

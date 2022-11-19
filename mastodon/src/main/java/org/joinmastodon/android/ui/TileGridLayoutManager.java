@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class TileGridLayoutManager extends GridLayoutManager{
 	private static final String TAG="TileGridLayoutManager";
-	private int lastWidth=0;
+	private int lastWidth;
 
 	public TileGridLayoutManager(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes){
 		super(context, attrs, defStyleAttr, defStyleRes);

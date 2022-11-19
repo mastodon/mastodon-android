@@ -334,7 +334,7 @@ public class SettingsFragment extends MastodonToolbarFragment{
 		}
 	}
 
-	private static abstract class Item{
+	private abstract static class Item{
 		public abstract int getViewType();
 	}
 
@@ -422,7 +422,7 @@ public class SettingsFragment extends MastodonToolbarFragment{
 		}
 	}
 
-	private class FooterItem extends Item{
+	private static class FooterItem extends Item{
 		private String text;
 
 		public FooterItem(String text){
@@ -435,7 +435,7 @@ public class SettingsFragment extends MastodonToolbarFragment{
 		}
 	}
 
-	private class UpdateItem extends Item{
+	private static class UpdateItem extends Item{
 
 		@Override
 		public int getViewType(){
@@ -483,7 +483,7 @@ public class SettingsFragment extends MastodonToolbarFragment{
 			super(getActivity(), R.layout.item_settings_header, list);
 			text=(TextView) itemView;
 			if(red)
-				text.setTextColor(getResources().getColor(UiUtils.isDarkTheme() ? R.color.error_400 : R.color.error_700));
+				text.setTextColor(getResources().getColor(UiUtils.isDarkTheme() ? R.color.error_400 : R.color.error_700, null));
 		}
 
 		@Override

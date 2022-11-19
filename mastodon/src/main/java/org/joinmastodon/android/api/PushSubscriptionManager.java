@@ -55,7 +55,7 @@ import me.grishka.appkit.api.ErrorResponse;
 public class PushSubscriptionManager{
 	private static final String FCM_SENDER_ID="449535203550";
 	private static final String EC_CURVE_NAME="prime256v1";
-	private static final byte[] P256_HEAD=new byte[]{(byte)0x30,(byte)0x59,(byte)0x30,(byte)0x13,(byte)0x06,(byte)0x07,(byte)0x2a,
+	private static final byte[] P256_HEAD= {(byte)0x30,(byte)0x59,(byte)0x30,(byte)0x13,(byte)0x06,(byte)0x07,(byte)0x2a,
 			(byte)0x86,(byte)0x48,(byte)0xce,(byte)0x3d,(byte)0x02,(byte)0x01,(byte)0x06,(byte)0x08,(byte)0x2a,(byte)0x86,
 			(byte)0x48,(byte)0xce,(byte)0x3d,(byte)0x03,(byte)0x01,(byte)0x07,(byte)0x03,(byte)0x42,(byte)0x00};
 	private static final int[] BASE85_DECODE_TABLE={

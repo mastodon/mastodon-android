@@ -309,8 +309,8 @@ public class ProfileAboutFragment extends Fragment implements WindowInsetsAwareF
 				}
 			}
 			adapter.notifyItemMoved(fromPosition, toPosition);
-			((BindableViewHolder)viewHolder).rebind();
-			((BindableViewHolder)target).rebind();
+			((BindableViewHolder<?>)viewHolder).rebind();
+			((BindableViewHolder<?>)target).rebind();
 			return true;
 		}
 

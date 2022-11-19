@@ -218,7 +218,7 @@ public class TabLayout extends HorizontalScrollView {
 
   /** @hide */
   @RestrictTo(LIBRARY_GROUP)
-  @IntDef(value = {MODE_SCROLLABLE, MODE_FIXED, MODE_AUTO})
+  @IntDef({MODE_SCROLLABLE, MODE_FIXED, MODE_AUTO})
   @Retention(RetentionPolicy.SOURCE)
   public @interface Mode {}
 
@@ -239,7 +239,7 @@ public class TabLayout extends HorizontalScrollView {
   public static final int TAB_LABEL_VISIBILITY_LABELED = 1;
 
   /** @hide */
-  @IntDef(value = {TAB_LABEL_VISIBILITY_UNLABELED, TAB_LABEL_VISIBILITY_LABELED})
+  @IntDef({TAB_LABEL_VISIBILITY_UNLABELED, TAB_LABEL_VISIBILITY_LABELED})
   public @interface LabelVisibility {}
 
   /**
@@ -327,13 +327,12 @@ public class TabLayout extends HorizontalScrollView {
 
   /** @hide */
   @RestrictTo(LIBRARY_GROUP)
-  @IntDef(
-      value = {
-        INDICATOR_GRAVITY_BOTTOM,
-        INDICATOR_GRAVITY_CENTER,
-        INDICATOR_GRAVITY_TOP,
-        INDICATOR_GRAVITY_STRETCH
-      })
+  @IntDef({
+          INDICATOR_GRAVITY_BOTTOM,
+          INDICATOR_GRAVITY_CENTER,
+          INDICATOR_GRAVITY_TOP,
+          INDICATOR_GRAVITY_STRETCH
+  })
   @Retention(RetentionPolicy.SOURCE)
   public @interface TabIndicatorGravity {}
 
@@ -369,7 +368,7 @@ public class TabLayout extends HorizontalScrollView {
 
   /** @hide */
   @RestrictTo(LIBRARY_GROUP)
-  @IntDef(value = {INDICATOR_ANIMATION_MODE_LINEAR, INDICATOR_ANIMATION_MODE_ELASTIC})
+  @IntDef({INDICATOR_ANIMATION_MODE_LINEAR, INDICATOR_ANIMATION_MODE_ELASTIC})
   @Retention(RetentionPolicy.SOURCE)
   public @interface TabIndicatorAnimationMode {}
 
@@ -1048,15 +1047,10 @@ public class TabLayout extends HorizontalScrollView {
       @TabIndicatorAnimationMode int tabIndicatorAnimationMode) {
     this.tabIndicatorAnimationMode = tabIndicatorAnimationMode;
     switch (tabIndicatorAnimationMode) {
-      case INDICATOR_ANIMATION_MODE_LINEAR:
-        this.tabIndicatorInterpolator = new TabIndicatorInterpolator();
-        break;
-      case INDICATOR_ANIMATION_MODE_ELASTIC:
-        this.tabIndicatorInterpolator = new ElasticTabIndicatorInterpolator();
-        break;
-      default:
-        throw new IllegalArgumentException(
-            tabIndicatorAnimationMode + " is not a valid TabIndicatorAnimationMode");
+      case INDICATOR_ANIMATION_MODE_LINEAR -> this.tabIndicatorInterpolator = new TabIndicatorInterpolator();
+      case INDICATOR_ANIMATION_MODE_ELASTIC -> this.tabIndicatorInterpolator = new ElasticTabIndicatorInterpolator();
+      default -> throw new IllegalArgumentException(
+              tabIndicatorAnimationMode + " is not a valid TabIndicatorAnimationMode");
     }
   }
 
@@ -1245,7 +1239,7 @@ public class TabLayout extends HorizontalScrollView {
    * @see #getTabIconTint()
    */
   public void setTabIconTintResource(@ColorRes int iconTintResourceId) {
-    setTabIconTint(getResources().getColorStateList(iconTintResourceId));
+    setTabIconTint(getResources().getColorStateList(iconTintResourceId, null));
   }
 
   /** Gets the icon tint for the different states (normal, selected) used for the tabs. */
@@ -1297,7 +1291,7 @@ public class TabLayout extends HorizontalScrollView {
    * @see #getTabRippleColor()
    */
   public void setTabRippleColorResource(@ColorRes int tabRippleColorResourceId) {
-    setTabRippleColor(getResources().getColorStateList(tabRippleColorResourceId));
+    setTabRippleColor(getResources().getColorStateList(tabRippleColorResourceId, null));
   }
 
   /**
@@ -1330,9 +1324,7 @@ public class TabLayout extends HorizontalScrollView {
       this.tabSelectedIndicator =
           tabSelectedIndicator != null ? tabSelectedIndicator : new GradientDrawable();
       int indicatorHeight =
-          tabIndicatorHeight != -1
-              ? tabIndicatorHeight
-              : this.tabSelectedIndicator.getIntrinsicHeight();
+              tabIndicatorHeight == -1 ? this.tabSelectedIndicator.getIntrinsicHeight() : tabIndicatorHeight;
       slidingTabIndicator.setSelectedIndicatorHeight(indicatorHeight);
     }
   }
@@ -1350,7 +1342,7 @@ public class TabLayout extends HorizontalScrollView {
   public void setSelectedTabIndicator(@DrawableRes int tabSelectedIndicatorResourceId) {
     if (tabSelectedIndicatorResourceId != 0) {
       setSelectedTabIndicator(
-          getResources().getDrawable(tabSelectedIndicatorResourceId));
+          getResources().getDrawable(tabSelectedIndicatorResourceId, null));
     } else {
       setSelectedTabIndicator(null);
     }
@@ -1680,7 +1672,7 @@ public class TabLayout extends HorizontalScrollView {
       tabMaxWidth =
           requestedTabMaxWidth > 0
               ? requestedTabMaxWidth
-              : (int) (specWidth - V.dp(TAB_MIN_WIDTH_MARGIN));
+              : (specWidth - V.dp(TAB_MIN_WIDTH_MARGIN));
     }
 
     // Now super measure itself using the (possibly) modified height spec
@@ -1690,20 +1682,16 @@ public class TabLayout extends HorizontalScrollView {
       // If we're in fixed mode then we need to make sure the tab strip is the same width as us
       // so we don't scroll
       final View child = getChildAt(0);
-      boolean remeasure = false;
-
-      switch (mode) {
-        case MODE_AUTO:
-        case MODE_SCROLLABLE:
-          // We only need to resize the child if it's smaller than us. This is similar
-          // to fillViewport
-          remeasure = child.getMeasuredWidth() < getMeasuredWidth();
-          break;
-        case MODE_FIXED:
-          // Resize the child so that it doesn't scroll
-          remeasure = child.getMeasuredWidth() != getMeasuredWidth();
-          break;
-      }
+      boolean remeasure = switch (mode) {
+        case MODE_AUTO, MODE_SCROLLABLE ->
+                // We only need to resize the child if it's smaller than us. This is similar
+                // to fillViewport
+                child.getMeasuredWidth() < getMeasuredWidth();
+        case MODE_FIXED ->
+                // Resize the child so that it doesn't scroll
+                child.getMeasuredWidth() != getMeasuredWidth();
+        default -> false;
+      };
 
       if (remeasure) {
         // Re-measure the child with a widthSpec set to be exactly our measure width
@@ -1898,19 +1886,16 @@ public class TabLayout extends HorizontalScrollView {
     slidingTabIndicator.setPaddingRelative(paddingStart, 0, 0, 0);
 
     switch (mode) {
-      case MODE_AUTO:
-      case MODE_FIXED:
+      case MODE_AUTO, MODE_FIXED -> {
         if (tabGravity == GRAVITY_START) {
           Log.w(
-              LOG_TAG,
-              "GRAVITY_START is not supported with the current tab mode, GRAVITY_CENTER will be"
-                  + " used instead");
+                  LOG_TAG,
+                  "GRAVITY_START is not supported with the current tab mode, GRAVITY_CENTER will be"
+                          + " used instead");
         }
         slidingTabIndicator.setGravity(Gravity.CENTER_HORIZONTAL);
-        break;
-      case MODE_SCROLLABLE:
-        applyGravityForModeScrollable(tabGravity);
-        break;
+      }
+      case MODE_SCROLLABLE -> applyGravityForModeScrollable(tabGravity);
     }
 
     updateTabViews(true);
@@ -1966,18 +1951,14 @@ public class TabLayout extends HorizontalScrollView {
     @Nullable private CharSequence contentDesc;
     private int position = INVALID_POSITION;
     @Nullable private View customView;
-    private @LabelVisibility int labelVisibilityMode = TAB_LABEL_VISIBILITY_LABELED;
+    @LabelVisibility
+    private int labelVisibilityMode = TAB_LABEL_VISIBILITY_LABELED;
 
     // TODO(b/76413401): make package private after the widget migration is finished
     @Nullable public TabLayout parent;
     // TODO(b/76413401): make package private after the widget migration is finished
     @NonNull public TabView view;
     private int id = NO_ID;
-
-    // TODO(b/76413401): make package private constructor after the widget migration is finished
-    public Tab() {
-      // Private constructor
-    }
 
     /** @return This Tab's tag object. */
     @Nullable
@@ -2360,8 +2341,8 @@ public class TabLayout extends HorizontalScrollView {
       }
 
       Drawable background;
-      Drawable contentDrawable = new GradientDrawable();
-      ((GradientDrawable) contentDrawable).setColor(Color.TRANSPARENT);
+      GradientDrawable contentDrawable = new GradientDrawable();
+      contentDrawable.setColor(Color.TRANSPARENT);
 
       if (tabRippleColorStateList != null) {
         GradientDrawable maskDrawable = new GradientDrawable();
@@ -2559,7 +2540,7 @@ public class TabLayout extends HorizontalScrollView {
       setSelected(false);
     }
 
-    final void update() {
+    void update() {
       final Tab tab = this.tab;
       final View custom = tab != null ? tab.getCustomView() : null;
       if (custom != null) {
@@ -2786,7 +2767,7 @@ public class TabLayout extends HorizontalScrollView {
 //      }
 //    }
 
-    final void updateOrientation() {
+    void updateOrientation() {
       setOrientation(inlineLabel ? HORIZONTAL : VERTICAL);
       if (customTextView != null || customIconView != null) {
         updateTextAndIcon(customTextView, customIconView);
@@ -2842,7 +2823,7 @@ public class TabLayout extends HorizontalScrollView {
         int iconMargin = 0;
         if (hasText && iconView.getVisibility() == VISIBLE) {
           // If we're showing both text and icon, add some margin bottom to the icon
-          iconMargin = (int) V.dp(DEFAULT_GAP_TEXT_ICON);
+          iconMargin = V.dp(DEFAULT_GAP_TEXT_ICON);
         }
         if (inlineLabel) {
           if (iconMargin != lp.getMarginEnd()) {
@@ -3043,7 +3024,7 @@ public class TabLayout extends HorizontalScrollView {
           return;
         }
 
-        final int gutter = (int) V.dp(FIXED_WRAP_GUTTER_MIN);
+        final int gutter = V.dp(FIXED_WRAP_GUTTER_MIN);
         boolean remeasure = false;
 
         if (largestTabWidth * count <= getMeasuredWidth() - gutter * 2) {
@@ -3209,24 +3190,24 @@ public class TabLayout extends HorizontalScrollView {
       int indicatorBottom = 0;
 
       switch (tabIndicatorGravity) {
-        case INDICATOR_GRAVITY_BOTTOM:
+        case INDICATOR_GRAVITY_BOTTOM -> {
           indicatorTop = getHeight() - indicatorHeight;
           indicatorBottom = getHeight();
-          break;
-        case INDICATOR_GRAVITY_CENTER:
+        }
+        case INDICATOR_GRAVITY_CENTER -> {
           indicatorTop = (getHeight() - indicatorHeight) / 2;
           indicatorBottom = (getHeight() + indicatorHeight) / 2;
-          break;
-        case INDICATOR_GRAVITY_TOP:
+        }
+        case INDICATOR_GRAVITY_TOP -> {
           indicatorTop = 0;
           indicatorBottom = indicatorHeight;
-          break;
-        case INDICATOR_GRAVITY_STRETCH:
+        }
+        case INDICATOR_GRAVITY_STRETCH -> {
           indicatorTop = 0;
           indicatorBottom = getHeight();
-          break;
-        default:
-          break;
+        }
+        default -> {
+        }
       }
 
       // Ensure the drawable actually has a width and is worth drawing
@@ -3269,7 +3250,6 @@ public class TabLayout extends HorizontalScrollView {
     // Default enabled state
     states[i] = EMPTY_STATE_SET;
     colors[i] = defaultColor;
-    i++;
 
     return new ColorStateList(states, colors);
   }

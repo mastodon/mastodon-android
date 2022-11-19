@@ -58,7 +58,7 @@ public class StatusEditHistoryFragment extends StatusListFragment{
 		int idx=data.indexOf(s);
 		if(idx>=0){
 			String date=UiUtils.DATE_TIME_FORMATTER.format(s.createdAt.atZone(ZoneId.systemDefault()));
-			String action="";
+			String action;
 			if(idx==data.size()-1){
 				action=getString(R.string.edit_original_post);
 			}else{

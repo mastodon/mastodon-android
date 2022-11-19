@@ -234,9 +234,7 @@ public class CacheController{
 	}
 
 	public void deleteStatus(String id){
-		runOnDbThread((db)->{
-			db.delete("home_timeline", "`id`=?", new String[]{id});
-		});
+		runOnDbThread((db)-> db.delete("home_timeline", "`id`=?", new String[]{id}));
 	}
 
 	public void clearRecentSearches(){

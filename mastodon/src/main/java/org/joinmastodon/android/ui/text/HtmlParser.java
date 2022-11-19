@@ -76,7 +76,7 @@ public class HtmlParser{
 							LinkSpan.Type linkType;
 							if(el.hasClass("hashtag")){
 								String text=el.text();
-								if(text.startsWith("#")){
+								if(!text.isEmpty() && text.charAt(0) == '#'){
 									linkType=LinkSpan.Type.HASHTAG;
 									href=text.substring(1);
 								}else{

@@ -479,8 +479,7 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 
 	protected void updateImagesSpoilerState(Status status, String itemID){
 		ArrayList<Integer> updatedPositions=new ArrayList<>();
-		for(ImageStatusDisplayItem.Holder photo:(List<ImageStatusDisplayItem.Holder>)findAllHoldersOfType(itemID, ImageStatusDisplayItem.Holder.class)){
-			photo.setRevealed(status.spoilerRevealed);
+		for(ImageStatusDisplayItem.Holder photo:(List<ImageStatusDisplayItem.Holder>)findAllHoldersOfType(itemID, ImageStatusDisplayItem.Holder.class)){			photo.setRevealed(status.spoilerRevealed);
 			updatedPositions.add(photo.getAbsoluteAdapterPosition()-getMainAdapterOffset());
 		}
 		int i=0;
@@ -662,7 +661,7 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 		private Paint dividerPaint=new Paint(), hiddenMediaPaint=new Paint(Paint.ANTI_ALIAS_FLAG);
 		private Typeface mediumTypeface=Typeface.create("sans-serif-medium", Typeface.NORMAL);
 		private Layout mediaHiddenTitleLayout, mediaHiddenTextLayout, tapToRevealTextLayout;
-		private int currentMediaHiddenLayoutsWidth=0;
+		private int currentMediaHiddenLayoutsWidth;
 
 		{
 			dividerPaint.setColor(UiUtils.getThemeColor(getActivity(), R.attr.colorPollVoted));
@@ -777,7 +776,7 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 			currentMediaHiddenLayoutsWidth=width;
 			String title=getString(R.string.sensitive_content);
 			TextPaint titlePaint=new TextPaint(Paint.ANTI_ALIAS_FLAG);
-			titlePaint.setColor(getResources().getColor(R.color.gray_50));
+			titlePaint.setColor(getResources().getColor(R.color.gray_50, null));
 			titlePaint.setTextSize(V.dp(22));
 			titlePaint.setTypeface(mediumTypeface);
 			mediaHiddenTitleLayout=StaticLayout.Builder.obtain(title, 0, title.length(), titlePaint, width)
@@ -788,7 +787,7 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 					.setAlignment(Layout.Alignment.ALIGN_CENTER)
 					.build();
 			TextPaint textPaint=new TextPaint(Paint.ANTI_ALIAS_FLAG);
-			textPaint.setColor(getResources().getColor(R.color.gray_200));
+			textPaint.setColor(getResources().getColor(R.color.gray_200, null));
 			textPaint.setTextSize(V.dp(16));
 			String text=getString(R.string.sensitive_content_explain);
 			mediaHiddenTextLayout=StaticLayout.Builder.obtain(text, 0, text.length(), textPaint, width)

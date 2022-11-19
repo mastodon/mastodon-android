@@ -152,7 +152,7 @@ public abstract class StatusDisplayItem{
 		EXTENDED_FOOTER
 	}
 
-	public static abstract class Holder<T extends StatusDisplayItem> extends BindableViewHolder<T> implements UsableRecyclerView.DisableableClickable{
+	public abstract static class Holder<T extends StatusDisplayItem> extends BindableViewHolder<T> implements UsableRecyclerView.DisableableClickable{
 		public Holder(View itemView){
 			super(itemView);
 		}

@@ -90,7 +90,7 @@ public class PhotoViewer implements ZoomPanView.Listener{
 	private ViewPager2 pager;
 	private ColorDrawable background=new ColorDrawable(0xff000000);
 	private ArrayList<MediaPlayer> players=new ArrayList<>();
-	private int screenOnRefCount=0;
+	private int screenOnRefCount;
 	private Toolbar toolbar;
 	private View toolbarWrap;
 	private SeekBar videoSeekBar;

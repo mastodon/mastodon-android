@@ -19,7 +19,7 @@ public enum StatusPrivacy{
 	}
 
 	public boolean isLessVisibleThan(StatusPrivacy other) {
-		return privacy > other.getPrivacy();
+		return privacy > other.privacy;
 	}
 
 	public int getPrivacy() {

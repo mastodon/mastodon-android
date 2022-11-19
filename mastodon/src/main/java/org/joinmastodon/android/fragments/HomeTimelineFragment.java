@@ -251,8 +251,7 @@ public class HomeTimelineFragment extends StatusListFragment{
 							List<StatusDisplayItem> targetList=displayItems.subList(gapPos, gapPos+1);
 							targetList.clear();
 							List<Status> insertedPosts=data.subList(gapPostIndex+1, gapPostIndex+1);
-							List<Filter> filters=AccountSessionManager.getInstance().getAccount(accountID).wordFilters.stream().filter(f->f.context.contains(Filter.FilterContext.HOME)).collect(Collectors.toList());
-							outer:
+							List<Filter> filters=AccountSessionManager.getInstance().getAccount(accountID).wordFilters.stream().filter(f->f.context.contains(Filter.FilterContext.HOME)).collect(Collectors.toList());							outer:
 							for(Status s:result){
 								if(idsBelowGap.contains(s.id))
 									break;

@@ -25,11 +25,11 @@ public class PhotoLayoutHelper{
 				result.width=Math.round(att.getWidth()/(float)att.getHeight()*_maxH);
 			}
 			result.tiles=new TiledLayoutResult.Tile[]{new TiledLayoutResult.Tile(1, 1, result.width, result.height, 0, 0)};
-		}else if(thumbs.size()==0){
+		}else if(thumbs.isEmpty()){
 			throw new IllegalArgumentException("Empty thumbs array");
 		}
 
-		String orients="";
+		StringBuilder orients= new StringBuilder();
 		ArrayList<Float> ratios=new ArrayList<Float>();
 		int cnt=thumbs.size();
 
@@ -38,11 +38,11 @@ public class PhotoLayoutHelper{
 //			float ratio=thumb.isSizeKnown() ? thumb.getWidth()/(float) thumb.getHeight() : 1f;
 			float ratio=thumb.getWidth()/(float) thumb.getHeight();
 			char orient=ratio>1.2 ? 'w' : (ratio<0.8 ? 'n' : 'q');
-			orients+=orient;
+			orients.append(orient);
 			ratios.add(ratio);
 		}
 
-		float avgRatio=!ratios.isEmpty() ? sum(ratios)/ratios.size() : 1.0f;
+		float avgRatio= ratios.isEmpty() ? 1.0f : sum(ratios) / ratios.size();
 
 		float maxW, maxH, marginW=0, marginH=0;
 		if(_maxW>0){
@@ -56,7 +56,7 @@ public class PhotoLayoutHelper{
 		float maxRatio=maxW/maxH;
 
 		if(cnt==2){
-			if(orients.equals("ww") && avgRatio>1.4*maxRatio && (ratios.get(1)-ratios.get(0))<0.2){ // two wide photos, one above the other
+			if(orients.toString().equals("ww") && avgRatio>1.4*maxRatio && (ratios.get(1)-ratios.get(0))<0.2){ // two wide photos, one above the other
 				float h=Math.min(maxW/ratios.get(0), Math.min(maxW/ratios.get(1), (maxH-marginH)/2.0f));
 
 				result.width=Math.round(maxW);
@@ -67,7 +67,7 @@ public class PhotoLayoutHelper{
 						new TiledLayoutResult.Tile(1, 1, maxW, h, 0, 0),
 						new TiledLayoutResult.Tile(1, 1, maxW, h, 0, 1)
 				};
-			}else if(orients.equals("ww") || orients.equals("qq")){ // next to each other, same ratio
+			}else if(orients.toString().equals("ww") || orients.toString().equals("qq")){ // next to each other, same ratio
 				float w=((maxW-marginW)/2);
 				float h=Math.min(w/ratios.get(0), Math.min(w/ratios.get(1), maxH));
 
@@ -94,7 +94,7 @@ public class PhotoLayoutHelper{
 				};
 			}
 		}else if(cnt==3){
-			if(/*(ratios.get(0) > 1.2 * maxRatio || avgRatio > 1.5 * maxRatio) &&*/ orients.equals("www") || true){ // 2nd and 3rd photos are on the next line
+			if(/*(ratios.get(0) > 1.2 * maxRatio || avgRatio > 1.5 * maxRatio) &&*/ orients.toString().equals("www") || true){ // 2nd and 3rd photos are on the next line
 				float hCover=Math.min(maxW/ratios.get(0), (maxH-marginH)*0.66f);
 				float w2=((maxW-marginW)/2);
 				float h=Math.min(maxH-hCover-marginH, Math.min(w2/ratios.get(1), w2/ratios.get(2)));
@@ -123,7 +123,7 @@ public class PhotoLayoutHelper{
 				};
 			}
 		}else if(cnt==4){
-			if(/*(ratios.get(0) > 1.2 * maxRatio || avgRatio > 1.5 * maxRatio) &&*/ orients.equals("wwww") || true /* temporary fix */){ // 2nd, 3rd and 4th photos are on the next line
+			if(/*(ratios.get(0) > 1.2 * maxRatio || avgRatio > 1.5 * maxRatio) &&*/ orients.toString().equals("wwww") || true /* temporary fix */){ // 2nd, 3rd and 4th photos are on the next line
 				float hCover=Math.min(maxW/ratios.get(0), (maxH-marginH)*0.66f);
 				float h=(maxW-2*marginW)/(ratios.get(1)+ratios.get(2)+ratios.get(3));
 				float w0=h*ratios.get(1);

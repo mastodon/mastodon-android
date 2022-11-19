@@ -197,7 +197,7 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 	private Status editingStatus;
 	private boolean pollChanged;
 	private boolean creatingView;
-	private boolean ignoreSelectionChanges=false;
+	private boolean ignoreSelectionChanges;
 	private Runnable updateUploadEtaRunnable;
 
 	@Override
@@ -422,9 +422,7 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 		contentView.setSizeListener(emojiKeyboard::onContentViewSizeChanged);
 		InputMethodManager imm=getActivity().getSystemService(InputMethodManager.class);
 		mainEditText.requestFocus();
-		view.postDelayed(()->{
-			imm.showSoftInput(mainEditText, 0);
-		}, 100);
+		view.postDelayed(()-> imm.showSoftInput(mainEditText, 0), 100);
 
 		mainEditText.setSelectionListener(this);
 		mainEditText.addTextChangedListener(new TextWatcher(){
@@ -474,7 +472,6 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 						char prevChar=spanStart>0 ? editable.charAt(spanStart-1) : ' ';
 						if(!matcher.find() || !Character.isWhitespace(prevChar)){ // invalid mention, remove
 							editable.removeSpan(span);
-							continue;
 						}else if(matcher.end()+spanStart<spanEnd){ // mention with something at the end, move the end offset
 							editable.setSpan(span, spanStart, spanStart+matcher.end(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
 						}
@@ -579,7 +576,7 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 
 		sendError=new ImageView(getActivity());
 		sendError.setImageResource(R.drawable.ic_fluent_error_circle_24_regular);
-		sendError.setImageTintList(getResources().getColorStateList(R.color.error_600));
+		sendError.setImageTintList(getResources().getColorStateList(R.color.error_600, null));
 		sendError.setScaleType(ImageView.ScaleType.CENTER);
 		wrap.addView(sendError, progressLP);
 

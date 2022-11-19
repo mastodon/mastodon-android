@@ -11,7 +11,7 @@ import okio.ForwardingSink;
 import okio.Sink;
 
 class CountingSink extends ForwardingSink{
-	private long bytesWritten=0;
+	private long bytesWritten;
 	private long lastCallbackTime;
 	private final long length;
 	private final ProgressListener progressListener;

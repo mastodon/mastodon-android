@@ -37,9 +37,7 @@ public class ExternalShareActivity extends FragmentStackActivity{
 			}else{
 				getWindow().setBackgroundDrawable(new ColorDrawable(0xff000000));
 				new M3AlertDialogBuilder(this)
-						.setItems(sessions.stream().map(as->"@"+as.self.username+"@"+as.domain).toArray(String[]::new), (dialog, which)->{
-							openComposeFragment(sessions.get(which).getID());
-						})
+						.setItems(sessions.stream().map(as->"@"+as.self.username+"@"+as.domain).toArray(String[]::new), (dialog, which)-> openComposeFragment(sessions.get(which).getID()))
 						.setTitle(R.string.choose_account)
 						.setOnCancelListener(dialog -> finish())
 						.show();

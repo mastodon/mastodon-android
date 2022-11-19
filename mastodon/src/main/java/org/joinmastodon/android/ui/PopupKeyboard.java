@@ -22,8 +22,8 @@ public abstract class PopupKeyboard{
 	private int initialHeight;
 	private int prevWidth;
 	private int keyboardHeight;
-	private boolean needShowOnHide=false;
-	private boolean keyboardWasVisible=false;
+	private boolean needShowOnHide;
+	private boolean keyboardWasVisible;
 	private OnIconChangeListener iconListener;
 
 	public static final int ICON_HIDDEN=0;

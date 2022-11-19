@@ -134,14 +134,14 @@ public class CustomScrollView extends FrameLayout{
      * layout is dirty. This prevents the scroll from being wrong if the child has not been
      * laid out before requesting focus.
      */
-    private View mChildToScrollTo = null;
+    private View mChildToScrollTo;
 
     /**
      * True if the user is currently dragging this ScrollView around. This is
      * not the same as 'is being flinged', which can be checked by
      * mScroller.isFinished() (flinging begins when the user lifts their finger).
      */
-    private boolean mIsBeingDragged = false;
+    private boolean mIsBeingDragged;
 
     /**
      * Determines speed during touch scrolling
@@ -606,16 +606,16 @@ public class CustomScrollView extends FrameLayout{
         }
 
         switch (action & MotionEvent.ACTION_MASK) {
-            case MotionEvent.ACTION_MOVE: {
+            case MotionEvent.ACTION_MOVE -> {
                 /*
                  * mIsBeingDragged == false, otherwise the shortcut would have caught it. Check
                  * whether the user has moved far enough from their original down touch.
                  */
 
                 /*
-                * Locally do absolute value. mLastMotionY is set to the y value
-                * of the down event.
-                */
+                 * Locally do absolute value. mLastMotionY is set to the y value
+                 * of the down event.
+                 */
                 final int activePointerId = mActivePointerId;
                 if (activePointerId == INVALID_POINTER) {
                     // If we don't have a valid id, the touch down wasn't on content.
@@ -647,8 +647,7 @@ public class CustomScrollView extends FrameLayout{
                 }
                 break;
             }
-
-            case MotionEvent.ACTION_DOWN: {
+            case MotionEvent.ACTION_DOWN -> {
                 final int y = (int) ev.getY();
                 if (!inChild((int) ev.getX(), (int) y)) {
                     mIsBeingDragged = false;
@@ -670,20 +669,20 @@ public class CustomScrollView extends FrameLayout{
                  * otherwise don't. mScroller.isFinished should be false when
                  * being flinged. We need to call computeScrollOffset() first so that
                  * isFinished() is correct.
-                */
+                 */
                 mScroller.computeScrollOffset();
                 mIsBeingDragged = !mScroller.isFinished() || !mEdgeGlowBottom.isFinished()
-                    || !mEdgeGlowTop.isFinished();
+                        || !mEdgeGlowTop.isFinished();
                 // Catch the edge effect if it is active.
-                if (Build.VERSION.SDK_INT>=31 && !mEdgeGlowTop.isFinished()) {
+                if (Build.VERSION.SDK_INT >= 31 && !mEdgeGlowTop.isFinished()) {
                     mEdgeGlowTop.onPullDistance(0f, ev.getX() / getWidth());
                 }
-                if (Build.VERSION.SDK_INT>=31 && !mEdgeGlowBottom.isFinished()) {
+                if (Build.VERSION.SDK_INT >= 31 && !mEdgeGlowBottom.isFinished()) {
                     mEdgeGlowBottom.onPullDistance(0f, 1f - ev.getX() / getWidth());
                 }
-                if(mIsBeingDragged){
+                if (mIsBeingDragged) {
                     mScroller.abortAnimation();
-                    mIsBeingDragged=false;
+                    mIsBeingDragged = false;
                 }
 //                if (mIsBeingDragged && mScrollStrictSpan == null) {
 //                    mScrollStrictSpan = StrictMode.enterCriticalSpan("ScrollView-scroll");
@@ -691,9 +690,7 @@ public class CustomScrollView extends FrameLayout{
                 startNestedScroll(SCROLL_AXIS_VERTICAL);
                 break;
             }
-
-            case MotionEvent.ACTION_CANCEL:
-            case MotionEvent.ACTION_UP:
+            case MotionEvent.ACTION_CANCEL, MotionEvent.ACTION_UP -> {
                 /* Release the drag */
                 mIsBeingDragged = false;
                 mActivePointerId = INVALID_POINTER;
@@ -702,10 +699,8 @@ public class CustomScrollView extends FrameLayout{
                     postInvalidateOnAnimation();
                 }
                 stopNestedScroll();
-                break;
-            case MotionEvent.ACTION_POINTER_UP:
-                onSecondaryPointerUp(ev);
-                break;
+            }
+            case MotionEvent.ACTION_POINTER_UP -> onSecondaryPointerUp(ev);
         }
 
         /*
@@ -914,7 +909,7 @@ public class CustomScrollView extends FrameLayout{
     @Override
     public boolean onGenericMotionEvent(MotionEvent event) {
         switch (event.getAction()) {
-            case MotionEvent.ACTION_SCROLL:
+            case MotionEvent.ACTION_SCROLL -> {
                 final float axisValue;
                 if (event.isFromSource(InputDevice.SOURCE_CLASS_POINTER)) {
                     axisValue = event.getAxisValue(MotionEvent.AXIS_VSCROLL);
@@ -923,7 +918,6 @@ public class CustomScrollView extends FrameLayout{
                 } else {
                     axisValue = 0;
                 }
-
                 final int delta = Math.round(axisValue * mVerticalScrollFactor);
                 if (delta != 0) {
                     final int range = getScrollRange();
@@ -939,7 +933,7 @@ public class CustomScrollView extends FrameLayout{
                         return true;
                     }
                 }
-                break;
+            }
         }
 
         return super.onGenericMotionEvent(event);
@@ -976,24 +970,28 @@ public class CustomScrollView extends FrameLayout{
             return false;
         }
         switch (action) {
-            case AccessibilityNodeInfo.ACTION_SCROLL_FORWARD:
-            case android.R.id.accessibilityActionScrollDown: {
-                final int viewportHeight = getHeight() - getPaddingBottom() - getPaddingTop();
-                final int targetScrollY = Math.min(getScrollY() + viewportHeight, getScrollRange());
-                if (targetScrollY != getScrollY()) {
-                    smoothScrollTo(0, targetScrollY);
-                    return true;
+            case AccessibilityNodeInfo.ACTION_SCROLL_FORWARD, android.R.id.accessibilityActionScrollDown -> {
+                {
+                    final int viewportHeight = getHeight() - getPaddingBottom() - getPaddingTop();
+                    final int targetScrollY = Math.min(getScrollY() + viewportHeight, getScrollRange());
+                    if (targetScrollY != getScrollY()) {
+                        smoothScrollTo(0, targetScrollY);
+                        return true;
+                    }
                 }
-            } return false;
-            case AccessibilityNodeInfo.ACTION_SCROLL_BACKWARD:
-            case android.R.id.accessibilityActionScrollUp: {
-                final int viewportHeight = getHeight() - getPaddingBottom() - getPaddingTop();
-                final int targetScrollY = Math.max(getScrollY() - viewportHeight, 0);
-                if (targetScrollY != getScrollY()) {
-                    smoothScrollTo(0, targetScrollY);
-                    return true;
+                return false;
+            }
+            case AccessibilityNodeInfo.ACTION_SCROLL_BACKWARD, android.R.id.accessibilityActionScrollUp -> {
+                {
+                    final int viewportHeight = getHeight() - getPaddingBottom() - getPaddingTop();
+                    final int targetScrollY = Math.max(getScrollY() - viewportHeight, 0);
+                    if (targetScrollY != getScrollY()) {
+                        smoothScrollTo(0, targetScrollY);
+                        return true;
+                    }
                 }
-            } return false;
+                return false;
+            }
         }
         return false;
     }
@@ -2010,7 +2008,8 @@ public class CustomScrollView extends FrameLayout{
                     + " scrollPosition=" + scrollPosition + "}";
         }
 
-        public static final @NonNull Creator<SavedState> CREATOR
+        @NonNull
+        public static final Creator<SavedState> CREATOR
                 = new Creator<SavedState>() {
             public SavedState createFromParcel(Parcel in) {
                 return new SavedState(in);

@@ -720,7 +720,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 			animators.add(ObjectAnimator.ofFloat(tabbar.getTabAt(i).view, View.ALPHA, .3f));
 			tabbar.getTabAt(i).view.setEnabled(false);
 		}
-		Drawable overlay=getResources().getDrawable(R.drawable.edit_avatar_overlay).mutate();
+		Drawable overlay=getResources().getDrawable(R.drawable.edit_avatar_overlay, null).mutate();
 		avatar.setForeground(overlay);
 		animators.add(ObjectAnimator.ofInt(overlay, "alpha", 0, 255));
 
