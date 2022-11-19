@@ -102,7 +102,7 @@ public class ReportCommentFragment extends MastodonToolbarFragment{
 		ReportReason reason=ReportReason.valueOf(getArguments().getString("reason"));
 		ArrayList<String> statusIDs=getArguments().getStringArrayList("statusIDs");
 		ArrayList<String> ruleIDs=getArguments().getStringArrayList("ruleIDs");
-		new SendReport(reportAccount.id, reason, statusIDs, ruleIDs, v.getId()==R.id.btn_back ? null : commentEdit.getText().toString(), false)
+		new SendReport(reportAccount.id, reason, statusIDs, ruleIDs, v.getId()==R.id.btn_back ? null : commentEdit.getText().toString(), true)
 				.setCallback(new Callback<>(){
 					@Override
 					public void onSuccess(Object result){
