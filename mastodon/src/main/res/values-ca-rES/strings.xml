@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="get_started">Començar</string>
-	<string name="log_in">Iniciar sessió</string>
+	<string name="get_started">Comença</string>
+	<string name="log_in">Inicia sessió</string>
 	<string name="next">Següent</string>
 	<string name="loading_instance">Obtenint informació sobre la instància…</string>
 	<string name="error">Error</string>
@@ -12,21 +12,21 @@
 	<string name="user_boosted">%s ha impulsat</string>
 	<string name="in_reply_to">En resposta a %s</string>
 	<string name="notifications">Notificacions</string>
-	<string name="user_followed_you">t\'ha començat a seguir</string>
+	<string name="user_followed_you">t\'ha seguit</string>
 	<string name="user_sent_follow_request">t\'ha enviat una sol·licitud de seguiment</string>
 	<string name="user_favorited">ha afavorit la teva publicació</string>
 	<string name="notification_boosted">ha impulsat la teva publicació</string>
 	<string name="poll_ended">l\'enquesta ha finalitzat</string>
-	<string name="time_seconds">%ds</string>
-	<string name="time_minutes">%dm</string>
-	<string name="time_hours">%dh</string>
-	<string name="time_days">%dd</string>
-	<string name="share_toot_title">Compartir</string>
-	<string name="settings">Paràmetres</string>
-	<string name="publish">Publicar</string>
-	<string name="discard_draft">Descartar l\'esborrany?</string>
-	<string name="discard">Descartar</string>
-	<string name="cancel">Cancel·lar</string>
+	<string name="time_seconds">%d s</string>
+	<string name="time_minutes">%d min</string>
+	<string name="time_hours">%d h</string>
+	<string name="time_days">%d d</string>
+	<string name="share_toot_title">Comparteix</string>
+	<string name="settings">Configuració</string>
+	<string name="publish">Publica</string>
+	<string name="discard_draft">Voleu descartar l\'esborrany?</string>
+	<string name="discard">Descarta</string>
+	<string name="cancel">Cancel·la</string>
 	<plurals name="followers">
 		<item quantity="one">seguidor</item>
 		<item quantity="other">seguidors</item>
@@ -40,21 +40,21 @@
 		<item quantity="other">publicacions</item>
 	</plurals>
 	<string name="posts">Publicacions</string>
-	<string name="posts_and_replies">Publicacions i respostes</string>
+	<string name="posts_and_replies">Amb respostes</string>
 	<string name="media">Multimèdia</string>
 	<string name="profile_about">Quant a</string>
-	<string name="button_follow">Seguir</string>
+	<string name="button_follow">Segueix</string>
 	<string name="button_following">Seguint</string>
-	<string name="edit_profile">Editar el perfil</string>
-	<string name="mention_user">Esmentar %s</string>
-	<string name="share_user">Compartir %s</string>
-	<string name="mute_user">Silenciar %s</string>
+	<string name="edit_profile">Edita el perfil</string>
+	<string name="mention_user">Menciona %s</string>
+	<string name="share_user">Comparteix %s</string>
+	<string name="mute_user">Silencia %s</string>
 	<string name="unmute_user">Deixar de silenciar %s</string>
-	<string name="block_user">Blocar %s</string>
-	<string name="unblock_user">Desbloquejar %s</string>
-	<string name="report_user">Informar sobre %s</string>
-	<string name="block_domain">Blocar %s</string>
-	<string name="unblock_domain">Desbloquejar %s</string>
+	<string name="block_user">Bloca %s</string>
+	<string name="unblock_user">Desbloca %s</string>
+	<string name="report_user">Informa sobre %s</string>
+	<string name="block_domain">Bloca %s</string>
+	<string name="unblock_domain">Desbloca %s</string>
 	<plurals name="x_posts">
 		<item quantity="one">%,d entrada</item>
 		<item quantity="other">%,d publicacions</item>
@@ -107,21 +107,21 @@
 	<string name="confirm_unmute_title">Deixar de silenciar el compte</string>
 	<string name="confirm_unmute">Confirma per deixar de silenciar %s</string>
 	<string name="do_unmute">Deixar de silenciar</string>
-	<string name="confirm_block_title">Blocar el compte</string>
-	<string name="confirm_block_domain_title">Blocar el domini</string>
+	<string name="confirm_block_title">Bloca el compte</string>
+	<string name="confirm_block_domain_title">Bloca el domini</string>
 	<string name="confirm_block">Confirma per blocar %s</string>
-	<string name="do_block">Blocar</string>
-	<string name="confirm_unblock_title">Desbloquejar el compte</string>
-	<string name="confirm_unblock_domain_title">Desbloquejar domini</string>
+	<string name="do_block">Bloca</string>
+	<string name="confirm_unblock_title">Desbloca el compte</string>
+	<string name="confirm_unblock_domain_title">Desbloca el domini</string>
 	<string name="confirm_unblock">Confirma per desbloquejar %s</string>
-	<string name="do_unblock">Desbloquejar</string>
+	<string name="do_unblock">Desbloca</string>
 	<string name="button_muted">Silenciat</string>
 	<string name="button_blocked">Blocat</string>
-	<string name="action_vote">Votar</string>
-	<string name="tap_to_reveal">Prem per a mostrar</string>
-	<string name="delete">Suprimeix</string>
+	<string name="action_vote">Vota</string>
+	<string name="tap_to_reveal">Toca per a mostrar</string>
+	<string name="delete">Elimina</string>
 	<string name="confirm_delete_title">Eliminar publicació</string>
-	<string name="confirm_delete">Estàs segur que vols suprimir aquesta publicació?</string>
+	<string name="confirm_delete">Segur que vols eliminar la publicació?</string>
 	<string name="deleting">Esborrant…</string>
 	<string name="notification_channel_audio_player">Reproducció d\'àudio</string>
 	<string name="play">Reproduir</string>
@@ -325,6 +325,10 @@
 		<item quantity="one">%,d favorit</item>
 		<item quantity="other">%,d favorits</item>
 	</plurals>
+	<plurals name="x_reblogs">
+		<item quantity="one">%,d impuls</item>
+		<item quantity="other">%,d impulsos</item>
+	</plurals>
 	<string name="timestamp_via_app">%1$s través de %2$s</string>
 	<string name="time_now">ara</string>
 	<string name="post_info_reblogs">Impulsos</string>
@@ -332,6 +336,14 @@
 	<string name="edit_history">Editar l’historial</string>
 	<string name="last_edit_at_x">Darrera edició: %s</string>
 	<string name="time_just_now">ara mateix</string>
+	<plurals name="x_seconds_ago">
+		<item quantity="one">fa %d segon</item>
+		<item quantity="other">fa %d segons</item>
+	</plurals>
+	<plurals name="x_minutes_ago">
+		<item quantity="one">fa %d minut</item>
+		<item quantity="other">fa %d minuts</item>
+	</plurals>
 	<string name="edited_timestamp">editat %s</string>
 	<string name="edit_original_post">Publicació original</string>
 	<string name="edit_text_edited">Text editat</string>
