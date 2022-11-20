@@ -296,6 +296,14 @@ public class InstanceCatalogFragment extends BaseRecyclerFragment<CatalogInstanc
 	private void proceedWithAuthOrSignup(Instance instance){
 		getActivity().getSystemService(InputMethodManager.class).hideSoftInputFromWindow(contentView.getWindowToken(), 0);
 		if(isSignup){
+			if(!instance.registrations){
+				new M3AlertDialogBuilder(getActivity())
+						.setTitle(R.string.error)
+						.setMessage(R.string.instance_signup_closed)
+						.setPositiveButton(R.string.ok, null)
+						.show();
+				return;
+			}
 			Bundle args=new Bundle();
 			args.putParcelable("instance", Parcels.wrap(instance));
 			Nav.go(getActivity(), InstanceRulesFragment.class, args);
