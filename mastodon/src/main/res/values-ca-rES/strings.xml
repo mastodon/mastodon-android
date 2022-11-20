@@ -218,7 +218,7 @@
 	<string name="step_x_of_n">Pas %1$d de %2$d</string>
 	<string name="skip">Omet</string>
 	<string name="notification_type_follow">Seguidors nous</string>
-	<string name="notification_type_favorite">Preferits</string>
+	<string name="notification_type_favorite">Favorits</string>
 	<string name="notification_type_reblog">Impulsos</string>
 	<string name="notification_type_mention">Mencions</string>
 	<string name="notification_type_poll">Enquestes</string>
@@ -268,7 +268,7 @@
 	<string name="new_post">Nova publicació</string>
 	<string name="button_reply">Respon</string>
 	<string name="button_reblog">Impulsa</string>
-	<string name="button_favorite">Marca com a preferit</string>
+	<string name="button_favorite">Favorit</string>
 	<string name="button_share">Comparteix</string>
 	<string name="media_no_description">Multimèdia sense descripció</string>
 	<string name="add_media">Afegeix multimèdia</string>
@@ -303,15 +303,15 @@
 	<string name="trending_hashtags_info_banner">Aquests són els hashtags que criden l\'atenció en el teu racó de Mastodon.</string>
 	<string name="trending_links_info_banner">Aquestes són les notícies que més es comparteixen en el teu racó de Mastodon.</string>
 	<string name="local_timeline_info_banner">Aquestes són les publicacions més recents de les persones que utilitzen el mateix servidor Mastodon que tu.</string>
-	<string name="dismiss">Ometre</string>
-	<string name="see_new_posts">Veure noves publicacions</string>
-	<string name="load_missing_posts">Carregar les publicacions faltants</string>
-	<string name="follow_back">Seguir</string>
+	<string name="dismiss">Ignora</string>
+	<string name="see_new_posts">Publicacions noves</string>
+	<string name="load_missing_posts">Carrega les publicacions faltants</string>
+	<string name="follow_back">Segueix</string>
 	<string name="button_follow_pending">Pendent</string>
-	<string name="follows_you">Te segueix</string>
+	<string name="follows_you">Et segueix</string>
 	<string name="manually_approves_followers">Aprova seguidors manualment</string>
 	<string name="current_account">Compte actual</string>
-	<string name="log_out_account">Tancar sessió %s</string>
+	<string name="log_out_account">Tanca la sessió %s</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<plurals name="x_followers">
 		<item quantity="one">%,d seguidor</item>
@@ -332,7 +332,7 @@
 	<string name="timestamp_via_app">%1$s través de %2$s</string>
 	<string name="time_now">ara</string>
 	<string name="post_info_reblogs">Impulsos</string>
-	<string name="post_info_favorites">Preferits</string>
+	<string name="post_info_favorites">Favorits</string>
 	<string name="edit_history">Editar l’historial</string>
 	<string name="last_edit_at_x">Darrera edició: %s</string>
 	<string name="time_just_now">ara mateix</string>
@@ -371,14 +371,15 @@
 	<string name="upload_error_connection_lost">El teu dispositiu ha perdut la connexió a internet</string>
 	<string name="upload_processing">S\'està processant…</string>
 	<!-- %s is version like 1.2.3 -->
-	<string name="update_available">Mastodon per a Android %s està preparat per a descarregar.</string>
+	<string name="update_available">Mastodon per a Android %s està preparat per a baixar-se.</string>
 	<!-- %s is version like 1.2.3 -->
-	<string name="update_ready">Mastodon per a Android %s s\'ha descarregat i està llest per ser instal·lat.</string>
+	<string name="update_ready">Mastodon per a Android %s s\'ha baixat i està llest per ser instal·lat.</string>
 	<!-- %s is file size -->
 	<string name="download_update">Baixada (%s)</string>
-	<string name="install_update">Instal·lar</string>
+	<string name="install_update">Instal·la</string>
 	<string name="privacy_policy_title">Mastodon i la teva privacitat</string>
 	<string name="privacy_policy_subtitle">Tot i que l\'aplicació Mastodon no recull cap dada, el servidor mitjançant el qual et registres pot tenir una política diferent. Pren un minut per revisar i acceptar la política de privadesa de l\'aplicació Mastodon i la política de privadesa del teu servidor.</string>
 	<string name="i_agree">D’acord</string>
 	<string name="empty_list">Aquesta llista està buida</string>
+	<string name="instance_signup_closed">Aquest servidor no accepta nous registres.</string>
 </resources>
