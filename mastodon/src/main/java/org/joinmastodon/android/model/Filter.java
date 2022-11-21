@@ -50,6 +50,10 @@ public class Filter extends BaseModel{
 		return pattern.matcher(text).find();
 	}
 
+	public boolean matches(Status status){
+		return matches(status.getContentStatus().getStrippedText());
+	}
+
 	@Override
 	public String toString(){
 		return "Filter{"+

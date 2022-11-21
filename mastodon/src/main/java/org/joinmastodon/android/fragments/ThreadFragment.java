@@ -97,7 +97,7 @@ public class ThreadFragment extends StatusListFragment{
 			return statuses;
 		return statuses.stream().filter(status->{
 			for(Filter filter:filters){
-				if(filter.matches(status.getContentStatus().content))
+				if(filter.matches(status))
 					return false;
 			}
 			return true;

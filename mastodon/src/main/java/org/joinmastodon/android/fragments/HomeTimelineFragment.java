@@ -257,7 +257,7 @@ public class HomeTimelineFragment extends StatusListFragment{
 								if(idsBelowGap.contains(s.id))
 									break;
 								for(Filter filter:filters){
-									if(filter.matches(s.getContentStatus().content)){
+									if(filter.matches(s)){
 										continue outer;
 									}
 								}

@@ -3,6 +3,7 @@ package org.joinmastodon.android.model;
 import org.joinmastodon.android.api.ObjectValidationException;
 import org.joinmastodon.android.api.RequiredField;
 import org.joinmastodon.android.events.StatusCountersUpdatedEvent;
+import org.joinmastodon.android.ui.text.HtmlParser;
 import org.parceler.Parcel;
 
 import java.time.Instant;
@@ -56,6 +57,7 @@ public class Status extends BaseModel implements DisplayItemsParent{
 
 	public transient boolean spoilerRevealed;
 	public transient boolean hasGapAfter;
+	private transient String strippedText;
 
 	@Override
 	public void postprocess() throws ObjectValidationException{
@@ -131,5 +133,11 @@ public class Status extends BaseModel implements DisplayItemsParent{
 
 	public Status getContentStatus(){
 		return reblog!=null ? reblog : this;
+	}
+
+	public String getStrippedText(){
+		if(strippedText==null)
+			strippedText=HtmlParser.strip(content);
+		return strippedText;
 	}
 }

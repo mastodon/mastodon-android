@@ -73,7 +73,7 @@ public class CacheController{
 								status.hasGapAfter=((flags & POST_FLAG_GAP_AFTER)!=0);
 								newMaxID=status.id;
 								for(Filter filter:filters){
-									if(filter.matches(status.getContentStatus().content))
+									if(filter.matches(status))
 										continue outer;
 								}
 								result.add(status);
@@ -145,7 +145,7 @@ public class CacheController{
 								newMaxID=ntf.id;
 								if(ntf.status!=null){
 									for(Filter filter:filters){
-										if(filter.matches(ntf.status.getContentStatus().content))
+										if(filter.matches(ntf.status))
 											continue outer;
 									}
 								}
@@ -166,7 +166,7 @@ public class CacheController{
 								callback.onSuccess(new PaginatedResponse<>(result.stream().filter(ntf->{
 									if(ntf.status!=null){
 										for(Filter filter:filters){
-											if(filter.matches(ntf.status.getContentStatus().content)){
+											if(filter.matches(ntf.status)){
 												return false;
 											}
 										}

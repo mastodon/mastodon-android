@@ -21,9 +21,8 @@ public class StatusFilterPredicate implements Predicate<Status>{
 
 	@Override
 	public boolean test(Status status){
-		CharSequence content=status.getContentStatus().content;
 		for(Filter filter:filters){
-			if(filter.matches(content))
+			if(filter.matches(status))
 				return false;
 		}
 		return true;
