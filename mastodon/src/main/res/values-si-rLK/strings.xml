@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+	<string name="local_timeline">ප්‍රජාව</string>
+	<string name="log_out_account">%s නික්මෙන්න</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
+	<string name="time_now">දැන්</string>
+	<string name="post_info_favorites">ප්‍රියතමයන්</string>
+	<string name="edit_history">සංශෝධන ඉතිහාසය</string>
+	<string name="file_size_mb">මෙ.බ. %.2f</string>
+	<string name="file_size_gb">ගි.බ. %.2f</string>
+	<string name="file_upload_progress">%1$s / %2$s</string>
+	<string name="file_upload_time_remaining">%s ඉතිරියි</string>
 	<!-- %s is version like 1.2.3 -->
 	<!-- %s is version like 1.2.3 -->
 	<!-- %s is file size -->
+	<string name="download_update">බාගන්න (%s)</string>
+	<string name="install_update">ස්ථාපනය</string>
+	<string name="i_agree">මම එකඟයි</string>
 </resources>
