@@ -1,5 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+	<string name="get_started">පටන් ගන්න</string>
+	<string name="log_in">පිවිසෙන්න</string>
+	<string name="next">ඊළඟ</string>
+	<string name="error">දෝෂයකි</string>
+	<string name="ok">හරි</string>
+	<string name="notifications">දැනුම්දීම්</string>
+	<string name="time_seconds">ත.%d</string>
+	<string name="time_minutes">වි.%d</string>
+	<string name="time_hours">පැ.%d</string>
+	<string name="time_days">ද.%d</string>
+	<string name="share_toot_title">බෙදාගන්න</string>
+	<string name="settings">සැකසුම්</string>
+	<string name="publish">ප්‍රකාශනය</string>
+	<string name="discard">ඉවතලන්න</string>
+	<string name="cancel">අවලංගු</string>
+	<string name="media">මාධ්‍ය</string>
+	<string name="profile_about">පිලිබඳව</string>
+	<string name="edit_profile">පැතිකඩ සංස්කරණය</string>
+	<string name="mention_user">%s සැඳහුම</string>
+	<string name="share_user">%s බෙදාගන්න</string>
+	<string name="mute_user">%s නිහඬ</string>
+	<string name="unmute_user">%s නොනිහඬ</string>
+	<string name="block_user">%s අවහිර</string>
+	<string name="unblock_user">%s අනවහිර</string>
+	<string name="report_user">%s වාර්තාව</string>
+	<string name="block_domain">%s අවහිර</string>
+	<string name="unblock_domain">%s අනවහිර</string>
+	<string name="profile_joined">එක් විය</string>
+	<string name="done">අහවරයි</string>
+	<string name="loading">පූරණය වෙමින්…</string>
+	<string name="field_label">නම්පත</string>
+	<string name="field_content">අන්තර්ගතය</string>
+	<string name="saving">සුරැකෙමින්…</string>
+	<plurals name="x_minutes">
+		<item quantity="one">විනාඩි %d</item>
+		<item quantity="other">විනාඩි %d</item>
+	</plurals>
+	<plurals name="x_hours">
+		<item quantity="one">පැය %d</item>
+		<item quantity="other">පැය %d</item>
+	</plurals>
+	<plurals name="x_days">
+		<item quantity="one">දවස් %d</item>
+		<item quantity="other">දවස් %d</item>
+	</plurals>
+	<string name="poll_closed">වසා ඇත</string>
+	<string name="do_block">අවහිර</string>
+	<string name="do_unblock">අනවහිර</string>
+	<string name="pause">විරාමය</string>
+	<string name="log_out">නික්මෙන්න</string>
+	<string name="add_account">ගිණුමක් දමන්න</string>
+	<string name="search_hint">සොයන්න</string>
+	<string name="news">පුවත්</string>
+	<string name="for_you">ඔබට</string>
+	<string name="all_notifications">සියල්ල</string>
+	<string name="mentions">සැඳහුම්</string>
+	<string name="report_title">%s වාර්තාව</string>
+	<string name="report_reason_personal">මම එයට අකැමතියි</string>
+	<string name="report_reason_spam">එය අයාචිතයකි</string>
 	<string name="local_timeline">ප්‍රජාව</string>
 	<string name="log_out_account">%s නික්මෙන්න</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
