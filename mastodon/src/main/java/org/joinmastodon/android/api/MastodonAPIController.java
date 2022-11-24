@@ -204,10 +204,10 @@ public class MastodonAPIController {
     public static OkHttpClient getHttpClient() {
         if (httpClient == null) {
             httpClient = new OkHttpClient.Builder()
-                    .connectTimeout(2, TimeUnit.MINUTES)
-                    .callTimeout(2, TimeUnit.MINUTES)
-                    .readTimeout(2, TimeUnit.MINUTES)
-                    .writeTimeout(2, TimeUnit.MINUTES)
+                    .connectTimeout(1, TimeUnit.MINUTES)
+                    .callTimeout(1, TimeUnit.MINUTES)
+                    .readTimeout(1, TimeUnit.MINUTES)
+                    .writeTimeout(1, TimeUnit.MINUTES)
                     .build();
         }
         return httpClient;
