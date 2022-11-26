@@ -8,7 +8,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.DragEvent;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
@@ -22,7 +21,6 @@ import androidx.annotation.RequiresApi;
 
 public class ComposeEditText extends EditText{
 	private SelectionListener selectionListener;
-	private MediaAcceptingInputConnection inputConnectionWrapper=new MediaAcceptingInputConnection();
 
 	public ComposeEditText(Context context){
 		super(context);
@@ -54,11 +52,10 @@ public class ComposeEditText extends EditText{
 	// Support receiving images from keyboards
 	@Override
 	public InputConnection onCreateInputConnection(EditorInfo outAttrs){
-		final var ic = super.onCreateInputConnection(outAttrs);
+		final InputConnection ic=super.onCreateInputConnection(outAttrs);
 		if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.N_MR1){
 			outAttrs.contentMimeTypes=selectionListener.onGetAllowedMediaMimeTypes();
-			inputConnectionWrapper.setTarget(ic);
-			return inputConnectionWrapper;
+			return new MediaAcceptingInputConnection(ic);
 		}
 		return ic;
 	}
@@ -106,8 +103,8 @@ public class ComposeEditText extends EditText{
 	}
 
 	private class MediaAcceptingInputConnection extends InputConnectionWrapper{
-		public MediaAcceptingInputConnection(){
-			super(null, true);
+		public MediaAcceptingInputConnection(InputConnection conn){
+			super(conn, false);
 		}
 
 		@RequiresApi(api=Build.VERSION_CODES.N_MR1)
