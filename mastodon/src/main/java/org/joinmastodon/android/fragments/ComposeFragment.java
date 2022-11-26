@@ -687,7 +687,7 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 				wm.removeView(sendingOverlay);
 				sendingOverlay=null;
 				if(editingStatus==null){
-					E.post(new StatusCreatedEvent(result));
+					E.post(new StatusCreatedEvent(result, accountID));
 					if(replyTo!=null){
 						replyTo.repliesCount++;
 						E.post(new StatusCountersUpdatedEvent(replyTo));

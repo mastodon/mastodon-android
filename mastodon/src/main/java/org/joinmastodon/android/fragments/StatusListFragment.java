@@ -187,6 +187,8 @@ public abstract class StatusListFragment extends BaseStatusListFragment<Status>{
 
 		@Subscribe
 		public void onStatusCreated(StatusCreatedEvent ev){
+			if(!ev.accountID.equals(accountID))
+				return;
 			StatusListFragment.this.onStatusCreated(ev);
 		}
 
