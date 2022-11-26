@@ -365,6 +365,8 @@ public class PushSubscriptionManager{
 	}
 
 	private static void registerAllAccountsForPush(boolean forceReRegister){
+		if(!arePushNotificationsAvailable())
+			return;
 		for(AccountSession session:AccountSessionManager.getInstance().getLoggedInAccounts()){
 			if(session.pushSubscription==null || forceReRegister)
 				session.getPushSubscriptionManager().registerAccountForPush(session.pushSubscription);
