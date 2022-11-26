@@ -14,6 +14,7 @@ import android.widget.TextView;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.model.Instance;
 import org.joinmastodon.android.ui.DividerItemDecoration;
+import org.joinmastodon.android.ui.text.HtmlParser;
 import org.joinmastodon.android.ui.utils.UiUtils;
 import org.parceler.Parcels;
 
@@ -131,7 +132,10 @@ public class InstanceRulesFragment extends AppKitFragment{
 
 		@Override
 		public void onBind(Instance.Rule item){
-			title.setText(item.text);
+			if(item.parsedText==null){
+				item.parsedText=HtmlParser.parseLinks(item.text);
+			}
+			title.setText(item.parsedText);
 		}
 	}
 }

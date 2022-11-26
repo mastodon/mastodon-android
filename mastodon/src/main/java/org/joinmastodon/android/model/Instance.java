@@ -134,6 +134,8 @@ public class Instance extends BaseModel{
 	public static class Rule{
 		public String id;
 		public String text;
+
+		public transient CharSequence parsedText;
 	}
 
 	@Parcel

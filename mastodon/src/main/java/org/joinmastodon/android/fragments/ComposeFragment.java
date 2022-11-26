@@ -27,7 +27,6 @@ import android.text.Layout;
 import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.TextWatcher;
-import android.text.format.DateUtils;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -51,7 +50,6 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.twitter.twittertext.Regex;
 import com.twitter.twittertext.TwitterTextEmojiRegex;
 
 import org.joinmastodon.android.E;
@@ -101,7 +99,6 @@ import org.parceler.Parcels;
 import java.io.InterruptedIOException;
 import java.net.SocketException;
 import java.net.UnknownHostException;
-import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
@@ -132,21 +129,6 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 	private static final Pattern AUTO_COMPLETE_PATTERN=Pattern.compile("(?<!\\w)(?:@([a-zA-Z0-9_]+)(@[a-zA-Z0-9_.-]+)?|#([^\\s.]+)|:([a-zA-Z0-9_]+))");
 	private static final Pattern HIGHLIGHT_PATTERN=Pattern.compile("(?<!\\w)(?:@([a-zA-Z0-9_]+)(@[a-zA-Z0-9_.-]+)?|#([^\\s.]+))");
 
-	private static final String VALID_URL_PATTERN_STRING =
-					"(" +                                                            //  $1 total match
-						"(" + Regex.URL_VALID_PRECEDING_CHARS + ")" +                        //  $2 Preceding character
-						"(" +                                                          //  $3 URL
-						"(https?://)" +                                             //  $4 Protocol (optional)
-						"(" + Regex.URL_VALID_DOMAIN + ")" +                               //  $5 Domain(s)
-						"(?::(" + Regex.URL_VALID_PORT_NUMBER + "))?" +                    //  $6 Port number (optional)
-						"(/" +
-						Regex.URL_VALID_PATH + "*+" +
-						")?" +                                                       //  $7 URL Path and anchor
-						"(\\?" + Regex.URL_VALID_URL_QUERY_CHARS + "*" +                   //  $8 Query String
-						Regex.URL_VALID_URL_QUERY_ENDING_CHARS + ")?" +
-						")" +
-					")";
-	private static final Pattern URL_PATTERN=Pattern.compile(VALID_URL_PATTERN_STRING, Pattern.CASE_INSENSITIVE);
 	@SuppressLint("NewApi") // this class actually exists on 6.0
 	private final BreakIterator breakIterator=BreakIterator.getCharacterInstance();
 
@@ -612,7 +594,7 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 
 		String countableText=TwitterTextEmojiRegex.VALID_EMOJI_PATTERN.matcher(
 				MENTION_PATTERN.matcher(
-						URL_PATTERN.matcher(text).replaceAll("$2xxxxxxxxxxxxxxxxxxxxxxx")
+						HtmlParser.URL_PATTERN.matcher(text).replaceAll("$2xxxxxxxxxxxxxxxxxxxxxxx")
 				).replaceAll("$1@$3")
 		).replaceAll("x");
 		charCount=0;

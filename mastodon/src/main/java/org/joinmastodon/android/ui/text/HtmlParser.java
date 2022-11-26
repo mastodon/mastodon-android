@@ -2,7 +2,10 @@ package org.joinmastodon.android.ui.text;
 
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
+import android.text.TextUtils;
 import android.widget.TextView;
+
+import com.twitter.twittertext.Regex;
 
 import org.joinmastodon.android.model.Emoji;
 import org.joinmastodon.android.model.Hashtag;
@@ -28,6 +31,21 @@ import androidx.annotation.NonNull;
 
 public class HtmlParser{
 	private static final String TAG="HtmlParser";
+	private static final String VALID_URL_PATTERN_STRING =
+					"(" +                                                            //  $1 total match
+						"(" + Regex.URL_VALID_PRECEDING_CHARS + ")" +                        //  $2 Preceding character
+						"(" +                                                          //  $3 URL
+						"(https?://)" +                                             //  $4 Protocol (optional)
+						"(" + Regex.URL_VALID_DOMAIN + ")" +                               //  $5 Domain(s)
+						"(?::(" + Regex.URL_VALID_PORT_NUMBER + "))?" +                    //  $6 Port number (optional)
+						"(/" +
+						Regex.URL_VALID_PATH + "*+" +
+						")?" +                                                       //  $7 URL Path and anchor
+						"(\\?" + Regex.URL_VALID_URL_QUERY_CHARS + "*" +                   //  $8 Query String
+						Regex.URL_VALID_URL_QUERY_ENDING_CHARS + ")?" +
+						")" +
+					")";
+	public static final Pattern URL_PATTERN=Pattern.compile(VALID_URL_PATTERN_STRING, Pattern.CASE_INSENSITIVE);
 	private static Pattern EMOJI_CODE_PATTERN=Pattern.compile(":([\\w]+):");
 
 	private HtmlParser(){}
@@ -171,5 +189,19 @@ public class HtmlParser{
 
 	public static String strip(String html){
 		return Jsoup.clean(html, Safelist.none());
+	}
+
+	public static CharSequence parseLinks(String text){
+		Matcher matcher=URL_PATTERN.matcher(text);
+		if(!matcher.find()) // Return the original string if there are no URLs
+			return text;
+		SpannableStringBuilder ssb=new SpannableStringBuilder(text);
+		do{
+			String url=matcher.group(3);
+			if(TextUtils.isEmpty(matcher.group(4)))
+				url="http://"+url;
+			ssb.setSpan(new LinkSpan(url, null, LinkSpan.Type.URL, null), matcher.start(3), matcher.end(3), 0);
+		}while(matcher.find()); // Find more URLs
+		return ssb;
 	}
 }
