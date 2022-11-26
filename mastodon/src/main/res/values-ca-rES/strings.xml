@@ -5,15 +5,15 @@
 	<string name="next">Següent</string>
 	<string name="loading_instance">Obtenint informació sobre la instància…</string>
 	<string name="error">Error</string>
-	<string name="not_a_mastodon_instance">Sembla que %s no és una instància Mastodon.</string>
+	<string name="not_a_mastodon_instance">Sembla que %s no és una instància de Mastodon.</string>
 	<string name="ok">D\'acord</string>
-	<string name="preparing_auth">Preparant a l\'autenticació…</string>
-	<string name="finishing_auth">Finalitzant autentificació…</string>
+	<string name="preparing_auth">Preparant l\'autenticació…</string>
+	<string name="finishing_auth">Finalitzant l\'autenticació…</string>
 	<string name="user_boosted">%s ha impulsat</string>
 	<string name="in_reply_to">En resposta a %s</string>
 	<string name="notifications">Notificacions</string>
 	<string name="user_followed_you">t\'ha seguit</string>
-	<string name="user_sent_follow_request">t\'ha enviat una sol·licitud de seguiment</string>
+	<string name="user_sent_follow_request">ha sol·licitat seguir-te</string>
 	<string name="user_favorited">ha afavorit la teva publicació</string>
 	<string name="notification_boosted">ha impulsat la teva publicació</string>
 	<string name="poll_ended">l\'enquesta ha finalitzat</string>
@@ -24,7 +24,7 @@
 	<string name="share_toot_title">Comparteix</string>
 	<string name="settings">Configuració</string>
 	<string name="publish">Publica</string>
-	<string name="discard_draft">Voleu descartar l\'esborrany?</string>
+	<string name="discard_draft">Vols descartar l\'esborrany?</string>
 	<string name="discard">Descarta</string>
 	<string name="cancel">Cancel·la</string>
 	<plurals name="followers">
@@ -49,14 +49,14 @@
 	<string name="mention_user">Menciona %s</string>
 	<string name="share_user">Comparteix %s</string>
 	<string name="mute_user">Silencia %s</string>
-	<string name="unmute_user">Deixar de silenciar %s</string>
+	<string name="unmute_user">Deixa de silenciar %s</string>
 	<string name="block_user">Bloca %s</string>
 	<string name="unblock_user">Desbloca %s</string>
 	<string name="report_user">Denuncia %s</string>
 	<string name="block_domain">Bloca %s</string>
 	<string name="unblock_domain">Desbloca %s</string>
 	<plurals name="x_posts">
-		<item quantity="one">%,d entrada</item>
+		<item quantity="one">%,d publicació</item>
 		<item quantity="other">%,d publicacions</item>
 	</plurals>
 	<string name="profile_joined">S\'ha unit</string>
@@ -101,12 +101,12 @@
 		<item quantity="other">%,d votants</item>
 	</plurals>
 	<string name="poll_closed">Finalitzada</string>
-	<string name="confirm_mute_title">Silenciar el compte</string>
-	<string name="confirm_mute">Confirma per silenciar %s</string>
-	<string name="do_mute">Silenciar</string>
+	<string name="confirm_mute_title">Silencia el compte</string>
+	<string name="confirm_mute">Confirma per a silenciar %s</string>
+	<string name="do_mute">Silencia</string>
 	<string name="confirm_unmute_title">Deixar de silenciar el compte</string>
 	<string name="confirm_unmute">Confirma per deixar de silenciar %s</string>
-	<string name="do_unmute">Deixar de silenciar</string>
+	<string name="do_unmute">Deixa de silenciar</string>
 	<string name="confirm_block_title">Bloca el compte</string>
 	<string name="confirm_block_domain_title">Bloca el domini</string>
 	<string name="confirm_block">Confirma per blocar %s</string>
@@ -135,12 +135,12 @@
 	<string name="all_notifications">Totes</string>
 	<string name="mentions">Mencions</string>
 	<plurals name="x_people_talking">
-		<item quantity="one">%d persona parla</item>
-		<item quantity="other">%d persones estan parlant</item>
+		<item quantity="one">%d persona està parlant-ne</item>
+		<item quantity="other">%d persones estan parlant-ne</item>
 	</plurals>
 	<plurals name="discussed_x_times">
-		<item quantity="one">S\'ha comentat %d cop</item>
-		<item quantity="other">S\'ha comentat %d cops</item>
+		<item quantity="one">S\'ha comentat %d vegada</item>
+		<item quantity="other">S\'ha comentat %d vegades</item>
 	</plurals>
 	<string name="report_title">Denuncia %s</string>
 	<string name="report_choose_reason">Quin és el problema amb aquesta publicació?</string>
@@ -160,7 +160,7 @@
 	<string name="report_choose_posts_subtitle">Selecciona tots els aplicables</string>
 	<string name="report_comment_title">Hi ha res més que hauríem de saber?</string>
 	<string name="report_comment_hint">Comentaris addicionals</string>
-	<string name="sending_report">Enviant informe…</string>
+	<string name="sending_report">S\'està enviant l\'informe…</string>
 	<string name="report_sent_title">Gràcies per informar, ho investigarem.</string>
 	<string name="report_sent_subtitle">Mentre ho revisem, pots prendre mesures contra %s.</string>
 	<string name="unfollow_user">Deixar de seguir %s</string>
@@ -176,7 +176,7 @@
 	<string name="instance_rules_title">Algunes normes bàsiques</string>
 	<string name="instance_rules_subtitle">Pren un minut per revisar les normes establertes i aplicades pels administradors de %s.</string>
 	<string name="signup_title">Deixa que et posem en marxa a %s</string>
-	<string name="edit_photo">editar</string>
+	<string name="edit_photo">edita</string>
 	<string name="display_name">nom visible</string>
 	<string name="username">nom d\'usuari</string>
 	<string name="email">correu electrònic</string>
@@ -223,9 +223,9 @@
 	<string name="notification_type_mention">Mencions</string>
 	<string name="notification_type_poll">Enquestes</string>
 	<string name="choose_account">Selecciona un compte</string>
-	<string name="err_not_logged_in">Si us plau, inicia sessió primer a Mastodon</string>
+	<string name="err_not_logged_in">Primer inicia sessió a Mastodon</string>
 	<plurals name="cant_add_more_than_x_attachments">
-		<item quantity="one">No pots afegir més de %d fitxer multimèdia</item>
+		<item quantity="one">No pots afegir més d\'%d fitxer multimèdia</item>
 		<item quantity="other">No pots afegir més de %d fitxers multimèdia</item>
 	</plurals>
 	<string name="media_attachment_unsupported_type">El tipus de fitxer %s no és compatible</string>
@@ -236,8 +236,8 @@
 	<string name="theme_dark">Fosc</string>
 	<string name="theme_true_black">Mode negre pur</string>
 	<string name="settings_behavior">Comportament</string>
-	<string name="settings_gif">Reproduir emojis i avatar animats</string>
-	<string name="settings_custom_tabs">Utilitzar el navegador intern</string>
+	<string name="settings_gif">Reprodueix emojis i avatar animats</string>
+	<string name="settings_custom_tabs">Utilitza el navegador intern</string>
 	<string name="settings_notifications">Notificacions</string>
 	<string name="notify_me_when">Notifica\'m quan</string>
 	<string name="notify_anyone">qualsevol</string>
@@ -259,7 +259,7 @@
 	<string name="media_cache_cleared">S\'ha esborrat la memòria cau multimèdia</string>
 	<string name="confirm_log_out">Segur que vols tancar la sessió?</string>
 	<string name="sensitive_content">Contingut sensible</string>
-	<string name="sensitive_content_explain">L\'autor va marcar aquest mitjà com a sensible. Toca per a mostrar-lo.</string>
+	<string name="sensitive_content_explain">L\'autor ha marcat aquest mitjà com a sensible. Toca per a mostrar-lo.</string>
 	<string name="media_hidden">Toca per a mostrar</string>
 	<string name="avatar_description">Vés al perfil de: %s</string>
 	<string name="more_options">Més opcions</string>
@@ -368,7 +368,7 @@
 	<string name="file_size_gb">%.2f GB</string>
 	<string name="file_upload_progress">%1$s de %2$s</string>
 	<string name="file_upload_time_remaining">%s restants</string>
-	<string name="upload_error_connection_lost">El teu dispositiu ha perdut la connexió a internet</string>
+	<string name="upload_error_connection_lost">El dispositiu ha perdut la connexió a Internet</string>
 	<string name="upload_processing">S\'està processant…</string>
 	<!-- %s is version like 1.2.3 -->
 	<string name="update_available">Mastodon per a Android %s està preparat per a baixar-se.</string>
