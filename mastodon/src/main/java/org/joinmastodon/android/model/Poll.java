@@ -49,7 +49,7 @@ public class Poll extends BaseModel{
 	}
 
 	public boolean isExpired(){
-		return expired || expiresAt.isBefore(Instant.now());
+		return expired || (expiresAt!=null && expiresAt.isBefore(Instant.now()));
 	}
 
 	@Parcel
