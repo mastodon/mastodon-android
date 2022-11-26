@@ -6,6 +6,7 @@ import com.squareup.otto.Subscribe;
 
 import org.joinmastodon.android.E;
 import org.joinmastodon.android.events.PollUpdatedEvent;
+import org.joinmastodon.android.events.RemoveAccountPostsEvent;
 import org.joinmastodon.android.events.StatusCountersUpdatedEvent;
 import org.joinmastodon.android.events.StatusCreatedEvent;
 import org.joinmastodon.android.events.StatusDeletedEvent;
@@ -18,6 +19,8 @@ import org.parceler.Parcels;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import androidx.recyclerview.widget.RecyclerView;
 import me.grishka.appkit.Nav;
@@ -134,6 +137,40 @@ public abstract class StatusListFragment extends BaseStatusListFragment<Status>{
 		return null;
 	}
 
+	protected boolean shouldRemoveAccountPostsWhenUnfollowing(){
+		return false;
+	}
+
+	protected void onRemoveAccountPostsEvent(RemoveAccountPostsEvent ev){
+		List<Status> toRemove=Stream.concat(data.stream(), preloadedData.stream())
+				.filter(s->s.account.id.equals(ev.postsByAccountID) || (s.reblog!=null && s.reblog.account.id.equals(ev.postsByAccountID)))
+				.collect(Collectors.toList());
+		for(Status s:toRemove){
+			removeStatus(s);
+		}
+	}
+
+	protected void removeStatus(Status status){
+		data.remove(status);
+		preloadedData.remove(status);
+		int index=-1;
+		for(int i=0;i<displayItems.size();i++){
+			if(status.id.equals(displayItems.get(i).parentID)){
+				index=i;
+				break;
+			}
+		}
+		if(index==-1)
+			return;
+		int lastIndex;
+		for(lastIndex=index;lastIndex<displayItems.size();lastIndex++){
+			if(!displayItems.get(lastIndex).parentID.equals(status.id))
+				break;
+		}
+		displayItems.subList(index, lastIndex).clear();
+		adapter.notifyItemRangeRemoved(index, lastIndex-index);
+	}
+
 	public class EventListener{
 
 		@Subscribe
@@ -165,24 +202,7 @@ public abstract class StatusListFragment extends BaseStatusListFragment<Status>{
 			Status status=getStatusByID(ev.id);
 			if(status==null)
 				return;
-			data.remove(status);
-			preloadedData.remove(status);
-			int index=-1;
-			for(int i=0;i<displayItems.size();i++){
-				if(ev.id.equals(displayItems.get(i).parentID)){
-					index=i;
-					break;
-				}
-			}
-			if(index==-1)
-				return;
-			int lastIndex;
-			for(lastIndex=index;lastIndex<displayItems.size();lastIndex++){
-				if(!displayItems.get(lastIndex).parentID.equals(ev.id))
-					break;
-			}
-			displayItems.subList(index, lastIndex).clear();
-			adapter.notifyItemRangeRemoved(index, lastIndex-index);
+			removeStatus(status);
 		}
 
 		@Subscribe
@@ -207,6 +227,15 @@ public abstract class StatusListFragment extends BaseStatusListFragment<Status>{
 					updatePoll(status.id, status, ev.poll);
 				}
 			}
+		}
+
+		@Subscribe
+		public void onRemoveAccountPostsEvent(RemoveAccountPostsEvent ev){
+			if(!ev.accountID.equals(accountID))
+				return;
+			if(ev.isUnfollow && !shouldRemoveAccountPostsWhenUnfollowing())
+				return;
+			StatusListFragment.this.onRemoveAccountPostsEvent(ev);
 		}
 	}
 }

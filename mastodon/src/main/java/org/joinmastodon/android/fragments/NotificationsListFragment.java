@@ -10,6 +10,7 @@ import org.joinmastodon.android.E;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.events.PollUpdatedEvent;
+import org.joinmastodon.android.events.RemoveAccountPostsEvent;
 import org.joinmastodon.android.model.Notification;
 import org.joinmastodon.android.model.PaginatedResponse;
 import org.joinmastodon.android.model.Status;
@@ -26,6 +27,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import androidx.recyclerview.widget.RecyclerView;
 import me.grishka.appkit.Nav;
@@ -180,4 +182,36 @@ public class NotificationsListFragment extends BaseStatusListFragment<Notificati
 		}
 	}
 
+	@Subscribe
+	public void onRemoveAccountPostsEvent(RemoveAccountPostsEvent ev){
+		if(!ev.accountID.equals(accountID) || ev.isUnfollow)
+			return;
+		List<Notification> toRemove=Stream.concat(data.stream(), preloadedData.stream())
+				.filter(n->n.account!=null && n.account.id.equals(ev.postsByAccountID))
+				.collect(Collectors.toList());
+		for(Notification n:toRemove){
+			removeNotification(n);
+		}
+	}
+
+	private void removeNotification(Notification n){
+		data.remove(n);
+		preloadedData.remove(n);
+		int index=-1;
+		for(int i=0;i<displayItems.size();i++){
+			if(n.id.equals(displayItems.get(i).parentID)){
+				index=i;
+				break;
+			}
+		}
+		if(index==-1)
+			return;
+		int lastIndex;
+		for(lastIndex=index;lastIndex<displayItems.size();lastIndex++){
+			if(!displayItems.get(lastIndex).parentID.equals(n.id))
+				break;
+		}
+		displayItems.subList(index, lastIndex).clear();
+		adapter.notifyItemRangeRemoved(index, lastIndex-index);
+	}
 }

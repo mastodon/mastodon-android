@@ -11,8 +11,10 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import org.joinmastodon.android.E;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.requests.accounts.SetAccountFollowed;
+import org.joinmastodon.android.events.RemoveAccountPostsEvent;
 import org.joinmastodon.android.fragments.MastodonToolbarFragment;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.Relationship;
@@ -130,6 +132,7 @@ public class ReportDoneFragment extends MastodonToolbarFragment{
 					@Override
 					public void onSuccess(Relationship result){
 						Nav.finish(ReportDoneFragment.this);
+						E.post(new RemoveAccountPostsEvent(accountID, reportAccount.id, true));
 					}
 
 					@Override

@@ -43,6 +43,7 @@ import org.joinmastodon.android.api.requests.accounts.SetDomainBlocked;
 import org.joinmastodon.android.api.requests.statuses.DeleteStatus;
 import org.joinmastodon.android.api.requests.statuses.GetStatusByID;
 import org.joinmastodon.android.api.session.AccountSessionManager;
+import org.joinmastodon.android.events.RemoveAccountPostsEvent;
 import org.joinmastodon.android.events.StatusDeletedEvent;
 import org.joinmastodon.android.fragments.HashtagTimelineFragment;
 import org.joinmastodon.android.fragments.ProfileFragment;
@@ -325,6 +326,9 @@ public class UiUtils{
 								@Override
 								public void onSuccess(Relationship result){
 									resultCallback.accept(result);
+									if(!currentlyBlocked){
+										E.post(new RemoveAccountPostsEvent(accountID, account.id, false));
+									}
 								}
 
 								@Override
@@ -367,6 +371,9 @@ public class UiUtils{
 								@Override
 								public void onSuccess(Relationship result){
 									resultCallback.accept(result);
+									if(!currentlyMuted){
+										E.post(new RemoveAccountPostsEvent(accountID, account.id, false));
+									}
 								}
 
 								@Override
@@ -448,6 +455,9 @@ public class UiUtils{
 						public void onSuccess(Relationship result){
 							resultCallback.accept(result);
 							progressCallback.accept(false);
+							if(!result.following){
+								E.post(new RemoveAccountPostsEvent(accountID, account.id, true));
+							}
 						}
 
 						@Override

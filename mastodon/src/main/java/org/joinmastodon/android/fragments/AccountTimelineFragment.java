@@ -7,6 +7,7 @@ import android.view.View;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.requests.accounts.GetAccountStatuses;
 import org.joinmastodon.android.api.session.AccountSessionManager;
+import org.joinmastodon.android.events.RemoveAccountPostsEvent;
 import org.joinmastodon.android.events.StatusCreatedEvent;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.Status;
@@ -85,5 +86,10 @@ public class AccountTimelineFragment extends StatusListFragment{
 				return;
 		}
 		prependItems(Collections.singletonList(ev.status), true);
+	}
+
+	@Override
+	protected void onRemoveAccountPostsEvent(RemoveAccountPostsEvent ev){
+		// no-op
 	}
 }
