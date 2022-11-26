@@ -13,7 +13,7 @@ public class Poll extends BaseModel{
 	@RequiredField
 	public String id;
 	public Instant expiresAt;
-	public boolean expired;
+	private boolean expired;
 	public boolean multiple;
 	public int votersCount;
 	public boolean voted;
@@ -46,6 +46,10 @@ public class Poll extends BaseModel{
 				", options="+options+
 				", emojis="+emojis+
 				'}';
+	}
+
+	public boolean isExpired(){
+		return expired || expiresAt.isBefore(Instant.now());
 	}
 
 	@Parcel
