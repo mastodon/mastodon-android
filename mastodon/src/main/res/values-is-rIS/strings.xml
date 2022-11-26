@@ -208,6 +208,8 @@ Viðkomandi aðilar munu ekki vita að þaggað hefur verið niður í þeim.</s
 	<string name="edit_image">Breyta mynd</string>
 	<string name="save">Vista</string>
 	<string name="add_alt_text">Bættu við ALT-texta</string>
+	<string name="alt_text_subtitle">ALT-texti lýsir myndunum þínum fyrir sjónskert fólk. Reyndu að hafa einungis nægar upplýsingar svo hægt sé að skilja samhengi myndanna.</string>
+	<string name="alt_text_hint">t.d. hundur pírir augun á grunsamlega myndavélina.</string>
 	<string name="visibility_public">Opinbert</string>
 	<string name="visibility_followers_only">Einungis fylgjendur</string>
 	<string name="visibility_private">Einungis fólk sem ég minnist á</string>
@@ -223,7 +225,12 @@ Viðkomandi aðilar munu ekki vita að þaggað hefur verið niður í þeim.</s
 	<string name="notification_type_poll">Kannanir</string>
 	<string name="choose_account">Veldu aðgang</string>
 	<string name="err_not_logged_in">Skráðu þig fyrst inn á Mastodon</string>
+	<plurals name="cant_add_more_than_x_attachments">
+		<item quantity="one">Þú getur ekki bætt við fleiri en %d myndefnisviðhengi</item>
+		<item quantity="other">Þú getur ekki bætt við fleiri en %d myndefnisviðhengjum</item>
+	</plurals>
 	<string name="media_attachment_unsupported_type">Skráin %s er af tegund sem ekki er studd</string>
+	<string name="media_attachment_too_big">Skráin %1$s fer yfir stærðartakmörkin %2$s MB</string>
 	<string name="settings_theme">Útlit</string>
 	<string name="theme_auto">Sjálfvirkt</string>
 	<string name="theme_light">Ljóst</string>
@@ -231,6 +238,7 @@ Viðkomandi aðilar munu ekki vita að þaggað hefur verið niður í þeim.</s
 	<string name="theme_true_black">Sannur svartur hamur</string>
 	<string name="settings_behavior">Hegðun</string>
 	<string name="settings_gif">Spila auðkennismyndir með hreyfingu</string>
+	<string name="settings_custom_tabs">Nota innbyggðan vafra forritsins</string>
 	<string name="settings_notifications">Tilkynningar</string>
 	<string name="notify_me_when">Tilkynna mér þegar</string>
 	<string name="notify_anyone">hver sem er</string>
@@ -285,6 +293,7 @@ Viðkomandi aðilar munu ekki vita að þaggað hefur verið niður í þeim.</s
 	<string name="reorder">Endurraða</string>
 	<string name="download">Sækja</string>
 	<string name="permission_required">Krafist er heimildar</string>
+	<string name="storage_permission_to_download">Forritið þarf aðgang að geymslurýminu þínu til að vista þessa skrá.</string>
 	<string name="open_settings">Opna stillingar</string>
 	<string name="error_saving_file">Villa við að vista skrána</string>
 	<string name="file_saved">Skrá vistuð</string>
@@ -294,6 +303,7 @@ Viðkomandi aðilar munu ekki vita að þaggað hefur verið niður í þeim.</s
 	<string name="trending_posts_info_banner">Þetta eru færslurnar sem eru að fá aukna athygli í þínu horni á Mastodon.</string>
 	<string name="trending_hashtags_info_banner">Þetta eru myllumerkin sem eru að fá aukna athygli í þínu horni á Mastodon.</string>
 	<string name="trending_links_info_banner">Þetta eru fréttirnar sem eru að fá aukna athygli í þínu horni á Mastodon.</string>
+	<string name="local_timeline_info_banner">Þetta eru nýjustu færslurnar frá fólki sem notar sama Mastodon-netþjón og þú.</string>
 	<string name="dismiss">Afgreiða</string>
 	<string name="see_new_posts">Skoða nýjar færslur</string>
 	<string name="load_missing_posts">Hlaða inn færslum sem vantar</string>
@@ -369,6 +379,7 @@ Viðkomandi aðilar munu ekki vita að þaggað hefur verið niður í þeim.</s
 	<string name="download_update">Sækja (%s)</string>
 	<string name="install_update">Setja upp</string>
 	<string name="privacy_policy_title">Mastodon og friðhelgi þín</string>
+	<string name="privacy_policy_subtitle">Þó svo að Mastodon-forritið safni ekki neinum gögnum, má samt vera að netþjónninn sem þú skráðir þig á hafi aðra stefnu hvað slíkt varðar. Taktu þér tíma til að yfirfara og samþykkja persónuverndarstefnu Mastodon-forritsins og einnig hjá netþjóninum þínum.</string>
 	<string name="i_agree">Ég samþykki</string>
 	<string name="empty_list">Þessi listi er tómur</string>
 	<string name="instance_signup_closed">Þessi netþjónn tekur ekki við nýjum skráningum.</string>
