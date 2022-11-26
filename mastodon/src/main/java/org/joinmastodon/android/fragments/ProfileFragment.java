@@ -6,6 +6,8 @@ import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.app.Fragment;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Outline;
@@ -34,6 +36,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.Toolbar;
 
 import org.joinmastodon.android.GlobalUserPreferences;
@@ -271,6 +274,18 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 
 		followersBtn.setOnClickListener(this::onFollowersOrFollowingClick);
 		followingBtn.setOnClickListener(this::onFollowersOrFollowingClick);
+
+		username.setOnLongClickListener(v->{
+			String username=account.acct;
+			if(!username.contains("@")){
+				username+="@"+AccountSessionManager.getInstance().getAccount(accountID).domain;
+			}
+			getActivity().getSystemService(ClipboardManager.class).setPrimaryClip(ClipData.newPlainText(null, "@"+username));
+			if(Build.VERSION.SDK_INT<Build.VERSION_CODES.TIRAMISU){ // Android 13+ SystemUI shows its own thing when you put things into the clipboard
+				Toast.makeText(getActivity(), R.string.text_copied, Toast.LENGTH_SHORT).show();
+			}
+			return true;
+		});
 
 		return sizeWrapper;
 	}
