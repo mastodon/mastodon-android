@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+	<string name="get_started">Kezdjünk bele</string>
 	<string name="log_in">Bejelentkezés</string>
 	<string name="next">Következő</string>
+	<string name="loading_instance">Példány információinak lekérése…</string>
 	<string name="error">Hiba</string>
+	<string name="not_a_mastodon_instance">%s nem tűnik Mastodon példánynak.</string>
+	<string name="ok">OK</string>
+	<string name="preparing_auth">Felkészülés a hitelesítésre…</string>
+	<string name="finishing_auth">Hitelesítés befejezése…</string>
+	<string name="user_boosted">%s reblogolta</string>
+	<string name="in_reply_to">Válaszolva %s számára</string>
+	<string name="notifications">Értesítések</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<!-- %s is version like 1.2.3 -->
 	<!-- %s is version like 1.2.3 -->
