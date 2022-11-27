@@ -193,6 +193,8 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 					});
 				}else if(id==R.id.block_domain){
 					UiUtils.confirmToggleBlockDomain(activity, item.parentFragment.getAccountID(), account.getDomain(), relationship!=null && relationship.domainBlocking, ()->{});
+				}else if(id==R.id.bookmark){
+					AccountSessionManager.getInstance().getAccount(item.accountID).getStatusInteractionController().setBookmarked(item.status, !item.status.bookmarked);
 				}
 				return true;
 			});
@@ -290,6 +292,13 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 			MenuItem block=menu.findItem(R.id.block);
 			MenuItem report=menu.findItem(R.id.report);
 			MenuItem follow=menu.findItem(R.id.follow);
+			MenuItem bookmark=menu.findItem(R.id.bookmark);
+			if(item.status!=null){
+				bookmark.setVisible(true);
+				bookmark.setTitle(item.status.bookmarked ? R.string.remove_bookmark : R.string.add_bookmark);
+			}else{
+				bookmark.setVisible(false);
+			}
 			if(isOwnPost){
 				mute.setVisible(false);
 				block.setVisible(false);
