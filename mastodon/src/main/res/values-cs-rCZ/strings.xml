@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="get_started">Začít</string>
+	<string name="get_started">Začínáme</string>
 	<string name="log_in">Přihlásit se</string>
 	<string name="next">Další</string>
 	<string name="loading_instance">Získávání informací o instanci…</string>
@@ -12,7 +12,7 @@
 	<string name="user_boosted">Uživatel %s boostnul</string>
 	<string name="in_reply_to">V odpovědi na %s</string>
 	<string name="notifications">Upozornění</string>
-	<string name="user_followed_you">vás sleduje</string>
+	<string name="user_followed_you">vás začal(a) sledovat</string>
 	<string name="user_sent_follow_request">vám poslal(a) žádost o sledování</string>
 	<string name="user_favorited">si oblíbil(a) váš příspěvek</string>
 	<string name="notification_boosted">boostnul(a) váš příspěvek</string>
@@ -34,9 +34,9 @@
 		<item quantity="other">sledujících</item>
 	</plurals>
 	<plurals name="following">
-		<item quantity="one">sledovaní</item>
-		<item quantity="few">sledování</item>
-		<item quantity="many">sledování</item>
+		<item quantity="one">sledovaný</item>
+		<item quantity="few">sledovaní</item>
+		<item quantity="many">sledovaných</item>
 		<item quantity="other">sledovaných</item>
 	</plurals>
 	<plurals name="posts">
