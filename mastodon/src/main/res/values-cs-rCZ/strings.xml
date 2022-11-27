@@ -165,10 +165,10 @@
 		<item quantity="other">%d lidí mluví</item>
 	</plurals>
 	<plurals name="discussed_x_times">
-		<item quantity="one">Diskutováno %d krát</item>
-		<item quantity="few">Diskutováno %d krát</item>
-		<item quantity="many">Diskutováno %d krát</item>
-		<item quantity="other">Diskutováno %d krát</item>
+		<item quantity="one">Diskutováno %dkrát</item>
+		<item quantity="few">Diskutováno %dkrát</item>
+		<item quantity="many">Diskutováno %dkrát</item>
+		<item quantity="other">Diskutováno %dkrát</item>
 	</plurals>
 	<string name="report_title">Nahlásit %s</string>
 	<string name="report_choose_reason">Co je na tomto příspěvku špatně?</string>
@@ -253,7 +253,7 @@
 	<string name="choose_account">Vybrat účet</string>
 	<string name="err_not_logged_in">Nejprve se přihlaste do Mastodonu</string>
 	<plurals name="cant_add_more_than_x_attachments">
-		<item quantity="one">Nelze přidat více než %d multimediálních příloh</item>
+		<item quantity="one">Nelze přidat více než %d multimediální přílohu</item>
 		<item quantity="few">Nelze přidat více než %d multimediální přílohy</item>
 		<item quantity="many">Nelze přidat více než %d multimediálních příloh</item>
 		<item quantity="other">Nelze přidat více než %d multimediálních příloh</item>
@@ -397,7 +397,7 @@
 	<string name="edit_poll_removed">Anketa byla odebrána</string>
 	<string name="edit_media_added">Média přidána</string>
 	<string name="edit_media_removed">Média odstraněna</string>
-	<string name="edit_media_reordered">Média přeřazena</string>
+	<string name="edit_media_reordered">Pořadí médií bylo změněno</string>
 	<string name="edit_marked_sensitive">Označeno jako citlivé</string>
 	<string name="edit_marked_not_sensitive">Označeno, že není citlivé</string>
 	<string name="edit_multiple_changed">Příspěvek byl upraven</string>
