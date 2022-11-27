@@ -8,6 +8,7 @@ import com.squareup.otto.Subscribe;
 
 import org.joinmastodon.android.E;
 import org.joinmastodon.android.R;
+import org.joinmastodon.android.api.requests.markers.SaveMarkers;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.events.PollUpdatedEvent;
 import org.joinmastodon.android.events.RemoveAccountPostsEvent;
@@ -113,6 +114,10 @@ public class NotificationsListFragment extends BaseStatusListFragment<Notificati
 								.collect(Collectors.toSet());
 						loadRelationships(needRelationships);
 						maxID=result.maxID;
+
+						if(offset==0 && !result.items.isEmpty()){
+							new SaveMarkers(null, result.items.get(0).id).exec(accountID);
+						}
 					}
 				});
 	}

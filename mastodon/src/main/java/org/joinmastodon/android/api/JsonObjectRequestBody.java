@@ -1,5 +1,6 @@
 package org.joinmastodon.android.api;
 
+import com.google.gson.JsonElement;
 import com.google.gson.JsonIOException;
 
 import java.io.IOException;
@@ -26,7 +27,10 @@ public class JsonObjectRequestBody extends RequestBody{
 	public void writeTo(BufferedSink sink) throws IOException{
 		try{
 			OutputStreamWriter writer=new OutputStreamWriter(sink.outputStream(), StandardCharsets.UTF_8);
-			MastodonAPIController.gson.toJson(obj, writer);
+			if(obj instanceof JsonElement)
+				writer.write(obj.toString());
+			else
+				MastodonAPIController.gson.toJson(obj, writer);
 			writer.flush();
 		}catch(JsonIOException x){
 			throw new IOException(x);
