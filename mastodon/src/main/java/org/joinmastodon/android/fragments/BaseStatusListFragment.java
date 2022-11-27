@@ -439,7 +439,7 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 						error.showToast(getActivity());
 					}
 				})
-				.wrapProgress(getActivity(), R.string.loading, false)
+				.wrapProgress(getActivity(), R.string.loading, true)
 				.exec(accountID);
 	}
 
