@@ -52,10 +52,10 @@
 	<string name="button_follow">Sledovat</string>
 	<string name="button_following">Sleduji</string>
 	<string name="edit_profile">Upravit profil</string>
-	<string name="mention_user">Zmínit @%s</string>
+	<string name="mention_user">Zmínit %s</string>
 	<string name="share_user">Sdílet %s</string>
 	<string name="mute_user">Skrýt %s</string>
-	<string name="unmute_user">Odkrýt @%s</string>
+	<string name="unmute_user">Zrušit skrytí @%s</string>
 	<string name="block_user">Blokovat %s</string>
 	<string name="unblock_user">Odblokovat %s</string>
 	<string name="report_user">Nahlásit %s</string>
@@ -67,14 +67,14 @@
 		<item quantity="many">%,d příspěvků</item>
 		<item quantity="other">%,d příspěvků</item>
 	</plurals>
-	<string name="profile_joined">Účet vytvořen</string>
+	<string name="profile_joined">Připojen/a</string>
 	<string name="done">Hotovo</string>
 	<string name="loading">Načítání…</string>
 	<string name="field_label">Označení</string>
 	<string name="field_content">Obsah</string>
 	<string name="saving">Ukládání…</string>
 	<string name="post_from_user">Příspěvek od %s</string>
-	<string name="poll_option_hint">Možnost %d</string>
+	<string name="poll_option_hint">Volba %d</string>
 	<plurals name="x_minutes">
 		<item quantity="one">%d minuta</item>
 		<item quantity="few">%d minuty</item>
@@ -108,7 +108,7 @@
 	</plurals>
 	<plurals name="x_hours_left">
 		<item quantity="one">Zbývá %d hodina</item>
-		<item quantity="few">Zbývá %d hodiny</item>
+		<item quantity="few">Zbývají %d hodiny</item>
 		<item quantity="many">Zbývá %d hodin</item>
 		<item quantity="other">Zbývá %d hodin</item>
 	</plurals>
@@ -129,20 +129,20 @@
 	<string name="confirm_mute">Potvrdit skrytí %s</string>
 	<string name="do_mute">Skrýt</string>
 	<string name="confirm_unmute_title">Zrušit skrytí účtu</string>
-	<string name="confirm_unmute">Potvrďte zrušení skrytí %s</string>
-	<string name="do_unmute">Odkrýt</string>
+	<string name="confirm_unmute">Potvrdit zrušení skrytí %s</string>
+	<string name="do_unmute">Zrušit skrytí</string>
 	<string name="confirm_block_title">Blokovat účet</string>
 	<string name="confirm_block_domain_title">Blokovat doménu</string>
-	<string name="confirm_block">Potvrďte blokování %s</string>
+	<string name="confirm_block">Potvrdit blokování %s</string>
 	<string name="do_block">Blokovat</string>
 	<string name="confirm_unblock_title">Odblokovat účet</string>
 	<string name="confirm_unblock_domain_title">Odblokovat doménu</string>
-	<string name="confirm_unblock">Potvrďte odblokování %s</string>
+	<string name="confirm_unblock">Potvrdit odblokování %s</string>
 	<string name="do_unblock">Odblokovat</string>
 	<string name="button_muted">Skrytý</string>
 	<string name="button_blocked">Blokovaný</string>
 	<string name="action_vote">Hlasovat</string>
-	<string name="tap_to_reveal">Klepnutím zobraz</string>
+	<string name="tap_to_reveal">Klepněte pro zobrazení</string>
 	<string name="delete">Smazat</string>
 	<string name="confirm_delete_title">Smazat příspěvek</string>
 	<string name="confirm_delete">Opravdu chcete smazat tento příspěvek?</string>
