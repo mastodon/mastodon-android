@@ -220,9 +220,19 @@ public class ProfileAboutFragment extends Fragment implements WindowInsetsAwareF
 			super.onBind(item);
 			title.setText(item.parsedName);
 			value.setText(item.parsedValue);
-			if(item.verifiedAt != null){
-				background.getPaint().setARGB(255,213,228, 217);
-				itemView.setBackground(background);
+			if(item.verifiedAt!=null){
+				background.getPaint().setColor(UiUtils.isDarkTheme() ? 0xFF49595a : 0xFFd7e3da);
+				int textColor=UiUtils.isDarkTheme() ? 0xFF89bb9c : 0xFF5b8e63;
+				value.setTextColor(textColor);
+				value.setLinkTextColor(textColor);
+				Drawable check=getResources().getDrawable(R.drawable.ic_fluent_checkmark_24_regular, getActivity().getTheme()).mutate();
+				check.setTint(textColor);
+				value.setCompoundDrawablesRelativeWithIntrinsicBounds(null, null, check, null);
+			}else{
+				background.getPaint().setColor(UiUtils.getThemeColor(getActivity(), R.attr.colorBackgroundLight));
+				value.setTextColor(UiUtils.getThemeColor(getActivity(), android.R.attr.textColorPrimary));
+				value.setLinkTextColor(UiUtils.getThemeColor(getActivity(), android.R.attr.colorAccent));
+				value.setCompoundDrawables(null, null, null, null);
 			}
 		}
 
