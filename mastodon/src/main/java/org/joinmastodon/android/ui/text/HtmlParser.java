@@ -3,6 +3,7 @@ package org.joinmastodon.android.ui.text;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextUtils;
+import android.text.style.BulletSpan;
 import android.widget.TextView;
 
 import com.twitter.twittertext.Regex;
@@ -15,7 +16,6 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Node;
 import org.jsoup.nodes.TextNode;
-import org.jsoup.safety.Cleaner;
 import org.jsoup.safety.Safelist;
 import org.jsoup.select.NodeVisitor;
 
@@ -28,6 +28,8 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 import androidx.annotation.NonNull;
+
+import me.grishka.appkit.utils.V;
 
 public class HtmlParser{
 	private static final String TAG="HtmlParser";
@@ -89,6 +91,12 @@ public class HtmlParser{
 					ssb.append(textNode.text());
 				}else if(node instanceof Element el){
 					switch(el.nodeName()){
+						case "p" -> {
+							Node sib=el.previousSibling();
+							// compensate for missing empty line after </ul> to match the empty
+							// line added by the <p> before <ul> elements
+							if(sib!=null && !sib.nodeName().equals("p")) ssb.append('\n');
+						}
 						case "a" -> {
 							String href=el.attr("href");
 							LinkSpan.Type linkType;
@@ -119,6 +127,7 @@ public class HtmlParser{
 								openSpans.add(new SpanInfo(new InvisibleSpan(), ssb.length(), el));
 							}
 						}
+						case "li" -> openSpans.add(new SpanInfo(new BulletSpan(V.dp(6)), ssb.length(), el));
 					}
 				}
 			}
@@ -136,6 +145,11 @@ public class HtmlParser{
 						if(si.element==el){
 							ssb.setSpan(si.span, si.start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 							openSpans.remove(openSpans.size()-1);
+						}
+						if("li".equals(el.nodeName())) {
+							ssb.append('\n');
+							Node sib=node.nextSibling();
+							if(sib!=null && !sib.nodeName().equals("li")) ssb.append('\n');
 						}
 					}
 				}
