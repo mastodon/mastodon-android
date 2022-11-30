@@ -20,6 +20,7 @@ import org.jsoup.safety.Safelist;
 import org.jsoup.select.NodeVisitor;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
@@ -126,22 +127,24 @@ public class HtmlParser{
 				}
 			}
 
+			final static List<String> blockElements = Arrays.asList("p", "ul", "ol", "blockquote", "h1", "h2", "h3", "h4", "h5", "h6");
+
 			@Override
 			public void tail(@NonNull Node node, int depth){
 				if(node instanceof Element el){
 					if("span".equals(el.nodeName()) && el.hasClass("ellipsis")){
 						ssb.append("…", new DeleteWhenCopiedSpan(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-					}else if("p".equals(el.nodeName()) || "ul".equals(el.nodeName()) || "ol".equals(el.nodeName())){
-						if(node.nextSibling()!=null)
-							ssb.append("\n\n");
-					}else if(!openSpans.isEmpty()){
+					}else if(blockElements.contains(el.nodeName()) && node.nextSibling()!=null){
+						ssb.append("\n\n");
+					}
+					if(!openSpans.isEmpty()){
 						SpanInfo si=openSpans.get(openSpans.size()-1);
 						if(si.element==el){
 							ssb.setSpan(si.span, si.start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 							openSpans.remove(openSpans.size()-1);
 						}
-						if("li".equals(el.nodeName())) {
-							if(node.nextSibling()!=null) ssb.append('\n');
+						if("li".equals(el.nodeName()) && node.nextSibling()!=null) {
+							ssb.append('\n');
 						}
 					}
 				}
