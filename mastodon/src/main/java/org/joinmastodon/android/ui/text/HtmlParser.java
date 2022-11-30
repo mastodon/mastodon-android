@@ -91,12 +91,6 @@ public class HtmlParser{
 					ssb.append(textNode.text());
 				}else if(node instanceof Element el){
 					switch(el.nodeName()){
-						case "p" -> {
-							Node sib=el.previousSibling();
-							// compensate for missing empty line after </ul> to match the empty
-							// line added by the <p> before <ul> elements
-							if(sib!=null && !sib.nodeName().equals("p")) ssb.append('\n');
-						}
 						case "a" -> {
 							String href=el.attr("href");
 							LinkSpan.Type linkType;
@@ -137,7 +131,7 @@ public class HtmlParser{
 				if(node instanceof Element el){
 					if("span".equals(el.nodeName()) && el.hasClass("ellipsis")){
 						ssb.append("…", new DeleteWhenCopiedSpan(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-					}else if("p".equals(el.nodeName())){
+					}else if("p".equals(el.nodeName()) || "ul".equals(el.nodeName()) || "ol".equals(el.nodeName())){
 						if(node.nextSibling()!=null)
 							ssb.append("\n\n");
 					}else if(!openSpans.isEmpty()){
@@ -147,9 +141,7 @@ public class HtmlParser{
 							openSpans.remove(openSpans.size()-1);
 						}
 						if("li".equals(el.nodeName())) {
-							ssb.append('\n');
-							Node sib=node.nextSibling();
-							if(sib!=null && !sib.nodeName().equals("li")) ssb.append('\n');
+							if(node.nextSibling()!=null) ssb.append('\n');
 						}
 					}
 				}
