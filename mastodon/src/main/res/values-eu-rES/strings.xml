@@ -9,7 +9,7 @@
 	<string name="ok">Ados</string>
 	<string name="preparing_auth">Autentifikaziorako prestatzen…</string>
 	<string name="finishing_auth">Autentikazioa bukatzen…</string>
-	<string name="user_boosted">%s(e)k zure bidalketa bultzatu du</string>
+	<string name="user_boosted">%s(e)k bultzatu du</string>
 	<string name="in_reply_to">%s-(r)i erantzunez</string>
 	<string name="notifications">Jakinarazpenak</string>
 	<string name="user_followed_you">jarraitu zaitu</string>
@@ -174,6 +174,7 @@
 	<string name="instance_catalog_subtitle">Aukeratu zerbitzari bat zure interesen, eskualdearen edo helburuen arabera. Pertsona guztiekin konektatu ahal izango duzu, zerbitzaria zein den kontuan hartu gabe.</string>
 	<string name="search_communities">Bilatu zerbitzariak edo idatzi URL-a</string>
 	<string name="instance_rules_title">Oinarrizko arau batzuk</string>
+	<string name="instance_rules_subtitle">Hartu minutu bat %s-en administratzaileek ezarri eta aplikatutako arauak berrikusteko.</string>
 	<string name="signup_title">%s zerbitzariko kontua prestatuko dizugu</string>
 	<string name="edit_photo">editatu</string>
 	<string name="display_name">pantaila-izena</string>
@@ -227,6 +228,8 @@
 		<item quantity="one">Ezin duzu multimedia fitxategi %d baino gehiago gehitu</item>
 		<item quantity="other">Ezin dituzu %d baino multimedia fitxategi gehiago gehitu</item>
 	</plurals>
+	<string name="media_attachment_unsupported_type">%s fitxategi mota ez da bateragarria</string>
+	<string name="media_attachment_too_big">%1$s fitxategiak %2$s MB-eko tamainaren muga gainditzen du</string>
 	<string name="settings_theme">Itxura bisuala</string>
 	<string name="theme_auto">Automatikoa</string>
 	<string name="theme_light">Argia</string>
@@ -363,12 +366,14 @@
 	<string name="file_size_kb">%.2f KB</string>
 	<string name="file_size_mb">%.2f MB</string>
 	<string name="file_size_gb">%.2f GB</string>
+	<string name="file_upload_progress">%2$s-tik %1$s</string>
 	<string name="file_upload_time_remaining">%s geratzen da</string>
 	<string name="upload_error_connection_lost">Zure gailuak interneterako konexioa galdu du</string>
 	<string name="upload_processing">Prozesatzen…</string>
 	<!-- %s is version like 1.2.3 -->
 	<string name="update_available">Androiderako Mastodon %s prest dago jeisteko.</string>
 	<!-- %s is version like 1.2.3 -->
+	<string name="update_ready">%s Androiderako Mastodon deskargatu da eta instalatzeko prest dago.</string>
 	<!-- %s is file size -->
 	<string name="download_update">(%s) deskargatu</string>
 	<string name="install_update">Instalatu</string>
@@ -377,5 +382,9 @@
 	<string name="i_agree">Ados nago</string>
 	<string name="empty_list">Zerrenda hau hutsik dago</string>
 	<string name="instance_signup_closed">Zerbitzari honek ez ditu izen-emate berriak onartzen.</string>
+	<string name="text_copied">Arbelean kopiatuta</string>
+	<string name="add_bookmark">Laster-marka</string>
+	<string name="remove_bookmark">Kendu laster-marka</string>
+	<string name="bookmarks">Laster-markak</string>
 	<string name="your_favorites">Zure gogokoak</string>
 </resources>
