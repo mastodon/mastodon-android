@@ -96,6 +96,10 @@
 		<item quantity="one">%d egun falta da</item>
 		<item quantity="other">%d egun falta dira</item>
 	</plurals>
+	<plurals name="x_voters">
+		<item quantity="one">Boto-emaile %,d</item>
+		<item quantity="other">%,d boto-emaile</item>
+	</plurals>
 	<string name="poll_closed">Itxita</string>
 	<string name="confirm_mute_title">Mututu kontua</string>
 	<string name="confirm_mute">Berretsi %s mututzea</string>
@@ -134,6 +138,10 @@
 		<item quantity="one">Pertsona %d hizketan</item>
 		<item quantity="other">%d pertsona hizketan</item>
 	</plurals>
+	<plurals name="discussed_x_times">
+		<item quantity="one">%d aldiz eztabaidatua</item>
+		<item quantity="other">%d aldiz eztabaidatua</item>
+	</plurals>
 	<string name="report_title">Salatu %s</string>
 	<string name="report_choose_reason">Zer du txarra argitalpen honek?</string>
 	<string name="report_choose_reason_account">Zer du txarra %s?</string>
@@ -166,6 +174,7 @@
 	<string name="instance_catalog_subtitle">Aukeratu zerbitzari bat zure interesen, eskualdearen edo helburuen arabera. Pertsona guztiekin konektatu ahal izango duzu, zerbitzaria zein den kontuan hartu gabe.</string>
 	<string name="search_communities">Bilatu zerbitzariak edo idatzi URL-a</string>
 	<string name="instance_rules_title">Oinarrizko arau batzuk</string>
+	<string name="signup_title">%s zerbitzariko kontua prestatuko dizugu</string>
 	<string name="edit_photo">editatu</string>
 	<string name="display_name">pantaila-izena</string>
 	<string name="username">erabiltzaile-izena</string>
@@ -214,6 +223,10 @@
 	<string name="notification_type_poll">Inkestak</string>
 	<string name="choose_account">Aukeratu kontua</string>
 	<string name="err_not_logged_in">Mesedez, hasi saioa lehenengo Mastodonen</string>
+	<plurals name="cant_add_more_than_x_attachments">
+		<item quantity="one">Ezin duzu multimedia fitxategi %d baino gehiago gehitu</item>
+		<item quantity="other">Ezin dituzu %d baino multimedia fitxategi gehiago gehitu</item>
+	</plurals>
 	<string name="settings_theme">Itxura bisuala</string>
 	<string name="theme_auto">Automatikoa</string>
 	<string name="theme_light">Argia</string>
@@ -297,6 +310,22 @@
 	<string name="current_account">Oraingo kontua</string>
 	<string name="log_out_account">Itxi saioa %s</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
+	<plurals name="x_followers">
+		<item quantity="one">Jarraitzaile %,d</item>
+		<item quantity="other">%,d jarraitzaile</item>
+	</plurals>
+	<plurals name="x_following">
+		<item quantity="one">%,d jarraitzen</item>
+		<item quantity="other">%,d jarraitzen</item>
+	</plurals>
+	<plurals name="x_favorites">
+		<item quantity="one">Gogoko bat</item>
+		<item quantity="other">%,d gogoko</item>
+	</plurals>
+	<plurals name="x_reblogs">
+		<item quantity="one">Bultzada %,d</item>
+		<item quantity="other">%,d bultzada</item>
+	</plurals>
 	<string name="timestamp_via_app">%1$s %2$s -en bidez</string>
 	<string name="time_now">orain</string>
 	<string name="post_info_reblogs">Bultzadak</string>
@@ -304,6 +333,14 @@
 	<string name="edit_history">Editatu historia</string>
 	<string name="last_edit_at_x">Azken edizioa %s</string>
 	<string name="time_just_now">oraintxe</string>
+	<plurals name="x_seconds_ago">
+		<item quantity="one">Duela segundo %d</item>
+		<item quantity="other">Duela %d segundo</item>
+	</plurals>
+	<plurals name="x_minutes_ago">
+		<item quantity="one">Duela minutu %d</item>
+		<item quantity="other">Duela %d minutu</item>
+	</plurals>
 	<string name="edited_timestamp">editatua %s</string>
 	<string name="edit_original_post">Jatorrizko bidalketa</string>
 	<string name="edit_text_edited">Editatutako testua</string>
@@ -340,4 +377,5 @@
 	<string name="i_agree">Ados nago</string>
 	<string name="empty_list">Zerrenda hau hutsik dago</string>
 	<string name="instance_signup_closed">Zerbitzari honek ez ditu izen-emate berriak onartzen.</string>
+	<string name="your_favorites">Zure gogokoak</string>
 </resources>
