@@ -422,4 +422,9 @@ public class HomeTimelineFragment extends StatusListFragment{
 	public void onSelfUpdateStateChanged(SelfUpdateStateChangedEvent ev){
 		updateUpdateState(ev.state);
 	}
+
+	@Override
+	protected boolean shouldRemoveAccountPostsWhenUnfollowing(){
+		return true;
+	}
 }

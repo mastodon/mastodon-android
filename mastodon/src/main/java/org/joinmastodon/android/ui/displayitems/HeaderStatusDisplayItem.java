@@ -5,6 +5,7 @@ import android.app.ProgressDialog;
 import android.graphics.Outline;
 import android.graphics.drawable.Animatable;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
@@ -192,6 +193,8 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 					});
 				}else if(id==R.id.block_domain){
 					UiUtils.confirmToggleBlockDomain(activity, item.parentFragment.getAccountID(), account.getDomain(), relationship!=null && relationship.domainBlocking, ()->{});
+				}else if(id==R.id.bookmark){
+					AccountSessionManager.getInstance().getAccount(item.accountID).getStatusInteractionController().setBookmarked(item.status, !item.status.bookmarked);
 				}
 				return true;
 			});
@@ -209,6 +212,9 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 			if(item.hasVisibilityToggle){
 				visibility.setImageResource(item.status.spoilerRevealed ? R.drawable.ic_visibility_off : R.drawable.ic_visibility);
 				visibility.setContentDescription(item.parentFragment.getString(item.status.spoilerRevealed ? R.string.hide_content : R.string.reveal_content));
+				if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.O){
+					visibility.setTooltipText(visibility.getContentDescription());
+				}
 			}
 			itemView.setPadding(itemView.getPaddingLeft(), itemView.getPaddingTop(), itemView.getPaddingRight(), item.needBottomPadding ? V.dp(16) : 0);
 			if(TextUtils.isEmpty(item.extraText)){
@@ -286,6 +292,13 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 			MenuItem block=menu.findItem(R.id.block);
 			MenuItem report=menu.findItem(R.id.report);
 			MenuItem follow=menu.findItem(R.id.follow);
+			MenuItem bookmark=menu.findItem(R.id.bookmark);
+			if(item.status!=null){
+				bookmark.setVisible(true);
+				bookmark.setTitle(item.status.bookmarked ? R.string.remove_bookmark : R.string.add_bookmark);
+			}else{
+				bookmark.setVisible(false);
+			}
 			if(isOwnPost){
 				mute.setVisible(false);
 				block.setVisible(false);

@@ -14,7 +14,7 @@
 		android:tint="?android:textColorSecondary"
 		android:src="@drawable/ic_round_checkbox"/>
 
-	<TextView
+	<org.joinmastodon.android.ui.views.LinkedTextView
 		android:id="@+id/title"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"

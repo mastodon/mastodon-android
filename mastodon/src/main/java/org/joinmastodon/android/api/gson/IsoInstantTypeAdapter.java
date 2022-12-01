@@ -25,10 +25,21 @@ public class IsoInstantTypeAdapter extends TypeAdapter<Instant>{
 			in.nextNull();
 			return null;
 		}
-		try{
-			return DateTimeFormatter.ISO_INSTANT.parse(in.nextString(), Instant::from);
-		}catch(DateTimeParseException x){
+		String nextString;
+		try {
+			nextString = in.nextString();
+		}catch(Exception e){
 			return null;
 		}
+
+		try{
+			return DateTimeFormatter.ISO_INSTANT.parse(nextString, Instant::from);
+		}catch(DateTimeParseException x){}
+
+		try{
+			return DateTimeFormatter.ISO_OFFSET_DATE_TIME.parse(nextString, Instant::from);
+		}catch(DateTimeParseException x){}
+
+		return null;
 	}
 }

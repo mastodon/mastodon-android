@@ -43,6 +43,7 @@ import org.joinmastodon.android.api.requests.accounts.SetDomainBlocked;
 import org.joinmastodon.android.api.requests.statuses.DeleteStatus;
 import org.joinmastodon.android.api.requests.statuses.GetStatusByID;
 import org.joinmastodon.android.api.session.AccountSessionManager;
+import org.joinmastodon.android.events.RemoveAccountPostsEvent;
 import org.joinmastodon.android.events.StatusDeletedEvent;
 import org.joinmastodon.android.fragments.HashtagTimelineFragment;
 import org.joinmastodon.android.fragments.ProfileFragment;
@@ -325,6 +326,9 @@ public class UiUtils{
 								@Override
 								public void onSuccess(Relationship result){
 									resultCallback.accept(result);
+									if(!currentlyBlocked){
+										E.post(new RemoveAccountPostsEvent(accountID, account.id, false));
+									}
 								}
 
 								@Override
@@ -367,6 +371,9 @@ public class UiUtils{
 								@Override
 								public void onSuccess(Relationship result){
 									resultCallback.accept(result);
+									if(!currentlyMuted){
+										E.post(new RemoveAccountPostsEvent(accountID, account.id, false));
+									}
 								}
 
 								@Override
@@ -448,6 +455,9 @@ public class UiUtils{
 						public void onSuccess(Relationship result){
 							resultCallback.accept(result);
 							progressCallback.accept(false);
+							if(!result.following){
+								E.post(new RemoveAccountPostsEvent(accountID, account.id, true));
+							}
 						}
 
 						@Override
@@ -550,8 +560,7 @@ public class UiUtils{
 
 	public static void openURL(Context context, String accountID, String url){
 		Uri uri=Uri.parse(url);
-		String accountDomain=AccountSessionManager.getInstance().getAccount(accountID).domain;
-		if("https".equals(uri.getScheme()) && accountDomain.equalsIgnoreCase(uri.getAuthority())){
+		if(accountID!=null && "https".equals(uri.getScheme()) && AccountSessionManager.getInstance().getAccount(accountID).domain.equalsIgnoreCase(uri.getAuthority())){
 			List<String> path=uri.getPathSegments();
 			// Match URLs like https://mastodon.social/@Gargron/108132679274083591
 			if(path.size()==2 && path.get(0).matches("^@[a-zA-Z0-9_]+$") && path.get(1).matches("^[0-9]+$")){

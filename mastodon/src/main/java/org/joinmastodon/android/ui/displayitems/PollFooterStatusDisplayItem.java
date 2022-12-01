@@ -38,13 +38,13 @@ public class PollFooterStatusDisplayItem extends StatusDisplayItem{
 		@Override
 		public void onBind(PollFooterStatusDisplayItem item){
 			String text=item.parentFragment.getResources().getQuantityString(R.plurals.x_voters, item.poll.votersCount, item.poll.votersCount);
-			if(item.poll.expiresAt!=null && !item.poll.expired){
+			if(item.poll.expiresAt!=null && !item.poll.isExpired()){
 				text+=" · "+UiUtils.formatTimeLeft(itemView.getContext(), item.poll.expiresAt);
-			}else if(item.poll.expired){
+			}else if(item.poll.isExpired()){
 				text+=" · "+item.parentFragment.getString(R.string.poll_closed);
 			}
 			this.text.setText(text);
-			button.setVisibility(item.poll.expired || item.poll.voted || !item.poll.multiple ? View.GONE : View.VISIBLE);
+			button.setVisibility(item.poll.isExpired() || item.poll.voted || !item.poll.multiple ? View.GONE : View.VISIBLE);
 			button.setEnabled(item.poll.selectedOptions!=null && !item.poll.selectedOptions.isEmpty());
 		}
 	}

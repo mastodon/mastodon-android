@@ -35,6 +35,7 @@ import org.joinmastodon.android.MainActivity;
 import org.joinmastodon.android.MastodonApp;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.MastodonAPIController;
+import org.joinmastodon.android.api.PushSubscriptionManager;
 import org.joinmastodon.android.api.requests.oauth.RevokeOauthToken;
 import org.joinmastodon.android.api.session.AccountSession;
 import org.joinmastodon.android.api.session.AccountSessionManager;
@@ -166,7 +167,7 @@ public class SettingsFragment extends MastodonToolbarFragment{
 	@Override
 	public void onDestroy(){
 		super.onDestroy();
-		if(needUpdateNotificationSettings){
+		if(needUpdateNotificationSettings && PushSubscriptionManager.arePushNotificationsAvailable()){
 			AccountSessionManager.getInstance().getAccount(accountID).getPushSubscriptionManager().updatePushSettings(pushSubscription);
 		}
 	}

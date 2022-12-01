@@ -73,11 +73,13 @@
 		android:transformPivotY="1px"
 		android:background="#478E6A"/>
 
-	<ImageView
+	<org.joinmastodon.android.ui.views.SplashLogoView
 		android:layout_width="261dp"
-		android:layout_height="67dp"
+		android:layout_height="71dp"
 		android:layout_gravity="center_horizontal|top"
 		android:layout_marginTop="24dp"
+		android:scaleType="center"
+		android:importantForAccessibility="no"
 		android:src="@drawable/splash_logo"/>
 
 	<LinearLayout

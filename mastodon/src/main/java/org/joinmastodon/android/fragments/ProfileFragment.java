@@ -6,6 +6,8 @@ import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.app.Fragment;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Outline;
@@ -34,6 +36,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.Toolbar;
 
 import org.joinmastodon.android.GlobalUserPreferences;
@@ -271,6 +274,18 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 
 		followersBtn.setOnClickListener(this::onFollowersOrFollowingClick);
 		followingBtn.setOnClickListener(this::onFollowersOrFollowingClick);
+
+		username.setOnLongClickListener(v->{
+			String username=account.acct;
+			if(!username.contains("@")){
+				username+="@"+AccountSessionManager.getInstance().getAccount(accountID).domain;
+			}
+			getActivity().getSystemService(ClipboardManager.class).setPrimaryClip(ClipData.newPlainText(null, "@"+username));
+			if(Build.VERSION.SDK_INT<Build.VERSION_CODES.TIRAMISU){ // Android 13+ SystemUI shows its own thing when you put things into the clipboard
+				Toast.makeText(getActivity(), R.string.text_copied, Toast.LENGTH_SHORT).show();
+			}
+			return true;
+		});
 
 		return sizeWrapper;
 	}
@@ -519,15 +534,11 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 		}
 		if(relationship==null && !isOwnProfile)
 			return;
-		inflater.inflate(R.menu.profile, menu);
+		inflater.inflate(isOwnProfile ? R.menu.profile_own : R.menu.profile, menu);
 		menu.findItem(R.id.share).setTitle(getString(R.string.share_user, account.getDisplayUsername()));
-		if(isOwnProfile){
-			for(int i=0;i<menu.size();i++){
-				MenuItem item=menu.getItem(i);
-				item.setVisible(item.getItemId()==R.id.share);
-			}
+		if(isOwnProfile)
 			return;
-		}
+
 		menu.findItem(R.id.mute).setTitle(getString(relationship.muting ? R.string.unmute_user : R.string.mute_user, account.getDisplayUsername()));
 		menu.findItem(R.id.block).setTitle(getString(relationship.blocking ? R.string.unblock_user : R.string.block_user, account.getDisplayUsername()));
 		menu.findItem(R.id.report).setTitle(getString(R.string.report_user, account.getDisplayUsername()));
@@ -580,6 +591,14 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 					})
 					.wrapProgress(getActivity(), R.string.loading, false)
 					.exec(accountID);
+		}else if(id==R.id.bookmarks){
+			Bundle args=new Bundle();
+			args.putString("account", accountID);
+			Nav.go(getActivity(), BookmarkedStatusListFragment.class, args);
+		}else if(id==R.id.favorites){
+			Bundle args=new Bundle();
+			args.putString("account", accountID);
+			Nav.go(getActivity(), FavoritedStatusListFragment.class, args);
 		}
 		return true;
 	}
