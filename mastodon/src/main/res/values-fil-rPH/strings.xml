@@ -66,6 +66,80 @@
 	<string name="field_content">Nilalaman</string>
 	<string name="saving">Pag-save…</string>
 	<string name="post_from_user">Post galing %s</string>
+	<string name="poll_option_hint">Pagpipilian %d</string>
+	<plurals name="x_minutes">
+		<item quantity="one">%d minuto</item>
+		<item quantity="other">%d minuto</item>
+	</plurals>
+	<plurals name="x_hours">
+		<item quantity="one">%d oras</item>
+		<item quantity="other">%d oras</item>
+	</plurals>
+	<plurals name="x_days">
+		<item quantity="one">%d araw</item>
+		<item quantity="other">%d araw</item>
+	</plurals>
+	<string name="compose_poll_duration">Tagal: %s</string>
+	<plurals name="x_seconds_left">
+		<item quantity="one">%d segundong natitira</item>
+		<item quantity="other">%d segundong natitira</item>
+	</plurals>
+	<plurals name="x_minutes_left">
+		<item quantity="one">%d minutong natitira</item>
+		<item quantity="other">%d minutong natitira</item>
+	</plurals>
+	<plurals name="x_hours_left">
+		<item quantity="one">%d natitirang oras</item>
+		<item quantity="other">%d natitirang oras</item>
+	</plurals>
+	<plurals name="x_days_left">
+		<item quantity="one">%d natitirang araw</item>
+		<item quantity="other">%d natitirang araw</item>
+	</plurals>
+	<plurals name="x_voters">
+		<item quantity="one">%, d botante</item>
+		<item quantity="other">%,d botante</item>
+	</plurals>
+	<string name="poll_closed">Sarado</string>
+	<string name="confirm_mute_title">I-Mute Ang Account</string>
+	<string name="confirm_mute">Kumpirmahin ang pag-mute %s</string>
+	<string name="do_mute">I-Mute</string>
+	<string name="confirm_unmute_title">I-Unmute Ang Account</string>
+	<string name="confirm_unmute">Kumpirmahin ang pag-unmute %s</string>
+	<string name="do_unmute">I-unmute</string>
+	<string name="confirm_block_title">I-Block Ang Account</string>
+	<string name="confirm_block_domain_title">I-Block Ang Domain</string>
+	<string name="confirm_block">Kumpirmahin ang pag-block %s</string>
+	<string name="do_block">Block</string>
+	<string name="confirm_unblock_title">I-Unblock ang Account</string>
+	<string name="confirm_unblock_domain_title">I-Unblock ang Domain</string>
+	<string name="confirm_unblock">Kumpirmahin ang pag-unblock%s</string>
+	<string name="do_unblock">Unblock</string>
+	<string name="button_muted">Naka-mute</string>
+	<string name="button_blocked">Na-block</string>
+	<string name="action_vote">Bumoto</string>
+	<string name="tap_to_reveal">I-Tap para ipakita</string>
+	<string name="delete">Tanggalin</string>
+	<string name="confirm_delete_title">Burahin ang Post</string>
+	<string name="confirm_delete">Sigurado ka bang gusto mong burahin ang post na ito?</string>
+	<string name="notification_channel_audio_player">Pag-playback ng Audio</string>
+	<string name="play">I-play</string>
+	<string name="log_out">Mag-Sign out</string>
+	<string name="add_account">Magdagdag ng account</string>
+	<string name="search_hint">Maghanap</string>
+	<string name="hashtags">Mga hashtag</string>
+	<string name="news">Balita</string>
+	<string name="for_you">Para sa\'yo</string>
+	<string name="all_notifications">Lahat</string>
+	<string name="mentions">Mga binangit</string>
+	<plurals name="x_people_talking">
+		<item quantity="one">%d tao ay nagsasalita</item>
+		<item quantity="other">%d tao ay nagsasalita</item>
+	</plurals>
+	<plurals name="discussed_x_times">
+		<item quantity="one">Tinalakay %d oras</item>
+		<item quantity="other">Tinalakay %d oras</item>
+	</plurals>
 	<string name="report_title">Na-report %s</string>
 	<string name="report_choose_reason">Ano ang mali sa post na ito?</string>
 	<string name="report_choose_reason_account">Ano ang mali sa %s?</string>
@@ -76,6 +150,16 @@
 	<string name="report_reason_spam_subtitle">Nakakahamak na mga link, pekeng pakikipag-ugnayan, o paulit-ulit na mga tugon</string>
 	<string name="report_reason_violation">Lumalabag ito sa mga patakaran ng server</string>
 	<string name="report_reason_violation_subtitle">Alam mo na nilalabag nito ang mga tiyak na patakaran</string>
+	<string name="report_reason_other">Ito may iba pa</string>
+	<string name="report_reason_other_subtitle">Ang isyu ay hindi umaangkop sa iba pang mga kategorya</string>
+	<string name="report_choose_rule">Aling mga patakaran ang nilabag?</string>
+	<string name="report_choose_rule_subtitle">Piliin ang lahat na-iapply</string>
+	<string name="report_choose_posts">Mayroon bang anumang mga post na nai-back up ang ulat na ito?</string>
+	<string name="report_choose_posts_subtitle">Piliin ang lahat na aaply</string>
+	<string name="report_comment_title">Mayroon pa bang dapat nating malaman?</string>
+	<string name="report_comment_hint">Mga Karagdagang Komento</string>
+	<string name="report_sent_title">Salamat sa pag-uulat, titingnan namin ito.</string>
+	<string name="report_sent_subtitle">Habang sinusuri namin ito, maaari kang gumawa ng aksyon laban sa %s.</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<!-- %s is version like 1.2.3 -->
 	<!-- %s is version like 1.2.3 -->
