@@ -84,10 +84,16 @@
 		<item quantity="one">%d nap van hátra</item>
 		<item quantity="other">%d nap van hátra</item>
 	</plurals>
+	<plurals name="x_voters">
+		<item quantity="one">%,d szavazó</item>
+		<item quantity="other">%,d szavazó</item>
+	</plurals>
 	<string name="poll_closed">Lezárva</string>
 	<string name="confirm_mute_title">Fiók némítása</string>
+	<string name="confirm_mute">Valóban némítani szeretnéd őt: %s?</string>
 	<string name="do_mute">Némítás</string>
 	<string name="confirm_unmute_title">Fiók némításának feloldása</string>
+	<string name="confirm_unmute">Valóban fel szeretnéd oldani %s némítását?</string>
 	<string name="do_unmute">Némítás feloldása</string>
 	<string name="confirm_block_title">Fiók tiltása</string>
 	<string name="confirm_block_domain_title">Domain letiltása</string>
@@ -95,6 +101,10 @@
 	<string name="do_block">Letilt</string>
 	<string name="confirm_unblock_title">Fiók tiltásának feloldása</string>
 	<string name="confirm_unblock_domain_title">Domén letiltásának feloldása</string>
+	<string name="confirm_unblock">Valóban fel szeretnéd oldani %s tiltását?</string>
+	<string name="do_unblock">Tiltás feloldása</string>
+	<string name="button_muted">Némítva</string>
+	<string name="button_blocked">Tiltva</string>
 	<string name="action_vote">Szavazás</string>
 	<string name="tap_to_reveal">Érintsd meg a megjelenítéshez</string>
 	<string name="delete">Törlés</string>
@@ -112,11 +122,17 @@
 	<string name="for_you">Neked</string>
 	<string name="all_notifications">Összes</string>
 	<string name="mentions">Megemlítések</string>
+	<plurals name="x_people_talking">
+		<item quantity="one">%d ember beszél róla</item>
+		<item quantity="other">%d ember beszél róla</item>
+	</plurals>
 	<plurals name="discussed_x_times">
 		<item quantity="one">Átbeszélve egyszer</item>
 		<item quantity="other">Átbeszélve %d alkalommal</item>
 	</plurals>
 	<string name="report_title">%s jelentése</string>
+	<string name="report_choose_reason">Mi a probléma ezzel a poszttal?</string>
+	<string name="report_choose_reason_account">Mi a probléma ezzel: %s?</string>
 	<string name="report_choose_reason_subtitle">Válaszd ki a legjobb találatot</string>
 	<string name="report_reason_personal">Nem tetszik</string>
 	<string name="report_reason_personal_subtitle">Ezt nem szeretném látni</string>
@@ -178,6 +194,7 @@
 	<string name="retry_upload">Feltöltés újrapróbálása</string>
 	<string name="edit_image">Kép szerkesztése</string>
 	<string name="save">Mentés</string>
+	<string name="add_alt_text">Helyettesítő szöveg hozzáadása</string>
 	<string name="alt_text_subtitle">A helyettesítő szöveg leírja a vakoknak és a gyengénlátóknak a fotód. Próbálj meg csak annyi szöveget írni, hogy a szövegkörnyezet érthető legyen.</string>
 	<string name="alt_text_hint">pl. Egy kutya gyanakvóan, hunyorogva néz a kamerába.</string>
 	<string name="visibility_public">Nyilvános</string>
@@ -195,6 +212,8 @@
 	<string name="notification_type_poll">Szavazások</string>
 	<string name="choose_account">Fiók kiválasztása</string>
 	<string name="err_not_logged_in">Először jelentkezz be a Mastodonra</string>
+	<string name="media_attachment_unsupported_type">%s fájl nem támogatott</string>
+	<string name="media_attachment_too_big">Ez a fájl (%1$s) túllépi a %2$s MB-os feltöltési korlátot</string>
 	<string name="settings_theme">Kinézet</string>
 	<string name="theme_auto">Automatikus</string>
 	<string name="theme_light">Világos</string>
