@@ -55,6 +55,10 @@
 	<string name="report_user">%s jelentése</string>
 	<string name="block_domain">%s letiltása</string>
 	<string name="unblock_domain">%s tiltásának feloldása</string>
+	<plurals name="x_posts">
+		<item quantity="one">%,d poszt</item>
+		<item quantity="other">%,d poszt</item>
+	</plurals>
 	<string name="profile_joined">Csatlakozott</string>
 	<string name="done">Kész</string>
 	<string name="loading">Betöltés…</string>
@@ -221,7 +225,9 @@
 	<string name="theme_true_black">Valódi fekete mód</string>
 	<string name="settings_behavior">Viselkedés</string>
 	<string name="settings_gif">Animált avatarok és hangulatjelek lejátszása</string>
+	<string name="settings_custom_tabs">Beépített böngésző használata</string>
 	<string name="settings_notifications">Értesítések</string>
+	<string name="notify_me_when">Értesíts, ha</string>
 	<string name="notify_anyone">bárki</string>
 	<string name="notify_follower">egy követő</string>
 	<string name="notify_followed">valaki, akit követek</string>
@@ -259,8 +265,13 @@
 	<string name="post_visibility">Bejegyzés láthatósága</string>
 	<string name="home_timeline">Kezdőlap</string>
 	<string name="my_profile">Profilom</string>
+	<string name="media_viewer">Média nézegető</string>
 	<string name="follow_user">%s követése</string>
+	<string name="unfollowed_user">%s követését visszavontad</string>
+	<string name="followed_user">Most már követed %s</string>
 	<string name="open_in_browser">Megnyitás böngészőben</string>
+	<string name="hide_boosts_from_user">%s megtolásainak elrejtése</string>
+	<string name="show_boosts_from_user">%s megtolásainak mutatása</string>
 	<string name="signup_reason">miért akarsz csatlakozni?</string>
 	<string name="signup_reason_note">Ez segít nekünk átnézni a jelentkezésedet.</string>
 	<string name="clear">Törlés</string>
@@ -277,6 +288,10 @@
 	<string name="no_app_to_handle_action">Nincs olyan alkalmazásod telepítve, ami tudná ezt kezelni</string>
 	<string name="local_timeline">Közösség</string>
 	<string name="trending_posts_info_banner">Ezek a felkapottabb posztok a Mastodon-szobádban.</string>
+	<string name="trending_hashtags_info_banner">Ezek a felkapottabb címkék a Mastodon-szobádban.</string>
+	<string name="trending_links_info_banner">Ezek azok a sztorik, amiket a legtöbbet osztanak meg a Mastodon-szobádban.</string>
+	<string name="local_timeline_info_banner">Ezek a legújabb posztok ugyanazon a Mastodon szerveren, ahol te is vagy.</string>
+	<string name="dismiss">Elvetés</string>
 	<string name="see_new_posts">Megnézem az új bejegyzéseket</string>
 	<string name="load_missing_posts">Hiányzó bejegyzések betöltése</string>
 	<string name="follow_back">Visszakövetés</string>
