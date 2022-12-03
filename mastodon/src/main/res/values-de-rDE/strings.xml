@@ -3,7 +3,7 @@
 	<string name="get_started">Loslegen</string>
 	<string name="log_in">Anmelden</string>
 	<string name="next">Weiter</string>
-	<string name="loading_instance">Instanzinformationen werden geladen …</string>
+	<string name="loading_instance">Informationen zu dieser Mastodon-Instanz werden geladen …</string>
 	<string name="error">Fehler</string>
 	<string name="not_a_mastodon_instance">%s scheint keine Mastodon-Instanz zu sein.</string>
 	<string name="ok">OK</string>
@@ -47,7 +47,7 @@
 	<string name="button_following">Folge ich</string>
 	<string name="edit_profile">Profil bearbeiten</string>
 	<string name="mention_user">%s erwähnen</string>
-	<string name="share_user">%s teilen</string>
+	<string name="share_user">Profil %s teilen</string>
 	<string name="mute_user">%s stummschalten</string>
 	<string name="unmute_user">%s nicht mehr stummschalten</string>
 	<string name="block_user">%s sperren</string>
@@ -61,7 +61,7 @@
 	</plurals>
 	<string name="profile_joined">Beigetreten</string>
 	<string name="done">Fertig</string>
-	<string name="loading">wird geladen …</string>
+	<string name="loading">Wird geladen …</string>
 	<string name="field_label">Beschriftung</string>
 	<string name="field_content">Inhalt</string>
 	<string name="saving">Speichern …</string>
@@ -81,20 +81,20 @@
 	</plurals>
 	<string name="compose_poll_duration">Dauer: %s</string>
 	<plurals name="x_seconds_left">
-		<item quantity="one">%d Sekunde verbleibend</item>
-		<item quantity="other">%d Sekunden verbleibend</item>
+		<item quantity="one">noch %d Sekunde</item>
+		<item quantity="other">noch %d Sekunden</item>
 	</plurals>
 	<plurals name="x_minutes_left">
-		<item quantity="one">%d Minute verbleibend</item>
-		<item quantity="other">%d Minuten verbleibend</item>
+		<item quantity="one">noch %d Minute</item>
+		<item quantity="other">noch %d Minuten</item>
 	</plurals>
 	<plurals name="x_hours_left">
-		<item quantity="one">%d Stunde verbleibend</item>
-		<item quantity="other">%d Stunden verbleibend</item>
+		<item quantity="one">noch %d Stunde</item>
+		<item quantity="other">noch %d Stunden</item>
 	</plurals>
 	<plurals name="x_days_left">
-		<item quantity="one">%d Tag verbleibend</item>
-		<item quantity="other">%d Tage verbleibend</item>
+		<item quantity="one">noch %d Tag</item>
+		<item quantity="other">noch %d Tage</item>
 	</plurals>
 	<plurals name="x_voters">
 		<item quantity="one">%,d Stimme</item>
@@ -151,7 +151,7 @@
 	<string name="report_reason_spam">Das ist Spam</string>
 	<string name="report_reason_spam_subtitle">Bösartige Links, vorgetäuschtes Verhalten oder wiederholtes Antworten</string>
 	<string name="report_reason_violation">Es verstößt gegen Serverregeln</string>
-	<string name="report_reason_violation_subtitle">Du weißt, welche Regeln verletzt werden</string>
+	<string name="report_reason_violation_subtitle">Du bist dir bewusst, dass dies gegen die Serverregeln verstößt</string>
 	<string name="report_reason_other">Es ist etwas anderes</string>
 	<string name="report_reason_other_subtitle">Der Vorfall passt zu keiner dieser Kategorien</string>
 	<string name="report_choose_rule">Gegen welche Regeln wird verstoßen?</string>
@@ -160,13 +160,13 @@
 	<string name="report_choose_posts_subtitle">Alles Zutreffende auswählen</string>
 	<string name="report_comment_title">Gibt es weitere Anmerkungen, von denen wir wissen sollten?</string>
 	<string name="report_comment_hint">Ergänzende Hinweise</string>
-	<string name="sending_report">Bericht wird gesendet…</string>
+	<string name="sending_report">Meldung wird verschickt …</string>
 	<string name="report_sent_title">Vielen Dank für die Meldung, wir werden uns damit befassen.</string>
 	<string name="report_sent_subtitle">Während wir den Vorfall überprüfen, kannst du gegen %s weitere Maßnahmen ergreifen.</string>
 	<string name="unfollow_user">%s entfolgen</string>
 	<string name="unfollow">Entfolgen</string>
 	<string name="mute_user_explain">Du wirst die eigenen und geteilten Beiträge des Kontos nicht mehr sehen können. Dass du das Profil stummgeschaltet hast, erfährt die Person nicht.</string>
-	<string name="block_user_explain">Du wirst die Beiträge von diesem Konto nicht sehen. Das Konto wird nicht in der Lage sein, deine Beiträge zu sehen oder dir zu folgen. Die Person hinter dem Konto wird wissen, dass du das Konto blockiert hast.</string>
+	<string name="block_user_explain">Dir wird es nicht länger möglich sein, die Beiträge dieses Konto zu sehen. Das blockierte Profil wird nicht mehr in der Lage sein, deine Beiträge zu sehen oder dir zu folgen. Die Person hinter dem Konto wird mitbekommen, dass du ihr Konto gesperrt hast.</string>
 	<string name="report_personal_title">Möchtest du das nicht mehr sehen?</string>
 	<string name="report_personal_subtitle">Wenn du etwas auf Mastodon siehst, das dir nicht gefällt, kannst du die Person aus deinem Umfeld entfernen.</string>
 	<string name="back">Zurück</string>
@@ -174,7 +174,7 @@
 	<string name="instance_catalog_subtitle">Wähle einen Server basierend auf deinen Interessen oder deiner Region – oder einfach einen allgemeinen. Du kannst trotzdem mit jedem interagieren, egal auf welchem Server.</string>
 	<string name="search_communities">Server suchen oder Link eingeben</string>
 	<string name="instance_rules_title">Serverregeln</string>
-	<string name="instance_rules_subtitle">Nimm dir eine Minute Zeit, und gehe kurz alle Regeln von %s durch.</string>
+	<string name="instance_rules_subtitle">Nimm dir eine Minute Zeit und lies die Serverregeln von %s durch.</string>
 	<string name="signup_title">Okay, lass uns mit %s anfangen</string>
 	<string name="edit_photo">bearbeiten</string>
 	<string name="display_name">Anzeigename</string>
@@ -200,10 +200,10 @@
 	<string name="resend">Erneut abschicken</string>
 	<string name="open_email_app">E-Mail-App öffnen</string>
 	<string name="resent_email">Bestätigung per E-Mail zugeschickt</string>
-	<string name="compose_hint">Eintippen oder einfügen, was dir am Herzen liegt</string>
-	<string name="content_warning">Inhaltwarnung</string>
+	<string name="compose_hint">Was gibt\'s Neues? Was geht dir durch den Kopf? Was liegt dir am Herzen?</string>
+	<string name="content_warning">Inhaltswarnung</string>
 	<string name="add_image_description">Bildbeschreibung hinzufügen …</string>
-	<string name="retry_upload">Hochladen erneut versuchen</string>
+	<string name="retry_upload">Erneut hochladen</string>
 	<string name="edit_image">Bild bearbeiten</string>
 	<string name="save">Speichern</string>
 	<string name="add_alt_text">Bildbeschreibung hinzufügen</string>
@@ -212,9 +212,9 @@
 	<string name="visibility_public">Öffentlich</string>
 	<string name="visibility_followers_only">Nur Follower</string>
 	<string name="visibility_private">Nur erwähnte Profile</string>
-	<string name="search_all">Alle</string>
-	<string name="search_people">Personen</string>
-	<string name="recent_searches">Letzte Suchanfragen</string>
+	<string name="search_all">Alles</string>
+	<string name="search_people">Profile</string>
+	<string name="recent_searches">Frühere Suchen</string>
 	<string name="step_x_of_n">Schritt %1$d von %2$d</string>
 	<string name="skip">Überspringen</string>
 	<string name="notification_type_follow">Neue Follower</string>
@@ -261,7 +261,7 @@
 	<string name="sensitive_content">Inhaltswarnung</string>
 	<string name="sensitive_content_explain">Autor*in hat den Inhalt mit einer Inhaltswarnung versehen. Tippen zum Anzeigen.</string>
 	<string name="media_hidden">Tippen zum Anzeigen</string>
-	<string name="avatar_description">Das Profil von %s öffnen</string>
+	<string name="avatar_description">Profil von %s aufrufen</string>
 	<string name="more_options">Weitere Einstellungen</string>
 	<string name="reveal_content">Inhalt anzeigen</string>
 	<string name="hide_content">Inhalt ausblenden</string>
@@ -296,7 +296,7 @@
 	<string name="open_settings">Einstellungen öffnen</string>
 	<string name="error_saving_file">Fehler beim Speichern der Datei</string>
 	<string name="file_saved">Datei gespeichert</string>
-	<string name="downloading">wird heruntergeladen …</string>
+	<string name="downloading">Herunterladen …</string>
 	<string name="no_app_to_handle_action">Es gibt keine App, um diese Aktion auszuführen</string>
 	<string name="local_timeline">Lokal</string>
 	<string name="trending_posts_info_banner">Dies sind Beiträge, die auf deinem Mastodon-Server gerade angesagt sind.</string>
@@ -363,13 +363,13 @@
 	<string name="discard_changes">Änderungen verwerfen?</string>
 	<string name="upload_failed">Hochladen fehlgeschlagen</string>
 	<string name="file_size_bytes">%d Bytes</string>
-	<string name="file_size_kb">%.2f KB</string>
+	<string name="file_size_kb">%.2f kB</string>
 	<string name="file_size_mb">%.2f MB</string>
 	<string name="file_size_gb">%.2f GB</string>
 	<string name="file_upload_progress">%1$s von %2$s</string>
 	<string name="file_upload_time_remaining">%s verbleibend</string>
 	<string name="upload_error_connection_lost">Dein Gerät hat gerade keinen Zugang zum Internet</string>
-	<string name="upload_processing">wird verarbeitet …</string>
+	<string name="upload_processing">Wird verarbeitet …</string>
 	<!-- %s is version like 1.2.3 -->
 	<string name="update_available">Mastodon für Android %s ist zum Herunterladen bereit.</string>
 	<!-- %s is version like 1.2.3 -->
