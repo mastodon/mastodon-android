@@ -74,8 +74,8 @@ public class ReportCommentFragment extends MastodonToolbarFragment{
 		stepCounter.setText(getString(R.string.step_x_of_n, 3, 3));
 
 		forwardSwitch=view.findViewById(R.id.forward);
-		String accountDomain=reportAccount.getDomain();
-		forwardSwitch.setText(getString(R.string.report_comment_forward_to, accountDomain));
+		forwardSwitch.setText(getString(R.string.report_comment_forward_to, reportAccount.getDomain()));
+		forwardSwitch.setChecked(true);
 
 		btn=view.findViewById(R.id.btn_next);
 		btn.setOnClickListener(this::onButtonClick);
