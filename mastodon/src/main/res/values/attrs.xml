@@ -15,11 +15,38 @@
 	<attr name="colorSearchHint" format="color"/>
 	<attr name="colorTabInactive" format="color"/>
 	<attr name="colorAccentLightest" format="color"/>
+	
+	<attr name="colorM3Primary" format="color"/>
+	<attr name="colorM3OnPrimary" format="color"/>
+	<attr name="colorM3PrimaryContainer" format="color"/>
+	<attr name="colorM3OnPrimaryContainer" format="color"/>
+	<attr name="colorM3Secondary" format="color"/>
+	<attr name="colorM3OnSecondary" format="color"/>
+	<attr name="colorM3SecondaryContainer" format="color"/>
+	<attr name="colorM3OnSecondaryContainer" format="color"/>
+	<attr name="colorM3Tertiary" format="color"/>
+	<attr name="colorM3OnTertiary" format="color"/>
+	<attr name="colorM3TertiaryContainer" format="color"/>
+	<attr name="colorM3OnTertiaryContainer" format="color"/>
+	<attr name="colorM3Background" format="color"/>
+	<attr name="colorM3OnBackground" format="color"/>
+	<attr name="colorM3Surface" format="color"/>
+	<attr name="colorM3OnSurface" format="color"/>
+	<attr name="colorM3SurfaceVariant" format="color"/>
+	<attr name="colorM3OnSurfaceVariant" format="color"/>
+	<attr name="colorM3Outline" format="color"/>
+	<attr name="colorM3DisabledBackground" format="color"/>
+	<attr name="colorM3PressedOverlay" format="color"/>
 
 	<attr name="primaryLargeButtonStyle" format="reference"/>
 	<attr name="secondaryLargeButtonStyle" format="reference"/>
 
 	<declare-styleable name="MaxWidthFrameLayout">
 		<attr name="android:maxWidth" format="dimension"/>
+	</declare-styleable>
+
+	<declare-styleable name="FloatingHintEditTextLayout">
+		<attr name="editTextOffsetY" format="dimension"/>
+		<attr name="android:labelTextSize" format="dimension"/>
 	</declare-styleable>
 </resources>

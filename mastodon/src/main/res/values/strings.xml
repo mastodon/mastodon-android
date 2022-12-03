@@ -5,9 +5,9 @@
 	<string name="get_started">Get started</string>
 	<string name="log_in">Log in</string>
 	<string name="next">Next</string>
-	<string name="loading_instance">Getting instance info…</string>
+	<string name="loading_instance">Retrieving server info…</string>
 	<string name="error">Error</string>
-	<string name="not_a_mastodon_instance">%s doesn\'t appear to be a Mastodon instance.</string>
+	<string name="not_a_mastodon_instance">%s doesn\'t appear to be a Mastodon server.</string>
 	<string name="ok">OK</string>
 	<string name="preparing_auth">Preparing for authentication…</string>
 	<string name="finishing_auth">Finishing authentication…</string>
@@ -394,4 +394,7 @@
 	<string name="remove_bookmark">Remove bookmark</string>
 	<string name="bookmarks">Bookmarks</string>
 	<string name="your_favorites">Your Favorites</string>
+	<string name="login_title">Welcome Back</string>
+	<string name="login_subtitle">Log in with the server where you created your account.</string>
+	<string name="server_url">Server URL</string>
 </resources>

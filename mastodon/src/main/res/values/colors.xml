@@ -96,4 +96,49 @@
 
 	<color name="shortcut_icon_background">@color/gray_100</color>
 	<color name="shortcut_icon_foreground">@color/primary_700</color>
+
+	<!-- M3 dynamic colors -->
+
+	<!-- light theme -->
+	<color name="m3_sys_light_primary">#6750A4</color>
+	<color name="m3_sys_light_on_primary">#FFFFFF</color>
+	<color name="m3_sys_light_primary_container">#EADDFF</color>
+	<color name="m3_sys_light_on_primary_container">#21005D</color>
+	<color name="m3_sys_light_secondary">#625B71</color>
+	<color name="m3_sys_light_on_secondary">#FFFFFF</color>
+	<color name="m3_sys_light_secondary_container">#E8DEF8</color>
+	<color name="m3_sys_light_on_secondary_container">#1D192B</color>
+	<color name="m3_sys_light_tertiary">#7D5260</color>
+	<color name="m3_sys_light_on_tertiary">#FFF</color>
+	<color name="m3_sys_light_tertiary_container">#FFD8E4</color>
+	<color name="m3_sys_light_on_tertiary_container">#31111D</color>
+	<color name="m3_sys_light_background">#FFFBFE</color>
+	<color name="m3_sys_light_on_background">#1C1B1F</color>
+	<color name="m3_sys_light_surface">#FFFBFE</color>
+	<color name="m3_sys_light_on_surface">#1C1B1F</color>
+	<color name="m3_sys_light_surface_variant">#E7E0EC</color>
+	<color name="m3_sys_light_on_surface_variant">#49454F</color>
+	<color name="m3_sys_light_outline">#79747E</color>
+
+	<!-- dark theme -->
+	<color name="m3_sys_dark_primary">#D0BCFF</color>
+	<color name="m3_sys_dark_on_primary">#381E72</color>
+	<color name="m3_sys_dark_primary_container">#4F378B</color>
+	<color name="m3_sys_dark_on_primary_container">#EADDFF</color>
+	<color name="m3_sys_dark_secondary">#CCC2DC</color>
+	<color name="m3_sys_dark_on_secondary">#332D41</color>
+	<color name="m3_sys_dark_secondary_container">#4A4458</color>
+	<color name="m3_sys_dark_on_secondary_container">#E8DEF8</color>
+	<color name="m3_sys_dark_tertiary">#EFB8C8</color>
+	<color name="m3_sys_dark_on_tertiary">#492532</color>
+	<color name="m3_sys_dark_tertiary_container">#633B48</color>
+	<color name="m3_sys_dark_on_tertiary_container">#FFD8E4</color>
+	<color name="m3_sys_dark_background">#1C1B1F</color>
+	<color name="m3_sys_dark_on_background">#E6E1E5</color>
+	<color name="m3_sys_dark_surface">#1C1B1F</color>
+	<color name="m3_sys_dark_on_surface">#E6E1E5</color>
+	<color name="m3_sys_dark_surface_variant">#49454F</color>
+	<color name="m3_sys_dark_on_surface_variant">#CAC4D0</color>
+	<color name="m3_sys_dark_outline">#938F99</color>
+
 </resources>

@@ -1,6 +1,5 @@
 package org.joinmastodon.android.fragments;
 
-import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,7 +9,8 @@ import android.view.WindowInsets;
 
 import org.joinmastodon.android.MastodonApp;
 import org.joinmastodon.android.R;
-import org.joinmastodon.android.fragments.onboarding.InstanceCatalogFragment;
+import org.joinmastodon.android.fragments.onboarding.InstanceCatalogSignupFragment;
+import org.joinmastodon.android.fragments.onboarding.InstanceChooserLoginFragment;
 import org.joinmastodon.android.ui.InterpolatingMotionEffect;
 import org.joinmastodon.android.ui.views.SizeListenerFrameLayout;
 
@@ -66,8 +66,9 @@ public class SplashFragment extends AppKitFragment{
 
 	private void onButtonClick(View v){
 		Bundle extras=new Bundle();
-		extras.putBoolean("signup", v.getId()==R.id.btn_get_started);
-		Nav.go(getActivity(), InstanceCatalogFragment.class, extras);
+		boolean isSignup=v.getId()==R.id.btn_get_started;
+		extras.putBoolean("signup", isSignup);
+		Nav.go(getActivity(), isSignup ? InstanceCatalogSignupFragment.class : InstanceChooserLoginFragment.class, extras);
 	}
 
 	private void updateArtSize(int w, int h){

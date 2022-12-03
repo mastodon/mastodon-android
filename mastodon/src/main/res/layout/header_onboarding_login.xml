@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:orientation="vertical">
+
+	<TextView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:textAppearance="@style/m3_body_large"
+		android:paddingStart="56dp"
+		android:paddingEnd="24dp"
+		android:text="@string/login_subtitle"/>
+	
+	<org.joinmastodon.android.ui.views.FloatingHintEditTextLayout
+		android:layout_width="match_parent"
+		android:layout_height="56dp"
+		android:layout_marginTop="8dp"
+		android:layout_marginLeft="16dp"
+		android:layout_marginRight="16dp"
+		android:layout_marginBottom="8dp"
+		android:paddingTop="8dp"
+		android:paddingBottom="8dp"
+		app:editTextOffsetY="8dp"
+		android:background="@drawable/rect_4dp"
+		android:backgroundTint="?colorM3SurfaceVariant">
+
+		<EditText
+			android:id="@+id/search_edit"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:background="@null"
+			android:stateListAnimator="@null"
+			android:textColor="?colorM3OnSurfaceVariant"
+			android:textColorHint="?colorM3OnSurfaceVariant"
+			android:inputType="textUri"
+			android:importantForAutofill="no"
+			android:paddingStart="48dp"
+			android:layout_marginEnd="52dp"
+			android:drawablePadding="16dp"
+			android:textAppearance="@style/m3_body_large"
+			android:hint="@string/server_url"/>
+		
+		<ImageView
+			android:layout_width="44dp"
+			android:layout_height="20dp"
+			android:layout_gravity="start|center_vertical"
+			android:scaleType="center"
+			android:importantForAccessibility="no"
+			android:tint="?colorM3OnSurfaceVariant"
+			android:src="@drawable/ic_m3_search"/>
+		
+		<ImageButton
+			android:id="@+id/search_clear"
+			android:layout_width="36dp"
+			android:layout_height="36dp"
+			android:layout_marginEnd="6dp"
+			android:background="?android:selectableItemBackgroundBorderless"
+			android:layout_gravity="center_vertical|end"
+			android:visibility="gone"
+			tools:visibility="visible"
+			android:contentDescription="@string/clear"
+			android:stateListAnimator="@null"
+			android:elevation="0dp"
+			android:src="@drawable/ic_m3_cancel"/>
+
+	</org.joinmastodon.android.ui.views.FloatingHintEditTextLayout>
+
+</LinearLayout>

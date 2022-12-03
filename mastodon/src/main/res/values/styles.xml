@@ -43,6 +43,29 @@
 		<item name="android:windowLightNavigationBar" tools:ignore="NewApi">true</item>
 		<item name="android:popupMenuStyle">@style/Widget.Mastodon.PopupMenu</item>
 		<item name="android:actionOverflowMenuStyle">@style/Widget.Mastodon.PopupMenu</item>
+		
+		<!-- M3 colors -->
+		<item name="colorM3Primary">@color/m3_sys_light_primary</item>
+		<item name="colorM3OnPrimary">@color/m3_sys_light_on_primary</item>
+		<item name="colorM3PrimaryContainer">@color/m3_sys_light_primary_container</item>
+		<item name="colorM3OnPrimaryContainer">@color/m3_sys_light_on_primary_container</item>
+		<item name="colorM3Secondary">@color/m3_sys_light_secondary</item>
+		<item name="colorM3OnSecondary">@color/m3_sys_light_on_secondary</item>
+		<item name="colorM3SecondaryContainer">@color/m3_sys_light_secondary_container</item>
+		<item name="colorM3OnSecondaryContainer">@color/m3_sys_light_on_secondary_container</item>
+		<item name="colorM3Tertiary">@color/m3_sys_light_tertiary</item>
+		<item name="colorM3OnTertiary">@color/m3_sys_light_on_tertiary</item>
+		<item name="colorM3TertiaryContainer">@color/m3_sys_light_tertiary_container</item>
+		<item name="colorM3OnTertiaryContainer">@color/m3_sys_light_on_tertiary_container</item>
+		<item name="colorM3Background">@color/m3_sys_light_background</item>
+		<item name="colorM3OnBackground">@color/m3_sys_light_on_background</item>
+		<item name="colorM3Surface">@color/m3_sys_light_surface</item>
+		<item name="colorM3OnSurface">@color/m3_sys_light_on_surface</item>
+		<item name="colorM3SurfaceVariant">@color/m3_sys_light_surface_variant</item>
+		<item name="colorM3OnSurfaceVariant">@color/m3_sys_light_on_surface_variant</item>
+		<item name="colorM3Outline">@color/m3_sys_light_outline</item>
+		<item name="colorM3DisabledBackground">#1F1F1F1F</item>
+		<item name="colorM3PressedOverlay">@color/m3_sys_light_on_primary</item>
 	</style>
 
 	<style name="Theme.Mastodon.Dark" parent="Theme.AppKit">
@@ -90,10 +113,35 @@
 		<item name="android:windowLightNavigationBar" tools:ignore="NewApi">false</item>
 		<item name="android:popupMenuStyle">@style/Widget.Mastodon.PopupMenu</item>
 		<item name="android:actionOverflowMenuStyle">@style/Widget.Mastodon.PopupMenu</item>
+
+		<!-- M3 colors -->
+		<item name="colorM3Primary">@color/m3_sys_dark_primary</item>
+		<item name="colorM3OnPrimary">@color/m3_sys_dark_on_primary</item>
+		<item name="colorM3PrimaryContainer">@color/m3_sys_dark_primary_container</item>
+		<item name="colorM3OnPrimaryContainer">@color/m3_sys_dark_on_primary_container</item>
+		<item name="colorM3Secondary">@color/m3_sys_dark_secondary</item>
+		<item name="colorM3OnSecondary">@color/m3_sys_dark_on_secondary</item>
+		<item name="colorM3SecondaryContainer">@color/m3_sys_dark_secondary_container</item>
+		<item name="colorM3OnSecondaryContainer">@color/m3_sys_dark_on_secondary_container</item>
+		<item name="colorM3Tertiary">@color/m3_sys_dark_tertiary</item>
+		<item name="colorM3OnTertiary">@color/m3_sys_dark_on_tertiary</item>
+		<item name="colorM3TertiaryContainer">@color/m3_sys_dark_tertiary_container</item>
+		<item name="colorM3OnTertiaryContainer">@color/m3_sys_dark_on_tertiary_container</item>
+		<item name="colorM3Background">@color/m3_sys_dark_background</item>
+		<item name="colorM3OnBackground">@color/m3_sys_dark_on_background</item>
+		<item name="colorM3Surface">@color/m3_sys_dark_surface</item>
+		<item name="colorM3OnSurface">@color/m3_sys_dark_on_surface</item>
+		<item name="colorM3SurfaceVariant">@color/m3_sys_dark_surface_variant</item>
+		<item name="colorM3OnSurfaceVariant">@color/m3_sys_dark_on_surface_variant</item>
+		<item name="colorM3Outline">@color/m3_sys_dark_outline</item>
+		<item name="colorM3DisabledBackground">#1FE3E3E3</item>
+		<item name="colorM3PressedOverlay">@color/m3_sys_dark_primary</item>
 	</style>
 
 	<style name="Theme.Mastodon.Dark.TrueBlack">
 		<item name="colorWindowBackground">#000</item>
+
+		<item name="colorM3Background">#000</item>
 	</style>
 
 	<style name="Theme.Mastodon.AutoLightDark" parent="Theme.Mastodon.Light"/>
@@ -103,12 +151,20 @@
 		<item name="android:colorPrimary">@color/gray_50</item>
 		<item name="android:textColorPrimary">@color/gray_800</item>
 		<item name="android:textColorSecondary">@color/gray_800</item>
+		<item name="android:toolbarStyle">@style/Widget.Mastodon.Toolbar</item>
 	</style>
 
 	<style name="Theme.Mastodon.Toolbar.Dark" parent="android:ThemeOverlay.Material.Dark.ActionBar">
 		<item name="android:colorPrimary">@color/gray_800</item>
 		<item name="android:textColorPrimary">@color/gray_50</item>
 		<item name="android:textColorSecondary">@color/gray_50</item>
+		<item name="android:toolbarStyle">@style/Widget.Mastodon.Toolbar</item>
+	</style>
+
+	<style name="Widget.Mastodon.Toolbar" parent="android:Widget.Material.Toolbar">
+		<item name="android:contentInsetStartWithNavigation">0dp</item>
+		<item name="android:titleMarginEnd">0dp</item>
+		<item name="android:titleMarginStart">0dp</item>
 	</style>
 
 	<style name="Theme.Mastodon.Toolbar.Profile">
@@ -224,6 +280,21 @@
 
 	<style name="Widget.Mastodon.PopupMenu" parent="android:Widget.Material.Light.PopupMenu">
 		<item name="android:popupBackground">@drawable/bg_popup</item>
+	</style>
+
+	<style name="Widget.Mastodon.M3.Button" parent="android:Widget.Material.Button">
+		<item name="android:textAllCaps">false</item>
+		<item name="android:textSize">14dp</item>
+		<item name="android:minHeight">40dp</item>
+		<item name="android:fontFamily">sans-serif-medium</item>
+		<item name="android:stateListAnimator">@null</item>
+	</style>
+
+	<style name="Widget.Mastodon.M3.Button.Filled">
+		<item name="android:background">@drawable/bg_button_m3_filled</item>
+		<item name="android:textColor">@color/button_text_m3_filled</item>
+		<item name="android:paddingLeft">24dp</item>
+		<item name="android:paddingRight">24dp</item>
 	</style>
 
 	<style name="alert_title">
