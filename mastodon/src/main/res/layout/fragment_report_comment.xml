@@ -26,6 +26,13 @@
 				android:gravity="top|start"
 				android:minHeight="212dp"/>
 
+			<Switch
+				android:id="@+id/forward"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_margin="16dp"
+				android:gravity="top|start"/>
+
 		</LinearLayout>
 
 	</ScrollView>

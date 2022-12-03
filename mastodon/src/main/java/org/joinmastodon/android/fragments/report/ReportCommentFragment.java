@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.view.WindowInsets;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import com.squareup.otto.Subscribe;
@@ -28,7 +29,6 @@ import java.util.ArrayList;
 import me.grishka.appkit.Nav;
 import me.grishka.appkit.api.Callback;
 import me.grishka.appkit.api.ErrorResponse;
-import me.grishka.appkit.fragments.ToolbarFragment;
 import me.grishka.appkit.utils.V;
 
 public class ReportCommentFragment extends MastodonToolbarFragment{
@@ -37,6 +37,7 @@ public class ReportCommentFragment extends MastodonToolbarFragment{
 	private Button btn;
 	private View buttonBar;
 	private EditText commentEdit;
+	private Switch forwardSwitch;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState){
@@ -72,6 +73,10 @@ public class ReportCommentFragment extends MastodonToolbarFragment{
 		subtitle.setVisibility(View.GONE);
 		stepCounter.setText(getString(R.string.step_x_of_n, 3, 3));
 
+		forwardSwitch=view.findViewById(R.id.forward);
+		String accountDomain=reportAccount.getDomain();
+		forwardSwitch.setText(getString(R.string.report_comment_forward_to, accountDomain));
+
 		btn=view.findViewById(R.id.btn_next);
 		btn.setOnClickListener(this::onButtonClick);
 		view.findViewById(R.id.btn_back).setOnClickListener(this::onButtonClick);
@@ -102,7 +107,7 @@ public class ReportCommentFragment extends MastodonToolbarFragment{
 		ReportReason reason=ReportReason.valueOf(getArguments().getString("reason"));
 		ArrayList<String> statusIDs=getArguments().getStringArrayList("statusIDs");
 		ArrayList<String> ruleIDs=getArguments().getStringArrayList("ruleIDs");
-		new SendReport(reportAccount.id, reason, statusIDs, ruleIDs, v.getId()==R.id.btn_back ? null : commentEdit.getText().toString(), true)
+		new SendReport(reportAccount.id, reason, statusIDs, ruleIDs, v.getId()==R.id.btn_back ? null : commentEdit.getText().toString(), forwardSwitch.isChecked())
 				.setCallback(new Callback<>(){
 					@Override
 					public void onSuccess(Object result){
