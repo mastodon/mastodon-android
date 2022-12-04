@@ -3,7 +3,9 @@
 	<string name="get_started">Loslegen</string>
 	<string name="log_in">Anmelden</string>
 	<string name="next">Weiter</string>
+	<string name="loading_instance">Rufe Server-Informationen ab …</string>
 	<string name="error">Fehler</string>
+	<string name="not_a_mastodon_instance">%s scheint kein Mastodon-Server zu sein.</string>
 	<string name="ok">OK</string>
 	<string name="preparing_auth">Authentifizierung wird vorbereitet …</string>
 	<string name="finishing_auth">Authentifizierung wird abgeschlossen …</string>
@@ -108,7 +110,7 @@
 	<string name="confirm_block_title">Konto sperren</string>
 	<string name="confirm_block_domain_title">Domain sperren</string>
 	<string name="confirm_block">Bestätigen, um %s zu blockieren</string>
-	<string name="do_block">Ja, blockieren</string>
+	<string name="do_block">Blockieren</string>
 	<string name="confirm_unblock_title">Konto nicht mehr sperren</string>
 	<string name="confirm_unblock_domain_title">Domain nicht mehr blockieren</string>
 	<string name="confirm_unblock">Bestätigen, um %s nicht mehr zu blockieren</string>
@@ -185,7 +187,7 @@
 	<string name="category_all">Alle</string>
 	<string name="category_art">Kunst</string>
 	<string name="category_food">Essen</string>
-	<string name="category_furry">Flausch</string>
+	<string name="category_furry">Furries</string>
 	<string name="category_games">Spiele</string>
 	<string name="category_general">Allgemein</string>
 	<string name="category_journalism">Journalismus</string>
@@ -194,7 +196,7 @@
 	<string name="category_regional">Regional</string>
 	<string name="category_tech">Technik</string>
 	<string name="confirm_email_title">Eine letzte Sache noch</string>
-	<string name="confirm_email_subtitle">Ruf den Link in der E-Mail, die wir dir gerade geschickt haben, auf, um dein Konto zu verifizieren.</string>
+	<string name="confirm_email_subtitle">Schaue kurz in dein E-Mail-Postfach und tippe den Link an, den wir dir gesendet haben.</string>
 	<string name="resend">Erneut abschicken</string>
 	<string name="open_email_app">E-Mail-App öffnen</string>
 	<string name="resent_email">Bestätigung per E-Mail zugeschickt</string>
@@ -228,7 +230,7 @@
 	</plurals>
 	<string name="media_attachment_unsupported_type">Dateityp von %s wird nicht unterstützt</string>
 	<string name="media_attachment_too_big">Datei %1$s überschreitet die maximale Größe von %2$s MB</string>
-	<string name="settings_theme">Design</string>
+	<string name="settings_theme">Visuelle Darstellung</string>
 	<string name="theme_auto">Systembedingt</string>
 	<string name="theme_light">Hell</string>
 	<string name="theme_dark">Dunkel</string>
@@ -385,4 +387,7 @@
 	<string name="remove_bookmark">Lesezeichen entfernen</string>
 	<string name="bookmarks">Lesezeichen</string>
 	<string name="your_favorites">Deine Favoriten</string>
+	<string name="login_title">Willkommen zurück</string>
+	<string name="login_subtitle">Melde dich mit dem Server an, auf dem du dein Konto erstellt hast.</string>
+	<string name="server_url">Server-URL</string>
 </resources>
