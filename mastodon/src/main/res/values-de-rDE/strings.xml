@@ -110,10 +110,10 @@
 	<string name="confirm_block_title">Konto sperren</string>
 	<string name="confirm_block_domain_title">Domain sperren</string>
 	<string name="confirm_block">Bestätigen, um %s zu sperren</string>
-	<string name="do_block">Blockieren</string>
+	<string name="do_block">Sperren</string>
 	<string name="confirm_unblock_title">Konto nicht mehr sperren</string>
 	<string name="confirm_unblock_domain_title">Domain nicht mehr blockieren</string>
-	<string name="confirm_unblock">Bestätigen, um %s nicht mehr zu blockieren</string>
+	<string name="confirm_unblock">Bestätigen, um Sperre von %s aufzuheben</string>
 	<string name="do_unblock">Sperre aufheben</string>
 	<string name="button_muted">Stummgeschaltet</string>
 	<string name="button_blocked">Blockiert</string>
@@ -147,7 +147,7 @@
 	<string name="report_choose_reason_account">Was stimmt mit %s nicht?</string>
 	<string name="report_choose_reason_subtitle">Bitte das Bestmögliche auswählen</string>
 	<string name="report_reason_personal">Das gefällt mir nicht</string>
-	<string name="report_reason_personal_subtitle">Den Inhalt kann man nicht allen zumuten</string>
+	<string name="report_reason_personal_subtitle">Das ist nichts, was du sehen möchtest</string>
 	<string name="report_reason_spam">Das ist Spam</string>
 	<string name="report_reason_spam_subtitle">Bösartige Links, vorgetäuschtes Verhalten oder wiederholtes Antworten</string>
 	<string name="report_reason_violation">Es verstößt gegen Serverregeln</string>
@@ -196,7 +196,7 @@
 	<string name="category_regional">Regional</string>
 	<string name="category_tech">Technik</string>
 	<string name="confirm_email_title">Eine letzte Sache noch</string>
-	<string name="confirm_email_subtitle">Schaue kurz in dein E-Mail-Postfach und tippe den Link an, den wir dir gesendet haben.</string>
+	<string name="confirm_email_subtitle">Tippe auf den Link, den wir dir per E-Mail geschickt haben, um dein Konto zu verifizieren.</string>
 	<string name="resend">Erneut abschicken</string>
 	<string name="open_email_app">E-Mail-App öffnen</string>
 	<string name="resent_email">Bestätigung per E-Mail zugeschickt</string>
@@ -230,7 +230,7 @@
 	</plurals>
 	<string name="media_attachment_unsupported_type">Dateityp von %s wird nicht unterstützt</string>
 	<string name="media_attachment_too_big">Datei %1$s überschreitet die maximale Größe von %2$s MB</string>
-	<string name="settings_theme">Visuelle Darstellung</string>
+	<string name="settings_theme">Erscheinungsbild</string>
 	<string name="theme_auto">Systembedingt</string>
 	<string name="theme_light">Hell</string>
 	<string name="theme_dark">Dunkel</string>
@@ -292,7 +292,7 @@
 	<string name="reorder">Neu sortieren</string>
 	<string name="download">Herunterladen</string>
 	<string name="permission_required">Berechtigung erforderlich</string>
-	<string name="storage_permission_to_download">Die App benötigt Zugriff auf den Speicher deines Geräts, um diese Datei zu speichern.</string>
+	<string name="storage_permission_to_download">Die App benötigt Zugriff auf den Speicher deines Gerätes, um diese Datei zu speichern.</string>
 	<string name="open_settings">Einstellungen öffnen</string>
 	<string name="error_saving_file">Fehler beim Speichern der Datei</string>
 	<string name="file_saved">Datei gespeichert</string>
