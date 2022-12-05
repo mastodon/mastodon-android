@@ -3,7 +3,7 @@
 	<string name="get_started">Loslegen</string>
 	<string name="log_in">Anmelden</string>
 	<string name="next">Weiter</string>
-	<string name="loading_instance">Rufe Server-Informationen ab …</string>
+	<string name="loading_instance">Server-Informationen werden abgerufen …</string>
 	<string name="error">Fehler</string>
 	<string name="not_a_mastodon_instance">%s scheint kein Mastodon-Server zu sein.</string>
 	<string name="ok">OK</string>
@@ -64,7 +64,7 @@
 	<string name="loading">Wird geladen …</string>
 	<string name="field_label">Beschriftung</string>
 	<string name="field_content">Inhalt</string>
-	<string name="saving">Speichern …</string>
+	<string name="saving">wird gespeichert …</string>
 	<string name="post_from_user">Beitrag von %s</string>
 	<string name="poll_option_hint">%d. Auswahl</string>
 	<plurals name="x_minutes">
@@ -109,12 +109,12 @@
 	<string name="do_unmute">Nicht mehr stummschalten</string>
 	<string name="confirm_block_title">Konto sperren</string>
 	<string name="confirm_block_domain_title">Domain sperren</string>
-	<string name="confirm_block">Bestätigen, um %s zu blockieren</string>
+	<string name="confirm_block">Bestätigen, um %s zu sperren</string>
 	<string name="do_block">Blockieren</string>
 	<string name="confirm_unblock_title">Konto nicht mehr sperren</string>
 	<string name="confirm_unblock_domain_title">Domain nicht mehr blockieren</string>
 	<string name="confirm_unblock">Bestätigen, um %s nicht mehr zu blockieren</string>
-	<string name="do_unblock">Nicht mehr blockieren</string>
+	<string name="do_unblock">Sperre aufheben</string>
 	<string name="button_muted">Stummgeschaltet</string>
 	<string name="button_blocked">Blockiert</string>
 	<string name="action_vote">Abstimmen</string>
@@ -296,7 +296,7 @@
 	<string name="open_settings">Einstellungen öffnen</string>
 	<string name="error_saving_file">Fehler beim Speichern der Datei</string>
 	<string name="file_saved">Datei gespeichert</string>
-	<string name="downloading">Herunterladen …</string>
+	<string name="downloading">wird heruntergeladen …</string>
 	<string name="no_app_to_handle_action">Es gibt keine App, um diese Aktion auszuführen</string>
 	<string name="local_timeline">Lokal</string>
 	<string name="trending_posts_info_banner">Dies sind Beiträge, die auf deinem Mastodon-Server gerade angesagt sind.</string>
@@ -389,5 +389,5 @@
 	<string name="your_favorites">Deine Favoriten</string>
 	<string name="login_title">Willkommen zurück</string>
 	<string name="login_subtitle">Melde dich mit dem Server an, auf dem du dein Konto erstellt hast.</string>
-	<string name="server_url">Server-URL</string>
+	<string name="server_url">Serveradresse</string>
 </resources>
