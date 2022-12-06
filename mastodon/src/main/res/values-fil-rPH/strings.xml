@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="get_started">Magsimula</string>
+	<string name="log_in">Mag-log in</string>
+	<string name="next">Sunod</string>
+	<string name="error">Nag-Error</string>
+	<string name="ok">OK</string>
+	<string name="preparing_auth">Paghahanda para sa pagpapatunay…</string>
+	<string name="finishing_auth">Natapos na ang pagpapatunay…</string>
+	<string name="user_boosted">%s reblogged</string>
+	<string name="in_reply_to">Sa sumagot sa %s</string>
+	<string name="notifications">Mga abiso</string>
+	<string name="user_followed_you">sinundan ka</string>
+	<string name="user_sent_follow_request">may nagpadala sa iyo ng follow request</string>
+	<string name="user_favorited">paborito ang iyong post</string>
+	<string name="notification_boosted">na reblogged ang iyong post</string>
+	<string name="poll_ended">natapos na ang poll</string>
+	<string name="time_seconds">%ds</string>
+	<string name="time_minutes">%dm</string>
+	<string name="time_hours">%dh</string>
+	<string name="time_days">%dd</string>
+	<string name="share_toot_title">Ibahagi</string>
+	<string name="settings">Mga setting</string>
+	<string name="publish">I-publish</string>
+	<string name="discard_draft">Ipagliban ang draft?</string>
+	<string name="discard">Ipagliban</string>
+	<string name="cancel">Kanselahin</string>
+	<plurals name="followers">
+		<item quantity="one">tagasunod</item>
+		<item quantity="other">mga tagasunod</item>
+	</plurals>
+	<plurals name="following">
+		<item quantity="one">sumusunod</item>
+		<item quantity="other">sumusunod</item>
+	</plurals>
+	<plurals name="posts">
+		<item quantity="one">post</item>
+		<item quantity="other">mga post</item>
+	</plurals>
+	<string name="posts">Mga Post</string>
+	<string name="posts_and_replies">Mga post at Mga tugon</string>
+	<string name="media">Medya</string>
+	<string name="profile_about">Tungkol</string>
+	<string name="button_follow">Sundan</string>
+	<string name="button_following">Sumusunod</string>
+	<string name="edit_profile">I-edit ang profile</string>
+	<string name="mention_user">Binanggit %s</string>
+	<string name="share_user">Ibahagi %s</string>
+	<string name="mute_user">I-mute %s</string>
+	<string name="unmute_user">I-unmute %s</string>
+	<string name="block_user">Na-Block %s</string>
+	<string name="unblock_user">Na-Unblock %s</string>
+	<string name="report_user">Na-report %s</string>
+	<string name="block_domain">Na-Block %s</string>
+	<string name="unblock_domain">Na-Unblock %s</string>
+	<plurals name="x_posts">
+		<item quantity="one">%,d post</item>
+		<item quantity="other">%,d mga post</item>
+	</plurals>
+	<string name="profile_joined">Sumali</string>
+	<string name="done">Tapos na</string>
+	<string name="loading">Naglo-load…</string>
+	<string name="field_label">Label</string>
+	<string name="field_content">Nilalaman</string>
+	<string name="saving">Pag-save…</string>
+	<string name="post_from_user">Post galing %s</string>
+	<string name="poll_option_hint">Pagpipilian %d</string>
+	<plurals name="x_minutes">
+		<item quantity="one">%d minuto</item>
+		<item quantity="other">%d minuto</item>
+	</plurals>
+	<plurals name="x_hours">
+		<item quantity="one">%d oras</item>
+		<item quantity="other">%d oras</item>
+	</plurals>
+	<plurals name="x_days">
+		<item quantity="one">%d araw</item>
+		<item quantity="other">%d araw</item>
+	</plurals>
+	<string name="compose_poll_duration">Tagal: %s</string>
+	<plurals name="x_seconds_left">
+		<item quantity="one">%d segundong natitira</item>
+		<item quantity="other">%d segundong natitira</item>
+	</plurals>
+	<plurals name="x_minutes_left">
+		<item quantity="one">%d minutong natitira</item>
+		<item quantity="other">%d minutong natitira</item>
+	</plurals>
+	<plurals name="x_hours_left">
+		<item quantity="one">%d natitirang oras</item>
+		<item quantity="other">%d natitirang oras</item>
+	</plurals>
+	<plurals name="x_days_left">
+		<item quantity="one">%d natitirang araw</item>
+		<item quantity="other">%d natitirang araw</item>
+	</plurals>
+	<plurals name="x_voters">
+		<item quantity="one">%, d botante</item>
+		<item quantity="other">%,d botante</item>
+	</plurals>
+	<string name="poll_closed">Sarado</string>
+	<string name="confirm_mute_title">I-Mute Ang Account</string>
+	<string name="confirm_mute">Kumpirmahin ang pag-mute %s</string>
+	<string name="do_mute">I-Mute</string>
+	<string name="confirm_unmute_title">I-Unmute Ang Account</string>
+	<string name="confirm_unmute">Kumpirmahin ang pag-unmute %s</string>
+	<string name="do_unmute">I-unmute</string>
+	<string name="confirm_block_title">I-Block Ang Account</string>
+	<string name="confirm_block_domain_title">I-Block Ang Domain</string>
+	<string name="confirm_block">Kumpirmahin ang pag-block %s</string>
+	<string name="do_block">Block</string>
+	<string name="confirm_unblock_title">I-Unblock ang Account</string>
+	<string name="confirm_unblock_domain_title">I-Unblock ang Domain</string>
+	<string name="confirm_unblock">Kumpirmahin ang pag-unblock%s</string>
+	<string name="do_unblock">Unblock</string>
+	<string name="button_muted">Naka-mute</string>
+	<string name="button_blocked">Na-block</string>
+	<string name="action_vote">Bumoto</string>
+	<string name="tap_to_reveal">I-Tap para ipakita</string>
+	<string name="delete">Tanggalin</string>
+	<string name="confirm_delete_title">Burahin ang Post</string>
+	<string name="confirm_delete">Sigurado ka bang gusto mong burahin ang post na ito?</string>
+	<string name="notification_channel_audio_player">Pag-playback ng Audio</string>
+	<string name="play">I-play</string>
+	<string name="log_out">Mag-Sign out</string>
+	<string name="add_account">Magdagdag ng account</string>
+	<string name="search_hint">Maghanap</string>
+	<string name="hashtags">Mga hashtag</string>
+	<string name="news">Balita</string>
+	<string name="for_you">Para sa\'yo</string>
+	<string name="all_notifications">Lahat</string>
+	<string name="mentions">Mga binangit</string>
+	<plurals name="x_people_talking">
+		<item quantity="one">%d tao ay nagsasalita</item>
+		<item quantity="other">%d tao ay nagsasalita</item>
+	</plurals>
+	<plurals name="discussed_x_times">
+		<item quantity="one">Tinalakay %d oras</item>
+		<item quantity="other">Tinalakay %d oras</item>
+	</plurals>
+	<string name="report_title">Na-report %s</string>
+	<string name="report_choose_reason">Ano ang mali sa post na ito?</string>
+	<string name="report_choose_reason_account">Ano ang mali sa %s?</string>
+	<string name="report_choose_reason_subtitle">Piliin ang pinakamahusay na tugma</string>
+	<string name="report_reason_personal">Hindi ko gusto ito</string>
+	<string name="report_reason_personal_subtitle">Hindi ito isang bagay na nais mong makita</string>
+	<string name="report_reason_spam">Ito ay spam</string>
+	<string name="report_reason_spam_subtitle">Nakakahamak na mga link, pekeng pakikipag-ugnayan, o paulit-ulit na mga tugon</string>
+	<string name="report_reason_violation">Lumalabag ito sa mga patakaran ng server</string>
+	<string name="report_reason_violation_subtitle">Alam mo na nilalabag nito ang mga tiyak na patakaran</string>
+	<string name="report_reason_other">Ito may iba pa</string>
+	<string name="report_reason_other_subtitle">Ang isyu ay hindi umaangkop sa iba pang mga kategorya</string>
+	<string name="report_choose_rule">Aling mga patakaran ang nilabag?</string>
+	<string name="report_choose_rule_subtitle">Piliin ang lahat na-iapply</string>
+	<string name="report_choose_posts">Mayroon bang anumang mga post na nai-back up ang ulat na ito?</string>
+	<string name="report_choose_posts_subtitle">Piliin ang lahat na aaply</string>
+	<string name="report_comment_title">Mayroon pa bang dapat nating malaman?</string>
+	<string name="report_comment_hint">Mga Karagdagang Komento</string>
+	<string name="report_sent_title">Salamat sa pag-uulat, titingnan namin ito.</string>
+	<string name="report_sent_subtitle">Habang sinusuri namin ito, maaari kang gumawa ng aksyon laban sa %s.</string>
+	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
+	<!-- %s is version like 1.2.3 -->
+	<!-- %s is version like 1.2.3 -->
+	<!-- %s is file size -->
+</resources>

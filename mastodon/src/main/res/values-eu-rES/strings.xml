@@ -3,13 +3,11 @@
 	<string name="get_started">Nola hasi</string>
 	<string name="log_in">Hasi saioa</string>
 	<string name="next">Hurrengoa</string>
-	<string name="loading_instance">Instantziaren informazioa eskuratzen…</string>
 	<string name="error">Errorea</string>
-	<string name="not_a_mastodon_instance">%s(e)k ez dirudi Mastodon instantzia bat denik.</string>
 	<string name="ok">Ados</string>
 	<string name="preparing_auth">Autentifikaziorako prestatzen…</string>
 	<string name="finishing_auth">Autentikazioa bukatzen…</string>
-	<string name="user_boosted">%s(e)k zure bidalketa bultzatu du</string>
+	<string name="user_boosted">%s(e)k bultzatu du</string>
 	<string name="in_reply_to">%s-(r)i erantzunez</string>
 	<string name="notifications">Jakinarazpenak</string>
 	<string name="user_followed_you">jarraitu zaitu</string>
@@ -96,6 +94,10 @@
 		<item quantity="one">%d egun falta da</item>
 		<item quantity="other">%d egun falta dira</item>
 	</plurals>
+	<plurals name="x_voters">
+		<item quantity="one">Boto-emaile %,d</item>
+		<item quantity="other">%,d boto-emaile</item>
+	</plurals>
 	<string name="poll_closed">Itxita</string>
 	<string name="confirm_mute_title">Mututu kontua</string>
 	<string name="confirm_mute">Berretsi %s mututzea</string>
@@ -134,6 +136,10 @@
 		<item quantity="one">Pertsona %d hizketan</item>
 		<item quantity="other">%d pertsona hizketan</item>
 	</plurals>
+	<plurals name="discussed_x_times">
+		<item quantity="one">%d aldiz eztabaidatua</item>
+		<item quantity="other">%d aldiz eztabaidatua</item>
+	</plurals>
 	<string name="report_title">Salatu %s</string>
 	<string name="report_choose_reason">Zer du txarra argitalpen honek?</string>
 	<string name="report_choose_reason_account">Zer du txarra %s?</string>
@@ -166,6 +172,8 @@
 	<string name="instance_catalog_subtitle">Aukeratu zerbitzari bat zure interesen, eskualdearen edo helburuen arabera. Pertsona guztiekin konektatu ahal izango duzu, zerbitzaria zein den kontuan hartu gabe.</string>
 	<string name="search_communities">Bilatu zerbitzariak edo idatzi URL-a</string>
 	<string name="instance_rules_title">Oinarrizko arau batzuk</string>
+	<string name="instance_rules_subtitle">Hartu minutu bat %s-en administratzaileek ezarri eta aplikatutako arauak berrikusteko.</string>
+	<string name="signup_title">%s zerbitzariko kontua prestatuko dizugu</string>
 	<string name="edit_photo">editatu</string>
 	<string name="display_name">pantaila-izena</string>
 	<string name="username">erabiltzaile-izena</string>
@@ -205,6 +213,7 @@
 	<string name="search_all">Denak</string>
 	<string name="search_people">Jendea</string>
 	<string name="recent_searches">Azken bilaketak</string>
+	<string name="step_x_of_n">%1$d pausua %2$d -(e)tik</string>
 	<string name="skip">Saltatu</string>
 	<string name="notification_type_follow">Jarraitzaile berriak</string>
 	<string name="notification_type_favorite">Gogokoak</string>
@@ -213,6 +222,12 @@
 	<string name="notification_type_poll">Inkestak</string>
 	<string name="choose_account">Aukeratu kontua</string>
 	<string name="err_not_logged_in">Mesedez, hasi saioa lehenengo Mastodonen</string>
+	<plurals name="cant_add_more_than_x_attachments">
+		<item quantity="one">Ezin duzu multimedia fitxategi %d baino gehiago gehitu</item>
+		<item quantity="other">Ezin dituzu %d baino multimedia fitxategi gehiago gehitu</item>
+	</plurals>
+	<string name="media_attachment_unsupported_type">%s fitxategi mota ez da bateragarria</string>
+	<string name="media_attachment_too_big">%1$s fitxategiak %2$s MB-eko tamainaren muga gainditzen du</string>
 	<string name="settings_theme">Itxura bisuala</string>
 	<string name="theme_auto">Automatikoa</string>
 	<string name="theme_light">Argia</string>
@@ -244,6 +259,7 @@
 	<string name="sensitive_content">Eduki hunkigarria</string>
 	<string name="sensitive_content_explain">Egileak multimedia hau hunkigarritzat markatu du. Sakatu erakusteko.</string>
 	<string name="media_hidden">Sakatu erakusteko</string>
+	<string name="avatar_description">Joan %s-ren profilera</string>
 	<string name="more_options">Aukera gehiago</string>
 	<string name="reveal_content">Erakutsi edukia</string>
 	<string name="hide_content">Ezkutatu edukia</string>
@@ -284,6 +300,7 @@
 	<string name="trending_posts_info_banner">Hauek dira zure Mastodon txokoan beraien lekua hartzen ari diren argitalpenak.</string>
 	<string name="trending_hashtags_info_banner">Hauek dira zure Mastodon txokoan beraien lekua hartzen ari diren traolak.</string>
 	<string name="trending_links_info_banner">Hauek dira zure Mastodon txokoan gehien partekatzen diren albisteak.</string>
+	<string name="local_timeline_info_banner">Hauek dira zure Mastodon zerbitzari bera erabiltzen duten pertsonen bidalketa berrienak.</string>
 	<string name="dismiss">Baztertu</string>
 	<string name="see_new_posts">Ikusi bidalketa berriak</string>
 	<string name="load_missing_posts">Falta diren bidalketak kargatu</string>
@@ -292,13 +309,39 @@
 	<string name="follows_you">Jarraitzen zaitu</string>
 	<string name="manually_approves_followers">Jarraitzaileak eskuz onartu</string>
 	<string name="current_account">Oraingo kontua</string>
+	<string name="log_out_account">Itxi saioa %s</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
+	<plurals name="x_followers">
+		<item quantity="one">Jarraitzaile %,d</item>
+		<item quantity="other">%,d jarraitzaile</item>
+	</plurals>
+	<plurals name="x_following">
+		<item quantity="one">%,d jarraitzen</item>
+		<item quantity="other">%,d jarraitzen</item>
+	</plurals>
+	<plurals name="x_favorites">
+		<item quantity="one">Gogoko bat</item>
+		<item quantity="other">%,d gogoko</item>
+	</plurals>
+	<plurals name="x_reblogs">
+		<item quantity="one">Bultzada %,d</item>
+		<item quantity="other">%,d bultzada</item>
+	</plurals>
+	<string name="timestamp_via_app">%1$s %2$s -en bidez</string>
 	<string name="time_now">orain</string>
 	<string name="post_info_reblogs">Bultzadak</string>
 	<string name="post_info_favorites">Gogokoak</string>
 	<string name="edit_history">Editatu historia</string>
 	<string name="last_edit_at_x">Azken edizioa %s</string>
 	<string name="time_just_now">oraintxe</string>
+	<plurals name="x_seconds_ago">
+		<item quantity="one">Duela segundo %d</item>
+		<item quantity="other">Duela %d segundo</item>
+	</plurals>
+	<plurals name="x_minutes_ago">
+		<item quantity="one">Duela minutu %d</item>
+		<item quantity="other">Duela %d minutu</item>
+	</plurals>
 	<string name="edited_timestamp">editatua %s</string>
 	<string name="edit_original_post">Jatorrizko bidalketa</string>
 	<string name="edit_text_edited">Editatutako testua</string>
@@ -310,6 +353,7 @@
 	<string name="edit_poll_removed">Inkesta ezabatu da</string>
 	<string name="edit_media_added">Multimedia gehituta</string>
 	<string name="edit_media_removed">Multimedia ezabatuta</string>
+	<string name="edit_media_reordered">Media berrordenatuta</string>
 	<string name="edit_marked_sensitive">Hunkigarri markatua</string>
 	<string name="edit_marked_not_sensitive">Ez hunkigarri markatua</string>
 	<string name="edit_multiple_changed">Editatutako bidalketak</string>
@@ -320,15 +364,25 @@
 	<string name="file_size_kb">%.2f KB</string>
 	<string name="file_size_mb">%.2f MB</string>
 	<string name="file_size_gb">%.2f GB</string>
+	<string name="file_upload_progress">%2$s-tik %1$s</string>
+	<string name="file_upload_time_remaining">%s geratzen da</string>
 	<string name="upload_error_connection_lost">Zure gailuak interneterako konexioa galdu du</string>
 	<string name="upload_processing">Prozesatzen…</string>
 	<!-- %s is version like 1.2.3 -->
 	<string name="update_available">Androiderako Mastodon %s prest dago jeisteko.</string>
 	<!-- %s is version like 1.2.3 -->
+	<string name="update_ready">%s Androiderako Mastodon deskargatu da eta instalatzeko prest dago.</string>
 	<!-- %s is file size -->
 	<string name="download_update">(%s) deskargatu</string>
 	<string name="install_update">Instalatu</string>
 	<string name="privacy_policy_title">Mastodon eta zure pribatutasuna</string>
 	<string name="privacy_policy_subtitle">Mastodon aplikazioak daturik jasotzen ez duen arren, izena ematen duzun zerbitzariak beste politika bat izan dezake. Eskaini minutu bat Mastodon aplikazioaren pribatutasun politika eta zure zerbitzariaren pribatutasun politika berrikusteko eta ados zaudela ziurtatzeko.</string>
 	<string name="i_agree">Ados nago</string>
+	<string name="empty_list">Zerrenda hau hutsik dago</string>
+	<string name="instance_signup_closed">Zerbitzari honek ez ditu izen-emate berriak onartzen.</string>
+	<string name="text_copied">Arbelean kopiatuta</string>
+	<string name="add_bookmark">Laster-marka</string>
+	<string name="remove_bookmark">Kendu laster-marka</string>
+	<string name="bookmarks">Laster-markak</string>
+	<string name="your_favorites">Zure gogokoak</string>
 </resources>

@@ -3,9 +3,9 @@
 	<string name="get_started">Premiers pas</string>
 	<string name="log_in">Se connecter</string>
 	<string name="next">Suivant</string>
-	<string name="loading_instance">Chargement des informations de l’instance…</string>
+	<string name="loading_instance">Récupération des informations serveur…</string>
 	<string name="error">Erreur</string>
-	<string name="not_a_mastodon_instance">%s ne semble pas être une instance Mastodon.</string>
+	<string name="not_a_mastodon_instance">%s ne semble pas être un serveur Mastodon.</string>
 	<string name="ok">OK</string>
 	<string name="preparing_auth">Préparation à l’authentification…</string>
 	<string name="finishing_auth">Fin de l’authentification…</string>
@@ -380,4 +380,14 @@
 	<string name="privacy_policy_title">Mastodon et votre vie privée</string>
 	<string name="privacy_policy_subtitle">Bien que l’application Mastodon ne collecte aucune donnée, le serveur auquel vous vous inscrivez peut avoir une politique différente. Prenez une minute pour examiner et accepter la politique de confidentialité de l’application Mastodon ainsi que celle de votre serveur.</string>
 	<string name="i_agree">J’accepte</string>
+	<string name="empty_list">Cette liste est vide</string>
+	<string name="instance_signup_closed">Ce serveur n\'accepte pas les nouvelles inscriptions.</string>
+	<string name="text_copied">Copié dans le presse-papier</string>
+	<string name="add_bookmark">Favoris</string>
+	<string name="remove_bookmark">Retirer des favoris</string>
+	<string name="bookmarks">Favoris</string>
+	<string name="your_favorites">Vos favoris</string>
+	<string name="login_title">Content de vous revoir</string>
+	<string name="login_subtitle">Connectez-vous avec le serveur sur lequel vous avez créé votre compte.</string>
+	<string name="server_url">URL du serveur</string>
 </resources>

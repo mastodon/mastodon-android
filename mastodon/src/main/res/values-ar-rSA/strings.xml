@@ -3,9 +3,7 @@
 	<string name="get_started">الخطوات الأولى</string>
 	<string name="log_in">تسجيلُ الدخول</string>
 	<string name="next">التالي</string>
-	<string name="loading_instance">يَجري الحُصُول على معلومات المَثيل…</string>
 	<string name="error">خطأ</string>
-	<string name="not_a_mastodon_instance">%s لا يبدو كمثيل ماستدون.</string>
 	<string name="ok">حسنًا</string>
 	<string name="preparing_auth">جَارٍ الإعدَادُ لِلمُصادَقَة…</string>
 	<string name="finishing_auth">يُنهي المصادقة…</string>
@@ -101,8 +99,8 @@
 	</plurals>
 	<plurals name="x_days">
 		<item quantity="zero">أقل من يوم</item>
-		<item quantity="one">يُومٌ واحِد</item>
-		<item quantity="two">يَومان اِثنان</item>
+		<item quantity="one">يومٌ واحِد</item>
+		<item quantity="two">يَومان</item>
 		<item quantity="few">%d أيام</item>
 		<item quantity="many">%d يومًا</item>
 		<item quantity="other">%d يوم</item>
@@ -464,4 +462,5 @@
 	<string name="privacy_policy_title">ماستدون وخصوصيتك</string>
 	<string name="privacy_policy_subtitle">على الرغم من أن تطبيق ماستدون لا يجمع أي بيانات، فإن الخادم الذي قمت بالتسجيل من خلاله قد تكون له سياسة مختلفة. خذ دقيقة للمراجعة والموافقة على سياسة خصوصية التطبيق ماستدون وسياسة الخصوصية للخادم الخاص بك.</string>
 	<string name="i_agree">أنا مُوافِق</string>
+	<string name="empty_list">هذه القائمة فارغة</string>
 </resources>

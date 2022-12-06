@@ -5,7 +5,7 @@
 	<string name="next">Далее</string>
 	<string name="loading_instance">Получение информации о сервере…</string>
 	<string name="error">Ошибка</string>
-	<string name="not_a_mastodon_instance">%s, кажется, не является сервером Mastodon.</string>
+	<string name="not_a_mastodon_instance">%s не является сервером Mastodon.</string>
 	<string name="ok">OK</string>
 	<string name="preparing_auth">Подготовка к авторизации…</string>
 	<string name="finishing_auth">Завершение авторизации…</string>
@@ -357,6 +357,11 @@
 	</plurals>
 	<string name="timestamp_via_app">%1$s через %2$s</string>
 	<string name="time_now">только что</string>
+	<string name="post_info_reblogs">Продвинули</string>
+	<string name="post_info_favorites">Избранное</string>
+	<string name="edit_history">История изменений</string>
+	<string name="last_edit_at_x">Последнее изменение: %s</string>
+	<string name="time_just_now">только что</string>
 	<!-- %s is version like 1.2.3 -->
 	<!-- %s is version like 1.2.3 -->
 	<!-- %s is file size -->

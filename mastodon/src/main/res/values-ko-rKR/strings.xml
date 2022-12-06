@@ -3,9 +3,7 @@
 	<string name="get_started">시작하기</string>
 	<string name="log_in">로그인</string>
 	<string name="next">다음</string>
-	<string name="loading_instance">인스턴스 정보를 가져오는 중…</string>
 	<string name="error">오류</string>
-	<string name="not_a_mastodon_instance">%s는 마스토돈 인스턴스인 것 같지 않습니다.</string>
 	<string name="ok">확인</string>
 	<string name="preparing_auth">인증 준비중…</string>
 	<string name="finishing_auth">인증을 끝마치는 중…</string>
@@ -357,5 +355,8 @@
 	<string name="download_update">다운로드 (%s)</string>
 	<string name="install_update">설치</string>
 	<string name="privacy_policy_title">마스토돈 및 개인정보</string>
+	<string name="privacy_policy_subtitle">마스토돈 앱은 아무런 데이터도 수집하지 않지만, 가입한 서버의 정책은 다를 수도 있습니다. 잠시 시간을 들여 마스토돈 앱과 서버의 개인정보 정책을 확인한 후 동의해 주세요.</string>
 	<string name="i_agree">동의합니다</string>
+	<string name="empty_list">리스트에 아무 것도 없습니다</string>
+	<string name="instance_signup_closed">이 서버는 가입이 막혀 있는 상태입니다.</string>
 </resources>

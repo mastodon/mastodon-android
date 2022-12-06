@@ -3,9 +3,9 @@
 	<string name="get_started">เริ่มต้นใช้งาน</string>
 	<string name="log_in">เข้าสู่ระบบ</string>
 	<string name="next">ถัดไป</string>
-	<string name="loading_instance">กำลังรับข้อมูลอินสแตนซ์…</string>
+	<string name="loading_instance">กำลังเรียกข้อมูลเซิร์ฟเวอร์…</string>
 	<string name="error">ข้อผิดพลาด</string>
-	<string name="not_a_mastodon_instance">ดูเหมือนว่า %s จะไม่ใช่อินสแตนซ์ Mastodon</string>
+	<string name="not_a_mastodon_instance">ดูเหมือนว่า %s จะไม่ใช่เซิร์ฟเวอร์ Mastodon</string>
 	<string name="ok">ตกลง</string>
 	<string name="preparing_auth">กำลังเตรียมการรับรองความถูกต้อง…</string>
 	<string name="finishing_auth">กำลังเสร็จสิ้นการรับรองความถูกต้อง…</string>
@@ -359,4 +359,14 @@
 	<string name="privacy_policy_title">Mastodon และความเป็นส่วนตัวของคุณ</string>
 	<string name="privacy_policy_subtitle">แม้ว่าแอป Mastodon ไม่ได้เก็บรวบรวมข้อมูลใด ๆ เซิร์ฟเวอร์ที่คุณลงทะเบียนผ่านอาจมีนโยบายที่แตกต่างกัน ใช้เวลาสักครู่เพื่อตรวจทานและเห็นด้วยกับนโยบายความเป็นส่วนตัวของแอป Mastodon และนโยบายความเป็นส่วนตัวของเซิร์ฟเวอร์ของคุณ</string>
 	<string name="i_agree">ฉันเห็นด้วย</string>
+	<string name="empty_list">รายการนี้ว่างเปล่า</string>
+	<string name="instance_signup_closed">เซิร์ฟเวอร์นี้ไม่ได้เปิดรับการลงทะเบียนใหม่</string>
+	<string name="text_copied">คัดลอกไปยังคลิปบอร์ดแล้ว</string>
+	<string name="add_bookmark">เพิ่มที่คั่นหน้า</string>
+	<string name="remove_bookmark">เอาที่คั่นหน้าออก</string>
+	<string name="bookmarks">ที่คั่นหน้า</string>
+	<string name="your_favorites">รายการโปรดของคุณ</string>
+	<string name="login_title">ยินดีต้อนรับกลับมา</string>
+	<string name="login_subtitle">เข้าสู่ระบบด้วยเซิร์ฟเวอร์ที่ซึ่งคุณได้สร้างบัญชีของคุณ</string>
+	<string name="server_url">URL เซิร์ฟเวอร์</string>
 </resources>

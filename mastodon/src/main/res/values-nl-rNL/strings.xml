@@ -3,9 +3,7 @@
 	<string name="get_started">Aan de slag</string>
 	<string name="log_in">Inloggen</string>
 	<string name="next">Volgende</string>
-	<string name="loading_instance">Serverinformatie ophalen…</string>
 	<string name="error">Fout</string>
-	<string name="not_a_mastodon_instance">%s lijkt geen Mastodon-server te zijn.</string>
 	<string name="ok">OK</string>
 	<string name="preparing_auth">Verificatie aan het voorbereiden…</string>
 	<string name="finishing_auth">Verificatie aan het afronden…</string>
@@ -47,12 +45,12 @@
 	<string name="button_following">Volgend</string>
 	<string name="edit_profile">Profiel bewerken</string>
 	<string name="mention_user">Vermelden</string>
-	<string name="share_user">Delen</string>
+	<string name="share_user">%s delen</string>
 	<string name="mute_user">Negeren</string>
 	<string name="unmute_user">Niet langer negeren</string>
 	<string name="block_user">Blokkeren</string>
 	<string name="unblock_user">Deblokkeren</string>
-	<string name="report_user">Rapporteren</string>
+	<string name="report_user">%s rapporteren</string>
 	<string name="block_domain">Blokkeren</string>
 	<string name="unblock_domain">Deblokkeren</string>
 	<plurals name="x_posts">
@@ -142,7 +140,7 @@
 		<item quantity="one">%d keer over gediscussieerd</item>
 		<item quantity="other">%d keer over gediscussieerd</item>
 	</plurals>
-	<string name="report_title">Rapporteren</string>
+	<string name="report_title">%s rapporteren</string>
 	<string name="report_choose_reason">Wat is er mis met dit bericht?</string>
 	<string name="report_choose_reason_account">Wat is er mis met %s?</string>
 	<string name="report_choose_reason_subtitle">Kies wat het beste overeenkomt</string>
@@ -378,5 +376,7 @@
 	<string name="download_update">Downloaden (%s)</string>
 	<string name="install_update">Installeren</string>
 	<string name="privacy_policy_title">Mastodon en jouw privacy</string>
+	<string name="privacy_policy_subtitle">Hoewel de Mastodon-app geen gegevens verzamelt, kan de server die je aanmeldt een ander beleid hebben. Neem even de tijd om het privacybeleid van de Mastodon-app en het privacybeleid van de server te bekijken en hiermee akkoord te gaan.</string>
 	<string name="i_agree">Ik ga akkoord</string>
+	<string name="empty_list">Deze lijst is leeg</string>
 </resources>
