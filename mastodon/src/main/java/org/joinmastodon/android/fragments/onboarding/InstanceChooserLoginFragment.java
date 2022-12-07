@@ -240,13 +240,17 @@ public class InstanceChooserLoginFragment extends InstanceCatalogFragment{
 			if(chosenInstance!=null){
 				int idx=filteredData.indexOf(chosenInstance);
 				if(idx!=-1){
+					boolean found=false;
 					for(int i=0;i<list.getChildCount();i++){
 						RecyclerView.ViewHolder holder=list.getChildViewHolder(list.getChildAt(i));
 						if(holder.getAbsoluteAdapterPosition()==mergeAdapter.getPositionForAdapter(adapter)+idx && holder instanceof InstanceViewHolder ivh){
 							ivh.radioButton.setChecked(false);
+							found=true;
 							break;
 						}
 					}
+					if(!found)
+						adapter.notifyItemChanged(idx);
 				}
 			}
 			radioButton.setChecked(true);
