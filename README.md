@@ -12,7 +12,7 @@ This is the repository for the official Android app for Mastodon.
      alt="Get it on Google Play"
      height="80">](https://play.google.com/store/apps/details?id=org.joinmastodon.android)
 
-or get the APK from the [The Releases Section](https://github.com/mastodon/mastodon-android/releases/latest).
+Or get the APK from the [The Releases Section](https://github.com/mastodon/mastodon-android/releases/latest).
 
 ## Contributing
 
