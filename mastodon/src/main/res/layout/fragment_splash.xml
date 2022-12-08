@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<org.joinmastodon.android.ui.views.SizeListenerFrameLayout
-	xmlns:android="http://schemas.android.com/apk/res/android"
+<org.joinmastodon.android.ui.views.SizeListenerFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
 	android:orientation="vertical"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	android:fitsSystemWindows="true"
-	android:clipToPadding="false"
-	android:clipChildren="false">
+	android:clipToPadding="false">
 
 	<View
 		android:id="@+id/blue_fill"
@@ -18,51 +17,60 @@
 
 	<FrameLayout
 		android:id="@+id/art_container"
-		android:layout_width="450dp"
-		android:layout_height="631dp"
-		android:layout_marginTop="40dp"
-		android:layout_gravity="center">
+		android:layout_width="360dp"
+		android:layout_height="640dp"
+		android:layout_gravity="center"
+		tools:ignore="rtlHardcoded">
 		
 		<ImageView
 			android:id="@+id/art_clouds"
-			android:layout_width="450dp"
-			android:layout_height="589dp"
-			android:layout_gravity="bottom|center_horizontal"
+			android:layout_width="414dp"
+			android:layout_height="541dp"
+			android:layout_marginTop="91dp"
+			android:layout_gravity="top|left"
+			android:alpha="0.3"
+			android:importantForAccessibility="no"
 			android:src="@drawable/splash_art_layer0"/>
-		
+
+		<ImageView
+			android:id="@+id/art_plane_elephant"
+			android:layout_width="245.64dp"
+			android:layout_height="72.65dp"
+			android:layout_marginLeft="-101.55dp"
+			android:layout_marginTop="238.12dp"
+			android:layout_gravity="left|top"
+			android:alpha="0.3"
+			android:importantForAccessibility="no"
+			android:src="@drawable/splash_art_layer4"/>
+
 		<ImageView
 			android:id="@+id/art_right_hill"
-			android:layout_width="218dp"
-			android:layout_height="255dp"
-			android:layout_gravity="bottom|right"
-			android:layout_marginBottom="156dp"
-			android:layout_marginRight="11dp"
+			android:layout_width="150.84dp"
+			android:layout_height="176.44dp"
+			android:layout_gravity="top|left"
+			android:layout_marginLeft="322dp"
+			android:layout_marginTop="310dp"
+			android:importantForAccessibility="no"
 			android:src="@drawable/splash_art_layer1"/>
 
 		<ImageView
 			android:id="@+id/art_left_hill"
-			android:layout_width="285dp"
-			android:layout_height="222dp"
-			android:layout_gravity="bottom|left"
-			android:layout_marginLeft="-6dp"
-			android:layout_marginBottom="243dp"
+			android:layout_width="197.2dp"
+			android:layout_height="153.61dp"
+			android:layout_gravity="top|left"
+			android:layout_marginTop="294dp"
+			android:importantForAccessibility="no"
 			android:src="@drawable/splash_art_layer2"/>
 
 		<ImageView
 			android:id="@+id/art_center_hill"
-			android:layout_width="457dp"
-			android:layout_height="397dp"
-			android:layout_gravity="bottom|center_horizontal"
-			android:layout_marginBottom="51dp"
+			android:layout_width="400dp"
+			android:layout_height="346dp"
+			android:layout_gravity="top|left"
+			android:layout_marginTop="294dp"
+			android:importantForAccessibility="no"
 			android:src="@drawable/splash_art_layer3"/>
 
-		<ImageView
-			android:id="@+id/art_plane_elephant"
-			android:layout_width="355dp"
-			android:layout_height="105dp"
-			android:layout_gravity="left|top"
-			android:src="@drawable/splash_art_layer4"/>
-		
 	</FrameLayout>
 
 	<View
@@ -73,36 +81,65 @@
 		android:transformPivotY="1px"
 		android:background="#478E6A"/>
 
-	<org.joinmastodon.android.ui.views.SplashLogoView
-		android:layout_width="261dp"
-		android:layout_height="71dp"
-		android:layout_gravity="center_horizontal|top"
-		android:layout_marginTop="24dp"
-		android:scaleType="center"
-		android:importantForAccessibility="no"
-		android:src="@drawable/splash_logo"/>
-
 	<LinearLayout
 		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:layout_gravity="bottom"
-		android:padding="16dp"
+		android:layout_height="match_parent"
 		android:clipToPadding="false"
 		android:orientation="vertical">
-		<Button
-			android:id="@+id/btn_get_started"
+
+		<androidx.viewpager2.widget.ViewPager2
+			android:id="@+id/pager"
 			android:layout_width="match_parent"
+			android:layout_height="0dp"
+			android:layout_weight="1"/>
+
+		<LinearLayout
+			android:id="@+id/pager_dots"
+			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:layout_marginBottom="13dp"
-			style="@style/Widget.Mastodon.Button.Large.Primary_LightOnDark"
-			android:text="@string/get_started"/>
+			android:layout_gravity="center_horizontal"
+			android:layout_marginBottom="16dp"
+			android:orientation="horizontal">
+
+			<View
+				android:layout_width="8dp"
+				android:layout_height="8dp"
+				android:background="@drawable/white_circle"/>
+
+			<View
+				android:layout_width="8dp"
+				android:layout_height="8dp"
+				android:layout_marginLeft="16dp"
+				android:layout_marginRight="16dp"
+				android:alpha="0.3"
+				android:background="@drawable/white_circle"/>
+
+			<View
+				android:layout_width="8dp"
+				android:layout_height="8dp"
+				android:alpha="0.3"
+				android:background="@drawable/white_circle"/>
+
+		</LinearLayout>
+
 		<Button
 			android:id="@+id/btn_log_in"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			style="@style/Widget.Mastodon.Button.Large.Primary_DarkOnLight"
-			android:background="@drawable/bg_button_green"
-			android:text="@string/log_in"/>
+			android:layout_marginLeft="16dp"
+			android:layout_marginRight="16dp"
+			style="@style/Widget.Mastodon.M3.Button.Text"
+			android:textColor="#fff"
+			android:text="@string/already_have_account"/>
+		<Button
+			android:id="@+id/btn_get_started"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="16dp"
+			android:layout_marginRight="16dp"
+			android:layout_marginBottom="16dp"
+			style="@style/Widget.Mastodon.M3.Button.Filled"
+			android:text="@string/get_started"/>
 	</LinearLayout>
 
 </org.joinmastodon.android.ui.views.SizeListenerFrameLayout>

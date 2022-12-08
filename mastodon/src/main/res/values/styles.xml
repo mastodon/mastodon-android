@@ -297,6 +297,13 @@
 		<item name="android:paddingRight">24dp</item>
 	</style>
 
+	<style name="Widget.Mastodon.M3.Button.Text">
+		<item name="android:background">@drawable/bg_button_m3_text</item>
+		<item name="android:textColor">@color/button_text_m3_text</item>
+		<item name="android:paddingLeft">24dp</item>
+		<item name="android:paddingRight">24dp</item>
+	</style>
+
 	<style name="alert_title">
 		<item name="android:textColor">?android:textColorPrimary</item>
 		<item name="android:textSize">24dp</item>

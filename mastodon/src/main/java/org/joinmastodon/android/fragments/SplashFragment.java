@@ -1,11 +1,19 @@
 package org.joinmastodon.android.fragments;
 
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.style.ImageSpan;
+import android.text.style.ReplacementSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.view.WindowInsets;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import org.joinmastodon.android.MastodonApp;
 import org.joinmastodon.android.R;
@@ -14,7 +22,11 @@ import org.joinmastodon.android.fragments.onboarding.InstanceChooserLoginFragmen
 import org.joinmastodon.android.ui.InterpolatingMotionEffect;
 import org.joinmastodon.android.ui.views.SizeListenerFrameLayout;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.PagerAdapter;
+import androidx.viewpager2.widget.ViewPager2;
 import me.grishka.appkit.Nav;
 import me.grishka.appkit.fragments.AppKitFragment;
 import me.grishka.appkit.utils.V;
@@ -23,12 +35,13 @@ public class SplashFragment extends AppKitFragment{
 
 	private SizeListenerFrameLayout contentView;
 	private View artContainer, blueFill, greenFill;
-	private InterpolatingMotionEffect motionEffect;
+	private ViewPager2 pager;
+	private ViewGroup pagerDots;
+	private View artClouds, artPlaneElephant, artRightHill, artLeftHill, artCenterHill;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
-		motionEffect=new InterpolatingMotionEffect(MastodonApp.context);
 	}
 
 	@Nullable
@@ -37,15 +50,44 @@ public class SplashFragment extends AppKitFragment{
 		contentView=(SizeListenerFrameLayout) inflater.inflate(R.layout.fragment_splash, container, false);
 		contentView.findViewById(R.id.btn_get_started).setOnClickListener(this::onButtonClick);
 		contentView.findViewById(R.id.btn_log_in).setOnClickListener(this::onButtonClick);
+		artClouds=contentView.findViewById(R.id.art_clouds);
+		artPlaneElephant=contentView.findViewById(R.id.art_plane_elephant);
+		artRightHill=contentView.findViewById(R.id.art_right_hill);
+		artLeftHill=contentView.findViewById(R.id.art_left_hill);
+		artCenterHill=contentView.findViewById(R.id.art_center_hill);
+		pager=contentView.findViewById(R.id.pager);
+		pagerDots=contentView.findViewById(R.id.pager_dots);
+		pager.setAdapter(new PagerAdapter());
+		pager.setOffscreenPageLimit(3);
+		pager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback(){
+			@Override
+			public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels){
+				for(int i=0;i<pagerDots.getChildCount();i++){
+					float alpha;
+					if(i==position){
+						alpha=0.3f+0.7f*(1f-positionOffset);
+					}else if(i==position+1){
+						alpha=0.3f+0.7f*positionOffset;
+					}else{
+						alpha=0.3f;
+					}
+					pagerDots.getChildAt(i).setAlpha(alpha);
+				}
+
+				float parallaxProgress=(position+positionOffset)/2f;
+				artClouds.setTranslationX(V.dp(-27)*(position>=1 ? 1f : positionOffset));
+				artPlaneElephant.setTranslationX(V.dp(101.55f)*parallaxProgress);
+				artLeftHill.setTranslationX(V.dp(-88)*parallaxProgress);
+				artLeftHill.setTranslationY(V.dp(24)*parallaxProgress);
+				artRightHill.setTranslationX(V.dp(-88)*parallaxProgress);
+				artRightHill.setTranslationY(V.dp(-24)*parallaxProgress);
+				artCenterHill.setTranslationX(V.dp(-40)*parallaxProgress);
+			}
+		});
 
 		artContainer=contentView.findViewById(R.id.art_container);
 		blueFill=contentView.findViewById(R.id.blue_fill);
 		greenFill=contentView.findViewById(R.id.green_fill);
-		motionEffect.addViewEffect(new InterpolatingMotionEffect.ViewEffect(contentView.findViewById(R.id.art_clouds), V.dp(-5), V.dp(5), V.dp(-5), V.dp(5)));
-		motionEffect.addViewEffect(new InterpolatingMotionEffect.ViewEffect(contentView.findViewById(R.id.art_right_hill), V.dp(-15), V.dp(25), V.dp(-10), V.dp(10)));
-		motionEffect.addViewEffect(new InterpolatingMotionEffect.ViewEffect(contentView.findViewById(R.id.art_left_hill), V.dp(-25), V.dp(15), V.dp(-15), V.dp(15)));
-		motionEffect.addViewEffect(new InterpolatingMotionEffect.ViewEffect(contentView.findViewById(R.id.art_center_hill), V.dp(-14), V.dp(14), V.dp(-5), V.dp(25)));
-		motionEffect.addViewEffect(new InterpolatingMotionEffect.ViewEffect(contentView.findViewById(R.id.art_plane_elephant), V.dp(-20), V.dp(12), V.dp(-20), V.dp(12)));
 
 		contentView.setSizeListener(new SizeListenerFrameLayout.OnSizeChangedListener(){
 			@Override
@@ -72,10 +114,10 @@ public class SplashFragment extends AppKitFragment{
 	}
 
 	private void updateArtSize(int w, int h){
-		float scale=w/(float)V.dp(412);
+		float scale=w/(float)V.dp(360);
 		artContainer.setScaleX(scale);
 		artContainer.setScaleY(scale);
-		blueFill.setScaleY(h/2f);
+		blueFill.setScaleY(artContainer.getBottom()-V.dp(90));
 		greenFill.setScaleY(h-artContainer.getBottom()+V.dp(90));
 	}
 
@@ -101,15 +143,91 @@ public class SplashFragment extends AppKitFragment{
 		return true;
 	}
 
-	@Override
-	protected void onShown(){
-		super.onShown();
-		motionEffect.activate();
+	private class PagerAdapter extends RecyclerView.Adapter<PagerViewHolder>{
+
+		@NonNull
+		@Override
+		public PagerViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType){
+			return new PagerViewHolder(viewType);
+		}
+
+		@Override
+		public void onBindViewHolder(@NonNull PagerViewHolder holder, int position){}
+
+		@Override
+		public int getItemCount(){
+			return 3;
+		}
+
+		@Override
+		public int getItemViewType(int position){
+			return position;
+		}
 	}
 
-	@Override
-	protected void onHidden(){
-		super.onHidden();
-		motionEffect.deactivate();
+	private class PagerViewHolder extends RecyclerView.ViewHolder{
+		public PagerViewHolder(int page){
+			super(new LinearLayout(getActivity()));
+			LinearLayout ll=(LinearLayout) itemView;
+			ll.setOrientation(LinearLayout.VERTICAL);
+			int pad=V.dp(16);
+			ll.setPadding(pad, pad, pad, pad);
+			ll.setLayoutParams(new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+
+			TextView title=new TextView(getActivity());
+			title.setTextAppearance(R.style.m3_headline_medium);
+			title.setText(switch(page){
+				case 0 -> {
+					String src=getString(R.string.welcome_page1_title);
+					SpannableString ss=new SpannableString(src);
+					int start=src.indexOf("{logo}");
+					if(start!=-1){
+						LogoSpan span=new LogoSpan(getResources().getDrawable(R.drawable.splash_logo, getActivity().getTheme()));
+						ss.setSpan(span, start, start+6, 0);
+					}
+					yield ss;
+				}
+				case 1 -> getString(R.string.welcome_page2_title);
+				case 2 -> getString(R.string.welcome_page3_title);
+				default -> throw new IllegalStateException("Unexpected value: "+page);
+			});
+			title.setTextColor(0xFF17063B);
+			LinearLayout.LayoutParams lp=new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, V.dp(page==0 ? 46 : 36));
+			lp.bottomMargin=V.dp(page==0 ? 4 : 14);
+			ll.addView(title, lp);
+
+			TextView text=new TextView(getActivity());
+			text.setTextAppearance(R.style.m3_body_medium);
+			text.setText(switch(page){
+				case 0 -> R.string.welcome_page1_text;
+				case 1 -> R.string.welcome_page2_text;
+				case 2 -> R.string.welcome_page3_text;
+				default -> throw new IllegalStateException("Unexpected value: "+page);
+			});
+			text.setTextColor(0xFF17063B);
+			ll.addView(text, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+		}
+	}
+
+	private class LogoSpan extends ReplacementSpan{
+		private final Drawable drawable;
+
+		private LogoSpan(Drawable drawable){
+			this.drawable=drawable;
+		}
+
+		@Override
+		public int getSize(@NonNull Paint paint, CharSequence text, int start, int end, @Nullable Paint.FontMetricsInt fm){
+			return drawable.getIntrinsicWidth();
+		}
+
+		@Override
+		public void draw(@NonNull Canvas canvas, CharSequence text, int start, int end, float x, int top, int y, int bottom, @NonNull Paint paint){
+			drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+			canvas.save();
+			canvas.translate(x, y-V.dp(20));
+			drawable.draw(canvas);
+			canvas.restore();
+		}
 	}
 }
