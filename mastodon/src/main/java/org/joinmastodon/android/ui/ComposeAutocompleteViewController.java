@@ -28,6 +28,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -154,11 +155,16 @@ public class ComposeAutocompleteViewController{
 		}else if(mode==Mode.EMOJIS){
 			String _text=text.substring(1); // remove ':'
 			List<WrappedEmoji> oldList=emojis;
-			emojis=AccountSessionManager.getInstance()
+			List<Emoji> allEmojis = AccountSessionManager.getInstance()
 					.getCustomEmojis(AccountSessionManager.getInstance().getAccount(accountID).domain)
 					.stream()
 					.flatMap(ec->ec.emojis.stream())
-					.filter(e->e.visibleInPicker && e.shortcode.startsWith(_text))
+					.filter(e->e.visibleInPicker)
+					.collect(Collectors.toList());
+			List<Emoji> startsWithSearch = allEmojis.stream().filter(e -> e.shortcode.toLowerCase().startsWith(_text.toLowerCase())).collect(Collectors.toList());
+			emojis=Stream.concat(startsWithSearch.stream(), allEmojis.stream()
+					.filter(e -> !startsWithSearch.contains(e))
+					.filter(e -> e.shortcode.toLowerCase().contains(_text.toLowerCase())))
 					.map(WrappedEmoji::new)
 					.collect(Collectors.toList());
 			UiUtils.updateList(oldList, emojis, list, emojisAdapter, (e1, e2)->e1.emoji.shortcode.equals(e2.emoji.shortcode));
