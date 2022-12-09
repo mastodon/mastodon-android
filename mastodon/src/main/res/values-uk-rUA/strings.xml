@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+	<string name="get_started">Створити обліковий запис</string>
+	<string name="already_have_account">Я вже маю обліковий запис</string>
 	<string name="log_in">Увійти</string>
 	<string name="next">Далі</string>
 	<string name="loading_instance">Отримання інформації замовлення…</string>
@@ -432,4 +434,10 @@
 	<string name="login_subtitle">Увійдіть за допомогою сервера, де ви створили свій обліковий запис.</string>
 	<string name="server_url">URL-адреса сервера</string>
 	<!-- {logo} is a placeholder that is replaced with the Mastodon logo image at runtime. Please copy it into your translation as is. -->
+	<string name="welcome_page1_title">Що таке {logo}?</string>
+	<string name="welcome_page1_text">Уявіть, що у вас є електронної пошта, яка закінчується на @example.com.\n\nВи можете все ще надсилати та отримувати листи від будь-кого, навіть якщо їх електронна пошта закінчується на @gmail.com або @icloud.com або @example.com.</string>
+	<string name="welcome_page2_title">Mastodon такий.</string>
+	<string name="welcome_page2_text">Ваш індифікатор може бути @gothgirl654@example.social, але ви все ще можете підписуватися, репостити й спілкуватися з @fallout5ever@example.online.</string>
+	<string name="welcome_page3_title">Як обрати сервер?</string>
+	<string name="welcome_page3_text">Різні люди обирають різні сервери з будь-якої кількості причин. art.example - це чудове місце для художників, в той час як glasgow.example може бути гарним вибором для шотландці.\n\nВи не можете піти не так з жодними з наших рекомендованих серверів, так чи інакше, незалежно від того, який вибір ви обираєте (або введете власний в панель пошуку сервера), ви ніколи ніде не помилитися в жодному місці.</string>
 </resources>
