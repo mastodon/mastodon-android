@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+	<string name="get_started">Créer un compte</string>
+	<string name="already_have_account">J\'ai déjà un compte</string>
 	<string name="log_in">Se connecter</string>
 	<string name="next">Suivant</string>
 	<string name="loading_instance">Récupération des informations serveur…</string>
@@ -382,12 +384,16 @@
 	<string name="empty_list">Cette liste est vide</string>
 	<string name="instance_signup_closed">Ce serveur n\'accepte pas les nouvelles inscriptions.</string>
 	<string name="text_copied">Copié dans le presse-papier</string>
-	<string name="add_bookmark">Favoris</string>
+	<string name="add_bookmark">Ajouter aux marque-pages</string>
 	<string name="remove_bookmark">Retirer des favoris</string>
-	<string name="bookmarks">Favoris</string>
+	<string name="bookmarks">Marque-pages</string>
 	<string name="your_favorites">Vos favoris</string>
 	<string name="login_title">Content de vous revoir</string>
 	<string name="login_subtitle">Connectez-vous avec le serveur sur lequel vous avez créé votre compte.</string>
 	<string name="server_url">URL du serveur</string>
 	<!-- {logo} is a placeholder that is replaced with the Mastodon logo image at runtime. Please copy it into your translation as is. -->
+	<string name="welcome_page1_title">Qu\'est-ce que {logo}?</string>
+	<string name="welcome_page1_text">Imaginez que vous ayez une adresse e-mail qui se termine par @example.com.\n\nVous pouvez toujours envoyer et recevoir des e-mails de n\'importe qui, même si leur e-mail se termine par @gmail.com ou @icloud.com ou @example.com.</string>
+	<string name="welcome_page2_title">Mastodon est comme ça.</string>
+	<string name="welcome_page3_title">Comment choisir un serveur?</string>
 </resources>
