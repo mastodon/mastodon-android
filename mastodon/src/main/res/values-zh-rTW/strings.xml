@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+	<string name="get_started">新增帳號</string>
+	<string name="already_have_account">我已擁有帳號</string>
 	<string name="log_in">登入</string>
 	<string name="next">下一步</string>
 	<string name="loading_instance">正在取得伺服器資訊...</string>
@@ -369,4 +371,7 @@
 	<string name="login_subtitle">以您建立帳號之伺服器登入。</string>
 	<string name="server_url">伺服器 URL</string>
 	<!-- {logo} is a placeholder that is replaced with the Mastodon logo image at runtime. Please copy it into your translation as is. -->
+	<string name="welcome_page1_title">{logo} 是？</string>
+	<string name="welcome_page1_text">想像您擁有以 @example.com 結尾的 email 信箱地址。\n\n您仍可發送及接收來自任何人的電子郵件，無論他們的信箱是來自 @gmail.com 或 @icloud.com 或 @example.com。</string>
+	<string name="welcome_page2_title">Mastodon 就像這樣。</string>
 </resources>
