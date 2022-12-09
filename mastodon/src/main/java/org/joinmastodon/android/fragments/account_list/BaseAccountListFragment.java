@@ -22,6 +22,7 @@ import org.joinmastodon.android.GlobalUserPreferences;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.requests.accounts.GetAccountRelationships;
 import org.joinmastodon.android.api.requests.accounts.SetAccountFollowed;
+import org.joinmastodon.android.api.session.AccountSession;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.fragments.ProfileFragment;
 import org.joinmastodon.android.fragments.report.ReportReasonChoiceFragment;
@@ -346,7 +347,14 @@ public abstract class BaseAccountListFragment extends BaseRecyclerFragment<BaseA
 				args.putParcelable("reportAccount", Parcels.wrap(account));
 				Nav.go(getActivity(), ReportReasonChoiceFragment.class, args);
 			}else if(id==R.id.open_in_browser){
-				UiUtils.launchWebBrowser(getActivity(), account.url);
+				String url;
+				AccountSession session=AccountSessionManager.getInstance().getLastActiveAccount();
+				if(session==null || !session.activated){
+					url=account.url;
+				} else {
+					url="https://"+session.domain+"/@"+account.acct;
+				}
+				UiUtils.launchWebBrowser(getActivity(), url);
 			}else if(id==R.id.block_domain){
 				UiUtils.confirmToggleBlockDomain(getActivity(), accountID, account.getDomain(), relationship.domainBlocking, ()->{
 					relationship.domainBlocking=!relationship.domainBlocking;

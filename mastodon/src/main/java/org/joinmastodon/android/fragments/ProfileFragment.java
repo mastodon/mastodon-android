@@ -47,6 +47,7 @@ import org.joinmastodon.android.api.requests.accounts.GetAccountStatuses;
 import org.joinmastodon.android.api.requests.accounts.GetOwnAccount;
 import org.joinmastodon.android.api.requests.accounts.SetAccountFollowed;
 import org.joinmastodon.android.api.requests.accounts.UpdateAccountCredentials;
+import org.joinmastodon.android.api.session.AccountSession;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.fragments.account_list.FollowerListFragment;
 import org.joinmastodon.android.fragments.account_list.FollowingListFragment;
@@ -570,7 +571,14 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 			args.putParcelable("reportAccount", Parcels.wrap(account));
 			Nav.go(getActivity(), ReportReasonChoiceFragment.class, args);
 		}else if(id==R.id.open_in_browser){
-			UiUtils.launchWebBrowser(getActivity(), account.url);
+			String url;
+			AccountSession session=AccountSessionManager.getInstance().getLastActiveAccount();
+			if(session==null || !session.activated){
+				url=account.url;
+			} else {
+				url="https://"+session.domain+"/@"+account.acct;
+			}
+			UiUtils.launchWebBrowser(getActivity(), url);
 		}else if(id==R.id.block_domain){
 			UiUtils.confirmToggleBlockDomain(getActivity(), accountID, account.getDomain(), relationship.domainBlocking, ()->{
 				relationship.domainBlocking=!relationship.domainBlocking;

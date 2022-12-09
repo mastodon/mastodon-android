@@ -23,6 +23,7 @@ import org.joinmastodon.android.GlobalUserPreferences;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.requests.accounts.GetAccountRelationships;
 import org.joinmastodon.android.api.requests.statuses.GetStatusSourceText;
+import org.joinmastodon.android.api.session.AccountSession;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.fragments.BaseStatusListFragment;
 import org.joinmastodon.android.fragments.ComposeFragment;
@@ -175,7 +176,14 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 					args.putParcelable("reportAccount", Parcels.wrap(item.status.account));
 					Nav.go(item.parentFragment.getActivity(), ReportReasonChoiceFragment.class, args);
 				}else if(id==R.id.open_in_browser){
-					UiUtils.launchWebBrowser(activity, item.status.url);
+					String url;
+					AccountSession session=AccountSessionManager.getInstance().getLastActiveAccount();
+					if(session==null || !session.activated){
+						url=item.status.url;
+					} else {
+						url="https://"+session.domain+"/@"+account.acct+"/"+item.status.id;
+					}
+					UiUtils.launchWebBrowser(activity, url);
 				}else if(id==R.id.follow){
 					if(relationship==null)
 						return true;
