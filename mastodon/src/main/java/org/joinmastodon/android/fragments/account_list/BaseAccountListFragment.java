@@ -346,7 +346,7 @@ public abstract class BaseAccountListFragment extends BaseRecyclerFragment<BaseA
 				args.putParcelable("reportAccount", Parcels.wrap(account));
 				Nav.go(getActivity(), ReportReasonChoiceFragment.class, args);
 			}else if(id==R.id.open_in_browser){
-				UiUtils.launchWebBrowser(getActivity(), account.url);
+				UiUtils.launchWebBrowser(getActivity(), UiUtils.getSessionAccountURL(accountID, account));
 			}else if(id==R.id.block_domain){
 				UiUtils.confirmToggleBlockDomain(getActivity(), accountID, account.getDomain(), relationship.domainBlocking, ()->{
 					relationship.domainBlocking=!relationship.domainBlocking;

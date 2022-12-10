@@ -558,6 +558,18 @@ public class UiUtils{
 		return GlobalUserPreferences.theme==GlobalUserPreferences.ThemePreference.DARK;
 	}
 
+	public static String getSessionAccountURL(String accountID, Account account){
+		if(accountID==null)
+			return account.url;
+		return "https://"+AccountSessionManager.getInstance().getAccount(accountID).domain+"/@"+account.acct;
+	}
+
+	public static String getSessionStatusURL(String accountID, Status status){
+		if(accountID==null)
+			return status.url;
+		return "https://"+AccountSessionManager.getInstance().getAccount(accountID).domain+"/@"+status.account.acct+"/"+status.id;
+	}
+
 	public static void openURL(Context context, String accountID, String url){
 		Uri uri=Uri.parse(url);
 		if(accountID!=null && "https".equals(uri.getScheme()) && AccountSessionManager.getInstance().getAccount(accountID).domain.equalsIgnoreCase(uri.getAuthority())){

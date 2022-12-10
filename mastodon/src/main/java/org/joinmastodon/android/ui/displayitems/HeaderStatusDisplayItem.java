@@ -175,7 +175,7 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 					args.putParcelable("reportAccount", Parcels.wrap(item.status.account));
 					Nav.go(item.parentFragment.getActivity(), ReportReasonChoiceFragment.class, args);
 				}else if(id==R.id.open_in_browser){
-					UiUtils.launchWebBrowser(activity, item.status.url);
+					UiUtils.launchWebBrowser(activity, UiUtils.getSessionStatusURL(item.parentFragment.getAccountID(), item.status));
 				}else if(id==R.id.follow){
 					if(relationship==null)
 						return true;
