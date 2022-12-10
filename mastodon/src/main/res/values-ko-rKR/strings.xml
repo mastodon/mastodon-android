@@ -8,7 +8,7 @@
 	<string name="error">오류</string>
 	<string name="not_a_mastodon_instance">%s는 마스토돈 서버인 것 같지 않습니다.</string>
 	<string name="ok">확인</string>
-	<string name="preparing_auth">인증 준비중…</string>
+	<string name="preparing_auth">인증 준비 중…</string>
 	<string name="finishing_auth">인증을 끝마치는 중…</string>
 	<string name="user_boosted">%s 님이 리블로그함</string>
 	<string name="in_reply_to">%s 님에게 답글</string>
@@ -18,10 +18,10 @@
 	<string name="user_favorited">당신의 게시물을 마음에 들어했습니다</string>
 	<string name="notification_boosted">내 게시물을 리블로그했습니다</string>
 	<string name="poll_ended">투표 종료됨</string>
-	<string name="time_seconds">%d 초</string>
-	<string name="time_minutes">%d 분</string>
-	<string name="time_hours">%d 시간</string>
-	<string name="time_days">%d 일</string>
+	<string name="time_seconds">%d초</string>
+	<string name="time_minutes">%d분</string>
+	<string name="time_hours">%d시간</string>
+	<string name="time_days">%d일</string>
 	<string name="share_toot_title">공유</string>
 	<string name="settings">설정</string>
 	<string name="publish">게시</string>
@@ -124,7 +124,7 @@
 	<string name="all_notifications">모두</string>
 	<string name="mentions">멘션</string>
 	<plurals name="x_people_talking">
-		<item quantity="other">%d 명이 말하고 있음</item>
+		<item quantity="other">%d명이 말하고 있음</item>
 	</plurals>
 	<plurals name="discussed_x_times">
 		<item quantity="other">%d번 언급됨</item>
@@ -147,13 +147,13 @@
 	<string name="report_choose_posts_subtitle">해당하는 사항을 모두 선택하세요</string>
 	<string name="report_comment_title">우리가 더 알아야 할 내용이 있나요?</string>
 	<string name="report_comment_hint">추가 의견</string>
-	<string name="sending_report">신고 보내는 중..</string>
-	<string name="report_sent_title">신고해주셔서 감사합니다, 중재자분들이 확인할 예정입니다.</string>
+	<string name="sending_report">신고 보내는 중...</string>
+	<string name="report_sent_title">신고해주셔서 감사합니다, 중재자들이 확인할 예정입니다.</string>
 	<string name="report_sent_subtitle">서버의 중재자들이 이것을 심사하는 동안, 당신은 %s에 대한 행동을 취할 수 있습니다.</string>
 	<string name="unfollow_user">%s 팔로우 해제</string>
 	<string name="unfollow">팔로우 해제</string>
-	<string name="mute_user_explain">그의 게시물이나 리블로그가 내 홈 피드에 보이지 않습니다. 그는 뮤트 당했다는 사실을 알지 못합니다.</string>
-	<string name="block_user_explain">그는 나를 팔로우 하거나 내 게시물을 볼 수 없게 됩니다, 하지만 내가 차단한 사실은 알 수 있습니다.</string>
+	<string name="mute_user_explain">상대방의 게시물이나 리블로그가 내 홈 피드에 보이지 않습니다. 상대방은 뮤트 당했다는 사실을 알지 못합니다.</string>
+	<string name="block_user_explain">상대방은 나를 팔로우 하거나 내 게시물을 볼 수 없게 됩니다, 하지만 내가 차단한 사실은 알 수 있습니다.</string>
 	<string name="report_personal_title">이런 것을 보지 않길 원하나요?</string>
 	<string name="report_personal_subtitle">마스토돈에서 보기 싫은 것을 보았다면, 해당하는 사람을 지울 수 있습니다.</string>
 	<string name="back">뒤로가기</string>
@@ -264,7 +264,7 @@
 	<string name="home_timeline">홈 타임라인</string>
 	<string name="my_profile">내 프로필</string>
 	<string name="media_viewer">미디어 뷰어</string>
-	<string name="follow_user">%s 님을 팔로우</string>
+	<string name="follow_user">%s 팔로우</string>
 	<string name="unfollowed_user">%s 님을 팔로우 해제했습니다</string>
 	<string name="followed_user">이제 %s 님을 팔로우 합니다</string>
 	<string name="open_in_browser">브라우저에서 열기</string>
@@ -282,7 +282,7 @@
 	<string name="open_settings">설정 열기</string>
 	<string name="error_saving_file">파일 저장 오류</string>
 	<string name="file_saved">파일 저장됨</string>
-	<string name="downloading">다운로드중…</string>
+	<string name="downloading">다운로드 중…</string>
 	<string name="no_app_to_handle_action">이 동작을 처리할 앱이 없습니다</string>
 	<string name="local_timeline">커뮤니티</string>
 	<string name="trending_posts_info_banner">당신이 속한 마스토돈 서버에서 관심을 끌고 있는 게시물들입니다.</string>
@@ -293,23 +293,23 @@
 	<string name="see_new_posts">새 게시물 보기</string>
 	<string name="load_missing_posts">빈 게시물 불러오기</string>
 	<string name="follow_back">맞팔로우</string>
-	<string name="button_follow_pending">대기중</string>
+	<string name="button_follow_pending">대기 중</string>
 	<string name="follows_you">나를 팔로우합니다</string>
 	<string name="manually_approves_followers">수동으로 팔로워 승인</string>
 	<string name="current_account">현재 계정</string>
 	<string name="log_out_account">%s 로그아웃</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<plurals name="x_followers">
-		<item quantity="other">%,d 명의 팔로워</item>
+		<item quantity="other">%,d명의 팔로워</item>
 	</plurals>
 	<plurals name="x_following">
-		<item quantity="other">%,d 명의 팔로잉</item>
+		<item quantity="other">%,d명의 팔로잉</item>
 	</plurals>
 	<plurals name="x_favorites">
-		<item quantity="other">%,d 개의 관심글</item>
+		<item quantity="other">%,d개의 관심글</item>
 	</plurals>
 	<plurals name="x_reblogs">
-		<item quantity="other">%,d 개의 리블로그</item>
+		<item quantity="other">%,d개의 리블로그</item>
 	</plurals>
 	<string name="timestamp_via_app">%1$s에 %2$s에서</string>
 	<string name="time_now">방금</string>
@@ -327,18 +327,18 @@
 	<string name="edited_timestamp">%s에 수정함</string>
 	<string name="edit_original_post">원본 게시물</string>
 	<string name="edit_text_edited">내용을 수정함</string>
-	<string name="edit_spoiler_added">열람 주의 추가됨</string>
-	<string name="edit_spoiler_edited">열람 주의 수정됨</string>
-	<string name="edit_spoiler_removed">열람 주의 삭제됨</string>
+	<string name="edit_spoiler_added">열람 주의 추가함</string>
+	<string name="edit_spoiler_edited">열람 주의 수정함</string>
+	<string name="edit_spoiler_removed">열람 주의 삭제함</string>
 	<string name="edit_poll_added">투표를 추가함</string>
 	<string name="edit_poll_edited">투표를 수정함</string>
 	<string name="edit_poll_removed">투표를 삭제함</string>
 	<string name="edit_media_added">미디어를 추가함</string>
-	<string name="edit_media_removed">영상물을 뺌</string>
-	<string name="edit_media_reordered">미디어 순서 바뀜</string>
-	<string name="edit_marked_sensitive">민감함으로 설정됨</string>
-	<string name="edit_marked_not_sensitive">민감하지 않음으로 설정됨</string>
-	<string name="edit_multiple_changed">게시물 수정됨</string>
+	<string name="edit_media_removed">미디어를 삭제함</string>
+	<string name="edit_media_reordered">미디어 순서 바꿈</string>
+	<string name="edit_marked_sensitive">민감함으로 설정함</string>
+	<string name="edit_marked_not_sensitive">민감하지 않음으로 설정함</string>
+	<string name="edit_multiple_changed">게시물 수정함</string>
 	<string name="edit">수정</string>
 	<string name="discard_changes">변경사항을 삭제하겠습니까?</string>
 	<string name="upload_failed">업로드 실패</string>
@@ -349,7 +349,7 @@
 	<string name="file_upload_progress">%1$s / %2$s</string>
 	<string name="file_upload_time_remaining">%s 남음</string>
 	<string name="upload_error_connection_lost">디바이스의 인터넷 연결이 끊어졌습니다</string>
-	<string name="upload_processing">처리중…</string>
+	<string name="upload_processing">처리 중…</string>
 	<!-- %s is version like 1.2.3 -->
 	<string name="update_available">안드로이드용 마스토돈 %s 버전을 다운로드 할 수 있습니다.</string>
 	<!-- %s is version like 1.2.3 -->
@@ -364,5 +364,17 @@
 	<string name="instance_signup_closed">이 서버는 가입이 막혀 있는 상태입니다.</string>
 	<string name="text_copied">클립보드에 복사됨</string>
 	<string name="add_bookmark">보관</string>
+	<string name="remove_bookmark">보관한 게시물 삭제</string>
+	<string name="bookmarks">보관함</string>
+	<string name="your_favorites">내 좋아요</string>
+	<string name="login_title">돌아오신 것을 환영합니다</string>
+	<string name="login_subtitle">계정을 생성한 서버에 로그인하세요.</string>
+	<string name="server_url">서버 URL</string>
 	<!-- {logo} is a placeholder that is replaced with the Mastodon logo image at runtime. Please copy it into your translation as is. -->
+	<string name="welcome_page1_title">{logo}은 무엇인가요?</string>
+	<string name="welcome_page1_text">\@example.com으로 끝나는 이메일 주소를 갖고 있다고 상상해보세요.\n\n여러분은 이메일이 @gmail.com이나 @icloud.com 또는 @example.com으로 끝나는 모두에게 이메일을 보내거나 받을 수 있습니다.</string>
+	<string name="welcome_page2_title">마스토돈도 그렇답니다.</string>
+	<string name="welcome_page2_text">여러분의 핸들이 @gothgirl654@example.social이더라도, 여러분은 언제나 @fallout5ever@example.online을 팔로우하거나 리블로그, 대화할 수 있습니다.</string>
+	<string name="welcome_page3_title">서버는 어떻게 선택하나요?</string>
+	<string name="welcome_page3_text">다른 사람들은 여러가지 이유로 다른 서버를 선택합니다. art.example은 예술가들에게 훌륭한 곳인 반면, glasgow.example은 스코틀랜드인들에게 좋은 선택이 될 수 있습니다.\n\n저희가 추천하는 서버를 선택하면 잘못될 일이 없으므로, 여러분은 어떠한 서버를 선택하더라도(또는 서버 검색란에 직접 입력하더라도) 어디서나 소식을 놓치지 않을 것입니다.</string>
 </resources>
