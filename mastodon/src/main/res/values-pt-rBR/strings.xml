@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+	<string name="get_started">Criar conta</string>
+	<string name="already_have_account">Já tenho uma conta</string>
 	<string name="log_in">Iniciar sessão</string>
 	<string name="next">Próximo</string>
+	<string name="loading_instance">Recuperando informações do servidor…</string>
 	<string name="error">Erro</string>
+	<string name="not_a_mastodon_instance">%s não parece ser um servidor Mastodon.</string>
 	<string name="ok">OK</string>
 	<string name="preparing_auth">Preparando para autenticação…</string>
 	<string name="finishing_auth">Finalizando autenticação…</string>
@@ -379,5 +383,19 @@
 	<string name="i_agree">Eu concordo</string>
 	<string name="empty_list">Essa lista está vazia</string>
 	<string name="instance_signup_closed">Este servidor não aceita novos registros.</string>
+	<string name="text_copied">Copiado para a área de transferência</string>
+	<string name="add_bookmark">Marcador</string>
+	<string name="remove_bookmark">Remover marcador</string>
+	<string name="bookmarks">Marcadores</string>
+	<string name="your_favorites">Seus favoritos</string>
+	<string name="login_title">Bem-vindo de Volta</string>
+	<string name="login_subtitle">Faça login com o servidor onde você criou sua conta.</string>
+	<string name="server_url">URL do servidor</string>
 	<!-- {logo} is a placeholder that is replaced with the Mastodon logo image at runtime. Please copy it into your translation as is. -->
+	<string name="welcome_page1_title">O que é {logo}?</string>
+	<string name="welcome_page1_text">Imagine que você tem um endereço de e-mail que termina com @example.com.\n\nVocê ainda pode enviar e receber e-mails de qualquer pessoa, mesmo que o e-mail deles termine em @gmail.com ou @icloud.com ou @example.com.</string>
+	<string name="welcome_page2_title">O Mastodon é assim.</string>
+	<string name="welcome_page2_text">Seu identificador pode ser @gothgirl654@exemplo.social, mas você ainda pode seguir, reblogar, e conversar com @fallout5ever@example.online.</string>
+	<string name="welcome_page3_title">Como faço para escolher um servidor?</string>
+	<string name="welcome_page3_text">Pessoas diferentes escolhem servidores diferentes por vários motivos. art.example é um ótimo lugar para artistas, enquanto glasgow.example pode ser uma boa escolha para escoceses.\n\nVocê não pode errar com nenhum de nossos servidores recomendados, portanto, independentemente de qual escolher (ou se inserir seu próprio na barra de pesquisa do servidor), você nunca perderá uma batida em lugar nenhum.</string>
 </resources>
