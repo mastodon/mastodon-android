@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+	<string name="get_started">계정 생성</string>
+	<string name="already_have_account">이미 계정이 있습니다</string>
 	<string name="log_in">로그인</string>
 	<string name="next">다음</string>
+	<string name="loading_instance">서버 정보 받아오는 중...</string>
 	<string name="error">오류</string>
+	<string name="not_a_mastodon_instance">%s는 마스토돈 서버인 것 같지 않습니다.</string>
 	<string name="ok">확인</string>
 	<string name="preparing_auth">인증 준비중…</string>
 	<string name="finishing_auth">인증을 끝마치는 중…</string>
@@ -358,5 +362,7 @@
 	<string name="i_agree">동의합니다</string>
 	<string name="empty_list">리스트에 아무 것도 없습니다</string>
 	<string name="instance_signup_closed">이 서버는 가입이 막혀 있는 상태입니다.</string>
+	<string name="text_copied">클립보드에 복사됨</string>
+	<string name="add_bookmark">보관</string>
 	<!-- {logo} is a placeholder that is replaced with the Mastodon logo image at runtime. Please copy it into your translation as is. -->
 </resources>
