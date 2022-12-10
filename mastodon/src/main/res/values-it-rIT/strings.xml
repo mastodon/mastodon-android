@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+	<string name="get_started">Crea un profilo</string>
+	<string name="already_have_account">Ho già un account</string>
 	<string name="log_in">Accedi</string>
 	<string name="next">Avanti</string>
 	<string name="loading_instance">Recupero delle informazioni sul server…</string>
@@ -390,4 +392,9 @@
 	<string name="login_subtitle">Accedi con il server in cui hai creato il tuo account.</string>
 	<string name="server_url">URL del server</string>
 	<!-- {logo} is a placeholder that is replaced with the Mastodon logo image at runtime. Please copy it into your translation as is. -->
+	<string name="welcome_page1_title">Che cos\'è {logo}?</string>
+	<string name="welcome_page1_text">Immaginate di avere un indirizzo email che termina con @example.com.\n\nPotete ancora inviare e ricevere email da chiunque, anche se la loro email termina in @gmail.com o @icloud.com o @example.com.</string>
+	<string name="welcome_page2_title">Mastodon è così.</string>
+	<string name="welcome_page3_title">Come scegliere un server?</string>
+	<string name="welcome_page3_text">Diverse persone scelgono server diversi per vari motivi. art.example è un server ottimo per gli artisti, mentre glasgow.example è una buona scelta per i Scozzesi. \n\nNon si può sbagliare con nessuno dei nostri server consigliati, e qualsiasi server scegli (o se cerchi un altro che conosci tu usando la barra di ricerca dei server) non perderai mai un colpo.</string>
 </resources>
