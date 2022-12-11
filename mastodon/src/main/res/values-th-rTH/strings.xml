@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+	<string name="get_started">สร้างบัญชี</string>
+	<string name="already_have_account">ฉันมีบัญชีอยู่แล้ว</string>
 	<string name="log_in">เข้าสู่ระบบ</string>
 	<string name="next">ถัดไป</string>
 	<string name="loading_instance">กำลังเรียกข้อมูลเซิร์ฟเวอร์…</string>
@@ -369,4 +371,5 @@
 	<string name="login_subtitle">เข้าสู่ระบบด้วยเซิร์ฟเวอร์ที่ซึ่งคุณได้สร้างบัญชีของคุณ</string>
 	<string name="server_url">URL เซิร์ฟเวอร์</string>
 	<!-- {logo} is a placeholder that is replaced with the Mastodon logo image at runtime. Please copy it into your translation as is. -->
+	<string name="welcome_page1_title">{logo} คืออะไร?</string>
 </resources>
