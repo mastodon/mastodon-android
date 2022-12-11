@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+	<string name="get_started">Ustvari račun</string>
+	<string name="already_have_account">Račun že imam</string>
 	<string name="log_in">Prijava</string>
 	<string name="next">Naprej</string>
+	<string name="loading_instance">Pridobivanje podatkov o strežniku ...</string>
 	<string name="error">Napaka</string>
+	<string name="not_a_mastodon_instance">Zdi se, da %s ni strežnik Mastodon.</string>
 	<string name="ok">V redu</string>
 	<string name="preparing_auth">Pripravljanje na preverjanje pristnosti …</string>
 	<string name="finishing_auth">Zaključevanje preverjanja pristnosti ...</string>
@@ -426,5 +430,14 @@
 	<string name="remove_bookmark">Odstrani zaznamek</string>
 	<string name="bookmarks">Zaznamki</string>
 	<string name="your_favorites">Vaši priljubljeni</string>
+	<string name="login_title">Dobrodošli nazaj</string>
+	<string name="login_subtitle">Prijavite se na strežniku, na katerem ste ustvarili svoj račun.</string>
+	<string name="server_url">URL strežnika</string>
 	<!-- {logo} is a placeholder that is replaced with the Mastodon logo image at runtime. Please copy it into your translation as is. -->
+	<string name="welcome_page1_title">Kaj je {logo}?</string>
+	<string name="welcome_page1_text">Predstavljajte si, da imate e-poštni naslov, ki se konča s @primer.com.\n\nŠe vedno lahko pošiljate in prejemate e-sporočilo od vsakogar, tudi če se njihov e-naslov konča @gmail.com, @icloud.com ali @primer.com.</string>
+	<string name="welcome_page2_title">Mastodon je takšen.</string>
+	<string name="welcome_page2_text">Vaša ročica je morda @veselodekle654@primer.social, vendar lahko še vedno sledite, poobjavljate objave in klepetate z @nikoli2prepozno@primer.online.</string>
+	<string name="welcome_page3_title">Kako izberem strežnik?</string>
+	<string name="welcome_page3_text">Različni ljudje izbirajo različne strežnike iz najrazličnejših razlogov. art.example je krasno mesto za uemtnike, medtem ko je glasgow.example dobra izbira za Škode.\n\nNič ne morete storiti narobe s katerim koli od naših priporočenih strežnikov, tako da je povsem nepomembno, katerega ste izbrali (ali če vnesete lastnega v iskalno vrstico strežnikov) - nikoli ne boste zamudili niti najmanjših vsebin.</string>
 </resources>
