@@ -491,7 +491,7 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 				ignoreSelectionChanges=true;
 				mainEditText.setSelection(mainEditText.length());
 				ignoreSelectionChanges=false;
-				if(!TextUtils.isEmpty(replyTo.spoilerText) && AccountSessionManager.getInstance().isSelf(accountID, replyTo.account)){
+				if(!TextUtils.isEmpty(replyTo.spoilerText)){
 					hasSpoiler=true;
 					spoilerEdit.setVisibility(View.VISIBLE);
 					spoilerEdit.setText(replyTo.spoilerText);
