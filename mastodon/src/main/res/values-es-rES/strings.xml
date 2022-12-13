@@ -9,21 +9,21 @@
 	<string name="not_a_mastodon_instance">%s no parece ser un servidor Mastodon.</string>
 	<string name="ok">Aceptar</string>
 	<string name="preparing_auth">Preparando para autenticación…</string>
-	<string name="finishing_auth">Terminando autenticación…</string>
-	<string name="user_boosted">%s reblogueado</string>
+	<string name="finishing_auth">Finalizando autenticación…</string>
+	<string name="user_boosted">%s reblogueó</string>
 	<string name="in_reply_to">En respuesta a %s</string>
 	<string name="notifications">Notificaciones</string>
 	<string name="user_followed_you">te siguió</string>
 	<string name="user_sent_follow_request">te quiere seguir</string>
-	<string name="user_favorited">ha marcado como favorita tu publicación</string>
-	<string name="notification_boosted">ha reblogueado tu publicación</string>
+	<string name="user_favorited">marcó como favorita tu publicación</string>
+	<string name="notification_boosted">reblogueó tu publicación</string>
 	<string name="poll_ended">encuesta finalizada</string>
 	<string name="time_seconds">%ds</string>
 	<string name="time_minutes">%dm</string>
 	<string name="time_hours">%dh</string>
 	<string name="time_days">%dd</string>
 	<string name="share_toot_title">Compartir</string>
-	<string name="settings">Configuración</string>
+	<string name="settings">Ajustes</string>
 	<string name="publish">Publicar</string>
 	<string name="discard_draft">¿Descartar el borrador?</string>
 	<string name="discard">Descartar</string>
@@ -50,7 +50,7 @@
 	<string name="mention_user">Mencionar a %s</string>
 	<string name="share_user">Compartir %s</string>
 	<string name="mute_user">Silenciar a %s</string>
-	<string name="unmute_user">Des-silenciar a %s</string>
+	<string name="unmute_user">Dejar de silenciar a %s</string>
 	<string name="block_user">Bloquear a %s</string>
 	<string name="unblock_user">Desbloquear a %s</string>
 	<string name="report_user">Denunciar a %s</string>
@@ -105,9 +105,9 @@
 	<string name="confirm_mute_title">Silenciar cuenta</string>
 	<string name="confirm_mute">Confirmar para silenciar %s</string>
 	<string name="do_mute">Silenciar</string>
-	<string name="confirm_unmute_title">Des-silenciar cuenta</string>
-	<string name="confirm_unmute">Confirmar para des-silenciar a %s</string>
-	<string name="do_unmute">Des-silenciar</string>
+	<string name="confirm_unmute_title">Dejar de silenciar cuenta</string>
+	<string name="confirm_unmute">Confirmar para dejar de silenciar a %s</string>
+	<string name="do_unmute">Dejar de silenciar</string>
 	<string name="confirm_block_title">Bloquear cuenta</string>
 	<string name="confirm_block_domain_title">Bloquear dominio</string>
 	<string name="confirm_block">Confirmar para bloquear a %s</string>
@@ -384,12 +384,18 @@
 	<string name="empty_list">Esta lista está vacía</string>
 	<string name="instance_signup_closed">Este servidor no acepta altas nuevas.</string>
 	<string name="text_copied">Copiado en el portapapeles</string>
+	<string name="add_bookmark">Marcadores</string>
+	<string name="remove_bookmark">Eliminar marcador</string>
 	<string name="bookmarks">Marcadores</string>
 	<string name="your_favorites">Sus favoritos</string>
 	<string name="login_title">Qué bueno verle de nuevo</string>
+	<string name="login_subtitle">Inicie sesión con el servidor donde creó su cuenta.</string>
 	<string name="server_url">URL del servidor</string>
 	<!-- {logo} is a placeholder that is replaced with the Mastodon logo image at runtime. Please copy it into your translation as is. -->
 	<string name="welcome_page1_title">¿Qué es {logo}?</string>
+	<string name="welcome_page1_text">Imagina que tienes una dirección de correo electrónico que termina con @ejemplo.com.\n\nPuedes enviar y recibir correos electrónicos de cualquier persona, incluso si su correo electrónico termina en @gmail.com o @icloud.com o @ejemplo.com.</string>
 	<string name="welcome_page2_title">Mastodon es parecido.</string>
+	<string name="welcome_page2_text">Tu cuenta puede ser @gothgirl654@example.social, pero puedes seguir, rebloguear, y chatear con @fallout5ever@example.online.</string>
 	<string name="welcome_page3_title">¿Cómo elijo un servidor?</string>
+	<string name="welcome_page3_text">Diferentes personas eligen diferentes servidores por diferentes motivos. Por ejemplo, art.example es un buen lugar para artistas, mientras que madrid.example puede ser una buena elección para los madrileños.\n\nNo te equivocarás con ninguno de nuestros servidores recomendados, por lo que independientemente del que escojas (o si introduces tu propio servidor en la barra de búsqueda), no te perderás ni una en ningún lugar.</string>
 </resources>
