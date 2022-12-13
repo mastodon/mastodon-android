@@ -15,7 +15,7 @@
 	<string name="notifications">알림</string>
 	<string name="user_followed_you">나를 팔로우함</string>
 	<string name="user_sent_follow_request">나에게 팔로우 요청을 보냄</string>
-	<string name="user_favorited">당신의 게시물을 마음에 들어했습니다</string>
+	<string name="user_favorited">당신의 게시물을 좋아합니다</string>
 	<string name="notification_boosted">내 게시물을 리블로그했습니다</string>
 	<string name="poll_ended">투표 종료됨</string>
 	<string name="time_seconds">%d초</string>
@@ -205,7 +205,7 @@
 	<string name="step_x_of_n">%2$d개 중 %1$d번째 단계</string>
 	<string name="skip">건너뛰기</string>
 	<string name="notification_type_follow">새 팔로워</string>
-	<string name="notification_type_favorite">마음에 들어함</string>
+	<string name="notification_type_favorite">좋아함</string>
 	<string name="notification_type_reblog">리블로그</string>
 	<string name="notification_type_mention">멘션</string>
 	<string name="notification_type_poll">투표</string>
@@ -230,7 +230,7 @@
 	<string name="notify_follower">팔로워</string>
 	<string name="notify_followed">내가 팔로우 하는 사람</string>
 	<string name="notify_none">아무도 없음</string>
-	<string name="notify_favorites">내 게시물을 마음에 들어함</string>
+	<string name="notify_favorites">내 게시물을 좋아함</string>
 	<string name="notify_follow">나를 팔로우함</string>
 	<string name="notify_reblog">내 게시물을 공유함</string>
 	<string name="notify_mention">나를 멘션함</string>
@@ -306,7 +306,7 @@
 		<item quantity="other">%,d명의 팔로잉</item>
 	</plurals>
 	<plurals name="x_favorites">
-		<item quantity="other">%,d개의 관심글</item>
+		<item quantity="other">%,d개의 좋아요</item>
 	</plurals>
 	<plurals name="x_reblogs">
 		<item quantity="other">%,d개의 리블로그</item>
