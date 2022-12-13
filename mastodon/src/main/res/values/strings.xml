@@ -38,14 +38,29 @@
 		<item quantity="one">follower</item>
 		<item quantity="other">followers</item>
 	</plurals>
+	<plurals name="my_followers">
+		<item quantity="one">follower</item>
+		<item quantity="other">followers</item>
+	</plurals>
+
 	<plurals name="following">
 		<item quantity="one">following</item>
 		<item quantity="other">following</item>
 	</plurals>
+	<plurals name="my_following">
+		<item quantity="one">following</item>
+		<item quantity="other">following</item>
+	</plurals>
+
 	<plurals name="posts">
 		<item quantity="one">post</item>
 		<item quantity="other">posts</item>
 	</plurals>
+	<plurals name="my_posts">
+		<item quantity="one">post</item>
+		<item quantity="other">posts</item>
+	</plurals>
+
 	<string name="posts">Posts</string>
 	<string name="posts_and_replies">Posts and Replies</string>
 	<string name="media">Media</string>
@@ -325,7 +340,16 @@
 		<item quantity="one">%,d follower</item>
 		<item quantity="other">%,d followers</item>
 	</plurals>
+	<plurals name="my_x_followers">
+		<item quantity="one">%,d follower</item>
+		<item quantity="other">%,d followers</item>
+	</plurals>
+
 	<plurals name="x_following">
+		<item quantity="one">%,d following</item>
+		<item quantity="other">%,d following</item>
+	</plurals>
+	<plurals name="my_x_following">
 		<item quantity="one">%,d following</item>
 		<item quantity="other">%,d following</item>
 	</plurals>

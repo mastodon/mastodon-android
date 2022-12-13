@@ -460,9 +460,12 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 		followersCount.setText(UiUtils.abbreviateNumber(account.followersCount));
 		followingCount.setText(UiUtils.abbreviateNumber(account.followingCount));
 		postsCount.setText(UiUtils.abbreviateNumber(account.statusesCount));
-		followersLabel.setText(getResources().getQuantityString(R.plurals.followers, (int)Math.min(999, account.followersCount)));
-		followingLabel.setText(getResources().getQuantityString(R.plurals.following, (int)Math.min(999, account.followingCount)));
-		postsLabel.setText(getResources().getQuantityString(R.plurals.posts, (int)Math.min(999, account.statusesCount)));
+		final int followingResId = isSelf ? R.plurals.my_following : R.plurals.following;
+		final int followersResId = isSelf ? R.plurals.my_followers : R.plurals.followers;
+		final int postsResId = isSelf ? R.plurals.my_posts : R.plurals.posts;
+		followersLabel.setText(getResources().getQuantityString(followersResId, (int)Math.min(999, account.followersCount)));
+		followingLabel.setText(getResources().getQuantityString(followingResId, (int)Math.min(999, account.followingCount)));
+		postsLabel.setText(getResources().getQuantityString(postsResId, (int)Math.min(999, account.statusesCount)));
 
 		UiUtils.loadCustomEmojiInTextView(name);
 		UiUtils.loadCustomEmojiInTextView(bio);
