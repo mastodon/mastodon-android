@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+	<string name="get_started">Sortu kontua</string>
+	<string name="already_have_account">Badut kontua dagoeneko</string>
 	<string name="log_in">Hasi saioa</string>
 	<string name="next">Hurrengoa</string>
+	<string name="loading_instance">Zerbitzariaren informazioa berreskuratzen…</string>
 	<string name="error">Errorea</string>
+	<string name="not_a_mastodon_instance">%s(e) k ez dirudi Mastodon instantzia bat denik.</string>
 	<string name="ok">Ados</string>
 	<string name="preparing_auth">Autentifikaziorako prestatzen…</string>
 	<string name="finishing_auth">Autentikazioa bukatzen…</string>
@@ -384,5 +388,9 @@
 	<string name="remove_bookmark">Kendu laster-marka</string>
 	<string name="bookmarks">Laster-markak</string>
 	<string name="your_favorites">Zure gogokoak</string>
+	<string name="login_title">Ongi etorri berriro ere</string>
+	<string name="login_subtitle">Hasi saioa kontua sortu zenuen zerbitzariarekin.</string>
+	<string name="server_url">Zerbitzariaren URLa</string>
 	<!-- {logo} is a placeholder that is replaced with the Mastodon logo image at runtime. Please copy it into your translation as is. -->
+	<string name="welcome_page3_title">Nola aukeratzen dut zerbitzari bat?</string>
 </resources>
