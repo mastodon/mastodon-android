@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="log_in">Inloggen</string>
+	<string name="log_in">Aanmelden</string>
 	<string name="next">Volgende</string>
 	<string name="error">Fout</string>
 	<string name="ok">OK</string>
@@ -163,7 +163,7 @@
 	<string name="unfollow_user">Ontvolgen</string>
 	<string name="unfollow">Ontvolgen</string>
 	<string name="mute_user_explain">Je ziet hun berichten en boosts niet op je starttijdlijn. Ze zullen niet weten dat ze worden genegeerd.</string>
-	<string name="block_user_explain">Het is niet meer mogelijk om je te volgen of om je berichten te zien, maar het is wel mogelijk om erachter te komen dat je dit account hebt geblokkeerd.</string>
+	<string name="block_user_explain">Het is niet meer mogelijk om je te volgen of om je berichten te zien, maar het is wel mogelijk om erachter te komen dat je deze account hebt geblokkeerd.</string>
 	<string name="report_personal_title">Wil je dit niet zien?</string>
 	<string name="report_personal_subtitle">Als je iets ziet dat je niet leuk vindt op Mastodon, dan kun je de persoon op meerdere manieren van je tijdlijn verwijderen.</string>
 	<string name="back">Terug</string>
@@ -307,8 +307,8 @@
 	<string name="button_follow_pending">In afwachting</string>
 	<string name="follows_you">Volgt jou</string>
 	<string name="manually_approves_followers">Handmatig volgers goedkeuren</string>
-	<string name="current_account">Huidig account</string>
-	<string name="log_out_account">%s uitloggen</string>
+	<string name="current_account">Huidige account</string>
+	<string name="log_out_account">%s afmelden</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<plurals name="x_followers">
 		<item quantity="one">%,d volger</item>
