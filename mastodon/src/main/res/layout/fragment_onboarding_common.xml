@@ -40,6 +40,14 @@
 			android:backgroundTint="?colorM3SurfaceVariant"
 			android:hint="@string/search_communities"/>
 
+		<View
+			android:id="@+id/focus_thing"
+			android:layout_width="1dp"
+			android:layout_height="1dp"
+			android:focusable="true"
+			android:focusableInTouchMode="true"
+			android:importantForAccessibility="no"/>
+
 		<ImageButton
 			android:id="@+id/btn_back"
 			android:layout_width="24dp"

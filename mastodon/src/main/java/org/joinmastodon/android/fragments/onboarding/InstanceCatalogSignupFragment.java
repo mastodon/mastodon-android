@@ -80,6 +80,7 @@ public class InstanceCatalogSignupFragment extends InstanceCatalogFragment imple
 	private LinearLayout filtersWrap;
 	private HorizontalScrollView filtersScroll;
 	private ImageButton backBtn, clearSearchBtn;
+	private View focusThing;
 
 	private FilterChipView categoryGeneral, categorySpecialInterests;
 	private List<FilterChipView> regionalFilters;
@@ -285,7 +286,13 @@ public class InstanceCatalogSignupFragment extends InstanceCatalogFragment imple
 
 		FilterChipView langFilter=new FilterChipView(getActivity());
 		langFilter.setDrawableEnd(R.drawable.ic_baseline_arrow_drop_down_18);
-		langFilter.setText(R.string.server_filter_any_language);
+		if(currentLanguage==null){
+			langFilter.setText(R.string.server_filter_any_language);
+		}else{
+			Locale locale=Locale.forLanguageTag(currentLanguage);
+			langFilter.setText(locale.getDisplayLanguage(locale));
+			langFilter.setSelected(true);
+		}
 		langFilterMenu=new PopupMenu(getContext(), langFilter);
 		langFilter.setOnTouchListener(langFilterMenu.getDragToOpenListener());
 		langFilter.setOnClickListener(v->langFilterMenu.show());
@@ -301,8 +308,12 @@ public class InstanceCatalogSignupFragment extends InstanceCatalogFragment imple
 		speedFilterMenu.getMenu().add(0, 2, 0, R.string.server_filter_manual_review);
 		speedFilter.setOnTouchListener(speedFilterMenu.getDragToOpenListener());
 		speedFilter.setOnClickListener(v->speedFilterMenu.show());
-		speedFilter.setText(R.string.server_filter_instant_signup);
-		speedFilter.setSelected(true);
+		speedFilter.setText(switch(currentSignupSpeedFilter){
+			case ANY -> R.string.server_filter_any_signup_speed;
+			case INSTANT -> R.string.server_filter_instant_signup;
+			case REVIEWED -> R.string.server_filter_manual_review;
+		});
+		speedFilter.setSelected(currentSignupSpeedFilter!=SignupSpeedFilter.ANY);
 		filtersWrap.addView(speedFilter, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
 
 		speedFilterMenu.setOnMenuItemClickListener(item->{
@@ -328,11 +339,13 @@ public class InstanceCatalogSignupFragment extends InstanceCatalogFragment imple
 		categoryGeneral.setText(R.string.category_general);
 		categoryGeneral.setTag(CategoryChoice.GENERAL);
 		categoryGeneral.setOnClickListener(this::onCategoryFilterClick);
+		categoryGeneral.setSelected(categoryChoice==CategoryChoice.GENERAL);
 		filtersWrap.addView(categoryGeneral, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
 		categorySpecialInterests=new FilterChipView(getActivity());
 		categorySpecialInterests.setText(R.string.category_special_interests);
 		categorySpecialInterests.setTag(CategoryChoice.SPECIAL);
 		categorySpecialInterests.setOnClickListener(this::onCategoryFilterClick);
+		categorySpecialInterests.setSelected(categoryChoice==CategoryChoice.SPECIAL);
 		filtersWrap.addView(categorySpecialInterests, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
 
 		regionalFilters=Arrays.stream(CatalogInstance.Region.values()).map(r->{
@@ -351,6 +364,8 @@ public class InstanceCatalogSignupFragment extends InstanceCatalogFragment imple
 			filtersWrap.addView(fv, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
 			return fv;
 		}).collect(Collectors.toList());
+		focusThing=view.findViewById(R.id.focus_thing);
+		focusThing.requestFocus();
 	}
 
 	private void onRegionFilterClick(View v){
@@ -550,7 +565,7 @@ public class InstanceCatalogSignupFragment extends InstanceCatalogFragment imple
 			searchEdit.setCompoundDrawableTintList(ColorStateList.valueOf(0));
 		}else{
 			filtersScroll.setVisibility(View.VISIBLE);
-			searchEdit.clearFocus();
+			focusThing.requestFocus();
 			searchEdit.setText("");
 			lp.addRule(RelativeLayout.END_OF, R.id.btn_back);
 			getActivity().getSystemService(InputMethodManager.class).hideSoftInputFromWindow(searchEdit.getWindowToken(), 0);
