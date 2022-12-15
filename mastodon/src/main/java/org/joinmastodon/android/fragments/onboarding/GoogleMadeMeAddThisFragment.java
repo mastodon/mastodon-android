@@ -1,6 +1,7 @@
 package org.joinmastodon.android.fragments.onboarding;
 
 import android.app.Activity;
+import android.graphics.Paint;
 import android.graphics.Rect;
 import android.os.Build;
 import android.os.Bundle;
@@ -15,6 +16,7 @@ import android.widget.TextView;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.MastodonAPIController;
 import org.joinmastodon.android.model.Instance;
+import org.joinmastodon.android.ui.DividerItemDecoration;
 import org.joinmastodon.android.ui.OutlineProviders;
 import org.joinmastodon.android.ui.utils.UiUtils;
 import org.jsoup.Jsoup;
@@ -33,6 +35,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import me.grishka.appkit.Nav;
 import me.grishka.appkit.fragments.AppKitFragment;
+import me.grishka.appkit.fragments.ToolbarFragment;
 import me.grishka.appkit.imageloader.ViewImageLoader;
 import me.grishka.appkit.imageloader.requests.UrlImageLoaderRequest;
 import me.grishka.appkit.utils.BindableViewHolder;
@@ -46,7 +49,7 @@ import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
 
-public class GoogleMadeMeAddThisFragment extends AppKitFragment{
+public class GoogleMadeMeAddThisFragment extends ToolbarFragment{
 	private UsableRecyclerView list;
 	private MergeRecyclerAdapter adapter;
 	private Button btn;
@@ -60,6 +63,7 @@ public class GoogleMadeMeAddThisFragment extends AppKitFragment{
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		setRetainInstance(true);
+		setTitle(R.string.privacy_policy_title);
 	}
 
 	@Override
@@ -82,37 +86,24 @@ public class GoogleMadeMeAddThisFragment extends AppKitFragment{
 	}
 
 	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+	public View onCreateContentView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
 		View view=inflater.inflate(R.layout.fragment_onboarding_rules, container, false);
 
 		list=view.findViewById(R.id.list);
 		list.setLayoutManager(new LinearLayoutManager(getActivity()));
-		View headerView=inflater.inflate(R.layout.item_list_header, list, false);
-		TextView title=headerView.findViewById(R.id.title);
-		TextView subtitle=headerView.findViewById(R.id.subtitle);
-		headerView.findViewById(R.id.step_counter).setVisibility(View.GONE);
-		title.setText(R.string.privacy_policy_title);
-		subtitle.setText(R.string.privacy_policy_subtitle);
+		View headerView=inflater.inflate(R.layout.item_list_header_simple, list, false);
+		TextView text=headerView.findViewById(R.id.text);
+		text.setText(R.string.privacy_policy_subtitle);
 
 		adapter=new MergeRecyclerAdapter();
 		adapter.addAdapter(new SingleViewRecyclerAdapter(headerView));
 		adapter.addAdapter(itemsAdapter=new ItemsAdapter());
 		list.setAdapter(adapter);
-		list.setSelector(null);
-		list.addItemDecoration(new RecyclerView.ItemDecoration(){
-			@Override
-			public void getItemOffsets(@NonNull Rect outRect, @NonNull View view, @NonNull RecyclerView parent, @NonNull RecyclerView.State state){
-				if(parent.getChildViewHolder(view) instanceof ItemViewHolder){
-					outRect.left=outRect.right=V.dp(18.5f);
-					outRect.top=V.dp(16);
-				}
-			}
-		});
+		list.addItemDecoration(new DividerItemDecoration(getActivity(), R.attr.colorM3SurfaceVariant, 1, 56, 0, DividerItemDecoration.NOT_FIRST));
 
 		btn=view.findViewById(R.id.btn_next);
 		btn.setOnClickListener(v->onButtonClick());
 		buttonBar=view.findViewById(R.id.button_bar);
-		view.findViewById(R.id.btn_back).setOnClickListener(v->Nav.finish(this));
 
 		return view;
 	}
@@ -120,7 +111,15 @@ public class GoogleMadeMeAddThisFragment extends AppKitFragment{
 	@Override
 	public void onViewCreated(View view, Bundle savedInstanceState){
 		super.onViewCreated(view, savedInstanceState);
-		setStatusBarColor(UiUtils.getThemeColor(getActivity(), R.attr.colorBackgroundLight));
+		setStatusBarColor(UiUtils.getThemeColor(getActivity(), R.attr.colorM3Background));
+		view.setBackgroundColor(UiUtils.getThemeColor(getActivity(), R.attr.colorM3Background));
+	}
+
+	@Override
+	protected void onUpdateToolbar(){
+		super.onUpdateToolbar();
+		getToolbar().setBackground(null);
+		getToolbar().setElevation(0);
 	}
 
 	protected void onButtonClick(){
@@ -192,24 +191,17 @@ public class GoogleMadeMeAddThisFragment extends AppKitFragment{
 	}
 
 	private class ItemViewHolder extends BindableViewHolder<Item> implements UsableRecyclerView.Clickable{
-		private final TextView domain, title;
-		private final ImageView favicon;
+		private final TextView title;
 
 		public ItemViewHolder(){
 			super(getActivity(), R.layout.item_privacy_policy_link, list);
-			domain=findViewById(R.id.domain);
 			title=findViewById(R.id.title);
-			favicon=findViewById(R.id.favicon);
-			itemView.setOutlineProvider(OutlineProviders.roundedRect(10));
-			itemView.setClipToOutline(true);
+			title.setPaintFlags(title.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
 		}
 
 		@Override
 		public void onBind(Item item){
-			domain.setText(item.domain);
 			title.setText(item.title);
-
-			ViewImageLoader.load(favicon, null, new UrlImageLoaderRequest(item.faviconUrl));
 		}
 
 		@Override

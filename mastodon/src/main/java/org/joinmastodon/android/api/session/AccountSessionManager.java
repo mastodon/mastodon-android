@@ -100,9 +100,9 @@ public class AccountSessionManager{
 		maybeUpdateShortcuts();
 	}
 
-	public void addAccount(Instance instance, Token token, Account self, Application app, boolean active){
+	public void addAccount(Instance instance, Token token, Account self, Application app, AccountActivationInfo activationInfo){
 		instances.put(instance.uri, instance);
-		AccountSession session=new AccountSession(token, self, app, instance.uri, active);
+		AccountSession session=new AccountSession(token, self, app, instance.uri, activationInfo==null, activationInfo);
 		sessions.put(session.getID(), session);
 		lastActiveAccountID=session.getID();
 		writeAccountsFile();

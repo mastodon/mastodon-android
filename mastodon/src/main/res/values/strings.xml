@@ -179,15 +179,16 @@
 	<string name="back">Back</string>
 	<string name="instance_catalog_title">Mastodon is made of users on different servers.</string>
 	<string name="instance_catalog_subtitle">Pick a server based on your interests, region, or a general purpose one. You can still connect with everyone, regardless of server.</string>
-	<string name="search_communities">Search servers or enter URL</string>
-	<string name="instance_rules_title">Some ground rules</string>
-	<string name="instance_rules_subtitle">Take a minute to review the rules set and enforced by %s admins.</string>
-	<string name="signup_title">Let\'s get you set up on %s</string>
+	<string name="search_communities">Server name or URL</string>
+	<string name="instance_rules_title">Server Rules</string>
+	<string name="instance_rules_subtitle">By continuing, you agree to follow by the following rules set and enforced by the %s moderators.</string>
+	<string name="signup_title">Create Account</string>
 	<string name="edit_photo">edit</string>
-	<string name="display_name">display name</string>
-	<string name="username">username</string>
-	<string name="email">email</string>
-	<string name="password">password</string>
+	<string name="display_name">Name</string>
+	<string name="username">Username</string>
+	<string name="email">Email</string>
+	<string name="password">Password</string>
+	<string name="confirm_password">Confirm password</string>
 	<string name="password_note">Include capital letters, special characters, and numbers to increase your password strength.</string>
 	<string name="category_academia">Academia</string>
 	<string name="category_activism">Activism</string>
@@ -202,8 +203,10 @@
 	<string name="category_music">Music</string>
 	<string name="category_regional">Regional</string>
 	<string name="category_tech">Tech</string>
-	<string name="confirm_email_title">One last thing</string>
-	<string name="confirm_email_subtitle">Tap the link we emailed to you to verify your account.</string>
+	<string name="confirm_email_title">Check Your Inbox</string>
+	<!-- %s is the email address -->
+	<string name="confirm_email_subtitle">Tap the link we sent you to verify %s. We\'ll wait right here.</string>
+	<string name="confirm_email_didnt_get">Didn\'t get a link?</string>
 	<string name="resend">Resend</string>
 	<string name="open_email_app">Open email app</string>
 	<string name="resent_email">Confirmation email sent</string>
@@ -291,7 +294,7 @@
 	<string name="open_in_browser">Open in browser</string>
 	<string name="hide_boosts_from_user">Hide reblogs from %s</string>
 	<string name="show_boosts_from_user">Show reblogs from %s</string>
-	<string name="signup_reason">why do you want to join?</string>
+	<string name="signup_reason">Why do you want to join?</string>
 	<string name="signup_reason_note">This will help us review your application.</string>
 	<string name="clear">Clear</string>
 	<string name="profile_header">Header image</string>
@@ -385,7 +388,7 @@
 	<!-- %s is file size -->
 	<string name="download_update">Download (%s)</string>
 	<string name="install_update">Install</string>
-	<string name="privacy_policy_title">Mastodon and your privacy</string>
+	<string name="privacy_policy_title">Your Privacy</string>
 	<string name="privacy_policy_subtitle">Although the Mastodon app does not collect any data, the server you sign up through may have a different policy. Take a minute to review and agree to the Mastodon app privacy policy and your server\'s privacy policy.</string>
 	<string name="i_agree">I Agree</string>
 	<string name="empty_list">This list is empty</string>
@@ -405,4 +408,18 @@
 	<string name="welcome_page2_text">Your handle might be @gothgirl654@example.social, but you can still follow, reblog, and chat with @fallout5ever@example.online.</string>
 	<string name="welcome_page3_title">How do I pick a server?</string>
 	<string name="welcome_page3_text">Different people choose different servers for any number of reasons. art.example is a great place for artists, while glasgow.example might be a good pick for Scots.\n\nYou can’t go wrong with any of our recommend servers, so regardless of which one you pick (or if you enter your own in the server search bar), you’ll never miss a beat anywhere.</string>
+	<string name="signup_random_server_explain">We\'ll pick a server based on your language if you continue without making a selection.</string>
+	<string name="server_filter_any_language">Any Language</string>
+	<string name="server_filter_instant_signup">Instant Sign-up</string>
+	<string name="server_filter_manual_review">Manual Review</string>
+	<string name="server_filter_any_signup_speed">Any Sign-up Speed</string>
+	<string name="server_filter_region_europe">Europe</string>
+	<string name="server_filter_region_north_america">North America</string>
+	<string name="server_filter_region_south_america">South America</string>
+	<string name="server_filter_region_africa">Africa</string>
+	<string name="server_filter_region_asia">Asia</string>
+	<string name="server_filter_region_oceania">Oceania</string>
+	<string name="not_accepting_new_members">Not accepting new members</string>
+	<string name="category_special_interests">Special Interests</string>
+	<string name="signup_passwords_dont_match">Passwords don\'t match</string>
 </resources>

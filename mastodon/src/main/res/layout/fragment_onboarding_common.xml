@@ -5,14 +5,95 @@
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	android:orientation="vertical"
 	android:id="@+id/appkit_loader_root"
-	xmlns:android="http://schemas.android.com/apk/res/android"
-	android:background="?colorBackgroundLight">
+	xmlns:android="http://schemas.android.com/apk/res/android">
+
+	<RelativeLayout
+		android:id="@+id/top_bar"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:paddingStart="8dp"
+		android:background="@drawable/bg_onboarding_panel">
+
+		<EditText
+			android:id="@+id/search_edit"
+			android:layout_width="match_parent"
+			android:layout_height="48dp"
+			android:elevation="0dp"
+			android:inputType="textFilter|textUri"
+			android:layout_toEndOf="@+id/btn_back"
+			android:layout_marginTop="8dp"
+			android:layout_marginBottom="8dp"
+			android:layout_marginStart="8dp"
+			android:layout_marginEnd="16dp"
+			android:textAppearance="@style/m3_body_large"
+			android:paddingTop="0dp"
+			android:paddingBottom="0dp"
+			android:paddingStart="12dp"
+			android:paddingEnd="40dp"
+			android:drawableStart="@drawable/ic_m3_search"
+			android:drawablePadding="8dp"
+			android:drawableTint="?colorM3OnSurfaceVariant"
+			android:gravity="center_vertical"
+			android:textColorHint="?colorM3OnSurfaceVariant"
+			android:textColor="?colorM3OnSurfaceVariant"
+			android:background="@drawable/round_rect"
+			android:backgroundTint="?colorM3SurfaceVariant"
+			android:hint="@string/search_communities"/>
+
+		<ImageButton
+			android:id="@+id/btn_back"
+			android:layout_width="24dp"
+			android:layout_height="24dp"
+			android:layout_marginTop="20dp"
+			android:layout_marginStart="8dp"
+			android:layout_alignParentStart="true"
+			android:layout_alignParentTop="true"
+			android:background="?android:selectableItemBackgroundBorderless"
+			android:tint="?colorM3OnSurface"
+			android:contentDescription="@string/back"
+			android:src="@drawable/ic_arrow_back"/>
+
+		<ImageButton
+			android:id="@+id/clear"
+			android:layout_width="24dp"
+			android:layout_height="24dp"
+			android:background="?android:selectableItemBackgroundBorderless"
+			android:layout_alignEnd="@id/search_edit"
+			android:layout_alignTop="@id/search_edit"
+			android:layout_margin="12dp"
+			android:contentDescription="@string/clear"
+			android:tint="?colorM3OnSurfaceVariant"
+			android:visibility="gone"
+			android:src="@drawable/ic_m3_cancel"/>
+
+		<HorizontalScrollView
+			android:id="@+id/filters_scroll"
+			android:layout_below="@id/search_edit"
+			android:layout_width="match_parent"
+			android:layout_height="48dp"
+			android:scrollbars="none">
+			<LinearLayout
+				android:id="@+id/filters_container"
+				android:layout_width="wrap_content"
+				android:layout_height="match_parent"
+				android:orientation="horizontal"
+				android:paddingTop="8dp"
+				android:paddingRight="16dp"
+				android:paddingBottom="8dp"
+				android:paddingLeft="16dp"
+				android:showDividers="middle"
+				android:divider="@drawable/empty_8dp">
+			</LinearLayout>
+		</HorizontalScrollView>
+
+	</RelativeLayout>
 
 	<FrameLayout
 		android:id="@+id/appkit_loader_content"
 		android:layout_width="match_parent"
 		android:layout_height="0px"
-		android:layout_weight="1">
+		android:layout_weight="1"
+		android:background="?colorM3Surface">
 
 		<include layout="@layout/loading"
 			android:id="@+id/loading"/>
@@ -33,32 +114,29 @@
 		android:id="@+id/button_bar"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:background="?colorBackgroundLight"
-		android:outlineProvider="bounds"
-		android:orientation="horizontal"
-		android:elevation="3dp">
+		android:orientation="vertical"
+		android:background="@drawable/bg_onboarding_panel">
 
-		<Button
-			android:id="@+id/btn_back"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_margin="16dp"
-			android:minWidth="145dp"
-			style="?secondaryLargeButtonStyle"
-			android:text="@string/back"/>
-
-		<Space
-			android:layout_width="0dp"
-			android:layout_height="1dp"
-			android:layout_weight="1"/>
+		<TextView
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:layout_marginLeft="16dp"
+			android:layout_marginRight="16dp"
+			android:layout_marginTop="8dp"
+			android:textAppearance="@style/m3_body_small"
+			android:textColor="?colorM3OnSurfaceVariant"
+			android:text="@string/signup_random_server_explain"/>
 
 		<Button
 			android:id="@+id/btn_next"
-			android:layout_width="wrap_content"
+			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:layout_margin="16dp"
+			android:layout_marginLeft="16dp"
+			android:layout_marginRight="16dp"
+			android:layout_marginTop="8dp"
+			android:layout_marginBottom="16dp"
 			android:minWidth="145dp"
-			style="?primaryLargeButtonStyle"
+			style="@style/Widget.Mastodon.M3.Button.Filled"
 			android:text="@string/next" />
 
 	</LinearLayout>

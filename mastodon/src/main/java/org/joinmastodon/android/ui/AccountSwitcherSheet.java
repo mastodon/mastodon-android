@@ -243,7 +243,10 @@ public class AccountSwitcherSheet extends BottomSheet{
 
 		public WrappedAccount(AccountSession session){
 			this.session=session;
-			req=new UrlImageLoaderRequest(GlobalUserPreferences.playGifs ? session.self.avatar : session.self.avatarStatic, V.dp(50), V.dp(50));
+			if(session.self.avatar!=null)
+				req=new UrlImageLoaderRequest(GlobalUserPreferences.playGifs ? session.self.avatar : session.self.avatarStatic, V.dp(50), V.dp(50));
+			else
+				req=null;
 		}
 	}
 }

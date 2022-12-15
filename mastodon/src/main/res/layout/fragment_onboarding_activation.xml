@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<me.grishka.appkit.views.FragmentRootLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:tools="http://schemas.android.com/tools"
 	android:orientation="vertical"
 	android:layout_width="match_parent"
-	android:layout_height="match_parent">
+	android:layout_height="match_parent"
+	tools:context=".fragments.onboarding.AccountActivationFragment">
 
 	<ScrollView
 		android:layout_width="match_parent"
 		android:layout_height="0dp"
-		android:layout_weight="1"
-		android:background="?colorBackgroundLight">
+		android:layout_weight="1">
 
 		<LinearLayout
 			android:layout_width="match_parent"
@@ -18,39 +18,66 @@
 			android:clipChildren="false">
 
 			<TextView
-				android:id="@+id/title"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:textAppearance="@style/m3_headline_medium"
-				android:minHeight="36dp"
-				android:layout_marginTop="32dp"
-				android:layout_marginLeft="16dp"
-				android:layout_marginRight="16dp"
-				android:layout_marginBottom="12dp"
-				android:gravity="center_vertical"
-				android:text="@string/confirm_email_title"/>
-
-			<TextView
 				android:id="@+id/subtitle"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
-				android:layout_marginLeft="16dp"
-				android:layout_marginRight="16dp"
-				android:textAppearance="@style/m3_title_medium"
-				android:textColor="?android:textColorSecondary"
+				android:layout_marginStart="56dp"
+				android:layout_marginEnd="24dp"
+				android:layout_marginTop="12dp"
+				android:textAppearance="@style/m3_body_large"
+				android:textColor="?colorM3OnSurface"
 				android:text="@string/confirm_email_subtitle"/>
 
 			<ImageView
-				android:layout_width="wrap_content"
+				android:layout_width="230dp"
 				android:layout_height="wrap_content"
 				android:layout_gravity="center_horizontal"
-				android:layout_margin="32dp"
+				android:layout_marginTop="12dp"
+				android:importantForAccessibility="no"
+				android:adjustViewBounds="true"
 				android:src="@drawable/confirm_email_art"/>
 
 		</LinearLayout>
 
 	</ScrollView>
 
-	<include layout="@layout/button_bar_activation" />
+	<LinearLayout
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal"
+		android:layout_gravity="center_horizontal">
 
-</me.grishka.appkit.views.FragmentRootLinearLayout>
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textAppearance="@style/m3_label_large"
+			android:textColor="?colorM3OnSurfaceVariant"
+			android:text="@string/confirm_email_didnt_get"/>
+
+		<Button
+			android:id="@+id/btn_resend"
+			android:layout_width="wrap_content"
+			android:layout_height="40dp"
+			android:text="@string/resend"
+			android:paddingTop="0dp"
+			android:paddingBottom="0dp"
+			android:paddingLeft="12dp"
+			android:paddingRight="12dp"
+			android:fontFeatureSettings="'tnum'"
+			style="@style/Widget.Mastodon.M3.Button.Text"/>
+
+	</LinearLayout>
+
+	<Button
+		android:id="@+id/btn_next"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginLeft="16dp"
+		android:layout_marginRight="16dp"
+		android:layout_marginTop="16dp"
+		android:layout_marginBottom="16dp"
+		android:minWidth="145dp"
+		style="@style/Widget.Mastodon.M3.Button.Filled"
+		android:text="@string/open_email_app" />
+
+</LinearLayout>

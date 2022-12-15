@@ -187,6 +187,8 @@ abstract class InstanceCatalogFragment extends BaseRecyclerFragment<CatalogInsta
 	}
 
 	protected void loadInstanceInfo(String _domain, boolean isFromRedirect){
+		if(TextUtils.isEmpty(_domain))
+			return;
 		String domain=normalizeInstanceDomain(_domain);
 		Instance cachedInstance=instancesCache.get(domain);
 		if(cachedInstance!=null){
@@ -222,7 +224,7 @@ abstract class InstanceCatalogFragment extends BaseRecyclerFragment<CatalogInsta
 				}
 				if(Objects.equals(domain, currentSearchQuery) || Objects.equals(currentSearchQuery, redirects.get(domain)) || Objects.equals(currentSearchQuery, redirectsInverse.get(domain))){
 					boolean found=false;
-					for(CatalogInstance ci : filteredData){
+					for(CatalogInstance ci:filteredData){
 						if(ci.domain.equals(domain) && ci!=fakeInstance){
 							found=true;
 							break;

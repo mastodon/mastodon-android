@@ -1,5 +1,10 @@
 package org.joinmastodon.android.model.catalog;
 
+import android.graphics.Region;
+import android.text.TextUtils;
+
+import com.google.gson.annotations.SerializedName;
+
 import org.joinmastodon.android.api.AllFieldsAreRequired;
 import org.joinmastodon.android.api.ObjectValidationException;
 import org.joinmastodon.android.model.BaseModel;
@@ -7,13 +12,17 @@ import org.joinmastodon.android.model.BaseModel;
 import java.net.IDN;
 import java.util.List;
 
+import me.grishka.appkit.imageloader.requests.UrlImageLoaderRequest;
+import me.grishka.appkit.utils.V;
+
 @AllFieldsAreRequired
 public class CatalogInstance extends BaseModel{
 	public String domain;
 	public String version;
 	public String description;
 	public List<String> languages;
-	public String region;
+	@SerializedName("region")
+	private String _region;
 	public List<String> categories;
 	public String proxiedThumbnail;
 	public int totalUsers;
@@ -22,7 +31,9 @@ public class CatalogInstance extends BaseModel{
 	public String language;
 	public String category;
 
+	public transient Region region;
 	public transient String normalizedDomain;
+	public transient UrlImageLoaderRequest thumbnailRequest;
 
 	@Override
 	public void postprocess() throws ObjectValidationException{
@@ -31,6 +42,14 @@ public class CatalogInstance extends BaseModel{
 			normalizedDomain=IDN.toUnicode(domain);
 		else
 			normalizedDomain=domain;
+		if(!TextUtils.isEmpty(_region)){
+			try{
+				region=Region.valueOf(_region.toUpperCase());
+			}catch(IllegalArgumentException ignore){}
+		}
+		if(!TextUtils.isEmpty(proxiedThumbnail)){
+			thumbnailRequest=new UrlImageLoaderRequest(proxiedThumbnail, 0, V.dp(56));
+		}
 	}
 
 	@Override
@@ -49,5 +68,14 @@ public class CatalogInstance extends BaseModel{
 				", language='"+language+'\''+
 				", category='"+category+'\''+
 				'}';
+	}
+
+	public enum Region{
+		EUROPE,
+		NORTH_AMERICA,
+		SOUTH_AMERICA,
+		AFRICA,
+		ASIA,
+		OCEANIA
 	}
 }

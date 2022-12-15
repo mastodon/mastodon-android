@@ -8,39 +8,24 @@
 		android:id="@+id/list"
 		android:layout_width="match_parent"
 		android:layout_height="0dp"
-		android:layout_weight="1"
-		android:background="?colorBackgroundLight"/>
+		android:layout_weight="1"/>
 
 	<LinearLayout
 		android:id="@+id/button_bar"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:background="?colorBackgroundLight"
-		android:outlineProvider="bounds"
-		android:orientation="horizontal"
-		android:elevation="3dp">
-
-		<Button
-			android:id="@+id/btn_back"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_margin="16dp"
-			android:minWidth="145dp"
-			style="?secondaryLargeButtonStyle"
-			android:text="@string/back"/>
-
-		<Space
-			android:layout_width="0dp"
-			android:layout_height="1dp"
-			android:layout_weight="1"/>
+		android:orientation="horizontal">
 
 		<Button
 			android:id="@+id/btn_next"
-			android:layout_width="wrap_content"
+			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:layout_margin="16dp"
+			android:layout_marginLeft="16dp"
+			android:layout_marginRight="16dp"
+			android:layout_marginTop="8dp"
+			android:layout_marginBottom="16dp"
 			android:minWidth="145dp"
-			style="?primaryLargeButtonStyle"
+			style="@style/Widget.Mastodon.M3.Button.Filled"
 			android:text="@string/i_agree" />
 
 	</LinearLayout>

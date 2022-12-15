@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+	<item>
+		<color android:color="?colorM3Background"/>
+	</item>
+	<item android:id="@+id/color_overlay">
+		<color android:color="?colorM3Primary"/>
+	</item>
+</layer-list>

@@ -37,6 +37,10 @@
 	<attr name="colorM3Outline" format="color"/>
 	<attr name="colorM3DisabledBackground" format="color"/>
 	<attr name="colorM3PressedOverlay" format="color"/>
+	<attr name="colorM3Error" format="color"/>
+	<attr name="colorM3OnError" format="color"/>
+	<attr name="colorM3ErrorContainer" format="color"/>
+	<attr name="colorM3OnErrorContainer" format="color"/>
 
 	<attr name="primaryLargeButtonStyle" format="reference"/>
 	<attr name="secondaryLargeButtonStyle" format="reference"/>
@@ -48,5 +52,6 @@
 	<declare-styleable name="FloatingHintEditTextLayout">
 		<attr name="editTextOffsetY" format="dimension"/>
 		<attr name="android:labelTextSize" format="dimension"/>
+		<attr name="labelTextColor" format="color"/>
 	</declare-styleable>
 </resources>

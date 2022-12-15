@@ -64,7 +64,7 @@ public class OAuthActivity extends Activity{
 								.setCallback(new Callback<>(){
 									@Override
 									public void onSuccess(Account account){
-										AccountSessionManager.getInstance().addAccount(instance, token, account, app, true);
+										AccountSessionManager.getInstance().addAccount(instance, token, account, app, null);
 										progress.dismiss();
 										finish();
 										// not calling restartMainActivity() here on purpose to have it recreated (notice different flags)

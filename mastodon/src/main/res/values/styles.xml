@@ -66,6 +66,10 @@
 		<item name="colorM3Outline">@color/m3_sys_light_outline</item>
 		<item name="colorM3DisabledBackground">#1F1F1F1F</item>
 		<item name="colorM3PressedOverlay">@color/m3_sys_light_on_primary</item>
+		<item name="colorM3Error">#B3261E</item>
+		<item name="colorM3OnError">#FFF</item>
+		<item name="colorM3ErrorContainer">#F9DEDC</item>
+		<item name="colorM3OnErrorContainer">#410E0B</item>
 	</style>
 
 	<style name="Theme.Mastodon.Dark" parent="Theme.AppKit">
@@ -136,6 +140,10 @@
 		<item name="colorM3Outline">@color/m3_sys_dark_outline</item>
 		<item name="colorM3DisabledBackground">#1FE3E3E3</item>
 		<item name="colorM3PressedOverlay">@color/m3_sys_dark_primary</item>
+		<item name="colorM3Error">#F2B8B5</item>
+		<item name="colorM3OnError">#601410</item>
+		<item name="colorM3ErrorContainer">#8C1D18</item>
+		<item name="colorM3OnErrorContainer">#F9DEDC</item>
 	</style>
 
 	<style name="Theme.Mastodon.Dark.TrueBlack">
@@ -321,6 +329,12 @@
 		<item name="android:textSize">14dp</item>
 		<item name="android:textColor">?android:textColorPrimary</item>
 		<item name="android:lineSpacingExtra">4dp</item>
+	</style>
+
+	<style name="m3_body_small">
+		<item name="android:textSize">12dp</item>
+		<item name="android:textColor">?android:textColorSecondary</item>
+		<item name="android:lineSpacingExtra">2dp</item>
 	</style>
 
 	<style name="m3_title_medium">

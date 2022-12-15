@@ -28,17 +28,19 @@ public class AccountSession{
 	public long filtersLastUpdated;
 	public List<Filter> wordFilters=new ArrayList<>();
 	public String pushAccountID;
+	public AccountActivationInfo activationInfo;
 	private transient MastodonAPIController apiController;
 	private transient StatusInteractionController statusInteractionController;
 	private transient CacheController cacheController;
 	private transient PushSubscriptionManager pushSubscriptionManager;
 
-	AccountSession(Token token, Account self, Application app, String domain, boolean activated){
+	AccountSession(Token token, Account self, Application app, String domain, boolean activated, AccountActivationInfo activationInfo){
 		this.token=token;
 		this.self=self;
 		this.domain=domain;
 		this.app=app;
 		this.activated=activated;
+		this.activationInfo=activationInfo;
 		infoLastUpdated=System.currentTimeMillis();
 	}
 
