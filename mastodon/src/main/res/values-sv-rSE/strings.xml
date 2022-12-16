@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+	<string name="get_started">Skapa konto</string>
+	<string name="already_have_account">Jag har redan ett konto</string>
 	<string name="log_in">Logga in</string>
 	<string name="next">Nästa</string>
 	<string name="error">Fel</string>
@@ -16,7 +18,7 @@
 	<string name="poll_ended">omröstning avslutad</string>
 	<string name="time_seconds">%ds</string>
 	<string name="time_minutes">%dm</string>
-	<string name="time_hours">%dh</string>
+	<string name="time_hours">%dt</string>
 	<string name="time_days">%dd</string>
 	<string name="share_toot_title">Dela</string>
 	<string name="settings">Inställningar</string>
@@ -377,5 +379,11 @@
 	<string name="privacy_policy_title">Mastodon och din integritet</string>
 	<string name="privacy_policy_subtitle">Även om Mastodon-appen inte samlar in någon data kan servern du registrerar dig genom ha en annan policy. Ta en stund till att granska och godkänna Mastodon-appens sekretesspolicy och din servers sekretesspolicy.</string>
 	<string name="i_agree">Jag godkänner</string>
+	<string name="bookmarks">Bokmärken</string>
+	<string name="your_favorites">Dina favoriter</string>
+	<string name="login_title">Välkommen tillbaka</string>
+	<string name="login_subtitle">Logga in på den server där du skapade ditt konto.</string>
 	<!-- {logo} is a placeholder that is replaced with the Mastodon logo image at runtime. Please copy it into your translation as is. -->
+	<string name="welcome_page1_title">Vad är {logo}?</string>
+	<string name="welcome_page3_title">Hur väljer jag en server?</string>
 </resources>
