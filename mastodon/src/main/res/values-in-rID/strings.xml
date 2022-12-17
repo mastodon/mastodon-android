@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+	<string name="get_started">Buat akun</string>
+	<string name="already_have_account">Saya sudah memiliki akun</string>
 	<string name="log_in">Masuk</string>
 	<string name="next">Selanjutnya</string>
+	<string name="loading_instance">Mengambil info server…</string>
 	<string name="error">Kesalahan</string>
+	<string name="not_a_mastodon_instance">%s sepertinya bukan server Mastodon.</string>
 	<string name="ok">Oke</string>
 	<string name="preparing_auth">Menyiapkan untuk otentikasi…</string>
 	<string name="finishing_auth">Menyelesaikan otentikasi…</string>
@@ -257,7 +261,7 @@
 	<string name="add_poll">Tambahkan pemungutan suara</string>
 	<string name="emoji">Emoji</string>
 	<string name="post_visibility">Keterlihatan kiriman</string>
-	<string name="home_timeline">Linimasa beranda</string>
+	<string name="home_timeline">Lini masa beranda</string>
 	<string name="my_profile">Profil saya</string>
 	<string name="media_viewer">Penampil media</string>
 	<string name="follow_user">Ikuti %s</string>
@@ -358,5 +362,19 @@
 	<string name="i_agree">Saya Setuju</string>
 	<string name="empty_list">Daftar ini kosong</string>
 	<string name="instance_signup_closed">Server ini tidak menerima pendaftaran baru.</string>
+	<string name="text_copied">Disalin ke papan klip</string>
+	<string name="add_bookmark">Markah</string>
+	<string name="remove_bookmark">Hapus markah</string>
+	<string name="bookmarks">Markah</string>
+	<string name="your_favorites">Favorit Anda</string>
+	<string name="login_title">Selamat Datang Kembali</string>
+	<string name="login_subtitle">Masuk dengan server di mana Anda buat akun Anda.</string>
+	<string name="server_url">URL Server</string>
 	<!-- {logo} is a placeholder that is replaced with the Mastodon logo image at runtime. Please copy it into your translation as is. -->
+	<string name="welcome_page1_title">Apa itu {logo}?</string>
+	<string name="welcome_page1_text">Bayangkan Anda memikiki alamat surel yang berakhiran @contoh.com.\n\nAnda masih bisa mengirim dan menerima surel dari siapa pun, bahkan jika alamat surel mereka berakhiran @gmail.com atau @icloud.com atau @contoh.com.</string>
+	<string name="welcome_page2_title">Mastodon seperti itu.</string>
+	<string name="welcome_page2_text">Alamat akun Anda bisa seperti @gadisgothic654@contoh.social, tetapi Anda masih dapat mengikuti, membagikan, dan mengobrol dengan @fallout5selamanya@contoh.online.</string>
+	<string name="welcome_page3_title">Bagaimana saya memilih server?</string>
+	<string name="welcome_page3_text">Kebanyakan orang memilih server berbeda karena berbagai alasan. seni.contoh adalah tempat yang cocok bagi artis, sedangkan glasgow.example mungkin pilihan yang baik untuk para Scots.\n\nAnda tidak bisa salah dengan server yang kami rekomendasikan, jadi server apa yang Anda pilih (atau jika Anda memasukkan Anda sendiri di bilah pencarian server), Anda tidak akan melewatkan apa pun di mana pun.</string>
 </resources>
