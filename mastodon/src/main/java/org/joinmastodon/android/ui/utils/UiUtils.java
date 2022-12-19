@@ -23,6 +23,7 @@ import android.os.Looper;
 import android.provider.OpenableColumns;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -586,5 +587,18 @@ public class UiUtils{
 			}
 		}
 		launchWebBrowser(context, url);
+	}
+
+	private static String getSystemProperty(String key){
+		try{
+			Class<?> props=Class.forName("android.os.SystemProperties");
+			Method get=props.getMethod("get", String.class);
+			return (String)get.invoke(null, key);
+		}catch(Exception ignore){}
+		return null;
+	}
+
+	public static boolean isMIUI(){
+		return !TextUtils.isEmpty(getSystemProperty("ro.miui.ui.version.code"));
 	}
 }
