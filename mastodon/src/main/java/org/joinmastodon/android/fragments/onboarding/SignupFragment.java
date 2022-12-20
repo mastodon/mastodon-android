@@ -155,7 +155,7 @@ public class SignupFragment extends ToolbarFragment{
 	}
 
 	private void onButtonClick(){
-		if(!password.getText().equals(passwordConfirm.getText())){
+		if(!password.getText().toString().equals(passwordConfirm.getText().toString())){
 			passwordConfirm.setError(getString(R.string.signup_passwords_dont_match));
 			passwordConfirmWrap.setErrorState();
 			return;
