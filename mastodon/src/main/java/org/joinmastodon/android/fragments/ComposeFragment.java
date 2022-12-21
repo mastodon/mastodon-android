@@ -211,7 +211,7 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 		else
 			charLimit=500;
 
-		loadDefaultStatusVisibility(savedInstanceState);
+		if (editingStatus == null) loadDefaultStatusVisibility(savedInstanceState);
 	}
 
 	@Override
