@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+	<string name="get_started">Account aanmaken</string>
+	<string name="already_have_account">Ik heb al een account</string>
 	<string name="log_in">Aanmelden</string>
 	<string name="next">Volgende</string>
+	<string name="loading_instance">Serverinformatie ophalen…</string>
 	<string name="error">Fout</string>
+	<string name="not_a_mastodon_instance">%s lijkt geen Mastodonserver te zijn.</string>
 	<string name="ok">OK</string>
 	<string name="preparing_auth">Verificatie aan het voorbereiden…</string>
 	<string name="finishing_auth">Verificatie aan het afronden…</string>
@@ -378,5 +382,20 @@
 	<string name="privacy_policy_subtitle">Hoewel de Mastodon-app geen gegevens verzamelt, kan de server die je aanmeldt een ander beleid hebben. Neem even de tijd om het privacybeleid van de Mastodon-app en het privacybeleid van de server te bekijken en hiermee akkoord te gaan.</string>
 	<string name="i_agree">Ik ga akkoord</string>
 	<string name="empty_list">Deze lijst is leeg</string>
+	<string name="instance_signup_closed">Deze server accepteert geen nieuwe aanmeldingen.</string>
+	<string name="text_copied">Gekopieerd naar klembord</string>
+	<string name="add_bookmark">Bladwijzer toevoegen</string>
+	<string name="remove_bookmark">Bladwijzer verwijderen</string>
+	<string name="bookmarks">Bladwijzers</string>
+	<string name="your_favorites">Jouw favorieten</string>
+	<string name="login_title">Welkom terug</string>
+	<string name="login_subtitle">Log in met de server waar je je account hebt aangemaakt.</string>
+	<string name="server_url">Server-URL</string>
 	<!-- {logo} is a placeholder that is replaced with the Mastodon logo image at runtime. Please copy it into your translation as is. -->
+	<string name="welcome_page1_title">Wat is {logo}?</string>
+	<string name="welcome_page1_text">Stel je voor dat je een e-mailadres hebt dat eindigt op @example.com.\n\nJe kunt nog steeds e-mailen met iemand, ook als hun e-mail eindigt in @gmail.com, @icloud.com of @voorbeeld.com.</string>
+	<string name="welcome_page2_title">Mastodon is zoals dit.</string>
+	<string name="welcome_page2_text">Je handle is @gothgirl654@example.social, maar je kunt nog steeds @fallout5ever@example.online volgen, rebloggen en berichten sturen.</string>
+	<string name="welcome_page3_title">Hoe kies ik een server?</string>
+	<string name="welcome_page3_text">Verschillende mensen kiezen om allerlei redenen een bepaalde server. art.example is een geweldige plek voor artiesten, terwijl belgium.example misschien een goede plek is voor Belgen.\n\nHet kan niet mis gaan als je een van onze aanbevolen servers kiest. Welke je ook kiest (en ook als je zelf een server invoert in de zoekbalk): je zult geen bericht missen.</string>
 </resources>
