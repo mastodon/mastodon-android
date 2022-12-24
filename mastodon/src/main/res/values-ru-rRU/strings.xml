@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+	<string name="get_started">Создать аккаунт</string>
+	<string name="already_have_account">У меня уже есть аккаунт</string>
 	<string name="log_in">Войти</string>
 	<string name="next">Далее</string>
 	<string name="loading_instance">Получение информации о сервере…</string>
@@ -363,6 +365,26 @@
 	<string name="time_just_now">только что</string>
 	<string name="edited_timestamp">редактировано %s</string>
 	<string name="edit_original_post">Начальное сообщение</string>
+	<string name="edit_text_edited">Текст отредактирован</string>
+	<string name="edit_spoiler_added">Предупреждение о содержании добавлено</string>
+	<string name="edit_spoiler_edited">Предупреждение о содержании отредактировано</string>
+	<string name="edit_spoiler_removed">Предупреждение о содержании удалено</string>
+	<string name="edit_poll_added">Опрос добавлен</string>
+	<string name="edit_poll_edited">Опрос изменён</string>
+	<string name="edit_poll_removed">Опрос удалён</string>
+	<string name="edit_media_added">Файл добавлен</string>
+	<string name="edit_media_removed">Файл удалён</string>
+	<string name="edit_media_reordered">Файл переупорядочен</string>
+	<string name="edit_marked_sensitive">Отметить как «не для всех»</string>
+	<string name="edit_marked_not_sensitive">Снять отметку «не для всех»</string>
+	<string name="edit_multiple_changed">Публикация изменена</string>
+	<string name="edit">Редактировать</string>
+	<string name="discard_changes">Отменить изменения?</string>
+	<string name="upload_failed">Сбой загрузки</string>
+	<string name="file_size_bytes">%d байт</string>
+	<string name="file_size_kb">%.2f КиБ</string>
+	<string name="file_size_mb">%.2f МиБ</string>
+	<string name="file_size_gb">%.2f ГиБ</string>
 	<!-- %s is version like 1.2.3 -->
 	<!-- %s is version like 1.2.3 -->
 	<!-- %s is file size -->
