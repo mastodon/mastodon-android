@@ -205,6 +205,36 @@
 	<string name="add_image_description">Magdagdag ng paglalarawan ng imahe…</string>
 	<string name="retry_upload">Muling subukan ang pag-upload</string>
 	<string name="edit_image">I-edit ang imahe</string>
+	<string name="save">I-save</string>
+	<string name="add_alt_text">Magdagdag ng teksto ng alt</string>
+	<string name="alt_text_subtitle">Inilalarawan ng Alt text ang iyong mga larawan para sa mga taong may mababa o walang paningin. Subukang isama lamang ang sapat na detalye para maunawaan ang konteksto.</string>
+	<string name="alt_text_hint">hal. Ang aso ay nakatingin sa paligid na kahina-hinala na may makitid na mga mata sa camera.</string>
+	<string name="visibility_public">Publiko</string>
+	<string name="visibility_followers_only">Mga tagasunod lamang</string>
+	<string name="visibility_private">Mga tao lang ang binabanggit ko</string>
+	<string name="search_all">Lahat</string>
+	<string name="search_people">Mga Tao</string>
+	<string name="recent_searches">Kamakailang mga paghahanap</string>
+	<string name="step_x_of_n">Hakbang %1$d of %2$d</string>
+	<string name="skip">Laktawan</string>
+	<string name="notification_type_follow">Mga Bagong Follower</string>
+	<string name="notification_type_favorite">Mga Paborito</string>
+	<string name="notification_type_reblog">Mga Reblog</string>
+	<string name="notification_type_mention">Mga binangit</string>
+	<string name="notification_type_poll">Mga botohan</string>
+	<string name="choose_account">Pumili ng account</string>
+	<string name="err_not_logged_in">Pakiusap mag-log in muna sa Mastodon</string>
+	<plurals name="cant_add_more_than_x_attachments">
+		<item quantity="one">Hindi ka maaaring magdagdag ng higit sa %d media attachment</item>
+		<item quantity="other">Hindi ka maaaring magdagdag ng higit sa %d media attachment</item>
+	</plurals>
+	<string name="media_attachment_unsupported_type">Ang File %s ay hindi suportadong uri</string>
+	<string name="media_attachment_too_big">Ang File %1$s ay lumampas sa limitasyon ng laki ng %2$s MB</string>
+	<string name="settings_theme">Visual na hitsura</string>
+	<string name="theme_auto">Awtomatiko</string>
+	<string name="theme_light">Ilaw</string>
+	<string name="theme_dark">Madilim</string>
+	<string name="theme_true_black">Tunay na maitim na mode</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<!-- %s is version like 1.2.3 -->
 	<!-- %s is version like 1.2.3 -->
