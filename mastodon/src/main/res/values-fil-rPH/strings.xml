@@ -290,7 +290,60 @@
 	<string name="reorder">Muling ayusin</string>
 	<string name="download">I-download</string>
 	<string name="permission_required">Kinakailangan ang pahintulot</string>
+	<string name="storage_permission_to_download">Ang app ay nangangailangan ng access sa iyong storage para i-save ang file na ito.</string>
+	<string name="open_settings">Buksan ang mga setting</string>
+	<string name="error_saving_file">Error sa pag-save ng file</string>
+	<string name="file_saved">Nai-save ang File</string>
+	<string name="downloading">Nagda-download…</string>
+	<string name="no_app_to_handle_action">Walang app para mahawakan ang pagkilos na ito</string>
+	<string name="local_timeline">Komunidad</string>
+	<string name="trending_posts_info_banner">Ito ang mga post na nakakakuha ng traksyon sa iyong sulok ng Mastodon.</string>
+	<string name="trending_hashtags_info_banner">Ito ang mga hashtags na nakakakuha ng traksyon sa iyong sulok ng Mastodon.</string>
+	<string name="trending_links_info_banner">Ito ang mga kuwento ng balita na ibinabahagi ang pinaka sa iyong sulok ng Mastodon.</string>
+	<string name="local_timeline_info_banner">Ito ang pinakahuling mga post ng mga taong gumagamit ng parehong Mastodon server tulad mo.</string>
+	<string name="dismiss">I-dismiss</string>
+	<string name="see_new_posts">Tingnan ang mga bagong post</string>
+	<string name="load_missing_posts">Mag-Load ng nawawalang mga post</string>
+	<string name="follow_back">Sundan Pabalik</string>
+	<string name="button_follow_pending">Nakabinbin</string>
+	<string name="follows_you">Sinundan ka</string>
+	<string name="manually_approves_followers">Manu-manong aprubahan ang mga tagasunod</string>
+	<string name="current_account">Kasalukuyang account</string>
+	<string name="log_out_account">Mag-Log out %s</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
+	<plurals name="x_followers">
+		<item quantity="one">%,d tagasunod</item>
+		<item quantity="other">%,d tagasunod</item>
+	</plurals>
+	<plurals name="x_following">
+		<item quantity="one">%, d Sumusunod</item>
+		<item quantity="other">%, d Sumusunod</item>
+	</plurals>
+	<plurals name="x_favorites">
+		<item quantity="one">%, d Paborito</item>
+		<item quantity="other">%, d paborito</item>
+	</plurals>
+	<plurals name="x_reblogs">
+		<item quantity="one">%, d reblog</item>
+		<item quantity="other">%, d reblog</item>
+	</plurals>
+	<string name="timestamp_via_app">%1$s sa pamamagitan ng %2$s</string>
+	<string name="time_now">ngayon</string>
+	<string name="post_info_reblogs">Mga Reblog</string>
+	<string name="post_info_favorites">Mga Paborito</string>
+	<string name="edit_history">I-Edit ang kasaysayan</string>
+	<string name="last_edit_at_x">Huling edit %s</string>
+	<string name="time_just_now">ngayon lang</string>
+	<plurals name="x_minutes_ago">
+		<item quantity="one">%d minuto ang nakalipas</item>
+		<item quantity="other">%d minuto ang nakalipas</item>
+	</plurals>
+	<string name="edited_timestamp">edited %s</string>
+	<string name="edit_original_post">Orihinal na post</string>
+	<string name="edit_text_edited">Na-edit ang teksto</string>
+	<string name="edit_spoiler_added">Idinagdag ang babala ng nilalaman</string>
+	<string name="edit_spoiler_edited">Na-edit ang babala ng nilalaman</string>
+	<string name="edit_spoiler_removed">Inalis ang babala ng nilalaman</string>
 	<string name="edit_poll_added">Ang Poll ay nadagdag</string>
 	<string name="edit_poll_edited">Na-edit ang Poll</string>
 	<string name="edit_media_reordered">Muling inayos ng Media</string>
@@ -322,5 +375,15 @@
 	<string name="instance_signup_closed">Ang server na ito ay hindi tumatanggap ng mga bagong pagrerehistro.</string>
 	<string name="text_copied">Kinopya sa clipboard</string>
 	<string name="add_bookmark">Bookmark</string>
+	<string name="your_favorites">Ang Iyong Mga Paborito</string>
+	<string name="login_title">Maligayang pagbalik,</string>
+	<string name="login_subtitle">Mag-Log in gamit ang server kung saan mo nilikha ang iyong account.</string>
+	<string name="server_url">Ang URL ng server</string>
 	<!-- {logo} is a placeholder that is replaced with the Mastodon logo image at runtime. Please copy it into your translation as is. -->
+	<string name="welcome_page1_title">Ano ang {logo}?</string>
+	<string name="welcome_page1_text">Isipin na mayroon kang isang email address na nagtatapos sa @example. com. \n \nMaaari ka pa ring magpadala at tumanggap ng mga email mula sa sinuman, kahit na ang kanilang email ay nagtatapos sa @gmail.com o @icloud.com o @example.com.</string>
+	<string name="welcome_page2_title">Mastodon ay tulad na.</string>
+	<string name="welcome_page2_text">Ang iyong hawakan ay maaaring @gothgirl654@example.social, ngunit maaari mo pa ring sundin, reblog, at makipag-chat sa @fallout5ever@example.online.</string>
+	<string name="welcome_page3_title">Paano ako pumili ng server?</string>
+	<string name="welcome_page3_text">Ang iba \'t ibang mga tao ay pumili ng iba\' t ibang mga server para sa anumang bilang ng mga kadahilanan. sining.ang halimbawa ay isang magandang lugar para sa mga artista, habang ang glasgow.halimbawa ay maaaring maging isang mahusay na pick para sa Scots.\n \nhindi ka maaaring magkamali sa alinman sa aming mga inirekumendang server, kaya anuman ang pipiliin mo (o kung ipinasok mo ang iyong sarili sa search bar ng server), hindi ka makaligtaan ng isang matalo kahit saan.</string>
 </resources>
