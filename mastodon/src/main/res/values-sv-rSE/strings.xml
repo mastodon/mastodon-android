@@ -4,7 +4,9 @@
 	<string name="already_have_account">Jag har redan ett konto</string>
 	<string name="log_in">Logga in</string>
 	<string name="next">Nästa</string>
+	<string name="loading_instance">Hämtar serverinfo…</string>
 	<string name="error">Fel</string>
+	<string name="not_a_mastodon_instance">%s verkar inte vara en Mastodon-server.</string>
 	<string name="ok">OK</string>
 	<string name="preparing_auth">Förbereder för autentisering…</string>
 	<string name="finishing_auth">Slutför autentisering…</string>
@@ -379,11 +381,21 @@
 	<string name="privacy_policy_title">Mastodon och din integritet</string>
 	<string name="privacy_policy_subtitle">Även om Mastodon-appen inte samlar in någon data kan servern du registrerar dig genom ha en annan policy. Ta en stund till att granska och godkänna Mastodon-appens sekretesspolicy och din servers sekretesspolicy.</string>
 	<string name="i_agree">Jag godkänner</string>
+	<string name="empty_list">Den här listan är tom</string>
+	<string name="instance_signup_closed">Denna server accepterar inte nyregistreringar.</string>
+	<string name="text_copied">Kopierat till urklipp</string>
+	<string name="add_bookmark">Bokmärk</string>
+	<string name="remove_bookmark">Ta bort bokmärke</string>
 	<string name="bookmarks">Bokmärken</string>
 	<string name="your_favorites">Dina favoriter</string>
 	<string name="login_title">Välkommen tillbaka</string>
 	<string name="login_subtitle">Logga in på den server där du skapade ditt konto.</string>
+	<string name="server_url">Server-URL</string>
 	<!-- {logo} is a placeholder that is replaced with the Mastodon logo image at runtime. Please copy it into your translation as is. -->
 	<string name="welcome_page1_title">Vad är {logo}?</string>
+	<string name="welcome_page1_text">Tänk dig att du har en epostadress som slutar med @example.com.\n\nDu kan skicka och ta emot epost från vem som helst, även om deras epostadress slutar med @gmail.com, @icloud.com eller @example.com.</string>
+	<string name="welcome_page2_title">Mastodon fungerar så.</string>
+	<string name="welcome_page2_text">Ditt handtag kan vara @gothgirl654@example.social men du kan fortfarande följa, boosta och chatta med @fallout5ever@example.online.</string>
 	<string name="welcome_page3_title">Hur väljer jag en server?</string>
+	<string name="welcome_page3_text">Olika personer väljer olika servrar av olika anledningar. art.example är en bra plats för konstnärer medan glasgow.exempel kan vara ett bra val för skottar.\n\nMed någon av våra rekommenderar servrar kan du inte hamna fel så oavsett vilken du väljer, eller om du skriver in din egen i serverns sökfältet, kommer du aldrig missa något.</string>
 </resources>
