@@ -1,5 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+	<string name="get_started">အကောင့်ဖန်တီးမည်</string>
+	<string name="already_have_account">အကောင့်ရှိပြီးသားပါ</string>
+	<string name="log_in">လော့ဂ်အင်ဝင်မည်</string>
+	<string name="next">ရှေ့သို့</string>
+	<string name="loading_instance">ဆာဗာအချက်အလက်များကို ရယူနေသည်…</string>
+	<string name="error">Error</string>
+	<string name="not_a_mastodon_instance">%s ဟာ Mastodon ဆာဗာတစ်ခုဖြစ်ပုံမရပါဘူး။</string>
+	<string name="ok">အိုကေ</string>
+	<string name="preparing_auth">အထောက်အထားစိစစ်ရန် ပြင်ဆင်နေသည်…</string>
+	<string name="finishing_auth">အထောက်အထားစိစစ်ခြင်းကို အပြီးသတ်နေသည်…</string>
+	<string name="user_boosted">%s က ရီဘလော့လုပ်ထားသည်</string>
+	<string name="in_reply_to">%s ကို ရီပလိုင်းပြန်ထား</string>
+	<string name="notifications">နိုတီများ</string>
+	<string name="user_followed_you">က သင့်ကို ဖော်လိုးလုပ်လိုက်သည်</string>
+	<string name="user_sent_follow_request">က သင့်ကို ဖော်လိုးဝါအဖြစ်တောင်းဆိုမှုတစ်ခု ပို့လိုက်သည်</string>
+	<string name="user_favorited">က သင့်ပို့စ်ကို နှစ်သက်ခဲ့သည်</string>
+	<string name="notification_boosted">က သင့်ပို့စ်ကို ရီဘလော့လုပ်လိုက်သည်</string>
+	<string name="poll_ended">ရဲ့ စစ်တမ်းပြီးဆုံးသွားပါပြီ</string>
+	<string name="time_seconds">%d စက္ကန့်</string>
+	<string name="time_minutes">%d မိနစ်</string>
+	<string name="time_hours">%d နာရီ</string>
+	<string name="time_days">%d ရက်</string>
+	<string name="settings">ဆက်တင်များ</string>
+	<string name="publish">တင်မည်</string>
+	<string name="discard_draft">စာကြမ်းကို ဖျက်မှာလား?</string>
+	<string name="discard">ဖယ်ရှား</string>
+	<string name="cancel">မလုပ်တော့</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<!-- %s is version like 1.2.3 -->
 	<!-- %s is version like 1.2.3 -->
