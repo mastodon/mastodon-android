@@ -51,9 +51,9 @@
 	<string name="share_user">Ibahagi %s</string>
 	<string name="mute_user">I-mute %s</string>
 	<string name="unmute_user">I-unmute %s</string>
-	<string name="block_user">Na-Block %s</string>
-	<string name="unblock_user">Na-Unblock %s</string>
-	<string name="report_user">Na-report %s</string>
+	<string name="block_user">I-Block %s</string>
+	<string name="unblock_user">I-Unblock %s</string>
+	<string name="report_user">I-Report %s</string>
 	<string name="block_domain">Na-Block %s</string>
 	<string name="unblock_domain">Na-Unblock %s</string>
 	<plurals name="x_posts">
@@ -66,7 +66,7 @@
 	<string name="field_label">Label</string>
 	<string name="field_content">Nilalaman</string>
 	<string name="saving">Pag-save…</string>
-	<string name="post_from_user">Post galing %s</string>
+	<string name="post_from_user">Post mula kay %s</string>
 	<string name="poll_option_hint">Pagpipilian %d</string>
 	<plurals name="x_minutes">
 		<item quantity="one">%d minuto</item>
@@ -111,11 +111,11 @@
 	<string name="confirm_block_title">I-Block Ang Account</string>
 	<string name="confirm_block_domain_title">I-Block Ang Domain</string>
 	<string name="confirm_block">Kumpirmahin ang pag-block %s</string>
-	<string name="do_block">Block</string>
+	<string name="do_block">I-Block</string>
 	<string name="confirm_unblock_title">I-Unblock ang Account</string>
 	<string name="confirm_unblock_domain_title">I-Unblock ang Domain</string>
 	<string name="confirm_unblock">Kumpirmahin ang pag-unblock%s</string>
-	<string name="do_unblock">Unblock</string>
+	<string name="do_unblock">I-Unblock</string>
 	<string name="button_muted">Naka-mute</string>
 	<string name="button_blocked">Na-block</string>
 	<string name="action_vote">Bumoto</string>
@@ -143,7 +143,7 @@
 		<item quantity="one">Tinalakay %d oras</item>
 		<item quantity="other">Tinalakay %d oras</item>
 	</plurals>
-	<string name="report_title">Na-report %s</string>
+	<string name="report_title">I-Report %s</string>
 	<string name="report_choose_reason">Ano ang mali sa post na ito?</string>
 	<string name="report_choose_reason_account">Ano ang mali sa %s?</string>
 	<string name="report_choose_reason_subtitle">Piliin ang pinakamahusay na tugma</string>
@@ -261,7 +261,7 @@
 	<string name="confirm_log_out">Sigurado ka bang gusto mong mag-sign out?</string>
 	<string name="sensitive_content">Sensitibong nilalaman</string>
 	<string name="sensitive_content_explain">Minarkahan ng may-akda ang media na ito bilang sensitibo. I-tap para makita.</string>
-	<string name="media_hidden">I-Tap para ipakita</string>
+	<string name="media_hidden">I-Tap para mapakita</string>
 	<string name="avatar_description">Pumunta sa profile ng %s</string>
 	<string name="more_options">Higit pang mga pagpipilian</string>
 	<string name="reveal_content">Ipakita ang nilalaman</string>
@@ -287,7 +287,7 @@
 	<string name="show_boosts_from_user">Ipakita ang mga reblog mula sa %s</string>
 	<string name="signup_reason">bakit gusto mong sumali?</string>
 	<string name="signup_reason_note">Makakatulong ito sa amin na suriin ang iyong aplikasyon.</string>
-	<string name="clear">Malinaw</string>
+	<string name="clear">I-Clear</string>
 	<string name="profile_header">Imahe ng Header</string>
 	<string name="profile_picture">Larawan ng Profile</string>
 	<string name="reorder">Muling ayusin</string>
@@ -376,7 +376,7 @@
 	<!-- %s is version like 1.2.3 -->
 	<string name="update_ready">Ang Mastodon para sa Android %s ay nai-download at handa nang mai-install.</string>
 	<!-- %s is file size -->
-	<string name="download_update">I-Download ang (%s)</string>
+	<string name="download_update">I-Download (%s)</string>
 	<string name="install_update">I-install</string>
 	<string name="privacy_policy_title">Mastodon at ang iyong pribado</string>
 	<string name="privacy_policy_subtitle">Bagaman ang Mastodon app ay hindi nangongolekta ng anumang data, ang server na iyong na-sign up ay maaaring magkaroon ng ibang patakaran. Maglaan ng isang minuto para suriin at sumang-ayon sa Patakaran sa privacy ng Mastodon app at Patakaran sa privacy ng iyong server.</string>
