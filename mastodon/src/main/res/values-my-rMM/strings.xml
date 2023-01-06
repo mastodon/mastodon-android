@@ -27,6 +27,37 @@
 	<string name="discard_draft">စာကြမ်းကို ဖျက်မှာလား?</string>
 	<string name="discard">ဖယ်ရှား</string>
 	<string name="cancel">မလုပ်တော့</string>
+	<plurals name="followers">
+		<item quantity="other">ဦးက ဖောလိုးထား</item>
+	</plurals>
+	<plurals name="following">
+		<item quantity="other">ဦးကို ဖောလိုးထား</item>
+	</plurals>
+	<plurals name="posts">
+		<item quantity="other">ပို့စ်</item>
+	</plurals>
+	<string name="posts">ပို့စ်များ</string>
+	<string name="posts_and_replies">ပို့စ်နှင့် ရီပလိုင်းများ</string>
+	<string name="media">ဓာတ်ပုံနှင့် ဗီဒီယိုများ</string>
+	<string name="profile_about">အကြောင်း</string>
+	<string name="button_follow">ဖောလိုး</string>
+	<string name="button_following">ဖောလိုးလုပ်ထား</string>
+	<string name="edit_profile">ပရိုဖိုင်းပြင်မည်</string>
+	<string name="mention_user">%s ကို မန်းရှင်း</string>
+	<string name="share_user">%s ကို မျှဝေ</string>
+	<string name="mute_user">%s ကို mute</string>
+	<string name="unmute_user">%s ကို unmute</string>
+	<string name="block_user">%s ကို ဘလော့မည်</string>
+	<string name="unblock_user">%s ကို ဘလော့ဖြုတ်မည်</string>
+	<string name="report_user">%s ကို တိုင်ကြားမည်</string>
+	<string name="block_domain">%s ကို ဘလော့မည်</string>
+	<string name="unblock_domain">%s ကို ဘလော့ဖြုတ်မည်</string>
+	<plurals name="x_posts">
+		<item quantity="other">ပို့စ် %,d ခု</item>
+	</plurals>
+	<string name="profile_joined">အကောင့်ဖွင့်ခဲ့သည့် ရက်စွဲ</string>
+	<string name="done">ပြီးပြီ</string>
+	<string name="loading">လုပ်ဆောင်နေသည်…</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<!-- %s is version like 1.2.3 -->
 	<!-- %s is version like 1.2.3 -->
