@@ -1,5 +1,7 @@
 package org.joinmastodon.android.fragments;
 
+import static android.os.ext.SdkExtensions.getExtensionVersion;
+
 import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -20,6 +22,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.provider.MediaStore;
 import android.provider.OpenableColumns;
 import android.text.Editable;
 import android.text.InputFilter;
@@ -782,14 +785,50 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 				.show();
 	}
 
+	/**
+	 * Check to see if Android platform photopicker is available on the device\
+	 * @return whether the device supports photopicker intents.
+	 */
+	private boolean isPhotoPickerAvailable() {
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+			return true;
+		} else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+			return getExtensionVersion(Build.VERSION_CODES.R) >= 2;
+		} else
+			return false;
+	}
+
+	/**
+	 * Builds the correct intent for the device version to select media.
+	 *
+	 * <p>For Device version > T or R_SDK_v2, use the android platform photopicker via
+	 * {@link MediaStore#ACTION_PICK_IMAGES}
+	 *
+	 * <p>For earlier versions use the built in docs ui via {@link Intent#ACTION_GET_CONTENT}
+	 */
 	private void openFilePicker(){
-		Intent intent=new Intent(Intent.ACTION_GET_CONTENT);
-		intent.addCategory(Intent.CATEGORY_OPENABLE);
-		intent.setType("*/*");
-		if(instance.configuration!=null && instance.configuration.mediaAttachments!=null && instance.configuration.mediaAttachments.supportedMimeTypes!=null && !instance.configuration.mediaAttachments.supportedMimeTypes.isEmpty()){
-			intent.putExtra(Intent.EXTRA_MIME_TYPES, instance.configuration.mediaAttachments.supportedMimeTypes.toArray(new String[0]));
-		}else{
-			intent.putExtra(Intent.EXTRA_MIME_TYPES, new String[]{"image/*", "video/*"});
+		Intent intent;
+		boolean usePhotoPicker = isPhotoPickerAvailable();
+		if (usePhotoPicker) {
+			intent = new Intent(MediaStore.ACTION_PICK_IMAGES);
+			intent.putExtra(MediaStore.EXTRA_PICK_IMAGES_MAX, MediaStore.getPickImagesMaxLimit());
+		} else {
+			intent = new Intent(Intent.ACTION_GET_CONTENT);
+			intent.addCategory(Intent.CATEGORY_OPENABLE);
+			intent.setType("*/*");
+		}
+		if (!usePhotoPicker && instance.configuration != null &&
+				instance.configuration.mediaAttachments != null &&
+				instance.configuration.mediaAttachments.supportedMimeTypes != null &&
+				!instance.configuration.mediaAttachments.supportedMimeTypes.isEmpty()) {
+			intent.putExtra(Intent.EXTRA_MIME_TYPES,
+					instance.configuration.mediaAttachments.supportedMimeTypes.toArray(
+							new String[0]));
+		} else {
+			if (!usePhotoPicker) {
+				// If photo picker is being used these are the default mimetypes.
+				intent.putExtra(Intent.EXTRA_MIME_TYPES, new String[]{"image/*", "video/*"});
+			}
 		}
 		intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
 		startActivityForResult(intent, MEDIA_RESULT);
