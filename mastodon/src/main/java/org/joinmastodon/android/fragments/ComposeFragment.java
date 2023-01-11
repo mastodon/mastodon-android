@@ -413,6 +413,8 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 
 		mainEditText.setSelectionListener(this);
 		mainEditText.addTextChangedListener(new TextWatcher(){
+			private int lastChangeStart, lastChangeCount;
+
 			@Override
 			public void beforeTextChanged(CharSequence s, int start, int count, int after){
 
@@ -422,6 +424,14 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 			public void onTextChanged(CharSequence s, int start, int before, int count){
 				if(s.length()==0)
 					return;
+				lastChangeStart=start;
+				lastChangeCount=count;
+			}
+
+			@Override
+			public void afterTextChanged(Editable s){
+				int start=lastChangeStart;
+				int count=lastChangeCount;
 				// offset one char back to catch an already typed '@' or '#' or ':'
 				int realStart=start;
 				start=Math.max(0, start-1);
@@ -467,10 +477,7 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 						editable.removeSpan(span);
 					}
 				}
-			}
 
-			@Override
-			public void afterTextChanged(Editable s){
 				updateCharCounter();
 			}
 		});
