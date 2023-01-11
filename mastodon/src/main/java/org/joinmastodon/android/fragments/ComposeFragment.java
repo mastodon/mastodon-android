@@ -430,6 +430,8 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 
 			@Override
 			public void afterTextChanged(Editable s){
+				if(s.length()==0)
+					return;
 				int start=lastChangeStart;
 				int count=lastChangeCount;
 				// offset one char back to catch an already typed '@' or '#' or ':'
