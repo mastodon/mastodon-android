@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+	<string name="get_started">Vytvořit účet</string>
+	<string name="already_have_account">Již mám účet</string>
 	<string name="log_in">Přihlásit se</string>
 	<string name="next">Další</string>
+	<string name="loading_instance">Načítání informací o serveru…</string>
 	<string name="error">Chyba</string>
+	<string name="not_a_mastodon_instance">%s se nezdá být Mastodon serverem.</string>
 	<string name="ok">OK</string>
 	<string name="preparing_auth">Příprava na autentizaci…</string>
 	<string name="finishing_auth">Dokončení autentizace…</string>
@@ -426,5 +430,12 @@
 	<string name="remove_bookmark">Odstranit ze záložek</string>
 	<string name="bookmarks">Záložky</string>
 	<string name="your_favorites">Vaše oblíbení</string>
+	<string name="login_title">Vítejte zpět</string>
+	<string name="login_subtitle">Přihlaste se pomocí serveru, kde jste vytvořili svůj účet.</string>
+	<string name="server_url">URL serveru</string>
 	<!-- {logo} is a placeholder that is replaced with the Mastodon logo image at runtime. Please copy it into your translation as is. -->
+	<string name="welcome_page1_title">Co je {logo}?</string>
+	<string name="welcome_page1_text">Představte si, že máte e-mailovou adresu, která končí @example.com.\n\nStále můžete od kohokoliv odesílat a přijímat e-maily, i když jejich e-mail končí na @gmail.com nebo @icloud.com nebo @example.com.</string>
+	<string name="welcome_page3_title">Jak si vybrat server?</string>
+	<string name="welcome_page3_text">Různí lidé si vybírají různé servery z různých důvodů. Art.example je skvělým místem pro umělce, zatímco glasgow.example může být dobrou volbou pro Skoty.\n\nS žádným z našich doporučených serverů nemůžete udělat chybu, takže bez ohledu na to, který z nich si vyberete (nebo pokud zadáte svůj vlastní do vyhledávacího řádku serveru), nikde neprohloupíte.</string>
 </resources>
