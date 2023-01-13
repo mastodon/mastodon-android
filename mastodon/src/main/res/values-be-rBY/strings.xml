@@ -38,6 +38,27 @@
 		<item quantity="many">допісаў</item>
 		<item quantity="other">допісаў</item>
 	</plurals>
+	<string name="media">Медыя</string>
+	<string name="profile_about">Інфармацыя</string>
+	<string name="button_follow">Падпісацца</string>
+	<string name="edit_profile">Рэдагаваць профіль</string>
+	<string name="mention_user">Згадаць %s</string>
+	<string name="share_user">Абагуліць %s</string>
+	<string name="mute_user">Ігнараваць %s</string>
+	<string name="unmute_user">Не ігнараваць %s</string>
+	<string name="block_user">Заблакіраваць %s</string>
+	<string name="unblock_user">Разблакіраваць %s</string>
+	<string name="report_user">Паскардзіцца на %s</string>
+	<string name="block_domain">Заблакіраваць %s</string>
+	<string name="unblock_domain">Разблакіраваць %s</string>
+	<string name="profile_joined">Далучыўся</string>
+	<string name="done">Гатова</string>
+	<string name="loading">Загрузка…</string>
+	<string name="field_label">Метка</string>
+	<string name="field_content">Змесціва</string>
+	<string name="saving">Захаванне…</string>
+	<string name="post_from_user">Допіс ад %s</string>
+	<string name="poll_option_hint">Варыянт %d</string>
 	<plurals name="x_minutes">
 		<item quantity="one">%d хвіліна</item>
 		<item quantity="few">%d хвіліны</item>
@@ -81,8 +102,22 @@
 		<item quantity="many">%d дзён засталося</item>
 		<item quantity="other">%d дзён засталося</item>
 	</plurals>
+	<string name="poll_closed">Завершана</string>
+	<string name="confirm_mute_title">Ігнараваць уліковы запіс</string>
 	<string name="do_mute">Ігнараваць</string>
+	<string name="confirm_unmute_title">Не ігнараваць уліковы запіс</string>
 	<string name="do_unmute">Не ігнараваць</string>
+	<string name="confirm_block_title">Заблакіраваць уліковы запіс</string>
+	<string name="confirm_block_domain_title">Заблакіраваць дамен</string>
+	<string name="confirm_block">Пацвердзіць блакіроўку %s</string>
+	<string name="do_block">Заблакіраваць</string>
+	<string name="confirm_unblock_title">Разблакіраваць уліковы запіс</string>
+	<string name="confirm_unblock_domain_title">Разблакіраваць дамен</string>
+	<string name="confirm_unblock">Пацвердзіць разблакіроўку %s</string>
+	<string name="do_unblock">Разблакіраваць</string>
+	<string name="button_muted">Ігнаруецца</string>
+	<string name="button_blocked">Заблакіраваны</string>
+	<string name="action_vote">Прагаласаваць</string>
 	<string name="delete">Выдаліць</string>
 	<string name="confirm_delete_title">Выдаліць допіс</string>
 	<string name="confirm_delete">Вы ўпэўненыя, што хочаце выдаліць гэты допіс?</string>
@@ -119,7 +154,22 @@
 	<string name="report_sent_subtitle">Пакуль мы разглядаем яе, вы можаце прыняць меры супраць %s.</string>
 	<string name="unfollow_user">Адпісацца ад %s</string>
 	<string name="unfollow">Адпісацца</string>
+	<string name="mute_user_explain">Вы не ўбачыце іх допісы або рэпосты ў сваёй хатняй стужцы. Яны не даведаюцца, што вы іх ігнаруеце.</string>
+	<string name="resend">Адправіць паўторна</string>
+	<string name="open_email_app">Адкрыць праграму для пошты</string>
+	<string name="content_warning">Папярэджанне аб змесціве</string>
+	<string name="add_image_description">Дадаць апісанне выявы…</string>
+	<string name="save">Захаваць</string>
+	<string name="notification_type_reblog">Рэпосты</string>
+	<string name="notification_type_poll">Апытанні</string>
+	<string name="choose_account">Выберыце ўліковы запіс</string>
+	<string name="theme_auto">Аўтаматычна</string>
+	<string name="theme_light">Светлая</string>
+	<string name="theme_dark">Цёмная</string>
+	<string name="button_reblog">Рэпост</string>
+	<string name="home_timeline">Хатняя стужка</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
+	<string name="post_info_reblogs">Рэпосты</string>
 	<!-- %s is version like 1.2.3 -->
 	<!-- %s is version like 1.2.3 -->
 	<!-- %s is file size -->
