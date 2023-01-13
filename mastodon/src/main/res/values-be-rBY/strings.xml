@@ -1,12 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+	<string name="get_started">Стварыць уліковы запіс</string>
+	<string name="already_have_account">У мяне ўжо ёсць уліковы запіс</string>
 	<string name="log_in">Увайсці</string>
 	<string name="next">Далей</string>
 	<string name="error">Памылка</string>
 	<string name="ok">Добра</string>
 	<string name="notifications">Апавяшчэнні</string>
+	<string name="user_followed_you">падпісаўся(-лася) на вас</string>
+	<string name="user_favorited">упадабаў(-ла) ваш допіс</string>
+	<string name="notification_boosted">пашырыў(-ла) ваш допіс</string>
+	<string name="time_seconds">%dсек</string>
+	<string name="time_minutes">%dхв</string>
+	<string name="time_hours">%dгадз</string>
+	<string name="time_days">%dдз</string>
 	<string name="share_toot_title">Абагуліць</string>
 	<string name="settings">Налады</string>
+	<string name="publish">Апублікаваць</string>
+	<string name="discard_draft">Выдаліць чарнавік?</string>
 	<string name="cancel">Скасаваць</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<!-- %s is version like 1.2.3 -->
