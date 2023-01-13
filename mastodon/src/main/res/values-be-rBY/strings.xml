@@ -4,6 +4,7 @@
 	<string name="already_have_account">У мяне ўжо ёсць уліковы запіс</string>
 	<string name="log_in">Увайсці</string>
 	<string name="next">Далей</string>
+	<string name="loading_instance">Атрыманне інфармацыі аб серверы…</string>
 	<string name="error">Памылка</string>
 	<string name="ok">Добра</string>
 	<string name="in_reply_to">У адказ %s</string>
@@ -194,6 +195,7 @@
 	<string name="edit_image">Рэдагаваць відарыс</string>
 	<string name="save">Захаваць</string>
 	<string name="add_alt_text">Дадаць альтэрнатыўны тэкст</string>
+	<string name="visibility_public">Публічны</string>
 	<string name="visibility_followers_only">Толькі для падпісчыкаў</string>
 	<string name="visibility_private">Толькі людзі, якіх я згадаў</string>
 	<string name="search_all">Усе</string>
@@ -207,15 +209,19 @@
 	<string name="notification_type_mention">Згадванні</string>
 	<string name="notification_type_poll">Апытанні</string>
 	<string name="choose_account">Выберыце ўліковы запіс</string>
+	<string name="err_not_logged_in">Спачатку ўвайдзіце ў Mastodon</string>
 	<string name="theme_auto">Аўтаматычна</string>
 	<string name="theme_light">Светлая</string>
 	<string name="theme_dark">Цёмная</string>
+	<string name="settings_behavior">Паводзіны</string>
+	<string name="settings_custom_tabs">Выкарыстоўваць убудаваны браўзер</string>
 	<string name="settings_notifications">Апавяшчэнні</string>
 	<string name="notify_me_when">Паведаміце мне, калі</string>
 	<string name="notify_anyone">кожны</string>
 	<string name="notify_follower">падпісчык</string>
 	<string name="notify_followed">на каго я падпісаны</string>
 	<string name="notify_none">ніхто</string>
+	<string name="notify_follow">Падпісаўся на мяне</string>
 	<string name="settings_tos">Умовы выкарыстання</string>
 	<string name="settings_privacy_policy">Палітыка прыватнасці</string>
 	<string name="media_hidden">Націсніце, каб паказаць</string>
@@ -237,6 +243,7 @@
 	<string name="my_profile">Мой профіль</string>
 	<string name="follow_user">Падпісацца на %s</string>
 	<string name="unfollowed_user">Адпісацца ад %s</string>
+	<string name="followed_user">Цяпер вы падпісаны на %s</string>
 	<string name="open_in_browser">Адкрыць у браўзеры</string>
 	<string name="hide_boosts_from_user">Схаваць рэпосты ад %s</string>
 	<string name="show_boosts_from_user">Паказаць рэпосты ад %s</string>
@@ -257,11 +264,19 @@
 	<string name="dismiss">Адхіліць</string>
 	<string name="see_new_posts">Паказаць новыя допісы</string>
 	<string name="load_missing_posts">Загрузіць адсутныя допісы</string>
+	<string name="follow_back">Падпісацца ў адказ</string>
 	<string name="button_follow_pending">Чакаюць</string>
 	<string name="follows_you">Падпісаны(-а) на вас</string>
+	<string name="manually_approves_followers">Уручную пацвярджае падпісчыкаў</string>
 	<string name="current_account">Бягучы ўліковы запіс</string>
 	<string name="log_out_account">Выйсці з %s</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
+	<plurals name="x_followers">
+		<item quantity="one">%,d падпісчык</item>
+		<item quantity="few">%,d падпісчыка</item>
+		<item quantity="many">%,d падпісчыкаў</item>
+		<item quantity="other">%,d падпісчыкаў</item>
+	</plurals>
 	<plurals name="x_reblogs">
 		<item quantity="one">%,d рэпост</item>
 		<item quantity="few">%,d рэпосты</item>
