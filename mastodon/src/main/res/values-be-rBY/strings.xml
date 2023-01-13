@@ -193,6 +193,7 @@
 	<string name="add_image_description">Дадаць апісанне выявы…</string>
 	<string name="save">Захаваць</string>
 	<string name="notification_type_reblog">Рэпосты</string>
+	<string name="notification_type_mention">Згадванні</string>
 	<string name="notification_type_poll">Апытанні</string>
 	<string name="choose_account">Выберыце ўліковы запіс</string>
 	<string name="theme_auto">Аўтаматычна</string>
@@ -203,10 +204,33 @@
 	<string name="open_in_browser">Адкрыць у браўзеры</string>
 	<string name="download">Спампаваць</string>
 	<string name="open_settings">Адкрыць налады</string>
+	<string name="downloading">Спампоўванне…</string>
+	<string name="no_app_to_handle_action">Няма праграмы для выканання гэтага дзеяння</string>
+	<string name="local_timeline">Супольнасць</string>
+	<string name="dismiss">Адхіліць</string>
+	<string name="load_missing_posts">Загрузіць адсутныя допісы</string>
+	<string name="current_account">Бягучы ўліковы запіс</string>
+	<string name="log_out_account">Выйсці з %s</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<string name="post_info_reblogs">Рэпосты</string>
+	<string name="edit_poll_added">Апытанне дададзена</string>
+	<string name="edit_poll_edited">Апытанне адрэдагавана</string>
+	<string name="edit_poll_removed">Апытанне выдалена</string>
+	<string name="edit_multiple_changed">Допіс адрэдагавана</string>
+	<string name="edit">Рэдагаваць</string>
+	<string name="discard_changes">Скасаваць змены?</string>
+	<string name="upload_failed">Не ўдалося запампаваць</string>
 	<!-- %s is version like 1.2.3 -->
 	<!-- %s is version like 1.2.3 -->
 	<!-- %s is file size -->
+	<string name="download_update">Спампаваць (%s)</string>
+	<string name="install_update">Усталяваць</string>
+	<string name="i_agree">Я згодны</string>
+	<string name="empty_list">Гэты ліст пусты</string>
+	<string name="add_bookmark">Закладка</string>
+	<string name="remove_bookmark">Выдаліць закладку</string>
+	<string name="bookmarks">Закладкі</string>
+	<string name="your_favorites">Вашы абраныя</string>
+	<string name="login_title">З вяртаннем</string>
 	<!-- {logo} is a placeholder that is replaced with the Mastodon logo image at runtime. Please copy it into your translation as is. -->
 </resources>
