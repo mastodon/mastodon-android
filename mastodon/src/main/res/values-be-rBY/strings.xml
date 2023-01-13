@@ -17,8 +17,108 @@
 	<string name="share_toot_title">Абагуліць</string>
 	<string name="settings">Налады</string>
 	<string name="publish">Апублікаваць</string>
-	<string name="discard_draft">Выдаліць чарнавік?</string>
+	<string name="discard_draft">Скасаваць чарнавік?</string>
+	<string name="discard">Скасаваць</string>
 	<string name="cancel">Скасаваць</string>
+	<plurals name="followers">
+		<item quantity="one">падпісчык</item>
+		<item quantity="few">падпісчыка</item>
+		<item quantity="many">падпісчыкаў</item>
+		<item quantity="other">падпісчыкаў</item>
+	</plurals>
+	<plurals name="following">
+		<item quantity="one">падпісаны</item>
+		<item quantity="few">падпісаны</item>
+		<item quantity="many">падпісаны</item>
+		<item quantity="other">падпісаны</item>
+	</plurals>
+	<plurals name="posts">
+		<item quantity="one">допіс</item>
+		<item quantity="few">допісы</item>
+		<item quantity="many">допісаў</item>
+		<item quantity="other">допісаў</item>
+	</plurals>
+	<plurals name="x_minutes">
+		<item quantity="one">%d хвіліна</item>
+		<item quantity="few">%d хвіліны</item>
+		<item quantity="many">%d хвілін</item>
+		<item quantity="other">%d хвілін</item>
+	</plurals>
+	<plurals name="x_hours">
+		<item quantity="one">%d гадзіна</item>
+		<item quantity="few">%d гадзіны</item>
+		<item quantity="many">%d гадзін</item>
+		<item quantity="other">%d гадзін</item>
+	</plurals>
+	<plurals name="x_days">
+		<item quantity="one">%d дзень</item>
+		<item quantity="few">%d дні</item>
+		<item quantity="many">%d дзён</item>
+		<item quantity="other">%d дзён</item>
+	</plurals>
+	<string name="compose_poll_duration">Працягласць: %s</string>
+	<plurals name="x_seconds_left">
+		<item quantity="one">%d секунда засталася</item>
+		<item quantity="few">%d секунды засталося</item>
+		<item quantity="many">%d секунд засталося</item>
+		<item quantity="other">%d секунд засталося</item>
+	</plurals>
+	<plurals name="x_minutes_left">
+		<item quantity="one">%d хвіліна засталася</item>
+		<item quantity="few">%d хвіліны засталося</item>
+		<item quantity="many">%d хвілін засталося</item>
+		<item quantity="other">%d хвілін засталося</item>
+	</plurals>
+	<plurals name="x_hours_left">
+		<item quantity="one">%d гадзіна засталася</item>
+		<item quantity="few">%d гадзіны засталося</item>
+		<item quantity="many">%d гадзін засталося</item>
+		<item quantity="other">%d гадзін засталося</item>
+	</plurals>
+	<plurals name="x_days_left">
+		<item quantity="one">%d дзень застаўся</item>
+		<item quantity="few">%d дні засталося</item>
+		<item quantity="many">%d дзён засталося</item>
+		<item quantity="other">%d дзён засталося</item>
+	</plurals>
+	<string name="do_mute">Ігнараваць</string>
+	<string name="do_unmute">Не ігнараваць</string>
+	<string name="delete">Выдаліць</string>
+	<string name="confirm_delete_title">Выдаліць допіс</string>
+	<string name="confirm_delete">Вы ўпэўненыя, што хочаце выдаліць гэты допіс?</string>
+	<string name="deleting">Выдаленне…</string>
+	<string name="notification_channel_audio_player">Прайграванне аўдыя</string>
+	<string name="play">Прайграць</string>
+	<string name="pause">Прыпыніць</string>
+	<string name="log_out">Выйсці</string>
+	<string name="add_account">Дадаць уліковы запіс</string>
+	<string name="search_hint">Пошук</string>
+	<string name="hashtags">Хэштэгі</string>
+	<string name="news">Навіны</string>
+	<string name="for_you">Для вас</string>
+	<string name="all_notifications">Усе</string>
+	<string name="mentions">Згадванні</string>
+	<string name="report_title">Паскардзіцца на %s</string>
+	<string name="report_choose_reason_subtitle">Выберыце найлепшы варыянт</string>
+	<string name="report_reason_personal">Мне не падабаецца</string>
+	<string name="report_reason_personal_subtitle">Гэта не тое, што вы хочаце бачыць</string>
+	<string name="report_reason_spam">Гэта спам</string>
+	<string name="report_reason_spam_subtitle">Шкодныя спасылкі, фальшывыя ўзаемадзеянні або адказы, што паўтараюцца</string>
+	<string name="report_reason_violation">Гэта парушае правілы сервера</string>
+	<string name="report_reason_violation_subtitle">Вам вядома, што гэта парушае пэўныя правілы</string>
+	<string name="report_reason_other">Гэта нешта іншае</string>
+	<string name="report_reason_other_subtitle">Гэта праблема не падпадае ні пад адну з катэгорыі</string>
+	<string name="report_choose_rule">Якія правілы былі парушаны?</string>
+	<string name="report_choose_rule_subtitle">Абярыце ўсе варыянты, што падыходзяць</string>
+	<string name="report_choose_posts">Ці ёсць допісы, якія пацвярджаюць гэтую скаргу?</string>
+	<string name="report_choose_posts_subtitle">Абярыце ўсе варыянты, што падыходзяць</string>
+	<string name="report_comment_title">Што-небудзь яшчэ, што мы павінны ведаць?</string>
+	<string name="report_comment_hint">Дадатковыя каментарыі</string>
+	<string name="sending_report">Адпраўка скаргі…</string>
+	<string name="report_sent_title">Дзякуй за вашу скаргу, мы яе разгледзім.</string>
+	<string name="report_sent_subtitle">Пакуль мы разглядаем яе, вы можаце прыняць меры супраць %s.</string>
+	<string name="unfollow_user">Адпісацца ад %s</string>
+	<string name="unfollow">Адпісацца</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<!-- %s is version like 1.2.3 -->
 	<!-- %s is version like 1.2.3 -->
