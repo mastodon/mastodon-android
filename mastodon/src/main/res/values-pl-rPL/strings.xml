@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+	<string name="get_started">Utwórz konto</string>
+	<string name="already_have_account">Posiadam już konto</string>
 	<string name="log_in">Zaloguj się</string>
 	<string name="next">Dalej</string>
+	<string name="loading_instance">Pobieranie informacji o serwerze…</string>
 	<string name="error">Błąd</string>
+	<string name="not_a_mastodon_instance">%s wydaje się nie być instancją Mastodona.</string>
 	<string name="ok">OK</string>
 	<string name="preparing_auth">Przygotowywanie do uwierzytelniania…</string>
 	<string name="finishing_auth">Kończenie uwierzytelniania…</string>
@@ -426,5 +430,7 @@
 	<string name="remove_bookmark">Usuń zakładkę</string>
 	<string name="bookmarks">Zakładki</string>
 	<string name="your_favorites">Twoje ulubione</string>
+	<string name="login_title">Witaj ponownie</string>
+	<string name="login_subtitle">Zaloguj się na serwer, na którym utworzyłeś swoje konto.</string>
 	<!-- {logo} is a placeholder that is replaced with the Mastodon logo image at runtime. Please copy it into your translation as is. -->
 </resources>
