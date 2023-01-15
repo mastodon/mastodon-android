@@ -7,6 +7,8 @@
 	<string name="loading_instance">Атрыманне інфармацыі аб серверы…</string>
 	<string name="error">Памылка</string>
 	<string name="ok">Добра</string>
+	<string name="preparing_auth">Падрыхтоўка да аўтэнтыфікацыі…</string>
+	<string name="finishing_auth">Завяршэнне аўтэнтыфікацыі…</string>
 	<string name="in_reply_to">У адказ %s</string>
 	<string name="notifications">Апавяшчэнні</string>
 	<string name="user_followed_you">падпісаўся(-лася) на вас</string>
@@ -173,7 +175,9 @@
 	<string name="unfollow_user">Адпісацца ад %s</string>
 	<string name="unfollow">Адпісацца</string>
 	<string name="mute_user_explain">Вы не ўбачыце іх допісы або рэпосты ў сваёй хатняй стужцы. Яны не даведаюцца, што вы іх ігнаруеце.</string>
+	<string name="report_personal_title">Не хочаце бачыць гэта?</string>
 	<string name="back">Назад</string>
+	<string name="instance_rules_title">Некалькі базавых правілаў</string>
 	<string name="edit_photo">рэдагаваць</string>
 	<string name="display_name">бачнае імя</string>
 	<string name="username">імя карыстальніка</string>
@@ -188,6 +192,10 @@
 	<string name="category_games">Гульні</string>
 	<string name="category_general">Асноўныя</string>
 	<string name="category_journalism">Журналістыка</string>
+	<string name="category_lgbt">ЛГБТ</string>
+	<string name="category_music">Музыка</string>
+	<string name="category_regional">Рэгіянальныя</string>
+	<string name="category_tech">Тэхналогіі</string>
 	<string name="resend">Адправіць паўторна</string>
 	<string name="open_email_app">Адкрыць праграму для пошты</string>
 	<string name="content_warning">Папярэджанне аб змесціве</string>
@@ -210,6 +218,7 @@
 	<string name="notification_type_poll">Апытанні</string>
 	<string name="choose_account">Выберыце ўліковы запіс</string>
 	<string name="err_not_logged_in">Спачатку ўвайдзіце ў Mastodon</string>
+	<string name="settings_theme">Знешні выгляд</string>
 	<string name="theme_auto">Аўтаматычна</string>
 	<string name="theme_light">Светлая</string>
 	<string name="theme_dark">Цёмная</string>
@@ -222,8 +231,12 @@
 	<string name="notify_followed">на каго я падпісаны</string>
 	<string name="notify_none">ніхто</string>
 	<string name="notify_follow">Падпісаўся на мяне</string>
+	<string name="settings_boring">Нудная зона</string>
+	<string name="settings_account">Налады ўліковага запісу</string>
 	<string name="settings_tos">Умовы выкарыстання</string>
 	<string name="settings_privacy_policy">Палітыка прыватнасці</string>
+	<string name="settings_spicy">Вострая зона</string>
+	<string name="sensitive_content">Далікатны змест</string>
 	<string name="media_hidden">Націсніце, каб паказаць</string>
 	<string name="avatar_description">Перайсці да профілю %s</string>
 	<string name="more_options">Больш опцый</string>
@@ -288,6 +301,7 @@
 	<string name="post_info_favorites">Абраныя</string>
 	<string name="edit_history">Гісторыя рэдагавання</string>
 	<string name="time_just_now">толькі што</string>
+	<string name="edit_original_post">Зыходны допіс</string>
 	<string name="edit_poll_added">Апытанне дададзена</string>
 	<string name="edit_poll_edited">Апытанне адрэдагавана</string>
 	<string name="edit_poll_removed">Апытанне выдалена</string>
@@ -305,11 +319,13 @@
 	<string name="install_update">Усталяваць</string>
 	<string name="i_agree">Я згодны</string>
 	<string name="empty_list">Гэты ліст пусты</string>
+	<string name="text_copied">Скапіявана ў буфер абмену</string>
 	<string name="add_bookmark">Закладка</string>
 	<string name="remove_bookmark">Выдаліць закладку</string>
 	<string name="bookmarks">Закладкі</string>
 	<string name="your_favorites">Вашы абраныя</string>
 	<string name="login_title">З вяртаннем</string>
+	<string name="server_url">URL-адрас сервера</string>
 	<!-- {logo} is a placeholder that is replaced with the Mastodon logo image at runtime. Please copy it into your translation as is. -->
 	<string name="welcome_page1_title">Што такое {logo}?</string>
 </resources>
