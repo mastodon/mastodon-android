@@ -17,11 +17,11 @@ public class DiscoverPostsFragment extends StatusListFragment{
 
 	@Override
 	protected void doLoadData(int offset, int count){
-		currentRequest=new GetTrendingStatuses(count)
+		currentRequest=new GetTrendingStatuses(offset, count)
 				.setCallback(new SimpleCallback<>(this){
 					@Override
 					public void onSuccess(List<Status> result){
-						onDataLoaded(result, false);
+						onDataLoaded(result, !result.isEmpty());
 					}
 				}).exec(accountID);
 	}
