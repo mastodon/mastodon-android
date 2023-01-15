@@ -3,9 +3,16 @@ Mastodon for Android
 
 [![Crowdin](https://badges.crowdin.net/mastodon-for-android/localized.svg)](https://crowdin.com/project/mastodon-for-android)
 
-<a href="https://play.google.com/store/apps/details?id=org.joinmastodon.android"><img src="img/google-play-badge.png" height="50"></a>
-
 This is the repository for the official Android app for Mastodon.
+
+[<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png"
+     alt="Get it on F-Droid"
+     height="80">](https://f-droid.org/packages/org.joinmastodon.android/)
+[<img src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png"
+     alt="Get it on Google Play"
+     height="80">](https://play.google.com/store/apps/details?id=org.joinmastodon.android)
+
+Or get the APK from the [The Releases Section](https://github.com/mastodon/mastodon-android/releases/latest).
 
 ## Contributing
 
