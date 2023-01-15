@@ -526,7 +526,7 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 						DraftMediaAttachment da=new DraftMediaAttachment();
 						da.serverAttachment=att;
 						da.description=att.description;
-						da.uri=Uri.parse(att.previewUrl);
+						da.uri=att.previewUrl!=null ? Uri.parse(att.previewUrl) : null;
 						da.state=AttachmentUploadState.DONE;
 						attachmentsView.addView(createMediaAttachmentView(da));
 						attachments.add(da);
@@ -919,7 +919,8 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 		View thumb=getActivity().getLayoutInflater().inflate(R.layout.compose_media_thumb, attachmentsView, false);
 		ImageView img=thumb.findViewById(R.id.thumb);
 		if(draft.serverAttachment!=null){
-			ViewImageLoader.load(img, draft.serverAttachment.blurhashPlaceholder, new UrlImageLoaderRequest(draft.serverAttachment.previewUrl, V.dp(250), V.dp(250)));
+			if(draft.serverAttachment.previewUrl!=null)
+				ViewImageLoader.load(img, draft.serverAttachment.blurhashPlaceholder, new UrlImageLoaderRequest(draft.serverAttachment.previewUrl, V.dp(250), V.dp(250)));
 		}else{
 			if(draft.mimeType.startsWith("image/")){
 				ViewImageLoader.load(img, null, new UrlImageLoaderRequest(draft.uri, V.dp(250), V.dp(250)));
