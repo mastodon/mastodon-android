@@ -303,6 +303,7 @@
 	<string name="hide_boosts_from_user">Схаваць рэпосты ад %s</string>
 	<string name="show_boosts_from_user">Паказаць рэпосты ад %s</string>
 	<string name="signup_reason">чаму вы жадаеце далучыцца?</string>
+	<string name="signup_reason_note">Гэта дапаможа нам разгледзець вашу заяўку.</string>
 	<string name="clear">Ачысціць</string>
 	<string name="profile_header">Відарыс шапкі</string>
 	<string name="profile_picture">Аватар</string>
@@ -316,6 +317,9 @@
 	<string name="downloading">Спампоўванне…</string>
 	<string name="no_app_to_handle_action">Няма праграмы для выканання гэтага дзеяння</string>
 	<string name="local_timeline">Супольнасць</string>
+	<string name="trending_posts_info_banner">Допісы, што набіраюць папулярнасць у вашым кутку Mastodon.</string>
+	<string name="trending_hashtags_info_banner">Хэштэгі, што набіраюць папулярнасць у вашым кутку Mastodon.</string>
+	<string name="trending_links_info_banner">Навіна, якая найбольш абмяркоўваецца ў вашым кутку Mastodon.</string>
 	<string name="local_timeline_info_banner">Гэта самыя апошнія допісы людзей, якія выкарыстоўваюць той жа сервер Mastodon, што і вы.</string>
 	<string name="dismiss">Адхіліць</string>
 	<string name="see_new_posts">Паказаць новыя допісы</string>
@@ -333,18 +337,43 @@
 		<item quantity="many">%,d падпісчыкаў</item>
 		<item quantity="other">%,d падпісчыкаў</item>
 	</plurals>
+	<plurals name="x_following">
+		<item quantity="one">%,d падпіска</item>
+		<item quantity="few">%,d падпіскі</item>
+		<item quantity="many">%,d падпісак</item>
+		<item quantity="other">%,d падпісак</item>
+	</plurals>
+	<plurals name="x_favorites">
+		<item quantity="one">%,d абраны</item>
+		<item quantity="few">%,d абраныя</item>
+		<item quantity="many">%,d абраных</item>
+		<item quantity="other">%,d абраных</item>
+	</plurals>
 	<plurals name="x_reblogs">
 		<item quantity="one">%,d рэпост</item>
 		<item quantity="few">%,d рэпосты</item>
 		<item quantity="many">%,d рэпостаў</item>
 		<item quantity="other">%,d рэпостаў</item>
 	</plurals>
+	<string name="timestamp_via_app">%1$s праз %2$s</string>
 	<string name="time_now">толькі што</string>
 	<string name="post_info_reblogs">Рэпосты</string>
 	<string name="post_info_favorites">Абраныя</string>
 	<string name="edit_history">Гісторыя рэдагавання</string>
 	<string name="last_edit_at_x">Апошняе рэдагаванне %s</string>
 	<string name="time_just_now">толькі што</string>
+	<plurals name="x_seconds_ago">
+		<item quantity="one">%d секунду таму</item>
+		<item quantity="few">%d секунды таму</item>
+		<item quantity="many">%d секунд таму</item>
+		<item quantity="other">%d секунд таму</item>
+	</plurals>
+	<plurals name="x_minutes_ago">
+		<item quantity="one">%d хвіліну таму</item>
+		<item quantity="few">%d хвіліны таму</item>
+		<item quantity="many">%d хвілін таму</item>
+		<item quantity="other">%d хвілін таму</item>
+	</plurals>
 	<string name="edited_timestamp">адрэдагавана %s</string>
 	<string name="edit_original_post">Зыходны допіс</string>
 	<string name="edit_text_edited">Тэкст адрэдагавана</string>
