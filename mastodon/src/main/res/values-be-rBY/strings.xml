@@ -6,6 +6,7 @@
 	<string name="next">Далей</string>
 	<string name="loading_instance">Атрыманне інфармацыі аб серверы…</string>
 	<string name="error">Памылка</string>
+	<string name="not_a_mastodon_instance">Здаецца, %s не з\'яўляецца серверам Mastodon.</string>
 	<string name="ok">Добра</string>
 	<string name="preparing_auth">Падрыхтоўка да аўтэнтыфікацыі…</string>
 	<string name="finishing_auth">Завяршэнне аўтэнтыфікацыі…</string>
@@ -152,6 +153,12 @@
 	<string name="for_you">Для вас</string>
 	<string name="all_notifications">Усе</string>
 	<string name="mentions">Згадванні</string>
+	<plurals name="discussed_x_times">
+		<item quantity="one">Абмяркоўвалася %d раз</item>
+		<item quantity="few">Абмяркоўвалася %d разы</item>
+		<item quantity="many">Абмяркоўвалася %d разоў</item>
+		<item quantity="other">Абмяркоўвалася %d разоў</item>
+	</plurals>
 	<string name="report_title">Паскардзіцца на %s</string>
 	<string name="report_choose_reason">Што не так з гэтым допісам?</string>
 	<string name="report_choose_reason_account">Што не так з %s?</string>
@@ -176,10 +183,14 @@
 	<string name="unfollow_user">Адпісацца ад %s</string>
 	<string name="unfollow">Адпісацца</string>
 	<string name="mute_user_explain">Вы не ўбачыце іх допісы або рэпосты ў сваёй хатняй стужцы. Яны не даведаюцца, што вы іх ігнаруеце.</string>
+	<string name="block_user_explain">Яны больш не змогуць падпісвацца на вас або бачыць вашыя допісы, але змогуць бачыць, што яны былі заблакіраваны.</string>
 	<string name="report_personal_title">Не хочаце бачыць гэта?</string>
 	<string name="back">Назад</string>
+	<string name="instance_catalog_title">Mastodon складаецца з карыстальнікаў на розных серверах.</string>
+	<string name="instance_catalog_subtitle">Выбірайце сервер у залежнасці ад вашых інтарэсаў, рэгіёна або выберыце сервер агульнага прызначэння. Вы па-ранейшаму можаце ўзаемадзейнічаць з усімі, незалежна ад сервера.</string>
 	<string name="search_communities">Знайдзіце серверы або ўвядзіце URL</string>
 	<string name="instance_rules_title">Некалькі базавых правілаў</string>
+	<string name="instance_rules_subtitle">Знайдзіце хвілінку, каб азнаёміцца з правіламі, устаноўленымі адміністратарамі %s.</string>
 	<string name="signup_title">Давайце наладзім вас на %s</string>
 	<string name="edit_photo">рэдагаваць</string>
 	<string name="display_name">бачнае імя</string>
@@ -212,6 +223,8 @@
 	<string name="edit_image">Рэдагаваць відарыс</string>
 	<string name="save">Захаваць</string>
 	<string name="add_alt_text">Дадаць альтэрнатыўны тэкст</string>
+	<string name="alt_text_subtitle">Альтэрнатыўны тэкст апісвае вашы фатаграфіі для людзей са слабым зрокам ці без яго. Паспрабуйце ўключыць дастаткова дэталяў, каб быў зразумелы кантэкст.</string>
+	<string name="alt_text_hint">напрыклад, Сабака падазрона азіраецца з прыжмуранымі вачыма на камеру.</string>
 	<string name="visibility_public">Публічны</string>
 	<string name="visibility_followers_only">Толькі для падпісчыкаў</string>
 	<string name="visibility_private">Толькі людзі, якіх я згадаў</string>
@@ -227,11 +240,21 @@
 	<string name="notification_type_poll">Апытанні</string>
 	<string name="choose_account">Выберыце ўліковы запіс</string>
 	<string name="err_not_logged_in">Спачатку ўвайдзіце ў Mastodon</string>
+	<plurals name="cant_add_more_than_x_attachments">
+		<item quantity="one">Вы не можаце дадаць больш за %d далучэнне</item>
+		<item quantity="few">Вы не можаце дадаць больш за %d далучэнні</item>
+		<item quantity="many">Вы не можаце дадаць больш за %d далучэнняў</item>
+		<item quantity="other">Вы не можаце дадаць больш за %d далучэнняў</item>
+	</plurals>
+	<string name="media_attachment_unsupported_type">Тып файла %s не падтрымліваецца</string>
+	<string name="media_attachment_too_big">Памер файла %1$s перавышае абмежаванне ў %2$s МБ</string>
 	<string name="settings_theme">Знешні выгляд</string>
 	<string name="theme_auto">Аўтаматычна</string>
 	<string name="theme_light">Светлая</string>
 	<string name="theme_dark">Цёмная</string>
+	<string name="theme_true_black">Сапраўдны чорны рэжым</string>
 	<string name="settings_behavior">Паводзіны</string>
+	<string name="settings_gif">Прайграваць аніміраваныя аватары і эмодзі</string>
 	<string name="settings_custom_tabs">Выкарыстоўваць убудаваны браўзер</string>
 	<string name="settings_notifications">Апавяшчэнні</string>
 	<string name="notify_me_when">Паведаміце мне, калі</string>
@@ -239,6 +262,7 @@
 	<string name="notify_follower">падпісчык</string>
 	<string name="notify_followed">на каго я падпісаны</string>
 	<string name="notify_none">ніхто</string>
+	<string name="notify_favorites">Дадае мой допіс у абранае</string>
 	<string name="notify_follow">Падпісаўся на мяне</string>
 	<string name="notify_reblog">Робіць рэпост майго допісу</string>
 	<string name="notify_mention">Згадвае мяне</string>
@@ -249,9 +273,11 @@
 	<string name="settings_privacy_policy">Палітыка прыватнасці</string>
 	<string name="settings_spicy">Вострая зона</string>
 	<string name="settings_clear_cache">Ачысціць кэш медыя</string>
+	<string name="settings_app_version">Mastodon для Android v%1$s (%2$d)</string>
 	<string name="media_cache_cleared">Кэш медыя ачышчаны</string>
 	<string name="confirm_log_out">Вы ўпэўненыя, што хочаце выйсці?</string>
 	<string name="sensitive_content">Далікатны змест</string>
+	<string name="sensitive_content_explain">Аўтар пазначыў гэты медыя файл як далікатны. Націсніце, каб паказаць.</string>
 	<string name="media_hidden">Націсніце, каб паказаць</string>
 	<string name="avatar_description">Перайсці да профілю %s</string>
 	<string name="more_options">Больш опцый</string>
@@ -269,6 +295,7 @@
 	<string name="post_visibility">Бачнасць допісу</string>
 	<string name="home_timeline">Хатняя стужка</string>
 	<string name="my_profile">Мой профіль</string>
+	<string name="media_viewer">Праграма для прагляду медыя</string>
 	<string name="follow_user">Падпісацца на %s</string>
 	<string name="unfollowed_user">Адпісацца ад %s</string>
 	<string name="followed_user">Цяпер вы падпісаны на %s</string>
@@ -289,6 +316,7 @@
 	<string name="downloading">Спампоўванне…</string>
 	<string name="no_app_to_handle_action">Няма праграмы для выканання гэтага дзеяння</string>
 	<string name="local_timeline">Супольнасць</string>
+	<string name="local_timeline_info_banner">Гэта самыя апошнія допісы людзей, якія выкарыстоўваюць той жа сервер Mastodon, што і вы.</string>
 	<string name="dismiss">Адхіліць</string>
 	<string name="see_new_posts">Паказаць новыя допісы</string>
 	<string name="load_missing_posts">Загрузіць адсутныя допісы</string>
@@ -323,7 +351,9 @@
 	<string name="edit_poll_added">Апытанне дададзена</string>
 	<string name="edit_poll_edited">Апытанне адрэдагавана</string>
 	<string name="edit_poll_removed">Апытанне выдалена</string>
-	<string name="edit_media_added">Медыя дададзена</string>
+	<string name="edit_media_added">Медыя дададзены</string>
+	<string name="edit_media_removed">Медыя выдалены</string>
+	<string name="edit_media_reordered">Медыя пераўпарадкаваны</string>
 	<string name="edit_marked_sensitive">Пазначаны як далікатны</string>
 	<string name="edit_marked_not_sensitive">Пазначаны як неадчувальны</string>
 	<string name="edit_multiple_changed">Допіс адрэдагавана</string>
@@ -357,6 +387,7 @@
 	<string name="server_url">URL-адрас сервера</string>
 	<!-- {logo} is a placeholder that is replaced with the Mastodon logo image at runtime. Please copy it into your translation as is. -->
 	<string name="welcome_page1_title">Што такое {logo}?</string>
+	<string name="welcome_page2_title">Mastodon такі.</string>
 	<string name="welcome_page2_text">Ваш ідэнтыфікатар можа быць @gothgirl654@example.social, але вы ўсё яшчэ можаце падпісвацца, рэпосціць і перапісвацца з @fallout5ever@example.online.</string>
 	<string name="welcome_page3_title">Як выбраць сервер?</string>
 </resources>
