@@ -9,6 +9,7 @@
 	<string name="ok">Добра</string>
 	<string name="preparing_auth">Падрыхтоўка да аўтэнтыфікацыі…</string>
 	<string name="finishing_auth">Завяршэнне аўтэнтыфікацыі…</string>
+	<string name="user_boosted">%s зрабіў рэпост</string>
 	<string name="in_reply_to">У адказ %s</string>
 	<string name="notifications">Апавяшчэнні</string>
 	<string name="user_followed_you">падпісаўся(-лася) на вас</string>
@@ -177,12 +178,15 @@
 	<string name="mute_user_explain">Вы не ўбачыце іх допісы або рэпосты ў сваёй хатняй стужцы. Яны не даведаюцца, што вы іх ігнаруеце.</string>
 	<string name="report_personal_title">Не хочаце бачыць гэта?</string>
 	<string name="back">Назад</string>
+	<string name="search_communities">Знайдзіце серверы або ўвядзіце URL</string>
 	<string name="instance_rules_title">Некалькі базавых правілаў</string>
+	<string name="signup_title">Давайце наладзім вас на %s</string>
 	<string name="edit_photo">рэдагаваць</string>
 	<string name="display_name">бачнае імя</string>
 	<string name="username">імя карыстальніка</string>
 	<string name="email">электронная пошта</string>
 	<string name="password">пароль</string>
+	<string name="password_note">Выкарыстоўвайце вялікія літары, спецыяльныя сімвалы і лічбы, каб павялічыць надзейнасць пароля.</string>
 	<string name="category_academia">Акадэмія</string>
 	<string name="category_activism">Актывізм</string>
 	<string name="category_all">Усе</string>
@@ -197,10 +201,14 @@
 	<string name="category_regional">Рэгіянальныя</string>
 	<string name="category_tech">Тэхналогіі</string>
 	<string name="confirm_email_title">І яшчэ адно</string>
+	<string name="confirm_email_subtitle">Націсніце на спасылку, якую мы адправілі вам па электроннай пошце, каб пацвердзіць свой уліковы запіс.</string>
 	<string name="resend">Адправіць паўторна</string>
 	<string name="open_email_app">Адкрыць праграму для пошты</string>
+	<string name="resent_email">Электронны ліст з пацвярджэннем адпраўлены</string>
+	<string name="compose_hint">Напішыце тое, аб чым думаеце</string>
 	<string name="content_warning">Папярэджанне аб змесціве</string>
 	<string name="add_image_description">Дадаць апісанне відарыса…</string>
+	<string name="retry_upload">Паўтарыць запампоўку</string>
 	<string name="edit_image">Рэдагаваць відарыс</string>
 	<string name="save">Захаваць</string>
 	<string name="add_alt_text">Дадаць альтэрнатыўны тэкст</string>
@@ -232,11 +240,17 @@
 	<string name="notify_followed">на каго я падпісаны</string>
 	<string name="notify_none">ніхто</string>
 	<string name="notify_follow">Падпісаўся на мяне</string>
+	<string name="notify_reblog">Робіць рэпост майго допісу</string>
+	<string name="notify_mention">Згадвае мяне</string>
 	<string name="settings_boring">Нудная зона</string>
 	<string name="settings_account">Налады ўліковага запісу</string>
+	<string name="settings_contribute">Унесці ўклад у Mastodon</string>
 	<string name="settings_tos">Умовы выкарыстання</string>
 	<string name="settings_privacy_policy">Палітыка прыватнасці</string>
 	<string name="settings_spicy">Вострая зона</string>
+	<string name="settings_clear_cache">Ачысціць кэш медыя</string>
+	<string name="media_cache_cleared">Кэш медыя ачышчаны</string>
+	<string name="confirm_log_out">Вы ўпэўненыя, што хочаце выйсці?</string>
 	<string name="sensitive_content">Далікатны змест</string>
 	<string name="media_hidden">Націсніце, каб паказаць</string>
 	<string name="avatar_description">Перайсці да профілю %s</string>
@@ -301,23 +315,37 @@
 	<string name="post_info_reblogs">Рэпосты</string>
 	<string name="post_info_favorites">Абраныя</string>
 	<string name="edit_history">Гісторыя рэдагавання</string>
+	<string name="last_edit_at_x">Апошняе рэдагаванне %s</string>
 	<string name="time_just_now">толькі што</string>
+	<string name="edited_timestamp">адрэдагавана %s</string>
 	<string name="edit_original_post">Зыходны допіс</string>
+	<string name="edit_text_edited">Тэкст адрэдагавана</string>
 	<string name="edit_poll_added">Апытанне дададзена</string>
 	<string name="edit_poll_edited">Апытанне адрэдагавана</string>
 	<string name="edit_poll_removed">Апытанне выдалена</string>
+	<string name="edit_media_added">Медыя дададзена</string>
 	<string name="edit_marked_sensitive">Пазначаны як далікатны</string>
 	<string name="edit_marked_not_sensitive">Пазначаны як неадчувальны</string>
 	<string name="edit_multiple_changed">Допіс адрэдагавана</string>
 	<string name="edit">Рэдагаваць</string>
 	<string name="discard_changes">Скасаваць змены?</string>
 	<string name="upload_failed">Не ўдалося запампаваць</string>
+	<string name="file_size_bytes">%d байтаў</string>
+	<string name="file_size_kb">%.2f КБ</string>
+	<string name="file_size_mb">%.2f МБ</string>
+	<string name="file_size_gb">%.2f ГБ</string>
+	<string name="file_upload_progress">%1$s з %2$s</string>
+	<string name="file_upload_time_remaining">Засталося %s</string>
+	<string name="upload_error_connection_lost">Ваша прылада страціла злучэнне з Інтэрнэтам</string>
 	<string name="upload_processing">Апрацоўка…</string>
 	<!-- %s is version like 1.2.3 -->
+	<string name="update_available">Mastodon для Android %s гатовы да спампоўкі.</string>
 	<!-- %s is version like 1.2.3 -->
+	<string name="update_ready">Mastodon для Android %s спампаваны і гатовы да ўсталявання.</string>
 	<!-- %s is file size -->
 	<string name="download_update">Спампаваць (%s)</string>
 	<string name="install_update">Усталяваць</string>
+	<string name="privacy_policy_title">Mastodon і ваша канфідэнцыяльнасць</string>
 	<string name="i_agree">Я згодны</string>
 	<string name="empty_list">Гэты ліст пусты</string>
 	<string name="text_copied">Скапіявана ў буфер абмену</string>
@@ -329,4 +357,6 @@
 	<string name="server_url">URL-адрас сервера</string>
 	<!-- {logo} is a placeholder that is replaced with the Mastodon logo image at runtime. Please copy it into your translation as is. -->
 	<string name="welcome_page1_title">Што такое {logo}?</string>
+	<string name="welcome_page2_text">Ваш ідэнтыфікатар можа быць @gothgirl654@example.social, але вы ўсё яшчэ можаце падпісвацца, рэпосціць і перапісвацца з @fallout5ever@example.online.</string>
+	<string name="welcome_page3_title">Як выбраць сервер?</string>
 </resources>
