@@ -119,6 +119,12 @@
 		<item quantity="many">%d дзён засталося</item>
 		<item quantity="other">%d дзён засталося</item>
 	</plurals>
+	<plurals name="x_voters">
+		<item quantity="one">%,d прагаласаваў</item>
+		<item quantity="few">%,d прагаласавала</item>
+		<item quantity="many">%,d прагаласавала</item>
+		<item quantity="other">%,d прагаласавала</item>
+	</plurals>
 	<string name="poll_closed">Завершана</string>
 	<string name="confirm_mute_title">Ігнараваць уліковы запіс</string>
 	<string name="confirm_mute">Ігнараваць %s?</string>
@@ -153,6 +159,12 @@
 	<string name="for_you">Для вас</string>
 	<string name="all_notifications">Усе</string>
 	<string name="mentions">Згадванні</string>
+	<plurals name="x_people_talking">
+		<item quantity="one">%d чалавек размаўляе</item>
+		<item quantity="few">%d чалавекі размаўляе</item>
+		<item quantity="many">%d чалавек размаўляе</item>
+		<item quantity="other">%d чалавек размаўляе</item>
+	</plurals>
 	<plurals name="discussed_x_times">
 		<item quantity="one">Абмяркоўвалася %d раз</item>
 		<item quantity="few">Абмяркоўвалася %d разы</item>
@@ -185,6 +197,7 @@
 	<string name="mute_user_explain">Вы не ўбачыце іх допісы або рэпосты ў сваёй хатняй стужцы. Яны не даведаюцца, што вы іх ігнаруеце.</string>
 	<string name="block_user_explain">Яны больш не змогуць падпісвацца на вас або бачыць вашыя допісы, але змогуць бачыць, што яны былі заблакіраваны.</string>
 	<string name="report_personal_title">Не хочаце бачыць гэта?</string>
+	<string name="report_personal_subtitle">Калі вы бачыце на Mastodon нешта, што вам не падабаецца, вы можаце выдаліць чалавека са свайго асяроддзя.</string>
 	<string name="back">Назад</string>
 	<string name="instance_catalog_title">Mastodon складаецца з карыстальнікаў на розных серверах.</string>
 	<string name="instance_catalog_subtitle">Выбірайце сервер у залежнасці ад вашых інтарэсаў, рэгіёна або выберыце сервер агульнага прызначэння. Вы па-ранейшаму можаце ўзаемадзейнічаць з усімі, незалежна ад сервера.</string>
@@ -377,6 +390,9 @@
 	<string name="edited_timestamp">адрэдагавана %s</string>
 	<string name="edit_original_post">Зыходны допіс</string>
 	<string name="edit_text_edited">Тэкст адрэдагавана</string>
+	<string name="edit_spoiler_added">Папярэджанне аб змесціве дададзена</string>
+	<string name="edit_spoiler_edited">Папярэджанне аб змесціве адрэдагавана</string>
+	<string name="edit_spoiler_removed">Папярэджанне аб змесціве выдалена</string>
 	<string name="edit_poll_added">Апытанне дададзена</string>
 	<string name="edit_poll_edited">Апытанне адрэдагавана</string>
 	<string name="edit_poll_removed">Апытанне выдалена</string>
@@ -407,12 +423,14 @@
 	<string name="privacy_policy_title">Mastodon і ваша канфідэнцыяльнасць</string>
 	<string name="i_agree">Я згодны</string>
 	<string name="empty_list">Гэты ліст пусты</string>
+	<string name="instance_signup_closed">Гэты сервер не прымае новыя рэгістрацыі.</string>
 	<string name="text_copied">Скапіявана ў буфер абмену</string>
 	<string name="add_bookmark">Закладка</string>
 	<string name="remove_bookmark">Выдаліць закладку</string>
 	<string name="bookmarks">Закладкі</string>
 	<string name="your_favorites">Вашы абраныя</string>
 	<string name="login_title">З вяртаннем</string>
+	<string name="login_subtitle">Увайдзіце з дапамогай сервера, на якім вы стварылі свой уліковы запіс.</string>
 	<string name="server_url">URL-адрас сервера</string>
 	<!-- {logo} is a placeholder that is replaced with the Mastodon logo image at runtime. Please copy it into your translation as is. -->
 	<string name="welcome_page1_title">Што такое {logo}?</string>
