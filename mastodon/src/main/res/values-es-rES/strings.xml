@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="get_started">Crear cuenta</string>
-	<string name="already_have_account">Ya tengo cuenta</string>
-	<string name="log_in">Acceder</string>
+	<string name="already_have_account">Ya tengo una cuenta</string>
+	<string name="log_in">Iniciar sesión</string>
 	<string name="next">Siguiente</string>
 	<string name="loading_instance">Recuperando información del servidor…</string>
 	<string name="error">Error</string>
-	<string name="not_a_mastodon_instance">%s no parece ser un servidor Mastodon.</string>
+	<string name="not_a_mastodon_instance">%s no parece ser un servidor de Mastodon.</string>
 	<string name="ok">Aceptar</string>
 	<string name="preparing_auth">Preparando para autenticación…</string>
 	<string name="finishing_auth">Finalizando autenticación…</string>
 	<string name="user_boosted">%s reblogueó</string>
 	<string name="in_reply_to">En respuesta a %s</string>
 	<string name="notifications">Notificaciones</string>
-	<string name="user_followed_you">te siguió</string>
-	<string name="user_sent_follow_request">te quiere seguir</string>
+	<string name="user_followed_you">ha empezado a seguirte</string>
+	<string name="user_sent_follow_request">te envió una solicitud de seguimiento</string>
 	<string name="user_favorited">marcó como favorita tu publicación</string>
 	<string name="notification_boosted">reblogueó tu publicación</string>
 	<string name="poll_ended">encuesta finalizada</string>
@@ -25,7 +25,7 @@
 	<string name="share_toot_title">Compartir</string>
 	<string name="settings">Ajustes</string>
 	<string name="publish">Publicar</string>
-	<string name="discard_draft">¿Descartar el borrador?</string>
+	<string name="discard_draft">¿Descartar borrador?</string>
 	<string name="discard">Descartar</string>
 	<string name="cancel">Cancelar</string>
 	<plurals name="followers">
@@ -103,7 +103,7 @@
 	</plurals>
 	<string name="poll_closed">Cerrado</string>
 	<string name="confirm_mute_title">Silenciar cuenta</string>
-	<string name="confirm_mute">Confirmar para silenciar %s</string>
+	<string name="confirm_mute">Confirmar para silenciar a %s</string>
 	<string name="do_mute">Silenciar</string>
 	<string name="confirm_unmute_title">Dejar de silenciar cuenta</string>
 	<string name="confirm_unmute">Confirmar para dejar de silenciar a %s</string>
