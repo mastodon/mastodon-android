@@ -23,6 +23,7 @@ public class PushSubscription extends BaseModel implements Cloneable{
 				", endpoint='"+endpoint+'\''+
 				", alerts="+alerts+
 				", serverKey='"+serverKey+'\''+
+				", policy="+policy+
 				'}';
 	}
 

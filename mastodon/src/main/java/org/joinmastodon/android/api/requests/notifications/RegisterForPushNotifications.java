@@ -9,7 +9,7 @@ public class RegisterForPushNotifications extends MastodonAPIRequest<PushSubscri
 		Request r=new Request();
 		r.subscription.endpoint="https://app.joinmastodon.org/relay-to/fcm/"+deviceToken+"/"+accountID;
 		r.data.alerts=alerts;
-		r.data.policy=policy;
+		r.policy=policy;
 		r.subscription.keys.p256dh=encryptionKey;
 		r.subscription.keys.auth=authKey;
 		setRequestBody(r);
@@ -18,6 +18,7 @@ public class RegisterForPushNotifications extends MastodonAPIRequest<PushSubscri
 	private static class Request{
 		public Subscription subscription=new Subscription();
 		public Data data=new Data();
+		public PushSubscription.Policy policy;
 
 		private static class Keys{
 			public String p256dh;
@@ -31,7 +32,6 @@ public class RegisterForPushNotifications extends MastodonAPIRequest<PushSubscri
 
 		private static class Data{
 			public PushSubscription.Alerts alerts;
-			public PushSubscription.Policy policy;
 		}
 	}
 }
