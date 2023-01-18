@@ -25,6 +25,7 @@ import com.squareup.otto.Subscribe;
 
 import org.joinmastodon.android.E;
 import org.joinmastodon.android.R;
+import org.joinmastodon.android.api.requests.markers.SaveMarkers;
 import org.joinmastodon.android.api.requests.timelines.GetHomeTimeline;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.events.SelfUpdateStateChangedEvent;
@@ -61,6 +62,7 @@ public class HomeTimelineFragment extends StatusListFragment{
 	private AnimatorSet currentNewPostsAnim;
 
 	private String maxID;
+	private String lastSavedMarkerID;
 
 	public HomeTimelineFragment(){
 		setListLayoutId(R.layout.recycler_fragment_with_fab);
@@ -138,6 +140,29 @@ public class HomeTimelineFragment extends StatusListFragment{
 				loadData();
 			}else if(!dataLoading){
 				loadNewPosts();
+			}
+		}
+	}
+
+	@Override
+	protected void onHidden(){
+		super.onHidden();
+		if(!data.isEmpty()){
+			String topPostID=displayItems.get(list.getChildAdapterPosition(list.getChildAt(0))-getMainAdapterOffset()).parentID;
+			if(!topPostID.equals(lastSavedMarkerID)){
+				lastSavedMarkerID=topPostID;
+				new SaveMarkers(topPostID, null)
+						.setCallback(new Callback<>(){
+							@Override
+							public void onSuccess(SaveMarkers.Response result){
+							}
+
+							@Override
+							public void onError(ErrorResponse error){
+								lastSavedMarkerID=null;
+							}
+						})
+						.exec(accountID);
 			}
 		}
 	}
