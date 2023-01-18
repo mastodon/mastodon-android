@@ -37,7 +37,6 @@ public class NestableScrollView extends ScrollView{
 
 	@Override
 	public boolean onTouchEvent(MotionEvent ev){
-		Log.d("111", "onTouchEvent: "+ev);
 		if(ev.getAction()==MotionEvent.ACTION_DOWN){
 			if(canScrollVertically(-1) || canScrollVertically(1)){
 				getParent().requestDisallowInterceptTouchEvent(true);
