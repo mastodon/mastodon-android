@@ -4,7 +4,9 @@
 	<string name="already_have_account">Xa teño unha conta</string>
 	<string name="log_in">Acceder</string>
 	<string name="next">Seguinte</string>
+	<string name="loading_instance">Obtendo info do servidor…</string>
 	<string name="error">Erro</string>
+	<string name="not_a_mastodon_instance">%s non semella ser un servidor Mastodon.</string>
 	<string name="ok">OK</string>
 	<string name="preparing_auth">Preparándose para a autenticación…</string>
 	<string name="finishing_auth">Rematando coa autenticación…</string>
@@ -386,5 +388,14 @@
 	<string name="remove_bookmark">Eliminar marcador</string>
 	<string name="bookmarks">Marcadores</string>
 	<string name="your_favorites">Publicacións Favoritas</string>
+	<string name="login_title">Benvida outra vez</string>
+	<string name="login_subtitle">Accede co servidor onde creaches a conta.</string>
+	<string name="server_url">URL do servidor</string>
 	<!-- {logo} is a placeholder that is replaced with the Mastodon logo image at runtime. Please copy it into your translation as is. -->
+	<string name="welcome_page1_title">Que é {logo}?</string>
+	<string name="welcome_page1_text">Imaxina que tes un enderezo de email que remata con @exemplo.com.\n\nPodes recibir e enviar mensaxes con calquera persoa, incluso se o seu email remata en @gmail.com ou @icloud.com ou @exemplo.com.</string>
+	<string name="welcome_page2_title">Mastodon é o mesmo.</string>
+	<string name="welcome_page2_text">O teu identificador pode ser @rula654@exemplo.social, pero podes seguir, promover e conversar con @gz4libre@exemplo.online.</string>
+	<string name="welcome_page3_title">Como elexir un servidor?</string>
+	<string name="welcome_page3_text">Pode haber moitas razóns para elexir un servidor. art.exemplo é un bo lugar para artistas, mentras glasgow.exemplo podería ser axeitado para persoas escocesas.\n\nNon terás problemas con calquera dos servidores recomendados, así que independentemente do que elixas (ou se escribes o teu propio na caixa de busca) non botarás nada en falta.</string>
 </resources>
