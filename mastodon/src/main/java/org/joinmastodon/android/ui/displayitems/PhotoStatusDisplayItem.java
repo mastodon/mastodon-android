@@ -66,6 +66,7 @@ public class PhotoStatusDisplayItem extends ImageStatusDisplayItem{
 			altTextScroller.setVisibility(View.GONE);
 			altTextClose.setVisibility(View.GONE);
 			altTextButton.setVisibility(View.VISIBLE);
+			altTextButton.setAlpha(1f);
 			if(TextUtils.isEmpty(item.attachment.description)){
 				altTextWrapper.setVisibility(View.GONE);
 			}else{
