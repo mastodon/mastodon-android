@@ -148,7 +148,7 @@ public class HomeTimelineFragment extends StatusListFragment{
 	protected void onHidden(){
 		super.onHidden();
 		if(!data.isEmpty()){
-			String topPostID=displayItems.get(list.getChildAdapterPosition(list.getChildAt(0))-getMainAdapterOffset()).parentID;
+			String topPostID=displayItems.get(Math.max(0, list.getChildAdapterPosition(list.getChildAt(0))-getMainAdapterOffset())).parentID;
 			if(!topPostID.equals(lastSavedMarkerID)){
 				lastSavedMarkerID=topPostID;
 				new SaveMarkers(topPostID, null)
