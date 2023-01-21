@@ -11,6 +11,13 @@
 
 	<permission android:name="${applicationId}.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
 
+	<queries>
+		<intent>
+			<action android:name="android.intent.action.PROCESS_TEXT" />
+			<data android:mimeType="text/plain" />
+		</intent>
+	</queries>
+
 	<application
 		android:name=".MastodonApp"
 		android:allowBackup="true"
