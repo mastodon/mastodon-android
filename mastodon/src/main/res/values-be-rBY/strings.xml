@@ -10,7 +10,7 @@
 	<string name="ok">Добра</string>
 	<string name="preparing_auth">Падрыхтоўка да аўтэнтыфікацыі…</string>
 	<string name="finishing_auth">Завяршэнне аўтэнтыфікацыі…</string>
-	<string name="user_boosted">%s зрабіў рэпост</string>
+	<string name="user_boosted">%s пашырыў</string>
 	<string name="in_reply_to">У адказ %s</string>
 	<string name="notifications">Апавяшчэнні</string>
 	<string name="user_followed_you">падпісаўся(-лася) на вас</string>
@@ -194,7 +194,7 @@
 	<string name="report_sent_subtitle">Пакуль мы разглядаем яе, вы можаце прыняць меры супраць %s.</string>
 	<string name="unfollow_user">Адпісацца ад %s</string>
 	<string name="unfollow">Адпісацца</string>
-	<string name="mute_user_explain">Вы не ўбачыце іх допісы або рэпосты ў сваёй хатняй стужцы. Яны не даведаюцца, што вы іх ігнаруеце.</string>
+	<string name="mute_user_explain">Вы не ўбачыце іх допісы або пашырэнні ў сваёй хатняй стужцы. Яны не даведаюцца, што вы іх ігнаруеце.</string>
 	<string name="block_user_explain">Яны больш не змогуць падпісвацца на вас або бачыць вашыя допісы, але змогуць бачыць, што яны былі заблакіраваны.</string>
 	<string name="report_personal_title">Не хочаце бачыць гэта?</string>
 	<string name="report_personal_subtitle">Калі вы бачыце на Mastodon нешта, што вам не падабаецца, вы можаце выдаліць чалавека са свайго асяроддзя.</string>
@@ -313,8 +313,8 @@
 	<string name="unfollowed_user">Адпісацца ад %s</string>
 	<string name="followed_user">Цяпер вы падпісаны на %s</string>
 	<string name="open_in_browser">Адкрыць у браўзеры</string>
-	<string name="hide_boosts_from_user">Схаваць рэпосты ад %s</string>
-	<string name="show_boosts_from_user">Паказаць рэпосты ад %s</string>
+	<string name="hide_boosts_from_user">Схаваць пашырэнні ад %s</string>
+	<string name="show_boosts_from_user">Паказаць пашырэнні ад %s</string>
 	<string name="signup_reason">чаму вы жадаеце далучыцца?</string>
 	<string name="signup_reason_note">Гэта дапаможа нам разгледзець вашу заяўку.</string>
 	<string name="clear">Ачысціць</string>
@@ -365,12 +365,12 @@
 	<plurals name="x_reblogs">
 		<item quantity="one">%,d рэпост</item>
 		<item quantity="few">%,d рэпосты</item>
-		<item quantity="many">%,d рэпостаў</item>
-		<item quantity="other">%,d рэпостаў</item>
+		<item quantity="many">%,d пашырэнняў</item>
+		<item quantity="other">%,d пашырэнняў</item>
 	</plurals>
 	<string name="timestamp_via_app">%1$s праз %2$s</string>
 	<string name="time_now">толькі што</string>
-	<string name="post_info_reblogs">Рэпосты</string>
+	<string name="post_info_reblogs">Пашырэнні</string>
 	<string name="post_info_favorites">Абраныя</string>
 	<string name="edit_history">Гісторыя рэдагавання</string>
 	<string name="last_edit_at_x">Апошняе рэдагаванне %s</string>
@@ -437,7 +437,7 @@
 	<string name="welcome_page1_title">Што такое {logo}?</string>
 	<string name="welcome_page1_text">Уявіце, што ў вас ёсць адрас электроннай пошты, які заканчваецца на @example.com.\n\nВы па-ранейшаму можаце адпраўляць і атрымліваць электронныя лісты ад каго захочаце, нават калі іх электронная пошта заканчваецца на @gmail.com, @icloud.com або @example.com.</string>
 	<string name="welcome_page2_title">Mastodon такі.</string>
-	<string name="welcome_page2_text">Ваш ідэнтыфікатар можа быць @gothgirl654@example.social, але вы ўсё яшчэ можаце падпісвацца, рэпосціць і перапісвацца з @fallout5ever@example.online.</string>
+	<string name="welcome_page2_text">Ваш ідэнтыфікатар можа быць @gothgirl654@example.social, але вы ўсё яшчэ можаце падпісвацца, пашыраць і перапісвацца з @fallout5ever@example.online.</string>
 	<string name="welcome_page3_title">Як выбраць сервер?</string>
 	<string name="welcome_page3_text">Розныя людзі выбіраюць розныя серверы па розных прычынах. art.example з\'яўляецца выдатным месцам для мастакоў, у той час як glasgow.example можа быць добрым выбарам для шатландцаў.\n\nВы не памыліцеся ні з адным з нашых рэкамендаваных сервераў, так што незалежна ад таго, які вы выбераце (або калі ўведзяце ваш уласны ў радку пошуку сервера), вы нідзе нічога не прапусціце.</string>
 </resources>
