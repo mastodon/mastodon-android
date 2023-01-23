@@ -72,6 +72,18 @@ public class NotificationsFragment extends MastodonToolbarFragment implements Sc
 
 		tabLayout.setTabTextSize(V.dp(16));
 		tabLayout.setTabTextColors(UiUtils.getThemeColor(getActivity(), R.attr.colorTabInactive), UiUtils.getThemeColor(getActivity(), android.R.attr.textColorPrimary));
+		tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+			@Override
+			public void onTabSelected(TabLayout.Tab tab) {}
+
+			@Override
+			public void onTabUnselected(TabLayout.Tab tab) {}
+
+			@Override
+			public void onTabReselected(TabLayout.Tab tab) {
+				scrollToTop();
+			}
+		});
 
 		pager.setOffscreenPageLimit(4);
 		pager.setAdapter(new DiscoverPagerAdapter());
@@ -137,6 +149,7 @@ public class NotificationsFragment extends MastodonToolbarFragment implements Sc
 	protected void updateToolbar(){
 		super.updateToolbar();
 		getToolbar().setOutlineProvider(null);
+		getToolbar().setOnClickListener(v->scrollToTop());
 	}
 
 	private NotificationsListFragment getFragmentForPage(int page){
