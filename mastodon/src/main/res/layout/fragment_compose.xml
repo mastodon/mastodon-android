@@ -165,16 +165,16 @@
 		android:background="?colorBackgroundLightest"
 		android:elevation="2dp"
 		android:outlineProvider="bounds"
-		android:paddingLeft="16dp"
-		android:paddingRight="16dp"
+		android:paddingHorizontal="10dp"
+		android:layout_marginEnd="6dp"
 		android:layoutDirection="locale">
 
 		<ImageButton
 			android:id="@+id/btn_media"
-			android:layout_width="24dp"
-			android:layout_height="24dp"
-			android:layout_marginEnd="24dp"
-			android:background="?android:attr/selectableItemBackgroundBorderless"
+			android:layout_width="36dp"
+			android:layout_height="36dp"
+			android:layout_marginEnd="12dp"
+			android:background="?android:attr/actionBarItemBackground"
 			android:padding="0px"
 			android:tint="@color/compose_button"
 			android:tintMode="src_in"
@@ -184,10 +184,10 @@
 
 		<ImageButton
 			android:id="@+id/btn_poll"
-			android:layout_width="24dp"
-			android:layout_height="24dp"
-			android:layout_marginEnd="24dp"
-			android:background="?android:attr/selectableItemBackgroundBorderless"
+			android:layout_width="36dp"
+			android:layout_height="36dp"
+			android:layout_marginEnd="12dp"
+			android:background="?android:attr/actionBarItemBackground"
 			android:padding="0px"
 			android:tint="@color/compose_button"
 			android:tintMode="src_in"
@@ -197,10 +197,10 @@
 
 		<ImageButton
 			android:id="@+id/btn_emoji"
-			android:layout_width="24dp"
-			android:layout_height="24dp"
-			android:layout_marginEnd="24dp"
-			android:background="?android:attr/selectableItemBackgroundBorderless"
+			android:layout_width="36dp"
+			android:layout_height="36dp"
+			android:layout_marginEnd="12dp"
+			android:background="?android:attr/actionBarItemBackground"
 			android:padding="0px"
 			android:tint="@color/compose_button"
 			android:tintMode="src_in"
@@ -210,10 +210,10 @@
 
 		<ImageButton
 			android:id="@+id/btn_spoiler"
-			android:layout_width="24dp"
-			android:layout_height="24dp"
-			android:layout_marginEnd="24dp"
-			android:background="?android:attr/selectableItemBackgroundBorderless"
+			android:layout_width="36dp"
+			android:layout_height="36dp"
+			android:layout_marginEnd="12dp"
+			android:background="?android:attr/actionBarItemBackground"
 			android:padding="0px"
 			android:tint="@color/compose_button"
 			android:tintMode="src_in"
@@ -223,10 +223,10 @@
 
 		<ImageButton
 			android:id="@+id/btn_visibility"
-			android:layout_width="24dp"
-			android:layout_height="24dp"
-			android:layout_marginEnd="24dp"
-			android:background="?android:attr/selectableItemBackgroundBorderless"
+			android:layout_width="36dp"
+			android:layout_height="36dp"
+			android:layout_marginEnd="12dp"
+			android:background="?android:attr/actionBarItemBackground"
 			android:padding="0px"
 			android:tint="@color/compose_button"
 			android:tintMode="src_in"
