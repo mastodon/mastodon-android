@@ -201,15 +201,7 @@
 	<string name="back">Назад</string>
 	<string name="instance_catalog_title">Mastodon состоит из пользователей разнообразных серверов.</string>
 	<string name="instance_catalog_subtitle">Выберите сервер общей принадлежности, либо на основе своих интересов или региона. Вы по-прежнему сможете взаимодействовать с кем захотите, независимо от выбранного сервера.</string>
-	<string name="search_communities">Поиск по серверам или ссылке</string>
-	<string name="instance_rules_title">Несколько основных правил</string>
-	<string name="instance_rules_subtitle">Уделите минуту, чтобы изучить правила сообщества %s.</string>
-	<string name="signup_title">Давайте зарегистрируем вас на %s</string>
 	<string name="edit_photo">изменить</string>
-	<string name="display_name">отображаемое имя</string>
-	<string name="username">имя пользователя</string>
-	<string name="email">e-mail</string>
-	<string name="password">пароль</string>
 	<string name="password_note">Используйте заглавные буквы, числа и специальные символы, чтобы повысить стойкость пароля.</string>
 	<string name="category_academia">Академия</string>
 	<string name="category_activism">Активизм</string>
@@ -224,8 +216,7 @@
 	<string name="category_music">Музыка</string>
 	<string name="category_regional">Региональные</string>
 	<string name="category_tech">Технологии</string>
-	<string name="confirm_email_title">И ещё кое-что</string>
-	<string name="confirm_email_subtitle">Мы отправили вам письмо со специальной ссылкой. Нажмите её, чтобы подтвердить свою учётную запись.</string>
+	<!-- %s is the email address -->
 	<string name="resend">Отправить заново</string>
 	<string name="open_email_app">Открыть почту</string>
 	<string name="resent_email">Письмо подтверждения отправлено</string>
@@ -315,7 +306,6 @@
 	<string name="open_in_browser">Открыть в браузере</string>
 	<string name="hide_boosts_from_user">Скрыть продвижения от %s</string>
 	<string name="show_boosts_from_user">Показывать продвижения от %s</string>
-	<string name="signup_reason">почему вы хотите присоединиться?</string>
 	<string name="signup_reason_note">Это поможет нам рассмотреть вашу заявку.</string>
 	<string name="clear">Очистить</string>
 	<string name="profile_header">Изображение шапки</string>
@@ -388,5 +378,4 @@
 	<!-- %s is version like 1.2.3 -->
 	<!-- %s is version like 1.2.3 -->
 	<!-- %s is file size -->
-	<!-- {logo} is a placeholder that is replaced with the Mastodon logo image at runtime. Please copy it into your translation as is. -->
 </resources>
