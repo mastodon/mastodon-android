@@ -58,10 +58,6 @@
 	<string name="report_reason_spam">این هرزنامه است</string>
 	<string name="back">بازگشت</string>
 	<string name="edit_photo">ویرایش</string>
-	<string name="display_name">نام نمایشی</string>
-	<string name="username">نام کاربری</string>
-	<string name="email">ایمیل</string>
-	<string name="password">گذرواژه</string>
 	<string name="category_activism">فعالیت</string>
 	<string name="category_all">همه</string>
 	<string name="category_art">هنر</string>
@@ -71,6 +67,7 @@
 	<string name="category_music">موسیقی</string>
 	<string name="category_regional">منطقه‌ای</string>
 	<string name="category_tech">فناوری</string>
+	<!-- %s is the email address -->
 	<string name="resend">ارسال دوباره</string>
 	<string name="save">ذخیره</string>
 	<string name="visibility_public">عمومی</string>
@@ -99,5 +96,4 @@
 	<!-- %s is file size -->
 	<string name="install_update">نصب</string>
 	<string name="i_agree">موافقم</string>
-	<!-- {logo} is a placeholder that is replaced with the Mastodon logo image at runtime. Please copy it into your translation as is. -->
 </resources>
