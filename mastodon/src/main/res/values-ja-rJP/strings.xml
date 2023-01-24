@@ -155,15 +155,7 @@
 	<string name="back">戻る</string>
 	<string name="instance_catalog_title">Mastodonはさまざまなコミュニティによって作られています</string>
 	<string name="instance_catalog_subtitle">あなたの趣味</string>
-	<string name="search_communities">サーバーまたはURLを検索</string>
-	<string name="instance_rules_title">いくつかのルールがあります</string>
-	<string name="instance_rules_subtitle">1分少々時間を取って、%s の管理者が定めたルールを確認してください。</string>
-	<string name="signup_title">さあ %s でセットアップしましょう</string>
 	<string name="edit_photo">編集</string>
-	<string name="display_name">表示名</string>
-	<string name="username">ユーザーネーム</string>
-	<string name="email">メールアドレス</string>
-	<string name="password">パスワード</string>
 	<string name="password_note">パスワードの強度を高めるため、英大文字・数字・特殊文字を含めてください。</string>
 	<string name="category_academia">アカデミア</string>
 	<string name="category_activism">アクティビズム</string>
@@ -178,8 +170,7 @@
 	<string name="category_music">ミュージック</string>
 	<string name="category_regional">地域</string>
 	<string name="category_tech">技術</string>
-	<string name="confirm_email_title">最後に</string>
-	<string name="confirm_email_subtitle">メールで送られたリンクへアクセスし、アカウントを認証してください。</string>
+	<!-- %s is the email address -->
 	<string name="resend">再送信</string>
 	<string name="open_email_app">メールアプリを開く</string>
 	<string name="resent_email">確認メールを再送信しました</string>
@@ -266,7 +257,6 @@
 	<string name="open_in_browser">ブラウザで開く</string>
 	<string name="hide_boosts_from_user">%sさんのブーストを非表示</string>
 	<string name="show_boosts_from_user">%sさんのブーストを表示</string>
-	<string name="signup_reason">なぜ参加したいと思ったのですか？</string>
 	<string name="signup_reason_note">申請を承認する際に役立つメッセージを添えてください.</string>
 	<string name="clear">クリア</string>
 	<string name="profile_header">ヘッダー画像</string>
@@ -353,7 +343,6 @@
 	<!-- %s is file size -->
 	<string name="download_update">ダウンロード (%s)</string>
 	<string name="install_update">インストール</string>
-	<string name="privacy_policy_title">Mastodonとあなたのプライバシー</string>
 	<string name="privacy_policy_subtitle">Mastodonアプリはいかなるデータも収集しませんが、サインアップするサーバーは別のポリシーを持っている場合があります。Mastodonアプリのプライバシーポリシーとサーバーのプライバシーポリシーを確認をし、同意してください。</string>
 	<string name="i_agree">同意する</string>
 	<string name="empty_list">このリストは空です。</string>
@@ -363,5 +352,4 @@
 	<string name="remove_bookmark">ブックマークから削除</string>
 	<string name="bookmarks">ブックマーク</string>
 	<string name="your_favorites">お気に入り</string>
-	<!-- {logo} is a placeholder that is replaced with the Mastodon logo image at runtime. Please copy it into your translation as is. -->
 </resources>
