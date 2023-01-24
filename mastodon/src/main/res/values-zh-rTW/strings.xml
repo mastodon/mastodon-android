@@ -159,15 +159,7 @@
 	<string name="back">返回</string>
 	<string name="instance_catalog_title">Mastodon 由不同伺服器的使用者組成。</string>
 	<string name="instance_catalog_subtitle">基於您的興趣、地區、或一般用途選定一個伺服器。您仍會與任何伺服器中的每個人連結。</string>
-	<string name="search_communities">搜尋伺服器或輸入網址</string>
-	<string name="instance_rules_title">一些基本守則</string>
-	<string name="instance_rules_subtitle">花點時間閱讀由 %s 管理員實施的伺服器守則。</string>
-	<string name="signup_title">讓我們一起設定 %s 吧！</string>
 	<string name="edit_photo">編輯</string>
-	<string name="display_name">顯示名稱</string>
-	<string name="username">使用者名稱</string>
-	<string name="email">電子郵件</string>
-	<string name="password">密碼</string>
 	<string name="password_note">包含大寫、特殊字元、以及數字來提升您的密碼強度。</string>
 	<string name="category_academia">學術</string>
 	<string name="category_activism">社會運動</string>
@@ -182,8 +174,7 @@
 	<string name="category_music">音樂</string>
 	<string name="category_regional">區域性</string>
 	<string name="category_tech">科技</string>
-	<string name="confirm_email_title">最後一步</string>
-	<string name="confirm_email_subtitle">點擊我們寄送給您的帳號驗證連結。</string>
+	<!-- %s is the email address -->
 	<string name="resend">重新發送</string>
 	<string name="open_email_app">開啟電子郵件 App</string>
 	<string name="resent_email">確認郵件已發送</string>
@@ -270,7 +261,6 @@
 	<string name="open_in_browser">在瀏覽器中開啟</string>
 	<string name="hide_boosts_from_user">隱藏來自 %s 的轉嘟</string>
 	<string name="show_boosts_from_user">顯示來自 %s 的轉嘟</string>
-	<string name="signup_reason">為什麼想要加入呢？</string>
 	<string name="signup_reason_note">這會協助我們審核您的申請。</string>
 	<string name="clear">清除</string>
 	<string name="profile_header">標題圖片</string>
@@ -357,7 +347,6 @@
 	<!-- %s is file size -->
 	<string name="download_update">下載 (%s)</string>
 	<string name="install_update">安裝</string>
-	<string name="privacy_policy_title">Mastodon 與您的隱私</string>
 	<string name="privacy_policy_subtitle">儘管 Mastodon 應用程式並不會蒐集任何資料，您所註冊之伺服器可能有不同的隱私權政策。煩請花費些許時間檢閱並同意 Mastodon 應用程式隱私權政策以及您伺服器隻隱私權政策。</string>
 	<string name="i_agree">我已閱讀並同意</string>
 	<string name="empty_list">此列表為空</string>
@@ -370,8 +359,6 @@
 	<string name="login_title">歡迎回來</string>
 	<string name="login_subtitle">以您建立帳號之伺服器登入。</string>
 	<string name="server_url">伺服器 URL</string>
-	<!-- {logo} is a placeholder that is replaced with the Mastodon logo image at runtime. Please copy it into your translation as is. -->
-	<string name="welcome_page1_title">{logo} 是？</string>
 	<string name="welcome_page1_text">想像您擁有以 @example.com 結尾的 email 信箱地址。\n\n您仍可發送及接收來自任何人的電子郵件，無論他們的信箱是來自 @gmail.com 或 @icloud.com 或 @example.com。</string>
 	<string name="welcome_page2_title">Mastodon 就像這樣。</string>
 	<string name="welcome_page2_text">您的帳號可以是 @gothgirl654@example.social，但您仍可跟隨、轉嘟或是與 @fallout5ever@example.online 聊天互動。</string>
