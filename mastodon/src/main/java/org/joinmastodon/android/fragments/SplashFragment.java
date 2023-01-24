@@ -173,16 +173,7 @@ public class SplashFragment extends AppKitFragment{
 			TextView title=new TextView(getActivity());
 			title.setTextAppearance(R.style.m3_headline_medium);
 			title.setText(switch(page){
-				case 0 -> {
-					String src=getString(R.string.welcome_page1_title);
-					SpannableString ss=new SpannableString(src);
-					int start=src.indexOf("{logo}");
-					if(start!=-1){
-						LogoSpan span=new LogoSpan(getResources().getDrawable(R.drawable.splash_logo, getActivity().getTheme()));
-						ss.setSpan(span, start, start+6, 0);
-					}
-					yield ss;
-				}
+				case 0 -> getString(R.string.welcome_page1_title);
 				case 1 -> getString(R.string.welcome_page2_title);
 				case 2 -> getString(R.string.welcome_page3_title);
 				default -> throw new IllegalStateException("Unexpected value: "+page);
@@ -202,28 +193,6 @@ public class SplashFragment extends AppKitFragment{
 			});
 			text.setTextColor(0xFF17063B);
 			ll.addView(text, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-		}
-	}
-
-	private class LogoSpan extends ReplacementSpan{
-		private final Drawable drawable;
-
-		private LogoSpan(Drawable drawable){
-			this.drawable=drawable;
-		}
-
-		@Override
-		public int getSize(@NonNull Paint paint, CharSequence text, int start, int end, @Nullable Paint.FontMetricsInt fm){
-			return drawable.getIntrinsicWidth();
-		}
-
-		@Override
-		public void draw(@NonNull Canvas canvas, CharSequence text, int start, int end, float x, int top, int y, int bottom, @NonNull Paint paint){
-			drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
-			canvas.save();
-			canvas.translate(x, y-V.dp(20));
-			drawable.draw(canvas);
-			canvas.restore();
 		}
 	}
 }

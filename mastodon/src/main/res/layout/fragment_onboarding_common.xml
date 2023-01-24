@@ -136,6 +136,16 @@
 			android:text="@string/signup_random_server_explain"/>
 
 		<Button
+			android:id="@+id/btn_random_instance"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="16dp"
+			android:layout_marginRight="16dp"
+			android:layout_marginTop="8dp"
+			style="@style/Widget.Mastodon.M3.Button.Text"
+			android:text="@string/pick_server_for_me"/>
+
+		<Button
 			android:id="@+id/btn_next"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"

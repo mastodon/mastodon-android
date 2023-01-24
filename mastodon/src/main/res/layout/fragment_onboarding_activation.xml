@@ -58,13 +58,14 @@
 			android:id="@+id/btn_resend"
 			android:layout_width="wrap_content"
 			android:layout_height="40dp"
+			android:layout_marginStart="36dp"
 			android:text="@string/resend"
 			android:paddingTop="0dp"
 			android:paddingBottom="0dp"
 			android:paddingLeft="12dp"
 			android:paddingRight="12dp"
 			android:fontFeatureSettings="'tnum'"
-			style="@style/Widget.Mastodon.M3.Button.Text"/>
+			style="@style/Widget.Mastodon.M3.Button.Filled"/>
 
 	</LinearLayout>
 

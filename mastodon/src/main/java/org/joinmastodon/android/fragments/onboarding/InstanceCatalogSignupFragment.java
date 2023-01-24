@@ -20,7 +20,6 @@ import android.view.WindowInsets;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupMenu;
 import android.widget.RadioButton;
@@ -56,9 +55,6 @@ import me.grishka.appkit.Nav;
 import me.grishka.appkit.api.Callback;
 import me.grishka.appkit.api.ErrorResponse;
 import me.grishka.appkit.fragments.OnBackPressedListener;
-import me.grishka.appkit.imageloader.ImageLoaderRecyclerAdapter;
-import me.grishka.appkit.imageloader.ImageLoaderViewHolder;
-import me.grishka.appkit.imageloader.requests.ImageLoaderRequest;
 import me.grishka.appkit.utils.BindableViewHolder;
 import me.grishka.appkit.utils.CubicBezierInterpolator;
 import me.grishka.appkit.utils.MergeRecyclerAdapter;
@@ -366,6 +362,9 @@ public class InstanceCatalogSignupFragment extends InstanceCatalogFragment imple
 		}).collect(Collectors.toList());
 		focusThing=view.findViewById(R.id.focus_thing);
 		focusThing.requestFocus();
+
+		view.findViewById(R.id.btn_random_instance).setOnClickListener(this::onPickRandomInstanceClick);
+		nextButton.setEnabled(chosenInstance!=null);
 	}
 
 	private void onRegionFilterClick(View v){
@@ -397,22 +396,6 @@ public class InstanceCatalogSignupFragment extends InstanceCatalogFragment imple
 	}
 
 	@Override
-	protected void onNextClick(View v){
-		if(chosenInstance==null){
-			String lang=Locale.getDefault().getLanguage();
-			List<CatalogInstance> instances=data.stream().filter(ci->!ci.approvalRequired && ("general".equals(ci.category) || (ci.categories!=null && ci.categories.contains("general"))) && (lang.equals(ci.language) || (ci.languages!=null && ci.languages.contains(lang)))).collect(Collectors.toList());
-			if(instances.isEmpty()){
-				instances=data.stream().filter(ci->!ci.approvalRequired && ("general".equals(ci.category) || (ci.categories!=null && ci.categories.contains("general")))).collect(Collectors.toList());
-			}
-			if(instances.isEmpty()){
-				return;
-			}
-			chosenInstance=instances.get(new Random().nextInt(instances.size()));
-		}
-		super.onNextClick(v);
-	}
-
-	@Override
 	protected void proceedWithAuthOrSignup(Instance instance){
 		getActivity().getSystemService(InputMethodManager.class).hideSoftInputFromWindow(contentView.getWindowToken(), 0);
 		if(!instance.registrations){
@@ -426,6 +409,19 @@ public class InstanceCatalogSignupFragment extends InstanceCatalogFragment imple
 		Bundle args=new Bundle();
 		args.putParcelable("instance", Parcels.wrap(instance));
 		Nav.go(getActivity(), InstanceRulesFragment.class, args);
+	}
+
+	private void onPickRandomInstanceClick(View v){
+		String lang=Locale.getDefault().getLanguage();
+		List<CatalogInstance> instances=data.stream().filter(ci->!ci.approvalRequired && ("general".equals(ci.category) || (ci.categories!=null && ci.categories.contains("general"))) && (lang.equals(ci.language) || (ci.languages!=null && ci.languages.contains(lang)))).collect(Collectors.toList());
+		if(instances.isEmpty()){
+			instances=data.stream().filter(ci->!ci.approvalRequired && ("general".equals(ci.category) || (ci.categories!=null && ci.categories.contains("general")))).collect(Collectors.toList());
+		}
+		if(instances.isEmpty()){
+			return;
+		}
+		chosenInstance=instances.get(new Random().nextInt(instances.size()));
+		onNextClick(v);
 	}
 
 //	private String getEmojiForCategory(String category){
@@ -577,7 +573,7 @@ public class InstanceCatalogSignupFragment extends InstanceCatalogFragment imple
 		updateFilteredList();
 	}
 
-	private class InstancesAdapter extends UsableRecyclerView.Adapter<InstanceCatalogSignupFragment.InstanceViewHolder> implements ImageLoaderRecyclerAdapter{
+	private class InstancesAdapter extends UsableRecyclerView.Adapter<InstanceCatalogSignupFragment.InstanceViewHolder>{
 		public InstancesAdapter(){
 			super(imgLoader);
 		}
@@ -603,22 +599,11 @@ public class InstanceCatalogSignupFragment extends InstanceCatalogFragment imple
 		public int getItemViewType(int position){
 			return -1;
 		}
-
-		@Override
-		public int getImageCountForItem(int position){
-			return filteredData.get(position).thumbnailRequest!=null ? 1 : 0;
-		}
-
-		@Override
-		public ImageLoaderRequest getImageRequest(int position, int image){
-			return filteredData.get(position).thumbnailRequest;
-		}
 	}
 
-	private class InstanceViewHolder extends BindableViewHolder<CatalogInstance> implements UsableRecyclerView.DisableableClickable, ImageLoaderViewHolder{
+	private class InstanceViewHolder extends BindableViewHolder<CatalogInstance> implements UsableRecyclerView.DisableableClickable{
 		private final TextView title, description;
 		private final RadioButton radioButton;
-		private final ImageView thumbnail;
 		private boolean enabled;
 
 		public InstanceViewHolder(){
@@ -626,15 +611,12 @@ public class InstanceCatalogSignupFragment extends InstanceCatalogFragment imple
 			title=findViewById(R.id.title);
 			description=findViewById(R.id.description);
 			radioButton=findViewById(R.id.radiobtn);
-			thumbnail=findViewById(R.id.image);
 		}
 
 		@Override
 		public void onBind(CatalogInstance item){
 			title.setText(item.normalizedDomain);
 			radioButton.setChecked(chosenInstance==item);
-			if(item.thumbnailRequest==null)
-				thumbnail.setImageDrawable(null);
 			Instance realInstance=instancesCache.get(item.normalizedDomain);
 			float alpha;
 			if(realInstance!=null && !realInstance.registrations){
@@ -649,7 +631,6 @@ public class InstanceCatalogSignupFragment extends InstanceCatalogFragment imple
 			title.setAlpha(alpha);
 			description.setAlpha(alpha);
 			radioButton.setAlpha(alpha);
-			thumbnail.setAlpha(alpha);
 		}
 
 		@Override
@@ -672,21 +653,14 @@ public class InstanceCatalogSignupFragment extends InstanceCatalogFragment imple
 						adapter.notifyItemChanged(idx);
 				}
 			}
+			if(!nextButton.isEnabled()){
+				nextButton.setEnabled(true);
+			}
 			radioButton.setChecked(true);
 			if(chosenInstance==null)
 				nextButton.setEnabled(true);
 			chosenInstance=item;
 			loadInstanceInfo(chosenInstance.domain, false);
-		}
-
-		@Override
-		public void setImage(int index, Drawable image){
-			thumbnail.setImageDrawable(image);
-		}
-
-		@Override
-		public void clearImage(int index){
-			setImage(index, null);
 		}
 
 		@Override

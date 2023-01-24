@@ -71,6 +71,8 @@ public class InstanceRulesFragment extends ToolbarFragment{
 		btn.setOnClickListener(v->onButtonClick());
 		buttonBar=view.findViewById(R.id.button_bar);
 
+		view.findViewById(R.id.btn_back).setOnClickListener(v->Nav.finish(this));
+
 		return view;
 	}
 
