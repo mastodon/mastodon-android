@@ -159,15 +159,7 @@
 	<string name="back">Quay lại</string>
 	<string name="instance_catalog_title">Mastodon gồm nhiều máy chủ với thành viên riêng.</string>
 	<string name="instance_catalog_subtitle">Chọn một máy chủ dựa theo sở thích, tôn giáo, hoặc ý muốn của bạn. Bạn vẫn có thể giao tiếp với bất cứ ai mà không phụ thuộc vào máy chủ của họ.</string>
-	<string name="search_communities">Tìm máy chủ hoặc nhập URL</string>
-	<string name="instance_rules_title">Nội quy máy chủ</string>
-	<string name="instance_rules_subtitle">Hãy đọc kỹ nội quy máy chủ của %s và cân nhắc.</string>
-	<string name="signup_title">Hãy để tôi đăng ký trên %s</string>
 	<string name="edit_photo">sửa</string>
-	<string name="display_name">biệt danh</string>
-	<string name="username">tên người dùng</string>
-	<string name="email">email</string>
-	<string name="password">mật khẩu</string>
 	<string name="password_note">Hãy thêm chữ viết hoa, ký tự đặc biệt và số để tăng độ mạnh mật khẩu.</string>
 	<string name="category_academia">Học thuật</string>
 	<string name="category_activism">Hoạt động xã hội</string>
@@ -182,8 +174,7 @@
 	<string name="category_music">Âm nhạc</string>
 	<string name="category_regional">Khu vực</string>
 	<string name="category_tech">Công nghệ</string>
-	<string name="confirm_email_title">Còn điều này nữa</string>
-	<string name="confirm_email_subtitle">Nhấn vào liên kết chúng tôi gửi qua email để xác thực tài khoản.</string>
+	<!-- %s is the email address -->
 	<string name="resend">Gửi lại</string>
 	<string name="open_email_app">Mở ứng dụng email</string>
 	<string name="resent_email">Đã gửi email xác nhận</string>
@@ -270,7 +261,6 @@
 	<string name="open_in_browser">Mở trong trình duyệt</string>
 	<string name="hide_boosts_from_user">Ẩn đăng lại từ %s</string>
 	<string name="show_boosts_from_user">Hiện đăng lại từ %s</string>
-	<string name="signup_reason">vì sao bạn muốn tham gia?</string>
 	<string name="signup_reason_note">Điều này sẽ giúp chúng tôi phê duyệt đăng ký của bạn.</string>
 	<string name="clear">Xóa</string>
 	<string name="profile_header">Ảnh bìa</string>
@@ -357,7 +347,6 @@
 	<!-- %s is file size -->
 	<string name="download_update">Tải về (%s)</string>
 	<string name="install_update">Cài đặt</string>
-	<string name="privacy_policy_title">Mastodon và sự riêng tư của bạn</string>
 	<string name="privacy_policy_subtitle">Mặc dù ứng dụng Mastodon không thu thập thông tin của bạn, máy chủ mà bạn dùng để đăng kí tài khoản có thể có một điều khoản sử dụng khác. Dành một chút thời gian để đọc và chấp nhận điều khoản riêng tư của ứng dụng Mastodon và máy chủ của bạn.</string>
 	<string name="i_agree">Tôi đồng ý</string>
 	<string name="empty_list">Danh sách trống</string>
@@ -370,8 +359,6 @@
 	<string name="login_title">Chào mừng quay trở lại!</string>
 	<string name="login_subtitle">Đăng nhập với máy chủ nơi bạn tạo tài khoản.</string>
 	<string name="server_url">URL Máy chủ</string>
-	<!-- {logo} is a placeholder that is replaced with the Mastodon logo image at runtime. Please copy it into your translation as is. -->
-	<string name="welcome_page1_title">{logo} là gì?</string>
 	<string name="welcome_page1_text">Hãy tưởng tượng bạn có một địa chỉ email tên miền @example.com.\n\nBạn vẫn có thể gửi và nhận email từ bất kỳ ai, ngay cả khi email của họ là @gmail.com hoặc @icloud.com hoặc @example.com.</string>
 	<string name="welcome_page2_title">Mastodon tương tự vậy.</string>
 	<string name="welcome_page2_text">Địa chỉ của bạn có thể là @gothgirl654@example.social nhưng bạn vẫn có thể theo dõi, đăng lại tút và trò chuyện với @fallout5ever@example.online.</string>
