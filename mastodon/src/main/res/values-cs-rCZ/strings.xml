@@ -201,15 +201,7 @@
 	<string name="back">Zpět</string>
 	<string name="instance_catalog_title">Mastodon tvoří uživatelé z různých serverů.</string>
 	<string name="instance_catalog_subtitle">Vyberte si server podle na svých zájmů, regionu nebo obecného účelu. Stále se můžete spojit se všemi bez ohledu na server.</string>
-	<string name="search_communities">Hledat server nebo zadat URL</string>
-	<string name="instance_rules_title">Některá základní pravidla</string>
-	<string name="instance_rules_subtitle">Udělejte si chvíli čas a zkontrolujte pravidla, která admini %s nastavili a vynucují.</string>
-	<string name="signup_title">Pojďme si nastavit %s</string>
 	<string name="edit_photo">upravit</string>
-	<string name="display_name">zobrazované jméno</string>
-	<string name="username">uživatelské jméno</string>
-	<string name="email">e-mail</string>
-	<string name="password">heslo</string>
 	<string name="password_note">Použijte velká písmena, speciální znaky a čísla, abyste zvýšili sílu hesla.</string>
 	<string name="category_academia">Akademická sféra</string>
 	<string name="category_activism">Aktivismus</string>
@@ -224,8 +216,7 @@
 	<string name="category_music">Hudba</string>
 	<string name="category_regional">Regionální</string>
 	<string name="category_tech">Technologie</string>
-	<string name="confirm_email_title">Ještě jedna věc</string>
-	<string name="confirm_email_subtitle">Klepněte na odkaz, který jsme vám poslali e-mailem, abyste účet ověřili.</string>
+	<!-- %s is the email address -->
 	<string name="resend">Poslat znovu</string>
 	<string name="open_email_app">Otevřít e-mailovou aplikaci</string>
 	<string name="resent_email">Potvrzující e-mail byl odeslán</string>
@@ -315,7 +306,6 @@
 	<string name="open_in_browser">Otevřít v prohlížeči</string>
 	<string name="hide_boosts_from_user">Skrýt boosty od %s</string>
 	<string name="show_boosts_from_user">Zobrazit boosty od %s</string>
-	<string name="signup_reason">proč se chcete zaregistrovat?</string>
 	<string name="signup_reason_note">Toto nám pomůže posoudit vaši žádost.</string>
 	<string name="clear">Vyčistit</string>
 	<string name="profile_header">Obrázek v záhlaví</string>
@@ -420,7 +410,6 @@
 	<!-- %s is file size -->
 	<string name="download_update">Stáhnout (%s)</string>
 	<string name="install_update">Instalovat</string>
-	<string name="privacy_policy_title">Mastodon a vaše soukromí</string>
 	<string name="privacy_policy_subtitle">Ačkoliv aplikace Mastodon neshromažďuje žádná data, server, na kterém se registrujete, může mít jiné zásady. Věnujte minutu kontrole a odsouhlasení zásad soukromí aplikace Mastodon a vašeho serveru.</string>
 	<string name="i_agree">Souhlasím</string>
 	<string name="empty_list">Tento seznam je prázdný</string>
@@ -433,8 +422,6 @@
 	<string name="login_title">Vítejte zpět</string>
 	<string name="login_subtitle">Přihlaste se pomocí serveru, kde jste vytvořili svůj účet.</string>
 	<string name="server_url">URL serveru</string>
-	<!-- {logo} is a placeholder that is replaced with the Mastodon logo image at runtime. Please copy it into your translation as is. -->
-	<string name="welcome_page1_title">Co je {logo}?</string>
 	<string name="welcome_page1_text">Představte si, že máte e-mailovou adresu, která končí @example.com.\n\nStále můžete od kohokoliv odesílat a přijímat e-maily, i když jejich e-mail končí na @gmail.com nebo @icloud.com nebo @example.com.</string>
 	<string name="welcome_page2_title">Takový je Mastodon.</string>
 	<string name="welcome_page2_text">Vaše uživatelské jméno může být @gothgirl654@example.social, ale stále můžete sledovat, boostovat a chatovat s @fallout5ever@example.online.</string>
