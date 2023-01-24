@@ -172,15 +172,7 @@
 	<string name="back">Enrere</string>
 	<string name="instance_catalog_title">Mastodon està format per usuaris de diferents servidors.</string>
 	<string name="instance_catalog_subtitle">Tria un servidor en funció dels teus interessos, regió o un de propòsit general. Seguiràs podent connectar amb tothom, independentment del servidor.</string>
-	<string name="search_communities">Cerca servidors o introdueix l\'URL</string>
-	<string name="instance_rules_title">Algunes normes bàsiques</string>
-	<string name="instance_rules_subtitle">Pren un minut per revisar les normes establertes i aplicades pels administradors de %s.</string>
-	<string name="signup_title">Deixa que et posem en marxa a %s</string>
 	<string name="edit_photo">edita</string>
-	<string name="display_name">nom visible</string>
-	<string name="username">nom d\'usuari</string>
-	<string name="email">correu electrònic</string>
-	<string name="password">contrasenya</string>
 	<string name="password_note">Inclou lletres majúscules, caràcters especials i números per augmentar la seguretat de la teva contrasenya.</string>
 	<string name="category_academia">Acadèmic</string>
 	<string name="category_activism">Activisme</string>
@@ -195,8 +187,7 @@
 	<string name="category_music">Música</string>
 	<string name="category_regional">Regional</string>
 	<string name="category_tech">Tecnologia</string>
-	<string name="confirm_email_title">Una última cosa</string>
-	<string name="confirm_email_subtitle">Toca l\'enllaç del correu electrònic que t\'hem enviat per a confirmar el teu compte.</string>
+	<!-- %s is the email address -->
 	<string name="resend">Reenvia</string>
 	<string name="open_email_app">Obre l\'aplicació de correu</string>
 	<string name="resent_email">S’ha enviat el correu electrònic de confirmació</string>
@@ -284,7 +275,6 @@
 	<string name="open_in_browser">Obre al navegador</string>
 	<string name="hide_boosts_from_user">Amaga els impulsos de %s</string>
 	<string name="show_boosts_from_user">Mostra els impulsos de %s</string>
-	<string name="signup_reason">per què vols unir-te?</string>
 	<string name="signup_reason_note">Això ens ajudarà a revisar la teva petició.</string>
 	<string name="clear">Esborra</string>
 	<string name="profile_header">Imatge de capçalera</string>
@@ -377,7 +367,6 @@
 	<!-- %s is file size -->
 	<string name="download_update">Baixa (%s)</string>
 	<string name="install_update">Instal·la</string>
-	<string name="privacy_policy_title">Mastodon i la teva privacitat</string>
 	<string name="privacy_policy_subtitle">Tot i que l\'aplicació Mastodon no recull cap dada, el servidor mitjançant el qual et registres pot tenir una política diferent. Pren un minut per revisar i acceptar la política de privadesa de l\'aplicació Mastodon i la política de privadesa del teu servidor.</string>
 	<string name="i_agree">D’acord</string>
 	<string name="empty_list">Aquesta llista està buida</string>
@@ -390,5 +379,4 @@
 	<string name="login_title">Hola de nou</string>
 	<string name="login_subtitle">Inicia sessió amb el servidor on vas crear el compte.</string>
 	<string name="server_url">URL del servidor</string>
-	<!-- {logo} is a placeholder that is replaced with the Mastodon logo image at runtime. Please copy it into your translation as is. -->
 </resources>
