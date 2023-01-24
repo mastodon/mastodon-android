@@ -173,15 +173,7 @@
 	<string name="back">Tilbake</string>
 	<string name="instance_catalog_title">Mastodon er laget av brukere på forskjellige servere.</string>
 	<string name="instance_catalog_subtitle">Velg en server basert på dine interesser, regioner eller generell. Du kan fortsatt koble til alle, uavhengig av server.</string>
-	<string name="search_communities">Søk etter servere eller skriv inn URL</string>
-	<string name="instance_rules_title">Noen grunnregler</string>
-	<string name="instance_rules_subtitle">Ta ett minutt å gjennomgå reglene som er angitt og håndtert av %s administratorer.</string>
-	<string name="signup_title">La oss sette deg opp %s</string>
 	<string name="edit_photo">rediger</string>
-	<string name="display_name">visningsnavn</string>
-	<string name="username">brukernavn</string>
-	<string name="email">e-post</string>
-	<string name="password">passord</string>
 	<string name="password_note">Inkluder store bokstaver, spesialtegn og tall for å øke passordstyrken.</string>
 	<string name="category_academia">Akademia</string>
 	<string name="category_activism">Aktivisme</string>
@@ -195,8 +187,7 @@
 	<string name="category_music">Musikk</string>
 	<string name="category_regional">Region</string>
 	<string name="category_tech">Teknologi</string>
-	<string name="confirm_email_title">En siste ting</string>
-	<string name="confirm_email_subtitle">Trykk på linken vi har sendt til deg for å bekrefte din konto.</string>
+	<!-- %s is the email address -->
 	<string name="resend">Send på nytt</string>
 	<string name="open_email_app">Åpne e-post app</string>
 	<string name="resent_email">Bekreftelses e-post sendt</string>
@@ -284,7 +275,6 @@
 	<string name="open_in_browser">Åpne i nettleser</string>
 	<string name="hide_boosts_from_user">Skjul fremhevinger fra %s</string>
 	<string name="show_boosts_from_user">Vis fremhevinger fra %s</string>
-	<string name="signup_reason">hvorfor vil du bli med?</string>
 	<string name="signup_reason_note">Dette vil hjelpe oss med å gjennomgå din søknad.</string>
 	<string name="clear">Tøm</string>
 	<string name="profile_header">Toppbilde</string>
@@ -377,7 +367,6 @@
 	<!-- %s is file size -->
 	<string name="download_update">Last ned (%s)</string>
 	<string name="install_update">Installer</string>
-	<string name="privacy_policy_title">Mastodon og ditt personvern</string>
 	<string name="privacy_policy_subtitle">Selv om Mastodon-appen ikke samler inn data, kan det hende at serveren du registrerer deg med har en annen politikk. Ta et minutt å gjennomgå og godta Mastodon-appens personvernpolicy og serverens personvernpolicy.</string>
 	<string name="i_agree">Jeg godtar</string>
 	<string name="empty_list">Denne listen er tom</string>
@@ -390,8 +379,6 @@
 	<string name="login_title">Velkommen tilbake</string>
 	<string name="login_subtitle">Logg inn med serveren der du opprettet kontoen din.</string>
 	<string name="server_url">Server-URL</string>
-	<!-- {logo} is a placeholder that is replaced with the Mastodon logo image at runtime. Please copy it into your translation as is. -->
-	<string name="welcome_page1_title">Hva er {logo}?</string>
 	<string name="welcome_page1_text">Forestill deg at du sender en e-postadresse som slutter med @example.com.\n\nDu kan fortsatt sende og motta e-post fra hvem som helst, selv om e-posten deres slutter på @gmail.com eller @icloud.com eller @example.com.</string>
 	<string name="welcome_page2_title">Mastodon er slik.</string>
 	<string name="welcome_page2_text">Ditt håndtak kan være @gothgirl654@example.social, men du kan fortsatt følge, fremheve og chatte med @fallout5ever@example.online.</string>
