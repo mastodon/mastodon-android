@@ -173,15 +173,7 @@
 	<string name="back">Volver</string>
 	<string name="instance_catalog_title">Mastodon fórmano as persoas das diferentes comunidades.</string>
 	<string name="instance_catalog_subtitle">Elixe unha comunidade en función dos teus intereses, rexión ou de propósito xeral. Poderás conectar con calquera outra usuaria igualmente, independentemente da comunidade que elixas.</string>
-	<string name="search_communities">Busca un servidor ou escribe URL</string>
-	<string name="instance_rules_title">Algunhas regras básicas</string>
-	<string name="instance_rules_subtitle">Adica un minuto a revisar as regras establecidas pola administración de %s.</string>
-	<string name="signup_title">Imos crear a túa conta en %s</string>
 	<string name="edit_photo">editar</string>
-	<string name="display_name">nome público</string>
-	<string name="username">identificador</string>
-	<string name="email">email</string>
-	<string name="password">contrasinal</string>
 	<string name="password_note">Inclúe letras maiúsculas, caracteres especiais e números para aumentar a calidade do contrasinal.</string>
 	<string name="category_academia">Academia</string>
 	<string name="category_activism">Activismo</string>
@@ -196,8 +188,7 @@
 	<string name="category_music">Música</string>
 	<string name="category_regional">Rexional</string>
 	<string name="category_tech">Tecnoloxía</string>
-	<string name="confirm_email_title">O último detalle</string>
-	<string name="confirm_email_subtitle">Preme na ligazón que che enviamos ao email para verificar a conta.</string>
+	<!-- %s is the email address -->
 	<string name="resend">Reenviar</string>
 	<string name="open_email_app">Abrir app de email</string>
 	<string name="resent_email">Enviado o email de confirmación</string>
@@ -285,7 +276,6 @@
 	<string name="open_in_browser">Abrir nun navegador</string>
 	<string name="hide_boosts_from_user">Agochar promocións de @%s</string>
 	<string name="show_boosts_from_user">Mostrar promocións de %s</string>
-	<string name="signup_reason">por que queres unirte?</string>
 	<string name="signup_reason_note">Esto axudaranos a revisar a tua solicitude.</string>
 	<string name="clear">Limpar</string>
 	<string name="profile_header">Imaxe de cabeceira</string>
@@ -378,7 +368,6 @@
 	<!-- %s is file size -->
 	<string name="download_update">Descargar (%s)</string>
 	<string name="install_update">Instalar</string>
-	<string name="privacy_policy_title">Mastodon e a túa privacidade</string>
 	<string name="privacy_policy_subtitle">Aínda que a app Mastodon non recolle ningún dato, o servidor no que abriches a conta podería ter unha política diferente. Toma un intre para revisar e aceptar a política de privacidade da app Mastodon e a política de privacidade do teu servidor.</string>
 	<string name="i_agree">Acepto</string>
 	<string name="empty_list">A lista está baleira</string>
@@ -391,8 +380,6 @@
 	<string name="login_title">Benvida outra vez</string>
 	<string name="login_subtitle">Accede co servidor onde creaches a conta.</string>
 	<string name="server_url">URL do servidor</string>
-	<!-- {logo} is a placeholder that is replaced with the Mastodon logo image at runtime. Please copy it into your translation as is. -->
-	<string name="welcome_page1_title">Que é {logo}?</string>
 	<string name="welcome_page1_text">Imaxina que tes un enderezo de email que remata con @exemplo.com.\n\nPodes recibir e enviar mensaxes con calquera persoa, incluso se o seu email remata en @gmail.com ou @icloud.com ou @exemplo.com.</string>
 	<string name="welcome_page2_title">Mastodon é o mesmo.</string>
 	<string name="welcome_page2_text">O teu identificador pode ser @rula654@exemplo.social, pero podes seguir, promover e conversar con @gz4libre@exemplo.online.</string>
