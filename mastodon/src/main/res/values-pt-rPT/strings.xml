@@ -173,15 +173,7 @@
 	<string name="back">Voltar</string>
 	<string name="instance_catalog_title">O Mastodon é feito por utilizadores em diferentes servidores.</string>
 	<string name="instance_catalog_subtitle">Escolha um servidor baseado nos seus interesses, região ou um propósito geral. Conseguirá sempre ligar-se a qualquer pessoa, independentemente do servidor.</string>
-	<string name="search_communities">Procure um servidor ou insira um URL</string>
-	<string name="instance_rules_title">Algumas regras básicas</string>
-	<string name="instance_rules_subtitle">Reserve um minuto para rever as regras definidas e aplicadas por %s administradores.</string>
-	<string name="signup_title">Vamos inscrevê-lo em %s</string>
 	<string name="edit_photo">editar</string>
-	<string name="display_name">nome de exibição</string>
-	<string name="username">nome de utilizador</string>
-	<string name="email">e-mail</string>
-	<string name="password">palavra-passe</string>
 	<string name="password_note">Inclua letras maiúsculas, caracteres especiais e números para aumentar a força da sua senha.</string>
 	<string name="category_academia">Academia</string>
 	<string name="category_activism">Ativismo</string>
@@ -196,8 +188,7 @@
 	<string name="category_music">Música</string>
 	<string name="category_regional">Regional</string>
 	<string name="category_tech">Tecnologia</string>
-	<string name="confirm_email_title">Uma última coisa</string>
-	<string name="confirm_email_subtitle">Clique no link que lhe enviámos por e-mail para verificar a sua conta.</string>
+	<!-- %s is the email address -->
 	<string name="resend">Reenviar</string>
 	<string name="open_email_app">Abrir aplicação de e-mail</string>
 	<string name="resent_email">E-mail de confirmação enviado</string>
@@ -299,5 +290,4 @@
 	<!-- %s is version like 1.2.3 -->
 	<!-- %s is version like 1.2.3 -->
 	<!-- %s is file size -->
-	<!-- {logo} is a placeholder that is replaced with the Mastodon logo image at runtime. Please copy it into your translation as is. -->
 </resources>
