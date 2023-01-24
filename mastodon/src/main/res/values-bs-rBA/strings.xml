@@ -128,14 +128,7 @@
 	<string name="report_personal_title">Ne želite ovo vidjeti?</string>
 	<string name="report_personal_subtitle">Kada vidite nešto nepoželjno na Mastodon-u, možete blokirati odredjeni profil.</string>
 	<string name="back">Nazad</string>
-	<string name="instance_rules_title">Važna pravila</string>
-	<string name="instance_rules_subtitle">Pogledajte pravila koja je odredila %s administracija.</string>
-	<string name="signup_title">Krenimo sa postavkama na %s</string>
 	<string name="edit_photo">uredi</string>
-	<string name="display_name">vaše ime</string>
-	<string name="username">korisničko ime</string>
-	<string name="email">email</string>
-	<string name="password">lozinka</string>
 	<string name="password_note">Koristite velika slova, brojeve i oznake da bi osigurali lozinku.</string>
 	<string name="category_academia">Akademija</string>
 	<string name="category_activism">Aktivizam</string>
@@ -150,8 +143,7 @@
 	<string name="category_music">Muzika</string>
 	<string name="category_regional">Regionalno</string>
 	<string name="category_tech">Tehnika</string>
-	<string name="confirm_email_title">Zadnja stvar</string>
-	<string name="confirm_email_subtitle">Kliknite na link koji smo vam poslali u email-u da se verifikujete.</string>
+	<!-- %s is the email address -->
 	<string name="resend">Ponovo poslato</string>
 	<string name="open_email_app">Otvori email</string>
 	<string name="resent_email">Email za verifikaciju poslat</string>
@@ -237,7 +229,6 @@
 	<string name="unfollowed_user">Ne pratite %s</string>
 	<string name="followed_user">Sada pratite %s</string>
 	<string name="open_in_browser">Otvori u pregledniku</string>
-	<string name="signup_reason">zašto se želite pridružiti?</string>
 	<string name="signup_reason_note">Ovo nam pomaže prilikom odobravanja vašeg zahtjeva.</string>
 	<string name="clear">Briši</string>
 	<string name="profile_header">Slika zaglavlja</string>
@@ -254,5 +245,4 @@
 	<!-- %s is version like 1.2.3 -->
 	<!-- %s is version like 1.2.3 -->
 	<!-- %s is file size -->
-	<!-- {logo} is a placeholder that is replaced with the Mastodon logo image at runtime. Please copy it into your translation as is. -->
 </resources>
