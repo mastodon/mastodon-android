@@ -178,14 +178,7 @@
 	<string name="report_personal_title">Ne želiš vidjeti ovo?</string>
 	<string name="report_personal_subtitle">Kada vidiš nešto što ti se ne sviđa na Mastodonu, možeš ukloniti osobu iz svog iskustva.</string>
 	<string name="back">Natrag</string>
-	<string name="instance_rules_title">Neka osnovna pravila</string>
-	<string name="instance_rules_subtitle">Uzmi minutu za čitanje pravila koje provode %s administratori.</string>
-	<string name="signup_title">Hajmo te postaviti na %s</string>
 	<string name="edit_photo">uredi</string>
-	<string name="display_name">prikazano ime</string>
-	<string name="username">korisničko ime</string>
-	<string name="email">e-pošta</string>
-	<string name="password">lozinka</string>
 	<string name="password_note">Upotrijebi velika slova, posebne znakove i brojeve kako bi podigao jačinu tvoje lozinke.</string>
 	<string name="category_academia">Akademija</string>
 	<string name="category_activism">Aktivizam</string>
@@ -200,8 +193,7 @@
 	<string name="category_music">Glazba</string>
 	<string name="category_regional">Lokalno</string>
 	<string name="category_tech">Tehnologija</string>
-	<string name="confirm_email_title">Još jedna stvar</string>
-	<string name="confirm_email_subtitle">Dodirni vezu koju smo ti poslali e-poštom da potvrdiš svoj račun.</string>
+	<!-- %s is the email address -->
 	<string name="resend">Ponovno pošalji</string>
 	<string name="open_email_app">Otvori aplikaciju za e-poštu</string>
 	<string name="resent_email">Poslana je e-mail potvrda</string>
@@ -287,7 +279,6 @@
 	<string name="unfollowed_user">Otpratio si %s</string>
 	<string name="followed_user">Sada pratiš %s</string>
 	<string name="open_in_browser">Otvori u pregledniku</string>
-	<string name="signup_reason">zašto se želiš pridružiti?</string>
 	<string name="signup_reason_note">Ovo će nam pomoći da razmotrimo vašu prijavu.</string>
 	<string name="clear">Poništi</string>
 	<string name="profile_header">Slika zaglavlja</string>
@@ -305,5 +296,4 @@
 	<!-- %s is version like 1.2.3 -->
 	<!-- %s is version like 1.2.3 -->
 	<!-- %s is file size -->
-	<!-- {logo} is a placeholder that is replaced with the Mastodon logo image at runtime. Please copy it into your translation as is. -->
 </resources>
