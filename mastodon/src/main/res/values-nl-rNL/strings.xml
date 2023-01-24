@@ -173,15 +173,7 @@
 	<string name="back">Terug</string>
 	<string name="instance_catalog_title">Mastodon bestaat uit gebruikers op verschillende servers.</string>
 	<string name="instance_catalog_subtitle">Kies een server gebaseerd op je interesses, regio, of voor algemene doeleinden. Je kunt nog steeds met iedereen in contact komen, ongeacht de server.</string>
-	<string name="search_communities">Zoek servers of voer een URL in</string>
-	<string name="instance_rules_title">Enkele basisregels</string>
-	<string name="instance_rules_subtitle">Neem een minuut de tijd om de regels te bekijken die zijn ingesteld en worden gehandhaafd door de moderatoren van %s.</string>
-	<string name="signup_title">Laten we je account op %s instellen</string>
 	<string name="edit_photo">bewerken</string>
-	<string name="display_name">weergavenaam</string>
-	<string name="username">gebruikersnaam</string>
-	<string name="email">e-mailadres</string>
-	<string name="password">wachtwoord</string>
 	<string name="password_note">Voeg hoofdletters, speciale tekens en cijfers toe om je wachtwoord veiliger te maken.</string>
 	<string name="category_academia">Academisch</string>
 	<string name="category_activism">Activisme</string>
@@ -196,8 +188,7 @@
 	<string name="category_music">Muziek</string>
 	<string name="category_regional">Regionaal</string>
 	<string name="category_tech">Tech</string>
-	<string name="confirm_email_title">Nog één ding</string>
-	<string name="confirm_email_subtitle">Klik op de link die we naar je e-mailadres hebben gestuurd om je account te verifiëren.</string>
+	<!-- %s is the email address -->
 	<string name="resend">Opnieuw verzenden</string>
 	<string name="open_email_app">E-mail-app openen</string>
 	<string name="resent_email">Bevestigingsmail verzonden</string>
@@ -285,7 +276,6 @@
 	<string name="open_in_browser">Openen in browser</string>
 	<string name="hide_boosts_from_user">Boosts van %s verbergen</string>
 	<string name="show_boosts_from_user">Boosts van %s tonen</string>
-	<string name="signup_reason">Waarom wil je je hier registreren?</string>
 	<string name="signup_reason_note">Dit helpt ons om jouw aanvraag te beoordelen.</string>
 	<string name="clear">Leegmaken</string>
 	<string name="profile_header">Omslagfoto</string>
@@ -378,7 +368,6 @@
 	<!-- %s is file size -->
 	<string name="download_update">Downloaden (%s)</string>
 	<string name="install_update">Installeren</string>
-	<string name="privacy_policy_title">Mastodon en jouw privacy</string>
 	<string name="privacy_policy_subtitle">Hoewel de Mastodon-app geen gegevens verzamelt, kan de server die je aanmeldt een ander beleid hebben. Neem even de tijd om het privacybeleid van de Mastodon-app en het privacybeleid van de server te bekijken en hiermee akkoord te gaan.</string>
 	<string name="i_agree">Ik ga akkoord</string>
 	<string name="empty_list">Deze lijst is leeg</string>
@@ -391,8 +380,6 @@
 	<string name="login_title">Welkom terug</string>
 	<string name="login_subtitle">Log in met de server waar je je account hebt aangemaakt.</string>
 	<string name="server_url">Server-URL</string>
-	<!-- {logo} is a placeholder that is replaced with the Mastodon logo image at runtime. Please copy it into your translation as is. -->
-	<string name="welcome_page1_title">Wat is {logo}?</string>
 	<string name="welcome_page1_text">Stel je voor dat je een e-mailadres hebt dat eindigt op @example.com.\n\nJe kunt nog steeds e-mailen met iemand, ook als hun e-mail eindigt in @gmail.com, @icloud.com of @voorbeeld.com.</string>
 	<string name="welcome_page2_title">Mastodon is zoals dit.</string>
 	<string name="welcome_page2_text">Je handle is @gothgirl654@example.social, maar je kunt nog steeds @fallout5ever@example.online volgen, rebloggen en berichten sturen.</string>
