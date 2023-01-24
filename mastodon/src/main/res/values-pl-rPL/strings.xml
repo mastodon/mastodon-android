@@ -201,15 +201,7 @@
 	<string name="back">Wróć</string>
 	<string name="instance_catalog_title">Mastodon składa się z użytkowników na różnych serwerach.</string>
 	<string name="instance_catalog_subtitle">Wybierz serwer według Twoich zainteresowań, regionu lub ogólnotematyczny. Możesz nadal łączyć się ze wszystkimi, niezależnie od serwera.</string>
-	<string name="search_communities">Szukaj serwerów lub wprowadź adres URL</string>
-	<string name="instance_rules_title">Kilka podstawowych zasad</string>
-	<string name="instance_rules_subtitle">Poświęć chwilę, aby przejrzeć reguły ustalone i realizowane przez administratorów %s.</string>
-	<string name="signup_title">Skonfigurujmy Twoje konto na %s</string>
 	<string name="edit_photo">edytuj</string>
-	<string name="display_name">wyświetlana nazwa</string>
-	<string name="username">nazwa użytkownika</string>
-	<string name="email">adres e-mail</string>
-	<string name="password">hasło</string>
 	<string name="password_note">Użyj wielkich liter, znaków specjalnych i liczb, aby zwiększyć siłę swojego hasła.</string>
 	<string name="category_academia">Środowiska akademickie</string>
 	<string name="category_activism">Aktywizm</string>
@@ -224,8 +216,7 @@
 	<string name="category_music">Muzyka</string>
 	<string name="category_regional">Regionalne</string>
 	<string name="category_tech">Technologia</string>
-	<string name="confirm_email_title">Jeszcze jedno</string>
-	<string name="confirm_email_subtitle">Aby zweryfikować konto, naciśnij link, który wysłaliśmy na twój adres email.</string>
+	<!-- %s is the email address -->
 	<string name="resend">Wyślij ponownie</string>
 	<string name="open_email_app">Otwórz aplikację e-mail</string>
 	<string name="resent_email">Wysłano potwierdzający e-mail</string>
@@ -315,7 +306,6 @@
 	<string name="open_in_browser">Otwórz w przeglądarce</string>
 	<string name="hide_boosts_from_user">Ukryj podbicia od %s</string>
 	<string name="show_boosts_from_user">Pokaż podbicia od %s</string>
-	<string name="signup_reason">dlaczego chcesz dołączyć?</string>
 	<string name="signup_reason_note">To pomoże nam ocenić Twoją aplikację.</string>
 	<string name="clear">Wyczyść</string>
 	<string name="profile_header">Obraz nagłówka</string>
@@ -420,7 +410,6 @@
 	<!-- %s is file size -->
 	<string name="download_update">Pobierz (%s)</string>
 	<string name="install_update">Zainstaluj</string>
-	<string name="privacy_policy_title">Mastodon i Twoja prywatność</string>
 	<string name="privacy_policy_subtitle">Choć aplikacja Mastodona nie zbiera żadnych danych na Twój temat, serwer na którym się rejestrujesz może działać zgodnie z inną polityką. Poświęć chwilę na przejrzenie i akceptację polityki prywatności aplikacji Mastodona oraz Twojego serwera.</string>
 	<string name="i_agree">Wyrażam zgodę</string>
 	<string name="empty_list">Lista jest pusta</string>
@@ -433,8 +422,6 @@
 	<string name="login_title">Witaj ponownie</string>
 	<string name="login_subtitle">Zaloguj się na serwer, na którym utworzyłeś swoje konto.</string>
 	<string name="server_url">Adres URL serwera</string>
-	<!-- {logo} is a placeholder that is replaced with the Mastodon logo image at runtime. Please copy it into your translation as is. -->
-	<string name="welcome_page1_title">Czym jest {logo}?</string>
 	<string name="welcome_page1_text">Wyobraź sobie, że masz adres e-mail, który kończy się @example.com.\n\nNadal możesz wysyłać i odbierać wiadomości od każdego, nawet jeśli ich e-mail kończy się na @gmail.com lub @icloud.com lub @przykład.com.</string>
 	<string name="welcome_page2_title">Mastodon jest taki.</string>
 	<string name="welcome_page2_text">Twój nick może brzmieć @gothgirl654@example.social, ale nadal możesz obserwować, reblogować i rozmawiać z @fallout5ever@example.online.</string>
