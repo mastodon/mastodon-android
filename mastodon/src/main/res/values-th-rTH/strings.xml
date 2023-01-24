@@ -159,15 +159,7 @@
 	<string name="back">ย้อนกลับ</string>
 	<string name="instance_catalog_title">Mastodon ประกอบด้วยผู้ใช้ในเซิร์ฟเวอร์ต่าง ๆ</string>
 	<string name="instance_catalog_subtitle">เลือกเซิร์ฟเวอร์ตามความสนใจ, ภูมิภาค หรือวัตถุประสงค์ทั่วไปของคุณ คุณยังคงสามารถเชื่อมต่อกับทุกคน โดยไม่คำนึงถึงเซิร์ฟเวอร์</string>
-	<string name="search_communities">ค้นหาเซิร์ฟเวอร์หรือป้อน URL</string>
-	<string name="instance_rules_title">กฎพื้นฐานบางประการ</string>
-	<string name="instance_rules_subtitle">ใช้เวลาสักครู่เพื่อตรวจทานกฎที่ได้รับการตั้งและบังคับใช้โดยผู้ดูแลของ %s</string>
-	<string name="signup_title">มาตั้งค่าของคุณใน %s กันเลย</string>
 	<string name="edit_photo">แก้ไข</string>
-	<string name="display_name">ชื่อที่แสดง</string>
-	<string name="username">ชื่อผู้ใช้</string>
-	<string name="email">อีเมล</string>
-	<string name="password">รหัสผ่าน</string>
 	<string name="password_note">รวมตัวพิมพ์ใหญ่, อักขระพิเศษ และตัวเลขเพื่อเพิ่มความแข็งแรงของรหัสผ่านของคุณ</string>
 	<string name="category_academia">สถาบันการศึกษา</string>
 	<string name="category_activism">กิจกรรมเพื่อการเปลี่ยนแปลง</string>
@@ -182,8 +174,7 @@
 	<string name="category_music">ดนตรี</string>
 	<string name="category_regional">ภูมิภาค</string>
 	<string name="category_tech">เทคโนโลยี</string>
-	<string name="confirm_email_title">หนึ่งสิ่งสุดท้าย</string>
-	<string name="confirm_email_subtitle">แตะลิงก์ที่เราส่งอีเมลถึงคุณเพื่อยืนยันบัญชีของคุณ</string>
+	<!-- %s is the email address -->
 	<string name="resend">ส่งใหม่</string>
 	<string name="open_email_app">เปิดแอปอีเมล</string>
 	<string name="resent_email">ส่งอีเมลยืนยันแล้ว</string>
@@ -270,7 +261,6 @@
 	<string name="open_in_browser">เปิดในเบราว์เซอร์</string>
 	<string name="hide_boosts_from_user">ซ่อนการดันจาก %s</string>
 	<string name="show_boosts_from_user">แสดงการดันจาก %s</string>
-	<string name="signup_reason">ทำไมคุณจึงต้องการเข้าร่วม?</string>
 	<string name="signup_reason_note">นี่จะช่วยให้เราตรวจทานใบสมัครของคุณ</string>
 	<string name="clear">ล้าง</string>
 	<string name="profile_header">ภาพส่วนหัว</string>
@@ -357,7 +347,6 @@
 	<!-- %s is file size -->
 	<string name="download_update">ดาวน์โหลด (%s)</string>
 	<string name="install_update">ติดตั้ง</string>
-	<string name="privacy_policy_title">Mastodon และความเป็นส่วนตัวของคุณ</string>
 	<string name="privacy_policy_subtitle">แม้ว่าแอป Mastodon ไม่ได้เก็บรวบรวมข้อมูลใด ๆ เซิร์ฟเวอร์ที่คุณลงทะเบียนผ่านอาจมีนโยบายที่แตกต่างกัน ใช้เวลาสักครู่เพื่อตรวจทานและเห็นด้วยกับนโยบายความเป็นส่วนตัวของแอป Mastodon และนโยบายความเป็นส่วนตัวของเซิร์ฟเวอร์ของคุณ</string>
 	<string name="i_agree">ฉันเห็นด้วย</string>
 	<string name="empty_list">รายการนี้ว่างเปล่า</string>
@@ -370,8 +359,6 @@
 	<string name="login_title">ยินดีต้อนรับกลับมา</string>
 	<string name="login_subtitle">เข้าสู่ระบบด้วยเซิร์ฟเวอร์ที่ซึ่งคุณได้สร้างบัญชีของคุณ</string>
 	<string name="server_url">URL เซิร์ฟเวอร์</string>
-	<!-- {logo} is a placeholder that is replaced with the Mastodon logo image at runtime. Please copy it into your translation as is. -->
-	<string name="welcome_page1_title">{logo} คืออะไร?</string>
 	<string name="welcome_page1_text">จินตนาการว่าคุณมีที่อยู่อีเมลที่ลงท้ายด้วย @example.com\n\nคุณยังคงสามารถส่งและรับอีเมลจากใครก็ตาม แม้ว่าอีเมลของเขาจะลงท้ายด้วย @gmail.com หรือ @icloud.com หรือ @example.com ก็ตาม</string>
 	<string name="welcome_page2_title">Mastodon เป็นเช่นนั้น</string>
 	<string name="welcome_page2_text">นามของคุณอาจเป็น @gothgirl654@example.social แต่คุณยังคงสามารถติดตาม ดัน และแชทกับ @fallout5ever@example.online</string>
