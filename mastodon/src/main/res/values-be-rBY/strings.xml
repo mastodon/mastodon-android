@@ -201,15 +201,7 @@
 	<string name="back">Назад</string>
 	<string name="instance_catalog_title">Mastodon складаецца з карыстальнікаў на розных серверах.</string>
 	<string name="instance_catalog_subtitle">Выбірайце сервер у залежнасці ад вашых інтарэсаў, рэгіёна або выберыце сервер агульнага прызначэння. Вы па-ранейшаму можаце ўзаемадзейнічаць з усімі, незалежна ад сервера.</string>
-	<string name="search_communities">Знайдзіце серверы або ўвядзіце URL</string>
-	<string name="instance_rules_title">Некалькі базавых правілаў</string>
-	<string name="instance_rules_subtitle">Знайдзіце хвілінку, каб азнаёміцца з правіламі, устаноўленымі адміністратарамі %s.</string>
-	<string name="signup_title">Давайце наладзім вас на %s</string>
 	<string name="edit_photo">рэдагаваць</string>
-	<string name="display_name">бачнае імя</string>
-	<string name="username">імя карыстальніка</string>
-	<string name="email">электронная пошта</string>
-	<string name="password">пароль</string>
 	<string name="password_note">Выкарыстоўвайце вялікія літары, спецыяльныя сімвалы і лічбы, каб павялічыць надзейнасць пароля.</string>
 	<string name="category_academia">Акадэмія</string>
 	<string name="category_activism">Актывізм</string>
@@ -224,8 +216,7 @@
 	<string name="category_music">Музыка</string>
 	<string name="category_regional">Рэгіянальныя</string>
 	<string name="category_tech">Тэхналогіі</string>
-	<string name="confirm_email_title">І яшчэ адно</string>
-	<string name="confirm_email_subtitle">Націсніце на спасылку, якую мы адправілі вам па электроннай пошце, каб пацвердзіць свой уліковы запіс.</string>
+	<!-- %s is the email address -->
 	<string name="resend">Адправіць паўторна</string>
 	<string name="open_email_app">Адкрыць праграму для пошты</string>
 	<string name="resent_email">Электронны ліст з пацвярджэннем адпраўлены</string>
@@ -315,7 +306,6 @@
 	<string name="open_in_browser">Адкрыць у браўзеры</string>
 	<string name="hide_boosts_from_user">Схаваць пашырэнні ад %s</string>
 	<string name="show_boosts_from_user">Паказаць пашырэнні ад %s</string>
-	<string name="signup_reason">чаму вы жадаеце далучыцца?</string>
 	<string name="signup_reason_note">Гэта дапаможа нам разгледзець вашу заяўку.</string>
 	<string name="clear">Ачысціць</string>
 	<string name="profile_header">Відарыс шапкі</string>
@@ -420,7 +410,6 @@
 	<!-- %s is file size -->
 	<string name="download_update">Спампаваць (%s)</string>
 	<string name="install_update">Усталяваць</string>
-	<string name="privacy_policy_title">Mastodon і ваша канфідэнцыяльнасць</string>
 	<string name="privacy_policy_subtitle">Хоць праграма Mastodon не збірае ніякіх даных, сервер, праз які вы зарэгістраваліся, можа мець іншую палітыку. Знайдзіце хвілінку, каб азнаёміцца і пагадзіцца з палітыкай прыватнасці праграмы Mastodon і палітыкай прыватнасці вашага сервера.</string>
 	<string name="i_agree">Я згодны</string>
 	<string name="empty_list">Гэты ліст пусты</string>
@@ -433,8 +422,6 @@
 	<string name="login_title">З вяртаннем</string>
 	<string name="login_subtitle">Увайдзіце з дапамогай сервера, на якім вы стварылі свой уліковы запіс.</string>
 	<string name="server_url">URL-адрас сервера</string>
-	<!-- {logo} is a placeholder that is replaced with the Mastodon logo image at runtime. Please copy it into your translation as is. -->
-	<string name="welcome_page1_title">Што такое {logo}?</string>
 	<string name="welcome_page1_text">Уявіце, што ў вас ёсць адрас электроннай пошты, які заканчваецца на @example.com.\n\nВы па-ранейшаму можаце адпраўляць і атрымліваць электронныя лісты ад каго захочаце, нават калі іх электронная пошта заканчваецца на @gmail.com, @icloud.com або @example.com.</string>
 	<string name="welcome_page2_title">Mastodon такі.</string>
 	<string name="welcome_page2_text">Ваш ідэнтыфікатар можа быць @gothgirl654@example.social, але вы ўсё яшчэ можаце падпісвацца, пашыраць і перапісвацца з @fallout5ever@example.online.</string>
