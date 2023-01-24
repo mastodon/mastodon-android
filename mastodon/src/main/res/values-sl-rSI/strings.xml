@@ -201,15 +201,7 @@
 	<string name="back">Nazaj</string>
 	<string name="instance_catalog_title">Mastodon tvorijo uporabniki z različnih strežnikov.</string>
 	<string name="instance_catalog_subtitle">Strežnik izberite glede na svoje zanimanje, regijo ali pa kar splošno. Še vedno se lahko povežete s komer koli, ne glede na strežnik.</string>
-	<string name="search_communities">Iščite strežnike ali vnesite URL</string>
-	<string name="instance_rules_title">Nekaj osnovnih pravil</string>
-	<string name="instance_rules_subtitle">Vzemite si malo časa in preglejte pravila, ki so jih določili in jih izvajajo skrbniki %s.</string>
-	<string name="signup_title">Naj vas namestimo na %s</string>
 	<string name="edit_photo">uredi</string>
-	<string name="display_name">pojavno ime</string>
-	<string name="username">uporabniško ime</string>
-	<string name="email">e-naslov</string>
-	<string name="password">geslo</string>
 	<string name="password_note">Vključite velike črke, posebne znake in števke, da okrepite geslo.</string>
 	<string name="category_academia">Akademsko</string>
 	<string name="category_activism">Aktivizem</string>
@@ -224,8 +216,7 @@
 	<string name="category_music">Glasba</string>
 	<string name="category_regional">Regionalno</string>
 	<string name="category_tech">Tehnologija</string>
-	<string name="confirm_email_title">Še zadnja stvar</string>
-	<string name="confirm_email_subtitle">Tapnite povezavo, ki smo vam jo poslali po e-pošti, da overite svoj račun.</string>
+	<!-- %s is the email address -->
 	<string name="resend">Ponovno pošlji</string>
 	<string name="open_email_app">Odpri program za e-pošto</string>
 	<string name="resent_email">Potrditveno e-sporočilo poslano</string>
@@ -315,7 +306,6 @@
 	<string name="open_in_browser">Odpri v brskalniku</string>
 	<string name="hide_boosts_from_user">Skrij poobjave %s</string>
 	<string name="show_boosts_from_user">Pokaži poobjave %s</string>
-	<string name="signup_reason">zakaj se želite pridružiti?</string>
 	<string name="signup_reason_note">To nam bo pomagalo pregledati vašo prijavo.</string>
 	<string name="clear">Počisti</string>
 	<string name="profile_header">Slika za glavo</string>
@@ -420,7 +410,6 @@
 	<!-- %s is file size -->
 	<string name="download_update">Prenesi (%s)</string>
 	<string name="install_update">Namesti</string>
-	<string name="privacy_policy_title">Mastodon in vaša zasebnost</string>
 	<string name="privacy_policy_subtitle">Čeprav program Mastodon ne zbira podatkov, ima lahko strežnik, na katerem ste prijavljeni, drugačno politiko. Vzemite si malo časa in preglejte ter potrdite pravilnik o zasebnosti programa Mastodon ter pravilnik o zasebnosti svojega strežnika.</string>
 	<string name="i_agree">Strinjam se</string>
 	<string name="empty_list">Ta seznam je prazen</string>
@@ -433,8 +422,6 @@
 	<string name="login_title">Dobrodošli nazaj</string>
 	<string name="login_subtitle">Prijavite se na strežniku, na katerem ste ustvarili svoj račun.</string>
 	<string name="server_url">URL strežnika</string>
-	<!-- {logo} is a placeholder that is replaced with the Mastodon logo image at runtime. Please copy it into your translation as is. -->
-	<string name="welcome_page1_title">Kaj je {logo}?</string>
 	<string name="welcome_page1_text">Predstavljajte si, da imate e-poštni naslov, ki se konča s @primer.com.\n\nŠe vedno lahko pošiljate in prejemate e-sporočilo od vsakogar, tudi če se njihov e-naslov konča @gmail.com, @icloud.com ali @primer.com.</string>
 	<string name="welcome_page2_title">Mastodon je takšen.</string>
 	<string name="welcome_page2_text">Vaša ročica je morda @veselodekle654@primer.social, vendar lahko še vedno sledite, poobjavljate objave in klepetate z @nikoli2prepozno@primer.online.</string>
