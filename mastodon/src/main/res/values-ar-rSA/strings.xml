@@ -229,15 +229,7 @@
 	<string name="back">العودة</string>
 	<string name="instance_catalog_title">يتكوّن ماستدون من مستخدمين موزّعين عبر خوادم مختلفة.</string>
 	<string name="instance_catalog_subtitle">اختر خادمًا بناءً على اهتماماتك، منطقتك أو يمكنك حتى اختيارُ مجتمعٍ ذي غرضٍ عام. وسيضل بامكانك التواصل مع المستخدمين من الخوادم الأخرى.</string>
-	<string name="search_communities">ابحث عن خادم أو أدخل رابطه</string>
-	<string name="instance_rules_title">بعض القواعد الأساسية</string>
-	<string name="instance_rules_subtitle">خذ دقيقة لمراجعة القواعد التي حددها وفرضها مديروا %s.</string>
-	<string name="signup_title">دعنا نجهزك في %s</string>
 	<string name="edit_photo">حرّر</string>
-	<string name="display_name">الاسم العلني</string>
-	<string name="username">اسم المستخدم</string>
-	<string name="email">البريد الإلكتروني</string>
-	<string name="password">كلمة المرور</string>
 	<string name="password_note">ضمّن الأحرف الكبيرة والأحرف الخاصة والأرقام لزيادة قوة كلمة المرور.</string>
 	<string name="category_academia">أكاديمي</string>
 	<string name="category_activism">النشطاء</string>
@@ -252,8 +244,7 @@
 	<string name="category_music">موسيقى</string>
 	<string name="category_regional">إقليمي</string>
 	<string name="category_tech">تقني</string>
-	<string name="confirm_email_title">شيءٌ أخير</string>
-	<string name="confirm_email_subtitle">أنقر على الرابط المرسل إليك لاستيثاق حسابك.</string>
+	<!-- %s is the email address -->
 	<string name="resend">أعد الإرسال</string>
 	<string name="open_email_app">افتح تطبيق البريد الإلكتروني</string>
 	<string name="resent_email">أُرسلت رسالة التأكيد</string>
@@ -345,7 +336,6 @@
 	<string name="open_in_browser">افتح في المتصفح</string>
 	<string name="hide_boosts_from_user">اخف ما أعاد %s تدوينه</string>
 	<string name="show_boosts_from_user">أظهر ما أعاد %s تدوينه</string>
-	<string name="signup_reason">لماذا ترغب في الانضمام؟</string>
 	<string name="signup_reason_note">هذا سوف يساعدنا في مراجعة تطبيقك.</string>
 	<string name="clear">امسح</string>
 	<string name="profile_header">الصورة الفوقية</string>
@@ -462,7 +452,6 @@
 	<!-- %s is file size -->
 	<string name="download_update">جارٍ التنزيل (%s)</string>
 	<string name="install_update">تثبيت</string>
-	<string name="privacy_policy_title">ماستدون وخصوصيتك</string>
 	<string name="privacy_policy_subtitle">على الرغم من أن تطبيق ماستدون لا يجمع أي بيانات، فإن الخادم الذي قمت بالتسجيل من خلاله قد تكون له سياسة مختلفة. خذ دقيقة للمراجعة والموافقة على سياسة خصوصية التطبيق ماستدون وسياسة الخصوصية للخادم الخاص بك.</string>
 	<string name="i_agree">أنا مُوافِق</string>
 	<string name="empty_list">هذه القائمة فارغة</string>
@@ -475,8 +464,6 @@
 	<string name="login_title">مرحبا بك مجددًا</string>
 	<string name="login_subtitle">قم بتسجيل الدخول باستخدام الخادم حيث قمتَ بإنشاء حسابك فيه.</string>
 	<string name="server_url">رابط الخادم</string>
-	<!-- {logo} is a placeholder that is replaced with the Mastodon logo image at runtime. Please copy it into your translation as is. -->
-	<string name="welcome_page1_title">ما هو {logo}؟</string>
 	<string name="welcome_page1_text">تخيل أن لديك عنوان بريد إلكتروني ينتهي بـ @example.com.\n\n رغم ذلك يمكنك إرسال واستقبال رسائل البريد الإلكتروني من أي شخص، حتى إذا كان بريدهم الإلكتروني الخاص ينتهي بـ @gmail.com أو @icloud.com أو @example.com.</string>
 	<string name="welcome_page2_title">ماستدون هكذا.</string>
 	<string name="welcome_page2_text">قد يكون مُعرّفُك @gothgirl654@example.social ، ولكنه بإمكانك متابعة وإعادة تدوين ومحادثة @fallout5ever@example.online.</string>
