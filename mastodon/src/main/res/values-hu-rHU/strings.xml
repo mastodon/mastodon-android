@@ -173,15 +173,7 @@
 	<string name="back">Vissza</string>
 	<string name="instance_catalog_title">A Mastodon különböző szervereken lévő felhasználókból áll.</string>
 	<string name="instance_catalog_subtitle">Válasszon egy szervert az érdeklődési köre, régiója alapján vagy egy általános célú szervert. A szervertől függetlenül továbbra is mindenkivel kapcsolatba léphetsz.</string>
-	<string name="search_communities">Szerver keresése vagy URL megadása</string>
-	<string name="instance_rules_title">Néhány alapszabály</string>
-	<string name="instance_rules_subtitle">Szánj egy percet a %s adminjai által meghatározott és betartatott szabályok áttekintésére.</string>
-	<string name="signup_title">Állítsuk be a fiókod a %s kiszolgálón</string>
 	<string name="edit_photo">szerkesztés</string>
-	<string name="display_name">megjelenített név</string>
-	<string name="username">felhasználónév</string>
-	<string name="email">e-mail</string>
-	<string name="password">jelszó</string>
 	<string name="password_note">A jelszó erősségének növelése érdekében használjon nagybetűket, speciális karaktereket és számokat.</string>
 	<string name="category_academia">Egyetem/Felsőoktatás</string>
 	<string name="category_activism">Aktivizmus</string>
@@ -196,8 +188,7 @@
 	<string name="category_music">Zene</string>
 	<string name="category_regional">Regionális</string>
 	<string name="category_tech">Tech</string>
-	<string name="confirm_email_title">Még egy apróság</string>
-	<string name="confirm_email_subtitle">Kattints a linkre, amit emailben küldtünk, hogy megerősítsd a fiókod.</string>
+	<!-- %s is the email address -->
 	<string name="resend">Újraküldés</string>
 	<string name="open_email_app">E-mail alkalmazás megnyitása</string>
 	<string name="resent_email">Megerősítő email elküldve</string>
@@ -285,7 +276,6 @@
 	<string name="open_in_browser">Megnyitás böngészőben</string>
 	<string name="hide_boosts_from_user">%s megtolásainak elrejtése</string>
 	<string name="show_boosts_from_user">%s megtolásainak mutatása</string>
-	<string name="signup_reason">miért akarsz csatlakozni?</string>
 	<string name="signup_reason_note">Ez segít nekünk átnézni a jelentkezésedet.</string>
 	<string name="clear">Törlés</string>
 	<string name="profile_header">Fejléc kép</string>
@@ -378,7 +368,6 @@
 	<!-- %s is file size -->
 	<string name="download_update">(%s) letöltése</string>
 	<string name="install_update">Telepítés</string>
-	<string name="privacy_policy_title">Mastodon és az adatvédelmed</string>
 	<string name="privacy_policy_subtitle">Bár a Mastodon alkalmazás nem gyűjt adatokat, a szerver, amelyen keresztül regisztrálsz, eltérő irányelvekkel rendelkezhet. Szánj egy percet a Mastodon alkalmazás adatvédelmi szabályzatának és a kiszolgáló adatvédelmi szabályzatának áttekintésére és elfogadására.</string>
 	<string name="i_agree">Elfogadom</string>
 	<string name="empty_list">A lista üres</string>
@@ -391,8 +380,6 @@
 	<string name="login_title">Üdv újra</string>
 	<string name="login_subtitle">Azon a kiszolgálón jelentkezz be, ahol a fiókodat létrehoztad.</string>
 	<string name="server_url">Kiszolgáló URL</string>
-	<!-- {logo} is a placeholder that is replaced with the Mastodon logo image at runtime. Please copy it into your translation as is. -->
-	<string name="welcome_page1_title">Mi is a {logo}?</string>
 	<string name="welcome_page1_text">Képzeld el, hogy az emailcímed @example.com-ra végződik.\n\nEttől még küldhtesz és fogadhatsz emailt bárkitől, akkor is, ha a címük @gmail.com-ra, @icloud.com-ra vagy @example.com-ra végződik.</string>
 	<string name="welcome_page2_title">Ilyen a Mastodon.</string>
 	<string name="welcome_page2_text">Lehet, hogy az azonosítód @gothgirl654@example.social, de ettől még követheted, megtolhatod és csetelhetsz @fallout5ever@example.online-nal.</string>
