@@ -173,15 +173,7 @@
 	<string name="back">Bumalik</string>
 	<string name="instance_catalog_title">Ang Mastodon ay gawa sa mga user sa iba\'t ibang mga server.</string>
 	<string name="instance_catalog_subtitle">Pumili ng server batay sa iyong mga interes, rehiyon, o isang pangkalahatang layunin. Maaari ka pa ring kumonekta sa lahat, anuman ang server.</string>
-	<string name="search_communities">Maghanap ng mga server o i-enter ang URL</string>
-	<string name="instance_rules_title">Ang ilang mga patakaran sa lupa</string>
-	<string name="instance_rules_subtitle">Maglaan ng minuto para suriin ang mga patakaran na itinakda at ipinatupad %s ng mga admin.</string>
-	<string name="signup_title">Kunin ka namin i-set up sa %s</string>
 	<string name="edit_photo">i-edit</string>
-	<string name="display_name">display ng pangalan</string>
-	<string name="username">username</string>
-	<string name="email">sulatroniko</string>
-	<string name="password">password</string>
 	<string name="password_note">Isama ang mga malalaking titik, mga espesyal na character, at mga numero para madagdagan ang lakas ng iyong password.</string>
 	<string name="category_academia">Academia</string>
 	<string name="category_activism">Activism</string>
@@ -196,8 +188,7 @@
 	<string name="category_music">Musika</string>
 	<string name="category_regional">Rehiyon</string>
 	<string name="category_tech">Tech</string>
-	<string name="confirm_email_title">Isang huling bagay</string>
-	<string name="confirm_email_subtitle">I-Tap ang link na na-email namin sa iyo para mapatunayan ang iyong account.</string>
+	<!-- %s is the email address -->
 	<string name="resend">Muling ipadala</string>
 	<string name="open_email_app">Buksan ang email app</string>
 	<string name="resent_email">Kumpirmasyon ng email napadala</string>
@@ -285,7 +276,6 @@
 	<string name="open_in_browser">Buksan sa browser</string>
 	<string name="hide_boosts_from_user">Itago ang mga reblog mula sa %s</string>
 	<string name="show_boosts_from_user">Ipakita ang mga reblog mula sa %s</string>
-	<string name="signup_reason">bakit gusto mong sumali?</string>
 	<string name="signup_reason_note">Makakatulong ito sa amin na suriin ang iyong aplikasyon.</string>
 	<string name="clear">I-Clear</string>
 	<string name="profile_header">Imahe ng Header</string>
@@ -378,7 +368,6 @@
 	<!-- %s is file size -->
 	<string name="download_update">I-Download (%s)</string>
 	<string name="install_update">I-install</string>
-	<string name="privacy_policy_title">Mastodon at ang iyong pribado</string>
 	<string name="privacy_policy_subtitle">Bagaman ang Mastodon app ay hindi nangongolekta ng anumang data, ang server na iyong na-sign up ay maaaring magkaroon ng ibang patakaran. Maglaan ng isang minuto para suriin at sumang-ayon sa Patakaran sa privacy ng Mastodon app at Patakaran sa privacy ng iyong server.</string>
 	<string name="i_agree">Sang-ayon ako</string>
 	<string name="empty_list">Walang laman ang listahang ito</string>
@@ -391,8 +380,6 @@
 	<string name="login_title">Maligayang pagbalik,</string>
 	<string name="login_subtitle">Mag-Log in gamit ang server kung saan mo nilikha ang iyong account.</string>
 	<string name="server_url">Ang URL ng server</string>
-	<!-- {logo} is a placeholder that is replaced with the Mastodon logo image at runtime. Please copy it into your translation as is. -->
-	<string name="welcome_page1_title">Ano ang {logo}?</string>
 	<string name="welcome_page1_text">Isipin na mayroon kang isang email address na nagtatapos sa @example. com. \n \nMaaari ka pa ring magpadala at tumanggap ng mga email mula sa sinuman, kahit na ang kanilang email ay nagtatapos sa @gmail.com o @icloud.com o @example.com.</string>
 	<string name="welcome_page2_title">Mastodon ay tulad na.</string>
 	<string name="welcome_page2_text">Ang iyong hawakan ay maaaring @gothgirl654@example.social, ngunit maaari mo pa ring sundin, reblog, at makipag-chat sa @fallout5ever@example.online.</string>
