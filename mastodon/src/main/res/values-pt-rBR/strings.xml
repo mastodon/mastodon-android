@@ -41,7 +41,7 @@
 		<item quantity="other">posts</item>
 	</plurals>
 	<string name="posts">Publicações</string>
-	<string name="posts_and_replies">Posts e respostas</string>
+	<string name="posts_and_replies">Publicações e respostas</string>
 	<string name="media">Mídia</string>
 	<string name="profile_about">Sobre</string>
 	<string name="button_follow">Seguir</string>
@@ -50,7 +50,7 @@
 	<string name="mention_user">Mencionar %s</string>
 	<string name="share_user">Compartilhar %s</string>
 	<string name="mute_user">Silenciar %s</string>
-	<string name="unmute_user">Desbloquear %s</string>
+	<string name="unmute_user">Remover silenciar de %s</string>
 	<string name="block_user">Bloquear %s</string>
 	<string name="unblock_user">Desbloquear %s</string>
 	<string name="report_user">Denunciar %s</string>
@@ -156,25 +156,26 @@
 	<string name="report_reason_other">É outra coisa</string>
 	<string name="report_reason_other_subtitle">O problema não se encaixa em outras categorias</string>
 	<string name="report_choose_rule">Quais regras estão sendo violadas?</string>
-	<string name="report_choose_rule_subtitle">Selecione tudo que se aplica</string>
-	<string name="report_choose_posts">Existem postagens que respaldam esse relatório?</string>
+	<string name="report_choose_rule_subtitle">Selecione todas que se aplicam</string>
+	<string name="report_choose_posts">Existem publicações que apoiam essa denúncia?</string>
 	<string name="report_choose_posts_subtitle">Selecione tudo que se aplica</string>
-	<string name="report_comment_title">Há algo que você acredita que devemos saber?</string>
+	<string name="report_comment_title">Há algo a mais que deveríamos saber?</string>
 	<string name="report_comment_hint">Comentários adicionais</string>
 	<string name="sending_report">Enviando denúncia…</string>
-	<string name="report_sent_title">Obrigado por reportar. Vamos analisar.</string>
-	<string name="report_sent_subtitle">Enquanto revisamos isso, você pode tomar medidas contra @%s.</string>
+	<string name="report_sent_title">Obrigado por denunciar, nós vamos analisar isso.</string>
+	<string name="report_sent_subtitle">Enquanto analisamos isso, você pode tomar medidas contra @%s.</string>
 	<string name="unfollow_user">Deixar de seguir %s</string>
 	<string name="unfollow">Deixar de seguir</string>
-	<string name="mute_user_explain">Você não verá suas postagens ou reblogs em seu feed inicial. Eles não saberão que foram silenciados.</string>
-	<string name="block_user_explain">Essa conta não poderá mais te seguir ou ver suas postagens, mas ela poderá ver que foi bloqueada.</string>
+	<string name="mute_user_explain">Você não verá as publicações ou reblogs dessa conta na sua pagina inicial. Essa pessoa não saberá que foi silenciada.</string>
+	<string name="block_user_explain">Essa conta não poderá mais te seguir ou ver suas publicações, mas ela poderá ver que foi bloqueada.</string>
 	<string name="report_personal_title">Não quer ver isto?</string>
-	<string name="report_personal_subtitle">Quando você vê algo que não gosta no Mastodon, pode remover a pessoa da sua experiência.</string>
+	<string name="report_personal_subtitle">Quando você ver algo que não gosta no Mastodon, pode remover a pessoa da sua experiência.</string>
 	<string name="back">Voltar</string>
 	<string name="instance_catalog_title">Mastodon é feito de usuários em servidores diferentes.</string>
 	<string name="instance_catalog_subtitle">Escolha um servidor com base em seus interesses, região ou um de uso geral. Você ainda pode se conectar com todos, independentemente do servidor.</string>
 	<string name="search_communities">Nome do servidor ou URL</string>
 	<string name="instance_rules_title">Regras do Servidor</string>
+	<string name="instance_rules_subtitle">Ao continuar, você concorda em seguir as seguintes regras definidas e aplicadas pelos moderadores de %s.</string>
 	<string name="signup_title">Criar conta</string>
 	<string name="edit_photo">editar</string>
 	<string name="display_name">Nome</string>
@@ -182,7 +183,7 @@
 	<string name="email">E-mail</string>
 	<string name="password">Senha</string>
 	<string name="confirm_password">Confirmar senha</string>
-	<string name="password_note">Inclua letras maiúsculas, caracteres especiais e números para aumentar a força da sua senha.</string>
+	<string name="password_note">Inclua letras maiúsculas, caracteres especiais e números para deixar sua senha mais forte e segura.</string>
 	<string name="category_academia">Acadêmico</string>
 	<string name="category_activism">Ativismo</string>
 	<string name="category_all">Todas</string>
@@ -211,7 +212,7 @@
 	<string name="save">Salvar</string>
 	<string name="add_alt_text">Adicionar texto alternativo</string>
 	<string name="alt_text_subtitle">O texto alternativo descreve suas fotos para pessoas com baixa ou nenhuma visão. Tente incluir apenas detalhes suficientes para entender o contexto.</string>
-	<string name="alt_text_hint">por exemplo: Um cachorro olhando desconfiado com os olhos apertados para a câmera.</string>
+	<string name="alt_text_hint">Por exemplo: Um cachorro olhando desconfiado com os olhos apertados para a câmera.</string>
 	<string name="visibility_public">Público</string>
 	<string name="visibility_followers_only">Apenas seguidores</string>
 	<string name="visibility_private">Apenas pessoas que menciono</string>
@@ -228,7 +229,7 @@
 	<string name="choose_account">Escolher conta</string>
 	<string name="err_not_logged_in">Por favor, faça login no Mastodon primeiro</string>
 	<plurals name="cant_add_more_than_x_attachments">
-		<item quantity="one">Você não pode adicionar mais de %d anexo de mídia</item>
+		<item quantity="one">Você não pode adicionar mais de %d anexos de mídia</item>
 		<item quantity="other">Você não pode adicionar mais de %d anexos de mídia</item>
 	</plurals>
 	<string name="media_attachment_unsupported_type">Arquivo %s é de um tipo não suportado</string>
@@ -242,16 +243,16 @@
 	<string name="settings_gif">Reproduzir emojis e avatares animados</string>
 	<string name="settings_custom_tabs">Usar navegador interno</string>
 	<string name="settings_notifications">Notificações</string>
-	<string name="notify_me_when">Notificar-me quando</string>
+	<string name="notify_me_when">Me notificar quando</string>
 	<string name="notify_anyone">qualquer pessoa</string>
 	<string name="notify_follower">um seguidor</string>
 	<string name="notify_followed">pessoas que eu sigo</string>
 	<string name="notify_none">ninguém</string>
 	<string name="notify_favorites">Favoritam minha publicação</string>
 	<string name="notify_follow">Me segue</string>
-	<string name="notify_reblog">Rebloga meu post</string>
+	<string name="notify_reblog">Reblogou minha publicação</string>
 	<string name="notify_mention">Me menciona</string>
-	<string name="settings_boring">A zona entediante</string>
+	<string name="settings_boring">A zona chata</string>
 	<string name="settings_account">Configurações da conta</string>
 	<string name="settings_contribute">Contribua para o Mastodon</string>
 	<string name="settings_tos">Termos de serviço</string>
@@ -277,7 +278,7 @@
 	<string name="add_media">Adicionar mídia</string>
 	<string name="add_poll">Adicionar enquete</string>
 	<string name="emoji">Emoji</string>
-	<string name="post_visibility">Visibility do post</string>
+	<string name="post_visibility">Visibilidade da publicação</string>
 	<string name="home_timeline">Página Inicial</string>
 	<string name="my_profile">Meu perfil</string>
 	<string name="media_viewer">Visualizador de mídia</string>
@@ -288,7 +289,7 @@
 	<string name="hide_boosts_from_user">Ocultar reblogues de %s</string>
 	<string name="show_boosts_from_user">Mostrar reblogues de %s</string>
 	<string name="signup_reason">Por que você deseja se inscrever?</string>
-	<string name="signup_reason_note">Isso vai nos ajudar a revisar sua aplicação.</string>
+	<string name="signup_reason_note">Isso vai nos ajudar a revisar sua inscrição.</string>
 	<string name="clear">Limpar</string>
 	<string name="profile_header">Imagem do cabeçalho</string>
 	<string name="profile_picture">Foto de Perfil</string>
@@ -302,13 +303,13 @@
 	<string name="downloading">Baixando…</string>
 	<string name="no_app_to_handle_action">Não há app para executar esta ação</string>
 	<string name="local_timeline">Comunidade</string>
-	<string name="trending_posts_info_banner">Esses são os posts que estão ganhando força no seu canto do Mastodon.</string>
-	<string name="trending_hashtags_info_banner">Essas são as hashtags que estão ganhando força no seu canto do Mastodon.</string>
-	<string name="trending_links_info_banner">Estas são as recentes histórias que estão sendo mais compartilhadas no seu canto do Mastodon.</string>
+	<string name="trending_posts_info_banner">Estas são as publicações que estão ganhando visibilidade no seu canto do Mastodon.</string>
+	<string name="trending_hashtags_info_banner">Estas são as hashtags que estão ganhando visibilidade no seu canto do Mastodon.</string>
+	<string name="trending_links_info_banner">Estas são as notícias mais compartilhadas no seu canto do Mastodon.</string>
 	<string name="local_timeline_info_banner">Estas são as publicações mais recentes das pessoas que usam o mesmo servidor Mastodon que você.</string>
 	<string name="dismiss">Dispensar</string>
-	<string name="see_new_posts">Veja novas postagens</string>
-	<string name="load_missing_posts">Carregar postagens perdidas</string>
+	<string name="see_new_posts">Ver novas publicações</string>
+	<string name="load_missing_posts">Carregar publicações perdidas</string>
 	<string name="follow_back">Seguir de volta</string>
 	<string name="button_follow_pending">Pendente</string>
 	<string name="follows_you">Segue você</string>
@@ -380,6 +381,7 @@
 	<!-- %s is file size -->
 	<string name="download_update">Baixar (%s)</string>
 	<string name="install_update">Instalar</string>
+	<string name="privacy_policy_title">Sua privacidade</string>
 	<string name="privacy_policy_subtitle">Embora o aplicativo Mastodon não colete nenhum dado, o servidor que você se inscrever pode ter uma política diferente. Dedique um minuto para revisar e aceitar a política de privacidade do aplicativo Mastodon e a política de privacidade do seu servidor.</string>
 	<string name="i_agree">Eu concordo</string>
 	<string name="empty_list">Essa lista está vazia</string>
@@ -398,7 +400,9 @@
 	<string name="welcome_page2_text">Seu identificador pode ser @gothgirl654@exemplo.social, mas você ainda pode seguir, reblogar, e conversar com @fallout5ever@example.online.</string>
 	<string name="welcome_page3_title">Como faço para escolher um servidor?</string>
 	<string name="welcome_page3_text">Pessoas diferentes escolhem servidores diferentes por vários motivos. art.example é um ótimo lugar para artistas, enquanto glasgow.example pode ser uma boa escolha para escoceses.\n\nVocê não pode errar com nenhum de nossos servidores recomendados, portanto, independentemente de qual escolher (ou se inserir seu próprio na barra de pesquisa do servidor), você nunca perderá uma batida em lugar nenhum.</string>
+	<string name="signup_random_server_explain">Nós escolheremos um servidor com base no seu idioma se você continuar sem fazer uma seleção.</string>
 	<string name="server_filter_any_language">Qualquer idioma</string>
+	<string name="server_filter_manual_review">Revisão manual</string>
 	<string name="server_filter_region_europe">Europa</string>
 	<string name="server_filter_region_north_america">América do Norte</string>
 	<string name="server_filter_region_south_america">América do Sul</string>
@@ -406,6 +410,10 @@
 	<string name="server_filter_region_asia">Ásia</string>
 	<string name="server_filter_region_oceania">Oceania</string>
 	<string name="not_accepting_new_members">Não está aceitando novos membros</string>
+	<string name="category_special_interests">Interesses especiais</string>
+	<string name="signup_passwords_dont_match">As senhas são diferentes</string>
+	<string name="pick_server_for_me">Escolher para mim</string>
+	<string name="profile_setup">Configuração do perfil</string>
 	<string name="profile_setup_subtitle">Você sempre pode concluir isso mais tarde na guia de Perfil.</string>
 	<string name="profile_setup_explanation">Você pode adicionar até quatro campos no seu perfil para o que quiser. Local, links, pronomes — o céu é o limite.</string>
 	<string name="popular_on_mastodon">Popular no Mastodon</string>
