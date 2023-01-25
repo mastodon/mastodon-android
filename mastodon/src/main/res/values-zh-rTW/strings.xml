@@ -273,6 +273,7 @@
 	<string name="open_in_browser">在瀏覽器中開啟</string>
 	<string name="hide_boosts_from_user">隱藏來自 %s 的轉嘟</string>
 	<string name="show_boosts_from_user">顯示來自 %s 的轉嘟</string>
+	<string name="signup_reason">為什麼想要加入呢？</string>
 	<string name="signup_reason_note">這會協助我們審核您的申請。</string>
 	<string name="clear">清除</string>
 	<string name="profile_header">標題圖片</string>
@@ -359,6 +360,7 @@
 	<!-- %s is file size -->
 	<string name="download_update">下載 (%s)</string>
 	<string name="install_update">安裝</string>
+	<string name="privacy_policy_title">您的隱私</string>
 	<string name="privacy_policy_subtitle">儘管 Mastodon 應用程式並不會蒐集任何資料，您所註冊之伺服器可能有不同的隱私權政策。煩請花費些許時間檢閱並同意 Mastodon 應用程式隱私權政策以及您伺服器隻隱私權政策。</string>
 	<string name="i_agree">我已閱讀並同意</string>
 	<string name="empty_list">此列表為空</string>
@@ -371,9 +373,32 @@
 	<string name="login_title">歡迎回來</string>
 	<string name="login_subtitle">以您建立帳號之伺服器登入。</string>
 	<string name="server_url">伺服器 URL</string>
+	<string name="welcome_page1_title">什麼是 Mastodon？</string>
 	<string name="welcome_page1_text">想像您擁有以 @example.com 結尾的 email 信箱地址。\n\n您仍可發送及接收來自任何人的電子郵件，無論他們的信箱是來自 @gmail.com 或 @icloud.com 或 @example.com。</string>
 	<string name="welcome_page2_title">Mastodon 就像這樣。</string>
 	<string name="welcome_page2_text">您的帳號可以是 @gothgirl654@example.social，但您仍可跟隨、轉嘟或是與 @fallout5ever@example.online 聊天互動。</string>
 	<string name="welcome_page3_title">如何挑選伺服器？</string>
 	<string name="welcome_page3_text">不同人基於各式各樣的原因挑選不同的伺服器。art.example 也許對藝術家來說是個好地方，glasgow.example 也許對於蘇格蘭人來說是個好選擇。\n\n任何我們推薦的伺服器都是不錯的選擇（或著您也能從搜尋欄中輸入您自己的伺服器），您不會錯過任何來自聯邦宇宙角落的嘟嘟聲。</string>
+	<string name="signup_random_server_explain">如果您不選擇而繼續的話，我們將透過您的語言設定替您選擇一台伺服器。</string>
+	<string name="server_filter_any_language">任何語言</string>
+	<string name="server_filter_instant_signup">馬上註冊</string>
+	<string name="server_filter_manual_review">手動審核</string>
+	<string name="server_filter_any_signup_speed">任何註冊速度</string>
+	<string name="server_filter_region_europe">歐洲</string>
+	<string name="server_filter_region_north_america">北美洲</string>
+	<string name="server_filter_region_south_america">南美洲</string>
+	<string name="server_filter_region_africa">非洲</string>
+	<string name="server_filter_region_asia">亞洲</string>
+	<string name="server_filter_region_oceania">大洋洲</string>
+	<string name="not_accepting_new_members">目前暫不開放新成員</string>
+	<string name="category_special_interests">特別興趣</string>
+	<string name="signup_passwords_dont_match">密碼不符</string>
+	<string name="pick_server_for_me">請替我選擇</string>
+	<string name="profile_add_row">新增</string>
+	<string name="profile_setup">個人檔案設定</string>
+	<string name="profile_setup_subtitle">您隨時能稍候於個人檔案頁面完成此設定。</string>
+	<string name="profile_setup_explanation">您至多能於個人檔案替任何您想要的內容新增四個欄位。地點、連結、稱謂 — 想像力是您的超能力！</string>
+	<string name="popular_on_mastodon">Mastodon 上之流行內容</string>
+	<string name="follow_all">跟隨所有</string>
+	<string name="server_rules_disagree">不同意</string>
 </resources>
