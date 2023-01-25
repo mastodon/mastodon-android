@@ -5,6 +5,7 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +20,7 @@ import org.joinmastodon.android.model.Instance;
 import org.joinmastodon.android.ui.DividerItemDecoration;
 import org.joinmastodon.android.ui.OutlineProviders;
 import org.joinmastodon.android.ui.utils.UiUtils;
+import org.joinmastodon.android.utils.ElevationOnScrollListener;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.parceler.Parcels;
@@ -42,6 +44,7 @@ import me.grishka.appkit.utils.BindableViewHolder;
 import me.grishka.appkit.utils.MergeRecyclerAdapter;
 import me.grishka.appkit.utils.SingleViewRecyclerAdapter;
 import me.grishka.appkit.utils.V;
+import me.grishka.appkit.views.FragmentRootLinearLayout;
 import me.grishka.appkit.views.UsableRecyclerView;
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -58,6 +61,7 @@ public class GoogleMadeMeAddThisFragment extends ToolbarFragment{
 	private ArrayList<Item> items=new ArrayList<>();
 	private Call currentRequest;
 	private ItemsAdapter itemsAdapter;
+	private ElevationOnScrollListener onScrollListener;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState){
@@ -72,7 +76,7 @@ public class GoogleMadeMeAddThisFragment extends ToolbarFragment{
 		setNavigationBarColor(UiUtils.getThemeColor(activity, R.attr.colorWindowBackground));
 		instance=Parcels.unwrap(getArguments().getParcelable("instance"));
 
-		items.add(new Item("Mastodon for Android Privacy Policy", "joinmastodon.org", "https://joinmastodon.org/android/privacy", "https://joinmastodon.org/favicon-32x32.png"));
+		items.add(new Item("Mastodon for Android Privacy Policy", getString(R.string.privacy_policy_explanation), "joinmastodon.org", "https://joinmastodon.org/android/privacy", "https://joinmastodon.org/favicon-32x32.png"));
 		loadServerPrivacyPolicy();
 	}
 
@@ -93,17 +97,23 @@ public class GoogleMadeMeAddThisFragment extends ToolbarFragment{
 		list.setLayoutManager(new LinearLayoutManager(getActivity()));
 		View headerView=inflater.inflate(R.layout.item_list_header_simple, list, false);
 		TextView text=headerView.findViewById(R.id.text);
-		text.setText(R.string.privacy_policy_subtitle);
+		text.setText(getString(R.string.privacy_policy_subtitle, instance.uri));
 
 		adapter=new MergeRecyclerAdapter();
 		adapter.addAdapter(new SingleViewRecyclerAdapter(headerView));
 		adapter.addAdapter(itemsAdapter=new ItemsAdapter());
 		list.setAdapter(adapter);
-		list.addItemDecoration(new DividerItemDecoration(getActivity(), R.attr.colorM3SurfaceVariant, 1, 56, 0, DividerItemDecoration.NOT_FIRST));
 
 		btn=view.findViewById(R.id.btn_next);
 		btn.setOnClickListener(v->onButtonClick());
 		buttonBar=view.findViewById(R.id.button_bar);
+
+		Button backBtn=view.findViewById(R.id.btn_back);
+		backBtn.setText(getString(R.string.server_policy_disagree, instance.uri));
+		backBtn.setOnClickListener(v->{
+			setResult(false, null);
+			Nav.finish(this);
+		});
 
 		return view;
 	}
@@ -113,13 +123,17 @@ public class GoogleMadeMeAddThisFragment extends ToolbarFragment{
 		super.onViewCreated(view, savedInstanceState);
 		setStatusBarColor(UiUtils.getThemeColor(getActivity(), R.attr.colorM3Background));
 		view.setBackgroundColor(UiUtils.getThemeColor(getActivity(), R.attr.colorM3Background));
+		list.addOnScrollListener(onScrollListener=new ElevationOnScrollListener((FragmentRootLinearLayout) view, buttonBar, getToolbar()));
 	}
 
 	@Override
 	protected void onUpdateToolbar(){
 		super.onUpdateToolbar();
-		getToolbar().setBackground(null);
+		getToolbar().setBackgroundResource(R.drawable.bg_onboarding_panel);
 		getToolbar().setElevation(0);
+		if(onScrollListener!=null){
+			onScrollListener.setViews(buttonBar, getToolbar());
+		}
 	}
 
 	protected void onButtonClick(){
@@ -158,7 +172,7 @@ public class GoogleMadeMeAddThisFragment extends ToolbarFragment{
 					if(!response.isSuccessful())
 						return;
 					Document doc=Jsoup.parse(Objects.requireNonNull(body).byteStream(), Objects.requireNonNull(body.contentType()).charset(StandardCharsets.UTF_8).name(), req.url().toString());
-					final Item item=new Item(doc.title(), instance.uri, req.url().toString(), "https://"+instance.uri+"/favicon.ico");
+					final Item item=new Item(doc.title(), null, instance.uri, req.url().toString(), "https://"+instance.uri+"/favicon.ico");
 					Activity activity=getActivity();
 					if(activity!=null){
 						activity.runOnUiThread(()->{
@@ -192,16 +206,23 @@ public class GoogleMadeMeAddThisFragment extends ToolbarFragment{
 
 	private class ItemViewHolder extends BindableViewHolder<Item> implements UsableRecyclerView.Clickable{
 		private final TextView title;
+		private final TextView subtitle;
 
 		public ItemViewHolder(){
 			super(getActivity(), R.layout.item_privacy_policy_link, list);
 			title=findViewById(R.id.title);
-			title.setPaintFlags(title.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+			subtitle=findViewById(R.id.subtitle);
 		}
 
 		@Override
 		public void onBind(Item item){
 			title.setText(item.title);
+			if(TextUtils.isEmpty(item.subtitle)){
+				subtitle.setVisibility(View.GONE);
+			}else{
+				subtitle.setVisibility(View.VISIBLE);
+				subtitle.setText(item.subtitle);
+			}
 		}
 
 		@Override
@@ -211,10 +232,11 @@ public class GoogleMadeMeAddThisFragment extends ToolbarFragment{
 	}
 
 	private static class Item{
-		public String title, domain, url, faviconUrl;
+		public String title, subtitle, domain, url, faviconUrl;
 
-		public Item(String title, String domain, String url, String faviconUrl){
+		public Item(String title, String subtitle, String domain, String url, String faviconUrl){
 			this.title=title;
+			this.subtitle=subtitle;
 			this.domain=domain;
 			this.url=url;
 			this.faviconUrl=faviconUrl;

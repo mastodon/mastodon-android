@@ -17,6 +17,7 @@ import org.joinmastodon.android.model.Instance;
 import org.joinmastodon.android.ui.DividerItemDecoration;
 import org.joinmastodon.android.ui.text.HtmlParser;
 import org.joinmastodon.android.ui.utils.UiUtils;
+import org.joinmastodon.android.utils.ElevationOnScrollListener;
 import org.parceler.Parcels;
 
 import androidx.annotation.NonNull;
@@ -28,6 +29,7 @@ import me.grishka.appkit.utils.BindableViewHolder;
 import me.grishka.appkit.utils.MergeRecyclerAdapter;
 import me.grishka.appkit.utils.SingleViewRecyclerAdapter;
 import me.grishka.appkit.utils.V;
+import me.grishka.appkit.views.FragmentRootLinearLayout;
 import me.grishka.appkit.views.UsableRecyclerView;
 
 public class InstanceRulesFragment extends ToolbarFragment{
@@ -36,6 +38,9 @@ public class InstanceRulesFragment extends ToolbarFragment{
 	private Button btn;
 	private View buttonBar;
 	private Instance instance;
+	private ElevationOnScrollListener onScrollListener;
+
+	private static final int RULES_REQUEST=376;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState){
@@ -81,19 +86,31 @@ public class InstanceRulesFragment extends ToolbarFragment{
 		super.onViewCreated(view, savedInstanceState);
 		setStatusBarColor(UiUtils.getThemeColor(getActivity(), R.attr.colorM3Background));
 		view.setBackgroundColor(UiUtils.getThemeColor(getActivity(), R.attr.colorM3Background));
+		list.addOnScrollListener(onScrollListener=new ElevationOnScrollListener((FragmentRootLinearLayout) view, buttonBar, getToolbar()));
 	}
 
 	@Override
 	protected void onUpdateToolbar(){
 		super.onUpdateToolbar();
-		getToolbar().setBackground(null);
+		getToolbar().setBackgroundResource(R.drawable.bg_onboarding_panel);
 		getToolbar().setElevation(0);
+		if(onScrollListener!=null){
+			onScrollListener.setViews(buttonBar, getToolbar());
+		}
 	}
 
 	protected void onButtonClick(){
 		Bundle args=new Bundle();
 		args.putParcelable("instance", Parcels.wrap(instance));
-		Nav.go(getActivity(), GoogleMadeMeAddThisFragment.class, args);
+		Nav.goForResult(getActivity(), GoogleMadeMeAddThisFragment.class, args, RULES_REQUEST, this);
+	}
+
+	@Override
+	public void onFragmentResult(int reqCode, boolean success, Bundle result){
+		super.onFragmentResult(reqCode, success, result);
+		if(reqCode==RULES_REQUEST && !success){
+			Nav.finish(this);
+		}
 	}
 
 	@Override

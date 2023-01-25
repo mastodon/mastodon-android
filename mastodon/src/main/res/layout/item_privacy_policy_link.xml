@@ -1,18 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:tools="http://schemas.android.com/tools"
-	android:id="@+id/title"
 	android:layout_width="match_parent"
 	android:layout_height="wrap_content"
 	android:paddingTop="12dp"
-	android:paddingEnd="24dp"
 	android:paddingBottom="12dp"
 	android:paddingStart="16dp"
-	android:textSize="16sp"
-	android:textColor="?colorM3Primary"
-	android:drawableStart="@drawable/ic_outline_link_24"
-	android:drawablePadding="16dp"
-	android:drawableTint="?colorM3Primary"
-	tools:text="Privacy Policy - example.social">
+	android:paddingEnd="24dp">
+	
+	<View
+		android:id="@+id/icon"
+		android:layout_width="24dp"
+		android:layout_height="24dp"
+		android:backgroundTint="?colorM3Primary"
+		android:background="@drawable/ic_outline_link_24"/>
+	
+	<TextView
+		android:id="@+id/title"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_toEndOf="@id/icon"
+		android:layout_marginStart="16dp"
+		android:textAppearance="@style/m3_body_large"
+		android:textColor="?colorM3Primary"
+		tools:text="Privacy Policy - example.social"/>
 
-</TextView>
+	<TextView
+		android:id="@+id/subtitle"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_toEndOf="@id/icon"
+		android:layout_below="@id/title"
+		android:layout_marginStart="16dp"
+		android:textAppearance="@style/m3_body_medium"
+		android:textColor="?colorM3OnSurfaceVariant"
+		tools:text="Privacy Policy - example.social"/>
+
+</RelativeLayout>

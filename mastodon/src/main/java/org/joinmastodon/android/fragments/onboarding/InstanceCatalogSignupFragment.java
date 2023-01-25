@@ -1,14 +1,8 @@
 package org.joinmastodon.android.fragments.onboarding;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.animation.AnimatorSet;
-import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.ColorStateList;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.LayerDrawable;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
@@ -37,6 +31,7 @@ import org.joinmastodon.android.ui.BetterItemAnimator;
 import org.joinmastodon.android.ui.M3AlertDialogBuilder;
 import org.joinmastodon.android.ui.utils.UiUtils;
 import org.joinmastodon.android.ui.views.FilterChipView;
+import org.joinmastodon.android.utils.ElevationOnScrollListener;
 import org.parceler.Parcels;
 
 import java.util.ArrayList;
@@ -56,7 +51,6 @@ import me.grishka.appkit.api.Callback;
 import me.grishka.appkit.api.ErrorResponse;
 import me.grishka.appkit.fragments.OnBackPressedListener;
 import me.grishka.appkit.utils.BindableViewHolder;
-import me.grishka.appkit.utils.CubicBezierInterpolator;
 import me.grishka.appkit.utils.MergeRecyclerAdapter;
 import me.grishka.appkit.utils.SingleViewRecyclerAdapter;
 import me.grishka.appkit.utils.V;
@@ -211,47 +205,7 @@ public class InstanceCatalogSignupFragment extends InstanceCatalogFragment imple
 		setStatusBarColor(0);
 		topBar=view.findViewById(R.id.top_bar);
 
-		LayerDrawable topBg=(LayerDrawable) topBar.getBackground().mutate();
-		topBar.setBackground(topBg);
-		Drawable topOverlay=topBg.findDrawableByLayerId(R.id.color_overlay);
-		topOverlay.setAlpha(0);
-
-		LayerDrawable btmBg=(LayerDrawable) buttonBar.getBackground().mutate();
-		buttonBar.setBackground(btmBg);
-		Drawable btmOverlay=btmBg.findDrawableByLayerId(R.id.color_overlay);
-		btmOverlay.setAlpha(0);
-
-		list.addOnScrollListener(new RecyclerView.OnScrollListener(){
-			private boolean isAtTop=true;
-			private Animator currentPanelsAnim;
-			@Override
-			public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy){
-				boolean newAtTop=recyclerView.getChildCount()==0 || (recyclerView.getChildAdapterPosition(recyclerView.getChildAt(0))==0 && recyclerView.getChildAt(0).getTop()==recyclerView.getPaddingTop());
-				if(newAtTop!=isAtTop){
-					isAtTop=newAtTop;
-					if(currentPanelsAnim!=null)
-						currentPanelsAnim.cancel();
-
-					AnimatorSet set=new AnimatorSet();
-					set.playTogether(
-							ObjectAnimator.ofInt(topOverlay, "alpha", isAtTop ? 0 : 20),
-							ObjectAnimator.ofInt(btmOverlay, "alpha", isAtTop ? 0 : 20),
-							ObjectAnimator.ofFloat(topBar, View.TRANSLATION_Z, isAtTop ? 0 : V.dp(3)),
-							ObjectAnimator.ofFloat(buttonBar, View.TRANSLATION_Z, isAtTop ? 0 : V.dp(3))
-					);
-					set.setDuration(150);
-					set.setInterpolator(CubicBezierInterpolator.DEFAULT);
-					set.addListener(new AnimatorListenerAdapter(){
-						@Override
-						public void onAnimationEnd(Animator animation){
-							currentPanelsAnim=null;
-						}
-					});
-					set.start();
-					currentPanelsAnim=set;
-				}
-			}
-		});
+		list.addOnScrollListener(new ElevationOnScrollListener(null, topBar, buttonBar));
 
 		searchEdit=view.findViewById(R.id.search_edit);
 		searchEdit.setOnEditorActionListener(this::onSearchEnterPressed);
@@ -684,4 +638,5 @@ public class InstanceCatalogSignupFragment extends InstanceCatalogFragment imple
 			return (this==GENERAL)==isGeneral;
 		}
 	}
+
 }
