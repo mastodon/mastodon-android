@@ -159,7 +159,16 @@
 	<string name="back">返回</string>
 	<string name="instance_catalog_title">Mastodon 由不同伺服器的使用者組成。</string>
 	<string name="instance_catalog_subtitle">基於您的興趣、地區、或一般用途選定一個伺服器。您仍會與任何伺服器中的每個人連結。</string>
+	<string name="search_communities">伺服器名稱或 URL</string>
+	<string name="instance_rules_title">伺服器規則</string>
+	<string name="instance_rules_subtitle">繼續的話，您將同意以下由 %s 之管理員訂定及執行之伺服器規則。</string>
+	<string name="signup_title">新增帳號</string>
 	<string name="edit_photo">編輯</string>
+	<string name="display_name">名稱</string>
+	<string name="username">使用者名稱</string>
+	<string name="email">電子郵件地址</string>
+	<string name="password">密碼</string>
+	<string name="confirm_password">確認密碼</string>
 	<string name="password_note">包含大寫、特殊字元、以及數字來提升您的密碼強度。</string>
 	<string name="category_academia">學術</string>
 	<string name="category_activism">社會運動</string>
@@ -174,7 +183,10 @@
 	<string name="category_music">音樂</string>
 	<string name="category_regional">區域性</string>
 	<string name="category_tech">科技</string>
+	<string name="confirm_email_title">請檢查您的收件夾</string>
 	<!-- %s is the email address -->
+	<string name="confirm_email_subtitle">請點擊我們寄給您連結以驗證 %s。我們將在此稍候。</string>
+	<string name="confirm_email_didnt_get">無法取得連結嗎？</string>
 	<string name="resend">重新發送</string>
 	<string name="open_email_app">開啟電子郵件 App</string>
 	<string name="resent_email">確認郵件已發送</string>
