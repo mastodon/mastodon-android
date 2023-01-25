@@ -159,7 +159,9 @@
 	<string name="back">ย้อนกลับ</string>
 	<string name="instance_catalog_title">Mastodon ประกอบด้วยผู้ใช้ในเซิร์ฟเวอร์ต่าง ๆ</string>
 	<string name="instance_catalog_subtitle">เลือกเซิร์ฟเวอร์ตามความสนใจ, ภูมิภาค หรือวัตถุประสงค์ทั่วไปของคุณ คุณยังคงสามารถเชื่อมต่อกับทุกคน โดยไม่คำนึงถึงเซิร์ฟเวอร์</string>
+	<string name="search_communities">ชื่อหรือ URL ของเซิร์ฟเวอร์</string>
 	<string name="instance_rules_title">กฎของเซิร์ฟเวอร์</string>
+	<string name="instance_rules_subtitle">การดำเนินการต่อแสดงว่าคุณเห็นด้วยที่จะปฏิบัติตามกฎดังต่อไปนี้ที่ได้รับการตั้งและบังคับใช้โดยผู้ควบคุมของ %s</string>
 	<string name="signup_title">สร้างบัญชี</string>
 	<string name="edit_photo">แก้ไข</string>
 	<string name="display_name">ชื่อ</string>
@@ -183,6 +185,7 @@
 	<string name="category_tech">เทคโนโลยี</string>
 	<string name="confirm_email_title">ตรวจสอบกล่องขาเข้าของคุณ</string>
 	<!-- %s is the email address -->
+	<string name="confirm_email_subtitle">แตะลิงก์ที่เราส่งถึงคุณเพื่อยืนยัน %s เราจะรออยู่ตรงนี้</string>
 	<string name="confirm_email_didnt_get">ไม่ได้รับลิงก์?</string>
 	<string name="resend">ส่งใหม่</string>
 	<string name="open_email_app">เปิดแอปอีเมล</string>
@@ -376,5 +379,26 @@
 	<string name="welcome_page2_text">นามของคุณอาจเป็น @gothgirl654@example.social แต่คุณยังคงสามารถติดตาม ดัน และแชทกับ @fallout5ever@example.online</string>
 	<string name="welcome_page3_title">ฉันจะเลือกเซิร์ฟเวอร์อย่างไร?</string>
 	<string name="welcome_page3_text">ต่างคนต่างเลือกเซิร์ฟเวอร์ด้วยเหตุผลต่าง ๆ art.example เป็นสถานที่ที่ยอดเยี่ยมสำหรับศิลปิน ขณะที่ glasgow.example อาจเป็นตัวเลือกที่ดีสำหรับชาวสกอต\n\nรับรองว่าคุณต้องชอบเซิร์ฟเวอร์ที่แนะนำของเราใดก็ตาม ดังนั้นไม่ว่าเซิร์ฟเวอร์ใดที่คุณเลือก (หรือหากคุณป้อนของคุณเองในแถบค้นหาเซิร์ฟเวอร์) คุณจะไม่พลาดความเคลื่อนไหวที่ใดก็ตาม</string>
+	<string name="signup_random_server_explain">เราจะเลือกเซิร์ฟเวอร์ตามภาษาของคุณหากคุณดำเนินการต่อโดยไม่ได้ทำการเลือก</string>
+	<string name="server_filter_any_language">ภาษาใด ๆ</string>
+	<string name="server_filter_instant_signup">การลงทะเบียนทันที</string>
+	<string name="server_filter_manual_review">การตรวจทานด้วยตนเอง</string>
+	<string name="server_filter_any_signup_speed">ความเร็วการลงทะเบียนใด ๆ</string>
+	<string name="server_filter_region_europe">ยุโรป</string>
+	<string name="server_filter_region_north_america">อเมริกาเหนือ</string>
+	<string name="server_filter_region_south_america">อเมริกาใต้</string>
+	<string name="server_filter_region_africa">แอฟริกา</string>
+	<string name="server_filter_region_asia">เอเชีย</string>
+	<string name="server_filter_region_oceania">โอเชียเนีย</string>
+	<string name="not_accepting_new_members">ไม่ได้กำลังเปิดรับสมาชิกใหม่</string>
+	<string name="category_special_interests">ความสนใจพิเศษ</string>
+	<string name="signup_passwords_dont_match">รหัสผ่านไม่ตรงกัน</string>
+	<string name="pick_server_for_me">เลือกสำหรับฉัน</string>
+	<string name="profile_add_row">เพิ่มแถว</string>
+	<string name="profile_setup">การตั้งค่าโปรไฟล์</string>
+	<string name="profile_setup_subtitle">คุณสามารถทำสิ่งนี้ให้เสร็จสมบูรณ์ได้ในภายหลังเสมอในแท็บโปรไฟล์</string>
+	<string name="profile_setup_explanation">คุณสามารถเพิ่มได้สูงสุดถึงสี่ช่องโปรไฟล์สำหรับสิ่งใดก็ตามที่คุณต้องการ ตำแหน่งที่ตั้ง, ลิงก์, สรรพนาม — ไม่มีที่สิ้นสุด</string>
+	<string name="popular_on_mastodon">เป็นที่นิยมใน Mastodon</string>
 	<string name="follow_all">ติดตามทั้งหมด</string>
+	<string name="server_rules_disagree">ไม่เห็นด้วย</string>
 </resources>
