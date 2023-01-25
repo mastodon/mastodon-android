@@ -337,7 +337,7 @@
 	<string name="time_now">agora</string>
 	<string name="post_info_reblogs">Reblogues</string>
 	<string name="post_info_favorites">Favoritos</string>
-	<string name="edit_history">Editar histórico</string>
+	<string name="edit_history">Histórico de edição</string>
 	<string name="last_edit_at_x">Última edição %s</string>
 	<string name="time_just_now">agora mesmo</string>
 	<plurals name="x_seconds_ago">
@@ -349,7 +349,7 @@
 		<item quantity="other">%d minutos atrás</item>
 	</plurals>
 	<string name="edited_timestamp">editado %s</string>
-	<string name="edit_original_post">Postagem original</string>
+	<string name="edit_original_post">Publicação original</string>
 	<string name="edit_text_edited">Texto editado</string>
 	<string name="edit_spoiler_added">Aviso de conteúdo adicionado</string>
 	<string name="edit_spoiler_edited">Aviso de conteúdo editado</string>
@@ -360,12 +360,12 @@
 	<string name="edit_media_added">Mídia adicionada</string>
 	<string name="edit_media_removed">Mídia removida</string>
 	<string name="edit_media_reordered">Mídia reordenada</string>
-	<string name="edit_marked_sensitive">Marcadas como sensíveis</string>
+	<string name="edit_marked_sensitive">Marcada como sensível</string>
 	<string name="edit_marked_not_sensitive">Marcado como não sensível</string>
 	<string name="edit_multiple_changed">Publicação editada</string>
 	<string name="edit">Editar</string>
 	<string name="discard_changes">Descartar alterações?</string>
-	<string name="upload_failed">Falha no upload</string>
+	<string name="upload_failed">Falha ao enviar</string>
 	<string name="file_size_bytes">%d bytes</string>
 	<string name="file_size_kb">%.2f KB</string>
 	<string name="file_size_mb">%.2f MB</string>
@@ -382,24 +382,23 @@
 	<string name="download_update">Baixar (%s)</string>
 	<string name="install_update">Instalar</string>
 	<string name="privacy_policy_title">Sua privacidade</string>
-	<string name="privacy_policy_subtitle">Embora o aplicativo Mastodon não colete nenhum dado, o servidor que você se inscrever pode ter uma política diferente. Dedique um minuto para revisar e aceitar a política de privacidade do aplicativo Mastodon e a política de privacidade do seu servidor.</string>
 	<string name="i_agree">Eu concordo</string>
 	<string name="empty_list">Essa lista está vazia</string>
 	<string name="instance_signup_closed">Este servidor não aceita novos registros.</string>
 	<string name="text_copied">Copiado para a área de transferência</string>
-	<string name="add_bookmark">Marcador</string>
-	<string name="remove_bookmark">Remover marcador</string>
-	<string name="bookmarks">Marcadores</string>
+	<string name="add_bookmark">Salvar</string>
+	<string name="remove_bookmark">Remover dos salvos</string>
+	<string name="bookmarks">Salvos</string>
 	<string name="your_favorites">Seus favoritos</string>
 	<string name="login_title">Bem-vindo de Volta</string>
-	<string name="login_subtitle">Faça login com o servidor onde você criou sua conta.</string>
+	<string name="login_subtitle">Faça login no servidor onde você criou sua conta.</string>
 	<string name="server_url">URL do servidor</string>
 	<string name="welcome_page1_title">O que é o Mastodon?</string>
 	<string name="welcome_page1_text">Imagine que você tem um endereço de e-mail que termina com @example.com.\n\nVocê ainda pode enviar e receber e-mails de qualquer pessoa, mesmo que o e-mail deles termine em @gmail.com ou @icloud.com ou @example.com.</string>
 	<string name="welcome_page2_title">O Mastodon é assim.</string>
 	<string name="welcome_page2_text">Seu identificador pode ser @gothgirl654@exemplo.social, mas você ainda pode seguir, reblogar, e conversar com @fallout5ever@example.online.</string>
 	<string name="welcome_page3_title">Como faço para escolher um servidor?</string>
-	<string name="welcome_page3_text">Pessoas diferentes escolhem servidores diferentes por vários motivos. art.example é um ótimo lugar para artistas, enquanto glasgow.example pode ser uma boa escolha para escoceses.\n\nVocê não pode errar com nenhum de nossos servidores recomendados, portanto, independentemente de qual escolher (ou se inserir seu próprio na barra de pesquisa do servidor), você nunca perderá uma batida em lugar nenhum.</string>
+	<string name="welcome_page3_text">Pessoas diferentes escolhem servidores diferentes por vários motivos. O art.example é um ótimo lugar para artistas, enquanto glasgow.example pode ser uma boa escolha para escoceses.\n\nVocê não pode errar com nenhum de nossos servidores recomendados, portanto, independentemente de qual escolher (ou se inserir seu próprio na barra de pesquisa do servidor), você nunca perderá uma batida em lugar nenhum.</string>
 	<string name="signup_random_server_explain">Nós escolheremos um servidor com base no seu idioma se você continuar sem fazer uma seleção.</string>
 	<string name="server_filter_any_language">Qualquer idioma</string>
 	<string name="server_filter_manual_review">Revisão manual</string>
@@ -419,4 +418,5 @@
 	<string name="popular_on_mastodon">Popular no Mastodon</string>
 	<string name="follow_all">Seguir todos</string>
 	<string name="server_rules_disagree">Discordo</string>
+	<!-- %s is server domain -->
 </resources>
