@@ -202,7 +202,15 @@
 	<string name="instance_catalog_title">Mastodon складається з користувачів на різних серверах.</string>
 	<string name="instance_catalog_subtitle">Оберіть сервер на основі ваших інтересів, регіонів або загальних цілей. Ви все ще можете зв\'язатися з усіма, незалежно від сервера.</string>
 	<string name="search_communities">Назва сервера або URL</string>
+	<string name="instance_rules_title">Правила Сервера</string>
+	<string name="instance_rules_subtitle">Продовжуючи, ви погоджуєтеся дотримуватися правил встановлених модерацією %s.</string>
+	<string name="signup_title">Створити Обліковий запис</string>
 	<string name="edit_photo">редагувати</string>
+	<string name="display_name">Ім\'я</string>
+	<string name="username">Ім\'я користувача</string>
+	<string name="email">Email</string>
+	<string name="password">Пароль</string>
+	<string name="confirm_password">Підтвердити пароль</string>
 	<string name="password_note">Використовуйте великі літери, спеціальні символи та цифри для збільшення сили пароля.</string>
 	<string name="category_academia">Академія</string>
 	<string name="category_activism">Активізм</string>
@@ -217,7 +225,9 @@
 	<string name="category_music">Музика</string>
 	<string name="category_regional">Регіональні</string>
 	<string name="category_tech">Технології</string>
+	<string name="confirm_email_title">Перевірити вхідні листи</string>
 	<!-- %s is the email address -->
+	<string name="confirm_email_didnt_get">Не отримали посилання?</string>
 	<string name="resend">Надіслати повторно</string>
 	<string name="open_email_app">Відкрити Електрону пошту</string>
 	<string name="resent_email">Електронний лист для підтвердження</string>
@@ -307,6 +317,7 @@
 	<string name="open_in_browser">Відкрити у браузері</string>
 	<string name="hide_boosts_from_user">Сховати репости від %s</string>
 	<string name="show_boosts_from_user">Показати репости від %s</string>
+	<string name="signup_reason">Чому ви бажаєте приєднатися?</string>
 	<string name="signup_reason_note">Це допоможе нам переглянути вашу заявку.</string>
 	<string name="clear">Очистити</string>
 	<string name="profile_header">Зображння-заголовок</string>
@@ -411,6 +422,7 @@
 	<!-- %s is file size -->
 	<string name="download_update">Завантажити (%s)</string>
 	<string name="install_update">Встановити</string>
+	<string name="privacy_policy_title">Ваша конфіденційність</string>
 	<string name="i_agree">Я погоджуюся</string>
 	<string name="empty_list">Цей список порожній</string>
 	<string name="instance_signup_closed">Цей сервер не приймає нові реєстрації.</string>
@@ -422,10 +434,12 @@
 	<string name="login_title">З поверненням</string>
 	<string name="login_subtitle">Увійдіть за допомогою сервера, де ви створили свій обліковий запис.</string>
 	<string name="server_url">URL-адреса сервера</string>
+	<string name="welcome_page1_title">Що таке Mastodon?</string>
 	<string name="welcome_page1_text">Уявіть, що у вас є електронної пошта, яка закінчується на @example.com.\n\nВи можете все ще надсилати та отримувати листи від будь-кого, навіть якщо їх електронна пошта закінчується на @gmail.com або @icloud.com або @example.com.</string>
 	<string name="welcome_page2_title">Mastodon такий.</string>
 	<string name="welcome_page2_text">Ваш індифікатор може бути @gothgirl654@example.social, але ви все ще можете підписуватися, репостити й спілкуватися з @fallout5ever@example.online.</string>
 	<string name="welcome_page3_title">Як обрати сервер?</string>
 	<string name="welcome_page3_text">Різні люди обирають різні сервери з будь-якої кількості причин. art.example - це чудове місце для художників, в той час як glasgow.example може бути гарним вибором для шотландці.\n\nВи не можете піти не так з жодними з наших рекомендованих серверів, так чи інакше, незалежно від того, який вибір ви обираєте (або введете власний в панель пошуку сервера), ви ніколи ніде не помилитися в жодному місці.</string>
+	<string name="server_filter_any_language">Будь-яка мова</string>
 	<!-- %s is server domain -->
 </resources>
