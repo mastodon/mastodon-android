@@ -4,6 +4,7 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.RectF;
+import android.util.Log;
 import android.view.View;
 
 import org.joinmastodon.android.R;
@@ -15,6 +16,7 @@ import org.joinmastodon.android.ui.displayitems.LinkCardStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.StatusDisplayItem;
 
 import java.util.List;
+import java.util.logging.Logger;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -46,7 +48,11 @@ public class InsetStatusItemDecoration extends RecyclerView.ItemDecoration{
 				if(rect.isEmpty()){
 					rect.set(child.getX(), i==0 && pos>0 && displayItems.get(pos-1).inset ? V.dp(-10) : child.getY(), child.getX()+child.getWidth(), child.getY()+child.getHeight());
 				}else{
-					rect.bottom=Math.max(rect.bottom, child.getY()+child.getHeight());
+					if(holder instanceof ImageStatusDisplayItem.Holder<?>){
+						rect.bottom=Math.max(rect.bottom, child.getY()+child.getHeight()+V.dp(16));
+					}else {
+						rect.bottom=Math.max(rect.bottom, child.getY()+child.getHeight());
+					}
 				}
 			}else if(!rect.isEmpty()){
 				drawInsetBackground(parent, c);
@@ -108,8 +114,13 @@ public class InsetStatusItemDecoration extends RecyclerView.ItemDecoration{
 					outRect.right=pad;
 				if(!topSiblingInset)
 					outRect.top=pad;
-				if(!bottomSiblingInset)
-					outRect.bottom=pad;
+				if(holder instanceof ImageStatusDisplayItem.Holder<?>){
+					if(!bottomSiblingInset)
+						outRect.bottom=V.dp(32);
+				}else {
+					if(!bottomSiblingInset)
+						outRect.bottom=pad;
+				}
 			}
 		}
 	}
