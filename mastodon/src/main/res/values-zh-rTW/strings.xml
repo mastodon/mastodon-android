@@ -361,6 +361,7 @@
 	<string name="download_update">下載 (%s)</string>
 	<string name="install_update">安裝</string>
 	<string name="privacy_policy_title">您的隱私</string>
+	<string name="privacy_policy_subtitle">即使 Mastodon app 本身不會蒐集任何資料，您所註冊之伺服器可能有不一樣的隱私權政策。\n\n若您不同意 %s 之隱私權政策，您可以重新挑選另一個不同的伺服器。</string>
 	<string name="i_agree">我已閱讀並同意</string>
 	<string name="empty_list">此列表為空</string>
 	<string name="instance_signup_closed">此伺服器不接受新的註冊。</string>
@@ -400,5 +401,7 @@
 	<string name="popular_on_mastodon">Mastodon 上之流行內容</string>
 	<string name="follow_all">跟隨所有</string>
 	<string name="server_rules_disagree">不同意</string>
+	<string name="privacy_policy_explanation">TL;DR：我們不蒐集或處理任何資料。</string>
 	<!-- %s is server domain -->
+	<string name="server_policy_disagree">不同意 %s 之隱私權政策</string>
 </resources>
