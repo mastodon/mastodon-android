@@ -161,6 +161,7 @@
 	<string name="instance_catalog_subtitle">Chọn một máy chủ dựa theo sở thích, tôn giáo, hoặc ý muốn của bạn. Bạn vẫn có thể giao tiếp với bất cứ ai mà không phụ thuộc vào máy chủ của họ.</string>
 	<string name="search_communities">Tên máy chủ hoặc URL</string>
 	<string name="instance_rules_title">Nội quy máy chủ</string>
+	<string name="instance_rules_subtitle">Tiếp tục nghĩa là bạn đồng ý tuân theo các quy tắc sau do kiểm duyệt viên %s đặt ra và thực thi.</string>
 	<string name="signup_title">Tạo tài khoản</string>
 	<string name="edit_photo">sửa</string>
 	<string name="display_name">Tên</string>
@@ -184,6 +185,7 @@
 	<string name="category_tech">Công nghệ</string>
 	<string name="confirm_email_title">Kiểm tra hộp thư của bạn</string>
 	<!-- %s is the email address -->
+	<string name="confirm_email_subtitle">Nhấn vào liên kết chúng tôi vừa gửi để xác minh %s. Nhanh nhé bạn.</string>
 	<string name="confirm_email_didnt_get">Không nhận được mã?</string>
 	<string name="resend">Gửi lại</string>
 	<string name="open_email_app">Mở ứng dụng email</string>
@@ -359,6 +361,7 @@
 	<string name="download_update">Tải về (%s)</string>
 	<string name="install_update">Cài đặt</string>
 	<string name="privacy_policy_title">Sự riêng tư của bạn</string>
+	<string name="privacy_policy_subtitle">Mặc dù ứng dụng Mastodon không thu thập bất kỳ dữ liệu nào, máy chủ mà bạn đăng ký có thể có chính sách khác.\n\nNếu không đồng ý với chính sách dành cho %s, bạn có thể quay lại và chọn một máy chủ khác.</string>
 	<string name="i_agree">Tôi đồng ý</string>
 	<string name="empty_list">Danh sách trống</string>
 	<string name="instance_signup_closed">Máy chủ này không chấp nhận đăng kí mới.</string>
@@ -376,6 +379,7 @@
 	<string name="welcome_page2_text">Địa chỉ của bạn có thể là @gothgirl654@example.social nhưng bạn vẫn có thể theo dõi, đăng lại tút và trò chuyện với @fallout5ever@example.online.</string>
 	<string name="welcome_page3_title">Làm thế nào để chọn một máy chủ?</string>
 	<string name="welcome_page3_text">Mọi người chọn các máy chủ khác nhau vì nhiều lý do. art.example là một nơi tuyệt vời cho các nghệ sĩ, trong khi glasgow.example có thể là một lựa chọn tốt cho người Scotland.\n\nBạn có thể chọn bất kỳ máy chủ đề xuất nào của chúng tôi, vì vậy, bất kể bạn chọn máy chủ nào (hoặc tự chọn trong thanh tìm kiếm của máy chủ), bạn sẽ không bao giờ bỏ lỡ một nhịp nào ở bất cứ đâu.</string>
+	<string name="signup_random_server_explain">Chúng tôi sẽ chọn một máy chủ dựa trên ngôn ngữ của bạn nếu bạn tiếp tục mà không lựa chọn.</string>
 	<string name="server_filter_any_language">Mọi ngôn ngữ</string>
 	<string name="server_filter_instant_signup">Đăng ký nhanh</string>
 	<string name="server_filter_manual_review">Duyệt thủ công</string>
@@ -392,6 +396,12 @@
 	<string name="pick_server_for_me">Chọn giúp tôi</string>
 	<string name="profile_add_row">Thêm hàng</string>
 	<string name="profile_setup">Thiệt lập hồ sơ</string>
+	<string name="profile_setup_subtitle">Bạn có thể sửa sau trong mục Hồ sơ.</string>
+	<string name="profile_setup_explanation">Bạn có thể thêm tối đa bốn trường hồ sơ cho bất cứ thứ gì bạn muốn. Vị trí, liên kết, công việc - không giới hạn.</string>
 	<string name="popular_on_mastodon">Thịnh hành trên Mastodon</string>
+	<string name="follow_all">Theo dõi tất cả</string>
+	<string name="server_rules_disagree">Không đồng ý</string>
+	<string name="privacy_policy_explanation">TL;DR: Chúng tôi không thu thập bất cứ gì.</string>
 	<!-- %s is server domain -->
+	<string name="server_policy_disagree">Không đồng ý với %s</string>
 </resources>
