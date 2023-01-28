@@ -201,7 +201,16 @@
 	<string name="back">Wróć</string>
 	<string name="instance_catalog_title">Mastodon składa się z użytkowników na różnych serwerach.</string>
 	<string name="instance_catalog_subtitle">Wybierz serwer według Twoich zainteresowań, regionu lub ogólnotematyczny. Możesz nadal łączyć się ze wszystkimi, niezależnie od serwera.</string>
+	<string name="search_communities">Nazwa serwera lub jego adres URL</string>
+	<string name="instance_rules_title">Zasady serwera</string>
+	<string name="instance_rules_subtitle">Kontynuując, zgadzasz się przestrzegać następujących zasad ustalonych i wymuszonych przez %s moderatorów.</string>
+	<string name="signup_title">Utwórz konto</string>
 	<string name="edit_photo">edytuj</string>
+	<string name="display_name">Nazwa</string>
+	<string name="username">Nazwa użytkownika</string>
+	<string name="email">Adres e-mail</string>
+	<string name="password">Hasło</string>
+	<string name="confirm_password">Potwierdź hasło</string>
 	<string name="password_note">Użyj wielkich liter, znaków specjalnych i liczb, aby zwiększyć siłę swojego hasła.</string>
 	<string name="category_academia">Środowiska akademickie</string>
 	<string name="category_activism">Aktywizm</string>
@@ -216,7 +225,10 @@
 	<string name="category_music">Muzyka</string>
 	<string name="category_regional">Regionalne</string>
 	<string name="category_tech">Technologia</string>
+	<string name="confirm_email_title">Sprawdź skrzynkę E-mail</string>
 	<!-- %s is the email address -->
+	<string name="confirm_email_subtitle">Kliknij link, który Ci wysłaliśmy %s. My poczekamy tutaj.</string>
+	<string name="confirm_email_didnt_get">Nie otrzymałeś linku?</string>
 	<string name="resend">Wyślij ponownie</string>
 	<string name="open_email_app">Otwórz aplikację e-mail</string>
 	<string name="resent_email">Wysłano potwierdzający e-mail</string>
@@ -306,6 +318,7 @@
 	<string name="open_in_browser">Otwórz w przeglądarce</string>
 	<string name="hide_boosts_from_user">Ukryj podbicia od %s</string>
 	<string name="show_boosts_from_user">Pokaż podbicia od %s</string>
+	<string name="signup_reason">Dlaczego chcesz dołączyć?</string>
 	<string name="signup_reason_note">To pomoże nam ocenić Twoją aplikację.</string>
 	<string name="clear">Wyczyść</string>
 	<string name="profile_header">Obraz nagłówka</string>
@@ -410,6 +423,8 @@
 	<!-- %s is file size -->
 	<string name="download_update">Pobierz (%s)</string>
 	<string name="install_update">Zainstaluj</string>
+	<string name="privacy_policy_title">Twoja prywatność</string>
+	<string name="privacy_policy_subtitle">Chociaż aplikacja Mastodon nie zbiera żadnych danych, serwer, przez który się zarejestrujesz, może mieć inną politykę prywatności.\n\nJeśli nie zgadzasz się z zasadami dotyczącymi %s, możesz wrócić i wybrać inny serwer.</string>
 	<string name="i_agree">Wyrażam zgodę</string>
 	<string name="empty_list">Lista jest pusta</string>
 	<string name="instance_signup_closed">Ten serwer nie akceptuje nowych rejestracji.</string>
@@ -421,10 +436,33 @@
 	<string name="login_title">Witaj ponownie</string>
 	<string name="login_subtitle">Zaloguj się na serwer, na którym utworzyłeś swoje konto.</string>
 	<string name="server_url">Adres URL serwera</string>
+	<string name="welcome_page1_title">Czym jest Mastodon?</string>
 	<string name="welcome_page1_text">Wyobraź sobie, że masz adres e-mail, który kończy się @example.com.\n\nNadal możesz wysyłać i odbierać wiadomości od każdego, nawet jeśli ich e-mail kończy się na @gmail.com lub @icloud.com lub @przykład.com.</string>
 	<string name="welcome_page2_title">Mastodon jest taki.</string>
 	<string name="welcome_page2_text">Twój nick może brzmieć @gothgirl654@example.social, ale nadal możesz obserwować, reblogować i rozmawiać z @fallout5ever@example.online.</string>
 	<string name="welcome_page3_title">Jak wybrać serwer?</string>
 	<string name="welcome_page3_text">Różne osoby wybierają różne serwery z różnych powodu. art.example to świetne miejsce dla artystów, podczas gdy glasgow.przykład może być dobrym wyborem dla Szkotów.\n\nNie zrobisz źle wybierając dowolny z naszych rekomendowanych serwerów, dlatego niezależnie od tego który wybierzesz (lub jeśli wpiszesz swój własny na pasku wyszukiwania serwera), nigdy nie przegapisz niczego.</string>
+	<string name="signup_random_server_explain">My wybierzemy serwer oparty na twoim języku, jeśli kontynuujesz bez dokonywania wyboru.</string>
+	<string name="server_filter_any_language">Dowolny język</string>
+	<string name="server_filter_instant_signup">Natychmiastowa rejestracja</string>
+	<string name="server_filter_manual_review">Ręczne sprawdzenie</string>
+	<string name="server_filter_any_signup_speed">Dowolna szybkość rejestracji</string>
+	<string name="server_filter_region_europe">Europa</string>
+	<string name="server_filter_region_north_america">Ameryka Północna</string>
+	<string name="server_filter_region_south_america">Ameryka Południowa</string>
+	<string name="server_filter_region_africa">Afryka</string>
+	<string name="server_filter_region_asia">Azja</string>
+	<string name="server_filter_region_oceania">Oceania</string>
+	<string name="not_accepting_new_members">Nie przyjmuje nowych członków</string>
+	<string name="category_special_interests">Specjalne zainteresowania</string>
+	<string name="signup_passwords_dont_match">Hasła się nie zgadzają</string>
+	<string name="pick_server_for_me">Wybierz dla mnie</string>
+	<string name="profile_add_row">Dodaj wiersz</string>
+	<string name="profile_setup">Ustawienia profilu</string>
+	<string name="profile_setup_subtitle">Zawsze możesz to uzupełnić później w zakładce Profil.</string>
+	<string name="profile_setup_explanation">Możesz dodać do czterech pól profilowych dla czegokolwiek: Lokalizacja, linki, zaimki itp.</string>
+	<string name="popular_on_mastodon">Popularne na Mastodonie</string>
+	<string name="follow_all">Obserwuj każdego</string>
+	<string name="server_rules_disagree">Nie zgadzam się</string>
 	<!-- %s is server domain -->
 </resources>
