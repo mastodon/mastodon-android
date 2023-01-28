@@ -159,8 +159,16 @@
 	<string name="back">뒤로 가기</string>
 	<string name="instance_catalog_title">마스토돈은 여러 다른 서버에 존재하는 사용자들로 이루어져 있습니다.</string>
 	<string name="instance_catalog_subtitle">당신의 관심사, 지역에 맞거나 일반적인 목적의 서버 중에서 원하는 것을 고르세요. 어떤 서버를 고르더라도, 다른 모두와 소통할 수 있습니다.</string>
+	<string name="search_communities">서버이름 혹은 URL</string>
 	<string name="instance_rules_title">서버 규칙</string>
+	<string name="instance_rules_subtitle">계속 진행하는 것으로 %s의 중재자들에 의해 정해지고 관리되는 규칙들에 동의하는 것으로 간주합니다.</string>
+	<string name="signup_title">계정 생성</string>
 	<string name="edit_photo">수정</string>
+	<string name="display_name">이름</string>
+	<string name="username">사용자명</string>
+	<string name="email">이메일</string>
+	<string name="password">암호</string>
+	<string name="confirm_password">암호 확인</string>
 	<string name="password_note">대문자, 특수문자, 숫자를 포함해서 암호의 강도를 높이세요.</string>
 	<string name="category_academia">학술</string>
 	<string name="category_activism">사회운동</string>
@@ -175,7 +183,10 @@
 	<string name="category_music">음악</string>
 	<string name="category_regional">지역</string>
 	<string name="category_tech">기술</string>
+	<string name="confirm_email_title">받은 편지함을 확인하세요</string>
 	<!-- %s is the email address -->
+	<string name="confirm_email_subtitle">%s에 인증하기 위해 우리가 보낸 링크를 누르세요. 여기서 기다리겠습니다.</string>
+	<string name="confirm_email_didnt_get">링크를 못 받으셨나요?</string>
 	<string name="resend">재전송</string>
 	<string name="open_email_app">이메일 앱 열기</string>
 	<string name="resent_email">확인용 이메일이 보내졌습니다</string>
@@ -262,6 +273,7 @@
 	<string name="open_in_browser">브라우저에서 열기</string>
 	<string name="hide_boosts_from_user">%s 님의 리블로그 숨기기</string>
 	<string name="show_boosts_from_user">%s 님의 리블로그 보이기</string>
+	<string name="signup_reason">가입하려는 이유가 무엇인가요?</string>
 	<string name="signup_reason_note">이 정보는 우리가 심사를 하는 데에 참고할 수 있습니다.</string>
 	<string name="clear">모두 지우기</string>
 	<string name="profile_header">헤더 이미지</string>
@@ -348,6 +360,8 @@
 	<!-- %s is file size -->
 	<string name="download_update">다운로드 (%s)</string>
 	<string name="install_update">설치</string>
+	<string name="privacy_policy_title">귀하의 개인정보</string>
+	<string name="privacy_policy_subtitle">마스토돈 앱은 아무런 정보도 수집하지 않지만, 당신이 가입하는 서버는 다른 정책을 가질 수 있습니다.\n\n만약 %s의 정책에 동의하지 않는다면, 뒤로 돌아가서 다른 서버를 고를 수 있습니다.</string>
 	<string name="i_agree">동의합니다</string>
 	<string name="empty_list">리스트에 아무 것도 없습니다</string>
 	<string name="instance_signup_closed">이 서버는 가입이 막혀 있는 상태입니다.</string>
@@ -359,10 +373,33 @@
 	<string name="login_title">돌아오신 것을 환영합니다</string>
 	<string name="login_subtitle">계정을 생성한 서버에 로그인하세요.</string>
 	<string name="server_url">서버 URL</string>
+	<string name="welcome_page1_title">마스토돈이란?</string>
 	<string name="welcome_page1_text">당신이 @example.com으로 끝나는 이메일 주소를 갖고 있다고 상상해보세요.\n\n당신은 이메일이 @gmail.com이나 @icloud.com 또는 @example.com으로 끝나는 모두에게 이메일을 보내거나 받을 수 있습니다.</string>
 	<string name="welcome_page2_title">마스토돈도 그렇답니다.</string>
 	<string name="welcome_page2_text">당신의 핸들이 @gothgirl654@example.social이더라도, 당신은 언제나 @fallout5ever@example.online을 팔로우하거나 리블로그, 대화할 수 있습니다.</string>
 	<string name="welcome_page3_title">서버는 어떻게 선택하나요?</string>
 	<string name="welcome_page3_text">다른 사람들은 여러가지 이유로 서로 다른 서버들을 선택합니다. art.example은 예술가들에게 훌륭한 곳인 반면, glasgow.example은 스코틀랜드인들에게 좋은 선택이 될 수 있습니다.\n\n저희가 추천하는 서버를 선택하면 잘못될 일이 없으므로, 당신은 어떠한 서버를 선택하더라도(또는 서버 검색란에 직접 입력하더라도) 어디서나 소식을 놓치지 않을 것입니다.</string>
+	<string name="signup_random_server_explain">아무 것도 고르지 않은 경우, 당신의 언어에 따라 서버를 골라드립니다.</string>
+	<string name="server_filter_any_language">모든 언어</string>
+	<string name="server_filter_instant_signup">즉시 가입</string>
+	<string name="server_filter_manual_review">수동 리뷰</string>
+	<string name="server_filter_any_signup_speed">모든 가입 속도</string>
+	<string name="server_filter_region_europe">유럽</string>
+	<string name="server_filter_region_north_america">북아메리카</string>
+	<string name="server_filter_region_south_america">남아메리카</string>
+	<string name="server_filter_region_africa">아프리카</string>
+	<string name="server_filter_region_asia">아시아</string>
+	<string name="server_filter_region_oceania">오세아니아</string>
+	<string name="not_accepting_new_members">새로운 가입을 받지 않습니다</string>
+	<string name="category_special_interests">특별한 관심사</string>
+	<string name="signup_passwords_dont_match">암호가 일치하지 않습니다</string>
+	<string name="pick_server_for_me">나를 위한 추천</string>
+	<string name="profile_add_row">열 추가</string>
+	<string name="profile_setup">프로필 설정</string>
+	<string name="profile_setup_subtitle">나중에 언제든지 프로필 탭에서 완성할 수 있습니다.</string>
+	<string name="follow_all">모두 팔로우</string>
+	<string name="server_rules_disagree">동의 안 함</string>
+	<string name="privacy_policy_explanation">요약: 우리는 어떤 정보도 수집하거나 처리하지 않습니다.</string>
 	<!-- %s is server domain -->
+	<string name="server_policy_disagree">%s에 대해 비동의</string>
 </resources>
