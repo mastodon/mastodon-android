@@ -45,7 +45,7 @@ public class Instance extends BaseModel{
 	@RequiredField
 	public String version;
 	/**
-	 * Primary langauges of the website and its staff.
+	 * Primary languages of the website and its staff.
 	 */
 //	@RequiredField
 	public List<String> languages;
