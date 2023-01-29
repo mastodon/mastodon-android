@@ -174,7 +174,14 @@ Viðkomandi aðilar munu ekki vita að þaggað hefur verið niður í þeim.</s
 	<string name="back">Til baka</string>
 	<string name="instance_catalog_title">Mastodon samanstendur af notendum á mismunandi netþjónum.</string>
 	<string name="instance_catalog_subtitle">Veldu netþjón út frá svæðinu þínu, áhugamálum, nú eða einhvern almennan. Þú getur samt spjallað við hvern sem er á Mastodon, burtséð frá á hvaða netþjóni þú ert.</string>
+	<string name="instance_rules_title">Reglur netþjónsins</string>
+	<string name="signup_title">Búa til notandaaðgang</string>
 	<string name="edit_photo">breyta</string>
+	<string name="display_name">Nafn</string>
+	<string name="username">Notandanafn</string>
+	<string name="email">Tölvupóstfang</string>
+	<string name="password">Lykilorð</string>
+	<string name="confirm_password">Staðfestu lykilorðið</string>
 	<string name="password_note">Settu hástafi, sértákn og tölustafi til að auka styrk lykilorðins þíns.</string>
 	<string name="category_academia">Akademískt</string>
 	<string name="category_activism">Aðgerðasinnar</string>
@@ -189,6 +196,7 @@ Viðkomandi aðilar munu ekki vita að þaggað hefur verið niður í þeim.</s
 	<string name="category_music">Tónlist</string>
 	<string name="category_regional">Svæðisbundið</string>
 	<string name="category_tech">Tækni</string>
+	<string name="confirm_email_title">Athugaðu innhólfið þitt</string>
 	<!-- %s is the email address -->
 	<string name="resend">Endursenda</string>
 	<string name="open_email_app">Opna tölvupóstforrit</string>
@@ -277,6 +285,7 @@ Viðkomandi aðilar munu ekki vita að þaggað hefur verið niður í þeim.</s
 	<string name="open_in_browser">Opna í vafra</string>
 	<string name="hide_boosts_from_user">Fela endurbirtingar frá %s</string>
 	<string name="show_boosts_from_user">Sýna endurbirtingar frá %s</string>
+	<string name="signup_reason">Hvers vegna vilt þú taka þátt?</string>
 	<string name="signup_reason_note">Þetta mun hjálpa okkur við að yfirfara umsóknina þína.</string>
 	<string name="clear">Hreinsa</string>
 	<string name="profile_header">Mynd í síðuhaus</string>
@@ -380,10 +389,20 @@ Viðkomandi aðilar munu ekki vita að þaggað hefur verið niður í þeim.</s
 	<string name="login_title">Velkomin aftur</string>
 	<string name="login_subtitle">Skráðu þig inn á netþjóninn þar sem þú útbjóst notandaaðganginn þinn.</string>
 	<string name="server_url">Vefslóð netþjóns</string>
+	<string name="welcome_page1_title">Hvað er Mastodon?</string>
 	<string name="welcome_page1_text">Ímyndaðu þér að þú sért með tölvupóstfang sem endar á @lén.is.\n\nÞú getur alltaf tekið við og sent tölvupóst til allra, jafnvel þótt tölvupóstfangið þeirra endi á @gmail.com, @icloud.com eða @lén.is.</string>
 	<string name="welcome_page2_title">Mastodon er eins og þetta.</string>
 	<string name="welcome_page2_text">Auðkennið þitt gæti verið @gothgirl654@example.social, en þú getur samt fylgst með, endurbirt og spjallað við @fallout5ever@example.online.</string>
 	<string name="welcome_page3_title">Hvernig vel ég netþjón?</string>
 	<string name="welcome_page3_text">Mismunandi fólk velur sér mismunandi netþjóna af ýmsum ólíkum ástæðum. Netþjónninn art.example er frábær staður fyrir listafólk, á meðan glasgow.example gæti verið góður kostur fyrir suma skota.\n\nÞú getur eiginlega ekki lent á röngum stað á neinum að þeim netþjónum sem við mælum með, þannig að hvern þeirra sem þú velur (eða ef þú setur inn þinn eigin netþjón í leitarreitinn), þá ættirðu ekki að missa af neinu neinsstaðar.</string>
+	<string name="server_filter_region_europe">Evrópa</string>
+	<string name="server_filter_region_north_america">Norður-Ameríka</string>
+	<string name="server_filter_region_south_america">Suður-Ameríka</string>
+	<string name="server_filter_region_africa">Afríka</string>
+	<string name="server_filter_region_asia">Asía</string>
+	<string name="server_filter_region_oceania">Eyjaálfa</string>
+	<string name="popular_on_mastodon">Vinsælt á Mastodon</string>
 	<!-- %s is server domain -->
+	<!-- Shown in a progress dialog when you tap "follow all" -->
+	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
 </resources>
