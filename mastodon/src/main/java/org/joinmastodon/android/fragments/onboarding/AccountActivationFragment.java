@@ -193,30 +193,24 @@ public class AccountActivationFragment extends ToolbarFragment{
 						mgr.removeAccount(accountID);
 						mgr.addAccount(mgr.getInstanceInfo(session.domain), session.token, result, session.app, null);
 						String newID=mgr.getLastActiveAccountID();
-						Bundle args=new Bundle();
-						args.putString("account", newID);
-						if(session.self.avatar!=null || session.self.displayName!=null){
-							File avaFile=session.self.avatar!=null ? new File(session.self.avatar) : null;
-							new UpdateAccountCredentials(session.self.displayName, "", avaFile, null, Collections.emptyList())
+						accountID=newID;
+						if((session.self.avatar!=null || session.self.displayName!=null) && !getArguments().getBoolean("debug")){
+							new UpdateAccountCredentials(session.self.displayName, "", (File)null, null, Collections.emptyList())
 									.setCallback(new Callback<>(){
 										@Override
 										public void onSuccess(Account result){
-											if(avaFile!=null)
-												avaFile.delete();
 											mgr.updateAccountInfo(newID, result);
-											Nav.goClearingStack(getActivity(), HomeFragment.class, args);
+											proceed();
 										}
 
 										@Override
 										public void onError(ErrorResponse error){
-											if(avaFile!=null)
-												avaFile.delete();
-											Nav.goClearingStack(getActivity(), HomeFragment.class, args);
+											proceed();
 										}
 									})
 									.exec(newID);
 						}else{
-							Nav.goClearingStack(getActivity(), HomeFragment.class, args);
+							proceed();
 						}
 					}
 
@@ -248,5 +242,12 @@ public class AccountActivationFragment extends ToolbarFragment{
 	public void onDestroyView(){
 		super.onDestroyView();
 		resendBtn.removeCallbacks(resendTimer);
+	}
+
+	private void proceed(){
+		Bundle args=new Bundle();
+		args.putString("account", accountID);
+//		Nav.goClearingStack(getActivity(), HomeFragment.class, args);
+		Nav.goClearingStack(getActivity(), OnboardingProfileSetupFragment.class, args);
 	}
 }

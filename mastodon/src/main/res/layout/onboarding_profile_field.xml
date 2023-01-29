@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="horizontal"
+	android:layout_width="match_parent"
+	android:layout_height="56dp"
+	android:paddingStart="16dp"
+	android:paddingEnd="8dp"
+	android:clipToPadding="false"
+	android:background="?colorM3Background">
+
+	<ImageView
+		android:id="@+id/dragger_thingy"
+		android:layout_width="56dp"
+		android:layout_height="56dp"
+		android:layout_alignParentEnd="true"
+		android:scaleType="center"
+		android:tint="?colorM3OnSurface"
+		android:src="@drawable/ic_drag_handle_24px"/>
+
+	<EditText
+		android:id="@+id/content"
+		android:layout_width="match_parent"
+		android:layout_height="24dp"
+		android:layout_marginTop="6dp"
+		android:layout_toStartOf="@id/dragger_thingy"
+		android:background="@null"
+		android:padding="0dp"
+		android:textAppearance="@style/m3_body_large"
+		android:textColor="?colorM3OnSurfaceVariant"
+		android:textColorHint="?colorM3OnSurfaceVariant"
+		android:inputType="textCapSentences"
+		android:hint="@string/field_content"
+		android:saveEnabled="false"
+		android:singleLine="true"/>
+
+	<EditText
+		android:id="@+id/title"
+		android:layout_width="match_parent"
+		android:layout_height="20dp"
+		android:layout_toStartOf="@id/dragger_thingy"
+		android:layout_below="@id/content"
+		android:background="@null"
+		android:padding="0dp"
+		android:textAppearance="@style/m3_body_medium"
+		android:textColor="?colorM3OnSurfaceVariant"
+		android:textColorHint="?colorM3OnSurfaceVariant"
+		android:inputType="textCapSentences"
+		android:hint="@string/field_label"
+		android:saveEnabled="false"
+		android:singleLine="true"/>
+
+</RelativeLayout>

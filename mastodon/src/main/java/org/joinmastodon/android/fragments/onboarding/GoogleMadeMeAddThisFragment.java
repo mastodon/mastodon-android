@@ -63,6 +63,8 @@ public class GoogleMadeMeAddThisFragment extends ToolbarFragment{
 	private ItemsAdapter itemsAdapter;
 	private ElevationOnScrollListener onScrollListener;
 
+	private static final int SIGNUP_REQUEST=722;
+
 	@Override
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
@@ -139,7 +141,16 @@ public class GoogleMadeMeAddThisFragment extends ToolbarFragment{
 	protected void onButtonClick(){
 		Bundle args=new Bundle();
 		args.putParcelable("instance", Parcels.wrap(instance));
-		Nav.go(getActivity(), SignupFragment.class, args);
+		Nav.goForResult(getActivity(), SignupFragment.class, args, SIGNUP_REQUEST, this);
+	}
+
+	@Override
+	public void onFragmentResult(int reqCode, boolean success, Bundle result){
+		super.onFragmentResult(reqCode, success, result);
+		if(reqCode==SIGNUP_REQUEST && !success){
+			setResult(false, null);
+			Nav.finish(this);
+		}
 	}
 
 	@Override

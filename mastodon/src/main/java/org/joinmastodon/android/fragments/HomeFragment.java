@@ -20,6 +20,7 @@ import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.session.AccountSession;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.fragments.discover.DiscoverFragment;
+import org.joinmastodon.android.fragments.onboarding.OnboardingFollowSuggestionsFragment;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.ui.AccountSwitcherSheet;
 import org.joinmastodon.android.ui.utils.UiUtils;
@@ -31,6 +32,7 @@ import java.util.ArrayList;
 import androidx.annotation.IdRes;
 import androidx.annotation.Nullable;
 import me.grishka.appkit.FragmentStackActivity;
+import me.grishka.appkit.Nav;
 import me.grishka.appkit.fragments.AppKitFragment;
 import me.grishka.appkit.fragments.LoaderFragment;
 import me.grishka.appkit.fragments.OnBackPressedListener;
@@ -234,6 +236,11 @@ public class HomeFragment extends AppKitFragment implements OnBackPressedListene
 			}
 			new AccountSwitcherSheet(getActivity()).show();
 			return true;
+		}
+		if(tab==R.id.tab_home){
+			Bundle args=new Bundle();
+			args.putString("account", accountID);
+			Nav.go(getActivity(), OnboardingFollowSuggestionsFragment.class, args);
 		}
 		return false;
 	}

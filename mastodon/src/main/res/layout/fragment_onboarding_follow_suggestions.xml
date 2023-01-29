@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<me.grishka.appkit.views.FragmentRootLinearLayout
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:orientation="vertical"
+	android:id="@+id/appkit_loader_root"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:background="?android:colorBackground">
+
+	<include layout="@layout/appkit_toolbar"/>
+
+	<FrameLayout
+		android:id="@+id/appkit_loader_content"
+		android:layout_width="match_parent"
+		android:layout_height="0dp"
+		android:layout_weight="1">
+
+		<include layout="@layout/loading"
+				 android:id="@+id/loading"/>
+
+		<ViewStub android:layout="?errorViewLayout"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+				 android:id="@+id/error"
+				 android:visibility="gone"/>
+
+		<View
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:id="@+id/content_stub"/>
+
+	</FrameLayout>
+
+	<LinearLayout
+		android:id="@+id/button_bar"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:gravity="end"
+		android:background="@drawable/bg_onboarding_panel">
+
+		<Button
+			android:id="@+id/btn_skip"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="16dp"
+			android:layout_marginTop="8dp"
+			android:layout_marginBottom="16dp"
+			style="@style/Widget.Mastodon.M3.Button.Tonal"
+			android:text="@string/skip"/>
+
+		<Button
+			android:id="@+id/btn_next"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="16dp"
+			android:layout_marginEnd="16dp"
+			android:layout_marginTop="8dp"
+			android:layout_marginBottom="16dp"
+			style="@style/Widget.Mastodon.M3.Button.Filled"
+			android:text="@string/follow_all"/>
+
+	</LinearLayout>
+
+</me.grishka.appkit.views.FragmentRootLinearLayout>

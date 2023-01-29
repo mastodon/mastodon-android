@@ -18,6 +18,10 @@ public class Relationship extends BaseModel{
 	public boolean blockedBy;
 	public String note;
 
+	public boolean canFollow(){
+		return !(following || blocking || blockedBy || domainBlocking);
+	}
+
 	@Override
 	public String toString(){
 		return "Relationship{"+

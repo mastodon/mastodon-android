@@ -527,6 +527,15 @@ public class InstanceCatalogSignupFragment extends InstanceCatalogFragment imple
 		updateFilteredList();
 	}
 
+	@Override
+	protected void onShown(){
+		super.onShown();
+		if(!searchQueryMode){
+			// Prevent search view automatically getting focused when the user returns to this fragment
+			focusThing.requestFocus();
+		}
+	}
+
 	private class InstancesAdapter extends UsableRecyclerView.Adapter<InstanceCatalogSignupFragment.InstanceViewHolder>{
 		public InstancesAdapter(){
 			super(imgLoader);

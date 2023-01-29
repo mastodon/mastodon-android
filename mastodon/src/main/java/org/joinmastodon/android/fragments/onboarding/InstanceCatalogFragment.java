@@ -92,7 +92,7 @@ abstract class InstanceCatalogFragment extends BaseRecyclerFragment<CatalogInsta
 	protected boolean onSearchEnterPressed(TextView v, int actionId, KeyEvent event){
 		if(event!=null && event.getAction()!=KeyEvent.ACTION_DOWN)
 			return true;
-		currentSearchQuery=searchEdit.getText().toString().toLowerCase();
+		currentSearchQuery=searchEdit.getText().toString().toLowerCase().trim();
 		updateFilteredList();
 		searchEdit.removeCallbacks(searchDebouncer);
 		Instance instance=instancesCache.get(normalizeInstanceDomain(currentSearchQuery));
@@ -106,7 +106,7 @@ abstract class InstanceCatalogFragment extends BaseRecyclerFragment<CatalogInsta
 	}
 
 	protected void onSearchChangedDebounced(){
-		currentSearchQuery=searchEdit.getText().toString().toLowerCase();
+		currentSearchQuery=searchEdit.getText().toString().toLowerCase().trim();
 		updateFilteredList();
 		loadInstanceInfo(currentSearchQuery, false);
 	}

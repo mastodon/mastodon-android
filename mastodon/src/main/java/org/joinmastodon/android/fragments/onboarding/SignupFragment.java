@@ -1,14 +1,18 @@
 package org.joinmastodon.android.fragments.onboarding;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
-import android.content.Intent;
-import android.net.Uri;
+import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.Html;
+import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
+import android.text.Spanned;
+import android.text.TextUtils;
 import android.text.TextWatcher;
-import android.util.Log;
+import android.text.style.TypefaceSpan;
+import android.text.style.URLSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,11 +20,9 @@ import android.view.ViewTreeObserver;
 import android.view.WindowInsets;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.joinmastodon.android.R;
-import org.joinmastodon.android.api.MastodonAPIController;
 import org.joinmastodon.android.api.MastodonDetailedErrorResponse;
 import org.joinmastodon.android.api.requests.accounts.RegisterAccount;
 import org.joinmastodon.android.api.requests.oauth.CreateOAuthApp;
@@ -31,18 +33,22 @@ import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.Application;
 import org.joinmastodon.android.model.Instance;
 import org.joinmastodon.android.model.Token;
+import org.joinmastodon.android.ui.text.LinkSpan;
 import org.joinmastodon.android.ui.utils.SimpleTextWatcher;
 import org.joinmastodon.android.ui.utils.UiUtils;
 import org.joinmastodon.android.ui.views.FloatingHintEditTextLayout;
+import org.joinmastodon.android.utils.ElevationOnScrollListener;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Element;
+import org.jsoup.nodes.Node;
+import org.jsoup.nodes.TextNode;
+import org.jsoup.select.NodeVisitor;
 import org.parceler.Parcels;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 import androidx.annotation.Nullable;
@@ -51,12 +57,10 @@ import me.grishka.appkit.api.APIRequest;
 import me.grishka.appkit.api.Callback;
 import me.grishka.appkit.api.ErrorResponse;
 import me.grishka.appkit.fragments.ToolbarFragment;
-import me.grishka.appkit.imageloader.ViewImageLoader;
-import me.grishka.appkit.imageloader.requests.UrlImageLoaderRequest;
 import me.grishka.appkit.utils.V;
+import me.grishka.appkit.views.FragmentRootLinearLayout;
 
 public class SignupFragment extends ToolbarFragment{
-	private static final int AVATAR_RESULT=198;
 	private static final String TAG="SignupFragment";
 
 	private Instance instance;
@@ -73,6 +77,7 @@ public class SignupFragment extends ToolbarFragment{
 	private boolean submitAfterGettingToken;
 	private ProgressDialog progressDialog;
 	private HashSet<EditText> errorFields=new HashSet<>();
+	private ElevationOnScrollListener onScrollListener;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState){
@@ -145,19 +150,22 @@ public class SignupFragment extends ToolbarFragment{
 		super.onViewCreated(view, savedInstanceState);
 		setStatusBarColor(UiUtils.getThemeColor(getActivity(), R.attr.colorM3Background));
 		view.setBackgroundColor(UiUtils.getThemeColor(getActivity(), R.attr.colorM3Background));
+		view.findViewById(R.id.scroller).setOnScrollChangeListener(onScrollListener=new ElevationOnScrollListener((FragmentRootLinearLayout) view, buttonBar, getToolbar()));
 	}
 
 	@Override
 	protected void onUpdateToolbar(){
 		super.onUpdateToolbar();
-		getToolbar().setBackground(null);
+		getToolbar().setBackgroundResource(R.drawable.bg_onboarding_panel);
 		getToolbar().setElevation(0);
+		if(onScrollListener!=null){
+			onScrollListener.setViews(buttonBar, getToolbar());
+		}
 	}
 
 	private void onButtonClick(){
 		if(!password.getText().toString().equals(passwordConfirm.getText().toString())){
-			passwordConfirm.setError(getString(R.string.signup_passwords_dont_match));
-			passwordConfirmWrap.setErrorState();
+			passwordConfirmWrap.setErrorState(getString(R.string.signup_passwords_dont_match));
 			return;
 		}
 		showProgressDialog();
@@ -212,8 +220,22 @@ public class SignupFragment extends ToolbarFragment{
 									anyFieldsSkipped=true;
 									continue;
 								}
-								field.setError(fieldErrors.get(fieldName).stream().map(err->err.description).collect(Collectors.joining("\n")));
-								getFieldWrapByName(fieldName).setErrorState();
+								List<MastodonDetailedErrorResponse.FieldError> errors=Objects.requireNonNull(fieldErrors.get(fieldName));
+								if(errors.size()==1){
+									getFieldWrapByName(fieldName).setErrorState(getErrorDescription(errors.get(0), fieldName));
+								}else{
+									SpannableStringBuilder ssb=new SpannableStringBuilder();
+									boolean firstErr=true;
+									for(MastodonDetailedErrorResponse.FieldError err:errors){
+										if(firstErr){
+											firstErr=false;
+										}else{
+											ssb.append('\n');
+										}
+										ssb.append(getErrorDescription(err, fieldName));
+									}
+									getFieldWrapByName(fieldName).setErrorState(getErrorDescription(errors.get(0), fieldName));
+								}
 								errorFields.add(field);
 								if(first){
 									first=false;
@@ -229,6 +251,40 @@ public class SignupFragment extends ToolbarFragment{
 					}
 				})
 				.exec(instance.uri, apiToken);
+	}
+
+	private CharSequence getErrorDescription(MastodonDetailedErrorResponse.FieldError error, String fieldName){
+		return switch(fieldName){
+			case "email" -> switch(error.error){
+				case "ERR_BLOCKED" -> {
+					String emailAddr=email.getText().toString();
+					String s=getResources().getString(R.string.signup_email_domain_blocked, TextUtils.htmlEncode(instance.uri), TextUtils.htmlEncode(emailAddr.substring(emailAddr.lastIndexOf('@')+1)));
+					SpannableStringBuilder ssb=new SpannableStringBuilder();
+					Jsoup.parseBodyFragment(s).body().traverse(new NodeVisitor(){
+						private int spanStart;
+						@Override
+						public void head(Node node, int depth){
+							if(node instanceof TextNode tn){
+								ssb.append(tn.text());
+							}else if(node instanceof Element){
+								spanStart=ssb.length();
+							}
+						}
+
+						@Override
+						public void tail(Node node, int depth){
+							if(node instanceof Element){
+								ssb.setSpan(new LinkSpan("", SignupFragment.this::onGoBackLinkClick, LinkSpan.Type.CUSTOM, null), spanStart, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+								ssb.setSpan(new TypefaceSpan("sans-serif-medium"), spanStart, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+							}
+						}
+					});
+					yield ssb;
+				}
+				default -> error.description;
+			};
+			default -> error.description;
+		};
 	}
 
 	private EditText getFieldByName(String name){
@@ -321,6 +377,11 @@ public class SignupFragment extends ToolbarFragment{
 		}else{
 			super.onApplyWindowInsets(insets.replaceSystemWindowInsets(insets.getSystemWindowInsetLeft(), insets.getSystemWindowInsetTop(), insets.getSystemWindowInsetRight(), insets.getSystemWindowInsetBottom()));
 		}
+	}
+
+	private void onGoBackLinkClick(LinkSpan span){
+		setResult(false, null);
+		Nav.finish(this);
 	}
 
 	private class ErrorClearingListener implements TextWatcher{

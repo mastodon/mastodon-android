@@ -20,6 +20,7 @@ import android.text.Editable;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.Gravity;
+import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.widget.EditText;
@@ -47,6 +48,7 @@ public class FloatingHintEditTextLayout extends FrameLayout{
 	private RectF tmpRect=new RectF();
 	private ColorStateList labelColors, origHintColors;
 	private boolean errorState;
+	private TextView errorView;
 
 	public FloatingHintEditTextLayout(Context context){
 		this(context, null);
@@ -95,12 +97,22 @@ public class FloatingHintEditTextLayout extends FrameLayout{
 			label.setAlpha(0f);
 
 		edit.addTextChangedListener(new SimpleTextWatcher(this::onTextChanged));
+
+		errorView=new LinkedTextView(getContext());
+		errorView.setTextAppearance(R.style.m3_body_small);
+		errorView.setTextColor(UiUtils.getThemeColor(getContext(), R.attr.colorM3OnSurfaceVariant));
+		errorView.setLinkTextColor(UiUtils.getThemeColor(getContext(), R.attr.colorM3Primary));
+		errorView.setLayoutParams(new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+		errorView.setPadding(V.dp(16), V.dp(4), V.dp(16), 0);
+		errorView.setVisibility(View.GONE);
+		addView(errorView);
 	}
 
 	private void onTextChanged(Editable text){
 		if(errorState){
+			errorView.setVisibility(View.GONE);
 			errorState=false;
-			setForeground(getResources().getDrawable(R.drawable.bg_m3_outlined_text_field));
+			setForeground(getResources().getDrawable(R.drawable.bg_m3_outlined_text_field, getContext().getTheme()));
 			refreshDrawableState();
 		}
 		boolean newHintVisible=text.length()==0;
@@ -211,12 +223,34 @@ public class FloatingHintEditTextLayout extends FrameLayout{
 		label.setTextColor(color.getColorForState(getDrawableState(), 0xff00ff00));
 	}
 
-	public void setErrorState(){
+	public void setErrorState(CharSequence error){
 		if(errorState)
 			return;
 		errorState=true;
 		setForeground(getResources().getDrawable(R.drawable.bg_m3_outlined_text_field_error, getContext().getTheme()));
 		label.setTextColor(UiUtils.getThemeColor(getContext(), R.attr.colorM3Error));
+		errorView.setVisibility(VISIBLE);
+		errorView.setText(error);
+	}
+
+	@Override
+	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec){
+		if(errorView.getVisibility()!=GONE){
+			int width=MeasureSpec.getSize(widthMeasureSpec)-getPaddingLeft()-getPaddingRight();
+			LayoutParams editLP=(LayoutParams) edit.getLayoutParams();
+			width-=editLP.leftMargin+editLP.rightMargin;
+			errorView.measure(width | MeasureSpec.EXACTLY, MeasureSpec.UNSPECIFIED);
+			LayoutParams lp=(LayoutParams) errorView.getLayoutParams();
+			lp.width=width;
+			lp.height=errorView.getMeasuredHeight();
+			lp.gravity=Gravity.LEFT | Gravity.BOTTOM;
+			lp.leftMargin=editLP.leftMargin;
+			editLP.bottomMargin=errorView.getMeasuredHeight();
+		}else{
+			LayoutParams editLP=(LayoutParams) edit.getLayoutParams();
+			editLP.bottomMargin=0;
+		}
+		super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 	}
 
 	private class PaddedForegroundDrawable extends Drawable{
@@ -313,8 +347,8 @@ public class FloatingHintEditTextLayout extends FrameLayout{
 		@Override
 		protected void onBoundsChange(@NonNull Rect bounds){
 			super.onBoundsChange(bounds);
-			LayoutParams lp=(LayoutParams) edit.getLayoutParams();
-			wrapped.setBounds(bounds.left+lp.leftMargin-V.dp(12), bounds.top, bounds.right-lp.rightMargin+V.dp(12), bounds.bottom);
+			int offset=V.dp(12);
+			wrapped.setBounds(edit.getLeft()-offset, edit.getTop()-offset, edit.getRight()+offset, edit.getBottom()+offset);
 		}
 	}
 }

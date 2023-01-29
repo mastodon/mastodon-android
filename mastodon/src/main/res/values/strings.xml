@@ -432,4 +432,10 @@
 	<string name="privacy_policy_explanation">TL;DR: We don\'t collect or process anything.</string>
 	<!-- %s is server domain -->
 	<string name="server_policy_disagree">Disagree with %s</string>
+	<string name="profile_bio">Bio</string>
+	<!-- Shown in a progress dialog when you tap "follow all" -->
+	<string name="sending_follows">Following users…</string>
+	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<string name="signup_email_domain_blocked">%1$s doesn\'t allow signups from %2$s. Try a different one or &lt;a>pick a different server&lt;/a>.</string>
+	<string name="signup_username_taken">This username is taken.</string>
 </resources>

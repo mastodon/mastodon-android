@@ -7,6 +7,7 @@
 	android:layout_height="match_parent">
 
 	<ScrollView
+		android:id="@+id/scroller"
 		android:layout_width="match_parent"
 		android:layout_height="0dp"
 		android:layout_weight="1">
@@ -20,7 +21,8 @@
 			<org.joinmastodon.android.ui.views.FloatingHintEditTextLayout
 				android:id="@+id/display_name_wrap"
 				android:layout_width="match_parent"
-				android:layout_height="80dp"
+				android:layout_height="wrap_content"
+				android:minHeight="80dp"
 				android:paddingTop="4dp"
 				app:labelTextColor="@color/m3_outlined_text_field_label"
 				android:foreground="@drawable/bg_m3_outlined_text_field">
@@ -78,12 +80,14 @@
 				<TextView
 					android:id="@+id/domain"
 					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					android:layout_gravity="right|center_vertical"
+					android:layout_height="56dp"
+					android:layout_gravity="right|top"
 					android:layout_marginRight="20dp"
+					android:layout_marginTop="8dp"
 					android:paddingLeft="8dp"
 					android:paddingRight="16dp"
 					android:textAppearance="@style/m3_body_large"
+					android:gravity="center_vertical"
 					tools:text="\@mastodon.social"/>
 
 			</org.joinmastodon.android.ui.views.FloatingHintEditTextLayout>
@@ -91,8 +95,9 @@
 			<org.joinmastodon.android.ui.views.FloatingHintEditTextLayout
 				android:id="@+id/email_wrap"
 				android:layout_width="match_parent"
-				android:layout_height="80dp"
+				android:layout_height="wrap_content"
 				android:paddingTop="4dp"
+				android:paddingBottom="12dp"
 				app:labelTextColor="@color/m3_outlined_text_field_label"
 				android:foreground="@drawable/bg_m3_outlined_text_field">
 
@@ -125,8 +130,9 @@
 			<org.joinmastodon.android.ui.views.FloatingHintEditTextLayout
 				android:id="@+id/password_wrap"
 				android:layout_width="match_parent"
-				android:layout_height="80dp"
+				android:layout_height="wrap_content"
 				android:paddingTop="4dp"
+				android:paddingBottom="12dp"
 				app:labelTextColor="@color/m3_outlined_text_field_label"
 				android:foreground="@drawable/bg_m3_outlined_text_field">
 
@@ -160,8 +166,9 @@
 			<org.joinmastodon.android.ui.views.FloatingHintEditTextLayout
 				android:id="@+id/password_confirm_wrap"
 				android:layout_width="match_parent"
-				android:layout_height="80dp"
+				android:layout_height="wrap_content"
 				android:paddingTop="4dp"
+				android:paddingBottom="12dp"
 				app:labelTextColor="@color/m3_outlined_text_field_label"
 				android:foreground="@drawable/bg_m3_outlined_text_field">
 
@@ -188,6 +195,9 @@
 				android:layout_height="wrap_content"
 				android:layout_marginStart="56dp"
 				android:layout_marginEnd="20dp"
+				android:layout_marginTop="-8dp"
+				android:paddingLeft="16dp"
+				android:paddingRight="16dp"
 				android:textAppearance="@style/m3_body_small"
 				android:textColor="?colorM3OnSurfaceVariant"
 				android:text="@string/password_note"/>
@@ -198,6 +208,7 @@
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:paddingTop="4dp"
+				android:paddingBottom="12dp"
 				app:labelTextColor="@color/m3_outlined_text_field_label"
 				android:foreground="@drawable/bg_m3_outlined_text_field">
 
@@ -223,6 +234,9 @@
 				android:layout_height="wrap_content"
 				android:layout_marginStart="56dp"
 				android:layout_marginEnd="20dp"
+				android:layout_marginTop="-8dp"
+				android:paddingLeft="16dp"
+				android:paddingRight="16dp"
 				android:textAppearance="@style/m3_body_small"
 				android:textColor="?colorM3OnSurfaceVariant"
 				android:text="@string/signup_reason_note"/>
@@ -235,7 +249,8 @@
 		android:id="@+id/button_bar"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:orientation="horizontal">
+		android:orientation="horizontal"
+		android:background="@drawable/bg_onboarding_panel">
 
 		<Button
 			android:id="@+id/btn_next"

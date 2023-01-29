@@ -71,7 +71,7 @@ public class ElevationOnScrollListener extends RecyclerView.OnScrollListener imp
 
 	@Override
 	public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY){
-		handleScroll(v.getContext(), scrollY==0);
+		handleScroll(v.getContext(), scrollY<=0);
 	}
 
 	private void handleScroll(Context context, boolean newAtTop){

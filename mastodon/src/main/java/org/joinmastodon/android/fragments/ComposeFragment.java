@@ -795,18 +795,6 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 				.show();
 	}
 
-	/**
-	 * Check to see if Android platform photopicker is available on the device\
-	 * @return whether the device supports photopicker intents.
-	 */
-	private boolean isPhotoPickerAvailable() {
-		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-			return true;
-		} else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-			return getExtensionVersion(Build.VERSION_CODES.R) >= 2;
-		} else
-			return false;
-	}
 
 	/**
 	 * Builds the correct intent for the device version to select media.
@@ -818,24 +806,24 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 	 */
 	private void openFilePicker(){
 		Intent intent;
-		boolean usePhotoPicker = isPhotoPickerAvailable();
-		if (usePhotoPicker) {
-			intent = new Intent(MediaStore.ACTION_PICK_IMAGES);
-			intent.putExtra(MediaStore.EXTRA_PICK_IMAGES_MAX, MediaStore.getPickImagesMaxLimit());
-		} else {
-			intent = new Intent(Intent.ACTION_GET_CONTENT);
+		boolean usePhotoPicker=UiUtils.isPhotoPickerAvailable();
+		if(usePhotoPicker){
+			intent=new Intent(MediaStore.ACTION_PICK_IMAGES);
+			intent.putExtra(MediaStore.EXTRA_PICK_IMAGES_MAX, MAX_ATTACHMENTS-getMediaAttachmentsCount());
+		}else{
+			intent=new Intent(Intent.ACTION_GET_CONTENT);
 			intent.addCategory(Intent.CATEGORY_OPENABLE);
 			intent.setType("*/*");
 		}
-		if (!usePhotoPicker && instance.configuration != null &&
-				instance.configuration.mediaAttachments != null &&
-				instance.configuration.mediaAttachments.supportedMimeTypes != null &&
-				!instance.configuration.mediaAttachments.supportedMimeTypes.isEmpty()) {
+		if(!usePhotoPicker && instance.configuration!=null &&
+				instance.configuration.mediaAttachments!=null &&
+				instance.configuration.mediaAttachments.supportedMimeTypes!=null &&
+				!instance.configuration.mediaAttachments.supportedMimeTypes.isEmpty()){
 			intent.putExtra(Intent.EXTRA_MIME_TYPES,
 					instance.configuration.mediaAttachments.supportedMimeTypes.toArray(
 							new String[0]));
-		} else {
-			if (!usePhotoPicker) {
+		}else{
+			if(!usePhotoPicker){
 				// If photo picker is being used these are the default mimetypes.
 				intent.putExtra(Intent.EXTRA_MIME_TYPES, new String[]{"image/*", "video/*"});
 			}

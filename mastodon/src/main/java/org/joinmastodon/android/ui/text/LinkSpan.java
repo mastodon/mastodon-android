@@ -35,6 +35,7 @@ public class LinkSpan extends CharacterStyle {
 			case URL -> UiUtils.openURL(context, accountID, link);
 			case MENTION -> UiUtils.openProfileByID(context, accountID, link);
 			case HASHTAG -> UiUtils.openHashtagTimeline(context, accountID, link);
+			case CUSTOM -> listener.onLinkClick(this);
 		}
 	}
 
@@ -57,6 +58,7 @@ public class LinkSpan extends CharacterStyle {
 	public enum Type{
 		URL,
 		MENTION,
-		HASHTAG
+		HASHTAG,
+		CUSTOM
 	}
 }
