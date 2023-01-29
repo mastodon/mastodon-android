@@ -382,6 +382,7 @@
 	<string name="download_update">Baixar (%s)</string>
 	<string name="install_update">Instalar</string>
 	<string name="privacy_policy_title">Sua privacidade</string>
+	<string name="privacy_policy_subtitle">Embora o aplicativo Mastodon não colete nenhum dado, o servidor pelo qual você se inscreveu pode ter uma política diferente.\n\nSe você discordar da política de %s, pode voltar e escolher um servidor diferente.</string>
 	<string name="i_agree">Eu concordo</string>
 	<string name="empty_list">Essa lista está vazia</string>
 	<string name="instance_signup_closed">Este servidor não aceita novos registros.</string>
@@ -412,11 +413,14 @@
 	<string name="category_special_interests">Interesses especiais</string>
 	<string name="signup_passwords_dont_match">As senhas são diferentes</string>
 	<string name="pick_server_for_me">Escolher para mim</string>
+	<string name="profile_add_row">Adicionar linha</string>
 	<string name="profile_setup">Configuração do perfil</string>
 	<string name="profile_setup_subtitle">Você sempre pode concluir isso mais tarde na guia de Perfil.</string>
 	<string name="profile_setup_explanation">Você pode adicionar até quatro campos no seu perfil para o que quiser. Local, links, pronomes — o céu é o limite.</string>
 	<string name="popular_on_mastodon">Popular no Mastodon</string>
 	<string name="follow_all">Seguir todos</string>
 	<string name="server_rules_disagree">Discordo</string>
+	<string name="privacy_policy_explanation">TL;DR: Não coletamos ou processamos nada.</string>
 	<!-- %s is server domain -->
+	<string name="server_policy_disagree">Discordo de %s</string>
 </resources>
