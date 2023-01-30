@@ -174,7 +174,9 @@ Viðkomandi aðilar munu ekki vita að þaggað hefur verið niður í þeim.</s
 	<string name="back">Til baka</string>
 	<string name="instance_catalog_title">Mastodon samanstendur af notendum á mismunandi netþjónum.</string>
 	<string name="instance_catalog_subtitle">Veldu netþjón út frá svæðinu þínu, áhugamálum, nú eða einhvern almennan. Þú getur samt spjallað við hvern sem er á Mastodon, burtséð frá á hvaða netþjóni þú ert.</string>
+	<string name="search_communities">Nafn þjóns eða vefslóð</string>
 	<string name="instance_rules_title">Reglur netþjónsins</string>
+	<string name="instance_rules_subtitle">Með því að halda áfram, samþykkir þú að fylgja eftirfarandi reglum sem settar eru af umsjónarmönnum %s, sem sjá um að þeim sé fylgt.</string>
 	<string name="signup_title">Búa til notandaaðgang</string>
 	<string name="edit_photo">breyta</string>
 	<string name="display_name">Nafn</string>
@@ -198,6 +200,8 @@ Viðkomandi aðilar munu ekki vita að þaggað hefur verið niður í þeim.</s
 	<string name="category_tech">Tækni</string>
 	<string name="confirm_email_title">Athugaðu innhólfið þitt</string>
 	<!-- %s is the email address -->
+	<string name="confirm_email_subtitle">Ýttu á tengilinn sem við sendum þér til að staðfesta %s. Við bíðum á meðan.</string>
+	<string name="confirm_email_didnt_get">Fékkstu ekki neinn tengil?</string>
 	<string name="resend">Endursenda</string>
 	<string name="open_email_app">Opna tölvupóstforrit</string>
 	<string name="resent_email">Staðfestingartölvupóstur sendur</string>
@@ -378,6 +382,7 @@ Viðkomandi aðilar munu ekki vita að þaggað hefur verið niður í þeim.</s
 	<!-- %s is file size -->
 	<string name="download_update">Sækja (%s)</string>
 	<string name="install_update">Setja upp</string>
+	<string name="privacy_policy_title">Friðhelgi þín</string>
 	<string name="privacy_policy_subtitle">Þó svo að Mastodon-forritið safni engum gögnum, þá getur netþjónninn sem þú skráir þig á haft aðra stefnu varðandi þetta.\n\nEf þú samþykkir ekki stefnuna hjá %s, geturðu farið til baka og valið annan netþjón.</string>
 	<string name="i_agree">Ég samþykki</string>
 	<string name="empty_list">Þessi listi er tómur</string>
