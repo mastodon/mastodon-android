@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="get_started">Account aanmaken</string>
+	<string name="get_started">Account registreren</string>
 	<string name="already_have_account">Ik heb al een account</string>
 	<string name="log_in">Aanmelden</string>
 	<string name="next">Volgende</string>
@@ -404,7 +404,7 @@
 	<string name="server_filter_any_language">Elke taal</string>
 	<string name="server_filter_instant_signup">Direct aanmelden</string>
 	<string name="server_filter_manual_review">Handmatige beoordeling</string>
-	<string name="server_filter_any_signup_speed">Elke aanmeldsnelheid</string>
+	<string name="server_filter_any_signup_speed">Elke registratiesnelheid</string>
 	<string name="server_filter_region_europe">Europa</string>
 	<string name="server_filter_region_north_america">Noord-Amerika</string>
 	<string name="server_filter_region_south_america">Zuid-Amerika</string>
@@ -425,6 +425,10 @@
 	<string name="privacy_policy_explanation">TL;DR: We verzamelen of verwerken niets.</string>
 	<!-- %s is server domain -->
 	<string name="server_policy_disagree">Oneens met %s</string>
+	<string name="profile_bio">Bio</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
+	<string name="sending_follows">Gevolgde gebruikers…</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<string name="signup_email_domain_blocked">%1$s staat geen registraties toe van %2$s. Probeer het met een andere e-mailprovider of &lt;a&gt;kies een andere server&lt;/a&gt;.</string>
+	<string name="signup_username_taken">Deze gebruikersnaam wordt al gebruikt.</string>
 </resources>
