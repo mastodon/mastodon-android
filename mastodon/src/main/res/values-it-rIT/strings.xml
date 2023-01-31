@@ -418,7 +418,17 @@
 	<string name="profile_add_row">Aggiungi riga</string>
 	<string name="profile_setup">Configurazione del profilo</string>
 	<string name="profile_setup_subtitle">Puoi sempre completarlo più tardi nella scheda Profilo.</string>
+	<string name="profile_setup_explanation">Puoi aggiungere fino a quattro campi del profilo per tutto ciò che desideri. Posizione, collegamenti, pronomi — il limite è il cielo.</string>
+	<string name="popular_on_mastodon">Popolare su Mastodon</string>
+	<string name="follow_all">Segui tutto</string>
+	<string name="server_rules_disagree">Non sono d\'accordo</string>
+	<string name="privacy_policy_explanation">TL;DR: Non raccogliamo, né elaboriamo nulla.</string>
 	<!-- %s is server domain -->
+	<string name="server_policy_disagree">Non sono d\'accordo con %s</string>
+	<string name="profile_bio">Biografia</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
+	<string name="sending_follows">Seguendo gli utenti…</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<string name="signup_email_domain_blocked">%1$s non consente iscrizioni da %2$s. Provane uno diverso o &lt;a&gt;scegli un altro server&lt;/a&gt;.</string>
+	<string name="signup_username_taken">Questo nome utente è già in uso.</string>
 </resources>
