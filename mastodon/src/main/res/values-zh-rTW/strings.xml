@@ -408,4 +408,6 @@
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<string name="sending_follows">正在跟隨使用者...</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<string name="signup_email_domain_blocked">%1$s 不允許 %2$s 之信箱註冊。請重新試試另一個電子信箱服務商，或 &lt;a&gt; 挑選另一個伺服器 &lt;/a&gt;。</string>
+	<string name="signup_username_taken">這個帳號已經被註冊過囉。</string>
 </resources>
