@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="get_started">Crea un compte</string>
+	<string name="already_have_account">Ja tinc un compte</string>
 	<string name="log_in">Inicia sessió</string>
 	<string name="next">Següent</string>
 	<string name="loading_instance">S\'està recuperant la informació del servidor…</string>
@@ -172,7 +173,15 @@
 	<string name="back">Enrere</string>
 	<string name="instance_catalog_title">Mastodon està format per usuaris de diferents servidors.</string>
 	<string name="instance_catalog_subtitle">Tria un servidor en funció dels teus interessos, regió o un de propòsit general. Seguiràs podent connectar amb tothom, independentment del servidor.</string>
+	<string name="search_communities">Nom del servidor o URL</string>
+	<string name="instance_rules_title">Normes del servidor</string>
+	<string name="signup_title">Crear un compte</string>
 	<string name="edit_photo">edita</string>
+	<string name="display_name">Nom</string>
+	<string name="username">Nom d\'usuari</string>
+	<string name="email">Correu electrònic</string>
+	<string name="password">Contrasenya</string>
+	<string name="confirm_password">Confirmar contrasenya</string>
 	<string name="password_note">Inclou lletres majúscules, caràcters especials i números per augmentar la seguretat de la teva contrasenya.</string>
 	<string name="category_academia">Acadèmic</string>
 	<string name="category_activism">Activisme</string>
@@ -187,7 +196,9 @@
 	<string name="category_music">Música</string>
 	<string name="category_regional">Regional</string>
 	<string name="category_tech">Tecnologia</string>
+	<string name="confirm_email_title">Comprova la teva safata d\'entrada</string>
 	<!-- %s is the email address -->
+	<string name="confirm_email_didnt_get">No has rebut l\'enllaç?</string>
 	<string name="resend">Reenvia</string>
 	<string name="open_email_app">Obre l\'aplicació de correu</string>
 	<string name="resent_email">S’ha enviat el correu electrònic de confirmació</string>
