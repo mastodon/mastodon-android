@@ -173,13 +173,13 @@
 	<string name="back">Zurück</string>
 	<string name="instance_catalog_title">Mastodon wird von Benutzer*innen auf verschiedenen Servern gestaltet.</string>
 	<string name="instance_catalog_subtitle">Wähle einen Server basierend auf deinen Interessen oder deiner Region – oder einfach einen allgemeinen. Du kannst trotzdem mit jedem interagieren, egal auf welchem Server.</string>
-	<string name="search_communities">Servername oder URL</string>
+	<string name="search_communities">Servername oder -adresse</string>
 	<string name="instance_rules_title">Server-Regeln</string>
 	<string name="instance_rules_subtitle">Mit dem Fortfahren erklärst du dich damit einverstanden, die folgenden Regeln zu befolgen, die von den %s-Moderatoren aufgestellt und umgesetzt werden.</string>
 	<string name="signup_title">Konto erstellen</string>
 	<string name="edit_photo">bearbeiten</string>
 	<string name="display_name">Name</string>
-	<string name="username">Benutzername</string>
+	<string name="username">Profilname</string>
 	<string name="email">E-Mail</string>
 	<string name="password">Passwort</string>
 	<string name="confirm_password">Passwort bestätigen</string>
@@ -427,7 +427,7 @@
 	<string name="server_policy_disagree">%s nicht zustimmen</string>
 	<string name="profile_bio">Über mich</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
-	<string name="sending_follows">Folge Benutzern…</string>
+	<string name="sending_follows">Benutzer*innen wird gefolgt …</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
 	<string name="signup_email_domain_blocked">%1$s lässt keine Anmeldungen von %2$s zu. Versuche einen anderen oder &lt;a&gt;wähle einen anderen Server&lt;/a&gt;.</string>
 	<string name="signup_username_taken">Dieser Benutzername ist bereits vergeben.</string>
