@@ -318,6 +318,7 @@
 	<string name="open_in_browser">Открыть в браузере</string>
 	<string name="hide_boosts_from_user">Скрыть продвижения от %s</string>
 	<string name="show_boosts_from_user">Показывать продвижения от %s</string>
+	<string name="signup_reason">Почему вы хотите присоединиться?</string>
 	<string name="signup_reason_note">Это поможет нам рассмотреть вашу заявку.</string>
 	<string name="clear">Очистить</string>
 	<string name="profile_header">Изображение шапки</string>
@@ -387,8 +388,14 @@
 	<string name="file_size_kb">%.2f КиБ</string>
 	<string name="file_size_mb">%.2f МиБ</string>
 	<string name="file_size_gb">%.2f ГиБ</string>
+	<string name="file_upload_progress">%1$s из %2$s</string>
+	<string name="file_upload_time_remaining">Осталось %s</string>
+	<string name="upload_error_connection_lost">Ваше устройство потеряло соединение с Интернетом</string>
+	<string name="upload_processing">Обработка…</string>
 	<!-- %s is version like 1.2.3 -->
+	<string name="update_available">Mastodon для Android %s готов к загрузке.</string>
 	<!-- %s is version like 1.2.3 -->
+	<string name="update_ready">Mastodon для Android %s загружен и готов к установке.</string>
 	<!-- %s is file size -->
 	<!-- %s is server domain -->
 	<!-- Shown in a progress dialog when you tap "follow all" -->
