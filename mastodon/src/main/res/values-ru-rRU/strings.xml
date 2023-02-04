@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="get_started">Создать аккаунт</string>
-	<string name="already_have_account">У меня уже есть аккаунт</string>
+	<string name="get_started">Создать учётную запись</string>
+	<string name="already_have_account">У меня уже есть учётная запись</string>
 	<string name="log_in">Войти</string>
 	<string name="next">Далее</string>
 	<string name="loading_instance">Получение информации о сервере…</string>
@@ -13,7 +13,7 @@
 	<string name="user_boosted">%s продвинул(а)</string>
 	<string name="in_reply_to">В ответ %s</string>
 	<string name="notifications">Уведомления</string>
-	<string name="user_followed_you">подписался (-ась) на вас</string>
+	<string name="user_followed_you">подписался(ась) на вас</string>
 	<string name="user_sent_follow_request">прислал(а) запрос на подписку</string>
 	<string name="user_favorited">добавил(а) ваш пост в избранное</string>
 	<string name="notification_boosted">продвинул(а) ваш пост</string>
@@ -366,6 +366,18 @@
 	<string name="edit_history">История изменений</string>
 	<string name="last_edit_at_x">Последнее изменение: %s</string>
 	<string name="time_just_now">только что</string>
+	<plurals name="x_seconds_ago">
+		<item quantity="one">%d секунду назад</item>
+		<item quantity="few">%d секунды назад</item>
+		<item quantity="many">%d секунд назад</item>
+		<item quantity="other">%d секунд назад</item>
+	</plurals>
+	<plurals name="x_minutes_ago">
+		<item quantity="one">%d минуту назад</item>
+		<item quantity="few">%d минуты назад</item>
+		<item quantity="many">%d минут назад</item>
+		<item quantity="other">%d минут назад</item>
+	</plurals>
 	<string name="edited_timestamp">редактировано %s</string>
 	<string name="edit_original_post">Начальное сообщение</string>
 	<string name="edit_text_edited">Текст отредактирован</string>
@@ -395,9 +407,49 @@
 	<!-- %s is version like 1.2.3 -->
 	<string name="update_available">Mastodon для Android %s готов к загрузке.</string>
 	<!-- %s is version like 1.2.3 -->
-	<string name="update_ready">Mastodon для Android %s загружен и готов к установке.</string>
+	<string name="update_ready">Mastodon для Android %s скачан и готов к установке.</string>
 	<!-- %s is file size -->
+	<string name="download_update">Скачать (%s)</string>
+	<string name="install_update">Установить</string>
+	<string name="privacy_policy_title">Ваша конфиденциальность</string>
+	<string name="privacy_policy_subtitle">Хотя приложение Mastodon не собирает никаких данных, сервер, через который вы регистрируетесь, может иметь другую политику.\n\nЕсли вы не согласны с политикой %s, вы можете вернуться и выбрать другой сервер.</string>
+	<string name="i_agree">Я согласен</string>
+	<string name="empty_list">Этот список пуст</string>
+	<string name="instance_signup_closed">Этот сервер не принимает новые регистрации.</string>
+	<string name="text_copied">Скопировано в буфер обмена</string>
+	<string name="add_bookmark">Закладка</string>
+	<string name="remove_bookmark">Удалить закладку</string>
+	<string name="bookmarks">Закладки</string>
+	<string name="your_favorites">Ваше избранное</string>
+	<string name="login_title">С возвращением</string>
+	<string name="login_subtitle">Войдите на сервер, на котором вы создали свою учётную запись.</string>
+	<string name="server_url">URL-адрес сервера</string>
+	<string name="welcome_page1_title">Что такое Mastodon?</string>
+	<string name="welcome_page3_title">Как выбрать сервер?</string>
+	<string name="welcome_page3_text">Разные люди выбирают разные серверы по разным причинам. art.example — отличное место для художников, а glasgow.example может быть хорошим выбором для шотландцев.\n\nВы не ошибётесь с любым из рекомендованных серверов, поэтому независимо от того, какой из них вы выберете (или если вы введёте свой собственный в строке поиска сервера), вы никогда и нигде не пропустите ни одной детали.</string>
+	<string name="signup_random_server_explain">Мы выберем сервер на основе вашего языка, если вы продолжите, не сделав выбор.</string>
+	<string name="server_filter_any_language">Любой язык</string>
+	<string name="server_filter_instant_signup">Мгновенная регистрация</string>
+	<string name="server_filter_any_signup_speed">Любая скорость регистрации</string>
+	<string name="server_filter_region_europe">Европа</string>
+	<string name="server_filter_region_north_america">Северная Америка</string>
+	<string name="server_filter_region_south_america">Южная Америка</string>
+	<string name="server_filter_region_africa">Африка</string>
+	<string name="server_filter_region_asia">Азия</string>
+	<string name="server_filter_region_oceania">Океания</string>
+	<string name="not_accepting_new_members">Не принимает новых участников</string>
+	<string name="signup_passwords_dont_match">Пароли не совпадают</string>
+	<string name="pick_server_for_me">Выбрать за меня</string>
+	<string name="profile_add_row">Добавить строку</string>
+	<string name="profile_setup">Настройка профиля</string>
+	<string name="profile_setup_subtitle">Вы всегда можете завершить это позже на вкладке Профиль.</string>
+	<string name="profile_setup_explanation">Вы можете добавить до четырех полей профиля для всего, что хотите. Местоположение, ссылки, местоимения — нет предела возможностям.</string>
+	<string name="popular_on_mastodon">Популярно на Mastodon</string>
+	<string name="server_rules_disagree">Отклонить</string>
+	<string name="privacy_policy_explanation">TL;DR: Мы ничего не собираем и не обрабатываем.</string>
 	<!-- %s is server domain -->
+	<string name="server_policy_disagree">Отклонить %s</string>
+	<string name="profile_bio">О себе</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
 	<string name="signup_email_domain_blocked">%1$s не позволяет зарегистрироваться от %2$s. Попробуйте другой или &lt;a&gt;выберите другой сервер&lt;/a&gt;.</string>
