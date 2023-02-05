@@ -406,7 +406,29 @@
 	<string name="server_filter_manual_review">Kézi Felülvizsgálat</string>
 	<string name="server_filter_any_signup_speed">Bármely Regisztrációs Sebesség</string>
 	<string name="server_filter_region_europe">Európa</string>
+	<string name="server_filter_region_north_america">Észak-Amerika</string>
+	<string name="server_filter_region_south_america">Dél-Amerika</string>
+	<string name="server_filter_region_africa">Afrika</string>
+	<string name="server_filter_region_asia">Ázsia</string>
+	<string name="server_filter_region_oceania">Óceánia</string>
+	<string name="not_accepting_new_members">Nem fogad új tagokat</string>
+	<string name="category_special_interests">Különleges Érdeklődés</string>
+	<string name="signup_passwords_dont_match">Jelszavak nem egyeznek</string>
+	<string name="pick_server_for_me">Válassz egyet nekem</string>
+	<string name="profile_add_row">Sor hozzáadása</string>
+	<string name="profile_setup">Profilbeállítás</string>
+	<string name="profile_setup_subtitle">Ezt később is bármikor kitöltheted a Profil fülön.</string>
+	<string name="profile_setup_explanation">Legfeljebb négy profilmezőt adhatsz hozzá bármiről, amiről csak akarsz. Helyadatok, hivatkozások, szólítások/névmások — határ a csillagos ég.</string>
+	<string name="popular_on_mastodon">Népszerű Mastodonon</string>
+	<string name="follow_all">Összes követése</string>
+	<string name="server_rules_disagree">Elutasítás</string>
+	<string name="privacy_policy_explanation">TL;DR: Nem gyűjtünk és nem dolgozunk fel semmit.</string>
 	<!-- %s is server domain -->
+	<string name="server_policy_disagree">Nem egyezek bele a %s szabályzatába</string>
+	<string name="profile_bio">Bemutatkozás</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
+	<string name="sending_follows">Felhasználók bekövetése…</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<string name="signup_email_domain_blocked">%1$s nem engedélyez feliratkozásokat innen: %2$s. Próbálj meg egy másikat, vagy &lt;a&gt;válassz másik kiszolgálót&lt;/a&gt;.</string>
+	<string name="signup_username_taken">Ez a felhasználónév már foglalt.</string>
 </resources>
