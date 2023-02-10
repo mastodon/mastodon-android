@@ -248,6 +248,6 @@ public class AccountActivationFragment extends ToolbarFragment{
 		Bundle args=new Bundle();
 		args.putString("account", accountID);
 //		Nav.goClearingStack(getActivity(), HomeFragment.class, args);
-		Nav.goClearingStack(getActivity(), OnboardingProfileSetupFragment.class, args);
+		Nav.goClearingStack(getActivity(), OnboardingFollowSuggestionsFragment.class, args);
 	}
 }

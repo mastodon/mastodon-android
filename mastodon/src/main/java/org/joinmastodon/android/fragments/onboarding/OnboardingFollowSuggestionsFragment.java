@@ -191,6 +191,13 @@ public class OnboardingFollowSuggestionsFragment extends BaseRecyclerFragment<Pa
 				.setCallback(new Callback<>(){
 					@Override
 					public void onSuccess(Relationship result){
+						relationships.put(id, result);
+						for(int i=0;i<list.getChildCount();i++){
+							if(list.getChildViewHolder(list.getChildAt(i)) instanceof SuggestionViewHolder svh && svh.getItem().account.id.equals(id)){
+								svh.rebind();
+								break;
+							}
+						}
 						numRunningFollowRequests--;
 						progress.setProgress(progress.getMax()-accountIdsToFollow.size()-numRunningFollowRequests);
 						followNextAccount(accountIdsToFollow, progress);
@@ -209,20 +216,7 @@ public class OnboardingFollowSuggestionsFragment extends BaseRecyclerFragment<Pa
 	private void proceed(){
 		Bundle args=new Bundle();
 		args.putString("account", accountID);
-		Nav.go(getActivity(), HomeFragment.class, args);
-		getActivity().getWindow().getDecorView().postDelayed(()->Nav.finish(this), 500);
-	}
-
-	@Override
-	protected boolean canGoBack(){
-		return true;
-	}
-
-	@Override
-	public void onToolbarNavigationClick(){
-		Bundle args=new Bundle();
-		args.putString("account", accountID);
-		Nav.goClearingStack(getActivity(), HomeFragment.class, args);
+		Nav.go(getActivity(), OnboardingProfileSetupFragment.class, args);
 	}
 
 	private class SuggestionsAdapter extends UsableRecyclerView.Adapter<SuggestionViewHolder> implements ImageLoaderRecyclerAdapter{

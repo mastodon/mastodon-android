@@ -151,8 +151,7 @@ public class OnboardingProfileSetupFragment extends ToolbarFragment implements R
 						AccountSessionManager.getInstance().updateAccountInfo(accountID, result);
 						Bundle args=new Bundle();
 						args.putString("account", accountID);
-						Nav.go(getActivity(), OnboardingFollowSuggestionsFragment.class, args);
-						getActivity().getWindow().getDecorView().postDelayed(()->Nav.finish(OnboardingProfileSetupFragment.this), 500);
+						Nav.goClearingStack(getActivity(), HomeFragment.class, args);
 					}
 
 					@Override
@@ -181,6 +180,11 @@ public class OnboardingProfileSetupFragment extends ToolbarFragment implements R
 		view.findViewById(R.id.dragger_thingy).setOnLongClickListener(v->{
 			profileFieldsLayout.startDragging(view);
 			return true;
+		});
+		view.findViewById(R.id.delete).setOnClickListener(v->{
+			profileFieldsLayout.removeView(view);
+			if(addRow.getVisibility()==View.GONE)
+				addRow.setVisibility(View.VISIBLE);
 		});
 		return view;
 	}
@@ -221,17 +225,5 @@ public class OnboardingProfileSetupFragment extends ToolbarFragment implements R
 		}
 		img.setForeground(null);
 		ViewImageLoader.load(img, null, new UrlImageLoaderRequest(uri, size, size));
-	}
-
-	@Override
-	protected boolean canGoBack(){
-		return true;
-	}
-
-	@Override
-	public void onToolbarNavigationClick(){
-		Bundle args=new Bundle();
-		args.putString("account", accountID);
-		Nav.goClearingStack(getActivity(), HomeFragment.class, args);
 	}
 }
