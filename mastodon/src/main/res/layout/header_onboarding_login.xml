@@ -64,6 +64,7 @@
 			android:contentDescription="@string/clear"
 			android:stateListAnimator="@null"
 			android:elevation="0dp"
+			android:tint="?colorM3OnSurfaceVariant"
 			android:src="@drawable/ic_m3_cancel"/>
 
 	</org.joinmastodon.android.ui.views.FloatingHintEditTextLayout>
