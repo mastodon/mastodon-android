@@ -31,6 +31,8 @@ import org.xml.sax.InputSource;
 
 import java.io.IOException;
 import java.net.IDN;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -207,6 +209,20 @@ abstract class InstanceCatalogFragment extends BaseRecyclerFragment<CatalogInsta
 			}else{
 				cancelLoadingInstanceInfo();
 			}
+		}
+		try{
+			new URI("https://"+domain+"/api/v1/instance"); // Validate the host by trying to parse the URI
+		}catch(URISyntaxException x){
+			showInstanceInfoLoadError(domain, x);
+			if(fakeInstance!=null){
+				fakeInstance.description=getString(R.string.error);
+				if(filteredData.size()>0 && filteredData.get(0)==fakeInstance){
+					if(list.findViewHolderForAdapterPosition(1) instanceof BindableViewHolder<?> ivh){
+						ivh.rebind();
+					}
+				}
+			}
+			return;
 		}
 		loadingInstanceDomain=domain;
 		loadingInstanceRequest=new GetInstance();
