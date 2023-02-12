@@ -40,17 +40,17 @@
 		android:background="@drawable/bg_onboarding_panel">
 
 		<Button
-			android:id="@+id/btn_skip"
+			android:id="@+id/btn_next"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_marginStart="16dp"
 			android:layout_marginTop="8dp"
 			android:layout_marginBottom="16dp"
 			style="@style/Widget.Mastodon.M3.Button.Tonal"
-			android:text="@string/skip"/>
+			android:text="@string/follow_all"/>
 
 		<Button
-			android:id="@+id/btn_next"
+			android:id="@+id/btn_skip"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_marginStart="16dp"
@@ -58,7 +58,7 @@
 			android:layout_marginTop="8dp"
 			android:layout_marginBottom="16dp"
 			style="@style/Widget.Mastodon.M3.Button.Filled"
-			android:text="@string/follow_all"/>
+			android:text="@string/skip"/>
 
 	</LinearLayout>
 

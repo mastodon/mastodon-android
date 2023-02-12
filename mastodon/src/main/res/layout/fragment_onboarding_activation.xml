@@ -9,7 +9,8 @@
 	<ScrollView
 		android:layout_width="match_parent"
 		android:layout_height="0dp"
-		android:layout_weight="1">
+		android:layout_weight="1"
+		android:fillViewport="true">
 
 		<LinearLayout
 			android:layout_width="match_parent"
@@ -28,6 +29,11 @@
 				android:textColor="?colorM3OnSurface"
 				android:text="@string/confirm_email_subtitle"/>
 
+			<Space
+				android:layout_width="1dp"
+				android:layout_height="0px"
+				android:layout_weight="1"/>
+			
 			<ImageView
 				android:layout_width="230dp"
 				android:layout_height="wrap_content"
@@ -36,6 +42,11 @@
 				android:importantForAccessibility="no"
 				android:adjustViewBounds="true"
 				android:src="@drawable/confirm_email_art"/>
+
+			<Space
+				android:layout_width="1dp"
+				android:layout_height="0px"
+				android:layout_weight="1"/>
 
 		</LinearLayout>
 

@@ -64,7 +64,7 @@ public class InstanceCatalogSignupFragment extends InstanceCatalogFragment imple
 
 	private List<String> languages=Collections.emptyList();
 	private PopupMenu langFilterMenu, speedFilterMenu;
-	private SignupSpeedFilter currentSignupSpeedFilter=SignupSpeedFilter.INSTANT;
+	private SignupSpeedFilter currentSignupSpeedFilter=SignupSpeedFilter.ANY;
 	private String currentLanguage=null;
 	private boolean searchQueryMode;
 	private LinearLayout filtersWrap;
@@ -75,7 +75,7 @@ public class InstanceCatalogSignupFragment extends InstanceCatalogFragment imple
 	private FilterChipView categoryGeneral, categorySpecialInterests;
 	private List<FilterChipView> regionalFilters;
 	private CatalogInstance.Region chosenRegion;
-	private CategoryChoice categoryChoice;
+	private CategoryChoice categoryChoice=CategoryChoice.GENERAL;
 
 	public InstanceCatalogSignupFragment(){
 		super(R.layout.fragment_onboarding_common, 10);
@@ -370,6 +370,9 @@ public class InstanceCatalogSignupFragment extends InstanceCatalogFragment imple
 		List<CatalogInstance> instances=data.stream().filter(ci->!ci.approvalRequired && ("general".equals(ci.category) || (ci.categories!=null && ci.categories.contains("general"))) && (lang.equals(ci.language) || (ci.languages!=null && ci.languages.contains(lang)))).collect(Collectors.toList());
 		if(instances.isEmpty()){
 			instances=data.stream().filter(ci->!ci.approvalRequired && ("general".equals(ci.category) || (ci.categories!=null && ci.categories.contains("general")))).collect(Collectors.toList());
+		}
+		if(instances.isEmpty()){
+			instances=data.stream().filter(ci->("general".equals(ci.category) || (ci.categories!=null && ci.categories.contains("general")))).collect(Collectors.toList());
 		}
 		if(instances.isEmpty()){
 			return;
