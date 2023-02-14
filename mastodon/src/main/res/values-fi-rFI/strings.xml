@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="get_started">Aloita</string>
 	<string name="log_in">Kirjaudu sisään</string>
 	<string name="next">Seuraava</string>
 	<string name="error">Virhe</string>
@@ -17,9 +16,6 @@
 	<string name="all_notifications">Kaikki</string>
 	<string name="back">Takaisin</string>
 	<string name="edit_photo">muokkaa</string>
-	<string name="display_name">näyttönimi</string>
-	<string name="email">sähköposti</string>
-	<string name="password">salasana</string>
 	<string name="category_academia">Akateeminen</string>
 	<string name="category_activism">Aktivismi</string>
 	<string name="category_all">Kaikki</string>
@@ -33,6 +29,7 @@
 	<string name="category_music">Musiikki</string>
 	<string name="category_regional">Alueellinen</string>
 	<string name="category_tech">Teknologia</string>
+	<!-- %s is the email address -->
 	<string name="save">Tallenna</string>
 	<string name="theme_auto">Automaattinen</string>
 	<string name="theme_light">Vaalea</string>
@@ -53,4 +50,7 @@
 	<!-- %s is version like 1.2.3 -->
 	<!-- %s is version like 1.2.3 -->
 	<!-- %s is file size -->
+	<!-- %s is server domain -->
+	<!-- Shown in a progress dialog when you tap "follow all" -->
+	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
 </resources>

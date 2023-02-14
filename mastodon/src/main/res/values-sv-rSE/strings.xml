@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="get_started">Kom igång</string>
+	<string name="get_started">Skapa konto</string>
+	<string name="already_have_account">Jag har redan ett konto</string>
 	<string name="log_in">Logga in</string>
 	<string name="next">Nästa</string>
+	<string name="loading_instance">Hämtar serverinfo…</string>
 	<string name="error">Fel</string>
+	<string name="not_a_mastodon_instance">%s verkar inte vara en Mastodon-server.</string>
 	<string name="ok">OK</string>
 	<string name="preparing_auth">Förbereder för autentisering…</string>
 	<string name="finishing_auth">Slutför autentisering…</string>
@@ -17,7 +20,7 @@
 	<string name="poll_ended">omröstning avslutad</string>
 	<string name="time_seconds">%ds</string>
 	<string name="time_minutes">%dm</string>
-	<string name="time_hours">%dh</string>
+	<string name="time_hours">%dt</string>
 	<string name="time_days">%dd</string>
 	<string name="share_toot_title">Dela</string>
 	<string name="settings">Inställningar</string>
@@ -170,15 +173,7 @@
 	<string name="back">Tillbaka</string>
 	<string name="instance_catalog_title">Mastodon utgörs av användare på olika servrar.</string>
 	<string name="instance_catalog_subtitle">Välj en server baserat på dina intressen, region eller en allmän server. Du kan fortfarande nå alla, oavsett server.</string>
-	<string name="search_communities">Sök servrar eller ange URL</string>
-	<string name="instance_rules_title">Några grundregler</string>
-	<string name="instance_rules_subtitle">Ta en minut att granska de regler som fastställts och verkställs av %ss administratörer.</string>
-	<string name="signup_title">Låt oss få igång dig på %s</string>
 	<string name="edit_photo">redigera</string>
-	<string name="display_name">visningsnamn</string>
-	<string name="username">användarnamn</string>
-	<string name="email">e-post</string>
-	<string name="password">lösenord</string>
 	<string name="password_note">Inkludera stora bokstäver, specialtecken och siffror för att öka ditt lösenords styrka.</string>
 	<string name="category_academia">Vetenskap</string>
 	<string name="category_activism">Aktivism</string>
@@ -193,8 +188,7 @@
 	<string name="category_music">Musik</string>
 	<string name="category_regional">Regionalt</string>
 	<string name="category_tech">Teknik</string>
-	<string name="confirm_email_title">En sista sak</string>
-	<string name="confirm_email_subtitle">Tryck på länken vi e-postade till dig för att verifiera ditt konto.</string>
+	<!-- %s is the email address -->
 	<string name="resend">Skicka igen</string>
 	<string name="open_email_app">Öppna e-postappen</string>
 	<string name="resent_email">Bekräftelse via e-post skickad</string>
@@ -282,7 +276,6 @@
 	<string name="open_in_browser">Öppna i webbläsare</string>
 	<string name="hide_boosts_from_user">Dölj boostar från %s</string>
 	<string name="show_boosts_from_user">Visa boostar från %s</string>
-	<string name="signup_reason">varför vill du gå med?</string>
 	<string name="signup_reason_note">Detta kommer hjälpa oss att granska din ansökan.</string>
 	<string name="clear">Rensa</string>
 	<string name="profile_header">Bild för sidhuvud</string>
@@ -375,7 +368,23 @@
 	<!-- %s is file size -->
 	<string name="download_update">Ladda ner (%s)</string>
 	<string name="install_update">Installera</string>
-	<string name="privacy_policy_title">Mastodon och din integritet</string>
-	<string name="privacy_policy_subtitle">Även om Mastodon-appen inte samlar in någon data kan servern du registrerar dig genom ha en annan policy. Ta en stund till att granska och godkänna Mastodon-appens sekretesspolicy och din servers sekretesspolicy.</string>
 	<string name="i_agree">Jag godkänner</string>
+	<string name="empty_list">Den här listan är tom</string>
+	<string name="instance_signup_closed">Denna server accepterar inte nyregistreringar.</string>
+	<string name="text_copied">Kopierat till urklipp</string>
+	<string name="add_bookmark">Bokmärk</string>
+	<string name="remove_bookmark">Ta bort bokmärke</string>
+	<string name="bookmarks">Bokmärken</string>
+	<string name="your_favorites">Dina favoriter</string>
+	<string name="login_title">Välkommen tillbaka</string>
+	<string name="login_subtitle">Logga in på den server där du skapade ditt konto.</string>
+	<string name="server_url">Server-URL</string>
+	<string name="welcome_page1_text">Tänk dig att du har en epostadress som slutar med @example.com.\n\nDu kan skicka och ta emot epost från vem som helst, även om deras epostadress slutar med @gmail.com, @icloud.com eller @example.com.</string>
+	<string name="welcome_page2_title">Mastodon fungerar så.</string>
+	<string name="welcome_page2_text">Ditt handtag kan vara @gothgirl654@example.social men du kan fortfarande följa, boosta och chatta med @fallout5ever@example.online.</string>
+	<string name="welcome_page3_title">Hur väljer jag en server?</string>
+	<string name="welcome_page3_text">Olika personer väljer olika servrar av olika anledningar. art.example är en bra plats för konstnärer medan glasgow.exempel kan vara ett bra val för skottar.\n\nMed någon av våra rekommenderar servrar kan du inte hamna fel så oavsett vilken du väljer, eller om du skriver in din egen i serverns sökfältet, kommer du aldrig missa något.</string>
+	<!-- %s is server domain -->
+	<!-- Shown in a progress dialog when you tap "follow all" -->
+	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
 </resources>

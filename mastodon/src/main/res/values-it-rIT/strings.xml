@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="get_started">Iniziamo</string>
+	<string name="get_started">Crea un profilo</string>
+	<string name="already_have_account">Ho già un account</string>
 	<string name="log_in">Accedi</string>
 	<string name="next">Avanti</string>
+	<string name="loading_instance">Recupero delle informazioni sul server…</string>
 	<string name="error">Errore</string>
+	<string name="not_a_mastodon_instance">%s non sembra essere un server Mastodon.</string>
 	<string name="ok">OK</string>
 	<string name="preparing_auth">Preparazione all\'autenticazione…</string>
 	<string name="finishing_auth">Completamento autenticazione…</string>
@@ -35,10 +38,10 @@
 	</plurals>
 	<plurals name="posts">
 		<item quantity="one">post</item>
-		<item quantity="other">posts</item>
+		<item quantity="other">post</item>
 	</plurals>
-	<string name="posts">Posts</string>
-	<string name="posts_and_replies">Post e Risposte</string>
+	<string name="posts">Post</string>
+	<string name="posts_and_replies">Post e risposte</string>
 	<string name="media">Media</string>
 	<string name="profile_about">Info</string>
 	<string name="button_follow">Segui</string>
@@ -55,7 +58,7 @@
 	<string name="unblock_domain">Sblocca %s</string>
 	<plurals name="x_posts">
 		<item quantity="one">%,d post</item>
-		<item quantity="other">%,d posts</item>
+		<item quantity="other">%,d post</item>
 	</plurals>
 	<string name="profile_joined">Iscritto</string>
 	<string name="done">Fatto</string>
@@ -170,15 +173,16 @@
 	<string name="back">Indietro</string>
 	<string name="instance_catalog_title">Mastodon è fatto di utenti in diverse comunità.</string>
 	<string name="instance_catalog_subtitle">Scegli una comunità basata sui tuoi interessi, regionale o una generica. Puoi comunque connetterti con tutti, indipendentemente dalla comunità.</string>
-	<string name="search_communities">Cerca servers o inserisci URL</string>
-	<string name="instance_rules_title">Alcune regole di base</string>
-	<string name="instance_rules_subtitle">Prenditi un minuto per rivedere le regole impostate e applicate dagli amministratori di %s.</string>
-	<string name="signup_title">Facciamo in modo che sia configurato su %s</string>
+	<string name="search_communities">Nome del server o URL</string>
+	<string name="instance_rules_title">Regole del server</string>
+	<string name="instance_rules_subtitle">Continuando, accetti di seguire le seguenti regole stabilite e applicate dai moderatori di %s.</string>
+	<string name="signup_title">Crea un profilo</string>
 	<string name="edit_photo">modifica</string>
-	<string name="display_name">nome visualizzato</string>
-	<string name="username">nome utente</string>
-	<string name="email">email</string>
-	<string name="password">password</string>
+	<string name="display_name">Nome</string>
+	<string name="username">Nome utente</string>
+	<string name="email">Email</string>
+	<string name="password">Password</string>
+	<string name="confirm_password">Conferma la password</string>
 	<string name="password_note">Includi lettere maiuscole, caratteri speciali e numeri per aumentare la forza della tua password.</string>
 	<string name="category_academia">Accademia</string>
 	<string name="category_activism">Attivismo</string>
@@ -193,8 +197,10 @@
 	<string name="category_music">Musica</string>
 	<string name="category_regional">Regionale</string>
 	<string name="category_tech">Tecnologia</string>
-	<string name="confirm_email_title">Un\'ultima cosa</string>
-	<string name="confirm_email_subtitle">Tocca il link che ti abbiamo inviato per verificare il tuo account.</string>
+	<string name="confirm_email_title">Controlla la tua casella di posta</string>
+	<!-- %s is the email address -->
+	<string name="confirm_email_subtitle">Tocca il collegamento che ti abbiamo inviato per verificare %s. Aspetteremo proprio qui.</string>
+	<string name="confirm_email_didnt_get">Non hai ricevuto un collegamento?</string>
 	<string name="resend">Invia di nuovo</string>
 	<string name="open_email_app">Apri l\'app email</string>
 	<string name="resent_email">Email di conferma inviata</string>
@@ -282,7 +288,7 @@
 	<string name="open_in_browser">Apri nel browser</string>
 	<string name="hide_boosts_from_user">Nascondi le condivisioni di %s</string>
 	<string name="show_boosts_from_user">Mostra le condivisioni di %s</string>
-	<string name="signup_reason">perché vuoi unirti?</string>
+	<string name="signup_reason">Perché vuoi unirti?</string>
 	<string name="signup_reason_note">Questo ci aiuterà ad esaminare la tua richiesta.</string>
 	<string name="clear">Cancella</string>
 	<string name="profile_header">Immagine di intestazione</string>
@@ -302,8 +308,8 @@
 	<string name="trending_links_info_banner">Queste sono le notizie che vengono condivise più nel tuo angolo di Mastodon.</string>
 	<string name="local_timeline_info_banner">Questi sono i post più recenti delle persone che utilizzano il tuo stesso server Mastodon.</string>
 	<string name="dismiss">Ignora</string>
-	<string name="see_new_posts">Visualizza nuovi posts</string>
-	<string name="load_missing_posts">Carica i posts mancanti</string>
+	<string name="see_new_posts">Visualizza nuovi post</string>
+	<string name="load_missing_posts">Carica i post mancanti</string>
 	<string name="follow_back">Segui anche tu</string>
 	<string name="button_follow_pending">In attesa</string>
 	<string name="follows_you">Ha iniziato a seguirti</string>
@@ -331,7 +337,7 @@
 	<string name="time_now">ora</string>
 	<string name="post_info_reblogs">Condivisioni</string>
 	<string name="post_info_favorites">Preferiti</string>
-	<string name="edit_history">Modifica cronologia</string>
+	<string name="edit_history">Cronologia delle modifiche</string>
 	<string name="last_edit_at_x">Ultima modifica: %s</string>
 	<string name="time_just_now">proprio ora</string>
 	<plurals name="x_seconds_ago">
@@ -375,8 +381,8 @@
 	<!-- %s is file size -->
 	<string name="download_update">Scarica (%s)</string>
 	<string name="install_update">Installa</string>
-	<string name="privacy_policy_title">Mastodon e la tua privacy</string>
-	<string name="privacy_policy_subtitle">Sebbene l\'app Mastodon non raccolga alcun dato, il server tramite il quale ti iscrivi potrebbe avere una politica diversa. Prenditi un minuto per rivedere e accettare l\'informativa sulla privacy dell\'app Mastodon e l\'informativa sulla privacy del tuo server.</string>
+	<string name="privacy_policy_title">La tua privacy</string>
+	<string name="privacy_policy_subtitle">Sebbene l\'app Mastodon non raccolga alcun dato, il server attraverso il quale ti registri potrebbe avere una politica diversa.\n\nSe non sei d\'accordo con la politica per %s, puoi tornare indietro e scegliere un server diverso.</string>
 	<string name="i_agree">Accetto</string>
 	<string name="empty_list">Questo elenco è vuoto</string>
 	<string name="instance_signup_closed">Questo server non accetta nuove registrazioni.</string>
@@ -385,4 +391,44 @@
 	<string name="remove_bookmark">Rimuovi segnalibro</string>
 	<string name="bookmarks">Segnalibri</string>
 	<string name="your_favorites">I Tuoi Preferiti</string>
+	<string name="login_title">Bentornato/a</string>
+	<string name="login_subtitle">Accedi con il server in cui hai creato il tuo account.</string>
+	<string name="server_url">URL del server</string>
+	<string name="welcome_page1_title">Che cos\'è Mastodon?</string>
+	<string name="welcome_page1_text">Immaginate di avere un indirizzo email che termina con @example.com.\n\nPotete ancora inviare e ricevere email da chiunque, anche se la loro email termina in @gmail.com o @icloud.com o @example.com.</string>
+	<string name="welcome_page2_title">Mastodon è così.</string>
+	<string name="welcome_page2_text">Il tuo pseudonimo potrebbe essere @gothgirl654@example.social, ma puoi ancora seguire, condividere e chattare con @fallout5ever@example.online.</string>
+	<string name="welcome_page3_title">Come scegliere un server?</string>
+	<string name="welcome_page3_text">Diverse persone scelgono server diversi per vari motivi. art.example è un server ottimo per gli artisti, mentre glasgow.example è una buona scelta per i Scozzesi. \n\nNon si può sbagliare con nessuno dei nostri server consigliati, e qualsiasi server scegli (o se cerchi un altro che conosci tu usando la barra di ricerca dei server) non perderai mai un colpo.</string>
+	<string name="signup_random_server_explain">Sceglieremo un server in base alla tua lingua se continui senza effettuare una selezione.</string>
+	<string name="server_filter_any_language">Qualsiasi lingua</string>
+	<string name="server_filter_instant_signup">Iscrizione immediata</string>
+	<string name="server_filter_manual_review">Revisione manuale</string>
+	<string name="server_filter_any_signup_speed">Qualsiasi velocità di iscrizione</string>
+	<string name="server_filter_region_europe">Europa</string>
+	<string name="server_filter_region_north_america">America del nord</string>
+	<string name="server_filter_region_south_america">America del sud</string>
+	<string name="server_filter_region_africa">Africa</string>
+	<string name="server_filter_region_asia">Asia</string>
+	<string name="server_filter_region_oceania">Oceania</string>
+	<string name="not_accepting_new_members">Non accetta nuovi membri</string>
+	<string name="category_special_interests">Interessi speciali</string>
+	<string name="signup_passwords_dont_match">Le password non corrispondono</string>
+	<string name="pick_server_for_me">Scegli per me</string>
+	<string name="profile_add_row">Aggiungi riga</string>
+	<string name="profile_setup">Configurazione del profilo</string>
+	<string name="profile_setup_subtitle">Puoi sempre completarlo più tardi nella scheda Profilo.</string>
+	<string name="profile_setup_explanation">Puoi aggiungere fino a quattro campi del profilo per tutto ciò che desideri. Posizione, collegamenti, pronomi — il limite è il cielo.</string>
+	<string name="popular_on_mastodon">Popolare su Mastodon</string>
+	<string name="follow_all">Segui tutto</string>
+	<string name="server_rules_disagree">Non sono d\'accordo</string>
+	<string name="privacy_policy_explanation">TL;DR: Non raccogliamo, né elaboriamo nulla.</string>
+	<!-- %s is server domain -->
+	<string name="server_policy_disagree">Non sono d\'accordo con %s</string>
+	<string name="profile_bio">Biografia</string>
+	<!-- Shown in a progress dialog when you tap "follow all" -->
+	<string name="sending_follows">Seguendo gli utenti…</string>
+	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<string name="signup_email_domain_blocked">%1$s non consente iscrizioni da %2$s. Provane uno diverso o &lt;a&gt;scegli un altro server&lt;/a&gt;.</string>
+	<string name="signup_username_taken">Questo nome utente è già in uso.</string>
 </resources>

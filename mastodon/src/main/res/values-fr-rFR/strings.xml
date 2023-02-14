@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="get_started">Premiers pas</string>
+	<string name="get_started">Créer un compte</string>
+	<string name="already_have_account">J\'ai déjà un compte</string>
 	<string name="log_in">Se connecter</string>
 	<string name="next">Suivant</string>
 	<string name="loading_instance">Récupération des informations serveur…</string>
@@ -172,15 +173,15 @@
 	<string name="back">Retour</string>
 	<string name="instance_catalog_title">Mastodon est composé d’utilisateurs sur différents serveurs.</string>
 	<string name="instance_catalog_subtitle">Choisissez un serveur en fonction de vos intérêts, de votre région ou alors rejoignez un serveur général. Vous pouvez toujours vous connecter avec tout le monde, quel que soit le serveur.</string>
-	<string name="search_communities">Rechercher des serveurs ou entrer une URL</string>
-	<string name="instance_rules_title">Quelques règles de base</string>
-	<string name="instance_rules_subtitle">Prenez une minute pour revoir les règles définies et appliquées par les administrateurs de %s.</string>
-	<string name="signup_title">Mettons les choses en place pour %s</string>
+	<string name="search_communities">Nom ou URL du serveur</string>
+	<string name="instance_rules_title">Règles du serveur</string>
+	<string name="signup_title">Créer un compte</string>
 	<string name="edit_photo">modifier</string>
-	<string name="display_name">nom affiché</string>
-	<string name="username">nom d’utilisateur</string>
-	<string name="email">courriel</string>
-	<string name="password">mot de passe</string>
+	<string name="display_name">Nom</string>
+	<string name="username">Nom d’utilisateur</string>
+	<string name="email">E-mail</string>
+	<string name="password">Mot de passe</string>
+	<string name="confirm_password">Confirmez le mot de passe</string>
 	<string name="password_note">Inclure les lettres majuscules, les caractères spéciaux et les chiffres pour augmenter la force de votre mot de passe.</string>
 	<string name="category_academia">Universitaire</string>
 	<string name="category_activism">Activisme</string>
@@ -195,8 +196,9 @@
 	<string name="category_music">Musique</string>
 	<string name="category_regional">Régional</string>
 	<string name="category_tech">Technologie</string>
-	<string name="confirm_email_title">Une dernière chose</string>
-	<string name="confirm_email_subtitle">Appuyez sur le lien que nous vous avons envoyé par courriel pour vérifier votre compte.</string>
+	<string name="confirm_email_title">Consultez votre boîte de réception</string>
+	<!-- %s is the email address -->
+	<string name="confirm_email_didnt_get">Vous n\'avez pas reçu de lien ?</string>
 	<string name="resend">Renvoyer</string>
 	<string name="open_email_app">Ouvrir l’application courriel</string>
 	<string name="resent_email">Courriel de confirmation envoyé</string>
@@ -284,7 +286,7 @@
 	<string name="open_in_browser">Ouvrir dans le navigateur</string>
 	<string name="hide_boosts_from_user">Masquer les partages de %s</string>
 	<string name="show_boosts_from_user">Afficher les partages de %s</string>
-	<string name="signup_reason">pourquoi voulez-vous vous inscrire ?</string>
+	<string name="signup_reason">Pourquoi voulez-vous vous inscrire ?</string>
 	<string name="signup_reason_note">Cela nous aidera à examiner votre demande.</string>
 	<string name="clear">Effacer</string>
 	<string name="profile_header">Image d’en-tête</string>
@@ -377,17 +379,45 @@
 	<!-- %s is file size -->
 	<string name="download_update">Téléchargement (%s)</string>
 	<string name="install_update">Installer</string>
-	<string name="privacy_policy_title">Mastodon et votre vie privée</string>
-	<string name="privacy_policy_subtitle">Bien que l’application Mastodon ne collecte aucune donnée, le serveur auquel vous vous inscrivez peut avoir une politique différente. Prenez une minute pour examiner et accepter la politique de confidentialité de l’application Mastodon ainsi que celle de votre serveur.</string>
+	<string name="privacy_policy_title">Votre Confidentialité</string>
 	<string name="i_agree">J’accepte</string>
 	<string name="empty_list">Cette liste est vide</string>
 	<string name="instance_signup_closed">Ce serveur n\'accepte pas les nouvelles inscriptions.</string>
 	<string name="text_copied">Copié dans le presse-papier</string>
-	<string name="add_bookmark">Favoris</string>
+	<string name="add_bookmark">Ajouter aux marque-pages</string>
 	<string name="remove_bookmark">Retirer des favoris</string>
-	<string name="bookmarks">Favoris</string>
+	<string name="bookmarks">Marque-pages</string>
 	<string name="your_favorites">Vos favoris</string>
 	<string name="login_title">Content de vous revoir</string>
 	<string name="login_subtitle">Connectez-vous avec le serveur sur lequel vous avez créé votre compte.</string>
 	<string name="server_url">URL du serveur</string>
+	<string name="welcome_page1_title">Qu’est-ce que Mastodon ?</string>
+	<string name="welcome_page1_text">Imaginez que vous ayez une adresse e-mail qui se termine par @example.com.\n\nVous pouvez toujours envoyer et recevoir des e-mails de n\'importe qui, même si leur e-mail se termine par @gmail.com ou @icloud.com ou @example.com.</string>
+	<string name="welcome_page2_title">Mastodon est comme ça.</string>
+	<string name="welcome_page2_text">Votre identifiant devrait être @gothgirl654@example.social, mais vous pouvez toujours suivre, rebloguer et discuter avec @fallout5ever@example.online.</string>
+	<string name="welcome_page3_title">Comment choisir un serveur?</string>
+	<string name="welcome_page3_text">Différentes personnes choisissent différents serveurs pour un certain nombre de raisons. art.example est un lieu idéal pour les artistes, tandis que glasgow.example pourrait être un bon choix pour les Écossais.\n\nVous ne pouvez pas vous tromper avec l\'un de nos serveurs recommandés et ainsi, quel que soit celui que vous choisissez (ou si vous entrez le vôtre dans la barre de recherche du serveur), vous ne manquerez jamais une info quelque part.</string>
+	<string name="server_filter_any_language">N\'importe quelle langue</string>
+	<string name="server_filter_instant_signup">Inscription instantanée</string>
+	<string name="server_filter_manual_review">Approbation manuelle</string>
+	<string name="server_filter_region_europe">Europe</string>
+	<string name="server_filter_region_north_america">Amérique du Nord</string>
+	<string name="server_filter_region_south_america">Amérique du Sud</string>
+	<string name="server_filter_region_africa">Afrique</string>
+	<string name="server_filter_region_asia">Asie</string>
+	<string name="server_filter_region_oceania">Océanie</string>
+	<string name="not_accepting_new_members">N\'accepte pas de nouveaux membres</string>
+	<string name="category_special_interests">Intérêt particulier</string>
+	<string name="signup_passwords_dont_match">Les mots de passe ne correspondent pas</string>
+	<string name="pick_server_for_me">Choisir pour moi</string>
+	<string name="profile_add_row">Ajouter une ligne</string>
+	<string name="profile_setup">Configuration du profil</string>
+	<string name="follow_all">Tout suivre</string>
+	<string name="server_rules_disagree">Refuser</string>
+	<string name="privacy_policy_explanation">TL;DR : Nous ne collectons ni ne traitons rien.</string>
+	<!-- %s is server domain -->
+	<string name="server_policy_disagree">En désaccord avec %s</string>
+	<string name="profile_bio">Biographie</string>
+	<!-- Shown in a progress dialog when you tap "follow all" -->
+	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
 </resources>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="get_started">အကောင့်ဖန်တီးမည်</string>
+	<string name="already_have_account">အကောင့်ရှိပြီးသားပါ</string>
+	<string name="log_in">လော့ဂ်အင်ဝင်မည်</string>
+	<string name="next">ရှေ့သို့</string>
+	<string name="loading_instance">ဆာဗာအချက်အလက်များကို ရယူနေသည်…</string>
+	<string name="error">Error</string>
+	<string name="not_a_mastodon_instance">%s ဟာ Mastodon ဆာဗာတစ်ခုဖြစ်ပုံမရပါဘူး။</string>
+	<string name="ok">အိုကေ</string>
+	<string name="preparing_auth">အထောက်အထားစိစစ်ရန် ပြင်ဆင်နေသည်…</string>
+	<string name="finishing_auth">အထောက်အထားစိစစ်ခြင်းကို အပြီးသတ်နေသည်…</string>
+	<string name="user_boosted">%s က ရီဘလော့လုပ်ထားသည်</string>
+	<string name="in_reply_to">%s ကို ရီပလိုင်းပြန်ထား</string>
+	<string name="notifications">နိုတီများ</string>
+	<string name="user_followed_you">က သင့်ကို ဖော်လိုးလုပ်လိုက်သည်</string>
+	<string name="user_sent_follow_request">က သင့်ကို ဖော်လိုးဝါအဖြစ်တောင်းဆိုမှုတစ်ခု ပို့လိုက်သည်</string>
+	<string name="user_favorited">က သင့်ပို့စ်ကို နှစ်သက်ခဲ့သည်</string>
+	<string name="notification_boosted">က သင့်ပို့စ်ကို ရီဘလော့လုပ်လိုက်သည်</string>
+	<string name="poll_ended">ရဲ့ စစ်တမ်းပြီးဆုံးသွားပါပြီ</string>
+	<string name="time_seconds">%d စက္ကန့်</string>
+	<string name="time_minutes">%d မိနစ်</string>
+	<string name="time_hours">%d နာရီ</string>
+	<string name="time_days">%d ရက်</string>
+	<string name="settings">ဆက်တင်များ</string>
+	<string name="publish">တင်မည်</string>
+	<string name="discard_draft">စာကြမ်းကို ဖျက်မှာလား?</string>
+	<string name="discard">ဖယ်ရှား</string>
+	<string name="cancel">မလုပ်တော့</string>
+	<plurals name="followers">
+		<item quantity="other">ဦးက ဖောလိုးထား</item>
+	</plurals>
+	<plurals name="following">
+		<item quantity="other">ဦးကို ဖောလိုးထား</item>
+	</plurals>
+	<plurals name="posts">
+		<item quantity="other">ပို့စ်</item>
+	</plurals>
+	<string name="posts">ပို့စ်များ</string>
+	<string name="posts_and_replies">ပို့စ်နှင့် ရီပလိုင်းများ</string>
+	<string name="media">ဓာတ်ပုံနှင့် ဗီဒီယိုများ</string>
+	<string name="profile_about">အကြောင်း</string>
+	<string name="button_follow">ဖောလိုး</string>
+	<string name="button_following">ဖောလိုးလုပ်ထား</string>
+	<string name="edit_profile">ပရိုဖိုင်းပြင်မည်</string>
+	<string name="mention_user">%s ကို မန်းရှင်း</string>
+	<string name="share_user">%s ကို မျှဝေ</string>
+	<string name="mute_user">%s ကို mute</string>
+	<string name="unmute_user">%s ကို unmute</string>
+	<string name="block_user">%s ကို ဘလော့မည်</string>
+	<string name="unblock_user">%s ကို ဘလော့ဖြုတ်မည်</string>
+	<string name="report_user">%s ကို တိုင်ကြားမည်</string>
+	<string name="block_domain">%s ကို ဘလော့မည်</string>
+	<string name="unblock_domain">%s ကို ဘလော့ဖြုတ်မည်</string>
+	<plurals name="x_posts">
+		<item quantity="other">ပို့စ် %,d ခု</item>
+	</plurals>
+	<string name="profile_joined">အကောင့်ဖွင့်ခဲ့သည့် ရက်စွဲ</string>
+	<string name="done">ပြီးပြီ</string>
+	<string name="loading">လုပ်ဆောင်နေသည်…</string>
+	<!-- %s is the email address -->
+	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
+	<!-- %s is version like 1.2.3 -->
+	<!-- %s is version like 1.2.3 -->
+	<!-- %s is file size -->
+	<!-- %s is server domain -->
+	<!-- Shown in a progress dialog when you tap "follow all" -->
+	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+</resources>

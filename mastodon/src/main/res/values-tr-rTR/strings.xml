@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="get_started">Başlayın</string>
+	<string name="get_started">Hesap oluştur</string>
+	<string name="already_have_account">Zaten bir hesabım var</string>
 	<string name="log_in">Giriş Yap</string>
 	<string name="next">Sonraki</string>
 	<string name="loading_instance">Sunucu bilgisi alınıyor…</string>
@@ -172,15 +173,7 @@
 	<string name="back">Geri</string>
 	<string name="instance_catalog_title">Mastodon, farklı sunuculardaki kullanıcılardan oluşur.</string>
 	<string name="instance_catalog_subtitle">İlgi alanlarına, bölgene hitap eden bir sunucu ya da genel amaçlı bir sunucu seç. Hangi sunucuda olduğun fark etmeksizin herkes ile bağlantı kurabilirsin.</string>
-	<string name="search_communities">Sunucuları ya da bir bağlantı gir</string>
-	<string name="instance_rules_title">Bazı temel kurallar</string>
-	<string name="instance_rules_subtitle">%s yöneticileri tarafından belirlenen ve uygulanan kuralları incelemek için bir dakikanızı ayırın.</string>
-	<string name="signup_title">%s için kurulumunuzu yapalım</string>
 	<string name="edit_photo">düzenle</string>
-	<string name="display_name">görünen ad</string>
-	<string name="username">kullanıcı adı</string>
-	<string name="email">e-posta</string>
-	<string name="password">parola</string>
 	<string name="password_note">Parolanızın gücünü artırmak için büyük harfler, özel karakterler ve sayılar ekleyin.</string>
 	<string name="category_academia">Akademi</string>
 	<string name="category_activism">aktivizm</string>
@@ -195,8 +188,7 @@
 	<string name="category_music">Müzik</string>
 	<string name="category_regional">Bölgesel</string>
 	<string name="category_tech">Teknoloji</string>
-	<string name="confirm_email_title">Son bir şey</string>
-	<string name="confirm_email_subtitle">Hesabınızı doğrulamak için size e-postayla gönderdiğimiz bağlantıya dokunun.</string>
+	<!-- %s is the email address -->
 	<string name="resend">Yeniden gönder</string>
 	<string name="open_email_app">E-posta uygulamasını aç</string>
 	<string name="resent_email">Onay e-postası gönderildi</string>
@@ -284,7 +276,6 @@
 	<string name="open_in_browser">Tarayıcıda aç</string>
 	<string name="hide_boosts_from_user">%s kişisinin yeniden paylaşımlarını gizle</string>
 	<string name="show_boosts_from_user">%s kişisinin yeniden paylaşımlarını göster</string>
-	<string name="signup_reason">neden katılmak istiyorsun?</string>
 	<string name="signup_reason_note">Bu, başvurunuzu incelememize yardımcı olacaktır.</string>
 	<string name="clear">Temizle</string>
 	<string name="profile_header">Üstbaşlık görseli</string>
@@ -377,8 +368,6 @@
 	<!-- %s is file size -->
 	<string name="download_update">İndir (%s)</string>
 	<string name="install_update">Kur</string>
-	<string name="privacy_policy_title">Mastodon ve gizliliğiniz</string>
-	<string name="privacy_policy_subtitle">Mastodon uygulaması herhangi bir veri toplamasa da kayıt olduğunuz sunucu farklı bir politika izliyor olabilir. Bir dakikanızı ayırarak Mastodon uygulamasının ve sunucunuzun gizlilik politikasını okuyup onaylayın.</string>
 	<string name="i_agree">Kabul ediyorum</string>
 	<string name="empty_list">Bu liste boş</string>
 	<string name="instance_signup_closed">Bu sunucu yeni kayıtları kabul etmemektedir.</string>
@@ -390,4 +379,7 @@
 	<string name="login_title">Hoşgeldin</string>
 	<string name="login_subtitle">Hesabınızı oluşturduğunuz sunucu ile giriş yapın.</string>
 	<string name="server_url">Sunucu URL\'si</string>
+	<!-- %s is server domain -->
+	<!-- Shown in a progress dialog when you tap "follow all" -->
+	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
 </resources>

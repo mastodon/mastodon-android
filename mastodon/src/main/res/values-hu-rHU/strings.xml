@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="get_started">Kezdjünk bele</string>
+	<string name="get_started">Fiók létrehozása</string>
+	<string name="already_have_account">Már van fiókom</string>
 	<string name="log_in">Bejelentkezés</string>
 	<string name="next">Következő</string>
+	<string name="loading_instance">Kiszolgáló információinak lekérése…</string>
 	<string name="error">Hiba</string>
+	<string name="not_a_mastodon_instance">%s nem néz ki Mastodon kiszolgálónak.</string>
 	<string name="ok">OK</string>
 	<string name="preparing_auth">Felkészülés a hitelesítésre…</string>
 	<string name="finishing_auth">Hitelesítés befejezése…</string>
-	<string name="user_boosted">%s reblogolta</string>
+	<string name="user_boosted">%s megtolta</string>
 	<string name="in_reply_to">Válaszolva %s számára</string>
 	<string name="notifications">Értesítések</string>
-	<string name="user_followed_you">követ téged</string>
+	<string name="user_followed_you">bekövetett</string>
 	<string name="user_sent_follow_request">követési kérelmet küldött neked</string>
 	<string name="user_favorited">kedvencnek jelölte a bejegyzésedet</string>
 	<string name="notification_boosted">megtolta a bejegyzésedet</string>
@@ -63,7 +66,7 @@
 	<string name="field_label">Címke</string>
 	<string name="field_content">Tartalom</string>
 	<string name="saving">Mentés…</string>
-	<string name="post_from_user">Poszt %s-tól</string>
+	<string name="post_from_user">Poszt tőle: %s</string>
 	<string name="poll_option_hint">%d. opció</string>
 	<plurals name="x_minutes">
 		<item quantity="one">%d perc</item>
@@ -78,6 +81,14 @@
 		<item quantity="other">%d nap</item>
 	</plurals>
 	<string name="compose_poll_duration">Időtartam: %s</string>
+	<plurals name="x_seconds_left">
+		<item quantity="one">%d másodperc van hátra</item>
+		<item quantity="other">%d másodperc van hátra</item>
+	</plurals>
+	<plurals name="x_minutes_left">
+		<item quantity="one">%d perc van hátra</item>
+		<item quantity="other">%d perc van hátra</item>
+	</plurals>
 	<plurals name="x_hours_left">
 		<item quantity="one">%d óra van hátra</item>
 		<item quantity="other">%d óra van hátra</item>
@@ -162,15 +173,16 @@
 	<string name="back">Vissza</string>
 	<string name="instance_catalog_title">A Mastodon különböző szervereken lévő felhasználókból áll.</string>
 	<string name="instance_catalog_subtitle">Válasszon egy szervert az érdeklődési köre, régiója alapján vagy egy általános célú szervert. A szervertől függetlenül továbbra is mindenkivel kapcsolatba léphetsz.</string>
-	<string name="search_communities">Szerver keresése vagy URL megadása</string>
-	<string name="instance_rules_title">Néhány alapszabály</string>
-	<string name="instance_rules_subtitle">Szánj egy percet a %s adminjai által meghatározott és betartatott szabályok áttekintésére.</string>
-	<string name="signup_title">Állítsuk be a fiókod a %s kiszolgálón</string>
+	<string name="search_communities">Kiszolgáló neve vagy URL</string>
+	<string name="instance_rules_title">Kiszolgáló Szabályai</string>
+	<string name="instance_rules_subtitle">A folytatással beleegyezel, hogy követed a következő szabályokat, melyeket a %s moderatorai állítottak és tartatnak be.</string>
+	<string name="signup_title">Fiók Létrehozása</string>
 	<string name="edit_photo">szerkesztés</string>
-	<string name="display_name">megjelenített név</string>
-	<string name="username">felhasználónév</string>
-	<string name="email">e-mail</string>
-	<string name="password">jelszó</string>
+	<string name="display_name">Név</string>
+	<string name="username">Felhasználónév</string>
+	<string name="email">Email</string>
+	<string name="password">Jelszó</string>
+	<string name="confirm_password">Jelszó megerősítése</string>
 	<string name="password_note">A jelszó erősségének növelése érdekében használjon nagybetűket, speciális karaktereket és számokat.</string>
 	<string name="category_academia">Egyetem/Felsőoktatás</string>
 	<string name="category_activism">Aktivizmus</string>
@@ -185,8 +197,10 @@
 	<string name="category_music">Zene</string>
 	<string name="category_regional">Regionális</string>
 	<string name="category_tech">Tech</string>
-	<string name="confirm_email_title">Még egy apróság</string>
-	<string name="confirm_email_subtitle">Kattints a linkre, amit emailben küldtünk, hogy megerősítsd a fiókod.</string>
+	<string name="confirm_email_title">Nézd meg a bejővő emailfiókodat</string>
+	<!-- %s is the email address -->
+	<string name="confirm_email_subtitle">Kattints a hivatkozásra, melyet a %s ellenőrzése céljából küldtünk neked. Mi addig itt várunk.</string>
+	<string name="confirm_email_didnt_get">Nem kaptad meg a hivatkozást?</string>
 	<string name="resend">Újraküldés</string>
 	<string name="open_email_app">E-mail alkalmazás megnyitása</string>
 	<string name="resent_email">Megerősítő email elküldve</string>
@@ -214,6 +228,10 @@
 	<string name="notification_type_poll">Szavazások</string>
 	<string name="choose_account">Fiók kiválasztása</string>
 	<string name="err_not_logged_in">Először jelentkezz be a Mastodonra</string>
+	<plurals name="cant_add_more_than_x_attachments">
+		<item quantity="one">Nem adhatsz hozzá egynél több csatolmányt</item>
+		<item quantity="other">Nem adhatsz hozzá %d-nél több csatolmányt</item>
+	</plurals>
 	<string name="media_attachment_unsupported_type">%s fájl nem támogatott</string>
 	<string name="media_attachment_too_big">Ez a fájl (%1$s) túllépi a %2$s MB-os feltöltési korlátot</string>
 	<string name="settings_theme">Kinézet</string>
@@ -270,7 +288,7 @@
 	<string name="open_in_browser">Megnyitás böngészőben</string>
 	<string name="hide_boosts_from_user">%s megtolásainak elrejtése</string>
 	<string name="show_boosts_from_user">%s megtolásainak mutatása</string>
-	<string name="signup_reason">miért akarsz csatlakozni?</string>
+	<string name="signup_reason">Miért szeretnél csatlakozni?</string>
 	<string name="signup_reason_note">Ez segít nekünk átnézni a jelentkezésedet.</string>
 	<string name="clear">Törlés</string>
 	<string name="profile_header">Fejléc kép</string>
@@ -290,7 +308,7 @@
 	<string name="trending_links_info_banner">Ezek azok a sztorik, amiket a legtöbbet osztanak meg a Mastodon-szobádban.</string>
 	<string name="local_timeline_info_banner">Ezek a legújabb posztok ugyanazon a Mastodon szerveren, ahol te is vagy.</string>
 	<string name="dismiss">Elvetés</string>
-	<string name="see_new_posts">Megnézem az új bejegyzéseket</string>
+	<string name="see_new_posts">Új bejegyzések megtekintése</string>
 	<string name="load_missing_posts">Hiányzó bejegyzések betöltése</string>
 	<string name="follow_back">Visszakövetés</string>
 	<string name="button_follow_pending">Függőben</string>
@@ -363,8 +381,8 @@
 	<!-- %s is file size -->
 	<string name="download_update">(%s) letöltése</string>
 	<string name="install_update">Telepítés</string>
-	<string name="privacy_policy_title">Mastodon és az adatvédelmed</string>
-	<string name="privacy_policy_subtitle">Bár a Mastodon alkalmazás nem gyűjt adatokat, a szerver, amelyen keresztül regisztrálsz, eltérő irányelvekkel rendelkezhet. Szánj egy percet a Mastodon alkalmazás adatvédelmi szabályzatának és a kiszolgáló adatvédelmi szabályzatának áttekintésére és elfogadására.</string>
+	<string name="privacy_policy_title">Személyes Adatbiztonság</string>
+	<string name="privacy_policy_subtitle">Bár a Mastodon app nem gyűjt adatokat, a kiszolgáló, melyen bejelentkezel rendelkezhet más szabályokkal.\n\nHa nem értesz egyet a %s szabályzatával, visszamehetsz és választhatsz egy másik kiszolgálót.</string>
 	<string name="i_agree">Elfogadom</string>
 	<string name="empty_list">A lista üres</string>
 	<string name="instance_signup_closed">Ez a szerver nem fogad új regisztrációkat.</string>
@@ -373,4 +391,44 @@
 	<string name="remove_bookmark">Könyvjelző eltávolítása</string>
 	<string name="bookmarks">Könyvjelzők</string>
 	<string name="your_favorites">Kedvencek</string>
+	<string name="login_title">Üdv újra</string>
+	<string name="login_subtitle">Azon a kiszolgálón jelentkezz be, ahol a fiókodat létrehoztad.</string>
+	<string name="server_url">Kiszolgáló URL</string>
+	<string name="welcome_page1_title">Mi a Mastodon?</string>
+	<string name="welcome_page1_text">Képzeld el, hogy az emailcímed @example.com-ra végződik.\n\nEttől még küldhtesz és fogadhatsz emailt bárkitől, akkor is, ha a címük @gmail.com-ra, @icloud.com-ra vagy @example.com-ra végződik.</string>
+	<string name="welcome_page2_title">Ilyen a Mastodon.</string>
+	<string name="welcome_page2_text">Lehet, hogy az azonosítód @gothgirl654@example.social, de ettől még követheted, megtolhatod és csetelhetsz @fallout5ever@example.online-nal.</string>
+	<string name="welcome_page3_title">Hogyan választok kiszolgálót?</string>
+	<string name="welcome_page3_text">Az emberek különböző okok miatt választanak más és más kiszolgálót. Az art.example egy jó hely lehet a művészek számára, miközben a glasgow.example a skótoknak lehet megfelelő.\n\nAz általunk javasolt kiszolgálókkal nem lehet probléma, de teljesen mindegy, hogy melyiket választod (vagy ha saját kiszolgálót használsz a keresőmezőben), nem maradsz le semmiről egy kiszolgálón sem.</string>
+	<string name="signup_random_server_explain">Választunk egy kiszolgálót a saját nyelvedhez, ha választás nélkül folytatod.</string>
+	<string name="server_filter_any_language">Bármely Nyelv</string>
+	<string name="server_filter_instant_signup">Azonnali Regisztráció</string>
+	<string name="server_filter_manual_review">Kézi Felülvizsgálat</string>
+	<string name="server_filter_any_signup_speed">Bármely Regisztrációs Sebesség</string>
+	<string name="server_filter_region_europe">Európa</string>
+	<string name="server_filter_region_north_america">Észak-Amerika</string>
+	<string name="server_filter_region_south_america">Dél-Amerika</string>
+	<string name="server_filter_region_africa">Afrika</string>
+	<string name="server_filter_region_asia">Ázsia</string>
+	<string name="server_filter_region_oceania">Óceánia</string>
+	<string name="not_accepting_new_members">Nem fogad új tagokat</string>
+	<string name="category_special_interests">Különleges Érdeklődés</string>
+	<string name="signup_passwords_dont_match">Jelszavak nem egyeznek</string>
+	<string name="pick_server_for_me">Válassz egyet nekem</string>
+	<string name="profile_add_row">Sor hozzáadása</string>
+	<string name="profile_setup">Profilbeállítás</string>
+	<string name="profile_setup_subtitle">Ezt később is bármikor kitöltheted a Profil fülön.</string>
+	<string name="profile_setup_explanation">Legfeljebb négy profilmezőt adhatsz hozzá bármiről, amiről csak akarsz. Helyadatok, hivatkozások, szólítások/névmások — határ a csillagos ég.</string>
+	<string name="popular_on_mastodon">Népszerű Mastodonon</string>
+	<string name="follow_all">Összes követése</string>
+	<string name="server_rules_disagree">Elutasítás</string>
+	<string name="privacy_policy_explanation">TL;DR: Nem gyűjtünk és nem dolgozunk fel semmit.</string>
+	<!-- %s is server domain -->
+	<string name="server_policy_disagree">Nem egyezek bele a %s szabályzatába</string>
+	<string name="profile_bio">Bemutatkozás</string>
+	<!-- Shown in a progress dialog when you tap "follow all" -->
+	<string name="sending_follows">Felhasználók bekövetése…</string>
+	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<string name="signup_email_domain_blocked">%1$s nem engedélyez feliratkozásokat innen: %2$s. Próbálj meg egy másikat, vagy &lt;a&gt;válassz másik kiszolgálót&lt;/a&gt;.</string>
+	<string name="signup_username_taken">Ez a felhasználónév már foglalt.</string>
 </resources>

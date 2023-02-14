@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="get_started">Mulai</string>
+	<string name="get_started">Buat akun</string>
+	<string name="already_have_account">Saya sudah memiliki akun</string>
 	<string name="log_in">Masuk</string>
 	<string name="next">Selanjutnya</string>
+	<string name="loading_instance">Mengambil info server…</string>
 	<string name="error">Kesalahan</string>
+	<string name="not_a_mastodon_instance">%s sepertinya bukan server Mastodon.</string>
 	<string name="ok">Oke</string>
 	<string name="preparing_auth">Menyiapkan untuk otentikasi…</string>
 	<string name="finishing_auth">Menyelesaikan otentikasi…</string>
@@ -156,15 +159,7 @@
 	<string name="back">Kembali</string>
 	<string name="instance_catalog_title">Mastodon dibuat oleh pengguna di server yang berbeda-beda.</string>
 	<string name="instance_catalog_subtitle">Pilih sebuah server berdasarkan minat atau wilayah Anda, atau yang umum. Anda masih dapat berkomunikasi dengan semua orang, tanpa memedulikan server yang Anda berada.</string>
-	<string name="search_communities">Cari server atau masukkan URL</string>
-	<string name="instance_rules_title">Beberapa aturan dasar</string>
-	<string name="instance_rules_subtitle">Luangkan beberapa menit untuk melihat peraturan yang ditetapkan oleh admin %s.</string>
-	<string name="signup_title">Mari kita siapkan Anda di %s</string>
 	<string name="edit_photo">sunting</string>
-	<string name="display_name">nama tampilan</string>
-	<string name="username">nama pengguna</string>
-	<string name="email">surel</string>
-	<string name="password">kata sandi</string>
 	<string name="password_note">Tambahkan huruf besar, karakter spesial, dan nomor untuk meningkatkan kekuatan kata sandi Anda.</string>
 	<string name="category_academia">Akademisi</string>
 	<string name="category_activism">Aktivisme</string>
@@ -179,8 +174,7 @@
 	<string name="category_music">Musik</string>
 	<string name="category_regional">Regional</string>
 	<string name="category_tech">Teknologi</string>
-	<string name="confirm_email_title">Satu hal lagi</string>
-	<string name="confirm_email_subtitle">Ketuk tautan yang kami kirim ke Anda melalui surel untuk memverifikasi akun Anda.</string>
+	<!-- %s is the email address -->
 	<string name="resend">Kirim ulang</string>
 	<string name="open_email_app">Buka aplikasi surel</string>
 	<string name="resent_email">Surel konfirmasi terkirim</string>
@@ -258,7 +252,7 @@
 	<string name="add_poll">Tambahkan pemungutan suara</string>
 	<string name="emoji">Emoji</string>
 	<string name="post_visibility">Keterlihatan kiriman</string>
-	<string name="home_timeline">Linimasa beranda</string>
+	<string name="home_timeline">Lini masa beranda</string>
 	<string name="my_profile">Profil saya</string>
 	<string name="media_viewer">Penampil media</string>
 	<string name="follow_user">Ikuti %s</string>
@@ -267,7 +261,6 @@
 	<string name="open_in_browser">Buka di peramban</string>
 	<string name="hide_boosts_from_user">Sembunyikan pembagian dari %s</string>
 	<string name="show_boosts_from_user">Tampilkan pembagian dari %s</string>
-	<string name="signup_reason">mengapa Anda ingin bergabung?</string>
 	<string name="signup_reason_note">Ini akan membantu kami meninjau aplikasi Anda.</string>
 	<string name="clear">Hapus</string>
 	<string name="profile_header">Gambar tajuk</string>
@@ -354,9 +347,23 @@
 	<!-- %s is file size -->
 	<string name="download_update">Unduh (%s)</string>
 	<string name="install_update">Pasang</string>
-	<string name="privacy_policy_title">Mastodon dan privasi Anda</string>
-	<string name="privacy_policy_subtitle">Walaupun aplikasi Mastodon tidak mengumpulkan data apa pun, server yang Anda daftar di sana mungkin memiliki kebijakan yang berbeda. Luangkan beberapa menit untuk melihat dan menerima kebijakan privasi aplikasi Mastodon dan kebijakan privasi server Anda.</string>
 	<string name="i_agree">Saya Setuju</string>
 	<string name="empty_list">Daftar ini kosong</string>
 	<string name="instance_signup_closed">Server ini tidak menerima pendaftaran baru.</string>
+	<string name="text_copied">Disalin ke papan klip</string>
+	<string name="add_bookmark">Markah</string>
+	<string name="remove_bookmark">Hapus markah</string>
+	<string name="bookmarks">Markah</string>
+	<string name="your_favorites">Favorit Anda</string>
+	<string name="login_title">Selamat Datang Kembali</string>
+	<string name="login_subtitle">Masuk dengan server di mana Anda buat akun Anda.</string>
+	<string name="server_url">URL Server</string>
+	<string name="welcome_page1_text">Bayangkan Anda memikiki alamat surel yang berakhiran @contoh.com.\n\nAnda masih bisa mengirim dan menerima surel dari siapa pun, bahkan jika alamat surel mereka berakhiran @gmail.com atau @icloud.com atau @contoh.com.</string>
+	<string name="welcome_page2_title">Mastodon seperti itu.</string>
+	<string name="welcome_page2_text">Alamat akun Anda bisa seperti @gadisgothic654@contoh.social, tetapi Anda masih dapat mengikuti, membagikan, dan mengobrol dengan @fallout5selamanya@contoh.online.</string>
+	<string name="welcome_page3_title">Bagaimana saya memilih server?</string>
+	<string name="welcome_page3_text">Kebanyakan orang memilih server berbeda karena berbagai alasan. seni.contoh adalah tempat yang cocok bagi artis, sedangkan glasgow.example mungkin pilihan yang baik untuk para Scots.\n\nAnda tidak bisa salah dengan server yang kami rekomendasikan, jadi server apa yang Anda pilih (atau jika Anda memasukkan Anda sendiri di bilah pencarian server), Anda tidak akan melewatkan apa pun di mana pun.</string>
+	<!-- %s is server domain -->
+	<!-- Shown in a progress dialog when you tap "follow all" -->
+	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
 </resources>

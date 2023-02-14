@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="get_started">ایجاد حساب</string>
+	<string name="already_have_account">من از قبل حساب‌کاربری دارم</string>
+	<string name="log_in">ورود</string>
+	<string name="next">بعدی</string>
+	<string name="loading_instance">درحال بازیابی اطلاعات سرور…</string>
+	<string name="error">خطا</string>
+	<string name="ok">تأیید</string>
+	<string name="preparing_auth">درحال آماده‌سازی برای احرازهویت…</string>
+	<string name="finishing_auth">درحال تکمیل احرازهویت…</string>
+	<string name="in_reply_to">در پاسخ به %s</string>
+	<string name="notifications">اعلان‌ها</string>
+	<string name="user_followed_you">شما را دنبال می‌کند</string>
+	<string name="user_sent_follow_request">یک درخواست دنبال کردن برای شما ارسال کرد</string>
+	<string name="user_favorited">‫‬ فرسته‌تان را پسندید</string>
+	<string name="notification_boosted">مطلب شما را به‌اشتراک گذاشت</string>
+	<string name="poll_ended">نظرسنجی به پایان رسید</string>
+	<string name="time_seconds">%dثانیه</string>
+	<string name="time_minutes">%dدقیقه</string>
+	<string name="time_hours">%dساعت</string>
+	<string name="time_days">%dروز</string>
+	<string name="share_toot_title">اشتراک‌گذاری</string>
+	<string name="settings">تنظیمات</string>
+	<string name="publish">انتشار</string>
+	<string name="discard_draft">پیش‌نویس‌ کنار گذاشته شود؟</string>
+	<string name="discard">صرف‌نظر کردن</string>
+	<string name="cancel">لغو</string>
+	<string name="posts">پست‌ها</string>
+	<string name="posts_and_replies">پست‌ها و پاسخ‌ها</string>
+	<string name="media">رسانه</string>
+	<string name="profile_about">درباره</string>
+	<string name="button_follow">فالو</string>
+	<string name="share_user">اشتراک‌گذاری %s</string>
+	<string name="mute_user">بی‌صدا %s</string>
+	<string name="block_user">مسدود %s</string>
+	<string name="unblock_user">رفع مسدودیت %s</string>
+	<string name="profile_joined">عضو شد</string>
+	<string name="done">انجام شد</string>
+	<string name="loading">درحال بارگذاری…</string>
+	<string name="field_label">برچسب</string>
+	<string name="field_content">محتوا</string>
+	<string name="saving">درحال ذخیره‌سازی…</string>
+	<string name="do_mute">بی‌صدا</string>
+	<string name="do_block">مسدود</string>
+	<string name="action_vote">رأی</string>
+	<string name="delete">حذف</string>
+	<string name="confirm_delete_title">حذف پست</string>
+	<string name="play">پخش</string>
+	<string name="pause">توقف</string>
+	<string name="search_hint">جستجو</string>
+	<string name="hashtags">هشتگ‌ها</string>
+	<string name="news">اخبار</string>
+	<string name="for_you">برای شما</string>
+	<string name="all_notifications">همه</string>
+	<string name="report_title">گزارش کردن %s</string>
+	<string name="report_reason_personal">من این را دوست ندارم</string>
+	<string name="report_reason_spam">این هرزنامه است</string>
+	<string name="back">بازگشت</string>
+	<string name="edit_photo">ویرایش</string>
+	<string name="category_activism">فعالیت</string>
+	<string name="category_all">همه</string>
+	<string name="category_art">هنر</string>
+	<string name="category_food">غذا</string>
+	<string name="category_games">بازی‌ها</string>
+	<string name="category_lgbt">LGBT</string>
+	<string name="category_music">موسیقی</string>
+	<string name="category_regional">منطقه‌ای</string>
+	<string name="category_tech">فناوری</string>
+	<!-- %s is the email address -->
+	<string name="resend">ارسال دوباره</string>
+	<string name="save">ذخیره</string>
+	<string name="visibility_public">عمومی</string>
+	<string name="search_all">همه</string>
+	<string name="search_people">افراد</string>
+	<string name="skip">بعدی</string>
+	<string name="notification_type_favorite">علاقه‌مندی‌ها</string>
+	<string name="notification_type_poll">نظرسنجی‌ها</string>
+	<string name="choose_account">انتخاب حساب</string>
+	<string name="theme_auto">خودکار</string>
+	<string name="theme_light">روشن</string>
+	<string name="theme_dark">تاریک</string>
+	<string name="new_post">پست جدید</string>
+	<string name="button_reply">پاسخ</string>
+	<string name="button_favorite">برگزیده‌</string>
+	<string name="button_share">اشتراک‌گذاری</string>
+	<string name="emoji">ایموجی</string>
+	<string name="clear">پاک‌کردن</string>
+	<string name="download">دانلود</string>
+	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
+	<string name="time_now">اکنون</string>
+	<string name="time_just_now">همين الان</string>
+	<string name="edit">ویرایش</string>
+	<!-- %s is version like 1.2.3 -->
+	<!-- %s is version like 1.2.3 -->
+	<!-- %s is file size -->
+	<string name="install_update">نصب</string>
+	<string name="i_agree">موافقم</string>
+	<!-- %s is server domain -->
+	<!-- Shown in a progress dialog when you tap "follow all" -->
+	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+</resources>

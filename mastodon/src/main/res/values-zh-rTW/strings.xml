@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="get_started">開始使用</string>
+	<string name="get_started">新增帳號</string>
+	<string name="already_have_account">我已擁有帳號</string>
 	<string name="log_in">登入</string>
 	<string name="next">下一步</string>
+	<string name="loading_instance">正在取得伺服器資訊...</string>
 	<string name="error">錯誤</string>
+	<string name="not_a_mastodon_instance">%s 似乎不是 Mastodon 站台。</string>
 	<string name="ok">確定</string>
 	<string name="preparing_auth">正在準備認證……</string>
 	<string name="finishing_auth">正在結束認證……</string>
@@ -156,15 +159,16 @@
 	<string name="back">返回</string>
 	<string name="instance_catalog_title">Mastodon 由不同伺服器的使用者組成。</string>
 	<string name="instance_catalog_subtitle">基於您的興趣、地區、或一般用途選定一個伺服器。您仍會與任何伺服器中的每個人連結。</string>
-	<string name="search_communities">搜尋伺服器或輸入網址</string>
-	<string name="instance_rules_title">一些基本守則</string>
-	<string name="instance_rules_subtitle">花點時間閱讀由 %s 管理員實施的伺服器守則。</string>
-	<string name="signup_title">讓我們一起設定 %s 吧！</string>
+	<string name="search_communities">伺服器名稱或 URL</string>
+	<string name="instance_rules_title">伺服器規則</string>
+	<string name="instance_rules_subtitle">繼續的話，您將同意以下由 %s 之管理員訂定及執行之伺服器規則。</string>
+	<string name="signup_title">新增帳號</string>
 	<string name="edit_photo">編輯</string>
-	<string name="display_name">顯示名稱</string>
+	<string name="display_name">名稱</string>
 	<string name="username">使用者名稱</string>
-	<string name="email">電子郵件</string>
+	<string name="email">電子郵件地址</string>
 	<string name="password">密碼</string>
+	<string name="confirm_password">確認密碼</string>
 	<string name="password_note">包含大寫、特殊字元、以及數字來提升您的密碼強度。</string>
 	<string name="category_academia">學術</string>
 	<string name="category_activism">社會運動</string>
@@ -179,8 +183,10 @@
 	<string name="category_music">音樂</string>
 	<string name="category_regional">區域性</string>
 	<string name="category_tech">科技</string>
-	<string name="confirm_email_title">最後一步</string>
-	<string name="confirm_email_subtitle">點擊我們寄送給您的帳號驗證連結。</string>
+	<string name="confirm_email_title">請檢查您的收件夾</string>
+	<!-- %s is the email address -->
+	<string name="confirm_email_subtitle">請點擊我們寄給您連結以驗證 %s。我們將在此稍候。</string>
+	<string name="confirm_email_didnt_get">無法取得連結嗎？</string>
 	<string name="resend">重新發送</string>
 	<string name="open_email_app">開啟電子郵件 App</string>
 	<string name="resent_email">確認郵件已發送</string>
@@ -354,8 +360,8 @@
 	<!-- %s is file size -->
 	<string name="download_update">下載 (%s)</string>
 	<string name="install_update">安裝</string>
-	<string name="privacy_policy_title">Mastodon 與您的隱私</string>
-	<string name="privacy_policy_subtitle">儘管 Mastodon 應用程式並不會蒐集任何資料，您所註冊之伺服器可能有不同的隱私權政策。煩請花費些許時間檢閱並同意 Mastodon 應用程式隱私權政策以及您伺服器隻隱私權政策。</string>
+	<string name="privacy_policy_title">您的隱私</string>
+	<string name="privacy_policy_subtitle">即使 Mastodon app 本身不會蒐集任何資料，您所註冊之伺服器可能有不一樣的隱私權政策。\n\n若您不同意 %s 之隱私權政策，您可以重新挑選另一個不同的伺服器。</string>
 	<string name="i_agree">我已閱讀並同意</string>
 	<string name="empty_list">此列表為空</string>
 	<string name="instance_signup_closed">此伺服器不接受新的註冊。</string>
@@ -364,4 +370,44 @@
 	<string name="remove_bookmark">移除書籤</string>
 	<string name="bookmarks">書籤</string>
 	<string name="your_favorites">您的最愛</string>
+	<string name="login_title">歡迎回來</string>
+	<string name="login_subtitle">以您建立帳號之伺服器登入。</string>
+	<string name="server_url">伺服器 URL</string>
+	<string name="welcome_page1_title">什麼是 Mastodon？</string>
+	<string name="welcome_page1_text">想像您擁有以 @example.com 結尾的 email 信箱地址。\n\n您仍可發送及接收來自任何人的電子郵件，無論他們的信箱是來自 @gmail.com 或 @icloud.com 或 @example.com。</string>
+	<string name="welcome_page2_title">Mastodon 就像這樣。</string>
+	<string name="welcome_page2_text">您的帳號可以是 @gothgirl654@example.social，但您仍可跟隨、轉嘟或是與 @fallout5ever@example.online 聊天互動。</string>
+	<string name="welcome_page3_title">如何挑選伺服器？</string>
+	<string name="welcome_page3_text">不同人基於各式各樣的原因挑選不同的伺服器。art.example 也許對藝術家來說是個好地方，glasgow.example 也許對於蘇格蘭人來說是個好選擇。\n\n任何我們推薦的伺服器都是不錯的選擇（或著您也能從搜尋欄中輸入您自己的伺服器），您不會錯過任何來自聯邦宇宙角落的嘟嘟聲。</string>
+	<string name="signup_random_server_explain">如果您不選擇而繼續的話，我們將透過您的語言設定替您選擇一台伺服器。</string>
+	<string name="server_filter_any_language">任何語言</string>
+	<string name="server_filter_instant_signup">馬上註冊</string>
+	<string name="server_filter_manual_review">手動審核</string>
+	<string name="server_filter_any_signup_speed">任何註冊速度</string>
+	<string name="server_filter_region_europe">歐洲</string>
+	<string name="server_filter_region_north_america">北美洲</string>
+	<string name="server_filter_region_south_america">南美洲</string>
+	<string name="server_filter_region_africa">非洲</string>
+	<string name="server_filter_region_asia">亞洲</string>
+	<string name="server_filter_region_oceania">大洋洲</string>
+	<string name="not_accepting_new_members">目前暫不開放新成員</string>
+	<string name="category_special_interests">特別興趣</string>
+	<string name="signup_passwords_dont_match">密碼不符</string>
+	<string name="pick_server_for_me">請替我選擇</string>
+	<string name="profile_add_row">新增</string>
+	<string name="profile_setup">個人檔案設定</string>
+	<string name="profile_setup_subtitle">您隨時能稍候於個人檔案頁面完成此設定。</string>
+	<string name="profile_setup_explanation">您至多能於個人檔案替任何您想要的內容新增四個欄位。地點、連結、稱謂 — 想像力是您的超能力！</string>
+	<string name="popular_on_mastodon">Mastodon 上之流行內容</string>
+	<string name="follow_all">跟隨所有</string>
+	<string name="server_rules_disagree">不同意</string>
+	<string name="privacy_policy_explanation">TL;DR：我們不蒐集或處理任何資料。</string>
+	<!-- %s is server domain -->
+	<string name="server_policy_disagree">不同意 %s 之隱私權政策</string>
+	<string name="profile_bio">個人簡介</string>
+	<!-- Shown in a progress dialog when you tap "follow all" -->
+	<string name="sending_follows">正在跟隨使用者...</string>
+	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<string name="signup_email_domain_blocked">%1$s 不允許 %2$s 之信箱註冊。請重新試試另一個電子信箱服務商，或 &lt;a&gt; 挑選另一個伺服器 &lt;/a&gt;。</string>
+	<string name="signup_username_taken">這個帳號已經被註冊過囉。</string>
 </resources>

@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="get_started">Nola hasi</string>
+	<string name="get_started">Sortu kontua</string>
+	<string name="already_have_account">Badut kontua dagoeneko</string>
 	<string name="log_in">Hasi saioa</string>
 	<string name="next">Hurrengoa</string>
+	<string name="loading_instance">Zerbitzariaren informazioa berreskuratzen…</string>
 	<string name="error">Errorea</string>
+	<string name="not_a_mastodon_instance">%s(e) k ez dirudi Mastodon instantzia bat denik.</string>
 	<string name="ok">Ados</string>
 	<string name="preparing_auth">Autentifikaziorako prestatzen…</string>
 	<string name="finishing_auth">Autentikazioa bukatzen…</string>
@@ -170,15 +173,15 @@
 	<string name="back">Atzera</string>
 	<string name="instance_catalog_title">Mastodon zerbitzari desberdinetako erabiltzaileez egina dago.</string>
 	<string name="instance_catalog_subtitle">Aukeratu zerbitzari bat zure interesen, eskualdearen edo helburuen arabera. Pertsona guztiekin konektatu ahal izango duzu, zerbitzaria zein den kontuan hartu gabe.</string>
-	<string name="search_communities">Bilatu zerbitzariak edo idatzi URL-a</string>
-	<string name="instance_rules_title">Oinarrizko arau batzuk</string>
-	<string name="instance_rules_subtitle">Hartu minutu bat %s-en administratzaileek ezarri eta aplikatutako arauak berrikusteko.</string>
-	<string name="signup_title">%s zerbitzariko kontua prestatuko dizugu</string>
+	<string name="search_communities">Zerbitzari izena edo URLa</string>
+	<string name="instance_rules_title">Zerbitzariaren arauak</string>
+	<string name="signup_title">Sortu kontua</string>
 	<string name="edit_photo">editatu</string>
-	<string name="display_name">pantaila-izena</string>
-	<string name="username">erabiltzaile-izena</string>
-	<string name="email">eposta</string>
-	<string name="password">pasahitza</string>
+	<string name="display_name">Izena</string>
+	<string name="username">Erabiltzaile-izena</string>
+	<string name="email">Eposta</string>
+	<string name="password">Pasahitza</string>
+	<string name="confirm_password">Berretsi pasahitza</string>
 	<string name="password_note">Sartu letra larriak, karaktere bereziak eta zenbakiak zure pasahitzaren segurtasuna areagotzeko.</string>
 	<string name="category_academia">Akademia</string>
 	<string name="category_activism">Aktibismoa</string>
@@ -193,8 +196,8 @@
 	<string name="category_music">Musika</string>
 	<string name="category_regional">Herrialdekoa</string>
 	<string name="category_tech">Teknologia</string>
-	<string name="confirm_email_title">Eta azkenik...</string>
-	<string name="confirm_email_subtitle">Sakatu epostaz bidali dizugun loturan zure kontua egiaztatzeko.</string>
+	<string name="confirm_email_title">Egiaztatu zure sarrerako ontzia</string>
+	<!-- %s is the email address -->
 	<string name="resend">Berbidali</string>
 	<string name="open_email_app">Ireki eposta aplikazioa</string>
 	<string name="resent_email">Berretzi eposta bidaltzea</string>
@@ -282,7 +285,7 @@
 	<string name="open_in_browser">Ireki nabigatzailean</string>
 	<string name="hide_boosts_from_user">Ezkutatu %s(r)en bultzadak</string>
 	<string name="show_boosts_from_user">Erakutsi %s(r)en bultzadak</string>
-	<string name="signup_reason">zergatik elkartu nahi duzu?</string>
+	<string name="signup_reason">Zergatik elkartu nahi duzu?</string>
 	<string name="signup_reason_note">Honek zure eskaera berrikustean lagunduko digu.</string>
 	<string name="clear">Garbitu</string>
 	<string name="profile_header">Goiburu irudia</string>
@@ -375,8 +378,7 @@
 	<!-- %s is file size -->
 	<string name="download_update">(%s) deskargatu</string>
 	<string name="install_update">Instalatu</string>
-	<string name="privacy_policy_title">Mastodon eta zure pribatutasuna</string>
-	<string name="privacy_policy_subtitle">Mastodon aplikazioak daturik jasotzen ez duen arren, izena ematen duzun zerbitzariak beste politika bat izan dezake. Eskaini minutu bat Mastodon aplikazioaren pribatutasun politika eta zure zerbitzariaren pribatutasun politika berrikusteko eta ados zaudela ziurtatzeko.</string>
+	<string name="privacy_policy_title">Zure pribatutasuna</string>
 	<string name="i_agree">Ados nago</string>
 	<string name="empty_list">Zerrenda hau hutsik dago</string>
 	<string name="instance_signup_closed">Zerbitzari honek ez ditu izen-emate berriak onartzen.</string>
@@ -385,4 +387,31 @@
 	<string name="remove_bookmark">Kendu laster-marka</string>
 	<string name="bookmarks">Laster-markak</string>
 	<string name="your_favorites">Zure gogokoak</string>
+	<string name="login_title">Ongi etorri berriro ere</string>
+	<string name="login_subtitle">Hasi saioa kontua sortu zenuen zerbitzariarekin.</string>
+	<string name="server_url">Zerbitzariaren URLa</string>
+	<string name="welcome_page1_title">Zer da Mastodon?</string>
+	<string name="welcome_page1_text">Imajinatu zure helbide elektronikoa adibidea.eus-en amaitzen dela. \n\n Oraindik edonoren mezu elektronikoak bidali eta jaso ditzakezu, baita posta elektronikoa @gmail.com edo @icloud.com edo @adibidea.eus helbideetan amaitzen bada ere.</string>
+	<string name="welcome_page2_title">Mastodon antzekoa da.</string>
+	<string name="welcome_page2_text">Zure kontua \"@pertsona1@mastodon.eus\" izan liteke, baina oraindik ere jarraitu, bultzatu edo txateatu dezakezu \"@pertsona2@mastodon.social\" edo bestelako edozein kontu.</string>
+	<string name="welcome_page3_title">Nola aukeratzen dut zerbitzari bat?</string>
+	<string name="welcome_page3_text">Hainbat pertsonak zerbitzari bat baino gehiago aukeratzen dituzte arrazoi ezberdinengatik. Adibidez, art.example leku ona da artistentzat eta mastodon.eus, berriz, euskaldunentzat. Gure gomendioetako zerbitzariekin, ez duzu hanka sartuko eta edozein dela ere zure aukera, beste zerbitzarietako kideekin harremana izan dezakezu (bilaketa-barran bilatuz).</string>
+	<string name="server_filter_any_language">Edozein hizkuntza</string>
+	<string name="server_filter_instant_signup">Berehalako erregistroa</string>
+	<string name="server_filter_region_europe">Europa</string>
+	<string name="server_filter_region_north_america">Ipar Amerika</string>
+	<string name="server_filter_region_south_america">Hego Amerika</string>
+	<string name="server_filter_region_africa">Afrika</string>
+	<string name="server_filter_region_asia">Asia</string>
+	<string name="server_filter_region_oceania">Ozeania</string>
+	<string name="not_accepting_new_members">Ez da kide berririk onartzen</string>
+	<string name="signup_passwords_dont_match">Pasahitzak ez datoz bat</string>
+	<string name="profile_add_row">Gehitu errenkada</string>
+	<string name="follow_all">Jarraitu denak</string>
+	<string name="server_rules_disagree">Ez ados</string>
+	<!-- %s is server domain -->
+	<string name="profile_bio">Biografia</string>
+	<!-- Shown in a progress dialog when you tap "follow all" -->
+	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<string name="signup_username_taken">Erabiltzaile-izen hau hartuta dago.</string>
 </resources>

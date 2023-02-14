@@ -1,16 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="get_started">Iniciar</string>
+	<string name="already_have_account">Já tem conta</string>
 	<string name="log_in">Entrar</string>
 	<string name="next">Seguinte</string>
+	<string name="loading_instance">A carregar informação do servidor…</string>
 	<string name="error">Erro</string>
+	<string name="not_a_mastodon_instance">%s não parece ser uma instância Mastodon.</string>
 	<string name="ok">OK</string>
 	<string name="preparing_auth">A preparar a autenticação…</string>
 	<string name="finishing_auth">A finalizar a autenticação…</string>
+	<string name="user_boosted">%s republicado</string>
 	<string name="in_reply_to">Responder a %s</string>
 	<string name="notifications">Notificações</string>
 	<string name="user_followed_you">seguiu-te</string>
 	<string name="user_sent_follow_request">pediu para te seguir</string>
+	<string name="user_favorited">gostou da sua publicação</string>
+	<string name="notification_boosted">republicou a sua publicação</string>
 	<string name="poll_ended">sondagem terminada</string>
 	<string name="time_seconds">%ds</string>
 	<string name="time_minutes">%dm</string>
@@ -160,6 +166,21 @@
 	<string name="report_sent_subtitle">Enquanto revemos a sua denúncia, pode tomar medidas contra %s.</string>
 	<string name="unfollow_user">Deixar de seguir %s</string>
 	<string name="unfollow">Deixar de seguir</string>
+	<string name="mute_user_explain">Não verá publicações e re-publicacões na sua fonte inicial. Eles não saberão que foram silenciados.</string>
+	<string name="block_user_explain">Eles não poderão segui-lo ou ver as suas publicações, mas conseguem ver se foram bloqueados.</string>
+	<string name="report_personal_title">Não quer ver isto?</string>
+	<string name="report_personal_subtitle">Quando vê algo que não gosta no Mastodon pode remover a pessoa da sua experiência.</string>
+	<string name="back">Voltar</string>
+	<string name="instance_catalog_title">O Mastodon é feito por utilizadores em diferentes servidores.</string>
+	<string name="instance_catalog_subtitle">Escolha um servidor baseado nos seus interesses, região ou um propósito geral. Conseguirá sempre ligar-se a qualquer pessoa, independentemente do servidor.</string>
+	<string name="edit_photo">editar</string>
+	<string name="password_note">Inclua letras maiúsculas, caracteres especiais e números para aumentar a força da sua senha.</string>
+	<string name="category_academia">Academia</string>
+	<string name="category_activism">Ativismo</string>
+	<string name="category_all">Tudo</string>
+	<string name="category_art">Arte</string>
+	<string name="category_food">Comida</string>
+	<string name="category_furry">Fofo</string>
 	<string name="category_games">Jogos</string>
 	<string name="category_general">Geral</string>
 	<string name="category_journalism">Jornalismo</string>
@@ -167,8 +188,7 @@
 	<string name="category_music">Música</string>
 	<string name="category_regional">Regional</string>
 	<string name="category_tech">Tecnologia</string>
-	<string name="confirm_email_title">Uma última coisa</string>
-	<string name="confirm_email_subtitle">Clique no link que lhe enviámos por e-mail para verificar a sua conta.</string>
+	<!-- %s is the email address -->
 	<string name="resend">Reenviar</string>
 	<string name="open_email_app">Abrir aplicação de e-mail</string>
 	<string name="resent_email">E-mail de confirmação enviado</string>
@@ -189,8 +209,88 @@
 	<string name="recent_searches">Pesquisas recentes</string>
 	<string name="step_x_of_n">Passo %1$d de %2$d</string>
 	<string name="skip">Ignorar</string>
+	<string name="notification_type_follow">Novos seguidores</string>
+	<string name="notification_type_favorite">Favoritos</string>
+	<string name="notification_type_reblog">Re-publicacões</string>
+	<string name="notification_type_mention">Menções</string>
+	<string name="notification_type_poll">Sondagens</string>
+	<string name="choose_account">Escolher conta</string>
+	<string name="err_not_logged_in">Por favor, faça login no Mastodon primeiro</string>
+	<string name="media_attachment_unsupported_type">Arquivo %s é de um tipo não suportado</string>
+	<string name="media_attachment_too_big">O arquivo %1$s excede o limite de tamanho de %2$s MB</string>
+	<string name="settings_theme">Aparência visual</string>
+	<string name="theme_auto">Automático</string>
+	<string name="theme_light">Claro</string>
+	<string name="theme_dark">Escuro</string>
+	<string name="theme_true_black">Modo Escuro Puro</string>
+	<string name="settings_behavior">Comportamento</string>
+	<string name="settings_gif">Reproduzir emojis e avatares animados</string>
+	<string name="settings_custom_tabs">Usar navegador interno</string>
+	<string name="settings_notifications">Notificações</string>
+	<string name="notify_me_when">Notificar-me quando</string>
+	<string name="notify_anyone">qualquer pessoa</string>
+	<string name="notify_follower">um seguidor</string>
+	<string name="storage_permission_to_download">O aplicativo precisa de ter acesso ao seu armazenamento para salvar este arquivo.</string>
+	<string name="open_settings">Abrir definições</string>
+	<string name="error_saving_file">Erro ao salvar o arquivo</string>
+	<string name="file_saved">Ficheiro guardado</string>
+	<string name="downloading">A transferir…</string>
+	<string name="no_app_to_handle_action">Não há uma aplicação para executar esta ação</string>
+	<string name="local_timeline">Comunidade</string>
+	<string name="trending_posts_info_banner">Estas são as publicações a ganhar visibilidade no seu canto do Mastodon.</string>
+	<string name="trending_hashtags_info_banner">Estas são as hashtags a ganhar visibilidade no seu canto do Mastodon.</string>
+	<string name="trending_links_info_banner">Estas são as notícias mais partilhadas no seu canto do Mastodon.</string>
+	<string name="local_timeline_info_banner">Estas são as publicações mais recentes das pessoas que usam o mesmo servidor Mastodon que você.</string>
+	<string name="dismiss">Rejeitar</string>
+	<string name="see_new_posts">Ver novas publicações</string>
+	<string name="load_missing_posts">Carregar publicações em falta</string>
+	<string name="follow_back">Seguir de volta</string>
+	<string name="button_follow_pending">Pendente</string>
+	<string name="follows_you">Segue-te</string>
+	<string name="manually_approves_followers">Aprova manualmente seguidores</string>
+	<string name="current_account">Conta actual</string>
+	<string name="log_out_account">Terminar sessão %s</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
+	<plurals name="x_followers">
+		<item quantity="one">%,d um seguidor</item>
+		<item quantity="other">%,d seguidores</item>
+	</plurals>
+	<plurals name="x_following">
+		<item quantity="one">%,d a seguir</item>
+		<item quantity="other">%,d a seguir</item>
+	</plurals>
+	<plurals name="x_favorites">
+		<item quantity="one">%,d favorito</item>
+		<item quantity="other">%,d favoritos</item>
+	</plurals>
+	<plurals name="x_reblogs">
+		<item quantity="one">%,d re-publicação</item>
+		<item quantity="other">%,d re-publicações</item>
+	</plurals>
+	<string name="timestamp_via_app">%1$s via %2$s</string>
+	<string name="time_now">agora</string>
+	<string name="post_info_reblogs">Re-publicacões</string>
+	<string name="post_info_favorites">Favoritos</string>
+	<string name="edit_history">Editar histórico</string>
+	<string name="last_edit_at_x">Última edição: %s</string>
+	<string name="time_just_now">agora mesmo</string>
+	<plurals name="x_seconds_ago">
+		<item quantity="one">Há %d segundo</item>
+		<item quantity="other">Há %d segundos</item>
+	</plurals>
+	<string name="edited_timestamp">editado %s</string>
+	<string name="edit_original_post">Publicação original</string>
+	<string name="edit_text_edited">Texto editado</string>
+	<string name="edit_spoiler_added">Aviso de conteúdo adicionado</string>
+	<string name="edit_spoiler_edited">Aviso de conteúdo editado</string>
+	<string name="edit_spoiler_removed">Aviso de conteúdo removido</string>
+	<string name="edit_poll_added">Sondagem adicionada</string>
+	<string name="edit_poll_edited">Sondagem editada</string>
+	<string name="edit_poll_removed">Sondagem removida</string>
 	<!-- %s is version like 1.2.3 -->
 	<!-- %s is version like 1.2.3 -->
 	<!-- %s is file size -->
+	<!-- %s is server domain -->
+	<!-- Shown in a progress dialog when you tap "follow all" -->
+	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
 </resources>

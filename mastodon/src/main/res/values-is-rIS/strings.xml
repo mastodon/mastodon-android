@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="get_started">Byrjum á þessu</string>
+	<string name="get_started">Búa til notandaaðgang</string>
+	<string name="already_have_account">Ég er þegar með notandaaðgang</string>
 	<string name="log_in">Skrá inn</string>
 	<string name="next">Næsta</string>
 	<string name="loading_instance">Sæki upplýsingar um netþjón…</string>
@@ -173,15 +174,16 @@ Viðkomandi aðilar munu ekki vita að þaggað hefur verið niður í þeim.</s
 	<string name="back">Til baka</string>
 	<string name="instance_catalog_title">Mastodon samanstendur af notendum á mismunandi netþjónum.</string>
 	<string name="instance_catalog_subtitle">Veldu netþjón út frá svæðinu þínu, áhugamálum, nú eða einhvern almennan. Þú getur samt spjallað við hvern sem er á Mastodon, burtséð frá á hvaða netþjóni þú ert.</string>
-	<string name="search_communities">Leitaðu að netþjónum eða settu inn slóð</string>
-	<string name="instance_rules_title">Nokkrar grunnreglur</string>
-	<string name="instance_rules_subtitle">Gefðu þér mínútu til að kynna þér reglurnar sem stjórnendur %s munu sjá um að framfylgja.</string>
-	<string name="signup_title">Komum þér í gang á %s</string>
+	<string name="search_communities">Nafn þjóns eða vefslóð</string>
+	<string name="instance_rules_title">Reglur netþjónsins</string>
+	<string name="instance_rules_subtitle">Með því að halda áfram, samþykkir þú að fylgja eftirfarandi reglum sem settar eru af umsjónarmönnum %s, sem sjá um að þeim sé fylgt.</string>
+	<string name="signup_title">Búa til notandaaðgang</string>
 	<string name="edit_photo">breyta</string>
-	<string name="display_name">birtingarnafn</string>
-	<string name="username">notandanafn</string>
-	<string name="email">tölvupóstur</string>
-	<string name="password">lykilorð</string>
+	<string name="display_name">Nafn</string>
+	<string name="username">Notandanafn</string>
+	<string name="email">Tölvupóstfang</string>
+	<string name="password">Lykilorð</string>
+	<string name="confirm_password">Staðfestu lykilorðið</string>
 	<string name="password_note">Settu hástafi, sértákn og tölustafi til að auka styrk lykilorðins þíns.</string>
 	<string name="category_academia">Akademískt</string>
 	<string name="category_activism">Aðgerðasinnar</string>
@@ -196,8 +198,10 @@ Viðkomandi aðilar munu ekki vita að þaggað hefur verið niður í þeim.</s
 	<string name="category_music">Tónlist</string>
 	<string name="category_regional">Svæðisbundið</string>
 	<string name="category_tech">Tækni</string>
-	<string name="confirm_email_title">Eitt að lokum</string>
-	<string name="confirm_email_subtitle">Ýttu á tengilinn sem við sendum þér til að staðfesta tölvupóstfangið þitt.</string>
+	<string name="confirm_email_title">Athugaðu innhólfið þitt</string>
+	<!-- %s is the email address -->
+	<string name="confirm_email_subtitle">Ýttu á tengilinn sem við sendum þér til að staðfesta %s. Við bíðum á meðan.</string>
+	<string name="confirm_email_didnt_get">Fékkstu ekki neinn tengil?</string>
 	<string name="resend">Endursenda</string>
 	<string name="open_email_app">Opna tölvupóstforrit</string>
 	<string name="resent_email">Staðfestingartölvupóstur sendur</string>
@@ -285,7 +289,7 @@ Viðkomandi aðilar munu ekki vita að þaggað hefur verið niður í þeim.</s
 	<string name="open_in_browser">Opna í vafra</string>
 	<string name="hide_boosts_from_user">Fela endurbirtingar frá %s</string>
 	<string name="show_boosts_from_user">Sýna endurbirtingar frá %s</string>
-	<string name="signup_reason">hvers vegna vilt þú taka þátt?</string>
+	<string name="signup_reason">Hvers vegna vilt þú taka þátt?</string>
 	<string name="signup_reason_note">Þetta mun hjálpa okkur við að yfirfara umsóknina þína.</string>
 	<string name="clear">Hreinsa</string>
 	<string name="profile_header">Mynd í síðuhaus</string>
@@ -378,8 +382,8 @@ Viðkomandi aðilar munu ekki vita að þaggað hefur verið niður í þeim.</s
 	<!-- %s is file size -->
 	<string name="download_update">Sækja (%s)</string>
 	<string name="install_update">Setja upp</string>
-	<string name="privacy_policy_title">Mastodon og friðhelgi þín</string>
-	<string name="privacy_policy_subtitle">Þó svo að Mastodon-forritið safni ekki neinum gögnum, má samt vera að netþjónninn sem þú skráðir þig á hafi aðra stefnu hvað slíkt varðar. Taktu þér tíma til að yfirfara og samþykkja persónuverndarstefnu Mastodon-forritsins og einnig hjá netþjóninum þínum.</string>
+	<string name="privacy_policy_title">Friðhelgi þín</string>
+	<string name="privacy_policy_subtitle">Þó svo að Mastodon-forritið safni engum gögnum, þá getur netþjónninn sem þú skráir þig á haft aðra stefnu varðandi þetta.\n\nEf þú samþykkir ekki stefnuna hjá %s, geturðu farið til baka og valið annan netþjón.</string>
 	<string name="i_agree">Ég samþykki</string>
 	<string name="empty_list">Þessi listi er tómur</string>
 	<string name="instance_signup_closed">Þessi netþjónn tekur ekki við nýjum skráningum.</string>
@@ -391,4 +395,41 @@ Viðkomandi aðilar munu ekki vita að þaggað hefur verið niður í þeim.</s
 	<string name="login_title">Velkomin aftur</string>
 	<string name="login_subtitle">Skráðu þig inn á netþjóninn þar sem þú útbjóst notandaaðganginn þinn.</string>
 	<string name="server_url">Vefslóð netþjóns</string>
+	<string name="welcome_page1_title">Hvað er Mastodon?</string>
+	<string name="welcome_page1_text">Ímyndaðu þér að þú sért með tölvupóstfang sem endar á @lén.is.\n\nÞú getur alltaf tekið við og sent tölvupóst til allra, jafnvel þótt tölvupóstfangið þeirra endi á @gmail.com, @icloud.com eða @lén.is.</string>
+	<string name="welcome_page2_title">Mastodon er eins og þetta.</string>
+	<string name="welcome_page2_text">Auðkennið þitt gæti verið @gothgirl654@example.social, en þú getur samt fylgst með, endurbirt og spjallað við @fallout5ever@example.online.</string>
+	<string name="welcome_page3_title">Hvernig vel ég netþjón?</string>
+	<string name="welcome_page3_text">Mismunandi fólk velur sér mismunandi netþjóna af ýmsum ólíkum ástæðum. Netþjónninn art.example er frábær staður fyrir listafólk, á meðan glasgow.example gæti verið góður kostur fyrir suma skota.\n\nÞú getur eiginlega ekki lent á röngum stað á neinum að þeim netþjónum sem við mælum með, þannig að hvern þeirra sem þú velur (eða ef þú setur inn þinn eigin netþjón í leitarreitinn), þá ættirðu ekki að missa af neinu neinsstaðar.</string>
+	<string name="signup_random_server_explain">Við munum velja netþjón út frá tungumálinu þínu, ef þú heldur áfram án þess að velja neitt.</string>
+	<string name="server_filter_any_language">Hvaða tungumál sem er</string>
+	<string name="server_filter_instant_signup">Nýskráning á stundinni</string>
+	<string name="server_filter_manual_review">Handvirk yfirferð</string>
+	<string name="server_filter_any_signup_speed">Hvaða afgreiðsluhraði nýskráninga sem er</string>
+	<string name="server_filter_region_europe">Evrópa</string>
+	<string name="server_filter_region_north_america">Norður-Ameríka</string>
+	<string name="server_filter_region_south_america">Suður-Ameríka</string>
+	<string name="server_filter_region_africa">Afríka</string>
+	<string name="server_filter_region_asia">Asía</string>
+	<string name="server_filter_region_oceania">Eyjaálfa</string>
+	<string name="not_accepting_new_members">Tekur ekki við nýjum meðlimum</string>
+	<string name="category_special_interests">Sérstök áhugamál</string>
+	<string name="signup_passwords_dont_match">Lykilorðin samsvara ekki</string>
+	<string name="pick_server_for_me">Velja fyrir mig</string>
+	<string name="profile_add_row">Bæta við röð</string>
+	<string name="profile_setup">Uppsetning notandasniðs</string>
+	<string name="profile_setup_subtitle">Þú getur alltaf klárað þetta síðar á notendasniðaflipanum.</string>
+	<string name="profile_setup_explanation">Þú getur bætt við allt að fjórum gagnasviðum að eigin vali. Staðsetning, tenglar, fornöfn - ímyndunaraflið er einu takmörkin.</string>
+	<string name="popular_on_mastodon">Vinsælt á Mastodon</string>
+	<string name="follow_all">Fylgjast með öllum</string>
+	<string name="server_rules_disagree">Ósammála</string>
+	<string name="privacy_policy_explanation">Athugaðu: Við söfnum ekki eða vinnum með neinar upplýsingar.</string>
+	<!-- %s is server domain -->
+	<string name="server_policy_disagree">Ósammála %s</string>
+	<string name="profile_bio">Æviágrip</string>
+	<!-- Shown in a progress dialog when you tap "follow all" -->
+	<string name="sending_follows">Fylgist með notendum…</string>
+	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<string name="signup_email_domain_blocked">%1$s leyfir ekki nýskráningar frá %2$s. Veldu eitthvað annað lén eða &lt;a&gt;veldu annan netþjón&lt;/a&gt;.</string>
+	<string name="signup_username_taken">Þetta notandanafn er þegar í notkun.</string>
 </resources>

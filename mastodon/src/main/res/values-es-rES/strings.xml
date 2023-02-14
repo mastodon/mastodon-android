@@ -1,28 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="get_started">Empezar</string>
+	<string name="get_started">Crear cuenta</string>
+	<string name="already_have_account">Ya tengo una cuenta</string>
 	<string name="log_in">Iniciar sesión</string>
 	<string name="next">Siguiente</string>
+	<string name="loading_instance">Recuperando información del servidor…</string>
 	<string name="error">Error</string>
+	<string name="not_a_mastodon_instance">%s no parece ser un servidor de Mastodon.</string>
 	<string name="ok">Aceptar</string>
 	<string name="preparing_auth">Preparando para autenticación…</string>
-	<string name="finishing_auth">Terminando autenticación…</string>
-	<string name="user_boosted">%s reblogueado</string>
+	<string name="finishing_auth">Finalizando autenticación…</string>
+	<string name="user_boosted">%s reblogueó</string>
 	<string name="in_reply_to">En respuesta a %s</string>
 	<string name="notifications">Notificaciones</string>
-	<string name="user_followed_you">te siguió</string>
-	<string name="user_sent_follow_request">te quiere seguir</string>
-	<string name="user_favorited">ha marcado como favorita tu publicación</string>
-	<string name="notification_boosted">ha reblogueado tu publicación</string>
+	<string name="user_followed_you">ha empezado a seguirte</string>
+	<string name="user_sent_follow_request">te envió una solicitud de seguimiento</string>
+	<string name="user_favorited">marcó como favorita</string>
+	<string name="notification_boosted">reblogueó</string>
 	<string name="poll_ended">encuesta finalizada</string>
 	<string name="time_seconds">%ds</string>
 	<string name="time_minutes">%dm</string>
 	<string name="time_hours">%dh</string>
 	<string name="time_days">%dd</string>
 	<string name="share_toot_title">Compartir</string>
-	<string name="settings">Configuración</string>
+	<string name="settings">Ajustes</string>
 	<string name="publish">Publicar</string>
-	<string name="discard_draft">¿Descartar el borrador?</string>
+	<string name="discard_draft">¿Descartar borrador?</string>
 	<string name="discard">Descartar</string>
 	<string name="cancel">Cancelar</string>
 	<plurals name="followers">
@@ -38,19 +41,19 @@
 		<item quantity="other">publicaciones</item>
 	</plurals>
 	<string name="posts">Publicaciones</string>
-	<string name="posts_and_replies">Publicaciones y Respuestas</string>
+	<string name="posts_and_replies">Publicaciones y respuestas</string>
 	<string name="media">Multimedia</string>
 	<string name="profile_about">Acerca de</string>
 	<string name="button_follow">Seguir</string>
 	<string name="button_following">Siguiendo</string>
-	<string name="edit_profile">Editar Perfil</string>
+	<string name="edit_profile">Editar perfil</string>
 	<string name="mention_user">Mencionar a %s</string>
 	<string name="share_user">Compartir %s</string>
 	<string name="mute_user">Silenciar a %s</string>
-	<string name="unmute_user">Des-silenciar a %s</string>
+	<string name="unmute_user">Dejar de silenciar a %s</string>
 	<string name="block_user">Bloquear a %s</string>
 	<string name="unblock_user">Desbloquear a %s</string>
-	<string name="report_user">Reportar a %s</string>
+	<string name="report_user">Denunciar a %s</string>
 	<string name="block_domain">Bloquear %s</string>
 	<string name="unblock_domain">Desbloquear %s</string>
 	<plurals name="x_posts">
@@ -100,11 +103,11 @@
 	</plurals>
 	<string name="poll_closed">Cerrado</string>
 	<string name="confirm_mute_title">Silenciar cuenta</string>
-	<string name="confirm_mute">Confirmar para silenciar %s</string>
+	<string name="confirm_mute">Confirmar para silenciar a %s</string>
 	<string name="do_mute">Silenciar</string>
-	<string name="confirm_unmute_title">Des-silenciar cuenta</string>
-	<string name="confirm_unmute">Confirmar para des-silenciar a %s</string>
-	<string name="do_unmute">Des-silenciar</string>
+	<string name="confirm_unmute_title">Dejar de silenciar cuenta</string>
+	<string name="confirm_unmute">Confirmar para dejar de silenciar a %s</string>
+	<string name="do_unmute">Dejar de silenciar</string>
 	<string name="confirm_block_title">Bloquear cuenta</string>
 	<string name="confirm_block_domain_title">Bloquear dominio</string>
 	<string name="confirm_block">Confirmar para bloquear a %s</string>
@@ -119,7 +122,7 @@
 	<string name="tap_to_reveal">Toca para mostrar</string>
 	<string name="delete">Eliminar</string>
 	<string name="confirm_delete_title">Eliminar publicación</string>
-	<string name="confirm_delete">¿Estás seguro de que deseas eliminar esta publicación?</string>
+	<string name="confirm_delete">¿Confirma que quiere eliminar esta publicación?</string>
 	<string name="deleting">Eliminando…</string>
 	<string name="notification_channel_audio_player">Reproducción de audio</string>
 	<string name="play">Reproducir</string>
@@ -127,7 +130,7 @@
 	<string name="log_out">Cerrar sesión</string>
 	<string name="add_account">Añadir cuenta</string>
 	<string name="search_hint">Buscar</string>
-	<string name="hashtags">Hashtags</string>
+	<string name="hashtags">Etiquetas</string>
 	<string name="news">Noticias</string>
 	<string name="for_you">Para ti</string>
 	<string name="all_notifications">Todas</string>
@@ -140,13 +143,13 @@
 		<item quantity="one">Debatido %d vez</item>
 		<item quantity="other">Debatido %d veces</item>
 	</plurals>
-	<string name="report_title">Reportar %s</string>
+	<string name="report_title">Denunciar a %s</string>
 	<string name="report_choose_reason">¿Cuál es el problema con esta publicación?</string>
 	<string name="report_choose_reason_account">¿Cuál es el problema con %s?</string>
-	<string name="report_choose_reason_subtitle">Selecciona la mejor opción</string>
+	<string name="report_choose_reason_subtitle">Seleccione la mejor opción</string>
 	<string name="report_reason_personal">No me gusta</string>
 	<string name="report_reason_personal_subtitle">No es algo que quieras ver</string>
-	<string name="report_reason_spam">Es spam</string>
+	<string name="report_reason_spam">Es publicidad no deseada</string>
 	<string name="report_reason_spam_subtitle">Enlaces maliciosos, interacciones falsas o respuestas repetitivas</string>
 	<string name="report_reason_violation">Viola las reglas del servidor</string>
 	<string name="report_reason_violation_subtitle">Eres consciente de que infringe normas específicas</string>
@@ -154,31 +157,23 @@
 	<string name="report_reason_other_subtitle">El problema no encaja en otras categorías</string>
 	<string name="report_choose_rule">¿Qué normas se están violando?</string>
 	<string name="report_choose_rule_subtitle">Selecciona todos los que correspondan</string>
-	<string name="report_choose_posts">¿Hay alguna publicación que respalde este informe?</string>
+	<string name="report_choose_posts">¿Hay alguna publicación que respalde esta denuncia?</string>
 	<string name="report_choose_posts_subtitle">Selecciona todos los que correspondan</string>
 	<string name="report_comment_title">¿Hay algo más que deberíamos saber?</string>
 	<string name="report_comment_hint">Comentarios adicionales</string>
-	<string name="sending_report">Enviando el informe…</string>
-	<string name="report_sent_title">Gracias por informar, estudiaremos el caso.</string>
+	<string name="sending_report">Enviando denuncia…</string>
+	<string name="report_sent_title">Gracias por denunciar; estudiaremos el caso.</string>
 	<string name="report_sent_subtitle">Mientras revisamos esto, puedes tomar medidas contra %s.</string>
 	<string name="unfollow_user">Dejar de seguir a %s</string>
 	<string name="unfollow">Dejar de seguir</string>
 	<string name="mute_user_explain">No verás sus publicaciones o reblogueos en tu línea temporal. No sabrán que han sido silenciados.</string>
 	<string name="block_user_explain">Ya no podrán seguir o ver tus mensajes, pero pueden ver si han sido bloqueados.</string>
 	<string name="report_personal_title">¿No quieres ver esto?</string>
-	<string name="report_personal_subtitle">Cuando veas algo que no te gusta en Mastodon, puedes quitar a la persona de tu experiencia.</string>
+	<string name="report_personal_subtitle">Cuando vea en Mastodon algo que no le agrada, puede sacar a la persona de su experiencia.</string>
 	<string name="back">Atrás</string>
 	<string name="instance_catalog_title">Mastodon está hecho por usuarios den diferentes servidores.</string>
 	<string name="instance_catalog_subtitle">Selecciona un servidor basado en tus intereses, región o un propósito general. Aun así puedes conectarte con todo el mundo, sin importar el servidor.</string>
-	<string name="search_communities">Busca servidores o introduce la URL</string>
-	<string name="instance_rules_title">Algunas reglas básicas</string>
-	<string name="instance_rules_subtitle">Tómate un minuto para revisar las reglas establecidas y aplicadas por las personas que administran %s.</string>
-	<string name="signup_title">Deja que te preparemos en %s</string>
 	<string name="edit_photo">editar</string>
-	<string name="display_name">nombre a mostrar</string>
-	<string name="username">nombre de usuario</string>
-	<string name="email">correo electrónico</string>
-	<string name="password">contraseña</string>
 	<string name="password_note">Incluye letras mayúsculas, caracteres especiales y números para aumentar la fuerza de tu contraseña.</string>
 	<string name="category_academia">Académico</string>
 	<string name="category_activism">Activismo</string>
@@ -193,8 +188,7 @@
 	<string name="category_music">Música</string>
 	<string name="category_regional">Regional</string>
 	<string name="category_tech">Tecnología</string>
-	<string name="confirm_email_title">Una última cosa</string>
-	<string name="confirm_email_subtitle">Toque el enlace que le enviamos por correo electrónico para verificar su cuenta.</string>
+	<!-- %s is the email address -->
 	<string name="resend">Reenviar</string>
 	<string name="open_email_app">Abrir aplicación de email</string>
 	<string name="resent_email">Correo de confirmación enviado</string>
@@ -282,7 +276,6 @@
 	<string name="open_in_browser">Abrir en el navegador</string>
 	<string name="hide_boosts_from_user">Ocultar reblogueos de %s</string>
 	<string name="show_boosts_from_user">Mostrar reblogueos de %s</string>
-	<string name="signup_reason">¿por qué quieres unirte?</string>
 	<string name="signup_reason_note">Esto nos ayudará a revisar su solicitud.</string>
 	<string name="clear">Borrar</string>
 	<string name="profile_header">Imagen de cabecera</string>
@@ -375,7 +368,23 @@
 	<!-- %s is file size -->
 	<string name="download_update">Descargar (%s)</string>
 	<string name="install_update">Instalar</string>
-	<string name="privacy_policy_title">Mastodon y su privacidad</string>
-	<string name="privacy_policy_subtitle">Aunque la aplicación de Mastodon no recolecta ningún dato, el servidor al que se registre puede tener una política diferente. Tómese un minuto para revisar y aceptar las políticas de privacidad de la aplicación de Mastodon y las políticas de privacidad de su servidor.</string>
 	<string name="i_agree">Acepto</string>
+	<string name="empty_list">Esta lista está vacía</string>
+	<string name="instance_signup_closed">Este servidor no acepta altas nuevas.</string>
+	<string name="text_copied">Copiado en el portapapeles</string>
+	<string name="add_bookmark">Marcadores</string>
+	<string name="remove_bookmark">Eliminar marcador</string>
+	<string name="bookmarks">Marcadores</string>
+	<string name="your_favorites">Sus favoritos</string>
+	<string name="login_title">Qué bueno verle de nuevo</string>
+	<string name="login_subtitle">Inicie sesión con el servidor donde creó su cuenta.</string>
+	<string name="server_url">URL del servidor</string>
+	<string name="welcome_page1_text">Imagina que tienes una dirección de correo electrónico que termina con @ejemplo.com.\n\nPuedes enviar y recibir correos electrónicos de cualquier persona, incluso si su correo electrónico termina en @gmail.com o @icloud.com o @ejemplo.com.</string>
+	<string name="welcome_page2_title">Mastodon es parecido.</string>
+	<string name="welcome_page2_text">Tu cuenta puede ser @gothgirl654@example.social, pero puedes seguir, rebloguear, y chatear con @fallout5ever@example.online.</string>
+	<string name="welcome_page3_title">¿Cómo elijo un servidor?</string>
+	<string name="welcome_page3_text">Diferentes personas eligen diferentes servidores por diferentes motivos. Por ejemplo, art.example es un buen lugar para artistas, mientras que madrid.example puede ser una buena elección para los madrileños.\n\nNo te equivocarás con ninguno de nuestros servidores recomendados, por lo que independientemente del que escojas (o si introduces tu propio servidor en la barra de búsqueda), no te perderás ni una en ningún lugar.</string>
+	<!-- %s is server domain -->
+	<!-- Shown in a progress dialog when you tap "follow all" -->
+	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
 </resources>

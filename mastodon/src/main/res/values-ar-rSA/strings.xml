@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="get_started">الخطوات الأولى</string>
+	<string name="get_started">إنشاء حساب</string>
+	<string name="already_have_account">لدي حساب بالفعل</string>
 	<string name="log_in">تسجيلُ الدخول</string>
 	<string name="next">التالي</string>
+	<string name="loading_instance">جارٍ جلب معلومات الخادم…</string>
 	<string name="error">خطأ</string>
+	<string name="not_a_mastodon_instance">لا يبدو أنّ %s كخادم ماستدون.</string>
 	<string name="ok">حسنًا</string>
 	<string name="preparing_auth">جَارٍ الإعدَادُ لِلمُصادَقَة…</string>
 	<string name="finishing_auth">يُنهي المصادقة…</string>
@@ -226,15 +229,16 @@
 	<string name="back">العودة</string>
 	<string name="instance_catalog_title">يتكوّن ماستدون من مستخدمين موزّعين عبر خوادم مختلفة.</string>
 	<string name="instance_catalog_subtitle">اختر خادمًا بناءً على اهتماماتك، منطقتك أو يمكنك حتى اختيارُ مجتمعٍ ذي غرضٍ عام. وسيضل بامكانك التواصل مع المستخدمين من الخوادم الأخرى.</string>
-	<string name="search_communities">ابحث عن خادم أو أدخل رابطه</string>
-	<string name="instance_rules_title">بعض القواعد الأساسية</string>
-	<string name="instance_rules_subtitle">خذ دقيقة لمراجعة القواعد التي حددها وفرضها مديروا %s.</string>
-	<string name="signup_title">دعنا نجهزك في %s</string>
+	<string name="search_communities">اسم الخادم أو عنوان URL</string>
+	<string name="instance_rules_title">قواعد الخادم</string>
+	<string name="instance_rules_subtitle">من خلال المتابعة، أنت توافق على اتباع القواعد التالية التي تم تعيينها وإنفاذها من قبل مشرفي %s.</string>
+	<string name="signup_title">إنشاء حساب</string>
 	<string name="edit_photo">حرّر</string>
-	<string name="display_name">الاسم العلني</string>
+	<string name="display_name">الاسم</string>
 	<string name="username">اسم المستخدم</string>
 	<string name="email">البريد الإلكتروني</string>
 	<string name="password">كلمة المرور</string>
+	<string name="confirm_password">تأكيد كلمة المرور</string>
 	<string name="password_note">ضمّن الأحرف الكبيرة والأحرف الخاصة والأرقام لزيادة قوة كلمة المرور.</string>
 	<string name="category_academia">أكاديمي</string>
 	<string name="category_activism">النشطاء</string>
@@ -249,8 +253,10 @@
 	<string name="category_music">موسيقى</string>
 	<string name="category_regional">إقليمي</string>
 	<string name="category_tech">تقني</string>
-	<string name="confirm_email_title">شيءٌ أخير</string>
-	<string name="confirm_email_subtitle">أنقر على الرابط المرسل إليك لاستيثاق حسابك.</string>
+	<string name="confirm_email_title">تحقق من صندوق الوارد الخاص بك</string>
+	<!-- %s is the email address -->
+	<string name="confirm_email_subtitle">اضغط على الرابط الذي أرسلناه لك للتحقق من %s. سننتظر هنا.</string>
+	<string name="confirm_email_didnt_get">ألم تحصل على رابط؟</string>
 	<string name="resend">أعد الإرسال</string>
 	<string name="open_email_app">افتح تطبيق البريد الإلكتروني</string>
 	<string name="resent_email">أُرسلت رسالة التأكيد</string>
@@ -342,7 +348,7 @@
 	<string name="open_in_browser">افتح في المتصفح</string>
 	<string name="hide_boosts_from_user">اخف ما أعاد %s تدوينه</string>
 	<string name="show_boosts_from_user">أظهر ما أعاد %s تدوينه</string>
-	<string name="signup_reason">لماذا ترغب في الانضمام؟</string>
+	<string name="signup_reason">لماذا تريد الانضمام؟</string>
 	<string name="signup_reason_note">هذا سوف يساعدنا في مراجعة تطبيقك.</string>
 	<string name="clear">امسح</string>
 	<string name="profile_header">الصورة الفوقية</string>
@@ -459,8 +465,54 @@
 	<!-- %s is file size -->
 	<string name="download_update">جارٍ التنزيل (%s)</string>
 	<string name="install_update">تثبيت</string>
-	<string name="privacy_policy_title">ماستدون وخصوصيتك</string>
-	<string name="privacy_policy_subtitle">على الرغم من أن تطبيق ماستدون لا يجمع أي بيانات، فإن الخادم الذي قمت بالتسجيل من خلاله قد تكون له سياسة مختلفة. خذ دقيقة للمراجعة والموافقة على سياسة خصوصية التطبيق ماستدون وسياسة الخصوصية للخادم الخاص بك.</string>
+	<string name="privacy_policy_title">خصوصيتك</string>
+	<string name="privacy_policy_subtitle">على الرغم من أن تطبيق ماستدون لا يجمع أي بيانات، فإن الخادم الذي قمت بالتسجيل من خلاله قد تكون له سياسة مختلفة.\n\nإذا لم توافق على سياسة %s، يمكنك العودة واختيار خادم مختلف.</string>
 	<string name="i_agree">أنا مُوافِق</string>
 	<string name="empty_list">هذه القائمة فارغة</string>
+	<string name="instance_signup_closed">هذا الخادم لا يقبل التسجيلات الجديدة.</string>
+	<string name="text_copied">نُسِخ إلى الحافظة</string>
+	<string name="add_bookmark">إضافة إلى الفواصل المرجعية</string>
+	<string name="remove_bookmark">إزالة الفاصلة المرجعية</string>
+	<string name="bookmarks">الفواصل المرجعية</string>
+	<string name="your_favorites">مفضّلاتك</string>
+	<string name="login_title">مرحبا بك مجددًا</string>
+	<string name="login_subtitle">قم بتسجيل الدخول باستخدام الخادم حيث قمتَ بإنشاء حسابك فيه.</string>
+	<string name="server_url">رابط الخادم</string>
+	<string name="welcome_page1_title">ما هو ماستدون؟</string>
+	<string name="welcome_page1_text">تخيل أن لديك عنوان بريد إلكتروني ينتهي بـ @example.com.\n\n رغم ذلك يمكنك إرسال واستقبال رسائل البريد الإلكتروني من أي شخص، حتى إذا كان بريدهم الإلكتروني الخاص ينتهي بـ @gmail.com أو @icloud.com أو @example.com.</string>
+	<string name="welcome_page2_title">ماستدون هكذا.</string>
+	<string name="welcome_page2_text">قد يكون مُعرّفُك @gothgirl654@example.social ، ولكنه بإمكانك متابعة وإعادة تدوين ومحادثة @fallout5ever@example.online.</string>
+	<string name="welcome_page3_title">كيف يمكنني اختيار خادم؟</string>
+	<string name="welcome_page3_text">يختار الأشخاص المختلفون خوادم مختلفة لأي عدد من الأسباب. يعد art.example مكانًا رائعًا للفنانين ، بينما قد يكون glasgow.example اختيارًا جيدًا للاسكتلنديين. \n\n لا يمكنك أن تخطئ في أي من الخوادم التي نوصي بها ، لذلك بغض النظر عن أي واحد تختاره (أو إذا قمت بإدخال الخادم الخاص بك في شريط البحث) ، فلن يفوتك أي شيء في أي مكان.</string>
+	<string name="signup_random_server_explain">سوف نختار خادماً بناءً على لغتك إذا قمت بالمتابعة دون إجراء إختيار.</string>
+	<string name="server_filter_any_language">أي لغة</string>
+	<string name="server_filter_instant_signup">تسجيل فوري</string>
+	<string name="server_filter_manual_review">مراجعة يدوية</string>
+	<string name="server_filter_any_signup_speed">أي سرعة تسجيل</string>
+	<string name="server_filter_region_europe">أوروبا</string>
+	<string name="server_filter_region_north_america">أمريكا الشمالية</string>
+	<string name="server_filter_region_south_america">أمريكا الجنوبية</string>
+	<string name="server_filter_region_africa">أفريقيا</string>
+	<string name="server_filter_region_asia">آسيا</string>
+	<string name="server_filter_region_oceania">أوقيانوسيا</string>
+	<string name="not_accepting_new_members">لا يقبل  استقبال أعضاء جدد</string>
+	<string name="category_special_interests">المصالح الخاصة</string>
+	<string name="signup_passwords_dont_match">كلمات المرور غير متطابقة</string>
+	<string name="pick_server_for_me">اختر لي</string>
+	<string name="profile_add_row">إضافة صف</string>
+	<string name="profile_setup">إعداد الملف الشخصي</string>
+	<string name="profile_setup_subtitle">يمكنك دائماً إكمال هذا في وقت لاحق في علامة التبويب الملف الشخصي.</string>
+	<string name="profile_setup_explanation">يمكنك إضافة ما يصل إلى أربعة حقول شخصية لأي شيء تريده. الموقع، الروابط، الضمائر - السماء هي الحد الأقصى.</string>
+	<string name="popular_on_mastodon">مشهور على ماستدون</string>
+	<string name="follow_all">اتبع الكل</string>
+	<string name="server_rules_disagree">لا أوافق</string>
+	<string name="privacy_policy_explanation">بالمختصر: نحن لا نجمع أو نعالج أي شيء.</string>
+	<!-- %s is server domain -->
+	<string name="server_policy_disagree">لايتفق مع %s</string>
+	<string name="profile_bio">نبذة عنك</string>
+	<!-- Shown in a progress dialog when you tap "follow all" -->
+	<string name="sending_follows">متابعة المستخدمين…</string>
+	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<string name="signup_email_domain_blocked">%1$s لا يسمح بالتسجيلات من %2$s. جرب واحدا أو &lt;a&gt;اختار خادم مختلف&lt;/a&gt;.</string>
+	<string name="signup_username_taken">اِسم المُستَخدِم هذا مأخوذٌ بالفعل.</string>
 </resources>

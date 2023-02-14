@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="get_started">Присоединиться</string>
+	<string name="get_started">Создать учётную запись</string>
+	<string name="already_have_account">У меня уже есть учётная запись</string>
 	<string name="log_in">Войти</string>
 	<string name="next">Далее</string>
 	<string name="loading_instance">Получение информации о сервере…</string>
@@ -12,7 +13,7 @@
 	<string name="user_boosted">%s продвинул(а)</string>
 	<string name="in_reply_to">В ответ %s</string>
 	<string name="notifications">Уведомления</string>
-	<string name="user_followed_you">подписался (-ась) на вас</string>
+	<string name="user_followed_you">подписался(ась) на вас</string>
 	<string name="user_sent_follow_request">прислал(а) запрос на подписку</string>
 	<string name="user_favorited">добавил(а) ваш пост в избранное</string>
 	<string name="notification_boosted">продвинул(а) ваш пост</string>
@@ -200,15 +201,16 @@
 	<string name="back">Назад</string>
 	<string name="instance_catalog_title">Mastodon состоит из пользователей разнообразных серверов.</string>
 	<string name="instance_catalog_subtitle">Выберите сервер общей принадлежности, либо на основе своих интересов или региона. Вы по-прежнему сможете взаимодействовать с кем захотите, независимо от выбранного сервера.</string>
-	<string name="search_communities">Поиск по серверам или ссылке</string>
-	<string name="instance_rules_title">Несколько основных правил</string>
-	<string name="instance_rules_subtitle">Уделите минуту, чтобы изучить правила сообщества %s.</string>
-	<string name="signup_title">Давайте зарегистрируем вас на %s</string>
+	<string name="search_communities">Имя сервера или URL</string>
+	<string name="instance_rules_title">Правила сервера</string>
+	<string name="instance_rules_subtitle">Продолжая, вы соглашаетесь соблюдать следующие правила, установленные и применяемые модераторами %s.</string>
+	<string name="signup_title">Создать Аккаунт</string>
 	<string name="edit_photo">изменить</string>
-	<string name="display_name">отображаемое имя</string>
-	<string name="username">имя пользователя</string>
-	<string name="email">e-mail</string>
-	<string name="password">пароль</string>
+	<string name="display_name">Имя</string>
+	<string name="username">Имя пользователя</string>
+	<string name="email">E-mail</string>
+	<string name="password">Пароль</string>
+	<string name="confirm_password">Подтверждение пароля</string>
 	<string name="password_note">Используйте заглавные буквы, числа и специальные символы, чтобы повысить стойкость пароля.</string>
 	<string name="category_academia">Академия</string>
 	<string name="category_activism">Активизм</string>
@@ -223,8 +225,10 @@
 	<string name="category_music">Музыка</string>
 	<string name="category_regional">Региональные</string>
 	<string name="category_tech">Технологии</string>
-	<string name="confirm_email_title">И ещё кое-что</string>
-	<string name="confirm_email_subtitle">Мы отправили вам письмо со специальной ссылкой. Нажмите её, чтобы подтвердить свою учётную запись.</string>
+	<string name="confirm_email_title">Проверьте входящие сообщения</string>
+	<!-- %s is the email address -->
+	<string name="confirm_email_subtitle">Нажмите на ссылку, которую мы отправили, чтобы проверить %s. Мы подождим здесь.</string>
+	<string name="confirm_email_didnt_get">Не получили ссылку?</string>
 	<string name="resend">Отправить заново</string>
 	<string name="open_email_app">Открыть почту</string>
 	<string name="resent_email">Письмо подтверждения отправлено</string>
@@ -314,7 +318,7 @@
 	<string name="open_in_browser">Открыть в браузере</string>
 	<string name="hide_boosts_from_user">Скрыть продвижения от %s</string>
 	<string name="show_boosts_from_user">Показывать продвижения от %s</string>
-	<string name="signup_reason">почему вы хотите присоединиться?</string>
+	<string name="signup_reason">Почему вы хотите присоединиться?</string>
 	<string name="signup_reason_note">Это поможет нам рассмотреть вашу заявку.</string>
 	<string name="clear">Очистить</string>
 	<string name="profile_header">Изображение шапки</string>
@@ -362,7 +366,92 @@
 	<string name="edit_history">История изменений</string>
 	<string name="last_edit_at_x">Последнее изменение: %s</string>
 	<string name="time_just_now">только что</string>
+	<plurals name="x_seconds_ago">
+		<item quantity="one">%d секунду назад</item>
+		<item quantity="few">%d секунды назад</item>
+		<item quantity="many">%d секунд назад</item>
+		<item quantity="other">%d секунд назад</item>
+	</plurals>
+	<plurals name="x_minutes_ago">
+		<item quantity="one">%d минуту назад</item>
+		<item quantity="few">%d минуты назад</item>
+		<item quantity="many">%d минут назад</item>
+		<item quantity="other">%d минут назад</item>
+	</plurals>
+	<string name="edited_timestamp">редактировано %s</string>
+	<string name="edit_original_post">Начальное сообщение</string>
+	<string name="edit_text_edited">Текст отредактирован</string>
+	<string name="edit_spoiler_added">Предупреждение о содержании добавлено</string>
+	<string name="edit_spoiler_edited">Предупреждение о содержании отредактировано</string>
+	<string name="edit_spoiler_removed">Предупреждение о содержании удалено</string>
+	<string name="edit_poll_added">Опрос добавлен</string>
+	<string name="edit_poll_edited">Опрос изменён</string>
+	<string name="edit_poll_removed">Опрос удалён</string>
+	<string name="edit_media_added">Файл добавлен</string>
+	<string name="edit_media_removed">Файл удалён</string>
+	<string name="edit_media_reordered">Файл переупорядочен</string>
+	<string name="edit_marked_sensitive">Отметить как «не для всех»</string>
+	<string name="edit_marked_not_sensitive">Снять отметку «не для всех»</string>
+	<string name="edit_multiple_changed">Публикация изменена</string>
+	<string name="edit">Редактировать</string>
+	<string name="discard_changes">Отменить изменения?</string>
+	<string name="upload_failed">Сбой загрузки</string>
+	<string name="file_size_bytes">%d байт</string>
+	<string name="file_size_kb">%.2f КиБ</string>
+	<string name="file_size_mb">%.2f МиБ</string>
+	<string name="file_size_gb">%.2f ГиБ</string>
+	<string name="file_upload_progress">%1$s из %2$s</string>
+	<string name="file_upload_time_remaining">Осталось %s</string>
+	<string name="upload_error_connection_lost">Ваше устройство потеряло соединение с Интернетом</string>
+	<string name="upload_processing">Обработка…</string>
 	<!-- %s is version like 1.2.3 -->
+	<string name="update_available">Mastodon для Android %s готов к загрузке.</string>
 	<!-- %s is version like 1.2.3 -->
+	<string name="update_ready">Mastodon для Android %s скачан и готов к установке.</string>
 	<!-- %s is file size -->
+	<string name="download_update">Скачать (%s)</string>
+	<string name="install_update">Установить</string>
+	<string name="privacy_policy_title">Ваша конфиденциальность</string>
+	<string name="privacy_policy_subtitle">Хотя приложение Mastodon не собирает никаких данных, сервер, через который вы регистрируетесь, может иметь другую политику.\n\nЕсли вы не согласны с политикой %s, вы можете вернуться и выбрать другой сервер.</string>
+	<string name="i_agree">Я согласен</string>
+	<string name="empty_list">Этот список пуст</string>
+	<string name="instance_signup_closed">Этот сервер не принимает новые регистрации.</string>
+	<string name="text_copied">Скопировано в буфер обмена</string>
+	<string name="add_bookmark">Закладка</string>
+	<string name="remove_bookmark">Удалить закладку</string>
+	<string name="bookmarks">Закладки</string>
+	<string name="your_favorites">Ваше избранное</string>
+	<string name="login_title">С возвращением</string>
+	<string name="login_subtitle">Войдите на сервер, на котором вы создали свою учётную запись.</string>
+	<string name="server_url">URL-адрес сервера</string>
+	<string name="welcome_page1_title">Что такое Mastodon?</string>
+	<string name="welcome_page3_title">Как выбрать сервер?</string>
+	<string name="welcome_page3_text">Разные люди выбирают разные серверы по разным причинам. art.example — отличное место для художников, а glasgow.example может быть хорошим выбором для шотландцев.\n\nВы не ошибётесь с любым из рекомендованных серверов, поэтому независимо от того, какой из них вы выберете (или если вы введёте свой собственный в строке поиска сервера), вы никогда и нигде не пропустите ни одной детали.</string>
+	<string name="signup_random_server_explain">Мы выберем сервер на основе вашего языка, если вы продолжите, не сделав выбор.</string>
+	<string name="server_filter_any_language">Любой язык</string>
+	<string name="server_filter_instant_signup">Мгновенная регистрация</string>
+	<string name="server_filter_any_signup_speed">Любая скорость регистрации</string>
+	<string name="server_filter_region_europe">Европа</string>
+	<string name="server_filter_region_north_america">Северная Америка</string>
+	<string name="server_filter_region_south_america">Южная Америка</string>
+	<string name="server_filter_region_africa">Африка</string>
+	<string name="server_filter_region_asia">Азия</string>
+	<string name="server_filter_region_oceania">Океания</string>
+	<string name="not_accepting_new_members">Не принимает новых участников</string>
+	<string name="signup_passwords_dont_match">Пароли не совпадают</string>
+	<string name="pick_server_for_me">Выбрать за меня</string>
+	<string name="profile_add_row">Добавить строку</string>
+	<string name="profile_setup">Настройка профиля</string>
+	<string name="profile_setup_subtitle">Вы всегда можете завершить это позже на вкладке Профиль.</string>
+	<string name="profile_setup_explanation">Вы можете добавить до четырех полей профиля для всего, что хотите. Местоположение, ссылки, местоимения — нет предела возможностям.</string>
+	<string name="popular_on_mastodon">Популярно на Mastodon</string>
+	<string name="server_rules_disagree">Отклонить</string>
+	<string name="privacy_policy_explanation">TL;DR: Мы ничего не собираем и не обрабатываем.</string>
+	<!-- %s is server domain -->
+	<string name="server_policy_disagree">Отклонить %s</string>
+	<string name="profile_bio">О себе</string>
+	<!-- Shown in a progress dialog when you tap "follow all" -->
+	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<string name="signup_email_domain_blocked">%1$s не позволяет зарегистрироваться от %2$s. Попробуйте другой или &lt;a&gt;выберите другой сервер&lt;/a&gt;.</string>
+	<string name="signup_username_taken">Это имя пользователя занято.</string>
 </resources>

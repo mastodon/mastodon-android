@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="get_started">Aha bdu tura</string>
+	<string name="get_started">Snulfu-d amiḍan</string>
+	<string name="already_have_account">Γur-i yakan amiḍan</string>
 	<string name="log_in">Qqen</string>
 	<string name="next">Uḍfiṛ</string>
 	<string name="error">Tuccḍa</string>
@@ -165,15 +166,7 @@
 	<string name="report_personal_title">Ur tebɣiḍ ara ad twaliḍ aya?</string>
 	<string name="report_personal_subtitle">Mi ara twaliḍ kra ur ak•am-neɛǧib ara ɣef Mastodon, tzemreḍ ad tekkseḍ amdan-nni seg tirmit-ik•im.</string>
 	<string name="back">Tuɣalin</string>
-	<string name="search_communities">Nadi timɣiwnin neɣ sekcem URL</string>
-	<string name="instance_rules_title">Kra n yilugan igejdanen</string>
-	<string name="instance_rules_subtitle">Mudd kra n tesdatin i usenqed n yilugan yettusbadun akked yettusnasen sɣur yinedbalen %s.</string>
-	<string name="signup_title">Aha ad nebdu asbadu ɣef %s</string>
 	<string name="edit_photo">ẓreg</string>
-	<string name="display_name">isem ara d-yettwaskanen</string>
-	<string name="username">isem n useqdac</string>
-	<string name="email">imayl</string>
-	<string name="password">awal uffir</string>
 	<string name="password_note">Seddu isekkilen imeqqranen, isekkilen imaẓlayen d wuṭṭunen i useǧhed ugar n wawal-ik•im uffir.</string>
 	<string name="category_academia">Akadimi</string>
 	<string name="category_activism">Tinuɣmest</string>
@@ -188,8 +181,7 @@
 	<string name="category_music">Aẓawan</string>
 	<string name="category_regional">Amnaḍan</string>
 	<string name="category_tech">Atiknikan</string>
-	<string name="confirm_email_title">Taɣawsa taneggarut</string>
-	<string name="confirm_email_subtitle">Sit ɣef useɣwen i ak-n-uznen i wakken ad tesneqdeḍ amiḍan-ik.</string>
+	<!-- %s is the email address -->
 	<string name="resend">Ales tuzna</string>
 	<string name="open_email_app">Ldi asnas n yimayl</string>
 	<string name="resent_email">Asentem n tuzna n yimayl</string>
@@ -274,7 +266,6 @@
 	<string name="unfollowed_user">Y•Teḥbes aḍfar n %s</string>
 	<string name="followed_user">Aql-ak·akem teṭṭafareḍ %s</string>
 	<string name="open_in_browser">Ldi deg yiminig</string>
-	<string name="signup_reason">acimi tebγiḍ ad ternuḍ iman-ik•im?</string>
 	<string name="signup_reason_note">Aya ad aɣ-iɛiwen ad nessenqed tuttra-inek•inem.</string>
 	<string name="clear">Sfeḍ</string>
 	<string name="profile_header">Tugna n uqerru</string>
@@ -311,11 +302,14 @@
 	<string name="upload_failed">Asali yecceḍ</string>
 	<string name="file_upload_time_remaining">%s i d-yeqqimen</string>
 	<!-- %s is version like 1.2.3 -->
+	<string name="update_available">Mastodon i Android %s yewjed i usader.</string>
 	<!-- %s is version like 1.2.3 -->
 	<!-- %s is file size -->
 	<string name="download_update">Asider (%s)</string>
 	<string name="install_update">Sbedd</string>
-	<string name="privacy_policy_title">Maṣṭudun akked ttbaḍnit-ik·im</string>
 	<string name="add_bookmark">Creḍ</string>
 	<string name="your_favorites">Imenyifen-ik·im</string>
+	<!-- %s is server domain -->
+	<!-- Shown in a progress dialog when you tap "follow all" -->
+	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
 </resources>
