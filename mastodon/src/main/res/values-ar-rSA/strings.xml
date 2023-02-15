@@ -16,7 +16,7 @@
 	<string name="user_followed_you">بَدَأ بِمُتابَعَتِك</string>
 	<string name="user_sent_follow_request">أرسَلَ طَلَبًا لِمُتابَعَتِك</string>
 	<string name="user_favorited">فَضَّلَ مَنشُورَك</string>
-	<string name="notification_boosted">أعادَ تَدوينَ مَنشُورَك</string>
+	<string name="notification_boosted">أعادَ تَدوينَ مَنشُورِك</string>
 	<string name="poll_ended">انتهى استطلاعُ الرأي</string>
 	<string name="time_seconds">%d ثا</string>
 	<string name="time_minutes">%d د</string>
@@ -57,7 +57,7 @@
 	<string name="media">وسائط</string>
 	<string name="profile_about">حَول</string>
 	<string name="button_follow">تابِع</string>
-	<string name="button_following">يُتابِع</string>
+	<string name="button_following">مُتابَع</string>
 	<string name="edit_profile">حرّر الملف الشخصي</string>
 	<string name="mention_user">ذِكر @%s</string>
 	<string name="share_user">مُشارَكَةُ %s</string>
@@ -82,7 +82,7 @@
 	<string name="field_label">التسمية</string>
 	<string name="field_content">المحتوى</string>
 	<string name="saving">يحفظ…</string>
-	<string name="post_from_user">نُشر من %s</string>
+	<string name="post_from_user">مَنشور مِن %s</string>
 	<string name="poll_option_hint">الخيار %d</string>
 	<plurals name="x_minutes">
 		<item quantity="zero">أقل من دقيقة</item>
@@ -311,7 +311,7 @@
 	<string name="notify_favorites">بِالإعْجاب بِمَنشوري</string>
 	<string name="notify_follow">بمتابعتي</string>
 	<string name="notify_reblog">بإعادة تدوين مَنشوري</string>
-	<string name="notify_mention">ذكرني</string>
+	<string name="notify_mention">بِالإشارَةِ إليّ</string>
 	<string name="settings_boring">المنطِقَةُ المُملَّة</string>
 	<string name="settings_account">إعدادات الحساب</string>
 	<string name="settings_contribute">ساهم في ماستدون</string>
@@ -432,7 +432,7 @@
 		<item quantity="many">منذ %d دقائق</item>
 		<item quantity="other">منذ %d دقائق</item>
 	</plurals>
-	<string name="edited_timestamp">عُدّل في %s</string>
+	<string name="edited_timestamp">عُدّل منذ %s</string>
 	<string name="edit_original_post">المنشور الأصلي</string>
 	<string name="edit_text_edited">تم تعديل النص</string>
 	<string name="edit_spoiler_added">تم إضافة تحذير المحتوى</string>
