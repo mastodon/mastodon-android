@@ -113,6 +113,8 @@ public class ClickableLinksDelegate {
 	}
 
 	Runnable copyTextToClipboard = () -> {
+		//if target is not a link, don't copy
+		if (selectedSpan.getType() != LinkSpan.Type.URL) return;
 		//copy link text to clipboard
 		ClipboardManager clipboard = (ClipboardManager) view.getContext().getSystemService(Context.CLIPBOARD_SERVICE);
 		clipboard.setPrimaryClip(ClipData.newPlainText("", selectedSpan.getLink()));
