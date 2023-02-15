@@ -1,11 +1,15 @@
 package org.joinmastodon.android.ui.text;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.CornerPathEffect;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.Rect;
 import android.graphics.RectF;
+import android.os.Build;
 import android.os.Handler;
 import android.text.Layout;
 import android.text.Spanned;
@@ -109,9 +113,15 @@ public class ClickableLinksDelegate {
 	}
 
 	Runnable copyTextToClipboard = () -> {
-		//TODO actually copy to clipboard
-		//TODO think about removing toast, system > A12 (?) has a built-in popup
-		Toast.makeText(view.getContext(), "copied to clipboard", Toast.LENGTH_SHORT).show();
+		//copy link text to clipboard
+		ClipboardManager clipboard = (ClipboardManager) view.getContext().getSystemService(Context.CLIPBOARD_SERVICE);
+		clipboard.setPrimaryClip(ClipData.newPlainText("", selectedSpan.getLink()));
+		//show toast, android from S_V2 on has built-in popup, as documented in
+		//https://developer.android.com/develop/ui/views/touch-and-input/copy-paste#duplicate-notifications
+		if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.S_V2) {
+			Toast.makeText(view.getContext(), "Copied", Toast.LENGTH_SHORT).show();
+		}
+		//reset view
 		resetAndInvalidate();
 	};
 
