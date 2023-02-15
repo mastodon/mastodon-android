@@ -19,6 +19,8 @@ import android.view.ViewConfiguration;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.joinmastodon.android.R;
+
 import me.grishka.appkit.utils.V;
 
 public class ClickableLinksDelegate {
@@ -28,6 +30,21 @@ public class ClickableLinksDelegate {
 	private LinkSpan selectedSpan;
 	private TextView view;
 	private final Handler longClickHandler = new Handler();
+
+	private final Runnable copyTextToClipboard = () -> {
+		//if target is not a link, don't copy
+		if (selectedSpan.getType() != LinkSpan.Type.URL) return;
+		//copy link text to clipboard
+		ClipboardManager clipboard = (ClipboardManager) view.getContext().getSystemService(Context.CLIPBOARD_SERVICE);
+		clipboard.setPrimaryClip(ClipData.newPlainText("", selectedSpan.getLink()));
+		//show toast, android from S_V2 on has built-in popup, as documented in
+		//https://developer.android.com/develop/ui/views/touch-and-input/copy-paste#duplicate-notifications
+		if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.S_V2) {
+			Toast.makeText(view.getContext(), R.string.text_copied, Toast.LENGTH_SHORT).show();
+		}
+		//reset view
+		resetAndInvalidate();
+	};
 	
 	public ClickableLinksDelegate(TextView view) {
 		this.view=view;
@@ -111,21 +128,6 @@ public class ClickableLinksDelegate {
 		}
 		return false;
 	}
-
-	Runnable copyTextToClipboard = () -> {
-		//if target is not a link, don't copy
-		if (selectedSpan.getType() != LinkSpan.Type.URL) return;
-		//copy link text to clipboard
-		ClipboardManager clipboard = (ClipboardManager) view.getContext().getSystemService(Context.CLIPBOARD_SERVICE);
-		clipboard.setPrimaryClip(ClipData.newPlainText("", selectedSpan.getLink()));
-		//show toast, android from S_V2 on has built-in popup, as documented in
-		//https://developer.android.com/develop/ui/views/touch-and-input/copy-paste#duplicate-notifications
-		if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.S_V2) {
-			Toast.makeText(view.getContext(), "Copied", Toast.LENGTH_SHORT).show();
-		}
-		//reset view
-		resetAndInvalidate();
-	};
 
 	private void resetAndInvalidate() {
 		hlPath=null;
