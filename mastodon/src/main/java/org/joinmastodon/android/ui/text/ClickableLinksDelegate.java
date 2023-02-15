@@ -6,11 +6,14 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.Rect;
 import android.graphics.RectF;
+import android.os.Handler;
 import android.text.Layout;
 import android.text.Spanned;
 import android.view.MotionEvent;
 import android.view.SoundEffectConstants;
+import android.view.ViewConfiguration;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import me.grishka.appkit.utils.V;
 
@@ -20,6 +23,7 @@ public class ClickableLinksDelegate {
 	private Path hlPath;
 	private LinkSpan selectedSpan;
 	private TextView view;
+	private final Handler longClickHandler = new Handler();
 	
 	public ClickableLinksDelegate(TextView view) {
 		this.view=view;
@@ -63,6 +67,7 @@ public class ClickableLinksDelegate {
 							}
 							hlPath=new Path();
 							selectedSpan=span;
+							longClickHandler.postDelayed(copyTextToClipboard, ViewConfiguration.getLongPressTimeout());
 							hlPaint.setColor((span.getColor() & 0x00FFFFFF) | 0x33000000);
 							//l.getSelectionPath(start, end, hlPath);
 							for(int j=lstart;j<=lend;j++){
@@ -90,20 +95,30 @@ public class ClickableLinksDelegate {
 			}
 		}
 		if(event.getAction()==MotionEvent.ACTION_UP && selectedSpan!=null){
+			longClickHandler.removeCallbacks(copyTextToClipboard);
 			view.playSoundEffect(SoundEffectConstants.CLICK);
 			selectedSpan.onClick(view.getContext());
-			hlPath=null;
-			selectedSpan=null;
-			view.invalidate();
+			resetAndInvalidate();
 			return false;
 		}
 		if(event.getAction()==MotionEvent.ACTION_CANCEL){
-			hlPath=null;
-			selectedSpan=null;
-			view.invalidate();
+			resetAndInvalidate();
 			return false;
 		}
 		return false;
+	}
+
+	Runnable copyTextToClipboard = () -> {
+		//TODO actually copy to clipboard
+		//TODO think about removing toast, system > A12 (?) has a built-in popup
+		Toast.makeText(view.getContext(), "copied to clipboard", Toast.LENGTH_SHORT).show();
+		resetAndInvalidate();
+	};
+
+	private void resetAndInvalidate() {
+		hlPath=null;
+		selectedSpan=null;
+		view.invalidate();
 	}
 	
 	public void onDraw(Canvas canvas){
