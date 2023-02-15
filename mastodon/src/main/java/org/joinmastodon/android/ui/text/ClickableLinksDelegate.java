@@ -45,7 +45,7 @@ public class ClickableLinksDelegate {
 		//reset view
 		resetAndInvalidate();
 	};
-	
+
 	public ClickableLinksDelegate(TextView view) {
 		this.view=view;
 		hlPaint=new Paint();
@@ -134,7 +134,7 @@ public class ClickableLinksDelegate {
 		selectedSpan=null;
 		view.invalidate();
 	}
-	
+
 	public void onDraw(Canvas canvas){
 		if(hlPath!=null){
 			canvas.save();
