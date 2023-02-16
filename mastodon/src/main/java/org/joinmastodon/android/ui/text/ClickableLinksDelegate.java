@@ -10,7 +10,6 @@ import android.graphics.Path;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.os.Build;
-import android.os.Handler;
 import android.text.Layout;
 import android.text.Spanned;
 import android.view.MotionEvent;
@@ -29,7 +28,6 @@ public class ClickableLinksDelegate {
 	private Path hlPath;
 	private LinkSpan selectedSpan;
 	private TextView view;
-	private final Handler longClickHandler = new Handler();
 
 	private final Runnable copyTextToClipboard = () -> {
 		//if target is not a link, don't copy
@@ -88,7 +86,7 @@ public class ClickableLinksDelegate {
 							}
 							hlPath=new Path();
 							selectedSpan=span;
-							longClickHandler.postDelayed(copyTextToClipboard, ViewConfiguration.getLongPressTimeout());
+							view.postDelayed(copyTextToClipboard, ViewConfiguration.getLongPressTimeout());
 							hlPaint.setColor((span.getColor() & 0x00FFFFFF) | 0x33000000);
 							//l.getSelectionPath(start, end, hlPath);
 							for(int j=lstart;j<=lend;j++){
@@ -116,7 +114,7 @@ public class ClickableLinksDelegate {
 			}
 		}
 		if(event.getAction()==MotionEvent.ACTION_UP && selectedSpan!=null){
-			longClickHandler.removeCallbacks(copyTextToClipboard);
+			view.removeCallbacks(copyTextToClipboard);
 			view.playSoundEffect(SoundEffectConstants.CLICK);
 			selectedSpan.onClick(view.getContext());
 			resetAndInvalidate();
