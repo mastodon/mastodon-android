@@ -15,7 +15,6 @@ import android.text.Spanned;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.SoundEffectConstants;
-import android.view.ViewConfiguration;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,12 +26,12 @@ import me.grishka.appkit.utils.V;
 
 public class ClickableLinksDelegate {
 
-	private Paint hlPaint;
+	final private Paint hlPaint;
 	private Path hlPath;
 	private LinkSpan selectedSpan;
-	private TextView view;
+	final private TextView view;
 
-	GestureDetector gestureDetector;
+	final GestureDetector gestureDetector;
 
 	public ClickableLinksDelegate(TextView view) {
 		this.view=view;
@@ -82,8 +81,7 @@ public class ClickableLinksDelegate {
 				return false;
 			}
 			CharSequence text=view.getText();
-			if(text instanceof Spanned){
-				Spanned s=(Spanned)text;
+			if(text instanceof Spanned s){
 				LinkSpan[] spans=s.getSpans(0, s.length()-1, LinkSpan.class);
 				if(spans.length>0){
 					for(LinkSpan span:spans){
@@ -100,7 +98,6 @@ public class ClickableLinksDelegate {
 							}
 							hlPath=new Path();
 							selectedSpan=span;
-							view.postDelayed(copyTextToClipboard, ViewConfiguration.getLongPressTimeout());
 							hlPaint.setColor((span.getColor() & 0x00FFFFFF) | 0x33000000);
 							//l.getSelectionPath(start, end, hlPath);
 							for(int j=lstart;j<=lend;j++){
@@ -132,7 +129,6 @@ public class ClickableLinksDelegate {
 		@Override
 		public boolean onSingleTapUp(@NonNull MotionEvent event) {
 			if(selectedSpan!=null){
-				view.removeCallbacks(copyTextToClipboard);
 				view.playSoundEffect(SoundEffectConstants.CLICK);
 				selectedSpan.onClick(view.getContext());
 				resetAndInvalidate();
