@@ -15,8 +15,8 @@
 	<string name="notifications">通知</string>
 	<string name="user_followed_you">已跟隨您</string>
 	<string name="user_sent_follow_request">傳送跟隨請求給您</string>
-	<string name="user_favorited">最愛了您的嘟文</string>
-	<string name="notification_boosted">轉嘟了您的嘟文</string>
+	<string name="user_favorited">已將您的嘟文加入最愛</string>
+	<string name="notification_boosted">已轉嘟您的嘟文</string>
 	<string name="poll_ended">投票已結束</string>
 	<string name="time_seconds">%d 秒</string>
 	<string name="time_minutes">%d 分</string>
@@ -141,7 +141,7 @@
 	<string name="report_reason_violation_subtitle">您知道它違反特定規則</string>
 	<string name="report_reason_other">其他原因</string>
 	<string name="report_reason_other_subtitle">這個問題不屬於其他分類</string>
-	<string name="report_choose_rule">違反了哪些規則？</string>
+	<string name="report_choose_rule">已違反哪些規則？</string>
 	<string name="report_choose_rule_subtitle">請選擇所有適用的選項</string>
 	<string name="report_choose_posts">是否有能佐證這份檢舉之嘟文？</string>
 	<string name="report_choose_posts_subtitle">請選擇所有適用的選項</string>
@@ -297,7 +297,7 @@
 	<string name="load_missing_posts">讀取錯過的嘟文</string>
 	<string name="follow_back">跟隨回去</string>
 	<string name="button_follow_pending">等待中</string>
-	<string name="follows_you">跟隨了您</string>
+	<string name="follows_you">已跟隨您</string>
 	<string name="manually_approves_followers">手動審核跟隨者</string>
 	<string name="current_account">目前帳號</string>
 	<string name="log_out_account">登出 %s</string>
@@ -408,6 +408,6 @@
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<string name="sending_follows">正在跟隨使用者...</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
-	<string name="signup_email_domain_blocked">%1$s 不允許 %2$s 之信箱註冊。請重新試試另一個電子信箱服務商，或 &lt;a&gt; 挑選另一個伺服器 &lt;/a&gt;。</string>
+	<string name="signup_email_domain_blocked">%1$s 不允許 %2$s 之信箱註冊。請重新試試另一個電子郵件服務商，或 &lt;a&gt; 挑選另一個伺服器 &lt;/a&gt;。</string>
 	<string name="signup_username_taken">這個帳號已經被註冊過囉。</string>
 </resources>
