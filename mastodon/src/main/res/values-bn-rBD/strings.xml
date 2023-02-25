@@ -10,16 +10,22 @@
 	<string name="in_reply_to">%s কে উত্তর দিন</string>
 	<string name="notifications">নোটিফিকেশন</string>
 	<string name="user_followed_you">আপনাকে ফলো করেছেন</string>
-	<string name="user_sent_follow_request">অনুসরণের জন্য অনুরোধ পাঠানো হয়েছে</string>
+	<string name="user_sent_follow_request">ফলো করার জন্য অনুরোধ পাঠানো হয়েছে</string>
 	<string name="user_favorited">পোস্টটি পছন্দ করা হয়েছে</string>
 	<string name="notification_boosted">আপনার পোস্টের প্রচার করা হয়েছে</string>
 	<string name="poll_ended">ভোট শেষ</string>
 	<string name="time_seconds">%d সে.</string>
 	<string name="time_minutes">%d মি.</string>
 	<string name="time_hours">%d ঘ.</string>
+	<string name="time_days">%d দি.</string>
 	<string name="share_toot_title">শেয়ার করুন</string>
 	<string name="settings">সেটিংস</string>
 	<string name="cancel">বাতিল করুন</string>
+	<plurals name="posts">
+		<item quantity="one">পোস্ট</item>
+		<item quantity="other">পোস্টগুলো</item>
+	</plurals>
+	<string name="posts">পোস্টগুলো</string>
 	<string name="done">হয়ে গেছে</string>
 	<string name="loading">লোড হচ্ছে…</string>
 	<string name="saving">সেভ হচ্ছে…</string>
