@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="get_started">অ্যাকাউন্ট তৈরি করুন</string>
-	<string name="already_have_account">আপনার আগে থেকেই একটি অ্যাকাউন্ট আছে?</string>
+	<string name="already_have_account">আমার আগে থেকেই একটি অ্যাকাউন্ট আছে</string>
 	<string name="log_in">লগ ইন করুন</string>
 	<string name="next">এরপর</string>
 	<string name="error">কোনো ত্রুটি ঘটেছে</string>
@@ -20,6 +20,9 @@
 	<string name="share_toot_title">শেয়ার করুন</string>
 	<string name="settings">সেটিংস</string>
 	<string name="cancel">বাতিল করুন</string>
+	<string name="done">হয়ে গেছে</string>
+	<string name="loading">লোড হচ্ছে…</string>
+	<string name="saving">সেভ হচ্ছে…</string>
 	<string name="poll_closed">বন্ধ</string>
 	<string name="confirm_mute_title">অ্যাকাউন্ট টি মিউট করুন</string>
 	<string name="do_mute">মিউট করুন</string>
@@ -28,22 +31,25 @@
 	<string name="do_unmute">মিউট</string>
 	<string name="confirm_block_title">অ্যাকাউন্ট টি ব্লক করুন</string>
 	<string name="do_block">ব্লক করুন</string>
+	<string name="confirm_unblock_title">অ্যাকাউন্ট আনব্লক করুন</string>
 	<string name="confirm_unblock">%s আনব্লক নিশ্চিত করুন</string>
 	<string name="do_unblock">আনব্লক করুন</string>
 	<string name="button_muted">মিউট করা হয়েছে</string>
-	<string name="tap_to_reveal">ট্যাপ করে দেখুন</string>
+	<string name="button_blocked">ব্লক করা আছে</string>
+	<string name="action_vote">ভোট</string>
+	<string name="tap_to_reveal">দেখার জন্য টিপুন</string>
 	<string name="delete">মুছে ফেলুন</string>
 	<string name="confirm_delete_title">পোস্ট মুছে ফেলুন</string>
 	<string name="confirm_delete">আপনি কি এই পোস্টটি মুছে ফেলতে চান?</string>
-	<string name="deleting">মুছে ফেলা হচ্ছে</string>
+	<string name="deleting">মুছে ফেলা হচ্ছে…</string>
 	<string name="notification_channel_audio_player">অডিও প্লেব্যাক</string>
 	<string name="play">চালান</string>
 	<string name="pause">বিরতি</string>
-	<string name="log_out">সাইন আউট</string>
-	<string name="add_account">অ্যাকাউন্ট খুলুন</string>
-	<string name="search_hint">সন্ধান</string>
-	<string name="hashtags">হ্যাশট্যাগ</string>
-	<string name="news">সংবাদ</string>
+	<string name="log_out">সাইন আউট করুন</string>
+	<string name="add_account">অ্যাকাউন্ট যোগ করুন</string>
+	<string name="search_hint">খুঁজুন</string>
+	<string name="hashtags">হ্যাশট্যাগগুলো</string>
+	<string name="news">খবর</string>
 	<string name="for_you">আপনার জন্য</string>
 	<string name="all_notifications">সকল</string>
 	<string name="mentions">উল্লেখ</string>
