@@ -44,11 +44,16 @@ public class ClickableLinksDelegate {
 
 	public boolean onTouch(MotionEvent event) {
 		if(event.getAction()==MotionEvent.ACTION_CANCEL){
+			// the gestureDetector does not provide a callback for CANCEL, therefore:
+			// remove background color of view before passing event to gestureDetector
 			resetAndInvalidate();
 		}
 		return gestureDetector.onTouchEvent(event);
 	}
 
+	/**
+	 * remove highlighting from span and let the system redraw the view
+	 */
 	private void resetAndInvalidate() {
 		hlPath=null;
 		selectedSpan=null;
@@ -64,6 +69,12 @@ public class ClickableLinksDelegate {
 		}
 	}
 
+	/**
+	 * GestureListener for spans that represent URLs.
+	 * onDown: on start of touch event, set highlighting
+	 * onSingleTapUp: when there was a (short) tap, call onClick and reset highlighting
+	 * onLongPress: copy URL to clipboard, let user know, reset highlighting
+	 */
 	private class LinkGestureListener extends GestureDetector.SimpleOnGestureListener {
 		@Override
 		public boolean onDown(@NonNull MotionEvent event) {
