@@ -173,7 +173,16 @@
 	<string name="back">Geri</string>
 	<string name="instance_catalog_title">Mastodon, farklı sunuculardaki kullanıcılardan oluşur.</string>
 	<string name="instance_catalog_subtitle">İlgi alanlarına, bölgene hitap eden bir sunucu ya da genel amaçlı bir sunucu seç. Hangi sunucuda olduğun fark etmeksizin herkes ile bağlantı kurabilirsin.</string>
+	<string name="search_communities">Sunucu adı veya linki</string>
+	<string name="instance_rules_title">Sunucu Kuralları</string>
+	<string name="instance_rules_subtitle">Devam ederek %s moderatörleri tarafından yayınlanan kuralları kabul edersiniz.</string>
+	<string name="signup_title">Hesap Oluştur</string>
 	<string name="edit_photo">düzenle</string>
+	<string name="display_name">Ad</string>
+	<string name="username">Kullanıcı adı</string>
+	<string name="email">E-posta</string>
+	<string name="password">Parola</string>
+	<string name="confirm_password">Parolayı doğrula</string>
 	<string name="password_note">Parolanızın gücünü artırmak için büyük harfler, özel karakterler ve sayılar ekleyin.</string>
 	<string name="category_academia">Akademi</string>
 	<string name="category_activism">aktivizm</string>
@@ -188,7 +197,10 @@
 	<string name="category_music">Müzik</string>
 	<string name="category_regional">Bölgesel</string>
 	<string name="category_tech">Teknoloji</string>
+	<string name="confirm_email_title">E-posta Kutunuzu Kontrol Edin</string>
 	<!-- %s is the email address -->
+	<string name="confirm_email_subtitle">%s işleminizi doğrulamak için size gönderdiğimiz linke tıklayınız. Biz burada bekleyeceğiz.</string>
+	<string name="confirm_email_didnt_get">Link size ulaşmadı mı?</string>
 	<string name="resend">Yeniden gönder</string>
 	<string name="open_email_app">E-posta uygulamasını aç</string>
 	<string name="resent_email">Onay e-postası gönderildi</string>
@@ -276,6 +288,7 @@
 	<string name="open_in_browser">Tarayıcıda aç</string>
 	<string name="hide_boosts_from_user">%s kişisinin yeniden paylaşımlarını gizle</string>
 	<string name="show_boosts_from_user">%s kişisinin yeniden paylaşımlarını göster</string>
+	<string name="signup_reason">Neden katılmak istiyorsunuz?</string>
 	<string name="signup_reason_note">Bu, başvurunuzu incelememize yardımcı olacaktır.</string>
 	<string name="clear">Temizle</string>
 	<string name="profile_header">Üstbaşlık görseli</string>
@@ -368,6 +381,8 @@
 	<!-- %s is file size -->
 	<string name="download_update">İndir (%s)</string>
 	<string name="install_update">Kur</string>
+	<string name="privacy_policy_title">Gizliliğiniz</string>
+	<string name="privacy_policy_subtitle">Mastodon uygulaması herhangi bir veri toplama dahi katıldığınız sunucunun farklı bir politikası olabilir. \n\n %s politikası sizi tatmin etmiyorsa geri giderek farklı bir sunucu seçebilirsiniz.</string>
 	<string name="i_agree">Kabul ediyorum</string>
 	<string name="empty_list">Bu liste boş</string>
 	<string name="instance_signup_closed">Bu sunucu yeni kayıtları kabul etmemektedir.</string>
@@ -379,6 +394,11 @@
 	<string name="login_title">Hoşgeldin</string>
 	<string name="login_subtitle">Hesabınızı oluşturduğunuz sunucu ile giriş yapın.</string>
 	<string name="server_url">Sunucu URL\'si</string>
+	<string name="welcome_page1_title">Mastodon nedir?</string>
+	<string name="welcome_page1_text">\@örnek.com ile biten bir e-posta adresiniz olduğunu düşünün. \n\n Kişilerin e-posta adresi @gmail.com, @icloud.com ya da @örnek.com ile bitse de herkese e-posta gönderebilir veya herkesten e-posta alabilirsiniz.</string>
+	<string name="welcome_page2_title">Mastodon da böyledir.</string>
+	<string name="welcome_page2_text">Adresiniz @acemicadi@ornek.social olabilir ama yine de @sessizgemi@ornek.online hesabını takip edebilir, gönderilerini paylaşabilir ve yanıtlayabilirsiniz.</string>
+	<string name="welcome_page3_title">Bir sunucuyu nasıl seçerim?</string>
 	<!-- %s is server domain -->
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
