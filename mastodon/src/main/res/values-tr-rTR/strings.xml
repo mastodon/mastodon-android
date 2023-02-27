@@ -399,7 +399,35 @@
 	<string name="welcome_page2_title">Mastodon da böyledir.</string>
 	<string name="welcome_page2_text">Adresiniz @acemicadi@ornek.social olabilir ama yine de @sessizgemi@ornek.online hesabını takip edebilir, gönderilerini paylaşabilir ve yanıtlayabilirsiniz.</string>
 	<string name="welcome_page3_title">Bir sunucuyu nasıl seçerim?</string>
+	<string name="welcome_page3_text">İnsanlar farklı sebeplerle farklı sunucular seçer. sanat.ornek sanatçılar için, istanbul.ornek İstanbullular için güzel bir seçenek olabilir. \n\n Bizim önerdiğimiz bir sunucuyu seçerek (ya da kendi sunucunuzu arama alanına yazabilirsiniz) yanlış bir şey yapmış olmazsınız, hangisini seçtiğiniz fark etmeksizin hiçbir olayı kaçırmayacaksınız.</string>
+	<string name="signup_random_server_explain">Herhangi bir seçim yapmadan devam ederseniz dilinize göre bir sunucu seçeceğiz.</string>
+	<string name="server_filter_any_language">Herhangi Bir Dil</string>
+	<string name="server_filter_instant_signup">Koşulsuz Kayıt</string>
+	<string name="server_filter_manual_review">İnceleme Gerekli</string>
+	<string name="server_filter_any_signup_speed">Herhangi Biri</string>
+	<string name="server_filter_region_europe">Avrupa</string>
+	<string name="server_filter_region_north_america">Kuzey Amerika</string>
+	<string name="server_filter_region_south_america">Güney Amerika</string>
+	<string name="server_filter_region_africa">Afrika</string>
+	<string name="server_filter_region_asia">Asya</string>
+	<string name="server_filter_region_oceania">Okyanusya</string>
+	<string name="not_accepting_new_members">Yeni üyeler kabul etmiyor</string>
+	<string name="category_special_interests">Özel İlgi Alanları</string>
+	<string name="signup_passwords_dont_match">Parolalar eşleşmiyor</string>
+	<string name="pick_server_for_me">Benim için seç</string>
+	<string name="profile_setup">Profilini ayarla</string>
+	<string name="profile_setup_subtitle">Bunu istediğin bir zaman Profil sekmesinden tamamlayabilirsin.</string>
+	<string name="profile_setup_explanation">İstediğin herhangi bir şey için en fazla dört profil alanı ekleyebilirsin. Konum, linkler -ne isterseniz.</string>
+	<string name="popular_on_mastodon">Mastodon\'da Popüler</string>
+	<string name="follow_all">Hepsini takip et</string>
+	<string name="server_rules_disagree">Reddet</string>
+	<string name="privacy_policy_explanation">Kısacası: Hiçbir veri işlemiyor ya da toplamıyoruz.</string>
 	<!-- %s is server domain -->
+	<string name="server_policy_disagree">%s\'yi reddet</string>
+	<string name="profile_bio">Hakkımda</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
+	<string name="sending_follows">Hesaplar takip ediliyor…</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<string name="signup_email_domain_blocked">%1$s sunucusu %2$s mail uzantısı ile hesap oluşturmaya izin vermiyor. Farklı bir mail deneyebilir ya da &lt;a&gt;farklı bir sunucu seçebilirsiniz&lt;/a&gt;.</string>
+	<string name="signup_username_taken">Bu kullanıcı adı kullanılıyor.</string>
 </resources>
