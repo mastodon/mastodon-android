@@ -11,7 +11,7 @@
 	<string name="notifications">নোটিফিকেশন</string>
 	<string name="user_followed_you">আপনাকে ফলো করেছেন</string>
 	<string name="user_sent_follow_request">ফলো করার জন্য অনুরোধ পাঠানো হয়েছে</string>
-	<string name="user_favorited">পোস্টটি পছন্দ করা হয়েছে</string>
+	<string name="user_favorited">আপনার পোস্টটি পছন্দ করেছেন</string>
 	<string name="notification_boosted">আপনার পোস্টের প্রচার করা হয়েছে</string>
 	<string name="poll_ended">ভোট শেষ</string>
 	<string name="time_seconds">%d সে.</string>
@@ -42,6 +42,18 @@
 	<string name="done">হয়ে গেছে</string>
 	<string name="loading">লোড হচ্ছে…</string>
 	<string name="saving">সেভ হচ্ছে…</string>
+	<plurals name="x_minutes">
+		<item quantity="one">%d মিনিট</item>
+		<item quantity="other">%d মিনিট</item>
+	</plurals>
+	<plurals name="x_hours">
+		<item quantity="one">%d ঘণ্টা</item>
+		<item quantity="other">%d ঘণ্টা</item>
+	</plurals>
+	<plurals name="x_days">
+		<item quantity="one">%d দিন</item>
+		<item quantity="other">%d দিন</item>
+	</plurals>
 	<string name="poll_closed">বন্ধ</string>
 	<string name="confirm_mute_title">অ্যাকাউন্টটি মিউট করুন</string>
 	<string name="do_mute">মিউট করুন</string>
