@@ -17,7 +17,6 @@ import org.joinmastodon.android.model.PaginatedResponse;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.displayitems.AccountCardStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.HeaderStatusDisplayItem;
-import org.joinmastodon.android.ui.displayitems.ImageStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.StatusDisplayItem;
 import org.joinmastodon.android.ui.utils.InsetStatusItemDecoration;
 import org.parceler.Parcels;
@@ -70,13 +69,6 @@ public class NotificationsListFragment extends BaseStatusListFragment<Notificati
 		HeaderStatusDisplayItem titleItem=extraText!=null ? new HeaderStatusDisplayItem(n.id, n.account, n.createdAt, this, accountID, null, extraText) : null;
 		if(n.status!=null){
 			ArrayList<StatusDisplayItem> items=StatusDisplayItem.buildItems(this, n.status, accountID, n, knownAccounts, titleItem!=null, titleItem==null);
-			if(titleItem!=null){
-				for(StatusDisplayItem item:items){
-					if(item instanceof ImageStatusDisplayItem imgItem){
-						imgItem.horizontalInset=V.dp(32);
-					}
-				}
-			}
 			if(titleItem!=null)
 				items.add(0, titleItem);
 			return items;

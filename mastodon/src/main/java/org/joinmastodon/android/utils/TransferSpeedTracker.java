@@ -1,4 +1,4 @@
-package org.joinmastodon.android.ui.utils;
+package org.joinmastodon.android.utils;
 
 import android.os.SystemClock;
 

@@ -11,8 +11,14 @@ import java.util.List;
 import androidx.annotation.NonNull;
 
 public class PhotoLayoutHelper{
+	public static final int MAX_WIDTH=1000;
+	public static final int MAX_HEIGHT=1910;
+
 	@NonNull
-	public static TiledLayoutResult processThumbs(int _maxW, int _maxH, List<Attachment> thumbs){
+	public static TiledLayoutResult processThumbs(List<Attachment> thumbs){
+		int _maxW=MAX_WIDTH;
+		int _maxH=MAX_HEIGHT;
+
 		TiledLayoutResult result=new TiledLayoutResult();
 		if(thumbs.size()==1){
 			Attachment att=thumbs.get(0);
@@ -45,13 +51,8 @@ public class PhotoLayoutHelper{
 		float avgRatio=!ratios.isEmpty() ? sum(ratios)/ratios.size() : 1.0f;
 
 		float maxW, maxH, marginW=0, marginH=0;
-		if(_maxW>0){
-			maxW=_maxW;
-			maxH=_maxH;
-		}else{
-			maxW=510;
-			maxH=510;
-		}
+		maxW=_maxW;
+		maxH=_maxH;
 
 		float maxRatio=maxW/maxH;
 

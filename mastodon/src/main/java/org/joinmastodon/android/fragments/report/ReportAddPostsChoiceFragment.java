@@ -25,7 +25,6 @@ import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.PhotoLayoutHelper;
 import org.joinmastodon.android.ui.displayitems.AudioStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.HeaderStatusDisplayItem;
-import org.joinmastodon.android.ui.displayitems.ImageStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.LinkCardStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.ReblogOrReplyLineStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.StatusDisplayItem;
@@ -131,22 +130,7 @@ public class ReportAddPostsChoiceFragment extends StatusListFragment{
 				if(holder.getAbsoluteAdapterPosition()==0)
 					return;
 				outRect.left=V.dp(40);
-				if(holder instanceof ImageStatusDisplayItem.Holder<?> imgHolder){
-					PhotoLayoutHelper.TiledLayoutResult layout=imgHolder.getItem().tiledLayout;
-					PhotoLayoutHelper.TiledLayoutResult.Tile tile=imgHolder.getItem().thisTile;
-					String siblingID;
-					if(holder.getAbsoluteAdapterPosition()<parent.getAdapter().getItemCount()-1){
-						siblingID=displayItems.get(holder.getAbsoluteAdapterPosition()-getMainAdapterOffset()+1).parentID;
-					}else{
-						siblingID=null;
-					}
-					if(tile.startCol>0)
-						outRect.left=0;
-					outRect.left+=V.dp(16);
-					outRect.right=V.dp(16);
-					if(!imgHolder.getItemID().equals(siblingID) || tile.startRow+tile.rowSpan==layout.rowSizes.length)
-						outRect.bottom=V.dp(16);
-				}else if(holder instanceof AudioStatusDisplayItem.Holder){
+				if(holder instanceof AudioStatusDisplayItem.Holder){
 					outRect.bottom=V.dp(16);
 				}else if(holder instanceof LinkCardStatusDisplayItem.Holder){
 					outRect.bottom=V.dp(16);
@@ -165,10 +149,6 @@ public class ReportAddPostsChoiceFragment extends StatusListFragment{
 						parent.getDecoratedBoundsWithMargins(child, tmpRect);
 						String id=sdiHolder.getItemID();
 						int height=tmpRect.height();
-						if(holder instanceof ImageStatusDisplayItem.Holder<?> imgHolder){
-							if(imgHolder.getItem().thisTile.startCol+imgHolder.getItem().thisTile.colSpan<imgHolder.getItem().tiledLayout.columnSizes.length)
-								height=0;
-						}
 						if(!(holder instanceof HeaderStatusDisplayItem.Holder) && !(holder instanceof ReblogOrReplyLineStatusDisplayItem.Holder))
 							postsWithKnownNonHeaderHeights.add(id);
 						knownDisplayItemHeights.put(holder.getAbsoluteAdapterPosition(), height);
@@ -233,17 +213,6 @@ public class ReportAddPostsChoiceFragment extends StatusListFragment{
 		adapter.addAdapter(new SingleViewRecyclerAdapter(headerView));
 		adapter.addAdapter(super.getAdapter());
 		return adapter;
-	}
-
-	@Override
-	protected List<StatusDisplayItem> buildDisplayItems(Status s){
-		List<StatusDisplayItem> items=StatusDisplayItem.buildItems(this, s, accountID, s, knownAccounts, true, false);
-		for(StatusDisplayItem item:items){
-			if(item instanceof ImageStatusDisplayItem isdi){
-				isdi.horizontalInset=V.dp(40+32);
-			}
-		}
-		return items;
 	}
 
 	protected void drawDivider(View child, View bottomSibling, RecyclerView.ViewHolder holder, RecyclerView.ViewHolder siblingHolder, RecyclerView parent, Canvas c, Paint paint){

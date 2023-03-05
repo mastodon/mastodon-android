@@ -8,10 +8,9 @@ import android.view.View;
 
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.fragments.BaseStatusListFragment;
-import org.joinmastodon.android.fragments.NotificationsListFragment;
 import org.joinmastodon.android.ui.PhotoLayoutHelper;
-import org.joinmastodon.android.ui.displayitems.ImageStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.LinkCardStatusDisplayItem;
+import org.joinmastodon.android.ui.displayitems.MediaGridStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.StatusDisplayItem;
 
 import java.util.List;
@@ -87,21 +86,11 @@ public class InsetStatusItemDecoration extends RecyclerView.ItemDecoration{
 				boolean topSiblingInset=pos>0 && displayItems.get(pos-1).inset;
 				boolean bottomSiblingInset=pos<displayItems.size()-1 && displayItems.get(pos+1).inset;
 				int pad;
-				if(holder instanceof ImageStatusDisplayItem.Holder || holder instanceof LinkCardStatusDisplayItem.Holder)
+				if(holder instanceof MediaGridStatusDisplayItem.Holder || holder instanceof LinkCardStatusDisplayItem.Holder)
 					pad=V.dp(16);
 				else
 					pad=V.dp(12);
 				boolean insetLeft=true, insetRight=true;
-				if(holder instanceof ImageStatusDisplayItem.Holder<?> img){
-					PhotoLayoutHelper.TiledLayoutResult layout=img.getItem().tiledLayout;
-					PhotoLayoutHelper.TiledLayoutResult.Tile tile=img.getItem().thisTile;
-					// only inset those items that are on the edges of the layout
-					insetLeft=tile.startCol==0;
-					insetRight=tile.startCol+tile.colSpan==layout.columnSizes.length;
-					// inset all items in the bottom row
-					if(tile.startRow+tile.rowSpan==layout.rowSizes.length)
-						bottomSiblingInset=false;
-				}
 				if(insetLeft)
 					outRect.left=pad;
 				if(insetRight)
