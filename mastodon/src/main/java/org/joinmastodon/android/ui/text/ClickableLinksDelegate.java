@@ -26,12 +26,12 @@ import me.grishka.appkit.utils.V;
 
 public class ClickableLinksDelegate {
 
-	final private Paint hlPaint;
+	private final Paint hlPaint;
 	private Path hlPath;
 	private LinkSpan selectedSpan;
-	final private TextView view;
+	private final TextView view;
 
-	final GestureDetector gestureDetector;
+	private final GestureDetector gestureDetector;
 
 	public ClickableLinksDelegate(TextView view) {
 		this.view=view;
