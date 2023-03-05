@@ -4,7 +4,9 @@
 	<string name="already_have_account">ログイン</string>
 	<string name="log_in">ログイン</string>
 	<string name="next">次へ</string>
+	<string name="loading_instance">サーバー情報を取得しています…</string>
 	<string name="error">エラー</string>
+	<string name="not_a_mastodon_instance">%s はMastodonサーバーではありません。</string>
 	<string name="ok">OK</string>
 	<string name="preparing_auth">認証を開始中…</string>
 	<string name="finishing_auth">認証を完了中…</string>
@@ -157,7 +159,16 @@
 	<string name="back">戻る</string>
 	<string name="instance_catalog_title">Mastodonはさまざまなコミュニティによって作られています</string>
 	<string name="instance_catalog_subtitle">あなたの趣味</string>
+	<string name="search_communities">サーバー名またはURL</string>
+	<string name="instance_rules_title">サーバーのルール</string>
+	<string name="instance_rules_subtitle">%s のモデレーターは次のルールを定めています。これに従うことに同意する場合は続行してください。</string>
+	<string name="signup_title">アカウントを作成</string>
 	<string name="edit_photo">編集</string>
+	<string name="display_name">名前</string>
+	<string name="username">ユーザー名</string>
+	<string name="email">メールアドレス</string>
+	<string name="password">パスワード</string>
+	<string name="confirm_password">パスワード（確認用）</string>
 	<string name="password_note">パスワードの強度を高めるため、英大文字・数字・特殊文字を含めてください。</string>
 	<string name="category_academia">アカデミア</string>
 	<string name="category_activism">アクティビズム</string>
@@ -172,7 +183,10 @@
 	<string name="category_music">ミュージック</string>
 	<string name="category_regional">地域</string>
 	<string name="category_tech">技術</string>
+	<string name="confirm_email_title">確認のメールを送信しました</string>
 	<!-- %s is the email address -->
+	<string name="confirm_email_subtitle">%s を認証するためのリンクをメールで送信しました。リンクをタップしてメールアドレスを認証してください。</string>
+	<string name="confirm_email_didnt_get">メールが届かない場合</string>
 	<string name="resend">再送信</string>
 	<string name="open_email_app">メールアプリを開く</string>
 	<string name="resent_email">確認メールを再送信しました</string>
@@ -259,6 +273,7 @@
 	<string name="open_in_browser">ブラウザで開く</string>
 	<string name="hide_boosts_from_user">%sさんのブーストを非表示</string>
 	<string name="show_boosts_from_user">%sさんのブーストを表示</string>
+	<string name="signup_reason">参加したい理由を入力してください</string>
 	<string name="signup_reason_note">申請を承認する際に役立つメッセージを添えてください.</string>
 	<string name="clear">クリア</string>
 	<string name="profile_header">ヘッダー画像</string>
@@ -345,6 +360,8 @@
 	<!-- %s is file size -->
 	<string name="download_update">ダウンロード (%s)</string>
 	<string name="install_update">インストール</string>
+	<string name="privacy_policy_title">プライバシーポリシー</string>
+	<string name="privacy_policy_subtitle">Mastodonアプリはデータを収集しません。一方で、登録するサーバーはそれぞれが異なるポリシーを掲げていることがあります。\n\n %s のポリシーに同意できない場合は、戻って別のサーバーを選択できます。</string>
 	<string name="i_agree">同意する</string>
 	<string name="empty_list">このリストは空です。</string>
 	<string name="instance_signup_closed">このサーバーは新規登録を受け付けていません。</string>
