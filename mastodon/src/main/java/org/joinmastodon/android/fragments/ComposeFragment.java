@@ -640,9 +640,11 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 	}
 
 	private void onCustomEmojiClick(Emoji emoji){
-		int start=mainEditText.getSelectionStart();
-		String prefix=start>0 && !Character.isWhitespace(mainEditText.getText().charAt(start-1)) ? " :" : ":";
-		mainEditText.getText().replace(start, mainEditText.getSelectionEnd(), prefix+emoji.shortcode+':');
+		if(getActivity().getCurrentFocus() instanceof EditText edit){
+			int start=edit.getSelectionStart();
+			String prefix=start>0 && !Character.isWhitespace(edit.getText().charAt(start-1)) ? " :" : ":";
+			edit.getText().replace(start, edit.getSelectionEnd(), prefix+emoji.shortcode+':');
+		}
 	}
 
 	@Override

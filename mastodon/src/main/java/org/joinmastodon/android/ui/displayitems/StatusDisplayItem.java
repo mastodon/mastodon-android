@@ -86,22 +86,7 @@ public abstract class StatusDisplayItem{
 		List<Attachment> imageAttachments=statusForContent.mediaAttachments.stream().filter(att->att.type.isImage()).collect(Collectors.toList());
 		if(!imageAttachments.isEmpty()){
 			PhotoLayoutHelper.TiledLayoutResult layout=PhotoLayoutHelper.processThumbs(imageAttachments);
-
 			items.add(new MediaGridStatusDisplayItem(parentID, fragment, layout, imageAttachments, statusForContent));
-
-//			int photoIndex=0;
-//			for(Attachment attachment:imageAttachments){
-//				if(attachment.type==Attachment.Type.IMAGE){
-//					items.add(new PhotoStatusDisplayItem(parentID, statusForContent, attachment, fragment, photoIndex, imageAttachments.size(), layout, layout.tiles[photoIndex]));
-//				}else if(attachment.type==Attachment.Type.GIFV){
-//					items.add(new GifVStatusDisplayItem(parentID, statusForContent, attachment, fragment, photoIndex, imageAttachments.size(), layout, layout.tiles[photoIndex]));
-//				}else if(attachment.type==Attachment.Type.VIDEO){
-//					items.add(new VideoStatusDisplayItem(parentID, statusForContent, attachment, fragment, photoIndex, imageAttachments.size(), layout, layout.tiles[photoIndex]));
-//				}else{
-//					throw new IllegalStateException("This isn't supposed to happen, type is "+attachment.type);
-//				}
-//				photoIndex++;
-//			}
 		}
 		for(Attachment att:statusForContent.mediaAttachments){
 			if(att.type==Attachment.Type.AUDIO){
