@@ -392,8 +392,13 @@
 	<string name="server_filter_region_oceania">オセアニア</string>
 	<string name="not_accepting_new_members">新規登録を受け付けていません</string>
 	<string name="category_special_interests">テーマ別</string>
+	<string name="signup_passwords_dont_match">パスワードが一致していません</string>
 	<string name="pick_server_for_me">おまかせ</string>
+	<string name="server_rules_disagree">同意しない</string>
 	<!-- %s is server domain -->
+	<string name="server_policy_disagree">%s のポリシーに同意しない</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<string name="signup_email_domain_blocked">%1$s では %2$s のメールアドレスでの登録が許可されていません。別のメールアドレスを使うか、&lt;a&gt;ほかのサーバーを選択&lt;/a&gt;してください。</string>
+	<string name="signup_username_taken">このユーザー名はすでに使用されています。</string>
 </resources>
