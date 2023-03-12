@@ -200,7 +200,7 @@
 	<string name="confirm_email_title">Kolla din inkorg</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">Tryck på länken vi skickade dig för att verifiera %s. Vi väntar här.</string>
-	<string name="confirm_email_didnt_get">Fick du inte en länk?</string>
+	<string name="confirm_email_didnt_get">Fick du ingen länk?</string>
 	<string name="resend">Skicka igen</string>
 	<string name="open_email_app">Öppna e-postappen</string>
 	<string name="resent_email">Bekräftelse via e-post skickad</string>
@@ -242,7 +242,7 @@
 	<string name="settings_behavior">Beteende</string>
 	<string name="settings_gif">Spela animerade avatarer och emojis</string>
 	<string name="settings_custom_tabs">Använd webbläsaren i appen</string>
-	<string name="settings_notifications">Notiser</string>
+	<string name="settings_notifications">Aviseringar</string>
 	<string name="notify_me_when">Meddela mig när</string>
 	<string name="notify_anyone">vem som helst</string>
 	<string name="notify_follower">en följare</string>
@@ -401,8 +401,34 @@
 	<string name="welcome_page3_title">Hur väljer jag en server?</string>
 	<string name="welcome_page3_text">Olika personer väljer olika servrar av olika anledningar. art.example är en bra plats för konstnärer medan glasgow.exempel kan vara ett bra val för skottar.\n\nMed någon av våra rekommenderar servrar kan du inte hamna fel så oavsett vilken du väljer, eller om du skriver in din egen i serverns sökfältet, kommer du aldrig missa något.</string>
 	<string name="signup_random_server_explain">Vi kommer att välja en server baserat på ditt språk om du fortsätter utan att göra ett val.</string>
+	<string name="server_filter_any_language">Vilket språk som helst</string>
 	<string name="server_filter_instant_signup">Omedelbar registrering</string>
+	<string name="server_filter_manual_review">Manuell granskning</string>
+	<string name="server_filter_any_signup_speed">Valfri registreringshastighet</string>
+	<string name="server_filter_region_europe">Europa</string>
+	<string name="server_filter_region_north_america">Nordamerika</string>
+	<string name="server_filter_region_south_america">Sydamerika</string>
+	<string name="server_filter_region_africa">Afrika</string>
+	<string name="server_filter_region_asia">Asien</string>
+	<string name="server_filter_region_oceania">Oceanien</string>
+	<string name="not_accepting_new_members">Accepterar inte nya medlemmar</string>
+	<string name="category_special_interests">Specialintressen</string>
+	<string name="signup_passwords_dont_match">Lösenorden matchar inte</string>
+	<string name="pick_server_for_me">Välj för mig</string>
+	<string name="profile_add_row">Lägg till rad</string>
+	<string name="profile_setup">Konfiguration av profil</string>
+	<string name="profile_setup_subtitle">Du kan alltid fylla i detta senare i fliken Profil.</string>
+	<string name="profile_setup_explanation">Du kan lägga till upp till fyra profilfält för vad du vill. Plats, länkar, pronomen - himlen är gränsen.</string>
+	<string name="popular_on_mastodon">Populärt på Mastodon</string>
+	<string name="follow_all">Följ alla</string>
+	<string name="server_rules_disagree">Instämmer inte alls</string>
+	<string name="privacy_policy_explanation">TL;DR: Vi samlar inte in eller bearbetar något.</string>
 	<!-- %s is server domain -->
+	<string name="server_policy_disagree">Håller inte med %s</string>
+	<string name="profile_bio">Biografi</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
+	<string name="sending_follows">Följer användare…</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<string name="signup_email_domain_blocked">%1$s tillåter inte registrering från %2$s. Prova en annan eller &lt;a&gt;välj en annan server&lt;/a&gt;.</string>
+	<string name="signup_username_taken">Det här användarnamnet är redan taget.</string>
 </resources>
