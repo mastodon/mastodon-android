@@ -173,7 +173,16 @@
 	<string name="back">Tillbaka</string>
 	<string name="instance_catalog_title">Mastodon utgörs av användare på olika servrar.</string>
 	<string name="instance_catalog_subtitle">Välj en server baserat på dina intressen, region eller en allmän server. Du kan fortfarande nå alla, oavsett server.</string>
+	<string name="search_communities">Servernamn eller URL</string>
+	<string name="instance_rules_title">Serverregler</string>
+	<string name="instance_rules_subtitle">Genom att fortsätta, samtycker du till att följa följande regler som fastställts och verkställs av %s moderatorer.</string>
+	<string name="signup_title">Skapa konto</string>
 	<string name="edit_photo">redigera</string>
+	<string name="display_name">Namn</string>
+	<string name="username">Användarnamn</string>
+	<string name="email">E-post</string>
+	<string name="password">Lösenord</string>
+	<string name="confirm_password">Bekräfta lösenord</string>
 	<string name="password_note">Inkludera stora bokstäver, specialtecken och siffror för att öka ditt lösenords styrka.</string>
 	<string name="category_academia">Vetenskap</string>
 	<string name="category_activism">Aktivism</string>
@@ -188,7 +197,10 @@
 	<string name="category_music">Musik</string>
 	<string name="category_regional">Regionalt</string>
 	<string name="category_tech">Teknik</string>
+	<string name="confirm_email_title">Kolla din inkorg</string>
 	<!-- %s is the email address -->
+	<string name="confirm_email_subtitle">Tryck på länken vi skickade dig för att verifiera %s. Vi väntar här.</string>
+	<string name="confirm_email_didnt_get">Fick du inte en länk?</string>
 	<string name="resend">Skicka igen</string>
 	<string name="open_email_app">Öppna e-postappen</string>
 	<string name="resent_email">Bekräftelse via e-post skickad</string>
@@ -276,6 +288,7 @@
 	<string name="open_in_browser">Öppna i webbläsare</string>
 	<string name="hide_boosts_from_user">Dölj boostar från %s</string>
 	<string name="show_boosts_from_user">Visa boostar från %s</string>
+	<string name="signup_reason">Varför vill du gå med?</string>
 	<string name="signup_reason_note">Detta kommer hjälpa oss att granska din ansökan.</string>
 	<string name="clear">Rensa</string>
 	<string name="profile_header">Bild för sidhuvud</string>
@@ -368,6 +381,8 @@
 	<!-- %s is file size -->
 	<string name="download_update">Ladda ner (%s)</string>
 	<string name="install_update">Installera</string>
+	<string name="privacy_policy_title">Din integritet</string>
+	<string name="privacy_policy_subtitle">Även om Mastodon-appen inte samlar in några data, kan servern du registrerar dig genom ha en annan policy.\n\nOm du inte håller med policyn för %skan du gå tillbaka och välja en annan server.</string>
 	<string name="i_agree">Jag godkänner</string>
 	<string name="empty_list">Den här listan är tom</string>
 	<string name="instance_signup_closed">Denna server accepterar inte nyregistreringar.</string>
@@ -379,11 +394,14 @@
 	<string name="login_title">Välkommen tillbaka</string>
 	<string name="login_subtitle">Logga in på den server där du skapade ditt konto.</string>
 	<string name="server_url">Server-URL</string>
+	<string name="welcome_page1_title">Vad är Mastodon?</string>
 	<string name="welcome_page1_text">Tänk dig att du har en epostadress som slutar med @example.com.\n\nDu kan skicka och ta emot epost från vem som helst, även om deras epostadress slutar med @gmail.com, @icloud.com eller @example.com.</string>
 	<string name="welcome_page2_title">Mastodon fungerar så.</string>
 	<string name="welcome_page2_text">Ditt handtag kan vara @gothgirl654@example.social men du kan fortfarande följa, boosta och chatta med @fallout5ever@example.online.</string>
 	<string name="welcome_page3_title">Hur väljer jag en server?</string>
 	<string name="welcome_page3_text">Olika personer väljer olika servrar av olika anledningar. art.example är en bra plats för konstnärer medan glasgow.exempel kan vara ett bra val för skottar.\n\nMed någon av våra rekommenderar servrar kan du inte hamna fel så oavsett vilken du väljer, eller om du skriver in din egen i serverns sökfältet, kommer du aldrig missa något.</string>
+	<string name="signup_random_server_explain">Vi kommer att välja en server baserat på ditt språk om du fortsätter utan att göra ett val.</string>
+	<string name="server_filter_instant_signup">Omedelbar registrering</string>
 	<!-- %s is server domain -->
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
