@@ -83,6 +83,52 @@
 	<plurals name="x_voters">
 		<item quantity="other">မဲပေးသူ %,d ဦး</item>
 	</plurals>
+	<string name="poll_closed">မဲပေးခွင့်ပိတ်သွားပါပြီ</string>
+	<string name="confirm_block_title">အကောင့်ဘလော့ခြင်း</string>
+	<string name="confirm_block_domain_title">ဒိုမိန်းကို ဘလော့လုပ်ခြင်း</string>
+	<string name="confirm_block">%s ကို ဘလော့မှာသေချာပြီလား</string>
+	<string name="do_block">ဘလော့မည်</string>
+	<string name="confirm_unblock_title">အကောင့်ဘလော့ဖြုတ်ခြင်း</string>
+	<string name="confirm_unblock_domain_title">ဒိုမိန်းကို ဘလော့ဖြုတ်ခြင်း</string>
+	<string name="confirm_unblock">%s ကို ဘလော့ဖြုတ်မှာသေချာပြီလား</string>
+	<string name="do_unblock">ဘလော့ဖြုတ်မည်</string>
+	<string name="button_blocked">ဘလော့ထား</string>
+	<string name="action_vote">မဲပေးမည်</string>
+	<string name="tap_to_reveal">ကြည့်ရန် နှိပ်ပါ</string>
+	<string name="delete">ဖျက်မည်</string>
+	<string name="confirm_delete_title">ပို့စ်ဖျက်ခြင်း</string>
+	<string name="confirm_delete">ဒီပို့စ်ကိုဖျက်မှာ သေချာပြီလား?</string>
+	<string name="deleting">ပို့စ်ဖျက်နေသည်…</string>
+	<string name="play">ဖွင့်မည်</string>
+	<string name="pause">ခဏရပ်မည်</string>
+	<string name="log_out">အကောင့်ထွက်မည်</string>
+	<string name="add_account">အကောင့်ထည့်မည်</string>
+	<string name="search_hint">ရှာဖွေရန်</string>
+	<string name="hashtags">ဟက်ရှ်တက်များ</string>
+	<string name="news">သတင်းများ</string>
+	<string name="for_you">သင့်အတွက်</string>
+	<string name="all_notifications">အားလုံး</string>
+	<string name="mentions">မန်းရှင်းထားသည်များ</string>
+	<plurals name="x_people_talking">
+		<item quantity="other">လူ %d ဦး ပြောနေသည်</item>
+	</plurals>
+	<string name="report_title">%s ကို တိုင်ကြားခြင်း</string>
+	<string name="report_choose_reason">ဒီပိုစ့်က ဘာဖြစ်လို့ပါလဲ?</string>
+	<string name="report_choose_reason_account">%s က ဘာဖြစ်လို့ပါလဲ?</string>
+	<string name="report_choose_reason_subtitle">အကိုက်ညီဆုံးအဖြေကို ရွေးချယ်ပါ</string>
+	<string name="report_reason_personal">မကြိုက်လို့</string>
+	<string name="report_reason_personal_subtitle">သင်ကြည့်ချင်တာ မဟုတ်လို့</string>
+	<string name="report_reason_spam">Spam မို့လို့</string>
+	<string name="report_reason_spam_subtitle">အန္တရာယ်ရှိတဲ့ လင့်ခ်မို့လို့ (သို့) engagement အတုမို့လို့ (သို့) ထပ်ခါထပ်ခါရီပလိုင်းပြန်ထားလို့</string>
+	<string name="report_reason_violation">ဆာဗာစည်းမျဉ်းတွေကို ချိုးဖောက်ထားလို့</string>
+	<string name="report_reason_violation_subtitle">စည်းမျဉ်းစည်းကမ်းတစ်ခုခုကို ချိုးဖောက်ထားတယ်ဆိုတာ သင်သိနေလို့</string>
+	<string name="report_reason_other">တခြားဟာ</string>
+	<string name="report_reason_other_subtitle">အပေါ်က အမျိုးအစားတွေထဲက မဟုတ်လို့</string>
+	<string name="report_choose_rule">ဘယ်စည်းမျဉ်းတွေကို ချိုးဖောက်ထားပါသလဲ?</string>
+	<string name="report_choose_rule_subtitle">သက်ဆိုင်သမျှကို ရွေးချယ်ပါ</string>
+	<string name="report_choose_posts">ဤတိုင်ကြားမှုကို အထောက်အကူပေးနိုင်မည့် ပို့စ်တစ်ခုခုရှိပါသလား?</string>
+	<string name="report_choose_posts_subtitle">သက်ဆိုင်သမျှကို ရွေးချယ်ပါ</string>
+	<string name="report_comment_title">တခြား ကျွန်တော်တို့ကိုသိစေချင်တာ ရှိပါသလား?</string>
 	<!-- %s is the email address -->
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<!-- %s is version like 1.2.3 -->
