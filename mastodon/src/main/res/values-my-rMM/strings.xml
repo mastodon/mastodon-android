@@ -199,7 +199,27 @@
 	<string name="add_media">ဓာတ်ပုံ/ဗီဒီယိုထည့်ရန်</string>
 	<string name="add_poll">စစ်တမ်းကောက်ရန်</string>
 	<string name="emoji">အီမိုဂျီ</string>
+	<string name="post_visibility">ပို့စ်အား တွေ့မြင်နိုင်မှု</string>
+	<string name="home_timeline">မူလ တိုင်းမ်လိုင်း</string>
+	<string name="my_profile">ကျွန်ုပ်၏ပရိုဖိုင်း</string>
+	<string name="media_viewer">မီဒီယာကြည့်ရှုခြင်း</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
+	<string name="post_info_reblogs">Reblog များ</string>
+	<string name="post_info_favorites">နှစ်သက်မှုများ</string>
+	<string name="edit_history">ပြင်ဆင်မှုမှတ်တမ်း</string>
+	<string name="last_edit_at_x">နောက်ဆုံးပြင်ဆင်ချိန်မှာ %s</string>
+	<string name="time_just_now">အခုလေးတင်</string>
+	<plurals name="x_seconds_ago">
+		<item quantity="other">လွန်ခဲ့သော %d စက္ကန့်က</item>
+	</plurals>
+	<plurals name="x_minutes_ago">
+		<item quantity="other">လွန်ခဲ့သော %d မိနစ်က</item>
+	</plurals>
+	<string name="edited_timestamp">ပြင်ဆင်ထား %s</string>
+	<string name="edit_original_post">မူရင်းပို့စ်</string>
+	<string name="edit_spoiler_added">အကြောင်းအရာသတိပေးချက် ထည့်လိုက်သည်</string>
+	<string name="edit_spoiler_edited">အကြောင်းအရာသတိပေးချက်ကို ပြင်လိုက်သည်</string>
+	<string name="edit_spoiler_removed">အကြောင်းအရာသတိပေးချက်ကို ဖယ်ရှားလိုက်သည်</string>
 	<!-- %s is version like 1.2.3 -->
 	<!-- %s is version like 1.2.3 -->
 	<!-- %s is file size -->
