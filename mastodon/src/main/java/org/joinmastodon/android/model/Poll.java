@@ -16,6 +16,7 @@ public class Poll extends BaseModel{
 	private boolean expired;
 	public boolean multiple;
 	public int votersCount;
+	public int votesCount;
 	public boolean voted;
 	@RequiredField
 	public List<Integer> ownVotes;
@@ -41,10 +42,12 @@ public class Poll extends BaseModel{
 				", expired="+expired+
 				", multiple="+multiple+
 				", votersCount="+votersCount+
+				", votesCount="+votesCount+
 				", voted="+voted+
 				", ownVotes="+ownVotes+
 				", options="+options+
 				", emojis="+emojis+
+				", selectedOptions="+selectedOptions+
 				'}';
 	}
 
