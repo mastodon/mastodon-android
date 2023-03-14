@@ -470,6 +470,9 @@ public class UiUtils{
 		TypedArray ta=button.getContext().obtainStyledAttributes(styleRes, new int[]{android.R.attr.background});
 		button.setBackground(ta.getDrawable(0));
 		ta.recycle();
+		ta=button.getContext().obtainStyledAttributes(styleRes, new int[]{android.R.attr.textColor});
+		button.setTextColor(ta.getColorStateList(0));
+		ta.recycle();
 	}
 
 	public static void performAccountAction(Activity activity, Account account, String accountID, Relationship relationship, Button button, Consumer<Boolean> progressCallback, Consumer<Relationship> resultCallback){
