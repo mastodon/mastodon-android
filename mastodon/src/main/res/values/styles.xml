@@ -4,7 +4,6 @@
 		<!-- needed to disable scrim on API 29+ -->
 		<item name="android:enforceNavigationBarContrast" tools:ignore="NewApi">false</item>
 		<item name="android:enforceStatusBarContrast" tools:ignore="NewApi">false</item>
-		<item name="appkitBackDrawable">@drawable/ic_fluent_arrow_left_24_regular</item>
 		<item name="android:splitMotionEvents">false</item>
 		<item name="android:windowBackground">?colorWindowBackground</item>
 		<item name="android:editTextStyle">@style/Widget.Mastodon.EditText</item>
@@ -23,7 +22,6 @@
 		<item name="colorBackgroundLight">@color/gray_50</item>
 		<item name="colorBackgroundLightest">@color/gray_25</item>
 		<item name="colorDarkIcon">@color/gray_900</item>
-		<item name="colorWindowBackground">@color/white</item>
 		<item name="android:statusBarColor">@color/gray_50</item>
 		<item name="android:navigationBarColor">@color/navigation_bar_bg</item>
 		<item name="android:actionBarTheme">@style/Theme.Mastodon.Toolbar</item>
@@ -70,13 +68,14 @@
 		<item name="colorM3OnError">#FFF</item>
 		<item name="colorM3ErrorContainer">#F9DEDC</item>
 		<item name="colorM3OnErrorContainer">#410E0B</item>
+
+		<item name="colorWindowBackground">?colorM3Background</item>
 	</style>
 
 	<style name="Theme.Mastodon.Dark" parent="Theme.AppKit">
 		<!-- needed to disable scrim on API 29+ -->
 		<item name="android:enforceNavigationBarContrast" tools:ignore="NewApi">false</item>
 		<item name="android:enforceStatusBarContrast" tools:ignore="NewApi">false</item>
-		<item name="appkitBackDrawable">@drawable/ic_fluent_arrow_left_24_regular</item>
 		<item name="android:splitMotionEvents">false</item>
 		<item name="android:windowBackground">?colorWindowBackground</item>
 		<item name="android:editTextStyle">@style/Widget.Mastodon.EditText</item>

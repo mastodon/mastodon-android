@@ -13,30 +13,22 @@
 		android:layout_height="24dp"
 		android:layout_alignParentTop="true"
 		android:layout_alignParentEnd="true"
+		android:layout_marginTop="-2dp"
+		android:layout_marginEnd="-2dp"
 		android:background="?android:selectableItemBackgroundBorderless"
 		android:scaleType="center"
-		android:tint="?android:textColorSecondary"
+		android:tint="?colorM3OnSurfaceVariant"
 		android:contentDescription="@string/more_options"
-		android:src="@drawable/ic_post_more" />
-
-	<ImageView
-		android:id="@+id/visibility"
-		android:layout_width="24dp"
-		android:layout_height="20dp"
-		android:layout_alignParentEnd="true"
-		android:layout_below="@id/more"
-		android:background="?android:selectableItemBackgroundBorderless"
-		android:scaleType="center"
-		android:tint="?android:textColorSecondary"
-		android:src="@drawable/ic_visibility" />
+		android:src="@drawable/ic_more_vert_20px" />
 
 	<ImageView
 		android:id="@+id/avatar"
-		android:layout_width="46dp"
-		android:layout_height="46dp"
+		android:layout_width="40dp"
+		android:layout_height="40dp"
 		android:layout_alignParentStart="true"
 		android:layout_alignParentTop="true"
-		android:layout_marginEnd="12dp" />
+		android:layout_marginTop="2dp"
+		android:layout_marginEnd="8dp" />
 
 	<org.joinmastodon.android.ui.views.HeaderSubtitleLinearLayout
 		android:id="@+id/name_wrap"
@@ -53,7 +45,8 @@
 			android:ellipsize="end"
 			android:singleLine="true"
 			android:textAppearance="@style/m3_title_medium"
-			android:textAlignment="viewStart"
+			android:textColor="?colorM3OnSurface"
+			android:gravity="start|center_vertical"
 			tools:text="Eugen" />
 
 		<TextView
@@ -66,46 +59,22 @@
 			android:textAppearance="@style/m3_title_medium"
 			android:fontFamily="sans-serif"
 			android:textAlignment="viewStart"
+			android:textColor="?colorM3OnSurface"
 			tools:text="boosted your cat picture" />
 
 	</org.joinmastodon.android.ui.views.HeaderSubtitleLinearLayout>
 
-	<org.joinmastodon.android.ui.views.HeaderSubtitleLinearLayout
+	<TextView
+		android:id="@+id/time_and_username"
 		android:layout_width="match_parent"
 		android:layout_height="20dp"
 		android:layout_below="@id/name_wrap"
 		android:layout_toEndOf="@id/avatar"
-		android:layout_toStartOf="@id/visibility"
-		android:layoutDirection="locale"
-		android:orientation="horizontal">
-
-		<TextView
-			android:id="@+id/username"
-			android:layout_width="wrap_content"
-			android:layout_height="20dp"
-			android:ellipsize="end"
-			android:singleLine="true"
-			android:textAppearance="@style/m3_title_small"
-			tools:text="\@Gargron" />
-
-		<TextView
-			android:id="@+id/separator"
-			android:layout_width="wrap_content"
-			android:layout_height="20dp"
-			android:layout_marginLeft="4dp"
-			android:layout_marginRight="4dp"
-			android:importantForAccessibility="no"
-			android:text="·"
-			android:textAppearance="@style/m3_title_small" />
-
-		<TextView
-			android:id="@+id/timestamp"
-			android:layout_width="wrap_content"
-			android:layout_height="20dp"
-			android:textAppearance="@style/m3_title_small"
-			android:singleLine="true"
-			tools:text="3h" />
-
-	</org.joinmastodon.android.ui.views.HeaderSubtitleLinearLayout>
+		android:singleLine="true"
+		android:ellipsize="end"
+		android:textAppearance="@style/m3_title_small"
+		android:gravity="center_vertical"
+		android:textColor="?colorM3OnSurfaceVariant"
+		tools:text="9h ago · \@Gargron@mastodon.social"/>
 
 </RelativeLayout>

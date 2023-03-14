@@ -327,8 +327,8 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 
 		spoilerEdit=view.findViewById(R.id.content_warning);
 		LayerDrawable spoilerBg=(LayerDrawable) spoilerEdit.getBackground().mutate();
-		spoilerBg.setDrawableByLayerId(R.id.left_drawable, new SpoilerStripesDrawable());
-		spoilerBg.setDrawableByLayerId(R.id.right_drawable, new SpoilerStripesDrawable());
+		spoilerBg.setDrawableByLayerId(R.id.left_drawable, new SpoilerStripesDrawable(false));
+		spoilerBg.setDrawableByLayerId(R.id.right_drawable, new SpoilerStripesDrawable(false));
 		spoilerEdit.setBackground(spoilerBg);
 		if((savedInstanceState!=null && savedInstanceState.getBoolean("hasSpoiler", false)) || hasSpoiler){
 			hasSpoiler=true;

@@ -2,6 +2,8 @@ package org.joinmastodon.android.ui.displayitems;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -45,6 +47,7 @@ public class FooterStatusDisplayItem extends StatusDisplayItem{
 	public static class Holder extends StatusDisplayItem.Holder<FooterStatusDisplayItem>{
 		private final TextView reply, boost, favorite;
 		private final ImageView share;
+		private final ColorStateList buttonColors;
 
 		private final View.AccessibilityDelegate buttonAccessibilityDelegate=new View.AccessibilityDelegate(){
 			@Override
@@ -61,6 +64,27 @@ public class FooterStatusDisplayItem extends StatusDisplayItem{
 			boost=findViewById(R.id.boost);
 			favorite=findViewById(R.id.favorite);
 			share=findViewById(R.id.share);
+
+			float[] hsb={0, 0, 0};
+			Color.colorToHSV(UiUtils.getThemeColor(activity, R.attr.colorM3Primary), hsb);
+			hsb[1]+=0.1f;
+			hsb[2]+=0.16f;
+
+			buttonColors=new ColorStateList(new int[][]{
+					{android.R.attr.state_selected},
+					{android.R.attr.state_enabled},
+					{}
+			}, new int[]{
+					Color.HSVToColor(hsb),
+					UiUtils.getThemeColor(activity, R.attr.colorM3OnSurfaceVariant),
+					UiUtils.getThemeColor(activity, R.attr.colorM3OnSurfaceVariant) & 0x80FFFFFF
+			});
+
+			boost.setTextColor(buttonColors);
+			boost.setCompoundDrawableTintList(buttonColors);
+			favorite.setTextColor(buttonColors);
+			favorite.setCompoundDrawableTintList(buttonColors);
+
 			if(Build.VERSION.SDK_INT<Build.VERSION_CODES.N){
 				UiUtils.fixCompoundDrawableTintOnAndroid6(reply);
 				UiUtils.fixCompoundDrawableTintOnAndroid6(boost);
@@ -94,7 +118,7 @@ public class FooterStatusDisplayItem extends StatusDisplayItem{
 		private void bindButton(TextView btn, long count){
 			if(count>0 && !item.hideCounts){
 				btn.setText(UiUtils.abbreviateNumber(count));
-				btn.setCompoundDrawablePadding(V.dp(8));
+				btn.setCompoundDrawablePadding(V.dp(6));
 			}else{
 				btn.setText("");
 				btn.setCompoundDrawablePadding(0);

@@ -64,6 +64,7 @@ public abstract class StatusDisplayItem{
 			case GAP -> new GapStatusDisplayItem.Holder(activity, parent);
 			case EXTENDED_FOOTER -> new ExtendedFooterStatusDisplayItem.Holder(activity, parent);
 			case MEDIA_GRID -> new MediaGridStatusDisplayItem.Holder(activity, parent);
+			case SPOILER -> new SpoilerStatusDisplayItem.Holder(activity, parent);
 		};
 	}
 
@@ -72,32 +73,43 @@ public abstract class StatusDisplayItem{
 		ArrayList<StatusDisplayItem> items=new ArrayList<>();
 		Status statusForContent=status.getContentStatus();
 		if(status.reblog!=null){
-			items.add(new ReblogOrReplyLineStatusDisplayItem(parentID, fragment, fragment.getString(R.string.user_boosted, status.account.displayName), status.account.emojis, R.drawable.ic_fluent_arrow_repeat_all_20_filled));
+			items.add(new ReblogOrReplyLineStatusDisplayItem(parentID, fragment, fragment.getString(R.string.user_boosted, status.account.displayName), status.account.emojis, R.drawable.ic_repeat_20px));
 		}else if(status.inReplyToAccountId!=null && knownAccounts.containsKey(status.inReplyToAccountId)){
 			Account account=Objects.requireNonNull(knownAccounts.get(status.inReplyToAccountId));
-			items.add(new ReblogOrReplyLineStatusDisplayItem(parentID, fragment, fragment.getString(R.string.in_reply_to, account.displayName), account.emojis, R.drawable.ic_fluent_arrow_reply_20_filled));
+			items.add(new ReblogOrReplyLineStatusDisplayItem(parentID, fragment, fragment.getString(R.string.in_reply_to, account.displayName), account.emojis, R.drawable.ic_reply_20px));
 		}
 		HeaderStatusDisplayItem header;
 		items.add(header=new HeaderStatusDisplayItem(parentID, statusForContent.account, statusForContent.createdAt, fragment, accountID, statusForContent, null));
+
+		ArrayList<StatusDisplayItem> contentItems;
+		if(!TextUtils.isEmpty(statusForContent.spoilerText)){
+			SpoilerStatusDisplayItem spoilerItem=new SpoilerStatusDisplayItem(parentID, fragment, statusForContent);
+			items.add(spoilerItem);
+			contentItems=spoilerItem.contentItems;
+		}else{
+			contentItems=items;
+		}
+
 		if(!TextUtils.isEmpty(statusForContent.content))
-			items.add(new TextStatusDisplayItem(parentID, HtmlParser.parse(statusForContent.content, statusForContent.emojis, statusForContent.mentions, statusForContent.tags, accountID), fragment, statusForContent));
+			contentItems.add(new TextStatusDisplayItem(parentID, HtmlParser.parse(statusForContent.content, statusForContent.emojis, statusForContent.mentions, statusForContent.tags, accountID), fragment, statusForContent));
 		else
 			header.needBottomPadding=true;
+
 		List<Attachment> imageAttachments=statusForContent.mediaAttachments.stream().filter(att->att.type.isImage()).collect(Collectors.toList());
 		if(!imageAttachments.isEmpty()){
 			PhotoLayoutHelper.TiledLayoutResult layout=PhotoLayoutHelper.processThumbs(imageAttachments);
-			items.add(new MediaGridStatusDisplayItem(parentID, fragment, layout, imageAttachments, statusForContent));
+			contentItems.add(new MediaGridStatusDisplayItem(parentID, fragment, layout, imageAttachments, statusForContent));
 		}
 		for(Attachment att:statusForContent.mediaAttachments){
 			if(att.type==Attachment.Type.AUDIO){
-				items.add(new AudioStatusDisplayItem(parentID, fragment, statusForContent, att));
+				contentItems.add(new AudioStatusDisplayItem(parentID, fragment, statusForContent, att));
 			}
 		}
 		if(statusForContent.poll!=null){
-			buildPollItems(parentID, fragment, statusForContent.poll, items);
+			buildPollItems(parentID, fragment, statusForContent.poll, contentItems);
 		}
 		if(statusForContent.card!=null && statusForContent.mediaAttachments.isEmpty() && TextUtils.isEmpty(statusForContent.spoilerText)){
-			items.add(new LinkCardStatusDisplayItem(parentID, fragment, statusForContent));
+			contentItems.add(new LinkCardStatusDisplayItem(parentID, fragment, statusForContent));
 		}
 		if(addFooter){
 			items.add(new FooterStatusDisplayItem(parentID, fragment, statusForContent, accountID));
@@ -109,12 +121,20 @@ public abstract class StatusDisplayItem{
 			item.inset=inset;
 			item.index=i++;
 		}
+		if(items!=contentItems){
+			for(StatusDisplayItem item:contentItems){
+				item.inset=inset;
+				item.index=i++;
+			}
+		}
 		return items;
 	}
 
 	public static void buildPollItems(String parentID, BaseStatusListFragment fragment, Poll poll, List<StatusDisplayItem> items){
+		int i=0;
 		for(Poll.Option opt:poll.options){
-			items.add(new PollOptionStatusDisplayItem(parentID, poll, opt, fragment));
+			items.add(new PollOptionStatusDisplayItem(parentID, poll, i, fragment));
+			i++;
 		}
 		items.add(new PollFooterStatusDisplayItem(parentID, fragment, poll));
 	}
@@ -133,7 +153,8 @@ public abstract class StatusDisplayItem{
 		HASHTAG,
 		GAP,
 		EXTENDED_FOOTER,
-		MEDIA_GRID
+		MEDIA_GRID,
+		SPOILER
 	}
 
 	public static abstract class Holder<T extends StatusDisplayItem> extends BindableViewHolder<T> implements UsableRecyclerView.DisableableClickable{

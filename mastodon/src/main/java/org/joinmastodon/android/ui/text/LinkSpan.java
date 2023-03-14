@@ -28,6 +28,7 @@ public class LinkSpan extends CharacterStyle {
 	@Override
 	public void updateDrawState(TextPaint tp) {
 		tp.setColor(color=tp.linkColor);
+		tp.setUnderlineText(true);
 	}
 	
 	public void onClick(Context context){

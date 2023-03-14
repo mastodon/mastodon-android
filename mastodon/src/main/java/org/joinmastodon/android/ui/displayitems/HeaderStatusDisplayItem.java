@@ -1,5 +1,6 @@
 package org.joinmastodon.android.ui.displayitems;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.graphics.Outline;
@@ -32,6 +33,7 @@ import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.Attachment;
 import org.joinmastodon.android.model.Relationship;
 import org.joinmastodon.android.model.Status;
+import org.joinmastodon.android.ui.OutlineProviders;
 import org.joinmastodon.android.ui.text.HtmlParser;
 import org.joinmastodon.android.ui.utils.CustomEmojiHelper;
 import org.joinmastodon.android.ui.utils.UiUtils;
@@ -105,33 +107,23 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 	}
 
 	public static class Holder extends StatusDisplayItem.Holder<HeaderStatusDisplayItem> implements ImageLoaderViewHolder{
-		private final TextView name, username, timestamp, extraText;
-		private final ImageView avatar, more, visibility;
+		private final TextView name, timeAndUsername, extraText;
+		private final ImageView avatar, more;
 		private final PopupMenu optionsMenu;
 		private Relationship relationship;
 		private APIRequest<?> currentRelationshipRequest;
 
-		private static final ViewOutlineProvider roundCornersOutline=new ViewOutlineProvider(){
-			@Override
-			public void getOutline(View view, Outline outline){
-				outline.setRoundRect(0, 0, view.getWidth(), view.getHeight(), V.dp(12));
-			}
-		};
-
 		public Holder(Activity activity, ViewGroup parent){
 			super(activity, R.layout.display_item_header, parent);
 			name=findViewById(R.id.name);
-			username=findViewById(R.id.username);
-			timestamp=findViewById(R.id.timestamp);
+			timeAndUsername=findViewById(R.id.time_and_username);
 			avatar=findViewById(R.id.avatar);
 			more=findViewById(R.id.more);
-			visibility=findViewById(R.id.visibility);
 			extraText=findViewById(R.id.extra_text);
 			avatar.setOnClickListener(this::onAvaClick);
-			avatar.setOutlineProvider(roundCornersOutline);
+			avatar.setOutlineProvider(OutlineProviders.roundedRect(10));
 			avatar.setClipToOutline(true);
 			more.setOnClickListener(this::onMoreClick);
-			visibility.setOnClickListener(v->item.parentFragment.onVisibilityIconClick(this));
 
 			optionsMenu=new PopupMenu(activity, more);
 			optionsMenu.inflate(R.menu.post);
@@ -200,22 +192,17 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 			});
 		}
 
+		@SuppressLint("SetTextI18n")
 		@Override
 		public void onBind(HeaderStatusDisplayItem item){
 			name.setText(item.parsedName);
-			username.setText('@'+item.user.acct);
+			String time;
 			if(item.status==null || item.status.editedAt==null)
-				timestamp.setText(UiUtils.formatRelativeTimestamp(itemView.getContext(), item.createdAt));
+				time=UiUtils.formatRelativeTimestamp(itemView.getContext(), item.createdAt);
 			else
-				timestamp.setText(item.parentFragment.getString(R.string.edited_timestamp, UiUtils.formatRelativeTimestamp(itemView.getContext(), item.status.editedAt)));
-			visibility.setVisibility(item.hasVisibilityToggle && !item.inset ? View.VISIBLE : View.GONE);
-			if(item.hasVisibilityToggle){
-				visibility.setImageResource(item.status.spoilerRevealed ? R.drawable.ic_visibility_off : R.drawable.ic_visibility);
-				visibility.setContentDescription(item.parentFragment.getString(item.status.spoilerRevealed ? R.string.hide_content : R.string.reveal_content));
-				if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.O){
-					visibility.setTooltipText(visibility.getContentDescription());
-				}
-			}
+				time=item.parentFragment.getString(R.string.edited_timestamp, UiUtils.formatRelativeTimestamp(itemView.getContext(), item.status.editedAt));
+
+			timeAndUsername.setText(time+" · @"+item.user.acct);
 			itemView.setPadding(itemView.getPaddingLeft(), itemView.getPaddingTop(), itemView.getPaddingRight(), item.needBottomPadding ? V.dp(16) : 0);
 			if(TextUtils.isEmpty(item.extraText)){
 				extraText.setVisibility(View.GONE);

@@ -336,6 +336,8 @@ public class OnboardingFollowSuggestionsFragment extends BaseRecyclerFragment<Pa
 		}
 
 		private void setActionProgressVisible(boolean visible){
+			if(visible)
+				actionProgress.setIndeterminateTintList(actionButton.getTextColors());
 			actionButton.setTextVisible(!visible);
 			actionProgress.setVisibility(visible ? View.VISIBLE : View.GONE);
 			actionButton.setClickable(!visible);

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+	<item>
+		<color android:color="?colorM3SecondaryContainer"/>
+	</item>
+	<item android:gravity="left" android:width="5dp">
+		<shape>
+			<gradient android:type="linear" android:angle="270" android:startColor="#FEC84B" android:endColor="#F79009"/>
+		</shape>
+	</item>
+	<item android:id="@+id/left_drawable" android:width="5dp" android:gravity="left">
+		<color android:color="#0f0"/>
+	</item>
+	<item android:gravity="right" android:width="5dp">
+		<shape>
+			<gradient android:type="linear" android:angle="270" android:startColor="#FEC84B" android:endColor="#F79009"/>
+		</shape>
+	</item>
+	<item android:id="@+id/right_drawable" android:width="5dp" android:gravity="right">
+		<color android:color="#0f0"/>
+	</item>
+	<item>
+		<ripple android:color="?android:colorControlHighlight">
+			<item android:id="@android:id/mask">
+				<shape>
+					<solid android:color="#000"/>
+				</shape>
+			</item>
+		</ripple>
+	</item>
+</layer-list>

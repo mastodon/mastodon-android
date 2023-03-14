@@ -14,11 +14,16 @@ import androidx.annotation.Nullable;
 
 public class SpoilerStripesDrawable extends Drawable{
 	private Paint paint=new Paint(Paint.ANTI_ALIAS_FLAG);
+	private boolean flipped;
 
-	public SpoilerStripesDrawable(){
+	private static final float X1=-0.860365f;
+	private static final float X2=10.6078f;
+
+	public SpoilerStripesDrawable(boolean flipped){
 		paint.setColor(0xff000000);
 		paint.setStyle(Paint.Style.STROKE);
 		paint.setStrokeWidth(3);
+		this.flipped=flipped;
 	}
 
 	@Override
@@ -34,7 +39,7 @@ public class SpoilerStripesDrawable extends Drawable{
 		float y1=6.80133f;
 		float y2=-1.22874f;
 		while(y2<height){
-			canvas.drawLine(-0.860365f, y1, 10.6078f, y2, paint);
+			canvas.drawLine(flipped ? X2 : X1, y1, flipped ? X1 : X2, y2, paint);
 			y1+=8.03007f;
 			y2+=8.03007f;
 		}

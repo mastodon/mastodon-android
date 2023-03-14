@@ -10,6 +10,7 @@ import android.widget.TextView;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.fragments.BaseStatusListFragment;
 import org.joinmastodon.android.model.Poll;
+import org.joinmastodon.android.ui.OutlineProviders;
 import org.joinmastodon.android.ui.text.HtmlParser;
 import org.joinmastodon.android.ui.utils.CustomEmojiHelper;
 
@@ -25,11 +26,13 @@ public class PollOptionStatusDisplayItem extends StatusDisplayItem{
 	private boolean showResults;
 	private float votesFraction; // 0..1
 	private boolean isMostVoted;
+	private final int optionIndex;
 	public final Poll poll;
 
-	public PollOptionStatusDisplayItem(String parentID, Poll poll, Poll.Option option, BaseStatusListFragment parentFragment){
+	public PollOptionStatusDisplayItem(String parentID, Poll poll, int optionIndex, BaseStatusListFragment parentFragment){
 		super(parentID, parentFragment);
-		this.option=option;
+		this.optionIndex=optionIndex;
+		option=poll.options.get(optionIndex);
 		this.poll=poll;
 		text=HtmlParser.parseCustomEmoji(option.title, poll.emojis);
 		emojiHelper.setText(text);
@@ -61,23 +64,24 @@ public class PollOptionStatusDisplayItem extends StatusDisplayItem{
 
 	public static class Holder extends StatusDisplayItem.Holder<PollOptionStatusDisplayItem> implements ImageLoaderViewHolder{
 		private final TextView text, percent;
-		private final View icon, button;
+		private final View check, button;
 		private final Drawable progressBg;
 
 		public Holder(Activity activity, ViewGroup parent){
 			super(activity, R.layout.display_item_poll_option, parent);
 			text=findViewById(R.id.text);
 			percent=findViewById(R.id.percent);
-			icon=findViewById(R.id.icon);
+			check=findViewById(R.id.checkbox);
 			button=findViewById(R.id.button);
 			progressBg=activity.getResources().getDrawable(R.drawable.bg_poll_option_voted, activity.getTheme()).mutate();
 			itemView.setOnClickListener(this::onButtonClick);
+			button.setOutlineProvider(OutlineProviders.roundedRect(20));
+			button.setClipToOutline(true);
 		}
 
 		@Override
 		public void onBind(PollOptionStatusDisplayItem item){
 			text.setText(item.text);
-			icon.setVisibility(item.showResults ? View.GONE : View.VISIBLE);
 			percent.setVisibility(item.showResults ? View.VISIBLE : View.GONE);
 			itemView.setClickable(!item.showResults);
 			if(item.showResults){

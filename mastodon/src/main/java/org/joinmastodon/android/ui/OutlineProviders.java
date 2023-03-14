@@ -21,6 +21,12 @@ public class OutlineProviders{
 			outline.setAlpha(view.getAlpha());
 		}
 	};
+	public static final ViewOutlineProvider OVAL=new ViewOutlineProvider(){
+		@Override
+		public void getOutline(View view, Outline outline){
+			outline.setOval(0, 0, view.getWidth(), view.getHeight());
+		}
+	};
 
 	public static ViewOutlineProvider roundedRect(int dp){
 		ViewOutlineProvider provider=roundedRects.get(dp);

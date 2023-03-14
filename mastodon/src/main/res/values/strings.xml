@@ -103,9 +103,9 @@
 		<item quantity="one">%d day left</item>
 		<item quantity="other">%d days left</item>
 	</plurals>
-	<plurals name="x_voters">
-		<item quantity="one">%,d voter</item>
-		<item quantity="other">%,d voters</item>
+	<plurals name="x_votes">
+		<item quantity="one">%,d vote</item>
+		<item quantity="other">%,d votes</item>
 	</plurals>
 	<string name="poll_closed">Closed</string>
 	<string name="confirm_mute_title">Mute Account</string>
@@ -438,4 +438,7 @@
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
 	<string name="signup_email_domain_blocked">%1$s doesn\'t allow signups from %2$s. Try a different one or &lt;a>pick a different server&lt;/a>.</string>
 	<string name="signup_username_taken">This username is taken.</string>
+	<string name="spoiler_show">Show anyway</string>
+	<string name="spoiler_hide">Re-hide</string>
+	<string name="poll_multiple_choice">Choose one or more</string>
 </resources>

@@ -31,6 +31,7 @@ import me.grishka.appkit.imageloader.ImageLoaderViewHolder;
 import me.grishka.appkit.imageloader.requests.ImageLoaderRequest;
 import me.grishka.appkit.imageloader.requests.UrlImageLoaderRequest;
 import me.grishka.appkit.utils.CubicBezierInterpolator;
+import me.grishka.appkit.utils.V;
 
 public class MediaGridStatusDisplayItem extends StatusDisplayItem{
 	private static final String TAG="MediaGridDisplayItem";
@@ -97,6 +98,7 @@ public class MediaGridStatusDisplayItem extends StatusDisplayItem{
 			wrapper=(FrameLayout)itemView;
 			layout=new MediaGridLayout(activity);
 			wrapper.addView(layout);
+			wrapper.setPadding(0, 0, 0, V.dp(8));
 
 			activity.getLayoutInflater().inflate(R.layout.overlay_image_alt_text, wrapper);
 			altTextWrapper=findViewById(R.id.alt_text_wrapper);
@@ -105,6 +107,7 @@ public class MediaGridStatusDisplayItem extends StatusDisplayItem{
 			altTextClose=findViewById(R.id.alt_text_close);
 			altText=findViewById(R.id.alt_text);
 			altTextClose.setOnClickListener(this::onAltTextCloseClick);
+			wrapper.setClipToPadding(false);
 		}
 
 		@Override
@@ -158,11 +161,7 @@ public class MediaGridStatusDisplayItem extends StatusDisplayItem{
 
 		private void onViewClick(View v){
 			int index=(Integer)v.getTag();
-			if(!item.status.spoilerRevealed){
-				item.parentFragment.onRevealSpoilerClick(this);
-			}else if(item.parentFragment instanceof PhotoViewerHost){
-				((PhotoViewerHost) item.parentFragment).openPhotoViewer(item.parentID, item.status, index, this);
-			}
+			((PhotoViewerHost) item.parentFragment).openPhotoViewer(item.parentID, item.status, index, this);
 		}
 
 		private void onAltTextClick(View v){

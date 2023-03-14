@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:paddingLeft="16dp"
+	android:paddingTop="16dp"
+	android:paddingRight="16dp">
+
+	<LinearLayout
+		android:id="@+id/spoiler_button"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="vertical"
+		android:background="@drawable/bg_spoiler"
+		android:paddingLeft="12dp"
+		android:paddingTop="8dp"
+		android:paddingRight="12dp"
+		android:paddingBottom="8dp">
+		
+		<TextView
+			android:id="@+id/spoiler_title"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginBottom="4dp"
+			android:textAppearance="@style/m3_body_large"
+			android:textColor="?colorM3OnSecondaryContainer"
+			tools:text="Spoilery stuff"/>
+
+		<TextView
+			android:id="@+id/spoiler_action"
+			android:layout_width="match_parent"
+			android:layout_height="20dp"
+			android:textAppearance="@style/m3_label_large"
+			android:singleLine="true"
+			android:gravity="center_vertical"
+			android:textColor="?colorM3Primary"
+			tools:text="Re-hide"/>
+
+	</LinearLayout>
+
+</FrameLayout>
