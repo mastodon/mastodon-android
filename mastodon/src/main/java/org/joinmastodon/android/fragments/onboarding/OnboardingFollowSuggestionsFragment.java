@@ -77,8 +77,6 @@ public class OnboardingFollowSuggestionsFragment extends BaseRecyclerFragment<Pa
 	public void onViewCreated(View view, Bundle savedInstanceState){
 		super.onViewCreated(view, savedInstanceState);
 		buttonBar=view.findViewById(R.id.button_bar);
-		setStatusBarColor(UiUtils.getThemeColor(getActivity(), R.attr.colorM3Background));
-		view.setBackgroundColor(UiUtils.getThemeColor(getActivity(), R.attr.colorM3Background));
 		list.addOnScrollListener(onScrollListener=new ElevationOnScrollListener((FragmentRootLinearLayout) view, buttonBar, getToolbar()));
 
 		view.findViewById(R.id.btn_next).setOnClickListener(UiUtils.rateLimitedClickListener(this::onFollowAllClick));
@@ -88,8 +86,6 @@ public class OnboardingFollowSuggestionsFragment extends BaseRecyclerFragment<Pa
 	@Override
 	protected void onUpdateToolbar(){
 		super.onUpdateToolbar();
-		getToolbar().setBackgroundResource(R.drawable.bg_onboarding_panel);
-		getToolbar().setElevation(0);
 		if(onScrollListener!=null){
 			onScrollListener.setViews(buttonBar, getToolbar());
 		}

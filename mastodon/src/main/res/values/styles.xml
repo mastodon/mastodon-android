@@ -12,7 +12,6 @@
 		<item name="secondaryButtonStyle">@style/Widget.Mastodon.Button.Secondary_DarkOnLight</item>
 		<item name="primaryLargeButtonStyle">@style/Widget.Mastodon.Button.Large.Primary_DarkOnLight</item>
 		<item name="secondaryLargeButtonStyle">@style/Widget.Mastodon.Button.Large.Secondary_DarkOnLight</item>
-		<item name="android:colorAccent">@color/primary_700</item>
 		<item name="android:colorPrimary">@color/gray_800</item>
 		<item name="android:colorBackground">@color/gray_100</item>
 		<item name="android:textColorPrimary">@color/gray_800</item>
@@ -22,8 +21,6 @@
 		<item name="colorBackgroundLight">@color/gray_50</item>
 		<item name="colorBackgroundLightest">@color/gray_25</item>
 		<item name="colorDarkIcon">@color/gray_900</item>
-		<item name="android:statusBarColor">@color/gray_50</item>
-		<item name="android:navigationBarColor">@color/navigation_bar_bg</item>
 		<item name="android:actionBarTheme">@style/Theme.Mastodon.Toolbar</item>
 		<item name="android:alertDialogTheme">@style/Theme.Mastodon.Dialog.Alert</item>
 		<item name="colorPollMostVoted">@color/primary_500</item>
@@ -70,6 +67,9 @@
 		<item name="colorM3OnErrorContainer">#410E0B</item>
 
 		<item name="colorWindowBackground">?colorM3Background</item>
+		<item name="android:statusBarColor">?colorM3Background</item>
+		<item name="android:navigationBarColor">@color/navigation_bar_bg_light</item>
+		<item name="android:colorAccent">?colorM3Primary</item>
 	</style>
 
 	<style name="Theme.Mastodon.Dark" parent="Theme.AppKit">
@@ -84,7 +84,6 @@
 		<item name="secondaryButtonStyle">@style/Widget.Mastodon.Button.Secondary_LightOnDark</item>
 		<item name="primaryLargeButtonStyle">@style/Widget.Mastodon.Button.Large.Primary_LightOnDark</item>
 		<item name="secondaryLargeButtonStyle">@style/Widget.Mastodon.Button.Large.Secondary_LightOnDark</item>
-		<item name="android:colorAccent">@color/primary_400</item>
 		<item name="android:colorPrimary">@color/gray_50</item>
 		<item name="android:colorBackground">@color/gray_700</item>
 		<item name="android:textColorPrimary">@color/gray_50</item>
@@ -94,10 +93,7 @@
 		<item name="colorBackgroundLight">@color/gray_700</item>
 		<item name="colorBackgroundLightest">@color/gray_900</item>
 		<item name="colorDarkIcon">@color/gray_25</item>
-		<item name="colorWindowBackground">@color/gray_800</item>
-		<item name="android:statusBarColor">@color/gray_800</item>
-		<item name="android:navigationBarColor">@color/gray_800</item>
-		<item name="android:actionBarTheme">@style/Theme.Mastodon.Toolbar.Dark</item>
+		<item name="android:actionBarTheme">@style/Theme.Mastodon.Toolbar</item>
 		<item name="android:alertDialogTheme">@style/Theme.Mastodon.Dialog.Alert.Dark</item>
 		<item name="colorPollMostVoted">@color/primary_700</item>
 		<item name="colorPollVoted">@color/gray_600</item>
@@ -143,6 +139,11 @@
 		<item name="colorM3OnError">#601410</item>
 		<item name="colorM3ErrorContainer">#8C1D18</item>
 		<item name="colorM3OnErrorContainer">#F9DEDC</item>
+
+		<item name="colorWindowBackground">?colorM3Background</item>
+		<item name="android:statusBarColor">?colorM3Background</item>
+		<item name="android:navigationBarColor">?colorM3Background</item>
+		<item name="android:colorAccent">?colorM3Primary</item>
 	</style>
 
 	<style name="Theme.Mastodon.Dark.TrueBlack">
@@ -155,17 +156,13 @@
 	<style name="Theme.Mastodon.AutoLightDark.TrueBlack" parent="Theme.Mastodon.Light"/>
 
 	<style name="Theme.Mastodon.Toolbar" parent="android:ThemeOverlay.Material.ActionBar">
-		<item name="android:colorPrimary">@color/gray_50</item>
-		<item name="android:textColorPrimary">@color/gray_800</item>
-		<item name="android:textColorSecondary">@color/gray_800</item>
+		<item name="android:colorPrimary">?colorM3Background</item>
+		<item name="android:textColorPrimary">?colorM3OnSurface</item>
+		<item name="android:textColorSecondary">?colorM3OnSurfaceVariant</item>
 		<item name="android:toolbarStyle">@style/Widget.Mastodon.Toolbar</item>
-	</style>
-
-	<style name="Theme.Mastodon.Toolbar.Dark" parent="android:ThemeOverlay.Material.Dark.ActionBar">
-		<item name="android:colorPrimary">@color/gray_800</item>
-		<item name="android:textColorPrimary">@color/gray_50</item>
-		<item name="android:textColorSecondary">@color/gray_50</item>
-		<item name="android:toolbarStyle">@style/Widget.Mastodon.Toolbar</item>
+		<item name="appkitToolbarElevation">0px</item>
+		<item name="appkitToolbarBackground">?colorM3Background</item>
+		<item name="actionBarIconTint">?colorM3OnSurfaceVariant</item>
 	</style>
 
 	<style name="Widget.Mastodon.Toolbar" parent="android:Widget.Material.Toolbar">
@@ -295,6 +292,8 @@
 		<item name="android:minHeight">40dp</item>
 		<item name="android:fontFamily">sans-serif-medium</item>
 		<item name="android:stateListAnimator">@null</item>
+		<item name="android:singleLine">true</item>
+		<item name="android:ellipsize">end</item>
 	</style>
 
 	<style name="Widget.Mastodon.M3.Button.Filled">

@@ -629,9 +629,9 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 		private int currentMediaHiddenLayoutsWidth=0;
 
 		{
-			dividerPaint.setColor(UiUtils.getThemeColor(getActivity(), R.attr.colorPollVoted));
+			dividerPaint.setColor(UiUtils.getThemeColor(getActivity(), R.attr.colorM3Outline));
 			dividerPaint.setStyle(Paint.Style.STROKE);
-			dividerPaint.setStrokeWidth(V.dp(1));
+			dividerPaint.setStrokeWidth(V.dp(0.5f));
 		}
 
 		@Override

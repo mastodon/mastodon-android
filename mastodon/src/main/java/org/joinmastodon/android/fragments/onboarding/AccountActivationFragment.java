@@ -90,13 +90,6 @@ public class AccountActivationFragment extends ToolbarFragment{
 	}
 
 	@Override
-	public void onViewCreated(View view, Bundle savedInstanceState){
-		super.onViewCreated(view, savedInstanceState);
-		setStatusBarColor(UiUtils.getThemeColor(getActivity(), R.attr.colorM3Background));
-		view.setBackgroundColor(UiUtils.getThemeColor(getActivity(), R.attr.colorM3Background));
-	}
-
-	@Override
 	protected void onUpdateToolbar(){
 		super.onUpdateToolbar();
 		getToolbar().setBackground(null);

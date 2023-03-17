@@ -82,17 +82,18 @@
 			<org.joinmastodon.android.ui.views.FloatingHintEditTextLayout
 				android:id="@+id/bio_wrap"
 				android:layout_width="match_parent"
-				android:layout_height="80dp"
+				android:layout_height="wrap_content"
 				android:layout_marginTop="-8dp"
 				android:layout_marginBottom="4dp"
 				android:paddingTop="4dp"
+				android:paddingBottom="12dp"
 				app:labelTextColor="@color/m3_outlined_text_field_label"
 				android:foreground="@drawable/bg_m3_outlined_text_field">
 
 				<EditText
 					android:id="@+id/bio"
 					android:layout_width="match_parent"
-					android:layout_height="56dp"
+					android:layout_height="wrap_content"
 					android:layout_marginStart="16dp"
 					android:layout_marginEnd="16dp"
 					android:layout_marginTop="8dp"

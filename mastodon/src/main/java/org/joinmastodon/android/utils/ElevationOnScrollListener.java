@@ -34,7 +34,7 @@ public class ElevationOnScrollListener extends RecyclerView.OnScrollListener imp
 		this.fragmentRootLayout=fragmentRootLayout;
 		this.views=views;
 		for(View v:views){
-			Drawable bg=v.getBackground().mutate();
+			Drawable bg=v.getContext().getDrawable(R.drawable.bg_onboarding_panel).mutate();
 			v.setBackground(bg);
 			if(bg instanceof LayerDrawable ld){
 				Drawable overlay=ld.findDrawableByLayerId(R.id.color_overlay);
@@ -51,7 +51,7 @@ public class ElevationOnScrollListener extends RecyclerView.OnScrollListener imp
 		for(View v:views){
 			if(oldViews.contains(v))
 				continue;
-			Drawable bg=v.getBackground().mutate();
+			Drawable bg=v.getContext().getDrawable(R.drawable.bg_onboarding_panel).mutate();
 			v.setBackground(bg);
 			if(bg instanceof LayerDrawable ld){
 				Drawable overlay=ld.findDrawableByLayerId(R.id.color_overlay);

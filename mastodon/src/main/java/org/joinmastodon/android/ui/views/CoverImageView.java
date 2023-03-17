@@ -8,7 +8,7 @@ import android.widget.ImageView;
 import androidx.annotation.Nullable;
 
 public class CoverImageView extends ImageView{
-	private float imageTranslationY, imageScale=1f;
+	private float imageTranslationY;
 
 	public CoverImageView(Context context){
 		super(context);
@@ -30,8 +30,7 @@ public class CoverImageView extends ImageView{
 		canvas.restore();
 	}
 
-	public void setTransform(float transY, float scale){
+	public void setTransform(float transY){
 		imageTranslationY=transY;
-		imageScale=scale;
 	}
 }

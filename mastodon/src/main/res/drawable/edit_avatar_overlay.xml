@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
 	<item>
-		<shape android:tint="@color/gray_800">
-			<solid android:color="#CC000000"/>
-		</shape>
+		<color android:color="#80000000"/>
 	</item>
-	<item android:drawable="@drawable/ic_fluent_image_edit_24_regular"
-		android:width="44dp"
-		android:height="44dp"
+	<item android:drawable="@drawable/ic_add_photo_alternate_48px_dark_on_surface"
+		android:width="48dp"
+		android:height="48dp"
 		android:gravity="center"/>
 </layer-list>

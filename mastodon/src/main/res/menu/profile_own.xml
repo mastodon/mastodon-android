@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-	<item android:id="@+id/bookmarks" android:title="@string/bookmarks" android:icon="@drawable/ic_fluent_bookmark_24_regular" android:showAsAction="always"/>
-	<item android:id="@+id/favorites" android:title="@string/your_favorites" android:icon="@drawable/ic_fluent_star_24_regular" android:showAsAction="always"/>
-	<item android:id="@+id/share" android:title="@string/share_user" android:icon="@drawable/ic_fluent_share_24_regular" android:showAsAction="always"/>
+	<item android:id="@+id/bookmarks" android:title="@string/bookmarks" android:icon="@drawable/ic_bookmark_24px" android:showAsAction="always"/>
+	<item android:id="@+id/favorites" android:title="@string/your_favorites" android:icon="@drawable/ic_star_24px" android:showAsAction="always"/>
+	<item android:id="@+id/share" android:title="@string/share_user" android:icon="@drawable/ic_share_24px" android:showAsAction="always"/>
 </menu>

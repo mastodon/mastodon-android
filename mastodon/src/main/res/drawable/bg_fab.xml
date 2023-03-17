@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ripple xmlns:android="http://schemas.android.com/apk/res/android"
 	android:color="?android:colorControlHighlight">
+	<item android:id="@android:id/mask">
+		<shape>
+			<solid android:color="#000"/>
+			<corners android:radius="16dp"/>
+		</shape>
+	</item>
 	<item>
 		<shape>
-			<solid android:color="?colorSecondary"/>
+			<solid android:color="?colorM3Background"/>
+			<corners android:radius="16dp"/>
+		</shape>
+	</item>
+	<item>
+		<shape android:tint="?colorM3Primary">
+			<solid android:color="#1C000000"/>
 			<corners android:radius="16dp"/>
 		</shape>
 	</item>

@@ -22,17 +22,17 @@
 
 		<ImageButton
 			android:id="@+id/fab"
-			android:layout_width="64dp"
-			android:layout_height="64dp"
+			android:layout_width="56dp"
+			android:layout_height="56dp"
 			android:layout_gravity="end|bottom"
 			android:layout_marginEnd="16dp"
-			android:layout_marginBottom="24dp"
+			android:layout_marginBottom="16dp"
 			android:background="@drawable/bg_fab"
-			android:tint="@color/fab_icon"
+			android:tint="?colorM3Primary"
 			android:scaleType="center"
 			android:stateListAnimator="@animator/fab_shadow"
 			android:contentDescription="@string/new_post"
-			android:src="@drawable/ic_edit_34"/>
+			android:src="@drawable/ic_edit_24px"/>
 
 	</FrameLayout>
 </me.grishka.appkit.views.RecursiveSwipeRefreshLayout>

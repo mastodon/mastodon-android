@@ -35,6 +35,7 @@ import android.widget.Button;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 import org.joinmastodon.android.E;
 import org.joinmastodon.android.GlobalUserPreferences;
@@ -699,5 +700,10 @@ public class UiUtils{
 				}
 			}
 		};
+	}
+
+	public static void setToolbarWithSubtitleAppearance(Toolbar toolbar){
+		toolbar.setTitleTextAppearance(toolbar.getContext(), R.style.m3_title_medium);
+		toolbar.setSubtitleTextAppearance(toolbar.getContext(), R.style.m3_title_small);
 	}
 }
