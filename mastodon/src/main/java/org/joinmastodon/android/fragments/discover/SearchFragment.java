@@ -236,7 +236,7 @@ public class SearchFragment extends BaseStatusListFragment<SearchResult>{
 	}
 
 	public void setQuery(String q){
-		if(Objects.equals(q, currentQuery))
+		if(Objects.equals(q, currentQuery) || q.isBlank())
 			return;
 		if(currentRequest!=null){
 			currentRequest.cancel();
