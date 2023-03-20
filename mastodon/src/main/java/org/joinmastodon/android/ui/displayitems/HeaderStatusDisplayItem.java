@@ -189,7 +189,7 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 							progress.dismiss();
 					}, rel->{
 						relationship=rel;
-						Toast.makeText(activity, activity.getString(rel.following ? R.string.followed_user : R.string.unfollowed_user, account.getDisplayUsername()), Toast.LENGTH_SHORT).show();
+						Toast.makeText(activity, activity.getString(rel.following ? R.string.followed_user : rel.requested ? R.string.following_user_requested : R.string.unfollowed_user, account.getDisplayUsername()), Toast.LENGTH_SHORT).show();
 					});
 				}else if(id==R.id.block_domain){
 					UiUtils.confirmToggleBlockDomain(activity, item.parentFragment.getAccountID(), account.getDomain(), relationship!=null && relationship.domainBlocking, ()->{});

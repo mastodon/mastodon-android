@@ -488,7 +488,7 @@ public class UiUtils{
 						public void onSuccess(Relationship result){
 							resultCallback.accept(result);
 							progressCallback.accept(false);
-							if(!result.following){
+							if(!result.following && !result.requested){
 								E.post(new RemoveAccountPostsEvent(accountID, account.id, true));
 							}
 						}
