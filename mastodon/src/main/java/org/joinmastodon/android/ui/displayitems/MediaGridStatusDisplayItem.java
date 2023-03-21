@@ -6,6 +6,7 @@ import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.graphics.drawable.Drawable;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
@@ -229,9 +230,11 @@ public class MediaGridStatusDisplayItem extends StatusDisplayItem{
 				altTextAnimator.cancel();
 
 			View btn=controllers.get(altTextIndex).altButton;
+			int i=0;
 			for(MediaAttachmentViewController c:controllers){
-				if(c.altButton!=null && c.altButton!=btn)
-					 c.altButton.setVisibility(View.VISIBLE);
+				if(c.altButton!=null && c.altButton!=btn && !TextUtils.isEmpty(item.attachments.get(i).description))
+					c.altButton.setVisibility(View.VISIBLE);
+				i++;
 			}
 
 			int[] loc={0, 0};
