@@ -143,7 +143,7 @@ public abstract class StatusListFragment extends BaseStatusListFragment<Status>{
 
 	protected void onRemoveAccountPostsEvent(RemoveAccountPostsEvent ev){
 		List<Status> toRemove=Stream.concat(data.stream(), preloadedData.stream())
-				.filter(s->s.account.id.equals(ev.postsByAccountID) || (s.reblog!=null && s.reblog.account.id.equals(ev.postsByAccountID)))
+				.filter(s->s.account.id.equals(ev.postsByAccountID) || (!ev.isUnfollow && s.reblog!=null && s.reblog.account.id.equals(ev.postsByAccountID)))
 				.collect(Collectors.toList());
 		for(Status s:toRemove){
 			removeStatus(s);
