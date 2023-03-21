@@ -18,6 +18,7 @@ import android.graphics.drawable.LayerDrawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.text.style.ImageSpan;
@@ -111,7 +112,8 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 	private ProgressBarButton actionButton;
 	private ViewPager2 pager;
 	private NestedRecyclerScrollView scrollView;
-	private AccountTimelineFragment postsFragment, postsWithRepliesFragment, mediaFragment;
+	private ProfileFeaturedFragment featuredFragment;
+	private AccountTimelineFragment timelineFragment;
 	private ProfileAboutFragment aboutFragment;
 	private TabLayout tabbar;
 	private SwipeRefreshLayout refreshLayout;
@@ -216,14 +218,13 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 			}
 		};
 
-		tabViews=new FrameLayout[4];
+		tabViews=new FrameLayout[3];
 		for(int i=0;i<tabViews.length;i++){
 			FrameLayout tabView=new FrameLayout(getActivity());
 			tabView.setId(switch(i){
-				case 0 -> R.id.profile_posts;
-				case 1 -> R.id.profile_posts_with_replies;
-				case 2 -> R.id.profile_media;
-				case 3 -> R.id.profile_about;
+				case 0 -> R.id.profile_featured;
+				case 1 -> R.id.profile_timeline;
+				case 2 -> R.id.profile_about;
 				default -> throw new IllegalStateException("Unexpected value: "+i);
 			});
 			tabView.setVisibility(View.GONE);
@@ -245,10 +246,9 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 			@Override
 			public void onConfigureTab(@NonNull TabLayout.Tab tab, int position){
 				tab.setText(switch(position){
-					case 0 -> R.string.posts;
-					case 1 -> R.string.posts_and_replies;
-					case 2 -> R.string.media;
-					case 3 -> R.string.profile_about;
+					case 0 -> R.string.profile_featured;
+					case 1 -> R.string.profile_timeline;
+					case 2 -> R.string.profile_about;
 					default -> throw new IllegalStateException();
 				});
 			}
@@ -312,12 +312,10 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 						if(refreshing){
 							refreshing=false;
 							refreshLayout.setRefreshing(false);
-							if(postsFragment.loaded)
-								postsFragment.onRefresh();
-							if(postsWithRepliesFragment.loaded)
-								postsWithRepliesFragment.onRefresh();
-							if(mediaFragment.loaded)
-								mediaFragment.onRefresh();
+							if(timelineFragment.loaded)
+								timelineFragment.onRefresh();
+							if(featuredFragment.loaded)
+								featuredFragment.onRefresh();
 						}
 						V.setVisibilityAnimated(fab, View.VISIBLE);
 					}
@@ -337,10 +335,14 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 	public void dataLoaded(){
 		if(getActivity()==null)
 			return;
-		if(postsFragment==null){
-			postsFragment=AccountTimelineFragment.newInstance(accountID, account, GetAccountStatuses.Filter.DEFAULT, true);
-			postsWithRepliesFragment=AccountTimelineFragment.newInstance(accountID, account, GetAccountStatuses.Filter.INCLUDE_REPLIES, false);
-			mediaFragment=AccountTimelineFragment.newInstance(accountID, account, GetAccountStatuses.Filter.MEDIA, false);
+		if(featuredFragment==null){
+			featuredFragment=new ProfileFeaturedFragment();
+			Bundle args=new Bundle();
+			args.putString("account", accountID);
+			args.putParcelable("profileAccount", Parcels.wrap(account));
+			args.putBoolean("__is_tab", true);
+			featuredFragment.setArguments(args);
+			timelineFragment=AccountTimelineFragment.newInstance(accountID, account, GetAccountStatuses.Filter.DEFAULT, true);
 			aboutFragment=new ProfileAboutFragment();
 			aboutFragment.setFields(fields);
 		}
@@ -398,11 +400,6 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 	}
 
 	@Override
-	public void onDestroyView(){
-		super.onDestroyView();
-	}
-
-	@Override
 	public void onConfigurationChanged(Configuration newConfig){
 		super.onConfigurationChanged(newConfig);
 		updateToolbar();
@@ -425,10 +422,9 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 	}
 
 	private void applyChildWindowInsets(){
-		if(postsFragment!=null && postsFragment.isAdded() && childInsets!=null){
-			postsFragment.onApplyWindowInsets(childInsets);
-			postsWithRepliesFragment.onApplyWindowInsets(childInsets);
-			mediaFragment.onApplyWindowInsets(childInsets);
+		if(timelineFragment!=null && timelineFragment.isAdded() && childInsets!=null){
+			timelineFragment.onApplyWindowInsets(childInsets);
+			featuredFragment.onApplyWindowInsets(childInsets);
 		}
 	}
 
@@ -693,10 +689,9 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 
 	private Fragment getFragmentForPage(int page){
 		return switch(page){
-			case 0 -> postsFragment;
-			case 1 -> postsWithRepliesFragment;
-			case 2 -> mediaFragment;
-			case 3 -> aboutFragment;
+			case 0 -> featuredFragment;
+			case 1 -> timelineFragment;
+			case 2 -> aboutFragment;
 			default -> throw new IllegalStateException();
 		};
 	}
@@ -759,7 +754,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 		invalidateOptionsMenu();
 		pager.setUserInputEnabled(false);
 		actionButton.setText(R.string.save_changes);
-		pager.setCurrentItem(3);
+		pager.setCurrentItem(2);
 		for(int i=0;i<3;i++){
 			tabbar.getTabAt(i).view.setEnabled(false);
 		}
@@ -1001,7 +996,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 
 		@Override
 		public int getItemCount(){
-			return loaded ? 4 : 0;
+			return loaded ? 3 : 0;
 		}
 
 		@Override

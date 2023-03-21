@@ -26,8 +26,7 @@ public class NestedRecyclerScrollView extends CustomScrollView{
 
 	@Override
 	public void onNestedPreScroll(View target, int dx, int dy, int[] consumed) {
-		final RecyclerView rv = (RecyclerView) target;
-		if ((dy < 0 && isScrolledToTop(rv)) || (dy > 0 && !isScrolledToBottom())) {
+		if(target instanceof RecyclerView rv && ((dy < 0 && isScrolledToTop(rv)) || (dy > 0 && !isScrolledToBottom()))){
 			scrollBy(0, dy);
 			consumed[1] = dy;
 			return;
@@ -37,8 +36,7 @@ public class NestedRecyclerScrollView extends CustomScrollView{
 
 	@Override
 	public boolean onNestedPreFling(View target, float velX, float velY) {
-		final RecyclerView rv = (RecyclerView) target;
-		if ((velY < 0 && isScrolledToTop(rv)) || (velY > 0 && !isScrolledToBottom())) {
+		if (target instanceof RecyclerView rv && ((velY < 0 && isScrolledToTop(rv)) || (velY > 0 && !isScrolledToBottom()))){
 			fling((int) velY);
 			return true;
 		}

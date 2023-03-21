@@ -37,12 +37,15 @@ public class HashtagStatusDisplayItem extends StatusDisplayItem{
 		public void onBind(HashtagStatusDisplayItem _item){
 			Hashtag item=_item.tag;
 			title.setText('#'+item.name);
-			int numPeople=item.history.get(0).accounts;
-			if(item.history.size()>1)
-				numPeople+=item.history.get(1).accounts;
-			subtitle.setText(_item.parentFragment.getResources().getQuantityString(R.plurals.x_people_talking, numPeople, numPeople));
-			chart.setData(item.history);
-
+			if(item.history!=null && !item.history.isEmpty()){
+				int numPeople=item.history.get(0).accounts;
+				if(item.history.size()>1)
+					 numPeople+=item.history.get(1).accounts;
+				subtitle.setText(itemView.getResources().getQuantityString(R.plurals.x_people_talking, numPeople, numPeople));
+				chart.setData(item.history);
+			}else{
+				subtitle.setText(itemView.getResources().getQuantityString(R.plurals.x_posts, item.statusesCount, item.statusesCount));
+			}
 		}
 	}
 }

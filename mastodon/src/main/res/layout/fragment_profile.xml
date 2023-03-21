@@ -215,11 +215,11 @@
 							android:layout_height="match_parent"
 							android:layout_marginEnd="4dp"
 							android:ellipsize="end"
+							android:fontFamily="sans-serif-black"
 							android:gravity="center_vertical"
 							android:singleLine="true"
 							android:textColor="?colorM3OnSurfaceVariant"
 							android:textSize="14dp"
-							android:textStyle="bold"
 							tools:text="123" />
 
 						<TextView

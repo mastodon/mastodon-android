@@ -65,6 +65,7 @@ public abstract class StatusDisplayItem{
 			case EXTENDED_FOOTER -> new ExtendedFooterStatusDisplayItem.Holder(activity, parent);
 			case MEDIA_GRID -> new MediaGridStatusDisplayItem.Holder(activity, parent);
 			case SPOILER -> new SpoilerStatusDisplayItem.Holder(activity, parent);
+			case SECTION_HEADER -> new SectionHeaderStatusDisplayItem.Holder(activity, parent);
 		};
 	}
 
@@ -154,7 +155,8 @@ public abstract class StatusDisplayItem{
 		GAP,
 		EXTENDED_FOOTER,
 		MEDIA_GRID,
-		SPOILER
+		SPOILER,
+		SECTION_HEADER
 	}
 
 	public static abstract class Holder<T extends StatusDisplayItem> extends BindableViewHolder<T> implements UsableRecyclerView.DisableableClickable{

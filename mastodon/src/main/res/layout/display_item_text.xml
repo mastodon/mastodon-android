@@ -2,11 +2,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
-	android:layout_height="wrap_content"
-	android:paddingLeft="16dp"
-	android:paddingRight="16dp"
-	android:paddingTop="16dp"
-	android:paddingBottom="8dp">
+	android:layout_height="wrap_content">
 
 	<org.joinmastodon.android.ui.views.LinkedTextView
 		android:id="@+id/text"
@@ -14,6 +10,10 @@
 		android:layout_height="wrap_content"
 		android:textSize="16sp"
 		android:textColor="?colorM3OnSurface"
+		android:paddingLeft="16dp"
+		android:paddingRight="16dp"
+		android:paddingTop="16dp"
+		android:paddingBottom="8dp"
 		android:textAppearance="@style/m3_body_large"/>
 
 </FrameLayout>

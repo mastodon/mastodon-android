@@ -6,12 +6,13 @@ import org.parceler.Parcel;
 import java.util.List;
 
 @Parcel
-public class Hashtag extends BaseModel{
+public class Hashtag extends BaseModel implements DisplayItemsParent{
 	@RequiredField
 	public String name;
 	@RequiredField
 	public String url;
 	public List<History> history;
+	public int statusesCount;
 
 	@Override
 	public String toString(){
@@ -19,6 +20,12 @@ public class Hashtag extends BaseModel{
 				"name='"+name+'\''+
 				", url='"+url+'\''+
 				", history="+history+
+				", statusesCount="+statusesCount+
 				'}';
+	}
+
+	@Override
+	public String getID(){
+		return name;
 	}
 }

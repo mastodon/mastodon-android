@@ -11,6 +11,7 @@ public class SearchResult extends BaseModel implements DisplayItemsParent{
 	public Type type;
 
 	public transient String id;
+	public transient boolean firstInSection;
 
 	public SearchResult(){}
 
