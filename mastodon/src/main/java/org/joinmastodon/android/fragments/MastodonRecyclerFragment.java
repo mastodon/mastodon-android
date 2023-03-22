@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toolbar;
 
+import org.joinmastodon.android.R;
+import org.joinmastodon.android.ui.utils.UiUtils;
 import org.joinmastodon.android.utils.ElevationOnScrollListener;
 
 import java.util.Collections;
@@ -35,6 +37,12 @@ public abstract class MastodonRecyclerFragment<T> extends BaseRecyclerFragment<T
 		super.onViewCreated(view, savedInstanceState);
 		if(wantsElevationOnScrollEffect())
 			list.addOnScrollListener(elevationOnScrollListener=new ElevationOnScrollListener((FragmentRootLinearLayout) view, getViewsForElevationEffect()));
+		if(refreshLayout!=null){
+			int colorBackground=UiUtils.getThemeColor(getActivity(), R.attr.colorM3Background);
+			int colorPrimary=UiUtils.getThemeColor(getActivity(), R.attr.colorM3Primary);
+			refreshLayout.setProgressBackgroundColorSchemeColor(UiUtils.alphaBlendColors(colorBackground, colorPrimary, 0.11f));
+			refreshLayout.setColorSchemeColors(colorPrimary);
+		}
 	}
 
 	@Override

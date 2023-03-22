@@ -29,7 +29,7 @@ public class FeaturedHashtagsListFragment extends BaseStatusListFragment<Hashtag
 		accountID=getArguments().getString("account");
 		account=Parcels.unwrap(getArguments().getParcelable("profileAccount"));
 		onDataLoaded(getArguments().getParcelableArrayList("hashtags").stream().map(p->(Hashtag)Parcels.unwrap(p)).collect(Collectors.toList()), false);
-		setTitle(R.string.featured_hashtags);
+		setTitle(R.string.hashtags);
 	}
 
 	@Override

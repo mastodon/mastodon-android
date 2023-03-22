@@ -14,6 +14,7 @@ import org.joinmastodon.android.model.Hashtag;
 import org.joinmastodon.android.model.SearchResult;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.displayitems.AccountStatusDisplayItem;
+import org.joinmastodon.android.ui.displayitems.FooterStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.HashtagStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.SectionHeaderStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.StatusDisplayItem;
@@ -108,7 +109,7 @@ public class ProfileFeaturedFragment extends BaseStatusListFragment<SearchResult
 	@Override
 	protected void doLoadData(int offset, int count){
 		if(!statusesLoaded){
-			new GetAccountStatuses(profileAccount.id, null, null, 1, GetAccountStatuses.Filter.PINNED)
+			new GetAccountStatuses(profileAccount.id, null, null, 2, GetAccountStatuses.Filter.PINNED)
 					 .setCallback(new SimpleCallback<>(this){
 						  @Override
 						  public void onSuccess(List<Status> result){
@@ -150,12 +151,12 @@ public class ProfileFeaturedFragment extends BaseStatusListFragment<SearchResult
 	private void onOneApiRequestCompleted(){
 		if(tagsLoaded && statusesLoaded){
 			ArrayList<SearchResult> results=new ArrayList<>();
-			if(!pinnedStatuses.isEmpty()){
-				SearchResult res=new SearchResult(pinnedStatuses.get(0));
-				res.firstInSection=true;
+			for(int i=0;i<Math.min(2, pinnedStatuses.size());i++){
+				SearchResult res=new SearchResult(pinnedStatuses.get(i));
+				res.firstInSection=(i==0);
 				results.add(res);
 			}
-			for(int i=0;i<Math.min(3, featuredTags.size());i++){
+			for(int i=0;i<Math.min(5, featuredTags.size());i++){
 				SearchResult res=new SearchResult(featuredTags.get(i));
 				res.firstInSection=(i==0);
 				results.add(res);
@@ -175,7 +176,9 @@ public class ProfileFeaturedFragment extends BaseStatusListFragment<SearchResult
 
 	@Override
 	protected void drawDivider(View child, View bottomSibling, RecyclerView.ViewHolder holder, RecyclerView.ViewHolder siblingHolder, RecyclerView parent, Canvas c, Paint paint){
-		// no-op
+		if(holder instanceof FooterStatusDisplayItem.Holder && siblingHolder instanceof StatusDisplayItem.Holder<?> sdi && sdi.getItemID().startsWith("post_")){
+			super.drawDivider(child, bottomSibling, holder, siblingHolder, parent, c, paint);
+		}
 	}
 
 	private void showAllPinnedPosts(){

@@ -19,7 +19,7 @@ public class PinnedPostsListFragment extends StatusListFragment{
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		account=Parcels.unwrap(getArguments().getParcelable("profileAccount"));
-		setTitle(R.string.pinned_posts);
+		setTitle(R.string.posts);
 		loadData();
 	}
 

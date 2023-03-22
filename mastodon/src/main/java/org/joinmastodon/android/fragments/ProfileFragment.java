@@ -299,6 +299,11 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 			return pos+1;
 		});
 
+		int colorBackground=UiUtils.getThemeColor(getActivity(), R.attr.colorM3Background);
+		int colorPrimary=UiUtils.getThemeColor(getActivity(), R.attr.colorM3Primary);
+		refreshLayout.setProgressBackgroundColorSchemeColor(UiUtils.alphaBlendColors(colorBackground, colorPrimary, 0.11f));
+		refreshLayout.setColorSchemeColors(colorPrimary);
+
 		return sizeWrapper;
 	}
 
