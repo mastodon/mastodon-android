@@ -448,26 +448,25 @@ public class UiUtils{
 	}
 
 	public static void setRelationshipToActionButtonM3(Relationship relationship, Button button){
-		boolean secondaryStyle;
+		int styleRes;
 		if(relationship.blocking){
 			button.setText(R.string.button_blocked);
-			secondaryStyle=true;
+			styleRes=R.style.Widget_Mastodon_M3_Button_Tonal_Error;
 		}else if(relationship.blockedBy){
 			button.setText(R.string.button_follow);
-			secondaryStyle=false;
+			styleRes=R.style.Widget_Mastodon_M3_Button_Filled;
 		}else if(relationship.requested){
 			button.setText(R.string.button_follow_pending);
-			secondaryStyle=true;
+			styleRes=R.style.Widget_Mastodon_M3_Button_Tonal;
 		}else if(!relationship.following){
 			button.setText(relationship.followedBy ? R.string.follow_back : R.string.button_follow);
-			secondaryStyle=false;
+			styleRes=R.style.Widget_Mastodon_M3_Button_Filled;
 		}else{
 			button.setText(R.string.button_following);
-			secondaryStyle=true;
+			styleRes=R.style.Widget_Mastodon_M3_Button_Tonal;
 		}
 
 		button.setEnabled(!relationship.blockedBy);
-		int styleRes=secondaryStyle ? R.style.Widget_Mastodon_M3_Button_Tonal : R.style.Widget_Mastodon_M3_Button_Filled;
 		TypedArray ta=button.getContext().obtainStyledAttributes(styleRes, new int[]{android.R.attr.background});
 		button.setBackground(ta.getDrawable(0));
 		ta.recycle();

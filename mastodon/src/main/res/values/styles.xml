@@ -316,9 +316,14 @@
 
 	<style name="Widget.Mastodon.M3.Button.Tonal">
 		<item name="android:background">@drawable/bg_button_m3_tonal</item>
-		<item name="android:textColor">@color/button_text_m3_text</item>
+		<item name="android:textColor">@color/button_text_m3_tonal</item>
 		<item name="android:paddingLeft">24dp</item>
 		<item name="android:paddingRight">24dp</item>
+	</style>
+
+	<style name="Widget.Mastodon.M3.Button.Tonal.Error">
+		<item name="android:background">@drawable/bg_button_m3_tonal_error</item>
+		<item name="android:textColor">@color/button_text_m3_tonal_error</item>
 	</style>
 
 	<style name="Widget.Mastodon.M3.EditText" parent="android:Widget.Material.EditText">
