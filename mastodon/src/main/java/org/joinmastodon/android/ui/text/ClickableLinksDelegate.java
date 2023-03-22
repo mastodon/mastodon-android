@@ -3,6 +3,7 @@ package org.joinmastodon.android.ui.text;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Canvas;
 import android.graphics.CornerPathEffect;
 import android.graphics.Paint;
@@ -18,13 +19,12 @@ import android.view.SoundEffectConstants;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-
 import org.joinmastodon.android.R;
 
-import me.grishka.appkit.utils.V;
+import androidx.annotation.NonNull;
+import me.grishka.appkit.utils.CustomViewHelper;
 
-public class ClickableLinksDelegate {
+public class ClickableLinksDelegate implements CustomViewHelper{
 
 	private final Paint hlPaint;
 	private Path hlPath;
@@ -37,8 +37,7 @@ public class ClickableLinksDelegate {
 		this.view=view;
 		hlPaint=new Paint();
 		hlPaint.setAntiAlias(true);
-		hlPaint.setPathEffect(new CornerPathEffect(V.dp(3)));
-//        view.setHighlightColor(view.getResources().getColor(android.R.color.holo_blue_light));
+		hlPaint.setPathEffect(new CornerPathEffect(dp(3)));
 		gestureDetector = new GestureDetector(view.getContext(), new LinkGestureListener(), view.getHandler());
 	}
 
@@ -67,6 +66,11 @@ public class ClickableLinksDelegate {
 			canvas.drawPath(hlPath, hlPaint);
 			canvas.restore();
 		}
+	}
+
+	@Override
+	public Resources getResources(){
+		return view.getResources();
 	}
 
 	/**
@@ -124,7 +128,7 @@ public class ClickableLinksDelegate {
 									CharSequence lineChars=view.getText().subSequence(l.getLineStart(j), l.getLineEnd(j));
 									bounds.right=Math.round(view.getPaint().measureText(lineChars.toString()))/*+view.getPaddingRight()*/;
 								}
-								bounds.inset(V.dp(-2), V.dp(-2));
+								bounds.inset(dp(-2), dp(-2));
 								hlPath.addRect(new RectF(bounds), Path.Direction.CW);
 							}
 							hlPath.offset(view.getPaddingLeft(), 0);
