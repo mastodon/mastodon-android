@@ -69,6 +69,7 @@ import org.joinmastodon.android.ui.text.CustomEmojiSpan;
 import org.joinmastodon.android.ui.text.HtmlParser;
 import org.joinmastodon.android.ui.utils.UiUtils;
 import org.joinmastodon.android.ui.views.CoverImageView;
+import org.joinmastodon.android.ui.views.CustomDrawingOrderLinearLayout;
 import org.joinmastodon.android.ui.views.NestedRecyclerScrollView;
 import org.joinmastodon.android.ui.views.ProgressBarButton;
 import org.joinmastodon.android.utils.ElevationOnScrollListener;
@@ -125,6 +126,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 	private View nameEditWrap, bioEditWrap;
 	private View tabsDivider;
 	private View actionButtonWrap;
+	private CustomDrawingOrderLinearLayout scrollableContent;
 
 	private Account account;
 	private String accountID;
@@ -204,6 +206,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 		countersLayout=content.findViewById(R.id.profile_counters);
 		tabsDivider=content.findViewById(R.id.tabs_divider);
 		actionButtonWrap=content.findViewById(R.id.profile_action_btn_wrap);
+		scrollableContent=content.findViewById(R.id.scrollable_content);
 
 		avatar.setOutlineProvider(OutlineProviders.roundedRect(24));
 		avatar.setClipToOutline(true);
@@ -286,6 +289,14 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 				Toast.makeText(getActivity(), R.string.text_copied, Toast.LENGTH_SHORT).show();
 			}
 			return true;
+		});
+
+		scrollableContent.setDrawingOrderCallback((count, pos)->{
+			// The header is the first child, draw it last to overlap everything for the photo viewer transition to look nice
+			if(pos==count-1)
+				return 0;
+			// Offset the order of other child views to compensate
+			return pos+1;
 		});
 
 		return sizeWrapper;

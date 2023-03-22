@@ -79,6 +79,7 @@ import androidx.recyclerview.widget.util.Pools;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 import me.grishka.appkit.utils.CubicBezierInterpolator;
+import me.grishka.appkit.utils.CustomViewHelper;
 import me.grishka.appkit.utils.V;
 
 import java.lang.annotation.Retention;
@@ -157,7 +158,7 @@ import java.util.Iterator;
  * @attr ref com.google.android.material.R.styleable#TabLayout_tabTextAppearance
  */
 @ViewPager.DecorView
-public class TabLayout extends HorizontalScrollView {
+public class TabLayout extends HorizontalScrollView implements CustomViewHelper{
 
   private static final CubicBezierInterpolator FAST_OUT_SLOW_IN_INTERPOLATOR=new CubicBezierInterpolator(.4f, 0f, .2f, 1f);
   private static final int DEF_STYLE_RES = R.style.Widget_Design_TabLayout;
@@ -1657,7 +1658,7 @@ public class TabLayout extends HorizontalScrollView {
   protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
     // If we have a MeasureSpec which allows us to decide our height, try and use the default
     // height
-    final int idealHeight = Math.round(V.dp(getDefaultHeight()));
+    final int idealHeight = Math.round(dp(getDefaultHeight()));
     switch (MeasureSpec.getMode(heightMeasureSpec)) {
       case MeasureSpec.AT_MOST:
         if (getChildCount() == 1 && MeasureSpec.getSize(heightMeasureSpec) >= idealHeight) {
@@ -1680,7 +1681,7 @@ public class TabLayout extends HorizontalScrollView {
       tabMaxWidth =
           requestedTabMaxWidth > 0
               ? requestedTabMaxWidth
-              : (int) (specWidth - V.dp(TAB_MIN_WIDTH_MARGIN));
+              : (int) (specWidth - dp(TAB_MIN_WIDTH_MARGIN));
     }
 
     // Now super measure itself using the (possibly) modified height spec
@@ -2842,7 +2843,7 @@ public class TabLayout extends HorizontalScrollView {
         int iconMargin = 0;
         if (hasText && iconView.getVisibility() == VISIBLE) {
           // If we're showing both text and icon, add some margin bottom to the icon
-          iconMargin = (int) V.dp(DEFAULT_GAP_TEXT_ICON);
+          iconMargin = (int) dp(DEFAULT_GAP_TEXT_ICON);
         }
         if (inlineLabel) {
           if (iconMargin != lp.getMarginEnd()) {
@@ -3043,7 +3044,7 @@ public class TabLayout extends HorizontalScrollView {
           return;
         }
 
-        final int gutter = (int) V.dp(FIXED_WRAP_GUTTER_MIN);
+        final int gutter = (int) dp(FIXED_WRAP_GUTTER_MIN);
         boolean remeasure = false;
 
         if (largestTabWidth * count <= getMeasuredWidth() - gutter * 2) {

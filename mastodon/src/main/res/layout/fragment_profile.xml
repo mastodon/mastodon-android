@@ -16,7 +16,7 @@
 			android:layout_height="match_parent"
 			android:nestedScrollingEnabled="true">
 
-			<LinearLayout
+			<org.joinmastodon.android.ui.views.CustomDrawingOrderLinearLayout
 				android:id="@+id/scrollable_content"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
@@ -316,7 +316,7 @@
 						android:background="?colorM3SurfaceVariant"/>
 
 				</FrameLayout>
-			</LinearLayout>
+			</org.joinmastodon.android.ui.views.CustomDrawingOrderLinearLayout>
 		</org.joinmastodon.android.ui.views.NestedRecyclerScrollView>
 
 		<ImageButton
