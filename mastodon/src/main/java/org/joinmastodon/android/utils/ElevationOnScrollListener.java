@@ -5,7 +5,6 @@ import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.content.Context;
-import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
 import android.view.View;
@@ -26,10 +25,14 @@ import me.grishka.appkit.views.FragmentRootLinearLayout;
 public class ElevationOnScrollListener extends RecyclerView.OnScrollListener implements View.OnScrollChangeListener{
 	private boolean isAtTop;
 	private Animator currentPanelsAnim;
-	private View[] views;
+	private List<View> views;
 	private FragmentRootLinearLayout fragmentRootLayout;
 
 	public ElevationOnScrollListener(FragmentRootLinearLayout fragmentRootLayout, View... views){
+		this(fragmentRootLayout, Arrays.asList(views));
+	}
+
+	public ElevationOnScrollListener(FragmentRootLinearLayout fragmentRootLayout, List<View> views){
 		isAtTop=true;
 		this.fragmentRootLayout=fragmentRootLayout;
 		this.views=views;
@@ -46,7 +49,11 @@ public class ElevationOnScrollListener extends RecyclerView.OnScrollListener imp
 	}
 
 	public void setViews(View... views){
-		List<View> oldViews=Arrays.asList(this.views);
+		setViews(Arrays.asList(views));
+	}
+
+	public void setViews(List<View> views){
+		List<View> oldViews=this.views;
 		this.views=views;
 		for(View v:views){
 			if(oldViews.contains(v))
