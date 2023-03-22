@@ -18,7 +18,6 @@ import android.graphics.drawable.LayerDrawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.text.style.ImageSpan;
@@ -48,7 +47,6 @@ import org.joinmastodon.android.GlobalUserPreferences;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.requests.accounts.GetAccountByID;
 import org.joinmastodon.android.api.requests.accounts.GetAccountRelationships;
-import org.joinmastodon.android.api.requests.accounts.GetAccountStatuses;
 import org.joinmastodon.android.api.requests.accounts.GetOwnAccount;
 import org.joinmastodon.android.api.requests.accounts.SetAccountFollowed;
 import org.joinmastodon.android.api.requests.accounts.UpdateAccountCredentials;
@@ -342,7 +340,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 			args.putParcelable("profileAccount", Parcels.wrap(account));
 			args.putBoolean("__is_tab", true);
 			featuredFragment.setArguments(args);
-			timelineFragment=AccountTimelineFragment.newInstance(accountID, account, GetAccountStatuses.Filter.DEFAULT, true);
+			timelineFragment=AccountTimelineFragment.newInstance(accountID, account, true);
 			aboutFragment=new ProfileAboutFragment();
 			aboutFragment.setFields(fields);
 		}
