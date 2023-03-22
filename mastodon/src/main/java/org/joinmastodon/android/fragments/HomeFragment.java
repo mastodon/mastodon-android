@@ -23,6 +23,7 @@ import org.joinmastodon.android.fragments.discover.DiscoverFragment;
 import org.joinmastodon.android.fragments.onboarding.OnboardingFollowSuggestionsFragment;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.ui.AccountSwitcherSheet;
+import org.joinmastodon.android.ui.OutlineProviders;
 import org.joinmastodon.android.ui.utils.UiUtils;
 import org.joinmastodon.android.ui.views.TabBar;
 import org.parceler.Parcels;
@@ -100,15 +101,10 @@ public class HomeFragment extends AppKitFragment implements OnBackPressedListene
 		tabBarWrap=content.findViewById(R.id.tabbar_wrap);
 
 		tabBarAvatar=tabBar.findViewById(R.id.tab_profile_ava);
-		tabBarAvatar.setOutlineProvider(new ViewOutlineProvider(){
-			@Override
-			public void getOutline(View view, Outline outline){
-				outline.setOval(0, 0, view.getWidth(), view.getHeight());
-			}
-		});
+		tabBarAvatar.setOutlineProvider(OutlineProviders.OVAL);
 		tabBarAvatar.setClipToOutline(true);
 		Account self=AccountSessionManager.getInstance().getAccount(accountID).self;
-		ViewImageLoader.load(tabBarAvatar, null, new UrlImageLoaderRequest(self.avatar, V.dp(28), V.dp(28)));
+		ViewImageLoader.loadWithoutAnimation(tabBarAvatar, null, new UrlImageLoaderRequest(self.avatar, V.dp(24), V.dp(24)));
 
 		if(savedInstanceState==null){
 			getChildFragmentManager().beginTransaction()
@@ -176,7 +172,7 @@ public class HomeFragment extends AppKitFragment implements OnBackPressedListene
 	public void onApplyWindowInsets(WindowInsets insets){
 		if(Build.VERSION.SDK_INT>=27){
 			int inset=insets.getSystemWindowInsetBottom();
-			tabBarWrap.setPadding(0, 0, 0, inset>0 ? Math.max(inset, V.dp(36)) : 0);
+			tabBarWrap.setPadding(0, 0, 0, inset>0 ? Math.max(inset, V.dp(24)) : 0);
 			super.onApplyWindowInsets(insets.replaceSystemWindowInsets(insets.getSystemWindowInsetLeft(), 0, insets.getSystemWindowInsetRight(), 0));
 		}else{
 			super.onApplyWindowInsets(insets.replaceSystemWindowInsets(insets.getSystemWindowInsetLeft(), 0, insets.getSystemWindowInsetRight(), insets.getSystemWindowInsetBottom()));
