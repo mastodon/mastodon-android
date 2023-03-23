@@ -12,7 +12,8 @@ import androidx.annotation.NonNull;
 
 public class PhotoLayoutHelper{
 	public static final int MAX_WIDTH=1000;
-	public static final int MAX_HEIGHT=1910;
+	public static final int MAX_HEIGHT=1777; // 9:16
+	public static final int MIN_HEIGHT=563;
 
 	@NonNull
 	public static TiledLayoutResult processThumbs(List<Attachment> thumbs){
@@ -25,12 +26,13 @@ public class PhotoLayoutHelper{
 			result.rowSizes=result.columnSizes=new int[]{1};
 			if(att.getWidth()>att.getHeight()){
 				result.width=_maxW;
-				result.height=Math.round(att.getHeight()/(float)att.getWidth()*_maxW);
+				result.height=Math.max(MIN_HEIGHT, Math.round(att.getHeight()/(float)att.getWidth()*_maxW));
 			}else{
 				result.height=_maxH;
 				result.width=Math.round(att.getWidth()/(float)att.getHeight()*_maxH);
 			}
 			result.tiles=new TiledLayoutResult.Tile[]{new TiledLayoutResult.Tile(1, 1, result.width, result.height, 0, 0)};
+			return result;
 		}else if(thumbs.size()==0){
 			throw new IllegalArgumentException("Empty thumbs array");
 		}
@@ -41,7 +43,6 @@ public class PhotoLayoutHelper{
 
 
 		for(Attachment thumb : thumbs){
-//			float ratio=thumb.isSizeKnown() ? thumb.getWidth()/(float) thumb.getHeight() : 1f;
 			float ratio=thumb.getWidth()/(float) thumb.getHeight();
 			char orient=ratio>1.2 ? 'w' : (ratio<0.8 ? 'n' : 'q');
 			orients+=orient;
@@ -58,7 +59,7 @@ public class PhotoLayoutHelper{
 
 		if(cnt==2){
 			if(orients.equals("ww") && avgRatio>1.4*maxRatio && (ratios.get(1)-ratios.get(0))<0.2){ // two wide photos, one above the other
-				float h=Math.min(maxW/ratios.get(0), Math.min(maxW/ratios.get(1), (maxH-marginH)/2.0f));
+				float h=Math.max(Math.min(maxW/ratios.get(0), Math.min(maxW/ratios.get(1), (maxH-marginH)/2.0f)), MIN_HEIGHT/2f);
 
 				result.width=Math.round(maxW);
 				result.height=Math.round(h*2+marginH);
@@ -70,7 +71,7 @@ public class PhotoLayoutHelper{
 				};
 			}else if(orients.equals("ww") || orients.equals("qq")){ // next to each other, same ratio
 				float w=((maxW-marginW)/2);
-				float h=Math.min(w/ratios.get(0), Math.min(w/ratios.get(1), maxH));
+				float h=Math.max(Math.min(w/ratios.get(0), Math.min(w/ratios.get(1), maxH)), MIN_HEIGHT);
 
 				result.width=Math.round(maxW);
 				result.height=Math.round(h);
@@ -83,7 +84,7 @@ public class PhotoLayoutHelper{
 			}else{ // next to each other, different ratios
 				float w0=((maxW-marginW)/ratios.get(1)/(1/ratios.get(0)+1/ratios.get(1)));
 				float w1=(maxW-w0-marginW);
-				float h=Math.min(maxH, Math.min(w0/ratios.get(0), w1/ratios.get(1)));
+				float h=Math.max(Math.min(maxH, Math.min(w0/ratios.get(0), w1/ratios.get(1))), MIN_HEIGHT);
 
 				result.columnSizes=new int[]{Math.round(w0), Math.round(w1)};
 				result.rowSizes=new int[]{Math.round(h)};
@@ -95,10 +96,15 @@ public class PhotoLayoutHelper{
 				};
 			}
 		}else if(cnt==3){
-			if(/*(ratios.get(0) > 1.2 * maxRatio || avgRatio > 1.5 * maxRatio) &&*/ orients.equals("www") || true){ // 2nd and 3rd photos are on the next line
+			if((ratios.get(0) > 1.2 * maxRatio || avgRatio > 1.5 * maxRatio) || orients.equals("www")){ // 2nd and 3rd photos are on the next line
 				float hCover=Math.min(maxW/ratios.get(0), (maxH-marginH)*0.66f);
 				float w2=((maxW-marginW)/2);
 				float h=Math.min(maxH-hCover-marginH, Math.min(w2/ratios.get(1), w2/ratios.get(2)));
+				if(hCover+h<MIN_HEIGHT){
+					float prevTotalHeight=hCover+h;
+					hCover=MIN_HEIGHT*(hCover/prevTotalHeight);
+					h=MIN_HEIGHT*(h/prevTotalHeight);
+				}
 				result.width=Math.round(maxW);
 				result.height=Math.round(hCover+h+marginH);
 				result.columnSizes=new int[]{Math.round(w2), _maxW-Math.round(w2)};
@@ -124,13 +130,18 @@ public class PhotoLayoutHelper{
 				};
 			}
 		}else if(cnt==4){
-			if(/*(ratios.get(0) > 1.2 * maxRatio || avgRatio > 1.5 * maxRatio) &&*/ orients.equals("wwww") || true /* temporary fix */){ // 2nd, 3rd and 4th photos are on the next line
+			if((ratios.get(0) > 1.2 * maxRatio || avgRatio > 1.5 * maxRatio) || orients.equals("wwww")){ // 2nd, 3rd and 4th photos are on the next line
 				float hCover=Math.min(maxW/ratios.get(0), (maxH-marginH)*0.66f);
 				float h=(maxW-2*marginW)/(ratios.get(1)+ratios.get(2)+ratios.get(3));
 				float w0=h*ratios.get(1);
 				float w1=h*ratios.get(2);
 				float w2=h*ratios.get(3);
 				h=Math.min(maxH-hCover-marginH, h);
+				if(hCover+h<MIN_HEIGHT){
+					float prevTotalHeight=hCover+h;
+					hCover=MIN_HEIGHT*(hCover/prevTotalHeight);
+					h=MIN_HEIGHT*(h/prevTotalHeight);
+				}
 				result.width=Math.round(maxW);
 				result.height=Math.round(hCover+h+marginH);
 				result.columnSizes=new int[]{Math.round(w0), Math.round(w1), _maxW-Math.round(w0)-Math.round(w1)};

@@ -13,13 +13,13 @@
 
 		<TextView
 			android:id="@+id/time"
-			android:layout_width="wrap_content"
+			android:layout_width="match_parent"
 			android:layout_height="20dp"
 			android:layout_margin="8dp"
 			android:layout_gravity="bottom|start"
 			android:textAppearance="@style/m3_label_large"
 			android:textColor="?colorButtonText"
-			android:gravity="center_vertical"
+			android:gravity="center_vertical|start"
 			android:singleLine="true"
 			android:fontFeatureSettings="'tnum'"
 			tools:text="1:23"/>

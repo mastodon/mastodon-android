@@ -230,7 +230,7 @@ public class AudioPlayerService extends Service{
 				pause(false);
 			}
 			case AudioManager.AUDIOFOCUS_LOSS_TRANSIENT -> {
-				resumeAfterAudioFocusGain=true;
+				resumeAfterAudioFocusGain=isPlaying();
 				pause(false);
 			}
 			case AudioManager.AUDIOFOCUS_GAIN -> {
