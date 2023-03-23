@@ -2,22 +2,27 @@ package org.joinmastodon.android.ui.utils;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.model.Attachment;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.displayitems.MediaGridStatusDisplayItem;
 import org.joinmastodon.android.ui.drawables.BlurhashCrossfadeDrawable;
+import org.joinmastodon.android.ui.drawables.PlayIconDrawable;
 
 public class MediaAttachmentViewController{
 	public final View view;
 	public final MediaGridStatusDisplayItem.GridItemType type;
 	public final ImageView photo;
 	public final View altButton;
+	public final TextView duration;
+	public final View playButton;
 	private BlurhashCrossfadeDrawable crossfadeDrawable=new BlurhashCrossfadeDrawable();
 	private final Context context;
 	private boolean didClear;
@@ -31,8 +36,16 @@ public class MediaAttachmentViewController{
 			}, null);
 		photo=view.findViewById(R.id.photo);
 		altButton=view.findViewById(R.id.alt_button);
+		duration=view.findViewById(R.id.duration);
+		playButton=view.findViewById(R.id.play_button);
 		this.type=type;
 		this.context=context;
+		if(playButton!=null){
+			// https://developer.android.com/topic/performance/hardware-accel#drawing-support
+			if(Build.VERSION.SDK_INT<28)
+				playButton.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
+			playButton.setBackground(new PlayIconDrawable(context));
+		}
 	}
 
 	public void bind(Attachment attachment, Status status){
@@ -45,6 +58,9 @@ public class MediaAttachmentViewController{
 		photo.setContentDescription(TextUtils.isEmpty(attachment.description) ? context.getString(R.string.media_no_description) : attachment.description);
 		if(altButton!=null){
 			altButton.setVisibility(TextUtils.isEmpty(attachment.description) ? View.GONE : View.VISIBLE);
+		}
+		if(type==MediaGridStatusDisplayItem.GridItemType.VIDEO){
+			duration.setText(UiUtils.formatDuration((int)attachment.getDuration()));
 		}
 		didClear=false;
 	}

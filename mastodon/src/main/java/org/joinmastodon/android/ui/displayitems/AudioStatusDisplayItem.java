@@ -9,13 +9,11 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.SystemClock;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.SeekBar;
 import android.widget.TextView;
 
 import org.joinmastodon.android.AudioPlayerService;
@@ -25,7 +23,6 @@ import org.joinmastodon.android.model.Attachment;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.OutlineProviders;
 import org.joinmastodon.android.ui.drawables.AudioAttachmentBackgroundDrawable;
-import org.joinmastodon.android.ui.drawables.SeekBarThumbDrawable;
 import org.joinmastodon.android.ui.utils.UiUtils;
 
 import androidx.palette.graphics.Palette;
@@ -106,7 +103,7 @@ public class AudioStatusDisplayItem extends StatusDisplayItem{
 		@Override
 		public void onBind(AudioStatusDisplayItem item){
 			int seconds=(int)item.attachment.getDuration();
-			String duration=formatDuration(seconds);
+			String duration=UiUtils.formatDuration(seconds);
 			AudioPlayerService service=AudioPlayerService.getInstance();
 			if(service!=null && service.getAttachmentID().equals(item.attachment.id)){
 				forwardBtn.setVisibility(View.VISIBLE);
@@ -171,16 +168,8 @@ public class AudioStatusDisplayItem extends StatusDisplayItem{
 				setPlayButtonPlaying(false, true);
 				forwardBtn.setVisibility(View.INVISIBLE);
 				rewindBtn.setVisibility(View.INVISIBLE);
-				time.setText(formatDuration((int)item.attachment.getDuration()));
+				time.setText(UiUtils.formatDuration((int)item.attachment.getDuration()));
 			}
-		}
-
-		@SuppressLint("DefaultLocale")
-		private String formatDuration(int seconds){
-			if(seconds>=3600)
-				return String.format("%d:%02d:%02d", seconds/3600, seconds%3600/60, seconds%60);
-			else
-				return String.format("%d:%02d", seconds/60, seconds%60);
 		}
 
 		private void updatePosition(){
@@ -198,7 +187,7 @@ public class AudioStatusDisplayItem extends StatusDisplayItem{
 			int posSeconds=(int)pos;
 			if(posSeconds!=lastPosSeconds){
 				lastPosSeconds=posSeconds;
-				time.setText(formatDuration(posSeconds)+"/"+formatDuration((int)item.attachment.getDuration()));
+				time.setText(UiUtils.formatDuration(posSeconds)+"/"+UiUtils.formatDuration((int)item.attachment.getDuration()));
 			}
 		}
 

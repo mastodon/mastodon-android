@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="wrap_content">
 
@@ -12,17 +13,47 @@
 
 	<View
 		android:id="@+id/play_button"
-		android:layout_width="52dp"
-		android:layout_height="52dp"
-		android:layout_gravity="center"
-		android:elevation="3dp"
-		android:background="@drawable/play_button"/>
+		android:layout_width="128dp"
+		android:layout_height="128dp"
+		android:layout_gravity="center"/>
 
-	<View
-		android:layout_width="28dp"
-		android:layout_height="28dp"
-		android:layout_gravity="bottom|end"
+	<LinearLayout
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal"
 		android:layout_margin="8dp"
-		android:background="@drawable/ic_gif"/>
+		android:layout_gravity="start|bottom">
+		<!-- This is hidden from screenreaders because that same alt text is set as content description on the ImageView -->
+		<TextView
+			android:id="@+id/alt_button"
+			android:layout_width="wrap_content"
+			android:layout_height="24dp"
+			android:paddingLeft="8dp"
+			android:paddingRight="8dp"
+			android:layout_marginEnd="2dp"
+			android:importantForAccessibility="no"
+			android:textAppearance="@style/m3_label_large"
+			android:textColor="#FFF"
+			android:gravity="center"
+			android:includeFontPadding="false"
+			android:background="@drawable/bg_image_alt_overlay"
+			android:text="ALT"
+			tools:ignore="HardcodedText" />
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="24dp"
+			android:paddingLeft="8dp"
+			android:paddingRight="8dp"
+			android:layout_marginEnd="2dp"
+			android:importantForAccessibility="no"
+			android:textAppearance="@style/m3_label_large"
+			android:textColor="#FFF"
+			android:gravity="center"
+			android:includeFontPadding="false"
+			android:background="@drawable/bg_image_alt_overlay"
+			android:text="GIF"
+			tools:ignore="HardcodedText" />
+	</LinearLayout>
 
 </FrameLayout>
