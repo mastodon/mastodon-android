@@ -52,7 +52,7 @@ public class MediaAttachmentViewController{
 		this.status=status;
 		crossfadeDrawable.setSize(attachment.getWidth(), attachment.getHeight());
 		crossfadeDrawable.setBlurhashDrawable(attachment.blurhashPlaceholder);
-		crossfadeDrawable.setCrossfadeAlpha(status.spoilerRevealed ? 0f : 1f);
+		crossfadeDrawable.setCrossfadeAlpha(0f);
 		photo.setImageDrawable(null);
 		photo.setImageDrawable(crossfadeDrawable);
 		photo.setContentDescription(TextUtils.isEmpty(attachment.description) ? context.getString(R.string.media_no_description) : attachment.description);
@@ -67,7 +67,7 @@ public class MediaAttachmentViewController{
 
 	public void setImage(Drawable drawable){
 		crossfadeDrawable.setImageDrawable(drawable);
-		if(didClear && status.spoilerRevealed)
+		if(didClear)
 			 crossfadeDrawable.animateAlpha(0f);
 	}
 
@@ -75,9 +75,5 @@ public class MediaAttachmentViewController{
 		crossfadeDrawable.setCrossfadeAlpha(1f);
 		crossfadeDrawable.setImageDrawable(null);
 		didClear=true;
-	}
-
-	public void setRevealed(boolean revealed){
-		crossfadeDrawable.animateAlpha(revealed ? 0f : 1f);
 	}
 }

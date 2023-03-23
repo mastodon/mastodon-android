@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="wrap_content"
+	android:layout_height="24dp"
+	android:paddingLeft="8dp"
+	android:paddingRight="8dp"
+	android:layout_gravity="start|bottom"
+	android:layout_margin="8dp"
+	android:importantForAccessibility="no"
+	android:textAppearance="@style/m3_label_large"
+	android:textColor="#FFF"
+	android:gravity="center"
+	android:includeFontPadding="false"
+	android:background="@drawable/bg_image_alt_overlay"
+	android:text="ALT"
+	tools:ignore="HardcodedText"
+	tools:showIn="@layout/display_item_photo" />

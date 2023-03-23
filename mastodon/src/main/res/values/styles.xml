@@ -71,7 +71,8 @@
 		<item name="android:statusBarColor">?colorM3Background</item>
 		<item name="android:navigationBarColor">@color/navigation_bar_bg_light</item>
 		<item name="android:colorAccent">?colorM3Primary</item>
-		<item name="android:colorControlHighlight">@color/m3_primary_overlay</item>
+		<item name="android:colorControlHighlight">@color/m3_on_surface_overlay</item>
+		<item name="colorSensitiveOverlay">#a6ffffff</item>
 	</style>
 
 	<style name="Theme.Mastodon.Dark" parent="Theme.AppKit">
@@ -147,7 +148,8 @@
 		<item name="android:statusBarColor">?colorM3Background</item>
 		<item name="android:navigationBarColor">?colorM3Background</item>
 		<item name="android:colorAccent">?colorM3Primary</item>
-		<item name="android:colorControlHighlight">@color/m3_primary_overlay</item>
+		<item name="android:colorControlHighlight">@color/m3_on_surface_overlay</item>
+		<item name="colorSensitiveOverlay">#80000000</item>
 	</style>
 
 	<style name="Theme.Mastodon.Dark.TrueBlack">

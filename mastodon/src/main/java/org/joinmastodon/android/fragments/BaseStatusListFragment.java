@@ -428,35 +428,6 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 		}
 	}
 
-	public void onVisibilityIconClick(HeaderStatusDisplayItem.Holder holder){
-		Status status=holder.getItem().status;
-		status.spoilerRevealed=!status.spoilerRevealed;
-		if(!TextUtils.isEmpty(status.spoilerText)){
-			TextStatusDisplayItem.Holder text=findHolderOfType(holder.getItemID(), TextStatusDisplayItem.Holder.class);
-			if(text!=null){
-				adapter.notifyItemChanged(text.getAbsoluteAdapterPosition());
-			}
-		}
-		holder.rebind();
-		updateImagesSpoilerState(status, holder.getItemID());
-	}
-
-	protected void updateImagesSpoilerState(Status status, String itemID){
-		ArrayList<Integer> updatedPositions=new ArrayList<>();
-		MediaGridStatusDisplayItem.Holder mediaGrid=findHolderOfType(itemID, MediaGridStatusDisplayItem.Holder.class);
-		if(mediaGrid!=null){
-			mediaGrid.setRevealed(status.spoilerRevealed);
-			updatedPositions.add(mediaGrid.getAbsoluteAdapterPosition()-getMainAdapterOffset());
-		}
-		int i=0;
-		for(StatusDisplayItem item:displayItems){
-			if(itemID.equals(item.parentID) && item instanceof MediaGridStatusDisplayItem && !updatedPositions.contains(i)){
-				adapter.notifyItemChanged(i);
-			}
-			i++;
-		}
-	}
-
 	public void onGapClick(GapStatusDisplayItem.Holder item){}
 
 	public String getAccountID(){
@@ -622,10 +593,7 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 	}
 
 	private class StatusListItemDecoration extends RecyclerView.ItemDecoration{
-		private Paint dividerPaint=new Paint(), hiddenMediaPaint=new Paint(Paint.ANTI_ALIAS_FLAG);
-		private Typeface mediumTypeface=Typeface.create("sans-serif-medium", Typeface.NORMAL);
-		private Layout mediaHiddenTitleLayout, mediaHiddenTextLayout, tapToRevealTextLayout;
-		private int currentMediaHiddenLayoutsWidth=0;
+		private Paint dividerPaint=new Paint();
 
 		{
 			dividerPaint.setColor(UiUtils.getThemeColor(getActivity(), R.attr.colorM3Outline));
@@ -645,74 +613,6 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 					drawDivider(child, bottomSibling, holder, siblingHolder, parent, c, dividerPaint);
 				}
 			}
-		}
-
-		@Override
-		public void onDrawOver(@NonNull Canvas c, @NonNull RecyclerView parent, @NonNull RecyclerView.State state){
-			for(int i=0;i<parent.getChildCount();i++){
-				View child=parent.getChildAt(i);
-				RecyclerView.ViewHolder holder=parent.getChildViewHolder(child);
-				if(holder instanceof MediaGridStatusDisplayItem.Holder imgHolder){
-					if(!imgHolder.getItem().status.spoilerRevealed && TextUtils.isEmpty(imgHolder.getItem().status.spoilerText)){
-						hiddenMediaPaint.setColor(0x80000000);
-						c.drawRect(child.getX(), child.getY(), child.getX()+child.getWidth(), child.getY()+child.getHeight(), hiddenMediaPaint);
-					}
-				}
-			}
-			for(int i=0;i<parent.getChildCount();i++){
-				View child=parent.getChildAt(i);
-				RecyclerView.ViewHolder holder=parent.getChildViewHolder(child);
-				if(holder instanceof MediaGridStatusDisplayItem.Holder imgHolder){
-					if(!imgHolder.getItem().status.spoilerRevealed){
-						if(TextUtils.isEmpty(imgHolder.getItem().status.spoilerText)){
-							int listWidth=getListWidthForMediaLayout();
-							int width=Math.min(listWidth, V.dp(MediaGridLayout.MAX_WIDTH));
-							if(currentMediaHiddenLayoutsWidth!=width)
-								rebuildMediaHiddenLayouts(width-V.dp(32));
-							c.save();
-							float totalHeight;
-							boolean hiddenByAuthor=imgHolder.getItem().status.sensitive;
-							if(hiddenByAuthor)
-								totalHeight=mediaHiddenTitleLayout.getHeight()+mediaHiddenTextLayout.getHeight()+V.dp(8);
-							else
-								totalHeight=tapToRevealTextLayout.getHeight();
-							c.translate(child.getX()+V.dp(16), child.getY()+child.getHeight()/2f-totalHeight/2f);
-							if(hiddenByAuthor){
-								mediaHiddenTitleLayout.draw(c);
-								c.translate(0, mediaHiddenTitleLayout.getHeight()+V.dp(8));
-								mediaHiddenTextLayout.draw(c);
-							}else{
-								tapToRevealTextLayout.draw(c);
-							}
-							c.restore();
-						}
-					}
-				}
-			}
-		}
-
-		private void rebuildMediaHiddenLayouts(int width){
-			currentMediaHiddenLayoutsWidth=width;
-			String title=getString(R.string.sensitive_content);
-			TextPaint titlePaint=new TextPaint(Paint.ANTI_ALIAS_FLAG);
-			titlePaint.setColor(getResources().getColor(R.color.gray_50));
-			titlePaint.setTextSize(V.dp(22));
-			titlePaint.setTypeface(mediumTypeface);
-			mediaHiddenTitleLayout=StaticLayout.Builder.obtain(title, 0, title.length(), titlePaint, width)
-					.setAlignment(Layout.Alignment.ALIGN_CENTER)
-					.build();
-			String tapToReveal=getString(R.string.tap_to_reveal);
-			tapToRevealTextLayout=StaticLayout.Builder.obtain(tapToReveal, 0, tapToReveal.length(), titlePaint, width)
-					.setAlignment(Layout.Alignment.ALIGN_CENTER)
-					.build();
-			TextPaint textPaint=new TextPaint(Paint.ANTI_ALIAS_FLAG);
-			textPaint.setColor(getResources().getColor(R.color.gray_200));
-			textPaint.setTextSize(V.dp(16));
-			String text=getString(R.string.sensitive_content_explain);
-			mediaHiddenTextLayout=StaticLayout.Builder.obtain(text, 0, text.length(), textPaint, width)
-					.setAlignment(Layout.Alignment.ALIGN_CENTER)
-					.setLineSpacing(V.dp(5), 1f)
-					.build();
 		}
 	}
 }

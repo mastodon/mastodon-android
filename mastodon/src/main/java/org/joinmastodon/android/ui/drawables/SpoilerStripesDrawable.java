@@ -11,6 +11,7 @@ import org.joinmastodon.android.MastodonApp;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import me.grishka.appkit.utils.V;
 
 public class SpoilerStripesDrawable extends Drawable{
 	private Paint paint=new Paint(Paint.ANTI_ALIAS_FLAG);
@@ -33,6 +34,8 @@ public class SpoilerStripesDrawable extends Drawable{
 		canvas.translate(bounds.left, bounds.top);
 		canvas.clipRect(0, 0, bounds.width(), bounds.height());
 		float scale=MastodonApp.context.getResources().getDisplayMetrics().density;
+		if(bounds.width()>V.dp(10))
+			scale*=2;
 		canvas.scale(scale, scale, 0, 0);
 
 		float height=bounds.height()/scale;
