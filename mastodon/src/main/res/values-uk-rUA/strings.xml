@@ -13,7 +13,7 @@
 	<string name="user_boosted">%s Зробив репост</string>
 	<string name="in_reply_to">Відповісти %s</string>
 	<string name="notifications">Сповіщення</string>
-	<string name="user_followed_you">підписаний(-а) на вас</string>
+	<string name="user_followed_you">підписався(-лася) на вас</string>
 	<string name="user_sent_follow_request">відправив запит на підписку</string>
 	<string name="user_favorited">Вподобав(-ла) ваш допис</string>
 	<string name="notification_boosted">Поширив(-ла) ваш допис</string>
@@ -50,7 +50,7 @@
 	<string name="posts_and_replies">Дописи й відповіді</string>
 	<string name="media">Медіа</string>
 	<string name="profile_about">Інформація</string>
-	<string name="button_follow">Підписатися</string>
+	<string name="button_follow">Стежити</string>
 	<string name="button_following">Ви підписані</string>
 	<string name="edit_profile">Редагувати профіль</string>
 	<string name="mention_user">Згадано %s</string>
@@ -227,6 +227,7 @@
 	<string name="category_tech">Технології</string>
 	<string name="confirm_email_title">Перевірити вхідні листи</string>
 	<!-- %s is the email address -->
+	<string name="confirm_email_subtitle">Натисніть на посилання, яке ми відправили для підтвердження %s. Ми будемо чекати тут.</string>
 	<string name="confirm_email_didnt_get">Не отримали посилання?</string>
 	<string name="resend">Надіслати повторно</string>
 	<string name="open_email_app">Відкрити Електрону пошту</string>
@@ -314,6 +315,7 @@
 	<string name="follow_user">Підписатися на %s</string>
 	<string name="unfollowed_user">Відписалися від %s</string>
 	<string name="followed_user">Тепер ви підписані на %s</string>
+	<string name="following_user_requested">Запитано на підписку на %s</string>
 	<string name="open_in_browser">Відкрити у браузері</string>
 	<string name="hide_boosts_from_user">Сховати репости від %s</string>
 	<string name="show_boosts_from_user">Показати репости від %s</string>
@@ -423,6 +425,7 @@
 	<string name="download_update">Завантажити (%s)</string>
 	<string name="install_update">Встановити</string>
 	<string name="privacy_policy_title">Ваша конфіденційність</string>
+	<string name="privacy_policy_subtitle">Хоча додаток Mastodon не збирає дані, сервер на якому ви зареєструєтеся може мати іншу політику.\n\nЯкщо ви відмовитеся з політикою %s, ви зможете повернутися й вибрати інший сервер.</string>
 	<string name="i_agree">Я погоджуюся</string>
 	<string name="empty_list">Цей список порожній</string>
 	<string name="instance_signup_closed">Цей сервер не приймає нові реєстрації.</string>
@@ -440,7 +443,11 @@
 	<string name="welcome_page2_text">Ваш індифікатор може бути @gothgirl654@example.social, але ви все ще можете підписуватися, репостити й спілкуватися з @fallout5ever@example.online.</string>
 	<string name="welcome_page3_title">Як обрати сервер?</string>
 	<string name="welcome_page3_text">Різні люди обирають різні сервери з будь-якої кількості причин. art.example - це чудове місце для художників, в той час як glasgow.example може бути гарним вибором для шотландці.\n\nВи не можете піти не так з жодними з наших рекомендованих серверів, так чи інакше, незалежно від того, який вибір ви обираєте (або введете власний в панель пошуку сервера), ви ніколи ніде не помилитися в жодному місці.</string>
+	<string name="signup_random_server_explain">Ми підберемо сервер основі вашої мовою, якщо ви продовжите без вибору.</string>
 	<string name="server_filter_any_language">Будь-яка мова</string>
+	<string name="server_filter_instant_signup">Миттєва Реєстрація</string>
+	<string name="server_filter_manual_review">Ручна перевірка</string>
+	<string name="server_filter_any_signup_speed">Будь-яка Швидкість Реєстрації</string>
 	<string name="server_filter_region_europe">Європа</string>
 	<string name="server_filter_region_north_america">Північна Америка</string>
 	<string name="server_filter_region_south_america">Південна Америка</string>
@@ -451,7 +458,20 @@
 	<string name="category_special_interests">Особливі Інтереси</string>
 	<string name="signup_passwords_dont_match">Паролі не збігаються</string>
 	<string name="pick_server_for_me">Підібрати для мене</string>
+	<string name="profile_add_row">Додати рядок</string>
+	<string name="profile_setup">Налаштування профілю</string>
+	<string name="profile_setup_subtitle">Ви можете завершити це пізніше у вкладці з Профілем.</string>
+	<string name="profile_setup_explanation">Ви можете додати до чотирьох міток в профілі для будь-чого. Місця, посилання, займенники — небо є межею.</string>
+	<string name="popular_on_mastodon">Популярне в Mastodon</string>
+	<string name="follow_all">Стежити за всіма</string>
+	<string name="server_rules_disagree">Не приймаю</string>
+	<string name="privacy_policy_explanation">Ми нічого не збираємо або обробляємо.</string>
 	<!-- %s is server domain -->
+	<string name="server_policy_disagree">Не згоден з %s</string>
+	<string name="profile_bio">Про мене</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
+	<string name="sending_follows">Підписуємося…</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<string name="signup_email_domain_blocked">%1$s не приймає реєстрацію з %2$s. Спробуйте інший &lt;a&gt;виберіть інший сервер&lt;/a&gt;.</string>
+	<string name="signup_username_taken">Ім\'я користувача вже зайняте.</string>
 </resources>
