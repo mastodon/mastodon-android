@@ -8,8 +8,8 @@
 	<string name="error">Kesalahan</string>
 	<string name="not_a_mastodon_instance">%s sepertinya bukan server Mastodon.</string>
 	<string name="ok">Oke</string>
-	<string name="preparing_auth">Menyiapkan untuk otentikasi…</string>
-	<string name="finishing_auth">Menyelesaikan otentikasi…</string>
+	<string name="preparing_auth">Menyiapkan untuk autentikasi…</string>
+	<string name="finishing_auth">Menyelesaikan autentikasi…</string>
 	<string name="user_boosted">%s membagikan</string>
 	<string name="in_reply_to">Membalas ke %s</string>
 	<string name="notifications">Notifikasi</string>
@@ -159,7 +159,16 @@
 	<string name="back">Kembali</string>
 	<string name="instance_catalog_title">Mastodon dibuat oleh pengguna di server yang berbeda-beda.</string>
 	<string name="instance_catalog_subtitle">Pilih sebuah server berdasarkan minat atau wilayah Anda, atau yang umum. Anda masih dapat berkomunikasi dengan semua orang, tanpa memedulikan server yang Anda berada.</string>
+	<string name="search_communities">Nama server atau URL</string>
+	<string name="instance_rules_title">Aturan Server</string>
+	<string name="instance_rules_subtitle">Dengan melanjutkan, Anda setuju mengikuti peraturan berikut yang ditetapkan oleh moderator %s.</string>
+	<string name="signup_title">Buat Akun</string>
 	<string name="edit_photo">sunting</string>
+	<string name="display_name">Nama</string>
+	<string name="username">Nama pengguna</string>
+	<string name="email">Surel</string>
+	<string name="password">Kata sandi</string>
+	<string name="confirm_password">Konfirmasi kata sandi</string>
 	<string name="password_note">Tambahkan huruf besar, karakter spesial, dan nomor untuk meningkatkan kekuatan kata sandi Anda.</string>
 	<string name="category_academia">Akademisi</string>
 	<string name="category_activism">Aktivisme</string>
@@ -174,7 +183,10 @@
 	<string name="category_music">Musik</string>
 	<string name="category_regional">Regional</string>
 	<string name="category_tech">Teknologi</string>
+	<string name="confirm_email_title">Periksa Kotak Masuk Anda</string>
 	<!-- %s is the email address -->
+	<string name="confirm_email_subtitle">Ketuk tautan yang kami kirim kepada Anda untuk memverifikasi %s. Kami akan tunggu di sini.</string>
+	<string name="confirm_email_didnt_get">Tidak mendapatkan tautan?</string>
 	<string name="resend">Kirim ulang</string>
 	<string name="open_email_app">Buka aplikasi surel</string>
 	<string name="resent_email">Surel konfirmasi terkirim</string>
@@ -258,9 +270,11 @@
 	<string name="follow_user">Ikuti %s</string>
 	<string name="unfollowed_user">Berhenti mengikuti %s</string>
 	<string name="followed_user">Anda sekarang mengikuti %s</string>
+	<string name="following_user_requested">Diminta untuk mengikuti %s</string>
 	<string name="open_in_browser">Buka di peramban</string>
 	<string name="hide_boosts_from_user">Sembunyikan pembagian dari %s</string>
 	<string name="show_boosts_from_user">Tampilkan pembagian dari %s</string>
+	<string name="signup_reason">Mengapa Anda ingin bergabung?</string>
 	<string name="signup_reason_note">Ini akan membantu kami meninjau aplikasi Anda.</string>
 	<string name="clear">Hapus</string>
 	<string name="profile_header">Gambar tajuk</string>
@@ -347,6 +361,7 @@
 	<!-- %s is file size -->
 	<string name="download_update">Unduh (%s)</string>
 	<string name="install_update">Pasang</string>
+	<string name="privacy_policy_title">Privasi Anda</string>
 	<string name="i_agree">Saya Setuju</string>
 	<string name="empty_list">Daftar ini kosong</string>
 	<string name="instance_signup_closed">Server ini tidak menerima pendaftaran baru.</string>
