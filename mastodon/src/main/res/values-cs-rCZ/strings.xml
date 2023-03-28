@@ -443,7 +443,35 @@
 	<string name="welcome_page2_text">Vaše uživatelské jméno může být @gothgirl654@example.social, ale stále můžete sledovat, boostovat a chatovat s @fallout5ever@example.online.</string>
 	<string name="welcome_page3_title">Jak si vybrat server?</string>
 	<string name="welcome_page3_text">Různí lidé si vybírají různé servery z různých důvodů. Art.example je skvělým místem pro umělce, zatímco glasgow.example může být dobrou volbou pro Skoty.\n\nS žádným z našich doporučených serverů nemůžete udělat chybu, takže bez ohledu na to, který z nich si vyberete (nebo pokud zadáte svůj vlastní do vyhledávacího řádku serveru), nikde neprohloupíte.</string>
+	<string name="signup_random_server_explain">Pokud budete pokračovat bez výběru, vybereme server založený na vašem jazyce.</string>
+	<string name="server_filter_any_language">Libovolný jazyk</string>
+	<string name="server_filter_instant_signup">Okamžitá registrace</string>
+	<string name="server_filter_manual_review">Ruční kontrola</string>
+	<string name="server_filter_any_signup_speed">Jakákoliv rychlost registrace</string>
+	<string name="server_filter_region_europe">Evropa</string>
+	<string name="server_filter_region_north_america">Severní Amerika</string>
+	<string name="server_filter_region_south_america">Jižní Amerika</string>
+	<string name="server_filter_region_africa">Afrika</string>
+	<string name="server_filter_region_asia">Asie</string>
+	<string name="server_filter_region_oceania">Oceánie</string>
+	<string name="not_accepting_new_members">Nepřijímá nové členy</string>
+	<string name="category_special_interests">Speciální zájmy</string>
+	<string name="signup_passwords_dont_match">Hesla se neshodují</string>
+	<string name="pick_server_for_me">Vybrat pro mě</string>
+	<string name="profile_add_row">Přidat řádek</string>
+	<string name="profile_setup">Nastavení profilu</string>
+	<string name="profile_setup_subtitle">Toto můžete vždy dokončit později v záložce Profil.</string>
+	<string name="profile_setup_explanation">Můžete přidat až čtyři pole profilu pro cokoliv, co chcete. Umístění, odkazy, oslovení — limitem je obloha.</string>
+	<string name="popular_on_mastodon">Populární na Mastodonu</string>
+	<string name="follow_all">Sledovat všechny</string>
+	<string name="server_rules_disagree">Nesouhlasit</string>
+	<string name="privacy_policy_explanation">Zkráceně: nic nesbíráme a nezpracováváme.</string>
 	<!-- %s is server domain -->
+	<string name="server_policy_disagree">Nesouhlasit s %s</string>
+	<string name="profile_bio">O vás</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
+	<string name="sending_follows">Sledování uživatelů…</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<string name="signup_email_domain_blocked">%1$s neumožňuje registraci od %2$s. Zkuste jiný nebo &lt;a&gt;vyberte jiný server&lt;/a&gt;.</string>
+	<string name="signup_username_taken">Toto uživatelské jméno je obsazené.</string>
 </resources>
