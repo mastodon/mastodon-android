@@ -12,14 +12,14 @@
 	<string name="ok">OK</string>
 	<string name="preparing_auth">Preparing for authentication…</string>
 	<string name="finishing_auth">Finishing authentication…</string>
-	<string name="user_boosted">%s reblogged</string>
+	<string name="user_boosted">%s boosted</string>
 	<string name="in_reply_to">In reply to %s</string>
 	<string name="notifications">Notifications</string>
 
 	<string name="user_followed_you">followed you</string>
 	<string name="user_sent_follow_request">sent you a follow request</string>
 	<string name="user_favorited">favorited your post</string>
-	<string name="notification_boosted">reblogged your post</string>
+	<string name="notification_boosted">boosted your post</string>
 	<string name="poll_ended">poll ended</string>
 
 	<string name="time_seconds">%ds</string>
@@ -172,7 +172,7 @@
 	<string name="report_sent_subtitle">While we review this, you can take action against %s.</string>
 	<string name="unfollow_user">Unfollow %s</string>
 	<string name="unfollow">Unfollow</string>
-	<string name="mute_user_explain">You won\'t see their posts or reblogs in your home feed. They won\'t know they\'ve been muted.</string>
+	<string name="mute_user_explain">You won\'t see their posts or boosts in your home feed. They won\'t know they\'ve been muted.</string>
 	<string name="block_user_explain">They will no longer be able to follow or see your posts, but they can see if they\'ve been blocked.</string>
 	<string name="report_personal_title">Don\'t want to see this?</string>
 	<string name="report_personal_subtitle">When you see something you don\'t like on Mastodon, you can remove the person from your experience.</string>
@@ -229,7 +229,7 @@
 	<string name="skip">Skip</string>
 	<string name="notification_type_follow">New followers</string>
 	<string name="notification_type_favorite">Favorites</string>
-	<string name="notification_type_reblog">Reblogs</string>
+	<string name="notification_type_reblog">Boosts</string>
 	<string name="notification_type_mention">Mentions</string>
 	<string name="notification_type_poll">Polls</string>
 	<string name="choose_account">Choose account</string>
@@ -256,7 +256,7 @@
 	<string name="notify_none">no one</string>
 	<string name="notify_favorites">Favorites my post</string>
 	<string name="notify_follow">Follows me</string>
-	<string name="notify_reblog">Reblogs my post</string>
+	<string name="notify_reblog">Boosts my post</string>
 	<string name="notify_mention">Mentions me</string>
 	<string name="settings_boring">The boring zone</string>
 	<string name="settings_account">Account settings</string>
@@ -277,7 +277,7 @@
 	<string name="hide_content">Hide content</string>
 	<string name="new_post">New post</string>
 	<string name="button_reply">Reply</string>
-	<string name="button_reblog">Reblog</string>
+	<string name="button_reblog">Boost</string>
 	<string name="button_favorite">Favorite</string>
 	<string name="button_share">Share</string>
 	<string name="media_no_description">Media without description</string>
@@ -293,8 +293,8 @@
 	<string name="followed_user">You\'re now following %s</string>
 	<string name="following_user_requested">Requested to follow %s</string>
 	<string name="open_in_browser">Open in browser</string>
-	<string name="hide_boosts_from_user">Hide reblogs from %s</string>
-	<string name="show_boosts_from_user">Show reblogs from %s</string>
+	<string name="hide_boosts_from_user">Hide boosts from %s</string>
+	<string name="show_boosts_from_user">Show boosts from %s</string>
 	<string name="signup_reason">Why do you want to join?</string>
 	<string name="signup_reason_note">This will help us review your application.</string>
 	<string name="clear">Clear</string>
@@ -338,12 +338,12 @@
 		<item quantity="other">%,d favorites</item>
 	</plurals>
 	<plurals name="x_reblogs">
-		<item quantity="one">%,d reblog</item>
-		<item quantity="other">%,d reblogs</item>
+		<item quantity="one">%,d boost</item>
+		<item quantity="other">%,d boosts</item>
 	</plurals>
 	<string name="timestamp_via_app">%1$s via %2$s</string>
 	<string name="time_now">now</string>
-	<string name="post_info_reblogs">Reblogs</string>
+	<string name="post_info_reblogs">Boosts</string>
 	<string name="post_info_favorites">Favorites</string>
 	<string name="edit_history">Edit history</string>
 	<string name="last_edit_at_x">Last edit %s</string>
@@ -405,7 +405,7 @@
 	<string name="welcome_page1_title">What is Mastodon?</string>
 	<string name="welcome_page1_text">Imagine you have an email address that ends with @example.com.\n\nYou can still send and receive emails from anyone, even if their email ends in @gmail.com or @icloud.com or @example.com.</string>
 	<string name="welcome_page2_title">Mastodon is like that.</string>
-	<string name="welcome_page2_text">Your handle might be @gothgirl654@example.social, but you can still follow, reblog, and chat with @fallout5ever@example.online.</string>
+	<string name="welcome_page2_text">Your handle might be @gothgirl654@example.social, but you can still follow, boost, and chat with @fallout5ever@example.online.</string>
 	<string name="welcome_page3_title">How do I pick a server?</string>
 	<string name="welcome_page3_text">Different people choose different servers for any number of reasons. art.example is a great place for artists, while glasgow.example might be a good pick for Scots.\n\nYou can’t go wrong with any of our recommend servers, so regardless of which one you pick (or if you enter your own in the server search bar), you’ll never miss a beat anywhere.</string>
 	<string name="signup_random_server_explain">We\'ll pick a server based on your language if you continue without making a selection.</string>
