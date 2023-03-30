@@ -44,7 +44,7 @@ public class PhotoLayoutHelper{
 		boolean allAreWide=true, allAreSquare=true;
 
 		for(Attachment thumb : thumbs){
-			float ratio=thumb.getWidth()/(float) thumb.getHeight();
+			float ratio=Math.max(0.45f, thumb.getWidth()/(float) thumb.getHeight());
 			if(ratio<=1.2f){
 				allAreWide=false;
 				if(ratio<0.8f)
