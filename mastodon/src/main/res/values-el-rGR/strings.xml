@@ -10,6 +10,89 @@
 	<string name="ok">ΟΚ</string>
 	<string name="preparing_auth">Προετοιμασία για έλεγχο ταυτότητας…</string>
 	<string name="finishing_auth">Ολοκλήρωση ταυτοποίησης…</string>
+	<string name="user_boosted">%s αναδημοσίευσε</string>
+	<string name="in_reply_to">Σε απάντηση στο %s</string>
+	<string name="notifications">Ειδοποιήσεις</string>
+	<string name="user_followed_you">σε ακολουθεί</string>
+	<string name="user_sent_follow_request">σου έστειλε ένα αίτημα ακολούθησης</string>
+	<string name="user_favorited">σημείωσε ως αγαπημένη την ανάρτησή σου</string>
+	<string name="notification_boosted">αναδημοσίευσε την ανάρτηση σου</string>
+	<string name="poll_ended">η δημοσκόπηση έληξε</string>
+	<string name="time_seconds">%dδλ</string>
+	<string name="time_minutes">%dλ</string>
+	<string name="time_hours">%dω</string>
+	<string name="time_days">%dημ</string>
+	<string name="share_toot_title">Κοινοποίηση</string>
+	<string name="settings">Ρυθμίσεις</string>
+	<string name="publish">Δημοσίευση</string>
+	<string name="discard_draft">Απόρριψη προχείρου;</string>
+	<string name="discard">Απόρριψη</string>
+	<string name="cancel">Άκυρο</string>
+	<plurals name="followers">
+		<item quantity="one">ακόλουθος</item>
+		<item quantity="other">ακόλουθοι</item>
+	</plurals>
+	<plurals name="posts">
+		<item quantity="one">ανάρτηση</item>
+		<item quantity="other">αναρτήσεις</item>
+	</plurals>
+	<string name="posts">Αναρτήσεις</string>
+	<string name="posts_and_replies">Αναρτήσεις και Απαντήσεις</string>
+	<string name="media">Πολυμέσα</string>
+	<string name="profile_about">Σχετικά</string>
+	<string name="button_follow">Ακολούθησε</string>
+	<string name="button_following">Ακολουθείς</string>
+	<string name="edit_profile">Επεξεργασία Προφίλ</string>
+	<string name="mention_user">Ανάφερε τον @%s</string>
+	<string name="share_user">Κοινοποίηση %s</string>
+	<string name="mute_user">Σίγαση %s</string>
+	<string name="unmute_user">Κατάργηση σίγασης %s</string>
+	<string name="block_user">Αποκλεισμός %s</string>
+	<string name="unblock_user">Άρση αποκλεισμού %s</string>
+	<string name="report_user">Αναφορά %s</string>
+	<string name="block_domain">Αποκλεισμός %s</string>
+	<string name="unblock_domain">Άρση αποκλεισμού %s</string>
+	<plurals name="x_posts">
+		<item quantity="one">%,d ανάρτηση</item>
+		<item quantity="other">%,d αναρτήσεις</item>
+	</plurals>
+	<string name="profile_joined">Έγινε μέλος</string>
+	<string name="done">Εγινε</string>
+	<string name="loading">Φόρτωση…</string>
+	<string name="field_label">Περιγραφή</string>
+	<string name="field_content">Περιεχόμενο</string>
+	<string name="saving">Αποθήκευση…</string>
+	<string name="post_from_user">Ανάρτηση από %s</string>
+	<string name="poll_option_hint">Επιλογή %d</string>
+	<plurals name="x_minutes">
+		<item quantity="one">%d λεπτό</item>
+		<item quantity="other">%d λεπτά</item>
+	</plurals>
+	<plurals name="x_hours">
+		<item quantity="one">%d ώρα</item>
+		<item quantity="other">%d ώρες</item>
+	</plurals>
+	<plurals name="x_days">
+		<item quantity="one">%d ημέρα</item>
+		<item quantity="other">%d ημέρες</item>
+	</plurals>
+	<string name="compose_poll_duration">Διάρκεια: %s</string>
+	<plurals name="x_seconds_left">
+		<item quantity="one">Απομένει %d δευτερόλεπτο</item>
+		<item quantity="other">Απομένουν %d δευτερόλεπτα</item>
+	</plurals>
+	<plurals name="x_minutes_left">
+		<item quantity="one">Απομένει %d λεπτό</item>
+		<item quantity="other">Απομένουν %d λεπτά</item>
+	</plurals>
+	<plurals name="x_hours_left">
+		<item quantity="one">απομένει %d ώρα</item>
+		<item quantity="other">απομένουν %d ώρες</item>
+	</plurals>
+	<plurals name="x_days_left">
+		<item quantity="one">Απομένει %d ημέρα</item>
+		<item quantity="other">απομένουν %d ημέρες</item>
+	</plurals>
 	<!-- %s is the email address -->
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<!-- %s is version like 1.2.3 -->
