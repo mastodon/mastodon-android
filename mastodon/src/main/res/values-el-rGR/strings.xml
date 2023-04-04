@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+	<string name="get_started">Δημιουργία λογαριασμού</string>
+	<string name="already_have_account">Έχω ήδη λογαριασμό</string>
+	<string name="log_in">Σύνδεση</string>
+	<string name="next">Επόμενο</string>
+	<string name="loading_instance">Ανάκτηση πληροφοριών διακομιστή…</string>
+	<string name="error">Σφάλμα</string>
+	<string name="not_a_mastodon_instance">%s δεν φαίνεται να είναι διακομιστής Mastodon.</string>
+	<string name="ok">ΟΚ</string>
+	<string name="preparing_auth">Προετοιμασία για έλεγχο ταυτότητας…</string>
+	<string name="finishing_auth">Ολοκλήρωση ταυτοποίησης…</string>
 	<!-- %s is the email address -->
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<!-- %s is version like 1.2.3 -->
