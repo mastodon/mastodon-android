@@ -315,9 +315,11 @@
 	<string name="follow_user">Падпісацца на %s</string>
 	<string name="unfollowed_user">Адпісацца ад %s</string>
 	<string name="followed_user">Цяпер вы падпісаны на %s</string>
+	<string name="following_user_requested">Запытана падпісацца на %s</string>
 	<string name="open_in_browser">Адкрыць у браўзеры</string>
 	<string name="hide_boosts_from_user">Схаваць пашырэнні ад %s</string>
 	<string name="show_boosts_from_user">Паказаць пашырэнні ад %s</string>
+	<string name="signup_reason">Чаму вы хочаце далучыцца?</string>
 	<string name="signup_reason_note">Гэта дапаможа нам разгледзець вашу заяўку.</string>
 	<string name="clear">Ачысціць</string>
 	<string name="profile_header">Відарыс шапкі</string>
@@ -422,6 +424,8 @@
 	<!-- %s is file size -->
 	<string name="download_update">Спампаваць (%s)</string>
 	<string name="install_update">Усталяваць</string>
+	<string name="privacy_policy_title">Ваша прыватнасць</string>
+	<string name="privacy_policy_subtitle">Нягледзячы на ​​тое, што праграма Mastodon не збірае даных, сервер, на якім вы рэгіструецеся, можа мець іншую палітыку.\n\nКалі вы адмовіцеся ад палітыкі %s, вы можаце вярнуцца і выбраць іншы сервер.</string>
 	<string name="i_agree">Я згодны</string>
 	<string name="empty_list">Гэты ліст пусты</string>
 	<string name="instance_signup_closed">Гэты сервер не прымае новыя рэгістрацыі.</string>
@@ -433,18 +437,33 @@
 	<string name="login_title">З вяртаннем</string>
 	<string name="login_subtitle">Увайдзіце з дапамогай сервера, на якім вы стварылі свой уліковы запіс.</string>
 	<string name="server_url">URL-адрас сервера</string>
+	<string name="welcome_page1_title">Што такое Mastodon?</string>
 	<string name="welcome_page1_text">Уявіце, што ў вас ёсць адрас электроннай пошты, які заканчваецца на @example.com.\n\nВы па-ранейшаму можаце адпраўляць і атрымліваць электронныя лісты ад каго захочаце, нават калі іх электронная пошта заканчваецца на @gmail.com, @icloud.com або @example.com.</string>
 	<string name="welcome_page2_title">Mastodon такі.</string>
 	<string name="welcome_page2_text">Ваш ідэнтыфікатар можа быць @gothgirl654@example.social, але вы ўсё яшчэ можаце падпісвацца, пашыраць і перапісвацца з @fallout5ever@example.online.</string>
 	<string name="welcome_page3_title">Як выбраць сервер?</string>
 	<string name="welcome_page3_text">Розныя людзі выбіраюць розныя серверы па розных прычынах. art.example з\'яўляецца выдатным месцам для мастакоў, у той час як glasgow.example можа быць добрым выбарам для шатландцаў.\n\nВы не памыліцеся ні з адным з нашых рэкамендаваных сервераў, так што незалежна ад таго, які вы выбераце (або калі ўведзяце ваш уласны ў радку пошуку сервера), вы нідзе нічога не прапусціце.</string>
+	<string name="signup_random_server_explain">Мы абярэм сервер на аснове вашай мовы, калі вы працягнеце без выбару.</string>
 	<string name="server_filter_any_language">Любая мова</string>
+	<string name="server_filter_instant_signup">Імгненная рэгістрацыя</string>
+	<string name="server_filter_manual_review">Ручная праверка</string>
+	<string name="server_filter_any_signup_speed">Любая хуткасць рэгістрацыі</string>
 	<string name="server_filter_region_europe">Еўропа</string>
 	<string name="server_filter_region_north_america">Паўночная Амерыка</string>
 	<string name="server_filter_region_south_america">Паўднёвая Амерыка</string>
 	<string name="server_filter_region_africa">Афрыка</string>
 	<string name="server_filter_region_asia">Азія</string>
 	<string name="server_filter_region_oceania">Акіянія</string>
+	<string name="not_accepting_new_members">Не прымае новых удзельнікаў</string>
+	<string name="category_special_interests">Асаблівыя інтарэсы</string>
+	<string name="signup_passwords_dont_match">Паролі не супадаюць</string>
+	<string name="pick_server_for_me">Падбяры для мяне</string>
+	<string name="profile_add_row">Дадаць радок</string>
+	<string name="profile_setup">Налады профілю</string>
+	<string name="profile_setup_subtitle">Вы можаце завяршыць гэта пазней на ўкладцы Профіль.</string>
+	<string name="profile_setup_explanation">Вы можаце дадаць да чатырох палёў профіля для ўсяго, што хочаце. Месцазнаходжанне, спасылкі, займеннікі - няма мяжы магчымасцям.</string>
+	<string name="popular_on_mastodon">Папулярна на Mastodon</string>
+	<string name="follow_all">Падпісацца на ўсіх</string>
 	<string name="server_rules_disagree">Не згодны</string>
 	<string name="privacy_policy_explanation">Мы нічога не збіраем і не апрацоўваем.</string>
 	<!-- %s is server domain -->
