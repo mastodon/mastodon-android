@@ -203,6 +203,7 @@
 	<string name="instance_catalog_subtitle">Выбірайце сервер у залежнасці ад вашых інтарэсаў, рэгіёна або выберыце сервер агульнага прызначэння. Вы па-ранейшаму можаце ўзаемадзейнічаць з усімі, незалежна ад сервера.</string>
 	<string name="search_communities">Назва сервера або URL</string>
 	<string name="instance_rules_title">Правілы сервера</string>
+	<string name="instance_rules_subtitle">Працягваючы, вы згаджаецеся выконваць правілы, устаноўленыя мадэратарам %s.</string>
 	<string name="signup_title">Стварыць уліковы запіс</string>
 	<string name="edit_photo">рэдагаваць</string>
 	<string name="display_name">Імя</string>
@@ -226,6 +227,8 @@
 	<string name="category_tech">Тэхналогіі</string>
 	<string name="confirm_email_title">Праверце паштовую скрыню</string>
 	<!-- %s is the email address -->
+	<string name="confirm_email_subtitle">Націсніце на спасылку, якую мы адправілі, каб спраўдзіць %s. Мы вас пачакаем тут.</string>
+	<string name="confirm_email_didnt_get">Не атрымалі спасылку?</string>
 	<string name="resend">Адправіць паўторна</string>
 	<string name="open_email_app">Адкрыць праграму для пошты</string>
 	<string name="resent_email">Электронны ліст з пацвярджэннем адпраўлены</string>
@@ -442,8 +445,14 @@
 	<string name="server_filter_region_africa">Афрыка</string>
 	<string name="server_filter_region_asia">Азія</string>
 	<string name="server_filter_region_oceania">Акіянія</string>
+	<string name="server_rules_disagree">Не згодны</string>
+	<string name="privacy_policy_explanation">Мы нічога не збіраем і не апрацоўваем.</string>
 	<!-- %s is server domain -->
+	<string name="server_policy_disagree">Не згодны з %s</string>
+	<string name="profile_bio">Пра мяне</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
+	<string name="sending_follows">Падпісваемся…</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<string name="signup_email_domain_blocked">%1$s не прымае рэгістрацыю ад %2$s. Паспрабуйце іншы &lt;a&gt;выберыце іншы сервер&lt;/a&gt;.</string>
 	<string name="signup_username_taken">Гэта імя карыстальніка занята.</string>
 </resources>
