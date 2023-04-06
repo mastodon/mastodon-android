@@ -177,9 +177,31 @@
 	<string name="display_name">Όνομα</string>
 	<string name="username">Όνομα χρήστη</string>
 	<string name="email">Email</string>
-	<string name="password">Συνθηματικό</string>
-	<string name="confirm_password">Επιβεβαίωση συνθηματικού</string>
+	<string name="password">Κωδικός πρόσβασης</string>
+	<string name="confirm_password">Επιβεβαίωση κωδικού πρόσβασης</string>
+	<string name="password_note">Να συμπεριλάβεις κεφαλαία γράμματα, ειδικούς χαρακτήρες και αριθμούς για να αυξήσεις την ισχύ του κωδικού πρόσβασης.</string>
+	<string name="category_academia">Ακαδημία</string>
+	<string name="category_activism">Ακτιβισμός</string>
+	<string name="category_all">Όλα</string>
+	<string name="category_art">Τέχνη</string>
+	<string name="category_food">Φαγητό</string>
+	<string name="category_games">Παιχνίδια</string>
+	<string name="category_general">Γενικά</string>
+	<string name="category_journalism">Δημοσιογραφία</string>
+	<string name="category_lgbt">LGBT</string>
+	<string name="category_music">Μουσική</string>
+	<string name="category_regional">Τοπικό</string>
+	<string name="category_tech">Τεχνολογία</string>
+	<string name="confirm_email_title">Έλεγξε Τα Εισερχόμενα Σου</string>
 	<!-- %s is the email address -->
+	<string name="confirm_email_subtitle">Πάτησε το σύνδεσμο που σου στείλαμε για να επαληθεύσεις το %s. Θα σε περιμένουμε εδώ.</string>
+	<string name="confirm_email_didnt_get">Έλαβες τον σύνδεσμο;</string>
+	<string name="resend">Επαναποστολή</string>
+	<string name="open_email_app">Άνοιγμα εφαρμογής email</string>
+	<string name="resent_email">Το email επιβεβαίωσης εστάλη</string>
+	<string name="compose_hint">Πληκτρολόγησε ή επικολλησε τι υπάρχει στο μυαλό σου</string>
+	<string name="content_warning">Προειδοποίηση περιεχομένου</string>
+	<string name="add_image_description">Προσθήκη περιγραφής εικόνας…</string>
 	<string name="retry_upload">Επανάληψη μεταμόρφωσης</string>
 	<string name="edit_image">Επεξεργασία εικόνας</string>
 	<string name="save">Αποθήκευση</string>
@@ -233,6 +255,17 @@
 	<string name="settings_spicy">Η πικάντικη ζώνη</string>
 	<string name="settings_clear_cache">Εκκαθάριση προσωρινής μνήμης πολυμέσων</string>
 	<string name="settings_app_version">Mastodon για Android έκδοση %1$s (%2$d)</string>
+	<string name="media_cache_cleared">Η προσωρινή μνήμη πολυμέσων καθαρίστηκε</string>
+	<string name="confirm_log_out">Είσαι βέβαιος ότι θες να αποσυνδεθείς;</string>
+	<string name="sensitive_content">Ευαίσθητο περιεχόμενο</string>
+	<string name="sensitive_content_explain">Ο συντάκτης σηματοδότησε αυτό το αρχείο πολυμέσων ως ευαίσθητο. Πάτησε για να το αποκαλύψεις.</string>
+	<string name="media_hidden">Πάτα για εμφάνιση</string>
+	<string name="avatar_description">Μετάβαση στο προφίλ του %s</string>
+	<string name="more_options">Περισσότερες επιλογές</string>
+	<string name="reveal_content">Αποκάλυψη περιεχομένου</string>
+	<string name="hide_content">Απόκρυψη περιεχομένου</string>
+	<string name="new_post">Νέα ανάρτηση</string>
+	<string name="button_reply">Απάντηση</string>
 	<string name="load_missing_posts">Φόρτωση αναρτήσεων που λείπουν</string>
 	<string name="follow_back">Ακολούθησε Και Συ</string>
 	<string name="button_follow_pending">Εκκρεμεί</string>
@@ -305,6 +338,12 @@
 	<!-- %s is file size -->
 	<string name="download_update">Λήψη (%s)</string>
 	<string name="install_update">Εγκατάσταση</string>
+	<string name="login_title">Καλώς Ήρθες Ξανά</string>
+	<string name="login_subtitle">Συνδέσου με τον διακομιστή όπου δημιούργησες τον λογαριασμό σου.</string>
+	<string name="server_url">URL διακομιστή</string>
+	<string name="welcome_page1_title">Τι είναι το Mastodon;</string>
+	<string name="welcome_page1_text">Φαντάσου ότι έχεις μια διεύθυνση email που τελειώνει με @example.com.\n\nΜπορείς ακόμα να στείλεις και να λάβεις μηνύματα από οποιονδήποτε, ακόμη και αν το email τους τελειώνει σε @gmail.com ή @icloud.com ή @example.com.</string>
+	<string name="welcome_page2_title">Έτσι είναι και το Mastodon.</string>
 	<!-- %s is server domain -->
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
