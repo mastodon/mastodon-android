@@ -5,7 +5,8 @@
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	android:fitsSystemWindows="true"
-	android:clipToPadding="false">
+	android:clipToPadding="false"
+	android:theme="@style/Theme.Mastodon.Dark">
 
 	<View
 		android:id="@+id/blue_fill"
@@ -26,7 +27,8 @@
 			android:id="@+id/art_clouds"
 			android:layout_width="414dp"
 			android:layout_height="541dp"
-			android:layout_marginTop="91dp"
+			android:layout_marginTop="37dp"
+			android:layout_marginLeft="-27dp"
 			android:layout_gravity="top|left"
 			android:alpha="0.3"
 			android:importantForAccessibility="no"
@@ -36,8 +38,8 @@
 			android:id="@+id/art_plane_elephant"
 			android:layout_width="245.64dp"
 			android:layout_height="72.65dp"
-			android:layout_marginLeft="-101.55dp"
-			android:layout_marginTop="238.12dp"
+			android:layout_marginLeft="-50.775dp"
+			android:layout_marginTop="184.12dp"
 			android:layout_gravity="left|top"
 			android:alpha="0.3"
 			android:importantForAccessibility="no"
@@ -48,8 +50,8 @@
 			android:layout_width="150.84dp"
 			android:layout_height="176.44dp"
 			android:layout_gravity="top|left"
-			android:layout_marginLeft="322dp"
-			android:layout_marginTop="310dp"
+			android:layout_marginLeft="278dp"
+			android:layout_marginTop="244dp"
 			android:importantForAccessibility="no"
 			android:src="@drawable/splash_art_layer1"/>
 
@@ -58,7 +60,8 @@
 			android:layout_width="197.2dp"
 			android:layout_height="153.61dp"
 			android:layout_gravity="top|left"
-			android:layout_marginTop="294dp"
+			android:layout_marginTop="252dp"
+			android:layout_marginLeft="-44dp"
 			android:importantForAccessibility="no"
 			android:src="@drawable/splash_art_layer2"/>
 
@@ -67,7 +70,8 @@
 			android:layout_width="400dp"
 			android:layout_height="346dp"
 			android:layout_gravity="top|left"
-			android:layout_marginTop="294dp"
+			android:layout_marginTop="240dp"
+			android:layout_marginLeft="-20dp"
 			android:importantForAccessibility="no"
 			android:src="@drawable/splash_art_layer3"/>
 
@@ -86,60 +90,102 @@
 		android:layout_height="match_parent"
 		android:clipToPadding="false"
 		android:orientation="vertical">
+		
+		<ImageView
+			android:layout_width="300dp"
+			android:layout_height="78dp"
+			android:layout_gravity="center_horizontal"
+			android:layout_marginTop="32dp"
+			android:importantForAccessibility="no"
+			android:src="@drawable/splash_logo"/>
 
-		<androidx.viewpager2.widget.ViewPager2
-			android:id="@+id/pager"
-			android:layout_width="match_parent"
-			android:layout_height="0dp"
+		<Space
+			android:layout_width="1px"
+			android:layout_height="0px"
 			android:layout_weight="1"/>
 
-		<LinearLayout
-			android:id="@+id/pager_dots"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_gravity="center_horizontal"
-			android:layout_marginBottom="16dp"
-			android:orientation="horizontal">
-
-			<View
-				android:layout_width="8dp"
-				android:layout_height="8dp"
-				android:background="@drawable/white_circle"/>
-
-			<View
-				android:layout_width="8dp"
-				android:layout_height="8dp"
-				android:layout_marginLeft="16dp"
-				android:layout_marginRight="16dp"
-				android:alpha="0.3"
-				android:background="@drawable/white_circle"/>
-
-			<View
-				android:layout_width="8dp"
-				android:layout_height="8dp"
-				android:alpha="0.3"
-				android:background="@drawable/white_circle"/>
-
-		</LinearLayout>
-
 		<Button
-			android:id="@+id/btn_log_in"
+			android:id="@+id/btn_join_default_server"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:layout_marginLeft="16dp"
 			android:layout_marginRight="16dp"
-			style="@style/Widget.Mastodon.M3.Button.Text"
-			android:textColor="#fff"
-			android:text="@string/already_have_account"/>
+			style="@style/Widget.Mastodon.M3.Button.Filled"
+			tools:text="@string/join_default_server"/>
+
 		<Button
 			android:id="@+id/btn_get_started"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:layout_marginLeft="16dp"
 			android:layout_marginRight="16dp"
-			android:layout_marginBottom="16dp"
-			style="@style/Widget.Mastodon.M3.Button.Filled"
-			android:text="@string/get_started"/>
+			android:layout_marginTop="8dp"
+			style="@style/Widget.Mastodon.M3.Button.Outlined"
+			android:text="@string/pick_server"/>
+
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="16dp"
+			android:layout_marginRight="16dp"
+			android:layout_marginTop="8dp"
+			android:orientation="horizontal">
+
+			<View
+				android:layout_width="0dp"
+				android:layout_height="1dp"
+				android:layout_weight="1"
+				android:layout_gravity="center_vertical"
+				android:background="?colorM3Secondary"/>
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="20dp"
+				android:layout_marginLeft="8dp"
+				android:layout_marginRight="8dp"
+				android:textAllCaps="true"
+				android:textAppearance="@style/m3_label_large"
+				android:textColor="?colorM3Secondary"
+				android:layout_gravity="center_vertical"
+				android:text="@string/signup_or_login"/>
+
+			<View
+				android:layout_width="0dp"
+				android:layout_height="1dp"
+				android:layout_weight="1"
+				android:layout_gravity="center_vertical"
+				android:background="?colorM3Secondary"/>
+
+		</LinearLayout>
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal"
+			android:layout_marginLeft="8dp"
+			android:layout_marginRight="8dp">
+
+			<Button
+				android:id="@+id/btn_learn_more"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_margin="8dp"
+				android:layout_weight="1"
+				style="@style/Widget.Mastodon.M3.Button.Text"
+				android:text="@string/learn_more"/>
+
+			<Button
+				android:id="@+id/btn_log_in"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_margin="8dp"
+				android:layout_weight="1"
+				style="@style/Widget.Mastodon.M3.Button.Text"
+				android:text="@string/log_in"/>
+
+		</LinearLayout>
+
 	</LinearLayout>
 
 </org.joinmastodon.android.ui.views.SizeListenerFrameLayout>
