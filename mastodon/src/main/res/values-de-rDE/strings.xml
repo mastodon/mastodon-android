@@ -10,13 +10,11 @@
 	<string name="ok">OK</string>
 	<string name="preparing_auth">Authentifizierung wird vorbereitet …</string>
 	<string name="finishing_auth">Authentifizierung wird abgeschlossen …</string>
-	<string name="user_boosted">%s hat diesen Beitrag geteilt</string>
 	<string name="in_reply_to">Als Antwort auf %s</string>
 	<string name="notifications">Benachrichtigungen</string>
 	<string name="user_followed_you">folgt dir jetzt</string>
 	<string name="user_sent_follow_request">hat dir eine Follower-Anfrage gesendet</string>
 	<string name="user_favorited">favorisierte</string>
-	<string name="notification_boosted">teilte</string>
 	<string name="poll_ended">Abstimmung beendet</string>
 	<string name="time_seconds">vor %d Sekunden</string>
 	<string name="time_minutes">vor %d Minuten</string>
@@ -166,7 +164,6 @@
 	<string name="report_sent_subtitle">Während wir den Vorfall überprüfen, kannst du gegen %s weitere Maßnahmen ergreifen.</string>
 	<string name="unfollow_user">%s entfolgen</string>
 	<string name="unfollow">Entfolgen</string>
-	<string name="mute_user_explain">Du wirst die eigenen und geteilten Beiträge des Kontos nicht mehr sehen können. Dass du das Profil stummgeschaltet hast, erfährt die Person nicht.</string>
 	<string name="block_user_explain">Dir wird es nicht länger möglich sein, die Beiträge dieses Konto zu sehen. Das blockierte Profil wird nicht mehr in der Lage sein, deine Beiträge zu sehen oder dir zu folgen. Die Person hinter dem Konto wird mitbekommen, dass du ihr Konto gesperrt hast.</string>
 	<string name="report_personal_title">Möchtest du das nicht mehr sehen?</string>
 	<string name="report_personal_subtitle">Wenn du etwas auf Mastodon siehst, das dir nicht gefällt, kannst du die Person aus deinem Umfeld entfernen.</string>
@@ -223,7 +220,6 @@
 	<string name="skip">Überspringen</string>
 	<string name="notification_type_follow">Neue Follower</string>
 	<string name="notification_type_favorite">Favoriten</string>
-	<string name="notification_type_reblog">Geteilte Beiträge</string>
 	<string name="notification_type_mention">Erwähnungen</string>
 	<string name="notification_type_poll">Umfragen</string>
 	<string name="choose_account">Konto auswählen</string>
@@ -250,7 +246,6 @@
 	<string name="notify_none">niemand</string>
 	<string name="notify_favorites">meinen Beitrag favorisiert</string>
 	<string name="notify_follow">mir folgt</string>
-	<string name="notify_reblog">einen meiner Beiträge geteilt hat</string>
 	<string name="notify_mention">mich erwähnt</string>
 	<string name="settings_boring">Langweiliges</string>
 	<string name="settings_account">Kontoeinstellungen</string>
@@ -271,7 +266,6 @@
 	<string name="hide_content">Inhalt ausblenden</string>
 	<string name="new_post">Neuer Beitrag</string>
 	<string name="button_reply">Antworten</string>
-	<string name="button_reblog">Teilen</string>
 	<string name="button_favorite">Favorisieren</string>
 	<string name="button_share">Teilen</string>
 	<string name="media_no_description">Medien ohne Beschreibung</string>
@@ -287,8 +281,6 @@
 	<string name="followed_user">Du folgst nun %s</string>
 	<string name="following_user_requested">Deine Follower-Anfrage an %s wurde gesendet</string>
 	<string name="open_in_browser">Im Browser öffnen</string>
-	<string name="hide_boosts_from_user">geteilte Beiträge von %s ausblenden</string>
-	<string name="show_boosts_from_user">geteilte Beiträge von %s anzeigen</string>
 	<string name="signup_reason">Warum möchtest du beitreten?</string>
 	<string name="signup_reason_note">Das erleichtert uns die Prüfung deiner Anmeldung.</string>
 	<string name="clear">Leeren</string>
@@ -330,13 +322,8 @@
 		<item quantity="one">%,d × favorisiert</item>
 		<item quantity="other">%,d × favorisiert</item>
 	</plurals>
-	<plurals name="x_reblogs">
-		<item quantity="one">%,d × geteilt</item>
-		<item quantity="other">%,d × geteilt</item>
-	</plurals>
 	<string name="timestamp_via_app">%1$s via %2$s</string>
 	<string name="time_now">jetzt</string>
-	<string name="post_info_reblogs">Geteilte Beiträge</string>
 	<string name="post_info_favorites">Favoriten</string>
 	<string name="edit_history">Verlauf bearbeiten</string>
 	<string name="last_edit_at_x">Zuletzt bearbeitet: %s</string>
@@ -398,7 +385,6 @@
 	<string name="welcome_page1_title">Was ist Mastodon?</string>
 	<string name="welcome_page1_text">Angenommen, du hast eine E-Mail-Adresse, die mit @example.com endet.\n\nDu kannst immer noch E-Mails von allen empfangen, auch wenn deren E-Mail-Adresse mit @gmail.com, @icloud.com oder @example.com endet.</string>
 	<string name="welcome_page2_title">Mastodon ist genau so.</string>
-	<string name="welcome_page2_text">Dein Nutzer*innenname könnte @GothGirl654@example.social sein, aber du kannst trotzdem @fallout5ever@example.online folgen, deren Beiträge teilen und dich mit der Person unterhalten.</string>
 	<string name="welcome_page3_title">Wie wähle ich einen Server aus?</string>
 	<string name="welcome_page3_text">Unterschiedliche Menschen wählen aus verschiedenen Gründen unterschiedliche Server. art.example ist ein toller Ort für Künstler*innen, während glasgow.example eine gute Wahl für Schott*innen sein könnte.\n\nWähle nach Möglichkeit einen kleinen Server aus, mit dessen Regeln du dich wohl fühlst und der dir vertrauenswürdig erscheint (über die Server-Suchleiste kannst du dich direkt mit dem Server deines Vertrauens verbinden).</string>
 	<string name="signup_random_server_explain">Wenn du ohne Auswahl fortfährst, wählen wir einen Server in deiner Sprache aus.</string>
