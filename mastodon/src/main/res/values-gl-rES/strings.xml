@@ -10,13 +10,11 @@
 	<string name="ok">OK</string>
 	<string name="preparing_auth">Preparándose para a autenticación…</string>
 	<string name="finishing_auth">Rematando coa autenticación…</string>
-	<string name="user_boosted">%s promoveu</string>
 	<string name="in_reply_to">Como resposta a %s</string>
 	<string name="notifications">Notificacións</string>
 	<string name="user_followed_you">séguete</string>
 	<string name="user_sent_follow_request">enviouche unha solicitude de seguimento</string>
 	<string name="user_favorited">marcou a túa publicación como favorita</string>
-	<string name="notification_boosted">compartiu a túa publicación</string>
 	<string name="poll_ended">rematou a enquisa</string>
 	<string name="time_seconds">%ds</string>
 	<string name="time_minutes">%dm</string>
@@ -166,7 +164,6 @@
 	<string name="report_sent_subtitle">Mestras revisamos, podes tomar accións contra %s.</string>
 	<string name="unfollow_user">Deixar de seguir a %s</string>
 	<string name="unfollow">Deixar de seguir</string>
-	<string name="mute_user_explain">Non verás as súas publicacións ou repeticións na túa cronoloxía. Non saberá que foi acalada.</string>
 	<string name="block_user_explain">Non poderá seguirte nin ver o que publicas, pero pode ver se foi bloqueada.</string>
 	<string name="report_personal_title">Non queres ver esto?</string>
 	<string name="report_personal_subtitle">Cando ves en Mastodon algo que non che gusta podes retirar a esa persoa da túa experiencia como usuaria.</string>
@@ -223,7 +220,6 @@
 	<string name="skip">Omitir</string>
 	<string name="notification_type_follow">Novas seguidoras</string>
 	<string name="notification_type_favorite">Favoritas</string>
-	<string name="notification_type_reblog">Promocións</string>
 	<string name="notification_type_mention">Mencións</string>
 	<string name="notification_type_poll">Enquisas</string>
 	<string name="choose_account">Elixir conta</string>
@@ -250,7 +246,6 @@
 	<string name="notify_none">ninguén</string>
 	<string name="notify_favorites">Favorece unha publicación miña</string>
 	<string name="notify_follow">Me segue</string>
-	<string name="notify_reblog">Promove a miña publicación</string>
 	<string name="notify_mention">Me menciona</string>
 	<string name="settings_boring">A zona aburrida</string>
 	<string name="settings_account">Axustes da conta</string>
@@ -271,7 +266,6 @@
 	<string name="hide_content">Agochar contido</string>
 	<string name="new_post">Nova publicación</string>
 	<string name="button_reply">Responder</string>
-	<string name="button_reblog">Promover</string>
 	<string name="button_favorite">Favorecer</string>
 	<string name="button_share">Compartir</string>
 	<string name="media_no_description">Multimedia sen descrición</string>
@@ -287,8 +281,6 @@
 	<string name="followed_user">Estás a seguir a %s</string>
 	<string name="following_user_requested">Solicitaches seguir a %s</string>
 	<string name="open_in_browser">Abrir nun navegador</string>
-	<string name="hide_boosts_from_user">Agochar promocións de @%s</string>
-	<string name="show_boosts_from_user">Mostrar promocións de %s</string>
 	<string name="signup_reason">Por qué queres unirte?</string>
 	<string name="signup_reason_note">Esto axudaranos a revisar a tua solicitude.</string>
 	<string name="clear">Limpar</string>
@@ -330,13 +322,8 @@
 		<item quantity="one">%,d favorita</item>
 		<item quantity="other">%,d favoritas</item>
 	</plurals>
-	<plurals name="x_reblogs">
-		<item quantity="one">%,d promoción</item>
-		<item quantity="other">%,d promocións</item>
-	</plurals>
 	<string name="timestamp_via_app">%1$s vía %2$s</string>
 	<string name="time_now">agora</string>
-	<string name="post_info_reblogs">Promocións</string>
 	<string name="post_info_favorites">Favoritas</string>
 	<string name="edit_history">Editar historial</string>
 	<string name="last_edit_at_x">Última edición %s</string>
@@ -398,7 +385,6 @@
 	<string name="welcome_page1_title">Qué é Mastodon?</string>
 	<string name="welcome_page1_text">Imaxina que tes un enderezo de email que remata con @exemplo.com.\n\nPodes recibir e enviar mensaxes con calquera persoa, incluso se o seu email remata en @gmail.com ou @icloud.com ou @exemplo.com.</string>
 	<string name="welcome_page2_title">Mastodon é o mesmo.</string>
-	<string name="welcome_page2_text">O teu identificador pode ser @rula654@exemplo.social, pero podes seguir, promover e conversar con @gz4libre@exemplo.online.</string>
 	<string name="welcome_page3_title">Como elexir un servidor?</string>
 	<string name="welcome_page3_text">Pode haber moitas razóns para elexir un servidor. art.exemplo é un bo lugar para artistas, mentras glasgow.exemplo podería ser axeitado para persoas escocesas.\n\nNon terás problemas con calquera dos servidores recomendados, así que independentemente do que elixas (ou se escribes o teu propio na caixa de busca) non botarás nada en falta.</string>
 	<string name="signup_random_server_explain">Elixiremos un servidor no teu idioma se segues sen seleccionar nada.</string>
