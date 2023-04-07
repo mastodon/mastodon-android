@@ -10,13 +10,11 @@
 	<string name="ok">Tamam</string>
 	<string name="preparing_auth">Kimlik doğrulama için hazırlanıyor…</string>
 	<string name="finishing_auth">Kimlik doğrulama tamamlanıyor…</string>
-	<string name="user_boosted">%s yeniden paylaştı</string>
 	<string name="in_reply_to">%s için yanıt</string>
 	<string name="notifications">Bildirimler</string>
 	<string name="user_followed_you">seni takip etti</string>
 	<string name="user_sent_follow_request">sana bir takip isteği gönderdi</string>
 	<string name="user_favorited">gönderinizi favorilerine ekledi</string>
-	<string name="notification_boosted">gönderinizi yeniden paylaştı</string>
 	<string name="poll_ended">oylama sona erdi</string>
 	<string name="time_seconds">%ds</string>
 	<string name="time_minutes">%dd</string>
@@ -166,7 +164,6 @@
 	<string name="report_sent_subtitle">Biz bunu incelerken siz %s karşı önlem alabilirsiniz.</string>
 	<string name="unfollow_user">Takipten çık %s</string>
 	<string name="unfollow">Takipten çık</string>
-	<string name="mute_user_explain">Ana sayfa akışınızda gönderilerini görmezsiniz. Sessize alındıklarını bilmeyecekler.</string>
 	<string name="block_user_explain">Artık sizi takip edemez ve gönderilerinizi göremezler ama engellendiklerini görebilirler.</string>
 	<string name="report_personal_title">Bunu görmek istemiyor musun?</string>
 	<string name="report_personal_subtitle">Mastodon\'da beğenmediğiniz bir şey gördüğünüzde, o kişiyi deneyiminizden çıkarabilirsiniz.</string>
@@ -223,7 +220,6 @@
 	<string name="skip">Atla</string>
 	<string name="notification_type_follow">Yeni takipçiler</string>
 	<string name="notification_type_favorite">Favoriler</string>
-	<string name="notification_type_reblog">Yeniden paylaşımlar</string>
 	<string name="notification_type_mention">Bahsetmeler</string>
 	<string name="notification_type_poll">Anketler</string>
 	<string name="choose_account">Hesap seç</string>
@@ -250,7 +246,6 @@
 	<string name="notify_none">bilgilendirme</string>
 	<string name="notify_favorites">Gönderiğimi beğendiğinde</string>
 	<string name="notify_follow">Beni takip ettiğinde</string>
-	<string name="notify_reblog">Gönderimi yeniden paylaştığında</string>
 	<string name="notify_mention">Benden bahsettiğinde</string>
 	<string name="settings_boring">Sıkıcı bölge</string>
 	<string name="settings_account">Hesap ayarları</string>
@@ -271,7 +266,6 @@
 	<string name="hide_content">İçeriği gizle</string>
 	<string name="new_post">Yeni gönderi</string>
 	<string name="button_reply">Cevapla</string>
-	<string name="button_reblog">Yeniden paylaş</string>
 	<string name="button_favorite">Favorile</string>
 	<string name="button_share">Paylaş</string>
 	<string name="media_no_description">Açıklamasız medya</string>
@@ -286,8 +280,6 @@
 	<string name="unfollowed_user">%s takip edilmedi</string>
 	<string name="followed_user">%s kişisini takip ediyorsunuz</string>
 	<string name="open_in_browser">Tarayıcıda aç</string>
-	<string name="hide_boosts_from_user">%s kişisinin yeniden paylaşımlarını gizle</string>
-	<string name="show_boosts_from_user">%s kişisinin yeniden paylaşımlarını göster</string>
 	<string name="signup_reason">Neden katılmak istiyorsunuz?</string>
 	<string name="signup_reason_note">Bu, başvurunuzu incelememize yardımcı olacaktır.</string>
 	<string name="clear">Temizle</string>
@@ -329,13 +321,8 @@
 		<item quantity="one">%,d favori</item>
 		<item quantity="other">%,d favori</item>
 	</plurals>
-	<plurals name="x_reblogs">
-		<item quantity="one">%,d yeniden paylaşım</item>
-		<item quantity="other">%,d yeniden paylaşım</item>
-	</plurals>
 	<string name="timestamp_via_app">%1$s tarihinde %2$s uygulamasıyla</string>
 	<string name="time_now">şimdi</string>
-	<string name="post_info_reblogs">Yeniden Paylaşımlar</string>
 	<string name="post_info_favorites">Favoriler</string>
 	<string name="edit_history">Düzenleme geçmişi</string>
 	<string name="last_edit_at_x">Son düzenleme: %s</string>
@@ -397,7 +384,6 @@
 	<string name="welcome_page1_title">Mastodon nedir?</string>
 	<string name="welcome_page1_text">\@örnek.com ile biten bir e-posta adresiniz olduğunu düşünün. \n\n Kişilerin e-posta adresi @gmail.com, @icloud.com ya da @örnek.com ile bitse de herkese e-posta gönderebilir veya herkesten e-posta alabilirsiniz.</string>
 	<string name="welcome_page2_title">Mastodon da böyledir.</string>
-	<string name="welcome_page2_text">Adresiniz @acemicadi@ornek.social olabilir ama yine de @sessizgemi@ornek.online hesabını takip edebilir, gönderilerini paylaşabilir ve yanıtlayabilirsiniz.</string>
 	<string name="welcome_page3_title">Bir sunucuyu nasıl seçerim?</string>
 	<string name="welcome_page3_text">İnsanlar farklı sebeplerle farklı sunucular seçer. sanat.ornek sanatçılar için, istanbul.ornek İstanbullular için güzel bir seçenek olabilir. \n\n Bizim önerdiğimiz bir sunucuyu seçerek (ya da kendi sunucunuzu arama alanına yazabilirsiniz) yanlış bir şey yapmış olmazsınız, hangisini seçtiğiniz fark etmeksizin hiçbir olayı kaçırmayacaksınız.</string>
 	<string name="signup_random_server_explain">Herhangi bir seçim yapmadan devam ederseniz dilinize göre bir sunucu seçeceğiz.</string>
