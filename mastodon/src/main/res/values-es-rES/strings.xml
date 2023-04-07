@@ -10,13 +10,11 @@
 	<string name="ok">Aceptar</string>
 	<string name="preparing_auth">Preparando para autenticación…</string>
 	<string name="finishing_auth">Finalizando autenticación…</string>
-	<string name="user_boosted">%s reblogueó</string>
 	<string name="in_reply_to">En respuesta a %s</string>
 	<string name="notifications">Notificaciones</string>
 	<string name="user_followed_you">ha empezado a seguirte</string>
 	<string name="user_sent_follow_request">te envió una solicitud de seguimiento</string>
 	<string name="user_favorited">marcó como favorita</string>
-	<string name="notification_boosted">reblogueó tu publicación</string>
 	<string name="poll_ended">encuesta finalizada</string>
 	<string name="time_seconds">%ds</string>
 	<string name="time_minutes">%dm</string>
@@ -166,7 +164,6 @@
 	<string name="report_sent_subtitle">Mientras revisamos esto, puedes tomar medidas contra %s.</string>
 	<string name="unfollow_user">Dejar de seguir a %s</string>
 	<string name="unfollow">Dejar de seguir</string>
-	<string name="mute_user_explain">No verás sus publicaciones o reblogueos en tu línea temporal. No sabrán que han sido silenciados.</string>
 	<string name="block_user_explain">Ya no podrán seguir o ver tus mensajes, pero pueden ver si han sido bloqueados.</string>
 	<string name="report_personal_title">¿No quieres ver esto?</string>
 	<string name="report_personal_subtitle">Cuando vea en Mastodon algo que no le agrada, puede sacar a la persona de su experiencia.</string>
@@ -223,7 +220,6 @@
 	<string name="skip">Saltar</string>
 	<string name="notification_type_follow">Nuevos seguidores</string>
 	<string name="notification_type_favorite">Favoritos</string>
-	<string name="notification_type_reblog">Reblogueos</string>
 	<string name="notification_type_mention">Menciones</string>
 	<string name="notification_type_poll">Encuestas</string>
 	<string name="choose_account">Elegir cuenta</string>
@@ -250,7 +246,6 @@
 	<string name="notify_none">nadie</string>
 	<string name="notify_favorites">Marca mi post como favorito</string>
 	<string name="notify_follow">Me sigue</string>
-	<string name="notify_reblog">Impulsa mi post</string>
 	<string name="notify_mention">Me menciona</string>
 	<string name="settings_boring">La zona aburrida</string>
 	<string name="settings_account">Ajustes de la cuenta</string>
@@ -271,7 +266,6 @@
 	<string name="hide_content">Ocultar contenido</string>
 	<string name="new_post">Nuevo post</string>
 	<string name="button_reply">Responder</string>
-	<string name="button_reblog">Impulsar</string>
 	<string name="button_favorite">Favorito</string>
 	<string name="button_share">Compartir</string>
 	<string name="media_no_description">Medios sin descripción</string>
@@ -287,8 +281,6 @@
 	<string name="followed_user">Ahora estás siguiendo a %s</string>
 	<string name="following_user_requested">%s solicitó seguirte</string>
 	<string name="open_in_browser">Abrir en el navegador</string>
-	<string name="hide_boosts_from_user">Ocultar reblogueos de %s</string>
-	<string name="show_boosts_from_user">Mostrar reblogueos de %s</string>
 	<string name="signup_reason">¿Por qué quieres unirte?</string>
 	<string name="signup_reason_note">Esto nos ayudará a revisar su solicitud.</string>
 	<string name="clear">Borrar</string>
@@ -330,13 +322,8 @@
 		<item quantity="one">%,d favorito</item>
 		<item quantity="other">%,d favoritos</item>
 	</plurals>
-	<plurals name="x_reblogs">
-		<item quantity="one">%,d reblogueo</item>
-		<item quantity="other">%,d reblogueos</item>
-	</plurals>
 	<string name="timestamp_via_app">%1$s a través de %2$s</string>
 	<string name="time_now">ahora</string>
-	<string name="post_info_reblogs">Reblogueos</string>
 	<string name="post_info_favorites">Favoritos</string>
 	<string name="edit_history">Editar historial</string>
 	<string name="last_edit_at_x">Última edición: %s</string>
@@ -398,7 +385,6 @@
 	<string name="welcome_page1_title">¿Qué es Mastodon?</string>
 	<string name="welcome_page1_text">Imagina que tienes una dirección de correo electrónico que termina con @ejemplo.com.\n\nPuedes enviar y recibir correos electrónicos de cualquier persona, incluso si su correo electrónico termina en @gmail.com o @icloud.com o @ejemplo.com.</string>
 	<string name="welcome_page2_title">Mastodon es parecido.</string>
-	<string name="welcome_page2_text">Tu cuenta puede ser @gothgirl654@example.social, pero puedes seguir, rebloguear, y chatear con @fallout5ever@example.online.</string>
 	<string name="welcome_page3_title">¿Cómo elijo un servidor?</string>
 	<string name="welcome_page3_text">Diferentes personas eligen diferentes servidores por diferentes motivos. Por ejemplo, art.example es un buen lugar para artistas, mientras que madrid.example puede ser una buena elección para los madrileños.\n\nNo te equivocarás con ninguno de nuestros servidores recomendados, por lo que independientemente del que escojas (o si introduces tu propio servidor en la barra de búsqueda), no te perderás ni una en ningún lugar.</string>
 	<string name="signup_random_server_explain">Seleccionaremos un servidor basado en tu idioma si continúas sin hacer una selección.</string>
