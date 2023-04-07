@@ -10,13 +10,11 @@
 	<string name="ok">OK</string>
 	<string name="preparing_auth">認証を開始中…</string>
 	<string name="finishing_auth">認証を完了中…</string>
-	<string name="user_boosted">%sがブースト</string>
 	<string name="in_reply_to">%s へ返信</string>
 	<string name="notifications">通知</string>
 	<string name="user_followed_you">がフォロー</string>
 	<string name="user_sent_follow_request">フォローリクエストを送信しました</string>
 	<string name="user_favorited">がお気に入り登録</string>
-	<string name="notification_boosted">がブースト</string>
 	<string name="poll_ended">アンケートが終了しました</string>
 	<string name="time_seconds">%d秒前</string>
 	<string name="time_minutes">%d分前</string>
@@ -152,7 +150,6 @@
 	<string name="report_sent_subtitle">私たちが確認している間でも、あなたは%sさんに対して対応することができます。</string>
 	<string name="unfollow_user">フォロー解除%s</string>
 	<string name="unfollow">フォロー解除</string>
-	<string name="mute_user_explain">ホームに投稿やブーストは表示されなくなりますが、相手にミュートしたことは伝わりません。</string>
 	<string name="block_user_explain">相手はあなたの投稿を見ることやフォローすることは出来ません。相手はブロックされていることはわかります。</string>
 	<string name="report_personal_title">見えないようにしたいですか？</string>
 	<string name="report_personal_subtitle">Mastodonで気に入らないものを見ると、その人をあなたの体験から取り除くことができます。</string>
@@ -209,7 +206,6 @@
 	<string name="skip">スキップ</string>
 	<string name="notification_type_follow">新しいフォロワー</string>
 	<string name="notification_type_favorite">お気に入り</string>
-	<string name="notification_type_reblog">ブースト</string>
 	<string name="notification_type_mention">メンション</string>
 	<string name="notification_type_poll">投票</string>
 	<string name="choose_account">アカウントを選択</string>
@@ -235,7 +231,6 @@
 	<string name="notify_none">なし</string>
 	<string name="notify_favorites">お気に入り登録された</string>
 	<string name="notify_follow">フォローされた</string>
-	<string name="notify_reblog">ブーストされた</string>
 	<string name="notify_mention">メンションされた</string>
 	<string name="settings_boring">アプリについて</string>
 	<string name="settings_account">アカウント設定</string>
@@ -256,7 +251,6 @@
 	<string name="hide_content">内容を非表示</string>
 	<string name="new_post">新しい投稿</string>
 	<string name="button_reply">返信</string>
-	<string name="button_reblog">ブースト</string>
 	<string name="button_favorite">お気に入り</string>
 	<string name="button_share">共有</string>
 	<string name="media_no_description">説明のないメディア</string>
@@ -271,8 +265,6 @@
 	<string name="unfollowed_user">フォロー解除%s</string>
 	<string name="followed_user">%sさんをフォローしました</string>
 	<string name="open_in_browser">ブラウザで開く</string>
-	<string name="hide_boosts_from_user">%sさんのブーストを非表示</string>
-	<string name="show_boosts_from_user">%sさんのブーストを表示</string>
 	<string name="signup_reason">参加したい理由を入力してください</string>
 	<string name="signup_reason_note">申請を承認する際に役立つメッセージを添えてください.</string>
 	<string name="clear">クリア</string>
@@ -311,12 +303,8 @@
 	<plurals name="x_favorites">
 		<item quantity="other">%,d お気に入り</item>
 	</plurals>
-	<plurals name="x_reblogs">
-		<item quantity="other">%,d ブースト</item>
-	</plurals>
 	<string name="timestamp_via_app">%1$sに%2$s経由</string>
 	<string name="time_now">今</string>
-	<string name="post_info_reblogs">ブースト</string>
 	<string name="post_info_favorites">お気に入り</string>
 	<string name="edit_history">編集履歴</string>
 	<string name="last_edit_at_x">最終更新日%s</string>
@@ -376,7 +364,6 @@
 	<string name="welcome_page1_title">Mastodonとは</string>
 	<string name="welcome_page1_text">Mastodonのしくみは電子メールとよく似ています。\n\n電子メールは ○○@example.com のようなメールアドレスを持っていれば、 □□@gmail.com や △△@icloud.com はもちろん、同じプロバイダの ◇◇@example.com など、どんな相手にもメールを送れます。</string>
 	<string name="welcome_page2_title">サーバーからサーバーへ</string>
-	<string name="welcome_page2_text">電子メールと同様に、@gothgirl654@example.social というMastodonアカウントがあれば、ほかのサーバーの @fallout5ever@example.online をフォローして投稿をブーストしたり、メンションを送ることができます。</string>
 	<string name="welcome_page3_title">サーバーをさがしてみよう</string>
 	<string name="welcome_page3_text">サーバーの選びかたは十人十色です。アーティスト同士が集まるサーバーもあれば、とある鉄道の沿線住民が集うサーバーもあります。\n\nアカウント作成に進むと、検索バーとおすすめのサーバーが表示されます。参加したいサーバーが決まっていない場合は、おすすめから選んでみましょう。どのサーバーを選んでも、どこの誰とでもつながれます。</string>
 	<string name="signup_random_server_explain">利用中の言語に基づいてサーバーを自動選択することもできます。</string>
