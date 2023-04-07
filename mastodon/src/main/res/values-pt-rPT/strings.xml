@@ -10,13 +10,11 @@
 	<string name="ok">OK</string>
 	<string name="preparing_auth">A preparar a autenticação…</string>
 	<string name="finishing_auth">A finalizar a autenticação…</string>
-	<string name="user_boosted">%s republicado</string>
 	<string name="in_reply_to">Responder a %s</string>
 	<string name="notifications">Notificações</string>
 	<string name="user_followed_you">seguiu-te</string>
 	<string name="user_sent_follow_request">pediu para te seguir</string>
 	<string name="user_favorited">gostou da sua publicação</string>
-	<string name="notification_boosted">republicou a sua publicação</string>
 	<string name="poll_ended">sondagem terminada</string>
 	<string name="time_seconds">%ds</string>
 	<string name="time_minutes">%dm</string>
@@ -166,7 +164,6 @@
 	<string name="report_sent_subtitle">Enquanto revemos a sua denúncia, pode tomar medidas contra %s.</string>
 	<string name="unfollow_user">Deixar de seguir %s</string>
 	<string name="unfollow">Deixar de seguir</string>
-	<string name="mute_user_explain">Não verá publicações e re-publicacões na sua fonte inicial. Eles não saberão que foram silenciados.</string>
 	<string name="block_user_explain">Eles não poderão segui-lo ou ver as suas publicações, mas conseguem ver se foram bloqueados.</string>
 	<string name="report_personal_title">Não quer ver isto?</string>
 	<string name="report_personal_subtitle">Quando vê algo que não gosta no Mastodon pode remover a pessoa da sua experiência.</string>
@@ -211,7 +208,6 @@
 	<string name="skip">Ignorar</string>
 	<string name="notification_type_follow">Novos seguidores</string>
 	<string name="notification_type_favorite">Favoritos</string>
-	<string name="notification_type_reblog">Re-publicacões</string>
 	<string name="notification_type_mention">Menções</string>
 	<string name="notification_type_poll">Sondagens</string>
 	<string name="choose_account">Escolher conta</string>
@@ -263,13 +259,8 @@
 		<item quantity="one">%,d favorito</item>
 		<item quantity="other">%,d favoritos</item>
 	</plurals>
-	<plurals name="x_reblogs">
-		<item quantity="one">%,d re-publicação</item>
-		<item quantity="other">%,d re-publicações</item>
-	</plurals>
 	<string name="timestamp_via_app">%1$s via %2$s</string>
 	<string name="time_now">agora</string>
-	<string name="post_info_reblogs">Re-publicacões</string>
 	<string name="post_info_favorites">Favoritos</string>
 	<string name="edit_history">Editar histórico</string>
 	<string name="last_edit_at_x">Última edição: %s</string>
