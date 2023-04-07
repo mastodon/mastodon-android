@@ -10,13 +10,11 @@
 	<string name="ok">OK</string>
 	<string name="preparing_auth">Підготовка до автентифікації…</string>
 	<string name="finishing_auth">Завершення автентифікації…</string>
-	<string name="user_boosted">%s Зробив репост</string>
 	<string name="in_reply_to">Відповісти %s</string>
 	<string name="notifications">Сповіщення</string>
 	<string name="user_followed_you">підписався(-лася) на вас</string>
 	<string name="user_sent_follow_request">відправив запит на підписку</string>
 	<string name="user_favorited">Вподобав(-ла) ваш допис</string>
-	<string name="notification_boosted">Поширив(-ла) ваш допис</string>
 	<string name="poll_ended">опитування завершено</string>
 	<string name="time_seconds">%dсек</string>
 	<string name="time_minutes">%dхв</string>
@@ -194,7 +192,6 @@
 	<string name="report_sent_subtitle">Поки ми переглядаємо, ви можете вжити власних заходів проти %s.</string>
 	<string name="unfollow_user">Відписатися від %s</string>
 	<string name="unfollow">Відписатися</string>
-	<string name="mute_user_explain">Ви не побачите їхні дописи чи репости на вашій домашній стрічці. Вони не знатимуть, що заглушені.</string>
 	<string name="block_user_explain">Вони більше не зможуть стежити або бачити Ваші пости, але вони зможуть побачити, що вони були заблоковані.</string>
 	<string name="report_personal_title">Не хочете бачити це?</string>
 	<string name="report_personal_subtitle">Якщо бачите щось, що вам не подобається в Mastodon, то можна вилучити людину зі свого досвіду.</string>
@@ -251,7 +248,6 @@
 	<string name="skip">Пропустити</string>
 	<string name="notification_type_follow">Нові підписники</string>
 	<string name="notification_type_favorite">Улюблені</string>
-	<string name="notification_type_reblog">Репости</string>
 	<string name="notification_type_mention">Згадки</string>
 	<string name="notification_type_poll">Опитування</string>
 	<string name="choose_account">Виберіть обліковий запис</string>
@@ -280,7 +276,6 @@
 	<string name="notify_none">ніхто</string>
 	<string name="notify_favorites">Вподобавує ваш допис</string>
 	<string name="notify_follow">Підписався на мене</string>
-	<string name="notify_reblog">Робить репост мого допису</string>
 	<string name="notify_mention">Згадує мене</string>
 	<string name="settings_boring">Нудна зона</string>
 	<string name="settings_account">Налаштування облікового запису</string>
@@ -301,7 +296,6 @@
 	<string name="hide_content">Приховати вміст</string>
 	<string name="new_post">Новий допис</string>
 	<string name="button_reply">Відповісти</string>
-	<string name="button_reblog">Репост</string>
 	<string name="button_favorite">Улюблене</string>
 	<string name="button_share">Поділитись</string>
 	<string name="media_no_description">Медіа без опису</string>
@@ -317,8 +311,6 @@
 	<string name="followed_user">Тепер ви підписані на %s</string>
 	<string name="following_user_requested">Запитано на підписку на %s</string>
 	<string name="open_in_browser">Відкрити у браузері</string>
-	<string name="hide_boosts_from_user">Сховати репости від %s</string>
-	<string name="show_boosts_from_user">Показати репости від %s</string>
 	<string name="signup_reason">Чому ви бажаєте приєднатися?</string>
 	<string name="signup_reason_note">Це допоможе нам переглянути вашу заявку.</string>
 	<string name="clear">Очистити</string>
@@ -366,15 +358,8 @@
 		<item quantity="many">%,d, улюблені</item>
 		<item quantity="other">%,d, улюблені</item>
 	</plurals>
-	<plurals name="x_reblogs">
-		<item quantity="one">%,d репост</item>
-		<item quantity="few">%,d репости</item>
-		<item quantity="many">%,d репостів</item>
-		<item quantity="other">%,d репостів</item>
-	</plurals>
 	<string name="timestamp_via_app">%1$s через %2$s</string>
 	<string name="time_now">щойно</string>
-	<string name="post_info_reblogs">Репости</string>
 	<string name="post_info_favorites">Улюблені</string>
 	<string name="edit_history">Змінити історію</string>
 	<string name="last_edit_at_x">Останнє редагування %s</string>
@@ -440,7 +425,6 @@
 	<string name="welcome_page1_title">Що таке Mastodon?</string>
 	<string name="welcome_page1_text">Уявіть, що у вас є електронної пошта, яка закінчується на @example.com.\n\nВи можете все ще надсилати та отримувати листи від будь-кого, навіть якщо їх електронна пошта закінчується на @gmail.com або @icloud.com або @example.com.</string>
 	<string name="welcome_page2_title">Mastodon такий.</string>
-	<string name="welcome_page2_text">Ваш індифікатор може бути @gothgirl654@example.social, але ви все ще можете підписуватися, репостити й спілкуватися з @fallout5ever@example.online.</string>
 	<string name="welcome_page3_title">Як обрати сервер?</string>
 	<string name="welcome_page3_text">Різні люди обирають різні сервери з будь-якої кількості причин. art.example - це чудове місце для художників, в той час як glasgow.example може бути гарним вибором для шотландці.\n\nВи не можете піти не так з жодними з наших рекомендованих серверів, так чи інакше, незалежно від того, який вибір ви обираєте (або введете власний в панель пошуку сервера), ви ніколи ніде не помилитися в жодному місці.</string>
 	<string name="signup_random_server_explain">Ми підберемо сервер основі вашої мовою, якщо ви продовжите без вибору.</string>
