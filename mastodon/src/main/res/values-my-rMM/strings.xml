@@ -10,13 +10,11 @@
 	<string name="ok">အိုကေ</string>
 	<string name="preparing_auth">အထောက်အထားစိစစ်ရန် ပြင်ဆင်နေသည်…</string>
 	<string name="finishing_auth">အထောက်အထားစိစစ်ခြင်းကို အပြီးသတ်နေသည်…</string>
-	<string name="user_boosted">%s က ရီဘလော့လုပ်ထားသည်</string>
 	<string name="in_reply_to">%s ကို ရီပလိုင်းပြန်ထား</string>
 	<string name="notifications">နိုတီများ</string>
 	<string name="user_followed_you">က သင့်ကို ဖော်လိုးလုပ်လိုက်သည်</string>
 	<string name="user_sent_follow_request">က သင့်ကို ဖော်လိုးဝါအဖြစ်တောင်းဆိုမှုတစ်ခု ပို့လိုက်သည်</string>
 	<string name="user_favorited">က သင့်ပို့စ်ကို နှစ်သက်ခဲ့သည်</string>
-	<string name="notification_boosted">က သင့်ပို့စ်ကို ရီဘလော့လုပ်လိုက်သည်</string>
 	<string name="poll_ended">ရဲ့ စစ်တမ်းပြီးဆုံးသွားပါပြီ</string>
 	<string name="time_seconds">%d စက္ကန့်</string>
 	<string name="time_minutes">%d မိနစ်</string>
@@ -180,7 +178,6 @@
 	<string name="notify_none">မည်သူကမျှ</string>
 	<string name="notify_favorites">ကျွန်ုပ်ပို့စ်ကို နှစ်သက်လျှင်</string>
 	<string name="notify_follow">ကျွန်ုပ်ကို ဖောလိုးလုပ်လျှင်</string>
-	<string name="notify_reblog">ကျွန်ုပ်ပို့စ်ကို reblog လုပ်လျှင်</string>
 	<string name="notify_mention">ကျွန်ုပ်ကို မန်းရှင်းခေါ်လျှင်</string>
 	<string name="settings_boring">ပျင်းစရာကောင်းသည်များ</string>
 	<string name="settings_account">အကောင့်ဆက်တင်များ</string>
@@ -204,7 +201,6 @@
 	<string name="my_profile">ကျွန်ုပ်၏ပရိုဖိုင်း</string>
 	<string name="media_viewer">မီဒီယာကြည့်ရှုခြင်း</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
-	<string name="post_info_reblogs">Reblog များ</string>
 	<string name="post_info_favorites">နှစ်သက်မှုများ</string>
 	<string name="edit_history">ပြင်ဆင်မှုမှတ်တမ်း</string>
 	<string name="last_edit_at_x">နောက်ဆုံးပြင်ဆင်ချိန်မှာ %s</string>
