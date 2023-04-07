@@ -10,13 +10,11 @@
 	<string name="ok">OK</string>
 	<string name="preparing_auth">Příprava na autentizaci…</string>
 	<string name="finishing_auth">Dokončení autentizace…</string>
-	<string name="user_boosted">Uživatel %s boostnul</string>
 	<string name="in_reply_to">V odpovědi na %s</string>
 	<string name="notifications">Upozornění</string>
 	<string name="user_followed_you">vás začal(a) sledovat</string>
 	<string name="user_sent_follow_request">vám poslal(a) žádost o sledování</string>
 	<string name="user_favorited">si oblíbil(a) váš příspěvek</string>
-	<string name="notification_boosted">boostnul(a) váš příspěvek</string>
 	<string name="poll_ended">anketa skončila</string>
 	<string name="time_seconds">%d s</string>
 	<string name="time_minutes">%d m</string>
@@ -194,7 +192,6 @@
 	<string name="report_sent_subtitle">Zatímco to posuzujeme, můžete podniknout akce proti %s.</string>
 	<string name="unfollow_user">Přestat sledovat %s</string>
 	<string name="unfollow">Přestat sledovat</string>
-	<string name="mute_user_explain">Neuvidíte příspěvky nebo boosty tohoto uživatele ve svém domovském kanálu. Nebude vědět, že je skryt.</string>
 	<string name="block_user_explain">Tento uživatel vás již nebude moci sledovat ani vidět vaše příspěvky, ale může zjistit, že je blokován.</string>
 	<string name="report_personal_title">Nechcete tohle vidět?</string>
 	<string name="report_personal_subtitle">Když uvidíte něco, co se vám nelíbí na Mastodonu, můžete odstranit tuto osobu ze svého zážitku.</string>
@@ -251,7 +248,6 @@
 	<string name="skip">Přeskočit</string>
 	<string name="notification_type_follow">Noví sledující</string>
 	<string name="notification_type_favorite">Oblíbené</string>
-	<string name="notification_type_reblog">Boosty</string>
 	<string name="notification_type_mention">Zmínky</string>
 	<string name="notification_type_poll">Ankety</string>
 	<string name="choose_account">Vybrat účet</string>
@@ -280,7 +276,6 @@
 	<string name="notify_none">nikoho</string>
 	<string name="notify_favorites">Oblíbí si můj příspěvek</string>
 	<string name="notify_follow">Začne mě sledovat</string>
-	<string name="notify_reblog">Boostne můj příspěvek</string>
 	<string name="notify_mention">Zmíní mě</string>
 	<string name="settings_boring">Nudná část</string>
 	<string name="settings_account">Nastavení účtu</string>
@@ -301,7 +296,6 @@
 	<string name="hide_content">Skrýt obsah</string>
 	<string name="new_post">Nový příspěvek</string>
 	<string name="button_reply">Odpovědět</string>
-	<string name="button_reblog">Boostnout</string>
 	<string name="button_favorite">Oblíbit</string>
 	<string name="button_share">Sdílet</string>
 	<string name="media_no_description">Média bez popisu</string>
@@ -317,8 +311,6 @@
 	<string name="followed_user">Nyní sledujete %s</string>
 	<string name="following_user_requested">Požádáno o sledování %s</string>
 	<string name="open_in_browser">Otevřít v prohlížeči</string>
-	<string name="hide_boosts_from_user">Skrýt boosty od %s</string>
-	<string name="show_boosts_from_user">Zobrazit boosty od %s</string>
 	<string name="signup_reason">Proč se chcete připojit?</string>
 	<string name="signup_reason_note">Toto nám pomůže posoudit vaši žádost.</string>
 	<string name="clear">Vyčistit</string>
@@ -366,15 +358,8 @@
 		<item quantity="many">%,d oblíbení</item>
 		<item quantity="other">%,d oblíbení</item>
 	</plurals>
-	<plurals name="x_reblogs">
-		<item quantity="one">%,d boostnul</item>
-		<item quantity="few">%,d boosty</item>
-		<item quantity="many">%,d boostů</item>
-		<item quantity="other">%,d boostů</item>
-	</plurals>
 	<string name="timestamp_via_app">%1$s přes %2$s</string>
 	<string name="time_now">teď</string>
-	<string name="post_info_reblogs">Boosty</string>
 	<string name="post_info_favorites">Oblíbení</string>
 	<string name="edit_history">Historie úprav</string>
 	<string name="last_edit_at_x">Poslední úprava %s</string>
@@ -440,7 +425,6 @@
 	<string name="welcome_page1_title">Co je Mastodon?</string>
 	<string name="welcome_page1_text">Představte si, že máte e-mailovou adresu, která končí @example.com.\n\nStále můžete od kohokoliv odesílat a přijímat e-maily, i když jejich e-mail končí na @gmail.com nebo @icloud.com nebo @example.com.</string>
 	<string name="welcome_page2_title">Takový je Mastodon.</string>
-	<string name="welcome_page2_text">Vaše uživatelské jméno může být @gothgirl654@example.social, ale stále můžete sledovat, boostovat a chatovat s @fallout5ever@example.online.</string>
 	<string name="welcome_page3_title">Jak si vybrat server?</string>
 	<string name="welcome_page3_text">Různí lidé si vybírají různé servery z různých důvodů. Art.example je skvělým místem pro umělce, zatímco glasgow.example může být dobrou volbou pro Skoty.\n\nS žádným z našich doporučených serverů nemůžete udělat chybu, takže bez ohledu na to, který z nich si vyberete (nebo pokud zadáte svůj vlastní do vyhledávacího řádku serveru), nikde neprohloupíte.</string>
 	<string name="signup_random_server_explain">Pokud budete pokračovat bez výběru, vybereme server založený na vašem jazyce.</string>
