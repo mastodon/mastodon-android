@@ -10,13 +10,11 @@
 	<string name="ok">OK</string>
 	<string name="preparing_auth">Paghahanda para sa pagpapatunay…</string>
 	<string name="finishing_auth">Natapos na ang pagpapatunay…</string>
-	<string name="user_boosted">%s reblogged</string>
 	<string name="in_reply_to">Bilang tugon kay %s</string>
 	<string name="notifications">Mga abiso</string>
 	<string name="user_followed_you">sinundan ka</string>
 	<string name="user_sent_follow_request">may nagpadala sa iyo ng follow request</string>
 	<string name="user_favorited">paborito ang iyong post</string>
-	<string name="notification_boosted">na reblogged ang iyong post</string>
 	<string name="poll_ended">natapos na ang poll</string>
 	<string name="time_seconds">%ds</string>
 	<string name="time_minutes">%dm</string>
@@ -166,7 +164,6 @@
 	<string name="report_sent_subtitle">Habang sinusuri namin ito, maaari kang gumawa ng aksyon laban sa %s.</string>
 	<string name="unfollow_user">I-Unfollow %s</string>
 	<string name="unfollow">I-unfollow</string>
-	<string name="mute_user_explain">Hindi mo makikita ang kanilang mga post o reblogs sa iyong home feed. Hindi nila malalaman na sila ay na-mute.</string>
 	<string name="block_user_explain">Hindi na nila magagawang sundin o makita ang iyong mga post, ngunit maaari nilang makita kung na-block sila.</string>
 	<string name="report_personal_title">Ayaw mong makita ito?</string>
 	<string name="report_personal_subtitle">Kapag nakakita ka ng mga bagay na hindi mo gusto sa Mastodon, maaari mong alisin ang tao mula sa iyong karanasan.</string>
@@ -211,7 +208,6 @@
 	<string name="skip">Laktawan</string>
 	<string name="notification_type_follow">Mga Bagong Follower</string>
 	<string name="notification_type_favorite">Mga Paborito</string>
-	<string name="notification_type_reblog">Mga Reblog</string>
 	<string name="notification_type_mention">Mga binangit</string>
 	<string name="notification_type_poll">Mga botohan</string>
 	<string name="choose_account">Pumili ng account</string>
@@ -238,7 +234,6 @@
 	<string name="notify_none">walang simuman</string>
 	<string name="notify_favorites">Paborito Ang aking post</string>
 	<string name="notify_follow">Sumusunod sa akin</string>
-	<string name="notify_reblog">Reblogs ang aking post</string>
 	<string name="notify_mention">Banggitin ako</string>
 	<string name="settings_boring">Ang nakababagot na zone</string>
 	<string name="settings_account">Mga setting ng Account</string>
@@ -259,7 +254,6 @@
 	<string name="hide_content">Itago ang nilalaman</string>
 	<string name="new_post">Bagong post</string>
 	<string name="button_reply">Tumugon</string>
-	<string name="button_reblog">Reblog</string>
 	<string name="button_favorite">Paborito</string>
 	<string name="button_share">Ibahagi</string>
 	<string name="media_no_description">Media nang walang paglalarawan</string>
@@ -274,8 +268,6 @@
 	<string name="unfollowed_user">I-Unfollow %s</string>
 	<string name="followed_user">Sinusundan mo ngayon ang %s</string>
 	<string name="open_in_browser">Buksan sa browser</string>
-	<string name="hide_boosts_from_user">Itago ang mga reblog mula sa %s</string>
-	<string name="show_boosts_from_user">Ipakita ang mga reblog mula sa %s</string>
 	<string name="signup_reason_note">Makakatulong ito sa amin na suriin ang iyong aplikasyon.</string>
 	<string name="clear">I-Clear</string>
 	<string name="profile_header">Imahe ng Header</string>
@@ -316,13 +308,8 @@
 		<item quantity="one">%, d Paborito</item>
 		<item quantity="other">%, d paborito</item>
 	</plurals>
-	<plurals name="x_reblogs">
-		<item quantity="one">%, d reblog</item>
-		<item quantity="other">%, d reblog</item>
-	</plurals>
 	<string name="timestamp_via_app">%1$s sa pamamagitan ng %2$s</string>
 	<string name="time_now">ngayon</string>
-	<string name="post_info_reblogs">Mga Reblog</string>
 	<string name="post_info_favorites">Mga Paborito</string>
 	<string name="edit_history">I-Edit ang kasaysayan</string>
 	<string name="last_edit_at_x">Huling edit %s</string>
@@ -381,7 +368,6 @@
 	<string name="server_url">Ang URL ng server</string>
 	<string name="welcome_page1_text">Isipin na mayroon kang isang email address na nagtatapos sa @example. com. \n \nMaaari ka pa ring magpadala at tumanggap ng mga email mula sa sinuman, kahit na ang kanilang email ay nagtatapos sa @gmail.com o @icloud.com o @example.com.</string>
 	<string name="welcome_page2_title">Mastodon ay tulad na.</string>
-	<string name="welcome_page2_text">Ang iyong hawakan ay maaaring @gothgirl654@example.social, ngunit maaari mo pa ring sundin, reblog, at makipag-chat sa @fallout5ever@example.online.</string>
 	<string name="welcome_page3_title">Paano ako pumili ng server?</string>
 	<string name="welcome_page3_text">Ang iba \'t ibang mga tao ay pumili ng iba\' t ibang mga server para sa anumang bilang ng mga kadahilanan. sining.ang halimbawa ay isang magandang lugar para sa mga artista, habang ang glasgow.halimbawa ay maaaring maging isang mahusay na pick para sa Scots.\n \nhindi ka maaaring magkamali sa alinman sa aming mga inirekumendang server, kaya anuman ang pipiliin mo (o kung ipinasok mo ang iyong sarili sa search bar ng server), hindi ka makaligtaan ng isang matalo kahit saan.</string>
 	<!-- %s is server domain -->
