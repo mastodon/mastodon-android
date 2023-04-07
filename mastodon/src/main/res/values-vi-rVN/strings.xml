@@ -10,13 +10,11 @@
 	<string name="ok">OK</string>
 	<string name="preparing_auth">Chuẩn bị xác thực…</string>
 	<string name="finishing_auth">Hoàn tất xác thực…</string>
-	<string name="user_boosted">%s đăng lại</string>
 	<string name="in_reply_to">%s viết tiếp</string>
 	<string name="notifications">Thông báo</string>
 	<string name="user_followed_you">đã theo dõi bạn</string>
 	<string name="user_sent_follow_request">đã yêu cầu theo dõi bạn</string>
 	<string name="user_favorited">thích tút của bạn</string>
-	<string name="notification_boosted">đăng lại tút của bạn</string>
 	<string name="poll_ended">cuộc bình chọn kết thúc</string>
 	<string name="time_seconds">%ds</string>
 	<string name="time_minutes">%dm</string>
@@ -152,7 +150,6 @@
 	<string name="report_sent_subtitle">Trong lúc chờ chúng tôi xem xét, bạn có thể áp dụng hành động với @%s.</string>
 	<string name="unfollow_user">Ngưng theo dõi %s</string>
 	<string name="unfollow">Ngưng theo dõi</string>
-	<string name="mute_user_explain">Bạn sẽ không thấy tút hoặc lượt đăng lại của họ trên bảng tin. Họ không biết rằng bạn ẩn họ.</string>
 	<string name="block_user_explain">Họ sẽ không thể theo dõi hoặc đọc tút của bạn, nhưng họ có thể hiểu bạn đã chặn họ.</string>
 	<string name="report_personal_title">Không muốn xem thứ này?</string>
 	<string name="report_personal_subtitle">Khi bạn thấy có gì đó mà bạn không thích trên Mastodon, bạn có thể tự loại bỏ chúng.</string>
@@ -209,7 +206,6 @@
 	<string name="skip">Bỏ qua</string>
 	<string name="notification_type_follow">Người theo dõi mới</string>
 	<string name="notification_type_favorite">Lượt thích</string>
-	<string name="notification_type_reblog">Đăng lại</string>
 	<string name="notification_type_mention">Lượt nhắc đến</string>
 	<string name="notification_type_poll">Cuộc bình chọn</string>
 	<string name="choose_account">Chọn tài khoản</string>
@@ -235,7 +231,6 @@
 	<string name="notify_none">không một ai</string>
 	<string name="notify_favorites">Thích tút của tôi</string>
 	<string name="notify_follow">Theo dõi tôi</string>
-	<string name="notify_reblog">Đăng lại tút của tôi</string>
 	<string name="notify_mention">Nhắc đến tôi</string>
 	<string name="settings_boring">Nhàm chán</string>
 	<string name="settings_account">Cài đặt tài khoản</string>
@@ -256,7 +251,6 @@
 	<string name="hide_content">Ẩn nội dung</string>
 	<string name="new_post">Viết tút</string>
 	<string name="button_reply">Trả lời</string>
-	<string name="button_reblog">Đăng lại</string>
 	<string name="button_favorite">Thích</string>
 	<string name="button_share">Chia sẻ</string>
 	<string name="media_no_description">Media chưa có mô tả</string>
@@ -272,8 +266,6 @@
 	<string name="followed_user">Bạn đã theo dõi %s</string>
 	<string name="following_user_requested">Yêu cầu theo dõi %s</string>
 	<string name="open_in_browser">Mở trong trình duyệt</string>
-	<string name="hide_boosts_from_user">Ẩn đăng lại từ %s</string>
-	<string name="show_boosts_from_user">Hiện đăng lại từ %s</string>
 	<string name="signup_reason">Vì sao bạn muốn tham gia?</string>
 	<string name="signup_reason_note">Điều này sẽ giúp chúng tôi phê duyệt đăng ký của bạn.</string>
 	<string name="clear">Xóa</string>
@@ -312,12 +304,8 @@
 	<plurals name="x_favorites">
 		<item quantity="other">%,d lượt thích</item>
 	</plurals>
-	<plurals name="x_reblogs">
-		<item quantity="other">%,d đăng lại</item>
-	</plurals>
 	<string name="timestamp_via_app">%1$s qua %2$s</string>
 	<string name="time_now">vừa xong</string>
-	<string name="post_info_reblogs">Lượt đăng lại</string>
 	<string name="post_info_favorites">Lượt thích</string>
 	<string name="edit_history">Lịch sử chỉnh sửa</string>
 	<string name="last_edit_at_x">Sửa lần cuối %s</string>
@@ -377,7 +365,6 @@
 	<string name="welcome_page1_title">Mastodon là gì?</string>
 	<string name="welcome_page1_text">Hãy tưởng tượng bạn có một địa chỉ email tên miền @example.com.\n\nBạn vẫn có thể gửi và nhận email từ bất kỳ ai, ngay cả khi email của họ là @gmail.com hoặc @icloud.com hoặc @example.com.</string>
 	<string name="welcome_page2_title">Mastodon tương tự vậy.</string>
-	<string name="welcome_page2_text">Địa chỉ của bạn có thể là @gothgirl654@example.social nhưng bạn vẫn có thể theo dõi, đăng lại tút và trò chuyện với @fallout5ever@example.online.</string>
 	<string name="welcome_page3_title">Làm thế nào để chọn một máy chủ?</string>
 	<string name="welcome_page3_text">Mọi người chọn các máy chủ khác nhau vì nhiều lý do. art.example là một nơi tuyệt vời cho các nghệ sĩ, trong khi glasgow.example có thể là một lựa chọn tốt cho người Scotland.\n\nBạn có thể chọn bất kỳ máy chủ đề xuất nào của chúng tôi, vì vậy, bất kể bạn chọn máy chủ nào (hoặc tự chọn trong thanh tìm kiếm của máy chủ), bạn sẽ không bao giờ bỏ lỡ một nhịp nào ở bất cứ đâu.</string>
 	<string name="signup_random_server_explain">Chúng tôi sẽ chọn một máy chủ dựa trên ngôn ngữ của bạn nếu bạn tiếp tục mà không lựa chọn.</string>
