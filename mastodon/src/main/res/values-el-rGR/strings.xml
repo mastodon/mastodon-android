@@ -10,13 +10,11 @@
 	<string name="ok">ΟΚ</string>
 	<string name="preparing_auth">Προετοιμασία για έλεγχο ταυτότητας…</string>
 	<string name="finishing_auth">Ολοκλήρωση ταυτοποίησης…</string>
-	<string name="user_boosted">%s αναδημοσίευσε</string>
 	<string name="in_reply_to">Σε απάντηση στο %s</string>
 	<string name="notifications">Ειδοποιήσεις</string>
 	<string name="user_followed_you">σε ακολουθεί</string>
 	<string name="user_sent_follow_request">σου έστειλε ένα αίτημα ακολούθησης</string>
 	<string name="user_favorited">σημείωσε ως αγαπημένη την ανάρτησή σου</string>
-	<string name="notification_boosted">αναδημοσίευσε την ανάρτηση σου</string>
 	<string name="poll_ended">η δημοσκόπηση έληξε</string>
 	<string name="time_seconds">%dδλ</string>
 	<string name="time_minutes">%dλ</string>
@@ -162,7 +160,6 @@
 	<string name="report_sent_subtitle">Ενώ το εξετάζουμε αυτό, μπορείς να δράσεις εναντίον του %s.</string>
 	<string name="unfollow_user">Κατάργηση ακολούθησης του %s</string>
 	<string name="unfollow">Άρση ακολούθησης</string>
-	<string name="mute_user_explain">Δεν θα βλέπεις τις αναρτήσεις ή τις αναδημοσιεύσεις τους στην αρχική σελίδα σου. Δεν θα ξέρουν ότι βρίσκονται σε σίγαση.</string>
 	<string name="block_user_explain">Δεν θα μπορούν πλέον να σε ακολουθούν ή να βλέπουν τις αναρτήσεις σου, αλλά μπορούν να δουν αν έχουν αποκλειστεί.</string>
 	<string name="report_personal_title">Δε θες να το βλέπεις αυτό;</string>
 	<string name="report_personal_subtitle">Όταν βλέπεις κάτι που δεν σου αρέσει στο Mastodon, μπορείς να αφαιρέσεις το άτομο από την εμπειρία σου.</string>
@@ -219,7 +216,6 @@
 	<string name="skip">Παράλειψη</string>
 	<string name="notification_type_follow">Νέοι ακόλουθοι</string>
 	<string name="notification_type_favorite">Αγαπημένα</string>
-	<string name="notification_type_reblog">Αναδημοσιεύσεις</string>
 	<string name="notification_type_mention">Επισημάνσεις</string>
 	<string name="notification_type_poll">Δημοσκοπήσεις</string>
 	<string name="choose_account">Επιλογή λογαριασμού</string>
@@ -246,7 +242,6 @@
 	<string name="notify_none">κανείς</string>
 	<string name="notify_favorites">Προσθέτει στα αγαπημένα την ανάρτησή μου</string>
 	<string name="notify_follow">Με ακολουθεί</string>
-	<string name="notify_reblog">Αναδημοσιεύει την ανάρτησή μου</string>
 	<string name="notify_mention">Με επισημαίνει</string>
 	<string name="settings_boring">Η βαρετή ζώνη</string>
 	<string name="settings_account">Ρυθμίσεις λογαριασμού</string>
@@ -267,7 +262,6 @@
 	<string name="hide_content">Απόκρυψη περιεχομένου</string>
 	<string name="new_post">Νέα ανάρτηση</string>
 	<string name="button_reply">Απάντηση</string>
-	<string name="button_reblog">Αναδημοσίευση</string>
 	<string name="button_favorite">Αγαπημένο</string>
 	<string name="button_share">Κοινοποίηση</string>
 	<string name="media_no_description">Πολυμέσα χωρίς περιγραφή</string>
@@ -283,8 +277,6 @@
 	<string name="followed_user">Ακολουθείς τον/την %s</string>
 	<string name="following_user_requested">Έγινε αίτημα ακολούθησης το %s</string>
 	<string name="open_in_browser">Άνοιξε στον περιηγητή</string>
-	<string name="hide_boosts_from_user">Απόκρυψη αναδημοσιεύσεων από %s</string>
-	<string name="show_boosts_from_user">Εμφάνιση αναδημοσιεύσεων από %s</string>
 	<string name="signup_reason">Γιατί θέλεις να συμμετάσχεις;</string>
 	<string name="signup_reason_note">Αυτό θα μας βοηθήσει να εξετάσουμε την αίτησή σου.</string>
 	<string name="clear">Εκκαθάριση</string>
@@ -323,13 +315,8 @@
 		<item quantity="one">%,d αγαπημένο</item>
 		<item quantity="other">%,d αγαπημένα</item>
 	</plurals>
-	<plurals name="x_reblogs">
-		<item quantity="one">%,d αναδημοσίευση</item>
-		<item quantity="other">%,d αναδημοσιεύσεις</item>
-	</plurals>
 	<string name="timestamp_via_app">%1$s μέσω %2$s</string>
 	<string name="time_now">τώρα</string>
-	<string name="post_info_reblogs">Αναδημοσιεύσεις</string>
 	<string name="post_info_favorites">Αγαπημένα</string>
 	<string name="edit_history">Επεξεργασία ιστορικού</string>
 	<string name="last_edit_at_x">Τελευταία επεξεργασία %s</string>
