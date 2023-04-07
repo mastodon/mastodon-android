@@ -10,13 +10,11 @@
 	<string name="ok">ตกลง</string>
 	<string name="preparing_auth">กำลังเตรียมการรับรองความถูกต้อง…</string>
 	<string name="finishing_auth">กำลังเสร็จสิ้นการรับรองความถูกต้อง…</string>
-	<string name="user_boosted">%s ได้ดัน</string>
 	<string name="in_reply_to">ในการตอบกลับถึง %s</string>
 	<string name="notifications">การแจ้งเตือน</string>
 	<string name="user_followed_you">ได้ติดตามคุณ</string>
 	<string name="user_sent_follow_request">ได้ส่งคำขอติดตามถึงคุณ</string>
 	<string name="user_favorited">ได้ชื่นชอบโพสต์ของคุณ</string>
-	<string name="notification_boosted">ได้ดันโพสต์ของคุณ</string>
 	<string name="poll_ended">การสำรวจความคิดเห็นได้สิ้นสุดแล้ว</string>
 	<string name="time_seconds">%d วินาที</string>
 	<string name="time_minutes">%d นาที</string>
@@ -152,7 +150,6 @@
 	<string name="report_sent_subtitle">ขณะที่เราตรวจทานสิ่งนี้ คุณสามารถดำเนินการกับ %s</string>
 	<string name="unfollow_user">เลิกติดตาม %s</string>
 	<string name="unfollow">เลิกติดตาม</string>
-	<string name="mute_user_explain">คุณจะไม่เห็นโพสต์หรือการดันของเขาในฟีดหน้าแรกของคุณ เขาจะไม่ทราบว่ามีการซ่อนเขา</string>
 	<string name="block_user_explain">เขาจะไม่สามารถติดตามหรือเห็นโพสต์ของคุณได้อีกต่อไป แต่เขาสามารถเห็นว่ามีการปิดกั้นเขาหรือไม่</string>
 	<string name="report_personal_title">ไม่ต้องการเห็นสิ่งนี้?</string>
 	<string name="report_personal_subtitle">เมื่อคุณเห็นบางอย่างที่คุณไม่ชอบใน Mastodon คุณสามารถเอาบุคคลออกจากประสบการณ์ของคุณ</string>
@@ -209,7 +206,6 @@
 	<string name="skip">ข้าม</string>
 	<string name="notification_type_follow">ผู้ติดตามใหม่</string>
 	<string name="notification_type_favorite">รายการโปรด</string>
-	<string name="notification_type_reblog">การดัน</string>
 	<string name="notification_type_mention">การกล่าวถึง</string>
 	<string name="notification_type_poll">การสำรวจความคิดเห็น</string>
 	<string name="choose_account">เลือกบัญชี</string>
@@ -235,7 +231,6 @@
 	<string name="notify_none">ไม่มีใคร</string>
 	<string name="notify_favorites">ชื่นชอบโพสต์ของฉัน</string>
 	<string name="notify_follow">ติดตามฉัน</string>
-	<string name="notify_reblog">ดันโพสต์ของฉัน</string>
 	<string name="notify_mention">กล่าวถึงฉัน</string>
 	<string name="settings_boring">โซนน่าเบื่อ</string>
 	<string name="settings_account">การตั้งค่าบัญชี</string>
@@ -256,7 +251,6 @@
 	<string name="hide_content">ซ่อนเนื้อหา</string>
 	<string name="new_post">โพสต์ใหม่</string>
 	<string name="button_reply">ตอบกลับ</string>
-	<string name="button_reblog">ดัน</string>
 	<string name="button_favorite">ชื่นชอบ</string>
 	<string name="button_share">แบ่งปัน</string>
 	<string name="media_no_description">สื่อที่ไม่มีคำอธิบาย</string>
@@ -272,8 +266,6 @@
 	<string name="followed_user">ตอนนี้คุณกำลังติดตาม %s</string>
 	<string name="following_user_requested">ขอติดตาม %s แล้ว</string>
 	<string name="open_in_browser">เปิดในเบราว์เซอร์</string>
-	<string name="hide_boosts_from_user">ซ่อนการดันจาก %s</string>
-	<string name="show_boosts_from_user">แสดงการดันจาก %s</string>
 	<string name="signup_reason">ทำไมคุณจึงต้องการเข้าร่วม?</string>
 	<string name="signup_reason_note">นี่จะช่วยให้เราตรวจทานใบสมัครของคุณ</string>
 	<string name="clear">ล้าง</string>
@@ -312,12 +304,8 @@
 	<plurals name="x_favorites">
 		<item quantity="other">%,d รายการโปรด</item>
 	</plurals>
-	<plurals name="x_reblogs">
-		<item quantity="other">%,d การดัน</item>
-	</plurals>
 	<string name="timestamp_via_app">%1$s ผ่าน %2$s</string>
 	<string name="time_now">ตอนนี้</string>
-	<string name="post_info_reblogs">การดัน</string>
 	<string name="post_info_favorites">รายการโปรด</string>
 	<string name="edit_history">ประวัติการแก้ไข</string>
 	<string name="last_edit_at_x">การแก้ไขล่าสุดเมื่อ %s</string>
@@ -377,7 +365,6 @@
 	<string name="welcome_page1_title">Mastodon คืออะไร?</string>
 	<string name="welcome_page1_text">จินตนาการว่าคุณมีที่อยู่อีเมลที่ลงท้ายด้วย @example.com\n\nคุณยังคงสามารถส่งและรับอีเมลจากใครก็ตาม แม้ว่าอีเมลของเขาจะลงท้ายด้วย @gmail.com หรือ @icloud.com หรือ @example.com ก็ตาม</string>
 	<string name="welcome_page2_title">Mastodon เป็นเช่นนั้น</string>
-	<string name="welcome_page2_text">นามของคุณอาจเป็น @gothgirl654@example.social แต่คุณยังคงสามารถติดตาม ดัน และแชทกับ @fallout5ever@example.online</string>
 	<string name="welcome_page3_title">ฉันจะเลือกเซิร์ฟเวอร์อย่างไร?</string>
 	<string name="welcome_page3_text">ต่างคนต่างเลือกเซิร์ฟเวอร์ด้วยเหตุผลต่าง ๆ art.example เป็นสถานที่ที่ยอดเยี่ยมสำหรับศิลปิน ขณะที่ glasgow.example อาจเป็นตัวเลือกที่ดีสำหรับชาวสกอต\n\nรับรองว่าคุณต้องชอบเซิร์ฟเวอร์ที่แนะนำของเราใดก็ตาม ดังนั้นไม่ว่าเซิร์ฟเวอร์ใดที่คุณเลือก (หรือหากคุณป้อนของคุณเองในแถบค้นหาเซิร์ฟเวอร์) คุณจะไม่พลาดความเคลื่อนไหวที่ใดก็ตาม</string>
 	<string name="signup_random_server_explain">เราจะเลือกเซิร์ฟเวอร์ตามภาษาของคุณหากคุณดำเนินการต่อโดยไม่ได้ทำการเลือก</string>
