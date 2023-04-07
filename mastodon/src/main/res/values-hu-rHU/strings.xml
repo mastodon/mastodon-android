@@ -10,13 +10,11 @@
 	<string name="ok">OK</string>
 	<string name="preparing_auth">Felkészülés a hitelesítésre…</string>
 	<string name="finishing_auth">Hitelesítés befejezése…</string>
-	<string name="user_boosted">%s megtolta</string>
 	<string name="in_reply_to">Válaszolva %s számára</string>
 	<string name="notifications">Értesítések</string>
 	<string name="user_followed_you">bekövetett</string>
 	<string name="user_sent_follow_request">követési kérelmet küldött neked</string>
 	<string name="user_favorited">kedvencnek jelölte a bejegyzésedet</string>
-	<string name="notification_boosted">megtolta a bejegyzésedet</string>
 	<string name="poll_ended">a szavazás véget ért</string>
 	<string name="time_seconds">%dmp</string>
 	<string name="time_minutes">%dp</string>
@@ -166,7 +164,6 @@
 	<string name="report_sent_subtitle">Míg átnézzük, a következőket teheted %s ellen.</string>
 	<string name="unfollow_user">%s követésének megszüntetése</string>
 	<string name="unfollow">Követés megszüntetése</string>
-	<string name="mute_user_explain">Nem fogod látni a bejegyzéseiket vagy a megtolásaikat a kezdőlapon. Nem fogják tudni, hogy elnémították őket.</string>
 	<string name="block_user_explain">Többé nem fogják tudni követni vagy látni a bejegyzéseidet, de láthatják, ha letiltották őket.</string>
 	<string name="report_personal_title">Nem akarod ezt látni?</string>
 	<string name="report_personal_subtitle">Ha olyasmit látsz a Mastodonon, ami nem tetszik, eltávolíthatod az illetőt a felhasználói élményedből.</string>
@@ -223,7 +220,6 @@
 	<string name="skip">Átugrás</string>
 	<string name="notification_type_follow">Új követők</string>
 	<string name="notification_type_favorite">Kedvencek</string>
-	<string name="notification_type_reblog">Megtolások</string>
 	<string name="notification_type_mention">Említések</string>
 	<string name="notification_type_poll">Szavazások</string>
 	<string name="choose_account">Fiók kiválasztása</string>
@@ -250,7 +246,6 @@
 	<string name="notify_none">senki</string>
 	<string name="notify_favorites">Aki a kedvencének jelölte a posztom</string>
 	<string name="notify_follow">Aki követ engem</string>
-	<string name="notify_reblog">Megtolta a bejegyzésed</string>
 	<string name="notify_mention">Megemlített</string>
 	<string name="settings_boring">Az unalmas zóna</string>
 	<string name="settings_account">Fiókbeállítások</string>
@@ -271,7 +266,6 @@
 	<string name="hide_content">Tartalom elrejtése</string>
 	<string name="new_post">Új bejegyzés</string>
 	<string name="button_reply">Válasz</string>
-	<string name="button_reblog">Megtolás</string>
 	<string name="button_favorite">Kedvenc</string>
 	<string name="button_share">Megosztás</string>
 	<string name="media_no_description">Média leírás nélkül</string>
@@ -286,8 +280,6 @@
 	<string name="unfollowed_user">%s követését visszavontad</string>
 	<string name="followed_user">Most már követed %s</string>
 	<string name="open_in_browser">Megnyitás böngészőben</string>
-	<string name="hide_boosts_from_user">%s megtolásainak elrejtése</string>
-	<string name="show_boosts_from_user">%s megtolásainak mutatása</string>
 	<string name="signup_reason">Miért szeretnél csatlakozni?</string>
 	<string name="signup_reason_note">Ez segít nekünk átnézni a jelentkezésedet.</string>
 	<string name="clear">Törlés</string>
@@ -329,13 +321,8 @@
 		<item quantity="one">%,d kedvenc</item>
 		<item quantity="other">%,d kedvenc</item>
 	</plurals>
-	<plurals name="x_reblogs">
-		<item quantity="one">%,d megtolás</item>
-		<item quantity="other">%,d megtolás</item>
-	</plurals>
 	<string name="timestamp_via_app">%1$s %2$s használatával</string>
 	<string name="time_now">most</string>
-	<string name="post_info_reblogs">Megtolások</string>
 	<string name="post_info_favorites">Kedvencek</string>
 	<string name="edit_history">Szerkesztési előzmények</string>
 	<string name="last_edit_at_x">Utoljára szerkesztve: %s</string>
@@ -397,7 +384,6 @@
 	<string name="welcome_page1_title">Mi a Mastodon?</string>
 	<string name="welcome_page1_text">Képzeld el, hogy az emailcímed @example.com-ra végződik.\n\nEttől még küldhtesz és fogadhatsz emailt bárkitől, akkor is, ha a címük @gmail.com-ra, @icloud.com-ra vagy @example.com-ra végződik.</string>
 	<string name="welcome_page2_title">Ilyen a Mastodon.</string>
-	<string name="welcome_page2_text">Lehet, hogy az azonosítód @gothgirl654@example.social, de ettől még követheted, megtolhatod és csetelhetsz @fallout5ever@example.online-nal.</string>
 	<string name="welcome_page3_title">Hogyan választok kiszolgálót?</string>
 	<string name="welcome_page3_text">Az emberek különböző okok miatt választanak más és más kiszolgálót. Az art.example egy jó hely lehet a művészek számára, miközben a glasgow.example a skótoknak lehet megfelelő.\n\nAz általunk javasolt kiszolgálókkal nem lehet probléma, de teljesen mindegy, hogy melyiket választod (vagy ha saját kiszolgálót használsz a keresőmezőben), nem maradsz le semmiről egy kiszolgálón sem.</string>
 	<string name="signup_random_server_explain">Választunk egy kiszolgálót a saját nyelvedhez, ha választás nélkül folytatod.</string>
