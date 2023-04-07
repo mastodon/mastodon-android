@@ -10,13 +10,11 @@
 	<string name="ok">OK</string>
 	<string name="preparing_auth">Preparando para autenticação…</string>
 	<string name="finishing_auth">Finalizando autenticação…</string>
-	<string name="user_boosted">%s reblogou</string>
 	<string name="in_reply_to">Em resposta à %s</string>
 	<string name="notifications">Notificações</string>
 	<string name="user_followed_you">seguiu você</string>
 	<string name="user_sent_follow_request">enviou uma solicitação para seguir você</string>
 	<string name="user_favorited">favoritou seu post</string>
-	<string name="notification_boosted">reblogou sua publicação</string>
 	<string name="poll_ended">enquete encerrada</string>
 	<string name="time_seconds">%ds</string>
 	<string name="time_minutes">%dm</string>
@@ -166,7 +164,6 @@
 	<string name="report_sent_subtitle">Enquanto analisamos isso, você pode tomar medidas contra @%s.</string>
 	<string name="unfollow_user">Deixar de seguir %s</string>
 	<string name="unfollow">Deixar de seguir</string>
-	<string name="mute_user_explain">Você não verá as publicações ou reblogs dessa conta na sua pagina inicial. Essa pessoa não saberá que foi silenciada.</string>
 	<string name="block_user_explain">Essa conta não poderá mais te seguir ou ver suas publicações, mas ela poderá ver que foi bloqueada.</string>
 	<string name="report_personal_title">Não quer ver isto?</string>
 	<string name="report_personal_subtitle">Quando você ver algo que não gosta no Mastodon, pode remover a pessoa da sua experiência.</string>
@@ -223,7 +220,6 @@
 	<string name="skip">Pular</string>
 	<string name="notification_type_follow">Novos seguidores</string>
 	<string name="notification_type_favorite">Favoritos</string>
-	<string name="notification_type_reblog">Reblogs</string>
 	<string name="notification_type_mention">Menções</string>
 	<string name="notification_type_poll">Enquetes</string>
 	<string name="choose_account">Escolher conta</string>
@@ -250,7 +246,6 @@
 	<string name="notify_none">ninguém</string>
 	<string name="notify_favorites">Favoritam minha publicação</string>
 	<string name="notify_follow">Me seguirem</string>
-	<string name="notify_reblog">Rebloga minha publicação</string>
 	<string name="notify_mention">Me mencionarem</string>
 	<string name="settings_boring">A zona chata</string>
 	<string name="settings_account">Configurações da conta</string>
@@ -271,7 +266,6 @@
 	<string name="hide_content">Ocultar conteúdo</string>
 	<string name="new_post">Novo post</string>
 	<string name="button_reply">Responder</string>
-	<string name="button_reblog">Reblogar</string>
 	<string name="button_favorite">Favoritar</string>
 	<string name="button_share">Compartilhar</string>
 	<string name="media_no_description">Mídia sem descrição</string>
@@ -286,8 +280,6 @@
 	<string name="unfollowed_user">Deixou de seguir %s</string>
 	<string name="followed_user">Você agora está seguindo %s</string>
 	<string name="open_in_browser">Abrir no navegador</string>
-	<string name="hide_boosts_from_user">Ocultar reblogues de %s</string>
-	<string name="show_boosts_from_user">Mostrar reblogues de %s</string>
 	<string name="signup_reason">Por que você deseja se inscrever?</string>
 	<string name="signup_reason_note">Isso vai nos ajudar a revisar sua inscrição.</string>
 	<string name="clear">Limpar</string>
@@ -329,13 +321,8 @@
 		<item quantity="one">%,d favorito</item>
 		<item quantity="other">%,d favoritos</item>
 	</plurals>
-	<plurals name="x_reblogs">
-		<item quantity="one">%,d reblog</item>
-		<item quantity="other">%,d reblogs</item>
-	</plurals>
 	<string name="timestamp_via_app">%1$s via %2$s</string>
 	<string name="time_now">agora</string>
-	<string name="post_info_reblogs">Reblogues</string>
 	<string name="post_info_favorites">Favoritos</string>
 	<string name="edit_history">Histórico de edição</string>
 	<string name="last_edit_at_x">Última edição %s</string>
@@ -397,7 +384,6 @@
 	<string name="welcome_page1_title">O que é o Mastodon?</string>
 	<string name="welcome_page1_text">Imagine que você tem um endereço de e-mail que termina com @example.com.\n\nVocê ainda pode enviar e receber e-mails de qualquer pessoa, mesmo que o e-mail deles termine em @gmail.com ou @icloud.com ou @example.com.</string>
 	<string name="welcome_page2_title">O Mastodon é assim.</string>
-	<string name="welcome_page2_text">Seu identificador pode ser @gothgirl654@exemplo.social, mas você ainda pode seguir, reblogar, e conversar com @fallout5ever@example.online.</string>
 	<string name="welcome_page3_title">Como faço para escolher um servidor?</string>
 	<string name="welcome_page3_text">Pessoas diferentes escolhem servidores diferentes por vários motivos. O art.example é um ótimo lugar para artistas, enquanto glasgow.example pode ser uma boa escolha para escoceses.\n\nVocê não pode errar com nenhum de nossos servidores recomendados, portanto, independentemente de qual escolher (ou se inserir seu próprio na barra de pesquisa do servidor), você nunca perderá uma batida em lugar nenhum.</string>
 	<string name="signup_random_server_explain">Nós escolheremos um servidor com base no seu idioma se você continuar sem fazer uma seleção.</string>
