@@ -2,8 +2,14 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
 	<item>
 		<shape>
-			<solid android:color="?colorWindowBackground"/>
-			<corners android:topLeftRadius="12dp" android:topRightRadius="12dp"/>
+			<solid android:color="?colorM3Surface"/>
+			<corners android:topLeftRadius="28dp" android:topRightRadius="28dp"/>
+		</shape>
+	</item>
+	<item>
+		<shape android:tint="?colorM3Primary">
+			<solid android:color="#0D000000"/>
+			<corners android:topLeftRadius="28dp" android:topRightRadius="28dp"/>
 		</shape>
 	</item>
 </layer-list>

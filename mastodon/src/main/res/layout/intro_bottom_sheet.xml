@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content">
+	<LinearLayout
+		android:orientation="vertical"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:background="@drawable/bg_bottom_sheet"
+		android:padding="16dp">
+
+		<View
+			android:layout_width="match_parent"
+			android:layout_height="4dp"
+			android:layout_marginBottom="16dp"
+			android:background="@drawable/bg_bottom_sheet_handle"/>
+
+		<TextView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:textAppearance="@style/m3_headline_medium"
+			android:textColor="?colorM3OnSurface"
+			android:text="@string/welcome_to_mastodon"/>
+
+		<TextView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="16dp"
+			android:textAppearance="@style/m3_body_large"
+			android:textColor="?colorM3OnSurface"
+			android:text="@string/welcome_paragraph1"/>
+
+		<TextView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="24dp"
+			android:textAppearance="@style/m3_headline_medium"
+			android:textColor="?colorM3OnSurface"
+			android:text="@string/what_are_servers"/>
+
+		<TextView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="16dp"
+			android:textAppearance="@style/m3_body_large"
+			android:textColor="?colorM3OnSurface"
+			android:text="@string/welcome_paragraph2"/>
+
+	</LinearLayout>
+</ScrollView>
