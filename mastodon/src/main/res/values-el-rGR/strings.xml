@@ -16,6 +16,7 @@
 	<string name="user_followed_you">σε ακολουθεί</string>
 	<string name="user_sent_follow_request">σου έστειλε ένα αίτημα ακολούθησης</string>
 	<string name="user_favorited">σημείωσε ως αγαπημένη την ανάρτησή σου</string>
+	<string name="notification_boosted">ενίσχυσε την ανάρτησή σου</string>
 	<string name="poll_ended">η δημοσκόπηση έληξε</string>
 	<string name="time_seconds">%dδλ</string>
 	<string name="time_minutes">%dλ</string>
@@ -161,6 +162,7 @@
 	<string name="report_sent_subtitle">Ενώ το εξετάζουμε αυτό, μπορείς να δράσεις εναντίον του %s.</string>
 	<string name="unfollow_user">Κατάργηση ακολούθησης του %s</string>
 	<string name="unfollow">Άρση ακολούθησης</string>
+	<string name="mute_user_explain">Δεν θα βλέπεις τις αναρτήσεις ή τις ενισχύσεις τους στην αρχική σελίδα σου. Δεν θα ξέρουν ότι βρίσκονται σε σίγαση.</string>
 	<string name="block_user_explain">Δεν θα μπορούν πλέον να σε ακολουθούν ή να βλέπουν τις αναρτήσεις σου, αλλά μπορούν να δουν αν έχουν αποκλειστεί.</string>
 	<string name="report_personal_title">Δε θες να το βλέπεις αυτό;</string>
 	<string name="report_personal_subtitle">Όταν βλέπεις κάτι που δεν σου αρέσει στο Mastodon, μπορείς να αφαιρέσεις το άτομο από την εμπειρία σου.</string>
@@ -217,6 +219,7 @@
 	<string name="skip">Παράλειψη</string>
 	<string name="notification_type_follow">Νέοι ακόλουθοι</string>
 	<string name="notification_type_favorite">Αγαπημένα</string>
+	<string name="notification_type_reblog">Ενισχύσεις</string>
 	<string name="notification_type_mention">Επισημάνσεις</string>
 	<string name="notification_type_poll">Δημοσκοπήσεις</string>
 	<string name="choose_account">Επιλογή λογαριασμού</string>
@@ -243,6 +246,7 @@
 	<string name="notify_none">κανείς</string>
 	<string name="notify_favorites">Προσθέτει στα αγαπημένα την ανάρτησή μου</string>
 	<string name="notify_follow">Με ακολουθεί</string>
+	<string name="notify_reblog">Ενισχύει την ανάρτησή μου</string>
 	<string name="notify_mention">Με επισημαίνει</string>
 	<string name="settings_boring">Η βαρετή ζώνη</string>
 	<string name="settings_account">Ρυθμίσεις λογαριασμού</string>
@@ -263,6 +267,7 @@
 	<string name="hide_content">Απόκρυψη περιεχομένου</string>
 	<string name="new_post">Νέα ανάρτηση</string>
 	<string name="button_reply">Απάντηση</string>
+	<string name="button_reblog">Ενίσχυση</string>
 	<string name="button_favorite">Αγαπημένο</string>
 	<string name="button_share">Κοινοποίηση</string>
 	<string name="media_no_description">Πολυμέσα χωρίς περιγραφή</string>
@@ -278,6 +283,8 @@
 	<string name="followed_user">Ακολουθείς τον/την %s</string>
 	<string name="following_user_requested">Έγινε αίτημα ακολούθησης το %s</string>
 	<string name="open_in_browser">Άνοιξε στον περιηγητή</string>
+	<string name="hide_boosts_from_user">Απόκρυψη ενισχύσεων από @%s</string>
+	<string name="show_boosts_from_user">Εμφάνιση ενισχύσεων από @%s</string>
 	<string name="signup_reason">Γιατί θέλεις να συμμετάσχεις;</string>
 	<string name="signup_reason_note">Αυτό θα μας βοηθήσει να εξετάσουμε την αίτησή σου.</string>
 	<string name="clear">Εκκαθάριση</string>
@@ -296,6 +303,9 @@
 	<string name="trending_posts_info_banner">Αυτές είναι οι αναρτήσεις που κερδίζουν την προσοχή στη δική σου γωνιά του Mastodon.</string>
 	<string name="trending_hashtags_info_banner">Αυτές είναι οι ετικέτες που κερδίζουν την προσοχή στη δική σου γωνιά του Mastodon.</string>
 	<string name="trending_links_info_banner">Αυτές είναι οι ειδήσεις που μοιράζονται περισσότερο στη δική σου γωνιά στο Mastodon.</string>
+	<string name="local_timeline_info_banner">Αυτές είναι οι πιο πρόσφατες αναρτήσεις από τα άτομα που χρησιμοποιούν τον ίδιο διακομιστή Mastodon με εσένα.</string>
+	<string name="dismiss">Παράβλεψη</string>
+	<string name="see_new_posts">Δες νέες αναρτήσεις</string>
 	<string name="load_missing_posts">Φόρτωση αναρτήσεων που λείπουν</string>
 	<string name="follow_back">Ακολούθησε Και Συ</string>
 	<string name="button_follow_pending">Εκκρεμεί</string>
@@ -316,8 +326,13 @@
 		<item quantity="one">%,d αγαπημένο</item>
 		<item quantity="other">%,d αγαπημένα</item>
 	</plurals>
+	<plurals name="x_reblogs">
+		<item quantity="one">%,d ενίσχυση</item>
+		<item quantity="other">%,d ενισχύσεις</item>
+	</plurals>
 	<string name="timestamp_via_app">%1$s μέσω %2$s</string>
 	<string name="time_now">τώρα</string>
+	<string name="post_info_reblogs">Ενισχύσεις</string>
 	<string name="post_info_favorites">Αγαπημένα</string>
 	<string name="edit_history">Επεξεργασία ιστορικού</string>
 	<string name="last_edit_at_x">Τελευταία επεξεργασία %s</string>
@@ -363,12 +378,24 @@
 	<!-- %s is file size -->
 	<string name="download_update">Λήψη (%s)</string>
 	<string name="install_update">Εγκατάσταση</string>
+	<string name="privacy_policy_title">Το Απόρρητό σου</string>
+	<string name="privacy_policy_subtitle">Αν και η εφαρμογή Mastodon δεν συλλέγει δεδομένα, ο διακομιστής που εγγράφεσαι μπορεί να έχει διαφορετική πολιτική.\n\nΕάν διαφωνείς με την πολιτική του %s, μπορείς να επιστρέψεις και να επιλέξεις διαφορετικό διακομιστή.</string>
+	<string name="i_agree">Συμφωνώ</string>
+	<string name="empty_list">Αυτή η λίστα είναι κενή</string>
+	<string name="instance_signup_closed">Αυτός ο διακομιστής δεν δέχεται νέες εγγραφές.</string>
+	<string name="text_copied">Αντιγράφηκε στο πρόχειρο</string>
+	<string name="add_bookmark">Σελιδοδείκτης</string>
+	<string name="remove_bookmark">Αφαίρεση σελιδοδείκτη</string>
+	<string name="bookmarks">Σελιδοδείκτες</string>
+	<string name="your_favorites">Τα Αγαπημένα σας</string>
 	<string name="login_title">Καλώς Ήρθες Ξανά</string>
 	<string name="login_subtitle">Συνδέσου με τον διακομιστή όπου δημιούργησες τον λογαριασμό σου.</string>
 	<string name="server_url">URL διακομιστή</string>
 	<string name="welcome_page1_title">Τι είναι το Mastodon;</string>
 	<string name="welcome_page1_text">Φαντάσου ότι έχεις μια διεύθυνση email που τελειώνει με @example.com.\n\nΜπορείς ακόμα να στείλεις και να λάβεις μηνύματα από οποιονδήποτε, ακόμη και αν το email τους τελειώνει σε @gmail.com ή @icloud.com ή @example.com.</string>
 	<string name="welcome_page2_title">Έτσι είναι και το Mastodon.</string>
+	<string name="welcome_page2_text">Η λαβή σας μπορεί να είναι @gothgirl654@example.social, αλλά μπορείς ακόμα να ακολουθήσεις, ενισχύσεις και να συνομιλήσεις με τον @fallout5ever@example.online.</string>
+	<string name="welcome_page3_title">Πώς διαλέγω έναν διακομιστή;</string>
 	<!-- %s is server domain -->
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
