@@ -10,11 +10,13 @@
 	<string name="ok">OK</string>
 	<string name="preparing_auth">Preparazione all\'autenticazione…</string>
 	<string name="finishing_auth">Completamento autenticazione…</string>
+	<string name="user_boosted">%s ha condiviso</string>
 	<string name="in_reply_to">In risposta a %s</string>
 	<string name="notifications">Notifiche</string>
 	<string name="user_followed_you">ti segue</string>
 	<string name="user_sent_follow_request">ha richiesto di seguirti</string>
 	<string name="user_favorited">ha apprezzato il tuo post</string>
+	<string name="notification_boosted">ha condiviso il tuo post</string>
 	<string name="poll_ended">sondaggio terminato</string>
 	<string name="time_seconds">%ds</string>
 	<string name="time_minutes">%dm</string>
@@ -164,6 +166,7 @@
 	<string name="report_sent_subtitle">Mentre controlliamo, puoi fare questo contro %s.</string>
 	<string name="unfollow_user">Smetti di seguire %s</string>
 	<string name="unfollow">Smetti di seguire</string>
+	<string name="mute_user_explain">Non vedrai i loro post o le condivisioni nel tuo feed. Non sapranno di essere stati silenziati.</string>
 	<string name="block_user_explain">Non saranno più in grado di seguire o vedere i tuoi post, ma possono vedere se sono stati bloccati.</string>
 	<string name="report_personal_title">Non vuoi vedere questo?</string>
 	<string name="report_personal_subtitle">Quando vedi qualcosa che non ti piace su Mastodon, puoi rimuovere la persona dalla tua esperienza.</string>
@@ -220,6 +223,7 @@
 	<string name="skip">Salta</string>
 	<string name="notification_type_follow">Nuovi seguaci</string>
 	<string name="notification_type_favorite">Preferiti</string>
+	<string name="notification_type_reblog">Condivisioni</string>
 	<string name="notification_type_mention">Menzioni</string>
 	<string name="notification_type_poll">Sondaggi</string>
 	<string name="choose_account">Seleziona l\'account</string>
@@ -418,4 +422,13 @@
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
 	<string name="signup_email_domain_blocked">%1$s non consente iscrizioni da %2$s. Provane uno diverso o &lt;a&gt;scegli un altro server&lt;/a&gt;.</string>
 	<string name="signup_username_taken">Questo nome utente è già in uso.</string>
+	<string name="profile_endorsed_accounts">Account</string>
+	<string name="verified_link">Collegamento verificato</string>
+	<string name="show">Mostra</string>
+	<string name="hide">Nascondi</string>
+	<string name="pick_server">Scegli il mio server</string>
+	<string name="signup_or_login">o</string>
+	<string name="learn_more">Scopri di più</string>
+	<string name="welcome_to_mastodon">Benvenuto/a su Mastodon</string>
+	<string name="what_are_servers">Cosa sono i server?</string>
 </resources>
