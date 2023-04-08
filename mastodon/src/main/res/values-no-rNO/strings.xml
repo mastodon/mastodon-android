@@ -10,13 +10,11 @@
 	<string name="ok">OK</string>
 	<string name="preparing_auth">Forbereder autentisering…</string>
 	<string name="finishing_auth">Ferdigstiller autentisering…</string>
-	<string name="user_boosted">%s fremhevet</string>
 	<string name="in_reply_to">Som svar på %s</string>
 	<string name="notifications">Varslinger</string>
 	<string name="user_followed_you">følger deg</string>
 	<string name="user_sent_follow_request">har sendt deg en følgeforespørsel</string>
 	<string name="user_favorited">favoriserte ditt innlegg</string>
-	<string name="notification_boosted">fremhevet ditt innlegg</string>
 	<string name="poll_ended">avstemming avsluttet</string>
 	<string name="time_seconds">%ds</string>
 	<string name="time_minutes">%dm</string>
@@ -166,7 +164,6 @@
 	<string name="report_sent_subtitle">Mens vi går gjennom dette, kan du iverksettet tiltak mot @%s.</string>
 	<string name="unfollow_user">Slutt å følge @%s</string>
 	<string name="unfollow">Slutt å følge</string>
-	<string name="mute_user_explain">Du vil ikke se innlegg eller fremhevinger i tidslinjen. De vil ikke vite at de er dempet.</string>
 	<string name="block_user_explain">De kan ikke lenger følge eller se dine innlegg, men de kan se om de er blokkert.</string>
 	<string name="report_personal_title">Ønsker du ikke å se dette?</string>
 	<string name="report_personal_subtitle">Når du ser noe du ikke liker på Mastodon, kan du fjerne denne personen fra opplevelsen din.</string>
@@ -210,7 +207,6 @@
 	<string name="skip">Hopp</string>
 	<string name="notification_type_follow">Nye følgere</string>
 	<string name="notification_type_favorite">Favoritter</string>
-	<string name="notification_type_reblog">Fremhevinger</string>
 	<string name="notification_type_mention">Nevnelser</string>
 	<string name="notification_type_poll">Avstemminger</string>
 	<string name="choose_account">Velg konto</string>
@@ -237,7 +233,6 @@
 	<string name="notify_none">ingen</string>
 	<string name="notify_favorites">Favorittmarker innlegget til</string>
 	<string name="notify_follow">Følger meg</string>
-	<string name="notify_reblog">Fremhevet innlegget mitt</string>
 	<string name="notify_mention">Nevner meg</string>
 	<string name="settings_boring">Kjedelige sone</string>
 	<string name="settings_account">Kontoinnstillinger</string>
@@ -258,7 +253,6 @@
 	<string name="hide_content">Skjul innhold</string>
 	<string name="new_post">Nytt innlegg</string>
 	<string name="button_reply">Svar</string>
-	<string name="button_reblog">Fremhev</string>
 	<string name="button_favorite">Favoritt</string>
 	<string name="button_share">Del</string>
 	<string name="media_no_description">Media uten beskrivelse</string>
@@ -273,8 +267,6 @@
 	<string name="unfollowed_user">Slutt å følge %s</string>
 	<string name="followed_user">Du følger nå %s</string>
 	<string name="open_in_browser">Åpne i nettleser</string>
-	<string name="hide_boosts_from_user">Skjul fremhevinger fra %s</string>
-	<string name="show_boosts_from_user">Vis fremhevinger fra %s</string>
 	<string name="signup_reason_note">Dette vil hjelpe oss med å gjennomgå din søknad.</string>
 	<string name="clear">Tøm</string>
 	<string name="profile_header">Toppbilde</string>
@@ -315,13 +307,8 @@
 		<item quantity="one">%,d favoritt</item>
 		<item quantity="other">%,d favoritter</item>
 	</plurals>
-	<plurals name="x_reblogs">
-		<item quantity="one">%,d fremhev</item>
-		<item quantity="other">%,d fremhevinger</item>
-	</plurals>
 	<string name="timestamp_via_app">%1$s via %2$s</string>
 	<string name="time_now">nå</string>
-	<string name="post_info_reblogs">Fremhevinger</string>
 	<string name="post_info_favorites">Favoritter</string>
 	<string name="edit_history">Rediger historikk</string>
 	<string name="last_edit_at_x">Sist redigert %s</string>
@@ -380,7 +367,6 @@
 	<string name="server_url">Server-URL</string>
 	<string name="welcome_page1_text">Forestill deg at du sender en e-postadresse som slutter med @example.com.\n\nDu kan fortsatt sende og motta e-post fra hvem som helst, selv om e-posten deres slutter på @gmail.com eller @icloud.com eller @example.com.</string>
 	<string name="welcome_page2_title">Mastodon er slik.</string>
-	<string name="welcome_page2_text">Ditt håndtak kan være @gothgirl654@example.social, men du kan fortsatt følge, fremheve og chatte med @fallout5ever@example.online.</string>
 	<string name="welcome_page3_title">Hvordan velger jeg en server?</string>
 	<!-- %s is server domain -->
 	<!-- Shown in a progress dialog when you tap "follow all" -->

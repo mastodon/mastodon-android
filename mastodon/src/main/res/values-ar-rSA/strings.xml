@@ -10,13 +10,11 @@
 	<string name="ok">حسنًا</string>
 	<string name="preparing_auth">جَارٍ الإعدَادُ لِلمُصادَقَة…</string>
 	<string name="finishing_auth">يُنهي المصادقة…</string>
-	<string name="user_boosted">أعادَ %s تَدوينَها</string>
 	<string name="in_reply_to">ردًا على %s</string>
 	<string name="notifications">الإشعارات</string>
 	<string name="user_followed_you">بَدَأ بِمُتابَعَتِك</string>
 	<string name="user_sent_follow_request">أرسَلَ طَلَبًا لِمُتابَعَتِك</string>
 	<string name="user_favorited">فَضَّلَ مَنشُورَك</string>
-	<string name="notification_boosted">أعادَ تَدوينَ مَنشُورَك</string>
 	<string name="poll_ended">انتهى استطلاعُ الرأي</string>
 	<string name="time_seconds">%d ثا</string>
 	<string name="time_minutes">%d د</string>
@@ -57,7 +55,7 @@
 	<string name="media">وسائط</string>
 	<string name="profile_about">حَول</string>
 	<string name="button_follow">تابِع</string>
-	<string name="button_following">يُتابِع</string>
+	<string name="button_following">مُتابَع</string>
 	<string name="edit_profile">حرّر الملف الشخصي</string>
 	<string name="mention_user">ذِكر @%s</string>
 	<string name="share_user">مُشارَكَةُ %s</string>
@@ -82,7 +80,7 @@
 	<string name="field_label">التسمية</string>
 	<string name="field_content">المحتوى</string>
 	<string name="saving">يحفظ…</string>
-	<string name="post_from_user">نُشر من %s</string>
+	<string name="post_from_user">مَنشور مِن %s</string>
 	<string name="poll_option_hint">الخيار %d</string>
 	<plurals name="x_minutes">
 		<item quantity="zero">أقل من دقيقة</item>
@@ -222,7 +220,6 @@
 	<string name="report_sent_subtitle">في أثناء مراجعتنا للبلاغ، يمكنك اتخاذ إجراء ضد @%s.</string>
 	<string name="unfollow_user">ألغ متابعة %s</string>
 	<string name="unfollow">ألغ المتابعة</string>
-	<string name="mute_user_explain">لن ترى منشوراتهم أو إعادة تدوينهم في التغذية الرئيسية. ولن يعلموا أنهم كتموا.</string>
 	<string name="block_user_explain">لن يتمكنوا من متابعتك أو رؤية منشوراتك، وسيكون بديهيًا لهم أنهم حجبوا.</string>
 	<string name="report_personal_title">لاترغب في مشاهدة هذا؟</string>
 	<string name="report_personal_subtitle">عندما ترى ما لا يعجبك في ماستدون، يمكنك إزالة صاحبها من تجربتك كمستخدم.</string>
@@ -249,7 +246,7 @@
 	<string name="category_games">ألعاب</string>
 	<string name="category_general">عام</string>
 	<string name="category_journalism">صحافة</string>
-	<string name="category_lgbt">LGBT</string>
+	<string name="category_lgbt">مجتمع الميم</string>
 	<string name="category_music">موسيقى</string>
 	<string name="category_regional">إقليمي</string>
 	<string name="category_tech">تقني</string>
@@ -279,7 +276,6 @@
 	<string name="skip">تخطى</string>
 	<string name="notification_type_follow">متابعُون جُدُد</string>
 	<string name="notification_type_favorite">المفضلة</string>
-	<string name="notification_type_reblog">المعاد تدوينها</string>
 	<string name="notification_type_mention">الذِكر</string>
 	<string name="notification_type_poll">استطلاع رأي</string>
 	<string name="choose_account">اختر حسابًا</string>
@@ -310,8 +306,7 @@
 	<string name="notify_none">لَا أحد</string>
 	<string name="notify_favorites">بِالإعْجاب بِمَنشوري</string>
 	<string name="notify_follow">بمتابعتي</string>
-	<string name="notify_reblog">بإعادة تدوين مَنشوري</string>
-	<string name="notify_mention">ذكرني</string>
+	<string name="notify_mention">بِالإشارَةِ إليّ</string>
 	<string name="settings_boring">المنطِقَةُ المُملَّة</string>
 	<string name="settings_account">إعدادات الحساب</string>
 	<string name="settings_contribute">ساهم في ماستدون</string>
@@ -331,7 +326,6 @@
 	<string name="hide_content">اخف المحتوى</string>
 	<string name="new_post">منشور جديد</string>
 	<string name="button_reply">ردّ</string>
-	<string name="button_reblog">أعد تدوين</string>
 	<string name="button_favorite">فضّل</string>
 	<string name="button_share">شارك</string>
 	<string name="media_no_description">وسائط بدون وصف</string>
@@ -346,8 +340,6 @@
 	<string name="unfollowed_user">ألغ متابعة %s</string>
 	<string name="followed_user">أنت تتابع %s</string>
 	<string name="open_in_browser">افتح في المتصفح</string>
-	<string name="hide_boosts_from_user">اخف ما أعاد %s تدوينه</string>
-	<string name="show_boosts_from_user">أظهر ما أعاد %s تدوينه</string>
 	<string name="signup_reason">لماذا تريد الانضمام؟</string>
 	<string name="signup_reason_note">هذا سوف يساعدنا في مراجعة تطبيقك.</string>
 	<string name="clear">امسح</string>
@@ -401,17 +393,8 @@
 		<item quantity="many">%,d تفضيلًا</item>
 		<item quantity="other">%,d تفضيل</item>
 	</plurals>
-	<plurals name="x_reblogs">
-		<item quantity="zero">لا إعادات تدوين</item>
-		<item quantity="one">إعاد تدوين واحدة</item>
-		<item quantity="two">إعادتا تدوين</item>
-		<item quantity="few">%,d إعادات تدوين</item>
-		<item quantity="many">%,d إعادة تدوين</item>
-		<item quantity="other">%,d إعادة تدوين</item>
-	</plurals>
 	<string name="timestamp_via_app">%1$s عبر %2$s</string>
 	<string name="time_now">الآن</string>
-	<string name="post_info_reblogs">إعادات التدوين</string>
 	<string name="post_info_favorites">المفضلة</string>
 	<string name="edit_history">تاريخ التعديل</string>
 	<string name="last_edit_at_x">آخر تعديل %s</string>
@@ -432,7 +415,7 @@
 		<item quantity="many">منذ %d دقائق</item>
 		<item quantity="other">منذ %d دقائق</item>
 	</plurals>
-	<string name="edited_timestamp">عُدّل في %s</string>
+	<string name="edited_timestamp">عُدّل منذ %s</string>
 	<string name="edit_original_post">المنشور الأصلي</string>
 	<string name="edit_text_edited">تم تعديل النص</string>
 	<string name="edit_spoiler_added">تم إضافة تحذير المحتوى</string>
@@ -481,7 +464,6 @@
 	<string name="welcome_page1_title">ما هو ماستدون؟</string>
 	<string name="welcome_page1_text">تخيل أن لديك عنوان بريد إلكتروني ينتهي بـ @example.com.\n\n رغم ذلك يمكنك إرسال واستقبال رسائل البريد الإلكتروني من أي شخص، حتى إذا كان بريدهم الإلكتروني الخاص ينتهي بـ @gmail.com أو @icloud.com أو @example.com.</string>
 	<string name="welcome_page2_title">ماستدون هكذا.</string>
-	<string name="welcome_page2_text">قد يكون مُعرّفُك @gothgirl654@example.social ، ولكنه بإمكانك متابعة وإعادة تدوين ومحادثة @fallout5ever@example.online.</string>
 	<string name="welcome_page3_title">كيف يمكنني اختيار خادم؟</string>
 	<string name="welcome_page3_text">يختار الأشخاص المختلفون خوادم مختلفة لأي عدد من الأسباب. يعد art.example مكانًا رائعًا للفنانين ، بينما قد يكون glasgow.example اختيارًا جيدًا للاسكتلنديين. \n\n لا يمكنك أن تخطئ في أي من الخوادم التي نوصي بها ، لذلك بغض النظر عن أي واحد تختاره (أو إذا قمت بإدخال الخادم الخاص بك في شريط البحث) ، فلن يفوتك أي شيء في أي مكان.</string>
 	<string name="signup_random_server_explain">سوف نختار خادماً بناءً على لغتك إذا قمت بالمتابعة دون إجراء إختيار.</string>
@@ -508,7 +490,7 @@
 	<string name="server_rules_disagree">لا أوافق</string>
 	<string name="privacy_policy_explanation">بالمختصر: نحن لا نجمع أو نعالج أي شيء.</string>
 	<!-- %s is server domain -->
-	<string name="server_policy_disagree">لايتفق مع %s</string>
+	<string name="server_policy_disagree">لا أوافق %s</string>
 	<string name="profile_bio">نبذة عنك</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<string name="sending_follows">متابعة المستخدمين…</string>

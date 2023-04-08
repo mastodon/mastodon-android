@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+	<string name="get_started">アカウントを作成</string>
+	<string name="already_have_account">ログイン</string>
 	<string name="log_in">ログイン</string>
 	<string name="next">次へ</string>
+	<string name="loading_instance">サーバー情報を取得しています…</string>
 	<string name="error">エラー</string>
+	<string name="not_a_mastodon_instance">%s はMastodonサーバーではありません。</string>
 	<string name="ok">OK</string>
 	<string name="preparing_auth">認証を開始中…</string>
 	<string name="finishing_auth">認証を完了中…</string>
-	<string name="user_boosted">%sがブースト</string>
 	<string name="in_reply_to">%s へ返信</string>
 	<string name="notifications">通知</string>
 	<string name="user_followed_you">がフォロー</string>
 	<string name="user_sent_follow_request">フォローリクエストを送信しました</string>
 	<string name="user_favorited">がお気に入り登録</string>
-	<string name="notification_boosted">がブースト</string>
 	<string name="poll_ended">アンケートが終了しました</string>
 	<string name="time_seconds">%d秒前</string>
 	<string name="time_minutes">%d分前</string>
@@ -148,14 +150,22 @@
 	<string name="report_sent_subtitle">私たちが確認している間でも、あなたは%sさんに対して対応することができます。</string>
 	<string name="unfollow_user">フォロー解除%s</string>
 	<string name="unfollow">フォロー解除</string>
-	<string name="mute_user_explain">ホームに投稿やブーストは表示されなくなりますが、相手にミュートしたことは伝わりません。</string>
 	<string name="block_user_explain">相手はあなたの投稿を見ることやフォローすることは出来ません。相手はブロックされていることはわかります。</string>
 	<string name="report_personal_title">見えないようにしたいですか？</string>
 	<string name="report_personal_subtitle">Mastodonで気に入らないものを見ると、その人をあなたの体験から取り除くことができます。</string>
 	<string name="back">戻る</string>
 	<string name="instance_catalog_title">Mastodonはさまざまなコミュニティによって作られています</string>
 	<string name="instance_catalog_subtitle">あなたの趣味</string>
+	<string name="search_communities">サーバー名またはURL</string>
+	<string name="instance_rules_title">サーバーのルール</string>
+	<string name="instance_rules_subtitle">%s のモデレーターは次のルールを定めています。これに従うことに同意する場合は続行してください。</string>
+	<string name="signup_title">アカウントを作成</string>
 	<string name="edit_photo">編集</string>
+	<string name="display_name">名前</string>
+	<string name="username">ユーザー名</string>
+	<string name="email">メールアドレス</string>
+	<string name="password">パスワード</string>
+	<string name="confirm_password">パスワード（確認用）</string>
 	<string name="password_note">パスワードの強度を高めるため、英大文字・数字・特殊文字を含めてください。</string>
 	<string name="category_academia">アカデミア</string>
 	<string name="category_activism">アクティビズム</string>
@@ -170,7 +180,10 @@
 	<string name="category_music">ミュージック</string>
 	<string name="category_regional">地域</string>
 	<string name="category_tech">技術</string>
+	<string name="confirm_email_title">確認のメールを送信しました</string>
 	<!-- %s is the email address -->
+	<string name="confirm_email_subtitle">%s を認証するためのリンクをメールで送信しました。リンクをタップしてメールアドレスを認証してください。</string>
+	<string name="confirm_email_didnt_get">メールが届かない場合</string>
 	<string name="resend">再送信</string>
 	<string name="open_email_app">メールアプリを開く</string>
 	<string name="resent_email">確認メールを再送信しました</string>
@@ -193,7 +206,6 @@
 	<string name="skip">スキップ</string>
 	<string name="notification_type_follow">新しいフォロワー</string>
 	<string name="notification_type_favorite">お気に入り</string>
-	<string name="notification_type_reblog">ブースト</string>
 	<string name="notification_type_mention">メンション</string>
 	<string name="notification_type_poll">投票</string>
 	<string name="choose_account">アカウントを選択</string>
@@ -219,7 +231,6 @@
 	<string name="notify_none">なし</string>
 	<string name="notify_favorites">お気に入り登録された</string>
 	<string name="notify_follow">フォローされた</string>
-	<string name="notify_reblog">ブーストされた</string>
 	<string name="notify_mention">メンションされた</string>
 	<string name="settings_boring">アプリについて</string>
 	<string name="settings_account">アカウント設定</string>
@@ -240,7 +251,6 @@
 	<string name="hide_content">内容を非表示</string>
 	<string name="new_post">新しい投稿</string>
 	<string name="button_reply">返信</string>
-	<string name="button_reblog">ブースト</string>
 	<string name="button_favorite">お気に入り</string>
 	<string name="button_share">共有</string>
 	<string name="media_no_description">説明のないメディア</string>
@@ -255,8 +265,7 @@
 	<string name="unfollowed_user">フォロー解除%s</string>
 	<string name="followed_user">%sさんをフォローしました</string>
 	<string name="open_in_browser">ブラウザで開く</string>
-	<string name="hide_boosts_from_user">%sさんのブーストを非表示</string>
-	<string name="show_boosts_from_user">%sさんのブーストを表示</string>
+	<string name="signup_reason">参加したい理由を入力してください</string>
 	<string name="signup_reason_note">申請を承認する際に役立つメッセージを添えてください.</string>
 	<string name="clear">クリア</string>
 	<string name="profile_header">ヘッダー画像</string>
@@ -294,12 +303,8 @@
 	<plurals name="x_favorites">
 		<item quantity="other">%,d お気に入り</item>
 	</plurals>
-	<plurals name="x_reblogs">
-		<item quantity="other">%,d ブースト</item>
-	</plurals>
 	<string name="timestamp_via_app">%1$sに%2$s経由</string>
 	<string name="time_now">今</string>
-	<string name="post_info_reblogs">ブースト</string>
 	<string name="post_info_favorites">お気に入り</string>
 	<string name="edit_history">編集履歴</string>
 	<string name="last_edit_at_x">最終更新日%s</string>
@@ -343,6 +348,8 @@
 	<!-- %s is file size -->
 	<string name="download_update">ダウンロード (%s)</string>
 	<string name="install_update">インストール</string>
+	<string name="privacy_policy_title">プライバシーポリシー</string>
+	<string name="privacy_policy_subtitle">Mastodonアプリはデータを収集しません。一方で、登録するサーバーはそれぞれが異なるポリシーを掲げていることがあります。\n\n %s のポリシーに同意できない場合は、戻って別のサーバーを選択できます。</string>
 	<string name="i_agree">同意する</string>
 	<string name="empty_list">このリストは空です。</string>
 	<string name="instance_signup_closed">このサーバーは新規登録を受け付けていません。</string>
@@ -351,7 +358,43 @@
 	<string name="remove_bookmark">ブックマークから削除</string>
 	<string name="bookmarks">ブックマーク</string>
 	<string name="your_favorites">お気に入り</string>
+	<string name="login_title">アカウントでログイン</string>
+	<string name="login_subtitle">アカウントのあるサーバーのURLを入力してください。</string>
+	<string name="server_url">サーバーのURL</string>
+	<string name="welcome_page1_title">Mastodonとは</string>
+	<string name="welcome_page1_text">Mastodonのしくみは電子メールとよく似ています。\n\n電子メールは ○○@example.com のようなメールアドレスを持っていれば、 □□@gmail.com や △△@icloud.com はもちろん、同じプロバイダの ◇◇@example.com など、どんな相手にもメールを送れます。</string>
+	<string name="welcome_page2_title">サーバーからサーバーへ</string>
+	<string name="welcome_page3_title">サーバーをさがしてみよう</string>
+	<string name="welcome_page3_text">サーバーの選びかたは十人十色です。アーティスト同士が集まるサーバーもあれば、とある鉄道の沿線住民が集うサーバーもあります。\n\nアカウント作成に進むと、検索バーとおすすめのサーバーが表示されます。参加したいサーバーが決まっていない場合は、おすすめから選んでみましょう。どのサーバーを選んでも、どこの誰とでもつながれます。</string>
+	<string name="signup_random_server_explain">利用中の言語に基づいてサーバーを自動選択することもできます。</string>
+	<string name="server_filter_any_language">すべての言語</string>
+	<string name="server_filter_instant_signup">開放</string>
+	<string name="server_filter_manual_review">承認制</string>
+	<string name="server_filter_any_signup_speed">登録方法（指定しない）</string>
+	<string name="server_filter_region_europe">ヨーロッパ</string>
+	<string name="server_filter_region_north_america">北アメリカ</string>
+	<string name="server_filter_region_south_america">南アメリカ</string>
+	<string name="server_filter_region_africa">アフリカ</string>
+	<string name="server_filter_region_asia">アジア</string>
+	<string name="server_filter_region_oceania">オセアニア</string>
+	<string name="not_accepting_new_members">新規登録を受け付けていません</string>
+	<string name="category_special_interests">テーマ別</string>
+	<string name="signup_passwords_dont_match">パスワードが一致していません</string>
+	<string name="pick_server_for_me">おまかせ</string>
+	<string name="profile_add_row">フィールドを追加</string>
+	<string name="profile_setup">プロフィールの設定</string>
+	<string name="profile_setup_subtitle">プロフィール画面であとから設定することもできます。</string>
+	<string name="profile_setup_explanation">プロフィールには4つまでフィールドを追加できます。現在地やwebサイト、座右の銘など、なんでも自由に書いてみましょう。</string>
+	<string name="popular_on_mastodon">人気のアカウント</string>
+	<string name="follow_all">すべてフォローする</string>
+	<string name="server_rules_disagree">同意しない</string>
+	<string name="privacy_policy_explanation">※: 私たちはいかなる個人情報も収集しません。</string>
 	<!-- %s is server domain -->
+	<string name="server_policy_disagree">%s のポリシーに同意しない</string>
+	<string name="profile_bio">自己紹介</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
+	<string name="sending_follows">フォロー中…</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<string name="signup_email_domain_blocked">%1$s では %2$s のメールアドレスでの登録が許可されていません。別のメールアドレスを使うか、&lt;a&gt;ほかのサーバーを選択&lt;/a&gt;してください。</string>
+	<string name="signup_username_taken">このユーザー名はすでに使用されています。</string>
 </resources>

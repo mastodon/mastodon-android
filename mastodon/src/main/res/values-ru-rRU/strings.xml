@@ -10,13 +10,11 @@
 	<string name="ok">OK</string>
 	<string name="preparing_auth">Подготовка к авторизации…</string>
 	<string name="finishing_auth">Завершение авторизации…</string>
-	<string name="user_boosted">%s продвинул(а)</string>
 	<string name="in_reply_to">В ответ %s</string>
 	<string name="notifications">Уведомления</string>
 	<string name="user_followed_you">подписался(ась) на вас</string>
 	<string name="user_sent_follow_request">прислал(а) запрос на подписку</string>
 	<string name="user_favorited">добавил(а) ваш пост в избранное</string>
-	<string name="notification_boosted">продвинул(а) ваш пост</string>
 	<string name="poll_ended">опрос завершён</string>
 	<string name="time_seconds">%dс</string>
 	<string name="time_minutes">%dм</string>
@@ -194,7 +192,6 @@
 	<string name="report_sent_subtitle">Пока мы рассматриваем его, вот действия, которые вы можете предпринять лично против %s.</string>
 	<string name="unfollow_user">Отписаться от %s</string>
 	<string name="unfollow">Отписаться</string>
-	<string name="mute_user_explain">Вы перестаните видеть посты и продвижения этого пользователя в домашней ленте. Он(а) не узнает, что вы игнорируете его/её.</string>
 	<string name="block_user_explain">Этот пользователь больше не сможет подписаться на вас или читать ваши посты. Он(а) сможет видеть, что заблокирован(а).</string>
 	<string name="report_personal_title">Не хотите видеть это?</string>
 	<string name="report_personal_subtitle">Если кто-то в Mastodon публикует то, что вам не нравится, вы можете скрыть его.</string>
@@ -251,7 +248,6 @@
 	<string name="skip">Пропустить</string>
 	<string name="notification_type_follow">Новые подписчики</string>
 	<string name="notification_type_favorite">Избранное</string>
-	<string name="notification_type_reblog">Продвижения</string>
 	<string name="notification_type_mention">Упоминания</string>
 	<string name="notification_type_poll">Опросы</string>
 	<string name="choose_account">Выберите аккаунт</string>
@@ -280,7 +276,6 @@
 	<string name="notify_none">никто</string>
 	<string name="notify_favorites">Добавляет мой пост в избранное</string>
 	<string name="notify_follow">Подписывается на меня</string>
-	<string name="notify_reblog">Продвигает мой пост</string>
 	<string name="notify_mention">Упоминает меня</string>
 	<string name="settings_boring">Зона скукотищи</string>
 	<string name="settings_account">Настройки учётной записи</string>
@@ -301,7 +296,6 @@
 	<string name="hide_content">Скрыть содержимое</string>
 	<string name="new_post">Новый пост</string>
 	<string name="button_reply">Ответить</string>
-	<string name="button_reblog">Продвинуть</string>
 	<string name="button_favorite">Добавить в избранное</string>
 	<string name="button_share">Поделиться</string>
 	<string name="media_no_description">Медиа без описания</string>
@@ -316,8 +310,6 @@
 	<string name="unfollowed_user">Вы отписались от %s</string>
 	<string name="followed_user">Вы подписались на %s</string>
 	<string name="open_in_browser">Открыть в браузере</string>
-	<string name="hide_boosts_from_user">Скрыть продвижения от %s</string>
-	<string name="show_boosts_from_user">Показывать продвижения от %s</string>
 	<string name="signup_reason">Почему вы хотите присоединиться?</string>
 	<string name="signup_reason_note">Это поможет нам рассмотреть вашу заявку.</string>
 	<string name="clear">Очистить</string>
@@ -361,7 +353,6 @@
 	</plurals>
 	<string name="timestamp_via_app">%1$s через %2$s</string>
 	<string name="time_now">только что</string>
-	<string name="post_info_reblogs">Продвинули</string>
 	<string name="post_info_favorites">Избранное</string>
 	<string name="edit_history">История изменений</string>
 	<string name="last_edit_at_x">Последнее изменение: %s</string>
@@ -425,11 +416,14 @@
 	<string name="login_subtitle">Войдите на сервер, на котором вы создали свою учётную запись.</string>
 	<string name="server_url">URL-адрес сервера</string>
 	<string name="welcome_page1_title">Что такое Mastodon?</string>
+	<string name="welcome_page1_text">Представьте, что у вас есть адрес электронной почты, который заканчивается на @example.com.\n\nВы можете отправлять и получать письма от всех, даже если их адрес заканчивается на @gmail.com или @icloud.com или @example.com.</string>
+	<string name="welcome_page2_title">Mastodon работает так же.</string>
 	<string name="welcome_page3_title">Как выбрать сервер?</string>
 	<string name="welcome_page3_text">Разные люди выбирают разные серверы по разным причинам. art.example — отличное место для художников, а glasgow.example может быть хорошим выбором для шотландцев.\n\nВы не ошибётесь с любым из рекомендованных серверов, поэтому независимо от того, какой из них вы выберете (или если вы введёте свой собственный в строке поиска сервера), вы никогда и нигде не пропустите ни одной детали.</string>
 	<string name="signup_random_server_explain">Мы выберем сервер на основе вашего языка, если вы продолжите, не сделав выбор.</string>
 	<string name="server_filter_any_language">Любой язык</string>
 	<string name="server_filter_instant_signup">Мгновенная регистрация</string>
+	<string name="server_filter_manual_review">Ручная проверка</string>
 	<string name="server_filter_any_signup_speed">Любая скорость регистрации</string>
 	<string name="server_filter_region_europe">Европа</string>
 	<string name="server_filter_region_north_america">Северная Америка</string>
@@ -438,6 +432,7 @@
 	<string name="server_filter_region_asia">Азия</string>
 	<string name="server_filter_region_oceania">Океания</string>
 	<string name="not_accepting_new_members">Не принимает новых участников</string>
+	<string name="category_special_interests">Особые интересы</string>
 	<string name="signup_passwords_dont_match">Пароли не совпадают</string>
 	<string name="pick_server_for_me">Выбрать за меня</string>
 	<string name="profile_add_row">Добавить строку</string>
@@ -445,12 +440,14 @@
 	<string name="profile_setup_subtitle">Вы всегда можете завершить это позже на вкладке Профиль.</string>
 	<string name="profile_setup_explanation">Вы можете добавить до четырех полей профиля для всего, что хотите. Местоположение, ссылки, местоимения — нет предела возможностям.</string>
 	<string name="popular_on_mastodon">Популярно на Mastodon</string>
+	<string name="follow_all">Подписаться на всех</string>
 	<string name="server_rules_disagree">Отклонить</string>
 	<string name="privacy_policy_explanation">TL;DR: Мы ничего не собираем и не обрабатываем.</string>
 	<!-- %s is server domain -->
 	<string name="server_policy_disagree">Отклонить %s</string>
 	<string name="profile_bio">О себе</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
+	<string name="sending_follows">Подписка на пользователей…</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
 	<string name="signup_email_domain_blocked">%1$s не позволяет зарегистрироваться от %2$s. Попробуйте другой или &lt;a&gt;выберите другой сервер&lt;/a&gt;.</string>
 	<string name="signup_username_taken">Это имя пользователя занято.</string>

@@ -10,13 +10,11 @@
 	<string name="ok">Добра</string>
 	<string name="preparing_auth">Падрыхтоўка да аўтэнтыфікацыі…</string>
 	<string name="finishing_auth">Завяршэнне аўтэнтыфікацыі…</string>
-	<string name="user_boosted">%s пашырыў</string>
 	<string name="in_reply_to">У адказ %s</string>
 	<string name="notifications">Апавяшчэнні</string>
 	<string name="user_followed_you">падпісаўся(-лася) на вас</string>
 	<string name="user_sent_follow_request">адправіў запыт на падпіску</string>
 	<string name="user_favorited">упадабаў(-ла) ваш допіс</string>
-	<string name="notification_boosted">пашырыў(-ла) ваш допіс</string>
 	<string name="poll_ended">апытанне завершана</string>
 	<string name="time_seconds">%dсек</string>
 	<string name="time_minutes">%dхв</string>
@@ -26,7 +24,7 @@
 	<string name="settings">Налады</string>
 	<string name="publish">Апублікаваць</string>
 	<string name="discard_draft">Скасаваць чарнавік?</string>
-	<string name="discard">Скасаваць</string>
+	<string name="discard">Выйсці</string>
 	<string name="cancel">Скасаваць</string>
 	<plurals name="followers">
 		<item quantity="one">падпісчык</item>
@@ -194,14 +192,22 @@
 	<string name="report_sent_subtitle">Пакуль мы разглядаем яе, вы можаце прыняць меры супраць %s.</string>
 	<string name="unfollow_user">Адпісацца ад %s</string>
 	<string name="unfollow">Адпісацца</string>
-	<string name="mute_user_explain">Вы не ўбачыце іх допісы або пашырэнні ў сваёй хатняй стужцы. Яны не даведаюцца, што вы іх ігнаруеце.</string>
 	<string name="block_user_explain">Яны больш не змогуць падпісвацца на вас або бачыць вашыя допісы, але змогуць бачыць, што яны былі заблакіраваны.</string>
 	<string name="report_personal_title">Не хочаце бачыць гэта?</string>
 	<string name="report_personal_subtitle">Калі вы бачыце на Mastodon нешта, што вам не падабаецца, вы можаце выдаліць чалавека са свайго асяроддзя.</string>
 	<string name="back">Назад</string>
 	<string name="instance_catalog_title">Mastodon складаецца з карыстальнікаў на розных серверах.</string>
 	<string name="instance_catalog_subtitle">Выбірайце сервер у залежнасці ад вашых інтарэсаў, рэгіёна або выберыце сервер агульнага прызначэння. Вы па-ранейшаму можаце ўзаемадзейнічаць з усімі, незалежна ад сервера.</string>
+	<string name="search_communities">Назва сервера або URL</string>
+	<string name="instance_rules_title">Правілы сервера</string>
+	<string name="instance_rules_subtitle">Працягваючы, вы згаджаецеся выконваць правілы, устаноўленыя мадэратарам %s.</string>
+	<string name="signup_title">Стварыць уліковы запіс</string>
 	<string name="edit_photo">рэдагаваць</string>
+	<string name="display_name">Імя</string>
+	<string name="username">Імя карыстальніка</string>
+	<string name="email">Электронная пошта</string>
+	<string name="password">Пароль</string>
+	<string name="confirm_password">Пацвердзіць пароль</string>
 	<string name="password_note">Выкарыстоўвайце вялікія літары, спецыяльныя сімвалы і лічбы, каб павялічыць надзейнасць пароля.</string>
 	<string name="category_academia">Акадэмія</string>
 	<string name="category_activism">Актывізм</string>
@@ -216,7 +222,10 @@
 	<string name="category_music">Музыка</string>
 	<string name="category_regional">Рэгіянальныя</string>
 	<string name="category_tech">Тэхналогіі</string>
+	<string name="confirm_email_title">Праверце паштовую скрыню</string>
 	<!-- %s is the email address -->
+	<string name="confirm_email_subtitle">Націсніце на спасылку, якую мы адправілі, каб спраўдзіць %s. Мы вас пачакаем тут.</string>
+	<string name="confirm_email_didnt_get">Не атрымалі спасылку?</string>
 	<string name="resend">Адправіць паўторна</string>
 	<string name="open_email_app">Адкрыць праграму для пошты</string>
 	<string name="resent_email">Электронны ліст з пацвярджэннем адпраўлены</string>
@@ -239,7 +248,6 @@
 	<string name="skip">Прапусціць</string>
 	<string name="notification_type_follow">Новыя падпісчыкі</string>
 	<string name="notification_type_favorite">Абраныя</string>
-	<string name="notification_type_reblog">Пашырэнні</string>
 	<string name="notification_type_mention">Згадванні</string>
 	<string name="notification_type_poll">Апытанні</string>
 	<string name="choose_account">Выберыце ўліковы запіс</string>
@@ -268,7 +276,6 @@
 	<string name="notify_none">ніхто</string>
 	<string name="notify_favorites">Дадае мой допіс у абранае</string>
 	<string name="notify_follow">Падпісаўся на мяне</string>
-	<string name="notify_reblog">Пашырае мой допіс</string>
 	<string name="notify_mention">Згадвае мяне</string>
 	<string name="settings_boring">Нудная зона</string>
 	<string name="settings_account">Налады ўліковага запісу</string>
@@ -289,7 +296,6 @@
 	<string name="hide_content">Схаваць змест</string>
 	<string name="new_post">Новы допіс</string>
 	<string name="button_reply">Адказаць</string>
-	<string name="button_reblog">Пашырыць</string>
 	<string name="button_favorite">Абранае</string>
 	<string name="button_share">Абагуліць</string>
 	<string name="media_no_description">Медыя без апісання</string>
@@ -303,9 +309,9 @@
 	<string name="follow_user">Падпісацца на %s</string>
 	<string name="unfollowed_user">Адпісацца ад %s</string>
 	<string name="followed_user">Цяпер вы падпісаны на %s</string>
+	<string name="following_user_requested">Запытана падпісацца на %s</string>
 	<string name="open_in_browser">Адкрыць у браўзеры</string>
-	<string name="hide_boosts_from_user">Схаваць пашырэнні ад %s</string>
-	<string name="show_boosts_from_user">Паказаць пашырэнні ад %s</string>
+	<string name="signup_reason">Чаму вы хочаце далучыцца?</string>
 	<string name="signup_reason_note">Гэта дапаможа нам разгледзець вашу заяўку.</string>
 	<string name="clear">Ачысціць</string>
 	<string name="profile_header">Відарыс шапкі</string>
@@ -352,15 +358,8 @@
 		<item quantity="many">%,d абраных</item>
 		<item quantity="other">%,d абраных</item>
 	</plurals>
-	<plurals name="x_reblogs">
-		<item quantity="one">%,d рэпост</item>
-		<item quantity="few">%,d рэпосты</item>
-		<item quantity="many">%,d пашырэнняў</item>
-		<item quantity="other">%,d пашырэнняў</item>
-	</plurals>
 	<string name="timestamp_via_app">%1$s праз %2$s</string>
 	<string name="time_now">толькі што</string>
-	<string name="post_info_reblogs">Пашырэнні</string>
 	<string name="post_info_favorites">Абраныя</string>
 	<string name="edit_history">Гісторыя рэдагавання</string>
 	<string name="last_edit_at_x">Апошняе рэдагаванне %s</string>
@@ -410,6 +409,8 @@
 	<!-- %s is file size -->
 	<string name="download_update">Спампаваць (%s)</string>
 	<string name="install_update">Усталяваць</string>
+	<string name="privacy_policy_title">Ваша прыватнасць</string>
+	<string name="privacy_policy_subtitle">Нягледзячы на ​​тое, што праграма Mastodon не збірае даных, сервер, на якім вы рэгіструецеся, можа мець іншую палітыку.\n\nКалі вы адмовіцеся ад палітыкі %s, вы можаце вярнуцца і выбраць іншы сервер.</string>
 	<string name="i_agree">Я згодны</string>
 	<string name="empty_list">Гэты ліст пусты</string>
 	<string name="instance_signup_closed">Гэты сервер не прымае новыя рэгістрацыі.</string>
@@ -421,12 +422,40 @@
 	<string name="login_title">З вяртаннем</string>
 	<string name="login_subtitle">Увайдзіце з дапамогай сервера, на якім вы стварылі свой уліковы запіс.</string>
 	<string name="server_url">URL-адрас сервера</string>
+	<string name="welcome_page1_title">Што такое Mastodon?</string>
 	<string name="welcome_page1_text">Уявіце, што ў вас ёсць адрас электроннай пошты, які заканчваецца на @example.com.\n\nВы па-ранейшаму можаце адпраўляць і атрымліваць электронныя лісты ад каго захочаце, нават калі іх электронная пошта заканчваецца на @gmail.com, @icloud.com або @example.com.</string>
 	<string name="welcome_page2_title">Mastodon такі.</string>
-	<string name="welcome_page2_text">Ваш ідэнтыфікатар можа быць @gothgirl654@example.social, але вы ўсё яшчэ можаце падпісвацца, пашыраць і перапісвацца з @fallout5ever@example.online.</string>
 	<string name="welcome_page3_title">Як выбраць сервер?</string>
 	<string name="welcome_page3_text">Розныя людзі выбіраюць розныя серверы па розных прычынах. art.example з\'яўляецца выдатным месцам для мастакоў, у той час як glasgow.example можа быць добрым выбарам для шатландцаў.\n\nВы не памыліцеся ні з адным з нашых рэкамендаваных сервераў, так што незалежна ад таго, які вы выбераце (або калі ўведзяце ваш уласны ў радку пошуку сервера), вы нідзе нічога не прапусціце.</string>
+	<string name="signup_random_server_explain">Мы абярэм сервер на аснове вашай мовы, калі вы працягнеце без выбару.</string>
+	<string name="server_filter_any_language">Любая мова</string>
+	<string name="server_filter_instant_signup">Імгненная рэгістрацыя</string>
+	<string name="server_filter_manual_review">Ручная праверка</string>
+	<string name="server_filter_any_signup_speed">Любая хуткасць рэгістрацыі</string>
+	<string name="server_filter_region_europe">Еўропа</string>
+	<string name="server_filter_region_north_america">Паўночная Амерыка</string>
+	<string name="server_filter_region_south_america">Паўднёвая Амерыка</string>
+	<string name="server_filter_region_africa">Афрыка</string>
+	<string name="server_filter_region_asia">Азія</string>
+	<string name="server_filter_region_oceania">Акіянія</string>
+	<string name="not_accepting_new_members">Не прымае новых удзельнікаў</string>
+	<string name="category_special_interests">Асаблівыя інтарэсы</string>
+	<string name="signup_passwords_dont_match">Паролі не супадаюць</string>
+	<string name="pick_server_for_me">Падбяры для мяне</string>
+	<string name="profile_add_row">Дадаць радок</string>
+	<string name="profile_setup">Налады профілю</string>
+	<string name="profile_setup_subtitle">Вы можаце завяршыць гэта пазней на ўкладцы Профіль.</string>
+	<string name="profile_setup_explanation">Вы можаце дадаць да чатырох палёў профіля для ўсяго, што хочаце. Месцазнаходжанне, спасылкі, займеннікі - няма мяжы магчымасцям.</string>
+	<string name="popular_on_mastodon">Папулярна на Mastodon</string>
+	<string name="follow_all">Падпісацца на ўсіх</string>
+	<string name="server_rules_disagree">Не згодны</string>
+	<string name="privacy_policy_explanation">Мы нічога не збіраем і не апрацоўваем.</string>
 	<!-- %s is server domain -->
+	<string name="server_policy_disagree">Не згодны з %s</string>
+	<string name="profile_bio">Пра мяне</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
+	<string name="sending_follows">Падпісваемся…</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<string name="signup_email_domain_blocked">%1$s не прымае рэгістрацыю ад %2$s. Паспрабуйце іншы &lt;a&gt;выберыце іншы сервер&lt;/a&gt;.</string>
+	<string name="signup_username_taken">Гэта імя карыстальніка занята.</string>
 </resources>

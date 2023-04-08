@@ -270,6 +270,7 @@
 	<string name="follow_user">ติดตาม %s</string>
 	<string name="unfollowed_user">เลิกติดตาม %s แล้ว</string>
 	<string name="followed_user">ตอนนี้คุณกำลังติดตาม %s</string>
+	<string name="following_user_requested">ขอติดตาม %s แล้ว</string>
 	<string name="open_in_browser">เปิดในเบราว์เซอร์</string>
 	<string name="hide_boosts_from_user">ซ่อนการดันจาก %s</string>
 	<string name="show_boosts_from_user">แสดงการดันจาก %s</string>
@@ -364,7 +365,7 @@
 	<string name="privacy_policy_subtitle">แม้ว่าแอป Mastodon ไม่เก็บรวบรวมข้อมูลใด ๆ เซิร์ฟเวอร์ที่คุณลงทะเบียนผ่านอาจมีนโยบายที่แตกต่างกัน\n\nหากคุณไม่เห็นด้วยกับนโยบายสำหรับ %s คุณสามารถย้อนกลับและเลือกเซิร์ฟเวอร์อื่น</string>
 	<string name="i_agree">ฉันเห็นด้วย</string>
 	<string name="empty_list">รายการนี้ว่างเปล่า</string>
-	<string name="instance_signup_closed">เซิร์ฟเวอร์นี้ไม่ได้เปิดรับการลงทะเบียนใหม่</string>
+	<string name="instance_signup_closed">เซิร์ฟเวอร์นี้ไม่เปิดรับการลงทะเบียนใหม่</string>
 	<string name="text_copied">คัดลอกไปยังคลิปบอร์ดแล้ว</string>
 	<string name="add_bookmark">เพิ่มที่คั่นหน้า</string>
 	<string name="remove_bookmark">เอาที่คั่นหน้าออก</string>
@@ -410,4 +411,23 @@
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
 	<string name="signup_email_domain_blocked">%1$s ไม่อนุญาตการลงทะเบียนจาก %2$s ลองโดเมนอีเมลอื่นหรือ &lt;a&gt;เลือกเซิร์ฟเวอร์อื่น&lt;/a&gt;</string>
 	<string name="signup_username_taken">มีการใช้ชื่อผู้ใช้นี้แล้ว</string>
+	<string name="spoiler_show">แสดงต่อไป</string>
+	<string name="spoiler_hide">ซ่อนใหม่</string>
+	<string name="poll_multiple_choice">เลือกจำนวนหนึ่งหรือมากกว่า</string>
+	<string name="save_changes">บันทึกการเปลี่ยนแปลง</string>
+	<string name="profile_featured">แนะนำ</string>
+	<string name="profile_timeline">เส้นเวลา</string>
+	<string name="view_all">ดูทั้งหมด</string>
+	<string name="profile_endorsed_accounts">บัญชี</string>
+	<string name="verified_link">ลิงก์ที่ยืนยันแล้ว</string>
+	<string name="show">แสดง</string>
+	<string name="hide">ซ่อน</string>
+	<string name="join_default_server">เข้าร่วม %s</string>
+	<string name="pick_server">เลือกเซิร์ฟเวอร์ของฉันเอง</string>
+	<string name="signup_or_login">หรือ</string>
+	<string name="learn_more">เรียนรู้เพิ่มเติม</string>
+	<string name="welcome_to_mastodon">ยินดีต้อนรับสู่ Mastodon</string>
+	<string name="welcome_paragraph1">Mastodon เป็นเครือข่ายสังคมแบบกระจายศูนย์ หมายความว่าไม่มีบริษัทใดควบคุมเครือข่ายสังคม เครือข่ายสังคมประกอบด้วยเซิร์ฟเวอร์ที่ทำงานอย่างอิสระจำนวนมาก ทั้งหมดเชื่อมต่อเข้าด้วยกัน</string>
+	<string name="what_are_servers">เซิร์ฟเวอร์คืออะไร?</string>
+	<string name="welcome_paragraph2"><![CDATA[ทุกบัญชี Mastodon ได้รับการโฮสต์ในเซิร์ฟเวอร์ — แต่ละแห่งมีค่า กฎ และผู้ดูแลของเซิร์ฟเวอร์เอง ไม่ว่าคุณจะเลือกเซิร์ฟเวอร์ใด คุณสามารถติดตามและโต้ตอบกับผู้คนในเซิร์ฟเวอร์ใด ๆ]]></string>
 </resources>

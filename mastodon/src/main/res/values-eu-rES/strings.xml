@@ -10,13 +10,11 @@
 	<string name="ok">Ados</string>
 	<string name="preparing_auth">Autentifikaziorako prestatzen…</string>
 	<string name="finishing_auth">Autentikazioa bukatzen…</string>
-	<string name="user_boosted">%s(e)k bultzatu du</string>
 	<string name="in_reply_to">%s-(r)i erantzunez</string>
 	<string name="notifications">Jakinarazpenak</string>
 	<string name="user_followed_you">jarraitu zaitu</string>
 	<string name="user_sent_follow_request">jarraitzeko eskaera bidali dizu</string>
 	<string name="user_favorited">zure bidalketa gogoko du</string>
-	<string name="notification_boosted">zure bidalketa bultzatu du</string>
 	<string name="poll_ended">inkesta amaitu da</string>
 	<string name="time_seconds">%ds</string>
 	<string name="time_minutes">%dm</string>
@@ -166,7 +164,6 @@
 	<string name="report_sent_subtitle">Hau berrikusten dugun bitartean, %s erabiltzailearen aurkako neurriak hartu ditzakezu.</string>
 	<string name="unfollow_user">%s jarraitzeari utzi</string>
 	<string name="unfollow">Utzi jarraitzeari</string>
-	<string name="mute_user_explain">Ez dituzu bere bidalketa eta birbidalketak zure hasierako jarioan ikusiko. Ez dute jakingo isilarazi dituztenik.</string>
 	<string name="block_user_explain">Ezin izango dituzte zure bidalketak jarraitu edo ikusi, baina blokeatuta dauden ikusi ahal izango dute.</string>
 	<string name="report_personal_title">Ez duzu hau ikusi nahi?</string>
 	<string name="report_personal_subtitle">Mastodonen gustuko ez duzun zerbait ikusten duzunean, zure esperientziatik atera dezakezu pertsona hori.</string>
@@ -220,7 +217,6 @@
 	<string name="skip">Saltatu</string>
 	<string name="notification_type_follow">Jarraitzaile berriak</string>
 	<string name="notification_type_favorite">Gogokoak</string>
-	<string name="notification_type_reblog">Bultzadak</string>
 	<string name="notification_type_mention">Aipamenak</string>
 	<string name="notification_type_poll">Inkestak</string>
 	<string name="choose_account">Aukeratu kontua</string>
@@ -247,7 +243,6 @@
 	<string name="notify_none">inor ez</string>
 	<string name="notify_favorites">Nire bidalketa gogoko egitean</string>
 	<string name="notify_follow">Jarraitzen nau</string>
-	<string name="notify_reblog">Nire bidalketa bultzatu du</string>
 	<string name="notify_mention">Aipatu nau</string>
 	<string name="settings_boring">Eremu aspergarria</string>
 	<string name="settings_account">Kontuaren ezarpenak</string>
@@ -268,7 +263,6 @@
 	<string name="hide_content">Ezkutatu edukia</string>
 	<string name="new_post">Bidalketa berria</string>
 	<string name="button_reply">Erantzun</string>
-	<string name="button_reblog">Bultzada</string>
 	<string name="button_favorite">Gogokoa</string>
 	<string name="button_share">Partekatu</string>
 	<string name="media_no_description">Deskribapenik gabeko multimedia</string>
@@ -283,8 +277,6 @@
 	<string name="unfollowed_user">Utzi %s jarraitzeari</string>
 	<string name="followed_user">%s jarraitzen ari zara</string>
 	<string name="open_in_browser">Ireki nabigatzailean</string>
-	<string name="hide_boosts_from_user">Ezkutatu %s(r)en bultzadak</string>
-	<string name="show_boosts_from_user">Erakutsi %s(r)en bultzadak</string>
 	<string name="signup_reason">Zergatik elkartu nahi duzu?</string>
 	<string name="signup_reason_note">Honek zure eskaera berrikustean lagunduko digu.</string>
 	<string name="clear">Garbitu</string>
@@ -326,13 +318,8 @@
 		<item quantity="one">Gogoko bat</item>
 		<item quantity="other">%,d gogoko</item>
 	</plurals>
-	<plurals name="x_reblogs">
-		<item quantity="one">Bultzada %,d</item>
-		<item quantity="other">%,d bultzada</item>
-	</plurals>
 	<string name="timestamp_via_app">%1$s %2$s -en bidez</string>
 	<string name="time_now">orain</string>
-	<string name="post_info_reblogs">Bultzadak</string>
 	<string name="post_info_favorites">Gogokoak</string>
 	<string name="edit_history">Editatu historia</string>
 	<string name="last_edit_at_x">Azken edizioa %s</string>
@@ -393,7 +380,6 @@
 	<string name="welcome_page1_title">Zer da Mastodon?</string>
 	<string name="welcome_page1_text">Imajinatu zure helbide elektronikoa adibidea.eus-en amaitzen dela. \n\n Oraindik edonoren mezu elektronikoak bidali eta jaso ditzakezu, baita posta elektronikoa @gmail.com edo @icloud.com edo @adibidea.eus helbideetan amaitzen bada ere.</string>
 	<string name="welcome_page2_title">Mastodon antzekoa da.</string>
-	<string name="welcome_page2_text">Zure kontua \"@pertsona1@mastodon.eus\" izan liteke, baina oraindik ere jarraitu, bultzatu edo txateatu dezakezu \"@pertsona2@mastodon.social\" edo bestelako edozein kontu.</string>
 	<string name="welcome_page3_title">Nola aukeratzen dut zerbitzari bat?</string>
 	<string name="welcome_page3_text">Hainbat pertsonak zerbitzari bat baino gehiago aukeratzen dituzte arrazoi ezberdinengatik. Adibidez, art.example leku ona da artistentzat eta mastodon.eus, berriz, euskaldunentzat. Gure gomendioetako zerbitzariekin, ez duzu hanka sartuko eta edozein dela ere zure aukera, beste zerbitzarietako kideekin harremana izan dezakezu (bilaketa-barran bilatuz).</string>
 	<string name="server_filter_any_language">Edozein hizkuntza</string>

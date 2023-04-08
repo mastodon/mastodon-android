@@ -6,17 +6,15 @@
 	<string name="next">Dalej</string>
 	<string name="loading_instance">Pobieranie informacji o serwerze…</string>
 	<string name="error">Błąd</string>
-	<string name="not_a_mastodon_instance">%s wydaje się nie być instancją Mastodona.</string>
+	<string name="not_a_mastodon_instance">%s nie wydaje się być serwerem Mastodona.</string>
 	<string name="ok">OK</string>
 	<string name="preparing_auth">Przygotowywanie do uwierzytelniania…</string>
 	<string name="finishing_auth">Kończenie uwierzytelniania…</string>
-	<string name="user_boosted">%s podbił(a)</string>
 	<string name="in_reply_to">W odpowiedzi do %s</string>
 	<string name="notifications">Powiadomienia</string>
 	<string name="user_followed_you">zaczął(-ęła) Cię obserwować</string>
 	<string name="user_sent_follow_request">wysłał(-a) prośbę o możliwość obserwacji</string>
 	<string name="user_favorited">dodał(a) Twój wpis do ulubionych</string>
-	<string name="notification_boosted">podbił(a) Twój wpis</string>
 	<string name="poll_ended">głosowanie zakończyło się</string>
 	<string name="time_seconds">%d sek.</string>
 	<string name="time_minutes">%d min.</string>
@@ -194,7 +192,6 @@
 	<string name="report_sent_subtitle">W trakcie gdy będziemy się przyglądać tej sprawie, możesz podjąć działania dotyczące %s.</string>
 	<string name="unfollow_user">Przestań obserwować %s</string>
 	<string name="unfollow">Przestań obserwować</string>
-	<string name="mute_user_explain">Nie będziesz widzieć wpisów ani podbić tego użytkownika na stronie głównej. Ta osoba nie dowie się, że została wyciszona.</string>
 	<string name="block_user_explain">Ta osoba nie będzie mogła mogła Cię śledzić ani widzieć Twoich wpisów, ale może dowiedzieć się, że została zablokowana.</string>
 	<string name="report_personal_title">Nie chcesz tego widzieć?</string>
 	<string name="report_personal_subtitle">Gdy zobaczysz na Mastodonie coś, co Ci się nie spodoba, możesz usunąć daną osobę ze swojego doświadczenia.</string>
@@ -251,7 +248,6 @@
 	<string name="skip">Pomiń</string>
 	<string name="notification_type_follow">Nowi obserwujący</string>
 	<string name="notification_type_favorite">Polubienia</string>
-	<string name="notification_type_reblog">Podbicia</string>
 	<string name="notification_type_mention">Wspomienia</string>
 	<string name="notification_type_poll">Głosowania</string>
 	<string name="choose_account">Wybierz konto</string>
@@ -280,7 +276,6 @@
 	<string name="notify_none">nikt</string>
 	<string name="notify_favorites">Doda mój wpis do ulubionych</string>
 	<string name="notify_follow">Zacznie mnie obserwować</string>
-	<string name="notify_reblog">Podbija mój wpis</string>
 	<string name="notify_mention">Wspomni o mnie</string>
 	<string name="settings_boring">Nudne opcje</string>
 	<string name="settings_account">Ustawienia konta</string>
@@ -301,7 +296,6 @@
 	<string name="hide_content">Ukryj treść</string>
 	<string name="new_post">Nowy wpis</string>
 	<string name="button_reply">Odpowiedz</string>
-	<string name="button_reblog">Podbij</string>
 	<string name="button_favorite">Dodaj do ulubionych</string>
 	<string name="button_share">Udostępnij</string>
 	<string name="media_no_description">Media bez opisu</string>
@@ -316,8 +310,6 @@
 	<string name="unfollowed_user">Przestano obserwować %s</string>
 	<string name="followed_user">Od teraz obserwujesz %s</string>
 	<string name="open_in_browser">Otwórz w przeglądarce</string>
-	<string name="hide_boosts_from_user">Ukryj podbicia od %s</string>
-	<string name="show_boosts_from_user">Pokaż podbicia od %s</string>
 	<string name="signup_reason">Dlaczego chcesz dołączyć?</string>
 	<string name="signup_reason_note">To pomoże nam ocenić Twoją aplikację.</string>
 	<string name="clear">Wyczyść</string>
@@ -365,15 +357,8 @@
 		<item quantity="many">%,d ulubionych</item>
 		<item quantity="other">%,d ulubionych</item>
 	</plurals>
-	<plurals name="x_reblogs">
-		<item quantity="one">%,d podbicie</item>
-		<item quantity="few">%,d podbicia</item>
-		<item quantity="many">%,d podbić</item>
-		<item quantity="other">%,d podbić</item>
-	</plurals>
 	<string name="timestamp_via_app">%1$s przez %2$s</string>
 	<string name="time_now">przed chwilą</string>
-	<string name="post_info_reblogs">Podbicia</string>
 	<string name="post_info_favorites">Ulubione</string>
 	<string name="edit_history">Historia edycji</string>
 	<string name="last_edit_at_x">Ostatnia zmiana: %s</string>
@@ -439,7 +424,6 @@
 	<string name="welcome_page1_title">Czym jest Mastodon?</string>
 	<string name="welcome_page1_text">Wyobraź sobie, że masz adres e-mail, który kończy się @example.com.\n\nNadal możesz wysyłać i odbierać wiadomości od każdego, nawet jeśli ich e-mail kończy się na @gmail.com lub @icloud.com lub @przykład.com.</string>
 	<string name="welcome_page2_title">Mastodon jest taki.</string>
-	<string name="welcome_page2_text">Twój nick może brzmieć @gothgirl654@example.social, ale nadal możesz obserwować, reblogować i rozmawiać z @fallout5ever@example.online.</string>
 	<string name="welcome_page3_title">Jak wybrać serwer?</string>
 	<string name="welcome_page3_text">Różne osoby wybierają różne serwery z różnych powodu. art.example to świetne miejsce dla artystów, podczas gdy glasgow.przykład może być dobrym wyborem dla Szkotów.\n\nNie zrobisz źle wybierając dowolny z naszych rekomendowanych serwerów, dlatego niezależnie od tego który wybierzesz (lub jeśli wpiszesz swój własny na pasku wyszukiwania serwera), nigdy nie przegapisz niczego.</string>
 	<string name="signup_random_server_explain">My wybierzemy serwer oparty na twoim języku, jeśli kontynuujesz bez dokonywania wyboru.</string>

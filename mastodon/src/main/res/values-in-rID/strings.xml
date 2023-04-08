@@ -8,15 +8,13 @@
 	<string name="error">Kesalahan</string>
 	<string name="not_a_mastodon_instance">%s sepertinya bukan server Mastodon.</string>
 	<string name="ok">Oke</string>
-	<string name="preparing_auth">Menyiapkan untuk otentikasi…</string>
-	<string name="finishing_auth">Menyelesaikan otentikasi…</string>
-	<string name="user_boosted">%s membagikan</string>
+	<string name="preparing_auth">Menyiapkan untuk autentikasi…</string>
+	<string name="finishing_auth">Menyelesaikan autentikasi…</string>
 	<string name="in_reply_to">Membalas ke %s</string>
 	<string name="notifications">Notifikasi</string>
 	<string name="user_followed_you">mengikuti Anda</string>
 	<string name="user_sent_follow_request">mengirim Anda permintaan pengikut</string>
 	<string name="user_favorited">memfavorit kiriman Anda</string>
-	<string name="notification_boosted">membagikan kiriman Anda</string>
 	<string name="poll_ended">pemungutan suara berakhir</string>
 	<string name="time_seconds">%dd</string>
 	<string name="time_minutes">%dm</string>
@@ -152,14 +150,22 @@
 	<string name="report_sent_subtitle">Saat kami sedang meninjau ini, Anda dapat mengambil tindakan terhadap %s.</string>
 	<string name="unfollow_user">Berhenti mengikuti %s</string>
 	<string name="unfollow">Berhenti mengikuti</string>
-	<string name="mute_user_explain">Anda tidak akan melihat kiriman atau pembagian mereka dalam umpan beranda Anda. Mereka tidak akan tahu bahwa mereka telah dibisukan.</string>
 	<string name="block_user_explain">Mereka tidak akan dapat mengikuti atau melihat kiriman Anda lagi, tetapi mereka dapat melihat jika mereka telah diblokir.</string>
 	<string name="report_personal_title">Tidak ingin melihat ini?</string>
 	<string name="report_personal_subtitle">Ketika Anda melihat sesuatu yang Anda tidak suka di Mastodon, Anda dapat menghapus orang dari pengalaman Anda.</string>
 	<string name="back">Kembali</string>
 	<string name="instance_catalog_title">Mastodon dibuat oleh pengguna di server yang berbeda-beda.</string>
 	<string name="instance_catalog_subtitle">Pilih sebuah server berdasarkan minat atau wilayah Anda, atau yang umum. Anda masih dapat berkomunikasi dengan semua orang, tanpa memedulikan server yang Anda berada.</string>
+	<string name="search_communities">Nama server atau URL</string>
+	<string name="instance_rules_title">Aturan Server</string>
+	<string name="instance_rules_subtitle">Dengan melanjutkan, Anda setuju mengikuti peraturan berikut yang ditetapkan oleh moderator %s.</string>
+	<string name="signup_title">Buat Akun</string>
 	<string name="edit_photo">sunting</string>
+	<string name="display_name">Nama</string>
+	<string name="username">Nama pengguna</string>
+	<string name="email">Surel</string>
+	<string name="password">Kata sandi</string>
+	<string name="confirm_password">Konfirmasi kata sandi</string>
 	<string name="password_note">Tambahkan huruf besar, karakter spesial, dan nomor untuk meningkatkan kekuatan kata sandi Anda.</string>
 	<string name="category_academia">Akademisi</string>
 	<string name="category_activism">Aktivisme</string>
@@ -174,7 +180,10 @@
 	<string name="category_music">Musik</string>
 	<string name="category_regional">Regional</string>
 	<string name="category_tech">Teknologi</string>
+	<string name="confirm_email_title">Periksa Kotak Masuk Anda</string>
 	<!-- %s is the email address -->
+	<string name="confirm_email_subtitle">Ketuk tautan yang kami kirim kepada Anda untuk memverifikasi %s. Kami akan tunggu di sini.</string>
+	<string name="confirm_email_didnt_get">Tidak mendapatkan tautan?</string>
 	<string name="resend">Kirim ulang</string>
 	<string name="open_email_app">Buka aplikasi surel</string>
 	<string name="resent_email">Surel konfirmasi terkirim</string>
@@ -197,7 +206,6 @@
 	<string name="skip">Lewati</string>
 	<string name="notification_type_follow">Pengikut baru</string>
 	<string name="notification_type_favorite">Favorit</string>
-	<string name="notification_type_reblog">Pembagian</string>
 	<string name="notification_type_mention">Sebutan</string>
 	<string name="notification_type_poll">Pemungutan suara</string>
 	<string name="choose_account">Pilih akun</string>
@@ -223,7 +231,6 @@
 	<string name="notify_none">tidak ada</string>
 	<string name="notify_favorites">Memfavorit kiriman saya</string>
 	<string name="notify_follow">Mengikuti saya</string>
-	<string name="notify_reblog">Membagikan kiriman saya</string>
 	<string name="notify_mention">Menyebut saya</string>
 	<string name="settings_boring">Zona membosankan</string>
 	<string name="settings_account">Pengaturan akun</string>
@@ -244,7 +251,6 @@
 	<string name="hide_content">Sembunyikan konten</string>
 	<string name="new_post">Kiriman baru</string>
 	<string name="button_reply">Balas</string>
-	<string name="button_reblog">Bagikan ke pengikut</string>
 	<string name="button_favorite">Favorit</string>
 	<string name="button_share">Bagikan</string>
 	<string name="media_no_description">Media tanpa deskripsi</string>
@@ -258,9 +264,9 @@
 	<string name="follow_user">Ikuti %s</string>
 	<string name="unfollowed_user">Berhenti mengikuti %s</string>
 	<string name="followed_user">Anda sekarang mengikuti %s</string>
+	<string name="following_user_requested">Diminta untuk mengikuti %s</string>
 	<string name="open_in_browser">Buka di peramban</string>
-	<string name="hide_boosts_from_user">Sembunyikan pembagian dari %s</string>
-	<string name="show_boosts_from_user">Tampilkan pembagian dari %s</string>
+	<string name="signup_reason">Mengapa Anda ingin bergabung?</string>
 	<string name="signup_reason_note">Ini akan membantu kami meninjau aplikasi Anda.</string>
 	<string name="clear">Hapus</string>
 	<string name="profile_header">Gambar tajuk</string>
@@ -298,12 +304,8 @@
 	<plurals name="x_favorites">
 		<item quantity="other">%,d favorit</item>
 	</plurals>
-	<plurals name="x_reblogs">
-		<item quantity="other">%,d pembagian</item>
-	</plurals>
 	<string name="timestamp_via_app">%1$s melalui %2$s</string>
 	<string name="time_now">sekarang</string>
-	<string name="post_info_reblogs">Pembagian</string>
 	<string name="post_info_favorites">Favorit</string>
 	<string name="edit_history">Riwayat penyuntingan</string>
 	<string name="last_edit_at_x">Terakhir disunting %s</string>
@@ -347,6 +349,8 @@
 	<!-- %s is file size -->
 	<string name="download_update">Unduh (%s)</string>
 	<string name="install_update">Pasang</string>
+	<string name="privacy_policy_title">Privasi Anda</string>
+	<string name="privacy_policy_subtitle">Walaupun aplikasi Mastodon tidak mengumpulkan data apa pun, server yang Anda daftarkan di sana dapat memiliki kebijakan yang berbeda.\n\nJika Anda tidak setuju dengan kebijakan %s, Anda dapat kembali dan pilih server yang lain.</string>
 	<string name="i_agree">Saya Setuju</string>
 	<string name="empty_list">Daftar ini kosong</string>
 	<string name="instance_signup_closed">Server ini tidak menerima pendaftaran baru.</string>
@@ -358,12 +362,40 @@
 	<string name="login_title">Selamat Datang Kembali</string>
 	<string name="login_subtitle">Masuk dengan server di mana Anda buat akun Anda.</string>
 	<string name="server_url">URL Server</string>
+	<string name="welcome_page1_title">Apa itu Mastodon?</string>
 	<string name="welcome_page1_text">Bayangkan Anda memikiki alamat surel yang berakhiran @contoh.com.\n\nAnda masih bisa mengirim dan menerima surel dari siapa pun, bahkan jika alamat surel mereka berakhiran @gmail.com atau @icloud.com atau @contoh.com.</string>
 	<string name="welcome_page2_title">Mastodon seperti itu.</string>
-	<string name="welcome_page2_text">Alamat akun Anda bisa seperti @gadisgothic654@contoh.social, tetapi Anda masih dapat mengikuti, membagikan, dan mengobrol dengan @fallout5selamanya@contoh.online.</string>
 	<string name="welcome_page3_title">Bagaimana saya memilih server?</string>
 	<string name="welcome_page3_text">Kebanyakan orang memilih server berbeda karena berbagai alasan. seni.contoh adalah tempat yang cocok bagi artis, sedangkan glasgow.example mungkin pilihan yang baik untuk para Scots.\n\nAnda tidak bisa salah dengan server yang kami rekomendasikan, jadi server apa yang Anda pilih (atau jika Anda memasukkan Anda sendiri di bilah pencarian server), Anda tidak akan melewatkan apa pun di mana pun.</string>
+	<string name="signup_random_server_explain">Kami akan memilih sebuah server berdasarkan bahasa Anda jika Anda melanjutkan tanpa memilih.</string>
+	<string name="server_filter_any_language">Bahasa Apa Pun</string>
+	<string name="server_filter_instant_signup">Pendaftaran Instan</string>
+	<string name="server_filter_manual_review">Pemeriksaan Manual</string>
+	<string name="server_filter_any_signup_speed">Kecepatan Pendaftaran Apa Pun</string>
+	<string name="server_filter_region_europe">Eropa</string>
+	<string name="server_filter_region_north_america">Amerika Utara</string>
+	<string name="server_filter_region_south_america">Amerika Selatan</string>
+	<string name="server_filter_region_africa">Afrika</string>
+	<string name="server_filter_region_asia">Asia</string>
+	<string name="server_filter_region_oceania">Oseania</string>
+	<string name="not_accepting_new_members">Tidak menerima anggota baru</string>
+	<string name="category_special_interests">Minat Khusus</string>
+	<string name="signup_passwords_dont_match">Kata sandi tidak cocok</string>
+	<string name="pick_server_for_me">Pilih untuk saya</string>
+	<string name="profile_add_row">Tambahkan baris</string>
+	<string name="profile_setup">Pengaturan profil</string>
+	<string name="profile_setup_subtitle">Anda dapat selalu menyelesaikan ini nanti di tab Profil.</string>
+	<string name="profile_setup_explanation">Anda dapat menambahkan hingga empat kolom baris untuk apa saja yang Anda inginkan. Lokasi, tautan, kata ganti — langit adalah batasnya.</string>
+	<string name="popular_on_mastodon">Populer di Mastodon</string>
+	<string name="follow_all">Ikuti semua</string>
+	<string name="server_rules_disagree">Tolak</string>
+	<string name="privacy_policy_explanation">Kesimpulan: Kami tidak mengumpulkan atau memproses apa pun.</string>
 	<!-- %s is server domain -->
+	<string name="server_policy_disagree">Tidak setuju dengan %s</string>
+	<string name="profile_bio">Deskripsi</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
+	<string name="sending_follows">Mengikuti pengguna…</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<string name="signup_email_domain_blocked">%1$s tidak memperbolehkan pendaftaran dari %2$s. Coba yang lain atau &lt;a&gt;pilih server lain&lt;/a&gt;.</string>
+	<string name="signup_username_taken">Nama pengguna ini sudah diambil.</string>
 </resources>
