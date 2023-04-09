@@ -32,6 +32,10 @@
 		<item quantity="one">ακόλουθος</item>
 		<item quantity="other">ακόλουθοι</item>
 	</plurals>
+	<plurals name="following">
+		<item quantity="one">ακολουθεί</item>
+		<item quantity="other">ακολουθούν</item>
+	</plurals>
 	<plurals name="posts">
 		<item quantity="one">ανάρτηση</item>
 		<item quantity="other">αναρτήσεις</item>
@@ -402,7 +406,49 @@
 	<string name="server_filter_instant_signup">Άμεση Εγγραφή</string>
 	<string name="server_filter_manual_review">Χειροκίνητη Αξιολόγηση</string>
 	<string name="server_filter_any_signup_speed">Οποιαδήποτε Ταχύτητα Εγγραφής</string>
+	<string name="server_filter_region_europe">Ευρώπη</string>
+	<string name="server_filter_region_north_america">Βόρεια Αμερική</string>
+	<string name="server_filter_region_south_america">Νότια Αμερική</string>
+	<string name="server_filter_region_africa">Αφρική</string>
+	<string name="server_filter_region_asia">Ασία</string>
+	<string name="server_filter_region_oceania">Oceania</string>
+	<string name="not_accepting_new_members">Δεν δέχεται νέα μέλη</string>
+	<string name="category_special_interests">Ειδικά Ενδιαφέροντα</string>
+	<string name="signup_passwords_dont_match">Οι κωδικοί πρόσβασης δεν ταιριάζουν</string>
+	<string name="pick_server_for_me">Διάλεξε για μένα</string>
+	<string name="profile_add_row">Προσθήκη γραμμής</string>
+	<string name="profile_setup">Ρύθμιση προφίλ</string>
+	<string name="profile_setup_subtitle">Μπορείς πάντα να το ολοκληρώσεις αργότερα στην καρτέλα Προφίλ.</string>
+	<string name="profile_setup_explanation">Μπορείς να προσθέσεις έως και τέσσερα πεδία προφίλ για οτιδήποτε θες. Τοποθεσία, συνδέσμους, αντωνυμίες - δεν υπάρχουν όρια.</string>
+	<string name="popular_on_mastodon">Δημοφιλή στο Mastodon</string>
+	<string name="follow_all">Ακολούθησε όλους</string>
+	<string name="server_rules_disagree">Διαφωνώ</string>
+	<string name="privacy_policy_explanation">Σύνοψη: Δεν συλλέγουμε ή επεξεργαζόμαστε τίποτα.</string>
 	<!-- %s is server domain -->
+	<string name="server_policy_disagree">Διαφωνώ με %s</string>
+	<string name="profile_bio">Βιογραφικό</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
+	<string name="sending_follows">Ακολούθηση χρηστών…</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<string name="signup_email_domain_blocked">Ο %1$s δεν επιτρέπει εγγραφές από %2$s. Δοκιμάστε μια διαφορετική ή &lt;a&gt;επιλέξτε έναν διαφορετικό διακομιστή&lt;/a&gt;.</string>
+	<string name="signup_username_taken">Αυτό το όνομα χρήστη χρησιμοποιείται.</string>
+	<string name="spoiler_show">Εμφάνιση ούτως ή άλλως</string>
+	<string name="spoiler_hide">Απόκρυψη ξανά</string>
+	<string name="poll_multiple_choice">Επίλεξε ένα ή περισσότερα</string>
+	<string name="save_changes">Αποθήκευση αλλαγών</string>
+	<string name="profile_featured">﻿Προτεινόμενα</string>
+	<string name="profile_timeline">Ροή</string>
+	<string name="view_all">Εμφάνιση όλων</string>
+	<string name="profile_endorsed_accounts">Λογαριασμοί</string>
+	<string name="verified_link">Επαληθευμένος σύνδεσμος</string>
+	<string name="show">Εμφάνιση</string>
+	<string name="hide">Απόκρυψη</string>
+	<string name="join_default_server">Συμμετοχή %s</string>
+	<string name="pick_server">Επίλεξε το δικό μου διακομιστή</string>
+	<string name="signup_or_login">ή</string>
+	<string name="learn_more">Μάθε περισσότερα</string>
+	<string name="welcome_to_mastodon">Καλώς ήρθες στο Mastodon</string>
+	<string name="welcome_paragraph1">Το Mastodon είναι ένα αποκεντρωμένο κοινωνικό δίκτυο, που σημαίνει ότι καμία εταιρεία δεν το ελέγχει. Αποτελείται από πολλούς ανεξάρτητους διακομιστές, όλοι συνδεδεμένοι μαζί.</string>
+	<string name="what_are_servers">Τι είναι οι διακομιστές;</string>
+	<string name="welcome_paragraph2"><![CDATA[Κάθε λογαριασμός Mastodon φιλοξενείται σε ένα διακομιστή - ο καθένας με τις δικές του αξίες, κανόνες, & διαχειριστές. Ανεξάρτητα από το ποιον μπορεί να επιλέξεις, μπορείς να ακολουθήσεις και να αλληλεπιδράσεις με άτομα από οποιονδήποτε διακομιστή.]]></string>
 </resources>
