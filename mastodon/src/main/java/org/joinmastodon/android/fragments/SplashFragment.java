@@ -1,20 +1,13 @@
 package org.joinmastodon.android.fragments;
 
-import android.graphics.Canvas;
-import android.graphics.Paint;
 import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.text.SpannableString;
-import android.text.style.ReplacementSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.view.WindowInsets;
 import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import org.joinmastodon.android.MastodonApp;
 import org.joinmastodon.android.R;
@@ -28,10 +21,7 @@ import org.joinmastodon.android.ui.utils.UiUtils;
 import org.joinmastodon.android.ui.views.SizeListenerFrameLayout;
 import org.parceler.Parcels;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.viewpager2.widget.ViewPager2;
 import me.grishka.appkit.Nav;
 import me.grishka.appkit.api.Callback;
 import me.grishka.appkit.api.ErrorResponse;
@@ -74,11 +64,12 @@ public class SplashFragment extends AppKitFragment{
 		artContainer=contentView.findViewById(R.id.art_container);
 		blueFill=contentView.findViewById(R.id.blue_fill);
 		greenFill=contentView.findViewById(R.id.green_fill);
-		motionEffect.addViewEffect(new InterpolatingMotionEffect.ViewEffect(contentView.findViewById(R.id.art_clouds), V.dp(-5), V.dp(5), V.dp(-5), V.dp(5)));
-		motionEffect.addViewEffect(new InterpolatingMotionEffect.ViewEffect(contentView.findViewById(R.id.art_right_hill), V.dp(-15), V.dp(25), V.dp(-10), V.dp(10)));
-		motionEffect.addViewEffect(new InterpolatingMotionEffect.ViewEffect(contentView.findViewById(R.id.art_left_hill), V.dp(-25), V.dp(15), V.dp(-15), V.dp(15)));
-		motionEffect.addViewEffect(new InterpolatingMotionEffect.ViewEffect(contentView.findViewById(R.id.art_center_hill), V.dp(-14), V.dp(14), V.dp(-5), V.dp(25)));
-		motionEffect.addViewEffect(new InterpolatingMotionEffect.ViewEffect(contentView.findViewById(R.id.art_plane_elephant), V.dp(-20), V.dp(12), V.dp(-20), V.dp(12)));
+		motionEffect.addViewEffect(new InterpolatingMotionEffect.ViewEffect(artClouds, V.dp(-5), V.dp(5), V.dp(-5), V.dp(5)));
+		motionEffect.addViewEffect(new InterpolatingMotionEffect.ViewEffect(artRightHill, V.dp(-15), V.dp(25), V.dp(-10), V.dp(10)));
+		motionEffect.addViewEffect(new InterpolatingMotionEffect.ViewEffect(artLeftHill, V.dp(-25), V.dp(15), V.dp(-15), V.dp(15)));
+		motionEffect.addViewEffect(new InterpolatingMotionEffect.ViewEffect(artCenterHill, V.dp(-14), V.dp(14), V.dp(-5), V.dp(25)));
+		motionEffect.addViewEffect(new InterpolatingMotionEffect.ViewEffect(artPlaneElephant, V.dp(-20), V.dp(12), V.dp(-20), V.dp(12)));
+		artContainer.setOnTouchListener(motionEffect);
 
 		contentView.setSizeListener(new SizeListenerFrameLayout.OnSizeChangedListener(){
 			@Override
