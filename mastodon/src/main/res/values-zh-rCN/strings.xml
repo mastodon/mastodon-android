@@ -10,13 +10,11 @@
 	<string name="ok">确定</string>
 	<string name="preparing_auth">正在准备身份验证…</string>
 	<string name="finishing_auth">正在完成身份认证…</string>
-	<string name="user_boosted">%s 转发了</string>
 	<string name="in_reply_to">回复 %s</string>
 	<string name="notifications">通知</string>
 	<string name="user_followed_you">关注了你</string>
 	<string name="user_sent_follow_request">向你发送了关注请求</string>
 	<string name="user_favorited">喜欢了你的嘟文</string>
-	<string name="notification_boosted">转发了你的嘟文</string>
 	<string name="poll_ended">投票已结束</string>
 	<string name="time_seconds">%d 秒前</string>
 	<string name="time_minutes">%d 分钟前</string>
@@ -152,7 +150,6 @@
 	<string name="report_sent_subtitle">我们审查此问题期间，你也可以对 %s 采取行动。</string>
 	<string name="unfollow_user">不再关注 %s</string>
 	<string name="unfollow">取消关注</string>
-	<string name="mute_user_explain">你不会在你的主页里看到他们的嘟文和转发，他们也不会知道你隐藏了他们。</string>
 	<string name="block_user_explain">他们不能再关注你或看到你的嘟文，但他们可以知道他们是否被屏蔽。</string>
 	<string name="report_personal_title">不想看到这个？</string>
 	<string name="report_personal_subtitle">如果在Mastodon看到不喜欢的东西，可以尝试移除它。</string>
@@ -197,7 +194,6 @@
 	<string name="skip">跳过</string>
 	<string name="notification_type_follow">新关注者</string>
 	<string name="notification_type_favorite">喜欢</string>
-	<string name="notification_type_reblog">转发</string>
 	<string name="notification_type_mention">提及</string>
 	<string name="notification_type_poll">投票</string>
 	<string name="choose_account">选择账户</string>
@@ -223,7 +219,6 @@
 	<string name="notify_none">关闭通知</string>
 	<string name="notify_favorites">喜欢我的嘟文</string>
 	<string name="notify_follow">关注我</string>
-	<string name="notify_reblog">转发我的嘟文</string>
 	<string name="notify_mention">提及我</string>
 	<string name="settings_boring">更多</string>
 	<string name="settings_account">账户设置</string>
@@ -244,7 +239,6 @@
 	<string name="hide_content">隐藏内容</string>
 	<string name="new_post">新嘟文</string>
 	<string name="button_reply">回复</string>
-	<string name="button_reblog">转发</string>
 	<string name="button_favorite">喜欢</string>
 	<string name="button_share">分享</string>
 	<string name="media_no_description">没有描述的媒体</string>
@@ -259,8 +253,6 @@
 	<string name="unfollowed_user">取消关注 %s</string>
 	<string name="followed_user">你正在关注 %s</string>
 	<string name="open_in_browser">在浏览器中打开</string>
-	<string name="hide_boosts_from_user">隐藏来自 %s 的转发</string>
-	<string name="show_boosts_from_user">不再隐藏来自 %s 的转发</string>
 	<string name="signup_reason_note">这会帮助我们评估你的申请。</string>
 	<string name="clear">清除</string>
 	<string name="profile_header">资料页横幅图片</string>
@@ -298,12 +290,8 @@
 	<plurals name="x_favorites">
 		<item quantity="other">%,d 次喜欢</item>
 	</plurals>
-	<plurals name="x_reblogs">
-		<item quantity="other">%,d 次转发</item>
-	</plurals>
 	<string name="timestamp_via_app">%1$s 来自 %2$s</string>
 	<string name="time_now">刚刚</string>
-	<string name="post_info_reblogs">转发</string>
 	<string name="post_info_favorites">喜欢</string>
 	<string name="edit_history">编辑记录</string>
 	<string name="last_edit_at_x">编辑于 %s</string>
@@ -358,7 +346,6 @@
 	<string name="login_title">欢迎回来</string>
 	<string name="login_subtitle">登陆到你创建账户的服务器。</string>
 	<string name="server_url">服务器地址</string>
-	<string name="welcome_page3_title">如何选择服务器？</string>
 	<!-- %s is server domain -->
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->

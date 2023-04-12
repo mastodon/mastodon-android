@@ -1,20 +1,13 @@
 package org.joinmastodon.android.fragments;
 
-import android.graphics.Canvas;
-import android.graphics.Paint;
 import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.text.SpannableString;
-import android.text.style.ReplacementSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.view.WindowInsets;
 import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import org.joinmastodon.android.MastodonApp;
 import org.joinmastodon.android.R;
@@ -28,10 +21,7 @@ import org.joinmastodon.android.ui.utils.UiUtils;
 import org.joinmastodon.android.ui.views.SizeListenerFrameLayout;
 import org.parceler.Parcels;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.viewpager2.widget.ViewPager2;
 import me.grishka.appkit.Nav;
 import me.grishka.appkit.api.Callback;
 import me.grishka.appkit.api.ErrorResponse;
@@ -74,11 +64,12 @@ public class SplashFragment extends AppKitFragment{
 		artContainer=contentView.findViewById(R.id.art_container);
 		blueFill=contentView.findViewById(R.id.blue_fill);
 		greenFill=contentView.findViewById(R.id.green_fill);
-		motionEffect.addViewEffect(new InterpolatingMotionEffect.ViewEffect(contentView.findViewById(R.id.art_clouds), V.dp(-5), V.dp(5), V.dp(-5), V.dp(5)));
-		motionEffect.addViewEffect(new InterpolatingMotionEffect.ViewEffect(contentView.findViewById(R.id.art_right_hill), V.dp(-15), V.dp(25), V.dp(-10), V.dp(10)));
-		motionEffect.addViewEffect(new InterpolatingMotionEffect.ViewEffect(contentView.findViewById(R.id.art_left_hill), V.dp(-25), V.dp(15), V.dp(-15), V.dp(15)));
-		motionEffect.addViewEffect(new InterpolatingMotionEffect.ViewEffect(contentView.findViewById(R.id.art_center_hill), V.dp(-14), V.dp(14), V.dp(-5), V.dp(25)));
-		motionEffect.addViewEffect(new InterpolatingMotionEffect.ViewEffect(contentView.findViewById(R.id.art_plane_elephant), V.dp(-20), V.dp(12), V.dp(-20), V.dp(12)));
+		motionEffect.addViewEffect(new InterpolatingMotionEffect.ViewEffect(artClouds, V.dp(-5), V.dp(5), V.dp(-5), V.dp(5)));
+		motionEffect.addViewEffect(new InterpolatingMotionEffect.ViewEffect(artRightHill, V.dp(-15), V.dp(25), V.dp(-10), V.dp(10)));
+		motionEffect.addViewEffect(new InterpolatingMotionEffect.ViewEffect(artLeftHill, V.dp(-25), V.dp(15), V.dp(-15), V.dp(15)));
+		motionEffect.addViewEffect(new InterpolatingMotionEffect.ViewEffect(artCenterHill, V.dp(-14), V.dp(14), V.dp(-5), V.dp(25)));
+		motionEffect.addViewEffect(new InterpolatingMotionEffect.ViewEffect(artPlaneElephant, V.dp(-20), V.dp(12), V.dp(-20), V.dp(12)));
+		artContainer.setOnTouchListener(motionEffect);
 
 		contentView.setSizeListener(new SizeListenerFrameLayout.OnSizeChangedListener(){
 			@Override
@@ -176,62 +167,5 @@ public class SplashFragment extends AppKitFragment{
 	protected void onHidden(){
 		super.onHidden();
 		motionEffect.deactivate();
-	}
-
-	private class PagerAdapter extends RecyclerView.Adapter<PagerViewHolder>{
-
-		@NonNull
-		@Override
-		public PagerViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType){
-			return new PagerViewHolder(viewType);
-		}
-
-		@Override
-		public void onBindViewHolder(@NonNull PagerViewHolder holder, int position){}
-
-		@Override
-		public int getItemCount(){
-			return 3;
-		}
-
-		@Override
-		public int getItemViewType(int position){
-			return position;
-		}
-	}
-
-	private class PagerViewHolder extends RecyclerView.ViewHolder{
-		public PagerViewHolder(int page){
-			super(new LinearLayout(getActivity()));
-			LinearLayout ll=(LinearLayout) itemView;
-			ll.setOrientation(LinearLayout.VERTICAL);
-			int pad=V.dp(16);
-			ll.setPadding(pad, pad, pad, pad);
-			ll.setLayoutParams(new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-
-			TextView title=new TextView(getActivity());
-			title.setTextAppearance(R.style.m3_headline_medium);
-			title.setText(switch(page){
-				case 0 -> getString(R.string.welcome_page1_title);
-				case 1 -> getString(R.string.welcome_page2_title);
-				case 2 -> getString(R.string.welcome_page3_title);
-				default -> throw new IllegalStateException("Unexpected value: "+page);
-			});
-			title.setTextColor(0xFF17063B);
-			LinearLayout.LayoutParams lp=new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, V.dp(page==0 ? 46 : 36));
-			lp.bottomMargin=V.dp(page==0 ? 4 : 14);
-			ll.addView(title, lp);
-
-			TextView text=new TextView(getActivity());
-			text.setTextAppearance(R.style.m3_body_medium);
-			text.setText(switch(page){
-				case 0 -> R.string.welcome_page1_text;
-				case 1 -> R.string.welcome_page2_text;
-				case 2 -> R.string.welcome_page3_text;
-				default -> throw new IllegalStateException("Unexpected value: "+page);
-			});
-			text.setTextColor(0xFF17063B);
-			ll.addView(text, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-		}
 	}
 }

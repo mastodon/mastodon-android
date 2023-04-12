@@ -10,13 +10,11 @@
 	<string name="ok">OK</string>
 	<string name="preparing_auth">Příprava na autentizaci…</string>
 	<string name="finishing_auth">Dokončení autentizace…</string>
-	<string name="user_boosted">Uživatel %s boostnul</string>
 	<string name="in_reply_to">V odpovědi na %s</string>
 	<string name="notifications">Upozornění</string>
 	<string name="user_followed_you">vás začal(a) sledovat</string>
 	<string name="user_sent_follow_request">vám poslal(a) žádost o sledování</string>
 	<string name="user_favorited">si oblíbil(a) váš příspěvek</string>
-	<string name="notification_boosted">boostnul(a) váš příspěvek</string>
 	<string name="poll_ended">anketa skončila</string>
 	<string name="time_seconds">%d s</string>
 	<string name="time_minutes">%d m</string>
@@ -194,14 +192,22 @@
 	<string name="report_sent_subtitle">Zatímco to posuzujeme, můžete podniknout akce proti %s.</string>
 	<string name="unfollow_user">Přestat sledovat %s</string>
 	<string name="unfollow">Přestat sledovat</string>
-	<string name="mute_user_explain">Neuvidíte příspěvky nebo boosty tohoto uživatele ve svém domovském kanálu. Nebude vědět, že je skryt.</string>
 	<string name="block_user_explain">Tento uživatel vás již nebude moci sledovat ani vidět vaše příspěvky, ale může zjistit, že je blokován.</string>
 	<string name="report_personal_title">Nechcete tohle vidět?</string>
 	<string name="report_personal_subtitle">Když uvidíte něco, co se vám nelíbí na Mastodonu, můžete odstranit tuto osobu ze svého zážitku.</string>
 	<string name="back">Zpět</string>
 	<string name="instance_catalog_title">Mastodon tvoří uživatelé z různých serverů.</string>
 	<string name="instance_catalog_subtitle">Vyberte si server podle na svých zájmů, regionu nebo obecného účelu. Stále se můžete spojit se všemi bez ohledu na server.</string>
+	<string name="search_communities">Název nebo URL serveru</string>
+	<string name="instance_rules_title">Pravidla serveru</string>
+	<string name="instance_rules_subtitle">Pokračováním souhlasíte s následujícími pravidly, která jsou nastavena a prosazována moderátory %s.</string>
+	<string name="signup_title">Vytvořit účet</string>
 	<string name="edit_photo">upravit</string>
+	<string name="display_name">Jméno</string>
+	<string name="username">Uživatelské jméno</string>
+	<string name="email">E-mail</string>
+	<string name="password">Heslo</string>
+	<string name="confirm_password">Potvrdit heslo</string>
 	<string name="password_note">Použijte velká písmena, speciální znaky a čísla, abyste zvýšili sílu hesla.</string>
 	<string name="category_academia">Akademická sféra</string>
 	<string name="category_activism">Aktivismus</string>
@@ -216,7 +222,10 @@
 	<string name="category_music">Hudba</string>
 	<string name="category_regional">Regionální</string>
 	<string name="category_tech">Technologie</string>
+	<string name="confirm_email_title">Zkontrolujte si příchozí poštu</string>
 	<!-- %s is the email address -->
+	<string name="confirm_email_subtitle">Klepněte na odkaz, který jsme vám poslali, abyste ověřili %s. Budeme tu na vás čekat.</string>
+	<string name="confirm_email_didnt_get">Nedostali jste odkaz?</string>
 	<string name="resend">Poslat znovu</string>
 	<string name="open_email_app">Otevřít e-mailovou aplikaci</string>
 	<string name="resent_email">Potvrzující e-mail byl odeslán</string>
@@ -239,7 +248,6 @@
 	<string name="skip">Přeskočit</string>
 	<string name="notification_type_follow">Noví sledující</string>
 	<string name="notification_type_favorite">Oblíbené</string>
-	<string name="notification_type_reblog">Boosty</string>
 	<string name="notification_type_mention">Zmínky</string>
 	<string name="notification_type_poll">Ankety</string>
 	<string name="choose_account">Vybrat účet</string>
@@ -268,7 +276,6 @@
 	<string name="notify_none">nikoho</string>
 	<string name="notify_favorites">Oblíbí si můj příspěvek</string>
 	<string name="notify_follow">Začne mě sledovat</string>
-	<string name="notify_reblog">Boostne můj příspěvek</string>
 	<string name="notify_mention">Zmíní mě</string>
 	<string name="settings_boring">Nudná část</string>
 	<string name="settings_account">Nastavení účtu</string>
@@ -289,7 +296,6 @@
 	<string name="hide_content">Skrýt obsah</string>
 	<string name="new_post">Nový příspěvek</string>
 	<string name="button_reply">Odpovědět</string>
-	<string name="button_reblog">Boostnout</string>
 	<string name="button_favorite">Oblíbit</string>
 	<string name="button_share">Sdílet</string>
 	<string name="media_no_description">Média bez popisu</string>
@@ -303,9 +309,9 @@
 	<string name="follow_user">Sledovat %s</string>
 	<string name="unfollowed_user">Sledování %s bylo zrušeno</string>
 	<string name="followed_user">Nyní sledujete %s</string>
+	<string name="following_user_requested">Požádáno o sledování %s</string>
 	<string name="open_in_browser">Otevřít v prohlížeči</string>
-	<string name="hide_boosts_from_user">Skrýt boosty od %s</string>
-	<string name="show_boosts_from_user">Zobrazit boosty od %s</string>
+	<string name="signup_reason">Proč se chcete připojit?</string>
 	<string name="signup_reason_note">Toto nám pomůže posoudit vaši žádost.</string>
 	<string name="clear">Vyčistit</string>
 	<string name="profile_header">Obrázek v záhlaví</string>
@@ -352,15 +358,8 @@
 		<item quantity="many">%,d oblíbení</item>
 		<item quantity="other">%,d oblíbení</item>
 	</plurals>
-	<plurals name="x_reblogs">
-		<item quantity="one">%,d boostnul</item>
-		<item quantity="few">%,d boosty</item>
-		<item quantity="many">%,d boostů</item>
-		<item quantity="other">%,d boostů</item>
-	</plurals>
 	<string name="timestamp_via_app">%1$s přes %2$s</string>
 	<string name="time_now">teď</string>
-	<string name="post_info_reblogs">Boosty</string>
 	<string name="post_info_favorites">Oblíbení</string>
 	<string name="edit_history">Historie úprav</string>
 	<string name="last_edit_at_x">Poslední úprava %s</string>
@@ -410,6 +409,8 @@
 	<!-- %s is file size -->
 	<string name="download_update">Stáhnout (%s)</string>
 	<string name="install_update">Instalovat</string>
+	<string name="privacy_policy_title">Vaše soukromí</string>
+	<string name="privacy_policy_subtitle">Přestože aplikace Mastodon neshromažďuje žádná data, server, který se přihlásíte, může mít jiné zásady.\n\nPokud nesouhlasíte se zásadami pro %s, můžete se vrátit a vybrat jiný server.</string>
 	<string name="i_agree">Souhlasím</string>
 	<string name="empty_list">Tento seznam je prázdný</string>
 	<string name="instance_signup_closed">Tento server nepřijímá nové registrace.</string>
@@ -421,12 +422,35 @@
 	<string name="login_title">Vítejte zpět</string>
 	<string name="login_subtitle">Přihlaste se pomocí serveru, kde jste vytvořili svůj účet.</string>
 	<string name="server_url">URL serveru</string>
-	<string name="welcome_page1_text">Představte si, že máte e-mailovou adresu, která končí @example.com.\n\nStále můžete od kohokoliv odesílat a přijímat e-maily, i když jejich e-mail končí na @gmail.com nebo @icloud.com nebo @example.com.</string>
-	<string name="welcome_page2_title">Takový je Mastodon.</string>
-	<string name="welcome_page2_text">Vaše uživatelské jméno může být @gothgirl654@example.social, ale stále můžete sledovat, boostovat a chatovat s @fallout5ever@example.online.</string>
-	<string name="welcome_page3_title">Jak si vybrat server?</string>
-	<string name="welcome_page3_text">Různí lidé si vybírají různé servery z různých důvodů. Art.example je skvělým místem pro umělce, zatímco glasgow.example může být dobrou volbou pro Skoty.\n\nS žádným z našich doporučených serverů nemůžete udělat chybu, takže bez ohledu na to, který z nich si vyberete (nebo pokud zadáte svůj vlastní do vyhledávacího řádku serveru), nikde neprohloupíte.</string>
+	<string name="signup_random_server_explain">Pokud budete pokračovat bez výběru, vybereme server založený na vašem jazyce.</string>
+	<string name="server_filter_any_language">Libovolný jazyk</string>
+	<string name="server_filter_instant_signup">Okamžitá registrace</string>
+	<string name="server_filter_manual_review">Ruční kontrola</string>
+	<string name="server_filter_any_signup_speed">Jakákoliv rychlost registrace</string>
+	<string name="server_filter_region_europe">Evropa</string>
+	<string name="server_filter_region_north_america">Severní Amerika</string>
+	<string name="server_filter_region_south_america">Jižní Amerika</string>
+	<string name="server_filter_region_africa">Afrika</string>
+	<string name="server_filter_region_asia">Asie</string>
+	<string name="server_filter_region_oceania">Oceánie</string>
+	<string name="not_accepting_new_members">Nepřijímá nové členy</string>
+	<string name="category_special_interests">Speciální zájmy</string>
+	<string name="signup_passwords_dont_match">Hesla se neshodují</string>
+	<string name="pick_server_for_me">Vybrat pro mě</string>
+	<string name="profile_add_row">Přidat řádek</string>
+	<string name="profile_setup">Nastavení profilu</string>
+	<string name="profile_setup_subtitle">Toto můžete vždy dokončit později v záložce Profil.</string>
+	<string name="profile_setup_explanation">Můžete přidat až čtyři pole profilu pro cokoliv, co chcete. Umístění, odkazy, oslovení — limitem je obloha.</string>
+	<string name="popular_on_mastodon">Populární na Mastodonu</string>
+	<string name="follow_all">Sledovat všechny</string>
+	<string name="server_rules_disagree">Nesouhlasit</string>
+	<string name="privacy_policy_explanation">Zkráceně: nic nesbíráme a nezpracováváme.</string>
 	<!-- %s is server domain -->
+	<string name="server_policy_disagree">Nesouhlasit s %s</string>
+	<string name="profile_bio">O vás</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
+	<string name="sending_follows">Sledování uživatelů…</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<string name="signup_email_domain_blocked">%1$s neumožňuje registraci od %2$s. Zkuste jiný nebo &lt;a&gt;vyberte jiný server&lt;/a&gt;.</string>
+	<string name="signup_username_taken">Toto uživatelské jméno je obsazené.</string>
 </resources>

@@ -10,13 +10,11 @@
 	<string name="ok">OK</string>
 	<string name="preparing_auth">Förbereder för autentisering…</string>
 	<string name="finishing_auth">Slutför autentisering…</string>
-	<string name="user_boosted">%s boostade</string>
 	<string name="in_reply_to">Som svar på %s</string>
 	<string name="notifications">Notiser</string>
 	<string name="user_followed_you">följde dig</string>
 	<string name="user_sent_follow_request">skickade en förfrågning om att följa till dig</string>
 	<string name="user_favorited">favoritmarkerade dit inlägg</string>
-	<string name="notification_boosted">boostade ditt inlägg</string>
 	<string name="poll_ended">omröstning avslutad</string>
 	<string name="time_seconds">%ds</string>
 	<string name="time_minutes">%dm</string>
@@ -166,14 +164,22 @@
 	<string name="report_sent_subtitle">Medan vi granskar detta kan du vidta åtgärder mot %s.</string>
 	<string name="unfollow_user">Avfölj %s</string>
 	<string name="unfollow">Avfölj</string>
-	<string name="mute_user_explain">Du kommer inte att se deras inlägg eller boostar i ditt hemflöde. De kommer inte att veta att de har blivit tystade.</string>
 	<string name="block_user_explain">De kommer inte längre att kunna följa eller se dina inlägg, men de kan se om de har blockerats.</string>
 	<string name="report_personal_title">Vill du inte se det här?</string>
 	<string name="report_personal_subtitle">När du ser något som du inte gillar på Mastodon kan du ta bort personen från din upplevelse.</string>
 	<string name="back">Tillbaka</string>
 	<string name="instance_catalog_title">Mastodon utgörs av användare på olika servrar.</string>
 	<string name="instance_catalog_subtitle">Välj en server baserat på dina intressen, region eller en allmän server. Du kan fortfarande nå alla, oavsett server.</string>
+	<string name="search_communities">Servernamn eller URL</string>
+	<string name="instance_rules_title">Serverregler</string>
+	<string name="instance_rules_subtitle">Genom att fortsätta, samtycker du till att följa följande regler som fastställts och verkställs av %s moderatorer.</string>
+	<string name="signup_title">Skapa konto</string>
 	<string name="edit_photo">redigera</string>
+	<string name="display_name">Namn</string>
+	<string name="username">Användarnamn</string>
+	<string name="email">E-post</string>
+	<string name="password">Lösenord</string>
+	<string name="confirm_password">Bekräfta lösenord</string>
 	<string name="password_note">Inkludera stora bokstäver, specialtecken och siffror för att öka ditt lösenords styrka.</string>
 	<string name="category_academia">Vetenskap</string>
 	<string name="category_activism">Aktivism</string>
@@ -188,7 +194,10 @@
 	<string name="category_music">Musik</string>
 	<string name="category_regional">Regionalt</string>
 	<string name="category_tech">Teknik</string>
+	<string name="confirm_email_title">Kolla din inkorg</string>
 	<!-- %s is the email address -->
+	<string name="confirm_email_subtitle">Tryck på länken vi skickade dig för att verifiera %s. Vi väntar här.</string>
+	<string name="confirm_email_didnt_get">Fick du ingen länk?</string>
 	<string name="resend">Skicka igen</string>
 	<string name="open_email_app">Öppna e-postappen</string>
 	<string name="resent_email">Bekräftelse via e-post skickad</string>
@@ -211,7 +220,6 @@
 	<string name="skip">Hoppa över</string>
 	<string name="notification_type_follow">Nya följare</string>
 	<string name="notification_type_favorite">Favoriter</string>
-	<string name="notification_type_reblog">Boostar</string>
 	<string name="notification_type_mention">Omnämningar</string>
 	<string name="notification_type_poll">Omröstningar</string>
 	<string name="choose_account">Välj konto</string>
@@ -230,7 +238,7 @@
 	<string name="settings_behavior">Beteende</string>
 	<string name="settings_gif">Spela animerade avatarer och emojis</string>
 	<string name="settings_custom_tabs">Använd webbläsaren i appen</string>
-	<string name="settings_notifications">Notiser</string>
+	<string name="settings_notifications">Aviseringar</string>
 	<string name="notify_me_when">Meddela mig när</string>
 	<string name="notify_anyone">vem som helst</string>
 	<string name="notify_follower">en följare</string>
@@ -238,7 +246,6 @@
 	<string name="notify_none">ingen</string>
 	<string name="notify_favorites">Favoritmarkerar mitt inlägg</string>
 	<string name="notify_follow">Följer mig</string>
-	<string name="notify_reblog">Boostar mitt inlägg</string>
 	<string name="notify_mention">Nämner mig</string>
 	<string name="settings_boring">Den tråkiga zonen</string>
 	<string name="settings_account">Kontoinställningar</string>
@@ -259,7 +266,6 @@
 	<string name="hide_content">Dölj innehåll</string>
 	<string name="new_post">Nytt inlägg</string>
 	<string name="button_reply">Svara</string>
-	<string name="button_reblog">Boosta</string>
 	<string name="button_favorite">Favoritmarkera</string>
 	<string name="button_share">Dela</string>
 	<string name="media_no_description">Media utan beskrivning</string>
@@ -274,8 +280,7 @@
 	<string name="unfollowed_user">Avföljde %s</string>
 	<string name="followed_user">Du följer nu %s</string>
 	<string name="open_in_browser">Öppna i webbläsare</string>
-	<string name="hide_boosts_from_user">Dölj boostar från %s</string>
-	<string name="show_boosts_from_user">Visa boostar från %s</string>
+	<string name="signup_reason">Varför vill du gå med?</string>
 	<string name="signup_reason_note">Detta kommer hjälpa oss att granska din ansökan.</string>
 	<string name="clear">Rensa</string>
 	<string name="profile_header">Bild för sidhuvud</string>
@@ -316,13 +321,8 @@
 		<item quantity="one">%,d favorit</item>
 		<item quantity="other">%,d favoriter</item>
 	</plurals>
-	<plurals name="x_reblogs">
-		<item quantity="one">%,d boost</item>
-		<item quantity="other">%,d boostar</item>
-	</plurals>
 	<string name="timestamp_via_app">%1$s via %2$s</string>
 	<string name="time_now">nu</string>
-	<string name="post_info_reblogs">Boostar</string>
 	<string name="post_info_favorites">Favoriter</string>
 	<string name="edit_history">Redigera historik</string>
 	<string name="last_edit_at_x">Senaste redigering %s</string>
@@ -368,6 +368,8 @@
 	<!-- %s is file size -->
 	<string name="download_update">Ladda ner (%s)</string>
 	<string name="install_update">Installera</string>
+	<string name="privacy_policy_title">Din integritet</string>
+	<string name="privacy_policy_subtitle">Även om Mastodon-appen inte samlar in några data, kan servern du registrerar dig genom ha en annan policy.\n\nOm du inte håller med policyn för %skan du gå tillbaka och välja en annan server.</string>
 	<string name="i_agree">Jag godkänner</string>
 	<string name="empty_list">Den här listan är tom</string>
 	<string name="instance_signup_closed">Denna server accepterar inte nyregistreringar.</string>
@@ -379,12 +381,35 @@
 	<string name="login_title">Välkommen tillbaka</string>
 	<string name="login_subtitle">Logga in på den server där du skapade ditt konto.</string>
 	<string name="server_url">Server-URL</string>
-	<string name="welcome_page1_text">Tänk dig att du har en epostadress som slutar med @example.com.\n\nDu kan skicka och ta emot epost från vem som helst, även om deras epostadress slutar med @gmail.com, @icloud.com eller @example.com.</string>
-	<string name="welcome_page2_title">Mastodon fungerar så.</string>
-	<string name="welcome_page2_text">Ditt handtag kan vara @gothgirl654@example.social men du kan fortfarande följa, boosta och chatta med @fallout5ever@example.online.</string>
-	<string name="welcome_page3_title">Hur väljer jag en server?</string>
-	<string name="welcome_page3_text">Olika personer väljer olika servrar av olika anledningar. art.example är en bra plats för konstnärer medan glasgow.exempel kan vara ett bra val för skottar.\n\nMed någon av våra rekommenderar servrar kan du inte hamna fel så oavsett vilken du väljer, eller om du skriver in din egen i serverns sökfältet, kommer du aldrig missa något.</string>
+	<string name="signup_random_server_explain">Vi kommer att välja en server baserat på ditt språk om du fortsätter utan att göra ett val.</string>
+	<string name="server_filter_any_language">Vilket språk som helst</string>
+	<string name="server_filter_instant_signup">Omedelbar registrering</string>
+	<string name="server_filter_manual_review">Manuell granskning</string>
+	<string name="server_filter_any_signup_speed">Valfri registreringshastighet</string>
+	<string name="server_filter_region_europe">Europa</string>
+	<string name="server_filter_region_north_america">Nordamerika</string>
+	<string name="server_filter_region_south_america">Sydamerika</string>
+	<string name="server_filter_region_africa">Afrika</string>
+	<string name="server_filter_region_asia">Asien</string>
+	<string name="server_filter_region_oceania">Oceanien</string>
+	<string name="not_accepting_new_members">Accepterar inte nya medlemmar</string>
+	<string name="category_special_interests">Specialintressen</string>
+	<string name="signup_passwords_dont_match">Lösenorden matchar inte</string>
+	<string name="pick_server_for_me">Välj för mig</string>
+	<string name="profile_add_row">Lägg till rad</string>
+	<string name="profile_setup">Konfiguration av profil</string>
+	<string name="profile_setup_subtitle">Du kan alltid fylla i detta senare i fliken Profil.</string>
+	<string name="profile_setup_explanation">Du kan lägga till upp till fyra profilfält för vad du vill. Plats, länkar, pronomen - himlen är gränsen.</string>
+	<string name="popular_on_mastodon">Populärt på Mastodon</string>
+	<string name="follow_all">Följ alla</string>
+	<string name="server_rules_disagree">Instämmer inte alls</string>
+	<string name="privacy_policy_explanation">TL;DR: Vi samlar inte in eller bearbetar något.</string>
 	<!-- %s is server domain -->
+	<string name="server_policy_disagree">Håller inte med %s</string>
+	<string name="profile_bio">Biografi</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
+	<string name="sending_follows">Följer användare…</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<string name="signup_email_domain_blocked">%1$s tillåter inte registrering från %2$s. Prova en annan eller &lt;a&gt;välj en annan server&lt;/a&gt;.</string>
+	<string name="signup_username_taken">Det här användarnamnet är redan taget.</string>
 </resources>

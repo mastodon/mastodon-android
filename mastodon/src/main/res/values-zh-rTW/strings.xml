@@ -15,8 +15,8 @@
 	<string name="notifications">通知</string>
 	<string name="user_followed_you">已跟隨您</string>
 	<string name="user_sent_follow_request">傳送跟隨請求給您</string>
-	<string name="user_favorited">最愛了您的嘟文</string>
-	<string name="notification_boosted">轉嘟了您的嘟文</string>
+	<string name="user_favorited">已將您的嘟文加入最愛</string>
+	<string name="notification_boosted">已轉嘟您的嘟文</string>
 	<string name="poll_ended">投票已結束</string>
 	<string name="time_seconds">%d 秒</string>
 	<string name="time_minutes">%d 分</string>
@@ -141,7 +141,7 @@
 	<string name="report_reason_violation_subtitle">您知道它違反特定規則</string>
 	<string name="report_reason_other">其他原因</string>
 	<string name="report_reason_other_subtitle">這個問題不屬於其他分類</string>
-	<string name="report_choose_rule">違反了哪些規則？</string>
+	<string name="report_choose_rule">已違反哪些規則？</string>
 	<string name="report_choose_rule_subtitle">請選擇所有適用的選項</string>
 	<string name="report_choose_posts">是否有能佐證這份檢舉之嘟文？</string>
 	<string name="report_choose_posts_subtitle">請選擇所有適用的選項</string>
@@ -185,7 +185,7 @@
 	<string name="category_tech">科技</string>
 	<string name="confirm_email_title">請檢查您的收件夾</string>
 	<!-- %s is the email address -->
-	<string name="confirm_email_subtitle">請點擊我們寄給您連結以驗證 %s。我們將在此稍候。</string>
+	<string name="confirm_email_subtitle">請點擊我們寄給您連結以驗證 %s。我們將於此稍候。</string>
 	<string name="confirm_email_didnt_get">無法取得連結嗎？</string>
 	<string name="resend">重新發送</string>
 	<string name="open_email_app">開啟電子郵件 App</string>
@@ -209,7 +209,7 @@
 	<string name="skip">跳過</string>
 	<string name="notification_type_follow">新的跟隨者</string>
 	<string name="notification_type_favorite">最愛</string>
-	<string name="notification_type_reblog">個轉嘟</string>
+	<string name="notification_type_reblog">轉嘟</string>
 	<string name="notification_type_mention">提及</string>
 	<string name="notification_type_poll">投票</string>
 	<string name="choose_account">選擇帳號</string>
@@ -235,7 +235,7 @@
 	<string name="notify_none">沒有人</string>
 	<string name="notify_favorites">將我的嘟文加到最愛</string>
 	<string name="notify_follow">跟隨我</string>
-	<string name="notify_reblog">轉嘟我的嘟文</string>
+	<string name="notify_reblog">已轉嘟我的嘟文</string>
 	<string name="notify_mention">提及我</string>
 	<string name="settings_boring">無聊的區域</string>
 	<string name="settings_account">帳號設定</string>
@@ -270,6 +270,7 @@
 	<string name="follow_user">跟隨 %s</string>
 	<string name="unfollowed_user">取消跟隨 %s</string>
 	<string name="followed_user">您現在開始跟隨 %s</string>
+	<string name="following_user_requested">要求跟隨 %s</string>
 	<string name="open_in_browser">在瀏覽器中開啟</string>
 	<string name="hide_boosts_from_user">隱藏來自 %s 的轉嘟</string>
 	<string name="show_boosts_from_user">顯示來自 %s 的轉嘟</string>
@@ -297,7 +298,7 @@
 	<string name="load_missing_posts">讀取錯過的嘟文</string>
 	<string name="follow_back">跟隨回去</string>
 	<string name="button_follow_pending">等待中</string>
-	<string name="follows_you">跟隨了您</string>
+	<string name="follows_you">已跟隨您</string>
 	<string name="manually_approves_followers">手動審核跟隨者</string>
 	<string name="current_account">目前帳號</string>
 	<string name="log_out_account">登出 %s</string>
@@ -312,7 +313,7 @@
 		<item quantity="other">%,d 個最愛</item>
 	</plurals>
 	<plurals name="x_reblogs">
-		<item quantity="other">%,d 個轉嘟</item>
+		<item quantity="other">%,d 轉嘟</item>
 	</plurals>
 	<string name="timestamp_via_app">%1$s 透過 %2$s</string>
 	<string name="time_now">剛剛</string>
@@ -373,15 +374,9 @@
 	<string name="login_title">歡迎回來</string>
 	<string name="login_subtitle">以您建立帳號之伺服器登入。</string>
 	<string name="server_url">伺服器 URL</string>
-	<string name="welcome_page1_title">什麼是 Mastodon？</string>
-	<string name="welcome_page1_text">想像您擁有以 @example.com 結尾的 email 信箱地址。\n\n您仍可發送及接收來自任何人的電子郵件，無論他們的信箱是來自 @gmail.com 或 @icloud.com 或 @example.com。</string>
-	<string name="welcome_page2_title">Mastodon 就像這樣。</string>
-	<string name="welcome_page2_text">您的帳號可以是 @gothgirl654@example.social，但您仍可跟隨、轉嘟或是與 @fallout5ever@example.online 聊天互動。</string>
-	<string name="welcome_page3_title">如何挑選伺服器？</string>
-	<string name="welcome_page3_text">不同人基於各式各樣的原因挑選不同的伺服器。art.example 也許對藝術家來說是個好地方，glasgow.example 也許對於蘇格蘭人來說是個好選擇。\n\n任何我們推薦的伺服器都是不錯的選擇（或著您也能從搜尋欄中輸入您自己的伺服器），您不會錯過任何來自聯邦宇宙角落的嘟嘟聲。</string>
 	<string name="signup_random_server_explain">如果您不選擇而繼續的話，我們將透過您的語言設定替您選擇一台伺服器。</string>
 	<string name="server_filter_any_language">任何語言</string>
-	<string name="server_filter_instant_signup">馬上註冊</string>
+	<string name="server_filter_instant_signup">立即註冊</string>
 	<string name="server_filter_manual_review">手動審核</string>
 	<string name="server_filter_any_signup_speed">任何註冊速度</string>
 	<string name="server_filter_region_europe">歐洲</string>
@@ -408,6 +403,25 @@
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<string name="sending_follows">正在跟隨使用者...</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
-	<string name="signup_email_domain_blocked">%1$s 不允許 %2$s 之信箱註冊。請重新試試另一個電子信箱服務商，或 &lt;a&gt; 挑選另一個伺服器 &lt;/a&gt;。</string>
+	<string name="signup_email_domain_blocked">%1$s 不允許 %2$s 之信箱註冊。請重新試試另一個電子郵件服務商，或 &lt;a&gt; 挑選另一個伺服器 &lt;/a&gt;。</string>
 	<string name="signup_username_taken">這個帳號已經被註冊過囉。</string>
+	<string name="spoiler_show">仍要顯示</string>
+	<string name="spoiler_hide">重新隱藏</string>
+	<string name="poll_multiple_choice">請選擇一個或多個</string>
+	<string name="save_changes">儲存變更</string>
+	<string name="profile_featured">推薦主題標籤</string>
+	<string name="profile_timeline">時間軸</string>
+	<string name="view_all">檢視全部</string>
+	<string name="profile_endorsed_accounts">帳號</string>
+	<string name="verified_link">已驗證連結</string>
+	<string name="show">顯示</string>
+	<string name="hide">隱藏</string>
+	<string name="join_default_server">加入 %s</string>
+	<string name="pick_server">選擇我的伺服器</string>
+	<string name="signup_or_login">或</string>
+	<string name="learn_more">了解更多</string>
+	<string name="welcome_to_mastodon">歡迎來到 Mastodon</string>
+	<string name="welcome_paragraph1">Mastodon 是去中心化的社交網路，意思是沒有單一公司掌控它。它由許多獨立運行而互相連接的伺服器組成。</string>
+	<string name="what_are_servers">伺服器是什麼？</string>
+	<string name="welcome_paragraph2"><![CDATA[所有的 Mastodon 帳號皆託管於一個伺服器上 — 其擁有各自之價值觀、規則、與管理者。無論您選擇何者，您皆能跟隨並與其他任何伺服器上的人們互動。]]></string>
 </resources>

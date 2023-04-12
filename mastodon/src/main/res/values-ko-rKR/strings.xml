@@ -10,13 +10,11 @@
 	<string name="ok">확인</string>
 	<string name="preparing_auth">인증 준비 중…</string>
 	<string name="finishing_auth">인증을 끝마치는 중…</string>
-	<string name="user_boosted">%s 님이 리블로그함</string>
 	<string name="in_reply_to">%s 님에게 답장</string>
 	<string name="notifications">알림</string>
 	<string name="user_followed_you">나를 팔로우함</string>
 	<string name="user_sent_follow_request">나에게 팔로우 요청을 보냄</string>
 	<string name="user_favorited">당신의 게시물을 좋아합니다</string>
-	<string name="notification_boosted">내 게시물을 리블로그했습니다</string>
 	<string name="poll_ended">투표 종료됨</string>
 	<string name="time_seconds">%d초</string>
 	<string name="time_minutes">%d분</string>
@@ -152,7 +150,6 @@
 	<string name="report_sent_subtitle">서버의 중재자들이 이것을 심사하는 동안, 당신은 %s에 대한 행동을 취할 수 있습니다.</string>
 	<string name="unfollow_user">%s 팔로우 해제</string>
 	<string name="unfollow">팔로우 해제</string>
-	<string name="mute_user_explain">상대방의 게시물이나 리블로그가 내 홈 피드에 보이지 않습니다. 상대방은 뮤트 당했다는 사실을 알지 못합니다.</string>
 	<string name="block_user_explain">상대방은 나를 팔로우 하거나 내 게시물을 볼 수 없게 됩니다, 하지만 내가 차단한 사실은 알 수 있습니다.</string>
 	<string name="report_personal_title">이런 것을 보지 않길 원하나요?</string>
 	<string name="report_personal_subtitle">마스토돈에서 보기 싫은 것을 보았다면, 해당하는 사람을 지울 수 있습니다.</string>
@@ -209,7 +206,6 @@
 	<string name="skip">건너뛰기</string>
 	<string name="notification_type_follow">새 팔로워</string>
 	<string name="notification_type_favorite">좋아함</string>
-	<string name="notification_type_reblog">리블로그</string>
 	<string name="notification_type_mention">멘션</string>
 	<string name="notification_type_poll">투표</string>
 	<string name="choose_account">계정 선택</string>
@@ -235,7 +231,6 @@
 	<string name="notify_none">아무도 없음</string>
 	<string name="notify_favorites">내 게시물을 좋아함</string>
 	<string name="notify_follow">나를 팔로우함</string>
-	<string name="notify_reblog">내 게시물을 공유함</string>
 	<string name="notify_mention">나를 멘션함</string>
 	<string name="settings_boring">지루한 영역</string>
 	<string name="settings_account">계정 설정</string>
@@ -256,7 +251,6 @@
 	<string name="hide_content">내용 숨기기</string>
 	<string name="new_post">새 게시물</string>
 	<string name="button_reply">답장</string>
-	<string name="button_reblog">리블로그</string>
 	<string name="button_favorite">좋아요</string>
 	<string name="button_share">공유</string>
 	<string name="media_no_description">설명이 없는 미디어</string>
@@ -271,8 +265,6 @@
 	<string name="unfollowed_user">%s 님을 팔로우 해제했습니다</string>
 	<string name="followed_user">이제 %s 님을 팔로우 합니다</string>
 	<string name="open_in_browser">브라우저에서 열기</string>
-	<string name="hide_boosts_from_user">%s 님의 리블로그 숨기기</string>
-	<string name="show_boosts_from_user">%s 님의 리블로그 보이기</string>
 	<string name="signup_reason">가입하려는 이유가 무엇인가요?</string>
 	<string name="signup_reason_note">이 정보는 우리가 심사를 하는 데에 참고할 수 있습니다.</string>
 	<string name="clear">모두 지우기</string>
@@ -311,12 +303,8 @@
 	<plurals name="x_favorites">
 		<item quantity="other">%,d개의 좋아요</item>
 	</plurals>
-	<plurals name="x_reblogs">
-		<item quantity="other">%,d개의 리블로그</item>
-	</plurals>
 	<string name="timestamp_via_app">%1$s에 %2$s에서</string>
 	<string name="time_now">방금</string>
-	<string name="post_info_reblogs">리블로그</string>
 	<string name="post_info_favorites">좋아요</string>
 	<string name="edit_history">수정 내역</string>
 	<string name="last_edit_at_x">마지막 수정: %s</string>
@@ -373,12 +361,6 @@
 	<string name="login_title">돌아오신 것을 환영합니다</string>
 	<string name="login_subtitle">계정을 생성한 서버에 로그인하세요.</string>
 	<string name="server_url">서버 URL</string>
-	<string name="welcome_page1_title">마스토돈이란?</string>
-	<string name="welcome_page1_text">당신이 @example.com으로 끝나는 이메일 주소를 갖고 있다고 상상해보세요.\n\n당신은 이메일이 @gmail.com이나 @icloud.com 또는 @example.com으로 끝나는 모두에게 이메일을 보내거나 받을 수 있습니다.</string>
-	<string name="welcome_page2_title">마스토돈도 그렇답니다.</string>
-	<string name="welcome_page2_text">당신의 핸들이 @gothgirl654@example.social이더라도, 당신은 언제나 @fallout5ever@example.online을 팔로우하거나 리블로그, 대화할 수 있습니다.</string>
-	<string name="welcome_page3_title">서버는 어떻게 선택하나요?</string>
-	<string name="welcome_page3_text">다른 사람들은 여러가지 이유로 서로 다른 서버들을 선택합니다. art.example은 예술가들에게 훌륭한 곳인 반면, glasgow.example은 스코틀랜드인들에게 좋은 선택이 될 수 있습니다.\n\n저희가 추천하는 서버를 선택하면 잘못될 일이 없으므로, 당신은 어떠한 서버를 선택하더라도(또는 서버 검색란에 직접 입력하더라도) 어디서나 소식을 놓치지 않을 것입니다.</string>
 	<string name="signup_random_server_explain">아무 것도 고르지 않은 경우, 당신의 언어에 따라 서버를 골라드립니다.</string>
 	<string name="server_filter_any_language">모든 언어</string>
 	<string name="server_filter_instant_signup">즉시 가입</string>

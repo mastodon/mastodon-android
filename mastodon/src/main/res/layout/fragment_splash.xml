@@ -6,7 +6,7 @@
 	android:layout_height="match_parent"
 	android:fitsSystemWindows="true"
 	android:clipToPadding="false"
-	android:theme="@style/Theme.Mastodon.Dark">
+	android:theme="@style/Theme.Mastodon.Dark.SplashFragment">
 
 	<View
 		android:id="@+id/blue_fill"
@@ -120,7 +120,9 @@
 			android:layout_marginLeft="16dp"
 			android:layout_marginRight="16dp"
 			android:layout_marginTop="8dp"
+			android:textColor="#FFF"
 			style="@style/Widget.Mastodon.M3.Button.Outlined"
+			android:background="@drawable/bg_button_m3_outlined_white"
 			android:text="@string/pick_server"/>
 
 
@@ -137,7 +139,7 @@
 				android:layout_height="1dp"
 				android:layout_weight="1"
 				android:layout_gravity="center_vertical"
-				android:background="?colorM3Secondary"/>
+				android:background="#B2FFFFFF"/>
 
 			<TextView
 				android:layout_width="wrap_content"
@@ -146,7 +148,7 @@
 				android:layout_marginRight="8dp"
 				android:textAllCaps="true"
 				android:textAppearance="@style/m3_label_large"
-				android:textColor="?colorM3Secondary"
+				android:textColor="#B2FFFFFF"
 				android:layout_gravity="center_vertical"
 				android:text="@string/signup_or_login"/>
 
@@ -155,7 +157,7 @@
 				android:layout_height="1dp"
 				android:layout_weight="1"
 				android:layout_gravity="center_vertical"
-				android:background="?colorM3Secondary"/>
+				android:background="#B2FFFFFF"/>
 
 		</LinearLayout>
 
@@ -172,7 +174,9 @@
 				android:layout_height="wrap_content"
 				android:layout_margin="8dp"
 				android:layout_weight="1"
+				android:textColor="#FFF"
 				style="@style/Widget.Mastodon.M3.Button.Text"
+				android:background="@drawable/bg_button_m3_text_white"
 				android:text="@string/learn_more"/>
 
 			<Button
@@ -181,7 +185,9 @@
 				android:layout_height="wrap_content"
 				android:layout_margin="8dp"
 				android:layout_weight="1"
+				android:textColor="#FFF"
 				style="@style/Widget.Mastodon.M3.Button.Text"
+				android:background="@drawable/bg_button_m3_text_white"
 				android:text="@string/log_in"/>
 
 		</LinearLayout>

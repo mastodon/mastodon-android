@@ -10,13 +10,11 @@
 	<string name="ok">Í lagi</string>
 	<string name="preparing_auth">Undirbý auðkenningu…</string>
 	<string name="finishing_auth">Lýk auðkenningu…</string>
-	<string name="user_boosted">%s endurbirti</string>
 	<string name="in_reply_to">Sem svar til %s</string>
 	<string name="notifications">Tilkynningar</string>
 	<string name="user_followed_you">fylgdi þér</string>
 	<string name="user_sent_follow_request">sendi þér beiðni um að fylgjast með þér</string>
 	<string name="user_favorited">setti færslu frá þér í eftirlæti</string>
-	<string name="notification_boosted">endurbirti færsluna þína</string>
 	<string name="poll_ended">könnun er lokið</string>
 	<string name="time_seconds">%ds</string>
 	<string name="time_minutes">%dm</string>
@@ -166,8 +164,6 @@
 	<string name="report_sent_subtitle">Á meðan við yfirförum þetta, geturðu tekið til aðgerða gegn %s.</string>
 	<string name="unfollow_user">Hætta að fylgjast með %s</string>
 	<string name="unfollow">Hætta að fylgjast með</string>
-	<string name="mute_user_explain">Þú munt ekki sjá færslur eða endurbirtingar frá viðkomandi á streyminu þínu. 
-Viðkomandi aðilar munu ekki vita að þaggað hefur verið niður í þeim.</string>
 	<string name="block_user_explain">Viðkomandi mun ekki lengur geta fylgst með eða séð færslurnar þínar, en munu sjá ef viðkomandi hefur verið útilokaður.</string>
 	<string name="report_personal_title">Langar þig ekki til að sjá þetta?</string>
 	<string name="report_personal_subtitle">Þegar þú sér eitthvað á Mastodon sem þér líkar ekki, þá geturðu fjarlægt viðkomandi eintakling úr umhverfinu þínu.</string>
@@ -224,7 +220,6 @@ Viðkomandi aðilar munu ekki vita að þaggað hefur verið niður í þeim.</s
 	<string name="skip">Sleppa</string>
 	<string name="notification_type_follow">Nýir fylgjendur</string>
 	<string name="notification_type_favorite">Eftirlæti</string>
-	<string name="notification_type_reblog">Endurbirtingar</string>
 	<string name="notification_type_mention">Minnst á</string>
 	<string name="notification_type_poll">Kannanir</string>
 	<string name="choose_account">Veldu aðgang</string>
@@ -251,7 +246,6 @@ Viðkomandi aðilar munu ekki vita að þaggað hefur verið niður í þeim.</s
 	<string name="notify_none">enginn</string>
 	<string name="notify_favorites">Setur færsluna mína í eftirlæti</string>
 	<string name="notify_follow">Fylgist með mér</string>
-	<string name="notify_reblog">Endurbirtir færsluna mína</string>
 	<string name="notify_mention">Minnist á mig</string>
 	<string name="settings_boring">Óhressa svæðið</string>
 	<string name="settings_account">Stillingar aðgangs</string>
@@ -272,7 +266,6 @@ Viðkomandi aðilar munu ekki vita að þaggað hefur verið niður í þeim.</s
 	<string name="hide_content">Fela efni</string>
 	<string name="new_post">Ný færsla</string>
 	<string name="button_reply">Svara</string>
-	<string name="button_reblog">Endurbirta</string>
 	<string name="button_favorite">Eftirlæti</string>
 	<string name="button_share">Deila</string>
 	<string name="media_no_description">Myndefni án lýsingar</string>
@@ -286,9 +279,8 @@ Viðkomandi aðilar munu ekki vita að þaggað hefur verið niður í þeim.</s
 	<string name="follow_user">Fylgjast með %s</string>
 	<string name="unfollowed_user">Hætti að fylgjast með %s</string>
 	<string name="followed_user">Þú fylgist núna með %s</string>
+	<string name="following_user_requested">Bað um að fylgjast með %s</string>
 	<string name="open_in_browser">Opna í vafra</string>
-	<string name="hide_boosts_from_user">Fela endurbirtingar frá %s</string>
-	<string name="show_boosts_from_user">Sýna endurbirtingar frá %s</string>
 	<string name="signup_reason">Hvers vegna vilt þú taka þátt?</string>
 	<string name="signup_reason_note">Þetta mun hjálpa okkur við að yfirfara umsóknina þína.</string>
 	<string name="clear">Hreinsa</string>
@@ -330,13 +322,8 @@ Viðkomandi aðilar munu ekki vita að þaggað hefur verið niður í þeim.</s
 		<item quantity="one">%,d eftirlæti</item>
 		<item quantity="other">%,d eftirlæti</item>
 	</plurals>
-	<plurals name="x_reblogs">
-		<item quantity="one">%,d Eendurbirting</item>
-		<item quantity="other">%,d endurbirtingar</item>
-	</plurals>
 	<string name="timestamp_via_app">%1$s með %2$s</string>
 	<string name="time_now">núna</string>
-	<string name="post_info_reblogs">Endurbirtingar</string>
 	<string name="post_info_favorites">Eftirlæti</string>
 	<string name="edit_history">Breytingaferill</string>
 	<string name="last_edit_at_x">Síðasta breyting %s</string>
@@ -395,12 +382,6 @@ Viðkomandi aðilar munu ekki vita að þaggað hefur verið niður í þeim.</s
 	<string name="login_title">Velkomin aftur</string>
 	<string name="login_subtitle">Skráðu þig inn á netþjóninn þar sem þú útbjóst notandaaðganginn þinn.</string>
 	<string name="server_url">Vefslóð netþjóns</string>
-	<string name="welcome_page1_title">Hvað er Mastodon?</string>
-	<string name="welcome_page1_text">Ímyndaðu þér að þú sért með tölvupóstfang sem endar á @lén.is.\n\nÞú getur alltaf tekið við og sent tölvupóst til allra, jafnvel þótt tölvupóstfangið þeirra endi á @gmail.com, @icloud.com eða @lén.is.</string>
-	<string name="welcome_page2_title">Mastodon er eins og þetta.</string>
-	<string name="welcome_page2_text">Auðkennið þitt gæti verið @gothgirl654@example.social, en þú getur samt fylgst með, endurbirt og spjallað við @fallout5ever@example.online.</string>
-	<string name="welcome_page3_title">Hvernig vel ég netþjón?</string>
-	<string name="welcome_page3_text">Mismunandi fólk velur sér mismunandi netþjóna af ýmsum ólíkum ástæðum. Netþjónninn art.example er frábær staður fyrir listafólk, á meðan glasgow.example gæti verið góður kostur fyrir suma skota.\n\nÞú getur eiginlega ekki lent á röngum stað á neinum að þeim netþjónum sem við mælum með, þannig að hvern þeirra sem þú velur (eða ef þú setur inn þinn eigin netþjón í leitarreitinn), þá ættirðu ekki að missa af neinu neinsstaðar.</string>
 	<string name="signup_random_server_explain">Við munum velja netþjón út frá tungumálinu þínu, ef þú heldur áfram án þess að velja neitt.</string>
 	<string name="server_filter_any_language">Hvaða tungumál sem er</string>
 	<string name="server_filter_instant_signup">Nýskráning á stundinni</string>

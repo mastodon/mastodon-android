@@ -10,13 +10,11 @@
 	<string name="ok">Tamam</string>
 	<string name="preparing_auth">Kimlik doğrulama için hazırlanıyor…</string>
 	<string name="finishing_auth">Kimlik doğrulama tamamlanıyor…</string>
-	<string name="user_boosted">%s yeniden paylaştı</string>
 	<string name="in_reply_to">%s için yanıt</string>
 	<string name="notifications">Bildirimler</string>
 	<string name="user_followed_you">seni takip etti</string>
 	<string name="user_sent_follow_request">sana bir takip isteği gönderdi</string>
 	<string name="user_favorited">gönderinizi favorilerine ekledi</string>
-	<string name="notification_boosted">gönderinizi yeniden paylaştı</string>
 	<string name="poll_ended">oylama sona erdi</string>
 	<string name="time_seconds">%ds</string>
 	<string name="time_minutes">%dd</string>
@@ -166,14 +164,22 @@
 	<string name="report_sent_subtitle">Biz bunu incelerken siz %s karşı önlem alabilirsiniz.</string>
 	<string name="unfollow_user">Takipten çık %s</string>
 	<string name="unfollow">Takipten çık</string>
-	<string name="mute_user_explain">Ana sayfa akışınızda gönderilerini görmezsiniz. Sessize alındıklarını bilmeyecekler.</string>
 	<string name="block_user_explain">Artık sizi takip edemez ve gönderilerinizi göremezler ama engellendiklerini görebilirler.</string>
 	<string name="report_personal_title">Bunu görmek istemiyor musun?</string>
 	<string name="report_personal_subtitle">Mastodon\'da beğenmediğiniz bir şey gördüğünüzde, o kişiyi deneyiminizden çıkarabilirsiniz.</string>
 	<string name="back">Geri</string>
 	<string name="instance_catalog_title">Mastodon, farklı sunuculardaki kullanıcılardan oluşur.</string>
 	<string name="instance_catalog_subtitle">İlgi alanlarına, bölgene hitap eden bir sunucu ya da genel amaçlı bir sunucu seç. Hangi sunucuda olduğun fark etmeksizin herkes ile bağlantı kurabilirsin.</string>
+	<string name="search_communities">Sunucu adı veya linki</string>
+	<string name="instance_rules_title">Sunucu Kuralları</string>
+	<string name="instance_rules_subtitle">Devam ederek %s moderatörleri tarafından yayınlanan kuralları kabul edersiniz.</string>
+	<string name="signup_title">Hesap Oluştur</string>
 	<string name="edit_photo">düzenle</string>
+	<string name="display_name">Ad</string>
+	<string name="username">Kullanıcı adı</string>
+	<string name="email">E-posta</string>
+	<string name="password">Parola</string>
+	<string name="confirm_password">Parolayı doğrula</string>
 	<string name="password_note">Parolanızın gücünü artırmak için büyük harfler, özel karakterler ve sayılar ekleyin.</string>
 	<string name="category_academia">Akademi</string>
 	<string name="category_activism">aktivizm</string>
@@ -188,7 +194,10 @@
 	<string name="category_music">Müzik</string>
 	<string name="category_regional">Bölgesel</string>
 	<string name="category_tech">Teknoloji</string>
+	<string name="confirm_email_title">E-posta Kutunuzu Kontrol Edin</string>
 	<!-- %s is the email address -->
+	<string name="confirm_email_subtitle">%s işleminizi doğrulamak için size gönderdiğimiz linke tıklayınız. Biz burada bekleyeceğiz.</string>
+	<string name="confirm_email_didnt_get">Link size ulaşmadı mı?</string>
 	<string name="resend">Yeniden gönder</string>
 	<string name="open_email_app">E-posta uygulamasını aç</string>
 	<string name="resent_email">Onay e-postası gönderildi</string>
@@ -211,7 +220,6 @@
 	<string name="skip">Atla</string>
 	<string name="notification_type_follow">Yeni takipçiler</string>
 	<string name="notification_type_favorite">Favoriler</string>
-	<string name="notification_type_reblog">Yeniden paylaşımlar</string>
 	<string name="notification_type_mention">Bahsetmeler</string>
 	<string name="notification_type_poll">Anketler</string>
 	<string name="choose_account">Hesap seç</string>
@@ -238,7 +246,6 @@
 	<string name="notify_none">bilgilendirme</string>
 	<string name="notify_favorites">Gönderiğimi beğendiğinde</string>
 	<string name="notify_follow">Beni takip ettiğinde</string>
-	<string name="notify_reblog">Gönderimi yeniden paylaştığında</string>
 	<string name="notify_mention">Benden bahsettiğinde</string>
 	<string name="settings_boring">Sıkıcı bölge</string>
 	<string name="settings_account">Hesap ayarları</string>
@@ -259,7 +266,6 @@
 	<string name="hide_content">İçeriği gizle</string>
 	<string name="new_post">Yeni gönderi</string>
 	<string name="button_reply">Cevapla</string>
-	<string name="button_reblog">Yeniden paylaş</string>
 	<string name="button_favorite">Favorile</string>
 	<string name="button_share">Paylaş</string>
 	<string name="media_no_description">Açıklamasız medya</string>
@@ -274,8 +280,7 @@
 	<string name="unfollowed_user">%s takip edilmedi</string>
 	<string name="followed_user">%s kişisini takip ediyorsunuz</string>
 	<string name="open_in_browser">Tarayıcıda aç</string>
-	<string name="hide_boosts_from_user">%s kişisinin yeniden paylaşımlarını gizle</string>
-	<string name="show_boosts_from_user">%s kişisinin yeniden paylaşımlarını göster</string>
+	<string name="signup_reason">Neden katılmak istiyorsunuz?</string>
 	<string name="signup_reason_note">Bu, başvurunuzu incelememize yardımcı olacaktır.</string>
 	<string name="clear">Temizle</string>
 	<string name="profile_header">Üstbaşlık görseli</string>
@@ -316,13 +321,8 @@
 		<item quantity="one">%,d favori</item>
 		<item quantity="other">%,d favori</item>
 	</plurals>
-	<plurals name="x_reblogs">
-		<item quantity="one">%,d yeniden paylaşım</item>
-		<item quantity="other">%,d yeniden paylaşım</item>
-	</plurals>
 	<string name="timestamp_via_app">%1$s tarihinde %2$s uygulamasıyla</string>
 	<string name="time_now">şimdi</string>
-	<string name="post_info_reblogs">Yeniden Paylaşımlar</string>
 	<string name="post_info_favorites">Favoriler</string>
 	<string name="edit_history">Düzenleme geçmişi</string>
 	<string name="last_edit_at_x">Son düzenleme: %s</string>
@@ -368,6 +368,8 @@
 	<!-- %s is file size -->
 	<string name="download_update">İndir (%s)</string>
 	<string name="install_update">Kur</string>
+	<string name="privacy_policy_title">Gizliliğiniz</string>
+	<string name="privacy_policy_subtitle">Mastodon uygulaması herhangi bir veri toplama dahi katıldığınız sunucunun farklı bir politikası olabilir. \n\n %s politikası sizi tatmin etmiyorsa geri giderek farklı bir sunucu seçebilirsiniz.</string>
 	<string name="i_agree">Kabul ediyorum</string>
 	<string name="empty_list">Bu liste boş</string>
 	<string name="instance_signup_closed">Bu sunucu yeni kayıtları kabul etmemektedir.</string>
@@ -379,7 +381,34 @@
 	<string name="login_title">Hoşgeldin</string>
 	<string name="login_subtitle">Hesabınızı oluşturduğunuz sunucu ile giriş yapın.</string>
 	<string name="server_url">Sunucu URL\'si</string>
+	<string name="signup_random_server_explain">Herhangi bir seçim yapmadan devam ederseniz dilinize göre bir sunucu seçeceğiz.</string>
+	<string name="server_filter_any_language">Herhangi Bir Dil</string>
+	<string name="server_filter_instant_signup">Koşulsuz Kayıt</string>
+	<string name="server_filter_manual_review">İnceleme Gerekli</string>
+	<string name="server_filter_any_signup_speed">Herhangi Biri</string>
+	<string name="server_filter_region_europe">Avrupa</string>
+	<string name="server_filter_region_north_america">Kuzey Amerika</string>
+	<string name="server_filter_region_south_america">Güney Amerika</string>
+	<string name="server_filter_region_africa">Afrika</string>
+	<string name="server_filter_region_asia">Asya</string>
+	<string name="server_filter_region_oceania">Okyanusya</string>
+	<string name="not_accepting_new_members">Yeni üyeler kabul etmiyor</string>
+	<string name="category_special_interests">Özel İlgi Alanları</string>
+	<string name="signup_passwords_dont_match">Parolalar eşleşmiyor</string>
+	<string name="pick_server_for_me">Benim için seç</string>
+	<string name="profile_setup">Profilini ayarla</string>
+	<string name="profile_setup_subtitle">Bunu istediğin bir zaman Profil sekmesinden tamamlayabilirsin.</string>
+	<string name="profile_setup_explanation">İstediğin herhangi bir şey için en fazla dört profil alanı ekleyebilirsin. Konum, linkler -ne isterseniz.</string>
+	<string name="popular_on_mastodon">Mastodon\'da Popüler</string>
+	<string name="follow_all">Hepsini takip et</string>
+	<string name="server_rules_disagree">Reddet</string>
+	<string name="privacy_policy_explanation">Kısacası: Hiçbir veri işlemiyor ya da toplamıyoruz.</string>
 	<!-- %s is server domain -->
+	<string name="server_policy_disagree">%s\'yi reddet</string>
+	<string name="profile_bio">Hakkımda</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
+	<string name="sending_follows">Hesaplar takip ediliyor…</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<string name="signup_email_domain_blocked">%1$s sunucusu %2$s mail uzantısı ile hesap oluşturmaya izin vermiyor. Farklı bir mail deneyebilir ya da &lt;a&gt;farklı bir sunucu seçebilirsiniz&lt;/a&gt;.</string>
+	<string name="signup_username_taken">Bu kullanıcı adı kullanılıyor.</string>
 </resources>

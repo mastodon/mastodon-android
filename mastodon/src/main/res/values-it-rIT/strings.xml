@@ -166,7 +166,7 @@
 	<string name="report_sent_subtitle">Mentre controlliamo, puoi fare questo contro %s.</string>
 	<string name="unfollow_user">Smetti di seguire %s</string>
 	<string name="unfollow">Smetti di seguire</string>
-	<string name="mute_user_explain">Non vedrai i loro post o i reblog nel tuo feed. Non sapranno di essere stati silenziati.</string>
+	<string name="mute_user_explain">Non vedrai i loro post o le condivisioni nel tuo feed. Non sapranno di essere stati silenziati.</string>
 	<string name="block_user_explain">Non saranno più in grado di seguire o vedere i tuoi post, ma possono vedere se sono stati bloccati.</string>
 	<string name="report_personal_title">Non vuoi vedere questo?</string>
 	<string name="report_personal_subtitle">Quando vedi qualcosa che non ti piace su Mastodon, puoi rimuovere la persona dalla tua esperienza.</string>
@@ -250,7 +250,6 @@
 	<string name="notify_none">nessuno</string>
 	<string name="notify_favorites">Apprezza i miei post</string>
 	<string name="notify_follow">Mi segue</string>
-	<string name="notify_reblog">Condivide i miei post</string>
 	<string name="notify_mention">Mi menziona</string>
 	<string name="settings_boring">La zona noiosa</string>
 	<string name="settings_account">Impostazioni dell\'account</string>
@@ -271,7 +270,7 @@
 	<string name="hide_content">Nascondi il contenuto</string>
 	<string name="new_post">Nuovo post</string>
 	<string name="button_reply">Rispondi</string>
-	<string name="button_reblog">Condivisione</string>
+	<string name="button_reblog">Condividi</string>
 	<string name="button_favorite">Preferito</string>
 	<string name="button_share">Condividi</string>
 	<string name="media_no_description">Media senza descrizione</string>
@@ -285,9 +284,10 @@
 	<string name="follow_user">Segui %s</string>
 	<string name="unfollowed_user">Smetti di seguire %s</string>
 	<string name="followed_user">Hai cominciato a seguire %s</string>
+	<string name="following_user_requested">Richiesto di seguire %s</string>
 	<string name="open_in_browser">Apri nel browser</string>
-	<string name="hide_boosts_from_user">Nascondi le condivisioni di %s</string>
-	<string name="show_boosts_from_user">Mostra le condivisioni di %s</string>
+	<string name="hide_boosts_from_user">Nascondi condivisioni da %s</string>
+	<string name="show_boosts_from_user">Mostra condivisioni da %s</string>
 	<string name="signup_reason">Perché vuoi unirti?</string>
 	<string name="signup_reason_note">Questo ci aiuterà ad esaminare la tua richiesta.</string>
 	<string name="clear">Cancella</string>
@@ -394,12 +394,6 @@
 	<string name="login_title">Bentornato/a</string>
 	<string name="login_subtitle">Accedi con il server in cui hai creato il tuo account.</string>
 	<string name="server_url">URL del server</string>
-	<string name="welcome_page1_title">Che cos\'è Mastodon?</string>
-	<string name="welcome_page1_text">Immaginate di avere un indirizzo email che termina con @example.com.\n\nPotete ancora inviare e ricevere email da chiunque, anche se la loro email termina in @gmail.com o @icloud.com o @example.com.</string>
-	<string name="welcome_page2_title">Mastodon è così.</string>
-	<string name="welcome_page2_text">Il tuo pseudonimo potrebbe essere @gothgirl654@example.social, ma puoi ancora seguire, condividere e chattare con @fallout5ever@example.online.</string>
-	<string name="welcome_page3_title">Come scegliere un server?</string>
-	<string name="welcome_page3_text">Diverse persone scelgono server diversi per vari motivi. art.example è un server ottimo per gli artisti, mentre glasgow.example è una buona scelta per i Scozzesi. \n\nNon si può sbagliare con nessuno dei nostri server consigliati, e qualsiasi server scegli (o se cerchi un altro che conosci tu usando la barra di ricerca dei server) non perderai mai un colpo.</string>
 	<string name="signup_random_server_explain">Sceglieremo un server in base alla tua lingua se continui senza effettuare una selezione.</string>
 	<string name="server_filter_any_language">Qualsiasi lingua</string>
 	<string name="server_filter_instant_signup">Iscrizione immediata</string>
@@ -431,4 +425,21 @@
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
 	<string name="signup_email_domain_blocked">%1$s non consente iscrizioni da %2$s. Provane uno diverso o &lt;a&gt;scegli un altro server&lt;/a&gt;.</string>
 	<string name="signup_username_taken">Questo nome utente è già in uso.</string>
+	<string name="spoiler_show">Mostra comunque</string>
+	<string name="spoiler_hide">Ri-nascondere</string>
+	<string name="poll_multiple_choice">Scegli una o più risposte</string>
+	<string name="save_changes">Salva le modifiche</string>
+	<string name="profile_featured">In primo piano</string>
+	<string name="profile_timeline">Timeline</string>
+	<string name="view_all">Vedi tutto</string>
+	<string name="profile_endorsed_accounts">Account</string>
+	<string name="verified_link">Collegamento verificato</string>
+	<string name="show">Mostra</string>
+	<string name="hide">Nascondi</string>
+	<string name="join_default_server">Unisciti a %s</string>
+	<string name="pick_server">Scegli il mio server</string>
+	<string name="signup_or_login">o</string>
+	<string name="learn_more">Scopri di più</string>
+	<string name="welcome_to_mastodon">Benvenuto/a su Mastodon</string>
+	<string name="what_are_servers">Cosa sono i server?</string>
 </resources>

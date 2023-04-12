@@ -1,42 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+	<string name="get_started">অ্যাকাউন্ট তৈরি করুন</string>
+	<string name="already_have_account">আমার আগে থেকেই একটি অ্যাকাউন্ট আছে</string>
 	<string name="log_in">লগ ইন করুন</string>
-	<string name="next">পরবর্তী</string>
+	<string name="next">এরপর</string>
+	<string name="error">কোনো ত্রুটি ঘটেছে</string>
 	<string name="ok">ঠিক আছে</string>
 	<string name="preparing_auth">প্রমাণীকরণের জন্য প্রস্তুত হচ্ছে...</string>
-	<string name="notifications">বিজ্ঞপ্তি</string>
-	<string name="user_followed_you">অনুসরণ করে</string>
-	<string name="user_sent_follow_request">অনুসরণের জন্য অনুরোধ পাঠানো হয়েছে</string>
-	<string name="user_favorited">পোস্টটি পছন্দ করা হয়েছে</string>
-	<string name="notification_boosted">আপনার পোস্টের প্রচার করা হয়েছে</string>
+	<string name="in_reply_to">%s কে উত্তর দিন</string>
+	<string name="notifications">নোটিফিকেশন</string>
+	<string name="user_followed_you">আপনাকে ফলো করেছেন</string>
+	<string name="user_sent_follow_request">ফলো করার জন্য অনুরোধ পাঠানো হয়েছে</string>
+	<string name="user_favorited">আপনার পোস্টটি পছন্দ করেছেন</string>
 	<string name="poll_ended">ভোট শেষ</string>
+	<string name="time_seconds">%d সে.</string>
+	<string name="time_minutes">%d মি.</string>
+	<string name="time_hours">%d ঘ.</string>
+	<string name="time_days">%d দি.</string>
+	<string name="share_toot_title">শেয়ার করুন</string>
+	<string name="settings">সেটিংস</string>
+	<string name="cancel">বাতিল করুন</string>
+	<plurals name="posts">
+		<item quantity="one">পোস্ট</item>
+		<item quantity="other">পোস্টগুলো</item>
+	</plurals>
+	<string name="posts">পোস্টগুলো</string>
+	<string name="share_user">%s -কে শেয়ার করুন</string>
+	<string name="mute_user">%s -কে মিউট করুন</string>
+	<string name="unmute_user">%s -কে আনমিউট করুন</string>
+	<string name="block_user">%s -কে ব্লক করুন</string>
+	<string name="unblock_user">%s -কে আনব্লক করুন</string>
+	<string name="report_user">%s -এর নামে রিপোর্ট করুন</string>
+	<string name="block_domain">%s -কে ব্লক করুন</string>
+	<string name="unblock_domain">%s -কে আনব্লক করুন</string>
+	<plurals name="x_posts">
+		<item quantity="one">%,d টি পোস্ট</item>
+		<item quantity="other">%,d টি পোস্ট</item>
+	</plurals>
+	<string name="profile_joined">যুক্ত হয়েছেন</string>
+	<string name="done">হয়ে গেছে</string>
+	<string name="loading">লোড হচ্ছে…</string>
+	<string name="saving">সেভ হচ্ছে…</string>
+	<plurals name="x_minutes">
+		<item quantity="one">%d মিনিট</item>
+		<item quantity="other">%d মিনিট</item>
+	</plurals>
+	<plurals name="x_hours">
+		<item quantity="one">%d ঘণ্টা</item>
+		<item quantity="other">%d ঘণ্টা</item>
+	</plurals>
+	<plurals name="x_days">
+		<item quantity="one">%d দিন</item>
+		<item quantity="other">%d দিন</item>
+	</plurals>
 	<string name="poll_closed">বন্ধ</string>
-	<string name="confirm_mute_title">অ্যাকাউন্ট টি মিউট করুন</string>
+	<string name="confirm_mute_title">অ্যাকাউন্টটি মিউট করুন</string>
 	<string name="do_mute">মিউট করুন</string>
 	<string name="confirm_unmute_title">অ্যাকাউন্ট টি আনমিউট করুন</string>
 	<string name="confirm_unmute">%s আনমিউট নিশ্চিত করুন</string>
 	<string name="do_unmute">মিউট</string>
-	<string name="confirm_block_title">অ্যাকাউন্ট টি ব্লক করুন</string>
+	<string name="confirm_block_title">অ্যাকাউন্টটি ব্লক করুন</string>
+	<string name="confirm_block_domain_title">ওয়েবসাইটটি ব্লক করুন</string>
 	<string name="do_block">ব্লক করুন</string>
+	<string name="confirm_unblock_title">অ্যাকাউন্ট আনব্লক করুন</string>
 	<string name="confirm_unblock">%s আনব্লক নিশ্চিত করুন</string>
 	<string name="do_unblock">আনব্লক করুন</string>
 	<string name="button_muted">মিউট করা হয়েছে</string>
-	<string name="tap_to_reveal">ট্যাপ করে দেখুন</string>
+	<string name="button_blocked">ব্লক করা আছে</string>
+	<string name="action_vote">ভোট</string>
+	<string name="tap_to_reveal">দেখার জন্য টিপুন</string>
 	<string name="delete">মুছে ফেলুন</string>
 	<string name="confirm_delete_title">পোস্ট মুছে ফেলুন</string>
 	<string name="confirm_delete">আপনি কি এই পোস্টটি মুছে ফেলতে চান?</string>
-	<string name="deleting">মুছে ফেলা হচ্ছে</string>
+	<string name="deleting">মুছে ফেলা হচ্ছে…</string>
 	<string name="notification_channel_audio_player">অডিও প্লেব্যাক</string>
 	<string name="play">চালান</string>
-	<string name="pause">বিরতি</string>
-	<string name="log_out">সাইন আউট</string>
-	<string name="add_account">অ্যাকাউন্ট খুলুন</string>
-	<string name="search_hint">সন্ধান</string>
-	<string name="hashtags">হ্যাশট্যাগ</string>
-	<string name="news">সংবাদ</string>
+	<string name="pause">থামান</string>
+	<string name="log_out">সাইন-আউট করুন</string>
+	<string name="add_account">অ্যাকাউন্ট যোগ করুন</string>
+	<string name="search_hint">খুঁজুন</string>
+	<string name="hashtags">হ্যাশট্যাগগুলো</string>
+	<string name="news">খবর</string>
 	<string name="for_you">আপনার জন্য</string>
 	<string name="all_notifications">সকল</string>
 	<string name="mentions">উল্লেখ</string>
+	<plurals name="x_people_talking">
+		<item quantity="one">%d জন ব্যক্তি বলছেন</item>
+		<item quantity="other">%d jon ব্যক্তিরা বলছেন</item>
+	</plurals>
 	<!-- %s is the email address -->
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<!-- %s is version like 1.2.3 -->

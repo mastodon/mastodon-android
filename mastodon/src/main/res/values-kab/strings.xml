@@ -161,12 +161,16 @@
 	<string name="report_sent_subtitle">Ideg nekkni nessenqad tuttra-inek•inem, tzemreḍ ad tḥadreḍ mgal %s.</string>
 	<string name="unfollow_user">Y•Teḥbes aḍfar n %s</string>
 	<string name="unfollow">Ur ṭṭafaṛ ara</string>
-	<string name="mute_user_explain">Ur tettwaliḍ ara tisuffaɣ-nsen neɣ iriblugen-nsen deg usuddem-inek•inem agejdan. Ur ẓerren ara belli tesgugmeḍ-ten.</string>
 	<string name="block_user_explain">Ur ttuɣalen ara ad izmiren ad ak•akem-ḍefren neɣ ad walin tisuffaɣ-inek•inem, maca ad walin ma yella ttusweḥlen.</string>
 	<string name="report_personal_title">Ur tebɣiḍ ara ad twaliḍ aya?</string>
 	<string name="report_personal_subtitle">Mi ara twaliḍ kra ur ak•am-neɛǧib ara ɣef Mastodon, tzemreḍ ad tekkseḍ amdan-nni seg tirmit-ik•im.</string>
 	<string name="back">Tuɣalin</string>
 	<string name="edit_photo">ẓreg</string>
+	<string name="display_name">Isem</string>
+	<string name="username">Isem n useqdac</string>
+	<string name="email">Imayl</string>
+	<string name="password">Awal uffir</string>
+	<string name="confirm_password">Sentem awal uffir</string>
 	<string name="password_note">Seddu isekkilen imeqqranen, isekkilen imaẓlayen d wuṭṭunen i useǧhed ugar n wawal-ik•im uffir.</string>
 	<string name="category_academia">Akadimi</string>
 	<string name="category_activism">Tinuɣmest</string>
@@ -230,7 +234,6 @@
 	<string name="notify_none">ula yiwen</string>
 	<string name="notify_favorites">Yerna tasuffeɣt-iw ɣer yismenyafen-ines</string>
 	<string name="notify_follow">Yeṭṭafar-iyi</string>
-	<string name="notify_reblog">Yules asuffeɣ n tduffeɣt-iw</string>
 	<string name="notify_mention">Ibder-iyi-d</string>
 	<string name="settings_boring">Tamnaḍt yessefcalen</string>
 	<string name="settings_account">Iɣewwaren n umiḍan</string>
@@ -251,7 +254,6 @@
 	<string name="hide_content">Ffer agbur</string>
 	<string name="new_post">Tasuffeɣt tamaynut</string>
 	<string name="button_reply">Err</string>
-	<string name="button_reblog">Aɛiwed n usuffeɣ</string>
 	<string name="button_favorite">Amenyaf</string>
 	<string name="button_share">Bḍu</string>
 	<string name="media_no_description">Amidyat s war aglam</string>
@@ -309,6 +311,12 @@
 	<string name="install_update">Sbedd</string>
 	<string name="add_bookmark">Creḍ</string>
 	<string name="your_favorites">Imenyifen-ik·im</string>
+	<string name="login_title">Ansuf yess·ek·em</string>
+	<string name="server_filter_any_language">Yal tutlayt</string>
+	<string name="server_filter_region_europe">Turuft</string>
+	<string name="server_filter_region_africa">Tafriqt</string>
+	<string name="server_filter_region_asia">Asya</string>
+	<string name="server_filter_region_oceania">Usyani</string>
 	<!-- %s is server domain -->
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->

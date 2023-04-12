@@ -6,13 +6,11 @@
 	<string name="ok">Ceart ma-thà</string>
 	<string name="preparing_auth">Ag ullachadh an dearbhaidh…</string>
 	<string name="finishing_auth">A’ crìochnachadh an dearbhaidh…</string>
-	<string name="user_boosted">’Ga bhrosnachadh le %s</string>
 	<string name="in_reply_to">A’ freagairt dha %s</string>
 	<string name="notifications">Brathan</string>
 	<string name="user_followed_you">– ’s iad ’gad leantainn a-nis</string>
 	<string name="user_sent_follow_request">– ’s iad air iarrtas leantainn a chur thugad</string>
 	<string name="user_favorited">– ’s iad air am post agad a chur ris na h-annsachdan aca</string>
-	<string name="notification_boosted">– ’s iad air am post agad a bhrosnachadh</string>
 	<string name="poll_ended">Thàinig cunntas-bheachd gu crìoch</string>
 	<string name="time_seconds">%dd</string>
 	<string name="time_minutes">%dm</string>
@@ -190,7 +188,6 @@
 	<string name="report_sent_subtitle">Fhad ’s a bhios sinn a’ toirt sùil air, seo nas urrainn dhut dèanamh an aghaidh %s.</string>
 	<string name="unfollow_user">Na lean %s tuilleadh</string>
 	<string name="unfollow">Na lean tuilleadh</string>
-	<string name="mute_user_explain">Chan fhaic thu na postaichean aca is dè a bhrosnaich iad air inbhir na dachaigh agad tuilleadh. Cha bhi fios aca gun do mhùch thu iad.</string>
 	<string name="block_user_explain">Chan urrainn dhaibh ’gad leantainn is chan fhaic iad na postaichean agad tuilleadh ach chì iad gun deach am bacadh.</string>
 	<string name="report_personal_title">Nach eil thu airson seo fhaicinn?</string>
 	<string name="report_personal_subtitle">Nuair a chì thu rudeigin nach toigh leat air Mastodon, ’s urrainn dhut an neach a chumail fad air falbh uat.</string>
@@ -235,7 +232,6 @@
 	<string name="skip">Leum thairis air</string>
 	<string name="notification_type_follow">Luchd-leantainn ùr</string>
 	<string name="notification_type_favorite">Annsachdan</string>
-	<string name="notification_type_reblog">Brosnachaidhean</string>
 	<string name="notification_type_mention">Iomraidhean</string>
 	<string name="notification_type_poll">Cunntasan-bheachd</string>
 	<string name="choose_account">Tagh cunntas</string>
@@ -264,7 +260,6 @@
 	<string name="notify_none">nach bi duine sam bith</string>
 	<string name="notify_favorites">air post uam a chur ris na h-annsachdan</string>
 	<string name="notify_follow">air mo leantainn</string>
-	<string name="notify_reblog">air post uam a bhrosnachadh</string>
 	<string name="notify_mention">air iomradh a thoirt orm</string>
 	<string name="settings_boring">An earrann ràsanach</string>
 	<string name="settings_account">Roghainnean a’ chunntais</string>
@@ -285,7 +280,6 @@
 	<string name="hide_content">Falaich an t-susbaint</string>
 	<string name="new_post">Post ùr</string>
 	<string name="button_reply">Freagair</string>
-	<string name="button_reblog">Brosnaich</string>
 	<string name="button_favorite">Cuir ris na h-annsachdan</string>
 	<string name="button_share">Co-roinn</string>
 	<string name="media_no_description">Meadhan gun tuairisgeul</string>
@@ -300,8 +294,6 @@
 	<string name="unfollowed_user">Chan eil thu a’ leantainn %s tuilleadh</string>
 	<string name="followed_user">Tha thu a’ leantainn %s a-nis</string>
 	<string name="open_in_browser">Fosgail sa bhrabhsair</string>
-	<string name="hide_boosts_from_user">Falaich na brosnachaidhean o %s</string>
-	<string name="show_boosts_from_user">Seall na brosnachaidhean o %s</string>
 	<string name="signup_reason_note">Bidh e nas fhasa dhuinn lèirmheas a dhèanamh air d’ iarrtas.</string>
 	<string name="clear">Falamhaich</string>
 	<string name="profile_header">Dealbh a’ bhanna-chinn</string>
@@ -348,15 +340,8 @@
 		<item quantity="few">%,d annsachdan</item>
 		<item quantity="other">%,d annsachd</item>
 	</plurals>
-	<plurals name="x_reblogs">
-		<item quantity="one">%,d bhrosnachadh</item>
-		<item quantity="two">%,d bhrosnachadh</item>
-		<item quantity="few">%,d brosnachaidhean</item>
-		<item quantity="other">%,d brosnachadh</item>
-	</plurals>
 	<string name="timestamp_via_app">%1$s slighe %2$s</string>
 	<string name="time_now">an-dràsta</string>
-	<string name="post_info_reblogs">Brosnachaidhean</string>
 	<string name="post_info_favorites">Annsachdan</string>
 	<string name="edit_history">Eachdraidh nan deasachaidhean</string>
 	<string name="last_edit_at_x">An deasachadh mu dheireadh %s</string>
