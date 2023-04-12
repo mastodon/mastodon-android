@@ -15,6 +15,7 @@
 	<string name="user_followed_you">mengikuti Anda</string>
 	<string name="user_sent_follow_request">mengirim Anda permintaan pengikut</string>
 	<string name="user_favorited">memfavorit kiriman Anda</string>
+	<string name="notification_boosted">mem-boost kiriman Anda</string>
 	<string name="poll_ended">pemungutan suara berakhir</string>
 	<string name="time_seconds">%dd</string>
 	<string name="time_minutes">%dm</string>
@@ -362,11 +363,6 @@
 	<string name="login_title">Selamat Datang Kembali</string>
 	<string name="login_subtitle">Masuk dengan server di mana Anda buat akun Anda.</string>
 	<string name="server_url">URL Server</string>
-	<string name="welcome_page1_title">Apa itu Mastodon?</string>
-	<string name="welcome_page1_text">Bayangkan Anda memikiki alamat surel yang berakhiran @contoh.com.\n\nAnda masih bisa mengirim dan menerima surel dari siapa pun, bahkan jika alamat surel mereka berakhiran @gmail.com atau @icloud.com atau @contoh.com.</string>
-	<string name="welcome_page2_title">Mastodon seperti itu.</string>
-	<string name="welcome_page3_title">Bagaimana saya memilih server?</string>
-	<string name="welcome_page3_text">Kebanyakan orang memilih server berbeda karena berbagai alasan. seni.contoh adalah tempat yang cocok bagi artis, sedangkan glasgow.example mungkin pilihan yang baik untuk para Scots.\n\nAnda tidak bisa salah dengan server yang kami rekomendasikan, jadi server apa yang Anda pilih (atau jika Anda memasukkan Anda sendiri di bilah pencarian server), Anda tidak akan melewatkan apa pun di mana pun.</string>
 	<string name="signup_random_server_explain">Kami akan memilih sebuah server berdasarkan bahasa Anda jika Anda melanjutkan tanpa memilih.</string>
 	<string name="server_filter_any_language">Bahasa Apa Pun</string>
 	<string name="server_filter_instant_signup">Pendaftaran Instan</string>
@@ -398,4 +394,14 @@
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
 	<string name="signup_email_domain_blocked">%1$s tidak memperbolehkan pendaftaran dari %2$s. Coba yang lain atau &lt;a&gt;pilih server lain&lt;/a&gt;.</string>
 	<string name="signup_username_taken">Nama pengguna ini sudah diambil.</string>
+	<string name="save_changes">Simpan perubahan</string>
+	<string name="profile_timeline">Linimasa</string>
+	<string name="view_all">Lihat semua</string>
+	<string name="profile_endorsed_accounts">Akun</string>
+	<string name="verified_link">Pranala terverifikasi</string>
+	<string name="show">Tampilkan</string>
+	<string name="hide">Sembunyikan</string>
+	<string name="join_default_server">Gabung %s</string>
+	<string name="learn_more">Pelajari lebih lanjut</string>
+	<string name="welcome_to_mastodon">Selamat datang di Mastodon</string>
 </resources>
