@@ -19,7 +19,7 @@
 	<string name="notification_boosted">gönderinizi yineledi</string>
 	<string name="poll_ended">oylama sona erdi</string>
 	<string name="time_seconds">%ds</string>
-	<string name="time_minutes">%dd</string>
+	<string name="time_minutes">%ddk</string>
 	<string name="time_hours">%dsaat</string>
 	<string name="time_days">%dgün</string>
 	<string name="share_toot_title">Paylaş</string>
@@ -27,7 +27,7 @@
 	<string name="publish">Yayınla</string>
 	<string name="discard_draft">Taslak silinsin mi?</string>
 	<string name="discard">Sil</string>
-	<string name="cancel">İptal</string>
+	<string name="cancel">İptal et</string>
 	<plurals name="followers">
 		<item quantity="one">Takipçi</item>
 		<item quantity="other">Takipçi</item>
@@ -54,19 +54,19 @@
 	<string name="block_user">Engelle %s</string>
 	<string name="unblock_user">Engeli kaldır %s</string>
 	<string name="report_user">Raporla %s</string>
-	<string name="block_domain">Engelle %s</string>
-	<string name="unblock_domain">Engeli kaldır %s</string>
+	<string name="block_domain">%s kişisini engelle</string>
+	<string name="unblock_domain">%s kişisinin engelini kaldır</string>
 	<plurals name="x_posts">
 		<item quantity="one">%,d gönderi</item>
 		<item quantity="other">%,d gönderiler</item>
 	</plurals>
 	<string name="profile_joined">Katıldı</string>
 	<string name="done">Tamamla</string>
-	<string name="loading">Yükleniyor...</string>
+	<string name="loading">Yükleniyor…</string>
 	<string name="field_label">Etiket</string>
 	<string name="field_content">İçerik</string>
 	<string name="saving">Kaydediliyor…</string>
-	<string name="post_from_user">Gönderen %s</string>
+	<string name="post_from_user">%s kullanıcına ait gönderi</string>
 	<string name="poll_option_hint">Seçenek %d</string>
 	<plurals name="x_minutes">
 		<item quantity="one">%d dakika</item>
