@@ -10,6 +10,7 @@
 	<string name="ok">确定</string>
 	<string name="preparing_auth">正在准备身份验证…</string>
 	<string name="finishing_auth">正在完成身份认证…</string>
+	<string name="user_boosted">%s 转嘟了</string>
 	<string name="in_reply_to">回复 %s</string>
 	<string name="notifications">通知</string>
 	<string name="user_followed_you">关注了你</string>
@@ -157,7 +158,15 @@
 	<string name="back">返回</string>
 	<string name="instance_catalog_title">Mastodon由来自不同服务器的用户组成。</string>
 	<string name="instance_catalog_subtitle">根据你的兴趣、地区或其他目的挑选一个服务器。无论你选择哪个服务器，你都可以跟所有人联系。</string>
+	<string name="search_communities">服务器名称或地址</string>
+	<string name="instance_rules_title">实例规则</string>
+	<string name="signup_title">创建帐号</string>
 	<string name="edit_photo">编辑</string>
+	<string name="display_name">名字</string>
+	<string name="username">用户名</string>
+	<string name="email">邮箱</string>
+	<string name="password">密码</string>
+	<string name="confirm_password">确认密码</string>
 	<string name="password_note">包括大写字母、特殊字符和数字以增加你的密码强度。</string>
 	<string name="category_academia">学术</string>
 	<string name="category_activism">行动主义</string>
@@ -172,7 +181,9 @@
 	<string name="category_music">音乐</string>
 	<string name="category_regional">地区</string>
 	<string name="category_tech">科技</string>
+	<string name="confirm_email_title">检查你的收件箱</string>
 	<!-- %s is the email address -->
+	<string name="confirm_email_didnt_get">没有收到链接？</string>
 	<string name="resend">重新发送</string>
 	<string name="open_email_app">打开电子邮件应用</string>
 	<string name="resent_email">邮件已发送</string>
@@ -195,6 +206,7 @@
 	<string name="skip">跳过</string>
 	<string name="notification_type_follow">新关注者</string>
 	<string name="notification_type_favorite">喜欢</string>
+	<string name="notification_type_reblog">转嘟</string>
 	<string name="notification_type_mention">提及</string>
 	<string name="notification_type_poll">投票</string>
 	<string name="choose_account">选择账户</string>
@@ -220,6 +232,7 @@
 	<string name="notify_none">关闭通知</string>
 	<string name="notify_favorites">喜欢我的嘟文</string>
 	<string name="notify_follow">关注我</string>
+	<string name="notify_reblog">转发我的嘟文</string>
 	<string name="notify_mention">提及我</string>
 	<string name="settings_boring">更多</string>
 	<string name="settings_account">账户设置</string>
@@ -240,6 +253,7 @@
 	<string name="hide_content">隐藏内容</string>
 	<string name="new_post">新嘟文</string>
 	<string name="button_reply">回复</string>
+	<string name="button_reblog">转嘟</string>
 	<string name="button_favorite">喜欢</string>
 	<string name="button_share">分享</string>
 	<string name="media_no_description">没有描述的媒体</string>
@@ -253,7 +267,11 @@
 	<string name="follow_user">关注 %s</string>
 	<string name="unfollowed_user">取消关注 %s</string>
 	<string name="followed_user">你正在关注 %s</string>
+	<string name="following_user_requested">请求关注 %s</string>
 	<string name="open_in_browser">在浏览器中打开</string>
+	<string name="hide_boosts_from_user">隐藏来自 %s 的转嘟</string>
+	<string name="show_boosts_from_user">显示来自 %s 的转嘟</string>
+	<string name="signup_reason">你想要加入的原因是什么？</string>
 	<string name="signup_reason_note">这会帮助我们评估你的申请。</string>
 	<string name="clear">清除</string>
 	<string name="profile_header">资料页横幅图片</string>
@@ -291,8 +309,12 @@
 	<plurals name="x_favorites">
 		<item quantity="other">%,d 次喜欢</item>
 	</plurals>
+	<plurals name="x_reblogs">
+		<item quantity="other">%d 条嘟文</item>
+	</plurals>
 	<string name="timestamp_via_app">%1$s 来自 %2$s</string>
 	<string name="time_now">刚刚</string>
+	<string name="post_info_reblogs">转嘟</string>
 	<string name="post_info_favorites">喜欢</string>
 	<string name="edit_history">编辑记录</string>
 	<string name="last_edit_at_x">编辑于 %s</string>
@@ -336,6 +358,8 @@
 	<!-- %s is file size -->
 	<string name="download_update">已下载(%s)</string>
 	<string name="install_update">安装</string>
+	<string name="privacy_policy_title">你的隐私</string>
+	<string name="privacy_policy_subtitle">Mastodon客户端本身不会采集任何数据，但是你注册的服务器可能有不同的隐私政策。  如果你不同意 %s 的隐私政策，可以重新挑选其他服务器。</string>
 	<string name="i_agree">我同意</string>
 	<string name="empty_list">还没有内容</string>
 	<string name="instance_signup_closed">此服务器不接受新注册。</string>
@@ -347,7 +371,39 @@
 	<string name="login_title">欢迎回来</string>
 	<string name="login_subtitle">登陆到你创建账户的服务器。</string>
 	<string name="server_url">服务器地址</string>
+	<string name="signup_random_server_explain">如果你不做任何选择，我们会根据你的语言来挑选一个服务器。</string>
+	<string name="server_filter_any_language">任何语言</string>
+	<string name="server_filter_instant_signup">立即注册</string>
+	<string name="server_filter_manual_review">人工审核</string>
+	<string name="server_filter_region_europe">欧洲</string>
+	<string name="server_filter_region_north_america">北美洲</string>
+	<string name="server_filter_region_south_america">南美洲</string>
+	<string name="server_filter_region_africa">非洲</string>
+	<string name="server_filter_region_asia">亚洲</string>
+	<string name="server_filter_region_oceania">大洋洲</string>
+	<string name="signup_passwords_dont_match">两次输入密码不匹配</string>
+	<string name="pick_server_for_me">帮我挑选</string>
+	<string name="profile_add_row">添加</string>
+	<string name="profile_setup">个人资料设定</string>
+	<string name="popular_on_mastodon">Mastodon上流行的</string>
+	<string name="follow_all">全部关注</string>
+	<string name="server_rules_disagree">不同意</string>
+	<string name="privacy_policy_explanation">长话短说，我们不采集或处理任何信息。</string>
 	<!-- %s is server domain -->
+	<string name="server_policy_disagree">不同意 %s 的隐私政策</string>
+	<string name="profile_bio">简介</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<string name="profile_timeline">时间轴</string>
+	<string name="profile_endorsed_accounts">帐号</string>
+	<string name="show">显示</string>
+	<string name="hide">隐藏</string>
+	<string name="join_default_server">加入 %s</string>
+	<string name="pick_server">选择我的服务器</string>
+	<string name="signup_or_login">或者</string>
+	<string name="learn_more">了解更多</string>
+	<string name="welcome_to_mastodon">欢迎来到Mastodon</string>
+	<string name="welcome_paragraph1">Mastodon是去中心化的社交网络，这意味着它不由任何企业独控，而是由众多独立运行的服务器联结而成。</string>
+	<string name="what_are_servers">服务器是什么？</string>
+	<string name="welcome_paragraph2"><![CDATA[所有的 Mastodon 帐号皆托管于各自的服务器上，每个服务器有各自的价值取向、规则与管理员。无论你选择哪个服务器，你都能关注并与其他任何服务器上的用户互动。]]></string>
 </resources>
