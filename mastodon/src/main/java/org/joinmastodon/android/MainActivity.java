@@ -4,13 +4,15 @@ import android.Manifest;
 import android.app.Application;
 import android.app.Fragment;
 import android.content.Intent;
-import android.content.pm.PackageInstaller;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
 import org.joinmastodon.android.api.ObjectValidationException;
+import org.joinmastodon.android.api.requests.search.GetSearchResults;
 import org.joinmastodon.android.api.session.AccountSession;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.fragments.ComposeFragment;
@@ -20,6 +22,7 @@ import org.joinmastodon.android.fragments.SplashFragment;
 import org.joinmastodon.android.fragments.ThreadFragment;
 import org.joinmastodon.android.fragments.onboarding.AccountActivationFragment;
 import org.joinmastodon.android.model.Notification;
+import org.joinmastodon.android.model.SearchResults;
 import org.joinmastodon.android.ui.utils.UiUtils;
 import org.joinmastodon.android.updater.GithubSelfUpdater;
 import org.parceler.Parcels;
@@ -28,6 +31,9 @@ import java.lang.reflect.InvocationTargetException;
 
 import androidx.annotation.Nullable;
 import me.grishka.appkit.FragmentStackActivity;
+import me.grishka.appkit.Nav;
+import me.grishka.appkit.api.Callback;
+import me.grishka.appkit.api.ErrorResponse;
 
 public class MainActivity extends FragmentStackActivity{
 	@Override
@@ -64,6 +70,8 @@ public class MainActivity extends FragmentStackActivity{
 					showFragmentForNotification(notification, session.getID());
 				}else if(intent.getBooleanExtra("compose", false)){
 					showCompose();
+				}else if(Intent.ACTION_VIEW.equals(intent.getAction())){
+					handleURL(intent.getData());
 				}else{
 					maybeRequestNotificationsPermission();
 				}
@@ -105,9 +113,48 @@ public class MainActivity extends FragmentStackActivity{
 			}
 		}else if(intent.getBooleanExtra("compose", false)){
 			showCompose();
+		}else if(Intent.ACTION_VIEW.equals(intent.getAction())){
+			handleURL(intent.getData());
 		}/*else if(intent.hasExtra(PackageInstaller.EXTRA_STATUS) && GithubSelfUpdater.needSelfUpdating()){
 			GithubSelfUpdater.getInstance().handleIntentFromInstaller(intent, this);
 		}*/
+	}
+
+	private void handleURL(Uri uri){
+		if(uri==null)
+			return;
+		if(!"https".equals(uri.getScheme()) && !"http".equals(uri.getScheme()))
+			return;
+		if(!uri.getPath().startsWith("/@"))
+			return;
+		AccountSession session=AccountSessionManager.getInstance().getLastActiveAccount();
+		if(session==null || !session.activated)
+			return;
+
+		new GetSearchResults(uri.toString(), null, true)
+				.setCallback(new Callback<>(){
+					@Override
+					public void onSuccess(SearchResults result){
+						Bundle args=new Bundle();
+						args.putString("account", session.getID());
+						if(result.statuses!=null && !result.statuses.isEmpty()){
+							args.putParcelable("status", Parcels.wrap(result.statuses.get(0)));
+							Nav.go(MainActivity.this, ThreadFragment.class, args);
+						}else if(result.accounts!=null && !result.accounts.isEmpty()){
+							args.putParcelable("profileAccount", Parcels.wrap(result.accounts.get(0)));
+							Nav.go(MainActivity.this, ProfileFragment.class, args);
+						}else{
+							Toast.makeText(MainActivity.this, R.string.link_not_supported, Toast.LENGTH_SHORT).show();
+						}
+					}
+
+					@Override
+					public void onError(ErrorResponse error){
+						error.showToast(MainActivity.this);
+					}
+				})
+				.wrapProgress(this, R.string.opening_link, true)
+				.exec(session.getID());
 	}
 
 	private void showFragmentForNotification(Notification notification, String accountID){

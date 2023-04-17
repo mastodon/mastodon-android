@@ -37,6 +37,18 @@
 				<action android:name="android.intent.action.MAIN"/>
 				<category android:name="android.intent.category.LAUNCHER"/>
 			</intent-filter>
+			<intent-filter android:autoVerify="true">
+				<action android:name="android.intent.action.VIEW"/>
+				<category android:name="android.intent.category.BROWSABLE"/>
+				<category android:name="android.intent.category.DEFAULT"/>
+				<data android:scheme="https" android:host="mastodon.social" android:pathPrefix="/@"/>
+			</intent-filter>
+			<intent-filter android:autoVerify="true">
+				<action android:name="android.intent.action.VIEW"/>
+				<category android:name="android.intent.category.BROWSABLE"/>
+				<category android:name="android.intent.category.DEFAULT"/>
+				<data android:scheme="https" android:host="mastodon.online" android:pathPrefix="/@"/>
+			</intent-filter>
 		</activity>
 		<activity android:name=".OAuthActivity" android:exported="true" android:configChanges="orientation|screenSize" android:launchMode="singleTask">
 			<intent-filter>
