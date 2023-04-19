@@ -10,11 +10,13 @@
 	<string name="ok">OK</string>
 	<string name="preparing_auth">Preparándose para a autenticación…</string>
 	<string name="finishing_auth">Rematando coa autenticación…</string>
+	<string name="user_boosted">%s promoveu</string>
 	<string name="in_reply_to">Como resposta a %s</string>
 	<string name="notifications">Notificacións</string>
 	<string name="user_followed_you">séguete</string>
 	<string name="user_sent_follow_request">enviouche unha solicitude de seguimento</string>
 	<string name="user_favorited">marcou a túa publicación como favorita</string>
+	<string name="notification_boosted">promoveu a túa publicación</string>
 	<string name="poll_ended">rematou a enquisa</string>
 	<string name="time_seconds">%ds</string>
 	<string name="time_minutes">%dm</string>
@@ -164,6 +166,7 @@
 	<string name="report_sent_subtitle">Mestras revisamos, podes tomar accións contra %s.</string>
 	<string name="unfollow_user">Deixar de seguir a %s</string>
 	<string name="unfollow">Deixar de seguir</string>
+	<string name="mute_user_explain">Non verás as súas publicacións ou repeticións na túa cronoloxía. Non saberá que foi acalada.</string>
 	<string name="block_user_explain">Non poderá seguirte nin ver o que publicas, pero pode ver se foi bloqueada.</string>
 	<string name="report_personal_title">Non queres ver esto?</string>
 	<string name="report_personal_subtitle">Cando ves en Mastodon algo que non che gusta podes retirar a esa persoa da túa experiencia como usuaria.</string>
@@ -220,6 +223,7 @@
 	<string name="skip">Omitir</string>
 	<string name="notification_type_follow">Novas seguidoras</string>
 	<string name="notification_type_favorite">Favoritas</string>
+	<string name="notification_type_reblog">Promocións</string>
 	<string name="notification_type_mention">Mencións</string>
 	<string name="notification_type_poll">Enquisas</string>
 	<string name="choose_account">Elixir conta</string>
