@@ -10,11 +10,13 @@
 	<string name="ok">Aceptar</string>
 	<string name="preparing_auth">Preparando para autenticación…</string>
 	<string name="finishing_auth">Finalizando autenticación…</string>
+	<string name="user_boosted">%s retooteó</string>
 	<string name="in_reply_to">En respuesta a %s</string>
 	<string name="notifications">Notificaciones</string>
 	<string name="user_followed_you">ha empezado a seguirte</string>
 	<string name="user_sent_follow_request">te envió una solicitud de seguimiento</string>
 	<string name="user_favorited">marcó como favorita</string>
+	<string name="notification_boosted">retooteó tu publicación</string>
 	<string name="poll_ended">encuesta finalizada</string>
 	<string name="time_seconds">%ds</string>
 	<string name="time_minutes">%dm</string>
@@ -164,6 +166,7 @@
 	<string name="report_sent_subtitle">Mientras revisamos esto, puedes tomar medidas contra %s.</string>
 	<string name="unfollow_user">Dejar de seguir a %s</string>
 	<string name="unfollow">Dejar de seguir</string>
+	<string name="mute_user_explain">No verás sus publicaciones o reblogueos en tu línea temporal. No sabrán que han sido silenciados.</string>
 	<string name="block_user_explain">Ya no podrán seguir o ver tus mensajes, pero pueden ver si han sido bloqueados.</string>
 	<string name="report_personal_title">¿No quieres ver esto?</string>
 	<string name="report_personal_subtitle">Cuando vea en Mastodon algo que no le agrada, puede sacar a la persona de su experiencia.</string>
@@ -220,6 +223,7 @@
 	<string name="skip">Saltar</string>
 	<string name="notification_type_follow">Nuevos seguidores</string>
 	<string name="notification_type_favorite">Favoritos</string>
+	<string name="notification_type_reblog">Retoots</string>
 	<string name="notification_type_mention">Menciones</string>
 	<string name="notification_type_poll">Encuestas</string>
 	<string name="choose_account">Elegir cuenta</string>
@@ -246,6 +250,7 @@
 	<string name="notify_none">nadie</string>
 	<string name="notify_favorites">Marca mi post como favorito</string>
 	<string name="notify_follow">Me sigue</string>
+	<string name="notify_reblog">Retootearán mi publicación</string>
 	<string name="notify_mention">Me menciona</string>
 	<string name="settings_boring">La zona aburrida</string>
 	<string name="settings_account">Ajustes de la cuenta</string>
@@ -266,6 +271,7 @@
 	<string name="hide_content">Ocultar contenido</string>
 	<string name="new_post">Nuevo post</string>
 	<string name="button_reply">Responder</string>
+	<string name="button_reblog">Retootear</string>
 	<string name="button_favorite">Favorito</string>
 	<string name="button_share">Compartir</string>
 	<string name="media_no_description">Medios sin descripción</string>
@@ -281,6 +287,8 @@
 	<string name="followed_user">Ahora estás siguiendo a %s</string>
 	<string name="following_user_requested">%s solicitó seguirte</string>
 	<string name="open_in_browser">Abrir en el navegador</string>
+	<string name="hide_boosts_from_user">Ocultar retoots de %s</string>
+	<string name="show_boosts_from_user">Mostrar retoots de %s</string>
 	<string name="signup_reason">¿Por qué quieres unirte?</string>
 	<string name="signup_reason_note">Esto nos ayudará a revisar su solicitud.</string>
 	<string name="clear">Borrar</string>
@@ -322,8 +330,13 @@
 		<item quantity="one">%,d favorito</item>
 		<item quantity="other">%,d favoritos</item>
 	</plurals>
+	<plurals name="x_reblogs">
+		<item quantity="one">%,d retooteo</item>
+		<item quantity="other">%,d retooteos</item>
+	</plurals>
 	<string name="timestamp_via_app">%1$s a través de %2$s</string>
 	<string name="time_now">ahora</string>
+	<string name="post_info_reblogs">Retoots</string>
 	<string name="post_info_favorites">Favoritos</string>
 	<string name="edit_history">Editar historial</string>
 	<string name="last_edit_at_x">Última edición: %s</string>
@@ -413,4 +426,23 @@
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
 	<string name="signup_email_domain_blocked">%1$s no permite registros desde %2$s. Prueba uno diferente o &lt;a&gt;elige un servidor diferente&lt;/a&gt;.</string>
 	<string name="signup_username_taken">Este nombre de usuario ya existe.</string>
+	<string name="spoiler_show">Mostrar de todos modos</string>
+	<string name="spoiler_hide">Volver a ocultar</string>
+	<string name="poll_multiple_choice">Escoge una o más</string>
+	<string name="save_changes">Guardar cambios</string>
+	<string name="profile_featured">Destacado</string>
+	<string name="profile_timeline">Línea de tiempo</string>
+	<string name="view_all">Ver todo</string>
+	<string name="profile_endorsed_accounts">Cuentas</string>
+	<string name="verified_link">Enlace verificado</string>
+	<string name="show">Mostrar</string>
+	<string name="hide">Ocultar</string>
+	<string name="join_default_server">Unirse a %s</string>
+	<string name="pick_server">Escoger mi propio servidor</string>
+	<string name="signup_or_login">o</string>
+	<string name="learn_more">Saber más</string>
+	<string name="welcome_to_mastodon">Bienvenido/da a Mastodon</string>
+	<string name="welcome_paragraph1">Mastodon es una red social descentralizada, lo que significa que no la controla una sola compañía. Está formada por muchos servidores independientes, todos juntos conectados.</string>
+	<string name="what_are_servers">¿Qué son los servidores?</string>
+	<string name="welcome_paragraph2"><![CDATA[Cada cuenta de Mastodon está alojada en un servidor — cada uno con sus propios valores, reglas y administradores. No importa cual elijas, puede seguir e interactuar con personas en cualquier servidor.]]></string>
 </resources>
