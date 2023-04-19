@@ -250,6 +250,7 @@
 	<string name="notify_none">ninguén</string>
 	<string name="notify_favorites">Favorece unha publicación miña</string>
 	<string name="notify_follow">Me segue</string>
+	<string name="notify_reblog">Promove a miña publicación</string>
 	<string name="notify_mention">Me menciona</string>
 	<string name="settings_boring">A zona aburrida</string>
 	<string name="settings_account">Axustes da conta</string>
@@ -270,6 +271,7 @@
 	<string name="hide_content">Agochar contido</string>
 	<string name="new_post">Nova publicación</string>
 	<string name="button_reply">Responder</string>
+	<string name="button_reblog">Promover</string>
 	<string name="button_favorite">Favorecer</string>
 	<string name="button_share">Compartir</string>
 	<string name="media_no_description">Multimedia sen descrición</string>
@@ -285,6 +287,8 @@
 	<string name="followed_user">Estás a seguir a %s</string>
 	<string name="following_user_requested">Solicitaches seguir a %s</string>
 	<string name="open_in_browser">Abrir nun navegador</string>
+	<string name="hide_boosts_from_user">Agochar promocións de @%s</string>
+	<string name="show_boosts_from_user">Mostrar promocións de %s</string>
 	<string name="signup_reason">Por qué queres unirte?</string>
 	<string name="signup_reason_note">Esto axudaranos a revisar a tua solicitude.</string>
 	<string name="clear">Limpar</string>
@@ -326,8 +330,13 @@
 		<item quantity="one">%,d favorita</item>
 		<item quantity="other">%,d favoritas</item>
 	</plurals>
+	<plurals name="x_reblogs">
+		<item quantity="one">%,d promoción</item>
+		<item quantity="other">%,d promocións</item>
+	</plurals>
 	<string name="timestamp_via_app">%1$s vía %2$s</string>
 	<string name="time_now">agora</string>
+	<string name="post_info_reblogs">Promocións</string>
 	<string name="post_info_favorites">Favoritas</string>
 	<string name="edit_history">Editar historial</string>
 	<string name="last_edit_at_x">Última edición %s</string>
@@ -417,4 +426,23 @@
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
 	<string name="signup_email_domain_blocked">%1$s non acepta rexistros desde %2$s. Proba outro ou &lt;a&gt;elixe outro servidor&lt;/a&gt;.</string>
 	<string name="signup_username_taken">Este nome de usuaria xa está en uso.</string>
+	<string name="spoiler_show">Mostrar igualmente</string>
+	<string name="spoiler_hide">Volver agochar</string>
+	<string name="poll_multiple_choice">Elixe unha ou varias</string>
+	<string name="save_changes">Gardar cambios</string>
+	<string name="profile_featured">Destacadas</string>
+	<string name="profile_timeline">Cronoloxía</string>
+	<string name="view_all">Ver todos</string>
+	<string name="profile_endorsed_accounts">Contas</string>
+	<string name="verified_link">Ligazón verificada</string>
+	<string name="show">Mostrar</string>
+	<string name="hide">Agochar</string>
+	<string name="join_default_server">Únete a %s</string>
+	<string name="pick_server">Elexir servidor propio</string>
+	<string name="signup_or_login">ou</string>
+	<string name="learn_more">Saber máis</string>
+	<string name="welcome_to_mastodon">Benvida a Mastodon</string>
+	<string name="welcome_paragraph1">Mastodon é unha rede social descentralizada, onde ningunha empresa ten o control. Está formada por moitos servidores independentes comunicándose entre si.</string>
+	<string name="what_are_servers">Que son os servidores?</string>
+	<string name="welcome_paragraph2"><![CDATA[Cada conta Mastodon está hospedada nun servidor — cada unha coas súas regras, valores e admins. Non importa cal elixas, podes seguir e interactuar con persoas de outros servidores.]]></string>
 </resources>
