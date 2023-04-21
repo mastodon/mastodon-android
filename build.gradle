@@ -19,6 +19,7 @@ plugins {
 emerge {
 	appProjectPath = ":mastodon"
 	apiToken = System.getenv("EMERGE_API_TOKEN")
+	buildType = "Public Github"
 }
 
 task clean(type: Delete) {
