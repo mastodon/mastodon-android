@@ -10,11 +10,13 @@
 	<string name="ok">Ok</string>
 	<string name="preparing_auth">Forbereder godkendelse…</string>
 	<string name="finishing_auth">Afslutter godkendelse…</string>
+	<string name="user_boosted">%s fremhævede</string>
 	<string name="in_reply_to">Som svar til %s</string>
 	<string name="notifications">Meddelelser</string>
 	<string name="user_followed_you">begyndte at følge dig</string>
 	<string name="user_sent_follow_request">sendte dig en følgeanmodning</string>
 	<string name="user_favorited">favoritmarkerede dit indlæg</string>
+	<string name="notification_boosted">fremhævede dit indlæg</string>
 	<string name="poll_ended">afstemning afsluttet</string>
 	<string name="time_seconds">%ds</string>
 	<string name="time_minutes">%d m</string>
@@ -164,6 +166,7 @@
 	<string name="report_sent_subtitle">Mens dette gennemgås, kan du selv bortfiltrere indlæg fra %s.</string>
 	<string name="unfollow_user">Følg ikke længere %s</string>
 	<string name="unfollow">Følg ikke længere</string>
+	<string name="mute_user_explain">Du vil ikke se den pågældendes indlæg eller fremhævninger i din tidslinje. Vedkommende vil ikke få besked om dæmpningen.</string>
 	<string name="block_user_explain">Vedkommende vil ikke længere kunne følge dig eller se dine indlæg, men vedkommende kan se blokeringen.</string>
 	<string name="report_personal_title">Ønsker du ikke at se dette?</string>
 	<string name="report_personal_subtitle">Når du ser noget, du ikke kan lide på Mastodon, kan du fjerne personen fra din tidslinje.</string>
@@ -220,6 +223,7 @@
 	<string name="skip">Spring over</string>
 	<string name="notification_type_follow">Nye følgere</string>
 	<string name="notification_type_favorite">Favoritmarkeringer</string>
+	<string name="notification_type_reblog">Fremhævninger</string>
 	<string name="notification_type_mention">Omtaler</string>
 	<string name="notification_type_poll">Afstemninger</string>
 	<string name="choose_account">Vælg konto</string>
@@ -246,6 +250,7 @@
 	<string name="notify_none">ingen</string>
 	<string name="notify_favorites">Favoritmarkerede mit indlæg</string>
 	<string name="notify_follow">Følger mig</string>
+	<string name="notify_reblog">Fremhæver mit indlæg</string>
 	<string name="notify_mention">Nævner mig</string>
 	<string name="settings_boring">Den kedelige zone</string>
 	<string name="settings_account">Kontoindstillinger</string>
@@ -266,6 +271,7 @@
 	<string name="hide_content">Skjul indhold</string>
 	<string name="new_post">Nyt indlæg</string>
 	<string name="button_reply">Svar</string>
+	<string name="button_reblog">Fremhæv</string>
 	<string name="button_favorite">Favorit</string>
 	<string name="button_share">Del</string>
 	<string name="media_no_description">Medier uden beskrivelse</string>
@@ -279,7 +285,10 @@
 	<string name="follow_user">Følg %s</string>
 	<string name="unfollowed_user">Følg ikke længere %s</string>
 	<string name="followed_user">Du følger nu %s</string>
+	<string name="following_user_requested">Anmodede om at følge %s</string>
 	<string name="open_in_browser">Åbn i browser</string>
+	<string name="hide_boosts_from_user">Skjul fremhævninger fra %s</string>
+	<string name="show_boosts_from_user">Vis fremhævninger fra %s</string>
 	<string name="signup_reason">Hvorfor ønsker du at tilmelde dig?</string>
 	<string name="signup_reason_note">Dette hjælper os med at vurdere din ansøgning.</string>
 	<string name="clear">Ryd</string>
