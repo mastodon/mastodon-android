@@ -330,8 +330,13 @@
 		<item quantity="one">%,d favoritmarkering</item>
 		<item quantity="other">%,d favoritmarkeringer</item>
 	</plurals>
+	<plurals name="x_reblogs">
+		<item quantity="one">%,d indlæg</item>
+		<item quantity="other">%,d indlæg</item>
+	</plurals>
 	<string name="timestamp_via_app">%1$s via %2$s</string>
 	<string name="time_now">nu</string>
+	<string name="post_info_reblogs">Fremhævninger</string>
 	<string name="post_info_favorites">Favoritmarkeringer</string>
 	<string name="edit_history">Rediger historik</string>
 	<string name="last_edit_at_x">Senest ændret: %s</string>
@@ -378,6 +383,7 @@
 	<string name="download_update">Download (%s)</string>
 	<string name="install_update">Installer</string>
 	<string name="privacy_policy_title">Dit privatliv</string>
+	<string name="privacy_policy_subtitle">Selvom Mastodon-appen ikke indsamler data, kan den server du tilmelder dig gennem, have en anden politik.\n\nHvis du er uenig i politikken for %s, kan du gå tilbage og vælge en anden server.</string>
 	<string name="i_agree">Jeg accepterer</string>
 	<string name="empty_list">Denne liste er tom</string>
 	<string name="instance_signup_closed">Denne server er ikke åben for nye tilmeldinger.</string>
@@ -411,7 +417,32 @@
 	<string name="popular_on_mastodon">Populært på Mastodon</string>
 	<string name="follow_all">Følg alle</string>
 	<string name="server_rules_disagree">Ikke enig</string>
+	<string name="privacy_policy_explanation">TL;DR: Vi indsamler eller behandler ikke noget.</string>
 	<!-- %s is server domain -->
+	<string name="server_policy_disagree">Uenig med %s</string>
+	<string name="profile_bio">Biografi</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
+	<string name="sending_follows">Følger brugere …</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<string name="signup_email_domain_blocked">%1$s tillader ikke tilmeldinger fra %2$s. Prøv en anden eller &lt;a&gt;vælg en anden server&lt;/a&gt;.</string>
+	<string name="signup_username_taken">Brugernavnet er allerede i brug.</string>
+	<string name="spoiler_show">Vis alligevel</string>
+	<string name="spoiler_hide">Genskjul</string>
+	<string name="poll_multiple_choice">Vælg en eller flere</string>
+	<string name="save_changes">Gem ændringer</string>
+	<string name="profile_featured">Fremhævet</string>
+	<string name="profile_timeline">Tidslinje</string>
+	<string name="view_all">Se alle</string>
+	<string name="profile_endorsed_accounts">Konti</string>
+	<string name="verified_link">Bekræftet link</string>
+	<string name="show">Vis</string>
+	<string name="hide">Skjul</string>
+	<string name="join_default_server">Tilmeld dig %s</string>
+	<string name="pick_server">Vælg min egen server</string>
+	<string name="signup_or_login">eller</string>
+	<string name="learn_more">Få mere at vide</string>
+	<string name="welcome_to_mastodon">Velkommen til Mastodon</string>
+	<string name="welcome_paragraph1">Mastodon er et decentraliseret socialt netværk, hvilket betyder at ingen enkelt virksomhed styrer det. Det består af mange uafhængige servere, alle forbundet sammen.</string>
+	<string name="what_are_servers">Hvad er servere?</string>
+	<string name="welcome_paragraph2"><![CDATA[Alle Mastodon-konti har plads på en server. Hver server har sine egne værdier, regler og administratorer. Ligegyldigt hvilken server du vælger, kan du følge og interagere med folk på alle andre servere.]]></string>
 </resources>
