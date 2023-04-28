@@ -10,11 +10,13 @@
 	<string name="ok">OK</string>
 	<string name="preparing_auth">Подготовка к авторизации…</string>
 	<string name="finishing_auth">Завершение авторизации…</string>
+	<string name="user_boosted">%s продвинул(а)</string>
 	<string name="in_reply_to">В ответ %s</string>
 	<string name="notifications">Уведомления</string>
 	<string name="user_followed_you">подписался(ась) на вас</string>
 	<string name="user_sent_follow_request">прислал(а) запрос на подписку</string>
 	<string name="user_favorited">добавил(а) ваш пост в избранное</string>
+	<string name="notification_boosted">продвинул(а) ваш пост</string>
 	<string name="poll_ended">опрос завершён</string>
 	<string name="time_seconds">%dс</string>
 	<string name="time_minutes">%dм</string>
@@ -192,6 +194,7 @@
 	<string name="report_sent_subtitle">Пока мы рассматриваем его, вот действия, которые вы можете предпринять лично против %s.</string>
 	<string name="unfollow_user">Отписаться от %s</string>
 	<string name="unfollow">Отписаться</string>
+	<string name="mute_user_explain">Вы перестаните видеть посты и продвижения этого пользователя в домашней ленте. Он(а) не узнает, что вы игнорируете его/её.</string>
 	<string name="block_user_explain">Этот пользователь больше не сможет подписаться на вас или читать ваши посты. Он(а) сможет видеть, что заблокирован(а).</string>
 	<string name="report_personal_title">Не хотите видеть это?</string>
 	<string name="report_personal_subtitle">Если кто-то в Mastodon публикует то, что вам не нравится, вы можете скрыть его.</string>
@@ -248,6 +251,7 @@
 	<string name="skip">Пропустить</string>
 	<string name="notification_type_follow">Новые подписчики</string>
 	<string name="notification_type_favorite">Избранное</string>
+	<string name="notification_type_reblog">Продвижения</string>
 	<string name="notification_type_mention">Упоминания</string>
 	<string name="notification_type_poll">Опросы</string>
 	<string name="choose_account">Выберите аккаунт</string>
@@ -276,6 +280,7 @@
 	<string name="notify_none">никто</string>
 	<string name="notify_favorites">Добавляет мой пост в избранное</string>
 	<string name="notify_follow">Подписывается на меня</string>
+	<string name="notify_reblog">Продвинуть пост</string>
 	<string name="notify_mention">Упоминает меня</string>
 	<string name="settings_boring">Зона скукотищи</string>
 	<string name="settings_account">Настройки учётной записи</string>
@@ -296,6 +301,7 @@
 	<string name="hide_content">Скрыть содержимое</string>
 	<string name="new_post">Новый пост</string>
 	<string name="button_reply">Ответить</string>
+	<string name="button_reblog">Продвинуть</string>
 	<string name="button_favorite">Добавить в избранное</string>
 	<string name="button_share">Поделиться</string>
 	<string name="media_no_description">Медиа без описания</string>
@@ -309,7 +315,10 @@
 	<string name="follow_user">Подписаться на %s</string>
 	<string name="unfollowed_user">Вы отписались от %s</string>
 	<string name="followed_user">Вы подписались на %s</string>
+	<string name="following_user_requested">Отправлен запрос на подписку %s</string>
 	<string name="open_in_browser">Открыть в браузере</string>
+	<string name="hide_boosts_from_user">Скрыть продвигаемые от %s</string>
+	<string name="show_boosts_from_user">Показать продвигаемые от %s</string>
 	<string name="signup_reason">Почему вы хотите присоединиться?</string>
 	<string name="signup_reason_note">Это поможет нам рассмотреть вашу заявку.</string>
 	<string name="clear">Очистить</string>
@@ -351,8 +360,21 @@
 		<item quantity="many">%,d подписок</item>
 		<item quantity="other">%,d подписок</item>
 	</plurals>
+	<plurals name="x_favorites">
+		<item quantity="one">%,d избранный</item>
+		<item quantity="few">%,d избранных</item>
+		<item quantity="many">%,d избранных</item>
+		<item quantity="other">%,d избранных</item>
+	</plurals>
+	<plurals name="x_reblogs">
+		<item quantity="one">%,d продвинут</item>
+		<item quantity="few">%,d продвинуты</item>
+		<item quantity="many">%,d продвинуто</item>
+		<item quantity="other">%,d продвинутых</item>
+	</plurals>
 	<string name="timestamp_via_app">%1$s через %2$s</string>
 	<string name="time_now">только что</string>
+	<string name="post_info_reblogs">Продвижения</string>
 	<string name="post_info_favorites">Избранное</string>
 	<string name="edit_history">История изменений</string>
 	<string name="last_edit_at_x">Последнее изменение: %s</string>
@@ -446,4 +468,23 @@
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
 	<string name="signup_email_domain_blocked">%1$s не позволяет зарегистрироваться от %2$s. Попробуйте другой или &lt;a&gt;выберите другой сервер&lt;/a&gt;.</string>
 	<string name="signup_username_taken">Это имя пользователя занято.</string>
+	<string name="spoiler_show">Все равно показать</string>
+	<string name="spoiler_hide">Спрятать повторно</string>
+	<string name="poll_multiple_choice">Выберите один или более</string>
+	<string name="save_changes">Сохранить изменения</string>
+	<string name="profile_featured">Возможности</string>
+	<string name="profile_timeline">Лента</string>
+	<string name="view_all">Посмотреть все</string>
+	<string name="profile_endorsed_accounts">Учётные записи</string>
+	<string name="verified_link">Подтвержденная ссылка</string>
+	<string name="show">Показать</string>
+	<string name="hide">Скрыть</string>
+	<string name="join_default_server">Присоединиться к %s</string>
+	<string name="pick_server">Выбрать свой сервер</string>
+	<string name="signup_or_login">или</string>
+	<string name="learn_more">Узнать больше</string>
+	<string name="welcome_to_mastodon">Добро пожаловать в Mastodon</string>
+	<string name="welcome_paragraph1">Mastodon - это децентрализованная социальная сеть, то есть ни одна компания не контролирует ее. Она состоит из множества независимо управляемых серверов, соединенных вместе.</string>
+	<string name="what_are_servers">Что такое сервер?</string>
+	<string name="welcome_paragraph2"><![CDATA[Каждый аккаунт Mastodon размещается на сервере - каждый со своими ценностями, правилами и администраторами. Независимо от того, какой сервер вы выберете, вы можете следить и взаимодействовать с людьми на любом сервере.]]></string>
 </resources>
