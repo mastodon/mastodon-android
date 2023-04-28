@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+	<string name="get_started">Ստեղծել հաշիվ</string>
+	<string name="already_have_account">Արդեն հաշիվ ունեմ</string>
 	<string name="log_in">Մուտք գործել</string>
 	<string name="next">Հաջորդը</string>
 	<string name="error">Սխալ</string>
 	<string name="ok">Լավ</string>
 	<string name="preparing_auth">Պատրաստում ենք ավտոենտիֆիկացիայի…</string>
 	<string name="finishing_auth">Ավարտում ենք ավտոենտիֆիկացիան…</string>
+	<string name="user_boosted">%s-ը տարածել է</string>
 	<string name="in_reply_to">Ի պատասխան %s-ին</string>
 	<string name="notifications">Ծանուցումներ</string>
 	<string name="user_followed_you">սկսեց հետեւել քեզ</string>
 	<string name="user_sent_follow_request">հետեւելու հարցում է ուղարկել</string>
+	<string name="user_favorited">հավանեց ձեր գրառումը</string>
+	<string name="notification_boosted">տարածեց ձեր գրառումը</string>
 	<string name="poll_ended">հարցումն ավարտվել է</string>
 	<string name="time_seconds">%dվրկ</string>
 	<string name="time_minutes">%dր</string>
@@ -47,6 +52,57 @@
 	<string name="block_user">Արգելափակել%s</string>
 	<string name="unblock_user">Հանել արգելափակումից %s</string>
 	<string name="report_user">Բողոքել %s</string>
+	<string name="block_domain">Արգելափակել %s-ին</string>
+	<plurals name="x_posts">
+		<item quantity="one">%,d գրառում</item>
+		<item quantity="other">%,d գրառում</item>
+	</plurals>
+	<string name="profile_joined">Միացել է</string>
+	<string name="loading">Բեռնվում է…</string>
+	<string name="field_label">Պիտակ</string>
+	<plurals name="x_minutes">
+		<item quantity="one">%d րոպե</item>
+		<item quantity="other">%d րոպե</item>
+	</plurals>
+	<plurals name="x_hours">
+		<item quantity="one">%d ժամ</item>
+		<item quantity="other">%d ժամ</item>
+	</plurals>
+	<plurals name="x_days">
+		<item quantity="one">%d օր</item>
+		<item quantity="other">%d օր</item>
+	</plurals>
+	<string name="compose_poll_duration">Տեւողությունը՝ %s</string>
+	<plurals name="x_seconds_left">
+		<item quantity="one">Մնաց %d վայրկյան</item>
+		<item quantity="other">Մնաց %d վայրկյան</item>
+	</plurals>
+	<plurals name="x_minutes_left">
+		<item quantity="one">Մնաց %d րոպե</item>
+		<item quantity="other">Մնաց %d րոպե</item>
+	</plurals>
+	<plurals name="x_hours_left">
+		<item quantity="one">Մնաց %d ժամ</item>
+		<item quantity="other">Մնաց %d ժամ</item>
+	</plurals>
+	<plurals name="x_days_left">
+		<item quantity="one">Մնաց %d օր</item>
+		<item quantity="other">Մնաց %d օր</item>
+	</plurals>
+	<string name="poll_closed">Փակ</string>
+	<string name="confirm_mute_title">Լռեցնել հաշիվը</string>
+	<string name="do_mute">Լռեցնել</string>
+	<string name="confirm_block_title">Արգելափակել հաշիվը</string>
+	<string name="confirm_block_domain_title">Արգելափակել տիրույթը</string>
+	<string name="confirm_block">Հաստատեք %s-ի արգելափակումը</string>
+	<string name="do_block">Արգելափակել</string>
+	<string name="action_vote">Քվեարկել</string>
+	<string name="tap_to_reveal">Սեղմեք տեսնելու համար</string>
+	<string name="delete">Ջնջել</string>
+	<string name="confirm_delete_title">Ջնջել գրառումը</string>
+	<string name="confirm_delete">Վստա՞հ եք, որ ուզում եք ջնջել այս գրառումը։</string>
+	<string name="report_comment_hint">Լրացուցիչ մեկնաբանություններ</string>
+	<string name="sending_report">Զեկույցը ուղարկվում է․․․</string>
 	<!-- %s is the email address -->
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<!-- %s is version like 1.2.3 -->
