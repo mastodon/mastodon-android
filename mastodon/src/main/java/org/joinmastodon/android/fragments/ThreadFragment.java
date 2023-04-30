@@ -1,7 +1,12 @@
 package org.joinmastodon.android.fragments;
 
+import android.content.res.ColorStateList;
+import android.graphics.Canvas;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.requests.statuses.GetStatusContext;
@@ -23,10 +28,15 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import androidx.recyclerview.widget.RecyclerView;
 import me.grishka.appkit.api.SimpleCallback;
+import me.grishka.appkit.utils.MergeRecyclerAdapter;
+import me.grishka.appkit.utils.SingleViewRecyclerAdapter;
+import me.grishka.appkit.utils.V;
 
 public class ThreadFragment extends StatusListFragment{
 	private Status mainStatus;
+	private ImageView endMark;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState){
@@ -131,5 +141,25 @@ public class ThreadFragment extends StatusListFragment{
 	@Override
 	public boolean isItemEnabled(String id){
 		return !id.equals(mainStatus.id);
+	}
+
+	@Override
+	protected RecyclerView.Adapter getAdapter(){
+		MergeRecyclerAdapter a=new MergeRecyclerAdapter();
+		a.addAdapter(super.getAdapter());
+
+		endMark=new ImageView(getActivity());
+		endMark.setScaleType(ImageView.ScaleType.CENTER);
+		endMark.setImageTintList(ColorStateList.valueOf(UiUtils.getThemeColor(getActivity(), R.attr.colorM3OutlineVariant)));
+		endMark.setLayoutParams(new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, V.dp(25)));
+		endMark.setImageResource(R.drawable.thread_end_mark);
+		a.addAdapter(new SingleViewRecyclerAdapter(endMark));
+
+		return a;
+	}
+
+	@Override
+	protected boolean needDividerForExtraItem(View child, View bottomSibling, RecyclerView.ViewHolder holder, RecyclerView.ViewHolder siblingHolder){
+		return bottomSibling==endMark;
 	}
 }

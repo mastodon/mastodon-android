@@ -45,8 +45,8 @@ public class ExtendedFooterStatusDisplayItem extends StatusDisplayItem{
 	}
 
 	public static class Holder extends StatusDisplayItem.Holder<ExtendedFooterStatusDisplayItem>{
-		private final TextView time, favoritesCount, reblogsCount, lastEditTime;
-		private final View favorites, reblogs, editHistory;
+		private final TextView time;
+		private final TextView favorites, reblogs, editHistory;
 
 		public Holder(Context context, ViewGroup parent){
 			super(context, R.layout.display_item_extended_footer, parent);
@@ -54,9 +54,6 @@ public class ExtendedFooterStatusDisplayItem extends StatusDisplayItem{
 			favorites=findViewById(R.id.favorites);
 			editHistory=findViewById(R.id.edit_history);
 			time=findViewById(R.id.timestamp);
-			favoritesCount=findViewById(R.id.favorites_count);
-			reblogsCount=findViewById(R.id.reblogs_count);
-			lastEditTime=findViewById(R.id.last_edited);
 
 			reblogs.setOnClickListener(v->startAccountListFragment(StatusReblogsListFragment.class));
 			favorites.setOnClickListener(v->startAccountListFragment(StatusFavoritesListFragment.class));
@@ -67,11 +64,11 @@ public class ExtendedFooterStatusDisplayItem extends StatusDisplayItem{
 		@Override
 		public void onBind(ExtendedFooterStatusDisplayItem item){
 			Status s=item.status;
-			favoritesCount.setText(String.format("%,d", s.favouritesCount));
-			reblogsCount.setText(String.format("%,d", s.reblogsCount));
+			favorites.setText(itemView.getResources().getQuantityString(R.plurals.x_favorites, (int)item.status.favouritesCount, item.status.favouritesCount));
+			reblogs.setText(itemView.getResources().getQuantityString(R.plurals.x_reblogs, (int)item.status.reblogsCount, item.status.reblogsCount));
 			if(s.editedAt!=null){
 				editHistory.setVisibility(View.VISIBLE);
-				lastEditTime.setText(item.parentFragment.getString(R.string.last_edit_at_x, UiUtils.formatRelativeTimestampAsMinutesAgo(itemView.getContext(), s.editedAt)));
+				editHistory.setText(item.parentFragment.getString(R.string.last_edit_at_x, UiUtils.formatRelativeTimestampAsMinutesAgo(itemView.getContext(), s.editedAt)));
 			}else{
 				editHistory.setVisibility(View.GONE);
 			}

@@ -324,6 +324,10 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 		c.drawLine(0, y, parent.getWidth(), y, paint);
 	}
 
+	protected boolean needDividerForExtraItem(View child, View bottomSibling, RecyclerView.ViewHolder holder, RecyclerView.ViewHolder siblingHolder){
+		return false;
+	}
+
 	public abstract void onItemClick(String id);
 
 	protected void updatePoll(String itemID, Status status, Poll poll){
@@ -596,7 +600,7 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 		private Paint dividerPaint=new Paint();
 
 		{
-			dividerPaint.setColor(UiUtils.getThemeColor(getActivity(), R.attr.colorM3Outline));
+			dividerPaint.setColor(UiUtils.getThemeColor(getActivity(), R.attr.colorM3OutlineVariant));
 			dividerPaint.setStyle(Paint.Style.STROKE);
 			dividerPaint.setStrokeWidth(V.dp(0.5f));
 		}
@@ -608,8 +612,9 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 				View bottomSibling=parent.getChildAt(i+1);
 				RecyclerView.ViewHolder holder=parent.getChildViewHolder(child);
 				RecyclerView.ViewHolder siblingHolder=parent.getChildViewHolder(bottomSibling);
-				if(holder instanceof StatusDisplayItem.Holder<?> ih && siblingHolder instanceof StatusDisplayItem.Holder<?> sh
-						&& (!ih.getItemID().equals(sh.getItemID()) || sh instanceof ExtendedFooterStatusDisplayItem.Holder) && ih.getItem().getType()!=StatusDisplayItem.Type.GAP){
+				if((holder instanceof StatusDisplayItem.Holder<?> ih && siblingHolder instanceof StatusDisplayItem.Holder<?> sh
+						&& (!ih.getItemID().equals(sh.getItemID()) || sh instanceof ExtendedFooterStatusDisplayItem.Holder) && ih.getItem().getType()!=StatusDisplayItem.Type.GAP)
+						|| needDividerForExtraItem(child, bottomSibling, holder, siblingHolder)){
 					drawDivider(child, bottomSibling, holder, siblingHolder, parent, c, dividerPaint);
 				}
 			}
