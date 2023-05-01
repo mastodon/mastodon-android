@@ -133,7 +133,7 @@
 	<string name="notification_channel_audio_player">Audio playback</string>
 	<string name="play">Play</string>
 	<string name="pause">Pause</string>
-	<string name="log_out">Sign out</string>
+	<string name="log_out">Log out</string>
 	<string name="add_account">Add account</string>
 	<string name="search_hint">Search</string>
 	<string name="hashtags">Hashtags</string>
@@ -267,7 +267,7 @@
 	<string name="settings_clear_cache">Clear media cache</string>
 	<string name="settings_app_version">Mastodon for Android v%1$s (%2$d)</string>
 	<string name="media_cache_cleared">Media cache cleared</string>
-	<string name="confirm_log_out">Are you sure you want to sign out?</string>
+	<string name="confirm_log_out">Log out of %s?</string>
 	<string name="sensitive_content_explain">The author marked this media as sensitive.</string>
 	<string name="media_hidden">Tap to reveal</string>
 	<string name="avatar_description">Go to %s\'s profile</string>
@@ -453,4 +453,6 @@
 	<string name="welcome_paragraph2"><![CDATA[Every Mastodon account is hosted on a server — each with its own values, rules, & admins. No matter which one you pick, you can follow and interact with people on any server.]]></string>
 	<string name="opening_link">Opening link…</string>
 	<string name="link_not_supported">This link is not supported in the app</string>
+	<string name="log_out_all_accounts">Log out of all accounts</string>
+	<string name="confirm_log_out_all_accounts">Log out of all accounts?</string>
 </resources>

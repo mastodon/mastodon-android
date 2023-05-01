@@ -73,4 +73,8 @@ public class AccountSession{
 			pushSubscriptionManager=new PushSubscriptionManager(getID());
 		return pushSubscriptionManager;
 	}
+
+	public String getFullUsername(){
+		return '@'+self.username+'@'+domain;
+	}
 }

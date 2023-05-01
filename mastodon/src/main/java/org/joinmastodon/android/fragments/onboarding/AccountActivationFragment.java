@@ -103,7 +103,7 @@ public class AccountActivationFragment extends ToolbarFragment{
 
 	@Override
 	public void onToolbarNavigationClick(){
-		new AccountSwitcherSheet(getActivity()).show();
+		new AccountSwitcherSheet(getActivity(), null).show();
 	}
 
 	@Override

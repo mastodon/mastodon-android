@@ -197,6 +197,13 @@ public class HomeFragment extends AppKitFragment implements OnBackPressedListene
 		throw new IllegalArgumentException();
 	}
 
+	public void setCurrentTab(@IdRes int tab){
+		if(tab==currentTab)
+			return;
+		tabBar.selectTab(tab);
+		onTabSelected(tab);
+	}
+
 	private void onTabSelected(@IdRes int tab){
 		Fragment newFragment=fragmentForTab(tab);
 		if(tab==currentTab){
@@ -230,7 +237,7 @@ public class HomeFragment extends AppKitFragment implements OnBackPressedListene
 			for(AccountSession session:AccountSessionManager.getInstance().getLoggedInAccounts()){
 				options.add(session.self.displayName+"\n("+session.self.username+"@"+session.domain+")");
 			}
-			new AccountSwitcherSheet(getActivity()).show();
+			new AccountSwitcherSheet(getActivity(), this).show();
 			return true;
 		}
 		if(tab==R.id.tab_home){
