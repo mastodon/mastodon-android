@@ -20,8 +20,8 @@
 	<string name="poll_ended">oylama sona erdi</string>
 	<string name="time_seconds">%ds</string>
 	<string name="time_minutes">%ddk</string>
-	<string name="time_hours">%dsaat</string>
-	<string name="time_days">%dgün</string>
+	<string name="time_hours">%ds</string>
+	<string name="time_days">%dg</string>
 	<string name="share_toot_title">Paylaş</string>
 	<string name="settings">Ayarlar</string>
 	<string name="publish">Yayınla</string>
@@ -29,16 +29,16 @@
 	<string name="discard">Sil</string>
 	<string name="cancel">İptal et</string>
 	<plurals name="followers">
-		<item quantity="one">Takipçi</item>
-		<item quantity="other">Takipçi</item>
+		<item quantity="one">takipçi</item>
+		<item quantity="other">takipçi</item>
 	</plurals>
 	<plurals name="following">
-		<item quantity="one">Takip</item>
-		<item quantity="other">Takip</item>
+		<item quantity="one">takip</item>
+		<item quantity="other">takip</item>
 	</plurals>
 	<plurals name="posts">
 		<item quantity="one">gönderi</item>
-		<item quantity="other">gönderiler</item>
+		<item quantity="other">gönderi</item>
 	</plurals>
 	<string name="posts">Gönderiler</string>
 	<string name="posts_and_replies">Gönderiler ve Cevaplar</string>
@@ -58,7 +58,7 @@
 	<string name="unblock_domain">%s kişisinin engelini kaldır</string>
 	<plurals name="x_posts">
 		<item quantity="one">%,d gönderi</item>
-		<item quantity="other">%,d gönderiler</item>
+		<item quantity="other">%,d gönderi</item>
 	</plurals>
 	<string name="profile_joined">Katıldı</string>
 	<string name="done">Tamamla</string>
@@ -130,7 +130,7 @@
 	<string name="log_out">Çıkış yap</string>
 	<string name="add_account">Hesap ekle</string>
 	<string name="search_hint">Arama</string>
-	<string name="hashtags">Hashtagler</string>
+	<string name="hashtags">Etiketler</string>
 	<string name="news">Haberler</string>
 	<string name="for_you">Senin için</string>
 	<string name="all_notifications">Hepsi</string>
@@ -244,13 +244,13 @@
 	<string name="settings_custom_tabs">Uygulama içi tarayıcıyı kullan</string>
 	<string name="settings_notifications">Bildirimler</string>
 	<string name="notify_me_when">Beni şu durumda bilgilendir: </string>
-	<string name="notify_anyone">herhangi biri</string>
-	<string name="notify_follower">bir takipçim</string>
-	<string name="notify_followed">takip ettiğim biri</string>
-	<string name="notify_none">bilgilendirme</string>
-	<string name="notify_favorites">Gönderiğimi beğendiğinde</string>
+	<string name="notify_anyone">Herhangi biri</string>
+	<string name="notify_follower">Bir takipçim</string>
+	<string name="notify_followed">Takip ettiğim biri</string>
+	<string name="notify_none">Bilgilendirme</string>
+	<string name="notify_favorites">Gönderimi favorilerine eklediğinde</string>
 	<string name="notify_follow">Beni takip ettiğinde</string>
-	<string name="notify_reblog">Gönderim paylaşıldığında</string>
+	<string name="notify_reblog">Gönderimi yinelediğinde</string>
 	<string name="notify_mention">Benden bahsettiğinde</string>
 	<string name="settings_boring">Sıkıcı bölge</string>
 	<string name="settings_account">Hesap ayarları</string>
@@ -330,6 +330,10 @@
 		<item quantity="one">%,d favori</item>
 		<item quantity="other">%,d favori</item>
 	</plurals>
+	<plurals name="x_reblogs">
+		<item quantity="one">%,d yineleme</item>
+		<item quantity="other">%,d yineleme</item>
+	</plurals>
 	<string name="timestamp_via_app">%1$s tarihinde %2$s uygulamasıyla</string>
 	<string name="time_now">şimdi</string>
 	<string name="post_info_reblogs">Yeniden paylaşımlar</string>
@@ -345,7 +349,7 @@
 		<item quantity="one">%d dakika önce</item>
 		<item quantity="other">%d dakika önce</item>
 	</plurals>
-	<string name="edited_timestamp">%s tarihinde düzenlendi</string>
+	<string name="edited_timestamp">%s önce düzenlendi</string>
 	<string name="edit_original_post">Asıl gönderi</string>
 	<string name="edit_text_edited">Düzenlenmiş gönderi</string>
 	<string name="edit_spoiler_added">İçerik uyarısı eklendi</string>
@@ -434,6 +438,7 @@
 	<string name="show">Göster</string>
 	<string name="hide">Gizle</string>
 	<string name="join_default_server">%s\'e katıl</string>
+	<string name="pick_server">Başka sunucu seç</string>
 	<string name="signup_or_login">veya</string>
 	<string name="learn_more">Daha fazla bilgi edinin</string>
 	<string name="welcome_to_mastodon">Mastodon\'a hoş geldiniz</string>
