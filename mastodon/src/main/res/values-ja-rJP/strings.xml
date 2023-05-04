@@ -150,7 +150,7 @@
 	<string name="sending_report">レポートを送信しています...</string>
 	<string name="report_sent_title">ご報告ありがとうございます、追って確認します。</string>
 	<string name="report_sent_subtitle">私たちが確認している間でも、あなたは%sさんに対して対応することができます。</string>
-	<string name="unfollow_user">フォロー解除%s</string>
+	<string name="unfollow_user">フォロー解除 %s</string>
 	<string name="unfollow">フォロー解除</string>
 	<string name="mute_user_explain">ホームに投稿やブーストは表示されなくなりますが、相手にミュートしたことは伝わりません。</string>
 	<string name="block_user_explain">相手はあなたの投稿を見ることやフォローすることは出来ません。相手はブロックされていることはわかります。</string>
@@ -267,13 +267,13 @@
 	<string name="home_timeline">ホームタイムライン</string>
 	<string name="my_profile">プロフィール</string>
 	<string name="media_viewer">メディアビューアー</string>
-	<string name="follow_user">フォロー%s</string>
-	<string name="unfollowed_user">フォロー解除%s</string>
-	<string name="followed_user">%sさんをフォローしました</string>
+	<string name="follow_user">フォロー %s</string>
+	<string name="unfollowed_user">%s のフォローを解除しました</string>
+	<string name="followed_user">%s をフォローしました</string>
 	<string name="following_user_requested">%s にフォローリクエストしました</string>
 	<string name="open_in_browser">ブラウザで開く</string>
-	<string name="hide_boosts_from_user">%sからのブーストを非表示</string>
-	<string name="show_boosts_from_user">%sからのブーストを表示</string>
+	<string name="hide_boosts_from_user">ブーストを非表示 %s</string>
+	<string name="show_boosts_from_user">ブーストを表示 %s</string>
 	<string name="signup_reason">参加したい理由を入力してください</string>
 	<string name="signup_reason_note">申請を承認する際に役立つメッセージを添えてください.</string>
 	<string name="clear">クリア</string>
@@ -405,8 +405,8 @@
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
 	<string name="signup_email_domain_blocked">%1$s では %2$s のメールアドレスでの登録が許可されていません。別のメールアドレスを使うか、&lt;a&gt;ほかのサーバーを選択&lt;/a&gt;してください。</string>
 	<string name="signup_username_taken">このユーザー名はすでに使用されています。</string>
-	<string name="spoiler_show">とにかく表示</string>
-	<string name="spoiler_hide">再び隠す</string>
+	<string name="spoiler_show">表示する</string>
+	<string name="spoiler_hide">非表示</string>
 	<string name="poll_multiple_choice">1つまたは複数を選択</string>
 	<string name="save_changes">変更を保存</string>
 	<string name="profile_featured">特徴</string>
