@@ -1,16 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+	<string name="get_started">Cruthaich cunntas</string>
+	<string name="already_have_account">Tha cunntas agam mu thràth</string>
 	<string name="log_in">Clàraich a-steach</string>
 	<string name="next">Air adhart</string>
+	<string name="loading_instance">A’ faighinn fiosrachadh an fhrithealaiche…</string>
 	<string name="error">Mearachd</string>
+	<string name="not_a_mastodon_instance">Tha coltas nach eil %s ’na fhrithealaiche Mastodon.</string>
 	<string name="ok">Ceart ma-thà</string>
 	<string name="preparing_auth">Ag ullachadh an dearbhaidh…</string>
 	<string name="finishing_auth">A’ crìochnachadh an dearbhaidh…</string>
+	<string name="user_boosted">’Ga bhrosnachadh le %s</string>
 	<string name="in_reply_to">A’ freagairt dha %s</string>
 	<string name="notifications">Brathan</string>
 	<string name="user_followed_you">– ’s iad ’gad leantainn a-nis</string>
 	<string name="user_sent_follow_request">– ’s iad air iarrtas leantainn a chur thugad</string>
 	<string name="user_favorited">– ’s iad air am post agad a chur ris na h-annsachdan aca</string>
+	<string name="notification_boosted">– ’s iad air a’ phost agad a bhrosnachadh</string>
 	<string name="poll_ended">Thàinig cunntas-bheachd gu crìoch</string>
 	<string name="time_seconds">%dd</string>
 	<string name="time_minutes">%dm</string>
@@ -188,13 +194,23 @@
 	<string name="report_sent_subtitle">Fhad ’s a bhios sinn a’ toirt sùil air, seo nas urrainn dhut dèanamh an aghaidh %s.</string>
 	<string name="unfollow_user">Na lean %s tuilleadh</string>
 	<string name="unfollow">Na lean tuilleadh</string>
+	<string name="mute_user_explain">Chan fhaic thu na postaichean aca is na bhrosnaich iad ’nad dachaigh tuilleadh. Cha bhi fios aca gun do mhùch thu iad.</string>
 	<string name="block_user_explain">Chan urrainn dhaibh ’gad leantainn is chan fhaic iad na postaichean agad tuilleadh ach chì iad gun deach am bacadh.</string>
 	<string name="report_personal_title">Nach eil thu airson seo fhaicinn?</string>
 	<string name="report_personal_subtitle">Nuair a chì thu rudeigin nach toigh leat air Mastodon, ’s urrainn dhut an neach a chumail fad air falbh uat.</string>
 	<string name="back">Air ais</string>
 	<string name="instance_catalog_title">Tha cleachdaichean Mhastodon air iomadh frithealaiche eadar-dhealaichte.</string>
 	<string name="instance_catalog_subtitle">Tagh frithealaiche stèidhichte air d’ ùidhean, air far a bheil thu no fear coitcheann. ’S urrainn dhut conaltradh leis a h-uile duine fhathast ge b’ e am frithealaiche.</string>
+	<string name="search_communities">Ainm no URL an fhrithealaiche</string>
+	<string name="instance_rules_title">Riaghailtean an fhrithealaiche</string>
+	<string name="instance_rules_subtitle">Ma leanas tu air adhart, aontaichidh tu ris na riaghailtean a tha ’gan suidheachadh is èigneachadh leis na maoir aig %s.</string>
+	<string name="signup_title">Cruthaich cunntas</string>
 	<string name="edit_photo">deasaich</string>
+	<string name="display_name">Ainm</string>
+	<string name="username">Ainm-cleachdaiche</string>
+	<string name="email">Post-d</string>
+	<string name="password">Facal-faire</string>
+	<string name="confirm_password">Dearbh am facal-faire</string>
 	<string name="password_note">Gabh a-steach litrichean mòra, caractaran sònraichte agus àireamhan airson am facal-faire agad a dhèanamh nas treasa.</string>
 	<string name="category_academia">Sgoilearachd</string>
 	<string name="category_activism">Iomairteachd</string>
@@ -209,7 +225,10 @@
 	<string name="category_music">Ceòl</string>
 	<string name="category_regional">Sgìreil</string>
 	<string name="category_tech">Teicneolas</string>
+	<string name="confirm_email_title">Thoir sùil air a’ bhogsa a-steach agad</string>
 	<!-- %s is the email address -->
+	<string name="confirm_email_subtitle">Thoir gnogag air a’ cheangal a chuir sinn thugad a dhearbhadh %s. Fuirichidh sinn ort an-seo.</string>
+	<string name="confirm_email_didnt_get">Nach d’fhuair thu ceangal?</string>
 	<string name="resend">Cuir a-rithist</string>
 	<string name="open_email_app">Fosgail aplacaid a’ phuist-d</string>
 	<string name="resent_email">Chaidh post-d dearbhaidh a chur</string>
@@ -232,6 +251,7 @@
 	<string name="skip">Leum thairis air</string>
 	<string name="notification_type_follow">Luchd-leantainn ùr</string>
 	<string name="notification_type_favorite">Annsachdan</string>
+	<string name="notification_type_reblog">Brosnachaidhean</string>
 	<string name="notification_type_mention">Iomraidhean</string>
 	<string name="notification_type_poll">Cunntasan-bheachd</string>
 	<string name="choose_account">Tagh cunntas</string>
@@ -260,6 +280,7 @@
 	<string name="notify_none">nach bi duine sam bith</string>
 	<string name="notify_favorites">air post uam a chur ris na h-annsachdan</string>
 	<string name="notify_follow">air mo leantainn</string>
+	<string name="notify_reblog">air post agam a bhrosnachadh</string>
 	<string name="notify_mention">air iomradh a thoirt orm</string>
 	<string name="settings_boring">An earrann ràsanach</string>
 	<string name="settings_account">Roghainnean a’ chunntais</string>
@@ -280,6 +301,7 @@
 	<string name="hide_content">Falaich an t-susbaint</string>
 	<string name="new_post">Post ùr</string>
 	<string name="button_reply">Freagair</string>
+	<string name="button_reblog">Brosnaich</string>
 	<string name="button_favorite">Cuir ris na h-annsachdan</string>
 	<string name="button_share">Co-roinn</string>
 	<string name="media_no_description">Meadhan gun tuairisgeul</string>
@@ -293,7 +315,11 @@
 	<string name="follow_user">Lean %s</string>
 	<string name="unfollowed_user">Chan eil thu a’ leantainn %s tuilleadh</string>
 	<string name="followed_user">Tha thu a’ leantainn %s a-nis</string>
+	<string name="following_user_requested">Dh’iarr thu %s a leantainn</string>
 	<string name="open_in_browser">Fosgail sa bhrabhsair</string>
+	<string name="hide_boosts_from_user">Falaich na brosnachaidhean o %s</string>
+	<string name="show_boosts_from_user">Seall na brosnachaidhean o %s</string>
+	<string name="signup_reason">Carson a bu mhiann leat ballrachd fhaighinn?</string>
 	<string name="signup_reason_note">Bidh e nas fhasa dhuinn lèirmheas a dhèanamh air d’ iarrtas.</string>
 	<string name="clear">Falamhaich</string>
 	<string name="profile_header">Dealbh a’ bhanna-chinn</string>
@@ -340,8 +366,15 @@
 		<item quantity="few">%,d annsachdan</item>
 		<item quantity="other">%,d annsachd</item>
 	</plurals>
+	<plurals name="x_reblogs">
+		<item quantity="one">%,d bhrosnachadh</item>
+		<item quantity="two">%,d bhrosnachadh</item>
+		<item quantity="few">%,d brosnachaidhean</item>
+		<item quantity="other">%,d brosnachadh</item>
+	</plurals>
 	<string name="timestamp_via_app">%1$s slighe %2$s</string>
 	<string name="time_now">an-dràsta</string>
+	<string name="post_info_reblogs">Brosnachaidhean</string>
 	<string name="post_info_favorites">Annsachdan</string>
 	<string name="edit_history">Eachdraidh nan deasachaidhean</string>
 	<string name="last_edit_at_x">An deasachadh mu dheireadh %s</string>
@@ -391,9 +424,67 @@
 	<!-- %s is file size -->
 	<string name="download_update">Luchdaich a-nuas (%s)</string>
 	<string name="install_update">Stàlaich</string>
+	<string name="privacy_policy_title">Do phrìobhaideachd</string>
+	<string name="privacy_policy_subtitle">Ged nach cruinnich aplacaid Mastodon fhèin dàta sam bith, dh’fhaoidte gu bheil poileasaidh eadar-dhealaichte aig an fhrithealaiche leis a chlàraicheas tu.\n\nMur aontaich thu ris a’ phoileasaidh aig %s, rach air ais is tagh frithealaiche eile.</string>
 	<string name="i_agree">Gabhaidh mi ris</string>
 	<string name="empty_list">Tha an liosta seo falamh</string>
+	<string name="instance_signup_closed">Chan eil am frithealaiche seo a’ gabhail ri clàraidhean ùra.</string>
+	<string name="text_copied">Chaidh lethbhreac dheth a chur air an stòr-bhòrd</string>
+	<string name="add_bookmark">Cruthaich comharra-lìn</string>
+	<string name="remove_bookmark">Thoir an comharra-lìn air falbh</string>
+	<string name="bookmarks">Comharran-lìn</string>
+	<string name="your_favorites">Na h-annsachdan agad</string>
+	<string name="login_title">Fàilte air ais</string>
+	<string name="login_subtitle">Clàraich a-steach leis an fhrithealaiche far an do chruthaich thu an cunntas agad.</string>
+	<string name="server_url">URL an fhrithealaiche</string>
+	<string name="signup_random_server_explain">Taghaidh sinn frithealaiche dhut stèidhichte air a’ chànan agad ma leanas tu air adhart gun taghadh.</string>
+	<string name="server_filter_any_language">Cànan sam bith</string>
+	<string name="server_filter_instant_signup">Clàradh sa bhad</string>
+	<string name="server_filter_manual_review">Lèirmheas a làimh</string>
+	<string name="server_filter_any_signup_speed">Luaths clàraidh sam bith</string>
+	<string name="server_filter_region_europe">An Roinn-Eòrpa</string>
+	<string name="server_filter_region_north_america">Aimeireaga a Tuath</string>
+	<string name="server_filter_region_south_america">Aimeireaga a Deas</string>
+	<string name="server_filter_region_africa">Afraga</string>
+	<string name="server_filter_region_asia">Àisia</string>
+	<string name="server_filter_region_oceania">Roinn a’ Chuain Sèimh</string>
+	<string name="not_accepting_new_members">Gun ghabhail ri buill ùra</string>
+	<string name="category_special_interests">Ùidhean sònraichte</string>
+	<string name="signup_passwords_dont_match">Chan eil an dà fhacal-faire co-ionnann</string>
+	<string name="pick_server_for_me">Taghaibh fear dhomh</string>
+	<string name="profile_add_row">Cuir ràgh ris</string>
+	<string name="profile_setup">Suidheachadh na pròifile</string>
+	<string name="profile_setup_subtitle">’S urrainn dhut seo a choileanadh air taba na Pròifile uair sam bith.</string>
+	<string name="profile_setup_explanation">’S urrainn dhut suas ri ceithir raointean a chur ris a’ phròifil agad airson rud sam bith a thogras tu. Ionad, ceanglaichean, roimhearan no ge b’ e dè eile.</string>
+	<string name="popular_on_mastodon">Fèillmhor air Mastodon</string>
+	<string name="follow_all">Lean na h-uile</string>
+	<string name="server_rules_disagree">Diùlt</string>
+	<string name="privacy_policy_explanation">Gu goirid: Cha chruinnich is cha dèan sinn pròiseasadh air dad sam bith.</string>
 	<!-- %s is server domain -->
+	<string name="server_policy_disagree">Diùlt %s</string>
+	<string name="profile_bio">Cunntas-beatha</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
+	<string name="sending_follows">A’ leantainn cleachdaichean…</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<string name="signup_email_domain_blocked">Cha cheadaich %1$s clàradh o %2$s. Feuch fear eile no &lt;a&gt;tagh frithealaiche eile&lt;/a&gt;.</string>
+	<string name="signup_username_taken">Tha an t-ainm-cleachdaiche seo aig cuideigin eile.</string>
+	<string name="spoiler_show">Seall e co-dhiù</string>
+	<string name="spoiler_hide">Falaich a-rithist</string>
+	<string name="poll_multiple_choice">Tagh co-dhiù aonan</string>
+	<string name="save_changes">Sàbhail na h-atharraichean</string>
+	<string name="profile_featured">’Ga bhrosnachadh</string>
+	<string name="profile_timeline">Loidhne-ama</string>
+	<string name="view_all">Seall a h-uile</string>
+	<string name="profile_endorsed_accounts">Cunntasan</string>
+	<string name="verified_link">Ceangal dearbhte</string>
+	<string name="show">Seall</string>
+	<string name="hide">Falaich</string>
+	<string name="join_default_server">Faigh ballrachd aig %s</string>
+	<string name="pick_server">Tagh frithealaiche eile</string>
+	<string name="signup_or_login">no</string>
+	<string name="learn_more">Barrachd fiosrachaidh</string>
+	<string name="welcome_to_mastodon">Fàilte gu Mastodon</string>
+	<string name="welcome_paragraph1">’S e lìonra sòisealta sgaoilte a th’ ann am Mastodon agus is ciall dha seo nach eil e fo smachd aon chompanaidh a-mhàin. Tha e dèanta de ghrunn fhrithealaichean a tha ’gan ruith gu neo-eisimeileach ach ceangailte ri chèile.</string>
+	<string name="what_are_servers">Dè th’ anns na frithealaichean?</string>
+	<string name="welcome_paragraph2"><![CDATA[Tha gach cunntas Mastodon ’ga òstadh air frithealaiche – tha luachan, riaghailtean ⁊ rianairean sònraichte aig gach fear. Ge b’ e dè am frithealaiche a thaghas tu, ’s urrainn dhut daoine air frithealaiche sam bith a leantainn is bruidhinn riutha.]]></string>
 </resources>
