@@ -355,6 +355,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 			args.putString("account", accountID);
 			args.putParcelable("profileAccount", Parcels.wrap(account));
 			args.putBoolean("__is_tab", true);
+			args.putBoolean("noAutoLoad", true);
 			featuredFragment.setArguments(args);
 			timelineFragment=AccountTimelineFragment.newInstance(accountID, account, true);
 			aboutFragment=new ProfileAboutFragment();
@@ -376,10 +377,8 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 				pager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback(){
 					@Override
 					public void onPageSelected(int position){
-						if(position==0)
-							return;
 						Fragment _page=getFragmentForPage(position);
-						if(_page instanceof BaseRecyclerFragment<?> page){
+						if(_page instanceof BaseRecyclerFragment<?> page && page.isAdded()){
 							if(!page.loaded && !page.isDataLoading())
 								page.loadData();
 						}
@@ -392,6 +391,8 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 						refreshLayout.setEnabled(state!=ViewPager2.SCROLL_STATE_DRAGGING);
 					}
 				});
+				pager.setCurrentItem(1, false);
+				tabbar.selectTab(tabbar.getTabAt(1));
 				return true;
 			}
 		});
@@ -1002,6 +1003,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 				holder.itemView.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener(){
 					@Override
 					public boolean onPreDraw(){
+						getChildFragmentManager().executePendingTransactions();
 						if(fragment.isAdded()){
 							holder.itemView.getViewTreeObserver().removeOnPreDrawListener(this);
 							applyChildWindowInsets();

@@ -57,8 +57,6 @@ public class AccountTimelineFragment extends StatusListFragment{
 
 	@Override
 	protected void doLoadData(int offset, int count){
-		if(user==null) // TODO figure out why this happens
-			return;
 		currentRequest=new GetAccountStatuses(user.id, offset>0 ? getMaxID() : null, null, count, filter)
 				.setCallback(new SimpleCallback<>(this){
 					@Override
