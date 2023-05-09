@@ -11,7 +11,6 @@ import android.content.res.TypedArray;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
-import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.InsetDrawable;
@@ -27,9 +26,15 @@ import android.provider.OpenableColumns;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextUtils;
+import android.transition.ChangeBounds;
+import android.transition.ChangeScroll;
+import android.transition.Fade;
+import android.transition.TransitionManager;
+import android.transition.TransitionSet;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.PopupMenu;
@@ -86,6 +91,7 @@ import me.grishka.appkit.api.Callback;
 import me.grishka.appkit.api.ErrorResponse;
 import me.grishka.appkit.imageloader.ViewImageLoader;
 import me.grishka.appkit.imageloader.requests.UrlImageLoaderRequest;
+import me.grishka.appkit.utils.CubicBezierInterpolator;
 import me.grishka.appkit.utils.V;
 import okhttp3.MediaType;
 
@@ -642,6 +648,10 @@ public class UiUtils{
 		return 0xFF000000 | (r << 16) | (g << 8) | b;
 	}
 
+	public static int alphaBlendThemeColors(Context context, @AttrRes int color1, @AttrRes int color2, float alpha){
+		return alphaBlendColors(getThemeColor(context, color1), getThemeColor(context, color2), alpha);
+	}
+
 	/**
 	 * Check to see if Android platform photopicker is available on the device\
 	 *
@@ -712,5 +722,15 @@ public class UiUtils{
 			return String.format("%d:%02d:%02d", seconds/3600, seconds%3600/60, seconds%60);
 		else
 			return String.format("%d:%02d", seconds/60, seconds%60);
+	}
+
+	public static void beginLayoutTransition(ViewGroup sceneRoot){
+		TransitionManager.beginDelayedTransition(sceneRoot, new TransitionSet()
+				.addTransition(new Fade(Fade.IN | Fade.OUT))
+				.addTransition(new ChangeBounds())
+				.addTransition(new ChangeScroll())
+				.setDuration(250)
+				.setInterpolator(CubicBezierInterpolator.DEFAULT)
+		);
 	}
 }

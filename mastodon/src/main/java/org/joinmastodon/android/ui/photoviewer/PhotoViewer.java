@@ -259,6 +259,10 @@ public class PhotoViewer implements ZoomPanView.Listener{
 		});
 	}
 
+	public void removeMenu(){
+		toolbar.getMenu().clear();
+	}
+
 	@Override
 	public void onTransitionAnimationUpdate(float translateX, float translateY, float scale){
 		listener.setTransitioningViewTransform(translateX, translateY, scale);

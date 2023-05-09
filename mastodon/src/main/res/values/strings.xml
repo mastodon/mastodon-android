@@ -221,7 +221,7 @@
 	<string name="alt_text_hint">e.g. A dog looking around suspiciously with narrowed eyes at the camera.</string>
 	<string name="visibility_public">Public</string>
 	<string name="visibility_followers_only">Followers only</string>
-	<string name="visibility_private">Only people I mention</string>
+	<string name="visibility_private">Only people mentioned</string>
 	<string name="search_all">All</string>
 	<string name="search_people">People</string>
 	<string name="recent_searches">Recent searches</string>
@@ -455,4 +455,23 @@
 	<string name="link_not_supported">This link is not supported in the app</string>
 	<string name="log_out_all_accounts">Log out of all accounts</string>
 	<string name="confirm_log_out_all_accounts">Log out of all accounts?</string>
+	<string name="retry">Retry</string>
+	<string name="post_failed">Failed to send post</string>
+	<!-- %s is formatted file size ("467 KB image") -->
+	<string name="attachment_description_image">%s image</string>
+	<string name="attachment_description_video">%s video</string>
+	<string name="attachment_description_audio">%s audio</string>
+	<string name="attachment_description_unknown">%s file</string>
+	<string name="attachment_x_percent_uploaded">%d%% uploaded</string>
+	<string name="add_poll_option">Add poll option</string>
+	<string name="poll_length">Poll length</string>
+	<string name="poll_style">Style</string>
+	<string name="compose_poll_single_choice">Pick one</string>
+	<string name="compose_poll_multiple_choice">Multiple choice</string>
+	<string name="delete_poll_option">Delete poll option</string>
+	<string name="poll_style_title">Poll style</string>
+	<string name="alt_text">Alt text</string>
+	<string name="help">Help</string>
+	<string name="what_is_alt_text">What is alt text?</string>
+	<string name="alt_text_help">Alt text provides image descriptions for people with vision impairments, low-bandwidth connections, or those seeking extra context.\n\nYou can improve accessibility and understanding for everyone by writing clear, concise, and objective alt text.\n\n<ul><li>Capture important elements</li>\n<li>Summarize text in images</li>\n<li>Use regular sentence structure</li>\n<li>Avoid redundant information</li>\n<li>Focus on trends and key findings in complex visuals (like diagrams or maps)</li></ul></string>
 </resources>

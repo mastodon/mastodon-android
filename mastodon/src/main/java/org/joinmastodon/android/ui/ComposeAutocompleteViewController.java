@@ -1,6 +1,8 @@
 package org.joinmastodon.android.ui;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.text.TextUtils;
@@ -19,7 +21,6 @@ import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.Emoji;
 import org.joinmastodon.android.model.Hashtag;
 import org.joinmastodon.android.model.SearchResults;
-import org.joinmastodon.android.ui.drawables.ComposeAutocompleteBackgroundDrawable;
 import org.joinmastodon.android.ui.text.HtmlParser;
 import org.joinmastodon.android.ui.utils.CustomEmojiHelper;
 import org.joinmastodon.android.ui.utils.UiUtils;
@@ -60,7 +61,6 @@ public class ComposeAutocompleteViewController{
 	private APIRequest currentRequest;
 	private Runnable usersDebouncer=this::doSearchUsers, hashtagsDebouncer=this::doSearchHashtags;
 	private String lastText;
-	private ComposeAutocompleteBackgroundDrawable background;
 	private boolean listIsHidden=true;
 
 	private UsersAdapter usersAdapter;
@@ -69,28 +69,31 @@ public class ComposeAutocompleteViewController{
 
 	private Consumer<String> completionSelectedListener;
 
-	private DividerItemDecoration usersDividers, hashtagsDividers;
-
 	public ComposeAutocompleteViewController(Activity activity, String accountID){
 		this.activity=activity;
 		this.accountID=accountID;
-		background=new ComposeAutocompleteBackgroundDrawable(UiUtils.getThemeColor(activity, android.R.attr.colorBackground));
 		contentView=new FrameLayout(activity);
-		contentView.setBackground(background);
 
 		list=new UsableRecyclerView(activity);
-		list.setLayoutManager(new LinearLayoutManager(activity));
+		list.setLayoutManager(new LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false));
 		list.setItemAnimator(new BetterItemAnimator());
 		list.setVisibility(View.GONE);
+		list.setPadding(V.dp(16), V.dp(12), V.dp(16), V.dp(12));
+		list.setClipToPadding(false);
+		list.setSelector(null);
+		list.addItemDecoration(new RecyclerView.ItemDecoration(){
+			@Override
+			public void getItemOffsets(@NonNull Rect outRect, @NonNull View view, @NonNull RecyclerView parent, @NonNull RecyclerView.State state){
+				if(parent.getChildAdapterPosition(view)<parent.getAdapter().getItemCount()-1)
+					outRect.right=V.dp(8);
+			}
+		});
 		contentView.addView(list, new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
 
 		progress=new ProgressBar(activity);
 		FrameLayout.LayoutParams progressLP=new FrameLayout.LayoutParams(V.dp(48), V.dp(48), Gravity.CENTER_HORIZONTAL|Gravity.TOP);
 		progressLP.topMargin=V.dp(16);
 		contentView.addView(progress, progressLP);
-
-		usersDividers=new DividerItemDecoration(activity, R.attr.colorPollVoted, 1, 72, 16);
-		hashtagsDividers=new DividerItemDecoration(activity, R.attr.colorPollVoted, 1, 16, 16);
 
 		imgLoader=new ListImageLoaderWrapper(activity, list, new RecyclerViewDelegate(list), null);
 	}
@@ -141,11 +144,6 @@ public class ComposeAutocompleteViewController{
 				progress.setVisibility(View.GONE);
 				listIsHidden=false;
 			}
-			if((prevMode==Mode.HASHTAGS)!=(mode==Mode.HASHTAGS) || prevMode==null){
-				if(prevMode!=null)
-					list.removeItemDecoration(prevMode==Mode.HASHTAGS ? hashtagsDividers : usersDividers);
-				list.addItemDecoration(mode==Mode.HASHTAGS ? hashtagsDividers : usersDividers);
-			}
 		}
 		lastText=text;
 		if(mode==Mode.USERS){
@@ -174,10 +172,6 @@ public class ComposeAutocompleteViewController{
 
 	public void setCompletionSelectedListener(Consumer<String> completionSelectedListener){
 		this.completionSelectedListener=completionSelectedListener;
-	}
-
-	public void setArrowOffset(int offset){
-		background.setArrowOffset(offset);
 	}
 
 	public View getView(){
@@ -258,7 +252,7 @@ public class ComposeAutocompleteViewController{
 
 		@Override
 		public int getImageCountForItem(int position){
-			return 1+users.get(position).emojiHelper.getImageCount();
+			return 1/*+users.get(position).emojiHelper.getImageCount()*/;
 		}
 
 		@Override
@@ -272,20 +266,18 @@ public class ComposeAutocompleteViewController{
 
 	private class UserViewHolder extends BindableViewHolder<WrappedAccount> implements ImageLoaderViewHolder, UsableRecyclerView.Clickable{
 		private final ImageView ava;
-		private final TextView name, username;
+		private final TextView username;
 
 		private UserViewHolder(){
 			super(activity, R.layout.item_autocomplete_user, list);
 			ava=findViewById(R.id.photo);
-			name=findViewById(R.id.name);
 			username=findViewById(R.id.username);
-			ava.setOutlineProvider(OutlineProviders.roundedRect(12));
+			ava.setOutlineProvider(OutlineProviders.OVAL);
 			ava.setClipToOutline(true);
 		}
 
 		@Override
 		public void onBind(WrappedAccount item){
-			name.setText(item.parsedName);
 			username.setText("@"+item.account.acct);
 		}
 
@@ -300,7 +292,6 @@ public class ComposeAutocompleteViewController{
 				ava.setImageDrawable(image);
 			}else{
 				item.emojiHelper.setImageDrawable(index-1, image);
-				name.invalidate();
 			}
 		}
 
@@ -333,17 +324,11 @@ public class ComposeAutocompleteViewController{
 		private final TextView text;
 
 		private HashtagViewHolder(){
-			super(new TextView(activity));
+			super(activity, R.layout.item_autocomplete_hashtag, list);
 			text=(TextView) itemView;
-			text.setLayoutParams(new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, V.dp(48)));
-			text.setTextAppearance(R.style.m3_title_medium);
-			text.setTypeface(Typeface.DEFAULT);
-			text.setSingleLine();
-			text.setEllipsize(TextUtils.TruncateAt.END);
-			text.setGravity(Gravity.CENTER_VERTICAL);
-			text.setPadding(V.dp(16), 0, V.dp(16), 0);
 		}
 
+		@SuppressLint("SetTextI18n")
 		@Override
 		public void onBind(Hashtag item){
 			text.setText("#"+item.name);
@@ -395,7 +380,7 @@ public class ComposeAutocompleteViewController{
 		private EmojiViewHolder(){
 			super(activity, R.layout.item_autocomplete_user, list);
 			ava=findViewById(R.id.photo);
-			name=findViewById(R.id.name);
+			name=findViewById(R.id.username);
 		}
 
 		@Override
@@ -408,6 +393,7 @@ public class ComposeAutocompleteViewController{
 			ava.setImageDrawable(null);
 		}
 
+		@SuppressLint("SetTextI18n")
 		@Override
 		public void onBind(WrappedEmoji item){
 			name.setText(":"+item.emoji.shortcode+":");

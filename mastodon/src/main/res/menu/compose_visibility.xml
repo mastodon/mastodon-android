@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 	<item android:id="@+id/vis_public"
-		android:icon="@drawable/ic_fluent_earth_24_regular"
 		android:title="@string/visibility_public"/>
 	<item android:id="@+id/vis_followers"
-		android:icon="@drawable/ic_fluent_people_checkmark_24_regular"
 		android:title="@string/visibility_followers_only"/>
 	<item android:id="@+id/vis_private"
-		android:icon="@drawable/ic_at_symbol"
 		android:title="@string/visibility_private"/>
 </menu>

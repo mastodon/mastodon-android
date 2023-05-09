@@ -127,7 +127,12 @@ public class FloatingHintEditTextLayout extends FrameLayout implements CustomVie
 				edit.getViewTreeObserver().removeOnPreDrawListener(this);
 
 				float scale=edit.getLineHeight()/(float)label.getLineHeight();
-				float transY=edit.getHeight()/2f-edit.getLineHeight()/2f+(edit.getTop()-label.getTop())-(label.getHeight()/2f-label.getLineHeight()/2f);
+				float transY;
+				if((edit.getGravity() & Gravity.TOP)==Gravity.TOP){
+					transY=edit.getPaddingTop()+(edit.getTop()-label.getTop())-(label.getHeight()/2f-label.getLineHeight()/2f);
+				}else{
+					transY=edit.getHeight()/2f-edit.getLineHeight()/2f+(edit.getTop()-label.getTop())-(label.getHeight()/2f-label.getLineHeight()/2f);
+				}
 
 				AnimatorSet anim=new AnimatorSet();
 				if(hintVisible){

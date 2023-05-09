@@ -1,45 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
 	android:orientation="horizontal"
 	android:layout_width="match_parent"
 	android:layout_height="wrap_content"
-	android:paddingBottom="8dp"
-	android:paddingStart="16dp"
+	android:background="?colorM3Surface"
+	android:foreground="@drawable/bg_m3_outlined_text_field_nopad"
+	android:addStatesFromChildren="true"
 	android:clipToPadding="false">
 	
-	<LinearLayout
-		android:layout_width="0dp"
+	<EditText
+		android:id="@+id/edit"
+		android:layout_width="match_parent"
 		android:layout_height="56dp"
-		android:layout_weight="1"
-		android:background="@drawable/bg_poll_option"
-		android:outlineProvider="background"
-		android:elevation="2dp">
-		<ImageView
-			android:layout_width="24dp"
-			android:layout_height="24dp"
-			android:layout_margin="16dp"
-			android:tint="?colorDarkIcon"
-			android:src="@drawable/ic_fluent_circle_24_regular"/>
-		<EditText
-			android:id="@+id/edit"
-			android:layout_width="0dp"
-			android:layout_height="match_parent"
-			android:layout_weight="1"
-			android:background="@null"
-			android:paddingStart="0dp"
-			android:paddingEnd="16dp"
-			android:textAppearance="@style/m3_title_medium"
-			android:inputType="textCapSentences"
-			android:saveEnabled="false"
-			android:singleLine="true"/>
-	</LinearLayout>
+		android:background="@null"
+		android:paddingStart="16dp"
+		android:paddingEnd="48dp"
+		android:textAppearance="@style/m3_body_large"
+		android:textColor="?colorM3OnSurface"
+		android:textColorHint="?colorM3OnSurfaceVariant"
+		android:inputType="textCapSentences"
+		android:elevation="0dp"
+		android:saveEnabled="false"
+		android:singleLine="true"/>
 
 	<ImageView
 		android:id="@+id/dragger_thingy"
-		android:layout_width="56dp"
+		android:layout_width="48dp"
 		android:layout_height="56dp"
+		android:layout_gravity="end"
 		android:scaleType="center"
-		android:tint="?colorDarkIcon"
-		android:src="@drawable/ic_fluent_re_order_dots_vertical_24_regular"/>
+		android:tint="?colorM3OnSurfaceVariant"
+		android:contentDescription="@string/reorder"
+		android:paddingStart="4dp"
+		android:src="@drawable/ic_drag_indicator_20px"
+		tools:ignore="RtlSymmetry" />
 
-</LinearLayout>
+</FrameLayout>

@@ -387,6 +387,8 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 
 					@Override
 					public void onPageScrollStateChanged(int state){
+						if(isInEditMode)
+							return;
 						refreshLayout.setEnabled(state!=ViewPager2.SCROLL_STATE_DRAGGING);
 					}
 				});
@@ -801,6 +803,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 		bioEdit.setText(account.source.note);
 
 		aboutFragment.enterEditMode(account.source.fields);
+		refreshLayout.setEnabled(false);
 	}
 
 	private void exitEditMode(){
@@ -840,6 +843,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 		username.setVisibility(View.VISIBLE);
 		bio.setVisibility(View.VISIBLE);
 		countersLayout.setVisibility(View.VISIBLE);
+		refreshLayout.setEnabled(true);
 
 		bindHeaderView();
 	}

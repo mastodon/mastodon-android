@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<inset xmlns:android="http://schemas.android.com/apk/res/android" android:inset="2dp">
+	<selector>
+		<item android:state_selected="true">
+			<ripple android:color="@color/m3_on_primary_overlay">
+				<item>
+					<shape>
+						<corners android:radius="4dp"/>
+						<solid android:color="?colorM3Primary"/>
+					</shape>
+				</item>
+			</ripple>
+		</item>
+		<item>
+			<ripple android:color="@color/m3_on_surface_variant_overlay">
+				<item android:id="@android:id/mask">
+					<shape>
+						<solid android:color="#000"/>
+						<corners android:radius="4dp"/>
+					</shape>
+				</item>
+			</ripple>
+		</item>
+	</selector>
+</inset>
