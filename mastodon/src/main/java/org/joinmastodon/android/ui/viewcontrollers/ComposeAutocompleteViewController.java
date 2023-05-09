@@ -1,11 +1,9 @@
-package org.joinmastodon.android.ui;
+package org.joinmastodon.android.ui.viewcontrollers;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.graphics.Rect;
-import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
-import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +19,8 @@ import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.Emoji;
 import org.joinmastodon.android.model.Hashtag;
 import org.joinmastodon.android.model.SearchResults;
+import org.joinmastodon.android.ui.BetterItemAnimator;
+import org.joinmastodon.android.ui.OutlineProviders;
 import org.joinmastodon.android.ui.text.HtmlParser;
 import org.joinmastodon.android.ui.utils.CustomEmojiHelper;
 import org.joinmastodon.android.ui.utils.UiUtils;
