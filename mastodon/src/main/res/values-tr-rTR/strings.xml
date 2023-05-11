@@ -10,33 +10,35 @@
 	<string name="ok">Tamam</string>
 	<string name="preparing_auth">Kimlik doğrulama için hazırlanıyor…</string>
 	<string name="finishing_auth">Kimlik doğrulama tamamlanıyor…</string>
+	<string name="user_boosted">%s yineledi</string>
 	<string name="in_reply_to">%s için yanıt</string>
 	<string name="notifications">Bildirimler</string>
-	<string name="user_followed_you">seni takip etti</string>
+	<string name="user_followed_you">sizi takip etti</string>
 	<string name="user_sent_follow_request">sana bir takip isteği gönderdi</string>
 	<string name="user_favorited">gönderinizi favorilerine ekledi</string>
+	<string name="notification_boosted">gönderinizi yineledi</string>
 	<string name="poll_ended">oylama sona erdi</string>
 	<string name="time_seconds">%ds</string>
-	<string name="time_minutes">%dd</string>
-	<string name="time_hours">%dsaat</string>
-	<string name="time_days">%dgün</string>
+	<string name="time_minutes">%ddk</string>
+	<string name="time_hours">%ds</string>
+	<string name="time_days">%dg</string>
 	<string name="share_toot_title">Paylaş</string>
 	<string name="settings">Ayarlar</string>
 	<string name="publish">Yayınla</string>
 	<string name="discard_draft">Taslak silinsin mi?</string>
 	<string name="discard">Sil</string>
-	<string name="cancel">İptal</string>
+	<string name="cancel">İptal et</string>
 	<plurals name="followers">
-		<item quantity="one">Takipçi</item>
-		<item quantity="other">Takipçi</item>
+		<item quantity="one">takipçi</item>
+		<item quantity="other">takipçi</item>
 	</plurals>
 	<plurals name="following">
-		<item quantity="one">Takip</item>
-		<item quantity="other">Takip</item>
+		<item quantity="one">takip</item>
+		<item quantity="other">takip</item>
 	</plurals>
 	<plurals name="posts">
 		<item quantity="one">gönderi</item>
-		<item quantity="other">gönderiler</item>
+		<item quantity="other">gönderi</item>
 	</plurals>
 	<string name="posts">Gönderiler</string>
 	<string name="posts_and_replies">Gönderiler ve Cevaplar</string>
@@ -52,19 +54,19 @@
 	<string name="block_user">Engelle %s</string>
 	<string name="unblock_user">Engeli kaldır %s</string>
 	<string name="report_user">Raporla %s</string>
-	<string name="block_domain">Engelle %s</string>
-	<string name="unblock_domain">Engeli kaldır %s</string>
+	<string name="block_domain">%s kişisini engelle</string>
+	<string name="unblock_domain">%s kişisinin engelini kaldır</string>
 	<plurals name="x_posts">
 		<item quantity="one">%,d gönderi</item>
-		<item quantity="other">%,d gönderiler</item>
+		<item quantity="other">%,d gönderi</item>
 	</plurals>
 	<string name="profile_joined">Katıldı</string>
 	<string name="done">Tamamla</string>
-	<string name="loading">Yükleniyor...</string>
+	<string name="loading">Yükleniyor…</string>
 	<string name="field_label">Etiket</string>
 	<string name="field_content">İçerik</string>
 	<string name="saving">Kaydediliyor…</string>
-	<string name="post_from_user">Gönderen %s</string>
+	<string name="post_from_user">%s kullanıcına ait gönderi</string>
 	<string name="poll_option_hint">Seçenek %d</string>
 	<plurals name="x_minutes">
 		<item quantity="one">%d dakika</item>
@@ -128,7 +130,7 @@
 	<string name="log_out">Çıkış yap</string>
 	<string name="add_account">Hesap ekle</string>
 	<string name="search_hint">Arama</string>
-	<string name="hashtags">Hashtagler</string>
+	<string name="hashtags">Etiketler</string>
 	<string name="news">Haberler</string>
 	<string name="for_you">Senin için</string>
 	<string name="all_notifications">Hepsi</string>
@@ -164,6 +166,7 @@
 	<string name="report_sent_subtitle">Biz bunu incelerken siz %s karşı önlem alabilirsiniz.</string>
 	<string name="unfollow_user">Takipten çık %s</string>
 	<string name="unfollow">Takipten çık</string>
+	<string name="mute_user_explain">Ana sayfa akışınızda kişinin gönderilerini görmeyeceksiniz. Sessize alındıklarını bilemeyecekler.</string>
 	<string name="block_user_explain">Artık sizi takip edemez ve gönderilerinizi göremezler ama engellendiklerini görebilirler.</string>
 	<string name="report_personal_title">Bunu görmek istemiyor musun?</string>
 	<string name="report_personal_subtitle">Mastodon\'da beğenmediğiniz bir şey gördüğünüzde, o kişiyi deneyiminizden çıkarabilirsiniz.</string>
@@ -220,6 +223,7 @@
 	<string name="skip">Atla</string>
 	<string name="notification_type_follow">Yeni takipçiler</string>
 	<string name="notification_type_favorite">Favoriler</string>
+	<string name="notification_type_reblog">Yeniden paylaşımlar</string>
 	<string name="notification_type_mention">Bahsetmeler</string>
 	<string name="notification_type_poll">Anketler</string>
 	<string name="choose_account">Hesap seç</string>
@@ -240,12 +244,13 @@
 	<string name="settings_custom_tabs">Uygulama içi tarayıcıyı kullan</string>
 	<string name="settings_notifications">Bildirimler</string>
 	<string name="notify_me_when">Beni şu durumda bilgilendir: </string>
-	<string name="notify_anyone">herhangi biri</string>
-	<string name="notify_follower">bir takipçim</string>
-	<string name="notify_followed">takip ettiğim biri</string>
-	<string name="notify_none">bilgilendirme</string>
-	<string name="notify_favorites">Gönderiğimi beğendiğinde</string>
+	<string name="notify_anyone">Herhangi biri</string>
+	<string name="notify_follower">Bir takipçim</string>
+	<string name="notify_followed">Takip ettiğim biri</string>
+	<string name="notify_none">Bilgilendirme</string>
+	<string name="notify_favorites">Gönderimi favorilerine eklediğinde</string>
 	<string name="notify_follow">Beni takip ettiğinde</string>
+	<string name="notify_reblog">Gönderimi yinelediğinde</string>
 	<string name="notify_mention">Benden bahsettiğinde</string>
 	<string name="settings_boring">Sıkıcı bölge</string>
 	<string name="settings_account">Hesap ayarları</string>
@@ -266,6 +271,7 @@
 	<string name="hide_content">İçeriği gizle</string>
 	<string name="new_post">Yeni gönderi</string>
 	<string name="button_reply">Cevapla</string>
+	<string name="button_reblog">Yinele</string>
 	<string name="button_favorite">Favorile</string>
 	<string name="button_share">Paylaş</string>
 	<string name="media_no_description">Açıklamasız medya</string>
@@ -279,7 +285,10 @@
 	<string name="follow_user">%s\'yi takip et</string>
 	<string name="unfollowed_user">%s takip edilmedi</string>
 	<string name="followed_user">%s kişisini takip ediyorsunuz</string>
+	<string name="following_user_requested">%s takip isteği gönderdi</string>
 	<string name="open_in_browser">Tarayıcıda aç</string>
+	<string name="hide_boosts_from_user">%s kişisinin alıntı paylaşımlarını gizle</string>
+	<string name="show_boosts_from_user">%s kişisinin alıntı paylaşımlarını göster</string>
 	<string name="signup_reason">Neden katılmak istiyorsunuz?</string>
 	<string name="signup_reason_note">Bu, başvurunuzu incelememize yardımcı olacaktır.</string>
 	<string name="clear">Temizle</string>
@@ -321,8 +330,13 @@
 		<item quantity="one">%,d favori</item>
 		<item quantity="other">%,d favori</item>
 	</plurals>
+	<plurals name="x_reblogs">
+		<item quantity="one">%,d yineleme</item>
+		<item quantity="other">%,d yineleme</item>
+	</plurals>
 	<string name="timestamp_via_app">%1$s tarihinde %2$s uygulamasıyla</string>
 	<string name="time_now">şimdi</string>
+	<string name="post_info_reblogs">Yeniden paylaşımlar</string>
 	<string name="post_info_favorites">Favoriler</string>
 	<string name="edit_history">Düzenleme geçmişi</string>
 	<string name="last_edit_at_x">Son düzenleme: %s</string>
@@ -335,7 +349,7 @@
 		<item quantity="one">%d dakika önce</item>
 		<item quantity="other">%d dakika önce</item>
 	</plurals>
-	<string name="edited_timestamp">%s tarihinde düzenlendi</string>
+	<string name="edited_timestamp">%s önce düzenlendi</string>
 	<string name="edit_original_post">Asıl gönderi</string>
 	<string name="edit_text_edited">Düzenlenmiş gönderi</string>
 	<string name="edit_spoiler_added">İçerik uyarısı eklendi</string>
@@ -396,6 +410,7 @@
 	<string name="category_special_interests">Özel İlgi Alanları</string>
 	<string name="signup_passwords_dont_match">Parolalar eşleşmiyor</string>
 	<string name="pick_server_for_me">Benim için seç</string>
+	<string name="profile_add_row">Satır ekle</string>
 	<string name="profile_setup">Profilini ayarla</string>
 	<string name="profile_setup_subtitle">Bunu istediğin bir zaman Profil sekmesinden tamamlayabilirsin.</string>
 	<string name="profile_setup_explanation">İstediğin herhangi bir şey için en fazla dört profil alanı ekleyebilirsin. Konum, linkler -ne isterseniz.</string>
@@ -411,4 +426,23 @@
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
 	<string name="signup_email_domain_blocked">%1$s sunucusu %2$s mail uzantısı ile hesap oluşturmaya izin vermiyor. Farklı bir mail deneyebilir ya da &lt;a&gt;farklı bir sunucu seçebilirsiniz&lt;/a&gt;.</string>
 	<string name="signup_username_taken">Bu kullanıcı adı kullanılıyor.</string>
+	<string name="spoiler_show">Yine de göster</string>
+	<string name="spoiler_hide">Yeniden gizle</string>
+	<string name="poll_multiple_choice">Bir ya da daha fazla seçim yapın</string>
+	<string name="save_changes">Değişiklikleri kaydet</string>
+	<string name="profile_featured">Öne çıkan</string>
+	<string name="profile_timeline">Zaman çizelgesi</string>
+	<string name="view_all">Tümünü Gör</string>
+	<string name="profile_endorsed_accounts">Hesaplar</string>
+	<string name="verified_link">Onaylanmış bağlantı</string>
+	<string name="show">Göster</string>
+	<string name="hide">Gizle</string>
+	<string name="join_default_server">%s\'e katıl</string>
+	<string name="pick_server">Başka sunucu seç</string>
+	<string name="signup_or_login">veya</string>
+	<string name="learn_more">Daha fazla bilgi edinin</string>
+	<string name="welcome_to_mastodon">Mastodon\'a hoş geldiniz</string>
+	<string name="welcome_paragraph1">Mastodon merkezi olmayan bir sosyal ağdır, yani tek bir şirket tarafından kontrol edilmemektedir. Hepsi birbirine bağlı, bağımsız olarak işletilen birçok sunucudan oluşur.</string>
+	<string name="what_are_servers">Sunucular nelerdir?</string>
+	<string name="welcome_paragraph2"><![CDATA[Her Mastodon hesabı bir sunucuda barındırılır - her birinin kendi değerleri, kuralları ve yöneticileri vardır. Hangisini seçerseniz seçin, herhangi bir sunucudaki insanları takip edebilir ve onlarla etkileşime geçebilirsiniz.]]></string>
 </resources>

@@ -10,11 +10,13 @@
 	<string name="ok">Í lagi</string>
 	<string name="preparing_auth">Undirbý auðkenningu…</string>
 	<string name="finishing_auth">Lýk auðkenningu…</string>
+	<string name="user_boosted">%s endurbirti</string>
 	<string name="in_reply_to">Sem svar til %s</string>
 	<string name="notifications">Tilkynningar</string>
 	<string name="user_followed_you">fylgdi þér</string>
 	<string name="user_sent_follow_request">sendi þér beiðni um að fylgjast með þér</string>
 	<string name="user_favorited">setti færslu frá þér í eftirlæti</string>
+	<string name="notification_boosted">endurbirti færsluna þína</string>
 	<string name="poll_ended">könnun er lokið</string>
 	<string name="time_seconds">%ds</string>
 	<string name="time_minutes">%dm</string>
@@ -164,6 +166,8 @@
 	<string name="report_sent_subtitle">Á meðan við yfirförum þetta, geturðu tekið til aðgerða gegn %s.</string>
 	<string name="unfollow_user">Hætta að fylgjast með %s</string>
 	<string name="unfollow">Hætta að fylgjast með</string>
+	<string name="mute_user_explain">Þú munt ekki sjá færslur eða endurbirtingar frá viðkomandi á streyminu þínu. 
+Viðkomandi aðilar munu ekki vita að þaggað hefur verið niður í þeim.</string>
 	<string name="block_user_explain">Viðkomandi mun ekki lengur geta fylgst með eða séð færslurnar þínar, en munu sjá ef viðkomandi hefur verið útilokaður.</string>
 	<string name="report_personal_title">Langar þig ekki til að sjá þetta?</string>
 	<string name="report_personal_subtitle">Þegar þú sér eitthvað á Mastodon sem þér líkar ekki, þá geturðu fjarlægt viðkomandi eintakling úr umhverfinu þínu.</string>
@@ -220,6 +224,7 @@
 	<string name="skip">Sleppa</string>
 	<string name="notification_type_follow">Nýir fylgjendur</string>
 	<string name="notification_type_favorite">Eftirlæti</string>
+	<string name="notification_type_reblog">Endurbirtingar</string>
 	<string name="notification_type_mention">Minnst á</string>
 	<string name="notification_type_poll">Kannanir</string>
 	<string name="choose_account">Veldu aðgang</string>
@@ -246,6 +251,7 @@
 	<string name="notify_none">enginn</string>
 	<string name="notify_favorites">Setur færsluna mína í eftirlæti</string>
 	<string name="notify_follow">Fylgist með mér</string>
+	<string name="notify_reblog">Endurbirtir færsluna mína</string>
 	<string name="notify_mention">Minnist á mig</string>
 	<string name="settings_boring">Óhressa svæðið</string>
 	<string name="settings_account">Stillingar aðgangs</string>
@@ -266,6 +272,7 @@
 	<string name="hide_content">Fela efni</string>
 	<string name="new_post">Ný færsla</string>
 	<string name="button_reply">Svara</string>
+	<string name="button_reblog">Endurbirting</string>
 	<string name="button_favorite">Eftirlæti</string>
 	<string name="button_share">Deila</string>
 	<string name="media_no_description">Myndefni án lýsingar</string>
@@ -281,6 +288,8 @@
 	<string name="followed_user">Þú fylgist núna með %s</string>
 	<string name="following_user_requested">Bað um að fylgjast með %s</string>
 	<string name="open_in_browser">Opna í vafra</string>
+	<string name="hide_boosts_from_user">Fela endurbirtingar frá %s</string>
+	<string name="show_boosts_from_user">Sýna endurbirtingar frá %s</string>
 	<string name="signup_reason">Hvers vegna vilt þú taka þátt?</string>
 	<string name="signup_reason_note">Þetta mun hjálpa okkur við að yfirfara umsóknina þína.</string>
 	<string name="clear">Hreinsa</string>
@@ -322,8 +331,13 @@
 		<item quantity="one">%,d eftirlæti</item>
 		<item quantity="other">%,d eftirlæti</item>
 	</plurals>
+	<plurals name="x_reblogs">
+		<item quantity="one">%,d endurbirting</item>
+		<item quantity="other">%,d endurbirtingar</item>
+	</plurals>
 	<string name="timestamp_via_app">%1$s með %2$s</string>
 	<string name="time_now">núna</string>
+	<string name="post_info_reblogs">Endurbirtingar</string>
 	<string name="post_info_favorites">Eftirlæti</string>
 	<string name="edit_history">Breytingaferill</string>
 	<string name="last_edit_at_x">Síðasta breyting %s</string>
@@ -413,4 +427,23 @@
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
 	<string name="signup_email_domain_blocked">%1$s leyfir ekki nýskráningar frá %2$s. Veldu eitthvað annað lén eða &lt;a&gt;veldu annan netþjón&lt;/a&gt;.</string>
 	<string name="signup_username_taken">Þetta notandanafn er þegar í notkun.</string>
+	<string name="spoiler_show">Birta samt</string>
+	<string name="spoiler_hide">Fela aftur</string>
+	<string name="poll_multiple_choice">Veldu eitt eiða fleiri</string>
+	<string name="save_changes">Vista breytingar</string>
+	<string name="profile_featured">Með aukið vægi</string>
+	<string name="profile_timeline">Tímalína</string>
+	<string name="view_all">Skoða allt</string>
+	<string name="profile_endorsed_accounts">Notandaaðgangar</string>
+	<string name="verified_link">Sannreyndur tengill</string>
+	<string name="show">Sýna</string>
+	<string name="hide">Fela</string>
+	<string name="join_default_server">Taka þátt í %s</string>
+	<string name="pick_server">Veldu annan netþjón</string>
+	<string name="signup_or_login">eða</string>
+	<string name="learn_more">Kanna nánar</string>
+	<string name="welcome_to_mastodon">Velkomin í Mastodon</string>
+	<string name="welcome_paragraph1">Mastodon er dreyfhýst samfélagsnet, sem þýðir að ekkert eitt fyrirtæki ræður yfir því. Netið samanstendur af mörgum sjálfstætt reknum netþjónum sem tengjast innbyrðis.</string>
+	<string name="what_are_servers">Hvað eru netþjónar?</string>
+	<string name="welcome_paragraph2"><![CDATA[Hver einasti Mastodon-aðgangur er hýstur á sínum netþjóni — hver slíkur er með sín eigin gildi, reglur og stjórnendur. Það skiftir ekki máli hvern þeirra þú velur, þú getur fylgst fylgst með og átt í samskiptum við fólk á hvaða netþjóni sem er.]]></string>
 </resources>
