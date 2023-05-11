@@ -3,6 +3,7 @@ package org.joinmastodon.android.fragments.account_list;
 import org.joinmastodon.android.api.requests.HeaderPaginationRequest;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.HeaderPaginationList;
+import org.joinmastodon.android.model.viewmodel.AccountViewModel;
 
 import java.util.stream.Collectors;
 
@@ -23,7 +24,7 @@ public abstract class PaginatedAccountListFragment extends BaseAccountListFragme
 							nextMaxID=result.nextPageUri.getQueryParameter("max_id");
 						else
 							nextMaxID=null;
-						onDataLoaded(result.stream().map(AccountItem::new).collect(Collectors.toList()), nextMaxID!=null);
+						onDataLoaded(result.stream().map(AccountViewModel::new).collect(Collectors.toList()), nextMaxID!=null);
 					}
 				})
 				.exec(accountID);

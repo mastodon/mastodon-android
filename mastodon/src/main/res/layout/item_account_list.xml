@@ -2,54 +2,81 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
-	android:layout_height="62dp"
-	android:paddingLeft="16dp"
-	android:paddingRight="16dp"
-	android:paddingTop="8dp"
-	android:paddingBottom="8dp"
+	android:layout_height="72dp"
+	android:paddingHorizontal="16dp"
+	android:paddingVertical="8dp"
 	android:clipToPadding="false">
 
 	<ImageView
 		android:id="@+id/avatar"
-		android:layout_width="46dp"
-		android:layout_height="46dp"
-		android:layout_marginEnd="10dp"
+		android:layout_width="56dp"
+		android:layout_height="56dp"
+		android:layout_marginEnd="8dp"
 		android:importantForAccessibility="no"
 		tools:src="#0f0"/>
 
 	<Button
 		android:id="@+id/button"
 		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
+		android:layout_height="36dp"
 		android:layout_alignParentEnd="true"
-		android:layout_centerVertical="true"
+		android:layout_alignParentTop="true"
 		android:layout_marginStart="8dp"
+		style="@style/Widget.Mastodon.M3.Button.Filled"
 		tools:text="Follow"/>
 
 	<TextView
 		android:id="@+id/name"
-		android:layout_width="match_parent"
-		android:layout_height="24dp"
+		android:layout_width="wrap_content"
+		android:layout_height="20dp"
 		android:layout_toEndOf="@id/avatar"
-		android:layout_toStartOf="@id/button"
 		android:singleLine="true"
 		android:ellipsize="end"
 		android:gravity="center_vertical"
-		android:textAppearance="@style/m3_title_medium"
+		android:textAppearance="@style/m3_title_small"
+		android:textColor="?colorM3OnSurface"
 		tools:text="User"/>
 
 	<TextView
 		android:id="@+id/username"
 		android:layout_width="match_parent"
 		android:layout_height="20dp"
-		android:layout_below="@id/name"
-		android:layout_toEndOf="@id/avatar"
+		android:layout_marginStart="4dp"
+		android:layout_toEndOf="@id/name"
 		android:layout_toStartOf="@id/button"
 		android:singleLine="true"
 		android:ellipsize="end"
 		android:gravity="center_vertical"
-		android:textAppearance="@style/m3_title_small"
+		android:textAppearance="@style/m3_body_medium"
+		android:textColor="?colorM3Secondary"
 		tools:text="\@user@server"/>
+
+	<TextView
+		android:id="@+id/followers_count"
+		android:layout_width="match_parent"
+		android:layout_height="20dp"
+		android:layout_toEndOf="@id/avatar"
+		android:layout_below="@id/name"
+		android:layout_toStartOf="@id/button"
+		android:gravity="center_vertical"
+		android:textAppearance="@style/m3_body_medium"
+		android:textColor="?colorM3Secondary"
+		tools:text="123 followers"/>
+	
+	<TextView
+		android:id="@+id/verified_link"
+		android:layout_width="match_parent"
+		android:layout_height="16dp"
+		android:layout_toEndOf="@id/avatar"
+		android:layout_below="@id/followers_count"
+		android:layout_toStartOf="@id/button"
+		android:singleLine="true"
+		android:ellipsize="end"
+		android:textAppearance="@style/m3_body_medium"
+		android:includeFontPadding="false"
+		android:gravity="center_vertical"
+		android:drawablePadding="2dp"
+		tools:text="example.com/example"/>
 
 	<View
 		android:id="@+id/menu_anchor"

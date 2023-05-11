@@ -12,6 +12,7 @@ import org.joinmastodon.android.model.Hashtag;
 import org.joinmastodon.android.model.Mention;
 import org.joinmastodon.android.ui.utils.UiUtils;
 import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Node;
 import org.jsoup.nodes.TextNode;
@@ -189,6 +190,13 @@ public class HtmlParser{
 
 	public static String strip(String html){
 		return Jsoup.clean(html, Safelist.none());
+	}
+
+	public static String stripAndRemoveInvisibleSpans(String html){
+		Document doc=Jsoup.parseBodyFragment(html);
+		doc.body().select("span.invisible").remove();
+		Cleaner cleaner=new Cleaner(Safelist.none());
+		return cleaner.clean(doc).body().html();
 	}
 
 	public static CharSequence parseLinks(String text){
