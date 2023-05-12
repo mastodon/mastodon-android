@@ -136,12 +136,16 @@ public abstract class BaseAccountListFragment extends MastodonRecyclerFragment<A
 	public void onApplyWindowInsets(WindowInsets insets){
 		if(Build.VERSION.SDK_INT>=29 && insets.getTappableElementInsets().bottom==0){
 			list.setPadding(0, V.dp(16), 0, V.dp(16)+insets.getSystemWindowInsetBottom());
+			emptyView.setPadding(0, 0, 0, insets.getSystemWindowInsetBottom());
+			progress.setPadding(0, 0, 0, insets.getSystemWindowInsetBottom());
 			insets=insets.inset(0, 0, 0, insets.getSystemWindowInsetBottom());
 		}else{
 			list.setPadding(0, V.dp(16), 0, V.dp(16));
 		}
 		super.onApplyWindowInsets(insets);
 	}
+
+	protected void onConfigureViewHolder(AccountViewHolder holder){}
 
 	protected class AccountsAdapter extends UsableRecyclerView.Adapter<AccountViewHolder> implements ImageLoaderRecyclerAdapter{
 		public AccountsAdapter(){
@@ -151,7 +155,9 @@ public abstract class BaseAccountListFragment extends MastodonRecyclerFragment<A
 		@NonNull
 		@Override
 		public AccountViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType){
-			return new AccountViewHolder(BaseAccountListFragment.this, parent, relationships);
+			AccountViewHolder holder=new AccountViewHolder(BaseAccountListFragment.this, parent, relationships);
+			onConfigureViewHolder(holder);
+			return holder;
 		}
 
 		@Override

@@ -3,13 +3,13 @@ package org.joinmastodon.android.ui.viewcontrollers;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.graphics.Rect;
+import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
-import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import org.joinmastodon.android.R;
@@ -23,11 +23,13 @@ import org.joinmastodon.android.ui.BetterItemAnimator;
 import org.joinmastodon.android.ui.OutlineProviders;
 import org.joinmastodon.android.ui.text.HtmlParser;
 import org.joinmastodon.android.ui.utils.CustomEmojiHelper;
+import org.joinmastodon.android.ui.utils.HideableSingleViewRecyclerAdapter;
 import org.joinmastodon.android.ui.utils.UiUtils;
+import org.joinmastodon.android.ui.views.FilterChipView;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.function.Consumer;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -44,16 +46,18 @@ import me.grishka.appkit.imageloader.RecyclerViewDelegate;
 import me.grishka.appkit.imageloader.requests.ImageLoaderRequest;
 import me.grishka.appkit.imageloader.requests.UrlImageLoaderRequest;
 import me.grishka.appkit.utils.BindableViewHolder;
+import me.grishka.appkit.utils.MergeRecyclerAdapter;
 import me.grishka.appkit.utils.V;
 import me.grishka.appkit.views.UsableRecyclerView;
 
 public class ComposeAutocompleteViewController{
+	private static final int LOADING_FAKE_USER_COUNT=3;
+
 	private Activity activity;
 	private String accountID;
 	private FrameLayout contentView;
 	private UsableRecyclerView list;
 	private ListImageLoaderWrapper imgLoader;
-	private ProgressBar progress;
 	private List<WrappedAccount> users=Collections.emptyList();
 	private List<Hashtag> hashtags=Collections.emptyList();
 	private List<WrappedEmoji> emojis=Collections.emptyList();
@@ -61,13 +65,17 @@ public class ComposeAutocompleteViewController{
 	private APIRequest currentRequest;
 	private Runnable usersDebouncer=this::doSearchUsers, hashtagsDebouncer=this::doSearchHashtags;
 	private String lastText;
-	private boolean listIsHidden=true;
+	private boolean isLoading;
+	private FilterChipView emptyButton;
+	private HideableSingleViewRecyclerAdapter emptyButtonAdapter;
 
 	private UsersAdapter usersAdapter;
 	private HashtagsAdapter hashtagsAdapter;
 	private EmojisAdapter emojisAdapter;
+	private MergeRecyclerAdapter usersMergeAdapter;
+	private MergeRecyclerAdapter emojisMergeAdapter;
 
-	private Consumer<String> completionSelectedListener;
+	private AutocompleteListener completionSelectedListener;
 
 	public ComposeAutocompleteViewController(Activity activity, String accountID){
 		this.activity=activity;
@@ -77,7 +85,6 @@ public class ComposeAutocompleteViewController{
 		list=new UsableRecyclerView(activity);
 		list.setLayoutManager(new LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false));
 		list.setItemAnimator(new BetterItemAnimator());
-		list.setVisibility(View.GONE);
 		list.setPadding(V.dp(16), V.dp(12), V.dp(16), V.dp(12));
 		list.setClipToPadding(false);
 		list.setSelector(null);
@@ -90,10 +97,15 @@ public class ComposeAutocompleteViewController{
 		});
 		contentView.addView(list, new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
 
-		progress=new ProgressBar(activity);
-		FrameLayout.LayoutParams progressLP=new FrameLayout.LayoutParams(V.dp(48), V.dp(48), Gravity.CENTER_HORIZONTAL|Gravity.TOP);
-		progressLP.topMargin=V.dp(16);
-		contentView.addView(progress, progressLP);
+		emptyButton=new FilterChipView(activity);
+		emptyButtonAdapter=new HideableSingleViewRecyclerAdapter(emptyButton);
+		emptyButton.setOnClickListener(v->{
+			if(mode==Mode.EMOJIS){
+				completionSelectedListener.onSetEmojiPanelOpen(true);
+			}else if(mode==Mode.USERS){
+				completionSelectedListener.onLaunchAccountSearch();
+			}
+		});
 
 		imgLoader=new ListImageLoaderWrapper(activity, list, new RecyclerViewDelegate(list), null);
 	}
@@ -104,13 +116,15 @@ public class ComposeAutocompleteViewController{
 		}else if(mode==Mode.HASHTAGS){
 			list.removeCallbacks(hashtagsDebouncer);
 		}
-		if(text==null)
-			return;
-		Mode prevMode=mode;
 		if(currentRequest!=null){
 			currentRequest.cancel();
 			currentRequest=null;
 		}
+		if(text==null){
+			reset();
+			return;
+		}
+		Mode prevMode=mode;
 		mode=switch(text.charAt(0)){
 			case '@' -> Mode.USERS;
 			case '#' -> Mode.HASHTAGS;
@@ -118,16 +132,33 @@ public class ComposeAutocompleteViewController{
 			default -> throw new IllegalStateException("Unexpected value: "+text.charAt(0));
 		};
 		if(prevMode!=mode){
+			if(mode==Mode.USERS){
+				isLoading=true;
+				emptyButtonAdapter.setVisible(false);
+			}
+
 			list.setAdapter(switch(mode){
 				case USERS -> {
-					if(usersAdapter==null)
+					if(usersAdapter==null){
 						usersAdapter=new UsersAdapter();
-					yield usersAdapter;
+						usersMergeAdapter=new MergeRecyclerAdapter();
+						usersMergeAdapter.addAdapter(emptyButtonAdapter);
+						usersMergeAdapter.addAdapter(usersAdapter);
+					}
+					emptyButton.setText(R.string.compose_autocomplete_users_empty);
+					emptyButton.setDrawableStartTinted(R.drawable.ic_search_20px);
+					yield usersMergeAdapter;
 				}
 				case EMOJIS -> {
-					if(emojisAdapter==null)
+					if(emojisAdapter==null){
 						emojisAdapter=new EmojisAdapter();
-					yield emojisAdapter;
+						emojisMergeAdapter=new MergeRecyclerAdapter();
+						emojisMergeAdapter.addAdapter(emptyButtonAdapter);
+						emojisMergeAdapter.addAdapter(emojisAdapter);
+					}
+					emptyButton.setText(R.string.compose_autocomplete_emoji_empty);
+					emptyButton.setDrawableStartTinted(R.drawable.ic_mood_20px);
+					yield emojisMergeAdapter;
 				}
 				case HASHTAGS -> {
 					if(hashtagsAdapter==null)
@@ -135,20 +166,18 @@ public class ComposeAutocompleteViewController{
 					yield hashtagsAdapter;
 				}
 			});
-			if(mode!=Mode.EMOJIS){
-				list.setVisibility(View.GONE);
-				progress.setVisibility(View.VISIBLE);
-				listIsHidden=true;
-			}else if(listIsHidden){
-				list.setVisibility(View.VISIBLE);
-				progress.setVisibility(View.GONE);
-				listIsHidden=false;
-			}
 		}
 		lastText=text;
 		if(mode==Mode.USERS){
 			list.postDelayed(usersDebouncer, 300);
 		}else if(mode==Mode.HASHTAGS){
+			List<Hashtag> oldList=hashtags;
+			hashtags=new ArrayList<>();
+			Hashtag tag=new Hashtag();
+			tag.name=lastText.substring(1);
+			hashtags.add(tag);
+			UiUtils.updateList(oldList, hashtags, list, hashtagsAdapter, (t1, t2)->t1.name.equals(t2.name));
+
 			list.postDelayed(hashtagsDebouncer, 300);
 		}else if(mode==Mode.EMOJIS){
 			String _text=text.substring(1); // remove ':'
@@ -165,17 +194,30 @@ public class ComposeAutocompleteViewController{
 					.filter(e -> e.shortcode.toLowerCase().contains(_text.toLowerCase())))
 					.map(WrappedEmoji::new)
 					.collect(Collectors.toList());
+			emptyButtonAdapter.setVisible(emojis.isEmpty());
 			UiUtils.updateList(oldList, emojis, list, emojisAdapter, (e1, e2)->e1.emoji.shortcode.equals(e2.emoji.shortcode));
+			list.invalidateItemDecorations();
 			imgLoader.updateImages();
 		}
 	}
 
-	public void setCompletionSelectedListener(Consumer<String> completionSelectedListener){
+	public void setCompletionSelectedListener(AutocompleteListener completionSelectedListener){
 		this.completionSelectedListener=completionSelectedListener;
 	}
 
 	public View getView(){
 		return contentView;
+	}
+
+	public void reset(){
+		mode=null;
+		users.clear();
+		emojis.clear();
+		hashtags.clear();
+	}
+
+	public Mode getMode(){
+		return mode;
 	}
 
 	private void doSearchUsers(){
@@ -186,13 +228,22 @@ public class ComposeAutocompleteViewController{
 						currentRequest=null;
 						List<WrappedAccount> oldList=users;
 						users=result.accounts.stream().map(WrappedAccount::new).collect(Collectors.toList());
-						UiUtils.updateList(oldList, users, list, usersAdapter, (a1, a2)->a1.account.id.equals(a2.account.id));
-						imgLoader.updateImages();
-						if(listIsHidden){
-							listIsHidden=false;
-							V.setVisibilityAnimated(list, View.VISIBLE);
-							V.setVisibilityAnimated(progress, View.GONE);
+						if(isLoading){
+							isLoading=false;
+							if(users.size()>=LOADING_FAKE_USER_COUNT){
+								usersAdapter.notifyItemRangeChanged(0, LOADING_FAKE_USER_COUNT);
+								if(users.size()>LOADING_FAKE_USER_COUNT)
+									usersAdapter.notifyItemRangeInserted(LOADING_FAKE_USER_COUNT, users.size()-LOADING_FAKE_USER_COUNT);
+							}else{
+								usersAdapter.notifyItemRangeChanged(0, users.size());
+								usersAdapter.notifyItemRangeRemoved(users.size(), LOADING_FAKE_USER_COUNT-users.size());
+							}
+						}else{
+							UiUtils.updateList(oldList, users, list, usersAdapter, (a1, a2)->a1.account.id.equals(a2.account.id));
 						}
+						list.invalidateItemDecorations();
+						emptyButtonAdapter.setVisible(users.isEmpty());
+						imgLoader.updateImages();
 					}
 
 					@Override
@@ -209,15 +260,12 @@ public class ComposeAutocompleteViewController{
 					@Override
 					public void onSuccess(SearchResults result){
 						currentRequest=null;
+						if(result.hashtags.isEmpty() || (result.hashtags.size()==1 && result.hashtags.get(0).name.equals(lastText.substring(1))))
+							return;
 						List<Hashtag> oldList=hashtags;
 						hashtags=result.hashtags;
 						UiUtils.updateList(oldList, hashtags, list, hashtagsAdapter, (t1, t2)->t1.name.equals(t2.name));
-						imgLoader.updateImages();
-						if(listIsHidden){
-							listIsHidden=false;
-							V.setVisibilityAnimated(list, View.VISIBLE);
-							V.setVisibilityAnimated(progress, View.GONE);
-						}
+						list.invalidateItemDecorations();
 					}
 
 					@Override
@@ -236,23 +284,31 @@ public class ComposeAutocompleteViewController{
 		@NonNull
 		@Override
 		public UserViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType){
-			return new UserViewHolder();
+			return switch(viewType){
+				case 0 -> new UserViewHolder();
+				case 1 -> new LoadingUserViewHolder();
+				default -> throw new IllegalStateException("Unexpected value: "+viewType);
+			};
 		}
 
 		@Override
 		public int getItemCount(){
+			if(isLoading)
+				return LOADING_FAKE_USER_COUNT;
 			return users.size();
 		}
 
 		@Override
 		public void onBindViewHolder(UserViewHolder holder, int position){
-			holder.bind(users.get(position));
-			super.onBindViewHolder(holder, position);
+			if(!isLoading){
+				holder.bind(users.get(position));
+				super.onBindViewHolder(holder, position);
+			}
 		}
 
 		@Override
 		public int getImageCountForItem(int position){
-			return 1/*+users.get(position).emojiHelper.getImageCount()*/;
+			return isLoading ? 0 : 1;
 		}
 
 		@Override
@@ -262,13 +318,18 @@ public class ComposeAutocompleteViewController{
 				return a.avaRequest;
 			return a.emojiHelper.getImageRequest(image-1);
 		}
+
+		@Override
+		public int getItemViewType(int position){
+			return isLoading ? 1 : 0;
+		}
 	}
 
 	private class UserViewHolder extends BindableViewHolder<WrappedAccount> implements ImageLoaderViewHolder, UsableRecyclerView.Clickable{
-		private final ImageView ava;
-		private final TextView username;
+		protected final ImageView ava;
+		protected final TextView username;
 
-		private UserViewHolder(){
+		public UserViewHolder(){
 			super(activity, R.layout.item_autocomplete_user, list);
 			ava=findViewById(R.id.photo);
 			username=findViewById(R.id.username);
@@ -283,7 +344,7 @@ public class ComposeAutocompleteViewController{
 
 		@Override
 		public void onClick(){
-			completionSelectedListener.accept("@"+item.account.acct);
+			completionSelectedListener.onCompletionSelected("@"+item.account.acct);
 		}
 
 		@Override
@@ -297,7 +358,24 @@ public class ComposeAutocompleteViewController{
 
 		@Override
 		public void clearImage(int index){
-			setImage(index, null);
+			if(index==0)
+				ava.setImageResource(R.drawable.image_placeholder);
+			else
+				setImage(index, null);
+		}
+	}
+
+	private class LoadingUserViewHolder extends UserViewHolder implements UsableRecyclerView.DisableableClickable{
+		public LoadingUserViewHolder(){
+			int color=UiUtils.getThemeColor(activity, R.attr.colorM3OutlineVariant);
+			ava.setImageDrawable(new ColorDrawable(color));
+			username.setLayoutParams(new LinearLayout.LayoutParams(V.dp(64), V.dp(10)));
+			username.setBackgroundColor(color);
+		}
+
+		@Override
+		public boolean isEnabled(){
+			return false;
 		}
 	}
 
@@ -336,7 +414,7 @@ public class ComposeAutocompleteViewController{
 
 		@Override
 		public void onClick(){
-			completionSelectedListener.accept("#"+item.name);
+			completionSelectedListener.onCompletionSelected("#"+item.name);
 		}
 	}
 
@@ -401,7 +479,7 @@ public class ComposeAutocompleteViewController{
 
 		@Override
 		public void onClick(){
-			completionSelectedListener.accept(":"+item.emoji.shortcode+":");
+			completionSelectedListener.onCompletionSelected(":"+item.emoji.shortcode+":");
 		}
 	}
 
@@ -430,9 +508,15 @@ public class ComposeAutocompleteViewController{
 		}
 	}
 
-	private enum Mode{
+	public enum Mode{
 		USERS,
 		HASHTAGS,
 		EMOJIS
+	}
+
+	public interface AutocompleteListener{
+		void onCompletionSelected(String completion);
+		void onSetEmojiPanelOpen(boolean open);
+		void onLaunchAccountSearch();
 	}
 }

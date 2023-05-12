@@ -36,6 +36,7 @@ import org.parceler.Parcels;
 
 import java.util.HashMap;
 import java.util.Objects;
+import java.util.function.Consumer;
 
 import me.grishka.appkit.Nav;
 import me.grishka.appkit.api.Callback;
@@ -55,6 +56,8 @@ public class AccountViewHolder extends BindableViewHolder<AccountViewModel> impl
 	private final String accountID;
 	private final Fragment fragment;
 	private final HashMap<String, Relationship> relationships;
+
+	private Consumer<AccountViewHolder> onClick;
 
 	public AccountViewHolder(Fragment fragment, ViewGroup list, HashMap<String, Relationship> relationships){
 		super(fragment.getActivity(), R.layout.item_account_list, list);
@@ -140,6 +143,10 @@ public class AccountViewHolder extends BindableViewHolder<AccountViewModel> impl
 
 	@Override
 	public void onClick(){
+		if(onClick!=null){
+			onClick.accept(this);
+			return;
+		}
 		Bundle args=new Bundle();
 		args.putString("account", accountID);
 		args.putParcelable("profileAccount", Parcels.wrap(item.account));
@@ -252,5 +259,9 @@ public class AccountViewHolder extends BindableViewHolder<AccountViewModel> impl
 	private void updateRelationship(Relationship r){
 		relationships.put(item.account.id, r);
 		bindRelationship();
+	}
+
+	public void setOnClickListener(Consumer<AccountViewHolder> listener){
+		onClick=listener;
 	}
 }

@@ -28,6 +28,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewOutlineProvider;
 import android.view.WindowManager;
+import android.view.inputmethod.InputConnection;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
@@ -52,6 +53,7 @@ import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.events.StatusCountersUpdatedEvent;
 import org.joinmastodon.android.events.StatusCreatedEvent;
 import org.joinmastodon.android.events.StatusUpdatedEvent;
+import org.joinmastodon.android.fragments.account_list.ComposeAccountSearchFragment;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.Emoji;
 import org.joinmastodon.android.model.EmojiCategory;
@@ -96,6 +98,7 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 
 	private static final int MEDIA_RESULT=717;
 	public static final int IMAGE_DESCRIPTION_RESULT=363;
+	private static final int AUTOCOMPLETE_ACCOUNT_RESULT=779;
 	private static final String TAG="ComposeFragment";
 
 	private static final Pattern MENTION_PATTERN=Pattern.compile("(^|[^\\/\\w])@(([a-z0-9_]+)@[a-z0-9\\.\\-]+[a-z0-9]+)", Pattern.CASE_INSENSITIVE);
@@ -262,6 +265,13 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 			@Override
 			public void onIconChanged(int icon){
 				emojiBtn.setSelected(icon!=PopupKeyboard.ICON_HIDDEN);
+				if(autocompleteViewController.getMode()==ComposeAutocompleteViewController.Mode.EMOJIS){
+					contentView.layout(contentView.getLeft(), contentView.getTop(), contentView.getRight(), contentView.getBottom());
+					if(icon==PopupKeyboard.ICON_HIDDEN)
+						showAutocomplete();
+					else
+						hideAutocomplete();
+				}
 			}
 		});
 
@@ -294,7 +304,25 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 		updateVisibilityIcon();
 
 		autocompleteViewController=new ComposeAutocompleteViewController(getActivity(), accountID);
-		autocompleteViewController.setCompletionSelectedListener(this::onAutocompleteOptionSelected);
+		autocompleteViewController.setCompletionSelectedListener(new ComposeAutocompleteViewController.AutocompleteListener(){
+			@Override
+			public void onCompletionSelected(String completion){
+				onAutocompleteOptionSelected(completion);
+			}
+
+			@Override
+			public void onSetEmojiPanelOpen(boolean open){
+				if(open!=emojiKeyboard.isVisible())
+					emojiKeyboard.toggleKeyboardPopup(mainEditText);
+			}
+
+			@Override
+			public void onLaunchAccountSearch(){
+				Bundle args=new Bundle();
+				args.putString("account", accountID);
+				Nav.goForResult(getActivity(), ComposeAccountSearchFragment.class, args, AUTOCOMPLETE_ACCOUNT_RESULT, ComposeFragment.this);
+			}
+		});
 		View autocompleteView=autocompleteViewController.getView();
 		autocompleteView.setVisibility(View.INVISIBLE);
 		bottomBar.addView(autocompleteView, 0, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, V.dp(56)));
@@ -315,6 +343,11 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 		mediaViewController.onSaveInstanceState(outState);
 		outState.putBoolean("hasSpoiler", hasSpoiler);
 		outState.putSerializable("visibility", statusVisibility);
+		if(currentAutocompleteSpan!=null){
+			Editable e=mainEditText.getText();
+			outState.putInt("autocompleteStart", e.getSpanStart(currentAutocompleteSpan));
+			outState.putInt("autocompleteEnd", e.getSpanEnd(currentAutocompleteSpan));
+		}
 	}
 
 	@Override
@@ -472,6 +505,17 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 	}
 
 	@Override
+	public void onViewStateRestored(Bundle savedInstanceState){
+		super.onViewStateRestored(savedInstanceState);
+		if(savedInstanceState!=null && savedInstanceState.containsKey("autocompleteStart")){
+			int start=savedInstanceState.getInt("autocompleteStart"), end=savedInstanceState.getInt("autocompleteEnd");
+			currentAutocompleteSpan=new ComposeAutocompleteSpan();
+			mainEditText.getText().setSpan(currentAutocompleteSpan, start, end, Editable.SPAN_EXCLUSIVE_INCLUSIVE);
+			startAutocomplete(currentAutocompleteSpan);
+		}
+	}
+
+	@Override
 	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater){
 		inflater.inflate(editingStatus==null ? R.menu.compose : R.menu.compose_edit, menu);
 		publishButton=menu.findItem(R.id.publish);
@@ -537,6 +581,14 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 
 	private void onCustomEmojiClick(Emoji emoji){
 		if(getActivity().getCurrentFocus() instanceof EditText edit){
+			if(edit==mainEditText && currentAutocompleteSpan!=null && autocompleteViewController.getMode()==ComposeAutocompleteViewController.Mode.EMOJIS){
+				Editable text=mainEditText.getText();
+				int start=text.getSpanStart(currentAutocompleteSpan);
+				int end=text.getSpanEnd(currentAutocompleteSpan);
+				finishAutocomplete();
+				text.replace(start, end, ':'+emoji.shortcode+':');
+				return;
+			}
 			int start=edit.getSelectionStart();
 			String prefix=start>0 && !Character.isWhitespace(edit.getText().charAt(start-1)) ? " :" : ":";
 			edit.getText().replace(start, edit.getSelectionEnd(), prefix+emoji.shortcode+':');
@@ -549,6 +601,7 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 		int color=UiUtils.alphaBlendThemeColors(getActivity(), R.attr.colorM3Background, R.attr.colorM3Primary, 0.11f);
 		getToolbar().setBackgroundColor(color);
 		setStatusBarColor(color);
+		setNavigationBarColor(color);
 		bottomBar.setBackgroundColor(color);
 	}
 
@@ -694,6 +747,16 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 			String attID=result.getString("attachment");
 			String text=result.getString("text");
 			mediaViewController.setAltTextByID(attID, text);
+		}else if(reqCode==AUTOCOMPLETE_ACCOUNT_RESULT && success){
+			Account acc=Parcels.unwrap(result.getParcelable("selectedAccount"));
+			if(currentAutocompleteSpan==null)
+				return;
+			Editable e=mainEditText.getText();
+			int start=e.getSpanStart(currentAutocompleteSpan);
+			int end=e.getSpanEnd(currentAutocompleteSpan);
+			e.removeSpan(currentAutocompleteSpan);
+			e.replace(start, end, '@'+acc.acct+' ');
+			finishAutocomplete();
 		}
 	}
 
@@ -905,6 +968,18 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 		Editable e=mainEditText.getText();
 		String spanText=e.toString().substring(e.getSpanStart(span), e.getSpanEnd(span));
 		autocompleteViewController.setText(spanText);
+		showAutocomplete();
+	}
+
+	private void finishAutocomplete(){
+		if(currentAutocompleteSpan==null)
+			return;
+		autocompleteViewController.setText(null);
+		currentAutocompleteSpan=null;
+		hideAutocomplete();
+	}
+
+	private void showAutocomplete(){
 		UiUtils.beginLayoutTransition(bottomBar);
 		View autocompleteView=autocompleteViewController.getView();
 		bottomBar.getLayoutParams().height=ViewGroup.LayoutParams.WRAP_CONTENT;
@@ -913,11 +988,7 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 		autocompleteDivider.setVisibility(View.VISIBLE);
 	}
 
-	private void finishAutocomplete(){
-		if(currentAutocompleteSpan==null)
-			return;
-		autocompleteViewController.setText(null);
-		currentAutocompleteSpan=null;
+	private void hideAutocomplete(){
 		UiUtils.beginLayoutTransition(bottomBar);
 		bottomBar.getLayoutParams().height=V.dp(48);
 		bottomBar.requestLayout();
@@ -930,8 +1001,10 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 		int start=e.getSpanStart(currentAutocompleteSpan);
 		int end=e.getSpanEnd(currentAutocompleteSpan);
 		e.replace(start, end, text+" ");
-		mainEditText.setSelection(start+text.length()+1);
 		finishAutocomplete();
+		InputConnection conn=mainEditText.getCurrentInputConnection();
+		if(conn!=null)
+			conn.finishComposingText();
 	}
 
 	@Override

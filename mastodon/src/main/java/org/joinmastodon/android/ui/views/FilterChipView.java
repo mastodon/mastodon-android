@@ -1,7 +1,6 @@
 package org.joinmastodon.android.ui.views;
 
 import android.content.Context;
-import android.content.res.ColorStateList;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.widget.Button;
@@ -30,7 +29,6 @@ public class FilterChipView extends Button{
 		setBackgroundResource(R.drawable.bg_filter_chip);
 		setTextAppearance(R.style.m3_label_large);
 		setTextColor(getResources().getColorStateList(R.color.filter_chip_text, context.getTheme()));
-		setCompoundDrawableTintList(ColorStateList.valueOf(UiUtils.getThemeColor(context, R.attr.colorM3OnSurface)));
 		updatePadding();
 	}
 
@@ -40,7 +38,9 @@ public class FilterChipView extends Button{
 		if(currentlySelected==isSelected())
 			return;
 		currentlySelected=isSelected();
-		Drawable start=currentlySelected ? getResources().getDrawable(R.drawable.ic_baseline_check_18, getContext().getTheme()) : null;
+		Drawable start=currentlySelected ? getResources().getDrawable(R.drawable.ic_baseline_check_18, getContext().getTheme()).mutate() : null;
+		if(start!=null)
+			start.setTint(UiUtils.getThemeColor(getContext(), R.attr.colorM3OnSurface));
 		Drawable end=getCompoundDrawablesRelative()[2];
 		setCompoundDrawablesRelativeWithIntrinsicBounds(start, null, end, null);
 		updatePadding();
@@ -53,7 +53,18 @@ public class FilterChipView extends Button{
 	}
 
 	public void setDrawableEnd(@DrawableRes int drawable){
-		setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, drawable, 0);
+		Drawable icon=getResources().getDrawable(drawable, getContext().getTheme()).mutate();
+		icon.setBounds(0, 0, V.dp(18), V.dp(18));
+		icon.setTint(UiUtils.getThemeColor(getContext(), R.attr.colorM3OnSurface));
+		setCompoundDrawablesRelativeWithIntrinsicBounds(getCompoundDrawablesRelative()[0], null, icon, null);
+		updatePadding();
+	}
+
+	public void setDrawableStartTinted(@DrawableRes int drawable){
+		Drawable icon=getResources().getDrawable(drawable, getContext().getTheme()).mutate();
+		icon.setBounds(0, 0, V.dp(18), V.dp(18));
+		icon.setTint(UiUtils.getThemeColor(getContext(), R.attr.colorM3Primary));
+		setCompoundDrawablesRelative(icon, null, getCompoundDrawablesRelative()[2], null);
 		updatePadding();
 	}
 }

@@ -733,4 +733,11 @@ public class UiUtils{
 				.setInterpolator(CubicBezierInterpolator.DEFAULT)
 		);
 	}
+
+	public static Drawable getThemeDrawable(Context context, @AttrRes int attr){
+		TypedArray ta=context.obtainStyledAttributes(new int[]{attr});
+		Drawable d=ta.getDrawable(0);
+		ta.recycle();
+		return d;
+	}
 }
