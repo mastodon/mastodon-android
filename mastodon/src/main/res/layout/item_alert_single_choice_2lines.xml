@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<org.joinmastodon.android.ui.views.CheckableLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="52dp"
+	android:orientation="horizontal"
+	android:paddingStart="12dp"
+	android:paddingEnd="24dp">
+	
+	<View
+		android:id="@+id/radiobutton"
+		android:layout_width="32dp"
+		android:layout_height="32dp"
+		android:layout_gravity="center_vertical"
+		android:duplicateParentState="true"/>
+	
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:layout_marginStart="12dp"
+		android:orientation="vertical"
+		android:gravity="center_vertical">
+
+		<TextView
+			android:id="@+id/title"
+			android:layout_width="match_parent"
+			android:layout_height="16dp"
+			android:textAppearance="@style/m3_label_medium"
+			android:textColor="?colorM3OnSurfaceVariant"
+			android:singleLine="true"
+			android:ellipsize="end"
+			tools:text="Title"/>
+
+		<TextView
+			android:id="@+id/text"
+			android:layout_width="match_parent"
+			android:layout_height="24dp"
+			android:textAppearance="@style/m3_body_large"
+			android:textColor="@color/text_on_surface_disableable"
+			android:singleLine="true"
+			android:ellipsize="end"
+			tools:text="Text"/>
+		
+	</LinearLayout>
+
+</org.joinmastodon.android.ui.views.CheckableLinearLayout>

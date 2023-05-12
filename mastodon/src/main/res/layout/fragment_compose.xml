@@ -388,6 +388,19 @@
 				android:tooltipText="@string/content_warning"
 				android:src="@drawable/ic_compose_cw"/>
 
+			<ImageButton
+				android:id="@+id/btn_language"
+				android:layout_width="36dp"
+				android:layout_height="36dp"
+				android:layout_marginEnd="12dp"
+				android:background="@drawable/bg_compose_button"
+				android:padding="0px"
+				android:tint="@color/compose_button"
+				android:tintMode="src_in"
+				android:contentDescription="@string/language"
+				android:tooltipText="@string/language"
+				android:src="@drawable/ic_language_24px"/>
+
 			<Space
 				android:layout_width="0px"
 				android:layout_height="1px"

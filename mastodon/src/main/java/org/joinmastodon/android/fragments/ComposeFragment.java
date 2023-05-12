@@ -73,6 +73,7 @@ import org.joinmastodon.android.ui.text.HtmlParser;
 import org.joinmastodon.android.ui.utils.SimpleTextWatcher;
 import org.joinmastodon.android.ui.utils.UiUtils;
 import org.joinmastodon.android.ui.viewcontrollers.ComposeAutocompleteViewController;
+import org.joinmastodon.android.ui.viewcontrollers.ComposeLanguageAlertViewController;
 import org.joinmastodon.android.ui.viewcontrollers.ComposeMediaViewController;
 import org.joinmastodon.android.ui.viewcontrollers.ComposePollViewController;
 import org.joinmastodon.android.ui.views.ComposeEditText;
@@ -122,7 +123,7 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 	private String accountID;
 	private int charCount, charLimit, trimmedCharCount;
 
-	private ImageButton mediaBtn, pollBtn, emojiBtn, spoilerBtn;
+	private ImageButton mediaBtn, pollBtn, emojiBtn, spoilerBtn, languageBtn;
 	private TextView replyText;
 	private Button visibilityBtn;
 	private LinearLayout bottomBar;
@@ -142,6 +143,7 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 	private StatusPrivacy statusVisibility=StatusPrivacy.PUBLIC;
 	private ComposeAutocompleteSpan currentAutocompleteSpan;
 	private FrameLayout mainEditTextWrap;
+	private ComposeLanguageAlertViewController.SelectedOption postLang;
 
 	private ComposeAutocompleteViewController autocompleteViewController;
 	private ComposePollViewController pollViewController=new ComposePollViewController(this);
@@ -190,9 +192,9 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 		else
 			charLimit=500;
 
-		if(editingStatus==null)
-			loadDefaultStatusVisibility(savedInstanceState);
 		setTitle(editingStatus==null ? R.string.new_post : R.string.edit_post);
+		if(savedInstanceState!=null)
+			postLang=Parcels.unwrap(savedInstanceState.getParcelable("postLang"));
 	}
 
 	@Override
@@ -251,12 +253,14 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 		emojiBtn=view.findViewById(R.id.btn_emoji);
 		spoilerBtn=view.findViewById(R.id.btn_spoiler);
 		visibilityBtn=view.findViewById(R.id.btn_visibility);
+		languageBtn=view.findViewById(R.id.btn_language);
 		replyText=view.findViewById(R.id.reply_text);
 
 		mediaBtn.setOnClickListener(v->openFilePicker());
 		pollBtn.setOnClickListener(v->togglePoll());
 		emojiBtn.setOnClickListener(v->emojiKeyboard.toggleKeyboardPopup(mainEditText));
 		spoilerBtn.setOnClickListener(v->toggleSpoiler());
+		languageBtn.setOnClickListener(v->showLanguageAlert());
 		visibilityBtn.setOnClickListener(this::onVisibilityClick);
 		Drawable arrow=getResources().getDrawable(R.drawable.ic_baseline_arrow_drop_down_18, getActivity().getTheme()).mutate();
 		arrow.setTint(UiUtils.getThemeColor(getActivity(), R.attr.colorM3OnSurface));
@@ -343,6 +347,7 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 		mediaViewController.onSaveInstanceState(outState);
 		outState.putBoolean("hasSpoiler", hasSpoiler);
 		outState.putSerializable("visibility", statusVisibility);
+		outState.putParcelable("postLang", Parcels.wrap(postLang));
 		if(currentAutocompleteSpan!=null){
 			Editable e=mainEditText.getText();
 			outState.putInt("autocompleteStart", e.getSpanStart(currentAutocompleteSpan));
@@ -358,6 +363,8 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 	@Override
 	public void onViewCreated(View view, Bundle savedInstanceState){
 		super.onViewCreated(view, savedInstanceState);
+		if(editingStatus==null)
+			loadDefaultStatusVisibility(savedInstanceState);
 		contentView.setSizeListener(emojiKeyboard::onContentViewSizeChanged);
 		InputMethodManager imm=getActivity().getSystemService(InputMethodManager.class);
 		mainEditText.requestFocus();
@@ -650,6 +657,9 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 		if(hasSpoiler && spoilerEdit.length()>0){
 			req.spoilerText=spoilerEdit.getText().toString();
 		}
+		if(postLang!=null){
+			req.language=postLang.locale.toLanguageTag();
+		}
 		if(uuid==null)
 			uuid=UUID.randomUUID().toString();
 
@@ -867,45 +877,43 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 		menu.show();
 	}
 
-	private void loadDefaultStatusVisibility(Bundle savedInstanceState) {
+	private void loadDefaultStatusVisibility(Bundle savedInstanceState){
 		if(getArguments().containsKey("replyTo")){
 			replyTo=Parcels.unwrap(getArguments().getParcelable("replyTo"));
-			statusVisibility = replyTo.visibility;
+			statusVisibility=replyTo.visibility;
 		}
 
 		// A saved privacy setting from a previous compose session wins over the reply visibility
-		if(savedInstanceState !=null){
-			statusVisibility = (StatusPrivacy) savedInstanceState.getSerializable("visibility");
+		if(savedInstanceState!=null){
+			statusVisibility=(StatusPrivacy) savedInstanceState.getSerializable("visibility");
 		}
 
-		new GetPreferences()
-				.setCallback(new Callback<>(){
-					@Override
-					public void onSuccess(Preferences result){
-						// Only override the reply visibility if our preference is more private
-						if (result.postingDefaultVisibility.isLessVisibleThan(statusVisibility)) {
-							// Map unlisted from the API onto public, because we don't have unlisted in the UI
-							statusVisibility = switch (result.postingDefaultVisibility) {
-								case PUBLIC, UNLISTED -> StatusPrivacy.PUBLIC;
-								case PRIVATE -> StatusPrivacy.PRIVATE;
-								case DIRECT -> StatusPrivacy.DIRECT;
-							};
-						}
+		Preferences prevPrefs=AccountSessionManager.getInstance().getAccount(accountID).preferences;
+		if(prevPrefs!=null){
+			applyPreferencesForPostVisibility(prevPrefs, savedInstanceState);
+		}
+		AccountSessionManager.getInstance().getAccount(accountID).reloadPreferences(prefs->{
+			applyPreferencesForPostVisibility(prefs, savedInstanceState);
+		});
+	}
 
-						// A saved privacy setting from a previous compose session wins over all
-						if(savedInstanceState !=null){
-							statusVisibility = (StatusPrivacy) savedInstanceState.getSerializable("visibility");
-						}
+	private void applyPreferencesForPostVisibility(Preferences prefs, Bundle savedInstanceState){
+		// Only override the reply visibility if our preference is more private
+		if(prefs.postingDefaultVisibility.isLessVisibleThan(statusVisibility)){
+			// Map unlisted from the API onto public, because we don't have unlisted in the UI
+			statusVisibility=switch(prefs.postingDefaultVisibility){
+				case PUBLIC, UNLISTED -> StatusPrivacy.PUBLIC;
+				case PRIVATE -> StatusPrivacy.PRIVATE;
+				case DIRECT -> StatusPrivacy.DIRECT;
+			};
+		}
 
-						updateVisibilityIcon ();
-					}
+		// A saved privacy setting from a previous compose session wins over all
+		if(savedInstanceState!=null){
+			statusVisibility=(StatusPrivacy) savedInstanceState.getSerializable("visibility");
+		}
 
-					@Override
-					public void onError(ErrorResponse error){
-						Log.w(TAG, "Unable to get user preferences to set default post privacy");
-					}
-				})
-				.exec(accountID);
+		updateVisibilityIcon();
 	}
 
 	private void updateVisibilityIcon(){
@@ -1036,5 +1044,20 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 
 	public void addFakeMediaAttachment(Uri uri, String description){
 		mediaViewController.addFakeMediaAttachment(uri, description);
+	}
+
+	private void showLanguageAlert(){
+		Preferences prefs=AccountSessionManager.getInstance().getAccount(accountID).preferences;
+		ComposeLanguageAlertViewController vc=new ComposeLanguageAlertViewController(getActivity(), prefs!=null ? prefs.postingDefaultLanguage : null, postLang, mainEditText.getText().toString());
+		new M3AlertDialogBuilder(getActivity())
+				.setTitle(R.string.language)
+				.setView(vc.getView())
+				.setPositiveButton(R.string.ok, (dialog, which)->setPostLanguage(vc.getSelectedOption()))
+				.setNegativeButton(R.string.cancel, null)
+				.show();
+	}
+
+	private void setPostLanguage(ComposeLanguageAlertViewController.SelectedOption language){
+		postLang=language;
 	}
 }
