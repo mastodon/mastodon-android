@@ -98,8 +98,8 @@
 		<item quantity="other">%d dagen resterend</item>
 	</plurals>
 	<plurals name="x_voters">
-		<item quantity="one">%,d persoon</item>
-		<item quantity="other">%,d mensen</item>
+		<item quantity="one">%,d stem</item>
+		<item quantity="other">%,d stemmen</item>
 	</plurals>
 	<string name="poll_closed">Gesloten</string>
 	<string name="confirm_mute_title">Account negeren</string>
@@ -211,7 +211,7 @@
 	<string name="edit_image">Afbeelding bewerken</string>
 	<string name="save">Opslaan</string>
 	<string name="add_alt_text">Alt-tekst toevoegen</string>
-	<string name="alt_text_subtitle">Alt-tekst beschrijft uw foto\'s voor mensen met weinig of geen zicht. Probeer alleen genoeg details toe te voegen om de context te begrijpen.</string>
+	<string name="alt_text_subtitle">Alt-tekst beschrijft jouw foto\'s voor blinde of slechtziende mensen. Probeer alleen genoeg details toe te voegen om de context te begrijpen.</string>
 	<string name="alt_text_hint">bijv.: ‘een hond die met versmalde ogen verdacht rondkijkt naar de camera’.</string>
 	<string name="visibility_public">Openbaar</string>
 	<string name="visibility_followers_only">Alleen volgers</string>
@@ -250,7 +250,7 @@
 	<string name="notify_none">niemand</string>
 	<string name="notify_favorites">Mijn bericht als favoriet markeert</string>
 	<string name="notify_follow">Mij volgt</string>
-	<string name="notify_reblog">Boost mijn bericht</string>
+	<string name="notify_reblog">Mijn bericht boost</string>
 	<string name="notify_mention">Mij vermeldt</string>
 	<string name="settings_boring">De saaie zone</string>
 	<string name="settings_account">Accountinstellingen</string>
