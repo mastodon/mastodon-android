@@ -20,13 +20,16 @@ import android.text.TextWatcher;
 import android.text.style.BackgroundColorSpan;
 import android.text.style.ForegroundColorSpan;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.SoundEffectConstants;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewOutlineProvider;
+import android.view.ViewTreeObserver;
 import android.view.WindowManager;
 import android.view.inputmethod.InputConnection;
 import android.view.inputmethod.InputMethodManager;
@@ -223,7 +226,18 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 	public View onCreateContentView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
 		creatingView=true;
 		emojiKeyboard=new CustomEmojiPopupKeyboard(getActivity(), customEmojis, instanceDomain);
-		emojiKeyboard.setListener(this::onCustomEmojiClick);
+		emojiKeyboard.setListener(new CustomEmojiPopupKeyboard.Listener(){
+			@Override
+			public void onEmojiSelected(Emoji emoji){
+				onCustomEmojiClick(emoji);
+			}
+
+			@Override
+			public void onBackspace(){
+				getActivity().dispatchKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_DEL));
+				getActivity().dispatchKeyEvent(new KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_DEL));
+			}
+		});
 
 		View view=inflater.inflate(R.layout.fragment_compose, container, false);
 		mainLayout=view.findViewById(R.id.compose_main_ll);
@@ -269,6 +283,7 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 			@Override
 			public void onIconChanged(int icon){
 				emojiBtn.setSelected(icon!=PopupKeyboard.ICON_HIDDEN);
+				updateNavigationBarColor(icon!=PopupKeyboard.ICON_HIDDEN);
 				if(autocompleteViewController.getMode()==ComposeAutocompleteViewController.Mode.EMOJIS){
 					contentView.layout(contentView.getLeft(), contentView.getTop(), contentView.getRight(), contentView.getBottom());
 					if(icon==PopupKeyboard.ICON_HIDDEN)
@@ -281,7 +296,6 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 
 		contentView=(SizeListenerLinearLayout) view;
 		contentView.addView(emojiKeyboard.getView());
-		emojiKeyboard.getView().setElevation(V.dp(2));
 
 		spoilerEdit=view.findViewById(R.id.content_warning);
 		spoilerWrap=view.findViewById(R.id.content_warning_wrap);
@@ -608,8 +622,13 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 		int color=UiUtils.alphaBlendThemeColors(getActivity(), R.attr.colorM3Background, R.attr.colorM3Primary, 0.11f);
 		getToolbar().setBackgroundColor(color);
 		setStatusBarColor(color);
-		setNavigationBarColor(color);
 		bottomBar.setBackgroundColor(color);
+		updateNavigationBarColor(emojiKeyboard.isVisible());
+	}
+
+	private void updateNavigationBarColor(boolean emojiKeyboardVisible){
+		int color=UiUtils.alphaBlendThemeColors(getActivity(), R.attr.colorM3Background, R.attr.colorM3Primary, emojiKeyboardVisible ? 0.08f : 0.11f);
+		setNavigationBarColor(color);
 	}
 
 	@Override
