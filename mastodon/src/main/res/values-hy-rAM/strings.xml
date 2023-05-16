@@ -101,6 +101,8 @@
 	<string name="confirm_block_domain_title">Արգելափակել տիրույթը</string>
 	<string name="confirm_block">Հաստատեք %s-ի արգելափակումը</string>
 	<string name="do_block">Արգելափակել</string>
+	<string name="do_unblock">Արգելաբացել</string>
+	<string name="button_blocked">Արգելափակված</string>
 	<string name="action_vote">Քվեարկել</string>
 	<string name="tap_to_reveal">Սեղմեք տեսնելու համար</string>
 	<string name="delete">Ջնջել</string>
@@ -118,7 +120,9 @@
 	<string name="mentions">Նշումներ</string>
 	<string name="report_title">Զեկուցել %s-ի մասին</string>
 	<string name="report_reason_personal">Ինձ դուր չի գալիս</string>
+	<string name="report_reason_personal_subtitle">Դուք սա չեք ուզում տեսնել</string>
 	<string name="report_reason_spam">Սպամ է</string>
+	<string name="report_reason_spam_subtitle">Վնասակար հղումներ, կեղծում կամ կրկնվող պատասխաններ</string>
 	<string name="report_reason_violation">Խախտում է սերվերի կանոնները</string>
 	<string name="report_reason_violation_subtitle">Գիտեք, որ այն խախտում է կանոնները</string>
 	<string name="report_reason_other">Այլ բան է</string>
@@ -157,6 +161,9 @@
 	<string name="add_image_description">Ավելացնել պատկերի նկարագրություն</string>
 	<string name="edit_image">Խմբագրել նկարը</string>
 	<string name="save">Պահպանել</string>
+	<string name="visibility_public">Հրապարակային</string>
+	<string name="visibility_followers_only">Միայն հետեւողներին</string>
+	<string name="visibility_private">Միայն նշածս մարդկանց</string>
 	<string name="search_all">Բոլորը</string>
 	<string name="search_people">Մարդիկ</string>
 	<string name="recent_searches">Վերջին որոնումներ</string>
@@ -226,6 +233,7 @@
 	<string name="dismiss">Չեղարկել</string>
 	<string name="see_new_posts">Նոր գրառումներ</string>
 	<string name="follows_you">Հետեւում է ձեզ</string>
+	<string name="current_account">Ընթացիկ հաշիվ</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<plurals name="x_followers">
 		<item quantity="one">%,d հետեւորդ</item>
@@ -241,13 +249,32 @@
 	</plurals>
 	<string name="timestamp_via_app">%1$s %2$s-ի միջոցով</string>
 	<string name="time_now">նոր</string>
+	<string name="post_info_reblogs">Տարածումներ</string>
 	<string name="post_info_favorites">Հավանումներ</string>
 	<string name="edit_history">Խմբագրել պատմությունը</string>
+	<string name="last_edit_at_x">Վերջին խմբագրում՝ %s</string>
 	<string name="time_just_now">հենց նոր</string>
+	<plurals name="x_seconds_ago">
+		<item quantity="one">%d վայրկյան առաջ</item>
+		<item quantity="other">%d վայրկյան առաջ</item>
+	</plurals>
+	<plurals name="x_minutes_ago">
+		<item quantity="one">%d րոպե առաջ</item>
+		<item quantity="other">%d րոպե առաջ</item>
+	</plurals>
+	<string name="edit_text_edited">Տեքստը փոփոխվել է</string>
+	<string name="edit_poll_added">Հարցումն ավելացել է</string>
+	<string name="edit_poll_edited">Հարցումը խմբագրվել է</string>
 	<string name="edit_poll_removed">Հարցումը հեռացվել է</string>
 	<string name="edit_media_added">Մեդիան ավելացվել է</string>
 	<string name="edit_media_removed">Մեդիան հեռացվել է</string>
 	<string name="edit_marked_sensitive">Նշվել է որպես դյուրազգաց</string>
+	<string name="file_size_bytes">%d բայթ</string>
+	<string name="file_size_kb">%.2f ԿԲ</string>
+	<string name="file_size_mb">%.2f ՄԲ</string>
+	<string name="file_size_gb">%.2f ԳԲ</string>
+	<string name="file_upload_progress">%1$s՝ %2$s-ից</string>
+	<string name="file_upload_time_remaining">մնացել է %s</string>
 	<!-- %s is version like 1.2.3 -->
 	<string name="update_available">%s տարբերակը պատրաստ է ներբեռնման։</string>
 	<!-- %s is version like 1.2.3 -->
@@ -255,6 +282,7 @@
 	<!-- %s is file size -->
 	<string name="download_update">Ներբեռնել (%s)</string>
 	<string name="install_update">Տեղադրել</string>
+	<string name="privacy_policy_title">Ձեր գաղտնիությունը</string>
 	<string name="i_agree">Համաձայն եմ</string>
 	<string name="empty_list">Ցանկը դատարկ է</string>
 	<string name="instance_signup_closed">Սպասարկիչը գրանցումներ չի ընդունում։</string>
@@ -274,9 +302,25 @@
 	<string name="not_accepting_new_members">Չի ընդունում նոր անդամներ</string>
 	<string name="signup_passwords_dont_match">Գաղտնաբառը չի համապատասխանում</string>
 	<string name="pick_server_for_me">Ընտրել իմ համար</string>
+	<string name="privacy_policy_explanation">Կարճ ասած՝ մենք ոչինչ չենք հավաքում։</string>
 	<!-- %s is server domain -->
+	<string name="profile_bio">Կենսագրություն</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<string name="signup_email_domain_blocked">%1$s-ը %2$s-ից գրանցումներ չի ընդունում։ Փորձեք ուրիշը կամ &lt;a&gt;ընտրեք ուրիշ սերվեր&lt;/a&gt;։</string>
+	<string name="signup_username_taken">Օգտանունը զբաղված է։</string>
+	<string name="spoiler_show">Ցույց տալ</string>
+	<string name="spoiler_hide">Թաքցնել</string>
+	<string name="save_changes">Պահպանել</string>
+	<string name="profile_timeline">Հոսք</string>
+	<string name="view_all">Դիտել բոլորը</string>
+	<string name="profile_endorsed_accounts">Հաշիվներ</string>
+	<string name="verified_link">Հաստատված հղում</string>
+	<string name="show">Ցույց տալ</string>
+	<string name="hide">Թաքցնել</string>
+	<string name="join_default_server">Միանալ %s-ին</string>
+	<string name="pick_server">Ընտրել ուրիշ սերվեր</string>
+	<string name="signup_or_login">կամ</string>
 	<string name="learn_more">Իմանալ ավելին</string>
 	<string name="welcome_to_mastodon">Բարի գալուստ Մաստոդոն</string>
 	<string name="welcome_paragraph1">Մաստոդոնը ապակենտրոնացված սոցցանց է, այսինքն՝ այն չի պատկանում մի ընկերության։ Այն բաղկացած է բազմաթիվ անկախ և կապակցված սերվերներից։</string>
