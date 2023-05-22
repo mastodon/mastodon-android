@@ -33,6 +33,11 @@ public abstract class StatusDisplayItem{
 	public boolean inset;
 	public int index;
 
+	public static final int FLAG_INSET=1;
+	public static final int FLAG_NO_FOOTER=1 << 1;
+	public static final int FLAG_CHECKABLE=1 << 2;
+	public static final int FLAG_MEDIA_FORCE_HIDDEN=1 << 3;
+
 	public StatusDisplayItem(String parentID, BaseStatusListFragment parentFragment){
 		this.parentID=parentID;
 		this.parentFragment=parentFragment;
@@ -51,6 +56,7 @@ public abstract class StatusDisplayItem{
 	public static BindableViewHolder<? extends StatusDisplayItem> createViewHolder(Type type, Activity activity, ViewGroup parent){
 		return switch(type){
 			case HEADER -> new HeaderStatusDisplayItem.Holder(activity, parent);
+			case HEADER_CHECKABLE -> new CheckableHeaderStatusDisplayItem.Holder(activity, parent);
 			case REBLOG_OR_REPLY_LINE -> new ReblogOrReplyLineStatusDisplayItem.Holder(activity, parent);
 			case TEXT -> new TextStatusDisplayItem.Holder(activity, parent);
 			case AUDIO -> new AudioStatusDisplayItem.Holder(activity, parent);
@@ -70,6 +76,15 @@ public abstract class StatusDisplayItem{
 	}
 
 	public static ArrayList<StatusDisplayItem> buildItems(BaseStatusListFragment fragment, Status status, String accountID, DisplayItemsParent parentObject, Map<String, Account> knownAccounts, boolean inset, boolean addFooter){
+		int flags=0;
+		if(inset)
+			flags|=FLAG_INSET;
+		if(!addFooter)
+			flags|=FLAG_NO_FOOTER;
+		return buildItems(fragment, status, accountID, parentObject, knownAccounts, flags);
+	}
+
+	public static ArrayList<StatusDisplayItem> buildItems(BaseStatusListFragment fragment, Status status, String accountID, DisplayItemsParent parentObject, Map<String, Account> knownAccounts, int flags){
 		String parentID=parentObject.getID();
 		ArrayList<StatusDisplayItem> items=new ArrayList<>();
 		Status statusForContent=status.getContentStatus();
@@ -80,7 +95,10 @@ public abstract class StatusDisplayItem{
 			items.add(new ReblogOrReplyLineStatusDisplayItem(parentID, fragment, fragment.getString(R.string.in_reply_to, account.displayName), account.emojis, R.drawable.ic_reply_20px));
 		}
 		HeaderStatusDisplayItem header;
-		items.add(header=new HeaderStatusDisplayItem(parentID, statusForContent.account, statusForContent.createdAt, fragment, accountID, statusForContent, null));
+		if((flags & FLAG_CHECKABLE)!=0)
+			items.add(header=new CheckableHeaderStatusDisplayItem(parentID, statusForContent.account, statusForContent.createdAt, fragment, accountID, statusForContent, null));
+		else
+			items.add(header=new HeaderStatusDisplayItem(parentID, statusForContent.account, statusForContent.createdAt, fragment, accountID, statusForContent, null));
 
 		ArrayList<StatusDisplayItem> contentItems;
 		if(!TextUtils.isEmpty(statusForContent.spoilerText)){
@@ -99,7 +117,10 @@ public abstract class StatusDisplayItem{
 		List<Attachment> imageAttachments=statusForContent.mediaAttachments.stream().filter(att->att.type.isImage()).collect(Collectors.toList());
 		if(!imageAttachments.isEmpty()){
 			PhotoLayoutHelper.TiledLayoutResult layout=PhotoLayoutHelper.processThumbs(imageAttachments);
-			contentItems.add(new MediaGridStatusDisplayItem(parentID, fragment, layout, imageAttachments, statusForContent));
+			MediaGridStatusDisplayItem mediaGrid=new MediaGridStatusDisplayItem(parentID, fragment, layout, imageAttachments, statusForContent);
+			if((flags & FLAG_MEDIA_FORCE_HIDDEN)!=0)
+				mediaGrid.sensitiveTitle=fragment.getString(R.string.media_hidden);
+			contentItems.add(mediaGrid);
 		}
 		for(Attachment att:statusForContent.mediaAttachments){
 			if(att.type==Attachment.Type.AUDIO){
@@ -112,12 +133,13 @@ public abstract class StatusDisplayItem{
 		if(statusForContent.card!=null && statusForContent.mediaAttachments.isEmpty() && TextUtils.isEmpty(statusForContent.spoilerText)){
 			contentItems.add(new LinkCardStatusDisplayItem(parentID, fragment, statusForContent));
 		}
-		if(addFooter){
+		if((flags & FLAG_NO_FOOTER)==0){
 			items.add(new FooterStatusDisplayItem(parentID, fragment, statusForContent, accountID));
 			if(status.hasGapAfter && !(fragment instanceof ThreadFragment))
 				items.add(new GapStatusDisplayItem(parentID, fragment));
 		}
 		int i=1;
+		boolean inset=(flags & FLAG_INSET)!=0;
 		for(StatusDisplayItem item:items){
 			item.inset=inset;
 			item.index=i++;
@@ -156,7 +178,8 @@ public abstract class StatusDisplayItem{
 		EXTENDED_FOOTER,
 		MEDIA_GRID,
 		SPOILER,
-		SECTION_HEADER
+		SECTION_HEADER,
+		HEADER_CHECKABLE
 	}
 
 	public static abstract class Holder<T extends StatusDisplayItem> extends BindableViewHolder<T> implements UsableRecyclerView.DisableableClickable{

@@ -2,6 +2,7 @@ package org.joinmastodon.android.ui.views;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.view.accessibility.AccessibilityNodeInfo;
 import android.widget.Checkable;
 import android.widget.LinearLayout;
 
@@ -46,5 +47,12 @@ public class CheckableLinearLayout extends LinearLayout implements Checkable{
 			mergeDrawableStates(drawableState, CHECKED_STATE_SET);
 		}
 		return drawableState;
+	}
+
+	@Override
+	public void onInitializeAccessibilityNodeInfo(AccessibilityNodeInfo info){
+		super.onInitializeAccessibilityNodeInfo(info);
+		info.setCheckable(true);
+		info.setChecked(checked);
 	}
 }

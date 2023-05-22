@@ -48,6 +48,7 @@ public class MediaGridStatusDisplayItem extends StatusDisplayItem{
 	private final ArrayList<ImageLoaderRequest> requests=new ArrayList<>();
 	public final Status status;
 	public boolean sensitiveRevealed;
+	public String sensitiveTitle;
 
 	public MediaGridStatusDisplayItem(String parentID, BaseStatusListFragment<?> parentFragment, PhotoLayoutHelper.TiledLayoutResult tiledLayout, List<Attachment> attachments, Status status){
 		super(parentID, parentFragment);
@@ -103,6 +104,7 @@ public class MediaGridStatusDisplayItem extends StatusDisplayItem{
 		private final LayerDrawable sensitiveOverlayBG;
 		private static final ColorDrawable drawableForWhenThereIsNoBlurhash=new ColorDrawable(0xffffffff);
 		private final TextView hideSensitiveButton;
+		private final TextView sensitiveText;
 
 		private int altTextIndex=-1;
 		private Animator altTextAnimator;
@@ -112,7 +114,6 @@ public class MediaGridStatusDisplayItem extends StatusDisplayItem{
 			wrapper=(FrameLayout)itemView;
 			layout=new MediaGridLayout(activity);
 			wrapper.addView(layout);
-			wrapper.setPadding(0, 0, 0, V.dp(8));
 			wrapper.setClipToPadding(false);
 
 			overlays=new MaxWidthFrameLayout(activity);
@@ -136,15 +137,20 @@ public class MediaGridStatusDisplayItem extends StatusDisplayItem{
 
 			activity.getLayoutInflater().inflate(R.layout.overlay_image_sensitive, overlays);
 			sensitiveOverlay=findViewById(R.id.sensitive_overlay);
-			sensitiveOverlayBG=(LayerDrawable) sensitiveOverlay.getBackground();
+			sensitiveOverlayBG=(LayerDrawable) sensitiveOverlay.getBackground().mutate();
 			sensitiveOverlayBG.setDrawableByLayerId(R.id.left_drawable, new SpoilerStripesDrawable(false));
 			sensitiveOverlayBG.setDrawableByLayerId(R.id.right_drawable, new SpoilerStripesDrawable(true));
+			sensitiveOverlay.setBackground(sensitiveOverlayBG);
 			sensitiveOverlay.setOnClickListener(v->revealSensitive());
 			hideSensitiveButton.setOnClickListener(v->hideSensitive());
+
+			sensitiveText=findViewById(R.id.sensitive_text);
 		}
 
 		@Override
 		public void onBind(MediaGridStatusDisplayItem item){
+			wrapper.setPadding(0, 0, 0, item.inset ? 0 : V.dp(8));
+
 			if(altTextAnimator!=null)
 				altTextAnimator.cancel();
 
@@ -190,6 +196,10 @@ public class MediaGridStatusDisplayItem extends StatusDisplayItem{
 				layout.setVisibility(View.VISIBLE);
 			}
 			hideSensitiveButton.setVisibility(item.status.sensitive ? View.VISIBLE : View.GONE);
+			if(!TextUtils.isEmpty(item.sensitiveTitle))
+				sensitiveText.setText(item.sensitiveTitle);
+			else
+				sensitiveText.setText(R.string.sensitive_content_explain);
 		}
 
 		@Override
@@ -345,6 +355,14 @@ public class MediaGridStatusDisplayItem extends StatusDisplayItem{
 				return;
 			item.sensitiveRevealed=false;
 			V.setVisibilityAnimated(sensitiveOverlay, View.VISIBLE, ()->layout.setVisibility(View.INVISIBLE));
+		}
+
+		public MediaGridLayout getLayout(){
+			return layout;
+		}
+
+		public View getSensitiveOverlay(){
+			return sensitiveOverlay;
 		}
 	}
 }

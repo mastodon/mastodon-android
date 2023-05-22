@@ -3,18 +3,16 @@ package org.joinmastodon.android.ui.displayitems;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.ProgressDialog;
-import android.graphics.Outline;
 import android.graphics.drawable.Animatable;
 import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.os.Bundle;
+import android.os.Parcel;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewOutlineProvider;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
@@ -43,6 +41,7 @@ import java.time.Instant;
 import java.util.Collections;
 import java.util.List;
 
+import androidx.annotation.LayoutRes;
 import me.grishka.appkit.Nav;
 import me.grishka.appkit.api.APIRequest;
 import me.grishka.appkit.api.Callback;
@@ -114,7 +113,11 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 		private APIRequest<?> currentRelationshipRequest;
 
 		public Holder(Activity activity, ViewGroup parent){
-			super(activity, R.layout.display_item_header, parent);
+			this(activity, R.layout.display_item_header, parent);
+		}
+
+		protected Holder(Activity activity, @LayoutRes int layout, ViewGroup parent){
+			super(activity, layout, parent);
 			name=findViewById(R.id.name);
 			timeAndUsername=findViewById(R.id.time_and_username);
 			avatar=findViewById(R.id.avatar);
@@ -165,6 +168,7 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 					args.putString("account", item.parentFragment.getAccountID());
 					args.putParcelable("status", Parcels.wrap(item.status));
 					args.putParcelable("reportAccount", Parcels.wrap(item.status.account));
+					args.putParcelable("relationship", Parcels.wrap(relationship));
 					Nav.go(item.parentFragment.getActivity(), ReportReasonChoiceFragment.class, args);
 				}else if(id==R.id.open_in_browser){
 					UiUtils.launchWebBrowser(activity, item.status.url);

@@ -18,6 +18,7 @@
 		android:src="@drawable/ic_visibility_off_24px"/>
 
 	<TextView
+		android:id="@+id/sensitive_text"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:layout_marginTop="8dp"

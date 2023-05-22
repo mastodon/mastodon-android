@@ -37,6 +37,7 @@
 		<item name="android:windowLightNavigationBar" tools:ignore="NewApi">true</item>
 		<item name="android:popupMenuStyle">@style/Widget.Mastodon.PopupMenu</item>
 		<item name="android:actionOverflowMenuStyle">@style/Widget.Mastodon.PopupMenu</item>
+		<item name="android:switchStyle">@style/Widget.Mastodon.M3.Switch</item>
 		
 		<!-- M3 colors -->
 		<item name="colorM3Primary">@color/m3_sys_light_primary</item>
@@ -66,6 +67,7 @@
 		<item name="colorM3ErrorContainer">#F9DEDC</item>
 		<item name="colorM3OnErrorContainer">#410E0B</item>
 		<item name="colorM3PrimaryInverse">@color/m3_sys_dark_primary</item>
+		<item name="colorWhite">#FFF</item>
 
 		<item name="colorWindowBackground">?colorM3Background</item>
 		<item name="android:statusBarColor">?colorM3Background</item>
@@ -143,6 +145,7 @@
 		<item name="colorM3ErrorContainer">#8C1D18</item>
 		<item name="colorM3OnErrorContainer">#F9DEDC</item>
 		<item name="colorM3PrimaryInverse">@color/m3_sys_light_primary</item>
+		<item name="colorWhite">#000</item>
 
 		<item name="colorWindowBackground">?colorM3Background</item>
 		<item name="android:statusBarColor">?colorM3Background</item>
@@ -356,6 +359,19 @@
 
 	<style name="Theme.Mastodon.Toolbar.ProgressBar">
 		<item name="android:disabledAlpha">0</item>
+	</style>
+
+	<style name="Widget.Mastodon.M3.Switch" parent="">
+		<item name="android:thumb">@drawable/mtrl_switch_thumb</item>
+		<item name="android:track">@drawable/mtrl_switch_track</item>
+		<item name="android:foreground">@drawable/mtrl_switch_track_decoration</item>
+<!--		<item name="android:paddingLeft">-10dp</item>-->
+		<item name="android:thumbTint">@color/mtrl_switch_thumb_tint</item>
+		<item name="android:trackTint">@color/mtrl_switch_track_tint</item>
+		<item name="android:foregroundTint">@color/mtrl_switch_track_decoration_tint</item>
+<!--		<item name="android:textOn"></item>-->
+<!--		<item name="android:textOff"></item>-->
+		<item name="android:showText">false</item>
 	</style>
 
 	<style name="alert_title">

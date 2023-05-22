@@ -8,7 +8,7 @@
 	<string name="next">Next</string>
 	<string name="loading_instance">Retrieving server info…</string>
 	<string name="error">Error</string>
-	<string name="not_a_mastodon_instance">%s doesn\'t appear to be a Mastodon server.</string>
+	<string name="not_a_mastodon_instance">%s doesn’t appear to be a Mastodon server.</string>
 	<string name="ok">OK</string>
 	<string name="preparing_auth">Preparing for authentication…</string>
 	<string name="finishing_auth">Finishing authentication…</string>
@@ -150,16 +150,16 @@
 		<item quantity="other">Discussed %d times</item>
 	</plurals>
 	<string name="report_title">Report %s</string>
-	<string name="report_choose_reason">What\'s wrong with this post?</string>
-	<string name="report_choose_reason_account">What\'s wrong with %s?</string>
+	<string name="report_choose_reason">What’s wrong with this post?</string>
+	<string name="report_choose_reason_account">What’s wrong with %s?</string>
 	<string name="report_choose_reason_subtitle">Select the best match</string>
-	<string name="report_reason_personal">I don\'t like it</string>
+	<string name="report_reason_personal">I don’t like it</string>
 	<string name="report_reason_personal_subtitle">It is not something you want to see</string>
-	<string name="report_reason_spam">It\'s spam</string>
+	<string name="report_reason_spam">It’s spam</string>
 	<string name="report_reason_spam_subtitle">Malicious links, fake engagement, or repetitive replies</string>
 	<string name="report_reason_violation">It violates server rules</string>
 	<string name="report_reason_violation_subtitle">You are aware that it breaks specific rules</string>
-	<string name="report_reason_other">It\'s something else</string>
+	<string name="report_reason_other">It’s something else</string>
 	<string name="report_reason_other_subtitle">The issue does not fit into other categories</string>
 	<string name="report_choose_rule">Which rules are being violated?</string>
 	<string name="report_choose_rule_subtitle">Select all that apply</string>
@@ -168,14 +168,14 @@
 	<string name="report_comment_title">Is there anything else we should know?</string>
 	<string name="report_comment_hint">Additional comments</string>
 	<string name="sending_report">Sending report…</string>
-	<string name="report_sent_title">Thanks for reporting, we\'ll look into this.</string>
-	<string name="report_sent_subtitle">While we review this, you can take action against %s.</string>
+	<string name="report_sent_title">Thanks for reporting, we’ll look into this.</string>
+	<string name="report_sent_subtitle">While we review this, you can take action against %s:</string>
 	<string name="unfollow_user">Unfollow %s</string>
 	<string name="unfollow">Unfollow</string>
-	<string name="mute_user_explain">You won\'t see their posts or boosts in your home feed. They won\'t know they\'ve been muted.</string>
-	<string name="block_user_explain">They will no longer be able to follow or see your posts, but they can see if they\'ve been blocked.</string>
-	<string name="report_personal_title">Don\'t want to see this?</string>
-	<string name="report_personal_subtitle">When you see something you don\'t like on Mastodon, you can remove the person from your experience.</string>
+	<string name="mute_user_explain">You will not see their posts. They can still follow you and see your posts and will not know that they are muted.</string>
+	<string name="block_user_explain">You will not see their posts. They will not be able to see your posts or follow you. They will be able to tell that they are blocked.</string>
+	<string name="report_personal_title">Don’t want to see this?</string>
+	<string name="report_personal_subtitle">Here are your options for controlling what you see on Mastodon:</string>
 	<string name="back">Back</string>
 	<string name="instance_catalog_title">Mastodon is made of users on different servers.</string>
 	<string name="instance_catalog_subtitle">Pick a server based on your interests, region, or a general purpose one. You can still connect with everyone, regardless of server.</string>
@@ -205,12 +205,12 @@
 	<string name="category_tech">Tech</string>
 	<string name="confirm_email_title">Check Your Inbox</string>
 	<!-- %s is the email address -->
-	<string name="confirm_email_subtitle">Tap the link we sent you to verify %s. We\'ll wait right here.</string>
-	<string name="confirm_email_didnt_get">Didn\'t get a link?</string>
+	<string name="confirm_email_subtitle">Tap the link we sent you to verify %s. We’ll wait right here.</string>
+	<string name="confirm_email_didnt_get">Didn’t get a link?</string>
 	<string name="resend">Resend</string>
 	<string name="open_email_app">Open email app</string>
 	<string name="resent_email">Confirmation email sent</string>
-	<string name="compose_hint">Type or paste what\'s on your mind</string>
+	<string name="compose_hint">Type or paste what’s on your mind</string>
 	<string name="content_warning">Content warning</string>
 	<string name="add_image_description">Add image description…</string>
 	<string name="retry_upload">Retry upload</string>
@@ -235,8 +235,8 @@
 	<string name="choose_account">Choose account</string>
 	<string name="err_not_logged_in">Please log into Mastodon first</string>
 	<plurals name="cant_add_more_than_x_attachments">
-		<item quantity="one">You can\'t add more than %d media attachment</item>
-		<item quantity="other">You can\'t add more than %d media attachments</item>
+		<item quantity="one">You can’t add more than %d media attachment</item>
+		<item quantity="other">You can’t add more than %d media attachments</item>
 	</plurals>
 	<string name="media_attachment_unsupported_type">File %s is of an unsupported type</string>
 	<string name="media_attachment_too_big">File %1$s exceeds the size limit of %2$s MB</string>
@@ -269,8 +269,7 @@
 	<string name="media_cache_cleared">Media cache cleared</string>
 	<string name="confirm_log_out">Log out of %s?</string>
 	<string name="sensitive_content_explain">The author marked this media as sensitive.</string>
-	<string name="media_hidden">Tap to reveal</string>
-	<string name="avatar_description">Go to %s\'s profile</string>
+	<string name="avatar_description">Go to %s’s profile</string>
 	<string name="more_options">More options</string>
 	<string name="reveal_content">Reveal content</string>
 	<string name="hide_content">Hide content</string>
@@ -289,7 +288,7 @@
 	<string name="media_viewer">Media viewer</string>
 	<string name="follow_user">Follow %s</string>
 	<string name="unfollowed_user">Unfollowed %s</string>
-	<string name="followed_user">You\'re now following %s</string>
+	<string name="followed_user">You’re now following %s</string>
 	<string name="following_user_requested">Requested to follow %s</string>
 	<string name="open_in_browser">Open in browser</string>
 	<string name="hide_boosts_from_user">Hide boosts from %s</string>
@@ -307,7 +306,7 @@
 	<string name="error_saving_file">Error saving file</string>
 	<string name="file_saved">File saved</string>
 	<string name="downloading">Downloading…</string>
-	<string name="no_app_to_handle_action">There\'s no app to handle this action</string>
+	<string name="no_app_to_handle_action">There’s no app to handle this action</string>
 	<string name="local_timeline">Community</string>
 	<string name="trending_posts_info_banner">These are the posts gaining traction in your corner of Mastodon.</string>
 	<string name="trending_hashtags_info_banner">These are the hashtags gaining traction in your corner of Mastodon.</string>
@@ -401,7 +400,7 @@
 	<string name="login_title">Welcome Back</string>
 	<string name="login_subtitle">Log in with the server where you created your account.</string>
 	<string name="server_url">Server URL</string>
-	<string name="signup_random_server_explain">We\'ll pick a server based on your language if you continue without making a selection.</string>
+	<string name="signup_random_server_explain">We’ll pick a server based on your language if you continue without making a selection.</string>
 	<string name="server_filter_any_language">Any Language</string>
 	<string name="server_filter_instant_signup">Instant Sign-up</string>
 	<string name="server_filter_manual_review">Manual Review</string>
@@ -414,7 +413,7 @@
 	<string name="server_filter_region_oceania">Oceania</string>
 	<string name="not_accepting_new_members">Not accepting new members</string>
 	<string name="category_special_interests">Special Interests</string>
-	<string name="signup_passwords_dont_match">Passwords don\'t match</string>
+	<string name="signup_passwords_dont_match">Passwords don’t match</string>
 	<string name="pick_server_for_me">Pick for me</string>
 	<string name="profile_add_row">Add row</string>
 	<string name="profile_setup">Profile setup</string>
@@ -423,14 +422,14 @@
 	<string name="popular_on_mastodon">Popular on Mastodon</string>
 	<string name="follow_all">Follow all</string>
 	<string name="server_rules_disagree">Disagree</string>
-	<string name="privacy_policy_explanation">TL;DR: We don\'t collect or process anything.</string>
+	<string name="privacy_policy_explanation">TL;DR: We don’t collect or process anything.</string>
 	<!-- %s is server domain -->
 	<string name="server_policy_disagree">Disagree with %s</string>
 	<string name="profile_bio">Bio</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<string name="sending_follows">Following users…</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
-	<string name="signup_email_domain_blocked">%1$s doesn\'t allow signups from %2$s. Try a different one or &lt;a>pick a different server&lt;/a>.</string>
+	<string name="signup_email_domain_blocked">%1$s doesn’t allow signups from %2$s. Try a different one or &lt;a>pick a different server&lt;/a>.</string>
 	<string name="signup_username_taken">This username is taken.</string>
 	<string name="spoiler_show">Show anyway</string>
 	<string name="spoiler_hide">Re-hide</string>
@@ -482,7 +481,7 @@
 	<string name="edit_post">Edit post</string>
 	<string name="no_verified_link">No verified link</string>
 	<string name="compose_autocomplete_emoji_empty">Browse emoji</string>
-	<string name="compose_autocomplete_users_empty">Find who you\'re looking for</string>
+	<string name="compose_autocomplete_users_empty">Find who you’re looking for</string>
 	<string name="no_search_results">Could not find anything for these search terms</string>
 	<string name="language">Language</string>
 	<string name="language_default">Default</string>
@@ -490,4 +489,17 @@
 	<string name="language_detecting">Detecting language</string>
 	<string name="language_cant_detect">Unable to detect language</string>
 	<string name="language_detected">Detected</string>
+	<string name="media_hidden">Media hidden</string>
+	<string name="post_hidden">Post hidden</string>
+	<string name="report_title_post">Report post</string>
+	<string name="forward_report_explanation">The account is from another server. Send an anonymized copy of this report there as well?</string>
+	<!-- %s is the server domain -->
+	<string name="forward_report_to_server">Forward to %s</string>
+	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
+	<string name="reported">Reported</string>
+	<string name="report_unfollow_explanation">To not see their posts in your home feed anymore, unfollow them.</string>
+	<string name="muted_user">Muted %s</string>
+	<string name="report_sent_already_blocked">You’ve already blocked this user, so there’s nothing else you need to do while we review your report.</string>
+	<string name="report_personal_already_blocked">You’ve already blocked this user, so there’s nothing else you need to do.\n\nThanks for helping keep Mastodon a safe place for everyone!</string>
+	<string name="blocked_user">Blocked %s</string>
 </resources>

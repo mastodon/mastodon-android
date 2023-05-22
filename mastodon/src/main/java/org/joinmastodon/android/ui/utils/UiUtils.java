@@ -35,6 +35,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowInsets;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.PopupMenu;
@@ -739,5 +740,14 @@ public class UiUtils{
 		Drawable d=ta.getDrawable(0);
 		ta.recycle();
 		return d;
+	}
+
+	public static WindowInsets applyBottomInsetToFixedView(View view, WindowInsets insets){
+		if(Build.VERSION.SDK_INT>=27){
+			int inset=insets.getSystemWindowInsetBottom();
+			view.setPadding(0, 0, 0, inset>0 ? Math.max(inset, V.dp(40)) : 0);
+			return insets.replaceSystemWindowInsets(insets.getSystemWindowInsetLeft(), insets.getSystemWindowInsetTop(), insets.getSystemWindowInsetRight(), 0);
+		}
+		return insets;
 	}
 }

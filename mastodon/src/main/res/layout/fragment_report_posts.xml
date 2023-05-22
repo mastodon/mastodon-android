@@ -6,9 +6,18 @@
 	android:orientation="vertical"
 	android:id="@+id/appkit_loader_root"
 	xmlns:android="http://schemas.android.com/apk/res/android"
-	android:background="?android:colorBackground">
+	android:background="?colorM3Surface">
 
 	<include layout="@layout/appkit_toolbar"/>
+
+	<ProgressBar
+		android:id="@+id/top_progress"
+		android:layout_width="match_parent"
+		android:layout_height="4dp"
+		android:indeterminate="false"
+		android:indeterminateOnly="false"
+		android:max="100"
+		android:progressDrawable="@drawable/m3_progress"/>
 
 	<FrameLayout
 		android:id="@+id/appkit_loader_content"
@@ -32,6 +41,6 @@
 
 	</FrameLayout>
 
-	<include layout="@layout/button_bar_two"/>
+	<include layout="@layout/button_bar_one"/>
 
 </me.grishka.appkit.views.FragmentRootLinearLayout>

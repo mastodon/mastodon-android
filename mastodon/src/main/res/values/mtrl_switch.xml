@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<!-- MaterialSwitch-specific state to represent presence of a thumb icon. -->
+	<attr name="state_with_icon" format="boolean" />
+
+	<!-- Generated from token set (md.comp.switch) in context (platform=android, audience=3p). -->
+	<!-- Enabled - Icon -->
+	<macro name="m3_comp_switch_selected_icon_color">?attr/colorM3OnPrimaryContainer</macro>
+	<macro name="m3_comp_switch_unselected_icon_color">?attr/colorM3SurfaceVariant</macro>
+	<!-- Enabled - Track -->
+	<dimen name="m3_comp_switch_track_height">32dp</dimen>
+	<dimen name="m3_comp_switch_track_width">52dp</dimen>
+	<macro name="m3_comp_switch_unselected_track_outline_color">?attr/colorM3Outline</macro>
+	<macro name="m3_comp_switch_selected_track_color">?attr/colorM3Primary</macro>
+	<macro name="m3_comp_switch_unselected_track_color">?attr/colorM3SurfaceVariant</macro>
+	<!-- Enabled - Handle -->
+	<macro name="m3_comp_switch_selected_handle_color">?attr/colorM3OnPrimary</macro>
+	<macro name="m3_comp_switch_unselected_handle_color">?attr/colorM3Outline</macro>
+	<!-- Disabled - Icon -->
+	<macro name="m3_comp_switch_disabled_selected_icon_color">?attr/colorM3OnSurface</macro>
+	<item name="m3_comp_switch_disabled_selected_icon_opacity" format="float" type="dimen">0.38</item>
+	<macro name="m3_comp_switch_disabled_unselected_icon_color">?attr/colorM3SurfaceVariant</macro>
+	<item name="m3_comp_switch_disabled_unselected_icon_opacity" format="float" type="dimen">0.38</item>
+	<!-- Disabled - Track -->
+	<item name="m3_comp_switch_disabled_track_opacity" format="float" type="dimen">0.12</item>
+	<macro name="m3_comp_switch_disabled_selected_track_color">?attr/colorM3OnSurface</macro>
+	<macro name="m3_comp_switch_disabled_unselected_track_color">?attr/colorM3SurfaceVariant</macro>
+	<macro name="m3_comp_switch_disabled_unselected_track_outline_color">?attr/colorM3OnSurface</macro>
+	<!-- Disabled - Handle -->
+	<item name="m3_comp_switch_disabled_unselected_handle_opacity" format="float" type="dimen">0.38</item>
+	<item name="m3_comp_switch_disabled_selected_handle_opacity" format="float" type="dimen">1</item>
+	<macro name="m3_comp_switch_disabled_selected_handle_color">?attr/colorM3Surface</macro>
+	<macro name="m3_comp_switch_disabled_unselected_handle_color">?attr/colorM3OnSurface</macro>
+	<!-- Hovered - Icon -->
+	<macro name="m3_comp_switch_selected_hover_icon_color">?attr/colorM3OnPrimaryContainer</macro>
+	<macro name="m3_comp_switch_unselected_hover_icon_color">?attr/colorM3SurfaceVariant</macro>
+	<!-- Hovered - Track -->
+	<macro name="m3_comp_switch_selected_hover_track_color">?attr/colorM3Primary</macro>
+	<macro name="m3_comp_switch_selected_hover_state_layer_color">?attr/colorM3Primary</macro>
+	<macro name="m3_comp_switch_unselected_hover_track_color">?attr/colorM3SurfaceVariant</macro>
+	<macro name="m3_comp_switch_unselected_hover_track_outline_color">?attr/colorM3Outline</macro>
+	<macro name="m3_comp_switch_unselected_hover_state_layer_color">?attr/colorM3OnSurface</macro>
+	<!-- Hovered - Handle -->
+	<macro name="m3_comp_switch_selected_hover_handle_color">?attr/colorM3PrimaryContainer</macro>
+	<macro name="m3_comp_switch_unselected_hover_handle_color">?attr/colorM3OnSurfaceVariant</macro>
+	<!-- Focused - Icon -->
+	<macro name="m3_comp_switch_selected_focus_icon_color">?attr/colorM3OnPrimaryContainer</macro>
+	<macro name="m3_comp_switch_unselected_focus_icon_color">?attr/colorM3SurfaceVariant</macro>
+	<!-- Focused - Track -->
+	<macro name="m3_comp_switch_selected_focus_track_color">?attr/colorM3Primary</macro>
+	<macro name="m3_comp_switch_selected_focus_state_layer_color">?attr/colorM3Primary</macro>
+	<macro name="m3_comp_switch_unselected_focus_track_color">?attr/colorM3SurfaceVariant</macro>
+	<macro name="m3_comp_switch_unselected_focus_track_outline_color">?attr/colorM3Outline</macro>
+	<macro name="m3_comp_switch_unselected_focus_state_layer_color">?attr/colorM3OnSurface</macro>
+	<!-- Focused - Handle -->
+	<macro name="m3_comp_switch_selected_focus_handle_color">?attr/colorM3PrimaryContainer</macro>
+	<macro name="m3_comp_switch_unselected_focus_handle_color">?attr/colorM3OnSurfaceVariant</macro>
+	<!-- Pressed (rippple) - Icon -->
+	<macro name="m3_comp_switch_selected_pressed_icon_color">?attr/colorM3OnPrimaryContainer</macro>
+	<macro name="m3_comp_switch_unselected_pressed_icon_color">?attr/colorM3SurfaceVariant</macro>
+	<!-- Pressed (rippple) - Track -->
+	<macro name="m3_comp_switch_selected_pressed_track_color">?attr/colorM3Primary</macro>
+	<macro name="m3_comp_switch_selected_pressed_state_layer_color">?attr/colorM3Primary</macro>
+	<macro name="m3_comp_switch_unselected_pressed_track_color">?attr/colorM3SurfaceVariant</macro>
+	<macro name="m3_comp_switch_unselected_pressed_track_outline_color">?attr/colorM3Outline</macro>
+	<macro name="m3_comp_switch_unselected_pressed_state_layer_color">?attr/colorM3OnSurface</macro>
+	<!-- Pressed (rippple) - Handle -->
+	<macro name="m3_comp_switch_selected_pressed_handle_color">?attr/colorM3PrimaryContainer</macro>
+	<macro name="m3_comp_switch_unselected_pressed_handle_color">?attr/colorM3OnSurfaceVariant</macro>
+	
+	
+	<dimen name="mtrl_switch_thumb_size">32dp</dimen>
+	<dimen name="mtrl_switch_track_width">@dimen/m3_comp_switch_track_width</dimen>
+	<dimen name="mtrl_switch_track_height">@dimen/m3_comp_switch_track_height</dimen>
+	<dimen name="mtrl_switch_text_padding">16dp</dimen>
+
+	<!-- Below path data are used to morph the thumb shape between different
+       states. All of them start from the orientation of 270 degrees, draw 90
+       degrees clockwise, draw a horizontal line (may have zero length if it's a
+       circle), draw 180 degrees clockwise, draw another horizontal line (may
+       have zero length if it's a circle), and then draw the final 90 degrees to
+       finish a circle or a capsule. -->
+	<!-- Path data to draw a larger thumb circle when the thumb is pressed. -->
+	<string name="mtrl_switch_thumb_path_pressed" translatable="false">M2,16 A14,14 0 0,1 16,2 H16 A14,14 0 0,1 16,30 H16 A14,14 0 0,1 2,16</string>
+	<!-- Path data to draw a thumb circle when the switch is checked. -->
+	<string name="mtrl_switch_thumb_path_checked" translatable="false">M4,16 A12,12 0 0,1 16,4 H16 A12,12 0 0,1 16,28 H16 A12,12 0 0,1 4,16</string>
+	<!-- Path data to draw a smaller thumb circle when the switch is unchecked. -->
+	<string name="mtrl_switch_thumb_path_unchecked" translatable="false">M8,16 A8,8 0 0,1 16,8 H16 A8,8 0 0,1 16,24 H16 A8,8 0 0,1 8,16</string>
+	<!-- Path data to draw a morphed thumb circle when the switch's checked state is changing. -->
+	<string name="mtrl_switch_thumb_path_morphing" translatable="false">M0,16 A11,11 0 0,1 11,5 H21 A11,11 0 0,1 21,27 H11 A11,11 0 0,1 0,16</string>
+
+	<string name="mtrl_switch_thumb_group_name" translatable="false">circle_group</string>
+	<string name="mtrl_switch_thumb_path_name" translatable="false">circle</string>
+
+	<!-- Path data to draw the switch track. -->
+	<string name="mtrl_switch_track_path" translatable="false">M0,16 A16,16 0 0,1 16,0 H36 A16,16 0 0,1 36,32 H16 A16,16 0 0,1 0,16</string>
+	<!-- Path data to draw the switch track decor. -->
+	<string name="mtrl_switch_track_decoration_path" translatable="false">M1,16 A15,15 0 0,1 16,1 H36 A15,15 0 0,1 36,31 H16 A15,15 0 0,1 1,16</string>
+
+	<!-- Note: The following duration values are different from the design spec,
+             since the thumb position animation duration is hard-coded in
+             SwitchCompat and we have no way to override it. Therefore the
+             following values are set according to the position animation
+             duration (250ms). -->
+	<integer name="mtrl_switch_thumb_motion_duration">@integer/m3_sys_motion_duration_medium1</integer>
+	<integer name="mtrl_switch_thumb_pre_morphing_duration">@integer/m3_sys_motion_duration_short2</integer>
+	<integer name="mtrl_switch_thumb_post_morphing_duration">@integer/m3_sys_motion_duration_short3</integer>
+	<integer name="mtrl_switch_thumb_pressed_duration">@integer/m3_sys_motion_duration_short2</integer>
+
+	<integer name="mtrl_switch_thumb_viewport_size">32</integer>
+	<integer name="mtrl_switch_thumb_viewport_center_coordinate">16</integer>
+
+	<integer name="mtrl_switch_track_viewport_width">52</integer>
+	<integer name="mtrl_switch_track_viewport_height">32</integer>
+</resources>

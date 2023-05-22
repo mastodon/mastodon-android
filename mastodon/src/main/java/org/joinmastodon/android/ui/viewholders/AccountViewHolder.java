@@ -228,6 +228,7 @@ public class AccountViewHolder extends BindableViewHolder<AccountViewModel> impl
 			Bundle args=new Bundle();
 			args.putString("account", accountID);
 			args.putParcelable("reportAccount", Parcels.wrap(account));
+			args.putParcelable("relationship", Parcels.wrap(relationship));
 			Nav.go(fragment.getActivity(), ReportReasonChoiceFragment.class, args);
 		}else if(id==R.id.open_in_browser){
 			UiUtils.launchWebBrowser(fragment.getActivity(), account.url);

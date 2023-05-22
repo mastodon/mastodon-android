@@ -5,6 +5,16 @@
 	android:layout_width="match_parent"
 	android:layout_height="match_parent">
 
+	<ProgressBar
+		android:id="@+id/top_progress"
+		android:layout_width="match_parent"
+		android:layout_height="4dp"
+		android:indeterminate="false"
+		android:indeterminateOnly="false"
+		android:max="100"
+		android:progress="100"
+		android:progressDrawable="@drawable/m3_progress"/>
+
 	<ScrollView
 		android:layout_width="match_parent"
 		android:layout_height="0dp"
@@ -20,110 +30,162 @@
 			android:clipToPadding="false"
 			android:orientation="vertical">
 
-			<TextView
-				android:id="@+id/title"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:layout_marginBottom="12dp"
-				android:textAppearance="@style/m3_headline_medium"
-				android:minHeight="36dp"
-				android:gravity="center_vertical"
-				tools:text="Title"/>
-
 			<FrameLayout
 				android:id="@+id/ava_reported"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
-				android:paddingTop="8dp"
-				android:paddingBottom="8dp"
 				android:layout_marginBottom="24dp"
+				android:layout_marginHorizontal="-16dp"
+				android:paddingHorizontal="16dp"
+				android:layout_marginTop="-32dp"
+				android:paddingTop="32dp"
 				android:clipToPadding="false">
 				<ImageView
 					android:id="@+id/avatar"
-					android:layout_width="104dp"
-					android:layout_height="104dp"
+					android:layout_width="96dp"
+					android:layout_height="96dp"
 					android:layout_gravity="center_horizontal"
+					android:importantForAccessibility="no"
 					tools:src="#0f0"/>
-				<View
-					android:id="@+id/reported_overlay"
-					android:layout_width="205dp"
-					android:layout_height="69dp"
+
+				<TextView
+					android:id="@+id/reported_stamp"
+					android:layout_width="wrap_content"
+					android:layout_height="45dp"
 					android:layout_gravity="center"
-					android:elevation="2dp"
-					android:background="@drawable/reported_overlay"/>
+					android:background="@drawable/bg_reported_stamp"
+					android:elevation="1dp"
+					android:gravity="center"
+					android:includeFontPadding="false"
+					android:outlineProvider="background"
+					android:paddingHorizontal="12dp"
+					android:rotation="-10"
+					android:text="@string/reported"
+					android:textAllCaps="true"
+					android:textColor="?colorM3OnPrimaryContainer"
+					android:fontFamily="sans-serif-condensed"
+					android:textStyle="bold"
+					android:letterSpacing="-0.03"
+					android:singleLine="true"
+					android:maxWidth="300dp"
+					android:textSize="28dp" />
 			</FrameLayout>
+
+			<TextView
+				android:id="@+id/title"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginBottom="8dp"
+				android:textAppearance="@style/m3_headline_medium"
+				android:minHeight="36dp"
+				android:gravity="center_vertical"
+				android:textColor="?colorM3OnSurface"
+				tools:text="Title"/>
 
 			<TextView
 				android:id="@+id/subtitle"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
+				android:layout_marginBottom="16dp"
 				android:textAppearance="@style/m3_title_medium"
-				android:textColor="?android:textColorSecondary"
+				android:textColor="?colorM3OnSurfaceVariant"
+				android:minHeight="24dp"
+				android:gravity="center_vertical"
 				tools:text="Subtitle"/>
 
-			<TextView
-				android:id="@+id/unfollow_title"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:layout_marginTop="24dp"
-				android:textAppearance="@style/m3_title_medium"
-				tools:text="@string/unfollow_user"/>
 
-			<Button
+			<FrameLayout
 				android:id="@+id/unfollow_btn"
 				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:layout_marginTop="4dp"
-				style="?secondaryLargeButtonStyle"
-				android:text="@string/unfollow"/>
+				android:layout_height="40dp"
+				android:background="@drawable/bg_button_m3_outlined">
+				<TextView
+					android:id="@+id/unfollow_title"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_gravity="center"
+					android:background="@null"
+					android:foreground="@null"
+					android:drawablePadding="8dp"
+					android:clickable="false"
+					android:focusable="false"
+					tools:text="@string/unfollow_user"
+					android:duplicateParentState="true"
+					style="@style/Widget.Mastodon.M3.Button.Outlined"/>
+			</FrameLayout>
 
 			<TextView
-				android:id="@+id/mute_title"
+				android:id="@+id/unfollow_explanation"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
-				android:layout_marginTop="24dp"
-				android:textAppearance="@style/m3_title_medium"
-				tools:text="@string/mute_user"/>
+				android:layout_marginTop="8dp"
+				android:layout_marginBottom="16dp"
+				android:layout_marginHorizontal="8dp"
+				android:textAppearance="@style/m3_body_small"
+				android:textColor="?colorM3OnSurfaceVariant"
+				android:text="@string/report_unfollow_explanation"/>
 
-			<TextView
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:layout_marginTop="4dp"
-				android:textAppearance="@style/m3_body_medium"
-				android:textColor="?android:textColorSecondary"
-				android:text="@string/mute_user_explain"/>
-
-			<Button
-				android:id="@+id/mute_btn"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:layout_marginTop="4dp"
-				style="?secondaryLargeButtonStyle"
-				android:text="@string/do_mute"/>
-
-			<TextView
-				android:id="@+id/block_title"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:layout_marginTop="24dp"
-				android:textAppearance="@style/m3_title_medium"
-				tools:text="@string/block_user"/>
-
-			<TextView
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:layout_marginTop="4dp"
-				android:textAppearance="@style/m3_body_medium"
-				android:textColor="?android:textColorSecondary"
-				android:text="@string/block_user_explain"/>
-
-			<Button
+			<FrameLayout
 				android:id="@+id/block_btn"
 				android:layout_width="match_parent"
+				android:layout_height="40dp"
+				android:background="@drawable/bg_button_m3_outlined">
+				<TextView
+					android:id="@+id/block_title"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_gravity="center"
+					android:background="@null"
+					android:foreground="@null"
+					android:drawablePadding="8dp"
+					android:clickable="false"
+					android:focusable="false"
+					tools:text="@string/block_user"
+					android:duplicateParentState="true"
+					style="@style/Widget.Mastodon.M3.Button.Outlined"/>
+			</FrameLayout>
+
+			<TextView
+				android:id="@+id/block_explanation"
+				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
-				android:layout_marginTop="4dp"
-				style="?secondaryLargeButtonStyle"
-				android:text="@string/do_block"/>
+				android:layout_marginTop="8dp"
+				android:layout_marginBottom="16dp"
+				android:layout_marginHorizontal="8dp"
+				android:textAppearance="@style/m3_body_small"
+				android:textColor="?colorM3OnSurfaceVariant"
+				android:text="@string/block_user_explain"/>
+
+			<FrameLayout
+				android:id="@+id/mute_btn"
+				android:layout_width="match_parent"
+				android:layout_height="40dp"
+				android:background="@drawable/bg_button_m3_outlined">
+				<TextView
+					android:id="@+id/mute_title"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_gravity="center"
+					android:background="@null"
+					android:foreground="@null"
+					android:drawablePadding="8dp"
+					android:clickable="false"
+					android:focusable="false"
+					tools:text="@string/mute_user"
+					android:duplicateParentState="true"
+					style="@style/Widget.Mastodon.M3.Button.Outlined"/>
+			</FrameLayout>
+
+			<TextView
+				android:id="@+id/mute_explanation"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="8dp"
+				android:layout_marginBottom="16dp"
+				android:layout_marginHorizontal="8dp"
+				android:textAppearance="@style/m3_body_small"
+				android:textColor="?colorM3OnSurfaceVariant"
+				android:text="@string/mute_user_explain"/>
 
 		</LinearLayout>
 

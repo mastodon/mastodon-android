@@ -1,39 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<org.joinmastodon.android.ui.views.CheckableLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="wrap_content"
-	android:padding="16dp">
+	android:orientation="horizontal"
+	android:paddingVertical="8dp"
+	android:paddingEnd="24dp"
+	android:gravity="center_vertical">
 
-	<ImageView
+	<View
 		android:id="@+id/checkbox"
-		android:layout_width="24dp"
-		android:layout_height="24dp"
-		android:layout_alignParentStart="true"
-		android:layout_centerVertical="true"
-		android:tint="?android:textColorSecondary"
-		android:src="@drawable/ic_round_checkbox"/>
+		android:layout_width="32dp"
+		android:layout_height="32dp"
+		android:layout_marginHorizontal="12dp"
+		android:duplicateParentState="true"/>
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="vertical">
 
 	<org.joinmastodon.android.ui.views.LinkedTextView
 		android:id="@+id/title"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:layout_toEndOf="@id/checkbox"
-		android:layout_marginStart="16dp"
-		android:textAppearance="@style/m3_title_medium"
+		android:textAppearance="@style/m3_body_large"
+		android:textColor="?colorM3OnSurface"
 		android:textSize="16sp"
+		android:minHeight="24dp"
+		android:gravity="center_vertical"
 		tools:text="Title"/>
 
 	<TextView
 		android:id="@+id/subtitle"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:layout_toEndOf="@id/checkbox"
-		android:layout_below="@id/title"
-		android:layout_marginStart="16dp"
 		android:textAppearance="@style/m3_body_medium"
-		android:textColor="?android:textColorSecondary"
+		android:textColor="?colorM3OnSurfaceVariant"
 		android:textSize="14sp"
+		android:minHeight="20dp"
+		android:gravity="center_vertical"
 		tools:text="Subtitle"/>
 
-</RelativeLayout>
+	</LinearLayout>
+
+</org.joinmastodon.android.ui.views.CheckableLinearLayout>

@@ -1,8 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
 	android:orientation="vertical"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent">
+
+	<ProgressBar
+		android:id="@+id/top_progress"
+		android:layout_width="match_parent"
+		android:layout_height="4dp"
+		android:indeterminate="false"
+		android:indeterminateOnly="false"
+		android:max="100"
+		android:progressDrawable="@drawable/m3_progress"/>
 
 	<ScrollView
 		android:layout_width="match_parent"
@@ -16,20 +27,74 @@
 
 			<include layout="@layout/item_list_header"/>
 
-			<EditText
-				android:id="@+id/text"
+			<org.joinmastodon.android.ui.views.FloatingHintEditTextLayout
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
-				android:layout_margin="16dp"
-				android:hint="@string/report_comment_hint"
-				android:inputType="textMultiLine|textCapSentences"
-				android:gravity="top|start"
-				android:minHeight="212dp"/>
+				android:paddingTop="4dp"
+				android:paddingBottom="12dp"
+				app:labelTextColor="@color/m3_outlined_text_field_label"
+				android:foreground="@drawable/bg_m3_outlined_text_field">
+
+				<EditText
+					android:id="@+id/text"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginStart="16dp"
+					android:layout_marginEnd="16dp"
+					android:layout_marginTop="8dp"
+					android:padding="16dp"
+					android:background="@null"
+					android:elevation="0dp"
+					android:inputType="textMultiLine|textCapSentences"
+					android:hint="@string/report_comment_hint"/>
+
+			</org.joinmastodon.android.ui.views.FloatingHintEditTextLayout>
+
+			<RelativeLayout
+				android:id="@+id/forward_report"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="20dp"
+				android:paddingHorizontal="16dp"
+				android:paddingVertical="12dp"
+				android:background="?android:selectableItemBackground">
+
+				<org.joinmastodon.android.ui.views.M3Switch
+					android:id="@+id/forward_switch"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_alignParentEnd="true"
+					android:layout_alignParentTop="true"
+					android:layout_marginStart="16dp"
+					android:checked="true"/>
+
+				<TextView
+					android:id="@+id/forward_title"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_toStartOf="@id/forward_switch"
+					android:textAppearance="@style/m3_body_large"
+					android:textColor="?colorM3OnSurface"
+					android:minHeight="24dp"
+					android:gravity="center_vertical"
+					tools:text="Forward to %s"/>
+
+				<TextView
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_below="@id/forward_title"
+					android:layout_alignLeft="@id/forward_title"
+					android:layout_alignRight="@id/forward_title"
+					android:textAppearance="@style/m3_body_medium"
+					android:textColor="?colorM3OnSurfaceVariant"
+					android:text="@string/forward_report_explanation"/>
+
+			</RelativeLayout>
 
 		</LinearLayout>
 
 	</ScrollView>
 
-	<include layout="@layout/button_bar_two"/>
+	<include layout="@layout/button_bar_one"/>
 
 </LinearLayout>
