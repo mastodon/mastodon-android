@@ -362,6 +362,15 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 			aboutFragment.setFields(fields);
 		}
 		pager.getAdapter().notifyDataSetChanged();
+		pager.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener(){
+			@Override
+			public boolean onPreDraw(){
+				pager.getViewTreeObserver().removeOnPreDrawListener(this);
+				pager.setCurrentItem(1, false);
+				tabbar.selectTab(tabbar.getTabAt(1));
+				return true;
+			}
+		});
 		super.dataLoaded();
 	}
 
@@ -391,8 +400,6 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 						refreshLayout.setEnabled(state!=ViewPager2.SCROLL_STATE_DRAGGING);
 					}
 				});
-				pager.setCurrentItem(1, false);
-				tabbar.selectTab(tabbar.getTabAt(1));
 				return true;
 			}
 		});
