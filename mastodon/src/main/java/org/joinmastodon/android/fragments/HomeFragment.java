@@ -145,6 +145,7 @@ public class HomeFragment extends AppKitFragment implements OnBackPressedListene
 		notificationsFragment=(NotificationsFragment) getChildFragmentManager().getFragment(savedInstanceState, "notificationsFragment");
 		profileFragment=(ProfileFragment) getChildFragmentManager().getFragment(savedInstanceState, "profileFragment");
 		currentTab=savedInstanceState.getInt("selectedTab");
+		tabBar.selectTab(currentTab);
 		Fragment current=fragmentForTab(currentTab);
 		getChildFragmentManager().beginTransaction()
 				.hide(homeTimelineFragment)
