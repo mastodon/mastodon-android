@@ -13,6 +13,7 @@ import org.joinmastodon.android.model.Poll;
 import org.joinmastodon.android.ui.OutlineProviders;
 import org.joinmastodon.android.ui.text.HtmlParser;
 import org.joinmastodon.android.ui.utils.CustomEmojiHelper;
+import org.joinmastodon.android.ui.utils.UiUtils;
 
 import java.util.Locale;
 
@@ -65,7 +66,7 @@ public class PollOptionStatusDisplayItem extends StatusDisplayItem{
 	public static class Holder extends StatusDisplayItem.Holder<PollOptionStatusDisplayItem> implements ImageLoaderViewHolder{
 		private final TextView text, percent;
 		private final View check, button;
-		private final Drawable progressBg;
+		private final Drawable progressBg, progressBgInset;
 
 		public Holder(Activity activity, ViewGroup parent){
 			super(activity, R.layout.display_item_poll_option, parent);
@@ -74,6 +75,7 @@ public class PollOptionStatusDisplayItem extends StatusDisplayItem{
 			check=findViewById(R.id.checkbox);
 			button=findViewById(R.id.button);
 			progressBg=activity.getResources().getDrawable(R.drawable.bg_poll_option_voted, activity.getTheme()).mutate();
+			progressBgInset=activity.getResources().getDrawable(R.drawable.bg_poll_option_voted_inset, activity.getTheme()).mutate();
 			itemView.setOnClickListener(this::onButtonClick);
 			button.setOutlineProvider(OutlineProviders.roundedRect(20));
 			button.setClipToOutline(true);
@@ -85,13 +87,21 @@ public class PollOptionStatusDisplayItem extends StatusDisplayItem{
 			percent.setVisibility(item.showResults ? View.VISIBLE : View.GONE);
 			itemView.setClickable(!item.showResults);
 			if(item.showResults){
-				progressBg.setLevel(Math.round(10000f*item.votesFraction));
-				button.setBackground(progressBg);
+				Drawable bg=item.inset ? progressBgInset : progressBg;
+				bg.setLevel(Math.round(10000f*item.votesFraction));
+				button.setBackground(bg);
 				itemView.setSelected(item.isMostVoted);
 				percent.setText(String.format(Locale.getDefault(), "%d%%", Math.round(item.votesFraction*100f)));
 			}else{
 				itemView.setSelected(item.poll.selectedOptions!=null && item.poll.selectedOptions.contains(item.option));
-				button.setBackgroundResource(R.drawable.bg_poll_option_clickable);
+				button.setBackgroundResource(item.inset ? R.drawable.bg_poll_option_clickable_inset : R.drawable.bg_poll_option_clickable);
+			}
+			if(item.inset){
+				text.setTextColor(itemView.getContext().getColorStateList(R.color.poll_option_text_inset));
+				percent.setTextColor(itemView.getContext().getColorStateList(R.color.poll_option_text_inset));
+			}else{
+				text.setTextColor(UiUtils.getThemeColor(itemView.getContext(), R.attr.colorM3Primary));
+				percent.setTextColor(UiUtils.getThemeColor(itemView.getContext(), R.attr.colorM3OnSecondaryContainer));
 			}
 		}
 

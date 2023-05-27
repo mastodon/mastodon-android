@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class NestedRecyclerScrollView extends CustomScrollView{
 	private Supplier<RecyclerView> scrollableChildSupplier;
+	private boolean takePriorityOverChildViews;
 
 	public NestedRecyclerScrollView(Context context){
 		super(context);
@@ -25,32 +26,43 @@ public class NestedRecyclerScrollView extends CustomScrollView{
 	}
 
 	@Override
-	public void onNestedPreScroll(View target, int dx, int dy, int[] consumed) {
-		if(target instanceof RecyclerView rv && ((dy < 0 && isScrolledToTop(rv)) || (dy > 0 && !isScrolledToBottom()))){
+	public void onNestedPreScroll(View target, int dx, int dy, int[] consumed){
+		if(takePriorityOverChildViews){
+			if((dy<0 && getScrollY()>0) || (dy>0 && canScrollVertically(1))){
+				scrollBy(0, dy);
+				consumed[1]=dy;
+				return;
+			}
+		}else if((dy<0 && target instanceof RecyclerView rv && isScrolledToTop(rv)) || (dy>0 && !isScrolledToBottom())){
 			scrollBy(0, dy);
-			consumed[1] = dy;
+			consumed[1]=dy;
 			return;
 		}
 		super.onNestedPreScroll(target, dx, dy, consumed);
 	}
 
 	@Override
-	public boolean onNestedPreFling(View target, float velX, float velY) {
-		if (target instanceof RecyclerView rv && ((velY < 0 && isScrolledToTop(rv)) || (velY > 0 && !isScrolledToBottom()))){
+	public boolean onNestedPreFling(View target, float velX, float velY){
+		if(takePriorityOverChildViews){
+			if((velY<0 && getScrollY()>0) || (velY>0 && canScrollVertically(1))){
+				fling((int)velY);
+				return true;
+			}
+		}else if((velY<0 && target instanceof RecyclerView rv && isScrolledToTop(rv)) || (velY>0 && !isScrolledToBottom())){
 			fling((int) velY);
 			return true;
 		}
 		return super.onNestedPreFling(target, velX, velY);
 	}
 
-	private boolean isScrolledToBottom() {
+	private boolean isScrolledToBottom(){
 		return !canScrollVertically(1);
 	}
 
-	private boolean isScrolledToTop(RecyclerView rv) {
-		final LinearLayoutManager lm = (LinearLayoutManager) rv.getLayoutManager();
-		return lm.findFirstVisibleItemPosition() == 0
-				&& lm.findViewByPosition(0).getTop() == rv.getPaddingTop();
+	private boolean isScrolledToTop(RecyclerView rv){
+		final LinearLayoutManager lm=(LinearLayoutManager) rv.getLayoutManager();
+		return lm.findFirstVisibleItemPosition()==0
+				&& lm.findViewByPosition(0).getTop()==rv.getPaddingTop();
 	}
 
 	public void setScrollableChildSupplier(Supplier<RecyclerView> scrollableChildSupplier){
@@ -59,12 +71,20 @@ public class NestedRecyclerScrollView extends CustomScrollView{
 
 	@Override
 	protected boolean onScrollingHitEdge(float velocity){
-		if(velocity>0){
+		if(velocity>0 || takePriorityOverChildViews){
 			RecyclerView view=scrollableChildSupplier.get();
 			if(view!=null){
-				return view.fling(0, (int)velocity);
+				return view.fling(0, (int) velocity);
 			}
 		}
 		return false;
+	}
+
+	public boolean isTakePriorityOverChildViews(){
+		return takePriorityOverChildViews;
+	}
+
+	public void setTakePriorityOverChildViews(boolean takePriorityOverChildViews){
+		this.takePriorityOverChildViews=takePriorityOverChildViews;
 	}
 }

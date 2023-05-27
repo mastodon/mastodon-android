@@ -16,11 +16,11 @@
 	<string name="in_reply_to">In reply to %s</string>
 	<string name="notifications">Notifications</string>
 
-	<string name="user_followed_you">followed you</string>
-	<string name="user_sent_follow_request">sent you a follow request</string>
-	<string name="user_favorited">favorited your post</string>
-	<string name="notification_boosted">boosted your post</string>
-	<string name="poll_ended">poll ended</string>
+	<string name="user_followed_you">%s followed you</string>
+	<string name="user_sent_follow_request">%s sent you a follow request</string>
+	<string name="user_favorited">%s favorited your post</string>
+	<string name="notification_boosted">%s boosted your post</string>
+	<string name="poll_ended">See the results of a poll you voted in</string>
 
 	<string name="time_seconds">%ds</string>
 	<string name="time_minutes">%dm</string>
@@ -139,7 +139,7 @@
 	<string name="hashtags">Hashtags</string>
 	<string name="news">News</string>
 	<string name="for_you">For you</string>
-	<string name="all_notifications">All</string>
+	<string name="all_notifications">Everything</string>
 	<string name="mentions">Mentions</string>
 	<plurals name="x_people_talking">
 		<item quantity="one">%d person is talking</item>
@@ -502,4 +502,5 @@
 	<string name="report_sent_already_blocked">You’ve already blocked this user, so there’s nothing else you need to do while we review your report.</string>
 	<string name="report_personal_already_blocked">You’ve already blocked this user, so there’s nothing else you need to do.\n\nThanks for helping keep Mastodon a safe place for everyone!</string>
 	<string name="blocked_user">Blocked %s</string>
+	<string name="mark_all_notifications_read">Mark all as read</string>
 </resources>

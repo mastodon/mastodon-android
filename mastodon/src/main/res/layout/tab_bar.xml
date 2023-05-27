@@ -73,6 +73,22 @@
 				android:importantForAccessibility="no"
 				android:tint="?colorM3OnSurfaceVariant"
 				android:src="@drawable/ic_notifications_24px"/>
+			
+			<TextView
+				android:id="@+id/notifications_badge"
+				android:layout_width="wrap_content"
+				android:layout_height="16dp"
+				android:layout_gravity="center"
+				android:layout_marginTop="-6dp"
+				android:layout_marginEnd="-8dp"
+				android:background="@drawable/bg_tabbar_badge"
+				android:textColor="?colorM3OnPrimary"
+				android:gravity="center"
+				android:includeFontPadding="false"
+				android:textAppearance="@style/m3_label_small"
+				android:minWidth="16dp"
+				android:paddingHorizontal="4dp"
+				tools:text="222"/>
 
 		</FrameLayout>
 

@@ -1,10 +1,12 @@
 package org.joinmastodon.android.fragments;
 
+import android.annotation.SuppressLint;
 import android.app.Fragment;
 import android.app.NotificationManager;
 import android.graphics.Outline;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,14 +16,23 @@ import android.view.WindowInsets;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
+import com.squareup.otto.Subscribe;
+
+import org.joinmastodon.android.E;
 import org.joinmastodon.android.PushNotificationReceiver;
 import org.joinmastodon.android.R;
+import org.joinmastodon.android.api.requests.markers.GetMarkers;
 import org.joinmastodon.android.api.session.AccountSession;
 import org.joinmastodon.android.api.session.AccountSessionManager;
+import org.joinmastodon.android.events.NotificationsMarkerUpdatedEvent;
 import org.joinmastodon.android.fragments.discover.DiscoverFragment;
 import org.joinmastodon.android.fragments.onboarding.OnboardingFollowSuggestionsFragment;
 import org.joinmastodon.android.model.Account;
+import org.joinmastodon.android.model.Notification;
+import org.joinmastodon.android.model.PaginatedResponse;
+import org.joinmastodon.android.model.TimelineMarkers;
 import org.joinmastodon.android.ui.AccountSwitcherSheet;
 import org.joinmastodon.android.ui.OutlineProviders;
 import org.joinmastodon.android.ui.utils.UiUtils;
@@ -29,11 +40,14 @@ import org.joinmastodon.android.ui.views.TabBar;
 import org.parceler.Parcels;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import androidx.annotation.IdRes;
 import androidx.annotation.Nullable;
 import me.grishka.appkit.FragmentStackActivity;
 import me.grishka.appkit.Nav;
+import me.grishka.appkit.api.Callback;
+import me.grishka.appkit.api.ErrorResponse;
 import me.grishka.appkit.fragments.AppKitFragment;
 import me.grishka.appkit.fragments.LoaderFragment;
 import me.grishka.appkit.fragments.OnBackPressedListener;
@@ -45,7 +59,7 @@ import me.grishka.appkit.views.FragmentRootLinearLayout;
 public class HomeFragment extends AppKitFragment implements OnBackPressedListener{
 	private FragmentRootLinearLayout content;
 	private HomeTimelineFragment homeTimelineFragment;
-	private NotificationsFragment notificationsFragment;
+	private NotificationsListFragment notificationsFragment;
 	private DiscoverFragment searchFragment;
 	private ProfileFragment profileFragment;
 	private TabBar tabBar;
@@ -53,6 +67,7 @@ public class HomeFragment extends AppKitFragment implements OnBackPressedListene
 	private ImageView tabBarAvatar;
 	@IdRes
 	private int currentTab=R.id.tab_home;
+	private TextView notificationsBadge;
 
 	private String accountID;
 
@@ -74,7 +89,7 @@ public class HomeFragment extends AppKitFragment implements OnBackPressedListene
 			args.putBoolean("noAutoLoad", true);
 			searchFragment=new DiscoverFragment();
 			searchFragment.setArguments(args);
-			notificationsFragment=new NotificationsFragment();
+			notificationsFragment=new NotificationsListFragment();
 			notificationsFragment.setArguments(args);
 			args=new Bundle(args);
 			args.putParcelable("profileAccount", Parcels.wrap(AccountSessionManager.getInstance().getAccount(accountID).self));
@@ -83,6 +98,13 @@ public class HomeFragment extends AppKitFragment implements OnBackPressedListene
 			profileFragment.setArguments(args);
 		}
 
+		E.register(this);
+	}
+
+	@Override
+	public void onDestroy(){
+		super.onDestroy();
+		E.unregister(this);
 	}
 
 	@Nullable
@@ -105,6 +127,9 @@ public class HomeFragment extends AppKitFragment implements OnBackPressedListene
 		tabBarAvatar.setClipToOutline(true);
 		Account self=AccountSessionManager.getInstance().getAccount(accountID).self;
 		ViewImageLoader.loadWithoutAnimation(tabBarAvatar, null, new UrlImageLoaderRequest(self.avatar, V.dp(24), V.dp(24)));
+
+		notificationsBadge=tabBar.findViewById(R.id.notifications_badge);
+		notificationsBadge.setVisibility(View.GONE);
 
 		if(savedInstanceState==null){
 			getChildFragmentManager().beginTransaction()
@@ -138,7 +163,7 @@ public class HomeFragment extends AppKitFragment implements OnBackPressedListene
 			return;
 		homeTimelineFragment=(HomeTimelineFragment) getChildFragmentManager().getFragment(savedInstanceState, "homeTimelineFragment");
 		searchFragment=(DiscoverFragment) getChildFragmentManager().getFragment(savedInstanceState, "searchFragment");
-		notificationsFragment=(NotificationsFragment) getChildFragmentManager().getFragment(savedInstanceState, "notificationsFragment");
+		notificationsFragment=(NotificationsListFragment) getChildFragmentManager().getFragment(savedInstanceState, "notificationsFragment");
 		profileFragment=(ProfileFragment) getChildFragmentManager().getFragment(savedInstanceState, "profileFragment");
 		currentTab=savedInstanceState.getInt("selectedTab");
 		tabBar.selectTab(currentTab);
@@ -224,9 +249,8 @@ public class HomeFragment extends AppKitFragment implements OnBackPressedListene
 				lf.loadData();
 		}else if(newFragment instanceof DiscoverFragment){
 			((DiscoverFragment) newFragment).loadData();
-		}else if(newFragment instanceof NotificationsFragment){
-			((NotificationsFragment) newFragment).loadData();
-			// TODO make an interface?
+		}
+		if(newFragment instanceof NotificationsListFragment){
 			NotificationManager nm=getActivity().getSystemService(NotificationManager.class);
 			nm.cancel(accountID, PushNotificationReceiver.NOTIFICATION_ID);
 		}
@@ -266,5 +290,63 @@ public class HomeFragment extends AppKitFragment implements OnBackPressedListene
 		getChildFragmentManager().putFragment(outState, "searchFragment", searchFragment);
 		getChildFragmentManager().putFragment(outState, "notificationsFragment", notificationsFragment);
 		getChildFragmentManager().putFragment(outState, "profileFragment", profileFragment);
+	}
+
+	@Override
+	protected void onShown(){
+		super.onShown();
+		reloadNotificationsForUnreadCount();
+	}
+
+	private void reloadNotificationsForUnreadCount(){
+		List<Notification>[] notifications=new List[]{null};
+		String[] marker={null};
+
+		AccountSessionManager.get(accountID).reloadNotificationsMarker(m->{
+			marker[0]=m;
+			if(notifications[0]!=null){
+				updateUnreadCount(notifications[0], marker[0]);
+			}
+		});
+
+		AccountSessionManager.get(accountID).getCacheController().getNotifications(null, 40, false, true, new Callback<>(){
+			@Override
+			public void onSuccess(PaginatedResponse<List<Notification>> result){
+				notifications[0]=result.items;
+				if(marker[0]!=null)
+					updateUnreadCount(notifications[0], marker[0]);
+			}
+
+			@Override
+			public void onError(ErrorResponse error){}
+		});
+	}
+
+	@SuppressLint("DefaultLocale")
+	private void updateUnreadCount(List<Notification> notifications, String marker){
+		if(notifications.isEmpty() || notifications.get(0).id.compareTo(marker)<=0){
+			notificationsBadge.setVisibility(View.GONE);
+		}else{
+			notificationsBadge.setVisibility(View.VISIBLE);
+			if(notifications.get(notifications.size()-1).id.compareTo(marker)<=0){
+				notificationsBadge.setText(String.format("%d+", notifications.size()));
+			}else{
+				int count=0;
+				for(Notification n:notifications){
+					if(n.id.equals(marker))
+						break;
+					count++;
+				}
+				notificationsBadge.setText(String.format("%d", count));
+			}
+		}
+	}
+
+	@Subscribe
+	public void onNotificationsMarkerUpdated(NotificationsMarkerUpdatedEvent ev){
+		if(!ev.accountID.equals(accountID))
+			return;
+		if(ev.clearUnread)
+			notificationsBadge.setVisibility(View.GONE);
 	}
 }

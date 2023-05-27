@@ -28,8 +28,8 @@ public class InsetStatusItemDecoration extends RecyclerView.ItemDecoration{
 
 	public InsetStatusItemDecoration(BaseStatusListFragment<?> listFragment){
 		this.listFragment=listFragment;
-		bgColor=UiUtils.getThemeColor(listFragment.getActivity(), android.R.attr.colorBackground);
-		borderColor=UiUtils.getThemeColor(listFragment.getActivity(), R.attr.colorPollVoted);
+		bgColor=UiUtils.getThemeColor(listFragment.getActivity(), R.attr.colorM3SurfaceVariant);
+		borderColor=UiUtils.getThemeColor(listFragment.getActivity(), R.attr.colorM3OutlineVariant);
 	}
 
 	@Override
@@ -64,9 +64,8 @@ public class InsetStatusItemDecoration extends RecyclerView.ItemDecoration{
 	private void drawInsetBackground(RecyclerView list, Canvas c){
 		paint.setStyle(Paint.Style.FILL);
 		paint.setColor(bgColor);
-		rect.left=V.dp(12);
-		rect.right=list.getWidth()-V.dp(12);
-		rect.inset(V.dp(4), V.dp(4));
+		rect.left=V.dp(16);
+		rect.right=list.getWidth()-V.dp(16);
 		c.drawRoundRect(rect, V.dp(4), V.dp(4), paint);
 		paint.setStyle(Paint.Style.STROKE);
 		paint.setStrokeWidth(V.dp(1));
@@ -85,20 +84,15 @@ public class InsetStatusItemDecoration extends RecyclerView.ItemDecoration{
 			if(inset){
 				boolean topSiblingInset=pos>0 && displayItems.get(pos-1).inset;
 				boolean bottomSiblingInset=pos<displayItems.size()-1 && displayItems.get(pos+1).inset;
-				int pad;
-				if(holder instanceof MediaGridStatusDisplayItem.Holder || holder instanceof LinkCardStatusDisplayItem.Holder)
-					pad=V.dp(16);
+				StatusDisplayItem.Type type=sdi.getItem().getType();
+				if(type==StatusDisplayItem.Type.CARD || type==StatusDisplayItem.Type.MEDIA_GRID)
+					outRect.left=outRect.right=V.dp(16);
 				else
-					pad=V.dp(12);
-				boolean insetLeft=true, insetRight=true;
-				if(insetLeft)
-					outRect.left=pad;
-				if(insetRight)
-					outRect.right=pad;
-				if(!topSiblingInset)
-					outRect.top=pad;
+					outRect.left=outRect.right=V.dp(8);
 				if(!bottomSiblingInset)
-					outRect.bottom=pad;
+					outRect.bottom=V.dp(16);
+				if(!topSiblingInset)
+					outRect.top=V.dp(-8);
 			}
 		}
 	}

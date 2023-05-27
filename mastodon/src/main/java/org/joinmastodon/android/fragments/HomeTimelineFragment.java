@@ -33,6 +33,7 @@ import org.joinmastodon.android.events.StatusCreatedEvent;
 import org.joinmastodon.android.model.CacheablePaginatedResponse;
 import org.joinmastodon.android.model.Filter;
 import org.joinmastodon.android.model.Status;
+import org.joinmastodon.android.model.TimelineMarkers;
 import org.joinmastodon.android.ui.displayitems.GapStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.StatusDisplayItem;
 import org.joinmastodon.android.ui.utils.UiUtils;
@@ -154,7 +155,7 @@ public class HomeTimelineFragment extends StatusListFragment{
 				new SaveMarkers(topPostID, null)
 						.setCallback(new Callback<>(){
 							@Override
-							public void onSuccess(SaveMarkers.Response result){
+							public void onSuccess(TimelineMarkers result){
 							}
 
 							@Override

@@ -3,7 +3,6 @@ package org.joinmastodon.android.ui.views;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
-import android.widget.Button;
 
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.ui.utils.UiUtils;
@@ -11,9 +10,7 @@ import org.joinmastodon.android.ui.utils.UiUtils;
 import androidx.annotation.DrawableRes;
 import me.grishka.appkit.utils.V;
 
-public class FilterChipView extends Button{
-
-	private boolean currentlySelected;
+public class FilterChipView extends CheckIconSelectableTextView{
 
 	public FilterChipView(Context context){
 		this(context, null);
@@ -35,14 +32,6 @@ public class FilterChipView extends Button{
 	@Override
 	protected void drawableStateChanged(){
 		super.drawableStateChanged();
-		if(currentlySelected==isSelected())
-			return;
-		currentlySelected=isSelected();
-		Drawable start=currentlySelected ? getResources().getDrawable(R.drawable.ic_baseline_check_18, getContext().getTheme()).mutate() : null;
-		if(start!=null)
-			start.setTint(UiUtils.getThemeColor(getContext(), R.attr.colorM3OnSurface));
-		Drawable end=getCompoundDrawablesRelative()[2];
-		setCompoundDrawablesRelativeWithIntrinsicBounds(start, null, end, null);
 		updatePadding();
 	}
 

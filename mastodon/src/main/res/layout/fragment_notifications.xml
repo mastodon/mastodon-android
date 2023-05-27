@@ -1,25 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<me.grishka.appkit.views.FragmentRootLinearLayout
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	android:orientation="vertical"
-	android:layout_width="match_parent"
-	android:layout_height="match_parent">
+	android:id="@+id/appkit_loader_root"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:background="?colorM3Surface">
 
-	<org.joinmastodon.android.ui.tabs.TabLayout
-		android:id="@+id/tabbar"
+	<org.joinmastodon.android.ui.views.NestedRecyclerScrollView
+		android:id="@+id/scroller"
 		android:layout_width="match_parent"
-		android:layout_height="48dp"
-		app:tabGravity="fill"
-		app:tabIndicator="@drawable/mtrl_tabs_default_indicator"
-		app:tabIndicatorAnimationMode="elastic"
-		app:tabIndicatorColor="?android:textColorPrimary"
-		app:tabMode="fixed"
-		android:background="@drawable/bg_discover_tabs"/>
+		android:layout_height="match_parent"
+		android:fillViewport="true">
 
-	<androidx.viewpager2.widget.ViewPager2
-		android:id="@+id/pager"
-		android:layout_width="match_parent"
-		android:layout_height="0dp"
-		android:layout_weight="1"/>
+		<org.joinmastodon.android.ui.views.TopBarsScrollAwayLinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical">
 
-</LinearLayout>
+			<include layout="@layout/appkit_toolbar"/>
+
+			<FrameLayout
+				android:id="@+id/tabbar"
+				android:layout_width="match_parent"
+				android:layout_height="64dp">
+
+				<LinearLayout
+					android:id="@+id/tabbar_inner"
+					android:layout_width="match_parent"
+					android:layout_height="40dp"
+					android:orientation="horizontal"
+					android:layout_marginHorizontal="16dp"
+					android:layout_gravity="center"
+					style="@style/Widget.Mastodon.M3.SegmentedButtonContainer">
+
+					<FrameLayout
+						android:id="@+id/mentions_tab"
+						style="@style/Widget.Mastodon.M3.SegmentedButton">
+						<org.joinmastodon.android.ui.views.CheckIconSelectableTextView
+							android:id="@+id/mentions_text"
+							style="@style/Widget.Mastodon.M3.SegmentedButtonText"
+							android:text="@string/mentions"/>
+					</FrameLayout>
+
+					<FrameLayout
+						android:id="@+id/all_tab"
+						style="@style/Widget.Mastodon.M3.SegmentedButton">
+						<org.joinmastodon.android.ui.views.CheckIconSelectableTextView
+							android:id="@+id/all_text"
+							style="@style/Widget.Mastodon.M3.SegmentedButtonText"
+							android:text="@string/all_notifications"/>
+					</FrameLayout>
+
+				</LinearLayout>
+
+			</FrameLayout>
+
+			<FrameLayout
+				android:id="@+id/appkit_loader_content"
+				android:layout_width="match_parent"
+				android:layout_height="0dp"
+				android:layout_weight="1">
+
+				<include layout="@layout/loading"
+					android:id="@+id/loading"/>
+
+				<ViewStub android:layout="?errorViewLayout"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:id="@+id/error"
+					android:visibility="gone"/>
+
+				<View
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:id="@+id/content_stub"/>
+
+			</FrameLayout>
+		</org.joinmastodon.android.ui.views.TopBarsScrollAwayLinearLayout>
+	</org.joinmastodon.android.ui.views.NestedRecyclerScrollView>
+
+</me.grishka.appkit.views.FragmentRootLinearLayout>

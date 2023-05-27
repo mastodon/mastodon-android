@@ -68,6 +68,10 @@
 		<item name="colorM3OnErrorContainer">#410E0B</item>
 		<item name="colorM3PrimaryInverse">@color/m3_sys_dark_primary</item>
 		<item name="colorWhite">#FFF</item>
+		<item name="colorFavorite">#8b5000</item>
+		<item name="colorBoost">#ab332a</item>
+		<item name="colorFollow">#4746e3</item>
+		<item name="colorPoll">#006d42</item>
 
 		<item name="colorWindowBackground">?colorM3Background</item>
 		<item name="android:statusBarColor">?colorM3Background</item>
@@ -146,6 +150,10 @@
 		<item name="colorM3OnErrorContainer">#F9DEDC</item>
 		<item name="colorM3PrimaryInverse">@color/m3_sys_light_primary</item>
 		<item name="colorWhite">#000</item>
+		<item name="colorFavorite">#ffb871</item>
+		<item name="colorBoost">#ffb4aa</item>
+		<item name="colorFollow">#c1c1ff</item>
+		<item name="colorPoll">#77daa1</item>
 
 		<item name="colorWindowBackground">?colorM3Background</item>
 		<item name="android:statusBarColor">?colorM3Background</item>
@@ -355,6 +363,30 @@
 		<item name="android:minHeight">40dp</item>
 		<item name="android:textColorHint">?colorM3OnSurfaceVariant</item>
 		<item name="android:textColor">?colorM3OnSurface</item>
+	</style>
+
+	<style name="Widget.Mastodon.M3.SegmentedButtonContainer" parent="">
+		<item name="android:divider">@drawable/divider_vertical_outline</item>
+		<item name="android:showDividers">middle</item>
+		<item name="android:foreground">@drawable/fg_segmented_button_container</item>
+	</style>
+
+	<style name="Widget.Mastodon.M3.SegmentedButton" parent="">
+		<item name="android:layout_width">0dp</item>
+		<item name="android:layout_height">match_parent</item>
+		<item name="android:layout_weight">1</item>
+		<item name="android:background">@drawable/bg_segmented_button</item>
+	</style>
+
+	<style name="Widget.Mastodon.M3.SegmentedButtonText" parent="">
+		<item name="android:textAppearance">@style/m3_label_large</item>
+		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_height">match_parent</item>
+		<item name="android:layout_gravity">center_horizontal</item>
+		<item name="android:gravity">center_vertical</item>
+		<item name="android:drawablePadding">8dp</item>
+		<item name="android:textColor">@color/text_segmented_button</item>
+		<item name="android:duplicateParentState">true</item>
 	</style>
 
 	<style name="Theme.Mastodon.Toolbar.ProgressBar">

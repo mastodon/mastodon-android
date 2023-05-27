@@ -42,6 +42,8 @@ public class CacheController{
 	private final String accountID;
 	private DatabaseHelper db;
 	private final Runnable databaseCloseRunnable=this::closeDatabase;
+	private boolean loadingNotifications;
+	private final ArrayList<Callback<PaginatedResponse<List<Notification>>>> pendingNotificationsCallbacks=new ArrayList<>();
 
 	private static final int POST_FLAG_GAP_AFTER=1;
 
@@ -131,6 +133,12 @@ public class CacheController{
 		cancelDelayedClose();
 		databaseThread.postRunnable(()->{
 			try{
+				if(!onlyMentions && loadingNotifications){
+					synchronized(pendingNotificationsCallbacks){
+						pendingNotificationsCallbacks.add(callback);
+					}
+					return;
+				}
 				List<Filter> filters=AccountSessionManager.getInstance().getAccount(accountID).wordFilters.stream().filter(f->f.context.contains(Filter.FilterContext.NOTIFICATIONS)).collect(Collectors.toList());
 				if(!forceReload){
 					SQLiteDatabase db=getOrOpenDatabase();
@@ -160,11 +168,13 @@ public class CacheController{
 						Log.w(TAG, "getNotifications: corrupted notification object in database", x);
 					}
 				}
+				if(!onlyMentions)
+					loadingNotifications=true;
 				new GetNotifications(maxID, count, onlyMentions ? EnumSet.of(Notification.Type.MENTION): EnumSet.allOf(Notification.Type.class))
 						.setCallback(new Callback<>(){
 							@Override
 							public void onSuccess(List<Notification> result){
-								callback.onSuccess(new PaginatedResponse<>(result.stream().filter(ntf->{
+								PaginatedResponse<List<Notification>> res=new PaginatedResponse<>(result.stream().filter(ntf->{
 									if(ntf.status!=null){
 										for(Filter filter:filters){
 											if(filter.matches(ntf.status)){
@@ -173,13 +183,32 @@ public class CacheController{
 										}
 									}
 									return true;
-								}).collect(Collectors.toList()), result.isEmpty() ? null : result.get(result.size()-1).id));
+								}).collect(Collectors.toList()), result.isEmpty() ? null : result.get(result.size()-1).id);
+								callback.onSuccess(res);
 								putNotifications(result, onlyMentions, maxID==null);
+								if(!onlyMentions){
+									loadingNotifications=false;
+									synchronized(pendingNotificationsCallbacks){
+										for(Callback<PaginatedResponse<List<Notification>>> cb:pendingNotificationsCallbacks){
+											cb.onSuccess(res);
+										}
+										pendingNotificationsCallbacks.clear();
+									}
+								}
 							}
 
 							@Override
 							public void onError(ErrorResponse error){
 								callback.onError(error);
+								if(!onlyMentions){
+									loadingNotifications=false;
+									synchronized(pendingNotificationsCallbacks){
+										for(Callback<PaginatedResponse<List<Notification>>> cb:pendingNotificationsCallbacks){
+											cb.onError(error);
+										}
+										pendingNotificationsCallbacks.clear();
+									}
+								}
 							}
 						})
 						.exec(accountID);

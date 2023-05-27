@@ -37,6 +37,7 @@ public abstract class StatusDisplayItem{
 	public static final int FLAG_NO_FOOTER=1 << 1;
 	public static final int FLAG_CHECKABLE=1 << 2;
 	public static final int FLAG_MEDIA_FORCE_HIDDEN=1 << 3;
+	public static final int FLAG_NO_HEADER=1 << 4;
 
 	public StatusDisplayItem(String parentID, BaseStatusListFragment parentFragment){
 		this.parentID=parentID;
@@ -64,7 +65,6 @@ public abstract class StatusDisplayItem{
 			case POLL_FOOTER -> new PollFooterStatusDisplayItem.Holder(activity, parent);
 			case CARD -> new LinkCardStatusDisplayItem.Holder(activity, parent);
 			case FOOTER -> new FooterStatusDisplayItem.Holder(activity, parent);
-			case ACCOUNT_CARD -> new AccountCardStatusDisplayItem.Holder(activity, parent);
 			case ACCOUNT -> new AccountStatusDisplayItem.Holder(activity, parent);
 			case HASHTAG -> new HashtagStatusDisplayItem.Holder(activity, parent);
 			case GAP -> new GapStatusDisplayItem.Holder(activity, parent);
@@ -72,6 +72,7 @@ public abstract class StatusDisplayItem{
 			case MEDIA_GRID -> new MediaGridStatusDisplayItem.Holder(activity, parent);
 			case SPOILER -> new SpoilerStatusDisplayItem.Holder(activity, parent);
 			case SECTION_HEADER -> new SectionHeaderStatusDisplayItem.Holder(activity, parent);
+			case NOTIFICATION_HEADER -> new NotificationHeaderStatusDisplayItem.Holder(activity, parent);
 		};
 	}
 
@@ -88,17 +89,19 @@ public abstract class StatusDisplayItem{
 		String parentID=parentObject.getID();
 		ArrayList<StatusDisplayItem> items=new ArrayList<>();
 		Status statusForContent=status.getContentStatus();
-		if(status.reblog!=null){
-			items.add(new ReblogOrReplyLineStatusDisplayItem(parentID, fragment, fragment.getString(R.string.user_boosted, status.account.displayName), status.account.emojis, R.drawable.ic_repeat_20px));
-		}else if(status.inReplyToAccountId!=null && knownAccounts.containsKey(status.inReplyToAccountId)){
-			Account account=Objects.requireNonNull(knownAccounts.get(status.inReplyToAccountId));
-			items.add(new ReblogOrReplyLineStatusDisplayItem(parentID, fragment, fragment.getString(R.string.in_reply_to, account.displayName), account.emojis, R.drawable.ic_reply_20px));
+		HeaderStatusDisplayItem header=null;
+		if((flags & FLAG_NO_HEADER)==0){
+			if(status.reblog!=null){
+				items.add(new ReblogOrReplyLineStatusDisplayItem(parentID, fragment, fragment.getString(R.string.user_boosted, status.account.displayName), status.account.emojis, R.drawable.ic_repeat_20px));
+			}else if(status.inReplyToAccountId!=null && knownAccounts.containsKey(status.inReplyToAccountId)){
+				Account account=Objects.requireNonNull(knownAccounts.get(status.inReplyToAccountId));
+				items.add(new ReblogOrReplyLineStatusDisplayItem(parentID, fragment, fragment.getString(R.string.in_reply_to, account.displayName), account.emojis, R.drawable.ic_reply_20px));
+			}
+			if((flags & FLAG_CHECKABLE)!=0)
+				items.add(header=new CheckableHeaderStatusDisplayItem(parentID, statusForContent.account, statusForContent.createdAt, fragment, accountID, statusForContent, null));
+			else
+				items.add(header=new HeaderStatusDisplayItem(parentID, statusForContent.account, statusForContent.createdAt, fragment, accountID, statusForContent, null));
 		}
-		HeaderStatusDisplayItem header;
-		if((flags & FLAG_CHECKABLE)!=0)
-			items.add(header=new CheckableHeaderStatusDisplayItem(parentID, statusForContent.account, statusForContent.createdAt, fragment, accountID, statusForContent, null));
-		else
-			items.add(header=new HeaderStatusDisplayItem(parentID, statusForContent.account, statusForContent.createdAt, fragment, accountID, statusForContent, null));
 
 		ArrayList<StatusDisplayItem> contentItems;
 		if(!TextUtils.isEmpty(statusForContent.spoilerText)){
@@ -109,10 +112,13 @@ public abstract class StatusDisplayItem{
 			contentItems=items;
 		}
 
-		if(!TextUtils.isEmpty(statusForContent.content))
-			contentItems.add(new TextStatusDisplayItem(parentID, HtmlParser.parse(statusForContent.content, statusForContent.emojis, statusForContent.mentions, statusForContent.tags, accountID), fragment, statusForContent));
-		else
+		if(!TextUtils.isEmpty(statusForContent.content)){
+			TextStatusDisplayItem text=new TextStatusDisplayItem(parentID, HtmlParser.parse(statusForContent.content, statusForContent.emojis, statusForContent.mentions, statusForContent.tags, accountID), fragment, statusForContent);
+			text.reduceTopPadding=header==null;
+			contentItems.add(text);
+		}else if(header!=null){
 			header.needBottomPadding=true;
+		}
 
 		List<Attachment> imageAttachments=statusForContent.mediaAttachments.stream().filter(att->att.type.isImage()).collect(Collectors.toList());
 		if(!imageAttachments.isEmpty()){
@@ -171,7 +177,6 @@ public abstract class StatusDisplayItem{
 		POLL_FOOTER,
 		CARD,
 		FOOTER,
-		ACCOUNT_CARD,
 		ACCOUNT,
 		HASHTAG,
 		GAP,
@@ -179,7 +184,8 @@ public abstract class StatusDisplayItem{
 		MEDIA_GRID,
 		SPOILER,
 		SECTION_HEADER,
-		HEADER_CHECKABLE
+		HEADER_CHECKABLE,
+		NOTIFICATION_HEADER
 	}
 
 	public static abstract class Holder<T extends StatusDisplayItem> extends BindableViewHolder<T> implements UsableRecyclerView.DisableableClickable{

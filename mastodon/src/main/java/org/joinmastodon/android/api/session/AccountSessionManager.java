@@ -142,6 +142,10 @@ public class AccountSessionManager{
 		return session;
 	}
 
+	public static AccountSession get(String id){
+		return getInstance().getAccount(id);
+	}
+
 	@Nullable
 	public AccountSession tryGetAccount(String id){
 		return sessions.get(id);
@@ -174,6 +178,12 @@ public class AccountSessionManager{
 		AccountSession session=getAccount(id);
 		session.getCacheController().closeDatabase();
 		MastodonApp.context.deleteDatabase(id+".db");
+		MastodonApp.context.getSharedPreferences(id, 0).edit().clear().commit();
+		if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.N){
+			MastodonApp.context.deleteSharedPreferences(id);
+		}else{
+			new File(MastodonApp.context.getDir("shared_prefs", Context.MODE_PRIVATE), id+".xml").delete();
+		}
 		sessions.remove(id);
 		if(lastActiveAccountID.equals(id)){
 			if(sessions.isEmpty())
