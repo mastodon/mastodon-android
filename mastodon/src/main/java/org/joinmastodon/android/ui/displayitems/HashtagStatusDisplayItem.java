@@ -1,6 +1,7 @@
 package org.joinmastodon.android.ui.displayitems;
 
 import android.content.Context;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
@@ -37,6 +38,12 @@ public class HashtagStatusDisplayItem extends StatusDisplayItem{
 		public void onBind(HashtagStatusDisplayItem _item){
 			Hashtag item=_item.tag;
 			title.setText('#'+item.name);
+			if (item.history == null || item.history.isEmpty()) {
+				subtitle.setText(null);
+				chart.setVisibility(View.GONE);
+				return;
+			}
+			chart.setVisibility(View.VISIBLE);
 			int numPeople=item.history.get(0).accounts;
 			if(item.history.size()>1)
 				numPeople+=item.history.get(1).accounts;
