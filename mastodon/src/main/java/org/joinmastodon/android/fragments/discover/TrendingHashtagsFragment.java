@@ -98,6 +98,12 @@ public class TrendingHashtagsFragment extends BaseRecyclerFragment<Hashtag> impl
 		@Override
 		public void onBind(Hashtag item){
 			title.setText('#'+item.name);
+			if (item.history == null || item.history.isEmpty()) {
+				subtitle.setText(null);
+				chart.setVisibility(View.GONE);
+				return;
+			}
+			chart.setVisibility(View.VISIBLE);
 			int numPeople=item.history.get(0).accounts;
 			if(item.history.size()>1)
 				numPeople+=item.history.get(1).accounts;
