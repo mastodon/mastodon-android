@@ -1235,18 +1235,20 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 		menu.getMenu().add(0, 2, 0, getResources().getQuantityString(R.plurals.x_minutes, 30, 30));
 		menu.getMenu().add(0, 3, 0, getResources().getQuantityString(R.plurals.x_hours, 1, 1));
 		menu.getMenu().add(0, 4, 0, getResources().getQuantityString(R.plurals.x_hours, 6, 6));
-		menu.getMenu().add(0, 5, 0, getResources().getQuantityString(R.plurals.x_days, 1, 1));
-		menu.getMenu().add(0, 6, 0, getResources().getQuantityString(R.plurals.x_days, 3, 3));
-		menu.getMenu().add(0, 7, 0, getResources().getQuantityString(R.plurals.x_days, 7, 7));
+		menu.getMenu().add(0, 5, 0, getResources().getQuantityString(R.plurals.x_hours, 12, 12));
+		menu.getMenu().add(0, 6, 0, getResources().getQuantityString(R.plurals.x_days, 1, 1));
+		menu.getMenu().add(0, 7, 0, getResources().getQuantityString(R.plurals.x_days, 3, 3));
+		menu.getMenu().add(0, 8, 0, getResources().getQuantityString(R.plurals.x_days, 7, 7));
 		menu.setOnMenuItemClickListener(item->{
 			pollDuration=switch(item.getItemId()){
 				case 1 -> 5*60;
 				case 2 -> 30*60;
 				case 3 -> 3600;
 				case 4 -> 6*3600;
-				case 5 -> 24*3600;
-				case 6 -> 3*24*3600;
-				case 7 -> 7*24*3600;
+				case 5 -> 12*3600;
+				case 6 -> 24*3600;
+				case 7 -> 3*24*3600;
+				case 8 -> 7*24*3600;
 				default -> throw new IllegalStateException("Unexpected value: "+item.getItemId());
 			};
 			pollDurationView.setText(getString(R.string.compose_poll_duration, pollDurationStr=item.getTitle().toString()));
