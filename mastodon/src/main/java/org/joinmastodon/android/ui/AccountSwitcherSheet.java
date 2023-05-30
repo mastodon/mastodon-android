@@ -25,6 +25,7 @@ import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.fragments.HomeFragment;
 import org.joinmastodon.android.fragments.SplashFragment;
 import org.joinmastodon.android.ui.utils.UiUtils;
+import org.joinmastodon.android.ui.views.CheckableRelativeLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -225,16 +226,18 @@ public class AccountSwitcherSheet extends BottomSheet{
 	private class AccountViewHolder extends BindableViewHolder<AccountSession> implements ImageLoaderViewHolder, UsableRecyclerView.Clickable, UsableRecyclerView.LongClickable{
 		private final TextView name, username;
 		private final ImageView avatar;
-		private final RadioButton radioButton;
+		private final CheckableRelativeLayout view;
 
 		public AccountViewHolder(){
 			super(activity, R.layout.item_account_switcher, list);
 			name=findViewById(R.id.name);
 			username=findViewById(R.id.username);
-			radioButton=findViewById(R.id.radiobtn);
+			View radioButton=findViewById(R.id.radiobtn);
+			radioButton.setBackground(new RadioButton(activity).getButtonDrawable());
 			avatar=findViewById(R.id.avatar);
 			avatar.setOutlineProvider(OutlineProviders.roundedRect(OutlineProviders.RADIUS_MEDIUM));
 			avatar.setClipToOutline(true);
+			view=(CheckableRelativeLayout) itemView;
 		}
 
 		@SuppressLint("SetTextI18n")
@@ -242,7 +245,7 @@ public class AccountSwitcherSheet extends BottomSheet{
 		public void onBind(AccountSession item){
 			name.setText(item.self.displayName);
 			username.setText(item.getFullUsername());
-			radioButton.setChecked(AccountSessionManager.getInstance().getLastActiveAccountID().equals(item.getID()));
+			view.setChecked(AccountSessionManager.getInstance().getLastActiveAccountID().equals(item.getID()));
 		}
 
 		@Override
