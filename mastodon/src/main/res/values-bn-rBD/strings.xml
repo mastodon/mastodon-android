@@ -64,11 +64,19 @@
 	</plurals>
 	<plurals name="x_seconds_left">
 		<item quantity="one">%d সেকেন্ড বাকি</item>
-		<item quantity="other">%d সেকেন্ড বাকি আছে</item>
+		<item quantity="other">%d সেকেন্ড বাকি</item>
 	</plurals>
 	<plurals name="x_minutes_left">
 		<item quantity="one">%d মিনিট বাকি</item>
 		<item quantity="other">%d মিনিট বাকি</item>
+	</plurals>
+	<plurals name="x_hours_left">
+		<item quantity="one">%d ঘণ্টা বাকি</item>
+		<item quantity="other">%d ঘণ্টা বাকি</item>
+	</plurals>
+	<plurals name="x_days_left">
+		<item quantity="one">%d দিন বাকি</item>
+		<item quantity="other">%d দিন বাকি</item>
 	</plurals>
 	<string name="poll_closed">বন্ধ</string>
 	<string name="confirm_mute_title">অ্যাকাউন্টটি মিউট করুন</string>
@@ -106,6 +114,14 @@
 		<item quantity="other">%d jon ব্যক্তিরা বলছেন</item>
 	</plurals>
 	<string name="sending_report">রিপোর্ট পাঠানো হচ্ছে…</string>
+	<string name="search_communities">সার্ভারের নাম বা লিঙ্ক</string>
+	<string name="instance_rules_title">সার্ভারের নিয়মাবলী</string>
+	<string name="signup_title">অ্যাকাউন্ট তৈরি করুন</string>
+	<string name="display_name">নাম</string>
+	<string name="username">ইউজারনেম</string>
+	<string name="email">ই-মেইল</string>
+	<string name="password">পাসওয়ার্ড</string>
+	<string name="confirm_password">পাসওয়ার্ড নিশ্চিত করুন</string>
 	<!-- %s is the email address -->
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<!-- %s is version like 1.2.3 -->
