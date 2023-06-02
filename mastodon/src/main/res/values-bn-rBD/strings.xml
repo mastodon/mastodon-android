@@ -20,11 +20,20 @@
 	<string name="share_toot_title">শেয়ার করুন</string>
 	<string name="settings">সেটিংস</string>
 	<string name="cancel">বাতিল করুন</string>
+	<plurals name="followers">
+		<item quantity="one">জন ফলোয়ার</item>
+		<item quantity="other">জন ফলোয়ারস</item>
+	</plurals>
 	<plurals name="posts">
 		<item quantity="one">পোস্ট</item>
 		<item quantity="other">পোস্টগুলো</item>
 	</plurals>
 	<string name="posts">পোস্টগুলো</string>
+	<string name="media">মিডিয়া</string>
+	<string name="button_follow">ফলো করুন</string>
+	<string name="button_following">ফলো করছেন</string>
+	<string name="edit_profile">প্রোফাইল সংশোধন করুন</string>
+	<string name="mention_user">%s -কে পিং করুন</string>
 	<string name="share_user">%s -কে শেয়ার করুন</string>
 	<string name="mute_user">%s -কে মিউট করুন</string>
 	<string name="unmute_user">%s -কে আনমিউট করুন</string>
@@ -52,6 +61,14 @@
 	<plurals name="x_days">
 		<item quantity="one">%d দিন</item>
 		<item quantity="other">%d দিন</item>
+	</plurals>
+	<plurals name="x_seconds_left">
+		<item quantity="one">%d সেকেন্ড বাকি</item>
+		<item quantity="other">%d সেকেন্ড বাকি আছে</item>
+	</plurals>
+	<plurals name="x_minutes_left">
+		<item quantity="one">%d মিনিট বাকি</item>
+		<item quantity="other">%d মিনিট বাকি</item>
 	</plurals>
 	<string name="poll_closed">বন্ধ</string>
 	<string name="confirm_mute_title">অ্যাকাউন্টটি মিউট করুন</string>
