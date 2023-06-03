@@ -543,6 +543,23 @@ public class ComposeMediaViewController{
 		return attachments.size()<MAX_ATTACHMENTS;
 	}
 
+	public int getMissingAltTextAttachmentCount(){
+		int count=0;
+		for(DraftMediaAttachment att:attachments){
+			if(TextUtils.isEmpty(att.description))
+				count++;
+		}
+		return count;
+	}
+
+	public boolean areAllAttachmentsImages(){
+		for(DraftMediaAttachment att:attachments){
+			if(!att.mimeType.startsWith("image/"))
+				return false;
+		}
+		return true;
+	}
+
 	public int getMaxAttachments(){
 		return MAX_ATTACHMENTS;
 	}

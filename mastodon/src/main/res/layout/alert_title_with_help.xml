@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:orientation="vertical"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:padding="24dp">
+
+	<ImageButton
+		android:id="@+id/help"
+		android:layout_width="40dp"
+		android:layout_height="40dp"
+		android:layout_margin="4dp"
+		android:layout_alignParentTop="true"
+		android:layout_alignParentEnd="true"
+		android:tint="@color/selectable_icon_tint"
+		android:background="@drawable/bg_round_ripple"
+		android:contentDescription="@string/help"
+		android:src="@drawable/ic_help_selectable"/>
+	
+	<TextView
+		android:id="@+id/title"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_toStartOf="@id/help"
+		style="?android:windowTitleStyle"
+		android:singleLine="false"
+		android:maxLines="2"
+		android:minHeight="48dp"
+		android:gravity="center_vertical"
+		tools:text="Title"/>
+
+	<TextView
+		android:id="@+id/help_text"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_below="@id/title"
+		android:layout_marginTop="16dp"
+		android:textAppearance="@style/m3_body_medium"
+		android:textColor="?colorM3OnSurfaceVariant"
+		android:visibility="gone"
+		tools:visibility="visible"
+		tools:text="Supporting text"/>
+
+</RelativeLayout>

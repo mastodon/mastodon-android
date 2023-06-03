@@ -24,7 +24,7 @@ public abstract class PaginatedAccountListFragment extends BaseAccountListFragme
 							nextMaxID=result.nextPageUri.getQueryParameter("max_id");
 						else
 							nextMaxID=null;
-						onDataLoaded(result.stream().map(AccountViewModel::new).collect(Collectors.toList()), nextMaxID!=null);
+						onDataLoaded(result.stream().map(a->new AccountViewModel(a, accountID)).collect(Collectors.toList()), nextMaxID!=null);
 					}
 				})
 				.exec(accountID);

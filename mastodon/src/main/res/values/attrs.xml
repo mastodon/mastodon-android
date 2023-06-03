@@ -62,4 +62,8 @@
 		<attr name="android:labelTextSize" format="dimension"/>
 		<attr name="labelTextColor" format="color"/>
 	</declare-styleable>
+
+	<declare-styleable name="NestedRecyclerScrollView">
+		<attr name="takePriorityOverChildViews" format="boolean"/>
+	</declare-styleable>
 </resources>

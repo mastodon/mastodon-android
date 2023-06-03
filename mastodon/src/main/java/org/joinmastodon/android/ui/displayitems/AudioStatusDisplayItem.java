@@ -103,7 +103,7 @@ public class AudioStatusDisplayItem extends StatusDisplayItem{
 		@Override
 		public void onBind(AudioStatusDisplayItem item){
 			int seconds=(int)item.attachment.getDuration();
-			String duration=UiUtils.formatDuration(seconds);
+			String duration=UiUtils.formatMediaDuration(seconds);
 			AudioPlayerService service=AudioPlayerService.getInstance();
 			if(service!=null && service.getAttachmentID().equals(item.attachment.id)){
 				forwardBtn.setVisibility(View.VISIBLE);
@@ -168,7 +168,7 @@ public class AudioStatusDisplayItem extends StatusDisplayItem{
 				setPlayButtonPlaying(false, true);
 				forwardBtn.setVisibility(View.INVISIBLE);
 				rewindBtn.setVisibility(View.INVISIBLE);
-				time.setText(UiUtils.formatDuration((int)item.attachment.getDuration()));
+				time.setText(UiUtils.formatMediaDuration((int)item.attachment.getDuration()));
 			}
 		}
 
@@ -187,7 +187,7 @@ public class AudioStatusDisplayItem extends StatusDisplayItem{
 			int posSeconds=(int)pos;
 			if(posSeconds!=lastPosSeconds){
 				lastPosSeconds=posSeconds;
-				time.setText(UiUtils.formatDuration(posSeconds)+"/"+UiUtils.formatDuration((int)item.attachment.getDuration()));
+				time.setText(UiUtils.formatMediaDuration(posSeconds)+"/"+UiUtils.formatMediaDuration((int)item.attachment.getDuration()));
 			}
 		}
 

@@ -38,7 +38,11 @@
 		<item name="android:popupMenuStyle">@style/Widget.Mastodon.PopupMenu</item>
 		<item name="android:actionOverflowMenuStyle">@style/Widget.Mastodon.PopupMenu</item>
 		<item name="android:switchStyle">@style/Widget.Mastodon.M3.Switch</item>
-		
+		<item name="android:windowActionModeOverlay">true</item>
+		<item name="android:actionModeBackground">@color/m3_sys_light_primary</item>
+		<item name="android:actionModeStyle">@style/Widget.Mastodon.Toolbar.ActionMode</item>
+		<item name="android:actionModeCloseDrawable">@drawable/ic_actionmode_close</item>
+
 		<!-- M3 colors -->
 		<item name="colorM3Primary">@color/m3_sys_light_primary</item>
 		<item name="colorM3OnPrimary">@color/m3_sys_light_on_primary</item>
@@ -120,6 +124,10 @@
 		<item name="android:windowLightNavigationBar" tools:ignore="NewApi">false</item>
 		<item name="android:popupMenuStyle">@style/Widget.Mastodon.PopupMenu</item>
 		<item name="android:actionOverflowMenuStyle">@style/Widget.Mastodon.PopupMenu</item>
+		<item name="android:switchStyle">@style/Widget.Mastodon.M3.Switch</item>
+		<item name="android:windowActionModeOverlay">true</item>
+		<item name="android:actionModeBackground">@color/m3_sys_dark_primary</item>
+		<item name="android:actionModeCloseDrawable">@drawable/ic_actionmode_close</item>
 
 		<!-- M3 colors -->
 		<item name="colorM3Primary">@color/m3_sys_dark_primary</item>
@@ -170,12 +178,6 @@
 		<item name="colorM3OnSurface">#FFF</item>
 	</style>
 
-	<style name="Theme.Mastodon.Dark.TrueBlack">
-		<item name="colorWindowBackground">#000</item>
-
-		<item name="colorM3Background">#000</item>
-	</style>
-
 	<style name="Theme.Mastodon.AutoLightDark" parent="Theme.Mastodon.Light"/>
 	<style name="Theme.Mastodon.AutoLightDark.TrueBlack" parent="Theme.Mastodon.Light"/>
 
@@ -187,6 +189,14 @@
 		<item name="appkitToolbarElevation">0px</item>
 		<item name="appkitToolbarBackground">?colorM3Background</item>
 		<item name="actionBarIconTint">@color/action_bar_icons</item>
+	</style>
+
+	<style name="Widget.Mastodon.Toolbar.ActionMode" parent="android:Widget.Material.ActionMode">
+		<item name="android:titleTextStyle">@style/action_mode_title</item>
+	</style>
+
+	<style name="action_mode_title" parent="android:TextAppearance.Material.Widget.ActionMode.Title">
+		<item name="android:textColor">?colorM3OnPrimary</item>
 	</style>
 
 	<style name="Widget.Mastodon.Toolbar" parent="android:Widget.Material.Toolbar">
@@ -303,7 +313,7 @@
 		<item name="android:minWidth">0px</item>
 		<item name="android:background">@drawable/bg_alert_button</item>
 		<item name="android:textAppearance">@style/m3_label_large</item>
-		<item name="android:textColor">?colorM3Primary</item>
+		<item name="android:textColor">@color/button_text_m3_text</item>
 	</style>
 
 	<style name="Widget.Mastodon.PopupMenu" parent="android:Widget.Material.Light.PopupMenu">
@@ -411,6 +421,8 @@
 		<item name="android:textSize">24dp</item>
 		<item name="android:minHeight">38dp</item>
 		<item name="android:gravity">bottom</item>
+		<item name="android:maxLines">2</item>
+		<item name="android:singleLine">false</item>
 	</style>
 
 	<style name="m3_body_large">

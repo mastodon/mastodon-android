@@ -458,7 +458,8 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 		ViewImageLoader.load(avatar, null, new UrlImageLoaderRequest(GlobalUserPreferences.playGifs ? account.avatar : account.avatarStatic, V.dp(100), V.dp(100)));
 		ViewImageLoader.load(cover, null, new UrlImageLoaderRequest(GlobalUserPreferences.playGifs ? account.header : account.headerStatic, 1000, 1000));
 		SpannableStringBuilder ssb=new SpannableStringBuilder(account.displayName);
-		HtmlParser.parseCustomEmoji(ssb, account.emojis);
+		if(AccountSessionManager.get(accountID).getLocalPreferences().customEmojiInNames)
+			HtmlParser.parseCustomEmoji(ssb, account.emojis);
 		name.setText(ssb);
 		setTitle(ssb);
 

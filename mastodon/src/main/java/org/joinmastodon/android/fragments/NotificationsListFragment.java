@@ -315,10 +315,12 @@ public class NotificationsListFragment extends BaseStatusListFragment<Notificati
 
 	private void markAsRead(){
 		String id=data.get(0).id;
-		new SaveMarkers(null, id).exec(accountID);
-		AccountSessionManager.get(accountID).setNotificationsMarker(id, true);
-		realUnreadMarker=id;
-		updateMarkAllReadButton();
+		if(ObjectIdComparator.INSTANCE.compare(id, realUnreadMarker)>0){
+			new SaveMarkers(null, id).exec(accountID);
+			AccountSessionManager.get(accountID).setNotificationsMarker(id, true);
+			realUnreadMarker=id;
+			updateMarkAllReadButton();
+		}
 	}
 
 	private void resetUnreadBackground(){

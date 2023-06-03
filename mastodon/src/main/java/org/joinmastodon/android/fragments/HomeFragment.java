@@ -3,14 +3,11 @@ package org.joinmastodon.android.fragments;
 import android.annotation.SuppressLint;
 import android.app.Fragment;
 import android.app.NotificationManager;
-import android.graphics.Outline;
 import android.os.Build;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewOutlineProvider;
 import android.view.ViewTreeObserver;
 import android.view.WindowInsets;
 import android.widget.FrameLayout;
@@ -20,19 +17,19 @@ import android.widget.TextView;
 
 import com.squareup.otto.Subscribe;
 
+import org.joinmastodon.android.BuildConfig;
 import org.joinmastodon.android.E;
 import org.joinmastodon.android.PushNotificationReceiver;
 import org.joinmastodon.android.R;
-import org.joinmastodon.android.api.requests.markers.GetMarkers;
 import org.joinmastodon.android.api.session.AccountSession;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.events.NotificationsMarkerUpdatedEvent;
+import org.joinmastodon.android.events.StatusDisplaySettingsChangedEvent;
 import org.joinmastodon.android.fragments.discover.DiscoverFragment;
 import org.joinmastodon.android.fragments.onboarding.OnboardingFollowSuggestionsFragment;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.Notification;
 import org.joinmastodon.android.model.PaginatedResponse;
-import org.joinmastodon.android.model.TimelineMarkers;
 import org.joinmastodon.android.ui.AccountSwitcherSheet;
 import org.joinmastodon.android.ui.OutlineProviders;
 import org.joinmastodon.android.ui.utils.UiUtils;
@@ -265,7 +262,7 @@ public class HomeFragment extends AppKitFragment implements OnBackPressedListene
 			new AccountSwitcherSheet(getActivity(), this).show();
 			return true;
 		}
-		if(tab==R.id.tab_home){
+		if(tab==R.id.tab_home && BuildConfig.DEBUG){
 			Bundle args=new Bundle();
 			args.putString("account", accountID);
 			Nav.go(getActivity(), OnboardingFollowSuggestionsFragment.class, args);
@@ -328,7 +325,7 @@ public class HomeFragment extends AppKitFragment implements OnBackPressedListene
 			notificationsBadge.setVisibility(View.GONE);
 		}else{
 			notificationsBadge.setVisibility(View.VISIBLE);
-			if(notifications.get(notifications.size()-1).id.compareTo(marker)<=0){
+			if(notifications.get(notifications.size()-1).id.compareTo(marker)>0){
 				notificationsBadge.setText(String.format("%d+", notifications.size()));
 			}else{
 				int count=0;
@@ -348,5 +345,15 @@ public class HomeFragment extends AppKitFragment implements OnBackPressedListene
 			return;
 		if(ev.clearUnread)
 			notificationsBadge.setVisibility(View.GONE);
+	}
+
+	@Subscribe
+	public void onStatusDisplaySettingsChanged(StatusDisplaySettingsChangedEvent ev){
+		if(!ev.accountID.equals(accountID))
+			return;
+		if(homeTimelineFragment.loaded)
+			homeTimelineFragment.rebuildAllDisplayItems();
+		if(notificationsFragment.loaded)
+			notificationsFragment.rebuildAllDisplayItems();
 	}
 }

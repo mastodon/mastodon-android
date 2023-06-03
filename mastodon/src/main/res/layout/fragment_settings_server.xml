@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<me.grishka.appkit.views.FragmentRootLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="?android:windowBackground">
+
+	<org.joinmastodon.android.ui.views.NestedRecyclerScrollView
+		android:id="@+id/scroller"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		app:takePriorityOverChildViews="true"
+		android:fillViewport="true">
+		<org.joinmastodon.android.ui.views.TopBarsScrollAwayLinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:orientation="vertical">
+
+			<include layout="@layout/appkit_toolbar"/>
+
+			<TextView
+				android:id="@+id/real_title"
+				android:layout_width="match_parent"
+				android:layout_height="60dp"
+				android:singleLine="true"
+				android:ellipsize="marquee"
+				android:paddingHorizontal="16dp"
+				android:paddingTop="4dp"
+				android:textAppearance="@style/m3_headline_small"
+				android:textColor="?colorM3OnSurface"
+				tools:text="mastodon.social"/>
+
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:orientation="vertical">
+
+				<org.joinmastodon.android.ui.tabs.TabLayout
+					android:id="@+id/tabbar"
+					android:layout_width="match_parent"
+					android:layout_height="48dp"
+					app:tabGravity="fill"
+					app:tabIndicator="@drawable/tab_indicator_m3"
+					app:tabIndicatorAnimationMode="elastic"
+					app:tabIndicatorColor="?colorM3Primary"
+					app:tabIndicatorFullWidth="false"
+					app:tabMinWidth="0dp"
+					app:tabMode="fixed" />
+
+				<View
+					android:layout_width="match_parent"
+					android:layout_height="1dp"
+					android:background="?colorM3SurfaceVariant"/>
+
+				<androidx.viewpager2.widget.ViewPager2
+					android:id="@+id/pager"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"/>
+
+			</LinearLayout>
+
+		</org.joinmastodon.android.ui.views.TopBarsScrollAwayLinearLayout>
+	</org.joinmastodon.android.ui.views.NestedRecyclerScrollView>
+
+</me.grishka.appkit.views.FragmentRootLinearLayout>

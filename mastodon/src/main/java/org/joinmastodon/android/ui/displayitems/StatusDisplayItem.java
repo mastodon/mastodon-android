@@ -6,7 +6,9 @@ import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 
+import org.joinmastodon.android.GlobalUserPreferences;
 import org.joinmastodon.android.R;
+import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.fragments.BaseStatusListFragment;
 import org.joinmastodon.android.fragments.ThreadFragment;
 import org.joinmastodon.android.model.Account;
@@ -90,6 +92,7 @@ public abstract class StatusDisplayItem{
 		ArrayList<StatusDisplayItem> items=new ArrayList<>();
 		Status statusForContent=status.getContentStatus();
 		HeaderStatusDisplayItem header=null;
+		boolean hideCounts=!AccountSessionManager.get(accountID).getLocalPreferences().showInteractionCounts;
 		if((flags & FLAG_NO_HEADER)==0){
 			if(status.reblog!=null){
 				items.add(new ReblogOrReplyLineStatusDisplayItem(parentID, fragment, fragment.getString(R.string.user_boosted, status.account.displayName), status.account.emojis, R.drawable.ic_repeat_20px));
@@ -104,7 +107,7 @@ public abstract class StatusDisplayItem{
 		}
 
 		ArrayList<StatusDisplayItem> contentItems;
-		if(!TextUtils.isEmpty(statusForContent.spoilerText)){
+		if(!TextUtils.isEmpty(statusForContent.spoilerText) && AccountSessionManager.get(accountID).getLocalPreferences().showCWs){
 			SpoilerStatusDisplayItem spoilerItem=new SpoilerStatusDisplayItem(parentID, fragment, statusForContent);
 			items.add(spoilerItem);
 			contentItems=spoilerItem.contentItems;
@@ -126,6 +129,8 @@ public abstract class StatusDisplayItem{
 			MediaGridStatusDisplayItem mediaGrid=new MediaGridStatusDisplayItem(parentID, fragment, layout, imageAttachments, statusForContent);
 			if((flags & FLAG_MEDIA_FORCE_HIDDEN)!=0)
 				mediaGrid.sensitiveTitle=fragment.getString(R.string.media_hidden);
+			else if(statusForContent.sensitive && !AccountSessionManager.get(accountID).getLocalPreferences().hideSensitiveMedia)
+				mediaGrid.sensitiveRevealed=true;
 			contentItems.add(mediaGrid);
 		}
 		for(Attachment att:statusForContent.mediaAttachments){
@@ -140,7 +145,9 @@ public abstract class StatusDisplayItem{
 			contentItems.add(new LinkCardStatusDisplayItem(parentID, fragment, statusForContent));
 		}
 		if((flags & FLAG_NO_FOOTER)==0){
-			items.add(new FooterStatusDisplayItem(parentID, fragment, statusForContent, accountID));
+			FooterStatusDisplayItem footer=new FooterStatusDisplayItem(parentID, fragment, statusForContent, accountID);
+			footer.hideCounts=hideCounts;
+			items.add(footer);
 			if(status.hasGapAfter && !(fragment instanceof ThreadFragment))
 				items.add(new GapStatusDisplayItem(parentID, fragment));
 		}

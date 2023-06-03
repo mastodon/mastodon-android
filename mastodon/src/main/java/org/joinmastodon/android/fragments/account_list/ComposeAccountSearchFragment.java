@@ -95,7 +95,7 @@ public class ComposeAccountSearchFragment extends BaseAccountListFragment{
 					@Override
 					public void onSuccess(SearchResults result){
 						setEmptyText(R.string.no_search_results);
-						onDataLoaded(result.accounts.stream().map(AccountViewModel::new).collect(Collectors.toList()), false);
+						onDataLoaded(result.accounts.stream().map(a->new AccountViewModel(a, accountID)).collect(Collectors.toList()), false);
 					}
 				})
 				.exec(accountID);

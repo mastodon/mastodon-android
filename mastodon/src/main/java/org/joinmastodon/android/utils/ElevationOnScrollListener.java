@@ -5,6 +5,7 @@ import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.content.Context;
+import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
 import android.view.View;
@@ -27,6 +28,7 @@ public class ElevationOnScrollListener extends RecyclerView.OnScrollListener imp
 	private Animator currentPanelsAnim;
 	private List<View> views;
 	private FragmentRootLinearLayout fragmentRootLayout;
+	private Rect tmpRect=new Rect();
 
 	public ElevationOnScrollListener(FragmentRootLinearLayout fragmentRootLayout, View... views){
 		this(fragmentRootLayout, Arrays.asList(views));
@@ -70,9 +72,14 @@ public class ElevationOnScrollListener extends RecyclerView.OnScrollListener imp
 		}
 	}
 
+	private int getRecyclerChildDecoratedTop(RecyclerView rv, View child){
+		rv.getDecoratedBoundsWithMargins(child, tmpRect);
+		return tmpRect.top;
+	}
+
 	@Override
 	public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy){
-		boolean newAtTop=recyclerView.getChildCount()==0 || (recyclerView.getChildAdapterPosition(recyclerView.getChildAt(0))==0 && recyclerView.getChildAt(0).getTop()==recyclerView.getPaddingTop());
+		boolean newAtTop=recyclerView.getChildCount()==0 || (recyclerView.getChildAdapterPosition(recyclerView.getChildAt(0))==0 && getRecyclerChildDecoratedTop(recyclerView, recyclerView.getChildAt(0))==recyclerView.getPaddingTop());
 		handleScroll(recyclerView.getContext(), newAtTop);
 	}
 
@@ -119,5 +126,9 @@ public class ElevationOnScrollListener extends RecyclerView.OnScrollListener imp
 			set.start();
 			currentPanelsAnim=set;
 		}
+	}
+
+	public int getCurrentStatusBarColor(){
+		return fragmentRootLayout.getStatusBarColor();
 	}
 }

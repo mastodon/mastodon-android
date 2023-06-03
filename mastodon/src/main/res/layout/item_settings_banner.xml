@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:layout_marginVertical="8dp"
+	android:layout_marginHorizontal="16dp"
+	android:padding="16dp"
+	android:clipToPadding="false"
+	android:background="@drawable/bg_settings_banner">
+
+	<ImageView
+		android:id="@+id/icon"
+		android:layout_width="40dp"
+		android:layout_height="40dp"
+		android:layout_marginEnd="16dp"
+		android:scaleType="center"
+		android:importantForAccessibility="no"
+		android:tint="?colorM3OnPrimaryContainer"
+		android:background="@drawable/white_circle"
+		android:backgroundTint="?colorM3PrimaryContainer"
+		tools:src="@drawable/ic_notifications_paused_24px"/>
+
+	<TextView
+		android:id="@+id/title"
+		android:layout_width="match_parent"
+		android:layout_height="24dp"
+		android:layout_toEndOf="@id/icon"
+		android:layout_marginBottom="2dp"
+		android:textAppearance="@style/m3_title_medium"
+		android:textColor="?colorM3OnSurface"
+		android:singleLine="true"
+		android:gravity="center_vertical"
+		tools:text="Title"/>
+
+	<TextView
+		android:id="@+id/text"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_toEndOf="@id/icon"
+		android:layout_below="@id/title"
+		android:textAppearance="@style/m3_body_medium"
+		android:minHeight="20dp"
+		android:gravity="center_vertical"
+		android:textColor="?colorM3OnSurface"
+		tools:text="@string/pause_notifications_banner"/>
+
+	<Button
+		android:id="@+id/button"
+		android:layout_width="wrap_content"
+		android:layout_height="28dp"
+		android:layout_below="@id/text"
+		android:layout_toEndOf="@id/icon"
+		android:layout_marginStart="-8dp"
+		android:layout_marginBottom="-4dp"
+		android:layout_marginTop="8dp"
+		style="@style/Widget.Mastodon.M3.Button.Text"
+		android:paddingHorizontal="8dp"
+		android:paddingVertical="4dp"
+		android:minWidth="0dp"
+		tools:text="@string/resume_notifications_now"/>
+
+	<Button
+		android:id="@+id/button2"
+		android:layout_width="wrap_content"
+		android:layout_height="28dp"
+		android:layout_below="@id/text"
+		android:layout_toEndOf="@id/button"
+		android:layout_marginBottom="-4dp"
+		android:layout_marginTop="8dp"
+		style="@style/Widget.Mastodon.M3.Button.Text"
+		android:paddingHorizontal="8dp"
+		android:paddingVertical="4dp"
+		android:minWidth="0dp"
+		tools:text="Secondary action"/>
+
+</RelativeLayout>

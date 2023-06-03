@@ -22,8 +22,8 @@ import org.joinmastodon.android.api.requests.accounts.SetAccountFollowed;
 import org.joinmastodon.android.fragments.HomeFragment;
 import org.joinmastodon.android.fragments.ProfileFragment;
 import org.joinmastodon.android.model.FollowSuggestion;
-import org.joinmastodon.android.model.ParsedAccount;
 import org.joinmastodon.android.model.Relationship;
+import org.joinmastodon.android.model.viewmodel.AccountViewModel;
 import org.joinmastodon.android.ui.OutlineProviders;
 import org.joinmastodon.android.ui.utils.UiUtils;
 import org.joinmastodon.android.ui.views.ProgressBarButton;
@@ -52,7 +52,7 @@ import me.grishka.appkit.utils.V;
 import me.grishka.appkit.views.FragmentRootLinearLayout;
 import me.grishka.appkit.views.UsableRecyclerView;
 
-public class OnboardingFollowSuggestionsFragment extends BaseRecyclerFragment<ParsedAccount>{
+public class OnboardingFollowSuggestionsFragment extends BaseRecyclerFragment<AccountViewModel>{
 	private String accountID;
 	private Map<String, Relationship> relationships=Collections.emptyMap();
 	private GetAccountRelationships relationshipsRequest;
@@ -97,7 +97,7 @@ public class OnboardingFollowSuggestionsFragment extends BaseRecyclerFragment<Pa
 				.setCallback(new SimpleCallback<>(this){
 					@Override
 					public void onSuccess(List<FollowSuggestion> result){
-						onDataLoaded(result.stream().map(fs->new ParsedAccount(fs.account, accountID)).collect(Collectors.toList()), false);
+						onDataLoaded(result.stream().map(fs->new AccountViewModel(fs.account, accountID)).collect(Collectors.toList()), false);
 						loadRelationships();
 					}
 				})
@@ -146,7 +146,7 @@ public class OnboardingFollowSuggestionsFragment extends BaseRecyclerFragment<Pa
 			return;
 		}
 		ArrayList<String> accountIdsToFollow=new ArrayList<>();
-		for(ParsedAccount acc:data){
+		for(AccountViewModel acc:data){
 			Relationship rel=relationships.get(acc.account.id);
 			if(rel==null)
 				continue;
@@ -239,14 +239,14 @@ public class OnboardingFollowSuggestionsFragment extends BaseRecyclerFragment<Pa
 
 		@Override
 		public ImageLoaderRequest getImageRequest(int position, int image){
-			ParsedAccount account=data.get(position);
+			AccountViewModel account=data.get(position);
 			if(image==0)
-				return account.avatarRequest;
+				return account.avaRequest;
 			return account.emojiHelper.getImageRequest(image-1);
 		}
 	}
 
-	private class SuggestionViewHolder extends BindableViewHolder<ParsedAccount> implements ImageLoaderViewHolder, UsableRecyclerView.Clickable{
+	private class SuggestionViewHolder extends BindableViewHolder<AccountViewModel> implements ImageLoaderViewHolder, UsableRecyclerView.Clickable{
 		private final TextView name, username, bio;
 		private final ImageView avatar;
 		private final ProgressBarButton actionButton;
@@ -271,7 +271,7 @@ public class OnboardingFollowSuggestionsFragment extends BaseRecyclerFragment<Pa
 		}
 
 		@Override
-		public void onBind(ParsedAccount item){
+		public void onBind(AccountViewModel item){
 			name.setText(item.parsedName);
 			username.setText(item.account.getDisplayUsername());
 			if(TextUtils.isEmpty(item.parsedBio)){

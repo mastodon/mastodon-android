@@ -1,8 +1,6 @@
 package org.joinmastodon.android.fragments;
 
 import android.content.res.ColorStateList;
-import android.graphics.Canvas;
-import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +11,8 @@ import org.joinmastodon.android.api.requests.statuses.GetStatusContext;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.events.StatusCreatedEvent;
 import org.joinmastodon.android.model.Account;
-import org.joinmastodon.android.model.Filter;
+import org.joinmastodon.android.model.FilterContext;
+import org.joinmastodon.android.model.LegacyFilter;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.model.StatusContext;
 import org.joinmastodon.android.ui.displayitems.ExtendedFooterStatusDisplayItem;
@@ -47,7 +46,10 @@ public class ThreadFragment extends StatusListFragment{
 			knownAccounts.put(inReplyToAccount.id, inReplyToAccount);
 		data.add(mainStatus);
 		onAppendItems(Collections.singletonList(mainStatus));
-		setTitle(HtmlParser.parseCustomEmoji(getString(R.string.post_from_user, mainStatus.account.displayName), mainStatus.account.emojis));
+		if(AccountSessionManager.get(accountID).getLocalPreferences().customEmojiInNames)
+			setTitle(HtmlParser.parseCustomEmoji(getString(R.string.post_from_user, mainStatus.account.displayName), mainStatus.account.emojis));
+		else
+			setTitle(getString(R.string.post_from_user, mainStatus.account.displayName));
 	}
 
 	@Override
@@ -102,11 +104,11 @@ public class ThreadFragment extends StatusListFragment{
 	}
 
 	private List<Status> filterStatuses(List<Status> statuses){
-		List<Filter> filters=AccountSessionManager.getInstance().getAccount(accountID).wordFilters.stream().filter(f->f.context.contains(Filter.FilterContext.THREAD)).collect(Collectors.toList());
+		List<LegacyFilter> filters=AccountSessionManager.getInstance().getAccount(accountID).wordFilters.stream().filter(f->f.context.contains(FilterContext.THREAD)).collect(Collectors.toList());
 		if(filters.isEmpty())
 			return statuses;
 		return statuses.stream().filter(status->{
-			for(Filter filter:filters){
+			for(LegacyFilter filter:filters){
 				if(filter.matches(status))
 					return false;
 			}

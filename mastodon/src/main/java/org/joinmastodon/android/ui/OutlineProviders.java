@@ -10,6 +10,7 @@ import me.grishka.appkit.utils.V;
 public class OutlineProviders{
 	private static final SparseArray<ViewOutlineProvider> roundedRects=new SparseArray<>();
 	private static final SparseArray<ViewOutlineProvider> topRoundedRects=new SparseArray<>();
+	private static final SparseArray<ViewOutlineProvider> bottomRoundedRects=new SparseArray<>();
 	private static final SparseArray<ViewOutlineProvider> endRoundedRects=new SparseArray<>();
 
 	public static final int RADIUS_XSMALL=4;
@@ -54,6 +55,15 @@ public class OutlineProviders{
 		return provider;
 	}
 
+	public static ViewOutlineProvider bottomRoundedRect(int dp){
+		ViewOutlineProvider provider=bottomRoundedRects.get(dp);
+		if(provider!=null)
+			return provider;
+		provider=new BottomRoundRectOutlineProvider(V.dp(dp));
+		bottomRoundedRects.put(dp, provider);
+		return provider;
+	}
+
 	public static ViewOutlineProvider endRoundedRect(int dp){
 		ViewOutlineProvider provider=endRoundedRects.get(dp);
 		if(provider!=null)
@@ -86,6 +96,19 @@ public class OutlineProviders{
 		@Override
 		public void getOutline(View view, Outline outline){
 			outline.setRoundRect(0, 0, view.getWidth(), view.getHeight()+radius, radius);
+		}
+	}
+
+	private static class BottomRoundRectOutlineProvider extends ViewOutlineProvider{
+		private final int radius;
+
+		private BottomRoundRectOutlineProvider(int radius){
+			this.radius=radius;
+		}
+
+		@Override
+		public void getOutline(View view, Outline outline){
+			outline.setRoundRect(0, -radius, view.getWidth(), view.getHeight(), radius);
 		}
 	}
 

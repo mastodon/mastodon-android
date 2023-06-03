@@ -15,7 +15,8 @@ import org.joinmastodon.android.api.requests.notifications.GetNotifications;
 import org.joinmastodon.android.api.requests.timelines.GetHomeTimeline;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.model.CacheablePaginatedResponse;
-import org.joinmastodon.android.model.Filter;
+import org.joinmastodon.android.model.FilterContext;
+import org.joinmastodon.android.model.LegacyFilter;
 import org.joinmastodon.android.model.Notification;
 import org.joinmastodon.android.model.PaginatedResponse;
 import org.joinmastodon.android.model.SearchResult;
@@ -59,7 +60,7 @@ public class CacheController{
 		cancelDelayedClose();
 		databaseThread.postRunnable(()->{
 			try{
-				List<Filter> filters=AccountSessionManager.getInstance().getAccount(accountID).wordFilters.stream().filter(f->f.context.contains(Filter.FilterContext.HOME)).collect(Collectors.toList());
+				List<LegacyFilter> filters=AccountSessionManager.getInstance().getAccount(accountID).wordFilters.stream().filter(f->f.context.contains(FilterContext.HOME)).collect(Collectors.toList());
 				if(!forceReload){
 					SQLiteDatabase db=getOrOpenDatabase();
 					try(Cursor cursor=db.query("home_timeline", new String[]{"json", "flags"}, maxID==null ? null : "`id`<?", maxID==null ? null : new String[]{maxID}, null, null, "`time` DESC", count+"")){
@@ -74,7 +75,7 @@ public class CacheController{
 								int flags=cursor.getInt(1);
 								status.hasGapAfter=((flags & POST_FLAG_GAP_AFTER)!=0);
 								newMaxID=status.id;
-								for(Filter filter:filters){
+								for(LegacyFilter filter:filters){
 									if(filter.matches(status))
 										continue outer;
 								}
@@ -139,7 +140,7 @@ public class CacheController{
 					}
 					return;
 				}
-				List<Filter> filters=AccountSessionManager.getInstance().getAccount(accountID).wordFilters.stream().filter(f->f.context.contains(Filter.FilterContext.NOTIFICATIONS)).collect(Collectors.toList());
+				List<LegacyFilter> filters=AccountSessionManager.getInstance().getAccount(accountID).wordFilters.stream().filter(f->f.context.contains(FilterContext.NOTIFICATIONS)).collect(Collectors.toList());
 				if(!forceReload){
 					SQLiteDatabase db=getOrOpenDatabase();
 					try(Cursor cursor=db.query(onlyMentions ? "notifications_mentions" : "notifications_all", new String[]{"json"}, maxID==null ? null : "`id`<?", maxID==null ? null : new String[]{maxID}, null, null, "`time` DESC", count+"")){
@@ -153,7 +154,7 @@ public class CacheController{
 								ntf.postprocess();
 								newMaxID=ntf.id;
 								if(ntf.status!=null){
-									for(Filter filter:filters){
+									for(LegacyFilter filter:filters){
 										if(filter.matches(ntf.status))
 											continue outer;
 									}
@@ -176,7 +177,7 @@ public class CacheController{
 							public void onSuccess(List<Notification> result){
 								PaginatedResponse<List<Notification>> res=new PaginatedResponse<>(result.stream().filter(ntf->{
 									if(ntf.status!=null){
-										for(Filter filter:filters){
+										for(LegacyFilter filter:filters){
 											if(filter.matches(ntf.status)){
 												return false;
 											}

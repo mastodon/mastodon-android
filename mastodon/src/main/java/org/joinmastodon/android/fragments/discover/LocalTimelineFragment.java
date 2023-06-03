@@ -5,7 +5,7 @@ import android.view.View;
 
 import org.joinmastodon.android.api.requests.timelines.GetPublicTimeline;
 import org.joinmastodon.android.fragments.StatusListFragment;
-import org.joinmastodon.android.model.Filter;
+import org.joinmastodon.android.model.FilterContext;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.utils.DiscoverInfoBannerHelper;
 import org.joinmastodon.android.utils.StatusFilterPredicate;
@@ -27,7 +27,7 @@ public class LocalTimelineFragment extends StatusListFragment{
 					public void onSuccess(List<Status> result){
 						if(!result.isEmpty())
 							maxID=result.get(result.size()-1).id;
-						onDataLoaded(result.stream().filter(new StatusFilterPredicate(accountID, Filter.FilterContext.PUBLIC)).collect(Collectors.toList()), !result.isEmpty());
+						onDataLoaded(result.stream().filter(new StatusFilterPredicate(accountID, FilterContext.PUBLIC)).collect(Collectors.toList()), !result.isEmpty());
 					}
 				})
 				.exec(accountID);

@@ -110,6 +110,8 @@ public class AccountViewHolder extends BindableViewHolder<AccountViewModel> impl
 	}
 
 	public void bindRelationship(){
+		if(relationships==null)
+			return;
 		Relationship rel=relationships.get(item.account.id);
 		if(rel==null || AccountSessionManager.getInstance().isSelf(accountID, item.account)){
 			button.setVisibility(View.GONE);
@@ -193,6 +195,8 @@ public class AccountViewHolder extends BindableViewHolder<AccountViewModel> impl
 	}
 
 	private void onButtonClick(View v){
+		if(relationships==null)
+			return;
 		ProgressDialog progress=new ProgressDialog(fragment.getActivity());
 		progress.setMessage(fragment.getString(R.string.loading));
 		progress.setCancelable(false);

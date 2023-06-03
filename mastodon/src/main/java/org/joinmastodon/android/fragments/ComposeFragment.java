@@ -46,6 +46,7 @@ import android.widget.TextView;
 import com.twitter.twittertext.TwitterTextEmojiRegex;
 
 import org.joinmastodon.android.E;
+import org.joinmastodon.android.GlobalUserPreferences;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.MastodonErrorResponse;
 import org.joinmastodon.android.api.requests.accounts.GetPreferences;
@@ -546,7 +547,10 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item){
 		if(item.getItemId()==R.id.publish){
-			publish();
+			if(GlobalUserPreferences.altTextReminders)
+				checkAltTextsAndPublish();
+			else
+				publish();
 		}
 		return true;
 	}
@@ -641,6 +645,28 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 		return true;
 	}
 
+	private void checkAltTextsAndPublish(){
+		int count=mediaViewController.getMissingAltTextAttachmentCount();
+		if(count==0){
+			publish();
+		}else{
+			String msg=getResources().getQuantityString(mediaViewController.areAllAttachmentsImages() ? R.plurals.alt_text_reminder_x_images : R.plurals.alt_text_reminder_x_attachments,
+					count, switch(count){
+						case 1 -> getString(R.string.count_one);
+						case 2 -> getString(R.string.count_two);
+						case 3 -> getString(R.string.count_three);
+						case 4 -> getString(R.string.count_four);
+						default -> String.valueOf(count);
+					});
+			new M3AlertDialogBuilder(getActivity())
+					.setTitle(R.string.alt_text_reminder_title)
+					.setMessage(msg)
+					.setPositiveButton(R.string.alt_text_reminder_post_anyway, (dlg, item)->publish())
+					.setNegativeButton(R.string.cancel, null)
+					.show();
+		}
+	}
+
 	private void publish(){
 		sendingOverlay=new View(getActivity());
 		WindowManager.LayoutParams overlayParams=new WindowManager.LayoutParams();
@@ -654,7 +680,6 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 
 		publishButton.setEnabled(false);
 		V.setVisibilityAnimated(sendProgress, View.VISIBLE);
-
 
 		mediaViewController.saveAltTextsBeforePublishing(this::actuallyPublish, this::handlePublishError);
 	}

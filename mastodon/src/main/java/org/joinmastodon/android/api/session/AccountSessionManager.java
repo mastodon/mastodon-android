@@ -13,8 +13,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.util.Log;
 
-import com.google.gson.JsonParseException;
-
 import org.joinmastodon.android.BuildConfig;
 import org.joinmastodon.android.E;
 import org.joinmastodon.android.MainActivity;
@@ -22,7 +20,7 @@ import org.joinmastodon.android.MastodonApp;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.MastodonAPIController;
 import org.joinmastodon.android.api.PushSubscriptionManager;
-import org.joinmastodon.android.api.requests.accounts.GetWordFilters;
+import org.joinmastodon.android.api.requests.filters.GetLegacyFilters;
 import org.joinmastodon.android.api.requests.instance.GetCustomEmojis;
 import org.joinmastodon.android.api.requests.accounts.GetOwnAccount;
 import org.joinmastodon.android.api.requests.instance.GetInstance;
@@ -32,7 +30,7 @@ import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.Application;
 import org.joinmastodon.android.model.Emoji;
 import org.joinmastodon.android.model.EmojiCategory;
-import org.joinmastodon.android.model.Filter;
+import org.joinmastodon.android.model.LegacyFilter;
 import org.joinmastodon.android.model.Instance;
 import org.joinmastodon.android.model.Token;
 
@@ -190,6 +188,7 @@ public class AccountSessionManager{
 				lastActiveAccountID=null;
 			else
 				lastActiveAccountID=getLoggedInAccounts().get(0).getID();
+			prefs.edit().putString("lastActiveAccount", lastActiveAccountID).apply();
 		}
 		writeAccountsFile();
 		String domain=session.domain.toLowerCase();
@@ -299,10 +298,10 @@ public class AccountSessionManager{
 	}
 
 	private void updateSessionWordFilters(AccountSession session){
-		new GetWordFilters()
+		new GetLegacyFilters()
 				.setCallback(new Callback<>(){
 					@Override
-					public void onSuccess(List<Filter> result){
+					public void onSuccess(List<LegacyFilter> result){
 						session.wordFilters=result;
 						session.filtersLastUpdated=System.currentTimeMillis();
 						writeAccountsFile();

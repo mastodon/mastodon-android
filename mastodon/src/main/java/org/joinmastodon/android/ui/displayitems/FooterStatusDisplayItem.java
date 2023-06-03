@@ -6,13 +6,16 @@ import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 
+import org.joinmastodon.android.GlobalUserPreferences;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.fragments.BaseStatusListFragment;
@@ -133,6 +136,20 @@ public class FooterStatusDisplayItem extends StatusDisplayItem{
 		}
 
 		private void onBoostClick(View v){
+			if(GlobalUserPreferences.confirmBoost){
+				PopupMenu menu=new PopupMenu(itemView.getContext(), boost);
+				menu.getMenu().add(R.string.button_reblog);
+				menu.setOnMenuItemClickListener(item->{
+					doBoost();
+					return true;
+				});
+				menu.show();
+			}else{
+				doBoost();
+			}
+		}
+
+		private void doBoost(){
 			AccountSessionManager.getInstance().getAccount(item.accountID).getStatusInteractionController().setReblogged(item.status, !item.status.reblogged);
 			boost.setSelected(item.status.reblogged);
 			bindButton(boost, item.status.reblogsCount);

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+	*{
+		box-sizing: border-box;
+		overflow-wrap: break-word;
+	}
+	body{
+		background: {{colorSurface}};
+		padding: 16px 16px 0 16px;
+		margin: 0;
+		color: {{colorOnSurface}};
+		font-family: Roboto, sans-serif;
+		font-size: 14px;
+		line-height: 20px;
+		-webkit-tap-highlight-color: {{colorPrimaryTransparent}};
+	}
+	a{
+		text-decoration: none;
+		color: {{colorPrimary}};
+	}
+	p, h1, h2, h3, h4, h5, h6, ul, ol{
+		margin-bottom: 8px;
+		margin-top: 0;
+	}
+	h1, h2{
+		font-size: 16px;
+		line-height: 24px;
+		font-weight: 500;
+	}
+	h3, h4, h5, h6{
+		font-size: 14px;
+		line-height: 20px;
+		font-weight: 500;
+	}
+	b, strong{
+		font-weight: 500;
+	}
+	ul, ol{
+		padding-inline-start: 16px;
+	}
+	ul>li, ol>li{
+		padding-inline-start: 4px;
+	}
+</style>
+</head>
+<body>
+{{content}}
+</body>
+</html>

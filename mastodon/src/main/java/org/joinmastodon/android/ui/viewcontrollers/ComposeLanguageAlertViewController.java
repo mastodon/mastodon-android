@@ -89,10 +89,32 @@ public class ComposeLanguageAlertViewController{
 		}
 
 		if(previouslySelected!=null){
-			if((previouslySelected.index<specialLocales.size() && Objects.equals(previouslySelected.locale, specialLocales.get(previouslySelected.index).locale)) ||
-					(previouslySelected.index<specialLocales.size()+allLocales.size() && Objects.equals(previouslySelected.locale, allLocales.get(previouslySelected.index-specialLocales.size()).locale))){
+			if(previouslySelected.index!=-1 && ((previouslySelected.index<specialLocales.size() && Objects.equals(previouslySelected.locale, specialLocales.get(previouslySelected.index).locale)) ||
+					(previouslySelected.index<specialLocales.size()+allLocales.size() && Objects.equals(previouslySelected.locale, allLocales.get(previouslySelected.index-specialLocales.size()).locale)))){
 				selectedIndex=previouslySelected.index;
 				selectedLocale=previouslySelected.locale;
+			}else{
+				int i=0;
+				boolean found=false;
+				for(SpecialLocaleInfo li:specialLocales){
+					if(li.locale.equals(previouslySelected.locale)){
+						selectedLocale=li.locale;
+						selectedIndex=i;
+						found=true;
+						break;
+					}
+					i++;
+				}
+				if(!found){
+					for(LocaleInfo li:allLocales){
+						if(li.locale.equals(previouslySelected.locale)){
+							selectedLocale=li.locale;
+							selectedIndex=i;
+							break;
+						}
+						i++;
+					}
+				}
 			}
 		}else{
 			selectedLocale=specialLocales.get(0).locale;

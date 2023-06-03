@@ -554,6 +554,14 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 		return attachmentViewsPool;
 	}
 
+	public void rebuildAllDisplayItems(){
+		displayItems.clear();
+		for(T item:data){
+			displayItems.addAll(buildDisplayItems(item));
+		}
+		adapter.notifyDataSetChanged();
+	}
+
 	protected void onModifyItemViewHolder(BindableViewHolder<StatusDisplayItem> holder){}
 
 	protected class DisplayItemsAdapter extends UsableRecyclerView.Adapter<BindableViewHolder<StatusDisplayItem>> implements ImageLoaderRecyclerAdapter{

@@ -108,7 +108,7 @@ public class ComposePollViewController{
 			updatePollOptionHints();
 			pollDuration=savedInstanceState.getInt("pollDuration");
 			pollIsMultipleChoice=savedInstanceState.getBoolean("pollMultiple");
-			pollDurationValue.setText(formatPollDuration(pollDuration));
+			pollDurationValue.setText(UiUtils.formatDuration(fragment.getContext(), pollDuration));
 			pollStyleValue.setText(pollIsMultipleChoice ? R.string.compose_poll_multiple_choice : R.string.compose_poll_single_choice);
 		}else if(savedInstanceState!=null && !pollOptions.isEmpty()){ // Fragment was recreated but instance was retained
 			pollWrap.setVisibility(View.VISIBLE);
@@ -119,7 +119,7 @@ public class ComposePollViewController{
 				opt.edit.setText(oldOpt.edit.getText());
 			}
 			updatePollOptionHints();
-			pollDurationValue.setText(formatPollDuration(pollDuration));
+			pollDurationValue.setText(UiUtils.formatDuration(fragment.getContext(), pollDuration));
 			pollStyleValue.setText(pollIsMultipleChoice ? R.string.compose_poll_multiple_choice : R.string.compose_poll_single_choice);
 		}else if(savedInstanceState==null && fragment.editingStatus!=null && fragment.editingStatus.poll!=null){
 			pollWrap.setVisibility(View.VISIBLE);
@@ -129,11 +129,11 @@ public class ComposePollViewController{
 			}
 			pollDuration=(int)fragment.editingStatus.poll.expiresAt.minus(fragment.editingStatus.createdAt.toEpochMilli(), ChronoUnit.MILLIS).getEpochSecond();
 			updatePollOptionHints();
-			pollDurationValue.setText(formatPollDuration(pollDuration));
+			pollDurationValue.setText(UiUtils.formatDuration(fragment.getContext(), pollDuration));
 			pollIsMultipleChoice=fragment.editingStatus.poll.multiple;
 			pollStyleValue.setText(pollIsMultipleChoice ? R.string.compose_poll_multiple_choice : R.string.compose_poll_single_choice);
 		}else{
-			pollDurationValue.setText(formatPollDuration(24*3600));
+			pollDurationValue.setText(UiUtils.formatDuration(fragment.getContext(), 24*3600));
 			pollStyleValue.setText(R.string.compose_poll_single_choice);
 		}
 	}
@@ -186,7 +186,7 @@ public class ComposePollViewController{
 		int selectedOption=-1;
 		for(int i=0;i<POLL_LENGTH_OPTIONS.length;i++){
 			int l=POLL_LENGTH_OPTIONS[i];
-			options[i]=formatPollDuration(l);
+			options[i]=UiUtils.formatDuration(fragment.getContext(), l);
 			if(l==pollDuration)
 				selectedOption=i;
 		}
@@ -196,23 +196,10 @@ public class ComposePollViewController{
 				.setTitle(R.string.poll_length)
 				.setPositiveButton(R.string.ok, (dialog, which)->{
 					pollDuration=POLL_LENGTH_OPTIONS[chosenOption[0]];
-					pollDurationValue.setText(formatPollDuration(pollDuration));
+					pollDurationValue.setText(UiUtils.formatDuration(fragment.getContext(), pollDuration));
 				})
 				.setNegativeButton(R.string.cancel, null)
 				.show();
-	}
-
-	private String formatPollDuration(int seconds){
-		if(seconds<3600){
-			int minutes=seconds/60;
-			return fragment.getResources().getQuantityString(R.plurals.x_minutes, minutes, minutes);
-		}else if(seconds<24*3600){
-			int hours=seconds/3600;
-			return fragment.getResources().getQuantityString(R.plurals.x_hours, hours, hours);
-		}else{
-			int days=seconds/(24*3600);
-			return fragment.getResources().getQuantityString(R.plurals.x_days, days, days);
-		}
 	}
 
 	private void showPollStyleAlert(){

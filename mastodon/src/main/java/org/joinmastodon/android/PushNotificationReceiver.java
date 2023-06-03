@@ -69,6 +69,10 @@ public class PushNotificationReceiver extends BroadcastReceiver{
 							Log.w(TAG, "onReceive: account for id '"+pushAccountID+"' not found");
 							return;
 						}
+						if(account.getLocalPreferences().getNotificationsPauseEndTime()>System.currentTimeMillis()){
+							Log.i(TAG, "onReceive: dropping notification because user has paused notifications for this account");
+							return;
+						}
 						String accountID=account.getID();
 						PushNotification pn=AccountSessionManager.getInstance().getAccount(accountID).getPushSubscriptionManager().decryptNotification(k, p, s);
 						new GetNotificationByID(pn.notificationId+"")

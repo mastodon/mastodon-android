@@ -71,6 +71,7 @@ import org.parceler.Parcels;
 import java.io.File;
 import java.lang.reflect.Method;
 import java.time.Instant;
+import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
@@ -99,6 +100,7 @@ import okhttp3.MediaType;
 public class UiUtils{
 	private static Handler mainHandler=new Handler(Looper.getMainLooper());
 	private static final DateTimeFormatter DATE_FORMATTER_SHORT_WITH_YEAR=DateTimeFormatter.ofPattern("d MMM uuuu"), DATE_FORMATTER_SHORT=DateTimeFormatter.ofPattern("d MMM");
+	private static final DateTimeFormatter TIME_FORMATTER=DateTimeFormatter.ofLocalizedTime(FormatStyle.SHORT);
 	public static final DateTimeFormatter DATE_TIME_FORMATTER=DateTimeFormatter.ofLocalizedDateTime(FormatStyle.LONG, FormatStyle.SHORT);
 
 	private UiUtils(){}
@@ -144,21 +146,52 @@ public class UiUtils{
 		}
 	}
 
-	public static String formatRelativeTimestampAsMinutesAgo(Context context, Instant instant){
+	public static String formatRelativeTimestampAsMinutesAgo(Context context, Instant instant, boolean relativeHours){
 		long t=instant.toEpochMilli();
-		long now=System.currentTimeMillis();
-		long diff=now-t;
-		if(diff<1000L){
+		long diff=System.currentTimeMillis()-t;
+		if(diff<1000L && diff>-1000L){
 			return context.getString(R.string.time_just_now);
-		}else if(diff<60_000L){
-			int secs=(int)(diff/1000L);
-			return context.getResources().getQuantityString(R.plurals.x_seconds_ago, secs, secs);
-		}else if(diff<3600_000L){
-			int mins=(int)(diff/60_000L);
-			return context.getResources().getQuantityString(R.plurals.x_minutes_ago, mins, mins);
+		}else if(diff>0){
+			if(diff<60_000L){
+				int secs=(int)(diff/1000L);
+				return context.getResources().getQuantityString(R.plurals.x_seconds_ago, secs, secs);
+			}else if(diff<3600_000L){
+				int mins=(int)(diff/60_000L);
+				return context.getResources().getQuantityString(R.plurals.x_minutes_ago, mins, mins);
+			}else if(relativeHours && diff<24*3600_000L){
+				int hours=(int)(diff/3600_000L);
+				return context.getResources().getQuantityString(R.plurals.x_hours_ago, hours, hours);
+			}
 		}else{
-			return DATE_TIME_FORMATTER.format(instant.atZone(ZoneId.systemDefault()));
+			if(diff>-60_000L){
+				int secs=-(int)(diff/1000L);
+				return context.getResources().getQuantityString(R.plurals.in_x_seconds, secs, secs);
+			}else if(diff>-3600_000L){
+				int mins=-(int)(diff/60_000L);
+				return context.getResources().getQuantityString(R.plurals.in_x_minutes, mins, mins);
+			}else if(relativeHours && diff>-24*3600_000L){
+				int hours=-(int)(diff/3600_000L);
+				return context.getResources().getQuantityString(R.plurals.in_x_hours, hours, hours);
+			}
 		}
+		ZonedDateTime dt=instant.atZone(ZoneId.systemDefault());
+		ZonedDateTime now=ZonedDateTime.now();
+		String formattedTime=TIME_FORMATTER.format(dt);
+		String formattedDate;
+		LocalDate today=now.toLocalDate();
+		LocalDate date=dt.toLocalDate();
+		if(date.equals(today)){
+			formattedDate=context.getString(R.string.today);
+		}else if(date.equals(today.minusDays(1))){
+			formattedDate=context.getString(R.string.yesterday);
+		}else if(date.equals(today.plusDays(1))){
+			formattedDate=context.getString(R.string.tomorrow);
+		}else if(date.getYear()==today.getYear()){
+			formattedDate=DATE_FORMATTER_SHORT.format(dt);
+		}else{
+			formattedDate=DATE_FORMATTER_SHORT_WITH_YEAR.format(dt);
+		}
+		return context.getString(R.string.date_at_time, formattedDate, formattedTime);
 	}
 
 	public static String formatTimeLeft(Context context, Instant instant){
@@ -317,7 +350,7 @@ public class UiUtils{
 	}
 
 	public static void showConfirmationAlert(Context context, @StringRes int title, @StringRes int message, @StringRes int confirmButton, Runnable onConfirmed){
-		showConfirmationAlert(context, context.getString(title), context.getString(message), context.getString(confirmButton), onConfirmed);
+		showConfirmationAlert(context, context.getString(title), message==0 ? null : context.getString(message), context.getString(confirmButton), onConfirmed);
 	}
 
 	public static void showConfirmationAlert(Context context, CharSequence title, CharSequence message, CharSequence confirmButton, Runnable onConfirmed){
@@ -399,24 +432,26 @@ public class UiUtils{
 	}
 
 	public static void confirmDeletePost(Activity activity, String accountID, Status status, Consumer<Status> resultCallback){
-		showConfirmationAlert(activity, R.string.confirm_delete_title, R.string.confirm_delete, R.string.delete, ()->{
-			new DeleteStatus(status.id)
-					.setCallback(new Callback<>(){
-						@Override
-						public void onSuccess(Status result){
-							resultCallback.accept(result);
-							AccountSessionManager.getInstance().getAccount(accountID).getCacheController().deleteStatus(status.id);
-							E.post(new StatusDeletedEvent(status.id, accountID));
-						}
+		Runnable delete=()->new DeleteStatus(status.id)
+				.setCallback(new Callback<>(){
+					@Override
+					public void onSuccess(Status result){
+						resultCallback.accept(result);
+						AccountSessionManager.getInstance().getAccount(accountID).getCacheController().deleteStatus(status.id);
+						E.post(new StatusDeletedEvent(status.id, accountID));
+					}
 
-						@Override
-						public void onError(ErrorResponse error){
-							error.showToast(activity);
-						}
-					})
-					.wrapProgress(activity, R.string.deleting, false)
-					.exec(accountID);
-		});
+					@Override
+					public void onError(ErrorResponse error){
+						error.showToast(activity);
+					}
+				})
+				.wrapProgress(activity, R.string.deleting, false)
+				.exec(accountID);
+		if(GlobalUserPreferences.confirmDeletePost)
+			showConfirmationAlert(activity, R.string.confirm_delete_title, R.string.confirm_delete, R.string.delete, delete);
+		else
+			delete.run();
 	}
 
 	public static void setRelationshipToActionButton(Relationship relationship, Button button){
@@ -488,25 +523,32 @@ public class UiUtils{
 		}else if(relationship.muting){
 			confirmToggleMuteUser(activity, accountID, account, true, resultCallback);
 		}else{
-			progressCallback.accept(true);
-			new SetAccountFollowed(account.id, !relationship.following && !relationship.requested, true)
-					.setCallback(new Callback<>(){
-						@Override
-						public void onSuccess(Relationship result){
-							resultCallback.accept(result);
-							progressCallback.accept(false);
-							if(!result.following && !result.requested){
-								E.post(new RemoveAccountPostsEvent(accountID, account.id, true));
+			Runnable action=()->{
+				progressCallback.accept(true);
+				new SetAccountFollowed(account.id, !relationship.following && !relationship.requested, true)
+						.setCallback(new Callback<>(){
+							@Override
+							public void onSuccess(Relationship result){
+								resultCallback.accept(result);
+								progressCallback.accept(false);
+								if(!result.following && !result.requested){
+									E.post(new RemoveAccountPostsEvent(accountID, account.id, true));
+								}
 							}
-						}
 
-						@Override
-						public void onError(ErrorResponse error){
-							error.showToast(activity);
-							progressCallback.accept(false);
-						}
-					})
-					.exec(accountID);
+							@Override
+							public void onError(ErrorResponse error){
+								error.showToast(activity);
+								progressCallback.accept(false);
+							}
+						})
+						.exec(accountID);
+			};
+			if(relationship.following && GlobalUserPreferences.confirmUnfollow){
+				showConfirmationAlert(activity, null, activity.getString(R.string.unfollow_confirmation, account.getDisplayUsername()), activity.getString(R.string.unfollow), action);
+			}else{
+				action.run();
+			}
 		}
 	}
 
@@ -586,9 +628,9 @@ public class UiUtils{
 
 	public static void setUserPreferredTheme(Context context){
 		context.setTheme(switch(GlobalUserPreferences.theme){
-			case AUTO -> GlobalUserPreferences.trueBlackTheme ? R.style.Theme_Mastodon_AutoLightDark_TrueBlack : R.style.Theme_Mastodon_AutoLightDark;
+			case AUTO -> R.style.Theme_Mastodon_AutoLightDark;
 			case LIGHT -> R.style.Theme_Mastodon_Light;
-			case DARK -> GlobalUserPreferences.trueBlackTheme ? R.style.Theme_Mastodon_Dark_TrueBlack : R.style.Theme_Mastodon_Dark;
+			case DARK -> R.style.Theme_Mastodon_Dark;
 		});
 	}
 
@@ -718,7 +760,7 @@ public class UiUtils{
 	}
 
 	@SuppressLint("DefaultLocale")
-	public static String formatDuration(int seconds){
+	public static String formatMediaDuration(int seconds){
 		if(seconds>=3600)
 			return String.format("%d:%02d:%02d", seconds/3600, seconds%3600/60, seconds%60);
 		else
@@ -749,5 +791,21 @@ public class UiUtils{
 			return insets.replaceSystemWindowInsets(insets.getSystemWindowInsetLeft(), insets.getSystemWindowInsetTop(), insets.getSystemWindowInsetRight(), 0);
 		}
 		return insets;
+	}
+
+	public static String formatDuration(Context context, int seconds){
+		if(seconds<3600){
+			int minutes=seconds/60;
+			return context.getResources().getQuantityString(R.plurals.x_minutes, minutes, minutes);
+		}else if(seconds<24*3600){
+			int hours=seconds/3600;
+			return context.getResources().getQuantityString(R.plurals.x_hours, hours, hours);
+		}else if(seconds>=7*24*3600 && seconds%(7*24*3600)<24*3600){
+			int weeks=seconds/(7*24*3600);
+			return context.getResources().getQuantityString(R.plurals.x_weeks, weeks, weeks);
+		}else{
+			int days=seconds/(24*3600);
+			return context.getResources().getQuantityString(R.plurals.x_days, days, days);
+		}
 	}
 }

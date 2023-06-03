@@ -98,12 +98,16 @@ public class FloatingHintEditTextLayout extends FrameLayout implements CustomVie
 
 		errorView=new LinkedTextView(getContext());
 		errorView.setTextAppearance(R.style.m3_body_small);
-		errorView.setTextColor(UiUtils.getThemeColor(getContext(), R.attr.colorM3OnSurfaceVariant));
+		errorView.setTextColor(UiUtils.getThemeColor(getContext(), R.attr.colorM3Error));
 		errorView.setLinkTextColor(UiUtils.getThemeColor(getContext(), R.attr.colorM3Primary));
 		errorView.setLayoutParams(new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
 		errorView.setPadding(dp(16), dp(4), dp(16), 0);
 		errorView.setVisibility(View.GONE);
 		addView(errorView);
+	}
+
+	public void updateHint(){
+		label.setText(edit.getHint());
 	}
 
 	private void onTextChanged(Editable text){

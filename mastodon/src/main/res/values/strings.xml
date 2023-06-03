@@ -127,7 +127,7 @@
 	<string name="action_vote">Vote</string>
 	<string name="tap_to_reveal">Tap to reveal</string>
 	<string name="delete">Delete</string>
-	<string name="confirm_delete_title">Delete Post</string>
+	<string name="confirm_delete_title">Delete post</string>
 	<string name="confirm_delete">Are you sure you want to delete this post?</string>
 	<string name="deleting">Deleting…</string>
 	<string name="notification_channel_audio_player">Audio playback</string>
@@ -240,8 +240,8 @@
 	</plurals>
 	<string name="media_attachment_unsupported_type">File %s is of an unsupported type</string>
 	<string name="media_attachment_too_big">File %1$s exceeds the size limit of %2$s MB</string>
-	<string name="settings_theme">Visual appearance</string>
-	<string name="theme_auto">Automatic</string>
+	<string name="settings_theme">Appearance</string>
+	<string name="theme_auto">Use device appearance</string>
 	<string name="theme_light">Light</string>
 	<string name="theme_dark">Dark</string>
 	<string name="theme_true_black">True black mode</string>
@@ -503,4 +503,132 @@
 	<string name="report_personal_already_blocked">You’ve already blocked this user, so there’s nothing else you need to do.\n\nThanks for helping keep Mastodon a safe place for everyone!</string>
 	<string name="blocked_user">Blocked %s</string>
 	<string name="mark_all_notifications_read">Mark all as read</string>
+	<string name="settings_display">Display</string>
+	<string name="settings_filters">Filters</string>
+	<string name="settings_privacy"><![CDATA[Privacy & safety]]></string>
+	<string name="settings_server_explanation">Overview, rules, moderators</string>
+	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
+	<string name="about_app">About %s</string>
+	<string name="default_post_language">Default post language</string>
+	<string name="settings_alt_text_reminders">Add alt text reminders</string>
+	<string name="settings_confirm_unfollow">Ask before unfollowing someone</string>
+	<string name="settings_confirm_boost">Ask before boosting</string>
+	<string name="settings_confirm_delete_post">Ask before deleting posts</string>
+	<string name="pause_all_notifications">Pause all</string>
+	<string name="pause_notifications_off">Off</string>
+	<string name="notifications_policy_anyone">Anyone</string>
+	<string name="notifications_policy_followed">People who follow you</string>
+	<string name="notifications_policy_follower">People you follow</string>
+	<string name="notifications_policy_no_one">No one</string>
+	<string name="settings_notifications_policy">Get notifications from</string>
+	<string name="notification_type_mentions_and_replies">Mentions and replies</string>
+	<string name="pause_all_notifications_title">Pause all notifications</string>
+	<plurals name="x_weeks">
+		<item quantity="one">%d week</item>
+		<item quantity="other">%d weeks</item>
+	</plurals>
+	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
+	<string name="date_at_time">%1$s at %2$s</string>
+	<string name="today">today</string>
+	<string name="yesterday">yesterday</string>
+	<string name="tomorrow">tomorrow</string>
+	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="pause_notifications_ends">Ends %s</string>
+	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="pause_notifications_banner">Notifications will resume %s.</string>
+	<string name="resume_notifications_now">Resume now</string>
+	<string name="open_system_notification_settings">Go to notification settings</string>
+	<string name="about_server">About</string>
+	<string name="server_rules">Rules</string>
+	<string name="server_administrator">Administrator</string>
+	<string name="send_email_to_server_admin">Message admin</string>
+	<string name="notifications_disabled_in_system">Turn on notifications from your device settings to see updates from anywhere.</string>
+	<string name="settings_even_more">Even more settings</string>
+	<string name="settings_show_cws">Show content warnings</string>
+	<string name="settings_hide_sensitive_media">Cover up media marked as sensitive</string>
+	<string name="settings_show_interaction_counts">Post interaction counts</string>
+	<string name="settings_show_emoji_in_names">Custom emoji in display names</string>
+	<plurals name="in_x_seconds">
+		<item quantity="one">in %d second</item>
+		<item quantity="other">in %d seconds</item>
+	</plurals>
+	<plurals name="in_x_minutes">
+		<item quantity="one">in %d minute</item>
+		<item quantity="other">in %d minutes</item>
+	</plurals>
+	<plurals name="in_x_hours">
+		<item quantity="one">in %d hour</item>
+		<item quantity="other">in %d hours</item>
+	</plurals>
+	<plurals name="x_hours_ago">
+		<item quantity="one">%d hour ago</item>
+		<item quantity="other">%d hours ago</item>
+	</plurals>
+	<string name="alt_text_reminder_title">Media missing alt text</string>
+	<plurals name="alt_text_reminder_x_images">
+		<item quantity="one">%s of your images is missing alt text. Post anyway?</item>
+		<item quantity="other">%s of your images are missing alt text. Post anyway?</item>
+	</plurals>
+	<plurals name="alt_text_reminder_x_attachments">
+		<item quantity="one">%s of your media attachments is missing alt text. Post anyway?</item>
+		<item quantity="other">%s of your media attachments are missing alt text. Post anyway?</item>
+	</plurals>
+	<string name="count_one">One</string>
+	<string name="count_two">Two</string>
+	<string name="count_three">Three</string>
+	<string name="count_four">Four</string>
+	<string name="alt_text_reminder_post_anyway">Post</string>
+	<!-- %s is the username -->
+	<string name="unfollow_confirmation">Unfollow %s?</string>
+	<string name="filter_active">Active</string>
+	<string name="filter_inactive">Inactive</string>
+	<string name="settings_add_filter">Add filter</string>
+	<string name="settings_edit_filter">Edit filter</string>
+	<string name="settings_filter_duration">Duration</string>
+	<string name="settings_filter_muted_words">Muted words</string>
+	<string name="settings_filter_context">Mute from</string>
+	<string name="settings_filter_show_cw">Show with content warning</string>
+	<string name="settings_filter_show_cw_explanation">Still show posts that match this filter, but behind a content warning</string>
+	<string name="settings_delete_filter">Delete filter</string>
+	<string name="filter_duration_forever">Forever</string>
+	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="settings_filter_ends">Ends %s</string>
+	<plurals name="settings_x_muted_words">
+		<item quantity="one">%d muted word or phrase</item>
+		<item quantity="other">%d muted words or phrases</item>
+	</plurals>
+	<string name="selection_2_options">%1$s and %2$s</string>
+	<string name="selection_3_options">%1$s, %2$s, and %3$s</string>
+	<string name="selection_4_or_more">%1$s, %2$s, and %3$d more</string>
+	<string name="filter_context_home_lists">Home &amp; lists</string>
+	<string name="filter_context_notifications">Notifications</string>
+	<string name="filter_context_public_timelines">Public timelines</string>
+	<string name="filter_context_threads_replies">Threads &amp; replies</string>
+	<string name="filter_context_profiles">Profiles</string>
+	<string name="settings_filter_title">Title</string>
+	<string name="settings_delete_filter_title">Delete filter “%s”?</string>
+	<string name="settings_delete_filter_confirmation">This filter will be deleted from your account on all your devices.</string>
+	<string name="add_muted_word">Add muted word</string>
+	<string name="edit_muted_word">Edit muted word</string>
+	<string name="add">Add</string>
+	<string name="filter_word_or_phrase">Word or phrase</string>
+	<string name="filter_add_word_help">Words are case-insensitive and match full words only.\n\nIf you filter the keyword “Apple,” it will hide posts containing “apple” or “aPpLe” but not “pineapple.”</string>
+	<string name="settings_delete_filter_word">Delete word “%s”?</string>
+	<string name="enter_selection_mode">Select</string>
+	<string name="select_all">Select all</string>
+	<string name="settings_filter_duration_title">Filter duration</string>
+	<string name="filter_duration_custom">Custom</string>
+	<plurals name="settings_delete_x_filter_words">
+		<item quantity="one">Delete %d word?</item>
+		<item quantity="other">Delete %d words?</item>
+	</plurals>
+	<plurals name="x_items_selected">
+		<item quantity="one">%d selected</item>
+		<item quantity="other">%d selected</item>
+	</plurals>
+	<string name="required_form_field_blank">Cannot be blank</string>
+	<string name="filter_word_already_in_list">Already in the list</string>
+	<string name="app_update_ready">App update ready</string>
+	<string name="app_update_version">Version %s</string>
+	<string name="downloading_update">Downloading (%d%%)</string>
 </resources>

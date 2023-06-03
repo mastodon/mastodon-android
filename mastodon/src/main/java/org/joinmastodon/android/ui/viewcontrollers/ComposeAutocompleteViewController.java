@@ -19,6 +19,7 @@ import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.Emoji;
 import org.joinmastodon.android.model.Hashtag;
 import org.joinmastodon.android.model.SearchResults;
+import org.joinmastodon.android.model.viewmodel.AccountViewModel;
 import org.joinmastodon.android.ui.BetterItemAnimator;
 import org.joinmastodon.android.ui.OutlineProviders;
 import org.joinmastodon.android.ui.text.HtmlParser;
@@ -58,7 +59,7 @@ public class ComposeAutocompleteViewController{
 	private FrameLayout contentView;
 	private UsableRecyclerView list;
 	private ListImageLoaderWrapper imgLoader;
-	private List<WrappedAccount> users=Collections.emptyList();
+	private List<AccountViewModel> users=Collections.emptyList();
 	private List<Hashtag> hashtags=Collections.emptyList();
 	private List<WrappedEmoji> emojis=Collections.emptyList();
 	private Mode mode;
@@ -226,8 +227,8 @@ public class ComposeAutocompleteViewController{
 					@Override
 					public void onSuccess(SearchResults result){
 						currentRequest=null;
-						List<WrappedAccount> oldList=users;
-						users=result.accounts.stream().map(WrappedAccount::new).collect(Collectors.toList());
+						List<AccountViewModel> oldList=users;
+						users=result.accounts.stream().map(a->new AccountViewModel(a, accountID)).collect(Collectors.toList());
 						if(isLoading){
 							isLoading=false;
 							if(users.size()>=LOADING_FAKE_USER_COUNT){
@@ -313,7 +314,7 @@ public class ComposeAutocompleteViewController{
 
 		@Override
 		public ImageLoaderRequest getImageRequest(int position, int image){
-			WrappedAccount a=users.get(position);
+			AccountViewModel a=users.get(position);
 			if(image==0)
 				return a.avaRequest;
 			return a.emojiHelper.getImageRequest(image-1);
@@ -325,7 +326,7 @@ public class ComposeAutocompleteViewController{
 		}
 	}
 
-	private class UserViewHolder extends BindableViewHolder<WrappedAccount> implements ImageLoaderViewHolder, UsableRecyclerView.Clickable{
+	private class UserViewHolder extends BindableViewHolder<AccountViewModel> implements ImageLoaderViewHolder, UsableRecyclerView.Clickable{
 		protected final ImageView ava;
 		protected final TextView username;
 
@@ -338,7 +339,7 @@ public class ComposeAutocompleteViewController{
 		}
 
 		@Override
-		public void onBind(WrappedAccount item){
+		public void onBind(AccountViewModel item){
 			username.setText("@"+item.account.acct);
 		}
 
@@ -480,21 +481,6 @@ public class ComposeAutocompleteViewController{
 		@Override
 		public void onClick(){
 			completionSelectedListener.onCompletionSelected(":"+item.emoji.shortcode+":");
-		}
-	}
-
-	private static class WrappedAccount{
-		private Account account;
-		private CharSequence parsedName;
-		private CustomEmojiHelper emojiHelper;
-		private ImageLoaderRequest avaRequest;
-
-		public WrappedAccount(Account account){
-			this.account=account;
-			parsedName=HtmlParser.parseCustomEmoji(account.displayName, account.emojis);
-			emojiHelper=new CustomEmojiHelper();
-			emojiHelper.setText(parsedName);
-			avaRequest=new UrlImageLoaderRequest(account.avatar, V.dp(50), V.dp(50));
 		}
 	}
 

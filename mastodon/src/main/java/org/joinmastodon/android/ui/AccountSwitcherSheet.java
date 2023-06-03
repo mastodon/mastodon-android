@@ -111,21 +111,12 @@ public class AccountSwitcherSheet extends BottomSheet{
 	}
 
 	private void logOut(String accountID){
-		AccountSession session=AccountSessionManager.getInstance().getAccount(accountID);
-		new RevokeOauthToken(session.app.clientId, session.app.clientSecret, session.token.accessToken)
-				.setCallback(new Callback<>(){
-					@Override
-					public void onSuccess(Object result){
-						onLoggedOut(accountID);
-					}
-
-					@Override
-					public void onError(ErrorResponse error){
-						onLoggedOut(accountID);
-					}
-				})
-				.wrapProgress(activity, R.string.loading, false)
-				.exec(accountID);
+		AccountSessionManager.get(accountID).logOut(activity, ()->{
+			dismiss();
+			activity.finish();
+			Intent intent=new Intent(activity, MainActivity.class);
+			activity.startActivity(intent);
+		});
 	}
 
 	private void logOutAll(){
@@ -161,11 +152,6 @@ public class AccountSwitcherSheet extends BottomSheet{
 					})
 					.exec(session.getID());
 		}
-	}
-
-	private void onLoggedOut(String accountID){
-		AccountSessionManager.getInstance().removeAccount(accountID);
-		dismiss();
 	}
 
 	@Override

@@ -60,7 +60,7 @@ public class MediaAttachmentViewController{
 			altButton.setVisibility(TextUtils.isEmpty(attachment.description) ? View.GONE : View.VISIBLE);
 		}
 		if(type==MediaGridStatusDisplayItem.GridItemType.VIDEO){
-			duration.setText(UiUtils.formatDuration((int)attachment.getDuration()));
+			duration.setText(UiUtils.formatMediaDuration((int)attachment.getDuration()));
 		}
 		didClear=false;
 	}
