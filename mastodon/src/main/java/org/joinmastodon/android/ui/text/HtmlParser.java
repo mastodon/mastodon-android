@@ -47,6 +47,7 @@ public class HtmlParser{
 					")";
 	public static final Pattern URL_PATTERN=Pattern.compile(VALID_URL_PATTERN_STRING, Pattern.CASE_INSENSITIVE);
 	private static Pattern EMOJI_CODE_PATTERN=Pattern.compile(":([\\w]+):");
+	private static final char LEFT_TO_RIGHT_MARK = '\u200E';
 
 	private HtmlParser(){}
 
@@ -86,7 +87,12 @@ public class HtmlParser{
 			@Override
 			public void head(@NonNull Node node, int depth){
 				if(node instanceof TextNode textNode){
-					ssb.append(textNode.text());
+					String text = textNode.text();
+					boolean isHashtag = ssb.length() > 0 && ssb.charAt(ssb.length() - 1) == '#'
+							&& !text.isEmpty() && Character.isLetter(text.charAt(0));
+					if (isHashtag)
+						ssb.append(LEFT_TO_RIGHT_MARK);
+					ssb.append(text);
 				}else if(node instanceof Element el){
 					switch(el.nodeName()){
 						case "a" -> {
