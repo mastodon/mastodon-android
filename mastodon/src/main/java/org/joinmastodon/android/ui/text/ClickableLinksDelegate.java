@@ -105,10 +105,11 @@ public class ClickableLinksDelegate implements CustomViewHelper{
 						int lstart=l.getLineForOffset(start);
 						int lend=l.getLineForOffset(end);
 						if(line>=lstart && line<=lend){
-							if(line==lstart && event.getX()-view.getPaddingLeft()<l.getPrimaryHorizontal(start)){
+							boolean isRTL=l.getParagraphDirection(line)==-1;
+							if(line==lstart && ((!isRTL && event.getX()-view.getPaddingLeft()<l.getPrimaryHorizontal(start)) || (isRTL && event.getX()-view.getPaddingLeft()>l.getPrimaryHorizontal(start)))){
 								continue;
 							}
-							if(line==lend && event.getX()-view.getPaddingLeft()>l.getPrimaryHorizontal(end)){
+							if(line==lend && ((!isRTL && event.getX()-view.getPaddingLeft()>l.getPrimaryHorizontal(end)) || (isRTL && event.getX()-view.getPaddingLeft()<l.getPrimaryHorizontal(end)))){
 								continue;
 							}
 							hlPath=new Path();
@@ -118,12 +119,21 @@ public class ClickableLinksDelegate implements CustomViewHelper{
 							for(int j=lstart;j<=lend;j++){
 								Rect bounds=new Rect();
 								l.getLineBounds(j, bounds);
+								isRTL=l.getParagraphDirection(line)==-1;
 								//bounds.left+=view.getPaddingLeft();
 								if(j==lstart){
-									bounds.left=Math.round(l.getPrimaryHorizontal(start));
+									int startOffset=Math.round(l.getPrimaryHorizontal(start));
+									if(isRTL)
+										bounds.right=startOffset;
+									else
+										bounds.left=startOffset;
 								}
 								if(j==lend){
-									bounds.right=Math.round(l.getPrimaryHorizontal(end));
+									int endOffset=Math.round(l.getPrimaryHorizontal(end));
+									if(isRTL)
+										bounds.left=endOffset;
+									else
+										bounds.right=endOffset;
 								}else{
 									CharSequence lineChars=view.getText().subSequence(l.getLineStart(j), l.getLineEnd(j));
 									bounds.right=Math.round(view.getPaint().measureText(lineChars.toString()))/*+view.getPaddingRight()*/;
