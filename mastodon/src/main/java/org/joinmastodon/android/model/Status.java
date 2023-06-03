@@ -9,6 +9,8 @@ import org.parceler.Parcel;
 import java.time.Instant;
 import java.util.List;
 
+import androidx.annotation.NonNull;
+
 @Parcel
 public class Status extends BaseModel implements DisplayItemsParent{
 	@RequiredField
@@ -175,5 +177,13 @@ public class Status extends BaseModel implements DisplayItemsParent{
 		if(strippedText==null)
 			strippedText=HtmlParser.strip(content);
 		return strippedText;
+	}
+
+	@NonNull
+	@Override
+	public Status clone(){
+		Status copy=(Status) super.clone();
+		copy.spoilerRevealed=false;
+		return copy;
 	}
 }

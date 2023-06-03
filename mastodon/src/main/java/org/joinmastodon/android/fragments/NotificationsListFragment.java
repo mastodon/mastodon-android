@@ -144,7 +144,7 @@ public class NotificationsListFragment extends BaseStatusListFragment<Notificati
 			Status status=n.status;
 			Bundle args=new Bundle();
 			args.putString("account", accountID);
-			args.putParcelable("status", Parcels.wrap(status));
+			args.putParcelable("status", Parcels.wrap(status.clone()));
 			if(status.inReplyToAccountId!=null && knownAccounts.containsKey(status.inReplyToAccountId))
 				args.putParcelable("inReplyToAccount", Parcels.wrap(knownAccounts.get(status.inReplyToAccountId)));
 			Nav.go(getActivity(), ThreadFragment.class, args);
