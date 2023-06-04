@@ -119,7 +119,6 @@ public class EditFilterFragment extends BaseSettingsFragment<Void> implements On
 		int[] durationOptions={
 				1800,
 				3600,
-				6*3600,
 				12*3600,
 				24*3600,
 				3*24*3600,
@@ -129,21 +128,24 @@ public class EditFilterFragment extends BaseSettingsFragment<Void> implements On
 		options.add(0, getString(R.string.filter_duration_forever));
 		options.add(getString(R.string.filter_duration_custom));
 		Instant[] newEnd={null};
+		boolean[] isCustom={false};
 		AlertDialog alert=new M3AlertDialogBuilder(getActivity())
 				.setTitle(R.string.settings_filter_duration_title)
 				.setSupportingText(endsAt==null ? null : getString(R.string.settings_filter_ends, UiUtils.formatRelativeTimestampAsMinutesAgo(getActivity(), endsAt, false)))
 				.setSingleChoiceItems(options.toArray(new String[0]), -1, (dlg, item)->{
 					AlertDialog a=(AlertDialog) dlg;
 					if(item==options.size()-1){ // custom
-						showCustomDurationAlert(date->{
+						showCustomDurationAlert(isCustom[0] ? newEnd[0] : null, date->{
 							if(date==null){
 								a.getListView().setItemChecked(item, false);
 							}else{
+								isCustom[0]=true;
 								newEnd[0]=date;
 								a.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(true);
 							}
 						});
 					}else{
+						isCustom[0]=false;
 						if(item==0){
 							newEnd[0]=null;
 						}else{
@@ -164,9 +166,13 @@ public class EditFilterFragment extends BaseSettingsFragment<Void> implements On
 		alert.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(false);
 	}
 
-	private void showCustomDurationAlert(Consumer<Instant> callback){
+	private void showCustomDurationAlert(Instant currentValue, Consumer<Instant> callback){
 		DatePicker picker=new DatePicker(getActivity());
 		picker.setMinDate(LocalDate.now().plusDays(1).atStartOfDay(ZoneId.systemDefault()).toEpochSecond()*1000L);
+		if(currentValue!=null){
+			ZonedDateTime dt=currentValue.atZone(ZoneId.systemDefault());
+			picker.updateDate(dt.getYear(), dt.getMonthValue()-1, dt.getDayOfMonth());
+		}
 		AlertDialog alert=new M3AlertDialogBuilder(getActivity())
 				.setView(picker)
 				.setPositiveButton(R.string.ok, (dlg, item)->{

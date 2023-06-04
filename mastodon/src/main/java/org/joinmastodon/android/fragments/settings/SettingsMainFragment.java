@@ -54,7 +54,6 @@ public class SettingsMainFragment extends BaseSettingsFragment<Void>{
 				new ListItem<>(R.string.settings_display, 0, R.drawable.ic_style_24px, this::onDisplayClick),
 				new ListItem<>(R.string.settings_filters, 0, R.drawable.ic_filter_alt_24px, this::onFiltersClick),
 				new ListItem<>(R.string.settings_notifications, 0, R.drawable.ic_notifications_24px, this::onNotificationsClick),
-				new ListItem<>(R.string.settings_privacy, 0, R.drawable.ic_lock_24px, this::onPrivacyClick, 0, true),
 				new ListItem<>(AccountSessionManager.get(accountID).domain, getString(R.string.settings_server_explanation), R.drawable.ic_dns_24px, this::onServerClick),
 				new ListItem<>(getString(R.string.about_app, getString(R.string.app_name)), null, R.drawable.ic_info_24px, this::onAboutClick, null, 0, true),
 				new ListItem<>(R.string.log_out, 0, R.drawable.ic_logout_24px, this::onLogOutClick, R.attr.colorM3Error, false)
@@ -140,10 +139,6 @@ public class SettingsMainFragment extends BaseSettingsFragment<Void>{
 
 	private void onNotificationsClick(){
 		Nav.go(getActivity(), SettingsNotificationsFragment.class, makeFragmentArgs());
-	}
-
-	private void onPrivacyClick(){
-
 	}
 
 	private void onServerClick(){

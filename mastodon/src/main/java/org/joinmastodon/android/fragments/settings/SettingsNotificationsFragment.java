@@ -187,7 +187,6 @@ public class SettingsNotificationsFragment extends BaseSettingsFragment<Void>{
 		int[] durationOptions={
 				1800,
 				3600,
-				6*3600,
 				12*3600,
 				24*3600,
 				3*24*3600,
