@@ -164,4 +164,16 @@ public class ThreadFragment extends StatusListFragment{
 	protected boolean needDividerForExtraItem(View child, View bottomSibling, RecyclerView.ViewHolder holder, RecyclerView.ViewHolder siblingHolder){
 		return bottomSibling==endMark;
 	}
+
+	@Override
+	protected void onErrorRetryClick(){
+		if(preloadingFailed){
+			preloadingFailed=false;
+			V.setVisibilityAnimated(footerProgress, View.VISIBLE);
+			V.setVisibilityAnimated(footerError, View.GONE);
+			doLoadData();
+			return;
+		}
+		super.onErrorRetryClick();
+	}
 }
