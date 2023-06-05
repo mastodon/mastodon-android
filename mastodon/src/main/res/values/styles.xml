@@ -189,6 +189,17 @@
 		<item name="appkitToolbarElevation">0px</item>
 		<item name="appkitToolbarBackground">?colorM3Background</item>
 		<item name="actionBarIconTint">@color/action_bar_icons</item>
+		<item name="android:titleTextAppearance">@style/action_bar_title</item>
+		<item name="android:subtitleTextAppearance">@style/action_bar_subtitle</item>
+	</style>
+
+	<style name="action_bar_title" parent="android:TextAppearance.Material.Widget.ActionBar.Title">
+		<item name="android:fontFamily">sans-serif</item>
+		<item name="android:textColor">?colorM3OnSurface</item>
+	</style>
+
+	<style name="action_bar_subtitle" parent="m3_title_small">
+		<item name="android:textColor">?colorM3OnSurfaceVariant</item>
 	</style>
 
 	<style name="Widget.Mastodon.Toolbar.ActionMode" parent="android:Widget.Material.ActionMode">

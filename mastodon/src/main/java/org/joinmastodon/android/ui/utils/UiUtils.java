@@ -754,11 +754,6 @@ public class UiUtils{
 		};
 	}
 
-	public static void setToolbarWithSubtitleAppearance(Toolbar toolbar){
-		toolbar.setTitleTextAppearance(toolbar.getContext(), R.style.m3_title_medium);
-		toolbar.setSubtitleTextAppearance(toolbar.getContext(), R.style.m3_title_small);
-	}
-
 	@SuppressLint("DefaultLocale")
 	public static String formatMediaDuration(int seconds){
 		if(seconds>=3600)

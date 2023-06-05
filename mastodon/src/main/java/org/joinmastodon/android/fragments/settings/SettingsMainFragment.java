@@ -77,12 +77,6 @@ public class SettingsMainFragment extends BaseSettingsFragment<Void>{
 	protected void doLoadData(int offset, int count){}
 
 	@Override
-	protected void onUpdateToolbar(){
-		super.onUpdateToolbar();
-		UiUtils.setToolbarWithSubtitleAppearance(getToolbar());
-	}
-
-	@Override
 	protected void onHidden(){
 		super.onHidden();
 		if(!loggedOut)

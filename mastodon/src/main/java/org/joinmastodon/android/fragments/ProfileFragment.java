@@ -541,7 +541,6 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 	private void updateToolbar(){
 		getToolbar().setOnClickListener(v->scrollToTop());
 		getToolbar().setNavigationContentDescription(R.string.back);
-		UiUtils.setToolbarWithSubtitleAppearance(getToolbar());
 		if(onScrollListener!=null){
 			onScrollListener.setViews(getToolbar());
 		}
