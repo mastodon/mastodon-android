@@ -10,7 +10,7 @@
 	<string name="ok">Tamam</string>
 	<string name="preparing_auth">Kimlik doğrulama için hazırlanıyor…</string>
 	<string name="finishing_auth">Kimlik doğrulama tamamlanıyor…</string>
-	<string name="user_boosted">%s yineledi</string>
+	<string name="user_boosted">%s yeniden paylaştı</string>
 	<string name="in_reply_to">%s için yanıt</string>
 	<string name="notifications">Bildirimler</string>
 	<string name="user_followed_you">sizi takip etti</string>
@@ -166,10 +166,10 @@
 	<string name="report_sent_subtitle">Biz bunu incelerken siz %s karşı önlem alabilirsiniz.</string>
 	<string name="unfollow_user">Takipten çık %s</string>
 	<string name="unfollow">Takipten çık</string>
-	<string name="mute_user_explain">Ana sayfa akışınızda kişinin gönderilerini görmeyeceksiniz. Sessize alındıklarını bilemeyecekler.</string>
+	<string name="mute_user_explain">Anasayfa akışınızda kişinin gönderilerini görmeyeceksiniz. Sessize alındıklarını bilemeyecekler.</string>
 	<string name="block_user_explain">Artık sizi takip edemez ve gönderilerinizi göremezler ama engellendiklerini görebilirler.</string>
 	<string name="report_personal_title">Bunu görmek istemiyor musun?</string>
-	<string name="report_personal_subtitle">Mastodon\'da beğenmediğiniz bir şey gördüğünüzde, o kişiyi deneyiminizden çıkarabilirsiniz.</string>
+	<string name="report_personal_subtitle">Mastodon'da beğenmediğiniz bir şey gördüğünüzde, o kişiyi deneyiminizden çıkarabilirsiniz.</string>
 	<string name="back">Geri</string>
 	<string name="instance_catalog_title">Mastodon, farklı sunuculardaki kullanıcılardan oluşur.</string>
 	<string name="instance_catalog_subtitle">İlgi alanlarına, bölgene hitap eden bir sunucu ya da genel amaçlı bir sunucu seç. Hangi sunucuda olduğun fark etmeksizin herkes ile bağlantı kurabilirsin.</string>
@@ -200,15 +200,15 @@
 	<string name="confirm_email_title">E-posta Kutunuzu Kontrol Edin</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">%s işleminizi doğrulamak için size gönderdiğimiz linke tıklayınız. Biz burada bekleyeceğiz.</string>
-	<string name="confirm_email_didnt_get">Link size ulaşmadı mı?</string>
+	<string name="confirm_email_didnt_get">Bağlantı size ulaşmadı mı?</string>
 	<string name="resend">Yeniden gönder</string>
 	<string name="open_email_app">E-posta uygulamasını aç</string>
 	<string name="resent_email">Onay e-postası gönderildi</string>
 	<string name="compose_hint">Aklınızdan geçenleri yazın veya yapıştırın</string>
 	<string name="content_warning">İçerik Uyarısı</string>
-	<string name="add_image_description">Resim açıklaması ekle…</string>
+	<string name="add_image_description">Görsel açıklaması ekle…</string>
 	<string name="retry_upload">Yüklemeyi yeniden dene</string>
-	<string name="edit_image">Resmi Düzenle</string>
+	<string name="edit_image">Görseli Düzenle</string>
 	<string name="save">Kaydet</string>
 	<string name="add_alt_text">Alternatif metin ekle</string>
 	<string name="alt_text_subtitle">Alternatif metin, az gören veya hiç görmeyen kişiler için fotoğraflarınızı açıklar. Yalnızca bağlamı anlamak için yeterli bilgiyi eklemeyi çalışın.</string>
@@ -236,8 +236,8 @@
 	<string name="media_attachment_too_big">%1$s dosyası, %2$s MB\'lik boyut sınırını aşıyor</string>
 	<string name="settings_theme">Uygulama görünümü</string>
 	<string name="theme_auto">Otomatik</string>
-	<string name="theme_light">Aydınlık</string>
-	<string name="theme_dark">Karanlık</string>
+	<string name="theme_light">Açık</string>
+	<string name="theme_dark">Koyu</string>
 	<string name="theme_true_black">Gerçek siyah mod</string>
 	<string name="settings_behavior">Ayarlar</string>
 	<string name="settings_gif">Animasyonlu avatarları ve emojileri oynat</string>
@@ -248,9 +248,9 @@
 	<string name="notify_follower">Bir takipçim</string>
 	<string name="notify_followed">Takip ettiğim biri</string>
 	<string name="notify_none">Bilgilendirme</string>
-	<string name="notify_favorites">Gönderimi favorilerine eklediğinde</string>
+	<string name="notify_favorites">Gönderiniz favorilerine eklediğinde</string>
 	<string name="notify_follow">Beni takip ettiğinde</string>
-	<string name="notify_reblog">Gönderimi yinelediğinde</string>
+	<string name="notify_reblog">Gönderiniz yeniden paylaştığında</string>
 	<string name="notify_mention">Benden bahsettiğinde</string>
 	<string name="settings_boring">Sıkıcı bölge</string>
 	<string name="settings_account">Hesap ayarları</string>
@@ -271,7 +271,7 @@
 	<string name="hide_content">İçeriği gizle</string>
 	<string name="new_post">Yeni gönderi</string>
 	<string name="button_reply">Cevapla</string>
-	<string name="button_reblog">Yinele</string>
+	<string name="button_reblog">Yeniden Paylaş</string>
 	<string name="button_favorite">Favorile</string>
 	<string name="button_share">Paylaş</string>
 	<string name="media_no_description">Açıklamasız medya</string>
@@ -310,7 +310,9 @@
 	<string name="local_timeline_info_banner">Bu gönderiler seninle aynı Mastodon sunucusunda olan kişilerin paylaştığı son gönderilerdir.</string>
 	<string name="dismiss">Yoksay</string>
 	<string name="see_new_posts">Yeni gönderileri gör</string>
-	<string name="load_missing_posts">Daha fazla gönderi yükle</string>
+	<string name="load_missing_posts">Daha fazlası
+	
+	</string>
 	<string name="follow_back">Geri Takip Et</string>
 	<string name="button_follow_pending">Bekliyor</string>
 	<string name="follows_you">Seni takip ediyor</string>
@@ -331,8 +333,8 @@
 		<item quantity="other">%,d favori</item>
 	</plurals>
 	<plurals name="x_reblogs">
-		<item quantity="one">%,d yineleme</item>
-		<item quantity="other">%,d yineleme</item>
+		<item quantity="one">%,d paylaşma</item>
+		<item quantity="other">%,d paylaşma</item>
 	</plurals>
 	<string name="timestamp_via_app">%1$s tarihinde %2$s uygulamasıyla</string>
 	<string name="time_now">şimdi</string>
@@ -389,7 +391,7 @@
 	<string name="instance_signup_closed">Bu sunucu yeni kayıtları kabul etmemektedir.</string>
 	<string name="text_copied">Panoya kopyalandı</string>
 	<string name="add_bookmark">Yer İmi Ekle</string>
-	<string name="remove_bookmark">Yer İmi Kaldır</string>
+	<string name="remove_bookmark">Yerimlerini Kaldır</string>
 	<string name="bookmarks">Yer İmleri</string>
 	<string name="your_favorites">Favorilerin</string>
 	<string name="login_title">Hoşgeldin</string>
