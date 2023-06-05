@@ -162,10 +162,7 @@ public class FooterStatusDisplayItem extends StatusDisplayItem{
 		}
 
 		private void onShareClick(View v){
-			Intent intent=new Intent(Intent.ACTION_SEND);
-			intent.setType("text/plain");
-			intent.putExtra(Intent.EXTRA_TEXT, item.status.url);
-			v.getContext().startActivity(Intent.createChooser(intent, v.getContext().getString(R.string.share_toot_title)));
+			UiUtils.openSystemShareSheet(v.getContext(), item.status.url);
 		}
 
 		private int descriptionForId(int id){

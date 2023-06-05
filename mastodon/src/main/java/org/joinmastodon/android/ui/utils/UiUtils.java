@@ -808,4 +808,11 @@ public class UiUtils{
 			return context.getResources().getQuantityString(R.plurals.x_days, days, days);
 		}
 	}
+
+	public static void openSystemShareSheet(Context context, String url){
+		Intent intent=new Intent(Intent.ACTION_SEND);
+		intent.setType("text/plain");
+		intent.putExtra(Intent.EXTRA_TEXT, url);
+		context.startActivity(Intent.createChooser(intent, context.getString(R.string.share_toot_title)));
+	}
 }
