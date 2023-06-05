@@ -10,11 +10,13 @@
 	<string name="ok">OK</string>
 	<string name="preparing_auth">Förbereder för autentisering…</string>
 	<string name="finishing_auth">Slutför autentisering…</string>
+	<string name="user_boosted">%s boostade</string>
 	<string name="in_reply_to">Som svar på %s</string>
 	<string name="notifications">Notiser</string>
 	<string name="user_followed_you">följde dig</string>
 	<string name="user_sent_follow_request">skickade en förfrågning om att följa till dig</string>
 	<string name="user_favorited">favoritmarkerade dit inlägg</string>
+	<string name="notification_boosted">boostade ditt inlägg</string>
 	<string name="poll_ended">omröstning avslutad</string>
 	<string name="time_seconds">%ds</string>
 	<string name="time_minutes">%dm</string>
@@ -412,8 +414,14 @@
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
 	<string name="signup_email_domain_blocked">%1$s tillåter inte registrering från %2$s. Prova en annan eller &lt;a&gt;välj en annan server&lt;/a&gt;.</string>
 	<string name="signup_username_taken">Det här användarnamnet är redan taget.</string>
+	<string name="spoiler_show">Visa ändå</string>
 	<string name="save_changes">Spara ändringar</string>
 	<string name="profile_timeline">Tidslinje</string>
+	<string name="view_all">Visa alla</string>
+	<string name="profile_endorsed_accounts">Konton</string>
+	<string name="verified_link">Verifierad länk</string>
+	<string name="show">Visa</string>
 	<string name="signup_or_login">eller</string>
 	<string name="welcome_to_mastodon">Välkommen till Mastodon</string>
+	<string name="what_are_servers">Vad är servrar?</string>
 </resources>
