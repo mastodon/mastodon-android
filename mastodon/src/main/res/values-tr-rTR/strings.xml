@@ -6,17 +6,17 @@
 	<string name="next">Sonraki</string>
 	<string name="loading_instance">Sunucu bilgisi alınıyor…</string>
 	<string name="error">Hata</string>
-	<string name="not_a_mastodon_instance">%s bir Mastodon sunucusu gibi görünmüyor.</string>
+	<string name="not_a_mastodon_instance">%s bir Mastodon sunucusu gibi görükmüyor.</string>
 	<string name="ok">Tamam</string>
 	<string name="preparing_auth">Kimlik doğrulama için hazırlanıyor…</string>
 	<string name="finishing_auth">Kimlik doğrulama tamamlanıyor…</string>
-	<string name="user_boosted">%s yineledi</string>
+	<string name="user_boosted">%s paylaştı</string>
 	<string name="in_reply_to">%s için yanıt</string>
 	<string name="notifications">Bildirimler</string>
 	<string name="user_followed_you">sizi takip etti</string>
 	<string name="user_sent_follow_request">sana bir takip isteği gönderdi</string>
 	<string name="user_favorited">gönderinizi favorilerine ekledi</string>
-	<string name="notification_boosted">gönderinizi yineledi</string>
+	<string name="notification_boosted">gönderinizi paylaştı</string>
 	<string name="poll_ended">oylama sona erdi</string>
 	<string name="time_seconds">%ds</string>
 	<string name="time_minutes">%ddk</string>
@@ -123,7 +123,7 @@
 	<string name="delete">Sil</string>
 	<string name="confirm_delete_title">Gönderiyi sil</string>
 	<string name="confirm_delete">Bu gönderiyi silmek istediğinizden emin misiniz?</string>
-	<string name="deleting">Siliniyor...</string>
+	<string name="deleting">Siliniyor</string>
 	<string name="notification_channel_audio_player">Ses çal</string>
 	<string name="play">Oynat</string>
 	<string name="pause">Durdur</string>
@@ -149,7 +149,7 @@
 	<string name="report_choose_reason_subtitle">En iyi eşleşmeyi seçin</string>
 	<string name="report_reason_personal">Hoşuma gitmiyor</string>
 	<string name="report_reason_personal_subtitle">Görmek isteyeceğin bir şey değil</string>
-	<string name="report_reason_spam">Bu spam</string>
+	<string name="report_reason_spam">Spam</string>
 	<string name="report_reason_spam_subtitle">Kötü amaçlı bağlantılar, sahte etkileşim veya tekrarlayan yanıtlar</string>
 	<string name="report_reason_violation">Sunucu kurallarını ihlal ediyor</string>
 	<string name="report_reason_violation_subtitle">Belirli kuralları çiğnediğinin farkındasınız</string>
@@ -166,7 +166,7 @@
 	<string name="report_sent_subtitle">Biz bunu incelerken siz %s karşı önlem alabilirsiniz.</string>
 	<string name="unfollow_user">Takipten çık %s</string>
 	<string name="unfollow">Takipten çık</string>
-	<string name="mute_user_explain">Ana sayfa akışınızda kişinin gönderilerini görmeyeceksiniz. Sessize alındıklarını bilemeyecekler.</string>
+	<string name="mute_user_explain">Anasayfa akışınızda kişinin gönderilerini görmeyeceksiniz. Sessize alındıklarını bilemeyecekler.</string>
 	<string name="block_user_explain">Artık sizi takip edemez ve gönderilerinizi göremezler ama engellendiklerini görebilirler.</string>
 	<string name="report_personal_title">Bunu görmek istemiyor musun?</string>
 	<string name="report_personal_subtitle">Mastodon\'da beğenmediğiniz bir şey gördüğünüzde, o kişiyi deneyiminizden çıkarabilirsiniz.</string>
@@ -200,10 +200,10 @@
 	<string name="confirm_email_title">E-posta Kutunuzu Kontrol Edin</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">%s işleminizi doğrulamak için size gönderdiğimiz linke tıklayınız. Biz burada bekleyeceğiz.</string>
-	<string name="confirm_email_didnt_get">Link size ulaşmadı mı?</string>
+	<string name="confirm_email_didnt_get">Bağlantı size ulaşmadı mı?</string>
 	<string name="resend">Yeniden gönder</string>
-	<string name="open_email_app">E-posta uygulamasını aç</string>
-	<string name="resent_email">Onay e-postası gönderildi</string>
+	<string name="open_email_app">Eposta uygulamasını aç</string>
+	<string name="resent_email">Onay epostası gönderildi</string>
 	<string name="compose_hint">Aklınızdan geçenleri yazın veya yapıştırın</string>
 	<string name="content_warning">İçerik Uyarısı</string>
 	<string name="add_image_description">Resim açıklaması ekle…</string>
@@ -243,18 +243,18 @@
 	<string name="settings_gif">Animasyonlu avatarları ve emojileri oynat</string>
 	<string name="settings_custom_tabs">Uygulama içi tarayıcıyı kullan</string>
 	<string name="settings_notifications">Bildirimler</string>
-	<string name="notify_me_when">Beni şu durumda bilgilendir: </string>
-	<string name="notify_anyone">Herhangi biri</string>
+	<string name="notify_me_when">Beni şu durumda bilgilendir</string>
+	<string name="notify_anyone">Herhangibiri</string>
 	<string name="notify_follower">Bir takipçim</string>
 	<string name="notify_followed">Takip ettiğim biri</string>
 	<string name="notify_none">Bilgilendirme</string>
 	<string name="notify_favorites">Gönderimi favorilerine eklediğinde</string>
 	<string name="notify_follow">Beni takip ettiğinde</string>
-	<string name="notify_reblog">Gönderimi yinelediğinde</string>
+	<string name="notify_reblog">Gönderimi paylaştığında</string>
 	<string name="notify_mention">Benden bahsettiğinde</string>
 	<string name="settings_boring">Sıkıcı bölge</string>
 	<string name="settings_account">Hesap ayarları</string>
-	<string name="settings_contribute">Mastodon\'a katkıda bulunun</string>
+	<string name="settings_contribute">Mastodona katkıda bulunun</string>
 	<string name="settings_tos">Kullanım Şartları</string>
 	<string name="settings_privacy_policy">Gizlilik Politikası</string>
 	<string name="settings_spicy">Tehlikeli bölge</string>
@@ -271,7 +271,7 @@
 	<string name="hide_content">İçeriği gizle</string>
 	<string name="new_post">Yeni gönderi</string>
 	<string name="button_reply">Cevapla</string>
-	<string name="button_reblog">Yinele</string>
+	<string name="button_reblog">Yeniden Paylaş</string>
 	<string name="button_favorite">Favorile</string>
 	<string name="button_share">Paylaş</string>
 	<string name="media_no_description">Açıklamasız medya</string>
@@ -282,7 +282,7 @@
 	<string name="home_timeline">Anasayfa</string>
 	<string name="my_profile">Profilim</string>
 	<string name="media_viewer">Medya görüntüleyici</string>
-	<string name="follow_user">%s\'yi takip et</string>
+	<string name="follow_user">%s \'yi takip et</string>
 	<string name="unfollowed_user">%s takip edilmedi</string>
 	<string name="followed_user">%s kişisini takip ediyorsunuz</string>
 	<string name="following_user_requested">%s takip isteği gönderdi</string>
@@ -310,11 +310,11 @@
 	<string name="local_timeline_info_banner">Bu gönderiler seninle aynı Mastodon sunucusunda olan kişilerin paylaştığı son gönderilerdir.</string>
 	<string name="dismiss">Yoksay</string>
 	<string name="see_new_posts">Yeni gönderileri gör</string>
-	<string name="load_missing_posts">Daha fazla gönderi yükle</string>
-	<string name="follow_back">Geri Takip Et</string>
+	<string name="load_missing_posts">Daha fazlası</string>
+	<string name="follow_back">Takip edeni Takip Et</string>
 	<string name="button_follow_pending">Bekliyor</string>
 	<string name="follows_you">Seni takip ediyor</string>
-	<string name="manually_approves_followers">Takipçileri manuel kabul eder</string>
+	<string name="manually_approves_followers">Takipçileri elle kabul et</string>
 	<string name="current_account">Kullanılan hesap</string>
 	<string name="log_out_account">%s oturumunu kapat</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
@@ -331,8 +331,8 @@
 		<item quantity="other">%,d favori</item>
 	</plurals>
 	<plurals name="x_reblogs">
-		<item quantity="one">%,d yineleme</item>
-		<item quantity="other">%,d yineleme</item>
+		<item quantity="one">%,d paylaşma</item>
+		<item quantity="other">%,d paylaşma</item>
 	</plurals>
 	<string name="timestamp_via_app">%1$s tarihinde %2$s uygulamasıyla</string>
 	<string name="time_now">şimdi</string>
@@ -361,7 +361,7 @@
 	<string name="edit_media_added">Medya eklendi</string>
 	<string name="edit_media_removed">Medya kaldırıldı</string>
 	<string name="edit_media_reordered">Medya düzenlendi</string>
-	<string name="edit_marked_sensitive">Hassas olarak işarlendi</string>
+	<string name="edit_marked_sensitive">Hassas olarak işaretlendi</string>
 	<string name="edit_marked_not_sensitive">Hassas değil olarak işaretlendi</string>
 	<string name="edit_multiple_changed">Gönderi düzenlendi</string>
 	<string name="edit">Düzenle</string>
@@ -373,16 +373,16 @@
 	<string name="file_size_gb">%.2f GB</string>
 	<string name="file_upload_progress">%2$s dosyadan %1$s</string>
 	<string name="file_upload_time_remaining">%s kaldı</string>
-	<string name="upload_error_connection_lost">Cihazınızın internet bağlantısı koptu</string>
+	<string name="upload_error_connection_lost">Cihazınızın ağ bağlantısı koptu</string>
 	<string name="upload_processing">İşleniyor…</string>
 	<!-- %s is version like 1.2.3 -->
-	<string name="update_available">Mastodon Android uygulamasının %s versiyonu indirmeye hazır.</string>
+	<string name="update_available">Mastodon, Android uygulamasının %s versiyonu indirmeye hazır.</string>
 	<!-- %s is version like 1.2.3 -->
-	<string name="update_ready">Mastodon Android uygulamasının %s versiyonu indirildi ve kurulmaya hazır.</string>
+	<string name="update_ready">Mastodon , Android uygulamasının %s versiyonu indirildi ve kurulmaya hazır.</string>
 	<!-- %s is file size -->
 	<string name="download_update">İndir (%s)</string>
 	<string name="install_update">Kur</string>
-	<string name="privacy_policy_title">Gizliliğiniz</string>
+	<string name="privacy_policy_title">Gizliliğiniz.</string>
 	<string name="privacy_policy_subtitle">Mastodon uygulaması herhangi bir veri toplama dahi katıldığınız sunucunun farklı bir politikası olabilir. \n\n %s politikası sizi tatmin etmiyorsa geri giderek farklı bir sunucu seçebilirsiniz.</string>
 	<string name="i_agree">Kabul ediyorum</string>
 	<string name="empty_list">Bu liste boş</string>
@@ -392,9 +392,9 @@
 	<string name="remove_bookmark">Yer İmi Kaldır</string>
 	<string name="bookmarks">Yer İmleri</string>
 	<string name="your_favorites">Favorilerin</string>
-	<string name="login_title">Hoşgeldin</string>
+	<string name="login_title">Hoşgeldiniz</string>
 	<string name="login_subtitle">Hesabınızı oluşturduğunuz sunucu ile giriş yapın.</string>
-	<string name="server_url">Sunucu URL\'si</string>
+	<string name="server_url">Sunucu bağlantısı</string>
 	<string name="signup_random_server_explain">Herhangi bir seçim yapmadan devam ederseniz dilinize göre bir sunucu seçeceğiz.</string>
 	<string name="server_filter_any_language">Herhangi Bir Dil</string>
 	<string name="server_filter_instant_signup">Koşulsuz Kayıt</string>
@@ -419,7 +419,7 @@
 	<string name="server_rules_disagree">Reddet</string>
 	<string name="privacy_policy_explanation">Kısacası: Hiçbir veri işlemiyor ya da toplamıyoruz.</string>
 	<!-- %s is server domain -->
-	<string name="server_policy_disagree">%s\'yi reddet</string>
+	<string name="server_policy_disagree">%s \'yi reddet</string>
 	<string name="profile_bio">Hakkımda</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<string name="sending_follows">Hesaplar takip ediliyor…</string>
@@ -437,12 +437,12 @@
 	<string name="verified_link">Onaylanmış bağlantı</string>
 	<string name="show">Göster</string>
 	<string name="hide">Gizle</string>
-	<string name="join_default_server">%s\'e katıl</string>
+	<string name="join_default_server">%s katıl</string>
 	<string name="pick_server">Başka sunucu seç</string>
 	<string name="signup_or_login">veya</string>
-	<string name="learn_more">Daha fazla bilgi edinin</string>
+	<string name="learn_more">Daha fazlası</string>
 	<string name="welcome_to_mastodon">Mastodon\'a hoş geldiniz</string>
-	<string name="welcome_paragraph1">Mastodon merkezi olmayan bir sosyal ağdır, yani tek bir şirket tarafından kontrol edilmemektedir. Hepsi birbirine bağlı, bağımsız olarak işletilen birçok sunucudan oluşur.</string>
+	<string name="welcome_paragraph1">Mastodon , Merkezi olmayan bir sosyal ağdır, yani tek bir şirket tarafından kontrol edilmemektedir. Hepsi birbirine bağlı, bağımsız olarak işletilen birçok sunucudan oluşur.</string>
 	<string name="what_are_servers">Sunucular nelerdir?</string>
-	<string name="welcome_paragraph2"><![CDATA[Her Mastodon hesabı bir sunucuda barındırılır - her birinin kendi değerleri, kuralları ve yöneticileri vardır. Hangisini seçerseniz seçin, herhangi bir sunucudaki insanları takip edebilir ve onlarla etkileşime geçebilirsiniz.]]></string>
+	<string name="welcome_paragraph2"><![CDATA[Her Mastodon , hesabı bir sunucuda barındırılır - her birinin kendi değerleri, kuralları ve yöneticileri vardır. Hangisini seçerseniz seçin, herhangi bir sunucudaki insanları takip edebilir ve onlarla etkileşime geçebilirsiniz.]]></string>
 </resources>
