@@ -12,6 +12,7 @@ import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.events.RemoveAccountPostsEvent;
 import org.joinmastodon.android.events.StatusCreatedEvent;
 import org.joinmastodon.android.model.Account;
+import org.joinmastodon.android.model.FilterContext;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.drawables.EmptyDrawable;
 import org.joinmastodon.android.ui.views.FilterChipView;
@@ -63,7 +64,9 @@ public class AccountTimelineFragment extends StatusListFragment{
 					public void onSuccess(List<Status> result){
 						if(getActivity()==null)
 							return;
-						onDataLoaded(result, !result.isEmpty());
+						boolean empty=result.isEmpty();
+						AccountSessionManager.get(accountID).filterStatuses(result, FilterContext.ACCOUNT);
+						onDataLoaded(result, !empty);
 					}
 				})
 				.exec(accountID);

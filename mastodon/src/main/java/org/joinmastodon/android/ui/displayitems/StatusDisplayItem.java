@@ -2,11 +2,11 @@ package org.joinmastodon.android.ui.displayitems;
 
 import android.app.Activity;
 import android.content.Context;
+import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 
-import org.joinmastodon.android.GlobalUserPreferences;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.fragments.BaseStatusListFragment;
@@ -14,6 +14,7 @@ import org.joinmastodon.android.fragments.ThreadFragment;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.Attachment;
 import org.joinmastodon.android.model.DisplayItemsParent;
+import org.joinmastodon.android.model.FilterResult;
 import org.joinmastodon.android.model.Poll;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.PhotoLayoutHelper;
@@ -72,7 +73,7 @@ public abstract class StatusDisplayItem{
 			case GAP -> new GapStatusDisplayItem.Holder(activity, parent);
 			case EXTENDED_FOOTER -> new ExtendedFooterStatusDisplayItem.Holder(activity, parent);
 			case MEDIA_GRID -> new MediaGridStatusDisplayItem.Holder(activity, parent);
-			case SPOILER -> new SpoilerStatusDisplayItem.Holder(activity, parent);
+			case SPOILER, FILTER_SPOILER -> new SpoilerStatusDisplayItem.Holder(activity, parent, type);
 			case SECTION_HEADER -> new SectionHeaderStatusDisplayItem.Holder(activity, parent);
 			case NOTIFICATION_HEADER -> new NotificationHeaderStatusDisplayItem.Holder(activity, parent);
 		};
@@ -106,9 +107,24 @@ public abstract class StatusDisplayItem{
 				items.add(header=new HeaderStatusDisplayItem(parentID, statusForContent.account, statusForContent.createdAt, fragment, accountID, statusForContent, null));
 		}
 
+		boolean filtered=false;
+		if(status.filtered!=null){
+			for(FilterResult filter:status.filtered){
+				if(filter.filter.isActive()){
+					filtered=true;
+					break;
+				}
+			}
+		}
+
 		ArrayList<StatusDisplayItem> contentItems;
-		if(!TextUtils.isEmpty(statusForContent.spoilerText) && AccountSessionManager.get(accountID).getLocalPreferences().showCWs){
-			SpoilerStatusDisplayItem spoilerItem=new SpoilerStatusDisplayItem(parentID, fragment, statusForContent);
+		if(filtered){
+			SpoilerStatusDisplayItem spoilerItem=new SpoilerStatusDisplayItem(parentID, fragment, fragment.getString(R.string.post_matches_filter_x, status.filtered.get(0).filter.title), statusForContent, Type.FILTER_SPOILER);
+			items.add(spoilerItem);
+			contentItems=spoilerItem.contentItems;
+			statusForContent.spoilerRevealed=false;
+		}else if(!TextUtils.isEmpty(statusForContent.spoilerText) && AccountSessionManager.get(accountID).getLocalPreferences().showCWs){
+			SpoilerStatusDisplayItem spoilerItem=new SpoilerStatusDisplayItem(parentID, fragment, null, statusForContent, Type.SPOILER);
 			items.add(spoilerItem);
 			contentItems=spoilerItem.contentItems;
 		}else{
@@ -116,7 +132,11 @@ public abstract class StatusDisplayItem{
 		}
 
 		if(!TextUtils.isEmpty(statusForContent.content)){
-			TextStatusDisplayItem text=new TextStatusDisplayItem(parentID, HtmlParser.parse(statusForContent.content, statusForContent.emojis, statusForContent.mentions, statusForContent.tags, accountID), fragment, statusForContent);
+			SpannableStringBuilder parsedText=HtmlParser.parse(statusForContent.content, statusForContent.emojis, statusForContent.mentions, statusForContent.tags, accountID);
+			if(filtered){
+				HtmlParser.applyFilterHighlights(fragment.getActivity(), parsedText, status.filtered);
+			}
+			TextStatusDisplayItem text=new TextStatusDisplayItem(parentID, parsedText, fragment, statusForContent);
 			text.reduceTopPadding=header==null;
 			contentItems.add(text);
 		}else if(header!=null){
@@ -192,7 +212,8 @@ public abstract class StatusDisplayItem{
 		SPOILER,
 		SECTION_HEADER,
 		HEADER_CHECKABLE,
-		NOTIFICATION_HEADER
+		NOTIFICATION_HEADER,
+		FILTER_SPOILER
 	}
 
 	public static abstract class Holder<T extends StatusDisplayItem> extends BindableViewHolder<T> implements UsableRecyclerView.DisableableClickable{

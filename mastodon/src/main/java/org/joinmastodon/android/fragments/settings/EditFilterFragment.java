@@ -1,7 +1,6 @@
 package org.joinmastodon.android.fragments.settings;
 
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.view.Menu;
@@ -43,7 +42,6 @@ import java.util.stream.Collectors;
 
 import androidx.recyclerview.widget.RecyclerView;
 import me.grishka.appkit.Nav;
-import me.grishka.appkit.api.APIRequest;
 import me.grishka.appkit.api.Callback;
 import me.grishka.appkit.api.ErrorResponse;
 import me.grishka.appkit.fragments.OnBackPressedListener;
@@ -316,7 +314,7 @@ public class EditFilterFragment extends BaseSettingsFragment<Void> implements On
 	}
 
 	private boolean isDirty(){
-		return dirty || (filter!=null && !titleEdit.getText().toString().equals(filter.title));
+		return dirty || (filter!=null && !titleEdit.getText().toString().equals(filter.title)) || (filter!=null && (filter.filterAction==FilterAction.WARN)!=cwItem.checked);
 	}
 
 	@Override

@@ -80,7 +80,7 @@ public class ReportReasonChoiceFragment extends StatusListFragment{
 		reportAccount=Parcels.unwrap(getArguments().getParcelable("reportAccount"));
 		reportStatus=Parcels.unwrap(getArguments().getParcelable("status"));
 		if(reportStatus!=null){
-			Status hiddenStatus=new Status(reportStatus);
+			Status hiddenStatus=reportStatus.clone();
 			hiddenStatus.spoilerText=getString(R.string.post_hidden);
 			onDataLoaded(Collections.singletonList(hiddenStatus));
 			setTitle(R.string.report_title_post);

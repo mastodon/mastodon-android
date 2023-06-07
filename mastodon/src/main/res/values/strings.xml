@@ -631,4 +631,6 @@
 	<string name="app_update_ready">App update ready</string>
 	<string name="app_update_version">Version %s</string>
 	<string name="downloading_update">Downloading (%d%%)</string>
+	<!-- Shown like a content warning, %s is the name of the filter -->
+	<string name="post_matches_filter_x">Matches filter “%s”</string>
 </resources>

@@ -54,6 +54,10 @@ public class LegacyFilter extends BaseModel{
 		return matches(status.getContentStatus().getStrippedText());
 	}
 
+	public boolean isActive(){
+		return expiresAt==null || expiresAt.isAfter(Instant.now());
+	}
+
 	@Override
 	public String toString(){
 		return "Filter{"+

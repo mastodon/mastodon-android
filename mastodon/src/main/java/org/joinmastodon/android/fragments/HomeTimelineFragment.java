@@ -33,20 +33,17 @@ import org.joinmastodon.android.events.StatusCreatedEvent;
 import org.joinmastodon.android.fragments.settings.SettingsMainFragment;
 import org.joinmastodon.android.model.CacheablePaginatedResponse;
 import org.joinmastodon.android.model.FilterContext;
-import org.joinmastodon.android.model.LegacyFilter;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.model.TimelineMarkers;
 import org.joinmastodon.android.ui.displayitems.GapStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.StatusDisplayItem;
 import org.joinmastodon.android.ui.utils.UiUtils;
 import org.joinmastodon.android.updater.GithubSelfUpdater;
-import org.joinmastodon.android.utils.StatusFilterPredicate;
 
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -202,10 +199,7 @@ public class HomeTimelineFragment extends StatusListFragment{
 							result.get(result.size()-1).hasGapAfter=true;
 							toAdd=result;
 						}
-						List<LegacyFilter> filters=AccountSessionManager.getInstance().getAccount(accountID).wordFilters.stream().filter(f->f.context.contains(FilterContext.HOME)).collect(Collectors.toList());
-						if(!filters.isEmpty()){
-							toAdd=toAdd.stream().filter(new StatusFilterPredicate(filters)).collect(Collectors.toList());
-						}
+						AccountSessionManager.get(accountID).filterStatuses(toAdd, FilterContext.HOME);
 						if(!toAdd.isEmpty()){
 							prependItems(toAdd, true);
 							showNewPostsButton();
@@ -279,19 +273,13 @@ public class HomeTimelineFragment extends StatusListFragment{
 							List<StatusDisplayItem> targetList=displayItems.subList(gapPos, gapPos+1);
 							targetList.clear();
 							List<Status> insertedPosts=data.subList(gapPostIndex+1, gapPostIndex+1);
-							List<LegacyFilter> filters=AccountSessionManager.getInstance().getAccount(accountID).wordFilters.stream().filter(f->f.context.contains(FilterContext.HOME)).collect(Collectors.toList());
-							outer:
 							for(Status s:result){
 								if(idsBelowGap.contains(s.id))
 									break;
-								for(LegacyFilter filter:filters){
-									if(filter.matches(s)){
-										continue outer;
-									}
-								}
 								targetList.addAll(buildDisplayItems(s));
 								insertedPosts.add(s);
 							}
+							AccountSessionManager.get(accountID).filterStatuses(insertedPosts, FilterContext.HOME);
 							if(targetList.isEmpty()){
 								// oops. We didn't add new posts, but at least we know there are none.
 								adapter.notifyItemRemoved(getMainAdapterOffset()+gapPos);

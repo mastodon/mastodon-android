@@ -9,6 +9,7 @@ public class AccountLocalPreferences{
 	public boolean customEmojiInNames;
 	public boolean showCWs;
 	public boolean hideSensitiveMedia;
+	public boolean serverSideFiltersSupported;
 
 	public AccountLocalPreferences(SharedPreferences prefs){
 		this.prefs=prefs;
@@ -16,6 +17,7 @@ public class AccountLocalPreferences{
 		customEmojiInNames=prefs.getBoolean("emojiInNames", true);
 		showCWs=prefs.getBoolean("showCWs", true);
 		hideSensitiveMedia=prefs.getBoolean("hideSensitive", true);
+		serverSideFiltersSupported=prefs.getBoolean("serverSideFilters", false);
 	}
 
 	public long getNotificationsPauseEndTime(){
@@ -32,6 +34,7 @@ public class AccountLocalPreferences{
 				.putBoolean("emojiInNames", customEmojiInNames)
 				.putBoolean("showCWs", showCWs)
 				.putBoolean("hideSensitive", hideSensitiveMedia)
+				.putBoolean("serverSideFilters", serverSideFiltersSupported)
 				.apply();
 	}
 }

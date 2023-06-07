@@ -21,9 +21,13 @@ import org.joinmastodon.android.api.requests.oauth.RevokeOauthToken;
 import org.joinmastodon.android.events.NotificationsMarkerUpdatedEvent;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.Application;
+import org.joinmastodon.android.model.FilterAction;
+import org.joinmastodon.android.model.FilterContext;
+import org.joinmastodon.android.model.FilterResult;
 import org.joinmastodon.android.model.LegacyFilter;
 import org.joinmastodon.android.model.Preferences;
 import org.joinmastodon.android.model.PushSubscription;
+import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.model.TimelineMarkers;
 import org.joinmastodon.android.model.Token;
 import org.joinmastodon.android.utils.ObjectIdComparator;
@@ -31,6 +35,7 @@ import org.joinmastodon.android.utils.ObjectIdComparator;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
+import java.util.function.Function;
 
 import me.grishka.appkit.api.Callback;
 import me.grishka.appkit.api.ErrorResponse;
@@ -212,5 +217,48 @@ public class AccountSession{
 		if(localPreferences==null)
 			localPreferences=new AccountLocalPreferences(getRawLocalPreferences());
 		return localPreferences;
+	}
+
+	public void filterStatuses(List<Status> statuses, FilterContext context){
+		filterStatusContainingObjects(statuses, Function.identity(), context);
+	}
+
+	public <T> void filterStatusContainingObjects(List<T> objects, Function<T, Status> extractor, FilterContext context){
+		if(getLocalPreferences().serverSideFiltersSupported){
+			// Even with server-side filters, clients are expected to remove statuses that match a filter that hides them
+			objects.removeIf(o->{
+				Status s=extractor.apply(o);
+				if(s==null)
+					return false;
+				if(s.filtered==null)
+					return false;
+				for(FilterResult filter:s.filtered){
+					if(filter.filter.isActive() && filter.filter.filterAction==FilterAction.HIDE)
+						return true;
+				}
+				return false;
+			});
+			return;
+		}
+		if(wordFilters==null)
+			return;
+		for(T obj:objects){
+			Status s=extractor.apply(obj);
+			if(s!=null && s.filtered!=null){
+				getLocalPreferences().serverSideFiltersSupported=true;
+				getLocalPreferences().save();
+				return;
+			}
+		}
+		objects.removeIf(o->{
+			Status s=extractor.apply(o);
+			if(s==null)
+				return false;
+			for(LegacyFilter filter:wordFilters){
+				if(filter.context.contains(context) && filter.matches(s) && filter.isActive())
+					return true;
+			}
+			return false;
+		});
 	}
 }

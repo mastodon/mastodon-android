@@ -50,6 +50,7 @@ public class Status extends BaseModel implements DisplayItemsParent{
 	public Card card;
 	public String language;
 	public String text;
+	public List<FilterResult> filtered;
 
 	public boolean favourited;
 	public boolean reblogged;
@@ -62,39 +63,6 @@ public class Status extends BaseModel implements DisplayItemsParent{
 	private transient String strippedText;
 
 	public Status(){}
-
-	public Status(Status other){
-		this.id=other.id;
-		this.uri=other.uri;
-		this.createdAt=other.createdAt;
-		this.account=other.account;
-		this.content=other.content;
-		this.visibility=other.visibility;
-		this.sensitive=other.sensitive;
-		this.spoilerText=other.spoilerText;
-		this.mediaAttachments=other.mediaAttachments;
-		this.application=other.application;
-		this.mentions=other.mentions;
-		this.tags=other.tags;
-		this.emojis=other.emojis;
-		this.reblogsCount=other.reblogsCount;
-		this.favouritesCount=other.favouritesCount;
-		this.repliesCount=other.repliesCount;
-		this.editedAt=other.editedAt;
-		this.url=other.url;
-		this.inReplyToId=other.inReplyToId;
-		this.inReplyToAccountId=other.inReplyToAccountId;
-		this.reblog=other.reblog;
-		this.poll=other.poll;
-		this.card=other.card;
-		this.language=other.language;
-		this.text=other.text;
-		this.favourited=other.favourited;
-		this.reblogged=other.reblogged;
-		this.muted=other.muted;
-		this.bookmarked=other.bookmarked;
-		this.pinned=other.pinned;
-	}
 
 	@Override
 	public void postprocess() throws ObjectValidationException{
@@ -116,6 +84,10 @@ public class Status extends BaseModel implements DisplayItemsParent{
 			card.postprocess();
 		if(reblog!=null)
 			reblog.postprocess();
+		if(filtered!=null){
+			for(FilterResult fr:filtered)
+				fr.postprocess();
+		}
 
 		spoilerRevealed=!sensitive;
 	}
@@ -139,6 +111,7 @@ public class Status extends BaseModel implements DisplayItemsParent{
 				", reblogsCount="+reblogsCount+
 				", favouritesCount="+favouritesCount+
 				", repliesCount="+repliesCount+
+				", editedAt="+editedAt+
 				", url='"+url+'\''+
 				", inReplyToId='"+inReplyToId+'\''+
 				", inReplyToAccountId='"+inReplyToAccountId+'\''+
@@ -147,11 +120,15 @@ public class Status extends BaseModel implements DisplayItemsParent{
 				", card="+card+
 				", language='"+language+'\''+
 				", text='"+text+'\''+
+				", filtered="+filtered+
 				", favourited="+favourited+
 				", reblogged="+reblogged+
 				", muted="+muted+
 				", bookmarked="+bookmarked+
 				", pinned="+pinned+
+				", spoilerRevealed="+spoilerRevealed+
+				", hasGapAfter="+hasGapAfter+
+				", strippedText='"+strippedText+'\''+
 				'}';
 	}
 

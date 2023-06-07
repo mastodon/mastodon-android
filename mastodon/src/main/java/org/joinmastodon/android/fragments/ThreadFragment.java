@@ -81,8 +81,8 @@ public class ThreadFragment extends StatusListFragment{
 							data.add(mainStatus);
 							onAppendItems(Collections.singletonList(mainStatus));
 						}
-						result.descendants=filterStatuses(result.descendants);
-						result.ancestors=filterStatuses(result.ancestors);
+						filterStatuses(result.descendants);
+						filterStatuses(result.ancestors);
 						if(footerProgress!=null)
 							footerProgress.setVisibility(View.GONE);
 						data.addAll(result.descendants);
@@ -103,17 +103,8 @@ public class ThreadFragment extends StatusListFragment{
 				.exec(accountID);
 	}
 
-	private List<Status> filterStatuses(List<Status> statuses){
-		List<LegacyFilter> filters=AccountSessionManager.getInstance().getAccount(accountID).wordFilters.stream().filter(f->f.context.contains(FilterContext.THREAD)).collect(Collectors.toList());
-		if(filters.isEmpty())
-			return statuses;
-		return statuses.stream().filter(status->{
-			for(LegacyFilter filter:filters){
-				if(filter.matches(status))
-					return false;
-			}
-			return true;
-		}).collect(Collectors.toList());
+	private void filterStatuses(List<Status> statuses){
+		AccountSessionManager.get(accountID).filterStatuses(statuses, FilterContext.THREAD);
 	}
 
 	@Override

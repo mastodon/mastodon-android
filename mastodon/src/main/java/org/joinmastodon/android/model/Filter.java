@@ -5,6 +5,7 @@ import org.joinmastodon.android.api.RequiredField;
 import org.parceler.Parcel;
 
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.EnumSet;
 import java.util.List;
 
@@ -22,11 +23,9 @@ public class Filter extends BaseModel{
 	public Instant expiresAt;
 	public FilterAction filterAction;
 
-	@RequiredField
-	public List<FilterKeyword> keywords;
+	public List<FilterKeyword> keywords=new ArrayList<>();
 
-	@RequiredField
-	public List<FilterStatus> statuses;
+	public List<FilterStatus> statuses=new ArrayList<>();
 
 	@Override
 	public void postprocess() throws ObjectValidationException{

@@ -260,7 +260,7 @@ public class AccountSessionManager{
 			if(now-session.infoLastUpdated>24L*3600_000L){
 				updateSessionLocalInfo(session);
 			}
-			if(now-session.filtersLastUpdated>3600_000L){
+			if(!session.getLocalPreferences().serverSideFiltersSupported && now-session.filtersLastUpdated>3600_000L){
 				updateSessionWordFilters(session);
 			}
 		}
