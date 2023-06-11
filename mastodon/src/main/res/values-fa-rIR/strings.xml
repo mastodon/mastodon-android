@@ -51,7 +51,10 @@
 	<string name="field_label">برچسب</string>
 	<string name="field_content">محتوا</string>
 	<string name="saving">درحال ذخیره‌سازی…</string>
+	<string name="poll_closed">پایان‌یافته</string>
+	<string name="confirm_mute_title">خموشی حساب</string>
 	<string name="do_mute">بی‌صدا</string>
+	<string name="confirm_unmute_title">لغو خموشی حساب</string>
 	<string name="do_unmute">ناخموشی</string>
 	<string name="confirm_block_title">مسدود کردن حساب</string>
 	<string name="confirm_block_domain_title">مسدود کردن دامنهٔ</string>
@@ -76,6 +79,7 @@
 	<string name="report_title">گزارش کردن %s</string>
 	<string name="report_reason_personal">من این را دوست ندارم</string>
 	<string name="report_reason_spam">این هرزنامه است</string>
+	<string name="sending_report">درحال ارسال گزارش…</string>
 	<string name="unfollow">پی‌نگرفتن</string>
 	<string name="back">بازگشت</string>
 	<string name="edit_photo">ویرایش</string>
@@ -158,11 +162,15 @@
 	<string name="profile_bio">دربارهٔ شما</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<string name="spoiler_show">به هرصورت نشان داده شود</string>
+	<string name="spoiler_hide">نهفتن دوباره</string>
 	<string name="save_changes">ذخیرهٔ تغییرات</string>
 	<string name="view_all">مشاهده همه</string>
 	<string name="profile_endorsed_accounts">حساب‌ها</string>
+	<string name="verified_link">پیوند تأییدشده</string>
 	<string name="show">نمایش</string>
 	<string name="hide">نهفتن</string>
+	<string name="join_default_server">%s پیوست</string>
 	<string name="signup_or_login">یا</string>
 	<string name="learn_more">بیش‌تر بیاموزید</string>
 	<string name="welcome_to_mastodon">به ماستودون خوش آمدید</string>
