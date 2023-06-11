@@ -38,10 +38,13 @@
 	<string name="media">رسانه</string>
 	<string name="profile_about">درباره</string>
 	<string name="button_follow">پی‌گیری</string>
+	<string name="edit_profile">ویرایش نمایه</string>
 	<string name="share_user">اشتراک‌گذاری %s</string>
 	<string name="mute_user">بی‌صدا %s</string>
+	<string name="unmute_user">ناخموشی ‎%s</string>
 	<string name="block_user">مسدود %s</string>
 	<string name="unblock_user">رفع مسدودیت %s</string>
+	<string name="report_user">گزارش کردن %s</string>
 	<string name="profile_joined">عضو شد</string>
 	<string name="done">انجام شد</string>
 	<string name="loading">درحال بارگذاری…</string>
@@ -49,14 +52,22 @@
 	<string name="field_content">محتوا</string>
 	<string name="saving">درحال ذخیره‌سازی…</string>
 	<string name="do_mute">بی‌صدا</string>
+	<string name="do_unmute">ناخموشی</string>
 	<string name="confirm_block_title">مسدود کردن حساب</string>
+	<string name="confirm_block_domain_title">مسدود کردن دامنهٔ</string>
 	<string name="do_block">مسدود</string>
+	<string name="confirm_unblock_title">رفع مسدودی حساب</string>
+	<string name="confirm_unblock_domain_title">رفع مسدودیت دامنهٔ</string>
+	<string name="do_unblock">رفع مسدودیت</string>
 	<string name="button_muted">خموش</string>
+	<string name="button_blocked">مسدود شده</string>
 	<string name="action_vote">رأی</string>
 	<string name="delete">حذف</string>
 	<string name="confirm_delete_title">حذف فرسته</string>
 	<string name="play">پخش</string>
 	<string name="pause">توقف</string>
+	<string name="log_out">خروج</string>
+	<string name="add_account">افزودن حساب</string>
 	<string name="search_hint">جستجو</string>
 	<string name="hashtags">برچسب‌ها</string>
 	<string name="news">اخبار</string>
@@ -65,8 +76,11 @@
 	<string name="report_title">گزارش کردن %s</string>
 	<string name="report_reason_personal">من این را دوست ندارم</string>
 	<string name="report_reason_spam">این هرزنامه است</string>
+	<string name="unfollow">پی‌نگرفتن</string>
 	<string name="back">بازگشت</string>
 	<string name="edit_photo">ویرایش</string>
+	<string name="email">رایانامه</string>
+	<string name="confirm_password">تأیید گذرواژه</string>
 	<string name="category_activism">فعالیت</string>
 	<string name="category_all">همه</string>
 	<string name="category_art">هنر</string>
@@ -92,20 +106,31 @@
 	<string name="theme_dark">تاریک</string>
 	<string name="new_post">فرسته جدید</string>
 	<string name="button_reply">پاسخ</string>
+	<string name="button_reblog">تقویت</string>
 	<string name="button_favorite">برگزیده‌</string>
 	<string name="button_share">اشتراک‌گذاری</string>
+	<string name="add_media">افزودن رسانه</string>
+	<string name="add_poll">افزودن نظرسنجی</string>
 	<string name="emoji">ایموجی</string>
 	<string name="my_profile">نمایه من</string>
 	<string name="clear">پاک‌کردن</string>
 	<string name="download">بارگیری</string>
+	<string name="open_settings">باز کردن تنظیمات</string>
+	<string name="downloading">درحال بارگیری…</string>
+	<string name="follows_you">پی‌گیرتان است</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<string name="time_now">اکنون</string>
 	<string name="post_info_reblogs">تقویت‌ها</string>
 	<string name="post_info_favorites">علاقه‌مندی‌ها</string>
+	<string name="last_edit_at_x">آخرین ویرایش %s</string>
 	<string name="time_just_now">همين الان</string>
 	<string name="edit_original_post">فرستهٔ اصلی</string>
+	<string name="edit_text_edited">متن ویرایش شد</string>
+	<string name="edit_poll_added">نظرسنجی اضافه شد</string>
 	<string name="edit_poll_edited">نظرسنجی ویرایش شد</string>
+	<string name="edit_poll_removed">نظرسنجی برداشته شد</string>
 	<string name="edit_media_added">رسانه اضافه شد</string>
+	<string name="edit_media_removed">رسانه برداشته شد</string>
 	<string name="edit_multiple_changed">فرسته ویرایش شد</string>
 	<string name="edit">ویرایش</string>
 	<string name="upload_failed">بارگذاری ناموفق بود</string>
@@ -126,12 +151,18 @@
 	<string name="server_filter_region_south_america">آمریکای جنوبی</string>
 	<string name="server_filter_region_africa">آفریقا</string>
 	<string name="server_filter_region_asia">آسیا</string>
+	<string name="server_filter_region_oceania">اقیانوسیه</string>
+	<string name="profile_setup">تنظیم نمایه</string>
 	<string name="follow_all">پی‌گیری همه</string>
 	<!-- %s is server domain -->
+	<string name="profile_bio">دربارهٔ شما</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<string name="save_changes">ذخیرهٔ تغییرات</string>
+	<string name="view_all">مشاهده همه</string>
 	<string name="profile_endorsed_accounts">حساب‌ها</string>
 	<string name="show">نمایش</string>
 	<string name="signup_or_login">یا</string>
+	<string name="learn_more">بیش‌تر بیاموزید</string>
 	<string name="welcome_to_mastodon">به ماستودون خوش آمدید</string>
 </resources>
