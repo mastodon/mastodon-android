@@ -12,21 +12,29 @@
 	<string name="in_reply_to">در پاسخ به %s</string>
 	<string name="notifications">اعلان‌ها</string>
 	<string name="user_followed_you">شما را دنبال می‌کند</string>
-	<string name="user_sent_follow_request">یک درخواست دنبال کردن برای شما ارسال کرد</string>
+	<string name="user_sent_follow_request">یک درخواست پی‌گیری برای شما ارسال کرد</string>
 	<string name="user_favorited">‫‬ فرسته‌تان را پسندید</string>
 	<string name="poll_ended">نظرسنجی به پایان رسید</string>
 	<string name="time_seconds">%dثانیه</string>
 	<string name="time_minutes">%dدقیقه</string>
 	<string name="time_hours">%dساعت</string>
 	<string name="time_days">%dروز</string>
-	<string name="share_toot_title">اشتراک‌گذاری</string>
+	<string name="share_toot_title">هم‌رسانی</string>
 	<string name="settings">تنظیمات</string>
 	<string name="publish">انتشار</string>
 	<string name="discard_draft">پیش‌نویس‌ کنار گذاشته شود؟</string>
 	<string name="discard">صرف‌نظر کردن</string>
 	<string name="cancel">لغو</string>
-	<string name="posts">پست‌ها</string>
-	<string name="posts_and_replies">پست‌ها و پاسخ‌ها</string>
+	<plurals name="followers">
+		<item quantity="one">پی‌گیرنده</item>
+		<item quantity="other">پی‌گیرندگان</item>
+	</plurals>
+	<plurals name="posts">
+		<item quantity="one">فرسته</item>
+		<item quantity="other">فرسته‌ها</item>
+	</plurals>
+	<string name="posts">فرسته‌ها</string>
+	<string name="posts_and_replies">فرسته‌ها و پاسخ‌ها</string>
 	<string name="media">رسانه</string>
 	<string name="profile_about">درباره</string>
 	<string name="button_follow">پی‌گیری</string>
@@ -74,6 +82,7 @@
 	<string name="search_people">افراد</string>
 	<string name="skip">بعدی</string>
 	<string name="notification_type_favorite">علاقه‌مندی‌ها</string>
+	<string name="notification_type_reblog">تقویت‌ها</string>
 	<string name="notification_type_poll">نظرسنجی‌ها</string>
 	<string name="choose_account">انتخاب حساب</string>
 	<string name="theme_auto">خودکار</string>
@@ -84,18 +93,40 @@
 	<string name="button_favorite">برگزیده‌</string>
 	<string name="button_share">اشتراک‌گذاری</string>
 	<string name="emoji">ایموجی</string>
+	<string name="my_profile">نمایه من</string>
 	<string name="clear">پاک‌کردن</string>
 	<string name="download">بارگیری</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<string name="time_now">اکنون</string>
+	<string name="post_info_reblogs">تقویت‌ها</string>
 	<string name="time_just_now">همين الان</string>
+	<string name="edit_poll_edited">نظرسنجی ویرایش شد</string>
+	<string name="edit_media_added">رسانه اضافه شد</string>
+	<string name="edit_multiple_changed">فرسته ویرایش شد</string>
 	<string name="edit">ویرایش</string>
+	<string name="upload_failed">بارگذاری ناموفق بود</string>
+	<string name="file_size_kb">%.2f کیلوبایت</string>
+	<string name="file_size_mb">%.2f مگابایت</string>
+	<string name="file_size_gb">%.2f گیگابایت</string>
 	<!-- %s is version like 1.2.3 -->
 	<!-- %s is version like 1.2.3 -->
 	<!-- %s is file size -->
 	<string name="install_update">نصب</string>
 	<string name="i_agree">موافقم</string>
+	<string name="add_bookmark">نشانک</string>
+	<string name="remove_bookmark">برداشتن نشانک</string>
+	<string name="bookmarks">نشانک‌ها</string>
+	<string name="server_filter_region_europe">اروپا</string>
+	<string name="server_filter_region_north_america">آمریکای شمالی</string>
+	<string name="server_filter_region_south_america">آمریکای جنوبی</string>
+	<string name="server_filter_region_africa">آفریقا</string>
+	<string name="server_filter_region_asia">آسیا</string>
+	<string name="follow_all">پی‌گیری همه</string>
 	<!-- %s is server domain -->
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<string name="profile_endorsed_accounts">حساب‌ها</string>
+	<string name="show">نمایش</string>
+	<string name="signup_or_login">یا</string>
+	<string name="welcome_to_mastodon">به ماستودون خوش آمدید</string>
 </resources>
