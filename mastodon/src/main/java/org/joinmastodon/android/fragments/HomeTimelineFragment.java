@@ -431,12 +431,7 @@ public class HomeTimelineFragment extends StatusListFragment{
 
 	private void updateUpdateState(GithubSelfUpdater.UpdateState state){
 		if(state!=GithubSelfUpdater.UpdateState.NO_UPDATE && state!=GithubSelfUpdater.UpdateState.CHECKING)
-			getToolbar().getMenu().findItem(R.id.settings).setIcon(R.drawable.ic_settings_24_badged);
-	}
-
-	@Override
-	protected boolean wantsToolbarMenuIconsTinted(){
-		return false;
+			getToolbar().getMenu().findItem(R.id.settings).setIcon(R.drawable.ic_settings_updateready_24px);
 	}
 
 	@Subscribe
