@@ -10,7 +10,7 @@
 	<string name="preparing_auth">درحال آماده‌سازی برای احرازهویت…</string>
 	<string name="finishing_auth">درحال تکمیل احرازهویت…</string>
 	<string name="in_reply_to">در پاسخ به %s</string>
-	<string name="notifications">اعلان‌ها</string>
+	<string name="notifications">آگاهی‌ها</string>
 	<string name="user_followed_you">شما را دنبال می‌کند</string>
 	<string name="user_sent_follow_request">یک درخواست پی‌گیری برای شما ارسال کرد</string>
 	<string name="user_favorited">‫‬ فرسته‌تان را پسندید</string>
@@ -83,6 +83,7 @@
 	<string name="sending_report">درحال ارسال گزارش…</string>
 	<string name="unfollow">پی‌نگرفتن</string>
 	<string name="back">بازگشت</string>
+	<string name="search_communities">نام کارساز یا نشانی</string>
 	<string name="instance_rules_title">قوانین کارساز</string>
 	<string name="signup_title">ایجاد حساب</string>
 	<string name="edit_photo">ویرایش</string>
@@ -102,6 +103,8 @@
 	<string name="category_tech">فناوری</string>
 	<!-- %s is the email address -->
 	<string name="resend">ارسال دوباره</string>
+	<string name="open_email_app">بازکردن کاره رایانامه</string>
+	<string name="content_warning">هشدار محتوا</string>
 	<string name="retry_upload">بارگذاری مجدد</string>
 	<string name="edit_image">ویرایش تصویر</string>
 	<string name="save">ذخیره</string>
@@ -110,6 +113,7 @@
 	<string name="search_all">همه</string>
 	<string name="search_people">افراد</string>
 	<string name="skip">بعدی</string>
+	<string name="notification_type_follow">پی‌گیرندگان جدید</string>
 	<string name="notification_type_favorite">علاقه‌مندی‌ها</string>
 	<string name="notification_type_reblog">تقویت‌ها</string>
 	<string name="notification_type_poll">نظرسنجی‌ها</string>
@@ -117,6 +121,10 @@
 	<string name="theme_auto">خودکار</string>
 	<string name="theme_light">روشن</string>
 	<string name="theme_dark">تاریک</string>
+	<string name="settings_notifications">آگاهی‌ها</string>
+	<string name="settings_privacy_policy">سیاست محرمانگی</string>
+	<string name="settings_clear_cache">پاک‌سازی انباره محتوا</string>
+	<string name="media_cache_cleared">انباره محتوا پاک‌سازی شد</string>
 	<string name="more_options">گزینه‌های بیشتر</string>
 	<string name="hide_content">نهفتن محتوا</string>
 	<string name="new_post">فرسته جدید</string>
@@ -190,6 +198,7 @@
 	<string name="remove_bookmark">برداشتن نشانک</string>
 	<string name="bookmarks">نشانک‌ها</string>
 	<string name="your_favorites">علاقه‌مندی های شما</string>
+	<string name="server_url">نشانی کارساز</string>
 	<string name="server_filter_any_language">هر زبانی</string>
 	<string name="server_filter_region_europe">اروپا</string>
 	<string name="server_filter_region_north_america">آمریکای شمالی</string>
