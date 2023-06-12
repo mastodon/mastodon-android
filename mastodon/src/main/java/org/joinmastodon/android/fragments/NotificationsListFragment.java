@@ -200,7 +200,7 @@ public class NotificationsListFragment extends BaseStatusListFragment<Notificati
 					}
 				}
 			}
-		});
+		}, 0);
 	}
 
 	@Override

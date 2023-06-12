@@ -34,6 +34,7 @@ import org.joinmastodon.android.ui.AccountSwitcherSheet;
 import org.joinmastodon.android.ui.OutlineProviders;
 import org.joinmastodon.android.ui.utils.UiUtils;
 import org.joinmastodon.android.ui.views.TabBar;
+import org.joinmastodon.android.utils.ObjectIdComparator;
 import org.parceler.Parcels;
 
 import java.util.ArrayList;
@@ -321,11 +322,11 @@ public class HomeFragment extends AppKitFragment implements OnBackPressedListene
 
 	@SuppressLint("DefaultLocale")
 	private void updateUnreadCount(List<Notification> notifications, String marker){
-		if(notifications.isEmpty() || notifications.get(0).id.compareTo(marker)<=0){
+		if(notifications.isEmpty() || ObjectIdComparator.INSTANCE.compare(notifications.get(0).id, marker)<=0){
 			notificationsBadge.setVisibility(View.GONE);
 		}else{
 			notificationsBadge.setVisibility(View.VISIBLE);
-			if(notifications.get(notifications.size()-1).id.compareTo(marker)>0){
+			if(ObjectIdComparator.INSTANCE.compare(notifications.get(notifications.size()-1).id, marker)>0){
 				notificationsBadge.setText(String.format("%d+", notifications.size()));
 			}else{
 				int count=0;
