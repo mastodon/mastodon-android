@@ -41,7 +41,7 @@
 	<string name="button_follow">پی‌گیری</string>
 	<string name="edit_profile">ویرایش نمایه</string>
 	<string name="share_user">اشتراک‌گذاری %s</string>
-	<string name="mute_user">بی‌صدا %s</string>
+	<string name="mute_user">خموشی %s</string>
 	<string name="unmute_user">ناخموشی ‎%s</string>
 	<string name="block_user">مسدود %s</string>
 	<string name="unblock_user">رفع مسدودیت %s</string>
@@ -54,7 +54,7 @@
 	<string name="saving">درحال ذخیره‌سازی…</string>
 	<string name="poll_closed">پایان‌یافته</string>
 	<string name="confirm_mute_title">خموشی حساب</string>
-	<string name="do_mute">بی‌صدا</string>
+	<string name="do_mute">خموش</string>
 	<string name="confirm_unmute_title">لغو خموشی حساب</string>
 	<string name="do_unmute">ناخموشی</string>
 	<string name="confirm_block_title">مسدود کردن حساب</string>
@@ -138,6 +138,7 @@
 	<string name="add_media">افزودن رسانه</string>
 	<string name="add_poll">افزودن نظرسنجی</string>
 	<string name="emoji">ایموجی</string>
+	<string name="home_timeline">خط زمانی خانگی</string>
 	<string name="my_profile">نمایه من</string>
 	<string name="follow_user">پی‌گیری %s</string>
 	<string name="unfollowed_user">پی‌نگرفتن ‎%s</string>
@@ -146,9 +147,11 @@
 	<string name="profile_picture">تصویر نمایه</string>
 	<string name="download">بارگیری</string>
 	<string name="open_settings">باز کردن تنظیمات</string>
+	<string name="error_saving_file">خطا هنگام ذخیرهٔ کردن پرونده</string>
 	<string name="file_saved">پرونده ذخیره شد</string>
 	<string name="downloading">درحال بارگیری…</string>
 	<string name="local_timeline">اجتماع</string>
+	<string name="see_new_posts">فرسته‌های جدید را ببینید</string>
 	<string name="follows_you">پی‌گیرتان است</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<plurals name="x_favorites">
@@ -168,6 +171,7 @@
 		<item quantity="one">%d دقیقه پیش</item>
 		<item quantity="other">%d دقیقه پیش</item>
 	</plurals>
+	<string name="edited_timestamp">%s را ویراست</string>
 	<string name="edit_original_post">فرستهٔ اصلی</string>
 	<string name="edit_text_edited">متن ویرایش شد</string>
 	<string name="edit_spoiler_added">هشدار محتوا افزوده شد</string>
