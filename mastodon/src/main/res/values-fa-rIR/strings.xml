@@ -9,6 +9,7 @@
 	<string name="ok">تأیید</string>
 	<string name="preparing_auth">درحال آماده‌سازی برای احرازهویت…</string>
 	<string name="finishing_auth">درحال تکمیل احرازهویت…</string>
+	<string name="user_boosted">‫%s‬ تقویت کرد</string>
 	<string name="in_reply_to">در پاسخ به %s</string>
 	<string name="notifications">آگاهی‌ها</string>
 	<string name="user_followed_you">شما را دنبال می‌کند</string>
@@ -46,12 +47,22 @@
 	<string name="block_user">مسدود %s</string>
 	<string name="unblock_user">رفع مسدودیت %s</string>
 	<string name="report_user">گزارش کردن %s</string>
+	<string name="block_domain">مسدود کردن %s</string>
+	<string name="unblock_domain">رفع مسدودیت %s</string>
+	<plurals name="x_posts">
+		<item quantity="one">%,d فرسته</item>
+		<item quantity="other">%,d فرسته‌ها</item>
+	</plurals>
 	<string name="profile_joined">عضو شد</string>
 	<string name="done">انجام شد</string>
 	<string name="loading">درحال بارگذاری…</string>
 	<string name="field_label">برچسب</string>
 	<string name="field_content">محتوا</string>
 	<string name="saving">درحال ذخیره‌سازی…</string>
+	<plurals name="x_minutes">
+		<item quantity="one">%d دقیقه</item>
+		<item quantity="other">%d دقیقه</item>
+	</plurals>
 	<string name="poll_closed">پایان‌یافته</string>
 	<string name="confirm_mute_title">خموشی حساب</string>
 	<string name="do_mute">خموش</string>
@@ -59,7 +70,7 @@
 	<string name="do_unmute">ناخموشی</string>
 	<string name="confirm_block_title">مسدود کردن حساب</string>
 	<string name="confirm_block_domain_title">مسدود کردن دامنهٔ</string>
-	<string name="do_block">مسدود</string>
+	<string name="do_block">مسدود کردن</string>
 	<string name="confirm_unblock_title">رفع مسدودی حساب</string>
 	<string name="confirm_unblock_domain_title">رفع مسدودیت دامنهٔ</string>
 	<string name="do_unblock">رفع مسدودیت</string>
@@ -68,19 +79,30 @@
 	<string name="action_vote">رأی</string>
 	<string name="delete">حذف</string>
 	<string name="confirm_delete_title">حذف فرسته</string>
+	<string name="notification_channel_audio_player">بازپخش صدا</string>
 	<string name="play">پخش</string>
 	<string name="pause">توقف</string>
-	<string name="log_out">خروج</string>
+	<string name="log_out">خروج از حساب</string>
 	<string name="add_account">افزودن حساب</string>
 	<string name="search_hint">جستجو</string>
 	<string name="hashtags">برچسب‌ها</string>
 	<string name="news">اخبار</string>
 	<string name="for_you">برای شما</string>
 	<string name="all_notifications">همه</string>
+	<string name="mentions">نام‌بردن‌ها</string>
 	<string name="report_title">گزارش کردن %s</string>
+	<string name="report_choose_reason_subtitle">منطبق‌ترین را انتخاب کنید</string>
 	<string name="report_reason_personal">من این را دوست ندارم</string>
 	<string name="report_reason_spam">این هرزنامه است</string>
+	<string name="report_reason_violation">قوانین کارساز را نقض می‌کند</string>
+	<string name="report_reason_violation_subtitle">شما آگاه هستید که قوانین خاصی را زیر پا می‌گذارد</string>
+	<string name="report_reason_other">به خاطر چیز دیگری است</string>
+	<string name="report_reason_other_subtitle">این موضوع در دسته‌بندی‌های دیگر نمی‌گنجد</string>
+	<string name="report_choose_rule">کدام قوانین نقض شده‌اند؟</string>
+	<string name="report_choose_rule_subtitle">همهٔ موارد انجام شده را برگزینید</string>
+	<string name="report_choose_posts_subtitle">همهٔ موارد انجام شده را برگزینید</string>
 	<string name="sending_report">درحال ارسال گزارش…</string>
+	<string name="unfollow_user">پی‌نگرفتن ‎%s</string>
 	<string name="unfollow">پی‌نگرفتن</string>
 	<string name="back">بازگشت</string>
 	<string name="search_communities">نام کارساز یا نشانی</string>
@@ -119,6 +141,7 @@
 	<string name="notification_type_follow">پی‌گیران جدید</string>
 	<string name="notification_type_favorite">برگزیده‌ها</string>
 	<string name="notification_type_reblog">تقویت‌ها</string>
+	<string name="notification_type_mention">نام‌بردن‌ها</string>
 	<string name="notification_type_poll">نظرسنجی‌ها</string>
 	<string name="choose_account">انتخاب حساب</string>
 	<string name="theme_auto">خودکار</string>
@@ -130,6 +153,7 @@
 	<string name="settings_privacy_policy">سیاست محرمانگی</string>
 	<string name="settings_clear_cache">پاک‌سازی انباره محتوا</string>
 	<string name="media_cache_cleared">انباره محتوا پاک‌سازی شد</string>
+	<string name="confirm_log_out">آیا مطمئنید که می خواهید از سامانه خارج شوید؟</string>
 	<string name="more_options">گزینه‌های بیشتر</string>
 	<string name="hide_content">نهفتن محتوا</string>
 	<string name="new_post">فرسته جدید</string>
@@ -162,10 +186,19 @@
 	<string name="button_follow_pending">منتظر</string>
 	<string name="follows_you">پی‌گیرتان است</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
+	<plurals name="x_followers">
+		<item quantity="one">%,d پی‌گیر</item>
+		<item quantity="other">%,d پی‌گیران</item>
+	</plurals>
 	<plurals name="x_favorites">
 		<item quantity="one">%,d برگزیده</item>
 		<item quantity="other">%,d برگزیده‌ها</item>
 	</plurals>
+	<plurals name="x_reblogs">
+		<item quantity="one">%,d تقویت</item>
+		<item quantity="other">%,d تقویت‌ها</item>
+	</plurals>
+	<string name="timestamp_via_app">%1$s از طریق %2$s</string>
 	<string name="time_now">اکنون</string>
 	<string name="post_info_reblogs">تقویت‌ها</string>
 	<string name="post_info_favorites">برگزیده‌ها</string>
