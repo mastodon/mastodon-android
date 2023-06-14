@@ -70,20 +70,25 @@
 	</plurals>
 	<string name="poll_closed">پایان‌یافته</string>
 	<string name="confirm_mute_title">خموشی حساب</string>
+	<string name="confirm_mute">خموشی %s را تایید کنید</string>
 	<string name="do_mute">خموش</string>
 	<string name="confirm_unmute_title">لغو خموشی حساب</string>
+	<string name="confirm_unmute">ناخموشی %s را تایید کنید</string>
 	<string name="do_unmute">ناخموشی</string>
 	<string name="confirm_block_title">مسدود کردن حساب</string>
 	<string name="confirm_block_domain_title">مسدود کردن دامنهٔ</string>
+	<string name="confirm_block">مسدود کردن %s را تایید کنید</string>
 	<string name="do_block">مسدود کردن</string>
 	<string name="confirm_unblock_title">رفع مسدودی حساب</string>
 	<string name="confirm_unblock_domain_title">رفع مسدودیت دامنهٔ</string>
+	<string name="confirm_unblock">رفع مسدودیت %s را تایید کنید</string>
 	<string name="do_unblock">رفع مسدودیت</string>
 	<string name="button_muted">خموش</string>
 	<string name="button_blocked">مسدود شده</string>
 	<string name="action_vote">رأی</string>
 	<string name="delete">حذف</string>
 	<string name="confirm_delete_title">حذف فرسته</string>
+	<string name="deleting">درحال حذف…</string>
 	<string name="notification_channel_audio_player">بازپخش صدا</string>
 	<string name="play">پخش</string>
 	<string name="pause">توقف</string>
@@ -98,6 +103,7 @@
 	<string name="report_title">گزارش کردن %s</string>
 	<string name="report_choose_reason_subtitle">منطبق‌ترین را انتخاب کنید</string>
 	<string name="report_reason_personal">من این را دوست ندارم</string>
+	<string name="report_reason_personal_subtitle">این چیزی نیست که بخواهید ببینید</string>
 	<string name="report_reason_spam">این هرزنامه است</string>
 	<string name="report_reason_violation">قوانین کارساز را نقض می‌کند</string>
 	<string name="report_reason_violation_subtitle">شما آگاه هستید که قوانین خاصی را زیر پا می‌گذارد</string>
@@ -106,9 +112,13 @@
 	<string name="report_choose_rule">کدام قوانین نقض شده‌اند؟</string>
 	<string name="report_choose_rule_subtitle">همهٔ موارد انجام شده را برگزینید</string>
 	<string name="report_choose_posts_subtitle">همهٔ موارد انجام شده را برگزینید</string>
+	<string name="report_comment_title">آیا چیز دیگری هست که ما باید بدانیم؟</string>
+	<string name="report_comment_hint">توضیحات اضافه</string>
 	<string name="sending_report">درحال ارسال گزارش…</string>
+	<string name="report_sent_title">ممنون بابت گزارش، ما آن را بررسی خواهیم کرد.</string>
 	<string name="unfollow_user">پی‌نگرفتن ‎%s</string>
 	<string name="unfollow">پی‌نگرفتن</string>
+	<string name="report_personal_title">نمی‌خواهید این را ببینید؟</string>
 	<string name="back">بازگشت</string>
 	<string name="search_communities">نام کارساز یا نشانی</string>
 	<string name="instance_rules_title">قوانین کارساز</string>
@@ -119,12 +129,14 @@
 	<string name="email">رایانامه</string>
 	<string name="password">گذرواژه</string>
 	<string name="confirm_password">تأیید گذرواژه</string>
+	<string name="category_academia">دانشگاه</string>
 	<string name="category_activism">فعالیت</string>
 	<string name="category_all">همه</string>
 	<string name="category_art">هنر</string>
 	<string name="category_food">غذا</string>
 	<string name="category_games">بازی‌ها</string>
 	<string name="category_general">عمومی</string>
+	<string name="category_journalism">روزنامه نگاری</string>
 	<string name="category_lgbt">LGBT</string>
 	<string name="category_music">موسیقی</string>
 	<string name="category_regional">منطقه‌ای</string>
@@ -140,6 +152,7 @@
 	<string name="retry_upload">بارگذاری مجدد</string>
 	<string name="edit_image">ویرایش تصویر</string>
 	<string name="save">ذخیره</string>
+	<string name="add_alt_text">اضافه کردن متن جایگزین</string>
 	<string name="visibility_public">عمومی</string>
 	<string name="visibility_followers_only">فقط پی‌گیران</string>
 	<string name="search_all">همه</string>
@@ -154,6 +167,9 @@
 	<string name="theme_auto">خودکار</string>
 	<string name="theme_light">روشن</string>
 	<string name="theme_dark">تاریک</string>
+	<string name="theme_true_black">حالت سیاه درست</string>
+	<string name="settings_gif">پخش ایموجی و آواتار های متحرک</string>
+	<string name="settings_custom_tabs">استفاده از مرورگر درون برنامه‌ای</string>
 	<string name="settings_notifications">آگاهی‌ها</string>
 	<string name="notify_anyone">هرکسی</string>
 	<string name="notify_none">هیچ‌کس</string>
@@ -163,6 +179,7 @@
 	<string name="settings_tos">شرایط استفاده از خدمات</string>
 	<string name="settings_privacy_policy">سیاست محرمانگی</string>
 	<string name="settings_clear_cache">پاک‌سازی انباره محتوا</string>
+	<string name="settings_app_version">ماستودون برای اندروید v%1$s (%2$d)</string>
 	<string name="media_cache_cleared">انباره محتوا پاک‌سازی شد</string>
 	<string name="confirm_log_out">آیا مطمئنید که می خواهید از سامانه خارج شوید؟</string>
 	<string name="sensitive_content">محتوای حساس</string>
@@ -245,6 +262,7 @@
 	<string name="file_size_mb">%.2f مگابایت</string>
 	<string name="file_size_gb">%.2f گیگابایت</string>
 	<string name="file_upload_progress">%1$s از %2$s</string>
+	<string name="file_upload_time_remaining">%s باقی مانده</string>
 	<string name="upload_processing">در حال پردازش…</string>
 	<!-- %s is version like 1.2.3 -->
 	<string name="update_available">ماستودون برای اندروید %s آماده بارگیری است.</string>
@@ -267,6 +285,7 @@
 	<string name="server_filter_any_language">هر زبانی</string>
 	<string name="server_filter_instant_signup">ثبت نام فوری</string>
 	<string name="server_filter_manual_review">بررسی دستی</string>
+	<string name="server_filter_any_signup_speed">هر سرعت ثبت نام</string>
 	<string name="server_filter_region_europe">اروپا</string>
 	<string name="server_filter_region_north_america">آمریکای شمالی</string>
 	<string name="server_filter_region_south_america">آمریکای جنوبی</string>
@@ -275,20 +294,24 @@
 	<string name="server_filter_region_oceania">اقیانوسیه</string>
 	<string name="not_accepting_new_members">عدم پذیرش اعضای جدید</string>
 	<string name="signup_passwords_dont_match">گذرواژه‌ها مطابقت ندارند</string>
+	<string name="pick_server_for_me">برای من انتخاب کن</string>
 	<string name="profile_add_row">افزودن سطر</string>
 	<string name="profile_setup">تنظیم نمایه</string>
 	<string name="popular_on_mastodon">محبوب در ماستودون</string>
 	<string name="follow_all">پی‌گیری همه</string>
 	<string name="server_rules_disagree">مخالفم</string>
+	<string name="privacy_policy_explanation">TL;DR: ما چیزی را جمع‌آوری یا پردازش نمی‌کنیم.</string>
 	<!-- %s is server domain -->
 	<string name="server_policy_disagree">با %s مخالفم</string>
 	<string name="profile_bio">دربارهٔ شما</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
+	<string name="sending_follows">پی‌گیری کاربران…</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
 	<string name="spoiler_show">به هرصورت نشان داده شود</string>
 	<string name="spoiler_hide">نهفتن دوباره</string>
 	<string name="poll_multiple_choice">یک یا چند مورد را انتخاب کنید</string>
 	<string name="save_changes">ذخیرهٔ تغییرات</string>
+	<string name="profile_featured"> پيشنهادي</string>
 	<string name="profile_timeline">خط زمانی</string>
 	<string name="view_all">مشاهده همه</string>
 	<string name="profile_endorsed_accounts">حساب‌ها</string>
