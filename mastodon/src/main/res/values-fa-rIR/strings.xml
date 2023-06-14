@@ -6,6 +6,7 @@
 	<string name="next">بعدی</string>
 	<string name="loading_instance">درحال بازیابی اطلاعات سرور…</string>
 	<string name="error">خطا</string>
+	<string name="not_a_mastodon_instance">%s به نظر نمی رسد یک کارساز ماستودون باشد.</string>
 	<string name="ok">تأیید</string>
 	<string name="preparing_auth">درحال آماده‌سازی برای احرازهویت…</string>
 	<string name="finishing_auth">درحال تکمیل احرازهویت…</string>
@@ -126,8 +127,10 @@
 	<string name="category_tech">فناوری</string>
 	<string name="confirm_email_title">صندوق ورودیتان را بررسی کنید</string>
 	<!-- %s is the email address -->
+	<string name="confirm_email_didnt_get">پیوندی نگرفتید؟</string>
 	<string name="resend">ارسال دوباره</string>
 	<string name="open_email_app">بازکردن کاره رایانامه</string>
+	<string name="resent_email">رایانامه تایید فرستاده شد</string>
 	<string name="content_warning">هشدار محتوا</string>
 	<string name="add_image_description">افزودن توضیحات تصویر…</string>
 	<string name="retry_upload">بارگذاری مجدد</string>
@@ -150,6 +153,7 @@
 	<string name="settings_notifications">آگاهی‌ها</string>
 	<string name="notify_none">هیچ‌کس</string>
 	<string name="settings_account">تنظیمات حساب</string>
+	<string name="settings_tos">شرایط استفاده از خدمات</string>
 	<string name="settings_privacy_policy">سیاست محرمانگی</string>
 	<string name="settings_clear_cache">پاک‌سازی انباره محتوا</string>
 	<string name="media_cache_cleared">انباره محتوا پاک‌سازی شد</string>
@@ -250,6 +254,7 @@
 	<string name="login_title">خوش برگشتید</string>
 	<string name="server_url">نشانی کارساز</string>
 	<string name="server_filter_any_language">هر زبانی</string>
+	<string name="server_filter_manual_review">بررسی دستی</string>
 	<string name="server_filter_region_europe">اروپا</string>
 	<string name="server_filter_region_north_america">آمریکای شمالی</string>
 	<string name="server_filter_region_south_america">آمریکای جنوبی</string>
@@ -282,4 +287,5 @@
 	<string name="signup_or_login">یا</string>
 	<string name="learn_more">بیش‌تر بیاموزید</string>
 	<string name="welcome_to_mastodon">به ماستودون خوش آمدید</string>
+	<string name="what_are_servers">کارساز شما کجاست؟</string>
 </resources>
