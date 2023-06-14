@@ -97,6 +97,7 @@
 	<string name="category_art">هنر</string>
 	<string name="category_food">غذا</string>
 	<string name="category_games">بازی‌ها</string>
+	<string name="category_general">عمومی</string>
 	<string name="category_lgbt">LGBT</string>
 	<string name="category_music">موسیقی</string>
 	<string name="category_regional">منطقه‌ای</string>
@@ -196,6 +197,7 @@
 	<string name="file_size_kb">%.2f کیلوبایت</string>
 	<string name="file_size_mb">%.2f مگابایت</string>
 	<string name="file_size_gb">%.2f گیگابایت</string>
+	<string name="file_upload_progress">%1$s از %2$s</string>
 	<string name="upload_processing">در حال پردازش…</string>
 	<!-- %s is version like 1.2.3 -->
 	<string name="update_available">ماستودون برای اندروید %s آماده بارگیری است.</string>
@@ -212,6 +214,7 @@
 	<string name="remove_bookmark">برداشتن نشانک</string>
 	<string name="bookmarks">نشانک‌ها</string>
 	<string name="your_favorites">برگزیده های شما</string>
+	<string name="login_title">خوش برگشتید</string>
 	<string name="server_url">نشانی کارساز</string>
 	<string name="server_filter_any_language">هر زبانی</string>
 	<string name="server_filter_region_europe">اروپا</string>
@@ -225,7 +228,9 @@
 	<string name="profile_setup">تنظیم نمایه</string>
 	<string name="popular_on_mastodon">محبوب در ماستودون</string>
 	<string name="follow_all">پی‌گیری همه</string>
+	<string name="server_rules_disagree">مخالفم</string>
 	<!-- %s is server domain -->
+	<string name="server_policy_disagree">با %s مخالفم</string>
 	<string name="profile_bio">دربارهٔ شما</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
