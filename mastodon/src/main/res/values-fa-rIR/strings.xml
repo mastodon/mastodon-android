@@ -71,6 +71,23 @@
 		<item quantity="one">%d ساعت</item>
 		<item quantity="other">%d ساعت</item>
 	</plurals>
+	<plurals name="x_days">
+		<item quantity="one">%d روز</item>
+		<item quantity="other">%d روز</item>
+	</plurals>
+	<string name="compose_poll_duration">مدت زمان: %s</string>
+	<plurals name="x_minutes_left">
+		<item quantity="one">%d دقیقه باقی‌مانده</item>
+		<item quantity="other">%d دقیقه باقی‌مانده</item>
+	</plurals>
+	<plurals name="x_days_left">
+		<item quantity="one">‏%d روز باقی‌مانده</item>
+		<item quantity="other">‏%d روز باقی‌مانده</item>
+	</plurals>
+	<plurals name="x_voters">
+		<item quantity="one">%,d رای‌دهنده</item>
+		<item quantity="other">%,d رای‌دهنده</item>
+	</plurals>
 	<string name="poll_closed">پایان‌یافته</string>
 	<string name="confirm_mute_title">خموشی حساب</string>
 	<string name="confirm_mute">خموشی %s را تایید کنید</string>
@@ -89,6 +106,7 @@
 	<string name="button_muted">خموش</string>
 	<string name="button_blocked">مسدود شده</string>
 	<string name="action_vote">رأی</string>
+	<string name="tap_to_reveal">ضربه برای آشکار کردن</string>
 	<string name="delete">حذف</string>
 	<string name="confirm_delete_title">حذف فرسته</string>
 	<string name="confirm_delete">آیا مطمئنید که می‌خواهید این فرسته را حذف کنید؟</string>
@@ -229,10 +247,13 @@
 	<string name="local_timeline">اجتماع</string>
 	<string name="dismiss">دور انداختن</string>
 	<string name="see_new_posts">فرسته‌های جدید را ببینید</string>
+	<string name="load_missing_posts">بارگذاری فرسته‌های گم شده</string>
 	<string name="follow_back">پی‌گیری متقابل</string>
 	<string name="button_follow_pending">منتظر</string>
 	<string name="follows_you">پی‌گیرتان است</string>
 	<string name="manually_approves_followers">به‌صورت دستی پی‌گیران را تایید می‌کند</string>
+	<string name="current_account">حساب کنونی</string>
+	<string name="log_out_account">خروج از %s</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<plurals name="x_followers">
 		<item quantity="one">%,d پی‌گیر</item>
@@ -332,6 +353,7 @@
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<string name="sending_follows">پی‌گیری کاربران…</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<string name="signup_username_taken">این نام کاربری گرفته شده است.</string>
 	<string name="spoiler_show">به هرصورت نشان داده شود</string>
 	<string name="spoiler_hide">نهفتن دوباره</string>
 	<string name="poll_multiple_choice">یک یا چند مورد را انتخاب کنید</string>
