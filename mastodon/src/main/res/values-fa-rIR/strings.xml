@@ -80,6 +80,10 @@
 		<item quantity="one">%d دقیقه باقی‌مانده</item>
 		<item quantity="other">%d دقیقه باقی‌مانده</item>
 	</plurals>
+	<plurals name="x_hours_left">
+		<item quantity="one">%d ساعت باقی‌مانده</item>
+		<item quantity="other">%d ساعت باقی‌مانده</item>
+	</plurals>
 	<plurals name="x_days_left">
 		<item quantity="one">‏%d روز باقی‌مانده</item>
 		<item quantity="other">‏%d روز باقی‌مانده</item>
@@ -106,7 +110,7 @@
 	<string name="button_muted">خموش</string>
 	<string name="button_blocked">مسدود شده</string>
 	<string name="action_vote">رأی</string>
-	<string name="tap_to_reveal">ضربه برای آشکار کردن</string>
+	<string name="tap_to_reveal">برای آشکار کردن ضربه بزنید</string>
 	<string name="delete">حذف</string>
 	<string name="confirm_delete_title">حذف فرسته</string>
 	<string name="confirm_delete">آیا مطمئنید که می‌خواهید این فرسته را حذف کنید؟</string>
@@ -144,6 +148,7 @@
 	<string name="unfollow">پی‌نگرفتن</string>
 	<string name="report_personal_title">نمی‌خواهید این را ببینید؟</string>
 	<string name="back">بازگشت</string>
+	<string name="instance_catalog_subtitle">کارسازی را بر اساس علایق، منطقه یا یک هدف کلی انتخاب کنید. شما همچنان می توانید بدون در نظر گرفتن کارساز،با همه ارتباط برقرار کنید.</string>
 	<string name="search_communities">نام کارساز یا نشانی</string>
 	<string name="instance_rules_title">قوانین کارساز</string>
 	<string name="signup_title">ایجاد حساب</string>
@@ -177,6 +182,7 @@
 	<string name="edit_image">ویرایش تصویر</string>
 	<string name="save">ذخیره</string>
 	<string name="add_alt_text">اضافه کردن متن جایگزین</string>
+	<string name="alt_text_hint">به‌عنوان مثال سگی که با چشمانی ریز با دوربین به اطراف خود نگاه می‌کند.</string>
 	<string name="visibility_public">عمومی</string>
 	<string name="visibility_followers_only">فقط پی‌گیران</string>
 	<string name="visibility_private">فقط افرادی که من آنها را نام می‌برم</string>
@@ -209,11 +215,14 @@
 	<string name="settings_contribute">کمک به ماستودون</string>
 	<string name="settings_tos">شرایط استفاده از خدمات</string>
 	<string name="settings_privacy_policy">سیاست محرمانگی</string>
+	<string name="settings_spicy">منطقه تند</string>
 	<string name="settings_clear_cache">پاک‌سازی انباره محتوا</string>
 	<string name="settings_app_version">ماستودون برای اندروید v%1$s (%2$d)</string>
 	<string name="media_cache_cleared">انباره محتوا پاک‌سازی شد</string>
 	<string name="confirm_log_out">آیا مطمئنید که می خواهید از سامانه خارج شوید؟</string>
 	<string name="sensitive_content">محتوای حساس</string>
+	<string name="sensitive_content_explain">نویسنده این رسانه را حساس علامت‌زده است. برای آشکار کردن ضربه بزنید.</string>
+	<string name="media_hidden">برای آشکار کردن ضربه بزنید</string>
 	<string name="avatar_description">به نمایه %s بروید</string>
 	<string name="more_options">گزینه‌های بیشتر</string>
 	<string name="hide_content">نهفتن محتوا</string>
@@ -228,15 +237,18 @@
 	<string name="emoji">ایموجی</string>
 	<string name="home_timeline">خط زمانی خانگی</string>
 	<string name="my_profile">نمایه من</string>
+	<string name="media_viewer">نمایش‌گر رسانه</string>
 	<string name="follow_user">پی‌گیری %s</string>
 	<string name="unfollowed_user">پی‌نگرفتن ‎%s</string>
 	<string name="followed_user">شما اکنون %s را پی می‌گیرید</string>
+	<string name="following_user_requested">درخواست پی‌گیری %s شد</string>
 	<string name="open_in_browser">بازکردن در مرورگر</string>
 	<string name="hide_boosts_from_user">نهفتن تقویت‌های ‎%s</string>
 	<string name="show_boosts_from_user">نمایش تقویت‌های ‎%s</string>
 	<string name="signup_reason">چرا می‌خواهید عضو شوید؟</string>
 	<string name="signup_reason_note">این برای بررسی درخواست شما به ما کمک خواهد کرد.</string>
 	<string name="clear">پاک‌کردن</string>
+	<string name="profile_header">تصویر سربرگ</string>
 	<string name="profile_picture">تصویر نمایه</string>
 	<string name="download">بارگیری</string>
 	<string name="permission_required">نیازمند دسترسی است</string>
@@ -245,6 +257,9 @@
 	<string name="file_saved">پرونده ذخیره شد</string>
 	<string name="downloading">درحال بارگیری…</string>
 	<string name="local_timeline">اجتماع</string>
+	<string name="trending_hashtags_info_banner">این ها برچسب‌هایی هستند که در گوشه ای از ماستودون مورد توجه شما قرار می گیرند.</string>
+	<string name="trending_links_info_banner">این‌ها اخباری است که در گوشه‌ای از ماستودون شما بیشتر به اشتراک گذاشته می شود.</string>
+	<string name="local_timeline_info_banner">این‌ها جدیدترین فرسته‌های افرادی هستند که از کارسازهای ماستودون مشابه شما استفاده می کنند.</string>
 	<string name="dismiss">دور انداختن</string>
 	<string name="see_new_posts">فرسته‌های جدید را ببینید</string>
 	<string name="load_missing_posts">بارگذاری فرسته‌های گم شده</string>
