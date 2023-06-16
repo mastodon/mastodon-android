@@ -42,6 +42,7 @@
 	<string name="profile_about">درباره</string>
 	<string name="button_follow">پی‌گیری</string>
 	<string name="edit_profile">ویرایش نمایه</string>
+	<string name="mention_user">نام‌بردن از ‎%s</string>
 	<string name="share_user">اشتراک‌گذاری %s</string>
 	<string name="mute_user">خموشی %s</string>
 	<string name="unmute_user">ناخموشی ‎%s</string>
@@ -60,6 +61,7 @@
 	<string name="field_label">برچسب</string>
 	<string name="field_content">محتوا</string>
 	<string name="saving">درحال ذخیره‌سازی…</string>
+	<string name="poll_option_hint">گزینه %d</string>
 	<plurals name="x_minutes">
 		<item quantity="one">%d دقیقه</item>
 		<item quantity="other">%d دقیقه</item>
@@ -111,6 +113,7 @@
 	<string name="report_reason_other_subtitle">این موضوع در دسته‌بندی‌های دیگر نمی‌گنجد</string>
 	<string name="report_choose_rule">کدام قوانین نقض شده‌اند؟</string>
 	<string name="report_choose_rule_subtitle">همهٔ موارد انجام شده را برگزینید</string>
+	<string name="report_choose_posts">آیا فرسته‌ای وجود دارد که از این گزارش پشتیبانی کند؟</string>
 	<string name="report_choose_posts_subtitle">همهٔ موارد انجام شده را برگزینید</string>
 	<string name="report_comment_title">آیا چیز دیگری هست که ما باید بدانیم؟</string>
 	<string name="report_comment_hint">توضیحات اضافه</string>
@@ -156,8 +159,10 @@
 	<string name="add_alt_text">اضافه کردن متن جایگزین</string>
 	<string name="visibility_public">عمومی</string>
 	<string name="visibility_followers_only">فقط پی‌گیران</string>
+	<string name="visibility_private">فقط افرادی که من آنها را نام می‌برم</string>
 	<string name="search_all">همه</string>
 	<string name="search_people">افراد</string>
+	<string name="recent_searches">جست‌وجوهای اخیر</string>
 	<string name="skip">بعدی</string>
 	<string name="notification_type_follow">پی‌گیران جدید</string>
 	<string name="notification_type_favorite">برگزیده‌ها</string>
@@ -203,6 +208,7 @@
 	<string name="my_profile">نمایه من</string>
 	<string name="follow_user">پی‌گیری %s</string>
 	<string name="unfollowed_user">پی‌نگرفتن ‎%s</string>
+	<string name="followed_user">شما اکنون %s را پی می‌گیرید</string>
 	<string name="open_in_browser">بازکردن در مرورگر</string>
 	<string name="hide_boosts_from_user">نهفتن تقویت‌های ‎%s</string>
 	<string name="show_boosts_from_user">نمایش تقویت‌های ‎%s</string>
@@ -270,6 +276,7 @@
 	<string name="file_size_gb">%.2f گیگابایت</string>
 	<string name="file_upload_progress">%1$s از %2$s</string>
 	<string name="file_upload_time_remaining">%s باقی مانده</string>
+	<string name="upload_error_connection_lost">اتصال دستگاه شما به اینترنت از دست رفت</string>
 	<string name="upload_processing">در حال پردازش…</string>
 	<!-- %s is version like 1.2.3 -->
 	<string name="update_available">ماستودون برای اندروید %s آماده بارگیری است.</string>
@@ -281,6 +288,7 @@
 	<string name="privacy_policy_title">حریم خصوصی شما</string>
 	<string name="i_agree">موافقم</string>
 	<string name="empty_list">این سیاهه خالی است</string>
+	<string name="instance_signup_closed">این کارساز ثبت نام های جدید را نمی پذیرد.</string>
 	<string name="text_copied">در تخته‌گیره رونوشت شد</string>
 	<string name="add_bookmark">نشانک</string>
 	<string name="remove_bookmark">برداشتن نشانک</string>
@@ -304,6 +312,7 @@
 	<string name="pick_server_for_me">برای من انتخاب کن</string>
 	<string name="profile_add_row">افزودن سطر</string>
 	<string name="profile_setup">تنظیم نمایه</string>
+	<string name="profile_setup_subtitle">همیشه می‌توانید این را بعداً در برگه نمایه تکمیل کنید.</string>
 	<string name="popular_on_mastodon">محبوب در ماستودون</string>
 	<string name="follow_all">پی‌گیری همه</string>
 	<string name="server_rules_disagree">مخالفم</string>
