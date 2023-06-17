@@ -32,6 +32,10 @@
 		<item quantity="one">پی‌گیر</item>
 		<item quantity="other">پی‌گیران</item>
 	</plurals>
+	<plurals name="following">
+		<item quantity="one">پی‌گرفته</item>
+		<item quantity="other">پی‌گرفته</item>
+	</plurals>
 	<plurals name="posts">
 		<item quantity="one">فرسته</item>
 		<item quantity="other">فرسته‌ها</item>
@@ -41,6 +45,7 @@
 	<string name="media">رسانه</string>
 	<string name="profile_about">درباره</string>
 	<string name="button_follow">پی‌گیری</string>
+	<string name="button_following">پی می‌گیرید</string>
 	<string name="edit_profile">ویرایش نمایه</string>
 	<string name="mention_user">نام‌بردن از ‎%s</string>
 	<string name="share_user">اشتراک‌گذاری %s</string>
@@ -76,6 +81,10 @@
 		<item quantity="other">%d روز</item>
 	</plurals>
 	<string name="compose_poll_duration">مدت زمان: %s</string>
+	<plurals name="x_seconds_left">
+		<item quantity="one">%d ثانیه باقی‌مانده</item>
+		<item quantity="other">%d ثانیه باقی‌مانده</item>
+	</plurals>
 	<plurals name="x_minutes_left">
 		<item quantity="one">%d دقیقه باقی‌مانده</item>
 		<item quantity="other">%d دقیقه باقی‌مانده</item>
@@ -128,6 +137,7 @@
 	<string name="mentions">نام‌بردن‌ها</string>
 	<string name="report_title">گزارش کردن %s</string>
 	<string name="report_choose_reason">این فرسته چه مشکلی دارد؟</string>
+	<string name="report_choose_reason_account">%s چه مشکلی دارد؟</string>
 	<string name="report_choose_reason_subtitle">منطبق‌ترین را انتخاب کنید</string>
 	<string name="report_reason_personal">من این را دوست ندارم</string>
 	<string name="report_reason_personal_subtitle">این چیزی نیست که بخواهید ببینید</string>
@@ -149,6 +159,7 @@
 	<string name="unfollow">پی‌نگرفتن</string>
 	<string name="report_personal_title">نمی‌خواهید این را ببینید؟</string>
 	<string name="back">بازگشت</string>
+	<string name="instance_catalog_title">ماستودون از کاربران روی کارسازهای مختلف ساخته شده است.</string>
 	<string name="instance_catalog_subtitle">کارسازی را بر اساس علایق، منطقه یا یک هدف کلی انتخاب کنید. شما همچنان می توانید بدون در نظر گرفتن کارساز،با همه ارتباط برقرار کنید.</string>
 	<string name="search_communities">نام کارساز یا نشانی</string>
 	<string name="instance_rules_title">قوانین کارساز</string>
@@ -164,6 +175,7 @@
 	<string name="category_all">همه</string>
 	<string name="category_art">هنر</string>
 	<string name="category_food">غذا</string>
+	<string name="category_furry">خزدار</string>
 	<string name="category_games">بازی‌ها</string>
 	<string name="category_general">عمومی</string>
 	<string name="category_journalism">روزنامه نگاری</string>
@@ -184,6 +196,7 @@
 	<string name="edit_image">ویرایش تصویر</string>
 	<string name="save">ذخیره</string>
 	<string name="add_alt_text">اضافه کردن متن جایگزین</string>
+	<string name="alt_text_subtitle">متن جایگزین تصویرهای شما را برای افرادی که کم‌بینا یا نابینا هستند، توصیف می‌کند. سعی کنید فقط جزئیات کافی برای درک زمینه را در نظر بگیرید.</string>
 	<string name="alt_text_hint">به‌عنوان مثال سگی که با چشمانی ریز با دوربین به اطراف خود نگاه می‌کند.</string>
 	<string name="visibility_public">عمومی</string>
 	<string name="visibility_followers_only">فقط پی‌گیران</string>
@@ -191,6 +204,7 @@
 	<string name="search_all">همه</string>
 	<string name="search_people">افراد</string>
 	<string name="recent_searches">جست‌وجوهای اخیر</string>
+	<string name="step_x_of_n">گام %1$d از %2$d</string>
 	<string name="skip">بعدی</string>
 	<string name="notification_type_follow">پی‌گیران جدید</string>
 	<string name="notification_type_favorite">برگزیده‌ها</string>
@@ -198,7 +212,9 @@
 	<string name="notification_type_mention">نام‌بردن‌ها</string>
 	<string name="notification_type_poll">نظرسنجی‌ها</string>
 	<string name="choose_account">انتخاب حساب</string>
+	<string name="err_not_logged_in">لطفا ابتدا وارد ماستودون شوید</string>
 	<string name="media_attachment_unsupported_type">پرونده %s از نوع پشتیبانی نشده است</string>
+	<string name="media_attachment_too_big">اندازه پرونده %1$s از حد مجاز %2$s مگابایت بیشتر است</string>
 	<string name="settings_theme">ظاهر بصری</string>
 	<string name="theme_auto">خودکار</string>
 	<string name="theme_light">روشن</string>
@@ -266,7 +282,9 @@
 	<string name="error_saving_file">خطا هنگام ذخیرهٔ کردن پرونده</string>
 	<string name="file_saved">پرونده ذخیره شد</string>
 	<string name="downloading">درحال بارگیری…</string>
+	<string name="no_app_to_handle_action">هیچ کاره‌ای برای رسیدگی به این اقدام وجود ندارد</string>
 	<string name="local_timeline">اجتماع</string>
+	<string name="trending_posts_info_banner">این ها فرسته‌هایی هستند که در گوشه ای از ماستودون شما جذابیت پیدا می کنند.</string>
 	<string name="trending_hashtags_info_banner">این ها برچسب‌هایی هستند که در گوشه ای از ماستودون مورد توجه شما قرار می گیرند.</string>
 	<string name="trending_links_info_banner">این‌ها اخباری است که در گوشه‌ای از ماستودون شما بیشتر به اشتراک گذاشته می شود.</string>
 	<string name="local_timeline_info_banner">این‌ها جدیدترین فرسته‌های افرادی هستند که از کارسازهای ماستودون مشابه شما استفاده می کنند.</string>
@@ -284,6 +302,10 @@
 		<item quantity="one">%,d پی‌گیر</item>
 		<item quantity="other">%,d پی‌گیران</item>
 	</plurals>
+	<plurals name="x_following">
+		<item quantity="one">%,d پی‌گیرنده</item>
+		<item quantity="other">%,d پی‌گیرنده</item>
+	</plurals>
 	<plurals name="x_favorites">
 		<item quantity="one">%,d برگزیده</item>
 		<item quantity="other">%,d برگزیده‌ها</item>
@@ -296,6 +318,7 @@
 	<string name="time_now">اکنون</string>
 	<string name="post_info_reblogs">تقویت‌ها</string>
 	<string name="post_info_favorites">برگزیده‌ها</string>
+	<string name="edit_history">ویرایش تاریخچه</string>
 	<string name="last_edit_at_x">آخرین ویرایش %s</string>
 	<string name="time_just_now">همين الان</string>
 	<plurals name="x_seconds_ago">
