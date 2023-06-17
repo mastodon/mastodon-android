@@ -139,6 +139,10 @@
 		<item quantity="one">%d نفر درحال صحبت‌کردن هستند</item>
 		<item quantity="other">%d نفر در حال صحبت‌کردن هستند</item>
 	</plurals>
+	<plurals name="discussed_x_times">
+		<item quantity="one">%d بار بحث شد</item>
+		<item quantity="other">%d بار بحث شد</item>
+	</plurals>
 	<string name="report_title">گزارش کردن %s</string>
 	<string name="report_choose_reason">این فرسته چه مشکلی دارد؟</string>
 	<string name="report_choose_reason_account">%s چه مشکلی دارد؟</string>
@@ -162,7 +166,10 @@
 	<string name="report_sent_subtitle">در حالی که ما این مورد را بررسی می‌کنیم، می‌توانید علیه ‎%s اقدام کنید.</string>
 	<string name="unfollow_user">پی‌نگرفتن ‎%s</string>
 	<string name="unfollow">پی‌نگرفتن</string>
+	<string name="mute_user_explain">فرسته‌ها یا تقویت‌های آن‌ها را در فید خانه‌تان نخواهید دید. آنها نمی دانند که بی صدا شده اند.</string>
+	<string name="block_user_explain">آنها دیگر نمی توانند فرسته‌های شما را پی‌گیری کنند یا ببینند، اما می توانند ببینند که آیا آنها مسدود شده‌اند یا خیر.</string>
 	<string name="report_personal_title">نمی‌خواهید این را ببینید؟</string>
+	<string name="report_personal_subtitle">وقتی چیزی را در ماستودون می بینید که دوست ندارید، می توانید آن شخص را از تجربه خود حذف کنید.</string>
 	<string name="back">بازگشت</string>
 	<string name="instance_catalog_title">ماستودون از کاربران روی کارسازهای مختلف ساخته شده است.</string>
 	<string name="instance_catalog_subtitle">کارسازی را بر اساس علایق، منطقه یا یک هدف کلی انتخاب کنید. شما همچنان می توانید بدون در نظر گرفتن کارساز،با همه ارتباط برقرار کنید.</string>
@@ -176,6 +183,7 @@
 	<string name="email">رایانامه</string>
 	<string name="password">گذرواژه</string>
 	<string name="confirm_password">تأیید گذرواژه</string>
+	<string name="password_note">برای افزایش قدرت گذرواژه خود، حروف بزرگ، کاراکترهای خاص و اعداد را اضافه کنید.</string>
 	<string name="category_academia">دانشگاه</string>
 	<string name="category_activism">فعالیت</string>
 	<string name="category_all">همه</string>
@@ -375,6 +383,7 @@
 	<string name="download_update">بارگیری (%s)</string>
 	<string name="install_update">نصب</string>
 	<string name="privacy_policy_title">حریم خصوصی شما</string>
+	<string name="privacy_policy_subtitle">اگرچه برنامه ماستودون هیچ داده ای را جمع‌آوری نمی کند، کارسازی که از طریق آن ثبت نام می کنید ممکن است خط مشی متفاوتی داشته باشد.\n\nاگر با خط مشی %s موافق نیستید، می توانید به عقب برگردید و سرور دیگری را انتخاب کنید.</string>
 	<string name="i_agree">موافقم</string>
 	<string name="empty_list">این سیاهه خالی است</string>
 	<string name="instance_signup_closed">این کارساز ثبت نام های جدید را نمی پذیرد.</string>
@@ -414,6 +423,7 @@
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<string name="sending_follows">پی‌گیری کاربران…</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<string name="signup_email_domain_blocked">%1$s اجازه ثبت نام از %2$s را نمی دهد. یکی دیگر را امتحان کنید یا &lt;a&gt;کارساز دیگری انتخاب کنید&lt;/a&gt;.</string>
 	<string name="signup_username_taken">این نام کاربری گرفته شده است.</string>
 	<string name="spoiler_show">به هرصورت نشان داده شود</string>
 	<string name="spoiler_hide">نهفتن دوباره</string>
