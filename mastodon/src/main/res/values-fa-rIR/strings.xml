@@ -135,6 +135,10 @@
 	<string name="for_you">برای شما</string>
 	<string name="all_notifications">همه</string>
 	<string name="mentions">نام‌بردن‌ها</string>
+	<plurals name="x_people_talking">
+		<item quantity="one">%d نفر درحال صحبت‌کردن هستند</item>
+		<item quantity="other">%d نفر در حال صحبت‌کردن هستند</item>
+	</plurals>
 	<string name="report_title">گزارش کردن %s</string>
 	<string name="report_choose_reason">این فرسته چه مشکلی دارد؟</string>
 	<string name="report_choose_reason_account">%s چه مشکلی دارد؟</string>
@@ -142,6 +146,7 @@
 	<string name="report_reason_personal">من این را دوست ندارم</string>
 	<string name="report_reason_personal_subtitle">این چیزی نیست که بخواهید ببینید</string>
 	<string name="report_reason_spam">این هرزنامه است</string>
+	<string name="report_reason_spam_subtitle">پیوندهای مخرب، تعامل جعلی یا پاسخ‌های تکراری</string>
 	<string name="report_reason_violation">قوانین کارساز را نقض می‌کند</string>
 	<string name="report_reason_violation_subtitle">شما آگاه هستید که قوانین خاصی را زیر پا می‌گذارد</string>
 	<string name="report_reason_other">به خاطر چیز دیگری است</string>
@@ -185,6 +190,7 @@
 	<string name="category_tech">فناوری</string>
 	<string name="confirm_email_title">صندوق ورودیتان را بررسی کنید</string>
 	<!-- %s is the email address -->
+	<string name="confirm_email_subtitle">برای تأیید %s، روی پیوندی که برای شما ارسال کردیم ضربه بزنید. همین جا منتظر می‌مانیم.</string>
 	<string name="confirm_email_didnt_get">پیوندی نگرفتید؟</string>
 	<string name="resend">ارسال دوباره</string>
 	<string name="open_email_app">بازکردن کاره رایانامه</string>
@@ -213,6 +219,10 @@
 	<string name="notification_type_poll">نظرسنجی‌ها</string>
 	<string name="choose_account">انتخاب حساب</string>
 	<string name="err_not_logged_in">لطفا ابتدا وارد ماستودون شوید</string>
+	<plurals name="cant_add_more_than_x_attachments">
+		<item quantity="one">نمی‌توانید بیش از %d پیوست رسانه اضافه کنید</item>
+		<item quantity="other">نمی‌توانید بیش از %d پیوست رسانه اضافه کنید</item>
+	</plurals>
 	<string name="media_attachment_unsupported_type">پرونده %s از نوع پشتیبانی نشده است</string>
 	<string name="media_attachment_too_big">اندازه پرونده %1$s از حد مجاز %2$s مگابایت بیشتر است</string>
 	<string name="settings_theme">ظاهر بصری</string>
@@ -278,6 +288,7 @@
 	<string name="reorder">سفارش مجدد</string>
 	<string name="download">بارگیری</string>
 	<string name="permission_required">نیازمند دسترسی است</string>
+	<string name="storage_permission_to_download">کاره برای ذخیره این پرونده نیازمند دسترسی به فضای ذخیره‌سازی شما دارد.</string>
 	<string name="open_settings">باز کردن تنظیمات</string>
 	<string name="error_saving_file">خطا هنگام ذخیرهٔ کردن پرونده</string>
 	<string name="file_saved">پرونده ذخیره شد</string>
@@ -421,4 +432,5 @@
 	<string name="welcome_to_mastodon">به ماستودون خوش آمدید</string>
 	<string name="welcome_paragraph1">ماستودون یک شبکه اجتماعی غیر متمرکز است،به این معنی که هیچ شرکتی آن را کنترل نمی کند. این از بسیاری از کارسازهای مستقل تشکیل شده است که همه به هم متصل هستند.</string>
 	<string name="what_are_servers">کارساز شما کجاست؟</string>
+	<string name="welcome_paragraph2"><![CDATA[هر حساب ماستودون بر روی یک سرور میزبانی می شود — هر کدام با مقادیر، قوانین و مدیران خاص خود. مهم نیست کدام یک را انتخاب می کنید، می توانید افراد را در هر کارسازی دنبال کنید و با آنها تعامل داشته باشید.]]></string>
 </resources>
