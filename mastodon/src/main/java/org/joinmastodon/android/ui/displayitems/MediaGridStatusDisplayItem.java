@@ -353,6 +353,7 @@ public class MediaGridStatusDisplayItem extends StatusDisplayItem{
 		private void hideSensitive(){
 			if(!item.sensitiveRevealed)
 				return;
+			updateBlurhashInSensitiveOverlay();
 			item.sensitiveRevealed=false;
 			V.setVisibilityAnimated(sensitiveOverlay, View.VISIBLE, ()->layout.setVisibility(View.INVISIBLE));
 		}
