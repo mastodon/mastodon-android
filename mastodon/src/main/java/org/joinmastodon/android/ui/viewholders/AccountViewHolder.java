@@ -162,6 +162,8 @@ public class AccountViewHolder extends BindableViewHolder<AccountViewModel> impl
 
 	@Override
 	public boolean onLongClick(float x, float y){
+		if(relationships==null)
+			return false;
 		Relationship relationship=relationships.get(item.account.id);
 		if(relationship==null)
 			return false;

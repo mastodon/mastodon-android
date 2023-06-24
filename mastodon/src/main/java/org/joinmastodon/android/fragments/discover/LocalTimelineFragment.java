@@ -12,11 +12,20 @@ import org.joinmastodon.android.ui.utils.DiscoverInfoBannerHelper;
 
 import java.util.List;
 
+import androidx.recyclerview.widget.RecyclerView;
 import me.grishka.appkit.api.SimpleCallback;
+import me.grishka.appkit.utils.MergeRecyclerAdapter;
 
 public class LocalTimelineFragment extends StatusListFragment{
-	private DiscoverInfoBannerHelper bannerHelper=new DiscoverInfoBannerHelper(DiscoverInfoBannerHelper.BannerType.LOCAL_TIMELINE);
+	private DiscoverInfoBannerHelper bannerHelper;
+
 	private String maxID;
+
+	@Override
+	public void onCreate(Bundle savedInstanceState){
+		super.onCreate(savedInstanceState);
+		bannerHelper=new DiscoverInfoBannerHelper(DiscoverInfoBannerHelper.BannerType.LOCAL_TIMELINE, accountID);
+	}
 
 	@Override
 	protected void doLoadData(int offset, int count){
@@ -29,14 +38,17 @@ public class LocalTimelineFragment extends StatusListFragment{
 						boolean empty=result.isEmpty();
 						AccountSessionManager.get(accountID).filterStatuses(result, FilterContext.PUBLIC);
 						onDataLoaded(result, !empty);
+						bannerHelper.onBannerBecameVisible();
 					}
 				})
 				.exec(accountID);
 	}
 
 	@Override
-	public void onViewCreated(View view, Bundle savedInstanceState){
-		super.onViewCreated(view, savedInstanceState);
-		bannerHelper.maybeAddBanner(contentWrap);
+	protected RecyclerView.Adapter getAdapter(){
+		MergeRecyclerAdapter adapter=new MergeRecyclerAdapter();
+		bannerHelper.maybeAddBanner(list, adapter);
+		adapter.addAdapter(super.getAdapter());
+		return adapter;
 	}
 }

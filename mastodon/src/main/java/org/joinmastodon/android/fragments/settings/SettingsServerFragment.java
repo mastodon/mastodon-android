@@ -90,7 +90,7 @@ public class SettingsServerFragment extends AppKitFragment{
 
 		tabBar=view.findViewById(R.id.tabbar);
 		tabBar.setTabTextColors(UiUtils.getThemeColor(getActivity(), R.attr.colorM3OnSurfaceVariant), UiUtils.getThemeColor(getActivity(), R.attr.colorM3Primary));
-		tabBar.setTabTextSize(V.dp(16));
+		tabBar.setTabTextSize(V.dp(14));
 		tabLayoutMediator=new TabLayoutMediator(tabBar, pager, (tab, position)->tab.setText(switch(position){
 			case 0 -> R.string.about_server;
 			case 1 -> R.string.server_rules;

@@ -54,6 +54,7 @@ import me.grishka.appkit.imageloader.ImageLoaderRecyclerAdapter;
 import me.grishka.appkit.imageloader.ImageLoaderViewHolder;
 import me.grishka.appkit.imageloader.requests.ImageLoaderRequest;
 import me.grishka.appkit.utils.BindableViewHolder;
+import me.grishka.appkit.utils.MergeRecyclerAdapter;
 import me.grishka.appkit.utils.V;
 import me.grishka.appkit.views.UsableRecyclerView;
 
@@ -309,6 +310,9 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 	}
 
 	protected int getMainAdapterOffset(){
+		if(list.getAdapter() instanceof MergeRecyclerAdapter mergeAdapter){
+			return mergeAdapter.getPositionForAdapter(adapter);
+		}
 		return 0;
 	}
 

@@ -1,13 +1,17 @@
 package org.joinmastodon.android.fragments.settings;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import org.joinmastodon.android.MastodonApp;
 import org.joinmastodon.android.api.session.AccountActivationInfo;
 import org.joinmastodon.android.api.session.AccountSession;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.fragments.HomeFragment;
 import org.joinmastodon.android.fragments.onboarding.AccountActivationFragment;
 import org.joinmastodon.android.model.viewmodel.ListItem;
+import org.joinmastodon.android.ui.utils.DiscoverInfoBannerHelper;
 import org.joinmastodon.android.updater.GithubSelfUpdater;
 
 import java.util.List;
@@ -23,7 +27,8 @@ public class SettingsDebugFragment extends BaseSettingsFragment<Void>{
 		onDataLoaded(List.of(
 				new ListItem<>("Test email confirmation flow", null, this::onTestEmailConfirmClick),
 				selfUpdateItem=new ListItem<>("Force self-update", null, this::onForceSelfUpdateClick),
-				resetUpdateItem=new ListItem<>("Reset self-updater", null, this::onResetUpdaterClick)
+				resetUpdateItem=new ListItem<>("Reset self-updater", null, this::onResetUpdaterClick),
+				new ListItem<>("Reset search info banners", null, this::onResetDiscoverBannersClick)
 		));
 		if(!GithubSelfUpdater.needSelfUpdating()){
 			resetUpdateItem.isEnabled=selfUpdateItem.isEnabled=false;
@@ -52,6 +57,11 @@ public class SettingsDebugFragment extends BaseSettingsFragment<Void>{
 
 	private void onResetUpdaterClick(){
 		GithubSelfUpdater.getInstance().reset();
+		restartUI();
+	}
+
+	private void onResetDiscoverBannersClick(){
+		DiscoverInfoBannerHelper.reset();
 		restartUI();
 	}
 

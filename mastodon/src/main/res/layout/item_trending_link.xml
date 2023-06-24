@@ -3,28 +3,31 @@
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="wrap_content"
-	android:padding="16dp">
+	android:paddingVertical="12dp"
+	android:paddingStart="16dp"
+	android:paddingEnd="24dp">
 
 	<ImageView
 		android:id="@+id/photo"
-		android:layout_width="132dp"
-		android:layout_height="wrap_content"
+		android:layout_width="56dp"
+		android:layout_height="56dp"
 		android:layout_alignParentTop="true"
-		android:layout_alignParentEnd="true"
-		android:layout_alignBottom="@id/subtitle"
-		android:layout_marginStart="8dp"
+		android:layout_alignParentStart="true"
+		android:layout_marginEnd="16dp"
 		android:scaleType="centerCrop"
+		android:importantForAccessibility="no"
 		tools:src="#0f0"/>
 
 	<TextView
 		android:id="@+id/name"
 		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:layout_toStartOf="@id/photo"
-		android:textAppearance="@style/m3_title_small"
-		android:textColor="?android:textColorPrimary"
+		android:layout_height="16dp"
+		android:layout_toEndOf="@id/photo"
+		android:textAppearance="@style/m3_label_medium"
+		android:textColor="?colorM3OnSurfaceVariant"
 		android:singleLine="true"
 		android:ellipsize="end"
+		android:gravity="center_vertical"
 		tools:text="Site Name"/>
 
 	<TextView
@@ -32,24 +35,12 @@
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:layout_below="@id/name"
-		android:layout_toStartOf="@id/photo"
-		android:layout_marginTop="4dp"
-		android:layout_marginBottom="32dp"
-		android:textAppearance="@style/m3_title_medium"
-		android:maxLines="5"
+		android:layout_toEndOf="@id/photo"
+		android:textAppearance="@style/m3_body_large"
+		android:textColor="?colorM3OnSurface"
+		android:paddingVertical="2.5dp"
+		android:maxLines="2"
 		android:ellipsize="end"
 		tools:text="Title title title"/>
-
-	<TextView
-		android:id="@+id/subtitle"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:layout_below="@id/title"
-		android:layout_toStartOf="@id/photo"
-		android:textAppearance="@style/m3_label_medium"
-		android:textColor="?android:textColorSecondary"
-		android:singleLine="true"
-		android:ellipsize="end"
-		tools:text="Discussed 123 times"/>
 
 </RelativeLayout>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="280dp"
+	android:layout_height="240dp"
+	android:foreground="@drawable/bg_settings_banner">
+
+	<ImageView
+		android:id="@+id/photo"
+		android:layout_width="match_parent"
+		android:layout_height="140dp"
+		android:layout_alignParentTop="true"
+		android:scaleType="centerCrop"
+		android:importantForAccessibility="no"
+		tools:src="#0f0"/>
+
+	<TextView
+		android:id="@+id/title"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_below="@id/photo"
+		android:layout_marginHorizontal="16dp"
+		android:layout_marginTop="16dp"
+		android:textAppearance="@style/m3_body_large"
+		android:paddingVertical="2.5dp"
+		android:textColor="?colorM3OnSurface"
+		android:maxLines="2"
+		android:ellipsize="end"
+		tools:text="Title title title"/>
+
+	<TextView
+		android:id="@+id/name"
+		android:layout_width="match_parent"
+		android:layout_height="20dp"
+		android:layout_below="@id/title"
+		android:layout_marginHorizontal="16dp"
+		android:textAppearance="@style/m3_body_medium"
+		android:textColor="?colorM3OnSurfaceVariant"
+		android:singleLine="true"
+		android:ellipsize="end"
+		android:gravity="center_vertical"
+		tools:text="Site Name"/>
+
+</RelativeLayout>

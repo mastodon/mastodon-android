@@ -25,7 +25,6 @@ import me.grishka.appkit.views.UsableRecyclerView;
 
 public class TrendingHashtagsFragment extends BaseRecyclerFragment<Hashtag> implements ScrollableToTop{
 	private String accountID;
-	private DiscoverInfoBannerHelper bannerHelper=new DiscoverInfoBannerHelper(DiscoverInfoBannerHelper.BannerType.TRENDING_HASHTAGS);
 
 	public TrendingHashtagsFragment(){
 		super(10);
@@ -52,13 +51,6 @@ public class TrendingHashtagsFragment extends BaseRecyclerFragment<Hashtag> impl
 	@Override
 	protected RecyclerView.Adapter getAdapter(){
 		return new HashtagsAdapter();
-	}
-
-	@Override
-	public void onViewCreated(View view, Bundle savedInstanceState){
-		super.onViewCreated(view, savedInstanceState);
-		list.addItemDecoration(new DividerItemDecoration(getActivity(), R.attr.colorPollVoted, .5f, 16, 16));
-		bannerHelper.maybeAddBanner(contentWrap);
 	}
 
 	@Override

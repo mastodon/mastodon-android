@@ -71,7 +71,7 @@ public class MainActivity extends FragmentStackActivity{
 				}else if(intent.getBooleanExtra("compose", false)){
 					showCompose();
 				}else if(Intent.ACTION_VIEW.equals(intent.getAction())){
-					handleURL(intent.getData());
+					handleURL(intent.getData(), null);
 				}else{
 					maybeRequestNotificationsPermission();
 				}
@@ -114,29 +114,34 @@ public class MainActivity extends FragmentStackActivity{
 		}else if(intent.getBooleanExtra("compose", false)){
 			showCompose();
 		}else if(Intent.ACTION_VIEW.equals(intent.getAction())){
-			handleURL(intent.getData());
+			handleURL(intent.getData(), null);
 		}/*else if(intent.hasExtra(PackageInstaller.EXTRA_STATUS) && GithubSelfUpdater.needSelfUpdating()){
 			GithubSelfUpdater.getInstance().handleIntentFromInstaller(intent, this);
 		}*/
 	}
 
-	private void handleURL(Uri uri){
+	public void handleURL(Uri uri, String accountID){
 		if(uri==null)
 			return;
 		if(!"https".equals(uri.getScheme()) && !"http".equals(uri.getScheme()))
 			return;
-		if(!uri.getPath().startsWith("/@"))
-			return;
-		AccountSession session=AccountSessionManager.getInstance().getLastActiveAccount();
+		AccountSession session;
+		if(accountID==null)
+			session=AccountSessionManager.getInstance().getLastActiveAccount();
+		else
+			session=AccountSessionManager.get(accountID);
 		if(session==null || !session.activated)
 			return;
+		openSearchQuery(uri.toString(), session.getID(), R.string.opening_link, false);
+	}
 
-		new GetSearchResults(uri.toString(), null, true)
+	public void openSearchQuery(String q, String accountID, int progressText, boolean fromSearch){
+		new GetSearchResults(q, null, true)
 				.setCallback(new Callback<>(){
 					@Override
 					public void onSuccess(SearchResults result){
 						Bundle args=new Bundle();
-						args.putString("account", session.getID());
+						args.putString("account", accountID);
 						if(result.statuses!=null && !result.statuses.isEmpty()){
 							args.putParcelable("status", Parcels.wrap(result.statuses.get(0)));
 							Nav.go(MainActivity.this, ThreadFragment.class, args);
@@ -144,7 +149,7 @@ public class MainActivity extends FragmentStackActivity{
 							args.putParcelable("profileAccount", Parcels.wrap(result.accounts.get(0)));
 							Nav.go(MainActivity.this, ProfileFragment.class, args);
 						}else{
-							Toast.makeText(MainActivity.this, R.string.link_not_supported, Toast.LENGTH_SHORT).show();
+							Toast.makeText(MainActivity.this, fromSearch ? R.string.no_search_results : R.string.link_not_supported, Toast.LENGTH_SHORT).show();
 						}
 					}
 
@@ -153,8 +158,8 @@ public class MainActivity extends FragmentStackActivity{
 						error.showToast(MainActivity.this);
 					}
 				})
-				.wrapProgress(this, R.string.opening_link, true)
-				.exec(session.getID());
+				.wrapProgress(this, progressText, true)
+				.exec(accountID);
 	}
 
 	private void showFragmentForNotification(Notification notification, String accountID){

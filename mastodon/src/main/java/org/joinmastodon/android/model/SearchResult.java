@@ -2,6 +2,7 @@ package org.joinmastodon.android.model;
 
 import org.joinmastodon.android.api.ObjectValidationException;
 import org.joinmastodon.android.api.RequiredField;
+import org.joinmastodon.android.model.viewmodel.AccountViewModel;
 
 public class SearchResult extends BaseModel implements DisplayItemsParent{
 	public Account account;

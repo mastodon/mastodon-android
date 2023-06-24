@@ -13,6 +13,11 @@ public class GetSearchResults extends MastodonAPIRequest<SearchResults>{
 			addQueryParameter("resolve", "true");
 	}
 
+	public GetSearchResults limit(int limit){
+		addQueryParameter("limit", String.valueOf(limit));
+		return this;
+	}
+
 	@Override
 	protected String getPathPrefix(){
 		return "/api/v2";

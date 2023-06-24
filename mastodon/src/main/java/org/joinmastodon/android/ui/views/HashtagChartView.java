@@ -32,7 +32,7 @@ public class HashtagChartView extends View implements CustomViewHelper{
 
 	public HashtagChartView(Context context, AttributeSet attrs, int defStyle){
 		super(context, attrs, defStyle);
-		paint.setStrokeWidth(dp(1.71f));
+		paint.setStrokeWidth(dp(1));
 		paint.setStrokeCap(Paint.Cap.ROUND);
 		paint.setStrokeJoin(Paint.Join.ROUND);
 	}
