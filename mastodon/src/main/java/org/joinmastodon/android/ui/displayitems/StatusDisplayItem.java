@@ -119,14 +119,15 @@ public abstract class StatusDisplayItem{
 
 		ArrayList<StatusDisplayItem> contentItems;
 		if(filtered){
-			SpoilerStatusDisplayItem spoilerItem=new SpoilerStatusDisplayItem(parentID, fragment, fragment.getString(R.string.post_matches_filter_x, status.filtered.get(0).filter.title), status, Type.FILTER_SPOILER);
+			SpoilerStatusDisplayItem spoilerItem=new SpoilerStatusDisplayItem(parentID, fragment, fragment.getString(R.string.post_matches_filter_x, status.filtered.get(0).filter.title), status, statusForContent, Type.FILTER_SPOILER);
 			items.add(spoilerItem);
 			contentItems=spoilerItem.contentItems;
 			status.spoilerRevealed=false;
 		}else if(!TextUtils.isEmpty(statusForContent.spoilerText) && AccountSessionManager.get(accountID).getLocalPreferences().showCWs){
-			SpoilerStatusDisplayItem spoilerItem=new SpoilerStatusDisplayItem(parentID, fragment, null, status, Type.SPOILER);
+			SpoilerStatusDisplayItem spoilerItem=new SpoilerStatusDisplayItem(parentID, fragment, null, status, statusForContent, Type.SPOILER);
 			items.add(spoilerItem);
 			contentItems=spoilerItem.contentItems;
+			status.spoilerRevealed=false;
 		}else{
 			contentItems=items;
 		}

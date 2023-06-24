@@ -29,12 +29,12 @@ public class SpoilerStatusDisplayItem extends StatusDisplayItem{
 	private final CustomEmojiHelper emojiHelper;
 	private final Type type;
 
-	public SpoilerStatusDisplayItem(String parentID, BaseStatusListFragment parentFragment, String title, Status status, Type type){
+	public SpoilerStatusDisplayItem(String parentID, BaseStatusListFragment parentFragment, String title, Status status, Status statusForContent, Type type){
 		super(parentID, parentFragment);
 		this.status=status;
 		this.type=type;
 		if(TextUtils.isEmpty(title)){
-			parsedTitle=HtmlParser.parseCustomEmoji(status.spoilerText, status.emojis);
+			parsedTitle=HtmlParser.parseCustomEmoji(statusForContent.spoilerText, statusForContent.emojis);
 			emojiHelper=new CustomEmojiHelper();
 			emojiHelper.setText(parsedTitle);
 		}else{
