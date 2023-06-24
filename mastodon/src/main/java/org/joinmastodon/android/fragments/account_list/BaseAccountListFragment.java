@@ -43,6 +43,10 @@ public abstract class BaseAccountListFragment extends MastodonRecyclerFragment<A
 		super(40);
 	}
 
+	public BaseAccountListFragment(int layout, int perPage){
+		super(layout, perPage);
+	}
+
 	@Override
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);

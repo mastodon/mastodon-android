@@ -241,6 +241,10 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 
 		@Override
 		public void clearImage(int index){
+			if(index==0){
+				avatar.setImageResource(R.drawable.image_placeholder);
+				return;
+			}
 			setImage(index, null);
 		}
 

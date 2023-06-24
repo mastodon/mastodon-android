@@ -73,6 +73,7 @@ public class ComposeAccountSearchFragment extends BaseAccountListFragment{
 	protected void onConfigureViewHolder(AccountViewHolder holder){
 		super.onConfigureViewHolder(holder);
 		holder.setOnClickListener(this::onItemClick);
+		holder.setStyle(AccountViewHolder.AccessoryType.NONE, false);
 	}
 
 	private void onItemClick(AccountViewHolder holder){

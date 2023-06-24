@@ -1,12 +1,12 @@
 package org.joinmastodon.android.ui.viewholders;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.app.Fragment;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.drawable.Animatable;
-import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.SpannableStringBuilder;
@@ -16,8 +16,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
+import android.widget.ProgressBar;
+import android.widget.RadioButton;
 import android.widget.TextView;
 
 import org.joinmastodon.android.R;
@@ -26,12 +29,12 @@ import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.fragments.ProfileFragment;
 import org.joinmastodon.android.fragments.report.ReportReasonChoiceFragment;
 import org.joinmastodon.android.model.Account;
-import org.joinmastodon.android.model.AccountField;
 import org.joinmastodon.android.model.Relationship;
 import org.joinmastodon.android.model.viewmodel.AccountViewModel;
 import org.joinmastodon.android.ui.OutlineProviders;
-import org.joinmastodon.android.ui.text.HtmlParser;
 import org.joinmastodon.android.ui.utils.UiUtils;
+import org.joinmastodon.android.ui.views.CheckableRelativeLayout;
+import org.joinmastodon.android.ui.views.ProgressBarButton;
 import org.parceler.Parcels;
 
 import java.util.HashMap;
@@ -46,18 +49,24 @@ import me.grishka.appkit.utils.BindableViewHolder;
 import me.grishka.appkit.views.UsableRecyclerView;
 
 public class AccountViewHolder extends BindableViewHolder<AccountViewModel> implements ImageLoaderViewHolder, UsableRecyclerView.Clickable, UsableRecyclerView.LongClickable{
-	private final TextView name, username, followers, verifiedLink;
+	private final TextView name, username, followers, verifiedLink, bio;
 	private final ImageView avatar;
-	private final Button button;
+	private final ProgressBarButton button;
 	private final PopupMenu contextMenu;
 	private final View menuAnchor;
 	private final TypefaceSpan mediumSpan=new TypefaceSpan("sans-serif-medium");
+	private final CheckableRelativeLayout view;
+	private final View checkbox;
+	private final ProgressBar actionProgress;
 
 	private final String accountID;
 	private final Fragment fragment;
 	private final HashMap<String, Relationship> relationships;
 
 	private Consumer<AccountViewHolder> onClick;
+	private AccessoryType accessoryType=AccessoryType.BUTTON;
+	private boolean showBio;
+	private boolean checked;
 
 	public AccountViewHolder(Fragment fragment, ViewGroup list, HashMap<String, Relationship> relationships){
 		super(fragment.getActivity(), R.layout.item_account_list, list);
@@ -65,6 +74,7 @@ public class AccountViewHolder extends BindableViewHolder<AccountViewModel> impl
 		this.accountID=Objects.requireNonNull(fragment.getArguments().getString("account"));
 		this.relationships=relationships;
 
+		view=(CheckableRelativeLayout) itemView;
 		name=findViewById(R.id.name);
 		username=findViewById(R.id.username);
 		avatar=findViewById(R.id.avatar);
@@ -72,8 +82,11 @@ public class AccountViewHolder extends BindableViewHolder<AccountViewModel> impl
 		menuAnchor=findViewById(R.id.menu_anchor);
 		followers=findViewById(R.id.followers_count);
 		verifiedLink=findViewById(R.id.verified_link);
+		bio=findViewById(R.id.bio);
+		checkbox=findViewById(R.id.checkbox);
+		actionProgress=findViewById(R.id.action_progress);
 
-		avatar.setOutlineProvider(OutlineProviders.roundedRect(16));
+		avatar.setOutlineProvider(OutlineProviders.roundedRect(10));
 		avatar.setClipToOutline(true);
 
 		button.setOnClickListener(this::onButtonClick);
@@ -81,6 +94,8 @@ public class AccountViewHolder extends BindableViewHolder<AccountViewModel> impl
 		contextMenu=new PopupMenu(fragment.getActivity(), menuAnchor);
 		contextMenu.inflate(R.menu.profile);
 		contextMenu.setOnMenuItemClickListener(this::onContextMenuItemSelected);
+
+		setStyle(AccessoryType.BUTTON, false);
 	}
 
 	@SuppressLint("SetTextI18n")
@@ -107,10 +122,13 @@ public class AccountViewHolder extends BindableViewHolder<AccountViewModel> impl
 		verifiedLink.setTextColor(tintColor);
 		verifiedLink.setCompoundDrawableTintList(ColorStateList.valueOf(tintColor));
 		bindRelationship();
+		if(showBio){
+			bio.setText(item.parsedBio);
+		}
 	}
 
 	public void bindRelationship(){
-		if(relationships==null)
+		if(relationships==null || accessoryType!=AccessoryType.BUTTON)
 			return;
 		Relationship rel=relationships.get(item.account.id);
 		if(rel==null || AccountSessionManager.getInstance().isSelf(accountID, item.account)){
@@ -128,6 +146,7 @@ public class AccountViewHolder extends BindableViewHolder<AccountViewModel> impl
 		}else{
 			item.emojiHelper.setImageDrawable(index-1, image);
 			name.invalidate();
+			bio.invalidate();
 		}
 
 		if(image instanceof Animatable a && !a.isRunning())
@@ -199,19 +218,20 @@ public class AccountViewHolder extends BindableViewHolder<AccountViewModel> impl
 	private void onButtonClick(View v){
 		if(relationships==null)
 			return;
-		ProgressDialog progress=new ProgressDialog(fragment.getActivity());
-		progress.setMessage(fragment.getString(R.string.loading));
-		progress.setCancelable(false);
-		UiUtils.performAccountAction(fragment.getActivity(), item.account, accountID, relationships.get(item.account.id), button, progressShown->{
-			itemView.setHasTransientState(progressShown);
-			if(progressShown)
-				progress.show();
-			else
-				progress.dismiss();
-		}, result->{
-			relationships.put(item.account.id, result);
+		itemView.setHasTransientState(true);
+		UiUtils.performAccountAction((Activity) v.getContext(), item.account, accountID, relationships.get(item.account.id), button, this::setActionProgressVisible, rel->{
+			itemView.setHasTransientState(false);
+			relationships.put(item.account.id, rel);
 			bindRelationship();
 		});
+	}
+
+	private void setActionProgressVisible(boolean visible){
+		if(visible)
+			actionProgress.setIndeterminateTintList(button.getTextColors());
+		button.setTextVisible(!visible);
+		actionProgress.setVisibility(visible ? View.VISIBLE : View.GONE);
+		button.setClickable(!visible);
 	}
 
 	private boolean onContextMenuItemSelected(MenuItem item){
@@ -270,5 +290,46 @@ public class AccountViewHolder extends BindableViewHolder<AccountViewModel> impl
 
 	public void setOnClickListener(Consumer<AccountViewHolder> listener){
 		onClick=listener;
+	}
+
+	public void setStyle(AccessoryType accessoryType, boolean showBio){
+		if(accessoryType!=this.accessoryType){
+			this.accessoryType=accessoryType;
+			switch(accessoryType){
+				case NONE -> {
+					button.setVisibility(View.GONE);
+					checkbox.setVisibility(View.GONE);
+				}
+				case CHECKBOX -> {
+					button.setVisibility(View.GONE);
+					checkbox.setVisibility(View.VISIBLE);
+					checkbox.setBackground(new CheckBox(checkbox.getContext()).getButtonDrawable());
+				}
+				case RADIOBUTTON -> {
+					button.setVisibility(View.GONE);
+					checkbox.setVisibility(View.VISIBLE);
+					checkbox.setBackground(new RadioButton(checkbox.getContext()).getButtonDrawable());
+				}
+				case BUTTON -> {
+					button.setVisibility(View.VISIBLE);
+					checkbox.setVisibility(View.GONE);
+				}
+			}
+			view.setCheckable(accessoryType==AccessoryType.CHECKBOX || accessoryType==AccessoryType.RADIOBUTTON);
+		}
+		this.showBio=showBio;
+		bio.setVisibility(showBio ? View.VISIBLE : View.GONE);
+	}
+
+	public void setChecked(boolean checked){
+		this.checked=checked;
+		view.setChecked(checked);
+	}
+
+	public enum AccessoryType{
+		NONE,
+		BUTTON,
+		CHECKBOX,
+		RADIOBUTTON
 	}
 }

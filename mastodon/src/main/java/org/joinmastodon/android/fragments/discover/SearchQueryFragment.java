@@ -543,6 +543,7 @@ public class SearchQueryFragment extends MastodonRecyclerFragment<SearchResultVi
 
 		public CustomAccountViewHolder(Fragment fragment, ViewGroup list, HashMap<String, Relationship> relationships){
 			super(fragment, list, relationships);
+			setStyle(AccessoryType.NONE, false);
 		}
 
 		@Override

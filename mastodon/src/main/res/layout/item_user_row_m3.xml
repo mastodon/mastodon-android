@@ -34,17 +34,6 @@
 				style="@style/Widget.Mastodon.M3.Button.Filled"
 				tools:text="Follow"/>
 
-		<ProgressBar
-			android:id="@+id/action_progress"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_gravity="center"
-			android:indeterminate="true"
-			style="?android:progressBarStyleSmall"
-			android:elevation="10dp"
-			android:outlineProvider="none"
-			android:indeterminateTint="?colorM3OnPrimary"
-			android:visibility="gone"/>
 
 	</FrameLayout>
 	

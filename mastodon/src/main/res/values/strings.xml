@@ -641,4 +641,10 @@
 	<string name="search_go_to_account">Go to %s</string>
 	<string name="posts_matching_string">Posts with “%s”</string>
 	<string name="accounts_matching_string">People with “%s”</string>
+
+	<!-- Shown in the post header. Please keep it short -->
+	<string name="time_seconds_ago_short">%ds ago</string>
+	<string name="time_minutes_ago_short">%dm ago</string>
+	<string name="time_hours_ago_short">%dh ago</string>
+	<string name="time_days_ago_short">%dd ago</string>
 </resources>

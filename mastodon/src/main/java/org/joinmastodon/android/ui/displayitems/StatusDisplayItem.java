@@ -1,6 +1,7 @@
 package org.joinmastodon.android.ui.displayitems;
 
 import android.app.Activity;
+import android.app.Fragment;
 import android.content.Context;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
@@ -19,6 +20,7 @@ import org.joinmastodon.android.model.Poll;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.PhotoLayoutHelper;
 import org.joinmastodon.android.ui.text.HtmlParser;
+import org.joinmastodon.android.ui.viewholders.AccountViewHolder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,7 +59,7 @@ public abstract class StatusDisplayItem{
 		return null;
 	}
 
-	public static BindableViewHolder<? extends StatusDisplayItem> createViewHolder(Type type, Activity activity, ViewGroup parent){
+	public static BindableViewHolder<? extends StatusDisplayItem> createViewHolder(Type type, Activity activity, ViewGroup parent, Fragment parentFragment){
 		return switch(type){
 			case HEADER -> new HeaderStatusDisplayItem.Holder(activity, parent);
 			case HEADER_CHECKABLE -> new CheckableHeaderStatusDisplayItem.Holder(activity, parent);
@@ -68,7 +70,7 @@ public abstract class StatusDisplayItem{
 			case POLL_FOOTER -> new PollFooterStatusDisplayItem.Holder(activity, parent);
 			case CARD -> new LinkCardStatusDisplayItem.Holder(activity, parent);
 			case FOOTER -> new FooterStatusDisplayItem.Holder(activity, parent);
-			case ACCOUNT -> new AccountStatusDisplayItem.Holder(activity, parent);
+			case ACCOUNT -> new AccountStatusDisplayItem.Holder(new AccountViewHolder(parentFragment, parent, null));
 			case HASHTAG -> new HashtagStatusDisplayItem.Holder(activity, parent);
 			case GAP -> new GapStatusDisplayItem.Holder(activity, parent);
 			case EXTENDED_FOOTER -> new ExtendedFooterStatusDisplayItem.Holder(activity, parent);

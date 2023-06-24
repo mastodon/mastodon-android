@@ -127,11 +127,11 @@ public class UiUtils{
 		if(diff<1000L){
 			return context.getString(R.string.time_now);
 		}else if(diff<60_000L){
-			return context.getString(R.string.time_seconds, diff/1000L);
+			return context.getString(R.string.time_seconds_ago_short, diff/1000L);
 		}else if(diff<3600_000L){
-			return context.getString(R.string.time_minutes, diff/60_000L);
+			return context.getString(R.string.time_minutes_ago_short, diff/60_000L);
 		}else if(diff<3600_000L*24L){
-			return context.getString(R.string.time_hours, diff/3600_000L);
+			return context.getString(R.string.time_hours_ago_short, diff/3600_000L);
 		}else{
 			int days=(int)(diff/(3600_000L*24L));
 			if(days>30){
@@ -142,7 +142,7 @@ public class UiUtils{
 					return DATE_FORMATTER_SHORT_WITH_YEAR.format(dt);
 				}
 			}
-			return context.getString(R.string.time_days, days);
+			return context.getString(R.string.time_days_ago_short, days);
 		}
 	}
 

@@ -1,5 +1,7 @@
 package org.joinmastodon.android.model.viewmodel;
 
+import android.text.SpannableStringBuilder;
+
 import org.joinmastodon.android.GlobalUserPreferences;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.model.Account;
@@ -29,7 +31,9 @@ public class AccountViewModel{
 		else
 			parsedName=account.displayName;
 		parsedBio=HtmlParser.parse(account.note, account.emojis, Collections.emptyList(), Collections.emptyList(), accountID);
-		emojiHelper.setText(parsedName);
+		SpannableStringBuilder ssb=new SpannableStringBuilder(parsedName);
+		ssb.append(parsedBio);
+		emojiHelper.setText(ssb);
 		String verifiedLink=null;
 		for(AccountField fld:account.fields){
 			if(fld.verifiedAt!=null){
