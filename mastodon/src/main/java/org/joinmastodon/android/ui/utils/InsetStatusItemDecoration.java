@@ -8,9 +8,8 @@ import android.view.View;
 
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.fragments.BaseStatusListFragment;
-import org.joinmastodon.android.ui.PhotoLayoutHelper;
-import org.joinmastodon.android.ui.displayitems.LinkCardStatusDisplayItem;
-import org.joinmastodon.android.ui.displayitems.MediaGridStatusDisplayItem;
+import org.joinmastodon.android.ui.displayitems.NotificationHeaderStatusDisplayItem;
+import org.joinmastodon.android.ui.displayitems.ReblogOrReplyLineStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.StatusDisplayItem;
 
 import java.util.List;
@@ -43,7 +42,11 @@ public class InsetStatusItemDecoration extends RecyclerView.ItemDecoration{
 			boolean inset=(holder instanceof StatusDisplayItem.Holder<?> sdi) && sdi.getItem().inset;
 			if(inset){
 				if(rect.isEmpty()){
-					rect.set(child.getX(), i==0 && pos>0 && displayItems.get(pos-1).inset ? V.dp(-10) : child.getY(), child.getX()+child.getWidth(), child.getY()+child.getHeight());
+					float childY=child.getY();
+					if(pos>0 && displayItems.get(pos-1).getType()==StatusDisplayItem.Type.REBLOG_OR_REPLY_LINE){
+						childY+=V.dp(8);
+					}
+					rect.set(child.getX(), i==0 && pos>0 && displayItems.get(pos-1).inset ? V.dp(-10) : childY, child.getX()+child.getWidth(), child.getY()+child.getHeight());
 				}else{
 					rect.bottom=Math.max(rect.bottom, child.getY()+child.getHeight());
 				}
@@ -91,7 +94,7 @@ public class InsetStatusItemDecoration extends RecyclerView.ItemDecoration{
 					outRect.left=outRect.right=V.dp(8);
 				if(!bottomSiblingInset)
 					outRect.bottom=V.dp(16);
-				if(!topSiblingInset)
+				if(!topSiblingInset && displayItems.get(pos-1) instanceof NotificationHeaderStatusDisplayItem)
 					outRect.top=V.dp(-8);
 			}
 		}
