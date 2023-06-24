@@ -1,10 +1,18 @@
 package org.joinmastodon.android.fragments;
 
 import android.app.Activity;
-import android.content.res.TypedArray;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.Rect;
+import android.graphics.drawable.Drawable;
+import android.media.MediaMetadataRetriever;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
-import android.view.Gravity;
+import android.text.SpannableStringBuilder;
+import android.text.style.BulletSpan;
+import android.util.Log;
+import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -12,28 +20,34 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 
 import org.joinmastodon.android.R;
-import org.joinmastodon.android.api.requests.statuses.UpdateAttachment;
+import org.joinmastodon.android.api.MastodonAPIController;
 import org.joinmastodon.android.model.Attachment;
-import org.parceler.Parcels;
+import org.joinmastodon.android.ui.M3AlertDialogBuilder;
+import org.joinmastodon.android.ui.photoviewer.PhotoViewer;
+import org.joinmastodon.android.ui.utils.UiUtils;
+import org.joinmastodon.android.ui.views.FixedAspectRatioImageView;
 
-import me.grishka.appkit.Nav;
-import me.grishka.appkit.api.Callback;
-import me.grishka.appkit.api.ErrorResponse;
-import me.grishka.appkit.fragments.ToolbarFragment;
+import java.util.Collections;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import me.grishka.appkit.fragments.OnBackPressedListener;
 import me.grishka.appkit.imageloader.ViewImageLoader;
 import me.grishka.appkit.imageloader.requests.UrlImageLoaderRequest;
 import me.grishka.appkit.utils.V;
 
-public class ComposeImageDescriptionFragment extends MastodonToolbarFragment{
+public class ComposeImageDescriptionFragment extends MastodonToolbarFragment implements OnBackPressedListener{
+	private static final String TAG="ComposeImageDescription";
+
 	private String accountID, attachmentID;
 	private EditText edit;
-	private Button saveButton;
+	private FixedAspectRatioImageView image;
+	private ContextThemeWrapper themeWrapper;
+	private PhotoViewer photoViewer;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState){
@@ -46,7 +60,13 @@ public class ComposeImageDescriptionFragment extends MastodonToolbarFragment{
 	@Override
 	public void onAttach(Activity activity){
 		super.onAttach(activity);
-		setTitle(R.string.edit_image);
+		themeWrapper=new ContextThemeWrapper(activity, R.style.Theme_Mastodon_Dark);
+		setTitle(R.string.add_alt_text);
+	}
+
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+		return super.onCreateView(themeWrapper.getSystemService(LayoutInflater.class), container, savedInstanceState);
 	}
 
 	@Override
@@ -54,12 +74,46 @@ public class ComposeImageDescriptionFragment extends MastodonToolbarFragment{
 		View view=inflater.inflate(R.layout.fragment_image_description, container, false);
 
 		edit=view.findViewById(R.id.edit);
-		ImageView image=view.findViewById(R.id.photo);
+		image=view.findViewById(R.id.photo);
+		int width=getArguments().getInt("width", 0);
+		int height=getArguments().getInt("height", 0);
+		if(width>0 && height>0){
+			image.setAspectRatio(Math.max(1f, (float)width/height));
+		}
+		image.setOnClickListener(v->openPhotoViewer());
 		Uri uri=getArguments().getParcelable("uri");
-		ViewImageLoader.load(image, null, new UrlImageLoaderRequest(uri, 1000, 1000));
+		Attachment.Type type=Attachment.Type.valueOf(getArguments().getString("attachmentType"));
+		if(type==Attachment.Type.IMAGE)
+			ViewImageLoader.load(image, null, new UrlImageLoaderRequest(uri, 1000, 1000));
+		else
+			loadVideoThumbIntoView(image, uri);
 		edit.setText(getArguments().getString("existingDescription"));
 
 		return view;
+	}
+
+	private void loadVideoThumbIntoView(ImageView target, Uri uri){
+		MastodonAPIController.runInBackground(()->{
+			Context context=getActivity();
+			if(context==null)
+				return;
+			try{
+				MediaMetadataRetriever mmr=new MediaMetadataRetriever();
+				mmr.setDataSource(context, uri);
+				Bitmap frame=mmr.getFrameAtTime(3_000_000);
+				mmr.release();
+				int size=Math.max(frame.getWidth(), frame.getHeight());
+				int maxSize=V.dp(250);
+				if(size>maxSize){
+					float factor=maxSize/(float)size;
+					frame=Bitmap.createScaledBitmap(frame, Math.round(frame.getWidth()*factor), Math.round(frame.getHeight()*factor), true);
+				}
+				Bitmap finalFrame=frame;
+				target.post(()->target.setImageBitmap(finalFrame));
+			}catch(Exception x){
+				Log.w(TAG, "loadVideoThumbIntoView: error getting video frame", x);
+			}
+		});
 	}
 
 	@Override
@@ -71,43 +125,114 @@ public class ComposeImageDescriptionFragment extends MastodonToolbarFragment{
 
 	@Override
 	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater){
-		TypedArray ta=getActivity().obtainStyledAttributes(new int[]{R.attr.secondaryButtonStyle});
-		int buttonStyle=ta.getResourceId(0, 0);
-		ta.recycle();
-		saveButton=new Button(getActivity(), null, 0, buttonStyle);
-		saveButton.setText(R.string.save);
-		saveButton.setOnClickListener(this::onSaveClick);
-		FrameLayout wrap=new FrameLayout(getActivity());
-		wrap.addView(saveButton, new FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, Gravity.TOP|Gravity.LEFT));
-		wrap.setPadding(V.dp(16), V.dp(4), V.dp(16), V.dp(8));
-		wrap.setClipToPadding(false);
-		MenuItem item=menu.add(R.string.publish);
-		item.setActionView(wrap);
-		item.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+		inflater.inflate(R.menu.compose_image_description, menu);
 	}
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item){
+		if(item.getItemId()==R.id.help){
+			SpannableStringBuilder msg=new SpannableStringBuilder(getText(R.string.alt_text_help));
+			BulletSpan[] spans=msg.getSpans(0, msg.length(), BulletSpan.class);
+			for(BulletSpan span:spans){
+				BulletSpan betterSpan;
+				if(Build.VERSION.SDK_INT<Build.VERSION_CODES.Q)
+					betterSpan=new BulletSpan(V.dp(10), UiUtils.getThemeColor(themeWrapper, R.attr.colorM3OnSurface));
+				else
+					betterSpan=new BulletSpan(V.dp(10), UiUtils.getThemeColor(themeWrapper, R.attr.colorM3OnSurface), V.dp(1.5f));
+				msg.setSpan(betterSpan, msg.getSpanStart(span), msg.getSpanEnd(span), msg.getSpanFlags(span));
+				msg.removeSpan(span);
+			}
+			new M3AlertDialogBuilder(themeWrapper)
+					.setTitle(R.string.what_is_alt_text)
+					.setMessage(msg)
+					.setPositiveButton(R.string.ok, null)
+					.show();
+		}
 		return true;
 	}
 
-	private void onSaveClick(View v){
-		new UpdateAttachment(attachmentID, edit.getText().toString().trim())
-				.setCallback(new Callback<>(){
-					@Override
-					public void onSuccess(Attachment result){
-						Bundle r=new Bundle();
-						r.putParcelable("attachment", Parcels.wrap(result));
-						setResult(true, r);
-						Nav.finish(ComposeImageDescriptionFragment.this);
-					}
+	@Override
+	public boolean onBackPressed(){
+		deliverResult();
+		return false;
+	}
 
-					@Override
-					public void onError(ErrorResponse error){
-						error.showToast(getActivity());
-					}
-				})
-				.wrapProgress(getActivity(), R.string.saving, false)
-				.exec(accountID);
+	@Override
+	protected LayoutInflater getToolbarLayoutInflater(){
+		return LayoutInflater.from(themeWrapper);
+	}
+
+	private void deliverResult(){
+		Bundle r=new Bundle();
+		r.putString("text", edit.getText().toString().trim());
+		r.putString("attachment", attachmentID);
+		setResult(true, r);
+	}
+
+	private void openPhotoViewer(){
+		Attachment fakeAttachment=new Attachment();
+		fakeAttachment.id="local";
+		fakeAttachment.type=Attachment.Type.valueOf(getArguments().getString("attachmentType"));
+		int width=getArguments().getInt("width", 0);
+		int height=getArguments().getInt("height", 0);
+		Uri uri=getArguments().getParcelable("uri");
+		fakeAttachment.url=uri.toString();
+		fakeAttachment.meta=new Attachment.Metadata();
+		fakeAttachment.meta.width=width;
+		fakeAttachment.meta.height=height;
+
+		photoViewer=new PhotoViewer(getActivity(), Collections.singletonList(fakeAttachment), 0, new PhotoViewer.Listener(){
+			@Override
+			public void setPhotoViewVisibility(int index, boolean visible){
+				image.setAlpha(visible ? 1f : 0f);
+			}
+
+			@Override
+			public boolean startPhotoViewTransition(int index, @NonNull Rect outRect, @NonNull int[] outCornerRadius){
+				int[] pos={0, 0};
+				image.getLocationOnScreen(pos);
+				outRect.set(pos[0], pos[1], pos[0]+image.getWidth(), pos[1]+image.getHeight());
+				image.setElevation(1f);
+				return true;
+			}
+
+			@Override
+			public void setTransitioningViewTransform(float translateX, float translateY, float scale){
+				image.setTranslationX(translateX);
+				image.setTranslationY(translateY);
+				image.setScaleX(scale);
+				image.setScaleY(scale);
+			}
+
+			@Override
+			public void endPhotoViewTransition(){
+				Drawable d=image.getDrawable();
+				image.setImageDrawable(null);
+				image.setImageDrawable(d);
+
+				image.setTranslationX(0f);
+				image.setTranslationY(0f);
+				image.setScaleX(1f);
+				image.setScaleY(1f);
+				image.setElevation(0f);
+			}
+
+			@Nullable
+			@Override
+			public Drawable getPhotoViewCurrentDrawable(int index){
+				return image.getDrawable();
+			}
+
+			@Override
+			public void photoViewerDismissed(){
+				photoViewer=null;
+			}
+
+			@Override
+			public void onRequestPermissions(String[] permissions){
+
+			}
+		});
+		photoViewer.removeMenu();
 	}
 }

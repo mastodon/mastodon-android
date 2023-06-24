@@ -2,9 +2,8 @@
 <resources>
 	<item name="header" type="id"/>
 
-	<item name="profile_posts" type="id"/>
-	<item name="profile_posts_with_replies" type="id"/>
-	<item name="profile_media" type="id"/>
+	<item name="profile_featured" type="id"/>
+	<item name="profile_timeline" type="id"/>
 	<item name="profile_about" type="id"/>
 	
 	<item name="discover_posts" type="id"/>
@@ -15,4 +14,16 @@
 
 	<item name="notifications_all" type="id"/>
 	<item name="notifications_mentions" type="id"/>
+
+	<item name="save" type="id"/>
+
+	<item name="list_item_simple" type="id"/>
+	<item name="list_item_simple_tinted" type="id"/>
+	<item name="list_item_switch" type="id"/>
+	<item name="list_item_checkbox" type="id"/>
+	<item name="list_item_radio" type="id"/>
+	<item name="list_item_account" type="id"/>
+
+	<item name="server_about" type="id"/>
+	<item name="server_rules" type="id"/>
 </resources>

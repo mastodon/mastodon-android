@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 	<item android:id="@+id/share" android:title="@string/share_user"/>
+	<!-- TODO add to list -->
 	<item android:id="@+id/mute" android:title="@string/mute_user"/>
 	<item android:id="@+id/block" android:title="@string/block_user"/>
 	<item android:id="@+id/report" android:title="@string/report_user"/>

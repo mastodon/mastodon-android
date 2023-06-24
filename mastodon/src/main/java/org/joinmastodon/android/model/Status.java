@@ -9,6 +9,8 @@ import org.parceler.Parcel;
 import java.time.Instant;
 import java.util.List;
 
+import androidx.annotation.NonNull;
+
 @Parcel
 public class Status extends BaseModel implements DisplayItemsParent{
 	@RequiredField
@@ -48,6 +50,7 @@ public class Status extends BaseModel implements DisplayItemsParent{
 	public Card card;
 	public String language;
 	public String text;
+	public List<FilterResult> filtered;
 
 	public boolean favourited;
 	public boolean reblogged;
@@ -58,6 +61,8 @@ public class Status extends BaseModel implements DisplayItemsParent{
 	public transient boolean spoilerRevealed;
 	public transient boolean hasGapAfter;
 	private transient String strippedText;
+
+	public Status(){}
 
 	@Override
 	public void postprocess() throws ObjectValidationException{
@@ -79,6 +84,10 @@ public class Status extends BaseModel implements DisplayItemsParent{
 			card.postprocess();
 		if(reblog!=null)
 			reblog.postprocess();
+		if(filtered!=null){
+			for(FilterResult fr:filtered)
+				fr.postprocess();
+		}
 
 		spoilerRevealed=!sensitive;
 	}
@@ -102,6 +111,7 @@ public class Status extends BaseModel implements DisplayItemsParent{
 				", reblogsCount="+reblogsCount+
 				", favouritesCount="+favouritesCount+
 				", repliesCount="+repliesCount+
+				", editedAt="+editedAt+
 				", url='"+url+'\''+
 				", inReplyToId='"+inReplyToId+'\''+
 				", inReplyToAccountId='"+inReplyToAccountId+'\''+
@@ -110,11 +120,15 @@ public class Status extends BaseModel implements DisplayItemsParent{
 				", card="+card+
 				", language='"+language+'\''+
 				", text='"+text+'\''+
+				", filtered="+filtered+
 				", favourited="+favourited+
 				", reblogged="+reblogged+
 				", muted="+muted+
 				", bookmarked="+bookmarked+
 				", pinned="+pinned+
+				", spoilerRevealed="+spoilerRevealed+
+				", hasGapAfter="+hasGapAfter+
+				", strippedText='"+strippedText+'\''+
 				'}';
 	}
 
@@ -140,5 +154,13 @@ public class Status extends BaseModel implements DisplayItemsParent{
 		if(strippedText==null)
 			strippedText=HtmlParser.strip(content);
 		return strippedText;
+	}
+
+	@NonNull
+	@Override
+	public Status clone(){
+		Status copy=(Status) super.clone();
+		copy.spoilerRevealed=false;
+		return copy;
 	}
 }

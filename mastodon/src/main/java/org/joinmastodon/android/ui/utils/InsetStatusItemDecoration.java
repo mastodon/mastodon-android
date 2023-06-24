@@ -8,9 +8,7 @@ import android.view.View;
 
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.fragments.BaseStatusListFragment;
-import org.joinmastodon.android.ui.PhotoLayoutHelper;
-import org.joinmastodon.android.ui.displayitems.LinkCardStatusDisplayItem;
-import org.joinmastodon.android.ui.displayitems.MediaGridStatusDisplayItem;
+import org.joinmastodon.android.ui.displayitems.NotificationHeaderStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.StatusDisplayItem;
 
 import java.util.List;
@@ -28,8 +26,8 @@ public class InsetStatusItemDecoration extends RecyclerView.ItemDecoration{
 
 	public InsetStatusItemDecoration(BaseStatusListFragment<?> listFragment){
 		this.listFragment=listFragment;
-		bgColor=UiUtils.getThemeColor(listFragment.getActivity(), android.R.attr.colorBackground);
-		borderColor=UiUtils.getThemeColor(listFragment.getActivity(), R.attr.colorPollVoted);
+		bgColor=UiUtils.getThemeColor(listFragment.getActivity(), R.attr.colorM3SurfaceVariant);
+		borderColor=UiUtils.getThemeColor(listFragment.getActivity(), R.attr.colorM3OutlineVariant);
 	}
 
 	@Override
@@ -43,7 +41,11 @@ public class InsetStatusItemDecoration extends RecyclerView.ItemDecoration{
 			boolean inset=(holder instanceof StatusDisplayItem.Holder<?> sdi) && sdi.getItem().inset;
 			if(inset){
 				if(rect.isEmpty()){
-					rect.set(child.getX(), i==0 && pos>0 && displayItems.get(pos-1).inset ? V.dp(-10) : child.getY(), child.getX()+child.getWidth(), child.getY()+child.getHeight());
+					float childY=child.getY();
+					if(pos>0 && displayItems.get(pos-1).getType()==StatusDisplayItem.Type.REBLOG_OR_REPLY_LINE){
+						childY+=V.dp(8);
+					}
+					rect.set(child.getX(), i==0 && pos>0 && displayItems.get(pos-1).inset ? V.dp(-10) : childY, child.getX()+child.getWidth(), child.getY()+child.getHeight());
 				}else{
 					rect.bottom=Math.max(rect.bottom, child.getY()+child.getHeight());
 				}
@@ -64,9 +66,8 @@ public class InsetStatusItemDecoration extends RecyclerView.ItemDecoration{
 	private void drawInsetBackground(RecyclerView list, Canvas c){
 		paint.setStyle(Paint.Style.FILL);
 		paint.setColor(bgColor);
-		rect.left=V.dp(12);
-		rect.right=list.getWidth()-V.dp(12);
-		rect.inset(V.dp(4), V.dp(4));
+		rect.left=V.dp(16);
+		rect.right=list.getWidth()-V.dp(16);
 		c.drawRoundRect(rect, V.dp(4), V.dp(4), paint);
 		paint.setStyle(Paint.Style.STROKE);
 		paint.setStrokeWidth(V.dp(1));
@@ -85,20 +86,15 @@ public class InsetStatusItemDecoration extends RecyclerView.ItemDecoration{
 			if(inset){
 				boolean topSiblingInset=pos>0 && displayItems.get(pos-1).inset;
 				boolean bottomSiblingInset=pos<displayItems.size()-1 && displayItems.get(pos+1).inset;
-				int pad;
-				if(holder instanceof MediaGridStatusDisplayItem.Holder || holder instanceof LinkCardStatusDisplayItem.Holder)
-					pad=V.dp(16);
+				StatusDisplayItem.Type type=sdi.getItem().getType();
+				if(type==StatusDisplayItem.Type.CARD || type==StatusDisplayItem.Type.MEDIA_GRID)
+					outRect.left=outRect.right=V.dp(16);
 				else
-					pad=V.dp(12);
-				boolean insetLeft=true, insetRight=true;
-				if(insetLeft)
-					outRect.left=pad;
-				if(insetRight)
-					outRect.right=pad;
-				if(!topSiblingInset)
-					outRect.top=pad;
+					outRect.left=outRect.right=V.dp(8);
 				if(!bottomSiblingInset)
-					outRect.bottom=pad;
+					outRect.bottom=V.dp(16);
+				if(!topSiblingInset && displayItems.get(pos-1) instanceof NotificationHeaderStatusDisplayItem)
+					outRect.top=V.dp(-8);
 			}
 		}
 	}

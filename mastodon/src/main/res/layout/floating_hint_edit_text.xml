@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<org.joinmastodon.android.ui.views.FloatingHintEditTextLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:paddingTop="4dp"
+	android:paddingBottom="12dp"
+	app:labelTextColor="@color/m3_outlined_text_field_label"
+	android:foreground="@drawable/bg_m3_outlined_text_field">
+
+	<EditText
+		android:id="@+id/edit"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="16dp"
+		android:layout_marginEnd="16dp"
+		android:layout_marginTop="8dp"
+		android:padding="16dp"
+		android:background="@null"
+		android:elevation="0dp"
+		android:singleLine="true"
+		android:textColorHint="?colorM3OnSurfaceVariant"
+		android:inputType="textCapSentences"/>
+
+</org.joinmastodon.android.ui.views.FloatingHintEditTextLayout>

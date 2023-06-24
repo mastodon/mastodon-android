@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="get_started">Utwórz konto</string>
-	<string name="already_have_account">Posiadam już konto</string>
 	<string name="log_in">Zaloguj się</string>
 	<string name="next">Dalej</string>
 	<string name="loading_instance">Pobieranie informacji o serwerze…</string>
@@ -16,10 +14,6 @@
 	<string name="user_sent_follow_request">wysłał(-a) prośbę o możliwość obserwacji</string>
 	<string name="user_favorited">dodał(a) Twój wpis do ulubionych</string>
 	<string name="poll_ended">głosowanie zakończyło się</string>
-	<string name="time_seconds">%d sek.</string>
-	<string name="time_minutes">%d min.</string>
-	<string name="time_hours">%d godz.</string>
-	<string name="time_days">%d d</string>
 	<string name="share_toot_title">Udostępnij</string>
 	<string name="settings">Ustawienia</string>
 	<string name="publish">Publikuj</string>
@@ -38,12 +32,6 @@
 		<item quantity="many">obserwowanych</item>
 		<item quantity="other">śledzonych</item>
 	</plurals>
-	<plurals name="posts">
-		<item quantity="one">wpis</item>
-		<item quantity="few">wpisy</item>
-		<item quantity="many">wpisów</item>
-		<item quantity="other">wpisów</item>
-	</plurals>
 	<string name="posts">Wpisy</string>
 	<string name="posts_and_replies">Wpisy i odpowiedzi</string>
 	<string name="media">Media</string>
@@ -51,7 +39,6 @@
 	<string name="button_follow">Obserwuj</string>
 	<string name="button_following">Obserwujesz</string>
 	<string name="edit_profile">Edytuj profil</string>
-	<string name="mention_user">Wspomnij o %s</string>
 	<string name="share_user">Udostępnij %s</string>
 	<string name="mute_user">Wycisz %s</string>
 	<string name="unmute_user">Cofnij wyciszenie %s</string>
@@ -92,7 +79,6 @@
 		<item quantity="many">%d dni</item>
 		<item quantity="other">%d dni</item>
 	</plurals>
-	<string name="compose_poll_duration">Czas trwania: %s</string>
 	<plurals name="x_seconds_left">
 		<item quantity="one">Została %d sekunda</item>
 		<item quantity="few">Zostały %d sekundy</item>
@@ -117,12 +103,6 @@
 		<item quantity="many">Zostało %d dni</item>
 		<item quantity="other">Zostało %d dni</item>
 	</plurals>
-	<plurals name="x_voters">
-		<item quantity="one">%,d głosujący</item>
-		<item quantity="few">%,d głosujących</item>
-		<item quantity="many">%,d głosujących</item>
-		<item quantity="other">%,d głosujących</item>
-	</plurals>
 	<string name="poll_closed">Zakończone</string>
 	<string name="confirm_mute_title">Wycisz konto</string>
 	<string name="confirm_mute">Potwierdź wyciszenie %s</string>
@@ -138,10 +118,8 @@
 	<string name="confirm_unblock_domain_title">Odblokuj domenę</string>
 	<string name="confirm_unblock">Potwierdź odblokowanie %s</string>
 	<string name="do_unblock">Odblokuj</string>
-	<string name="button_muted">Wyciszono</string>
 	<string name="button_blocked">Zablokowano</string>
 	<string name="action_vote">Zagłosuj</string>
-	<string name="tap_to_reveal">Dotknij, aby wyświetlić</string>
 	<string name="delete">Usuń</string>
 	<string name="confirm_delete_title">Usuń wpis</string>
 	<string name="confirm_delete">Czy na pewno chcesz usunąć ten wpis?</string>
@@ -162,12 +140,6 @@
 		<item quantity="few">%d osoby mówią o tym</item>
 		<item quantity="many">%d osób mówi o tym</item>
 		<item quantity="other">%d osób mówi o tym</item>
-	</plurals>
-	<plurals name="discussed_x_times">
-		<item quantity="one">Omówione %d raz</item>
-		<item quantity="few">Omawiane %d razy</item>
-		<item quantity="many">Omawiane %d razy</item>
-		<item quantity="other">Omawiane %d razy</item>
 	</plurals>
 	<string name="report_title">Zgłoś %s</string>
 	<string name="report_choose_reason">Co jest nie tak z tym wpisem?</string>
@@ -196,13 +168,10 @@
 	<string name="report_personal_title">Nie chcesz tego widzieć?</string>
 	<string name="report_personal_subtitle">Gdy zobaczysz na Mastodonie coś, co Ci się nie spodoba, możesz usunąć daną osobę ze swojego doświadczenia.</string>
 	<string name="back">Wróć</string>
-	<string name="instance_catalog_title">Mastodon składa się z użytkowników na różnych serwerach.</string>
-	<string name="instance_catalog_subtitle">Wybierz serwer według Twoich zainteresowań, regionu lub ogólnotematyczny. Możesz nadal łączyć się ze wszystkimi, niezależnie od serwera.</string>
 	<string name="search_communities">Nazwa serwera lub jego adres URL</string>
 	<string name="instance_rules_title">Zasady serwera</string>
 	<string name="instance_rules_subtitle">Kontynuując, zgadzasz się przestrzegać następujących zasad ustalonych i wymuszonych przez %s moderatorów.</string>
 	<string name="signup_title">Utwórz konto</string>
-	<string name="edit_photo">edytuj</string>
 	<string name="display_name">Nazwa</string>
 	<string name="username">Nazwa użytkownika</string>
 	<string name="email">Adres e-mail</string>
@@ -231,20 +200,12 @@
 	<string name="resent_email">Wysłano potwierdzający e-mail</string>
 	<string name="compose_hint">Wpisz lub wklej co masz na myśli</string>
 	<string name="content_warning">Ostrzeżenie o zawartości</string>
-	<string name="add_image_description">Dodaj opis obrazu…</string>
-	<string name="retry_upload">Ponów wysyłanie</string>
-	<string name="edit_image">Edytuj obraz</string>
 	<string name="save">Zapisz</string>
 	<string name="add_alt_text">Dodaj tekst alternatywny</string>
-	<string name="alt_text_subtitle">Tekst alternatywny opisuje zdjęcia dla osób niewidomych lub niedowidzących. Spróbuj opisać tylko tyle, ile potrzeba aby zrozumieć kontekst.</string>
-	<string name="alt_text_hint">np. pies rozglądający się podejrzliwie wokół kamery z przymrużonymi oczami.</string>
 	<string name="visibility_public">Publiczny</string>
 	<string name="visibility_followers_only">Tylko dla obserwujących</string>
 	<string name="visibility_private">Tylko dla wspomnianych</string>
-	<string name="search_all">Wszystko</string>
-	<string name="search_people">Ludzie</string>
 	<string name="recent_searches">Niedawno wyszukiwane</string>
-	<string name="step_x_of_n">Krok %1$d z %2$d</string>
 	<string name="skip">Pomiń</string>
 	<string name="notification_type_follow">Nowi obserwujący</string>
 	<string name="notification_type_favorite">Polubienia</string>
@@ -264,36 +225,21 @@
 	<string name="theme_auto">Automatyczny</string>
 	<string name="theme_light">Jasny</string>
 	<string name="theme_dark">Ciemny</string>
-	<string name="theme_true_black">Czarny tryb</string>
 	<string name="settings_behavior">Zachowanie</string>
 	<string name="settings_gif">Wyświetlaj animowane awatary i emoji</string>
 	<string name="settings_custom_tabs">Użyj przeglądarki w aplikacji</string>
 	<string name="settings_notifications">Powiadomienia</string>
-	<string name="notify_me_when">Powiadom mnie, gdy</string>
-	<string name="notify_anyone">ktokolwiek</string>
-	<string name="notify_follower">obserwujący</string>
-	<string name="notify_followed">ktoś, kogo obserwuję</string>
-	<string name="notify_none">nikt</string>
-	<string name="notify_favorites">Doda mój wpis do ulubionych</string>
-	<string name="notify_follow">Zacznie mnie obserwować</string>
-	<string name="notify_mention">Wspomni o mnie</string>
-	<string name="settings_boring">Nudne opcje</string>
-	<string name="settings_account">Ustawienia konta</string>
 	<string name="settings_contribute">Weź udział w rozwoju Mastodona</string>
 	<string name="settings_tos">Zasady użytkowania</string>
 	<string name="settings_privacy_policy">Polityka prywatności</string>
-	<string name="settings_spicy">Strefa pikantna</string>
 	<string name="settings_clear_cache">Wyczyść pamięć podręczną</string>
 	<string name="settings_app_version">Mastodon dla Androida v%1$s (%2$d)</string>
 	<string name="media_cache_cleared">Wyczyszczono pamięć podręczną mediów</string>
 	<string name="confirm_log_out">Czy na pewno chcesz się wylogować?</string>
-	<string name="sensitive_content">Zawartość wrażliwa</string>
 	<string name="sensitive_content_explain">Autor oznaczył te treści jako wrażliwe. Dotknij, aby wyświetlić.</string>
 	<string name="media_hidden">Dotknij, aby wyświetlić</string>
 	<string name="avatar_description">Przejdź na profil %s</string>
 	<string name="more_options">Więcej opcji</string>
-	<string name="reveal_content">Wyświetl treść</string>
-	<string name="hide_content">Ukryj treść</string>
 	<string name="new_post">Nowy wpis</string>
 	<string name="button_reply">Odpowiedz</string>
 	<string name="button_favorite">Dodaj do ulubionych</string>
@@ -302,7 +248,6 @@
 	<string name="add_media">Dodaj media</string>
 	<string name="add_poll">Dodaj głosowanie</string>
 	<string name="emoji">Emoji</string>
-	<string name="post_visibility">Widoczność wpisów</string>
 	<string name="home_timeline">Strona główna</string>
 	<string name="my_profile">Mój profil</string>
 	<string name="media_viewer">Przeglądarka mediów</string>
@@ -326,18 +271,14 @@
 	<string name="no_app_to_handle_action">Brak aplikacji mogącej obsłużyć tę akcję</string>
 	<string name="local_timeline">Społeczność</string>
 	<string name="trending_posts_info_banner">Oto wpisy zyskujące popularność w Twoim zakątku Mastodona.</string>
-	<string name="trending_hashtags_info_banner">Oto hashtagi zyskujące popularność w Twoim zakątku Mastodona.</string>
 	<string name="trending_links_info_banner">Oto wiadomości, które są najczęściej udostępniane w Twoim zakątku Mastodona.</string>
 	<string name="local_timeline_info_banner">To są najnowsze wpisy osób używających tego samego serwera Mastodon co Ty.</string>
-	<string name="dismiss">Odrzuć</string>
 	<string name="see_new_posts">Zobacz nowe wpisy</string>
 	<string name="load_missing_posts">Załaduj brakujące wpisy</string>
 	<string name="follow_back">Obserwuj wzajemnie</string>
 	<string name="button_follow_pending">Oczekujące</string>
 	<string name="follows_you">Obserwuje cię</string>
 	<string name="manually_approves_followers">Ręcznie zatwierdza obserwujących</string>
-	<string name="current_account">Bieżące konto</string>
-	<string name="log_out_account">Wyloguj %s</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<plurals name="x_followers">
 		<item quantity="one">%,d obserwujący</item>
@@ -359,7 +300,6 @@
 	</plurals>
 	<string name="timestamp_via_app">%1$s przez %2$s</string>
 	<string name="time_now">przed chwilą</string>
-	<string name="post_info_favorites">Ulubione</string>
 	<string name="edit_history">Historia edycji</string>
 	<string name="last_edit_at_x">Ostatnia zmiana: %s</string>
 	<string name="time_just_now">przed chwilą</string>
@@ -397,14 +337,9 @@
 	<string name="file_size_kb">%.2f KB</string>
 	<string name="file_size_mb">%.2f MB</string>
 	<string name="file_size_gb">%.2f GB</string>
-	<string name="file_upload_progress">%1$s z %2$s</string>
-	<string name="file_upload_time_remaining">Pozostało %s</string>
-	<string name="upload_error_connection_lost">Twoje urządzenie utraciło połączenie z Internetem</string>
 	<string name="upload_processing">Przetwarzanie…</string>
 	<!-- %s is version like 1.2.3 -->
-	<string name="update_available">Mastodon dla Android %s jest gotowy do pobrania.</string>
 	<!-- %s is version like 1.2.3 -->
-	<string name="update_ready">Mastodon dla Android %s jest gotowy do pobrania i instalacji.</string>
 	<!-- %s is file size -->
 	<string name="download_update">Pobierz (%s)</string>
 	<string name="install_update">Zainstaluj</string>
@@ -451,5 +386,4 @@
 	<string name="sending_follows">Obserwowani użytkownicy…</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
 	<string name="signup_email_domain_blocked">%1$s nie zezwala na rejestracje z domeny %2$s. Spróbuj innej lub &lt;a&gt;wybierz inny serwer&lt;/a&gt;.</string>
-	<string name="signup_username_taken">Ta nazwa użytkownika jest już zajęta.</string>
 </resources>

@@ -2,14 +2,19 @@ package org.joinmastodon.android.ui;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.content.res.TypedArray;
+import android.content.res.ColorStateList;
 import android.graphics.Rect;
 import android.graphics.drawable.Animatable;
+import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.text.TextUtils;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.squareup.otto.Subscribe;
@@ -22,7 +27,6 @@ import org.joinmastodon.android.model.EmojiCategory;
 import org.joinmastodon.android.ui.utils.UiUtils;
 
 import java.util.List;
-import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 import androidx.annotation.NonNull;
@@ -45,9 +49,8 @@ public class CustomEmojiPopupKeyboard extends PopupKeyboard{
 	private ListImageLoaderWrapper imgLoader;
 	private MergeRecyclerAdapter adapter=new MergeRecyclerAdapter();
 	private String domain;
-	private int gridGap;
 	private int spanCount=6;
-	private Consumer<Emoji> listener;
+	private Listener listener;
 
 	public CustomEmojiPopupKeyboard(Activity activity, List<EmojiCategory> emojis, String domain){
 		super(activity);
@@ -62,11 +65,8 @@ public class CustomEmojiPopupKeyboard extends PopupKeyboard{
 			@Override
 			protected void onMeasure(int widthSpec, int heightSpec){
 				// it's important to do this in onMeasure so the child views will be measured with correct paddings already set
-				spanCount=Math.round(MeasureSpec.getSize(widthSpec)/(float)V.dp(44+20));
+				spanCount=Math.round((MeasureSpec.getSize(widthSpec)-V.dp(32-8))/(float)V.dp(48+8));
 				lm.setSpanCount(spanCount);
-				int pad=V.dp(16);
-				gridGap=(MeasureSpec.getSize(widthSpec)-pad*2-V.dp(44)*spanCount)/(spanCount-1);
-				setPadding(pad, 0, pad-gridGap, 0);
 				invalidateItemDecorations();
 				super.onMeasure(widthSpec, heightSpec);
 			}
@@ -80,6 +80,7 @@ public class CustomEmojiPopupKeyboard extends PopupKeyboard{
 			}
 		});
 		list.setLayoutManager(lm);
+		list.setPadding(V.dp(16), 0, V.dp(16), 0);
 		imgLoader=new ListImageLoaderWrapper(activity, list, new RecyclerViewDelegate(list), null);
 
 		for(EmojiCategory category:emojis)
@@ -88,22 +89,52 @@ public class CustomEmojiPopupKeyboard extends PopupKeyboard{
 		list.addItemDecoration(new RecyclerView.ItemDecoration(){
 			@Override
 			public void getItemOffsets(@NonNull Rect outRect, @NonNull View view, @NonNull RecyclerView parent, @NonNull RecyclerView.State state){
-				outRect.right=gridGap;
 				if(view instanceof TextView){ // section header
-					if(parent.getChildAdapterPosition(view)>0)
-						outRect.top=-gridGap; // negate the margin added by the emojis above
+					outRect.left=outRect.right=V.dp(-16);
 				}else{
-					outRect.bottom=gridGap;
+					EmojiViewHolder evh=(EmojiViewHolder) parent.getChildViewHolder(view);
+					int col=evh.positionWithinCategory%spanCount;
+					if(col<spanCount-1){
+						outRect.right=V.dp(8);
+					}
+					outRect.bottom=V.dp(8);
 				}
 			}
 		});
-		list.setBackgroundColor(UiUtils.getThemeColor(activity, android.R.attr.colorBackground));
 		list.setSelector(null);
+		list.setClipToPadding(false);
+		new StickyHeadersOverlay(activity, 0).install(list);
 
-		return list;
+		LinearLayout ll=new LinearLayout(activity);
+		ll.setOrientation(LinearLayout.VERTICAL);
+		ll.setElevation(V.dp(3));
+		ll.setBackgroundResource(R.drawable.bg_m3_surface1);
+
+		ll.addView(list, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0, 1f));
+
+		FrameLayout bottomPanel=new FrameLayout(activity);
+		bottomPanel.setPadding(V.dp(16), V.dp(8), V.dp(16), V.dp(8));
+		bottomPanel.setBackgroundResource(R.drawable.bg_m3_surface2);
+		ll.addView(bottomPanel, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+
+		ImageButton hideKeyboard=new ImageButton(activity);
+		hideKeyboard.setImageResource(R.drawable.ic_keyboard_hide_24px);
+		hideKeyboard.setImageTintList(ColorStateList.valueOf(UiUtils.getThemeColor(activity, R.attr.colorM3OnSurfaceVariant)));
+		hideKeyboard.setBackgroundResource(R.drawable.bg_round_ripple);
+		hideKeyboard.setOnClickListener(v->hide());
+		bottomPanel.addView(hideKeyboard, new FrameLayout.LayoutParams(V.dp(36), V.dp(36), Gravity.LEFT));
+
+		ImageButton backspace=new ImageButton(activity);
+		backspace.setImageResource(R.drawable.ic_backspace_24px);
+		backspace.setImageTintList(ColorStateList.valueOf(UiUtils.getThemeColor(activity, R.attr.colorM3OnSurfaceVariant)));
+		backspace.setBackgroundResource(R.drawable.bg_round_ripple);
+		backspace.setOnClickListener(v->listener.onBackspace());
+		bottomPanel.addView(backspace, new FrameLayout.LayoutParams(V.dp(36), V.dp(36), Gravity.RIGHT));
+
+		return ll;
 	}
 
-	public void setListener(Consumer<Emoji> listener){
+	public void setListener(Listener listener){
 		this.listener=listener;
 	}
 
@@ -123,7 +154,7 @@ public class CustomEmojiPopupKeyboard extends PopupKeyboard{
 		public SingleCategoryAdapter(EmojiCategory category){
 			super(imgLoader);
 			this.category=category;
-			requests=category.emojis.stream().map(e->new UrlImageLoaderRequest(e.url, V.dp(44), V.dp(44))).collect(Collectors.toList());
+			requests=category.emojis.stream().map(e->new UrlImageLoaderRequest(e.url, V.dp(24), V.dp(24))).collect(Collectors.toList());
 		}
 
 		@NonNull
@@ -134,11 +165,11 @@ public class CustomEmojiPopupKeyboard extends PopupKeyboard{
 
 		@Override
 		public void onBindViewHolder(RecyclerView.ViewHolder holder, int position){
-			if(holder instanceof EmojiViewHolder){
-				((EmojiViewHolder) holder).bind(category.emojis.get(position-1));
-				((EmojiViewHolder) holder).positionWithinCategory=position-1;
-			}else if(holder instanceof SectionHeaderViewHolder){
-				((SectionHeaderViewHolder) holder).bind(TextUtils.isEmpty(category.title) ? domain : category.title);
+			if(holder instanceof EmojiViewHolder evh){
+				evh.bind(category.emojis.get(position-1));
+				evh.positionWithinCategory=position-1;
+			}else if(holder instanceof SectionHeaderViewHolder shvh){
+				shvh.bind(TextUtils.isEmpty(category.title) ? domain : category.title);
 			}
 			super.onBindViewHolder(holder, position);
 		}
@@ -164,14 +195,24 @@ public class CustomEmojiPopupKeyboard extends PopupKeyboard{
 		}
 	}
 
-	private class SectionHeaderViewHolder extends BindableViewHolder<String>{
+	private class SectionHeaderViewHolder extends BindableViewHolder<String> implements StickyHeadersOverlay.HeaderViewHolder{
+		private Drawable background;
+
 		public SectionHeaderViewHolder(){
 			super(activity, R.layout.item_emoji_section, list);
+			background=new ColorDrawable(UiUtils.alphaBlendThemeColors(activity, R.attr.colorM3Surface, R.attr.colorM3Primary, .08f));
+			itemView.setBackground(background);
 		}
 
 		@Override
 		public void onBind(String item){
 			((TextView)itemView).setText(item);
+			setStickyFactor(0);
+		}
+
+		@Override
+		public void setStickyFactor(float factor){
+			background.setAlpha(Math.round(255*factor));
 		}
 	}
 
@@ -180,8 +221,11 @@ public class CustomEmojiPopupKeyboard extends PopupKeyboard{
 		public EmojiViewHolder(){
 			super(new ImageView(activity));
 			ImageView img=(ImageView) itemView;
-			img.setLayoutParams(new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, V.dp(44)));
+			img.setLayoutParams(new RecyclerView.LayoutParams(V.dp(48), V.dp(48)));
 			img.setScaleType(ImageView.ScaleType.FIT_CENTER);
+			int pad=V.dp(12);
+			img.setPadding(pad, pad, pad, pad);
+			img.setBackgroundResource(R.drawable.bg_custom_emoji);
 		}
 
 		@Override
@@ -203,7 +247,12 @@ public class CustomEmojiPopupKeyboard extends PopupKeyboard{
 
 		@Override
 		public void onClick(){
-			listener.accept(item);
+			listener.onEmojiSelected(item);
 		}
+	}
+
+	public interface Listener{
+		void onEmojiSelected(Emoji emoji);
+		void onBackspace();
 	}
 }

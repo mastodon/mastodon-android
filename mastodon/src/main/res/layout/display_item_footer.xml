@@ -3,25 +3,30 @@
 	xmlns:tools="http://schemas.android.com/tools"
 	android:orientation="horizontal"
 	android:layout_width="match_parent"
-	android:layout_height="48dp"
-	android:paddingLeft="20dp"
-	android:paddingRight="20dp">
+	android:layout_height="42dp"
+	android:paddingBottom="8dp"
+	android:paddingLeft="8dp"
+	android:paddingRight="8dp">
 
 	<FrameLayout
 		android:id="@+id/reply_btn"
 		android:layout_width="wrap_content"
 		android:layout_height="match_parent"
-		android:minWidth="56dp">
+		android:paddingLeft="8dp"
+		android:paddingRight="8dp"
+		android:background="?android:actionBarItemBackground"
+		android:minWidth="34dp">
 		<TextView
 			android:id="@+id/reply"
 			android:layout_width="wrap_content"
 			android:layout_height="24dp"
 			android:layout_gravity="center"
-			android:drawableStart="@drawable/ic_fluent_chat_multiple_24_regular"
-			android:drawablePadding="8dp"
-			android:drawableTint="?android:textColorSecondary"
+			android:drawableStart="@drawable/ic_reply_20px"
+			android:drawablePadding="6dp"
+			android:drawableTint="?colorM3OnSurfaceVariant"
+			android:textColor="?colorM3OnSurfaceVariant"
 			android:gravity="center_vertical"
-			android:textAppearance="@style/m3_label_large"
+			android:textAppearance="@style/m3_label_medium"
 			tools:text="123"/>
 	</FrameLayout>
 
@@ -34,18 +39,21 @@
 		android:id="@+id/boost_btn"
 		android:layout_width="wrap_content"
 		android:layout_height="match_parent"
-		android:minWidth="56dp">
+		android:paddingLeft="8dp"
+		android:paddingRight="8dp"
+		android:background="?android:actionBarItemBackground"
+		android:minWidth="34dp">
 		<TextView
 			android:id="@+id/boost"
 			android:layout_width="wrap_content"
 			android:layout_height="24dp"
 			android:layout_gravity="center"
-			android:drawableStart="@drawable/ic_boost"
-			android:drawablePadding="8dp"
-			android:drawableTint="@color/boost_icon"
-			android:textColor="@color/boost_icon"
+			android:drawableStart="@drawable/ic_repeat_selector"
+			android:drawablePadding="6dp"
+			android:drawableTint="?colorM3OnSurfaceVariant"
+			android:textColor="?colorM3OnSurfaceVariant"
 			android:gravity="center_vertical"
-			android:textAppearance="@style/m3_label_large"
+			android:textAppearance="@style/m3_label_medium"
 			tools:text="123"/>
 	</FrameLayout>
 
@@ -58,18 +66,21 @@
 		android:id="@+id/favorite_btn"
 		android:layout_width="wrap_content"
 		android:layout_height="match_parent"
-		android:minWidth="56dp">
+		android:paddingLeft="8dp"
+		android:paddingRight="8dp"
+		android:background="?android:actionBarItemBackground"
+		android:minWidth="34dp">
 		<TextView
 			android:id="@+id/favorite"
 			android:layout_width="wrap_content"
 			android:layout_height="24dp"
 			android:layout_gravity="center"
-			android:drawableStart="@drawable/ic_fluent_star_24_selector"
-			android:drawablePadding="8dp"
-			android:drawableTint="@color/favorite_icon"
-			android:textColor="@color/favorite_icon"
+			android:drawableStart="@drawable/ic_star_selector"
+			android:drawablePadding="6dp"
+			android:drawableTint="?colorM3OnSurfaceVariant"
+			android:textColor="?colorM3OnSurfaceVariant"
 			android:gravity="center_vertical"
-			android:textAppearance="@style/m3_label_large"
+			android:textAppearance="@style/m3_label_medium"
 			tools:text="123"/>
 	</FrameLayout>
 
@@ -82,14 +93,17 @@
 		android:id="@+id/share_btn"
 		android:layout_width="wrap_content"
 		android:layout_height="match_parent"
-		android:minWidth="56dp">
+		android:paddingLeft="8dp"
+		android:paddingRight="8dp"
+		android:background="?android:actionBarItemBackground"
+		android:minWidth="34dp">
 		<ImageView
 			android:id="@+id/share"
 			android:layout_width="wrap_content"
 			android:layout_height="24dp"
 			android:layout_gravity="center"
-			android:src="@drawable/ic_fluent_share_24_regular"
-			android:tint="?android:textColorSecondary"
+			android:src="@drawable/ic_share_20px"
+			android:tint="?colorM3OnSurfaceVariant"
 			android:gravity="center_vertical"/>
 	</FrameLayout>
 

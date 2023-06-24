@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="wrap_content"
 	android:orientation="vertical">
@@ -8,20 +9,24 @@
 	<TextView
 		android:id="@+id/text"
 		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
+		android:layout_height="20dp"
 		android:paddingLeft="16dp"
 		android:paddingRight="16dp"
-		android:paddingBottom="8dp"
-		android:textAppearance="@style/m3_label_large"
-		android:textColor="?android:textColorPrimary" />
+		android:layout_marginBottom="8dp"
+		android:textAppearance="@style/m3_body_medium"
+		android:gravity="center_vertical"
+		android:textColor="?colorM3OnSurfaceVariant"
+		tools:text="fdsafdsafsdafds"/>
 
 	<Button
 		android:id="@+id/vote_btn"
-		android:layout_width="wrap_content"
+		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:layout_marginStart="16dp"
+		android:layout_marginLeft="16dp"
+		android:layout_marginRight="16dp"
 		android:layout_marginBottom="8dp"
 		android:enabled="false"
+		style="@style/Widget.Mastodon.M3.Button.Filled"
 		android:text="@string/action_vote"/>
 
 </LinearLayout>

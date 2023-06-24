@@ -2,7 +2,6 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="match_parent"
 	android:layout_height="wrap_content"
-	android:layout_marginBottom="-6dp"
 	android:paddingLeft="16dp"
 	android:paddingRight="16dp"
 	android:paddingTop="16dp">
@@ -11,9 +10,10 @@
 		android:id="@+id/text"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:textAppearance="@style/m3_title_small"
-		android:drawableStart="@drawable/ic_fluent_arrow_repeat_all_20_filled"
-		android:drawableTint="?android:textColorSecondary"
+		android:textAppearance="@style/m3_label_large"
+		android:drawableStart="@drawable/ic_repeat_20px"
+		android:drawableTint="?colorM3OnSurfaceVariant"
+		android:textColor="?colorM3OnSurfaceVariant"
 		android:drawablePadding="6dp"
 		android:singleLine="true"
 		android:ellipsize="end"/>

@@ -3,7 +3,6 @@ package org.joinmastodon.android.fragments.onboarding;
 import android.annotation.SuppressLint;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -23,8 +22,7 @@ import org.joinmastodon.android.api.requests.accounts.UpdateAccountCredentials;
 import org.joinmastodon.android.api.session.AccountActivationInfo;
 import org.joinmastodon.android.api.session.AccountSession;
 import org.joinmastodon.android.api.session.AccountSessionManager;
-import org.joinmastodon.android.fragments.HomeFragment;
-import org.joinmastodon.android.fragments.SettingsFragment;
+import org.joinmastodon.android.fragments.settings.SettingsMainFragment;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.ui.AccountSwitcherSheet;
 import org.joinmastodon.android.ui.utils.UiUtils;
@@ -38,7 +36,6 @@ import me.grishka.appkit.api.APIRequest;
 import me.grishka.appkit.api.Callback;
 import me.grishka.appkit.api.ErrorResponse;
 import me.grishka.appkit.fragments.ToolbarFragment;
-import me.grishka.appkit.utils.V;
 
 public class AccountActivationFragment extends ToolbarFragment{
 	private String accountID;
@@ -70,7 +67,7 @@ public class AccountActivationFragment extends ToolbarFragment{
 		openEmailBtn.setOnLongClickListener(v->{
 			Bundle args=new Bundle();
 			args.putString("account", accountID);
-			Nav.go(getActivity(), SettingsFragment.class, args);
+			Nav.go(getActivity(), SettingsMainFragment.class, args);
 			return true;
 		});
 		resendBtn=view.findViewById(R.id.btn_resend);
@@ -90,13 +87,6 @@ public class AccountActivationFragment extends ToolbarFragment{
 	}
 
 	@Override
-	public void onViewCreated(View view, Bundle savedInstanceState){
-		super.onViewCreated(view, savedInstanceState);
-		setStatusBarColor(UiUtils.getThemeColor(getActivity(), R.attr.colorM3Background));
-		view.setBackgroundColor(UiUtils.getThemeColor(getActivity(), R.attr.colorM3Background));
-	}
-
-	@Override
 	protected void onUpdateToolbar(){
 		super.onUpdateToolbar();
 		getToolbar().setBackground(null);
@@ -110,18 +100,12 @@ public class AccountActivationFragment extends ToolbarFragment{
 
 	@Override
 	public void onToolbarNavigationClick(){
-		new AccountSwitcherSheet(getActivity()).show();
+		new AccountSwitcherSheet(getActivity(), null).show();
 	}
 
 	@Override
 	public void onApplyWindowInsets(WindowInsets insets){
-		if(Build.VERSION.SDK_INT>=27){
-			int inset=insets.getSystemWindowInsetBottom();
-			contentView.setPadding(0, 0, 0, inset>0 ? Math.max(inset, V.dp(36)) : 0);
-			super.onApplyWindowInsets(insets.replaceSystemWindowInsets(insets.getSystemWindowInsetLeft(), insets.getSystemWindowInsetTop(), insets.getSystemWindowInsetRight(), 0));
-		}else{
-			super.onApplyWindowInsets(insets.replaceSystemWindowInsets(insets.getSystemWindowInsetLeft(), insets.getSystemWindowInsetTop(), insets.getSystemWindowInsetRight(), insets.getSystemWindowInsetBottom()));
-		}
+		super.onApplyWindowInsets(UiUtils.applyBottomInsetToFixedView(contentView, insets));
 	}
 
 	@Override

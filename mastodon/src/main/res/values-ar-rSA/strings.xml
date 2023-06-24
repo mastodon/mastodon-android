@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="get_started">إنشاء حساب</string>
-	<string name="already_have_account">لدي حساب بالفعل</string>
 	<string name="log_in">تسجيلُ الدخول</string>
 	<string name="next">التالي</string>
 	<string name="loading_instance">جارٍ جلب معلومات الخادم…</string>
@@ -16,10 +14,6 @@
 	<string name="user_sent_follow_request">أرسَلَ طَلَبًا لِمُتابَعَتِك</string>
 	<string name="user_favorited">فَضَّلَ مَنشُورَك</string>
 	<string name="poll_ended">انتهى استطلاعُ الرأي</string>
-	<string name="time_seconds">%d ثا</string>
-	<string name="time_minutes">%d د</string>
-	<string name="time_hours">%d سا</string>
-	<string name="time_days">%d يوم</string>
 	<string name="share_toot_title">شارك</string>
 	<string name="settings">الإعدادات</string>
 	<string name="publish">انشر</string>
@@ -42,14 +36,6 @@
 		<item quantity="many">متابَعًا</item>
 		<item quantity="other">متابَع</item>
 	</plurals>
-	<plurals name="posts">
-		<item quantity="zero">لا منشورات</item>
-		<item quantity="one">منشور</item>
-		<item quantity="two">منشوران</item>
-		<item quantity="few">منشورات</item>
-		<item quantity="many">منشورًا</item>
-		<item quantity="other">منشور</item>
-	</plurals>
 	<string name="posts">منشورات</string>
 	<string name="posts_and_replies">مَنشُوراتٌ وَرُدُود</string>
 	<string name="media">وسائط</string>
@@ -57,7 +43,6 @@
 	<string name="button_follow">تابِع</string>
 	<string name="button_following">مُتابَع</string>
 	<string name="edit_profile">حرّر الملف الشخصي</string>
-	<string name="mention_user">ذِكر @%s</string>
 	<string name="share_user">مُشارَكَةُ %s</string>
 	<string name="mute_user">كَتمُ %s</string>
 	<string name="unmute_user">إلغاء الكَتم عن @%s</string>
@@ -106,7 +91,6 @@
 		<item quantity="many">%d يومًا</item>
 		<item quantity="other">%d يوم</item>
 	</plurals>
-	<string name="compose_poll_duration">المُدَّة: %s</string>
 	<plurals name="x_seconds_left">
 		<item quantity="zero">تتبقى لَحظة</item>
 		<item quantity="one">تتبقى ثانية واحِدة</item>
@@ -139,14 +123,6 @@
 		<item quantity="many">تبقى %d يومًا</item>
 		<item quantity="other">تبقى %d يوم</item>
 	</plurals>
-	<plurals name="x_voters">
-		<item quantity="zero">لا يوجد مصوتون</item>
-		<item quantity="one">مصوت واحد</item>
-		<item quantity="two">مصوتان</item>
-		<item quantity="few">%,d مصوتين</item>
-		<item quantity="many">%,d مصوتًا</item>
-		<item quantity="other">%,d مصوت</item>
-	</plurals>
 	<string name="poll_closed">انتهى</string>
 	<string name="confirm_mute_title">اكتم الحساب</string>
 	<string name="confirm_mute">أكّد كتم %s</string>
@@ -162,10 +138,8 @@
 	<string name="confirm_unblock_domain_title">ارفع الحجب عن النطاق</string>
 	<string name="confirm_unblock">أكّد رفع الحجب عن %s</string>
 	<string name="do_unblock">ارفع الحجب</string>
-	<string name="button_muted">مَكتوم</string>
 	<string name="button_blocked">محجوب</string>
 	<string name="action_vote">صَوّت</string>
-	<string name="tap_to_reveal">اُنقُر لِلكَشف</string>
 	<string name="delete">احذف</string>
 	<string name="confirm_delete_title">احذف المنشور</string>
 	<string name="confirm_delete">أمتأكد من حذف هذا المنشور؟</string>
@@ -188,14 +162,6 @@
 		<item quantity="few">%d أشخاص يتحدثون</item>
 		<item quantity="many">%d شخصًا يتحدثون</item>
 		<item quantity="other">%d شخص يتحدثون</item>
-	</plurals>
-	<plurals name="discussed_x_times">
-		<item quantity="zero">لم يُناقش</item>
-		<item quantity="one">نوقش مرة واحدة</item>
-		<item quantity="two">نوقش مرتين</item>
-		<item quantity="few">نوقش %d مرات</item>
-		<item quantity="many">نوقش %d مرة</item>
-		<item quantity="other">نوقش %d مرة</item>
 	</plurals>
 	<string name="report_title">بلّغ عن %s</string>
 	<string name="report_choose_reason">ما هي المشكلة في هذا المنشور؟</string>
@@ -224,13 +190,10 @@
 	<string name="report_personal_title">لاترغب في مشاهدة هذا؟</string>
 	<string name="report_personal_subtitle">عندما ترى ما لا يعجبك في ماستدون، يمكنك إزالة صاحبها من تجربتك كمستخدم.</string>
 	<string name="back">العودة</string>
-	<string name="instance_catalog_title">يتكوّن ماستدون من مستخدمين موزّعين عبر خوادم مختلفة.</string>
-	<string name="instance_catalog_subtitle">اختر خادمًا بناءً على اهتماماتك، منطقتك أو يمكنك حتى اختيارُ مجتمعٍ ذي غرضٍ عام. وسيضل بامكانك التواصل مع المستخدمين من الخوادم الأخرى.</string>
 	<string name="search_communities">اسم الخادم أو عنوان URL</string>
 	<string name="instance_rules_title">قواعد الخادم</string>
 	<string name="instance_rules_subtitle">من خلال المتابعة، أنت توافق على اتباع القواعد التالية التي تم تعيينها وإنفاذها من قبل مشرفي %s.</string>
 	<string name="signup_title">إنشاء حساب</string>
-	<string name="edit_photo">حرّر</string>
 	<string name="display_name">الاسم</string>
 	<string name="username">اسم المستخدم</string>
 	<string name="email">البريد الإلكتروني</string>
@@ -259,20 +222,12 @@
 	<string name="resent_email">أُرسلت رسالة التأكيد</string>
 	<string name="compose_hint">عَبِّر عَمَّ يَجُولُ فِي ذِهنِك</string>
 	<string name="content_warning">تحذير من المحتوى</string>
-	<string name="add_image_description">أضف وصفًا للصورة…</string>
-	<string name="retry_upload">حاول الرفع مجددًا</string>
-	<string name="edit_image">حرّر الصورة</string>
 	<string name="save">احفظ</string>
 	<string name="add_alt_text">أضف نصًا بديلًا</string>
-	<string name="alt_text_subtitle">يصف النص البديل محتوى الصور للمكفوفين وضعاف البصر. حاول تضمين أكبر قدر ممكن من التفاصيل ليفهموا السياق.</string>
-	<string name="alt_text_hint">مثال: كلب ينظر حوله بارتياب وعيناه مثبتتان على الكاميرا.</string>
 	<string name="visibility_public">علني</string>
 	<string name="visibility_followers_only">للمُتابِعينَ فقط</string>
 	<string name="visibility_private">لمن ذكرتُهم فقط</string>
-	<string name="search_all">الكل</string>
-	<string name="search_people">أشخاص</string>
 	<string name="recent_searches">عَمَليَّاُت البَحثِ الأخيرَة</string>
-	<string name="step_x_of_n">الخطوة %1$d من %2$d</string>
 	<string name="skip">تخطى</string>
 	<string name="notification_type_follow">متابعُون جُدُد</string>
 	<string name="notification_type_favorite">المفضلة</string>
@@ -294,36 +249,21 @@
 	<string name="theme_auto">تلقائي</string>
 	<string name="theme_light">فاتح</string>
 	<string name="theme_dark">داكن</string>
-	<string name="theme_true_black">الوضع الداكن الحقيقي</string>
 	<string name="settings_behavior">السلوك</string>
 	<string name="settings_gif">تشغيل الصور الرمزية المتحركة والرموز التعبيرية المتحركة</string>
 	<string name="settings_custom_tabs">استخدم المتصفح المضمن</string>
 	<string name="settings_notifications">الإشعارات</string>
-	<string name="notify_me_when">أشعِرني عند قيام</string>
-	<string name="notify_anyone">أيَّ شخصٍ</string>
-	<string name="notify_follower">مُتابِع</string>
-	<string name="notify_followed">شخص أُتابِعُه</string>
-	<string name="notify_none">لَا أحد</string>
-	<string name="notify_favorites">بِالإعْجاب بِمَنشوري</string>
-	<string name="notify_follow">بمتابعتي</string>
-	<string name="notify_mention">بِالإشارَةِ إليّ</string>
-	<string name="settings_boring">المنطِقَةُ المُملَّة</string>
-	<string name="settings_account">إعدادات الحساب</string>
 	<string name="settings_contribute">ساهم في ماستدون</string>
 	<string name="settings_tos">شروط الخدمة</string>
 	<string name="settings_privacy_policy">سياسة الخصوصية</string>
-	<string name="settings_spicy">المنطِقَةُ اللَّاذِعَة</string>
 	<string name="settings_clear_cache">امسح التخزين المؤقت للوسائط</string>
 	<string name="settings_app_version">تطبيق ماستدون لأندرويد نسخة %1$s (%2$d)</string>
 	<string name="media_cache_cleared">مُسح التخزين المؤقت للوسائط</string>
 	<string name="confirm_log_out">أمتأكد من الخروج؟</string>
-	<string name="sensitive_content">محتوى حساس</string>
 	<string name="sensitive_content_explain">علّم المؤلف هته الوسائط كحساسة. اضغط لكشفها.</string>
 	<string name="media_hidden">اُنقُر لِلكَشف</string>
 	<string name="avatar_description">انتقل للصفحة الشخصية لـ %s</string>
 	<string name="more_options">مزيد من الخيارات</string>
-	<string name="reveal_content">اكشف المحتوى</string>
-	<string name="hide_content">اخف المحتوى</string>
 	<string name="new_post">منشور جديد</string>
 	<string name="button_reply">ردّ</string>
 	<string name="button_favorite">فضّل</string>
@@ -332,7 +272,6 @@
 	<string name="add_media">أضف وسائط</string>
 	<string name="add_poll">أضف استطلاع رأي</string>
 	<string name="emoji">إيموجي</string>
-	<string name="post_visibility">مرئية المنشور</string>
 	<string name="home_timeline">الخيط الزمني الرئيسي</string>
 	<string name="my_profile">ملفي الشخصي</string>
 	<string name="media_viewer">عارض الوسائط</string>
@@ -356,18 +295,14 @@
 	<string name="no_app_to_handle_action">لا يوجد تطبيق لمعالجة هذا الإجراء</string>
 	<string name="local_timeline">المجتمع</string>
 	<string name="trending_posts_info_banner">هَذِهِ هِيَ المَنشُوراتُ الَّتي تَكْتَسِبُ شَعبِيَّةً فِي الرُّكنِ الخاصِّ بِكَ مِن مَاستودُون.</string>
-	<string name="trending_hashtags_info_banner">هَذِهِ هِيَ الوُسُومُ الَّتي تَكْتَسِبُ شَعبِيَّةً فِي الرُّكنِ الخاصِّ بِكَ مِن مَاستودُون.</string>
 	<string name="trending_links_info_banner">هَذِهِ هِيَ القِصَصُ الأخبارِيَّةُ المُتَنَاقَلَةُ بِكِثرَةٍ فِي الرُّكنِ الخاصِّ بِكَ مِن مَاستودُون.</string>
 	<string name="local_timeline_info_banner">هذه هي أحدث منشورات المستخدمين المتواجدين على نفس الخادم الذي تستخدمه.</string>
-	<string name="dismiss">رفض</string>
 	<string name="see_new_posts">استعرض المنشورات الجديدة</string>
 	<string name="load_missing_posts">حمّل المَنشورات المَفقودَة</string>
 	<string name="follow_back">رُدّ المتابعة</string>
 	<string name="button_follow_pending">معلق</string>
 	<string name="follows_you">يُتابِعُك</string>
 	<string name="manually_approves_followers">الموافقة اليدوية على طلبات المتابعة</string>
-	<string name="current_account">الحِسابُ الحاليّ</string>
-	<string name="log_out_account">تَسجيلُ الخُرُوجِ مِن %s</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<plurals name="x_followers">
 		<item quantity="zero">ليس له متابِعون</item>
@@ -395,7 +330,6 @@
 	</plurals>
 	<string name="timestamp_via_app">%1$s عبر %2$s</string>
 	<string name="time_now">الآن</string>
-	<string name="post_info_favorites">المفضلة</string>
 	<string name="edit_history">تاريخ التعديل</string>
 	<string name="last_edit_at_x">آخر تعديل %s</string>
 	<string name="time_just_now">للتوّ</string>
@@ -437,14 +371,9 @@
 	<string name="file_size_kb">%.2f كيلوبايت</string>
 	<string name="file_size_mb">%.2f ميغابايت</string>
 	<string name="file_size_gb">%.2f جيجابايت</string>
-	<string name="file_upload_progress">%1$s من %2$s</string>
-	<string name="file_upload_time_remaining">%s متبقية</string>
-	<string name="upload_error_connection_lost">فقد جهازك الاتصال بالإنترنت</string>
 	<string name="upload_processing">قيد المعالجة…</string>
 	<!-- %s is version like 1.2.3 -->
-	<string name="update_available">ماستدون %s للأندرويد جاهز للتنزيل.</string>
 	<!-- %s is version like 1.2.3 -->
-	<string name="update_ready">تم تنزيل ماستدون %s للأندرويد ومستعد لتثبيته.</string>
 	<!-- %s is file size -->
 	<string name="download_update">جارٍ التنزيل (%s)</string>
 	<string name="install_update">تثبيت</string>
@@ -491,5 +420,4 @@
 	<string name="sending_follows">متابعة المستخدمين…</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
 	<string name="signup_email_domain_blocked">%1$s لا يسمح بالتسجيلات من %2$s. جرب واحدا أو &lt;a&gt;اختار خادم مختلف&lt;/a&gt;.</string>
-	<string name="signup_username_taken">اِسم المُستَخدِم هذا مأخوذٌ بالفعل.</string>
 </resources>

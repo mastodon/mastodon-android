@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android" android:color="@color/m3_on_surface_overlay">
+	<item android:id="@android:id/mask">
+		<shape>
+			<solid android:color="#000"/>
+		</shape>
+	</item>
+	<item>
+		<selector>
+			<item android:state_selected="true">
+				<shape>
+					<solid android:color="?colorM3SecondaryContainer"/>
+				</shape>
+			</item>
+		</selector>
+	</item>
+</ripple>

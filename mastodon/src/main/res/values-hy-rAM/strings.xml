@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="get_started">Ստեղծել հաշիվ</string>
-	<string name="already_have_account">Արդեն հաշիվ ունեմ</string>
 	<string name="log_in">Մուտք գործել</string>
 	<string name="next">Հաջորդը</string>
 	<string name="error">Սխալ</string>
@@ -16,10 +14,6 @@
 	<string name="user_favorited">հավանեց ձեր գրառումը</string>
 	<string name="notification_boosted">տարածեց ձեր գրառումը</string>
 	<string name="poll_ended">հարցումն ավարտվել է</string>
-	<string name="time_seconds">%dվրկ</string>
-	<string name="time_minutes">%dր</string>
-	<string name="time_hours">%dժ</string>
-	<string name="time_days">%dօր</string>
 	<string name="share_toot_title">Տարածել</string>
 	<string name="settings">Կարգավորումներ</string>
 	<string name="publish">Հրապարակել</string>
@@ -34,10 +28,6 @@
 		<item quantity="one">հետեւում ես</item>
 		<item quantity="other">հետեւում ես</item>
 	</plurals>
-	<plurals name="posts">
-		<item quantity="one">գրառում</item>
-		<item quantity="other">գրառումներ</item>
-	</plurals>
 	<string name="posts">Գրառումներ</string>
 	<string name="posts_and_replies">Գրառումներ եւ պատասխաններ</string>
 	<string name="media">Մեդիա</string>
@@ -45,7 +35,6 @@
 	<string name="button_follow">Հետեւել</string>
 	<string name="button_following">Հետեւում ես</string>
 	<string name="edit_profile">Խմբագրել անձնական էջը</string>
-	<string name="mention_user">Նշել %s-ին</string>
 	<string name="share_user">Տարածել%s</string>
 	<string name="mute_user">Անջատել ձայնը%s</string>
 	<string name="unmute_user">Միացնել ձայնը%s</string>
@@ -76,7 +65,6 @@
 		<item quantity="one">%d օր</item>
 		<item quantity="other">%d օր</item>
 	</plurals>
-	<string name="compose_poll_duration">Տեւողությունը՝ %s</string>
 	<plurals name="x_seconds_left">
 		<item quantity="one">Մնաց %d վայրկյան</item>
 		<item quantity="other">Մնաց %d վայրկյան</item>
@@ -102,7 +90,6 @@
 	<string name="confirm_block">Հաստատեք %s-ի արգելափակումը</string>
 	<string name="do_block">Արգելափակել</string>
 	<string name="action_vote">Քվեարկել</string>
-	<string name="tap_to_reveal">Սեղմեք տեսնելու համար</string>
 	<string name="delete">Ջնջել</string>
 	<string name="confirm_delete_title">Ջնջել գրառումը</string>
 	<string name="confirm_delete">Վստա՞հ եք, որ ուզում եք ջնջել այս գրառումը։</string>
@@ -129,11 +116,9 @@
 	<string name="block_user_explain">Նա չի կարողանա ձեզ հետևել և չի տեսնի ձեր գրառումները, բայց կարող է տեսնել, որ արգելափակված է։</string>
 	<string name="report_personal_title">Չե՞ք ուզում սա տեսնել։</string>
 	<string name="back">Ետ</string>
-	<string name="instance_catalog_subtitle">Ընտրեք ձեր հետաքրքրություններին կամ տարածաշրջանին համապատասխան սպասարկիչ, կամ ընտրեք ընդհանուր սպասարկիչ։ Դուք կկարողանաք շփվել բոլորի հետ՝ անկախ սպասարկչից։</string>
 	<string name="search_communities">Սպասարկչի անուն կամ հասցե</string>
 	<string name="instance_rules_title">Սպասարկչի կանոնները</string>
 	<string name="signup_title">Ստեղծել հաշիվ</string>
-	<string name="edit_photo">խմբագրել</string>
 	<string name="display_name">Անուն</string>
 	<string name="username">Մուտքանուն</string>
 	<string name="email">Էլ. փոստ</string>
@@ -154,13 +139,8 @@
 	<string name="resend">Ուղարկել նորից</string>
 	<string name="open_email_app">Բացել էլ․ փոստի հավելվածը</string>
 	<string name="content_warning">Նախազգուշացում</string>
-	<string name="add_image_description">Ավելացնել պատկերի նկարագրություն</string>
-	<string name="edit_image">Խմբագրել նկարը</string>
 	<string name="save">Պահպանել</string>
-	<string name="search_all">Բոլորը</string>
-	<string name="search_people">Մարդիկ</string>
 	<string name="recent_searches">Վերջին որոնումներ</string>
-	<string name="step_x_of_n">Քայլ %1$d՝ %2$d-ից</string>
 	<string name="skip">Բաց թողնել</string>
 	<string name="notification_type_follow">Նոր հետևորդներ</string>
 	<string name="notification_type_favorite">Հավանումներ</string>
@@ -171,30 +151,18 @@
 	<string name="err_not_logged_in">Սկզբից մուտք գործեք Մաստոդոն</string>
 	<string name="theme_light">Բաց</string>
 	<string name="theme_dark">Մուգ</string>
-	<string name="theme_true_black">Իսկական սև</string>
 	<string name="settings_behavior">Պահվածքը</string>
 	<string name="settings_custom_tabs">Օգտագործել ներքին բրաուզերը</string>
 	<string name="settings_notifications">Ծանուցումներ</string>
-	<string name="notify_anyone">որեւե մեկը</string>
-	<string name="notify_follower">որեւե հետեւորդ</string>
-	<string name="notify_none">ոչ ոք</string>
-	<string name="notify_favorites">Հավանեց ձեր գրառումը</string>
-	<string name="notify_follow">Հետեւում է ձեզ</string>
-	<string name="notify_reblog">Տարածեց ձեր գրառումը</string>
-	<string name="notify_mention">Նշում է ձեզ</string>
-	<string name="settings_boring">Անհետաքրքիր մասը</string>
-	<string name="settings_account">Հաշվի կարգավորումներ</string>
 	<string name="settings_contribute">Աջակցել Մաստոդոնին</string>
 	<string name="settings_tos">Ծառայության պայմանները</string>
 	<string name="settings_privacy_policy">Գաղտնիության քաղաքականություն</string>
 	<string name="settings_app_version">Մաստոդոն Android-ի համար, տարբերակ %1$s (%2$d)</string>
 	<string name="confirm_log_out">Վստա՞հ եք, որ ուզում եք դուրս գալ։</string>
-	<string name="sensitive_content">Զգայուն բովանդակություն</string>
 	<string name="sensitive_content_explain">Հեղինակը սա նշել է՝ որպես զգայուն բովանդակություն։ Սեղմեք տեսնելու համար։</string>
 	<string name="media_hidden">Սեղմեք տեսնելու համար</string>
 	<string name="avatar_description">Գնալ %s-ի հաշիվ</string>
 	<string name="more_options">Ավելին</string>
-	<string name="hide_content">Թաքցնել կոնտենտը</string>
 	<string name="new_post">Նոր գրառում</string>
 	<string name="button_reply">Պատասխանել</string>
 	<string name="button_reblog">Տարածել</string>
@@ -203,7 +171,6 @@
 	<string name="add_media">Ավելացնել մեդիա</string>
 	<string name="add_poll">Ավելացնել հարցում</string>
 	<string name="emoji">Զմայլիկ</string>
-	<string name="post_visibility">Տեսանելիություն</string>
 	<string name="home_timeline">Տեղական հոսք</string>
 	<string name="my_profile">Իմ հաշիվ</string>
 	<string name="follow_user">Հետևել %s-ին</string>
@@ -222,8 +189,6 @@
 	<string name="downloading">Բեռնում․․․</string>
 	<string name="local_timeline">Համայնք</string>
 	<string name="trending_posts_info_banner">Այս գրառումները տարածված են Մաստոդոնի ձեր անկյունում։</string>
-	<string name="trending_hashtags_info_banner">Այս պիտակները տարածված են Մաստոդոնի ձեր անկյունում։</string>
-	<string name="dismiss">Չեղարկել</string>
 	<string name="see_new_posts">Նոր գրառումներ</string>
 	<string name="follows_you">Հետեւում է ձեզ</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
@@ -241,7 +206,6 @@
 	</plurals>
 	<string name="timestamp_via_app">%1$s %2$s-ի միջոցով</string>
 	<string name="time_now">նոր</string>
-	<string name="post_info_favorites">Հավանումներ</string>
 	<string name="edit_history">Խմբագրել պատմությունը</string>
 	<string name="time_just_now">հենց նոր</string>
 	<string name="edit_poll_removed">Հարցումը հեռացվել է</string>
@@ -249,9 +213,7 @@
 	<string name="edit_media_removed">Մեդիան հեռացվել է</string>
 	<string name="edit_marked_sensitive">Նշվել է որպես դյուրազգաց</string>
 	<!-- %s is version like 1.2.3 -->
-	<string name="update_available">%s տարբերակը պատրաստ է ներբեռնման։</string>
 	<!-- %s is version like 1.2.3 -->
-	<string name="update_ready">%s տարբերակը ներբեռնվել է և պատրաստ է տեղադրման։</string>
 	<!-- %s is file size -->
 	<string name="download_update">Ներբեռնել (%s)</string>
 	<string name="install_update">Տեղադրել</string>

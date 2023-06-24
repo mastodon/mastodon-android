@@ -1,44 +1,37 @@
 package org.joinmastodon.android.fragments;
 
-import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.ClipData;
-import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
-import android.database.Cursor;
-import android.graphics.Bitmap;
 import android.graphics.Outline;
 import android.graphics.PixelFormat;
-import android.graphics.RenderEffect;
-import android.graphics.Shader;
+import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
 import android.icu.text.BreakIterator;
-import android.media.MediaMetadataRetriever;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.provider.MediaStore;
-import android.provider.OpenableColumns;
 import android.text.Editable;
-import android.text.InputFilter;
-import android.text.Layout;
 import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.text.style.BackgroundColorSpan;
+import android.text.style.ForegroundColorSpan;
 import android.util.Log;
-import android.view.Gravity;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.SoundEffectConstants;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewOutlineProvider;
+import android.view.ViewTreeObserver;
 import android.view.WindowManager;
-import android.view.animation.LinearInterpolator;
+import android.view.inputmethod.InputConnection;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
@@ -49,61 +42,50 @@ import android.widget.LinearLayout;
 import android.widget.PopupMenu;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.twitter.twittertext.TwitterTextEmojiRegex;
 
 import org.joinmastodon.android.E;
-import org.joinmastodon.android.MastodonApp;
+import org.joinmastodon.android.GlobalUserPreferences;
 import org.joinmastodon.android.R;
-import org.joinmastodon.android.api.MastodonAPIController;
 import org.joinmastodon.android.api.MastodonErrorResponse;
-import org.joinmastodon.android.api.ProgressListener;
 import org.joinmastodon.android.api.requests.accounts.GetPreferences;
 import org.joinmastodon.android.api.requests.statuses.CreateStatus;
 import org.joinmastodon.android.api.requests.statuses.EditStatus;
-import org.joinmastodon.android.api.requests.statuses.GetAttachmentByID;
-import org.joinmastodon.android.api.requests.statuses.UploadAttachment;
 import org.joinmastodon.android.api.session.AccountSession;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.events.StatusCountersUpdatedEvent;
 import org.joinmastodon.android.events.StatusCreatedEvent;
 import org.joinmastodon.android.events.StatusUpdatedEvent;
+import org.joinmastodon.android.fragments.account_list.ComposeAccountSearchFragment;
 import org.joinmastodon.android.model.Account;
-import org.joinmastodon.android.model.Attachment;
 import org.joinmastodon.android.model.Emoji;
 import org.joinmastodon.android.model.EmojiCategory;
 import org.joinmastodon.android.model.Instance;
 import org.joinmastodon.android.model.Mention;
-import org.joinmastodon.android.model.Poll;
 import org.joinmastodon.android.model.Preferences;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.model.StatusPrivacy;
-import org.joinmastodon.android.ui.ComposeAutocompleteViewController;
 import org.joinmastodon.android.ui.CustomEmojiPopupKeyboard;
 import org.joinmastodon.android.ui.M3AlertDialogBuilder;
+import org.joinmastodon.android.ui.OutlineProviders;
 import org.joinmastodon.android.ui.PopupKeyboard;
 import org.joinmastodon.android.ui.drawables.SpoilerStripesDrawable;
 import org.joinmastodon.android.ui.text.ComposeAutocompleteSpan;
 import org.joinmastodon.android.ui.text.ComposeHashtagOrMentionSpan;
 import org.joinmastodon.android.ui.text.HtmlParser;
 import org.joinmastodon.android.ui.utils.SimpleTextWatcher;
-import org.joinmastodon.android.utils.TransferSpeedTracker;
 import org.joinmastodon.android.ui.utils.UiUtils;
+import org.joinmastodon.android.ui.viewcontrollers.ComposeAutocompleteViewController;
+import org.joinmastodon.android.ui.viewcontrollers.ComposeLanguageAlertViewController;
+import org.joinmastodon.android.ui.viewcontrollers.ComposeMediaViewController;
+import org.joinmastodon.android.ui.viewcontrollers.ComposePollViewController;
 import org.joinmastodon.android.ui.views.ComposeEditText;
-import org.joinmastodon.android.ui.views.ComposeMediaLayout;
-import org.joinmastodon.android.ui.views.ReorderableLinearLayout;
 import org.joinmastodon.android.ui.views.SizeListenerLinearLayout;
-import org.parceler.Parcel;
 import org.parceler.Parcels;
 
-import java.io.InterruptedIOException;
-import java.net.SocketException;
-import java.net.UnknownHostException;
-import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -120,8 +102,8 @@ import me.grishka.appkit.utils.V;
 public class ComposeFragment extends MastodonToolbarFragment implements OnBackPressedListener, ComposeEditText.SelectionListener{
 
 	private static final int MEDIA_RESULT=717;
-	private static final int IMAGE_DESCRIPTION_RESULT=363;
-	private static final int MAX_ATTACHMENTS=4;
+	public static final int IMAGE_DESCRIPTION_RESULT=363;
+	private static final int AUTOCOMPLETE_ACCOUNT_RESULT=779;
 	private static final String TAG="ComposeFragment";
 
 	private static final Pattern MENTION_PATTERN=Pattern.compile("(^|[^\\/\\w])@(([a-z0-9_]+)@[a-z0-9\\.\\-]+[a-z0-9]+)", Pattern.CASE_INSENSITIVE);
@@ -133,6 +115,7 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 	@SuppressLint("NewApi") // this class actually exists on 6.0
 	private final BreakIterator breakIterator=BreakIterator.getCharacterInstance();
 
+	public LinearLayout mainLayout;
 	private SizeListenerLinearLayout contentView;
 	private TextView selfName, selfUsername;
 	private ImageView selfAvatar;
@@ -144,44 +127,45 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 	private String accountID;
 	private int charCount, charLimit, trimmedCharCount;
 
-	private Button publishButton;
-	private ImageButton mediaBtn, pollBtn, emojiBtn, spoilerBtn, visibilityBtn;
-	private ComposeMediaLayout attachmentsView;
+	private ImageButton mediaBtn, pollBtn, emojiBtn, spoilerBtn, languageBtn;
 	private TextView replyText;
-	private ReorderableLinearLayout pollOptionsView;
-	private View pollWrap;
-	private View addPollOptionBtn;
-	private TextView pollDurationView;
-
-	private ArrayList<DraftPollOption> pollOptions=new ArrayList<>();
-
-	private ArrayList<DraftMediaAttachment> attachments=new ArrayList<>();
+	private Button visibilityBtn;
+	private LinearLayout bottomBar;
+	private View autocompleteDivider;
 
 	private List<EmojiCategory> customEmojis;
 	private CustomEmojiPopupKeyboard emojiKeyboard;
 	private Status replyTo;
 	private String initialText;
 	private String uuid;
-	private int pollDuration=24*3600;
-	private String pollDurationStr;
 	private EditText spoilerEdit;
+	private View spoilerWrap;
 	private boolean hasSpoiler;
 	private ProgressBar sendProgress;
-	private ImageView sendError;
 	private View sendingOverlay;
 	private WindowManager wm;
 	private StatusPrivacy statusVisibility=StatusPrivacy.PUBLIC;
 	private ComposeAutocompleteSpan currentAutocompleteSpan;
 	private FrameLayout mainEditTextWrap;
-	private ComposeAutocompleteViewController autocompleteViewController;
-	private Instance instance;
-	private boolean attachmentsErrorShowing;
+	private ComposeLanguageAlertViewController.SelectedOption postLang;
 
-	private Status editingStatus;
-	private boolean pollChanged;
+	private ComposeAutocompleteViewController autocompleteViewController;
+	private ComposePollViewController pollViewController=new ComposePollViewController(this);
+	private ComposeMediaViewController mediaViewController=new ComposeMediaViewController(this);
+	public Instance instance;
+
+	public Status editingStatus;
 	private boolean creatingView;
 	private boolean ignoreSelectionChanges=false;
-	private Runnable updateUploadEtaRunnable;
+	private MenuItem publishButton;
+	private boolean wasDetached;
+
+	private BackgroundColorSpan overLimitBG;
+	private ForegroundColorSpan overLimitFG;
+
+	public ComposeFragment(){
+		super(R.layout.toolbar_fragment_with_progressbar);
+	}
 
 	@Override
 	public void onCreate(Bundle savedInstanceState){
@@ -212,20 +196,15 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 		else
 			charLimit=500;
 
-		if (editingStatus == null) loadDefaultStatusVisibility(savedInstanceState);
+		setTitle(editingStatus==null ? R.string.new_post : R.string.edit_post);
+		if(savedInstanceState!=null)
+			postLang=Parcels.unwrap(savedInstanceState.getParcelable("postLang"));
 	}
 
 	@Override
 	public void onDestroy(){
 		super.onDestroy();
-		for(DraftMediaAttachment att:attachments){
-			if(att.isUploadingOrProcessing())
-				att.cancelUpload();
-		}
-		if(updateUploadEtaRunnable!=null){
-			UiUtils.removeCallbacks(updateUploadEtaRunnable);
-			updateUploadEtaRunnable=null;
-		}
+		mediaViewController.cancelAllUploads();
 	}
 
 	@Override
@@ -233,15 +212,36 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 		super.onAttach(activity);
 		setHasOptionsMenu(true);
 		wm=activity.getSystemService(WindowManager.class);
+
+		overLimitBG=new BackgroundColorSpan(UiUtils.getThemeColor(activity, R.attr.colorM3ErrorContainer));
+		overLimitFG=new ForegroundColorSpan(UiUtils.getThemeColor(activity, R.attr.colorM3Error));
+	}
+
+	@Override
+	public void onDetach(){
+		wasDetached=true;
+		super.onDetach();
 	}
 
 	@Override
 	public View onCreateContentView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
 		creatingView=true;
 		emojiKeyboard=new CustomEmojiPopupKeyboard(getActivity(), customEmojis, instanceDomain);
-		emojiKeyboard.setListener(this::onCustomEmojiClick);
+		emojiKeyboard.setListener(new CustomEmojiPopupKeyboard.Listener(){
+			@Override
+			public void onEmojiSelected(Emoji emoji){
+				onCustomEmojiClick(emoji);
+			}
+
+			@Override
+			public void onBackspace(){
+				getActivity().dispatchKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_DEL));
+				getActivity().dispatchKeyEvent(new KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_DEL));
+			}
+		});
 
 		View view=inflater.inflate(R.layout.fragment_compose, container, false);
+		mainLayout=view.findViewById(R.id.compose_main_ll);
 		mainEditText=view.findViewById(R.id.toot_text);
 		mainEditTextWrap=view.findViewById(R.id.toot_text_wrap);
 		charCounter=view.findViewById(R.id.char_counter);
@@ -261,99 +261,60 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 		};
 		selfAvatar.setOutlineProvider(roundCornersOutline);
 		selfAvatar.setClipToOutline(true);
+		bottomBar=view.findViewById(R.id.bottom_bar);
 
 		mediaBtn=view.findViewById(R.id.btn_media);
 		pollBtn=view.findViewById(R.id.btn_poll);
 		emojiBtn=view.findViewById(R.id.btn_emoji);
 		spoilerBtn=view.findViewById(R.id.btn_spoiler);
 		visibilityBtn=view.findViewById(R.id.btn_visibility);
+		languageBtn=view.findViewById(R.id.btn_language);
 		replyText=view.findViewById(R.id.reply_text);
 
 		mediaBtn.setOnClickListener(v->openFilePicker());
 		pollBtn.setOnClickListener(v->togglePoll());
 		emojiBtn.setOnClickListener(v->emojiKeyboard.toggleKeyboardPopup(mainEditText));
 		spoilerBtn.setOnClickListener(v->toggleSpoiler());
+		languageBtn.setOnClickListener(v->showLanguageAlert());
 		visibilityBtn.setOnClickListener(this::onVisibilityClick);
+		Drawable arrow=getResources().getDrawable(R.drawable.ic_baseline_arrow_drop_down_18, getActivity().getTheme()).mutate();
+		arrow.setTint(UiUtils.getThemeColor(getActivity(), R.attr.colorM3OnSurface));
+		visibilityBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(null, null, arrow, null);
 		emojiKeyboard.setOnIconChangedListener(new PopupKeyboard.OnIconChangeListener(){
 			@Override
 			public void onIconChanged(int icon){
 				emojiBtn.setSelected(icon!=PopupKeyboard.ICON_HIDDEN);
+				updateNavigationBarColor(icon!=PopupKeyboard.ICON_HIDDEN);
+				if(autocompleteViewController.getMode()==ComposeAutocompleteViewController.Mode.EMOJIS){
+					contentView.layout(contentView.getLeft(), contentView.getTop(), contentView.getRight(), contentView.getBottom());
+					if(icon==PopupKeyboard.ICON_HIDDEN)
+						showAutocomplete();
+					else
+						hideAutocomplete();
+				}
 			}
 		});
 
 		contentView=(SizeListenerLinearLayout) view;
 		contentView.addView(emojiKeyboard.getView());
-		emojiKeyboard.getView().setElevation(V.dp(2));
-
-		attachmentsView=view.findViewById(R.id.attachments);
-		pollOptionsView=view.findViewById(R.id.poll_options);
-		pollWrap=view.findViewById(R.id.poll_wrap);
-		addPollOptionBtn=view.findViewById(R.id.add_poll_option);
-
-		addPollOptionBtn.setOnClickListener(v->{
-			createDraftPollOption().edit.requestFocus();
-			updatePollOptionHints();
-		});
-		pollOptionsView.setDragListener(this::onSwapPollOptions);
-		pollDurationView=view.findViewById(R.id.poll_duration);
-		pollDurationView.setOnClickListener(v->showPollDurationMenu());
-
-		pollOptions.clear();
-		if(savedInstanceState!=null && savedInstanceState.containsKey("pollOptions")){
-			pollBtn.setSelected(true);
-			mediaBtn.setEnabled(false);
-			pollWrap.setVisibility(View.VISIBLE);
-			for(String oldText:savedInstanceState.getStringArrayList("pollOptions")){
-				DraftPollOption opt=createDraftPollOption();
-				opt.edit.setText(oldText);
-			}
-			updatePollOptionHints();
-			pollDurationView.setText(getString(R.string.compose_poll_duration, pollDurationStr));
-		}else if(savedInstanceState==null && editingStatus!=null && editingStatus.poll!=null){
-			pollBtn.setSelected(true);
-			mediaBtn.setEnabled(false);
-			pollWrap.setVisibility(View.VISIBLE);
-			for(Poll.Option eopt:editingStatus.poll.options){
-				DraftPollOption opt=createDraftPollOption();
-				opt.edit.setText(eopt.title);
-			}
-			pollDuration=(int)editingStatus.poll.expiresAt.minus(System.currentTimeMillis(), ChronoUnit.MILLIS).getEpochSecond();
-			pollDurationStr=UiUtils.formatTimeLeft(getActivity(), editingStatus.poll.expiresAt);
-			updatePollOptionHints();
-			pollDurationView.setText(getString(R.string.compose_poll_duration, pollDurationStr));
-		}else{
-			pollDurationView.setText(getString(R.string.compose_poll_duration, pollDurationStr=getResources().getQuantityString(R.plurals.x_days, 1, 1)));
-		}
 
 		spoilerEdit=view.findViewById(R.id.content_warning);
-		LayerDrawable spoilerBg=(LayerDrawable) spoilerEdit.getBackground().mutate();
-		spoilerBg.setDrawableByLayerId(R.id.left_drawable, new SpoilerStripesDrawable());
-		spoilerBg.setDrawableByLayerId(R.id.right_drawable, new SpoilerStripesDrawable());
-		spoilerEdit.setBackground(spoilerBg);
+		spoilerWrap=view.findViewById(R.id.content_warning_wrap);
+		LayerDrawable spoilerBg=(LayerDrawable) spoilerWrap.getBackground().mutate();
+		spoilerBg.setDrawableByLayerId(R.id.left_drawable, new SpoilerStripesDrawable(false));
+		spoilerBg.setDrawableByLayerId(R.id.right_drawable, new SpoilerStripesDrawable(false));
+		spoilerWrap.setBackground(spoilerBg);
+		spoilerWrap.setClipToOutline(true);
+		spoilerWrap.setOutlineProvider(OutlineProviders.roundedRect(8));
 		if((savedInstanceState!=null && savedInstanceState.getBoolean("hasSpoiler", false)) || hasSpoiler){
 			hasSpoiler=true;
-			spoilerEdit.setVisibility(View.VISIBLE);
+			spoilerWrap.setVisibility(View.VISIBLE);
 			spoilerBtn.setSelected(true);
 		}else if(editingStatus!=null && !TextUtils.isEmpty(editingStatus.spoilerText)){
 			hasSpoiler=true;
-			spoilerEdit.setVisibility(View.VISIBLE);
+			spoilerWrap.setVisibility(View.VISIBLE);
 			spoilerEdit.setText(getArguments().getString("sourceSpoiler", editingStatus.spoilerText));
 			spoilerBtn.setSelected(true);
-		}
-
-		if(savedInstanceState!=null && savedInstanceState.containsKey("attachments")){
-			ArrayList<Parcelable> serializedAttachments=savedInstanceState.getParcelableArrayList("attachments");
-			for(Parcelable a:serializedAttachments){
-				DraftMediaAttachment att=Parcels.unwrap(a);
-				attachmentsView.addView(createMediaAttachmentView(att));
-				attachments.add(att);
-			}
-			attachmentsView.setVisibility(View.VISIBLE);
-		}else if(!attachments.isEmpty()){
-			attachmentsView.setVisibility(View.VISIBLE);
-			for(DraftMediaAttachment att:attachments){
-				attachmentsView.addView(createMediaAttachmentView(att));
-			}
 		}
 
 		if(editingStatus!=null && editingStatus.visibility!=null) {
@@ -362,10 +323,32 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 		updateVisibilityIcon();
 
 		autocompleteViewController=new ComposeAutocompleteViewController(getActivity(), accountID);
-		autocompleteViewController.setCompletionSelectedListener(this::onAutocompleteOptionSelected);
+		autocompleteViewController.setCompletionSelectedListener(new ComposeAutocompleteViewController.AutocompleteListener(){
+			@Override
+			public void onCompletionSelected(String completion){
+				onAutocompleteOptionSelected(completion);
+			}
+
+			@Override
+			public void onSetEmojiPanelOpen(boolean open){
+				if(open!=emojiKeyboard.isVisible())
+					emojiKeyboard.toggleKeyboardPopup(mainEditText);
+			}
+
+			@Override
+			public void onLaunchAccountSearch(){
+				Bundle args=new Bundle();
+				args.putString("account", accountID);
+				Nav.goForResult(getActivity(), ComposeAccountSearchFragment.class, args, AUTOCOMPLETE_ACCOUNT_RESULT, ComposeFragment.this);
+			}
+		});
 		View autocompleteView=autocompleteViewController.getView();
-		autocompleteView.setVisibility(View.GONE);
-		mainEditTextWrap.addView(autocompleteView, new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, V.dp(178), Gravity.TOP));
+		autocompleteView.setVisibility(View.INVISIBLE);
+		bottomBar.addView(autocompleteView, 0, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, V.dp(56)));
+		autocompleteDivider=view.findViewById(R.id.bottom_bar_autocomplete_divider);
+
+		pollViewController.setView(view, savedInstanceState);
+		mediaViewController.setView(view, savedInstanceState);
 
 		creatingView=false;
 
@@ -375,24 +358,16 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 	@Override
 	public void onSaveInstanceState(Bundle outState){
 		super.onSaveInstanceState(outState);
-		if(!pollOptions.isEmpty()){
-			ArrayList<String> opts=new ArrayList<>();
-			for(DraftPollOption opt:pollOptions){
-				opts.add(opt.edit.getText().toString());
-			}
-			outState.putStringArrayList("pollOptions", opts);
-			outState.putInt("pollDuration", pollDuration);
-			outState.putString("pollDurationStr", pollDurationStr);
-		}
+		pollViewController.onSaveInstanceState(outState);
+		mediaViewController.onSaveInstanceState(outState);
 		outState.putBoolean("hasSpoiler", hasSpoiler);
-		if(!attachments.isEmpty()){
-			ArrayList<Parcelable> serializedAttachments=new ArrayList<>(attachments.size());
-			for(DraftMediaAttachment att:attachments){
-				serializedAttachments.add(Parcels.wrap(att));
-			}
-			outState.putParcelableArrayList("attachments", serializedAttachments);
-		}
 		outState.putSerializable("visibility", statusVisibility);
+		outState.putParcelable("postLang", Parcels.wrap(postLang));
+		if(currentAutocompleteSpan!=null){
+			Editable e=mainEditText.getText();
+			outState.putInt("autocompleteStart", e.getSpanStart(currentAutocompleteSpan));
+			outState.putInt("autocompleteEnd", e.getSpanEnd(currentAutocompleteSpan));
+		}
 	}
 
 	@Override
@@ -403,12 +378,16 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 	@Override
 	public void onViewCreated(View view, Bundle savedInstanceState){
 		super.onViewCreated(view, savedInstanceState);
+		if(editingStatus==null)
+			loadDefaultStatusVisibility(savedInstanceState);
 		contentView.setSizeListener(emojiKeyboard::onContentViewSizeChanged);
 		InputMethodManager imm=getActivity().getSystemService(InputMethodManager.class);
 		mainEditText.requestFocus();
 		view.postDelayed(()->{
 			imm.showSoftInput(mainEditText, 0);
 		}, 100);
+		sendProgress=view.findViewById(R.id.progress);
+		sendProgress.setVisibility(View.GONE);
 
 		mainEditText.setSelectionListener(this);
 		mainEditText.addTextChangedListener(new TextWatcher(){
@@ -429,8 +408,10 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 
 			@Override
 			public void afterTextChanged(Editable s){
-				if(s.length()==0)
+				if(s.length()==0){
+					updateCharCounter();
 					return;
+				}
 				int start=lastChangeStart;
 				int count=lastChangeCount;
 				// offset one char back to catch an already typed '@' or '#' or ':'
@@ -504,7 +485,7 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 				ignoreSelectionChanges=false;
 				if(!TextUtils.isEmpty(replyTo.spoilerText) && AccountSessionManager.getInstance().isSelf(accountID, replyTo.account)){
 					hasSpoiler=true;
-					spoilerEdit.setVisibility(View.VISIBLE);
+					spoilerWrap.setVisibility(View.VISIBLE);
 					spoilerEdit.setText(replyTo.spoilerText);
 					spoilerBtn.setSelected(true);
 				}
@@ -519,19 +500,7 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 				ignoreSelectionChanges=true;
 				mainEditText.setSelection(mainEditText.length());
 				ignoreSelectionChanges=false;
-				if(!editingStatus.mediaAttachments.isEmpty()){
-					attachmentsView.setVisibility(View.VISIBLE);
-					for(Attachment att:editingStatus.mediaAttachments){
-						DraftMediaAttachment da=new DraftMediaAttachment();
-						da.serverAttachment=att;
-						da.description=att.description;
-						da.uri=att.previewUrl!=null ? Uri.parse(att.previewUrl) : null;
-						da.state=AttachmentUploadState.DONE;
-						attachmentsView.addView(createMediaAttachmentView(da));
-						attachments.add(da);
-					}
-					pollBtn.setEnabled(false);
-				}
+				mediaViewController.onViewCreated(savedInstanceState);;
 			}else{
 				String prefilledText=getArguments().getString("prefilledText");
 				if(!TextUtils.isEmpty(prefilledText)){
@@ -544,7 +513,7 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 				ArrayList<Uri> mediaUris=getArguments().getParcelableArrayList("mediaAttachments");
 				if(mediaUris!=null && !mediaUris.isEmpty()){
 					for(Uri uri:mediaUris){
-						addMediaAttachment(uri, null);
+						mediaViewController.addMediaAttachment(uri, null);
 					}
 				}
 			}
@@ -554,42 +523,35 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 			updateCharCounter();
 			visibilityBtn.setEnabled(false);
 		}
+		updateMediaPollStates();
+	}
+
+	@Override
+	public void onViewStateRestored(Bundle savedInstanceState){
+		super.onViewStateRestored(savedInstanceState);
+		if(savedInstanceState!=null && savedInstanceState.containsKey("autocompleteStart")){
+			int start=savedInstanceState.getInt("autocompleteStart"), end=savedInstanceState.getInt("autocompleteEnd");
+			currentAutocompleteSpan=new ComposeAutocompleteSpan();
+			mainEditText.getText().setSpan(currentAutocompleteSpan, start, end, Editable.SPAN_EXCLUSIVE_INCLUSIVE);
+			startAutocomplete(currentAutocompleteSpan);
+		}
 	}
 
 	@Override
 	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater){
-		publishButton=new Button(getActivity());
-		publishButton.setText(editingStatus==null ? R.string.publish : R.string.save);
-		publishButton.setOnClickListener(this::onPublishClick);
-		LinearLayout wrap=new LinearLayout(getActivity());
-		wrap.setOrientation(LinearLayout.HORIZONTAL);
-
-		sendProgress=new ProgressBar(getActivity());
-		LinearLayout.LayoutParams progressLP=new LinearLayout.LayoutParams(V.dp(24), V.dp(24));
-		progressLP.setMarginEnd(V.dp(16));
-		progressLP.gravity=Gravity.CENTER_VERTICAL;
-		wrap.addView(sendProgress, progressLP);
-
-		sendError=new ImageView(getActivity());
-		sendError.setImageResource(R.drawable.ic_fluent_error_circle_24_regular);
-		sendError.setImageTintList(getResources().getColorStateList(R.color.error_600));
-		sendError.setScaleType(ImageView.ScaleType.CENTER);
-		wrap.addView(sendError, progressLP);
-
-		sendError.setVisibility(View.GONE);
-		sendProgress.setVisibility(View.GONE);
-
-		wrap.addView(publishButton, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-		wrap.setPadding(V.dp(16), V.dp(4), V.dp(16), V.dp(8));
-		wrap.setClipToPadding(false);
-		MenuItem item=menu.add(editingStatus==null ? R.string.publish : R.string.save);
-		item.setActionView(wrap);
-		item.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+		inflater.inflate(editingStatus==null ? R.menu.compose : R.menu.compose_edit, menu);
+		publishButton=menu.findItem(R.id.publish);
 		updatePublishButtonState();
 	}
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item){
+		if(item.getItemId()==R.id.publish){
+			if(GlobalUserPreferences.altTextReminders)
+				checkAltTextsAndPublish();
+			else
+				publish();
+		}
 		return true;
 	}
 
@@ -601,7 +563,7 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 
 	@SuppressLint("NewApi")
 	private void updateCharCounter(){
-		CharSequence text=mainEditText.getText();
+		Editable text=mainEditText.getText();
 
 		String countableText=TwitterTextEmojiRegex.VALID_EMOJI_PATTERN.matcher(
 				MENTION_PATTERN.matcher(
@@ -618,29 +580,40 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 			charCount+=spoilerEdit.length();
 		}
 		charCounter.setText(String.valueOf(charLimit-charCount));
+
+		text.removeSpan(overLimitBG);
+		text.removeSpan(overLimitFG);
+		if(charCount>charLimit){
+			charCounter.setTextColor(UiUtils.getThemeColor(getActivity(), R.attr.colorM3Error));
+			int start=text.length()-(charCount-charLimit);
+			int end=text.length();
+			text.setSpan(overLimitFG, start, end, 0);
+			text.setSpan(overLimitBG, start, end, 0);
+		}else{
+			charCounter.setTextColor(UiUtils.getThemeColor(getActivity(), R.attr.colorM3OnSurface));
+		}
+
 		trimmedCharCount=text.toString().trim().length();
 		updatePublishButtonState();
 	}
 
-	private void updatePublishButtonState(){
+	public void updatePublishButtonState(){
 		uuid=null;
-		int nonEmptyPollOptionsCount=0;
-		for(DraftPollOption opt:pollOptions){
-			if(opt.edit.length()>0)
-				nonEmptyPollOptionsCount++;
-		}
 		if(publishButton==null)
 			return;
-		int nonDoneAttachmentCount=0;
-		for(DraftMediaAttachment att:attachments){
-			if(att.state!=AttachmentUploadState.DONE)
-				nonDoneAttachmentCount++;
-		}
-		publishButton.setEnabled((trimmedCharCount>0 || !attachments.isEmpty()) && charCount<=charLimit && nonDoneAttachmentCount==0 && (pollOptions.isEmpty() || nonEmptyPollOptionsCount>1));
+		publishButton.setEnabled((trimmedCharCount>0 || !mediaViewController.isEmpty()) && charCount<=charLimit && mediaViewController.getNonDoneAttachmentCount()==0 && (pollViewController.isEmpty() || pollViewController.getNonEmptyOptionsCount()>1));
 	}
 
 	private void onCustomEmojiClick(Emoji emoji){
 		if(getActivity().getCurrentFocus() instanceof EditText edit){
+			if(edit==mainEditText && currentAutocompleteSpan!=null && autocompleteViewController.getMode()==ComposeAutocompleteViewController.Mode.EMOJIS){
+				Editable text=mainEditText.getText();
+				int start=text.getSpanStart(currentAutocompleteSpan);
+				int end=text.getSpanEnd(currentAutocompleteSpan);
+				finishAutocomplete();
+				text.replace(start, end, ':'+emoji.shortcode+':');
+				return;
+			}
 			int start=edit.getSelectionStart();
 			String prefix=start>0 && !Character.isWhitespace(edit.getText().charAt(start-1)) ? " :" : ":";
 			edit.getText().replace(start, edit.getSelectionEnd(), prefix+emoji.shortcode+':');
@@ -650,36 +623,51 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 	@Override
 	protected void updateToolbar(){
 		super.updateToolbar();
-		getToolbar().setNavigationIcon(R.drawable.ic_fluent_dismiss_24_regular);
+		int color=UiUtils.alphaBlendThemeColors(getActivity(), R.attr.colorM3Background, R.attr.colorM3Primary, 0.11f);
+		getToolbar().setBackgroundColor(color);
+		setStatusBarColor(color);
+		bottomBar.setBackgroundColor(color);
+		updateNavigationBarColor(emojiKeyboard.isVisible());
 	}
 
-	private void onPublishClick(View v){
-		publish();
+	private void updateNavigationBarColor(boolean emojiKeyboardVisible){
+		int color=UiUtils.alphaBlendThemeColors(getActivity(), R.attr.colorM3Background, R.attr.colorM3Primary, emojiKeyboardVisible ? 0.08f : 0.11f);
+		setNavigationBarColor(color);
+	}
+
+	@Override
+	protected int getNavigationIconDrawableResource(){
+		return R.drawable.ic_baseline_close_24;
+	}
+
+	@Override
+	public boolean wantsCustomNavigationIcon(){
+		return true;
+	}
+
+	private void checkAltTextsAndPublish(){
+		int count=mediaViewController.getMissingAltTextAttachmentCount();
+		if(count==0){
+			publish();
+		}else{
+			String msg=getResources().getQuantityString(mediaViewController.areAllAttachmentsImages() ? R.plurals.alt_text_reminder_x_images : R.plurals.alt_text_reminder_x_attachments,
+					count, switch(count){
+						case 1 -> getString(R.string.count_one);
+						case 2 -> getString(R.string.count_two);
+						case 3 -> getString(R.string.count_three);
+						case 4 -> getString(R.string.count_four);
+						default -> String.valueOf(count);
+					});
+			new M3AlertDialogBuilder(getActivity())
+					.setTitle(R.string.alt_text_reminder_title)
+					.setMessage(msg)
+					.setPositiveButton(R.string.alt_text_reminder_post_anyway, (dlg, item)->publish())
+					.setNegativeButton(R.string.cancel, null)
+					.show();
+		}
 	}
 
 	private void publish(){
-		String text=mainEditText.getText().toString();
-		CreateStatus.Request req=new CreateStatus.Request();
-		req.status=text;
-		req.visibility=statusVisibility;
-		if(!attachments.isEmpty()){
-			req.mediaIds=attachments.stream().map(a->a.serverAttachment.id).collect(Collectors.toList());
-		}
-		if(replyTo!=null){
-			req.inReplyToId=replyTo.id;
-		}
-		if(!pollOptions.isEmpty()){
-			req.poll=new CreateStatus.Request.Poll();
-			req.poll.expiresIn=pollDuration;
-			for(DraftPollOption opt:pollOptions)
-				req.poll.options.add(opt.edit.getText().toString());
-		}
-		if(hasSpoiler && spoilerEdit.length()>0){
-			req.spoilerText=spoilerEdit.getText().toString();
-		}
-		if(uuid==null)
-			uuid=UUID.randomUUID().toString();
-
 		sendingOverlay=new View(getActivity());
 		WindowManager.LayoutParams overlayParams=new WindowManager.LayoutParams();
 		overlayParams.type=WindowManager.LayoutParams.TYPE_APPLICATION_PANEL;
@@ -691,8 +679,33 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 		wm.addView(sendingOverlay, overlayParams);
 
 		publishButton.setEnabled(false);
-		sendProgress.setVisibility(View.VISIBLE);
-		sendError.setVisibility(View.GONE);
+		V.setVisibilityAnimated(sendProgress, View.VISIBLE);
+
+		mediaViewController.saveAltTextsBeforePublishing(this::actuallyPublish, this::handlePublishError);
+	}
+
+	private void actuallyPublish(){
+		String text=mainEditText.getText().toString();
+		CreateStatus.Request req=new CreateStatus.Request();
+		req.status=text;
+		req.visibility=statusVisibility;
+		if(!mediaViewController.isEmpty()){
+			req.mediaIds=mediaViewController.getAttachmentIDs();
+		}
+		if(replyTo!=null){
+			req.inReplyToId=replyTo.id;
+		}
+		if(!pollViewController.isEmpty()){
+			req.poll=pollViewController.getPollForRequest();
+		}
+		if(hasSpoiler && spoilerEdit.length()>0){
+			req.spoilerText=spoilerEdit.getText().toString();
+		}
+		if(postLang!=null){
+			req.language=postLang.locale.toLanguageTag();
+		}
+		if(uuid==null)
+			uuid=UUID.randomUUID().toString();
 
 		Callback<Status> resCallback=new Callback<>(){
 			@Override
@@ -713,12 +726,7 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 
 			@Override
 			public void onError(ErrorResponse error){
-				wm.removeView(sendingOverlay);
-				sendingOverlay=null;
-				sendProgress.setVisibility(View.GONE);
-				sendError.setVisibility(View.VISIBLE);
-				publishButton.setEnabled(true);
-				error.showToast(getActivity());
+				handlePublishError(error);
 			}
 		};
 
@@ -733,19 +741,34 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 		}
 	}
 
+	private void handlePublishError(ErrorResponse error){
+		wm.removeView(sendingOverlay);
+		sendingOverlay=null;
+		V.setVisibilityAnimated(sendProgress, View.GONE);
+		publishButton.setEnabled(true);
+		if(error instanceof MastodonErrorResponse me){
+			new M3AlertDialogBuilder(getActivity())
+					.setTitle(R.string.post_failed)
+					.setMessage(me.error)
+					.setPositiveButton(R.string.retry, (dlg, btn)->publish())
+					.setNegativeButton(R.string.cancel, null)
+					.show();
+		}else{
+			error.showToast(getActivity());
+		}
+	}
+
 	private boolean hasDraft(){
 		if(editingStatus!=null){
 			if(!mainEditText.getText().toString().equals(initialText))
 				return true;
 			List<String> existingMediaIDs=editingStatus.mediaAttachments.stream().map(a->a.id).collect(Collectors.toList());
-			if(!existingMediaIDs.equals(attachments.stream().map(a->a.serverAttachment.id).collect(Collectors.toList())))
+			if(!existingMediaIDs.equals(mediaViewController.getAttachmentIDs()))
 				return true;
-			return pollChanged;
+			return pollViewController.isPollChanged();
 		}
-		boolean pollFieldsHaveContent=false;
-		for(DraftPollOption opt:pollOptions)
-			pollFieldsHaveContent|=opt.edit.length()>0;
-		return (mainEditText.length()>0 && !mainEditText.getText().toString().equals(initialText)) || !attachments.isEmpty() || pollFieldsHaveContent;
+		boolean pollFieldsHaveContent=pollViewController.getNonEmptyOptionsCount()>0;
+		return (mainEditText.length()>0 && !mainEditText.getText().toString().equals(initialText)) || !mediaViewController.isEmpty() || pollFieldsHaveContent;
 	}
 
 	@Override
@@ -775,15 +798,19 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 	@Override
 	public void onFragmentResult(int reqCode, boolean success, Bundle result){
 		if(reqCode==IMAGE_DESCRIPTION_RESULT && success){
-			Attachment updated=Parcels.unwrap(result.getParcelable("attachment"));
-			for(DraftMediaAttachment att:attachments){
-				if(att.serverAttachment.id.equals(updated.id)){
-					att.serverAttachment=updated;
-					att.description=updated.description;
-					att.descriptionView.setText(att.description);
-					break;
-				}
-			}
+			String attID=result.getString("attachment");
+			String text=result.getString("text");
+			mediaViewController.setAltTextByID(attID, text);
+		}else if(reqCode==AUTOCOMPLETE_ACCOUNT_RESULT && success){
+			Account acc=Parcels.unwrap(result.getParcelable("selectedAccount"));
+			if(currentAutocompleteSpan==null)
+				return;
+			Editable e=mainEditText.getText();
+			int start=e.getSpanStart(currentAutocompleteSpan);
+			int end=e.getSpanEnd(currentAutocompleteSpan);
+			e.removeSpan(currentAutocompleteSpan);
+			e.replace(start, end, '@'+acc.acct+' ');
+			finishAutocomplete();
 		}
 	}
 
@@ -809,7 +836,7 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 		boolean usePhotoPicker=UiUtils.isPhotoPickerAvailable();
 		if(usePhotoPicker){
 			intent=new Intent(MediaStore.ACTION_PICK_IMAGES);
-			intent.putExtra(MediaStore.EXTRA_PICK_IMAGES_MAX, MAX_ATTACHMENTS-getMediaAttachmentsCount());
+			intent.putExtra(MediaStore.EXTRA_PICK_IMAGES_MAX, mediaViewController.getMaxAttachments()-mediaViewController.getMediaAttachmentsCount());
 		}else{
 			intent=new Intent(Intent.ACTION_GET_CONTENT);
 			intent.addCategory(Intent.CATEGORY_OPENABLE);
@@ -837,433 +864,37 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 		if(requestCode==MEDIA_RESULT && resultCode==Activity.RESULT_OK){
 			Uri single=data.getData();
 			if(single!=null){
-				addMediaAttachment(single, null);
+				mediaViewController.addMediaAttachment(single, null);
 			}else{
 				ClipData clipData=data.getClipData();
 				for(int i=0;i<clipData.getItemCount();i++){
-					addMediaAttachment(clipData.getItemAt(i).getUri(), null);
+					mediaViewController.addMediaAttachment(clipData.getItemAt(i).getUri(), null);
 				}
 			}
 		}
 	}
 
-	private boolean addMediaAttachment(Uri uri, String description){
-		if(getMediaAttachmentsCount()==MAX_ATTACHMENTS){
-			showMediaAttachmentError(getResources().getQuantityString(R.plurals.cant_add_more_than_x_attachments, MAX_ATTACHMENTS, MAX_ATTACHMENTS));
-			return false;
-		}
-		String type=getActivity().getContentResolver().getType(uri);
-		if(instance!=null && instance.configuration!=null && instance.configuration.mediaAttachments!=null){
-			if(instance.configuration.mediaAttachments.supportedMimeTypes!=null && !instance.configuration.mediaAttachments.supportedMimeTypes.contains(type)){
-				showMediaAttachmentError(getString(R.string.media_attachment_unsupported_type, UiUtils.getFileName(uri)));
-				return false;
-			}
-			if(!type.startsWith("image/")){
-				int sizeLimit=instance.configuration.mediaAttachments.videoSizeLimit;
-				int size;
-				try(Cursor cursor=MastodonApp.context.getContentResolver().query(uri, new String[]{OpenableColumns.SIZE}, null, null, null)){
-					cursor.moveToFirst();
-					size=cursor.getInt(0);
-				}catch(Exception x){
-					Log.w("ComposeFragment", x);
-					return false;
-				}
-				if(size>sizeLimit){
-					float mb=sizeLimit/(float) (1024*1024);
-					String sMb=String.format(Locale.getDefault(), mb%1f==0f ? "%.0f" : "%.2f", mb);
-					showMediaAttachmentError(getString(R.string.media_attachment_too_big, UiUtils.getFileName(uri), sMb));
-					return false;
-				}
-			}
-		}
-		pollBtn.setEnabled(false);
-		DraftMediaAttachment draft=new DraftMediaAttachment();
-		draft.uri=uri;
-		draft.mimeType=type;
-		draft.description=description;
 
-		attachmentsView.addView(createMediaAttachmentView(draft));
-		attachments.add(draft);
-		attachmentsView.setVisibility(View.VISIBLE);
-		draft.setOverlayVisible(true, false);
-
-		if(!areThereAnyUploadingAttachments()){
-			uploadNextQueuedAttachment();
-		}
-		updatePublishButtonState();
-		if(getMediaAttachmentsCount()==MAX_ATTACHMENTS)
-			mediaBtn.setEnabled(false);
-		return true;
-	}
-
-	private void showMediaAttachmentError(String text){
-		if(!attachmentsErrorShowing){
-			Toast.makeText(getActivity(), text, Toast.LENGTH_SHORT).show();
-			attachmentsErrorShowing=true;
-			contentView.postDelayed(()->attachmentsErrorShowing=false, 2000);
-		}
-	}
-
-	private View createMediaAttachmentView(DraftMediaAttachment draft){
-		View thumb=getActivity().getLayoutInflater().inflate(R.layout.compose_media_thumb, attachmentsView, false);
-		ImageView img=thumb.findViewById(R.id.thumb);
-		if(draft.serverAttachment!=null){
-			if(draft.serverAttachment.previewUrl!=null)
-				ViewImageLoader.load(img, draft.serverAttachment.blurhashPlaceholder, new UrlImageLoaderRequest(draft.serverAttachment.previewUrl, V.dp(250), V.dp(250)));
-		}else{
-			if(draft.mimeType.startsWith("image/")){
-				ViewImageLoader.load(img, null, new UrlImageLoaderRequest(draft.uri, V.dp(250), V.dp(250)));
-			}else if(draft.mimeType.startsWith("video/")){
-				loadVideoThumbIntoView(img, draft.uri);
-			}
-		}
-		TextView fileName=thumb.findViewById(R.id.file_name);
-		fileName.setText(UiUtils.getFileName(draft.serverAttachment!=null ? Uri.parse(draft.serverAttachment.url) : draft.uri));
-
-		draft.view=thumb;
-		draft.imageView=img;
-		draft.progressBar=thumb.findViewById(R.id.progress);
-		draft.infoBar=thumb.findViewById(R.id.info_bar);
-		draft.overlay=thumb.findViewById(R.id.overlay);
-		draft.descriptionView=thumb.findViewById(R.id.description);
-		draft.uploadStateTitle=thumb.findViewById(R.id.state_title);
-		draft.uploadStateText=thumb.findViewById(R.id.state_text);
-		ImageButton btn=thumb.findViewById(R.id.remove_btn);
-		btn.setTag(draft);
-		btn.setOnClickListener(this::onRemoveMediaAttachmentClick);
-		btn=thumb.findViewById(R.id.remove_btn2);
-		btn.setTag(draft);
-		btn.setOnClickListener(this::onRemoveMediaAttachmentClick);
-		ImageButton retry=thumb.findViewById(R.id.retry_or_cancel_upload);
-		retry.setTag(draft);
-		retry.setOnClickListener(this::onRetryOrCancelMediaUploadClick);
-		draft.retryButton=retry;
-		draft.infoBar.setTag(draft);
-		draft.infoBar.setOnClickListener(this::onEditMediaDescriptionClick);
-
-		if(!TextUtils.isEmpty(draft.description))
-			draft.descriptionView.setText(draft.description);
-
-		if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.S){
-			draft.overlay.setBackgroundColor(0xA6000000);
-		}
-
-		if(draft.state==AttachmentUploadState.UPLOADING || draft.state==AttachmentUploadState.PROCESSING || draft.state==AttachmentUploadState.QUEUED){
-			draft.progressBar.setVisibility(View.GONE);
-		}else if(draft.state==AttachmentUploadState.ERROR){
-			draft.setOverlayVisible(true, false);
-		}
-
-		return thumb;
-	}
-
-	public void addFakeMediaAttachment(Uri uri, String description){
-		pollBtn.setEnabled(false);
-		DraftMediaAttachment draft=new DraftMediaAttachment();
-		draft.uri=uri;
-		draft.description=description;
-		attachmentsView.addView(createMediaAttachmentView(draft));
-		attachments.add(draft);
-		attachmentsView.setVisibility(View.VISIBLE);
-	}
-
-	private void uploadMediaAttachment(DraftMediaAttachment attachment){
-		if(areThereAnyUploadingAttachments()){
-			 throw new IllegalStateException("there is already an attachment being uploaded");
-		}
-		attachment.state=AttachmentUploadState.UPLOADING;
-		attachment.progressBar.setVisibility(View.VISIBLE);
-		ObjectAnimator rotationAnimator=ObjectAnimator.ofFloat(attachment.progressBar, View.ROTATION, 0f, 360f);
-		rotationAnimator.setInterpolator(new LinearInterpolator());
-		rotationAnimator.setDuration(1500);
-		rotationAnimator.setRepeatCount(ObjectAnimator.INFINITE);
-		rotationAnimator.start();
-		attachment.progressBarAnimator=rotationAnimator;
-		int maxSize=0;
-		String contentType=getActivity().getContentResolver().getType(attachment.uri);
-		if(contentType!=null && contentType.startsWith("image/")){
-			maxSize=2_073_600; // TODO get this from instance configuration when it gets added there
-		}
-		attachment.uploadStateTitle.setText("");
-		attachment.uploadStateText.setText("");
-		attachment.progressBar.setProgress(0);
-		attachment.speedTracker.reset();
-		attachment.speedTracker.addSample(0);
-		attachment.uploadRequest=(UploadAttachment) new UploadAttachment(attachment.uri, maxSize, attachment.description)
-				.setProgressListener(new ProgressListener(){
-					@Override
-					public void onProgress(long transferred, long total){
-						if(updateUploadEtaRunnable==null){
-							UiUtils.runOnUiThread(updateUploadEtaRunnable=ComposeFragment.this::updateUploadETAs, 100);
-						}
-						int progress=Math.round(transferred/(float)total*attachment.progressBar.getMax());
-						if(Build.VERSION.SDK_INT>=24)
-							attachment.progressBar.setProgress(progress, true);
-						else
-							attachment.progressBar.setProgress(progress);
-
-						attachment.speedTracker.setTotalBytes(total);
-						attachment.uploadStateTitle.setText(getString(R.string.file_upload_progress, UiUtils.formatFileSize(getActivity(), transferred, true), UiUtils.formatFileSize(getActivity(), total, true)));
-						attachment.speedTracker.addSample(transferred);
-					}
-				})
-				.setCallback(new Callback<>(){
-					@Override
-					public void onSuccess(Attachment result){
-						attachment.serverAttachment=result;
-						if(TextUtils.isEmpty(result.url)){
-							attachment.state=AttachmentUploadState.PROCESSING;
-							attachment.processingPollingRunnable=()->pollForMediaAttachmentProcessing(attachment);
-							if(getActivity()==null)
-								return;
-							attachment.uploadStateTitle.setText(R.string.upload_processing);
-							attachment.uploadStateText.setText("");
-							UiUtils.runOnUiThread(attachment.processingPollingRunnable, 1000);
-							if(!areThereAnyUploadingAttachments())
-								uploadNextQueuedAttachment();
-						}else{
-							finishMediaAttachmentUpload(attachment);
-						}
-					}
-
-					@Override
-					public void onError(ErrorResponse error){
-						attachment.uploadRequest=null;
-						attachment.progressBarAnimator=null;
-						attachment.state=AttachmentUploadState.ERROR;
-						attachment.uploadStateTitle.setText(R.string.upload_failed);
-						if(error instanceof MastodonErrorResponse er){
-							if(er.underlyingException instanceof SocketException || er.underlyingException instanceof UnknownHostException || er.underlyingException instanceof InterruptedIOException)
-								attachment.uploadStateText.setText(R.string.upload_error_connection_lost);
-							else
-								attachment.uploadStateText.setText(er.error);
-						}else{
-							attachment.uploadStateText.setText("");
-						}
-						attachment.retryButton.setImageResource(R.drawable.ic_fluent_arrow_clockwise_24_filled);
-						attachment.retryButton.setContentDescription(getString(R.string.retry_upload));
-
-						rotationAnimator.cancel();
-						V.setVisibilityAnimated(attachment.retryButton, View.VISIBLE);
-						V.setVisibilityAnimated(attachment.progressBar, View.GONE);
-
-						if(!areThereAnyUploadingAttachments())
-							uploadNextQueuedAttachment();
-					}
-				})
-				.exec(accountID);
-	}
-
-	private void onRemoveMediaAttachmentClick(View v){
-		DraftMediaAttachment att=(DraftMediaAttachment) v.getTag();
-		if(att.isUploadingOrProcessing())
-			att.cancelUpload();
-		attachments.remove(att);
-		if(!areThereAnyUploadingAttachments())
-			uploadNextQueuedAttachment();
-		attachmentsView.removeView(att.view);
-		if(getMediaAttachmentsCount()==0)
-			attachmentsView.setVisibility(View.GONE);
-		updatePublishButtonState();
-		pollBtn.setEnabled(attachments.isEmpty());
-		mediaBtn.setEnabled(true);
-	}
-
-	private void onRetryOrCancelMediaUploadClick(View v){
-		DraftMediaAttachment att=(DraftMediaAttachment) v.getTag();
-		if(att.state==AttachmentUploadState.ERROR){
-			att.retryButton.setImageResource(R.drawable.ic_fluent_dismiss_24_filled);
-			att.retryButton.setContentDescription(getString(R.string.cancel));
-			V.setVisibilityAnimated(att.progressBar, View.VISIBLE);
-			att.state=AttachmentUploadState.QUEUED;
-			if(!areThereAnyUploadingAttachments()){
-				uploadNextQueuedAttachment();
-			}
-		}else{
-			onRemoveMediaAttachmentClick(v);
-		}
-	}
-
-	private void pollForMediaAttachmentProcessing(DraftMediaAttachment attachment){
-		attachment.processingPollingRequest=(GetAttachmentByID) new GetAttachmentByID(attachment.serverAttachment.id)
-				.setCallback(new Callback<>(){
-					@Override
-					public void onSuccess(Attachment result){
-						attachment.processingPollingRequest=null;
-						if(!TextUtils.isEmpty(result.url)){
-							attachment.processingPollingRunnable=null;
-							attachment.serverAttachment=result;
-							finishMediaAttachmentUpload(attachment);
-						}else if(getActivity()!=null){
-							UiUtils.runOnUiThread(attachment.processingPollingRunnable, 1000);
-						}
-					}
-
-					@Override
-					public void onError(ErrorResponse error){
-						attachment.processingPollingRequest=null;
-						if(getActivity()!=null)
-							UiUtils.runOnUiThread(attachment.processingPollingRunnable, 1000);
-					}
-				})
-				.exec(accountID);
-	}
-
-	private void finishMediaAttachmentUpload(DraftMediaAttachment attachment){
-		if(attachment.state!=AttachmentUploadState.PROCESSING && attachment.state!=AttachmentUploadState.UPLOADING)
-			throw new IllegalStateException("Unexpected state "+attachment.state);
-		attachment.uploadRequest=null;
-		attachment.state=AttachmentUploadState.DONE;
-		attachment.progressBar.setVisibility(View.GONE);
-		if(!areThereAnyUploadingAttachments())
-			uploadNextQueuedAttachment();
-		updatePublishButtonState();
-
-		if(attachment.progressBarAnimator!=null){
-			attachment.progressBarAnimator.cancel();
-			attachment.progressBarAnimator=null;
-		}
-		attachment.setOverlayVisible(false, true);
-	}
-
-	private void uploadNextQueuedAttachment(){
-		for(DraftMediaAttachment att:attachments){
-			if(att.state==AttachmentUploadState.QUEUED){
-				uploadMediaAttachment(att);
-				return;
-			}
-		}
-	}
-
-	private boolean areThereAnyUploadingAttachments(){
-		for(DraftMediaAttachment att:attachments){
-			if(att.state==AttachmentUploadState.UPLOADING)
-				return true;
-		}
-		return false;
-	}
-
-	private void updateUploadETAs(){
-		if(!areThereAnyUploadingAttachments()){
-			UiUtils.removeCallbacks(updateUploadEtaRunnable);
-			updateUploadEtaRunnable=null;
-			return;
-		}
-		for(DraftMediaAttachment att:attachments){
-			if(att.state==AttachmentUploadState.UPLOADING){
-				long eta=att.speedTracker.updateAndGetETA();
-//				Log.i(TAG, "onProgress: transfer speed "+UiUtils.formatFileSize(getActivity(), Math.round(att.speedTracker.getLastSpeed()), false)+" average "+UiUtils.formatFileSize(getActivity(), Math.round(att.speedTracker.getAverageSpeed()), false)+" eta "+eta);
-				String time=String.format("%d:%02d", eta/60, eta%60);
-				att.uploadStateText.setText(getString(R.string.file_upload_time_remaining, time));
-			}
-		}
-		UiUtils.runOnUiThread(updateUploadEtaRunnable, 100);
-	}
-
-	private void onEditMediaDescriptionClick(View v){
-		DraftMediaAttachment att=(DraftMediaAttachment) v.getTag();
-		if(att.serverAttachment==null)
-			return;
-		Bundle args=new Bundle();
-		args.putString("account", accountID);
-		args.putString("attachment", att.serverAttachment.id);
-		args.putParcelable("uri", att.uri);
-		args.putString("existingDescription", att.description);
-		Nav.goForResult(getActivity(), ComposeImageDescriptionFragment.class, args, IMAGE_DESCRIPTION_RESULT, this);
+	public void updateMediaPollStates(){
+		pollBtn.setSelected(pollViewController.isShown());
+		mediaBtn.setEnabled(!pollViewController.isShown() && mediaViewController.canAddMoreAttachments());
+		pollBtn.setEnabled(mediaViewController.isEmpty());
 	}
 
 	private void togglePoll(){
-		if(pollOptions.isEmpty()){
-			pollBtn.setSelected(true);
-			mediaBtn.setEnabled(false);
-			pollWrap.setVisibility(View.VISIBLE);
-			for(int i=0;i<2;i++)
-				createDraftPollOption();
-			updatePollOptionHints();
-		}else{
-			pollBtn.setSelected(false);
-			mediaBtn.setEnabled(true);
-			pollWrap.setVisibility(View.GONE);
-			addPollOptionBtn.setVisibility(View.VISIBLE);
-			pollOptionsView.removeAllViews();
-			pollOptions.clear();
-			pollDuration=24*3600;
-		}
+		pollViewController.toggle();
 		updatePublishButtonState();
-	}
-
-	private DraftPollOption createDraftPollOption(){
-		DraftPollOption option=new DraftPollOption();
-		option.view=LayoutInflater.from(getActivity()).inflate(R.layout.compose_poll_option, pollOptionsView, false);
-		option.edit=option.view.findViewById(R.id.edit);
-		option.dragger=option.view.findViewById(R.id.dragger_thingy);
-
-		option.dragger.setOnLongClickListener(v->{
-			pollOptionsView.startDragging(option.view);
-			return true;
-		});
-		option.edit.addTextChangedListener(new SimpleTextWatcher(e->{
-			if(!creatingView)
-				pollChanged=true;
-			updatePublishButtonState();
-		}));
-		option.edit.setFilters(new InputFilter[]{new InputFilter.LengthFilter(instance.configuration!=null && instance.configuration.polls!=null && instance.configuration.polls.maxCharactersPerOption>0 ? instance.configuration.polls.maxCharactersPerOption : 50)});
-
-		pollOptionsView.addView(option.view);
-		pollOptions.add(option);
-		if(pollOptions.size()==(instance.configuration!=null && instance.configuration.polls!=null && instance.configuration.polls.maxOptions>0 ? instance.configuration.polls.maxOptions : 4))
-			addPollOptionBtn.setVisibility(View.GONE);
-		return option;
-	}
-
-	private void updatePollOptionHints(){
-		int i=0;
-		for(DraftPollOption option:pollOptions){
-			option.edit.setHint(getString(R.string.poll_option_hint, ++i));
-		}
-	}
-
-	private void onSwapPollOptions(int oldIndex, int newIndex){
-		pollOptions.add(newIndex, pollOptions.remove(oldIndex));
-		updatePollOptionHints();
-		pollChanged=true;
-	}
-
-	private void showPollDurationMenu(){
-		PopupMenu menu=new PopupMenu(getActivity(), pollDurationView);
-		menu.getMenu().add(0, 1, 0, getResources().getQuantityString(R.plurals.x_minutes, 5, 5));
-		menu.getMenu().add(0, 2, 0, getResources().getQuantityString(R.plurals.x_minutes, 30, 30));
-		menu.getMenu().add(0, 3, 0, getResources().getQuantityString(R.plurals.x_hours, 1, 1));
-		menu.getMenu().add(0, 4, 0, getResources().getQuantityString(R.plurals.x_hours, 6, 6));
-		menu.getMenu().add(0, 5, 0, getResources().getQuantityString(R.plurals.x_days, 1, 1));
-		menu.getMenu().add(0, 6, 0, getResources().getQuantityString(R.plurals.x_days, 3, 3));
-		menu.getMenu().add(0, 7, 0, getResources().getQuantityString(R.plurals.x_days, 7, 7));
-		menu.setOnMenuItemClickListener(item->{
-			pollDuration=switch(item.getItemId()){
-				case 1 -> 5*60;
-				case 2 -> 30*60;
-				case 3 -> 3600;
-				case 4 -> 6*3600;
-				case 5 -> 24*3600;
-				case 6 -> 3*24*3600;
-				case 7 -> 7*24*3600;
-				default -> throw new IllegalStateException("Unexpected value: "+item.getItemId());
-			};
-			pollDurationView.setText(getString(R.string.compose_poll_duration, pollDurationStr=item.getTitle().toString()));
-			pollChanged=true;
-			return true;
-		});
-		menu.show();
+		updateMediaPollStates();
 	}
 
 	private void toggleSpoiler(){
 		hasSpoiler=!hasSpoiler;
 		if(hasSpoiler){
-			spoilerEdit.setVisibility(View.VISIBLE);
+			spoilerWrap.setVisibility(View.VISIBLE);
 			spoilerBtn.setSelected(true);
 			spoilerEdit.requestFocus();
 		}else{
-			spoilerEdit.setVisibility(View.GONE);
+			spoilerWrap.setVisibility(View.GONE);
 			spoilerEdit.setText("");
 			spoilerBtn.setSelected(false);
 			mainEditText.requestFocus();
@@ -1271,91 +902,81 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 		}
 	}
 
-	private int getMediaAttachmentsCount(){
-		return attachments.size();
-	}
-
 	private void onVisibilityClick(View v){
 		PopupMenu menu=new PopupMenu(getActivity(), v);
 		menu.inflate(R.menu.compose_visibility);
-		Menu m=menu.getMenu();
-		UiUtils.enablePopupMenuIcons(getActivity(), menu);
-		m.setGroupCheckable(0, true, true);
-		m.findItem(switch(statusVisibility){
-			case PUBLIC, UNLISTED -> R.id.vis_public;
-			case PRIVATE -> R.id.vis_followers;
-			case DIRECT -> R.id.vis_private;
-		}).setChecked(true);
-		menu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener(){
-			@Override
-			public boolean onMenuItemClick(MenuItem item){
-				int id=item.getItemId();
-				if(id==R.id.vis_public){
-					statusVisibility=StatusPrivacy.PUBLIC;
-				}else if(id==R.id.vis_followers){
-					statusVisibility=StatusPrivacy.PRIVATE;
-				}else if(id==R.id.vis_private){
-					statusVisibility=StatusPrivacy.DIRECT;
-				}
-				item.setChecked(true);
-				updateVisibilityIcon();
-				return true;
+		menu.setOnMenuItemClickListener(item->{
+			int id=item.getItemId();
+			if(id==R.id.vis_public){
+				statusVisibility=StatusPrivacy.PUBLIC;
+			}else if(id==R.id.vis_followers){
+				statusVisibility=StatusPrivacy.PRIVATE;
+			}else if(id==R.id.vis_private){
+				statusVisibility=StatusPrivacy.DIRECT;
 			}
+			item.setChecked(true);
+			updateVisibilityIcon();
+			return true;
 		});
 		menu.show();
 	}
 
-	private void loadDefaultStatusVisibility(Bundle savedInstanceState) {
+	private void loadDefaultStatusVisibility(Bundle savedInstanceState){
 		if(getArguments().containsKey("replyTo")){
 			replyTo=Parcels.unwrap(getArguments().getParcelable("replyTo"));
-			statusVisibility = replyTo.visibility;
+			statusVisibility=replyTo.visibility;
 		}
 
 		// A saved privacy setting from a previous compose session wins over the reply visibility
-		if(savedInstanceState !=null){
-			statusVisibility = (StatusPrivacy) savedInstanceState.getSerializable("visibility");
+		if(savedInstanceState!=null){
+			statusVisibility=(StatusPrivacy) savedInstanceState.getSerializable("visibility");
 		}
 
-		new GetPreferences()
-				.setCallback(new Callback<>(){
-					@Override
-					public void onSuccess(Preferences result){
-						// Only override the reply visibility if our preference is more private
-						if (result.postingDefaultVisibility.isLessVisibleThan(statusVisibility)) {
-							// Map unlisted from the API onto public, because we don't have unlisted in the UI
-							statusVisibility = switch (result.postingDefaultVisibility) {
-								case PUBLIC, UNLISTED -> StatusPrivacy.PUBLIC;
-								case PRIVATE -> StatusPrivacy.PRIVATE;
-								case DIRECT -> StatusPrivacy.DIRECT;
-							};
-						}
+		Preferences prevPrefs=AccountSessionManager.getInstance().getAccount(accountID).preferences;
+		if(prevPrefs!=null){
+			applyPreferencesForPostVisibility(prevPrefs, savedInstanceState);
+		}
+		AccountSessionManager.getInstance().getAccount(accountID).reloadPreferences(prefs->{
+			applyPreferencesForPostVisibility(prefs, savedInstanceState);
+		});
+	}
 
-						// A saved privacy setting from a previous compose session wins over all
-						if(savedInstanceState !=null){
-							statusVisibility = (StatusPrivacy) savedInstanceState.getSerializable("visibility");
-						}
+	private void applyPreferencesForPostVisibility(Preferences prefs, Bundle savedInstanceState){
+		// Only override the reply visibility if our preference is more private
+		if(prefs.postingDefaultVisibility.isLessVisibleThan(statusVisibility)){
+			// Map unlisted from the API onto public, because we don't have unlisted in the UI
+			statusVisibility=switch(prefs.postingDefaultVisibility){
+				case PUBLIC, UNLISTED -> StatusPrivacy.PUBLIC;
+				case PRIVATE -> StatusPrivacy.PRIVATE;
+				case DIRECT -> StatusPrivacy.DIRECT;
+			};
+		}
 
-						updateVisibilityIcon ();
-					}
+		// A saved privacy setting from a previous compose session wins over all
+		if(savedInstanceState!=null){
+			statusVisibility=(StatusPrivacy) savedInstanceState.getSerializable("visibility");
+		}
 
-					@Override
-					public void onError(ErrorResponse error){
-						Log.w(TAG, "Unable to get user preferences to set default post privacy");
-					}
-				})
-				.exec(accountID);
+		updateVisibilityIcon();
 	}
 
 	private void updateVisibilityIcon(){
 		if(statusVisibility==null){ // TODO find out why this happens
 			statusVisibility=StatusPrivacy.PUBLIC;
 		}
-		visibilityBtn.setImageResource(switch(statusVisibility){
-			case PUBLIC -> R.drawable.ic_fluent_earth_24_regular;
-			case UNLISTED -> R.drawable.ic_fluent_people_community_24_regular;
-			case PRIVATE -> R.drawable.ic_fluent_people_checkmark_24_regular;
-			case DIRECT -> R.drawable.ic_at_symbol;
+		visibilityBtn.setText(switch(statusVisibility){
+			case PUBLIC, UNLISTED -> R.string.visibility_public;
+			case PRIVATE -> R.string.visibility_followers_only;
+			case DIRECT -> R.string.visibility_private;
 		});
+		Drawable icon=getResources().getDrawable(switch(statusVisibility){
+			case PUBLIC, UNLISTED -> R.drawable.ic_public_20px;
+			case PRIVATE -> R.drawable.ic_group_20px;
+			case DIRECT -> R.drawable.ic_alternate_email_20px;
+		}, getActivity().getTheme()).mutate();
+		icon.setBounds(0, 0, V.dp(18), V.dp(18));
+		icon.setTint(UiUtils.getThemeColor(getActivity(), R.attr.colorM3Primary));
+		visibilityBtn.setCompoundDrawablesRelative(icon, null, visibilityBtn.getCompoundDrawablesRelative()[2], null);
 	}
 
 	@Override
@@ -1374,18 +995,6 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 					String spanText=e.toString().substring(e.getSpanStart(span), e.getSpanEnd(span));
 					autocompleteViewController.setText(spanText);
 				}
-
-				View autocompleteView=autocompleteViewController.getView();
-				Layout layout=mainEditText.getLayout();
-				int line=layout.getLineForOffset(start);
-				int offsetY=layout.getLineBottom(line);
-				FrameLayout.LayoutParams lp=(FrameLayout.LayoutParams) autocompleteView.getLayoutParams();
-				if(lp.topMargin!=offsetY){
-					lp.topMargin=offsetY;
-					mainEditTextWrap.requestLayout();
-				}
-				int offsetX=Math.round(layout.getPrimaryHorizontal(start))+mainEditText.getPaddingLeft();
-				autocompleteViewController.setArrowOffset(offsetX);
 			}else if(currentAutocompleteSpan!=null){
 				finishAutocomplete();
 			}
@@ -1403,7 +1012,7 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 
 	@Override
 	public boolean onAddMediaAttachmentFromEditText(Uri uri, String description){
-		return addMediaAttachment(uri, description);
+		return mediaViewController.addMediaAttachment(uri, description);
 	}
 
 	private void startAutocomplete(ComposeAutocompleteSpan span){
@@ -1411,8 +1020,7 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 		Editable e=mainEditText.getText();
 		String spanText=e.toString().substring(e.getSpanStart(span), e.getSpanEnd(span));
 		autocompleteViewController.setText(spanText);
-		View autocompleteView=autocompleteViewController.getView();
-		autocompleteView.setVisibility(View.VISIBLE);
+		showAutocomplete();
 	}
 
 	private void finishAutocomplete(){
@@ -1420,7 +1028,24 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 			return;
 		autocompleteViewController.setText(null);
 		currentAutocompleteSpan=null;
-		autocompleteViewController.getView().setVisibility(View.GONE);
+		hideAutocomplete();
+	}
+
+	private void showAutocomplete(){
+		UiUtils.beginLayoutTransition(bottomBar);
+		View autocompleteView=autocompleteViewController.getView();
+		bottomBar.getLayoutParams().height=ViewGroup.LayoutParams.WRAP_CONTENT;
+		bottomBar.requestLayout();
+		autocompleteView.setVisibility(View.VISIBLE);
+		autocompleteDivider.setVisibility(View.VISIBLE);
+	}
+
+	private void hideAutocomplete(){
+		UiUtils.beginLayoutTransition(bottomBar);
+		bottomBar.getLayoutParams().height=V.dp(48);
+		bottomBar.requestLayout();
+		autocompleteViewController.getView().setVisibility(View.INVISIBLE);
+		autocompleteDivider.setVisibility(View.INVISIBLE);
 	}
 
 	private void onAutocompleteOptionSelected(String text){
@@ -1428,32 +1053,10 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 		int start=e.getSpanStart(currentAutocompleteSpan);
 		int end=e.getSpanEnd(currentAutocompleteSpan);
 		e.replace(start, end, text+" ");
-		mainEditText.setSelection(start+text.length()+1);
 		finishAutocomplete();
-	}
-
-	private void loadVideoThumbIntoView(ImageView target, Uri uri){
-		MastodonAPIController.runInBackground(()->{
-			Context context=getActivity();
-			if(context==null)
-				return;
-			try{
-				MediaMetadataRetriever mmr=new MediaMetadataRetriever();
-				mmr.setDataSource(context, uri);
-				Bitmap frame=mmr.getFrameAtTime(3_000_000);
-				mmr.release();
-				int size=Math.max(frame.getWidth(), frame.getHeight());
-				int maxSize=V.dp(250);
-				if(size>maxSize){
-					float factor=maxSize/(float)size;
-					frame=Bitmap.createScaledBitmap(frame, Math.round(frame.getWidth()*factor), Math.round(frame.getHeight()*factor), true);
-				}
-				Bitmap finalFrame=frame;
-				target.post(()->target.setImageBitmap(finalFrame));
-			}catch(Exception x){
-				Log.w(TAG, "loadVideoThumbIntoView: error getting video frame", x);
-			}
-		});
+		InputConnection conn=mainEditText.getCurrentInputConnection();
+		if(conn!=null)
+			conn.finishComposingText();
 	}
 
 	@Override
@@ -1471,85 +1074,34 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 		return !UiUtils.isDarkTheme();
 	}
 
-	@Parcel
-	static class DraftMediaAttachment{
-		public Attachment serverAttachment;
-		public Uri uri;
-		public transient UploadAttachment uploadRequest;
-		public transient GetAttachmentByID processingPollingRequest;
-		public String description;
-		public String mimeType;
-		public AttachmentUploadState state=AttachmentUploadState.QUEUED;
-
-		public transient View view;
-		public transient ProgressBar progressBar;
-		public transient TextView descriptionView;
-		public transient View overlay;
-		public transient View infoBar;
-		public transient ImageButton retryButton;
-		public transient ObjectAnimator progressBarAnimator;
-		public transient Runnable processingPollingRunnable;
-		public transient ImageView imageView;
-		public transient TextView uploadStateTitle, uploadStateText;
-		public transient TransferSpeedTracker speedTracker=new TransferSpeedTracker();
-
-		public void cancelUpload(){
-			switch(state){
-				case UPLOADING -> {
-					if(uploadRequest!=null){
-						uploadRequest.cancel();
-						uploadRequest=null;
-					}
-				}
-				case PROCESSING -> {
-					if(processingPollingRunnable!=null){
-						UiUtils.removeCallbacks(processingPollingRunnable);
-						processingPollingRunnable=null;
-					}
-					if(processingPollingRequest!=null){
-						processingPollingRequest.cancel();
-						processingPollingRequest=null;
-					}
-				}
-				default -> throw new IllegalStateException("Unexpected state "+state);
-			}
-		}
-
-		public boolean isUploadingOrProcessing(){
-			return state==AttachmentUploadState.UPLOADING || state==AttachmentUploadState.PROCESSING;
-		}
-
-		public void setOverlayVisible(boolean visible, boolean animated){
-			if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.S){
-				if(visible){
-					imageView.setRenderEffect(RenderEffect.createBlurEffect(V.dp(16), V.dp(16), Shader.TileMode.REPEAT));
-				}else{
-					imageView.setRenderEffect(null);
-				}
-			}
-			int infoBarVis=visible ? View.GONE : View.VISIBLE;
-			int overlayVis=visible ? View.VISIBLE : View.GONE;
-			if(animated){
-				V.setVisibilityAnimated(infoBar, infoBarVis);
-				V.setVisibilityAnimated(overlay, overlayVis);
-			}else{
-				infoBar.setVisibility(infoBarVis);
-				overlay.setVisibility(overlayVis);
-			}
-		}
+	public boolean getWasDetached(){
+		return wasDetached;
 	}
 
-	enum AttachmentUploadState{
-		QUEUED,
-		UPLOADING,
-		PROCESSING,
-		ERROR,
-		DONE
+	public boolean isCreatingView(){
+		return creatingView;
 	}
 
-	private static class DraftPollOption{
-		public EditText edit;
-		public View view;
-		public View dragger;
+	public String getAccountID(){
+		return accountID;
+	}
+
+	public void addFakeMediaAttachment(Uri uri, String description){
+		mediaViewController.addFakeMediaAttachment(uri, description);
+	}
+
+	private void showLanguageAlert(){
+		Preferences prefs=AccountSessionManager.getInstance().getAccount(accountID).preferences;
+		ComposeLanguageAlertViewController vc=new ComposeLanguageAlertViewController(getActivity(), prefs!=null ? prefs.postingDefaultLanguage : null, postLang, mainEditText.getText().toString());
+		new M3AlertDialogBuilder(getActivity())
+				.setTitle(R.string.language)
+				.setView(vc.getView())
+				.setPositiveButton(R.string.ok, (dialog, which)->setPostLanguage(vc.getSelectedOption()))
+				.setNegativeButton(R.string.cancel, null)
+				.show();
+	}
+
+	private void setPostLanguage(ComposeLanguageAlertViewController.SelectedOption language){
+		postLang=language;
 	}
 }

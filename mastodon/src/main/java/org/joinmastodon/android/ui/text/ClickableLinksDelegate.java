@@ -3,12 +3,11 @@ package org.joinmastodon.android.ui.text;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Canvas;
 import android.graphics.CornerPathEffect;
 import android.graphics.Paint;
 import android.graphics.Path;
-import android.graphics.Rect;
-import android.graphics.RectF;
 import android.os.Build;
 import android.text.Layout;
 import android.text.Spanned;
@@ -18,13 +17,12 @@ import android.view.SoundEffectConstants;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-
 import org.joinmastodon.android.R;
 
-import me.grishka.appkit.utils.V;
+import androidx.annotation.NonNull;
+import me.grishka.appkit.utils.CustomViewHelper;
 
-public class ClickableLinksDelegate {
+public class ClickableLinksDelegate implements CustomViewHelper{
 
 	private final Paint hlPaint;
 	private Path hlPath;
@@ -37,8 +35,9 @@ public class ClickableLinksDelegate {
 		this.view=view;
 		hlPaint=new Paint();
 		hlPaint.setAntiAlias(true);
-		hlPaint.setPathEffect(new CornerPathEffect(V.dp(3)));
-//        view.setHighlightColor(view.getResources().getColor(android.R.color.holo_blue_light));
+		hlPaint.setPathEffect(new CornerPathEffect(dp(3)));
+		hlPaint.setStyle(Paint.Style.FILL_AND_STROKE);
+		hlPaint.setStrokeWidth(dp(4));
 		gestureDetector = new GestureDetector(view.getContext(), new LinkGestureListener(), view.getHandler());
 	}
 
@@ -63,10 +62,15 @@ public class ClickableLinksDelegate {
 	public void onDraw(Canvas canvas){
 		if(hlPath!=null){
 			canvas.save();
-			canvas.translate(0, view.getPaddingTop());
+			canvas.translate(view.getTotalPaddingLeft(), view.getTotalPaddingTop());
 			canvas.drawPath(hlPath, hlPaint);
 			canvas.restore();
 		}
+	}
+
+	@Override
+	public Resources getResources(){
+		return view.getResources();
 	}
 
 	/**
@@ -78,59 +82,29 @@ public class ClickableLinksDelegate {
 	private class LinkGestureListener extends GestureDetector.SimpleOnGestureListener {
 		@Override
 		public boolean onDown(@NonNull MotionEvent event) {
-			int line=-1;
-			Rect rect=new Rect();
-			Layout l=view.getLayout();
-			for(int i=0;i<l.getLineCount();i++){
-				view.getLineBounds(i, rect);
-				if(rect.contains((int)event.getX(), (int)event.getY())){
-					line=i;
-					break;
-				}
-			}
-			if(line==-1){
+			int padLeft=view.getTotalPaddingLeft(), padRight=view.getTotalPaddingRight(), padTop=view.getTotalPaddingTop(), padBottom=view.getTotalPaddingBottom();
+			float x=event.getX(), y=event.getY();
+			if(x<padLeft || y<padTop || x>view.getWidth()-padRight || y>view.getHeight()-padBottom)
 				return false;
-			}
+			x-=padLeft;
+			y-=padTop;
+			Layout l=view.getLayout();
+			int line=l.getLineForVertical(Math.round(y));
+			int position=l.getOffsetForHorizontal(line, x);
+
 			CharSequence text=view.getText();
 			if(text instanceof Spanned s){
 				LinkSpan[] spans=s.getSpans(0, s.length()-1, LinkSpan.class);
-				if(spans.length>0){
-					for(LinkSpan span:spans){
-						int start=s.getSpanStart(span);
-						int end=s.getSpanEnd(span);
-						int lstart=l.getLineForOffset(start);
-						int lend=l.getLineForOffset(end);
-						if(line>=lstart && line<=lend){
-							if(line==lstart && event.getX()-view.getPaddingLeft()<l.getPrimaryHorizontal(start)){
-								continue;
-							}
-							if(line==lend && event.getX()-view.getPaddingLeft()>l.getPrimaryHorizontal(end)){
-								continue;
-							}
-							hlPath=new Path();
-							selectedSpan=span;
-							hlPaint.setColor((span.getColor() & 0x00FFFFFF) | 0x33000000);
-							//l.getSelectionPath(start, end, hlPath);
-							for(int j=lstart;j<=lend;j++){
-								Rect bounds=new Rect();
-								l.getLineBounds(j, bounds);
-								//bounds.left+=view.getPaddingLeft();
-								if(j==lstart){
-									bounds.left=Math.round(l.getPrimaryHorizontal(start));
-								}
-								if(j==lend){
-									bounds.right=Math.round(l.getPrimaryHorizontal(end));
-								}else{
-									CharSequence lineChars=view.getText().subSequence(l.getLineStart(j), l.getLineEnd(j));
-									bounds.right=Math.round(view.getPaint().measureText(lineChars.toString()))/*+view.getPaddingRight()*/;
-								}
-								bounds.inset(V.dp(-2), V.dp(-2));
-								hlPath.addRect(new RectF(bounds), Path.Direction.CW);
-							}
-							hlPath.offset(view.getPaddingLeft(), 0);
-							view.invalidate();
-							return true;
-						}
+				for(LinkSpan span:spans){
+					int start=s.getSpanStart(span);
+					int end=s.getSpanEnd(span);
+					if(start<=position && end>position){
+						selectedSpan=span;
+						hlPath=new Path();
+						l.getSelectionPath(start, end, hlPath);
+						hlPaint.setColor((span.getColor() & 0x00FFFFFF) | 0x33000000);
+						view.invalidate();
+						return true;
 					}
 				}
 			}

@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="get_started">계정 생성</string>
-	<string name="already_have_account">이미 계정이 있습니다</string>
 	<string name="log_in">로그인</string>
 	<string name="next">다음</string>
 	<string name="loading_instance">서버 정보 받아오는 중...</string>
@@ -16,10 +14,6 @@
 	<string name="user_sent_follow_request">나에게 팔로우 요청을 보냄</string>
 	<string name="user_favorited">당신의 게시물을 좋아합니다</string>
 	<string name="poll_ended">투표 종료됨</string>
-	<string name="time_seconds">%d초</string>
-	<string name="time_minutes">%d분</string>
-	<string name="time_hours">%d시간</string>
-	<string name="time_days">%d일</string>
 	<string name="share_toot_title">공유</string>
 	<string name="settings">설정</string>
 	<string name="publish">게시</string>
@@ -32,9 +26,6 @@
 	<plurals name="following">
 		<item quantity="other">팔로잉</item>
 	</plurals>
-	<plurals name="posts">
-		<item quantity="other">게시물</item>
-	</plurals>
 	<string name="posts">게시물</string>
 	<string name="posts_and_replies">게시물과 답장</string>
 	<string name="media">미디어</string>
@@ -42,7 +33,6 @@
 	<string name="button_follow">팔로우</string>
 	<string name="button_following">팔로잉</string>
 	<string name="edit_profile">프로필 수정</string>
-	<string name="mention_user">%s 멘션</string>
 	<string name="share_user">%s 공유</string>
 	<string name="mute_user">%s 뮤트</string>
 	<string name="unmute_user">%s 뮤트 해제</string>
@@ -71,7 +61,6 @@
 	<plurals name="x_days">
 		<item quantity="other">%d일</item>
 	</plurals>
-	<string name="compose_poll_duration">기간: %s</string>
 	<plurals name="x_seconds_left">
 		<item quantity="other">%d초 남았습니다</item>
 	</plurals>
@@ -83,9 +72,6 @@
 	</plurals>
 	<plurals name="x_days_left">
 		<item quantity="other">%d일 남았습니다</item>
-	</plurals>
-	<plurals name="x_voters">
-		<item quantity="other">%,d명의 투표자</item>
 	</plurals>
 	<string name="poll_closed">마감됨</string>
 	<string name="confirm_mute_title">계정 뮤트</string>
@@ -102,10 +88,8 @@
 	<string name="confirm_unblock_domain_title">도메인 차단 해제</string>
 	<string name="confirm_unblock">%s 차단 해제 확인</string>
 	<string name="do_unblock">차단 해제</string>
-	<string name="button_muted">뮤트됨</string>
 	<string name="button_blocked">차단됨</string>
 	<string name="action_vote">투표</string>
-	<string name="tap_to_reveal">눌러서 확인</string>
 	<string name="delete">삭제</string>
 	<string name="confirm_delete_title">게시물 삭제</string>
 	<string name="confirm_delete">정말로 이 게시물을 삭제하시겠습니까?</string>
@@ -123,9 +107,6 @@
 	<string name="mentions">멘션</string>
 	<plurals name="x_people_talking">
 		<item quantity="other">%d명이 말하고 있음</item>
-	</plurals>
-	<plurals name="discussed_x_times">
-		<item quantity="other">%d번 언급됨</item>
 	</plurals>
 	<string name="report_title">%s 신고</string>
 	<string name="report_choose_reason">이 게시물에 어떤 문제가 있나요?</string>
@@ -154,13 +135,10 @@
 	<string name="report_personal_title">이런 것을 보지 않길 원하나요?</string>
 	<string name="report_personal_subtitle">마스토돈에서 보기 싫은 것을 보았다면, 해당하는 사람을 지울 수 있습니다.</string>
 	<string name="back">뒤로 가기</string>
-	<string name="instance_catalog_title">마스토돈은 여러 다른 서버에 존재하는 사용자들로 이루어져 있습니다.</string>
-	<string name="instance_catalog_subtitle">당신의 관심사, 지역에 맞거나 일반적인 목적의 서버 중에서 원하는 것을 고르세요. 어떤 서버를 고르더라도, 다른 모두와 소통할 수 있습니다.</string>
 	<string name="search_communities">서버이름 혹은 URL</string>
 	<string name="instance_rules_title">서버 규칙</string>
 	<string name="instance_rules_subtitle">계속 진행하는 것으로 %s의 중재자들에 의해 정해지고 관리되는 규칙들에 동의하는 것으로 간주합니다.</string>
 	<string name="signup_title">계정 생성</string>
-	<string name="edit_photo">수정</string>
 	<string name="display_name">이름</string>
 	<string name="username">사용자명</string>
 	<string name="email">이메일</string>
@@ -189,20 +167,12 @@
 	<string name="resent_email">확인용 이메일이 보내졌습니다</string>
 	<string name="compose_hint">무슨 생각을 하고 있는지 입력하거나 붙여넣으세요</string>
 	<string name="content_warning">열람 주의</string>
-	<string name="add_image_description">이미지 설명 추가…</string>
-	<string name="retry_upload">업로드 재시도</string>
-	<string name="edit_image">이미지 편집</string>
 	<string name="save">저장</string>
 	<string name="add_alt_text">대체 텍스트 추가</string>
-	<string name="alt_text_subtitle">대체 텍스트는 저시력자나 시각장애인들에게 당신의 사진을 설명합니다. 문맥을 파악할 수 있는 설명들만 넣도록 하세요.</string>
-	<string name="alt_text_hint">예시: 강아지가 의심스러운 가는 눈초리로 카메라를 쳐다보고 있습니다.</string>
 	<string name="visibility_public">공개</string>
 	<string name="visibility_followers_only">팔로워 전용</string>
 	<string name="visibility_private">멘션한 사람만</string>
-	<string name="search_all">모두</string>
-	<string name="search_people">사람들</string>
 	<string name="recent_searches">최근 검색</string>
-	<string name="step_x_of_n">%2$d개 중 %1$d번째 단계</string>
 	<string name="skip">건너뛰기</string>
 	<string name="notification_type_follow">새 팔로워</string>
 	<string name="notification_type_favorite">좋아함</string>
@@ -219,36 +189,21 @@
 	<string name="theme_auto">자동</string>
 	<string name="theme_light">밝음</string>
 	<string name="theme_dark">어두움</string>
-	<string name="theme_true_black">진정한 검정 모드</string>
 	<string name="settings_behavior">동작</string>
 	<string name="settings_gif">아바타와 에모지의 애니메이션을 재생</string>
 	<string name="settings_custom_tabs">앱내 브라우저 사용</string>
 	<string name="settings_notifications">알림</string>
-	<string name="notify_me_when">알림을 보낼 조건</string>
-	<string name="notify_anyone">누구든</string>
-	<string name="notify_follower">팔로워</string>
-	<string name="notify_followed">내가 팔로우 하는 사람</string>
-	<string name="notify_none">아무도 없음</string>
-	<string name="notify_favorites">내 게시물을 좋아함</string>
-	<string name="notify_follow">나를 팔로우함</string>
-	<string name="notify_mention">나를 멘션함</string>
-	<string name="settings_boring">지루한 영역</string>
-	<string name="settings_account">계정 설정</string>
 	<string name="settings_contribute">마스토돈에 기여</string>
 	<string name="settings_tos">이용 약관</string>
 	<string name="settings_privacy_policy">개인정보 정책</string>
-	<string name="settings_spicy">매운 영역</string>
 	<string name="settings_clear_cache">미디어 캐시 지우기</string>
 	<string name="settings_app_version">안드로이드용 마스토돈 v%1$s (%2$d)</string>
 	<string name="media_cache_cleared">미디어 캐시 지워짐</string>
 	<string name="confirm_log_out">정말로 로그아웃하시겠습니까?</string>
-	<string name="sensitive_content">민감한 내용</string>
 	<string name="sensitive_content_explain">작성자가 미디어를 민감하다고 설정했습니다. 눌러서 확인합니다.</string>
 	<string name="media_hidden">눌러서 확인</string>
 	<string name="avatar_description">%s 님의 프로필로 이동</string>
 	<string name="more_options">추가 옵션</string>
-	<string name="reveal_content">내용 보기</string>
-	<string name="hide_content">내용 숨기기</string>
 	<string name="new_post">새 게시물</string>
 	<string name="button_reply">답장</string>
 	<string name="button_favorite">좋아요</string>
@@ -257,7 +212,6 @@
 	<string name="add_media">미디어 추가</string>
 	<string name="add_poll">투표 추가</string>
 	<string name="emoji">에모지</string>
-	<string name="post_visibility">게시물 공개 범위</string>
 	<string name="home_timeline">홈 타임라인</string>
 	<string name="my_profile">내 프로필</string>
 	<string name="media_viewer">미디어 뷰어</string>
@@ -281,18 +235,14 @@
 	<string name="no_app_to_handle_action">이 동작을 처리할 앱이 없습니다</string>
 	<string name="local_timeline">커뮤니티</string>
 	<string name="trending_posts_info_banner">당신이 속한 마스토돈 서버에서 관심을 끌고 있는 게시물들입니다.</string>
-	<string name="trending_hashtags_info_banner">당신이 속한 마스토돈 서버에서 관심을 끌고 있는 해시태그들입니다.</string>
 	<string name="trending_links_info_banner">당신이 속한 마스토돈 서버에서 가장 많이 공유되고 있는 소식들입니다.</string>
 	<string name="local_timeline_info_banner">당신과 같은 마스토돈 서버에 존재하는 사람들이 공유한 최신 게시물들입니다.</string>
-	<string name="dismiss">지우기</string>
 	<string name="see_new_posts">새 게시물 보기</string>
 	<string name="load_missing_posts">놓친 게시물 불러오기</string>
 	<string name="follow_back">맞팔로우</string>
 	<string name="button_follow_pending">대기 중</string>
 	<string name="follows_you">나를 팔로우합니다</string>
 	<string name="manually_approves_followers">수동으로 팔로워 승인</string>
-	<string name="current_account">현재 계정</string>
-	<string name="log_out_account">%s 로그아웃</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<plurals name="x_followers">
 		<item quantity="other">%,d명의 팔로워</item>
@@ -305,7 +255,6 @@
 	</plurals>
 	<string name="timestamp_via_app">%1$s에 %2$s에서</string>
 	<string name="time_now">방금</string>
-	<string name="post_info_favorites">좋아요</string>
 	<string name="edit_history">수정 내역</string>
 	<string name="last_edit_at_x">마지막 수정: %s</string>
 	<string name="time_just_now">방금</string>
@@ -337,14 +286,9 @@
 	<string name="file_size_kb">%.2f kB</string>
 	<string name="file_size_mb">%.2f MB</string>
 	<string name="file_size_gb">%.2f GB</string>
-	<string name="file_upload_progress">%1$s / %2$s</string>
-	<string name="file_upload_time_remaining">%s 남음</string>
-	<string name="upload_error_connection_lost">디바이스의 인터넷 연결이 끊어졌습니다</string>
 	<string name="upload_processing">처리 중…</string>
 	<!-- %s is version like 1.2.3 -->
-	<string name="update_available">안드로이드용 마스토돈 %s 버전을 다운로드할 수 있습니다.</string>
 	<!-- %s is version like 1.2.3 -->
-	<string name="update_ready">안드로이드용 마스토돈 %s 버전을 다운로드하였으며 설치할 수 있습니다.</string>
 	<!-- %s is file size -->
 	<string name="download_update">다운로드 (%s)</string>
 	<string name="install_update">설치</string>

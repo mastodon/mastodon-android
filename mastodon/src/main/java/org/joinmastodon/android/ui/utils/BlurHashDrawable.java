@@ -50,4 +50,10 @@ public class BlurHashDrawable extends Drawable{
 	public int getIntrinsicHeight(){
 		return height;
 	}
+
+	@NonNull
+	@Override
+	public Drawable mutate(){
+		return new BlurHashDrawable(bitmap, width, height);
+	}
 }

@@ -4,46 +4,24 @@
 		<!-- needed to disable scrim on API 29+ -->
 		<item name="android:enforceNavigationBarContrast" tools:ignore="NewApi">false</item>
 		<item name="android:enforceStatusBarContrast" tools:ignore="NewApi">false</item>
-		<item name="appkitBackDrawable">@drawable/ic_fluent_arrow_left_24_regular</item>
 		<item name="android:splitMotionEvents">false</item>
-		<item name="android:windowBackground">?colorWindowBackground</item>
+		<item name="android:windowBackground">@color/m3_sys_light_surface</item>
 		<item name="android:editTextStyle">@style/Widget.Mastodon.EditText</item>
 
-		<item name="android:buttonStyle">@style/Widget.Mastodon.Button.Primary_DarkOnLight</item>
-		<item name="secondaryButtonStyle">@style/Widget.Mastodon.Button.Secondary_DarkOnLight</item>
-		<item name="primaryLargeButtonStyle">@style/Widget.Mastodon.Button.Large.Primary_DarkOnLight</item>
-		<item name="secondaryLargeButtonStyle">@style/Widget.Mastodon.Button.Large.Secondary_DarkOnLight</item>
-		<item name="android:colorAccent">@color/primary_700</item>
-		<item name="android:colorPrimary">@color/gray_800</item>
-		<item name="android:colorBackground">@color/gray_100</item>
-		<item name="android:textColorPrimary">@color/gray_800</item>
-		<item name="android:textColorSecondary">@color/gray_500</item>
-		<item name="colorButtonText">@color/gray_50</item>
-		<item name="colorSecondary">#E9EDF2</item>
-		<item name="colorBackgroundLight">@color/gray_50</item>
-		<item name="colorBackgroundLightest">@color/gray_25</item>
-		<item name="colorDarkIcon">@color/gray_900</item>
-		<item name="colorWindowBackground">@color/white</item>
-		<item name="android:statusBarColor">@color/gray_50</item>
-		<item name="android:navigationBarColor">@color/navigation_bar_bg</item>
+		<item name="android:buttonStyle">@style/Widget.Mastodon.M3.Button</item>
 		<item name="android:actionBarTheme">@style/Theme.Mastodon.Toolbar</item>
 		<item name="android:alertDialogTheme">@style/Theme.Mastodon.Dialog.Alert</item>
-		<item name="colorPollMostVoted">@color/primary_500</item>
-		<item name="colorPollVoted">@color/gray_300</item>
-		<item name="colorAccentLight">@color/primary_600</item>
-		<item name="colorSearchField">@color/gray_200</item>
-		<item name="colorSearchHint">@color/gray_600</item>
-		<item name="colorTabInactive">@color/gray_400</item>
-		<item name="colorAccentLightest">@color/primary_100</item>
-
-		<item name="buttonBackground">@drawable/bg_button_primary_dark_on_light</item>
-		<item name="android:editTextBackground">@drawable/bg_edittext_light</item>
 
 		<item name="android:windowLightStatusBar">true</item>
 		<item name="android:windowLightNavigationBar" tools:ignore="NewApi">true</item>
 		<item name="android:popupMenuStyle">@style/Widget.Mastodon.PopupMenu</item>
 		<item name="android:actionOverflowMenuStyle">@style/Widget.Mastodon.PopupMenu</item>
-		
+		<item name="android:switchStyle">@style/Widget.Mastodon.M3.Switch</item>
+		<item name="android:windowActionModeOverlay">true</item>
+		<item name="android:actionModeBackground">@color/m3_sys_light_primary</item>
+		<item name="android:actionModeStyle">@style/Widget.Mastodon.Toolbar.ActionMode</item>
+		<item name="android:actionModeCloseDrawable">@drawable/ic_actionmode_close</item>
+
 		<!-- M3 colors -->
 		<item name="colorM3Primary">@color/m3_sys_light_primary</item>
 		<item name="colorM3OnPrimary">@color/m3_sys_light_on_primary</item>
@@ -64,59 +42,49 @@
 		<item name="colorM3SurfaceVariant">@color/m3_sys_light_surface_variant</item>
 		<item name="colorM3OnSurfaceVariant">@color/m3_sys_light_on_surface_variant</item>
 		<item name="colorM3Outline">@color/m3_sys_light_outline</item>
+		<item name="colorM3OutlineVariant">@color/m3_sys_light_outline_variant</item>
 		<item name="colorM3DisabledBackground">#1F1F1F1F</item>
 		<item name="colorM3PressedOverlay">@color/m3_sys_light_on_primary</item>
 		<item name="colorM3Error">#B3261E</item>
 		<item name="colorM3OnError">#FFF</item>
 		<item name="colorM3ErrorContainer">#F9DEDC</item>
 		<item name="colorM3OnErrorContainer">#410E0B</item>
+		<item name="colorM3PrimaryInverse">@color/m3_sys_dark_primary</item>
+		<item name="colorWhite">#FFF</item>
+		<item name="colorFavorite">#8b5000</item>
+		<item name="colorBoost">#ab332a</item>
+		<item name="colorFollow">#4746e3</item>
+		<item name="colorPoll">#006d42</item>
+
+		<item name="android:statusBarColor">?colorM3Background</item>
+		<item name="android:navigationBarColor">@color/navigation_bar_bg_light</item>
+		<item name="android:colorAccent">?colorM3Primary</item>
+		<item name="android:colorControlHighlight">@color/m3_on_surface_overlay</item>
+		<item name="colorSensitiveOverlay">#a6ffffff</item>
+		<item name="android:textColorPrimary">?colorM3OnSurface</item>
+		<item name="android:textColorSecondary">?colorM3OnSurfaceVariant</item>
 	</style>
 
 	<style name="Theme.Mastodon.Dark" parent="Theme.AppKit">
 		<!-- needed to disable scrim on API 29+ -->
 		<item name="android:enforceNavigationBarContrast" tools:ignore="NewApi">false</item>
 		<item name="android:enforceStatusBarContrast" tools:ignore="NewApi">false</item>
-		<item name="appkitBackDrawable">@drawable/ic_fluent_arrow_left_24_regular</item>
 		<item name="android:splitMotionEvents">false</item>
-		<item name="android:windowBackground">?colorWindowBackground</item>
+		<item name="android:windowBackground">@color/m3_sys_dark_surface</item>
 		<item name="android:editTextStyle">@style/Widget.Mastodon.EditText</item>
 
-		<item name="android:buttonStyle">@style/Widget.Mastodon.Button.Primary_LightOnDark</item>
-		<item name="secondaryButtonStyle">@style/Widget.Mastodon.Button.Secondary_LightOnDark</item>
-		<item name="primaryLargeButtonStyle">@style/Widget.Mastodon.Button.Large.Primary_LightOnDark</item>
-		<item name="secondaryLargeButtonStyle">@style/Widget.Mastodon.Button.Large.Secondary_LightOnDark</item>
-		<item name="android:colorAccent">@color/primary_400</item>
-		<item name="android:colorPrimary">@color/gray_50</item>
-		<item name="android:colorBackground">@color/gray_700</item>
-		<item name="android:textColorPrimary">@color/gray_50</item>
-		<item name="android:textColorSecondary">@color/gray_400</item>
-		<item name="colorButtonText">@color/gray_800</item>
-		<item name="colorSecondary">#E9EDF2</item>
-		<item name="colorBackgroundLight">@color/gray_700</item>
-		<item name="colorBackgroundLightest">@color/gray_900</item>
-		<item name="colorDarkIcon">@color/gray_25</item>
-		<item name="colorWindowBackground">@color/gray_800</item>
-		<item name="android:statusBarColor">@color/gray_800</item>
-		<item name="android:navigationBarColor">@color/gray_800</item>
-		<item name="android:actionBarTheme">@style/Theme.Mastodon.Toolbar.Dark</item>
+		<item name="android:buttonStyle">@style/Widget.Mastodon.M3.Button</item>
+		<item name="android:actionBarTheme">@style/Theme.Mastodon.Toolbar</item>
 		<item name="android:alertDialogTheme">@style/Theme.Mastodon.Dialog.Alert.Dark</item>
-		<item name="colorPollMostVoted">@color/primary_700</item>
-		<item name="colorPollVoted">@color/gray_600</item>
-		<item name="colorAccentLight">@color/primary_600</item>
-		<item name="colorAccentLightest">@color/primary_800</item>
-		<item name="colorTabInactive">@color/gray_400</item>
-
-		<!-- TODO dark colors -->
-		<item name="colorSearchField">@color/gray_700</item>
-		<item name="colorSearchHint">@color/gray_300</item>
-
-		<item name="buttonBackground">@drawable/bg_button_primary_light_on_dark</item>
-		<item name="android:editTextBackground">@drawable/bg_edittext_dark</item>
 
 		<item name="android:windowLightStatusBar">false</item>
 		<item name="android:windowLightNavigationBar" tools:ignore="NewApi">false</item>
 		<item name="android:popupMenuStyle">@style/Widget.Mastodon.PopupMenu</item>
 		<item name="android:actionOverflowMenuStyle">@style/Widget.Mastodon.PopupMenu</item>
+		<item name="android:switchStyle">@style/Widget.Mastodon.M3.Switch</item>
+		<item name="android:windowActionModeOverlay">true</item>
+		<item name="android:actionModeBackground">@color/m3_sys_dark_primary</item>
+		<item name="android:actionModeCloseDrawable">@drawable/ic_actionmode_close</item>
 
 		<!-- M3 colors -->
 		<item name="colorM3Primary">@color/m3_sys_dark_primary</item>
@@ -138,12 +106,27 @@
 		<item name="colorM3SurfaceVariant">@color/m3_sys_dark_surface_variant</item>
 		<item name="colorM3OnSurfaceVariant">@color/m3_sys_dark_on_surface_variant</item>
 		<item name="colorM3Outline">@color/m3_sys_dark_outline</item>
+		<item name="colorM3OutlineVariant">@color/m3_sys_dark_outline_variant</item>
 		<item name="colorM3DisabledBackground">#1FE3E3E3</item>
 		<item name="colorM3PressedOverlay">@color/m3_sys_dark_primary</item>
 		<item name="colorM3Error">#F2B8B5</item>
 		<item name="colorM3OnError">#601410</item>
 		<item name="colorM3ErrorContainer">#8C1D18</item>
 		<item name="colorM3OnErrorContainer">#F9DEDC</item>
+		<item name="colorM3PrimaryInverse">@color/m3_sys_light_primary</item>
+		<item name="colorWhite">#000</item>
+		<item name="colorFavorite">#ffb871</item>
+		<item name="colorBoost">#ffb4aa</item>
+		<item name="colorFollow">#c1c1ff</item>
+		<item name="colorPoll">#77daa1</item>
+
+		<item name="android:statusBarColor">?colorM3Background</item>
+		<item name="android:navigationBarColor">?colorM3Background</item>
+		<item name="android:colorAccent">?colorM3Primary</item>
+		<item name="android:colorControlHighlight">@color/m3_on_surface_overlay</item>
+		<item name="colorSensitiveOverlay">#80000000</item>
+		<item name="android:textColorPrimary">?colorM3OnSurface</item>
+		<item name="android:textColorSecondary">?colorM3OnSurfaceVariant</item>
 	</style>
 
 	<style name="Theme.Mastodon.Dark.SplashFragment">
@@ -153,27 +136,35 @@
 		<item name="colorM3OnSurface">#FFF</item>
 	</style>
 
-	<style name="Theme.Mastodon.Dark.TrueBlack">
-		<item name="colorWindowBackground">#000</item>
-
-		<item name="colorM3Background">#000</item>
-	</style>
-
 	<style name="Theme.Mastodon.AutoLightDark" parent="Theme.Mastodon.Light"/>
-	<style name="Theme.Mastodon.AutoLightDark.TrueBlack" parent="Theme.Mastodon.Light"/>
 
 	<style name="Theme.Mastodon.Toolbar" parent="android:ThemeOverlay.Material.ActionBar">
-		<item name="android:colorPrimary">@color/gray_50</item>
-		<item name="android:textColorPrimary">@color/gray_800</item>
-		<item name="android:textColorSecondary">@color/gray_800</item>
+		<item name="android:colorPrimary">?colorM3Background</item>
+		<item name="android:textColorPrimary">?colorM3OnSurface</item>
+		<item name="android:textColorSecondary">?colorM3OnSurfaceVariant</item>
 		<item name="android:toolbarStyle">@style/Widget.Mastodon.Toolbar</item>
+		<item name="appkitToolbarElevation">0px</item>
+		<item name="appkitToolbarBackground">?colorM3Background</item>
+		<item name="actionBarIconTint">@color/action_bar_icons</item>
+		<item name="android:titleTextAppearance">@style/action_bar_title</item>
+		<item name="android:subtitleTextAppearance">@style/action_bar_subtitle</item>
 	</style>
 
-	<style name="Theme.Mastodon.Toolbar.Dark" parent="android:ThemeOverlay.Material.Dark.ActionBar">
-		<item name="android:colorPrimary">@color/gray_800</item>
-		<item name="android:textColorPrimary">@color/gray_50</item>
-		<item name="android:textColorSecondary">@color/gray_50</item>
-		<item name="android:toolbarStyle">@style/Widget.Mastodon.Toolbar</item>
+	<style name="action_bar_title" parent="android:TextAppearance.Material.Widget.ActionBar.Title">
+		<item name="android:fontFamily">sans-serif</item>
+		<item name="android:textColor">?colorM3OnSurface</item>
+	</style>
+
+	<style name="action_bar_subtitle" parent="m3_title_small">
+		<item name="android:textColor">?colorM3OnSurfaceVariant</item>
+	</style>
+
+	<style name="Widget.Mastodon.Toolbar.ActionMode" parent="android:Widget.Material.ActionMode">
+		<item name="android:titleTextStyle">@style/action_mode_title</item>
+	</style>
+
+	<style name="action_mode_title" parent="android:TextAppearance.Material.Widget.ActionMode.Title">
+		<item name="android:textColor">?colorM3OnPrimary</item>
 	</style>
 
 	<style name="Widget.Mastodon.Toolbar" parent="android:Widget.Material.Toolbar">
@@ -183,75 +174,19 @@
 	</style>
 
 	<style name="Theme.Mastodon.Toolbar.Profile">
-		<item name="android:textColorPrimary">@color/gray_50</item>
-		<item name="android:textColorSecondary">@color/gray_50</item>
-		<item name="android:drawableTint">@color/gray_50</item>
+		<item name="android:textColorPrimary">#fff</item>
+		<item name="android:textColorSecondary">#fff</item>
+		<item name="android:drawableTint">#fff</item>
 		<item name="android:popupTheme">@style/Theme.Mastodon.AutoLightDark</item>
 		<item name="android:titleTextAppearance">@style/m3_title_medium</item>
-		<item name="android:titleTextColor">@color/gray_50</item>
+		<item name="android:titleTextColor">#fff</item>
 		<item name="android:subtitleTextAppearance">@style/m3_body_medium</item>
-		<item name="android:subtitleTextColor">@color/gray_50</item>
-	</style>
-
-	<style name="Widget.Mastodon.Button" parent="android:Widget.Material.Button">
-		<item name="android:textAllCaps">false</item>
-		<item name="android:textAppearance">@style/m3_label_large</item>
-		<item name="android:minHeight">36dp</item>
-		<item name="android:minWidth">0px</item>
-		<item name="android:paddingLeft">16dp</item>
-		<item name="android:paddingRight">16dp</item>
-	</style>
-
-	<style name="Widget.Mastodon.Button.Large">
-		<item name="android:minHeight">56dp</item>
-		<item name="android:paddingLeft">32dp</item>
-		<item name="android:paddingRight">32dp</item>
-		<item name="android:textAppearance">@style/m3_title_medium</item>
-	</style>
-
-	<style name="Widget.Mastodon.Button.Primary_DarkOnLight">
-		<item name="android:background">@drawable/bg_button_primary_dark_on_light</item>
-		<item name="android:textColor">@color/button_text_primary_dark_on_light</item>
-	</style>
-
-	<style name="Widget.Mastodon.Button.Secondary_DarkOnLight">
-		<item name="android:background">@drawable/bg_button_secondary_dark_on_light</item>
-		<item name="android:textColor">@color/button_text_secondary_dark_on_light</item>
-	</style>
-
-	<style name="Widget.Mastodon.Button.Primary_LightOnDark">
-		<item name="android:background">@drawable/bg_button_primary_light_on_dark</item>
-		<item name="android:textColor">@color/button_text_primary_light_on_dark</item>
-	</style>
-
-	<style name="Widget.Mastodon.Button.Secondary_LightOnDark">
-		<item name="android:background">@drawable/bg_button_secondary_light_on_dark</item>
-		<item name="android:textColor">@color/button_text_secondary_light_on_dark</item>
-	</style>
-
-	<style name="Widget.Mastodon.Button.Large.Primary_DarkOnLight">
-		<item name="android:background">@drawable/bg_button_primary_dark_on_light</item>
-		<item name="android:textColor">@color/button_text_primary_dark_on_light</item>
-	</style>
-
-	<style name="Widget.Mastodon.Button.Large.Secondary_DarkOnLight">
-		<item name="android:background">@drawable/bg_button_secondary_dark_on_light</item>
-		<item name="android:textColor">@color/button_text_secondary_dark_on_light</item>
-	</style>
-
-	<style name="Widget.Mastodon.Button.Large.Primary_LightOnDark">
-		<item name="android:background">@drawable/bg_button_primary_light_on_dark</item>
-		<item name="android:textColor">@color/button_text_primary_light_on_dark</item>
-	</style>
-
-	<style name="Widget.Mastodon.Button.Large.Secondary_LightOnDark">
-		<item name="android:background">@drawable/bg_button_secondary_light_on_dark</item>
-		<item name="android:textColor">@color/button_text_secondary_light_on_dark</item>
+		<item name="android:subtitleTextColor">#fff</item>
 	</style>
 
 	<style name="Widget.Mastodon.EditText" parent="android:Widget.Material.Light.EditText">
-		<item name="android:textColorHint">?android:textColorSecondary</item>
-		<item name="android:elevation">2dp</item>
+		<item name="android:textColor">?colorM3OnSurface</item>
+		<item name="android:textColorHint">?colorM3OnSurfaceVariant</item>
 		<item name="android:textAppearance">@style/m3_body_large</item>
 	</style>
 
@@ -262,11 +197,11 @@
 		<item name="android:buttonBarButtonStyle">@style/Widget.Mastodon.ButtonBarButton</item>
 
 		<!-- colors -->
-		<item name="android:colorAccent">@color/primary_700</item>
-		<item name="android:colorPrimary">@color/gray_800</item>
-		<item name="android:colorBackground">@color/gray_100</item>
-		<item name="android:textColorPrimary">@color/gray_800</item>
-		<item name="android:textColorSecondary">@color/gray_500</item>
+		<item name="android:colorAccent">?colorM3Primary</item>
+		<item name="android:colorPrimary">?colorM3OnSurface</item>
+		<item name="android:colorBackground">?colorM3OnSurfaceVariant</item>
+		<item name="android:textColorPrimary">?colorM3OnSurface</item>
+		<item name="android:textColorSecondary">?colorM3OnSurfaceVariant</item>
 	</style>
 
 	<style name="Theme.Mastodon.Dialog.Alert.Dark" parent="android:Theme.Material.Dialog.Alert">
@@ -276,11 +211,11 @@
 		<item name="android:buttonBarButtonStyle">@style/Widget.Mastodon.ButtonBarButton</item>
 
 		<!-- colors -->
-		<item name="android:colorAccent">@color/primary_600</item>
-		<item name="android:colorPrimary">@color/gray_50</item>
-		<item name="android:colorBackground">@color/gray_700</item>
-		<item name="android:textColorPrimary">@color/gray_50</item>
-		<item name="android:textColorSecondary">@color/gray_400</item>
+		<item name="android:colorAccent">?colorM3Primary</item>
+		<item name="android:colorPrimary">?colorM3OnSurface</item>
+		<item name="android:colorBackground">?colorM3OnSurfaceVariant</item>
+		<item name="android:textColorPrimary">?colorM3OnSurface</item>
+		<item name="android:textColorSecondary">?colorM3OnSurfaceVariant</item>
 	</style>
 
 	<style name="Widget.Mastodon.ButtonBarButton" parent="android:Widget.Material.Button.Borderless">
@@ -290,7 +225,7 @@
 		<item name="android:minWidth">0px</item>
 		<item name="android:background">@drawable/bg_alert_button</item>
 		<item name="android:textAppearance">@style/m3_label_large</item>
-		<item name="android:textColor">?android:textColorPrimary</item>
+		<item name="android:textColor">@color/button_text_m3_text</item>
 	</style>
 
 	<style name="Widget.Mastodon.PopupMenu" parent="android:Widget.Material.Light.PopupMenu">
@@ -303,6 +238,8 @@
 		<item name="android:minHeight">40dp</item>
 		<item name="android:fontFamily">sans-serif-medium</item>
 		<item name="android:stateListAnimator">@null</item>
+		<item name="android:singleLine">true</item>
+		<item name="android:ellipsize">end</item>
 	</style>
 
 	<style name="Widget.Mastodon.M3.Button.Filled">
@@ -321,9 +258,14 @@
 
 	<style name="Widget.Mastodon.M3.Button.Tonal">
 		<item name="android:background">@drawable/bg_button_m3_tonal</item>
-		<item name="android:textColor">@color/button_text_m3_text</item>
+		<item name="android:textColor">@color/button_text_m3_tonal</item>
 		<item name="android:paddingLeft">24dp</item>
 		<item name="android:paddingRight">24dp</item>
+	</style>
+
+	<style name="Widget.Mastodon.M3.Button.Tonal.Error">
+		<item name="android:background">@drawable/bg_button_m3_tonal_error</item>
+		<item name="android:textColor">@color/button_text_m3_tonal_error</item>
 	</style>
 
 	<style name="Widget.Mastodon.M3.Button.Outlined">
@@ -345,71 +287,111 @@
 		<item name="android:textColor">?colorM3OnSurface</item>
 	</style>
 
+	<style name="Widget.Mastodon.M3.SegmentedButtonContainer" parent="">
+		<item name="android:divider">@drawable/divider_vertical_outline</item>
+		<item name="android:showDividers">middle</item>
+		<item name="android:foreground">@drawable/fg_segmented_button_container</item>
+	</style>
+
+	<style name="Widget.Mastodon.M3.SegmentedButton" parent="">
+		<item name="android:layout_width">0dp</item>
+		<item name="android:layout_height">match_parent</item>
+		<item name="android:layout_weight">1</item>
+		<item name="android:background">@drawable/bg_segmented_button</item>
+	</style>
+
+	<style name="Widget.Mastodon.M3.SegmentedButtonText" parent="">
+		<item name="android:textAppearance">@style/m3_label_large</item>
+		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_height">match_parent</item>
+		<item name="android:layout_gravity">center_horizontal</item>
+		<item name="android:gravity">center_vertical</item>
+		<item name="android:drawablePadding">8dp</item>
+		<item name="android:textColor">@color/text_segmented_button</item>
+		<item name="android:duplicateParentState">true</item>
+	</style>
+
+	<style name="Theme.Mastodon.Toolbar.ProgressBar">
+		<item name="android:disabledAlpha">0</item>
+	</style>
+
+	<style name="Widget.Mastodon.M3.Switch" parent="">
+		<item name="android:thumb">@drawable/mtrl_switch_thumb</item>
+		<item name="android:track">@drawable/mtrl_switch_track</item>
+		<item name="android:foreground">@drawable/mtrl_switch_track_decoration</item>
+<!--		<item name="android:paddingLeft">-10dp</item>-->
+		<item name="android:thumbTint">@color/mtrl_switch_thumb_tint</item>
+		<item name="android:trackTint">@color/mtrl_switch_track_tint</item>
+		<item name="android:foregroundTint">@color/mtrl_switch_track_decoration_tint</item>
+<!--		<item name="android:textOn"></item>-->
+<!--		<item name="android:textOff"></item>-->
+		<item name="android:showText">false</item>
+	</style>
+
 	<style name="alert_title">
-		<item name="android:textColor">?android:textColorPrimary</item>
 		<item name="android:textSize">24dp</item>
 		<item name="android:minHeight">38dp</item>
 		<item name="android:gravity">bottom</item>
+		<item name="android:maxLines">2</item>
+		<item name="android:singleLine">false</item>
 	</style>
 
 	<style name="m3_body_large">
 		<item name="android:textSize">16dp</item>
-		<item name="android:textColor">?android:textColorPrimary</item>
 		<item name="android:lineSpacingExtra">5dp</item>
+		<item name="android:lineHeight">24dp</item>
 	</style>
 
 	<style name="m3_body_medium">
 		<item name="android:textSize">14dp</item>
-		<item name="android:textColor">?android:textColorPrimary</item>
 		<item name="android:lineSpacingExtra">4dp</item>
 	</style>
 
 	<style name="m3_body_small">
 		<item name="android:textSize">12dp</item>
-		<item name="android:textColor">?android:textColorSecondary</item>
 		<item name="android:lineSpacingExtra">2dp</item>
 	</style>
 
 	<style name="m3_title_medium">
 		<item name="android:fontFamily">sans-serif-medium</item>
 		<item name="android:textSize">16dp</item>
-		<item name="android:textColor">?android:textColorPrimary</item>
 		<item name="android:lineSpacingExtra">5dp</item>
 	</style>
 
 	<style name="m3_title_small">
 		<item name="android:fontFamily">sans-serif-medium</item>
 		<item name="android:textSize">14dp</item>
-		<item name="android:textColor">?android:textColorSecondary</item>
+	</style>
+
+	<style name="m3_label_small">
+		<item name="android:fontFamily">sans-serif-medium</item>
+		<item name="android:textSize">11dp</item>
+		<item name="android:lineSpacingExtra">3dp</item>
 	</style>
 
 	<style name="m3_label_medium">
 		<item name="android:fontFamily">sans-serif-medium</item>
 		<item name="android:textSize">12dp</item>
-		<item name="android:textColor">?android:textColorPrimary</item>
 		<item name="android:lineSpacingMultiplier">1.14</item>
+		<item name="android:lineHeight">16dp</item>
 	</style>
 
 	<style name="m3_label_large">
 		<item name="android:fontFamily">sans-serif-medium</item>
-		<item name="android:textColor">?android:textColorSecondary</item>
 		<item name="android:textSize">14dp</item>
 	</style>
 
 	<style name="m3_title_large">
 		<item name="android:fontFamily">sans-serif-medium</item>
 		<item name="android:textSize">22dp</item>
-		<item name="android:textColor">?android:textColorPrimary</item>
 	</style>
 
 	<style name="m3_headline_small">
 		<item name="android:textSize">24dp</item>
-		<item name="android:textColor">?android:textColorPrimary</item>
 	</style>
 
 	<style name="m3_headline_medium">
 		<item name="android:textSize">28dp</item>
-		<item name="android:textColor">?android:textColorPrimary</item>
 		<item name="android:lineSpacingExtra">3dp</item>
 	</style>
 

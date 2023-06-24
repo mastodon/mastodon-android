@@ -4,28 +4,19 @@
 	android:orientation="vertical"
 	android:layout_width="match_parent"
 	android:layout_height="wrap_content"
-	android:paddingLeft="16dp"
-	android:paddingRight="16dp"
-	android:paddingTop="32dp"
-	android:paddingBottom="8dp">
-
-	<TextView
-		android:id="@+id/step_counter"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:layout_marginBottom="12dp"
-		android:textAppearance="@style/m3_title_medium"
-		android:textColor="?android:textColorSecondary"
-		tools:text="@string/step_x_of_n"/>
+	android:paddingHorizontal="16dp"
+	android:paddingTop="14dp"
+	android:paddingBottom="16dp">
 
 	<TextView
 		android:id="@+id/title"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:layout_marginBottom="12dp"
+		android:layout_marginBottom="8dp"
 		android:textAppearance="@style/m3_headline_medium"
 		android:minHeight="36dp"
 		android:gravity="center_vertical"
+		android:textColor="?colorM3OnSurface"
 		tools:text="Title"/>
 
 	<TextView
@@ -33,7 +24,9 @@
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:textAppearance="@style/m3_title_medium"
-		android:textColor="?android:textColorSecondary"
+		android:textColor="?colorM3OnSurfaceVariant"
+		android:minHeight="24dp"
+		android:gravity="center_vertical"
 		tools:text="Subtitle"/>
 
 </LinearLayout>

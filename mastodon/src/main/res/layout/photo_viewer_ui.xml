@@ -22,7 +22,7 @@
 				android:layout_width="match_parent"
 				android:layout_height="?android:attr/actionBarSize"
 				android:elevation="0dp"
-				android:navigationIcon="@drawable/ic_fluent_arrow_left_24_regular"
+				android:navigationIcon="@drawable/ic_arrow_back"
 				android:navigationContentDescription="@string/back"
 				android:theme="@style/Theme.Mastodon.Toolbar.Profile"
 				android:background="@null"/>
@@ -55,7 +55,7 @@
 				android:layout_marginRight="8dp"
 				android:layout_marginBottom="8dp"
 				android:src="@drawable/ic_pause_24"
-				android:tint="@color/gray_50"
+				android:tint="#fff"
 				android:contentDescription="@string/pause"
 				android:background="?android:selectableItemBackgroundBorderless"/>
 

@@ -3,149 +3,74 @@
 	xmlns:tools="http://schemas.android.com/tools"
 	android:orientation="vertical"
 	android:layout_width="match_parent"
-	android:layout_height="wrap_content">
-
-	<RelativeLayout
-		android:id="@+id/reblogs"
-		android:layout_width="match_parent"
-		android:layout_height="64dp"
-		android:paddingLeft="16dp"
-		android:paddingRight="16dp"
-		android:paddingTop="12dp"
-		android:paddingBottom="12dp"
-		android:background="?android:selectableItemBackground">
-
-		<ImageView
-			android:id="@+id/icon"
-			android:layout_width="24dp"
-			android:layout_height="24dp"
-			android:layout_alignParentStart="true"
-			android:layout_centerVertical="true"
-			android:src="@drawable/ic_fluent_arrow_repeat_all_24_regular"
-			android:tint="?android:textColorSecondary"
-			android:importantForAccessibility="no"/>
-
-		<TextView
-			android:id="@+id/title"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:layout_marginStart="32dp"
-			android:layout_toEndOf="@id/icon"
-			android:minHeight="22dp"
-			android:singleLine="true"
-			android:text="@string/post_info_reblogs"
-			android:textAppearance="@style/m3_body_large" />
-
-		<TextView
-			android:id="@+id/reblogs_count"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:layout_below="@id/title"
-			android:layout_alignStart="@id/title"
-			android:singleLine="true"
-			android:textAppearance="@style/m3_body_medium"
-			android:textColor="?android:textColorSecondary"
-			tools:text="123 456"/>
-
-	</RelativeLayout>
-
-	<RelativeLayout
-		android:id="@+id/favorites"
-		android:layout_width="match_parent"
-		android:layout_height="64dp"
-		android:paddingLeft="16dp"
-		android:paddingRight="16dp"
-		android:paddingTop="12dp"
-		android:paddingBottom="12dp"
-		android:background="?android:selectableItemBackground">
-
-		<ImageView
-			android:id="@+id/icon"
-			android:layout_width="24dp"
-			android:layout_height="24dp"
-			android:layout_alignParentStart="true"
-			android:layout_centerVertical="true"
-			android:src="@drawable/ic_fluent_star_24_regular"
-			android:tint="?android:textColorSecondary"
-			android:importantForAccessibility="no"/>
-
-		<TextView
-			android:id="@+id/title"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:layout_marginStart="32dp"
-			android:layout_toEndOf="@id/icon"
-			android:minHeight="22dp"
-			android:singleLine="true"
-			android:text="@string/post_info_favorites"
-			android:textAppearance="@style/m3_body_large" />
-
-		<TextView
-			android:id="@+id/favorites_count"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:layout_below="@id/title"
-			android:layout_alignStart="@id/title"
-			android:singleLine="true"
-			android:textAppearance="@style/m3_body_medium"
-			android:textColor="?android:textColorSecondary"
-			tools:text="123 456"/>
-
-	</RelativeLayout>
-
-	<RelativeLayout
-		android:id="@+id/edit_history"
-		android:layout_width="match_parent"
-		android:layout_height="64dp"
-		android:paddingLeft="16dp"
-		android:paddingRight="16dp"
-		android:paddingTop="12dp"
-		android:paddingBottom="12dp"
-		android:background="?android:selectableItemBackground">
-
-		<ImageView
-			android:id="@+id/icon"
-			android:layout_width="24dp"
-			android:layout_height="24dp"
-			android:layout_alignParentStart="true"
-			android:layout_centerVertical="true"
-			android:src="@drawable/ic_fluent_edit_24_regular"
-			android:tint="?android:textColorSecondary"
-			android:importantForAccessibility="no"/>
-
-		<TextView
-			android:id="@+id/title"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:layout_marginStart="32dp"
-			android:layout_toEndOf="@id/icon"
-			android:minHeight="22dp"
-			android:singleLine="true"
-			android:text="@string/edit_history"
-			android:textAppearance="@style/m3_body_large" />
-
-		<TextView
-			android:id="@+id/last_edited"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:layout_below="@id/title"
-			android:layout_alignStart="@id/title"
-			android:singleLine="true"
-			android:textAppearance="@style/m3_body_medium"
-			android:textColor="?android:textColorSecondary"
-			tools:text="123 456"/>
-
-	</RelativeLayout>
+	android:layout_height="wrap_content"
+	android:divider="@drawable/divider_inset_16dp_start"
+	android:showDividers="middle">
 
 	<TextView
 		android:id="@+id/timestamp"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:layout_margin="16dp"
+		android:layout_marginStart="16dp"
+		android:layout_marginEnd="20dp"
+		android:layout_marginTop="12dp"
+		android:layout_marginBottom="12dp"
 		android:minHeight="20dp"
 		android:gravity="center_vertical"
-		android:textSize="14sp"
-		android:textColor="?android:textColorSecondary"
+		android:textAppearance="@style/m3_body_large"
+		android:textSize="16sp"
+		android:textColor="?colorM3OnSurfaceVariant"
 		tools:text="Dec 12, 2021, 12:42 PM via Mastodon for Android"/>
+
+	<TextView
+		android:id="@+id/edit_history"
+		android:layout_width="match_parent"
+		android:layout_height="48dp"
+		android:paddingStart="16dp"
+		android:paddingEnd="24dp"
+		android:background="?android:selectableItemBackground"
+		android:textAppearance="@style/m3_body_large"
+		android:textColor="?colorM3OnSurface"
+		android:singleLine="true"
+		android:ellipsize="end"
+		android:gravity="center_vertical"
+		android:drawableStart="@drawable/ic_edit_24px"
+		android:drawableTint="?colorM3OnSurfaceVariant"
+		android:drawablePadding="16dp"
+		tools:text="Last edit bla bla"/>
+
+	<TextView
+		android:id="@+id/reblogs"
+		android:layout_width="match_parent"
+		android:layout_height="48dp"
+		android:paddingStart="16dp"
+		android:paddingEnd="24dp"
+		android:background="?android:selectableItemBackground"
+		android:textAppearance="@style/m3_body_large"
+		android:textColor="?colorM3OnSurface"
+		android:singleLine="true"
+		android:ellipsize="end"
+		android:gravity="center_vertical"
+		android:drawableStart="@drawable/ic_repeat_24px"
+		android:drawableTint="?colorM3OnSurfaceVariant"
+		android:drawablePadding="16dp"
+		tools:text="123 boosts"/>
+
+	<TextView
+		android:id="@+id/favorites"
+		android:layout_width="match_parent"
+		android:layout_height="48dp"
+		android:paddingStart="16dp"
+		android:paddingEnd="24dp"
+		android:background="?android:selectableItemBackground"
+		android:textAppearance="@style/m3_body_large"
+		android:textColor="?colorM3OnSurface"
+		android:singleLine="true"
+		android:ellipsize="end"
+		android:gravity="center_vertical"
+		android:drawableStart="@drawable/ic_star_24px"
+		android:drawableTint="?colorM3OnSurfaceVariant"
+		android:drawablePadding="16dp"
+		tools:text="123 favorites"/>
 
 </LinearLayout>

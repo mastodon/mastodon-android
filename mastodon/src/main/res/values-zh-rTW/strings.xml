@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="get_started">新增帳號</string>
-	<string name="already_have_account">我已擁有帳號</string>
 	<string name="log_in">登入</string>
 	<string name="next">下一步</string>
 	<string name="loading_instance">正在取得伺服器資訊...</string>
@@ -18,10 +16,6 @@
 	<string name="user_favorited">已將您的嘟文加入最愛</string>
 	<string name="notification_boosted">已轉嘟您的嘟文</string>
 	<string name="poll_ended">投票已結束</string>
-	<string name="time_seconds">%d 秒</string>
-	<string name="time_minutes">%d 分</string>
-	<string name="time_hours">%d 小時</string>
-	<string name="time_days">%d 天</string>
 	<string name="share_toot_title">分享</string>
 	<string name="settings">設定</string>
 	<string name="publish">發佈</string>
@@ -34,9 +28,6 @@
 	<plurals name="following">
 		<item quantity="other">跟隨中</item>
 	</plurals>
-	<plurals name="posts">
-		<item quantity="other">嘟文</item>
-	</plurals>
 	<string name="posts">嘟文</string>
 	<string name="posts_and_replies">嘟文及回覆</string>
 	<string name="media">媒體</string>
@@ -44,7 +35,6 @@
 	<string name="button_follow">跟隨</string>
 	<string name="button_following">正在跟隨</string>
 	<string name="edit_profile">編輯個人檔案</string>
-	<string name="mention_user">提及 %s</string>
 	<string name="share_user">分享 %s</string>
 	<string name="mute_user">靜音 %s</string>
 	<string name="unmute_user">取消靜音 %s</string>
@@ -73,7 +63,6 @@
 	<plurals name="x_days">
 		<item quantity="other">%d 天</item>
 	</plurals>
-	<string name="compose_poll_duration">持續時間：%s</string>
 	<plurals name="x_seconds_left">
 		<item quantity="other">剩餘 %d 秒</item>
 	</plurals>
@@ -85,9 +74,6 @@
 	</plurals>
 	<plurals name="x_days_left">
 		<item quantity="other">剩餘 %d 天</item>
-	</plurals>
-	<plurals name="x_voters">
-		<item quantity="other">%,d 位投票者</item>
 	</plurals>
 	<string name="poll_closed">已關閉</string>
 	<string name="confirm_mute_title">靜音帳號</string>
@@ -104,10 +90,8 @@
 	<string name="confirm_unblock_domain_title">解除封鎖網域</string>
 	<string name="confirm_unblock">確認將 %s 解除封鎖</string>
 	<string name="do_unblock">解除封鎖</string>
-	<string name="button_muted">已靜音</string>
 	<string name="button_blocked">已封鎖</string>
 	<string name="action_vote">投票</string>
-	<string name="tap_to_reveal">輕觸以顯示</string>
 	<string name="delete">刪除</string>
 	<string name="confirm_delete_title">刪除嘟文</string>
 	<string name="confirm_delete">您確定要刪除此嘟文？</string>
@@ -125,9 +109,6 @@
 	<string name="mentions">提及</string>
 	<plurals name="x_people_talking">
 		<item quantity="other">%d 個人正在討論</item>
-	</plurals>
-	<plurals name="discussed_x_times">
-		<item quantity="other">已討論過 %d 次</item>
 	</plurals>
 	<string name="report_title">檢舉 %s</string>
 	<string name="report_choose_reason">這則嘟文有什麼問題嗎？</string>
@@ -157,13 +138,10 @@
 	<string name="report_personal_title">不想再看到這個？</string>
 	<string name="report_personal_subtitle">當您看到某些不喜歡的內容時，您可以將該帳號從您的體驗中移除。</string>
 	<string name="back">返回</string>
-	<string name="instance_catalog_title">Mastodon 由不同伺服器的使用者組成。</string>
-	<string name="instance_catalog_subtitle">基於您的興趣、地區、或一般用途選定一個伺服器。您仍會與任何伺服器中的每個人連結。</string>
 	<string name="search_communities">伺服器名稱或 URL</string>
 	<string name="instance_rules_title">伺服器規則</string>
 	<string name="instance_rules_subtitle">繼續的話，您將同意以下由 %s 之管理員訂定及執行之伺服器規則。</string>
 	<string name="signup_title">新增帳號</string>
-	<string name="edit_photo">編輯</string>
 	<string name="display_name">名稱</string>
 	<string name="username">使用者名稱</string>
 	<string name="email">電子郵件地址</string>
@@ -192,20 +170,12 @@
 	<string name="resent_email">確認郵件已發送</string>
 	<string name="compose_hint">正在想些什麼嗎？</string>
 	<string name="content_warning">內容警告</string>
-	<string name="add_image_description">新增圖片描述...</string>
-	<string name="retry_upload">重新嘗試上傳</string>
-	<string name="edit_image">編輯圖片</string>
 	<string name="save">儲存</string>
 	<string name="add_alt_text">新增說明文字</string>
-	<string name="alt_text_subtitle">說明文字替視障人士描述您的照片。請試著僅包含足夠的細節以了解內容。</string>
-	<string name="alt_text_hint">舉例來說，一隻狗對著鏡頭瞇著眼睛懷疑地看著四周。</string>
 	<string name="visibility_public">公開</string>
 	<string name="visibility_followers_only">僅限跟隨者</string>
 	<string name="visibility_private">僅限提及者</string>
-	<string name="search_all">全部</string>
-	<string name="search_people">使用者</string>
 	<string name="recent_searches">最近的搜尋</string>
-	<string name="step_x_of_n">第 %1$d 步，共 %2$d 步</string>
 	<string name="skip">跳過</string>
 	<string name="notification_type_follow">新的跟隨者</string>
 	<string name="notification_type_favorite">最愛</string>
@@ -223,37 +193,21 @@
 	<string name="theme_auto">自動</string>
 	<string name="theme_light">淺色</string>
 	<string name="theme_dark">深色</string>
-	<string name="theme_true_black">純黑模式</string>
 	<string name="settings_behavior">行為</string>
 	<string name="settings_gif">播放動畫大頭貼與表情符號</string>
 	<string name="settings_custom_tabs">使用應用程式內建瀏覽器</string>
 	<string name="settings_notifications">通知</string>
-	<string name="notify_me_when">以下狀況請通知我</string>
-	<string name="notify_anyone">任何人</string>
-	<string name="notify_follower">跟隨者</string>
-	<string name="notify_followed">我跟隨的某人</string>
-	<string name="notify_none">沒有人</string>
-	<string name="notify_favorites">將我的嘟文加到最愛</string>
-	<string name="notify_follow">跟隨我</string>
-	<string name="notify_reblog">已轉嘟我的嘟文</string>
-	<string name="notify_mention">提及我</string>
-	<string name="settings_boring">無聊的區域</string>
-	<string name="settings_account">帳號設定</string>
 	<string name="settings_contribute">貢獻 Mastodon</string>
 	<string name="settings_tos">服務條款</string>
 	<string name="settings_privacy_policy">隱私權政策</string>
-	<string name="settings_spicy">危險地帶</string>
 	<string name="settings_clear_cache">清除媒體快取</string>
 	<string name="settings_app_version">供 Android 使用的 Mastodon v%1$s (%2$d)</string>
 	<string name="media_cache_cleared">媒體快取已清除</string>
 	<string name="confirm_log_out">您確定要登出嗎？</string>
-	<string name="sensitive_content">敏感內容</string>
 	<string name="sensitive_content_explain">作者將此媒體標記為敏感。輕點以顯示。</string>
 	<string name="media_hidden">輕點以顯示</string>
 	<string name="avatar_description">前往 %s 的個人檔案</string>
 	<string name="more_options">更多選項</string>
-	<string name="reveal_content">顯示內容</string>
-	<string name="hide_content">隱藏內容</string>
 	<string name="new_post">新嘟文</string>
 	<string name="button_reply">回覆</string>
 	<string name="button_reblog">轉嘟</string>
@@ -263,7 +217,6 @@
 	<string name="add_media">新增媒體</string>
 	<string name="add_poll">建立投票</string>
 	<string name="emoji">emoji</string>
-	<string name="post_visibility">嘟文可見性</string>
 	<string name="home_timeline">首頁時間軸</string>
 	<string name="my_profile">我的個人檔案</string>
 	<string name="media_viewer">媒體檢視器</string>
@@ -290,18 +243,14 @@
 	<string name="no_app_to_handle_action">沒有可以處理這個動作的 app</string>
 	<string name="local_timeline">社群</string>
 	<string name="trending_posts_info_banner">這些嘟文正在您 Mastodon 的角落受到注目。</string>
-	<string name="trending_hashtags_info_banner">這些主題標籤正在您 Mastodon 的角落受到注目。</string>
 	<string name="trending_links_info_banner">這些最新消息正在您 Mastodon 的角落被分享。</string>
 	<string name="local_timeline_info_banner">這些是和您同一 Mastodon 伺服器的人們最近發的嘟文。</string>
-	<string name="dismiss">關閉</string>
 	<string name="see_new_posts">檢視最新嘟文</string>
 	<string name="load_missing_posts">讀取錯過的嘟文</string>
 	<string name="follow_back">跟隨回去</string>
 	<string name="button_follow_pending">等待中</string>
 	<string name="follows_you">已跟隨您</string>
 	<string name="manually_approves_followers">手動審核跟隨者</string>
-	<string name="current_account">目前帳號</string>
-	<string name="log_out_account">登出 %s</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<plurals name="x_followers">
 		<item quantity="other">%,d 個跟隨者</item>
@@ -317,8 +266,6 @@
 	</plurals>
 	<string name="timestamp_via_app">%1$s 透過 %2$s</string>
 	<string name="time_now">剛剛</string>
-	<string name="post_info_reblogs">轉嘟</string>
-	<string name="post_info_favorites">最愛</string>
 	<string name="edit_history">編輯記錄</string>
 	<string name="last_edit_at_x">上次編輯於 %s</string>
 	<string name="time_just_now">剛剛</string>
@@ -350,14 +297,9 @@
 	<string name="file_size_kb">%.2f KB</string>
 	<string name="file_size_mb">%.2f MB</string>
 	<string name="file_size_gb">%.2f GB</string>
-	<string name="file_upload_progress">%2$s 中的 %1$s</string>
-	<string name="file_upload_time_remaining">剩餘 %s</string>
-	<string name="upload_error_connection_lost">您的裝置失去網路連線</string>
 	<string name="upload_processing">處理中...</string>
 	<!-- %s is version like 1.2.3 -->
-	<string name="update_available">Mastodon for Android %s 已可供下載。</string>
 	<!-- %s is version like 1.2.3 -->
-	<string name="update_ready">Mastodon for Android %s 已下載完成並準備安裝。</string>
 	<!-- %s is file size -->
 	<string name="download_update">下載 (%s)</string>
 	<string name="install_update">安裝</string>
@@ -404,7 +346,6 @@
 	<string name="sending_follows">正在跟隨使用者...</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
 	<string name="signup_email_domain_blocked">%1$s 不允許 %2$s 之信箱註冊。請重新試試另一個電子郵件服務商，或 &lt;a&gt; 挑選另一個伺服器 &lt;/a&gt;。</string>
-	<string name="signup_username_taken">這個帳號已經被註冊過囉。</string>
 	<string name="spoiler_show">仍要顯示</string>
 	<string name="spoiler_hide">重新隱藏</string>
 	<string name="poll_multiple_choice">請選擇一個或多個</string>

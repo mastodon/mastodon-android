@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<org.joinmastodon.android.ui.views.CheckableLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:orientation="horizontal"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:minHeight="56dp"
+	android:paddingHorizontal="16dp"
+	android:paddingVertical="12dp"
+	android:gravity="center_vertical">
+
+	<include layout="@layout/item_generic_list_content"/>
+
+</org.joinmastodon.android.ui.views.CheckableLinearLayout>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android" android:color="@color/m3_on_surface_variant_overlay">
+	<item android:gravity="center">
+		<selector>
+			<item android:state_selected="true">
+				<shape>
+					 <solid android:color="?colorM3SecondaryContainer"/>
+					 <size android:width="64dp" android:height="32dp"/>
+					 <corners android:radius="16dp"/>
+				</shape>
+			</item>
+		</selector>
+	</item>
+	<item android:id="@android:id/mask" android:gravity="center">
+		<shape>
+			<solid android:color="#000"/>
+			<size android:width="64dp" android:height="32dp"/>
+			<corners android:radius="16dp"/>
+		</shape>
+	</item>
+</ripple>

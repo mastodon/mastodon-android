@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="get_started">অ্যাকাউন্ট তৈরি করুন</string>
-	<string name="already_have_account">আমার আগে থেকেই একটি অ্যাকাউন্ট আছে</string>
 	<string name="log_in">লগ ইন করুন</string>
 	<string name="next">এরপর</string>
 	<string name="error">কোনো ত্রুটি ঘটেছে</string>
@@ -13,17 +11,9 @@
 	<string name="user_sent_follow_request">ফলো করার জন্য অনুরোধ পাঠানো হয়েছে</string>
 	<string name="user_favorited">আপনার পোস্টটি পছন্দ করেছেন</string>
 	<string name="poll_ended">ভোট শেষ</string>
-	<string name="time_seconds">%d সে.</string>
-	<string name="time_minutes">%d মি.</string>
-	<string name="time_hours">%d ঘ.</string>
-	<string name="time_days">%d দি.</string>
 	<string name="share_toot_title">শেয়ার করুন</string>
 	<string name="settings">সেটিংস</string>
 	<string name="cancel">বাতিল করুন</string>
-	<plurals name="posts">
-		<item quantity="one">পোস্ট</item>
-		<item quantity="other">পোস্টগুলো</item>
-	</plurals>
 	<string name="posts">পোস্টগুলো</string>
 	<string name="share_user">%s -কে শেয়ার করুন</string>
 	<string name="mute_user">%s -কে মিউট করুন</string>
@@ -65,10 +55,8 @@
 	<string name="confirm_unblock_title">অ্যাকাউন্ট আনব্লক করুন</string>
 	<string name="confirm_unblock">%s আনব্লক নিশ্চিত করুন</string>
 	<string name="do_unblock">আনব্লক করুন</string>
-	<string name="button_muted">মিউট করা হয়েছে</string>
 	<string name="button_blocked">ব্লক করা আছে</string>
 	<string name="action_vote">ভোট</string>
-	<string name="tap_to_reveal">দেখার জন্য টিপুন</string>
 	<string name="delete">মুছে ফেলুন</string>
 	<string name="confirm_delete_title">পোস্ট মুছে ফেলুন</string>
 	<string name="confirm_delete">আপনি কি এই পোস্টটি মুছে ফেলতে চান?</string>

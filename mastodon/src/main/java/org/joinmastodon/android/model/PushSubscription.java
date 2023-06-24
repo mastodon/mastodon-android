@@ -30,10 +30,7 @@ public class PushSubscription extends BaseModel implements Cloneable{
 	@NonNull
 	@Override
 	public PushSubscription clone(){
-		PushSubscription copy=null;
-		try{
-			copy=(PushSubscription) super.clone();
-		}catch(CloneNotSupportedException ignore){}
+		PushSubscription copy=(PushSubscription) super.clone();
 		copy.alerts=alerts.clone();
 		return copy;
 	}

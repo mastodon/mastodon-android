@@ -15,19 +15,17 @@ import org.joinmastodon.android.api.requests.notifications.GetNotifications;
 import org.joinmastodon.android.api.requests.timelines.GetHomeTimeline;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.model.CacheablePaginatedResponse;
-import org.joinmastodon.android.model.Filter;
+import org.joinmastodon.android.model.FilterContext;
 import org.joinmastodon.android.model.Notification;
 import org.joinmastodon.android.model.PaginatedResponse;
 import org.joinmastodon.android.model.SearchResult;
 import org.joinmastodon.android.model.Status;
-import org.joinmastodon.android.utils.StatusFilterPredicate;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.EnumSet;
 import java.util.List;
 import java.util.function.Consumer;
-import java.util.stream.Collectors;
 
 import me.grishka.appkit.api.Callback;
 import me.grishka.appkit.api.ErrorResponse;
@@ -35,13 +33,15 @@ import me.grishka.appkit.utils.WorkerThread;
 
 public class CacheController{
 	private static final String TAG="CacheController";
-	private static final int DB_VERSION=2;
+	private static final int DB_VERSION=3;
 	private static final WorkerThread databaseThread=new WorkerThread("databaseThread");
 	private static final Handler uiHandler=new Handler(Looper.getMainLooper());
 
 	private final String accountID;
 	private DatabaseHelper db;
 	private final Runnable databaseCloseRunnable=this::closeDatabase;
+	private boolean loadingNotifications;
+	private final ArrayList<Callback<PaginatedResponse<List<Notification>>>> pendingNotificationsCallbacks=new ArrayList<>();
 
 	private static final int POST_FLAG_GAP_AFTER=1;
 
@@ -57,28 +57,23 @@ public class CacheController{
 		cancelDelayedClose();
 		databaseThread.postRunnable(()->{
 			try{
-				List<Filter> filters=AccountSessionManager.getInstance().getAccount(accountID).wordFilters.stream().filter(f->f.context.contains(Filter.FilterContext.HOME)).collect(Collectors.toList());
 				if(!forceReload){
 					SQLiteDatabase db=getOrOpenDatabase();
-					try(Cursor cursor=db.query("home_timeline", new String[]{"json", "flags"}, maxID==null ? null : "`id`<?", maxID==null ? null : new String[]{maxID}, null, null, "`id` DESC", count+"")){
+					try(Cursor cursor=db.query("home_timeline", new String[]{"json", "flags"}, maxID==null ? null : "`id`<?", maxID==null ? null : new String[]{maxID}, null, null, "`time` DESC", count+"")){
 						if(cursor.getCount()==count){
 							ArrayList<Status> result=new ArrayList<>();
 							cursor.moveToFirst();
 							String newMaxID;
-							outer:
 							do{
 								Status status=MastodonAPIController.gson.fromJson(cursor.getString(0), Status.class);
 								status.postprocess();
 								int flags=cursor.getInt(1);
 								status.hasGapAfter=((flags & POST_FLAG_GAP_AFTER)!=0);
 								newMaxID=status.id;
-								for(Filter filter:filters){
-									if(filter.matches(status))
-										continue outer;
-								}
 								result.add(status);
 							}while(cursor.moveToNext());
 							String _newMaxID=newMaxID;
+							AccountSessionManager.get(accountID).filterStatuses(result, FilterContext.HOME);
 							uiHandler.post(()->callback.onSuccess(new CacheablePaginatedResponse<>(result, _newMaxID, true)));
 							return;
 						}
@@ -90,7 +85,9 @@ public class CacheController{
 						.setCallback(new Callback<>(){
 							@Override
 							public void onSuccess(List<Status> result){
-								callback.onSuccess(new CacheablePaginatedResponse<>(result.stream().filter(new StatusFilterPredicate(filters)).collect(Collectors.toList()), result.isEmpty() ? null : result.get(result.size()-1).id, false));
+								ArrayList<Status> filtered=new ArrayList<>(result);
+								AccountSessionManager.get(accountID).filterStatuses(filtered, FilterContext.HOME);
+								callback.onSuccess(new CacheablePaginatedResponse<>(filtered, result.isEmpty() ? null : result.get(result.size()-1).id, false));
 								putHomeTimeline(result, maxID==null);
 							}
 
@@ -113,7 +110,7 @@ public class CacheController{
 		runOnDbThread((db)->{
 			if(clear)
 				db.delete("home_timeline", null, null);
-			ContentValues values=new ContentValues(3);
+			ContentValues values=new ContentValues(4);
 			for(Status s:posts){
 				values.put("id", s.id);
 				values.put("json", MastodonAPIController.gson.toJson(s));
@@ -121,6 +118,7 @@ public class CacheController{
 				if(s.hasGapAfter)
 					flags|=POST_FLAG_GAP_AFTER;
 				values.put("flags", flags);
+				values.put("time", s.createdAt.getEpochSecond());
 				db.insertWithOnConflict("home_timeline", null, values, SQLiteDatabase.CONFLICT_REPLACE);
 			}
 		});
@@ -130,28 +128,27 @@ public class CacheController{
 		cancelDelayedClose();
 		databaseThread.postRunnable(()->{
 			try{
-				List<Filter> filters=AccountSessionManager.getInstance().getAccount(accountID).wordFilters.stream().filter(f->f.context.contains(Filter.FilterContext.NOTIFICATIONS)).collect(Collectors.toList());
+				if(!onlyMentions && loadingNotifications){
+					synchronized(pendingNotificationsCallbacks){
+						pendingNotificationsCallbacks.add(callback);
+					}
+					return;
+				}
 				if(!forceReload){
 					SQLiteDatabase db=getOrOpenDatabase();
-					try(Cursor cursor=db.query(onlyMentions ? "notifications_mentions" : "notifications_all", new String[]{"json"}, maxID==null ? null : "`id`<?", maxID==null ? null : new String[]{maxID}, null, null, "`id` DESC", count+"")){
+					try(Cursor cursor=db.query(onlyMentions ? "notifications_mentions" : "notifications_all", new String[]{"json"}, maxID==null ? null : "`id`<?", maxID==null ? null : new String[]{maxID}, null, null, "`time` DESC", count+"")){
 						if(cursor.getCount()==count){
 							ArrayList<Notification> result=new ArrayList<>();
 							cursor.moveToFirst();
 							String newMaxID;
-							outer:
 							do{
 								Notification ntf=MastodonAPIController.gson.fromJson(cursor.getString(0), Notification.class);
 								ntf.postprocess();
 								newMaxID=ntf.id;
-								if(ntf.status!=null){
-									for(Filter filter:filters){
-										if(filter.matches(ntf.status))
-											continue outer;
-									}
-								}
 								result.add(ntf);
 							}while(cursor.moveToNext());
 							String _newMaxID=newMaxID;
+							AccountSessionManager.get(accountID).filterStatusContainingObjects(result, n->n.status, FilterContext.NOTIFICATIONS);
 							uiHandler.post(()->callback.onSuccess(new PaginatedResponse<>(result, _newMaxID)));
 							return;
 						}
@@ -159,26 +156,40 @@ public class CacheController{
 						Log.w(TAG, "getNotifications: corrupted notification object in database", x);
 					}
 				}
+				if(!onlyMentions)
+					loadingNotifications=true;
 				new GetNotifications(maxID, count, onlyMentions ? EnumSet.of(Notification.Type.MENTION): EnumSet.allOf(Notification.Type.class))
 						.setCallback(new Callback<>(){
 							@Override
 							public void onSuccess(List<Notification> result){
-								callback.onSuccess(new PaginatedResponse<>(result.stream().filter(ntf->{
-									if(ntf.status!=null){
-										for(Filter filter:filters){
-											if(filter.matches(ntf.status)){
-												return false;
-											}
-										}
-									}
-									return true;
-								}).collect(Collectors.toList()), result.isEmpty() ? null : result.get(result.size()-1).id));
+								ArrayList<Notification> filtered=new ArrayList<>(result);
+								AccountSessionManager.get(accountID).filterStatusContainingObjects(filtered, n->n.status, FilterContext.NOTIFICATIONS);
+								PaginatedResponse<List<Notification>> res=new PaginatedResponse<>(filtered, result.isEmpty() ? null : result.get(result.size()-1).id);
+								callback.onSuccess(res);
 								putNotifications(result, onlyMentions, maxID==null);
+								if(!onlyMentions){
+									loadingNotifications=false;
+									synchronized(pendingNotificationsCallbacks){
+										for(Callback<PaginatedResponse<List<Notification>>> cb:pendingNotificationsCallbacks){
+											cb.onSuccess(res);
+										}
+										pendingNotificationsCallbacks.clear();
+									}
+								}
 							}
 
 							@Override
 							public void onError(ErrorResponse error){
 								callback.onError(error);
+								if(!onlyMentions){
+									loadingNotifications=false;
+									synchronized(pendingNotificationsCallbacks){
+										for(Callback<PaginatedResponse<List<Notification>>> cb:pendingNotificationsCallbacks){
+											cb.onError(error);
+										}
+										pendingNotificationsCallbacks.clear();
+									}
+								}
 							}
 						})
 						.exec(accountID);
@@ -196,7 +207,7 @@ public class CacheController{
 			String table=onlyMentions ? "notifications_mentions" : "notifications_all";
 			if(clear)
 				db.delete(table, null, null);
-			ContentValues values=new ContentValues(3);
+			ContentValues values=new ContentValues(4);
 			for(Notification n:notifications){
 				if(n.type==null){
 					continue;
@@ -204,6 +215,7 @@ public class CacheController{
 				values.put("id", n.id);
 				values.put("json", MastodonAPIController.gson.toJson(n));
 				values.put("type", n.type.ordinal());
+				values.put("time", n.createdAt.getEpochSecond());
 				db.insertWithOnConflict(table, null, values, SQLiteDatabase.CONFLICT_REPLACE);
 			}
 		});
@@ -300,29 +312,35 @@ public class CacheController{
 						CREATE TABLE `home_timeline` (
 							`id` VARCHAR(25) NOT NULL PRIMARY KEY,
 							`json` TEXT NOT NULL,
-							`flags` INTEGER NOT NULL DEFAULT 0
+							`flags` INTEGER NOT NULL DEFAULT 0,
+							`time` INTEGER NOT NULL
 						)""");
 			db.execSQL("""
 						CREATE TABLE `notifications_all` (
 							`id` VARCHAR(25) NOT NULL PRIMARY KEY,
 							`json` TEXT NOT NULL,
 							`flags` INTEGER NOT NULL DEFAULT 0,
-							`type` INTEGER NOT NULL
+							`type` INTEGER NOT NULL,
+							`time` INTEGER NOT NULL
 						)""");
 			db.execSQL("""
 						CREATE TABLE `notifications_mentions` (
 							`id` VARCHAR(25) NOT NULL PRIMARY KEY,
 							`json` TEXT NOT NULL,
 							`flags` INTEGER NOT NULL DEFAULT 0,
-							`type` INTEGER NOT NULL
+							`type` INTEGER NOT NULL,
+							`time` INTEGER NOT NULL
 						)""");
 			createRecentSearchesTable(db);
 		}
 
 		@Override
 		public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion){
-			if(oldVersion==1){
+			if(oldVersion<2){
 				createRecentSearchesTable(db);
+			}
+			if(oldVersion<3){
+				addTimeColumns(db);
 			}
 		}
 
@@ -333,6 +351,15 @@ public class CacheController{
 							`json` TEXT NOT NULL,
 							`time` INTEGER NOT NULL
 						)""");
+		}
+
+		private void addTimeColumns(SQLiteDatabase db){
+			db.execSQL("DELETE FROM `home_timeline`");
+			db.execSQL("DELETE FROM `notifications_all`");
+			db.execSQL("DELETE FROM `notifications_mentions`");
+			db.execSQL("ALTER TABLE `home_timeline` ADD `time` INTEGER NOT NULL DEFAULT 0");
+			db.execSQL("ALTER TABLE `notifications_all` ADD `time` INTEGER NOT NULL DEFAULT 0");
+			db.execSQL("ALTER TABLE `notifications_mentions` ADD `time` INTEGER NOT NULL DEFAULT 0");
 		}
 	}
 

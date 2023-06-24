@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="get_started">Стварыць уліковы запіс</string>
-	<string name="already_have_account">У мяне ўжо ёсць уліковы запіс</string>
 	<string name="log_in">Увайсці</string>
 	<string name="next">Далей</string>
 	<string name="loading_instance">Атрыманне інфармацыі аб серверы…</string>
@@ -16,10 +14,6 @@
 	<string name="user_sent_follow_request">адправіў запыт на падпіску</string>
 	<string name="user_favorited">упадабаў(-ла) ваш допіс</string>
 	<string name="poll_ended">апытанне завершана</string>
-	<string name="time_seconds">%dсек</string>
-	<string name="time_minutes">%dхв</string>
-	<string name="time_hours">%dгадз</string>
-	<string name="time_days">%dдз</string>
 	<string name="share_toot_title">Абагуліць</string>
 	<string name="settings">Налады</string>
 	<string name="publish">Апублікаваць</string>
@@ -38,12 +32,6 @@
 		<item quantity="many">падпісаны</item>
 		<item quantity="other">падпісаны</item>
 	</plurals>
-	<plurals name="posts">
-		<item quantity="one">допіс</item>
-		<item quantity="few">допісы</item>
-		<item quantity="many">допісаў</item>
-		<item quantity="other">допісаў</item>
-	</plurals>
 	<string name="posts">Допісы</string>
 	<string name="posts_and_replies">Допісы і адказы</string>
 	<string name="media">Медыя</string>
@@ -51,7 +39,6 @@
 	<string name="button_follow">Падпісацца</string>
 	<string name="button_following">Вы падпісаны</string>
 	<string name="edit_profile">Рэдагаваць профіль</string>
-	<string name="mention_user">Згадаць %s</string>
 	<string name="share_user">Абагуліць %s</string>
 	<string name="mute_user">Ігнараваць %s</string>
 	<string name="unmute_user">Не ігнараваць %s</string>
@@ -92,7 +79,6 @@
 		<item quantity="many">%d дзён</item>
 		<item quantity="other">%d дзён</item>
 	</plurals>
-	<string name="compose_poll_duration">Працягласць: %s</string>
 	<plurals name="x_seconds_left">
 		<item quantity="one">%d секунда засталася</item>
 		<item quantity="few">%d секунды засталося</item>
@@ -117,12 +103,6 @@
 		<item quantity="many">%d дзён засталося</item>
 		<item quantity="other">%d дзён засталося</item>
 	</plurals>
-	<plurals name="x_voters">
-		<item quantity="one">%,d прагаласаваў</item>
-		<item quantity="few">%,d прагаласавала</item>
-		<item quantity="many">%,d прагаласавала</item>
-		<item quantity="other">%,d прагаласавала</item>
-	</plurals>
 	<string name="poll_closed">Завершана</string>
 	<string name="confirm_mute_title">Ігнараваць уліковы запіс</string>
 	<string name="confirm_mute">Ігнараваць %s?</string>
@@ -138,10 +118,8 @@
 	<string name="confirm_unblock_domain_title">Разблакіраваць дамен</string>
 	<string name="confirm_unblock">Разблакіраваць %s?</string>
 	<string name="do_unblock">Разблакіраваць</string>
-	<string name="button_muted">Ігнаруецца</string>
 	<string name="button_blocked">Заблакіраваны</string>
 	<string name="action_vote">Прагаласаваць</string>
-	<string name="tap_to_reveal">Націсніце, каб паказаць</string>
 	<string name="delete">Выдаліць</string>
 	<string name="confirm_delete_title">Выдаліць допіс</string>
 	<string name="confirm_delete">Вы ўпэўненыя, што хочаце выдаліць гэты допіс?</string>
@@ -162,12 +140,6 @@
 		<item quantity="few">%d чалавекі размаўляе</item>
 		<item quantity="many">%d чалавек размаўляе</item>
 		<item quantity="other">%d чалавек размаўляе</item>
-	</plurals>
-	<plurals name="discussed_x_times">
-		<item quantity="one">Абмяркоўвалася %d раз</item>
-		<item quantity="few">Абмяркоўвалася %d разы</item>
-		<item quantity="many">Абмяркоўвалася %d разоў</item>
-		<item quantity="other">Абмяркоўвалася %d разоў</item>
 	</plurals>
 	<string name="report_title">Паскардзіцца на %s</string>
 	<string name="report_choose_reason">Што не так з гэтым допісам?</string>
@@ -196,13 +168,10 @@
 	<string name="report_personal_title">Не хочаце бачыць гэта?</string>
 	<string name="report_personal_subtitle">Калі вы бачыце на Mastodon нешта, што вам не падабаецца, вы можаце выдаліць чалавека са свайго асяроддзя.</string>
 	<string name="back">Назад</string>
-	<string name="instance_catalog_title">Mastodon складаецца з карыстальнікаў на розных серверах.</string>
-	<string name="instance_catalog_subtitle">Выбірайце сервер у залежнасці ад вашых інтарэсаў, рэгіёна або выберыце сервер агульнага прызначэння. Вы па-ранейшаму можаце ўзаемадзейнічаць з усімі, незалежна ад сервера.</string>
 	<string name="search_communities">Назва сервера або URL</string>
 	<string name="instance_rules_title">Правілы сервера</string>
 	<string name="instance_rules_subtitle">Працягваючы, вы згаджаецеся выконваць правілы, устаноўленыя мадэратарам %s.</string>
 	<string name="signup_title">Стварыць уліковы запіс</string>
-	<string name="edit_photo">рэдагаваць</string>
 	<string name="display_name">Імя</string>
 	<string name="username">Імя карыстальніка</string>
 	<string name="email">Электронная пошта</string>
@@ -231,20 +200,12 @@
 	<string name="resent_email">Электронны ліст з пацвярджэннем адпраўлены</string>
 	<string name="compose_hint">Напішыце тое, аб чым думаеце</string>
 	<string name="content_warning">Папярэджанне аб змесціве</string>
-	<string name="add_image_description">Дадаць апісанне відарыса…</string>
-	<string name="retry_upload">Паўтарыць запампоўку</string>
-	<string name="edit_image">Рэдагаваць відарыс</string>
 	<string name="save">Захаваць</string>
 	<string name="add_alt_text">Дадаць альтэрнатыўны тэкст</string>
-	<string name="alt_text_subtitle">Альтэрнатыўны тэкст апісвае вашы фатаграфіі для людзей са слабым зрокам ці без яго. Паспрабуйце ўключыць дастаткова дэталяў, каб быў зразумелы кантэкст.</string>
-	<string name="alt_text_hint">напрыклад, Сабака падазрона азіраецца з прыжмуранымі вачыма на камеру.</string>
 	<string name="visibility_public">Публічны</string>
 	<string name="visibility_followers_only">Толькі для падпісчыкаў</string>
 	<string name="visibility_private">Толькі людзі, якіх я згадаў</string>
-	<string name="search_all">Усе</string>
-	<string name="search_people">Людзі</string>
 	<string name="recent_searches">Нядаўнія запыты</string>
-	<string name="step_x_of_n">Крок %1$d з %2$d</string>
 	<string name="skip">Прапусціць</string>
 	<string name="notification_type_follow">Новыя падпісчыкі</string>
 	<string name="notification_type_favorite">Абраныя</string>
@@ -264,36 +225,21 @@
 	<string name="theme_auto">Аўтаматычна</string>
 	<string name="theme_light">Светлая</string>
 	<string name="theme_dark">Цёмная</string>
-	<string name="theme_true_black">Сапраўдны чорны рэжым</string>
 	<string name="settings_behavior">Паводзіны</string>
 	<string name="settings_gif">Прайграваць аніміраваныя аватары і эмодзі</string>
 	<string name="settings_custom_tabs">Выкарыстоўваць убудаваны браўзер</string>
 	<string name="settings_notifications">Апавяшчэнні</string>
-	<string name="notify_me_when">Паведаміце мне, калі</string>
-	<string name="notify_anyone">кожны</string>
-	<string name="notify_follower">падпісчык</string>
-	<string name="notify_followed">на каго я падпісаны</string>
-	<string name="notify_none">ніхто</string>
-	<string name="notify_favorites">Дадае мой допіс у абранае</string>
-	<string name="notify_follow">Падпісаўся на мяне</string>
-	<string name="notify_mention">Згадвае мяне</string>
-	<string name="settings_boring">Нудная зона</string>
-	<string name="settings_account">Налады ўліковага запісу</string>
 	<string name="settings_contribute">Унесці ўклад у Mastodon</string>
 	<string name="settings_tos">Умовы выкарыстання</string>
 	<string name="settings_privacy_policy">Палітыка прыватнасці</string>
-	<string name="settings_spicy">Вострая зона</string>
 	<string name="settings_clear_cache">Ачысціць кэш медыя</string>
 	<string name="settings_app_version">Mastodon для Android v%1$s (%2$d)</string>
 	<string name="media_cache_cleared">Кэш медыя ачышчаны</string>
 	<string name="confirm_log_out">Вы ўпэўненыя, што хочаце выйсці?</string>
-	<string name="sensitive_content">Далікатны змест</string>
 	<string name="sensitive_content_explain">Аўтар пазначыў гэты медыя файл як далікатны. Націсніце, каб паказаць.</string>
 	<string name="media_hidden">Націсніце, каб паказаць</string>
 	<string name="avatar_description">Перайсці да профілю %s</string>
 	<string name="more_options">Больш опцый</string>
-	<string name="reveal_content">Паказаць змест</string>
-	<string name="hide_content">Схаваць змест</string>
 	<string name="new_post">Новы допіс</string>
 	<string name="button_reply">Адказаць</string>
 	<string name="button_favorite">Абранае</string>
@@ -302,7 +248,6 @@
 	<string name="add_media">Дадаць медыя</string>
 	<string name="add_poll">Дадаць апытанне</string>
 	<string name="emoji">Эмодзі</string>
-	<string name="post_visibility">Бачнасць допісу</string>
 	<string name="home_timeline">Хатняя стужка</string>
 	<string name="my_profile">Мой профіль</string>
 	<string name="media_viewer">Праграма для прагляду медыя</string>
@@ -327,18 +272,14 @@
 	<string name="no_app_to_handle_action">Няма праграмы для выканання гэтага дзеяння</string>
 	<string name="local_timeline">Супольнасць</string>
 	<string name="trending_posts_info_banner">Допісы, што набіраюць папулярнасць у вашым кутку Mastodon.</string>
-	<string name="trending_hashtags_info_banner">Хэштэгі, што набіраюць папулярнасць у вашым кутку Mastodon.</string>
 	<string name="trending_links_info_banner">Навіна, якая найбольш абмяркоўваецца ў вашым кутку Mastodon.</string>
 	<string name="local_timeline_info_banner">Гэта самыя апошнія допісы людзей, якія выкарыстоўваюць той жа сервер Mastodon, што і вы.</string>
-	<string name="dismiss">Адхіліць</string>
 	<string name="see_new_posts">Паказаць новыя допісы</string>
 	<string name="load_missing_posts">Загрузіць адсутныя допісы</string>
 	<string name="follow_back">Падпісацца ў адказ</string>
 	<string name="button_follow_pending">Чакаюць</string>
 	<string name="follows_you">Падпісаны(-а) на вас</string>
 	<string name="manually_approves_followers">Уручную пацвярджае падпісчыкаў</string>
-	<string name="current_account">Бягучы ўліковы запіс</string>
-	<string name="log_out_account">Выйсці з %s</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<plurals name="x_followers">
 		<item quantity="one">%,d падпісчык</item>
@@ -360,7 +301,6 @@
 	</plurals>
 	<string name="timestamp_via_app">%1$s праз %2$s</string>
 	<string name="time_now">толькі што</string>
-	<string name="post_info_favorites">Абраныя</string>
 	<string name="edit_history">Гісторыя рэдагавання</string>
 	<string name="last_edit_at_x">Апошняе рэдагаванне %s</string>
 	<string name="time_just_now">толькі што</string>
@@ -398,14 +338,9 @@
 	<string name="file_size_kb">%.2f КБ</string>
 	<string name="file_size_mb">%.2f МБ</string>
 	<string name="file_size_gb">%.2f ГБ</string>
-	<string name="file_upload_progress">%1$s з %2$s</string>
-	<string name="file_upload_time_remaining">Засталося %s</string>
-	<string name="upload_error_connection_lost">Ваша прылада страціла злучэнне з Інтэрнэтам</string>
 	<string name="upload_processing">Апрацоўка…</string>
 	<!-- %s is version like 1.2.3 -->
-	<string name="update_available">Mastodon для Android %s гатовы да спампоўкі.</string>
 	<!-- %s is version like 1.2.3 -->
-	<string name="update_ready">Mastodon для Android %s спампаваны і гатовы да ўсталявання.</string>
 	<!-- %s is file size -->
 	<string name="download_update">Спампаваць (%s)</string>
 	<string name="install_update">Усталяваць</string>
@@ -452,5 +387,4 @@
 	<string name="sending_follows">Падпісваемся…</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
 	<string name="signup_email_domain_blocked">%1$s не прымае рэгістрацыю ад %2$s. Паспрабуйце іншы &lt;a&gt;выберыце іншы сервер&lt;/a&gt;.</string>
-	<string name="signup_username_taken">Гэта імя карыстальніка занята.</string>
 </resources>

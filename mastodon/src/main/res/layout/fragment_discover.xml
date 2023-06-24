@@ -9,106 +9,74 @@
 	<FrameLayout
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:paddingTop="8dp"
-		android:paddingLeft="16dp"
-		android:paddingRight="16dp"
-		android:paddingBottom="16dp"
-		android:background="?android:statusBarColor">
-
-		<!-- https://github.com/mastodon/mastodon-android/issues/95 -->
-		<View
-			android:layout_width="1px"
-			android:layout_height="1px"
-			android:focusable="true"
-			android:focusableInTouchMode="true"/>
-
-		<FrameLayout
+		android:background="?colorM3Surface">
+		<LinearLayout
+			android:id="@+id/search_wrap"
 			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:background="@drawable/bg_search_field"
-			android:outlineProvider="background"
-			android:clipToOutline="true">
-
-			<EditText
-				android:id="@+id/search_edit"
-				android:layout_width="match_parent"
-				android:layout_height="40dp"
-				android:hint="@string/search_hint"
-				android:textColorHint="?colorSearchHint"
-				android:textColor="?android:textColorPrimary"
-				android:textSize="16dp"
-				android:singleLine="true"
-				android:inputType="textFilter"
-				android:imeOptions="actionSearch"
-				android:paddingLeft="48dp"
-				android:paddingRight="48dp"
-				android:paddingTop="0dp"
-				android:paddingBottom="0dp"
-				android:background="@null"
-				android:elevation="0dp"/>
+			android:layout_height="56dp"
+			android:layout_margin="16dp"
+			android:orientation="horizontal"
+			android:background="@drawable/bg_m3_surface3">
 
 			<ImageButton
 				android:id="@+id/search_back"
 				android:layout_width="40dp"
 				android:layout_height="40dp"
-				android:layout_gravity="start"
-				android:layout_marginStart="4dp"
-				android:background="?android:selectableItemBackgroundBorderless"
-				android:tint="?colorSearchHint"
-				android:elevation="1dp"
+				android:layout_margin="8dp"
 				android:contentDescription="@string/back"
-				android:src="@drawable/ic_fluent_search_24_regular"/>
+				android:background="@drawable/bg_round_ripple"
+				android:tint="?colorM3OnSurfaceVariant"
+				android:src="@drawable/ic_search_24px"/>
 
-			<ImageButton
-				android:id="@+id/search_clear"
-				android:layout_width="40dp"
-				android:layout_height="40dp"
-				android:layout_gravity="end"
-				android:layout_marginEnd="4dp"
-				android:background="?android:selectableItemBackgroundBorderless"
-				android:tint="?colorSearchHint"
-				android:elevation="1dp"
-				android:visibility="invisible"
-				android:contentDescription="@string/clear"
-				android:src="@drawable/ic_fluent_dismiss_24_regular"/>
+			<TextView
+				android:id="@+id/search_text"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:gravity="center_vertical"
+				android:singleLine="true"
+				android:textColor="?colorM3OnSurfaceVariant"
+				android:textAppearance="@style/m3_body_large"
+				android:text="@string/search_mastodon"/>
 
-			<ProgressBar
-				android:id="@+id/search_progress"
-				android:layout_width="20dp"
-				android:layout_height="20dp"
-				android:layout_gravity="end|center_vertical"
-				android:layout_marginEnd="14dp"
-				android:indeterminateTint="?colorSearchHint"
-				style="?android:progressBarStyleSmall"
-				android:visibility="invisible"/>
-
-		</FrameLayout>
-
+		</LinearLayout>
 	</FrameLayout>
 
-	<org.joinmastodon.android.ui.tabs.TabLayout
-		android:id="@+id/tabbar"
+	<LinearLayout
+		android:id="@+id/discover_content"
 		android:layout_width="match_parent"
-		android:layout_height="48dp"
-		app:tabGravity="start"
-		app:tabMinWidth="120dp"
-		app:tabIndicator="@drawable/mtrl_tabs_default_indicator"
-		app:tabIndicatorAnimationMode="elastic"
-		app:tabIndicatorColor="?android:textColorPrimary"
-		app:tabMode="scrollable"
-		android:background="@drawable/bg_discover_tabs"/>
+		android:layout_height="match_parent"
+		android:orientation="vertical">
+		<org.joinmastodon.android.ui.tabs.TabLayout
+			android:id="@+id/tabbar"
+			android:layout_width="match_parent"
+			android:layout_height="48dp"
+			app:tabGravity="start"
+			app:tabIndicator="@drawable/tab_indicator_m3"
+			app:tabIndicatorAnimationMode="elastic"
+			app:tabIndicatorColor="?colorM3Primary"
+			app:tabIndicatorFullWidth="false"
+			app:tabMinWidth="90dp"
+			app:tabMode="scrollable"
+			android:background="?colorM3Surface"/>
 
-	<androidx.viewpager2.widget.ViewPager2
-		android:id="@+id/pager"
-		android:layout_width="match_parent"
-		android:layout_height="0dp"
-		android:layout_weight="1"/>
+		<View
+			android:id="@+id/tabs_divider"
+			android:layout_width="match_parent"
+			android:layout_height="1dp"
+			android:background="?colorM3SurfaceVariant"/>
 
-	<FrameLayout
-		android:id="@+id/search_fragment"
-		android:layout_width="match_parent"
-		android:layout_height="0dp"
-		android:layout_weight="1"
-		android:visibility="gone"/>
+		<androidx.viewpager2.widget.ViewPager2
+			android:id="@+id/pager"
+			android:layout_width="match_parent"
+			android:layout_height="0dp"
+			android:layout_weight="1"/>
+
+		<FrameLayout
+			android:id="@+id/search_fragment"
+			android:layout_width="match_parent"
+			android:layout_height="0dp"
+			android:layout_weight="1"
+			android:visibility="gone"/>
+	</LinearLayout>
 
 </me.grishka.appkit.views.FragmentRootLinearLayout>

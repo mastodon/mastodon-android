@@ -21,6 +21,7 @@ import androidx.annotation.RequiresApi;
 
 public class ComposeEditText extends EditText{
 	private SelectionListener selectionListener;
+	private InputConnection currentInputConnection;
 
 	public ComposeEditText(Context context){
 		super(context);
@@ -49,15 +50,19 @@ public class ComposeEditText extends EditText{
 		this.selectionListener=selectionListener;
 	}
 
+	public InputConnection getCurrentInputConnection(){
+		return currentInputConnection;
+	}
+
 	// Support receiving images from keyboards
 	@Override
 	public InputConnection onCreateInputConnection(EditorInfo outAttrs){
 		final InputConnection ic=super.onCreateInputConnection(outAttrs);
 		if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.N_MR1){
 			outAttrs.contentMimeTypes=selectionListener.onGetAllowedMediaMimeTypes();
-			return new MediaAcceptingInputConnection(ic);
+			return currentInputConnection=new MediaAcceptingInputConnection(ic);
 		}
-		return ic;
+		return currentInputConnection=ic;
 	}
 
 	// Support pasting images

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
 	android:id="@+id/tabbar_wrap"
 	android:layout_width="match_parent"
 	android:layout_height="wrap_content"
-	android:background="?android:statusBarColor"
+	android:background="@drawable/bg_tabbar"
 	android:elevation="3dp"
 	android:outlineProvider="bounds"
 	android:clipChildren="false">
@@ -11,75 +12,110 @@
 	<org.joinmastodon.android.ui.views.TabBar
 		android:id="@+id/tabbar"
 		android:layout_width="match_parent"
-		android:layout_height="52dp"
-		android:paddingLeft="16dp"
-		android:paddingRight="16dp">
-		<ImageView
+		android:layout_height="56dp"
+		android:paddingLeft="8dp"
+		tools:ignore="RtlHardcoded,RtlSymmetry">
+
+		<FrameLayout
 			android:id="@+id/tab_home"
-			android:layout_width="60dp"
-			android:layout_height="52dp"
-			android:scaleType="center"
-			android:contentDescription="@string/home_timeline"
-			android:background="?android:selectableItemBackgroundBorderless"
-			android:tint="?android:colorPrimary"
-			android:src="@drawable/ic_fluent_home_28_selector"/>
+			android:layout_width="0dp"
+			android:layout_height="match_parent"
+			android:layout_weight="1"
+			android:layout_marginRight="8dp"
+			android:background="@drawable/bg_tabbar_tab"
+			android:contentDescription="@string/home_timeline">
 
-		<Space
-			android:layout_width="0px"
-			android:layout_height="1px"
-			android:layout_weight="1"/>
+			<ImageView
+				android:layout_width="24dp"
+				android:layout_height="24dp"
+				android:layout_gravity="center"
+				android:scaleType="center"
+				android:importantForAccessibility="no"
+				android:tint="?colorM3OnSurfaceVariant"
+				android:src="@drawable/ic_home_24px"/>
 
-		<ImageView
+		</FrameLayout>
+
+		<FrameLayout
 			android:id="@+id/tab_search"
-			android:layout_width="60dp"
-			android:layout_height="52dp"
-			android:scaleType="center"
-			android:contentDescription="@string/search_hint"
-			android:background="?android:selectableItemBackgroundBorderless"
-			android:tint="?android:colorPrimary"
-			android:src="@drawable/ic_fluent_search_28_selector"/>
+			android:layout_width="0dp"
+			android:layout_height="match_parent"
+			android:layout_weight="1"
+			android:layout_marginRight="8dp"
+			android:background="@drawable/bg_tabbar_tab"
+			android:contentDescription="@string/search_hint">
 
-		<Space
-			android:layout_width="0px"
-			android:layout_height="1px"
-			android:layout_weight="1"/>
+			<ImageView
+				android:layout_width="24dp"
+				android:layout_height="24dp"
+				android:layout_gravity="center"
+				android:scaleType="center"
+				android:importantForAccessibility="no"
+				android:tint="?colorM3OnSurfaceVariant"
+				android:src="@drawable/ic_search_24px"/>
 
-		<ImageView
+		</FrameLayout>
+
+		<FrameLayout
 			android:id="@+id/tab_notifications"
-			android:layout_width="60dp"
-			android:layout_height="52dp"
-			android:scaleType="center"
-			android:contentDescription="@string/notifications"
-			android:background="?android:selectableItemBackgroundBorderless"
-			android:tint="?android:colorPrimary"
-			android:src="@drawable/ic_fluent_alert_28_selector"/>
+			android:layout_width="0dp"
+			android:layout_height="match_parent"
+			android:layout_weight="1"
+			android:layout_marginRight="8dp"
+			android:background="@drawable/bg_tabbar_tab"
+			android:contentDescription="@string/notifications">
 
-		<Space
-			android:layout_width="0px"
-			android:layout_height="1px"
-			android:layout_weight="1"/>
+			<ImageView
+				android:layout_width="24dp"
+				android:layout_height="24dp"
+				android:layout_gravity="center"
+				android:scaleType="center"
+				android:importantForAccessibility="no"
+				android:tint="?colorM3OnSurfaceVariant"
+				android:src="@drawable/ic_notifications_24px"/>
+			
+			<TextView
+				android:id="@+id/notifications_badge"
+				android:layout_width="wrap_content"
+				android:layout_height="16dp"
+				android:layout_gravity="center"
+				android:layout_marginTop="-6dp"
+				android:layout_marginEnd="-8dp"
+				android:background="@drawable/bg_tabbar_badge"
+				android:textColor="?colorM3OnPrimary"
+				android:gravity="center"
+				android:includeFontPadding="false"
+				android:textAppearance="@style/m3_label_small"
+				android:minWidth="16dp"
+				android:paddingHorizontal="4dp"
+				tools:text="222"/>
+
+		</FrameLayout>
 
 		<FrameLayout
 			android:id="@+id/tab_profile"
-			android:layout_width="60dp"
-			android:layout_height="52dp"
-			android:contentDescription="@string/my_profile"
-			android:foreground="@drawable/bg_tab_profile"
-			android:background="?android:selectableItemBackgroundBorderless">
+			android:layout_width="0dp"
+			android:layout_height="match_parent"
+			android:layout_weight="1"
+			android:layout_marginRight="8dp"
+			android:background="@drawable/bg_tabbar_tab"
+			android:contentDescription="@string/my_profile">
 			<ImageView
 				android:id="@+id/tab_profile_ava"
-				android:layout_width="28dp"
-				android:layout_height="28dp"
+				android:layout_width="24dp"
+				android:layout_height="24dp"
 				android:layout_gravity="center"
 				android:scaleType="centerCrop"
 				android:src="@null"/>
-			<View
-				android:layout_width="16dp"
-				android:layout_height="16dp"
-				android:layout_gravity="end|center_vertical"
-				android:layout_marginEnd="-4dp"
-				android:backgroundTint="?android:colorPrimary"
-				android:background="@drawable/ic_fluent_chevron_up_down_16_regular"/>
+			<ImageView
+				android:layout_width="8dp"
+				android:layout_height="24dp"
+				android:layout_gravity="center"
+				android:layout_marginStart="24dp"
+				android:importantForAccessibility="no"
+				android:scaleType="center"
+				android:tint="?colorM3OnSurfaceVariant"
+				android:src="@drawable/ic_unfold_more_24px"/>
 		</FrameLayout>
 	</org.joinmastodon.android.ui.views.TabBar>
 

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+			 android:layout_width="match_parent"
+			 android:layout_height="76dip">
+	
+	<ProgressBar
+		android:id="@+id/load_more_progress"
+		android:layout_width="32dip"
+		android:layout_height="32dip"
+		android:layout_margin="22dip"
+		android:layout_gravity="center"/>
+	
+	<LinearLayout
+		android:id="@+id/load_more_error"
+		android:layout_width="match_parent"
+		android:layout_height="76dip"
+		android:orientation="horizontal"
+		android:padding="16dip">
+
+		<TextView
+			android:id="@+id/error_text"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:layout_gravity="center_vertical"
+			android:textSize="14dip"
+			android:textColor="#71757A"
+			android:text="Some error text"
+			android:singleLine="true"/>
+
+		<TextView
+			android:id="@+id/error_retry"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="center_vertical"
+			android:text="Retry?"
+			android:textAllCaps="true"
+			android:background="?android:attr/selectableItemBackground"
+			android:padding="12dip"/>
+
+	</LinearLayout>
+
+	<View
+		android:id="@+id/end_mark"
+		android:layout_width="16dp"
+		android:layout_height="9dp"
+		android:layout_marginVertical="16dp"
+		android:layout_gravity="center_horizontal"
+		android:background="@drawable/thread_end_mark"/>
+
+</FrameLayout>

@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<TextView android:id="@+id/add_row"
 	android:layout_width="match_parent"
 	android:layout_height="56dp"
-	android:elevation="2dp"
-	android:outlineProvider="background">
-
-	<View
-		android:layout_width="24dp"
-		android:layout_height="24dp"
-		android:layout_gravity="start|center_vertical"
-		android:layout_marginStart="16dp"
-		android:backgroundTint="?colorDarkIcon"
-		android:background="@drawable/ic_fluent_add_circle_24_regular"/>
-
-</FrameLayout>
+	android:gravity="center_vertical"
+	android:paddingStart="16dp"
+	android:paddingEnd="24dp"
+	android:textAppearance="@style/m3_body_large"
+	android:textColor="?colorM3OnSurface"
+	android:drawableEnd="@drawable/ic_add_24px"
+	android:drawableTint="?colorM3OnSurface"
+	android:drawablePadding="16dp"
+	android:singleLine="true"
+	android:ellipsize="end"
+	android:text="@string/profile_add_row"
+	xmlns:android="http://schemas.android.com/apk/res/android" />

@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="get_started">Snulfu-d amiḍan</string>
-	<string name="already_have_account">Γur-i yakan amiḍan</string>
 	<string name="log_in">Qqen</string>
 	<string name="next">Uḍfiṛ</string>
 	<string name="error">Tuccḍa</string>
@@ -13,10 +11,6 @@
 	<string name="user_followed_you">iṭṭafar-ik·ikem</string>
 	<string name="user_sent_follow_request">yuzen-ak•am-d assuter n uḍfar</string>
 	<string name="poll_ended">asenqed iffuk</string>
-	<string name="time_seconds">%dtsn</string>
-	<string name="time_minutes">%dtsd</string>
-	<string name="time_hours">%dtsd</string>
-	<string name="time_days">%dd</string>
 	<string name="share_toot_title">Bḍu</string>
 	<string name="settings">Iɣewwaren</string>
 	<string name="publish">Suffeɣ</string>
@@ -31,10 +25,6 @@
 		<item quantity="one">yeṭṭafr</item>
 		<item quantity="other">ṭṭafaren</item>
 	</plurals>
-	<plurals name="posts">
-		<item quantity="one">tasuffeγt</item>
-		<item quantity="other">tisuffaɣ</item>
-	</plurals>
 	<string name="posts">Tisuffaɣ</string>
 	<string name="posts_and_replies">Tisuffaɣ d tririyin</string>
 	<string name="media">Amidya</string>
@@ -42,7 +32,6 @@
 	<string name="button_follow">Ḍfeṛ</string>
 	<string name="button_following">Aḍfar</string>
 	<string name="edit_profile">Ẓreg amaɣnu</string>
-	<string name="mention_user">Bder-d %s</string>
 	<string name="share_user">Bḍu %s</string>
 	<string name="mute_user">Sgugem %s</string>
 	<string name="unmute_user">Kkes asgugem i %s</string>
@@ -75,7 +64,6 @@
 		<item quantity="one">%d n wass</item>
 		<item quantity="other">%d n wussan</item>
 	</plurals>
-	<string name="compose_poll_duration">Tanzagt: %s</string>
 	<plurals name="x_seconds_left">
 		<item quantity="one">%d tasint i d-yeqqimen</item>
 		<item quantity="other">%d tsinin i d-yeqqimen</item>
@@ -92,10 +80,6 @@
 		<item quantity="one">%d wuss i d-yeqqimen</item>
 		<item quantity="other">%d wussan i d-yeqqimen</item>
 	</plurals>
-	<plurals name="x_voters">
-		<item quantity="one">%,d umefran</item>
-		<item quantity="other">%,d yimefranen</item>
-	</plurals>
 	<string name="poll_closed">Ifukk</string>
 	<string name="confirm_mute_title">Sgugem amiḍan</string>
 	<string name="confirm_mute">Sentem asgugem i %s</string>
@@ -111,10 +95,8 @@
 	<string name="confirm_unblock_domain_title">Serreḥ i taγult</string>
 	<string name="confirm_unblock">Sentem tukksa n usgugem i %s</string>
 	<string name="do_unblock">Serreḥ</string>
-	<string name="button_muted">Yettwasgugem</string>
 	<string name="button_blocked">Yettusewḥel</string>
 	<string name="action_vote">Fren</string>
-	<string name="tap_to_reveal">Sit i uskan</string>
 	<string name="delete">Kkes</string>
 	<string name="confirm_delete_title">Kkes tasuffeɣt</string>
 	<string name="confirm_delete">Tebɣiḍ s tidet ad tekkseḍ tasuffeɣt-agi?</string>
@@ -133,10 +115,6 @@
 	<plurals name="x_people_talking">
 		<item quantity="one">%d umdan i yettmeslayen</item>
 		<item quantity="other">%d yimdanen i yettmeslayen</item>
-	</plurals>
-	<plurals name="discussed_x_times">
-		<item quantity="one">Yettusqerdec %d n tikkelt</item>
-		<item quantity="other">Yettusqerdec %d n tikkal</item>
 	</plurals>
 	<string name="report_title">Cetki ɣef %s</string>
 	<string name="report_choose_reason">Acu n wugur yellan d tsuffeɣt-a?</string>
@@ -165,7 +143,6 @@
 	<string name="report_personal_title">Ur tebɣiḍ ara ad twaliḍ aya?</string>
 	<string name="report_personal_subtitle">Mi ara twaliḍ kra ur ak•am-neɛǧib ara ɣef Mastodon, tzemreḍ ad tekkseḍ amdan-nni seg tirmit-ik•im.</string>
 	<string name="back">Tuɣalin</string>
-	<string name="edit_photo">ẓreg</string>
 	<string name="display_name">Isem</string>
 	<string name="username">Isem n useqdac</string>
 	<string name="email">Imayl</string>
@@ -191,20 +168,12 @@
 	<string name="resent_email">Asentem n tuzna n yimayl</string>
 	<string name="compose_hint">Aru neɣ senteḍ ayen yellan deg wallaɣ-ik•im</string>
 	<string name="content_warning">Alɣu ɣef ugbur</string>
-	<string name="add_image_description">Rnu aglam n tugna…</string>
-	<string name="retry_upload">Ɛreḍ asali i tikkelt-nniḍen</string>
-	<string name="edit_image">Ẓreg tugna</string>
 	<string name="save">Sekles</string>
 	<string name="add_alt_text">Rnu ɣer uḍris</string>
-	<string name="alt_text_subtitle">Aḍris-nniḍen ara d-igelmen ugar tiwlafin-inek•inem i yimdanen ixuṣṣen deg usenqed neɣ ulac akk. Ɛreḍ ad tsedduḍ ugar n telqayt i usishel n gezzu n usatal.</string>
-	<string name="alt_text_hint">am. Aqjun yettmuqul akkin akka s wallen yeẓẓan ɣer tkamiṛat.</string>
 	<string name="visibility_public">Azayaz</string>
 	<string name="visibility_followers_only">Imeḍfaṛen kan</string>
 	<string name="visibility_private">Imdanen i d-bedreɣ kan</string>
-	<string name="search_all">Akk</string>
-	<string name="search_people">Imdanen</string>
 	<string name="recent_searches">Inadiyen imaynuten</string>
-	<string name="step_x_of_n">Takkayt %1$d n %2$d</string>
 	<string name="skip">Zgel</string>
 	<string name="notification_type_follow">Ineḍfanen imaynuten</string>
 	<string name="notification_type_favorite">Imenyafen</string>
@@ -222,36 +191,21 @@
 	<string name="theme_auto">Awurman</string>
 	<string name="theme_light">Aceɛlal</string>
 	<string name="theme_dark">Aberkan</string>
-	<string name="theme_true_black">Askar aberkan n tidet</string>
 	<string name="settings_behavior">Tiddin</string>
 	<string name="settings_gif">Urar s yivaṭaren d yimujiten yettembiwilen</string>
 	<string name="settings_custom_tabs">Seqdec deg yiminig web usliɣ</string>
 	<string name="settings_notifications">Ilɣa</string>
-	<string name="notify_me_when">Selɣu-yi-d mi ara</string>
-	<string name="notify_anyone">yal yiwen</string>
-	<string name="notify_follower">aneḍfar</string>
-	<string name="notify_followed">win ara ḍefreɣ</string>
-	<string name="notify_none">ula yiwen</string>
-	<string name="notify_favorites">Yerna tasuffeɣt-iw ɣer yismenyafen-ines</string>
-	<string name="notify_follow">Yeṭṭafar-iyi</string>
-	<string name="notify_mention">Ibder-iyi-d</string>
-	<string name="settings_boring">Tamnaḍt yessefcalen</string>
-	<string name="settings_account">Iɣewwaren n umiḍan</string>
 	<string name="settings_contribute">Ttekki deg usenfar Mastodon</string>
 	<string name="settings_tos">Tiwtilin n useqdec</string>
 	<string name="settings_privacy_policy">Tasertit tabaḍnit</string>
-	<string name="settings_spicy">Tamnaḍt tamihawt</string>
 	<string name="settings_clear_cache">Sfeḍ takatut tuffirt n umidyat</string>
 	<string name="settings_app_version">Mastodon i Android v%1$s (%2$d)</string>
 	<string name="media_cache_cleared">Takatut tuffirt n umidyat tettwasfeḍ</string>
 	<string name="confirm_log_out">Tebɣiḍ ad teffɣeḍ?</string>
-	<string name="sensitive_content">Agbur amḥulfu</string>
 	<string name="sensitive_content_explain">Ameskar yecreḍ ɣef umidyat-a d amḥulfu. Sit ad d-iban.</string>
 	<string name="media_hidden">Sit i uskan</string>
 	<string name="avatar_description">Ddu ɣer umaɣnu n %s</string>
 	<string name="more_options">Ugar n yiɣewwaren</string>
-	<string name="reveal_content">Sken agbur</string>
-	<string name="hide_content">Ffer agbur</string>
 	<string name="new_post">Tasuffeɣt tamaynut</string>
 	<string name="button_reply">Err</string>
 	<string name="button_favorite">Amenyaf</string>
@@ -260,7 +214,6 @@
 	<string name="add_media">Rnu amidyat</string>
 	<string name="add_poll">Rnu asenqed</string>
 	<string name="emoji">Imujit</string>
-	<string name="post_visibility">Abani n tsuffeɣt</string>
 	<string name="home_timeline">Tasuddemt tagejdant</string>
 	<string name="my_profile">Amaɣnu-inu</string>
 	<string name="media_viewer">Amsenqad n umidyat</string>
@@ -283,28 +236,21 @@
 	<string name="no_app_to_handle_action">Ulac akk asnas yessefraken tigawt-a</string>
 	<string name="local_timeline">Tamɣiwent</string>
 	<string name="trending_posts_info_banner">Tigi d tisuffaɣ i d-ijebbden s waṭas deg tama-inek•inem n Mastodon.</string>
-	<string name="trending_hashtags_info_banner">Wigi d hashtas i d-ijebbden s waṭas deg tama-inek•inem n Mastodon.</string>
 	<string name="trending_links_info_banner">Tigi d tiqsiḍin timaynutin i yettwabḍan s waṭas deg tama-inek•inem n Mastodon.</string>
 	<string name="local_timeline_info_banner">Tigi d tuget n tsuffaɣ timaynutin sɣur yimdanen ara yesseqdacen aqeddac n Mastodon kifkif d win i tesseqdaceḍ.</string>
-	<string name="dismiss">Ffer</string>
 	<string name="see_new_posts">Ẓer tissufaɣ timaynutin</string>
 	<string name="load_missing_posts">Sali tisuffaɣ i iruḥen</string>
 	<string name="follow_back">Ḍfeṛ</string>
 	<string name="button_follow_pending">Yettraǧu</string>
 	<string name="follows_you">Yeṭṭafaṛ-ik·em-id</string>
-	<string name="current_account">Amiḍan amiran</string>
-	<string name="log_out_account">Ffeɣ seg %s</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<string name="timestamp_via_app">%1$s s %2$s</string>
 	<string name="time_now">tura</string>
-	<string name="post_info_favorites">Imenyafen</string>
 	<string name="time_just_now">tura kan</string>
 	<string name="edit">Ẓreg</string>
 	<string name="discard_changes">Sefsex ibeddilen?</string>
 	<string name="upload_failed">Asali yecceḍ</string>
-	<string name="file_upload_time_remaining">%s i d-yeqqimen</string>
 	<!-- %s is version like 1.2.3 -->
-	<string name="update_available">Mastodon i Android %s yewjed i usader.</string>
 	<!-- %s is version like 1.2.3 -->
 	<!-- %s is file size -->
 	<string name="download_update">Asider (%s)</string>

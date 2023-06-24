@@ -5,8 +5,11 @@ import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.app.Activity;
+import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.LayerDrawable;
 import android.text.TextUtils;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
@@ -19,9 +22,11 @@ import org.joinmastodon.android.fragments.BaseStatusListFragment;
 import org.joinmastodon.android.model.Attachment;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.PhotoLayoutHelper;
+import org.joinmastodon.android.ui.drawables.SpoilerStripesDrawable;
 import org.joinmastodon.android.ui.photoviewer.PhotoViewerHost;
 import org.joinmastodon.android.ui.utils.MediaAttachmentViewController;
 import org.joinmastodon.android.ui.views.FrameLayoutThatOnlyMeasuresFirstChild;
+import org.joinmastodon.android.ui.views.MaxWidthFrameLayout;
 import org.joinmastodon.android.ui.views.MediaGridLayout;
 import org.joinmastodon.android.utils.TypedObjectPool;
 
@@ -32,6 +37,7 @@ import me.grishka.appkit.imageloader.ImageLoaderViewHolder;
 import me.grishka.appkit.imageloader.requests.ImageLoaderRequest;
 import me.grishka.appkit.imageloader.requests.UrlImageLoaderRequest;
 import me.grishka.appkit.utils.CubicBezierInterpolator;
+import me.grishka.appkit.utils.V;
 
 public class MediaGridStatusDisplayItem extends StatusDisplayItem{
 	private static final String TAG="MediaGridDisplayItem";
@@ -41,6 +47,8 @@ public class MediaGridStatusDisplayItem extends StatusDisplayItem{
 	private final List<Attachment> attachments;
 	private final ArrayList<ImageLoaderRequest> requests=new ArrayList<>();
 	public final Status status;
+	public boolean sensitiveRevealed;
+	public String sensitiveTitle;
 
 	public MediaGridStatusDisplayItem(String parentID, BaseStatusListFragment<?> parentFragment, PhotoLayoutHelper.TiledLayoutResult tiledLayout, List<Attachment> attachments, Status status){
 		super(parentID, parentFragment);
@@ -48,6 +56,7 @@ public class MediaGridStatusDisplayItem extends StatusDisplayItem{
 		this.viewPool=parentFragment.getAttachmentViewsPool();
 		this.attachments=attachments;
 		this.status=status;
+		sensitiveRevealed=!status.sensitive;
 		for(Attachment att:attachments){
 			requests.add(new UrlImageLoaderRequest(switch(att.type){
 				case IMAGE -> att.url;
@@ -84,11 +93,18 @@ public class MediaGridStatusDisplayItem extends StatusDisplayItem{
 		private final View.OnClickListener clickListener=this::onViewClick, altTextClickListener=this::onAltTextClick;
 		private final ArrayList<MediaAttachmentViewController> controllers=new ArrayList<>();
 
+		private final MaxWidthFrameLayout overlays;
 		private final FrameLayout altTextWrapper;
 		private final TextView altTextButton;
 		private final View altTextScroller;
 		private final ImageButton altTextClose;
 		private final TextView altText;
+
+		private final View sensitiveOverlay;
+		private final LayerDrawable sensitiveOverlayBG;
+		private static final ColorDrawable drawableForWhenThereIsNoBlurhash=new ColorDrawable(0xffffffff);
+		private final TextView hideSensitiveButton;
+		private final TextView sensitiveText;
 
 		private int altTextIndex=-1;
 		private Animator altTextAnimator;
@@ -98,18 +114,43 @@ public class MediaGridStatusDisplayItem extends StatusDisplayItem{
 			wrapper=(FrameLayout)itemView;
 			layout=new MediaGridLayout(activity);
 			wrapper.addView(layout);
+			wrapper.setClipToPadding(false);
 
-			activity.getLayoutInflater().inflate(R.layout.overlay_image_alt_text, wrapper);
+			overlays=new MaxWidthFrameLayout(activity);
+			overlays.setMaxWidth(V.dp(MediaGridLayout.MAX_WIDTH));
+			wrapper.addView(overlays, new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT, Gravity.CENTER_HORIZONTAL));
+
+			activity.getLayoutInflater().inflate(R.layout.overlay_image_alt_text, overlays);
 			altTextWrapper=findViewById(R.id.alt_text_wrapper);
 			altTextButton=findViewById(R.id.alt_button);
 			altTextScroller=findViewById(R.id.alt_text_scroller);
 			altTextClose=findViewById(R.id.alt_text_close);
 			altText=findViewById(R.id.alt_text);
 			altTextClose.setOnClickListener(this::onAltTextCloseClick);
+
+			hideSensitiveButton=(TextView) activity.getLayoutInflater().inflate(R.layout.alt_text_badge, overlays, false);
+			hideSensitiveButton.setText(R.string.hide);
+			FrameLayout.LayoutParams lp;
+			overlays.addView(hideSensitiveButton, lp=new FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, V.dp(24), Gravity.END | Gravity.BOTTOM));
+			int margin=V.dp(8);
+			lp.setMargins(margin, margin, margin, margin);
+
+			activity.getLayoutInflater().inflate(R.layout.overlay_image_sensitive, overlays);
+			sensitiveOverlay=findViewById(R.id.sensitive_overlay);
+			sensitiveOverlayBG=(LayerDrawable) sensitiveOverlay.getBackground().mutate();
+			sensitiveOverlayBG.setDrawableByLayerId(R.id.left_drawable, new SpoilerStripesDrawable(false));
+			sensitiveOverlayBG.setDrawableByLayerId(R.id.right_drawable, new SpoilerStripesDrawable(true));
+			sensitiveOverlay.setBackground(sensitiveOverlayBG);
+			sensitiveOverlay.setOnClickListener(v->revealSensitive());
+			hideSensitiveButton.setOnClickListener(v->hideSensitive());
+
+			sensitiveText=findViewById(R.id.sensitive_text);
 		}
 
 		@Override
 		public void onBind(MediaGridStatusDisplayItem item){
+			wrapper.setPadding(0, 0, 0, item.inset ? 0 : V.dp(8));
+
 			if(altTextAnimator!=null)
 				altTextAnimator.cancel();
 
@@ -145,6 +186,20 @@ public class MediaGridStatusDisplayItem extends StatusDisplayItem{
 			}
 			altTextWrapper.setVisibility(View.GONE);
 			altTextIndex=-1;
+
+			if(!item.sensitiveRevealed){
+				sensitiveOverlay.setVisibility(View.VISIBLE);
+				layout.setVisibility(View.INVISIBLE);
+				updateBlurhashInSensitiveOverlay();
+			}else{
+				sensitiveOverlay.setVisibility(View.GONE);
+				layout.setVisibility(View.VISIBLE);
+			}
+			hideSensitiveButton.setVisibility(item.status.sensitive ? View.VISIBLE : View.GONE);
+			if(!TextUtils.isEmpty(item.sensitiveTitle))
+				sensitiveText.setText(item.sensitiveTitle);
+			else
+				sensitiveText.setText(R.string.sensitive_content_explain);
 		}
 
 		@Override
@@ -159,11 +214,7 @@ public class MediaGridStatusDisplayItem extends StatusDisplayItem{
 
 		private void onViewClick(View v){
 			int index=(Integer)v.getTag();
-			if(!item.status.spoilerRevealed){
-				item.parentFragment.onRevealSpoilerClick(this);
-			}else if(item.parentFragment instanceof PhotoViewerHost){
-				((PhotoViewerHost) item.parentFragment).openPhotoViewer(item.parentID, item.status, index, this);
-			}
+			((PhotoViewerHost) item.parentFragment).openPhotoViewer(item.parentID, item.status, index, this);
 		}
 
 		private void onAltTextClick(View v){
@@ -183,7 +234,7 @@ public class MediaGridStatusDisplayItem extends StatusDisplayItem{
 					int[] loc={0, 0};
 					v.getLocationInWindow(loc);
 					int btnL=loc[0], btnT=loc[1];
-					wrapper.getLocationInWindow(loc);
+					overlays.getLocationInWindow(loc);
 					btnL-=loc[0];
 					btnT-=loc[1];
 
@@ -241,7 +292,7 @@ public class MediaGridStatusDisplayItem extends StatusDisplayItem{
 			int[] loc={0, 0};
 			btn.getLocationInWindow(loc);
 			int btnL=loc[0], btnT=loc[1];
-			wrapper.getLocationInWindow(loc);
+			overlays.getLocationInWindow(loc);
 			btnL-=loc[0];
 			btnT-=loc[1];
 
@@ -277,12 +328,6 @@ public class MediaGridStatusDisplayItem extends StatusDisplayItem{
 			set.start();
 		}
 
-		public void setRevealed(boolean revealed){
-			for(MediaAttachmentViewController c:controllers){
-				c.setRevealed(revealed);
-			}
-		}
-
 		public MediaAttachmentViewController getViewController(int index){
 			return controllers.get(index);
 		}
@@ -290,6 +335,35 @@ public class MediaGridStatusDisplayItem extends StatusDisplayItem{
 		public void setClipChildren(boolean clip){
 			layout.setClipChildren(clip);
 			wrapper.setClipChildren(clip);
+		}
+
+		private void updateBlurhashInSensitiveOverlay(){
+			Drawable d=item.attachments.get(0).blurhashPlaceholder;
+			sensitiveOverlayBG.setDrawableByLayerId(R.id.blurhash, d==null ? drawableForWhenThereIsNoBlurhash : d.mutate());
+		}
+
+		private void revealSensitive(){
+			if(item.sensitiveRevealed)
+				return;
+			item.sensitiveRevealed=true;
+			V.setVisibilityAnimated(sensitiveOverlay, View.GONE);
+			layout.setVisibility(View.VISIBLE);
+		}
+
+		private void hideSensitive(){
+			if(!item.sensitiveRevealed)
+				return;
+			updateBlurhashInSensitiveOverlay();
+			item.sensitiveRevealed=false;
+			V.setVisibilityAnimated(sensitiveOverlay, View.VISIBLE, ()->layout.setVisibility(View.INVISIBLE));
+		}
+
+		public MediaGridLayout getLayout(){
+			return layout;
+		}
+
+		public View getSensitiveOverlay(){
+			return sensitiveOverlay;
 		}
 	}
 }

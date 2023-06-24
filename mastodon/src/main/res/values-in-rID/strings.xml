@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="get_started">Buat akun</string>
-	<string name="already_have_account">Saya sudah memiliki akun</string>
 	<string name="log_in">Masuk</string>
 	<string name="next">Selanjutnya</string>
 	<string name="loading_instance">Mengambil info server…</string>
@@ -18,10 +16,6 @@
 	<string name="user_favorited">memfavorit kiriman Anda</string>
 	<string name="notification_boosted">mem-boost kiriman Anda</string>
 	<string name="poll_ended">pemungutan suara berakhir</string>
-	<string name="time_seconds">%dd</string>
-	<string name="time_minutes">%dm</string>
-	<string name="time_hours">%dj</string>
-	<string name="time_days">%dh</string>
 	<string name="share_toot_title">Bagikan</string>
 	<string name="settings">Pengaturan</string>
 	<string name="publish">Terbitkan</string>
@@ -34,9 +28,6 @@
 	<plurals name="following">
 		<item quantity="other">mengikuti</item>
 	</plurals>
-	<plurals name="posts">
-		<item quantity="other">kiriman</item>
-	</plurals>
 	<string name="posts">Kiriman</string>
 	<string name="posts_and_replies">Kiriman dan Balasan</string>
 	<string name="media">Media</string>
@@ -44,7 +35,6 @@
 	<string name="button_follow">Ikuti</string>
 	<string name="button_following">Mengikuti</string>
 	<string name="edit_profile">Sunting Profil</string>
-	<string name="mention_user">Sebutkan %s</string>
 	<string name="share_user">Bagikan %s</string>
 	<string name="mute_user">Bisukan %s</string>
 	<string name="unmute_user">Berhenti membisukan %s</string>
@@ -73,7 +63,6 @@
 	<plurals name="x_days">
 		<item quantity="other">%d hari</item>
 	</plurals>
-	<string name="compose_poll_duration">Durasi: %s</string>
 	<plurals name="x_seconds_left">
 		<item quantity="other">Tersisa %d detik</item>
 	</plurals>
@@ -85,9 +74,6 @@
 	</plurals>
 	<plurals name="x_days_left">
 		<item quantity="other">Tersisa %d hari</item>
-	</plurals>
-	<plurals name="x_voters">
-		<item quantity="other">%,d pemilih</item>
 	</plurals>
 	<string name="poll_closed">Ditutup</string>
 	<string name="confirm_mute_title">Bisukan Akun</string>
@@ -104,10 +90,8 @@
 	<string name="confirm_unblock_domain_title">Berhenti Blokir Domain</string>
 	<string name="confirm_unblock">Konfirmasi berhenti memblokir %s</string>
 	<string name="do_unblock">Berhenti memblokir</string>
-	<string name="button_muted">Dibisukan</string>
 	<string name="button_blocked">Diblokir</string>
 	<string name="action_vote">Pilih</string>
-	<string name="tap_to_reveal">Ketuk untuk melihat</string>
 	<string name="delete">Hapus</string>
 	<string name="confirm_delete_title">Hapus Kiriman</string>
 	<string name="confirm_delete">Apakah Anda yakin untuk menghapus kiriman ini?</string>
@@ -125,9 +109,6 @@
 	<string name="mentions">Sebutan</string>
 	<plurals name="x_people_talking">
 		<item quantity="other">%d orang sedang membicarakan</item>
-	</plurals>
-	<plurals name="discussed_x_times">
-		<item quantity="other">Dibahas %d kali</item>
 	</plurals>
 	<string name="report_title">Laporkan %s</string>
 	<string name="report_choose_reason">Ada apa dengan kiriman ini?</string>
@@ -157,13 +138,10 @@
 	<string name="report_personal_title">Tidak ingin melihat ini?</string>
 	<string name="report_personal_subtitle">Ketika Anda melihat sesuatu yang Anda tidak suka di Mastodon, Anda dapat menghapus orang dari pengalaman Anda.</string>
 	<string name="back">Kembali</string>
-	<string name="instance_catalog_title">Mastodon dibuat oleh pengguna di server yang berbeda-beda.</string>
-	<string name="instance_catalog_subtitle">Pilih sebuah server berdasarkan minat atau wilayah Anda, atau yang umum. Anda masih dapat berkomunikasi dengan semua orang, tanpa memedulikan server yang Anda berada.</string>
 	<string name="search_communities">Nama server atau URL</string>
 	<string name="instance_rules_title">Aturan Server</string>
 	<string name="instance_rules_subtitle">Dengan melanjutkan, Anda setuju mengikuti peraturan berikut yang ditetapkan oleh moderator %s.</string>
 	<string name="signup_title">Buat Akun</string>
-	<string name="edit_photo">sunting</string>
 	<string name="display_name">Nama</string>
 	<string name="username">Nama pengguna</string>
 	<string name="email">Surel</string>
@@ -192,20 +170,12 @@
 	<string name="resent_email">Surel konfirmasi terkirim</string>
 	<string name="compose_hint">Ketik atau tempel apa yang Anda pikirkan</string>
 	<string name="content_warning">Peringatan konten</string>
-	<string name="add_image_description">Tambahkan deskripsi gambar…</string>
-	<string name="retry_upload">Unggah kembali</string>
-	<string name="edit_image">Sunting gambar</string>
 	<string name="save">Simpan</string>
 	<string name="add_alt_text">Tambahkan teks alternatif</string>
-	<string name="alt_text_subtitle">Teks alternatif menjelaskan foto Anda kepada orang-orang yang memiliki penglihatan rendah atau tanpa penglihatan. Coba untuk menjelaskan detail yang cukup untuk mengerti konteks.</string>
-	<string name="alt_text_hint">mis. Seekor anjing melihat sekeliling dengan curiga dengan mata menyipit ke arah kamera.</string>
 	<string name="visibility_public">Publik</string>
 	<string name="visibility_followers_only">Pengikut saja</string>
 	<string name="visibility_private">Hanya orang yang saya sebut</string>
-	<string name="search_all">Semua</string>
-	<string name="search_people">Orang</string>
 	<string name="recent_searches">Pencarian terakhir</string>
-	<string name="step_x_of_n">Langkah %1$d dari %2$d</string>
 	<string name="skip">Lewati</string>
 	<string name="notification_type_follow">Pengikut baru</string>
 	<string name="notification_type_favorite">Favorit</string>
@@ -223,37 +193,21 @@
 	<string name="theme_auto">Otomatis</string>
 	<string name="theme_light">Terang</string>
 	<string name="theme_dark">Gelap</string>
-	<string name="theme_true_black">Mode gelap asli</string>
 	<string name="settings_behavior">Perilaku</string>
 	<string name="settings_gif">Mainkan avatar dan emoji beranimasi</string>
 	<string name="settings_custom_tabs">Gunakan peramban dalam aplikasi</string>
 	<string name="settings_notifications">Notifikasi</string>
-	<string name="notify_me_when">Beri tahu saya ketika</string>
-	<string name="notify_anyone">siapa pun</string>
-	<string name="notify_follower">seorang pengikut</string>
-	<string name="notify_followed">siapa pun yang saya ikuti</string>
-	<string name="notify_none">tidak ada</string>
-	<string name="notify_favorites">Memfavorit kiriman saya</string>
-	<string name="notify_follow">Mengikuti saya</string>
-	<string name="notify_reblog">Boost kiriman saya</string>
-	<string name="notify_mention">Menyebut saya</string>
-	<string name="settings_boring">Zona membosankan</string>
-	<string name="settings_account">Pengaturan akun</string>
 	<string name="settings_contribute">Berkontribusi ke Mastodon</string>
 	<string name="settings_tos">Ketentuan layanan</string>
 	<string name="settings_privacy_policy">Kebijakan privasi</string>
-	<string name="settings_spicy">Zona pedas</string>
 	<string name="settings_clear_cache">Hapus tembolok media</string>
 	<string name="settings_app_version">Mastodon for Android v%1$s (%2$d)</string>
 	<string name="media_cache_cleared">Tembolok media dihapus</string>
 	<string name="confirm_log_out">Apakah Anda yakin ingin keluar?</string>
-	<string name="sensitive_content">Konten sensitif</string>
 	<string name="sensitive_content_explain">Pengirim telah menandai media ini sebagai sensitif. Ketuk untuk menampilkan.</string>
 	<string name="media_hidden">Ketuk untuk melihat</string>
 	<string name="avatar_description">Pergi ke profil %s</string>
 	<string name="more_options">Opsi lain</string>
-	<string name="reveal_content">Tampilkan konten</string>
-	<string name="hide_content">Sembunyikan konten</string>
 	<string name="new_post">Kiriman baru</string>
 	<string name="button_reply">Balas</string>
 	<string name="button_reblog">Boost</string>
@@ -263,7 +217,6 @@
 	<string name="add_media">Tambahkan media</string>
 	<string name="add_poll">Tambahkan pemungutan suara</string>
 	<string name="emoji">Emoji</string>
-	<string name="post_visibility">Keterlihatan kiriman</string>
 	<string name="home_timeline">Lini masa beranda</string>
 	<string name="my_profile">Profil saya</string>
 	<string name="media_viewer">Penampil media</string>
@@ -290,18 +243,14 @@
 	<string name="no_app_to_handle_action">Tidak ada aplikasi yang dapat menangani tindakan ini</string>
 	<string name="local_timeline">Komunitas</string>
 	<string name="trending_posts_info_banner">Ini adalah kiriman yang mendapatkan daya tarik di sudut Mastodon Anda.</string>
-	<string name="trending_hashtags_info_banner">Ini adalah tagar yang mendapatkan daya tarik di sudut Mastodon Anda.</string>
 	<string name="trending_links_info_banner">Ini adalah kisah berita yang mendapatkan daya tarik di sudut Mastodon Anda.</string>
 	<string name="local_timeline_info_banner">Ini adalah kiriman yang paling terkini oleh orang-orang yang menggunakan server Mastodon yang sama seperti Anda.</string>
-	<string name="dismiss">Abaikan</string>
 	<string name="see_new_posts">Lihat kiriman baru</string>
 	<string name="load_missing_posts">Muat kiriman yang hilang</string>
 	<string name="follow_back">Ikuti Balik</string>
 	<string name="button_follow_pending">Ditunda</string>
 	<string name="follows_you">Mengikuti Anda</string>
 	<string name="manually_approves_followers">Menerima pengikut secara manual</string>
-	<string name="current_account">Akun saat ini</string>
-	<string name="log_out_account">Keluarkan %s</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<plurals name="x_followers">
 		<item quantity="other">%,d pengikut</item>
@@ -317,8 +266,6 @@
 	</plurals>
 	<string name="timestamp_via_app">%1$s melalui %2$s</string>
 	<string name="time_now">sekarang</string>
-	<string name="post_info_reblogs">Boost</string>
-	<string name="post_info_favorites">Favorit</string>
 	<string name="edit_history">Riwayat penyuntingan</string>
 	<string name="last_edit_at_x">Terakhir disunting %s</string>
 	<string name="time_just_now">sekarang</string>
@@ -350,14 +297,9 @@
 	<string name="file_size_kb">%.2f KB</string>
 	<string name="file_size_mb">%.2f MB</string>
 	<string name="file_size_gb">%.2f GB</string>
-	<string name="file_upload_progress">%1$s dari %2$s</string>
-	<string name="file_upload_time_remaining">%s tersisa</string>
-	<string name="upload_error_connection_lost">Perangkat Anda kehilangan koneksi internet</string>
 	<string name="upload_processing">Memproses…</string>
 	<!-- %s is version like 1.2.3 -->
-	<string name="update_available">Mastodon untuk Android %s siap untuk diunduh.</string>
 	<!-- %s is version like 1.2.3 -->
-	<string name="update_ready">Mastodon untuk Android %s telah diunduh dan siap untuk dipasang.</string>
 	<!-- %s is file size -->
 	<string name="download_update">Unduh (%s)</string>
 	<string name="install_update">Pasang</string>
@@ -404,7 +346,6 @@
 	<string name="sending_follows">Mengikuti pengguna…</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
 	<string name="signup_email_domain_blocked">%1$s tidak memperbolehkan pendaftaran dari %2$s. Coba yang lain atau &lt;a&gt;pilih server lain&lt;/a&gt;.</string>
-	<string name="signup_username_taken">Nama pengguna ini sudah diambil.</string>
 	<string name="spoiler_show">Tampilkan saja</string>
 	<string name="spoiler_hide">Sembunyikan ulang</string>
 	<string name="poll_multiple_choice">Pilih satu atau lebih</string>

@@ -1,144 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:tools="http://schemas.android.com/tools"
-	android:layout_width="250dp"
-	android:layout_height="150dp">
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:foreground="@drawable/fg_compose_attachment">
+
+	<View
+		android:id="@+id/drag_layer"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:alpha="0"
+		android:visibility="gone"
+		android:background="?colorM3OnSurface"/>
 
 	<ImageView
 		android:id="@+id/thumb"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
+		android:layout_above="@id/title"
 		android:scaleType="centerCrop"
+		android:importantForAccessibility="no"
 		tools:src="#0f0"/>
 
-	<RelativeLayout
-		android:id="@+id/info_bar"
+	<TextView
+		android:id="@+id/title"
 		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:layout_gravity="bottom"
-		android:background="#f2000000"
-		android:backgroundTint="?colorWindowBackground">
-
-		<ImageButton
-			android:id="@+id/remove_btn"
-			android:layout_width="36dp"
-			android:layout_height="36dp"
-			android:layout_alignParentTop="true"
-			android:layout_alignParentEnd="true"
-			android:layout_marginTop="2dp"
-			android:layout_marginStart="2dp"
-			android:background="?android:selectableItemBackgroundBorderless"
-			android:tint="#D92C2C"
-			android:src="@drawable/ic_fluent_delete_20_regular"/>
-
-		<TextView
-			android:id="@+id/file_name"
-			android:layout_width="match_parent"
-			android:layout_height="24dp"
-			android:textAppearance="@style/m3_body_large"
-			android:layout_marginStart="8dp"
-			android:layout_marginTop="8dp"
-			android:layout_toStartOf="@id/remove_btn"
-			android:gravity="center_vertical"
-			android:singleLine="true"
-			android:ellipsize="middle"
-			tools:text="asdf.jpg"/>
-
-		<TextView
-			android:id="@+id/description"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:layout_below="@id/file_name"
-			android:layout_marginLeft="8dp"
-			android:layout_marginRight="8dp"
-			android:layout_marginBottom="8dp"
-			android:maxLines="2"
-			android:ellipsize="end"
-			android:textAppearance="@style/m3_body_medium"
-			android:textColor="?android:textColorSecondary"
-			android:text="@string/add_image_description"/>
-
-	</RelativeLayout>
-
-	<FrameLayout
-		android:id="@+id/overlay"
+		android:layout_height="24dp"
+		android:layout_above="@id/subtitle"
+		android:layout_marginTop="16dp"
+		android:layout_marginLeft="16dp"
+		android:layout_marginRight="16dp"
+		android:textAppearance="@style/m3_body_large"
+		android:textColor="?colorM3OnSurface"
+		android:singleLine="true"
+		android:ellipsize="end"
+		android:gravity="center_vertical"
+		tools:text="Title"/>
+	
+	<TextView
+		android:id="@+id/subtitle"
 		android:layout_width="match_parent"
-		android:layout_height="match_parent"
-		android:background="#cc000000"
-		android:padding="8dp"
-		android:clipToPadding="false"
-		tools:visibility="visible"
-		android:visibility="gone">
+		android:layout_height="20dp"
+		android:layout_above="@id/delete"
+		android:layout_marginLeft="16dp"
+		android:layout_marginRight="16dp"
+		android:textAppearance="@style/m3_body_medium"
+		android:singleLine="true"
+		android:ellipsize="end"
+		android:textColor="?colorM3OnSurfaceVariant"
+		android:gravity="center_vertical"
+		tools:text="Subtitle"/>
+	
+	<ImageButton
+		android:id="@+id/delete"
+		android:layout_width="48dp"
+		android:layout_height="48dp"
+		android:layout_alignParentEnd="true"
+		android:layout_alignParentBottom="true"
+		android:layout_marginEnd="16dp"
+		android:layout_marginBottom="8dp"
+		android:src="@drawable/ic_delete_24px"
+		android:tint="?colorM3OnSurfaceVariant"
+		android:backgroundTint="?colorM3OnSurfaceVariant"
+		android:background="@drawable/bg_round_ripple"/>
 
-		<RelativeLayout
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:layout_gravity="center_vertical">
+	<ImageButton
+		android:id="@+id/edit"
+		android:layout_width="48dp"
+		android:layout_height="48dp"
+		android:layout_toStartOf="@id/delete"
+		android:layout_alignParentBottom="true"
+		android:layout_marginEnd="8dp"
+		android:layout_marginBottom="8dp"
+		android:src="@drawable/ic_edit_24px"
+		android:tint="?colorM3OnSurfaceVariant"
+		android:backgroundTint="?colorM3OnSurfaceVariant"
+		android:background="@drawable/bg_round_ripple"/>
 
-			<ImageButton
-				android:id="@+id/retry_or_cancel_upload"
-				android:layout_width="44dp"
-				android:layout_height="44dp"
-				android:layout_centerHorizontal="true"
-				android:layout_alignParentTop="true"
-				android:src="@drawable/ic_fluent_dismiss_24_filled"
-				android:contentDescription="@string/cancel"
-				android:tint="@color/gray_100"
-				android:background="@drawable/bg_upload_progress"/>
+	<ProgressBar
+		android:id="@+id/progress"
+		android:layout_width="match_parent"
+		android:layout_height="16dp"
+		android:layout_alignTop="@id/delete"
+		android:layout_toStartOf="@id/delete"
+		android:layout_marginStart="16dp"
+		android:layout_marginEnd="8dp"
+		android:layout_marginTop="16dp"
+		android:progressDrawable="@drawable/m3_progress"
+		style="@android:style/Widget.Material.ProgressBar.Horizontal"/>
 
-			<ProgressBar
-				android:id="@+id/progress"
-				android:layout_width="44dp"
-				android:layout_height="44dp"
-				android:layout_centerHorizontal="true"
-				android:layout_alignParentTop="true"
-				android:progressDrawable="@drawable/upload_progress"
-				android:max="1000"
-				android:padding="0dp"
-				android:indeterminateOnly="false"
-				android:indeterminate="false"/>
-
-			<TextView
-				android:id="@+id/state_title"
-				android:layout_width="match_parent"
-				android:layout_height="16dp"
-				android:layout_below="@id/retry_or_cancel_upload"
-				android:layout_marginTop="16dp"
-				android:textColor="@color/gray_200"
-				android:textSize="14dp"
-				android:gravity="center_horizontal"
-				android:singleLine="true"
-				android:ellipsize="end"
-				android:fontFamily="sans-serif-medium"
-				android:includeFontPadding="false"
-				tools:text="Upload failed"/>
-			
-			<TextView
-				android:id="@+id/state_text"
-				android:layout_width="match_parent"
-				android:layout_height="32dp"
-				android:layout_below="@id/state_title"
-				android:includeFontPadding="false"
-				android:textColor="@color/gray_200"
-				android:gravity="center_horizontal|top"
-				android:lines="2"
-				android:maxLines="2"
-				android:ellipsize="end"
-				tools:text="Your device lost connection to the internet"/>
-
-		</RelativeLayout>
-
-		<ImageButton
-			android:id="@+id/remove_btn2"
-			android:layout_width="28dp"
-			android:layout_height="28dp"
-			android:layout_marginBottom="4dp"
-			android:layout_gravity="end|bottom"
-			android:background="?android:selectableItemBackgroundBorderless"
-			android:tint="#D92C2C"
-			android:contentDescription="@string/delete"
-			android:src="@drawable/ic_fluent_delete_20_regular"/>
-
-	</FrameLayout>
-
-</FrameLayout>
+</RelativeLayout>

@@ -75,7 +75,7 @@ public class GoogleMadeMeAddThisFragment extends ToolbarFragment{
 	@Override
 	public void onAttach(Activity activity){
 		super.onAttach(activity);
-		setNavigationBarColor(UiUtils.getThemeColor(activity, R.attr.colorWindowBackground));
+		setNavigationBarColor(UiUtils.getThemeColor(activity, R.attr.colorM3Surface));
 		instance=Parcels.unwrap(getArguments().getParcelable("instance"));
 
 		items.add(new Item("Mastodon for Android Privacy Policy", getString(R.string.privacy_policy_explanation), "joinmastodon.org", "https://joinmastodon.org/android/privacy", "https://joinmastodon.org/favicon-32x32.png"));
@@ -123,16 +123,12 @@ public class GoogleMadeMeAddThisFragment extends ToolbarFragment{
 	@Override
 	public void onViewCreated(View view, Bundle savedInstanceState){
 		super.onViewCreated(view, savedInstanceState);
-		setStatusBarColor(UiUtils.getThemeColor(getActivity(), R.attr.colorM3Background));
-		view.setBackgroundColor(UiUtils.getThemeColor(getActivity(), R.attr.colorM3Background));
 		list.addOnScrollListener(onScrollListener=new ElevationOnScrollListener((FragmentRootLinearLayout) view, buttonBar, getToolbar()));
 	}
 
 	@Override
 	protected void onUpdateToolbar(){
 		super.onUpdateToolbar();
-		getToolbar().setBackgroundResource(R.drawable.bg_onboarding_panel);
-		getToolbar().setElevation(0);
 		if(onScrollListener!=null){
 			onScrollListener.setViews(buttonBar, getToolbar());
 		}
@@ -155,13 +151,7 @@ public class GoogleMadeMeAddThisFragment extends ToolbarFragment{
 
 	@Override
 	public void onApplyWindowInsets(WindowInsets insets){
-		if(Build.VERSION.SDK_INT>=27){
-			int inset=insets.getSystemWindowInsetBottom();
-			buttonBar.setPadding(0, 0, 0, inset>0 ? Math.max(inset, V.dp(36)) : 0);
-			super.onApplyWindowInsets(insets.replaceSystemWindowInsets(insets.getSystemWindowInsetLeft(), insets.getSystemWindowInsetTop(), insets.getSystemWindowInsetRight(), 0));
-		}else{
-			super.onApplyWindowInsets(insets.replaceSystemWindowInsets(insets.getSystemWindowInsetLeft(), insets.getSystemWindowInsetTop(), insets.getSystemWindowInsetRight(), insets.getSystemWindowInsetBottom()));
-		}
+		super.onApplyWindowInsets(UiUtils.applyBottomInsetToFixedView(buttonBar, insets));
 	}
 
 	private void loadServerPrivacyPolicy(){

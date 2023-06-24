@@ -8,18 +8,6 @@
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	android:background="?android:windowBackground">
 
-	<org.joinmastodon.android.ui.tabs.TabLayout
-		android:id="@+id/tabbar"
-		android:layout_width="match_parent"
-		android:layout_height="48dp"
-		app:tabGravity="start"
-		app:tabMinWidth="120dp"
-		app:tabIndicator="@drawable/mtrl_tabs_default_indicator"
-		app:tabIndicatorAnimationMode="elastic"
-		app:tabIndicatorColor="?android:textColorPrimary"
-		app:tabMode="scrollable"
-		android:background="@drawable/bg_discover_tabs"/>
-
 	<FrameLayout
 		android:id="@+id/appkit_loader_content"
 		android:layout_width="match_parent"

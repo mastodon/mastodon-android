@@ -4,17 +4,15 @@
 	android:id="@+id/button_bar"
 	android:layout_width="match_parent"
 	android:layout_height="wrap_content"
-	android:background="?android:windowBackground"
-	android:outlineProvider="bounds"
-	android:elevation="3dp"
+	android:background="@drawable/bg_m3_bottom_bar"
 	tools:showIn="@layout/fragment_report_choice">
 
 	<Button
 		android:id="@+id/btn_next"
 		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
+		android:layout_height="40dp"
 		android:layout_margin="16dp"
-		style="?primaryLargeButtonStyle"
+		style="@style/Widget.Mastodon.M3.Button.Filled"
 		android:text="@string/next" />
 
 </FrameLayout>

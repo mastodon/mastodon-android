@@ -1,101 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<color name="black">#FF000000</color>
-	<color name="white">#FFFFFFFF</color>
-
-	<color name="fluent_default_icon_tint">?android:textColorPrimary</color>
-
-	<color name="gray_900">#121029</color>
-	<color name="gray_800t">#cc2b2938</color>
-	<color name="gray_800">#2b2938</color>
-	<color name="gray_700">#353454</color>
-	<color name="gray_600">#464666</color>
-	<color name="gray_500">#696685</color>
-	<color name="gray_400">#9998b3</color>
-	<color name="gray_300">#d1d1de</color>
-	<color name="gray_200">#e6e6ed</color>
-	<color name="gray_100">#f2f2f7</color>
-	<color name="gray_50t">#ccf5f5f9</color>
-	<color name="gray_50">#f5f5f9</color>
-	<color name="gray_25">#f7f8fa</color>
-
-	<color name="primary_25">#fafaff</color>
-	<color name="primary_50">#f4f3ff</color>
-	<color name="primary_100">#ebebff</color>
-	<color name="primary_200">#d7d7ff</color>
-	<color name="primary_300">#c2c2ff</color>
-	<color name="primary_400">#9999ff</color>
-	<color name="primary_500">#6364ff</color>
-	<color name="primary_600">#562cfc</color>
 	<color name="primary_700">#431cbb</color>
-	<color name="primary_800">#2f0c7a</color>
-	<color name="primary_900">#17063b</color>
-	<color name="error_25">#FFFBFA</color>
-	<color name="error_50">#FEF3F2</color>
-	<color name="error_100">#FEE4E2</color>
-	<color name="error_200">#FECDCA</color>
-	<color name="error_300">#FDA29B</color>
-	<color name="error_400">#F97066</color>
-	<color name="error_500">#F04438</color>
-	<color name="error_600">#D92D20</color>
-	<color name="error_700">#B42318</color>
-	<color name="error_800">#912018</color>
-	<color name="error_900">#7A271A</color>
-	<color name="warning_25">#FFFCF5</color>
-	<color name="warning_50">#FFFAEB</color>
-	<color name="warning_100">#FEF0C7</color>
-	<color name="warning_200">#FEDF89</color>
-	<color name="warning_300">#FEC84B</color>
-	<color name="warning_400">#FDB022</color>
-	<color name="warning_500">#F79009</color>
-	<color name="warning_600">#DC6803</color>
-	<color name="warning_700">#B54708</color>
-	<color name="warning_800">#93370D</color>
-	<color name="warning_900">#7A2E0E</color>
-	<color name="success_25">#F6FEF9</color>
-	<color name="success_50">#ECFDF3</color>
-	<color name="success_100">#D1FADF</color>
-	<color name="success_200">#A6F4C5</color>
-	<color name="success_300">#6CE9A6</color>
-	<color name="success_400">#32D583</color>
-	<color name="success_500">#12B76A</color>
-	<color name="success_600">#039855</color>
-	<color name="success_700">#027A48</color>
-	<color name="success_800">#05603A</color>
-	<color name="success_900">#054F31</color>
-	<color name="slate_25">#FCFCFD</color>
-	<color name="slate_50">#F8FAFC</color>
-	<color name="slate_100">#EAEFF5</color>
-	<color name="slate_200">#C8D4E5</color>
-	<color name="slate_300">#9EB3D1</color>
-	<color name="slate_400">#7190BC</color>
-	<color name="slate_500">#4E73A6</color>
-	<color name="slate_600">#3E5B84</color>
-	<color name="slate_700">#364F72</color>
-	<color name="slate_800">#293C56</color>
-	<color name="slate_900">#101823</color>
-	<color name="purple_25">#FAFAFF</color>
-	<color name="purple_50">#F4F3FF</color>
-	<color name="purple_100">#EBE9FE</color>
-	<color name="purple_200">#D9D6FE</color>
-	<color name="purple_300">#BDB4FE</color>
-	<color name="purple_400">#9B8AFB</color>
-	<color name="purple_500">#7A5AF8</color>
-	<color name="purple_600">#6938EF</color>
-	<color name="purple_700">#5925DC</color>
-	<color name="purple_800">#4A1FB8</color>
-	<color name="purple_900">#3E1C96</color>
 
-	<color name="fab_icon">#282C37</color>
-	<color name="navigation_bar_bg">#282C37</color>
+	<color name="navigation_bar_bg_light">#282C37</color>
 	<color name="highlight_over_dark">#30FFFFFF</color>
-	<color name="highlight_over_light">#18000000</color>
 
-	<color name="favorite_selected">@color/warning_500</color>
-	<color name="boost_selected">@color/primary_500</color>
-
-	<color name="shortcut_icon_background">@color/gray_100</color>
-	<color name="shortcut_icon_foreground">@color/primary_700</color>
+	<color name="shortcut_icon_background">#FFF</color>
+	<color name="shortcut_icon_foreground">@color/m3_sys_light_primary</color>
 
 	<!-- M3 dynamic colors -->
 
@@ -119,6 +30,7 @@
 	<color name="m3_sys_light_surface_variant">#E7E0EC</color>
 	<color name="m3_sys_light_on_surface_variant">#49454F</color>
 	<color name="m3_sys_light_outline">#79747E</color>
+	<color name="m3_sys_light_outline_variant">#CAC4D0</color>
 
 	<!-- dark theme -->
 	<color name="m3_sys_dark_primary">#D0BCFF</color>
@@ -140,5 +52,7 @@
 	<color name="m3_sys_dark_surface_variant">#49454F</color>
 	<color name="m3_sys_dark_on_surface_variant">#CAC4D0</color>
 	<color name="m3_sys_dark_outline">#938F99</color>
+	<color name="m3_sys_dark_outline_variant">#49454F</color>
 
+	<item name="overlay_ripple_alpha" format="float" type="dimen">0.12</item>
 </resources>

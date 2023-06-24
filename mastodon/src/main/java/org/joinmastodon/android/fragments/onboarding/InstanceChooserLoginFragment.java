@@ -164,7 +164,6 @@ public class InstanceChooserLoginFragment extends InstanceCatalogFragment{
 	@Override
 	public void onViewCreated(View view, Bundle savedInstanceState){
 		super.onViewCreated(view, savedInstanceState);
-		setStatusBarColor(UiUtils.getThemeColor(getActivity(), R.attr.colorM3Background));
 
 		list.addItemDecoration(new RecyclerView.ItemDecoration(){
 			@Override

@@ -31,7 +31,10 @@ public class CustomEmojiSpan extends ReplacementSpan{
 	public void draw(@NonNull Canvas canvas, CharSequence text, int start, int end, float x, int top, int y, int bottom, @NonNull Paint paint){
 		int size=Math.round(paint.descent()-paint.ascent());
 		if(drawable==null){
-			canvas.drawRect(x, top, x+size, top+size, paint);
+			int alpha=paint.getAlpha();
+			paint.setAlpha(alpha >> 1);
+			canvas.drawRoundRect(x, top, x+size, top+size, V.dp(2), V.dp(2), paint);
+			paint.setAlpha(alpha);
 		}else{
 			// AnimatedImageDrawable doesn't like when its bounds don't start at (0, 0)
 			Rect bounds=drawable.getBounds();

@@ -11,6 +11,15 @@ import androidx.annotation.CallSuper;
 import me.grishka.appkit.fragments.ToolbarFragment;
 
 public abstract class MastodonToolbarFragment extends ToolbarFragment{
+
+	public MastodonToolbarFragment(){
+		super();
+	}
+
+	protected MastodonToolbarFragment(int layout){
+		super(layout);
+	}
+
 	@Override
 	public void onViewCreated(View view, Bundle savedInstanceState){
 		super.onViewCreated(view, savedInstanceState);

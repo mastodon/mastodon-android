@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="56dp"
+	android:gravity="center_vertical"
+	android:textColor="?colorM3OnSurface"
+	android:textAppearance="@style/m3_body_large"
+	android:singleLine="true"
+	android:ellipsize="end"
+	android:paddingLeft="24dp"
+	android:paddingRight="24dp"
+	android:drawablePadding="24dp"
+	android:drawableTint="?colorM3OnSurfaceVariant"
+	tools:text="List Item"/>

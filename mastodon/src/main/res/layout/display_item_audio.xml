@@ -3,52 +3,60 @@
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="wrap_content"
-	android:layout_marginTop="-8dp"
-	android:layout_marginBottom="-8dp"
-	android:paddingLeft="16dp"
-	android:paddingRight="16dp"
-	android:paddingTop="8dp"
 	android:paddingBottom="8dp"
 	android:clipToPadding="false">
-
-	<LinearLayout
+	
+	<FrameLayout
+		android:id="@+id/content"
 		android:layout_width="match_parent"
-		android:layout_height="40dp"
-		android:orientation="horizontal"
-		android:gravity="center_vertical"
-		android:paddingLeft="12dp"
-		android:paddingRight="12dp"
-		android:background="?buttonBackground"
-		android:outlineProvider="background"
-		android:elevation="2dp">
-
-		<ImageButton
-			android:id="@+id/play_pause_btn"
-			android:layout_width="24dp"
-			android:layout_height="24dp"
-			android:background="?android:selectableItemBackgroundBorderless"
-			android:tint="?colorButtonText"
-			android:src="@drawable/ic_fluent_play_circle_24_filled"/>
-
-		<SeekBar
-			android:id="@+id/seekbar"
-			android:layout_width="0dp"
-			android:layout_height="match_parent"
-			android:layout_weight="1"
-			android:progressDrawable="@drawable/seekbar_progress"
-			android:max="10000"
-			android:splitTrack="false"/>
+		android:layout_height="188dp">
 
 		<TextView
 			android:id="@+id/time"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:textAppearance="@style/m3_label_medium"
-			android:textColor="?colorButtonText"
-			android:gravity="end"
+			android:layout_width="match_parent"
+			android:layout_height="20dp"
+			android:layout_margin="8dp"
+			android:layout_gravity="bottom|start"
+			android:textAppearance="@style/m3_label_large"
+			android:gravity="center_vertical|start"
 			android:singleLine="true"
+			android:fontFeatureSettings="'tnum'"
+			tools:textColor="#000"
 			tools:text="1:23"/>
+		
+		<ImageView
+			android:id="@+id/image"
+			android:layout_width="96dp"
+			android:layout_height="96dp"
+			android:layout_gravity="center"
+			android:importantForAccessibility="no"
+			tools:src="#0f0"/>
 
-	</LinearLayout>
+		<ImageButton
+			android:id="@+id/play_pause_btn"
+			android:layout_width="96dp"
+			android:layout_height="96dp"
+			android:background="@drawable/bg_audio_play_button"
+			android:layout_gravity="center"
+			android:src="@drawable/ic_play_arrow_48px"/>
+		
+		<ImageButton
+			android:id="@+id/forward_btn"
+			android:layout_width="96dp"
+			android:layout_height="96dp"
+			android:layout_gravity="center_vertical|end"
+			android:layout_margin="16dp"
+			android:src="@drawable/ic_forward_10_48px"
+			android:background="@drawable/bg_round_ripple"/>
 
+		<ImageButton
+			android:id="@+id/rewind_btn"
+			android:layout_width="96dp"
+			android:layout_height="96dp"
+			android:layout_gravity="center_vertical|start"
+			android:layout_margin="16dp"
+			android:src="@drawable/ic_replay_5_48px"
+			android:background="@drawable/bg_round_ripple"/>
+
+	</FrameLayout>
 </FrameLayout>

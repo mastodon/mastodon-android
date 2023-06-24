@@ -31,7 +31,6 @@ import org.joinmastodon.android.ui.text.HtmlParser;
 import org.parceler.Parcels;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashSet;
 
 import androidx.annotation.Nullable;
@@ -57,6 +56,7 @@ public class AudioPlayerService extends Service{
 	private static HashSet<Callback> callbacks=new HashSet<>();
 	private AudioManager.OnAudioFocusChangeListener audioFocusChangeListener=this::onAudioFocusChanged;
 	private boolean resumeAfterAudioFocusGain;
+	private boolean isBuffering=true;
 
 	private BroadcastReceiver receiver=new BroadcastReceiver(){
 		@Override
@@ -176,6 +176,7 @@ public class AudioPlayerService extends Service{
 		player.setOnErrorListener(this::onPlayerError);
 		player.setOnCompletionListener(this::onPlayerCompletion);
 		player.setOnSeekCompleteListener(this::onPlayerSeekCompleted);
+		player.setOnInfoListener(this::onPlayerInfo);
 		try{
 			player.setDataSource(this, Uri.parse(attachment.url));
 			player.prepareAsync();
@@ -187,7 +188,9 @@ public class AudioPlayerService extends Service{
 	}
 
 	private void onPlayerPrepared(MediaPlayer mp){
+		Log.i(TAG, "onPlayerPrepared");
 		playerReady=true;
+		isBuffering=false;
 		player.start();
 		updateSessionState(false);
 	}
@@ -205,6 +208,21 @@ public class AudioPlayerService extends Service{
 		stopSelf();
 	}
 
+	private boolean onPlayerInfo(MediaPlayer mp, int what, int extra){
+		switch(what){
+			case MediaPlayer.MEDIA_INFO_BUFFERING_START -> {
+				isBuffering=true;
+				updateSessionState(false);
+			}
+			case MediaPlayer.MEDIA_INFO_BUFFERING_END -> {
+				isBuffering=false;
+				updateSessionState(false);
+			}
+			default -> Log.i(TAG, "onPlayerInfo() called with: mp = ["+mp+"], what = ["+what+"], extra = ["+extra+"]");
+		}
+		return true;
+	}
+
 	private void onAudioFocusChanged(int change){
 		switch(change){
 			case AudioManager.AUDIOFOCUS_LOSS -> {
@@ -212,7 +230,7 @@ public class AudioPlayerService extends Service{
 				pause(false);
 			}
 			case AudioManager.AUDIOFOCUS_LOSS_TRANSIENT -> {
-				resumeAfterAudioFocusGain=true;
+				resumeAfterAudioFocusGain=isPlaying();
 				pause(false);
 			}
 			case AudioManager.AUDIOFOCUS_GAIN -> {
@@ -232,12 +250,16 @@ public class AudioPlayerService extends Service{
 
 	private void updateSessionState(boolean removeNotification){
 		session.setPlaybackState(new PlaybackState.Builder()
-				.setState(player.isPlaying() ? PlaybackState.STATE_PLAYING : PlaybackState.STATE_PAUSED, player.getCurrentPosition(), 1f)
+				.setState(switch(getPlayState()){
+					case PLAYING -> PlaybackState.STATE_PLAYING;
+					case PAUSED -> PlaybackState.STATE_PAUSED;
+					case BUFFERING -> PlaybackState.STATE_BUFFERING;
+				}, player.getCurrentPosition(), 1f)
 				.setActions(PlaybackState.ACTION_STOP | PlaybackState.ACTION_PLAY_PAUSE | PlaybackState.ACTION_SEEK_TO)
 				.build());
 		updateNotification(!player.isPlaying(), removeNotification);
 		for(Callback cb:callbacks)
-			cb.onPlayStateChanged(attachment.id, player.isPlaying(), player.getCurrentPosition());
+			cb.onPlayStateChanged(attachment.id, getPlayState(), player.getCurrentPosition());
 	}
 
 	private void updateNotification(boolean dismissable, boolean removeNotification){
@@ -310,6 +332,12 @@ public class AudioPlayerService extends Service{
 		return attachment.id;
 	}
 
+	public PlayState getPlayState(){
+		if(isBuffering)
+			return PlayState.BUFFERING;
+		return player.isPlaying() ? PlayState.PLAYING : PlayState.PAUSED;
+	}
+
 	public static void registerCallback(Callback cb){
 		callbacks.add(cb);
 	}
@@ -333,7 +361,13 @@ public class AudioPlayerService extends Service{
 	}
 
 	public interface Callback{
-		void onPlayStateChanged(String attachmentID, boolean playing, int position);
+		void onPlayStateChanged(String attachmentID, PlayState state, int position);
 		void onPlaybackStopped(String attachmentID);
+	}
+
+	public enum PlayState{
+		PLAYING,
+		PAUSED,
+		BUFFERING
 	}
 }

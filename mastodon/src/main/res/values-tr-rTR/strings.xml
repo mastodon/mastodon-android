@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="get_started">Hesap oluştur</string>
-	<string name="already_have_account">Zaten bir hesabım var</string>
 	<string name="log_in">Giriş Yap</string>
 	<string name="next">Sonraki</string>
 	<string name="loading_instance">Sunucu bilgisi alınıyor…</string>
@@ -18,10 +16,6 @@
 	<string name="user_favorited">gönderinizi favorilerine ekledi</string>
 	<string name="notification_boosted">gönderinizi yineledi</string>
 	<string name="poll_ended">oylama sona erdi</string>
-	<string name="time_seconds">%ds</string>
-	<string name="time_minutes">%ddk</string>
-	<string name="time_hours">%ds</string>
-	<string name="time_days">%dg</string>
 	<string name="share_toot_title">Paylaş</string>
 	<string name="settings">Ayarlar</string>
 	<string name="publish">Yayınla</string>
@@ -36,10 +30,6 @@
 		<item quantity="one">takip</item>
 		<item quantity="other">takip</item>
 	</plurals>
-	<plurals name="posts">
-		<item quantity="one">gönderi</item>
-		<item quantity="other">gönderi</item>
-	</plurals>
 	<string name="posts">Gönderiler</string>
 	<string name="posts_and_replies">Gönderiler ve Cevaplar</string>
 	<string name="media">Medya</string>
@@ -47,7 +37,6 @@
 	<string name="button_follow">Takip et</string>
 	<string name="button_following">Takip ediliyor</string>
 	<string name="edit_profile">Profili düzenle</string>
-	<string name="mention_user">Bahset %s</string>
 	<string name="share_user">Paylaş %s</string>
 	<string name="mute_user">Sustur %s</string>
 	<string name="unmute_user">Sesini aç %s</string>
@@ -80,7 +69,6 @@
 		<item quantity="one">%d gün</item>
 		<item quantity="other">%d gün</item>
 	</plurals>
-	<string name="compose_poll_duration">Süre: %s</string>
 	<plurals name="x_seconds_left">
 		<item quantity="one">%d saniye kaldı</item>
 		<item quantity="other">%d saniye kaldı</item>
@@ -97,10 +85,6 @@
 		<item quantity="one">%d gün kaldı</item>
 		<item quantity="other">%d gün kaldı</item>
 	</plurals>
-	<plurals name="x_voters">
-		<item quantity="one">%,d oy veren</item>
-		<item quantity="other">%,d oy verenler</item>
-	</plurals>
 	<string name="poll_closed">Kapandı</string>
 	<string name="confirm_mute_title">Hesabı sustur</string>
 	<string name="confirm_mute">%s susturmak için onaylayın</string>
@@ -116,10 +100,8 @@
 	<string name="confirm_unblock_domain_title">Alan Engelini Kaldır</string>
 	<string name="confirm_unblock">%s Engellemeyi kaldırmayı onaylayın</string>
 	<string name="do_unblock">Engeli kaldır</string>
-	<string name="button_muted">Sessiz</string>
 	<string name="button_blocked">Engellendi</string>
 	<string name="action_vote">Oyla</string>
-	<string name="tap_to_reveal">Görüntülemek için tıklayın</string>
 	<string name="delete">Sil</string>
 	<string name="confirm_delete_title">Gönderiyi sil</string>
 	<string name="confirm_delete">Bu gönderiyi silmek istediğinizden emin misiniz?</string>
@@ -138,10 +120,6 @@
 	<plurals name="x_people_talking">
 		<item quantity="one">%d kişi bahsetti</item>
 		<item quantity="other">%d kişi bahsetti</item>
-	</plurals>
-	<plurals name="discussed_x_times">
-		<item quantity="one">%d kez tartışıldı</item>
-		<item quantity="other">%d kez tartışıldı</item>
 	</plurals>
 	<string name="report_title">Raporla %s</string>
 	<string name="report_choose_reason">Gönderide yanlış olan ne?</string>
@@ -171,13 +149,10 @@
 	<string name="report_personal_title">Bunu görmek istemiyor musun?</string>
 	<string name="report_personal_subtitle">Mastodon\'da beğenmediğiniz bir şey gördüğünüzde, o kişiyi deneyiminizden çıkarabilirsiniz.</string>
 	<string name="back">Geri</string>
-	<string name="instance_catalog_title">Mastodon, farklı sunuculardaki kullanıcılardan oluşur.</string>
-	<string name="instance_catalog_subtitle">İlgi alanlarına, bölgene hitap eden bir sunucu ya da genel amaçlı bir sunucu seç. Hangi sunucuda olduğun fark etmeksizin herkes ile bağlantı kurabilirsin.</string>
 	<string name="search_communities">Sunucu adı veya linki</string>
 	<string name="instance_rules_title">Sunucu Kuralları</string>
 	<string name="instance_rules_subtitle">Devam ederek %s moderatörleri tarafından yayınlanan kuralları kabul edersiniz.</string>
 	<string name="signup_title">Hesap Oluştur</string>
-	<string name="edit_photo">düzenle</string>
 	<string name="display_name">Ad</string>
 	<string name="username">Kullanıcı adı</string>
 	<string name="email">E-posta</string>
@@ -206,20 +181,12 @@
 	<string name="resent_email">Onay e-postası gönderildi</string>
 	<string name="compose_hint">Aklınızdan geçenleri yazın veya yapıştırın</string>
 	<string name="content_warning">İçerik Uyarısı</string>
-	<string name="add_image_description">Resim açıklaması ekle…</string>
-	<string name="retry_upload">Yüklemeyi yeniden dene</string>
-	<string name="edit_image">Resmi Düzenle</string>
 	<string name="save">Kaydet</string>
 	<string name="add_alt_text">Alternatif metin ekle</string>
-	<string name="alt_text_subtitle">Alternatif metin, az gören veya hiç görmeyen kişiler için fotoğraflarınızı açıklar. Yalnızca bağlamı anlamak için yeterli bilgiyi eklemeyi çalışın.</string>
-	<string name="alt_text_hint">Örnek: Kameraya kısılmış gözler ve şüpheyle bakan bir köpek fotoğrafı.</string>
 	<string name="visibility_public">Herkese açık</string>
 	<string name="visibility_followers_only">Yalnızca takipçiler</string>
 	<string name="visibility_private">Sadece bahsettiğim insanlar</string>
-	<string name="search_all">Tümü</string>
-	<string name="search_people">İnsanlar</string>
 	<string name="recent_searches">Son aramalar</string>
-	<string name="step_x_of_n">Adım %1$d/%2$d</string>
 	<string name="skip">Atla</string>
 	<string name="notification_type_follow">Yeni takipçiler</string>
 	<string name="notification_type_favorite">Favoriler</string>
@@ -238,37 +205,21 @@
 	<string name="theme_auto">Otomatik</string>
 	<string name="theme_light">Aydınlık</string>
 	<string name="theme_dark">Karanlık</string>
-	<string name="theme_true_black">Gerçek siyah mod</string>
 	<string name="settings_behavior">Ayarlar</string>
 	<string name="settings_gif">Animasyonlu avatarları ve emojileri oynat</string>
 	<string name="settings_custom_tabs">Uygulama içi tarayıcıyı kullan</string>
 	<string name="settings_notifications">Bildirimler</string>
-	<string name="notify_me_when">Beni şu durumda bilgilendir: </string>
-	<string name="notify_anyone">Herhangi biri</string>
-	<string name="notify_follower">Bir takipçim</string>
-	<string name="notify_followed">Takip ettiğim biri</string>
-	<string name="notify_none">Bilgilendirme</string>
-	<string name="notify_favorites">Gönderimi favorilerine eklediğinde</string>
-	<string name="notify_follow">Beni takip ettiğinde</string>
-	<string name="notify_reblog">Gönderimi yinelediğinde</string>
-	<string name="notify_mention">Benden bahsettiğinde</string>
-	<string name="settings_boring">Sıkıcı bölge</string>
-	<string name="settings_account">Hesap ayarları</string>
 	<string name="settings_contribute">Mastodon\'a katkıda bulunun</string>
 	<string name="settings_tos">Kullanım Şartları</string>
 	<string name="settings_privacy_policy">Gizlilik Politikası</string>
-	<string name="settings_spicy">Tehlikeli bölge</string>
 	<string name="settings_clear_cache">Medya önbelleğini temizle</string>
 	<string name="settings_app_version">Android için Mastodon v%1$s (%2$d)</string>
 	<string name="media_cache_cleared">Medya önbelleği temizlendi</string>
 	<string name="confirm_log_out">Çıkış yapmak istediğinizden emin misiniz?</string>
-	<string name="sensitive_content">Hassas içerik</string>
 	<string name="sensitive_content_explain">Medya hassas olarak işaretlendi. Görüntülemek için tıklayın.</string>
 	<string name="media_hidden">Görüntülemek için tıklayın</string>
 	<string name="avatar_description">%s\'in profiline git</string>
 	<string name="more_options">Daha fazla seçenek</string>
-	<string name="reveal_content">İçeriği göster</string>
-	<string name="hide_content">İçeriği gizle</string>
 	<string name="new_post">Yeni gönderi</string>
 	<string name="button_reply">Cevapla</string>
 	<string name="button_reblog">Yinele</string>
@@ -278,7 +229,6 @@
 	<string name="add_media">Medya ekle</string>
 	<string name="add_poll">Anket ekle</string>
 	<string name="emoji">Emoji</string>
-	<string name="post_visibility">Gönderi görünürlüğü</string>
 	<string name="home_timeline">Anasayfa</string>
 	<string name="my_profile">Profilim</string>
 	<string name="media_viewer">Medya görüntüleyici</string>
@@ -305,18 +255,14 @@
 	<string name="no_app_to_handle_action">Bu eylemi gerçekleştirebilecek bir uygulama bulunmuyor</string>
 	<string name="local_timeline">Topluluk</string>
 	<string name="trending_posts_info_banner">Bu gönderiler, bulunduğun topluluktaki ilgi çeken gönderilerdir.</string>
-	<string name="trending_hashtags_info_banner">Bunlar, bulunduğun topluluktaki ilgi çeken etiketlerdir.</string>
 	<string name="trending_links_info_banner">Bunlar bulunduğun topluluktaki en fazla paylaşılan haberler.</string>
 	<string name="local_timeline_info_banner">Bu gönderiler seninle aynı Mastodon sunucusunda olan kişilerin paylaştığı son gönderilerdir.</string>
-	<string name="dismiss">Yoksay</string>
 	<string name="see_new_posts">Yeni gönderileri gör</string>
 	<string name="load_missing_posts">Daha fazla gönderi yükle</string>
 	<string name="follow_back">Geri Takip Et</string>
 	<string name="button_follow_pending">Bekliyor</string>
 	<string name="follows_you">Seni takip ediyor</string>
 	<string name="manually_approves_followers">Takipçileri manuel kabul eder</string>
-	<string name="current_account">Kullanılan hesap</string>
-	<string name="log_out_account">%s oturumunu kapat</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<plurals name="x_followers">
 		<item quantity="one">%,d takipçi</item>
@@ -336,8 +282,6 @@
 	</plurals>
 	<string name="timestamp_via_app">%1$s tarihinde %2$s uygulamasıyla</string>
 	<string name="time_now">şimdi</string>
-	<string name="post_info_reblogs">Yeniden paylaşımlar</string>
-	<string name="post_info_favorites">Favoriler</string>
 	<string name="edit_history">Düzenleme geçmişi</string>
 	<string name="last_edit_at_x">Son düzenleme: %s</string>
 	<string name="time_just_now">yeni</string>
@@ -371,14 +315,9 @@
 	<string name="file_size_kb">%.2f KB</string>
 	<string name="file_size_mb">%.2f MB</string>
 	<string name="file_size_gb">%.2f GB</string>
-	<string name="file_upload_progress">%2$s dosyadan %1$s</string>
-	<string name="file_upload_time_remaining">%s kaldı</string>
-	<string name="upload_error_connection_lost">Cihazınızın internet bağlantısı koptu</string>
 	<string name="upload_processing">İşleniyor…</string>
 	<!-- %s is version like 1.2.3 -->
-	<string name="update_available">Mastodon Android uygulamasının %s versiyonu indirmeye hazır.</string>
 	<!-- %s is version like 1.2.3 -->
-	<string name="update_ready">Mastodon Android uygulamasının %s versiyonu indirildi ve kurulmaya hazır.</string>
 	<!-- %s is file size -->
 	<string name="download_update">İndir (%s)</string>
 	<string name="install_update">Kur</string>
@@ -425,7 +364,6 @@
 	<string name="sending_follows">Hesaplar takip ediliyor…</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
 	<string name="signup_email_domain_blocked">%1$s sunucusu %2$s mail uzantısı ile hesap oluşturmaya izin vermiyor. Farklı bir mail deneyebilir ya da &lt;a&gt;farklı bir sunucu seçebilirsiniz&lt;/a&gt;.</string>
-	<string name="signup_username_taken">Bu kullanıcı adı kullanılıyor.</string>
 	<string name="spoiler_show">Yine de göster</string>
 	<string name="spoiler_hide">Yeniden gizle</string>
 	<string name="poll_multiple_choice">Bir ya da daha fazla seçim yapın</string>

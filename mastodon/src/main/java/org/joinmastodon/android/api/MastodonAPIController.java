@@ -122,13 +122,17 @@ public class MastodonAPIController{
 										Log.d(TAG, "["+(session==null ? "no-auth" : session.getID())+"] response body: "+respJson);
 										if(req.respTypeToken!=null)
 											respObj=gson.fromJson(respJson, req.respTypeToken.getType());
-										else
+										else if(req.respClass!=null)
 											respObj=gson.fromJson(respJson, req.respClass);
+										else
+											respObj=null;
 									}else{
 										if(req.respTypeToken!=null)
 											respObj=gson.fromJson(reader, req.respTypeToken.getType());
-										else
+										else if(req.respClass!=null)
 											respObj=gson.fromJson(reader, req.respClass);
+										else
+											respObj=null;
 									}
 								}catch(JsonIOException|JsonSyntaxException x){
 									if(BuildConfig.DEBUG)

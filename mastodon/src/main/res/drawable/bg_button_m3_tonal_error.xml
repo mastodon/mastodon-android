@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+	<item android:state_enabled="true">
+		<ripple android:color="@color/m3_on_secondary_container_overlay">
+			<item>
+				<shape>
+					<solid android:color="?colorM3ErrorContainer"/>
+					<corners android:radius="20dp"/>
+				</shape>
+			</item>
+		</ripple>
+	</item>
+	<item>
+		<shape>
+			<solid android:color="?colorM3DisabledBackground"/>
+			<corners android:radius="20dp"/>
+		</shape>
+	</item>
+</selector>

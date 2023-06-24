@@ -10,16 +10,21 @@ import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.content.res.TypedArray;
 import android.graphics.Outline;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.LayerDrawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.text.style.ImageSpan;
-import android.view.Gravity;
+import android.transition.ChangeBounds;
+import android.transition.Fade;
+import android.transition.TransitionManager;
+import android.transition.TransitionSet;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -29,12 +34,11 @@ import android.view.ViewGroup;
 import android.view.ViewOutlineProvider;
 import android.view.ViewTreeObserver;
 import android.view.WindowInsets;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Toolbar;
@@ -43,7 +47,6 @@ import org.joinmastodon.android.GlobalUserPreferences;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.requests.accounts.GetAccountByID;
 import org.joinmastodon.android.api.requests.accounts.GetAccountRelationships;
-import org.joinmastodon.android.api.requests.accounts.GetAccountStatuses;
 import org.joinmastodon.android.api.requests.accounts.GetOwnAccount;
 import org.joinmastodon.android.api.requests.accounts.SetAccountFollowed;
 import org.joinmastodon.android.api.requests.accounts.UpdateAccountCredentials;
@@ -55,9 +58,10 @@ import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.AccountField;
 import org.joinmastodon.android.model.Attachment;
 import org.joinmastodon.android.model.Relationship;
+import org.joinmastodon.android.ui.M3AlertDialogBuilder;
+import org.joinmastodon.android.ui.OutlineProviders;
 import org.joinmastodon.android.ui.SimpleViewHolder;
 import org.joinmastodon.android.ui.SingleImagePhotoViewerListener;
-import org.joinmastodon.android.ui.drawables.CoverOverlayGradientDrawable;
 import org.joinmastodon.android.ui.photoviewer.PhotoViewer;
 import org.joinmastodon.android.ui.tabs.TabLayout;
 import org.joinmastodon.android.ui.tabs.TabLayoutMediator;
@@ -65,8 +69,10 @@ import org.joinmastodon.android.ui.text.CustomEmojiSpan;
 import org.joinmastodon.android.ui.text.HtmlParser;
 import org.joinmastodon.android.ui.utils.UiUtils;
 import org.joinmastodon.android.ui.views.CoverImageView;
+import org.joinmastodon.android.ui.views.CustomDrawingOrderLinearLayout;
 import org.joinmastodon.android.ui.views.NestedRecyclerScrollView;
 import org.joinmastodon.android.ui.views.ProgressBarButton;
+import org.joinmastodon.android.utils.ElevationOnScrollListener;
 import org.parceler.Parcels;
 
 import java.time.LocalDateTime;
@@ -92,6 +98,7 @@ import me.grishka.appkit.imageloader.ViewImageLoader;
 import me.grishka.appkit.imageloader.requests.UrlImageLoaderRequest;
 import me.grishka.appkit.utils.CubicBezierInterpolator;
 import me.grishka.appkit.utils.V;
+import me.grishka.appkit.views.FragmentRootLinearLayout;
 
 public class ProfileFragment extends LoaderFragment implements OnBackPressedListener, ScrollableToTop{
 	private static final int AVATAR_RESULT=722;
@@ -100,27 +107,30 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 	private ImageView avatar;
 	private CoverImageView cover;
 	private View avatarBorder;
-	private TextView name, username, bio, followersCount, followersLabel, followingCount, followingLabel, postsCount, postsLabel;
+	private TextView name, username, bio, followersCount, followersLabel, followingCount, followingLabel;
 	private ProgressBarButton actionButton;
 	private ViewPager2 pager;
 	private NestedRecyclerScrollView scrollView;
-	private AccountTimelineFragment postsFragment, postsWithRepliesFragment, mediaFragment;
+	private ProfileFeaturedFragment featuredFragment;
+	private AccountTimelineFragment timelineFragment;
 	private ProfileAboutFragment aboutFragment;
 	private TabLayout tabbar;
 	private SwipeRefreshLayout refreshLayout;
-	private CoverOverlayGradientDrawable coverGradient=new CoverOverlayGradientDrawable();
-	private float titleTransY;
-	private View postsBtn, followersBtn, followingBtn;
+	private View followersBtn, followingBtn;
 	private EditText nameEdit, bioEdit;
 	private ProgressBar actionProgress;
 	private FrameLayout[] tabViews;
 	private TabLayoutMediator tabLayoutMediator;
 	private TextView followsYouView;
+	private LinearLayout countersLayout;
+	private View nameEditWrap, bioEditWrap;
+	private View tabsDivider;
+	private View actionButtonWrap;
+	private CustomDrawingOrderLinearLayout scrollableContent;
 
 	private Account account;
 	private String accountID;
 	private Relationship relationship;
-	private int statusBarHeight;
 	private boolean isOwnProfile;
 	private ArrayList<AccountField> fields=new ArrayList<>();
 
@@ -132,10 +142,11 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 	private WindowInsets childInsets;
 	private PhotoViewer currentPhotoViewer;
 	private boolean editModeLoading;
-
-	public ProfileFragment(){
-		super(R.layout.loader_fragment_overlay_toolbar);
-	}
+	private ElevationOnScrollListener onScrollListener;
+	private Drawable tabsColorBackground;
+	private boolean tabBarIsAtTop;
+	private Animator tabBarColorAnim;
+	private MenuItem editSaveMenuItem;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState){
@@ -180,9 +191,6 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 		followingCount=content.findViewById(R.id.following_count);
 		followingLabel=content.findViewById(R.id.following_label);
 		followingBtn=content.findViewById(R.id.following_btn);
-		postsCount=content.findViewById(R.id.posts_count);
-		postsLabel=content.findViewById(R.id.posts_label);
-		postsBtn=content.findViewById(R.id.posts_btn);
 		actionButton=content.findViewById(R.id.profile_action_btn);
 		pager=content.findViewById(R.id.pager);
 		scrollView=content.findViewById(R.id.scroller);
@@ -190,36 +198,34 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 		refreshLayout=content.findViewById(R.id.refresh_layout);
 		nameEdit=content.findViewById(R.id.name_edit);
 		bioEdit=content.findViewById(R.id.bio_edit);
+		nameEditWrap=content.findViewById(R.id.name_edit_wrap);
+		bioEditWrap=content.findViewById(R.id.bio_edit_wrap);
 		actionProgress=content.findViewById(R.id.action_progress);
 		fab=content.findViewById(R.id.fab);
 		followsYouView=content.findViewById(R.id.follows_you);
+		countersLayout=content.findViewById(R.id.profile_counters);
+		tabsDivider=content.findViewById(R.id.tabs_divider);
+		actionButtonWrap=content.findViewById(R.id.profile_action_btn_wrap);
+		scrollableContent=content.findViewById(R.id.scrollable_content);
 
-		avatar.setOutlineProvider(new ViewOutlineProvider(){
-			@Override
-			public void getOutline(View view, Outline outline){
-				outline.setRoundRect(0, 0, view.getWidth(), view.getHeight(), V.dp(25));
-			}
-		});
+		avatar.setOutlineProvider(OutlineProviders.roundedRect(24));
 		avatar.setClipToOutline(true);
 
 		FrameLayout sizeWrapper=new FrameLayout(getActivity()){
 			@Override
 			protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec){
-				Toolbar toolbar=getToolbar();
-				pager.getLayoutParams().height=MeasureSpec.getSize(heightMeasureSpec)-getPaddingTop()-getPaddingBottom()-toolbar.getLayoutParams().height-statusBarHeight-V.dp(38);
-				coverGradient.setTopPadding(statusBarHeight+toolbar.getLayoutParams().height);
+				pager.getLayoutParams().height=MeasureSpec.getSize(heightMeasureSpec)-getPaddingTop()-getPaddingBottom()-V.dp(48);
 				super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 			}
 		};
 
-		tabViews=new FrameLayout[4];
+		tabViews=new FrameLayout[3];
 		for(int i=0;i<tabViews.length;i++){
 			FrameLayout tabView=new FrameLayout(getActivity());
 			tabView.setId(switch(i){
-				case 0 -> R.id.profile_posts;
-				case 1 -> R.id.profile_posts_with_replies;
-				case 2 -> R.id.profile_media;
-				case 3 -> R.id.profile_about;
+				case 0 -> R.id.profile_featured;
+				case 1 -> R.id.profile_timeline;
+				case 2 -> R.id.profile_about;
 				default -> throw new IllegalStateException("Unexpected value: "+i);
 			});
 			tabView.setVisibility(View.GONE);
@@ -235,22 +241,20 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 
 		sizeWrapper.addView(content);
 
-		tabbar.setTabTextColors(UiUtils.getThemeColor(getActivity(), android.R.attr.textColorSecondary), UiUtils.getThemeColor(getActivity(), android.R.attr.textColorPrimary));
-		tabbar.setTabTextSize(V.dp(16));
+		tabbar.setTabTextColors(UiUtils.getThemeColor(getActivity(), R.attr.colorM3OnSurfaceVariant), UiUtils.getThemeColor(getActivity(), R.attr.colorM3Primary));
+		tabbar.setTabTextSize(V.dp(14));
 		tabLayoutMediator=new TabLayoutMediator(tabbar, pager, new TabLayoutMediator.TabConfigurationStrategy(){
 			@Override
 			public void onConfigureTab(@NonNull TabLayout.Tab tab, int position){
 				tab.setText(switch(position){
-					case 0 -> R.string.posts;
-					case 1 -> R.string.posts_and_replies;
-					case 2 -> R.string.media;
-					case 3 -> R.string.profile_about;
+					case 0 -> R.string.profile_featured;
+					case 1 -> R.string.profile_timeline;
+					case 2 -> R.string.profile_about;
 					default -> throw new IllegalStateException();
 				});
 			}
 		});
 
-		cover.setForeground(coverGradient);
 		cover.setOutlineProvider(new ViewOutlineProvider(){
 			@Override
 			public void getOutline(View view, Outline outline){
@@ -287,6 +291,19 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 			return true;
 		});
 
+		scrollableContent.setDrawingOrderCallback((count, pos)->{
+			// The header is the first child, draw it last to overlap everything for the photo viewer transition to look nice
+			if(pos==count-1)
+				return 0;
+			// Offset the order of other child views to compensate
+			return pos+1;
+		});
+
+		int colorBackground=UiUtils.getThemeColor(getActivity(), R.attr.colorM3Background);
+		int colorPrimary=UiUtils.getThemeColor(getActivity(), R.attr.colorM3Primary);
+		refreshLayout.setProgressBackgroundColorSchemeColor(UiUtils.alphaBlendColors(colorBackground, colorPrimary, 0.11f));
+		refreshLayout.setColorSchemeColors(colorPrimary);
+
 		return sizeWrapper;
 	}
 
@@ -309,12 +326,10 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 						if(refreshing){
 							refreshing=false;
 							refreshLayout.setRefreshing(false);
-							if(postsFragment.loaded)
-								postsFragment.onRefresh();
-							if(postsWithRepliesFragment.loaded)
-								postsWithRepliesFragment.onRefresh();
-							if(mediaFragment.loaded)
-								mediaFragment.onRefresh();
+							if(timelineFragment.loaded)
+								timelineFragment.onRefresh();
+							if(featuredFragment.loaded)
+								featuredFragment.onRefresh();
 						}
 						V.setVisibilityAnimated(fab, View.VISIBLE);
 					}
@@ -334,14 +349,28 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 	public void dataLoaded(){
 		if(getActivity()==null)
 			return;
-		if(postsFragment==null){
-			postsFragment=AccountTimelineFragment.newInstance(accountID, account, GetAccountStatuses.Filter.DEFAULT, true);
-			postsWithRepliesFragment=AccountTimelineFragment.newInstance(accountID, account, GetAccountStatuses.Filter.INCLUDE_REPLIES, false);
-			mediaFragment=AccountTimelineFragment.newInstance(accountID, account, GetAccountStatuses.Filter.MEDIA, false);
+		if(featuredFragment==null){
+			featuredFragment=new ProfileFeaturedFragment();
+			Bundle args=new Bundle();
+			args.putString("account", accountID);
+			args.putParcelable("profileAccount", Parcels.wrap(account));
+			args.putBoolean("__is_tab", true);
+			args.putBoolean("noAutoLoad", true);
+			featuredFragment.setArguments(args);
+			timelineFragment=AccountTimelineFragment.newInstance(accountID, account, true);
 			aboutFragment=new ProfileAboutFragment();
 			aboutFragment.setFields(fields);
 		}
 		pager.getAdapter().notifyDataSetChanged();
+		pager.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener(){
+			@Override
+			public boolean onPreDraw(){
+				pager.getViewTreeObserver().removeOnPreDrawListener(this);
+				pager.setCurrentItem(1, false);
+				tabbar.selectTab(tabbar.getTabAt(1));
+				return true;
+			}
+		});
 		super.dataLoaded();
 	}
 
@@ -357,10 +386,8 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 				pager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback(){
 					@Override
 					public void onPageSelected(int position){
-						if(position==0)
-							return;
 						Fragment _page=getFragmentForPage(position);
-						if(_page instanceof BaseRecyclerFragment<?> page){
+						if(_page instanceof BaseRecyclerFragment<?> page && page.isAdded()){
 							if(!page.loaded && !page.isDataLoading())
 								page.loadData();
 						}
@@ -368,6 +395,8 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 
 					@Override
 					public void onPageScrollStateChanged(int state){
+						if(isInEditMode)
+							return;
 						refreshLayout.setEnabled(state!=ViewPager2.SCROLL_STATE_DRAGGING);
 					}
 				});
@@ -375,17 +404,23 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 			}
 		});
 
-		scrollView.setOnScrollChangeListener(this::onScrollChanged);
-		titleTransY=getToolbar().getLayoutParams().height;
-		if(toolbarTitleView!=null){
-			toolbarTitleView.setTranslationY(titleTransY);
-			toolbarSubtitleView.setTranslationY(titleTransY);
-		}
-	}
+		tabsColorBackground=((LayerDrawable)tabbar.getBackground()).findDrawableByLayerId(R.id.color_overlay);
 
-	@Override
-	public void onDestroyView(){
-		super.onDestroyView();
+		onScrollListener=new ElevationOnScrollListener((FragmentRootLinearLayout) view, getToolbar());
+		scrollView.setOnScrollChangeListener(this::onScrollChanged);
+		scrollView.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener(){
+			@Override
+			public boolean onPreDraw(){
+				scrollView.getViewTreeObserver().removeOnPreDrawListener(this);
+
+				tabBarIsAtTop=!scrollView.canScrollVertically(1) && scrollView.getHeight()>0;
+				tabsColorBackground.setAlpha(tabBarIsAtTop ? 20 : 0);
+				tabbar.setTranslationZ(tabBarIsAtTop ? V.dp(3) : 0);
+				tabsDivider.setAlpha(tabBarIsAtTop ? 0 : 1);
+
+				return true;
+			}
+		});
 	}
 
 	@Override
@@ -396,28 +431,24 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 
 	@Override
 	public void onApplyWindowInsets(WindowInsets insets){
-		statusBarHeight=insets.getSystemWindowInsetTop();
 		if(contentView!=null){
-			((ViewGroup.MarginLayoutParams) getToolbar().getLayoutParams()).topMargin=statusBarHeight;
-			refreshLayout.setProgressViewEndTarget(true, statusBarHeight+refreshLayout.getProgressCircleDiameter()+V.dp(24));
 			if(Build.VERSION.SDK_INT>=29 && insets.getTappableElementInsets().bottom==0){
 				int insetBottom=insets.getSystemWindowInsetBottom();
 				childInsets=insets.inset(insets.getSystemWindowInsetLeft(), insets.getSystemWindowInsetTop(), insets.getSystemWindowInsetRight(), 0);
-				((ViewGroup.MarginLayoutParams) fab.getLayoutParams()).bottomMargin=V.dp(24)+insetBottom;
+				((ViewGroup.MarginLayoutParams) fab.getLayoutParams()).bottomMargin=V.dp(16)+insetBottom;
 				applyChildWindowInsets();
 				insets=insets.inset(0, 0, 0, insetBottom);
 			}else{
-				((ViewGroup.MarginLayoutParams) fab.getLayoutParams()).bottomMargin=V.dp(24);
+				((ViewGroup.MarginLayoutParams) fab.getLayoutParams()).bottomMargin=V.dp(16);
 			}
 		}
-		super.onApplyWindowInsets(insets.replaceSystemWindowInsets(insets.getSystemWindowInsetLeft(), 0, insets.getSystemWindowInsetRight(), insets.getSystemWindowInsetBottom()));
+		super.onApplyWindowInsets(insets);
 	}
 
 	private void applyChildWindowInsets(){
-		if(postsFragment!=null && postsFragment.isAdded() && childInsets!=null){
-			postsFragment.onApplyWindowInsets(childInsets);
-			postsWithRepliesFragment.onApplyWindowInsets(childInsets);
-			mediaFragment.onApplyWindowInsets(childInsets);
+		if(timelineFragment!=null && timelineFragment.isAdded() && childInsets!=null){
+			timelineFragment.onApplyWindowInsets(childInsets);
+			featuredFragment.onApplyWindowInsets(childInsets);
 		}
 	}
 
@@ -427,7 +458,8 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 		ViewImageLoader.load(avatar, null, new UrlImageLoaderRequest(GlobalUserPreferences.playGifs ? account.avatar : account.avatarStatic, V.dp(100), V.dp(100)));
 		ViewImageLoader.load(cover, null, new UrlImageLoaderRequest(GlobalUserPreferences.playGifs ? account.header : account.headerStatic, 1000, 1000));
 		SpannableStringBuilder ssb=new SpannableStringBuilder(account.displayName);
-		HtmlParser.parseCustomEmoji(ssb, account.emojis);
+		if(AccountSessionManager.get(accountID).getLocalPreferences().customEmojiInNames)
+			HtmlParser.parseCustomEmoji(ssb, account.emojis);
 		name.setText(ssb);
 		setTitle(ssb);
 
@@ -441,7 +473,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 				ssb.append(AccountSessionManager.getInstance().getAccount(accountID).domain);
 			}
 			ssb.append(" ");
-			Drawable lock=username.getResources().getDrawable(R.drawable.ic_fluent_lock_closed_20_filled, getActivity().getTheme()).mutate();
+			Drawable lock=username.getResources().getDrawable(R.drawable.ic_lock_fill1_20px, getActivity().getTheme()).mutate();
 			lock.setBounds(0, 0, lock.getIntrinsicWidth(), lock.getIntrinsicHeight());
 			lock.setTint(username.getCurrentTextColor());
 			ssb.append(getString(R.string.manually_approves_followers), new ImageSpan(lock, ImageSpan.ALIGN_BOTTOM), 0);
@@ -459,16 +491,20 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 		}
 		followersCount.setText(UiUtils.abbreviateNumber(account.followersCount));
 		followingCount.setText(UiUtils.abbreviateNumber(account.followingCount));
-		postsCount.setText(UiUtils.abbreviateNumber(account.statusesCount));
 		followersLabel.setText(getResources().getQuantityString(R.plurals.followers, (int)Math.min(999, account.followersCount)));
 		followingLabel.setText(getResources().getQuantityString(R.plurals.following, (int)Math.min(999, account.followingCount)));
-		postsLabel.setText(getResources().getQuantityString(R.plurals.posts, (int)Math.min(999, account.statusesCount)));
 
 		UiUtils.loadCustomEmojiInTextView(name);
 		UiUtils.loadCustomEmojiInTextView(bio);
 
 		if(AccountSessionManager.getInstance().isSelf(accountID, account)){
 			actionButton.setText(R.string.edit_profile);
+			TypedArray ta=actionButton.getContext().obtainStyledAttributes(R.style.Widget_Mastodon_M3_Button_Tonal, new int[]{android.R.attr.background});
+			actionButton.setBackground(ta.getDrawable(0));
+			ta.recycle();
+			ta=actionButton.getContext().obtainStyledAttributes(R.style.Widget_Mastodon_M3_Button_Tonal, new int[]{android.R.attr.textColor});
+			actionButton.setTextColor(ta.getColorStateList(0));
+			ta.recycle();
 		}else{
 			actionButton.setVisibility(View.GONE);
 		}
@@ -503,47 +539,34 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 	}
 
 	private void updateToolbar(){
-		getToolbar().setBackgroundColor(0);
-		if(toolbarTitleView!=null){
-			toolbarTitleView.setTranslationY(titleTransY);
-			toolbarSubtitleView.setTranslationY(titleTransY);
-		}
 		getToolbar().setOnClickListener(v->scrollToTop());
 		getToolbar().setNavigationContentDescription(R.string.back);
-	}
-
-	@Override
-	public boolean wantsLightStatusBar(){
-		return false;
+		if(onScrollListener!=null){
+			onScrollListener.setViews(getToolbar());
+		}
 	}
 
 	@Override
 	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater){
 		if(isOwnProfile && isInEditMode){
-			Button cancelButton=new Button(getActivity(), null, 0, R.style.Widget_Mastodon_Button_Secondary_LightOnDark);
-			cancelButton.setText(R.string.cancel);
-			cancelButton.setOnClickListener(v->exitEditMode());
-			FrameLayout wrap=new FrameLayout(getActivity());
-			wrap.addView(cancelButton, new FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, Gravity.TOP|Gravity.LEFT));
-			wrap.setPadding(V.dp(16), V.dp(4), V.dp(16), V.dp(8));
-			wrap.setClipToPadding(false);
-			MenuItem item=menu.add(R.string.cancel);
-			item.setActionView(wrap);
-			item.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+			editSaveMenuItem=menu.add(0, R.id.save, 0, R.string.save_changes);
+			editSaveMenuItem.setIcon(R.drawable.ic_save_24px);
+			editSaveMenuItem.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+			editSaveMenuItem.setVisible(!isActionButtonInView());
 			return;
 		}
 		if(relationship==null && !isOwnProfile)
 			return;
 		inflater.inflate(isOwnProfile ? R.menu.profile_own : R.menu.profile, menu);
-		menu.findItem(R.id.share).setTitle(getString(R.string.share_user, account.getDisplayUsername()));
+		menu.findItem(R.id.share).setTitle(R.string.share_user);
 		if(isOwnProfile)
 			return;
 
-		menu.findItem(R.id.mute).setTitle(getString(relationship.muting ? R.string.unmute_user : R.string.mute_user, account.getDisplayUsername()));
-		menu.findItem(R.id.block).setTitle(getString(relationship.blocking ? R.string.unblock_user : R.string.block_user, account.getDisplayUsername()));
-		menu.findItem(R.id.report).setTitle(getString(R.string.report_user, account.getDisplayUsername()));
+		menu.findItem(R.id.mute).setTitle(getString(relationship.muting ? R.string.unmute_user : R.string.mute_user, account.displayName));
+		menu.findItem(R.id.block).setTitle(getString(relationship.blocking ? R.string.unblock_user : R.string.block_user, account.displayName));
+		menu.findItem(R.id.report).setTitle(getString(R.string.report_user, account.displayName));
 		if(relationship.following)
-			menu.findItem(R.id.hide_boosts).setTitle(getString(relationship.showingReblogs ? R.string.hide_boosts_from_user : R.string.show_boosts_from_user, account.getDisplayUsername()));
+			menu.findItem(R.id.hide_boosts).setTitle(getString(relationship.showingReblogs ? R.string.hide_boosts_from_user : R.string.show_boosts_from_user, account.displayName));
 		else
 			menu.findItem(R.id.hide_boosts).setVisible(false);
 		if(!account.isLocal())
@@ -568,6 +591,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 			Bundle args=new Bundle();
 			args.putString("account", accountID);
 			args.putParcelable("reportAccount", Parcels.wrap(account));
+			args.putParcelable("relationship", Parcels.wrap(relationship));
 			Nav.go(getActivity(), ReportReasonChoiceFragment.class, args);
 		}else if(id==R.id.open_in_browser){
 			UiUtils.launchWebBrowser(getActivity(), account.url);
@@ -599,13 +623,11 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 			Bundle args=new Bundle();
 			args.putString("account", accountID);
 			Nav.go(getActivity(), FavoritedStatusListFragment.class, args);
+		}else if(id==R.id.save){
+			if(isInEditMode)
+				saveAndExitEditMode();
 		}
 		return true;
-	}
-
-	@Override
-	protected int getToolbarResource(){
-		return R.layout.profile_toolbar;
 	}
 
 	private void loadRelationship(){
@@ -630,49 +652,71 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 	private void updateRelationship(){
 		invalidateOptionsMenu();
 		actionButton.setVisibility(View.VISIBLE);
-		UiUtils.setRelationshipToActionButton(relationship, actionButton);
+		UiUtils.setRelationshipToActionButtonM3(relationship, actionButton);
 		actionProgress.setIndeterminateTintList(actionButton.getTextColors());
 		followsYouView.setVisibility(relationship.followedBy ? View.VISIBLE : View.GONE);
 	}
 
 	private void onScrollChanged(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY){
-		int topBarsH=getToolbar().getHeight()+statusBarHeight;
-		if(scrollY>avatarBorder.getTop()-topBarsH){
-			float avaAlpha=Math.max(1f-((scrollY-(avatarBorder.getTop()-topBarsH))/(float)V.dp(38)), 0f);
-			avatarBorder.setAlpha(avaAlpha);
-		}else{
-			avatarBorder.setAlpha(1f);
-		}
-		if(scrollY>cover.getHeight()-topBarsH){
-			cover.setTranslationY(scrollY-(cover.getHeight()-topBarsH));
+		if(scrollY>cover.getHeight()){
+			cover.setTranslationY(scrollY-(cover.getHeight()));
 			cover.setTranslationZ(V.dp(10));
-			cover.setTransform(cover.getHeight()/2f-topBarsH/2f, 1f);
+			cover.setTransform(cover.getHeight()/2f);
 		}else{
 			cover.setTranslationY(0f);
 			cover.setTranslationZ(0f);
-			cover.setTransform(scrollY/2f, 1f);
+			cover.setTransform(scrollY/2f);
 		}
-		coverGradient.setTopOffset(scrollY);
 		cover.invalidate();
-		titleTransY=getToolbar().getHeight();
-		if(scrollY>name.getTop()-topBarsH){
-			titleTransY=Math.max(0f, titleTransY-(scrollY-(name.getTop()-topBarsH)));
-		}
-		if(toolbarTitleView!=null){
-			toolbarTitleView.setTranslationY(titleTransY);
-			toolbarSubtitleView.setTranslationY(titleTransY);
-		}
 		if(currentPhotoViewer!=null){
 			currentPhotoViewer.offsetView(0, oldScrollY-scrollY);
+		}
+		onScrollListener.onScrollChange(v, scrollX, scrollY, oldScrollX, oldScrollY);
+
+		boolean newTabBarIsAtTop=!scrollView.canScrollVertically(1);
+		if(newTabBarIsAtTop!=tabBarIsAtTop){
+			tabBarIsAtTop=newTabBarIsAtTop;
+
+			if(tabBarIsAtTop){
+				// ScrollView would sometimes leave 1 pixel unscrolled, force it into the correct scrollY
+				int maxY=scrollView.getChildAt(0).getHeight()-scrollView.getHeight();
+				if(scrollView.getScrollY()!=maxY)
+					scrollView.scrollTo(0, maxY);
+			}
+
+			if(tabBarColorAnim!=null)
+				tabBarColorAnim.cancel();
+			AnimatorSet set=new AnimatorSet();
+			set.playTogether(
+					ObjectAnimator.ofInt(tabsColorBackground, "alpha", tabBarIsAtTop ? 20 : 0),
+					ObjectAnimator.ofFloat(tabbar, View.TRANSLATION_Z, tabBarIsAtTop ? V.dp(3) : 0),
+					ObjectAnimator.ofFloat(getToolbar(), View.TRANSLATION_Z, tabBarIsAtTop ? 0 : V.dp(3)),
+					ObjectAnimator.ofFloat(tabsDivider, View.ALPHA, tabBarIsAtTop ? 0 : 1)
+			);
+			set.setDuration(150);
+			set.setInterpolator(CubicBezierInterpolator.DEFAULT);
+			set.addListener(new AnimatorListenerAdapter(){
+				@Override
+				public void onAnimationEnd(Animator animation){
+					tabBarColorAnim=null;
+				}
+			});
+			tabBarColorAnim=set;
+			set.start();
+		}
+		if(isInEditMode && editSaveMenuItem!=null){
+			boolean buttonInView=isActionButtonInView();
+			if(buttonInView==editSaveMenuItem.isVisible()){
+				editSaveMenuItem.setVisible(!buttonInView);
+			}
 		}
 	}
 
 	private Fragment getFragmentForPage(int page){
 		return switch(page){
-			case 0 -> postsFragment;
-			case 1 -> postsWithRepliesFragment;
-			case 2 -> mediaFragment;
-			case 3 -> aboutFragment;
+			case 0 -> featuredFragment;
+			case 1 -> timelineFragment;
+			case 2 -> aboutFragment;
 			default -> throw new IllegalStateException();
 		};
 	}
@@ -695,6 +739,8 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 	private void setActionProgressVisible(boolean visible){
 		actionButton.setTextVisible(!visible);
 		actionProgress.setVisibility(visible ? View.VISIBLE : View.GONE);
+		if(visible)
+			actionProgress.setIndeterminateTintList(actionButton.getTextColors());
 		actionButton.setClickable(!visible);
 	}
 
@@ -732,40 +778,41 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 		isInEditMode=true;
 		invalidateOptionsMenu();
 		pager.setUserInputEnabled(false);
-		actionButton.setText(R.string.done);
-		pager.setCurrentItem(3);
-		ArrayList<Animator> animators=new ArrayList<>();
+		actionButton.setText(R.string.save_changes);
+		pager.setCurrentItem(2);
 		for(int i=0;i<3;i++){
-			animators.add(ObjectAnimator.ofFloat(tabbar.getTabAt(i).view, View.ALPHA, .3f));
 			tabbar.getTabAt(i).view.setEnabled(false);
 		}
 		Drawable overlay=getResources().getDrawable(R.drawable.edit_avatar_overlay).mutate();
 		avatar.setForeground(overlay);
-		animators.add(ObjectAnimator.ofInt(overlay, "alpha", 0, 255));
 
-		nameEdit.setVisibility(View.VISIBLE);
+		Toolbar toolbar=getToolbar();
+		Drawable close=getToolbarContext().getDrawable(R.drawable.ic_baseline_close_24).mutate();
+		close.setTint(UiUtils.getThemeColor(getToolbarContext(), R.attr.colorM3OnSurfaceVariant));
+		toolbar.setNavigationIcon(close);
+		toolbar.setNavigationContentDescription(R.string.discard);
+
+		ViewGroup parent=contentView.findViewById(R.id.scrollable_content);
+		TransitionManager.beginDelayedTransition(parent, new TransitionSet()
+				.addTransition(new Fade(Fade.IN | Fade.OUT))
+				.addTransition(new ChangeBounds())
+				.setDuration(250)
+				.setInterpolator(CubicBezierInterpolator.DEFAULT)
+		);
+
+		name.setVisibility(View.GONE);
+		username.setVisibility(View.GONE);
+		bio.setVisibility(View.GONE);
+		countersLayout.setVisibility(View.GONE);
+
+		nameEditWrap.setVisibility(View.VISIBLE);
 		nameEdit.setText(account.displayName);
-		RelativeLayout.LayoutParams lp=(RelativeLayout.LayoutParams) username.getLayoutParams();
-		lp.addRule(RelativeLayout.BELOW, R.id.name_edit);
-		username.getParent().requestLayout();
-		animators.add(ObjectAnimator.ofFloat(nameEdit, View.ALPHA, 0f, 1f));
 
-		bioEdit.setVisibility(View.VISIBLE);
+		bioEditWrap.setVisibility(View.VISIBLE);
 		bioEdit.setText(account.source.note);
-		animators.add(ObjectAnimator.ofFloat(bioEdit, View.ALPHA, 0f, 1f));
-		animators.add(ObjectAnimator.ofFloat(bio, View.ALPHA, 0f));
-
-		animators.add(ObjectAnimator.ofFloat(postsBtn, View.ALPHA, .3f));
-		animators.add(ObjectAnimator.ofFloat(followersBtn, View.ALPHA, .3f));
-		animators.add(ObjectAnimator.ofFloat(followingBtn, View.ALPHA, .3f));
-
-		AnimatorSet set=new AnimatorSet();
-		set.playTogether(animators);
-		set.setDuration(300);
-		set.setInterpolator(CubicBezierInterpolator.DEFAULT);
-		set.start();
 
 		aboutFragment.enterEditMode(account.source.fields);
+		refreshLayout.setEnabled(false);
 	}
 
 	private void exitEditMode(){
@@ -774,39 +821,38 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 		isInEditMode=false;
 
 		invalidateOptionsMenu();
-		ArrayList<Animator> animators=new ArrayList<>();
 		actionButton.setText(R.string.edit_profile);
 		for(int i=0;i<3;i++){
-			animators.add(ObjectAnimator.ofFloat(tabbar.getTabAt(i).view, View.ALPHA, 1f));
+			tabbar.getTabAt(i).view.setEnabled(true);
 		}
-		animators.add(ObjectAnimator.ofInt(avatar.getForeground(), "alpha", 0));
-		animators.add(ObjectAnimator.ofFloat(nameEdit, View.ALPHA, 0f));
-		animators.add(ObjectAnimator.ofFloat(bioEdit, View.ALPHA, 0f));
-		animators.add(ObjectAnimator.ofFloat(bio, View.ALPHA, 1f));
-		animators.add(ObjectAnimator.ofFloat(postsBtn, View.ALPHA, 1f));
-		animators.add(ObjectAnimator.ofFloat(followersBtn, View.ALPHA, 1f));
-		animators.add(ObjectAnimator.ofFloat(followingBtn, View.ALPHA, 1f));
+		pager.setUserInputEnabled(true);
+		avatar.setForeground(null);
 
-		AnimatorSet set=new AnimatorSet();
-		set.playTogether(animators);
-		set.setDuration(200);
-		set.setInterpolator(CubicBezierInterpolator.DEFAULT);
-		set.addListener(new AnimatorListenerAdapter(){
-			@Override
-			public void onAnimationEnd(Animator animation){
-				for(int i=0;i<3;i++){
-					tabbar.getTabAt(i).view.setEnabled(true);
-				}
-				pager.setUserInputEnabled(true);
-				nameEdit.setVisibility(View.GONE);
-				bioEdit.setVisibility(View.GONE);
-				RelativeLayout.LayoutParams lp=(RelativeLayout.LayoutParams) username.getLayoutParams();
-				lp.addRule(RelativeLayout.BELOW, R.id.name);
-				username.getParent().requestLayout();
-				avatar.setForeground(null);
-			}
-		});
-		set.start();
+		Toolbar toolbar=getToolbar();
+		if(canGoBack()){
+			Drawable back=getToolbarContext().getDrawable(R.drawable.ic_arrow_back).mutate();
+			back.setTint(UiUtils.getThemeColor(getToolbarContext(), R.attr.colorM3OnSurfaceVariant));
+			toolbar.setNavigationIcon(back);
+			toolbar.setNavigationContentDescription(0);
+		}else{
+			toolbar.setNavigationIcon(null);
+		}
+		editSaveMenuItem=null;
+
+		ViewGroup parent=contentView.findViewById(R.id.scrollable_content);
+		TransitionManager.beginDelayedTransition(parent, new TransitionSet()
+				.addTransition(new Fade(Fade.IN | Fade.OUT))
+				.addTransition(new ChangeBounds())
+				.setDuration(250)
+				.setInterpolator(CubicBezierInterpolator.DEFAULT)
+		);
+		nameEditWrap.setVisibility(View.GONE);
+		bioEditWrap.setVisibility(View.GONE);
+		name.setVisibility(View.VISIBLE);
+		username.setVisibility(View.VISIBLE);
+		bio.setVisibility(View.VISIBLE);
+		countersLayout.setVisibility(View.VISIBLE);
+		refreshLayout.setEnabled(true);
 
 		bindHeaderView();
 	}
@@ -850,7 +896,11 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 	@Override
 	public boolean onBackPressed(){
 		if(isInEditMode){
-			exitEditMode();
+			new M3AlertDialogBuilder(getActivity())
+					.setTitle(R.string.discard_changes)
+					.setPositiveButton(R.string.discard, (dlg, btn)->exitEditMode())
+					.setNegativeButton(R.string.cancel, null)
+					.show();
 			return true;
 		}
 		return false;
@@ -901,9 +951,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 	}
 
 	private void startImagePicker(int requestCode){
-		Intent intent=new Intent(Intent.ACTION_GET_CONTENT);
-		intent.setType("image/*");
-		intent.addCategory(Intent.CATEGORY_OPENABLE);
+		Intent intent=UiUtils.getMediaPickerIntent(new String[]{"image/*"}, 1);
 		startActivityForResult(intent, requestCode);
 	}
 
@@ -912,10 +960,10 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 		if(resultCode==Activity.RESULT_OK){
 			if(requestCode==AVATAR_RESULT){
 				editNewAvatar=data.getData();
-				ViewImageLoader.load(avatar, null, new UrlImageLoaderRequest(editNewAvatar, V.dp(100), V.dp(100)));
+				ViewImageLoader.loadWithoutAnimation(avatar, null, new UrlImageLoaderRequest(editNewAvatar, V.dp(100), V.dp(100)));
 			}else if(requestCode==COVER_RESULT){
 				editNewCover=data.getData();
-				ViewImageLoader.load(cover, null, new UrlImageLoaderRequest(editNewCover, V.dp(1000), V.dp(1000)));
+				ViewImageLoader.loadWithoutAnimation(cover, null, new UrlImageLoaderRequest(editNewCover, V.dp(1000), V.dp(1000)));
 			}
 		}
 	}
@@ -940,6 +988,10 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 		Nav.go(getActivity(), cls, args);
 	}
 
+	private boolean isActionButtonInView(){
+		return actionButton.getVisibility()==View.VISIBLE && actionButtonWrap.getTop()+actionButtonWrap.getHeight()>scrollView.getScrollY();
+	}
+
 	private class ProfilePagerAdapter extends RecyclerView.Adapter<SimpleViewHolder>{
 		@NonNull
 		@Override
@@ -959,6 +1011,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 				holder.itemView.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener(){
 					@Override
 					public boolean onPreDraw(){
+						getChildFragmentManager().executePendingTransactions();
 						if(fragment.isAdded()){
 							holder.itemView.getViewTreeObserver().removeOnPreDrawListener(this);
 							applyChildWindowInsets();
@@ -971,7 +1024,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 
 		@Override
 		public int getItemCount(){
-			return loaded ? 4 : 0;
+			return loaded ? 3 : 0;
 		}
 
 		@Override

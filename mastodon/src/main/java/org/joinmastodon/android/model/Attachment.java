@@ -127,6 +127,7 @@ public class Attachment extends BaseModel{
 		public PointF focus;
 		public SizeMetadata original;
 		public SizeMetadata small;
+		public ColorsMetadata colors;
 
 		@Override
 		public String toString(){
@@ -138,6 +139,7 @@ public class Attachment extends BaseModel{
 					", focus="+focus+
 					", original="+original+
 					", small="+small+
+					", colors="+colors+
 					'}';
 		}
 	}
@@ -158,6 +160,22 @@ public class Attachment extends BaseModel{
 					", aspect="+aspect+
 					", duration="+duration+
 					", bitrate="+bitrate+
+					'}';
+		}
+	}
+
+	@Parcel
+	public static class ColorsMetadata{
+		public String background;
+		public String foreground;
+		public String accent;
+
+		@Override
+		public String toString(){
+			return "ColorsMetadata{"+
+					"background='"+background+'\''+
+					", foreground='"+foreground+'\''+
+					", accent='"+accent+'\''+
 					'}';
 		}
 	}

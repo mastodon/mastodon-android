@@ -14,12 +14,12 @@ import org.joinmastodon.android.ui.utils.UiUtils;
 
 import java.util.List;
 
-import me.grishka.appkit.utils.V;
+import me.grishka.appkit.utils.CustomViewHelper;
 
-public class HashtagChartView extends View{
+public class HashtagChartView extends View implements CustomViewHelper{
 	private Paint paint=new Paint(Paint.ANTI_ALIAS_FLAG);
 	private Path strokePath=new Path(), fillPath=new Path();
-	private CornerPathEffect pathEffect=new CornerPathEffect(V.dp(3));
+	private final CornerPathEffect pathEffect=new CornerPathEffect(dp(3));
 	private float[] relativeOffsets=new float[7];
 
 	public HashtagChartView(Context context){
@@ -32,7 +32,7 @@ public class HashtagChartView extends View{
 
 	public HashtagChartView(Context context, AttributeSet attrs, int defStyle){
 		super(context, attrs, defStyle);
-		paint.setStrokeWidth(V.dp(1.71f));
+		paint.setStrokeWidth(dp(1));
 		paint.setStrokeCap(Paint.Cap.ROUND);
 		paint.setStrokeJoin(Paint.Join.ROUND);
 	}
@@ -57,20 +57,20 @@ public class HashtagChartView extends View{
 			return;
 		strokePath.rewind();
 		fillPath.rewind();
-		float step=(getWidth()-V.dp(2))/(float)(relativeOffsets.length-1);
-		float maxH=getHeight()-V.dp(2);
-		float x=getWidth()-V.dp(1);
-		strokePath.moveTo(x, maxH-maxH*relativeOffsets[0]+V.dp(1));
-		fillPath.moveTo(getWidth(), getHeight()-V.dp(1));
-		fillPath.lineTo(x, maxH-maxH*relativeOffsets[0]+V.dp(1));
+		float step=(getWidth()-dp(2))/(float)(relativeOffsets.length-1);
+		float maxH=getHeight()-dp(2);
+		float x=getWidth()-dp(1);
+		strokePath.moveTo(x, maxH-maxH*relativeOffsets[0]+dp(1));
+		fillPath.moveTo(getWidth(), getHeight()-dp(1));
+		fillPath.lineTo(x, maxH-maxH*relativeOffsets[0]+dp(1));
 		for(int i=1;i<relativeOffsets.length;i++){
 			float offset=relativeOffsets[i];
 			x-=step;
-			float y=maxH-maxH*offset+V.dp(1);
+			float y=maxH-maxH*offset+dp(1);
 			strokePath.lineTo(x, y);
 			fillPath.lineTo(x, y);
 		}
-		fillPath.lineTo(V.dp(1), getHeight()-V.dp(1));
+		fillPath.lineTo(dp(1), getHeight()-dp(1));
 		fillPath.close();
 	}
 
@@ -83,11 +83,11 @@ public class HashtagChartView extends View{
 	@Override
 	protected void onDraw(Canvas canvas){
 		paint.setStyle(Paint.Style.FILL);
-		paint.setColor(UiUtils.getThemeColor(getContext(), R.attr.colorAccentLightest));
+		paint.setColor(UiUtils.getThemeColor(getContext(), R.attr.colorM3PrimaryInverse));
 		paint.setPathEffect(null);
 		canvas.drawPath(fillPath, paint);
 		paint.setStyle(Paint.Style.STROKE);
-		paint.setColor(UiUtils.getThemeColor(getContext(), android.R.attr.colorAccent));
+		paint.setColor(UiUtils.getThemeColor(getContext(), R.attr.colorM3Primary));
 		paint.setPathEffect(pathEffect);
 		canvas.drawPath(strokePath, paint);
 	}

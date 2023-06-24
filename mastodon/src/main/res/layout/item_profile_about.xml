@@ -1,30 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:tools="http://schemas.android.com/tools"
-	android:orientation="vertical"
 	android:layout_width="match_parent"
 	android:layout_height="wrap_content"
-	android:background="?colorBackgroundLight"
-	android:elevation="2dp"
-	android:outlineProvider="background"
-	android:padding="16dp">
+	android:clipToPadding="false"
+	android:paddingStart="16dp"
+	android:paddingTop="6dp"
+	android:paddingEnd="24dp"
+	android:paddingBottom="6dp">
+
+	<ImageView
+		android:id="@+id/verified_icon"
+		android:layout_width="24dp"
+		android:layout_height="24dp"
+		android:layout_alignParentEnd="true"
+		android:layout_centerVertical="true"
+		android:layout_marginStart="16dp"
+		android:tint="?colorM3Primary"
+		android:contentDescription="@string/verified_link"
+		android:src="@drawable/ic_verified_24px"/>
 
 	<TextView
 		android:id="@+id/title"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:textAppearance="@style/m3_label_medium"
-		android:minHeight="16dp"
-		android:textAllCaps="true"
-		android:textSize="12sp"
+		android:layout_below="@id/value"
+		android:layout_toStartOf="@id/verified_icon"
+		android:textAppearance="@style/m3_body_medium"
+		android:minHeight="20dp"
+		android:textSize="14sp"
+		android:gravity="center_vertical"
+		android:textColor="?colorM3OnSurfaceVariant"
+		android:singleLine="true"
+		android:ellipsize="end"
 		tools:text="Field title"/>
 
 	<org.joinmastodon.android.ui.views.LinkedTextView
 		android:id="@+id/value"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
+		android:layout_toStartOf="@id/verified_icon"
 		android:textAppearance="@style/m3_body_large"
+		android:textColor="?colorM3OnSurface"
 		android:textSize="16sp"
+		android:minHeight="24dp"
+		android:gravity="center_vertical"
 		tools:text="Field value"/>
 
-</LinearLayout>
+</RelativeLayout>

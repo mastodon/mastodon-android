@@ -35,9 +35,9 @@ import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import me.grishka.appkit.utils.CubicBezierInterpolator;
-import me.grishka.appkit.utils.V;
+import me.grishka.appkit.utils.CustomViewHelper;
 
-public class FloatingHintEditTextLayout extends FrameLayout{
+public class FloatingHintEditTextLayout extends FrameLayout implements CustomViewHelper{
 	private EditText edit;
 	private TextView label;
 	private int labelTextSize;
@@ -60,10 +60,8 @@ public class FloatingHintEditTextLayout extends FrameLayout{
 
 	public FloatingHintEditTextLayout(Context context, AttributeSet attrs, int defStyle){
 		super(context, attrs, defStyle);
-		if(isInEditMode())
-			V.setApplicationContext(context);
 		TypedArray ta=context.obtainStyledAttributes(attrs, R.styleable.FloatingHintEditTextLayout);
-		labelTextSize=ta.getDimensionPixelSize(R.styleable.FloatingHintEditTextLayout_android_labelTextSize, V.dp(12));
+		labelTextSize=ta.getDimensionPixelSize(R.styleable.FloatingHintEditTextLayout_android_labelTextSize, dp(12));
 		offsetY=ta.getDimensionPixelOffset(R.styleable.FloatingHintEditTextLayout_editTextOffsetY, 0);
 		labelColors=ta.getColorStateList(R.styleable.FloatingHintEditTextLayout_labelTextColor);
 		ta.recycle();
@@ -100,12 +98,16 @@ public class FloatingHintEditTextLayout extends FrameLayout{
 
 		errorView=new LinkedTextView(getContext());
 		errorView.setTextAppearance(R.style.m3_body_small);
-		errorView.setTextColor(UiUtils.getThemeColor(getContext(), R.attr.colorM3OnSurfaceVariant));
+		errorView.setTextColor(UiUtils.getThemeColor(getContext(), R.attr.colorM3Error));
 		errorView.setLinkTextColor(UiUtils.getThemeColor(getContext(), R.attr.colorM3Primary));
 		errorView.setLayoutParams(new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-		errorView.setPadding(V.dp(16), V.dp(4), V.dp(16), 0);
+		errorView.setPadding(dp(16), dp(4), dp(16), 0);
 		errorView.setVisibility(View.GONE);
 		addView(errorView);
+	}
+
+	public void updateHint(){
+		label.setText(edit.getHint());
 	}
 
 	private void onTextChanged(Editable text){
@@ -129,7 +131,12 @@ public class FloatingHintEditTextLayout extends FrameLayout{
 				edit.getViewTreeObserver().removeOnPreDrawListener(this);
 
 				float scale=edit.getLineHeight()/(float)label.getLineHeight();
-				float transY=edit.getHeight()/2f-edit.getLineHeight()/2f+(edit.getTop()-label.getTop())-(label.getHeight()/2f-label.getLineHeight()/2f);
+				float transY;
+				if((edit.getGravity() & Gravity.TOP)==Gravity.TOP){
+					transY=edit.getPaddingTop()+(edit.getTop()-label.getTop())-(label.getHeight()/2f-label.getLineHeight()/2f);
+				}else{
+					transY=edit.getHeight()/2f-edit.getLineHeight()/2f+(edit.getTop()-label.getTop())-(label.getHeight()/2f-label.getLineHeight()/2f);
+				}
 
 				AnimatorSet anim=new AnimatorSet();
 				if(hintVisible){
@@ -187,7 +194,7 @@ public class FloatingHintEditTextLayout extends FrameLayout{
 	public void onDrawForeground(Canvas canvas){
 		if(getForeground()!=null && animProgress>0){
 			canvas.save();
-			float width=(label.getWidth()+V.dp(8))*animProgress;
+			float width=(label.getWidth()+dp(8))*animProgress;
 			float centerX=label.getLeft()+label.getWidth()/2f;
 			tmpRect.set(centerX-width/2f, label.getTop(), centerX+width/2f, label.getBottom());
 			if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.O)
@@ -347,7 +354,7 @@ public class FloatingHintEditTextLayout extends FrameLayout{
 		@Override
 		protected void onBoundsChange(@NonNull Rect bounds){
 			super.onBoundsChange(bounds);
-			int offset=V.dp(12);
+			int offset=dp(12);
 			wrapped.setBounds(edit.getLeft()-offset, edit.getTop()-offset, edit.getRight()+offset, edit.getBottom()+offset);
 		}
 	}

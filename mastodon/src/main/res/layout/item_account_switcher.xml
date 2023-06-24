@@ -1,44 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<org.joinmastodon.android.ui.views.CheckableRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:orientation="horizontal"
 	android:layout_width="match_parent"
-	android:layout_height="48dp"
-	android:paddingLeft="20dp"
-	android:paddingRight="20dp"
+	android:layout_height="72dp"
 	android:gravity="center_vertical">
 	
 	<ImageView
 		android:id="@+id/avatar"
+		android:layout_width="40dp"
+		android:layout_height="40dp"
+		android:layout_margin="16dp"
+		android:layout_alignParentStart="true"
+		android:importantForAccessibility="no"/>
+
+	<View
+		android:id="@+id/radiobtn"
 		android:layout_width="32dp"
 		android:layout_height="32dp"
-		android:importantForAccessibility="no"/>
+		android:layout_alignParentEnd="true"
+		android:layout_centerInParent="true"
+		android:layout_marginEnd="20dp"
+		android:layout_marginStart="12dp"
+		android:duplicateParentState="true"/>
 
 	<TextView
 		android:id="@+id/name"
-		android:layout_width="0dp"
-		android:layout_height="wrap_content"
-		android:layout_weight="1"
-		android:layout_marginStart="24dp"
-		android:textSize="16dp"
-		android:textColor="?android:textColorPrimary"
+		android:layout_width="match_parent"
+		android:layout_height="24dp"
+		android:layout_marginTop="14dp"
+		android:layout_toEndOf="@id/avatar"
+		android:layout_toStartOf="@id/radiobtn"
+		android:textAppearance="@style/m3_body_large"
+		android:textColor="?colorM3OnSurface"
+		android:gravity="center_vertical"
 		android:singleLine="true"
 		android:ellipsize="end"/>
+	
+	<TextView
+		android:id="@+id/username"
+		android:layout_width="match_parent"
+		android:layout_height="20dp"
+		android:layout_below="@id/name"
+		android:layout_toEndOf="@id/avatar"
+		android:layout_toStartOf="@id/radiobtn"
+		android:textColor="?colorM3OnSurfaceVariant"
+		android:textAppearance="@style/m3_body_medium"
+		android:singleLine="true"
+		android:gravity="center_vertical"
+		android:ellipsize="end"/>
 
-	<View
-		android:id="@+id/current"
-		android:layout_width="24dp"
-		android:layout_height="24dp"
-		android:background="@drawable/ic_fluent_checkmark_24_filled"
-		android:backgroundTint="?android:textColorSecondary"
-		android:contentDescription="@string/current_account"/>
-
-	<ImageButton
-		android:id="@+id/more"
-		android:layout_width="24dp"
-		android:layout_height="24dp"
-		android:src="@drawable/ic_fluent_more_vertical_24_regular"
-		android:tint="?android:textColorSecondary"
-		android:contentDescription="@string/more_options"
-		android:background="?android:selectableItemBackgroundBorderless"/>
-
-</LinearLayout>
+</org.joinmastodon.android.ui.views.CheckableRelativeLayout>

@@ -12,10 +12,6 @@
 	<string name="user_sent_follow_request">שלחו בקשה לעכוב אחריכם</string>
 	<string name="user_favorited">אהבו את הרשומה שלכם</string>
 	<string name="poll_ended">הסקר נסגר</string>
-	<string name="time_seconds">%dשנ׳</string>
-	<string name="time_minutes">%dדק׳</string>
-	<string name="time_hours">%dשע׳</string>
-	<string name="time_days">%dי׳</string>
 	<string name="share_toot_title">שיתוף</string>
 	<string name="settings">הגדרות</string>
 	<string name="publish">פרסם</string>
@@ -34,12 +30,6 @@
 		<item quantity="many">עוקבים</item>
 		<item quantity="other">עוקבים</item>
 	</plurals>
-	<plurals name="posts">
-		<item quantity="one">רשומה</item>
-		<item quantity="two">רשומות</item>
-		<item quantity="many">רשומות</item>
-		<item quantity="other">רשומות</item>
-	</plurals>
 	<string name="posts">רשומות</string>
 	<string name="posts_and_replies">רשומות ותגובות</string>
 	<string name="media">מדיה</string>
@@ -47,7 +37,6 @@
 	<string name="button_follow">לעקוב</string>
 	<string name="button_following">עוקב</string>
 	<string name="edit_profile">עריכת הפרופיל</string>
-	<string name="mention_user">ציין את %s</string>
 	<string name="share_user">שתף את %s</string>
 	<string name="mute_user">השתק את %s</string>
 	<string name="unmute_user">הפסק השתקה של %s</string>

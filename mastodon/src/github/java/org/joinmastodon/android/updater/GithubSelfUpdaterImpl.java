@@ -95,7 +95,7 @@ public class GithubSelfUpdaterImpl extends GithubSelfUpdater{
 		if(state!=UpdateState.NO_UPDATE && state!=UpdateState.UPDATE_AVAILABLE)
 			return;
 		long timeSinceLastCheck=System.currentTimeMillis()-getPrefs().getLong("lastCheck", 0);
-		if(timeSinceLastCheck>CHECK_PERIOD){
+		if(timeSinceLastCheck>CHECK_PERIOD || forceUpdate){
 			setState(UpdateState.CHECKING);
 			MastodonAPIController.runInBackground(this::actuallyCheckForUpdates);
 		}
@@ -109,23 +109,26 @@ public class GithubSelfUpdaterImpl extends GithubSelfUpdater{
 		try(Response resp=call.execute()){
 			JsonObject obj=JsonParser.parseReader(resp.body().charStream()).getAsJsonObject();
 			String tag=obj.get("tag_name").getAsString();
-			Pattern pattern=Pattern.compile("v?(\\d+)\\.(\\d+)\\.(\\d+)");
+			Pattern pattern=Pattern.compile("v?(\\d+)\\.(\\d+)(?:\\.(\\d+))?");
 			Matcher matcher=pattern.matcher(tag);
 			if(!matcher.find()){
 				Log.w(TAG, "actuallyCheckForUpdates: release tag has wrong format: "+tag);
 				return;
 			}
-			int newMajor=Integer.parseInt(matcher.group(1)), newMinor=Integer.parseInt(matcher.group(2)), newRevision=Integer.parseInt(matcher.group(3));
-			matcher=pattern.matcher(BuildConfig.VERSION_NAME);
-			if(!matcher.find()){
+			int newMajor=Integer.parseInt(matcher.group(1)), newMinor=Integer.parseInt(matcher.group(2)), newRevision=matcher.group(3)!=null ? Integer.parseInt(matcher.group(3)) : 0;
+			Matcher curMatcher=pattern.matcher(BuildConfig.VERSION_NAME);
+			if(!curMatcher.find()){
 				Log.w(TAG, "actuallyCheckForUpdates: current version has wrong format: "+BuildConfig.VERSION_NAME);
 				return;
 			}
-			int curMajor=Integer.parseInt(matcher.group(1)), curMinor=Integer.parseInt(matcher.group(2)), curRevision=Integer.parseInt(matcher.group(3));
+			int curMajor=Integer.parseInt(curMatcher.group(1)), curMinor=Integer.parseInt(curMatcher.group(2)), curRevision=matcher.group(3)!=null ? Integer.parseInt(curMatcher.group(3)) : 0;
 			long newVersion=((long)newMajor << 32) | ((long)newMinor << 16) | newRevision;
 			long curVersion=((long)curMajor << 32) | ((long)curMinor << 16) | curRevision;
-			if(newVersion>curVersion || BuildConfig.DEBUG){
-				String version=newMajor+"."+newMinor+"."+newRevision;
+			if(newVersion>curVersion || forceUpdate){
+				forceUpdate=false;
+				String version=newMajor+"."+newMinor;
+				if(matcher.group(3)!=null)
+					version+="."+newRevision;
 				Log.d(TAG, "actuallyCheckForUpdates: new version: "+version);
 				for(JsonElement el:obj.getAsJsonArray("assets")){
 					JsonObject asset=el.getAsJsonObject();
@@ -293,6 +296,15 @@ public class GithubSelfUpdaterImpl extends GithubSelfUpdater{
 			String msg=intent.getStringExtra(PackageInstaller.EXTRA_STATUS_MESSAGE);
 			Toast.makeText(activity, activity.getString(R.string.error)+":\n"+msg, Toast.LENGTH_LONG).show();
 		}
+	}
+
+	@Override
+	public void reset(){
+		getPrefs().edit().clear().apply();
+		File apk=getUpdateApkFile();
+		if(apk.exists())
+			apk.delete();
+		state=UpdateState.NO_UPDATE;
 	}
 
 	/*public static class InstallerStatusReceiver extends BroadcastReceiver{

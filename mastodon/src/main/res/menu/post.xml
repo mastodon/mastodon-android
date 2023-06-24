@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-	<item android:id="@+id/edit" android:title="@string/edit"/>
-	<item android:id="@+id/delete" android:title="@string/delete"/>
-	<item android:id="@+id/mute" android:title="@string/mute_user"/>
-	<item android:id="@+id/block" android:title="@string/block_user"/>
-	<item android:id="@+id/block_domain" android:title="@string/block_domain"/>
-	<item android:id="@+id/follow" android:title="@string/follow_user"/>
-	<item android:id="@+id/report" android:title="@string/report_user"/>
-	<item android:id="@+id/bookmark" android:title="@string/add_bookmark"/>
-	<item android:id="@+id/open_in_browser" android:title="@string/open_in_browser"/>
+	<group android:id="@+id/menu_group1">
+		<!-- TODO translate -->
+		<item android:id="@+id/bookmark" android:title="@string/add_bookmark"/>
+		<item android:id="@+id/share" android:title="@string/button_share"/>
+		<item android:id="@+id/open_in_browser" android:title="@string/open_in_browser"/>
+		<item android:id="@+id/edit" android:title="@string/edit"/>
+		<item android:id="@+id/delete" android:title="@string/delete"/>
+	</group>
+	<group android:id="@+id/menu_group2">
+		<!-- TODO add to list -->
+		<item android:id="@+id/follow" android:title="@string/follow_user"/>
+		<item android:id="@+id/mute" android:title="@string/mute_user"/>
+		<item android:id="@+id/block" android:title="@string/block_user"/>
+		<item android:id="@+id/report" android:title="@string/report_user"/>
+	</group>
 </menu>

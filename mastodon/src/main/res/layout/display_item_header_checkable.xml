@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<org.joinmastodon.android.ui.views.CheckableRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:paddingTop="16dp"
+	android:paddingRight="16dp"
+	android:paddingLeft="16dp"
+	android:clipToPadding="false">
+
+	<View
+		android:id="@+id/checkbox"
+		android:layout_width="32dp"
+		android:layout_height="32dp"
+		android:layout_marginStart="-4dp"
+		android:layout_marginTop="-8dp"
+		android:layout_marginEnd="12dp"
+		android:duplicateParentState="true"/>
+
+	<ImageView
+		android:id="@+id/more"
+		android:layout_width="24dp"
+		android:layout_height="24dp"
+		android:layout_alignParentTop="true"
+		android:layout_alignParentEnd="true"
+		android:layout_marginTop="-2dp"
+		android:layout_marginEnd="-2dp"
+		android:background="?android:selectableItemBackgroundBorderless"
+		android:scaleType="center"
+		android:tint="?colorM3OnSurfaceVariant"
+		android:contentDescription="@string/more_options"
+		android:src="@drawable/ic_more_vert_20px" />
+
+	<ImageView
+		android:id="@+id/avatar"
+		android:layout_width="40dp"
+		android:layout_height="40dp"
+		android:layout_alignParentTop="true"
+		android:layout_toEndOf="@id/checkbox"
+		android:layout_marginTop="2dp"
+		android:layout_marginEnd="8dp" />
+
+	<org.joinmastodon.android.ui.views.HeaderSubtitleLinearLayout
+		android:id="@+id/name_wrap"
+		android:layout_width="match_parent"
+		android:layout_height="24dp"
+		android:layout_toEndOf="@id/avatar"
+		android:layout_toStartOf="@id/more"
+		android:layout_marginEnd="8dp">
+
+		<TextView
+			android:id="@+id/name"
+			android:layout_width="wrap_content"
+			android:layout_height="24dp"
+			android:ellipsize="end"
+			android:singleLine="true"
+			android:textAppearance="@style/m3_title_medium"
+			android:textColor="?colorM3OnSurface"
+			android:gravity="start|center_vertical"
+			tools:text="Eugen" />
+
+		<TextView
+			android:id="@+id/extra_text"
+			android:layout_width="wrap_content"
+			android:layout_height="24dp"
+			android:layout_marginStart="8dp"
+			android:ellipsize="end"
+			android:singleLine="true"
+			android:textAppearance="@style/m3_title_medium"
+			android:fontFamily="sans-serif"
+			android:textAlignment="viewStart"
+			android:textColor="?colorM3OnSurface"
+			tools:text="boosted your cat picture" />
+
+	</org.joinmastodon.android.ui.views.HeaderSubtitleLinearLayout>
+
+	<TextView
+		android:id="@+id/time_and_username"
+		android:layout_width="match_parent"
+		android:layout_height="20dp"
+		android:layout_below="@id/name_wrap"
+		android:layout_toEndOf="@id/avatar"
+		android:singleLine="true"
+		android:ellipsize="end"
+		android:textAppearance="@style/m3_title_small"
+		android:gravity="center_vertical"
+		android:textColor="?colorM3OnSurfaceVariant"
+		tools:text="9h ago · \@Gargron@mastodon.social"/>
+
+</org.joinmastodon.android.ui.views.CheckableRelativeLayout>

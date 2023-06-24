@@ -2,60 +2,48 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
-	android:layout_height="match_parent">
+	android:layout_height="match_parent"
+	xmlns:app="http://schemas.android.com/apk/res-auto">
 
 	<LinearLayout
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:orientation="vertical">
 
-		<org.joinmastodon.android.ui.views.ComposeMediaLayout
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_gravity="center_horizontal">
-
-			<ImageView
-				android:id="@+id/photo"
-				android:layout_width="match_parent"
-				android:layout_height="match_parent"
-				android:scaleType="centerCrop"
-				android:importantForAccessibility="no"
-				tools:src="#0f0"/>
-
-		</org.joinmastodon.android.ui.views.ComposeMediaLayout>
-
-		<TextView
-			android:id="@+id/title"
+		<org.joinmastodon.android.ui.views.FixedAspectRatioImageView
+			android:id="@+id/photo"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:layout_marginBottom="8dp"
-			android:layout_marginLeft="16dp"
-			android:layout_marginRight="16dp"
+			android:scaleType="centerCrop"
+			android:importantForAccessibility="no"
+			tools:src="#0f0"/>
+
+		<org.joinmastodon.android.ui.views.FloatingHintEditTextLayout
+			android:id="@+id/bio_wrap"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
 			android:layout_marginTop="16dp"
-			android:textAppearance="@style/m3_headline_medium"
-			android:minHeight="36dp"
-			android:gravity="center_vertical"
-			android:text="@string/add_alt_text"/>
+			android:layout_marginBottom="4dp"
+			android:paddingTop="4dp"
+			android:paddingBottom="12dp"
+			app:labelTextColor="@color/m3_outlined_text_field_label"
+			android:foreground="@drawable/bg_m3_outlined_text_field">
 
-		<TextView
-			android:id="@+id/subtitle"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:layout_marginLeft="16dp"
-			android:layout_marginRight="16dp"
-			android:textAppearance="@style/m3_title_medium"
-			android:textColor="?android:textColorSecondary"
-			android:text="@string/alt_text_subtitle"/>
+			<EditText
+				android:id="@+id/edit"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginStart="16dp"
+				android:layout_marginEnd="16dp"
+				android:layout_marginTop="8dp"
+				android:padding="16dp"
+				android:background="@null"
+				android:inputType="textMultiLine|textCapSentences"
+				android:minLines="3"
+				android:gravity="top"
+				android:hint="@string/alt_text"/>
 
-		<EditText
-			android:id="@+id/edit"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:layout_margin="16dp"
-			android:minHeight="212dp"
-			android:gravity="top"
-			android:inputType="textCapSentences|textMultiLine"
-			android:hint="@string/alt_text_hint"/>
+		</org.joinmastodon.android.ui.views.FloatingHintEditTextLayout>
 
 	</LinearLayout>
 
