@@ -1,21 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<attr name="colorButtonText" format="color"/>
-	<attr name="colorSecondary" format="color"/>
-	<attr name="colorBackgroundLight" format="color"/>
-	<attr name="colorBackgroundLightest" format="color"/>
-	<attr name="colorDarkIcon" format="color"/>
-	<attr name="colorPollMostVoted" format="color"/>
-	<attr name="colorPollVoted" format="color"/>
-	<attr name="colorWindowBackground" format="color"/>
-	<attr name="secondaryButtonStyle" format="reference"/>
-	<attr name="buttonBackground" format="reference"/>
-	<attr name="colorAccentLight" format="color"/>
-	<attr name="colorSearchField" format="color"/>
-	<attr name="colorSearchHint" format="color"/>
-	<attr name="colorTabInactive" format="color"/>
-	<attr name="colorAccentLightest" format="color"/>
-	
 	<attr name="colorM3Primary" format="color"/>
 	<attr name="colorM3OnPrimary" format="color"/>
 	<attr name="colorM3PrimaryContainer" format="color"/>
@@ -49,9 +33,6 @@
 	<attr name="colorBoost" format="color" />
 	<attr name="colorFollow" format="color" />
 	<attr name="colorPoll" format="color" />
-
-	<attr name="primaryLargeButtonStyle" format="reference"/>
-	<attr name="secondaryLargeButtonStyle" format="reference"/>
 
 	<declare-styleable name="MaxWidthFrameLayout">
 		<attr name="android:maxWidth" format="dimension"/>

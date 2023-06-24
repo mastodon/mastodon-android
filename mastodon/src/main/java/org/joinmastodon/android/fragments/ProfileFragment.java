@@ -473,7 +473,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 				ssb.append(AccountSessionManager.getInstance().getAccount(accountID).domain);
 			}
 			ssb.append(" ");
-			Drawable lock=username.getResources().getDrawable(R.drawable.ic_fluent_lock_closed_20_filled, getActivity().getTheme()).mutate();
+			Drawable lock=username.getResources().getDrawable(R.drawable.ic_lock_fill1_20px, getActivity().getTheme()).mutate();
 			lock.setBounds(0, 0, lock.getIntrinsicWidth(), lock.getIntrinsicHeight());
 			lock.setTint(username.getCurrentTextColor());
 			ssb.append(getString(R.string.manually_approves_followers), new ImageSpan(lock, ImageSpan.ALIGN_BOTTOM), 0);

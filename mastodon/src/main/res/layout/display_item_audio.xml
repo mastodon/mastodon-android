@@ -18,10 +18,10 @@
 			android:layout_margin="8dp"
 			android:layout_gravity="bottom|start"
 			android:textAppearance="@style/m3_label_large"
-			android:textColor="?colorButtonText"
 			android:gravity="center_vertical|start"
 			android:singleLine="true"
 			android:fontFeatureSettings="'tnum'"
+			tools:textColor="#000"
 			tools:text="1:23"/>
 		
 		<ImageView

@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="get_started">Crear conta</string>
-	<string name="already_have_account">Xa teño unha conta</string>
 	<string name="log_in">Acceder</string>
 	<string name="next">Seguinte</string>
 	<string name="loading_instance">Obtendo info do servidor…</string>
@@ -18,10 +16,6 @@
 	<string name="user_favorited">marcou a túa publicación como favorita</string>
 	<string name="notification_boosted">promoveu a túa publicación</string>
 	<string name="poll_ended">rematou a enquisa</string>
-	<string name="time_seconds">%ds</string>
-	<string name="time_minutes">%dm</string>
-	<string name="time_hours">%dh</string>
-	<string name="time_days">%dd</string>
 	<string name="share_toot_title">Compartir</string>
 	<string name="settings">Axustes</string>
 	<string name="publish">Publicar</string>
@@ -36,10 +30,6 @@
 		<item quantity="one">seguindo</item>
 		<item quantity="other">seguindo</item>
 	</plurals>
-	<plurals name="posts">
-		<item quantity="one">publicación</item>
-		<item quantity="other">publicacións</item>
-	</plurals>
 	<string name="posts">Publicacións</string>
 	<string name="posts_and_replies">Publicacións e respostas</string>
 	<string name="media">Multimedia</string>
@@ -47,7 +37,6 @@
 	<string name="button_follow">Seguir</string>
 	<string name="button_following">Seguindo</string>
 	<string name="edit_profile">Editar perfil</string>
-	<string name="mention_user">Mencionar a %s</string>
 	<string name="share_user">Compartir %s</string>
 	<string name="mute_user">Acalar a %s</string>
 	<string name="unmute_user">Deixar de acalar a @%s</string>
@@ -80,7 +69,6 @@
 		<item quantity="one">%d día</item>
 		<item quantity="other">%d días</item>
 	</plurals>
-	<string name="compose_poll_duration">Duración: %s</string>
 	<plurals name="x_seconds_left">
 		<item quantity="one">Queda %d segundo</item>
 		<item quantity="other">Quedan %d segundos</item>
@@ -97,10 +85,6 @@
 		<item quantity="one">Queda %d día</item>
 		<item quantity="other">Quedan %d días</item>
 	</plurals>
-	<plurals name="x_voters">
-		<item quantity="one">%,d votante</item>
-		<item quantity="other">%,d votantes</item>
-	</plurals>
 	<string name="poll_closed">Pechada</string>
 	<string name="confirm_mute_title">Acalar conta</string>
 	<string name="confirm_mute">Confirma Acalar a %s</string>
@@ -116,10 +100,8 @@
 	<string name="confirm_unblock_domain_title">Desbloquear dominio</string>
 	<string name="confirm_unblock">Confirma o desbloqueo de %s</string>
 	<string name="do_unblock">Desbloquear</string>
-	<string name="button_muted">Acalada</string>
 	<string name="button_blocked">Bloqueado</string>
 	<string name="action_vote">Votar</string>
-	<string name="tap_to_reveal">Toca para mostrar</string>
 	<string name="delete">Eliminar</string>
 	<string name="confirm_delete_title">Eliminar publicación</string>
 	<string name="confirm_delete">Tes a certeza de querer eliminar esta publicación?</string>
@@ -138,10 +120,6 @@
 	<plurals name="x_people_talking">
 		<item quantity="one">%d persoa está comentando</item>
 		<item quantity="other">%d persoas están comentando</item>
-	</plurals>
-	<plurals name="discussed_x_times">
-		<item quantity="one">Comentado %d vez</item>
-		<item quantity="other">Comentado %d veces</item>
 	</plurals>
 	<string name="report_title">Denunciar a %s</string>
 	<string name="report_choose_reason">Cal é o problema con esta publicación?</string>
@@ -171,13 +149,10 @@
 	<string name="report_personal_title">Non queres ver esto?</string>
 	<string name="report_personal_subtitle">Cando ves en Mastodon algo que non che gusta podes retirar a esa persoa da túa experiencia como usuaria.</string>
 	<string name="back">Volver</string>
-	<string name="instance_catalog_title">Mastodon fórmano as persoas das diferentes comunidades.</string>
-	<string name="instance_catalog_subtitle">Elixe unha comunidade en función dos teus intereses, rexión ou de propósito xeral. Poderás conectar con calquera outra usuaria igualmente, independentemente da comunidade que elixas.</string>
 	<string name="search_communities">Nome do servidor ou URL</string>
 	<string name="instance_rules_title">Regras do servidor</string>
 	<string name="instance_rules_subtitle">Se continúas, aceptas seguir as regras fixadas polas moderadoras de %s.</string>
 	<string name="signup_title">Crear conta</string>
-	<string name="edit_photo">editar</string>
 	<string name="display_name">Nome</string>
 	<string name="username">Nome de usuaria</string>
 	<string name="email">Email</string>
@@ -206,20 +181,12 @@
 	<string name="resent_email">Enviado o email de confirmación</string>
 	<string name="compose_hint">Escribe o que che apeteza</string>
 	<string name="content_warning">Aviso sobre o contido</string>
-	<string name="add_image_description">Engadir descrición da imaxe…</string>
-	<string name="retry_upload">Reintentar a suba</string>
-	<string name="edit_image">Editar imaxe</string>
 	<string name="save">Gardar</string>
 	<string name="add_alt_text">Engadir texto descritivo</string>
-	<string name="alt_text_subtitle">O texto descritivo axúdalle a comprender a túa imaxe ás persoas con dificultades na visión. Intenta incluír só detalles que axuden a entender o contexto.</string>
-	<string name="alt_text_hint">ex. Un can mirando excépticamente á cámara como se non entendese nada.</string>
 	<string name="visibility_public">Público</string>
 	<string name="visibility_followers_only">Só para seguidoras</string>
 	<string name="visibility_private">Só para as mencionadas</string>
-	<string name="search_all">Todo</string>
-	<string name="search_people">Persoas</string>
 	<string name="recent_searches">Buscas recentes</string>
-	<string name="step_x_of_n">Paso %1$d de %2$d</string>
 	<string name="skip">Omitir</string>
 	<string name="notification_type_follow">Novas seguidoras</string>
 	<string name="notification_type_favorite">Favoritas</string>
@@ -238,37 +205,21 @@
 	<string name="theme_auto">Automático</string>
 	<string name="theme_light">Claro</string>
 	<string name="theme_dark">Escuro</string>
-	<string name="theme_true_black">Modo negro verdadeiro</string>
 	<string name="settings_behavior">Comportamento</string>
 	<string name="settings_gif">Reproducir avatares e emoji animados</string>
 	<string name="settings_custom_tabs">Usar navegador incluído na app</string>
 	<string name="settings_notifications">Notificacións</string>
-	<string name="notify_me_when">Avisarme cando</string>
-	<string name="notify_anyone">calquera</string>
-	<string name="notify_follower">unha seguidora</string>
-	<string name="notify_followed">alguén a quen sigo</string>
-	<string name="notify_none">ninguén</string>
-	<string name="notify_favorites">Favorece unha publicación miña</string>
-	<string name="notify_follow">Me segue</string>
-	<string name="notify_reblog">Promove a miña publicación</string>
-	<string name="notify_mention">Me menciona</string>
-	<string name="settings_boring">A zona aburrida</string>
-	<string name="settings_account">Axustes da conta</string>
 	<string name="settings_contribute">Colaborar con Mastodon</string>
 	<string name="settings_tos">Termos do servizo</string>
 	<string name="settings_privacy_policy">Política de privacidade</string>
-	<string name="settings_spicy">A zona picante</string>
 	<string name="settings_clear_cache">Limpar caché multimedia</string>
 	<string name="settings_app_version">Mastodon para Android v%1$s (%2$d)</string>
 	<string name="media_cache_cleared">Baleiramos a memoria caché</string>
 	<string name="confirm_log_out">Tes a certeza de queres pechar a sesión?</string>
-	<string name="sensitive_content">Contido sensible</string>
 	<string name="sensitive_content_explain">A autora marcou este multimedia como sensible. Toca para mostralo.</string>
 	<string name="media_hidden">Toca para mostrar</string>
 	<string name="avatar_description">Ir ao perfil de %s</string>
 	<string name="more_options">Máis opcións</string>
-	<string name="reveal_content">Mostrar contido</string>
-	<string name="hide_content">Agochar contido</string>
 	<string name="new_post">Nova publicación</string>
 	<string name="button_reply">Responder</string>
 	<string name="button_reblog">Promover</string>
@@ -278,7 +229,6 @@
 	<string name="add_media">Engadir multimedia</string>
 	<string name="add_poll">Engadir unha enquisa</string>
 	<string name="emoji">Emoji</string>
-	<string name="post_visibility">Visibilidade da publicación</string>
 	<string name="home_timeline">Cronoloxía de inicio</string>
 	<string name="my_profile">O meu perfil</string>
 	<string name="media_viewer">Visor multimedia</string>
@@ -305,18 +255,14 @@
 	<string name="no_app_to_handle_action">Non hai apps para esta acción</string>
 	<string name="local_timeline">Comunidade</string>
 	<string name="trending_posts_info_banner">Estas son as publicacións en voga no teu recuncho de Mastodon.</string>
-	<string name="trending_hashtags_info_banner">Estes son os cancelos en voga no teu recuncho de Mastodon.</string>
 	<string name="trending_links_info_banner">Estas son as novas máis compartidas no teu recuncho de Mastodon.</string>
 	<string name="local_timeline_info_banner">Estas son as publicacións máis recentes da xente que usa o mesmo servidor de Mastodon ca ti.</string>
-	<string name="dismiss">Desbotar</string>
 	<string name="see_new_posts">Ver novas publicacións</string>
 	<string name="load_missing_posts">Cargar publicacións que faltan</string>
 	<string name="follow_back">Seguir tamén</string>
 	<string name="button_follow_pending">Pendente</string>
 	<string name="follows_you">Séguete</string>
 	<string name="manually_approves_followers">Aprobar manualmente os seguimentos</string>
-	<string name="current_account">Conta actual</string>
-	<string name="log_out_account">Pechar sesión %s</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<plurals name="x_followers">
 		<item quantity="one">%,d seguidora</item>
@@ -336,8 +282,6 @@
 	</plurals>
 	<string name="timestamp_via_app">%1$s vía %2$s</string>
 	<string name="time_now">agora</string>
-	<string name="post_info_reblogs">Promocións</string>
-	<string name="post_info_favorites">Favoritas</string>
 	<string name="edit_history">Editar historial</string>
 	<string name="last_edit_at_x">Última edición %s</string>
 	<string name="time_just_now">xusto agora</string>
@@ -371,14 +315,9 @@
 	<string name="file_size_kb">%.2f KB</string>
 	<string name="file_size_mb">%.2f MB</string>
 	<string name="file_size_gb">%.2f GB</string>
-	<string name="file_upload_progress">%1$s de %2$s</string>
-	<string name="file_upload_time_remaining">%s restante</string>
-	<string name="upload_error_connection_lost">O dispositivo perdeu a conexión a internet</string>
 	<string name="upload_processing">Procesando…</string>
 	<!-- %s is version like 1.2.3 -->
-	<string name="update_available">Mastodon para Android %s está preparada para descargar.</string>
 	<!-- %s is version like 1.2.3 -->
-	<string name="update_ready">Descargouse Mastodon para Android %s e está lista para instalar.</string>
 	<!-- %s is file size -->
 	<string name="download_update">Descargar (%s)</string>
 	<string name="install_update">Instalar</string>
@@ -425,7 +364,6 @@
 	<string name="sending_follows">Seguindo usuarias…</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
 	<string name="signup_email_domain_blocked">%1$s non acepta rexistros desde %2$s. Proba outro ou &lt;a&gt;elixe outro servidor&lt;/a&gt;.</string>
-	<string name="signup_username_taken">Este nome de usuaria xa está en uso.</string>
 	<string name="spoiler_show">Mostrar igualmente</string>
 	<string name="spoiler_hide">Volver agochar</string>
 	<string name="poll_multiple_choice">Elixe unha ou varias</string>

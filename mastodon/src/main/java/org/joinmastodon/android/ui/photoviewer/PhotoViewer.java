@@ -174,7 +174,7 @@ public class PhotoViewer implements ZoomPanView.Listener{
 		toolbarWrap=uiOverlay.findViewById(R.id.toolbar_wrap);
 		toolbar=uiOverlay.findViewById(R.id.toolbar);
 		toolbar.setNavigationOnClickListener(v->onStartSwipeToDismissTransition(0));
-		toolbar.getMenu().add(R.string.download).setIcon(R.drawable.ic_fluent_arrow_download_24_regular).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+		toolbar.getMenu().add(R.string.download).setIcon(R.drawable.ic_download_24px).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
 		toolbar.setOnMenuItemClickListener(item->{
 			saveCurrentFile();
 			return true;

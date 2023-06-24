@@ -454,41 +454,6 @@ public class UiUtils{
 			delete.run();
 	}
 
-	public static void setRelationshipToActionButton(Relationship relationship, Button button){
-		boolean secondaryStyle;
-		if(relationship.blocking){
-			button.setText(R.string.button_blocked);
-			secondaryStyle=true;
-		}else if(relationship.blockedBy){
-			button.setText(R.string.button_follow);
-			secondaryStyle=false;
-		}else if(relationship.requested){
-			button.setText(R.string.button_follow_pending);
-			secondaryStyle=true;
-		}else if(!relationship.following){
-			button.setText(relationship.followedBy ? R.string.follow_back : R.string.button_follow);
-			secondaryStyle=false;
-		}else{
-			button.setText(R.string.button_following);
-			secondaryStyle=true;
-		}
-
-		button.setEnabled(!relationship.blockedBy);
-		int attr=secondaryStyle ? R.attr.secondaryButtonStyle : android.R.attr.buttonStyle;
-		TypedArray ta=button.getContext().obtainStyledAttributes(new int[]{attr});
-		int styleRes=ta.getResourceId(0, 0);
-		ta.recycle();
-		ta=button.getContext().obtainStyledAttributes(styleRes, new int[]{android.R.attr.background});
-		button.setBackground(ta.getDrawable(0));
-		ta.recycle();
-		ta=button.getContext().obtainStyledAttributes(styleRes, new int[]{android.R.attr.textColor});
-		if(relationship.blocking)
-			button.setTextColor(button.getResources().getColorStateList(R.color.error_600));
-		else
-			button.setTextColor(ta.getColorStateList(0));
-		ta.recycle();
-	}
-
 	public static void setRelationshipToActionButtonM3(Relationship relationship, Button button){
 		int styleRes;
 		if(relationship.blocking){

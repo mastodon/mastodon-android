@@ -5,10 +5,6 @@
 	<string name="error">දෝෂයකි</string>
 	<string name="ok">හරි</string>
 	<string name="notifications">දැනුම්දීම්</string>
-	<string name="time_seconds">ත.%d</string>
-	<string name="time_minutes">වි.%d</string>
-	<string name="time_hours">පැ.%d</string>
-	<string name="time_days">ද.%d</string>
 	<string name="share_toot_title">බෙදාගන්න</string>
 	<string name="settings">සැකසුම්</string>
 	<string name="publish">ප්‍රකාශනය</string>
@@ -17,7 +13,6 @@
 	<string name="media">මාධ්‍ය</string>
 	<string name="profile_about">පිලිබඳව</string>
 	<string name="edit_profile">පැතිකඩ සංස්කරණය</string>
-	<string name="mention_user">%s සැඳහුම</string>
 	<string name="share_user">%s බෙදාගන්න</string>
 	<string name="mute_user">%s නිහඬ</string>
 	<string name="unmute_user">%s නොනිහඬ</string>
@@ -60,15 +55,11 @@
 	<string name="report_reason_spam">එය අයාචිතයකි</string>
 	<!-- %s is the email address -->
 	<string name="local_timeline">ප්‍රජාව</string>
-	<string name="log_out_account">%s නික්මෙන්න</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<string name="time_now">දැන්</string>
-	<string name="post_info_favorites">ප්‍රියතමයන්</string>
 	<string name="edit_history">සංශෝධන ඉතිහාසය</string>
 	<string name="file_size_mb">මෙ.බ. %.2f</string>
 	<string name="file_size_gb">ගි.බ. %.2f</string>
-	<string name="file_upload_progress">%1$s / %2$s</string>
-	<string name="file_upload_time_remaining">%s ඉතිරියි</string>
 	<!-- %s is version like 1.2.3 -->
 	<!-- %s is version like 1.2.3 -->
 	<!-- %s is file size -->

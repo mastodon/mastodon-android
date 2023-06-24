@@ -61,9 +61,9 @@ public class SawtoothTearDrawable extends Drawable{
 		}
 		path.close();
 		Paint paint=new Paint(Paint.ANTI_ALIAS_FLAG);
-		paint.setColor(UiUtils.getThemeColor(context, R.attr.colorWindowBackground));
+		paint.setColor(UiUtils.getThemeColor(context, R.attr.colorM3Surface));
 		c.drawPath(path, paint);
-		paint.setColor(UiUtils.getThemeColor(context, R.attr.colorPollVoted));
+		paint.setColor(UiUtils.getThemeColor(context, R.attr.colorM3OutlineVariant));
 		paint.setStrokeWidth(actualStrokeWidth);
 		paint.setStyle(Paint.Style.STROKE);
 		c.drawPath(path, paint);

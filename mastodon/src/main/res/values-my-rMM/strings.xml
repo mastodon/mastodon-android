@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="get_started">အကောင့်ဖန်တီးမည်</string>
-	<string name="already_have_account">အကောင့်ရှိပြီးသားပါ</string>
 	<string name="log_in">လော့ဂ်အင်ဝင်မည်</string>
 	<string name="next">ရှေ့သို့</string>
 	<string name="loading_instance">ဆာဗာအချက်အလက်များကို ရယူနေသည်…</string>
@@ -16,10 +14,6 @@
 	<string name="user_sent_follow_request">က သင့်ကို ဖော်လိုးဝါအဖြစ်တောင်းဆိုမှုတစ်ခု ပို့လိုက်သည်</string>
 	<string name="user_favorited">က သင့်ပို့စ်ကို နှစ်သက်ခဲ့သည်</string>
 	<string name="poll_ended">ရဲ့ စစ်တမ်းပြီးဆုံးသွားပါပြီ</string>
-	<string name="time_seconds">%d စက္ကန့်</string>
-	<string name="time_minutes">%d မိနစ်</string>
-	<string name="time_hours">%d နာရီ</string>
-	<string name="time_days">%d ရက်</string>
 	<string name="settings">ဆက်တင်များ</string>
 	<string name="publish">တင်မည်</string>
 	<string name="discard_draft">စာကြမ်းကို ဖျက်မှာလား?</string>
@@ -31,9 +25,6 @@
 	<plurals name="following">
 		<item quantity="other">ဦးကို ဖောလိုးထား</item>
 	</plurals>
-	<plurals name="posts">
-		<item quantity="other">ပို့စ်</item>
-	</plurals>
 	<string name="posts">ပို့စ်များ</string>
 	<string name="posts_and_replies">ပို့စ်နှင့် ရီပလိုင်းများ</string>
 	<string name="media">ဓာတ်ပုံနှင့် ဗီဒီယိုများ</string>
@@ -41,7 +32,6 @@
 	<string name="button_follow">ဖောလိုး</string>
 	<string name="button_following">ဖောလိုးလုပ်ထား</string>
 	<string name="edit_profile">ပရိုဖိုင်းပြင်မည်</string>
-	<string name="mention_user">%s ကို မန်းရှင်း</string>
 	<string name="share_user">%s ကို မျှဝေ</string>
 	<string name="mute_user">%s ကို mute</string>
 	<string name="unmute_user">%s ကို unmute</string>
@@ -78,9 +68,6 @@
 	<plurals name="x_days_left">
 		<item quantity="other">%d ရက် ကျန်ရှိ</item>
 	</plurals>
-	<plurals name="x_voters">
-		<item quantity="other">မဲပေးသူ %,d ဦး</item>
-	</plurals>
 	<string name="poll_closed">မဲပေးခွင့်ပိတ်သွားပါပြီ</string>
 	<string name="confirm_block_title">အကောင့်ဘလော့ခြင်း</string>
 	<string name="confirm_block_domain_title">ဒိုမိန်းကို ဘလော့လုပ်ခြင်း</string>
@@ -92,7 +79,6 @@
 	<string name="do_unblock">ဘလော့ဖြုတ်မည်</string>
 	<string name="button_blocked">ဘလော့ထား</string>
 	<string name="action_vote">မဲပေးမည်</string>
-	<string name="tap_to_reveal">ကြည့်ရန် နှိပ်ပါ</string>
 	<string name="delete">ဖျက်မည်</string>
 	<string name="confirm_delete_title">ပို့စ်ဖျက်ခြင်း</string>
 	<string name="confirm_delete">ဒီပို့စ်ကိုဖျက်မှာ သေချာပြီလား?</string>
@@ -135,8 +121,6 @@
 	<string name="block_user_explain">သူက သင့်ကိုဖောလိုးလုပ်နိုင်မှာမဟုတ်တော့သလို သင့်ပိုစ့်တွေကိုလည်း မမြင်ရတော့ပါဘူး။ ဒါပေမယ့် သူဘလော့ခံလိုက်ရတာကိုတော့ တွေ့မြင်နိုင်ပါတယ်။</string>
 	<string name="report_personal_title">ဒါကို မမြင်ချင်ဘူးလား?</string>
 	<string name="report_personal_subtitle">Mastodon ပေါ်မှာ သင်မမြင်ချင်တာတစ်ခုခုတွေ့ခဲ့ရင် သူ့ကို သင့်ကွန်ရက်ကနေ ဖယ်ထုတ်နိုင်ပါတယ်။</string>
-	<string name="instance_catalog_title">Mastodon ကို မတူညီတဲ့ဆာဗာပေါင်းစုံက အသုံးပြုများနဲ့ ဖွဲ့စည်းထားပါတယ်။</string>
-	<string name="instance_catalog_subtitle">သင့်စိတ်ဝင်စားမှု သို့မဟုတ် သင့်ဒေသပေါ်လိုက်ပြီး ဆာဗာရွေးချယ်နိုင်သလို အထွေထွေသုံးဆာဗာကိုလည်း ရွေးချယ်နိုင်ပါသည်။ အခြားသူတွေနဲ့ ဆက်သွယ်ရာမှာတော့ မည်သည့်ဆာဗာပဲဖြစ်နေပါစေ အချင်းချင်း ပုံမှန်အတိုင်း ဆက်သွယ်ချိတ်ဆက်နိုင်မှာပါ။</string>
 	<string name="search_communities">ဆာဗာအမည် သို့မဟုတ် URL</string>
 	<string name="instance_rules_title">ဆာဗာစည်းမျဉ်းများ</string>
 	<string name="instance_rules_subtitle">ရှေ့ဆက်ခြင်းအားဖြင့် သင်သည် %s ၏ စီမံကွပ်ကဲသူများမှ ချမှတ်ထားသော အောက်ပါစည်းမျဉ်းများကို သဘောတူပြီးဖြစ်ပါသည်။</string>
@@ -166,29 +150,16 @@
 	<string name="theme_auto">အလိုလျောက်</string>
 	<string name="theme_light">အလင်း</string>
 	<string name="theme_dark">အမှောင်</string>
-	<string name="theme_true_black">အနက်စစ်စစ်မုဒ်</string>
 	<string name="settings_behavior">အပြုအမူဆိုင်ရာ</string>
 	<string name="settings_gif">ရွေ့လျားနေသော Avatar များနှင့် အီမိုဂျီများ</string>
 	<string name="settings_custom_tabs">အက်ပ်တွင်း ဘရောက်ဇာကို သုံးမည်</string>
 	<string name="settings_notifications">နိုတီများ</string>
-	<string name="notify_me_when">အသိပေးပါ</string>
-	<string name="notify_anyone">တစ်ယောက်ယောက်က</string>
-	<string name="notify_follower">ဖောလိုးဝါတစ်ယောက်က</string>
-	<string name="notify_followed">ကျွန်ုပ်ဖောလိုးလုပ်ထားသူက</string>
-	<string name="notify_none">မည်သူကမျှ</string>
-	<string name="notify_favorites">ကျွန်ုပ်ပို့စ်ကို နှစ်သက်လျှင်</string>
-	<string name="notify_follow">ကျွန်ုပ်ကို ဖောလိုးလုပ်လျှင်</string>
-	<string name="notify_mention">ကျွန်ုပ်ကို မန်းရှင်းခေါ်လျှင်</string>
-	<string name="settings_boring">ပျင်းစရာကောင်းသည်များ</string>
-	<string name="settings_account">အကောင့်ဆက်တင်များ</string>
 	<string name="settings_tos">ဝန်ဆောင်မှုဆိုင်ရာ စည်းကမ်းချက်များ</string>
 	<string name="settings_privacy_policy">ကိုယ်ရေးအချက်အလက်မူဝါဒ</string>
-	<string name="settings_spicy">ပူပူစပ်စပ်ဇုန်</string>
 	<string name="settings_clear_cache">မီဒီယာကက်ရှ်ကို ရှင်းလင်းမည်</string>
 	<string name="settings_app_version">အန်းဒရိုက်အတွက် မက်စ်စတိုဒွန် - ဗားရှင်း %1$s (%2$d)</string>
 	<string name="media_cache_cleared">မီဒီယာကက်ရှ်ကို ရှင်းလင်းလိုက်ပါပြီ</string>
 	<string name="confirm_log_out">အကောင့်ထွက်မှာ သေချာပြီလား?</string>
-	<string name="sensitive_content">ထိလွယ်ရှလွယ် အကြောင်းအရာ</string>
 	<string name="sensitive_content_explain">စာရေးသူက ဤဓာတ်ပုံ/ဗီဒီယိုကို ထိရှလွယ်သည်အဖြစ် မှတ်သားထားသည်၊ ကြည့်ရန် ထိပါ။</string>
 	<string name="media_hidden">ကြည့်ရန် ထိပါ</string>
 	<string name="avatar_description">%s ရဲ့ ပရိုဖိုင်းကို သွားမည်</string>
@@ -196,12 +167,10 @@
 	<string name="add_media">ဓာတ်ပုံ/ဗီဒီယိုထည့်ရန်</string>
 	<string name="add_poll">စစ်တမ်းကောက်ရန်</string>
 	<string name="emoji">အီမိုဂျီ</string>
-	<string name="post_visibility">ပို့စ်အား တွေ့မြင်နိုင်မှု</string>
 	<string name="home_timeline">မူလ တိုင်းမ်လိုင်း</string>
 	<string name="my_profile">ကျွန်ုပ်၏ပရိုဖိုင်း</string>
 	<string name="media_viewer">မီဒီယာကြည့်ရှုခြင်း</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
-	<string name="post_info_favorites">နှစ်သက်မှုများ</string>
 	<string name="edit_history">ပြင်ဆင်မှုမှတ်တမ်း</string>
 	<string name="last_edit_at_x">နောက်ဆုံးပြင်ဆင်ချိန်မှာ %s</string>
 	<string name="time_just_now">အခုလေးတင်</string>

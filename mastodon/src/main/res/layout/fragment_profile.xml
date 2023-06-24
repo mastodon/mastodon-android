@@ -49,7 +49,7 @@
 						android:paddingRight="8dp"
 						android:text="@string/follows_you"
 						android:textAllCaps="true"
-						android:textColor="@color/gray_50t"
+						android:textColor="#fff"
 						android:textSize="14dp"
 						android:visibility="gone"
 						tools:visibility="visible" />
@@ -101,7 +101,6 @@
 							android:layout_gravity="center"
 							android:elevation="10dp"
 							android:indeterminate="true"
-							android:indeterminateTint="?colorButtonText"
 							android:outlineProvider="none"
 							android:visibility="gone" />
 					</FrameLayout>

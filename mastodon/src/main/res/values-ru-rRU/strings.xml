@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="get_started">Создать учётную запись</string>
-	<string name="already_have_account">У меня уже есть учётная запись</string>
 	<string name="log_in">Войти</string>
 	<string name="next">Далее</string>
 	<string name="loading_instance">Получение информации о сервере…</string>
@@ -18,10 +16,6 @@
 	<string name="user_favorited">добавил(а) ваш пост в избранное</string>
 	<string name="notification_boosted">продвинул(а) ваш пост</string>
 	<string name="poll_ended">опрос завершён</string>
-	<string name="time_seconds">%dс</string>
-	<string name="time_minutes">%dм</string>
-	<string name="time_hours">%dч</string>
-	<string name="time_days">%dд</string>
 	<string name="share_toot_title">Поделиться</string>
 	<string name="settings">Настройки</string>
 	<string name="publish">Опубликовать</string>
@@ -40,12 +34,6 @@
 		<item quantity="many">подписок</item>
 		<item quantity="other">подписок</item>
 	</plurals>
-	<plurals name="posts">
-		<item quantity="one">пост</item>
-		<item quantity="few">поста</item>
-		<item quantity="many">постов</item>
-		<item quantity="other">постов</item>
-	</plurals>
 	<string name="posts">Посты</string>
 	<string name="posts_and_replies">Посты и ответы</string>
 	<string name="media">Медиа</string>
@@ -53,7 +41,6 @@
 	<string name="button_follow">Подписаться</string>
 	<string name="button_following">В подписках</string>
 	<string name="edit_profile">Редактировать профиль</string>
-	<string name="mention_user">Упомянуть %s</string>
 	<string name="share_user">Поделиться %s</string>
 	<string name="mute_user">Игнорировать %s</string>
 	<string name="unmute_user">Убрать %s из игнорируемых</string>
@@ -94,7 +81,6 @@
 		<item quantity="many">%d дней</item>
 		<item quantity="other">%d дней</item>
 	</plurals>
-	<string name="compose_poll_duration">Продолжительность: %s</string>
 	<plurals name="x_seconds_left">
 		<item quantity="one">Осталась %d секунда</item>
 		<item quantity="few">Осталось %d секунды</item>
@@ -119,12 +105,6 @@
 		<item quantity="many">Осталось %d дней</item>
 		<item quantity="other">Осталось %d дней</item>
 	</plurals>
-	<plurals name="x_voters">
-		<item quantity="one">%,d проголосовавший</item>
-		<item quantity="few">%,d проголосовавших</item>
-		<item quantity="many">%,d проголосовавших</item>
-		<item quantity="other">%,d проголосовавших</item>
-	</plurals>
 	<string name="poll_closed">Завершён</string>
 	<string name="confirm_mute_title">Игнорировать аккаунт</string>
 	<string name="confirm_mute">Игнорировать %s?</string>
@@ -140,10 +120,8 @@
 	<string name="confirm_unblock_domain_title">Разблокировать домен</string>
 	<string name="confirm_unblock">Убрать %s из списка блокировки?</string>
 	<string name="do_unblock">Разблокировать</string>
-	<string name="button_muted">Игнорируется</string>
 	<string name="button_blocked">Заблокирован(а)</string>
 	<string name="action_vote">Проголосовать</string>
-	<string name="tap_to_reveal">Нажмите, чтобы показать</string>
 	<string name="delete">Удалить</string>
 	<string name="confirm_delete_title">Удалить пост</string>
 	<string name="confirm_delete">Вы уверены, что хотите удалить этот пост?</string>
@@ -164,12 +142,6 @@
 		<item quantity="few">%d человека обсуждают</item>
 		<item quantity="many">%d человек обсуждают</item>
 		<item quantity="other">%d человека обсуждает</item>
-	</plurals>
-	<plurals name="discussed_x_times">
-		<item quantity="one">Обсуждалась %d раз</item>
-		<item quantity="few">Обсуждалась %d раза</item>
-		<item quantity="many">Обсуждалась %d раз</item>
-		<item quantity="other">Обсуждалась %d раза</item>
 	</plurals>
 	<string name="report_title">Пожаловаться на %s</string>
 	<string name="report_choose_reason">Что не так с этим постом?</string>
@@ -199,13 +171,10 @@
 	<string name="report_personal_title">Не хотите видеть это?</string>
 	<string name="report_personal_subtitle">Если кто-то в Mastodon публикует то, что вам не нравится, вы можете скрыть его.</string>
 	<string name="back">Назад</string>
-	<string name="instance_catalog_title">Mastodon состоит из пользователей разнообразных серверов.</string>
-	<string name="instance_catalog_subtitle">Выберите сервер общей принадлежности, либо на основе своих интересов или региона. Вы по-прежнему сможете взаимодействовать с кем захотите, независимо от выбранного сервера.</string>
 	<string name="search_communities">Имя сервера или URL</string>
 	<string name="instance_rules_title">Правила сервера</string>
 	<string name="instance_rules_subtitle">Продолжая, вы соглашаетесь соблюдать следующие правила, установленные и применяемые модераторами %s.</string>
 	<string name="signup_title">Создать Аккаунт</string>
-	<string name="edit_photo">изменить</string>
 	<string name="display_name">Имя</string>
 	<string name="username">Имя пользователя</string>
 	<string name="email">E-mail</string>
@@ -234,20 +203,12 @@
 	<string name="resent_email">Письмо подтверждения отправлено</string>
 	<string name="compose_hint">Напишите то, о чём думаете</string>
 	<string name="content_warning">Предупреждение о содержании</string>
-	<string name="add_image_description">Добавить описание…</string>
-	<string name="retry_upload">Повторить попытку</string>
-	<string name="edit_image">Редактировать изображение</string>
 	<string name="save">Сохранить</string>
 	<string name="add_alt_text">Добавить альтернативный текст</string>
-	<string name="alt_text_subtitle">Альтернативный текст служит описанием ваших фотографий для незрячих людей. Постарайтесь обойтись подробностями, которые позволят понять контекст.</string>
-	<string name="alt_text_hint">Пример: собака с подозрительным прищуром глядит в камеру.</string>
 	<string name="visibility_public">Публичный</string>
 	<string name="visibility_followers_only">Для подписчиков</string>
 	<string name="visibility_private">Для упомянутых</string>
-	<string name="search_all">Все</string>
-	<string name="search_people">Люди</string>
 	<string name="recent_searches">Последние запросы</string>
-	<string name="step_x_of_n">Шаг %1$d из %2$d</string>
 	<string name="skip">Пропустить</string>
 	<string name="notification_type_follow">Новые подписчики</string>
 	<string name="notification_type_favorite">Избранное</string>
@@ -268,37 +229,21 @@
 	<string name="theme_auto">Автоматически</string>
 	<string name="theme_light">Светлый</string>
 	<string name="theme_dark">Тёмный</string>
-	<string name="theme_true_black">OLED режим</string>
 	<string name="settings_behavior">Поведение</string>
 	<string name="settings_gif">Проигрывать анимированные аватарки и эмодзи</string>
 	<string name="settings_custom_tabs">Использовать браузер в приложении</string>
 	<string name="settings_notifications">Уведомления</string>
-	<string name="notify_me_when">Уведомлять меня, когда</string>
-	<string name="notify_anyone">кто угодно</string>
-	<string name="notify_follower">мой подписчик</string>
-	<string name="notify_followed">любой, на кого я подписан(а)</string>
-	<string name="notify_none">никто</string>
-	<string name="notify_favorites">Добавляет мой пост в избранное</string>
-	<string name="notify_follow">Подписывается на меня</string>
-	<string name="notify_reblog">Продвинуть пост</string>
-	<string name="notify_mention">Упоминает меня</string>
-	<string name="settings_boring">Зона скукотищи</string>
-	<string name="settings_account">Настройки учётной записи</string>
 	<string name="settings_contribute">Внести вклад в Mastodon</string>
 	<string name="settings_tos">Условия использования</string>
 	<string name="settings_privacy_policy">Политика конфиденциальности</string>
-	<string name="settings_spicy">Зона остряка</string>
 	<string name="settings_clear_cache">Очистить кэш медиа</string>
 	<string name="settings_app_version">Mastodon для Android v%1$s (%2$d)</string>
 	<string name="media_cache_cleared">Кэш медиа очищен</string>
 	<string name="confirm_log_out">Вы действительно хотите выйти из учётной записи?</string>
-	<string name="sensitive_content">Содержимое «деликатного характера»</string>
 	<string name="sensitive_content_explain">Автор отметил это содержимое как «деликатного характера». Нажмите, чтобы отобразить.</string>
 	<string name="media_hidden">Нажмите, чтобы показать</string>
 	<string name="avatar_description">Перейти к профилю %s</string>
 	<string name="more_options">Дополнительные настройки</string>
-	<string name="reveal_content">Отобразить содержимое</string>
-	<string name="hide_content">Скрыть содержимое</string>
 	<string name="new_post">Новый пост</string>
 	<string name="button_reply">Ответить</string>
 	<string name="button_reblog">Продвинуть</string>
@@ -308,7 +253,6 @@
 	<string name="add_media">Добавить медиа</string>
 	<string name="add_poll">Добавить опрос</string>
 	<string name="emoji">Эмодзи</string>
-	<string name="post_visibility">Видимость поста</string>
 	<string name="home_timeline">Домашняя лента</string>
 	<string name="my_profile">Мой профиль</string>
 	<string name="media_viewer">Просмотрщик медиа</string>
@@ -335,18 +279,14 @@
 	<string name="no_app_to_handle_action">Нет приложения для обработки этого действия</string>
 	<string name="local_timeline">Сообщество</string>
 	<string name="trending_posts_info_banner">Эти посты набирают популярность в вашем уголке Mastodon.</string>
-	<string name="trending_hashtags_info_banner">Эти хэштеги набирают популярность в вашем уголке Mastodon.</string>
 	<string name="trending_links_info_banner">Этими новостями в вашем уголке Mastodon делятся больше всего.</string>
 	<string name="local_timeline_info_banner">Это самые последние посты людей, которые используют тот же сервер Mastodon, что и вы.</string>
-	<string name="dismiss">Закрыть</string>
 	<string name="see_new_posts">Показать новые</string>
 	<string name="load_missing_posts">Загрузить недостающие посты</string>
 	<string name="follow_back">Подписаться в ответ</string>
 	<string name="button_follow_pending">В ожидании</string>
 	<string name="follows_you">Подписан(а) на вас</string>
 	<string name="manually_approves_followers">Вручную подтверждает подписки</string>
-	<string name="current_account">Текущий аккаунт</string>
-	<string name="log_out_account">Выйти (@%s)</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<plurals name="x_followers">
 		<item quantity="one">%,d подписчик</item>
@@ -374,8 +314,6 @@
 	</plurals>
 	<string name="timestamp_via_app">%1$s через %2$s</string>
 	<string name="time_now">только что</string>
-	<string name="post_info_reblogs">Продвижения</string>
-	<string name="post_info_favorites">Избранное</string>
 	<string name="edit_history">История изменений</string>
 	<string name="last_edit_at_x">Последнее изменение: %s</string>
 	<string name="time_just_now">только что</string>
@@ -413,14 +351,9 @@
 	<string name="file_size_kb">%.2f КиБ</string>
 	<string name="file_size_mb">%.2f МиБ</string>
 	<string name="file_size_gb">%.2f ГиБ</string>
-	<string name="file_upload_progress">%1$s из %2$s</string>
-	<string name="file_upload_time_remaining">Осталось %s</string>
-	<string name="upload_error_connection_lost">Ваше устройство потеряло соединение с Интернетом</string>
 	<string name="upload_processing">Обработка…</string>
 	<!-- %s is version like 1.2.3 -->
-	<string name="update_available">Mastodon для Android %s готов к загрузке.</string>
 	<!-- %s is version like 1.2.3 -->
-	<string name="update_ready">Mastodon для Android %s скачан и готов к установке.</string>
 	<!-- %s is file size -->
 	<string name="download_update">Скачать (%s)</string>
 	<string name="install_update">Установить</string>
@@ -467,7 +400,6 @@
 	<string name="sending_follows">Подписка на пользователей…</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
 	<string name="signup_email_domain_blocked">%1$s не позволяет зарегистрироваться от %2$s. Попробуйте другой или &lt;a&gt;выберите другой сервер&lt;/a&gt;.</string>
-	<string name="signup_username_taken">Это имя пользователя занято.</string>
 	<string name="spoiler_show">Все равно показать</string>
 	<string name="spoiler_hide">Спрятать повторно</string>
 	<string name="poll_multiple_choice">Выберите один или более</string>

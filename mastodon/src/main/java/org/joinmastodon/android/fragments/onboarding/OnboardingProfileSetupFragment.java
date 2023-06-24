@@ -60,7 +60,7 @@ public class OnboardingProfileSetupFragment extends ToolbarFragment implements R
 	@Override
 	public void onAttach(Activity activity){
 		super.onAttach(activity);
-		setNavigationBarColor(UiUtils.getThemeColor(activity, R.attr.colorWindowBackground));
+		setNavigationBarColor(UiUtils.getThemeColor(activity, R.attr.colorM3Surface));
 		accountID=getArguments().getString("account");
 		setTitle(R.string.profile_setup);
 	}

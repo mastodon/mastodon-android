@@ -75,7 +75,7 @@ public class GoogleMadeMeAddThisFragment extends ToolbarFragment{
 	@Override
 	public void onAttach(Activity activity){
 		super.onAttach(activity);
-		setNavigationBarColor(UiUtils.getThemeColor(activity, R.attr.colorWindowBackground));
+		setNavigationBarColor(UiUtils.getThemeColor(activity, R.attr.colorM3Surface));
 		instance=Parcels.unwrap(getArguments().getParcelable("instance"));
 
 		items.add(new Item("Mastodon for Android Privacy Policy", getString(R.string.privacy_policy_explanation), "joinmastodon.org", "https://joinmastodon.org/android/privacy", "https://joinmastodon.org/favicon-32x32.png"));

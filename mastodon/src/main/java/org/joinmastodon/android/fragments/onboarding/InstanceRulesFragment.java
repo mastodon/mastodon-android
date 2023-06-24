@@ -45,7 +45,7 @@ public class InstanceRulesFragment extends ToolbarFragment{
 	@Override
 	public void onAttach(Activity activity){
 		super.onAttach(activity);
-		setNavigationBarColor(UiUtils.getThemeColor(activity, R.attr.colorWindowBackground));
+		setNavigationBarColor(UiUtils.getThemeColor(activity, R.attr.colorM3Surface));
 		instance=Parcels.unwrap(getArguments().getParcelable("instance"));
 		setTitle(R.string.instance_rules_title);
 	}

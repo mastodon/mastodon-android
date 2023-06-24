@@ -9,7 +9,6 @@ import android.view.View;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.fragments.BaseStatusListFragment;
 import org.joinmastodon.android.ui.displayitems.NotificationHeaderStatusDisplayItem;
-import org.joinmastodon.android.ui.displayitems.ReblogOrReplyLineStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.StatusDisplayItem;
 
 import java.util.List;

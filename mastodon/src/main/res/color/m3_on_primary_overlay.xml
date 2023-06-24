@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-	 <item android:color="?colorM3OnPrimary" android:alpha="0.12"/>
+	 <item android:color="?colorM3OnPrimary" android:alpha="@dimen/overlay_ripple_alpha"/>
 </selector>
