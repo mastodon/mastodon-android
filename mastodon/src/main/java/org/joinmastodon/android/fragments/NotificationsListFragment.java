@@ -51,6 +51,7 @@ public class NotificationsListFragment extends BaseStatusListFragment<Notificati
 	private View endMark;
 	private String unreadMarker, realUnreadMarker;
 	private MenuItem markAllReadItem;
+	private boolean reloadingFromCache;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState){
@@ -110,10 +111,11 @@ public class NotificationsListFragment extends BaseStatusListFragment<Notificati
 
 	@Override
 	protected void doLoadData(int offset, int count){
-		endMark.setVisibility(View.GONE);
+		if(!refreshing && !reloadingFromCache)
+			endMark.setVisibility(View.GONE);
 		AccountSessionManager.getInstance()
 				.getAccount(accountID).getCacheController()
-				.getNotifications(offset>0 ? maxID : null, count, onlyMentions, refreshing, new SimpleCallback<>(this){
+				.getNotifications(offset>0 ? maxID : null, count, onlyMentions, refreshing && !reloadingFromCache, new SimpleCallback<>(this){
 					@Override
 					public void onSuccess(PaginatedResponse<List<Notification>> result){
 						if(getActivity()==null)
@@ -121,6 +123,7 @@ public class NotificationsListFragment extends BaseStatusListFragment<Notificati
 						onDataLoaded(result.items.stream().filter(n->n.type!=null).collect(Collectors.toList()), !result.items.isEmpty());
 						maxID=result.maxID;
 						endMark.setVisibility(result.items.isEmpty() ? View.VISIBLE : View.GONE);
+						reloadingFromCache=false;
 					}
 				});
 	}
@@ -129,6 +132,14 @@ public class NotificationsListFragment extends BaseStatusListFragment<Notificati
 	protected void onShown(){
 		super.onShown();
 		unreadMarker=realUnreadMarker=AccountSessionManager.get(accountID).getLastKnownNotificationsMarker();
+		if(!dataLoading){
+			if(onlyMentions){
+				refresh();
+			}else{
+				reloadingFromCache=true;
+				refresh();
+			}
+		}
 	}
 
 	@Override
