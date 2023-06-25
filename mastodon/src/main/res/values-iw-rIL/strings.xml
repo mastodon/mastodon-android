@@ -8,14 +8,6 @@
 	<string name="finishing_auth">מסיים אימות…</string>
 	<string name="in_reply_to">בתגובה ל־%s</string>
 	<string name="notifications">עדכונים</string>
-	<string name="user_followed_you">עקבו אחריכם</string>
-	<string name="user_sent_follow_request">שלחו בקשה לעכוב אחריכם</string>
-	<string name="user_favorited">אהבו את הרשומה שלכם</string>
-	<string name="poll_ended">הסקר נסגר</string>
-	<string name="time_seconds">%dשנ׳</string>
-	<string name="time_minutes">%dדק׳</string>
-	<string name="time_hours">%dשע׳</string>
-	<string name="time_days">%dי׳</string>
 	<string name="share_toot_title">שיתוף</string>
 	<string name="settings">הגדרות</string>
 	<string name="publish">פרסם</string>
@@ -34,12 +26,6 @@
 		<item quantity="many">עוקבים</item>
 		<item quantity="other">עוקבים</item>
 	</plurals>
-	<plurals name="posts">
-		<item quantity="one">רשומה</item>
-		<item quantity="two">רשומות</item>
-		<item quantity="many">רשומות</item>
-		<item quantity="other">רשומות</item>
-	</plurals>
 	<string name="posts">רשומות</string>
 	<string name="posts_and_replies">רשומות ותגובות</string>
 	<string name="media">מדיה</string>
@@ -47,8 +33,6 @@
 	<string name="button_follow">לעקוב</string>
 	<string name="button_following">עוקב</string>
 	<string name="edit_profile">עריכת הפרופיל</string>
-	<string name="mention_user">ציין את %s</string>
-	<string name="share_user">שתף את %s</string>
 	<string name="mute_user">השתק את %s</string>
 	<string name="unmute_user">הפסק השתקה של %s</string>
 	<string name="block_user">חסום את %s</string>
@@ -66,16 +50,11 @@
 	<string name="done">בוצע</string>
 	<string name="loading">טוען…</string>
 	<string name="report_title">דווח על %s</string>
-	<string name="report_choose_reason">מה לא בסדר ברשומה הזאת?</string>
-	<string name="report_choose_reason_account">מה לא בסדר ב־%s?</string>
 	<string name="report_choose_reason_subtitle">בחרו את האפשרות המתאימה ביותר</string>
-	<string name="report_reason_personal">אני לא אוהב/ת את זה</string>
 	<string name="report_reason_personal_subtitle">זה לא משהו שאתם רוצים לראות</string>
-	<string name="report_reason_spam">זה ספאם</string>
 	<string name="report_reason_spam_subtitle">קישורים מסוכנים, התערבות מזוייפת, או תגובות חוזרות ונשנות</string>
 	<string name="report_reason_violation">זה עובר על חוקי שרת</string>
 	<string name="report_reason_violation_subtitle">רתם מודעים לכך שזה עובר על חוקים ספציפיים</string>
-	<string name="report_reason_other">זה משהו אחר</string>
 	<string name="report_reason_other_subtitle">הבעיה לא מתאימה לקטגוריות האחרות</string>
 	<string name="report_choose_rule">אילו חוקים נשברים כאן?</string>
 	<string name="report_choose_rule_subtitle">בחרו את כל מה שרלוונטי</string>
@@ -90,6 +69,7 @@
 	<string name="category_journalism">עיתונאות</string>
 	<string name="category_lgbt">להט״ב</string>
 	<!-- %s is the email address -->
+	<!-- %s is the server domain -->
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<!-- %s is version like 1.2.3 -->
 	<!-- %s is version like 1.2.3 -->
@@ -97,4 +77,15 @@
 	<!-- %s is server domain -->
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<!-- %s is formatted file size ("467 KB image") -->
+	<!-- %s is the server domain -->
+	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
+	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
+	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
+	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<!-- %s is the username -->
+	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<!-- Shown like a content warning, %s is the name of the filter -->
+	<!-- Shown in the post header. Please keep it short -->
 </resources>
