@@ -64,7 +64,7 @@ public class AccountViewHolder extends BindableViewHolder<AccountViewModel> impl
 	private final HashMap<String, Relationship> relationships;
 
 	private Consumer<AccountViewHolder> onClick;
-	private AccessoryType accessoryType=AccessoryType.BUTTON;
+	private AccessoryType accessoryType;
 	private boolean showBio;
 	private boolean checked;
 

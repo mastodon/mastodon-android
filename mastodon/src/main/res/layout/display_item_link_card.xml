@@ -32,6 +32,7 @@
 				android:textAppearance="@style/m3_body_large"
 				android:singleLine="true"
 				android:ellipsize="end"
+				android:textColor="?colorM3OnSurface"
 				tools:text="Link title"/>
 			<TextView
 				android:id="@+id/description"
@@ -40,13 +41,14 @@
 				android:maxLines="2"
 				android:ellipsize="end"
 				android:textAppearance="@style/m3_body_medium"
+				android:textColor="?colorM3OnSurface"
 				tools:text="Link description"/>
 			<TextView
 				android:id="@+id/domain"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:textAppearance="@style/m3_body_medium"
-				android:textColor="?android:textColorSecondary"
+				android:textColor="?colorM3OnSurfaceVariant"
 				tools:text="example.com"/>
 		</LinearLayout>
 	</org.joinmastodon.android.ui.views.MaxWidthFrameLayout>
