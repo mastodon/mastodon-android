@@ -1,27 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="get_started">Vytvořit účet</string>
-	<string name="already_have_account">Již mám účet</string>
 	<string name="log_in">Přihlásit se</string>
 	<string name="next">Další</string>
 	<string name="loading_instance">Načítání informací o serveru…</string>
 	<string name="error">Chyba</string>
-	<string name="not_a_mastodon_instance">%s se nezdá být Mastodon serverem.</string>
 	<string name="ok">OK</string>
 	<string name="preparing_auth">Příprava na autentizaci…</string>
 	<string name="finishing_auth">Dokončení autentizace…</string>
 	<string name="user_boosted">%s boostnul(a)</string>
 	<string name="in_reply_to">V odpovědi na %s</string>
 	<string name="notifications">Upozornění</string>
-	<string name="user_followed_you">vás začal(a) sledovat</string>
-	<string name="user_sent_follow_request">vám poslal(a) žádost o sledování</string>
-	<string name="user_favorited">si oblíbil(a) váš příspěvek</string>
-	<string name="notification_boosted">boostnul(a) váš příspěvek</string>
-	<string name="poll_ended">anketa skončila</string>
-	<string name="time_seconds">%d s</string>
-	<string name="time_minutes">%d m</string>
-	<string name="time_hours">%d h</string>
-	<string name="time_days">%d d</string>
 	<string name="share_toot_title">Sdílet</string>
 	<string name="settings">Nastavení</string>
 	<string name="publish">Zveřejnit</string>
@@ -40,12 +28,6 @@
 		<item quantity="many">sledovaných</item>
 		<item quantity="other">sledovaných</item>
 	</plurals>
-	<plurals name="posts">
-		<item quantity="one">příspěvek</item>
-		<item quantity="few">příspěvky</item>
-		<item quantity="many">příspěvků</item>
-		<item quantity="other">příspěvků</item>
-	</plurals>
 	<string name="posts">Příspěvky</string>
 	<string name="posts_and_replies">Příspěvky a odpovědi</string>
 	<string name="media">Média</string>
@@ -53,8 +35,6 @@
 	<string name="button_follow">Sledovat</string>
 	<string name="button_following">Sleduji</string>
 	<string name="edit_profile">Upravit profil</string>
-	<string name="mention_user">Zmínit %s</string>
-	<string name="share_user">Sdílet %s</string>
 	<string name="mute_user">Skrýt %s</string>
 	<string name="unmute_user">Zrušit skrytí @%s</string>
 	<string name="block_user">Blokovat %s</string>
@@ -94,7 +74,6 @@
 		<item quantity="many">%d dnů</item>
 		<item quantity="other">%d dnů</item>
 	</plurals>
-	<string name="compose_poll_duration">Doba trvání: %s</string>
 	<plurals name="x_seconds_left">
 		<item quantity="one">Zbývá %d sekunda</item>
 		<item quantity="few">Zbývá %d sekundy</item>
@@ -119,12 +98,6 @@
 		<item quantity="many">Zbývá %d dní</item>
 		<item quantity="other">Zbývá %d dní</item>
 	</plurals>
-	<plurals name="x_voters">
-		<item quantity="one">%,d hlasující</item>
-		<item quantity="few">%,d hlasující</item>
-		<item quantity="many">%,d hlasujících</item>
-		<item quantity="other">%,d hlasujících</item>
-	</plurals>
 	<string name="poll_closed">Uzavřeno</string>
 	<string name="confirm_mute_title">Skrýt účet</string>
 	<string name="confirm_mute">Potvrdit skrytí %s</string>
@@ -140,24 +113,19 @@
 	<string name="confirm_unblock_domain_title">Odblokovat doménu</string>
 	<string name="confirm_unblock">Potvrdit odblokování %s</string>
 	<string name="do_unblock">Odblokovat</string>
-	<string name="button_muted">Skrytý</string>
 	<string name="button_blocked">Blokovaný</string>
 	<string name="action_vote">Hlasovat</string>
-	<string name="tap_to_reveal">Klepněte pro zobrazení</string>
 	<string name="delete">Smazat</string>
-	<string name="confirm_delete_title">Smazat příspěvek</string>
 	<string name="confirm_delete">Opravdu chcete smazat tento příspěvek?</string>
 	<string name="deleting">Mazání…</string>
 	<string name="notification_channel_audio_player">Přehrávání zvuku</string>
 	<string name="play">Přehrát</string>
 	<string name="pause">Pozastavit</string>
-	<string name="log_out">Odhlásit se</string>
 	<string name="add_account">Přidat účet</string>
 	<string name="search_hint">Hledat</string>
 	<string name="hashtags">Hashtagy</string>
 	<string name="news">Zprávy</string>
 	<string name="for_you">Pro vás</string>
-	<string name="all_notifications">Vše</string>
 	<string name="mentions">Zmínky</string>
 	<plurals name="x_people_talking">
 		<item quantity="one">%d člověk mluví</item>
@@ -165,23 +133,12 @@
 		<item quantity="many">%d lidí mluví</item>
 		<item quantity="other">%d lidí mluví</item>
 	</plurals>
-	<plurals name="discussed_x_times">
-		<item quantity="one">Diskutováno %dkrát</item>
-		<item quantity="few">Diskutováno %dkrát</item>
-		<item quantity="many">Diskutováno %dkrát</item>
-		<item quantity="other">Diskutováno %dkrát</item>
-	</plurals>
 	<string name="report_title">Nahlásit %s</string>
-	<string name="report_choose_reason">Co je na tomto příspěvku špatně?</string>
-	<string name="report_choose_reason_account">Co je špatně na %s?</string>
 	<string name="report_choose_reason_subtitle">Vyberte nejbližší možnost</string>
-	<string name="report_reason_personal">Nelíbí se mi to</string>
 	<string name="report_reason_personal_subtitle">Není to něco, co chcete vidět</string>
-	<string name="report_reason_spam">Je to spam</string>
 	<string name="report_reason_spam_subtitle">Škodlivé odkazy, falešné interakce nebo opakované odpovědi</string>
 	<string name="report_reason_violation">Porušuje to pravidla serveru</string>
 	<string name="report_reason_violation_subtitle">Máte za to, že to porušuje konkrétní pravidla</string>
-	<string name="report_reason_other">It\'s something else</string>
 	<string name="report_reason_other_subtitle">Problém neodpovídá ostatním kategoriím</string>
 	<string name="report_choose_rule">Která pravidla to porušuje?</string>
 	<string name="report_choose_rule_subtitle">Vyberte všechna relevantní</string>
@@ -190,22 +147,13 @@
 	<string name="report_comment_title">Je ještě něco jiného, co bychom měli vědět?</string>
 	<string name="report_comment_hint">Další komentáře</string>
 	<string name="sending_report">Odesílání hlášení…</string>
-	<string name="report_sent_title">Děkujeme za nahlášení, podíváme se na to.</string>
-	<string name="report_sent_subtitle">Zatímco to posuzujeme, můžete podniknout akce proti %s.</string>
 	<string name="unfollow_user">Přestat sledovat %s</string>
 	<string name="unfollow">Přestat sledovat</string>
-	<string name="mute_user_explain">Neuvidíte jejich příspěvky nebo boosty ve svém domovském kanálu. Nebudou vědět, že jsou skryti.</string>
-	<string name="block_user_explain">Tento uživatel vás již nebude moci sledovat ani vidět vaše příspěvky, ale může zjistit, že je blokován.</string>
-	<string name="report_personal_title">Nechcete tohle vidět?</string>
-	<string name="report_personal_subtitle">Když uvidíte něco, co se vám nelíbí na Mastodonu, můžete odstranit tuto osobu ze svého zážitku.</string>
 	<string name="back">Zpět</string>
-	<string name="instance_catalog_title">Mastodon tvoří uživatelé z různých serverů.</string>
-	<string name="instance_catalog_subtitle">Vyberte si server podle na svých zájmů, regionu nebo obecného účelu. Stále se můžete spojit se všemi bez ohledu na server.</string>
 	<string name="search_communities">Název nebo URL serveru</string>
 	<string name="instance_rules_title">Pravidla serveru</string>
 	<string name="instance_rules_subtitle">Pokračováním souhlasíte s následujícími pravidly, která jsou nastavena a prosazována moderátory %s.</string>
 	<string name="signup_title">Vytvořit účet</string>
-	<string name="edit_photo">upravit</string>
 	<string name="display_name">Jméno</string>
 	<string name="username">Uživatelské jméno</string>
 	<string name="email">E-mail</string>
@@ -227,27 +175,14 @@
 	<string name="category_tech">Technologie</string>
 	<string name="confirm_email_title">Zkontrolujte si příchozí poštu</string>
 	<!-- %s is the email address -->
-	<string name="confirm_email_subtitle">Klepněte na odkaz, který jsme vám poslali, abyste ověřili %s. Budeme tu na vás čekat.</string>
-	<string name="confirm_email_didnt_get">Nedostali jste odkaz?</string>
 	<string name="resend">Poslat znovu</string>
 	<string name="open_email_app">Otevřít e-mailovou aplikaci</string>
 	<string name="resent_email">Potvrzující e-mail byl odeslán</string>
-	<string name="compose_hint">Napište nebo vložte, co máte na mysli</string>
 	<string name="content_warning">Varování o obsahu</string>
-	<string name="add_image_description">Přidat popis obrázku…</string>
-	<string name="retry_upload">Opakovat nahrání</string>
-	<string name="edit_image">Upravit obrázek</string>
 	<string name="save">Uložit</string>
 	<string name="add_alt_text">Přidat alternativní text</string>
-	<string name="alt_text_subtitle">Alternativní text popisuje obrázky pro lidi se špatným zrakem nebo bez zraku. Pokuste se zahrnout jen tolik obsahu, kolik je potřeba pro pochopení kontextu.</string>
-	<string name="alt_text_hint">např. Podezřívavě rozhlížející se pes se zúženýma očima namířenýma na kameru.</string>
 	<string name="visibility_public">Veřejné</string>
 	<string name="visibility_followers_only">Pouze sledující</string>
-	<string name="visibility_private">Pouze zmínění lidé</string>
-	<string name="search_all">Vše</string>
-	<string name="search_people">Lidé</string>
-	<string name="recent_searches">Nedávná hledání</string>
-	<string name="step_x_of_n">Krok %1$d z %2$d</string>
 	<string name="skip">Přeskočit</string>
 	<string name="notification_type_follow">Noví sledující</string>
 	<string name="notification_type_favorite">Oblíbené</string>
@@ -256,49 +191,21 @@
 	<string name="notification_type_poll">Ankety</string>
 	<string name="choose_account">Vybrat účet</string>
 	<string name="err_not_logged_in">Nejprve se přihlaste do Mastodonu</string>
-	<plurals name="cant_add_more_than_x_attachments">
-		<item quantity="one">Nelze přidat více než %d multimediální přílohu</item>
-		<item quantity="few">Nelze přidat více než %d multimediální přílohy</item>
-		<item quantity="many">Nelze přidat více než %d multimediálních příloh</item>
-		<item quantity="other">Nelze přidat více než %d multimediálních příloh</item>
-	</plurals>
 	<string name="media_attachment_unsupported_type">Soubor %s nepatří mezi podporované typy</string>
 	<string name="media_attachment_too_big">Soubor %1$s překračuje limit velikosti %2$s MB</string>
-	<string name="settings_theme">Vizuální vzhled</string>
-	<string name="theme_auto">Automatická</string>
 	<string name="theme_light">Světlý</string>
 	<string name="theme_dark">Tmavý</string>
-	<string name="theme_true_black">Režim skutečně černé</string>
 	<string name="settings_behavior">Chování</string>
 	<string name="settings_gif">Přehrávat animované avatary a emoji</string>
 	<string name="settings_custom_tabs">Používat prohlížeč v aplikaci</string>
 	<string name="settings_notifications">Oznámení</string>
-	<string name="notify_me_when">Upozornit mě, když</string>
-	<string name="notify_anyone">kdokoliv</string>
-	<string name="notify_follower">sledující</string>
-	<string name="notify_followed">někdo, koho sleduji</string>
-	<string name="notify_none">nikoho</string>
-	<string name="notify_favorites">Oblíbí si můj příspěvek</string>
-	<string name="notify_follow">Začne mě sledovat</string>
-	<string name="notify_reblog">Boostuje můj příspěvek</string>
-	<string name="notify_mention">Zmíní mě</string>
-	<string name="settings_boring">Nudná část</string>
-	<string name="settings_account">Nastavení účtu</string>
 	<string name="settings_contribute">Přispějte do Mastodonu</string>
 	<string name="settings_tos">Podmínky užití</string>
 	<string name="settings_privacy_policy">Zásady ochrany osobních údajů</string>
-	<string name="settings_spicy">Ostrá část</string>
 	<string name="settings_clear_cache">Vymazat mezipaměť médií</string>
 	<string name="settings_app_version">Mastodon for Android v%1$s (%2$d)</string>
 	<string name="media_cache_cleared">Mezipaměť médií byla vymazána</string>
-	<string name="confirm_log_out">Opravdu se chcete odhlásit?</string>
-	<string name="sensitive_content">Citlivý obsah</string>
-	<string name="sensitive_content_explain">Autor označil toto médium jako citlivé. Klepnutím ho zobrazíte.</string>
-	<string name="media_hidden">Klepněte pro zobrazení</string>
-	<string name="avatar_description">Přejít na profil uživatele %s</string>
 	<string name="more_options">Více možností</string>
-	<string name="reveal_content">Odhalit obsah</string>
-	<string name="hide_content">Skrýt obsah</string>
 	<string name="new_post">Nový příspěvek</string>
 	<string name="button_reply">Odpovědět</string>
 	<string name="button_reblog">Boost</string>
@@ -308,13 +215,11 @@
 	<string name="add_media">Přidat média</string>
 	<string name="add_poll">Přidat anketu</string>
 	<string name="emoji">Emoji</string>
-	<string name="post_visibility">Viditelnost příspěvku</string>
 	<string name="home_timeline">Domovská časová osa</string>
 	<string name="my_profile">Můj profil</string>
 	<string name="media_viewer">Prohlížeč médií</string>
 	<string name="follow_user">Sledovat %s</string>
 	<string name="unfollowed_user">Sledování %s bylo zrušeno</string>
-	<string name="followed_user">Nyní sledujete %s</string>
 	<string name="following_user_requested">Požádáno o sledování %s</string>
 	<string name="open_in_browser">Otevřít v prohlížeči</string>
 	<string name="hide_boosts_from_user">Skrýt boosty od %s</string>
@@ -332,21 +237,13 @@
 	<string name="error_saving_file">Nastala chyba při ukládání souboru</string>
 	<string name="file_saved">Soubor byl uložen</string>
 	<string name="downloading">Stahování…</string>
-	<string name="no_app_to_handle_action">Nebyly nalezeny žádné aplikace pro tuto úlohu</string>
-	<string name="local_timeline">Komunita</string>
-	<string name="trending_posts_info_banner">Tyto příspěvky získávají na popularitě ve vašem koutu Mastodonu.</string>
-	<string name="trending_hashtags_info_banner">Tyto hashtagy získávají na popularitě ve vašem koutu Mastodonu.</string>
-	<string name="trending_links_info_banner">Tyto zprávy jsou nejvíce sdíleny ve vašem koutu Mastodonu.</string>
-	<string name="local_timeline_info_banner">Toto jsou nejnovější příspěvky od lidí, kteří používají stejný server Mastodonu jako vy.</string>
-	<string name="dismiss">Zavřít</string>
+	<!-- %s is the server domain -->
 	<string name="see_new_posts">Zobrazit nové příspěvky</string>
 	<string name="load_missing_posts">Načíst chybějící příspěvky</string>
 	<string name="follow_back">Sledovat nazpět</string>
 	<string name="button_follow_pending">Čekající</string>
 	<string name="follows_you">Sleduje vás</string>
 	<string name="manually_approves_followers">Ručně schvaluje sledující</string>
-	<string name="current_account">Současný účet</string>
-	<string name="log_out_account">Odhlásit %s</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<plurals name="x_followers">
 		<item quantity="one">%,d sledující</item>
@@ -368,8 +265,6 @@
 	</plurals>
 	<string name="timestamp_via_app">%1$s přes %2$s</string>
 	<string name="time_now">teď</string>
-	<string name="post_info_reblogs">Boosty</string>
-	<string name="post_info_favorites">Oblíbení</string>
 	<string name="edit_history">Historie úprav</string>
 	<string name="last_edit_at_x">Poslední úprava %s</string>
 	<string name="time_just_now">právě teď</string>
@@ -407,14 +302,9 @@
 	<string name="file_size_kb">%.2f KB</string>
 	<string name="file_size_mb">%.2f MB</string>
 	<string name="file_size_gb">%.2f GB</string>
-	<string name="file_upload_progress">%1$s z %2$s</string>
-	<string name="file_upload_time_remaining">Zbývá %s</string>
-	<string name="upload_error_connection_lost">Vaše zařízení ztratilo připojení k internetu</string>
 	<string name="upload_processing">Zpracovávání…</string>
 	<!-- %s is version like 1.2.3 -->
-	<string name="update_available">Mastodon pro Android %s je připraven ke stažení.</string>
 	<!-- %s is version like 1.2.3 -->
-	<string name="update_ready">Mastodon pro Android %s je stažený a připravený k instalaci.</string>
 	<!-- %s is file size -->
 	<string name="download_update">Stáhnout (%s)</string>
 	<string name="install_update">Instalovat</string>
@@ -431,7 +321,6 @@
 	<string name="login_title">Vítejte zpět</string>
 	<string name="login_subtitle">Přihlaste se pomocí serveru, kde jste vytvořili svůj účet.</string>
 	<string name="server_url">URL serveru</string>
-	<string name="signup_random_server_explain">Pokud budete pokračovat bez výběru, vybereme server založený na vašem jazyce.</string>
 	<string name="server_filter_any_language">Libovolný jazyk</string>
 	<string name="server_filter_instant_signup">Okamžitá registrace</string>
 	<string name="server_filter_manual_review">Ruční kontrola</string>
@@ -444,7 +333,6 @@
 	<string name="server_filter_region_oceania">Oceánie</string>
 	<string name="not_accepting_new_members">Nepřijímá nové členy</string>
 	<string name="category_special_interests">Speciální zájmy</string>
-	<string name="signup_passwords_dont_match">Hesla se neshodují</string>
 	<string name="pick_server_for_me">Vybrat pro mě</string>
 	<string name="profile_add_row">Přidat řádek</string>
 	<string name="profile_setup">Nastavení profilu</string>
@@ -453,15 +341,12 @@
 	<string name="popular_on_mastodon">Populární na Mastodonu</string>
 	<string name="follow_all">Sledovat všechny</string>
 	<string name="server_rules_disagree">Nesouhlasit</string>
-	<string name="privacy_policy_explanation">Zkráceně: nic nesbíráme a nezpracováváme.</string>
 	<!-- %s is server domain -->
 	<string name="server_policy_disagree">Nesouhlasit s %s</string>
 	<string name="profile_bio">O vás</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<string name="sending_follows">Sledování uživatelů…</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
-	<string name="signup_email_domain_blocked">%1$s neumožňuje registraci od %2$s. Zkuste jiný nebo &lt;a&gt;vyberte jiný server&lt;/a&gt;.</string>
-	<string name="signup_username_taken">Toto uživatelské jméno je obsazené.</string>
 	<string name="spoiler_show">Přesto zobrazit</string>
 	<string name="spoiler_hide">Znovu skrýt</string>
 	<string name="poll_multiple_choice">Vyberte jeden nebo více</string>
@@ -481,4 +366,15 @@
 	<string name="welcome_paragraph1">Mastodon je decentralizovaná sociální síť, což znamená, že ji neovládá žádná jednotlivá společnost. Skládá se z mnoha nezávisle spravovaných serverů, všechny jsou propojeny dohromady.</string>
 	<string name="what_are_servers">Co jsou to servery?</string>
 	<string name="welcome_paragraph2"><![CDATA[Každý účet Mastodon je hostován na serveru - každý s vlastními hodnotami, pravidly a správci. Bez ohledu na to, který si vyberete, můžete sledovat a komunikovat s lidmi na jakémkoliv serveru.]]></string>
+	<!-- %s is formatted file size ("467 KB image") -->
+	<!-- %s is the server domain -->
+	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
+	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
+	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
+	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<!-- %s is the username -->
+	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<!-- Shown like a content warning, %s is the name of the filter -->
+	<!-- Shown in the post header. Please keep it short -->
 </resources>
