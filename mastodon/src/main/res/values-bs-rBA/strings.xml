@@ -8,13 +8,6 @@
 	<string name="finishing_auth">Završavamo autorizaciju…</string>
 	<string name="in_reply_to">Odgovor za %s</string>
 	<string name="notifications">Obavijesti</string>
-	<string name="user_followed_you">vas prati</string>
-	<string name="user_sent_follow_request">poslao/la zahtjev za prijateljstvo</string>
-	<string name="poll_ended">anketa je završena</string>
-	<string name="time_seconds">%ds</string>
-	<string name="time_minutes">%dm</string>
-	<string name="time_hours">%dh</string>
-	<string name="time_days">%dd</string>
 	<string name="share_toot_title">Podijeli</string>
 	<string name="settings">Postavke</string>
 	<string name="publish">Objavi</string>
@@ -31,11 +24,6 @@
 		<item quantity="few">prati</item>
 		<item quantity="other">prati</item>
 	</plurals>
-	<plurals name="posts">
-		<item quantity="one">objava</item>
-		<item quantity="few">objave</item>
-		<item quantity="other">objave</item>
-	</plurals>
 	<string name="posts">Objave</string>
 	<string name="posts_and_replies">Objave i Odgovori</string>
 	<string name="media">Slike / Video</string>
@@ -43,8 +31,6 @@
 	<string name="button_follow">Prati</string>
 	<string name="button_following">Prati</string>
 	<string name="edit_profile">Uredi Profil</string>
-	<string name="mention_user">Spomeni %s</string>
-	<string name="share_user">Podijeli %s</string>
 	<string name="mute_user">Utišaj %s</string>
 	<string name="unmute_user">Uključi %s</string>
 	<string name="block_user">Blokiraj %s</string>
@@ -60,7 +46,6 @@
 	<string name="saving">Sačuvano…</string>
 	<string name="post_from_user">Objava od %s</string>
 	<string name="poll_option_hint">Opcija %d</string>
-	<string name="compose_poll_duration">Trajanje: %s</string>
 	<string name="poll_closed">Zatvoreno</string>
 	<string name="confirm_mute_title">Ušuti korisnika</string>
 	<string name="confirm_mute">Potvrdi za %s</string>
@@ -76,41 +61,26 @@
 	<string name="confirm_unblock_domain_title">Iskljuci blokadu domene</string>
 	<string name="confirm_unblock">Potvrdi deblokadu %s</string>
 	<string name="do_unblock">Iskljuci blokadu</string>
-	<string name="button_muted">Utišan</string>
 	<string name="button_blocked">Blokiran</string>
 	<string name="action_vote">Glasaj</string>
-	<string name="tap_to_reveal">Klikni da vidiš</string>
 	<string name="delete">Briši</string>
-	<string name="confirm_delete_title">Briši objavu</string>
 	<string name="confirm_delete">Sigurno želite obrisati ovu objavu?</string>
 	<string name="deleting">Brišemo…</string>
 	<string name="notification_channel_audio_player">Audio zapis</string>
 	<string name="play">Play</string>
 	<string name="pause">Pauza</string>
-	<string name="log_out">Odjavi se</string>
 	<string name="add_account">Dodaj račun</string>
 	<string name="search_hint">Traži</string>
 	<string name="hashtags">Haštagovi</string>
 	<string name="news">Novosti</string>
 	<string name="for_you">Za vas</string>
-	<string name="all_notifications">Sve</string>
 	<string name="mentions">Spominjanja</string>
-	<plurals name="discussed_x_times">
-		<item quantity="one">Komentarisano %d puta</item>
-		<item quantity="few">Komentarisano %d puta</item>
-		<item quantity="other">Komentarisano %d puta</item>
-	</plurals>
 	<string name="report_title">Prijavi %s</string>
-	<string name="report_choose_reason">Šta nije u redu sa ovom objavom?</string>
-	<string name="report_choose_reason_account">Šta nije u redu sa %s?</string>
 	<string name="report_choose_reason_subtitle">Izaberite najbolju opciju</string>
-	<string name="report_reason_personal">Ne svidja mi se</string>
 	<string name="report_reason_personal_subtitle">Nije lijepo za vidjeti</string>
-	<string name="report_reason_spam">Nepoželjan sadržaj</string>
 	<string name="report_reason_spam_subtitle">Zlonamjerni linkovi, lažni sadržaj, ili višestruki odgovori</string>
 	<string name="report_reason_violation">Protivno sa pravilima servera</string>
 	<string name="report_reason_violation_subtitle">U protivnosti sa odredjenim pravilima</string>
-	<string name="report_reason_other">Nešto drugo</string>
 	<string name="report_reason_other_subtitle">Problem ne spada u bilo koju navedenu grupu</string>
 	<string name="report_choose_rule">Koja su pravila prekršena?</string>
 	<string name="report_choose_rule_subtitle">Izaberi sve adekvatne</string>
@@ -119,15 +89,9 @@
 	<string name="report_comment_title">Da li ima još nešto što bi trebali znati?</string>
 	<string name="report_comment_hint">Dodatni komentari</string>
 	<string name="sending_report">Pošalji prijavu…</string>
-	<string name="report_sent_title">Hvala za prijavu, uskoro će mo poduzeti potrebnoe mjere za %s.</string>
-	<string name="report_sent_subtitle">Dok ovo razmatramo, možete poduzeti potrebno za %s.</string>
 	<string name="unfollow_user">Prestani pratiti %s</string>
 	<string name="unfollow">Prestani pratiti</string>
-	<string name="block_user_explain">Neće moći više pratiti vaše objave, ali mogu vidjeti ako su blokirani.</string>
-	<string name="report_personal_title">Ne želite ovo vidjeti?</string>
-	<string name="report_personal_subtitle">Kada vidite nešto nepoželjno na Mastodon-u, možete blokirati odredjeni profil.</string>
 	<string name="back">Nazad</string>
-	<string name="edit_photo">uredi</string>
 	<string name="password_note">Koristite velika slova, brojeve i oznake da bi osigurali lozinku.</string>
 	<string name="category_academia">Akademija</string>
 	<string name="category_activism">Aktivizam</string>
@@ -146,22 +110,11 @@
 	<string name="resend">Ponovo poslato</string>
 	<string name="open_email_app">Otvori email</string>
 	<string name="resent_email">Email za verifikaciju poslat</string>
-	<string name="compose_hint">Piši šta ti je na umu</string>
 	<string name="content_warning">Pizanje sadržaja</string>
-	<string name="add_image_description">Dodaj opis slike…</string>
-	<string name="retry_upload">Pokušaj ponovo</string>
-	<string name="edit_image">Uredi sliku</string>
 	<string name="save">Sačuvaj</string>
 	<string name="add_alt_text">Dodaj alt tekst</string>
-	<string name="alt_text_subtitle">Alt tekst opisuje sliku slijepima i osobama sa lošim vidom. Unesite osnovne podatke.</string>
-	<string name="alt_text_hint">npr. Pas razgleda okolicu.</string>
 	<string name="visibility_public">Javno</string>
 	<string name="visibility_followers_only">Samo prijatelji</string>
-	<string name="visibility_private">Samo prijatelji koje odredim</string>
-	<string name="search_all">Sve</string>
-	<string name="search_people">Ljudi</string>
-	<string name="recent_searches">Zadnje pretrage</string>
-	<string name="step_x_of_n">Korak %1$d od %2$d</string>
 	<string name="skip">Preskoči</string>
 	<string name="notification_type_follow">Novi pratioci</string>
 	<string name="notification_type_favorite">Favoriti</string>
@@ -169,47 +122,21 @@
 	<string name="notification_type_poll">Ankete</string>
 	<string name="choose_account">Odaberi račun</string>
 	<string name="err_not_logged_in">Molimo prvo se logujte</string>
-	<plurals name="cant_add_more_than_x_attachments">
-		<item quantity="one">Nemožete dodati više od %d slika</item>
-		<item quantity="few">Možete dodati više od %d slika</item>
-		<item quantity="other">Možete dodati više od %d slika</item>
-	</plurals>
 	<string name="media_attachment_unsupported_type">Ne podržavamo %s fajlove</string>
 	<string name="media_attachment_too_big">Fajl %1$s prelazi limit od %2$s MB</string>
-	<string name="settings_theme">Vizuelni prikaz</string>
-	<string name="theme_auto">Automatski</string>
 	<string name="theme_light">Svijetla</string>
 	<string name="theme_dark">Tamna</string>
-	<string name="theme_true_black">Crna</string>
 	<string name="settings_behavior">Ponašanje</string>
 	<string name="settings_gif">Play animirane avatare i smajlije</string>
 	<string name="settings_custom_tabs">Koristi preglednik aplikacije</string>
 	<string name="settings_notifications">Obavijesti</string>
-	<string name="notify_me_when">Obavjesti me kada</string>
-	<string name="notify_anyone">bilo ko</string>
-	<string name="notify_follower">pratilac</string>
-	<string name="notify_followed">neko koga pratim</string>
-	<string name="notify_none">nikoga</string>
-	<string name="notify_favorites">Svidjanje objave</string>
-	<string name="notify_follow">Prati me</string>
-	<string name="notify_mention">Spominjanje</string>
-	<string name="settings_boring">Zona dosade</string>
-	<string name="settings_account">Postavke računa</string>
 	<string name="settings_contribute">Pomozite Mastodon-u</string>
 	<string name="settings_tos">Uslovi korištenja</string>
 	<string name="settings_privacy_policy">Polica privatnosti</string>
-	<string name="settings_spicy">Vruća zona</string>
 	<string name="settings_clear_cache">Očisti sačuvane medije</string>
 	<string name="settings_app_version">Mastodon za Android v%1$s (%2$d)</string>
 	<string name="media_cache_cleared">Medije očišćene</string>
-	<string name="confirm_log_out">Sigurno se želite odjaviti?</string>
-	<string name="sensitive_content">Osjetljiv sadržaj</string>
-	<string name="sensitive_content_explain">Autor je oznacio sa \"osjetljiv sadržaj\". Klikni da otvoriš.</string>
-	<string name="media_hidden">Klikni da otvoriš</string>
-	<string name="avatar_description">Idi na %s profil</string>
 	<string name="more_options">Više opcija</string>
-	<string name="reveal_content">Otvori sadržaj</string>
-	<string name="hide_content">Sakrij sadžaj</string>
 	<string name="new_post">Nova objava</string>
 	<string name="button_reply">Odgovori</string>
 	<string name="button_favorite">Svidja mi se</string>
@@ -218,13 +145,11 @@
 	<string name="add_media">Dodaj mediju</string>
 	<string name="add_poll">Dodaj anketu</string>
 	<string name="emoji">Smajli</string>
-	<string name="post_visibility">Vidljivost objave</string>
 	<string name="home_timeline">Glavni zid</string>
 	<string name="my_profile">Moj profil</string>
 	<string name="media_viewer">Pregled medija</string>
 	<string name="follow_user">Prati %s</string>
 	<string name="unfollowed_user">Ne pratite %s</string>
-	<string name="followed_user">Sada pratite %s</string>
 	<string name="open_in_browser">Otvori u pregledniku</string>
 	<string name="signup_reason_note">Ovo nam pomaže prilikom odobravanja vašeg zahtjeva.</string>
 	<string name="clear">Briši</string>
@@ -238,6 +163,7 @@
 	<string name="error_saving_file">Greška prilikom procesiranja</string>
 	<string name="file_saved">Datoteka sačuvana</string>
 	<string name="downloading">Downloading…</string>
+	<!-- %s is the server domain -->
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<!-- %s is version like 1.2.3 -->
 	<!-- %s is version like 1.2.3 -->
@@ -245,4 +171,15 @@
 	<!-- %s is server domain -->
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<!-- %s is formatted file size ("467 KB image") -->
+	<!-- %s is the server domain -->
+	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
+	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
+	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
+	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<!-- %s is the username -->
+	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<!-- Shown like a content warning, %s is the name of the filter -->
+	<!-- Shown in the post header. Please keep it short -->
 </resources>
