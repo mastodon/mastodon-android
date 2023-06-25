@@ -1,27 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="get_started">Crea un profilo</string>
-	<string name="already_have_account">Ho già un account</string>
 	<string name="log_in">Accedi</string>
 	<string name="next">Avanti</string>
 	<string name="loading_instance">Recupero delle informazioni sul server…</string>
 	<string name="error">Errore</string>
-	<string name="not_a_mastodon_instance">%s non sembra essere un server Mastodon.</string>
 	<string name="ok">OK</string>
 	<string name="preparing_auth">Preparazione all\'autenticazione…</string>
 	<string name="finishing_auth">Completamento autenticazione…</string>
 	<string name="user_boosted">%s ha condiviso</string>
 	<string name="in_reply_to">In risposta a %s</string>
 	<string name="notifications">Notifiche</string>
-	<string name="user_followed_you">ti segue</string>
-	<string name="user_sent_follow_request">ha richiesto di seguirti</string>
-	<string name="user_favorited">ha apprezzato il tuo post</string>
-	<string name="notification_boosted">ha condiviso il tuo post</string>
-	<string name="poll_ended">sondaggio terminato</string>
-	<string name="time_seconds">%ds</string>
-	<string name="time_minutes">%dm</string>
-	<string name="time_hours">%dh</string>
-	<string name="time_days">%dd</string>
 	<string name="share_toot_title">Condividi</string>
 	<string name="settings">Impostazioni</string>
 	<string name="publish">Pubblica</string>
@@ -36,10 +24,6 @@
 		<item quantity="one">seguito</item>
 		<item quantity="other">seguiti</item>
 	</plurals>
-	<plurals name="posts">
-		<item quantity="one">post</item>
-		<item quantity="other">post</item>
-	</plurals>
 	<string name="posts">Post</string>
 	<string name="posts_and_replies">Post e risposte</string>
 	<string name="media">Media</string>
@@ -47,8 +31,6 @@
 	<string name="button_follow">Segui</string>
 	<string name="button_following">Stai seguendo</string>
 	<string name="edit_profile">Modifica profilo</string>
-	<string name="mention_user">Menziona %s</string>
-	<string name="share_user">Condividi %s</string>
 	<string name="mute_user">Silenzia %s</string>
 	<string name="unmute_user">Riattiva %s</string>
 	<string name="block_user">Blocca %s</string>
@@ -80,7 +62,6 @@
 		<item quantity="one">%d giorno</item>
 		<item quantity="other">%d giorni</item>
 	</plurals>
-	<string name="compose_poll_duration">Durata: %s</string>
 	<plurals name="x_seconds_left">
 		<item quantity="one">%d secondo rimanente</item>
 		<item quantity="other">%d secondi rimanenti</item>
@@ -97,10 +78,6 @@
 		<item quantity="one">%d giorno rimanente</item>
 		<item quantity="other">%d giorni rimanenti</item>
 	</plurals>
-	<plurals name="x_voters">
-		<item quantity="one">%,d votante</item>
-		<item quantity="other">%,d votanti</item>
-	</plurals>
 	<string name="poll_closed">Chiuso</string>
 	<string name="confirm_mute_title">Silenzia account</string>
 	<string name="confirm_mute">Confermi di silenziare %s</string>
@@ -116,44 +93,30 @@
 	<string name="confirm_unblock_domain_title">Sblocca dominio</string>
 	<string name="confirm_unblock">Conferma per sbloccare %s</string>
 	<string name="do_unblock">Sblocca</string>
-	<string name="button_muted">Silenziato</string>
 	<string name="button_blocked">Bloccato</string>
 	<string name="action_vote">Vota</string>
-	<string name="tap_to_reveal">Tocca per mostrare</string>
 	<string name="delete">Elimina</string>
-	<string name="confirm_delete_title">Elimina Post</string>
 	<string name="confirm_delete">Sei sicuro di voler eliminare questo post?</string>
 	<string name="deleting">Eliminazione…</string>
 	<string name="notification_channel_audio_player">Riproduzione audio</string>
 	<string name="play">Riproduci</string>
 	<string name="pause">Pausa</string>
-	<string name="log_out">Disconnettiti</string>
 	<string name="add_account">Aggiungi account</string>
 	<string name="search_hint">Cerca</string>
 	<string name="hashtags">Hashtags</string>
 	<string name="news">Notizie</string>
 	<string name="for_you">Per te</string>
-	<string name="all_notifications">Tutte</string>
 	<string name="mentions">Menzioni</string>
 	<plurals name="x_people_talking">
 		<item quantity="one">%d persona ne parla</item>
 		<item quantity="other">%d persone ne parlano</item>
 	</plurals>
-	<plurals name="discussed_x_times">
-		<item quantity="one">Discusso %d volta</item>
-		<item quantity="other">Discusso %d volte</item>
-	</plurals>
 	<string name="report_title">Segnala %s</string>
-	<string name="report_choose_reason">Cosa c\'è che non va con questo post?</string>
-	<string name="report_choose_reason_account">Cosa c\'è che non va con %s?</string>
 	<string name="report_choose_reason_subtitle">Scegli la migliore corrispondenza</string>
-	<string name="report_reason_personal">Non mi piace</string>
 	<string name="report_reason_personal_subtitle">É qualcosa che non vuoi vedere</string>
-	<string name="report_reason_spam">È spam</string>
 	<string name="report_reason_spam_subtitle">Collegamenti malevoli, false interazioni, o risposte ripetitive</string>
 	<string name="report_reason_violation">Viola le regole del server</string>
 	<string name="report_reason_violation_subtitle">Sei consapevole che viola regole specifiche</string>
-	<string name="report_reason_other">È qualcos\'altro</string>
 	<string name="report_reason_other_subtitle">Il problema non rientra in altre categorie</string>
 	<string name="report_choose_rule">Quali regole vengono violate?</string>
 	<string name="report_choose_rule_subtitle">Seleziona tutte le risposte pertinenti</string>
@@ -162,22 +125,13 @@
 	<string name="report_comment_title">C\'è altro che dovremmo sapere?</string>
 	<string name="report_comment_hint">Commenti aggiuntivi</string>
 	<string name="sending_report">Invio della segnalazione…</string>
-	<string name="report_sent_title">Grazie per la segnalazione, controlleremo il problema.</string>
-	<string name="report_sent_subtitle">Mentre controlliamo, puoi fare questo contro %s.</string>
 	<string name="unfollow_user">Smetti di seguire %s</string>
 	<string name="unfollow">Smetti di seguire</string>
-	<string name="mute_user_explain">Non vedrai i loro post o le condivisioni nel tuo feed. Non sapranno di essere stati silenziati.</string>
-	<string name="block_user_explain">Non saranno più in grado di seguire o vedere i tuoi post, ma possono vedere se sono stati bloccati.</string>
-	<string name="report_personal_title">Non vuoi vedere questo?</string>
-	<string name="report_personal_subtitle">Quando vedi qualcosa che non ti piace su Mastodon, puoi rimuovere la persona dalla tua esperienza.</string>
 	<string name="back">Indietro</string>
-	<string name="instance_catalog_title">Mastodon è fatto di utenti in diverse comunità.</string>
-	<string name="instance_catalog_subtitle">Scegli una comunità basata sui tuoi interessi, regionale o una generica. Puoi comunque connetterti con tutti, indipendentemente dalla comunità.</string>
 	<string name="search_communities">Nome del server o URL</string>
 	<string name="instance_rules_title">Regole del server</string>
 	<string name="instance_rules_subtitle">Continuando, accetti di seguire le seguenti regole stabilite e applicate dai moderatori di %s.</string>
 	<string name="signup_title">Crea un profilo</string>
-	<string name="edit_photo">modifica</string>
 	<string name="display_name">Nome</string>
 	<string name="username">Nome utente</string>
 	<string name="email">Email</string>
@@ -199,27 +153,14 @@
 	<string name="category_tech">Tecnologia</string>
 	<string name="confirm_email_title">Controlla la tua casella di posta</string>
 	<!-- %s is the email address -->
-	<string name="confirm_email_subtitle">Tocca il collegamento che ti abbiamo inviato per verificare %s. Aspetteremo proprio qui.</string>
-	<string name="confirm_email_didnt_get">Non hai ricevuto un collegamento?</string>
 	<string name="resend">Invia di nuovo</string>
 	<string name="open_email_app">Apri l\'app email</string>
 	<string name="resent_email">Email di conferma inviata</string>
-	<string name="compose_hint">Scrivi quello che hai in mente</string>
 	<string name="content_warning">Avviso sul contenuto</string>
-	<string name="add_image_description">Aggiungi descrizione immagine…</string>
-	<string name="retry_upload">Riprova caricamento</string>
-	<string name="edit_image">Modifica immagine</string>
 	<string name="save">Salva</string>
 	<string name="add_alt_text">Aggiungi testo alt</string>
-	<string name="alt_text_subtitle">Il testo altro descrive le tue foto per persone con una visione bassa o assente. Prova a includere solo dettagli sufficienti per capire il contesto.</string>
-	<string name="alt_text_hint">ad esempio un cane che guarda in giro sospettosamente con occhi ristretti alla telecamera.</string>
 	<string name="visibility_public">Pubblico</string>
 	<string name="visibility_followers_only">Solo i seguaci</string>
-	<string name="visibility_private">Solo le persone che menziono</string>
-	<string name="search_all">Tutti</string>
-	<string name="search_people">Persone</string>
-	<string name="recent_searches">Ricerche recenti</string>
-	<string name="step_x_of_n">Fase %1$d di %2$d</string>
 	<string name="skip">Salta</string>
 	<string name="notification_type_follow">Nuovi seguaci</string>
 	<string name="notification_type_favorite">Preferiti</string>
@@ -228,47 +169,21 @@
 	<string name="notification_type_poll">Sondaggi</string>
 	<string name="choose_account">Seleziona l\'account</string>
 	<string name="err_not_logged_in">Per favore accedi prima a Mastodon</string>
-	<plurals name="cant_add_more_than_x_attachments">
-		<item quantity="one">Non puoi aggiungere più di %d allegato multimediale</item>
-		<item quantity="other">Non puoi aggiungere più di %d allegati multimediali</item>
-	</plurals>
 	<string name="media_attachment_unsupported_type">Il file %s è un formato non supportato</string>
 	<string name="media_attachment_too_big">Il file %1$s supera il limite di dimensione di %2$s MB</string>
-	<string name="settings_theme">Aspetto visivo</string>
-	<string name="theme_auto">Automatico</string>
 	<string name="theme_light">Chiaro</string>
 	<string name="theme_dark">Scuro</string>
-	<string name="theme_true_black">Modalità True Black</string>
 	<string name="settings_behavior">Comportamento</string>
 	<string name="settings_gif">Riproduci avatar ed emoji animati</string>
 	<string name="settings_custom_tabs">Usa browser integrato</string>
 	<string name="settings_notifications">Notifiche</string>
-	<string name="notify_me_when">Avvisami quando</string>
-	<string name="notify_anyone">chiunque</string>
-	<string name="notify_follower">un seguace</string>
-	<string name="notify_followed">chiunque io segua</string>
-	<string name="notify_none">nessuno</string>
-	<string name="notify_favorites">Apprezza i miei post</string>
-	<string name="notify_follow">Mi segue</string>
-	<string name="notify_reblog">Condivide il mio post</string>
-	<string name="notify_mention">Mi menziona</string>
-	<string name="settings_boring">La zona noiosa</string>
-	<string name="settings_account">Impostazioni dell\'account</string>
 	<string name="settings_contribute">Contribuisci a Mastodon</string>
 	<string name="settings_tos">Termini di servizio</string>
 	<string name="settings_privacy_policy">Politica della privacy</string>
-	<string name="settings_spicy">La zona piccante</string>
 	<string name="settings_clear_cache">Cancella cache multimediale</string>
 	<string name="settings_app_version">Mastodon per Android v%1$s (%2$d)</string>
 	<string name="media_cache_cleared">Cache multimediale cancellata</string>
-	<string name="confirm_log_out">Sei sicuro di voler uscire?</string>
-	<string name="sensitive_content">Contenuto sensibile</string>
-	<string name="sensitive_content_explain">L\'autore ha contrassegnato questo media come sensibile. Tocca per rivelare.</string>
-	<string name="media_hidden">Tocca per mostrare</string>
-	<string name="avatar_description">Vai al profilo di %s</string>
 	<string name="more_options">Più opzioni</string>
-	<string name="reveal_content">Rivela il contenuto</string>
-	<string name="hide_content">Nascondi il contenuto</string>
 	<string name="new_post">Nuovo post</string>
 	<string name="button_reply">Rispondi</string>
 	<string name="button_reblog">Condividi</string>
@@ -278,13 +193,11 @@
 	<string name="add_media">Aggiungi contenuto multimediale</string>
 	<string name="add_poll">Aggiungi un sondaggio</string>
 	<string name="emoji">Emoji</string>
-	<string name="post_visibility">Visibilità del post</string>
 	<string name="home_timeline">La tua timeline</string>
 	<string name="my_profile">Il mio profilo</string>
 	<string name="media_viewer">Visualizzatore multimediale</string>
 	<string name="follow_user">Segui %s</string>
 	<string name="unfollowed_user">Smetti di seguire %s</string>
-	<string name="followed_user">Hai cominciato a seguire %s</string>
 	<string name="following_user_requested">Richiesto di seguire %s</string>
 	<string name="open_in_browser">Apri nel browser</string>
 	<string name="hide_boosts_from_user">Nascondi condivisioni da %s</string>
@@ -302,21 +215,13 @@
 	<string name="error_saving_file">Errore durante il salvataggio del file</string>
 	<string name="file_saved">File salvato</string>
 	<string name="downloading">Scaricamento…</string>
-	<string name="no_app_to_handle_action">Impossibile trovare applicazioni per gestire quest\'azione</string>
-	<string name="local_timeline">Comunità</string>
-	<string name="trending_posts_info_banner">Questi sono i post che stanno guadagnando popolarità nel tuo angolo di Mastodon.</string>
-	<string name="trending_hashtags_info_banner">Questi sono gli hashtags che stanno guadagnando popolarità nel tuo angolo di Mastodon.</string>
-	<string name="trending_links_info_banner">Queste sono le notizie che vengono condivise più nel tuo angolo di Mastodon.</string>
-	<string name="local_timeline_info_banner">Questi sono i post più recenti delle persone che utilizzano il tuo stesso server Mastodon.</string>
-	<string name="dismiss">Ignora</string>
+	<!-- %s is the server domain -->
 	<string name="see_new_posts">Visualizza nuovi post</string>
 	<string name="load_missing_posts">Carica i post mancanti</string>
 	<string name="follow_back">Segui anche tu</string>
 	<string name="button_follow_pending">In attesa</string>
 	<string name="follows_you">Ha iniziato a seguirti</string>
 	<string name="manually_approves_followers">Approva manualmente i followers</string>
-	<string name="current_account">Account corrente</string>
-	<string name="log_out_account">Disconnetti %s</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<plurals name="x_followers">
 		<item quantity="one">%,d follower</item>
@@ -336,8 +241,6 @@
 	</plurals>
 	<string name="timestamp_via_app">%1$s tramite %2$s</string>
 	<string name="time_now">ora</string>
-	<string name="post_info_reblogs">Condivisioni</string>
-	<string name="post_info_favorites">Preferiti</string>
 	<string name="edit_history">Cronologia delle modifiche</string>
 	<string name="last_edit_at_x">Ultima modifica: %s</string>
 	<string name="time_just_now">proprio ora</string>
@@ -371,14 +274,9 @@
 	<string name="file_size_kb">%.2f KB</string>
 	<string name="file_size_mb">%.2f MB</string>
 	<string name="file_size_gb">%.2f GB</string>
-	<string name="file_upload_progress">%1$s di %2$s</string>
-	<string name="file_upload_time_remaining">%s rimanenti</string>
-	<string name="upload_error_connection_lost">Il tuo dispositivo ha perso la connessione a internet</string>
 	<string name="upload_processing">In elaborazione…</string>
 	<!-- %s is version like 1.2.3 -->
-	<string name="update_available">Mastodon per Android %s è pronto per il download.</string>
 	<!-- %s is version like 1.2.3 -->
-	<string name="update_ready">Mastodon per Android %s è scaricato e pronto per l\'installazione.</string>
 	<!-- %s is file size -->
 	<string name="download_update">Scarica (%s)</string>
 	<string name="install_update">Installa</string>
@@ -395,7 +293,6 @@
 	<string name="login_title">Bentornato/a</string>
 	<string name="login_subtitle">Accedi con il server in cui hai creato il tuo account.</string>
 	<string name="server_url">URL del server</string>
-	<string name="signup_random_server_explain">Sceglieremo un server in base alla tua lingua se continui senza effettuare una selezione.</string>
 	<string name="server_filter_any_language">Qualsiasi lingua</string>
 	<string name="server_filter_instant_signup">Iscrizione immediata</string>
 	<string name="server_filter_manual_review">Revisione manuale</string>
@@ -408,7 +305,6 @@
 	<string name="server_filter_region_oceania">Oceania</string>
 	<string name="not_accepting_new_members">Non accetta nuovi membri</string>
 	<string name="category_special_interests">Interessi speciali</string>
-	<string name="signup_passwords_dont_match">Le password non corrispondono</string>
 	<string name="pick_server_for_me">Scegli per me</string>
 	<string name="profile_add_row">Aggiungi riga</string>
 	<string name="profile_setup">Configurazione del profilo</string>
@@ -417,15 +313,12 @@
 	<string name="popular_on_mastodon">Popolare su Mastodon</string>
 	<string name="follow_all">Segui tutto</string>
 	<string name="server_rules_disagree">Non sono d\'accordo</string>
-	<string name="privacy_policy_explanation">TL;DR: Non raccogliamo, né elaboriamo nulla.</string>
 	<!-- %s is server domain -->
 	<string name="server_policy_disagree">Non sono d\'accordo con %s</string>
 	<string name="profile_bio">Biografia</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<string name="sending_follows">Seguendo gli utenti…</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
-	<string name="signup_email_domain_blocked">%1$s non consente iscrizioni da %2$s. Provane uno diverso o &lt;a&gt;scegli un altro server&lt;/a&gt;.</string>
-	<string name="signup_username_taken">Questo nome utente è già in uso.</string>
 	<string name="spoiler_show">Mostra comunque</string>
 	<string name="spoiler_hide">Ri-nascondere</string>
 	<string name="poll_multiple_choice">Scegli una o più risposte</string>
@@ -445,4 +338,15 @@
 	<string name="welcome_paragraph1">Mastodon è un social network decentralizzato, il che significa che nessuna singola azienda lo controlla. È composto da molti server indipendenti e tutti connessi insieme.</string>
 	<string name="what_are_servers">Cosa sono i server?</string>
 	<string name="welcome_paragraph2"><![CDATA[Ogni account Mastodon è ospitato su un server — ognuno con i propri valori, regole, e amministratori. Non importa quale scegliere, è possibile seguire e interagire con le persone su qualsiasi server.]]></string>
+	<!-- %s is formatted file size ("467 KB image") -->
+	<!-- %s is the server domain -->
+	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
+	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
+	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
+	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<!-- %s is the username -->
+	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<!-- Shown like a content warning, %s is the name of the filter -->
+	<!-- Shown in the post header. Please keep it short -->
 </resources>
