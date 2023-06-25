@@ -1,27 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="get_started">Tạo tài khoản</string>
-	<string name="already_have_account">Tôi đã có tài khoản</string>
 	<string name="log_in">Đăng nhập</string>
 	<string name="next">Kế tiếp</string>
 	<string name="loading_instance">Đang lấy thông tin…</string>
 	<string name="error">Lỗi</string>
-	<string name="not_a_mastodon_instance">%s không phải là một máy chủ Mastodon.</string>
 	<string name="ok">OK</string>
 	<string name="preparing_auth">Chuẩn bị xác thực…</string>
 	<string name="finishing_auth">Hoàn tất xác thực…</string>
 	<string name="user_boosted">%s đăng lại</string>
 	<string name="in_reply_to">Trả lời %s</string>
 	<string name="notifications">Thông báo</string>
-	<string name="user_followed_you">đã theo dõi bạn</string>
-	<string name="user_sent_follow_request">đã yêu cầu theo dõi bạn</string>
-	<string name="user_favorited">thích tút của bạn</string>
-	<string name="notification_boosted">vừa đăng lại tút của bạn</string>
-	<string name="poll_ended">cuộc bình chọn kết thúc</string>
-	<string name="time_seconds">%ds</string>
-	<string name="time_minutes">%dm</string>
-	<string name="time_hours">%dh</string>
-	<string name="time_days">%d ngày</string>
 	<string name="share_toot_title">Chia sẻ</string>
 	<string name="settings">Cài đặt</string>
 	<string name="publish">Đăng</string>
@@ -34,9 +22,6 @@
 	<plurals name="following">
 		<item quantity="other">theo dõi</item>
 	</plurals>
-	<plurals name="posts">
-		<item quantity="other">tút</item>
-	</plurals>
 	<string name="posts">Tút</string>
 	<string name="posts_and_replies">Lượt trả lời</string>
 	<string name="media">Media</string>
@@ -44,8 +29,6 @@
 	<string name="button_follow">Theo dõi</string>
 	<string name="button_following">Đang theo dõi</string>
 	<string name="edit_profile">Sửa hồ sơ</string>
-	<string name="mention_user">Nhắc đến %s</string>
-	<string name="share_user">Chia sẻ %s</string>
 	<string name="mute_user">Ẩn %s</string>
 	<string name="unmute_user">Bỏ ẩn %s</string>
 	<string name="block_user">Chặn %s</string>
@@ -73,7 +56,6 @@
 	<plurals name="x_days">
 		<item quantity="other">%d ngày</item>
 	</plurals>
-	<string name="compose_poll_duration">Thời hạn: %s</string>
 	<plurals name="x_seconds_left">
 		<item quantity="other">%d giây còn lại</item>
 	</plurals>
@@ -85,9 +67,6 @@
 	</plurals>
 	<plurals name="x_days_left">
 		<item quantity="other">%d ngày còn lại</item>
-	</plurals>
-	<plurals name="x_voters">
-		<item quantity="other">%,d người bình chọn</item>
 	</plurals>
 	<string name="poll_closed">Kết thúc</string>
 	<string name="confirm_mute_title">Ẩn người này</string>
@@ -104,42 +83,29 @@
 	<string name="confirm_unblock_domain_title">Bỏ chặn máy chủ</string>
 	<string name="confirm_unblock">Xác nhận bỏ chặn %s</string>
 	<string name="do_unblock">Bỏ chặn</string>
-	<string name="button_muted">Đã ẩn</string>
 	<string name="button_blocked">Đã chặn</string>
 	<string name="action_vote">Bình chọn</string>
-	<string name="tap_to_reveal">Nhấn để hiển thị</string>
 	<string name="delete">Xóa</string>
-	<string name="confirm_delete_title">Xóa tút</string>
 	<string name="confirm_delete">Bạn có chắc muốn xóa tút này không?</string>
 	<string name="deleting">Đang xóa…</string>
 	<string name="notification_channel_audio_player">Âm thanh trình phát media</string>
 	<string name="play">Phát</string>
 	<string name="pause">Tạm dừng</string>
-	<string name="log_out">Đăng xuất</string>
 	<string name="add_account">Thêm tài khoản</string>
 	<string name="search_hint">Tìm kiếm</string>
 	<string name="hashtags">Hashtag</string>
 	<string name="news">Tin tức</string>
 	<string name="for_you">Dành cho bạn</string>
-	<string name="all_notifications">Toàn bộ</string>
 	<string name="mentions">Lượt nhắc đến</string>
 	<plurals name="x_people_talking">
 		<item quantity="other">%d người đang thảo luận</item>
 	</plurals>
-	<plurals name="discussed_x_times">
-		<item quantity="other">Chia sẻ %d lượt</item>
-	</plurals>
 	<string name="report_title">Báo cáo %s</string>
-	<string name="report_choose_reason">Có vấn đề gì với tút này?</string>
-	<string name="report_choose_reason_account">Có vấn đề gì với %s?</string>
 	<string name="report_choose_reason_subtitle">Chọn lý do khớp nhất</string>
-	<string name="report_reason_personal">Tôi không thích nó</string>
 	<string name="report_reason_personal_subtitle">Đó không phải là thứ gì mà bạn muốn thấy</string>
-	<string name="report_reason_spam">Đây là spam</string>
 	<string name="report_reason_spam_subtitle">Liên kết độc hại, tạo tương tác giả hoặc trả lời lặp đi lặp lại</string>
 	<string name="report_reason_violation">Vi phạm nội quy máy chủ</string>
 	<string name="report_reason_violation_subtitle">Bạn nhận thấy nó vi phạm nội quy máy chủ</string>
-	<string name="report_reason_other">Một lý do khác</string>
 	<string name="report_reason_other_subtitle">Vấn đề không nằm trong những mục trên</string>
 	<string name="report_choose_rule">Vi phạm nội quy nào?</string>
 	<string name="report_choose_rule_subtitle">Chọn tất cả những gì phù hợp</string>
@@ -148,22 +114,13 @@
 	<string name="report_comment_title">Bạn nghĩ chúng tôi nên biết thêm điều gì?</string>
 	<string name="report_comment_hint">Ý kiến ​​bổ sung</string>
 	<string name="sending_report">Đang gửi báo cáo…</string>
-	<string name="report_sent_title">Cảm ơn đã báo cáo, chúng tôi sẽ xem xét kỹ.</string>
-	<string name="report_sent_subtitle">Trong lúc chờ chúng tôi xem xét, bạn có thể áp dụng hành động với @%s.</string>
 	<string name="unfollow_user">Bỏ theo dõi %s</string>
 	<string name="unfollow">Bỏ theo dõi</string>
-	<string name="mute_user_explain">Bạn sẽ không thấy tút hoặc lượt đăng lại của họ trên bảng tin. Họ không biết rằng bạn ẩn họ.</string>
-	<string name="block_user_explain">Họ sẽ không thể theo dõi hoặc đọc tút của bạn, nhưng họ có thể hiểu bạn đã chặn họ.</string>
-	<string name="report_personal_title">Không muốn xem thứ này?</string>
-	<string name="report_personal_subtitle">Khi bạn thấy có gì đó mà bạn không thích trên Mastodon, bạn có thể tự loại bỏ chúng.</string>
 	<string name="back">Quay lại</string>
-	<string name="instance_catalog_title">Mastodon gồm nhiều máy chủ với thành viên riêng.</string>
-	<string name="instance_catalog_subtitle">Chọn một máy chủ dựa theo sở thích, tôn giáo, hoặc ý muốn của bạn. Bạn vẫn có thể giao tiếp với bất cứ ai mà không phụ thuộc vào máy chủ của họ.</string>
 	<string name="search_communities">Tên máy chủ hoặc URL</string>
 	<string name="instance_rules_title">Nội quy máy chủ</string>
 	<string name="instance_rules_subtitle">Tiếp tục nghĩa là bạn đồng ý tuân theo các quy tắc sau do kiểm duyệt viên %s đặt ra và thực thi.</string>
 	<string name="signup_title">Tạo tài khoản</string>
-	<string name="edit_photo">sửa</string>
 	<string name="display_name">Tên</string>
 	<string name="username">Tên người dùng</string>
 	<string name="email">Email</string>
@@ -185,27 +142,14 @@
 	<string name="category_tech">Công nghệ</string>
 	<string name="confirm_email_title">Kiểm tra hộp thư của bạn</string>
 	<!-- %s is the email address -->
-	<string name="confirm_email_subtitle">Nhấn vào liên kết chúng tôi vừa gửi để xác minh %s. Nhanh nhé bạn.</string>
-	<string name="confirm_email_didnt_get">Không nhận được mã?</string>
 	<string name="resend">Gửi lại</string>
 	<string name="open_email_app">Mở ứng dụng email</string>
 	<string name="resent_email">Đã gửi email xác nhận</string>
-	<string name="compose_hint">Cho thế giới biết bạn đang nghĩ gì</string>
 	<string name="content_warning">Nội dung ẩn</string>
-	<string name="add_image_description">Thêm mô tả ảnh…</string>
-	<string name="retry_upload">Thử tải lên lại</string>
-	<string name="edit_image">Sửa ảnh</string>
 	<string name="save">Lưu</string>
 	<string name="add_alt_text">Thêm văn bản thay thế</string>
-	<string name="alt_text_subtitle">Văn bản thay thế giúp mô tả ảnh của bạn cho những người khiếm thị. Chỉ cần cho biết ngắn gọn bối cảnh của ảnh.</string>
-	<string name="alt_text_hint">vd: Một con chó nhíu mắt lại nhìn máy ảnh.</string>
 	<string name="visibility_public">Công khai</string>
 	<string name="visibility_followers_only">Chỉ người theo dõi</string>
-	<string name="visibility_private">Nhắn riêng</string>
-	<string name="search_all">Tất cả</string>
-	<string name="search_people">Người</string>
-	<string name="recent_searches">Tìm kiếm gần đây</string>
-	<string name="step_x_of_n">Bước %1$d trong %2$d</string>
 	<string name="skip">Bỏ qua</string>
 	<string name="notification_type_follow">Người theo dõi mới</string>
 	<string name="notification_type_favorite">Lượt thích</string>
@@ -214,46 +158,21 @@
 	<string name="notification_type_poll">Cuộc bình chọn</string>
 	<string name="choose_account">Chọn tài khoản</string>
 	<string name="err_not_logged_in">Hãy đăng nhập Mastodon trước</string>
-	<plurals name="cant_add_more_than_x_attachments">
-		<item quantity="other">Bạn chỉ có thể đính kèm tối đa %d media</item>
-	</plurals>
 	<string name="media_attachment_unsupported_type">Không hỗ trợ định dạng của tập tin %s</string>
 	<string name="media_attachment_too_big">Tập tin %1$s vượt quá giới hạn %2$s MB</string>
-	<string name="settings_theme">Giao diện</string>
-	<string name="theme_auto">Tự động</string>
 	<string name="theme_light">Sáng</string>
 	<string name="theme_dark">Tối</string>
-	<string name="theme_true_black">Chế độ tương phản cao</string>
 	<string name="settings_behavior">Thao tác</string>
 	<string name="settings_gif">Ảnh đại diện và emoji động</string>
 	<string name="settings_custom_tabs">Dùng trình duyệt tích hợp</string>
 	<string name="settings_notifications">Thông báo</string>
-	<string name="notify_me_when">Thông báo khi</string>
-	<string name="notify_anyone">ai đó</string>
-	<string name="notify_follower">người theo dõi tôi</string>
-	<string name="notify_followed">người tôi theo dõi</string>
-	<string name="notify_none">không một ai</string>
-	<string name="notify_favorites">Thích tút của tôi</string>
-	<string name="notify_follow">Theo dõi tôi</string>
-	<string name="notify_reblog">Đăng lại tút của tôi</string>
-	<string name="notify_mention">Nhắc đến tôi</string>
-	<string name="settings_boring">Nhàm chán</string>
-	<string name="settings_account">Cài đặt tài khoản</string>
 	<string name="settings_contribute">Đóng góp cho Mastodon</string>
 	<string name="settings_tos">Điều khoản dịch vụ</string>
 	<string name="settings_privacy_policy">Chính sách bảo mật</string>
-	<string name="settings_spicy">Thú vị</string>
 	<string name="settings_clear_cache">Xoá bộ nhớ đệm</string>
 	<string name="settings_app_version">Mastodon for Android v%1$s (%2$d)</string>
 	<string name="media_cache_cleared">Đã xóa bộ nhớ đệm</string>
-	<string name="confirm_log_out">Bạn có chắc muốn đăng xuất không?</string>
-	<string name="sensitive_content">Nội dung nhạy cảm</string>
-	<string name="sensitive_content_explain">Media này có thể nhạy cảm. Nhấn để xem.</string>
-	<string name="media_hidden">Nhấn để xem</string>
-	<string name="avatar_description">Xem hồ sơ %s</string>
 	<string name="more_options">Nhiều tùy chọn hơn</string>
-	<string name="reveal_content">Hiện nội dung</string>
-	<string name="hide_content">Ẩn nội dung</string>
 	<string name="new_post">Viết tút</string>
 	<string name="button_reply">Trả lời</string>
 	<string name="button_reblog">Đăng lại</string>
@@ -263,13 +182,11 @@
 	<string name="add_media">Thêm media</string>
 	<string name="add_poll">Tạo bình chọn</string>
 	<string name="emoji">Emoji</string>
-	<string name="post_visibility">Thay đổi quyền riêng tư</string>
 	<string name="home_timeline">Bảng tin</string>
 	<string name="my_profile">Hồ sơ của tôi</string>
 	<string name="media_viewer">Xem media</string>
 	<string name="follow_user">Theo dõi %s</string>
 	<string name="unfollowed_user">Bỏ theo dõi %s</string>
-	<string name="followed_user">Bạn đã theo dõi %s</string>
 	<string name="following_user_requested">Yêu cầu theo dõi %s</string>
 	<string name="open_in_browser">Mở trong trình duyệt</string>
 	<string name="hide_boosts_from_user">Ẩn đăng lại từ %s</string>
@@ -287,21 +204,13 @@
 	<string name="error_saving_file">Lỗi lưu tập tin</string>
 	<string name="file_saved">Đã lưu tập tin</string>
 	<string name="downloading">Đang tải về…</string>
-	<string name="no_app_to_handle_action">Không tìm thấy ứng dụng để thực hiện thao tác này</string>
-	<string name="local_timeline">Máy chủ</string>
-	<string name="trending_posts_info_banner">Đây là những tút đang thu hút nhiều sự chú ý trên Mastodon.</string>
-	<string name="trending_hashtags_info_banner">Đây là những hashtag đang thu hút nhiều sự chú ý trên Mastodon.</string>
-	<string name="trending_links_info_banner">Đây là những liên kết đang được chia sẻ nhiều nhất trên Mastodon.</string>
-	<string name="local_timeline_info_banner">Đây là những tút gần đây nhất từ những người cùng máy chủ Mastodon với bạn.</string>
-	<string name="dismiss">Bỏ qua</string>
+	<!-- %s is the server domain -->
 	<string name="see_new_posts">Đọc những tút mới</string>
 	<string name="load_missing_posts">Tải tút chưa đọc</string>
 	<string name="follow_back">Theo dõi lại</string>
 	<string name="button_follow_pending">Đang chờ</string>
 	<string name="follows_you">Đang theo dõi bạn</string>
 	<string name="manually_approves_followers">Duyệt người theo dõi thủ công</string>
-	<string name="current_account">Tài khoản hiện tại</string>
-	<string name="log_out_account">Đăng xuất %s</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<plurals name="x_followers">
 		<item quantity="other">%,d người theo dõi</item>
@@ -317,8 +226,6 @@
 	</plurals>
 	<string name="timestamp_via_app">%1$s qua %2$s</string>
 	<string name="time_now">vừa xong</string>
-	<string name="post_info_reblogs">Đăng lại</string>
-	<string name="post_info_favorites">Thích</string>
 	<string name="edit_history">Lịch sử chỉnh sửa</string>
 	<string name="last_edit_at_x">Sửa lần cuối %s</string>
 	<string name="time_just_now">vừa xong</string>
@@ -350,14 +257,9 @@
 	<string name="file_size_kb">%.2f KB</string>
 	<string name="file_size_mb">%.2f MB</string>
 	<string name="file_size_gb">%.2f GB</string>
-	<string name="file_upload_progress">%1$s trong %2$s</string>
-	<string name="file_upload_time_remaining">%s còn lại</string>
-	<string name="upload_error_connection_lost">Thiết bị của bạn bị rớt mạng</string>
 	<string name="upload_processing">Đang tải lên…</string>
 	<!-- %s is version like 1.2.3 -->
-	<string name="update_available">Mastodon Android %s đã sẵn sàng tải về.</string>
 	<!-- %s is version like 1.2.3 -->
-	<string name="update_ready">Mastodon Android %s đã được tải về và sẵn sàng cài đặt.</string>
 	<!-- %s is file size -->
 	<string name="download_update">Tải về (%s)</string>
 	<string name="install_update">Cài đặt</string>
@@ -374,7 +276,6 @@
 	<string name="login_title">Chào mừng quay trở lại!</string>
 	<string name="login_subtitle">Đăng nhập với máy chủ nơi bạn tạo tài khoản.</string>
 	<string name="server_url">URL Máy chủ</string>
-	<string name="signup_random_server_explain">Chúng tôi sẽ chọn một máy chủ dựa trên ngôn ngữ của bạn nếu bạn tiếp tục mà không lựa chọn.</string>
 	<string name="server_filter_any_language">Mọi ngôn ngữ</string>
 	<string name="server_filter_instant_signup">Duyệt tự động</string>
 	<string name="server_filter_manual_review">Duyệt thủ công</string>
@@ -387,7 +288,6 @@
 	<string name="server_filter_region_oceania">Châu Đại Dương</string>
 	<string name="not_accepting_new_members">Tạm dừng đăng ký mới</string>
 	<string name="category_special_interests">Sở thích đặc biệt</string>
-	<string name="signup_passwords_dont_match">Mật khẩu không khớp</string>
 	<string name="pick_server_for_me">Chọn giúp tôi</string>
 	<string name="profile_add_row">Thêm hàng</string>
 	<string name="profile_setup">Thiệt lập hồ sơ</string>
@@ -396,15 +296,12 @@
 	<string name="popular_on_mastodon">Thịnh hành trên Mastodon</string>
 	<string name="follow_all">Theo dõi tất cả</string>
 	<string name="server_rules_disagree">Không đồng ý</string>
-	<string name="privacy_policy_explanation">TL;DR: Chúng tôi không thu thập bất cứ gì.</string>
 	<!-- %s is server domain -->
 	<string name="server_policy_disagree">Không đồng ý với %s</string>
 	<string name="profile_bio">Giới thiệu</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<string name="sending_follows">Đang theo dõi người này…</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
-	<string name="signup_email_domain_blocked">%1$s không cho phép đăng ký với %2$s. Dùng cái khác hoặc &lt;a&gt;chọn máy chủ khác&lt;/a&gt;.</string>
-	<string name="signup_username_taken">Tên này đã được sử dụng.</string>
 	<string name="spoiler_show">Vẫn cứ xem</string>
 	<string name="spoiler_hide">Ẩn lại</string>
 	<string name="poll_multiple_choice">Chọn một hoặc nhiều</string>
@@ -424,4 +321,15 @@
 	<string name="welcome_paragraph1">Mastodon là một mạng xã hội phi tập trung, không có công ty nào kiểm soát. Nó bao gồm nhiều máy chủ độc lập được kết nối với nhau.</string>
 	<string name="what_are_servers">Máy chủ là gì?</string>
 	<string name="welcome_paragraph2"><![CDATA[Mỗi tài khoản Mastodon được lưu trữ trên một máy chủ — với nội quy và quản trị viên riêng. Bất kể bạn chọn máy chủ nào, bạn có thể theo dõi và tương tác với mọi người trên máy chủ khác.]]></string>
+	<!-- %s is formatted file size ("467 KB image") -->
+	<!-- %s is the server domain -->
+	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
+	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
+	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
+	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<!-- %s is the username -->
+	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<!-- Shown like a content warning, %s is the name of the filter -->
+	<!-- Shown in the post header. Please keep it short -->
 </resources>
