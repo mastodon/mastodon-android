@@ -5,10 +5,6 @@
 	<string name="ok">ठीक है</string>
 	<string name="preparing_auth">प्रमाणीकरण के लिए रीडायरेक्ट कर रहा है…</string>
 	<string name="notifications">सूचनाएँ</string>
-	<string name="user_followed_you">आपके साथ जुड़ा</string>
-	<string name="user_sent_follow_request">आपको एक अनुसरण अनुरोध भेजा है</string>
-	<string name="user_favorited">आपकी पोस्ट को पसंद किया</string>
-	<string name="poll_ended">मतदान समाप्त</string>
 	<string name="poll_closed">बंद</string>
 	<string name="confirm_mute_title">म्यूट किए गए खाते</string>
 	<string name="do_mute">शांत करें</string>
@@ -19,24 +15,20 @@
 	<string name="do_block">रोके</string>
 	<string name="confirm_unblock">%s को अनम्यूट करने की पुष्टि करें</string>
 	<string name="do_unblock">अनब्लॉक करें</string>
-	<string name="button_muted">म्यूट</string>
-	<string name="tap_to_reveal">देखने के लिए टैप करें</string>
 	<string name="delete">मिटाए</string>
-	<string name="confirm_delete_title">पोस्ट को हटाएं</string>
 	<string name="confirm_delete">क्या आप वाकई इस पोस्ट को हटाना चाहते हैं?</string>
 	<string name="deleting">डिलीट हो रहा है</string>
 	<string name="notification_channel_audio_player">संगीत प्लेबैक</string>
 	<string name="play">चलाएँ</string>
 	<string name="pause">विराम</string>
-	<string name="log_out">साइन आउट करें</string>
 	<string name="add_account">खाता जोड़ें</string>
 	<string name="search_hint">खोजें</string>
 	<string name="hashtags">हैशटैग</string>
 	<string name="news">समाचार</string>
 	<string name="for_you">आपके लिए</string>
-	<string name="all_notifications">सभी</string>
 	<string name="mentions">उल्लेख</string>
 	<!-- %s is the email address -->
+	<!-- %s is the server domain -->
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<!-- %s is version like 1.2.3 -->
 	<!-- %s is version like 1.2.3 -->
@@ -44,4 +36,15 @@
 	<!-- %s is server domain -->
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<!-- %s is formatted file size ("467 KB image") -->
+	<!-- %s is the server domain -->
+	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
+	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
+	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
+	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<!-- %s is the username -->
+	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<!-- Shown like a content warning, %s is the name of the filter -->
+	<!-- Shown in the post header. Please keep it short -->
 </resources>
