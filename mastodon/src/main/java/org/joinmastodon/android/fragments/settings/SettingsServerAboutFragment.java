@@ -126,6 +126,7 @@ public class SettingsServerAboutFragment extends LoaderFragment{
 
 			AccountViewModel model=new AccountViewModel(instance.contactAccount, accountID);
 			AccountViewHolder holder=new AccountViewHolder(this, scrollingLayout, null);
+			holder.setStyle(AccountViewHolder.AccessoryType.NONE, false);
 			holder.bind(model);
 			holder.itemView.setBackground(UiUtils.getThemeDrawable(getActivity(), android.R.attr.selectableItemBackground));
 			holder.itemView.setOnClickListener(v->holder.onClick());
