@@ -1,27 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="get_started">Δημιουργία λογαριασμού</string>
-	<string name="already_have_account">Έχω ήδη λογαριασμό</string>
 	<string name="log_in">Σύνδεση</string>
 	<string name="next">Επόμενο</string>
 	<string name="loading_instance">Ανάκτηση πληροφοριών διακομιστή…</string>
 	<string name="error">Σφάλμα</string>
-	<string name="not_a_mastodon_instance">Το %s δε φαίνεται να είναι διακομιστής Mastodon.</string>
 	<string name="ok">ΟΚ</string>
 	<string name="preparing_auth">Προετοιμασία για έλεγχο ταυτότητας…</string>
 	<string name="finishing_auth">Ολοκλήρωση ταυτοποίησης…</string>
 	<string name="user_boosted">Ο χρήστης %s ενίσχυσε</string>
 	<string name="in_reply_to">Σε απάντηση στο %s</string>
 	<string name="notifications">Ειδοποιήσεις</string>
-	<string name="user_followed_you">σε ακολουθεί</string>
-	<string name="user_sent_follow_request">σου έστειλε ένα αίτημα ακολούθησης</string>
-	<string name="user_favorited">σημείωσε ως αγαπημένη την ανάρτησή σου</string>
-	<string name="notification_boosted">ενίσχυσε την ανάρτησή σου</string>
-	<string name="poll_ended">η δημοσκόπηση έληξε</string>
-	<string name="time_seconds">%dδλ</string>
-	<string name="time_minutes">%dλ</string>
-	<string name="time_hours">%dω</string>
-	<string name="time_days">%dημ</string>
 	<string name="share_toot_title">Κοινοποίηση</string>
 	<string name="settings">Ρυθμίσεις</string>
 	<string name="publish">Δημοσίευση</string>
@@ -36,10 +24,6 @@
 		<item quantity="one">ακολουθεί</item>
 		<item quantity="other">ακολουθούν</item>
 	</plurals>
-	<plurals name="posts">
-		<item quantity="one">ανάρτηση</item>
-		<item quantity="other">αναρτήσεις</item>
-	</plurals>
 	<string name="posts">Αναρτήσεις</string>
 	<string name="posts_and_replies">Αναρτήσεις και Απαντήσεις</string>
 	<string name="media">Πολυμέσα</string>
@@ -47,8 +31,6 @@
 	<string name="button_follow">Ακολούθησε</string>
 	<string name="button_following">Ακολουθείς</string>
 	<string name="edit_profile">Επεξεργασία Προφίλ</string>
-	<string name="mention_user">Ανάφερε τον @%s</string>
-	<string name="share_user">Κοινοποίηση %s</string>
 	<string name="mute_user">Σίγαση %s</string>
 	<string name="unmute_user">Κατάργηση σίγασης %s</string>
 	<string name="block_user">Αποκλεισμός %s</string>
@@ -80,7 +62,6 @@
 		<item quantity="one">%d ημέρα</item>
 		<item quantity="other">%d ημέρες</item>
 	</plurals>
-	<string name="compose_poll_duration">Διάρκεια: %s</string>
 	<plurals name="x_seconds_left">
 		<item quantity="one">Απομένει %d δευτερόλεπτο</item>
 		<item quantity="other">Απομένουν %d δευτερόλεπτα</item>
@@ -97,10 +78,6 @@
 		<item quantity="one">Απομένει %d ημέρα</item>
 		<item quantity="other">απομένουν %d ημέρες</item>
 	</plurals>
-	<plurals name="x_voters">
-		<item quantity="one">%,d ψηφοφόρος</item>
-		<item quantity="other">%,d ψηφοφόροι</item>
-	</plurals>
 	<string name="poll_closed">Κλειστό</string>
 	<string name="confirm_mute_title">Σίγαση Λογαριασμού</string>
 	<string name="confirm_mute">Επιβεβαίωσε για σίγαση %s</string>
@@ -116,44 +93,30 @@
 	<string name="confirm_unblock_domain_title">Άρση αποκλεισμού Τομέα</string>
 	<string name="confirm_unblock">Επιβεβαίωση άρσης αποκλεισμού %s</string>
 	<string name="do_unblock">Άρση αποκλεισμού</string>
-	<string name="button_muted">Σε Σίγαση</string>
 	<string name="button_blocked">Αποκλείστηκε</string>
 	<string name="action_vote">Ψήφισε</string>
-	<string name="tap_to_reveal">Πάτα για εμφάνιση</string>
 	<string name="delete">Διαγραφή</string>
-	<string name="confirm_delete_title">Διαγραφή ανάρτησης</string>
 	<string name="confirm_delete">Είσαι βέβαιος ότι θες να διαγράψεις την ανάρτηση;</string>
 	<string name="deleting">Διαγραφή…</string>
 	<string name="notification_channel_audio_player">Αναπαραγωγή ήχου</string>
 	<string name="play">Αναπαραγωγή</string>
 	<string name="pause">Παύση</string>
-	<string name="log_out">Αποσύνδεση</string>
 	<string name="add_account">Προσθήκη λογαριασμού</string>
 	<string name="search_hint">Αναζήτηση</string>
 	<string name="hashtags">Ετικέτες</string>
 	<string name="news">Ειδήσεις</string>
 	<string name="for_you">Για σένα</string>
-	<string name="all_notifications">Όλα</string>
 	<string name="mentions">Επισημάνσεις</string>
 	<plurals name="x_people_talking">
 		<item quantity="one">%d άτομο μιλάει</item>
 		<item quantity="other">%d άτομα μιλάνε</item>
 	</plurals>
-	<plurals name="discussed_x_times">
-		<item quantity="one">Συζητήθηκε %d φορά</item>
-		<item quantity="other">Συζητήθηκε %d φορές</item>
-	</plurals>
 	<string name="report_title">Αναφορά %s</string>
-	<string name="report_choose_reason">Τι πάει λάθος με αυτή την ανάρτηση;</string>
-	<string name="report_choose_reason_account">Τι πάει λάθος με τον/την %s;</string>
 	<string name="report_choose_reason_subtitle">Διάλεξε την καλύτερη αντιστοίχιση</string>
-	<string name="report_reason_personal">Δεν μου αρέσει</string>
 	<string name="report_reason_personal_subtitle">Δεν είναι κάτι που θα ήθελες να δεις</string>
-	<string name="report_reason_spam">Είναι σπαμ</string>
 	<string name="report_reason_spam_subtitle">Κακόβουλοι σύνδεσμοι, πλαστή αλληλεπίδραση ή επαναλαμβανόμενες απαντήσεις</string>
 	<string name="report_reason_violation">Παραβαίνει τους κανόνες του διακομιστή</string>
 	<string name="report_reason_violation_subtitle">Γνωρίζεις ότι παραβιάζει συγκεκριμένους κανόνες</string>
-	<string name="report_reason_other">Είναι κάτι άλλο</string>
 	<string name="report_reason_other_subtitle">Το ζήτημα δεν ταιριάζει σε άλλες κατηγορίες</string>
 	<string name="report_choose_rule">Ποιοι κανόνες παραβιάζονται;</string>
 	<string name="report_choose_rule_subtitle">Επίλεξε όλα όσα ισχύουν</string>
@@ -162,22 +125,13 @@
 	<string name="report_comment_title">Υπάρχει κάτι άλλο που πρέπει να γνωρίζουμε;</string>
 	<string name="report_comment_hint">Επιπρόσθετα σχόλια</string>
 	<string name="sending_report">Αποστολή αναφοράς…</string>
-	<string name="report_sent_title">Σε ευχαριστούμε για την αναφορά, θα το διερευνήσουμε.</string>
-	<string name="report_sent_subtitle">Ενώ το εξετάζουμε αυτό, μπορείς να δράσεις εναντίον του %s.</string>
 	<string name="unfollow_user">Κατάργηση ακολούθησης του %s</string>
 	<string name="unfollow">Άρση ακολούθησης</string>
-	<string name="mute_user_explain">Δε θα βλέπεις τις αναρτήσεις ή τις ενισχύσεις τους στην αρχική σελίδα σου. Δε θα ξέρουν ότι βρίσκονται σε σίγαση.</string>
-	<string name="block_user_explain">Δε θα μπορούν πλέον να σε ακολουθούν ή να βλέπουν τις αναρτήσεις σου, αλλά μπορούν να δουν αν έχουν αποκλειστεί.</string>
-	<string name="report_personal_title">Δε θες να το βλέπεις αυτό;</string>
-	<string name="report_personal_subtitle">Όταν βλέπεις κάτι που δε σου αρέσει στο Mastodon, μπορείς να αφαιρέσεις το άτομο από την εμπειρία σου.</string>
 	<string name="back">Πίσω</string>
-	<string name="instance_catalog_title">Το Mastodon αποτελείται από χρήστες σε διαφορετικούς διακομιστές.</string>
-	<string name="instance_catalog_subtitle">Διάλεξε ένα διακομιστή με βάση τα ενδιαφέροντά σου, την περιοχή ή έναν γενικού σκοπού. Μπορείς ακόμα να συνδεθείς με όλους, ανεξάρτητα από το διακομιστή.</string>
 	<string name="search_communities">Όνομα διακομιστή ή διεύθυνση URL</string>
 	<string name="instance_rules_title">Κανόνες Διακομιστή</string>
 	<string name="instance_rules_subtitle">Συνεχίζοντας, συμφωνείς να τηρείς τους ακόλουθους κανόνες που έχουν οριστεί και επιβάλλονται από τους %s συντονιστές.</string>
 	<string name="signup_title">Δημιουργία Λογαριασμού</string>
-	<string name="edit_photo">επεξεργασία</string>
 	<string name="display_name">Όνομα</string>
 	<string name="username">Όνομα χρήστη</string>
 	<string name="email">Email</string>
@@ -199,27 +153,14 @@
 	<string name="category_tech">Τεχνολογία</string>
 	<string name="confirm_email_title">Έλεγξε τα Εισερχόμενα σου</string>
 	<!-- %s is the email address -->
-	<string name="confirm_email_subtitle">Πάτησε το σύνδεσμο που σου στείλαμε για να επαληθεύσεις το %s. Θα σε περιμένουμε εδώ.</string>
-	<string name="confirm_email_didnt_get">Δεν έλαβες τον σύνδεσμο;</string>
 	<string name="resend">Επαναποστολή</string>
 	<string name="open_email_app">Άνοιγμα εφαρμογής email</string>
 	<string name="resent_email">Το email επιβεβαίωσης εστάλη</string>
-	<string name="compose_hint">Πληκτρολόγησε ή επικόλλησε τί έχεις στο μυαλό σου</string>
 	<string name="content_warning">Προειδοποίηση περιεχομένου</string>
-	<string name="add_image_description">Προσθήκη περιγραφής εικόνας…</string>
-	<string name="retry_upload">Επανάληψη μεταμόρφωσης</string>
-	<string name="edit_image">Επεξεργασία εικόνας</string>
 	<string name="save">Αποθήκευση</string>
 	<string name="add_alt_text">Προσθήκη εναλλακτικού κειμένου</string>
-	<string name="alt_text_subtitle">Το εναλλακτικό κείμενο περιγράφει τις φωτογραφίες σου για άτομα με χαμηλή ή καθόλου όραση. Προσπάθησε να συμπεριλάβεις μόνο όσες λεπτομέρειες χρειάζεται για να γίνει κατανοητό το περιεχόμενο.</string>
-	<string name="alt_text_hint">πχ. Ένας σκύλος που κοιτάζει γύρω του ύποπτα με μισόκλειστα μάτια στην κάμερα.</string>
 	<string name="visibility_public">Δημόσιο</string>
 	<string name="visibility_followers_only">Μόνο ακόλουθοι</string>
-	<string name="visibility_private">Μόνο άτομα που επισημαίνω</string>
-	<string name="search_all">Όλα</string>
-	<string name="search_people">Άτομα</string>
-	<string name="recent_searches">Πρόσφατες αναζητήσεις</string>
-	<string name="step_x_of_n">Βήμα %1$d από %2$d</string>
 	<string name="skip">Παράλειψη</string>
 	<string name="notification_type_follow">Νέοι ακόλουθοι</string>
 	<string name="notification_type_favorite">Αγαπημένα</string>
@@ -228,47 +169,21 @@
 	<string name="notification_type_poll">Δημοσκοπήσεις</string>
 	<string name="choose_account">Επιλογή λογαριασμού</string>
 	<string name="err_not_logged_in">Παρακαλώ συνδέσου πρώτα στο Mastodon</string>
-	<plurals name="cant_add_more_than_x_attachments">
-		<item quantity="one">Δεν μπορείς να προσθέσεις περισσότερα από %d συνημμένο πολυμέσων</item>
-		<item quantity="other">Δεν μπορείς να προσθέσεις περισσότερα από %d συνημμένα πολυμέσων</item>
-	</plurals>
 	<string name="media_attachment_unsupported_type">Το αρχείο %s είναι μη υποστηριζόμενου τύπου</string>
 	<string name="media_attachment_too_big">Το αρχείο %1$s υπερβαίνει το όριο μεγέθους των %2$s MB</string>
-	<string name="settings_theme">Οπτική εμφάνιση</string>
-	<string name="theme_auto">Αυτόματο</string>
 	<string name="theme_light">Φωτεινό</string>
 	<string name="theme_dark">Σκοτεινό</string>
-	<string name="theme_true_black">Λειτουργία απόλυτου μαύρου</string>
 	<string name="settings_behavior">Συμπεριφορά</string>
 	<string name="settings_gif">Αναπαραγωγή κινούμενων άβαταρ και εμότζι</string>
 	<string name="settings_custom_tabs">Χρήση περιηγητή εντός εφαρμογής</string>
 	<string name="settings_notifications">Ειδοποιήσεις</string>
-	<string name="notify_me_when">Να ειδοποιούμαι όταν</string>
-	<string name="notify_anyone">οποιοσδήποτε</string>
-	<string name="notify_follower">ακόλουθος</string>
-	<string name="notify_followed">κάποιος που ακολουθώ</string>
-	<string name="notify_none">κανείς</string>
-	<string name="notify_favorites">Προσθέτει στα αγαπημένα την ανάρτησή μου</string>
-	<string name="notify_follow">Με ακολουθεί</string>
-	<string name="notify_reblog">Ενισχύει την ανάρτησή μου</string>
-	<string name="notify_mention">Με επισημαίνει</string>
-	<string name="settings_boring">Η ζώνη της βαρεμάρας</string>
-	<string name="settings_account">Ρυθμίσεις λογαριασμού</string>
 	<string name="settings_contribute">Συνείσφερε στο Mastodon</string>
 	<string name="settings_tos">Όροι χρήσης</string>
 	<string name="settings_privacy_policy">Πολιτική απορρήτου</string>
-	<string name="settings_spicy">Η πικάντικη ζώνη</string>
 	<string name="settings_clear_cache">Εκκαθάριση προσωρινής μνήμης πολυμέσων</string>
 	<string name="settings_app_version">Mastodon για Android v%1$s (%2$d)</string>
 	<string name="media_cache_cleared">Η προσωρινή μνήμη πολυμέσων καθαρίστηκε</string>
-	<string name="confirm_log_out">Είσαι βέβαιος ότι θες να αποσυνδεθείς;</string>
-	<string name="sensitive_content">Ευαίσθητο περιεχόμενο</string>
-	<string name="sensitive_content_explain">Ο συντάκτης σηματοδότησε αυτό το αρχείο πολυμέσων ως ευαίσθητο. Πάτησε για να το αποκαλύψεις.</string>
-	<string name="media_hidden">Πάτα για εμφάνιση</string>
-	<string name="avatar_description">Μετάβαση στο προφίλ του %s</string>
 	<string name="more_options">Περισσότερες επιλογές</string>
-	<string name="reveal_content">Αποκάλυψη περιεχομένου</string>
-	<string name="hide_content">Απόκρυψη περιεχομένου</string>
 	<string name="new_post">Νέα ανάρτηση</string>
 	<string name="button_reply">Απάντηση</string>
 	<string name="button_reblog">Ενίσχυση</string>
@@ -278,13 +193,11 @@
 	<string name="add_media">Προσθήκη πολυμέσων</string>
 	<string name="add_poll">Προσθήκη δημοσκόπησης</string>
 	<string name="emoji">Emoji</string>
-	<string name="post_visibility">Ορατότητα ανάρτησης</string>
 	<string name="home_timeline">Αρχική</string>
 	<string name="my_profile">Το προφίλ μου</string>
 	<string name="media_viewer">Αναπαραγωγέας πολυμέσων</string>
 	<string name="follow_user">Ακολούθησε %s</string>
 	<string name="unfollowed_user">Κατάργηση ακολούθησης του %s</string>
-	<string name="followed_user">Ακολουθείς τον/την %s</string>
 	<string name="following_user_requested">Έγινε αίτημα ακολούθησης του/της %s</string>
 	<string name="open_in_browser">Άνοιξε στον περιηγητή</string>
 	<string name="hide_boosts_from_user">Απόκρυψη ενισχύσεων από @%s</string>
@@ -302,21 +215,13 @@
 	<string name="error_saving_file">Σφάλμα αποθήκευσης αρχείου</string>
 	<string name="file_saved">Το αρχείο αποθηκεύτηκε</string>
 	<string name="downloading">Λήψη…</string>
-	<string name="no_app_to_handle_action">Δεν υπάρχει εφαρμογή για να χειριστεί αυτήν την ενέργεια</string>
-	<string name="local_timeline">Κοινότητα</string>
-	<string name="trending_posts_info_banner">Αυτές είναι οι αναρτήσεις που κερδίζουν την προσοχή στη δική σου γωνιά του Mastodon.</string>
-	<string name="trending_hashtags_info_banner">Αυτές είναι οι ετικέτες που κερδίζουν την προσοχή στη δική σου γωνιά του Mastodon.</string>
-	<string name="trending_links_info_banner">Αυτές είναι οι ειδήσεις που μοιράζονται περισσότερο στη δική σου γωνιά στο Mastodon.</string>
-	<string name="local_timeline_info_banner">Αυτές είναι οι πιο πρόσφατες αναρτήσεις από τα άτομα που χρησιμοποιούν τον ίδιο διακομιστή Mastodon με εσένα.</string>
-	<string name="dismiss">Παράβλεψη</string>
+	<!-- %s is the server domain -->
 	<string name="see_new_posts">Δες νέες αναρτήσεις</string>
 	<string name="load_missing_posts">Φόρτωση αναρτήσεων που λείπουν</string>
 	<string name="follow_back">Ακολούθησε και εσύ</string>
 	<string name="button_follow_pending">Εκκρεμεί</string>
 	<string name="follows_you">Σε ακολουθεί</string>
 	<string name="manually_approves_followers">Χειροκίνητη έγκριση ακολούθων</string>
-	<string name="current_account">Τρέχων λογαριασμός</string>
-	<string name="log_out_account">Αποσύνδεση %s</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<plurals name="x_followers">
 		<item quantity="one">%,d ακόλουθος</item>
@@ -336,8 +241,6 @@
 	</plurals>
 	<string name="timestamp_via_app">%1$s μέσω %2$s</string>
 	<string name="time_now">τώρα</string>
-	<string name="post_info_reblogs">Ενισχύσεις</string>
-	<string name="post_info_favorites">Αγαπημένα</string>
 	<string name="edit_history">Επεξεργασία ιστορικού</string>
 	<string name="last_edit_at_x">Τελευταία επεξεργασία %s</string>
 	<string name="time_just_now">μόλις τώρα</string>
@@ -371,14 +274,9 @@
 	<string name="file_size_kb">%.2f KB</string>
 	<string name="file_size_mb">%.2f MB</string>
 	<string name="file_size_gb">%.2f GB</string>
-	<string name="file_upload_progress">%1$s από %2$s</string>
-	<string name="file_upload_time_remaining">%s απομένουν</string>
-	<string name="upload_error_connection_lost">Η συσκευή σου έχασε τη σύνδεση με το διαδίκτυο</string>
 	<string name="upload_processing">Επεξεργασία…</string>
 	<!-- %s is version like 1.2.3 -->
-	<string name="update_available">Το Mastodon για Android %s είναι έτοιμο για λήψη.</string>
 	<!-- %s is version like 1.2.3 -->
-	<string name="update_ready">Το Mastodon για Android %s ελήφθη και είναι έτοιμο για εγκατάσταση.</string>
 	<!-- %s is file size -->
 	<string name="download_update">Λήψη (%s)</string>
 	<string name="install_update">Εγκατάσταση</string>
@@ -395,7 +293,6 @@
 	<string name="login_title">Καλώς Ήρθες Ξανά</string>
 	<string name="login_subtitle">Συνδέσου με τον διακομιστή όπου δημιούργησες τον λογαριασμό σου.</string>
 	<string name="server_url">URL διακομιστή</string>
-	<string name="signup_random_server_explain">Θα διαλέξουμε ένα διακομιστή με βάση τη γλώσσα σας αν συνεχίσεις χωρίς να κάνεις μια επιλογή.</string>
 	<string name="server_filter_any_language">Οποιαδήποτε Γλώσσα</string>
 	<string name="server_filter_instant_signup">Άμεση Εγγραφή</string>
 	<string name="server_filter_manual_review">Χειροκίνητη Αξιολόγηση</string>
@@ -408,7 +305,6 @@
 	<string name="server_filter_region_oceania">Oceania</string>
 	<string name="not_accepting_new_members">Δεν δέχεται νέα μέλη</string>
 	<string name="category_special_interests">Ειδικά Ενδιαφέροντα</string>
-	<string name="signup_passwords_dont_match">Οι κωδικοί πρόσβασης δεν ταιριάζουν</string>
 	<string name="pick_server_for_me">Διάλεξε για μένα</string>
 	<string name="profile_add_row">Προσθήκη γραμμής</string>
 	<string name="profile_setup">Ρύθμιση προφίλ</string>
@@ -417,15 +313,12 @@
 	<string name="popular_on_mastodon">Δημοφιλή στο Mastodon</string>
 	<string name="follow_all">Ακολούθησε όλους</string>
 	<string name="server_rules_disagree">Διαφωνώ</string>
-	<string name="privacy_policy_explanation">Σύνοψη: Δεν συλλέγουμε ή επεξεργαζόμαστε τίποτα.</string>
 	<!-- %s is server domain -->
 	<string name="server_policy_disagree">Διαφωνώ με %s</string>
 	<string name="profile_bio">Βιογραφικό</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<string name="sending_follows">Ακολούθηση χρηστών…</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
-	<string name="signup_email_domain_blocked">Ο %1$s δεν επιτρέπει εγγραφές από %2$s. Δοκιμάστε μια διαφορετική ή &lt;a&gt;επιλέξτε έναν διαφορετικό διακομιστή&lt;/a&gt;.</string>
-	<string name="signup_username_taken">Αυτό το όνομα χρήστη χρησιμοποιείται.</string>
 	<string name="spoiler_show">Εμφάνιση ούτως ή άλλως</string>
 	<string name="spoiler_hide">Απόκρυψη ξανά</string>
 	<string name="poll_multiple_choice">Επίλεξε ένα ή περισσότερα</string>
@@ -445,4 +338,15 @@
 	<string name="welcome_paragraph1">Το Mastodon είναι ένα αποκεντρωμένο κοινωνικό δίκτυο που σημαίνει ότι καμία εταιρεία δεν το ελέγχει. Αποτελείται από πολλούς ανεξάρτητους διακομιστές, όλοι συνδεδεμένοι μαζί.</string>
 	<string name="what_are_servers">Τι είναι οι διακομιστές;</string>
 	<string name="welcome_paragraph2"><![CDATA[Κάθε λογαριασμός Mastodon φιλοξενείται σε ένα διακομιστή - ο καθένας με τις δικές του αξίες, κανόνες και διαχειριστές. Ανεξάρτητα από το ποιον μπορεί να επιλέξεις, μπορείς να ακολουθήσεις και να αλληλεπιδράσεις με άτομα από οποιονδήποτε διακομιστή.]]></string>
+	<!-- %s is formatted file size ("467 KB image") -->
+	<!-- %s is the server domain -->
+	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
+	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
+	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
+	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<!-- %s is the username -->
+	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<!-- Shown like a content warning, %s is the name of the filter -->
+	<!-- Shown in the post header. Please keep it short -->
 </resources>
