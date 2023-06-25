@@ -1,25 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="get_started">Sortu kontua</string>
-	<string name="already_have_account">Badut kontua dagoeneko</string>
 	<string name="log_in">Hasi saioa</string>
 	<string name="next">Hurrengoa</string>
 	<string name="loading_instance">Zerbitzariaren informazioa berreskuratzen…</string>
 	<string name="error">Errorea</string>
-	<string name="not_a_mastodon_instance">%s(e) k ez dirudi Mastodon instantzia bat denik.</string>
 	<string name="ok">Ados</string>
 	<string name="preparing_auth">Autentifikaziorako prestatzen…</string>
 	<string name="finishing_auth">Autentikazioa bukatzen…</string>
 	<string name="in_reply_to">%s-(r)i erantzunez</string>
 	<string name="notifications">Jakinarazpenak</string>
-	<string name="user_followed_you">jarraitu zaitu</string>
-	<string name="user_sent_follow_request">jarraitzeko eskaera bidali dizu</string>
-	<string name="user_favorited">zure bidalketa gogoko du</string>
-	<string name="poll_ended">inkesta amaitu da</string>
-	<string name="time_seconds">%ds</string>
-	<string name="time_minutes">%dm</string>
-	<string name="time_hours">%dh</string>
-	<string name="time_days">%de</string>
 	<string name="share_toot_title">Partekatu</string>
 	<string name="settings">Ezarpenak</string>
 	<string name="publish">Argitaratu</string>
@@ -34,10 +23,6 @@
 		<item quantity="one">jarraitzen</item>
 		<item quantity="other">jarraitzen</item>
 	</plurals>
-	<plurals name="posts">
-		<item quantity="one">bidalketa</item>
-		<item quantity="other">bidalketa</item>
-	</plurals>
 	<string name="posts">Bidalketak</string>
 	<string name="posts_and_replies">Bidalketak eta erantzunak</string>
 	<string name="media">Multimedia</string>
@@ -45,8 +30,6 @@
 	<string name="button_follow">Jarraitu</string>
 	<string name="button_following">Jarraitzen</string>
 	<string name="edit_profile">Editatu profila</string>
-	<string name="mention_user">Aipatu %s</string>
-	<string name="share_user">Partekatu %s</string>
 	<string name="mute_user">Mututu %s</string>
 	<string name="unmute_user">Desmututu %s</string>
 	<string name="block_user">Blokeatu %s</string>
@@ -78,7 +61,6 @@
 		<item quantity="one">Egun %d</item>
 		<item quantity="other">%d egun</item>
 	</plurals>
-	<string name="compose_poll_duration">Iraupena: %s</string>
 	<plurals name="x_seconds_left">
 		<item quantity="one">%d segundo geratzen da</item>
 		<item quantity="other">%d segundo geratzen dira</item>
@@ -95,10 +77,6 @@
 		<item quantity="one">%d egun falta da</item>
 		<item quantity="other">%d egun falta dira</item>
 	</plurals>
-	<plurals name="x_voters">
-		<item quantity="one">Boto-emaile %,d</item>
-		<item quantity="other">%,d boto-emaile</item>
-	</plurals>
 	<string name="poll_closed">Itxita</string>
 	<string name="confirm_mute_title">Mututu kontua</string>
 	<string name="confirm_mute">Berretsi %s mututzea</string>
@@ -114,44 +92,30 @@
 	<string name="confirm_unblock_domain_title">Desblokeatu domeinua</string>
 	<string name="confirm_unblock">Berretsi %s desblokeatzea</string>
 	<string name="do_unblock">Desblokeatu</string>
-	<string name="button_muted">Mutututa</string>
 	<string name="button_blocked">Blokeatuta</string>
 	<string name="action_vote">Bozkatu</string>
-	<string name="tap_to_reveal">Sakatu erakusteko</string>
 	<string name="delete">Ezabatu</string>
-	<string name="confirm_delete_title">Ezabatu bidalketa</string>
 	<string name="confirm_delete">Ziur bidalketa hau ezabatu nahi duzula?</string>
 	<string name="deleting">Ezabatzen…</string>
 	<string name="notification_channel_audio_player">Audioa erreproduzitzen</string>
 	<string name="play">Jo</string>
 	<string name="pause">Pausatu</string>
-	<string name="log_out">Amaitu saioa</string>
 	<string name="add_account">Gehitu kontua</string>
 	<string name="search_hint">Bilatu</string>
 	<string name="hashtags">Traolak</string>
 	<string name="news">Berriak</string>
 	<string name="for_you">Zuretzat</string>
-	<string name="all_notifications">Denak</string>
 	<string name="mentions">Aipamenak</string>
 	<plurals name="x_people_talking">
 		<item quantity="one">Pertsona %d hizketan</item>
 		<item quantity="other">%d pertsona hizketan</item>
 	</plurals>
-	<plurals name="discussed_x_times">
-		<item quantity="one">%d aldiz eztabaidatua</item>
-		<item quantity="other">%d aldiz eztabaidatua</item>
-	</plurals>
 	<string name="report_title">Salatu %s</string>
-	<string name="report_choose_reason">Zer du txarra argitalpen honek?</string>
-	<string name="report_choose_reason_account">Zer du txarra %s?</string>
 	<string name="report_choose_reason_subtitle">Aukeratu egokiena</string>
-	<string name="report_reason_personal">Ez dut gustukoa</string>
 	<string name="report_reason_personal_subtitle">Ikusi nahi ez dudan zerbait da</string>
-	<string name="report_reason_spam">Spama da</string>
 	<string name="report_reason_spam_subtitle">Esteka maltzurrak, gezurrezko elkarrekintzak edo erantzun errepikakorrak</string>
 	<string name="report_reason_violation">Zerbitzariaren arauak hausten ditu</string>
 	<string name="report_reason_violation_subtitle">Arau zehatzak urratzen dituela badakizu</string>
-	<string name="report_reason_other">Beste zerbait da</string>
 	<string name="report_reason_other_subtitle">Arazoa ezin da beste kategorietan sailkatu</string>
 	<string name="report_choose_rule">Ze arau hautsi ditu?</string>
 	<string name="report_choose_rule_subtitle">Hautatu dagozkion guztiak</string>
@@ -160,20 +124,12 @@
 	<string name="report_comment_title">Beste zerbait jakin beharko genuke?</string>
 	<string name="report_comment_hint">Iruzkin gehigarriak</string>
 	<string name="sending_report">Txostena bidaltzen…</string>
-	<string name="report_sent_title">Mila esker salaketagatik, berrikusiko dugu.</string>
-	<string name="report_sent_subtitle">Hau berrikusten dugun bitartean, %s erabiltzailearen aurkako neurriak hartu ditzakezu.</string>
 	<string name="unfollow_user">%s jarraitzeari utzi</string>
 	<string name="unfollow">Utzi jarraitzeari</string>
-	<string name="block_user_explain">Ezin izango dituzte zure bidalketak jarraitu edo ikusi, baina blokeatuta dauden ikusi ahal izango dute.</string>
-	<string name="report_personal_title">Ez duzu hau ikusi nahi?</string>
-	<string name="report_personal_subtitle">Mastodonen gustuko ez duzun zerbait ikusten duzunean, zure esperientziatik atera dezakezu pertsona hori.</string>
 	<string name="back">Atzera</string>
-	<string name="instance_catalog_title">Mastodon zerbitzari desberdinetako erabiltzaileez egina dago.</string>
-	<string name="instance_catalog_subtitle">Aukeratu zerbitzari bat zure interesen, eskualdearen edo helburuen arabera. Pertsona guztiekin konektatu ahal izango duzu, zerbitzaria zein den kontuan hartu gabe.</string>
 	<string name="search_communities">Zerbitzari izena edo URLa</string>
 	<string name="instance_rules_title">Zerbitzariaren arauak</string>
 	<string name="signup_title">Sortu kontua</string>
-	<string name="edit_photo">editatu</string>
 	<string name="display_name">Izena</string>
 	<string name="username">Erabiltzaile-izena</string>
 	<string name="email">Eposta</string>
@@ -198,22 +154,11 @@
 	<string name="resend">Berbidali</string>
 	<string name="open_email_app">Ireki eposta aplikazioa</string>
 	<string name="resent_email">Berretzi eposta bidaltzea</string>
-	<string name="compose_hint">Idatzi edo itsatsi buruan duzuna</string>
 	<string name="content_warning">Edukiaren abisua</string>
-	<string name="add_image_description">Gehitu irudiaren deskribapena…</string>
-	<string name="retry_upload">Saiatu berriro igotzen</string>
-	<string name="edit_image">Editatu irudia</string>
 	<string name="save">Gorde</string>
 	<string name="add_alt_text">Gehitu ordezko testua</string>
-	<string name="alt_text_subtitle">Alt testuak zure argazkiak deskribatzen ditu ikusmen txikia edo ikuspenik ez duten pertsonentzat. Testuingurua ulertzeko behar adina xehetasun bakarrik sartu.</string>
-	<string name="alt_text_hint">adib. Txakur bat kamerari modu susmagarrian begira, begiak erdi itxita dituela.</string>
 	<string name="visibility_public">Publikoa</string>
 	<string name="visibility_followers_only">Jarraitzaileak soilik</string>
-	<string name="visibility_private">Aipatzen dudan jendea soilik</string>
-	<string name="search_all">Denak</string>
-	<string name="search_people">Jendea</string>
-	<string name="recent_searches">Azken bilaketak</string>
-	<string name="step_x_of_n">%1$d pausua %2$d -(e)tik</string>
 	<string name="skip">Saltatu</string>
 	<string name="notification_type_follow">Jarraitzaile berriak</string>
 	<string name="notification_type_favorite">Gogokoak</string>
@@ -221,46 +166,21 @@
 	<string name="notification_type_poll">Inkestak</string>
 	<string name="choose_account">Aukeratu kontua</string>
 	<string name="err_not_logged_in">Mesedez, hasi saioa lehenengo Mastodonen</string>
-	<plurals name="cant_add_more_than_x_attachments">
-		<item quantity="one">Ezin duzu multimedia fitxategi %d baino gehiago gehitu</item>
-		<item quantity="other">Ezin dituzu %d baino multimedia fitxategi gehiago gehitu</item>
-	</plurals>
 	<string name="media_attachment_unsupported_type">%s fitxategi mota ez da bateragarria</string>
 	<string name="media_attachment_too_big">%1$s fitxategiak %2$s MB-eko tamainaren muga gainditzen du</string>
-	<string name="settings_theme">Itxura bisuala</string>
-	<string name="theme_auto">Automatikoa</string>
 	<string name="theme_light">Argia</string>
 	<string name="theme_dark">Iluna</string>
-	<string name="theme_true_black">Benetako modu beltz iluna</string>
 	<string name="settings_behavior">Jokabidea</string>
 	<string name="settings_gif">Erreproduzitu animatutako abatarrak eta emojiak</string>
 	<string name="settings_custom_tabs">Erabili aplikazio barneko nabigatzailea</string>
 	<string name="settings_notifications">Jakinarazpenak</string>
-	<string name="notify_me_when">Noiz jakinarazi:</string>
-	<string name="notify_anyone">edozein</string>
-	<string name="notify_follower">jarraitzaile bat</string>
-	<string name="notify_followed">jarraitzen dudan edonor</string>
-	<string name="notify_none">inor ez</string>
-	<string name="notify_favorites">Nire bidalketa gogoko egitean</string>
-	<string name="notify_follow">Jarraitzen nau</string>
-	<string name="notify_mention">Aipatu nau</string>
-	<string name="settings_boring">Eremu aspergarria</string>
-	<string name="settings_account">Kontuaren ezarpenak</string>
 	<string name="settings_contribute">Lagundu Mastodon</string>
 	<string name="settings_tos">Erabilera baldintzak</string>
 	<string name="settings_privacy_policy">Pribatutasun gidalerroak</string>
-	<string name="settings_spicy">Eremu beroa</string>
 	<string name="settings_clear_cache">Garbitu multimediaren cachea</string>
 	<string name="settings_app_version">Mastodon Android-entzat v%1$s (%2$d)</string>
 	<string name="media_cache_cleared">Multimediaren cachea garbitua</string>
-	<string name="confirm_log_out">Ziur saioa amaitu nahi duzula?</string>
-	<string name="sensitive_content">Eduki hunkigarria</string>
-	<string name="sensitive_content_explain">Egileak multimedia hau hunkigarritzat markatu du. Sakatu erakusteko.</string>
-	<string name="media_hidden">Sakatu erakusteko</string>
-	<string name="avatar_description">Joan %s-ren profilera</string>
 	<string name="more_options">Aukera gehiago</string>
-	<string name="reveal_content">Erakutsi edukia</string>
-	<string name="hide_content">Ezkutatu edukia</string>
 	<string name="new_post">Bidalketa berria</string>
 	<string name="button_reply">Erantzun</string>
 	<string name="button_favorite">Gogokoa</string>
@@ -269,13 +189,11 @@
 	<string name="add_media">Gehitu multimedia</string>
 	<string name="add_poll">Gehitu inkesta bat</string>
 	<string name="emoji">Emojia</string>
-	<string name="post_visibility">Bidalketaren ikusgaitasuna</string>
 	<string name="home_timeline">Hasierako denbora-lerroa</string>
 	<string name="my_profile">Nire profila</string>
 	<string name="media_viewer">Multimedia ikuskatzailea</string>
 	<string name="follow_user">Jarraitu %s</string>
 	<string name="unfollowed_user">Utzi %s jarraitzeari</string>
-	<string name="followed_user">%s jarraitzen ari zara</string>
 	<string name="open_in_browser">Ireki nabigatzailean</string>
 	<string name="signup_reason">Zergatik elkartu nahi duzu?</string>
 	<string name="signup_reason_note">Honek zure eskaera berrikustean lagunduko digu.</string>
@@ -290,21 +208,13 @@
 	<string name="error_saving_file">Errorea fitxategia gordetzerakoan</string>
 	<string name="file_saved">Fitxategia gorde da</string>
 	<string name="downloading">Jeisten…</string>
-	<string name="no_app_to_handle_action">Ez dago ekintza hau kudeatu dezkeen aplikaziorik</string>
-	<string name="local_timeline">Komunitatea</string>
-	<string name="trending_posts_info_banner">Hauek dira zure Mastodon txokoan beraien lekua hartzen ari diren argitalpenak.</string>
-	<string name="trending_hashtags_info_banner">Hauek dira zure Mastodon txokoan beraien lekua hartzen ari diren traolak.</string>
-	<string name="trending_links_info_banner">Hauek dira zure Mastodon txokoan gehien partekatzen diren albisteak.</string>
-	<string name="local_timeline_info_banner">Hauek dira zure Mastodon zerbitzari bera erabiltzen duten pertsonen bidalketa berrienak.</string>
-	<string name="dismiss">Baztertu</string>
+	<!-- %s is the server domain -->
 	<string name="see_new_posts">Ikusi bidalketa berriak</string>
 	<string name="load_missing_posts">Falta diren bidalketak kargatu</string>
 	<string name="follow_back">Jarraitu</string>
 	<string name="button_follow_pending">Zain</string>
 	<string name="follows_you">Jarraitzen zaitu</string>
 	<string name="manually_approves_followers">Jarraitzaileak eskuz onartu</string>
-	<string name="current_account">Oraingo kontua</string>
-	<string name="log_out_account">Itxi saioa %s</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<plurals name="x_followers">
 		<item quantity="one">Jarraitzaile %,d</item>
@@ -320,7 +230,6 @@
 	</plurals>
 	<string name="timestamp_via_app">%1$s %2$s -en bidez</string>
 	<string name="time_now">orain</string>
-	<string name="post_info_favorites">Gogokoak</string>
 	<string name="edit_history">Editatu historia</string>
 	<string name="last_edit_at_x">Azken edizioa %s</string>
 	<string name="time_just_now">oraintxe</string>
@@ -354,14 +263,9 @@
 	<string name="file_size_kb">%.2f KB</string>
 	<string name="file_size_mb">%.2f MB</string>
 	<string name="file_size_gb">%.2f GB</string>
-	<string name="file_upload_progress">%2$s-tik %1$s</string>
-	<string name="file_upload_time_remaining">%s geratzen da</string>
-	<string name="upload_error_connection_lost">Zure gailuak interneterako konexioa galdu du</string>
 	<string name="upload_processing">Prozesatzen…</string>
 	<!-- %s is version like 1.2.3 -->
-	<string name="update_available">Androiderako Mastodon %s prest dago jeisteko.</string>
 	<!-- %s is version like 1.2.3 -->
-	<string name="update_ready">%s Androiderako Mastodon deskargatu da eta instalatzeko prest dago.</string>
 	<!-- %s is file size -->
 	<string name="download_update">(%s) deskargatu</string>
 	<string name="install_update">Instalatu</string>
@@ -386,7 +290,6 @@
 	<string name="server_filter_region_asia">Asia</string>
 	<string name="server_filter_region_oceania">Ozeania</string>
 	<string name="not_accepting_new_members">Ez da kide berririk onartzen</string>
-	<string name="signup_passwords_dont_match">Pasahitzak ez datoz bat</string>
 	<string name="profile_add_row">Gehitu errenkada</string>
 	<string name="follow_all">Jarraitu denak</string>
 	<string name="server_rules_disagree">Ez ados</string>
@@ -394,5 +297,15 @@
 	<string name="profile_bio">Biografia</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
-	<string name="signup_username_taken">Erabiltzaile-izen hau hartuta dago.</string>
+	<!-- %s is formatted file size ("467 KB image") -->
+	<!-- %s is the server domain -->
+	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
+	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
+	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
+	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<!-- %s is the username -->
+	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<!-- Shown like a content warning, %s is the name of the filter -->
+	<!-- Shown in the post header. Please keep it short -->
 </resources>
