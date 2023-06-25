@@ -28,8 +28,9 @@
 				android:layout_marginTop="16dp"
 				android:textAppearance="@style/m3_title_small"
 				android:drawableStart="@drawable/ic_reply_20px"
-				android:drawableTint="?android:textColorSecondary"
+				android:drawableTint="?colorM3OnSurfaceVariant"
 				android:drawablePadding="6dp"
+				android:textColor="?colorM3OnSurfaceVariant"
 				android:singleLine="true"
 				android:ellipsize="end"/>
 
