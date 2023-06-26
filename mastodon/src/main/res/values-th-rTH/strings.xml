@@ -86,11 +86,13 @@
 	<string name="button_blocked">ปิดกั้นอยู่</string>
 	<string name="action_vote">ลงคะแนน</string>
 	<string name="delete">ลบ</string>
+	<string name="confirm_delete_title">ลบโพสต์</string>
 	<string name="confirm_delete">คุณแน่ใจหรือไม่ว่าต้องการลบโพสต์นี้?</string>
 	<string name="deleting">กำลังลบ…</string>
 	<string name="notification_channel_audio_player">การเล่นเสียง</string>
 	<string name="play">เล่น</string>
 	<string name="pause">หยุดชั่วคราว</string>
+	<string name="log_out">ออกจากระบบ</string>
 	<string name="add_account">เพิ่มบัญชี</string>
 	<string name="search_hint">ค้นหา</string>
 	<string name="hashtags">แฮชแท็ก</string>
@@ -330,6 +332,25 @@
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<!-- %s is the username -->
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="filter_context_profiles">โปรไฟล์</string>
+	<string name="settings_filter_title">ชื่อเรื่อง</string>
+	<string name="add">เพิ่ม</string>
+	<string name="enter_selection_mode">เลือก</string>
+	<string name="select_all">เลือกทั้งหมด</string>
+	<string name="filter_duration_custom">กำหนดเอง</string>
+	<string name="app_update_version">รุ่น %s</string>
+	<string name="downloading_update">กำลังดาวน์โหลด (%d%%)</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
+	<string name="search_mastodon">ค้นหา Mastodon</string>
+	<string name="clear_all">ล้างทั้งหมด</string>
+	<string name="search_open_url">เปิด URL ใน Mastodon</string>
+	<string name="posts_matching_hashtag">โพสต์ที่มี “%s”</string>
+	<string name="search_go_to_account">ไปยัง %s</string>
+	<string name="posts_matching_string">โพสต์ที่มี “%s”</string>
+	<string name="accounts_matching_string">ผู้คนที่มี “%s”</string>
 	<!-- Shown in the post header. Please keep it short -->
+	<string name="time_seconds_ago_short">%d วินาทีที่แล้ว</string>
+	<string name="time_minutes_ago_short">%d นาทีที่แล้ว</string>
+	<string name="time_hours_ago_short">%d ชั่วโมงที่แล้ว</string>
+	<string name="time_days_ago_short">%d วันที่แล้ว</string>
 </resources>
