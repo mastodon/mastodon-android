@@ -4,12 +4,17 @@
 	<string name="next">ถัดไป</string>
 	<string name="loading_instance">กำลังเรียกข้อมูลเซิร์ฟเวอร์…</string>
 	<string name="error">ข้อผิดพลาด</string>
+	<string name="not_a_mastodon_instance">ดูเหมือนว่า %s จะไม่ใช่เซิร์ฟเวอร์ Mastodon</string>
 	<string name="ok">ตกลง</string>
 	<string name="preparing_auth">กำลังเตรียมการรับรองความถูกต้อง…</string>
 	<string name="finishing_auth">กำลังเสร็จสิ้นการรับรองความถูกต้อง…</string>
 	<string name="user_boosted">%s ได้ดัน</string>
 	<string name="in_reply_to">ในการตอบกลับถึง %s</string>
 	<string name="notifications">การแจ้งเตือน</string>
+	<string name="user_followed_you">%s ได้ติดตามคุณ</string>
+	<string name="user_sent_follow_request">%s ได้ส่งคำขอติดตามถึงคุณ</string>
+	<string name="user_favorited">%s ได้ชื่นชอบโพสต์ของคุณ</string>
+	<string name="notification_boosted">%s ได้ดันโพสต์ของคุณ</string>
 	<string name="share_toot_title">แบ่งปัน</string>
 	<string name="settings">การตั้งค่า</string>
 	<string name="publish">เผยแพร่</string>
@@ -29,6 +34,7 @@
 	<string name="button_follow">ติดตาม</string>
 	<string name="button_following">กำลังติดตาม</string>
 	<string name="edit_profile">แก้ไขโปรไฟล์</string>
+	<string name="share_user">แบ่งปันโปรไฟล์</string>
 	<string name="mute_user">ซ่อน %s</string>
 	<string name="unmute_user">เลิกซ่อน %s</string>
 	<string name="block_user">ปิดกั้น %s</string>
@@ -68,6 +74,9 @@
 	<plurals name="x_days_left">
 		<item quantity="other">เหลืออีก %d วัน</item>
 	</plurals>
+	<plurals name="x_votes">
+		<item quantity="other">%,d การลงคะแนน</item>
+	</plurals>
 	<string name="poll_closed">ปิดแล้ว</string>
 	<string name="confirm_mute_title">ซ่อนบัญชี</string>
 	<string name="confirm_mute">ยืนยันเพื่อซ่อน %s</string>
@@ -98,16 +107,22 @@
 	<string name="hashtags">แฮชแท็ก</string>
 	<string name="news">ข่าว</string>
 	<string name="for_you">สำหรับคุณ</string>
+	<string name="all_notifications">ทุกอย่าง</string>
 	<string name="mentions">การกล่าวถึง</string>
 	<plurals name="x_people_talking">
 		<item quantity="other">%d คนกำลังพูดคุย</item>
 	</plurals>
 	<string name="report_title">รายงาน %s</string>
+	<string name="report_choose_reason">โพสต์นี้มีอะไรผิดปกติ?</string>
+	<string name="report_choose_reason_account">%s มีอะไรผิดปกติ?</string>
 	<string name="report_choose_reason_subtitle">เลือกที่ตรงกันที่สุด</string>
+	<string name="report_reason_personal">ฉันไม่ชอบโพสต์</string>
 	<string name="report_reason_personal_subtitle">โพสต์ไม่ใช่บางอย่างที่คุณต้องการเห็น</string>
+	<string name="report_reason_spam">โพสต์เป็นสแปม</string>
 	<string name="report_reason_spam_subtitle">ลิงก์ที่เป็นอันตราย, การมีส่วนร่วมปลอม หรือการตอบกลับซ้ำ ๆ</string>
 	<string name="report_reason_violation">โพสต์ละเมิดกฎของเซิร์ฟเวอร์</string>
 	<string name="report_reason_violation_subtitle">คุณทราบว่าโพสต์แหกกฎเฉพาะ</string>
+	<string name="report_reason_other">โพสต์เป็นอย่างอื่น</string>
 	<string name="report_reason_other_subtitle">ปัญหาไม่เข้าหมวดหมู่อื่น ๆ</string>
 	<string name="report_choose_rule">กำลังละเมิดกฎใด?</string>
 	<string name="report_choose_rule_subtitle">เลือกทั้งหมดที่นำไปใช้</string>
@@ -116,8 +131,14 @@
 	<string name="report_comment_title">มีสิ่งอื่นใดที่เราควรทราบหรือไม่?</string>
 	<string name="report_comment_hint">ความคิดเห็นเพิ่มเติม</string>
 	<string name="sending_report">กำลังส่งรายงาน…</string>
+	<string name="report_sent_title">ขอบคุณสำหรับการรายงาน เราจะตรวจสอบสิ่งนี้</string>
+	<string name="report_sent_subtitle">ขณะที่เราตรวจทานสิ่งนี้ คุณสามารถดำเนินการกับ %s:</string>
 	<string name="unfollow_user">เลิกติดตาม %s</string>
 	<string name="unfollow">เลิกติดตาม</string>
+	<string name="mute_user_explain">คุณจะไม่เห็นโพสต์ของเขา เขายังคงสามารถติดตามคุณและเห็นโพสต์ของคุณและจะไม่ทราบว่ามีการซ่อนเขา</string>
+	<string name="block_user_explain">คุณจะไม่เห็นโพสต์ของเขา เขาจะไม่สามารถเห็นโพสต์ของคุณหรือติดตามคุณ เขาจะสามารถบอกได้ว่ามีการปิดกั้นเขา</string>
+	<string name="report_personal_title">ไม่ต้องการเห็นสิ่งนี้?</string>
+	<string name="report_personal_subtitle">นี่คือตัวเลือกของคุณสำหรับการควบคุมสิ่งที่คุณเห็นใน Mastodon:</string>
 	<string name="back">ย้อนกลับ</string>
 	<string name="search_communities">ชื่อหรือ URL ของเซิร์ฟเวอร์</string>
 	<string name="instance_rules_title">กฎของเซิร์ฟเวอร์</string>
@@ -144,9 +165,12 @@
 	<string name="category_tech">เทคโนโลยี</string>
 	<string name="confirm_email_title">ตรวจสอบกล่องขาเข้าของคุณ</string>
 	<!-- %s is the email address -->
+	<string name="confirm_email_subtitle">แตะลิงก์ที่เราส่งถึงคุณเพื่อยืนยัน %s เราจะรออยู่ตรงนี้</string>
+	<string name="confirm_email_didnt_get">ไม่ได้รับลิงก์?</string>
 	<string name="resend">ส่งใหม่</string>
 	<string name="open_email_app">เปิดแอปอีเมล</string>
 	<string name="resent_email">ส่งอีเมลการยืนยันแล้ว</string>
+	<string name="compose_hint">พิมพ์หรือวางสิ่งที่คุณกำลังคิด</string>
 	<string name="content_warning">คำเตือนเนื้อหา</string>
 	<string name="save">บันทึก</string>
 	<string name="add_alt_text">เพิ่มข้อความแสดงแทน</string>
@@ -160,8 +184,13 @@
 	<string name="notification_type_poll">การสำรวจความคิดเห็น</string>
 	<string name="choose_account">เลือกบัญชี</string>
 	<string name="err_not_logged_in">โปรดเข้าสู่ระบบ Mastodon ก่อน</string>
+	<plurals name="cant_add_more_than_x_attachments">
+		<item quantity="other">คุณไม่สามารถเพิ่มมากกว่า %d ไฟล์แนบสื่อ</item>
+	</plurals>
 	<string name="media_attachment_unsupported_type">ไฟล์ %s เป็นชนิดที่ไม่รองรับ</string>
 	<string name="media_attachment_too_big">ไฟล์ %1$s เกินขีดจำกัดขนาด %2$s MB</string>
+	<string name="settings_theme">ลักษณะที่ปรากฏ</string>
+	<string name="theme_auto">ใช้ลักษณะที่ปรากฏของอุปกรณ์</string>
 	<string name="theme_light">สว่าง</string>
 	<string name="theme_dark">มืด</string>
 	<string name="settings_behavior">พฤติกรรม</string>
@@ -174,6 +203,8 @@
 	<string name="settings_clear_cache">ล้างแคชสื่อ</string>
 	<string name="settings_app_version">Mastodon สำหรับ Android v%1$s (%2$d)</string>
 	<string name="media_cache_cleared">ล้างแคชสื่อแล้ว</string>
+	<string name="sensitive_content_explain">ผู้สร้างได้ทำเครื่องหมายสื่อนี้ว่าละเอียดอ่อน</string>
+	<string name="avatar_description">ไปยังโปรไฟล์ของ %s</string>
 	<string name="more_options">ตัวเลือกเพิ่มเติม</string>
 	<string name="new_post">โพสต์ใหม่</string>
 	<string name="button_reply">ตอบกลับ</string>
@@ -189,6 +220,7 @@
 	<string name="media_viewer">ตัวดูสื่อ</string>
 	<string name="follow_user">ติดตาม %s</string>
 	<string name="unfollowed_user">เลิกติดตาม %s แล้ว</string>
+	<string name="followed_user">ตอนนี้คุณกำลังติดตาม %s</string>
 	<string name="following_user_requested">ขอติดตาม %s แล้ว</string>
 	<string name="open_in_browser">เปิดในเบราว์เซอร์</string>
 	<string name="hide_boosts_from_user">ซ่อนการดันจาก %s</string>
@@ -206,6 +238,8 @@
 	<string name="error_saving_file">เกิดข้อผิดพลาดในการบันทึกไฟล์</string>
 	<string name="file_saved">บันทึกไฟล์แล้ว</string>
 	<string name="downloading">กำลังดาวน์โหลด…</string>
+	<string name="no_app_to_handle_action">ไม่มีแอปที่จะจัดการกับการกระทำนี้</string>
+	<string name="local_timeline">ในเซิร์ฟเวอร์</string>
 	<!-- %s is the server domain -->
 	<string name="see_new_posts">ดูโพสต์ใหม่</string>
 	<string name="load_missing_posts">โหลดโพสต์ที่ขาดหายไป</string>
@@ -278,6 +312,7 @@
 	<string name="login_title">ยินดีต้อนรับกลับมา</string>
 	<string name="login_subtitle">เข้าสู่ระบบด้วยเซิร์ฟเวอร์ที่ซึ่งคุณได้สร้างบัญชีของคุณ</string>
 	<string name="server_url">URL ของเซิร์ฟเวอร์</string>
+	<string name="signup_random_server_explain">เราจะเลือกเซิร์ฟเวอร์ตามภาษาของคุณหากคุณดำเนินการต่อโดยไม่ได้ทำการเลือก</string>
 	<string name="server_filter_any_language">ภาษาใด ๆ</string>
 	<string name="server_filter_instant_signup">การลงทะเบียนทันที</string>
 	<string name="server_filter_manual_review">การตรวจทานด้วยตนเอง</string>
@@ -290,6 +325,7 @@
 	<string name="server_filter_region_oceania">โอเชียเนีย</string>
 	<string name="not_accepting_new_members">ไม่ได้กำลังเปิดรับสมาชิกใหม่</string>
 	<string name="category_special_interests">ความสนใจพิเศษ</string>
+	<string name="signup_passwords_dont_match">รหัสผ่านไม่ตรงกัน</string>
 	<string name="pick_server_for_me">เลือกสำหรับฉัน</string>
 	<string name="profile_add_row">เพิ่มแถว</string>
 	<string name="profile_setup">การตั้งค่าโปรไฟล์</string>
@@ -298,12 +334,14 @@
 	<string name="popular_on_mastodon">เป็นที่นิยมใน Mastodon</string>
 	<string name="follow_all">ติดตามทั้งหมด</string>
 	<string name="server_rules_disagree">ไม่เห็นด้วย</string>
+	<string name="privacy_policy_explanation">ยาวไป ไม่อ่าน: เราไม่เก็บรวบรวมหรือประมวลผลสิ่งใด</string>
 	<!-- %s is server domain -->
 	<string name="server_policy_disagree">ไม่เห็นด้วยกับ %s</string>
 	<string name="profile_bio">ชีวประวัติ</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<string name="sending_follows">กำลังติดตามผู้ใช้…</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<string name="signup_email_domain_blocked">%1$s ไม่อนุญาตการลงทะเบียนจาก %2$s ลองโดเมนอีเมลอื่นหรือ &lt;a&gt;เลือกเซิร์ฟเวอร์อื่น&lt;/a&gt;</string>
 	<string name="spoiler_show">แสดงต่อไป</string>
 	<string name="spoiler_hide">ซ่อนใหม่</string>
 	<string name="poll_multiple_choice">เลือกจำนวนหนึ่งหรือมากกว่า</string>
@@ -323,24 +361,108 @@
 	<string name="welcome_paragraph1">Mastodon เป็นเครือข่ายสังคมแบบกระจายศูนย์ หมายความว่าไม่มีบริษัทใดควบคุมเครือข่ายสังคม เครือข่ายสังคมประกอบด้วยเซิร์ฟเวอร์ที่ทำงานอย่างอิสระจำนวนมาก ทั้งหมดเชื่อมต่อเข้าด้วยกัน</string>
 	<string name="what_are_servers">เซิร์ฟเวอร์คืออะไร?</string>
 	<string name="welcome_paragraph2"><![CDATA[ทุกบัญชี Mastodon ได้รับการโฮสต์ในเซิร์ฟเวอร์ — แต่ละแห่งมีค่า, กฎ และผู้ดูแลของเซิร์ฟเวอร์เอง ไม่ว่าคุณจะเลือกเซิร์ฟเวอร์ใด คุณสามารถติดตามและโต้ตอบกับผู้คนในเซิร์ฟเวอร์ใด ๆ]]></string>
+	<string name="opening_link">กำลังเปิดลิงก์…</string>
+	<string name="retry">ลองใหม่</string>
+	<string name="post_failed">ไม่สามารถส่งโพสต์</string>
 	<!-- %s is formatted file size ("467 KB image") -->
+	<string name="attachment_description_image">ภาพ %s</string>
+	<string name="attachment_description_video">วิดีโอ %s</string>
+	<string name="attachment_description_audio">เสียง %s</string>
+	<string name="attachment_description_unknown">ไฟล์ %s</string>
+	<string name="attachment_type_image">ภาพ</string>
+	<string name="attachment_type_video">วิดีโอ</string>
+	<string name="attachment_type_audio">เสียง</string>
+	<string name="attachment_type_gif">GIF</string>
+	<string name="attachment_type_unknown">ไฟล์</string>
+	<string name="attachment_x_percent_uploaded">อัปโหลดแล้ว %d%%</string>
+	<string name="add_poll_option">เพิ่มตัวเลือกการสำรวจความคิดเห็น</string>
+	<string name="delete_poll_option">ลบตัวเลือกการสำรวจความคิดเห็น</string>
+	<string name="edit_post">แก้ไขโพสต์</string>
+	<string name="no_verified_link">ไม่มีลิงก์ที่ยืนยันแล้ว</string>
+	<string name="compose_autocomplete_emoji_empty">เรียกดูอีโมจิ</string>
+	<string name="language">ภาษา</string>
+	<string name="language_default">ค่าเริ่มต้น</string>
+	<string name="language_system">ระบบ</string>
+	<string name="media_hidden">ซ่อนสื่ออยู่</string>
+	<string name="post_hidden">ซ่อนโพสต์อยู่</string>
+	<string name="report_title_post">รายงานโพสต์</string>
 	<!-- %s is the server domain -->
+	<string name="forward_report_to_server">ส่งต่อไปยัง %s</string>
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
+	<string name="reported">รายงานแล้ว</string>
+	<string name="mark_all_notifications_read">ทำเครื่องหมายทั้งหมดว่าอ่านแล้ว</string>
+	<string name="settings_filters">ตัวกรอง</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
+	<string name="about_app">เกี่ยวกับ %s</string>
+	<string name="pause_notifications_off">ปิด</string>
+	<string name="notifications_policy_anyone">ใครก็ตาม</string>
+	<string name="notifications_policy_followed">ผู้คนที่ติดตามคุณ</string>
+	<string name="notifications_policy_follower">ผู้คนที่คุณติดตาม</string>
+	<string name="notifications_policy_no_one">ไม่มีใคร</string>
+	<string name="settings_notifications_policy">รับการแจ้งเตือนจาก</string>
+	<string name="notification_type_mentions_and_replies">การกล่าวถึงและการตอบกลับ</string>
+	<plurals name="x_weeks">
+		<item quantity="other">%d สัปดาห์</item>
+	</plurals>
 	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
+	<string name="today">วันนี้</string>
+	<string name="yesterday">เมื่อวานนี้</string>
+	<string name="tomorrow">พรุ่งนี้</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="open_system_notification_settings">ไปยังการตั้งค่าการแจ้งเตือน</string>
+	<string name="about_server">เกี่ยวกับ</string>
+	<string name="server_rules">กฎ</string>
+	<string name="server_administrator">ผู้ดูแล</string>
+	<string name="send_email_to_server_admin">ส่งข้อความถึงผู้ดูแล</string>
+	<string name="settings_show_cws">แสดงคำเตือนเนื้อหา</string>
+	<string name="settings_show_emoji_in_names">อีโมจิที่กำหนดเองในชื่อที่แสดง</string>
+	<plurals name="x_hours_ago">
+		<item quantity="other">%d ชั่วโมงที่แล้ว</item>
+	</plurals>
+	<string name="count_one">หนึ่ง</string>
+	<string name="count_two">สอง</string>
+	<string name="count_three">สาม</string>
+	<string name="count_four">สี่</string>
+	<string name="alt_text_reminder_post_anyway">โพสต์</string>
 	<!-- %s is the username -->
+	<string name="unfollow_confirmation">เลิกติดตาม %s?</string>
+	<string name="settings_add_filter">เพิ่มตัวกรอง</string>
+	<string name="settings_edit_filter">แก้ไขตัวกรอง</string>
+	<string name="settings_filter_duration">ระยะเวลา</string>
+	<string name="settings_filter_muted_words">คำที่ซ่อนอยู่</string>
+	<string name="settings_filter_context">ซ่อนจาก</string>
+	<string name="settings_delete_filter">ลบตัวกรอง</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<plurals name="settings_x_muted_words">
+		<item quantity="other">%d คำหรือวลีที่ซ่อนอยู่</item>
+	</plurals>
+	<string name="selection_2_options">%1$s และ %2$s</string>
+	<string name="selection_3_options">%1$s, %2$s และ %3$s</string>
+	<string name="filter_context_home_lists">หน้าแรกและรายการ</string>
+	<string name="filter_context_notifications">การแจ้งเตือน</string>
+	<string name="filter_context_public_timelines">เส้นเวลาสาธารณะ</string>
+	<string name="filter_context_threads_replies">กระทู้และการตอบกลับ</string>
 	<string name="filter_context_profiles">โปรไฟล์</string>
 	<string name="settings_filter_title">ชื่อเรื่อง</string>
+	<string name="settings_delete_filter_title">ลบตัวกรอง “%s”?</string>
 	<string name="add">เพิ่ม</string>
+	<string name="filter_word_or_phrase">คำหรือวลี</string>
+	<string name="settings_delete_filter_word">ลบคำ “%s”?</string>
 	<string name="enter_selection_mode">เลือก</string>
 	<string name="select_all">เลือกทั้งหมด</string>
+	<string name="settings_filter_duration_title">ระยะเวลาตัวกรอง</string>
 	<string name="filter_duration_custom">กำหนดเอง</string>
+	<plurals name="settings_delete_x_filter_words">
+		<item quantity="other">ลบ %d คำ?</item>
+	</plurals>
+	<plurals name="x_items_selected">
+		<item quantity="other">เลือกอยู่ %d</item>
+	</plurals>
 	<string name="app_update_version">รุ่น %s</string>
 	<string name="downloading_update">กำลังดาวน์โหลด (%d%%)</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
+	<string name="post_matches_filter_x">ตรงกับตัวกรอง “%s”</string>
 	<string name="search_mastodon">ค้นหา Mastodon</string>
 	<string name="clear_all">ล้างทั้งหมด</string>
 	<string name="search_open_url">เปิด URL ใน Mastodon</string>
