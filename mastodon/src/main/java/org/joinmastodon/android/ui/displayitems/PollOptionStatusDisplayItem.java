@@ -91,6 +91,7 @@ public class PollOptionStatusDisplayItem extends StatusDisplayItem{
 				bg.setLevel(Math.round(10000f*item.votesFraction));
 				button.setBackground(bg);
 				itemView.setSelected(item.isMostVoted);
+				check.setSelected(item.poll.ownVotes!=null && item.poll.ownVotes.contains(item.optionIndex));
 				percent.setText(String.format(Locale.getDefault(), "%d%%", Math.round(item.votesFraction*100f)));
 			}else{
 				itemView.setSelected(item.poll.selectedOptions!=null && item.poll.selectedOptions.contains(item.option));
