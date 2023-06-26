@@ -403,16 +403,41 @@
 	<string name="confirm_log_out_all_accounts">Ali se želite odjaviti iz vseh računov?</string>
 	<string name="retry">Poskusi znova</string>
 	<!-- %s is formatted file size ("467 KB image") -->
+	<string name="attachment_type_image">Slika</string>
+	<string name="attachment_type_video">Video</string>
+	<string name="attachment_type_audio">Zvok</string>
+	<string name="attachment_type_gif">GIF</string>
+	<string name="attachment_type_unknown">Datoteka</string>
+	<string name="poll_style">Slog</string>
+	<string name="poll_style_title">Slog ankete</string>
+	<string name="help">Pomoč</string>
+	<string name="edit_post">Uredi objavo</string>
+	<string name="no_verified_link">Ni preverjenih povezav</string>
+	<string name="language">Jezik</string>
+	<string name="language_default">Privzeto</string>
+	<string name="language_system">sistemski</string>
+	<string name="language_detecting">Zaznavanje jezika</string>
+	<string name="language_cant_detect">Jezika ni moč zaznati</string>
+	<string name="language_detected">Zaznano</string>
 	<!-- %s is the server domain -->
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
+	<string name="mark_all_notifications_read">Označi vse kot prebrano</string>
 	<string name="settings_filters">Filtri</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="default_post_language">Privzeti jezik objave</string>
 	<string name="notifications_policy_no_one">Nihče</string>
 	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
+	<string name="today">danes</string>
+	<string name="yesterday">včeraj</string>
+	<string name="tomorrow">jutri</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="resume_notifications_now">Nadaljuj zdaj</string>
+	<string name="about_server">O programu</string>
+	<string name="server_rules">Pravila</string>
+	<string name="server_administrator">Skrbnik</string>
 	<string name="settings_show_cws">Pokaži opozorilo o vsebini</string>
+	<string name="settings_hide_sensitive_media">Skrij medij, ki je označen kot občutljiv</string>
 	<string name="count_one">Ena</string>
 	<!-- %s is the username -->
 	<string name="settings_add_filter">Dodaj filter</string>
