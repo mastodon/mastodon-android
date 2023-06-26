@@ -38,7 +38,9 @@
 		android:id="@+id/alt_text_scroller"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:layout_marginEnd="40dp">
+		android:layout_marginEnd="40dp"
+		android:requiresFadingEdge="vertical"
+		android:fadingEdgeLength="16dp">
 
 		<LinearLayout
 			android:layout_width="wrap_content"
