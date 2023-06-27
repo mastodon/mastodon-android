@@ -177,6 +177,7 @@
 	<string name="add_alt_text">เพิ่มข้อความแสดงแทน</string>
 	<string name="visibility_public">สาธารณะ</string>
 	<string name="visibility_followers_only">ผู้ติดตามเท่านั้น</string>
+	<string name="recent_searches">รายการล่าสุด</string>
 	<string name="skip">ข้าม</string>
 	<string name="notification_type_follow">ผู้ติดตามใหม่</string>
 	<string name="notification_type_favorite">รายการโปรด</string>
@@ -407,6 +408,7 @@
 	<string name="mark_all_notifications_read">ทำเครื่องหมายทั้งหมดว่าอ่านแล้ว</string>
 	<string name="settings_display">การแสดงผล</string>
 	<string name="settings_filters">ตัวกรอง</string>
+	<string name="settings_server_explanation">ภาพรวม, กฎ, ผู้ควบคุม</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">เกี่ยวกับ %s</string>
 	<string name="settings_confirm_unfollow">ถามก่อนที่จะเลิกติดตามใครสักคน</string>
@@ -440,6 +442,7 @@
 	<string name="send_email_to_server_admin">ส่งข้อความถึงผู้ดูแล</string>
 	<string name="notifications_disabled_in_system">เปิดการแจ้งเตือนจากการตั้งค่าอุปกรณ์ของคุณเพื่อดูการอัปเดตจากที่ใดก็ตาม</string>
 	<string name="settings_show_cws">แสดงคำเตือนเนื้อหา</string>
+	<string name="settings_show_interaction_counts">จำนวนการโต้ตอบของโพสต์</string>
 	<string name="settings_show_emoji_in_names">อีโมจิที่กำหนดเองในชื่อที่แสดง</string>
 	<plurals name="x_hours_ago">
 		<item quantity="other">%d ชั่วโมงที่แล้ว</item>
@@ -459,6 +462,7 @@
 	<string name="settings_filter_muted_words">คำที่ซ่อนอยู่</string>
 	<string name="settings_filter_context">ซ่อนจาก</string>
 	<string name="settings_filter_show_cw">แสดงพร้อมคำเตือนเนื้อหา</string>
+	<string name="settings_filter_show_cw_explanation">ยังคงแสดงโพสต์ที่ตรงกับตัวกรองนี้ แต่อยู่หลังคำเตือนเนื้อหา</string>
 	<string name="settings_delete_filter">ลบตัวกรอง</string>
 	<string name="filter_duration_forever">ตลอดไป</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
