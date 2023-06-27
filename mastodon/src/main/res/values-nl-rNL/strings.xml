@@ -4,12 +4,18 @@
 	<string name="next">Volgende</string>
 	<string name="loading_instance">Serverinformatie ophalen…</string>
 	<string name="error">Fout</string>
+	<string name="not_a_mastodon_instance">%s lijkt geen Mastodon-server te zijn.</string>
 	<string name="ok">OK</string>
 	<string name="preparing_auth">Verificatie voorbereiden…</string>
 	<string name="finishing_auth">Verificatie afronden…</string>
 	<string name="user_boosted">%s boostte</string>
 	<string name="in_reply_to">Als reactie op %s</string>
 	<string name="notifications">Meldingen</string>
+	<string name="user_followed_you">%s volgt jou nu</string>
+	<string name="user_sent_follow_request">%s wil jou graag volgen</string>
+	<string name="user_favorited">%s markeerde jouw bericht als favoriet</string>
+	<string name="notification_boosted">%s boostte jouw bericht</string>
+	<string name="poll_ended">Bekijk de resultaten van een poll waar je op hebt gestemd</string>
 	<string name="share_toot_title">Delen</string>
 	<string name="settings">Instellingen</string>
 	<string name="publish">Toot</string>
@@ -31,6 +37,7 @@
 	<string name="button_follow">Volgen</string>
 	<string name="button_following">Volgend</string>
 	<string name="edit_profile">Profiel bewerken</string>
+	<string name="share_user">Profiel delen</string>
 	<string name="mute_user">%s negeren</string>
 	<string name="unmute_user">%s niet langer negeren</string>
 	<string name="block_user">%s blokkeren</string>
@@ -96,27 +103,35 @@
 	<string name="button_blocked">Geblokkeerd</string>
 	<string name="action_vote">Stemmen</string>
 	<string name="delete">Verwijderen</string>
+	<string name="confirm_delete_title">Bericht verwijderen</string>
 	<string name="confirm_delete">Weet je zeker dat je dit bericht wilt verwijderen?</string>
 	<string name="deleting">Aan het verwijderen…</string>
 	<string name="notification_channel_audio_player">Geluid afspelen</string>
 	<string name="play">Afspelen</string>
 	<string name="pause">Pauze</string>
+	<string name="log_out">Afmelden</string>
 	<string name="add_account">Account toevoegen</string>
 	<string name="search_hint">Zoeken</string>
 	<string name="hashtags">Hashtags</string>
 	<string name="news">Nieuws</string>
 	<string name="for_you">Voor jou</string>
+	<string name="all_notifications">Alles</string>
 	<string name="mentions">Vermeldingen</string>
 	<plurals name="x_people_talking">
 		<item quantity="one">%d persoon praat hierover</item>
 		<item quantity="other">%d mensen praten hierover</item>
 	</plurals>
 	<string name="report_title">%s rapporteren</string>
+	<string name="report_choose_reason">Wat is er mis met dit bericht?</string>
+	<string name="report_choose_reason_account">Wat is er mis met %s?</string>
 	<string name="report_choose_reason_subtitle">Kies wat het beste overeenkomt</string>
+	<string name="report_reason_personal">Ik vind het niet leuk</string>
 	<string name="report_reason_personal_subtitle">Het is iets wat je niet wilt zien</string>
+	<string name="report_reason_spam">Het is spam</string>
 	<string name="report_reason_spam_subtitle">Schadelijke links, reclame, misleiding of herhalende antwoorden</string>
 	<string name="report_reason_violation">Het schendt de serverregels</string>
 	<string name="report_reason_violation_subtitle">Je weet dat het specifieke regels schendt</string>
+	<string name="report_reason_other">Het is iets anders</string>
 	<string name="report_reason_other_subtitle">Het probleem past niet in een andere categorie</string>
 	<string name="report_choose_rule">Welke regels worden geschonden?</string>
 	<string name="report_choose_rule_subtitle">Selecteer wat van toepassing is</string>
@@ -125,8 +140,14 @@
 	<string name="report_comment_title">Zijn er nog andere dingen die wij moeten weten?</string>
 	<string name="report_comment_hint">Extra opmerkingen</string>
 	<string name="sending_report">Rapport verzenden…</string>
+	<string name="report_sent_title">Bedankt voor het rapporteren, we zullen hiernaar kijken.</string>
+	<string name="report_sent_subtitle">Terwijl we dit onderzoeken kun je deze acties tegen %s nemen:</string>
 	<string name="unfollow_user">Ontvolgen</string>
 	<string name="unfollow">Ontvolgen</string>
+	<string name="mute_user_explain">Je kunt diens berichten niet zien. Je kunt nog wel gevolgd worden en jouw berichten zijn nog zichtbaar, maar diegene kan niet zien dat die wordt genegeerd.</string>
+	<string name="block_user_explain">Je kunt diens berichten niet zien. Je kunt door diegene niet gevolgd worden en jouw berichten zijn onzichtbaar. Diegene kan zien dat die door jou is geblokkeerd.</string>
+	<string name="report_personal_title">Wil je dit niet zien?</string>
+	<string name="report_personal_subtitle">Hier zijn jouw opties waarmee je kunt bepalen wat je in Mastodon wilt zien:</string>
 	<string name="back">Terug</string>
 	<string name="search_communities">Servernaam of URL</string>
 	<string name="instance_rules_title">Serverregels</string>
@@ -153,14 +174,19 @@
 	<string name="category_tech">Tech</string>
 	<string name="confirm_email_title">Controleer je Postvak In</string>
 	<!-- %s is the email address -->
+	<string name="confirm_email_subtitle">Klik op de koppeling die we je hebben gestuurd om %s te verifiëren. We wachten op je.</string>
+	<string name="confirm_email_didnt_get">Geen verificatielink ontvangen?</string>
 	<string name="resend">Opnieuw verzenden</string>
 	<string name="open_email_app">E-mail-app openen</string>
 	<string name="resent_email">Bevestigingsmail verzonden</string>
+	<string name="compose_hint">Wat wil je kwijt?</string>
 	<string name="content_warning">Inhoudswaarschuwing</string>
 	<string name="save">Opslaan</string>
 	<string name="add_alt_text">Alt-tekst toevoegen</string>
 	<string name="visibility_public">Openbaar</string>
 	<string name="visibility_followers_only">Alleen volgers</string>
+	<string name="visibility_private">Alleen genoemde personen</string>
+	<string name="recent_searches">Recente</string>
 	<string name="skip">Overslaan</string>
 	<string name="notification_type_follow">Nieuwe volgers</string>
 	<string name="notification_type_favorite">Favorieten</string>
@@ -169,8 +195,14 @@
 	<string name="notification_type_poll">Polls</string>
 	<string name="choose_account">Account kiezen</string>
 	<string name="err_not_logged_in">Eerst op Mastodon inloggen</string>
+	<plurals name="cant_add_more_than_x_attachments">
+		<item quantity="one">Je kunt niet meer dan %d mediabestand toevoegen</item>
+		<item quantity="other">Je kunt niet meer dan %d mediabestanden toevoegen</item>
+	</plurals>
 	<string name="media_attachment_unsupported_type">Het bestand %s wordt niet ondersteund</string>
 	<string name="media_attachment_too_big">Het bestand %1$s overschrijdt de maximale grootte van %2$s MB</string>
+	<string name="settings_theme">Uiterlijk</string>
+	<string name="theme_auto">Weergave van apparaat gebruiken</string>
 	<string name="theme_light">Licht</string>
 	<string name="theme_dark">Donker</string>
 	<string name="settings_behavior">Gedrag</string>
@@ -183,6 +215,9 @@
 	<string name="settings_clear_cache">Mediabuffer leegmaken</string>
 	<string name="settings_app_version">Mastodon voor Android v%1$s (%2$d)</string>
 	<string name="media_cache_cleared">Mediabuffer leeggemaakt</string>
+	<string name="confirm_log_out">Afmelden van %s?</string>
+	<string name="sensitive_content_explain">De auteur heeft deze media als gevoelig aangemerkt.</string>
+	<string name="avatar_description">Ga naar het profiel van %s</string>
 	<string name="more_options">Meer opties</string>
 	<string name="new_post">Nieuw bericht</string>
 	<string name="button_reply">Reageren</string>
@@ -198,6 +233,7 @@
 	<string name="media_viewer">Mediaviewer</string>
 	<string name="follow_user">%s volgen</string>
 	<string name="unfollowed_user">%s ontvolgd</string>
+	<string name="followed_user">Je volgt %s nu</string>
 	<string name="following_user_requested">Je volgverzoek is aan %s verstuurd</string>
 	<string name="open_in_browser">In browser openen</string>
 	<string name="hide_boosts_from_user">Boosts van %s verbergen</string>
@@ -215,7 +251,13 @@
 	<string name="error_saving_file">Fout bij het opslaan van het bestand</string>
 	<string name="file_saved">Bestand opgeslagen</string>
 	<string name="downloading">Downloaden…</string>
+	<string name="no_app_to_handle_action">Kon geen app vinden om deze actie uit te voeren</string>
+	<string name="local_timeline">Lokaal</string>
+	<string name="trending_posts_info_banner">Dit zijn berichten die populair zijn op Mastodon.</string>
+	<string name="trending_links_info_banner">Dit zijn de nieuwsverhalen waarover op Mastodon wordt gesproken.</string>
 	<!-- %s is the server domain -->
+	<string name="local_timeline_info_banner">Dit zijn alle berichten van alle gebruikers op uw server (%s).</string>
+	<string name="recommended_accounts_info_banner">Mogelijk vind je deze accounts leuk op basis van andere accounts die je volgt.</string>
 	<string name="see_new_posts">Nieuwe berichten</string>
 	<string name="load_missing_posts">Resterende berichten laden</string>
 	<string name="follow_back">Terugvolgen</string>
@@ -293,6 +335,7 @@
 	<string name="login_title">Welkom terug</string>
 	<string name="login_subtitle">Bij de server waar je je account hebt aangemaakt inloggen.</string>
 	<string name="server_url">Server-URL</string>
+	<string name="signup_random_server_explain">Als je doorgaat zonder een selectie te maken, kiezen we een server gebaseerd op jouw taal.</string>
 	<string name="server_filter_any_language">Elke taal</string>
 	<string name="server_filter_instant_signup">Direct aanmelden</string>
 	<string name="server_filter_manual_review">Handmatige beoordeling</string>
@@ -305,6 +348,7 @@
 	<string name="server_filter_region_oceania">Oceanië</string>
 	<string name="not_accepting_new_members">Laat geen nieuwe gebruikers toe</string>
 	<string name="category_special_interests">Bijzondere interesses</string>
+	<string name="signup_passwords_dont_match">Wachtwoorden zijn niet gelijk</string>
 	<string name="pick_server_for_me">Kies voor mij</string>
 	<string name="profile_add_row">Rij toevoegen</string>
 	<string name="profile_setup">Profiel instellen</string>
@@ -313,12 +357,14 @@
 	<string name="popular_on_mastodon">Populair op Mastodon</string>
 	<string name="follow_all">Volg iedereen</string>
 	<string name="server_rules_disagree">Ik ga niet akkoord</string>
+	<string name="privacy_policy_explanation">TL;DR: We verzamelen of verwerken niets.</string>
 	<!-- %s is server domain -->
 	<string name="server_policy_disagree">Niet akkoord met %s</string>
 	<string name="profile_bio">Bio</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<string name="sending_follows">Gevolgde gebruikers…</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<string name="signup_email_domain_blocked">%1$s staat geen registraties toe van %2$s. Probeer het met een andere e-mailprovider of &lt;a&gt;kies een andere server&lt;/a&gt;.</string>
 	<string name="spoiler_show">Alsnog tonen</string>
 	<string name="spoiler_hide">Opnieuw verbergen</string>
 	<string name="poll_multiple_choice">Maak een of meerdere keuzes</string>
@@ -338,14 +384,67 @@
 	<string name="welcome_paragraph1">Mastodon is een gedecentraliseerd sociaal netwerk, wat betekent dat geen enkel bedrijf het controleert. Het bestaat uit veel onafhankelijk opererende servers, allemaal met elkaar verbonden.</string>
 	<string name="what_are_servers">Wat zijn servers?</string>
 	<string name="welcome_paragraph2"><![CDATA[Elk Mastodonaccount wordt op een server gehost - elk met diens eigen waarden, regels en beheerders. Het maakt niet uit welke server je kiest, je kunt mensen op elke server volgen en ermee communiceren.]]></string>
+	<string name="opening_link">Koppeling aan het openen…</string>
+	<string name="link_not_supported">Deze koppeling wordt niet ondersteund in de app</string>
+	<string name="log_out_all_accounts">Bij alle accounts afmelden</string>
+	<string name="confirm_log_out_all_accounts">Bij alle accounts afmelden?</string>
+	<string name="retry">Opnieuw proberen</string>
+	<string name="post_failed">Kan bericht niet versturen</string>
 	<!-- %s is formatted file size ("467 KB image") -->
+	<string name="attachment_description_image">%s afbeelding</string>
+	<string name="attachment_description_video">%s video</string>
+	<string name="attachment_description_audio">%s geluidsbestand</string>
+	<string name="attachment_description_unknown">%s bestand</string>
+	<string name="attachment_type_image">Afbeelding</string>
+	<string name="attachment_type_video">Video</string>
+	<string name="attachment_type_audio">Geluidsbestand</string>
+	<string name="attachment_type_gif">GIF</string>
+	<string name="attachment_type_unknown">Bestand</string>
+	<string name="attachment_x_percent_uploaded">%d%% geüpload</string>
+	<string name="add_poll_option">Enquete-optie toevoegen</string>
+	<string name="poll_style">Stijl</string>
+	<string name="compose_poll_single_choice">Kies een</string>
+	<string name="compose_poll_multiple_choice">Meerkeuze</string>
+	<string name="delete_poll_option">Optie verwijderen</string>
+	<string name="poll_style_title">Enquêtestijl</string>
+	<string name="alt_text">Alternatieve tekst</string>
+	<string name="help">Hulp</string>
+	<string name="what_is_alt_text">Wat is alternatieve tekst?</string>
 	<!-- %s is the server domain -->
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
+	<string name="settings_alt_text_reminders">Alt-tekst-herinneringen toevoegen</string>
+	<string name="settings_confirm_unfollow">Vraag voor ontvolgen iemand</string>
+	<string name="settings_confirm_boost">Vragen voor boosten</string>
+	<string name="settings_confirm_delete_post">Vragen voordat berichten worden verwijderd</string>
+	<string name="pause_all_notifications">Alles pauzeren</string>
+	<string name="pause_notifications_off">Uit</string>
+	<string name="notifications_policy_anyone">Iedereen</string>
+	<string name="notifications_policy_followed">Mensen die jou volgen</string>
+	<string name="notifications_policy_follower">Mensen die je volgt</string>
+	<string name="notifications_policy_no_one">Niemand</string>
+	<string name="settings_notifications_policy">Meldingen ontvangen van</string>
+	<string name="notification_type_mentions_and_replies">Vermeldingen en antwoorden</string>
+	<string name="pause_all_notifications_title">Alle meldingen pauzeren</string>
+	<plurals name="x_weeks">
+		<item quantity="one">%d week</item>
+		<item quantity="other">%d weken</item>
+	</plurals>
 	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
+	<string name="date_at_time">%1$s om %2$s</string>
+	<string name="today">vandaag</string>
+	<string name="yesterday">gisteren</string>
+	<string name="tomorrow">morgen</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="pause_notifications_ends">Eindigt %s</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="count_one">Een</string>
+	<string name="count_two">Twee</string>
+	<string name="count_three">Drie</string>
+	<string name="count_four">Vier</string>
+	<string name="alt_text_reminder_post_anyway">Plaatsen</string>
 	<!-- %s is the username -->
+	<string name="unfollow_confirmation">%s ontvolgen?</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<!-- Shown like a content warning, %s is the name of the filter -->
 	<!-- Shown in the post header. Please keep it short -->
