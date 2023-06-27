@@ -385,6 +385,8 @@
 	<string name="poll_style">ลักษณะ</string>
 	<string name="delete_poll_option">ลบตัวเลือกการสำรวจความคิดเห็น</string>
 	<string name="poll_style_title">ลักษณะการสำรวจความคิดเห็น</string>
+	<string name="alt_text">ข้อความแสดงแทน</string>
+	<string name="what_is_alt_text">ข้อความแสดงแทนคืออะไร?</string>
 	<string name="edit_post">แก้ไขโพสต์</string>
 	<string name="no_verified_link">ไม่มีลิงก์ที่ยืนยันแล้ว</string>
 	<string name="compose_autocomplete_emoji_empty">เรียกดูอีโมจิ</string>
@@ -407,6 +409,10 @@
 	<string name="settings_filters">ตัวกรอง</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">เกี่ยวกับ %s</string>
+	<string name="settings_confirm_unfollow">ถามก่อนที่จะเลิกติดตามใครสักคน</string>
+	<string name="settings_confirm_boost">ถามก่อนที่จะดัน</string>
+	<string name="settings_confirm_delete_post">ถามก่อนที่จะลบโพสต์</string>
+	<string name="pause_all_notifications">หยุดทั้งหมดชั่วคราว</string>
 	<string name="pause_notifications_off">ปิด</string>
 	<string name="notifications_policy_anyone">ใครก็ตาม</string>
 	<string name="notifications_policy_followed">ผู้คนที่ติดตามคุณ</string>
@@ -414,6 +420,7 @@
 	<string name="notifications_policy_no_one">ไม่มีใคร</string>
 	<string name="settings_notifications_policy">รับการแจ้งเตือนจาก</string>
 	<string name="notification_type_mentions_and_replies">การกล่าวถึงและการตอบกลับ</string>
+	<string name="pause_all_notifications_title">หยุดการแจ้งเตือนทั้งหมดชั่วคราว</string>
 	<plurals name="x_weeks">
 		<item quantity="other">%d สัปดาห์</item>
 	</plurals>
@@ -425,11 +432,13 @@
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<string name="pause_notifications_ends">สิ้นสุดเมื่อ %s</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="resume_notifications_now">ทำต่อตอนนี้</string>
 	<string name="open_system_notification_settings">ไปยังการตั้งค่าการแจ้งเตือน</string>
 	<string name="about_server">เกี่ยวกับ</string>
 	<string name="server_rules">กฎ</string>
 	<string name="server_administrator">ผู้ดูแล</string>
 	<string name="send_email_to_server_admin">ส่งข้อความถึงผู้ดูแล</string>
+	<string name="notifications_disabled_in_system">เปิดการแจ้งเตือนจากการตั้งค่าอุปกรณ์ของคุณเพื่อดูการอัปเดตจากที่ใดก็ตาม</string>
 	<string name="settings_show_cws">แสดงคำเตือนเนื้อหา</string>
 	<string name="settings_show_emoji_in_names">อีโมจิที่กำหนดเองในชื่อที่แสดง</string>
 	<plurals name="x_hours_ago">
@@ -442,6 +451,8 @@
 	<string name="alt_text_reminder_post_anyway">โพสต์</string>
 	<!-- %s is the username -->
 	<string name="unfollow_confirmation">เลิกติดตาม %s?</string>
+	<string name="filter_active">ใช้งานอยู่</string>
+	<string name="filter_inactive">ไม่ได้ใช้งาน</string>
 	<string name="settings_add_filter">เพิ่มตัวกรอง</string>
 	<string name="settings_edit_filter">แก้ไขตัวกรอง</string>
 	<string name="settings_filter_duration">ระยะเวลา</string>
@@ -465,6 +476,8 @@
 	<string name="settings_filter_title">ชื่อเรื่อง</string>
 	<string name="settings_delete_filter_title">ลบตัวกรอง “%s”?</string>
 	<string name="settings_delete_filter_confirmation">จะลบตัวกรองนี้ออกจากบัญชีของคุณในอุปกรณ์ทั้งหมดของคุณ</string>
+	<string name="add_muted_word">เพิ่มคำที่ซ่อนอยู่</string>
+	<string name="edit_muted_word">แก้ไขคำที่ซ่อนอยู่</string>
 	<string name="add">เพิ่ม</string>
 	<string name="filter_word_or_phrase">คำหรือวลี</string>
 	<string name="settings_delete_filter_word">ลบคำ “%s”?</string>
@@ -478,6 +491,7 @@
 	<plurals name="x_items_selected">
 		<item quantity="other">เลือกอยู่ %d</item>
 	</plurals>
+	<string name="required_form_field_blank">ไม่สามารถเว้นว่าง</string>
 	<string name="filter_word_already_in_list">อยู่ในรายการอยู่แล้ว</string>
 	<string name="app_update_version">รุ่น %s</string>
 	<string name="downloading_update">กำลังดาวน์โหลด (%d%%)</string>
