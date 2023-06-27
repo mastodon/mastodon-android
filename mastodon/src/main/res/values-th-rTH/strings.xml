@@ -244,6 +244,7 @@
 	<string name="no_app_to_handle_action">ไม่มีแอปที่จะจัดการกับการกระทำนี้</string>
 	<string name="local_timeline">ในเซิร์ฟเวอร์</string>
 	<!-- %s is the server domain -->
+	<string name="local_timeline_info_banner">นี่คือโพสต์ทั้งหมดจากผู้ใช้ทั้งหมดในเซิร์ฟเวอร์ของคุณ (%s)</string>
 	<string name="see_new_posts">ดูโพสต์ใหม่</string>
 	<string name="load_missing_posts">โหลดโพสต์ที่ขาดหายไป</string>
 	<string name="follow_back">ติดตามกลับ</string>
@@ -387,10 +388,13 @@
 	<string name="delete_poll_option">ลบตัวเลือกการสำรวจความคิดเห็น</string>
 	<string name="poll_style_title">ลักษณะการสำรวจความคิดเห็น</string>
 	<string name="alt_text">ข้อความแสดงแทน</string>
+	<string name="help">ช่วยเหลือ</string>
 	<string name="what_is_alt_text">ข้อความแสดงแทนคืออะไร?</string>
 	<string name="edit_post">แก้ไขโพสต์</string>
 	<string name="no_verified_link">ไม่มีลิงก์ที่ยืนยันแล้ว</string>
 	<string name="compose_autocomplete_emoji_empty">เรียกดูอีโมจิ</string>
+	<string name="compose_autocomplete_users_empty">ค้นหาผู้ที่คุณกำลังมองหา</string>
+	<string name="no_search_results">ไม่พบสิ่งใดสำหรับคำค้นหาเหล่านี้</string>
 	<string name="language">ภาษา</string>
 	<string name="language_default">ค่าเริ่มต้น</string>
 	<string name="language_system">ระบบ</string>
@@ -411,6 +415,7 @@
 	<string name="settings_server_explanation">ภาพรวม, กฎ, ผู้ควบคุม</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">เกี่ยวกับ %s</string>
+	<string name="default_post_language">ภาษาของโพสต์เริ่มต้น</string>
 	<string name="settings_confirm_unfollow">ถามก่อนที่จะเลิกติดตามใครสักคน</string>
 	<string name="settings_confirm_boost">ถามก่อนที่จะดัน</string>
 	<string name="settings_confirm_delete_post">ถามก่อนที่จะลบโพสต์</string>
