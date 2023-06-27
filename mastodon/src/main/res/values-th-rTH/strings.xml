@@ -243,6 +243,8 @@
 	<string name="downloading">กำลังดาวน์โหลด…</string>
 	<string name="no_app_to_handle_action">ไม่มีแอปที่จะจัดการกับการกระทำนี้</string>
 	<string name="local_timeline">ในเซิร์ฟเวอร์</string>
+	<string name="trending_posts_info_banner">นี่คือโพสต์ที่ได้รับความสนใจทั่วทั้ง Mastodon</string>
+	<string name="trending_links_info_banner">นี่คือเรื่องข่าวที่ได้รับการพูดถึงใน Mastodon</string>
 	<!-- %s is the server domain -->
 	<string name="local_timeline_info_banner">นี่คือโพสต์ทั้งหมดจากผู้ใช้ทั้งหมดในเซิร์ฟเวอร์ของคุณ (%s)</string>
 	<string name="see_new_posts">ดูโพสต์ใหม่</string>
@@ -385,6 +387,8 @@
 	<string name="add_poll_option">เพิ่มตัวเลือกการสำรวจความคิดเห็น</string>
 	<string name="poll_length">ความยาวการสำรวจความคิดเห็น</string>
 	<string name="poll_style">ลักษณะ</string>
+	<string name="compose_poll_single_choice">เลือกหนึ่งรายการ</string>
+	<string name="compose_poll_multiple_choice">หลายตัวเลือก</string>
 	<string name="delete_poll_option">ลบตัวเลือกการสำรวจความคิดเห็น</string>
 	<string name="poll_style_title">ลักษณะการสำรวจความคิดเห็น</string>
 	<string name="alt_text">ข้อความแสดงแทน</string>
@@ -400,9 +404,11 @@
 	<string name="language_system">ระบบ</string>
 	<string name="language_detecting">กำลังตรวจหาภาษา</string>
 	<string name="language_cant_detect">ไม่สามารถตรวจหาภาษา</string>
+	<string name="language_detected">ตรวจพบ</string>
 	<string name="media_hidden">ซ่อนสื่ออยู่</string>
 	<string name="post_hidden">ซ่อนโพสต์อยู่</string>
 	<string name="report_title_post">รายงานโพสต์</string>
+	<string name="forward_report_explanation">บัญชีมาจากเซิร์ฟเวอร์อื่น ส่งสำเนาที่ไม่ระบุตัวตนของรายงานนี้ไปที่นั่นด้วย?</string>
 	<!-- %s is the server domain -->
 	<string name="forward_report_to_server">ส่งต่อไปยัง %s</string>
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
@@ -449,6 +455,15 @@
 	<string name="settings_show_cws">แสดงคำเตือนเนื้อหา</string>
 	<string name="settings_show_interaction_counts">จำนวนการโต้ตอบของโพสต์</string>
 	<string name="settings_show_emoji_in_names">อีโมจิที่กำหนดเองในชื่อที่แสดง</string>
+	<plurals name="in_x_seconds">
+		<item quantity="other">ในอีก %d วินาที</item>
+	</plurals>
+	<plurals name="in_x_minutes">
+		<item quantity="other">ในอีก %d นาที</item>
+	</plurals>
+	<plurals name="in_x_hours">
+		<item quantity="other">ในอีก %d ชั่วโมง</item>
+	</plurals>
 	<plurals name="x_hours_ago">
 		<item quantity="other">%d ชั่วโมงที่แล้ว</item>
 	</plurals>
