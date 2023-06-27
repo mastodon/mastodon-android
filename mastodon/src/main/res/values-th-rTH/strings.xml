@@ -15,6 +15,7 @@
 	<string name="user_sent_follow_request">%s ได้ส่งคำขอติดตามถึงคุณ</string>
 	<string name="user_favorited">%s ได้ชื่นชอบโพสต์ของคุณ</string>
 	<string name="notification_boosted">%s ได้ดันโพสต์ของคุณ</string>
+	<string name="poll_ended">ดูผลลัพธ์ของการสำรวจความคิดเห็นที่คุณได้ลงคะแนน</string>
 	<string name="share_toot_title">แบ่งปัน</string>
 	<string name="settings">การตั้งค่า</string>
 	<string name="publish">เผยแพร่</string>
@@ -203,6 +204,7 @@
 	<string name="settings_clear_cache">ล้างแคชสื่อ</string>
 	<string name="settings_app_version">Mastodon สำหรับ Android v%1$s (%2$d)</string>
 	<string name="media_cache_cleared">ล้างแคชสื่อแล้ว</string>
+	<string name="confirm_log_out">ออกจากระบบ %s?</string>
 	<string name="sensitive_content_explain">ผู้สร้างได้ทำเครื่องหมายสื่อนี้ว่าละเอียดอ่อน</string>
 	<string name="avatar_description">ไปยังโปรไฟล์ของ %s</string>
 	<string name="more_options">ตัวเลือกเพิ่มเติม</string>
@@ -362,6 +364,9 @@
 	<string name="what_are_servers">เซิร์ฟเวอร์คืออะไร?</string>
 	<string name="welcome_paragraph2"><![CDATA[ทุกบัญชี Mastodon ได้รับการโฮสต์ในเซิร์ฟเวอร์ — แต่ละแห่งมีค่า, กฎ และผู้ดูแลของเซิร์ฟเวอร์เอง ไม่ว่าคุณจะเลือกเซิร์ฟเวอร์ใด คุณสามารถติดตามและโต้ตอบกับผู้คนในเซิร์ฟเวอร์ใด ๆ]]></string>
 	<string name="opening_link">กำลังเปิดลิงก์…</string>
+	<string name="link_not_supported">ไม่รองรับลิงก์นี้ในแอป</string>
+	<string name="log_out_all_accounts">ออกจากระบบบัญชีทั้งหมด</string>
+	<string name="confirm_log_out_all_accounts">ออกจากระบบบัญชีทั้งหมด?</string>
 	<string name="retry">ลองใหม่</string>
 	<string name="post_failed">ไม่สามารถส่งโพสต์</string>
 	<!-- %s is formatted file size ("467 KB image") -->
@@ -376,13 +381,18 @@
 	<string name="attachment_type_unknown">ไฟล์</string>
 	<string name="attachment_x_percent_uploaded">อัปโหลดแล้ว %d%%</string>
 	<string name="add_poll_option">เพิ่มตัวเลือกการสำรวจความคิดเห็น</string>
+	<string name="poll_length">ความยาวการสำรวจความคิดเห็น</string>
+	<string name="poll_style">ลักษณะ</string>
 	<string name="delete_poll_option">ลบตัวเลือกการสำรวจความคิดเห็น</string>
+	<string name="poll_style_title">ลักษณะการสำรวจความคิดเห็น</string>
 	<string name="edit_post">แก้ไขโพสต์</string>
 	<string name="no_verified_link">ไม่มีลิงก์ที่ยืนยันแล้ว</string>
 	<string name="compose_autocomplete_emoji_empty">เรียกดูอีโมจิ</string>
 	<string name="language">ภาษา</string>
 	<string name="language_default">ค่าเริ่มต้น</string>
 	<string name="language_system">ระบบ</string>
+	<string name="language_detecting">กำลังตรวจหาภาษา</string>
+	<string name="language_cant_detect">ไม่สามารถตรวจหาภาษา</string>
 	<string name="media_hidden">ซ่อนสื่ออยู่</string>
 	<string name="post_hidden">ซ่อนโพสต์อยู่</string>
 	<string name="report_title_post">รายงานโพสต์</string>
@@ -390,7 +400,10 @@
 	<string name="forward_report_to_server">ส่งต่อไปยัง %s</string>
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
 	<string name="reported">รายงานแล้ว</string>
+	<string name="muted_user">ซ่อน %s อยู่</string>
+	<string name="blocked_user">ปิดกั้น %s อยู่</string>
 	<string name="mark_all_notifications_read">ทำเครื่องหมายทั้งหมดว่าอ่านแล้ว</string>
+	<string name="settings_display">การแสดงผล</string>
 	<string name="settings_filters">ตัวกรอง</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">เกี่ยวกับ %s</string>
@@ -405,10 +418,12 @@
 		<item quantity="other">%d สัปดาห์</item>
 	</plurals>
 	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
+	<string name="date_at_time">%1$s เวลา %2$s</string>
 	<string name="today">วันนี้</string>
 	<string name="yesterday">เมื่อวานนี้</string>
 	<string name="tomorrow">พรุ่งนี้</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="pause_notifications_ends">สิ้นสุดเมื่อ %s</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<string name="open_system_notification_settings">ไปยังการตั้งค่าการแจ้งเตือน</string>
 	<string name="about_server">เกี่ยวกับ</string>
@@ -432,8 +447,11 @@
 	<string name="settings_filter_duration">ระยะเวลา</string>
 	<string name="settings_filter_muted_words">คำที่ซ่อนอยู่</string>
 	<string name="settings_filter_context">ซ่อนจาก</string>
+	<string name="settings_filter_show_cw">แสดงพร้อมคำเตือนเนื้อหา</string>
 	<string name="settings_delete_filter">ลบตัวกรอง</string>
+	<string name="filter_duration_forever">ตลอดไป</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="settings_filter_ends">สิ้นสุดเมื่อ %s</string>
 	<plurals name="settings_x_muted_words">
 		<item quantity="other">%d คำหรือวลีที่ซ่อนอยู่</item>
 	</plurals>
@@ -446,6 +464,7 @@
 	<string name="filter_context_profiles">โปรไฟล์</string>
 	<string name="settings_filter_title">ชื่อเรื่อง</string>
 	<string name="settings_delete_filter_title">ลบตัวกรอง “%s”?</string>
+	<string name="settings_delete_filter_confirmation">จะลบตัวกรองนี้ออกจากบัญชีของคุณในอุปกรณ์ทั้งหมดของคุณ</string>
 	<string name="add">เพิ่ม</string>
 	<string name="filter_word_or_phrase">คำหรือวลี</string>
 	<string name="settings_delete_filter_word">ลบคำ “%s”?</string>
@@ -459,6 +478,7 @@
 	<plurals name="x_items_selected">
 		<item quantity="other">เลือกอยู่ %d</item>
 	</plurals>
+	<string name="filter_word_already_in_list">อยู่ในรายการอยู่แล้ว</string>
 	<string name="app_update_version">รุ่น %s</string>
 	<string name="downloading_update">กำลังดาวน์โหลด (%d%%)</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
