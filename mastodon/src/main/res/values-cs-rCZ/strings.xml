@@ -4,12 +4,18 @@
 	<string name="next">Další</string>
 	<string name="loading_instance">Načítání informací o serveru…</string>
 	<string name="error">Chyba</string>
+	<string name="not_a_mastodon_instance">Zdá se, že %s není serverem Mastodonu.</string>
 	<string name="ok">OK</string>
 	<string name="preparing_auth">Příprava na autentizaci…</string>
 	<string name="finishing_auth">Dokončení autentizace…</string>
 	<string name="user_boosted">%s boostnul(a)</string>
 	<string name="in_reply_to">V odpovědi na %s</string>
 	<string name="notifications">Upozornění</string>
+	<string name="user_followed_you">%s vás sleduje</string>
+	<string name="user_sent_follow_request">%s vám poslal(a) žádost o sledování</string>
+	<string name="user_favorited">%s si oblíbil(a) váš příspěvek</string>
+	<string name="notification_boosted">%s boostnul(a) váš příspěvek</string>
+	<string name="poll_ended">Podívejte se na výsledky ankety, ve které jste hlasovali</string>
 	<string name="share_toot_title">Sdílet</string>
 	<string name="settings">Nastavení</string>
 	<string name="publish">Zveřejnit</string>
@@ -35,6 +41,7 @@
 	<string name="button_follow">Sledovat</string>
 	<string name="button_following">Sleduji</string>
 	<string name="edit_profile">Upravit profil</string>
+	<string name="share_user">Sdílet profil</string>
 	<string name="mute_user">Skrýt %s</string>
 	<string name="unmute_user">Zrušit skrytí @%s</string>
 	<string name="block_user">Blokovat %s</string>
@@ -116,16 +123,19 @@
 	<string name="button_blocked">Blokovaný</string>
 	<string name="action_vote">Hlasovat</string>
 	<string name="delete">Smazat</string>
+	<string name="confirm_delete_title">Smazat příspěvek</string>
 	<string name="confirm_delete">Opravdu chcete smazat tento příspěvek?</string>
 	<string name="deleting">Mazání…</string>
 	<string name="notification_channel_audio_player">Přehrávání zvuku</string>
 	<string name="play">Přehrát</string>
 	<string name="pause">Pozastavit</string>
+	<string name="log_out">Odhlásit se</string>
 	<string name="add_account">Přidat účet</string>
 	<string name="search_hint">Hledat</string>
 	<string name="hashtags">Hashtagy</string>
 	<string name="news">Zprávy</string>
 	<string name="for_you">Pro vás</string>
+	<string name="all_notifications">Všechno</string>
 	<string name="mentions">Zmínky</string>
 	<plurals name="x_people_talking">
 		<item quantity="one">%d člověk mluví</item>
@@ -134,11 +144,16 @@
 		<item quantity="other">%d lidí mluví</item>
 	</plurals>
 	<string name="report_title">Nahlásit %s</string>
+	<string name="report_choose_reason">Co je na tomto příspěvku špatně?</string>
+	<string name="report_choose_reason_account">Co je špatně na %s?</string>
 	<string name="report_choose_reason_subtitle">Vyberte nejbližší možnost</string>
+	<string name="report_reason_personal">Nelíbí se mi to</string>
 	<string name="report_reason_personal_subtitle">Není to něco, co chcete vidět</string>
+	<string name="report_reason_spam">Je to spam</string>
 	<string name="report_reason_spam_subtitle">Škodlivé odkazy, falešné interakce nebo opakované odpovědi</string>
 	<string name="report_reason_violation">Porušuje to pravidla serveru</string>
 	<string name="report_reason_violation_subtitle">Máte za to, že to porušuje konkrétní pravidla</string>
+	<string name="report_reason_other">Jde o něco jiného</string>
 	<string name="report_reason_other_subtitle">Problém neodpovídá ostatním kategoriím</string>
 	<string name="report_choose_rule">Která pravidla to porušuje?</string>
 	<string name="report_choose_rule_subtitle">Vyberte všechna relevantní</string>
@@ -147,8 +162,14 @@
 	<string name="report_comment_title">Je ještě něco jiného, co bychom měli vědět?</string>
 	<string name="report_comment_hint">Další komentáře</string>
 	<string name="sending_report">Odesílání hlášení…</string>
+	<string name="report_sent_title">Děkujeme za nahlášení, podíváme se na to.</string>
+	<string name="report_sent_subtitle">Zatímco to posuzujeme, můžete podniknout kroky proti %s:</string>
 	<string name="unfollow_user">Přestat sledovat %s</string>
 	<string name="unfollow">Přestat sledovat</string>
+	<string name="mute_user_explain">Neuvidíte příspěvky tohoto uživatele. On vás může nadále sledovat i vidět vaše příspěvky a nebude vědět, že je skryt.</string>
+	<string name="block_user_explain">Neuvidíte příspěvky tohoto uživatele. On neuvidí vaše příspěvky, ani vás nebude moci sledovat. Pozná, že je blokován.</string>
+	<string name="report_personal_title">Nechcete tohle vidět?</string>
+	<string name="report_personal_subtitle">Tady jsou vaše možnosti pro řízení toho, co na Mastodonu vidíte:</string>
 	<string name="back">Zpět</string>
 	<string name="search_communities">Název nebo URL serveru</string>
 	<string name="instance_rules_title">Pravidla serveru</string>
@@ -175,14 +196,19 @@
 	<string name="category_tech">Technologie</string>
 	<string name="confirm_email_title">Zkontrolujte si příchozí poštu</string>
 	<!-- %s is the email address -->
+	<string name="confirm_email_subtitle">Klepněte na odkaz, který jsme vám poslali, abyste ověřili %s. Budeme tu na vás čekat.</string>
+	<string name="confirm_email_didnt_get">Nedostali jste odkaz?</string>
 	<string name="resend">Poslat znovu</string>
 	<string name="open_email_app">Otevřít e-mailovou aplikaci</string>
 	<string name="resent_email">Potvrzující e-mail byl odeslán</string>
+	<string name="compose_hint">Napište nebo vložte, co máte na mysli</string>
 	<string name="content_warning">Varování o obsahu</string>
 	<string name="save">Uložit</string>
 	<string name="add_alt_text">Přidat alternativní text</string>
 	<string name="visibility_public">Veřejné</string>
 	<string name="visibility_followers_only">Pouze sledující</string>
+	<string name="visibility_private">Pouze lidé, které zmíním</string>
+	<string name="recent_searches">Nedávné</string>
 	<string name="skip">Přeskočit</string>
 	<string name="notification_type_follow">Noví sledující</string>
 	<string name="notification_type_favorite">Oblíbené</string>
@@ -193,6 +219,8 @@
 	<string name="err_not_logged_in">Nejprve se přihlaste do Mastodonu</string>
 	<string name="media_attachment_unsupported_type">Soubor %s nepatří mezi podporované typy</string>
 	<string name="media_attachment_too_big">Soubor %1$s překračuje limit velikosti %2$s MB</string>
+	<string name="settings_theme">Vzhled</string>
+	<string name="theme_auto">Použít vzhled zařízení</string>
 	<string name="theme_light">Světlý</string>
 	<string name="theme_dark">Tmavý</string>
 	<string name="settings_behavior">Chování</string>
@@ -205,6 +233,9 @@
 	<string name="settings_clear_cache">Vymazat mezipaměť médií</string>
 	<string name="settings_app_version">Mastodon for Android v%1$s (%2$d)</string>
 	<string name="media_cache_cleared">Mezipaměť médií byla vymazána</string>
+	<string name="confirm_log_out">Odhlásit se z %s?</string>
+	<string name="sensitive_content_explain">Autor označil toto médium za citlivé.</string>
+	<string name="avatar_description">Přejít na profil uživatele %s</string>
 	<string name="more_options">Více možností</string>
 	<string name="new_post">Nový příspěvek</string>
 	<string name="button_reply">Odpovědět</string>
@@ -220,6 +251,7 @@
 	<string name="media_viewer">Prohlížeč médií</string>
 	<string name="follow_user">Sledovat %s</string>
 	<string name="unfollowed_user">Sledování %s bylo zrušeno</string>
+	<string name="followed_user">Nyní sledujete %s</string>
 	<string name="following_user_requested">Požádáno o sledování %s</string>
 	<string name="open_in_browser">Otevřít v prohlížeči</string>
 	<string name="hide_boosts_from_user">Skrýt boosty od %s</string>
@@ -237,6 +269,8 @@
 	<string name="error_saving_file">Nastala chyba při ukládání souboru</string>
 	<string name="file_saved">Soubor byl uložen</string>
 	<string name="downloading">Stahování…</string>
+	<string name="no_app_to_handle_action">Nebyly nalezeny žádné aplikace pro tuto úlohu</string>
+	<string name="local_timeline">Místní</string>
 	<!-- %s is the server domain -->
 	<string name="see_new_posts">Zobrazit nové příspěvky</string>
 	<string name="load_missing_posts">Načíst chybějící příspěvky</string>
