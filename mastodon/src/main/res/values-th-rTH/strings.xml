@@ -177,6 +177,7 @@
 	<string name="add_alt_text">เพิ่มข้อความแสดงแทน</string>
 	<string name="visibility_public">สาธารณะ</string>
 	<string name="visibility_followers_only">ผู้ติดตามเท่านั้น</string>
+	<string name="visibility_private">เฉพาะผู้คนที่ได้รับการกล่าวถึงเท่านั้น</string>
 	<string name="recent_searches">รายการล่าสุด</string>
 	<string name="skip">ข้าม</string>
 	<string name="notification_type_follow">ผู้ติดตามใหม่</string>
@@ -247,6 +248,7 @@
 	<string name="trending_links_info_banner">นี่คือเรื่องข่าวที่ได้รับการพูดถึงใน Mastodon</string>
 	<!-- %s is the server domain -->
 	<string name="local_timeline_info_banner">นี่คือโพสต์ทั้งหมดจากผู้ใช้ทั้งหมดในเซิร์ฟเวอร์ของคุณ (%s)</string>
+	<string name="recommended_accounts_info_banner">คุณอาจชอบบัญชีเหล่านี้โดยอิงตามผู้อื่นที่คุณติดตาม</string>
 	<string name="see_new_posts">ดูโพสต์ใหม่</string>
 	<string name="load_missing_posts">โหลดโพสต์ที่ขาดหายไป</string>
 	<string name="follow_back">ติดตามกลับ</string>
@@ -387,7 +389,7 @@
 	<string name="add_poll_option">เพิ่มตัวเลือกการสำรวจความคิดเห็น</string>
 	<string name="poll_length">ความยาวการสำรวจความคิดเห็น</string>
 	<string name="poll_style">ลักษณะ</string>
-	<string name="compose_poll_single_choice">เลือกหนึ่งรายการ</string>
+	<string name="compose_poll_single_choice">เลือกอย่างใดอย่างหนึ่ง</string>
 	<string name="compose_poll_multiple_choice">หลายตัวเลือก</string>
 	<string name="delete_poll_option">ลบตัวเลือกการสำรวจความคิดเห็น</string>
 	<string name="poll_style_title">ลักษณะการสำรวจความคิดเห็น</string>
@@ -413,6 +415,7 @@
 	<string name="forward_report_to_server">ส่งต่อไปยัง %s</string>
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
 	<string name="reported">รายงานแล้ว</string>
+	<string name="report_unfollow_explanation">เพื่อไม่ให้เห็นโพสต์ของเขาในฟีดหน้าแรกของคุณอีกต่อไป ให้เลิกติดตามเขา</string>
 	<string name="muted_user">ซ่อน %s อยู่</string>
 	<string name="blocked_user">ปิดกั้น %s อยู่</string>
 	<string name="mark_all_notifications_read">ทำเครื่องหมายทั้งหมดว่าอ่านแล้ว</string>
@@ -445,6 +448,7 @@
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<string name="pause_notifications_ends">สิ้นสุดเมื่อ %s</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="pause_notifications_banner">การแจ้งเตือนจะทำต่อเมื่อ %s</string>
 	<string name="resume_notifications_now">ทำต่อตอนนี้</string>
 	<string name="open_system_notification_settings">ไปยังการตั้งค่าการแจ้งเตือน</string>
 	<string name="about_server">เกี่ยวกับ</string>
@@ -452,6 +456,7 @@
 	<string name="server_administrator">ผู้ดูแล</string>
 	<string name="send_email_to_server_admin">ส่งข้อความถึงผู้ดูแล</string>
 	<string name="notifications_disabled_in_system">เปิดการแจ้งเตือนจากการตั้งค่าอุปกรณ์ของคุณเพื่อดูการอัปเดตจากที่ใดก็ตาม</string>
+	<string name="settings_even_more">การตั้งค่าเพิ่มเติม</string>
 	<string name="settings_show_cws">แสดงคำเตือนเนื้อหา</string>
 	<string name="settings_show_interaction_counts">จำนวนการโต้ตอบของโพสต์</string>
 	<string name="settings_show_emoji_in_names">อีโมจิที่กำหนดเองในชื่อที่แสดง</string>
@@ -466,6 +471,13 @@
 	</plurals>
 	<plurals name="x_hours_ago">
 		<item quantity="other">%d ชั่วโมงที่แล้ว</item>
+	</plurals>
+	<string name="alt_text_reminder_title">สื่อไม่มีข้อความแสดงแทน</string>
+	<plurals name="alt_text_reminder_x_images">
+		<item quantity="other">%s ภาพของคุณไม่มีข้อความแสดงแทน โพสต์ต่อไป?</item>
+	</plurals>
+	<plurals name="alt_text_reminder_x_attachments">
+		<item quantity="other">%s ไฟล์แนบสื่อของคุณไม่มีข้อความแสดงแทน โพสต์ต่อไป?</item>
 	</plurals>
 	<string name="count_one">หนึ่ง</string>
 	<string name="count_two">สอง</string>
@@ -492,6 +504,7 @@
 	</plurals>
 	<string name="selection_2_options">%1$s และ %2$s</string>
 	<string name="selection_3_options">%1$s, %2$s และ %3$s</string>
+	<string name="selection_4_or_more">%1$s, %2$s และเพิ่มเติมอีก %3$d</string>
 	<string name="filter_context_home_lists">หน้าแรกและรายการ</string>
 	<string name="filter_context_notifications">การแจ้งเตือน</string>
 	<string name="filter_context_public_timelines">เส้นเวลาสาธารณะ</string>
@@ -517,6 +530,7 @@
 	</plurals>
 	<string name="required_form_field_blank">ไม่สามารถเว้นว่าง</string>
 	<string name="filter_word_already_in_list">อยู่ในรายการอยู่แล้ว</string>
+	<string name="app_update_ready">การอัปเดตแอปพร้อมใช้งาน</string>
 	<string name="app_update_version">รุ่น %s</string>
 	<string name="downloading_update">กำลังดาวน์โหลด (%d%%)</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
