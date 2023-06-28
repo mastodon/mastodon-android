@@ -224,7 +224,7 @@ public abstract class StatusListFragment extends BaseStatusListFragment<Status>{
 			for(Status status:data){
 				Status contentStatus=status.getContentStatus();
 				if(contentStatus.poll!=null && contentStatus.poll.id.equals(ev.poll.id)){
-					updatePoll(status.id, status, ev.poll);
+					updatePoll(status.id, contentStatus, ev.poll);
 				}
 			}
 		}
