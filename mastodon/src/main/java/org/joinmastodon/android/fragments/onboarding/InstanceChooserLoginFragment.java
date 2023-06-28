@@ -74,7 +74,7 @@ public class InstanceChooserLoginFragment extends InstanceCatalogFragment{
 						foundExactMatch=true;
 				}
 			}
-			if(!foundExactMatch)
+			if(!foundExactMatch && filteredData.isEmpty())
 				filteredData.add(0, fakeInstance);
 		}
 		UiUtils.updateList(prevData, filteredData, list, adapter, Objects::equals);
