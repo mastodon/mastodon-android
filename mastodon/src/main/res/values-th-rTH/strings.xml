@@ -418,6 +418,7 @@
 	<string name="report_unfollow_explanation">เพื่อไม่ให้เห็นโพสต์ของเขาในฟีดหน้าแรกของคุณอีกต่อไป ให้เลิกติดตามเขา</string>
 	<string name="muted_user">ซ่อน %s อยู่</string>
 	<string name="report_sent_already_blocked">คุณได้ปิดกั้นผู้ใช้นี้ไปแล้ว ดังนั้นจึงไม่มีอะไรอย่างอื่นที่คุณจำเป็นต้องทำขณะที่เราตรวจทานรายงานของคุณ</string>
+	<string name="report_personal_already_blocked">คุณได้ปิดกั้นผู้ใช้นี้ไปแล้ว ดังนั้นจึงไม่มีอะไรอย่างอื่นที่คุณจำเป็นต้องทำ\n\nขอบคุณสำหรับการช่วยรักษา Mastodon ให้เป็นสถานที่ที่ปลอดภัยสำหรับทุกคน!</string>
 	<string name="blocked_user">ปิดกั้น %s อยู่</string>
 	<string name="mark_all_notifications_read">ทำเครื่องหมายทั้งหมดว่าอ่านแล้ว</string>
 	<string name="settings_display">การแสดงผล</string>
@@ -460,6 +461,7 @@
 	<string name="notifications_disabled_in_system">เปิดการแจ้งเตือนจากการตั้งค่าอุปกรณ์ของคุณเพื่อดูการอัปเดตจากที่ใดก็ตาม</string>
 	<string name="settings_even_more">การตั้งค่าเพิ่มเติม</string>
 	<string name="settings_show_cws">แสดงคำเตือนเนื้อหา</string>
+	<string name="settings_hide_sensitive_media">ปกปิดสื่อที่มีการทำเครื่องหมายว่าละเอียดอ่อน</string>
 	<string name="settings_show_interaction_counts">จำนวนการโต้ตอบของโพสต์</string>
 	<string name="settings_show_emoji_in_names">อีโมจิที่กำหนดเองในชื่อที่แสดง</string>
 	<plurals name="in_x_seconds">
@@ -519,6 +521,7 @@
 	<string name="edit_muted_word">แก้ไขคำที่ซ่อนอยู่</string>
 	<string name="add">เพิ่ม</string>
 	<string name="filter_word_or_phrase">คำหรือวลี</string>
+	<string name="filter_add_word_help">คำไม่คำนึงถึงตัวพิมพ์ใหญ่เล็กและตรงกับคำเต็มเท่านั้น\n\nหากคุณกรองคำสำคัญ “Apple,” ตัวกรองจะซ่อนโพสต์ที่มี “apple” หรือ “aPpLe” แต่ไม่ใช่ “pineapple.”</string>
 	<string name="settings_delete_filter_word">ลบคำ “%s”?</string>
 	<string name="enter_selection_mode">เลือก</string>
 	<string name="select_all">เลือกทั้งหมด</string>
