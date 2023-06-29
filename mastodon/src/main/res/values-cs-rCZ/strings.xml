@@ -455,10 +455,53 @@
 	<string name="forward_report_to_server">Přeposlat do %s</string>
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
 	<string name="reported">Nahlášeno</string>
+	<string name="report_unfollow_explanation">Pokud již nechcete jejich příspěvky vidět ve svém domovském kanálu, přestaňte je sledovat.</string>
+	<string name="muted_user">Skrytý %s</string>
+	<string name="report_sent_already_blocked">Tohoto uživatele už jste zablokovali, takže než vaše hlášení prověříme, nemusíte nic dalšího dělat.</string>
+	<string name="report_personal_already_blocked">Tohoto uživatele jste už zablokovali, takže nic dalšího nemusíte dělat.\n\nDěkujeme, že pomáháte Mastodon udržovat jako bezpečné místo pro všechny!</string>
+	<string name="blocked_user">Blokovaný %s</string>
+	<string name="mark_all_notifications_read">Označit vše jako přečtené</string>
+	<string name="settings_display">Zobrazení</string>
+	<string name="settings_filters">Filtry</string>
+	<string name="settings_server_explanation">Přehled, pravidla, moderátoři</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
+	<string name="about_app">O aplikaci %s</string>
+	<string name="default_post_language">Výchozí jazyk pro příspěvky</string>
+	<string name="settings_alt_text_reminders">Přidat připomínky alternativního textu</string>
+	<string name="settings_confirm_unfollow">Zeptat se před tím, než někoho přestanete sledovat</string>
+	<string name="settings_confirm_boost">Zeptat se před boostováním</string>
+	<string name="settings_confirm_delete_post">Zeptat se před smazáním příspěvků</string>
+	<string name="pause_all_notifications">Pozastavit všechny</string>
+	<string name="pause_notifications_off">Vypnuto</string>
+	<string name="notifications_policy_anyone">Kdokoliv</string>
+	<string name="notifications_policy_followed">Lidé, kteří vás sledují</string>
+	<string name="notifications_policy_follower">Lidé, které sledujete</string>
+	<string name="notifications_policy_no_one">Nikdo</string>
+	<string name="settings_notifications_policy">Dostávat oznámení od</string>
+	<string name="notification_type_mentions_and_replies">Zmínění a odpovědi</string>
+	<string name="pause_all_notifications_title">Pozastavit všechna oznámení</string>
 	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
+	<string name="date_at_time">%1$s v %2$s</string>
+	<string name="today">dnes</string>
+	<string name="yesterday">včera</string>
+	<string name="tomorrow">zítra</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="pause_notifications_ends">Končí v %s</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="pause_notifications_banner">Oznámení začnou znovu fungovat v %s.</string>
+	<string name="resume_notifications_now">Opět spustit nyní</string>
+	<string name="open_system_notification_settings">Přejít do nastavení oznámení</string>
+	<string name="about_server">O serveru</string>
+	<string name="server_rules">Pravidla</string>
+	<string name="server_administrator">Správce</string>
+	<string name="send_email_to_server_admin">Napsat administrátorovi</string>
+	<string name="notifications_disabled_in_system">Povolte oznámení v nastavení vašeho zařízení, abyste mohli aktualizace vidět odkudkoliv.</string>
+	<string name="settings_even_more">Ještě více nastavení</string>
+	<string name="settings_show_cws">Zobrazovat varování o obsahu</string>
+	<string name="settings_hide_sensitive_media">Zakrýt média označená jako citlivá</string>
+	<string name="settings_show_interaction_counts">Počet interakcí příspěvku</string>
+	<string name="settings_show_emoji_in_names">Vlastní emoji v zobrazených jménech</string>
+	<string name="alt_text_reminder_title">Média nemají alternativní text</string>
 	<!-- %s is the username -->
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<!-- Shown like a content warning, %s is the name of the filter -->
