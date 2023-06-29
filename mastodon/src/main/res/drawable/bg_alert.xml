@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <inset xmlns:android="http://schemas.android.com/apk/res/android" android:inset="16dp">
-	<shape android:tint="@color/m3_primary_overlay" android:tintMode="src_atop">
+	<shape android:tint="@color/m3_primary_alpha11" android:tintMode="src_atop">
 		<solid android:color="?colorM3Surface"/>
 		<corners android:radius="28dp"/>
 	</shape>
