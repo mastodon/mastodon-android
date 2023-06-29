@@ -439,8 +439,22 @@
 	<string name="edit_post">Upravit příspěvek</string>
 	<string name="no_verified_link">Žádný ověřený odkaz</string>
 	<string name="compose_autocomplete_emoji_empty">Procházet emoji</string>
+	<string name="compose_autocomplete_users_empty">Najděte, koho hledáte</string>
+	<string name="no_search_results">Pro tyto hledané výrazy nebylo nic nenalezeno</string>
+	<string name="language">Jazyk</string>
+	<string name="language_default">Výchozí</string>
+	<string name="language_system">Systémový</string>
+	<string name="language_detecting">Rozpoznat jazyk</string>
+	<string name="language_cant_detect">Nelze rozpoznat jazyk</string>
+	<string name="language_detected">Rozpoznáno</string>
+	<string name="media_hidden">Média skryta</string>
+	<string name="post_hidden">Příspěvek skryt</string>
+	<string name="report_title_post">Nahlásit příspěvek</string>
+	<string name="forward_report_explanation">Tento účet je z jiného serveru. Chcete na něj také poslat anonymizovanou kopii hlášení?</string>
 	<!-- %s is the server domain -->
+	<string name="forward_report_to_server">Přeposlat do %s</string>
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
+	<string name="reported">Nahlášeno</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
