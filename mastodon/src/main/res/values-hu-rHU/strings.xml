@@ -234,7 +234,10 @@
 	<string name="follow_user">%s követése</string>
 	<string name="unfollowed_user">%s követését visszavontad</string>
 	<string name="followed_user">Most már követed őt: %s</string>
+	<string name="following_user_requested">Követési kérelem elküldve %s felhasználónak</string>
 	<string name="open_in_browser">Megnyitás böngészőben</string>
+	<string name="hide_boosts_from_user">\@%s megtolásainak elrejtése</string>
+	<string name="show_boosts_from_user">\@%s megtolásainak mutatása</string>
 	<string name="signup_reason">Miért szeretnél csatlakozni?</string>
 	<string name="signup_reason_note">Ez segít nekünk átnézni a jelentkezésedet.</string>
 	<string name="clear">Törlés</string>
@@ -248,8 +251,13 @@
 	<string name="error_saving_file">Hiba a fájl mentése során</string>
 	<string name="file_saved">Fájl elmentve</string>
 	<string name="downloading">Letöltés…</string>
+	<string name="no_app_to_handle_action">Nincs olyan alkalmazásod telepítve, ami ezt a műveleted kezelni tudná</string>
 	<string name="local_timeline">Helyi</string>
+	<string name="trending_posts_info_banner">Ezek a felkapottabb posztok Mastodonon.</string>
+	<string name="trending_links_info_banner">Ez a legújabb hírek amikről Mastodonon beszélgetnek.</string>
 	<!-- %s is the server domain -->
+	<string name="local_timeline_info_banner">Itt található az összes bejegyzés az összes felhasznólótól a példányodon (%s).</string>
+	<string name="recommended_accounts_info_banner">Ezek a fiókok tetszhetnek neked azok alapján, akiket követsz.</string>
 	<string name="see_new_posts">Új bejegyzések megtekintése</string>
 	<string name="load_missing_posts">Hiányzó bejegyzések betöltése</string>
 	<string name="follow_back">Visszakövetés</string>
@@ -323,6 +331,7 @@
 	<string name="login_title">Üdv újra</string>
 	<string name="login_subtitle">Azon a kiszolgálón jelentkezz be, ahol a fiókodat létrehoztad.</string>
 	<string name="server_url">Kiszolgáló URL</string>
+	<string name="signup_random_server_explain">Választunk egy kiszolgálót a saját nyelvedhez igazodva, ha választás nélkül folytatod.</string>
 	<string name="server_filter_any_language">Bármely Nyelv</string>
 	<string name="server_filter_instant_signup">Azonnali Regisztráció</string>
 	<string name="server_filter_manual_review">Kézi Felülvizsgálat</string>
@@ -335,6 +344,7 @@
 	<string name="server_filter_region_oceania">Óceánia</string>
 	<string name="not_accepting_new_members">Nem fogad új tagokat</string>
 	<string name="category_special_interests">Különleges Érdeklődés</string>
+	<string name="signup_passwords_dont_match">Jelszavak nem egyeznek</string>
 	<string name="pick_server_for_me">Válassz egyet nekem</string>
 	<string name="profile_add_row">Sor hozzáadása</string>
 	<string name="profile_setup">Profilbeállítás</string>
@@ -343,6 +353,7 @@
 	<string name="popular_on_mastodon">Népszerű Mastodonon</string>
 	<string name="follow_all">Összes követése</string>
 	<string name="server_rules_disagree">Elutasítás</string>
+	<string name="privacy_policy_explanation">Röviden: Nem gyűjtünk és nem dolgozunk fel semmit.</string>
 	<!-- %s is server domain -->
 	<string name="server_policy_disagree">Nem egyezek bele a %s szabályzatába</string>
 	<string name="profile_bio">Bemutatkozás</string>
@@ -350,6 +361,7 @@
 	<string name="sending_follows">Felhasználók bekövetése…</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
 	<!-- %s is formatted file size ("467 KB image") -->
+	<string name="compose_autocomplete_users_empty">Találd meg akiket keresel</string>
 	<!-- %s is the server domain -->
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
