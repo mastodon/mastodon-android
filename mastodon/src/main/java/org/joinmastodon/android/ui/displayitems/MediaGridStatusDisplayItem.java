@@ -322,6 +322,7 @@ public class MediaGridStatusDisplayItem extends StatusDisplayItem{
 					altTextAnimator=null;
 					altTextWrapper.setVisibility(View.GONE);
 					btn.setVisibility(View.VISIBLE);
+					btn.setAlpha(1);
 				}
 			});
 			altTextAnimator=set;
