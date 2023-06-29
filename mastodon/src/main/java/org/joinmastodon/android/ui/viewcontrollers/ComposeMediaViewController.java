@@ -287,6 +287,7 @@ public class ComposeMediaViewController{
 		DraftMediaAttachment draft=new DraftMediaAttachment();
 		draft.uri=uri;
 		draft.description=description;
+		draft.mimeType="image/jpeg";
 		attachmentsView.addView(createMediaAttachmentView(draft));
 		attachments.add(draft);
 		attachmentsScroller.setVisibility(View.VISIBLE);

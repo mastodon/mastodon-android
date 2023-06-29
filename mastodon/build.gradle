@@ -91,8 +91,8 @@ dependencies {
 	appcenterPublicBetaImplementation "com.microsoft.appcenter:appcenter-crashes:${appCenterSdkVersion}"
 	appcenterPublicBetaImplementation "com.microsoft.appcenter:appcenter-distribute:${appCenterSdkVersion}"
 
-	androidTestImplementation 'androidx.test:core:1.4.1-alpha05'
-	androidTestImplementation 'androidx.test.ext:junit:1.1.4-alpha05'
-	androidTestImplementation 'androidx.test:runner:1.5.0-alpha02'
-	androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0-alpha05'
+	androidTestImplementation 'androidx.test:core:1.5.0'
+	androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+	androidTestImplementation 'androidx.test:runner:1.5.2'
+	androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 }
