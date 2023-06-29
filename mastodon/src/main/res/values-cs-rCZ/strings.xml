@@ -502,8 +502,64 @@
 	<string name="settings_show_interaction_counts">Počet interakcí příspěvku</string>
 	<string name="settings_show_emoji_in_names">Vlastní emoji v zobrazených jménech</string>
 	<string name="alt_text_reminder_title">Média nemají alternativní text</string>
+	<string name="count_one">Jeden</string>
+	<string name="count_two">Dva</string>
+	<string name="count_three">Tři</string>
+	<string name="count_four">Čtyři</string>
+	<string name="alt_text_reminder_post_anyway">Odeslat</string>
 	<!-- %s is the username -->
+	<string name="unfollow_confirmation">Přestat sledovat %s?</string>
+	<string name="filter_active">Aktivní</string>
+	<string name="filter_inactive">Neaktivní</string>
+	<string name="settings_add_filter">Přidat filtr</string>
+	<string name="settings_edit_filter">Upravit filtr</string>
+	<string name="settings_filter_duration">Doba trvání</string>
+	<string name="settings_filter_muted_words">Ztišená slova</string>
+	<string name="settings_filter_context">Ztišit od</string>
+	<string name="settings_filter_show_cw">Zobrazovat s varováním o obsahu</string>
+	<string name="settings_filter_show_cw_explanation">I nadále zobrazovat příspěvky, které odpovídají tomuto filtru, ale za varováním o obsahu</string>
+	<string name="settings_delete_filter">Smazat filtr</string>
+	<string name="filter_duration_forever">Napořád</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="settings_filter_ends">Končí %s</string>
+	<string name="selection_2_options">%1$s a %2$s</string>
+	<string name="selection_3_options">%1$s, %2$s a %3$s</string>
+	<string name="selection_4_or_more">%1$s, %2$s a %3$d další</string>
+	<string name="filter_context_home_lists">Domácí &amp; seznamy</string>
+	<string name="filter_context_notifications">Oznámení</string>
+	<string name="filter_context_public_timelines">Veřejné časové osy</string>
+	<string name="filter_context_threads_replies">Vlákna &amp; odpovědi</string>
+	<string name="filter_context_profiles">Profily</string>
+	<string name="settings_filter_title">Název</string>
+	<string name="settings_delete_filter_title">Smazat filtr ”%s\"?</string>
+	<string name="settings_delete_filter_confirmation">Tento filtr bude smazaný z vašeho účtu na všech zařízeních.</string>
+	<string name="add_muted_word">Přidat ztišené slovo</string>
+	<string name="edit_muted_word">Upravit ztišené slovo</string>
+	<string name="add">Přidat</string>
+	<string name="filter_word_or_phrase">Slovo nebo fráze</string>
+	<string name="filter_add_word_help">U slov se nerozlišují velká a malá písmena a odpovídají pouze celým slovům.\n\nPokud filtrujete klíčové slovo \"Apple\", skryjí se příspěvky obsahující \"apple\" nebo \"aPple\", ale ne \"pineapple.\"</string>
+	<string name="settings_delete_filter_word">Smazat slovo \"%s\"?</string>
+	<string name="enter_selection_mode">Vybrat</string>
+	<string name="select_all">Vybrat vše</string>
+	<string name="settings_filter_duration_title">Doba použití filtru</string>
+	<string name="filter_duration_custom">Vlastní</string>
+	<string name="required_form_field_blank">Nemůže být prázdné</string>
+	<string name="filter_word_already_in_list">Již v seznamu</string>
+	<string name="app_update_ready">Je připravena aktualizace aplikace</string>
+	<string name="app_update_version">Verze %s</string>
+	<string name="downloading_update">Stahuje se (%d%%)</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
+	<string name="post_matches_filter_x">Odpovídá filtru \"%s\"</string>
+	<string name="search_mastodon">Prohledat Mastodon</string>
+	<string name="clear_all">Vymazat vše</string>
+	<string name="search_open_url">Otevřít URL v Mastodonu</string>
+	<string name="posts_matching_hashtag">Příspěvky s \"%s\"</string>
+	<string name="search_go_to_account">Přejít na %s</string>
+	<string name="posts_matching_string">Příspěvky s \"%s\"</string>
+	<string name="accounts_matching_string">Lidé s \"%s\"</string>
 	<!-- Shown in the post header. Please keep it short -->
+	<string name="time_seconds_ago_short">Před %ds</string>
+	<string name="time_minutes_ago_short">Před %dm</string>
+	<string name="time_hours_ago_short">Před %dh</string>
+	<string name="time_days_ago_short">Před %dd</string>
 </resources>
