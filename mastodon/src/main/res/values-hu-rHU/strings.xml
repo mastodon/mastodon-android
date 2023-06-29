@@ -127,9 +127,11 @@
 	<string name="report_choose_reason_subtitle">Válaszd ki a legjobb találatot</string>
 	<string name="report_reason_personal">Nem tetszik</string>
 	<string name="report_reason_personal_subtitle">Ezt nem szeretném látni</string>
+	<string name="report_reason_spam">Kéretlen tartalom vagy spam</string>
 	<string name="report_reason_spam_subtitle">Rosszindulatú hivatkozások, hamis interakció vagy ismétlődő válaszok</string>
 	<string name="report_reason_violation">Sérti a kiszolgáló szabályait</string>
 	<string name="report_reason_violation_subtitle">Tudod, hogy mely konkrét szabályokat sért meg</string>
+	<string name="report_reason_other">Valami más</string>
 	<string name="report_reason_other_subtitle">Az eset nem illik egyik kategóriába sem</string>
 	<string name="report_choose_rule">Mely szabályok lettek megsértve?</string>
 	<string name="report_choose_rule_subtitle">Válaszd ki az összes megfelelőt</string>
@@ -138,8 +140,14 @@
 	<string name="report_comment_title">Van valami, amiről tudnunk kellene?</string>
 	<string name="report_comment_hint">További megjegyzések</string>
 	<string name="sending_report">Jelentés elküldése…</string>
+	<string name="report_sent_title">Köszönjük, hogy jelentetted, meg fogjuk nézni.</string>
+	<string name="report_sent_subtitle">Amíg megnézzük, a következőket teheted %s felhasználóval szemben:</string>
 	<string name="unfollow_user">%s követésének megszüntetése</string>
 	<string name="unfollow">Követés megszüntetése</string>
+	<string name="mute_user_explain">Nem fogod látni a bejegyzéseit. Továbbra is fog tudni követni, és látni fogja a bejegyzéseidet, és nem fogja tudni, hogy némítottad.</string>
+	<string name="block_user_explain">A bejegyzései nem lesznek láthatóak számodra. Nem nézheti majd meg a saját bejegyzéseidet és nem tud majd követni sem. Azt is meg fogja tudni mondani, hogy letiltották.</string>
+	<string name="report_personal_title">Nem szeretnéd ezt látni?</string>
+	<string name="report_personal_subtitle">Itt vannak a beállítások, melyek szabályozzák, hogy mit látsz Mastodonon:</string>
 	<string name="back">Vissza</string>
 	<string name="search_communities">Kiszolgáló neve vagy URL</string>
 	<string name="instance_rules_title">Kiszolgáló Szabályai</string>
@@ -166,23 +174,35 @@
 	<string name="category_tech">Tech</string>
 	<string name="confirm_email_title">Nézd meg a bejővő emailfiókodat</string>
 	<!-- %s is the email address -->
+	<string name="confirm_email_subtitle">Kattints a hivatkozásra, melyet a %s ellenőrzése céljából küldtünk neked. Mi addig itt várunk.</string>
+	<string name="confirm_email_didnt_get">Nem kaptad meg a hivatkozást?</string>
 	<string name="resend">Újraküldés</string>
 	<string name="open_email_app">E-mail alkalmazás megnyitása</string>
 	<string name="resent_email">Megerősítő email elküldve</string>
+	<string name="compose_hint">Gépeld vagy másold be, ami a fejedben jár</string>
 	<string name="content_warning">Tartalmi figyelmeztetés</string>
 	<string name="save">Mentés</string>
 	<string name="add_alt_text">Helyettesítő szöveg hozzáadása</string>
 	<string name="visibility_public">Nyilvános</string>
 	<string name="visibility_followers_only">Csak követőknek</string>
+	<string name="visibility_private">Csak a megemlítettek</string>
+	<string name="recent_searches">Legutóbbiak</string>
 	<string name="skip">Átugrás</string>
 	<string name="notification_type_follow">Új követők</string>
 	<string name="notification_type_favorite">Kedvencek</string>
+	<string name="notification_type_reblog">Megtolások</string>
 	<string name="notification_type_mention">Említések</string>
 	<string name="notification_type_poll">Szavazások</string>
 	<string name="choose_account">Fiók kiválasztása</string>
 	<string name="err_not_logged_in">Először jelentkezz be a Mastodonra</string>
+	<plurals name="cant_add_more_than_x_attachments">
+		<item quantity="one">Nem adhatsz hozzá %d-nél több csatolmányt</item>
+		<item quantity="other">Nem adhatsz hozzá %d-nél több csatolmányt</item>
+	</plurals>
 	<string name="media_attachment_unsupported_type">%s fájl nem támogatott</string>
 	<string name="media_attachment_too_big">Ez a fájl (%1$s) túllépi a %2$s MB-os feltöltési korlátot</string>
+	<string name="settings_theme">Megjelenés</string>
+	<string name="theme_auto">Rendszertéma követése</string>
 	<string name="theme_light">Világos</string>
 	<string name="theme_dark">Sötét</string>
 	<string name="settings_behavior">Viselkedés</string>
@@ -195,9 +215,13 @@
 	<string name="settings_clear_cache">Gyorsítótár törlése</string>
 	<string name="settings_app_version">Mastodon Androidra v%1$s (%2$d)</string>
 	<string name="media_cache_cleared">Gyorsítótár törölve</string>
+	<string name="confirm_log_out">Kijelentkezel a %s felhasználói fiókból?</string>
+	<string name="sensitive_content_explain">A szerző ezt a médiát érzékenynek jelölte meg.</string>
+	<string name="avatar_description">Ugrás %s profiljához</string>
 	<string name="more_options">További beállítások</string>
 	<string name="new_post">Új bejegyzés</string>
 	<string name="button_reply">Válasz</string>
+	<string name="button_reblog">Megtolás</string>
 	<string name="button_favorite">Kedvenc</string>
 	<string name="button_share">Megosztás</string>
 	<string name="media_no_description">Média leírás nélkül</string>
@@ -209,6 +233,7 @@
 	<string name="media_viewer">Média nézegető</string>
 	<string name="follow_user">%s követése</string>
 	<string name="unfollowed_user">%s követését visszavontad</string>
+	<string name="followed_user">Most már követed őt: %s</string>
 	<string name="open_in_browser">Megnyitás böngészőben</string>
 	<string name="signup_reason">Miért szeretnél csatlakozni?</string>
 	<string name="signup_reason_note">Ez segít nekünk átnézni a jelentkezésedet.</string>
@@ -223,6 +248,7 @@
 	<string name="error_saving_file">Hiba a fájl mentése során</string>
 	<string name="file_saved">Fájl elmentve</string>
 	<string name="downloading">Letöltés…</string>
+	<string name="local_timeline">Helyi</string>
 	<!-- %s is the server domain -->
 	<string name="see_new_posts">Új bejegyzések megtekintése</string>
 	<string name="load_missing_posts">Hiányzó bejegyzések betöltése</string>
