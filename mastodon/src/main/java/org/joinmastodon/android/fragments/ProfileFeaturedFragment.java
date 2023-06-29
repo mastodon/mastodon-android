@@ -149,6 +149,8 @@ public class ProfileFeaturedFragment extends BaseStatusListFragment<SearchResult
 	}
 
 	private void onOneApiRequestCompleted(){
+		if(getActivity()==null)
+			return;
 		if(tagsLoaded && statusesLoaded){
 			ArrayList<SearchResult> results=new ArrayList<>();
 			for(int i=0;i<Math.min(2, pinnedStatuses.size());i++){
