@@ -271,7 +271,11 @@
 	<string name="downloading">Stahování…</string>
 	<string name="no_app_to_handle_action">Nebyly nalezeny žádné aplikace pro tuto úlohu</string>
 	<string name="local_timeline">Místní</string>
+	<string name="trending_posts_info_banner">Tyto příspěvky získávají na popularitě napříč Mastodonem.</string>
+	<string name="trending_links_info_banner">O těchto zprávách se mluví na Mastodonu.</string>
 	<!-- %s is the server domain -->
+	<string name="local_timeline_info_banner">Toto jsou všechny příspěvky od všech uživatelů na vašem serveru (%s).</string>
+	<string name="recommended_accounts_info_banner">Podle toho, koho sledujete, by se vám mohly líbit tyto účty.</string>
 	<string name="see_new_posts">Zobrazit nové příspěvky</string>
 	<string name="load_missing_posts">Načíst chybějící příspěvky</string>
 	<string name="follow_back">Sledovat nazpět</string>
@@ -355,6 +359,7 @@
 	<string name="login_title">Vítejte zpět</string>
 	<string name="login_subtitle">Přihlaste se pomocí serveru, kde jste vytvořili svůj účet.</string>
 	<string name="server_url">URL serveru</string>
+	<string name="signup_random_server_explain">Vybereme server podle vašeho jazyka, pokud budete pokračovat bez výběru.</string>
 	<string name="server_filter_any_language">Libovolný jazyk</string>
 	<string name="server_filter_instant_signup">Okamžitá registrace</string>
 	<string name="server_filter_manual_review">Ruční kontrola</string>
@@ -367,6 +372,7 @@
 	<string name="server_filter_region_oceania">Oceánie</string>
 	<string name="not_accepting_new_members">Nepřijímá nové členy</string>
 	<string name="category_special_interests">Speciální zájmy</string>
+	<string name="signup_passwords_dont_match">Hesla se neshodují</string>
 	<string name="pick_server_for_me">Vybrat pro mě</string>
 	<string name="profile_add_row">Přidat řádek</string>
 	<string name="profile_setup">Nastavení profilu</string>
@@ -375,12 +381,14 @@
 	<string name="popular_on_mastodon">Populární na Mastodonu</string>
 	<string name="follow_all">Sledovat všechny</string>
 	<string name="server_rules_disagree">Nesouhlasit</string>
+	<string name="privacy_policy_explanation">Zkráceně: nic nesbíráme a nezpracováváme.</string>
 	<!-- %s is server domain -->
 	<string name="server_policy_disagree">Nesouhlasit s %s</string>
 	<string name="profile_bio">O vás</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<string name="sending_follows">Sledování uživatelů…</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<string name="signup_email_domain_blocked">%1$s neumožňuje registraci od %2$s. Zkuste email s jinou doménou nebo &lt;a&gt;vyberte jiný server&lt;/a&gt;.</string>
 	<string name="spoiler_show">Přesto zobrazit</string>
 	<string name="spoiler_hide">Znovu skrýt</string>
 	<string name="poll_multiple_choice">Vyberte jeden nebo více</string>
@@ -400,7 +408,37 @@
 	<string name="welcome_paragraph1">Mastodon je decentralizovaná sociální síť, což znamená, že ji neovládá žádná jednotlivá společnost. Skládá se z mnoha nezávisle spravovaných serverů, všechny jsou propojeny dohromady.</string>
 	<string name="what_are_servers">Co jsou to servery?</string>
 	<string name="welcome_paragraph2"><![CDATA[Každý účet Mastodon je hostován na serveru - každý s vlastními hodnotami, pravidly a správci. Bez ohledu na to, který si vyberete, můžete sledovat a komunikovat s lidmi na jakémkoliv serveru.]]></string>
+	<string name="opening_link">Odkaz se otevírá…</string>
+	<string name="link_not_supported">Tento odkaz není v aplikaci podporovaný</string>
+	<string name="log_out_all_accounts">Odhlásit se ze všech účtů</string>
+	<string name="confirm_log_out_all_accounts">Odhlásit se ze všech účtů?</string>
+	<string name="retry">Zkusit znovu</string>
+	<string name="post_failed">Příspěvek se nepodařilo odeslat</string>
 	<!-- %s is formatted file size ("467 KB image") -->
+	<string name="attachment_description_image">obrázek %s</string>
+	<string name="attachment_description_video">video %s</string>
+	<string name="attachment_description_audio">audio %s</string>
+	<string name="attachment_description_unknown">soubor %s</string>
+	<string name="attachment_type_image">Obrázek</string>
+	<string name="attachment_type_video">Video</string>
+	<string name="attachment_type_audio">Audio</string>
+	<string name="attachment_type_gif">GIF</string>
+	<string name="attachment_type_unknown">Soubor</string>
+	<string name="attachment_x_percent_uploaded">%d%% nahráno</string>
+	<string name="add_poll_option">Přidat možnost do ankety</string>
+	<string name="poll_length">Doba trvání ankety</string>
+	<string name="poll_style">Styl</string>
+	<string name="compose_poll_single_choice">Vyber jednu</string>
+	<string name="compose_poll_multiple_choice">Výběr z více možností</string>
+	<string name="delete_poll_option">Smazat možnost v anketě</string>
+	<string name="poll_style_title">Styl ankety</string>
+	<string name="alt_text">Alternativní text</string>
+	<string name="help">Nápověda</string>
+	<string name="what_is_alt_text">Co je alternativní text?</string>
+	<string name="alt_text_help">Alternativní text poskytuje popisy obrázků pro osoby se zrakovým postižením, pro pomalá připojení nebo pro ty, kteří hledají další souvislosti.\n\nPřístupnost a srozumitelnost pro všechny můžete zlepšit tím, že napíšete jasný, stručný a objektivní alternativní text.\n\n<ul><li>Zachyťněte nejdůležitější elementy.</li>\n<li>Shrňte text v obrázcích</li>\n<li>Používejte pravidelnou strukturu vět</li>\n<li>Vyhněte se nadbytečných informacím</li>\n<li>Zaměřte se na trendy a klíčová zjištění v komplexních vizualizacích (jako jsou diagramy nebo mapy)</li></ul></string>
+	<string name="edit_post">Upravit příspěvek</string>
+	<string name="no_verified_link">Žádný ověřený odkaz</string>
+	<string name="compose_autocomplete_emoji_empty">Procházet emoji</string>
 	<!-- %s is the server domain -->
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
