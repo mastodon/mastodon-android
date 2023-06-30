@@ -288,10 +288,13 @@ public class ComposeMediaViewController{
 		draft.uri=uri;
 		draft.description=description;
 		draft.mimeType="image/jpeg";
+		draft.fileSize=2473276;
+		draft.state=AttachmentUploadState.PROCESSING;
 		attachmentsView.addView(createMediaAttachmentView(draft));
 		attachments.add(draft);
 		attachmentsScroller.setVisibility(View.VISIBLE);
 		updateMediaAttachmentsLayout();
+		finishMediaAttachmentUpload(draft);
 	}
 
 	private void uploadMediaAttachment(DraftMediaAttachment attachment){

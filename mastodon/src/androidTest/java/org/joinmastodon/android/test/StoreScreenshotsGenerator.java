@@ -65,6 +65,7 @@ import static androidx.test.espresso.matcher.ViewMatchers.*;
 @LargeTest
 public class StoreScreenshotsGenerator{
 	private static final String PHOTO_FILE="IMG_1010.jpg";
+	private static final long LOAD_WAIT_TIMEOUT=20_000;
 
 	@Rule
 	public ActivityScenarioRule<MainActivity> activityScenarioRule=new ActivityScenarioRule<>(MainActivity.class);
@@ -84,14 +85,14 @@ public class StoreScreenshotsGenerator{
 		AccountSession session=AccountSessionManager.getInstance().getAccount(AccountSessionManager.getInstance().getLastActiveAccountID());
 		MastodonApp.context.deleteDatabase(session.getID()+".db");
 
-		onView(isRoot()).perform(waitId(R.id.more, 5000));
+		onView(isRoot()).perform(waitId(R.id.more, LOAD_WAIT_TIMEOUT));
 		Thread.sleep(500);
 		takeScreenshot("HomeTimeline");
 
 		GlobalUserPreferences.theme=GlobalUserPreferences.ThemePreference.DARK;
 		activityScenarioRule.getScenario().recreate();
 
-		onView(isRoot()).perform(waitId(R.id.more, 5000));
+		onView(isRoot()).perform(waitId(R.id.more, LOAD_WAIT_TIMEOUT));
 		Thread.sleep(500);
 		takeScreenshot("HomeTimeline_Dark");
 
@@ -100,8 +101,8 @@ public class StoreScreenshotsGenerator{
 
 		activityScenarioRule.getScenario().onActivity(activity->UiUtils.openProfileByID(activity, session.getID(), args.getString("profileAccountID")));
 		Thread.sleep(500);
-		onView(isRoot()).perform(waitId(R.id.avatar_border, 5000)); // wait for profile to load
-		onView(isRoot()).perform(waitId(R.id.more, 5000)); // wait for timeline to load
+		onView(isRoot()).perform(waitId(R.id.avatar_border, LOAD_WAIT_TIMEOUT)); // wait for profile to load
+		onView(isRoot()).perform(waitId(R.id.more, LOAD_WAIT_TIMEOUT)); // wait for timeline to load
 		Thread.sleep(500);
 		takeScreenshot("Profile");
 
