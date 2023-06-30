@@ -4,16 +4,11 @@
 	<string name="next">Neste</string>
 	<string name="loading_instance">Henter serverinfo…</string>
 	<string name="error">Feil</string>
-	<string name="not_a_mastodon_instance">%s ser ikke ut til å være en Mastodon server.</string>
 	<string name="ok">OK</string>
 	<string name="preparing_auth">Forbereder autentisering…</string>
 	<string name="finishing_auth">Ferdigstiller autentisering…</string>
 	<string name="in_reply_to">Som svar på %s</string>
 	<string name="notifications">Varslinger</string>
-	<string name="user_followed_you">følger deg</string>
-	<string name="user_sent_follow_request">har sendt deg en følgeforespørsel</string>
-	<string name="user_favorited">favoriserte ditt innlegg</string>
-	<string name="poll_ended">avstemming avsluttet</string>
 	<string name="share_toot_title">Del</string>
 	<string name="settings">Innstillinger</string>
 	<string name="publish">Publiser</string>
@@ -35,7 +30,6 @@
 	<string name="button_follow">Følg</string>
 	<string name="button_following">Følgere</string>
 	<string name="edit_profile">Endre Profil</string>
-	<string name="share_user">Del %s</string>
 	<string name="mute_user">Demp %s</string>
 	<string name="unmute_user">Opphev demping %s</string>
 	<string name="block_user">Blokker %s</string>
@@ -101,35 +95,27 @@
 	<string name="button_blocked">Blokkert</string>
 	<string name="action_vote">Stem</string>
 	<string name="delete">Slett</string>
-	<string name="confirm_delete_title">Slett innlegg</string>
 	<string name="confirm_delete">Er du sikker på at du vil slette dette innlegget?</string>
 	<string name="deleting">Sletter…</string>
 	<string name="notification_channel_audio_player">Lyd avspilling</string>
 	<string name="play">Spill av</string>
 	<string name="pause">Pause</string>
-	<string name="log_out">Logg ut</string>
 	<string name="add_account">Legg til konto</string>
 	<string name="search_hint">Søk</string>
 	<string name="hashtags">Emneknagger</string>
 	<string name="news">Nyheter</string>
 	<string name="for_you">For deg</string>
-	<string name="all_notifications">Alle</string>
 	<string name="mentions">Nevner</string>
 	<plurals name="x_people_talking">
 		<item quantity="one">%d person snakker</item>
 		<item quantity="other">%d personer snakker</item>
 	</plurals>
 	<string name="report_title">Rapporter %s</string>
-	<string name="report_choose_reason">Hva er galt med dette innlegget?</string>
-	<string name="report_choose_reason_account">Hva er galt med %s?</string>
 	<string name="report_choose_reason_subtitle">Velg det som passer best</string>
-	<string name="report_reason_personal">Jeg liker det ikke</string>
 	<string name="report_reason_personal_subtitle">Det er ikke noe du har lyst til å se</string>
-	<string name="report_reason_spam">Det er spam</string>
 	<string name="report_reason_spam_subtitle">Ondsinnede lenker, falsk engasjement eller repeterende svar</string>
 	<string name="report_reason_violation">Det bryter serverregler</string>
 	<string name="report_reason_violation_subtitle">Du er klar over at det bryter spesifikke regler</string>
-	<string name="report_reason_other">Det er noe annet</string>
 	<string name="report_reason_other_subtitle">Problemet passer ikke inn i de andre kategoriene</string>
 	<string name="report_choose_rule">Hvilke regler brytes?</string>
 	<string name="report_choose_rule_subtitle">Velg alle som passer</string>
@@ -138,13 +124,8 @@
 	<string name="report_comment_title">Er det noe annet du mener vi burde vite?</string>
 	<string name="report_comment_hint">Ytterligere kommentarer</string>
 	<string name="sending_report">Sender rapport…</string>
-	<string name="report_sent_title">Takk for at du rapporterer, vi skal se på dette.</string>
-	<string name="report_sent_subtitle">Mens vi går gjennom dette, kan du iverksettet tiltak mot @%s.</string>
 	<string name="unfollow_user">Slutt å følge @%s</string>
 	<string name="unfollow">Slutt å følge</string>
-	<string name="block_user_explain">De kan ikke lenger følge eller se dine innlegg, men de kan se om de er blokkert.</string>
-	<string name="report_personal_title">Ønsker du ikke å se dette?</string>
-	<string name="report_personal_subtitle">Når du ser noe du ikke liker på Mastodon, kan du fjerne denne personen fra opplevelsen din.</string>
 	<string name="back">Tilbake</string>
 	<string name="password_note">Inkluder store bokstaver, spesialtegn og tall for å øke passordstyrken.</string>
 	<string name="category_academia">Akademia</string>
@@ -163,14 +144,11 @@
 	<string name="resend">Send på nytt</string>
 	<string name="open_email_app">Åpne e-post app</string>
 	<string name="resent_email">Bekreftelses e-post sendt</string>
-	<string name="compose_hint">Skriv eller lim inn hva du tenker på</string>
 	<string name="content_warning">Innholdsadvarsel</string>
 	<string name="save">Lagre</string>
 	<string name="add_alt_text">Legg til alternativ tekst</string>
 	<string name="visibility_public">Offentlig</string>
 	<string name="visibility_followers_only">Kun følgere</string>
-	<string name="visibility_private">Bare personer jeg nevner</string>
-	<string name="recent_searches">Nylige søk</string>
 	<string name="skip">Hopp</string>
 	<string name="notification_type_follow">Nye følgere</string>
 	<string name="notification_type_favorite">Favoritter</string>
@@ -178,14 +156,8 @@
 	<string name="notification_type_poll">Avstemminger</string>
 	<string name="choose_account">Velg konto</string>
 	<string name="err_not_logged_in">Vennligst logg inn på Mastodon først</string>
-	<plurals name="cant_add_more_than_x_attachments">
-		<item quantity="one">Du kan ikke legge til mer enn %d media vedlegg</item>
-		<item quantity="other">Du kan ikke legge til mer enn %d medievedlegg</item>
-	</plurals>
 	<string name="media_attachment_unsupported_type">Filen %s er av en ustøttet type</string>
 	<string name="media_attachment_too_big">Filen %1$s overskrider størrelsesgrensen på %2$s MB</string>
-	<string name="settings_theme">Visuelt utseende</string>
-	<string name="theme_auto">Automatisk</string>
 	<string name="theme_light">Lyst</string>
 	<string name="theme_dark">Mørkt</string>
 	<string name="settings_behavior">Oppførsel</string>
@@ -198,10 +170,6 @@
 	<string name="settings_clear_cache">Tøm mediemellomlager</string>
 	<string name="settings_app_version">Mastodon for Android v%1$s (%2$d)</string>
 	<string name="media_cache_cleared">Mediemellomlager er tømt</string>
-	<string name="confirm_log_out">Er du sikker på at du vil logge ut?</string>
-	<string name="sensitive_content_explain">Forfatteren markerte dette bildet som sensitiv. Trykk for å vise.</string>
-	<string name="media_hidden">Trykk for å vise</string>
-	<string name="avatar_description">Gå til %s sin profil</string>
 	<string name="more_options">Flere alternativer</string>
 	<string name="new_post">Nytt innlegg</string>
 	<string name="button_reply">Svar</string>
@@ -216,7 +184,6 @@
 	<string name="media_viewer">Forhåndsvisning av media</string>
 	<string name="follow_user">Følg %s</string>
 	<string name="unfollowed_user">Slutt å følge %s</string>
-	<string name="followed_user">Du følger nå %s</string>
 	<string name="open_in_browser">Åpne i nettleser</string>
 	<string name="signup_reason_note">Dette vil hjelpe oss med å gjennomgå din søknad.</string>
 	<string name="clear">Tøm</string>
@@ -230,11 +197,7 @@
 	<string name="error_saving_file">Feil ved lagring av fil</string>
 	<string name="file_saved">Fil lagret</string>
 	<string name="downloading">Laster ned…</string>
-	<string name="no_app_to_handle_action">Det er ingen app som kan håndtere denne handlingen</string>
-	<string name="local_timeline">Samfunn</string>
-	<string name="trending_posts_info_banner">Disse innleggene snakker folk om akkurat nå, i ditt hjørnet av Mastodon.</string>
-	<string name="trending_links_info_banner">Disse nyhetene blir delt mest, i ditt hjørnet av Mastodon.</string>
-	<string name="local_timeline_info_banner">Dette er de siste innleggene fra de som bruker samme Mastodon-server som deg.</string>
+	<!-- %s is the server domain -->
 	<string name="see_new_posts">Se nye innlegg</string>
 	<string name="load_missing_posts">Last manglende innlegg</string>
 	<string name="follow_back">Følg tilbake</string>
@@ -309,4 +272,15 @@
 	<!-- %s is server domain -->
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<!-- %s is formatted file size ("467 KB image") -->
+	<!-- %s is the server domain -->
+	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
+	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
+	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
+	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<!-- %s is the username -->
+	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<!-- Shown like a content warning, %s is the name of the filter -->
+	<!-- Shown in the post header. Please keep it short -->
 </resources>

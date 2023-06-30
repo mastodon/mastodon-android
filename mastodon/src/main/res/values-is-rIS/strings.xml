@@ -4,18 +4,12 @@
 	<string name="next">Næsta</string>
 	<string name="loading_instance">Sæki upplýsingar um netþjón…</string>
 	<string name="error">Villa</string>
-	<string name="not_a_mastodon_instance">%s lítur ekki út fyrir að vera Mastodon-netþjónn.</string>
 	<string name="ok">Í lagi</string>
 	<string name="preparing_auth">Undirbý auðkenningu…</string>
 	<string name="finishing_auth">Lýk auðkenningu…</string>
 	<string name="user_boosted">%s endurbirti</string>
 	<string name="in_reply_to">Sem svar til %s</string>
 	<string name="notifications">Tilkynningar</string>
-	<string name="user_followed_you">fylgdi þér</string>
-	<string name="user_sent_follow_request">sendi þér beiðni um að fylgjast með þér</string>
-	<string name="user_favorited">setti færslu frá þér í eftirlæti</string>
-	<string name="notification_boosted">endurbirti færsluna þína</string>
-	<string name="poll_ended">könnun er lokið</string>
 	<string name="share_toot_title">Deila</string>
 	<string name="settings">Stillingar</string>
 	<string name="publish">Birta</string>
@@ -37,7 +31,6 @@
 	<string name="button_follow">Fylgja</string>
 	<string name="button_following">Fylgist með</string>
 	<string name="edit_profile">Breyta notandasniði</string>
-	<string name="share_user">Deila %s</string>
 	<string name="mute_user">Þagga niður í %s</string>
 	<string name="unmute_user">Afþagga %s</string>
 	<string name="block_user">Útiloka %s</string>
@@ -103,35 +96,27 @@
 	<string name="button_blocked">Útilokað</string>
 	<string name="action_vote">Greiða atkvæði</string>
 	<string name="delete">Eyða</string>
-	<string name="confirm_delete_title">Eyða færslu</string>
 	<string name="confirm_delete">Ertu viss um að þú viljir eyða þessari færslu?</string>
 	<string name="deleting">Eyði…</string>
 	<string name="notification_channel_audio_player">Afspilun hljóðs</string>
 	<string name="play">Spila</string>
 	<string name="pause">Gera hlé</string>
-	<string name="log_out">Skrá út</string>
 	<string name="add_account">Bæta við notandaaðgangi</string>
 	<string name="search_hint">Leita</string>
 	<string name="hashtags">Myllumerki</string>
 	<string name="news">Fréttir</string>
 	<string name="for_you">Fyrir þig</string>
-	<string name="all_notifications">Allt</string>
 	<string name="mentions">Minnst á</string>
 	<plurals name="x_people_talking">
 		<item quantity="one">%d aðili er að spjalla</item>
 		<item quantity="other">%d manns eru að spjalla</item>
 	</plurals>
 	<string name="report_title">Kæra %s</string>
-	<string name="report_choose_reason">Hvað er athugavert við þessa færslu?</string>
-	<string name="report_choose_reason_account">Hvað er athugavert við %s?</string>
 	<string name="report_choose_reason_subtitle">Velja bestu samsvörun</string>
-	<string name="report_reason_personal">Mér líkar það ekki</string>
 	<string name="report_reason_personal_subtitle">Þetta er ekki eitthvað sem þið viljið sjá</string>
-	<string name="report_reason_spam">Þetta er ruslpóstur</string>
 	<string name="report_reason_spam_subtitle">Slæmir tenglar, fölsk samskipti eða endurtekin svör</string>
 	<string name="report_reason_violation">Það gengur þvert á reglur fyrir netþjóninn</string>
 	<string name="report_reason_violation_subtitle">Þið eruð meðvituð um að þetta brýtur sértækar reglur</string>
-	<string name="report_reason_other">Það er eitthvað annað</string>
 	<string name="report_reason_other_subtitle">Vandamálið fellur ekki í aðra flokka</string>
 	<string name="report_choose_rule">Hvaða reglur eru brotnar?</string>
 	<string name="report_choose_rule_subtitle">Veldu allt sem á við</string>
@@ -140,15 +125,8 @@
 	<string name="report_comment_title">Er eitthvað fleira sem við ættum að vita?</string>
 	<string name="report_comment_hint">Aðrar athugasemdir</string>
 	<string name="sending_report">Sendi skýrslu...</string>
-	<string name="report_sent_title">Takk fyrir tilkynninguna, við munum skoða málið.</string>
-	<string name="report_sent_subtitle">Á meðan við yfirförum þetta, geturðu tekið til aðgerða gegn %s.</string>
 	<string name="unfollow_user">Hætta að fylgjast með %s</string>
 	<string name="unfollow">Hætta að fylgjast með</string>
-	<string name="mute_user_explain">Þú munt ekki sjá færslur eða endurbirtingar frá viðkomandi á streyminu þínu. 
-Viðkomandi aðilar munu ekki vita að þaggað hefur verið niður í þeim.</string>
-	<string name="block_user_explain">Viðkomandi mun ekki lengur geta fylgst með eða séð færslurnar þínar, en munu sjá ef viðkomandi hefur verið útilokaður.</string>
-	<string name="report_personal_title">Langar þig ekki til að sjá þetta?</string>
-	<string name="report_personal_subtitle">Þegar þú sér eitthvað á Mastodon sem þér líkar ekki, þá geturðu fjarlægt viðkomandi eintakling úr umhverfinu þínu.</string>
 	<string name="back">Til baka</string>
 	<string name="search_communities">Nafn þjóns eða vefslóð</string>
 	<string name="instance_rules_title">Reglur netþjónsins</string>
@@ -175,19 +153,14 @@ Viðkomandi aðilar munu ekki vita að þaggað hefur verið niður í þeim.</s
 	<string name="category_tech">Tækni</string>
 	<string name="confirm_email_title">Athugaðu innhólfið þitt</string>
 	<!-- %s is the email address -->
-	<string name="confirm_email_subtitle">Ýttu á tengilinn sem við sendum þér til að staðfesta %s. Við bíðum á meðan.</string>
-	<string name="confirm_email_didnt_get">Fékkstu ekki neinn tengil?</string>
 	<string name="resend">Endursenda</string>
 	<string name="open_email_app">Opna tölvupóstforrit</string>
 	<string name="resent_email">Staðfestingartölvupóstur sendur</string>
-	<string name="compose_hint">Skrifaðu eða límdu það sem þér liggur á hjarta</string>
 	<string name="content_warning">Viðvörun vegna efnis</string>
 	<string name="save">Vista</string>
 	<string name="add_alt_text">Bættu við ALT-texta</string>
 	<string name="visibility_public">Opinbert</string>
 	<string name="visibility_followers_only">Einungis fylgjendur</string>
-	<string name="visibility_private">Einungis fólk sem ég minnist á</string>
-	<string name="recent_searches">Nýlegar leitir</string>
 	<string name="skip">Sleppa</string>
 	<string name="notification_type_follow">Nýir fylgjendur</string>
 	<string name="notification_type_favorite">Eftirlæti</string>
@@ -196,14 +169,8 @@ Viðkomandi aðilar munu ekki vita að þaggað hefur verið niður í þeim.</s
 	<string name="notification_type_poll">Kannanir</string>
 	<string name="choose_account">Veldu aðgang</string>
 	<string name="err_not_logged_in">Skráðu þig fyrst inn á Mastodon</string>
-	<plurals name="cant_add_more_than_x_attachments">
-		<item quantity="one">Þú getur ekki bætt við fleiri en %d myndefnisviðhengi</item>
-		<item quantity="other">Þú getur ekki bætt við fleiri en %d myndefnisviðhengjum</item>
-	</plurals>
 	<string name="media_attachment_unsupported_type">Skráin %s er af tegund sem ekki er studd</string>
 	<string name="media_attachment_too_big">Skráin %1$s fer yfir stærðartakmörkin %2$s MB</string>
-	<string name="settings_theme">Útlit</string>
-	<string name="theme_auto">Sjálfvirkt</string>
 	<string name="theme_light">Ljóst</string>
 	<string name="theme_dark">Dökkt</string>
 	<string name="settings_behavior">Hegðun</string>
@@ -216,10 +183,6 @@ Viðkomandi aðilar munu ekki vita að þaggað hefur verið niður í þeim.</s
 	<string name="settings_clear_cache">Hreinsa skyndiminni margmiðlunarefnis</string>
 	<string name="settings_app_version">Mastodon fyrir Android útg.%1$s (%2$d)</string>
 	<string name="media_cache_cleared">Skyndiminni margmiðlunarefnis hreinsað</string>
-	<string name="confirm_log_out">Ertu viss um að þú viljir skrá þig út?</string>
-	<string name="sensitive_content_explain">Höfundurinn merkti þetta myndefni sem viðkvæmt. Ýttu til að birta það.</string>
-	<string name="media_hidden">Ýttu til að birta</string>
-	<string name="avatar_description">Fara á notandasnið %s</string>
 	<string name="more_options">Fleiri valkostir</string>
 	<string name="new_post">Ný færsla</string>
 	<string name="button_reply">Svara</string>
@@ -235,7 +198,6 @@ Viðkomandi aðilar munu ekki vita að þaggað hefur verið niður í þeim.</s
 	<string name="media_viewer">Skoðari fyrir myndefni</string>
 	<string name="follow_user">Fylgjast með %s</string>
 	<string name="unfollowed_user">Hætti að fylgjast með %s</string>
-	<string name="followed_user">Þú fylgist núna með %s</string>
 	<string name="following_user_requested">Bað um að fylgjast með %s</string>
 	<string name="open_in_browser">Opna í vafra</string>
 	<string name="hide_boosts_from_user">Fela endurbirtingar frá %s</string>
@@ -253,11 +215,7 @@ Viðkomandi aðilar munu ekki vita að þaggað hefur verið niður í þeim.</s
 	<string name="error_saving_file">Villa við að vista skrána</string>
 	<string name="file_saved">Skrá vistuð</string>
 	<string name="downloading">Sæki…</string>
-	<string name="no_app_to_handle_action">Ekkert forrit fannst sem getur meðhöndlað þessa aðgerð</string>
-	<string name="local_timeline">Samfélag</string>
-	<string name="trending_posts_info_banner">Þetta eru færslurnar sem eru að fá aukna athygli í þínu horni á Mastodon.</string>
-	<string name="trending_links_info_banner">Þetta eru fréttirnar sem eru að fá aukna athygli í þínu horni á Mastodon.</string>
-	<string name="local_timeline_info_banner">Þetta eru nýjustu færslurnar frá fólki sem notar sama Mastodon-netþjón og þú.</string>
+	<!-- %s is the server domain -->
 	<string name="see_new_posts">Skoða nýjar færslur</string>
 	<string name="load_missing_posts">Hlaða inn færslum sem vantar</string>
 	<string name="follow_back">Fylgjast með til baka</string>
@@ -335,7 +293,6 @@ Viðkomandi aðilar munu ekki vita að þaggað hefur verið niður í þeim.</s
 	<string name="login_title">Velkomin aftur</string>
 	<string name="login_subtitle">Skráðu þig inn á netþjóninn þar sem þú útbjóst notandaaðganginn þinn.</string>
 	<string name="server_url">Vefslóð netþjóns</string>
-	<string name="signup_random_server_explain">Við munum velja netþjón út frá tungumálinu þínu, ef þú heldur áfram án þess að velja neitt.</string>
 	<string name="server_filter_any_language">Hvaða tungumál sem er</string>
 	<string name="server_filter_instant_signup">Nýskráning á stundinni</string>
 	<string name="server_filter_manual_review">Handvirk yfirferð</string>
@@ -348,7 +305,6 @@ Viðkomandi aðilar munu ekki vita að þaggað hefur verið niður í þeim.</s
 	<string name="server_filter_region_oceania">Eyjaálfa</string>
 	<string name="not_accepting_new_members">Tekur ekki við nýjum meðlimum</string>
 	<string name="category_special_interests">Sérstök áhugamál</string>
-	<string name="signup_passwords_dont_match">Lykilorðin samsvara ekki</string>
 	<string name="pick_server_for_me">Velja fyrir mig</string>
 	<string name="profile_add_row">Bæta við röð</string>
 	<string name="profile_setup">Uppsetning notandasniðs</string>
@@ -357,14 +313,12 @@ Viðkomandi aðilar munu ekki vita að þaggað hefur verið niður í þeim.</s
 	<string name="popular_on_mastodon">Vinsælt á Mastodon</string>
 	<string name="follow_all">Fylgjast með öllum</string>
 	<string name="server_rules_disagree">Ósammála</string>
-	<string name="privacy_policy_explanation">Athugaðu: Við söfnum ekki eða vinnum með neinar upplýsingar.</string>
 	<!-- %s is server domain -->
 	<string name="server_policy_disagree">Ósammála %s</string>
 	<string name="profile_bio">Æviágrip</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<string name="sending_follows">Fylgist með notendum…</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
-	<string name="signup_email_domain_blocked">%1$s leyfir ekki nýskráningar frá %2$s. Veldu eitthvað annað lén eða &lt;a&gt;veldu annan netþjón&lt;/a&gt;.</string>
 	<string name="spoiler_show">Birta samt</string>
 	<string name="spoiler_hide">Fela aftur</string>
 	<string name="poll_multiple_choice">Veldu eitt eiða fleiri</string>
@@ -384,4 +338,15 @@ Viðkomandi aðilar munu ekki vita að þaggað hefur verið niður í þeim.</s
 	<string name="welcome_paragraph1">Mastodon er dreyfhýst samfélagsnet, sem þýðir að ekkert eitt fyrirtæki ræður yfir því. Netið samanstendur af mörgum sjálfstætt reknum netþjónum sem tengjast innbyrðis.</string>
 	<string name="what_are_servers">Hvað eru netþjónar?</string>
 	<string name="welcome_paragraph2"><![CDATA[Hver einasti Mastodon-aðgangur er hýstur á sínum netþjóni — hver slíkur er með sín eigin gildi, reglur og stjórnendur. Það skiftir ekki máli hvern þeirra þú velur, þú getur fylgst fylgst með og átt í samskiptum við fólk á hvaða netþjóni sem er.]]></string>
+	<!-- %s is formatted file size ("467 KB image") -->
+	<!-- %s is the server domain -->
+	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
+	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
+	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
+	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<!-- %s is the username -->
+	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<!-- Shown like a content warning, %s is the name of the filter -->
+	<!-- Shown in the post header. Please keep it short -->
 </resources>

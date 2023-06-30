@@ -4,16 +4,18 @@
 	<string name="next">Következő</string>
 	<string name="loading_instance">Kiszolgáló információinak lekérése…</string>
 	<string name="error">Hiba</string>
-	<string name="not_a_mastodon_instance">%s nem néz ki Mastodon kiszolgálónak.</string>
+	<string name="not_a_mastodon_instance">%s nem tűnik Mastodon példánynak.</string>
 	<string name="ok">OK</string>
 	<string name="preparing_auth">Felkészülés a hitelesítésre…</string>
 	<string name="finishing_auth">Hitelesítés befejezése…</string>
+	<string name="user_boosted">%s megtolta</string>
 	<string name="in_reply_to">Válaszolva %s számára</string>
 	<string name="notifications">Értesítések</string>
-	<string name="user_followed_you">bekövetett</string>
-	<string name="user_sent_follow_request">követési kérelmet küldött neked</string>
-	<string name="user_favorited">kedvencnek jelölte a bejegyzésedet</string>
-	<string name="poll_ended">a szavazás véget ért</string>
+	<string name="user_followed_you">%s bekövetett téged</string>
+	<string name="user_sent_follow_request">%s követési kérelmet küldött neked</string>
+	<string name="user_favorited">%s kedvencnek jelölte a bejegyzésedet</string>
+	<string name="notification_boosted">%s megtolta a bejegyzésedet</string>
+	<string name="poll_ended">Nézd meg a szavazás eredményeit amiben részt vettél</string>
 	<string name="share_toot_title">Megosztás</string>
 	<string name="settings">Beállítások</string>
 	<string name="publish">Közzététel</string>
@@ -35,7 +37,7 @@
 	<string name="button_follow">Követés</string>
 	<string name="button_following">Követve</string>
 	<string name="edit_profile">Profil szerkesztése</string>
-	<string name="share_user">%s megosztása</string>
+	<string name="share_user">Profil megosztása</string>
 	<string name="mute_user">%s némítása</string>
 	<string name="unmute_user">%s némításának feloldása</string>
 	<string name="block_user">%s letiltása</string>
@@ -113,7 +115,7 @@
 	<string name="hashtags">Hashtagek</string>
 	<string name="news">Hírek</string>
 	<string name="for_you">Neked</string>
-	<string name="all_notifications">Összes</string>
+	<string name="all_notifications">Minden</string>
 	<string name="mentions">Megemlítések</string>
 	<plurals name="x_people_talking">
 		<item quantity="one">%d ember beszél róla</item>
@@ -125,7 +127,7 @@
 	<string name="report_choose_reason_subtitle">Válaszd ki a legjobb találatot</string>
 	<string name="report_reason_personal">Nem tetszik</string>
 	<string name="report_reason_personal_subtitle">Ezt nem szeretném látni</string>
-	<string name="report_reason_spam">Ez kéretlen tartalom</string>
+	<string name="report_reason_spam">Kéretlen tartalom vagy spam</string>
 	<string name="report_reason_spam_subtitle">Rosszindulatú hivatkozások, hamis interakció vagy ismétlődő válaszok</string>
 	<string name="report_reason_violation">Sérti a kiszolgáló szabályait</string>
 	<string name="report_reason_violation_subtitle">Tudod, hogy mely konkrét szabályokat sért meg</string>
@@ -138,13 +140,14 @@
 	<string name="report_comment_title">Van valami, amiről tudnunk kellene?</string>
 	<string name="report_comment_hint">További megjegyzések</string>
 	<string name="sending_report">Jelentés elküldése…</string>
-	<string name="report_sent_title">Köszönjük, hogy jelentetted, megnézzük.</string>
-	<string name="report_sent_subtitle">Míg átnézzük, a következőket teheted %s ellen.</string>
+	<string name="report_sent_title">Köszönjük, hogy jelentetted, meg fogjuk nézni.</string>
+	<string name="report_sent_subtitle">Amíg megnézzük, a következőket teheted %s felhasználóval szemben:</string>
 	<string name="unfollow_user">%s követésének megszüntetése</string>
 	<string name="unfollow">Követés megszüntetése</string>
-	<string name="block_user_explain">Többé nem fogják tudni követni vagy látni a bejegyzéseidet, de láthatják, ha letiltották őket.</string>
-	<string name="report_personal_title">Nem akarod ezt látni?</string>
-	<string name="report_personal_subtitle">Ha olyasmit látsz a Mastodonon, ami nem tetszik, eltávolíthatod az illetőt a felhasználói élményedből.</string>
+	<string name="mute_user_explain">Nem fogod látni a bejegyzéseit. Továbbra is fog tudni követni, és látni fogja a bejegyzéseidet, és nem fogja tudni, hogy némítottad.</string>
+	<string name="block_user_explain">A bejegyzései nem lesznek láthatóak számodra. Nem nézheti majd meg a saját bejegyzéseidet és nem tud majd követni sem. Azt is meg fogja tudni mondani, hogy letiltották.</string>
+	<string name="report_personal_title">Nem szeretnéd ezt látni?</string>
+	<string name="report_personal_subtitle">Itt vannak a beállítások, melyek szabályozzák, hogy mit látsz Mastodonon:</string>
 	<string name="back">Vissza</string>
 	<string name="search_communities">Kiszolgáló neve vagy URL</string>
 	<string name="instance_rules_title">Kiszolgáló Szabályai</string>
@@ -183,22 +186,23 @@
 	<string name="visibility_public">Nyilvános</string>
 	<string name="visibility_followers_only">Csak követőknek</string>
 	<string name="visibility_private">Csak a megemlítettek</string>
-	<string name="recent_searches">Legutóbbi keresések</string>
+	<string name="recent_searches">Legutóbbiak</string>
 	<string name="skip">Átugrás</string>
 	<string name="notification_type_follow">Új követők</string>
 	<string name="notification_type_favorite">Kedvencek</string>
+	<string name="notification_type_reblog">Megtolások</string>
 	<string name="notification_type_mention">Említések</string>
 	<string name="notification_type_poll">Szavazások</string>
 	<string name="choose_account">Fiók kiválasztása</string>
 	<string name="err_not_logged_in">Először jelentkezz be a Mastodonra</string>
 	<plurals name="cant_add_more_than_x_attachments">
-		<item quantity="one">Nem adhatsz hozzá egynél több csatolmányt</item>
+		<item quantity="one">Nem adhatsz hozzá %d-nél több csatolmányt</item>
 		<item quantity="other">Nem adhatsz hozzá %d-nél több csatolmányt</item>
 	</plurals>
 	<string name="media_attachment_unsupported_type">%s fájl nem támogatott</string>
 	<string name="media_attachment_too_big">Ez a fájl (%1$s) túllépi a %2$s MB-os feltöltési korlátot</string>
-	<string name="settings_theme">Kinézet</string>
-	<string name="theme_auto">Automatikus</string>
+	<string name="settings_theme">Megjelenés</string>
+	<string name="theme_auto">Rendszertéma követése</string>
 	<string name="theme_light">Világos</string>
 	<string name="theme_dark">Sötét</string>
 	<string name="settings_behavior">Viselkedés</string>
@@ -211,13 +215,13 @@
 	<string name="settings_clear_cache">Gyorsítótár törlése</string>
 	<string name="settings_app_version">Mastodon Androidra v%1$s (%2$d)</string>
 	<string name="media_cache_cleared">Gyorsítótár törölve</string>
-	<string name="confirm_log_out">Biztosan ki akarsz jelentkezni?</string>
-	<string name="sensitive_content_explain">A szerző ezt a médiát érzékenynek jelölte meg. Érintsd meg a megjelenítéshez.</string>
-	<string name="media_hidden">Érintsd meg a megjelenítéshez</string>
-	<string name="avatar_description">Megnézem %s profilját</string>
+	<string name="confirm_log_out">Kijelentkezel a %s felhasználói fiókból?</string>
+	<string name="sensitive_content_explain">A szerző ezt a médiát érzékenynek jelölte meg.</string>
+	<string name="avatar_description">Ugrás %s profiljához</string>
 	<string name="more_options">További beállítások</string>
 	<string name="new_post">Új bejegyzés</string>
 	<string name="button_reply">Válasz</string>
+	<string name="button_reblog">Megtolás</string>
 	<string name="button_favorite">Kedvenc</string>
 	<string name="button_share">Megosztás</string>
 	<string name="media_no_description">Média leírás nélkül</string>
@@ -229,8 +233,11 @@
 	<string name="media_viewer">Média nézegető</string>
 	<string name="follow_user">%s követése</string>
 	<string name="unfollowed_user">%s követését visszavontad</string>
-	<string name="followed_user">Most már követed %s</string>
+	<string name="followed_user">Most már követed őt: %s</string>
+	<string name="following_user_requested">Követési kérelem elküldve %s felhasználónak</string>
 	<string name="open_in_browser">Megnyitás böngészőben</string>
+	<string name="hide_boosts_from_user">\@%s megtolásainak elrejtése</string>
+	<string name="show_boosts_from_user">\@%s megtolásainak mutatása</string>
 	<string name="signup_reason">Miért szeretnél csatlakozni?</string>
 	<string name="signup_reason_note">Ez segít nekünk átnézni a jelentkezésedet.</string>
 	<string name="clear">Törlés</string>
@@ -244,11 +251,13 @@
 	<string name="error_saving_file">Hiba a fájl mentése során</string>
 	<string name="file_saved">Fájl elmentve</string>
 	<string name="downloading">Letöltés…</string>
-	<string name="no_app_to_handle_action">Nincs olyan alkalmazásod telepítve, ami tudná ezt kezelni</string>
-	<string name="local_timeline">Közösség</string>
-	<string name="trending_posts_info_banner">Ezek a felkapottabb posztok a Mastodon-szobádban.</string>
-	<string name="trending_links_info_banner">Ezek azok a sztorik, amiket a legtöbbet osztanak meg a Mastodon-szobádban.</string>
-	<string name="local_timeline_info_banner">Ezek a legújabb posztok ugyanazon a Mastodon szerveren, ahol te is vagy.</string>
+	<string name="no_app_to_handle_action">Nincs olyan alkalmazásod telepítve, ami ezt a műveleted kezelni tudná</string>
+	<string name="local_timeline">Helyi</string>
+	<string name="trending_posts_info_banner">Ezek a felkapottabb posztok Mastodonon.</string>
+	<string name="trending_links_info_banner">Ez a legújabb hírek amikről Mastodonon beszélgetnek.</string>
+	<!-- %s is the server domain -->
+	<string name="local_timeline_info_banner">Itt található az összes bejegyzés az összes felhasznólótól a példányodon (%s).</string>
+	<string name="recommended_accounts_info_banner">Ezek a fiókok tetszhetnek neked azok alapján, akiket követsz.</string>
 	<string name="see_new_posts">Új bejegyzések megtekintése</string>
 	<string name="load_missing_posts">Hiányzó bejegyzések betöltése</string>
 	<string name="follow_back">Visszakövetés</string>
@@ -322,7 +331,7 @@
 	<string name="login_title">Üdv újra</string>
 	<string name="login_subtitle">Azon a kiszolgálón jelentkezz be, ahol a fiókodat létrehoztad.</string>
 	<string name="server_url">Kiszolgáló URL</string>
-	<string name="signup_random_server_explain">Választunk egy kiszolgálót a saját nyelvedhez, ha választás nélkül folytatod.</string>
+	<string name="signup_random_server_explain">Választunk egy kiszolgálót a saját nyelvedhez igazodva, ha választás nélkül folytatod.</string>
 	<string name="server_filter_any_language">Bármely Nyelv</string>
 	<string name="server_filter_instant_signup">Azonnali Regisztráció</string>
 	<string name="server_filter_manual_review">Kézi Felülvizsgálat</string>
@@ -344,12 +353,23 @@
 	<string name="popular_on_mastodon">Népszerű Mastodonon</string>
 	<string name="follow_all">Összes követése</string>
 	<string name="server_rules_disagree">Elutasítás</string>
-	<string name="privacy_policy_explanation">TL;DR: Nem gyűjtünk és nem dolgozunk fel semmit.</string>
+	<string name="privacy_policy_explanation">Röviden: Nem gyűjtünk és nem dolgozunk fel semmit.</string>
 	<!-- %s is server domain -->
 	<string name="server_policy_disagree">Nem egyezek bele a %s szabályzatába</string>
 	<string name="profile_bio">Bemutatkozás</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<string name="sending_follows">Felhasználók bekövetése…</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
-	<string name="signup_email_domain_blocked">%1$s nem engedélyez feliratkozásokat innen: %2$s. Próbálj meg egy másikat, vagy &lt;a&gt;válassz másik kiszolgálót&lt;/a&gt;.</string>
+	<!-- %s is formatted file size ("467 KB image") -->
+	<string name="compose_autocomplete_users_empty">Találd meg akiket keresel</string>
+	<!-- %s is the server domain -->
+	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
+	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
+	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
+	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<!-- %s is the username -->
+	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<!-- Shown like a content warning, %s is the name of the filter -->
+	<!-- Shown in the post header. Please keep it short -->
 </resources>

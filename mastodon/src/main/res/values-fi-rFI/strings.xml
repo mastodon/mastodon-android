@@ -6,10 +6,8 @@
 	<string name="share_toot_title">Jaa</string>
 	<string name="settings">Asetukset</string>
 	<string name="edit_profile">Muokkaa profiilia</string>
-	<string name="share_user">Jaa %s</string>
 	<string name="done">Valmis</string>
 	<string name="saving">Tallennetaan…</string>
-	<string name="all_notifications">Kaikki</string>
 	<string name="back">Takaisin</string>
 	<string name="category_academia">Akateeminen</string>
 	<string name="category_activism">Aktivismi</string>
@@ -26,7 +24,6 @@
 	<string name="category_tech">Teknologia</string>
 	<!-- %s is the email address -->
 	<string name="save">Tallenna</string>
-	<string name="theme_auto">Automaattinen</string>
 	<string name="theme_light">Vaalea</string>
 	<string name="theme_dark">Tumma</string>
 	<string name="button_reply">Vastaa</string>
@@ -40,6 +37,7 @@
 	<string name="open_settings">Avaa asetukset</string>
 	<string name="file_saved">Tiedosto tallennettu</string>
 	<string name="downloading">Ladataan…</string>
+	<!-- %s is the server domain -->
 	<string name="follow_back">Seuraa takaisin</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<!-- %s is version like 1.2.3 -->
@@ -48,4 +46,15 @@
 	<!-- %s is server domain -->
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<!-- %s is formatted file size ("467 KB image") -->
+	<!-- %s is the server domain -->
+	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
+	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
+	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
+	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<!-- %s is the username -->
+	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<!-- Shown like a content warning, %s is the name of the filter -->
+	<!-- Shown in the post header. Please keep it short -->
 </resources>

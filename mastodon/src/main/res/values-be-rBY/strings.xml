@@ -4,16 +4,11 @@
 	<string name="next">Далей</string>
 	<string name="loading_instance">Атрыманне інфармацыі аб серверы…</string>
 	<string name="error">Памылка</string>
-	<string name="not_a_mastodon_instance">Здаецца, %s не з\'яўляецца серверам Mastodon.</string>
 	<string name="ok">Добра</string>
 	<string name="preparing_auth">Падрыхтоўка да аўтэнтыфікацыі…</string>
 	<string name="finishing_auth">Завяршэнне аўтэнтыфікацыі…</string>
 	<string name="in_reply_to">У адказ %s</string>
 	<string name="notifications">Апавяшчэнні</string>
-	<string name="user_followed_you">падпісаўся(-лася) на вас</string>
-	<string name="user_sent_follow_request">адправіў запыт на падпіску</string>
-	<string name="user_favorited">упадабаў(-ла) ваш допіс</string>
-	<string name="poll_ended">апытанне завершана</string>
 	<string name="share_toot_title">Абагуліць</string>
 	<string name="settings">Налады</string>
 	<string name="publish">Апублікаваць</string>
@@ -39,7 +34,6 @@
 	<string name="button_follow">Падпісацца</string>
 	<string name="button_following">Вы падпісаны</string>
 	<string name="edit_profile">Рэдагаваць профіль</string>
-	<string name="share_user">Абагуліць %s</string>
 	<string name="mute_user">Ігнараваць %s</string>
 	<string name="unmute_user">Не ігнараваць %s</string>
 	<string name="block_user">Заблакіраваць %s</string>
@@ -121,19 +115,16 @@
 	<string name="button_blocked">Заблакіраваны</string>
 	<string name="action_vote">Прагаласаваць</string>
 	<string name="delete">Выдаліць</string>
-	<string name="confirm_delete_title">Выдаліць допіс</string>
 	<string name="confirm_delete">Вы ўпэўненыя, што хочаце выдаліць гэты допіс?</string>
 	<string name="deleting">Выдаленне…</string>
 	<string name="notification_channel_audio_player">Прайграванне аўдыя</string>
 	<string name="play">Прайграць</string>
 	<string name="pause">Прыпыніць</string>
-	<string name="log_out">Выйсці</string>
 	<string name="add_account">Дадаць уліковы запіс</string>
 	<string name="search_hint">Пошук</string>
 	<string name="hashtags">Хэштэгі</string>
 	<string name="news">Навіны</string>
 	<string name="for_you">Для вас</string>
-	<string name="all_notifications">Усе</string>
 	<string name="mentions">Згадванні</string>
 	<plurals name="x_people_talking">
 		<item quantity="one">%d чалавек размаўляе</item>
@@ -142,16 +133,11 @@
 		<item quantity="other">%d чалавек размаўляе</item>
 	</plurals>
 	<string name="report_title">Паскардзіцца на %s</string>
-	<string name="report_choose_reason">Што не так з гэтым допісам?</string>
-	<string name="report_choose_reason_account">Што не так з %s?</string>
 	<string name="report_choose_reason_subtitle">Выберыце найлепшы варыянт</string>
-	<string name="report_reason_personal">Мне не падабаецца</string>
 	<string name="report_reason_personal_subtitle">Гэта не тое, што вы хочаце бачыць</string>
-	<string name="report_reason_spam">Гэта спам</string>
 	<string name="report_reason_spam_subtitle">Шкодныя спасылкі, фальшывыя ўзаемадзеянні або адказы, што паўтараюцца</string>
 	<string name="report_reason_violation">Гэта парушае правілы сервера</string>
 	<string name="report_reason_violation_subtitle">Вам вядома, што гэта парушае пэўныя правілы</string>
-	<string name="report_reason_other">Гэта нешта іншае</string>
 	<string name="report_reason_other_subtitle">Гэта праблема не падпадае ні пад адну з катэгорыі</string>
 	<string name="report_choose_rule">Якія правілы былі парушаны?</string>
 	<string name="report_choose_rule_subtitle">Абярыце ўсе варыянты, што падыходзяць</string>
@@ -160,13 +146,8 @@
 	<string name="report_comment_title">Што-небудзь яшчэ, што мы павінны ведаць?</string>
 	<string name="report_comment_hint">Дадатковыя каментарыі</string>
 	<string name="sending_report">Адпраўка скаргі…</string>
-	<string name="report_sent_title">Дзякуй за вашу скаргу, мы яе разгледзім.</string>
-	<string name="report_sent_subtitle">Пакуль мы разглядаем яе, вы можаце прыняць меры супраць %s.</string>
 	<string name="unfollow_user">Адпісацца ад %s</string>
 	<string name="unfollow">Адпісацца</string>
-	<string name="block_user_explain">Яны больш не змогуць падпісвацца на вас або бачыць вашыя допісы, але змогуць бачыць, што яны былі заблакіраваны.</string>
-	<string name="report_personal_title">Не хочаце бачыць гэта?</string>
-	<string name="report_personal_subtitle">Калі вы бачыце на Mastodon нешта, што вам не падабаецца, вы можаце выдаліць чалавека са свайго асяроддзя.</string>
 	<string name="back">Назад</string>
 	<string name="search_communities">Назва сервера або URL</string>
 	<string name="instance_rules_title">Правілы сервера</string>
@@ -193,19 +174,14 @@
 	<string name="category_tech">Тэхналогіі</string>
 	<string name="confirm_email_title">Праверце паштовую скрыню</string>
 	<!-- %s is the email address -->
-	<string name="confirm_email_subtitle">Націсніце на спасылку, якую мы адправілі, каб спраўдзіць %s. Мы вас пачакаем тут.</string>
-	<string name="confirm_email_didnt_get">Не атрымалі спасылку?</string>
 	<string name="resend">Адправіць паўторна</string>
 	<string name="open_email_app">Адкрыць праграму для пошты</string>
 	<string name="resent_email">Электронны ліст з пацвярджэннем адпраўлены</string>
-	<string name="compose_hint">Напішыце тое, аб чым думаеце</string>
 	<string name="content_warning">Папярэджанне аб змесціве</string>
 	<string name="save">Захаваць</string>
 	<string name="add_alt_text">Дадаць альтэрнатыўны тэкст</string>
 	<string name="visibility_public">Публічны</string>
 	<string name="visibility_followers_only">Толькі для падпісчыкаў</string>
-	<string name="visibility_private">Толькі людзі, якіх я згадаў</string>
-	<string name="recent_searches">Нядаўнія запыты</string>
 	<string name="skip">Прапусціць</string>
 	<string name="notification_type_follow">Новыя падпісчыкі</string>
 	<string name="notification_type_favorite">Абраныя</string>
@@ -213,16 +189,8 @@
 	<string name="notification_type_poll">Апытанні</string>
 	<string name="choose_account">Выберыце ўліковы запіс</string>
 	<string name="err_not_logged_in">Спачатку ўвайдзіце ў Mastodon</string>
-	<plurals name="cant_add_more_than_x_attachments">
-		<item quantity="one">Вы не можаце дадаць больш за %d далучэнне</item>
-		<item quantity="few">Вы не можаце дадаць больш за %d далучэнні</item>
-		<item quantity="many">Вы не можаце дадаць больш за %d далучэнняў</item>
-		<item quantity="other">Вы не можаце дадаць больш за %d далучэнняў</item>
-	</plurals>
 	<string name="media_attachment_unsupported_type">Тып файла %s не падтрымліваецца</string>
 	<string name="media_attachment_too_big">Памер файла %1$s перавышае абмежаванне ў %2$s МБ</string>
-	<string name="settings_theme">Знешні выгляд</string>
-	<string name="theme_auto">Аўтаматычна</string>
 	<string name="theme_light">Светлая</string>
 	<string name="theme_dark">Цёмная</string>
 	<string name="settings_behavior">Паводзіны</string>
@@ -235,10 +203,6 @@
 	<string name="settings_clear_cache">Ачысціць кэш медыя</string>
 	<string name="settings_app_version">Mastodon для Android v%1$s (%2$d)</string>
 	<string name="media_cache_cleared">Кэш медыя ачышчаны</string>
-	<string name="confirm_log_out">Вы ўпэўненыя, што хочаце выйсці?</string>
-	<string name="sensitive_content_explain">Аўтар пазначыў гэты медыя файл як далікатны. Націсніце, каб паказаць.</string>
-	<string name="media_hidden">Націсніце, каб паказаць</string>
-	<string name="avatar_description">Перайсці да профілю %s</string>
 	<string name="more_options">Больш опцый</string>
 	<string name="new_post">Новы допіс</string>
 	<string name="button_reply">Адказаць</string>
@@ -253,7 +217,6 @@
 	<string name="media_viewer">Праграма для прагляду медыя</string>
 	<string name="follow_user">Падпісацца на %s</string>
 	<string name="unfollowed_user">Адпісацца ад %s</string>
-	<string name="followed_user">Цяпер вы падпісаны на %s</string>
 	<string name="following_user_requested">Запытана падпісацца на %s</string>
 	<string name="open_in_browser">Адкрыць у браўзеры</string>
 	<string name="signup_reason">Чаму вы хочаце далучыцца?</string>
@@ -269,11 +232,7 @@
 	<string name="error_saving_file">Памылка пры захаванні файла</string>
 	<string name="file_saved">Файл захаваны</string>
 	<string name="downloading">Спампоўванне…</string>
-	<string name="no_app_to_handle_action">Няма праграмы для выканання гэтага дзеяння</string>
-	<string name="local_timeline">Супольнасць</string>
-	<string name="trending_posts_info_banner">Допісы, што набіраюць папулярнасць у вашым кутку Mastodon.</string>
-	<string name="trending_links_info_banner">Навіна, якая найбольш абмяркоўваецца ў вашым кутку Mastodon.</string>
-	<string name="local_timeline_info_banner">Гэта самыя апошнія допісы людзей, якія выкарыстоўваюць той жа сервер Mastodon, што і вы.</string>
+	<!-- %s is the server domain -->
 	<string name="see_new_posts">Паказаць новыя допісы</string>
 	<string name="load_missing_posts">Загрузіць адсутныя допісы</string>
 	<string name="follow_back">Падпісацца ў адказ</string>
@@ -357,7 +316,6 @@
 	<string name="login_title">З вяртаннем</string>
 	<string name="login_subtitle">Увайдзіце з дапамогай сервера, на якім вы стварылі свой уліковы запіс.</string>
 	<string name="server_url">URL-адрас сервера</string>
-	<string name="signup_random_server_explain">Мы абярэм сервер на аснове вашай мовы, калі вы працягнеце без выбару.</string>
 	<string name="server_filter_any_language">Любая мова</string>
 	<string name="server_filter_instant_signup">Імгненная рэгістрацыя</string>
 	<string name="server_filter_manual_review">Ручная праверка</string>
@@ -370,7 +328,6 @@
 	<string name="server_filter_region_oceania">Акіянія</string>
 	<string name="not_accepting_new_members">Не прымае новых удзельнікаў</string>
 	<string name="category_special_interests">Асаблівыя інтарэсы</string>
-	<string name="signup_passwords_dont_match">Паролі не супадаюць</string>
 	<string name="pick_server_for_me">Падбяры для мяне</string>
 	<string name="profile_add_row">Дадаць радок</string>
 	<string name="profile_setup">Налады профілю</string>
@@ -379,12 +336,21 @@
 	<string name="popular_on_mastodon">Папулярна на Mastodon</string>
 	<string name="follow_all">Падпісацца на ўсіх</string>
 	<string name="server_rules_disagree">Не згодны</string>
-	<string name="privacy_policy_explanation">Мы нічога не збіраем і не апрацоўваем.</string>
 	<!-- %s is server domain -->
 	<string name="server_policy_disagree">Не згодны з %s</string>
 	<string name="profile_bio">Пра мяне</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<string name="sending_follows">Падпісваемся…</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
-	<string name="signup_email_domain_blocked">%1$s не прымае рэгістрацыю ад %2$s. Паспрабуйце іншы &lt;a&gt;выберыце іншы сервер&lt;/a&gt;.</string>
+	<!-- %s is formatted file size ("467 KB image") -->
+	<!-- %s is the server domain -->
+	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
+	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
+	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
+	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<!-- %s is the username -->
+	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<!-- Shown like a content warning, %s is the name of the filter -->
+	<!-- Shown in the post header. Please keep it short -->
 </resources>

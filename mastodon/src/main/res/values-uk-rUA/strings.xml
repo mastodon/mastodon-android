@@ -4,18 +4,12 @@
 	<string name="next">Далі</string>
 	<string name="loading_instance">Отримання інформації замовлення…</string>
 	<string name="error">Помилка</string>
-	<string name="not_a_mastodon_instance">%s не є інстансом Mastodon.</string>
 	<string name="ok">OK</string>
 	<string name="preparing_auth">Підготовка до автентифікації…</string>
 	<string name="finishing_auth">Завершення автентифікації…</string>
 	<string name="user_boosted">%s поширив</string>
 	<string name="in_reply_to">Відповісти %s</string>
 	<string name="notifications">Сповіщення</string>
-	<string name="user_followed_you">підписався(-лася) на вас</string>
-	<string name="user_sent_follow_request">відправив запит на підписку</string>
-	<string name="user_favorited">Вподобав(-ла) ваш допис</string>
-	<string name="notification_boosted">поширив ваш пост</string>
-	<string name="poll_ended">опитування завершено</string>
 	<string name="share_toot_title">Поділитись</string>
 	<string name="settings">Налаштування</string>
 	<string name="publish">Опублікувати</string>
@@ -41,7 +35,6 @@
 	<string name="button_follow">Стежити</string>
 	<string name="button_following">Ви підписані</string>
 	<string name="edit_profile">Редагувати профіль</string>
-	<string name="share_user">Поділитися %s</string>
 	<string name="mute_user">Заглушити %s</string>
 	<string name="unmute_user">Розглушити %s</string>
 	<string name="block_user">Заблокувати %s</string>
@@ -123,19 +116,16 @@
 	<string name="button_blocked">Заблоковано</string>
 	<string name="action_vote">Проголосувати</string>
 	<string name="delete">Видалити</string>
-	<string name="confirm_delete_title">Видалити допис</string>
 	<string name="confirm_delete">Ви дійсно бажаєте видалити цей допис?</string>
 	<string name="deleting">Видалення…</string>
 	<string name="notification_channel_audio_player">Відтворення звуку</string>
 	<string name="play">Відтворити</string>
 	<string name="pause">Пауза</string>
-	<string name="log_out">Вийти</string>
 	<string name="add_account">Додати обліковий запис</string>
 	<string name="search_hint">Пошук</string>
 	<string name="hashtags">Хештеги</string>
 	<string name="news">Новини</string>
 	<string name="for_you">Для Вас</string>
-	<string name="all_notifications">Все</string>
 	<string name="mentions">Згадки</string>
 	<plurals name="x_people_talking">
 		<item quantity="one">%d особа розмовляє</item>
@@ -144,16 +134,11 @@
 		<item quantity="other">%d осіб розмовляє</item>
 	</plurals>
 	<string name="report_title">Поскаржитись на %s</string>
-	<string name="report_choose_reason">Що не так з цим постом?</string>
-	<string name="report_choose_reason_account">Що не так з %s?</string>
 	<string name="report_choose_reason_subtitle">Оберіть найкращий збіг</string>
-	<string name="report_reason_personal">Мені не подобається</string>
 	<string name="report_reason_personal_subtitle">Це не те, що ви хочете бачити</string>
-	<string name="report_reason_spam">Це спам</string>
 	<string name="report_reason_spam_subtitle">Шкідливі посилання, фальшиві взаємодії, або відповіді, що повторюються</string>
 	<string name="report_reason_violation">Порушує правила сервера</string>
 	<string name="report_reason_violation_subtitle">Ви впевнені, що це порушує певні правила</string>
-	<string name="report_reason_other">Це щось інше</string>
 	<string name="report_reason_other_subtitle">Ця проблема не відповідає жодній іншій категорії</string>
 	<string name="report_choose_rule">Які правила порушено?</string>
 	<string name="report_choose_rule_subtitle">Виберіть усі варіанти, що підходять</string>
@@ -162,14 +147,8 @@
 	<string name="report_comment_title">Чи є ще щось, що ми повинні знати?</string>
 	<string name="report_comment_hint">Додаткові коментарі</string>
 	<string name="sending_report">Надсилання скарги…</string>
-	<string name="report_sent_title">Дякуємо за скаргу, ми розглянемо її.</string>
-	<string name="report_sent_subtitle">Поки ми переглядаємо, ви можете вжити власних заходів проти %s.</string>
 	<string name="unfollow_user">Відписатися від %s</string>
 	<string name="unfollow">Відписатися</string>
-	<string name="mute_user_explain">Ви не побачите їхні пости чи поширення у вашої домашній стрічці. Вони не дізнаються, що вони заглушені.</string>
-	<string name="block_user_explain">Вони більше не зможуть стежити або бачити Ваші пости, але вони зможуть побачити, що вони були заблоковані.</string>
-	<string name="report_personal_title">Не хочете бачити це?</string>
-	<string name="report_personal_subtitle">Якщо бачите щось, що вам не подобається в Mastodon, то можна вилучити людину зі свого досвіду.</string>
 	<string name="back">Назад</string>
 	<string name="search_communities">Назва сервера або URL</string>
 	<string name="instance_rules_title">Правила Сервера</string>
@@ -196,19 +175,14 @@
 	<string name="category_tech">Технології</string>
 	<string name="confirm_email_title">Перевірити вхідні листи</string>
 	<!-- %s is the email address -->
-	<string name="confirm_email_subtitle">Натисніть на посилання, яке ми відправили для підтвердження %s. Ми будемо чекати тут.</string>
-	<string name="confirm_email_didnt_get">Не отримали посилання?</string>
 	<string name="resend">Надіслати повторно</string>
 	<string name="open_email_app">Відкрити Електрону пошту</string>
 	<string name="resent_email">Електронний лист для підтвердження</string>
-	<string name="compose_hint">Напишіть чи вставте, що у Вас на думці</string>
 	<string name="content_warning">Попередження про вміст</string>
 	<string name="save">Зберегти</string>
 	<string name="add_alt_text">Додати альтернативний текст</string>
 	<string name="visibility_public">Загальнодоступно</string>
 	<string name="visibility_followers_only">Тільки для підписників</string>
-	<string name="visibility_private">Тільки людям, яких я згадав</string>
-	<string name="recent_searches">Нещодавні запити</string>
 	<string name="skip">Пропустити</string>
 	<string name="notification_type_follow">Нові підписники</string>
 	<string name="notification_type_favorite">Улюблені</string>
@@ -217,16 +191,8 @@
 	<string name="notification_type_poll">Опитування</string>
 	<string name="choose_account">Виберіть обліковий запис</string>
 	<string name="err_not_logged_in">Спочатку увійдіть у Mastodon</string>
-	<plurals name="cant_add_more_than_x_attachments">
-		<item quantity="one">Ви не можете додати більше ніж %d медіа</item>
-		<item quantity="few">Ви не можете додати більше ніж %d медіа</item>
-		<item quantity="many">Ви не можете додати більше ніж %d медіа</item>
-		<item quantity="other">Ви не можете додати більше ніж %d медіа</item>
-	</plurals>
 	<string name="media_attachment_unsupported_type">Файл %s непідтримуваного формату</string>
 	<string name="media_attachment_too_big">Розмір %1$s перевищує ліміт %2$s MB</string>
-	<string name="settings_theme">Зовнішній вигляд</string>
-	<string name="theme_auto">Автоматичний</string>
 	<string name="theme_light">Світлий</string>
 	<string name="theme_dark">Темний</string>
 	<string name="settings_behavior">Поведінка</string>
@@ -239,10 +205,6 @@
 	<string name="settings_clear_cache">Очистити кеш медіа</string>
 	<string name="settings_app_version">Mastodon для Android v%1$s (%2$d)</string>
 	<string name="media_cache_cleared">Кеш медіа очищено</string>
-	<string name="confirm_log_out">Ви справді бажаєте вийти?</string>
-	<string name="sensitive_content_explain">Автор позначив цей медіафайл чутливим. Торкніться, щоб показати.</string>
-	<string name="media_hidden">Натисніть, щоб показати</string>
-	<string name="avatar_description">Перейти до профілю %s</string>
 	<string name="more_options">Більше опцій</string>
 	<string name="new_post">Новий допис</string>
 	<string name="button_reply">Відповісти</string>
@@ -258,7 +220,6 @@
 	<string name="media_viewer">Медіапрогравач</string>
 	<string name="follow_user">Підписатися на %s</string>
 	<string name="unfollowed_user">Відписалися від %s</string>
-	<string name="followed_user">Тепер ви підписані на %s</string>
 	<string name="following_user_requested">Запитано на підписку на %s</string>
 	<string name="open_in_browser">Відкрити у браузері</string>
 	<string name="hide_boosts_from_user">Сховати поширення від %s</string>
@@ -276,11 +237,7 @@
 	<string name="error_saving_file">Помилка збереження</string>
 	<string name="file_saved">Файл збережено</string>
 	<string name="downloading">Завантаження…</string>
-	<string name="no_app_to_handle_action">Немає додатку для обробки цієї дії</string>
-	<string name="local_timeline">Спільнота</string>
-	<string name="trending_posts_info_banner">Пости, що набирають популярність на вашому домашньому сервері.</string>
-	<string name="trending_links_info_banner">Це новини, про які говорять найчастіше у Вашому куточку Mastodon.</string>
-	<string name="local_timeline_info_banner">Це останні повідомлення тих людей, що використовують той самий сервер Mastodon.</string>
+	<!-- %s is the server domain -->
 	<string name="see_new_posts">Переглянути нові дописи</string>
 	<string name="load_missing_posts">Завантажити пропущені пости</string>
 	<string name="follow_back">Підписатися взаємно</string>
@@ -364,7 +321,6 @@
 	<string name="login_title">З поверненням</string>
 	<string name="login_subtitle">Увійдіть за допомогою сервера, де ви створили свій обліковий запис.</string>
 	<string name="server_url">URL-адреса сервера</string>
-	<string name="signup_random_server_explain">Ми підберемо сервер основі вашої мовою, якщо ви продовжите без вибору.</string>
 	<string name="server_filter_any_language">Будь-яка мова</string>
 	<string name="server_filter_instant_signup">Миттєва Реєстрація</string>
 	<string name="server_filter_manual_review">Ручна перевірка</string>
@@ -377,7 +333,6 @@
 	<string name="server_filter_region_oceania">Океанія</string>
 	<string name="not_accepting_new_members">Не приймає нових користувачів</string>
 	<string name="category_special_interests">Особливі Інтереси</string>
-	<string name="signup_passwords_dont_match">Паролі не збігаються</string>
 	<string name="pick_server_for_me">Підібрати для мене</string>
 	<string name="profile_add_row">Додати рядок</string>
 	<string name="profile_setup">Налаштування профілю</string>
@@ -386,14 +341,12 @@
 	<string name="popular_on_mastodon">Популярне в Mastodon</string>
 	<string name="follow_all">Стежити за всіма</string>
 	<string name="server_rules_disagree">Не приймаю</string>
-	<string name="privacy_policy_explanation">Ми нічого не збираємо або обробляємо.</string>
 	<!-- %s is server domain -->
 	<string name="server_policy_disagree">Не згоден з %s</string>
 	<string name="profile_bio">Про мене</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<string name="sending_follows">Підписуємося…</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
-	<string name="signup_email_domain_blocked">%1$s не приймає реєстрацію з %2$s. Спробуйте інший &lt;a&gt;виберіть інший сервер&lt;/a&gt;.</string>
 	<string name="spoiler_show">Усе одне показати</string>
 	<string name="spoiler_hide">Сховати знову</string>
 	<string name="poll_multiple_choice">Оберіть один чи декілька</string>
@@ -413,4 +366,15 @@
 	<string name="welcome_paragraph1">Mastodon - це децентралізована соціальна мережа, що визначає, що жодна компанія контролює її. У її склад входить велика кількість незалежних серверів, які всі з\'єднані один з іншим.</string>
 	<string name="what_are_servers">Що таке сервери?</string>
 	<string name="welcome_paragraph2"><![CDATA[Кожен акаунт Mastodon розміщений на сервері, й кожен сервер має особисті цінності, правила, й адмінів. Немає різниці, який ви оберете. Ви можете підписуватися та спілкуватися з усіма, навіть якщо ви на різних серверах.]]></string>
+	<!-- %s is formatted file size ("467 KB image") -->
+	<!-- %s is the server domain -->
+	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
+	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
+	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
+	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<!-- %s is the username -->
+	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<!-- Shown like a content warning, %s is the name of the filter -->
+	<!-- Shown in the post header. Please keep it short -->
 </resources>

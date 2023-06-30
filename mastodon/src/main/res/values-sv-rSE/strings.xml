@@ -4,16 +4,12 @@
 	<string name="next">Nästa</string>
 	<string name="loading_instance">Hämtar serverinfo…</string>
 	<string name="error">Fel</string>
-	<string name="not_a_mastodon_instance">%s verkar inte vara en Mastodon-server.</string>
 	<string name="ok">OK</string>
 	<string name="preparing_auth">Förbereder för autentisering…</string>
 	<string name="finishing_auth">Slutför autentisering…</string>
+	<string name="user_boosted">%s boostade</string>
 	<string name="in_reply_to">Som svar på %s</string>
 	<string name="notifications">Notiser</string>
-	<string name="user_followed_you">följde dig</string>
-	<string name="user_sent_follow_request">skickade en förfrågning om att följa till dig</string>
-	<string name="user_favorited">favoritmarkerade dit inlägg</string>
-	<string name="poll_ended">omröstning avslutad</string>
 	<string name="share_toot_title">Dela</string>
 	<string name="settings">Inställningar</string>
 	<string name="publish">Publicera</string>
@@ -35,7 +31,6 @@
 	<string name="button_follow">Följ</string>
 	<string name="button_following">Följer</string>
 	<string name="edit_profile">Redigera profil</string>
-	<string name="share_user">Dela %s</string>
 	<string name="mute_user">Tysta %s</string>
 	<string name="unmute_user">Avtysta %s</string>
 	<string name="block_user">Blockera %s</string>
@@ -101,35 +96,27 @@
 	<string name="button_blocked">Blockerad</string>
 	<string name="action_vote">Rösta</string>
 	<string name="delete">Radera</string>
-	<string name="confirm_delete_title">Radera inlägg</string>
 	<string name="confirm_delete">Är du säker på att du vill radera detta inlägg?</string>
 	<string name="deleting">Raderar…</string>
 	<string name="notification_channel_audio_player">Ljuduppspelning</string>
 	<string name="play">Spela</string>
 	<string name="pause">Pausa</string>
-	<string name="log_out">Logga ut</string>
 	<string name="add_account">Lägg till konto</string>
 	<string name="search_hint">Sök</string>
 	<string name="hashtags">Hashtaggar</string>
 	<string name="news">Nyheter</string>
 	<string name="for_you">För dig</string>
-	<string name="all_notifications">Allt</string>
 	<string name="mentions">Omnämningar</string>
 	<plurals name="x_people_talking">
 		<item quantity="one">%d person pratar</item>
 		<item quantity="other">%d personer pratar</item>
 	</plurals>
 	<string name="report_title">Rapportera %s</string>
-	<string name="report_choose_reason">Vad är fel med det här inlägget?</string>
-	<string name="report_choose_reason_account">Vad är fel med %s?</string>
 	<string name="report_choose_reason_subtitle">Välj den bästa träffen</string>
-	<string name="report_reason_personal">Jag tycker inte om det</string>
 	<string name="report_reason_personal_subtitle">Det är inget som du vill se</string>
-	<string name="report_reason_spam">Det är skräppost</string>
 	<string name="report_reason_spam_subtitle">Skadliga länkar, bedrägligt beteende eller repetitiva svar</string>
 	<string name="report_reason_violation">Det bryter mot serverns regler</string>
 	<string name="report_reason_violation_subtitle">Du är medveten om att det bryter mot specifika regler</string>
-	<string name="report_reason_other">Det är något annat</string>
 	<string name="report_reason_other_subtitle">Frågan passar inte in i andra kategorier</string>
 	<string name="report_choose_rule">Vilka regler överträds?</string>
 	<string name="report_choose_rule_subtitle">Välj alla som stämmer</string>
@@ -138,13 +125,8 @@
 	<string name="report_comment_title">Finns det något annat vi borde veta?</string>
 	<string name="report_comment_hint">Ytterligare kommentarer</string>
 	<string name="sending_report">Skickar rapport…</string>
-	<string name="report_sent_title">Tack för din rapport, vi ska titta på det.</string>
-	<string name="report_sent_subtitle">Medan vi granskar detta kan du vidta åtgärder mot %s.</string>
 	<string name="unfollow_user">Avfölj %s</string>
 	<string name="unfollow">Avfölj</string>
-	<string name="block_user_explain">De kommer inte längre att kunna följa eller se dina inlägg, men de kan se om de har blockerats.</string>
-	<string name="report_personal_title">Vill du inte se det här?</string>
-	<string name="report_personal_subtitle">När du ser något som du inte gillar på Mastodon kan du ta bort personen från din upplevelse.</string>
 	<string name="back">Tillbaka</string>
 	<string name="search_communities">Servernamn eller URL</string>
 	<string name="instance_rules_title">Serverregler</string>
@@ -171,19 +153,14 @@
 	<string name="category_tech">Teknik</string>
 	<string name="confirm_email_title">Kolla din inkorg</string>
 	<!-- %s is the email address -->
-	<string name="confirm_email_subtitle">Tryck på länken vi skickade dig för att verifiera %s. Vi väntar här.</string>
-	<string name="confirm_email_didnt_get">Fick du ingen länk?</string>
 	<string name="resend">Skicka igen</string>
 	<string name="open_email_app">Öppna e-postappen</string>
 	<string name="resent_email">Bekräftelse via e-post skickad</string>
-	<string name="compose_hint">Skriv eller klistra in vad du har på hjärtat</string>
 	<string name="content_warning">Innehållsvarning</string>
 	<string name="save">Spara</string>
 	<string name="add_alt_text">Lägg till alternativtext</string>
 	<string name="visibility_public">Offentlig</string>
 	<string name="visibility_followers_only">Endast följare</string>
-	<string name="visibility_private">Bara personer jag nämner</string>
-	<string name="recent_searches">Senaste sökningarna</string>
 	<string name="skip">Hoppa över</string>
 	<string name="notification_type_follow">Nya följare</string>
 	<string name="notification_type_favorite">Favoriter</string>
@@ -191,14 +168,8 @@
 	<string name="notification_type_poll">Omröstningar</string>
 	<string name="choose_account">Välj konto</string>
 	<string name="err_not_logged_in">Logga in på Mastodon först</string>
-	<plurals name="cant_add_more_than_x_attachments">
-		<item quantity="one">Du kan inte lägga till mer än %d mediabilaga</item>
-		<item quantity="other">Du kan inte lägga till mer än %d mediebilagor</item>
-	</plurals>
 	<string name="media_attachment_unsupported_type">Filen %s är av en typ som inte stöds</string>
 	<string name="media_attachment_too_big">Filen %1$s överskrider storleksgränsen på %2$s MB</string>
-	<string name="settings_theme">Utseende</string>
-	<string name="theme_auto">Automatiskt</string>
 	<string name="theme_light">Ljust</string>
 	<string name="theme_dark">Mörkt</string>
 	<string name="settings_behavior">Beteende</string>
@@ -211,13 +182,10 @@
 	<string name="settings_clear_cache">Rensa mediacache</string>
 	<string name="settings_app_version">Mastodon för Android v%1$s (%2$d)</string>
 	<string name="media_cache_cleared">Mediacache rensad</string>
-	<string name="confirm_log_out">Är du säker på att du vill logga ut?</string>
-	<string name="sensitive_content_explain">Författaren markerade detta media som känsligt. Tryck för att visa.</string>
-	<string name="media_hidden">Tryck för att visa</string>
-	<string name="avatar_description">Gå till %ss användarprofil</string>
 	<string name="more_options">Fler alternativ</string>
 	<string name="new_post">Nytt inlägg</string>
 	<string name="button_reply">Svara</string>
+	<string name="button_reblog">Boosta</string>
 	<string name="button_favorite">Favoritmarkera</string>
 	<string name="button_share">Dela</string>
 	<string name="media_no_description">Media utan beskrivning</string>
@@ -229,7 +197,6 @@
 	<string name="media_viewer">Mediavisare</string>
 	<string name="follow_user">Följ %s</string>
 	<string name="unfollowed_user">Avföljde %s</string>
-	<string name="followed_user">Du följer nu %s</string>
 	<string name="open_in_browser">Öppna i webbläsare</string>
 	<string name="signup_reason">Varför vill du gå med?</string>
 	<string name="signup_reason_note">Detta kommer hjälpa oss att granska din ansökan.</string>
@@ -244,11 +211,7 @@
 	<string name="error_saving_file">Fel vid sparande av fil</string>
 	<string name="file_saved">Filen sparad</string>
 	<string name="downloading">Laddar ner…</string>
-	<string name="no_app_to_handle_action">Det gick inte att hitta någon app som hanterar den här åtgärden</string>
-	<string name="local_timeline">Gemenskap</string>
-	<string name="trending_posts_info_banner">Detta är de inlägg som engagerar i ditt hörn av Mastodon.</string>
-	<string name="trending_links_info_banner">Detta är nyheter som engagerar i ditt hörn av Mastodon.</string>
-	<string name="local_timeline_info_banner">Dessa är de senaste inläggen av folk på samma Mastodon-server som du.</string>
+	<!-- %s is the server domain -->
 	<string name="see_new_posts">Se nya inlägg</string>
 	<string name="load_missing_posts">Ladda saknade inlägg</string>
 	<string name="follow_back">Följ tillbaka</string>
@@ -322,7 +285,6 @@
 	<string name="login_title">Välkommen tillbaka</string>
 	<string name="login_subtitle">Logga in på den server där du skapade ditt konto.</string>
 	<string name="server_url">Server-URL</string>
-	<string name="signup_random_server_explain">Vi kommer att välja en server baserat på ditt språk om du fortsätter utan att göra ett val.</string>
 	<string name="server_filter_any_language">Vilket språk som helst</string>
 	<string name="server_filter_instant_signup">Omedelbar registrering</string>
 	<string name="server_filter_manual_review">Manuell granskning</string>
@@ -335,7 +297,6 @@
 	<string name="server_filter_region_oceania">Oceanien</string>
 	<string name="not_accepting_new_members">Accepterar inte nya medlemmar</string>
 	<string name="category_special_interests">Specialintressen</string>
-	<string name="signup_passwords_dont_match">Lösenorden matchar inte</string>
 	<string name="pick_server_for_me">Välj för mig</string>
 	<string name="profile_add_row">Lägg till rad</string>
 	<string name="profile_setup">Konfiguration av profil</string>
@@ -344,12 +305,37 @@
 	<string name="popular_on_mastodon">Populärt på Mastodon</string>
 	<string name="follow_all">Följ alla</string>
 	<string name="server_rules_disagree">Instämmer inte alls</string>
-	<string name="privacy_policy_explanation">TL;DR: Vi samlar inte in eller bearbetar något.</string>
 	<!-- %s is server domain -->
 	<string name="server_policy_disagree">Håller inte med %s</string>
 	<string name="profile_bio">Biografi</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<string name="sending_follows">Följer användare…</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
-	<string name="signup_email_domain_blocked">%1$s tillåter inte registrering från %2$s. Prova en annan eller &lt;a&gt;välj en annan server&lt;/a&gt;.</string>
+	<string name="spoiler_show">Visa ändå</string>
+	<string name="poll_multiple_choice">Välj en eller flera</string>
+	<string name="save_changes">Spara ändringar</string>
+	<string name="profile_timeline">Tidslinje</string>
+	<string name="view_all">Visa alla</string>
+	<string name="profile_endorsed_accounts">Konton</string>
+	<string name="verified_link">Verifierad länk</string>
+	<string name="show">Visa</string>
+	<string name="hide">Dölj</string>
+	<string name="join_default_server">Gå med %s</string>
+	<string name="signup_or_login">eller</string>
+	<string name="learn_more">Läs mer</string>
+	<string name="welcome_to_mastodon">Välkommen till Mastodon</string>
+	<string name="welcome_paragraph1">Mastodon är ett decentraliserat socialt nätverk, vilket innebär att inget enskilt företag kontrollerar det. Det består av många oberoende servrar, alla sammankopplade.</string>
+	<string name="what_are_servers">Vad är servrar?</string>
+	<string name="welcome_paragraph2"><![CDATA[Varje Mastodon-konto finns på en server — var och en med sina värderingar, regler och administratörer. Oavsett vilken du väljer kan du följa och interagera med människor på vilken server som helst.]]></string>
+	<!-- %s is formatted file size ("467 KB image") -->
+	<!-- %s is the server domain -->
+	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
+	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
+	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
+	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<!-- %s is the username -->
+	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<!-- Shown like a content warning, %s is the name of the filter -->
+	<!-- Shown in the post header. Please keep it short -->
 </resources>

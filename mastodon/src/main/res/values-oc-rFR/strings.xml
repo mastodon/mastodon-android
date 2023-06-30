@@ -6,7 +6,6 @@
 	<string name="ok">D’acòrdi</string>
 	<string name="in_reply_to">En responsa a %s</string>
 	<string name="notifications">Notificacions</string>
-	<string name="user_followed_you">vos sèc</string>
 	<string name="share_toot_title">Partejar</string>
 	<string name="settings">Paramètres</string>
 	<string name="publish">Publicar</string>
@@ -27,7 +26,6 @@
 	<string name="profile_about">A prepaus</string>
 	<string name="button_follow">Seguir</string>
 	<string name="edit_profile">Modificar lo perfil</string>
-	<string name="share_user">Partejar %s</string>
 	<string name="mute_user">Amudar %s</string>
 	<string name="block_domain">Blocar %s</string>
 	<string name="search_hint">Recercar</string>
@@ -46,13 +44,10 @@
 	<string name="notification_type_mention">Mencions</string>
 	<string name="notification_type_poll">Sondatge</string>
 	<string name="choose_account">Seleccionar un compte</string>
-	<string name="theme_auto">Automatic</string>
 	<string name="theme_light">Clar</string>
 	<string name="theme_dark">Escur</string>
 	<string name="settings_behavior">Compòrtament</string>
 	<string name="settings_notifications">Notificacions</string>
-	<string name="media_hidden">Tocar per afichar</string>
-	<string name="avatar_description">Anar al perfil de %s</string>
 	<string name="more_options">Mai d\'opcions</string>
 	<string name="new_post">Publicacion novèla</string>
 	<string name="button_reply">Respondre</string>
@@ -65,6 +60,7 @@
 	<string name="error_saving_file">Error en enregistrant lo fichièr</string>
 	<string name="file_saved">Fichièr salvagardat</string>
 	<string name="downloading">Telecargament…</string>
+	<!-- %s is the server domain -->
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<!-- %s is version like 1.2.3 -->
 	<!-- %s is version like 1.2.3 -->
@@ -72,4 +68,15 @@
 	<!-- %s is server domain -->
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<!-- %s is formatted file size ("467 KB image") -->
+	<!-- %s is the server domain -->
+	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
+	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
+	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
+	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<!-- %s is the username -->
+	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<!-- Shown like a content warning, %s is the name of the filter -->
+	<!-- Shown in the post header. Please keep it short -->
 </resources>

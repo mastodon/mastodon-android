@@ -13,7 +13,6 @@
 	<string name="media">මාධ්‍ය</string>
 	<string name="profile_about">පිලිබඳව</string>
 	<string name="edit_profile">පැතිකඩ සංස්කරණය</string>
-	<string name="share_user">%s බෙදාගන්න</string>
 	<string name="mute_user">%s නිහඬ</string>
 	<string name="unmute_user">%s නොනිහඬ</string>
 	<string name="block_user">%s අවහිර</string>
@@ -43,18 +42,14 @@
 	<string name="do_block">අවහිර</string>
 	<string name="do_unblock">අනවහිර</string>
 	<string name="pause">විරාමය</string>
-	<string name="log_out">නික්මෙන්න</string>
 	<string name="add_account">ගිණුමක් දමන්න</string>
 	<string name="search_hint">සොයන්න</string>
 	<string name="news">පුවත්</string>
 	<string name="for_you">ඔබට</string>
-	<string name="all_notifications">සියල්ල</string>
 	<string name="mentions">සැඳහුම්</string>
 	<string name="report_title">%s වාර්තාව</string>
-	<string name="report_reason_personal">මම එයට අකැමතියි</string>
-	<string name="report_reason_spam">එය අයාචිතයකි</string>
 	<!-- %s is the email address -->
-	<string name="local_timeline">ප්‍රජාව</string>
+	<!-- %s is the server domain -->
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<string name="time_now">දැන්</string>
 	<string name="edit_history">සංශෝධන ඉතිහාසය</string>
@@ -69,4 +64,15 @@
 	<!-- %s is server domain -->
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<!-- %s is formatted file size ("467 KB image") -->
+	<!-- %s is the server domain -->
+	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
+	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
+	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
+	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<!-- %s is the username -->
+	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<!-- Shown like a content warning, %s is the name of the filter -->
+	<!-- Shown in the post header. Please keep it short -->
 </resources>

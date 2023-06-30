@@ -8,9 +8,6 @@
 	<string name="finishing_auth">Keffu n usesteb…</string>
 	<string name="in_reply_to">D tiririt i %s</string>
 	<string name="notifications">Ilɣa</string>
-	<string name="user_followed_you">iṭṭafar-ik·ikem</string>
-	<string name="user_sent_follow_request">yuzen-ak•am-d assuter n uḍfar</string>
-	<string name="poll_ended">asenqed iffuk</string>
 	<string name="share_toot_title">Bḍu</string>
 	<string name="settings">Iɣewwaren</string>
 	<string name="publish">Suffeɣ</string>
@@ -32,7 +29,6 @@
 	<string name="button_follow">Ḍfeṛ</string>
 	<string name="button_following">Aḍfar</string>
 	<string name="edit_profile">Ẓreg amaɣnu</string>
-	<string name="share_user">Bḍu %s</string>
 	<string name="mute_user">Sgugem %s</string>
 	<string name="unmute_user">Kkes asgugem i %s</string>
 	<string name="block_user">Sewḥel %s</string>
@@ -98,35 +94,27 @@
 	<string name="button_blocked">Yettusewḥel</string>
 	<string name="action_vote">Fren</string>
 	<string name="delete">Kkes</string>
-	<string name="confirm_delete_title">Kkes tasuffeɣt</string>
 	<string name="confirm_delete">Tebɣiḍ s tidet ad tekkseḍ tasuffeɣt-agi?</string>
 	<string name="deleting">Tukksa…</string>
 	<string name="notification_channel_audio_player">Taɣuri n umeslaw</string>
 	<string name="play">Urar</string>
 	<string name="pause">Seḥbes</string>
-	<string name="log_out">Ffeɣ</string>
 	<string name="add_account">Rnu amiḍan</string>
 	<string name="search_hint">Nadi</string>
 	<string name="hashtags">Ihacṭagen</string>
 	<string name="news">Isallen</string>
 	<string name="for_you">I kečč·kem</string>
-	<string name="all_notifications">Akk</string>
 	<string name="mentions">Tibdarin</string>
 	<plurals name="x_people_talking">
 		<item quantity="one">%d umdan i yettmeslayen</item>
 		<item quantity="other">%d yimdanen i yettmeslayen</item>
 	</plurals>
 	<string name="report_title">Cetki ɣef %s</string>
-	<string name="report_choose_reason">Acu n wugur yellan d tsuffeɣt-a?</string>
-	<string name="report_choose_reason_account">Acu n wugur yellan d %s?</string>
 	<string name="report_choose_reason_subtitle">Fren amṣada akk igerrzen</string>
-	<string name="report_reason_personal">Ur ḥemmleɣ ara aya</string>
 	<string name="report_reason_personal_subtitle">D ayen akk ur bɣiɣ ara ad waliɣ</string>
-	<string name="report_reason_spam">D aspam</string>
 	<string name="report_reason_spam_subtitle">Yir iseɣwan, yir agman d tririyin i d-yettuɣalen</string>
 	<string name="report_reason_violation">Truẓi n yilugan n uqeddac</string>
 	<string name="report_reason_violation_subtitle">Teẓriḍ y•tettruẓu kra n yilugan</string>
-	<string name="report_reason_other">Ɣef ssebba-nniḍen</string>
 	<string name="report_reason_other_subtitle">Ugur ur yemṣada ara akk d taggayin-nniḍen</string>
 	<string name="report_choose_rule">Acu n yilugan i yettwarẓan?</string>
 	<string name="report_choose_rule_subtitle">Fren akk tifrat ara yettusnasen</string>
@@ -135,13 +123,8 @@
 	<string name="report_comment_title">Yella wayen-nniḍen i ilaqen ad t-nẓer?</string>
 	<string name="report_comment_hint">Iwenniten-nniḍen</string>
 	<string name="sending_report">Tuzna n uneqqis…</string>
-	<string name="report_sent_title">Tanemmirt ɣef uneqqis, ad nwali deg waya.</string>
-	<string name="report_sent_subtitle">Ideg nekkni nessenqad tuttra-inek•inem, tzemreḍ ad tḥadreḍ mgal %s.</string>
 	<string name="unfollow_user">Y•Teḥbes aḍfar n %s</string>
 	<string name="unfollow">Ur ṭṭafaṛ ara</string>
-	<string name="block_user_explain">Ur ttuɣalen ara ad izmiren ad ak•akem-ḍefren neɣ ad walin tisuffaɣ-inek•inem, maca ad walin ma yella ttusweḥlen.</string>
-	<string name="report_personal_title">Ur tebɣiḍ ara ad twaliḍ aya?</string>
-	<string name="report_personal_subtitle">Mi ara twaliḍ kra ur ak•am-neɛǧib ara ɣef Mastodon, tzemreḍ ad tekkseḍ amdan-nni seg tirmit-ik•im.</string>
 	<string name="back">Tuɣalin</string>
 	<string name="display_name">Isem</string>
 	<string name="username">Isem n useqdac</string>
@@ -166,14 +149,11 @@
 	<string name="resend">Ales tuzna</string>
 	<string name="open_email_app">Ldi asnas n yimayl</string>
 	<string name="resent_email">Asentem n tuzna n yimayl</string>
-	<string name="compose_hint">Aru neɣ senteḍ ayen yellan deg wallaɣ-ik•im</string>
 	<string name="content_warning">Alɣu ɣef ugbur</string>
 	<string name="save">Sekles</string>
 	<string name="add_alt_text">Rnu ɣer uḍris</string>
 	<string name="visibility_public">Azayaz</string>
 	<string name="visibility_followers_only">Imeḍfaṛen kan</string>
-	<string name="visibility_private">Imdanen i d-bedreɣ kan</string>
-	<string name="recent_searches">Inadiyen imaynuten</string>
 	<string name="skip">Zgel</string>
 	<string name="notification_type_follow">Ineḍfanen imaynuten</string>
 	<string name="notification_type_favorite">Imenyafen</string>
@@ -181,14 +161,8 @@
 	<string name="notification_type_poll">Isenqaden</string>
 	<string name="choose_account">Fren amiḍan</string>
 	<string name="err_not_logged_in">Ttxil-k·m qqen qbel ɣer Mastodon</string>
-	<plurals name="cant_add_more_than_x_attachments">
-		<item quantity="one">Ur tezmireḍ ara ad ternuḍ ugar n %d umsedday amidyat</item>
-		<item quantity="other">Ur tezmireḍ ara ad ternuḍ ugar n %d yimseddayen imidyaten</item>
-	</plurals>
 	<string name="media_attachment_unsupported_type">Anaw n ufaylu %s ur yettusefrak ara</string>
 	<string name="media_attachment_too_big">Afaylu %1$s iɛedda talast n teɣzi n %2$s MAṬ</string>
-	<string name="settings_theme">Arwes amwalan</string>
-	<string name="theme_auto">Awurman</string>
 	<string name="theme_light">Aceɛlal</string>
 	<string name="theme_dark">Aberkan</string>
 	<string name="settings_behavior">Tiddin</string>
@@ -201,10 +175,6 @@
 	<string name="settings_clear_cache">Sfeḍ takatut tuffirt n umidyat</string>
 	<string name="settings_app_version">Mastodon i Android v%1$s (%2$d)</string>
 	<string name="media_cache_cleared">Takatut tuffirt n umidyat tettwasfeḍ</string>
-	<string name="confirm_log_out">Tebɣiḍ ad teffɣeḍ?</string>
-	<string name="sensitive_content_explain">Ameskar yecreḍ ɣef umidyat-a d amḥulfu. Sit ad d-iban.</string>
-	<string name="media_hidden">Sit i uskan</string>
-	<string name="avatar_description">Ddu ɣer umaɣnu n %s</string>
 	<string name="more_options">Ugar n yiɣewwaren</string>
 	<string name="new_post">Tasuffeɣt tamaynut</string>
 	<string name="button_reply">Err</string>
@@ -219,7 +189,6 @@
 	<string name="media_viewer">Amsenqad n umidyat</string>
 	<string name="follow_user">Ḍfer %s</string>
 	<string name="unfollowed_user">Y•Teḥbes aḍfar n %s</string>
-	<string name="followed_user">Aql-ak·akem teṭṭafareḍ %s</string>
 	<string name="open_in_browser">Ldi deg yiminig</string>
 	<string name="signup_reason_note">Aya ad aɣ-iɛiwen ad nessenqed tuttra-inek•inem.</string>
 	<string name="clear">Sfeḍ</string>
@@ -233,11 +202,7 @@
 	<string name="error_saving_file">Tuccḍa deg usekles n ufaylu</string>
 	<string name="file_saved">Afaylu yettwasekles</string>
 	<string name="downloading">Asader…</string>
-	<string name="no_app_to_handle_action">Ulac akk asnas yessefraken tigawt-a</string>
-	<string name="local_timeline">Tamɣiwent</string>
-	<string name="trending_posts_info_banner">Tigi d tisuffaɣ i d-ijebbden s waṭas deg tama-inek•inem n Mastodon.</string>
-	<string name="trending_links_info_banner">Tigi d tiqsiḍin timaynutin i yettwabḍan s waṭas deg tama-inek•inem n Mastodon.</string>
-	<string name="local_timeline_info_banner">Tigi d tuget n tsuffaɣ timaynutin sɣur yimdanen ara yesseqdacen aqeddac n Mastodon kifkif d win i tesseqdaceḍ.</string>
+	<!-- %s is the server domain -->
 	<string name="see_new_posts">Ẓer tissufaɣ timaynutin</string>
 	<string name="load_missing_posts">Sali tisuffaɣ i iruḥen</string>
 	<string name="follow_back">Ḍfeṛ</string>
@@ -266,4 +231,15 @@
 	<!-- %s is server domain -->
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<!-- %s is formatted file size ("467 KB image") -->
+	<!-- %s is the server domain -->
+	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
+	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
+	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
+	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<!-- %s is the username -->
+	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<!-- Shown like a content warning, %s is the name of the filter -->
+	<!-- Shown in the post header. Please keep it short -->
 </resources>

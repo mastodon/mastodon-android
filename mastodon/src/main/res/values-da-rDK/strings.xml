@@ -4,18 +4,12 @@
 	<string name="next">Næste</string>
 	<string name="loading_instance">Henter serverinfo…</string>
 	<string name="error">Fejl</string>
-	<string name="not_a_mastodon_instance">%s ser ikke ud til at være en Mastodon-server.</string>
 	<string name="ok">Ok</string>
 	<string name="preparing_auth">Forbereder godkendelse…</string>
 	<string name="finishing_auth">Afslutter godkendelse…</string>
 	<string name="user_boosted">%s fremhævede</string>
 	<string name="in_reply_to">Som svar til %s</string>
 	<string name="notifications">Meddelelser</string>
-	<string name="user_followed_you">begyndte at følge dig</string>
-	<string name="user_sent_follow_request">sendte dig en følgeanmodning</string>
-	<string name="user_favorited">favoritmarkerede dit indlæg</string>
-	<string name="notification_boosted">fremhævede dit indlæg</string>
-	<string name="poll_ended">afstemning afsluttet</string>
 	<string name="share_toot_title">Del</string>
 	<string name="settings">Indstillinger</string>
 	<string name="publish">Offentliggør</string>
@@ -37,7 +31,6 @@
 	<string name="button_follow">Følg</string>
 	<string name="button_following">Følger</string>
 	<string name="edit_profile">Redigér profil</string>
-	<string name="share_user">Del %s</string>
 	<string name="mute_user">Skjul %s (mute)</string>
 	<string name="unmute_user">Vis %s igen (unmute)</string>
 	<string name="block_user">Bloker %s</string>
@@ -103,35 +96,27 @@
 	<string name="button_blocked">Blokeret</string>
 	<string name="action_vote">Stem</string>
 	<string name="delete">Slet</string>
-	<string name="confirm_delete_title">Slet indlæg</string>
 	<string name="confirm_delete">Er du sikker på, at du vil slette dette indlæg?</string>
 	<string name="deleting">Sletter…</string>
 	<string name="notification_channel_audio_player">Afspilning af lyd</string>
 	<string name="play">Afspil</string>
 	<string name="pause">Sæt på pause</string>
-	<string name="log_out">Log ud</string>
 	<string name="add_account">Tilføj konto</string>
 	<string name="search_hint">Søg</string>
 	<string name="hashtags">Hashtags</string>
 	<string name="news">Nyheder</string>
 	<string name="for_you">Til dig</string>
-	<string name="all_notifications">Alle</string>
 	<string name="mentions">Omtaler</string>
 	<plurals name="x_people_talking">
 		<item quantity="one">%d person deltager</item>
 		<item quantity="other">%d personer deltager</item>
 	</plurals>
 	<string name="report_title">Indberet %s</string>
-	<string name="report_choose_reason">Hvad er der galt med dette indlæg?</string>
-	<string name="report_choose_reason_account">Hvad er der galt med %s?</string>
 	<string name="report_choose_reason_subtitle">Vælg en passende grund</string>
-	<string name="report_reason_personal">Jeg bryder mig ikke om det</string>
 	<string name="report_reason_personal_subtitle">Det er ikke noget, man ønsker at se</string>
-	<string name="report_reason_spam">Det er spam</string>
 	<string name="report_reason_spam_subtitle">Ondsindede links, falske interaktioner, eller gentagne svar</string>
 	<string name="report_reason_violation">Det overtræder serverreglerne</string>
 	<string name="report_reason_violation_subtitle">Du kender til specifikke regler som det er i strid med</string>
-	<string name="report_reason_other">Det er noget andet</string>
 	<string name="report_reason_other_subtitle">Problemet passer ikke ind i andre kategorier</string>
 	<string name="report_choose_rule">Hvilke regler overtrædes?</string>
 	<string name="report_choose_rule_subtitle">Vælg alle relevante</string>
@@ -140,14 +125,8 @@
 	<string name="report_comment_title">Er der andet, vi bør vide?</string>
 	<string name="report_comment_hint">Yderligere kommentarer</string>
 	<string name="sending_report">Sender rapport…</string>
-	<string name="report_sent_title">Tak for anmeldelsen, der vil blive set nærmere på dette.</string>
-	<string name="report_sent_subtitle">Mens dette gennemgås, kan du selv bortfiltrere indlæg fra %s.</string>
 	<string name="unfollow_user">Følg ikke længere %s</string>
 	<string name="unfollow">Følg ikke længere</string>
-	<string name="mute_user_explain">Du vil ikke se den pågældendes indlæg eller fremhævninger i din tidslinje. Vedkommende vil ikke få besked om dæmpningen.</string>
-	<string name="block_user_explain">Vedkommende vil ikke længere kunne følge dig eller se dine indlæg, men vedkommende kan se blokeringen.</string>
-	<string name="report_personal_title">Ønsker du ikke at se dette?</string>
-	<string name="report_personal_subtitle">Når du ser noget, du ikke kan lide på Mastodon, kan du fjerne personen fra din tidslinje.</string>
 	<string name="back">Tilbage</string>
 	<string name="search_communities">Server-navn eller URL</string>
 	<string name="instance_rules_title">Serverregler</string>
@@ -174,19 +153,14 @@
 	<string name="category_tech">Teknologi</string>
 	<string name="confirm_email_title">Tjek din indbakke</string>
 	<!-- %s is the email address -->
-	<string name="confirm_email_subtitle">Tryk på linket vi sendte dig for at bekræfte %s. Vi venter lige her.</string>
-	<string name="confirm_email_didnt_get">Fandt du ikke et link?</string>
 	<string name="resend">Send igen</string>
 	<string name="open_email_app">Åben email-app</string>
 	<string name="resent_email">Bekræftelses-email sendt</string>
-	<string name="compose_hint">Skriv hvad du har på hjerte</string>
 	<string name="content_warning">Indholdsadvarsel</string>
 	<string name="save">Gem</string>
 	<string name="add_alt_text">Tilføj alternativ tekst</string>
 	<string name="visibility_public">Offentlig</string>
 	<string name="visibility_followers_only">Kun følgere</string>
-	<string name="visibility_private">Kun personer jeg nævner</string>
-	<string name="recent_searches">Seneste søgninger</string>
 	<string name="skip">Spring over</string>
 	<string name="notification_type_follow">Nye følgere</string>
 	<string name="notification_type_favorite">Favoritmarkeringer</string>
@@ -195,14 +169,8 @@
 	<string name="notification_type_poll">Afstemninger</string>
 	<string name="choose_account">Vælg konto</string>
 	<string name="err_not_logged_in">Log venligst ind på Mastodon først</string>
-	<plurals name="cant_add_more_than_x_attachments">
-		<item quantity="one">Du kan ikke tilføje mere end %d medievedhæftning</item>
-		<item quantity="other">Du kan ikke tilføje mere end %d medievedhæftninger</item>
-	</plurals>
 	<string name="media_attachment_unsupported_type">Filen %s er af en type der ikke understøttes</string>
 	<string name="media_attachment_too_big">Størrelsen på filen %1$s overskrider grænsen på %2$s MB</string>
-	<string name="settings_theme">Visuel fremtræden</string>
-	<string name="theme_auto">Automatisk</string>
 	<string name="theme_light">Lys</string>
 	<string name="theme_dark">Mørk</string>
 	<string name="settings_behavior">Opførsel</string>
@@ -215,10 +183,6 @@
 	<string name="settings_clear_cache">Ryd mediecache</string>
 	<string name="settings_app_version">Mastodon til Android v%1$s (%2$d)</string>
 	<string name="media_cache_cleared">Mediecache ryddet</string>
-	<string name="confirm_log_out">Er du sikker på, at du vil logge ud?</string>
-	<string name="sensitive_content_explain">Forfatteren markerede dette medie som følsomt. Tryk for at afsløre.</string>
-	<string name="media_hidden">Tryk for at vise</string>
-	<string name="avatar_description">Gå til %ss profil</string>
 	<string name="more_options">Flere muligheder</string>
 	<string name="new_post">Nyt indlæg</string>
 	<string name="button_reply">Svar</string>
@@ -234,7 +198,6 @@
 	<string name="media_viewer">Mediefremviser</string>
 	<string name="follow_user">Følg %s</string>
 	<string name="unfollowed_user">Følg ikke længere %s</string>
-	<string name="followed_user">Du følger nu %s</string>
 	<string name="following_user_requested">Anmodede om at følge %s</string>
 	<string name="open_in_browser">Åbn i browser</string>
 	<string name="hide_boosts_from_user">Skjul fremhævninger fra %s</string>
@@ -252,11 +215,7 @@
 	<string name="error_saving_file">Fejl under lagring af fil</string>
 	<string name="file_saved">Fil gemt</string>
 	<string name="downloading">Downloader…</string>
-	<string name="no_app_to_handle_action">Der er ingen app til at udføre denne handling</string>
-	<string name="local_timeline">Fællesskab</string>
-	<string name="trending_posts_info_banner">Dette er indlæg der tiltrækker sig opmærksomhed i dit hjørne af Mastodon.</string>
-	<string name="trending_links_info_banner">Dette er de nyheder, der deles mest i dit hjørne af Mastodon.</string>
-	<string name="local_timeline_info_banner">Disse er de seneste indlæg af medlemmer på din Mastodon-server.</string>
+	<!-- %s is the server domain -->
 	<string name="see_new_posts">Se nye indlæg</string>
 	<string name="load_missing_posts">Indlæs manglende indlæg</string>
 	<string name="follow_back">Følg Tilbage</string>
@@ -334,7 +293,6 @@
 	<string name="login_title">Velkommen tilbage</string>
 	<string name="login_subtitle">Log ind med serveren hvor du oprettede din bruger.</string>
 	<string name="server_url">Server-URL</string>
-	<string name="signup_random_server_explain">Vi vælger en server baseret på dit sprog, hvis du fortsætter uden at foretage et valg.</string>
 	<string name="server_filter_any_language">Hvilket som helst sprog</string>
 	<string name="server_filter_instant_signup">Øjeblikkelig tilmelding</string>
 	<string name="server_filter_manual_review">Manuel evaluering</string>
@@ -347,7 +305,6 @@
 	<string name="server_filter_region_oceania">Oceania</string>
 	<string name="not_accepting_new_members">Ikke åben for nye medlemmer</string>
 	<string name="category_special_interests">Særlige Interesser</string>
-	<string name="signup_passwords_dont_match">Adgangskoderne er ikke ens</string>
 	<string name="pick_server_for_me">Vælg for mig</string>
 	<string name="profile_add_row">Tilføj række</string>
 	<string name="profile_setup">Profilopsætning</string>
@@ -356,14 +313,12 @@
 	<string name="popular_on_mastodon">Populært på Mastodon</string>
 	<string name="follow_all">Følg alle</string>
 	<string name="server_rules_disagree">Ikke enig</string>
-	<string name="privacy_policy_explanation">TL;DR: Vi indsamler eller behandler ikke noget.</string>
 	<!-- %s is server domain -->
 	<string name="server_policy_disagree">Uenig med %s</string>
 	<string name="profile_bio">Biografi</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<string name="sending_follows">Følger brugere …</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
-	<string name="signup_email_domain_blocked">%1$s tillader ikke tilmeldinger fra %2$s. Prøv en anden eller &lt;a&gt;vælg en anden server&lt;/a&gt;.</string>
 	<string name="spoiler_show">Vis alligevel</string>
 	<string name="spoiler_hide">Genskjul</string>
 	<string name="poll_multiple_choice">Vælg en eller flere</string>
@@ -382,4 +337,15 @@
 	<string name="welcome_paragraph1">Mastodon er et decentraliseret socialt netværk, hvilket betyder at ingen enkelt virksomhed styrer det. Det består af mange uafhængige servere, alle forbundet sammen.</string>
 	<string name="what_are_servers">Hvad er servere?</string>
 	<string name="welcome_paragraph2"><![CDATA[Alle Mastodon-konti har plads på en server. Hver server har sine egne værdier, regler og administratorer. Ligegyldigt hvilken server du vælger, kan du følge og interagere med folk på alle andre servere.]]></string>
+	<!-- %s is formatted file size ("467 KB image") -->
+	<!-- %s is the server domain -->
+	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
+	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
+	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
+	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<!-- %s is the username -->
+	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<!-- Shown like a content warning, %s is the name of the filter -->
+	<!-- Shown in the post header. Please keep it short -->
 </resources>

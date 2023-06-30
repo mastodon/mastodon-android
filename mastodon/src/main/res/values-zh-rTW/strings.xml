@@ -11,11 +11,11 @@
 	<string name="user_boosted">%s 已轉嘟</string>
 	<string name="in_reply_to">回覆給 %s</string>
 	<string name="notifications">通知</string>
-	<string name="user_followed_you">已跟隨您</string>
-	<string name="user_sent_follow_request">傳送跟隨請求給您</string>
-	<string name="user_favorited">已將您的嘟文加入最愛</string>
-	<string name="notification_boosted">已轉嘟您的嘟文</string>
-	<string name="poll_ended">投票已結束</string>
+	<string name="user_followed_you">%s 已跟隨您</string>
+	<string name="user_sent_follow_request">%s 已傳送跟隨請求給您</string>
+	<string name="user_favorited">%s 已將您的嘟文加入最愛</string>
+	<string name="notification_boosted">%s 已轉嘟您的嘟文</string>
+	<string name="poll_ended">檢視您參與之一則投票結果</string>
 	<string name="share_toot_title">分享</string>
 	<string name="settings">設定</string>
 	<string name="publish">發佈</string>
@@ -35,7 +35,7 @@
 	<string name="button_follow">跟隨</string>
 	<string name="button_following">正在跟隨</string>
 	<string name="edit_profile">編輯個人檔案</string>
-	<string name="share_user">分享 %s</string>
+	<string name="share_user">分享個人檔案</string>
 	<string name="mute_user">靜音 %s</string>
 	<string name="unmute_user">取消靜音 %s</string>
 	<string name="block_user">封鎖 %s</string>
@@ -75,6 +75,9 @@
 	<plurals name="x_days_left">
 		<item quantity="other">剩餘 %d 天</item>
 	</plurals>
+	<plurals name="x_votes">
+		<item quantity="other">%,d 票</item>
+	</plurals>
 	<string name="poll_closed">已關閉</string>
 	<string name="confirm_mute_title">靜音帳號</string>
 	<string name="confirm_mute">確認將 %s 靜音</string>
@@ -112,7 +115,7 @@
 	</plurals>
 	<string name="report_title">檢舉 %s</string>
 	<string name="report_choose_reason">這則嘟文有什麼問題嗎？</string>
-	<string name="report_choose_reason_account">%s 有什麼問題？</string>
+	<string name="report_choose_reason_account">%s 有什麼問題嗎？</string>
 	<string name="report_choose_reason_subtitle">選取最符合的</string>
 	<string name="report_reason_personal">我不喜歡</string>
 	<string name="report_reason_personal_subtitle">這是您不想看到的</string>
@@ -129,14 +132,14 @@
 	<string name="report_comment_title">有什麼其他要讓我們知道的嗎？</string>
 	<string name="report_comment_hint">其他備註</string>
 	<string name="sending_report">正在傳送回報……</string>
-	<string name="report_sent_title">感謝您的檢舉，我們將會著手處理。</string>
-	<string name="report_sent_subtitle">當我們正在審核時，您可以對 %s 採取以下措施。</string>
+	<string name="report_sent_title">感謝您的檢舉，我們將著手處理。</string>
+	<string name="report_sent_subtitle">當我們正在審核時，您可以對 %s 採取以下措施：</string>
 	<string name="unfollow_user">取消跟隨 %s</string>
 	<string name="unfollow">取消跟隨</string>
-	<string name="mute_user_explain">您不會在您的首頁時間軸中再見到他們的嘟文或轉嘟。他們不會知道他們已被靜音。</string>
-	<string name="block_user_explain">他們將無法跟隨您或是看到您的嘟文。他們能看到他們是否已被封鎖。</string>
+	<string name="mute_user_explain">您將不再看到他們的嘟文。他們仍能可以跟隨您以及察看您的嘟文，並且不會知道他們已被靜音。</string>
+	<string name="block_user_explain">您將不再看到他們的嘟文。他們將無法看到您的嘟文或是跟隨您。他們會發現他們已被封鎖。</string>
 	<string name="report_personal_title">不想再看到這個？</string>
-	<string name="report_personal_subtitle">當您看到某些不喜歡的內容時，您可以將該帳號從您的體驗中移除。</string>
+	<string name="report_personal_subtitle">以下是控制您想於 Mastodon 看到什麼內容之選項：</string>
 	<string name="back">返回</string>
 	<string name="search_communities">伺服器名稱或 URL</string>
 	<string name="instance_rules_title">伺服器規則</string>
@@ -175,7 +178,7 @@
 	<string name="visibility_public">公開</string>
 	<string name="visibility_followers_only">僅限跟隨者</string>
 	<string name="visibility_private">僅限提及者</string>
-	<string name="recent_searches">最近的搜尋</string>
+	<string name="recent_searches">最近的</string>
 	<string name="skip">跳過</string>
 	<string name="notification_type_follow">新的跟隨者</string>
 	<string name="notification_type_favorite">最愛</string>
@@ -189,8 +192,8 @@
 	</plurals>
 	<string name="media_attachment_unsupported_type">檔案 %s 的類型不受支援</string>
 	<string name="media_attachment_too_big">檔案 %1$s 超過 %2$s MB 的大小限制</string>
-	<string name="settings_theme">視覺外觀</string>
-	<string name="theme_auto">自動</string>
+	<string name="settings_theme">外觀設定</string>
+	<string name="theme_auto">使用裝置設定</string>
 	<string name="theme_light">淺色</string>
 	<string name="theme_dark">深色</string>
 	<string name="settings_behavior">行為</string>
@@ -203,9 +206,8 @@
 	<string name="settings_clear_cache">清除媒體快取</string>
 	<string name="settings_app_version">供 Android 使用的 Mastodon v%1$s (%2$d)</string>
 	<string name="media_cache_cleared">媒體快取已清除</string>
-	<string name="confirm_log_out">您確定要登出嗎？</string>
-	<string name="sensitive_content_explain">作者將此媒體標記為敏感。輕點以顯示。</string>
-	<string name="media_hidden">輕點以顯示</string>
+	<string name="confirm_log_out">登出 %s？</string>
+	<string name="sensitive_content_explain">作者將此媒體標記為敏感內容。</string>
 	<string name="avatar_description">前往 %s 的個人檔案</string>
 	<string name="more_options">更多選項</string>
 	<string name="new_post">新嘟文</string>
@@ -241,10 +243,12 @@
 	<string name="file_saved">儲存成功</string>
 	<string name="downloading">正在下載...</string>
 	<string name="no_app_to_handle_action">沒有可以處理這個動作的 app</string>
-	<string name="local_timeline">社群</string>
-	<string name="trending_posts_info_banner">這些嘟文正在您 Mastodon 的角落受到注目。</string>
-	<string name="trending_links_info_banner">這些最新消息正在您 Mastodon 的角落被分享。</string>
-	<string name="local_timeline_info_banner">這些是和您同一 Mastodon 伺服器的人們最近發的嘟文。</string>
+	<string name="local_timeline">本站</string>
+	<string name="trending_posts_info_banner">這些嘟文正在 Mastodon 的各個角落受到注目。</string>
+	<string name="trending_links_info_banner">這些新聞故事正在 Mastodon 上被熱烈討論著。</string>
+	<!-- %s is the server domain -->
+	<string name="local_timeline_info_banner">這些是來自您伺服器 (%s) 所有使用者之嘟文。</string>
+	<string name="recommended_accounts_info_banner">基於您所跟隨的其他人，您可能會喜歡這些帳號。</string>
 	<string name="see_new_posts">檢視最新嘟文</string>
 	<string name="load_missing_posts">讀取錯過的嘟文</string>
 	<string name="follow_back">跟隨回去</string>
@@ -329,7 +333,7 @@
 	<string name="server_filter_region_oceania">大洋洲</string>
 	<string name="not_accepting_new_members">目前暫不開放新成員</string>
 	<string name="category_special_interests">特別興趣</string>
-	<string name="signup_passwords_dont_match">密碼不符</string>
+	<string name="signup_passwords_dont_match">密碼不一致</string>
 	<string name="pick_server_for_me">請替我選擇</string>
 	<string name="profile_add_row">新增</string>
 	<string name="profile_setup">個人檔案設定</string>
@@ -365,4 +369,188 @@
 	<string name="welcome_paragraph1">Mastodon 是去中心化的社交網路，意思是沒有單一公司掌控它。它由許多獨立運行而互相連接的伺服器組成。</string>
 	<string name="what_are_servers">伺服器是什麼？</string>
 	<string name="welcome_paragraph2"><![CDATA[所有的 Mastodon 帳號皆託管於一個伺服器上 — 其擁有各自之價值觀、規則、與管理者。無論您選擇何者，您皆能跟隨並與其他任何伺服器上的人們互動。]]></string>
+	<string name="opening_link">開啟連結...</string>
+	<string name="link_not_supported">此連結不被 app 所支援</string>
+	<string name="log_out_all_accounts">登出所有帳號</string>
+	<string name="confirm_log_out_all_accounts">確定要登出所有帳號嗎？</string>
+	<string name="retry">再試一次</string>
+	<string name="post_failed">發送嘟文失敗</string>
+	<!-- %s is formatted file size ("467 KB image") -->
+	<string name="attachment_description_image">%s 張圖片</string>
+	<string name="attachment_description_video">%s 段影片</string>
+	<string name="attachment_description_audio">%s 則音訊</string>
+	<string name="attachment_description_unknown">%s個檔案</string>
+	<string name="attachment_type_image">圖片</string>
+	<string name="attachment_type_video">影片</string>
+	<string name="attachment_type_audio">音訊</string>
+	<string name="attachment_type_gif">GIF</string>
+	<string name="attachment_type_unknown">檔案</string>
+	<string name="attachment_x_percent_uploaded">已上傳 %d%%</string>
+	<string name="add_poll_option">新增投票選項</string>
+	<string name="poll_length">投票時間</string>
+	<string name="poll_style">投票方式</string>
+	<string name="compose_poll_single_choice">單選</string>
+	<string name="compose_poll_multiple_choice">多選</string>
+	<string name="delete_poll_option">刪除投票選項</string>
+	<string name="poll_style_title">投票方式</string>
+	<string name="alt_text">ALT 說明文字</string>
+	<string name="help">幫助</string>
+	<string name="what_is_alt_text">什麼是 ALT 說明文字？</string>
+	<string name="alt_text_help">ALT 說明文字為視覺障礙者、低網路頻寬或尋求額外上下文語境的人們提供圖片描述。\n\n您可以透過撰寫清晰、簡潔及客觀的說明文字以替所有人改善無障礙特性與協助理解。\n\n<ul><li>掌握幾個重要元素</li>\n<li>替圖片提供文字摘要</li>\n<li>使用常規行文結構</li>\n<li>避免冗贅資訊</li>\n<li>聚焦於趨勢和複雜視覺中之關鍵（如圖表或地圖）</li></ul></string>
+	<string name="edit_post">編輯嘟文</string>
+	<string name="no_verified_link">無已驗證連結</string>
+	<string name="compose_autocomplete_emoji_empty">瀏覽 emoji</string>
+	<string name="compose_autocomplete_users_empty">尋找您想找的人</string>
+	<string name="no_search_results">無法找到符合搜尋條件之結果</string>
+	<string name="language">語言</string>
+	<string name="language_default">預設</string>
+	<string name="language_system">系統設定</string>
+	<string name="language_detecting">自動偵測語言</string>
+	<string name="language_cant_detect">無法自動偵測語言</string>
+	<string name="language_detected">已偵測</string>
+	<string name="media_hidden">隱藏的媒體內容</string>
+	<string name="post_hidden">隱藏的嘟文</string>
+	<string name="report_title_post">檢舉嘟文</string>
+	<string name="forward_report_explanation">這個帳號屬於其他伺服器。要向該伺服器發送匿名的檢舉訊息嗎？</string>
+	<!-- %s is the server domain -->
+	<string name="forward_report_to_server">轉寄至 %s</string>
+	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
+	<string name="reported">已檢舉</string>
+	<string name="report_unfollow_explanation">取消跟隨他們以不再於您的首頁時間軸見到他們的嘟文。</string>
+	<string name="muted_user">已靜音 %s</string>
+	<string name="report_sent_already_blocked">您已經封鎖此使用者，當我們審核您的檢舉時，您不需要進行任何動作。</string>
+	<string name="report_personal_already_blocked">您已經封鎖此使用者，當我們審核您的檢舉時，您不需要進行任何動作。\n\n感謝您協助將 Mastodon 成為對每個人皆安全的好所在！</string>
+	<string name="blocked_user">已封鎖 %s</string>
+	<string name="mark_all_notifications_read">全部標記為已讀取</string>
+	<string name="settings_display">顯示</string>
+	<string name="settings_filters">過濾器</string>
+	<string name="settings_server_explanation">概要、規則、管理員</string>
+	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
+	<string name="about_app">關於 %s</string>
+	<string name="default_post_language">預設嘟文語言</string>
+	<string name="settings_alt_text_reminders">加上 ALT 說明文字提醒</string>
+	<string name="settings_confirm_unfollow">取消跟隨某人前先詢問我</string>
+	<string name="settings_confirm_boost">轉嘟前先詢問我</string>
+	<string name="settings_confirm_delete_post">刪除嘟文前先詢問我</string>
+	<string name="pause_all_notifications">暫停全部</string>
+	<string name="pause_notifications_off">關閉</string>
+	<string name="notifications_policy_anyone">所有人</string>
+	<string name="notifications_policy_followed">跟隨您的人</string>
+	<string name="notifications_policy_follower">您跟隨的人</string>
+	<string name="notifications_policy_no_one">沒有人</string>
+	<string name="settings_notifications_policy">接受通知來自</string>
+	<string name="notification_type_mentions_and_replies">提及與回覆</string>
+	<string name="pause_all_notifications_title">暫停所有通知</string>
+	<plurals name="x_weeks">
+		<item quantity="other">%d 個禮拜</item>
+	</plurals>
+	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
+	<string name="date_at_time">%1$s 於 %2$s</string>
+	<string name="today">今天</string>
+	<string name="yesterday">昨天</string>
+	<string name="tomorrow">明天</string>
+	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="pause_notifications_ends">結束於：%s</string>
+	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="pause_notifications_banner">通知將於 %s 恢復。</string>
+	<string name="resume_notifications_now">現在回復</string>
+	<string name="open_system_notification_settings">前往系統通知設定</string>
+	<string name="about_server">關於</string>
+	<string name="server_rules">規則</string>
+	<string name="server_administrator">管理員</string>
+	<string name="send_email_to_server_admin">私訊管理員</string>
+	<string name="notifications_disabled_in_system">自您的裝置啟用通知以獲取來自任何地方的新消息。</string>
+	<string name="settings_even_more">更多更多的設定</string>
+	<string name="settings_show_cws">顯示內容警告</string>
+	<string name="settings_hide_sensitive_media">隱藏標為敏感內容的媒體</string>
+	<string name="settings_show_interaction_counts">嘟文互動數</string>
+	<string name="settings_show_emoji_in_names">於顯示名稱中自訂 emoji</string>
+	<plurals name="in_x_seconds">
+		<item quantity="other">%d 秒鐘內</item>
+	</plurals>
+	<plurals name="in_x_minutes">
+		<item quantity="other">%d 分鐘內</item>
+	</plurals>
+	<plurals name="in_x_hours">
+		<item quantity="other">%d 小時內</item>
+	</plurals>
+	<plurals name="x_hours_ago">
+		<item quantity="other">%d 小時前</item>
+	</plurals>
+	<string name="alt_text_reminder_title">媒體沒有 ALT 說明文字</string>
+	<plurals name="alt_text_reminder_x_images">
+		<item quantity="other">您的 %s 則圖片沒有 ALT 說明文字。您仍要發嘟嗎？</item>
+	</plurals>
+	<plurals name="alt_text_reminder_x_attachments">
+		<item quantity="other">您的 %s 則多媒體附加檔案沒有 ALT 說明文字。您仍要發嘟嗎？</item>
+	</plurals>
+	<string name="count_one">一</string>
+	<string name="count_two">二</string>
+	<string name="count_three">三</string>
+	<string name="count_four">四</string>
+	<string name="alt_text_reminder_post_anyway">發嘟</string>
+	<!-- %s is the username -->
+	<string name="unfollow_confirmation">取消跟隨 %s？</string>
+	<string name="filter_active">生效</string>
+	<string name="filter_inactive">已停用</string>
+	<string name="settings_add_filter">新增過濾器</string>
+	<string name="settings_edit_filter">編輯過濾器</string>
+	<string name="settings_filter_duration">持續時間</string>
+	<string name="settings_filter_muted_words">已靜音文字</string>
+	<string name="settings_filter_context">靜音於</string>
+	<string name="settings_filter_show_cw">顯示內容警告</string>
+	<string name="settings_filter_show_cw_explanation">仍要顯示匹配此過濾器之嘟文，但隱藏於內容警告後</string>
+	<string name="settings_delete_filter">刪除過濾器</string>
+	<string name="filter_duration_forever">直到永遠</string>
+	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="settings_filter_ends">結束於：%s</string>
+	<plurals name="settings_x_muted_words">
+		<item quantity="other">%d 個已靜音單字或詞彙</item>
+	</plurals>
+	<string name="selection_2_options">%1$s 與 %2$s</string>
+	<string name="selection_3_options">%1$s、%2$s 與 %3$s</string>
+	<string name="selection_4_or_more">%1$s、%2$s 與 %3$d 個更多</string>
+	<string name="filter_context_home_lists">首頁 &amp; 列表</string>
+	<string name="filter_context_notifications">通知</string>
+	<string name="filter_context_public_timelines">公開時間軸</string>
+	<string name="filter_context_threads_replies">討論串 &amp; 回嘟</string>
+	<string name="filter_context_profiles">個人檔案</string>
+	<string name="settings_filter_title">標題</string>
+	<string name="settings_delete_filter_title">刪除過濾器「%s」？</string>
+	<string name="settings_delete_filter_confirmation">此過濾器將自您帳號之所有裝置中被刪除。</string>
+	<string name="add_muted_word">新增靜音文字</string>
+	<string name="edit_muted_word">編輯靜音文字</string>
+	<string name="add">新增</string>
+	<string name="filter_word_or_phrase">單字或詞彙</string>
+	<string name="filter_add_word_help">單字不分大小寫並且僅匹配完整單字。\n\n若您過濾關鍵字「apple」，則它將隱藏所有包含「apple」或「aPpLe」之嘟文，但不包含「pineapple」。</string>
+	<string name="settings_delete_filter_word">刪除單字「%s」？</string>
+	<string name="enter_selection_mode">選擇</string>
+	<string name="select_all">選擇權不</string>
+	<string name="settings_filter_duration_title">過濾器持續時間</string>
+	<string name="filter_duration_custom">自訂</string>
+	<plurals name="settings_delete_x_filter_words">
+		<item quantity="other">刪除 %d 個單字？</item>
+	</plurals>
+	<plurals name="x_items_selected">
+		<item quantity="other">已選擇 %d 個</item>
+	</plurals>
+	<string name="required_form_field_blank">不能為空白</string>
+	<string name="filter_word_already_in_list">已經在列表中</string>
+	<string name="app_update_ready">App 更新已就緒</string>
+	<string name="app_update_version">版本：%s</string>
+	<string name="downloading_update">正在下載 (%d%%)</string>
+	<!-- Shown like a content warning, %s is the name of the filter -->
+	<string name="post_matches_filter_x">匹配過濾器「%s」</string>
+	<string name="search_mastodon">搜尋 Mastodon</string>
+	<string name="clear_all">清除全部</string>
+	<string name="search_open_url">於 Mastodon 中開啟連結</string>
+	<string name="posts_matching_hashtag">包含「%s」之嘟文</string>
+	<string name="search_go_to_account">前往 %s</string>
+	<string name="posts_matching_string">包含「%s」之嘟文</string>
+	<string name="accounts_matching_string">包含「%s」之帳號</string>
+	<!-- Shown in the post header. Please keep it short -->
+	<string name="time_seconds_ago_short">%d 秒前</string>
+	<string name="time_minutes_ago_short">%d 分鐘前</string>
+	<string name="time_hours_ago_short">%d 小時前</string>
+	<string name="time_days_ago_short">%d 天前</string>
 </resources>

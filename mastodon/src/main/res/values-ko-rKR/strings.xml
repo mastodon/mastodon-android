@@ -4,16 +4,11 @@
 	<string name="next">다음</string>
 	<string name="loading_instance">서버 정보 받아오는 중...</string>
 	<string name="error">오류</string>
-	<string name="not_a_mastodon_instance">%s는 마스토돈 서버인 것 같지 않습니다.</string>
 	<string name="ok">확인</string>
 	<string name="preparing_auth">인증 준비 중…</string>
 	<string name="finishing_auth">인증을 끝마치는 중…</string>
 	<string name="in_reply_to">%s 님에게 답장</string>
 	<string name="notifications">알림</string>
-	<string name="user_followed_you">나를 팔로우함</string>
-	<string name="user_sent_follow_request">나에게 팔로우 요청을 보냄</string>
-	<string name="user_favorited">당신의 게시물을 좋아합니다</string>
-	<string name="poll_ended">투표 종료됨</string>
 	<string name="share_toot_title">공유</string>
 	<string name="settings">설정</string>
 	<string name="publish">게시</string>
@@ -33,7 +28,6 @@
 	<string name="button_follow">팔로우</string>
 	<string name="button_following">팔로잉</string>
 	<string name="edit_profile">프로필 수정</string>
-	<string name="share_user">%s 공유</string>
 	<string name="mute_user">%s 뮤트</string>
 	<string name="unmute_user">%s 뮤트 해제</string>
 	<string name="block_user">%s 차단</string>
@@ -91,34 +85,26 @@
 	<string name="button_blocked">차단됨</string>
 	<string name="action_vote">투표</string>
 	<string name="delete">삭제</string>
-	<string name="confirm_delete_title">게시물 삭제</string>
 	<string name="confirm_delete">정말로 이 게시물을 삭제하시겠습니까?</string>
 	<string name="deleting">삭제 중…</string>
 	<string name="notification_channel_audio_player">오디오 재생</string>
 	<string name="play">재생</string>
 	<string name="pause">일시정지</string>
-	<string name="log_out">로그아웃</string>
 	<string name="add_account">계정 추가</string>
 	<string name="search_hint">검색</string>
 	<string name="hashtags">해시태그</string>
 	<string name="news">소식</string>
 	<string name="for_you">추천</string>
-	<string name="all_notifications">모두</string>
 	<string name="mentions">멘션</string>
 	<plurals name="x_people_talking">
 		<item quantity="other">%d명이 말하고 있음</item>
 	</plurals>
 	<string name="report_title">%s 신고</string>
-	<string name="report_choose_reason">이 게시물에 어떤 문제가 있나요?</string>
-	<string name="report_choose_reason_account">%s 님에게 어떤 문제가 있나요?</string>
 	<string name="report_choose_reason_subtitle">가장 알맞은 것을 선택하세요</string>
-	<string name="report_reason_personal">마음에 안 듭니다</string>
 	<string name="report_reason_personal_subtitle">내가 보기 싫은 종류에 속합니다</string>
-	<string name="report_reason_spam">스팸입니다</string>
 	<string name="report_reason_spam_subtitle">악성 링크, 반응 스팸, 또는 반복적인 답장</string>
 	<string name="report_reason_violation">서버 규칙을 위반합니다</string>
 	<string name="report_reason_violation_subtitle">특정 규칙을 위반합니다</string>
-	<string name="report_reason_other">기타</string>
 	<string name="report_reason_other_subtitle">이슈가 다른 분류에 속하지 않습니다</string>
 	<string name="report_choose_rule">어떤 규칙을 위반했나요?</string>
 	<string name="report_choose_rule_subtitle">해당하는 사항을 모두 선택하세요</string>
@@ -127,13 +113,8 @@
 	<string name="report_comment_title">우리가 더 알아야 할 내용이 있나요?</string>
 	<string name="report_comment_hint">추가 의견</string>
 	<string name="sending_report">신고 보내는 중...</string>
-	<string name="report_sent_title">신고해주셔서 감사합니다, 중재자들이 확인할 예정입니다.</string>
-	<string name="report_sent_subtitle">서버의 중재자들이 이것을 심사하는 동안, 당신은 %s에 대한 행동을 취할 수 있습니다.</string>
 	<string name="unfollow_user">%s 팔로우 해제</string>
 	<string name="unfollow">팔로우 해제</string>
-	<string name="block_user_explain">상대방은 나를 팔로우 하거나 내 게시물을 볼 수 없게 됩니다, 하지만 내가 차단한 사실은 알 수 있습니다.</string>
-	<string name="report_personal_title">이런 것을 보지 않길 원하나요?</string>
-	<string name="report_personal_subtitle">마스토돈에서 보기 싫은 것을 보았다면, 해당하는 사람을 지울 수 있습니다.</string>
 	<string name="back">뒤로 가기</string>
 	<string name="search_communities">서버이름 혹은 URL</string>
 	<string name="instance_rules_title">서버 규칙</string>
@@ -160,19 +141,14 @@
 	<string name="category_tech">기술</string>
 	<string name="confirm_email_title">받은 편지함을 확인하세요</string>
 	<!-- %s is the email address -->
-	<string name="confirm_email_subtitle">%s에 인증하기 위해 우리가 보낸 링크를 누르세요. 여기서 기다리겠습니다.</string>
-	<string name="confirm_email_didnt_get">링크를 못 받으셨나요?</string>
 	<string name="resend">재전송</string>
 	<string name="open_email_app">이메일 앱 열기</string>
 	<string name="resent_email">확인용 이메일이 보내졌습니다</string>
-	<string name="compose_hint">무슨 생각을 하고 있는지 입력하거나 붙여넣으세요</string>
 	<string name="content_warning">열람 주의</string>
 	<string name="save">저장</string>
 	<string name="add_alt_text">대체 텍스트 추가</string>
 	<string name="visibility_public">공개</string>
 	<string name="visibility_followers_only">팔로워 전용</string>
-	<string name="visibility_private">멘션한 사람만</string>
-	<string name="recent_searches">최근 검색</string>
 	<string name="skip">건너뛰기</string>
 	<string name="notification_type_follow">새 팔로워</string>
 	<string name="notification_type_favorite">좋아함</string>
@@ -180,13 +156,8 @@
 	<string name="notification_type_poll">투표</string>
 	<string name="choose_account">계정 선택</string>
 	<string name="err_not_logged_in">먼저 마스토돈에 로그인해야 합니다</string>
-	<plurals name="cant_add_more_than_x_attachments">
-		<item quantity="other">%d개의 미디어를 초과해서 첨부할 수 없습니다</item>
-	</plurals>
 	<string name="media_attachment_unsupported_type">%s 파일은 지원되지 않는 타입입니다</string>
 	<string name="media_attachment_too_big">%1$s 파일은 업로드 제한인 %2$s MB를 초과합니다</string>
-	<string name="settings_theme">테마</string>
-	<string name="theme_auto">자동</string>
 	<string name="theme_light">밝음</string>
 	<string name="theme_dark">어두움</string>
 	<string name="settings_behavior">동작</string>
@@ -199,10 +170,6 @@
 	<string name="settings_clear_cache">미디어 캐시 지우기</string>
 	<string name="settings_app_version">안드로이드용 마스토돈 v%1$s (%2$d)</string>
 	<string name="media_cache_cleared">미디어 캐시 지워짐</string>
-	<string name="confirm_log_out">정말로 로그아웃하시겠습니까?</string>
-	<string name="sensitive_content_explain">작성자가 미디어를 민감하다고 설정했습니다. 눌러서 확인합니다.</string>
-	<string name="media_hidden">눌러서 확인</string>
-	<string name="avatar_description">%s 님의 프로필로 이동</string>
 	<string name="more_options">추가 옵션</string>
 	<string name="new_post">새 게시물</string>
 	<string name="button_reply">답장</string>
@@ -217,7 +184,6 @@
 	<string name="media_viewer">미디어 뷰어</string>
 	<string name="follow_user">%s 팔로우</string>
 	<string name="unfollowed_user">%s 님을 팔로우 해제했습니다</string>
-	<string name="followed_user">이제 %s 님을 팔로우 합니다</string>
 	<string name="open_in_browser">브라우저에서 열기</string>
 	<string name="signup_reason">가입하려는 이유가 무엇인가요?</string>
 	<string name="signup_reason_note">이 정보는 우리가 심사를 하는 데에 참고할 수 있습니다.</string>
@@ -232,11 +198,7 @@
 	<string name="error_saving_file">파일 저장 오류</string>
 	<string name="file_saved">파일 저장됨</string>
 	<string name="downloading">다운로드 중…</string>
-	<string name="no_app_to_handle_action">이 동작을 처리할 앱이 없습니다</string>
-	<string name="local_timeline">커뮤니티</string>
-	<string name="trending_posts_info_banner">당신이 속한 마스토돈 서버에서 관심을 끌고 있는 게시물들입니다.</string>
-	<string name="trending_links_info_banner">당신이 속한 마스토돈 서버에서 가장 많이 공유되고 있는 소식들입니다.</string>
-	<string name="local_timeline_info_banner">당신과 같은 마스토돈 서버에 존재하는 사람들이 공유한 최신 게시물들입니다.</string>
+	<!-- %s is the server domain -->
 	<string name="see_new_posts">새 게시물 보기</string>
 	<string name="load_missing_posts">놓친 게시물 불러오기</string>
 	<string name="follow_back">맞팔로우</string>
@@ -305,7 +267,6 @@
 	<string name="login_title">돌아오신 것을 환영합니다</string>
 	<string name="login_subtitle">계정을 생성한 서버에 로그인하세요.</string>
 	<string name="server_url">서버 URL</string>
-	<string name="signup_random_server_explain">아무 것도 고르지 않은 경우, 당신의 언어에 따라 서버를 골라드립니다.</string>
 	<string name="server_filter_any_language">모든 언어</string>
 	<string name="server_filter_instant_signup">즉시 가입</string>
 	<string name="server_filter_manual_review">수동 리뷰</string>
@@ -318,16 +279,25 @@
 	<string name="server_filter_region_oceania">오세아니아</string>
 	<string name="not_accepting_new_members">새로운 가입을 받지 않습니다</string>
 	<string name="category_special_interests">특별한 관심사</string>
-	<string name="signup_passwords_dont_match">암호가 일치하지 않습니다</string>
 	<string name="pick_server_for_me">나를 위한 추천</string>
 	<string name="profile_add_row">열 추가</string>
 	<string name="profile_setup">프로필 설정</string>
 	<string name="profile_setup_subtitle">나중에 언제든지 프로필 탭에서 완성할 수 있습니다.</string>
 	<string name="follow_all">모두 팔로우</string>
 	<string name="server_rules_disagree">동의 안 함</string>
-	<string name="privacy_policy_explanation">요약: 우리는 어떤 정보도 수집하거나 처리하지 않습니다.</string>
 	<!-- %s is server domain -->
 	<string name="server_policy_disagree">%s에 대해 비동의</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<!-- %s is formatted file size ("467 KB image") -->
+	<!-- %s is the server domain -->
+	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
+	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
+	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
+	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<!-- %s is the username -->
+	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<!-- Shown like a content warning, %s is the name of the filter -->
+	<!-- Shown in the post header. Please keep it short -->
 </resources>

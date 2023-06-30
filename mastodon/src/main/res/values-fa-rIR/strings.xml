@@ -7,86 +7,346 @@
 	<string name="ok">تأیید</string>
 	<string name="preparing_auth">درحال آماده‌سازی برای احرازهویت…</string>
 	<string name="finishing_auth">درحال تکمیل احرازهویت…</string>
+	<string name="user_boosted">‫%s‬ تقویت کرد</string>
 	<string name="in_reply_to">در پاسخ به %s</string>
-	<string name="notifications">اعلان‌ها</string>
-	<string name="user_followed_you">شما را دنبال می‌کند</string>
-	<string name="user_sent_follow_request">یک درخواست دنبال کردن برای شما ارسال کرد</string>
-	<string name="user_favorited">‫‬ فرسته‌تان را پسندید</string>
-	<string name="poll_ended">نظرسنجی به پایان رسید</string>
-	<string name="share_toot_title">اشتراک‌گذاری</string>
+	<string name="notifications">آگاهی‌ها</string>
+	<string name="share_toot_title">هم‌رسانی</string>
 	<string name="settings">تنظیمات</string>
 	<string name="publish">انتشار</string>
 	<string name="discard_draft">پیش‌نویس‌ کنار گذاشته شود؟</string>
 	<string name="discard">صرف‌نظر کردن</string>
 	<string name="cancel">لغو</string>
-	<string name="posts">پست‌ها</string>
-	<string name="posts_and_replies">پست‌ها و پاسخ‌ها</string>
+	<plurals name="followers">
+		<item quantity="one">پی‌گیر</item>
+		<item quantity="other">پی‌گیران</item>
+	</plurals>
+	<plurals name="following">
+		<item quantity="one">پی‌گرفته</item>
+		<item quantity="other">پی‌گرفته</item>
+	</plurals>
+	<string name="posts">فرسته‌ها</string>
+	<string name="posts_and_replies">فرسته‌ها و پاسخ‌ها</string>
 	<string name="media">رسانه</string>
 	<string name="profile_about">درباره</string>
-	<string name="button_follow">فالو</string>
-	<string name="share_user">اشتراک‌گذاری %s</string>
-	<string name="mute_user">بی‌صدا %s</string>
+	<string name="button_follow">پی‌گیری</string>
+	<string name="button_following">پی می‌گیرید</string>
+	<string name="edit_profile">ویرایش نمایه</string>
+	<string name="mute_user">خموشی %s</string>
+	<string name="unmute_user">ناخموشی ‎%s</string>
 	<string name="block_user">مسدود %s</string>
 	<string name="unblock_user">رفع مسدودیت %s</string>
+	<string name="report_user">گزارش کردن %s</string>
+	<string name="block_domain">مسدود کردن %s</string>
+	<string name="unblock_domain">رفع مسدودیت %s</string>
+	<plurals name="x_posts">
+		<item quantity="one">%,d فرسته</item>
+		<item quantity="other">%,d فرسته‌ها</item>
+	</plurals>
 	<string name="profile_joined">عضو شد</string>
 	<string name="done">انجام شد</string>
 	<string name="loading">درحال بارگذاری…</string>
 	<string name="field_label">برچسب</string>
 	<string name="field_content">محتوا</string>
 	<string name="saving">درحال ذخیره‌سازی…</string>
-	<string name="do_mute">بی‌صدا</string>
-	<string name="do_block">مسدود</string>
+	<string name="post_from_user">فرسته از %s</string>
+	<string name="poll_option_hint">گزینه %d</string>
+	<plurals name="x_minutes">
+		<item quantity="one">%d دقیقه</item>
+		<item quantity="other">%d دقیقه</item>
+	</plurals>
+	<plurals name="x_hours">
+		<item quantity="one">%d ساعت</item>
+		<item quantity="other">%d ساعت</item>
+	</plurals>
+	<plurals name="x_days">
+		<item quantity="one">%d روز</item>
+		<item quantity="other">%d روز</item>
+	</plurals>
+	<plurals name="x_seconds_left">
+		<item quantity="one">%d ثانیه باقی‌مانده</item>
+		<item quantity="other">%d ثانیه باقی‌مانده</item>
+	</plurals>
+	<plurals name="x_minutes_left">
+		<item quantity="one">%d دقیقه باقی‌مانده</item>
+		<item quantity="other">%d دقیقه باقی‌مانده</item>
+	</plurals>
+	<plurals name="x_hours_left">
+		<item quantity="one">%d ساعت باقی‌مانده</item>
+		<item quantity="other">%d ساعت باقی‌مانده</item>
+	</plurals>
+	<plurals name="x_days_left">
+		<item quantity="one">‏%d روز باقی‌مانده</item>
+		<item quantity="other">‏%d روز باقی‌مانده</item>
+	</plurals>
+	<string name="poll_closed">پایان‌یافته</string>
+	<string name="confirm_mute_title">خموشی حساب</string>
+	<string name="confirm_mute">خموشی %s را تایید کنید</string>
+	<string name="do_mute">خموش</string>
+	<string name="confirm_unmute_title">لغو خموشی حساب</string>
+	<string name="confirm_unmute">ناخموشی %s را تایید کنید</string>
+	<string name="do_unmute">ناخموشی</string>
+	<string name="confirm_block_title">مسدود کردن حساب</string>
+	<string name="confirm_block_domain_title">مسدود کردن دامنهٔ</string>
+	<string name="confirm_block">مسدود کردن %s را تایید کنید</string>
+	<string name="do_block">مسدود کردن</string>
+	<string name="confirm_unblock_title">رفع مسدودی حساب</string>
+	<string name="confirm_unblock_domain_title">رفع مسدودیت دامنهٔ</string>
+	<string name="confirm_unblock">رفع مسدودیت %s را تایید کنید</string>
+	<string name="do_unblock">رفع مسدودیت</string>
+	<string name="button_blocked">مسدود شده</string>
 	<string name="action_vote">رأی</string>
 	<string name="delete">حذف</string>
-	<string name="confirm_delete_title">حذف پست</string>
+	<string name="confirm_delete">آیا مطمئنید که می‌خواهید این فرسته را حذف کنید؟</string>
+	<string name="deleting">درحال حذف…</string>
+	<string name="notification_channel_audio_player">بازپخش صدا</string>
 	<string name="play">پخش</string>
 	<string name="pause">توقف</string>
+	<string name="add_account">افزودن حساب</string>
 	<string name="search_hint">جستجو</string>
-	<string name="hashtags">هشتگ‌ها</string>
+	<string name="hashtags">برچسب‌ها</string>
 	<string name="news">اخبار</string>
 	<string name="for_you">برای شما</string>
-	<string name="all_notifications">همه</string>
+	<string name="mentions">نام‌بردن‌ها</string>
+	<plurals name="x_people_talking">
+		<item quantity="one">%d نفر درحال صحبت‌کردن هستند</item>
+		<item quantity="other">%d نفر در حال صحبت‌کردن هستند</item>
+	</plurals>
 	<string name="report_title">گزارش کردن %s</string>
-	<string name="report_reason_personal">من این را دوست ندارم</string>
-	<string name="report_reason_spam">این هرزنامه است</string>
+	<string name="report_choose_reason_subtitle">منطبق‌ترین را انتخاب کنید</string>
+	<string name="report_reason_personal_subtitle">این چیزی نیست که بخواهید ببینید</string>
+	<string name="report_reason_spam_subtitle">پیوندهای مخرب، تعامل جعلی یا پاسخ‌های تکراری</string>
+	<string name="report_reason_violation">قوانین کارساز را نقض می‌کند</string>
+	<string name="report_reason_violation_subtitle">شما آگاه هستید که قوانین خاصی را زیر پا می‌گذارد</string>
+	<string name="report_reason_other_subtitle">این موضوع در دسته‌بندی‌های دیگر نمی‌گنجد</string>
+	<string name="report_choose_rule">کدام قوانین نقض شده‌اند؟</string>
+	<string name="report_choose_rule_subtitle">همهٔ موارد انجام شده را برگزینید</string>
+	<string name="report_choose_posts">آیا فرسته‌ای وجود دارد که از این گزارش پشتیبانی کند؟</string>
+	<string name="report_choose_posts_subtitle">همهٔ موارد انجام شده را برگزینید</string>
+	<string name="report_comment_title">آیا چیز دیگری هست که ما باید بدانیم؟</string>
+	<string name="report_comment_hint">توضیحات اضافه</string>
+	<string name="sending_report">درحال ارسال گزارش…</string>
+	<string name="unfollow_user">پی‌نگرفتن ‎%s</string>
+	<string name="unfollow">پی‌نگرفتن</string>
 	<string name="back">بازگشت</string>
+	<string name="search_communities">نام کارساز یا نشانی</string>
+	<string name="instance_rules_title">قوانین کارساز</string>
+	<string name="instance_rules_subtitle">با ادامه دادن، موافقت می‌کنید که از قوانین زیر پیروی کنید که توسط ناظران %s تنظیم و اجرا شده است.</string>
+	<string name="signup_title">ایجاد حساب</string>
+	<string name="display_name">نام</string>
+	<string name="username">نام کاربری</string>
+	<string name="email">رایانامه</string>
+	<string name="password">گذرواژه</string>
+	<string name="confirm_password">تأیید گذرواژه</string>
+	<string name="password_note">برای افزایش قدرت گذرواژه خود، حروف بزرگ، کاراکترهای خاص و اعداد را اضافه کنید.</string>
+	<string name="category_academia">دانشگاه</string>
 	<string name="category_activism">فعالیت</string>
 	<string name="category_all">همه</string>
 	<string name="category_art">هنر</string>
 	<string name="category_food">غذا</string>
+	<string name="category_furry">خزدار</string>
 	<string name="category_games">بازی‌ها</string>
+	<string name="category_general">عمومی</string>
+	<string name="category_journalism">روزنامه نگاری</string>
 	<string name="category_lgbt">LGBT</string>
 	<string name="category_music">موسیقی</string>
 	<string name="category_regional">منطقه‌ای</string>
 	<string name="category_tech">فناوری</string>
+	<string name="confirm_email_title">صندوق ورودیتان را بررسی کنید</string>
 	<!-- %s is the email address -->
 	<string name="resend">ارسال دوباره</string>
+	<string name="open_email_app">بازکردن کاره رایانامه</string>
+	<string name="resent_email">رایانامه تایید فرستاده شد</string>
+	<string name="content_warning">هشدار محتوا</string>
 	<string name="save">ذخیره</string>
+	<string name="add_alt_text">اضافه کردن متن جایگزین</string>
 	<string name="visibility_public">عمومی</string>
+	<string name="visibility_followers_only">فقط پی‌گیران</string>
 	<string name="skip">بعدی</string>
-	<string name="notification_type_favorite">علاقه‌مندی‌ها</string>
+	<string name="notification_type_follow">پی‌گیران جدید</string>
+	<string name="notification_type_favorite">برگزیده‌ها</string>
+	<string name="notification_type_reblog">تقویت‌ها</string>
+	<string name="notification_type_mention">نام‌بردن‌ها</string>
 	<string name="notification_type_poll">نظرسنجی‌ها</string>
 	<string name="choose_account">انتخاب حساب</string>
-	<string name="theme_auto">خودکار</string>
+	<string name="err_not_logged_in">لطفا ابتدا وارد ماستودون شوید</string>
+	<string name="media_attachment_unsupported_type">پرونده %s از نوع پشتیبانی نشده است</string>
+	<string name="media_attachment_too_big">اندازه پرونده %1$s از حد مجاز %2$s مگابایت بیشتر است</string>
 	<string name="theme_light">روشن</string>
 	<string name="theme_dark">تاریک</string>
-	<string name="new_post">پست جدید</string>
+	<string name="settings_behavior">رفتار</string>
+	<string name="settings_gif">پخش ایموجی و آواتار های متحرک</string>
+	<string name="settings_custom_tabs">استفاده از مرورگر درون برنامه‌ای</string>
+	<string name="settings_notifications">آگاهی‌ها</string>
+	<string name="settings_contribute">کمک به ماستودون</string>
+	<string name="settings_tos">شرایط استفاده از خدمات</string>
+	<string name="settings_privacy_policy">سیاست محرمانگی</string>
+	<string name="settings_clear_cache">پاک‌سازی انباره محتوا</string>
+	<string name="settings_app_version">ماستودون برای اندروید v%1$s (%2$d)</string>
+	<string name="media_cache_cleared">انباره محتوا پاک‌سازی شد</string>
+	<string name="more_options">گزینه‌های بیشتر</string>
+	<string name="new_post">فرسته جدید</string>
 	<string name="button_reply">پاسخ</string>
+	<string name="button_reblog">تقویت</string>
 	<string name="button_favorite">برگزیده‌</string>
 	<string name="button_share">اشتراک‌گذاری</string>
+	<string name="media_no_description">رسانه بدون توضیحات</string>
+	<string name="add_media">افزودن رسانه</string>
+	<string name="add_poll">افزودن نظرسنجی</string>
 	<string name="emoji">ایموجی</string>
+	<string name="home_timeline">خط زمانی خانگی</string>
+	<string name="my_profile">نمایه من</string>
+	<string name="media_viewer">نمایش‌گر رسانه</string>
+	<string name="follow_user">پی‌گیری %s</string>
+	<string name="unfollowed_user">پی‌نگرفتن ‎%s</string>
+	<string name="following_user_requested">درخواست پی‌گیری %s شد</string>
+	<string name="open_in_browser">بازکردن در مرورگر</string>
+	<string name="hide_boosts_from_user">نهفتن تقویت‌های ‎%s</string>
+	<string name="show_boosts_from_user">نمایش تقویت‌های ‎%s</string>
+	<string name="signup_reason">چرا می‌خواهید عضو شوید؟</string>
+	<string name="signup_reason_note">این برای بررسی درخواست شما به ما کمک خواهد کرد.</string>
 	<string name="clear">پاک‌کردن</string>
-	<string name="download">دانلود</string>
+	<string name="profile_header">تصویر سربرگ</string>
+	<string name="profile_picture">تصویر نمایه</string>
+	<string name="reorder">سفارش مجدد</string>
+	<string name="download">بارگیری</string>
+	<string name="permission_required">نیازمند دسترسی است</string>
+	<string name="storage_permission_to_download">کاره برای ذخیره این پرونده نیازمند دسترسی به فضای ذخیره‌سازی شما دارد.</string>
+	<string name="open_settings">باز کردن تنظیمات</string>
+	<string name="error_saving_file">خطا هنگام ذخیرهٔ کردن پرونده</string>
+	<string name="file_saved">پرونده ذخیره شد</string>
+	<string name="downloading">درحال بارگیری…</string>
+	<!-- %s is the server domain -->
+	<string name="see_new_posts">فرسته‌های جدید را ببینید</string>
+	<string name="load_missing_posts">بارگذاری فرسته‌های گم شده</string>
+	<string name="follow_back">پی‌گیری متقابل</string>
+	<string name="button_follow_pending">منتظر</string>
+	<string name="follows_you">پی‌گیرتان است</string>
+	<string name="manually_approves_followers">به‌صورت دستی پی‌گیران را تایید می‌کند</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
+	<plurals name="x_followers">
+		<item quantity="one">%,d پی‌گیر</item>
+		<item quantity="other">%,d پی‌گیران</item>
+	</plurals>
+	<plurals name="x_following">
+		<item quantity="one">%,d پی‌گیرنده</item>
+		<item quantity="other">%,d پی‌گیرنده</item>
+	</plurals>
+	<plurals name="x_favorites">
+		<item quantity="one">%,d برگزیده</item>
+		<item quantity="other">%,d برگزیده‌ها</item>
+	</plurals>
+	<plurals name="x_reblogs">
+		<item quantity="one">%,d تقویت</item>
+		<item quantity="other">%,d تقویت‌ها</item>
+	</plurals>
+	<string name="timestamp_via_app">%1$s از طریق %2$s</string>
 	<string name="time_now">اکنون</string>
+	<string name="edit_history">ویرایش تاریخچه</string>
+	<string name="last_edit_at_x">آخرین ویرایش %s</string>
 	<string name="time_just_now">همين الان</string>
+	<plurals name="x_seconds_ago">
+		<item quantity="one">%d ثانیه پیش</item>
+		<item quantity="other">%d ثانیه پیش</item>
+	</plurals>
+	<plurals name="x_minutes_ago">
+		<item quantity="one">%d دقیقه پیش</item>
+		<item quantity="other">%d دقیقه پیش</item>
+	</plurals>
+	<string name="edited_timestamp">%s را ویراست</string>
+	<string name="edit_original_post">فرستهٔ اصلی</string>
+	<string name="edit_text_edited">متن ویرایش شد</string>
+	<string name="edit_spoiler_added">هشدار محتوا افزوده شد</string>
+	<string name="edit_spoiler_edited">هشدار محتوا ویرایش شد</string>
+	<string name="edit_spoiler_removed">هشدار محتوا برداشته شد</string>
+	<string name="edit_poll_added">نظرسنجی اضافه شد</string>
+	<string name="edit_poll_edited">نظرسنجی ویرایش شد</string>
+	<string name="edit_poll_removed">نظرسنجی برداشته شد</string>
+	<string name="edit_media_added">رسانه اضافه شد</string>
+	<string name="edit_media_removed">رسانه برداشته شد</string>
+	<string name="edit_media_reordered">رسانه دوباره سفارش داده شد</string>
+	<string name="edit_marked_sensitive">علامت‌زده به عنوان حساس</string>
+	<string name="edit_marked_not_sensitive">علامت‌زده به عنوان حساس نیست</string>
+	<string name="edit_multiple_changed">فرسته ویرایش شد</string>
 	<string name="edit">ویرایش</string>
+	<string name="discard_changes">تغییرات نادیده گرفته شود؟</string>
+	<string name="upload_failed">بارگذاری ناموفق بود</string>
+	<string name="file_size_bytes">%d بایت</string>
+	<string name="file_size_kb">%.2f کیلوبایت</string>
+	<string name="file_size_mb">%.2f مگابایت</string>
+	<string name="file_size_gb">%.2f گیگابایت</string>
+	<string name="upload_processing">در حال پردازش…</string>
 	<!-- %s is version like 1.2.3 -->
 	<!-- %s is version like 1.2.3 -->
 	<!-- %s is file size -->
+	<string name="download_update">بارگیری (%s)</string>
 	<string name="install_update">نصب</string>
+	<string name="privacy_policy_title">حریم خصوصی شما</string>
+	<string name="privacy_policy_subtitle">اگرچه برنامه ماستودون هیچ داده ای را جمع‌آوری نمی کند، کارسازی که از طریق آن ثبت نام می کنید ممکن است خط مشی متفاوتی داشته باشد.\n\nاگر با خط مشی %s موافق نیستید، می توانید به عقب برگردید و سرور دیگری را انتخاب کنید.</string>
 	<string name="i_agree">موافقم</string>
+	<string name="empty_list">این سیاهه خالی است</string>
+	<string name="instance_signup_closed">این کارساز ثبت نام های جدید را نمی پذیرد.</string>
+	<string name="text_copied">در تخته‌گیره رونوشت شد</string>
+	<string name="add_bookmark">نشانک</string>
+	<string name="remove_bookmark">برداشتن نشانک</string>
+	<string name="bookmarks">نشانک‌ها</string>
+	<string name="your_favorites">برگزیده های شما</string>
+	<string name="login_title">خوش برگشتید</string>
+	<string name="login_subtitle">با کارسازی که حساب خود را در آن ایجاد کردید وارد شوید.</string>
+	<string name="server_url">نشانی کارساز</string>
+	<string name="server_filter_any_language">هر زبانی</string>
+	<string name="server_filter_instant_signup">ثبت نام فوری</string>
+	<string name="server_filter_manual_review">بررسی دستی</string>
+	<string name="server_filter_any_signup_speed">هر سرعت ثبت نام</string>
+	<string name="server_filter_region_europe">اروپا</string>
+	<string name="server_filter_region_north_america">آمریکای شمالی</string>
+	<string name="server_filter_region_south_america">آمریکای جنوبی</string>
+	<string name="server_filter_region_africa">آفریقا</string>
+	<string name="server_filter_region_asia">آسیا</string>
+	<string name="server_filter_region_oceania">اقیانوسیه</string>
+	<string name="not_accepting_new_members">عدم پذیرش اعضای جدید</string>
+	<string name="category_special_interests">منافع خاص</string>
+	<string name="pick_server_for_me">برای من انتخاب کن</string>
+	<string name="profile_add_row">افزودن سطر</string>
+	<string name="profile_setup">تنظیم نمایه</string>
+	<string name="profile_setup_subtitle">همیشه می‌توانید این را بعداً در برگه نمایه تکمیل کنید.</string>
+	<string name="profile_setup_explanation">شما می توانید تا چهار قسمت نمایه برای هر چیزی که می خواهید اضافه کنید. مکان، پیوندها، ضمایر - آسمان حد است.</string>
+	<string name="popular_on_mastodon">محبوب در ماستودون</string>
+	<string name="follow_all">پی‌گیری همه</string>
+	<string name="server_rules_disagree">مخالفم</string>
 	<!-- %s is server domain -->
+	<string name="server_policy_disagree">با %s مخالفم</string>
+	<string name="profile_bio">دربارهٔ شما</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
+	<string name="sending_follows">پی‌گیری کاربران…</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<string name="spoiler_show">به هرصورت نشان داده شود</string>
+	<string name="spoiler_hide">نهفتن دوباره</string>
+	<string name="poll_multiple_choice">یک یا چند مورد را انتخاب کنید</string>
+	<string name="save_changes">ذخیرهٔ تغییرات</string>
+	<string name="profile_featured"> پيشنهادي</string>
+	<string name="profile_timeline">خط زمانی</string>
+	<string name="view_all">مشاهده همه</string>
+	<string name="profile_endorsed_accounts">حساب‌ها</string>
+	<string name="verified_link">پیوند تأییدشده</string>
+	<string name="show">نمایش</string>
+	<string name="hide">نهفتن</string>
+	<string name="join_default_server">%s پیوست</string>
+	<string name="pick_server">انتخاب کارسازی دیگر</string>
+	<string name="signup_or_login">یا</string>
+	<string name="learn_more">بیش‌تر بیاموزید</string>
+	<string name="welcome_to_mastodon">به ماستودون خوش آمدید</string>
+	<string name="welcome_paragraph1">ماستودون یک شبکه اجتماعی غیر متمرکز است،به این معنی که هیچ شرکتی آن را کنترل نمی کند. این از بسیاری از کارسازهای مستقل تشکیل شده است که همه به هم متصل هستند.</string>
+	<string name="what_are_servers">کارساز شما کجاست؟</string>
+	<string name="welcome_paragraph2"><![CDATA[هر حساب ماستودون بر روی یک سرور میزبانی می شود — هر کدام با مقادیر، قوانین و مدیران خاص خود. مهم نیست کدام یک را انتخاب می کنید، می توانید افراد را در هر کارسازی دنبال کنید و با آنها تعامل داشته باشید.]]></string>
+	<!-- %s is formatted file size ("467 KB image") -->
+	<!-- %s is the server domain -->
+	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
+	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
+	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
+	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<!-- %s is the username -->
+	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<!-- Shown like a content warning, %s is the name of the filter -->
+	<!-- Shown in the post header. Please keep it short -->
 </resources>

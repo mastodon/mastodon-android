@@ -8,10 +8,6 @@
 	<string name="finishing_auth">Finalizare autentificare…</string>
 	<string name="in_reply_to">Ca răspuns la %s</string>
 	<string name="notifications">Notificări</string>
-	<string name="user_followed_you">te urmărește</string>
-	<string name="user_sent_follow_request">ți-a trimis o cerere de urmărire</string>
-	<string name="user_favorited">ți-a preferat postarea</string>
-	<string name="poll_ended">sondaj terminat</string>
 	<string name="share_toot_title">Distribuie</string>
 	<string name="settings">Setări</string>
 	<string name="publish">Publică</string>
@@ -25,7 +21,6 @@
 	<string name="button_follow">Urmărește</string>
 	<string name="button_following">Urmăriți</string>
 	<string name="edit_profile">Editare profil</string>
-	<string name="share_user">Distribuie %s</string>
 	<string name="mute_user">Amuțește %s</string>
 	<string name="unmute_user">Demutizează %s</string>
 	<string name="block_user">Blochează %s</string>
@@ -34,6 +29,7 @@
 	<string name="block_domain">Blochează %s</string>
 	<string name="unblock_domain">Deblochează %s</string>
 	<!-- %s is the email address -->
+	<!-- %s is the server domain -->
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<!-- %s is version like 1.2.3 -->
 	<!-- %s is version like 1.2.3 -->
@@ -41,4 +37,15 @@
 	<!-- %s is server domain -->
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<!-- %s is formatted file size ("467 KB image") -->
+	<!-- %s is the server domain -->
+	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
+	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
+	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
+	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<!-- %s is the username -->
+	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<!-- Shown like a content warning, %s is the name of the filter -->
+	<!-- Shown in the post header. Please keep it short -->
 </resources>

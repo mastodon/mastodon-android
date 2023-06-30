@@ -4,16 +4,11 @@
 	<string name="next">Sunod</string>
 	<string name="loading_instance">Pagkuha ng impormasyon sa server…</string>
 	<string name="error">Nag-Error</string>
-	<string name="not_a_mastodon_instance">%s hindi lumilitaw para maging Mastodon server.</string>
 	<string name="ok">OK</string>
 	<string name="preparing_auth">Paghahanda para sa pagpapatunay…</string>
 	<string name="finishing_auth">Natapos na ang pagpapatunay…</string>
 	<string name="in_reply_to">Bilang tugon kay %s</string>
 	<string name="notifications">Mga abiso</string>
-	<string name="user_followed_you">sinundan ka</string>
-	<string name="user_sent_follow_request">may nagpadala sa iyo ng follow request</string>
-	<string name="user_favorited">paborito ang iyong post</string>
-	<string name="poll_ended">natapos na ang poll</string>
 	<string name="share_toot_title">Ibahagi</string>
 	<string name="settings">Mga setting</string>
 	<string name="publish">I-publish</string>
@@ -35,7 +30,6 @@
 	<string name="button_follow">Sundan</string>
 	<string name="button_following">Sumusunod</string>
 	<string name="edit_profile">I-edit ang profile</string>
-	<string name="share_user">Ibahagi %s</string>
 	<string name="mute_user">I-mute %s</string>
 	<string name="unmute_user">I-unmute %s</string>
 	<string name="block_user">I-Block %s</string>
@@ -101,35 +95,27 @@
 	<string name="button_blocked">Na-block</string>
 	<string name="action_vote">Bumoto</string>
 	<string name="delete">Tanggalin</string>
-	<string name="confirm_delete_title">Burahin ang Post</string>
 	<string name="confirm_delete">Sigurado ka bang gusto mong burahin ang post na ito?</string>
 	<string name="deleting">Pagtanggal…</string>
 	<string name="notification_channel_audio_player">Pag-playback ng Audio</string>
 	<string name="play">I-play</string>
 	<string name="pause">I-Pause</string>
-	<string name="log_out">Mag-Sign out</string>
 	<string name="add_account">Magdagdag ng account</string>
 	<string name="search_hint">Maghanap</string>
 	<string name="hashtags">Mga hashtag</string>
 	<string name="news">Balita</string>
 	<string name="for_you">Para sa\'yo</string>
-	<string name="all_notifications">Lahat</string>
 	<string name="mentions">Mga binangit</string>
 	<plurals name="x_people_talking">
 		<item quantity="one">%d tao ay nagsasalita</item>
 		<item quantity="other">%d tao ay nagsasalita</item>
 	</plurals>
 	<string name="report_title">I-Report %s</string>
-	<string name="report_choose_reason">Ano ang mali sa post na ito?</string>
-	<string name="report_choose_reason_account">Ano ang mali sa %s?</string>
 	<string name="report_choose_reason_subtitle">Piliin ang pinakamahusay na tugma</string>
-	<string name="report_reason_personal">Hindi ko gusto ito</string>
 	<string name="report_reason_personal_subtitle">Hindi ito isang bagay na nais mong makita</string>
-	<string name="report_reason_spam">Ito ay spam</string>
 	<string name="report_reason_spam_subtitle">Nakakahamak na mga link, pekeng pakikipag-ugnayan, o paulit-ulit na mga tugon</string>
 	<string name="report_reason_violation">Lumalabag ito sa mga panuntunan ng server</string>
 	<string name="report_reason_violation_subtitle">Alam mo na lumalabag ito sa mga partikular na panuntunan</string>
-	<string name="report_reason_other">Ito may iba pa</string>
 	<string name="report_reason_other_subtitle">Ang isyu ay hindi umaangkop sa iba pang mga kategorya</string>
 	<string name="report_choose_rule">Aling mga patakaran ang nilabag?</string>
 	<string name="report_choose_rule_subtitle">Piliin ang lahat na-iapply</string>
@@ -138,13 +124,8 @@
 	<string name="report_comment_title">Mayroon pa bang dapat nating malaman?</string>
 	<string name="report_comment_hint">Mga Karagdagang Komento</string>
 	<string name="sending_report">Pagpapadala ng Ulat…</string>
-	<string name="report_sent_title">Salamat sa pag-uulat, titingnan namin ito.</string>
-	<string name="report_sent_subtitle">Habang sinusuri namin ito, maaari kang gumawa ng aksyon laban sa %s.</string>
 	<string name="unfollow_user">I-Unfollow %s</string>
 	<string name="unfollow">I-unfollow</string>
-	<string name="block_user_explain">Hindi na nila magagawang sundin o makita ang iyong mga post, ngunit maaari nilang makita kung na-block sila.</string>
-	<string name="report_personal_title">Ayaw mong makita ito?</string>
-	<string name="report_personal_subtitle">Kapag nakakita ka ng mga bagay na hindi mo gusto sa Mastodon, maaari mong alisin ang tao mula sa iyong karanasan.</string>
 	<string name="back">Bumalik</string>
 	<string name="password_note">Isama ang mga malalaking titik, mga espesyal na character, at mga numero para madagdagan ang lakas ng iyong password.</string>
 	<string name="category_academia">Academia</string>
@@ -164,14 +145,11 @@
 	<string name="resend">Muling ipadala</string>
 	<string name="open_email_app">Buksan ang email app</string>
 	<string name="resent_email">Kumpirmasyon ng email napadala</string>
-	<string name="compose_hint">I-Type o i-paste kung ano ang nasa isip mo</string>
 	<string name="content_warning">Babala sa nilalaman</string>
 	<string name="save">I-save</string>
 	<string name="add_alt_text">Magdagdag ng teksto ng alt</string>
 	<string name="visibility_public">Publiko</string>
 	<string name="visibility_followers_only">Mga tagasunod lamang</string>
-	<string name="visibility_private">Mga tao lang ang binabanggit ko</string>
-	<string name="recent_searches">Kamakailang mga paghahanap</string>
 	<string name="skip">Laktawan</string>
 	<string name="notification_type_follow">Mga Bagong Follower</string>
 	<string name="notification_type_favorite">Mga Paborito</string>
@@ -179,14 +157,8 @@
 	<string name="notification_type_poll">Mga botohan</string>
 	<string name="choose_account">Pumili ng account</string>
 	<string name="err_not_logged_in">Pakiusap mag-log in muna sa Mastodon</string>
-	<plurals name="cant_add_more_than_x_attachments">
-		<item quantity="one">Hindi ka maaaring magdagdag ng higit sa %d media attachment</item>
-		<item quantity="other">Hindi ka maaaring magdagdag ng higit sa %d media attachment</item>
-	</plurals>
 	<string name="media_attachment_unsupported_type">Ang File %s ay hindi suportadong uri</string>
 	<string name="media_attachment_too_big">Ang File %1$s ay lumampas sa limitasyon ng laki ng %2$s MB</string>
-	<string name="settings_theme">Visual na hitsura</string>
-	<string name="theme_auto">Awtomatiko</string>
 	<string name="theme_light">Ilaw</string>
 	<string name="theme_dark">Madilim</string>
 	<string name="settings_behavior">Pag-uugali</string>
@@ -199,10 +171,6 @@
 	<string name="settings_clear_cache">I-Clear ang cache ng media</string>
 	<string name="settings_app_version">Mastodon para sa Android v%1$s (%2$d)</string>
 	<string name="media_cache_cleared">Na-clear ang cache ng Media</string>
-	<string name="confirm_log_out">Sigurado ka bang gusto mong mag-sign out?</string>
-	<string name="sensitive_content_explain">Minarkahan ng may-akda ang media na ito bilang sensitibo. I-tap para makita.</string>
-	<string name="media_hidden">I-Tap para mapakita</string>
-	<string name="avatar_description">Pumunta sa profile ng %s</string>
 	<string name="more_options">Higit pang mga pagpipilian</string>
 	<string name="new_post">Bagong post</string>
 	<string name="button_reply">Tumugon</string>
@@ -217,7 +185,6 @@
 	<string name="media_viewer">Media tagapanood</string>
 	<string name="follow_user">I-follow %s</string>
 	<string name="unfollowed_user">I-Unfollow %s</string>
-	<string name="followed_user">Sinusundan mo ngayon ang %s</string>
 	<string name="open_in_browser">Buksan sa browser</string>
 	<string name="signup_reason_note">Makakatulong ito sa amin na suriin ang iyong aplikasyon.</string>
 	<string name="clear">I-Clear</string>
@@ -231,11 +198,7 @@
 	<string name="error_saving_file">Error sa pag-save ng file</string>
 	<string name="file_saved">Nai-save ang File</string>
 	<string name="downloading">Nagda-download…</string>
-	<string name="no_app_to_handle_action">Walang app para mahawakan ang pagkilos na ito</string>
-	<string name="local_timeline">Komunidad</string>
-	<string name="trending_posts_info_banner">Ito ang mga post na nakakakuha ng traksyon sa iyong sulok ng Mastodon.</string>
-	<string name="trending_links_info_banner">Ito ang mga kuwento ng balita na ibinabahagi ang pinaka sa iyong sulok ng Mastodon.</string>
-	<string name="local_timeline_info_banner">Ito ang pinakahuling mga post ng mga taong gumagamit ng parehong Mastodon server tulad mo.</string>
+	<!-- %s is the server domain -->
 	<string name="see_new_posts">Tingnan ang mga bagong post</string>
 	<string name="load_missing_posts">Mag-Load ng nawawalang mga post</string>
 	<string name="follow_back">Sundan Pabalik</string>
@@ -310,4 +273,15 @@
 	<!-- %s is server domain -->
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<!-- %s is formatted file size ("467 KB image") -->
+	<!-- %s is the server domain -->
+	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
+	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
+	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
+	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<!-- %s is the username -->
+	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<!-- Shown like a content warning, %s is the name of the filter -->
+	<!-- Shown in the post header. Please keep it short -->
 </resources>

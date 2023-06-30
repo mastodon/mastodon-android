@@ -4,16 +4,11 @@
 	<string name="next">التالي</string>
 	<string name="loading_instance">جارٍ جلب معلومات الخادم…</string>
 	<string name="error">خطأ</string>
-	<string name="not_a_mastodon_instance">لا يبدو أنّ %s كخادم ماستدون.</string>
 	<string name="ok">حسنًا</string>
 	<string name="preparing_auth">جَارٍ الإعدَادُ لِلمُصادَقَة…</string>
 	<string name="finishing_auth">يُنهي المصادقة…</string>
 	<string name="in_reply_to">ردًا على %s</string>
 	<string name="notifications">الإشعارات</string>
-	<string name="user_followed_you">بَدَأ بِمُتابَعَتِك</string>
-	<string name="user_sent_follow_request">أرسَلَ طَلَبًا لِمُتابَعَتِك</string>
-	<string name="user_favorited">فَضَّلَ مَنشُورَك</string>
-	<string name="poll_ended">انتهى استطلاعُ الرأي</string>
 	<string name="share_toot_title">شارك</string>
 	<string name="settings">الإعدادات</string>
 	<string name="publish">انشر</string>
@@ -43,7 +38,6 @@
 	<string name="button_follow">تابِع</string>
 	<string name="button_following">مُتابَع</string>
 	<string name="edit_profile">حرّر الملف الشخصي</string>
-	<string name="share_user">مُشارَكَةُ %s</string>
 	<string name="mute_user">كَتمُ %s</string>
 	<string name="unmute_user">إلغاء الكَتم عن @%s</string>
 	<string name="block_user">حَظرُ %s</string>
@@ -141,19 +135,16 @@
 	<string name="button_blocked">محجوب</string>
 	<string name="action_vote">صَوّت</string>
 	<string name="delete">احذف</string>
-	<string name="confirm_delete_title">احذف المنشور</string>
 	<string name="confirm_delete">أمتأكد من حذف هذا المنشور؟</string>
 	<string name="deleting">يحذف…</string>
 	<string name="notification_channel_audio_player">تشغيل الصوت</string>
 	<string name="play">شغّل</string>
 	<string name="pause">ألبث</string>
-	<string name="log_out">خروج</string>
 	<string name="add_account">أضف حساباً</string>
 	<string name="search_hint">ابحث</string>
 	<string name="hashtags">وُسُوم</string>
 	<string name="news">الأخبار</string>
 	<string name="for_you">لأجلك</string>
-	<string name="all_notifications">الكل</string>
 	<string name="mentions">الذِكر</string>
 	<plurals name="x_people_talking">
 		<item quantity="zero">لا أحد يتحدث</item>
@@ -164,16 +155,11 @@
 		<item quantity="other">%d شخص يتحدثون</item>
 	</plurals>
 	<string name="report_title">بلّغ عن %s</string>
-	<string name="report_choose_reason">ما هي المشكلة في هذا المنشور؟</string>
-	<string name="report_choose_reason_account">ما هي المشكلة مع %s؟</string>
 	<string name="report_choose_reason_subtitle">اختر أفضل تطابق</string>
-	<string name="report_reason_personal">لا يعجبني</string>
 	<string name="report_reason_personal_subtitle">ألا ترغب برؤيته</string>
-	<string name="report_reason_spam">إزعاج</string>
 	<string name="report_reason_spam_subtitle">روابط خبيثة أو تفاعل كاذب أو ردود متكررة</string>
 	<string name="report_reason_violation">ينتهك قواعد الخادم</string>
 	<string name="report_reason_violation_subtitle">تعلم أنه ينتهك قواعد محددة</string>
-	<string name="report_reason_other">شيء آخر</string>
 	<string name="report_reason_other_subtitle">لا تندرج هذه المشكلة ضمن فئات أخرى</string>
 	<string name="report_choose_rule">ما هي القواعد المنتهكة؟</string>
 	<string name="report_choose_rule_subtitle">اختر كل ما ينطبق</string>
@@ -182,13 +168,8 @@
 	<string name="report_comment_title">هل لديك شيء آخر لتخبرنا به؟</string>
 	<string name="report_comment_hint">تعليقات إضافية</string>
 	<string name="sending_report">يرسل البلاغ…</string>
-	<string name="report_sent_title">شُكرًا لَكَ على التبليغ، سَنَنظُرُ فِي هَذَا الأمر.</string>
-	<string name="report_sent_subtitle">في أثناء مراجعتنا للبلاغ، يمكنك اتخاذ إجراء ضد @%s.</string>
 	<string name="unfollow_user">ألغ متابعة %s</string>
 	<string name="unfollow">ألغ المتابعة</string>
-	<string name="block_user_explain">لن يتمكنوا من متابعتك أو رؤية منشوراتك، وسيكون بديهيًا لهم أنهم حجبوا.</string>
-	<string name="report_personal_title">لاترغب في مشاهدة هذا؟</string>
-	<string name="report_personal_subtitle">عندما ترى ما لا يعجبك في ماستدون، يمكنك إزالة صاحبها من تجربتك كمستخدم.</string>
 	<string name="back">العودة</string>
 	<string name="search_communities">اسم الخادم أو عنوان URL</string>
 	<string name="instance_rules_title">قواعد الخادم</string>
@@ -215,19 +196,14 @@
 	<string name="category_tech">تقني</string>
 	<string name="confirm_email_title">تحقق من صندوق الوارد الخاص بك</string>
 	<!-- %s is the email address -->
-	<string name="confirm_email_subtitle">اضغط على الرابط الذي أرسلناه لك للتحقق من %s. سننتظر هنا.</string>
-	<string name="confirm_email_didnt_get">ألم تحصل على رابط؟</string>
 	<string name="resend">أعد الإرسال</string>
 	<string name="open_email_app">افتح تطبيق البريد الإلكتروني</string>
 	<string name="resent_email">أُرسلت رسالة التأكيد</string>
-	<string name="compose_hint">عَبِّر عَمَّ يَجُولُ فِي ذِهنِك</string>
 	<string name="content_warning">تحذير من المحتوى</string>
 	<string name="save">احفظ</string>
 	<string name="add_alt_text">أضف نصًا بديلًا</string>
 	<string name="visibility_public">علني</string>
 	<string name="visibility_followers_only">للمُتابِعينَ فقط</string>
-	<string name="visibility_private">لمن ذكرتُهم فقط</string>
-	<string name="recent_searches">عَمَليَّاُت البَحثِ الأخيرَة</string>
 	<string name="skip">تخطى</string>
 	<string name="notification_type_follow">متابعُون جُدُد</string>
 	<string name="notification_type_favorite">المفضلة</string>
@@ -235,18 +211,8 @@
 	<string name="notification_type_poll">استطلاع رأي</string>
 	<string name="choose_account">اختر حسابًا</string>
 	<string name="err_not_logged_in">يرجى تسجيل الدخول إلى حساب ماستدون أولًا</string>
-	<plurals name="cant_add_more_than_x_attachments">
-		<item quantity="zero">يجب عليك إرفاق ملف</item>
-		<item quantity="one">لا يمكنك إرفاق ملف</item>
-		<item quantity="two">لا يمكنك إرفاق أكثر من ملفين</item>
-		<item quantity="few">لا يمكنك إرفاق أكثر من %d ملفات</item>
-		<item quantity="many">لا يمكنك إرفاق أكثر من %d ملفًا</item>
-		<item quantity="other">لا يمكنك إرفاق أكثر من %d ملف</item>
-	</plurals>
 	<string name="media_attachment_unsupported_type">نوع الملف %s غير مدعوم</string>
 	<string name="media_attachment_too_big">الملف %1$s يتجاوز حدّ %2$s مب</string>
-	<string name="settings_theme">المظهر</string>
-	<string name="theme_auto">تلقائي</string>
 	<string name="theme_light">فاتح</string>
 	<string name="theme_dark">داكن</string>
 	<string name="settings_behavior">السلوك</string>
@@ -259,10 +225,6 @@
 	<string name="settings_clear_cache">امسح التخزين المؤقت للوسائط</string>
 	<string name="settings_app_version">تطبيق ماستدون لأندرويد نسخة %1$s (%2$d)</string>
 	<string name="media_cache_cleared">مُسح التخزين المؤقت للوسائط</string>
-	<string name="confirm_log_out">أمتأكد من الخروج؟</string>
-	<string name="sensitive_content_explain">علّم المؤلف هته الوسائط كحساسة. اضغط لكشفها.</string>
-	<string name="media_hidden">اُنقُر لِلكَشف</string>
-	<string name="avatar_description">انتقل للصفحة الشخصية لـ %s</string>
 	<string name="more_options">مزيد من الخيارات</string>
 	<string name="new_post">منشور جديد</string>
 	<string name="button_reply">ردّ</string>
@@ -277,7 +239,6 @@
 	<string name="media_viewer">عارض الوسائط</string>
 	<string name="follow_user">تابع %s</string>
 	<string name="unfollowed_user">ألغ متابعة %s</string>
-	<string name="followed_user">أنت تتابع %s</string>
 	<string name="open_in_browser">افتح في المتصفح</string>
 	<string name="signup_reason">لماذا تريد الانضمام؟</string>
 	<string name="signup_reason_note">هذا سوف يساعدنا في مراجعة تطبيقك.</string>
@@ -292,11 +253,7 @@
 	<string name="error_saving_file">خطأ أثناء حفظ الملف</string>
 	<string name="file_saved">حُفظ الملف</string>
 	<string name="downloading">ينزّل…</string>
-	<string name="no_app_to_handle_action">لا يوجد تطبيق لمعالجة هذا الإجراء</string>
-	<string name="local_timeline">المجتمع</string>
-	<string name="trending_posts_info_banner">هَذِهِ هِيَ المَنشُوراتُ الَّتي تَكْتَسِبُ شَعبِيَّةً فِي الرُّكنِ الخاصِّ بِكَ مِن مَاستودُون.</string>
-	<string name="trending_links_info_banner">هَذِهِ هِيَ القِصَصُ الأخبارِيَّةُ المُتَنَاقَلَةُ بِكِثرَةٍ فِي الرُّكنِ الخاصِّ بِكَ مِن مَاستودُون.</string>
-	<string name="local_timeline_info_banner">هذه هي أحدث منشورات المستخدمين المتواجدين على نفس الخادم الذي تستخدمه.</string>
+	<!-- %s is the server domain -->
 	<string name="see_new_posts">استعرض المنشورات الجديدة</string>
 	<string name="load_missing_posts">حمّل المَنشورات المَفقودَة</string>
 	<string name="follow_back">رُدّ المتابعة</string>
@@ -390,7 +347,6 @@
 	<string name="login_title">مرحبا بك مجددًا</string>
 	<string name="login_subtitle">قم بتسجيل الدخول باستخدام الخادم حيث قمتَ بإنشاء حسابك فيه.</string>
 	<string name="server_url">رابط الخادم</string>
-	<string name="signup_random_server_explain">سوف نختار خادماً بناءً على لغتك إذا قمت بالمتابعة دون إجراء إختيار.</string>
 	<string name="server_filter_any_language">أي لغة</string>
 	<string name="server_filter_instant_signup">تسجيل فوري</string>
 	<string name="server_filter_manual_review">مراجعة يدوية</string>
@@ -403,7 +359,6 @@
 	<string name="server_filter_region_oceania">أوقيانوسيا</string>
 	<string name="not_accepting_new_members">لا يقبل  استقبال أعضاء جدد</string>
 	<string name="category_special_interests">المصالح الخاصة</string>
-	<string name="signup_passwords_dont_match">كلمات المرور غير متطابقة</string>
 	<string name="pick_server_for_me">اختر لي</string>
 	<string name="profile_add_row">إضافة صف</string>
 	<string name="profile_setup">إعداد الملف الشخصي</string>
@@ -412,12 +367,21 @@
 	<string name="popular_on_mastodon">مشهور على ماستدون</string>
 	<string name="follow_all">اتبع الكل</string>
 	<string name="server_rules_disagree">لا أوافق</string>
-	<string name="privacy_policy_explanation">بالمختصر: نحن لا نجمع أو نعالج أي شيء.</string>
 	<!-- %s is server domain -->
 	<string name="server_policy_disagree">لا أوافق %s</string>
 	<string name="profile_bio">نبذة عنك</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<string name="sending_follows">متابعة المستخدمين…</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
-	<string name="signup_email_domain_blocked">%1$s لا يسمح بالتسجيلات من %2$s. جرب واحدا أو &lt;a&gt;اختار خادم مختلف&lt;/a&gt;.</string>
+	<!-- %s is formatted file size ("467 KB image") -->
+	<!-- %s is the server domain -->
+	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
+	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
+	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
+	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<!-- %s is the username -->
+	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<!-- Shown like a content warning, %s is the name of the filter -->
+	<!-- Shown in the post header. Please keep it short -->
 </resources>

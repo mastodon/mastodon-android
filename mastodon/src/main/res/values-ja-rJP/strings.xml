@@ -4,18 +4,12 @@
 	<string name="next">次へ</string>
 	<string name="loading_instance">サーバー情報を取得しています…</string>
 	<string name="error">エラー</string>
-	<string name="not_a_mastodon_instance">%s はMastodonサーバーではありません。</string>
 	<string name="ok">OK</string>
 	<string name="preparing_auth">認証を開始中…</string>
 	<string name="finishing_auth">認証を完了中…</string>
 	<string name="user_boosted">%s がブーストしました</string>
 	<string name="in_reply_to">%s へ返信</string>
 	<string name="notifications">通知</string>
-	<string name="user_followed_you">がフォロー</string>
-	<string name="user_sent_follow_request">フォローリクエストを送信しました</string>
-	<string name="user_favorited">がお気に入り登録</string>
-	<string name="notification_boosted">にブーストされました</string>
-	<string name="poll_ended">アンケートが終了しました</string>
 	<string name="share_toot_title">共有</string>
 	<string name="settings">設定</string>
 	<string name="publish">公開</string>
@@ -35,7 +29,6 @@
 	<string name="button_follow">フォロー</string>
 	<string name="button_following">フォロー中</string>
 	<string name="edit_profile">プロフィールを編集</string>
-	<string name="share_user">共有 %s</string>
 	<string name="mute_user">ミュート %s</string>
 	<string name="unmute_user">ミュート解除 %s</string>
 	<string name="block_user">ブロック %s</string>
@@ -93,34 +86,26 @@
 	<string name="button_blocked">ブロック中</string>
 	<string name="action_vote">投票</string>
 	<string name="delete">削除</string>
-	<string name="confirm_delete_title">投稿を削除</string>
 	<string name="confirm_delete">本当にこの投稿を削除しますか？</string>
 	<string name="deleting">削除中</string>
 	<string name="notification_channel_audio_player">オーディオを再生</string>
 	<string name="play">再生</string>
 	<string name="pause">一時停止</string>
-	<string name="log_out">サインアウト</string>
 	<string name="add_account">アカウントを追加</string>
 	<string name="search_hint">検索</string>
 	<string name="hashtags">タグ</string>
 	<string name="news">ニュース</string>
 	<string name="for_you">おすすめ</string>
-	<string name="all_notifications">全て</string>
 	<string name="mentions">メンション</string>
 	<plurals name="x_people_talking">
 		<item quantity="other">%d人が話題について話しています</item>
 	</plurals>
 	<string name="report_title">%sさんを報告する</string>
-	<string name="report_choose_reason">この投稿のどこが問題ですか？</string>
-	<string name="report_choose_reason_account">%sさんのどこが問題ですか？</string>
 	<string name="report_choose_reason_subtitle">最も近いものを選んでください</string>
-	<string name="report_reason_personal">興味がありません</string>
 	<string name="report_reason_personal_subtitle">あなたが見たくない場合</string>
-	<string name="report_reason_spam">これはスパムです</string>
 	<string name="report_reason_spam_subtitle">悪意あるリンクや虚偽の情報、執拗な返信など</string>
 	<string name="report_reason_violation">サーバーのルールに違反しています</string>
 	<string name="report_reason_violation_subtitle">ルールに違反しているのを見つけた場合</string>
-	<string name="report_reason_other">その他</string>
 	<string name="report_reason_other_subtitle">当てはまる選択肢がない場合</string>
 	<string name="report_choose_rule">どのルールに違反していますか？</string>
 	<string name="report_choose_rule_subtitle">当てはまるものすべてを選んでください</string>
@@ -129,14 +114,8 @@
 	<string name="report_comment_title">その他に私たちに伝えておくべき事はありますか？</string>
 	<string name="report_comment_hint">追加コメント</string>
 	<string name="sending_report">レポートを送信しています...</string>
-	<string name="report_sent_title">ご報告ありがとうございます、追って確認します。</string>
-	<string name="report_sent_subtitle">私たちが確認している間でも、あなたは%sさんに対して対応することができます。</string>
 	<string name="unfollow_user">フォロー解除 %s</string>
 	<string name="unfollow">フォロー解除</string>
-	<string name="mute_user_explain">ホームに投稿やブーストは表示されなくなりますが、相手にミュートしたことは伝わりません。</string>
-	<string name="block_user_explain">相手はあなたの投稿を見ることやフォローすることは出来ません。相手はブロックされていることはわかります。</string>
-	<string name="report_personal_title">見えないようにしたいですか？</string>
-	<string name="report_personal_subtitle">Mastodonで気に入らないものを見ると、その人をあなたの体験から取り除くことができます。</string>
 	<string name="back">戻る</string>
 	<string name="search_communities">サーバー名またはURL</string>
 	<string name="instance_rules_title">サーバーのルール</string>
@@ -163,19 +142,14 @@
 	<string name="category_tech">技術</string>
 	<string name="confirm_email_title">確認のメールを送信しました</string>
 	<!-- %s is the email address -->
-	<string name="confirm_email_subtitle">%s を認証するためのリンクをメールで送信しました。リンクをタップしてメールアドレスを認証してください。</string>
-	<string name="confirm_email_didnt_get">メールが届かない場合</string>
 	<string name="resend">再送信</string>
 	<string name="open_email_app">メールアプリを開く</string>
 	<string name="resent_email">確認メールを再送信しました</string>
-	<string name="compose_hint">気になることを入力またはペースト</string>
 	<string name="content_warning">コンテンツ警告</string>
 	<string name="save">保存</string>
 	<string name="add_alt_text">代替テキストを追加</string>
 	<string name="visibility_public">公開</string>
 	<string name="visibility_followers_only">フォロワーのみ</string>
-	<string name="visibility_private">メンションした人のみ</string>
-	<string name="recent_searches">最近の検索</string>
 	<string name="skip">スキップ</string>
 	<string name="notification_type_follow">新しいフォロワー</string>
 	<string name="notification_type_favorite">お気に入り</string>
@@ -184,13 +158,8 @@
 	<string name="notification_type_poll">投票</string>
 	<string name="choose_account">アカウントを選択</string>
 	<string name="err_not_logged_in">まずはMastodonにログインしてください</string>
-	<plurals name="cant_add_more_than_x_attachments">
-		<item quantity="other">%d件以上のメディア添付ファイルを追加することはできません</item>
-	</plurals>
 	<string name="media_attachment_unsupported_type">ファイル %s はサポートされていないファイル形式です</string>
 	<string name="media_attachment_too_big">f</string>
-	<string name="settings_theme">テーマを選択</string>
-	<string name="theme_auto">システム</string>
 	<string name="theme_light">ライト</string>
 	<string name="theme_dark">ダーク</string>
 	<string name="settings_behavior">動作</string>
@@ -203,10 +172,6 @@
 	<string name="settings_clear_cache">メディアキャッシュをクリア</string>
 	<string name="settings_app_version">Mastodon for Android v%1$s (%2$d)</string>
 	<string name="media_cache_cleared">メディアキャッシュを削除しました</string>
-	<string name="confirm_log_out">本当にサインアウトしますか？</string>
-	<string name="sensitive_content_explain">投稿者が閲覧注意と設定しました。タップして表示する。</string>
-	<string name="media_hidden">タップして表示</string>
-	<string name="avatar_description">%sのプロフィールを見る</string>
 	<string name="more_options">その他のオプション</string>
 	<string name="new_post">新しい投稿</string>
 	<string name="button_reply">返信</string>
@@ -222,7 +187,6 @@
 	<string name="media_viewer">メディアビューアー</string>
 	<string name="follow_user">フォロー %s</string>
 	<string name="unfollowed_user">%s のフォローを解除しました</string>
-	<string name="followed_user">%s をフォローしました</string>
 	<string name="following_user_requested">%s にフォローリクエストしました</string>
 	<string name="open_in_browser">ブラウザで開く</string>
 	<string name="hide_boosts_from_user">ブーストを非表示 %s</string>
@@ -240,11 +204,7 @@
 	<string name="error_saving_file">ファイル保存エラー</string>
 	<string name="file_saved">ファイルを保存しました</string>
 	<string name="downloading">ダウンロード中…</string>
-	<string name="no_app_to_handle_action">この操作を処理するアプリが見つかりません</string>
-	<string name="local_timeline">コミュニティ</string>
-	<string name="trending_posts_info_banner">これらの投稿は、あなたのMastodonサーバーで注目を集めている投稿です。</string>
-	<string name="trending_links_info_banner">これらは、あなたのMastodonサーバーで最も共有されているニュースです。</string>
-	<string name="local_timeline_info_banner">これらはあなたと同じMastodonサーバーを使用している人々の最新の投稿です。</string>
+	<!-- %s is the server domain -->
 	<string name="see_new_posts">新しい投稿を見る</string>
 	<string name="load_missing_posts">不足している投稿を読み込む</string>
 	<string name="follow_back">フォローバック</string>
@@ -316,7 +276,6 @@
 	<string name="login_title">アカウントでログイン</string>
 	<string name="login_subtitle">アカウントのあるサーバーのURLを入力してください。</string>
 	<string name="server_url">サーバーのURL</string>
-	<string name="signup_random_server_explain">利用中の言語に基づいてサーバーを自動選択することもできます。</string>
 	<string name="server_filter_any_language">すべての言語</string>
 	<string name="server_filter_instant_signup">開放</string>
 	<string name="server_filter_manual_review">承認制</string>
@@ -329,7 +288,6 @@
 	<string name="server_filter_region_oceania">オセアニア</string>
 	<string name="not_accepting_new_members">新規登録を受け付けていません</string>
 	<string name="category_special_interests">テーマ別</string>
-	<string name="signup_passwords_dont_match">パスワードが一致していません</string>
 	<string name="pick_server_for_me">おまかせ</string>
 	<string name="profile_add_row">フィールドを追加</string>
 	<string name="profile_setup">プロフィールの設定</string>
@@ -338,14 +296,12 @@
 	<string name="popular_on_mastodon">人気のアカウント</string>
 	<string name="follow_all">すべてフォローする</string>
 	<string name="server_rules_disagree">同意しない</string>
-	<string name="privacy_policy_explanation">※: 私たちはいかなる個人情報も収集しません。</string>
 	<!-- %s is server domain -->
 	<string name="server_policy_disagree">%s のポリシーに同意しない</string>
 	<string name="profile_bio">自己紹介</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<string name="sending_follows">フォロー中…</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
-	<string name="signup_email_domain_blocked">%1$s では %2$s のメールアドレスでの登録が許可されていません。別のメールアドレスを使うか、&lt;a&gt;ほかのサーバーを選択&lt;/a&gt;してください。</string>
 	<string name="spoiler_show">表示する</string>
 	<string name="spoiler_hide">非表示</string>
 	<string name="poll_multiple_choice">1つまたは複数を選択</string>
@@ -365,4 +321,15 @@
 	<string name="welcome_paragraph1">Mastodon は、いち企業の統制に依存しない非中央集権型のソーシャルネットワークです。たくさんの独立したサーバーが相互につながり合い、ひとつのネットワークを形成しています。</string>
 	<string name="what_are_servers">サーバーとは</string>
 	<string name="welcome_paragraph2"><![CDATA[Mastodon のアカウントはいずれかのサーバーに所属します。それぞれのサーバーは異なる価値観やルールをもち、それらを管理する管理者がいます。どのサーバーにいても、ほかのあらゆるサーバーのユーザーをフォローして、かかわりをもつことができるでしょう。]]></string>
+	<!-- %s is formatted file size ("467 KB image") -->
+	<!-- %s is the server domain -->
+	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
+	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
+	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
+	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<!-- %s is the username -->
+	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<!-- Shown like a content warning, %s is the name of the filter -->
+	<!-- Shown in the post header. Please keep it short -->
 </resources>
