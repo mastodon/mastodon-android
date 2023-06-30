@@ -125,9 +125,10 @@ public class ThreadFragment extends StatusListFragment{
 			footerProgress.setVisibility(View.VISIBLE);
 	}
 
-	protected void onStatusCreated(StatusCreatedEvent ev){
-		if(ev.status.inReplyToId!=null && getStatusByID(ev.status.inReplyToId)!=null){
-			onAppendItems(Collections.singletonList(ev.status));
+	protected void onStatusCreated(Status status){
+		if(status.inReplyToId!=null && getStatusByID(status.inReplyToId)!=null){
+			onAppendItems(Collections.singletonList(status));
+			data.add(status);
 		}
 	}
 

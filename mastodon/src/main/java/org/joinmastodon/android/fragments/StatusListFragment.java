@@ -63,26 +63,26 @@ public abstract class StatusListFragment extends BaseStatusListFragment<Status>{
 		Nav.go(getActivity(), ThreadFragment.class, args);
 	}
 
-	protected void onStatusCreated(StatusCreatedEvent ev){}
+	protected void onStatusCreated(Status status){}
 
-	protected void onStatusUpdated(StatusUpdatedEvent ev){
+	protected void onStatusUpdated(Status status){
 		ArrayList<Status> statusesForDisplayItems=new ArrayList<>();
 		for(int i=0;i<data.size();i++){
 			Status s=data.get(i);
-			if(s.reblog!=null && s.reblog.id.equals(ev.status.id)){
-				s.reblog=ev.status;
+			if(s.reblog!=null && s.reblog.id.equals(status.id)){
+				s.reblog=status.clone();
 				statusesForDisplayItems.add(s);
-			}else if(s.id.equals(ev.status.id)){
-				data.set(i, ev.status);
-				statusesForDisplayItems.add(ev.status);
+			}else if(s.id.equals(status.id)){
+				data.set(i, status);
+				statusesForDisplayItems.add(status);
 			}
 		}
 		for(int i=0;i<preloadedData.size();i++){
 			Status s=preloadedData.get(i);
-			if(s.reblog!=null && s.reblog.id.equals(ev.status.id)){
-				s.reblog=ev.status;
-			}else if(s.id.equals(ev.status.id)){
-				preloadedData.set(i, ev.status);
+			if(s.reblog!=null && s.reblog.id.equals(status.id)){
+				s.reblog=status.clone();
+			}else if(s.id.equals(status.id)){
+				preloadedData.set(i, status);
 			}
 		}
 
@@ -209,12 +209,12 @@ public abstract class StatusListFragment extends BaseStatusListFragment<Status>{
 		public void onStatusCreated(StatusCreatedEvent ev){
 			if(!ev.accountID.equals(accountID))
 				return;
-			StatusListFragment.this.onStatusCreated(ev);
+			StatusListFragment.this.onStatusCreated(ev.status.clone());
 		}
 
 		@Subscribe
 		public void onStatusUpdated(StatusUpdatedEvent ev){
-			StatusListFragment.this.onStatusUpdated(ev);
+			StatusListFragment.this.onStatusUpdated(ev.status);
 		}
 
 		@Subscribe
