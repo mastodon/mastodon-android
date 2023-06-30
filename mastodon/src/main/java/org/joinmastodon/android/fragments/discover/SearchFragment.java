@@ -121,8 +121,10 @@ public class SearchFragment extends BaseStatusListFragment<SearchResult>{
 		}else{
 			type=null;
 		}
-		if(currentQuery==null)
+		if(currentQuery==null){
+			dataLoaded();
 			return;
+		}
 		currentRequest=new GetSearchResults(currentQuery, type, true)
 				.setCallback(new Callback<>(){
 					@Override

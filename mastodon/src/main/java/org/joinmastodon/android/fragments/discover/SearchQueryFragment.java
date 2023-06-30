@@ -54,6 +54,7 @@ import java.util.stream.Stream;
 
 import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.RecyclerView;
 import me.grishka.appkit.Nav;
 import me.grishka.appkit.api.SimpleCallback;
@@ -287,6 +288,14 @@ public class SearchQueryFragment extends MastodonRecyclerFragment<SearchResultVi
 		getActivity().getSystemService(InputMethodManager.class).hideSoftInputFromWindow(getActivity().getWindow().getDecorView().getWindowToken(), 0);
 	}
 
+	@RequiresApi(api = Build.VERSION_CODES.S)
+	private float getScreenCornerRadius(WindowInsets insets, int pos){
+		RoundedCorner corner=insets.getRoundedCorner(pos);
+		if(corner==null)
+			return 0;
+		return corner.getRadius();
+	}
+
 	private Animator createTransition(View prev, View container, boolean enter){
 		int[] loc={0, 0};
 		View searchBtn=prev.findViewById(R.id.search_wrap);
@@ -299,8 +308,8 @@ public class SearchQueryFragment extends MastodonRecyclerFragment<SearchResultVi
 		if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.S){
 			WindowInsets insets=container.getRootWindowInsets();
 			screenRadius=Math.min(
-					Math.min(insets.getRoundedCorner(RoundedCorner.POSITION_TOP_LEFT).getRadius(), insets.getRoundedCorner(RoundedCorner.POSITION_TOP_RIGHT).getRadius()),
-					Math.min(insets.getRoundedCorner(RoundedCorner.POSITION_BOTTOM_LEFT).getRadius(), insets.getRoundedCorner(RoundedCorner.POSITION_BOTTOM_RIGHT).getRadius())
+					Math.min(getScreenCornerRadius(insets, RoundedCorner.POSITION_TOP_LEFT), getScreenCornerRadius(insets, RoundedCorner.POSITION_TOP_RIGHT)),
+					Math.min(getScreenCornerRadius(insets, RoundedCorner.POSITION_BOTTOM_LEFT), getScreenCornerRadius(insets, RoundedCorner.POSITION_BOTTOM_RIGHT))
 			);
 		}else{
 			screenRadius=0;

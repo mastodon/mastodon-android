@@ -315,6 +315,8 @@ public class ComposeMediaViewController{
 				.setProgressListener(new ProgressListener(){
 					@Override
 					public void onProgress(long transferred, long total){
+						if(fragment.getActivity()==null)
+							return;
 						float progressFraction=transferred/(float)total;
 						int progress=Math.round(progressFraction*attachment.progressBar.getMax());
 						if(Build.VERSION.SDK_INT>=24)
