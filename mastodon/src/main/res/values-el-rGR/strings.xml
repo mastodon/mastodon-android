@@ -4,12 +4,18 @@
 	<string name="next">Επόμενο</string>
 	<string name="loading_instance">Ανάκτηση πληροφοριών διακομιστή…</string>
 	<string name="error">Σφάλμα</string>
+	<string name="not_a_mastodon_instance">Το %s δε φαίνεται να είναι διακομιστής Mastodon.</string>
 	<string name="ok">ΟΚ</string>
 	<string name="preparing_auth">Προετοιμασία για έλεγχο ταυτότητας…</string>
 	<string name="finishing_auth">Ολοκλήρωση ταυτοποίησης…</string>
 	<string name="user_boosted">Ο χρήστης %s ενίσχυσε</string>
 	<string name="in_reply_to">Σε απάντηση στο %s</string>
 	<string name="notifications">Ειδοποιήσεις</string>
+	<string name="user_followed_you">%s σε ακολούθησε</string>
+	<string name="user_sent_follow_request">%s σού έστειλε ένα αίτημα ακολούθησης</string>
+	<string name="user_favorited">%s σημείωσε ως αγαπημένη την ανάρτησή σου</string>
+	<string name="notification_boosted">%s ενίσχυσε την ανάρτηση σου</string>
+	<string name="poll_ended">Δες τα αποτελέσματα μιας δημοσκόπησης στην οποία ψήφισες</string>
 	<string name="share_toot_title">Κοινοποίηση</string>
 	<string name="settings">Ρυθμίσεις</string>
 	<string name="publish">Δημοσίευση</string>
@@ -31,6 +37,7 @@
 	<string name="button_follow">Ακολούθησε</string>
 	<string name="button_following">Ακολουθείς</string>
 	<string name="edit_profile">Επεξεργασία Προφίλ</string>
+	<string name="share_user">Κοινοποίηση προφίλ</string>
 	<string name="mute_user">Σίγαση %s</string>
 	<string name="unmute_user">Κατάργηση σίγασης %s</string>
 	<string name="block_user">Αποκλεισμός %s</string>
