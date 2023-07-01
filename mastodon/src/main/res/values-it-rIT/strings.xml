@@ -407,6 +407,7 @@
 	<string name="add_poll_option">Aggiungi opzione sondaggio</string>
 	<string name="poll_length">Lunghezza del sondaggio</string>
 	<string name="poll_style">Stile</string>
+	<string name="compose_poll_single_choice">Sceglierne uno</string>
 	<string name="compose_poll_multiple_choice">Scelta multipla</string>
 	<string name="delete_poll_option">Opzione elimina sondaggio</string>
 	<string name="poll_style_title">Stile del sondaggio</string>
@@ -471,8 +472,58 @@
 	<string name="pause_notifications_ends">Termina: %s</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<string name="pause_notifications_banner">Le notifiche riprenderanno: %s.</string>
+	<string name="resume_notifications_now">Riprendi ora</string>
+	<string name="open_system_notification_settings">Vai alle impostazioni di notifica</string>
+	<string name="about_server">Info</string>
+	<string name="server_rules">Regole</string>
+	<string name="server_administrator">Amministratore</string>
+	<string name="send_email_to_server_admin">Messaggio dell\'amministratore</string>
+	<string name="notifications_disabled_in_system">Attiva le notifiche dalle impostazioni del tuo dispositivo per vedere gli aggiornamenti da qualsiasi luogo.</string>
+	<string name="settings_even_more">Ancora più impostazioni</string>
+	<string name="settings_show_cws">Mostra avvisi sui contenuti</string>
+	<string name="settings_hide_sensitive_media">Copri i file multimediali contrassegnati come sensibili</string>
+	<string name="settings_show_emoji_in_names">Emoji personalizzate nei nomi visualizzati</string>
+	<plurals name="in_x_seconds">
+		<item quantity="one">in %d secondo</item>
+		<item quantity="other">in %d secondi</item>
+	</plurals>
+	<plurals name="in_x_minutes">
+		<item quantity="one">in %d minuto</item>
+		<item quantity="other">in %d minuti</item>
+	</plurals>
 	<!-- %s is the username -->
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="filter_word_or_phrase">Parola o frase</string>
+	<string name="filter_add_word_help">Le parole sono senza distinzione tra maiuscole e minuscole e corrispondono solo a parole intere.\n\nSe filtri la parola chiave \"Apple\", verranno nascosti i post contenenti \"apple\" o \"aPpLe\" ma non \"pineapple.\"</string>
+	<string name="settings_delete_filter_word">Eliminare la parola «%s»?</string>
+	<string name="enter_selection_mode">Seleziona</string>
+	<string name="select_all">Seleziona tutto</string>
+	<string name="settings_filter_duration_title">Durata del filtro</string>
+	<string name="filter_duration_custom">Personalizzato</string>
+	<plurals name="settings_delete_x_filter_words">
+		<item quantity="one">Eliminare %d parola?</item>
+		<item quantity="other">Eliminare %d parole?</item>
+	</plurals>
+	<plurals name="x_items_selected">
+		<item quantity="one">%d selezionato</item>
+		<item quantity="other">%d selezionati</item>
+	</plurals>
+	<string name="required_form_field_blank">Non può essere vuoto</string>
+	<string name="filter_word_already_in_list">Già nella lista</string>
+	<string name="app_update_ready">Aggiornamento app pronto</string>
+	<string name="app_update_version">Versione %s</string>
+	<string name="downloading_update">Scaricamento (%d%%)</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
+	<string name="search_mastodon">Cerca Mastodon</string>
+	<string name="clear_all">Cancella tutto</string>
+	<string name="search_open_url">Apri l\'URL su Mastodon</string>
+	<string name="posts_matching_hashtag">Post con “%s”</string>
+	<string name="search_go_to_account">Vai a %s</string>
+	<string name="posts_matching_string">Post con “%s”</string>
+	<string name="accounts_matching_string">Persone con “%s”</string>
 	<!-- Shown in the post header. Please keep it short -->
+	<string name="time_seconds_ago_short">%dsec fa</string>
+	<string name="time_minutes_ago_short">%dmin fa</string>
+	<string name="time_hours_ago_short">%do fa</string>
+	<string name="time_days_ago_short">%dg fa</string>
 </resources>
