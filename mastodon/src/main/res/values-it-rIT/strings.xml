@@ -258,6 +258,7 @@
 	<string name="no_app_to_handle_action">Non esiste un\'app per gestire questa azione</string>
 	<string name="local_timeline">Locale</string>
 	<string name="trending_posts_info_banner">Questi sono i post che stanno guadagnando popolarità su Mastodon.</string>
+	<string name="trending_links_info_banner">Queste sono le notizie di cui si parla su Mastodon.</string>
 	<!-- %s is the server domain -->
 	<string name="local_timeline_info_banner">Questi sono tutti i post di tutti gli utenti nel tuo server (%s).</string>
 	<string name="recommended_accounts_info_banner">Questi account potrebbero piacerti in base agli altri che segui.</string>
@@ -482,6 +483,7 @@
 	<string name="settings_even_more">Ancora più impostazioni</string>
 	<string name="settings_show_cws">Mostra avvisi sui contenuti</string>
 	<string name="settings_hide_sensitive_media">Copri i file multimediali contrassegnati come sensibili</string>
+	<string name="settings_show_interaction_counts">Conteggio dell\'interazione dei post</string>
 	<string name="settings_show_emoji_in_names">Emoji personalizzate nei nomi visualizzati</string>
 	<plurals name="in_x_seconds">
 		<item quantity="one">in %d secondo</item>
@@ -491,8 +493,61 @@
 		<item quantity="one">in %d minuto</item>
 		<item quantity="other">in %d minuti</item>
 	</plurals>
+	<plurals name="in_x_hours">
+		<item quantity="one">in %d ora</item>
+		<item quantity="other">in %d ore</item>
+	</plurals>
+	<plurals name="x_hours_ago">
+		<item quantity="one">%d ora fa</item>
+		<item quantity="other">%d ore fa</item>
+	</plurals>
+	<string name="alt_text_reminder_title">File multimediale mancante di testo alternativo</string>
+	<plurals name="alt_text_reminder_x_images">
+		<item quantity="one">In %s delle tue immagini manca il testo alternativo. Postare comunque?</item>
+		<item quantity="other">In %s delle tue immagini manca il testo alternativo. Postare comunque?</item>
+	</plurals>
+	<plurals name="alt_text_reminder_x_attachments">
+		<item quantity="one">In %s dei tuoi file multimediali manca il testo alternativo. Postare comunque?</item>
+		<item quantity="other">In %s dei tuoi file multimediali manca il testo alternativo. Postare comunque?</item>
+	</plurals>
+	<string name="count_one">Uno</string>
+	<string name="count_two">Due</string>
+	<string name="count_three">Tre</string>
+	<string name="count_four">Quattro</string>
+	<string name="alt_text_reminder_post_anyway">Postare</string>
 	<!-- %s is the username -->
+	<string name="unfollow_confirmation">Smetti di seguire %s?</string>
+	<string name="filter_active">Attivo</string>
+	<string name="filter_inactive">Inattivo</string>
+	<string name="settings_add_filter">Aggiungi filtro</string>
+	<string name="settings_edit_filter">Modifica filtro</string>
+	<string name="settings_filter_duration">Durata</string>
+	<string name="settings_filter_muted_words">Parole silenziate</string>
+	<string name="settings_filter_context">Silenzia da</string>
+	<string name="settings_filter_show_cw">Mostra con avviso di contenuto</string>
+	<string name="settings_filter_show_cw_explanation">Mostra ancora i post che corrispondono a questo filtro, ma dietro un avviso di contenuto</string>
+	<string name="settings_delete_filter">Elimina filtro</string>
+	<string name="filter_duration_forever">Per sempre</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="settings_filter_ends">Termina: %s</string>
+	<plurals name="settings_x_muted_words">
+		<item quantity="one">%d parola o frase silenziata</item>
+		<item quantity="other">%d parole o frasi silenziate</item>
+	</plurals>
+	<string name="selection_2_options">%1$s e %2$s</string>
+	<string name="selection_3_options">%1$s, %2$s, e %3$s</string>
+	<string name="selection_4_or_more">%1$s, %2$s e altri %3$d</string>
+	<string name="filter_context_home_lists">Home &amp; liste</string>
+	<string name="filter_context_notifications">Notifiche</string>
+	<string name="filter_context_public_timelines">Timeline pubbliche</string>
+	<string name="filter_context_threads_replies">Discussioni &amp; risposte</string>
+	<string name="filter_context_profiles">Profili</string>
+	<string name="settings_filter_title">Titolo</string>
+	<string name="settings_delete_filter_title">Eliminare il filtro \"%s\"?</string>
+	<string name="settings_delete_filter_confirmation">Questo filtro verrà eliminato dal tuo account su tutti i tuoi dispositivi.</string>
+	<string name="add_muted_word">Aggiungi parola silenziata</string>
+	<string name="edit_muted_word">Modifica parola silenziata</string>
+	<string name="add">Aggiungi</string>
 	<string name="filter_word_or_phrase">Parola o frase</string>
 	<string name="filter_add_word_help">Le parole sono senza distinzione tra maiuscole e minuscole e corrispondono solo a parole intere.\n\nSe filtri la parola chiave \"Apple\", verranno nascosti i post contenenti \"apple\" o \"aPpLe\" ma non \"pineapple.\"</string>
 	<string name="settings_delete_filter_word">Eliminare la parola «%s»?</string>
@@ -514,6 +569,7 @@
 	<string name="app_update_version">Versione %s</string>
 	<string name="downloading_update">Scaricamento (%d%%)</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
+	<string name="post_matches_filter_x">Corrisponde al filtro \"%s\"</string>
 	<string name="search_mastodon">Cerca Mastodon</string>
 	<string name="clear_all">Cancella tutto</string>
 	<string name="search_open_url">Apri l\'URL su Mastodon</string>
