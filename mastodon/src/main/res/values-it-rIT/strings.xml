@@ -85,6 +85,10 @@
 		<item quantity="one">%d giorno rimanente</item>
 		<item quantity="other">%d giorni rimanenti</item>
 	</plurals>
+	<plurals name="x_votes">
+		<item quantity="one">%,d voto</item>
+		<item quantity="other">%,d voti</item>
+	</plurals>
 	<string name="poll_closed">Chiuso</string>
 	<string name="confirm_mute_title">Silenzia account</string>
 	<string name="confirm_mute">Confermi di silenziare %s</string>
@@ -404,12 +408,69 @@
 	<string name="poll_length">Lunghezza del sondaggio</string>
 	<string name="poll_style">Stile</string>
 	<string name="compose_poll_multiple_choice">Scelta multipla</string>
+	<string name="delete_poll_option">Opzione elimina sondaggio</string>
+	<string name="poll_style_title">Stile del sondaggio</string>
+	<string name="alt_text">Testo alternativo</string>
+	<string name="help">Aiuto</string>
+	<string name="what_is_alt_text">Cos\'è il testo alternativo?</string>
+	<string name="alt_text_help">Il testo alternativo fornisce descrizioni delle immagini per le persone con problemi di vista, connessioni con larghezza di banda ridotta o coloro che cercano un contesto aggiuntivo.\n\nPuoi migliorare l\'accessibilità e la comprensione per tutti scrivendo un testo alternativo: chiaro, conciso e obiettivo.\n\n<ul ><li>Cattura gli elementi importanti</li>\n<li>Riassumi il testo nelle immagini</li>\n<li>Utilizza una struttura di frasi regolare</li>\n<li>Evita informazioni ridondanti</li>\n<li>Concentrati sulle tendenze e sui risultati chiave in immagini complesse (come diagrammi o mappe)</li></ul></string>
+	<string name="edit_post">Modifica il post</string>
+	<string name="no_verified_link">Nessun collegamento verificato</string>
+	<string name="compose_autocomplete_emoji_empty">Sfoglia le emoji</string>
+	<string name="compose_autocomplete_users_empty">Trova chi stai cercando</string>
+	<string name="no_search_results">Impossibile trovare qualcosa per questi termini di ricerca</string>
+	<string name="language">Lingua</string>
+	<string name="language_default">Predefinita</string>
+	<string name="language_system">Sistema</string>
+	<string name="language_detecting">Rilevamento della lingua</string>
+	<string name="language_cant_detect">Impossibile rilevare la lingua</string>
+	<string name="language_detected">Rilevata</string>
+	<string name="media_hidden">File multimediale nascosto</string>
+	<string name="post_hidden">Post nascosto</string>
+	<string name="report_title_post">Segnala il post</string>
+	<string name="forward_report_explanation">L\'account proviene da un altro server. Inviare una copia anonima di questo rapporto anche lì?</string>
 	<!-- %s is the server domain -->
+	<string name="forward_report_to_server">Inoltra a %s</string>
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
+	<string name="reported">Segnalato</string>
+	<string name="report_unfollow_explanation">Per non vedere più i loro post nella tua home feed, smetti di seguirli.</string>
+	<string name="muted_user">Silenziato/a %s</string>
+	<string name="report_sent_already_blocked">Hai già bloccato questo/a utente, quindi non devi fare nient\'altro mentre esaminiamo la tua segnalazione.</string>
+	<string name="report_personal_already_blocked">Hai già bloccato questo/a utente, quindi non devi fare nient\'altro.\n\nGrazie per il contributo nel mantenere Mastodon un posto sicuro per tutti!</string>
+	<string name="blocked_user">Bloccato/a %s</string>
+	<string name="mark_all_notifications_read">Segna tutte come già lette</string>
+	<string name="settings_display">Schermo</string>
+	<string name="settings_filters">Filtri</string>
+	<string name="settings_server_explanation">Panoramica, regole, moderatori</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
+	<string name="about_app">Info su %s</string>
+	<string name="default_post_language">Lingua predefinita dei post</string>
+	<string name="settings_alt_text_reminders">Aggiungi promemoria di testo alternativo</string>
+	<string name="settings_confirm_unfollow">Chiedi prima di smettere di seguire qualcuno</string>
+	<string name="settings_confirm_boost">Chiedi prima di condividere</string>
+	<string name="settings_confirm_delete_post">Chiedi prima di eliminare i post</string>
+	<string name="pause_all_notifications">Metti in pausa tutto</string>
+	<string name="pause_notifications_off">Spente</string>
+	<string name="notifications_policy_anyone">Chiunque</string>
+	<string name="notifications_policy_followed">Persone che ti seguono</string>
+	<string name="notifications_policy_follower">Persone che segui</string>
+	<string name="notifications_policy_no_one">Nessuna</string>
+	<string name="settings_notifications_policy">Ricevi notifiche da</string>
+	<string name="notification_type_mentions_and_replies">Menzioni e risposte</string>
+	<string name="pause_all_notifications_title">Metti in pausa tutte le notifiche</string>
+	<plurals name="x_weeks">
+		<item quantity="one">%d settimana</item>
+		<item quantity="other">%d settimane</item>
+	</plurals>
 	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
+	<string name="date_at_time">%1$s a %2$s</string>
+	<string name="today">oggi</string>
+	<string name="yesterday">ieri</string>
+	<string name="tomorrow">domani</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="pause_notifications_ends">Termina: %s</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="pause_notifications_banner">Le notifiche riprenderanno: %s.</string>
 	<!-- %s is the username -->
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<!-- Shown like a content warning, %s is the name of the filter -->
