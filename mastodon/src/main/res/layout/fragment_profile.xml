@@ -84,14 +84,17 @@
 						android:layout_below="@id/cover"
 						android:layout_alignParentEnd="true"
 						android:layout_marginTop="16dp"
-						android:layout_marginEnd="16dp">
+						android:layout_marginHorizontal="16dp"
+						android:paddingStart="120dp">
 
 						<org.joinmastodon.android.ui.views.ProgressBarButton
 							android:id="@+id/profile_action_btn"
-							style="@style/Widget.Mastodon.M3.Button.Filled"
-							android:layout_width="156dp"
+							android:layout_width="wrap_content"
 							android:layout_height="40dp"
-							tools:text="Edit Profile" />
+							style="@style/Widget.Mastodon.M3.Button.Filled"
+							android:minWidth="156dp"
+							android:paddingHorizontal="16dp"
+							tools:text="@string/save_changes" />
 
 						<ProgressBar
 							android:id="@+id/action_progress"

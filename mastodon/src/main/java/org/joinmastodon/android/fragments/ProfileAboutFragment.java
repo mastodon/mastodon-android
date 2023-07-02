@@ -52,6 +52,7 @@ public class ProfileAboutFragment extends Fragment implements WindowInsetsAwareF
 	private boolean isInEditMode;
 	private ItemTouchHelper dragHelper=new ItemTouchHelper(new ReorderCallback());
 	private ListImageLoaderWrapper imgLoader;
+	private boolean editDirty;
 
 	public void setFields(List<AccountField> fields){
 		this.fields=fields;
@@ -83,10 +84,15 @@ public class ProfileAboutFragment extends Fragment implements WindowInsetsAwareF
 		fields=editableFields;
 		adapter.notifyDataSetChanged();
 		dragHelper.attachToRecyclerView(list);
+		editDirty=false;
 	}
 
 	public List<AccountField> getFields(){
 		return fields;
+	}
+
+	public boolean isEditDirty(){
+		return editDirty;
 	}
 
 	@Override
@@ -209,6 +215,7 @@ public class ProfileAboutFragment extends Fragment implements WindowInsetsAwareF
 	private class EditableAboutViewHolder extends BaseViewHolder{
 		private final EditText title;
 		private final EditText value;
+		private boolean ignoreTextChange;
 
 		public EditableAboutViewHolder(){
 			super(R.layout.onboarding_profile_field);
@@ -218,16 +225,26 @@ public class ProfileAboutFragment extends Fragment implements WindowInsetsAwareF
 				dragHelper.startDrag(this);
 				return true;
 			});
-			title.addTextChangedListener(new SimpleTextWatcher(e->item.name=e.toString()));
-			value.addTextChangedListener(new SimpleTextWatcher(e->item.value=e.toString()));
+			title.addTextChangedListener(new SimpleTextWatcher(e->{
+				item.name=e.toString();
+				if(!ignoreTextChange)
+					editDirty=true;
+			}));
+			value.addTextChangedListener(new SimpleTextWatcher(e->{
+				item.value=e.toString();
+				if(!ignoreTextChange)
+					editDirty=true;
+			}));
 			findViewById(R.id.delete).setOnClickListener(this::onRemoveRowClick);
 		}
 
 		@Override
 		public void onBind(AccountField item){
 			super.onBind(item);
+			ignoreTextChange=true;
 			title.setText(item.name);
 			value.setText(item.value);
+			ignoreTextChange=false;
 		}
 
 		private void onRemoveRowClick(View v){

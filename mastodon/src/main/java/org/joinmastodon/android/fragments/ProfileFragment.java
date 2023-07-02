@@ -67,6 +67,7 @@ import org.joinmastodon.android.ui.tabs.TabLayout;
 import org.joinmastodon.android.ui.tabs.TabLayoutMediator;
 import org.joinmastodon.android.ui.text.CustomEmojiSpan;
 import org.joinmastodon.android.ui.text.HtmlParser;
+import org.joinmastodon.android.ui.utils.SimpleTextWatcher;
 import org.joinmastodon.android.ui.utils.UiUtils;
 import org.joinmastodon.android.ui.views.CoverImageView;
 import org.joinmastodon.android.ui.views.CustomDrawingOrderLinearLayout;
@@ -134,7 +135,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 	private boolean isOwnProfile;
 	private ArrayList<AccountField> fields=new ArrayList<>();
 
-	private boolean isInEditMode;
+	private boolean isInEditMode, editDirty;
 	private Uri editNewAvatar, editNewCover;
 	private String profileAccountID;
 	private boolean refreshing;
@@ -303,6 +304,9 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 		int colorPrimary=UiUtils.getThemeColor(getActivity(), R.attr.colorM3Primary);
 		refreshLayout.setProgressBackgroundColorSchemeColor(UiUtils.alphaBlendColors(colorBackground, colorPrimary, 0.11f));
 		refreshLayout.setColorSchemeColors(colorPrimary);
+
+		nameEdit.addTextChangedListener(new SimpleTextWatcher(e->editDirty=true));
+		bioEdit.addTextChangedListener(new SimpleTextWatcher(e->editDirty=true));
 
 		return sizeWrapper;
 	}
@@ -813,6 +817,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 
 		aboutFragment.enterEditMode(account.source.fields);
 		refreshLayout.setEnabled(false);
+		editDirty=false;
 	}
 
 	private void exitEditMode(){
@@ -896,11 +901,15 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 	@Override
 	public boolean onBackPressed(){
 		if(isInEditMode){
-			new M3AlertDialogBuilder(getActivity())
-					.setTitle(R.string.discard_changes)
-					.setPositiveButton(R.string.discard, (dlg, btn)->exitEditMode())
-					.setNegativeButton(R.string.cancel, null)
-					.show();
+			if(editDirty || aboutFragment.isEditDirty()){
+				new M3AlertDialogBuilder(getActivity())
+						.setTitle(R.string.discard_changes)
+						.setPositiveButton(R.string.discard, (dlg, btn)->exitEditMode())
+						.setNegativeButton(R.string.cancel, null)
+						.show();
+			}else{
+				exitEditMode();
+			}
 			return true;
 		}
 		return false;
@@ -961,9 +970,11 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 			if(requestCode==AVATAR_RESULT){
 				editNewAvatar=data.getData();
 				ViewImageLoader.loadWithoutAnimation(avatar, null, new UrlImageLoaderRequest(editNewAvatar, V.dp(100), V.dp(100)));
+				editDirty=true;
 			}else if(requestCode==COVER_RESULT){
 				editNewCover=data.getData();
 				ViewImageLoader.loadWithoutAnimation(cover, null, new UrlImageLoaderRequest(editNewCover, V.dp(1000), V.dp(1000)));
+				editDirty=true;
 			}
 		}
 	}

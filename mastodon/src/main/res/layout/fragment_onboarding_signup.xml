@@ -88,6 +88,7 @@
 					android:paddingRight="16dp"
 					android:textAppearance="@style/m3_body_large"
 					android:gravity="center_vertical"
+					android:textColor="?colorM3OnSurface"
 					tools:text="\@mastodon.social"/>
 
 			</org.joinmastodon.android.ui.views.FloatingHintEditTextLayout>

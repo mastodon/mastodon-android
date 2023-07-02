@@ -12,6 +12,7 @@
 		android:textAppearance="@style/m3_body_large"
 		android:paddingStart="56dp"
 		android:paddingEnd="24dp"
+		android:textColor="?colorM3OnSurface"
 		android:text="@string/login_subtitle"/>
 	
 	<org.joinmastodon.android.ui.views.FloatingHintEditTextLayout
