@@ -148,6 +148,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 	private boolean tabBarIsAtTop;
 	private Animator tabBarColorAnim;
 	private MenuItem editSaveMenuItem;
+	private boolean savingEdits;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState){
@@ -866,10 +867,12 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 		if(!isInEditMode)
 			throw new IllegalStateException();
 		setActionProgressVisible(true);
+		savingEdits=true;
 		new UpdateAccountCredentials(nameEdit.getText().toString(), bioEdit.getText().toString(), editNewAvatar, editNewCover, aboutFragment.getFields())
 				.setCallback(new Callback<>(){
 					@Override
 					public void onSuccess(Account result){
+						savingEdits=false;
 						account=result;
 						AccountSessionManager.getInstance().updateAccountInfo(accountID, account);
 						exitEditMode();
@@ -878,6 +881,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 
 					@Override
 					public void onError(ErrorResponse error){
+						savingEdits=false;
 						error.showToast(getActivity());
 						setActionProgressVisible(false);
 					}
@@ -901,6 +905,8 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 	@Override
 	public boolean onBackPressed(){
 		if(isInEditMode){
+			if(savingEdits)
+				return true;
 			if(editDirty || aboutFragment.isEditDirty()){
 				new M3AlertDialogBuilder(getActivity())
 						.setTitle(R.string.discard_changes)

@@ -349,7 +349,7 @@ public class NotificationsListFragment extends BaseStatusListFragment<Notificati
 	}
 
 	private void updateMarkAllReadButton(){
-		markAllReadItem.setEnabled(!data.isEmpty() && !realUnreadMarker.equals(data.get(0).id));
+		markAllReadItem.setEnabled(!data.isEmpty() && realUnreadMarker!=null && !realUnreadMarker.equals(data.get(0).id));
 	}
 
 	@Override

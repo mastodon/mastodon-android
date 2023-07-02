@@ -280,6 +280,8 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 		}
 
 		private void updateOptionsMenu(){
+			if(item.parentFragment.getActivity()==null)
+				return;
 			Account account=item.user;
 			Menu menu=optionsMenu.getMenu();
 			boolean isOwnPost=AccountSessionManager.getInstance().isSelf(item.parentFragment.getAccountID(), account);

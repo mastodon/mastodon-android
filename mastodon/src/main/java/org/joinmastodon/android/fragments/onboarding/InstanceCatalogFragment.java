@@ -228,7 +228,7 @@ abstract class InstanceCatalogFragment extends BaseRecyclerFragment<CatalogInsta
 				}
 				loadingInstanceDomain=null;
 				showInstanceInfoLoadError(domain, error);
-				if(fakeInstance!=null){
+				if(fakeInstance!=null && getActivity()!=null){
 					fakeInstance.description=getString(R.string.error);
 					if(filteredData.size()>0 && filteredData.get(0)==fakeInstance){
 						if(list.findViewHolderForAdapterPosition(1) instanceof BindableViewHolder<?> ivh){

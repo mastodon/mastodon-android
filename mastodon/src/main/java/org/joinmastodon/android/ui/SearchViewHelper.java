@@ -126,4 +126,8 @@ public class SearchViewHelper{
 	public View getDivider(){
 		return divider;
 	}
+
+	public EditText getSearchEdit(){
+		return searchEdit;
+	}
 }

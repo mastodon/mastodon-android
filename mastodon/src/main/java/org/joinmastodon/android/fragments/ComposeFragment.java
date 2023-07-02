@@ -252,7 +252,8 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 		selfAvatar=view.findViewById(R.id.avatar);
 		HtmlParser.setTextWithCustomEmoji(selfName, self.displayName, self.emojis);
 		selfUsername.setText('@'+self.username+'@'+instanceDomain);
-		ViewImageLoader.load(selfAvatar, null, new UrlImageLoaderRequest(self.avatar));
+		if(self.avatar!=null)
+			ViewImageLoader.load(selfAvatar, null, new UrlImageLoaderRequest(self.avatar));
 		ViewOutlineProvider roundCornersOutline=new ViewOutlineProvider(){
 			@Override
 			public void getOutline(View view, Outline outline){
@@ -960,6 +961,8 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 	}
 
 	private void updateVisibilityIcon(){
+		if(getActivity()==null)
+			return;
 		if(statusVisibility==null){ // TODO find out why this happens
 			statusVisibility=StatusPrivacy.PUBLIC;
 		}

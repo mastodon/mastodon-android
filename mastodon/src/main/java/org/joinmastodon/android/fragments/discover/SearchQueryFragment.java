@@ -279,7 +279,7 @@ public class SearchQueryFragment extends MastodonRecyclerFragment<SearchResultVi
 	@Override
 	protected void onShown(){
 		super.onShown();
-		getActivity().getSystemService(InputMethodManager.class).showSoftInput(getActivity().getCurrentFocus(), 0);
+		getActivity().getSystemService(InputMethodManager.class).showSoftInput(searchViewHelper.getSearchEdit(), 0);
 	}
 
 	@Override
