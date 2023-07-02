@@ -87,7 +87,6 @@ public class PushSubscriptionManager{
 	private String accountID;
 	private PrivateKey privateKey;
 	private PublicKey publicKey;
-	private PublicKey serverKey;
 	private byte[] authKey;
 
 	public PushSubscriptionManager(String accountID){
@@ -162,10 +161,6 @@ public class PushSubscriptionManager{
 						@Override
 						public void onSuccess(PushSubscription result){
 							MastodonAPIController.runInBackground(()->{
-								result.serverKey=result.serverKey.replace('/','_');
-								result.serverKey=result.serverKey.replace('+','-');
-								serverKey=deserializeRawPublicKey(Base64.decode(result.serverKey, Base64.URL_SAFE));
-
 								AccountSession session=AccountSessionManager.getInstance().tryGetAccount(accountID);
 								if(session==null)
 									return;
