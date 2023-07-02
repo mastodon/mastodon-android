@@ -40,6 +40,7 @@
 	<string name="button_follow">Падпісацца</string>
 	<string name="button_following">Вы падпісаны</string>
 	<string name="edit_profile">Рэдагаваць профіль</string>
+	<string name="share_user">Падзяліцца профілем</string>
 	<string name="mute_user">Ігнараваць %s</string>
 	<string name="unmute_user">Не ігнараваць %s</string>
 	<string name="block_user">Заблакіраваць %s</string>
@@ -103,6 +104,12 @@
 		<item quantity="many">%d дзён засталося</item>
 		<item quantity="other">%d дзён засталося</item>
 	</plurals>
+	<plurals name="x_votes">
+		<item quantity="one">%,d голас</item>
+		<item quantity="few">%,d галасы</item>
+		<item quantity="many">%,d галасоў</item>
+		<item quantity="other">%,d голаса</item>
+	</plurals>
 	<string name="poll_closed">Завершана</string>
 	<string name="confirm_mute_title">Ігнараваць уліковы запіс</string>
 	<string name="confirm_mute">Ігнараваць %s?</string>
@@ -161,8 +168,13 @@
 	<string name="report_comment_hint">Дадатковыя каментарыі</string>
 	<string name="sending_report">Адпраўка скаргі…</string>
 	<string name="report_sent_title">Дзякуй за вашу скаргу, мы яе разгледзім.</string>
+	<string name="report_sent_subtitle">Пакуль мы разглядаем яе, вы можаце прыняць меры супраць %s:</string>
 	<string name="unfollow_user">Адпісацца ад %s</string>
 	<string name="unfollow">Адпісацца</string>
+	<string name="mute_user_explain">Вы не будзеце бачыць допісы гэтага карыстальніка. Ён усё яшчэ зможа сачыць за вамі і бачыць вашы допісы, не ведаючы, што яго ігнаруюць.</string>
+	<string name="block_user_explain">Вы перастанеце бачыць допісы гэтага карыстальніка. Ён не зможа сачыць за вамі і бачыць вашы допісы. Ён зможа зразумець, што яго заблакіравалі.</string>
+	<string name="report_personal_title">Не хочаце бачыць гэта?</string>
+	<string name="report_personal_subtitle">Вось вашыя варыянты кантролю над тым, што вы бачыце в Mastodon:</string>
 	<string name="back">Назад</string>
 	<string name="search_communities">Назва сервера або URL</string>
 	<string name="instance_rules_title">Правілы сервера</string>
@@ -189,10 +201,12 @@
 	<string name="category_tech">Тэхналогіі</string>
 	<string name="confirm_email_title">Праверце паштовую скрыню</string>
 	<!-- %s is the email address -->
+	<string name="confirm_email_subtitle">Націсніце на спасылку, якую мы адправілі, каб спраўдзіць %s. Мы вас пачакаем тут.</string>
 	<string name="confirm_email_didnt_get">Не атрымалі спасылку?</string>
 	<string name="resend">Адправіць паўторна</string>
 	<string name="open_email_app">Адкрыць праграму для пошты</string>
 	<string name="resent_email">Электронны ліст з пацвярджэннем адпраўлены</string>
+	<string name="compose_hint">Напішыце тое, аб чым думаеце</string>
 	<string name="content_warning">Папярэджанне аб змесціве</string>
 	<string name="save">Захаваць</string>
 	<string name="add_alt_text">Дадаць альтэрнатыўны тэкст</string>
@@ -284,6 +298,12 @@
 		<item quantity="many">%,d абраных</item>
 		<item quantity="other">%,d абраных</item>
 	</plurals>
+	<plurals name="x_reblogs">
+		<item quantity="one">%,d пашырэнне</item>
+		<item quantity="few">%,d пашырэнні</item>
+		<item quantity="many">%,d пашырэнняў</item>
+		<item quantity="other">%,d пашырэння</item>
+	</plurals>
 	<string name="timestamp_via_app">%1$s праз %2$s</string>
 	<string name="time_now">толькі што</string>
 	<string name="edit_history">Гісторыя рэдагавання</string>
@@ -372,59 +392,131 @@
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
 	<string name="spoiler_show">Усё адно паказаць</string>
 	<string name="save_changes">Захаваць змены</string>
+	<string name="profile_featured">Рэкамендаванае</string>
 	<string name="view_all">Праглядзець усё</string>
 	<string name="profile_endorsed_accounts">Уліковыя запісы</string>
 	<string name="show">Паказаць</string>
 	<string name="hide">Схаваць</string>
+	<string name="join_default_server">Далучыцца да %s</string>
 	<string name="pick_server">Выбраць іншы сервер</string>
 	<string name="signup_or_login">або</string>
 	<string name="learn_more">Даведацца больш</string>
+	<string name="welcome_to_mastodon">Вітаем у Mastodon</string>
+	<string name="welcome_paragraph1">Mastodon - гэта дэцэнтралізаваная сацыяльная сетка, што азначае, што ні адна кампанія не кантралюе яе. Яна складаецца з мноства незалежна працуючых сервераў, злучаных разам.</string>
+	<string name="what_are_servers">Што такое серверы?</string>
+	<string name="welcome_paragraph2"><![CDATA[Кожны акаўнт Mastodon размяшчаецца на серверы - кожны са сваімі каштоўнасцямі, правіламі і адміністратарамі. Незалежна ад таго, які сервер вы вылучыце, вы можаце сачыць і ўзаемадзейнічаць з людзьмі на любым серверы.]]></string>
 	<string name="retry">Паўтарыць</string>
 	<!-- %s is formatted file size ("467 KB image") -->
 	<string name="attachment_type_video">Відэа</string>
 	<string name="attachment_type_gif">GIF</string>
 	<string name="attachment_type_unknown">Файл</string>
+	<string name="poll_style">Стыль</string>
+	<string name="help">Даведка</string>
 	<string name="edit_post">Рэдагаваць допіс</string>
+	<string name="no_verified_link">Няма спраўджанай спасылкі</string>
 	<string name="language">Мова</string>
 	<string name="language_default">Перадвызначана</string>
+	<string name="language_system">Сістэма</string>
 	<string name="media_hidden">Медыя схавана</string>
+	<string name="post_hidden">Допіс схаваны</string>
 	<string name="report_title_post">Паскардзіцца на допіс</string>
 	<!-- %s is the server domain -->
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
+	<string name="settings_display">Адлюстраванне</string>
 	<string name="settings_filters">Фільтры</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">Аб %s</string>
 	<string name="settings_confirm_boost">Пытаць перад пашырэннем</string>
+	<string name="pause_all_notifications">Прыпыніць усе</string>
 	<string name="notifications_policy_anyone">Кожны</string>
 	<string name="notifications_policy_no_one">Ніхто</string>
+	<string name="settings_notifications_policy">Атрымліваць апавяшчэнні ад</string>
+	<string name="notification_type_mentions_and_replies">Згадванні і адказы</string>
+	<string name="pause_all_notifications_title">Прыпыніць усе апавяшчэнні</string>
+	<plurals name="x_weeks">
+		<item quantity="one">%d тыдзень</item>
+		<item quantity="few">%d тыдні</item>
+		<item quantity="many">%d тыдняў</item>
+		<item quantity="other">%d тыдні</item>
+	</plurals>
 	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
+	<string name="date_at_time">%1$s а %2$s</string>
 	<string name="today">сёння</string>
 	<string name="yesterday">учора</string>
 	<string name="tomorrow">заўтра</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="pause_notifications_ends">Скончыцца %s</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<string name="about_server">Пра сервер</string>
 	<string name="server_rules">Правілы</string>
 	<string name="server_administrator">Адміністратар</string>
+	<plurals name="in_x_seconds">
+		<item quantity="one">праз %d секунду</item>
+		<item quantity="few">праз %d секунды</item>
+		<item quantity="many">праз %d секунд</item>
+		<item quantity="other">праз %d секунды</item>
+	</plurals>
+	<plurals name="in_x_minutes">
+		<item quantity="one">праз %d хвіліну</item>
+		<item quantity="few">праз %d хвіліны</item>
+		<item quantity="many">праз %d хвілін</item>
+		<item quantity="other">праз %d хвіліны</item>
+	</plurals>
+	<plurals name="in_x_hours">
+		<item quantity="one">праз %d гадзіну</item>
+		<item quantity="few">праз %d гадзіны</item>
+		<item quantity="many">праз %d гадзін</item>
+		<item quantity="other">праз %d гадзіны</item>
+	</plurals>
+	<plurals name="x_hours_ago">
+		<item quantity="one">%d гадзіна таму</item>
+		<item quantity="few">%d гадзіны таму</item>
+		<item quantity="many">%d гадзін таму</item>
+		<item quantity="other">%d гадзіны таму</item>
+	</plurals>
+	<string name="count_one">Адзін</string>
+	<string name="count_two">Два</string>
+	<string name="count_three">Тры</string>
+	<string name="count_four">Чатыры</string>
+	<string name="alt_text_reminder_post_anyway">Допіс</string>
 	<!-- %s is the username -->
+	<string name="filter_active">Актыўны</string>
+	<string name="filter_inactive">Неактыўны</string>
 	<string name="settings_add_filter">Дадаць фільтр</string>
 	<string name="settings_edit_filter">Рэдагаваць фільтр</string>
 	<string name="settings_filter_duration">Працягласць</string>
 	<string name="settings_filter_muted_words">Ігнараваныя словы</string>
+	<string name="settings_delete_filter">Выдаліць фільтр</string>
 	<string name="filter_duration_forever">Назаўсёды</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="settings_filter_ends">Скончыцца %s</string>
+	<string name="selection_2_options">%1$s і %2$s</string>
+	<string name="selection_3_options">%1$s, %2$s і %3$s</string>
 	<string name="filter_context_notifications">Апавяшчэнні</string>
+	<string name="filter_context_public_timelines">Публічныя стужкі</string>
 	<string name="filter_context_profiles">Профілі</string>
 	<string name="settings_filter_title">Загаловак</string>
+	<string name="settings_delete_filter_title">Выдаліць фільтр \"%s\"?</string>
 	<string name="add">Дадаць</string>
 	<string name="filter_word_or_phrase">Слова або фраза</string>
+	<string name="settings_delete_filter_word">Выдаліць слова \"%s\"?</string>
 	<string name="enter_selection_mode">Выбраць</string>
 	<string name="select_all">Выбраць усё</string>
+	<string name="settings_filter_duration_title">Працягласць фільтра</string>
+	<plurals name="settings_delete_x_filter_words">
+		<item quantity="one">Выдаліць %d слова?</item>
+		<item quantity="few">Выдаліць %d словы?</item>
+		<item quantity="many">Выдаліць %d словаў?</item>
+		<item quantity="other">Выдаліць %d слова?</item>
+	</plurals>
+	<string name="required_form_field_blank">Не можа быць пустым</string>
+	<string name="filter_word_already_in_list">Ужо ў спісе</string>
 	<string name="app_update_ready">Абнаўленне праграмы гатова</string>
 	<string name="app_update_version">Версія %s</string>
 	<string name="downloading_update">Спампаванне (%d%%)</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
 	<string name="post_matches_filter_x">Адпавядае фільтру \"%s\"</string>
+	<string name="search_mastodon">Пошук у Mastodon</string>
 	<string name="clear_all">Ачысціць усё</string>
 	<string name="search_open_url">Адкрыць спасылку ў Mastodon</string>
 	<string name="posts_matching_hashtag">Допісы з “%s“</string>
