@@ -7,19 +7,26 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.view.WindowInsets;
-import android.widget.Button;
+import android.widget.ProgressBar;
 
 import org.joinmastodon.android.MastodonApp;
 import org.joinmastodon.android.R;
+import org.joinmastodon.android.api.requests.catalog.GetCatalogDefaultInstances;
 import org.joinmastodon.android.api.requests.instance.GetInstance;
 import org.joinmastodon.android.fragments.onboarding.InstanceCatalogSignupFragment;
 import org.joinmastodon.android.fragments.onboarding.InstanceChooserLoginFragment;
 import org.joinmastodon.android.fragments.onboarding.InstanceRulesFragment;
 import org.joinmastodon.android.model.Instance;
+import org.joinmastodon.android.model.catalog.CatalogDefaultInstance;
 import org.joinmastodon.android.ui.InterpolatingMotionEffect;
+import org.joinmastodon.android.ui.M3AlertDialogBuilder;
 import org.joinmastodon.android.ui.utils.UiUtils;
+import org.joinmastodon.android.ui.views.ProgressBarButton;
 import org.joinmastodon.android.ui.views.SizeListenerFrameLayout;
 import org.parceler.Parcels;
+
+import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 
 import androidx.annotation.Nullable;
 import me.grishka.appkit.Nav;
@@ -37,11 +44,16 @@ public class SplashFragment extends AppKitFragment{
 	private View artContainer, blueFill, greenFill;
 	private InterpolatingMotionEffect motionEffect;
 	private View artClouds, artPlaneElephant, artRightHill, artLeftHill, artCenterHill;
+	private ProgressBarButton defaultServerButton;
+	private ProgressBar defaultServerProgress;
+	private String chosenDefaultServer=DEFAULT_SERVER;
+	private boolean loadingDefaultServer;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		motionEffect=new InterpolatingMotionEffect(MastodonApp.context);
+		loadAndChooseDefaultServer();
 	}
 
 	@Nullable
@@ -50,9 +62,14 @@ public class SplashFragment extends AppKitFragment{
 		contentView=(SizeListenerFrameLayout) inflater.inflate(R.layout.fragment_splash, container, false);
 		contentView.findViewById(R.id.btn_get_started).setOnClickListener(this::onButtonClick);
 		contentView.findViewById(R.id.btn_log_in).setOnClickListener(this::onButtonClick);
-		Button joinDefault=contentView.findViewById(R.id.btn_join_default_server);
-		joinDefault.setText(getString(R.string.join_default_server, DEFAULT_SERVER));
-		joinDefault.setOnClickListener(this::onJoinDefaultServerClick);
+		defaultServerButton=contentView.findViewById(R.id.btn_join_default_server);
+		defaultServerButton.setText(getString(R.string.join_default_server, chosenDefaultServer));
+		defaultServerButton.setOnClickListener(this::onJoinDefaultServerClick);
+		defaultServerProgress=contentView.findViewById(R.id.action_progress);
+		if(loadingDefaultServer){
+			defaultServerButton.setTextVisible(false);
+			defaultServerProgress.setVisibility(View.VISIBLE);
+		}
 		contentView.findViewById(R.id.btn_learn_more).setOnClickListener(this::onLearnMoreClick);
 
 		artClouds=contentView.findViewById(R.id.art_clouds);
@@ -96,12 +113,22 @@ public class SplashFragment extends AppKitFragment{
 	}
 
 	private void onJoinDefaultServerClick(View v){
+		if(loadingDefaultServer)
+			return;
 		new GetInstance()
 				.setCallback(new Callback<>(){
 					@Override
 					public void onSuccess(Instance result){
 						if(getActivity()==null)
 							return;
+						if(!result.registrations){
+							new M3AlertDialogBuilder(getActivity())
+									.setTitle(R.string.error)
+									.setMessage(R.string.instance_signup_closed)
+									.setPositiveButton(R.string.ok, null)
+									.show();
+							return;
+						}
 						Bundle args=new Bundle();
 						args.putParcelable("instance", Parcels.wrap(result));
 						Nav.go(getActivity(), InstanceRulesFragment.class, args);
@@ -115,7 +142,7 @@ public class SplashFragment extends AppKitFragment{
 					}
 				})
 				.wrapProgress(getActivity(), R.string.loading_instance, true)
-				.execNoAuth(DEFAULT_SERVER);
+				.execNoAuth(chosenDefaultServer);
 	}
 
 	private void onLearnMoreClick(View v){
@@ -167,5 +194,55 @@ public class SplashFragment extends AppKitFragment{
 	protected void onHidden(){
 		super.onHidden();
 		motionEffect.deactivate();
+	}
+
+	private void loadAndChooseDefaultServer(){
+		loadingDefaultServer=true;
+		new GetCatalogDefaultInstances()
+				.setCallback(new Callback<>(){
+					@Override
+					public void onSuccess(List<CatalogDefaultInstance> result){
+						if(result.isEmpty()){
+							setChosenDefaultServer(DEFAULT_SERVER);
+							return;
+						}
+						float sum=0f;
+						for(CatalogDefaultInstance inst:result){
+							sum+=inst.weight;
+						}
+						if(sum<=0)
+							sum=1f;
+						for(CatalogDefaultInstance inst:result){
+							inst.weight/=sum;
+						}
+						float rand=ThreadLocalRandom.current().nextFloat();
+						float prev=0f;
+						for(CatalogDefaultInstance inst:result){
+							if(rand>=prev && rand<prev+inst.weight){
+								setChosenDefaultServer(inst.domain);
+								return;
+							}
+							prev+=inst.weight;
+						}
+						// Just in case something didn't add up
+						setChosenDefaultServer(result.get(result.size()-1).domain);
+					}
+
+					@Override
+					public void onError(ErrorResponse error){
+						setChosenDefaultServer(DEFAULT_SERVER);
+					}
+				})
+				.execNoAuth("");
+	}
+
+	private void setChosenDefaultServer(String domain){
+		chosenDefaultServer=domain;
+		loadingDefaultServer=false;
+		if(defaultServerButton!=null && getActivity()!=null){
+			defaultServerButton.setTextVisible(true);
+			defaultServerProgress.setVisibility(View.GONE);
+			defaultServerButton.setText(getString(R.string.join_default_server, chosenDefaultServer));
+		}
 	}
 }

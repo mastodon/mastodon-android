@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -85,6 +86,9 @@ public class MastodonAPIController{
 				Call call=httpClient.newCall(hreq);
 				synchronized(req){
 					req.okhttpCall=call;
+				}
+				if(req.timeout>0){
+					call.timeout().timeout(req.timeout, TimeUnit.MILLISECONDS);
 				}
 
 				if(BuildConfig.DEBUG)

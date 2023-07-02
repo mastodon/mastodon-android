@@ -104,14 +104,32 @@
 			android:layout_height="0px"
 			android:layout_weight="1"/>
 
-		<Button
-			android:id="@+id/btn_join_default_server"
+		<FrameLayout
 			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:layout_marginLeft="16dp"
-			android:layout_marginRight="16dp"
-			style="@style/Widget.Mastodon.M3.Button.Filled"
-			tools:text="@string/join_default_server"/>
+			android:layout_height="wrap_content">
+
+			<org.joinmastodon.android.ui.views.ProgressBarButton
+				android:id="@+id/btn_join_default_server"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginLeft="16dp"
+				android:layout_marginRight="16dp"
+				style="@style/Widget.Mastodon.M3.Button.Filled"
+				tools:text="@string/join_default_server"/>
+
+			<ProgressBar
+				android:id="@+id/action_progress"
+				style="?android:progressBarStyleSmall"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center"
+				android:elevation="10dp"
+				android:indeterminate="true"
+				android:outlineProvider="none"
+				android:indeterminateTint="#FFF"
+				android:visibility="gone" />
+
+		</FrameLayout>
 
 		<Button
 			android:id="@+id/btn_get_started"
