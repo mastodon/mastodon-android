@@ -549,6 +549,37 @@
 	<string name="edit_muted_word">Επεξεργασία λέξης σε σίγαση</string>
 	<string name="add">Προσθήκη</string>
 	<string name="filter_word_or_phrase">Λέξη ή φράση</string>
+	<string name="filter_add_word_help">Οι λέξεις είναι case insensitive και ταιριάζουν μόνο με πλήρεις λέξεις.\n\nΑν φιλτράρετε τη λέξη-κλειδί “Apple,” θα κρύψει δημοσιεύσεις που περιέχουν “apple” ή “aPpLe” αλλά όχι “pinapple”</string>
+	<string name="settings_delete_filter_word">Διαγραφή λέξης “%s”;</string>
+	<string name="enter_selection_mode">Επιλογή</string>
+	<string name="select_all">Επιλογή όλων</string>
+	<string name="settings_filter_duration_title">Διάρκεια φίλτρου</string>
+	<string name="filter_duration_custom">Προσαρμοσμένο</string>
+	<plurals name="settings_delete_x_filter_words">
+		<item quantity="one">Διαγραφή %d λέξης;</item>
+		<item quantity="other">Διαγραφή %d λέξεων;</item>
+	</plurals>
+	<plurals name="x_items_selected">
+		<item quantity="one">%d επιλεγμένο</item>
+		<item quantity="other">%d επιλεγμένα</item>
+	</plurals>
+	<string name="required_form_field_blank">Δε μπορεί να είναι κενό</string>
+	<string name="filter_word_already_in_list">Ήδη στη λίστα</string>
+	<string name="app_update_ready">Η ενημέρωση εφαρμογής είναι έτοιμη</string>
+	<string name="app_update_version">Έκδοση %s</string>
+	<string name="downloading_update">Λήψη (%d%%)</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
+	<string name="post_matches_filter_x">Ταιριάζει με το φίλτρο “%s”</string>
+	<string name="search_mastodon">Αναζήτηση στο Mastodon</string>
+	<string name="clear_all">Εκκαθάριση όλων</string>
+	<string name="search_open_url">Άνοιγμα διεύθυνσης URL στο Mastodon</string>
+	<string name="posts_matching_hashtag">Αναρτήσεις με “%s”</string>
+	<string name="search_go_to_account">Μετάβαση σε %s</string>
+	<string name="posts_matching_string">Αναρτήσεις με “%s”</string>
+	<string name="accounts_matching_string">Άτομα με «%s»</string>
 	<!-- Shown in the post header. Please keep it short -->
+	<string name="time_seconds_ago_short">%dδ πριν</string>
+	<string name="time_minutes_ago_short">%dλ πριν</string>
+	<string name="time_hours_ago_short">%dώ πριν</string>
+	<string name="time_days_ago_short">%dημ πριν</string>
 </resources>
