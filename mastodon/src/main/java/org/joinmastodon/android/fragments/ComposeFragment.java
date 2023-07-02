@@ -109,7 +109,7 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 	private static final Pattern MENTION_PATTERN=Pattern.compile("(^|[^\\/\\w])@(([a-z0-9_]+)@[a-z0-9\\.\\-]+[a-z0-9]+)", Pattern.CASE_INSENSITIVE);
 
 	// from https://github.com/mastodon/mastodon-ios/blob/main/Mastodon/Helper/MastodonRegex.swift
-	private static final Pattern AUTO_COMPLETE_PATTERN=Pattern.compile("(?<!\\w)(?:@([a-zA-Z0-9_]+)(@[a-zA-Z0-9_.-]+)?|#([^\\s.]+)|:([a-zA-Z0-9_]+))");
+	private static final Pattern AUTO_COMPLETE_PATTERN=Pattern.compile("(?<!\\w)(?:@([a-z0-9_]+)(@[a-z0-9_\\.\\-]*)?|#([^\\s.]+)|:([a-z0-9_]+))", Pattern.CASE_INSENSITIVE);
 	private static final Pattern HIGHLIGHT_PATTERN=Pattern.compile("(?<!\\w)(?:@([a-zA-Z0-9_]+)(@[a-zA-Z0-9_.-]+)?|#([^\\s.]+))");
 
 	@SuppressLint("NewApi") // this class actually exists on 6.0
@@ -451,7 +451,6 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 						char prevChar=spanStart>0 ? editable.charAt(spanStart-1) : ' ';
 						if(!matcher.find() || !Character.isWhitespace(prevChar)){ // invalid mention, remove
 							editable.removeSpan(span);
-							continue;
 						}else if(matcher.end()+spanStart<spanEnd){ // mention with something at the end, move the end offset
 							editable.setSpan(span, spanStart, spanStart+matcher.end(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
 						}
