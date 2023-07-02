@@ -439,7 +439,15 @@
 	<string name="muted_user">Έγινε σίγαση %s</string>
 	<string name="report_sent_already_blocked">Έχεις ήδη αποκλείσει αυτόν τον χρήστη, οπότε δεν υπάρχει τίποτα άλλο που πρέπει να κάνεις όσο εξετάζουμε την αναφορά σου.</string>
 	<string name="report_personal_already_blocked">Έχεις ήδη αποκλείσει αυτόν τον χρήστη, οπότε δεν υπάρχει τίποτα άλλο που πρέπει να κάνεις.\n\nΕυχαριστούμε που βοηθάς να παραμείνει το Mastodon ένα ασφαλές μέρος για όλους!</string>
+	<string name="blocked_user">Αποκλείστηκε %s</string>
+	<string name="mark_all_notifications_read">Σήμανση όλων ως αναγνωσμένα</string>
+	<string name="settings_display">Εμφάνιση</string>
+	<string name="settings_filters">Φίλτρα</string>
+	<string name="settings_server_explanation">Επισκόπηση, κανόνες, συντονιστές</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
+	<string name="about_app">Σχετικά με το %s</string>
+	<string name="default_post_language">Προεπιλεγμένη γλώσσα ανάρτησης</string>
+	<string name="settings_alt_text_reminders">Προσθήκη υπενθυμίσεων για εναλλακτικό κείμενο</string>
 	<string name="settings_confirm_unfollow">Ερώτηση πριν την κατάργηση ακολούθησης κάποιου</string>
 	<string name="settings_confirm_boost">Ερώτηση πριν την ενίσχυση</string>
 	<string name="settings_confirm_delete_post">Ερώτηση πριν τη διαγραφή αναρτήσεων</string>
@@ -515,7 +523,32 @@
 	<string name="settings_edit_filter">Επεξεργασία φίλτρου</string>
 	<string name="settings_filter_duration">Διάρκεια</string>
 	<string name="settings_filter_muted_words">Αποσιωπημένες λέξεις</string>
+	<string name="settings_filter_context">Σίγαση από</string>
+	<string name="settings_filter_show_cw">Εμφάνιση με προειδοποίηση περιεχομένου</string>
+	<string name="settings_filter_show_cw_explanation">Να εμφανίζονται και πάλι οι αναρτήσεις που ταιριάζουν με αυτό το φίλτρο, αλλά πίσω από μια προειδοποίηση περιεχομένου</string>
+	<string name="settings_delete_filter">Διαγραφή φίλτρου</string>
+	<string name="filter_duration_forever">Για πάντα</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="settings_filter_ends">Μέχρι %s</string>
+	<plurals name="settings_x_muted_words">
+		<item quantity="one">%d λέξη ή φράση σε σίγαση</item>
+		<item quantity="other">%d λέξεις ή φράσεις σε σίγαση</item>
+	</plurals>
+	<string name="selection_2_options">%1$s και %2$s</string>
+	<string name="selection_3_options">%1$s, %2$s και %3$s</string>
+	<string name="selection_4_or_more">%1$s, %2$s και %3$d ακόμη</string>
+	<string name="filter_context_home_lists">Αρχική &amp; λίστες</string>
+	<string name="filter_context_notifications">Ειδοποιήσεις</string>
+	<string name="filter_context_public_timelines">Δημόσιες ροές</string>
+	<string name="filter_context_threads_replies">Νήματα &amp; απαντήσεις</string>
+	<string name="filter_context_profiles">Προφίλ</string>
+	<string name="settings_filter_title">Τίτλος</string>
+	<string name="settings_delete_filter_title">Διαγραφή φίλτρου “%s”;</string>
+	<string name="settings_delete_filter_confirmation">Αυτό το φίλτρο θα διαγραφεί από το λογαριασμό σου σε όλες σου τις συσκευές.</string>
+	<string name="add_muted_word">Προσθήκη λέξης σε σίγαση</string>
+	<string name="edit_muted_word">Επεξεργασία λέξης σε σίγαση</string>
+	<string name="add">Προσθήκη</string>
+	<string name="filter_word_or_phrase">Λέξη ή φράση</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
 	<!-- Shown in the post header. Please keep it short -->
 </resources>
