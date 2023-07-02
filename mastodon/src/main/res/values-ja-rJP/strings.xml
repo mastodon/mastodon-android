@@ -4,16 +4,22 @@
 	<string name="next">次へ</string>
 	<string name="loading_instance">サーバー情報を取得しています…</string>
 	<string name="error">エラー</string>
+	<string name="not_a_mastodon_instance">%s は Mastodon サーバーではありません。</string>
 	<string name="ok">OK</string>
 	<string name="preparing_auth">認証を開始中…</string>
 	<string name="finishing_auth">認証を完了中…</string>
-	<string name="user_boosted">%s がブーストしました</string>
-	<string name="in_reply_to">%s へ返信</string>
+	<string name="user_boosted">%s さんがブーストしました</string>
+	<string name="in_reply_to">%s さんに返信</string>
 	<string name="notifications">通知</string>
+	<string name="user_followed_you">%s さんにフォローされました</string>
+	<string name="user_sent_follow_request">%s さんがフォローリクエストを送信しました</string>
+	<string name="user_favorited">投稿を %s さんがお気に入りに登録しました</string>
+	<string name="notification_boosted">投稿を %s さんがブーストしました</string>
+	<string name="poll_ended">参加した投票の結果を見る</string>
 	<string name="share_toot_title">共有</string>
 	<string name="settings">設定</string>
 	<string name="publish">公開</string>
-	<string name="discard_draft">下書きを削除しますか？</string>
+	<string name="discard_draft">下書きを破棄しますか？</string>
 	<string name="discard">破棄</string>
 	<string name="cancel">キャンセル</string>
 	<plurals name="followers">
@@ -29,15 +35,16 @@
 	<string name="button_follow">フォロー</string>
 	<string name="button_following">フォロー中</string>
 	<string name="edit_profile">プロフィールを編集</string>
-	<string name="mute_user">ミュート %s</string>
-	<string name="unmute_user">ミュート解除 %s</string>
-	<string name="block_user">ブロック %s</string>
-	<string name="unblock_user">ブロック解除 %s</string>
-	<string name="report_user">報告 %s</string>
-	<string name="block_domain">ブロック %s</string>
-	<string name="unblock_domain">ブロック %s</string>
+	<string name="share_user">プロフィールを共有</string>
+	<string name="mute_user">%s さんをミュート</string>
+	<string name="unmute_user">%s さんのミュートを解除</string>
+	<string name="block_user">%s さんをブロック</string>
+	<string name="unblock_user">%s さんのブロックを解除</string>
+	<string name="report_user">%s さんを報告</string>
+	<string name="block_domain">%s さんをブロック</string>
+	<string name="unblock_domain">%s さんのブロックを解除</string>
 	<plurals name="x_posts">
-		<item quantity="other">%d件の投稿</item>
+		<item quantity="other">%d 件の投稿</item>
 	</plurals>
 	<string name="profile_joined">登録日</string>
 	<string name="done">完了</string>
@@ -45,13 +52,13 @@
 	<string name="field_label">ラベル</string>
 	<string name="field_content">コンテンツ</string>
 	<string name="saving">保存中…</string>
-	<string name="post_from_user">%sさんの投稿</string>
+	<string name="post_from_user">%s さんの投稿</string>
 	<string name="poll_option_hint">オプション %d</string>
 	<plurals name="x_minutes">
-		<item quantity="other">%d分</item>
+		<item quantity="other">%d 分</item>
 	</plurals>
 	<plurals name="x_hours">
-		<item quantity="other">%d時間</item>
+		<item quantity="other">%d 時間</item>
 	</plurals>
 	<plurals name="x_days">
 		<item quantity="other">%d日</item>
