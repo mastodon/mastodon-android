@@ -45,6 +45,7 @@ import org.jsoup.nodes.TextNode;
 import org.jsoup.select.NodeVisitor;
 import org.parceler.Parcels;
 
+import java.time.ZoneId;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -189,7 +190,7 @@ public class SignupFragment extends ToolbarFragment{
 			edit.setError(null);
 		}
 		errorFields.clear();
-		new RegisterAccount(username, email, password.getText().toString(), getResources().getConfiguration().locale.getLanguage(), reason.getText().toString())
+		new RegisterAccount(username, email, password.getText().toString(), getResources().getConfiguration().locale.getLanguage(), reason.getText().toString(), ZoneId.systemDefault().getId())
 				.setCallback(new Callback<>(){
 					@Override
 					public void onSuccess(Token result){
