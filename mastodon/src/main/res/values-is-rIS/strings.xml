@@ -257,6 +257,7 @@
 	<string name="trending_links_info_banner">Þetta eru fréttirnar sem er verið að tala um á Mastodon.</string>
 	<!-- %s is the server domain -->
 	<string name="local_timeline_info_banner">Þetta eru allar færslur frá öllum notendum á netþjóninum þínum (%s).</string>
+	<string name="recommended_accounts_info_banner">Þú gætir einnig haft áhuga á þessum aðgöngum, miðað við hverjum þú ert að fylgjast með.</string>
 	<string name="see_new_posts">Skoða nýjar færslur</string>
 	<string name="load_missing_posts">Hlaða inn færslum sem vantar</string>
 	<string name="follow_back">Fylgjast með til baka</string>
@@ -410,11 +411,30 @@
 	<string name="help">Hjálp</string>
 	<string name="what_is_alt_text">Hvað er alt-varatexti?</string>
 	<string name="alt_text_help">ALT-varatexti inniheldur lýsingu á myndefni fyrir fólk með ýmsar gerðir sjónskerðingar, fyrir tengingar með litla bandbreidd, eða til að gefa nánara samhengi fyrir myndefni.\n\nÞú getur með þessu bætt almennt aðgengi og aukið skilning á efni sem þú birtir með því að skrifa skýran, skorinortan og hlutlægan alt-texta til vara.\n\n<ul><li>Lýstu mikilvægum atriðum</li>\n<li>Hafðu yfirlit með þeim texta sem sést í myndum</li>\n<li>Notaðu eðlilega setningaskipan</li>\n<li>Forðastu óþarfar upplýsingar</li>\n<li>Leggðu áherslu á aðalatriði í flóknu myndefni (eins og línuritum eða landakortum)</li></ul></string>
+	<string name="edit_post">Breyta færslu</string>
+	<string name="no_verified_link">Enginn staðfestur tengill</string>
+	<string name="compose_autocomplete_emoji_empty">Skoða tjáningartákn</string>
+	<string name="compose_autocomplete_users_empty">Finndu þá sem þú leitar að</string>
+	<string name="no_search_results">Gat ekki fundið neitt sem samsvarar þessum leitarorðum</string>
+	<string name="language">Tungumál</string>
+	<string name="language_default">Sjálfgefið</string>
+	<string name="language_system">Kerfis</string>
 	<string name="language_detecting">Greini tungumál</string>
 	<string name="language_cant_detect">Tókst ekki að greina tungumál</string>
 	<string name="language_detected">Fannst</string>
+	<string name="media_hidden">Myndefni er falið</string>
+	<string name="post_hidden">Færsla falin</string>
+	<string name="report_title_post">Kæra færslu</string>
+	<string name="forward_report_explanation">Notandaaðgangurinn er af öðrum vefþjóni. Á einnig að senda nafnlaust afrit af kærunni þangað?</string>
 	<!-- %s is the server domain -->
+	<string name="forward_report_to_server">Áframsenda til %s</string>
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
+	<string name="reported">Kært</string>
+	<string name="report_unfollow_explanation">Til að hætta að sjá viðkomandi færslur á streyminu þínu, skaltu hætta að fylgjast með viðkomandi.</string>
+	<string name="muted_user">Þaggaði niður í %s</string>
+	<string name="report_sent_already_blocked">Þú hefur nú þegar útilokað þennan notanda, þannig að þú þarft ekki að gera neitt fleira á meðan við yfirförum kæruna þína.</string>
+	<string name="report_personal_already_blocked">Þú hefur nú þegar útilokað þennan notanda, þannig að þú þarft ekki að gera neitt fleira.\n\nTakk fyrir að hjálpa okkur við að halda Mastodon öryggu fyrir alla!</string>
+	<string name="blocked_user">Útilokaði %s</string>
 	<string name="mark_all_notifications_read">Merkja allt sem lesið</string>
 	<string name="settings_display">Birting</string>
 	<string name="settings_filters">Síur</string>
@@ -423,14 +443,91 @@
 	<string name="about_app">Um %s</string>
 	<string name="default_post_language">Sjálfgefið tungumál færslu</string>
 	<string name="settings_alt_text_reminders">Bætta við áminningum vegna ALT-varatexta</string>
+	<string name="settings_confirm_unfollow">Spyrja áður en hætt er að fylgjast með einhverjum</string>
+	<string name="settings_confirm_boost">Spyrja áður en endurbirting fer fram</string>
+	<string name="settings_confirm_delete_post">Spyrja áður en færslum er eytt</string>
 	<string name="pause_all_notifications">Setja allt í bið</string>
 	<string name="pause_notifications_off">Slökkt</string>
+	<string name="notifications_policy_anyone">Hverjum sem er</string>
+	<string name="notifications_policy_followed">Fólki sem fylgist með þér</string>
+	<string name="notifications_policy_follower">Fólki sem þú fylgist með</string>
+	<string name="notifications_policy_no_one">Engum</string>
+	<string name="settings_notifications_policy">Fá tilkynningar frá</string>
+	<string name="notification_type_mentions_and_replies">Tilvísanir og svör</string>
+	<string name="pause_all_notifications_title">Setja allar tilkynningar í bið</string>
 	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
+	<string name="date_at_time">%1$s kl. %2$s</string>
+	<string name="today">í dag</string>
+	<string name="yesterday">í gær</string>
+	<string name="tomorrow">á morgun</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="pause_notifications_ends">Endar %s</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="pause_notifications_banner">Tilkynningar munu halda áfram %s.</string>
+	<string name="resume_notifications_now">Halda áfram núna</string>
+	<string name="open_system_notification_settings">Fara í stillingar á tilkynningum</string>
+	<string name="about_server">Um hugbúnaðinn</string>
+	<string name="server_rules">Reglur</string>
+	<string name="server_administrator">Stjórnandi</string>
+	<string name="send_email_to_server_admin">Stjórnandi skilaboða</string>
+	<string name="notifications_disabled_in_system">Kveiktu á tilkynningum í stillingum tækisins til að sjá uppfærslur allstaðar frá.</string>
+	<string name="settings_even_more">Ennþá fleiri stillingar</string>
+	<string name="settings_show_cws">Birta viðvaranir vegna efnis</string>
+	<string name="settings_hide_sensitive_media">Hylja myndefni sem merkt er viðkvæmt</string>
+	<string name="settings_show_interaction_counts">Fjöldi gagnverkana færslu</string>
+	<string name="settings_show_emoji_in_names">Sérsniðin tjáningartákn í brtingarnöfnum</string>
 	<string name="alt_text_reminder_title">Myndgögn vantar ALT-varatexta</string>
+	<string name="count_one">Einn</string>
+	<string name="count_two">Tveir</string>
+	<string name="count_three">Þrír</string>
+	<string name="count_four">Fjórir</string>
+	<string name="alt_text_reminder_post_anyway">Færsla</string>
 	<!-- %s is the username -->
+	<string name="unfollow_confirmation">Hætta að fylgjast með %s?</string>
+	<string name="filter_active">Virkur</string>
+	<string name="filter_inactive">Óvirkur</string>
+	<string name="settings_add_filter">Bæta við síu</string>
+	<string name="settings_edit_filter">Breyta síu</string>
+	<string name="settings_filter_duration">Tímalengd</string>
+	<string name="settings_filter_muted_words">Þögguð orð</string>
+	<string name="settings_filter_context">Þagga frá</string>
+	<string name="settings_filter_show_cw">Birta með aðvörun vegna efnis</string>
+	<string name="settings_delete_filter">Eyða síu</string>
+	<string name="filter_duration_forever">Að eilífu</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="settings_filter_ends">Endar %s</string>
+	<string name="filter_context_notifications">Tilkynningar</string>
+	<string name="filter_context_public_timelines">Opinberar tímalínur</string>
+	<string name="filter_context_threads_replies">Þræðir og svör</string>
+	<string name="filter_context_profiles">Notendasnið</string>
+	<string name="settings_filter_title">Titill</string>
+	<string name="settings_delete_filter_title">Eyða síunni “%s”?</string>
+	<string name="settings_delete_filter_confirmation">Þessari síu verður eytt úr notandaaðgangnum þínum á öllum þínum tækjum.</string>
+	<string name="add_muted_word">Bæta við þögguðu orði</string>
+	<string name="edit_muted_word">Breyta þögguðu orði</string>
+	<string name="add">Bæta við</string>
+	<string name="filter_word_or_phrase">Orð eða setning</string>
+	<string name="settings_delete_filter_word">Eyða orðinu “%s”?</string>
+	<string name="enter_selection_mode">Velja</string>
+	<string name="select_all">Velja allt</string>
+	<string name="settings_filter_duration_title">Tímalengd síu</string>
+	<string name="filter_duration_custom">Sérsniðið</string>
+	<string name="required_form_field_blank">Má ekki vera autt</string>
+	<string name="filter_word_already_in_list">Nú þegar í listanum</string>
+	<string name="app_update_version">Útgáfa %s</string>
+	<string name="downloading_update">Sæki (%d%%)</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
+	<string name="post_matches_filter_x">Samsvarar síunni“%s”</string>
+	<string name="search_mastodon">Leita á Mastodon</string>
+	<string name="clear_all">Hreinsa allt</string>
+	<string name="search_open_url">Opna slóð í Mastodon</string>
+	<string name="posts_matching_hashtag">Færslur með “%s”</string>
+	<string name="search_go_to_account">Fara á %s</string>
+	<string name="posts_matching_string">Færslur með “%s”</string>
+	<string name="accounts_matching_string">Fólk með “%s”</string>
 	<!-- Shown in the post header. Please keep it short -->
+	<string name="time_seconds_ago_short">fyrir %ds síðan</string>
+	<string name="time_minutes_ago_short">fyrir %dm síðan</string>
+	<string name="time_hours_ago_short">fyrir %dh síðan</string>
+	<string name="time_days_ago_short">fyrir %dd síðan</string>
 </resources>
