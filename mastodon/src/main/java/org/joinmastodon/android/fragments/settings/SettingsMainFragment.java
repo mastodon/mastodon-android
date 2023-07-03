@@ -33,7 +33,7 @@ public class SettingsMainFragment extends BaseSettingsFragment<Void>{
 	private HideableSingleViewRecyclerAdapter bannerAdapter;
 	private Button updateButton1, updateButton2;
 	private TextView updateText;
-	private Runnable updateDownloadProgressUpdater=new Runnable(){
+	private final Runnable updateDownloadProgressUpdater=new Runnable(){
 		@Override
 		public void run(){
 			GithubSelfUpdater.UpdateState state=GithubSelfUpdater.getInstance().getState();

@@ -48,7 +48,7 @@ public class DiscoverNewsFragment extends BaseRecyclerFragment<CardViewModel> im
 	private DiscoverInfoBannerHelper bannerHelper;
 	private MergeRecyclerAdapter mergeAdapter;
 	private UsableRecyclerView cardsList;
-	private ArrayList<CardViewModel> top3=new ArrayList<>();
+	private final ArrayList<CardViewModel> top3=new ArrayList<>();
 	private CardLinksAdapter cardsAdapter;
 
 	public DiscoverNewsFragment(){
@@ -162,7 +162,7 @@ public class DiscoverNewsFragment extends BaseRecyclerFragment<CardViewModel> im
 	private class BaseLinkViewHolder extends BindableViewHolder<Card> implements UsableRecyclerView.Clickable, ImageLoaderViewHolder{
 		protected final TextView name, title;
 		protected final ImageView photo;
-		private BlurhashCrossfadeDrawable crossfadeDrawable=new BlurhashCrossfadeDrawable();
+		private final BlurhashCrossfadeDrawable crossfadeDrawable=new BlurhashCrossfadeDrawable();
 		private boolean didClear;
 
 		public BaseLinkViewHolder(int layout){

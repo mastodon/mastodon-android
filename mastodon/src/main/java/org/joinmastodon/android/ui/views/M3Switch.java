@@ -15,7 +15,7 @@ import me.grishka.appkit.utils.V;
 
 public class M3Switch extends Switch{
 	private boolean ignoreRequestLayout;
-	private DummyDrawable dummyDrawable=new DummyDrawable();
+	private final DummyDrawable dummyDrawable=new DummyDrawable();
 
 	public M3Switch(Context context){
 		super(context);

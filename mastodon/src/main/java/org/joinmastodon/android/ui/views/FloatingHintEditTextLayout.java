@@ -40,13 +40,14 @@ import me.grishka.appkit.utils.CustomViewHelper;
 public class FloatingHintEditTextLayout extends FrameLayout implements CustomViewHelper{
 	private EditText edit;
 	private TextView label;
-	private int labelTextSize;
-	private int offsetY;
+	private final int labelTextSize;
+	private final int offsetY;
 	private boolean hintVisible;
 	private Animator currentAnim;
 	private float animProgress;
-	private RectF tmpRect=new RectF();
-	private ColorStateList labelColors, origHintColors;
+	private final RectF tmpRect=new RectF();
+	private final ColorStateList labelColors;
+	private ColorStateList origHintColors;
 	private boolean errorState;
 	private TextView errorView;
 

@@ -196,7 +196,7 @@ public class SettingsNotificationsFragment extends BaseSettingsFragment<Void>{
 		AlertDialog alert=new M3AlertDialogBuilder(getActivity())
 				.setTitle(R.string.pause_all_notifications_title)
 				.setSupportingText(time>System.currentTimeMillis() ? getString(R.string.pause_notifications_ends, UiUtils.formatRelativeTimestampAsMinutesAgo(getActivity(), Instant.ofEpochMilli(time), false)) : null)
-				.setSingleChoiceItems((String[])Arrays.stream(durationOptions).mapToObj(d->UiUtils.formatDuration(getActivity(), d)).toArray(String[]::new), -1, (dlg, item)->{
+				.setSingleChoiceItems(Arrays.stream(durationOptions).mapToObj(d->UiUtils.formatDuration(getActivity(), d)).toArray(String[]::new), -1, (dlg, item)->{
 					if(selectedOption[0]==0){
 						((AlertDialog)dlg).getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(true);
 					}

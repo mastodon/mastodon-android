@@ -19,7 +19,7 @@ import org.joinmastodon.android.ui.text.DeleteWhenCopiedSpan;
 
 public class LinkedTextView extends TextView{
 
-	private ClickableLinksDelegate delegate=new ClickableLinksDelegate(this);
+	private final ClickableLinksDelegate delegate=new ClickableLinksDelegate(this);
 	private boolean needInvalidate;
 	private ActionMode currentActionMode;
 

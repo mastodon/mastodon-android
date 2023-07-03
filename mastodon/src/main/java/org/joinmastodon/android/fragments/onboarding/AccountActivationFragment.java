@@ -42,10 +42,10 @@ public class AccountActivationFragment extends ToolbarFragment{
 
 	private Button openEmailBtn, resendBtn;
 	private View contentView;
-	private Handler uiHandler=new Handler(Looper.getMainLooper());
-	private Runnable pollRunnable=this::tryGetAccount;
+	private final Handler uiHandler=new Handler(Looper.getMainLooper());
+	private final Runnable pollRunnable=this::tryGetAccount;
 	private APIRequest currentRequest;
-	private Runnable resendTimer=this::updateResendTimer;
+	private final Runnable resendTimer=this::updateResendTimer;
 	private long lastResendTime;
 	private boolean visible;
 

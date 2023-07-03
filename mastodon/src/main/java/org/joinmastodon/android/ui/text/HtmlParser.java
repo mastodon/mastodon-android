@@ -52,7 +52,7 @@ public class HtmlParser {
                     ")" +
                     ")";
     public static final Pattern URL_PATTERN = Pattern.compile(VALID_URL_PATTERN_STRING, Pattern.CASE_INSENSITIVE);
-    private static Pattern EMOJI_CODE_PATTERN = Pattern.compile(":([\\w]+):");
+    private static final Pattern EMOJI_CODE_PATTERN = Pattern.compile(":([\\w]+):");
 
     private HtmlParser() {
     }
@@ -226,7 +226,6 @@ public class HtmlParser {
         for (FilterResult filter : filters) {
             if (!filter.filter.isActive())
                 continue;
-            ;
             for (String word : filter.keywordMatches) {
                 Matcher matcher = Pattern.compile("\\b" + Pattern.quote(word) + "\\b", Pattern.CASE_INSENSITIVE).matcher(text);
                 while (matcher.find()) {

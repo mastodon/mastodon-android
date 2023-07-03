@@ -8,5 +8,5 @@ public enum ExpandMedia {
     @SerializedName("show_all")
     SHOW_ALL,
     @SerializedName("hide_all")
-    HIDE_ALL;
+    HIDE_ALL
 }

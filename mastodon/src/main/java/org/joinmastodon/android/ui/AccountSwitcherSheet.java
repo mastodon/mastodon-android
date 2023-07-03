@@ -55,9 +55,9 @@ import me.grishka.appkit.views.UsableRecyclerView;
 public class AccountSwitcherSheet extends BottomSheet{
 	private final Activity activity;
 	private final HomeFragment fragment;
-	private UsableRecyclerView list;
-	private List<WrappedAccount> accounts;
-	private ListImageLoaderWrapper imgLoader;
+	private final UsableRecyclerView list;
+	private final List<WrappedAccount> accounts;
+	private final ListImageLoaderWrapper imgLoader;
 
 	public AccountSwitcherSheet(@NonNull Activity activity, @Nullable HomeFragment fragment){
 		super(activity);

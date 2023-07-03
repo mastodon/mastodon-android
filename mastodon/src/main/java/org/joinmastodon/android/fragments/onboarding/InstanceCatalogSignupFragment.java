@@ -58,8 +58,8 @@ import me.grishka.appkit.views.UsableRecyclerView;
 
 public class InstanceCatalogSignupFragment extends InstanceCatalogFragment implements OnBackPressedListener{
 	private MastodonAPIRequest<?> getCategoriesRequest;
-	private String currentCategory="all";
-	private List<CatalogCategory> categories=new ArrayList<>();
+	private final String currentCategory="all";
+	private final List<CatalogCategory> categories=new ArrayList<>();
 	private View topBar;
 
 	private List<String> languages=Collections.emptyList();

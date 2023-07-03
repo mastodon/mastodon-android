@@ -21,13 +21,13 @@ import java.util.function.Consumer;
 import me.grishka.appkit.utils.V;
 
 public class SearchViewHelper{
-	private LinearLayout searchLayout;
+	private final LinearLayout searchLayout;
 	private EditText searchEdit;
 	private ImageButton clearSearchButton;
 	private View divider;
 	private String currentQuery;
 	private Consumer<String> listener;
-	private Runnable debouncer=()->{
+	private final Runnable debouncer=()->{
 		currentQuery=searchEdit.getText().toString();
 		if(listener!=null){
 			listener.accept(currentQuery);

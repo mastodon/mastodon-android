@@ -44,7 +44,7 @@ import me.grishka.appkit.utils.V;
 public class ReportAddPostsChoiceFragment extends StatusListFragment{
 	private Button btn;
 	private View buttonBar;
-	private ArrayList<String> selectedIDs=new ArrayList<>();
+	private final ArrayList<String> selectedIDs=new ArrayList<>();
 	private String accountID;
 	private Account reportAccount;
 	private Status reportStatus;

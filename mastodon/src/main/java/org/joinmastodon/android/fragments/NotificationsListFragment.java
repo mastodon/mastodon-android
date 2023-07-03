@@ -189,8 +189,8 @@ public class NotificationsListFragment extends BaseStatusListFragment<Notificati
 		scroller.setTakePriorityOverChildViews(true);
 
 		list.addItemDecoration(new RecyclerView.ItemDecoration(){
-			private Paint paint=new Paint();
-			private Rect tmpRect=new Rect();
+			private final Paint paint=new Paint();
+			private final Rect tmpRect=new Rect();
 
 			{
 				paint.setColor(UiUtils.getThemeColor(getActivity(), R.attr.colorM3SurfaceVariant));

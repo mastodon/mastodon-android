@@ -18,7 +18,10 @@ public class MediaGridLayout extends ViewGroup{
 	public static final int MAX_WIDTH=400; // dp
 	private static final int GAP=2; // dp
 	private PhotoLayoutHelper.TiledLayoutResult tiledLayout;
-	private int[] columnStarts=new int[10], columnEnds=new int[10], rowStarts=new int[10], rowEnds=new int[10];
+	private final int[] columnStarts=new int[10];
+	private final int[] columnEnds=new int[10];
+	private final int[] rowStarts=new int[10];
+	private final int[] rowEnds=new int[10];
 
 	public MediaGridLayout(Context context){
 		this(context, null);

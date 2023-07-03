@@ -71,13 +71,13 @@ public class SignupFragment extends ToolbarFragment{
 	private TextView reasonExplain;
 	private Button btn;
 	private View buttonBar;
-	private TextWatcher buttonStateUpdater=new SimpleTextWatcher(e->updateButtonState());
+	private final TextWatcher buttonStateUpdater=new SimpleTextWatcher(e->updateButtonState());
 	private APIRequest currentBackgroundRequest;
 	private Application apiApplication;
 	private Token apiToken;
 	private boolean submitAfterGettingToken;
 	private ProgressDialog progressDialog;
-	private HashSet<EditText> errorFields=new HashSet<>();
+	private final HashSet<EditText> errorFields=new HashSet<>();
 	private ElevationOnScrollListener onScrollListener;
 
 	@Override

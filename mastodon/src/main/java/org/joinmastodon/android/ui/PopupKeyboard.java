@@ -165,6 +165,6 @@ public abstract class PopupKeyboard{
 	}
 
 	public interface OnIconChangeListener{
-		public void onIconChanged(int icon);
+		void onIconChanged(int icon);
 	}
 }

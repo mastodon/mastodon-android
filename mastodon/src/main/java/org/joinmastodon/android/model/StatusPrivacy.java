@@ -12,7 +12,7 @@ public enum StatusPrivacy{
 	@SerializedName("direct")
 	DIRECT(3);
 
-	private int privacy;
+	private final int privacy;
 
 	StatusPrivacy(int privacy) {
 		this.privacy = privacy;

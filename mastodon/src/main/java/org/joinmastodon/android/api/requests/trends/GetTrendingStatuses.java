@@ -11,8 +11,8 @@ public class GetTrendingStatuses extends MastodonAPIRequest<List<Status>>{
 	public GetTrendingStatuses(int offset, int limit){
 		super(HttpMethod.GET, "/trends/statuses", new TypeToken<>(){});
 		if(limit>0)
-			addQueryParameter("limit", ""+limit);
+			addQueryParameter("limit", String.valueOf(limit));
 		if(offset>0)
-			addQueryParameter("offset", ""+offset);
+			addQueryParameter("offset", String.valueOf(offset));
 	}
 }

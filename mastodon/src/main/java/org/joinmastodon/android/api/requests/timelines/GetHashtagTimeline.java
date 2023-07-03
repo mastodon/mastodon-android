@@ -15,6 +15,6 @@ public class GetHashtagTimeline extends MastodonAPIRequest<List<Status>>{
 		if(minID!=null)
 			addQueryParameter("min_id", minID);
 		if(limit>0)
-			addQueryParameter("limit", ""+limit);
+			addQueryParameter("limit", String.valueOf(limit));
 	}
 }

@@ -71,7 +71,7 @@ class TabIndicatorInterpolator {
             @NonNull TabLayout.TabView tabView, @Dimension(unit = Dimension.DP) int minWidth) {
         int tabViewContentWidth = tabView.getContentWidth();
         int tabViewContentHeight = tabView.getContentHeight();
-        int minWidthPx = (int) V.dp(minWidth);
+        int minWidthPx = V.dp(minWidth);
 
         if (tabViewContentWidth < minWidthPx) {
             tabViewContentWidth = minWidthPx;

@@ -89,7 +89,7 @@ public class SettingsDisplayFragment extends BaseSettingsFragment<Void>{
 		int[] newSelected={selected};
 		new M3AlertDialogBuilder(getActivity())
 				.setTitle(R.string.settings_theme)
-				.setSingleChoiceItems((String[])IntStream.of(R.string.theme_light, R.string.theme_dark, R.string.theme_auto).mapToObj(this::getString).toArray(String[]::new),
+				.setSingleChoiceItems(IntStream.of(R.string.theme_light, R.string.theme_dark, R.string.theme_auto).mapToObj(this::getString).toArray(String[]::new),
 						selected, (dlg, item)->newSelected[0]=item)
 				.setPositiveButton(R.string.ok, (dlg, item)->{
 					GlobalUserPreferences.ThemePreference pref=switch(newSelected[0]){

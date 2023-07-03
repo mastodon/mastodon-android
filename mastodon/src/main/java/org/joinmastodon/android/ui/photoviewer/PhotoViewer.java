@@ -747,7 +747,7 @@ public class PhotoViewer implements ZoomPanView.Listener {
         private Surface surface;
         private boolean playerReady;
         private boolean keepingScreenOn;
-        private ProgressBar progressBar;
+        private final ProgressBar progressBar;
 
         public GifVViewHolder() {
             textureView = new TextureView(activity);

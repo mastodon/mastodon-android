@@ -70,10 +70,10 @@ public class SearchQueryFragment extends MastodonRecyclerFragment<SearchResultVi
 	private static final Pattern HASHTAG_REGEX=Pattern.compile("^(\\w*[a-zA-Z·]\\w*)$", Pattern.CASE_INSENSITIVE);
 	private static final Pattern USERNAME_REGEX=Pattern.compile("^@?([a-z0-9_-]+)(@[^\\s]+)?$", Pattern.CASE_INSENSITIVE);
 
-	private MergeRecyclerAdapter mergeAdapter=new MergeRecyclerAdapter();
+	private final MergeRecyclerAdapter mergeAdapter=new MergeRecyclerAdapter();
 	private HideableSingleViewRecyclerAdapter recentsHeader;
 	private ListItem<Void> openUrlItem, goToHashtagItem, goToAccountItem, goToStatusSearchItem, goToAccountSearchItem;
-	private ArrayList<ListItem<Void>> topOptions=new ArrayList<>();
+	private final ArrayList<ListItem<Void>> topOptions=new ArrayList<>();
 	private GenericListItemsAdapter<Void> topOptionsAdapter;
 
 	private String accountID;

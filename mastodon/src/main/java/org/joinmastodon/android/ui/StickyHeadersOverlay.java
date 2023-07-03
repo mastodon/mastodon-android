@@ -12,11 +12,11 @@ import androidx.recyclerview.widget.RecyclerView;
 public class StickyHeadersOverlay{
 	private static final String TAG="StickyHeadersOverlay";
 
-	private FrameLayout headerWrapper;
-	private Context context;
+	private final FrameLayout headerWrapper;
+	private final Context context;
 	private RecyclerView parent;
 	private RecyclerView.ViewHolder currentHeaderHolder;
-	private int headerViewType;
+	private final int headerViewType;
 
 	public StickyHeadersOverlay(Context context, int headerViewType){
 		this.context=context;

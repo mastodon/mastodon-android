@@ -408,14 +408,14 @@ public class TabLayout extends HorizontalScrollView implements CustomViewHelper 
          *
          * @param tab The tab that was selected
          */
-        public void onTabSelected(T tab);
+        void onTabSelected(T tab);
 
         /**
          * Called when a tab exits the selected state.
          *
          * @param tab The tab that was unselected
          */
-        public void onTabUnselected(T tab);
+        void onTabUnselected(T tab);
 
         /**
          * Called when a tab that is already selected is chosen again by the user. Some applications may
@@ -423,7 +423,7 @@ public class TabLayout extends HorizontalScrollView implements CustomViewHelper 
          *
          * @param tab The tab that was reselected.
          */
-        public void onTabReselected(T tab);
+        void onTabReselected(T tab);
     }
 
     private final ArrayList<Tab> tabs = new ArrayList<>();
@@ -457,7 +457,7 @@ public class TabLayout extends HorizontalScrollView implements CustomViewHelper 
     private final int requestedTabMaxWidth;
     private final int scrollableTabMinWidth;
 
-    private int contentInsetStart;
+    private final int contentInsetStart;
 
     @TabGravity
     int tabGravity;
@@ -1721,7 +1721,7 @@ public class TabLayout extends HorizontalScrollView implements CustomViewHelper 
             tabMaxWidth =
                     requestedTabMaxWidth > 0
                             ? requestedTabMaxWidth
-                            : (int) (specWidth - dp(TAB_MIN_WIDTH_MARGIN));
+                            : (specWidth - dp(TAB_MIN_WIDTH_MARGIN));
         }
 
         // Now super measure itself using the (possibly) modified height spec
@@ -2624,7 +2624,7 @@ public class TabLayout extends HorizontalScrollView implements CustomViewHelper 
             setSelected(false);
         }
 
-        final void update() {
+        void update() {
             final Tab tab = this.tab;
             final View custom = tab != null ? tab.getCustomView() : null;
             if (custom != null) {
@@ -2851,7 +2851,7 @@ public class TabLayout extends HorizontalScrollView implements CustomViewHelper 
 //      }
 //    }
 
-        final void updateOrientation() {
+        void updateOrientation() {
             setOrientation(inlineLabel ? HORIZONTAL : VERTICAL);
             if (customTextView != null || customIconView != null) {
                 updateTextAndIcon(customTextView, customIconView);
@@ -2907,7 +2907,7 @@ public class TabLayout extends HorizontalScrollView implements CustomViewHelper 
                 int iconMargin = 0;
                 if (hasText && iconView.getVisibility() == VISIBLE) {
                     // If we're showing both text and icon, add some margin bottom to the icon
-                    iconMargin = (int) dp(DEFAULT_GAP_TEXT_ICON);
+                    iconMargin = dp(DEFAULT_GAP_TEXT_ICON);
                 }
                 if (inlineLabel) {
                     if (iconMargin != lp.getMarginEnd()) {
@@ -3110,7 +3110,7 @@ public class TabLayout extends HorizontalScrollView implements CustomViewHelper 
                     return;
                 }
 
-                final int gutter = (int) dp(FIXED_WRAP_GUTTER_MIN);
+                final int gutter = dp(FIXED_WRAP_GUTTER_MIN);
                 boolean remeasure = false;
 
                 if (largestTabWidth * count <= getMeasuredWidth() - gutter * 2) {

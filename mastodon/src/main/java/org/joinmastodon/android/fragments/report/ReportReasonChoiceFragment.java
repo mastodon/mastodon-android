@@ -178,7 +178,7 @@ public class ReportReasonChoiceFragment extends StatusListFragment{
 			});
 
 			list.addItemDecoration(new RecyclerView.ItemDecoration(){
-				private Paint paint=new Paint(Paint.ANTI_ALIAS_FLAG);
+				private final Paint paint=new Paint(Paint.ANTI_ALIAS_FLAG);
 				{
 					paint.setStyle(Paint.Style.STROKE);
 					paint.setStrokeWidth(V.dp(1));

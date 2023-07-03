@@ -17,8 +17,9 @@ import java.util.List;
 import me.grishka.appkit.utils.CustomViewHelper;
 
 public class HashtagChartView extends View implements CustomViewHelper{
-	private Paint paint=new Paint(Paint.ANTI_ALIAS_FLAG);
-	private Path strokePath=new Path(), fillPath=new Path();
+	private final Paint paint=new Paint(Paint.ANTI_ALIAS_FLAG);
+	private final Path strokePath=new Path();
+    private final Path fillPath=new Path();
 	private final CornerPathEffect pathEffect=new CornerPathEffect(dp(3));
 	private float[] relativeOffsets=new float[7];
 

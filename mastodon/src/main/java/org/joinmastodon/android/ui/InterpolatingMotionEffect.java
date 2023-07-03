@@ -21,18 +21,19 @@ import androidx.dynamicanimation.animation.SpringForce;
 
 public class InterpolatingMotionEffect implements SensorEventListener, View.OnTouchListener{
 
-	private SensorManager sm;
-	private WindowManager wm;
-	private float[] rollBuffer = new float[9], pitchBuffer = new float[9];
+	private final SensorManager sm;
+	private final WindowManager wm;
+	private final float[] rollBuffer = new float[9];
+	private final float[] pitchBuffer = new float[9];
 	private int bufferOffset;
-	private Sensor accelerometer;
+	private final Sensor accelerometer;
 	private boolean accelerometerEnabled;
-	private ArrayList<ViewEffect> views=new ArrayList<>();
+	private final ArrayList<ViewEffect> views=new ArrayList<>();
 	private float pitch, roll;
 	private float touchDownX, touchDownY, touchAddX, touchAddY, touchAddLastAnimX, touchAddLastAnimY;
-	private PathInterpolator touchInterpolator=new PathInterpolator(0.5f, 1f, 0.89f, 1f);
+	private final PathInterpolator touchInterpolator=new PathInterpolator(0.5f, 1f, 0.89f, 1f);
 	private SpringAnimation touchSpringX, touchSpringY;
-	private FloatValueHolder touchSpringXHolder=new FloatValueHolder(){
+	private final FloatValueHolder touchSpringXHolder=new FloatValueHolder(){
 		@Override
 		public float getValue(){
 			return touchAddX;
@@ -44,7 +45,7 @@ public class InterpolatingMotionEffect implements SensorEventListener, View.OnTo
 			updateEffects();
 		}
 	};
-	private FloatValueHolder touchSpringYHolder=new FloatValueHolder(){
+	private final FloatValueHolder touchSpringYHolder=new FloatValueHolder(){
 		@Override
 		public float getValue(){
 			return touchAddY;
@@ -201,8 +202,11 @@ public class InterpolatingMotionEffect implements SensorEventListener, View.OnTo
 	}
 
 	public static class ViewEffect{
-		private View view;
-		private float minX, maxX, minY, maxY;
+		private final View view;
+		private final float minX;
+		private final float maxX;
+		private final float minY;
+		private final float maxY;
 
 		public ViewEffect(View view, float minX, float maxX, float minY, float maxY){
 			this.view=view;

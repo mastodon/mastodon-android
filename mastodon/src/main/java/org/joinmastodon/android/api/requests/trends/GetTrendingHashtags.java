@@ -10,6 +10,6 @@ import java.util.List;
 public class GetTrendingHashtags extends MastodonAPIRequest<List<Hashtag>>{
 	public GetTrendingHashtags(int limit){
 		super(HttpMethod.GET, "/trends", new TypeToken<>(){});
-		addQueryParameter("limit", limit+"");
+		addQueryParameter("limit", String.valueOf(limit));
 	}
 }

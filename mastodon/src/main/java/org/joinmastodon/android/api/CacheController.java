@@ -59,7 +59,7 @@ public class CacheController {
             try {
                 if (!forceReload) {
                     SQLiteDatabase db = getOrOpenDatabase();
-                    try (Cursor cursor = db.query("home_timeline", new String[]{"json", "flags"}, maxID == null ? null : "`id`<?", maxID == null ? null : new String[]{maxID}, null, null, "`time` DESC", count + "")) {
+                    try (Cursor cursor = db.query("home_timeline", new String[]{"json", "flags"}, maxID == null ? null : "`id`<?", maxID == null ? null : new String[]{maxID}, null, null, "`time` DESC", String.valueOf(count))) {
                         if (cursor.getCount() == count) {
                             ArrayList<Status> result = new ArrayList<>();
                             cursor.moveToFirst();
@@ -136,7 +136,7 @@ public class CacheController {
                 }
                 if (!forceReload) {
                     SQLiteDatabase db = getOrOpenDatabase();
-                    try (Cursor cursor = db.query(onlyMentions ? "notifications_mentions" : "notifications_all", new String[]{"json"}, maxID == null ? null : "`id`<?", maxID == null ? null : new String[]{maxID}, null, null, "`time` DESC", count + "")) {
+                    try (Cursor cursor = db.query(onlyMentions ? "notifications_mentions" : "notifications_all", new String[]{"json"}, maxID == null ? null : "`id`<?", maxID == null ? null : new String[]{maxID}, null, null, "`time` DESC", String.valueOf(count))) {
                         if (cursor.getCount() == count) {
                             ArrayList<Notification> result = new ArrayList<>();
                             cursor.moveToFirst();

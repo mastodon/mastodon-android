@@ -50,7 +50,7 @@ public class ProfileAboutFragment extends Fragment implements WindowInsetsAwareF
 	private List<AccountField> fields=Collections.emptyList();
 	private AboutAdapter adapter;
 	private boolean isInEditMode;
-	private ItemTouchHelper dragHelper=new ItemTouchHelper(new ReorderCallback());
+	private final ItemTouchHelper dragHelper=new ItemTouchHelper(new ReorderCallback());
 	private ListImageLoaderWrapper imgLoader;
 	private boolean editDirty;
 

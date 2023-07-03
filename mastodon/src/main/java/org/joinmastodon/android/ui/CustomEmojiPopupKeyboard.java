@@ -47,8 +47,8 @@ public class CustomEmojiPopupKeyboard extends PopupKeyboard{
 	private List<EmojiCategory> emojis;
 	private UsableRecyclerView list;
 	private ListImageLoaderWrapper imgLoader;
-	private MergeRecyclerAdapter adapter=new MergeRecyclerAdapter();
-	private String domain;
+	private final MergeRecyclerAdapter adapter=new MergeRecyclerAdapter();
+	private final String domain;
 	private int spanCount=6;
 	private Listener listener;
 
@@ -196,7 +196,7 @@ public class CustomEmojiPopupKeyboard extends PopupKeyboard{
 	}
 
 	private class SectionHeaderViewHolder extends BindableViewHolder<String> implements StickyHeadersOverlay.HeaderViewHolder{
-		private Drawable background;
+		private final Drawable background;
 
 		public SectionHeaderViewHolder(){
 			super(activity, R.layout.item_emoji_section, list);

@@ -650,7 +650,7 @@ public class CustomScrollView extends FrameLayout{
 
             case MotionEvent.ACTION_DOWN: {
                 final int y = (int) ev.getY();
-                if (!inChild((int) ev.getX(), (int) y)) {
+                if (!inChild((int) ev.getX(), y)) {
                     mIsBeingDragged = false;
                     recycleVelocityTracker();
                     break;
@@ -913,33 +913,31 @@ public class CustomScrollView extends FrameLayout{
 
     @Override
     public boolean onGenericMotionEvent(MotionEvent event) {
-        switch (event.getAction()) {
-            case MotionEvent.ACTION_SCROLL:
-                final float axisValue;
-                if (event.isFromSource(InputDevice.SOURCE_CLASS_POINTER)) {
-                    axisValue = event.getAxisValue(MotionEvent.AXIS_VSCROLL);
-                } else if (event.isFromSource(InputDevice.SOURCE_ROTARY_ENCODER)) {
-                    axisValue = event.getAxisValue(MotionEvent.AXIS_SCROLL);
-                } else {
-                    axisValue = 0;
-                }
+        if (event.getAction() == MotionEvent.ACTION_SCROLL) {
+            final float axisValue;
+            if (event.isFromSource(InputDevice.SOURCE_CLASS_POINTER)) {
+                axisValue = event.getAxisValue(MotionEvent.AXIS_VSCROLL);
+            } else if (event.isFromSource(InputDevice.SOURCE_ROTARY_ENCODER)) {
+                axisValue = event.getAxisValue(MotionEvent.AXIS_SCROLL);
+            } else {
+                axisValue = 0;
+            }
 
-                final int delta = Math.round(axisValue * mVerticalScrollFactor);
-                if (delta != 0) {
-                    final int range = getScrollRange();
-                    int oldScrollY = getScrollY();
-                    int newScrollY = oldScrollY - delta;
-                    if (newScrollY < 0) {
-                        newScrollY = 0;
-                    } else if (newScrollY > range) {
-                        newScrollY = range;
-                    }
-                    if (newScrollY != oldScrollY) {
-                        super.scrollTo(getScrollX(), newScrollY);
-                        return true;
-                    }
+            final int delta = Math.round(axisValue * mVerticalScrollFactor);
+            if (delta != 0) {
+                final int range = getScrollRange();
+                int oldScrollY = getScrollY();
+                int newScrollY = oldScrollY - delta;
+                if (newScrollY < 0) {
+                    newScrollY = 0;
+                } else if (newScrollY > range) {
+                    newScrollY = range;
                 }
-                break;
+                if (newScrollY != oldScrollY) {
+                    super.scrollTo(getScrollX(), newScrollY);
+                    return true;
+                }
+            }
         }
 
         return super.onGenericMotionEvent(event);

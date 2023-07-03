@@ -20,7 +20,7 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 
 public class UploadAttachment extends MastodonAPIRequest<Attachment> {
-    private Uri uri;
+    private final Uri uri;
     private ProgressListener progressListener;
     private int maxImageSize;
     private String description;

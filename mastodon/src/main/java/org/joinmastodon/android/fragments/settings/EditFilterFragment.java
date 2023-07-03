@@ -59,8 +59,8 @@ public class EditFilterFragment extends BaseSettingsFragment<Void> implements On
 	private EditText titleEdit;
 
 	private Instant endsAt;
-	private ArrayList<FilterKeyword> keywords=new ArrayList<>();
-	private ArrayList<String> deletedWordIDs=new ArrayList<>();
+	private final ArrayList<FilterKeyword> keywords=new ArrayList<>();
+	private final ArrayList<String> deletedWordIDs=new ArrayList<>();
 	private EnumSet<FilterContext> context=EnumSet.allOf(FilterContext.class);
 	private boolean dirty;
 

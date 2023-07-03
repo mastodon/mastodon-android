@@ -58,7 +58,7 @@ public class GoogleMadeMeAddThisFragment extends ToolbarFragment{
 	private Button btn;
 	private View buttonBar;
 	private Instance instance;
-	private ArrayList<Item> items=new ArrayList<>();
+	private final ArrayList<Item> items=new ArrayList<>();
 	private Call currentRequest;
 	private ItemsAdapter itemsAdapter;
 	private ElevationOnScrollListener onScrollListener;

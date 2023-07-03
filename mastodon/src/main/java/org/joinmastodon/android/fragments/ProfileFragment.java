@@ -133,7 +133,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 	private String accountID;
 	private Relationship relationship;
 	private boolean isOwnProfile;
-	private ArrayList<AccountField> fields=new ArrayList<>();
+	private final ArrayList<AccountField> fields=new ArrayList<>();
 
 	private boolean isInEditMode, editDirty;
 	private Uri editNewAvatar, editNewCover;

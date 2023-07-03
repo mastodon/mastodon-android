@@ -8,58 +8,58 @@ import org.joinmastodon.android.ui.utils.UiUtils;
 
 public class LinkSpan extends CharacterStyle {
 
-	private int color=0xFF00FF00;
-	private OnLinkClickListener listener;
-	private String link;
-	private Type type;
-	private String accountID;
+    private int color = 0xFF00FF00;
+    private OnLinkClickListener listener;
+    private final String link;
+    private final Type type;
+    private final String accountID;
 
-	public LinkSpan(String link, OnLinkClickListener listener, Type type, String accountID){
-		this.listener=listener;
-		this.link=link;
-		this.type=type;
-		this.accountID=accountID;
-	}
+    public LinkSpan(String link, OnLinkClickListener listener, Type type, String accountID) {
+        this.listener = listener;
+        this.link = link;
+        this.type = type;
+        this.accountID = accountID;
+    }
 
-	public int getColor(){
-		return color;
-	}
+    public int getColor() {
+        return color;
+    }
 
-	@Override
-	public void updateDrawState(TextPaint tp) {
-		tp.setColor(color=tp.linkColor);
-		tp.setUnderlineText(true);
-	}
-	
-	public void onClick(Context context){
-		switch(getType()){
-			case URL -> UiUtils.openURL(context, accountID, link);
-			case MENTION -> UiUtils.openProfileByID(context, accountID, link);
-			case HASHTAG -> UiUtils.openHashtagTimeline(context, accountID, link);
-			case CUSTOM -> listener.onLinkClick(this);
-		}
-	}
+    @Override
+    public void updateDrawState(TextPaint tp) {
+        tp.setColor(color = tp.linkColor);
+        tp.setUnderlineText(true);
+    }
 
-	public String getLink(){
-		return link;
-	}
+    public void onClick(Context context) {
+        switch (getType()) {
+            case URL -> UiUtils.openURL(context, accountID, link);
+            case MENTION -> UiUtils.openProfileByID(context, accountID, link);
+            case HASHTAG -> UiUtils.openHashtagTimeline(context, accountID, link);
+            case CUSTOM -> listener.onLinkClick(this);
+        }
+    }
 
-	public Type getType(){
-		return type;
-	}
+    public String getLink() {
+        return link;
+    }
 
-	public void setListener(OnLinkClickListener listener){
-		this.listener=listener;
-	}
+    public Type getType() {
+        return type;
+    }
 
-	public interface OnLinkClickListener{
-		void onLinkClick(LinkSpan span);
-	}
+    public void setListener(OnLinkClickListener listener) {
+        this.listener = listener;
+    }
 
-	public enum Type{
-		URL,
-		MENTION,
-		HASHTAG,
-		CUSTOM
-	}
+    public interface OnLinkClickListener {
+        void onLinkClick(LinkSpan span);
+    }
+
+    public enum Type {
+        URL,
+        MENTION,
+        HASHTAG,
+        CUSTOM
+    }
 }

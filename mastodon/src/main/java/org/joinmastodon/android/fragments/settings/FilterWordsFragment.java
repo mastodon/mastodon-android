@@ -44,8 +44,8 @@ import me.grishka.appkit.utils.V;
 public class FilterWordsFragment extends BaseSettingsFragment<FilterKeyword> implements OnBackPressedListener{
 	private ImageButton fab;
 	private ActionMode actionMode;
-	private ArrayList<ListItem<FilterKeyword>> selectedItems=new ArrayList<>();
-	private ArrayList<String> deletedItemIDs=new ArrayList<>();
+	private final ArrayList<ListItem<FilterKeyword>> selectedItems=new ArrayList<>();
+	private final ArrayList<String> deletedItemIDs=new ArrayList<>();
 	private MenuItem deleteItem;
 
 	public FilterWordsFragment(){

@@ -13,7 +13,7 @@ import me.grishka.appkit.utils.V;
 
 public class SplashLogoView extends ImageView{
 	private Bitmap shadow;
-	private Paint paint=new Paint();
+	private final Paint paint=new Paint();
 
 	public SplashLogoView(Context context){
 		this(context, null);

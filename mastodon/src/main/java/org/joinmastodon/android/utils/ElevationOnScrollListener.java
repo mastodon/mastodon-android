@@ -28,8 +28,8 @@ public class ElevationOnScrollListener extends RecyclerView.OnScrollListener imp
     private boolean isAtTop;
     private Animator currentPanelsAnim;
     private List<View> views;
-    private FragmentRootLinearLayout fragmentRootLayout;
-    private Rect tmpRect = new Rect();
+    private final FragmentRootLinearLayout fragmentRootLayout;
+    private final Rect tmpRect = new Rect();
 
     public ElevationOnScrollListener(FragmentRootLinearLayout fragmentRootLayout, View... views) {
         this(fragmentRootLayout, Arrays.asList(views));

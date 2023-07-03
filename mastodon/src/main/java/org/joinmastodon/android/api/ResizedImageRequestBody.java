@@ -31,9 +31,9 @@ import okio.Source;
 
 public class ResizedImageRequestBody extends CountingRequestBody {
     private File tempFile;
-    private Uri uri;
+    private final Uri uri;
     private String contentType;
-    private int maxSize;
+    private final int maxSize;
 
     public ResizedImageRequestBody(Uri uri, int maxSize, ProgressListener progressListener) throws IOException {
         super(progressListener);

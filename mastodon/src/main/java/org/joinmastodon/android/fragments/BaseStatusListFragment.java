@@ -260,7 +260,7 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 		});
 		list.addItemDecoration(new StatusListItemDecoration());
 		((UsableRecyclerView)list).setSelectorBoundsProvider(new UsableRecyclerView.SelectorBoundsProvider(){
-			private Rect tmpRect=new Rect();
+			private final Rect tmpRect=new Rect();
 			@Override
 			public void getSelectorBounds(View view, Rect outRect){
 				if(((UsableRecyclerView) list).isIncludeMarginsInItemHitbox()){
@@ -612,7 +612,7 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 	}
 
 	private class StatusListItemDecoration extends RecyclerView.ItemDecoration{
-		private Paint dividerPaint=new Paint();
+		private final Paint dividerPaint=new Paint();
 
 		{
 			dividerPaint.setColor(UiUtils.getThemeColor(getActivity(), R.attr.colorM3OutlineVariant));

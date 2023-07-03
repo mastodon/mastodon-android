@@ -150,8 +150,8 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 	private ComposeLanguageAlertViewController.SelectedOption postLang;
 
 	private ComposeAutocompleteViewController autocompleteViewController;
-	private ComposePollViewController pollViewController=new ComposePollViewController(this);
-	private ComposeMediaViewController mediaViewController=new ComposeMediaViewController(this);
+	private final ComposePollViewController pollViewController=new ComposePollViewController(this);
+	private final ComposeMediaViewController mediaViewController=new ComposeMediaViewController(this);
 	public Instance instance;
 
 	public Status editingStatus;
@@ -420,7 +420,7 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 				start=Math.max(0, start-1);
 				CharSequence changedText=s.subSequence(start, realStart+count);
 				String raw=changedText.toString();
-				Editable editable=(Editable) s;
+				Editable editable= s;
 				// 1. find mentions, hashtags, and emoji shortcodes in any freshly inserted text, and put spans over them
 				if(raw.contains("@") || raw.contains("#") || raw.contains(":")){
 					Matcher matcher=AUTO_COMPLETE_PATTERN.matcher(changedText);
@@ -500,7 +500,7 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 				ignoreSelectionChanges=true;
 				mainEditText.setSelection(mainEditText.length());
 				ignoreSelectionChanges=false;
-				mediaViewController.onViewCreated(savedInstanceState);;
+				mediaViewController.onViewCreated(savedInstanceState);
 			}else{
 				String prefilledText=getArguments().getString("prefilledText");
 				if(!TextUtils.isEmpty(prefilledText)){
@@ -781,9 +781,7 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 			confirmDiscardDraftAndFinish();
 			return true;
 		}
-		if(sendingOverlay!=null)
-			return true;
-		return false;
+		return sendingOverlay != null;
 	}
 
 	@Override

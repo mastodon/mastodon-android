@@ -19,6 +19,6 @@ public class GetPublicTimeline extends MastodonAPIRequest<List<Status>>{
 		if(!TextUtils.isEmpty(maxID))
 			addQueryParameter("max_id", maxID);
 		if(limit>0)
-			addQueryParameter("limit", limit+"");
+			addQueryParameter("limit", String.valueOf(limit));
 	}
 }
