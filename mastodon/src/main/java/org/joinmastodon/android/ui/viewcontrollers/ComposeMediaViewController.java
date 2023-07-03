@@ -560,7 +560,7 @@ public class ComposeMediaViewController{
 
 	public boolean areAllAttachmentsImages(){
 		for(DraftMediaAttachment att:attachments){
-			if(!att.mimeType.startsWith("image/"))
+			if((att.mimeType==null && att.serverAttachment.type==Attachment.Type.IMAGE) || !att.mimeType.startsWith("image/"))
 				return false;
 		}
 		return true;

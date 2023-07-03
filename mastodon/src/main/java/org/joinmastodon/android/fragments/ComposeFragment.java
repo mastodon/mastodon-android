@@ -547,7 +547,7 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item){
 		if(item.getItemId()==R.id.publish){
-			if(GlobalUserPreferences.altTextReminders)
+			if(GlobalUserPreferences.altTextReminders && editingStatus==null)
 				checkAltTextsAndPublish();
 			else
 				publish();
