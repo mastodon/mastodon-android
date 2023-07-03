@@ -36,27 +36,25 @@ import org.joinmastodon.android.R;
  * @attr ref com.google.android.material.R.styleable#TabItem_android_layout
  * @see TabLayout
  */
-//TODO(b/76413401): make class final after the widget migration
-public class TabItem extends View {
-  //TODO(b/76413401): make package private after the widget migration
-  public final CharSequence text;
-  //TODO(b/76413401): make package private after the widget migration
-  public final Drawable icon;
-  //TODO(b/76413401): make package private after the widget migration
-  public final int customLayout;
+// TODO(b/76413401): make class final after the widget migration
+public final class TabItem extends View {
+    // TODO(b/76413401): make package private after the widget migration
+    public final CharSequence text;
+    // TODO(b/76413401): make package private after the widget migration
+    public final Drawable icon;
+    // TODO(b/76413401): make package private after the widget migration
+    public final int customLayout;
 
-  public TabItem(Context context) {
-    this(context, null);
-  }
+    public TabItem(Context context) {
+        this(context, null);
+    }
 
-  public TabItem(Context context, AttributeSet attrs) {
-    super(context, attrs);
-
-    final TypedArray a =
-        context.obtainStyledAttributes(attrs, R.styleable.TabItem);
-    text = a.getText(R.styleable.TabItem_android_text);
-    icon = a.getDrawable(R.styleable.TabItem_android_icon);
-    customLayout = a.getResourceId(R.styleable.TabItem_android_layout, 0);
-    a.recycle();
-  }
+    public TabItem(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        final TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.TabItem);
+        text = a.getText(R.styleable.TabItem_android_text);
+        icon = a.getDrawable(R.styleable.TabItem_android_icon);
+        customLayout = a.getResourceId(R.styleable.TabItem_android_layout, 0);
+        a.recycle();
+    }
 }

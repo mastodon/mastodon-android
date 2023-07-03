@@ -11,22 +11,25 @@ import org.joinmastodon.android.model.catalog.CatalogInstance;
 
 import java.util.List;
 
-public class GetCatalogCategories extends MastodonAPIRequest<List<CatalogCategory>>{
-	private String lang;
+public class GetCatalogCategories extends MastodonAPIRequest<List<CatalogCategory>> {
+    private final String lang;
 
-	public GetCatalogCategories(String lang){
-		super(HttpMethod.GET, null, new TypeToken<>(){});
-		this.lang=lang;
-	}
+    public GetCatalogCategories(String lang) {
+        super(HttpMethod.GET, null, new TypeToken<>() {});
+        this.lang = lang;
+    }
 
-	@Override
-	public Uri getURL(){
-		Uri.Builder builder=new Uri.Builder()
-				.scheme("https")
-				.authority("api.joinmastodon.org")
-				.path("/categories");
-		if(!TextUtils.isEmpty(lang))
-			builder.appendQueryParameter("language", lang);
-		return builder.build();
-	}
+    @Override
+    public Uri getURL() {
+        Uri.Builder builder = new Uri.Builder()
+                .scheme("https")
+                .authority("api.joinmastodon.org")
+                .path("/categories");
+
+        if (!TextUtils.isEmpty(lang)) {
+            builder.appendQueryParameter("language", lang);
+        }
+
+        return builder.build();
+    }
 }

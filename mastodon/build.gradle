@@ -12,7 +12,7 @@ android {
 		versionCode 61
 		versionName "2.0.1"
 		testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-		resConfigs "ar-rSA", "be-rBY", "bn-rBD", "bs-rBA", "ca-rES", "cs-rCZ", "da-rDK", "de-rDE", "el-rGR", "es-rES", "eu-rES", "fa-rIR", "fi-rFI", "fil-rPH", "fr-rFR", "ga-rIE", "gd-rGB", "gl-rES", "hi-rIN", "hr-rHR", "hu-rHU", "hy-rAM", "ig-rNG", "in-rID", "is-rIS", "it-rIT", "iw-rIL", "ja-rJP", "kab", "ko-rKR", "my-rMM", "nl-rNL", "no-rNO", "oc-rFR", "pl-rPL", "pt-rBR", "pt-rPT", "ro-rRO", "ru-rRU", "si-rLK", "sl-rSI", "sv-rSE", "th-rTH", "tr-rTR", "uk-rUA", "ur-rIN", "vi-rVN", "zh-rCN", "zh-rTW"
+		resourceConfigurations += ['ar-rSA', 'be-rBY', 'bn-rBD', 'bs-rBA', 'ca-rES', 'cs-rCZ', 'da-rDK', 'de-rDE', 'el-rGR', 'es-rES', 'eu-rES', 'fa-rIR', 'fi-rFI', 'fil-rPH', 'fr-rFR', 'ga-rIE', 'gd-rGB', 'gl-rES', 'hi-rIN', 'hr-rHR', 'hu-rHU', 'hy-rAM', 'ig-rNG', 'in-rID', 'is-rIS', 'it-rIT', 'iw-rIL', 'ja-rJP', 'kab', 'ko-rKR', 'my-rMM', 'nl-rNL', 'no-rNO', 'oc-rFR', 'pl-rPL', 'pt-rBR', 'pt-rPT', 'ro-rRO', 'ru-rRU', 'si-rLK', 'sl-rSI', 'sv-rSE', 'th-rTH', 'tr-rTR', 'uk-rUA', 'ur-rIN', 'vi-rVN', 'zh-rCN', 'zh-rTW']
 	}
 
 	buildTypes {
@@ -60,14 +60,15 @@ android {
 			setRoot "src/github"
 		}
 	}
-	lintOptions{
-		checkReleaseBuilds false
+	namespace 'org.joinmastodon.android'
+	lint {
 		abortOnError false
+		checkReleaseBuilds false
 	}
 }
 
 dependencies {
-	api 'androidx.annotation:annotation:1.3.0'
+	api 'androidx.annotation:annotation:1.6.0'
 	implementation 'com.squareup.okhttp3:okhttp:3.14.9'
 	implementation 'me.grishka.litex:recyclerview:1.2.1.1'
 	implementation 'me.grishka.litex:swiperefreshlayout:1.1.0.1'
@@ -76,8 +77,8 @@ dependencies {
 	implementation 'me.grishka.litex:viewpager:1.0.0'
 	implementation 'me.grishka.litex:viewpager2:1.0.0'
 	implementation 'me.grishka.litex:palette:1.0.0'
-	implementation 'me.grishka.appkit:appkit:1.2.9'
-	implementation 'com.google.code.gson:gson:2.8.9'
+	implementation 'me.grishka.appkit:appkit:1.2.8'
+	implementation 'com.google.code.gson:gson:2.10.1'
 	implementation 'org.jsoup:jsoup:1.14.3'
 	implementation 'com.squareup:otto:1.3.8'
 	implementation 'de.psdev:async-otto:1.0.3'
@@ -90,9 +91,4 @@ dependencies {
 	appcenterPrivateBetaImplementation "com.microsoft.appcenter:appcenter-distribute:${appCenterSdkVersion}"
 	appcenterPublicBetaImplementation "com.microsoft.appcenter:appcenter-crashes:${appCenterSdkVersion}"
 	appcenterPublicBetaImplementation "com.microsoft.appcenter:appcenter-distribute:${appCenterSdkVersion}"
-
-	androidTestImplementation 'androidx.test:core:1.5.0'
-	androidTestImplementation 'androidx.test.ext:junit:1.1.5'
-	androidTestImplementation 'androidx.test:runner:1.5.2'
-	androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 }

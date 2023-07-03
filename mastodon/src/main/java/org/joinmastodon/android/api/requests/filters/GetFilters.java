@@ -7,13 +7,13 @@ import org.joinmastodon.android.model.Filter;
 
 import java.util.List;
 
-public class GetFilters extends MastodonAPIRequest<List<Filter>>{
-	public GetFilters(){
-		super(HttpMethod.GET, "/filters", new TypeToken<>(){});
-	}
+public class GetFilters extends MastodonAPIRequest<List<Filter>> {
+    public GetFilters() {
+        super(HttpMethod.GET, "/filters", new TypeToken<>() {});
+    }
 
-	@Override
-	protected String getPathPrefix(){
-		return "/api/v2";
-	}
+    @Override
+    protected String getPathPrefix() {
+        return "/api/v2";
+    }
 }

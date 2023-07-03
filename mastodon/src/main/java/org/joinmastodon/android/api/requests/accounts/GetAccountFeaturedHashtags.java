@@ -7,8 +7,8 @@ import org.joinmastodon.android.model.Hashtag;
 
 import java.util.List;
 
-public class GetAccountFeaturedHashtags extends MastodonAPIRequest<List<Hashtag>>{
-	public GetAccountFeaturedHashtags(String id){
-		super(HttpMethod.GET, "/accounts/"+id+"/featured_tags", new TypeToken<>(){});
-	}
+public class GetAccountFeaturedHashtags extends MastodonAPIRequest<List<Hashtag>> {
+    public GetAccountFeaturedHashtags(String id) {
+        super(HttpMethod.GET, "/accounts/" + id + "/featured_tags", new TypeToken<>() {});
+    }
 }

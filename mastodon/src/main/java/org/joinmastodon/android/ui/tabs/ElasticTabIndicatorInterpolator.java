@@ -19,8 +19,10 @@ package org.joinmastodon.android.ui.tabs;
 import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
 import android.view.View;
+
 import androidx.annotation.FloatRange;
 import androidx.annotation.NonNull;
+
 import me.grishka.appkit.utils.V;
 
 import static org.joinmastodon.android.ui.utils.UiUtils.lerp;
@@ -32,49 +34,53 @@ import static org.joinmastodon.android.ui.utils.UiUtils.lerp;
  */
 class ElasticTabIndicatorInterpolator extends TabIndicatorInterpolator {
 
-  /** Fit a linear 0F - 1F curve to an ease out sine (decelerating) curve. */
-  private static float decInterp(@FloatRange(from = 0.0, to = 1.0) float fraction) {
-    // Ease out sine
-    return (float) Math.sin((fraction * Math.PI) / 2.0);
-  }
+    /**
+     * Fit a linear 0F - 1F curve to an ease out sine (decelerating) curve.
+     */
+    private static float decInterp(@FloatRange(from = 0.0, to = 1.0) float fraction) {
+        // Ease out sine
+        return (float) Math.sin((fraction * Math.PI) / 2.0);
+    }
 
-  /** Fit a linear 0F - 1F curve to an ease in sine (accelerating) curve. */
-  private static float accInterp(@FloatRange(from = 0.0, to = 1.0) float fraction) {
-    // Ease in sine
-    return (float) (1.0 - Math.cos((fraction * Math.PI) / 2.0));
-  }
+    /**
+     * Fit a linear 0F - 1F curve to an ease in sine (accelerating) curve.
+     */
+    private static float accInterp(@FloatRange(from = 0.0, to = 1.0) float fraction) {
+        // Ease in sine
+        return (float) (1.0 - Math.cos((fraction * Math.PI) / 2.0));
+    }
 
-  @Override
-  void setIndicatorBoundsForOffset(
-      TabLayout tabLayout,
-      View startTitle,
-      View endTitle,
-      float offset,
-      @NonNull Drawable indicator) {
-      // The indicator should be positioned somewhere between start and end title. Override the
-      // super implementation and adjust the indicator's left and right bounds independently.
-      RectF startIndicator = calculateIndicatorWidthForTab(tabLayout, startTitle);
-      RectF endIndicator = calculateIndicatorWidthForTab(tabLayout, endTitle);
+    @Override
+    void setIndicatorBoundsForOffset(
+            TabLayout tabLayout,
+            View startTitle,
+            View endTitle,
+            float offset,
+            @NonNull Drawable indicator) {
+        // The indicator should be positioned somewhere between start and end title. Override the
+        // super implementation and adjust the indicator's left and right bounds independently.
+        RectF startIndicator = calculateIndicatorWidthForTab(tabLayout, startTitle);
+        RectF endIndicator = calculateIndicatorWidthForTab(tabLayout, endTitle);
 
-      float leftFraction;
-      float rightFraction;
+        float leftFraction;
+        float rightFraction;
 
-      final boolean isMovingRight = startIndicator.left < endIndicator.left;
-      // If the selection indicator should grow and shrink during the animation, interpolate
-      // the left and right bounds of the indicator using separate easing functions.
-      // The side in which the indicator is moving should always be the accelerating
-      // side.
-      if (isMovingRight) {
-        leftFraction = accInterp(offset);
-        rightFraction = decInterp(offset);
-      } else {
-        leftFraction = decInterp(offset);
-        rightFraction = accInterp(offset);
-      }
-      indicator.setBounds(
-          lerp((int) startIndicator.left, (int) endIndicator.left, leftFraction),
-          indicator.getBounds().top,
-          lerp((int) startIndicator.right, (int) endIndicator.right, rightFraction),
-          indicator.getBounds().bottom);
-  }
+        final boolean isMovingRight = startIndicator.left < endIndicator.left;
+        // If the selection indicator should grow and shrink during the animation, interpolate
+        // the left and right bounds of the indicator using separate easing functions.
+        // The side in which the indicator is moving should always be the accelerating
+        // side.
+        if (isMovingRight) {
+            leftFraction = accInterp(offset);
+            rightFraction = decInterp(offset);
+        } else {
+            leftFraction = decInterp(offset);
+            rightFraction = accInterp(offset);
+        }
+        indicator.setBounds(
+                lerp((int) startIndicator.left, (int) endIndicator.left, leftFraction),
+                indicator.getBounds().top,
+                lerp((int) startIndicator.right, (int) endIndicator.right, rightFraction),
+                indicator.getBounds().bottom);
+    }
 }

@@ -7,14 +7,14 @@ import org.joinmastodon.android.model.FollowSuggestion;
 
 import java.util.List;
 
-public class GetFollowSuggestions extends MastodonAPIRequest<List<FollowSuggestion>>{
-	public GetFollowSuggestions(int limit){
-		super(HttpMethod.GET, "/suggestions", new TypeToken<>(){});
-		addQueryParameter("limit", limit+"");
-	}
+public class GetFollowSuggestions extends MastodonAPIRequest<List<FollowSuggestion>> {
+    public GetFollowSuggestions(int limit) {
+        super(HttpMethod.GET, "/suggestions", new TypeToken<>() {});
+        addQueryParameter("limit", String.valueOf(limit));
+    }
 
-	@Override
-	protected String getPathPrefix(){
-		return "/api/v2";
-	}
+    @Override
+    protected String getPathPrefix() {
+        return "/api/v2";
+    }
 }

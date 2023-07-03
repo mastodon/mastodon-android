@@ -10,26 +10,26 @@ import org.joinmastodon.android.model.catalog.CatalogInstance;
 
 import java.util.List;
 
-public class GetCatalogInstances extends MastodonAPIRequest<List<CatalogInstance>>{
+public class GetCatalogInstances extends MastodonAPIRequest<List<CatalogInstance>> {
 
-	private String lang, category;
+    private final String lang, category;
 
-	public GetCatalogInstances(String lang, String category){
-		super(HttpMethod.GET, null, new TypeToken<>(){});
-		this.lang=lang;
-		this.category=category;
-	}
+    public GetCatalogInstances(String lang, String category) {
+        super(HttpMethod.GET, null, new TypeToken<>() {});
+        this.lang = lang;
+        this.category = category;
+    }
 
-	@Override
-	public Uri getURL(){
-		Uri.Builder builder=new Uri.Builder()
-				.scheme("https")
-				.authority("api.joinmastodon.org")
-				.path("/servers");
-		if(!TextUtils.isEmpty(lang))
-			builder.appendQueryParameter("language", lang);
-		if(!TextUtils.isEmpty(category))
-			builder.appendQueryParameter("category", category);
-		return builder.build();
-	}
+    @Override
+    public Uri getURL() {
+        Uri.Builder builder = new Uri.Builder()
+                .scheme("https")
+                .authority("api.joinmastodon.org")
+                .path("/servers");
+        if (!TextUtils.isEmpty(lang))
+            builder.appendQueryParameter("language", lang);
+        if (!TextUtils.isEmpty(category))
+            builder.appendQueryParameter("category", category);
+        return builder.build();
+    }
 }

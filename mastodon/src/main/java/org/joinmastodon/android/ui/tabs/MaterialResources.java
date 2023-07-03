@@ -5,12 +5,12 @@ import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 
-class MaterialResources{
-	public static Drawable getDrawable(Context context, TypedArray a, int attr){
-		return a.getDrawable(attr);
-	}
+class MaterialResources {
+    public static Drawable getDrawable(Context context, TypedArray a, int attr) {
+        return a.getDrawable(attr);
+    }
 
-	public static ColorStateList getColorStateList(Context context, TypedArray a, int attr){
-		return a.getColorStateList(attr);
-	}
+    public static ColorStateList getColorStateList(Context context, TypedArray a, int attr) {
+        return a.getColorStateList(attr);
+    }
 }

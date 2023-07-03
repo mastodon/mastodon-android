@@ -7,8 +7,8 @@ import org.joinmastodon.android.model.LegacyFilter;
 
 import java.util.List;
 
-public class GetLegacyFilters extends MastodonAPIRequest<List<LegacyFilter>>{
-	public GetLegacyFilters(){
-		super(HttpMethod.GET, "/filters", new TypeToken<>(){});
-	}
+public class GetLegacyFilters extends MastodonAPIRequest<List<LegacyFilter>> {
+    public GetLegacyFilters() {
+        super(HttpMethod.GET, "/filters", new TypeToken<>() {});
+    }
 }
