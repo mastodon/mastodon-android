@@ -463,8 +463,94 @@
 	<string name="settings_even_more">さらに詳しい設定</string>
 	<string name="settings_show_cws">コンテンツ警告を表示</string>
 	<string name="settings_hide_sensitive_media">閲覧注意としてマークされたメディアを隠す</string>
+	<string name="settings_show_interaction_counts">投稿のインタラクションを表示</string>
+	<string name="settings_show_emoji_in_names">表示名でのカスタム絵文字</string>
+	<plurals name="in_x_seconds">
+		<item quantity="other">%d 秒後</item>
+	</plurals>
+	<plurals name="in_x_minutes">
+		<item quantity="other">%d 分後</item>
+	</plurals>
+	<plurals name="in_x_hours">
+		<item quantity="other">%d 時間後</item>
+	</plurals>
+	<plurals name="x_hours_ago">
+		<item quantity="other">%d 時間前</item>
+	</plurals>
+	<string name="alt_text_reminder_title">メディアに代替テキストがありません</string>
+	<plurals name="alt_text_reminder_x_images">
+		<item quantity="other">%s 枚の画像に代替テキストがありません。そのまま投稿しますか？</item>
+	</plurals>
+	<plurals name="alt_text_reminder_x_attachments">
+		<item quantity="other">%s 件の添付メディアに代替テキストがありません。そのまま投稿しますか？</item>
+	</plurals>
+	<string name="count_one">1</string>
+	<string name="count_two">2</string>
+	<string name="count_three">3</string>
+	<string name="count_four">4</string>
+	<string name="alt_text_reminder_post_anyway">投稿</string>
 	<!-- %s is the username -->
+	<string name="unfollow_confirmation">%s さんのフォローを解除しますか？</string>
+	<string name="filter_active">有効</string>
+	<string name="filter_inactive">無効</string>
+	<string name="settings_add_filter">フィルターを追加</string>
+	<string name="settings_edit_filter">フィルターを編集</string>
+	<string name="settings_filter_duration">期間</string>
+	<string name="settings_filter_muted_words">ミュートする言葉</string>
+	<string name="settings_filter_context">ミュートする場所</string>
+	<string name="settings_filter_show_cw">コンテンツ警告を表示</string>
+	<string name="settings_filter_show_cw_explanation">このフィルターに一致する投稿を継続して表示しますが、コンテンツ警告で隠します</string>
+	<string name="settings_delete_filter">フィルターを削除</string>
+	<string name="filter_duration_forever">無期限</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="settings_filter_ends">%s に終了</string>
+	<plurals name="settings_x_muted_words">
+		<item quantity="other">%d 件の言葉をミュート中</item>
+	</plurals>
+	<string name="selection_2_options">%1$s と %2$s</string>
+	<string name="selection_3_options">%1$s、%2$s と %3$s</string>
+	<string name="selection_4_or_more">%1$s、%2$s とその他 %3$d か所</string>
+	<string name="filter_context_home_lists">ホームとリスト</string>
+	<string name="filter_context_notifications">通知</string>
+	<string name="filter_context_public_timelines">公開タイムライン</string>
+	<string name="filter_context_threads_replies">スレッドと返信</string>
+	<string name="filter_context_profiles">プロフィール</string>
+	<string name="settings_filter_title">件名</string>
+	<string name="settings_delete_filter_title">フィルター「%s」を削除しますか？</string>
+	<string name="settings_delete_filter_confirmation">このフィルターはあなたのアカウントでログインしているすべての端末から削除</string>
+	<string name="add_muted_word">ミュートする言葉を追加</string>
+	<string name="edit_muted_word">ミュートする言葉を編集</string>
+	<string name="add">追加</string>
+	<string name="filter_word_or_phrase">単語または語句</string>
+	<string name="filter_add_word_help">単語は大文字小文字を区別せず、完全に一致したもののみ対象とします。\n\n例えば、キーワード「Apple」をフィルターすると「apple」や「aPPL」を含む投稿は非表示になりますが、「pineapple」は含まれません。</string>
+	<string name="settings_delete_filter_word">対象語「%s」を削除しますか？</string>
+	<string name="enter_selection_mode">選択</string>
+	<string name="select_all">すべて選択</string>
+	<string name="settings_filter_duration_title">フィルターする期間</string>
+	<string name="filter_duration_custom">カスタム</string>
+	<plurals name="settings_delete_x_filter_words">
+		<item quantity="other">%d 件の対象語を削除しますか？</item>
+	</plurals>
+	<plurals name="x_items_selected">
+		<item quantity="other">%d 件を選択中</item>
+	</plurals>
+	<string name="required_form_field_blank">空白にはできません</string>
+	<string name="filter_word_already_in_list">すでにリストに存在します</string>
+	<string name="app_update_ready">アプリ更新の準備ができました</string>
+	<string name="app_update_version">バージョン %s</string>
+	<string name="downloading_update">ダウンロード中 (%d%%)</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
+	<string name="post_matches_filter_x">フィルター「%s」に一致しました</string>
+	<string name="search_mastodon">Mastodon を検索</string>
+	<string name="clear_all">すべてクリア</string>
+	<string name="search_open_url">Mastodon で URL を開く</string>
+	<string name="posts_matching_hashtag">「%s」がついた投稿</string>
+	<string name="search_go_to_account">%s に移動</string>
+	<string name="posts_matching_string">「%s」を含む投稿</string>
+	<string name="accounts_matching_string">「%s」を含む人々</string>
 	<!-- Shown in the post header. Please keep it short -->
+	<string name="time_seconds_ago_short">%d 秒前</string>
+	<string name="time_minutes_ago_short">%d か月前</string>
+	<string name="time_hours_ago_short">%d 時間前</string>
+	<string name="time_days_ago_short">%d 日前</string>
 </resources>
