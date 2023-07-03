@@ -12,8 +12,10 @@
 	<string name="in_reply_to">Sem svar til %s</string>
 	<string name="notifications">Tilkynningar</string>
 	<string name="user_followed_you">%s fylgist með þér</string>
+	<string name="user_sent_follow_request">%s sendi þér beiðni um að fylgjast með þér</string>
 	<string name="user_favorited">%s setti færsluna þína í eftirlæti</string>
 	<string name="notification_boosted">%s endurbirti færsluna þína</string>
+	<string name="poll_ended">Skoðaðu niðurstöður könnunar sem þú greiddir atkvæði í</string>
 	<string name="share_toot_title">Deila</string>
 	<string name="settings">Stillingar</string>
 	<string name="publish">Birta</string>
@@ -35,6 +37,7 @@
 	<string name="button_follow">Fylgja</string>
 	<string name="button_following">Fylgist með</string>
 	<string name="edit_profile">Breyta notandasniði</string>
+	<string name="share_user">Deila notandasniði</string>
 	<string name="mute_user">Þagga niður í %s</string>
 	<string name="unmute_user">Afþagga %s</string>
 	<string name="block_user">Útiloka %s</string>
@@ -186,6 +189,7 @@
 	<string name="add_alt_text">Bæta við ALT-varatexta</string>
 	<string name="visibility_public">Opinbert</string>
 	<string name="visibility_followers_only">Einungis fylgjendur</string>
+	<string name="visibility_private">Aðeins fólk sem minnst er á</string>
 	<string name="recent_searches">Nýlegt</string>
 	<string name="skip">Sleppa</string>
 	<string name="notification_type_follow">Nýir fylgjendur</string>
@@ -385,6 +389,7 @@
 	<string name="what_are_servers">Hvað eru netþjónar?</string>
 	<string name="welcome_paragraph2"><![CDATA[Hver einasti Mastodon-aðgangur er hýstur á sínum netþjóni — hver slíkur er með sín eigin gildi, reglur og stjórnendur. Það skiftir ekki máli hvern þeirra þú velur, þú getur fylgst fylgst með og átt í samskiptum við fólk á hvaða netþjóni sem er.]]></string>
 	<string name="opening_link">Opna tengil…</string>
+	<string name="link_not_supported">Það er ekki stuðningur við tengilinn í forritinu</string>
 	<string name="log_out_all_accounts">Skrá út úr öllum aðgöngum</string>
 	<string name="confirm_log_out_all_accounts">Skrá út úr öllum aðgöngum?</string>
 	<string name="retry">Reyna aftur</string>
@@ -455,6 +460,10 @@
 	<string name="settings_notifications_policy">Fá tilkynningar frá</string>
 	<string name="notification_type_mentions_and_replies">Tilvísanir og svör</string>
 	<string name="pause_all_notifications_title">Setja allar tilkynningar í bið</string>
+	<plurals name="x_weeks">
+		<item quantity="one">%d vika</item>
+		<item quantity="other">%d vikur</item>
+	</plurals>
 	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
 	<string name="date_at_time">%1$s kl. %2$s</string>
 	<string name="today">í dag</string>
@@ -476,7 +485,31 @@
 	<string name="settings_hide_sensitive_media">Hylja myndefni sem merkt er viðkvæmt</string>
 	<string name="settings_show_interaction_counts">Fjöldi gagnverkana færslu</string>
 	<string name="settings_show_emoji_in_names">Sérsniðin tjáningartákn í brtingarnöfnum</string>
+	<plurals name="in_x_seconds">
+		<item quantity="one">eftir %d sekúndu</item>
+		<item quantity="other">eftir %d sekúndur</item>
+	</plurals>
+	<plurals name="in_x_minutes">
+		<item quantity="one">eftir %d mínútu</item>
+		<item quantity="other">eftir %d mínútur</item>
+	</plurals>
+	<plurals name="in_x_hours">
+		<item quantity="one">eftir %d klukkustund</item>
+		<item quantity="other">eftir %d klukkustundir</item>
+	</plurals>
+	<plurals name="x_hours_ago">
+		<item quantity="one">fyrir %d klukkustund</item>
+		<item quantity="other">fyrir %d klukkustundum</item>
+	</plurals>
 	<string name="alt_text_reminder_title">Myndgögn vantar ALT-varatexta</string>
+	<plurals name="alt_text_reminder_x_images">
+		<item quantity="one">%s myndanna þinna vantar alt-varatexta. Birta samt?</item>
+		<item quantity="other">%s myndanna þinna vantar alt-varatexta. Birta samt?</item>
+	</plurals>
+	<plurals name="alt_text_reminder_x_attachments">
+		<item quantity="one">%s margmiðlunarviðhengjanna þinna vantar alt-varatexta. Birta samt?</item>
+		<item quantity="other">%s margmiðlunarviðhengjanna þinna vantar alt-varatexta. Birta samt?</item>
+	</plurals>
 	<string name="count_one">Einn</string>
 	<string name="count_two">Tveir</string>
 	<string name="count_three">Þrír</string>
@@ -492,10 +525,19 @@
 	<string name="settings_filter_muted_words">Þögguð orð</string>
 	<string name="settings_filter_context">Þagga frá</string>
 	<string name="settings_filter_show_cw">Birta með aðvörun vegna efnis</string>
+	<string name="settings_filter_show_cw_explanation">Birta áfram færslur sem samsvara þessari síu, en faldar á bakvið aðvörun vegna efnis</string>
 	<string name="settings_delete_filter">Eyða síu</string>
 	<string name="filter_duration_forever">Að eilífu</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<string name="settings_filter_ends">Endar %s</string>
+	<plurals name="settings_x_muted_words">
+		<item quantity="one">%d þaggað orð eða setning</item>
+		<item quantity="other">%d þögguð orð eða setningar</item>
+	</plurals>
+	<string name="selection_2_options">%1$s og %2$s</string>
+	<string name="selection_3_options">%1$s, %2$s og %3$s</string>
+	<string name="selection_4_or_more">%1$s, %2$s og %3$d til viðbótar</string>
+	<string name="filter_context_home_lists">Heima og listar</string>
 	<string name="filter_context_notifications">Tilkynningar</string>
 	<string name="filter_context_public_timelines">Opinberar tímalínur</string>
 	<string name="filter_context_threads_replies">Þræðir og svör</string>
@@ -507,13 +549,23 @@
 	<string name="edit_muted_word">Breyta þögguðu orði</string>
 	<string name="add">Bæta við</string>
 	<string name="filter_word_or_phrase">Orð eða setning</string>
+	<string name="filter_add_word_help">Orðin eru ekki háð stafstöðu og eiga einungis við heil orð.\n\nEf þú síar leitarorðið “Apple,” mun það fela færslur sem innihalda “apple” eða “aPpLe” en ekki “pineapple.”</string>
 	<string name="settings_delete_filter_word">Eyða orðinu “%s”?</string>
 	<string name="enter_selection_mode">Velja</string>
 	<string name="select_all">Velja allt</string>
 	<string name="settings_filter_duration_title">Tímalengd síu</string>
 	<string name="filter_duration_custom">Sérsniðið</string>
+	<plurals name="settings_delete_x_filter_words">
+		<item quantity="one">Eyða %d orði?</item>
+		<item quantity="other">Eyða %d orðum?</item>
+	</plurals>
+	<plurals name="x_items_selected">
+		<item quantity="one">%d valið</item>
+		<item quantity="other">%d valið</item>
+	</plurals>
 	<string name="required_form_field_blank">Má ekki vera autt</string>
 	<string name="filter_word_already_in_list">Nú þegar í listanum</string>
+	<string name="app_update_ready">Uppfærsla forrits er tiltæk</string>
 	<string name="app_update_version">Útgáfa %s</string>
 	<string name="downloading_update">Sæki (%d%%)</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
