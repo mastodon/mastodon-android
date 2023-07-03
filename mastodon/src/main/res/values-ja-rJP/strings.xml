@@ -396,6 +396,20 @@
 	<string name="alt_text">代替テキスト</string>
 	<string name="help">ヘルプ</string>
 	<string name="what_is_alt_text">代替テキストとは？</string>
+	<string name="alt_text_help">代替テキストは、視覚障害、低速ネットワーク接続の人や追加コンテンツを求める人に役立つ画像説明です。\n\n明確、簡潔、客観的に記述することでアクセシビリティが向上し、より多くの人に理解されるようになります。\n\n<ul><li>要点をとらえる</li>\n<li>画像内のテキストを要約する</li>\n<li>平易な文章で説明する</li>\n<li>情報の重複を避ける</li>\n<li>複雑な内容 (図や地図など) では傾向やポイントを見つける</li></ul></string>
+	<string name="edit_post">投稿を編集</string>
+	<string name="no_verified_link">確認済 URL なし</string>
+	<string name="compose_autocomplete_emoji_empty">絵文字を参照</string>
+	<string name="compose_autocomplete_users_empty">ユーザーを探す</string>
+	<string name="no_search_results">この検索条件では何も見つかりませんでした</string>
+	<string name="language">言語</string>
+	<string name="language_default">デフォルト</string>
+	<string name="language_system">システム</string>
+	<string name="language_detecting">言語を検出中</string>
+	<string name="language_cant_detect">言語を検出できません</string>
+	<string name="language_detected">検出</string>
+	<string name="media_hidden">メディアが非表示にされました</string>
+	<string name="post_hidden">投稿が非表示にされました</string>
 	<!-- %s is the server domain -->
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
