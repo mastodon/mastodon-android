@@ -4,12 +4,18 @@
 	<string name="next">Air adhart</string>
 	<string name="loading_instance">A’ faighinn fiosrachadh an fhrithealaiche…</string>
 	<string name="error">Mearachd</string>
+	<string name="not_a_mastodon_instance">Tha coltas nach eil %s ’na fhrithealaiche Mastodon.</string>
 	<string name="ok">Ceart ma-thà</string>
 	<string name="preparing_auth">Ag ullachadh an dearbhaidh…</string>
 	<string name="finishing_auth">A’ crìochnachadh an dearbhaidh…</string>
 	<string name="user_boosted">’Ga bhrosnachadh le %s</string>
 	<string name="in_reply_to">A’ freagairt dha %s</string>
 	<string name="notifications">Brathan</string>
+	<string name="user_followed_you">Tha %s ’gad leantainn a-nis</string>
+	<string name="user_sent_follow_request">Chuir %s iarrtas leantainn thugad</string>
+	<string name="user_favorited">Chuir %s am post agad ris na h-annsachdan</string>
+	<string name="notification_boosted">Bhrosnaich %s am post agad</string>
+	<string name="poll_ended">Faic toraidhean chunntas-bheachd sa bhòt thu</string>
 	<string name="share_toot_title">Co-roinn</string>
 	<string name="settings">Roghainnean</string>
 	<string name="publish">Foillsich</string>
@@ -35,6 +41,7 @@
 	<string name="button_follow">Lean</string>
 	<string name="button_following">A’ leantainn</string>
 	<string name="edit_profile">Deasaich a’ phròifil</string>
+	<string name="share_user">Co-roinn a’ phròifil</string>
 	<string name="mute_user">Mùch %s</string>
 	<string name="unmute_user">Dì-mhùch %s</string>
 	<string name="block_user">Bac %s</string>
@@ -98,6 +105,12 @@
 		<item quantity="few">%d làithean air fhàgail</item>
 		<item quantity="other">%d latha air fhàgail</item>
 	</plurals>
+	<plurals name="x_votes">
+		<item quantity="one">%,d bhòt</item>
+		<item quantity="two">%,d bhòt</item>
+		<item quantity="few">%,d bhòtaichean</item>
+		<item quantity="other">%,d bhòt</item>
+	</plurals>
 	<string name="poll_closed">Dùinte</string>
 	<string name="confirm_mute_title">Mùch an cunntas</string>
 	<string name="confirm_mute">Dearbh mùchadh %s</string>
@@ -116,16 +129,19 @@
 	<string name="button_blocked">’Ga bhacadh</string>
 	<string name="action_vote">Cuir bhòt</string>
 	<string name="delete">Sguab às</string>
+	<string name="confirm_delete_title">Sguab às am post</string>
 	<string name="confirm_delete">A bheil thu cinnteach gu bheil thu airson am post seo a sguabadh às?</string>
 	<string name="deleting">\'Ga sguabadh às…</string>
 	<string name="notification_channel_audio_player">Cluich fuaime</string>
 	<string name="play">Cluich</string>
 	<string name="pause">Cuir ’na stad</string>
+	<string name="log_out">Clàraich a-mach</string>
 	<string name="add_account">Cuir cunntas ris</string>
 	<string name="search_hint">Lorg</string>
 	<string name="hashtags">Tagaichean hais</string>
 	<string name="news">Naidheachdan</string>
 	<string name="for_you">Dhut-sa</string>
+	<string name="all_notifications">A h-uile càil</string>
 	<string name="mentions">Iomraidhean</string>
 	<plurals name="x_people_talking">
 		<item quantity="one">Tha %d neach a’ bruidhinn</item>
@@ -134,11 +150,16 @@
 		<item quantity="other">Tha %d daoine a’ bruidhinn</item>
 	</plurals>
 	<string name="report_title">Dèan gearan mu %s</string>
+	<string name="report_choose_reason">Dè tha ceàrr leis a’ phost seo?</string>
+	<string name="report_choose_reason_account">Dè tha ceàrr le %s?</string>
 	<string name="report_choose_reason_subtitle">Tagh a’ mhaids as fheàrr</string>
+	<string name="report_reason_personal">Cha toigh leam e</string>
 	<string name="report_reason_personal_subtitle">Chan eil thu airson seo fhaicinn</string>
+	<string name="report_reason_spam">’S e spama a th’ ann</string>
 	<string name="report_reason_spam_subtitle">Ceanglaichean droch-rùnach, conaltradh fuadain no an dearbh fhreagairt a-rithist ’s a-rithist</string>
 	<string name="report_reason_violation">Tha e a’ briseadh riaghailtean an fhrithealaiche</string>
 	<string name="report_reason_violation_subtitle">Mhothaich thu gu bheil e a’ briseadh riaghailtean sònraichte</string>
+	<string name="report_reason_other">’S e rud eile a tha ann</string>
 	<string name="report_reason_other_subtitle">Chan eil na roinnean-seòrsa eile iomchaidh dhan chùis</string>
 	<string name="report_choose_rule">Dè na riaghailtean a tha ’gam briseadh?</string>
 	<string name="report_choose_rule_subtitle">Tagh a h-uile gin a tha iomchaidh</string>
@@ -147,8 +168,14 @@
 	<string name="report_comment_title">A bheil rud sam bith eile a bu toigh leat innse dhuinn?</string>
 	<string name="report_comment_hint">Beachdan a bharrachd</string>
 	<string name="sending_report">A’ cur a-null a’ ghearain…</string>
+	<string name="report_sent_title">Mòran taing airson a’ ghearain, bheir sinn sùil air.</string>
+	<string name="report_sent_subtitle">Fhad ’s a bhios sinn a’ toirt sùil air, seo nas urrainn dhut dèanamh an aghaidh %s:</string>
 	<string name="unfollow_user">Na lean %s tuilleadh</string>
 	<string name="unfollow">Na lean tuilleadh</string>
+	<string name="mute_user_explain">Chan fhaic thu na postaichean aca. Chì iad na postaichean agad agus ’s urrainn dhaibh ’gad leantainn fhathast. Cha bhi fios aca gun deach am mùchadh.</string>
+	<string name="block_user_explain">Chan fhaic thu na postaichean aca. Chan fhaic iad na postaichean agad is chan urrainn dhaibh ’gad leantainn. Mothaichidh iad gun deach am bacadh.</string>
+	<string name="report_personal_title">Nach eil thu airson seo fhaicinn?</string>
+	<string name="report_personal_subtitle">Seo na roghainnean a th’ agad airson stiùireadh na chì thu air Mastodon:</string>
 	<string name="back">Air ais</string>
 	<string name="search_communities">Ainm no URL an fhrithealaiche</string>
 	<string name="instance_rules_title">Riaghailtean an fhrithealaiche</string>
@@ -175,14 +202,19 @@
 	<string name="category_tech">Teicneolas</string>
 	<string name="confirm_email_title">Thoir sùil air a’ bhogsa a-steach agad</string>
 	<!-- %s is the email address -->
+	<string name="confirm_email_subtitle">Thoir gnogag air a’ cheangal a chuir sinn thugad a dhearbhadh %s. Fuirichidh sinn ort an-seo.</string>
+	<string name="confirm_email_didnt_get">Nach d’fhuair thu ceangal?</string>
 	<string name="resend">Cuir a-rithist</string>
 	<string name="open_email_app">Fosgail aplacaid a’ phuist-d</string>
 	<string name="resent_email">Chaidh post-d dearbhaidh a chur</string>
+	<string name="compose_hint">Sgrìobh no cuir ann na tha air d’ aire</string>
 	<string name="content_warning">Rabhadh susbainte</string>
 	<string name="save">Sàbhail</string>
 	<string name="add_alt_text">Cuir roghainn teacsa ris</string>
 	<string name="visibility_public">Poblach</string>
 	<string name="visibility_followers_only">Luchd-leantainn a-mhàin</string>
+	<string name="visibility_private">Daoine air an dug mi iomradh a-mhàin</string>
+	<string name="recent_searches">O chionn goirid</string>
 	<string name="skip">Leum thairis air</string>
 	<string name="notification_type_follow">Luchd-leantainn ùr</string>
 	<string name="notification_type_favorite">Annsachdan</string>
@@ -191,8 +223,16 @@
 	<string name="notification_type_poll">Cunntasan-bheachd</string>
 	<string name="choose_account">Tagh cunntas</string>
 	<string name="err_not_logged_in">Clàraich a-steach do Mhastodon an toiseach</string>
+	<plurals name="cant_add_more_than_x_attachments">
+		<item quantity="one">Chan urrainn dhut còrr is %d cheanglachan meadhain a chur ris</item>
+		<item quantity="two">Chan urrainn dhut còrr is %d cheanglachan meadhain a chur ris</item>
+		<item quantity="few">Chan urrainn dhut còrr is %d ceanglachain meadhain a chur ris</item>
+		<item quantity="other">Chan urrainn dhut còrr is %d ceanglachan meadhain a chur ris</item>
+	</plurals>
 	<string name="media_attachment_unsupported_type">Cha chuir sinn taic ri seòrsa an fhaidhle %s</string>
 	<string name="media_attachment_too_big">Tha am faidhle %1$s nas motha na a’ chrìoch de %2$s MB</string>
+	<string name="settings_theme">Coltas</string>
+	<string name="theme_auto">Cleachd coltas an uidheim</string>
 	<string name="theme_light">Soilleir</string>
 	<string name="theme_dark">Dorcha</string>
 	<string name="settings_behavior">Giùlan</string>
@@ -205,6 +245,9 @@
 	<string name="settings_clear_cache">Falamhaich tasgadan nam meadhanan</string>
 	<string name="settings_app_version">Mastodon airson Android v%1$s (%2$d)</string>
 	<string name="media_cache_cleared">Chaidh tasgadan nam meadhanan fhalamhachadh</string>
+	<string name="confirm_log_out">A bheil thu airson clàradh a-mach à %s?</string>
+	<string name="sensitive_content_explain">Chuir an t-ùghdar comharra ris a’ mheadhan seo gu bheil e frionasach.</string>
+	<string name="avatar_description">Tadhail air a’ phròifil aig %s</string>
 	<string name="more_options">Barrachd roghainnean</string>
 	<string name="new_post">Post ùr</string>
 	<string name="button_reply">Freagair</string>
@@ -220,6 +263,7 @@
 	<string name="media_viewer">Sealladair nam meadhanan</string>
 	<string name="follow_user">Lean %s</string>
 	<string name="unfollowed_user">Chan eil thu a’ leantainn %s tuilleadh</string>
+	<string name="followed_user">Tha thu a’ leantainn %s a-nis</string>
 	<string name="following_user_requested">Dh’iarr thu %s a leantainn</string>
 	<string name="open_in_browser">Fosgail sa bhrabhsair</string>
 	<string name="hide_boosts_from_user">Falaich na brosnachaidhean o %s</string>
@@ -237,7 +281,13 @@
 	<string name="error_saving_file">Mearachd a’ sàbhaladh an fhaidhle</string>
 	<string name="file_saved">Chaidh am faidhle a shàbhaladh</string>
 	<string name="downloading">’Ga luchdadh a-nuas…</string>
+	<string name="no_app_to_handle_action">Chan eil aplacaid ann a làimhsicheas an gnìomh seo</string>
+	<string name="local_timeline">Ionadail</string>
+	<string name="trending_posts_info_banner">Seo na postaichean fèillmhor thar Mastodon.</string>
+	<string name="trending_links_info_banner">Seo na sgeulachdan naidheachd air a bheilear a’ bruidhinn air Mastodon.</string>
 	<!-- %s is the server domain -->
+	<string name="local_timeline_info_banner">Seo gach post o gach cleachdaiche an fhrithealaiche agad (%s).</string>
+	<string name="recommended_accounts_info_banner">Dh’fhaoidte gun còrd na cunntasan seo riut stèidhichte air feadhainn eile a tha thu a’ leantainn.</string>
 	<string name="see_new_posts">Seall na postaichean ùra</string>
 	<string name="load_missing_posts">Luchdaich postaichean a dhìth</string>
 	<string name="follow_back">Lean air ais</string>
@@ -327,6 +377,7 @@
 	<string name="login_title">Fàilte air ais</string>
 	<string name="login_subtitle">Clàraich a-steach leis an fhrithealaiche far an do chruthaich thu an cunntas agad.</string>
 	<string name="server_url">URL an fhrithealaiche</string>
+	<string name="signup_random_server_explain">Taghaidh sinn frithealaiche dhut stèidhichte air a’ chànan agad ma leanas tu air adhart gun taghadh.</string>
 	<string name="server_filter_any_language">Cànan sam bith</string>
 	<string name="server_filter_instant_signup">Clàradh sa bhad</string>
 	<string name="server_filter_manual_review">Lèirmheas a làimh</string>
@@ -339,6 +390,7 @@
 	<string name="server_filter_region_oceania">Roinn a’ Chuain Sèimh</string>
 	<string name="not_accepting_new_members">Gun ghabhail ri buill ùra</string>
 	<string name="category_special_interests">Ùidhean sònraichte</string>
+	<string name="signup_passwords_dont_match">Chan eil an dà fhacal-faire co-ionnann</string>
 	<string name="pick_server_for_me">Taghaibh fear dhomh</string>
 	<string name="profile_add_row">Cuir ràgh ris</string>
 	<string name="profile_setup">Suidheachadh na pròifile</string>
@@ -347,12 +399,14 @@
 	<string name="popular_on_mastodon">Fèillmhor air Mastodon</string>
 	<string name="follow_all">Lean na h-uile</string>
 	<string name="server_rules_disagree">Diùlt</string>
+	<string name="privacy_policy_explanation">Gu goirid: Cha chruinnich is cha dèan sinn pròiseasadh air dad sam bith.</string>
 	<!-- %s is server domain -->
 	<string name="server_policy_disagree">Diùlt %s</string>
 	<string name="profile_bio">Cunntas-beatha</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<string name="sending_follows">A’ leantainn cleachdaichean…</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<string name="signup_email_domain_blocked">Cha cheadaich %1$s clàradh o %2$s. Feuch fear eile no &lt;a&gt;tagh frithealaiche eile&lt;/a&gt;.</string>
 	<string name="spoiler_show">Seall e co-dhiù</string>
 	<string name="spoiler_hide">Falaich a-rithist</string>
 	<string name="poll_multiple_choice">Tagh co-dhiù aonan</string>
@@ -372,7 +426,31 @@
 	<string name="welcome_paragraph1">’S e lìonra sòisealta sgaoilte a th’ ann am Mastodon agus is ciall dha seo nach eil e fo smachd aon chompanaidh a-mhàin. Tha e dèanta de ghrunn fhrithealaichean a tha ’gan ruith gu neo-eisimeileach ach ceangailte ri chèile.</string>
 	<string name="what_are_servers">Dè th’ anns na frithealaichean?</string>
 	<string name="welcome_paragraph2"><![CDATA[Tha gach cunntas Mastodon ’ga òstadh air frithealaiche – tha luachan, riaghailtean ⁊ rianairean sònraichte aig gach fear. Ge b’ e dè am frithealaiche a thaghas tu, ’s urrainn dhut daoine air frithealaiche sam bith a leantainn is bruidhinn riutha.]]></string>
+	<string name="opening_link">A’ fosgladh a’ cheangail…</string>
+	<string name="link_not_supported">Cha chuir an aplacaid taic ris a’ cheangal seo</string>
+	<string name="log_out_all_accounts">Clàraich a-mach às a h-uile cunntas</string>
+	<string name="confirm_log_out_all_accounts">A bheil thu airson clàradh a-mach às a h-uile cunntas?</string>
+	<string name="retry">Feuch ris a-rithist</string>
+	<string name="post_failed">Dh’fhàillig le cur a’ phuist</string>
 	<!-- %s is formatted file size ("467 KB image") -->
+	<string name="attachment_description_image">Dealbh %s</string>
+	<string name="attachment_description_video">Video %s</string>
+	<string name="attachment_description_audio">Fuaim %s</string>
+	<string name="attachment_description_unknown">Faidhle %s</string>
+	<string name="attachment_type_image">Dealbh</string>
+	<string name="attachment_type_audio">Fuaim</string>
+	<string name="attachment_type_unknown">Faidhle</string>
+	<string name="attachment_x_percent_uploaded">%d%% dheth air a luchdadh suas</string>
+	<string name="add_poll_option">Cuir roghainn ris a’ chunntas-bheachd</string>
+	<string name="poll_length">Faid a’ chunntais-bheachd</string>
+	<string name="poll_style">Stoidhle</string>
+	<string name="compose_poll_single_choice">Tagh aonan</string>
+	<string name="compose_poll_multiple_choice">Iomadh roghainn</string>
+	<string name="delete_poll_option">Sguab às roghainn a’ chunntais-bheachd</string>
+	<string name="poll_style_title">Stoidhle a’ chunntais-bheachd</string>
+	<string name="alt_text">Roghainn teacsa</string>
+	<string name="help">Cobhair</string>
+	<string name="what_is_alt_text">Dè a th’ ann an roghainn teacsa?</string>
 	<!-- %s is the server domain -->
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->

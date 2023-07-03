@@ -242,7 +242,7 @@
 	<string name="error_saving_file">เกิดข้อผิดพลาดในการบันทึกไฟล์</string>
 	<string name="file_saved">บันทึกไฟล์แล้ว</string>
 	<string name="downloading">กำลังดาวน์โหลด…</string>
-	<string name="no_app_to_handle_action">ไม่มีแอปที่จะจัดการกับการกระทำนี้</string>
+	<string name="no_app_to_handle_action">ไม่มีแอปที่จะจัดการการกระทำนี้</string>
 	<string name="local_timeline">ในเซิร์ฟเวอร์</string>
 	<string name="trending_posts_info_banner">นี่คือโพสต์ที่ได้รับความสนใจทั่วทั้ง Mastodon</string>
 	<string name="trending_links_info_banner">นี่คือเรื่องข่าวที่ได้รับการพูดถึงใน Mastodon</string>
@@ -320,7 +320,7 @@
 	<string name="login_title">ยินดีต้อนรับกลับมา</string>
 	<string name="login_subtitle">เข้าสู่ระบบด้วยเซิร์ฟเวอร์ที่ซึ่งคุณได้สร้างบัญชีของคุณ</string>
 	<string name="server_url">URL ของเซิร์ฟเวอร์</string>
-	<string name="signup_random_server_explain">เราจะเลือกเซิร์ฟเวอร์ตามภาษาของคุณหากคุณดำเนินการต่อโดยไม่ได้ทำการเลือก</string>
+	<string name="signup_random_server_explain">เราจะเลือกเซิร์ฟเวอร์โดยอิงตามภาษาของคุณหากคุณดำเนินการต่อโดยไม่ได้ทำการเลือก</string>
 	<string name="server_filter_any_language">ภาษาใด ๆ</string>
 	<string name="server_filter_instant_signup">การลงทะเบียนทันที</string>
 	<string name="server_filter_manual_review">การตรวจทานด้วยตนเอง</string>
@@ -396,6 +396,7 @@
 	<string name="alt_text">ข้อความแสดงแทน</string>
 	<string name="help">ช่วยเหลือ</string>
 	<string name="what_is_alt_text">ข้อความแสดงแทนคืออะไร?</string>
+	<string name="alt_text_help">ข้อความแสดงแทนให้คำอธิบายภาพสำหรับผู้คนที่มีความบกพร่องทางการมองเห็น, การเชื่อมต่อแบนด์วิดท์ต่ำ หรือผู้ที่มองหาบริบทพิเศษ\n\nคุณสามารถปรับปรุงการช่วยการเข้าถึงและความเข้าใจสำหรับทุกคนโดยการเขียนข้อความแสดงแทนที่ชัดเจน กระชับ และเป็นจริง\n\n<ul><li>จับองค์ประกอบที่สำคัญ</li>\n<li>สรุปข้อความในภาพ</li>\n<li>ใช้โครงสร้างประโยคปกติ</li>\n<li>หลีกเลี่ยงข้อมูลที่ซ้ำซ้อน</li>\n<li>มุ่งเน้นไปที่แนวโน้มและการค้นพบที่สำคัญในภาพที่ซับซ้อน (เช่น แผนภาพหรือแผนที่)</li></ul></string>
 	<string name="edit_post">แก้ไขโพสต์</string>
 	<string name="no_verified_link">ไม่มีลิงก์ที่ยืนยันแล้ว</string>
 	<string name="compose_autocomplete_emoji_empty">เรียกดูอีโมจิ</string>
