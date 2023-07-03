@@ -5,7 +5,7 @@ import org.parceler.Parcel;
 
 @AllFieldsAreRequired
 @Parcel
-public class FilterStatus extends BaseModel{
-	public String id;
-	public String statusId;
+public class FilterStatus extends BaseModel {
+    public String id;
+    public String statusId;
 }

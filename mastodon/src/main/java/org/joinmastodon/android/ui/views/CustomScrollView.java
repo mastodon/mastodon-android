@@ -59,8 +59,8 @@ import androidx.annotation.VisibleForTesting;
 
 /**
  * Copied from AOSP to add nested scrolling flings.
- *
- *
+ * <p>
+ * <p>
  * A view group that allows the view hierarchy placed within it to be scrolled.
  * Scroll view may have only one direct child placed within it.
  * To add multiple views within the scroll view, make
@@ -85,7 +85,7 @@ import androidx.annotation.VisibleForTesting;
  *
  * @attr ref android.R.styleable#ScrollView_fillViewport
  */
-public class CustomScrollView extends FrameLayout{
+public class CustomScrollView extends FrameLayout {
     static final int ANIMATED_SCROLL_GAP = 250;
 
     static final float MAX_SCROLL_FACTOR = 0.5f;
@@ -98,9 +98,10 @@ public class CustomScrollView extends FrameLayout{
     private OverScroller mScroller;
     /**
      * Tracks the state of the top edge glow.
-     *
+     * <p>
      * Even though this field is practically final, we cannot make it final because there are apps
      * setting it via reflection and they need to keep working until they target Q.
+     *
      * @hide
      */
     @NonNull
@@ -109,9 +110,10 @@ public class CustomScrollView extends FrameLayout{
 
     /**
      * Tracks the state of the bottom edge glow.
-     *
+     * <p>
      * Even though this field is practically final, we cannot make it final because there are apps
      * setting it via reflection and they need to keep working until they target Q.
+     *
      * @hide
      */
     @NonNull
@@ -329,7 +331,7 @@ public class CustomScrollView extends FrameLayout{
 
     /**
      * @return The maximum amount this scroll view will scroll in response to
-     *   an arrow event.
+     * an arrow event.
      */
     public int getMaxScrollAmount() {
         return (int) (MAX_SCROLL_FACTOR * (getBottom() - getTop()));
@@ -346,7 +348,7 @@ public class CustomScrollView extends FrameLayout{
         mMaximumVelocity = configuration.getScaledMaximumFlingVelocity();
         mOverscrollDistance = configuration.getScaledOverscrollDistance();
         mOverflingDistance = configuration.getScaledOverflingDistance();
-        mVerticalScrollFactor = Build.VERSION.SDK_INT>=26 ? configuration.getScaledVerticalScrollFactor() : 1;
+        mVerticalScrollFactor = Build.VERSION.SDK_INT >= 26 ? configuration.getScaledVerticalScrollFactor() : 1;
     }
 
     @Override
@@ -401,7 +403,6 @@ public class CustomScrollView extends FrameLayout{
      * Indicates whether this ScrollView's content is stretched to fill the viewport.
      *
      * @return True if the content fills the viewport, false otherwise.
-     *
      * @attr ref android.R.styleable#ScrollView_fillViewport
      */
     @InspectableProperty
@@ -414,8 +415,7 @@ public class CustomScrollView extends FrameLayout{
      * the viewport or not.
      *
      * @param fillViewport True to stretch the content's height to the viewport's
-     *        boundaries, false otherwise.
-     *
+     *                     boundaries, false otherwise.
      * @attr ref android.R.styleable#ScrollView_fillViewport
      */
     public void setFillViewport(boolean fillViewport) {
@@ -434,6 +434,7 @@ public class CustomScrollView extends FrameLayout{
 
     /**
      * Set whether arrow scrolling will animate its transition.
+     *
      * @param smoothScrollingEnabled whether arrow scrolling will animate its transition
      */
     public void setSmoothScrollingEnabled(boolean smoothScrollingEnabled) {
@@ -585,10 +586,10 @@ public class CustomScrollView extends FrameLayout{
          */
 
         /*
-        * Shortcut the most recurring case: the user is in the dragging
-        * state and they is moving their finger.  We want to intercept this
-        * motion.
-        */
+         * Shortcut the most recurring case: the user is in the dragging
+         * state and they is moving their finger.  We want to intercept this
+         * motion.
+         */
         final int action = ev.getAction();
         if ((action == MotionEvent.ACTION_MOVE) && (mIsBeingDragged)) {
             return true;
@@ -613,9 +614,9 @@ public class CustomScrollView extends FrameLayout{
                  */
 
                 /*
-                * Locally do absolute value. mLastMotionY is set to the y value
-                * of the down event.
-                */
+                 * Locally do absolute value. mLastMotionY is set to the y value
+                 * of the down event.
+                 */
                 final int activePointerId = mActivePointerId;
                 if (activePointerId == INVALID_POINTER) {
                     // If we don't have a valid id, the touch down wasn't on content.
@@ -670,20 +671,20 @@ public class CustomScrollView extends FrameLayout{
                  * otherwise don't. mScroller.isFinished should be false when
                  * being flinged. We need to call computeScrollOffset() first so that
                  * isFinished() is correct.
-                */
+                 */
                 mScroller.computeScrollOffset();
                 mIsBeingDragged = !mScroller.isFinished() || !mEdgeGlowBottom.isFinished()
-                    || !mEdgeGlowTop.isFinished();
+                        || !mEdgeGlowTop.isFinished();
                 // Catch the edge effect if it is active.
-                if (Build.VERSION.SDK_INT>=31 && !mEdgeGlowTop.isFinished()) {
+                if (Build.VERSION.SDK_INT >= 31 && !mEdgeGlowTop.isFinished()) {
                     mEdgeGlowTop.onPullDistance(0f, ev.getX() / getWidth());
                 }
-                if (Build.VERSION.SDK_INT>=31 && !mEdgeGlowBottom.isFinished()) {
+                if (Build.VERSION.SDK_INT >= 31 && !mEdgeGlowBottom.isFinished()) {
                     mEdgeGlowBottom.onPullDistance(0f, 1f - ev.getX() / getWidth());
                 }
-                if(mIsBeingDragged){
+                if (mIsBeingDragged) {
                     mScroller.abortAnimation();
-                    mIsBeingDragged=false;
+                    mIsBeingDragged = false;
                 }
 //                if (mIsBeingDragged && mScrollStrictSpan == null) {
 //                    mScrollStrictSpan = StrictMode.enterCriticalSpan("ScrollView-scroll");
@@ -709,9 +710,9 @@ public class CustomScrollView extends FrameLayout{
         }
 
         /*
-        * The only time we want to intercept motion events is if we are in the
-        * drag mode.
-        */
+         * The only time we want to intercept motion events is if we are in the
+         * drag mode.
+         */
         return mIsBeingDragged;
     }
 
@@ -737,7 +738,7 @@ public class CustomScrollView extends FrameLayout{
                 if (getChildCount() == 0) {
                     return false;
                 }
-                if (!mScroller.isFinished() && nestedScrollingTarget==null) {
+                if (!mScroller.isFinished() && nestedScrollingTarget == null) {
                     final ViewParent parent = getParent();
                     if (parent != null) {
                         parent.requestDisallowInterceptTouchEvent(true);
@@ -945,7 +946,7 @@ public class CustomScrollView extends FrameLayout{
 
     @Override
     protected void onOverScrolled(int scrollX, int scrollY,
-            boolean clampedX, boolean clampedY) {
+                                  boolean clampedX, boolean clampedY) {
         // Treat animating scrolls differently; see #computeScroll() for why.
         if (!mScroller.isFinished()) {
             final int oldX = getScrollX();
@@ -964,7 +965,9 @@ public class CustomScrollView extends FrameLayout{
         awakenScrollBars();
     }
 
-    /** @hide */
+    /**
+     * @hide
+     */
     @Override
     public boolean performAccessibilityAction(int action, Bundle arguments) {
         if (super.performAccessibilityAction(action, arguments)) {
@@ -982,7 +985,8 @@ public class CustomScrollView extends FrameLayout{
                     smoothScrollTo(0, targetScrollY);
                     return true;
                 }
-            } return false;
+            }
+            return false;
             case AccessibilityNodeInfo.ACTION_SCROLL_BACKWARD:
             case android.R.id.accessibilityActionScrollUp: {
                 final int viewportHeight = getHeight() - getPaddingBottom() - getPaddingTop();
@@ -991,7 +995,8 @@ public class CustomScrollView extends FrameLayout{
                     smoothScrollTo(0, targetScrollY);
                     return true;
                 }
-            } return false;
+            }
+            return false;
         }
         return false;
     }
@@ -1001,7 +1006,9 @@ public class CustomScrollView extends FrameLayout{
         return ScrollView.class.getName();
     }
 
-    /** @hide */
+    /**
+     * @hide
+     */
     @Override
     public void onInitializeAccessibilityNodeInfo(AccessibilityNodeInfo info) {
         super.onInitializeAccessibilityNodeInfo(info);
@@ -1022,7 +1029,9 @@ public class CustomScrollView extends FrameLayout{
         }
     }
 
-    /** @hide */
+    /**
+     * @hide
+     */
     @Override
     public void onInitializeAccessibilityEvent(AccessibilityEvent event) {
         super.onInitializeAccessibilityEvent(event);
@@ -1055,7 +1064,7 @@ public class CustomScrollView extends FrameLayout{
      * @param bottom   the bottom offset of the bounds in which a focusable must
      *                 be found
      * @return the next focusable component in the bounds or null if none can
-     *         be found
+     * be found
      */
     private View findFocusableViewInBounds(boolean topFocus, int top, int bottom) {
 
@@ -1289,7 +1298,7 @@ public class CustomScrollView extends FrameLayout{
 
     /**
      * @return whether the descendant of this scroll view is scrolled off
-     *  screen.
+     * screen.
      */
     private boolean isOffScreen(View descendant) {
         return !isWithinDeltaOfScreen(descendant, 0, getHeight());
@@ -1297,7 +1306,7 @@ public class CustomScrollView extends FrameLayout{
 
     /**
      * @return whether the descendant of this scroll view is within delta
-     *  pixels of being on the screen.
+     * pixels of being on the screen.
      */
     private boolean isWithinDeltaOfScreen(View descendant, int delta, int height) {
         descendant.getDrawingRect(mTempRect);
@@ -1397,7 +1406,7 @@ public class CustomScrollView extends FrameLayout{
 
     @Override
     protected void measureChild(View child, int parentWidthMeasureSpec,
-            int parentHeightMeasureSpec) {
+                                int parentHeightMeasureSpec) {
         ViewGroup.LayoutParams lp = child.getLayoutParams();
 
         int childWidthMeasureSpec;
@@ -1415,7 +1424,7 @@ public class CustomScrollView extends FrameLayout{
 
     @Override
     protected void measureChildWithMargins(View child, int parentWidthMeasureSpec, int widthUsed,
-            int parentHeightMeasureSpec, int heightUsed) {
+                                           int parentHeightMeasureSpec, int heightUsed) {
         final MarginLayoutParams lp = (MarginLayoutParams) child.getLayoutParams();
 
         final int childWidthMeasureSpec = getChildMeasureSpec(parentWidthMeasureSpec,
@@ -1466,12 +1475,12 @@ public class CustomScrollView extends FrameLayout{
 
                 if (canOverscroll) {
                     if (y < 0 && oldY >= 0) {
-                        if(!onScrollingHitEdge(-mScroller.getCurrVelocity()))
+                        if (!onScrollingHitEdge(-mScroller.getCurrVelocity()))
                             mEdgeGlowTop.onAbsorb((int) mScroller.getCurrVelocity());
                         else
                             mScroller.abortAnimation();
                     } else if (y > range && oldY <= range) {
-                        if(!onScrollingHitEdge(mScroller.getCurrVelocity()))
+                        if (!onScrollingHitEdge(mScroller.getCurrVelocity()))
                             mEdgeGlowBottom.onAbsorb((int) mScroller.getCurrVelocity());
                         else
                             mScroller.abortAnimation();
@@ -1617,13 +1626,13 @@ public class CustomScrollView extends FrameLayout{
     /**
      * When looking for focus in children of a scroll view, need to be a little
      * more careful not to give focus to something that is scrolled off screen.
-     *
+     * <p>
      * This is more expensive than the default {@link ViewGroup}
      * implementation, otherwise this behavior might have been made the default.
      */
     @Override
     protected boolean onRequestFocusInDescendants(int direction,
-            Rect previouslyFocusedRect) {
+                                                  Rect previouslyFocusedRect) {
 
         // convert from forward / backward notation to up / down / left / right
         // (ugh).
@@ -1651,7 +1660,7 @@ public class CustomScrollView extends FrameLayout{
 
     @Override
     public boolean requestChildRectangleOnScreen(View child, Rect rectangle,
-            boolean immediate) {
+                                                 boolean immediate) {
         // offset into coordinate space of this scroll view
         rectangle.offset(child.getLeft() - child.getScrollX(),
                 child.getTop() - child.getScrollY());
@@ -1755,7 +1764,7 @@ public class CustomScrollView extends FrameLayout{
             int bottom = getChildAt(0).getHeight();
 
             mScroller.fling(getScrollX(), getScrollY(), 0, velocityY, 0, 0, 0,
-                    Math.max(0, bottom - height), 0, height/2);
+                    Math.max(0, bottom - height), 0, height / 2);
 
 //            if (mFlingStrictSpan == null) {
 //                mFlingStrictSpan = StrictMode.enterCriticalSpan("ScrollView-fling");
@@ -1782,7 +1791,7 @@ public class CustomScrollView extends FrameLayout{
         }
     }
 
-//    @UnsupportedAppUsage
+    //    @UnsupportedAppUsage
     private void endDrag() {
         mIsBeingDragged = false;
 
@@ -1826,7 +1835,7 @@ public class CustomScrollView extends FrameLayout{
     public void onNestedScrollAccepted(View child, View target, int axes) {
         super.onNestedScrollAccepted(child, target, axes);
         startNestedScroll(SCROLL_AXIS_VERTICAL);
-        nestedScrollingTarget=target;
+        nestedScrollingTarget = target;
     }
 
     /**
@@ -1835,12 +1844,12 @@ public class CustomScrollView extends FrameLayout{
     @Override
     public void onStopNestedScroll(View target) {
         super.onStopNestedScroll(target);
-        nestedScrollingTarget=null;
+        nestedScrollingTarget = null;
     }
 
     @Override
     public void onNestedScroll(View target, int dxConsumed, int dyConsumed,
-            int dxUnconsumed, int dyUnconsumed) {
+                               int dxUnconsumed, int dyUnconsumed) {
         final int oldScrollY = getScrollY();
         scrollBy(0, dyUnconsumed);
         final int myConsumed = getScrollY() - oldScrollY;
@@ -1908,7 +1917,7 @@ public class CustomScrollView extends FrameLayout{
                     translateY = 0;
                 }
                 canvas.translate(-width + translateX,
-                            Math.max(getScrollRange(), scrollY) + height + translateY);
+                        Math.max(getScrollRange(), scrollY) + height + translateY);
                 canvas.rotate(180, width, 0);
                 mEdgeGlowBottom.setSize(width, height);
                 if (mEdgeGlowBottom.draw(canvas)) {
@@ -1938,13 +1947,13 @@ public class CustomScrollView extends FrameLayout{
              */
             return 0;
         }
-        if ((my+n) > child) {
+        if ((my + n) > child) {
             /* this case:
              *                    |------ me ------|
              *     |------ child ------|
              *     |-- getScrollX() --|
              */
-            return child-my;
+            return child - my;
         }
         return n;
     }
@@ -2022,7 +2031,7 @@ public class CustomScrollView extends FrameLayout{
 
     //// What people do to avoid pulling in support libraries.
 
-    protected boolean onScrollingHitEdge(float velocity){
+    protected boolean onScrollingHitEdge(float velocity) {
         return false;
     }
 }

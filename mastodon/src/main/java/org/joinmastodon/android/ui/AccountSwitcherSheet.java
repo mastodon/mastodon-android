@@ -36,6 +36,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.recyclerview.widget.LinearLayoutManager;
+
 import me.grishka.appkit.Nav;
 import me.grishka.appkit.api.Callback;
 import me.grishka.appkit.api.ErrorResponse;
@@ -52,232 +53,232 @@ import me.grishka.appkit.utils.V;
 import me.grishka.appkit.views.BottomSheet;
 import me.grishka.appkit.views.UsableRecyclerView;
 
-public class AccountSwitcherSheet extends BottomSheet{
-	private final Activity activity;
-	private final HomeFragment fragment;
-	private final UsableRecyclerView list;
-	private final List<WrappedAccount> accounts;
-	private final ListImageLoaderWrapper imgLoader;
+public class AccountSwitcherSheet extends BottomSheet {
+    private final Activity activity;
+    private final HomeFragment fragment;
+    private final UsableRecyclerView list;
+    private final List<WrappedAccount> accounts;
+    private final ListImageLoaderWrapper imgLoader;
 
-	public AccountSwitcherSheet(@NonNull Activity activity, @Nullable HomeFragment fragment){
-		super(activity);
-		this.activity=activity;
-		this.fragment=fragment;
+    public AccountSwitcherSheet(@NonNull Activity activity, @Nullable HomeFragment fragment) {
+        super(activity);
+        this.activity = activity;
+        this.fragment = fragment;
 
-		accounts=AccountSessionManager.getInstance().getLoggedInAccounts().stream().map(WrappedAccount::new).collect(Collectors.toList());
+        accounts = AccountSessionManager.getInstance().getLoggedInAccounts().stream().map(WrappedAccount::new).collect(Collectors.toList());
 
-		list=new UsableRecyclerView(activity);
-		imgLoader=new ListImageLoaderWrapper(activity, list, new RecyclerViewDelegate(list), null);
-		list.setClipToPadding(false);
-		list.setLayoutManager(new LinearLayoutManager(activity));
+        list = new UsableRecyclerView(activity);
+        imgLoader = new ListImageLoaderWrapper(activity, list, new RecyclerViewDelegate(list), null);
+        list.setClipToPadding(false);
+        list.setLayoutManager(new LinearLayoutManager(activity));
 
-		MergeRecyclerAdapter adapter=new MergeRecyclerAdapter();
-		View handle=new View(activity);
-		handle.setBackgroundResource(R.drawable.bg_bottom_sheet_handle);
-		handle.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, V.dp(36)));
-		adapter.addAdapter(new SingleViewRecyclerAdapter(handle));
-		adapter.addAdapter(new AccountsAdapter());
-		adapter.addAdapter(new ClickableSingleViewRecyclerAdapter(makeSimpleListItem(R.string.add_account, R.drawable.ic_add_24px), ()->{
-			Nav.go(activity, SplashFragment.class, null);
-			dismiss();
-		}));
-		adapter.addAdapter(new ClickableSingleViewRecyclerAdapter(makeSimpleListItem(R.string.log_out_all_accounts, R.drawable.ic_logout_24px), this::confirmLogOutAll));
+        MergeRecyclerAdapter adapter = new MergeRecyclerAdapter();
+        View handle = new View(activity);
+        handle.setBackgroundResource(R.drawable.bg_bottom_sheet_handle);
+        handle.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, V.dp(36)));
+        adapter.addAdapter(new SingleViewRecyclerAdapter(handle));
+        adapter.addAdapter(new AccountsAdapter());
+        adapter.addAdapter(new ClickableSingleViewRecyclerAdapter(makeSimpleListItem(R.string.add_account, R.drawable.ic_add_24px), () -> {
+            Nav.go(activity, SplashFragment.class, null);
+            dismiss();
+        }));
+        adapter.addAdapter(new ClickableSingleViewRecyclerAdapter(makeSimpleListItem(R.string.log_out_all_accounts, R.drawable.ic_logout_24px), this::confirmLogOutAll));
 
-		list.setAdapter(adapter);
+        list.setAdapter(adapter);
 
-		FrameLayout content=new FrameLayout(activity);
-		content.setBackgroundResource(R.drawable.bg_bottom_sheet);
-		content.addView(list);
-		setContentView(content);
-		setNavigationBarBackground(new ColorDrawable(UiUtils.alphaBlendColors(UiUtils.getThemeColor(activity, R.attr.colorM3Surface),
-				UiUtils.getThemeColor(activity, R.attr.colorM3Primary), 0.05f)), !UiUtils.isDarkTheme());
-	}
+        FrameLayout content = new FrameLayout(activity);
+        content.setBackgroundResource(R.drawable.bg_bottom_sheet);
+        content.addView(list);
+        setContentView(content);
+        setNavigationBarBackground(new ColorDrawable(UiUtils.alphaBlendColors(UiUtils.getThemeColor(activity, R.attr.colorM3Surface),
+                UiUtils.getThemeColor(activity, R.attr.colorM3Primary), 0.05f)), !UiUtils.isDarkTheme());
+    }
 
-	private void confirmLogOut(String accountID){
-		AccountSession session=AccountSessionManager.getInstance().getAccount(accountID);
-		new M3AlertDialogBuilder(activity)
-				.setMessage(activity.getString(R.string.confirm_log_out, session.getFullUsername()))
-				.setPositiveButton(R.string.log_out, (dialog, which) -> logOut(accountID))
-				.setNegativeButton(R.string.cancel, null)
-				.show();
-	}
+    private void confirmLogOut(String accountID) {
+        AccountSession session = AccountSessionManager.getInstance().getAccount(accountID);
+        new M3AlertDialogBuilder(activity)
+                .setMessage(activity.getString(R.string.confirm_log_out, session.getFullUsername()))
+                .setPositiveButton(R.string.log_out, (dialog, which) -> logOut(accountID))
+                .setNegativeButton(R.string.cancel, null)
+                .show();
+    }
 
-	private void confirmLogOutAll(){
-		new M3AlertDialogBuilder(activity)
-				.setMessage(R.string.confirm_log_out_all_accounts)
-				.setPositiveButton(R.string.log_out, (dialog, which) -> logOutAll())
-				.setNegativeButton(R.string.cancel, null)
-				.show();
-	}
+    private void confirmLogOutAll() {
+        new M3AlertDialogBuilder(activity)
+                .setMessage(R.string.confirm_log_out_all_accounts)
+                .setPositiveButton(R.string.log_out, (dialog, which) -> logOutAll())
+                .setNegativeButton(R.string.cancel, null)
+                .show();
+    }
 
-	private void logOut(String accountID){
-		AccountSessionManager.get(accountID).logOut(activity, ()->{
-			dismiss();
-			activity.finish();
-			Intent intent=new Intent(activity, MainActivity.class);
-			activity.startActivity(intent);
-		});
-	}
+    private void logOut(String accountID) {
+        AccountSessionManager.get(accountID).logOut(activity, () -> {
+            dismiss();
+            activity.finish();
+            Intent intent = new Intent(activity, MainActivity.class);
+            activity.startActivity(intent);
+        });
+    }
 
-	private void logOutAll(){
-		final ProgressDialog progress=new ProgressDialog(activity);
-		progress.setMessage(activity.getString(R.string.loading));
-		progress.setCancelable(false);
-		progress.show();
-		ArrayList<AccountSession> sessions=new ArrayList<>(AccountSessionManager.getInstance().getLoggedInAccounts());
-		for(AccountSession session:sessions){
-			new RevokeOauthToken(session.app.clientId, session.app.clientSecret, session.token.accessToken)
-					.setCallback(new Callback<>(){
-						@Override
-						public void onSuccess(Object result){
-							AccountSessionManager.getInstance().removeAccount(session.getID());
-							sessions.remove(session);
-							if(sessions.isEmpty()){
-								progress.dismiss();
-								Nav.goClearingStack(activity, SplashFragment.class, null);
-								dismiss();
-							}
-						}
+    private void logOutAll() {
+        final ProgressDialog progress = new ProgressDialog(activity);
+        progress.setMessage(activity.getString(R.string.loading));
+        progress.setCancelable(false);
+        progress.show();
+        ArrayList<AccountSession> sessions = new ArrayList<>(AccountSessionManager.getInstance().getLoggedInAccounts());
+        for (AccountSession session : sessions) {
+            new RevokeOauthToken(session.app.clientId, session.app.clientSecret, session.token.accessToken)
+                    .setCallback(new Callback<>() {
+                        @Override
+                        public void onSuccess(Object result) {
+                            AccountSessionManager.getInstance().removeAccount(session.getID());
+                            sessions.remove(session);
+                            if (sessions.isEmpty()) {
+                                progress.dismiss();
+                                Nav.goClearingStack(activity, SplashFragment.class, null);
+                                dismiss();
+                            }
+                        }
 
-						@Override
-						public void onError(ErrorResponse error){
-							AccountSessionManager.getInstance().removeAccount(session.getID());
-							sessions.remove(session);
-							if(sessions.isEmpty()){
-								progress.dismiss();
-								Nav.goClearingStack(activity, SplashFragment.class, null);
-								dismiss();
-							}
-						}
-					})
-					.exec(session.getID());
-		}
-	}
+                        @Override
+                        public void onError(ErrorResponse error) {
+                            AccountSessionManager.getInstance().removeAccount(session.getID());
+                            sessions.remove(session);
+                            if (sessions.isEmpty()) {
+                                progress.dismiss();
+                                Nav.goClearingStack(activity, SplashFragment.class, null);
+                                dismiss();
+                            }
+                        }
+                    })
+                    .exec(session.getID());
+        }
+    }
 
-	@Override
-	protected void onWindowInsetsUpdated(WindowInsets insets){
-		if(Build.VERSION.SDK_INT>=29){
-			int tappableBottom=insets.getTappableElementInsets().bottom;
-			int insetBottom=insets.getSystemWindowInsetBottom();
-			if(tappableBottom==0 && insetBottom>0){
-				list.setPadding(0, 0, 0, V.dp(48)-insetBottom);
-			}else{
-				list.setPadding(0, 0, 0, V.dp(24));
-			}
-		}else{
-			list.setPadding(0, 0, 0, V.dp(24));
-		}
-	}
+    @Override
+    protected void onWindowInsetsUpdated(WindowInsets insets) {
+        if (Build.VERSION.SDK_INT >= 29) {
+            int tappableBottom = insets.getTappableElementInsets().bottom;
+            int insetBottom = insets.getSystemWindowInsetBottom();
+            if (tappableBottom == 0 && insetBottom > 0) {
+                list.setPadding(0, 0, 0, V.dp(48) - insetBottom);
+            } else {
+                list.setPadding(0, 0, 0, V.dp(24));
+            }
+        } else {
+            list.setPadding(0, 0, 0, V.dp(24));
+        }
+    }
 
-	private View makeSimpleListItem(@StringRes int title, @DrawableRes int icon){
-		TextView tv=(TextView) activity.getLayoutInflater().inflate(R.layout.item_text_with_icon, list, false);
-		tv.setText(title);
-		tv.setCompoundDrawablesRelativeWithIntrinsicBounds(icon, 0, 0, 0);
-		return tv;
-	}
+    private View makeSimpleListItem(@StringRes int title, @DrawableRes int icon) {
+        TextView tv = (TextView) activity.getLayoutInflater().inflate(R.layout.item_text_with_icon, list, false);
+        tv.setText(title);
+        tv.setCompoundDrawablesRelativeWithIntrinsicBounds(icon, 0, 0, 0);
+        return tv;
+    }
 
-	private class AccountsAdapter extends UsableRecyclerView.Adapter<AccountViewHolder> implements ImageLoaderRecyclerAdapter{
-		public AccountsAdapter(){
-			super(imgLoader);
-		}
+    private class AccountsAdapter extends UsableRecyclerView.Adapter<AccountViewHolder> implements ImageLoaderRecyclerAdapter {
+        public AccountsAdapter() {
+            super(imgLoader);
+        }
 
-		@NonNull
-		@Override
-		public AccountViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType){
-			return new AccountViewHolder();
-		}
+        @NonNull
+        @Override
+        public AccountViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            return new AccountViewHolder();
+        }
 
-		@Override
-		public int getItemCount(){
-			return accounts.size();
-		}
+        @Override
+        public int getItemCount() {
+            return accounts.size();
+        }
 
-		@Override
-		public void onBindViewHolder(AccountViewHolder holder, int position){
-			holder.bind(accounts.get(position).session);
-			super.onBindViewHolder(holder, position);
-		}
+        @Override
+        public void onBindViewHolder(AccountViewHolder holder, int position) {
+            holder.bind(accounts.get(position).session);
+            super.onBindViewHolder(holder, position);
+        }
 
-		@Override
-		public int getImageCountForItem(int position){
-			return 1;
-		}
+        @Override
+        public int getImageCountForItem(int position) {
+            return 1;
+        }
 
-		@Override
-		public ImageLoaderRequest getImageRequest(int position, int image){
-			return accounts.get(position).req;
-		}
-	}
+        @Override
+        public ImageLoaderRequest getImageRequest(int position, int image) {
+            return accounts.get(position).req;
+        }
+    }
 
-	private class AccountViewHolder extends BindableViewHolder<AccountSession> implements ImageLoaderViewHolder, UsableRecyclerView.Clickable, UsableRecyclerView.LongClickable{
-		private final TextView name, username;
-		private final ImageView avatar;
-		private final CheckableRelativeLayout view;
+    private class AccountViewHolder extends BindableViewHolder<AccountSession> implements ImageLoaderViewHolder, UsableRecyclerView.Clickable, UsableRecyclerView.LongClickable {
+        private final TextView name, username;
+        private final ImageView avatar;
+        private final CheckableRelativeLayout view;
 
-		public AccountViewHolder(){
-			super(activity, R.layout.item_account_switcher, list);
-			name=findViewById(R.id.name);
-			username=findViewById(R.id.username);
-			View radioButton=findViewById(R.id.radiobtn);
-			radioButton.setBackground(new RadioButton(activity).getButtonDrawable());
-			avatar=findViewById(R.id.avatar);
-			avatar.setOutlineProvider(OutlineProviders.roundedRect(OutlineProviders.RADIUS_MEDIUM));
-			avatar.setClipToOutline(true);
-			view=(CheckableRelativeLayout) itemView;
-		}
+        public AccountViewHolder() {
+            super(activity, R.layout.item_account_switcher, list);
+            name = findViewById(R.id.name);
+            username = findViewById(R.id.username);
+            View radioButton = findViewById(R.id.radiobtn);
+            radioButton.setBackground(new RadioButton(activity).getButtonDrawable());
+            avatar = findViewById(R.id.avatar);
+            avatar.setOutlineProvider(OutlineProviders.roundedRect(OutlineProviders.RADIUS_MEDIUM));
+            avatar.setClipToOutline(true);
+            view = (CheckableRelativeLayout) itemView;
+        }
 
-		@SuppressLint("SetTextI18n")
-		@Override
-		public void onBind(AccountSession item){
-			name.setText(item.self.displayName);
-			username.setText(item.getFullUsername());
-			view.setChecked(AccountSessionManager.getInstance().getLastActiveAccountID().equals(item.getID()));
-		}
+        @SuppressLint("SetTextI18n")
+        @Override
+        public void onBind(AccountSession item) {
+            name.setText(item.self.displayName);
+            username.setText(item.getFullUsername());
+            view.setChecked(AccountSessionManager.getInstance().getLastActiveAccountID().equals(item.getID()));
+        }
 
-		@Override
-		public void setImage(int index, Drawable image){
-			avatar.setImageDrawable(image);
-			if(image instanceof Animatable a)
-				a.start();
-		}
+        @Override
+        public void setImage(int index, Drawable image) {
+            avatar.setImageDrawable(image);
+            if (image instanceof Animatable a)
+                a.start();
+        }
 
-		@Override
-		public void clearImage(int index){
-			setImage(index, null);
-		}
+        @Override
+        public void clearImage(int index) {
+            setImage(index, null);
+        }
 
-		@Override
-		public void onClick(){
-			if(AccountSessionManager.getInstance().getLastActiveAccountID().equals(item.getID())){
-				dismiss();
-				if(fragment!=null){
-					fragment.setCurrentTab(R.id.tab_profile);
-				}
-				return;
-			}
-			if(AccountSessionManager.getInstance().tryGetAccount(item.getID())!=null)
-				AccountSessionManager.getInstance().setLastActiveAccountID(item.getID());
-			activity.finish();
-			activity.startActivity(new Intent(activity, MainActivity.class));
-		}
+        @Override
+        public void onClick() {
+            if (AccountSessionManager.getInstance().getLastActiveAccountID().equals(item.getID())) {
+                dismiss();
+                if (fragment != null) {
+                    fragment.setCurrentTab(R.id.tab_profile);
+                }
+                return;
+            }
+            if (AccountSessionManager.getInstance().tryGetAccount(item.getID()) != null)
+                AccountSessionManager.getInstance().setLastActiveAccountID(item.getID());
+            activity.finish();
+            activity.startActivity(new Intent(activity, MainActivity.class));
+        }
 
-		@Override
-		public boolean onLongClick(){
-			confirmLogOut(item.getID());
-			return true;
-		}
-	}
+        @Override
+        public boolean onLongClick() {
+            confirmLogOut(item.getID());
+            return true;
+        }
+    }
 
-	private static class WrappedAccount{
-		public final AccountSession session;
-		public final ImageLoaderRequest req;
+    private static class WrappedAccount {
+        public final AccountSession session;
+        public final ImageLoaderRequest req;
 
-		public WrappedAccount(AccountSession session){
-			this.session=session;
-			if(session.self.avatar!=null)
-				req=new UrlImageLoaderRequest(GlobalUserPreferences.playGifs ? session.self.avatar : session.self.avatarStatic, V.dp(50), V.dp(50));
-			else
-				req=null;
-		}
-	}
+        public WrappedAccount(AccountSession session) {
+            this.session = session;
+            if (session.self.avatar != null)
+                req = new UrlImageLoaderRequest(GlobalUserPreferences.playGifs ? session.self.avatar : session.self.avatarStatic, V.dp(50), V.dp(50));
+            else
+                req = null;
+        }
+    }
 }

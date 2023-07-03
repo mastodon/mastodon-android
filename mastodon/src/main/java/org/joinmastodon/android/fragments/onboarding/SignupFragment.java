@@ -53,6 +53,7 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 
 import androidx.annotation.Nullable;
+
 import me.grishka.appkit.Nav;
 import me.grishka.appkit.api.APIRequest;
 import me.grishka.appkit.api.Callback;
@@ -61,343 +62,344 @@ import me.grishka.appkit.fragments.ToolbarFragment;
 import me.grishka.appkit.utils.V;
 import me.grishka.appkit.views.FragmentRootLinearLayout;
 
-public class SignupFragment extends ToolbarFragment{
-	private static final String TAG="SignupFragment";
+public class SignupFragment extends ToolbarFragment {
+    private static final String TAG = "SignupFragment";
 
-	private Instance instance;
+    private Instance instance;
 
-	private EditText displayName, username, email, password, passwordConfirm, reason;
-	private FloatingHintEditTextLayout displayNameWrap, usernameWrap, emailWrap, passwordWrap, passwordConfirmWrap, reasonWrap;
-	private TextView reasonExplain;
-	private Button btn;
-	private View buttonBar;
-	private final TextWatcher buttonStateUpdater=new SimpleTextWatcher(e->updateButtonState());
-	private APIRequest currentBackgroundRequest;
-	private Application apiApplication;
-	private Token apiToken;
-	private boolean submitAfterGettingToken;
-	private ProgressDialog progressDialog;
-	private final HashSet<EditText> errorFields=new HashSet<>();
-	private ElevationOnScrollListener onScrollListener;
+    private EditText displayName, username, email, password, passwordConfirm, reason;
+    private FloatingHintEditTextLayout displayNameWrap, usernameWrap, emailWrap, passwordWrap, passwordConfirmWrap, reasonWrap;
+    private TextView reasonExplain;
+    private Button btn;
+    private View buttonBar;
+    private final TextWatcher buttonStateUpdater = new SimpleTextWatcher(e -> updateButtonState());
+    private APIRequest currentBackgroundRequest;
+    private Application apiApplication;
+    private Token apiToken;
+    private boolean submitAfterGettingToken;
+    private ProgressDialog progressDialog;
+    private final HashSet<EditText> errorFields = new HashSet<>();
+    private ElevationOnScrollListener onScrollListener;
 
-	@Override
-	public void onCreate(Bundle savedInstanceState){
-		super.onCreate(savedInstanceState);
-		setRetainInstance(true);
-		instance=Parcels.unwrap(getArguments().getParcelable("instance"));
-		createAppAndGetToken();
-		setTitle(R.string.signup_title);
-	}
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setRetainInstance(true);
+        instance = Parcels.unwrap(getArguments().getParcelable("instance"));
+        createAppAndGetToken();
+        setTitle(R.string.signup_title);
+    }
 
-	@Nullable
-	@Override
-	public View onCreateContentView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState){
-		View view=inflater.inflate(R.layout.fragment_onboarding_signup, container, false);
+    @Nullable
+    @Override
+    public View onCreateContentView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_onboarding_signup, container, false);
 
-		TextView domain=view.findViewById(R.id.domain);
-		displayName=view.findViewById(R.id.display_name);
-		username=view.findViewById(R.id.username);
-		email=view.findViewById(R.id.email);
-		password=view.findViewById(R.id.password);
-		passwordConfirm=view.findViewById(R.id.password_confirm);
-		reason=view.findViewById(R.id.reason);
-		reasonExplain=view.findViewById(R.id.reason_explain);
+        TextView domain = view.findViewById(R.id.domain);
+        displayName = view.findViewById(R.id.display_name);
+        username = view.findViewById(R.id.username);
+        email = view.findViewById(R.id.email);
+        password = view.findViewById(R.id.password);
+        passwordConfirm = view.findViewById(R.id.password_confirm);
+        reason = view.findViewById(R.id.reason);
+        reasonExplain = view.findViewById(R.id.reason_explain);
 
-		displayNameWrap=view.findViewById(R.id.display_name_wrap);
-		usernameWrap=view.findViewById(R.id.username_wrap);
-		emailWrap=view.findViewById(R.id.email_wrap);
-		passwordWrap=view.findViewById(R.id.password_wrap);
-		passwordConfirmWrap=view.findViewById(R.id.password_confirm_wrap);
-		reasonWrap=view.findViewById(R.id.reason_wrap);
+        displayNameWrap = view.findViewById(R.id.display_name_wrap);
+        usernameWrap = view.findViewById(R.id.username_wrap);
+        emailWrap = view.findViewById(R.id.email_wrap);
+        passwordWrap = view.findViewById(R.id.password_wrap);
+        passwordConfirmWrap = view.findViewById(R.id.password_confirm_wrap);
+        reasonWrap = view.findViewById(R.id.reason_wrap);
 
-		domain.setText('@'+instance.uri);
+        domain.setText('@' + instance.uri);
 
-		username.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener(){
-			@Override
-			public boolean onPreDraw(){
-				username.getViewTreeObserver().removeOnPreDrawListener(this);
-				username.setPadding(username.getPaddingLeft(), username.getPaddingTop(), domain.getWidth(), username.getPaddingBottom());
-				return true;
-			}
-		});
+        username.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() {
+            @Override
+            public boolean onPreDraw() {
+                username.getViewTreeObserver().removeOnPreDrawListener(this);
+                username.setPadding(username.getPaddingLeft(), username.getPaddingTop(), domain.getWidth(), username.getPaddingBottom());
+                return true;
+            }
+        });
 
-		btn=view.findViewById(R.id.btn_next);
-		btn.setOnClickListener(v->onButtonClick());
-		buttonBar=view.findViewById(R.id.button_bar);
-		updateButtonState();
+        btn = view.findViewById(R.id.btn_next);
+        btn.setOnClickListener(v -> onButtonClick());
+        buttonBar = view.findViewById(R.id.button_bar);
+        updateButtonState();
 
-		username.addTextChangedListener(buttonStateUpdater);
-		email.addTextChangedListener(buttonStateUpdater);
-		password.addTextChangedListener(buttonStateUpdater);
-		passwordConfirm.addTextChangedListener(buttonStateUpdater);
-		reason.addTextChangedListener(buttonStateUpdater);
+        username.addTextChangedListener(buttonStateUpdater);
+        email.addTextChangedListener(buttonStateUpdater);
+        password.addTextChangedListener(buttonStateUpdater);
+        passwordConfirm.addTextChangedListener(buttonStateUpdater);
+        reason.addTextChangedListener(buttonStateUpdater);
 
-		username.addTextChangedListener(new ErrorClearingListener(username));
-		email.addTextChangedListener(new ErrorClearingListener(email));
-		password.addTextChangedListener(new ErrorClearingListener(password));
-		passwordConfirm.addTextChangedListener(new ErrorClearingListener(passwordConfirm));
-		reason.addTextChangedListener(new ErrorClearingListener(reason));
+        username.addTextChangedListener(new ErrorClearingListener(username));
+        email.addTextChangedListener(new ErrorClearingListener(email));
+        password.addTextChangedListener(new ErrorClearingListener(password));
+        passwordConfirm.addTextChangedListener(new ErrorClearingListener(passwordConfirm));
+        reason.addTextChangedListener(new ErrorClearingListener(reason));
 
-		if(!instance.approvalRequired){
-			reason.setVisibility(View.GONE);
-			reasonExplain.setVisibility(View.GONE);
-		}
+        if (!instance.approvalRequired) {
+            reason.setVisibility(View.GONE);
+            reasonExplain.setVisibility(View.GONE);
+        }
 
-		return view;
-	}
+        return view;
+    }
 
-	@Override
-	public void onViewCreated(View view, Bundle savedInstanceState){
-		super.onViewCreated(view, savedInstanceState);
-		view.findViewById(R.id.scroller).setOnScrollChangeListener(onScrollListener=new ElevationOnScrollListener((FragmentRootLinearLayout) view, buttonBar, getToolbar()));
-	}
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        view.findViewById(R.id.scroller).setOnScrollChangeListener(onScrollListener = new ElevationOnScrollListener((FragmentRootLinearLayout) view, buttonBar, getToolbar()));
+    }
 
-	@Override
-	protected void onUpdateToolbar(){
-		super.onUpdateToolbar();
-		if(onScrollListener!=null){
-			onScrollListener.setViews(buttonBar, getToolbar());
-		}
-	}
+    @Override
+    protected void onUpdateToolbar() {
+        super.onUpdateToolbar();
+        if (onScrollListener != null) {
+            onScrollListener.setViews(buttonBar, getToolbar());
+        }
+    }
 
-	private void onButtonClick(){
-		if(!password.getText().toString().equals(passwordConfirm.getText().toString())){
-			passwordConfirmWrap.setErrorState(getString(R.string.signup_passwords_dont_match));
-			return;
-		}
-		showProgressDialog();
-		if(currentBackgroundRequest!=null){
-			submitAfterGettingToken=true;
-		}else if(apiApplication==null){
-			submitAfterGettingToken=true;
-			createAppAndGetToken();
-		}else if(apiToken==null){
-			submitAfterGettingToken=true;
-			getToken();
-		}else{
-			submit();
-		}
-	}
+    private void onButtonClick() {
+        if (!password.getText().toString().equals(passwordConfirm.getText().toString())) {
+            passwordConfirmWrap.setErrorState(getString(R.string.signup_passwords_dont_match));
+            return;
+        }
+        showProgressDialog();
+        if (currentBackgroundRequest != null) {
+            submitAfterGettingToken = true;
+        } else if (apiApplication == null) {
+            submitAfterGettingToken = true;
+            createAppAndGetToken();
+        } else if (apiToken == null) {
+            submitAfterGettingToken = true;
+            getToken();
+        } else {
+            submit();
+        }
+    }
 
-	private void submit(){
-		actuallySubmit();
-	}
+    private void submit() {
+        actuallySubmit();
+    }
 
-	private void actuallySubmit(){
-		String username=this.username.getText().toString().trim();
-		String email=this.email.getText().toString().trim();
-		for(EditText edit:errorFields){
-			edit.setError(null);
-		}
-		errorFields.clear();
-		new RegisterAccount(username, email, password.getText().toString(), getResources().getConfiguration().locale.getLanguage(), reason.getText().toString(), ZoneId.systemDefault().getId())
-				.setCallback(new Callback<>(){
-					@Override
-					public void onSuccess(Token result){
-						progressDialog.dismiss();
-						Account fakeAccount=new Account();
-						fakeAccount.acct=fakeAccount.username=username;
-						fakeAccount.id="tmp"+System.currentTimeMillis();
-						fakeAccount.displayName=displayName.getText().toString();
-						AccountSessionManager.getInstance().addAccount(instance, result, fakeAccount, apiApplication, new AccountActivationInfo(email, System.currentTimeMillis()));
-						Bundle args=new Bundle();
-						args.putString("account", AccountSessionManager.getInstance().getLastActiveAccountID());
-						Nav.goClearingStack(getActivity(), AccountActivationFragment.class, args);
-					}
+    private void actuallySubmit() {
+        String username = this.username.getText().toString().trim();
+        String email = this.email.getText().toString().trim();
+        for (EditText edit : errorFields) {
+            edit.setError(null);
+        }
+        errorFields.clear();
+        new RegisterAccount(username, email, password.getText().toString(), getResources().getConfiguration().locale.getLanguage(), reason.getText().toString(), ZoneId.systemDefault().getId())
+                .setCallback(new Callback<>() {
+                    @Override
+                    public void onSuccess(Token result) {
+                        progressDialog.dismiss();
+                        Account fakeAccount = new Account();
+                        fakeAccount.acct = fakeAccount.username = username;
+                        fakeAccount.id = "tmp" + System.currentTimeMillis();
+                        fakeAccount.displayName = displayName.getText().toString();
+                        AccountSessionManager.getInstance().addAccount(instance, result, fakeAccount, apiApplication, new AccountActivationInfo(email, System.currentTimeMillis()));
+                        Bundle args = new Bundle();
+                        args.putString("account", AccountSessionManager.getInstance().getLastActiveAccountID());
+                        Nav.goClearingStack(getActivity(), AccountActivationFragment.class, args);
+                    }
 
-					@Override
-					public void onError(ErrorResponse error){
-						if(error instanceof MastodonDetailedErrorResponse derr){
-							Map<String, List<MastodonDetailedErrorResponse.FieldError>> fieldErrors=derr.detailedErrors;
-							boolean first=true;
-							boolean anyFieldsSkipped=false;
-							for(String fieldName:fieldErrors.keySet()){
-								EditText field=getFieldByName(fieldName);
-								if(field==null){
-									anyFieldsSkipped=true;
-									continue;
-								}
-								List<MastodonDetailedErrorResponse.FieldError> errors=Objects.requireNonNull(fieldErrors.get(fieldName));
-								if(errors.size()==1){
-									getFieldWrapByName(fieldName).setErrorState(getErrorDescription(errors.get(0), fieldName));
-								}else{
-									SpannableStringBuilder ssb=new SpannableStringBuilder();
-									boolean firstErr=true;
-									for(MastodonDetailedErrorResponse.FieldError err:errors){
-										if(firstErr){
-											firstErr=false;
-										}else{
-											ssb.append('\n');
-										}
-										ssb.append(getErrorDescription(err, fieldName));
-									}
-									getFieldWrapByName(fieldName).setErrorState(getErrorDescription(errors.get(0), fieldName));
-								}
-								errorFields.add(field);
-								if(first){
-									first=false;
-									field.requestFocus();
-								}
-							}
-							if(anyFieldsSkipped)
-								error.showToast(getActivity());
-						}else{
-							error.showToast(getActivity());
-						}
-						progressDialog.dismiss();
-					}
-				})
-				.exec(instance.uri, apiToken);
-	}
+                    @Override
+                    public void onError(ErrorResponse error) {
+                        if (error instanceof MastodonDetailedErrorResponse derr) {
+                            Map<String, List<MastodonDetailedErrorResponse.FieldError>> fieldErrors = derr.detailedErrors;
+                            boolean first = true;
+                            boolean anyFieldsSkipped = false;
+                            for (String fieldName : fieldErrors.keySet()) {
+                                EditText field = getFieldByName(fieldName);
+                                if (field == null) {
+                                    anyFieldsSkipped = true;
+                                    continue;
+                                }
+                                List<MastodonDetailedErrorResponse.FieldError> errors = Objects.requireNonNull(fieldErrors.get(fieldName));
+                                if (errors.size() == 1) {
+                                    getFieldWrapByName(fieldName).setErrorState(getErrorDescription(errors.get(0), fieldName));
+                                } else {
+                                    SpannableStringBuilder ssb = new SpannableStringBuilder();
+                                    boolean firstErr = true;
+                                    for (MastodonDetailedErrorResponse.FieldError err : errors) {
+                                        if (firstErr) {
+                                            firstErr = false;
+                                        } else {
+                                            ssb.append('\n');
+                                        }
+                                        ssb.append(getErrorDescription(err, fieldName));
+                                    }
+                                    getFieldWrapByName(fieldName).setErrorState(getErrorDescription(errors.get(0), fieldName));
+                                }
+                                errorFields.add(field);
+                                if (first) {
+                                    first = false;
+                                    field.requestFocus();
+                                }
+                            }
+                            if (anyFieldsSkipped)
+                                error.showToast(getActivity());
+                        } else {
+                            error.showToast(getActivity());
+                        }
+                        progressDialog.dismiss();
+                    }
+                })
+                .exec(instance.uri, apiToken);
+    }
 
-	private CharSequence getErrorDescription(MastodonDetailedErrorResponse.FieldError error, String fieldName){
-		return switch(fieldName){
-			case "email" -> switch(error.error){
-				case "ERR_BLOCKED" -> {
-					String emailAddr=email.getText().toString();
-					String s=getResources().getString(R.string.signup_email_domain_blocked, TextUtils.htmlEncode(instance.uri), TextUtils.htmlEncode(emailAddr.substring(emailAddr.lastIndexOf('@')+1)));
-					SpannableStringBuilder ssb=new SpannableStringBuilder();
-					Jsoup.parseBodyFragment(s).body().traverse(new NodeVisitor(){
-						private int spanStart;
-						@Override
-						public void head(Node node, int depth){
-							if(node instanceof TextNode tn){
-								ssb.append(tn.text());
-							}else if(node instanceof Element){
-								spanStart=ssb.length();
-							}
-						}
+    private CharSequence getErrorDescription(MastodonDetailedErrorResponse.FieldError error, String fieldName) {
+        return switch (fieldName) {
+            case "email" -> switch (error.error) {
+                case "ERR_BLOCKED" -> {
+                    String emailAddr = email.getText().toString();
+                    String s = getResources().getString(R.string.signup_email_domain_blocked, TextUtils.htmlEncode(instance.uri), TextUtils.htmlEncode(emailAddr.substring(emailAddr.lastIndexOf('@') + 1)));
+                    SpannableStringBuilder ssb = new SpannableStringBuilder();
+                    Jsoup.parseBodyFragment(s).body().traverse(new NodeVisitor() {
+                        private int spanStart;
 
-						@Override
-						public void tail(Node node, int depth){
-							if(node instanceof Element){
-								ssb.setSpan(new LinkSpan("", SignupFragment.this::onGoBackLinkClick, LinkSpan.Type.CUSTOM, null), spanStart, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-								ssb.setSpan(new TypefaceSpan("sans-serif-medium"), spanStart, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-							}
-						}
-					});
-					yield ssb;
-				}
-				default -> error.description;
-			};
-			default -> error.description;
-		};
-	}
+                        @Override
+                        public void head(Node node, int depth) {
+                            if (node instanceof TextNode tn) {
+                                ssb.append(tn.text());
+                            } else if (node instanceof Element) {
+                                spanStart = ssb.length();
+                            }
+                        }
 
-	private EditText getFieldByName(String name){
-		return switch(name){
-			case "email" -> email;
-			case "username" -> username;
-			case "password" -> password;
-			case "reason" -> reason;
-			default -> null;
-		};
-	}
+                        @Override
+                        public void tail(Node node, int depth) {
+                            if (node instanceof Element) {
+                                ssb.setSpan(new LinkSpan("", SignupFragment.this::onGoBackLinkClick, LinkSpan.Type.CUSTOM, null), spanStart, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                ssb.setSpan(new TypefaceSpan("sans-serif-medium"), spanStart, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                            }
+                        }
+                    });
+                    yield ssb;
+                }
+                default -> error.description;
+            };
+            default -> error.description;
+        };
+    }
 
-	private FloatingHintEditTextLayout getFieldWrapByName(String name){
-		return switch(name){
-			case "email" -> emailWrap;
-			case "username" -> usernameWrap;
-			case "password" -> passwordWrap;
-			case "reason" -> reasonWrap;
-			default -> null;
-		};
-	}
+    private EditText getFieldByName(String name) {
+        return switch (name) {
+            case "email" -> email;
+            case "username" -> username;
+            case "password" -> password;
+            case "reason" -> reason;
+            default -> null;
+        };
+    }
 
-	private void showProgressDialog(){
-		if(progressDialog==null){
-			progressDialog=new ProgressDialog(getActivity());
-			progressDialog.setMessage(getString(R.string.loading));
-			progressDialog.setCancelable(false);
-		}
-		progressDialog.show();
-	}
+    private FloatingHintEditTextLayout getFieldWrapByName(String name) {
+        return switch (name) {
+            case "email" -> emailWrap;
+            case "username" -> usernameWrap;
+            case "password" -> passwordWrap;
+            case "reason" -> reasonWrap;
+            default -> null;
+        };
+    }
 
-	private void updateButtonState(){
-		btn.setEnabled(username.length()>0 && email.length()>0 && email.getText().toString().contains("@") && password.length()>=8 && passwordConfirm.length()>=8 && (!instance.approvalRequired || reason.length()>0));
-	}
+    private void showProgressDialog() {
+        if (progressDialog == null) {
+            progressDialog = new ProgressDialog(getActivity());
+            progressDialog.setMessage(getString(R.string.loading));
+            progressDialog.setCancelable(false);
+        }
+        progressDialog.show();
+    }
 
-	private void createAppAndGetToken(){
-		currentBackgroundRequest=new CreateOAuthApp()
-				.setCallback(new Callback<>(){
-					@Override
-					public void onSuccess(Application result){
-						apiApplication=result;
-						getToken();
-					}
+    private void updateButtonState() {
+        btn.setEnabled(username.length() > 0 && email.length() > 0 && email.getText().toString().contains("@") && password.length() >= 8 && passwordConfirm.length() >= 8 && (!instance.approvalRequired || reason.length() > 0));
+    }
 
-					@Override
-					public void onError(ErrorResponse error){
-						currentBackgroundRequest=null;
-						if(submitAfterGettingToken){
-							submitAfterGettingToken=false;
-							progressDialog.dismiss();
-							error.showToast(getActivity());
-						}
-					}
-				})
-				.execNoAuth(instance.uri);
-	}
+    private void createAppAndGetToken() {
+        currentBackgroundRequest = new CreateOAuthApp()
+                .setCallback(new Callback<>() {
+                    @Override
+                    public void onSuccess(Application result) {
+                        apiApplication = result;
+                        getToken();
+                    }
 
-	private void getToken(){
-		currentBackgroundRequest=new GetOauthToken(apiApplication.clientId, apiApplication.clientSecret, null, GetOauthToken.GrantType.CLIENT_CREDENTIALS)
-				.setCallback(new Callback<>(){
-					@Override
-					public void onSuccess(Token result){
-						currentBackgroundRequest=null;
-						apiToken=result;
-						if(submitAfterGettingToken){
-							submitAfterGettingToken=false;
-							submit();
-						}
-					}
+                    @Override
+                    public void onError(ErrorResponse error) {
+                        currentBackgroundRequest = null;
+                        if (submitAfterGettingToken) {
+                            submitAfterGettingToken = false;
+                            progressDialog.dismiss();
+                            error.showToast(getActivity());
+                        }
+                    }
+                })
+                .execNoAuth(instance.uri);
+    }
 
-					@Override
-					public void onError(ErrorResponse error){
-						currentBackgroundRequest=null;
-						if(submitAfterGettingToken){
-							submitAfterGettingToken=false;
-							progressDialog.dismiss();
-							error.showToast(getActivity());
-						}
-					}
-				})
-				.execNoAuth(instance.uri);
-	}
+    private void getToken() {
+        currentBackgroundRequest = new GetOauthToken(apiApplication.clientId, apiApplication.clientSecret, null, GetOauthToken.GrantType.CLIENT_CREDENTIALS)
+                .setCallback(new Callback<>() {
+                    @Override
+                    public void onSuccess(Token result) {
+                        currentBackgroundRequest = null;
+                        apiToken = result;
+                        if (submitAfterGettingToken) {
+                            submitAfterGettingToken = false;
+                            submit();
+                        }
+                    }
 
-	@Override
-	public void onApplyWindowInsets(WindowInsets insets){
-		super.onApplyWindowInsets(UiUtils.applyBottomInsetToFixedView(buttonBar, insets));
-	}
+                    @Override
+                    public void onError(ErrorResponse error) {
+                        currentBackgroundRequest = null;
+                        if (submitAfterGettingToken) {
+                            submitAfterGettingToken = false;
+                            progressDialog.dismiss();
+                            error.showToast(getActivity());
+                        }
+                    }
+                })
+                .execNoAuth(instance.uri);
+    }
 
-	private void onGoBackLinkClick(LinkSpan span){
-		setResult(false, null);
-		Nav.finish(this);
-	}
+    @Override
+    public void onApplyWindowInsets(WindowInsets insets) {
+        super.onApplyWindowInsets(UiUtils.applyBottomInsetToFixedView(buttonBar, insets));
+    }
 
-	private class ErrorClearingListener implements TextWatcher{
-		public final EditText editText;
+    private void onGoBackLinkClick(LinkSpan span) {
+        setResult(false, null);
+        Nav.finish(this);
+    }
 
-		private ErrorClearingListener(EditText editText){
-			this.editText=editText;
-		}
+    private class ErrorClearingListener implements TextWatcher {
+        public final EditText editText;
 
-		@Override
-		public void beforeTextChanged(CharSequence s, int start, int count, int after){
+        private ErrorClearingListener(EditText editText) {
+            this.editText = editText;
+        }
 
-		}
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
-		@Override
-		public void onTextChanged(CharSequence s, int start, int before, int count){
+        }
 
-		}
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
 
-		@Override
-		public void afterTextChanged(Editable s){
-			if(errorFields.contains(editText)){
-				errorFields.remove(editText);
-				editText.setError(null);
-			}
-		}
-	}
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
+            if (errorFields.contains(editText)) {
+                errorFields.remove(editText);
+                editText.setError(null);
+            }
+        }
+    }
 }

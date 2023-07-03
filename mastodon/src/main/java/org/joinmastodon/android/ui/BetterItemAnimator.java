@@ -25,6 +25,7 @@ import android.view.ViewPropertyAnimator;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.SimpleItemAnimator;
+
 import me.grishka.appkit.utils.CubicBezierInterpolator;
 
 import java.util.ArrayList;
@@ -35,7 +36,7 @@ import java.util.List;
  *
  * @see RecyclerView#setItemAnimator(RecyclerView.ItemAnimator)
  */
-public class BetterItemAnimator extends SimpleItemAnimator{
+public class BetterItemAnimator extends SimpleItemAnimator {
     private static final boolean DEBUG = false;
 
     private static TimeInterpolator sDefaultInterpolator;
@@ -70,13 +71,14 @@ public class BetterItemAnimator extends SimpleItemAnimator{
     private static class ChangeInfo {
         public RecyclerView.ViewHolder oldHolder, newHolder;
         public int fromX, fromY, toX, toY;
+
         private ChangeInfo(RecyclerView.ViewHolder oldHolder, RecyclerView.ViewHolder newHolder) {
             this.oldHolder = oldHolder;
             this.newHolder = newHolder;
         }
 
         ChangeInfo(RecyclerView.ViewHolder oldHolder, RecyclerView.ViewHolder newHolder,
-                int fromX, int fromY, int toX, int toY) {
+                   int fromX, int fromY, int toX, int toY) {
             this(oldHolder, newHolder);
             this.fromX = fromX;
             this.fromY = fromY;
@@ -97,7 +99,7 @@ public class BetterItemAnimator extends SimpleItemAnimator{
         }
     }
 
-    public BetterItemAnimator(){
+    public BetterItemAnimator() {
         setAddDuration(250);
         setRemoveDuration(250);
         setChangeDuration(250);
@@ -256,7 +258,7 @@ public class BetterItemAnimator extends SimpleItemAnimator{
 
     @Override
     public boolean animateMove(final RecyclerView.ViewHolder holder, int fromX, int fromY,
-            int toX, int toY) {
+                               int toX, int toY) {
         final View view = holder.itemView;
         fromX += (int) holder.itemView.getTranslationX();
         fromY += (int) holder.itemView.getTranslationY();
@@ -320,7 +322,7 @@ public class BetterItemAnimator extends SimpleItemAnimator{
 
     @Override
     public boolean animateChange(RecyclerView.ViewHolder oldHolder, RecyclerView.ViewHolder newHolder,
-            int fromX, int fromY, int toX, int toY) {
+                                 int fromX, int fromY, int toX, int toY) {
         if (oldHolder == newHolder) {
             // Don't know how to run change animations when the same view holder is re-used.
             // run a move animation to handle position changes.
@@ -385,6 +387,7 @@ public class BetterItemAnimator extends SimpleItemAnimator{
                         public void onAnimationStart(Animator animator) {
                             dispatchChangeStarting(changeInfo.newHolder, false);
                         }
+
                         @Override
                         public void onAnimationEnd(Animator animator) {
                             newViewAnimation.setListener(null);
@@ -418,6 +421,7 @@ public class BetterItemAnimator extends SimpleItemAnimator{
             endChangeAnimationIfNecessary(changeInfo, changeInfo.newHolder);
         }
     }
+
     private boolean endChangeAnimationIfNecessary(ChangeInfo changeInfo, RecyclerView.ViewHolder item) {
         boolean oldItem = false;
         if (changeInfo.newHolder == item) {
@@ -523,7 +527,7 @@ public class BetterItemAnimator extends SimpleItemAnimator{
 
     private void resetAnimation(RecyclerView.ViewHolder holder) {
         if (sDefaultInterpolator == null) {
-            sDefaultInterpolator =CubicBezierInterpolator.DEFAULT;
+            sDefaultInterpolator = CubicBezierInterpolator.DEFAULT;
         }
         holder.itemView.animate().setInterpolator(sDefaultInterpolator);
         endAnimation(holder);
@@ -664,7 +668,7 @@ public class BetterItemAnimator extends SimpleItemAnimator{
      */
     @Override
     public boolean canReuseUpdatedViewHolder(@NonNull RecyclerView.ViewHolder viewHolder,
-            @NonNull List<Object> payloads) {
+                                             @NonNull List<Object> payloads) {
         return !payloads.isEmpty() || super.canReuseUpdatedViewHolder(viewHolder, payloads);
     }
 }

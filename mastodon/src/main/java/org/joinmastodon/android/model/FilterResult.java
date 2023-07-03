@@ -7,15 +7,15 @@ import org.parceler.Parcel;
 import java.util.List;
 
 @Parcel
-public class FilterResult extends BaseModel{
-	@RequiredField
-	public Filter filter;
+public class FilterResult extends BaseModel {
+    @RequiredField
+    public Filter filter;
 
-	public List<String> keywordMatches;
+    public List<String> keywordMatches;
 
-	@Override
-	public void postprocess() throws ObjectValidationException{
-		super.postprocess();
-		filter.postprocess();
-	}
+    @Override
+    public void postprocess() throws ObjectValidationException {
+        super.postprocess();
+        filter.postprocess();
+    }
 }

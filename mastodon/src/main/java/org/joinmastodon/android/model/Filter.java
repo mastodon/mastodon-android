@@ -10,46 +10,46 @@ import java.util.EnumSet;
 import java.util.List;
 
 @Parcel
-public class Filter extends BaseModel{
-	@RequiredField
-	public String id;
+public class Filter extends BaseModel {
+    @RequiredField
+    public String id;
 
-	@RequiredField
-	public String title;
+    @RequiredField
+    public String title;
 
-	@RequiredField
-	public EnumSet<FilterContext> context;
+    @RequiredField
+    public EnumSet<FilterContext> context;
 
-	public Instant expiresAt;
-	public FilterAction filterAction;
+    public Instant expiresAt;
+    public FilterAction filterAction;
 
-	public List<FilterKeyword> keywords=new ArrayList<>();
+    public List<FilterKeyword> keywords = new ArrayList<>();
 
-	public List<FilterStatus> statuses=new ArrayList<>();
+    public List<FilterStatus> statuses = new ArrayList<>();
 
-	@Override
-	public void postprocess() throws ObjectValidationException{
-		super.postprocess();
-		for(FilterKeyword keyword:keywords)
-			keyword.postprocess();
-		for(FilterStatus status:statuses)
-			status.postprocess();
-	}
+    @Override
+    public void postprocess() throws ObjectValidationException {
+        super.postprocess();
+        for (FilterKeyword keyword : keywords)
+            keyword.postprocess();
+        for (FilterStatus status : statuses)
+            status.postprocess();
+    }
 
-	public boolean isActive(){
-		return expiresAt==null || expiresAt.isAfter(Instant.now());
-	}
+    public boolean isActive() {
+        return expiresAt == null || expiresAt.isAfter(Instant.now());
+    }
 
-	@Override
-	public String toString(){
-		return "Filter{"+
-				"id='"+id+'\''+
-				", title='"+title+'\''+
-				", context="+context+
-				", expiresAt="+expiresAt+
-				", filterAction="+filterAction+
-				", keywords="+keywords+
-				", statuses="+statuses+
-				'}';
-	}
+    @Override
+    public String toString() {
+        return "Filter{" +
+                "id='" + id + '\'' +
+                ", title='" + title + '\'' +
+                ", context=" + context +
+                ", expiresAt=" + expiresAt +
+                ", filterAction=" + filterAction +
+                ", keywords=" + keywords +
+                ", statuses=" + statuses +
+                '}';
+    }
 }

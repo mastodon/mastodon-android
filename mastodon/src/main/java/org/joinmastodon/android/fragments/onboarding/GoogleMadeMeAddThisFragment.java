@@ -35,6 +35,7 @@ import java.util.Objects;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import me.grishka.appkit.Nav;
 import me.grishka.appkit.fragments.AppKitFragment;
 import me.grishka.appkit.fragments.ToolbarFragment;
@@ -52,195 +53,195 @@ import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
 
-public class GoogleMadeMeAddThisFragment extends ToolbarFragment{
-	private UsableRecyclerView list;
-	private MergeRecyclerAdapter adapter;
-	private Button btn;
-	private View buttonBar;
-	private Instance instance;
-	private final ArrayList<Item> items=new ArrayList<>();
-	private Call currentRequest;
-	private ItemsAdapter itemsAdapter;
-	private ElevationOnScrollListener onScrollListener;
+public class GoogleMadeMeAddThisFragment extends ToolbarFragment {
+    private UsableRecyclerView list;
+    private MergeRecyclerAdapter adapter;
+    private Button btn;
+    private View buttonBar;
+    private Instance instance;
+    private final ArrayList<Item> items = new ArrayList<>();
+    private Call currentRequest;
+    private ItemsAdapter itemsAdapter;
+    private ElevationOnScrollListener onScrollListener;
 
-	private static final int SIGNUP_REQUEST=722;
+    private static final int SIGNUP_REQUEST = 722;
 
-	@Override
-	public void onCreate(Bundle savedInstanceState){
-		super.onCreate(savedInstanceState);
-		setRetainInstance(true);
-		setTitle(R.string.privacy_policy_title);
-	}
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setRetainInstance(true);
+        setTitle(R.string.privacy_policy_title);
+    }
 
-	@Override
-	public void onAttach(Activity activity){
-		super.onAttach(activity);
-		setNavigationBarColor(UiUtils.getThemeColor(activity, R.attr.colorM3Surface));
-		instance=Parcels.unwrap(getArguments().getParcelable("instance"));
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        setNavigationBarColor(UiUtils.getThemeColor(activity, R.attr.colorM3Surface));
+        instance = Parcels.unwrap(getArguments().getParcelable("instance"));
 
-		items.add(new Item("Mastodon for Android Privacy Policy", getString(R.string.privacy_policy_explanation), "joinmastodon.org", "https://joinmastodon.org/android/privacy", "https://joinmastodon.org/favicon-32x32.png"));
-		loadServerPrivacyPolicy();
-	}
+        items.add(new Item("Mastodon for Android Privacy Policy", getString(R.string.privacy_policy_explanation), "joinmastodon.org", "https://joinmastodon.org/android/privacy", "https://joinmastodon.org/favicon-32x32.png"));
+        loadServerPrivacyPolicy();
+    }
 
-	@Override
-	public void onDestroy(){
-		super.onDestroy();
-		if(currentRequest!=null){
-			currentRequest.cancel();
-			currentRequest=null;
-		}
-	}
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (currentRequest != null) {
+            currentRequest.cancel();
+            currentRequest = null;
+        }
+    }
 
-	@Override
-	public View onCreateContentView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-		View view=inflater.inflate(R.layout.fragment_onboarding_rules, container, false);
+    @Override
+    public View onCreateContentView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_onboarding_rules, container, false);
 
-		list=view.findViewById(R.id.list);
-		list.setLayoutManager(new LinearLayoutManager(getActivity()));
-		View headerView=inflater.inflate(R.layout.item_list_header_simple, list, false);
-		TextView text=headerView.findViewById(R.id.text);
-		text.setText(getString(R.string.privacy_policy_subtitle, instance.uri));
+        list = view.findViewById(R.id.list);
+        list.setLayoutManager(new LinearLayoutManager(getActivity()));
+        View headerView = inflater.inflate(R.layout.item_list_header_simple, list, false);
+        TextView text = headerView.findViewById(R.id.text);
+        text.setText(getString(R.string.privacy_policy_subtitle, instance.uri));
 
-		adapter=new MergeRecyclerAdapter();
-		adapter.addAdapter(new SingleViewRecyclerAdapter(headerView));
-		adapter.addAdapter(itemsAdapter=new ItemsAdapter());
-		list.setAdapter(adapter);
+        adapter = new MergeRecyclerAdapter();
+        adapter.addAdapter(new SingleViewRecyclerAdapter(headerView));
+        adapter.addAdapter(itemsAdapter = new ItemsAdapter());
+        list.setAdapter(adapter);
 
-		btn=view.findViewById(R.id.btn_next);
-		btn.setOnClickListener(v->onButtonClick());
-		buttonBar=view.findViewById(R.id.button_bar);
+        btn = view.findViewById(R.id.btn_next);
+        btn.setOnClickListener(v -> onButtonClick());
+        buttonBar = view.findViewById(R.id.button_bar);
 
-		Button backBtn=view.findViewById(R.id.btn_back);
-		backBtn.setText(getString(R.string.server_policy_disagree, instance.uri));
-		backBtn.setOnClickListener(v->{
-			setResult(false, null);
-			Nav.finish(this);
-		});
+        Button backBtn = view.findViewById(R.id.btn_back);
+        backBtn.setText(getString(R.string.server_policy_disagree, instance.uri));
+        backBtn.setOnClickListener(v -> {
+            setResult(false, null);
+            Nav.finish(this);
+        });
 
-		return view;
-	}
+        return view;
+    }
 
-	@Override
-	public void onViewCreated(View view, Bundle savedInstanceState){
-		super.onViewCreated(view, savedInstanceState);
-		list.addOnScrollListener(onScrollListener=new ElevationOnScrollListener((FragmentRootLinearLayout) view, buttonBar, getToolbar()));
-	}
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        list.addOnScrollListener(onScrollListener = new ElevationOnScrollListener((FragmentRootLinearLayout) view, buttonBar, getToolbar()));
+    }
 
-	@Override
-	protected void onUpdateToolbar(){
-		super.onUpdateToolbar();
-		if(onScrollListener!=null){
-			onScrollListener.setViews(buttonBar, getToolbar());
-		}
-	}
+    @Override
+    protected void onUpdateToolbar() {
+        super.onUpdateToolbar();
+        if (onScrollListener != null) {
+            onScrollListener.setViews(buttonBar, getToolbar());
+        }
+    }
 
-	protected void onButtonClick(){
-		Bundle args=new Bundle();
-		args.putParcelable("instance", Parcels.wrap(instance));
-		Nav.goForResult(getActivity(), SignupFragment.class, args, SIGNUP_REQUEST, this);
-	}
+    protected void onButtonClick() {
+        Bundle args = new Bundle();
+        args.putParcelable("instance", Parcels.wrap(instance));
+        Nav.goForResult(getActivity(), SignupFragment.class, args, SIGNUP_REQUEST, this);
+    }
 
-	@Override
-	public void onFragmentResult(int reqCode, boolean success, Bundle result){
-		super.onFragmentResult(reqCode, success, result);
-		if(reqCode==SIGNUP_REQUEST && !success){
-			setResult(false, null);
-			Nav.finish(this);
-		}
-	}
+    @Override
+    public void onFragmentResult(int reqCode, boolean success, Bundle result) {
+        super.onFragmentResult(reqCode, success, result);
+        if (reqCode == SIGNUP_REQUEST && !success) {
+            setResult(false, null);
+            Nav.finish(this);
+        }
+    }
 
-	@Override
-	public void onApplyWindowInsets(WindowInsets insets){
-		super.onApplyWindowInsets(UiUtils.applyBottomInsetToFixedView(buttonBar, insets));
-	}
+    @Override
+    public void onApplyWindowInsets(WindowInsets insets) {
+        super.onApplyWindowInsets(UiUtils.applyBottomInsetToFixedView(buttonBar, insets));
+    }
 
-	private void loadServerPrivacyPolicy(){
-		Request req=new Request.Builder()
-				.url("https://"+instance.uri+"/terms")
-				.addHeader("Accept-Language", Locale.getDefault().toLanguageTag())
-				.build();
-		currentRequest=MastodonAPIController.getHttpClient().newCall(req);
-		currentRequest.enqueue(new Callback(){
-			@Override
-			public void onFailure(@NonNull Call call, @NonNull IOException e){
-				currentRequest=null;
-			}
+    private void loadServerPrivacyPolicy() {
+        Request req = new Request.Builder()
+                .url("https://" + instance.uri + "/terms")
+                .addHeader("Accept-Language", Locale.getDefault().toLanguageTag())
+                .build();
+        currentRequest = MastodonAPIController.getHttpClient().newCall(req);
+        currentRequest.enqueue(new Callback() {
+            @Override
+            public void onFailure(@NonNull Call call, @NonNull IOException e) {
+                currentRequest = null;
+            }
 
-			@Override
-			public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException{
-				currentRequest=null;
-				try(ResponseBody body=response.body()){
-					if(!response.isSuccessful())
-						return;
-					Document doc=Jsoup.parse(Objects.requireNonNull(body).byteStream(), Objects.requireNonNull(body.contentType()).charset(StandardCharsets.UTF_8).name(), req.url().toString());
-					final Item item=new Item(doc.title(), null, instance.uri, req.url().toString(), "https://"+instance.uri+"/favicon.ico");
-					Activity activity=getActivity();
-					if(activity!=null){
-						activity.runOnUiThread(()->{
-							items.add(item);
-							itemsAdapter.notifyItemInserted(items.size()-1);
-						});
-					}
-				}
-			}
-		});
-	}
+            @Override
+            public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
+                currentRequest = null;
+                try (ResponseBody body = response.body()) {
+                    if (!response.isSuccessful())
+                        return;
+                    Document doc = Jsoup.parse(Objects.requireNonNull(body).byteStream(), Objects.requireNonNull(body.contentType()).charset(StandardCharsets.UTF_8).name(), req.url().toString());
+                    final Item item = new Item(doc.title(), null, instance.uri, req.url().toString(), "https://" + instance.uri + "/favicon.ico");
+                    Activity activity = getActivity();
+                    if (activity != null) {
+                        activity.runOnUiThread(() -> {
+                            items.add(item);
+                            itemsAdapter.notifyItemInserted(items.size() - 1);
+                        });
+                    }
+                }
+            }
+        });
+    }
 
-	private class ItemsAdapter extends RecyclerView.Adapter<ItemViewHolder>{
+    private class ItemsAdapter extends RecyclerView.Adapter<ItemViewHolder> {
 
-		@NonNull
-		@Override
-		public ItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType){
-			return new ItemViewHolder();
-		}
+        @NonNull
+        @Override
+        public ItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            return new ItemViewHolder();
+        }
 
-		@Override
-		public void onBindViewHolder(@NonNull ItemViewHolder holder, int position){
-			holder.bind(items.get(position));
-		}
+        @Override
+        public void onBindViewHolder(@NonNull ItemViewHolder holder, int position) {
+            holder.bind(items.get(position));
+        }
 
-		@Override
-		public int getItemCount(){
-			return items.size();
-		}
-	}
+        @Override
+        public int getItemCount() {
+            return items.size();
+        }
+    }
 
-	private class ItemViewHolder extends BindableViewHolder<Item> implements UsableRecyclerView.Clickable{
-		private final TextView title;
-		private final TextView subtitle;
+    private class ItemViewHolder extends BindableViewHolder<Item> implements UsableRecyclerView.Clickable {
+        private final TextView title;
+        private final TextView subtitle;
 
-		public ItemViewHolder(){
-			super(getActivity(), R.layout.item_privacy_policy_link, list);
-			title=findViewById(R.id.title);
-			subtitle=findViewById(R.id.subtitle);
-		}
+        public ItemViewHolder() {
+            super(getActivity(), R.layout.item_privacy_policy_link, list);
+            title = findViewById(R.id.title);
+            subtitle = findViewById(R.id.subtitle);
+        }
 
-		@Override
-		public void onBind(Item item){
-			title.setText(item.title);
-			if(TextUtils.isEmpty(item.subtitle)){
-				subtitle.setVisibility(View.GONE);
-			}else{
-				subtitle.setVisibility(View.VISIBLE);
-				subtitle.setText(item.subtitle);
-			}
-		}
+        @Override
+        public void onBind(Item item) {
+            title.setText(item.title);
+            if (TextUtils.isEmpty(item.subtitle)) {
+                subtitle.setVisibility(View.GONE);
+            } else {
+                subtitle.setVisibility(View.VISIBLE);
+                subtitle.setText(item.subtitle);
+            }
+        }
 
-		@Override
-		public void onClick(){
-			UiUtils.launchWebBrowser(getActivity(), item.url);
-		}
-	}
+        @Override
+        public void onClick() {
+            UiUtils.launchWebBrowser(getActivity(), item.url);
+        }
+    }
 
-	private static class Item{
-		public String title, subtitle, domain, url, faviconUrl;
+    private static class Item {
+        public String title, subtitle, domain, url, faviconUrl;
 
-		public Item(String title, String subtitle, String domain, String url, String faviconUrl){
-			this.title=title;
-			this.subtitle=subtitle;
-			this.domain=domain;
-			this.url=url;
-			this.faviconUrl=faviconUrl;
-		}
-	}
+        public Item(String title, String subtitle, String domain, String url, String faviconUrl) {
+            this.title = title;
+            this.subtitle = subtitle;
+            this.domain = domain;
+            this.url = url;
+            this.faviconUrl = faviconUrl;
+        }
+    }
 }

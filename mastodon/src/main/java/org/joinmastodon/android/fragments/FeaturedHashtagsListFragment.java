@@ -19,39 +19,40 @@ import java.util.stream.Collectors;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-public class FeaturedHashtagsListFragment extends BaseStatusListFragment<Hashtag>{
-	private Account account;
-	private String accountID;
+public class FeaturedHashtagsListFragment extends BaseStatusListFragment<Hashtag> {
+    private Account account;
+    private String accountID;
 
-	@Override
-	public void onCreate(Bundle savedInstanceState){
-		super.onCreate(savedInstanceState);
-		accountID=getArguments().getString("account");
-		account=Parcels.unwrap(getArguments().getParcelable("profileAccount"));
-		onDataLoaded(getArguments().getParcelableArrayList("hashtags").stream().map(p->(Hashtag)Parcels.unwrap(p)).collect(Collectors.toList()), false);
-		setTitle(R.string.hashtags);
-	}
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        accountID = getArguments().getString("account");
+        account = Parcels.unwrap(getArguments().getParcelable("profileAccount"));
+        onDataLoaded(getArguments().getParcelableArrayList("hashtags").stream().map(p -> (Hashtag) Parcels.unwrap(p)).collect(Collectors.toList()), false);
+        setTitle(R.string.hashtags);
+    }
 
-	@Override
-	protected List<StatusDisplayItem> buildDisplayItems(Hashtag s){
-		return Collections.singletonList(new HashtagStatusDisplayItem(s.name, this, s));
-	}
+    @Override
+    protected List<StatusDisplayItem> buildDisplayItems(Hashtag s) {
+        return Collections.singletonList(new HashtagStatusDisplayItem(s.name, this, s));
+    }
 
-	@Override
-	protected void addAccountToKnown(Hashtag s){
+    @Override
+    protected void addAccountToKnown(Hashtag s) {
 
-	}
+    }
 
-	@Override
-	public void onItemClick(String id){
-		UiUtils.openHashtagTimeline(getActivity(), accountID, id);
-	}
+    @Override
+    public void onItemClick(String id) {
+        UiUtils.openHashtagTimeline(getActivity(), accountID, id);
+    }
 
-	@Override
-	protected void doLoadData(int offset, int count){}
+    @Override
+    protected void doLoadData(int offset, int count) {
+    }
 
-	@Override
-	protected void drawDivider(View child, View bottomSibling, RecyclerView.ViewHolder holder, RecyclerView.ViewHolder siblingHolder, RecyclerView parent, Canvas c, Paint paint){
-		// no-op
-	}
+    @Override
+    protected void drawDivider(View child, View bottomSibling, RecyclerView.ViewHolder holder, RecyclerView.ViewHolder siblingHolder, RecyclerView parent, Canvas c, Paint paint) {
+        // no-op
+    }
 }
