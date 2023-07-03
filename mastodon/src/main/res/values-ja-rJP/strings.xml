@@ -415,10 +415,54 @@
 	<!-- %s is the server domain -->
 	<string name="forward_report_to_server">%s に転送する</string>
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
+	<string name="reported">報告済み</string>
+	<string name="report_unfollow_explanation">ホームフィードで彼らの投稿が表示されないようにするには、フォローを外してください。</string>
+	<string name="muted_user">%s さんをミュートしました</string>
+	<string name="report_sent_already_blocked">すでにこのユーザーをブロックしているため、報告の確認前にできることは他にありません。</string>
+	<string name="report_personal_already_blocked">すでにこのユーザーをブロックしているため、できることは他にありません。\n\nすべての人が Mastodon を安全に利用できるようにご協力いただきありがとうございます！</string>
+	<string name="blocked_user">%s さんをブロックしています</string>
+	<string name="mark_all_notifications_read">すべて既読にする</string>
+	<string name="settings_display">表示</string>
+	<string name="settings_filters">フィルター</string>
+	<string name="settings_server_explanation">概要、ルール、モデレーター</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
+	<string name="about_app">%s について</string>
+	<string name="default_post_language">デフォルトの投稿言語</string>
+	<string name="settings_alt_text_reminders">代替テキストのリマインダーを追加</string>
+	<string name="settings_confirm_unfollow">フォローを解除する前に確認</string>
+	<string name="settings_confirm_boost">ブーストする前に確認</string>
+	<string name="settings_confirm_delete_post">投稿を削除する前に確認</string>
+	<string name="pause_all_notifications">すべて一時停止</string>
+	<string name="pause_notifications_off">オフ</string>
+	<string name="notifications_policy_anyone">誰でも</string>
+	<string name="notifications_policy_followed">あなたのフォロワーのみ</string>
+	<string name="notifications_policy_follower">あなたがフォローしている人のみ</string>
+	<string name="notifications_policy_no_one">なし</string>
+	<string name="settings_notifications_policy">通知を送信する人</string>
+	<string name="notification_type_mentions_and_replies">メンションと返信</string>
+	<string name="pause_all_notifications_title">すべての通知を一時停止</string>
+	<plurals name="x_weeks">
+		<item quantity="other">%d 週間</item>
+	</plurals>
 	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
+	<string name="date_at_time">%1$s の %2$s</string>
+	<string name="today">今日</string>
+	<string name="yesterday">昨日</string>
+	<string name="tomorrow">明日</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="pause_notifications_ends">%s に終了</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="pause_notifications_banner">通知は %s に再開します。</string>
+	<string name="resume_notifications_now">今すぐ再開</string>
+	<string name="open_system_notification_settings">通知設定に移動</string>
+	<string name="about_server">このサーバーについて</string>
+	<string name="server_rules">ルール</string>
+	<string name="server_administrator">管理者</string>
+	<string name="send_email_to_server_admin">管理者にメッセージを送信</string>
+	<string name="notifications_disabled_in_system">端末の設定から通知を有効にして、どこからでも最新情報を見られるようにしましょう。</string>
+	<string name="settings_even_more">さらに詳しい設定</string>
+	<string name="settings_show_cws">コンテンツ警告を表示</string>
+	<string name="settings_hide_sensitive_media">閲覧注意としてマークされたメディアを隠す</string>
 	<!-- %s is the username -->
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<!-- Shown like a content warning, %s is the name of the filter -->
