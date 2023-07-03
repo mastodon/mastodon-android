@@ -183,7 +183,7 @@
 	<string name="compose_hint">Skrifaðu eða límdu það sem þér liggur á hjarta</string>
 	<string name="content_warning">Viðvörun vegna efnis</string>
 	<string name="save">Vista</string>
-	<string name="add_alt_text">Bættu við ALT-texta</string>
+	<string name="add_alt_text">Bæta við ALT-varatexta</string>
 	<string name="visibility_public">Opinbert</string>
 	<string name="visibility_followers_only">Einungis fylgjendur</string>
 	<string name="recent_searches">Nýlegt</string>
@@ -253,7 +253,10 @@
 	<string name="downloading">Sæki…</string>
 	<string name="no_app_to_handle_action">Ekkert forrit fannst sem getur meðhöndlað þessa aðgerð</string>
 	<string name="local_timeline">Staðvært</string>
+	<string name="trending_posts_info_banner">Þetta eru færslurnar sem eru að fá aukna athygli á Mastodon.</string>
+	<string name="trending_links_info_banner">Þetta eru fréttirnar sem er verið að tala um á Mastodon.</string>
 	<!-- %s is the server domain -->
+	<string name="local_timeline_info_banner">Þetta eru allar færslur frá öllum notendum á netþjóninum þínum (%s).</string>
 	<string name="see_new_posts">Skoða nýjar færslur</string>
 	<string name="load_missing_posts">Hlaða inn færslum sem vantar</string>
 	<string name="follow_back">Fylgjast með til baka</string>
@@ -386,16 +389,46 @@
 	<string name="retry">Reyna aftur</string>
 	<string name="post_failed">Mistókst að senda færslu</string>
 	<!-- %s is formatted file size ("467 KB image") -->
+	<string name="attachment_description_image">%s mynd</string>
+	<string name="attachment_description_video">%s myndskeið</string>
+	<string name="attachment_description_audio">%s hljóðskrá</string>
+	<string name="attachment_description_unknown">%s skrá</string>
+	<string name="attachment_type_image">Mynd</string>
+	<string name="attachment_type_video">Myndskeið</string>
+	<string name="attachment_type_audio">Hljóð</string>
+	<string name="attachment_type_gif">GIF-mynd</string>
+	<string name="attachment_type_unknown">Skrá</string>
+	<string name="attachment_x_percent_uploaded">%d%% sent inn</string>
+	<string name="add_poll_option">Bæta við valkosti í könnun</string>
+	<string name="poll_length">Tímalengd könnunar</string>
+	<string name="poll_style">Stíll</string>
+	<string name="compose_poll_single_choice">Veldu eitt</string>
+	<string name="compose_poll_multiple_choice">Margir valkostir</string>
+	<string name="delete_poll_option">Eyða valkosti úr könnun</string>
+	<string name="poll_style_title">Stíll könnunar</string>
+	<string name="alt_text">Alt-varatexti</string>
+	<string name="help">Hjálp</string>
+	<string name="what_is_alt_text">Hvað er alt-varatexti?</string>
+	<string name="alt_text_help">ALT-varatexti inniheldur lýsingu á myndefni fyrir fólk með ýmsar gerðir sjónskerðingar, fyrir tengingar með litla bandbreidd, eða til að gefa nánara samhengi fyrir myndefni.\n\nÞú getur með þessu bætt almennt aðgengi og aukið skilning á efni sem þú birtir með því að skrifa skýran, skorinortan og hlutlægan alt-texta til vara.\n\n<ul><li>Lýstu mikilvægum atriðum</li>\n<li>Hafðu yfirlit með þeim texta sem sést í myndum</li>\n<li>Notaðu eðlilega setningaskipan</li>\n<li>Forðastu óþarfar upplýsingar</li>\n<li>Leggðu áherslu á aðalatriði í flóknu myndefni (eins og línuritum eða landakortum)</li></ul></string>
+	<string name="language_detecting">Greini tungumál</string>
+	<string name="language_cant_detect">Tókst ekki að greina tungumál</string>
+	<string name="language_detected">Fannst</string>
 	<!-- %s is the server domain -->
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
 	<string name="mark_all_notifications_read">Merkja allt sem lesið</string>
 	<string name="settings_display">Birting</string>
 	<string name="settings_filters">Síur</string>
+	<string name="settings_server_explanation">Yfirlit, reglur, umsjónarmenn</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">Um %s</string>
+	<string name="default_post_language">Sjálfgefið tungumál færslu</string>
+	<string name="settings_alt_text_reminders">Bætta við áminningum vegna ALT-varatexta</string>
+	<string name="pause_all_notifications">Setja allt í bið</string>
+	<string name="pause_notifications_off">Slökkt</string>
 	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="alt_text_reminder_title">Myndgögn vantar ALT-varatexta</string>
 	<!-- %s is the username -->
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<!-- Shown like a content warning, %s is the name of the filter -->
