@@ -248,6 +248,7 @@
 	<string name="trending_links_info_banner">これらのニュースは Mastodon で話題になっています。</string>
 	<!-- %s is the server domain -->
 	<string name="local_timeline_info_banner">あなたのサーバー (%s) の全ユーザーの全投稿です。</string>
+	<string name="recommended_accounts_info_banner">こちらは、あなたがフォローしている人に基づいた、おすすめのアカウントです。</string>
 	<string name="see_new_posts">新しい投稿を見る</string>
 	<string name="load_missing_posts">不足している投稿を読み込む</string>
 	<string name="follow_back">フォローバック</string>
@@ -259,7 +260,7 @@
 		<item quantity="other">%,d フォロワー</item>
 	</plurals>
 	<plurals name="x_following">
-		<item quantity="other">%,dフォロー中</item>
+		<item quantity="other">%,d フォロー</item>
 	</plurals>
 	<plurals name="x_favorites">
 		<item quantity="other">%,d お気に入り</item>
@@ -267,16 +268,16 @@
 	<plurals name="x_reblogs">
 		<item quantity="other">%,d ブースト</item>
 	</plurals>
-	<string name="timestamp_via_app">%1$sに%2$s経由</string>
+	<string name="timestamp_via_app">%1$s に %2$s から投稿</string>
 	<string name="time_now">今</string>
 	<string name="edit_history">編集履歴</string>
-	<string name="last_edit_at_x">最終更新日%s</string>
+	<string name="last_edit_at_x">最終更新 %s</string>
 	<string name="time_just_now">今</string>
 	<plurals name="x_seconds_ago">
-		<item quantity="other">%d秒前</item>
+		<item quantity="other">%d 秒前</item>
 	</plurals>
 	<plurals name="x_minutes_ago">
-		<item quantity="other">%d分前</item>
+		<item quantity="other">%d 分前</item>
 	</plurals>
 	<string name="edited_timestamp">%sに編集</string>
 	<string name="edit_original_post">オリジナルの投稿</string>
@@ -296,7 +297,7 @@
 	<string name="edit">編集</string>
 	<string name="discard_changes">変更を破棄しますか？</string>
 	<string name="upload_failed">アップロードに失敗しました</string>
-	<string name="file_size_bytes">%dバイト</string>
+	<string name="file_size_bytes">%d バイト</string>
 	<string name="file_size_kb">%.2f KB</string>
 	<string name="file_size_mb">%.2f MB</string>
 	<string name="file_size_gb">%.2f GB</string>
@@ -307,7 +308,7 @@
 	<string name="download_update">ダウンロード (%s)</string>
 	<string name="install_update">インストール</string>
 	<string name="privacy_policy_title">プライバシーポリシー</string>
-	<string name="privacy_policy_subtitle">Mastodonアプリはデータを収集しません。一方で、登録するサーバーはそれぞれが異なるポリシーを掲げていることがあります。\n\n %s のポリシーに同意できない場合は、戻って別のサーバーを選択できます。</string>
+	<string name="privacy_policy_subtitle">Mastodon アプリはいかなるデータも収集しません。一方で、登録するサーバーはそれぞれが異なるポリシーを掲げていることがあります。\n\nもし %s のポリシーに同意できない場合は、戻って別のサーバーを選択できます。</string>
 	<string name="i_agree">同意する</string>
 	<string name="empty_list">このリストは空です。</string>
 	<string name="instance_signup_closed">このサーバーは新規登録を受け付けていません。</string>
@@ -317,8 +318,9 @@
 	<string name="bookmarks">ブックマーク</string>
 	<string name="your_favorites">お気に入り</string>
 	<string name="login_title">アカウントでログイン</string>
-	<string name="login_subtitle">アカウントのあるサーバーのURLを入力してください。</string>
-	<string name="server_url">サーバーのURL</string>
+	<string name="login_subtitle">アカウントがあるサーバーの URL を入力してください。</string>
+	<string name="server_url">サーバーの URL</string>
+	<string name="signup_random_server_explain">選択せずに次へ進むと、利用中の言語に基づいてサーバーを自動選択します。</string>
 	<string name="server_filter_any_language">すべての言語</string>
 	<string name="server_filter_instant_signup">開放</string>
 	<string name="server_filter_manual_review">承認制</string>
@@ -331,25 +333,28 @@
 	<string name="server_filter_region_oceania">オセアニア</string>
 	<string name="not_accepting_new_members">新規登録を受け付けていません</string>
 	<string name="category_special_interests">テーマ別</string>
+	<string name="signup_passwords_dont_match">パスワードが一致しません</string>
 	<string name="pick_server_for_me">おまかせ</string>
 	<string name="profile_add_row">フィールドを追加</string>
 	<string name="profile_setup">プロフィールの設定</string>
 	<string name="profile_setup_subtitle">プロフィール画面であとから設定することもできます。</string>
-	<string name="profile_setup_explanation">プロフィールには4つまでフィールドを追加できます。現在地やwebサイト、座右の銘など、なんでも自由に書いてみましょう。</string>
+	<string name="profile_setup_explanation">プロフィールには 4 つまでフィールドを追加できます。現在地やウェブサイト、座右の銘など、なんでも自由に書いてみましょう。</string>
 	<string name="popular_on_mastodon">人気のアカウント</string>
-	<string name="follow_all">すべてフォローする</string>
+	<string name="follow_all">すべてフォロー</string>
 	<string name="server_rules_disagree">同意しない</string>
+	<string name="privacy_policy_explanation">TL;DR: 私たちはいかなる情報も収集・処理しません。</string>
 	<!-- %s is server domain -->
 	<string name="server_policy_disagree">%s のポリシーに同意しない</string>
 	<string name="profile_bio">自己紹介</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<string name="sending_follows">フォロー中…</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<string name="signup_email_domain_blocked">%1$s では %2$s のメールアドレスでの登録が許可されていません。別のメールアドレスを使うか、&lt;a&gt;ほかのサーバーを選択&lt;/a&gt;してください。</string>
 	<string name="spoiler_show">表示する</string>
-	<string name="spoiler_hide">非表示</string>
-	<string name="poll_multiple_choice">1つまたは複数を選択</string>
+	<string name="spoiler_hide">非表示にする</string>
+	<string name="poll_multiple_choice">複数選択可</string>
 	<string name="save_changes">変更を保存</string>
-	<string name="profile_featured">特徴</string>
+	<string name="profile_featured">おすすめ</string>
 	<string name="profile_timeline">タイムライン</string>
 	<string name="view_all">すべて表示</string>
 	<string name="profile_endorsed_accounts">アカウント</string>
@@ -364,7 +369,33 @@
 	<string name="welcome_paragraph1">Mastodon は、いち企業の統制に依存しない非中央集権型のソーシャルネットワークです。たくさんの独立したサーバーが相互につながり合い、ひとつのネットワークを形成しています。</string>
 	<string name="what_are_servers">サーバーとは</string>
 	<string name="welcome_paragraph2"><![CDATA[Mastodon のアカウントはいずれかのサーバーに所属します。それぞれのサーバーは異なる価値観やルールをもち、それらを管理する管理者がいます。どのサーバーにいても、ほかのあらゆるサーバーのユーザーをフォローして、かかわりをもつことができるでしょう。]]></string>
+	<string name="opening_link">リンクを開いています…</string>
+	<string name="link_not_supported">アプリはこのリンクに対応していません</string>
+	<string name="log_out_all_accounts">すべてのアカウントをログアウト</string>
+	<string name="confirm_log_out_all_accounts">すべてのアカウントをログアウトしますか？</string>
+	<string name="retry">再試行</string>
+	<string name="post_failed">投稿の送信に失敗しました</string>
 	<!-- %s is formatted file size ("467 KB image") -->
+	<string name="attachment_description_image">画像 %s</string>
+	<string name="attachment_description_video">動画 %s</string>
+	<string name="attachment_description_audio">音声 %s</string>
+	<string name="attachment_description_unknown">ファイル %s</string>
+	<string name="attachment_type_image">画像</string>
+	<string name="attachment_type_video">動画</string>
+	<string name="attachment_type_audio">音声</string>
+	<string name="attachment_type_gif">GIF</string>
+	<string name="attachment_type_unknown">ファイル</string>
+	<string name="attachment_x_percent_uploaded">%d%% アップロード</string>
+	<string name="add_poll_option">アンケートの選択肢を追加</string>
+	<string name="poll_length">アンケートの期限</string>
+	<string name="poll_style">方法</string>
+	<string name="compose_poll_single_choice">1 つ選択</string>
+	<string name="compose_poll_multiple_choice">複数選択可</string>
+	<string name="delete_poll_option">アンケートの選択肢を削除</string>
+	<string name="poll_style_title">アンケート方法</string>
+	<string name="alt_text">代替テキスト</string>
+	<string name="help">ヘルプ</string>
+	<string name="what_is_alt_text">代替テキストとは？</string>
 	<!-- %s is the server domain -->
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
