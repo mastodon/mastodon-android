@@ -15,7 +15,7 @@
 	<string name="user_sent_follow_request">%s さんがフォローリクエストを送信しました</string>
 	<string name="user_favorited">投稿を %s さんがお気に入りに登録しました</string>
 	<string name="notification_boosted">投稿を %s さんがブーストしました</string>
-	<string name="poll_ended">参加した投票の結果を見る</string>
+	<string name="poll_ended">参加したアンケートの結果を見る</string>
 	<string name="share_toot_title">共有</string>
 	<string name="settings">設定</string>
 	<string name="publish">公開</string>
@@ -127,11 +127,11 @@
 	<string name="report_reason_other_subtitle">当てはまる選択肢がない場合</string>
 	<string name="report_choose_rule">どのルールに違反していますか？</string>
 	<string name="report_choose_rule_subtitle">当てはまるものすべてを選んでください</string>
-	<string name="report_choose_posts">この通報を裏付けるような投稿はありますか？</string>
+	<string name="report_choose_posts">この報告を裏付けるような投稿はありますか？</string>
 	<string name="report_choose_posts_subtitle">当てはまるものすべてを選んでください</string>
 	<string name="report_comment_title">その他に私たちに伝えておくべき事はありますか？</string>
 	<string name="report_comment_hint">追加コメント</string>
-	<string name="sending_report">レポートを送信しています...</string>
+	<string name="sending_report">報告を送信しています...</string>
 	<string name="report_sent_title">ご報告ありがとうございます、追って確認します。</string>
 	<string name="report_sent_subtitle">私たちが確認する前でも、あなたが %s さんにできる対応があります。</string>
 	<string name="unfollow_user">%s さんのフォローを解除</string>
@@ -184,7 +184,7 @@
 	<string name="notification_type_favorite">お気に入り</string>
 	<string name="notification_type_reblog">ブースト</string>
 	<string name="notification_type_mention">メンション</string>
-	<string name="notification_type_poll">投票</string>
+	<string name="notification_type_poll">アンケート</string>
 	<string name="choose_account">アカウントを選択</string>
 	<string name="err_not_logged_in">まずは Mastodon にログインしてください</string>
 	<plurals name="cant_add_more_than_x_attachments">
@@ -410,7 +410,10 @@
 	<string name="language_detected">検出</string>
 	<string name="media_hidden">メディアが非表示にされました</string>
 	<string name="post_hidden">投稿が非表示にされました</string>
+	<string name="report_title_post">投稿を報告</string>
+	<string name="forward_report_explanation">このアカウントは別のサーバーに所属しています。報告のコピーを匿名で転送しますか？</string>
 	<!-- %s is the server domain -->
+	<string name="forward_report_to_server">%s に転送する</string>
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
