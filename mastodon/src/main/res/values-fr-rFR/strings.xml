@@ -283,6 +283,7 @@
 	<string name="login_title">Content de vous revoir</string>
 	<string name="login_subtitle">Connectez-vous avec le serveur sur lequel vous avez créé votre compte.</string>
 	<string name="server_url">URL du serveur</string>
+	<string name="signup_random_server_explain">Si vous continuez sans faire de choix, nous choisirons un serveur en fonction de votre langue.</string>
 	<string name="server_filter_any_language">N\'importe quelle langue</string>
 	<string name="server_filter_instant_signup">Inscription instantanée</string>
 	<string name="server_filter_manual_review">Approbation manuelle</string>
@@ -303,12 +304,15 @@
 	<string name="popular_on_mastodon">Populaire sur Mastodon</string>
 	<string name="follow_all">Tout suivre</string>
 	<string name="server_rules_disagree">Refuser</string>
+	<string name="privacy_policy_explanation">TL;DR : Nous ne collectons ni ne traitons quoi que ce soit.</string>
 	<!-- %s is server domain -->
 	<string name="server_policy_disagree">En désaccord avec %s</string>
 	<string name="profile_bio">Biographie</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<string name="sending_follows">Utilisateurs suivants…</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<string name="spoiler_hide">Cacher</string>
+	<string name="poll_multiple_choice">Choisir un ou plusieurs</string>
 	<!-- %s is formatted file size ("467 KB image") -->
 	<!-- %s is the server domain -->
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
