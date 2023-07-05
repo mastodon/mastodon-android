@@ -4,12 +4,15 @@
 	<string name="next">Suivant</string>
 	<string name="loading_instance">Récupération des informations serveur…</string>
 	<string name="error">Erreur</string>
+	<string name="not_a_mastodon_instance">%s ne semble pas être un serveur Mastodon.</string>
 	<string name="ok">OK</string>
 	<string name="preparing_auth">Préparation à l’authentification…</string>
 	<string name="finishing_auth">Fin de l’authentification…</string>
+	<string name="user_boosted">%s a boosté</string>
 	<string name="in_reply_to">En réponse à %s</string>
 	<string name="notifications">Notifications</string>
 	<string name="user_followed_you">%s vous suit</string>
+	<string name="user_sent_follow_request">%s voudrait vous suivre</string>
 	<string name="share_toot_title">Partager</string>
 	<string name="settings">Paramètres</string>
 	<string name="publish">Pouet !</string>
@@ -77,6 +80,10 @@
 	<plurals name="x_days_left">
 		<item quantity="one">%d jour restant</item>
 		<item quantity="other">%d jours restants</item>
+	</plurals>
+	<plurals name="x_votes">
+		<item quantity="one">%,d vote</item>
+		<item quantity="other">%,d votes</item>
 	</plurals>
 	<string name="poll_closed">Fermé</string>
 	<string name="confirm_mute_title">Masquer le compte</string>
@@ -154,6 +161,8 @@
 	<string name="category_tech">Technologie</string>
 	<string name="confirm_email_title">Consultez votre boîte de réception</string>
 	<!-- %s is the email address -->
+	<string name="confirm_email_subtitle">Cliquez sur le lien que nous avons envoyé à %s pour confirmer votre email. Nous vous attendons ici.</string>
+	<string name="confirm_email_didnt_get">Lien non reçu ?</string>
 	<string name="resend">Renvoyer</string>
 	<string name="open_email_app">Ouvrir l’application courriel</string>
 	<string name="resent_email">Courriel de confirmation envoyé</string>
@@ -169,6 +178,10 @@
 	<string name="notification_type_poll">Sondages</string>
 	<string name="choose_account">Choisir un compte</string>
 	<string name="err_not_logged_in">Veuillez d’abord vous connecter à Mastodon</string>
+	<plurals name="cant_add_more_than_x_attachments">
+		<item quantity="one">Vous ne pouvez pas ajouter plus d\'une pièce jointe</item>
+		<item quantity="other">Vous ne pouvez pas ajouter plus de %d pièces jointes</item>
+	</plurals>
 	<string name="media_attachment_unsupported_type">Le fichier %s n’est pas pris en charge</string>
 	<string name="media_attachment_too_big">Le fichier %1$s dépasse la taille limite de %2$s Mo</string>
 	<string name="theme_light">Clair</string>
@@ -197,7 +210,11 @@
 	<string name="media_viewer">Visionneuse de média</string>
 	<string name="follow_user">Suivre %s</string>
 	<string name="unfollowed_user">Vous ne suivez plus %s</string>
+	<string name="followed_user">Vous suivez désormais %s</string>
+	<string name="following_user_requested">Demande de suivi envoyée à %s</string>
 	<string name="open_in_browser">Ouvrir dans le navigateur</string>
+	<string name="hide_boosts_from_user">Masquer les boosts de %s</string>
+	<string name="show_boosts_from_user">Afficher les boosts de %s</string>
 	<string name="signup_reason">Pourquoi voulez-vous vous inscrire ?</string>
 	<string name="signup_reason_note">Cela nous aidera à examiner votre demande.</string>
 	<string name="clear">Effacer</string>
@@ -211,6 +228,7 @@
 	<string name="error_saving_file">Erreur lors de l’enregistrement du fichier</string>
 	<string name="file_saved">Fichier enregistré</string>
 	<string name="downloading">Téléchargement…</string>
+	<string name="no_app_to_handle_action">Aucune application ne permet de gérer cette action</string>
 	<!-- %s is the server domain -->
 	<string name="see_new_posts">Voir les nouveaux messages</string>
 	<string name="load_missing_posts">Charger les messages manquants</string>
@@ -313,9 +331,18 @@
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<string name="sending_follows">Utilisateurs suivants…</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<string name="spoiler_show">Afficher quand même</string>
 	<string name="spoiler_hide">Cacher</string>
 	<string name="poll_multiple_choice">Choisir un ou plusieurs</string>
 	<!-- %s is formatted file size ("467 KB image") -->
+	<string name="attachment_type_image">Image</string>
+	<string name="attachment_type_video">Vidéo</string>
+	<string name="attachment_type_audio">Audio</string>
+	<string name="attachment_type_gif">GIF</string>
+	<string name="attachment_type_unknown">Fichier</string>
+	<string name="attachment_x_percent_uploaded">%d%% transférés</string>
+	<string name="help">Aide</string>
+	<string name="language">Langue</string>
 	<!-- %s is the server domain -->
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
