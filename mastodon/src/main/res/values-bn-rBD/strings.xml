@@ -93,6 +93,9 @@
 		<item quantity="other">%d jon ব্যক্তিরা বলছেন</item>
 	</plurals>
 	<string name="sending_report">রিপোর্ট পাঠানো হচ্ছে…</string>
+	<string name="report_sent_title">রিপোর্ট করার জন্য আপনাকে ধন্যবাদ, আমরা এটি শীঘ্রই দেখব.</string>
+	<string name="report_sent_subtitle">আমরা যতক্ষণে আপনার রিপোর্ট পুনর্বিবেচনা করছি, আপনি %s এর বিরুদ্ধে ব্যবস্থা নিতে পারেন:</string>
+	<string name="report_personal_title">আপনি এটি আর দেখতে চান না?</string>
 	<string name="back">ফিরে যান</string>
 	<string name="search_communities">সার্ভারের নাম বা লিঙ্ক</string>
 	<string name="instance_rules_title">সার্ভারের নিয়মাবলী</string>
@@ -102,8 +105,27 @@
 	<string name="email">ই-মেইল</string>
 	<string name="password">পাসওয়ার্ড</string>
 	<string name="confirm_password">পাসওয়ার্ড নিশ্চিত করুন</string>
+	<string name="category_lgbt">LGBT</string>
+	<string name="category_music">সঙ্গীত</string>
+	<string name="category_regional">আঞ্চলিক</string>
+	<string name="category_tech">তথ্য-প্রযুক্তি</string>
+	<string name="confirm_email_title">আপনার ইনবক্স দেখুন</string>
 	<!-- %s is the email address -->
+	<string name="visibility_followers_only">ফলোয়ারদের জন্য</string>
+	<string name="notification_type_follow">নতুন ফলোয়াররা</string>
+	<string name="err_not_logged_in">Mastodon-এ প্রথমে লগ ইন করুন</string>
+	<plurals name="cant_add_more_than_x_attachments">
+		<item quantity="one">আপনি %d -এর বেশি মিডিয়া/ফাইল যোগ করতে পারবেন না</item>
+		<item quantity="other">আপনি %d -এর বেশি মিডিয়া/ফাইল যোগ করতে পারবেন না</item>
+	</plurals>
+	<string name="media_attachment_too_big">%1$s ফাইল %2$s MB-র ফাইলের সাইজ সীমা ছড়িয়ে যাচ্ছে</string>
+	<string name="theme_light">লাইট</string>
+	<string name="theme_dark">ডার্ক</string>
+	<string name="settings_notifications">নোটিফিকেশনগুলো</string>
+	<string name="settings_contribute">Mastodon-কে সাহায্য করুন</string>
+	<string name="downloading">ডাউনলোড হচ্ছে…</string>
 	<!-- %s is the server domain -->
+	<string name="follows_you">আপনাকে ফলো করছেন</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<!-- %s is version like 1.2.3 -->
 	<!-- %s is version like 1.2.3 -->
