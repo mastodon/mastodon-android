@@ -85,6 +85,10 @@
 		<item quantity="one">%d gün kaldı</item>
 		<item quantity="other">%d gün kaldı</item>
 	</plurals>
+	<plurals name="x_votes">
+		<item quantity="one">%,d oy</item>
+		<item quantity="other">%,d oy</item>
+	</plurals>
 	<string name="poll_closed">Kapandı</string>
 	<string name="confirm_mute_title">Hesabı sustur</string>
 	<string name="confirm_mute">%s susturmak için onaylayın</string>
@@ -378,6 +382,19 @@
 	<string name="what_are_servers">Sunucular nelerdir?</string>
 	<string name="welcome_paragraph2"><![CDATA[Her Mastodon , hesabı bir sunucuda barındırılır - her birinin kendi değerleri, kuralları ve yöneticileri vardır. Hangisini seçerseniz seçin, herhangi bir sunucudaki insanları takip edebilir ve onlarla etkileşime geçebilirsiniz.]]></string>
 	<!-- %s is formatted file size ("467 KB image") -->
+	<string name="attachment_type_image">Resim</string>
+	<string name="attachment_type_video">Video</string>
+	<string name="attachment_type_audio">Ses</string>
+	<string name="attachment_type_gif">GIF</string>
+	<string name="attachment_type_unknown">Dosya</string>
+	<string name="attachment_x_percent_uploaded">%d%% yüklendi</string>
+	<string name="add_poll_option">Anket seçeneği ekle</string>
+	<string name="poll_length">Anket uzunluğu</string>
+	<string name="poll_style">Stil</string>
+	<string name="compose_poll_single_choice">Birini seç</string>
+	<string name="compose_poll_multiple_choice">Çoktan seçmeli</string>
+	<string name="delete_poll_option">Anket seçeneğini sil</string>
+	<string name="poll_style_title">Anket stili</string>
 	<string name="alt_text">Alternatif metin</string>
 	<string name="help">Yardım</string>
 	<string name="what_is_alt_text">Alternatif metin nedir?</string>
@@ -393,9 +410,20 @@
 	<string name="language_detecting">Algılanan dil</string>
 	<string name="language_cant_detect">Dil algılanamıyor</string>
 	<string name="language_detected">Algılandı</string>
+	<string name="media_hidden">Medya gizlendi</string>
+	<string name="post_hidden">Gönderi gizlendi</string>
 	<string name="report_title_post">Gönderiyi bildir</string>
+	<string name="forward_report_explanation">Hesap başka bir sunucudan. Bu raporun anonimleştirilmiş bir kopyası oraya da gönderilsin mi?</string>
 	<!-- %s is the server domain -->
+	<string name="forward_report_to_server">İlet %s</string>
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
+	<string name="reported">Bildirildi</string>
+	<string name="report_unfollow_explanation">Gönderilerini artık ana sayfa akışınızda görmemek için takibi bırakın.</string>
+	<string name="muted_user">%s sessize alındı</string>
+	<string name="report_sent_already_blocked">Bu kullanıcıyı zaten engellediniz. Biz raporunuzu incelerken yapmanız gereken başka bir şey yok.</string>
+	<string name="report_personal_already_blocked">Bu kullanıcıyı zaten engellediniz, yani yapmanız gereken başka bir şey yok.\n\nMastodon\'u herkes için güvenli bir yer olarak tutmaya yardımcı olduğunuz için teşekkürler!</string>
+	<string name="blocked_user">%s engellendi</string>
+	<string name="mark_all_notifications_read">Tümünü okundu olarak işaretle</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="pause_all_notifications">Tümünü duraklat</string>
 	<string name="pause_notifications_off">Kapalı</string>
@@ -479,7 +507,45 @@
 		<item quantity="one">%d sessize alınan kelime veya kelime öbeği</item>
 		<item quantity="other">%d sessize alınan kelime veya kelime öbeği</item>
 	</plurals>
+	<string name="selection_2_options">%1$s ve %2$s</string>
+	<string name="selection_3_options">%1$s, %2$s ve %3$s</string>
+	<string name="selection_4_or_more">%1$s, %2$s ve %3$d daha fazlası</string>
+	<string name="filter_context_home_lists">Ana Sayfa &amp; listeler</string>
 	<string name="filter_context_notifications">Bildirimler</string>
+	<string name="filter_context_profiles">Profiller</string>
+	<string name="settings_filter_title">Başlık</string>
+	<string name="settings_delete_filter_title">“%s” filtresi silinsin mi?</string>
+	<string name="add_muted_word">Sessize alınacak kelime ekle</string>
+	<string name="edit_muted_word">Sessize alınmış kelimeyi düzenle</string>
+	<string name="add">Ekle</string>
+	<string name="filter_word_or_phrase">Kelime veya kelime grubu</string>
+	<string name="settings_delete_filter_word">“%s” kelimesi silinsin mi?</string>
+	<string name="enter_selection_mode">Seç</string>
+	<string name="select_all">Tümünü seç</string>
+	<string name="settings_filter_duration_title">Süreye göre sırala</string>
+	<string name="filter_duration_custom">Özel</string>
+	<plurals name="settings_delete_x_filter_words">
+		<item quantity="one">%d kelime silinsin mi?</item>
+		<item quantity="other">%d kelime silinsin mi?</item>
+	</plurals>
+	<plurals name="x_items_selected">
+		<item quantity="one">%d öğe seçildi</item>
+		<item quantity="other">%d öğe seçildi</item>
+	</plurals>
+	<string name="required_form_field_blank">Boş bırakılamaz</string>
+	<string name="filter_word_already_in_list">Zaten listede</string>
+	<string name="app_update_ready">Uygulama güncellemesi hazır</string>
+	<string name="app_update_version">Sürüm %s</string>
+	<string name="downloading_update">İndiriliyor (%d%%)</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
+	<string name="search_mastodon">Mastodon\'da Ara</string>
+	<string name="clear_all">Tümünü temizle</string>
+	<string name="search_open_url">URL\'yi Mastodon\'da Aç</string>
+	<string name="posts_matching_hashtag">“%s” içeren gönderiler</string>
+	<string name="search_go_to_account">Git %s</string>
 	<!-- Shown in the post header. Please keep it short -->
+	<string name="time_seconds_ago_short">%dsn önce</string>
+	<string name="time_minutes_ago_short">%ddk önce</string>
+	<string name="time_hours_ago_short">%dsa önce</string>
+	<string name="time_days_ago_short">%dg önce</string>
 </resources>
