@@ -174,7 +174,7 @@
 	<string name="compose_hint">输入或贴入你的想法</string>
 	<string name="content_warning">内容警告</string>
 	<string name="save">保存</string>
-	<string name="add_alt_text">添加备注</string>
+	<string name="add_alt_text">添加替代文本</string>
 	<string name="visibility_public">公开</string>
 	<string name="visibility_followers_only">仅关注者</string>
 	<string name="visibility_private">仅提及的用户</string>
@@ -321,10 +321,10 @@
 	<string name="login_subtitle">登录到你所创建账户的所在实例。</string>
 	<string name="server_url">实例 URL</string>
 	<string name="signup_random_server_explain">如果你不做任何选择，我们会根据你的语言为你挑选一个实例。</string>
-	<string name="server_filter_any_language">任何语言</string>
-	<string name="server_filter_instant_signup">立即注册</string>
+	<string name="server_filter_any_language">语言</string>
+	<string name="server_filter_instant_signup">即时生效</string>
 	<string name="server_filter_manual_review">人工审核</string>
-	<string name="server_filter_any_signup_speed">任意注册频率</string>
+	<string name="server_filter_any_signup_speed">注册机制</string>
 	<string name="server_filter_region_europe">欧洲</string>
 	<string name="server_filter_region_north_america">北美洲</string>
 	<string name="server_filter_region_south_america">南美洲</string>
@@ -332,7 +332,7 @@
 	<string name="server_filter_region_asia">亚洲</string>
 	<string name="server_filter_region_oceania">大洋洲</string>
 	<string name="not_accepting_new_members">不接受新成员</string>
-	<string name="category_special_interests">特殊兴趣</string>
+	<string name="category_special_interests">特定兴趣</string>
 	<string name="signup_passwords_dont_match">密码不匹配</string>
 	<string name="pick_server_for_me">帮我挑选</string>
 	<string name="profile_add_row">添加</string>
@@ -393,9 +393,9 @@
 	<string name="compose_poll_multiple_choice">多选</string>
 	<string name="delete_poll_option">删除投票选项</string>
 	<string name="poll_style_title">投票样式</string>
-	<string name="alt_text">替换文本</string>
+	<string name="alt_text">替代文本</string>
 	<string name="help">帮助</string>
-	<string name="what_is_alt_text">什么时替换文本？</string>
+	<string name="what_is_alt_text">什么是替代文本</string>
 	<string name="alt_text_help">替换文本可向视觉障碍、低带宽网络连接或想要查看额外信息的用户提供图像说明。\n\n写下清晰、明确并且客观的替换文本有助于为所有用户改善可读性和理解难度。\n\n<ul><li>捕捉关键元素</li>\n<li>汇总图像中的文本</li>\n<li>使用常规语句结构</li>\n<li>精简无关信息</li>\n<li>聚焦于复杂图像中的主要趋势或关键结果（比如图表、地图）</li></ul></string>
 	<string name="edit_post">编辑嘟文</string>
 	<string name="no_verified_link">没有已验证的链接</string>
@@ -522,7 +522,7 @@
 	<string name="edit_muted_word">编辑已隐藏关键字</string>
 	<string name="add">添加</string>
 	<string name="filter_word_or_phrase">关键字或词组</string>
-	<string name="filter_add_word_help">关键字不区分大小写并且只进行完整匹配。\n\n比如你将 Apple 这个关键字加入过滤器，任何包含 apple、aPple 的嘟文都会被隐藏，但 pineapple 则不会。</string>
+	<string name="filter_add_word_help">关键字不区分大小写且只匹配整个词语。\n\n例如将 Apple 这个关键字加入过滤器，包含 apple、aPple 的嘟文都会隐藏，但 pineapple 则不会。</string>
 	<string name="settings_delete_filter_word">删除关键字「%s」？</string>
 	<string name="enter_selection_mode">选择</string>
 	<string name="select_all">全选</string>
