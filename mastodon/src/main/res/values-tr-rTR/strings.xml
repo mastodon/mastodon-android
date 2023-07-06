@@ -390,14 +390,96 @@
 	<string name="language">Dil</string>
 	<string name="language_default">Varsayılan</string>
 	<string name="language_system">Sistem</string>
+	<string name="language_detecting">Algılanan dil</string>
+	<string name="language_cant_detect">Dil algılanamıyor</string>
+	<string name="language_detected">Algılandı</string>
+	<string name="report_title_post">Gönderiyi bildir</string>
 	<!-- %s is the server domain -->
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
+	<string name="pause_all_notifications">Tümünü duraklat</string>
+	<string name="pause_notifications_off">Kapalı</string>
+	<string name="notifications_policy_anyone">Herhangi biri</string>
+	<string name="notifications_policy_followed">Seni takip eden insanlar</string>
+	<string name="notifications_policy_follower">Senin takip ettiğin insanlar</string>
+	<string name="notifications_policy_no_one">Hiç kimse</string>
+	<string name="settings_notifications_policy">Şundan bildirim al</string>
+	<string name="notification_type_mentions_and_replies">Bahsetmeler ve yanıtlar</string>
+	<string name="pause_all_notifications_title">Tüm bildirimleri durdur</string>
+	<plurals name="x_weeks">
+		<item quantity="one">%d hafta</item>
+		<item quantity="other">%d hafta</item>
+	</plurals>
 	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
+	<string name="date_at_time">%2$s, %1$s</string>
+	<string name="today">bugün</string>
+	<string name="yesterday">dün</string>
+	<string name="tomorrow">yarın</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="pause_notifications_ends">Bitiş %s</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="pause_notifications_banner">Bildirimler %s devam edecek.</string>
+	<string name="resume_notifications_now">Şimdi devam ettir</string>
+	<string name="open_system_notification_settings">Bildirim ayarlarına git</string>
+	<string name="about_server">Hakkında</string>
+	<string name="server_rules">Kurallar</string>
+	<string name="server_administrator">Yönetici</string>
+	<string name="send_email_to_server_admin">Yöneticiye mesaj gönder</string>
+	<string name="notifications_disabled_in_system">Güncellemeleri her yerden görmek için cihaz ayarlarınızdan bildirimleri açın.</string>
+	<string name="settings_even_more">Daha fazla ayar</string>
+	<string name="settings_show_cws">İçerik uyarılarını göster</string>
+	<string name="settings_hide_sensitive_media">Hassas olarak işaretlenen medyayı gizle</string>
+	<string name="settings_show_interaction_counts">Gönderi etkileşim sayısı</string>
+	<string name="settings_show_emoji_in_names">Görünen adlarda özel emoji</string>
+	<plurals name="in_x_seconds">
+		<item quantity="one">%d saniye içinde</item>
+		<item quantity="other">%d saniye içinde</item>
+	</plurals>
+	<plurals name="in_x_minutes">
+		<item quantity="one">%d dakika içinde</item>
+		<item quantity="other">%d dakika içinde</item>
+	</plurals>
+	<plurals name="in_x_hours">
+		<item quantity="one">%d saat içinde</item>
+		<item quantity="other">%d saat içinde</item>
+	</plurals>
+	<plurals name="x_hours_ago">
+		<item quantity="one">%d saat önce</item>
+		<item quantity="other">%d saat önce</item>
+	</plurals>
+	<string name="alt_text_reminder_title">Medyada alternatif metin yok</string>
+	<plurals name="alt_text_reminder_x_images">
+		<item quantity="one">%s resminizde alternatif metin eksik. Yine de gönder?</item>
+		<item quantity="other">%s resminizde alternatif metin eksik. Yine de gönder?</item>
+	</plurals>
+	<plurals name="alt_text_reminder_x_attachments">
+		<item quantity="one">%s medya ekinizde alternatif metin eksik. Yine de gönder?</item>
+		<item quantity="other">%s medya ekinizde alternatif metin eksik. Yine de gönder?</item>
+	</plurals>
+	<string name="count_one">Bir</string>
+	<string name="count_two">İki</string>
+	<string name="count_three">Üç</string>
+	<string name="count_four">Dört</string>
+	<string name="alt_text_reminder_post_anyway">Gönderi</string>
 	<!-- %s is the username -->
+	<string name="unfollow_confirmation">Takipten çık %s?</string>
+	<string name="filter_active">Etkin</string>
+	<string name="filter_inactive">Etkin değil</string>
+	<string name="settings_add_filter">Filtre ekle</string>
+	<string name="settings_edit_filter">Filtreyi düzenle</string>
+	<string name="settings_filter_duration">Süre</string>
+	<string name="settings_filter_muted_words">Sessize alınmış kelimeler</string>
+	<string name="settings_filter_context">Sessize al</string>
+	<string name="settings_filter_show_cw">İçerik uyarısı ile göster</string>
+	<string name="settings_delete_filter">Filtreyi sil</string>
+	<string name="filter_duration_forever">Sonsuza dek</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="settings_filter_ends">Bitiş %s</string>
+	<plurals name="settings_x_muted_words">
+		<item quantity="one">%d sessize alınan kelime veya kelime öbeği</item>
+		<item quantity="other">%d sessize alınan kelime veya kelime öbeği</item>
+	</plurals>
+	<string name="filter_context_notifications">Bildirimler</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
 	<!-- Shown in the post header. Please keep it short -->
 </resources>
