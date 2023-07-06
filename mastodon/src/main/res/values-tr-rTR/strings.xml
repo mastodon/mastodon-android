@@ -155,14 +155,14 @@
 	<string name="back">Geri</string>
 	<string name="search_communities">Sunucu adı veya bağlantısı</string>
 	<string name="instance_rules_title">Sunucu kuralları</string>
-	<string name="instance_rules_subtitle">Devam ederseniz %s moderatörleri tarafından yayınlanan kuralları kabul etmiş olursunuz.</string>
+	<string name="instance_rules_subtitle">Devam ederseniz %s yöneticileri tarafından yayınlanan kuralları kabul etmiş olursunuz.</string>
 	<string name="signup_title">Hesap oluştur</string>
 	<string name="display_name">Ad</string>
 	<string name="username">Kullanıcı adı</string>
-	<string name="email">E-posta</string>
+	<string name="email">Eposta</string>
 	<string name="password">Parola</string>
 	<string name="confirm_password">Parolayı doğrula</string>
-	<string name="password_note">Parolanızın gücünü artırmak için büyük harfler, özel karakterler ve sayılar ekleyin.</string>
+	<string name="password_note">Daha güçlü parolalar için parolanıza büyük harfler, özel karakterler ve sayılar ekleyin.</string>
 	<string name="category_academia">Akademi</string>
 	<string name="category_activism">Aktivizm</string>
 	<string name="category_all">Hepsi</string>
@@ -213,7 +213,7 @@
 	<string name="settings_gif">Animasyonlu avatarları ve emojileri oynat</string>
 	<string name="settings_custom_tabs">Uygulama içi tarayıcıyı kullan</string>
 	<string name="settings_notifications">Bildirimler</string>
-	<string name="settings_contribute">Mastodona katkıda bulunun</string>
+	<string name="settings_contribute">Mastodon\'a katkıda bulunun</string>
 	<string name="settings_tos">Kullanım şartları</string>
 	<string name="settings_privacy_policy">Gizlilik politikası</string>
 	<string name="settings_clear_cache">Medya önbelleğini temizle</string>
@@ -261,7 +261,7 @@
 	<string name="trending_links_info_banner">Bunlar Mastodon\'da konuşulan haberler.</string>
 	<!-- %s is the server domain -->
 	<string name="local_timeline_info_banner">Bunlar, sunucunuzdaki (%s) tüm kullanıcıların gönderileridir.</string>
-	<string name="recommended_accounts_info_banner">Takip ettiğiniz diğer hesaplara göre bu hesapları beğenebilirsiniz.</string>
+	<string name="recommended_accounts_info_banner">Takip ettiğiniz hesaplara göre bu hesapları beğenebilirsiniz.</string>
 	<string name="see_new_posts">Yeni gönderileri gör</string>
 	<string name="load_missing_posts">Daha fazlası</string>
 	<string name="follow_back">Geri takip et</string>
@@ -337,7 +337,7 @@
 	<string name="bookmarks">Yer imleri</string>
 	<string name="your_favorites">Favorilerin</string>
 	<string name="login_title">Hoşgeldiniz</string>
-	<string name="login_subtitle">Hesabınızı oluşturduğunuz sunucu ile giriş yapın.</string>
+	<string name="login_subtitle">Hesabınızı oluşturduğunuz sunucuya giriş yapın.</string>
 	<string name="server_url">Sunucu bağlantısı</string>
 	<string name="signup_random_server_explain">Seçim yapmadan devam ederseniz, dilinize göre bir sunucu seçeceğiz.</string>
 	<string name="server_filter_any_language">Herhangi bir dil</string>
@@ -350,20 +350,20 @@
 	<string name="server_filter_region_africa">Afrika</string>
 	<string name="server_filter_region_asia">Asya</string>
 	<string name="server_filter_region_oceania">Okyanusya</string>
-	<string name="not_accepting_new_members">Yeni üyeler kabul etmiyor</string>
-	<string name="category_special_interests">Özel İlgi Alanları</string>
-	<string name="signup_passwords_dont_match">Şifreler eşleşmiyor</string>
+	<string name="not_accepting_new_members">Yeni üyelikler kabul edilmiyor</string>
+	<string name="category_special_interests">Özel ilgi alanları</string>
+	<string name="signup_passwords_dont_match">Parolalar eşleşmiyor</string>
 	<string name="pick_server_for_me">Benim için seç</string>
 	<string name="profile_add_row">Satır ekle</string>
 	<string name="profile_setup">Profilini ayarla</string>
-	<string name="profile_setup_subtitle">Bunu istediğin bir zaman Profil sekmesinden tamamlayabilirsin.</string>
-	<string name="profile_setup_explanation">İstediğin herhangi bir şey için en fazla dört profil alanı ekleyebilirsin. Konum, linkler -ne isterseniz.</string>
-	<string name="popular_on_mastodon">Mastodon\'da Popüler</string>
+	<string name="profile_setup_subtitle">Bunu istediğin zaman Profil sekmesinden tamamlayabilirsin.</string>
+	<string name="profile_setup_explanation">İstediğiniz herhangi bir şey için dört adede kadar profil alanı ekleyebilirsiniz. Konum, bağlantılar, yönelim — sınır gökyüzü.</string>
+	<string name="popular_on_mastodon">Mastodon\'da popüler</string>
 	<string name="follow_all">Hepsini takip et</string>
 	<string name="server_rules_disagree">Reddet</string>
 	<string name="privacy_policy_explanation">Kısacası: Hiçbir şey toplamıyoruz veya işlemiyoruz.</string>
 	<!-- %s is server domain -->
-	<string name="server_policy_disagree">%s \'yi reddet</string>
+	<string name="server_policy_disagree">%s\'nı reddet</string>
 	<string name="profile_bio">Hakkımda</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<string name="sending_follows">Hesaplar takip ediliyor…</string>
@@ -375,7 +375,7 @@
 	<string name="save_changes">Değişiklikleri kaydet</string>
 	<string name="profile_featured">Öne çıkan</string>
 	<string name="profile_timeline">Zaman çizelgesi</string>
-	<string name="view_all">Tümünü Gör</string>
+	<string name="view_all">Tümünü gör</string>
 	<string name="profile_endorsed_accounts">Hesaplar</string>
 	<string name="verified_link">Onaylanmış bağlantı</string>
 	<string name="show">Göster</string>
@@ -385,9 +385,9 @@
 	<string name="signup_or_login">veya</string>
 	<string name="learn_more">Daha fazlası</string>
 	<string name="welcome_to_mastodon">Mastodon\'a hoş geldiniz</string>
-	<string name="welcome_paragraph1">Mastodon , Merkezi olmayan bir sosyal ağdır, yani tek bir şirket tarafından kontrol edilmemektedir. Hepsi birbirine bağlı, bağımsız olarak işletilen birçok sunucudan oluşur.</string>
-	<string name="what_are_servers">Sunucular nelerdir?</string>
-	<string name="welcome_paragraph2"><![CDATA[Her Mastodon , hesabı bir sunucuda barındırılır - her birinin kendi değerleri, kuralları ve yöneticileri vardır. Hangisini seçerseniz seçin, herhangi bir sunucudaki insanları takip edebilir ve onlarla etkileşime geçebilirsiniz.]]></string>
+	<string name="welcome_paragraph1">Mastodon merkezi olmayan bir sosyal ağdır, yani onu tek bir şirket kontrol etmiyor. Hepsi birbirine bağlı, bağımsız olarak çalışan birçok sunucudan oluşur.</string>
+	<string name="what_are_servers">Sunucular nedir?</string>
+	<string name="welcome_paragraph2"><![CDATA[Her Mastodon hesabı bir sunucuda barındırılır - her birinin kendi değerleri, kuralları ve yöneticileri vardır. Hangisini seçerseniz seçin, herhangi bir sunucudaki insanları takip edebilir ve onlarla etkileşime geçebilirsiniz.]]></string>
 	<string name="opening_link">Bağlantı açılıyor…</string>
 	<string name="link_not_supported">Bu bağlantı uygulamada desteklenmiyor</string>
 	<string name="log_out_all_accounts">Tüm hesaplardan çıkış yap</string>
@@ -399,7 +399,7 @@
 	<string name="attachment_description_video">%s video</string>
 	<string name="attachment_description_audio">%s ses</string>
 	<string name="attachment_description_unknown">%s dosya</string>
-	<string name="attachment_type_image">Resim</string>
+	<string name="attachment_type_image">Görsel</string>
 	<string name="attachment_type_video">Video</string>
 	<string name="attachment_type_audio">Ses</string>
 	<string name="attachment_type_gif">GIF</string>
@@ -415,9 +415,9 @@
 	<string name="alt_text">Alternatif metin</string>
 	<string name="help">Yardım</string>
 	<string name="what_is_alt_text">Alternatif metin nedir?</string>
-	<string name="alt_text_help">Alternatif metin, görme bozukluğu olan, düşük bant genişliğine sahip bağlantıları olan veya ekstra bağlam arayan kişiler için resim açıklamaları sağlar.\n\n Net, sade ve nesnel alternatif metin yazarak herkes için erişilebilirliği ve anlaşılabilirliği iyileştirebilirsiniz.\n\n<ul><li>Önemli öğeleri yakalayın</li>\n<li>Resimlerdeki metni özetleyin</li>\n<li>Düzenli cümle yapısı kullanın</li>\n<li>Gereksiz bilgilerden kaçının</li>\n<li>Karmaşık görsellerde (şemalar veya haritalar gibi) trendlere ve temel bulgulara odaklanın</li></ul></string>
+	<string name="alt_text_help">Alternatif metin, görme bozukluğu olan, düşük bant genişliğine sahip bağlantıları olan veya ekstra bağlam arayan kişiler için görsel açıklamaları sağlar.\n\n Net, sade ve nesnel alternatif metin yazarak herkes için erişilebilirliği ve anlaşılabilirliği iyileştirebilirsiniz.\n\n<ul><li>Önemli öğeleri yakalayın</li>\n<li>Resimlerdeki metni özetleyin</li>\n<li>Düzenli cümle yapısı kullanın</li>\n<li>Gereksiz bilgilerden kaçının</li>\n<li>Karmaşık görsellerde (şemalar veya haritalar gibi) trendlere ve temel bulgulara odaklanın</li></ul></string>
 	<string name="edit_post">Gönderiyi düzenle</string>
-	<string name="no_verified_link">Doğrulanmış bağlantı yok</string>
+	<string name="no_verified_link">Doğrulanmamış bağlantı</string>
 	<string name="compose_autocomplete_emoji_empty">Emoji bul</string>
 	<string name="compose_autocomplete_users_empty">Kimi aradığınızı bulun</string>
 	<string name="no_search_results">Bu arama terimleri için hiçbir şey bulunamadı</string>
@@ -441,7 +441,7 @@
 	<string name="report_personal_already_blocked">Bu kullanıcıyı zaten engellediniz, yani yapmanız gereken başka bir şey yok.\n\nMastodon\'u herkes için güvenli bir yer olarak tutmaya yardımcı olduğunuz için teşekkürler!</string>
 	<string name="blocked_user">%s engellendi</string>
 	<string name="mark_all_notifications_read">Tümünü okundu olarak işaretle</string>
-	<string name="settings_display">Görüntüleme</string>
+	<string name="settings_display">Görünüm</string>
 	<string name="settings_filters">Filtreler</string>
 	<string name="settings_server_explanation">Genel bakış, kurallar, moderatörler</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
@@ -504,11 +504,11 @@
 	<string name="alt_text_reminder_title">Medyada alternatif metin yok</string>
 	<plurals name="alt_text_reminder_x_images">
 		<item quantity="one">%s resminizde alternatif metin eksik. Yine de gönder?</item>
-		<item quantity="other">%s resminizde alternatif metin eksik. Yine de gönder?</item>
+		<item quantity="other">%s medyanızda alternatif metin yok. Yine de paylaşılsın mı?</item>
 	</plurals>
 	<plurals name="alt_text_reminder_x_attachments">
-		<item quantity="one">%s medya ekinizde alternatif metin eksik. Yine de gönder?</item>
-		<item quantity="other">%s medya ekinizde alternatif metin eksik. Yine de gönder?</item>
+		<item quantity="one">%s medyanızda alternatif metin yok. Yine de paylaşılsın mı?</item>
+		<item quantity="other">%s medyanızda alternatif metin yok. Yine de paylaşılsın mı?</item>
 	</plurals>
 	<string name="count_one">Bir</string>
 	<string name="count_two">İki</string>
@@ -516,7 +516,7 @@
 	<string name="count_four">Dört</string>
 	<string name="alt_text_reminder_post_anyway">Gönderi</string>
 	<!-- %s is the username -->
-	<string name="unfollow_confirmation">Takipten çık %s?</string>
+	<string name="unfollow_confirmation">%s takipten çıkılsın mı?</string>
 	<string name="filter_active">Etkin</string>
 	<string name="filter_inactive">Etkin değil</string>
 	<string name="settings_add_filter">Filtre ekle</string>
@@ -537,7 +537,7 @@
 	<string name="selection_2_options">%1$s ve %2$s</string>
 	<string name="selection_3_options">%1$s, %2$s ve %3$s</string>
 	<string name="selection_4_or_more">%1$s, %2$s ve %3$d daha fazlası</string>
-	<string name="filter_context_home_lists">Ana Sayfa &amp; listeler</string>
+	<string name="filter_context_home_lists">Ana sayfa &amp; listeler</string>
 	<string name="filter_context_notifications">Bildirimler</string>
 	<string name="filter_context_public_timelines">Herkese açık zaman çizelgeleri</string>
 	<string name="filter_context_threads_replies">Konular &amp; cevaplar</string>
