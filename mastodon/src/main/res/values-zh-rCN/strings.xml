@@ -20,13 +20,13 @@
 	<string name="settings">设置</string>
 	<string name="publish">发布</string>
 	<string name="discard_draft">舍弃草稿？</string>
-	<string name="discard">丢弃</string>
+	<string name="discard">舍弃</string>
 	<string name="cancel">取消</string>
 	<plurals name="followers">
 		<item quantity="other">关注者</item>
 	</plurals>
 	<plurals name="following">
-		<item quantity="other">已关注</item>
+		<item quantity="other">正在关注</item>
 	</plurals>
 	<string name="posts">嘟文</string>
 	<string name="posts_and_replies">嘟文和回复</string>
@@ -144,7 +144,7 @@
 	<string name="search_communities">实例名称或 URL</string>
 	<string name="instance_rules_title">实例规则</string>
 	<string name="instance_rules_subtitle">继续意味着你同意并且愿意遵循由 %s 管理员设置和执行的规则。</string>
-	<string name="signup_title">创建帐号</string>
+	<string name="signup_title">创建账户</string>
 	<string name="display_name">名字</string>
 	<string name="username">用户名</string>
 	<string name="email">邮箱</string>
@@ -166,8 +166,8 @@
 	<string name="category_tech">科技</string>
 	<string name="confirm_email_title">检查你的收件箱</string>
 	<!-- %s is the email address -->
-	<string name="confirm_email_subtitle">点击我们发送给你的链接来认真 %s。我们将在此守候。</string>
-	<string name="confirm_email_didnt_get">没收到链接？</string>
+	<string name="confirm_email_subtitle">点击我们发送给你的链接来验证 %s。我们在此守候。</string>
+	<string name="confirm_email_didnt_get">没有收到链接？</string>
 	<string name="resend">重新发送</string>
 	<string name="open_email_app">打开电子邮件应用</string>
 	<string name="resent_email">邮件已发送</string>
@@ -206,7 +206,7 @@
 	<string name="settings_clear_cache">清除媒体缓存</string>
 	<string name="settings_app_version">Mastodon for Android v%1$s (%2$d)</string>
 	<string name="media_cache_cleared">媒体缓存已清除</string>
-	<string name="confirm_log_out">注销 %s？</string>
+	<string name="confirm_log_out">登出 %s？</string>
 	<string name="sensitive_content_explain">作者将此媒体内容标记为敏感。</string>
 	<string name="avatar_description">前往 %s 的资料页面</string>
 	<string name="more_options">更多选项</string>
@@ -243,12 +243,12 @@
 	<string name="file_saved">文件已保存</string>
 	<string name="downloading">正在下载…</string>
 	<string name="no_app_to_handle_action">没有可用于处理该操作的 app</string>
-	<string name="local_timeline">本地</string>
+	<string name="local_timeline">本站</string>
 	<string name="trending_posts_info_banner">以下是 Mastodon 中备受关注的嘟文。</string>
 	<string name="trending_links_info_banner">以下是 Mastodon 中正在热议的新鲜事。</string>
 	<!-- %s is the server domain -->
 	<string name="local_timeline_info_banner">以下是来自你所在实例（%s）的所有嘟文。</string>
-	<string name="recommended_accounts_info_banner">基于你的关注，你或许也会喜欢这些账号。</string>
+	<string name="recommended_accounts_info_banner">根据你所关注的，你或许也会喜欢这些用户。</string>
 	<string name="see_new_posts">查看新嘟文</string>
 	<string name="load_missing_posts">加载嘟文</string>
 	<string name="follow_back">关注</string>
@@ -295,7 +295,7 @@
 	<string name="edit_marked_not_sensitive">取消了敏感内容标记</string>
 	<string name="edit_multiple_changed">编辑了嘟文</string>
 	<string name="edit">编辑</string>
-	<string name="discard_changes">放弃更改？</string>
+	<string name="discard_changes">舍弃更改？</string>
 	<string name="upload_failed">上传失败</string>
 	<string name="file_size_bytes">%d 字节</string>
 	<string name="file_size_kb">%.2f KB</string>
@@ -318,7 +318,7 @@
 	<string name="bookmarks">书签</string>
 	<string name="your_favorites">你喜欢的</string>
 	<string name="login_title">欢迎回来</string>
-	<string name="login_subtitle">登录到你所创建账户的所在实例。</string>
+	<string name="login_subtitle">登陆到你创建账户的服务器。</string>
 	<string name="server_url">实例 URL</string>
 	<string name="signup_random_server_explain">如果你不做任何选择，我们会根据你的语言为你挑选一个实例。</string>
 	<string name="server_filter_any_language">语言</string>
@@ -357,7 +357,7 @@
 	<string name="profile_featured">精选</string>
 	<string name="profile_timeline">时间轴</string>
 	<string name="view_all">查看全部</string>
-	<string name="profile_endorsed_accounts">帐号</string>
+	<string name="profile_endorsed_accounts">账户</string>
 	<string name="verified_link">已验证链接</string>
 	<string name="show">显示</string>
 	<string name="hide">隐藏</string>
@@ -368,11 +368,11 @@
 	<string name="welcome_to_mastodon">欢迎来到Mastodon</string>
 	<string name="welcome_paragraph1">Mastodon 是去中心化的社交网络，这意味着它不由任何企业独控。它是由众多独立运行的实例共同联结而成的。</string>
 	<string name="what_are_servers">是什么实例？</string>
-	<string name="welcome_paragraph2"><![CDATA[所有的 Mastodon 帐号皆托管于各自的实例上，每个实例有各自的价值取向、规则与管理员。无论你选择哪个实例，你都能关注并与其他任何实例上的用户互动。]]></string>
+	<string name="welcome_paragraph2"><![CDATA[所有的 Mastodon 帐号皆托管于各自的服务器上，每个服务器有各自的价值取向、规则与管理员。无论你选择哪个服务器，你都能关注并与其他任何服务器上的用户互动。]]></string>
 	<string name="opening_link">打开链接…</string>
 	<string name="link_not_supported">应用不支持该链接</string>
-	<string name="log_out_all_accounts">注销所有账户</string>
-	<string name="confirm_log_out_all_accounts">要注销所有账户吗？</string>
+	<string name="log_out_all_accounts">登出所有账户</string>
+	<string name="confirm_log_out_all_accounts">要登出所有账户吗？</string>
 	<string name="retry">重试</string>
 	<string name="post_failed">发送嘟文失败</string>
 	<!-- %s is formatted file size ("467 KB image") -->
@@ -396,7 +396,7 @@
 	<string name="alt_text">替代文本</string>
 	<string name="help">帮助</string>
 	<string name="what_is_alt_text">什么是替代文本</string>
-	<string name="alt_text_help">替换文本可向视觉障碍、低带宽网络连接或想要查看额外信息的用户提供图像说明。\n\n写下清晰、明确并且客观的替换文本有助于为所有用户改善可读性和理解难度。\n\n<ul><li>捕捉关键元素</li>\n<li>汇总图像中的文本</li>\n<li>使用常规语句结构</li>\n<li>精简无关信息</li>\n<li>聚焦于复杂图像中的主要趋势或关键结果（比如图表、地图）</li></ul></string>
+	<string name="alt_text_help">替代文本能够为视障人士、低带宽网络用户或想要查看额外信息的人提供图像描述。\n\n简洁明了又客观的替代文本能让所有人都更容易理解你要传达的信息。\n\n<ul><li>捕捉关键元素</li>\n<li>总结图像中的文字</li>\n<li>使用标准句构</li>\n<li>避免冗余信息</li>\n<li>着重于复杂视图（图表、地图等）中的趋势或关键结论</li></ul></string>
 	<string name="edit_post">编辑嘟文</string>
 	<string name="no_verified_link">没有已验证的链接</string>
 	<string name="compose_autocomplete_emoji_empty">浏览 emoji</string>
@@ -411,7 +411,7 @@
 	<string name="media_hidden">已隐藏媒体</string>
 	<string name="post_hidden">已隐藏嘟文</string>
 	<string name="report_title_post">报告嘟文</string>
-	<string name="forward_report_explanation">该账户来自另一个实例。是否要向它们匿名发送该报告？</string>
+	<string name="forward_report_explanation">该用户来自另一个实例，是否要向该实例匿名发送此报告？</string>
 	<!-- %s is the server domain -->
 	<string name="forward_report_to_server">转发至 %s</string>
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
@@ -428,17 +428,17 @@
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">关于 %s</string>
 	<string name="default_post_language">默认嘟文语言</string>
-	<string name="settings_alt_text_reminders">添加替换文本提醒</string>
-	<string name="settings_confirm_unfollow">取消关注某人前确认</string>
-	<string name="settings_confirm_boost">转嘟前确认</string>
-	<string name="settings_confirm_delete_post">删除嘟文前确认</string>
-	<string name="pause_all_notifications">暂停所有</string>
+	<string name="settings_alt_text_reminders">提醒我添加替代文本</string>
+	<string name="settings_confirm_unfollow">取消关注前询问我</string>
+	<string name="settings_confirm_boost">转嘟前询问我</string>
+	<string name="settings_confirm_delete_post">删除嘟文前询问我</string>
+	<string name="pause_all_notifications">暂停所有通知</string>
 	<string name="pause_notifications_off">关闭</string>
 	<string name="notifications_policy_anyone">任何人</string>
 	<string name="notifications_policy_followed">关注你的人</string>
 	<string name="notifications_policy_follower">你关注的人</string>
-	<string name="notifications_policy_no_one">没有人</string>
-	<string name="settings_notifications_policy">获取通知来源</string>
+	<string name="notifications_policy_no_one">关闭通知</string>
+	<string name="settings_notifications_policy">通知接收范围</string>
 	<string name="notification_type_mentions_and_replies">提及与回复</string>
 	<string name="pause_all_notifications_title">暂停所有通知</string>
 	<plurals name="x_weeks">
@@ -458,7 +458,7 @@
 	<string name="about_server">关于</string>
 	<string name="server_rules">规则</string>
 	<string name="server_administrator">管理员</string>
-	<string name="send_email_to_server_admin">向管理员发送私信</string>
+	<string name="send_email_to_server_admin">联系管理员</string>
 	<string name="notifications_disabled_in_system">在你的设备设置中打开通知来随时随地获取新动态。</string>
 	<string name="settings_even_more">还有更多设置</string>
 	<string name="settings_show_cws">显示内容警告</string>
@@ -477,12 +477,12 @@
 	<plurals name="x_hours_ago">
 		<item quantity="other">%d 小时以前</item>
 	</plurals>
-	<string name="alt_text_reminder_title">媒体文件缺少替换文本</string>
+	<string name="alt_text_reminder_title">缺少替代文本</string>
 	<plurals name="alt_text_reminder_x_images">
-		<item quantity="other">你有 %s 张图像缺少替换文本。仍要发布吗？</item>
+		<item quantity="other">你有 %s 张图像缺少替代文本。仍要发布吗？</item>
 	</plurals>
 	<plurals name="alt_text_reminder_x_attachments">
-		<item quantity="other">你有 %s 份媒体附件缺少替换文本。仍要发布吗？</item>
+		<item quantity="other">你有 %s 份媒体附件缺少替代文本。仍要发布吗？</item>
 	</plurals>
 	<string name="count_one">一</string>
 	<string name="count_two">二</string>
@@ -517,7 +517,7 @@
 	<string name="filter_context_profiles">个人资料</string>
 	<string name="settings_filter_title">标题</string>
 	<string name="settings_delete_filter_title">删除过滤器「%s」？</string>
-	<string name="settings_delete_filter_confirmation">该过滤器将从你的所有设备上的账号中删除。</string>
+	<string name="settings_delete_filter_confirmation">该过滤器将在你所有设备上从你的账户中删除。</string>
 	<string name="add_muted_word">添加隐藏关键字</string>
 	<string name="edit_muted_word">编辑已隐藏关键字</string>
 	<string name="add">添加</string>
