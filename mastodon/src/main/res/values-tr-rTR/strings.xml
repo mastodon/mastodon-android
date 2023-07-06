@@ -13,6 +13,8 @@
 	<string name="notifications">Bildirimler</string>
 	<string name="user_followed_you">%s seni takip etti</string>
 	<string name="user_sent_follow_request">%s sana bir takip isteği gönderdi</string>
+	<string name="user_favorited">%s gönderinizi favorilere ekledi</string>
+	<string name="notification_boosted">%s gönderinizi öne çıkardı</string>
 	<string name="poll_ended">Oy verdiğiniz bir anketin sonuçlarını görün</string>
 	<string name="share_toot_title">Paylaş</string>
 	<string name="settings">Ayarlar</string>
@@ -376,6 +378,18 @@
 	<string name="what_are_servers">Sunucular nelerdir?</string>
 	<string name="welcome_paragraph2"><![CDATA[Her Mastodon , hesabı bir sunucuda barındırılır - her birinin kendi değerleri, kuralları ve yöneticileri vardır. Hangisini seçerseniz seçin, herhangi bir sunucudaki insanları takip edebilir ve onlarla etkileşime geçebilirsiniz.]]></string>
 	<!-- %s is formatted file size ("467 KB image") -->
+	<string name="alt_text">Alternatif metin</string>
+	<string name="help">Yardım</string>
+	<string name="what_is_alt_text">Alternatif metin nedir?</string>
+	<string name="alt_text_help">Alternatif metin, görme bozukluğu olan, düşük bant genişliğine sahip bağlantıları olan veya ekstra bağlam arayan kişiler için resim açıklamaları sağlar.\n\n Net, sade ve nesnel alternatif metin yazarak herkes için erişilebilirliği ve anlaşılabilirliği iyileştirebilirsiniz.\n\n<ul><li>Önemli öğeleri yakalayın</li>\n<li>Resimlerdeki metni özetleyin</li>\n<li>Düzenli cümle yapısı kullanın</li>\n<li>Gereksiz bilgilerden kaçının</li>\n<li>Karmaşık görsellerde (şemalar veya haritalar gibi) trendlere ve temel bulgulara odaklanın</li></ul></string>
+	<string name="edit_post">Gönderiyi düzenle</string>
+	<string name="no_verified_link">Doğrulanmış bağlantı yok</string>
+	<string name="compose_autocomplete_emoji_empty">Emoji bul</string>
+	<string name="compose_autocomplete_users_empty">Kimi aradığınızı bulun</string>
+	<string name="no_search_results">Bu arama terimleri için hiçbir şey bulunamadı</string>
+	<string name="language">Dil</string>
+	<string name="language_default">Varsayılan</string>
+	<string name="language_system">Sistem</string>
 	<!-- %s is the server domain -->
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
