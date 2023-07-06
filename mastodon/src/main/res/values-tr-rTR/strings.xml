@@ -149,6 +149,7 @@
 	<string name="unfollow_user">Takipten çık %s</string>
 	<string name="unfollow">Takipten çık</string>
 	<string name="mute_user_explain">Gönderilerini görmeyeceksiniz. Sizi takip etmeye devam edebilir ve gönderilerinizi görebilirler ama sessize alındıklarını anlamayacaklar.</string>
+	<string name="block_user_explain">Gönderilerini göremeyeceksiniz. Gönderilerinizi göremezler veya sizi takip edemezler. Engelli olduklarını anlayabilecekler.</string>
 	<string name="report_personal_title">Bunu görmek istemiyor musunuz?</string>
 	<string name="report_personal_subtitle">Mastodon\'da görebileceklerinizi kontrol etmek için seçenekleriniz şunlardır:</string>
 	<string name="back">Geri</string>
@@ -177,6 +178,7 @@
 	<string name="category_tech">Teknoloji</string>
 	<string name="confirm_email_title">E-posta Kutunuzu Kontrol Edin</string>
 	<!-- %s is the email address -->
+	<string name="confirm_email_subtitle">%s adresini doğrulamak için size gönderdiğimiz bağlantıya dokunun. Hemen burada bekleyeceğiz.</string>
 	<string name="confirm_email_didnt_get">Bağlantı gelmedi mi?</string>
 	<string name="resend">Yeniden gönder</string>
 	<string name="open_email_app">Eposta uygulamasını aç</string>
@@ -259,6 +261,7 @@
 	<string name="trending_links_info_banner">Bunlar Mastodon\'da konuşulan haberler.</string>
 	<!-- %s is the server domain -->
 	<string name="local_timeline_info_banner">Bunlar, sunucunuzdaki (%s) tüm kullanıcıların gönderileridir.</string>
+	<string name="recommended_accounts_info_banner">Takip ettiğiniz diğer hesaplara göre bu hesapları beğenebilirsiniz.</string>
 	<string name="see_new_posts">Yeni gönderileri gör</string>
 	<string name="load_missing_posts">Daha fazlası</string>
 	<string name="follow_back">Takip edeni Takip Et</string>
@@ -336,6 +339,7 @@
 	<string name="login_title">Hoşgeldiniz</string>
 	<string name="login_subtitle">Hesabınızı oluşturduğunuz sunucu ile giriş yapın.</string>
 	<string name="server_url">Sunucu bağlantısı</string>
+	<string name="signup_random_server_explain">Seçim yapmadan devam ederseniz, dilinize göre bir sunucu seçeceğiz.</string>
 	<string name="server_filter_any_language">Herhangi Bir Dil</string>
 	<string name="server_filter_instant_signup">Koşulsuz Kayıt</string>
 	<string name="server_filter_manual_review">İnceleme Gerekli</string>
@@ -348,6 +352,7 @@
 	<string name="server_filter_region_oceania">Okyanusya</string>
 	<string name="not_accepting_new_members">Yeni üyeler kabul etmiyor</string>
 	<string name="category_special_interests">Özel İlgi Alanları</string>
+	<string name="signup_passwords_dont_match">Şifreler eşleşmiyor</string>
 	<string name="pick_server_for_me">Benim için seç</string>
 	<string name="profile_add_row">Satır ekle</string>
 	<string name="profile_setup">Profilini ayarla</string>
@@ -356,12 +361,14 @@
 	<string name="popular_on_mastodon">Mastodon\'da Popüler</string>
 	<string name="follow_all">Hepsini takip et</string>
 	<string name="server_rules_disagree">Reddet</string>
+	<string name="privacy_policy_explanation">Kısacası: Hiçbir şey toplamıyoruz veya işlemiyoruz.</string>
 	<!-- %s is server domain -->
 	<string name="server_policy_disagree">%s \'yi reddet</string>
 	<string name="profile_bio">Hakkımda</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<string name="sending_follows">Hesaplar takip ediliyor…</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<string name="signup_email_domain_blocked">%1$s, %2$s tarafından kayıt yapılmasına izin vermiyor. Farklı bir e-posta adresi deneyin veya &lt;a&gt;farklı bir sunucu seçin&lt;/a&gt;.</string>
 	<string name="spoiler_show">Yine de göster</string>
 	<string name="spoiler_hide">Yeniden gizle</string>
 	<string name="poll_multiple_choice">Bir ya da daha fazla seçim yapın</string>
@@ -381,7 +388,17 @@
 	<string name="welcome_paragraph1">Mastodon , Merkezi olmayan bir sosyal ağdır, yani tek bir şirket tarafından kontrol edilmemektedir. Hepsi birbirine bağlı, bağımsız olarak işletilen birçok sunucudan oluşur.</string>
 	<string name="what_are_servers">Sunucular nelerdir?</string>
 	<string name="welcome_paragraph2"><![CDATA[Her Mastodon , hesabı bir sunucuda barındırılır - her birinin kendi değerleri, kuralları ve yöneticileri vardır. Hangisini seçerseniz seçin, herhangi bir sunucudaki insanları takip edebilir ve onlarla etkileşime geçebilirsiniz.]]></string>
+	<string name="opening_link">Bağlantı açılıyor…</string>
+	<string name="link_not_supported">Bu bağlantı uygulamada desteklenmiyor</string>
+	<string name="log_out_all_accounts">Tüm hesaplardan çıkış yap</string>
+	<string name="confirm_log_out_all_accounts">Tüm hesaplardan çıkış yapılsın mı?</string>
+	<string name="retry">Yeniden dene</string>
+	<string name="post_failed">Gönderi paylaşılamadı</string>
 	<!-- %s is formatted file size ("467 KB image") -->
+	<string name="attachment_description_image">%s resim</string>
+	<string name="attachment_description_video">%s video</string>
+	<string name="attachment_description_audio">%s ses</string>
+	<string name="attachment_description_unknown">%s dosya</string>
 	<string name="attachment_type_image">Resim</string>
 	<string name="attachment_type_video">Video</string>
 	<string name="attachment_type_audio">Ses</string>
@@ -424,7 +441,16 @@
 	<string name="report_personal_already_blocked">Bu kullanıcıyı zaten engellediniz, yani yapmanız gereken başka bir şey yok.\n\nMastodon\'u herkes için güvenli bir yer olarak tutmaya yardımcı olduğunuz için teşekkürler!</string>
 	<string name="blocked_user">%s engellendi</string>
 	<string name="mark_all_notifications_read">Tümünü okundu olarak işaretle</string>
+	<string name="settings_display">Görüntüleme</string>
+	<string name="settings_filters">Filtreler</string>
+	<string name="settings_server_explanation">Genel bakış, kurallar, moderatörler</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
+	<string name="about_app">%s Hakkında</string>
+	<string name="default_post_language">Varsayılan gönderi dili</string>
+	<string name="settings_alt_text_reminders">Alternatif metin hatırlatıcıları ekleyin</string>
+	<string name="settings_confirm_unfollow">Birini takibi bırakmadan önce sor</string>
+	<string name="settings_confirm_boost">Yeniden paylaşmadan önce sor</string>
+	<string name="settings_confirm_delete_post">Gönderileri silmeden önce sor</string>
 	<string name="pause_all_notifications">Tümünü duraklat</string>
 	<string name="pause_notifications_off">Kapalı</string>
 	<string name="notifications_policy_anyone">Herhangi biri</string>
@@ -497,8 +523,9 @@
 	<string name="settings_edit_filter">Filtreyi düzenle</string>
 	<string name="settings_filter_duration">Süre</string>
 	<string name="settings_filter_muted_words">Sessize alınmış kelimeler</string>
-	<string name="settings_filter_context">Sessize al</string>
+	<string name="settings_filter_context">Sessize alınacak yerler</string>
 	<string name="settings_filter_show_cw">İçerik uyarısı ile göster</string>
+	<string name="settings_filter_show_cw_explanation">Yine de bu filtreyle eşleşen içerikleri göster, ancak bunu arkasında bir içerik uyarısıyla yap</string>
 	<string name="settings_delete_filter">Filtreyi sil</string>
 	<string name="filter_duration_forever">Sonsuza dek</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
@@ -512,13 +539,17 @@
 	<string name="selection_4_or_more">%1$s, %2$s ve %3$d daha fazlası</string>
 	<string name="filter_context_home_lists">Ana Sayfa &amp; listeler</string>
 	<string name="filter_context_notifications">Bildirimler</string>
+	<string name="filter_context_public_timelines">Herkese açık zaman çizelgeleri</string>
+	<string name="filter_context_threads_replies">Konular &amp; cevaplar</string>
 	<string name="filter_context_profiles">Profiller</string>
 	<string name="settings_filter_title">Başlık</string>
 	<string name="settings_delete_filter_title">“%s” filtresi silinsin mi?</string>
+	<string name="settings_delete_filter_confirmation">Bu filtre, tüm cihazlarınızdaki hesabınızdan silinecek.</string>
 	<string name="add_muted_word">Sessize alınacak kelime ekle</string>
 	<string name="edit_muted_word">Sessize alınmış kelimeyi düzenle</string>
 	<string name="add">Ekle</string>
 	<string name="filter_word_or_phrase">Kelime veya kelime grubu</string>
+	<string name="filter_add_word_help">Kelimeler büyük/küçük harfe duyarlı değildir ve yalnızca tam sözcüklerle eşleşir.\n\n\"Elma\" anahtar kelimesini filtrelerseniz, \"elma\" veya \"eLlMa\" içeren gönderileri gizler ancak \"elmacı\" içeren gönderileri gizlemez.</string>
 	<string name="settings_delete_filter_word">“%s” kelimesi silinsin mi?</string>
 	<string name="enter_selection_mode">Seç</string>
 	<string name="select_all">Tümünü seç</string>
@@ -538,11 +569,14 @@
 	<string name="app_update_version">Sürüm %s</string>
 	<string name="downloading_update">İndiriliyor (%d%%)</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
+	<string name="post_matches_filter_x">%s\" filtresiyle eşleşir</string>
 	<string name="search_mastodon">Mastodon\'da Ara</string>
 	<string name="clear_all">Tümünü temizle</string>
 	<string name="search_open_url">URL\'yi Mastodon\'da Aç</string>
 	<string name="posts_matching_hashtag">“%s” içeren gönderiler</string>
 	<string name="search_go_to_account">Git %s</string>
+	<string name="posts_matching_string">“%s” içeren gönderiler</string>
+	<string name="accounts_matching_string">\"%s\" olan kişiler</string>
 	<!-- Shown in the post header. Please keep it short -->
 	<string name="time_seconds_ago_short">%dsn önce</string>
 	<string name="time_minutes_ago_short">%ddk önce</string>
