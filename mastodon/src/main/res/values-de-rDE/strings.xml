@@ -85,6 +85,10 @@
 		<item quantity="one">noch %d Tag</item>
 		<item quantity="other">noch %d Tage</item>
 	</plurals>
+	<plurals name="x_votes">
+		<item quantity="one">%,d Stimme</item>
+		<item quantity="other">%,d Stimmen</item>
+	</plurals>
 	<string name="poll_closed">Beendet</string>
 	<string name="confirm_mute_title">Konto stummschalten</string>
 	<string name="confirm_mute">Bestätigen, um %s stummzuschalten</string>
@@ -391,9 +395,59 @@
 	<string name="retry">Erneut versuchen</string>
 	<string name="post_failed">Senden des Beitrags fehlgeschlagen</string>
 	<!-- %s is formatted file size ("467 KB image") -->
+	<string name="attachment_description_image">%s Bild</string>
+	<string name="attachment_description_video">%s Video</string>
+	<string name="attachment_description_audio">%s Audiodatei</string>
+	<string name="attachment_description_unknown">%s Datei</string>
+	<string name="attachment_type_image">Bild</string>
+	<string name="attachment_type_video">Video</string>
+	<string name="attachment_type_audio">Audiodatei</string>
+	<string name="attachment_type_gif">GIF</string>
+	<string name="attachment_type_unknown">Datei</string>
+	<string name="attachment_x_percent_uploaded">%d%% hochgeladen</string>
+	<string name="add_poll_option">Umfrageoption hinzufügen</string>
+	<string name="poll_length">Umfragelänge</string>
+	<string name="poll_style">Stil</string>
+	<string name="compose_poll_single_choice">Wähle eins</string>
+	<string name="compose_poll_multiple_choice">Multiple Choice</string>
+	<string name="delete_poll_option">Umfrageoption löschen</string>
+	<string name="poll_style_title">Umfragestil</string>
+	<string name="alt_text">Alt-Text</string>
+	<string name="help">Hilfe</string>
+	<string name="what_is_alt_text">Was ist Alt-Text?</string>
+	<string name="alt_text_help">Alt Text bietet Bildbeschreibungen für Personen mit Sehbehinderungen, Verbindungen mit niedriger Bandbreite oder solche, die einen zusätzlichen Kontext suchen.\n\nDu kannst die Zugänglichkeit und das Verständnis für alle verbessern, indem du klaren, präzisen und objektiven Alt-Text schreibst.\n\n<ul><li>Wichtige Elemente erfassen</li>\n<li>Zusammenfassung des Textes in Bildern</li>\n<li>Reguläre Satzstrukturen nutzen</li>\n<li>Vermeide redundante Informationen</li>\n<li>Fokussiere dich auf Trends und Schlüsselfeststellungen in komplexen Darstellungen (wie Diagramme oder Karten)</li></ul></string>
+	<string name="edit_post">Beitrag bearbeiten</string>
+	<string name="no_verified_link">Kein bestätigter Link</string>
+	<string name="compose_autocomplete_emoji_empty">Emoji durchsuchen</string>
+	<string name="compose_autocomplete_users_empty">Finde das, wonach du suchst</string>
+	<string name="no_search_results">Nichts zu diesen Suchbegriffen gefunden</string>
+	<string name="language">Sprache</string>
+	<string name="language_default">Standard</string>
+	<string name="language_system">System</string>
+	<string name="language_detecting">Sprache erkennen</string>
+	<string name="language_cant_detect">Sprache nicht erkannt</string>
+	<string name="language_detected">Erkannt</string>
+	<string name="media_hidden">Medien versteckt</string>
+	<string name="post_hidden">Beitrag ausgeblendet</string>
+	<string name="report_title_post">Beitrag melden</string>
+	<string name="forward_report_explanation">Dieses Konto gehört zu einem anderen Server. Soll eine anonymisierte Kopie der Meldung auch dorthin geschickt werden?</string>
 	<!-- %s is the server domain -->
+	<string name="forward_report_to_server">Weiterleiten an %s</string>
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
+	<string name="reported">Gemeldet</string>
+	<string name="report_unfollow_explanation">Damit du die Beiträge nicht mehr auf deiner Startseite findest, solltest du dieser Person entfolgen.</string>
+	<string name="muted_user">%s stummgeschaltet</string>
+	<string name="report_sent_already_blocked">Du hast diesen Benutzer bereits blockiert, sodass du nichts anderes tun musst, während wir deine Meldung überprüfen.</string>
+	<string name="report_personal_already_blocked">Du hast diesen Benutzer bereits geblockt, also musst du nichts anderes tun.\n\nDanke, dass du Mastodon geholfen hast, ein noch sicherer Ort für alle zu werden!</string>
+	<string name="blocked_user">%s blockiert</string>
+	<string name="mark_all_notifications_read">Alle als gelesen markieren</string>
+	<string name="settings_display">Darstellung</string>
+	<string name="settings_filters">Filter</string>
+	<string name="settings_server_explanation">Übersicht, Regeln, Moderatoren</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
+	<string name="about_app">Über %s</string>
+	<string name="default_post_language">Standard-Beitragssprache</string>
+	<string name="settings_alt_text_reminders">Erinnerung für Alt-Text anzeigen</string>
 	<string name="settings_confirm_unfollow">Fragen bevor du jemanden entfolgst</string>
 	<string name="settings_confirm_boost">Fragen bevor ein Beitrag geteilt wird</string>
 	<string name="settings_confirm_delete_post">Fragen bevor ein Beitrag gelöscht wird</string>
@@ -428,8 +482,104 @@
 	<string name="notifications_disabled_in_system">Schalte Benachrichtigungen in den Geräteeinstellungen ein, um Aktualisierungen von überall zu sehen.</string>
 	<string name="settings_even_more">Viel mehr Einstellungen</string>
 	<string name="settings_show_cws">Inhaltswarnung anzeigen</string>
+	<string name="settings_hide_sensitive_media">Medien mit Inhaltswarnung ausblenden</string>
+	<string name="settings_show_interaction_counts">Anzahl der Post-Interaktionen</string>
+	<string name="settings_show_emoji_in_names">Benutzerdefinierte Emoji in Anzeigenamen</string>
+	<plurals name="in_x_seconds">
+		<item quantity="one">in %d Sekunde</item>
+		<item quantity="other">in %d Sekunden</item>
+	</plurals>
+	<plurals name="in_x_minutes">
+		<item quantity="one">in %d Minute</item>
+		<item quantity="other">in %d Minuten</item>
+	</plurals>
+	<plurals name="in_x_hours">
+		<item quantity="one">in %d Stunde</item>
+		<item quantity="other">in %d Stunden</item>
+	</plurals>
+	<plurals name="x_hours_ago">
+		<item quantity="one">vor %d Stunde</item>
+		<item quantity="other">vor %d Stunden</item>
+	</plurals>
+	<string name="alt_text_reminder_title">Vor fehlendem Alt-Text warnen</string>
+	<plurals name="alt_text_reminder_x_images">
+		<item quantity="one">%s deiner Bilder fehlt der Alt-Text. Wirklich senden?</item>
+		<item quantity="other">%s deiner Bilder fehlt der Alt-Text. Wirklich senden?</item>
+	</plurals>
+	<plurals name="alt_text_reminder_x_attachments">
+		<item quantity="one">%s deiner Medienanhänge fehlt der Alt-Text. Wirklich senden?</item>
+		<item quantity="other">%s deiner Medienanhänge fehlt der Alt-Text. Wirklich senden?</item>
+	</plurals>
+	<string name="count_one">Eins</string>
+	<string name="count_two">Zwei</string>
+	<string name="count_three">Drei</string>
+	<string name="count_four">Vier</string>
+	<string name="alt_text_reminder_post_anyway">Senden</string>
 	<!-- %s is the username -->
+	<string name="unfollow_confirmation">%s entfolgen?</string>
+	<string name="filter_active">Aktiv</string>
+	<string name="filter_inactive">Inaktiv</string>
+	<string name="settings_add_filter">Filter hinzufügen</string>
+	<string name="settings_edit_filter">Filter bearbeiten</string>
+	<string name="settings_filter_duration">Dauer</string>
+	<string name="settings_filter_muted_words">Stummgeschaltete Wörter</string>
+	<string name="settings_filter_context">Stumm von</string>
+	<string name="settings_filter_show_cw">Inhaltswarnung anzeigen</string>
+	<string name="settings_filter_show_cw_explanation">Beiträge anzeigen, die zu diesem Filter passen, aber hinter einer Inhaltswarnung</string>
+	<string name="settings_delete_filter">Filter löschen</string>
+	<string name="filter_duration_forever">Für immer</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="settings_filter_ends">Endet %s</string>
+	<plurals name="settings_x_muted_words">
+		<item quantity="one">%d stummgeschaltetes Wort oder Phrase</item>
+		<item quantity="other">%d stummgeschaltete Wörter oder Phrasen</item>
+	</plurals>
+	<string name="selection_2_options">%1$s und %2$s</string>
+	<string name="selection_3_options">%1$s, %2$s, und %3$s</string>
+	<string name="selection_4_or_more">%1$s, %2$s und %3$d mehr</string>
+	<string name="filter_context_home_lists">Startseite &amp; Listen</string>
+	<string name="filter_context_notifications">Mitteilungen</string>
+	<string name="filter_context_public_timelines">Öffentliche Timelines</string>
+	<string name="filter_context_threads_replies">Threads &amp; Beiträge</string>
+	<string name="filter_context_profiles">Profile</string>
+	<string name="settings_filter_title">Titel</string>
+	<string name="settings_delete_filter_title">Filter \"%s\" löschen?</string>
+	<string name="settings_delete_filter_confirmation">Dieser Filter wird von deinem Konto auf all deinen Geräten gelöscht.</string>
+	<string name="add_muted_word">Stummgeschaltetes Wort hinzufügen</string>
+	<string name="edit_muted_word">Stummgeschaltetes Wort bearbeiten</string>
+	<string name="add">Hinzufügen</string>
+	<string name="filter_word_or_phrase">Wort oder Phrase</string>
+	<string name="filter_add_word_help">Bei diesen Wörtern ist die Groß- und Kleinschreibung egal und es werden nur vollständige Wörter überprüft.\n\nWenn du das Stichwort „Apfel“ filterst, wird es Beiträge verstecken, die „apfel“ oder „aPfel“ enthalten, aber nicht „Anapapfel.“</string>
+	<string name="settings_delete_filter_word">Wort \"%s\" löschen?</string>
+	<string name="enter_selection_mode">Auswählen</string>
+	<string name="select_all">Alles auswählen</string>
+	<string name="settings_filter_duration_title">Filterdauer</string>
+	<string name="filter_duration_custom">Benutzerdefiniert</string>
+	<plurals name="settings_delete_x_filter_words">
+		<item quantity="one">Wort %d löschen?</item>
+		<item quantity="other">Wörter %d löschen?</item>
+	</plurals>
+	<plurals name="x_items_selected">
+		<item quantity="one">%d ausgewählt</item>
+		<item quantity="other">%d ausgewählt</item>
+	</plurals>
+	<string name="required_form_field_blank">Kann nicht leer sein</string>
+	<string name="filter_word_already_in_list">Bereits in der Liste</string>
+	<string name="app_update_ready">App-Update bereit</string>
+	<string name="app_update_version">Version %s</string>
+	<string name="downloading_update">Wird heruntergeladen (%d%%)</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
+	<string name="post_matches_filter_x">Hinter Filter für \"%s\"</string>
+	<string name="search_mastodon">Mastodon durchsuchen</string>
+	<string name="clear_all">Alles löschen</string>
+	<string name="search_open_url">URL in Mastodon öffnen</string>
+	<string name="posts_matching_hashtag">Beiträge mit \"%s\"</string>
+	<string name="search_go_to_account">Gehe zu %s</string>
+	<string name="posts_matching_string">Beiträge mit \"%s\"</string>
+	<string name="accounts_matching_string">Personen mit \"%s\"</string>
 	<!-- Shown in the post header. Please keep it short -->
+	<string name="time_seconds_ago_short">vor %d Sekunden</string>
+	<string name="time_minutes_ago_short">vor %d Minuten</string>
+	<string name="time_hours_ago_short">vor %d Stunden</string>
+	<string name="time_days_ago_short">vor %d Tagen</string>
 </resources>
