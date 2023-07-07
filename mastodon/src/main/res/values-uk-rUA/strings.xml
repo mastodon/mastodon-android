@@ -11,6 +11,10 @@
 	<string name="user_boosted">%s поширив</string>
 	<string name="in_reply_to">Відповісти %s</string>
 	<string name="notifications">Сповіщення</string>
+	<string name="user_sent_follow_request">%s надсилає вам запит на підписку</string>
+	<string name="user_favorited">Ваш допис сподобався %s</string>
+	<string name="notification_boosted">%s поширює ваш допис</string>
+	<string name="poll_ended">Переглянути результати опитування, в якому ви голосували</string>
 	<string name="share_toot_title">Поділитись</string>
 	<string name="settings">Налаштування</string>
 	<string name="publish">Опублікувати</string>
@@ -36,6 +40,7 @@
 	<string name="button_follow">Стежити</string>
 	<string name="button_following">Ви підписані</string>
 	<string name="edit_profile">Редагувати профіль</string>
+	<string name="share_user">Поширити профіль</string>
 	<string name="mute_user">Заглушити %s</string>
 	<string name="unmute_user">Розглушити %s</string>
 	<string name="block_user">Заблокувати %s</string>
@@ -117,16 +122,19 @@
 	<string name="button_blocked">Заблоковано</string>
 	<string name="action_vote">Проголосувати</string>
 	<string name="delete">Видалити</string>
+	<string name="confirm_delete_title">Видалити допис</string>
 	<string name="confirm_delete">Ви дійсно бажаєте видалити цей допис?</string>
 	<string name="deleting">Видалення…</string>
 	<string name="notification_channel_audio_player">Відтворення звуку</string>
 	<string name="play">Відтворити</string>
 	<string name="pause">Пауза</string>
+	<string name="log_out">Вийти</string>
 	<string name="add_account">Додати обліковий запис</string>
 	<string name="search_hint">Пошук</string>
 	<string name="hashtags">Хештеги</string>
 	<string name="news">Новини</string>
 	<string name="for_you">Для Вас</string>
+	<string name="all_notifications">Усе</string>
 	<string name="mentions">Згадки</string>
 	<plurals name="x_people_talking">
 		<item quantity="one">%d особа розмовляє</item>
@@ -135,11 +143,16 @@
 		<item quantity="other">%d осіб розмовляє</item>
 	</plurals>
 	<string name="report_title">Поскаржитись на %s</string>
+	<string name="report_choose_reason">Що не так з цим постом?</string>
+	<string name="report_choose_reason_account">Що не так з %s?</string>
 	<string name="report_choose_reason_subtitle">Оберіть найкращий збіг</string>
+	<string name="report_reason_personal">Мені це не подобається</string>
 	<string name="report_reason_personal_subtitle">Це не те, що ви хочете бачити</string>
+	<string name="report_reason_spam">Це спам</string>
 	<string name="report_reason_spam_subtitle">Шкідливі посилання, фальшиві взаємодії, або відповіді, що повторюються</string>
 	<string name="report_reason_violation">Порушує правила сервера</string>
 	<string name="report_reason_violation_subtitle">Ви впевнені, що це порушує певні правила</string>
+	<string name="report_reason_other">Це щось інше</string>
 	<string name="report_reason_other_subtitle">Ця проблема не відповідає жодній іншій категорії</string>
 	<string name="report_choose_rule">Які правила порушено?</string>
 	<string name="report_choose_rule_subtitle">Виберіть усі варіанти, що підходять</string>
@@ -148,8 +161,13 @@
 	<string name="report_comment_title">Чи є ще щось, що ми повинні знати?</string>
 	<string name="report_comment_hint">Додаткові коментарі</string>
 	<string name="sending_report">Надсилання скарги…</string>
+	<string name="report_sent_title">Дякуємо за скаргу, ми розглянемо її.</string>
+	<string name="report_sent_subtitle">Поки ми переглядаємо, ви можете вжити власних заходів проти %s:</string>
 	<string name="unfollow_user">Відписатися від %s</string>
 	<string name="unfollow">Відписатися</string>
+	<string name="mute_user_explain">Ви не побачите їхніх дописів. Вони все ще можуть стежити за вами, бачити ваші дописи, але не знатимуть що їх приховано.</string>
+	<string name="report_personal_title">Не хочете бачити це?</string>
+	<string name="report_personal_subtitle">Ось ваші варіанти керування тим, що ви бачите в Mastodon:</string>
 	<string name="back">Назад</string>
 	<string name="search_communities">Назва сервера або URL</string>
 	<string name="instance_rules_title">Правила Сервера</string>
@@ -176,14 +194,19 @@
 	<string name="category_tech">Технології</string>
 	<string name="confirm_email_title">Перевірити вхідні листи</string>
 	<!-- %s is the email address -->
+	<string name="confirm_email_subtitle">Натисніть на посилання, яке ми надіслали вам, щоб підтвердити %s. Ми чекатимемо прямо тут.</string>
+	<string name="confirm_email_didnt_get">Не отримали посилання?</string>
 	<string name="resend">Надіслати повторно</string>
 	<string name="open_email_app">Відкрити Електрону пошту</string>
 	<string name="resent_email">Електронний лист для підтвердження</string>
+	<string name="compose_hint">Пишіть або вставляйте ваші думки</string>
 	<string name="content_warning">Попередження про вміст</string>
 	<string name="save">Зберегти</string>
 	<string name="add_alt_text">Додати альтернативний текст</string>
 	<string name="visibility_public">Загальнодоступно</string>
 	<string name="visibility_followers_only">Тільки для підписників</string>
+	<string name="visibility_private">Лише згадані</string>
+	<string name="recent_searches">Нещодавні</string>
 	<string name="skip">Пропустити</string>
 	<string name="notification_type_follow">Нові підписники</string>
 	<string name="notification_type_favorite">Улюблені</string>
@@ -192,8 +215,15 @@
 	<string name="notification_type_poll">Опитування</string>
 	<string name="choose_account">Виберіть обліковий запис</string>
 	<string name="err_not_logged_in">Спочатку увійдіть у Mastodon</string>
+	<plurals name="cant_add_more_than_x_attachments">
+		<item quantity="one">Ви не можете додати більше ніж %d медіа</item>
+		<item quantity="few">Ви не можете додати більше ніж %d медіа</item>
+		<item quantity="many">Ви не можете додати більше ніж %d медіа</item>
+		<item quantity="other">Ви не можете додати більше ніж %d медіа</item>
+	</plurals>
 	<string name="media_attachment_unsupported_type">Файл %s непідтримуваного формату</string>
 	<string name="media_attachment_too_big">Розмір %1$s перевищує ліміт %2$s MB</string>
+	<string name="theme_auto">Використовувати тему пристрою</string>
 	<string name="theme_light">Світлий</string>
 	<string name="theme_dark">Темний</string>
 	<string name="settings_behavior">Поведінка</string>
@@ -206,6 +236,7 @@
 	<string name="settings_clear_cache">Очистити кеш медіа</string>
 	<string name="settings_app_version">Mastodon для Android v%1$s (%2$d)</string>
 	<string name="media_cache_cleared">Кеш медіа очищено</string>
+	<string name="avatar_description">Перейти до профілю %s</string>
 	<string name="more_options">Більше опцій</string>
 	<string name="new_post">Новий допис</string>
 	<string name="button_reply">Відповісти</string>
@@ -221,6 +252,7 @@
 	<string name="media_viewer">Медіапрогравач</string>
 	<string name="follow_user">Підписатися на %s</string>
 	<string name="unfollowed_user">Відписалися від %s</string>
+	<string name="followed_user">Тепер ви підписані на %s</string>
 	<string name="following_user_requested">Запитано на підписку на %s</string>
 	<string name="open_in_browser">Відкрити у браузері</string>
 	<string name="hide_boosts_from_user">Сховати поширення від %s</string>
@@ -238,7 +270,11 @@
 	<string name="error_saving_file">Помилка збереження</string>
 	<string name="file_saved">Файл збережено</string>
 	<string name="downloading">Завантаження…</string>
+	<string name="no_app_to_handle_action">Немає потрібного застосунку для цієї дії</string>
+	<string name="trending_posts_info_banner">Ось найбільш популярні дописи на Mastodon.</string>
 	<!-- %s is the server domain -->
+	<string name="local_timeline_info_banner">Всі ці дописи створені користувачами вашого серверу (%s).</string>
+	<string name="recommended_accounts_info_banner">Вам можуть сподобатися ці профілі, озираючись на ваші підписки.</string>
 	<string name="see_new_posts">Переглянути нові дописи</string>
 	<string name="load_missing_posts">Завантажити пропущені пости</string>
 	<string name="follow_back">Підписатися взаємно</string>
@@ -322,6 +358,7 @@
 	<string name="login_title">З поверненням</string>
 	<string name="login_subtitle">Увійдіть за допомогою сервера, де ви створили свій обліковий запис.</string>
 	<string name="server_url">URL-адреса сервера</string>
+	<string name="signup_random_server_explain">Ми підберемо сервер на основі вашої мови, якщо ви продовжите без вибору.</string>
 	<string name="server_filter_any_language">Будь-яка мова</string>
 	<string name="server_filter_instant_signup">Миттєва Реєстрація</string>
 	<string name="server_filter_manual_review">Ручна перевірка</string>
@@ -334,6 +371,7 @@
 	<string name="server_filter_region_oceania">Океанія</string>
 	<string name="not_accepting_new_members">Не приймає нових користувачів</string>
 	<string name="category_special_interests">Особливі Інтереси</string>
+	<string name="signup_passwords_dont_match">Паролі не збігаються</string>
 	<string name="pick_server_for_me">Підібрати для мене</string>
 	<string name="profile_add_row">Додати рядок</string>
 	<string name="profile_setup">Налаштування профілю</string>
@@ -342,6 +380,7 @@
 	<string name="popular_on_mastodon">Популярне в Mastodon</string>
 	<string name="follow_all">Стежити за всіма</string>
 	<string name="server_rules_disagree">Не приймаю</string>
+	<string name="privacy_policy_explanation">Коротко кажучи, ми нічого не збираємо та не обробляємо.</string>
 	<!-- %s is server domain -->
 	<string name="server_policy_disagree">Не згоден з %s</string>
 	<string name="profile_bio">Про мене</string>
