@@ -276,7 +276,7 @@
 	<string name="reorder">Упорядкувати</string>
 	<string name="download">Звантажити</string>
 	<string name="permission_required">Потрібен дозвіл</string>
-	<string name="storage_permission_to_download">Додатку потрібен доступ до сховища, щоб зберегти цей файл.</string>
+	<string name="storage_permission_to_download">Застосунку потрібен доступ до сховища, щоб зберегти цей файл.</string>
 	<string name="open_settings">Відкрити налаштування</string>
 	<string name="error_saving_file">Помилка збереження</string>
 	<string name="file_saved">Файл збережено</string>
@@ -311,6 +311,12 @@
 		<item quantity="few">%,d, улюблені</item>
 		<item quantity="many">%,d, улюблені</item>
 		<item quantity="other">%,d, улюблені</item>
+	</plurals>
+	<plurals name="x_reblogs">
+		<item quantity="one">%,d поширення</item>
+		<item quantity="few">%,d поширення</item>
+		<item quantity="many">%,d поширень</item>
+		<item quantity="other">%,d поширень</item>
 	</plurals>
 	<string name="timestamp_via_app">%1$s через %2$s</string>
 	<string name="time_now">щойно</string>
@@ -358,7 +364,7 @@
 	<string name="download_update">Завантажити (%s)</string>
 	<string name="install_update">Встановити</string>
 	<string name="privacy_policy_title">Ваша конфіденційність</string>
-	<string name="privacy_policy_subtitle">Хоча додаток Mastodon не збирає дані, сервер на якому ви зареєструєтеся може мати іншу політику.\n\nЯкщо ви відмовитеся з політикою %s, ви зможете повернутися й вибрати інший сервер.</string>
+	<string name="privacy_policy_subtitle">Хоча застосунок Mastodon не збирає дані, сервер на якому ви зареєструєтеся може мати іншу політику.\n\nЯкщо ви відмовитеся з політикою %s, ви зможете повернутися й вибрати інший сервер.</string>
 	<string name="i_agree">Я погоджуюся</string>
 	<string name="empty_list">Цей список порожній</string>
 	<string name="instance_signup_closed">Цей сервер не приймає нові реєстрації.</string>
@@ -444,8 +450,13 @@
 	<string name="delete_poll_option">Видалити варіант відповіді</string>
 	<string name="poll_style_title">Стиль опитування</string>
 	<string name="alt_text">Альтернативний текст</string>
+	<string name="help">Допомога</string>
 	<string name="what_is_alt_text">Що таке альтернативний текст?</string>
+	<string name="alt_text_help">Альтернативний текст містить описи зображень для людей з вадами зору, низькошвидкісними з\'єднаннями або тих, хто шукає додатковий контекст.\n\nВи можете покращити доступність і розуміння для всіх, написавши чіткий та лаконічний альтернативний текст.\n\n<ul><li>Відмічайте важливі елементи</li>\n<li>Охоплюйте текст у картинках</li>\n<li>Використовуйте звичайну структуру речень</li>\n<li>Уникайте надлишкової інформації</li>\n<li>Зосередьтеся на тенденціях і ключових висновках у складних візуальних формах (наприклад, діаграмах або картах)</li></ul></string>
 	<string name="edit_post">Редагувати допис</string>
+	<string name="no_verified_link">Нема підтвердженого посилання</string>
+	<string name="compose_autocomplete_emoji_empty">Переглянути emoji</string>
+	<string name="no_search_results">Нічого не вдалося знайти за цими пошуковими термінами</string>
 	<string name="language">Мова</string>
 	<string name="language_default">За замовчуванням</string>
 	<string name="language_system">Як у системі</string>
@@ -457,8 +468,14 @@
 	<string name="report_title_post">Поскаржитися на допис</string>
 	<string name="forward_report_explanation">Це обліковий запис з іншого сервера. Відправити анонімізовану копію скарги й туди?</string>
 	<!-- %s is the server domain -->
+	<string name="forward_report_to_server">Переслати до %s</string>
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
 	<string name="reported">Відзвітовано</string>
+	<string name="report_unfollow_explanation">Щоб більше не бачити їхніх дописів у своїй домашній стрічці, відпишіться від них.</string>
+	<string name="muted_user">%s заглушено</string>
+	<string name="report_sent_already_blocked">Ви вже заблокували цього користувача, тому вам більше нічого не потрібно робити, поки ми розглядаємо ваш звіт.</string>
+	<string name="report_personal_already_blocked">Ви вже заблокували цього користувача, тому вам більше не потрібно нічого робити.\n\nДякуємо, що допомагаєте зберігати Mastodon безпечним місцем для всіх!</string>
+	<string name="blocked_user">Заблоковано %s</string>
 	<string name="mark_all_notifications_read">Позначити всі як прочитані</string>
 	<string name="settings_display">Вигляд</string>
 	<string name="settings_filters">Фільтри</string>
@@ -466,12 +483,14 @@
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">Про %s</string>
 	<string name="default_post_language">Мова ваших дописів за замовчуванням</string>
+	<string name="settings_alt_text_reminders">Нагадувати про альтернативний текст</string>
 	<string name="settings_confirm_unfollow">Запитувати перед тим, як відписатися</string>
 	<string name="settings_confirm_delete_post">Запитувати перед видаленням дописів</string>
 	<string name="pause_all_notifications">Призупинити всі</string>
 	<string name="pause_notifications_off">Вимк.</string>
 	<string name="notifications_policy_anyone">Будь-хто</string>
 	<string name="notifications_policy_followed">Ваші підписники</string>
+	<string name="notifications_policy_follower">Люди, на ви підписані</string>
 	<string name="notifications_policy_no_one">Ніхто</string>
 	<string name="settings_notifications_policy">Отримувати сповіщення від</string>
 	<string name="notification_type_mentions_and_replies">Згадки та відповіді</string>
@@ -492,14 +511,24 @@
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<string name="pause_notifications_banner">Сповіщення відновляться %s.</string>
 	<string name="resume_notifications_now">Відновити зараз</string>
+	<string name="about_server">Про сервер</string>
 	<string name="server_rules">Правила</string>
 	<string name="server_administrator">Адміністратор</string>
 	<string name="send_email_to_server_admin">Написати адміністратору</string>
+	<string name="settings_even_more">Ще більше налаштувань</string>
+	<string name="settings_show_cws">Показувати попередження щодо вмісту</string>
+	<string name="settings_hide_sensitive_media">Приховувати медіа, позначені як делікатними</string>
 	<plurals name="in_x_seconds">
 		<item quantity="one">через %d секунду</item>
 		<item quantity="few">через %d секунди</item>
 		<item quantity="many">через %d секунд</item>
 		<item quantity="other">через %d сек.</item>
+	</plurals>
+	<plurals name="in_x_minutes">
+		<item quantity="one">через %d хвилину</item>
+		<item quantity="few">через %d хвилини</item>
+		<item quantity="many">через %d хвилин</item>
+		<item quantity="other">через %d хв.</item>
 	</plurals>
 	<plurals name="in_x_hours">
 		<item quantity="one">через %d годину</item>
@@ -513,10 +542,12 @@
 		<item quantity="many">%d годин тому</item>
 		<item quantity="other">%d год. тому</item>
 	</plurals>
+	<string name="alt_text_reminder_title">В медіа відсутній альтернативний текст</string>
 	<string name="count_one">Один</string>
 	<string name="count_two">Два</string>
 	<string name="count_three">Три</string>
 	<string name="count_four">Чотири</string>
+	<string name="alt_text_reminder_post_anyway">Опублікувати</string>
 	<!-- %s is the username -->
 	<string name="unfollow_confirmation">Відписатися від %s?</string>
 	<string name="filter_active">Активний</string>
@@ -526,6 +557,8 @@
 	<string name="settings_filter_duration">Тривалість</string>
 	<string name="settings_filter_muted_words">Приховані слова</string>
 	<string name="settings_filter_show_cw">Показати із попередженням про вміст</string>
+	<string name="settings_filter_show_cw_explanation">Все ще показувати дописи, які відповідають цьому фільтру, але з попередженням про вміст</string>
+	<string name="settings_delete_filter">Видалити фільтр</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<string name="add">Додати</string>
 	<string name="filter_word_or_phrase">Слово чи фраза</string>
