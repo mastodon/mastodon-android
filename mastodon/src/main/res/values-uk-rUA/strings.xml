@@ -11,6 +11,7 @@
 	<string name="user_boosted">%s поширив</string>
 	<string name="in_reply_to">Відповісти %s</string>
 	<string name="notifications">Сповіщення</string>
+	<string name="user_followed_you">%s підписався(-лася) на вас</string>
 	<string name="user_sent_follow_request">%s надсилає вам запит на підписку</string>
 	<string name="user_favorited">Ваш допис сподобався %s</string>
 	<string name="notification_boosted">%s поширює ваш допис</string>
@@ -104,6 +105,12 @@
 		<item quantity="many">%d Днів залишилося</item>
 		<item quantity="other">%d Днів залишилося</item>
 	</plurals>
+	<plurals name="x_votes">
+		<item quantity="one">%,d голос</item>
+		<item quantity="few">%,d голоси</item>
+		<item quantity="many">%,d голосів</item>
+		<item quantity="other">%,d проголосувало</item>
+	</plurals>
 	<string name="poll_closed">Завершено</string>
 	<string name="confirm_mute_title">Заглушити обліковий запис</string>
 	<string name="confirm_mute">Підтвердьте заглушення %s</string>
@@ -166,6 +173,7 @@
 	<string name="unfollow_user">Відписатися від %s</string>
 	<string name="unfollow">Відписатися</string>
 	<string name="mute_user_explain">Ви не побачите їхніх дописів. Вони все ще можуть стежити за вами, бачити ваші дописи, але не знатимуть що їх приховано.</string>
+	<string name="block_user_explain">Ви не будете бачити дописи цього користувача, а вони не зможуть бачити ваші дописи або підписуватися на вас. Вони будуть бачити, що ви їх заблокували.</string>
 	<string name="report_personal_title">Не хочете бачити це?</string>
 	<string name="report_personal_subtitle">Ось ваші варіанти керування тим, що ви бачите в Mastodon:</string>
 	<string name="back">Назад</string>
@@ -237,6 +245,7 @@
 	<string name="settings_clear_cache">Очистити кеш медіа</string>
 	<string name="settings_app_version">Mastodon для Android v%1$s (%2$d)</string>
 	<string name="media_cache_cleared">Кеш медіа очищено</string>
+	<string name="confirm_log_out">Вийти з %s?</string>
 	<string name="sensitive_content_explain">Автор позначив це медіа, як чутливе.</string>
 	<string name="avatar_description">Перейти до профілю %s</string>
 	<string name="more_options">Більше опцій</string>
@@ -390,6 +399,7 @@
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<string name="sending_follows">Підписуємося…</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<string name="signup_email_domain_blocked">%1$s не приймає реєстрацію з %2$s. Спробуйте інший &lt;a&gt;виберіть інший сервер&lt;/a&gt;.</string>
 	<string name="spoiler_show">Усе одне показати</string>
 	<string name="spoiler_hide">Сховати знову</string>
 	<string name="poll_multiple_choice">Оберіть один чи декілька</string>
@@ -409,6 +419,7 @@
 	<string name="welcome_paragraph1">Mastodon - це децентралізована соціальна мережа, що визначає, що жодна компанія контролює її. У її склад входить велика кількість незалежних серверів, які всі з\'єднані один з іншим.</string>
 	<string name="what_are_servers">Що таке сервери?</string>
 	<string name="welcome_paragraph2"><![CDATA[Кожен акаунт Mastodon розміщений на сервері, й кожен сервер має особисті цінності, правила, й адмінів. Немає різниці, який ви оберете. Ви можете підписуватися та спілкуватися з усіма, навіть якщо ви на різних серверах.]]></string>
+	<string name="opening_link">Відкриття посилання…</string>
 	<string name="link_not_supported">Це посилання не підтримується застосунком</string>
 	<string name="log_out_all_accounts">Вийти з усіх акаунтів</string>
 	<string name="confirm_log_out_all_accounts">Точно вийти з усіх облікових записів?</string>
@@ -433,6 +444,7 @@
 	<string name="delete_poll_option">Видалити варіант відповіді</string>
 	<string name="poll_style_title">Стиль опитування</string>
 	<string name="alt_text">Альтернативний текст</string>
+	<string name="what_is_alt_text">Що таке альтернативний текст?</string>
 	<string name="edit_post">Редагувати допис</string>
 	<string name="language">Мова</string>
 	<string name="language_default">За замовчуванням</string>
@@ -446,6 +458,7 @@
 	<string name="forward_report_explanation">Це обліковий запис з іншого сервера. Відправити анонімізовану копію скарги й туди?</string>
 	<!-- %s is the server domain -->
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
+	<string name="reported">Відзвітовано</string>
 	<string name="mark_all_notifications_read">Позначити всі як прочитані</string>
 	<string name="settings_display">Вигляд</string>
 	<string name="settings_filters">Фільтри</string>
@@ -479,18 +492,53 @@
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<string name="pause_notifications_banner">Сповіщення відновляться %s.</string>
 	<string name="resume_notifications_now">Відновити зараз</string>
+	<string name="server_rules">Правила</string>
+	<string name="server_administrator">Адміністратор</string>
+	<string name="send_email_to_server_admin">Написати адміністратору</string>
+	<plurals name="in_x_seconds">
+		<item quantity="one">через %d секунду</item>
+		<item quantity="few">через %d секунди</item>
+		<item quantity="many">через %d секунд</item>
+		<item quantity="other">через %d сек.</item>
+	</plurals>
+	<plurals name="in_x_hours">
+		<item quantity="one">через %d годину</item>
+		<item quantity="few">через %d години</item>
+		<item quantity="many">через %d годин</item>
+		<item quantity="other">через %d год.</item>
+	</plurals>
+	<plurals name="x_hours_ago">
+		<item quantity="one">%d годину тому</item>
+		<item quantity="few">%d години тому</item>
+		<item quantity="many">%d годин тому</item>
+		<item quantity="other">%d год. тому</item>
+	</plurals>
 	<string name="count_one">Один</string>
 	<string name="count_two">Два</string>
 	<string name="count_three">Три</string>
 	<string name="count_four">Чотири</string>
 	<!-- %s is the username -->
 	<string name="unfollow_confirmation">Відписатися від %s?</string>
+	<string name="filter_active">Активний</string>
+	<string name="filter_inactive">Неактивний</string>
 	<string name="settings_add_filter">Додати фільтр</string>
 	<string name="settings_edit_filter">Редагувати фільтр</string>
 	<string name="settings_filter_duration">Тривалість</string>
 	<string name="settings_filter_muted_words">Приховані слова</string>
 	<string name="settings_filter_show_cw">Показати із попередженням про вміст</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="add">Додати</string>
+	<string name="filter_word_or_phrase">Слово чи фраза</string>
+	<string name="filter_add_word_help">Слова чутливі до регістру та мають збігатися з повним словом.\n\nЯкщо ви відфільтруєте слово \"яблуко\", сховаються пости зі словом \"яблуко\" або \"ЯбЛуКо\", але не \"яблучний\"</string>
+	<string name="settings_delete_filter_word">Видалити слово \"%s?</string>
+	<string name="enter_selection_mode">Вибрати</string>
+	<string name="select_all">Вибрати всі</string>
+	<string name="settings_filter_duration_title">Фільтрувати протягом</string>
+	<string name="filter_duration_custom">Власна</string>
+	<string name="required_form_field_blank">Обов\'язкове поле</string>
+	<string name="filter_word_already_in_list">Вже в списку</string>
+	<string name="app_update_ready">Оновлення застосунку готове</string>
+	<string name="app_update_version">Версія %s</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
 	<!-- Shown in the post header. Please keep it short -->
 </resources>
