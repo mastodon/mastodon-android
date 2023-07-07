@@ -308,10 +308,10 @@
 		<item quantity="other">Підписаний на %,d</item>
 	</plurals>
 	<plurals name="x_favorites">
-		<item quantity="one">%,d, улюблене</item>
-		<item quantity="few">%,d, улюблені</item>
-		<item quantity="many">%,d, улюблені</item>
-		<item quantity="other">%,d, улюблені</item>
+		<item quantity="one">%,d улюблене</item>
+		<item quantity="few">%,d улюблених</item>
+		<item quantity="many">%,d улюблених</item>
+		<item quantity="other">%,d улюблених</item>
 	</plurals>
 	<plurals name="x_reblogs">
 		<item quantity="one">%,d поширення</item>
@@ -523,6 +523,7 @@
 	<string name="settings_even_more">Ще більше налаштувань</string>
 	<string name="settings_show_cws">Показувати попередження щодо вмісту</string>
 	<string name="settings_hide_sensitive_media">Приховувати медіа, позначені як делікатними</string>
+	<string name="settings_show_interaction_counts">Показувати кількість взаємодій з дописами</string>
 	<string name="settings_show_emoji_in_names">Користувацькі emoji в іменах</string>
 	<plurals name="in_x_seconds">
 		<item quantity="one">через %d секунду</item>
