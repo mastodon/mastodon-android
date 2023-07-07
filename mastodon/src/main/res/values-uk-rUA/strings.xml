@@ -29,10 +29,10 @@
 		<item quantity="other">підписників</item>
 	</plurals>
 	<plurals name="following">
-		<item quantity="one">підписаний</item>
-		<item quantity="few">підписаний</item>
-		<item quantity="many">підписаний</item>
-		<item quantity="other">підписаний</item>
+		<item quantity="one">підписка</item>
+		<item quantity="few">підписки</item>
+		<item quantity="many">підписок</item>
+		<item quantity="other">підписок</item>
 	</plurals>
 	<string name="posts">Дописи</string>
 	<string name="posts_and_replies">Дописи й відповіді</string>
@@ -51,7 +51,7 @@
 	<string name="unblock_domain">Розблокувати %s</string>
 	<plurals name="x_posts">
 		<item quantity="one">%,d Публікація</item>
-		<item quantity="few">%,d Публікації(-ій)</item>
+		<item quantity="few">%,d Публікації</item>
 		<item quantity="many">%,d Публікацій</item>
 		<item quantity="other">%,d Публікацій</item>
 	</plurals>
@@ -549,6 +549,12 @@
 		<item quantity="other">%d год. тому</item>
 	</plurals>
 	<string name="alt_text_reminder_title">В медіа відсутній альтернативний текст</string>
+	<plurals name="alt_text_reminder_x_images">
+		<item quantity="one">%s зображення не має альтернативного тексту. Все одно опублікувати?</item>
+		<item quantity="few">%s зображення не мають альтернативного тексту. Все одно опублікувати?</item>
+		<item quantity="many">%s зображень не мають альтернативного тексту. Все одно опублікувати?</item>
+		<item quantity="other">%s зображення не має альтернативного тексту. Все одно опублікувати?</item>
+	</plurals>
 	<plurals name="alt_text_reminder_x_attachments">
 		<item quantity="one">%s медіафайл не має альтернативного тексту. Все одно опублікувати?</item>
 		<item quantity="few">%s медіафайли не має альтернативного тексту. Все одно опублікувати?</item>
@@ -575,9 +581,19 @@
 	<string name="filter_duration_forever">Вічний</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<string name="settings_filter_ends">Закінчиться %s</string>
+	<plurals name="settings_x_muted_words">
+		<item quantity="one">%d ігнороване слово або фраза</item>
+		<item quantity="few">%d ігнорованих слова або фрази</item>
+		<item quantity="many">%d ігнорованих слів або фраз</item>
+		<item quantity="other">ігноровано %d слів або фраз</item>
+	</plurals>
+	<string name="selection_2_options">%1$s і %2$s</string>
 	<string name="selection_3_options">%1$s, %2$s, та %3$s</string>
+	<string name="selection_4_or_more">%1$s, %2$s та ще %3$d</string>
+	<string name="filter_context_home_lists">Головна &amp; списки</string>
 	<string name="filter_context_notifications">Сповіщення</string>
 	<string name="filter_context_public_timelines">Публічна стрічка</string>
+	<string name="filter_context_threads_replies">Теми &amp; відповіді</string>
 	<string name="filter_context_profiles">Профілі</string>
 	<string name="settings_filter_title">Назва</string>
 	<string name="settings_delete_filter_title">Видалити фільтр “%s”?</string>
@@ -614,5 +630,13 @@
 	<string name="search_mastodon">Шукати у Mastodon</string>
 	<string name="clear_all">Очистити все</string>
 	<string name="search_open_url">Відкрити URL-адресу в Mastodon</string>
+	<string name="posts_matching_hashtag">Дописи з “%s”</string>
+	<string name="search_go_to_account">Перейти до %s</string>
+	<string name="posts_matching_string">Дописи з “%s”</string>
+	<string name="accounts_matching_string">Люди з “%s”</string>
 	<!-- Shown in the post header. Please keep it short -->
+	<string name="time_seconds_ago_short">%d секунд тому</string>
+	<string name="time_minutes_ago_short">%d хвилин тому</string>
+	<string name="time_hours_ago_short">%d годин тому</string>
+	<string name="time_days_ago_short">%d днів тому</string>
 </resources>
