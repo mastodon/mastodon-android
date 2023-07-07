@@ -20,7 +20,7 @@
 	<string name="settings">Налаштування</string>
 	<string name="publish">Опублікувати</string>
 	<string name="discard_draft">Видалити чернетку?</string>
-	<string name="discard">Відхилити</string>
+	<string name="discard">Скасувати</string>
 	<string name="cancel">Скасувати</string>
 	<plurals name="followers">
 		<item quantity="one">підписник</item>
@@ -284,6 +284,7 @@
 	<string name="no_app_to_handle_action">Немає потрібного застосунку для цієї дії</string>
 	<string name="local_timeline">Локальні</string>
 	<string name="trending_posts_info_banner">Ось найбільш популярні дописи на Mastodon.</string>
+	<string name="trending_links_info_banner">Це новини, про які говорять на Mastodon.</string>
 	<!-- %s is the server domain -->
 	<string name="local_timeline_info_banner">Всі ці дописи створені користувачами вашого серверу (%s).</string>
 	<string name="recommended_accounts_info_banner">Вам можуть сподобатися ці профілі, озираючись на ваші підписки.</string>
@@ -456,6 +457,7 @@
 	<string name="edit_post">Редагувати допис</string>
 	<string name="no_verified_link">Нема підтвердженого посилання</string>
 	<string name="compose_autocomplete_emoji_empty">Переглянути emoji</string>
+	<string name="compose_autocomplete_users_empty">Знайдіть тих, кого шукаєте</string>
 	<string name="no_search_results">Нічого не вдалося знайти за цими пошуковими термінами</string>
 	<string name="language">Мова</string>
 	<string name="language_default">За замовчуванням</string>
@@ -485,6 +487,7 @@
 	<string name="default_post_language">Мова ваших дописів за замовчуванням</string>
 	<string name="settings_alt_text_reminders">Нагадувати про альтернативний текст</string>
 	<string name="settings_confirm_unfollow">Запитувати перед тим, як відписатися</string>
+	<string name="settings_confirm_boost">Питати перед поширенням</string>
 	<string name="settings_confirm_delete_post">Запитувати перед видаленням дописів</string>
 	<string name="pause_all_notifications">Призупинити всі</string>
 	<string name="pause_notifications_off">Вимк.</string>
@@ -511,13 +514,16 @@
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<string name="pause_notifications_banner">Сповіщення відновляться %s.</string>
 	<string name="resume_notifications_now">Відновити зараз</string>
+	<string name="open_system_notification_settings">Перейти до налаштувань сповіщень</string>
 	<string name="about_server">Про сервер</string>
 	<string name="server_rules">Правила</string>
 	<string name="server_administrator">Адміністратор</string>
 	<string name="send_email_to_server_admin">Написати адміністратору</string>
+	<string name="notifications_disabled_in_system">Увімкніть сповіщення в налаштуваннях пристрою, щоб бачити оновлення будь-де.</string>
 	<string name="settings_even_more">Ще більше налаштувань</string>
 	<string name="settings_show_cws">Показувати попередження щодо вмісту</string>
 	<string name="settings_hide_sensitive_media">Приховувати медіа, позначені як делікатними</string>
+	<string name="settings_show_emoji_in_names">Користувацькі emoji в іменах</string>
 	<plurals name="in_x_seconds">
 		<item quantity="one">через %d секунду</item>
 		<item quantity="few">через %d секунди</item>
@@ -543,6 +549,12 @@
 		<item quantity="other">%d год. тому</item>
 	</plurals>
 	<string name="alt_text_reminder_title">В медіа відсутній альтернативний текст</string>
+	<plurals name="alt_text_reminder_x_attachments">
+		<item quantity="one">%s медіафайл не має альтернативного тексту. Все одно опублікувати?</item>
+		<item quantity="few">%s медіафайли не має альтернативного тексту. Все одно опублікувати?</item>
+		<item quantity="many">%s медіафайлів не має альтернативного тексту. Все одно опублікувати?</item>
+		<item quantity="other">%s медіа не має альтернативного тексту. Все одно опублікувати?</item>
+	</plurals>
 	<string name="count_one">Один</string>
 	<string name="count_two">Два</string>
 	<string name="count_three">Три</string>
@@ -556,10 +568,22 @@
 	<string name="settings_edit_filter">Редагувати фільтр</string>
 	<string name="settings_filter_duration">Тривалість</string>
 	<string name="settings_filter_muted_words">Приховані слова</string>
+	<string name="settings_filter_context">Приховувати з</string>
 	<string name="settings_filter_show_cw">Показати із попередженням про вміст</string>
 	<string name="settings_filter_show_cw_explanation">Все ще показувати дописи, які відповідають цьому фільтру, але з попередженням про вміст</string>
 	<string name="settings_delete_filter">Видалити фільтр</string>
+	<string name="filter_duration_forever">Вічний</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="settings_filter_ends">Закінчиться %s</string>
+	<string name="selection_3_options">%1$s, %2$s, та %3$s</string>
+	<string name="filter_context_notifications">Сповіщення</string>
+	<string name="filter_context_public_timelines">Публічна стрічка</string>
+	<string name="filter_context_profiles">Профілі</string>
+	<string name="settings_filter_title">Назва</string>
+	<string name="settings_delete_filter_title">Видалити фільтр “%s”?</string>
+	<string name="settings_delete_filter_confirmation">Цей фільтр буде видалено з вашого облікового запису на всіх ваших пристроях.</string>
+	<string name="add_muted_word">Додати слово до ігнорованих</string>
+	<string name="edit_muted_word">Редагувати ігноровані слова</string>
 	<string name="add">Додати</string>
 	<string name="filter_word_or_phrase">Слово чи фраза</string>
 	<string name="filter_add_word_help">Слова чутливі до регістру та мають збігатися з повним словом.\n\nЯкщо ви відфільтруєте слово \"яблуко\", сховаються пости зі словом \"яблуко\" або \"ЯбЛуКо\", але не \"яблучний\"</string>
@@ -568,10 +592,27 @@
 	<string name="select_all">Вибрати всі</string>
 	<string name="settings_filter_duration_title">Фільтрувати протягом</string>
 	<string name="filter_duration_custom">Власна</string>
+	<plurals name="settings_delete_x_filter_words">
+		<item quantity="one">Видалити %d слово?</item>
+		<item quantity="few">Видалити %d слова?</item>
+		<item quantity="many">Видалити %d слів?</item>
+		<item quantity="other">Видалити %d слово?</item>
+	</plurals>
+	<plurals name="x_items_selected">
+		<item quantity="one">%d обрано</item>
+		<item quantity="few">%d обрано</item>
+		<item quantity="many">%d обрано</item>
+		<item quantity="other">%d обрано</item>
+	</plurals>
 	<string name="required_form_field_blank">Обов\'язкове поле</string>
 	<string name="filter_word_already_in_list">Вже в списку</string>
 	<string name="app_update_ready">Оновлення застосунку готове</string>
 	<string name="app_update_version">Версія %s</string>
+	<string name="downloading_update">Завантаження (%d%%)</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
+	<string name="post_matches_filter_x">Збігається з фільтром “%s”</string>
+	<string name="search_mastodon">Шукати у Mastodon</string>
+	<string name="clear_all">Очистити все</string>
+	<string name="search_open_url">Відкрити URL-адресу в Mastodon</string>
 	<!-- Shown in the post header. Please keep it short -->
 </resources>
