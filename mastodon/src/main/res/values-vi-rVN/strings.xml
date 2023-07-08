@@ -20,7 +20,7 @@
 	<string name="settings">Cài đặt</string>
 	<string name="publish">Đăng</string>
 	<string name="discard_draft">Bỏ bản nháp?</string>
-	<string name="discard">Bỏ qua</string>
+	<string name="discard">Bỏ đi</string>
 	<string name="cancel">Hủy bỏ</string>
 	<plurals name="followers">
 		<item quantity="other">người theo dõi</item>
@@ -80,18 +80,18 @@
 	</plurals>
 	<string name="poll_closed">Kết thúc</string>
 	<string name="confirm_mute_title">Ẩn người này</string>
-	<string name="confirm_mute">Xác nhận ẩn %s</string>
+	<string name="confirm_mute">Bạn muốn ẩn %s?</string>
 	<string name="do_mute">Ẩn</string>
 	<string name="confirm_unmute_title">Bỏ ẩn người này</string>
-	<string name="confirm_unmute">Xác nhận bỏ ẩn %s</string>
+	<string name="confirm_unmute">Bạn muốn bỏ ẩn %s?</string>
 	<string name="do_unmute">Bỏ ẩn</string>
 	<string name="confirm_block_title">Chặn người này</string>
 	<string name="confirm_block_domain_title">Chặn máy chủ</string>
-	<string name="confirm_block">Xác nhận chặn %s</string>
+	<string name="confirm_block">Bạn muốn chặn %s?</string>
 	<string name="do_block">Chặn</string>
 	<string name="confirm_unblock_title">Bỏ chặn người này</string>
 	<string name="confirm_unblock_domain_title">Bỏ chặn máy chủ</string>
-	<string name="confirm_unblock">Xác nhận bỏ chặn %s</string>
+	<string name="confirm_unblock">Bạn muốn bỏ chặn %s?</string>
 	<string name="do_unblock">Bỏ chặn</string>
 	<string name="button_blocked">Đã chặn</string>
 	<string name="action_vote">Bình chọn</string>
@@ -145,7 +145,7 @@
 	<string name="instance_rules_title">Nội quy máy chủ</string>
 	<string name="instance_rules_subtitle">Tiếp tục nghĩa là bạn đồng ý tuân theo các quy tắc sau do kiểm duyệt viên %s đặt ra và thực thi.</string>
 	<string name="signup_title">Tạo tài khoản</string>
-	<string name="display_name">Tên</string>
+	<string name="display_name">Biệt danh</string>
 	<string name="username">Tên người dùng</string>
 	<string name="email">Email</string>
 	<string name="password">Mật khẩu</string>
@@ -170,7 +170,7 @@
 	<string name="confirm_email_didnt_get">Không nhận được mã?</string>
 	<string name="resend">Gửi lại</string>
 	<string name="open_email_app">Mở ứng dụng email</string>
-	<string name="resent_email">Đã gửi email xác nhận</string>
+	<string name="resent_email">Đã gửi email xác minh</string>
 	<string name="compose_hint">Cho thế giới biết bạn đang nghĩ gì</string>
 	<string name="content_warning">Nội dung ẩn</string>
 	<string name="save">Lưu</string>
@@ -274,12 +274,12 @@
 	<string name="last_edit_at_x">Sửa lần cuối %s</string>
 	<string name="time_just_now">vừa xong</string>
 	<plurals name="x_seconds_ago">
-		<item quantity="other">%d giây trước</item>
+		<item quantity="other">%d giây</item>
 	</plurals>
 	<plurals name="x_minutes_ago">
-		<item quantity="other">%d phút trước</item>
+		<item quantity="other">%d phút</item>
 	</plurals>
-	<string name="edited_timestamp">sửa %s</string>
+	<string name="edited_timestamp">%s (đã sửa)</string>
 	<string name="edit_original_post">Tút gốc</string>
 	<string name="edit_text_edited">Nội dung chỉnh sửa</string>
 	<string name="edit_spoiler_added">Thêm cảnh báo nội dung</string>
@@ -350,12 +350,12 @@
 	<string name="sending_follows">Đang theo dõi người này…</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
 	<string name="signup_email_domain_blocked">%1$s không cho phép đăng ký bằng %2$s. Dùng cái khác hoặc &lt;a&gt;chọn máy chủ khác&lt;/a&gt;.</string>
-	<string name="spoiler_show">Vẫn cứ xem</string>
+	<string name="spoiler_show">Nhấn để xem</string>
 	<string name="spoiler_hide">Ẩn lại</string>
 	<string name="poll_multiple_choice">Chọn một hoặc nhiều</string>
 	<string name="save_changes">Lưu thay đổi</string>
 	<string name="profile_featured">Nổi bật</string>
-	<string name="profile_timeline">Bảng tin</string>
+	<string name="profile_timeline">Tường</string>
 	<string name="view_all">Xem tất cả</string>
 	<string name="profile_endorsed_accounts">Tài khoản</string>
 	<string name="verified_link">Liên kết xác minh</string>
@@ -376,7 +376,7 @@
 	<string name="retry">Thử lại</string>
 	<string name="post_failed">Không đăng được</string>
 	<!-- %s is formatted file size ("467 KB image") -->
-	<string name="attachment_description_image">%s hình ảnh</string>
+	<string name="attachment_description_image">%s ảnh</string>
 	<string name="attachment_description_video">%s video</string>
 	<string name="attachment_description_audio">%s âm thanh</string>
 	<string name="attachment_description_unknown">%s tập tin</string>
@@ -385,7 +385,7 @@
 	<string name="attachment_type_audio">Âm thanh</string>
 	<string name="attachment_type_gif">GIF</string>
 	<string name="attachment_type_unknown">Tập tin</string>
-	<string name="attachment_x_percent_uploaded">%d%% đã tải lên</string>
+	<string name="attachment_x_percent_uploaded">Đã tải lên %d%%</string>
 	<string name="add_poll_option">Thêm tùy chọn</string>
 	<string name="poll_length">Thời hạn bình chọn</string>
 	<string name="poll_style">Loại</string>
@@ -407,7 +407,7 @@
 	<string name="language_system">Hệ thống</string>
 	<string name="language_detecting">Phát hiện ngôn ngữ</string>
 	<string name="language_cant_detect">Không xác định được ngôn ngữ</string>
-	<string name="language_detected">Xác định</string>
+	<string name="language_detected">Gợi ý</string>
 	<string name="media_hidden">Media đã bị ẩn</string>
 	<string name="post_hidden">Tút đã ẩn</string>
 	<string name="report_title_post">Báo cáo tút</string>
@@ -427,7 +427,7 @@
 	<string name="settings_server_explanation">Tổng quan, nội quy, kiểm duyệt</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">Về %s</string>
-	<string name="default_post_language">Ngôn ngữ mặc định</string>
+	<string name="default_post_language">Ngôn ngữ đăng mặc định</string>
 	<string name="settings_alt_text_reminders">Nhắc thêm văn bản thay thế</string>
 	<string name="settings_confirm_unfollow">Hỏi trước khi bỏ theo dõi</string>
 	<string name="settings_confirm_boost">Hỏi trước khi đăng lại</string>
@@ -475,7 +475,7 @@
 		<item quantity="other">trong %d giờ</item>
 	</plurals>
 	<plurals name="x_hours_ago">
-		<item quantity="other">%d giờ trước</item>
+		<item quantity="other">%d giờ</item>
 	</plurals>
 	<string name="alt_text_reminder_title">Thiếu văn bản thay thế</string>
 	<plurals name="alt_text_reminder_x_images">
@@ -497,7 +497,7 @@
 	<string name="settings_edit_filter">Sửa bộ lọc</string>
 	<string name="settings_filter_duration">Thời hạn</string>
 	<string name="settings_filter_muted_words">Bộ lọc từ ngữ</string>
-	<string name="settings_filter_context">Ẩn từ</string>
+	<string name="settings_filter_context">Ẩn khỏi</string>
 	<string name="settings_filter_show_cw">Hiện nội dung ẩn</string>
 	<string name="settings_filter_show_cw_explanation">Vẫn hiện tút khớp bộ lọc này, nhưng ẩn trong cảnh báo nội dung</string>
 	<string name="settings_delete_filter">Xóa bộ lọc</string>
@@ -518,7 +518,7 @@
 	<string name="settings_filter_title">Tên</string>
 	<string name="settings_delete_filter_title">Xóa bộ lọc “%s”?</string>
 	<string name="settings_delete_filter_confirmation">Bộ lọc này sẽ bị xóa khỏi tài khoản của bạn.</string>
-	<string name="add_muted_word">Thêm chữ ẩn</string>
+	<string name="add_muted_word">Thêm từ muốn ẩn</string>
 	<string name="edit_muted_word">Sửa chữ ẩn</string>
 	<string name="add">Thêm</string>
 	<string name="filter_word_or_phrase">Từ hoặc cụm từ</string>
@@ -549,8 +549,8 @@
 	<string name="posts_matching_string">Tút có chứa “%s”</string>
 	<string name="accounts_matching_string">Người tên “%s”</string>
 	<!-- Shown in the post header. Please keep it short -->
-	<string name="time_seconds_ago_short">%ds trước</string>
-	<string name="time_minutes_ago_short">%dp trước</string>
-	<string name="time_hours_ago_short">%dh trước</string>
-	<string name="time_days_ago_short">%d ngày trước</string>
+	<string name="time_seconds_ago_short">%ds</string>
+	<string name="time_minutes_ago_short">%dp</string>
+	<string name="time_hours_ago_short">%dh</string>
+	<string name="time_days_ago_short">%d ngày</string>
 </resources>
