@@ -16,7 +16,7 @@
 	<string name="user_favorited">Ваш допис сподобався %s</string>
 	<string name="notification_boosted">%s поширює ваш допис</string>
 	<string name="poll_ended">Переглянути результати опитування, в якому ви голосували</string>
-	<string name="share_toot_title">Поділитись</string>
+	<string name="share_toot_title">Поділитися</string>
 	<string name="settings">Налаштування</string>
 	<string name="publish">Опублікувати</string>
 	<string name="discard_draft">Видалити чернетку?</string>
@@ -24,7 +24,7 @@
 	<string name="cancel">Скасувати</string>
 	<plurals name="followers">
 		<item quantity="one">підписник</item>
-		<item quantity="few">підписників</item>
+		<item quantity="few">підписника</item>
 		<item quantity="many">підписників</item>
 		<item quantity="other">підписників</item>
 	</plurals>
@@ -38,7 +38,7 @@
 	<string name="posts_and_replies">Дописи й відповіді</string>
 	<string name="media">Медіа</string>
 	<string name="profile_about">Інформація</string>
-	<string name="button_follow">Стежити</string>
+	<string name="button_follow">Підписатися</string>
 	<string name="button_following">Ви підписані</string>
 	<string name="edit_profile">Редагувати профіль</string>
 	<string name="share_user">Поширити профіль</string>
@@ -62,7 +62,7 @@
 	<string name="field_content">Вміст</string>
 	<string name="saving">Збереження…</string>
 	<string name="post_from_user">Публікація від %s</string>
-	<string name="poll_option_hint">Параметр %d</string>
+	<string name="poll_option_hint">Варіант %d</string>
 	<plurals name="x_minutes">
 		<item quantity="one">%d Хвилина</item>
 		<item quantity="few">%d Хвилини</item>
@@ -82,8 +82,8 @@
 		<item quantity="other">%d Днів</item>
 	</plurals>
 	<plurals name="x_seconds_left">
-		<item quantity="one">%d Секунд залишилося</item>
-		<item quantity="few">%d Секунд залишилося</item>
+		<item quantity="one">%d Секунда залишилася</item>
+		<item quantity="few">%d Секунди залишилося</item>
 		<item quantity="many">%d Секунд залишилося</item>
 		<item quantity="other">%d Секунд залишилося</item>
 	</plurals>
@@ -95,13 +95,13 @@
 	</plurals>
 	<plurals name="x_hours_left">
 		<item quantity="one">%d Година залишилася</item>
-		<item quantity="few">%d Годин залишилося</item>
+		<item quantity="few">%d Години залишилося</item>
 		<item quantity="many">%d Годин залишилося</item>
 		<item quantity="other">%d Годин залишилося</item>
 	</plurals>
 	<plurals name="x_days_left">
 		<item quantity="one">%d День залишився</item>
-		<item quantity="few">%d Днів залишилося</item>
+		<item quantity="few">%d Дні залишилося</item>
 		<item quantity="many">%d Днів залишилося</item>
 		<item quantity="other">%d Днів залишилося</item>
 	</plurals>
@@ -113,12 +113,12 @@
 	</plurals>
 	<string name="poll_closed">Завершено</string>
 	<string name="confirm_mute_title">Заглушити обліковий запис</string>
-	<string name="confirm_mute">Підтвердьте заглушення %s</string>
+	<string name="confirm_mute">Підтвердити заглушення %s</string>
 	<string name="do_mute">Заглушити</string>
 	<string name="confirm_unmute_title">Розглушити обліковий запис</string>
 	<string name="confirm_unmute">Підтвердить розглушення %s</string>
 	<string name="do_unmute">Розглушити</string>
-	<string name="confirm_block_title">Блокувати обліковий запис</string>
+	<string name="confirm_block_title">Заблокувати обліковий запис</string>
 	<string name="confirm_block_domain_title">Заблокувати домен</string>
 	<string name="confirm_block">Підтвердити блокування %s</string>
 	<string name="do_block">Заблокувати</string>
@@ -186,32 +186,32 @@
 	<string name="email">Email</string>
 	<string name="password">Пароль</string>
 	<string name="confirm_password">Підтвердити пароль</string>
-	<string name="password_note">Використовуйте великі літери, спеціальні символи та цифри для збільшення сили пароля.</string>
+	<string name="password_note">Використовуйте великі літери, спеціальні символи та цифри для посилення пароля.</string>
 	<string name="category_academia">Академія</string>
 	<string name="category_activism">Активізм</string>
 	<string name="category_all">Все</string>
 	<string name="category_art">Мистецтво</string>
 	<string name="category_food">Їжа</string>
-	<string name="category_furry">Furry</string>
+	<string name="category_furry">Фурі</string>
 	<string name="category_games">Ігри</string>
-	<string name="category_general">Загальне</string>
+	<string name="category_general">Загальні</string>
 	<string name="category_journalism">Журналістика</string>
 	<string name="category_lgbt">ЛГБТ</string>
 	<string name="category_music">Музика</string>
 	<string name="category_regional">Регіональні</string>
 	<string name="category_tech">Технології</string>
-	<string name="confirm_email_title">Перевірити вхідні листи</string>
+	<string name="confirm_email_title">Перевірте вашу електронну пошту</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">Натисніть на посилання, яке ми надіслали вам, щоб підтвердити %s. Ми чекатимемо прямо тут.</string>
 	<string name="confirm_email_didnt_get">Не отримали посилання?</string>
 	<string name="resend">Надіслати повторно</string>
-	<string name="open_email_app">Відкрити Електрону пошту</string>
-	<string name="resent_email">Електронний лист для підтвердження</string>
+	<string name="open_email_app">Відкрити електрону пошту</string>
+	<string name="resent_email">Лист для підтвердження надіслано</string>
 	<string name="compose_hint">Пишіть або вставляйте ваші думки</string>
 	<string name="content_warning">Попередження про вміст</string>
 	<string name="save">Зберегти</string>
 	<string name="add_alt_text">Додати альтернативний текст</string>
-	<string name="visibility_public">Загальнодоступно</string>
+	<string name="visibility_public">Для всіх</string>
 	<string name="visibility_followers_only">Тільки для підписників</string>
 	<string name="visibility_private">Лише згадані</string>
 	<string name="recent_searches">Нещодавні</string>
@@ -229,12 +229,12 @@
 		<item quantity="many">Ви не можете додати більше ніж %d медіа</item>
 		<item quantity="other">Ви не можете додати більше ніж %d медіа</item>
 	</plurals>
-	<string name="media_attachment_unsupported_type">Файл %s непідтримуваного формату</string>
+	<string name="media_attachment_unsupported_type">Файл %s не підтримується</string>
 	<string name="media_attachment_too_big">Розмір %1$s перевищує ліміт %2$s MB</string>
 	<string name="settings_theme">Тема</string>
 	<string name="theme_auto">Використовувати тему пристрою</string>
-	<string name="theme_light">Світлий</string>
-	<string name="theme_dark">Темний</string>
+	<string name="theme_light">Світла</string>
+	<string name="theme_dark">Темна</string>
 	<string name="settings_behavior">Поведінка</string>
 	<string name="settings_gif">Відтворювати анімовані аватари та емодзі</string>
 	<string name="settings_custom_tabs">Використовувати вбудований браузер</string>
@@ -348,13 +348,13 @@
 	<string name="edit_media_added">Медіа додано</string>
 	<string name="edit_media_removed">Медіа видалено</string>
 	<string name="edit_media_reordered">Медіа перевпорядковано</string>
-	<string name="edit_marked_sensitive">Позначено неприйнятним</string>
-	<string name="edit_marked_not_sensitive">Позначено прийнятним</string>
+	<string name="edit_marked_sensitive">Позначено делікатним</string>
+	<string name="edit_marked_not_sensitive">Позначено як безпечне</string>
 	<string name="edit_multiple_changed">Опитування відредаговано</string>
 	<string name="edit">Редагувати</string>
 	<string name="discard_changes">Скасувати зміни?</string>
 	<string name="upload_failed">Не вдалося завантажити</string>
-	<string name="file_size_bytes">%d байтів</string>
+	<string name="file_size_bytes">%d байт</string>
 	<string name="file_size_kb">%.2f КБ</string>
 	<string name="file_size_mb">%.2f MB</string>
 	<string name="file_size_gb">%.2f GB</string>
