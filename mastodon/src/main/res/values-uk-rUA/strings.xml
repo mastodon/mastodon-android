@@ -43,7 +43,7 @@
 	<string name="edit_profile">Редагувати профіль</string>
 	<string name="share_user">Поширити профіль</string>
 	<string name="mute_user">Заглушити %s</string>
-	<string name="unmute_user">Розглушити %s</string>
+	<string name="unmute_user">Не глушити %s</string>
 	<string name="block_user">Заблокувати %s</string>
 	<string name="unblock_user">Розблокувати %s</string>
 	<string name="report_user">Поскаржитися на %s</string>
@@ -113,18 +113,18 @@
 	</plurals>
 	<string name="poll_closed">Завершено</string>
 	<string name="confirm_mute_title">Заглушити обліковий запис</string>
-	<string name="confirm_mute">Підтвердити заглушення %s</string>
+	<string name="confirm_mute">Ви дійсно хочете заглушити %s?</string>
 	<string name="do_mute">Заглушити</string>
-	<string name="confirm_unmute_title">Розглушити обліковий запис</string>
-	<string name="confirm_unmute">Підтвердить розглушення %s</string>
-	<string name="do_unmute">Розглушити</string>
+	<string name="confirm_unmute_title">Більше не глушити обліковий запис</string>
+	<string name="confirm_unmute">Перестати глушити %s?</string>
+	<string name="do_unmute">Не глушити</string>
 	<string name="confirm_block_title">Заблокувати обліковий запис</string>
 	<string name="confirm_block_domain_title">Заблокувати домен</string>
-	<string name="confirm_block">Підтвердити блокування %s</string>
+	<string name="confirm_block">Ви дійсно хочете заблокувати %s?</string>
 	<string name="do_block">Заблокувати</string>
 	<string name="confirm_unblock_title">Розблокувати обліковий запис</string>
 	<string name="confirm_unblock_domain_title">Розблокувати домен</string>
-	<string name="confirm_unblock">Підтвердити розблокування %s</string>
+	<string name="confirm_unblock">Розблокувати %s?</string>
 	<string name="do_unblock">Розблокувати</string>
 	<string name="button_blocked">Заблоковано</string>
 	<string name="action_vote">Проголосувати</string>
@@ -150,7 +150,7 @@
 		<item quantity="other">%d осіб розмовляє</item>
 	</plurals>
 	<string name="report_title">Поскаржитись на %s</string>
-	<string name="report_choose_reason">Що не так з цим дописом?</string>
+	<string name="report_choose_reason">Що не так із цим дописом?</string>
 	<string name="report_choose_reason_account">Що не так з %s?</string>
 	<string name="report_choose_reason_subtitle">Оберіть найвідповідальніший варіант</string>
 	<string name="report_reason_personal">Мені це не подобається</string>
@@ -185,7 +185,7 @@
 	<string name="username">Ім\'я користувача</string>
 	<string name="email">Email</string>
 	<string name="password">Пароль</string>
-	<string name="confirm_password">Підтвердити пароль</string>
+	<string name="confirm_password">Підтвердження паролю</string>
 	<string name="password_note">Використовуйте великі літери, спеціальні символи та цифри для посилення пароля.</string>
 	<string name="category_academia">Академія</string>
 	<string name="category_activism">Активізм</string>
@@ -253,7 +253,7 @@
 	<string name="button_reply">Відповісти</string>
 	<string name="button_reblog">Поширити</string>
 	<string name="button_favorite">Улюблене</string>
-	<string name="button_share">Поділитись</string>
+	<string name="button_share">Поділитися</string>
 	<string name="media_no_description">Медіа без опису</string>
 	<string name="add_media">Додати медіа</string>
 	<string name="add_poll">Додати опитування</string>
@@ -262,16 +262,16 @@
 	<string name="my_profile">Мій профіль</string>
 	<string name="media_viewer">Медіапрогравач</string>
 	<string name="follow_user">Підписатися на %s</string>
-	<string name="unfollowed_user">Відписалися від %s</string>
+	<string name="unfollowed_user">Ви відписалися від %s</string>
 	<string name="followed_user">Тепер ви підписані на %s</string>
 	<string name="following_user_requested">Запитано на підписку на %s</string>
 	<string name="open_in_browser">Відкрити у браузері</string>
 	<string name="hide_boosts_from_user">Сховати поширення від %s</string>
 	<string name="show_boosts_from_user">Показати поширення від %s</string>
 	<string name="signup_reason">Чому ви бажаєте приєднатися?</string>
-	<string name="signup_reason_note">Це допоможе нам переглянути вашу заявку.</string>
+	<string name="signup_reason_note">Це допоможе нам розглянути вашу заяву.</string>
 	<string name="clear">Очистити</string>
-	<string name="profile_header">Зображння-заголовок</string>
+	<string name="profile_header">Шапка профілю</string>
 	<string name="profile_picture">Зображення профілю</string>
 	<string name="reorder">Упорядкувати</string>
 	<string name="download">Звантажити</string>
@@ -293,11 +293,11 @@
 	<string name="follow_back">Підписатися взаємно</string>
 	<string name="button_follow_pending">Очікується</string>
 	<string name="follows_you">Підписаний(-на) на вас</string>
-	<string name="manually_approves_followers">Підтверджувати підписки вручну</string>
+	<string name="manually_approves_followers">Підтверджувати підписників власноруч</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<plurals name="x_followers">
 		<item quantity="one">%,d підписник</item>
-		<item quantity="few">%,d підписників</item>
+		<item quantity="few">%,d підписника</item>
 		<item quantity="many">%,d підписників</item>
 		<item quantity="other">%,d підписників</item>
 	</plurals>
@@ -420,10 +420,10 @@
 	<string name="hide">Сховати</string>
 	<string name="join_default_server">Приєднатися до %s</string>
 	<string name="pick_server">Обрати інший сервер</string>
-	<string name="signup_or_login">чи</string>
-	<string name="learn_more">Докладніше</string>
+	<string name="signup_or_login">або</string>
+	<string name="learn_more">Дізнатися більше</string>
 	<string name="welcome_to_mastodon">Вітаємо у Mastodon</string>
-	<string name="welcome_paragraph1">Mastodon - це децентралізована соціальна мережа, що визначає, що жодна компанія контролює її. У її склад входить велика кількість незалежних серверів, які всі з\'єднані один з іншим.</string>
+	<string name="welcome_paragraph1">Mastodon - це децентралізована соціальна мережа, тобто жодна компанія не контролює її. Вона складається з багатьох незалежних серверів, які з\'єднані між собою.</string>
 	<string name="what_are_servers">Що таке сервери?</string>
 	<string name="welcome_paragraph2"><![CDATA[Кожен акаунт Mastodon розміщений на сервері, й кожен сервер має особисті цінності, правила, й адмінів. Немає різниці, який ви оберете. Ви можете підписуватися та спілкуватися з усіма, навіть якщо ви на різних серверах.]]></string>
 	<string name="opening_link">Відкриття посилання…</string>
@@ -603,7 +603,6 @@
 	<string name="edit_muted_word">Редагувати ігноровані слова</string>
 	<string name="add">Додати</string>
 	<string name="filter_word_or_phrase">Слово чи фраза</string>
-	<string name="filter_add_word_help">Слова чутливі до регістру та мають збігатися з повним словом.\n\nЯкщо ви відфільтруєте слово \"яблуко\", сховаються пости зі словом \"яблуко\" або \"ЯбЛуКо\", але не \"яблучний\"</string>
 	<string name="settings_delete_filter_word">Видалити слово \"%s?</string>
 	<string name="enter_selection_mode">Вибрати</string>
 	<string name="select_all">Вибрати всі</string>
