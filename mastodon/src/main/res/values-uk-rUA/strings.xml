@@ -2,7 +2,7 @@
 <resources>
 	<string name="log_in">Увійти</string>
 	<string name="next">Далі</string>
-	<string name="loading_instance">Отримання інформації замовлення…</string>
+	<string name="loading_instance">Отримання інформації про сервер…</string>
 	<string name="error">Помилка</string>
 	<string name="not_a_mastodon_instance">%s не є інстансом Mastodon.</string>
 	<string name="ok">OK</string>
@@ -20,7 +20,7 @@
 	<string name="settings">Налаштування</string>
 	<string name="publish">Опублікувати</string>
 	<string name="discard_draft">Видалити чернетку?</string>
-	<string name="discard">Скасувати</string>
+	<string name="discard">Видалити</string>
 	<string name="cancel">Скасувати</string>
 	<plurals name="followers">
 		<item quantity="one">підписник</item>
@@ -120,11 +120,11 @@
 	<string name="do_unmute">Розглушити</string>
 	<string name="confirm_block_title">Блокувати обліковий запис</string>
 	<string name="confirm_block_domain_title">Заблокувати домен</string>
-	<string name="confirm_block">Підтвердіть блокування %s</string>
+	<string name="confirm_block">Підтвердити блокування %s</string>
 	<string name="do_block">Заблокувати</string>
 	<string name="confirm_unblock_title">Розблокувати обліковий запис</string>
 	<string name="confirm_unblock_domain_title">Розблокувати домен</string>
-	<string name="confirm_unblock">Підтвердіть розблокування %s</string>
+	<string name="confirm_unblock">Підтвердити розблокування %s</string>
 	<string name="do_unblock">Розблокувати</string>
 	<string name="button_blocked">Заблоковано</string>
 	<string name="action_vote">Проголосувати</string>
@@ -146,7 +146,7 @@
 	<plurals name="x_people_talking">
 		<item quantity="one">%d особа розмовляє</item>
 		<item quantity="few">%d особи розмовляють</item>
-		<item quantity="many">%d особ розмовляє</item>
+		<item quantity="many">%d осіб розмовляє</item>
 		<item quantity="other">%d осіб розмовляє</item>
 	</plurals>
 	<string name="report_title">Поскаржитись на %s</string>
