@@ -356,8 +356,8 @@
 	<string name="upload_failed">Не вдалося завантажити</string>
 	<string name="file_size_bytes">%d байт</string>
 	<string name="file_size_kb">%.2f КБ</string>
-	<string name="file_size_mb">%.2f MB</string>
-	<string name="file_size_gb">%.2f GB</string>
+	<string name="file_size_mb">%.2f МБ</string>
+	<string name="file_size_gb">%.2f ГБ</string>
 	<string name="upload_processing">Обробка…</string>
 	<!-- %s is version like 1.2.3 -->
 	<!-- %s is version like 1.2.3 -->
@@ -369,19 +369,19 @@
 	<string name="i_agree">Я погоджуюся</string>
 	<string name="empty_list">Цей список порожній</string>
 	<string name="instance_signup_closed">Цей сервер не приймає нові реєстрації.</string>
-	<string name="text_copied">Скопійовано до буферу обміну</string>
-	<string name="add_bookmark">Додати в закладки</string>
+	<string name="text_copied">Скопійовано до буфера обміну</string>
+	<string name="add_bookmark">До закладок</string>
 	<string name="remove_bookmark">Вилучити закладку</string>
 	<string name="bookmarks">Закладки</string>
-	<string name="your_favorites">Ваше улюблене</string>
+	<string name="your_favorites">Ваші улюблені</string>
 	<string name="login_title">З поверненням</string>
 	<string name="login_subtitle">Увійдіть за допомогою сервера, де ви створили свій обліковий запис.</string>
 	<string name="server_url">URL-адреса сервера</string>
 	<string name="signup_random_server_explain">Ми підберемо сервер на основі вашої мови, якщо ви продовжите без вибору.</string>
 	<string name="server_filter_any_language">Будь-яка мова</string>
-	<string name="server_filter_instant_signup">Миттєва Реєстрація</string>
+	<string name="server_filter_instant_signup">Миттєва реєстрація</string>
 	<string name="server_filter_manual_review">Ручна перевірка</string>
-	<string name="server_filter_any_signup_speed">Будь-яка Швидкість Реєстрації</string>
+	<string name="server_filter_any_signup_speed">Будь-яка швидкість реєстрації</string>
 	<string name="server_filter_region_europe">Європа</string>
 	<string name="server_filter_region_north_america">Північна Америка</string>
 	<string name="server_filter_region_south_america">Південна Америка</string>
@@ -394,11 +394,11 @@
 	<string name="pick_server_for_me">Підібрати для мене</string>
 	<string name="profile_add_row">Додати рядок</string>
 	<string name="profile_setup">Налаштування профілю</string>
-	<string name="profile_setup_subtitle">Ви можете завершити це пізніше у вкладці з Профілем.</string>
-	<string name="profile_setup_explanation">Ви можете додати до чотирьох міток в профілі для будь-чого. Місця, посилання, займенники — небо є межею.</string>
-	<string name="popular_on_mastodon">Популярне в Mastodon</string>
-	<string name="follow_all">Стежити за всіма</string>
-	<string name="server_rules_disagree">Не приймаю</string>
+	<string name="profile_setup_subtitle">Ви завжди можете завершити це пізніше у вкладці профілю.</string>
+	<string name="profile_setup_explanation">Ви можете додати до чотирьох рядків у профілі для будь-чого. Місце, посилання, інтереси — безмежні можливості.</string>
+	<string name="popular_on_mastodon">Популярне на Mastodon</string>
+	<string name="follow_all">Підписатися на всіх</string>
+	<string name="server_rules_disagree">Не погоджуюся</string>
 	<string name="privacy_policy_explanation">Коротко кажучи, ми нічого не збираємо та не обробляємо.</string>
 	<!-- %s is server domain -->
 	<string name="server_policy_disagree">Не згоден з %s</string>
@@ -407,7 +407,7 @@
 	<string name="sending_follows">Підписуємося…</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
 	<string name="signup_email_domain_blocked">%1$s не приймає реєстрацію з %2$s. Спробуйте інший &lt;a&gt;виберіть інший сервер&lt;/a&gt;.</string>
-	<string name="spoiler_show">Усе одне показати</string>
+	<string name="spoiler_show">Усе одно показати</string>
 	<string name="spoiler_hide">Сховати знову</string>
 	<string name="poll_multiple_choice">Оберіть один чи декілька</string>
 	<string name="save_changes">Зберегти зміни</string>
