@@ -172,7 +172,7 @@
 	<string name="report_sent_subtitle">Поки ми переглядаємо, ви можете вжити власних заходів проти %s:</string>
 	<string name="unfollow_user">Відписатися від %s</string>
 	<string name="unfollow">Відписатися</string>
-	<string name="mute_user_explain">Ви не побачите їхніх дописів. Вони все ще можуть стежити за вами, бачити ваші дописи, але не знатимуть що їх приховано.</string>
+	<string name="mute_user_explain">Ви не побачите їхніх дописів. Вони все ще можуть бути на вас підписаними, бачити ваші дописи, але не знатимуть що їх приховано.</string>
 	<string name="block_user_explain">Ви не будете бачити дописи цього користувача, а вони не зможуть бачити ваші дописи або підписуватися на вас. Вони будуть бачити, що ви їх заблокували.</string>
 	<string name="report_personal_title">Не хочете бачити це?</string>
 	<string name="report_personal_subtitle">Ось ваші варіанти керування тим, що ви бачите в Mastodon:</string>
@@ -264,7 +264,7 @@
 	<string name="follow_user">Підписатися на %s</string>
 	<string name="unfollowed_user">Ви відписалися від %s</string>
 	<string name="followed_user">Тепер ви підписані на %s</string>
-	<string name="following_user_requested">Запитано на підписку на %s</string>
+	<string name="following_user_requested">Запитано на підписку %s</string>
 	<string name="open_in_browser">Відкрити у браузері</string>
 	<string name="hide_boosts_from_user">Сховати поширення від %s</string>
 	<string name="show_boosts_from_user">Показати поширення від %s</string>
@@ -302,10 +302,10 @@
 		<item quantity="other">%,d підписників</item>
 	</plurals>
 	<plurals name="x_following">
-		<item quantity="one">Підписаний на %,d</item>
-		<item quantity="few">Підписаний на %,d</item>
-		<item quantity="many">Підписаний на %,d</item>
-		<item quantity="other">Підписаний на %,d</item>
+		<item quantity="one">%,d підписка</item>
+		<item quantity="few">%,d підписки</item>
+		<item quantity="many">%,d підписок</item>
+		<item quantity="other">%,d підписок</item>
 	</plurals>
 	<plurals name="x_favorites">
 		<item quantity="one">%,d улюблене</item>
@@ -321,9 +321,9 @@
 	</plurals>
 	<string name="timestamp_via_app">%1$s через %2$s</string>
 	<string name="time_now">щойно</string>
-	<string name="edit_history">Змінити історію</string>
-	<string name="last_edit_at_x">Останнє редагування %s</string>
-	<string name="time_just_now">тільки що</string>
+	<string name="edit_history">Історія редагувань</string>
+	<string name="last_edit_at_x">Востаннє відредаговано %s</string>
+	<string name="time_just_now">щойно</string>
 	<plurals name="x_seconds_ago">
 		<item quantity="one">%d Секунду тому</item>
 		<item quantity="few">%d Секунди тому</item>
@@ -339,8 +339,8 @@
 	<string name="edited_timestamp">відредаговано %s</string>
 	<string name="edit_original_post">Оригінальний допис</string>
 	<string name="edit_text_edited">Текст відредаговано</string>
-	<string name="edit_spoiler_added">Повідомлення про вміст додано</string>
-	<string name="edit_spoiler_edited">Попередження про вмісту відредаговано</string>
+	<string name="edit_spoiler_added">Попередження про вміст додано</string>
+	<string name="edit_spoiler_edited">Попередження про вміст відредаговано</string>
 	<string name="edit_spoiler_removed">Попередження про вміст видалено</string>
 	<string name="edit_poll_added">Опитування додано</string>
 	<string name="edit_poll_edited">Опитування відредаговано</string>
@@ -603,6 +603,7 @@
 	<string name="edit_muted_word">Редагувати ігноровані слова</string>
 	<string name="add">Додати</string>
 	<string name="filter_word_or_phrase">Слово чи фраза</string>
+	<string name="filter_add_word_help">Слова чутливі до регістру та мають збігатися з повним словом.\n\nЯкщо ви відфільтруєте слово \"яблуко\", сховаються дописи зі словом \"яблуко\" або \"ЯбЛуКо\", але не, наприклад, \"яблучний\".</string>
 	<string name="settings_delete_filter_word">Видалити слово \"%s?</string>
 	<string name="enter_selection_mode">Вибрати</string>
 	<string name="select_all">Вибрати всі</string>
