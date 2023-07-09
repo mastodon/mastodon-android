@@ -144,10 +144,10 @@
 	<string name="all_notifications">Усе</string>
 	<string name="mentions">Згадки</string>
 	<plurals name="x_people_talking">
-		<item quantity="one">%d особа розмовляє</item>
-		<item quantity="few">%d особи розмовляють</item>
-		<item quantity="many">%d осіб розмовляє</item>
-		<item quantity="other">%d осіб розмовляє</item>
+		<item quantity="one">%d особа говорить</item>
+		<item quantity="few">%d особи говорять</item>
+		<item quantity="many">%d осіб говорять</item>
+		<item quantity="other">%d осіб говорить</item>
 	</plurals>
 	<string name="report_title">Поскаржитись на %s</string>
 	<string name="report_choose_reason">Що не так із цим дописом?</string>
@@ -636,8 +636,8 @@
 	<string name="posts_matching_string">Дописи з “%s”</string>
 	<string name="accounts_matching_string">Люди з “%s”</string>
 	<!-- Shown in the post header. Please keep it short -->
-	<string name="time_seconds_ago_short">%d секунд тому</string>
-	<string name="time_minutes_ago_short">%d хвилин тому</string>
-	<string name="time_hours_ago_short">%d годин тому</string>
-	<string name="time_days_ago_short">%d днів тому</string>
+	<string name="time_seconds_ago_short">%dс. тому</string>
+	<string name="time_minutes_ago_short">%dхв. тому</string>
+	<string name="time_hours_ago_short">%dгод. тому</string>
+	<string name="time_days_ago_short">%dд. тому</string>
 </resources>
