@@ -342,11 +342,69 @@
 	<!-- %s is the server domain -->
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
+	<string name="pause_all_notifications">مکث همه</string>
+	<string name="pause_notifications_off">خاموش</string>
+	<string name="notifications_policy_anyone">هرکسی</string>
+	<string name="notifications_policy_no_one">هیچ‌کس</string>
 	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
+	<string name="date_at_time">%1$s در %2$s</string>
+	<string name="today">امروز</string>
+	<string name="yesterday">دیروز</string>
+	<string name="tomorrow">فردا</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="pause_notifications_ends">%s به پایان می‌رسد</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="about_server">درباره</string>
+	<string name="server_rules">قوانین</string>
+	<string name="server_administrator">مدیر</string>
+	<string name="settings_show_cws">نمایش هشدارهای محتوا</string>
+	<plurals name="in_x_minutes">
+		<item quantity="one">در %d دقیقه</item>
+		<item quantity="other">در %d دقیقه</item>
+	</plurals>
+	<plurals name="in_x_hours">
+		<item quantity="one">در %d ساعت</item>
+		<item quantity="other">در %d ساعت</item>
+	</plurals>
+	<plurals name="x_hours_ago">
+		<item quantity="one">%d ساعت پیش</item>
+		<item quantity="other">%d ساعت پیش</item>
+	</plurals>
+	<plurals name="alt_text_reminder_x_images">
+		<item quantity="one">%s از تصاویر شما متن جایگزین ندارد. به هر حال ارسال کنید؟</item>
+		<item quantity="other">%s از تصاویر شما متن جایگزین ندارند. به هر حال پست کنید؟</item>
+	</plurals>
+	<string name="count_one">یک</string>
+	<string name="count_two">دو</string>
+	<string name="count_three">سه</string>
+	<string name="count_four">چهار</string>
+	<string name="alt_text_reminder_post_anyway">فرسته</string>
 	<!-- %s is the username -->
+	<string name="filter_active">فعّال</string>
+	<string name="filter_inactive">غیرفعال</string>
+	<string name="settings_add_filter">افزودن پالایه</string>
+	<string name="settings_edit_filter">ویرایش پالایه</string>
+	<string name="settings_filter_duration">مدت زمان</string>
+	<string name="settings_filter_muted_words">واژه‌های خموش</string>
+	<string name="settings_delete_filter">حذف پالایه</string>
+	<string name="filter_duration_forever">برای همیشه</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="filter_context_notifications">آگاهی‌ها</string>
+	<string name="filter_context_public_timelines">خط زمانی‌های عمومی</string>
+	<string name="filter_context_profiles">نمایه‌ها</string>
+	<string name="settings_filter_title">عنوان</string>
+	<string name="add">افزودن</string>
+	<string name="settings_delete_filter_word">حذف واژه \"%s\"؟</string>
+	<string name="enter_selection_mode">انتخاب</string>
+	<string name="select_all">انتخاب همه</string>
+	<string name="settings_filter_duration_title">مدت زمان پالایه</string>
+	<string name="filter_duration_custom">سفارشی</string>
+	<string name="filter_word_already_in_list">در حال حاضر در سیاهه است</string>
+	<string name="app_update_ready">به‌روزرسانی کاره آماده است</string>
+	<string name="app_update_version">نسخه %s</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
+	<string name="search_mastodon">جستجوی ماستودون</string>
+	<string name="clear_all">پاکسازی همه</string>
+	<string name="search_open_url">باز کردن پیوند در ماستودون</string>
 	<!-- Shown in the post header. Please keep it short -->
 </resources>
