@@ -339,13 +339,43 @@
 	<string name="what_are_servers">کارساز شما کجاست؟</string>
 	<string name="welcome_paragraph2"><![CDATA[هر حساب ماستودون بر روی یک سرور میزبانی می شود — هر کدام با مقادیر، قوانین و مدیران خاص خود. مهم نیست کدام یک را انتخاب می کنید، می توانید افراد را در هر کارسازی دنبال کنید و با آنها تعامل داشته باشید.]]></string>
 	<!-- %s is formatted file size ("467 KB image") -->
+	<string name="attachment_type_image">تصویر</string>
+	<string name="attachment_type_video">ویدئو</string>
+	<string name="attachment_type_audio">صدا</string>
+	<string name="attachment_type_gif">گیف</string>
+	<string name="attachment_type_unknown">پرونده</string>
+	<string name="poll_style">سبک</string>
+	<string name="compose_poll_single_choice">یکی را انتخاب کن</string>
+	<string name="alt_text">متن جایگزین</string>
+	<string name="help">راهنما</string>
+	<string name="what_is_alt_text">متن جایگزین چیست؟</string>
+	<string name="edit_post">ویرایش فرسته</string>
+	<string name="language_system">سامانه</string>
+	<string name="media_hidden">رسانهٔ نهفته</string>
+	<string name="post_hidden">فرسته نهفته</string>
+	<string name="report_title_post">گزارش فرسته</string>
+	<string name="forward_report_explanation">این حساب در کارساز دیگری ثبت شده. آیا می‌خواهید رونوشتی ناشناس از این گزارش به آن‌جا هم فرستاده شود؟</string>
 	<!-- %s is the server domain -->
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
+	<string name="reported">گزارش‌ شد</string>
+	<string name="mark_all_notifications_read">علامت‌گذاری همه بعنوان خوانده شده</string>
+	<string name="settings_filters">پالایه‌ها</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
+	<string name="default_post_language">زبان فرسته پیش‌فرض</string>
+	<string name="settings_confirm_delete_post">قبل از حذف فرسته‌ها بپرسید</string>
 	<string name="pause_all_notifications">مکث همه</string>
 	<string name="pause_notifications_off">خاموش</string>
 	<string name="notifications_policy_anyone">هرکسی</string>
+	<string name="notifications_policy_followed">کسانی که شما را پی می‌گیرند</string>
+	<string name="notifications_policy_follower">کسانی که شما پی می‌گیرید</string>
 	<string name="notifications_policy_no_one">هیچ‌کس</string>
+	<string name="settings_notifications_policy">دریافت آگاهی‌ها از</string>
+	<string name="notification_type_mentions_and_replies">نام‌بردن‌ها و پاسخ‌ها</string>
+	<string name="pause_all_notifications_title">مکث تمامی آگاهی‌ها</string>
+	<plurals name="x_weeks">
+		<item quantity="one">%d هفته</item>
+		<item quantity="other">%d هفته</item>
+	</plurals>
 	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
 	<string name="date_at_time">%1$s در %2$s</string>
 	<string name="today">امروز</string>
@@ -354,10 +384,16 @@
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<string name="pause_notifications_ends">%s به پایان می‌رسد</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="open_system_notification_settings">رفتن به تنظیمات آگاهی</string>
 	<string name="about_server">درباره</string>
 	<string name="server_rules">قوانین</string>
 	<string name="server_administrator">مدیر</string>
 	<string name="settings_show_cws">نمایش هشدارهای محتوا</string>
+	<string name="settings_show_emoji_in_names">ایموجی‌های سفارشی در نام های نمایشی</string>
+	<plurals name="in_x_seconds">
+		<item quantity="one">در %d ثانیه</item>
+		<item quantity="other">در %d ثانیه</item>
+	</plurals>
 	<plurals name="in_x_minutes">
 		<item quantity="one">در %d دقیقه</item>
 		<item quantity="other">در %d دقیقه</item>
@@ -389,16 +425,37 @@
 	<string name="settings_delete_filter">حذف پالایه</string>
 	<string name="filter_duration_forever">برای همیشه</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="settings_filter_ends">%s به پایان می‌رسد</string>
+	<plurals name="settings_x_muted_words">
+		<item quantity="one">%d کلمه یا عبارت خموش‌شده</item>
+		<item quantity="other">%d کلمه یا عبارت خموش‌شده</item>
+	</plurals>
+	<string name="selection_2_options">%1$s و %2$s</string>
+	<string name="selection_3_options">%1$s، %2$s، و %3$s</string>
+	<string name="selection_4_or_more">%1$s، %2$s، و %3$d دیگر</string>
 	<string name="filter_context_notifications">آگاهی‌ها</string>
 	<string name="filter_context_public_timelines">خط زمانی‌های عمومی</string>
 	<string name="filter_context_profiles">نمایه‌ها</string>
 	<string name="settings_filter_title">عنوان</string>
+	<string name="settings_delete_filter_title">حذف پالایه \"%s\"؟</string>
+	<string name="add_muted_word">افزودن واژه خموش‌شده</string>
+	<string name="edit_muted_word">ویرایش واژه خموش‌شده</string>
 	<string name="add">افزودن</string>
+	<string name="filter_word_or_phrase">کلمه یا عبارت</string>
 	<string name="settings_delete_filter_word">حذف واژه \"%s\"؟</string>
 	<string name="enter_selection_mode">انتخاب</string>
 	<string name="select_all">انتخاب همه</string>
 	<string name="settings_filter_duration_title">مدت زمان پالایه</string>
 	<string name="filter_duration_custom">سفارشی</string>
+	<plurals name="settings_delete_x_filter_words">
+		<item quantity="one">حذف %d واژه؟</item>
+		<item quantity="other">حذف %d واژه؟</item>
+	</plurals>
+	<plurals name="x_items_selected">
+		<item quantity="one">%d انتخاب شد</item>
+		<item quantity="other">%d انتخاب شد</item>
+	</plurals>
+	<string name="required_form_field_blank">نمی‌تواند خالی باشد</string>
 	<string name="filter_word_already_in_list">در حال حاضر در سیاهه است</string>
 	<string name="app_update_ready">به‌روزرسانی کاره آماده است</string>
 	<string name="app_update_version">نسخه %s</string>
@@ -406,5 +463,8 @@
 	<string name="search_mastodon">جستجوی ماستودون</string>
 	<string name="clear_all">پاکسازی همه</string>
 	<string name="search_open_url">باز کردن پیوند در ماستودون</string>
+	<string name="posts_matching_hashtag">فرسته‌هایی با \"%s\"</string>
+	<string name="search_go_to_account">رفتن به %s</string>
+	<string name="accounts_matching_string">افراد دارای \"%s\"</string>
 	<!-- Shown in the post header. Please keep it short -->
 </resources>
