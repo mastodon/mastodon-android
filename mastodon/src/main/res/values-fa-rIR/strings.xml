@@ -206,6 +206,7 @@
 	<string name="media_attachment_unsupported_type">پرونده %s از نوع پشتیبانی نشده است</string>
 	<string name="media_attachment_too_big">اندازه پرونده %1$s از حد مجاز %2$s مگابایت بیشتر است</string>
 	<string name="settings_theme">ظاهر</string>
+	<string name="theme_auto">استفاده از ظاهر دستگاه</string>
 	<string name="theme_light">روشن</string>
 	<string name="theme_dark">تاریک</string>
 	<string name="settings_behavior">رفتار</string>
@@ -260,6 +261,7 @@
 	<string name="trending_links_info_banner">این‌ها اخباری است که در ماستودون در مورد آنها صحبت می شود.</string>
 	<!-- %s is the server domain -->
 	<string name="local_timeline_info_banner">این‌ها همه فرسته‌های همه کاربران در سرور شما (%s) هستند.</string>
+	<string name="recommended_accounts_info_banner">ممکن است این حساب‌ها را بر اساس حساب‌های دیگری که پی می‌گیرید بپسندید.</string>
 	<string name="see_new_posts">فرسته‌های جدید را ببینید</string>
 	<string name="load_missing_posts">بارگذاری فرسته‌های گم شده</string>
 	<string name="follow_back">پی‌گیری متقابل</string>
@@ -404,6 +406,7 @@
 	<string name="attachment_type_unknown">پرونده</string>
 	<string name="attachment_x_percent_uploaded">%d%% بارگذاری شد</string>
 	<string name="add_poll_option">افزودن گزینه نظرسنجی</string>
+	<string name="poll_length">طول نظرسنجی</string>
 	<string name="poll_style">سبک</string>
 	<string name="compose_poll_single_choice">یکی را انتخاب کن</string>
 	<string name="compose_poll_multiple_choice">چند گزینه ای</string>
@@ -439,6 +442,7 @@
 	<string name="mark_all_notifications_read">علامت‌گذاری همه بعنوان خوانده شده</string>
 	<string name="settings_display">نمایشگر</string>
 	<string name="settings_filters">پالایه‌ها</string>
+	<string name="settings_server_explanation">بررسی اجمالی، قوانین، ناظران</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">درباره %s</string>
 	<string name="default_post_language">زبان فرسته پیش‌فرض</string>
@@ -468,6 +472,7 @@
 	<string name="pause_notifications_ends">%s به پایان می‌رسد</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<string name="pause_notifications_banner">اعلان‌ها %s از سر گرفته می‌شوند.</string>
+	<string name="resume_notifications_now">اکنون از سرگیری کن</string>
 	<string name="open_system_notification_settings">رفتن به تنظیمات آگاهی</string>
 	<string name="about_server">درباره</string>
 	<string name="server_rules">قوانین</string>
@@ -540,6 +545,7 @@
 	<string name="edit_muted_word">ویرایش واژه خموش‌شده</string>
 	<string name="add">افزودن</string>
 	<string name="filter_word_or_phrase">کلمه یا عبارت</string>
+	<string name="filter_add_word_help">کلمات حساس به حروف بزرگ و کوچک هستند و فقط با کلمات کامل مطابقت دارند.\n\nاگر کلمه کلیدی \"Apple\" را پالایه کنید، پست‌های حاوی \"apple\" یا \"aPpLe\" و نه \"pineapple\" را پنهان می‌کند.</string>
 	<string name="settings_delete_filter_word">حذف واژه \"%s\"؟</string>
 	<string name="enter_selection_mode">انتخاب</string>
 	<string name="select_all">انتخاب همه</string>
@@ -568,4 +574,8 @@
 	<string name="posts_matching_string">فرسته‌هایی با \"%s\"</string>
 	<string name="accounts_matching_string">افراد دارای \"%s\"</string>
 	<!-- Shown in the post header. Please keep it short -->
+	<string name="time_seconds_ago_short">%dثانیه پيش</string>
+	<string name="time_minutes_ago_short">%d؜دقيقه پيش</string>
+	<string name="time_hours_ago_short">%dساعت پيش</string>
+	<string name="time_days_ago_short">%dروز پیش</string>
 </resources>
