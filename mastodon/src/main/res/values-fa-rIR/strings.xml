@@ -393,9 +393,10 @@
 	<string name="retry">سعی مجدد</string>
 	<string name="post_failed">ارسال ناموفق فرسته</string>
 	<!-- %s is formatted file size ("467 KB image") -->
-	<string name="attachment_description_image">%s تصویر</string>
+	<string name="attachment_description_image">تصویر %s</string>
 	<string name="attachment_description_video">%s ویدئو</string>
-	<string name="attachment_description_audio">%s صدا</string>
+	<string name="attachment_description_audio">صدای %s</string>
+	<string name="attachment_description_unknown">فایل %s</string>
 	<string name="attachment_type_image">تصویر</string>
 	<string name="attachment_type_video">ویدئو</string>
 	<string name="attachment_type_audio">صدا</string>
@@ -411,8 +412,10 @@
 	<string name="alt_text">متن جایگزین</string>
 	<string name="help">راهنما</string>
 	<string name="what_is_alt_text">متن جایگزین چیست؟</string>
+	<string name="alt_text_help">متن جایگزین برای افرادی که دارای اختلالات بینایی، اتصالات با پهنای باند داده کم، یا کسانی که به دنبال زمینه اضافی هستند، توضیحات تصویری را ارائه می دهد.\n\nشما می توانید با نوشتن متن جایگزین واضح، مختصر و عینی، دسترسی و درک را برای همه بهبود بخشید.\n\n<ul><li>گرفتن عناصر مهم</li>\n<li>خلاصه کردن متن در تصاویر</li>\n<li>از ساختار جمله منظم استفاده کنید</li>\n<li>از اطلاعات اضافی اجتناب کنید</li>\n<li>روی روندها و یافته های کلیدی در تصاویر پیچیده (مانند نمودارها یا نقشه ها) تمرکز کنید</li></ul></string>
 	<string name="edit_post">ویرایش فرسته</string>
 	<string name="no_verified_link">‏پیوند تأییدشده‌ای وجود ندارد</string>
+	<string name="compose_autocomplete_emoji_empty">مرور ایموجی</string>
 	<string name="no_search_results">چیزی برای این عبارت جست‌وجو یافت نشد</string>
 	<string name="language">زبان</string>
 	<string name="language_default">پیش‌گزیده</string>
@@ -431,6 +434,7 @@
 	<string name="report_unfollow_explanation">برای اینکه دیگر فرسته‌های آن‌ها را در فید خانه‌تان نببینید، آن‌ها را لغو پی‌گیری کنید.</string>
 	<string name="muted_user">%s خموش شد</string>
 	<string name="report_sent_already_blocked">شما قبلاً این کاربر را مسدود کرده‌اید، بنابراین تا زمانی که گزارش شما را بررسی می‌کنیم، کار دیگری لازم نیست انجام دهید.</string>
+	<string name="report_personal_already_blocked">شما قبلاً این کاربر را مسدود کرده‌اید، بنابراین کار دیگری لازم نیست انجام دهید.\n\nاز اینکه به ماستودون کمک کردید تا مکانی امن برای همه باشد متشکریم!</string>
 	<string name="blocked_user">%s مسدود شد</string>
 	<string name="mark_all_notifications_read">علامت‌گذاری همه بعنوان خوانده شده</string>
 	<string name="settings_display">نمایشگر</string>
