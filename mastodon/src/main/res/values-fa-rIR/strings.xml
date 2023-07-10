@@ -4,6 +4,7 @@
 	<string name="next">بعدی</string>
 	<string name="loading_instance">درحال بازیابی اطلاعات سرور…</string>
 	<string name="error">خطا</string>
+	<string name="not_a_mastodon_instance">%s به نظر نمی رسد یک کارساز ماستودون باشد.</string>
 	<string name="ok">تأیید</string>
 	<string name="preparing_auth">درحال آماده‌سازی برای احرازهویت…</string>
 	<string name="finishing_auth">درحال تکمیل احرازهویت…</string>
@@ -14,6 +15,7 @@
 	<string name="user_sent_follow_request">%s یک درخواست پی‌گیری برای شما ارسال کرد</string>
 	<string name="user_favorited">%s نوشتهٔ شما را پسندید</string>
 	<string name="notification_boosted">%s فرستهٔ شما را تقویت کرد</string>
+	<string name="poll_ended">نتایج نظرسنجی که به آن رای داده‌اید را ببینید</string>
 	<string name="share_toot_title">هم‌رسانی</string>
 	<string name="settings">تنظیمات</string>
 	<string name="publish">انتشار</string>
@@ -117,6 +119,7 @@
 	<string name="hashtags">برچسب‌ها</string>
 	<string name="news">اخبار</string>
 	<string name="for_you">برای شما</string>
+	<string name="all_notifications">همه چیز</string>
 	<string name="mentions">نام‌بردن‌ها</string>
 	<plurals name="x_people_talking">
 		<item quantity="one">%d نفر درحال صحبت‌کردن هستند</item>
@@ -126,6 +129,7 @@
 	<string name="report_choose_reason">این فرسته چه مشکلی دارد؟</string>
 	<string name="report_choose_reason_account">%s چه مشکلی دارد؟</string>
 	<string name="report_choose_reason_subtitle">منطبق‌ترین را انتخاب کنید</string>
+	<string name="report_reason_personal">من این را دوست ندارم</string>
 	<string name="report_reason_personal_subtitle">این چیزی نیست که بخواهید ببینید</string>
 	<string name="report_reason_spam">این هرزنامه است</string>
 	<string name="report_reason_spam_subtitle">پیوندهای مخرب، تعامل جعلی یا پاسخ‌های تکراری</string>
@@ -140,8 +144,13 @@
 	<string name="report_comment_title">آیا چیز دیگری هست که ما باید بدانیم؟</string>
 	<string name="report_comment_hint">توضیحات اضافه</string>
 	<string name="sending_report">درحال ارسال گزارش…</string>
+	<string name="report_sent_title">ممنون بابت گزارش، ما آن را بررسی خواهیم کرد.</string>
+	<string name="report_sent_subtitle">در حالی که ما این مورد را بررسی می‌کنیم، می‌توانید علیه ‎%s اقدام کنید:</string>
 	<string name="unfollow_user">پی‌نگرفتن ‎%s</string>
 	<string name="unfollow">پی‌نگرفتن</string>
+	<string name="mute_user_explain">شما فرسته‌های آن‌ها را نخواهید دید. آن‌ها همچنان می‌توانند شما را پی‌بگیرند و فرسته‌هایتان را ببینند و نمی‌دانند که خموش شده‌اند.</string>
+	<string name="block_user_explain">شما فرسته‌هایشان را نخواهید دید. آن‌ها نمی‌توانند فرسته‌هایتان را ببینند یا شما را پی‌بگیرند. آنها می‌توانند بگویند که مسدود شده‌اند.</string>
+	<string name="report_personal_title">نمی‌خواهید این را ببینید؟</string>
 	<string name="back">بازگشت</string>
 	<string name="search_communities">نام کارساز یا نشانی</string>
 	<string name="instance_rules_title">قوانین کارساز</string>
@@ -385,6 +394,8 @@
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">درباره %s</string>
 	<string name="default_post_language">زبان فرسته پیش‌فرض</string>
+	<string name="settings_confirm_unfollow">قبل از لغو پی‌گیری کسی بپرس</string>
+	<string name="settings_confirm_boost">قبل از تقویت بپرس</string>
 	<string name="settings_confirm_delete_post">قبل از حذف فرسته‌ها بپرسید</string>
 	<string name="pause_all_notifications">مکث همه</string>
 	<string name="pause_notifications_off">خاموش</string>
@@ -429,6 +440,7 @@
 		<item quantity="one">%d ساعت پیش</item>
 		<item quantity="other">%d ساعت پیش</item>
 	</plurals>
+	<string name="alt_text_reminder_title">رسانه متن جایگزین ندارد</string>
 	<plurals name="alt_text_reminder_x_images">
 		<item quantity="one">%s از تصاویر شما متن جایگزین ندارد. به هر حال ارسال کنید؟</item>
 		<item quantity="other">%s از تصاویر شما متن جایگزین ندارند. به هر حال پست کنید؟</item>
@@ -439,6 +451,7 @@
 	<string name="count_four">چهار</string>
 	<string name="alt_text_reminder_post_anyway">فرسته</string>
 	<!-- %s is the username -->
+	<string name="unfollow_confirmation">پی‌نگرفتن %s؟</string>
 	<string name="filter_active">فعّال</string>
 	<string name="filter_inactive">غیرفعال</string>
 	<string name="settings_add_filter">افزودن پالایه</string>
@@ -457,8 +470,10 @@
 	<string name="selection_2_options">%1$s و %2$s</string>
 	<string name="selection_3_options">%1$s، %2$s، و %3$s</string>
 	<string name="selection_4_or_more">%1$s، %2$s، و %3$d دیگر</string>
+	<string name="filter_context_home_lists">خانه &amp; سیاهه‌ها</string>
 	<string name="filter_context_notifications">آگاهی‌ها</string>
 	<string name="filter_context_public_timelines">خط زمانی‌های عمومی</string>
+	<string name="filter_context_threads_replies">موضوعات &amp; پاسخ‌ها</string>
 	<string name="filter_context_profiles">نمایه‌ها</string>
 	<string name="settings_filter_title">عنوان</string>
 	<string name="settings_delete_filter_title">حذف پالایه \"%s\"؟</string>
