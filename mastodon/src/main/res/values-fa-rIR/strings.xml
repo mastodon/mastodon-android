@@ -151,6 +151,7 @@
 	<string name="mute_user_explain">شما فرسته‌های آن‌ها را نخواهید دید. آن‌ها همچنان می‌توانند شما را پی‌بگیرند و فرسته‌هایتان را ببینند و نمی‌دانند که خموش شده‌اند.</string>
 	<string name="block_user_explain">شما فرسته‌هایشان را نخواهید دید. آن‌ها نمی‌توانند فرسته‌هایتان را ببینند یا شما را پی‌بگیرند. آنها می‌توانند بگویند که مسدود شده‌اند.</string>
 	<string name="report_personal_title">نمی‌خواهید این را ببینید؟</string>
+	<string name="report_personal_subtitle">در اینجا گزینه‌هایی برای کنترل آنچه در ماستودون میبینید، وجود دارد:</string>
 	<string name="back">بازگشت</string>
 	<string name="search_communities">نام کارساز یا نشانی</string>
 	<string name="instance_rules_title">قوانین کارساز</string>
@@ -177,14 +178,19 @@
 	<string name="category_tech">فناوری</string>
 	<string name="confirm_email_title">صندوق ورودیتان را بررسی کنید</string>
 	<!-- %s is the email address -->
+	<string name="confirm_email_subtitle">برای تأیید %s، روی پیوندی که برای شما ارسال کردیم ضربه بزنید. همین جا منتظر می‌مانیم.</string>
+	<string name="confirm_email_didnt_get">پیوندی نگرفتید؟</string>
 	<string name="resend">ارسال دوباره</string>
 	<string name="open_email_app">بازکردن کاره رایانامه</string>
 	<string name="resent_email">رایانامه تایید فرستاده شد</string>
+	<string name="compose_hint">آنچه در ذهن شماست را تایپ یا جای‌گذاری کنید</string>
 	<string name="content_warning">هشدار محتوا</string>
 	<string name="save">ذخیره</string>
 	<string name="add_alt_text">اضافه کردن متن جایگزین</string>
 	<string name="visibility_public">عمومی</string>
 	<string name="visibility_followers_only">فقط پی‌گیران</string>
+	<string name="visibility_private">فقط افرادی نام‌برده</string>
+	<string name="recent_searches">اخیر</string>
 	<string name="skip">بعدی</string>
 	<string name="notification_type_follow">پی‌گیران جدید</string>
 	<string name="notification_type_favorite">برگزیده‌ها</string>
@@ -193,8 +199,13 @@
 	<string name="notification_type_poll">نظرسنجی‌ها</string>
 	<string name="choose_account">انتخاب حساب</string>
 	<string name="err_not_logged_in">لطفا ابتدا وارد ماستودون شوید</string>
+	<plurals name="cant_add_more_than_x_attachments">
+		<item quantity="one">نمی‌توانید بیش از %d پیوست رسانه اضافه کنید</item>
+		<item quantity="other">نمی‌توانید بیش از %d پیوست رسانه اضافه کنید</item>
+	</plurals>
 	<string name="media_attachment_unsupported_type">پرونده %s از نوع پشتیبانی نشده است</string>
 	<string name="media_attachment_too_big">اندازه پرونده %1$s از حد مجاز %2$s مگابایت بیشتر است</string>
+	<string name="settings_theme">ظاهر</string>
 	<string name="theme_light">روشن</string>
 	<string name="theme_dark">تاریک</string>
 	<string name="settings_behavior">رفتار</string>
@@ -207,6 +218,9 @@
 	<string name="settings_clear_cache">پاک‌سازی انباره محتوا</string>
 	<string name="settings_app_version">ماستودون برای اندروید v%1$s (%2$d)</string>
 	<string name="media_cache_cleared">انباره محتوا پاک‌سازی شد</string>
+	<string name="confirm_log_out">خروج از %s؟</string>
+	<string name="sensitive_content_explain">نویسنده این رسانه را حساس علامت‌زده است.</string>
+	<string name="avatar_description">به نمایه %s بروید</string>
 	<string name="more_options">گزینه‌های بیشتر</string>
 	<string name="new_post">فرسته جدید</string>
 	<string name="button_reply">پاسخ</string>
@@ -222,6 +236,7 @@
 	<string name="media_viewer">نمایش‌گر رسانه</string>
 	<string name="follow_user">پی‌گیری %s</string>
 	<string name="unfollowed_user">پی‌نگرفتن ‎%s</string>
+	<string name="followed_user">شما اکنون %s را پی می‌گیرید</string>
 	<string name="following_user_requested">درخواست پی‌گیری %s شد</string>
 	<string name="open_in_browser">بازکردن در مرورگر</string>
 	<string name="hide_boosts_from_user">نهفتن تقویت‌های ‎%s</string>
@@ -239,7 +254,12 @@
 	<string name="error_saving_file">خطا هنگام ذخیرهٔ کردن پرونده</string>
 	<string name="file_saved">پرونده ذخیره شد</string>
 	<string name="downloading">درحال بارگیری…</string>
+	<string name="no_app_to_handle_action">هیچ کاره‌ای برای رسیدگی به این اقدام وجود ندارد</string>
+	<string name="local_timeline">محلی</string>
+	<string name="trending_posts_info_banner">این‌ها فرسته‌هایی هستند که در سراسر ماستودون مورد توجه قرار می‌گیرند.</string>
+	<string name="trending_links_info_banner">این‌ها اخباری است که در ماستودون در مورد آنها صحبت می شود.</string>
 	<!-- %s is the server domain -->
+	<string name="local_timeline_info_banner">این‌ها همه فرسته‌های همه کاربران در سرور شما (%s) هستند.</string>
 	<string name="see_new_posts">فرسته‌های جدید را ببینید</string>
 	<string name="load_missing_posts">بارگذاری فرسته‌های گم شده</string>
 	<string name="follow_back">پی‌گیری متقابل</string>
@@ -317,6 +337,7 @@
 	<string name="login_title">خوش برگشتید</string>
 	<string name="login_subtitle">با کارسازی که حساب خود را در آن ایجاد کردید وارد شوید.</string>
 	<string name="server_url">نشانی کارساز</string>
+	<string name="signup_random_server_explain">اگر بدون انتخاب ادامه دهید، کارسازی را بر اساس زبان شما انتخاب خواهیم کرد.</string>
 	<string name="server_filter_any_language">هر زبانی</string>
 	<string name="server_filter_instant_signup">ثبت نام فوری</string>
 	<string name="server_filter_manual_review">بررسی دستی</string>
@@ -329,6 +350,7 @@
 	<string name="server_filter_region_oceania">اقیانوسیه</string>
 	<string name="not_accepting_new_members">عدم پذیرش اعضای جدید</string>
 	<string name="category_special_interests">منافع خاص</string>
+	<string name="signup_passwords_dont_match">گذرواژه‌ها مطابقت ندارند</string>
 	<string name="pick_server_for_me">برای من انتخاب کن</string>
 	<string name="profile_add_row">افزودن سطر</string>
 	<string name="profile_setup">تنظیم نمایه</string>
@@ -337,12 +359,14 @@
 	<string name="popular_on_mastodon">محبوب در ماستودون</string>
 	<string name="follow_all">پی‌گیری همه</string>
 	<string name="server_rules_disagree">مخالفم</string>
+	<string name="privacy_policy_explanation">TL;DR: ما چیزی را جمع‌آوری یا پردازش نمی‌کنیم.</string>
 	<!-- %s is server domain -->
 	<string name="server_policy_disagree">با %s مخالفم</string>
 	<string name="profile_bio">دربارهٔ شما</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<string name="sending_follows">پی‌گیری کاربران…</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<string name="signup_email_domain_blocked">%1$s اجازه ثبت نام از %2$s را نمی دهد. یکی دیگر را امتحان کنید یا &lt;a&gt;کارساز دیگری انتخاب کنید&lt;/a&gt;.</string>
 	<string name="spoiler_show">به هرصورت نشان داده شود</string>
 	<string name="spoiler_hide">نهفتن دوباره</string>
 	<string name="poll_multiple_choice">یک یا چند مورد را انتخاب کنید</string>
@@ -362,6 +386,11 @@
 	<string name="welcome_paragraph1">ماستودون یک شبکه اجتماعی غیر متمرکز است،به این معنی که هیچ شرکتی آن را کنترل نمی کند. این از بسیاری از کارسازهای مستقل تشکیل شده است که همه به هم متصل هستند.</string>
 	<string name="what_are_servers">کارساز شما کجاست؟</string>
 	<string name="welcome_paragraph2"><![CDATA[هر حساب ماستودون بر روی یک سرور میزبانی می شود — هر کدام با مقادیر، قوانین و مدیران خاص خود. مهم نیست کدام یک را انتخاب می کنید، می توانید افراد را در هر کارسازی دنبال کنید و با آنها تعامل داشته باشید.]]></string>
+	<string name="opening_link">باز کردن پیوند…</string>
+	<string name="link_not_supported">این پیوند در کاره پشتیبانی نمی شود</string>
+	<string name="log_out_all_accounts">از همه حساب‌ها خارج شوید</string>
+	<string name="confirm_log_out_all_accounts">از همه حساب‌ها خارج شوید؟</string>
+	<string name="retry">سعی مجدد</string>
 	<string name="post_failed">ارسال ناموفق فرسته</string>
 	<!-- %s is formatted file size ("467 KB image") -->
 	<string name="attachment_description_image">%s تصویر</string>
@@ -372,28 +401,44 @@
 	<string name="attachment_type_audio">صدا</string>
 	<string name="attachment_type_gif">گیف</string>
 	<string name="attachment_type_unknown">پرونده</string>
+	<string name="attachment_x_percent_uploaded">%d%% بارگذاری شد</string>
 	<string name="add_poll_option">افزودن گزینه نظرسنجی</string>
 	<string name="poll_style">سبک</string>
 	<string name="compose_poll_single_choice">یکی را انتخاب کن</string>
+	<string name="compose_poll_multiple_choice">چند گزینه ای</string>
+	<string name="delete_poll_option">حذف گزینه نظرسنجی</string>
 	<string name="poll_style_title">سبک نظرسنجی</string>
 	<string name="alt_text">متن جایگزین</string>
 	<string name="help">راهنما</string>
 	<string name="what_is_alt_text">متن جایگزین چیست؟</string>
 	<string name="edit_post">ویرایش فرسته</string>
 	<string name="no_verified_link">‏پیوند تأییدشده‌ای وجود ندارد</string>
+	<string name="no_search_results">چیزی برای این عبارت جست‌وجو یافت نشد</string>
+	<string name="language">زبان</string>
+	<string name="language_default">پیش‌گزیده</string>
 	<string name="language_system">سامانه</string>
+	<string name="language_detecting">درحال تشخیص زیان</string>
+	<string name="language_cant_detect">امکان تشخیص زبان وجود ندارد</string>
+	<string name="language_detected">شناسایی شد</string>
 	<string name="media_hidden">رسانهٔ نهفته</string>
 	<string name="post_hidden">فرسته نهفته</string>
 	<string name="report_title_post">گزارش فرسته</string>
 	<string name="forward_report_explanation">این حساب در کارساز دیگری ثبت شده. آیا می‌خواهید رونوشتی ناشناس از این گزارش به آن‌جا هم فرستاده شود؟</string>
 	<!-- %s is the server domain -->
+	<string name="forward_report_to_server">هدایت به %s</string>
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
 	<string name="reported">گزارش‌ شد</string>
+	<string name="report_unfollow_explanation">برای اینکه دیگر فرسته‌های آن‌ها را در فید خانه‌تان نببینید، آن‌ها را لغو پی‌گیری کنید.</string>
+	<string name="muted_user">%s خموش شد</string>
+	<string name="report_sent_already_blocked">شما قبلاً این کاربر را مسدود کرده‌اید، بنابراین تا زمانی که گزارش شما را بررسی می‌کنیم، کار دیگری لازم نیست انجام دهید.</string>
+	<string name="blocked_user">%s مسدود شد</string>
 	<string name="mark_all_notifications_read">علامت‌گذاری همه بعنوان خوانده شده</string>
+	<string name="settings_display">نمایشگر</string>
 	<string name="settings_filters">پالایه‌ها</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">درباره %s</string>
 	<string name="default_post_language">زبان فرسته پیش‌فرض</string>
+	<string name="settings_alt_text_reminders">افزودن یادآوری متن جایگزین</string>
 	<string name="settings_confirm_unfollow">قبل از لغو پی‌گیری کسی بپرس</string>
 	<string name="settings_confirm_boost">قبل از تقویت بپرس</string>
 	<string name="settings_confirm_delete_post">قبل از حذف فرسته‌ها بپرسید</string>
@@ -418,10 +463,13 @@
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<string name="pause_notifications_ends">%s به پایان می‌رسد</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="pause_notifications_banner">اعلان‌ها %s از سر گرفته می‌شوند.</string>
 	<string name="open_system_notification_settings">رفتن به تنظیمات آگاهی</string>
 	<string name="about_server">درباره</string>
 	<string name="server_rules">قوانین</string>
 	<string name="server_administrator">مدیر</string>
+	<string name="send_email_to_server_admin">ادمین پیام بده</string>
+	<string name="notifications_disabled_in_system">آگاهی‌ها را از تنظیمات دستگاهتان روشن کنید تا به‌روزرسانی‌ها را از هر کجا ببینید.</string>
 	<string name="settings_show_cws">نمایش هشدارهای محتوا</string>
 	<string name="settings_show_emoji_in_names">ایموجی‌های سفارشی در نام های نمایشی</string>
 	<plurals name="in_x_seconds">
@@ -445,6 +493,10 @@
 		<item quantity="one">%s از تصاویر شما متن جایگزین ندارد. به هر حال ارسال کنید؟</item>
 		<item quantity="other">%s از تصاویر شما متن جایگزین ندارند. به هر حال پست کنید؟</item>
 	</plurals>
+	<plurals name="alt_text_reminder_x_attachments">
+		<item quantity="one">%s از پیوست‌های رسانه شما متن جایگزین ندارد. به هر حال ارسال کنید؟</item>
+		<item quantity="other">%s از پیوست‌های رسانه شما متن جایگزین ندارند. به هر حال ارسال کنید؟</item>
+	</plurals>
 	<string name="count_one">یک</string>
 	<string name="count_two">دو</string>
 	<string name="count_three">سه</string>
@@ -459,6 +511,8 @@
 	<string name="settings_filter_duration">مدت زمان</string>
 	<string name="settings_filter_muted_words">واژه‌های خموش</string>
 	<string name="settings_filter_context">خموشی از</string>
+	<string name="settings_filter_show_cw">نمایش با هشدار محتوا</string>
+	<string name="settings_filter_show_cw_explanation">همچنان فرسته‌هایی نشان داده می‌شود که با این پالایه مطابقت دارند، اما پشت هشدار محتوا هستند</string>
 	<string name="settings_delete_filter">حذف پالایه</string>
 	<string name="filter_duration_forever">برای همیشه</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
@@ -477,6 +531,7 @@
 	<string name="filter_context_profiles">نمایه‌ها</string>
 	<string name="settings_filter_title">عنوان</string>
 	<string name="settings_delete_filter_title">حذف پالایه \"%s\"؟</string>
+	<string name="settings_delete_filter_confirmation">این پالایه از حساب شما در تمام دستگاه های شما حذف می شود.</string>
 	<string name="add_muted_word">افزودن واژه خموش‌شده</string>
 	<string name="edit_muted_word">ویرایش واژه خموش‌شده</string>
 	<string name="add">افزودن</string>
@@ -500,6 +555,7 @@
 	<string name="app_update_version">نسخه %s</string>
 	<string name="downloading_update">درحال بارگیری (%d%%)</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
+	<string name="post_matches_filter_x">پالایه مطابقت \"%s\"</string>
 	<string name="search_mastodon">جستجوی ماستودون</string>
 	<string name="clear_all">پاکسازی همه</string>
 	<string name="search_open_url">باز کردن پیوند در ماستودون</string>
