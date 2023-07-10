@@ -10,6 +10,10 @@
 	<string name="user_boosted">‫%s‬ تقویت کرد</string>
 	<string name="in_reply_to">در پاسخ به %s</string>
 	<string name="notifications">آگاهی‌ها</string>
+	<string name="user_followed_you">‫%s‬ پی‌گیرتان شد</string>
+	<string name="user_sent_follow_request">%s یک درخواست پی‌گیری برای شما ارسال کرد</string>
+	<string name="user_favorited">%s نوشتهٔ شما را پسندید</string>
+	<string name="notification_boosted">%s فرستهٔ شما را تقویت کرد</string>
 	<string name="share_toot_title">هم‌رسانی</string>
 	<string name="settings">تنظیمات</string>
 	<string name="publish">انتشار</string>
@@ -31,6 +35,7 @@
 	<string name="button_follow">پی‌گیری</string>
 	<string name="button_following">پی می‌گیرید</string>
 	<string name="edit_profile">ویرایش نمایه</string>
+	<string name="share_user">هم‌رسانی نمایهٔ</string>
 	<string name="mute_user">خموشی %s</string>
 	<string name="unmute_user">ناخموشی ‎%s</string>
 	<string name="block_user">مسدود %s</string>
@@ -78,6 +83,10 @@
 		<item quantity="one">‏%d روز باقی‌مانده</item>
 		<item quantity="other">‏%d روز باقی‌مانده</item>
 	</plurals>
+	<plurals name="x_votes">
+		<item quantity="one">%,d رای</item>
+		<item quantity="other">%,d رأی</item>
+	</plurals>
 	<string name="poll_closed">پایان‌یافته</string>
 	<string name="confirm_mute_title">خموشی حساب</string>
 	<string name="confirm_mute">خموشی %s را تایید کنید</string>
@@ -114,11 +123,15 @@
 		<item quantity="other">%d نفر در حال صحبت‌کردن هستند</item>
 	</plurals>
 	<string name="report_title">گزارش کردن %s</string>
+	<string name="report_choose_reason">این فرسته چه مشکلی دارد؟</string>
+	<string name="report_choose_reason_account">%s چه مشکلی دارد؟</string>
 	<string name="report_choose_reason_subtitle">منطبق‌ترین را انتخاب کنید</string>
 	<string name="report_reason_personal_subtitle">این چیزی نیست که بخواهید ببینید</string>
+	<string name="report_reason_spam">این هرزنامه است</string>
 	<string name="report_reason_spam_subtitle">پیوندهای مخرب، تعامل جعلی یا پاسخ‌های تکراری</string>
 	<string name="report_reason_violation">قوانین کارساز را نقض می‌کند</string>
 	<string name="report_reason_violation_subtitle">شما آگاه هستید که قوانین خاصی را زیر پا می‌گذارد</string>
+	<string name="report_reason_other">به خاطر چیز دیگری است</string>
 	<string name="report_reason_other_subtitle">این موضوع در دسته‌بندی‌های دیگر نمی‌گنجد</string>
 	<string name="report_choose_rule">کدام قوانین نقض شده‌اند؟</string>
 	<string name="report_choose_rule_subtitle">همهٔ موارد انجام شده را برگزینید</string>
@@ -340,18 +353,25 @@
 	<string name="welcome_paragraph1">ماستودون یک شبکه اجتماعی غیر متمرکز است،به این معنی که هیچ شرکتی آن را کنترل نمی کند. این از بسیاری از کارسازهای مستقل تشکیل شده است که همه به هم متصل هستند.</string>
 	<string name="what_are_servers">کارساز شما کجاست؟</string>
 	<string name="welcome_paragraph2"><![CDATA[هر حساب ماستودون بر روی یک سرور میزبانی می شود — هر کدام با مقادیر، قوانین و مدیران خاص خود. مهم نیست کدام یک را انتخاب می کنید، می توانید افراد را در هر کارسازی دنبال کنید و با آنها تعامل داشته باشید.]]></string>
+	<string name="post_failed">ارسال ناموفق فرسته</string>
 	<!-- %s is formatted file size ("467 KB image") -->
+	<string name="attachment_description_image">%s تصویر</string>
+	<string name="attachment_description_video">%s ویدئو</string>
+	<string name="attachment_description_audio">%s صدا</string>
 	<string name="attachment_type_image">تصویر</string>
 	<string name="attachment_type_video">ویدئو</string>
 	<string name="attachment_type_audio">صدا</string>
 	<string name="attachment_type_gif">گیف</string>
 	<string name="attachment_type_unknown">پرونده</string>
+	<string name="add_poll_option">افزودن گزینه نظرسنجی</string>
 	<string name="poll_style">سبک</string>
 	<string name="compose_poll_single_choice">یکی را انتخاب کن</string>
+	<string name="poll_style_title">سبک نظرسنجی</string>
 	<string name="alt_text">متن جایگزین</string>
 	<string name="help">راهنما</string>
 	<string name="what_is_alt_text">متن جایگزین چیست؟</string>
 	<string name="edit_post">ویرایش فرسته</string>
+	<string name="no_verified_link">‏پیوند تأییدشده‌ای وجود ندارد</string>
 	<string name="language_system">سامانه</string>
 	<string name="media_hidden">رسانهٔ نهفته</string>
 	<string name="post_hidden">فرسته نهفته</string>
@@ -363,6 +383,7 @@
 	<string name="mark_all_notifications_read">علامت‌گذاری همه بعنوان خوانده شده</string>
 	<string name="settings_filters">پالایه‌ها</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
+	<string name="about_app">درباره %s</string>
 	<string name="default_post_language">زبان فرسته پیش‌فرض</string>
 	<string name="settings_confirm_delete_post">قبل از حذف فرسته‌ها بپرسید</string>
 	<string name="pause_all_notifications">مکث همه</string>
@@ -424,6 +445,7 @@
 	<string name="settings_edit_filter">ویرایش پالایه</string>
 	<string name="settings_filter_duration">مدت زمان</string>
 	<string name="settings_filter_muted_words">واژه‌های خموش</string>
+	<string name="settings_filter_context">خموشی از</string>
 	<string name="settings_delete_filter">حذف پالایه</string>
 	<string name="filter_duration_forever">برای همیشه</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
@@ -461,12 +483,14 @@
 	<string name="filter_word_already_in_list">در حال حاضر در سیاهه است</string>
 	<string name="app_update_ready">به‌روزرسانی کاره آماده است</string>
 	<string name="app_update_version">نسخه %s</string>
+	<string name="downloading_update">درحال بارگیری (%d%%)</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
 	<string name="search_mastodon">جستجوی ماستودون</string>
 	<string name="clear_all">پاکسازی همه</string>
 	<string name="search_open_url">باز کردن پیوند در ماستودون</string>
 	<string name="posts_matching_hashtag">فرسته‌هایی با \"%s\"</string>
 	<string name="search_go_to_account">رفتن به %s</string>
+	<string name="posts_matching_string">فرسته‌هایی با \"%s\"</string>
 	<string name="accounts_matching_string">افراد دارای \"%s\"</string>
 	<!-- Shown in the post header. Please keep it short -->
 </resources>
