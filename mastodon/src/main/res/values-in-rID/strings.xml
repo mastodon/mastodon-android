@@ -35,6 +35,7 @@
 	<string name="button_follow">Ikuti</string>
 	<string name="button_following">Mengikuti</string>
 	<string name="edit_profile">Sunting Profil</string>
+	<string name="share_user">Bagikan profil</string>
 	<string name="mute_user">Bisukan %s</string>
 	<string name="unmute_user">Berhenti membisukan %s</string>
 	<string name="block_user">Blokir %s</string>
@@ -74,6 +75,9 @@
 	<plurals name="x_days_left">
 		<item quantity="other">Tersisa %d hari</item>
 	</plurals>
+	<plurals name="x_votes">
+		<item quantity="other">%,d pemilih</item>
+	</plurals>
 	<string name="poll_closed">Ditutup</string>
 	<string name="confirm_mute_title">Bisukan Akun</string>
 	<string name="confirm_mute">Konfirmasi membisukan %s</string>
@@ -92,26 +96,34 @@
 	<string name="button_blocked">Diblokir</string>
 	<string name="action_vote">Pilih</string>
 	<string name="delete">Hapus</string>
+	<string name="confirm_delete_title">Hapus kiriman</string>
 	<string name="confirm_delete">Apakah Anda yakin untuk menghapus kiriman ini?</string>
 	<string name="deleting">Menghapus…</string>
 	<string name="notification_channel_audio_player">Pemutaran audio</string>
 	<string name="play">Putar</string>
 	<string name="pause">Jeda</string>
+	<string name="log_out">Keluar</string>
 	<string name="add_account">Tambahkan akun</string>
 	<string name="search_hint">Cari</string>
 	<string name="hashtags">Tagar</string>
 	<string name="news">Berita</string>
 	<string name="for_you">Untuk Anda</string>
+	<string name="all_notifications">Semuanya</string>
 	<string name="mentions">Sebutan</string>
 	<plurals name="x_people_talking">
 		<item quantity="other">%d orang sedang membicarakan</item>
 	</plurals>
 	<string name="report_title">Laporkan %s</string>
+	<string name="report_choose_reason">Ada apa dengan kiriman ini?</string>
+	<string name="report_choose_reason_account">Ada yang salah dengan %s?</string>
 	<string name="report_choose_reason_subtitle">Pilih alasan yang cocok</string>
+	<string name="report_reason_personal">Saya tidak suka</string>
 	<string name="report_reason_personal_subtitle">Ini bukan hal yang ingin Anda lihat</string>
+	<string name="report_reason_spam">Ini spam</string>
 	<string name="report_reason_spam_subtitle">Tautan berbahaya, interaksi palsu, atau balasan berulang</string>
 	<string name="report_reason_violation">Melanggar ketentuan server</string>
 	<string name="report_reason_violation_subtitle">Anda menyadari bahwa ia melanggar ketentuan tertentu</string>
+	<string name="report_reason_other">Alasan lainnya</string>
 	<string name="report_reason_other_subtitle">Permasalahan ini tidak sesuai dengan kategori lain</string>
 	<string name="report_choose_rule">Ketentuan manakah yang dilanggar?</string>
 	<string name="report_choose_rule_subtitle">Pilih semua yang berlaku</string>
@@ -120,8 +132,14 @@
 	<string name="report_comment_title">Adakah hal lain yang perlu kami ketahui?</string>
 	<string name="report_comment_hint">Komentar tambahan</string>
 	<string name="sending_report">Mengirim laporan…</string>
+	<string name="report_sent_title">Terima kasih atas pelaporan Anda, kami akan memeriksa ini lebih lanjut.</string>
+	<string name="report_sent_subtitle">Saat kami sedang meninjau ini, Anda dapat mengambil tindakan terhadap %s:</string>
 	<string name="unfollow_user">Berhenti mengikuti %s</string>
 	<string name="unfollow">Berhenti mengikuti</string>
+	<string name="mute_user_explain">Anda tidak akan melihat kiriman mereka. Mereka masih dapat mengikuti Anda dan melihat kiriman Anda dan tidak akan mengetahui bahwa mereka dibisukan.</string>
+	<string name="block_user_explain">Anda tidak akan melihat kiriman mereka. Mereka tidak akan bisa melihat kiriman Anda atau mengikuti Anda. Mereka akan mampu menduga bahwa mereka diblokir.</string>
+	<string name="report_personal_title">Tidak ingin melihat ini?</string>
+	<string name="report_personal_subtitle">Berikut adalah pilihan Anda untuk mengatur apa yang Anda lihat di Mastodon:</string>
 	<string name="back">Kembali</string>
 	<string name="search_communities">Nama server atau URL</string>
 	<string name="instance_rules_title">Aturan Server</string>
@@ -148,14 +166,19 @@
 	<string name="category_tech">Teknologi</string>
 	<string name="confirm_email_title">Periksa Kotak Masuk Anda</string>
 	<!-- %s is the email address -->
+	<string name="confirm_email_subtitle">Ketuk tautan yang kami kirim kepada Anda untuk memverifikasi %s. Kami akan tunggu di sini.</string>
+	<string name="confirm_email_didnt_get">Tidak mendapatkan tautan?</string>
 	<string name="resend">Kirim ulang</string>
 	<string name="open_email_app">Buka aplikasi surel</string>
 	<string name="resent_email">Surel konfirmasi terkirim</string>
+	<string name="compose_hint">Ketik atau tempel apa yang Anda pikirkan</string>
 	<string name="content_warning">Peringatan konten</string>
 	<string name="save">Simpan</string>
 	<string name="add_alt_text">Tambahkan teks alternatif</string>
 	<string name="visibility_public">Publik</string>
 	<string name="visibility_followers_only">Pengikut saja</string>
+	<string name="visibility_private">Hanya orang yang disebut</string>
+	<string name="recent_searches">Terbaru</string>
 	<string name="skip">Lewati</string>
 	<string name="notification_type_follow">Pengikut baru</string>
 	<string name="notification_type_favorite">Favorit</string>
@@ -164,8 +187,13 @@
 	<string name="notification_type_poll">Pemungutan suara</string>
 	<string name="choose_account">Pilih akun</string>
 	<string name="err_not_logged_in">Mohon masuk ke Mastodon terlebih dahulu</string>
+	<plurals name="cant_add_more_than_x_attachments">
+		<item quantity="other">Anda tidak dapat menambahkan lebih dari %d lampiran media</item>
+	</plurals>
 	<string name="media_attachment_unsupported_type">Berkas %s merupakan jenis yang tidak diketahui</string>
 	<string name="media_attachment_too_big">Berkas %1$s melebihi batasan %2$s MB</string>
+	<string name="settings_theme">Tampilan</string>
+	<string name="theme_auto">Gunakan tampilan perangkat</string>
 	<string name="theme_light">Terang</string>
 	<string name="theme_dark">Gelap</string>
 	<string name="settings_behavior">Perilaku</string>
@@ -178,6 +206,9 @@
 	<string name="settings_clear_cache">Hapus tembolok media</string>
 	<string name="settings_app_version">Mastodon for Android v%1$s (%2$d)</string>
 	<string name="media_cache_cleared">Tembolok media dihapus</string>
+	<string name="confirm_log_out">Keluar dari %s?</string>
+	<string name="sensitive_content_explain">Pengirim telah menandai media ini sebagai sensitif.</string>
+	<string name="avatar_description">Pergi ke profil %s</string>
 	<string name="more_options">Opsi lain</string>
 	<string name="new_post">Kiriman baru</string>
 	<string name="button_reply">Balas</string>
@@ -193,6 +224,7 @@
 	<string name="media_viewer">Penampil media</string>
 	<string name="follow_user">Ikuti %s</string>
 	<string name="unfollowed_user">Berhenti mengikuti %s</string>
+	<string name="followed_user">Anda sekarang mengikuti %s</string>
 	<string name="following_user_requested">Diminta untuk mengikuti %s</string>
 	<string name="open_in_browser">Buka di peramban</string>
 	<string name="hide_boosts_from_user">Sembunyikan boost dari %s</string>
@@ -210,7 +242,13 @@
 	<string name="error_saving_file">Kesalahan saat menyimpan berkas</string>
 	<string name="file_saved">Berkas disimpan</string>
 	<string name="downloading">Mengunduh…</string>
+	<string name="no_app_to_handle_action">Tidak ada aplikasi yang dapat menangani tindakan ini</string>
+	<string name="local_timeline">Lokal</string>
+	<string name="trending_posts_info_banner">Ini adalah kiriman yang mendapatkan daya tarik di antara Mastodon.</string>
+	<string name="trending_links_info_banner">Ini adalah kisah berita yang sedang dibicarakan di Mastodon.</string>
 	<!-- %s is the server domain -->
+	<string name="local_timeline_info_banner">Ini adalah kiriman dari semua pengguna di server Anda (%s).</string>
+	<string name="recommended_accounts_info_banner">Anda mungkin suka akun berikut berdasarkan orang-orang yang Anda ikuti.</string>
 	<string name="see_new_posts">Lihat kiriman baru</string>
 	<string name="load_missing_posts">Muat kiriman yang hilang</string>
 	<string name="follow_back">Ikuti Balik</string>
@@ -282,6 +320,7 @@
 	<string name="login_title">Selamat Datang Kembali</string>
 	<string name="login_subtitle">Masuk dengan server di mana Anda buat akun Anda.</string>
 	<string name="server_url">URL Server</string>
+	<string name="signup_random_server_explain">Kami akan memilih sebuah server berdasarkan bahasa Anda jika Anda melanjutkan tanpa memilih.</string>
 	<string name="server_filter_any_language">Bahasa Apa Pun</string>
 	<string name="server_filter_instant_signup">Pendaftaran Instan</string>
 	<string name="server_filter_manual_review">Pemeriksaan Manual</string>
@@ -294,6 +333,7 @@
 	<string name="server_filter_region_oceania">Oseania</string>
 	<string name="not_accepting_new_members">Tidak menerima anggota baru</string>
 	<string name="category_special_interests">Minat Khusus</string>
+	<string name="signup_passwords_dont_match">Kata sandi tidak cocok</string>
 	<string name="pick_server_for_me">Pilih untuk saya</string>
 	<string name="profile_add_row">Tambahkan baris</string>
 	<string name="profile_setup">Pengaturan profil</string>
@@ -302,12 +342,14 @@
 	<string name="popular_on_mastodon">Populer di Mastodon</string>
 	<string name="follow_all">Ikuti semua</string>
 	<string name="server_rules_disagree">Tolak</string>
+	<string name="privacy_policy_explanation">Kesimpulan: Kami tidak mengumpulkan atau memproses apa pun.</string>
 	<!-- %s is server domain -->
 	<string name="server_policy_disagree">Tidak setuju dengan %s</string>
 	<string name="profile_bio">Deskripsi</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<string name="sending_follows">Mengikuti pengguna…</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<string name="signup_email_domain_blocked">%1$s tidak memperbolehkan pendaftaran dari %2$s. Coba yang lain atau &lt;a&gt;pilih server lain&lt;/a&gt;.</string>
 	<string name="spoiler_show">Tampilkan saja</string>
 	<string name="spoiler_hide">Sembunyikan ulang</string>
 	<string name="poll_multiple_choice">Pilih satu atau lebih</string>
@@ -327,7 +369,16 @@
 	<string name="welcome_paragraph1">Mastodon adalah jejaring sosial terdesentralisasi, tidak ada satu pun perusahaan yang mengontrol. Semua dijalankan oleh server independen, terkoneksi bersama.</string>
 	<string name="what_are_servers">Apa itu server?</string>
 	<string name="welcome_paragraph2"><![CDATA[Semua akun Mastodon berada pada sebuah server — dengan nilai, aturan, dan admin masing-masing. Mana pun yang kamu pilih, kamu bisa mengikuti dan berinteraksi dengan server mana pun.]]></string>
+	<string name="opening_link">Membuka tautan…</string>
+	<string name="link_not_supported">Tautan ini tidak didukung dalam aplikasi</string>
+	<string name="log_out_all_accounts">Keluar dari semua akun</string>
+	<string name="confirm_log_out_all_accounts">Keluar dari semua akun?</string>
+	<string name="retry">Coba Lagi</string>
+	<string name="post_failed">Gagal mengirim kiriman</string>
 	<!-- %s is formatted file size ("467 KB image") -->
+	<string name="attachment_description_image">%s gambar</string>
+	<string name="attachment_description_video">%s video</string>
+	<string name="attachment_description_audio">%s audio</string>
 	<!-- %s is the server domain -->
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
