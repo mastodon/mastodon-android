@@ -93,6 +93,9 @@
 		<item quantity="other">%d jon ব্যক্তিরা বলছেন</item>
 	</plurals>
 	<string name="sending_report">রিপোর্ট পাঠানো হচ্ছে…</string>
+	<string name="report_sent_title">রিপোর্ট করার জন্য আপনাকে ধন্যবাদ, আমরা এটি শীঘ্রই দেখব.</string>
+	<string name="report_sent_subtitle">আমরা যতক্ষণে আপনার রিপোর্ট পুনর্বিবেচনা করছি, আপনি %s এর বিরুদ্ধে ব্যবস্থা নিতে পারেন:</string>
+	<string name="report_personal_title">আপনি এটি আর দেখতে চান না?</string>
 	<string name="back">ফিরে যান</string>
 	<string name="search_communities">সার্ভারের নাম বা লিঙ্ক</string>
 	<string name="instance_rules_title">সার্ভারের নিয়মাবলী</string>
@@ -102,9 +105,61 @@
 	<string name="email">ই-মেইল</string>
 	<string name="password">পাসওয়ার্ড</string>
 	<string name="confirm_password">পাসওয়ার্ড নিশ্চিত করুন</string>
+	<string name="category_lgbt">LGBT</string>
+	<string name="category_music">সঙ্গীত</string>
+	<string name="category_regional">আঞ্চলিক</string>
+	<string name="category_tech">তথ্য-প্রযুক্তি</string>
+	<string name="confirm_email_title">আপনার ইনবক্স দেখুন</string>
 	<!-- %s is the email address -->
+	<string name="visibility_followers_only">ফলোয়ারদের জন্য</string>
+	<string name="notification_type_follow">নতুন ফলোয়াররা</string>
+	<string name="err_not_logged_in">Mastodon-এ প্রথমে লগ ইন করুন</string>
+	<plurals name="cant_add_more_than_x_attachments">
+		<item quantity="one">আপনি %d -এর বেশি মিডিয়া/ফাইল যোগ করতে পারবেন না</item>
+		<item quantity="other">আপনি %d -এর বেশি মিডিয়া/ফাইল যোগ করতে পারবেন না</item>
+	</plurals>
+	<string name="media_attachment_too_big">%1$s ফাইল %2$s MB-র ফাইলের সাইজ সীমা ছড়িয়ে যাচ্ছে</string>
+	<string name="theme_light">লাইট</string>
+	<string name="theme_dark">ডার্ক</string>
+	<string name="settings_notifications">নোটিফিকেশনগুলো</string>
+	<string name="settings_contribute">Mastodon-কে সাহায্য করুন</string>
+	<string name="new_post">নতুন পোস্ট</string>
+	<string name="button_reply">উত্তর দিন</string>
+	<string name="button_favorite">প্রিয়</string>
+	<string name="button_share">শেয়ার করুন</string>
+	<string name="media_no_description">কোনো বিবরণ ছাড়া ফাইল/মিডিয়া</string>
+	<string name="follow_user">%s-কে ফলো করুন</string>
+	<string name="unfollowed_user">%s-কে আনফলো করেছেন</string>
+	<string name="followed_user">আপনি এখন %s-কে ফলো করছেন</string>
+	<string name="following_user_requested">%s-কে ফলো করার জন্য অনুরোধ করা হয়েছে</string>
+	<string name="open_in_browser">ব্রাউজারে খুলুন</string>
+	<string name="signup_reason">আপনি কেন যুক্ত হতে চান?</string>
+	<string name="signup_reason_note">এটি আমাদেরকে আপনার আবেদন পুনর্বিবেচনা ও পর্যালোচনা করতে সাহায্য করবে.</string>
+	<string name="profile_picture">প্রোফাইলের ছবি</string>
+	<string name="download">ডাউনলোড করুন</string>
+	<string name="permission_required">অনুমতি প্রয়োজন</string>
+	<string name="storage_permission_to_download">এই ফাইলটি সেভ করতে অ্যাপটির আপনার স্টোরেজ অ্যাক্সেসের অনুমতি প্রয়োজন.</string>
+	<string name="open_settings">সেটিংস খুলুন</string>
+	<string name="error_saving_file">ফাইল সেভ করতে ত্রুটি দেখা দিচ্ছে</string>
+	<string name="file_saved">ফাইল সেভ হয়েছে</string>
+	<string name="downloading">ডাউনলোড হচ্ছে…</string>
 	<!-- %s is the server domain -->
+	<string name="button_follow_pending">বাকি আছে</string>
+	<string name="follows_you">আপনাকে ফলো করছেন</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
+	<plurals name="x_followers">
+		<item quantity="one">%,d জন ফলোয়ার</item>
+		<item quantity="other">%,d জন ফলোয়ার</item>
+	</plurals>
+	<string name="time_just_now">এইমাত্র</string>
+	<plurals name="x_seconds_ago">
+		<item quantity="one">%d সেকেন্ড আগে</item>
+		<item quantity="other">%d সেকেন্ড আগে</item>
+	</plurals>
+	<plurals name="x_minutes_ago">
+		<item quantity="one">%d মিনিট আগে</item>
+		<item quantity="other">%d মিনিট আগে</item>
+	</plurals>
 	<!-- %s is version like 1.2.3 -->
 	<!-- %s is version like 1.2.3 -->
 	<!-- %s is file size -->

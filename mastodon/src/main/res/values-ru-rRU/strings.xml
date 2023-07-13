@@ -10,6 +10,7 @@
 	<string name="user_boosted">%s продвинул(а)</string>
 	<string name="in_reply_to">В ответ %s</string>
 	<string name="notifications">Уведомления</string>
+	<string name="poll_ended">Посмотреть результаты опроса, в котором вы проголосовали</string>
 	<string name="share_toot_title">Поделиться</string>
 	<string name="settings">Настройки</string>
 	<string name="publish">Опубликовать</string>
@@ -35,6 +36,7 @@
 	<string name="button_follow">Подписаться</string>
 	<string name="button_following">В подписках</string>
 	<string name="edit_profile">Редактировать профиль</string>
+	<string name="share_user">Поделиться профилем</string>
 	<string name="mute_user">Игнорировать %s</string>
 	<string name="unmute_user">Убрать %s из игнорируемых</string>
 	<string name="block_user">Заблокировать %s</string>
@@ -116,11 +118,13 @@
 	<string name="button_blocked">Заблокирован(а)</string>
 	<string name="action_vote">Проголосовать</string>
 	<string name="delete">Удалить</string>
+	<string name="confirm_delete_title">Удалить пост</string>
 	<string name="confirm_delete">Вы уверены, что хотите удалить этот пост?</string>
 	<string name="deleting">Удаление…</string>
 	<string name="notification_channel_audio_player">Воспроизведение аудио</string>
 	<string name="play">Воспроизвести</string>
 	<string name="pause">Пауза</string>
+	<string name="log_out">Выйти</string>
 	<string name="add_account">Добавить аккаунт</string>
 	<string name="search_hint">Поиск</string>
 	<string name="hashtags">Хэштеги</string>
@@ -134,8 +138,12 @@
 		<item quantity="other">%d человека обсуждает</item>
 	</plurals>
 	<string name="report_title">Пожаловаться на %s</string>
+	<string name="report_choose_reason">Что не так с этим постом?</string>
+	<string name="report_choose_reason_account">Что не так с %s?</string>
 	<string name="report_choose_reason_subtitle">Выберите наиболее подходящее</string>
+	<string name="report_reason_personal">Мне это не нравится</string>
 	<string name="report_reason_personal_subtitle">Не хотел(а) бы видеть такой контент</string>
+	<string name="report_reason_spam">Это спам</string>
 	<string name="report_reason_spam_subtitle">Вредоносные ссылки, фальшивое взаимодействие или повторяющиеся ответы</string>
 	<string name="report_reason_violation">Нарушаются правила сервера</string>
 	<string name="report_reason_violation_subtitle">Вы знаете, что подобное нарушает определенные правила</string>
@@ -147,6 +155,7 @@
 	<string name="report_comment_title">Есть ли что-нибудь ещё, что нам стоит знать?</string>
 	<string name="report_comment_hint">Дополнительные комментарии</string>
 	<string name="sending_report">Отправка жалобы…</string>
+	<string name="report_sent_title">Спасибо за обращение, мы его рассмотрим.</string>
 	<string name="unfollow_user">Отписаться от %s</string>
 	<string name="unfollow">Отписаться</string>
 	<string name="back">Назад</string>
@@ -305,9 +314,9 @@
 	<string name="discard_changes">Отменить изменения?</string>
 	<string name="upload_failed">Сбой загрузки</string>
 	<string name="file_size_bytes">%d байт</string>
-	<string name="file_size_kb">%.2f КиБ</string>
-	<string name="file_size_mb">%.2f МиБ</string>
-	<string name="file_size_gb">%.2f ГиБ</string>
+	<string name="file_size_kb">%.2f КБ</string>
+	<string name="file_size_mb">%.2f МБ</string>
+	<string name="file_size_gb">%.2f ГБ</string>
 	<string name="upload_processing">Обработка…</string>
 	<!-- %s is version like 1.2.3 -->
 	<!-- %s is version like 1.2.3 -->

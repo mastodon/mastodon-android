@@ -134,7 +134,7 @@
 	<string name="sending_report">報告を送信しています...</string>
 	<string name="report_sent_title">ご報告ありがとうございます、追って確認します。</string>
 	<string name="report_sent_subtitle">私たちが確認する前でも、あなたが %s さんにできる対応があります。</string>
-	<string name="unfollow_user">%s さんのフォローを解除</string>
+	<string name="unfollow_user">フォロー解除 %s</string>
 	<string name="unfollow">フォローを解除</string>
 	<string name="mute_user_explain">ミュートすると、相手の投稿が表示されなくなります。相手は引き続きあなたをフォローしたり、あなたの投稿を表示したりできますが、ミュートしていることは伝わりません。</string>
 	<string name="block_user_explain">ブロックすると、相手の投稿が表示されなくなります。相手はあなたの投稿を見たり、フォローしたりできなくなります。相手にブロックしていることが伝わります。</string>
@@ -222,7 +222,7 @@
 	<string name="home_timeline">ホームタイムライン</string>
 	<string name="my_profile">プロフィール</string>
 	<string name="media_viewer">メディアビューアー</string>
-	<string name="follow_user">%s さんをフォロー</string>
+	<string name="follow_user">フォロー %s</string>
 	<string name="unfollowed_user">%s さんのフォローを解除しました</string>
 	<string name="followed_user">%s さんをフォローしました</string>
 	<string name="following_user_requested">%s さんにフォローリクエストを送信しました</string>
@@ -550,7 +550,7 @@
 	<string name="accounts_matching_string">「%s」を含む人々</string>
 	<!-- Shown in the post header. Please keep it short -->
 	<string name="time_seconds_ago_short">%d 秒前</string>
-	<string name="time_minutes_ago_short">%d か月前</string>
+	<string name="time_minutes_ago_short">%d 分前</string>
 	<string name="time_hours_ago_short">%d 時間前</string>
 	<string name="time_days_ago_short">%d 日前</string>
 </resources>
