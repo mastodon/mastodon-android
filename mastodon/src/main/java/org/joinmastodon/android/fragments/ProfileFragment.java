@@ -270,6 +270,12 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 		refreshLayout.setOnRefreshListener(this);
 		fab.setOnClickListener(this::onFabClick);
 
+		if(savedInstanceState!=null){
+			featuredFragment=(ProfileFeaturedFragment) getChildFragmentManager().getFragment(savedInstanceState, "featured");
+			timelineFragment=(AccountTimelineFragment) getChildFragmentManager().getFragment(savedInstanceState, "timeline");
+			aboutFragment=(ProfileAboutFragment) getChildFragmentManager().getFragment(savedInstanceState, "about");
+		}
+
 		if(loaded){
 			bindHeaderView();
 			dataLoaded();
@@ -354,15 +360,19 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 	public void dataLoaded(){
 		if(getActivity()==null)
 			return;
+		Bundle args=new Bundle();
+		args.putString("account", accountID);
+		args.putParcelable("profileAccount", Parcels.wrap(account));
+		args.putBoolean("__is_tab", true);
+		args.putBoolean("noAutoLoad", true);
 		if(featuredFragment==null){
 			featuredFragment=new ProfileFeaturedFragment();
-			Bundle args=new Bundle();
-			args.putString("account", accountID);
-			args.putParcelable("profileAccount", Parcels.wrap(account));
-			args.putBoolean("__is_tab", true);
-			args.putBoolean("noAutoLoad", true);
 			featuredFragment.setArguments(args);
+		}
+		if(timelineFragment==null){
 			timelineFragment=AccountTimelineFragment.newInstance(accountID, account, true);
+		}
+		if(aboutFragment==null){
 			aboutFragment=new ProfileAboutFragment();
 			aboutFragment.setFields(fields);
 		}
@@ -426,6 +436,19 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 				return true;
 			}
 		});
+	}
+
+	@Override
+	public void onSaveInstanceState(Bundle outState){
+		super.onSaveInstanceState(outState);
+		if(featuredFragment==null)
+			return;
+		if(featuredFragment.isAdded())
+			getChildFragmentManager().putFragment(outState, "featured", featuredFragment);
+		if(timelineFragment.isAdded())
+			getChildFragmentManager().putFragment(outState, "timeline", timelineFragment);
+		if(aboutFragment.isAdded())
+			getChildFragmentManager().putFragment(outState, "about", aboutFragment);
 	}
 
 	@Override
