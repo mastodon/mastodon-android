@@ -114,14 +114,21 @@
 		<item quantity="other">Խոսում է %d մարդ</item>
 	</plurals>
 	<string name="report_title">Զեկուցել %s-ի մասին</string>
+	<string name="report_reason_personal">Ինձ դուր չի գալիս</string>
 	<string name="report_reason_personal_subtitle">Դուք սա չեք ուզում տեսնել</string>
 	<string name="report_reason_spam">Սպամ է</string>
 	<string name="report_reason_spam_subtitle">Վնասակար հղումներ, կեղծում կամ կրկնվող պատասխաններ</string>
 	<string name="report_reason_violation">Խախտում է սերվերի կանոնները</string>
 	<string name="report_reason_violation_subtitle">Գիտեք, որ այն խախտում է կանոնները</string>
+	<string name="report_reason_other">Այլ բան է</string>
+	<string name="report_reason_other_subtitle">Խնդիրը չի պատկանում այլ տարբերակներին</string>
 	<string name="report_choose_rule">Ո՞ր կանոններն են խախտվել։</string>
+	<string name="report_choose_posts">Կա՞ն զեկույցը ապացուցող գրառումներ։</string>
 	<string name="report_comment_hint">Լրացուցիչ մեկնաբանություններ</string>
 	<string name="sending_report">Զեկույցը ուղարկվում է․․․</string>
+	<string name="mute_user_explain">Դուք չեք տեսնի նրա գրառումները։ Նա դեռ կարող է ձեզ հետևել և տեսնել ձեր գրառումները և չի իմանա, որ խլեցված է։</string>
+	<string name="block_user_explain">Դուք չեք տեսնի նրա գրառումները։ Նա չի կարող ձեզ հետևել կամ տեսնել ձեր գրառումները։ Նա կիմանա, որ արգելափակված է։</string>
+	<string name="report_personal_title">Չե՞ք ուզում սա տեսնել։</string>
 	<string name="back">Ետ</string>
 	<string name="search_communities">Սպասարկչի անուն կամ հասցե</string>
 	<string name="instance_rules_title">Սպասարկչի կանոնները</string>
@@ -131,6 +138,7 @@
 	<string name="email">Էլ. փոստ</string>
 	<string name="password">Գաղտնաբառ</string>
 	<string name="confirm_password">Գաղտնաբառի հաստատում</string>
+	<string name="password_note">Գաղտնաբառի ապահովությունը բարձրացնելու համար ավելացրեք մեծատառեր, հատուկ նշաններ և թվեր։</string>
 	<string name="category_academia">Ակադեմիական</string>
 	<string name="category_activism">Ակտիվիզմ</string>
 	<string name="category_all">Բոլորը</string>
@@ -139,14 +147,19 @@
 	<string name="category_games">Խաղեր</string>
 	<string name="category_general">Ընդհանուր</string>
 	<string name="category_journalism">Լրագրություն</string>
+	<string name="category_lgbt">ԼԳԲՏ</string>
 	<string name="category_music">Երաժշտություն</string>
 	<string name="category_regional">Տարածաշրջանային</string>
 	<string name="category_tech">Տեխնոլոգիա</string>
+	<string name="confirm_email_title">Ստուգեք Ձեր էլ․ փոստը</string>
 	<!-- %s is the email address -->
+	<string name="confirm_email_subtitle">Սեղմեք %s-ին ուղարկված հղման վրա։ Մենք կսպասենք։</string>
+	<string name="confirm_email_didnt_get">Հղում չե՞ք ստացել։</string>
 	<string name="resend">Ուղարկել նորից</string>
 	<string name="open_email_app">Բացել էլ․ փոստի հավելվածը</string>
 	<string name="content_warning">Նախազգուշացում</string>
 	<string name="save">Պահպանել</string>
+	<string name="add_alt_text">Ավելացնել բացատրություն</string>
 	<string name="visibility_public">Հրապարակային</string>
 	<string name="visibility_followers_only">Միայն հետեւողներին</string>
 	<string name="skip">Բաց թողնել</string>
@@ -190,8 +203,12 @@
 	<string name="permission_required">Անհրաժեշտ է թույլտվություն</string>
 	<string name="open_settings">Բացել կարգավորումները</string>
 	<string name="downloading">Բեռնում․․․</string>
+	<string name="local_timeline">Տեղական</string>
+	<string name="trending_posts_info_banner">Այս գրառումները տարածված են Մաստոդոնում։</string>
+	<string name="trending_links_info_banner">Այս նորությունների մասին խոսում են Մաստոդոնում։</string>
 	<!-- %s is the server domain -->
 	<string name="see_new_posts">Նոր գրառումներ</string>
+	<string name="load_missing_posts">Բեռնել բաց թողնված գրառումները</string>
 	<string name="follows_you">Հետեւում է ձեզ</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<plurals name="x_followers">
@@ -219,17 +236,24 @@
 		<item quantity="one">%d րոպե առաջ</item>
 		<item quantity="other">%d րոպե առաջ</item>
 	</plurals>
+	<string name="edited_timestamp">խմբագրվել է %s</string>
+	<string name="edit_original_post">Սկզբնական գրառում</string>
 	<string name="edit_text_edited">Տեքստը փոփոխվել է</string>
+	<string name="edit_spoiler_added">Ավելացվել է նախազգուշացում</string>
+	<string name="edit_spoiler_removed">Նախազգուշացումը հեռացվել է</string>
 	<string name="edit_poll_added">Հարցումն ավելացել է</string>
 	<string name="edit_poll_edited">Հարցումը խմբագրվել է</string>
 	<string name="edit_poll_removed">Հարցումը հեռացվել է</string>
 	<string name="edit_media_added">Մեդիան ավելացվել է</string>
 	<string name="edit_media_removed">Մեդիան հեռացվել է</string>
 	<string name="edit_marked_sensitive">Նշվել է որպես դյուրազգաց</string>
+	<string name="edit_multiple_changed">Գրառումը խմբագրվել է</string>
+	<string name="edit">Խմբագրել</string>
 	<string name="file_size_bytes">%d բայթ</string>
 	<string name="file_size_kb">%.2f ԿԲ</string>
 	<string name="file_size_mb">%.2f ՄԲ</string>
 	<string name="file_size_gb">%.2f ԳԲ</string>
+	<string name="upload_processing">Մշակվում է...</string>
 	<!-- %s is version like 1.2.3 -->
 	<!-- %s is version like 1.2.3 -->
 	<!-- %s is file size -->
@@ -252,7 +276,13 @@
 	<string name="server_filter_region_asia">Ասիա</string>
 	<string name="server_filter_region_oceania">Օվկիանիա</string>
 	<string name="not_accepting_new_members">Չի ընդունում նոր անդամներ</string>
+	<string name="category_special_interests">Հատուկ հետաքրքրություններ</string>
+	<string name="signup_passwords_dont_match">Գաղտնաբառերը չեն համընկնում</string>
 	<string name="pick_server_for_me">Ընտրել իմ համար</string>
+	<string name="popular_on_mastodon">Տարածված Մաստոդոնում</string>
+	<string name="follow_all">Հետևել բոլորին</string>
+	<string name="server_rules_disagree">Համաձայն չեմ</string>
+	<string name="privacy_policy_explanation">Կարճ ասած՝ մենք ոչինչ չենք հավաքում։</string>
 	<!-- %s is server domain -->
 	<string name="profile_bio">Կենսագրություն</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
@@ -274,14 +304,82 @@
 	<string name="welcome_paragraph1">Մաստոդոնը ապակենտրոնացված սոցցանց է, այսինքն՝ այն չի պատկանում մի ընկերության։ Այն բաղկացած է բազմաթիվ անկախ և կապակցված սերվերներից։</string>
 	<string name="what_are_servers">Ի՞նչ է սերվերը։</string>
 	<string name="welcome_paragraph2"><![CDATA[Մաստոդոնի որևէ հաշիվ գտնվում է սերվերի վրա - ամեն մեկը՝ իր արժեքներով, կանոններով և ադմիններով։ Դուք կարող եք հետևել և շփվել որևէ սերվերի մարդկանց հետ՝ անկախ ձեր ընտրությունից։]]></string>
+	<string name="retry">Կրկին</string>
 	<!-- %s is formatted file size ("467 KB image") -->
+	<string name="alt_text">Բացատրություն</string>
+	<string name="help">Օգնություն</string>
+	<string name="what_is_alt_text">Ի՞նչ է բացատրությունը։</string>
+	<string name="alt_text_help">Բացատրությունը օգնում է տեսողական խնդիրներ կամ դանդաղ կապ ունեցող մարդկանց և նրանց, ում պետք է կոնտեքստ:\n\nՀասկանալի, հակիրճ և օբյեկտիվ բացատրություն գրելով՝ դուք կարող եք գրառումը դարձնել ավելի հասկանալի և մատչելի։\n\n<ul><li>Նշեք կարևորը</li>\n<li>Կրճատեք նկարների տեքստը</li>\n<li>Օգտագործեք նախադասության սովորական կազմություն</li>\n<li>Մի՛ ավելացրեք անպետք տեքստ</li>\n<li>Բարդ նկարների (օրինակ՝ սխեմաների և քարտեզների) համար նշեք ուղղությունը և առանցքային հայտնաբերումները</li></ul></string>
+	<string name="edit_post">Խմբագրել գրառումը</string>
+	<string name="no_verified_link">Չկա հաստատված հղում</string>
+	<string name="no_search_results">Այս հարցման համար ոչինչ չգտնվեց</string>
+	<string name="language">Լեզու</string>
+	<string name="language_default">Լռելյայն</string>
+	<string name="language_system">Համակարգի</string>
+	<string name="media_hidden">Մեդիան թաքցված է</string>
+	<string name="post_hidden">Գրառումը թաքցված է</string>
+	<string name="report_title_post">Զեկուցել %s-ի մասին</string>
+	<string name="forward_report_explanation">Այս հաշիվը այլ սերվերից է։ Ուղարկե՞լ այնտեղ այս զեկուցի անանուն պատճենը։</string>
 	<!-- %s is the server domain -->
+	<string name="forward_report_to_server">Ուղարկել %s</string>
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
+	<string name="muted_user">%s-ը լռեցվել է</string>
+	<string name="settings_display">Տեսք</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
+	<string name="about_app">%s-ի մասին</string>
+	<string name="settings_alt_text_reminders">Ավելացնել բացատրության մասին հիշեցումներ</string>
+	<string name="settings_confirm_boost">Հարցնել տարածելուց առաջ</string>
+	<string name="settings_confirm_delete_post">Հարցնել գրառում ջնջելուց առաջ</string>
+	<string name="pause_all_notifications">Դադարեցնել բոլորը</string>
+	<string name="pause_notifications_off">Անջատ</string>
+	<string name="notifications_policy_anyone">Որեւե մեկը</string>
+	<string name="notifications_policy_followed">Մարդիկ, որոնք ձեզ հետեւում են</string>
+	<string name="notifications_policy_follower">Մարդիկ, որոնց դուք հետեւում եք</string>
+	<string name="notifications_policy_no_one">Ոչ ոք</string>
 	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
+	<string name="today">այսօր</string>
+	<string name="yesterday">երեկ</string>
+	<string name="tomorrow">վաղը</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="about_server">Մեր մասին</string>
+	<string name="server_rules">Կանոններ</string>
+	<string name="server_administrator">Ադմինիստրատոր</string>
+	<string name="send_email_to_server_admin">Գրել ադմինիստրատորին</string>
+	<string name="settings_even_more">Ավելի շատ կարգավորումներ</string>
+	<plurals name="in_x_seconds">
+		<item quantity="one">%d վայրկյանից</item>
+		<item quantity="other">%d վայրկյանից</item>
+	</plurals>
+	<plurals name="in_x_minutes">
+		<item quantity="one">%d րոպեից</item>
+		<item quantity="other">%d րոպեից</item>
+	</plurals>
+	<plurals name="in_x_hours">
+		<item quantity="one">%d ժամից</item>
+		<item quantity="other">%d ժամից</item>
+	</plurals>
+	<plurals name="x_hours_ago">
+		<item quantity="one">%d ժամ առաջ</item>
+		<item quantity="other">%d ժամ առաջ</item>
+	</plurals>
+	<string name="alt_text_reminder_title">Մեդիան չունի բացատրություն</string>
+	<plurals name="alt_text_reminder_x_images">
+		<item quantity="one">%s նկար չունի բացատրություն։ Հրապարակե՞լ։</item>
+		<item quantity="other">%s նկար չունի բացատրություն։ Հրապարակե՞լ։</item>
+	</plurals>
+	<string name="count_one">Մեկ</string>
+	<string name="count_two">Երկու</string>
+	<string name="count_three">Երեք</string>
+	<string name="count_four">Չորս</string>
+	<string name="alt_text_reminder_post_anyway">Այո</string>
 	<!-- %s is the username -->
+	<string name="filter_active">Ակտիվ</string>
+	<string name="filter_inactive">Ոչ ակտիվ</string>
+	<string name="settings_add_filter">Ավելացնել ֆիլտր</string>
+	<string name="settings_edit_filter">Խմբագրել ֆիլտրը</string>
+	<string name="settings_filter_duration">Տեւողություն</string>
+	<string name="settings_filter_muted_words">Լռեցված բառեր</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<!-- Shown like a content warning, %s is the name of the filter -->
 	<!-- Shown in the post header. Please keep it short -->
