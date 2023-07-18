@@ -102,6 +102,7 @@
 	<string name="notification_channel_audio_player">Ljuduppspelning</string>
 	<string name="play">Spela</string>
 	<string name="pause">Pausa</string>
+	<string name="log_out">Logga ut</string>
 	<string name="add_account">Lägg till konto</string>
 	<string name="search_hint">Sök</string>
 	<string name="hashtags">Hashtaggar</string>
@@ -115,6 +116,7 @@
 	<string name="report_title">Rapportera %s</string>
 	<string name="report_choose_reason_subtitle">Välj den bästa träffen</string>
 	<string name="report_reason_personal_subtitle">Det är inget som du vill se</string>
+	<string name="report_reason_spam">Det är skräppost</string>
 	<string name="report_reason_spam_subtitle">Skadliga länkar, bedrägligt beteende eller repetitiva svar</string>
 	<string name="report_reason_violation">Det bryter mot serverns regler</string>
 	<string name="report_reason_violation_subtitle">Du är medveten om att det bryter mot specifika regler</string>
@@ -171,6 +173,7 @@
 	<string name="err_not_logged_in">Logga in på Mastodon först</string>
 	<string name="media_attachment_unsupported_type">Filen %s är av en typ som inte stöds</string>
 	<string name="media_attachment_too_big">Filen %1$s överskrider storleksgränsen på %2$s MB</string>
+	<string name="settings_theme">Utseende</string>
 	<string name="theme_light">Ljust</string>
 	<string name="theme_dark">Mörkt</string>
 	<string name="settings_behavior">Beteende</string>
@@ -298,6 +301,7 @@
 	<string name="server_filter_region_oceania">Oceanien</string>
 	<string name="not_accepting_new_members">Accepterar inte nya medlemmar</string>
 	<string name="category_special_interests">Specialintressen</string>
+	<string name="signup_passwords_dont_match">Lösenorden matchar inte</string>
 	<string name="pick_server_for_me">Välj för mig</string>
 	<string name="profile_add_row">Lägg till rad</string>
 	<string name="profile_setup">Konfiguration av profil</string>
@@ -329,14 +333,43 @@
 	<string name="what_are_servers">Vad är servrar?</string>
 	<string name="welcome_paragraph2"><![CDATA[Varje Mastodon-konto finns på en server — var och en med sina värderingar, regler och administratörer. Oavsett vilken du väljer kan du följa och interagera med människor på vilken server som helst.]]></string>
 	<!-- %s is formatted file size ("467 KB image") -->
+	<string name="attachment_type_audio">Ljud</string>
+	<string name="attachment_type_gif">GIF</string>
+	<string name="help">Hjälp</string>
+	<string name="language">Språk</string>
+	<string name="language_default">Standard</string>
+	<string name="report_title_post">Rapportera inlägg</string>
 	<!-- %s is the server domain -->
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
+	<string name="settings_filters">Filter</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
+	<string name="about_app">Om %s</string>
+	<plurals name="x_weeks">
+		<item quantity="one">%d vecka</item>
+		<item quantity="other">%d veckor</item>
+	</plurals>
 	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="server_rules">Regler</string>
+	<plurals name="x_hours_ago">
+		<item quantity="one">%d timme sedan</item>
+		<item quantity="other">%d timmar sedan</item>
+	</plurals>
 	<!-- %s is the username -->
+	<string name="filter_active">Aktiv</string>
+	<string name="filter_inactive">Inaktiv</string>
+	<string name="settings_add_filter">Lägg till filter</string>
+	<string name="settings_edit_filter">Redigera filter</string>
+	<string name="settings_delete_filter">Radera filter</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="selection_2_options">%1$s och %2$s</string>
+	<string name="selection_3_options">%1$s, %2$s och %3$s</string>
+	<string name="filter_context_profiles">Profiler</string>
+	<string name="app_update_version">Version %s</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
+	<string name="search_go_to_account">Gå till %s</string>
 	<!-- Shown in the post header. Please keep it short -->
+	<string name="time_seconds_ago_short">%ds sedan</string>
+	<string name="time_minutes_ago_short">%dm sedan</string>
 </resources>
