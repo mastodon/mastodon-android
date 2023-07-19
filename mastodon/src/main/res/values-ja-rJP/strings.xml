@@ -44,7 +44,7 @@
 	<string name="block_domain">%s をブロック</string>
 	<string name="unblock_domain">%s のブロックを解除</string>
 	<plurals name="x_posts">
-		<item quantity="other">%d 件の投稿</item>
+		<item quantity="other">投稿 %,d 件</item>
 	</plurals>
 	<string name="profile_joined">登録日</string>
 	<string name="done">完了</string>
@@ -134,7 +134,7 @@
 	<string name="sending_report">報告を送信しています...</string>
 	<string name="report_sent_title">ご報告ありがとうございます、追って確認します。</string>
 	<string name="report_sent_subtitle">私たちが確認する前でも、あなたが %s さんにできる対応があります。</string>
-	<string name="unfollow_user">フォロー解除 %s</string>
+	<string name="unfollow_user">%s さんのフォローを解除</string>
 	<string name="unfollow">フォローを解除</string>
 	<string name="mute_user_explain">ミュートすると、相手の投稿が表示されなくなります。相手は引き続きあなたをフォローしたり、あなたの投稿を表示したりできますが、ミュートしていることは伝わりません。</string>
 	<string name="block_user_explain">ブロックすると、相手の投稿が表示されなくなります。相手はあなたの投稿を見たり、フォローしたりできなくなります。相手にブロックしていることが伝わります。</string>
@@ -222,7 +222,7 @@
 	<string name="home_timeline">ホームタイムライン</string>
 	<string name="my_profile">プロフィール</string>
 	<string name="media_viewer">メディアビューアー</string>
-	<string name="follow_user">フォロー %s</string>
+	<string name="follow_user">%s さんをフォロー</string>
 	<string name="unfollowed_user">%s さんのフォローを解除しました</string>
 	<string name="followed_user">%s さんをフォローしました</string>
 	<string name="following_user_requested">%s さんにフォローリクエストを送信しました</string>
@@ -257,16 +257,16 @@
 	<string name="manually_approves_followers">フォロワーを手動で承認</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<plurals name="x_followers">
-		<item quantity="other">%,d フォロワー</item>
+		<item quantity="other">フォロワー %,d 人</item>
 	</plurals>
 	<plurals name="x_following">
-		<item quantity="other">%,d フォロー</item>
+		<item quantity="other">フォロー %,d 人</item>
 	</plurals>
 	<plurals name="x_favorites">
-		<item quantity="other">%,d お気に入り</item>
+		<item quantity="other">お気に入り %,d 件</item>
 	</plurals>
 	<plurals name="x_reblogs">
-		<item quantity="other">%,d ブースト</item>
+		<item quantity="other">ブースト %,d 件</item>
 	</plurals>
 	<string name="timestamp_via_app">%1$s に %2$s から投稿</string>
 	<string name="time_now">今</string>
@@ -385,7 +385,7 @@
 	<string name="attachment_type_audio">音声</string>
 	<string name="attachment_type_gif">GIF</string>
 	<string name="attachment_type_unknown">ファイル</string>
-	<string name="attachment_x_percent_uploaded">%d%% アップロード</string>
+	<string name="attachment_x_percent_uploaded">アップロード %d%%</string>
 	<string name="add_poll_option">アンケートの選択肢を追加</string>
 	<string name="poll_length">アンケートの期限</string>
 	<string name="poll_style">方法</string>
