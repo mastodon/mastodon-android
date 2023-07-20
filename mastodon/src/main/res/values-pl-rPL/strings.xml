@@ -433,6 +433,21 @@
 	<string name="retry">Ponów</string>
 	<string name="post_failed">Nie udało się wysłać posta</string>
 	<!-- %s is formatted file size ("467 KB image") -->
+	<string name="attachment_description_image">Obraz %s</string>
+	<string name="attachment_description_video">Film %s</string>
+	<string name="attachment_description_audio">Plik dźwiękowy %s</string>
+	<string name="attachment_description_unknown">Plik %s</string>
+	<string name="attachment_type_image">Obraz</string>
+	<string name="attachment_type_video">Film</string>
+	<string name="attachment_type_audio">Dźwięk</string>
+	<string name="attachment_type_gif">GIF</string>
+	<string name="attachment_type_unknown">Plik</string>
+	<string name="attachment_x_percent_uploaded">Przesłano %d%%</string>
+	<string name="add_poll_option">Dodaj opcję wyboru do ankiety</string>
+	<string name="poll_length">Czas trwania ankiety</string>
+	<string name="poll_style">Wygląd</string>
+	<string name="delete_poll_option">Usuń opcję wyboru z ankiety</string>
+	<string name="poll_style_title">Wygląd ankiety</string>
 	<!-- %s is the server domain -->
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
