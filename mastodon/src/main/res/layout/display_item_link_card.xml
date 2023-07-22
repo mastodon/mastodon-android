@@ -8,14 +8,14 @@
 	<org.joinmastodon.android.ui.views.MaxWidthFrameLayout
 		android:id="@+id/inner"
 		android:layout_width="match_parent"
-		android:layout_height="250dp"
+		android:layout_height="match_parent"
 		android:layout_gravity="center_horizontal"
 		android:foreground="?android:selectableItemBackground"
 		android:maxWidth="400dp">
 		<ImageView
 			android:id="@+id/photo"
 			android:layout_width="match_parent"
-			android:layout_height="match_parent"
+			android:layout_height="250dp"
 			android:scaleType="centerCrop"
 			tools:src="#0f0"/>
 		<LinearLayout
