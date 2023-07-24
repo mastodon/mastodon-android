@@ -79,6 +79,10 @@
 		<item quantity="one">%d dag kvar</item>
 		<item quantity="other">%d dagar kvar</item>
 	</plurals>
+	<plurals name="x_votes">
+		<item quantity="one">%,d röst</item>
+		<item quantity="other">%,d röster</item>
+	</plurals>
 	<string name="poll_closed">Stängd</string>
 	<string name="confirm_mute_title">Tysta konto</string>
 	<string name="confirm_mute">Bekräfta för att tysta %s</string>
@@ -97,6 +101,7 @@
 	<string name="button_blocked">Blockerad</string>
 	<string name="action_vote">Rösta</string>
 	<string name="delete">Radera</string>
+	<string name="confirm_delete_title">Radera inlägg</string>
 	<string name="confirm_delete">Är du säker på att du vill radera detta inlägg?</string>
 	<string name="deleting">Raderar…</string>
 	<string name="notification_channel_audio_player">Ljuduppspelning</string>
@@ -332,15 +337,18 @@
 	<string name="welcome_paragraph1">Mastodon är ett decentraliserat socialt nätverk, vilket innebär att inget enskilt företag kontrollerar det. Det består av många oberoende servrar, alla sammankopplade.</string>
 	<string name="what_are_servers">Vad är servrar?</string>
 	<string name="welcome_paragraph2"><![CDATA[Varje Mastodon-konto finns på en server — var och en med sina värderingar, regler och administratörer. Oavsett vilken du väljer kan du följa och interagera med människor på vilken server som helst.]]></string>
+	<string name="log_out_all_accounts">Logga ut från alla konton</string>
 	<!-- %s is formatted file size ("467 KB image") -->
 	<string name="attachment_type_audio">Ljud</string>
 	<string name="attachment_type_gif">GIF</string>
 	<string name="help">Hjälp</string>
+	<string name="edit_post">Redigera inlägg</string>
 	<string name="language">Språk</string>
 	<string name="language_default">Standard</string>
 	<string name="report_title_post">Rapportera inlägg</string>
 	<!-- %s is the server domain -->
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
+	<string name="mark_all_notifications_read">Markera alla som lästa</string>
 	<string name="settings_filters">Filter</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">Om %s</string>
