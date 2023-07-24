@@ -24,7 +24,7 @@
 	<string name="cancel">لغو</string>
 	<plurals name="followers">
 		<item quantity="one">پی‌گیر</item>
-		<item quantity="other">پی‌گیران</item>
+		<item quantity="other">پی‌گیرندگان</item>
 	</plurals>
 	<plurals name="following">
 		<item quantity="one">پی‌گرفته</item>
@@ -188,11 +188,11 @@
 	<string name="save">ذخیره</string>
 	<string name="add_alt_text">اضافه کردن متن جایگزین</string>
 	<string name="visibility_public">عمومی</string>
-	<string name="visibility_followers_only">فقط پی‌گیران</string>
+	<string name="visibility_followers_only">فقط پی‌گیرندگان</string>
 	<string name="visibility_private">فقط افرادی نام‌برده</string>
 	<string name="recent_searches">اخیر</string>
 	<string name="skip">بعدی</string>
-	<string name="notification_type_follow">پی‌گیران جدید</string>
+	<string name="notification_type_follow">پی‌گیرندگان جدید</string>
 	<string name="notification_type_favorite">برگزیده‌ها</string>
 	<string name="notification_type_reblog">تقویت‌ها</string>
 	<string name="notification_type_mention">نام‌بردن‌ها</string>
@@ -271,7 +271,7 @@
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<plurals name="x_followers">
 		<item quantity="one">%,d پی‌گیر</item>
-		<item quantity="other">%,d پی‌گیران</item>
+		<item quantity="other">%,d پی‌گیرندگان</item>
 	</plurals>
 	<plurals name="x_following">
 		<item quantity="one">%,d پی‌گیرنده</item>
