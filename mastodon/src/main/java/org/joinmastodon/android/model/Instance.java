@@ -117,7 +117,7 @@ public class Instance extends BaseModel{
 		ci.domain=uri;
 		ci.normalizedDomain=IDN.toUnicode(uri);
 		ci.description=Html.fromHtml(shortDescription).toString().trim();
-		if(languages!=null){
+		if(languages!=null&&languages.size()>0){
 			ci.language=languages.get(0);
 			ci.languages=languages;
 		}else{
