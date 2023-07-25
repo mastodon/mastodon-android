@@ -4,11 +4,18 @@
 	<string name="next">Neste</string>
 	<string name="loading_instance">Henter serverinfo…</string>
 	<string name="error">Feil</string>
+	<string name="not_a_mastodon_instance">%s ser ikke ut til å være en Mastodon server.</string>
 	<string name="ok">OK</string>
 	<string name="preparing_auth">Forbereder autentisering…</string>
 	<string name="finishing_auth">Ferdigstiller autentisering…</string>
+	<string name="user_boosted">Fremhevet av %s</string>
 	<string name="in_reply_to">Som svar på %s</string>
 	<string name="notifications">Varslinger</string>
+	<string name="user_followed_you">%s fulgte deg</string>
+	<string name="user_sent_follow_request">%s har sendt deg en følgeforespørsel</string>
+	<string name="user_favorited">%s favorittmarkerte innlegget ditt</string>
+	<string name="notification_boosted">%s fremhevet ditt innlegg</string>
+	<string name="poll_ended">Se resultatene av avstemningen du stemte på</string>
 	<string name="share_toot_title">Del</string>
 	<string name="settings">Innstillinger</string>
 	<string name="publish">Publiser</string>
@@ -30,6 +37,7 @@
 	<string name="button_follow">Følg</string>
 	<string name="button_following">Følgere</string>
 	<string name="edit_profile">Endre Profil</string>
+	<string name="share_user">Del profil</string>
 	<string name="mute_user">Demp %s</string>
 	<string name="unmute_user">Opphev demping %s</string>
 	<string name="block_user">Blokker %s</string>
@@ -77,6 +85,10 @@
 		<item quantity="one">%d dag igjen</item>
 		<item quantity="other">%d dager igjen</item>
 	</plurals>
+	<plurals name="x_votes">
+		<item quantity="one">%,d stemme</item>
+		<item quantity="other">%,d stemmer</item>
+	</plurals>
 	<string name="poll_closed">Lukket</string>
 	<string name="confirm_mute_title">Demp Konto</string>
 	<string name="confirm_mute">Bekreft demping av %s</string>
@@ -88,34 +100,42 @@
 	<string name="confirm_block_domain_title">Blokker domene</string>
 	<string name="confirm_block">Bekreft blokkering %s</string>
 	<string name="do_block">Blokker</string>
-	<string name="confirm_unblock_title">Avblokker konto</string>
-	<string name="confirm_unblock_domain_title">Avblokker domene</string>
+	<string name="confirm_unblock_title">Opphev blokkering av konto</string>
+	<string name="confirm_unblock_domain_title">Opphev blokkering av domene</string>
 	<string name="confirm_unblock">Bekreft oppheving av %s</string>
-	<string name="do_unblock">Avblokker</string>
+	<string name="do_unblock">Opphev blokkering</string>
 	<string name="button_blocked">Blokkert</string>
 	<string name="action_vote">Stem</string>
 	<string name="delete">Slett</string>
+	<string name="confirm_delete_title">Slett innlegg</string>
 	<string name="confirm_delete">Er du sikker på at du vil slette dette innlegget?</string>
 	<string name="deleting">Sletter…</string>
 	<string name="notification_channel_audio_player">Lyd avspilling</string>
 	<string name="play">Spill av</string>
 	<string name="pause">Pause</string>
+	<string name="log_out">Logg ut</string>
 	<string name="add_account">Legg til konto</string>
 	<string name="search_hint">Søk</string>
 	<string name="hashtags">Emneknagger</string>
 	<string name="news">Nyheter</string>
 	<string name="for_you">For deg</string>
+	<string name="all_notifications">Alt</string>
 	<string name="mentions">Nevner</string>
 	<plurals name="x_people_talking">
 		<item quantity="one">%d person snakker</item>
 		<item quantity="other">%d personer snakker</item>
 	</plurals>
 	<string name="report_title">Rapporter %s</string>
+	<string name="report_choose_reason">Hva er galt med dette innlegget?</string>
+	<string name="report_choose_reason_account">Hva er galt med %s?</string>
 	<string name="report_choose_reason_subtitle">Velg det som passer best</string>
+	<string name="report_reason_personal">Jeg liker det ikke</string>
 	<string name="report_reason_personal_subtitle">Det er ikke noe du har lyst til å se</string>
-	<string name="report_reason_spam_subtitle">Ondsinnede lenker, falsk engasjement eller repeterende svar</string>
+	<string name="report_reason_spam">Det er spam</string>
+	<string name="report_reason_spam_subtitle">Ondsinnede lenker, falskt engasjement eller repeterende svar</string>
 	<string name="report_reason_violation">Det bryter serverregler</string>
 	<string name="report_reason_violation_subtitle">Du er klar over at det bryter spesifikke regler</string>
+	<string name="report_reason_other">Det er noe annet</string>
 	<string name="report_reason_other_subtitle">Problemet passer ikke inn i de andre kategoriene</string>
 	<string name="report_choose_rule">Hvilke regler brytes?</string>
 	<string name="report_choose_rule_subtitle">Velg alle som passer</string>
@@ -124,44 +144,72 @@
 	<string name="report_comment_title">Er det noe annet du mener vi burde vite?</string>
 	<string name="report_comment_hint">Ytterligere kommentarer</string>
 	<string name="sending_report">Sender rapport…</string>
+	<string name="report_sent_title">Takk for rapporteringen, vi vil se på dette.</string>
+	<string name="report_sent_subtitle">Mens vi går gjennom dette, kan du iverksettet tiltak mot %s:</string>
 	<string name="unfollow_user">Slutt å følge @%s</string>
 	<string name="unfollow">Slutt å følge</string>
+	<string name="mute_user_explain">Du vil ikke se deres innlegg. De kan fortsatt følge deg og se dine innlegg, og vil ikke vite at de er dempet.</string>
+	<string name="block_user_explain">Du kommer ikke til å se innleggene deres. De vil ikke kunne se innleggene dine eller følge deg. De vil kunne se at de er blokkert.</string>
+	<string name="report_personal_title">Ønsker du ikke å se dette?</string>
+	<string name="report_personal_subtitle">Her er alternativene dine for å kontrollere hva du ser på Mastodon:</string>
 	<string name="back">Tilbake</string>
+	<string name="search_communities">Servernavn eller link</string>
+	<string name="instance_rules_title">Server regler</string>
+	<string name="instance_rules_subtitle">Ved å fortsette godtar du å følge de følgende reglene gitt og håndheves av %s moderatorene.</string>
+	<string name="signup_title">Opprett konto</string>
+	<string name="display_name">Navn</string>
+	<string name="username">Brukernavn</string>
+	<string name="email">E-post</string>
+	<string name="password">Passord</string>
+	<string name="confirm_password">Bekreft passord</string>
 	<string name="password_note">Inkluder store bokstaver, spesialtegn og tall for å øke passordstyrken.</string>
-	<string name="category_academia">Akademia</string>
+	<string name="category_academia">Akademi</string>
 	<string name="category_activism">Aktivisme</string>
 	<string name="category_all">Alle</string>
 	<string name="category_art">Kunst</string>
 	<string name="category_food">Mat</string>
-	<string name="category_furry">Furry</string>
+	<string name="category_furry">Pelskledde</string>
 	<string name="category_games">Spill</string>
 	<string name="category_general">Generelt</string>
 	<string name="category_journalism">Journalisme</string>
 	<string name="category_music">Musikk</string>
 	<string name="category_regional">Region</string>
 	<string name="category_tech">Teknologi</string>
+	<string name="confirm_email_title">Sjekk innboksen din</string>
 	<!-- %s is the email address -->
+	<string name="confirm_email_subtitle">Trykk på linken vi sendte deg for å verifisere %s. Vi venter her.</string>
+	<string name="confirm_email_didnt_get">Fikk du ikke lenken?</string>
 	<string name="resend">Send på nytt</string>
-	<string name="open_email_app">Åpne e-post app</string>
-	<string name="resent_email">Bekreftelses e-post sendt</string>
-	<string name="content_warning">Innholdsadvarsel</string>
+	<string name="open_email_app">Åpne e-post appen</string>
+	<string name="resent_email">Bekreftelse e-post er sendt</string>
+	<string name="compose_hint">Skriv eller lim inn hva du tenker på</string>
+	<string name="content_warning">Innholdsvarsel</string>
 	<string name="save">Lagre</string>
 	<string name="add_alt_text">Legg til alternativ tekst</string>
 	<string name="visibility_public">Offentlig</string>
 	<string name="visibility_followers_only">Kun følgere</string>
-	<string name="skip">Hopp</string>
+	<string name="visibility_private">Bare nevnte personer</string>
+	<string name="recent_searches">Nylige</string>
+	<string name="skip">Hopp over</string>
 	<string name="notification_type_follow">Nye følgere</string>
 	<string name="notification_type_favorite">Favoritter</string>
+	<string name="notification_type_reblog">Fremhevinger</string>
 	<string name="notification_type_mention">Nevnelser</string>
 	<string name="notification_type_poll">Avstemminger</string>
 	<string name="choose_account">Velg konto</string>
 	<string name="err_not_logged_in">Vennligst logg inn på Mastodon først</string>
-	<string name="media_attachment_unsupported_type">Filen %s er av en ustøttet type</string>
+	<plurals name="cant_add_more_than_x_attachments">
+		<item quantity="one">Du kan ikke legge til mer enn %d media vedlegg</item>
+		<item quantity="other">Du kan ikke legge til mer enn %d medievedlegg</item>
+	</plurals>
+	<string name="media_attachment_unsupported_type">Filen %s er av en type som ikke er støttet</string>
 	<string name="media_attachment_too_big">Filen %1$s overskrider størrelsesgrensen på %2$s MB</string>
+	<string name="settings_theme">Utseende</string>
+	<string name="theme_auto">Bruk enhetens utseende</string>
 	<string name="theme_light">Lyst</string>
 	<string name="theme_dark">Mørkt</string>
 	<string name="settings_behavior">Oppførsel</string>
-	<string name="settings_gif">Spill animerte avatarer og emoji</string>
+	<string name="settings_gif">Spill av animerte avatarer og emoji</string>
 	<string name="settings_custom_tabs">Bruk integrert nettleser</string>
 	<string name="settings_notifications">Varslinger</string>
 	<string name="settings_contribute">Bidra til Mastodon</string>
@@ -170,21 +218,30 @@
 	<string name="settings_clear_cache">Tøm mediemellomlager</string>
 	<string name="settings_app_version">Mastodon for Android v%1$s (%2$d)</string>
 	<string name="media_cache_cleared">Mediemellomlager er tømt</string>
+	<string name="confirm_log_out">Logg ut av %s?</string>
+	<string name="sensitive_content_explain">Forfatteren markerte dette mediet som sensitivt.</string>
+	<string name="avatar_description">Gå til %s sin profil</string>
 	<string name="more_options">Flere alternativer</string>
 	<string name="new_post">Nytt innlegg</string>
 	<string name="button_reply">Svar</string>
+	<string name="button_reblog">Fremhev</string>
 	<string name="button_favorite">Favoritt</string>
 	<string name="button_share">Del</string>
 	<string name="media_no_description">Media uten beskrivelse</string>
 	<string name="add_media">Legg til media</string>
-	<string name="add_poll">Legg til en avstemning</string>
+	<string name="add_poll">Legg til avstemning</string>
 	<string name="emoji">Emoji</string>
 	<string name="home_timeline">Hjemmetidslinje</string>
 	<string name="my_profile">Min profil</string>
 	<string name="media_viewer">Forhåndsvisning av media</string>
 	<string name="follow_user">Følg %s</string>
 	<string name="unfollowed_user">Slutt å følge %s</string>
+	<string name="followed_user">Du følger nå %s</string>
+	<string name="following_user_requested">Forespør å følge %s</string>
 	<string name="open_in_browser">Åpne i nettleser</string>
+	<string name="hide_boosts_from_user">Skjul fremhevinger fra %s</string>
+	<string name="show_boosts_from_user">Hvis fremhevinger fra %s</string>
+	<string name="signup_reason">Hvorfor vil du bli med?</string>
 	<string name="signup_reason_note">Dette vil hjelpe oss med å gjennomgå din søknad.</string>
 	<string name="clear">Tøm</string>
 	<string name="profile_header">Toppbilde</string>
@@ -197,17 +254,18 @@
 	<string name="error_saving_file">Feil ved lagring av fil</string>
 	<string name="file_saved">Fil lagret</string>
 	<string name="downloading">Laster ned…</string>
+	<string name="local_timeline">Lokalt</string>
 	<!-- %s is the server domain -->
 	<string name="see_new_posts">Se nye innlegg</string>
-	<string name="load_missing_posts">Last manglende innlegg</string>
+	<string name="load_missing_posts">Last inn manglende innlegg</string>
 	<string name="follow_back">Følg tilbake</string>
 	<string name="button_follow_pending">Ventende</string>
 	<string name="follows_you">Følger deg</string>
 	<string name="manually_approves_followers">Godkjenn følgere manuelt</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<plurals name="x_followers">
-		<item quantity="one">%d følger</item>
-		<item quantity="other">%d følgere</item>
+		<item quantity="one">%,d følger</item>
+		<item quantity="other">%,d følgere</item>
 	</plurals>
 	<plurals name="x_following">
 		<item quantity="one">%,d følger</item>
@@ -233,17 +291,17 @@
 	<string name="edited_timestamp">redigert %s</string>
 	<string name="edit_original_post">Opprinnelig innlegg</string>
 	<string name="edit_text_edited">Tekst redigert</string>
-	<string name="edit_spoiler_added">Innholdsadvarsel lagt til</string>
-	<string name="edit_spoiler_edited">Innholdsadvarsel redigert</string>
-	<string name="edit_spoiler_removed">Innholdsadvarsel fjernet</string>
-	<string name="edit_poll_added">Avstemning lagt til</string>
-	<string name="edit_poll_edited">Avstemning redigert</string>
-	<string name="edit_poll_removed">Avstemning fjernet</string>
-	<string name="edit_media_added">Medie lagt til</string>
+	<string name="edit_spoiler_added">Innholdsvarsel lagt til</string>
+	<string name="edit_spoiler_edited">Innholdsvarsel redigert</string>
+	<string name="edit_spoiler_removed">Innholdsvarsel fjernet</string>
+	<string name="edit_poll_added">Avstemming lagt til</string>
+	<string name="edit_poll_edited">Avstemming redigert</string>
+	<string name="edit_poll_removed">Avstemming fjernet</string>
+	<string name="edit_media_added">Lagt til medie</string>
 	<string name="edit_media_removed">Medie fjernet</string>
-	<string name="edit_media_reordered">Medie endret rekkefølge</string>
+	<string name="edit_media_reordered">Endre rekkefølge</string>
 	<string name="edit_marked_sensitive">Merk som følsomt</string>
-	<string name="edit_marked_not_sensitive">Marker som ikke følsom</string>
+	<string name="edit_marked_not_sensitive">Marker som ikke følsomt</string>
 	<string name="edit_multiple_changed">Innlegg redigert</string>
 	<string name="edit">Rediger</string>
 	<string name="discard_changes">Forkaste endringer?</string>
@@ -268,19 +326,134 @@
 	<string name="your_favorites">Dine favoritter</string>
 	<string name="login_title">Velkommen tilbake</string>
 	<string name="login_subtitle">Logg inn med serveren der du opprettet kontoen din.</string>
-	<string name="server_url">Server-URL</string>
+	<string name="server_url">Server link</string>
 	<!-- %s is server domain -->
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<string name="join_default_server">Bli med %s</string>
+	<string name="pick_server">Velg en annen server</string>
+	<string name="signup_or_login">eller</string>
+	<string name="learn_more">Lær mer</string>
+	<string name="welcome_to_mastodon">Velkommen til Mastodon</string>
+	<string name="welcome_paragraph1">Mastodon er et desentralisert sosialt nettverk, som betyr at ingen selskaper kontrollerer det. Det består av mange uavhengige servere som er koblet sammen.</string>
+	<string name="what_are_servers">Hva er en server?</string>
+	<string name="opening_link">Åpner link…</string>
+	<string name="link_not_supported">Denne linken støttes ikke av appen</string>
+	<string name="log_out_all_accounts">Logg ut av alle kontoer</string>
+	<string name="confirm_log_out_all_accounts">Logge ut av alle kontoer?</string>
+	<string name="retry">Prøv igjen</string>
+	<string name="post_failed">Kunne ikke sende innlegg</string>
 	<!-- %s is formatted file size ("467 KB image") -->
+	<string name="attachment_description_image">%s bilde</string>
+	<string name="attachment_description_video">%s video</string>
+	<string name="attachment_description_audio">%s lyd</string>
+	<string name="attachment_description_unknown">%s fil</string>
+	<string name="attachment_type_image">Bilde</string>
+	<string name="attachment_type_video">Video</string>
+	<string name="attachment_type_audio">Lyd</string>
+	<string name="attachment_type_gif">GIF</string>
+	<string name="attachment_type_unknown">Fil</string>
+	<string name="attachment_x_percent_uploaded">%d%% lastet opp</string>
+	<string name="add_poll_option">Legg til valg</string>
+	<string name="poll_length">Avstemnings lengde</string>
+	<string name="poll_style">Stil</string>
+	<string name="compose_poll_single_choice">Velg en</string>
+	<string name="compose_poll_multiple_choice">Flere valg</string>
+	<string name="delete_poll_option">Slett avstemmings-alternativet</string>
+	<string name="poll_style_title">Avstemnings stil</string>
+	<string name="alt_text">Alternativ tekst</string>
+	<string name="help">Hjelp</string>
+	<string name="what_is_alt_text">Hva er alternativ tekst?</string>
+	<string name="edit_post">Rediger innlegg</string>
+	<string name="no_verified_link">Ingen bekreftet lenke</string>
+	<string name="compose_autocomplete_emoji_empty">Bla gjennom emoji</string>
+	<string name="compose_autocomplete_users_empty">Finn hvem du leter etter</string>
+	<string name="no_search_results">Fant ikke noe med disse søkeordene</string>
+	<string name="language">Språk</string>
+	<string name="language_default">Standard</string>
+	<string name="language_system">System</string>
+	<string name="language_detecting">Sjekker språk</string>
+	<string name="language_cant_detect">Klarte ikke å oppdage ditt språk</string>
+	<string name="language_detected">Oppdaget</string>
+	<string name="media_hidden">Skjult media</string>
+	<string name="post_hidden">Skjult innlegg</string>
+	<string name="report_title_post">Rapporter innlegg</string>
+	<string name="forward_report_explanation">Denne kontoen er fra en annen tjener. Vil du sende en anonymisert kopi av rapporten dit også?</string>
 	<!-- %s is the server domain -->
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<plurals name="x_hours_ago">
+		<item quantity="one">%d time siden</item>
+		<item quantity="other">%d timer siden</item>
+	</plurals>
+	<string name="alt_text_reminder_title">Media mangler alternativ tekst</string>
+	<plurals name="alt_text_reminder_x_images">
+		<item quantity="one">%s av bildene dine mangler alternativ tekst. Vil du publisere allikevell?</item>
+		<item quantity="other">%s av bildene dine mangler alternativ tekst. Vil du publisere allikevell?</item>
+	</plurals>
+	<plurals name="alt_text_reminder_x_attachments">
+		<item quantity="one">%s av vedlegget ditt mangler alternativ tekst. Vil du publisere allikevell?</item>
+		<item quantity="other">%s av vedlegget ditt mangler alternativ tekst. Vil du publisere allikevell?</item>
+	</plurals>
+	<string name="count_one">En</string>
+	<string name="count_two">To</string>
+	<string name="count_three">Tre</string>
+	<string name="count_four">Fire</string>
+	<string name="alt_text_reminder_post_anyway">Publiser</string>
 	<!-- %s is the username -->
+	<string name="unfollow_confirmation">Slutt å følge %s?</string>
+	<string name="filter_active">Aktiv</string>
+	<string name="filter_inactive">Inaktive</string>
+	<string name="settings_add_filter">Legg til filter</string>
+	<string name="settings_edit_filter">Rediger filter</string>
+	<string name="settings_filter_duration">Varighet</string>
+	<string name="settings_filter_muted_words">Dempet ord</string>
+	<string name="settings_filter_context">Demp fra</string>
+	<string name="settings_filter_show_cw">Vis med innholdsvarsel</string>
+	<string name="settings_filter_show_cw_explanation">Vis fortsatt innlegg som samsvarer med dette filteret, men med innholdsvarsel</string>
+	<string name="settings_delete_filter">Slett filter</string>
+	<string name="filter_duration_forever">For alltid</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="settings_filter_ends">Slutter om %s</string>
+	<plurals name="settings_x_muted_words">
+		<item quantity="one">%d dempet ord eller uttrykk</item>
+		<item quantity="other">%d dempet ord eller uttrykk</item>
+	</plurals>
+	<string name="selection_2_options">%1$s og %2$s</string>
+	<string name="selection_3_options">%1$s, %2$s, og %3$s</string>
+	<string name="selection_4_or_more">%1$s, %2$s og %3$d mer</string>
+	<string name="filter_context_home_lists">Hjem &amp; lister</string>
+	<string name="filter_context_notifications">Varslinger</string>
+	<string name="filter_context_public_timelines">Offentlige tidslinjer</string>
+	<string name="filter_context_threads_replies">Tråder &amp; svar</string>
+	<string name="filter_context_profiles">Profiler</string>
+	<string name="settings_filter_title">Tittel</string>
+	<string name="settings_delete_filter_title">Slett filter “%s\"?</string>
+	<string name="settings_delete_filter_confirmation">Dette filteret vil bli slettet fra kontoen din på alle enhetene dine.</string>
+	<string name="add_muted_word">Legg til dempet ord</string>
+	<string name="edit_muted_word">Rediger dempet ord</string>
+	<string name="add">Legg til</string>
+	<string name="filter_word_or_phrase">Ord eller uttrykk</string>
+	<string name="settings_delete_filter_word">Slette ord “%s\"?</string>
+	<string name="enter_selection_mode">Velg</string>
+	<string name="select_all">Velg alt</string>
+	<string name="settings_filter_duration_title">Filter varighet</string>
+	<string name="filter_duration_custom">Tilpasset</string>
+	<plurals name="settings_delete_x_filter_words">
+		<item quantity="one">Slett %d ord?</item>
+		<item quantity="other">Slette %d ord?</item>
+	</plurals>
+	<plurals name="x_items_selected">
+		<item quantity="one">%d valgt</item>
+		<item quantity="other">%d valgt</item>
+	</plurals>
+	<string name="required_form_field_blank">Kan ikke være tom</string>
+	<string name="filter_word_already_in_list">Allerede på listen</string>
+	<string name="app_update_ready">App oppdateringen er klar</string>
+	<string name="app_update_version">Versjon %s</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
 	<!-- Shown in the post header. Please keep it short -->
 </resources>
