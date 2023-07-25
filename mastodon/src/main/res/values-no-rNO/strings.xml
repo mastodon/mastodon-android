@@ -6,7 +6,7 @@
 	<string name="error">Feil</string>
 	<string name="not_a_mastodon_instance">%s ser ikke ut til å være en Mastodon server.</string>
 	<string name="ok">OK</string>
-	<string name="preparing_auth">Forbereder autentisering…</string>
+	<string name="preparing_auth">Forbereder for autentisering…</string>
 	<string name="finishing_auth">Ferdigstiller autentisering…</string>
 	<string name="user_boosted">Fremhevet av %s</string>
 	<string name="in_reply_to">Som svar på %s</string>
@@ -19,7 +19,7 @@
 	<string name="share_toot_title">Del</string>
 	<string name="settings">Innstillinger</string>
 	<string name="publish">Publiser</string>
-	<string name="discard_draft">Forkaste utkast?</string>
+	<string name="discard_draft">Forkast utkast?</string>
 	<string name="discard">Forkast</string>
 	<string name="cancel">Avbryt</string>
 	<plurals name="followers">
@@ -172,6 +172,7 @@
 	<string name="category_games">Spill</string>
 	<string name="category_general">Generelt</string>
 	<string name="category_journalism">Journalisme</string>
+	<string name="category_lgbt">LHBT</string>
 	<string name="category_music">Musikk</string>
 	<string name="category_regional">Region</string>
 	<string name="category_tech">Teknologi</string>
@@ -254,8 +255,13 @@
 	<string name="error_saving_file">Feil ved lagring av fil</string>
 	<string name="file_saved">Fil lagret</string>
 	<string name="downloading">Laster ned…</string>
+	<string name="no_app_to_handle_action">Det er ingen app som kan håndtere denne handlingen</string>
 	<string name="local_timeline">Lokalt</string>
+	<string name="trending_posts_info_banner">Disse innleggene snakker folk om rundt om i Mastodon.</string>
+	<string name="trending_links_info_banner">Dette er nyhetshistoriene som snakkes om rundt om i Mastodon.</string>
 	<!-- %s is the server domain -->
+	<string name="local_timeline_info_banner">Dette er alle innlegg fra alle brukere på din server (%s).</string>
+	<string name="recommended_accounts_info_banner">Du liker kanskje disse kontoene basert på de andre du følger.</string>
 	<string name="see_new_posts">Se nye innlegg</string>
 	<string name="load_missing_posts">Last inn manglende innlegg</string>
 	<string name="follow_back">Følg tilbake</string>
@@ -274,6 +280,10 @@
 	<plurals name="x_favorites">
 		<item quantity="one">%,d favoritt</item>
 		<item quantity="other">%,d favoritter</item>
+	</plurals>
+	<plurals name="x_reblogs">
+		<item quantity="one">%,d fremhev</item>
+		<item quantity="other">%,d fremheve</item>
 	</plurals>
 	<string name="timestamp_via_app">%1$s via %2$s</string>
 	<string name="time_now">nå</string>
@@ -316,6 +326,8 @@
 	<!-- %s is file size -->
 	<string name="download_update">Last ned (%s)</string>
 	<string name="install_update">Installer</string>
+	<string name="privacy_policy_title">Ditt personvern</string>
+	<string name="privacy_policy_subtitle">Selv om Mastodon appen ikke samler inn data, kan det hende at serveren du registrerte deg på har en annen politikk.\n\nHvis du er uenig i retningslinjene for %s, kan du gå tilbake og velge en annen server.</string>
 	<string name="i_agree">Jeg godtar</string>
 	<string name="empty_list">Denne listen er tom</string>
 	<string name="instance_signup_closed">Denne serveren godtar ikke nye registreringer.</string>
@@ -327,9 +339,47 @@
 	<string name="login_title">Velkommen tilbake</string>
 	<string name="login_subtitle">Logg inn med serveren der du opprettet kontoen din.</string>
 	<string name="server_url">Server link</string>
+	<string name="signup_random_server_explain">Vi vil velge en server basert på språket ditt hvis du fortsetter uten å gjøre et valg.</string>
+	<string name="server_filter_any_language">Ethvert språk</string>
+	<string name="server_filter_instant_signup">Direkte registrering</string>
+	<string name="server_filter_manual_review">Manuell gjennomgang</string>
+	<string name="server_filter_any_signup_speed">Enhver opptakshastighet</string>
+	<string name="server_filter_region_europe">Europa</string>
+	<string name="server_filter_region_north_america">Nord-Amerika</string>
+	<string name="server_filter_region_south_america">Sør-Amerika</string>
+	<string name="server_filter_region_africa">Afrika</string>
+	<string name="server_filter_region_asia">Asia</string>
+	<string name="server_filter_region_oceania">Oseania</string>
+	<string name="not_accepting_new_members">Aksepterer ikke nye medlemmer</string>
+	<string name="category_special_interests">Spesielle interesser</string>
+	<string name="signup_passwords_dont_match">Passordet samsvarer ikke</string>
+	<string name="pick_server_for_me">Velg for meg</string>
+	<string name="profile_add_row">Legg til rad</string>
+	<string name="profile_setup">Konfigurering av profil</string>
+	<string name="profile_setup_subtitle">Du kan alltid fullføre dette senere i profilfanen.</string>
+	<string name="profile_setup_explanation">Du kan legge opp til fire profilfelter for det du vil. Plassering, lenker, uttalelser – himmelen er grensen.</string>
+	<string name="popular_on_mastodon">Populært på Mastodon</string>
+	<string name="follow_all">Følg alle</string>
+	<string name="server_rules_disagree">Uenig</string>
+	<string name="privacy_policy_explanation">TL;DR: Vi samler ikke inn eller prosesserer noe.</string>
 	<!-- %s is server domain -->
+	<string name="server_policy_disagree">Uenig med %s</string>
+	<string name="profile_bio">Om meg</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
+	<string name="sending_follows">Følger brukere…</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<string name="signup_email_domain_blocked">%1$s tillater ikke registrering fra %2$s. Prøv en annen, eller &lt;a&gt;velg en annen server&lt;/a&gt;.</string>
+	<string name="spoiler_show">Vis likevel</string>
+	<string name="spoiler_hide">Skjul</string>
+	<string name="poll_multiple_choice">Velg en eller flere</string>
+	<string name="save_changes">Lagre endringer</string>
+	<string name="profile_featured">Utvalgt</string>
+	<string name="profile_timeline">Tidslinje</string>
+	<string name="view_all">Vis alle</string>
+	<string name="profile_endorsed_accounts">Kontoer</string>
+	<string name="verified_link">Bekreftet lenke</string>
+	<string name="show">Vis</string>
+	<string name="hide">Skjul</string>
 	<string name="join_default_server">Bli med %s</string>
 	<string name="pick_server">Velg en annen server</string>
 	<string name="signup_or_login">eller</string>
@@ -337,6 +387,7 @@
 	<string name="welcome_to_mastodon">Velkommen til Mastodon</string>
 	<string name="welcome_paragraph1">Mastodon er et desentralisert sosialt nettverk, som betyr at ingen selskaper kontrollerer det. Det består av mange uavhengige servere som er koblet sammen.</string>
 	<string name="what_are_servers">Hva er en server?</string>
+	<string name="welcome_paragraph2"><![CDATA[Enhver Mastodon konto er en vert på en server - med sine egne verdier, regler og administratorer. Uansett hvilken du velger, kan du følge og samhandle med folk på hvilken som helst server.]]></string>
 	<string name="opening_link">Åpner link…</string>
 	<string name="link_not_supported">Denne linken støttes ikke av appen</string>
 	<string name="log_out_all_accounts">Logg ut av alle kontoer</string>
@@ -364,6 +415,7 @@
 	<string name="alt_text">Alternativ tekst</string>
 	<string name="help">Hjelp</string>
 	<string name="what_is_alt_text">Hva er alternativ tekst?</string>
+	<string name="alt_text_help">Alternativ tekst gir bildebeskrivelser for personer med synshemminger, lav båndbredde eller de som ønsker ekstra kontekst.\n\nDu kan forbedre tilgjengeligheten og forståelsen for alle ved å skrive klar, konsis og objektiv alternativ tekst.\n\n<ul><li>Fang opp viktige elementer</li>\n<li>Oppsummere tekst i bilder</li>\n<li>Bruk vanlig setningsstruktur</li>\n<li>Unngå overflødig informasjon</li>\n<li>Fokuser på trender og viktige funn i komplekse visualobjekter (som diagrammer eller kart)</li></ul></string>
 	<string name="edit_post">Rediger innlegg</string>
 	<string name="no_verified_link">Ingen bekreftet lenke</string>
 	<string name="compose_autocomplete_emoji_empty">Bla gjennom emoji</string>
@@ -380,11 +432,71 @@
 	<string name="report_title_post">Rapporter innlegg</string>
 	<string name="forward_report_explanation">Denne kontoen er fra en annen tjener. Vil du sende en anonymisert kopi av rapporten dit også?</string>
 	<!-- %s is the server domain -->
+	<string name="forward_report_to_server">Videresend til %s</string>
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
+	<string name="reported">Rapportert</string>
+	<string name="report_unfollow_explanation">For å ikke se innleggene deres i tidslinjen din, må du slutte å følge dem.</string>
+	<string name="muted_user">Dempet %s</string>
+	<string name="report_sent_already_blocked">Du har allerede blokkert denne brukeren, så det er ikke noe annet du trenger å gjøre mens vi ser på rapporten din.</string>
+	<string name="report_personal_already_blocked">Du har allerede blokkert denne brukeren, så det er ikke noe annet du trenger å gjøre.\n\nTakk for at du hjelper til med å holde Mastodon til et trygt sted for alle!</string>
+	<string name="blocked_user">Blokkert %s</string>
+	<string name="mark_all_notifications_read">Merk alle som lest</string>
+	<string name="settings_display">Skjerm</string>
+	<string name="settings_filters">Filter</string>
+	<string name="settings_server_explanation">Oversikt, regler og moderatorer</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
+	<string name="about_app">Om %s</string>
+	<string name="default_post_language">Standard innleggsspråk</string>
+	<string name="settings_alt_text_reminders">Legg til alternativ tekst påminnelse</string>
+	<string name="settings_confirm_unfollow">Spør før du slutter å følge noen</string>
+	<string name="settings_confirm_boost">Spør før fremheving</string>
+	<string name="settings_confirm_delete_post">Spør før sletting av innlegg</string>
+	<string name="pause_all_notifications">Sett alle på vent</string>
+	<string name="pause_notifications_off">Av</string>
+	<string name="notifications_policy_anyone">Alle</string>
+	<string name="notifications_policy_followed">Folk som følger deg</string>
+	<string name="notifications_policy_follower">Folk du følger</string>
+	<string name="notifications_policy_no_one">Ingen</string>
+	<string name="settings_notifications_policy">Få varsler fra</string>
+	<string name="notification_type_mentions_and_replies">Nevnelser og svar</string>
+	<string name="pause_all_notifications_title">Pause alle varsler</string>
+	<plurals name="x_weeks">
+		<item quantity="one">%d uke</item>
+		<item quantity="other">%d uker</item>
+	</plurals>
 	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
+	<string name="date_at_time">%1$s den %2$s</string>
+	<string name="today">i dag</string>
+	<string name="yesterday">i går</string>
+	<string name="tomorrow">i morgen</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="pause_notifications_ends">Slutter %s</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="pause_notifications_banner">Varsler gjenopptas %s.</string>
+	<string name="resume_notifications_now">Gjenoppta nå</string>
+	<string name="open_system_notification_settings">Gå til varslingsinnstillinger</string>
+	<string name="about_server">Om</string>
+	<string name="server_rules">Regler</string>
+	<string name="server_administrator">Administrator</string>
+	<string name="send_email_to_server_admin">Melding til administrator</string>
+	<string name="notifications_disabled_in_system">Slå på varsler fra enhetens innstillinger for å se oppdateringer fra hvor som helst.</string>
+	<string name="settings_even_more">Enda flere innstillinger</string>
+	<string name="settings_show_cws">Vis innholdsvarsel</string>
+	<string name="settings_hide_sensitive_media">Skjul media som er merket som følsomt</string>
+	<string name="settings_show_interaction_counts">Vis interaksjoner på innlegg</string>
+	<string name="settings_show_emoji_in_names">Egendefinerte emojier i visningsnavn</string>
+	<plurals name="in_x_seconds">
+		<item quantity="one">om %d sekunder</item>
+		<item quantity="other">om %d sekunder</item>
+	</plurals>
+	<plurals name="in_x_minutes">
+		<item quantity="one">om %d minutter</item>
+		<item quantity="other">om %d minutter</item>
+	</plurals>
+	<plurals name="in_x_hours">
+		<item quantity="one">om %d time</item>
+		<item quantity="other">om %d timer</item>
+	</plurals>
 	<plurals name="x_hours_ago">
 		<item quantity="one">%d time siden</item>
 		<item quantity="other">%d timer siden</item>
@@ -437,6 +549,7 @@
 	<string name="edit_muted_word">Rediger dempet ord</string>
 	<string name="add">Legg til</string>
 	<string name="filter_word_or_phrase">Ord eller uttrykk</string>
+	<string name="filter_add_word_help">Ord skiller ikke mellom store og små bokstaver og samsvarer bare med hele ord.\n\nHvis du filtrerer nøkkelordet \"Druer\", vil det skjule innlegg som inneholder \"druer\" eller \"dRuEr\", men ikke \"druersukker.\"</string>
 	<string name="settings_delete_filter_word">Slette ord “%s\"?</string>
 	<string name="enter_selection_mode">Velg</string>
 	<string name="select_all">Velg alt</string>
@@ -454,6 +567,19 @@
 	<string name="filter_word_already_in_list">Allerede på listen</string>
 	<string name="app_update_ready">App oppdateringen er klar</string>
 	<string name="app_update_version">Versjon %s</string>
+	<string name="downloading_update">Laster ned (%d%%)</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
+	<string name="post_matches_filter_x">Samsvarer filter \"%s\"</string>
+	<string name="search_mastodon">Søk i Mastodon</string>
+	<string name="clear_all">Fjern alle</string>
+	<string name="search_open_url">Åpne link i Mastodon</string>
+	<string name="posts_matching_hashtag">Publiser med \"%s\"</string>
+	<string name="search_go_to_account">Gå til %s</string>
+	<string name="posts_matching_string">Publiser med \"%s\"</string>
+	<string name="accounts_matching_string">Personer med \"%s\"</string>
 	<!-- Shown in the post header. Please keep it short -->
+	<string name="time_seconds_ago_short">%ds siden</string>
+	<string name="time_minutes_ago_short">%dm siden</string>
+	<string name="time_hours_ago_short">%dt siden</string>
+	<string name="time_days_ago_short">%dd siden</string>
 </resources>
