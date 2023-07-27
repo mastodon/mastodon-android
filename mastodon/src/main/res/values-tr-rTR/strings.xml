@@ -14,7 +14,7 @@
 	<string name="user_followed_you">%s seni takip etti</string>
 	<string name="user_sent_follow_request">%s size bir takip isteği gönderdi</string>
 	<string name="user_favorited">%s gönderinizi favorilere ekledi</string>
-	<string name="notification_boosted">%s gönderinizi yineledi</string>
+	<string name="notification_boosted">%s gönderinizi yeniden paylaştı</string>
 	<string name="poll_ended">Oy verdiğiniz bir anketin sonuçlarını görün</string>
 	<string name="share_toot_title">Paylaş</string>
 	<string name="settings">Ayarlar</string>
@@ -24,7 +24,7 @@
 	<string name="cancel">İptal et</string>
 	<plurals name="followers">
 		<item quantity="one">takipçi</item>
-		<item quantity="other">takipçi</item>
+		<item quantity="other">takipçiler</item>
 	</plurals>
 	<plurals name="following">
 		<item quantity="one">takip</item>
@@ -38,11 +38,11 @@
 	<string name="button_following">Takip ediliyor</string>
 	<string name="edit_profile">Profili düzenle</string>
 	<string name="share_user">Profili paylaş</string>
-	<string name="mute_user">Sustur %s</string>
-	<string name="unmute_user">Sesini aç %s</string>
-	<string name="block_user">Engelle %s</string>
-	<string name="unblock_user">Engeli kaldır %s</string>
-	<string name="report_user">Raporla %s</string>
+	<string name="mute_user">%s Sustur</string>
+	<string name="unmute_user">%s Sesini aç</string>
+	<string name="block_user">%s Engelle</string>
+	<string name="unblock_user">%s Engeli kaldır</string>
+	<string name="report_user">%s Raporla</string>
 	<string name="block_domain">%s kişisini engelle</string>
 	<string name="unblock_domain">%s kişisinin engelini kaldır</string>
 	<plurals name="x_posts">
@@ -59,27 +59,27 @@
 	<string name="poll_option_hint">Seçenek %d</string>
 	<plurals name="x_minutes">
 		<item quantity="one">%d dakika</item>
-		<item quantity="other">%d dakika</item>
+		<item quantity="other">%d dakikalar</item>
 	</plurals>
 	<plurals name="x_hours">
 		<item quantity="one">%d saat</item>
-		<item quantity="other">%d saat</item>
+		<item quantity="other">%d saatler</item>
 	</plurals>
 	<plurals name="x_days">
 		<item quantity="one">%d gün</item>
-		<item quantity="other">%d gün</item>
+		<item quantity="other">%d günler</item>
 	</plurals>
 	<plurals name="x_seconds_left">
 		<item quantity="one">%d saniye kaldı</item>
-		<item quantity="other">%d saniye kaldı</item>
+		<item quantity="other">%d saniyeler kaldı</item>
 	</plurals>
 	<plurals name="x_minutes_left">
 		<item quantity="one">%d dakika kaldı</item>
-		<item quantity="other">%d dakika kaldı</item>
+		<item quantity="other">%d dakikalar kaldı</item>
 	</plurals>
 	<plurals name="x_hours_left">
 		<item quantity="one">%d saat kaldı</item>
-		<item quantity="other">%d saat kaldı</item>
+		<item quantity="other">%d saatler kaldı</item>
 	</plurals>
 	<plurals name="x_days_left">
 		<item quantity="one">%d gün kaldı</item>
