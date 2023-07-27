@@ -188,6 +188,8 @@
 	</plurals>
 	<string name="media_attachment_unsupported_type">Le fichier %s n’est pas pris en charge</string>
 	<string name="media_attachment_too_big">Le fichier %1$s dépasse la taille limite de %2$s Mo</string>
+	<string name="settings_theme">Thème</string>
+	<string name="theme_auto">Utiliser le thème de l\'appareil</string>
 	<string name="theme_light">Clair</string>
 	<string name="theme_dark">Sombre</string>
 	<string name="settings_behavior">Comportement</string>
@@ -200,6 +202,7 @@
 	<string name="settings_clear_cache">Vider le cache des médias</string>
 	<string name="settings_app_version">Mastodon pour Android v%1$s (%2$d)</string>
 	<string name="media_cache_cleared">Cache des médias vidé</string>
+	<string name="confirm_log_out">Se déconnecter de %s?</string>
 	<string name="avatar_description">Voir le profil de %s</string>
 	<string name="more_options">Paramètres supplémentaires</string>
 	<string name="new_post">Nouveau message</string>
@@ -346,6 +349,8 @@
 	<string name="learn_more">En savoir plus</string>
 	<string name="welcome_to_mastodon">Bienvenue sur Mastodon</string>
 	<string name="opening_link">Ouverture du lien…</string>
+	<string name="log_out_all_accounts">Se déconnecter de tous les comptes</string>
+	<string name="confirm_log_out_all_accounts">Se déconnecter de tous les comptes ?</string>
 	<string name="retry">Réessayer</string>
 	<!-- %s is formatted file size ("467 KB image") -->
 	<string name="attachment_type_image">Image</string>
@@ -358,10 +363,18 @@
 	<string name="language">Langue</string>
 	<!-- %s is the server domain -->
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
+	<string name="settings_display">Affichage</string>
+	<string name="settings_filters">Filtres</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
+	<string name="about_app">A propos de %s</string>
 	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="settings_even_more">Paramètres supplémentaires</string>
+	<string name="settings_show_cws">Afficher les avertissements de contenu</string>
+	<string name="settings_hide_sensitive_media">Cacher les médias marqués comme sensibles</string>
+	<string name="settings_show_interaction_counts">Compteurs d\'interaction de publication</string>
+	<string name="settings_show_emoji_in_names">Émoticônes personnalisées dans les noms</string>
 	<!-- %s is the username -->
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<!-- Shown like a content warning, %s is the name of the filter -->
