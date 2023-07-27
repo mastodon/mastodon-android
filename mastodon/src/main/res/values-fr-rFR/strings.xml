@@ -13,6 +13,9 @@
 	<string name="notifications">Notifications</string>
 	<string name="user_followed_you">%s vous suit</string>
 	<string name="user_sent_follow_request">%s voudrait vous suivre</string>
+	<string name="user_favorited">%s a mis votre message en favori</string>
+	<string name="notification_boosted">%s a boosté votre message</string>
+	<string name="poll_ended">Voir les résultats d\'un sondage auquel vous avez voté</string>
 	<string name="share_toot_title">Partager</string>
 	<string name="settings">Paramètres</string>
 	<string name="publish">Pouet !</string>
@@ -34,6 +37,7 @@
 	<string name="button_follow">Suivre</string>
 	<string name="button_following">Abonné·e·s</string>
 	<string name="edit_profile">Modifier le profil</string>
+	<string name="share_user">Partager le profil</string>
 	<string name="mute_user">Masquer %s</string>
 	<string name="unmute_user">Ne plus masquer %s</string>
 	<string name="block_user">Bloquer %s</string>
@@ -114,6 +118,7 @@
 	<string name="hashtags">Hashtags</string>
 	<string name="news">Actualités</string>
 	<string name="for_you">Pour vous</string>
+	<string name="all_notifications">Tout</string>
 	<string name="mentions">Mentions</string>
 	<plurals name="x_people_talking">
 		<item quantity="one">%d personne en parle</item>
@@ -170,11 +175,14 @@
 	<string name="resend">Renvoyer</string>
 	<string name="open_email_app">Ouvrir l’application courriel</string>
 	<string name="resent_email">Courriel de confirmation envoyé</string>
+	<string name="compose_hint">Ecrivez ce qui vous passe par la tête</string>
 	<string name="content_warning">Avertissement sur le contenu</string>
 	<string name="save">Enregistrer</string>
 	<string name="add_alt_text">Ajouter un texte alternatif</string>
 	<string name="visibility_public">Public</string>
 	<string name="visibility_followers_only">Abonné·e·s uniquement</string>
+	<string name="visibility_private">Personnes mentionnées uniquement</string>
+	<string name="recent_searches">Récents</string>
 	<string name="skip">Passer</string>
 	<string name="notification_type_follow">Nouveaux⋅elles abonné⋅e⋅s</string>
 	<string name="notification_type_favorite">Favoris</string>
@@ -359,6 +367,11 @@
 	<string name="attachment_type_gif">GIF</string>
 	<string name="attachment_type_unknown">Fichier</string>
 	<string name="attachment_x_percent_uploaded">%d%% transférés</string>
+	<string name="poll_length">Durée du sondage</string>
+	<string name="poll_style">Type</string>
+	<string name="compose_poll_single_choice">Choix unique</string>
+	<string name="compose_poll_multiple_choice">Choix multiple</string>
+	<string name="poll_style_title">Type de sondage</string>
 	<string name="help">Aide</string>
 	<string name="language">Langue</string>
 	<!-- %s is the server domain -->
@@ -376,7 +389,18 @@
 	<string name="settings_show_interaction_counts">Compteurs d\'interaction de publication</string>
 	<string name="settings_show_emoji_in_names">Émoticônes personnalisées dans les noms</string>
 	<!-- %s is the username -->
+	<string name="settings_add_filter">Ajouter un filtre</string>
+	<string name="settings_filter_duration">Durée</string>
+	<string name="filter_duration_forever">Toujours</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="settings_filter_title">Titre</string>
+	<string name="settings_filter_duration_title">Durée du filtre</string>
+	<string name="filter_duration_custom">Personnalisée</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
+	<string name="search_mastodon">Rechercher sur Mastodon</string>
+	<string name="search_open_url">Ouvrir l\'URL dans Mastodon</string>
+	<string name="search_go_to_account">Aller à %s</string>
 	<!-- Shown in the post header. Please keep it short -->
+	<string name="time_hours_ago_short">Il y a %dh</string>
+	<string name="time_days_ago_short">Il y a %dj</string>
 </resources>
