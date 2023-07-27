@@ -83,7 +83,7 @@
 	</plurals>
 	<plurals name="x_days_left">
 		<item quantity="one">%d gün kaldı</item>
-		<item quantity="other">%d gün kaldı</item>
+		<item quantity="other">%d günler kaldı</item>
 	</plurals>
 	<plurals name="x_votes">
 		<item quantity="one">%,d oy</item>
@@ -118,19 +118,19 @@
 	<string name="search_hint">Ara</string>
 	<string name="hashtags">Etiketler</string>
 	<string name="news">Haberler</string>
-	<string name="for_you">Senin için</string>
+	<string name="for_you">Sizin için</string>
 	<string name="all_notifications">Tümü</string>
 	<string name="mentions">Bahsetmeler</string>
 	<plurals name="x_people_talking">
 		<item quantity="one">%d kişi bahsetti</item>
 		<item quantity="other">%d kişi bahsetti</item>
 	</plurals>
-	<string name="report_title">Raporla %s</string>
+	<string name="report_title">%s Raporla</string>
 	<string name="report_choose_reason">Bu gönderi ile ilgili sorun nedir?</string>
 	<string name="report_choose_reason_account">%s ile ilgili sorun nedir?</string>
 	<string name="report_choose_reason_subtitle">En iyi eşleşmeyi seçin</string>
-	<string name="report_reason_personal">Beğenmedim</string>
-	<string name="report_reason_personal_subtitle">Görmek isteyeceğin bir şey değil</string>
+	<string name="report_reason_personal">Hoşlanmadım</string>
+	<string name="report_reason_personal_subtitle">Görmek isteyeceğim bir şey değil</string>
 	<string name="report_reason_spam">İstenmeyen</string>
 	<string name="report_reason_spam_subtitle">Kötü amaçlı bağlantılar, sahte etkileşim veya tekrarlayan yanıtlar</string>
 	<string name="report_reason_violation">Sunucu kurallarını ihlal ediyor</string>
@@ -168,7 +168,7 @@
 	<string name="category_all">Hepsi</string>
 	<string name="category_art">Sanat</string>
 	<string name="category_food">Yiyecek</string>
-	<string name="category_furry">Furry</string>
+	<string name="category_furry">Kostüm</string>
 	<string name="category_games">Oyunlar</string>
 	<string name="category_general">Genel</string>
 	<string name="category_journalism">Gazetecilik</string>
@@ -226,7 +226,7 @@
 	<string name="new_post">Yeni gönderi</string>
 	<string name="button_reply">Cevapla</string>
 	<string name="button_reblog">Yinele</string>
-	<string name="button_favorite">Favorile</string>
+	<string name="button_favorite">Gözdele</string>
 	<string name="button_share">Paylaş</string>
 	<string name="media_no_description">Açıklamasız medya</string>
 	<string name="add_media">Medya ekle</string>
@@ -240,8 +240,8 @@
 	<string name="followed_user">Artık %s kullanıcısını takip ediyorsun</string>
 	<string name="following_user_requested">%s takip isteği gönderdi</string>
 	<string name="open_in_browser">Tarayıcıda aç</string>
-	<string name="hide_boosts_from_user">%s kişisinin yinelemelerini gizle</string>
-	<string name="show_boosts_from_user">%s kişisinin yinelemelerini göster</string>
+	<string name="hide_boosts_from_user">%s kişisinin yeniden paylaşımını gizle</string>
+	<string name="show_boosts_from_user">%s kişisinin yeniden paylaşımını göster</string>
 	<string name="signup_reason">Neden katılmak istiyorsunuz?</string>
 	<string name="signup_reason_note">Bu, başvurunuzu incelememize yardımcı olacaktır.</string>
 	<string name="clear">Temizle</string>
@@ -271,15 +271,15 @@
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<plurals name="x_followers">
 		<item quantity="one">%,d takipçi</item>
-		<item quantity="other">%,d takipçi</item>
+		<item quantity="other">%,d takipçiler</item>
 	</plurals>
 	<plurals name="x_following">
 		<item quantity="one">%,d takip</item>
-		<item quantity="other">%,d takip</item>
+		<item quantity="other">%,d takipçiler</item>
 	</plurals>
 	<plurals name="x_favorites">
-		<item quantity="one">%,d favori</item>
-		<item quantity="other">%,d favori</item>
+		<item quantity="one">%,d gözde</item>
+		<item quantity="other">%,d gözdeler</item>
 	</plurals>
 	<plurals name="x_reblogs">
 		<item quantity="one">%,d yineleme</item>
@@ -335,7 +335,7 @@
 	<string name="add_bookmark">Yer imlerine ekle</string>
 	<string name="remove_bookmark">Yer imini kaldır</string>
 	<string name="bookmarks">Yer imleri</string>
-	<string name="your_favorites">Favorilerin</string>
+	<string name="your_favorites">Gözdelerin</string>
 	<string name="login_title">Hoşgeldiniz</string>
 	<string name="login_subtitle">Hesabınızı oluşturduğunuz sunucuya giriş yapın.</string>
 	<string name="server_url">Sunucu bağlantısı</string>
@@ -395,7 +395,7 @@
 	<string name="retry">Yeniden dene</string>
 	<string name="post_failed">Gönderi paylaşılamadı</string>
 	<!-- %s is formatted file size ("467 KB image") -->
-	<string name="attachment_description_image">%s resim</string>
+	<string name="attachment_description_image">%s görsel</string>
 	<string name="attachment_description_video">%s video</string>
 	<string name="attachment_description_audio">%s ses</string>
 	<string name="attachment_description_unknown">%s dosya</string>
@@ -436,26 +436,26 @@
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
 	<string name="reported">Bildirildi</string>
 	<string name="report_unfollow_explanation">Gönderilerini artık ana sayfa akışınızda görmemek için takibi bırakın.</string>
-	<string name="muted_user">%s sessize alındı</string>
+	<string name="muted_user">sessize alındı %s</string>
 	<string name="report_sent_already_blocked">Bu kullanıcıyı zaten engellediniz. Biz raporunuzu incelerken yapmanız gereken başka bir şey yok.</string>
 	<string name="report_personal_already_blocked">Bu kullanıcıyı zaten engellediniz, yani yapmanız gereken başka bir şey yok.\n\nMastodon\'u herkes için güvenli bir yer olarak tutmaya yardımcı olduğunuz için teşekkürler!</string>
 	<string name="blocked_user">%s engellendi</string>
 	<string name="mark_all_notifications_read">Tümünü okundu olarak işaretle</string>
 	<string name="settings_display">Görünüm</string>
-	<string name="settings_filters">Filtreler</string>
+	<string name="settings_filters">Süzgeçler</string>
 	<string name="settings_server_explanation">Genel bakış, kurallar, moderatörler</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">%s Hakkında</string>
 	<string name="default_post_language">Varsayılan gönderi dili</string>
 	<string name="settings_alt_text_reminders">Alternatif metin hatırlatıcıları ekleyin</string>
 	<string name="settings_confirm_unfollow">Birini takibi bırakmadan önce sor</string>
-	<string name="settings_confirm_boost">Yinelemeden önce sor</string>
+	<string name="settings_confirm_boost">Yeniden paylaşmadan önce sor</string>
 	<string name="settings_confirm_delete_post">Gönderileri silmeden önce sor</string>
 	<string name="pause_all_notifications">Tümünü duraklat</string>
 	<string name="pause_notifications_off">Kapalı</string>
 	<string name="notifications_policy_anyone">Herhangi biri</string>
-	<string name="notifications_policy_followed">Seni takip eden insanlar</string>
-	<string name="notifications_policy_follower">Senin takip ettiğin insanlar</string>
+	<string name="notifications_policy_followed">Seni takip eden kullanıcılar</string>
+	<string name="notifications_policy_follower">Senin takip ettiğin kullanıcılar</string>
 	<string name="notifications_policy_no_one">Hiç kimse</string>
 	<string name="settings_notifications_policy">Şundan bildirim al</string>
 	<string name="notification_type_mentions_and_replies">Bahsetmeler ve yanıtlar</string>
@@ -478,7 +478,7 @@
 	<string name="about_server">Hakkında</string>
 	<string name="server_rules">Kurallar</string>
 	<string name="server_administrator">Yönetici</string>
-	<string name="send_email_to_server_admin">Yöneticiye mesaj gönder</string>
+	<string name="send_email_to_server_admin">Yöneticiye ileti gönder</string>
 	<string name="notifications_disabled_in_system">Güncellemeleri her yerden görmek için cihaz ayarlarınızdan bildirimleri açın.</string>
 	<string name="settings_even_more">Daha fazla ayar</string>
 	<string name="settings_show_cws">İçerik uyarılarını göster</string>
