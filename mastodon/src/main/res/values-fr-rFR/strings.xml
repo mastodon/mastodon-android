@@ -135,6 +135,7 @@
 	<string name="report_reason_spam_subtitle">Liens malveillants, faux engagement ou réponses répétitives</string>
 	<string name="report_reason_violation">Viole les règles du serveur</string>
 	<string name="report_reason_violation_subtitle">Enfreint des règles spécifiques</string>
+	<string name="report_reason_other">Pour une autre raison</string>
 	<string name="report_reason_other_subtitle">Le problème ne correspond à aucune des catégories</string>
 	<string name="report_choose_rule">Quelles règles sont enfreintes ?</string>
 	<string name="report_choose_rule_subtitle">Sélectionnez toutes les réponses qui s’appliquent</string>
@@ -144,8 +145,13 @@
 	<string name="report_comment_hint">Commentaires supplémentaires</string>
 	<string name="sending_report">Envoi du rapport en cours…</string>
 	<string name="report_sent_title">Merci pour votre signalement, nous allons examiner cela.</string>
+	<string name="report_sent_subtitle">Pendant que nous étudions votre requête, vous pouvez prendre des mesures contre %s :</string>
 	<string name="unfollow_user">Ne plus suivre %s</string>
 	<string name="unfollow">Ne plus suivre</string>
+	<string name="mute_user_explain">Vous ne verrez plus les messages de ce compte, mais il pourra toujours vous suivre et voir vos messages. Il ne pourra pas savoir qu\'il a été masqué.</string>
+	<string name="block_user_explain">Vous ne verrez plus les messages de ce profil, et il ne pourra ni vous suivre ni voir vos messages. Il pourra savoir qu\'il a été bloqué.</string>
+	<string name="report_personal_title">Vous ne voulez pas voir cela ?</string>
+	<string name="report_personal_subtitle">Voici les possibilités que vous avez pour contrôler ce que vous voyez sur Mastodon :</string>
 	<string name="back">Retour</string>
 	<string name="search_communities">Nom ou URL du serveur</string>
 	<string name="instance_rules_title">Règles du serveur</string>
@@ -188,6 +194,7 @@
 	<string name="skip">Passer</string>
 	<string name="notification_type_follow">Nouveaux⋅elles abonné⋅e⋅s</string>
 	<string name="notification_type_favorite">Favoris</string>
+	<string name="notification_type_reblog">Partages</string>
 	<string name="notification_type_mention">Mentions</string>
 	<string name="notification_type_poll">Sondages</string>
 	<string name="choose_account">Choisir un compte</string>
@@ -213,6 +220,7 @@
 	<string name="settings_app_version">Mastodon pour Android v%1$s (%2$d)</string>
 	<string name="media_cache_cleared">Cache des médias vidé</string>
 	<string name="confirm_log_out">Se déconnecter de %s?</string>
+	<string name="sensitive_content_explain">L’auteur a marqué ce média comme sensible.</string>
 	<string name="avatar_description">Voir le profil de %s</string>
 	<string name="more_options">Paramètres supplémentaires</string>
 	<string name="new_post">Nouveau message</string>
