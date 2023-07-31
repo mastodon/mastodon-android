@@ -10,6 +10,8 @@
 	<string name="finishing_auth">Finalizando autenticação…</string>
 	<string name="in_reply_to">Em resposta à %s</string>
 	<string name="notifications">Notificações</string>
+	<string name="user_followed_you">%s seguiu você</string>
+	<string name="poll_ended">Ver os resultados de uma enquete em que você votou</string>
 	<string name="share_toot_title">Compartilhar</string>
 	<string name="settings">Configurações</string>
 	<string name="publish">Publicar</string>
@@ -31,6 +33,7 @@
 	<string name="button_follow">Seguir</string>
 	<string name="button_following">Seguindo</string>
 	<string name="edit_profile">Editar perfil</string>
+	<string name="share_user">Compartilhar perfil</string>
 	<string name="mute_user">Silenciar %s</string>
 	<string name="unmute_user">Remover silenciar de %s</string>
 	<string name="block_user">Bloquear %s</string>
@@ -78,6 +81,10 @@
 		<item quantity="one">%d dia restante</item>
 		<item quantity="other">%d dias restantes</item>
 	</plurals>
+	<plurals name="x_votes">
+		<item quantity="one">%,d voto</item>
+		<item quantity="other">%,d votos</item>
+	</plurals>
 	<string name="poll_closed">Terminou</string>
 	<string name="confirm_mute_title">Silenciar Conta</string>
 	<string name="confirm_mute">Confirme para silenciar %s</string>
@@ -96,27 +103,35 @@
 	<string name="button_blocked">Bloqueado</string>
 	<string name="action_vote">Votar</string>
 	<string name="delete">Excluir</string>
+	<string name="confirm_delete_title">Excluir publicação</string>
 	<string name="confirm_delete">Você tem certeza de que deseja excluir esta publicação?</string>
 	<string name="deleting">Excluindo…</string>
 	<string name="notification_channel_audio_player">Reprodução de áudio</string>
 	<string name="play">Reproduzir</string>
 	<string name="pause">Pausar</string>
+	<string name="log_out">Sair</string>
 	<string name="add_account">Adicionar conta</string>
 	<string name="search_hint">Buscar</string>
 	<string name="hashtags">Hashtags</string>
 	<string name="news">Notícias</string>
 	<string name="for_you">Para você</string>
+	<string name="all_notifications">Tudo</string>
 	<string name="mentions">Menções</string>
 	<plurals name="x_people_talking">
 		<item quantity="one">%d pessoa está conversando</item>
 		<item quantity="other">%d pessoas estão conversando</item>
 	</plurals>
 	<string name="report_title">Denunciar %s</string>
+	<string name="report_choose_reason">O que há de errado com essa publicação?</string>
+	<string name="report_choose_reason_account">O que há de errado com %s?</string>
 	<string name="report_choose_reason_subtitle">Selecione a melhor correspondência</string>
+	<string name="report_reason_personal">Eu não gosto disso</string>
 	<string name="report_reason_personal_subtitle">Não é algo que você quer ver</string>
+	<string name="report_reason_spam">É spam</string>
 	<string name="report_reason_spam_subtitle">Links maliciosos, engajamento falso ou respostas repetitivas</string>
 	<string name="report_reason_violation">Viola as regras do servidor</string>
 	<string name="report_reason_violation_subtitle">Você está ciente que isso quebra regras específicas</string>
+	<string name="report_reason_other">É outra coisa</string>
 	<string name="report_reason_other_subtitle">O problema não se encaixa em outras categorias</string>
 	<string name="report_choose_rule">Quais regras estão sendo violadas?</string>
 	<string name="report_choose_rule_subtitle">Selecione todas que se aplicam</string>
@@ -125,6 +140,8 @@
 	<string name="report_comment_title">Há algo a mais que deveríamos saber?</string>
 	<string name="report_comment_hint">Comentários adicionais</string>
 	<string name="sending_report">Enviando denúncia…</string>
+	<string name="report_sent_title">Obrigado por denunciar, iremos analisar.</string>
+	<string name="report_sent_subtitle">Enquanto analisamos isso, você pode tomar medidas contra %s:</string>
 	<string name="unfollow_user">Deixar de seguir %s</string>
 	<string name="unfollow">Deixar de seguir</string>
 	<string name="back">Voltar</string>
@@ -161,6 +178,7 @@
 	<string name="add_alt_text">Adicionar texto alternativo</string>
 	<string name="visibility_public">Público</string>
 	<string name="visibility_followers_only">Apenas seguidores</string>
+	<string name="recent_searches">Recente</string>
 	<string name="skip">Pular</string>
 	<string name="notification_type_follow">Novos seguidores</string>
 	<string name="notification_type_favorite">Favoritos</string>
@@ -168,8 +186,14 @@
 	<string name="notification_type_poll">Enquetes</string>
 	<string name="choose_account">Escolher conta</string>
 	<string name="err_not_logged_in">Por favor, faça login no Mastodon primeiro</string>
+	<plurals name="cant_add_more_than_x_attachments">
+		<item quantity="one">Você não pode adicionar mais de %d anexo de mídia</item>
+		<item quantity="other">Você não pode adicionar mais de %d anexos de mídia</item>
+	</plurals>
 	<string name="media_attachment_unsupported_type">Arquivo %s é de um tipo não suportado</string>
 	<string name="media_attachment_too_big">O arquivo %1$s excede o limite de tamanho de %2$s MB</string>
+	<string name="settings_theme">Aparência</string>
+	<string name="theme_auto">Usar a aparência do dispositivo</string>
 	<string name="theme_light">Claro</string>
 	<string name="theme_dark">Escuro</string>
 	<string name="settings_behavior">Comportamento</string>
@@ -182,6 +206,9 @@
 	<string name="settings_clear_cache">Limpar cache de mídia</string>
 	<string name="settings_app_version">Mastodon para Android v%1$s (%2$d)</string>
 	<string name="media_cache_cleared">Cache de mídia limpo</string>
+	<string name="confirm_log_out">Sair de %s?</string>
+	<string name="sensitive_content_explain">O autor marcou esta mídia como sensível.</string>
+	<string name="avatar_description">Ir para o perfil de %s</string>
 	<string name="more_options">Mais opções</string>
 	<string name="new_post">Novo post</string>
 	<string name="button_reply">Responder</string>
@@ -196,6 +223,7 @@
 	<string name="media_viewer">Visualizador de mídia</string>
 	<string name="follow_user">Seguir %s</string>
 	<string name="unfollowed_user">Deixou de seguir %s</string>
+	<string name="followed_user">Agora você está seguindo %s</string>
 	<string name="open_in_browser">Abrir no navegador</string>
 	<string name="signup_reason">Por que você deseja se inscrever?</string>
 	<string name="signup_reason_note">Isso vai nos ajudar a revisar sua inscrição.</string>
@@ -210,6 +238,8 @@
 	<string name="error_saving_file">Erro ao salvar arquivo</string>
 	<string name="file_saved">Arquivo salvo</string>
 	<string name="downloading">Baixando…</string>
+	<string name="no_app_to_handle_action">Não há um app para executar esta ação</string>
+	<string name="local_timeline">Local</string>
 	<!-- %s is the server domain -->
 	<string name="see_new_posts">Ver novas publicações</string>
 	<string name="load_missing_posts">Carregar publicações perdidas</string>
@@ -284,6 +314,7 @@
 	<string name="login_title">Bem-vindo de Volta</string>
 	<string name="login_subtitle">Faça login no servidor onde você criou sua conta.</string>
 	<string name="server_url">URL do servidor</string>
+	<string name="signup_random_server_explain">Escolheremos um servidor com base no seu idioma se você continuar sem fazer uma seleção.</string>
 	<string name="server_filter_any_language">Qualquer idioma</string>
 	<string name="server_filter_instant_signup">Cadastro Rápido</string>
 	<string name="server_filter_manual_review">Revisão manual</string>
@@ -296,6 +327,7 @@
 	<string name="server_filter_region_oceania">Oceania</string>
 	<string name="not_accepting_new_members">Não está aceitando novos membros</string>
 	<string name="category_special_interests">Interesses especiais</string>
+	<string name="signup_passwords_dont_match">As senhas não correspondem</string>
 	<string name="pick_server_for_me">Escolher para mim</string>
 	<string name="profile_add_row">Adicionar linha</string>
 	<string name="profile_setup">Configuração do perfil</string>
@@ -304,6 +336,7 @@
 	<string name="popular_on_mastodon">Popular no Mastodon</string>
 	<string name="follow_all">Seguir todos</string>
 	<string name="server_rules_disagree">Discordo</string>
+	<string name="privacy_policy_explanation">TL;DR: Não coletamos ou processamos nada.</string>
 	<!-- %s is server domain -->
 	<string name="server_policy_disagree">Discordo de %s</string>
 	<string name="profile_bio">Bio</string>
@@ -313,14 +346,94 @@
 	<string name="learn_more">Saiba mais</string>
 	<string name="welcome_to_mastodon">Bem-vindo ao Mastodon</string>
 	<!-- %s is formatted file size ("467 KB image") -->
+	<string name="attachment_type_image">Imagem</string>
+	<string name="attachment_type_video">Vídeo</string>
+	<string name="attachment_type_audio">Áudio</string>
+	<string name="attachment_type_gif">GIF</string>
+	<string name="attachment_type_unknown">Arquivo</string>
+	<string name="attachment_x_percent_uploaded">%d%% enviado</string>
+	<string name="add_poll_option">Adicionar opção de enquete</string>
+	<string name="compose_poll_single_choice">Escolha única</string>
+	<string name="compose_poll_multiple_choice">Múltipla escolha</string>
+	<string name="help">Ajuda</string>
+	<string name="edit_post">Editar publicação</string>
+	<string name="compose_autocomplete_emoji_empty">Procurar emoji</string>
+	<string name="compose_autocomplete_users_empty">Encontre quem você está procurando</string>
+	<string name="no_search_results">Não foi possível encontrar nada para estes termos de busca</string>
+	<string name="language">Idioma</string>
+	<string name="language_default">Padrão</string>
+	<string name="language_system">Sistema</string>
+	<string name="language_detecting">Detectando idioma</string>
+	<string name="language_cant_detect">Não foi possível detectar o idioma</string>
+	<string name="language_detected">Detectado</string>
+	<string name="report_title_post">Denunciar publicação</string>
+	<string name="forward_report_explanation">A conta é de outro servidor. Enviar uma cópia anônima desta denúncia para lá também?</string>
 	<!-- %s is the server domain -->
+	<string name="forward_report_to_server">Encaminhar para %s</string>
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
+	<string name="reported">Denunciado</string>
+	<string name="muted_user">%s silenciado</string>
+	<string name="report_sent_already_blocked">Você já bloqueou este usuário, então não há mais nada que você precise fazer enquanto analisamos sua denúncia.</string>
+	<string name="report_personal_already_blocked">Você já bloqueou este usuário, então não há mais nada que você precise fazer.\n\nObrigado por ajudar a manter o Mastodon um lugar seguro para todos!</string>
+	<string name="blocked_user">%s bloqueado</string>
+	<string name="mark_all_notifications_read">Marcar tudo como lido</string>
+	<string name="settings_filters">Filtros</string>
+	<string name="settings_server_explanation">Visão geral, regras, moderadores</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
+	<string name="about_app">Sobre %s</string>
+	<string name="settings_confirm_unfollow">Perguntar antes de deixar de seguir alguém</string>
+	<string name="settings_confirm_delete_post">Perguntar antes de excluir postagens</string>
 	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="count_one">Um</string>
+	<string name="count_two">Dois</string>
+	<string name="count_three">Três</string>
+	<string name="count_four">Quatro</string>
+	<string name="alt_text_reminder_post_anyway">Publicação</string>
 	<!-- %s is the username -->
+	<string name="unfollow_confirmation">Deixar de seguir %s?</string>
+	<string name="filter_active">Ativo</string>
+	<string name="filter_inactive">Inativo</string>
+	<string name="settings_add_filter">Adicionar filtro</string>
+	<string name="settings_edit_filter">Editar filtro</string>
+	<string name="settings_filter_duration">Duração</string>
+	<string name="settings_filter_muted_words">Palavras silenciadas</string>
+	<string name="settings_filter_context">Silenciar de</string>
+	<string name="settings_filter_show_cw">Mostrar com aviso de conteúdo</string>
+	<string name="settings_delete_filter">Excluir filtro</string>
+	<string name="filter_duration_forever">Para sempre</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="settings_filter_ends">Termina %s</string>
+	<plurals name="settings_x_muted_words">
+		<item quantity="one">%d palavra ou frase silenciada</item>
+		<item quantity="other">%d palavras ou frases silenciadas</item>
+	</plurals>
+	<string name="selection_2_options">%1$s e %2$s</string>
+	<string name="selection_3_options">%1$s, %2$s, e %3$s</string>
+	<string name="selection_4_or_more">%1$s, %2$s, %3$d e mais</string>
+	<string name="filter_context_notifications">Notificações</string>
+	<string name="filter_context_profiles">Perfis</string>
+	<string name="settings_filter_title">Título</string>
+	<string name="settings_delete_filter_title">Excluir filtro “%s”?</string>
+	<string name="settings_delete_filter_confirmation">Este filtro será excluído da sua conta em todos os seus dispositivos.</string>
+	<string name="add">Adicionar</string>
+	<string name="filter_word_or_phrase">Palavra ou frase</string>
+	<string name="filter_add_word_help">As palavras não diferenciam maiúsculas de minúsculas e correspondem apenas a palavras inteiras.\n\nSe você filtrar a palavra-chave “Apple”, ela ocultará postagens que contenham “apple” ou “aPpLe”, mas não “abacaxi”.</string>
+	<string name="settings_delete_filter_word">Excluir a palavra “%s”?</string>
+	<string name="enter_selection_mode">Selecione</string>
+	<string name="select_all">Selecionar tudo</string>
+	<string name="settings_filter_duration_title">Duração do filtro</string>
+	<string name="filter_duration_custom">Personalizado</string>
+	<plurals name="settings_delete_x_filter_words">
+		<item quantity="one">Excluir %d palavra?</item>
+		<item quantity="other">Excluir %d palavras?</item>
+	</plurals>
+	<plurals name="x_items_selected">
+		<item quantity="one">%d selecionado</item>
+		<item quantity="other">%d selecionado</item>
+	</plurals>
+	<string name="required_form_field_blank">Não pode ficar em branco</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
 	<!-- Shown in the post header. Please keep it short -->
 </resources>
