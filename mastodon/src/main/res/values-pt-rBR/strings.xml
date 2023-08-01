@@ -463,7 +463,9 @@
 	<string name="server_rules">Regras</string>
 	<string name="server_administrator">Administrador</string>
 	<string name="notifications_disabled_in_system">Ative as notificações nas configurações do seu dispositivo para ver as atualizações de qualquer lugar.</string>
+	<string name="settings_even_more">Ainda mais configurações</string>
 	<string name="settings_show_cws">Mostrar avisos de conteúdo</string>
+	<string name="settings_hide_sensitive_media">Ocultar mídia marcada como sensível</string>
 	<plurals name="in_x_seconds">
 		<item quantity="one">em %d segundo</item>
 		<item quantity="other">em %d segundos</item>
@@ -504,6 +506,7 @@
 	<string name="settings_filter_muted_words">Palavras silenciadas</string>
 	<string name="settings_filter_context">Silenciar de</string>
 	<string name="settings_filter_show_cw">Mostrar com aviso de conteúdo</string>
+	<string name="settings_filter_show_cw_explanation">Ainda mostra publicações que correspondem com este filtro, mas atrás de um aviso de conteúdo</string>
 	<string name="settings_delete_filter">Excluir filtro</string>
 	<string name="filter_duration_forever">Para sempre</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
