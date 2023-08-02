@@ -191,6 +191,7 @@
 	<string name="settings_clear_cache">Rensa mediacache</string>
 	<string name="settings_app_version">Mastodon för Android v%1$s (%2$d)</string>
 	<string name="media_cache_cleared">Mediacache rensad</string>
+	<string name="confirm_log_out">Logga ut från %s?</string>
 	<string name="more_options">Fler alternativ</string>
 	<string name="new_post">Nytt inlägg</string>
 	<string name="button_reply">Svara</string>
@@ -206,6 +207,7 @@
 	<string name="media_viewer">Mediavisare</string>
 	<string name="follow_user">Följ %s</string>
 	<string name="unfollowed_user">Avföljde %s</string>
+	<string name="followed_user">Du följer nu %s</string>
 	<string name="open_in_browser">Öppna i webbläsare</string>
 	<string name="signup_reason">Varför vill du gå med?</string>
 	<string name="signup_reason_note">Detta kommer hjälpa oss att granska din ansökan.</string>
@@ -338,9 +340,12 @@
 	<string name="what_are_servers">Vad är servrar?</string>
 	<string name="welcome_paragraph2"><![CDATA[Varje Mastodon-konto finns på en server — var och en med sina värderingar, regler och administratörer. Oavsett vilken du väljer kan du följa och interagera med människor på vilken server som helst.]]></string>
 	<string name="log_out_all_accounts">Logga ut från alla konton</string>
+	<string name="confirm_log_out_all_accounts">Logga ut från alla konton?</string>
+	<string name="retry">Försök igen</string>
 	<!-- %s is formatted file size ("467 KB image") -->
 	<string name="attachment_type_audio">Ljud</string>
 	<string name="attachment_type_gif">GIF</string>
+	<string name="attachment_type_unknown">Fil</string>
 	<string name="help">Hjälp</string>
 	<string name="edit_post">Redigera inlägg</string>
 	<string name="language">Språk</string>
@@ -350,8 +355,10 @@
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
 	<string name="mark_all_notifications_read">Markera alla som lästa</string>
 	<string name="settings_filters">Filter</string>
+	<string name="settings_server_explanation">Översikt, regler och moderatorer</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">Om %s</string>
+	<string name="notifications_policy_no_one">Ingen</string>
 	<plurals name="x_weeks">
 		<item quantity="one">%d vecka</item>
 		<item quantity="other">%d veckor</item>
@@ -359,7 +366,9 @@
 	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="about_server">Om</string>
 	<string name="server_rules">Regler</string>
+	<string name="server_administrator">Administratör</string>
 	<plurals name="x_hours_ago">
 		<item quantity="one">%d timme sedan</item>
 		<item quantity="other">%d timmar sedan</item>
@@ -386,4 +395,6 @@
 	<!-- Shown in the post header. Please keep it short -->
 	<string name="time_seconds_ago_short">%ds sedan</string>
 	<string name="time_minutes_ago_short">%dm sedan</string>
+	<string name="time_hours_ago_short">%dt sedan</string>
+	<string name="time_days_ago_short">%dd sedan</string>
 </resources>
