@@ -45,26 +45,26 @@ public class Attachment extends BaseModel{
 
 	public int getWidth(){
 		if(meta==null)
-			return 1920;
+			return 0;
 		if(meta.width>0)
 			return meta.width;
 		if(meta.original!=null && meta.original.width>0)
 			return meta.original.width;
 		if(meta.small!=null && meta.small.width>0)
 			return meta.small.width;
-		return 1920;
+		return 0;
 	}
 
 	public int getHeight(){
 		if(meta==null)
-			return 1080;
+			return 0;
 		if(meta.height>0)
 			return meta.height;
 		if(meta.original!=null && meta.original.height>0)
 			return meta.original.height;
 		if(meta.small!=null && meta.small.height>0)
 			return meta.small.height;
-		return 1080;
+		return 0;
 	}
 
 	public double getDuration(){
