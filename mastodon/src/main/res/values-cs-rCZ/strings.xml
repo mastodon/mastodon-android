@@ -105,6 +105,12 @@
 		<item quantity="many">Zbývá %d dní</item>
 		<item quantity="other">Zbývá %d dní</item>
 	</plurals>
+	<plurals name="x_votes">
+		<item quantity="one">%,d hlas</item>
+		<item quantity="few">%,d hlasující</item>
+		<item quantity="many">%,d hlasujících</item>
+		<item quantity="other">%,d hlasů</item>
+	</plurals>
 	<string name="poll_closed">Uzavřeno</string>
 	<string name="confirm_mute_title">Skrýt účet</string>
 	<string name="confirm_mute">Potvrdit skrytí %s</string>
@@ -217,6 +223,12 @@
 	<string name="notification_type_poll">Ankety</string>
 	<string name="choose_account">Vybrat účet</string>
 	<string name="err_not_logged_in">Nejprve se přihlaste do Mastodonu</string>
+	<plurals name="cant_add_more_than_x_attachments">
+		<item quantity="one">Nelze přidat více než %d multimediální přílohu</item>
+		<item quantity="few">Nelze přidat více než %d multimediální přílohy</item>
+		<item quantity="many">Nelze přidat více než %d multimediálních příloh</item>
+		<item quantity="other">Nelze přidat více než %d multimediálních příloh</item>
+	</plurals>
 	<string name="media_attachment_unsupported_type">Soubor %s nepatří mezi podporované typy</string>
 	<string name="media_attachment_too_big">Soubor %1$s překračuje limit velikosti %2$s MB</string>
 	<string name="settings_theme">Vzhled</string>
@@ -300,6 +312,12 @@
 		<item quantity="few">%,d oblíbení</item>
 		<item quantity="many">%,d oblíbení</item>
 		<item quantity="other">%,d oblíbení</item>
+	</plurals>
+	<plurals name="x_reblogs">
+		<item quantity="one">%,d boost</item>
+		<item quantity="few">%,d boosty</item>
+		<item quantity="many">%,d boostů</item>
+		<item quantity="other">%,d boostů</item>
 	</plurals>
 	<string name="timestamp_via_app">%1$s přes %2$s</string>
 	<string name="time_now">teď</string>
@@ -480,6 +498,12 @@
 	<string name="settings_notifications_policy">Dostávat oznámení od</string>
 	<string name="notification_type_mentions_and_replies">Zmínění a odpovědi</string>
 	<string name="pause_all_notifications_title">Pozastavit všechna oznámení</string>
+	<plurals name="x_weeks">
+		<item quantity="one">%d týden</item>
+		<item quantity="few">%d týdny</item>
+		<item quantity="many">%d týdnů</item>
+		<item quantity="other">%d týdnů</item>
+	</plurals>
 	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
 	<string name="date_at_time">%1$s v %2$s</string>
 	<string name="today">dnes</string>
@@ -501,7 +525,43 @@
 	<string name="settings_hide_sensitive_media">Zakrýt média označená jako citlivá</string>
 	<string name="settings_show_interaction_counts">Počet interakcí příspěvku</string>
 	<string name="settings_show_emoji_in_names">Vlastní emoji v zobrazených jménech</string>
+	<plurals name="in_x_seconds">
+		<item quantity="one">za %d vteřinu</item>
+		<item quantity="few">za %d vteřiny</item>
+		<item quantity="many">za %d vteřin</item>
+		<item quantity="other">za %d vteřin</item>
+	</plurals>
+	<plurals name="in_x_minutes">
+		<item quantity="one">za %d minutu</item>
+		<item quantity="few">za %d minuty</item>
+		<item quantity="many">za %d minut</item>
+		<item quantity="other">za %d minut</item>
+	</plurals>
+	<plurals name="in_x_hours">
+		<item quantity="one">za %d hodinu</item>
+		<item quantity="few">za %d hodiny</item>
+		<item quantity="many">za %d hodin</item>
+		<item quantity="other">za %d hodin</item>
+	</plurals>
+	<plurals name="x_hours_ago">
+		<item quantity="one">před %d hodinou</item>
+		<item quantity="few">před %d hodinami</item>
+		<item quantity="many">před %d hodinami</item>
+		<item quantity="other">před %d hodinami</item>
+	</plurals>
 	<string name="alt_text_reminder_title">Média nemají alternativní text</string>
+	<plurals name="alt_text_reminder_x_images">
+		<item quantity="one">%s z vašich obrázků nemá alternativní text. Přesto odeslat?</item>
+		<item quantity="few">%s z vašich obrázků nemají alternativní text. Přesto odeslat?</item>
+		<item quantity="many">%s z vašich obrázků nemá alternativní text. Přesto odeslat?</item>
+		<item quantity="other">%s z vašich obrázků nemá alternativní text. Přesto odeslat?</item>
+	</plurals>
+	<plurals name="alt_text_reminder_x_attachments">
+		<item quantity="one">%s z vašich multimediálních příloh nemá alternativní text. Přesto odeslat?</item>
+		<item quantity="few">%s z vašich multimediálních příloh nemají alternativní text. Přesto odeslat?</item>
+		<item quantity="many">%s z vašich multimediálních příloh nemá alternativní text. Přesto odeslat?</item>
+		<item quantity="other">%s z vašich multimediálních příloh nemá alternativní text. Přesto odeslat?</item>
+	</plurals>
 	<string name="count_one">Jeden</string>
 	<string name="count_two">Dva</string>
 	<string name="count_three">Tři</string>
@@ -522,6 +582,12 @@
 	<string name="filter_duration_forever">Napořád</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<string name="settings_filter_ends">Končí %s</string>
+	<plurals name="settings_x_muted_words">
+		<item quantity="one">%d ztišené slovo nebo fráze</item>
+		<item quantity="few">%d ztišená slova nebo fráze</item>
+		<item quantity="many">%d ztišených slov nebo frází</item>
+		<item quantity="other">%d ztišených slov nebo fráze</item>
+	</plurals>
 	<string name="selection_2_options">%1$s a %2$s</string>
 	<string name="selection_3_options">%1$s, %2$s a %3$s</string>
 	<string name="selection_4_or_more">%1$s, %2$s a %3$d další</string>
@@ -543,6 +609,18 @@
 	<string name="select_all">Vybrat vše</string>
 	<string name="settings_filter_duration_title">Doba použití filtru</string>
 	<string name="filter_duration_custom">Vlastní</string>
+	<plurals name="settings_delete_x_filter_words">
+		<item quantity="one">Smazat %d slovo?</item>
+		<item quantity="few">Smazat %d slova?</item>
+		<item quantity="many">Smazat %d slov?</item>
+		<item quantity="other">Smazat %d slov?</item>
+	</plurals>
+	<plurals name="x_items_selected">
+		<item quantity="one">%d vybráno</item>
+		<item quantity="few">%d vybrány</item>
+		<item quantity="many">%d vybraných</item>
+		<item quantity="other">%d vybraných</item>
+	</plurals>
 	<string name="required_form_field_blank">Nemůže být prázdné</string>
 	<string name="filter_word_already_in_list">Již v seznamu</string>
 	<string name="app_update_ready">Je připravena aktualizace aplikace</string>

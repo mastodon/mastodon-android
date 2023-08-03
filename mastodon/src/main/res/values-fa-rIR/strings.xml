@@ -24,7 +24,7 @@
 	<string name="cancel">لغو</string>
 	<plurals name="followers">
 		<item quantity="one">پی‌گیر</item>
-		<item quantity="other">پی‌گیران</item>
+		<item quantity="other">پی‌گیرندگان</item>
 	</plurals>
 	<plurals name="following">
 		<item quantity="one">پی‌گرفته</item>
@@ -188,11 +188,11 @@
 	<string name="save">ذخیره</string>
 	<string name="add_alt_text">اضافه کردن متن جایگزین</string>
 	<string name="visibility_public">عمومی</string>
-	<string name="visibility_followers_only">فقط پی‌گیران</string>
+	<string name="visibility_followers_only">فقط پی‌گیرندگان</string>
 	<string name="visibility_private">فقط افرادی نام‌برده</string>
 	<string name="recent_searches">اخیر</string>
 	<string name="skip">بعدی</string>
-	<string name="notification_type_follow">پی‌گیران جدید</string>
+	<string name="notification_type_follow">پی‌گیرندگان جدید</string>
 	<string name="notification_type_favorite">برگزیده‌ها</string>
 	<string name="notification_type_reblog">تقویت‌ها</string>
 	<string name="notification_type_mention">نام‌بردن‌ها</string>
@@ -271,7 +271,7 @@
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<plurals name="x_followers">
 		<item quantity="one">%,d پی‌گیر</item>
-		<item quantity="other">%,d پی‌گیران</item>
+		<item quantity="other">%,d پی‌گیرندگان</item>
 	</plurals>
 	<plurals name="x_following">
 		<item quantity="one">%,d پی‌گیرنده</item>
@@ -419,6 +419,7 @@
 	<string name="edit_post">ویرایش فرسته</string>
 	<string name="no_verified_link">‏پیوند تأییدشده‌ای وجود ندارد</string>
 	<string name="compose_autocomplete_emoji_empty">مرور ایموجی</string>
+	<string name="compose_autocomplete_users_empty">پیدا کنید آنچه را که به دنبال آن هستید</string>
 	<string name="no_search_results">چیزی برای این عبارت جست‌وجو یافت نشد</string>
 	<string name="language">زبان</string>
 	<string name="language_default">پیش‌گزیده</string>
@@ -479,7 +480,10 @@
 	<string name="server_administrator">مدیر</string>
 	<string name="send_email_to_server_admin">ادمین پیام بده</string>
 	<string name="notifications_disabled_in_system">آگاهی‌ها را از تنظیمات دستگاهتان روشن کنید تا به‌روزرسانی‌ها را از هر کجا ببینید.</string>
+	<string name="settings_even_more">تنظیمات بیشتر</string>
 	<string name="settings_show_cws">نمایش هشدارهای محتوا</string>
+	<string name="settings_hide_sensitive_media">تصویرهایی را که به عنوان حساس علامت زده شده‌اند پنهان کن</string>
+	<string name="settings_show_interaction_counts">تعامل شمارش پست</string>
 	<string name="settings_show_emoji_in_names">ایموجی‌های سفارشی در نام های نمایشی</string>
 	<plurals name="in_x_seconds">
 		<item quantity="one">در %d ثانیه</item>

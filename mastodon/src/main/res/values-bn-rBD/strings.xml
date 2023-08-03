@@ -7,8 +7,11 @@
 	<string name="preparing_auth">প্রমাণীকরণের জন্য প্রস্তুত হচ্ছে...</string>
 	<string name="in_reply_to">%s কে উত্তর দিন</string>
 	<string name="notifications">নোটিফিকেশন</string>
+	<string name="user_followed_you">%s আপনাকে ফলো করেছেন</string>
+	<string name="user_sent_follow_request">%s আপনাকে ফলো করার অনুরোধ পাঠিয়েছেন</string>
 	<string name="share_toot_title">শেয়ার করুন</string>
 	<string name="settings">সেটিংস</string>
+	<string name="discard">বাতিল করুন</string>
 	<string name="cancel">বাতিল করুন</string>
 	<plurals name="followers">
 		<item quantity="one">জন ফলোয়ার</item>
@@ -92,9 +95,18 @@
 		<item quantity="one">%d জন ব্যক্তি বলছেন</item>
 		<item quantity="other">%d jon ব্যক্তিরা বলছেন</item>
 	</plurals>
+	<string name="report_title">%s -এর নামে অভিযোগ করুন</string>
+	<string name="report_choose_reason">এই পোস্টে ভুল কি?</string>
+	<string name="report_reason_personal">আমার এটি ভালো লাগছে না</string>
+	<string name="report_reason_spam">এটি স্প্যাম</string>
+	<string name="report_reason_violation">এটি সার্ভারের নিয়ম ভাঙছে</string>
+	<string name="report_reason_other">এটি অন্য কিছু</string>
+	<string name="report_choose_rule">কোন নিয়মটা ভেঙেছে?</string>
 	<string name="sending_report">রিপোর্ট পাঠানো হচ্ছে…</string>
 	<string name="report_sent_title">রিপোর্ট করার জন্য আপনাকে ধন্যবাদ, আমরা এটি শীঘ্রই দেখব.</string>
 	<string name="report_sent_subtitle">আমরা যতক্ষণে আপনার রিপোর্ট পুনর্বিবেচনা করছি, আপনি %s এর বিরুদ্ধে ব্যবস্থা নিতে পারেন:</string>
+	<string name="unfollow_user">%s -কে আনফলো করুন</string>
+	<string name="unfollow">আনফলো করুন</string>
 	<string name="report_personal_title">আপনি এটি আর দেখতে চান না?</string>
 	<string name="back">ফিরে যান</string>
 	<string name="search_communities">সার্ভারের নাম বা লিঙ্ক</string>
