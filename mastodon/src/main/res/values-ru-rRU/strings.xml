@@ -172,7 +172,6 @@
 	<string name="report_sent_subtitle">Пока мы проверяем это, вы можете принять меры против %s:</string>
 	<string name="unfollow_user">Отписаться от %s</string>
 	<string name="unfollow">Отписаться</string>
-	<string name="mute_user_explain">Вы не будете видеть их посты. Они по-прежнему могут подписываться на вас и видеть ваши посты, но не будут знать, что они в списке игнорируемых.</string>
 	<string name="report_personal_title">Не хотите видеть это?</string>
 	<string name="report_personal_subtitle">Вот несколько опций управления тем, что вы видите в Mastodon:</string>
 	<string name="back">Назад</string>
@@ -222,6 +221,12 @@
 	<string name="notification_type_poll">Опросы</string>
 	<string name="choose_account">Выберите аккаунт</string>
 	<string name="err_not_logged_in">Сначала войдите в Mastodon</string>
+	<plurals name="cant_add_more_than_x_attachments">
+		<item quantity="one">Можно добавить не более %d вложения</item>
+		<item quantity="few">Можно добавить не более %d вложений</item>
+		<item quantity="many">Можно добавить не более %d вложений</item>
+		<item quantity="other">Можно добавить не более %d вложений</item>
+	</plurals>
 	<string name="media_attachment_unsupported_type">Тип файла %s не поддерживается</string>
 	<string name="media_attachment_too_big">Размер файла %1$s превышает ограничение в %2$s МБ</string>
 	<string name="settings_theme">Внешний вид</string>
@@ -238,6 +243,9 @@
 	<string name="settings_clear_cache">Очистить кэш медиа</string>
 	<string name="settings_app_version">Mastodon для Android v%1$s (%2$d)</string>
 	<string name="media_cache_cleared">Кэш медиа очищен</string>
+	<string name="confirm_log_out">Выйти из %s?</string>
+	<string name="sensitive_content_explain">Автор отметил что это материал деликатного характера.</string>
+	<string name="avatar_description">Перейти в профиль %s</string>
 	<string name="more_options">Дополнительные настройки</string>
 	<string name="new_post">Новый пост</string>
 	<string name="button_reply">Ответить</string>
@@ -262,7 +270,7 @@
 	<string name="signup_reason_note">Это поможет нам рассмотреть вашу заявку.</string>
 	<string name="clear">Очистить</string>
 	<string name="profile_header">Изображение шапки</string>
-	<string name="profile_picture">Аватарка</string>
+	<string name="profile_picture">Фото профиля</string>
 	<string name="reorder">Изменить порядок</string>
 	<string name="download">Скачать</string>
 	<string name="permission_required">Требуется доступ</string>
@@ -271,7 +279,13 @@
 	<string name="error_saving_file">Ошабка при сохранении файла</string>
 	<string name="file_saved">Файл сохранён</string>
 	<string name="downloading">Скачивание…</string>
+	<string name="no_app_to_handle_action">Нет приложения для обработки этого действия</string>
+	<string name="local_timeline">Локальные</string>
+	<string name="trending_posts_info_banner">Эти посты набирают популярность в Mastodon.</string>
+	<string name="trending_links_info_banner">Это новости, о которых говорят в Mastodon.</string>
 	<!-- %s is the server domain -->
+	<string name="local_timeline_info_banner">Это все посты от всех пользователей на вашем сервере (%s).</string>
+	<string name="recommended_accounts_info_banner">Вам могут понравиться эти учетные записи, основаные на ваших подписках.</string>
 	<string name="see_new_posts">Показать новые</string>
 	<string name="load_missing_posts">Загрузить недостающие посты</string>
 	<string name="follow_back">Подписаться в ответ</string>
@@ -373,6 +387,7 @@
 	<string name="server_filter_region_oceania">Океания</string>
 	<string name="not_accepting_new_members">Не принимает новых участников</string>
 	<string name="category_special_interests">Особые интересы</string>
+	<string name="signup_passwords_dont_match">Пароли не совпадают</string>
 	<string name="pick_server_for_me">Выбрать за меня</string>
 	<string name="profile_add_row">Добавить строку</string>
 	<string name="profile_setup">Настройка профиля</string>
@@ -411,8 +426,14 @@
 	<!-- %s is formatted file size ("467 KB image") -->
 	<string name="attachment_type_unknown">Файл</string>
 	<string name="poll_style">Стиль</string>
+	<string name="language">Язык</string>
+	<string name="language_default">По умолчанию</string>
+	<string name="language_system">Система</string>
+	<string name="language_detecting">Определение языка</string>
+	<string name="language_cant_detect">Не удается определить язык</string>
 	<!-- %s is the server domain -->
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
+	<string name="muted_user">Игнорировать %s</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
 	<string name="today">сегодня</string>
