@@ -13,6 +13,8 @@
 	<string name="notifications">Уведомления</string>
 	<string name="user_followed_you">%s подписался(ась) на вас</string>
 	<string name="user_sent_follow_request">%s отправил(а) вам запрос на подписку</string>
+	<string name="user_favorited">%s добавил(а) в избранное ваш пост</string>
+	<string name="notification_boosted">%s продвинул(а) ваш пост</string>
 	<string name="poll_ended">Посмотреть результаты опроса, в котором вы проголосовали</string>
 	<string name="share_toot_title">Поделиться</string>
 	<string name="settings">Настройки</string>
@@ -103,6 +105,12 @@
 		<item quantity="many">Осталось %d дней</item>
 		<item quantity="other">Осталось %d дней</item>
 	</plurals>
+	<plurals name="x_votes">
+		<item quantity="one">%,d голос</item>
+		<item quantity="few">%,d голоса(ов)</item>
+		<item quantity="many">%,d голосов</item>
+		<item quantity="other">%,d голосов</item>
+	</plurals>
 	<string name="poll_closed">Завершён</string>
 	<string name="confirm_mute_title">Игнорировать аккаунт</string>
 	<string name="confirm_mute">Игнорировать %s?</string>
@@ -133,6 +141,7 @@
 	<string name="hashtags">Хэштеги</string>
 	<string name="news">Новости</string>
 	<string name="for_you">Для вас</string>
+	<string name="all_notifications">Все</string>
 	<string name="mentions">Упоминания</string>
 	<plurals name="x_people_talking">
 		<item quantity="one">%d человек обсуждает</item>
@@ -150,6 +159,7 @@
 	<string name="report_reason_spam_subtitle">Вредоносные ссылки, фальшивое взаимодействие или повторяющиеся ответы</string>
 	<string name="report_reason_violation">Нарушаются правила сервера</string>
 	<string name="report_reason_violation_subtitle">Вы знаете, что подобное нарушает определенные правила</string>
+	<string name="report_reason_other">Это что-то другое</string>
 	<string name="report_reason_other_subtitle">Проблема не попадает ни под одну из категорий</string>
 	<string name="report_choose_rule">Какие правила нарушены?</string>
 	<string name="report_choose_rule_subtitle">Выберите все подходящие варианты</string>
@@ -159,8 +169,11 @@
 	<string name="report_comment_hint">Дополнительные комментарии</string>
 	<string name="sending_report">Отправка жалобы…</string>
 	<string name="report_sent_title">Спасибо за обращение, мы его рассмотрим.</string>
+	<string name="report_sent_subtitle">Пока мы проверяем это, вы можете принять меры против %s:</string>
 	<string name="unfollow_user">Отписаться от %s</string>
 	<string name="unfollow">Отписаться</string>
+	<string name="mute_user_explain">Вы не будете видеть их посты. Они по-прежнему могут подписываться на вас и видеть ваши посты, но не будут знать, что они в списке игнорируемых.</string>
+	<string name="report_personal_title">Не хотите видеть это?</string>
 	<string name="back">Назад</string>
 	<string name="search_communities">Имя сервера или URL</string>
 	<string name="instance_rules_title">Правила сервера</string>
@@ -384,15 +397,25 @@
 	<string name="welcome_paragraph1">Mastodon - это децентрализованная социальная сеть, то есть ни одна компания не контролирует ее. Она состоит из множества независимо управляемых серверов, соединенных вместе.</string>
 	<string name="what_are_servers">Что такое сервер?</string>
 	<string name="welcome_paragraph2"><![CDATA[Каждый аккаунт Mastodon размещается на сервере - каждый со своими ценностями, правилами и администраторами. Независимо от того, какой сервер вы выберете, вы можете следить и взаимодействовать с людьми на любом сервере.]]></string>
+	<string name="log_out_all_accounts">Выйти из всех аккаунтов</string>
+	<string name="confirm_log_out_all_accounts">Выйти из всех аккаунтов?</string>
 	<!-- %s is formatted file size ("467 KB image") -->
+	<string name="attachment_type_unknown">Файл</string>
+	<string name="poll_style">Стиль</string>
 	<!-- %s is the server domain -->
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
+	<string name="today">сегодня</string>
+	<string name="yesterday">вчера</string>
+	<string name="tomorrow">завтра</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<!-- %s is the username -->
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="enter_selection_mode">Выбрать</string>
+	<string name="select_all">Выбрать все</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
+	<string name="clear_all">Очистить все</string>
 	<!-- Shown in the post header. Please keep it short -->
 </resources>
