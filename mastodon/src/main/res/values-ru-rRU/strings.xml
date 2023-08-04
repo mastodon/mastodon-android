@@ -269,7 +269,7 @@
 	<string name="signup_reason">Почему вы хотите присоединиться?</string>
 	<string name="signup_reason_note">Это поможет нам рассмотреть вашу заявку.</string>
 	<string name="clear">Очистить</string>
-	<string name="profile_header">Изображение шапки</string>
+	<string name="profile_header">Обложка профиля</string>
 	<string name="profile_picture">Фото профиля</string>
 	<string name="reorder">Изменить порядок</string>
 	<string name="download">Скачать</string>
@@ -375,6 +375,7 @@
 	<string name="login_title">С возвращением</string>
 	<string name="login_subtitle">Войдите на сервер, на котором вы создали свою учётную запись.</string>
 	<string name="server_url">URL-адрес сервера</string>
+	<string name="signup_random_server_explain">Мы выберем сервер на основе вашего языка, если вы продолжите, не сделав выбор.</string>
 	<string name="server_filter_any_language">Любой язык</string>
 	<string name="server_filter_instant_signup">Мгновенная регистрация</string>
 	<string name="server_filter_manual_review">Ручная проверка</string>
@@ -396,12 +397,14 @@
 	<string name="popular_on_mastodon">Популярно на Mastodon</string>
 	<string name="follow_all">Подписаться на всех</string>
 	<string name="server_rules_disagree">Отклонить</string>
+	<string name="privacy_policy_explanation">TL;DR: Мы ничего не собираем и не обрабатываем.</string>
 	<!-- %s is server domain -->
 	<string name="server_policy_disagree">Отклонить %s</string>
 	<string name="profile_bio">О себе</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<string name="sending_follows">Подписка на пользователей…</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<string name="signup_email_domain_blocked">%1$s не позволяет зарегистрироваться от %2$s. Попробуйте другой или &lt;a&gt;выберите другой сервер&lt;/a&gt;.</string>
 	<string name="spoiler_show">Все равно показать</string>
 	<string name="spoiler_hide">Спрятать повторно</string>
 	<string name="poll_multiple_choice">Выберите один или более</string>
@@ -421,31 +424,75 @@
 	<string name="welcome_paragraph1">Mastodon - это децентрализованная социальная сеть, то есть ни одна компания не контролирует ее. Она состоит из множества независимо управляемых серверов, соединенных вместе.</string>
 	<string name="what_are_servers">Что такое сервер?</string>
 	<string name="welcome_paragraph2"><![CDATA[Каждый аккаунт Mastodon размещается на сервере - каждый со своими ценностями, правилами и администраторами. Независимо от того, какой сервер вы выберете, вы можете следить и взаимодействовать с людьми на любом сервере.]]></string>
+	<string name="opening_link">Открытие ссылки…</string>
+	<string name="link_not_supported">Эта ссылка не поддерживается в приложении</string>
 	<string name="log_out_all_accounts">Выйти из всех аккаунтов</string>
 	<string name="confirm_log_out_all_accounts">Выйти из всех аккаунтов?</string>
+	<string name="retry">Повторить</string>
+	<string name="post_failed">Не удалось отправить</string>
 	<!-- %s is formatted file size ("467 KB image") -->
+	<string name="attachment_description_image">%s изображение</string>
+	<string name="attachment_description_video">%s видео</string>
+	<string name="attachment_description_audio">%s аудиозапись</string>
+	<string name="attachment_description_unknown">%s файл</string>
+	<string name="attachment_type_image">Изображение</string>
+	<string name="attachment_type_video">Видео</string>
+	<string name="attachment_type_audio">Аудио</string>
+	<string name="attachment_type_gif">GIF</string>
 	<string name="attachment_type_unknown">Файл</string>
+	<string name="attachment_x_percent_uploaded">%d%% загружен</string>
+	<string name="add_poll_option">Добавить вариант ответа</string>
+	<string name="poll_length">Продолжительность опроса</string>
 	<string name="poll_style">Стиль</string>
+	<string name="compose_poll_single_choice">Один вариант</string>
+	<string name="compose_poll_multiple_choice">Несколько вариантов</string>
+	<string name="delete_poll_option">Удалить опцию опроса</string>
+	<string name="poll_style_title">Стиль опроса</string>
+	<string name="alt_text">Альтернативный текст</string>
+	<string name="help">Помощь</string>
+	<string name="what_is_alt_text">Что такое альтернативный текст?</string>
+	<string name="edit_post">Изменить пост</string>
 	<string name="language">Язык</string>
 	<string name="language_default">По умолчанию</string>
 	<string name="language_system">Система</string>
 	<string name="language_detecting">Определение языка</string>
 	<string name="language_cant_detect">Не удается определить язык</string>
+	<string name="post_hidden">Пост скрыт</string>
 	<!-- %s is the server domain -->
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
 	<string name="muted_user">Игнорировать %s</string>
+	<string name="blocked_user">Заблокировать %s</string>
+	<string name="mark_all_notifications_read">Отметить всё как прочитанное</string>
+	<string name="settings_filters">Фильтры</string>
+	<string name="settings_server_explanation">Обзор, правила, модераторы</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
+	<string name="about_app">О %s</string>
+	<string name="default_post_language">Язык по умолчанию</string>
+	<string name="settings_confirm_unfollow">Подтверждать отписку</string>
+	<string name="settings_confirm_boost">Подтверждать продвижение</string>
+	<string name="settings_confirm_delete_post">Подтверждать удаление поста</string>
+	<string name="pause_all_notifications">Приостановить все</string>
+	<string name="notifications_policy_anyone">Кто угодно</string>
+	<string name="notifications_policy_no_one">Никто</string>
 	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
 	<string name="today">сегодня</string>
 	<string name="yesterday">вчера</string>
 	<string name="tomorrow">завтра</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="about_server">О нас</string>
+	<string name="server_rules">Правила</string>
 	<!-- %s is the username -->
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<string name="enter_selection_mode">Выбрать</string>
 	<string name="select_all">Выбрать все</string>
+	<string name="app_update_version">Версия %s</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
 	<string name="clear_all">Очистить все</string>
+	<string name="search_open_url">Открывать ссылки в Mastodon</string>
 	<!-- Shown in the post header. Please keep it short -->
+	<string name="time_seconds_ago_short">%d сек. назад</string>
+	<string name="time_minutes_ago_short">%d мин. назад</string>
+	<string name="time_hours_ago_short">%d ч. назад</string>
+	<string name="time_days_ago_short">%d д. назад</string>
 </resources>
