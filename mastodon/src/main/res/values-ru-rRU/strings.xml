@@ -442,21 +442,26 @@
 	<string name="attachment_type_unknown">Файл</string>
 	<string name="attachment_x_percent_uploaded">%d%% загружен</string>
 	<string name="add_poll_option">Добавить вариант ответа</string>
-	<string name="poll_length">Продолжительность опроса</string>
 	<string name="poll_style">Стиль</string>
-	<string name="compose_poll_single_choice">Один вариант</string>
-	<string name="compose_poll_multiple_choice">Несколько вариантов</string>
+	<string name="compose_poll_single_choice">Только один</string>
+	<string name="compose_poll_multiple_choice">Несколько</string>
 	<string name="delete_poll_option">Удалить опцию опроса</string>
 	<string name="poll_style_title">Стиль опроса</string>
 	<string name="alt_text">Альтернативный текст</string>
 	<string name="help">Помощь</string>
 	<string name="what_is_alt_text">Что такое альтернативный текст?</string>
 	<string name="edit_post">Изменить пост</string>
+	<string name="no_verified_link">Нет подтверждённой ссылки</string>
+	<string name="compose_autocomplete_emoji_empty">Просмотр эмодзи</string>
+	<string name="compose_autocomplete_users_empty">Найдите тех, кого ищете</string>
+	<string name="no_search_results">Ничего не найдено по этому запросу</string>
 	<string name="language">Язык</string>
 	<string name="language_default">По умолчанию</string>
 	<string name="language_system">Система</string>
 	<string name="language_detecting">Определение языка</string>
 	<string name="language_cant_detect">Не удается определить язык</string>
+	<string name="language_detected">Определён</string>
+	<string name="media_hidden">Медиафайлы скрыты</string>
 	<string name="post_hidden">Пост скрыт</string>
 	<!-- %s is the server domain -->
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
@@ -468,12 +473,25 @@
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">О %s</string>
 	<string name="default_post_language">Язык по умолчанию</string>
+	<string name="settings_alt_text_reminders">Напоминать об альтернативном тексте</string>
 	<string name="settings_confirm_unfollow">Подтверждать отписку</string>
 	<string name="settings_confirm_boost">Подтверждать продвижение</string>
 	<string name="settings_confirm_delete_post">Подтверждать удаление поста</string>
 	<string name="pause_all_notifications">Приостановить все</string>
-	<string name="notifications_policy_anyone">Кто угодно</string>
-	<string name="notifications_policy_no_one">Никто</string>
+	<string name="pause_notifications_off">Отключено</string>
+	<string name="notifications_policy_anyone">Всех</string>
+	<string name="notifications_policy_followed">Тех, кто на меня подписан(а)</string>
+	<string name="notifications_policy_follower">Тех, на кого я подписан(а)</string>
+	<string name="notifications_policy_no_one">Никого</string>
+	<string name="settings_notifications_policy">Получать уведомления от</string>
+	<string name="notification_type_mentions_and_replies">Упоминания и ответы</string>
+	<string name="pause_all_notifications_title">Просмотреть все уведомления</string>
+	<plurals name="x_weeks">
+		<item quantity="one">%d неделя</item>
+		<item quantity="few">%d недели</item>
+		<item quantity="many">%d недель</item>
+		<item quantity="other">%d недель</item>
+	</plurals>
 	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
 	<string name="today">сегодня</string>
 	<string name="yesterday">вчера</string>
@@ -482,8 +500,28 @@
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<string name="about_server">О нас</string>
 	<string name="server_rules">Правила</string>
+	<string name="server_administrator">Администратор</string>
+	<string name="send_email_to_server_admin">Написать администратору</string>
+	<string name="notifications_disabled_in_system">Включите уведомления из настроек вашего устройства, чтобы увидеть обновления откуда угодно.</string>
+	<string name="settings_even_more">Еще больше настроек</string>
+	<string name="settings_show_cws">Показывать предупреждения о содержании</string>
+	<string name="settings_hide_sensitive_media">Скрывать материал деликатного характера</string>
+	<string name="settings_show_interaction_counts">Показывать количество взаимодействий под постами</string>
+	<string name="settings_show_emoji_in_names">Пользовательские эмодзи в именах</string>
+	<string name="count_one">Один</string>
+	<string name="count_two">Два</string>
+	<string name="count_three">Три</string>
+	<string name="count_four">Четыре</string>
+	<string name="alt_text_reminder_post_anyway">Пост</string>
 	<!-- %s is the username -->
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="filter_context_notifications">Уведомления</string>
+	<string name="filter_context_public_timelines">Публичная лента</string>
+	<string name="filter_context_profiles">Профили</string>
+	<string name="settings_filter_title">Название</string>
+	<string name="settings_delete_filter_title">Удалить фильтр “%s”?</string>
+	<string name="add">Добавить</string>
+	<string name="settings_delete_filter_word">Удалить слово “%s”?</string>
 	<string name="enter_selection_mode">Выбрать</string>
 	<string name="select_all">Выбрать все</string>
 	<string name="app_update_version">Версия %s</string>
