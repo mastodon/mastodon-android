@@ -107,7 +107,7 @@
 	</plurals>
 	<plurals name="x_votes">
 		<item quantity="one">%,d голос</item>
-		<item quantity="few">%,d голоса(ов)</item>
+		<item quantity="few">%,d голоса</item>
 		<item quantity="many">%,d голосов</item>
 		<item quantity="other">%,d голосов</item>
 	</plurals>
@@ -174,6 +174,7 @@
 	<string name="unfollow">Отписаться</string>
 	<string name="mute_user_explain">Вы не будете видеть их посты. Они по-прежнему могут подписываться на вас и видеть ваши посты, но не будут знать, что они в списке игнорируемых.</string>
 	<string name="report_personal_title">Не хотите видеть это?</string>
+	<string name="report_personal_subtitle">Вот несколько опций управления тем, что вы видите в Mastodon:</string>
 	<string name="back">Назад</string>
 	<string name="search_communities">Имя сервера или URL</string>
 	<string name="instance_rules_title">Правила сервера</string>
@@ -200,14 +201,19 @@
 	<string name="category_tech">Технологии</string>
 	<string name="confirm_email_title">Проверьте входящие сообщения</string>
 	<!-- %s is the email address -->
+	<string name="confirm_email_subtitle">Нажмите на ссылку, которую мы вам отправили, чтобы подтвердить %s. Мы подождем здесь.</string>
+	<string name="confirm_email_didnt_get">Не получили ссылку?</string>
 	<string name="resend">Отправить заново</string>
 	<string name="open_email_app">Открыть почту</string>
 	<string name="resent_email">Письмо подтверждения отправлено</string>
+	<string name="compose_hint">Напишите то, о чём думаете</string>
 	<string name="content_warning">Предупреждение о содержании</string>
 	<string name="save">Сохранить</string>
 	<string name="add_alt_text">Добавить альтернативный текст</string>
 	<string name="visibility_public">Публичный</string>
 	<string name="visibility_followers_only">Для подписчиков</string>
+	<string name="visibility_private">Для упомянутых</string>
+	<string name="recent_searches">Недавние</string>
 	<string name="skip">Пропустить</string>
 	<string name="notification_type_follow">Новые подписчики</string>
 	<string name="notification_type_favorite">Избранное</string>
@@ -218,6 +224,8 @@
 	<string name="err_not_logged_in">Сначала войдите в Mastodon</string>
 	<string name="media_attachment_unsupported_type">Тип файла %s не поддерживается</string>
 	<string name="media_attachment_too_big">Размер файла %1$s превышает ограничение в %2$s МБ</string>
+	<string name="settings_theme">Внешний вид</string>
+	<string name="theme_auto">Как на устройстве</string>
 	<string name="theme_light">Светлый</string>
 	<string name="theme_dark">Тёмный</string>
 	<string name="settings_behavior">Поведение</string>
@@ -245,6 +253,7 @@
 	<string name="media_viewer">Просмотрщик медиа</string>
 	<string name="follow_user">Подписаться на %s</string>
 	<string name="unfollowed_user">Вы отписались от %s</string>
+	<string name="followed_user">Вы подписались на %s</string>
 	<string name="following_user_requested">Отправлен запрос на подписку %s</string>
 	<string name="open_in_browser">Открыть в браузере</string>
 	<string name="hide_boosts_from_user">Скрыть продвигаемые от %s</string>
