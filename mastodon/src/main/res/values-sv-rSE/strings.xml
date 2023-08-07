@@ -120,6 +120,7 @@
 	</plurals>
 	<string name="report_title">Rapportera %s</string>
 	<string name="report_choose_reason_subtitle">Välj den bästa träffen</string>
+	<string name="report_reason_personal">Jag gillar det inte</string>
 	<string name="report_reason_personal_subtitle">Det är inget som du vill se</string>
 	<string name="report_reason_spam">Det är skräppost</string>
 	<string name="report_reason_spam_subtitle">Skadliga länkar, bedrägligt beteende eller repetitiva svar</string>
@@ -169,6 +170,7 @@
 	<string name="add_alt_text">Lägg till alternativtext</string>
 	<string name="visibility_public">Offentlig</string>
 	<string name="visibility_followers_only">Endast följare</string>
+	<string name="recent_searches">Nyligen</string>
 	<string name="skip">Hoppa över</string>
 	<string name="notification_type_follow">Nya följare</string>
 	<string name="notification_type_favorite">Favoriter</string>
@@ -333,6 +335,7 @@
 	<string name="show">Visa</string>
 	<string name="hide">Dölj</string>
 	<string name="join_default_server">Gå med %s</string>
+	<string name="pick_server">Välj en annan server</string>
 	<string name="signup_or_login">eller</string>
 	<string name="learn_more">Läs mer</string>
 	<string name="welcome_to_mastodon">Välkommen till Mastodon</string>
@@ -343,6 +346,10 @@
 	<string name="confirm_log_out_all_accounts">Logga ut från alla konton?</string>
 	<string name="retry">Försök igen</string>
 	<!-- %s is formatted file size ("467 KB image") -->
+	<string name="attachment_description_image">%s bild</string>
+	<string name="attachment_description_video">%s video</string>
+	<string name="attachment_description_audio">%s ljud</string>
+	<string name="attachment_description_unknown">%s fil</string>
 	<string name="attachment_type_audio">Ljud</string>
 	<string name="attachment_type_gif">GIF</string>
 	<string name="attachment_type_unknown">Fil</string>
@@ -358,6 +365,7 @@
 	<string name="settings_server_explanation">Översikt, regler och moderatorer</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">Om %s</string>
+	<string name="settings_confirm_delete_post">Fråga innan du raderar inlägg</string>
 	<string name="notifications_policy_no_one">Ingen</string>
 	<plurals name="x_weeks">
 		<item quantity="one">%d vecka</item>
@@ -369,14 +377,6 @@
 	<string name="about_server">Om</string>
 	<string name="server_rules">Regler</string>
 	<string name="server_administrator">Administratör</string>
-	<plurals name="in_x_seconds">
-		<item quantity="one">om %d sekund</item>
-		<item quantity="other">om %d sekunder</item>
-	</plurals>
-	<plurals name="in_x_hours">
-		<item quantity="one">om %d timme</item>
-		<item quantity="other">om %d timmar</item>
-	</plurals>
 	<plurals name="x_hours_ago">
 		<item quantity="one">%d timme sedan</item>
 		<item quantity="other">%d timmar sedan</item>
