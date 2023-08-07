@@ -369,6 +369,14 @@
 	<string name="about_server">Om</string>
 	<string name="server_rules">Regler</string>
 	<string name="server_administrator">Administratör</string>
+	<plurals name="in_x_seconds">
+		<item quantity="one">om %d sekund</item>
+		<item quantity="other">om %d sekunder</item>
+	</plurals>
+	<plurals name="in_x_hours">
+		<item quantity="one">om %d timme</item>
+		<item quantity="other">om %d timmar</item>
+	</plurals>
 	<plurals name="x_hours_ago">
 		<item quantity="one">%d timme sedan</item>
 		<item quantity="other">%d timmar sedan</item>
