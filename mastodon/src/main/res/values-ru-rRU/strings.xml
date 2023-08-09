@@ -452,7 +452,7 @@
 	<string name="help">Помощь</string>
 	<string name="what_is_alt_text">Что такое альтернативный текст?</string>
 	<string name="edit_post">Изменить пост</string>
-	<string name="no_verified_link">Нет подтверждённой ссылки</string>
+	<string name="no_verified_link">Не подтвержденная ссылка</string>
 	<string name="compose_autocomplete_emoji_empty">Просмотр эмодзи</string>
 	<string name="compose_autocomplete_users_empty">Найдите тех, кого ищете</string>
 	<string name="no_search_results">Ничего не найдено по этому запросу</string>
@@ -500,6 +500,7 @@
 	<string name="tomorrow">завтра</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="resume_notifications_now">Возобновить</string>
 	<string name="about_server">О нас</string>
 	<string name="server_rules">Правила</string>
 	<string name="server_administrator">Администратор</string>
@@ -516,6 +517,7 @@
 	<string name="count_four">Четыре</string>
 	<string name="alt_text_reminder_post_anyway">Пост</string>
 	<!-- %s is the username -->
+	<string name="unfollow_confirmation">Отписаться от %s?</string>
 	<string name="settings_add_filter">Добавить фильтр</string>
 	<string name="settings_edit_filter">Изменить фильтр</string>
 	<string name="settings_delete_filter">Удалить фильтр</string>
@@ -526,13 +528,34 @@
 	<string name="settings_filter_title">Название</string>
 	<string name="settings_delete_filter_title">Удалить фильтр “%s”?</string>
 	<string name="add">Добавить</string>
+	<string name="filter_word_or_phrase">Слово или фраза</string>
 	<string name="settings_delete_filter_word">Удалить слово “%s”?</string>
 	<string name="enter_selection_mode">Выбрать</string>
 	<string name="select_all">Выбрать все</string>
+	<plurals name="settings_delete_x_filter_words">
+		<item quantity="one">Удалить %d слово?</item>
+		<item quantity="few">Удалить %d слова?</item>
+		<item quantity="many">Удалить %d слов?</item>
+		<item quantity="other">Удалить %d слов?</item>
+	</plurals>
+	<plurals name="x_items_selected">
+		<item quantity="one">Выбрано %d</item>
+		<item quantity="few">Выбрано %d</item>
+		<item quantity="many">Выбрано %d</item>
+		<item quantity="other">Выбрано %d</item>
+	</plurals>
+	<string name="required_form_field_blank">Не может быть пустым</string>
+	<string name="filter_word_already_in_list">Уже в списке</string>
 	<string name="app_update_version">Версия %s</string>
+	<string name="downloading_update">Скачивание (%d%%)</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
+	<string name="search_mastodon">Поиск в Mastodon</string>
 	<string name="clear_all">Очистить все</string>
 	<string name="search_open_url">Открывать ссылки в Mastodon</string>
+	<string name="posts_matching_hashtag">Посты с “%s”</string>
+	<string name="search_go_to_account">Перейти в %s</string>
+	<string name="posts_matching_string">Посты с “%s”</string>
+	<string name="accounts_matching_string">Аккаунты с “%s”</string>
 	<!-- Shown in the post header. Please keep it short -->
 	<string name="time_seconds_ago_short">%d сек. назад</string>
 	<string name="time_minutes_ago_short">%d мин. назад</string>
