@@ -442,6 +442,7 @@
 	<string name="attachment_type_unknown">Файл</string>
 	<string name="attachment_x_percent_uploaded">%d%% загружен</string>
 	<string name="add_poll_option">Добавить вариант ответа</string>
+	<string name="poll_length">Срок</string>
 	<string name="poll_style">Стиль</string>
 	<string name="compose_poll_single_choice">Только один</string>
 	<string name="compose_poll_multiple_choice">Несколько</string>
@@ -468,6 +469,7 @@
 	<string name="muted_user">Игнорировать %s</string>
 	<string name="blocked_user">Заблокировать %s</string>
 	<string name="mark_all_notifications_read">Отметить всё как прочитанное</string>
+	<string name="settings_display">Отображение</string>
 	<string name="settings_filters">Фильтры</string>
 	<string name="settings_server_explanation">Обзор, правила, модераторы</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
@@ -514,6 +516,9 @@
 	<string name="count_four">Четыре</string>
 	<string name="alt_text_reminder_post_anyway">Пост</string>
 	<!-- %s is the username -->
+	<string name="settings_add_filter">Добавить фильтр</string>
+	<string name="settings_edit_filter">Изменить фильтр</string>
+	<string name="settings_delete_filter">Удалить фильтр</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<string name="filter_context_notifications">Уведомления</string>
 	<string name="filter_context_public_timelines">Публичная лента</string>
