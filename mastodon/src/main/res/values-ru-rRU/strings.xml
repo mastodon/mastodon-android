@@ -172,6 +172,8 @@
 	<string name="report_sent_subtitle">Пока мы проверяем это, вы можете принять меры против %s:</string>
 	<string name="unfollow_user">Отписаться от %s</string>
 	<string name="unfollow">Отписаться</string>
+	<string name="mute_user_explain">Вы не будете видеть их посты. Они по-прежнему могут подписываться на вас и видеть ваши посты, но не будут знать, что они в списке игнорируемых.</string>
+	<string name="block_user_explain">Вы не будете видеть их посты. Они не смогут видеть ваши посты или подписываться на вас. Они поймут, что они заблокированы.</string>
 	<string name="report_personal_title">Не хотите видеть это?</string>
 	<string name="report_personal_subtitle">Вот несколько опций управления тем, что вы видите в Mastodon:</string>
 	<string name="back">Назад</string>
@@ -451,6 +453,7 @@
 	<string name="alt_text">Альтернативный текст</string>
 	<string name="help">Помощь</string>
 	<string name="what_is_alt_text">Что такое альтернативный текст?</string>
+	<string name="alt_text_help">Альтернативный текст содержит описания изображений для людей с ограничениями и тех, кому нужен дополнительный контекст.\n\nВы можете улучшить доступность и понимание для всех, написав четкий, краткий и объективный альтернативный текст.\n\n<ul><li>Фиксируйте важные элементы</li>\n<li>Описывайте изображение</li>\n<li>Используйте правильную структуру предложений</li>\n<li>Избегайте избыточной информации</li>\n<li>Сосредоточьтесь на основных и ключевых визуальных элементах (таких как диаграммы или карты)</li></ul></string>
 	<string name="edit_post">Изменить пост</string>
 	<string name="no_verified_link">Не подтвержденная ссылка</string>
 	<string name="compose_autocomplete_emoji_empty">Просмотр эмодзи</string>
@@ -464,9 +467,16 @@
 	<string name="language_detected">Определён</string>
 	<string name="media_hidden">Медиафайлы скрыты</string>
 	<string name="post_hidden">Пост скрыт</string>
+	<string name="report_title_post">Пожаловаться</string>
+	<string name="forward_report_explanation">Аккаунт принадлежит другому серверу. Отправить туда анонимную копию этого отчета?</string>
 	<!-- %s is the server domain -->
+	<string name="forward_report_to_server">Переслать на %s</string>
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
+	<string name="reported">Сообщено</string>
+	<string name="report_unfollow_explanation">Чтобы больше не видеть их посты в вашей ленте, отмените подписку на них.</string>
 	<string name="muted_user">Игнорировать %s</string>
+	<string name="report_sent_already_blocked">Вы уже заблокировали этого пользователя, так что вам больше ничего не нужно делать, пока мы просматриваем ваше обращение.</string>
+	<string name="report_personal_already_blocked">Вы уже заблокировали этого пользователя, так что вам больше ничего не нужно делать.\n\nСпасибо, что помогаете сделать Mastodon безопасным для всех!</string>
 	<string name="blocked_user">Заблокировать %s</string>
 	<string name="mark_all_notifications_read">Отметить всё как прочитанное</string>
 	<string name="settings_display">Отображение</string>
@@ -499,8 +509,11 @@
 	<string name="yesterday">вчера</string>
 	<string name="tomorrow">завтра</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="pause_notifications_ends">Закончится %s</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="pause_notifications_banner">Уведомления возобновятся %s.</string>
 	<string name="resume_notifications_now">Возобновить</string>
+	<string name="open_system_notification_settings">Перейти к настройкам уведомлений</string>
 	<string name="about_server">О нас</string>
 	<string name="server_rules">Правила</string>
 	<string name="server_administrator">Администратор</string>
@@ -511,6 +524,7 @@
 	<string name="settings_hide_sensitive_media">Скрывать материал деликатного характера</string>
 	<string name="settings_show_interaction_counts">Показывать количество взаимодействий под постами</string>
 	<string name="settings_show_emoji_in_names">Пользовательские эмодзи в именах</string>
+	<string name="alt_text_reminder_title">В материале отсутствует альтернативный текст</string>
 	<string name="count_one">Один</string>
 	<string name="count_two">Два</string>
 	<string name="count_three">Три</string>
@@ -518,8 +532,11 @@
 	<string name="alt_text_reminder_post_anyway">Пост</string>
 	<!-- %s is the username -->
 	<string name="unfollow_confirmation">Отписаться от %s?</string>
+	<string name="filter_active">Активный</string>
+	<string name="filter_inactive">Неактивный</string>
 	<string name="settings_add_filter">Добавить фильтр</string>
 	<string name="settings_edit_filter">Изменить фильтр</string>
+	<string name="settings_filter_show_cw_explanation">Показывать посты, которые соответствуют этому фильтру, но с предупреждением о содержании</string>
 	<string name="settings_delete_filter">Удалить фильтр</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<string name="filter_context_notifications">Уведомления</string>
@@ -527,6 +544,7 @@
 	<string name="filter_context_profiles">Профили</string>
 	<string name="settings_filter_title">Название</string>
 	<string name="settings_delete_filter_title">Удалить фильтр “%s”?</string>
+	<string name="settings_delete_filter_confirmation">Этот фильтр будет удален из аккаунта на всех ваших устройствах.</string>
 	<string name="add">Добавить</string>
 	<string name="filter_word_or_phrase">Слово или фраза</string>
 	<string name="settings_delete_filter_word">Удалить слово “%s”?</string>
