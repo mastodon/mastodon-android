@@ -536,6 +536,7 @@
 	<string name="filter_inactive">Неактивный</string>
 	<string name="settings_add_filter">Добавить фильтр</string>
 	<string name="settings_edit_filter">Изменить фильтр</string>
+	<string name="settings_filter_show_cw">Показывать предупреждения о содержании</string>
 	<string name="settings_filter_show_cw_explanation">Показывать посты, которые соответствуют этому фильтру, но с предупреждением о содержании</string>
 	<string name="settings_delete_filter">Удалить фильтр</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
@@ -547,6 +548,7 @@
 	<string name="settings_delete_filter_confirmation">Этот фильтр будет удален из аккаунта на всех ваших устройствах.</string>
 	<string name="add">Добавить</string>
 	<string name="filter_word_or_phrase">Слово или фраза</string>
+	<string name="filter_add_word_help">Слова не чувствительны к регистру и соответствуют только целым словам.\n\nЕсли вы отфильтруете ключевое слово “Apple”, оно скроет посты, содержащие “apple” или “aPpLe” но не “pineapple.”</string>
 	<string name="settings_delete_filter_word">Удалить слово “%s”?</string>
 	<string name="enter_selection_mode">Выбрать</string>
 	<string name="select_all">Выбрать все</string>
