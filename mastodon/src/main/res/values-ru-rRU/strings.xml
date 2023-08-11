@@ -36,7 +36,7 @@
 	</plurals>
 	<string name="posts">Посты</string>
 	<string name="posts_and_replies">Посты и ответы</string>
-	<string name="media">Медиа</string>
+	<string name="media">Файлы</string>
 	<string name="profile_about">О себе</string>
 	<string name="button_follow">Подписаться</string>
 	<string name="button_following">В подписках</string>
@@ -242,9 +242,9 @@
 	<string name="settings_contribute">Внести вклад в Mastodon</string>
 	<string name="settings_tos">Условия использования</string>
 	<string name="settings_privacy_policy">Политика конфиденциальности</string>
-	<string name="settings_clear_cache">Очистить кэш медиа</string>
+	<string name="settings_clear_cache">Очистить кэш данных</string>
 	<string name="settings_app_version">Mastodon для Android v%1$s (%2$d)</string>
-	<string name="media_cache_cleared">Кэш медиа очищен</string>
+	<string name="media_cache_cleared">Кэш очищен</string>
 	<string name="confirm_log_out">Выйти из %s?</string>
 	<string name="sensitive_content_explain">Автор отметил что это материал деликатного характера.</string>
 	<string name="avatar_description">Перейти в профиль %s</string>
@@ -254,8 +254,8 @@
 	<string name="button_reblog">Продвинуть</string>
 	<string name="button_favorite">Добавить в избранное</string>
 	<string name="button_share">Поделиться</string>
-	<string name="media_no_description">Медиа без описания</string>
-	<string name="add_media">Добавить медиа</string>
+	<string name="media_no_description">Файлы без описания</string>
+	<string name="add_media">Добавить файл</string>
 	<string name="add_poll">Добавить опрос</string>
 	<string name="emoji">Эмодзи</string>
 	<string name="home_timeline">Домашняя лента</string>
@@ -465,7 +465,7 @@
 	<string name="language_detecting">Определение языка</string>
 	<string name="language_cant_detect">Не удается определить язык</string>
 	<string name="language_detected">Определён</string>
-	<string name="media_hidden">Медиафайлы скрыты</string>
+	<string name="media_hidden">Файлы скрыты</string>
 	<string name="post_hidden">Пост скрыт</string>
 	<string name="report_title_post">Пожаловаться</string>
 	<string name="forward_report_explanation">Аккаунт принадлежит другому серверу. Отправить туда анонимную копию этого отчета?</string>
@@ -531,6 +531,18 @@
 		<item quantity="other">%d часов(-а) назад</item>
 	</plurals>
 	<string name="alt_text_reminder_title">В материале отсутствует альтернативный текст</string>
+	<plurals name="alt_text_reminder_x_images">
+		<item quantity="one">В %s вашем изображении отсутствует альтернативный текст. Опубликовать в любом случае?</item>
+		<item quantity="few">В %s ваших изображениях отсутствует альтернативный текст. Опубликовать в любом случае?</item>
+		<item quantity="many">В %s ваших изображениях отсутствует альтернативный текст. Опубликовать в любом случае?</item>
+		<item quantity="other">В %s ваших изображениях отсутствует альтернативный текст. Опубликовать в любом случае?</item>
+	</plurals>
+	<plurals name="alt_text_reminder_x_attachments">
+		<item quantity="one">В %s вашем файле отсутствует альтернативный текст. Опубликовать в любом случае?</item>
+		<item quantity="few">В %s ваших файлах отсутствует альтернативный текст. Опубликовать в любом случае?</item>
+		<item quantity="many">В %s ваших файлах отсутствует альтернативный текст. Опубликовать в любом случае?</item>
+		<item quantity="other">В %s ваших файлах отсутствует альтернативный текст. Опубликовать в любом случае?</item>
+	</plurals>
 	<string name="count_one">Один</string>
 	<string name="count_two">Два</string>
 	<string name="count_three">Три</string>
@@ -542,10 +554,20 @@
 	<string name="filter_inactive">Неактивный</string>
 	<string name="settings_add_filter">Добавить фильтр</string>
 	<string name="settings_edit_filter">Изменить фильтр</string>
+	<string name="settings_filter_duration">Продолжительность</string>
+	<string name="settings_filter_muted_words">Игнорируемые слова</string>
 	<string name="settings_filter_show_cw">Показывать предупреждения о содержании</string>
 	<string name="settings_filter_show_cw_explanation">Показывать посты, которые соответствуют этому фильтру, но с предупреждением о содержании</string>
 	<string name="settings_delete_filter">Удалить фильтр</string>
+	<string name="filter_duration_forever">Всегда</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="settings_filter_ends">Закончится %s</string>
+	<plurals name="settings_x_muted_words">
+		<item quantity="one">%d игнорируемое слово или фраза</item>
+		<item quantity="few">%d игнорируемых слов(а) или фраз</item>
+		<item quantity="many">%d игнорируемых слов(а) или фраз</item>
+		<item quantity="other">%d игнорируемых слов(а) или фраз</item>
+	</plurals>
 	<string name="selection_2_options">%1$s и %2$s</string>
 	<string name="selection_3_options">%1$s, %2$s и %3$s</string>
 	<string name="selection_4_or_more">%1$s, %2$s и ещё %3$d</string>
@@ -555,12 +577,16 @@
 	<string name="settings_filter_title">Название</string>
 	<string name="settings_delete_filter_title">Удалить фильтр “%s”?</string>
 	<string name="settings_delete_filter_confirmation">Этот фильтр будет удален из аккаунта на всех ваших устройствах.</string>
+	<string name="add_muted_word">Добавить игнорируемое слово</string>
+	<string name="edit_muted_word">Изменить игнорируемое слово</string>
 	<string name="add">Добавить</string>
 	<string name="filter_word_or_phrase">Слово или фраза</string>
 	<string name="filter_add_word_help">Слова не чувствительны к регистру и соответствуют только целым словам.\n\nЕсли вы отфильтруете ключевое слово “Apple”, оно скроет посты, содержащие “apple” или “aPpLe” но не “pineapple.”</string>
 	<string name="settings_delete_filter_word">Удалить слово “%s”?</string>
 	<string name="enter_selection_mode">Выбрать</string>
 	<string name="select_all">Выбрать все</string>
+	<string name="settings_filter_duration_title">Продолжительность фильтра</string>
+	<string name="filter_duration_custom">Другое</string>
 	<plurals name="settings_delete_x_filter_words">
 		<item quantity="one">Удалить %d слово?</item>
 		<item quantity="few">Удалить %d слова?</item>
