@@ -524,6 +524,12 @@
 	<string name="settings_hide_sensitive_media">Скрывать материал деликатного характера</string>
 	<string name="settings_show_interaction_counts">Показывать количество взаимодействий под постами</string>
 	<string name="settings_show_emoji_in_names">Пользовательские эмодзи в именах</string>
+	<plurals name="x_hours_ago">
+		<item quantity="one">%d час назад</item>
+		<item quantity="few">%d часов(-а) назад</item>
+		<item quantity="many">%d часов(-а) назад</item>
+		<item quantity="other">%d часов(-а) назад</item>
+	</plurals>
 	<string name="alt_text_reminder_title">В материале отсутствует альтернативный текст</string>
 	<string name="count_one">Один</string>
 	<string name="count_two">Два</string>
@@ -540,6 +546,9 @@
 	<string name="settings_filter_show_cw_explanation">Показывать посты, которые соответствуют этому фильтру, но с предупреждением о содержании</string>
 	<string name="settings_delete_filter">Удалить фильтр</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="selection_2_options">%1$s и %2$s</string>
+	<string name="selection_3_options">%1$s, %2$s и %3$s</string>
+	<string name="selection_4_or_more">%1$s, %2$s и ещё %3$d</string>
 	<string name="filter_context_notifications">Уведомления</string>
 	<string name="filter_context_public_timelines">Публичная лента</string>
 	<string name="filter_context_profiles">Профили</string>
