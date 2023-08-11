@@ -40,7 +40,7 @@
 	<string name="profile_about">О себе</string>
 	<string name="button_follow">Подписаться</string>
 	<string name="button_following">В подписках</string>
-	<string name="edit_profile">Редактировать профиль</string>
+	<string name="edit_profile">Изменить профиль</string>
 	<string name="share_user">Поделиться профилем</string>
 	<string name="mute_user">Игнорировать %s</string>
 	<string name="unmute_user">Убрать %s из игнорируемых</string>
@@ -112,13 +112,13 @@
 		<item quantity="other">%,d голосов</item>
 	</plurals>
 	<string name="poll_closed">Завершён</string>
-	<string name="confirm_mute_title">Игнорировать аккаунт</string>
+	<string name="confirm_mute_title">Игнорировать</string>
 	<string name="confirm_mute">Игнорировать %s?</string>
 	<string name="do_mute">Игнорировать</string>
-	<string name="confirm_unmute_title">Убрать из игнорируемых</string>
+	<string name="confirm_unmute_title">Не игнорировать</string>
 	<string name="confirm_unmute">Убрать %s из игнорируемых?</string>
 	<string name="do_unmute">Убрать из игнорируемых</string>
-	<string name="confirm_block_title">Заблокировать аккаунт</string>
+	<string name="confirm_block_title">Заблокировать</string>
 	<string name="confirm_block_domain_title">Заблокировать узел</string>
 	<string name="confirm_block">Заблокировать %s?</string>
 	<string name="do_block">Заблокировать</string>
@@ -348,7 +348,7 @@
 	<string name="edit_media_added">Файл добавлен</string>
 	<string name="edit_media_removed">Файл удалён</string>
 	<string name="edit_media_reordered">Файл переупорядочен</string>
-	<string name="edit_marked_sensitive">Отметить как «не для всех»</string>
+	<string name="edit_marked_sensitive">Отметить как «деликатный»</string>
 	<string name="edit_marked_not_sensitive">Снять отметку «не для всех»</string>
 	<string name="edit_multiple_changed">Публикация изменена</string>
 	<string name="edit">Редактировать</string>
@@ -414,7 +414,7 @@
 	<string name="profile_featured">Избранное</string>
 	<string name="profile_timeline">Лента</string>
 	<string name="view_all">Посмотреть все</string>
-	<string name="profile_endorsed_accounts">Учётные записи</string>
+	<string name="profile_endorsed_accounts">Аккаунты</string>
 	<string name="verified_link">Подтвержденная ссылка</string>
 	<string name="show">Показать</string>
 	<string name="hide">Скрыть</string>
@@ -505,6 +505,7 @@
 		<item quantity="other">%d недель</item>
 	</plurals>
 	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
+	<string name="date_at_time">%1$s в %2$s</string>
 	<string name="today">сегодня</string>
 	<string name="yesterday">вчера</string>
 	<string name="tomorrow">завтра</string>
@@ -524,6 +525,24 @@
 	<string name="settings_hide_sensitive_media">Скрывать материал деликатного характера</string>
 	<string name="settings_show_interaction_counts">Показывать количество взаимодействий под постами</string>
 	<string name="settings_show_emoji_in_names">Пользовательские эмодзи в именах</string>
+	<plurals name="in_x_seconds">
+		<item quantity="one">через %d секунду</item>
+		<item quantity="few">через %d секунд(ы)</item>
+		<item quantity="many">через %d секунд(ы)</item>
+		<item quantity="other">через %d секунд(ы)</item>
+	</plurals>
+	<plurals name="in_x_minutes">
+		<item quantity="one">через %d минуту</item>
+		<item quantity="few">через %d минут(ы)</item>
+		<item quantity="many">через %d минут(ы)</item>
+		<item quantity="other">через %d минут(ы)</item>
+	</plurals>
+	<plurals name="in_x_hours">
+		<item quantity="one">через %d час</item>
+		<item quantity="few">через %d часа(ов)</item>
+		<item quantity="many">через %d часов</item>
+		<item quantity="other">через %d часов</item>
+	</plurals>
 	<plurals name="x_hours_ago">
 		<item quantity="one">%d час назад</item>
 		<item quantity="few">%d часов(-а) назад</item>
@@ -556,6 +575,7 @@
 	<string name="settings_edit_filter">Изменить фильтр</string>
 	<string name="settings_filter_duration">Продолжительность</string>
 	<string name="settings_filter_muted_words">Игнорируемые слова</string>
+	<string name="settings_filter_context">Игнорировать</string>
 	<string name="settings_filter_show_cw">Показывать предупреждения о содержании</string>
 	<string name="settings_filter_show_cw_explanation">Показывать посты, которые соответствуют этому фильтру, но с предупреждением о содержании</string>
 	<string name="settings_delete_filter">Удалить фильтр</string>
@@ -571,8 +591,10 @@
 	<string name="selection_2_options">%1$s и %2$s</string>
 	<string name="selection_3_options">%1$s, %2$s и %3$s</string>
 	<string name="selection_4_or_more">%1$s, %2$s и ещё %3$d</string>
+	<string name="filter_context_home_lists">Главная &amp; списки</string>
 	<string name="filter_context_notifications">Уведомления</string>
 	<string name="filter_context_public_timelines">Публичная лента</string>
+	<string name="filter_context_threads_replies">Темы &amp; ответы</string>
 	<string name="filter_context_profiles">Профили</string>
 	<string name="settings_filter_title">Название</string>
 	<string name="settings_delete_filter_title">Удалить фильтр “%s”?</string>
@@ -601,9 +623,11 @@
 	</plurals>
 	<string name="required_form_field_blank">Не может быть пустым</string>
 	<string name="filter_word_already_in_list">Уже в списке</string>
+	<string name="app_update_ready">Приложение готово к обновлению</string>
 	<string name="app_update_version">Версия %s</string>
 	<string name="downloading_update">Скачивание (%d%%)</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
+	<string name="post_matches_filter_x">Соответствует фильтру “%s”</string>
 	<string name="search_mastodon">Поиск в Mastodon</string>
 	<string name="clear_all">Очистить все</string>
 	<string name="search_open_url">Открывать ссылки в Mastodon</string>
