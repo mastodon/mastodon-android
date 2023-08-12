@@ -424,7 +424,10 @@
 	<string name="mark_all_notifications_read">Označi vse kot prebrano</string>
 	<string name="settings_filters">Filtri</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
+	<string name="about_app">O programu %s</string>
 	<string name="default_post_language">Privzeti jezik objave</string>
+	<string name="pause_all_notifications">Premor za vse</string>
+	<string name="pause_notifications_off">Izklopljeno</string>
 	<string name="notifications_policy_no_one">Nihče</string>
 	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
 	<string name="today">danes</string>
@@ -439,10 +442,12 @@
 	<string name="settings_show_cws">Pokaži opozorilo o vsebini</string>
 	<string name="settings_hide_sensitive_media">Skrij medij, ki je označen kot občutljiv</string>
 	<string name="count_one">Ena</string>
+	<string name="alt_text_reminder_post_anyway">Objavi</string>
 	<!-- %s is the username -->
 	<string name="settings_add_filter">Dodaj filter</string>
 	<string name="settings_edit_filter">Uredi filter</string>
 	<string name="settings_filter_duration">Trajanje</string>
+	<string name="settings_filter_muted_words">Utišane besede</string>
 	<string name="settings_delete_filter">Izbriši filter</string>
 	<string name="filter_duration_forever">Za vedno</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
@@ -457,6 +462,7 @@
 	<string name="filter_duration_custom">Po meri</string>
 	<string name="required_form_field_blank">Ne sme biti prazno</string>
 	<string name="filter_word_already_in_list">Že na seznamu</string>
+	<string name="app_update_ready">Posodobitev aplikacije je pripravljena</string>
 	<string name="app_update_version">Različica %s</string>
 	<string name="downloading_update">Prenos %d%%</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
