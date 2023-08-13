@@ -191,6 +191,7 @@
 	<string name="media_attachment_unsupported_type">%s fitxategi mota ez da bateragarria</string>
 	<string name="media_attachment_too_big">%1$s fitxategiak %2$s MB-eko tamainaren muga gainditzen du</string>
 	<string name="settings_theme">Itxura</string>
+	<string name="theme_auto">Erabili sistemaren diseinua</string>
 	<string name="theme_light">Argia</string>
 	<string name="theme_dark">Iluna</string>
 	<string name="settings_behavior">Jokabidea</string>
@@ -205,6 +206,7 @@
 	<string name="media_cache_cleared">Multimediaren cachea garbitua</string>
 	<string name="confirm_log_out">Itxi saioa %s?</string>
 	<string name="sensitive_content_explain">Egileak multimedia hau hunkigarritzat markatu du.</string>
+	<string name="avatar_description">Joan %s-(r)en profilera</string>
 	<string name="more_options">Aukera gehiago</string>
 	<string name="new_post">Bidalketa berria</string>
 	<string name="button_reply">Erantzun</string>
@@ -321,6 +323,7 @@
 	<string name="server_filter_region_oceania">Ozeania</string>
 	<string name="not_accepting_new_members">Ez da kide berririk onartzen</string>
 	<string name="signup_passwords_dont_match">Pasahitzak ez datoz bat</string>
+	<string name="pick_server_for_me">Aukeratu niretzat</string>
 	<string name="profile_add_row">Gehitu errenkada</string>
 	<string name="popular_on_mastodon">Mastodonen pil-pilean</string>
 	<string name="follow_all">Jarraitu denak</string>
@@ -330,12 +333,20 @@
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
 	<string name="spoiler_show">Erakutsi hala ere</string>
+	<string name="poll_multiple_choice">Aukeratu bat edo gehiago</string>
 	<string name="save_changes">Gorde aldaketak</string>
+	<string name="profile_featured">Nabarmenak</string>
 	<string name="profile_timeline">Denbora-lerroa</string>
 	<string name="view_all">Ikusi guztia</string>
 	<string name="profile_endorsed_accounts">Kontuak</string>
 	<string name="show">Erakutsi</string>
 	<string name="hide">Ezkutatu</string>
+	<string name="pick_server">Aukeratu beste zerbitzari bat</string>
+	<string name="signup_or_login">edo</string>
+	<string name="learn_more">Ikasi gehiago</string>
+	<string name="welcome_to_mastodon">Ongi etorri Mastodon-era</string>
+	<string name="what_are_servers">Zer dira zerbitzariak?</string>
+	<string name="opening_link">Lotura irekitzen…</string>
 	<string name="retry">Berriro saiatu</string>
 	<!-- %s is formatted file size ("467 KB image") -->
 	<string name="attachment_type_image">Irudia</string>
@@ -343,15 +354,20 @@
 	<string name="attachment_type_audio">Audioa</string>
 	<string name="attachment_type_gif">GIF-a</string>
 	<string name="attachment_type_unknown">Fitxategia</string>
+	<string name="add_poll_option">Gehitu inkesta aukera</string>
 	<string name="poll_style">Estiloa</string>
 	<string name="compose_poll_single_choice">Aukeratu bat</string>
 	<string name="compose_poll_multiple_choice">Aukera anitza</string>
+	<string name="delete_poll_option">Ezabatu inkesta aukera</string>
 	<string name="help">Laguntza</string>
+	<string name="edit_post">Editatu argitalpena</string>
+	<string name="compose_autocomplete_emoji_empty">Esploratu emojiak</string>
 	<string name="language">Hizkuntza</string>
 	<string name="language_default">Lehenetsia</string>
 	<string name="language_system">Sistema</string>
 	<string name="language_detecting">Hizkuntza detektatzen</string>
 	<string name="language_cant_detect">Ezin da hizkuntza detektatu</string>
+	<string name="language_detected">Detektatuta</string>
 	<string name="media_hidden">Multimedia ezkutatua</string>
 	<!-- %s is the server domain -->
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
@@ -363,14 +379,61 @@
 	<string name="settings_filters">Iragazkiak</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">%s(r)i buruz</string>
+	<string name="pause_all_notifications">Pausatu denak</string>
+	<string name="pause_notifications_off">Itzali</string>
+	<string name="notifications_policy_anyone">Edozein</string>
+	<string name="notifications_policy_followed">Zu jarraitzen zaituzten pertsonak</string>
+	<string name="notifications_policy_follower">Zuk jarraitzen dituzun pertsonak</string>
+	<string name="notifications_policy_no_one">Bat ere ez</string>
+	<string name="pause_all_notifications_title">Pausatu jakinarazpen guztiak</string>
 	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
+	<string name="today">gaur</string>
+	<string name="yesterday">atzo</string>
+	<string name="tomorrow">bihar</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<string name="about_server">Honi buruz</string>
 	<string name="server_rules">Arauak</string>
 	<string name="server_administrator">Administratzailea</string>
+	<string name="settings_show_cws">Erakutsi eduki abisuak</string>
+	<plurals name="in_x_hours">
+		<item quantity="one">Ordu %d barru</item>
+		<item quantity="other">%d ordu barru</item>
+	</plurals>
+	<string name="count_one">Bat</string>
+	<string name="count_two">Bi</string>
+	<string name="count_three">Hiru</string>
+	<string name="count_four">Lau</string>
+	<string name="alt_text_reminder_post_anyway">Bidalketa</string>
 	<!-- %s is the username -->
+	<string name="unfollow_confirmation">%s jarraitzeari utzi?</string>
+	<string name="filter_active">Aktiboa</string>
+	<string name="filter_inactive">Ez aktiboa</string>
+	<string name="settings_add_filter">Gehitu iragazkia</string>
+	<string name="settings_edit_filter">Editatu iragazkia</string>
+	<string name="settings_filter_duration">Iraupena</string>
+	<string name="settings_filter_muted_words">Mutututako hitzak</string>
+	<string name="settings_filter_show_cw">Erakutsi eduki abisuarekin</string>
+	<string name="settings_delete_filter">Ezabatu iragazkia</string>
+	<string name="filter_duration_forever">Betirakoa</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="selection_2_options">%1$s eta %2$s</string>
+	<string name="selection_3_options">%1$s, %2$s, eta %3$s</string>
+	<string name="selection_4_or_more">%1$s, %2$s, eta beste %3$d</string>
+	<string name="filter_context_notifications">Jakinarazpenak</string>
+	<string name="filter_context_public_timelines">Denbora-lerro publikoak</string>
+	<string name="filter_context_profiles">Profilak</string>
+	<string name="settings_filter_title">Izenburua</string>
+	<string name="settings_delete_filter_title">Ezabatu \"%s\" iragazkia”?</string>
+	<string name="add">Gehitu</string>
+	<string name="enter_selection_mode">Hautatu</string>
+	<string name="select_all">Hautatu dena</string>
+	<string name="filter_duration_custom">Pertsonalizatua</string>
+	<string name="required_form_field_blank">Ezin da hutsik egon</string>
+	<string name="app_update_version">Bertsioa: %s</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
+	<string name="search_mastodon">Bilatu Mastodonen</string>
+	<string name="clear_all">Garbitu dena</string>
+	<string name="search_open_url">Ireki URLa Mastodonen</string>
 	<!-- Shown in the post header. Please keep it short -->
 </resources>
