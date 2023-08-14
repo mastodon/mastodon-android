@@ -4,11 +4,15 @@
 	<string name="next">Seguinte</string>
 	<string name="loading_instance">A carregar informação do servidor…</string>
 	<string name="error">Erro</string>
+	<string name="not_a_mastodon_instance">%s não parece ser um servidor Mastodon.</string>
 	<string name="ok">OK</string>
 	<string name="preparing_auth">A preparar a autenticação…</string>
 	<string name="finishing_auth">A finalizar a autenticação…</string>
+	<string name="user_boosted">%s reforçou</string>
 	<string name="in_reply_to">Responder a %s</string>
 	<string name="notifications">Notificações</string>
+	<string name="user_followed_you">%s começou a seguir-te</string>
+	<string name="user_favorited">%s assinalou a sua publicação como favorita</string>
 	<string name="share_toot_title">Partilhar</string>
 	<string name="settings">Configurações</string>
 	<string name="publish">Publicar</string>
@@ -30,6 +34,7 @@
 	<string name="button_follow">Seguir</string>
 	<string name="button_following">A seguir</string>
 	<string name="edit_profile">Editar Perfil</string>
+	<string name="share_user">Partilhar perfil</string>
 	<string name="mute_user">Silenciar %s</string>
 	<string name="unmute_user">Deixar de silenciar @%s</string>
 	<string name="block_user">Bloquear %s</string>
@@ -76,6 +81,10 @@
 	<plurals name="x_days_left">
 		<item quantity="one">%d dia restante</item>
 		<item quantity="other">%d dias restantes</item>
+	</plurals>
+	<plurals name="x_votes">
+		<item quantity="one">%,d voto</item>
+		<item quantity="other">%,d votos</item>
 	</plurals>
 	<string name="poll_closed">Fechado</string>
 	<string name="confirm_mute_title">Silenciar Conta</string>
