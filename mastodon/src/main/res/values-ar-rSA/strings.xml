@@ -4,6 +4,7 @@
 	<string name="next">التالي</string>
 	<string name="loading_instance">جارٍ جلب معلومات الخادم…</string>
 	<string name="error">خطأ</string>
+	<string name="not_a_mastodon_instance">لا يبدو أنّ %s كخادم ماستدون.</string>
 	<string name="ok">حسنًا</string>
 	<string name="preparing_auth">جَارٍ الإعدَادُ لِلمُصادَقَة…</string>
 	<string name="finishing_auth">يُنهي المصادقة…</string>
@@ -38,6 +39,7 @@
 	<string name="button_follow">تابِع</string>
 	<string name="button_following">مُتابَع</string>
 	<string name="edit_profile">حرّر الملف الشخصي</string>
+	<string name="share_user">شارك الصفحة الشخصية</string>
 	<string name="mute_user">كَتمُ %s</string>
 	<string name="unmute_user">إلغاء الكَتم عن @%s</string>
 	<string name="block_user">حَظرُ %s</string>
@@ -135,6 +137,7 @@
 	<string name="button_blocked">محجوب</string>
 	<string name="action_vote">صَوّت</string>
 	<string name="delete">احذف</string>
+	<string name="confirm_delete_title">احذف المنشور</string>
 	<string name="confirm_delete">أمتأكد من حذف هذا المنشور؟</string>
 	<string name="deleting">يحذف…</string>
 	<string name="notification_channel_audio_player">تشغيل الصوت</string>
@@ -253,7 +256,10 @@
 	<string name="media_viewer">عارض الوسائط</string>
 	<string name="follow_user">تابع %s</string>
 	<string name="unfollowed_user">ألغ متابعة %s</string>
+	<string name="following_user_requested">طَلَبَ %s مُتابَعتك</string>
 	<string name="open_in_browser">افتح في المتصفح</string>
+	<string name="hide_boosts_from_user">اخف مشاركات %s</string>
+	<string name="show_boosts_from_user">أظهر مشاركات %s</string>
 	<string name="signup_reason">لماذا تريد الانضمام؟</string>
 	<string name="signup_reason_note">هذا سوف يساعدنا في مراجعة تطبيقك.</string>
 	<string name="clear">امسح</string>
