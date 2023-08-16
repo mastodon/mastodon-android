@@ -140,12 +140,14 @@
 	<string name="notification_channel_audio_player">تشغيل الصوت</string>
 	<string name="play">شغّل</string>
 	<string name="pause">ألبث</string>
+	<string name="log_out">الخروج</string>
 	<string name="add_account">أضف حساباً</string>
 	<string name="search_hint">ابحث</string>
 	<string name="hashtags">وُسُوم</string>
 	<string name="news">الأخبار</string>
 	<string name="for_you">لأجلك</string>
-	<string name="mentions">الذِكر</string>
+	<string name="all_notifications">كلها</string>
+	<string name="mentions">الإشارات</string>
 	<plurals name="x_people_talking">
 		<item quantity="zero">لا أحد يتحدث</item>
 		<item quantity="one">شخص واحد يتحدث</item>
@@ -156,7 +158,9 @@
 	</plurals>
 	<string name="report_title">بلّغ عن %s</string>
 	<string name="report_choose_reason_subtitle">اختر أفضل تطابق</string>
+	<string name="report_reason_personal">لا يعجبني</string>
 	<string name="report_reason_personal_subtitle">ألا ترغب برؤيته</string>
+	<string name="report_reason_spam">إنه غير مرغوب فيه</string>
 	<string name="report_reason_spam_subtitle">روابط خبيثة أو تفاعل كاذب أو ردود متكررة</string>
 	<string name="report_reason_violation">ينتهك قواعد الخادم</string>
 	<string name="report_reason_violation_subtitle">تعلم أنه ينتهك قواعد محددة</string>
@@ -196,23 +200,30 @@
 	<string name="category_tech">تقني</string>
 	<string name="confirm_email_title">تحقق من صندوق الوارد الخاص بك</string>
 	<!-- %s is the email address -->
+	<string name="confirm_email_didnt_get">ألم تحصل على رابط؟</string>
 	<string name="resend">أعد الإرسال</string>
 	<string name="open_email_app">افتح تطبيق البريد الإلكتروني</string>
 	<string name="resent_email">أُرسلت رسالة التأكيد</string>
+	<string name="compose_hint">عَبِّر عَمَّ يَجُولُ فِي ذِهنِك</string>
 	<string name="content_warning">تحذير من المحتوى</string>
 	<string name="save">احفظ</string>
 	<string name="add_alt_text">أضف نصًا بديلًا</string>
 	<string name="visibility_public">علني</string>
 	<string name="visibility_followers_only">للمُتابِعينَ فقط</string>
+	<string name="visibility_private">للمشار إليهم فقط</string>
+	<string name="recent_searches">الحديثة</string>
 	<string name="skip">تخطى</string>
 	<string name="notification_type_follow">متابعُون جُدُد</string>
 	<string name="notification_type_favorite">المفضلة</string>
-	<string name="notification_type_mention">الذِكر</string>
+	<string name="notification_type_reblog">المشاركات</string>
+	<string name="notification_type_mention">الإشارات</string>
 	<string name="notification_type_poll">استطلاع رأي</string>
 	<string name="choose_account">اختر حسابًا</string>
 	<string name="err_not_logged_in">يرجى تسجيل الدخول إلى حساب ماستدون أولًا</string>
 	<string name="media_attachment_unsupported_type">نوع الملف %s غير مدعوم</string>
 	<string name="media_attachment_too_big">الملف %1$s يتجاوز حدّ %2$s مب</string>
+	<string name="settings_theme">المظهر</string>
+	<string name="theme_auto">استخدام مظهر الجهاز</string>
 	<string name="theme_light">فاتح</string>
 	<string name="theme_dark">داكن</string>
 	<string name="settings_behavior">السلوك</string>
@@ -225,9 +236,12 @@
 	<string name="settings_clear_cache">امسح التخزين المؤقت للوسائط</string>
 	<string name="settings_app_version">تطبيق ماستدون لأندرويد نسخة %1$s (%2$d)</string>
 	<string name="media_cache_cleared">مُسح التخزين المؤقت للوسائط</string>
+	<string name="confirm_log_out">تسجيل الخروج من %s؟</string>
+	<string name="avatar_description">انتقل إلى الصفحة الشخصية لـ %s</string>
 	<string name="more_options">مزيد من الخيارات</string>
 	<string name="new_post">منشور جديد</string>
 	<string name="button_reply">ردّ</string>
+	<string name="button_reblog">شارك</string>
 	<string name="button_favorite">فضّل</string>
 	<string name="button_share">شارك</string>
 	<string name="media_no_description">وسائط بدون وصف</string>
@@ -253,6 +267,7 @@
 	<string name="error_saving_file">خطأ أثناء حفظ الملف</string>
 	<string name="file_saved">حُفظ الملف</string>
 	<string name="downloading">ينزّل…</string>
+	<string name="local_timeline">المحلي</string>
 	<!-- %s is the server domain -->
 	<string name="see_new_posts">استعرض المنشورات الجديدة</string>
 	<string name="load_missing_posts">حمّل المَنشورات المَفقودَة</string>
@@ -347,6 +362,7 @@
 	<string name="login_title">مرحبا بك مجددًا</string>
 	<string name="login_subtitle">قم بتسجيل الدخول باستخدام الخادم حيث قمتَ بإنشاء حسابك فيه.</string>
 	<string name="server_url">رابط الخادم</string>
+	<string name="signup_random_server_explain">سوف نختار خادماً بناءً على لغتك إذا قمت بالمتابعة دون إجراء إختيار.</string>
 	<string name="server_filter_any_language">أي لغة</string>
 	<string name="server_filter_instant_signup">تسجيل فوري</string>
 	<string name="server_filter_manual_review">مراجعة يدوية</string>
@@ -359,6 +375,7 @@
 	<string name="server_filter_region_oceania">أوقيانوسيا</string>
 	<string name="not_accepting_new_members">لا يقبل  استقبال أعضاء جدد</string>
 	<string name="category_special_interests">المصالح الخاصة</string>
+	<string name="signup_passwords_dont_match">كلمات المرور غير متطابقة</string>
 	<string name="pick_server_for_me">اختر لي</string>
 	<string name="profile_add_row">إضافة صف</string>
 	<string name="profile_setup">إعداد الملف الشخصي</string>
@@ -373,15 +390,122 @@
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<string name="sending_follows">متابعة المستخدمين…</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<string name="spoiler_show">إظهاره على أي حال</string>
+	<string name="spoiler_hide">إعادة الإخفاء</string>
+	<string name="save_changes">حفظ التغييرات</string>
+	<string name="profile_featured">المميزة</string>
+	<string name="profile_timeline">الخيط</string>
+	<string name="profile_endorsed_accounts">الحسابات</string>
+	<string name="verified_link">رابط متحقق منه</string>
+	<string name="show">إظهار</string>
+	<string name="hide">إخفاء</string>
+	<string name="join_default_server">الانضمام إلى %s</string>
+	<string name="pick_server">اختر خادما آخر</string>
+	<string name="signup_or_login">أو</string>
+	<string name="learn_more">تعلم المزيد</string>
+	<string name="welcome_to_mastodon">أهلًا بك على ماستدون</string>
+	<string name="welcome_paragraph1">ماستدون شبكة اجتماعية لامركزية، بمعنى أنه ليس هناك شركة واحدة تتحكم فيها. وهي تتألف من العديد من الخوادم التي تدار بشكل مستقل، وجميعها متصلة معا.</string>
+	<string name="what_are_servers">ما هي الخوادم؟</string>
+	<string name="log_out_all_accounts">تسجيل الخروج من جميع الحسابات</string>
+	<string name="confirm_log_out_all_accounts">أتريد تسجيل الخروج من جميع الحسابات؟</string>
+	<string name="retry">حاول مجددًا</string>
 	<!-- %s is formatted file size ("467 KB image") -->
+	<string name="attachment_description_image">صورة %s</string>
+	<string name="attachment_description_video">فيديو %s</string>
+	<string name="attachment_description_audio">مقطع صوتي %s</string>
+	<string name="attachment_description_unknown">ملف %s</string>
+	<string name="attachment_type_image">صورة</string>
+	<string name="attachment_type_video">فيديو</string>
+	<string name="attachment_type_audio">مقطع صوتي</string>
+	<string name="attachment_type_gif">GIF</string>
+	<string name="attachment_type_unknown">ملف</string>
+	<string name="add_poll_option">إضافة خيار للاستطلاع</string>
+	<string name="poll_length">مدة الاستطلاع</string>
+	<string name="poll_style">النوع</string>
+	<string name="compose_poll_single_choice">اختر واحدا</string>
+	<string name="compose_poll_multiple_choice">خيارات متعددة</string>
+	<string name="delete_poll_option">حذف خيار من الاستطلاع</string>
+	<string name="poll_style_title">نمط الاستطلاع</string>
+	<string name="alt_text">نص بديل</string>
+	<string name="help">المساعدة</string>
+	<string name="what_is_alt_text">ما هو النص البديل؟</string>
+	<string name="edit_post">تعديل المنشور</string>
+	<string name="no_verified_link">لم يتم التحقق من الرابط</string>
+	<string name="compose_autocomplete_emoji_empty">تصفح الرموز التعبيرية</string>
+	<string name="language">اللغة</string>
+	<string name="language_default">الافتراضية</string>
+	<string name="language_system">النظام</string>
+	<string name="language_detecting">اكتشاف اللغة</string>
+	<string name="language_cant_detect">تعذر اكتشاف اللغة</string>
+	<string name="media_hidden">وسائط مخفية</string>
+	<string name="post_hidden">منشور مخفي</string>
 	<!-- %s is the server domain -->
+	<string name="forward_report_to_server">تحويله إلى %s</string>
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
+	<string name="reported">تم الإبلاغ عنه</string>
+	<string name="settings_filters">عوامل التصفية</string>
+	<string name="settings_server_explanation">نظرة عامة وقواعد ومشرفين</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
+	<string name="about_app">عن %s</string>
+	<string name="default_post_language">اللغة الافتراضية للمنشور</string>
+	<string name="settings_alt_text_reminders">إضافة تذكير بالنصوص البديلة</string>
+	<string name="notifications_policy_anyone">أيا كان</string>
+	<string name="notifications_policy_follower">الأشخاص الذين تتابعهم</string>
+	<string name="notifications_policy_no_one">لا أحد</string>
+	<string name="settings_notifications_policy">تلقي الإشعارات من</string>
+	<string name="notification_type_mentions_and_replies">الإشارات والردود</string>
+	<string name="pause_all_notifications_title">إيقاف جميع الإشعارات مؤقتًا</string>
 	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
+	<string name="today">اليوم</string>
+	<string name="yesterday">أمس</string>
+	<string name="tomorrow">غدًا</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="resume_notifications_now">استأنف الآن</string>
+	<string name="open_system_notification_settings">الانتقال إلى إعدادات الإشعارات</string>
+	<string name="about_server">عن</string>
+	<string name="server_rules">القواعد</string>
+	<string name="server_administrator">المدير</string>
+	<string name="send_email_to_server_admin">للاتصال بالمدير</string>
+	<string name="settings_even_more">المزيد من الإعدادات</string>
+	<string name="settings_show_cws">إظهار تحذيرات المحتوى</string>
+	<string name="alt_text_reminder_title">تفتقد الوسائط إلى نص بديل</string>
+	<string name="count_one">واحد</string>
+	<string name="count_two">اثنان</string>
+	<string name="count_three">ثلاثة</string>
+	<string name="count_four">أربعة</string>
 	<!-- %s is the username -->
+	<string name="unfollow_confirmation">أتريد إلغاء متابعة %s؟</string>
+	<string name="settings_add_filter">إضافة عامل تصفية</string>
+	<string name="settings_edit_filter">تعديل عامل التصفية</string>
+	<string name="settings_filter_duration">المدة</string>
+	<string name="settings_delete_filter">حذف عامل التصفية</string>
+	<string name="filter_duration_forever">إلى الأبد</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="selection_2_options">%1$s و %2$s</string>
+	<string name="selection_3_options">%1$s و %2$s و %3$s</string>
+	<string name="filter_context_home_lists">الخيط الزمني الرئيسي والقوائم</string>
+	<string name="filter_context_notifications">الإشعارات</string>
+	<string name="filter_context_public_timelines">الخيوط الزمنية العامة</string>
+	<string name="filter_context_threads_replies">سلاسل المحادثات والردود</string>
+	<string name="filter_context_profiles">الصفحات التعريفية</string>
+	<string name="settings_filter_title">العنوان</string>
+	<string name="add">إضافة</string>
+	<string name="filter_word_or_phrase">كلمة أو عبارة</string>
+	<string name="select_all">اختيار الكل</string>
+	<string name="filter_duration_custom">مخصص</string>
+	<string name="required_form_field_blank">لا يمكن أن يكون فارغاً</string>
+	<string name="filter_word_already_in_list">موجود بالفعل في القائمة</string>
+	<string name="app_update_ready">تحديث التطبيق جاهز</string>
+	<string name="app_update_version">الإصدار %s</string>
+	<string name="downloading_update">جارٍ التنزيل (%d%%)</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
+	<string name="search_mastodon">البحث في ماستدون</string>
+	<string name="clear_all">امسح الكل</string>
+	<string name="search_open_url">فتح الرابط التشعبي في ماستدون</string>
+	<string name="posts_matching_hashtag">منشورات تحتوي على “%s”</string>
+	<string name="search_go_to_account">الانتقال إلى %s</string>
+	<string name="posts_matching_string">منشورات تحتوي على “%s”</string>
+	<string name="accounts_matching_string">أشخاص لديهم \"%s\"</string>
 	<!-- Shown in the post header. Please keep it short -->
 </resources>
