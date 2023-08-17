@@ -282,14 +282,14 @@
 		<item quantity="other">%,d favoritmarkeringer</item>
 	</plurals>
 	<plurals name="x_reblogs">
-		<item quantity="one">%,d indlæg</item>
-		<item quantity="other">%,d indlæg</item>
+		<item quantity="one">%,d fremhævning</item>
+		<item quantity="other">%,d fremhævninger</item>
 	</plurals>
 	<string name="timestamp_via_app">%1$s via %2$s</string>
 	<string name="time_now">nu</string>
 	<string name="edit_history">Rediger historik</string>
 	<string name="last_edit_at_x">Senest ændret: %s</string>
-	<string name="time_just_now">lige nu</string>
+	<string name="time_just_now">netop nu</string>
 	<plurals name="x_seconds_ago">
 		<item quantity="one">%d sekund siden</item>
 		<item quantity="other">%d sekunder siden</item>
@@ -298,11 +298,11 @@
 		<item quantity="one">%d minut siden</item>
 		<item quantity="other">%d minutter siden</item>
 	</plurals>
-	<string name="edited_timestamp">redigerede %s</string>
+	<string name="edited_timestamp">redigeret %s</string>
 	<string name="edit_original_post">Oprindeligt indlæg</string>
 	<string name="edit_text_edited">Tekst redigeret</string>
 	<string name="edit_spoiler_added">Indholdsadvarsel tilføjet</string>
-	<string name="edit_spoiler_edited">Indholdsadvarsel tilføjet</string>
+	<string name="edit_spoiler_edited">Indholdsadvarsel redigeret</string>
 	<string name="edit_spoiler_removed">Indholdsadvarsel fjernet</string>
 	<string name="edit_poll_added">Afstemning tilføjet</string>
 	<string name="edit_poll_edited">Afstemning redigeret</string>
@@ -310,11 +310,11 @@
 	<string name="edit_media_added">Medier tilføjet</string>
 	<string name="edit_media_removed">Medier fjernet</string>
 	<string name="edit_media_reordered">Medie omarrangeret</string>
-	<string name="edit_marked_sensitive">Marker som følsom</string>
-	<string name="edit_marked_not_sensitive">Markeret ikke følsom</string>
+	<string name="edit_marked_sensitive">Markeret sensitivt</string>
+	<string name="edit_marked_not_sensitive">Markeret ikke-sensitivt</string>
 	<string name="edit_multiple_changed">Indlæg redigeret</string>
-	<string name="edit">Rediger</string>
-	<string name="discard_changes">Fortryd ændringer?</string>
+	<string name="edit">Redigér</string>
+	<string name="discard_changes">Kassér ændringer?</string>
 	<string name="upload_failed">Upload mislykkedes</string>
 	<string name="file_size_bytes">%d bytes</string>
 	<string name="file_size_kb">%.2f KB</string>
@@ -325,8 +325,8 @@
 	<!-- %s is version like 1.2.3 -->
 	<!-- %s is file size -->
 	<string name="download_update">Download (%s)</string>
-	<string name="install_update">Installer</string>
-	<string name="privacy_policy_title">Dit privatliv</string>
+	<string name="install_update">Installér</string>
+	<string name="privacy_policy_title">Din fortrolighed</string>
 	<string name="privacy_policy_subtitle">Selvom Mastodon-appen ikke indsamler data, kan den server du tilmelder dig gennem, have en anden politik.\n\nHvis du er uenig i politikken for %s, kan du gå tilbage og vælge en anden server.</string>
 	<string name="i_agree">Jeg accepterer</string>
 	<string name="empty_list">Denne liste er tom</string>
