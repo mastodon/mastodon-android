@@ -391,15 +391,117 @@
 	<string name="opening_link">Åbner link…</string>
 	<string name="link_not_supported">Linket er ikke understøttet i appen</string>
 	<string name="log_out_all_accounts">Log ud af alle konti</string>
+	<string name="confirm_log_out_all_accounts">Log ud af alle konti?</string>
+	<string name="retry">Forsøg igen</string>
+	<string name="post_failed">Mislykkedes at indsende indlæg</string>
 	<!-- %s is formatted file size ("467 KB image") -->
+	<string name="attachment_description_image">%s billede</string>
+	<string name="attachment_description_video">%s video</string>
+	<string name="attachment_description_audio">%s lyd</string>
+	<string name="attachment_description_unknown">%s fil</string>
+	<string name="attachment_type_image">Billede</string>
+	<string name="attachment_type_video">Video</string>
+	<string name="attachment_type_audio">Lyd</string>
+	<string name="attachment_type_gif">GIF</string>
+	<string name="attachment_type_unknown">Fil</string>
+	<string name="attachment_x_percent_uploaded">%d%% uploadet</string>
+	<string name="add_poll_option">Tilføj afstemningsmulighed</string>
+	<string name="poll_length">Afstemningslængde</string>
+	<string name="poll_style">Stil</string>
+	<string name="compose_poll_single_choice">Vælg én</string>
+	<string name="compose_poll_multiple_choice">Multivalg</string>
+	<string name="delete_poll_option">Slet afstemningsvalg</string>
+	<string name="poll_style_title">Afstemningsstil</string>
+	<string name="alt_text">Alt text</string>
+	<string name="help">Hjælp</string>
+	<string name="what_is_alt_text">Hvad er alt tekst?</string>
+	<string name="alt_text_help">Alt tekst vil sige billedbeskrivelser til personer med synshandikap, forbindelser med lav båndbredde eller dem, som søger ekstra kontekst.\n\nMan kan forbedre tilgængelighed og forståelse for alle ved at skrive klar, kortfattet og objektiv alt-tekst.\n\n<ul><li>Fang vigtige elementer</li>\n<li>Opsummér tekst i billeder</li>\n<li>Brug regulær sætningsstruktur</li>\n<li>Undgå overflødig information</li>\n<li>Fokus på tendenser og vigtige fund i kompleks grafik (såsom diagrammer/kort)</li></ul></string>
+	<string name="edit_post">Redigere opslag</string>
+	<string name="no_verified_link">Intet bekræftet link</string>
+	<string name="compose_autocomplete_emoji_empty">Gennemse emoji</string>
+	<string name="compose_autocomplete_users_empty">Find den, man leder efter</string>
+	<string name="no_search_results">Ingen resultater for disse søgeord</string>
+	<string name="language">Sprog</string>
+	<string name="language_default">Standard</string>
+	<string name="language_system">System</string>
+	<string name="language_detecting">Detektere sprog</string>
+	<string name="language_cant_detect">Kan ikke detektere sprog</string>
+	<string name="language_detected">Detekteret</string>
+	<string name="media_hidden">Medie skjult</string>
+	<string name="post_hidden">Indlæg skjult</string>
+	<string name="report_title_post">Anmeld indlæg</string>
+	<string name="forward_report_explanation">Kontoen er fra en anden server. Send også en anonymiseret kopi af anmeldelsen dertil?</string>
 	<!-- %s is the server domain -->
+	<string name="forward_report_to_server">Videresend til %s</string>
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
+	<string name="reported">Anmeldt</string>
+	<string name="report_unfollow_explanation">For ikke længere at se vedkommendes indlæg i hjemmefeedet, ophør med at følge.</string>
+	<string name="muted_user">Tavsgjorde %s</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="count_three">Tre</string>
+	<string name="count_four">Fire</string>
+	<string name="alt_text_reminder_post_anyway">Indlæg</string>
 	<!-- %s is the username -->
+	<string name="unfollow_confirmation">Følg ikke længere %s?</string>
+	<string name="filter_active">Aktiv</string>
+	<string name="filter_inactive">Inaktiv</string>
+	<string name="settings_add_filter">Tilføj filter</string>
+	<string name="settings_edit_filter">Redigér filter</string>
+	<string name="settings_filter_duration">Varighed</string>
+	<string name="settings_filter_muted_words">Tavsgjorte (skjulte) ord</string>
+	<string name="settings_filter_context">Tavsgør fra</string>
+	<string name="settings_filter_show_cw">Vis med indholdsadvarsel</string>
+	<string name="settings_filter_show_cw_explanation">Viser stadig indlæg matchende dette filter, men bag en indholdsadvarsel</string>
+	<string name="settings_delete_filter">Slet filter</string>
+	<string name="filter_duration_forever">For evigt</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="settings_filter_ends">Slutter %s</string>
+	<plurals name="settings_x_muted_words">
+		<item quantity="one">%d tavsgjort (skjult) ord/sætning</item>
+		<item quantity="other">%d tavsgjorte (skjulte) ord/sætninger</item>
+	</plurals>
+	<string name="selection_2_options">%1$s og %2$s</string>
+	<string name="selection_3_options">%1$s, %2$s og %3$s</string>
+	<string name="selection_4_or_more">%1$s, %2$s og %3$d flere</string>
+	<string name="filter_context_home_lists">Hjem og lister</string>
+	<string name="filter_context_notifications">Notifikationer</string>
+	<string name="filter_context_public_timelines">Offentlige tidslinjer</string>
+	<string name="filter_context_threads_replies">Tråde og svar</string>
+	<string name="filter_context_profiles">Profiler</string>
+	<string name="settings_filter_title">Titel</string>
+	<string name="settings_delete_filter_title">Slet filter “%s”?</string>
+	<string name="settings_delete_filter_confirmation">Dette filter slettes fra din konto på alle enheder.</string>
+	<string name="add_muted_word">Tilføj tavsgjort (skjult) ord</string>
+	<string name="edit_muted_word">Redigér tavsgjort (skjult) ord</string>
+	<string name="add">Tilføj</string>
+	<string name="filter_word_or_phrase">Ord/sætning</string>
+	<string name="filter_add_word_help">Ord er versalfølsomme og matcher kun fulde ord.\n\nFiltreres nøgleordet “Apple,” vil det skjule indlæg indeholdende “apple” eller “aPpLe”, men ikke “pineapple”.</string>
+	<string name="settings_delete_filter_word">Slet ordet “%s”?</string>
+	<string name="enter_selection_mode">Vælg</string>
+	<string name="select_all">Vælg alle</string>
+	<string name="settings_filter_duration_title">Filtervarighed</string>
+	<string name="filter_duration_custom">Tilpasset</string>
+	<plurals name="settings_delete_x_filter_words">
+		<item quantity="one">Slet %d ord?</item>
+		<item quantity="other">Slet %d ord?</item>
+	</plurals>
+	<plurals name="x_items_selected">
+		<item quantity="one">%d valgt</item>
+		<item quantity="other">%d valgt</item>
+	</plurals>
+	<string name="required_form_field_blank">Obligatorisk felt</string>
+	<string name="filter_word_already_in_list">Allerede på listen</string>
+	<string name="app_update_ready">App-opdatering klar</string>
+	<string name="app_update_version">Version %s</string>
+	<string name="downloading_update">Downloader (%d%%)</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
+	<string name="post_matches_filter_x">Matcher filter “%s”</string>
+	<string name="search_mastodon">Søg i Mastodon</string>
+	<string name="clear_all">Ryd alle</string>
+	<string name="search_open_url">Åbn URL i Mastodon</string>
+	<string name="posts_matching_hashtag">Indlæg med “%s”</string>
 	<!-- Shown in the post header. Please keep it short -->
 </resources>
