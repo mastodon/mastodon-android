@@ -339,6 +339,7 @@
 	<string name="login_title">Velkommen tilbage</string>
 	<string name="login_subtitle">Log ind med serveren, på hvilken din konto blev oprettet.</string>
 	<string name="server_url">Server-URL</string>
+	<string name="signup_random_server_explain">En server baseret på dit sprog vælges, hvis du fortsætter uden selv at vælge.</string>
 	<string name="server_filter_any_language">Hvilket som helst sprog</string>
 	<string name="server_filter_instant_signup">Øjeblikkelig tilmelding</string>
 	<string name="server_filter_manual_review">Manuel evaluering</string>
@@ -351,6 +352,7 @@
 	<string name="server_filter_region_oceania">Oceania</string>
 	<string name="not_accepting_new_members">Ikke åben for nye medlemmer</string>
 	<string name="category_special_interests">Særlige Interesser</string>
+	<string name="signup_passwords_dont_match">Adgangskoder matcher ikke</string>
 	<string name="pick_server_for_me">Vælg for mig</string>
 	<string name="profile_add_row">Tilføj række</string>
 	<string name="profile_setup">Profilopsætning</string>
@@ -359,12 +361,14 @@
 	<string name="popular_on_mastodon">Populært på Mastodon</string>
 	<string name="follow_all">Følg alle</string>
 	<string name="server_rules_disagree">Ikke enig</string>
+	<string name="privacy_policy_explanation">TL;DR: Vi indsamler eller behandler ikke noget.</string>
 	<!-- %s is server domain -->
 	<string name="server_policy_disagree">Uenig med %s</string>
 	<string name="profile_bio">Biografi</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<string name="sending_follows">Følger brugere …</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<string name="signup_email_domain_blocked">%1$s tillader ikke tilmeldinger fra %2$s. Prøv en anden eller &lt;a&gt;vælg en anden server&lt;/a&gt;.</string>
 	<string name="spoiler_show">Vis alligevel</string>
 	<string name="spoiler_hide">Genskjul</string>
 	<string name="poll_multiple_choice">Vælg en eller flere</string>
@@ -377,12 +381,16 @@
 	<string name="show">Vis</string>
 	<string name="hide">Skjul</string>
 	<string name="join_default_server">Tilmeld dig %s</string>
+	<string name="pick_server">Vælg en anden server</string>
 	<string name="signup_or_login">eller</string>
 	<string name="learn_more">Få mere at vide</string>
 	<string name="welcome_to_mastodon">Velkommen til Mastodon</string>
 	<string name="welcome_paragraph1">Mastodon er et decentraliseret socialt netværk, hvilket betyder at ingen enkelt virksomhed styrer det. Det består af mange uafhængige servere, alle forbundet sammen.</string>
 	<string name="what_are_servers">Hvad er servere?</string>
 	<string name="welcome_paragraph2"><![CDATA[Alle Mastodon-konti har plads på en server. Hver server har sine egne værdier, regler og administratorer. Ligegyldigt hvilken server du vælger, kan du følge og interagere med folk på alle andre servere.]]></string>
+	<string name="opening_link">Åbner link…</string>
+	<string name="link_not_supported">Linket er ikke understøttet i appen</string>
+	<string name="log_out_all_accounts">Log ud af alle konti</string>
 	<!-- %s is formatted file size ("467 KB image") -->
 	<!-- %s is the server domain -->
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
