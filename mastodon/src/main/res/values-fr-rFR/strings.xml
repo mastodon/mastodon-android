@@ -460,17 +460,37 @@
 	<string name="settings_hide_sensitive_media">Cacher les médias marqués comme sensibles</string>
 	<string name="settings_show_interaction_counts">Compteurs d\'interaction de publication</string>
 	<string name="settings_show_emoji_in_names">Émoticônes personnalisées dans les noms</string>
+	<plurals name="in_x_seconds">
+		<item quantity="one">dans %d secondes</item>
+		<item quantity="other">dans %d secondes</item>
+	</plurals>
+	<plurals name="in_x_minutes">
+		<item quantity="one">dans %d minute</item>
+		<item quantity="other">dans %d minutes</item>
+	</plurals>
+	<plurals name="in_x_hours">
+		<item quantity="one">dans %d heure</item>
+		<item quantity="other">dans %d heures</item>
+	</plurals>
+	<plurals name="x_hours_ago">
+		<item quantity="one">Il y a %d heure</item>
+		<item quantity="other">Il y a %d heures</item>
+	</plurals>
 	<string name="alt_text_reminder_title">Texte alternatif manquant pour les médias</string>
 	<string name="count_one">Un</string>
 	<string name="count_two">Deux</string>
 	<string name="count_three">Trois</string>
 	<string name="count_four">Quatre</string>
+	<string name="alt_text_reminder_post_anyway">Publier</string>
 	<!-- %s is the username -->
 	<string name="unfollow_confirmation">Ne plus suivre %s ?</string>
+	<string name="filter_active">Actif</string>
+	<string name="filter_inactive">Désactivé</string>
 	<string name="settings_add_filter">Ajouter un filtre</string>
 	<string name="settings_edit_filter">Modifier le filtre</string>
 	<string name="settings_filter_duration">Durée</string>
 	<string name="settings_filter_muted_words">Mots masqués</string>
+	<string name="settings_delete_filter">Supprimer le filtre</string>
 	<string name="filter_duration_forever">Toujours</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<string name="selection_2_options">%1$s et %2$s</string>
@@ -498,7 +518,10 @@
 	<string name="search_mastodon">Rechercher sur Mastodon</string>
 	<string name="clear_all">Effacer tout</string>
 	<string name="search_open_url">Ouvrir l\'URL dans Mastodon</string>
+	<string name="posts_matching_hashtag">Publications ayant « %s »</string>
 	<string name="search_go_to_account">Aller à %s</string>
+	<string name="posts_matching_string">Publications ayant « %s »</string>
+	<string name="accounts_matching_string">Personnes ayant « %s »</string>
 	<!-- Shown in the post header. Please keep it short -->
 	<string name="time_seconds_ago_short">il y a %ds</string>
 	<string name="time_minutes_ago_short">il y a %dm</string>
