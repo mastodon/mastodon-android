@@ -187,6 +187,10 @@
 	<string name="report_sent_subtitle">في أثناء مراجعتنا للبلاغ، يمكنك اتخاذ إجراء ضد %s:</string>
 	<string name="unfollow_user">ألغ متابعة %s</string>
 	<string name="unfollow">ألغ المتابعة</string>
+	<string name="mute_user_explain">لن ترى مشاركاتهم. لكن لا يزال بإمكانهم متابعتك ورؤية مشاركاتك ولن يعرفوا أنه تم كتم صوتها.</string>
+	<string name="block_user_explain">لن ترى مشاركاتهم. ولن يتمكنوا من رؤية مشاركاتك أو متابعتك. سيكونون قادرين على معرفة أنهم محظورون.</string>
+	<string name="report_personal_title">لا تريد أن ترى هذا؟</string>
+	<string name="report_personal_subtitle">فيما يلي خياراتك للتحكم بما يُعرَض عليك في ماستدون:</string>
 	<string name="back">العودة</string>
 	<string name="search_communities">اسم الخادم أو عنوان URL</string>
 	<string name="instance_rules_title">قواعد الخادم</string>
@@ -213,6 +217,7 @@
 	<string name="category_tech">تقني</string>
 	<string name="confirm_email_title">تحقق من صندوق الوارد الخاص بك</string>
 	<!-- %s is the email address -->
+	<string name="confirm_email_subtitle">اضغط على الرابط الذي أرسلناه إليك للتحقق من %s. سننتظر هنا.</string>
 	<string name="confirm_email_didnt_get">ألم تحصل على رابط؟</string>
 	<string name="resend">أعد الإرسال</string>
 	<string name="open_email_app">افتح تطبيق البريد الإلكتروني</string>
@@ -250,6 +255,7 @@
 	<string name="settings_app_version">تطبيق ماستدون لأندرويد نسخة %1$s (%2$d)</string>
 	<string name="media_cache_cleared">مُسح التخزين المؤقت للوسائط</string>
 	<string name="confirm_log_out">تسجيل الخروج من %s؟</string>
+	<string name="sensitive_content_explain">وصف المؤلف هذه الوسائط بأنها حساسة.</string>
 	<string name="avatar_description">انتقل إلى الصفحة الشخصية لـ %s</string>
 	<string name="more_options">مزيد من الخيارات</string>
 	<string name="new_post">منشور جديد</string>
@@ -266,6 +272,7 @@
 	<string name="media_viewer">عارض الوسائط</string>
 	<string name="follow_user">تابع %s</string>
 	<string name="unfollowed_user">ألغ متابعة %s</string>
+	<string name="followed_user">أنت تتابع الآن %s</string>
 	<string name="following_user_requested">طَلَبَ %s مُتابَعتك</string>
 	<string name="open_in_browser">افتح في المتصفح</string>
 	<string name="hide_boosts_from_user">اخف مشاركات %s</string>
@@ -283,8 +290,13 @@
 	<string name="error_saving_file">خطأ أثناء حفظ الملف</string>
 	<string name="file_saved">حُفظ الملف</string>
 	<string name="downloading">ينزّل…</string>
+	<string name="no_app_to_handle_action">لا يوجد تطبيق لمعالجة هذا الإجراء</string>
 	<string name="local_timeline">المحلي</string>
+	<string name="trending_posts_info_banner">هذه هي المشاركات التي تكتسب شعبية عبر ماستدون.</string>
+	<string name="trending_links_info_banner">هذه هي القصص الإخبارية التي يُتحدّث عنها على ماستدون.</string>
 	<!-- %s is the server domain -->
+	<string name="local_timeline_info_banner">هذه هي جميع المشاركات من جميع المستخدمين في الخادم الخاص بك (%s).</string>
+	<string name="recommended_accounts_info_banner">قد تعجبك هذه الحسابات استنادا إلى حسابات أخرى تتابعها.</string>
 	<string name="see_new_posts">استعرض المنشورات الجديدة</string>
 	<string name="load_missing_posts">حمّل المَنشورات المَفقودَة</string>
 	<string name="follow_back">رُدّ المتابعة</string>
@@ -400,17 +412,21 @@
 	<string name="popular_on_mastodon">مشهور على ماستدون</string>
 	<string name="follow_all">اتبع الكل</string>
 	<string name="server_rules_disagree">لا أوافق</string>
+	<string name="privacy_policy_explanation">بالمختصر: نحن لا نجمع أو نعالج أي شيء.</string>
 	<!-- %s is server domain -->
 	<string name="server_policy_disagree">لا أوافق %s</string>
 	<string name="profile_bio">نبذة عنك</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<string name="sending_follows">متابعة المستخدمين…</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<string name="signup_email_domain_blocked">%1$s لا يسمح بالاشتراكات من %2$s. جرب خادما واحدا أو &lt;a&gt;اختر خادما مختلفا&lt;/a&gt;.</string>
 	<string name="spoiler_show">إظهاره على أي حال</string>
 	<string name="spoiler_hide">إعادة الإخفاء</string>
+	<string name="poll_multiple_choice">اختر واحدا أو أكثر</string>
 	<string name="save_changes">حفظ التغييرات</string>
 	<string name="profile_featured">المميزة</string>
 	<string name="profile_timeline">الخيط</string>
+	<string name="view_all">عرض الكل</string>
 	<string name="profile_endorsed_accounts">الحسابات</string>
 	<string name="verified_link">رابط متحقق منه</string>
 	<string name="show">إظهار</string>
@@ -422,9 +438,13 @@
 	<string name="welcome_to_mastodon">أهلًا بك على ماستدون</string>
 	<string name="welcome_paragraph1">ماستدون شبكة اجتماعية لامركزية، بمعنى أنه ليس هناك شركة واحدة تتحكم فيها. وهي تتألف من العديد من الخوادم التي تدار بشكل مستقل، وجميعها متصلة معا.</string>
 	<string name="what_are_servers">ما هي الخوادم؟</string>
+	<string name="welcome_paragraph2"><![CDATA[تتم استضافة كل حساب ماستدون على خادم - ولكل منها قيمه وقواعده ومسؤوليه الخاصين. بغض النظر عن الشخص الذي تختاره ، يمكنك متابعة الأشخاص والتفاعل معهم على أي خادم.]]></string>
+	<string name="opening_link">رابط الافتتاح…</string>
+	<string name="link_not_supported">هذا الرابط غير مدعوم في التطبيق</string>
 	<string name="log_out_all_accounts">تسجيل الخروج من جميع الحسابات</string>
 	<string name="confirm_log_out_all_accounts">أتريد تسجيل الخروج من جميع الحسابات؟</string>
 	<string name="retry">حاول مجددًا</string>
+	<string name="post_failed">أخفق في الإرسال</string>
 	<!-- %s is formatted file size ("467 KB image") -->
 	<string name="attachment_description_image">صورة %s</string>
 	<string name="attachment_description_video">فيديو %s</string>
@@ -435,6 +455,7 @@
 	<string name="attachment_type_audio">مقطع صوتي</string>
 	<string name="attachment_type_gif">GIF</string>
 	<string name="attachment_type_unknown">ملف</string>
+	<string name="attachment_x_percent_uploaded">%d%% تم الرفع</string>
 	<string name="add_poll_option">إضافة خيار للاستطلاع</string>
 	<string name="poll_length">مدة الاستطلاع</string>
 	<string name="poll_style">النوع</string>
@@ -445,16 +466,22 @@
 	<string name="alt_text">نص بديل</string>
 	<string name="help">المساعدة</string>
 	<string name="what_is_alt_text">ما هو النص البديل؟</string>
+	<string name="alt_text_help">يوفر النص البديل أوصافا للصور للأشخاص الذين يعانون من إعاقات بصرية أو اتصالات ذات نطاق ترددي منخفض أو أولئك الذين يبحثون عن سياق إضافي.\n\nيمكنك تحسين إمكانية الوصول والفهم للجميع من خلال كتابة نص بديل واضح وموجز وموضوعي.\n\n التقاط العناصر المهمة\n<ul><li>تلخيص النص في الصور</li>\n<li>استخدام بنية الجملة العادية</li>\n<li>تجنب المعلومات الزائدة</li>\n<li>التركيز على الاتجاهات والنتائج الرئيسية في العناصر المرئية المعقدة (مثل الرسوم البيانية أو الخرائط)</li><li></li></ul></string>
 	<string name="edit_post">تعديل المنشور</string>
 	<string name="no_verified_link">لم يتم التحقق من الرابط</string>
 	<string name="compose_autocomplete_emoji_empty">تصفح الرموز التعبيرية</string>
+	<string name="compose_autocomplete_users_empty">العثور على الأشخاص الذين تبحث عنهم</string>
+	<string name="no_search_results">تعذر العثور على أي نتائج لمصطلحات البحث هذه</string>
 	<string name="language">اللغة</string>
 	<string name="language_default">الافتراضية</string>
 	<string name="language_system">النظام</string>
 	<string name="language_detecting">اكتشاف اللغة</string>
 	<string name="language_cant_detect">تعذر اكتشاف اللغة</string>
+	<string name="language_detected">الكشف عن</string>
 	<string name="media_hidden">وسائط مخفية</string>
 	<string name="post_hidden">منشور مخفي</string>
+	<string name="report_title_post">الإبلاغ عن المنشور</string>
+	<string name="forward_report_explanation">الحساب من خادم آخر. هل تودّ إرسال نسخة مجهولة المصدر من هذا التقرير هناك أيضا؟</string>
 	<!-- %s is the server domain -->
 	<string name="forward_report_to_server">تحويله إلى %s</string>
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
