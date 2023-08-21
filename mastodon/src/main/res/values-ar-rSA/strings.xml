@@ -10,6 +10,11 @@
 	<string name="finishing_auth">يُنهي المصادقة…</string>
 	<string name="in_reply_to">ردًا على %s</string>
 	<string name="notifications">الإشعارات</string>
+	<string name="user_followed_you">%s بَدَأ بِمُتابَعَتِك</string>
+	<string name="user_sent_follow_request">%s أرسَلَ طَلَبًا لِمُتابَعَتِك</string>
+	<string name="user_favorited">%s أعجَبه منشورك</string>
+	<string name="notification_boosted">قام %s بإعادة نشر منشورك</string>
+	<string name="poll_ended">الاطلاع على نتائج استطلاع الرأي الذي صوّت فيه</string>
 	<string name="share_toot_title">شارك</string>
 	<string name="settings">الإعدادات</string>
 	<string name="publish">انشر</string>
@@ -160,6 +165,8 @@
 		<item quantity="other">%d شخص يتحدثون</item>
 	</plurals>
 	<string name="report_title">بلّغ عن %s</string>
+	<string name="report_choose_reason">ما المُشكِلَةُ فِي هَذَا المَنشُور؟</string>
+	<string name="report_choose_reason_account">ما المُشكِلَة مَعَ %s؟</string>
 	<string name="report_choose_reason_subtitle">اختر أفضل تطابق</string>
 	<string name="report_reason_personal">لا يعجبني</string>
 	<string name="report_reason_personal_subtitle">ألا ترغب برؤيته</string>
@@ -167,6 +174,7 @@
 	<string name="report_reason_spam_subtitle">روابط خبيثة أو تفاعل كاذب أو ردود متكررة</string>
 	<string name="report_reason_violation">ينتهك قواعد الخادم</string>
 	<string name="report_reason_violation_subtitle">تعلم أنه ينتهك قواعد محددة</string>
+	<string name="report_reason_other">إنَّهُ شَيءٌ آخَر</string>
 	<string name="report_reason_other_subtitle">لا تندرج هذه المشكلة ضمن فئات أخرى</string>
 	<string name="report_choose_rule">ما هي القواعد المنتهكة؟</string>
 	<string name="report_choose_rule_subtitle">اختر كل ما ينطبق</string>
@@ -175,6 +183,8 @@
 	<string name="report_comment_title">هل لديك شيء آخر لتخبرنا به؟</string>
 	<string name="report_comment_hint">تعليقات إضافية</string>
 	<string name="sending_report">يرسل البلاغ…</string>
+	<string name="report_sent_title">شُكرًا لَكَ على الإبلاغ، سَوفَ نتحرى عن الأمر.</string>
+	<string name="report_sent_subtitle">في أثناء مراجعتنا للبلاغ، يمكنك اتخاذ إجراء ضد %s:</string>
 	<string name="unfollow_user">ألغ متابعة %s</string>
 	<string name="unfollow">ألغ المتابعة</string>
 	<string name="back">العودة</string>
