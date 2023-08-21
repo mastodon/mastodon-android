@@ -530,19 +530,29 @@
 	<string name="settings_even_more">المزيد من الإعدادات</string>
 	<string name="settings_show_cws">إظهار تحذيرات المحتوى</string>
 	<string name="settings_hide_sensitive_media">فلرتة الوسائط التي تم وضع علامة عليها على أنها حساسة</string>
+	<string name="settings_show_interaction_counts">عدد التفاعل مع المنشورات</string>
+	<string name="settings_show_emoji_in_names">رموز تعبيرية مخصصة في أسماء العرض</string>
 	<string name="alt_text_reminder_title">تفتقد الوسائط إلى نص بديل</string>
 	<string name="count_one">واحد</string>
 	<string name="count_two">اثنان</string>
 	<string name="count_three">ثلاثة</string>
 	<string name="count_four">أربعة</string>
+	<string name="alt_text_reminder_post_anyway">مَنشور</string>
 	<!-- %s is the username -->
 	<string name="unfollow_confirmation">أتريد إلغاء متابعة %s؟</string>
+	<string name="filter_active">نشِط</string>
+	<string name="filter_inactive">خامل</string>
 	<string name="settings_add_filter">إضافة عامل تصفية</string>
 	<string name="settings_edit_filter">تعديل عامل التصفية</string>
 	<string name="settings_filter_duration">المدة</string>
+	<string name="settings_filter_muted_words">الكلمات المحظورة</string>
+	<string name="settings_filter_context">كتم الصوت من</string>
+	<string name="settings_filter_show_cw">عرض مع تحذير المحتوى</string>
+	<string name="settings_filter_show_cw_explanation">الاستمرار في عرض المشاركات التي تطابق هذا الفلتر، ولكن خلف تحذير حول المحتوى</string>
 	<string name="settings_delete_filter">حذف عامل التصفية</string>
 	<string name="filter_duration_forever">إلى الأبد</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="settings_filter_ends">ينتهي %s</string>
 	<string name="selection_2_options">%1$s و %2$s</string>
 	<string name="selection_3_options">%1$s و %2$s و %3$s</string>
 	<string name="filter_context_home_lists">الخيط الزمني الرئيسي والقوائم</string>
@@ -551,10 +561,16 @@
 	<string name="filter_context_threads_replies">سلاسل المحادثات والردود</string>
 	<string name="filter_context_profiles">الصفحات التعريفية</string>
 	<string name="settings_filter_title">العنوان</string>
+	<string name="settings_delete_filter_confirmation">سيتم حذف هذا الفلتر من حسابك على جميع الأجهزة.</string>
+	<string name="add_muted_word">إضافة كلمة مكتومة</string>
+	<string name="edit_muted_word">تحرير كلمة مكتومة</string>
 	<string name="add">إضافة</string>
 	<string name="filter_word_or_phrase">كلمة أو عبارة</string>
+	<string name="filter_add_word_help">الكلمات غير حساسة لحالة الأحرف وتتطابق مع الكلمات الكاملة فقط.\n\nإذا قمت بتصفية الكلمة الرئيسية \"Apple\" ، فستخفي المشاركات التي تحتوي على \"apple\" أو \"aPpLe\" ولكن ليس \"pineapple.\"</string>
+	<string name="settings_delete_filter_word">حذف الكلمة \"%s\"؟</string>
 	<string name="enter_selection_mode">اختر</string>
 	<string name="select_all">اختيار الكل</string>
+	<string name="settings_filter_duration_title">مدة التصفية</string>
 	<string name="filter_duration_custom">مخصص</string>
 	<string name="required_form_field_blank">لا يمكن أن يكون فارغاً</string>
 	<string name="filter_word_already_in_list">موجود بالفعل في القائمة</string>
@@ -562,6 +578,7 @@
 	<string name="app_update_version">الإصدار %s</string>
 	<string name="downloading_update">جارٍ التنزيل (%d%%)</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
+	<string name="post_matches_filter_x">تطابق عامل التصفية \"%s\"</string>
 	<string name="search_mastodon">البحث في ماستدون</string>
 	<string name="clear_all">امسح الكل</string>
 	<string name="search_open_url">فتح الرابط التشعبي في ماستدون</string>
@@ -570,4 +587,8 @@
 	<string name="posts_matching_string">منشورات تحتوي على “%s”</string>
 	<string name="accounts_matching_string">أشخاص لديهم \"%s\"</string>
 	<!-- Shown in the post header. Please keep it short -->
+	<string name="time_seconds_ago_short">مُنذُ %dث</string>
+	<string name="time_minutes_ago_short">مُنذُ %dش</string>
+	<string name="time_hours_ago_short">مُنذُ %dس</string>
+	<string name="time_days_ago_short">مُنذُ %dي</string>
 </resources>
