@@ -486,32 +486,50 @@
 	<string name="forward_report_to_server">تحويله إلى %s</string>
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
 	<string name="reported">تم الإبلاغ عنه</string>
+	<string name="report_unfollow_explanation">لعدم رؤية مشاركاتهم في خلاصة ملخصك بعد الآن، ألغِ متابعتهم.</string>
+	<string name="muted_user">كتم %s</string>
+	<string name="report_sent_already_blocked">لقد حظرت هذا المستخدم من قبل، لذلك لا يوجد شيء آخر عليك القيام به خلال مراجعة بلاغك.</string>
+	<string name="report_personal_already_blocked">لقد قمت بالفعل بحظر هذا المستخدم، لذلك لا يوجد شيء آخر عليك القيام به.\n\nشكرا للمساعدة في الحفاظ على ماستدون مكانا آمنا للجميع!</string>
+	<string name="blocked_user">حظر %s</string>
+	<string name="mark_all_notifications_read">اعتبار الكل كمقروء</string>
+	<string name="settings_display">الشاشة</string>
 	<string name="settings_filters">عوامل التصفية</string>
 	<string name="settings_server_explanation">نظرة عامة وقواعد ومشرفين</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">عن %s</string>
 	<string name="default_post_language">اللغة الافتراضية للمنشور</string>
 	<string name="settings_alt_text_reminders">إضافة تذكير بالنصوص البديلة</string>
+	<string name="settings_confirm_unfollow">السؤال قبل إلغاء متابعة شخص ما</string>
+	<string name="settings_confirm_boost">اسأل قبل إعادة النشر</string>
+	<string name="settings_confirm_delete_post">السؤال قبل حذف المشاركات</string>
+	<string name="pause_all_notifications">إيقاف الكل</string>
+	<string name="pause_notifications_off">إيقاف</string>
 	<string name="notifications_policy_anyone">أيا كان</string>
+	<string name="notifications_policy_followed">الأشخاص الذين تتابعهم</string>
 	<string name="notifications_policy_follower">الأشخاص الذين تتابعهم</string>
 	<string name="notifications_policy_no_one">لا أحد</string>
 	<string name="settings_notifications_policy">تلقي الإشعارات من</string>
 	<string name="notification_type_mentions_and_replies">الإشارات والردود</string>
 	<string name="pause_all_notifications_title">إيقاف جميع الإشعارات مؤقتًا</string>
 	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
+	<string name="date_at_time">%1$s في %2$s</string>
 	<string name="today">اليوم</string>
 	<string name="yesterday">أمس</string>
 	<string name="tomorrow">غدًا</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="pause_notifications_ends">ينتهي %s</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="pause_notifications_banner">سيتم استئناف الإشعارات %s.</string>
 	<string name="resume_notifications_now">استأنف الآن</string>
 	<string name="open_system_notification_settings">الانتقال إلى إعدادات الإشعارات</string>
 	<string name="about_server">عن</string>
 	<string name="server_rules">القواعد</string>
 	<string name="server_administrator">المدير</string>
 	<string name="send_email_to_server_admin">للاتصال بالمدير</string>
+	<string name="notifications_disabled_in_system">شغل الإشعارات من إعدادات جهازك لرؤية التحديثات من أي مكان.</string>
 	<string name="settings_even_more">المزيد من الإعدادات</string>
 	<string name="settings_show_cws">إظهار تحذيرات المحتوى</string>
+	<string name="settings_hide_sensitive_media">فلرتة الوسائط التي تم وضع علامة عليها على أنها حساسة</string>
 	<string name="alt_text_reminder_title">تفتقد الوسائط إلى نص بديل</string>
 	<string name="count_one">واحد</string>
 	<string name="count_two">اثنان</string>
