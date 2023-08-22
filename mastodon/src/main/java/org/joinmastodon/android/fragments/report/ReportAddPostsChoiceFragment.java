@@ -100,7 +100,6 @@ public class ReportAddPostsChoiceFragment extends StatusListFragment{
 			selectedIDs.remove(id);
 		else
 			selectedIDs.add(id);
-		btn.setEnabled(!selectedIDs.isEmpty());
 		CheckableHeaderStatusDisplayItem.Holder holder=findHolderOfType(id, CheckableHeaderStatusDisplayItem.Holder.class);
 		if(holder!=null)
 			holder.rebind();
@@ -110,7 +109,6 @@ public class ReportAddPostsChoiceFragment extends StatusListFragment{
 	public void onViewCreated(View view, Bundle savedInstanceState){
 		super.onViewCreated(view, savedInstanceState);
 		btn=view.findViewById(R.id.btn_next);
-		btn.setEnabled(!selectedIDs.isEmpty());
 		btn.setOnClickListener(this::onButtonClick);
 		buttonBar=view.findViewById(R.id.button_bar);
 
