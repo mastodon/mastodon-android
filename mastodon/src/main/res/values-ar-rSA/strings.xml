@@ -44,7 +44,7 @@
 	<string name="profile_about">حَول</string>
 	<string name="button_follow">تابِع</string>
 	<string name="button_following">مُتابَع</string>
-	<string name="edit_profile">حرّر الملف الشخصي</string>
+	<string name="edit_profile">تعديل الملف الشخصي</string>
 	<string name="share_user">شارك الصفحة الشخصية</string>
 	<string name="mute_user">كَتمُ %s</string>
 	<string name="unmute_user">إلغاء الكَتم عن @%s</string>
@@ -247,6 +247,14 @@
 	<string name="notification_type_poll">استطلاع رأي</string>
 	<string name="choose_account">اختر حسابًا</string>
 	<string name="err_not_logged_in">يرجى تسجيل الدخول إلى حساب ماستدون أولًا</string>
+	<plurals name="cant_add_more_than_x_attachments">
+		<item quantity="zero">لا يمكن إرفاق أكثر من ملف واحد</item>
+		<item quantity="one">لا يمكن إرفاق أكثر من ملف واحد</item>
+		<item quantity="two">لا يمكنك إرفاق أكثر من %d ملفين</item>
+		<item quantity="few">لا يمكن إرفاق أكثر من %d ملفات</item>
+		<item quantity="many">لا يمكن إرفاق أكثر من %d ملفات</item>
+		<item quantity="other">لا يمكن إرفاق أكثر من %d ملف</item>
+	</plurals>
 	<string name="media_attachment_unsupported_type">نوع الملف %s غير مدعوم</string>
 	<string name="media_attachment_too_big">الملف %1$s يتجاوز حدّ %2$s مب</string>
 	<string name="settings_theme">المظهر</string>
@@ -336,6 +344,14 @@
 		<item quantity="few">%,d تفضيلات</item>
 		<item quantity="many">%,d تفضيلًا</item>
 		<item quantity="other">%,d تفضيل</item>
+	</plurals>
+	<plurals name="x_reblogs">
+		<item quantity="zero">%,d إعادة نشر</item>
+		<item quantity="one">إعادة نشر واحدة</item>
+		<item quantity="two">أعيد نشره مرّتان</item>
+		<item quantity="few">أعيد نشره %,d مرة</item>
+		<item quantity="many">أعيد نشره %,d مرات</item>
+		<item quantity="other">أعيد نشره %,d مرات</item>
 	</plurals>
 	<string name="timestamp_via_app">%1$s عبر %2$s</string>
 	<string name="time_now">الآن</string>
@@ -582,6 +598,22 @@
 		<item quantity="other">منذ %d ساعات</item>
 	</plurals>
 	<string name="alt_text_reminder_title">تفتقد الوسائط إلى نص بديل</string>
+	<plurals name="alt_text_reminder_x_images">
+		<item quantity="zero">%s من صورك يفتقر إلى نص بديل. أتردد النشر على أي حال؟</item>
+		<item quantity="one">%s من صورك يفتقر إلى نص بديل. أتردد النشر على أي حال؟</item>
+		<item quantity="two">%s من صورك يفتقر إلى نص بديل. أتردد النشر على أي حال؟</item>
+		<item quantity="few">%s من صورك يفتقر إلى نص بديل. أتردد النشر على أي حال؟</item>
+		<item quantity="many">%s من صورك يفتقر إلى نص بديل. أتردد النشر على أي حال؟</item>
+		<item quantity="other">%s من صورك يفتقر إلى نص بديل. أتردد النشر على أي حال؟</item>
+	</plurals>
+	<plurals name="alt_text_reminder_x_attachments">
+		<item quantity="zero">%s من مرفقات الوسائط الخاصة بك يفتقر لنص بديل. نشر على أي حال؟</item>
+		<item quantity="one">%s من مرفقات الوسائط الخاصة بك يفتقر لنص بديل. نشر على أي حال؟</item>
+		<item quantity="two">%s من مرفقات الوسائط الخاصة بك يفتقر لنص بديل. نشر على أي حال؟</item>
+		<item quantity="few">%s من مرفقات الوسائط الخاصة بك يفتقر لنص بديل. نشر على أي حال؟</item>
+		<item quantity="many">%s من مرفقات الوسائط الخاصة بك يفتقر لنص بديل. نشر على أي حال؟</item>
+		<item quantity="other">%s من مرفقات الوسائط الخاصة بك يفتقر لنص بديل. نشر على أي حال؟</item>
+	</plurals>
 	<string name="count_one">واحد</string>
 	<string name="count_two">اثنان</string>
 	<string name="count_three">ثلاثة</string>
@@ -602,6 +634,14 @@
 	<string name="filter_duration_forever">إلى الأبد</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<string name="settings_filter_ends">ينتهي %s</string>
+	<plurals name="settings_x_muted_words">
+		<item quantity="zero">%d كلمة أو عبارة مكتومة</item>
+		<item quantity="one">%d كلمة أو عبارة مكتومة</item>
+		<item quantity="two">%d كلمتان أو عبارتان مكتومتان</item>
+		<item quantity="few">%d كلمة أو عبارة مكتومة</item>
+		<item quantity="many">%d كلمة أو عبارة مكتومة</item>
+		<item quantity="other">%d كلمة أو عبارة مكتومة</item>
+	</plurals>
 	<string name="selection_2_options">%1$s و %2$s</string>
 	<string name="selection_3_options">%1$s و %2$s و %3$s</string>
 	<string name="selection_4_or_more">%1$s, %2$s, و %3$d والمزيد</string>
