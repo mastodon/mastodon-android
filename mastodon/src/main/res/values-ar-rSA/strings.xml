@@ -125,6 +125,14 @@
 		<item quantity="many">تبقى %d يومًا</item>
 		<item quantity="other">تبقى %d يوم</item>
 	</plurals>
+	<plurals name="x_votes">
+		<item quantity="zero">%,d صوت</item>
+		<item quantity="one">%,d صوت واحد</item>
+		<item quantity="two">صوتين</item>
+		<item quantity="few">%,d أصوات</item>
+		<item quantity="many">%,d صوتا</item>
+		<item quantity="other">%,d صوتا</item>
+	</plurals>
 	<string name="poll_closed">انتهى</string>
 	<string name="confirm_mute_title">اكتم الحساب</string>
 	<string name="confirm_mute">أكّد كتم %s</string>
@@ -512,6 +520,14 @@
 	<string name="settings_notifications_policy">تلقي الإشعارات من</string>
 	<string name="notification_type_mentions_and_replies">الإشارات والردود</string>
 	<string name="pause_all_notifications_title">إيقاف جميع الإشعارات مؤقتًا</string>
+	<plurals name="x_weeks">
+		<item quantity="zero">%d أسبوع</item>
+		<item quantity="one">أسبوع واحد</item>
+		<item quantity="two">أسبوعان</item>
+		<item quantity="few">%d أسابيع</item>
+		<item quantity="many">%d أسبوعًا</item>
+		<item quantity="other">%d أسابيع</item>
+	</plurals>
 	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
 	<string name="date_at_time">%1$s في %2$s</string>
 	<string name="today">اليوم</string>
@@ -533,6 +549,38 @@
 	<string name="settings_hide_sensitive_media">فلرتة الوسائط التي تم وضع علامة عليها على أنها حساسة</string>
 	<string name="settings_show_interaction_counts">عدد التفاعل مع المنشورات</string>
 	<string name="settings_show_emoji_in_names">رموز تعبيرية مخصصة في أسماء العرض</string>
+	<plurals name="in_x_seconds">
+		<item quantity="zero">في %d ثانية</item>
+		<item quantity="one">في ثانية واحدة</item>
+		<item quantity="two">في ثانيتين</item>
+		<item quantity="few">في %d ثوانٍ</item>
+		<item quantity="many">في %d ثانية</item>
+		<item quantity="other">في %d ثوان</item>
+	</plurals>
+	<plurals name="in_x_minutes">
+		<item quantity="zero">في %d دقيقة</item>
+		<item quantity="one">في دقيقة واحدة</item>
+		<item quantity="two">في دقيقتين</item>
+		<item quantity="few">في %d دقائق</item>
+		<item quantity="many">في %d دقيقة</item>
+		<item quantity="other">في %d دقائق</item>
+	</plurals>
+	<plurals name="in_x_hours">
+		<item quantity="zero">في %d ساعة</item>
+		<item quantity="one">خلال ساعة واحدة</item>
+		<item quantity="two">خلال ساعتان</item>
+		<item quantity="few">خلال %d ساعات</item>
+		<item quantity="many">خلال %d ساعة</item>
+		<item quantity="other">خلال %d ساعات</item>
+	</plurals>
+	<plurals name="x_hours_ago">
+		<item quantity="zero">منذ %d ساعات</item>
+		<item quantity="one">منذ ساعة واحدة</item>
+		<item quantity="two">منذ ساعتان</item>
+		<item quantity="few">منذ %d ساعات</item>
+		<item quantity="many">منذ %d ساعة</item>
+		<item quantity="other">منذ %d ساعات</item>
+	</plurals>
 	<string name="alt_text_reminder_title">تفتقد الوسائط إلى نص بديل</string>
 	<string name="count_one">واحد</string>
 	<string name="count_two">اثنان</string>
@@ -575,6 +623,22 @@
 	<string name="select_all">اختيار الكل</string>
 	<string name="settings_filter_duration_title">مدة التصفية</string>
 	<string name="filter_duration_custom">مخصص</string>
+	<plurals name="settings_delete_x_filter_words">
+		<item quantity="zero">حذف %d كلمات؟</item>
+		<item quantity="one">حذف كلمة واحدة؟</item>
+		<item quantity="two">حذف كلمتان؟</item>
+		<item quantity="few">حذف %d كلمات؟</item>
+		<item quantity="many">حذف %d كلمة؟</item>
+		<item quantity="other">حذف %d كلمات؟</item>
+	</plurals>
+	<plurals name="x_items_selected">
+		<item quantity="zero">تم تحديد %d</item>
+		<item quantity="one">تم تحديد %d</item>
+		<item quantity="two">%d تم تحديدها</item>
+		<item quantity="few">%d تم تحديدها</item>
+		<item quantity="many">%d تم تحديدها</item>
+		<item quantity="other">%d تم تحديدها</item>
+	</plurals>
 	<string name="required_form_field_blank">لا يمكن أن يكون فارغاً</string>
 	<string name="filter_word_already_in_list">موجود بالفعل في القائمة</string>
 	<string name="app_update_ready">تحديث التطبيق جاهز</string>
