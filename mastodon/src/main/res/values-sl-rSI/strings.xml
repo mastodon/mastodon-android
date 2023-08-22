@@ -15,6 +15,7 @@
 	<string name="user_sent_follow_request">%s vam je poslal_a zahtevo za sledenje</string>
 	<string name="user_favorited">%s je vzljubil/a vašo objavo</string>
 	<string name="notification_boosted">%s je izpostavila/a vašo objavo</string>
+	<string name="poll_ended">Pokaži rezultate ankete, v kateri sem sodeloval_a</string>
 	<string name="share_toot_title">Deli</string>
 	<string name="settings">Nastavitve</string>
 	<string name="publish">Objavi</string>
@@ -40,6 +41,7 @@
 	<string name="button_follow">Sledi</string>
 	<string name="button_following">Sledi</string>
 	<string name="edit_profile">Uredi profil</string>
+	<string name="share_user">Profil v skupno rabo</string>
 	<string name="mute_user">Utišaj %s</string>
 	<string name="unmute_user">Odtišaj %s</string>
 	<string name="block_user">Blokiraj %s</string>
@@ -206,6 +208,7 @@
 	<string name="visibility_public">Javno</string>
 	<string name="visibility_followers_only">Samo sledilci</string>
 	<string name="visibility_private">Samo osebe, ki jih omenjam</string>
+	<string name="recent_searches">Nedavno</string>
 	<string name="skip">Preskoči</string>
 	<string name="notification_type_follow">Novi sledilci</string>
 	<string name="notification_type_favorite">Priljubljeni</string>
@@ -230,6 +233,8 @@
 	<string name="settings_clear_cache">Počisti medijski predpomnilnik</string>
 	<string name="settings_app_version">Mastodon za Android v%1$s (%2$d)</string>
 	<string name="media_cache_cleared">Predpomnilnik medijev počiščen</string>
+	<string name="confirm_log_out">Ali se želite odjaviti iz %s?</string>
+	<string name="sensitive_content_explain">Avtor je to vsebino označil kot občutljivo.</string>
 	<string name="avatar_description">Pojdi na profil %s</string>
 	<string name="more_options">Več možnosti</string>
 	<string name="new_post">Nova objava</string>
@@ -265,6 +270,7 @@
 	<string name="file_saved">Datoteka shranjena</string>
 	<string name="downloading">Prejemanje …</string>
 	<string name="no_app_to_handle_action">Ni programa za ravnanje s tem dejanjem</string>
+	<string name="local_timeline">Krajevno</string>
 	<string name="trending_posts_info_banner">To so objave, ki plenijo pozornost po Mastodonu.</string>
 	<!-- %s is the server domain -->
 	<string name="see_new_posts">Pokaži nove objave</string>
@@ -424,8 +430,13 @@
 	<string name="mark_all_notifications_read">Označi vse kot prebrano</string>
 	<string name="settings_filters">Filtri</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
+	<string name="about_app">O programu %s</string>
 	<string name="default_post_language">Privzeti jezik objave</string>
+	<string name="pause_all_notifications">Premor za vse</string>
+	<string name="pause_notifications_off">Izklopljeno</string>
 	<string name="notifications_policy_no_one">Nihče</string>
+	<string name="notification_type_mentions_and_replies">Omembe in odgovori</string>
+	<string name="pause_all_notifications_title">Zaustavi vsa obvestila</string>
 	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
 	<string name="today">danes</string>
 	<string name="yesterday">včeraj</string>
@@ -436,20 +447,28 @@
 	<string name="about_server">O programu</string>
 	<string name="server_rules">Pravila</string>
 	<string name="server_administrator">Skrbnik</string>
+	<string name="settings_even_more">Še več nastavitev</string>
 	<string name="settings_show_cws">Pokaži opozorilo o vsebini</string>
 	<string name="settings_hide_sensitive_media">Skrij medij, ki je označen kot občutljiv</string>
 	<string name="count_one">Ena</string>
+	<string name="alt_text_reminder_post_anyway">Objavi</string>
 	<!-- %s is the username -->
+	<string name="filter_active">Dejaven</string>
+	<string name="filter_inactive">Nedejaven</string>
 	<string name="settings_add_filter">Dodaj filter</string>
 	<string name="settings_edit_filter">Uredi filter</string>
 	<string name="settings_filter_duration">Trajanje</string>
+	<string name="settings_filter_muted_words">Utišane besede</string>
+	<string name="settings_filter_show_cw">Pokaži z oporozilom o vsebini</string>
 	<string name="settings_delete_filter">Izbriši filter</string>
 	<string name="filter_duration_forever">Za vedno</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<string name="filter_context_notifications">Obvestila</string>
 	<string name="filter_context_public_timelines">Javne časovnice</string>
+	<string name="filter_context_threads_replies">Niti in odgovori</string>
 	<string name="filter_context_profiles">Profili</string>
 	<string name="settings_filter_title">Naslov</string>
+	<string name="settings_delete_filter_title">Ali želite izbrisati filter »%s«?</string>
 	<string name="add">Dodaj</string>
 	<string name="filter_word_or_phrase">Beseda ali besedna zveza</string>
 	<string name="select_all">Izberi vse</string>
@@ -457,12 +476,18 @@
 	<string name="filter_duration_custom">Po meri</string>
 	<string name="required_form_field_blank">Ne sme biti prazno</string>
 	<string name="filter_word_already_in_list">Že na seznamu</string>
+	<string name="app_update_ready">Posodobitev aplikacije je pripravljena</string>
 	<string name="app_update_version">Različica %s</string>
 	<string name="downloading_update">Prenos %d%%</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
+	<string name="post_matches_filter_x">Se ujema s filtrom »%s«</string>
+	<string name="search_mastodon">Išči v Mastodonu</string>
 	<string name="clear_all">Počisti vse</string>
 	<string name="search_open_url">Odpri URL v Mastodonu</string>
+	<string name="posts_matching_hashtag">Objave s/z »%s«</string>
 	<string name="search_go_to_account">Pojdi na %s</string>
+	<string name="posts_matching_string">Objave s/z »%s«</string>
+	<string name="accounts_matching_string">Osebe s/z »%s«</string>
 	<!-- Shown in the post header. Please keep it short -->
 	<string name="time_seconds_ago_short">pred %d s</string>
 	<string name="time_minutes_ago_short">pred %d meseci</string>

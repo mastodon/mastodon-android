@@ -35,7 +35,7 @@
 	<string name="media">Médias</string>
 	<string name="profile_about">À propos</string>
 	<string name="button_follow">Suivre</string>
-	<string name="button_following">Abonné·e·s</string>
+	<string name="button_following">Abonné·e</string>
 	<string name="edit_profile">Modifier le profil</string>
 	<string name="share_user">Partager le profil</string>
 	<string name="mute_user">Masquer %s</string>
@@ -225,6 +225,7 @@
 	<string name="more_options">Paramètres supplémentaires</string>
 	<string name="new_post">Nouveau message</string>
 	<string name="button_reply">Répondre</string>
+	<string name="button_reblog">Booster</string>
 	<string name="button_favorite">Ajouter aux favoris</string>
 	<string name="button_share">Partager</string>
 	<string name="media_no_description">Média sans description</string>
@@ -256,7 +257,11 @@
 	<string name="downloading">Téléchargement…</string>
 	<string name="no_app_to_handle_action">Aucune application ne permet de gérer cette action</string>
 	<string name="local_timeline">Local</string>
+	<string name="trending_posts_info_banner">Ce sont les messages qui gagnent en popularité sur Mastodon.</string>
+	<string name="trending_links_info_banner">Voici les actualités dont on parle sur Mastodon.</string>
 	<!-- %s is the server domain -->
+	<string name="local_timeline_info_banner">Voici tous les messages de tous les comptes de votre serveur (%s).</string>
+	<string name="recommended_accounts_info_banner">Vous pourriez aimer ces comptes en fonction des autres que vous suivez.</string>
 	<string name="see_new_posts">Voir les nouveaux messages</string>
 	<string name="load_missing_posts">Charger les messages manquants</string>
 	<string name="follow_back">Suivre en retour</string>
@@ -275,6 +280,10 @@
 	<plurals name="x_favorites">
 		<item quantity="one">%,d favori</item>
 		<item quantity="other">%,d favoris</item>
+	</plurals>
+	<plurals name="x_reblogs">
+		<item quantity="one">%,d partage</item>
+		<item quantity="other">%,d partages</item>
 	</plurals>
 	<string name="timestamp_via_app">%1$s via %2$s</string>
 	<string name="time_now">à l’instant</string>
@@ -359,58 +368,218 @@
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<string name="sending_follows">Utilisateurs suivants…</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<string name="signup_email_domain_blocked">%1$s n’autorise pas les inscriptions à partir de %2$s. Essayez-en un autre ou &lt;a&gt;choisissez un autre serveur&lt;/a&gt;.</string>
 	<string name="spoiler_show">Afficher quand même</string>
 	<string name="spoiler_hide">Cacher</string>
 	<string name="poll_multiple_choice">Choisir un ou plusieurs</string>
+	<string name="save_changes">Enregistrer les modifications</string>
+	<string name="profile_featured">En vedette</string>
+	<string name="profile_timeline">Fil</string>
+	<string name="view_all">Tout afficher</string>
+	<string name="profile_endorsed_accounts">Comptes</string>
+	<string name="verified_link">Lien vérifié</string>
+	<string name="show">Afficher</string>
+	<string name="hide">Masquer</string>
 	<string name="join_default_server">Rejoindre %s</string>
+	<string name="pick_server">Choisir un autre serveur</string>
 	<string name="signup_or_login">ou</string>
 	<string name="learn_more">En savoir plus</string>
 	<string name="welcome_to_mastodon">Bienvenue sur Mastodon</string>
+	<string name="welcome_paragraph1">Mastodon est un réseau social décentralisé, ce qui signifie qu’aucune entreprise ne le contrôle. Il est composé de plusieurs serveurs indépendants, tous connectés ensemble.</string>
+	<string name="what_are_servers">Que sont les serveurs ?</string>
+	<string name="welcome_paragraph2"><![CDATA[Chaque compte Mastodon est hébergé sur un serveur, chacun ayant ses valeurs, ses règles, et ses administratrices ou administrateurs. Quel que soit le serveur que vous choisissez, vous pouvez suivre et interagir avec des personnes sur n'importe quel serveur.]]></string>
 	<string name="opening_link">Ouverture du lien…</string>
+	<string name="link_not_supported">Ce lien n’est pas pris en charge dans l’application</string>
 	<string name="log_out_all_accounts">Se déconnecter de tous les comptes</string>
 	<string name="confirm_log_out_all_accounts">Se déconnecter de tous les comptes ?</string>
 	<string name="retry">Réessayer</string>
+	<string name="post_failed">Échec de l\'envoi du message</string>
 	<!-- %s is formatted file size ("467 KB image") -->
+	<string name="attachment_description_image">image %s</string>
+	<string name="attachment_description_video">vidéo %s</string>
+	<string name="attachment_description_audio">audio %s</string>
+	<string name="attachment_description_unknown">fichier %s</string>
 	<string name="attachment_type_image">Image</string>
 	<string name="attachment_type_video">Vidéo</string>
 	<string name="attachment_type_audio">Audio</string>
 	<string name="attachment_type_gif">GIF</string>
 	<string name="attachment_type_unknown">Fichier</string>
 	<string name="attachment_x_percent_uploaded">%d%% transférés</string>
+	<string name="add_poll_option">Ajouter une option de sondage</string>
 	<string name="poll_length">Durée du sondage</string>
 	<string name="poll_style">Type</string>
 	<string name="compose_poll_single_choice">Choix unique</string>
 	<string name="compose_poll_multiple_choice">Choix multiple</string>
+	<string name="delete_poll_option">Supprimer l\'option du sondage</string>
 	<string name="poll_style_title">Type de sondage</string>
+	<string name="alt_text">Texte alternatif</string>
 	<string name="help">Aide</string>
+	<string name="what_is_alt_text">Qu’est-ce que le texte alternatif ?</string>
+	<string name="alt_text_help">Un texte alternatif fournit une description de l\'image aux personnes avec un handicap visuel ou une connexion limitée ou qui souhaitent avoir un contexte supplémentaire.\n\nVous pouvez améliorer l\'accessibilité et la compression de tout le monde en écrivant un texte alternatif clair, concis et objectif.\n\n<ul><li>Identifiez les éléments importants</li>\n<li>Résumez le texte présent à l\'image</li>\n<li>Utilisez une structure de phrase normale</li>\n<li>Évitez les informations redondantes</li>\n<li>Pour les visuels complexes (tels que les diagrammes ou les cartes), indiquez les tendances ou points-clés</li></ul></string>
+	<string name="edit_post">Modifier la publication</string>
+	<string name="no_verified_link">Aucun lien vérifié</string>
+	<string name="compose_autocomplete_emoji_empty">Parcourir les émojis</string>
+	<string name="compose_autocomplete_users_empty">Trouvez qui vous cherchez</string>
+	<string name="no_search_results">Aucun résultat avec ces mots-clefs</string>
 	<string name="language">Langue</string>
+	<string name="language_default">Par défaut</string>
+	<string name="language_system">Système</string>
+	<string name="language_detecting">Détection de la langue</string>
+	<string name="language_cant_detect">Impossible de détecter la langue</string>
+	<string name="language_detected">Détectée</string>
+	<string name="media_hidden">Média masqué</string>
+	<string name="post_hidden">Publication masquée</string>
+	<string name="report_title_post">Signaler la publication</string>
+	<string name="forward_report_explanation">Le compte provient d’un autre serveur. Envoyer également une copie anonyme du rapport ?</string>
 	<!-- %s is the server domain -->
+	<string name="forward_report_to_server">Transférer à %s</string>
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
+	<string name="reported">Signalé</string>
+	<string name="report_unfollow_explanation">Pour ne plus voir leurs messages dans votre fil d\'accueil, désabonnez-vous de ces comptes.</string>
+	<string name="muted_user">%s masqué·e</string>
+	<string name="report_sent_already_blocked">Vous avez déjà bloqué ce compte, vous n\'avez rien d\'autre à faire en attendant la revue de votre rapport.</string>
+	<string name="report_personal_already_blocked">Vous avez déjà bloqué ce compte, il n\'y a rien d\'autre à faire.\n\nMerci d\'aider à ce que Mastodon soit un espace sûr pour toutes et tous !</string>
+	<string name="blocked_user">%s bloqué·e</string>
+	<string name="mark_all_notifications_read">Marque tout comme lu</string>
 	<string name="settings_display">Affichage</string>
 	<string name="settings_filters">Filtres</string>
+	<string name="settings_server_explanation">Aperçu, règles, modérateur·rice·s</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">A propos de %s</string>
+	<string name="default_post_language">Langue de publication par défaut</string>
+	<string name="settings_alt_text_reminders">Ajouter des rappels de texte alternatif</string>
+	<string name="settings_confirm_unfollow">Demander confirmation avant de se désabonner d\'un compte</string>
+	<string name="settings_confirm_boost">Demander avant de booster</string>
+	<string name="settings_confirm_delete_post">Demander confirmation avant la suppression des messages</string>
+	<string name="pause_all_notifications">Tout mettre en pause</string>
+	<string name="pause_notifications_off">Désactivée</string>
+	<string name="notifications_policy_anyone">Tout le monde</string>
+	<string name="notifications_policy_followed">Personnes qui vous suivent</string>
+	<string name="notifications_policy_follower">Personnes que vous suivez</string>
+	<string name="notifications_policy_no_one">De personne</string>
+	<string name="settings_notifications_policy">Recevoir des notifications de</string>
+	<string name="notification_type_mentions_and_replies">Mentions et réponses</string>
+	<string name="pause_all_notifications_title">Mettre en pause toutes les notifications</string>
+	<plurals name="x_weeks">
+		<item quantity="one">%d semaine</item>
+		<item quantity="other">%d semaines</item>
+	</plurals>
 	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
+	<string name="date_at_time">%1$s à %2$s</string>
+	<string name="today">aujourd’hui</string>
+	<string name="yesterday">hier</string>
+	<string name="tomorrow">demain</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="pause_notifications_ends">Se termine à %s</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="pause_notifications_banner">Reprise des notifications à %s.</string>
+	<string name="resume_notifications_now">Reprendre maintenant</string>
+	<string name="open_system_notification_settings">Aller aux paramètres des notifications</string>
+	<string name="about_server">À propos</string>
+	<string name="server_rules">Règles</string>
+	<string name="server_administrator">Administrateur·rice</string>
+	<string name="send_email_to_server_admin">Contacter l’admin</string>
+	<string name="notifications_disabled_in_system">Activez les notifications dans les paramètres de votre appareil pour être tenu·e au courant où que vous soyez.</string>
 	<string name="settings_even_more">Paramètres supplémentaires</string>
 	<string name="settings_show_cws">Afficher les avertissements de contenu</string>
 	<string name="settings_hide_sensitive_media">Cacher les médias marqués comme sensibles</string>
 	<string name="settings_show_interaction_counts">Compteurs d\'interaction de publication</string>
 	<string name="settings_show_emoji_in_names">Émoticônes personnalisées dans les noms</string>
+	<plurals name="in_x_seconds">
+		<item quantity="one">dans %d secondes</item>
+		<item quantity="other">dans %d secondes</item>
+	</plurals>
+	<plurals name="in_x_minutes">
+		<item quantity="one">dans %d minute</item>
+		<item quantity="other">dans %d minutes</item>
+	</plurals>
+	<plurals name="in_x_hours">
+		<item quantity="one">dans %d heure</item>
+		<item quantity="other">dans %d heures</item>
+	</plurals>
+	<plurals name="x_hours_ago">
+		<item quantity="one">Il y a %d heure</item>
+		<item quantity="other">Il y a %d heures</item>
+	</plurals>
+	<string name="alt_text_reminder_title">Texte alternatif manquant pour les médias</string>
+	<plurals name="alt_text_reminder_x_images">
+		<item quantity="one">%s de vos images n\'a pas de texte alternatif. Envoyer quand même ?</item>
+		<item quantity="other">%s de vos images n\'ont pas de texte alternatif. Envoyer quand même ?</item>
+	</plurals>
+	<plurals name="alt_text_reminder_x_attachments">
+		<item quantity="one">%s de vos média joint n\'a pas de texte alternatif. Envoyer quand même ?</item>
+		<item quantity="other">%s de vos médias joints n\'ont pas de texte alternatif. Envoyer quand même ?</item>
+	</plurals>
+	<string name="count_one">Un</string>
+	<string name="count_two">Deux</string>
+	<string name="count_three">Trois</string>
+	<string name="count_four">Quatre</string>
+	<string name="alt_text_reminder_post_anyway">Publier</string>
 	<!-- %s is the username -->
+	<string name="unfollow_confirmation">Ne plus suivre %s ?</string>
+	<string name="filter_active">Actif</string>
+	<string name="filter_inactive">Désactivé</string>
 	<string name="settings_add_filter">Ajouter un filtre</string>
+	<string name="settings_edit_filter">Modifier le filtre</string>
 	<string name="settings_filter_duration">Durée</string>
+	<string name="settings_filter_muted_words">Mots masqués</string>
+	<string name="settings_filter_context">Masquer à partir de</string>
+	<string name="settings_filter_show_cw">Afficher avec l\'avertissement de contenu</string>
+	<string name="settings_filter_show_cw_explanation">Continuer d\'afficher les messages correspondant à ce filtre en ajoutant un avertissement de convenu</string>
+	<string name="settings_delete_filter">Supprimer le filtre</string>
 	<string name="filter_duration_forever">Toujours</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="settings_filter_ends">Se termine à %s</string>
+	<plurals name="settings_x_muted_words">
+		<item quantity="one">%d phrase ou mot masqué</item>
+		<item quantity="other">%d phrases ou mots masqués</item>
+	</plurals>
+	<string name="selection_2_options">%1$s et %2$s</string>
+	<string name="selection_3_options">%1$s, %2$s ainsi que %3$s</string>
+	<string name="selection_4_or_more">%1$s, %2$s ainsi que %3$d autres</string>
+	<string name="filter_context_home_lists">Accueil et listes</string>
+	<string name="filter_context_notifications">Notifications</string>
+	<string name="filter_context_public_timelines">Fils publics</string>
+	<string name="filter_context_threads_replies">Fils et réponses</string>
+	<string name="filter_context_profiles">Profils</string>
 	<string name="settings_filter_title">Titre</string>
+	<string name="settings_delete_filter_title">Supprimer le filtre « %s » ?</string>
+	<string name="settings_delete_filter_confirmation">Ce filtre sera supprimé de votre compte, sur tous vos appareils.</string>
+	<string name="add_muted_word">Ajouter un mot à masquer</string>
+	<string name="edit_muted_word">Ajouter un mot à masquer</string>
+	<string name="add">Ajouter</string>
+	<string name="filter_word_or_phrase">Mot ou expression</string>
+	<string name="filter_add_word_help">Les mots ne sont pas sensibles à la casse et la correspondance porte sur les mots entiers.\n\nPar exemple, si vous filtrez le mot-clé « Chat », cela masquera les messages qui contiennent « chat » ou « ChAt », mais pas « chaton ».</string>
+	<string name="settings_delete_filter_word">Supprimer le mot « %s » ?</string>
+	<string name="enter_selection_mode">Sélectionner</string>
+	<string name="select_all">Tout sélectionner</string>
 	<string name="settings_filter_duration_title">Durée du filtre</string>
 	<string name="filter_duration_custom">Personnalisée</string>
+	<plurals name="settings_delete_x_filter_words">
+		<item quantity="one">Supprimer %d mot ?</item>
+		<item quantity="other">Supprimer %d mots ?</item>
+	</plurals>
+	<plurals name="x_items_selected">
+		<item quantity="one">%d sélectionné(e)</item>
+		<item quantity="other">%d sélectionné(e)s</item>
+	</plurals>
+	<string name="required_form_field_blank">Ne peut pas être vide</string>
+	<string name="filter_word_already_in_list">Déjà dans la liste</string>
+	<string name="app_update_ready">Mise à jour de l’application prête</string>
+	<string name="app_update_version">Version %s</string>
+	<string name="downloading_update">Téléchargement (%d%%)</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
+	<string name="post_matches_filter_x">Correspond au filtre « %s »</string>
 	<string name="search_mastodon">Rechercher sur Mastodon</string>
+	<string name="clear_all">Effacer tout</string>
 	<string name="search_open_url">Ouvrir l\'URL dans Mastodon</string>
+	<string name="posts_matching_hashtag">Publications ayant « %s »</string>
 	<string name="search_go_to_account">Aller à %s</string>
+	<string name="posts_matching_string">Publications ayant « %s »</string>
+	<string name="accounts_matching_string">Personnes ayant « %s »</string>
 	<!-- Shown in the post header. Please keep it short -->
+	<string name="time_seconds_ago_short">il y a %ds</string>
+	<string name="time_minutes_ago_short">il y a %dm</string>
 	<string name="time_hours_ago_short">Il y a %dh</string>
 	<string name="time_days_ago_short">Il y a %dj</string>
 </resources>
