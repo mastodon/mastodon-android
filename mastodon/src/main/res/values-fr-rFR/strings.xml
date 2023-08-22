@@ -35,7 +35,7 @@
 	<string name="media">Médias</string>
 	<string name="profile_about">À propos</string>
 	<string name="button_follow">Suivre</string>
-	<string name="button_following">Abonné·e·s</string>
+	<string name="button_following">Abonné·e</string>
 	<string name="edit_profile">Modifier le profil</string>
 	<string name="share_user">Partager le profil</string>
 	<string name="mute_user">Masquer %s</string>
@@ -257,7 +257,10 @@
 	<string name="downloading">Téléchargement…</string>
 	<string name="no_app_to_handle_action">Aucune application ne permet de gérer cette action</string>
 	<string name="local_timeline">Local</string>
+	<string name="trending_posts_info_banner">Ce sont les messages qui gagnent en popularité sur Mastodon.</string>
+	<string name="trending_links_info_banner">Voici les actualités dont on parle sur Mastodon.</string>
 	<!-- %s is the server domain -->
+	<string name="local_timeline_info_banner">Voici tous les messages de tous les comptes de votre serveur (%s).</string>
 	<string name="recommended_accounts_info_banner">Vous pourriez aimer ces comptes en fonction des autres que vous suivez.</string>
 	<string name="see_new_posts">Voir les nouveaux messages</string>
 	<string name="load_missing_posts">Charger les messages manquants</string>
@@ -380,11 +383,13 @@
 	<string name="welcome_to_mastodon">Bienvenue sur Mastodon</string>
 	<string name="welcome_paragraph1">Mastodon est un réseau social décentralisé, ce qui signifie qu’aucune entreprise ne le contrôle. Il est composé de plusieurs serveurs indépendants, tous connectés ensemble.</string>
 	<string name="what_are_servers">Que sont les serveurs ?</string>
+	<string name="welcome_paragraph2"><![CDATA[Chaque compte Mastodon est hébergé sur un serveur, chacun ayant ses valeurs, ses règles, et ses administratrices ou administrateurs. Quel que soit le serveur que vous choisissez, vous pouvez suivre et interagir avec des personnes sur n'importe quel serveur.]]></string>
 	<string name="opening_link">Ouverture du lien…</string>
 	<string name="link_not_supported">Ce lien n’est pas pris en charge dans l’application</string>
 	<string name="log_out_all_accounts">Se déconnecter de tous les comptes</string>
 	<string name="confirm_log_out_all_accounts">Se déconnecter de tous les comptes ?</string>
 	<string name="retry">Réessayer</string>
+	<string name="post_failed">Échec de l\'envoi du message</string>
 	<!-- %s is formatted file size ("467 KB image") -->
 	<string name="attachment_description_image">image %s</string>
 	<string name="attachment_description_video">vidéo %s</string>
@@ -401,6 +406,7 @@
 	<string name="poll_style">Type</string>
 	<string name="compose_poll_single_choice">Choix unique</string>
 	<string name="compose_poll_multiple_choice">Choix multiple</string>
+	<string name="delete_poll_option">Supprimer l\'option du sondage</string>
 	<string name="poll_style_title">Type de sondage</string>
 	<string name="alt_text">Texte alternatif</string>
 	<string name="help">Aide</string>
@@ -422,6 +428,9 @@
 	<string name="forward_report_to_server">Transférer à %s</string>
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
 	<string name="reported">Signalé</string>
+	<string name="report_unfollow_explanation">Pour ne plus voir leurs messages dans votre fil d\'accueil, désabonnez-vous de ces comptes.</string>
+	<string name="report_sent_already_blocked">Vous avez déjà bloqué ce compte, vous n\'avez rien d\'autre à faire en attendant la revue de votre rapport.</string>
+	<string name="report_personal_already_blocked">Vous avez déjà bloqué ce compte, il n\'y a rien d\'autre à faire.\n\nMerci d\'aider à ce que Mastodon soit un espace sûr pour toutes et tous !</string>
 	<string name="settings_display">Affichage</string>
 	<string name="settings_filters">Filtres</string>
 	<string name="settings_server_explanation">Aperçu, règles, modérateur·rice·s</string>
@@ -490,9 +499,11 @@
 	<string name="settings_edit_filter">Modifier le filtre</string>
 	<string name="settings_filter_duration">Durée</string>
 	<string name="settings_filter_muted_words">Mots masqués</string>
+	<string name="settings_filter_show_cw">Afficher avec l\'avertissement de contenu</string>
 	<string name="settings_delete_filter">Supprimer le filtre</string>
 	<string name="filter_duration_forever">Toujours</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="settings_filter_ends">Se termine à %s</string>
 	<string name="selection_2_options">%1$s et %2$s</string>
 	<string name="selection_3_options">%1$s, %2$s ainsi que %3$s</string>
 	<string name="filter_context_home_lists">Accueil et listes</string>
