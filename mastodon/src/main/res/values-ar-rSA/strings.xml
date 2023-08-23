@@ -182,7 +182,7 @@
 	<string name="report_reason_spam">إنه غير مرغوب فيه</string>
 	<string name="report_reason_spam_subtitle">روابط خبيثة أو تفاعل كاذب أو ردود متكررة</string>
 	<string name="report_reason_violation">ينتهك قواعد الخادم</string>
-	<string name="report_reason_violation_subtitle">تعلم أنه ينتهك قواعد محددة</string>
+	<string name="report_reason_violation_subtitle">أنت مُدرك لانتهاكه قواعد مُحَدَّدَة</string>
 	<string name="report_reason_other">إنَّهُ شَيءٌ آخَر</string>
 	<string name="report_reason_other_subtitle">لا تندرج هذه المشكلة ضمن فئات أخرى</string>
 	<string name="report_choose_rule">ما هي القواعد المنتهكة؟</string>
@@ -362,7 +362,7 @@
 		<item quantity="zero">منذ %d ثانية</item>
 		<item quantity="one">منذ ثانية</item>
 		<item quantity="two">منذ ثانيتان</item>
-		<item quantity="few">%d ثواني</item>
+		<item quantity="few">%d ثوانٍ</item>
 		<item quantity="many">منذ %d ثانية</item>
 		<item quantity="other">%d ثواني مضت</item>
 	</plurals>
@@ -694,8 +694,8 @@
 	<string name="posts_matching_string">منشورات تحتوي على “%s”</string>
 	<string name="accounts_matching_string">أشخاص لديهم \"%s\"</string>
 	<!-- Shown in the post header. Please keep it short -->
-	<string name="time_seconds_ago_short">مُنذُ %dث</string>
-	<string name="time_minutes_ago_short">مُنذُ %dش</string>
-	<string name="time_hours_ago_short">مُنذُ %dس</string>
-	<string name="time_days_ago_short">مُنذُ %dي</string>
+	<string name="time_seconds_ago_short">مُنذُ %dثا</string>
+	<string name="time_minutes_ago_short">مُنذُ %dد</string>
+	<string name="time_hours_ago_short">مُنذُ %dسا</string>
+	<string name="time_days_ago_short">مُنذُ %d أيام</string>
 </resources>
