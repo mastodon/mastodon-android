@@ -43,8 +43,8 @@
 	<string name="block_user">%s sperren</string>
 	<string name="unblock_user">%s entsperren</string>
 	<string name="report_user">%s melden</string>
-	<string name="block_domain">%s sperren</string>
-	<string name="unblock_domain">%s nicht mehr sperren</string>
+	<string name="block_domain">%s blockieren</string>
+	<string name="unblock_domain">%s nicht mehr blockieren</string>
 	<plurals name="x_posts">
 		<item quantity="one">%,d Beitrag</item>
 		<item quantity="other">%,d Beiträge</item>
@@ -98,12 +98,12 @@
 	<string name="do_unmute">Nicht mehr stummschalten</string>
 	<string name="confirm_block_title">Konto sperren</string>
 	<string name="confirm_block_domain_title">Domain sperren</string>
-	<string name="confirm_block">Bestätigen, um %s zu sperren</string>
+	<string name="confirm_block">Bestätigen, um %s zu blockieren</string>
 	<string name="do_block">Sperren</string>
 	<string name="confirm_unblock_title">Konto nicht mehr sperren</string>
 	<string name="confirm_unblock_domain_title">Domain nicht mehr blockieren</string>
-	<string name="confirm_unblock">Bestätigen, um Sperre von %s aufzuheben</string>
-	<string name="do_unblock">Sperre aufheben</string>
+	<string name="confirm_unblock">Bestätigen, um %s nicht mehr zu blockieren</string>
+	<string name="do_unblock">Nicht mehr blockieren</string>
 	<string name="button_blocked">Blockiert</string>
 	<string name="action_vote">Abstimmen</string>
 	<string name="delete">Löschen</string>
@@ -387,7 +387,6 @@
 	<string name="welcome_to_mastodon">Willkommen auf Mastodon</string>
 	<string name="welcome_paragraph1">Mastodon ist ein dezentrales, soziales Netzwerk. Das bedeutet, dass es nicht von einem einzigen Unternehmen kontrolliert wird. Das Netzwerk besteht aus unabhängig voneinander betriebenen Servern, die miteinander verbunden sind.</string>
 	<string name="what_are_servers">Was sind Server?</string>
-	<string name="welcome_paragraph2"><![CDATA[Jedes Mastodon-Konto wird auf einem Server gehostet. Jeder Server hat dabei seine eigenen Werte, Regeln und Administrator*innen. Aber egal, für welchen Server Du Dich entscheidest: Du kannst mit Leuten von anderen Servern interagieren und ihnen folgen.]]></string>
 	<string name="opening_link">Link wird geöffnet…</string>
 	<string name="link_not_supported">Dieser Link wird in der App nicht unterstützt</string>
 	<string name="log_out_all_accounts">Von allen Konten abmelden</string>
