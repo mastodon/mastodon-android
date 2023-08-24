@@ -138,6 +138,7 @@
 	<string name="sending_report">Skickar rapport…</string>
 	<string name="unfollow_user">Avfölj %s</string>
 	<string name="unfollow">Avfölj</string>
+	<string name="report_personal_title">Vill du inte se detta?</string>
 	<string name="back">Tillbaka</string>
 	<string name="search_communities">Servernamn eller URL</string>
 	<string name="instance_rules_title">Serverregler</string>
@@ -343,7 +344,6 @@
 	<string name="welcome_to_mastodon">Välkommen till Mastodon</string>
 	<string name="welcome_paragraph1">Mastodon är ett decentraliserat socialt nätverk, vilket innebär att inget enskilt företag kontrollerar det. Det består av många oberoende servrar, alla sammankopplade.</string>
 	<string name="what_are_servers">Vad är servrar?</string>
-	<string name="welcome_paragraph2"><![CDATA[Varje Mastodon-konto finns på en server — var och en med sina värderingar, regler och administratörer. Oavsett vilken du väljer kan du följa och interagera med människor på vilken server som helst.]]></string>
 	<string name="log_out_all_accounts">Logga ut från alla konton</string>
 	<string name="confirm_log_out_all_accounts">Logga ut från alla konton?</string>
 	<string name="retry">Försök igen</string>
@@ -357,11 +357,13 @@
 	<string name="attachment_type_unknown">Fil</string>
 	<string name="help">Hjälp</string>
 	<string name="edit_post">Redigera inlägg</string>
+	<string name="no_verified_link">Ingen verifierad länk</string>
 	<string name="language">Språk</string>
 	<string name="language_default">Standard</string>
 	<string name="report_title_post">Rapportera inlägg</string>
 	<!-- %s is the server domain -->
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
+	<string name="reported">Rapporterad</string>
 	<string name="mark_all_notifications_read">Markera alla som lästa</string>
 	<string name="settings_filters">Filter</string>
 	<string name="settings_server_explanation">Översikt, regler och moderatorer</string>
@@ -379,6 +381,10 @@
 	<string name="about_server">Om</string>
 	<string name="server_rules">Regler</string>
 	<string name="server_administrator">Administratör</string>
+	<plurals name="in_x_hours">
+		<item quantity="one">om %d timme</item>
+		<item quantity="other">om %d timmar</item>
+	</plurals>
 	<plurals name="x_hours_ago">
 		<item quantity="one">%d timme sedan</item>
 		<item quantity="other">%d timmar sedan</item>
@@ -401,6 +407,7 @@
 	<!-- Shown like a content warning, %s is the name of the filter -->
 	<string name="clear_all">Rensa alla</string>
 	<string name="search_open_url">Öppna URL i Mastodon</string>
+	<string name="posts_matching_hashtag">Inlägg med \"%s\"</string>
 	<string name="search_go_to_account">Gå till %s</string>
 	<!-- Shown in the post header. Please keep it short -->
 	<string name="time_seconds_ago_short">%ds sedan</string>
