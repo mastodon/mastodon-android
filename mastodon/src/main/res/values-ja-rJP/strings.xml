@@ -36,13 +36,13 @@
 	<string name="button_following">フォロー中</string>
 	<string name="edit_profile">プロフィールを編集</string>
 	<string name="share_user">プロフィールを共有</string>
-	<string name="mute_user">%s さんをミュート</string>
-	<string name="unmute_user">%s さんのミュートを解除</string>
-	<string name="block_user">%s さんをブロック</string>
-	<string name="unblock_user">%s さんのブロックを解除</string>
-	<string name="report_user">%s さんを報告</string>
-	<string name="block_domain">%s をブロック</string>
-	<string name="unblock_domain">%s のブロックを解除</string>
+	<string name="mute_user">ミュート: %s さん</string>
+	<string name="unmute_user">ミュート解除: %s さん</string>
+	<string name="block_user">ブロック: %s さん</string>
+	<string name="unblock_user">ブロック解除: %s さん</string>
+	<string name="report_user">報告: %s さん</string>
+	<string name="block_domain">ブロック: %s</string>
+	<string name="unblock_domain">ブロック解除: %s</string>
 	<plurals name="x_posts">
 		<item quantity="other">投稿 %,d 件</item>
 	</plurals>
@@ -227,8 +227,8 @@
 	<string name="followed_user">%s さんをフォローしました</string>
 	<string name="following_user_requested">%s さんにフォローリクエストを送信しました</string>
 	<string name="open_in_browser">ブラウザーで開く</string>
-	<string name="hide_boosts_from_user">%s さんのブーストを非表示</string>
-	<string name="show_boosts_from_user">%s さんのブーストを表示</string>
+	<string name="hide_boosts_from_user">ブーストを非表示: %s さん</string>
+	<string name="show_boosts_from_user">ブーストを表示: %s さん</string>
 	<string name="signup_reason">参加したい理由を入力してください</string>
 	<string name="signup_reason_note">申請の確認に役立つメッセージを添えてください。</string>
 	<string name="clear">クリア</string>
@@ -368,6 +368,7 @@
 	<string name="welcome_to_mastodon">Mastodon とは</string>
 	<string name="welcome_paragraph1">Mastodon は、いち企業の統制に依存しない非中央集権型のソーシャルネットワークです。たくさんの独立したサーバーが相互につながり合い、ひとつのネットワークを形成しています。</string>
 	<string name="what_are_servers">サーバーとは</string>
+	<string name="welcome_paragraph2">Mastodon のアカウントはいずれかのサーバーに所属します。それぞれのサーバーには異なる価値観やルールがあり、それらを管理する管理者がいます。どのサーバーにいても、他のあらゆるサーバーのユーザーをフォローして、関わりを持てるでしょう。</string>
 	<string name="opening_link">リンクを開いています…</string>
 	<string name="link_not_supported">アプリはこのリンクに対応していません</string>
 	<string name="log_out_all_accounts">すべてのアカウントをログアウト</string>
