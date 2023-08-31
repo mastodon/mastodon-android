@@ -691,6 +691,9 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 		req.visibility=statusVisibility;
 		if(!mediaViewController.isEmpty()){
 			req.mediaIds=mediaViewController.getAttachmentIDs();
+			if(editingStatus != null){
+				req.mediaAttributes=mediaViewController.getAttachmentAttributes();
+			}
 		}
 		if(replyTo!=null){
 			req.inReplyToId=replyTo.id;
