@@ -27,10 +27,14 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import org.joinmastodon.android.MastodonApp;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.MastodonAPIController;
 import org.joinmastodon.android.api.ProgressListener;
+import org.joinmastodon.android.api.requests.statuses.CreateStatus;
 import org.joinmastodon.android.api.requests.statuses.GetAttachmentByID;
 import org.joinmastodon.android.api.requests.statuses.UpdateAttachment;
 import org.joinmastodon.android.api.requests.statuses.UploadAttachment;
@@ -47,8 +51,11 @@ import org.parceler.Parcel;
 import org.parceler.Parcels;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.ListIterator;
 import java.util.Locale;
 import java.util.Objects;
 import java.util.function.Consumer;
@@ -540,6 +547,14 @@ public class ComposeMediaViewController{
 	public List<String> getAttachmentIDs(){
 		return attachments.stream().map(a->a.serverAttachment.id).collect(Collectors.toList());
 	}
+
+	public List<CreateStatus.Request.MediaAttribute> getAttachmentAttributes(){
+		List<CreateStatus.Request.MediaAttribute> mediaAttributes = new ArrayList<>();
+		for (DraftMediaAttachment att:attachments){
+			 mediaAttributes.add(new CreateStatus.Request.MediaAttribute(att.serverAttachment.id, att.description, null));
+		}
+		return mediaAttributes;
+	}
 	
 	public boolean isEmpty(){
 		return attachments.isEmpty();
@@ -582,7 +597,7 @@ public class ComposeMediaViewController{
 	public void saveAltTextsBeforePublishing(Runnable onSuccess, Consumer<ErrorResponse> onError){
 		ArrayList<UpdateAttachment> updateAltTextRequests=new ArrayList<>();
 		for(DraftMediaAttachment att:attachments){
-			if(!att.descriptionSaved){
+			if(!att.descriptionSaved && att.serverAttachment.description == null){
 				UpdateAttachment req=new UpdateAttachment(att.serverAttachment.id, att.description);
 				req.setCallback(new Callback<>(){
 							@Override
