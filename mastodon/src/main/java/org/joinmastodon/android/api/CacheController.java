@@ -9,6 +9,8 @@ import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
 
+import com.google.gson.JsonSyntaxException;
+
 import org.joinmastodon.android.BuildConfig;
 import org.joinmastodon.android.MastodonApp;
 import org.joinmastodon.android.api.requests.notifications.GetNotifications;
@@ -143,7 +145,6 @@ public class CacheController{
 							String newMaxID;
 							do{
 								Notification ntf=MastodonAPIController.gson.fromJson(cursor.getString(0), Notification.class);
-								ntf.postprocess();
 								newMaxID=ntf.id;
 								result.add(ntf);
 							}while(cursor.moveToNext());
@@ -152,7 +153,7 @@ public class CacheController{
 							uiHandler.post(()->callback.onSuccess(new PaginatedResponse<>(result, _newMaxID)));
 							return;
 						}
-					}catch(IOException x){
+					}catch(JsonSyntaxException x){
 						Log.w(TAG, "getNotifications: corrupted notification object in database", x);
 					}
 				}
@@ -227,7 +228,6 @@ public class CacheController{
 				List<SearchResult> results=new ArrayList<>();
 				while(cursor.moveToNext()){
 					SearchResult result=MastodonAPIController.gson.fromJson(cursor.getString(0), SearchResult.class);
-					result.postprocess();
 					results.add(result);
 				}
 				uiHandler.post(()->callback.accept(results));

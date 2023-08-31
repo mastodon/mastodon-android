@@ -10,6 +10,8 @@ import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Log;
 
+import com.google.gson.JsonSyntaxException;
+
 import org.joinmastodon.android.BuildConfig;
 import org.joinmastodon.android.MastodonApp;
 import org.joinmastodon.android.api.requests.notifications.RegisterForPushNotifications;
@@ -45,7 +47,6 @@ import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.KeyAgreement;
 import javax.crypto.Mac;
 import javax.crypto.NoSuchPaddingException;
-import javax.crypto.SecretKey;
 import javax.crypto.spec.GCMParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 
@@ -323,14 +324,12 @@ public class PushSubscriptionManager{
 			Log.e(TAG, "decryptNotification: error decrypting payload", x);
 			return null;
 		}
-		PushNotification notification=MastodonAPIController.gson.fromJson(decryptedStr, PushNotification.class);
 		try{
-			notification.postprocess();
-		}catch(IOException x){
+			return MastodonAPIController.gson.fromJson(decryptedStr, PushNotification.class);
+		}catch(JsonSyntaxException x){
 			Log.e(TAG, "decryptNotification: error verifying notification object", x);
 			return null;
 		}
-		return notification;
 	}
 
 	private byte[] deriveKey(byte[] firstSalt, byte[] secondSalt, byte[] info, int length) throws NoSuchAlgorithmException, InvalidKeyException{

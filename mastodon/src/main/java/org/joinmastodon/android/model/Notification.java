@@ -2,7 +2,6 @@ package org.joinmastodon.android.model;
 
 import com.google.gson.annotations.SerializedName;
 
-import org.joinmastodon.android.api.ObjectValidationException;
 import org.joinmastodon.android.api.RequiredField;
 import org.parceler.Parcel;
 
@@ -20,14 +19,6 @@ public class Notification extends BaseModel implements DisplayItemsParent{
 	public Account account;
 
 	public Status status;
-
-	@Override
-	public void postprocess() throws ObjectValidationException{
-		super.postprocess();
-		account.postprocess();
-		if(status!=null)
-			status.postprocess();
-	}
 
 	@Override
 	public String getID(){

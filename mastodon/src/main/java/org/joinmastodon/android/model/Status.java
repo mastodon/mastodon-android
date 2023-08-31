@@ -1,5 +1,7 @@
 package org.joinmastodon.android.model;
 
+import androidx.annotation.NonNull;
+
 import org.joinmastodon.android.api.ObjectValidationException;
 import org.joinmastodon.android.api.RequiredField;
 import org.joinmastodon.android.events.StatusCountersUpdatedEvent;
@@ -8,8 +10,6 @@ import org.parceler.Parcel;
 
 import java.time.Instant;
 import java.util.List;
-
-import androidx.annotation.NonNull;
 
 @Parcel
 public class Status extends BaseModel implements DisplayItemsParent{
@@ -67,28 +67,6 @@ public class Status extends BaseModel implements DisplayItemsParent{
 	@Override
 	public void postprocess() throws ObjectValidationException{
 		super.postprocess();
-		if(application!=null)
-			application.postprocess();
-		for(Mention m:mentions)
-			m.postprocess();
-		for(Hashtag t:tags)
-			t.postprocess();
-		for(Emoji e:emojis)
-			e.postprocess();
-		for(Attachment a:mediaAttachments)
-			a.postprocess();
-		account.postprocess();
-		if(poll!=null)
-			poll.postprocess();
-		if(card!=null)
-			card.postprocess();
-		if(reblog!=null)
-			reblog.postprocess();
-		if(filtered!=null){
-			for(FilterResult fr:filtered)
-				fr.postprocess();
-		}
-
 		spoilerRevealed=!sensitive;
 	}
 
