@@ -270,6 +270,7 @@ public class HomeTimelineFragment extends StatusListFragment{
 							}else{
 								result=result.subList(0, endIndex);
 							}
+							AccountSessionManager.get(accountID).filterStatuses(result, FilterContext.HOME);
 							List<StatusDisplayItem> targetList=displayItems.subList(gapPos, gapPos+1);
 							targetList.clear();
 							List<Status> insertedPosts=data.subList(gapPostIndex+1, gapPostIndex+1);
@@ -279,7 +280,6 @@ public class HomeTimelineFragment extends StatusListFragment{
 								targetList.addAll(buildDisplayItems(s));
 								insertedPosts.add(s);
 							}
-							AccountSessionManager.get(accountID).filterStatuses(insertedPosts, FilterContext.HOME);
 							if(targetList.isEmpty()){
 								// oops. We didn't add new posts, but at least we know there are none.
 								adapter.notifyItemRemoved(getMainAdapterOffset()+gapPos);
