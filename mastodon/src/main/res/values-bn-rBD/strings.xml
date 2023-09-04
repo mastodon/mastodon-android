@@ -2,6 +2,7 @@
 <resources>
 	<string name="log_in">লগ ইন করুন</string>
 	<string name="next">এরপর</string>
+	<string name="loading_instance">সার্ভারের তথ্য পুনরূদ্ধার করা হচ্ছে…</string>
 	<string name="error">কোনো ত্রুটি ঘটেছে</string>
 	<string name="ok">ঠিক আছে</string>
 	<string name="preparing_auth">প্রমাণীকরণের জন্য প্রস্তুত হচ্ছে...</string>
@@ -65,6 +66,10 @@
 		<item quantity="one">%d দিন বাকি</item>
 		<item quantity="other">%d দিন বাকি</item>
 	</plurals>
+	<plurals name="x_votes">
+		<item quantity="one">%,d ভোট</item>
+		<item quantity="other">%,d ভোট</item>
+	</plurals>
 	<string name="poll_closed">বন্ধ</string>
 	<string name="confirm_mute_title">অ্যাকাউন্টটি মিউট করুন</string>
 	<string name="do_mute">মিউট করুন</string>
@@ -123,6 +128,8 @@
 	<string name="category_tech">তথ্য-প্রযুক্তি</string>
 	<string name="confirm_email_title">আপনার ইনবক্স দেখুন</string>
 	<!-- %s is the email address -->
+	<string name="open_email_app">ই-মেইল অ্যাপ খুলুন</string>
+	<string name="resent_email">নিশ্চিতকরনের ই-মেইল পাঠানো হয়েছে</string>
 	<string name="visibility_followers_only">ফলোয়ারদের জন্য</string>
 	<string name="notification_type_follow">নতুন ফলোয়াররা</string>
 	<string name="err_not_logged_in">Mastodon-এ প্রথমে লগ ইন করুন</string>
