@@ -597,7 +597,7 @@ public class ComposeMediaViewController{
 	public void saveAltTextsBeforePublishing(Runnable onSuccess, Consumer<ErrorResponse> onError){
 		ArrayList<UpdateAttachment> updateAltTextRequests=new ArrayList<>();
 		for(DraftMediaAttachment att:attachments){
-			if(!att.descriptionSaved && att.serverAttachment.description == null){
+			if(!att.descriptionSaved && (fragment.editingStatus==null || !fragment.editingStatus.mediaAttachments.contains(att.serverAttachment))){
 				UpdateAttachment req=new UpdateAttachment(att.serverAttachment.id, att.description);
 				req.setCallback(new Callback<>(){
 							@Override
