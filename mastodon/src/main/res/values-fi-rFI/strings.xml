@@ -45,6 +45,10 @@
 	<string name="report_user">Raportoi %s</string>
 	<string name="block_domain">Estä %s</string>
 	<string name="unblock_domain">Poista käyttäjän %s esto</string>
+	<plurals name="x_posts">
+		<item quantity="one">%,d julkaisu</item>
+		<item quantity="other">%,d julkaisua</item>
+	</plurals>
 	<string name="profile_joined">Liittynyt</string>
 	<string name="done">Valmis</string>
 	<string name="loading">Ladataan…</string>
@@ -214,39 +218,318 @@
 	<string name="settings_privacy_policy">Tietosuojakäytäntö</string>
 	<string name="settings_clear_cache">Tyhjennä median välimuisti</string>
 	<string name="settings_app_version">Mastodon Android v%1$s (%2$d)</string>
+	<string name="media_cache_cleared">Median välimuisti tyhjennetty</string>
+	<string name="confirm_log_out">Kirjaudu ulos %s?</string>
+	<string name="sensitive_content_explain">Kirjoittaja merkitsi tämän median arkaluontoiseksi.</string>
+	<string name="avatar_description">Avaa profiili %s</string>
+	<string name="more_options">Lisää asetuksia</string>
+	<string name="new_post">Uusi julkaisu</string>
 	<string name="button_reply">Vastaa</string>
+	<string name="button_reblog">Tehosta</string>
+	<string name="button_favorite">Suosikki</string>
 	<string name="button_share">Jaa</string>
+	<string name="media_no_description">Kuva ilma kuvausta</string>
+	<string name="add_media">Lisää mediatiedosto</string>
+	<string name="add_poll">Lisää kysely</string>
 	<string name="emoji">Emoji</string>
+	<string name="home_timeline">Kotiaikajana</string>
+	<string name="my_profile">Oma profiili</string>
+	<string name="media_viewer">Median katselin</string>
 	<string name="follow_user">Follow %s</string>
+	<string name="unfollowed_user">Käyttäjän %s seuraaminen lopetettu</string>
+	<string name="followed_user">Seuraat nyt käyttäjää %s</string>
+	<string name="following_user_requested">Käyttäjän %s seuraamista pyydetty</string>
 	<string name="open_in_browser">Avaa selaimessa</string>
+	<string name="hide_boosts_from_user">Piilota käyttäjän @%s tehostukset</string>
+	<string name="show_boosts_from_user">Näytä tehostukset käyttäjältä @%s</string>
+	<string name="signup_reason">Miksi haluat liittyä?</string>
+	<string name="signup_reason_note">Tämä auttaa meitä arvioimaan hakemustasi.</string>
 	<string name="clear">Tyhjennä</string>
+	<string name="profile_header">Otsikon kuva</string>
 	<string name="profile_picture">Profiilikuva</string>
+	<string name="reorder">Järjestä uudelleen</string>
 	<string name="download">Lataa</string>
+	<string name="permission_required">Käyttöoikeus vaaditaan</string>
+	<string name="storage_permission_to_download">Sovellus tarvitsee pääsyn tallennustilaan, jotta voit tallentaa tämän tiedoston.</string>
 	<string name="open_settings">Avaa asetukset</string>
+	<string name="error_saving_file">Virhe tallennettaessa tiedostoa</string>
 	<string name="file_saved">Tiedosto tallennettu</string>
 	<string name="downloading">Ladataan…</string>
+	<string name="no_app_to_handle_action">Tätä toimintoa käsittelevää sovellusta ei ole</string>
+	<string name="local_timeline">Paikallinen</string>
+	<string name="trending_posts_info_banner">Nämä julkaisut ovat saamassa vetoa eri puolilla Mastodonia.</string>
+	<string name="trending_links_info_banner">Näistä uutisista puhutaan Mastodonissa.</string>
 	<!-- %s is the server domain -->
+	<string name="local_timeline_info_banner">Nämä ovat viestit kaikilta palvelimesi (%s) käyttäjiltä.</string>
+	<string name="recommended_accounts_info_banner">Muiden seuraamiesi perusteella saattaisit pitää näistä tileistä.</string>
+	<string name="see_new_posts">Uusia julkaisuja</string>
+	<string name="load_missing_posts">Lataa puuttuvat julkaisut</string>
 	<string name="follow_back">Seuraa takaisin</string>
+	<string name="button_follow_pending">Pyydetty</string>
+	<string name="follows_you">Seuraa sinua</string>
+	<string name="manually_approves_followers">Hyväksyy seuraajat käsin</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
+	<plurals name="x_followers">
+		<item quantity="one">%d seuraaja</item>
+		<item quantity="other">%d seuraajaa</item>
+	</plurals>
+	<plurals name="x_following">
+		<item quantity="one">%d seurattu</item>
+		<item quantity="other">%d seurattua</item>
+	</plurals>
+	<plurals name="x_favorites">
+		<item quantity="one">%,d suosikki</item>
+		<item quantity="other">%,d suosikkia</item>
+	</plurals>
+	<plurals name="x_reblogs">
+		<item quantity="one">%,d tehostus</item>
+		<item quantity="other">%,tehostusta</item>
+	</plurals>
+	<string name="timestamp_via_app">%1$s sovelluksella %2$s</string>
+	<string name="time_now">nyt</string>
+	<string name="edit_history">Muokkaushistoria</string>
+	<string name="last_edit_at_x">Muokattiin viimeksi %s</string>
+	<string name="time_just_now">juuri nyt</string>
+	<plurals name="x_seconds_ago">
+		<item quantity="one">%d sekunti sitten</item>
+		<item quantity="other">%d sekuntia sitten</item>
+	</plurals>
+	<plurals name="x_minutes_ago">
+		<item quantity="one">%d minuutti sitten</item>
+		<item quantity="other">%d minuuttia sitten</item>
+	</plurals>
+	<string name="edited_timestamp">muokattu %s</string>
+	<string name="edit_original_post">Alkuperäinen viesti</string>
 	<string name="edit_text_edited">Tekstiä muokattu</string>
 	<string name="edit_spoiler_added">Sisältövaroitus</string>
 	<string name="edit_spoiler_edited">Sisältövaroitus muokattu</string>
 	<string name="edit_spoiler_removed">Sisältövaroitus poistettu</string>
+	<string name="edit_poll_added">Kysely lisätty</string>
+	<string name="edit_poll_edited">Kyselyä muokattu</string>
+	<string name="edit_poll_removed">Kysely poistettu</string>
+	<string name="edit_media_added">Mediatiedosto lisätty</string>
+	<string name="edit_media_removed">Mediatiedosto poistettu</string>
+	<string name="edit_media_reordered">Mediatiedostoja järjestetty</string>
+	<string name="edit_marked_sensitive">Merkitty arkaluontoiseksi</string>
+	<string name="edit_marked_not_sensitive">Merkitty ei arkaluontoiseksi</string>
+	<string name="edit_multiple_changed">Julkaisu muokattu</string>
+	<string name="edit">Muokkaa</string>
+	<string name="discard_changes">Hylätäänkö muutokset?</string>
+	<string name="upload_failed">Lataus epäonnistui</string>
+	<string name="file_size_bytes">%d tavua</string>
+	<string name="file_size_kb">%.2f KB</string>
+	<string name="file_size_mb">%.2f MB</string>
+	<string name="file_size_gb">%.2f GB</string>
+	<string name="upload_processing">Käsitellään…</string>
 	<!-- %s is version like 1.2.3 -->
 	<!-- %s is version like 1.2.3 -->
 	<!-- %s is file size -->
+	<string name="download_update">Lataa (%s)</string>
+	<string name="install_update">Asenna</string>
+	<string name="privacy_policy_title">Yksityisyytesi</string>
+	<string name="privacy_policy_subtitle">Vaikka Mastodon-sovellus ei kerää mitään tietoja, palvelimella, jonka olet rekisteröitynyt, voi olla eri käytäntö.\n\nJos olet eri mieltä käytännöstä %s, voit palata ja valita eri palvelin.</string>
+	<string name="i_agree">Hyväksyn</string>
+	<string name="empty_list">Luettelo on tyhjä</string>
+	<string name="instance_signup_closed">Tämä palvelin ei hyväksy uusia rekisteröintejä.</string>
+	<string name="text_copied">Kopioitu leikepöydälle</string>
+	<string name="add_bookmark">Kirjanmerkki</string>
+	<string name="remove_bookmark">Poista kirjanmerkki</string>
+	<string name="bookmarks">Kirjanmerkit</string>
+	<string name="your_favorites">Omat suosikit</string>
+	<string name="login_title">Tervetuloa takaisin</string>
+	<string name="login_subtitle">Kirjaudu sisään palvelimella, jossa olet luonut tilisi.</string>
+	<string name="server_url">Palvelimen URL-osoite</string>
+	<string name="signup_random_server_explain">Palvelin valitaan kielesi perusteella, jos jatkat ilman valintaa.</string>
+	<string name="server_filter_any_language">Millä tahansa kielellä</string>
+	<string name="server_filter_instant_signup">Välitön rekisteröityminen</string>
+	<string name="server_filter_manual_review">Manuaalinen hyväksyntä</string>
+	<string name="server_filter_any_signup_speed">Mikä tahansa rekisteröintinopeus</string>
+	<string name="server_filter_region_europe">Eurooppa</string>
+	<string name="server_filter_region_north_america">Pohjois-Amerikka</string>
+	<string name="server_filter_region_south_america">Etelä-Amerikka</string>
+	<string name="server_filter_region_africa">Afrikka</string>
+	<string name="server_filter_region_asia">Aasia</string>
+	<string name="server_filter_region_oceania">Oseania</string>
+	<string name="not_accepting_new_members">Ei hyväksy uusia jäseniä</string>
+	<string name="category_special_interests">Erityiset Kiinnostukset</string>
+	<string name="signup_passwords_dont_match">Salasanat eivät täsmää</string>
+	<string name="pick_server_for_me">Valitse minulle</string>
+	<string name="profile_add_row">Lisää rivi</string>
+	<string name="profile_setup">Profiilin asetukset</string>
+	<string name="profile_setup_subtitle">Voit myös täyttää tämän myöhemmin Profiili-välilehdellä.</string>
+	<string name="profile_setup_explanation">Voit lisätä enintään neljä profiilikenttää joissa on mitä haluat. Sijainti, linkit, pronominit — taivas on rajana.</string>
+	<string name="popular_on_mastodon">Suosittua Mastodonissa</string>
+	<string name="follow_all">Seuraa kaikkia</string>
+	<string name="server_rules_disagree">Eri mieltä</string>
+	<string name="privacy_policy_explanation">TL;DR: Emme kerää tai käsittele mitään.</string>
 	<!-- %s is server domain -->
+	<string name="server_policy_disagree">Eri mieltä tästä %s</string>
+	<string name="profile_bio">Kuvaus</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
 	<!-- %s is formatted file size ("467 KB image") -->
+	<string name="poll_style_title">Kyselyn tyyli</string>
+	<string name="alt_text">Selitys</string>
+	<string name="help">Ohje</string>
+	<string name="what_is_alt_text">Mikä on selitys?</string>
+	<string name="alt_text_help">Kuvaselitys auttaa ihmisiä, joilla on näkövamma, hidas yhteys, tai jotka tarvitsevat lisäkontekstia. \n\nVoit parantaa saavutettavuutta ja kaikkien mahdollisuutta ymmärtää kirjoittamalla selkeän, lyhyen ja objektiivisen selityksen. \n\n<ul><li>Mainitse tärkeät elementit</li>\n<li>Anna tiivistelmä kuvissa olevista teksteistä</li>\n<li>Käytä normaalia lauserakennetta</li>\n<li>Vältä turhaa toistoa</li>\n<li>Keskity monimutkaisissa kuvioissa (kuten kartoissa ja taulukoissa) trendeihin ja tärkeimpiin tietoihin</li></ul></string>
+	<string name="edit_post">Muokkaa julkaisua</string>
+	<string name="no_verified_link">Ei todennettua linkkiä</string>
+	<string name="compose_autocomplete_emoji_empty">Selaa emojeita</string>
+	<string name="compose_autocomplete_users_empty">Löydä etsimäsi henkilöt</string>
+	<string name="no_search_results">Näille hakusanoille ei löytynyt mitään</string>
+	<string name="language">Kieli</string>
+	<string name="language_default">Oletus</string>
+	<string name="language_system">Järjestelmä</string>
+	<string name="language_detecting">Tunnista kieli</string>
+	<string name="language_cant_detect">Ei voi tunnistaa kieltä</string>
+	<string name="language_detected">Tunnistettu</string>
+	<string name="media_hidden">Media piilotettu</string>
+	<string name="post_hidden">Julkaisu piilotettu</string>
+	<string name="report_title_post">Raportoi julkaisu</string>
+	<string name="forward_report_explanation">Tämä tili on toisella palvelimella. Haluatko lähettää nimettömän raportin myös sinne?</string>
 	<!-- %s is the server domain -->
+	<string name="forward_report_to_server">Välitä kohteeseen %s</string>
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
+	<string name="reported">Raportoitu</string>
+	<string name="report_unfollow_explanation">Jos et enää halua nähdä tämän käyttäjän julkaisuja kotiaikajanallasi, lopeta seuraaminen.</string>
+	<string name="muted_user">Käyttäjä %s mykistetty</string>
+	<string name="report_sent_already_blocked">Olet jo estänyt tämän käyttäjän, sinun ei tarvitse tehdä muuta sillä aikaa kun tarkastamme raporttisi.</string>
+	<string name="report_personal_already_blocked">Olet jo estänyt tämän käyttäjän, joten sinun ei tarvitse tehdä mitään muuta.\n\nKiitos, että autat pitämään Mastodonin turvallisena paikkana kaikille!</string>
+	<string name="blocked_user">Estetty %s</string>
+	<string name="mark_all_notifications_read">Merkitse kaikki luetuksi</string>
+	<string name="settings_display">Näyttö</string>
+	<string name="settings_filters">Suodattimet</string>
+	<string name="settings_server_explanation">Yleiskatsaus, säännöt, valvojat</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
+	<string name="about_app">Tietoa: %s</string>
+	<string name="default_post_language">Julkaisun oletuskieli</string>
+	<string name="settings_alt_text_reminders">Lisää muistutus kuvaselityksestä</string>
+	<string name="settings_confirm_unfollow">Kysy ennen kuin käyttäjän seuraaminen lopetetaan</string>
+	<string name="settings_confirm_boost">Kysy ennen tehostusta</string>
+	<string name="settings_confirm_delete_post">Kysy ennen julkaisujen poistamista</string>
+	<string name="pause_all_notifications">Keskeytä kaikki</string>
+	<string name="pause_notifications_off">Pois Päältä</string>
+	<string name="notifications_policy_anyone">Kuka tahansa</string>
+	<string name="notifications_policy_followed">Seuraajasi</string>
+	<string name="notifications_policy_follower">Seuraamasi henkilöt</string>
+	<string name="notifications_policy_no_one">Ei kukaan</string>
+	<string name="settings_notifications_policy">Ota vastaan ilmoituksia käyttäjältä</string>
+	<string name="notification_type_mentions_and_replies">Maininnat ja vastaukset</string>
+	<string name="pause_all_notifications_title">Keskeytä kaikki ilmoitukset</string>
+	<plurals name="x_weeks">
+		<item quantity="one">%d viikko</item>
+		<item quantity="other">%d viikkoa</item>
+	</plurals>
 	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
+	<string name="date_at_time">%1$s klo %2$s</string>
+	<string name="today">tänään</string>
+	<string name="yesterday">eilen</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="server_administrator">Ylläpitäjä</string>
+	<string name="send_email_to_server_admin">Viestin ylläpitäjä</string>
+	<string name="notifications_disabled_in_system">Ota ilmoitukset käyttöön laitteesi asetuksista nähdäksesi päivityksiä mistä tahansa.</string>
+	<string name="settings_even_more">Vielä enemmän asetuksia</string>
+	<string name="settings_show_cws">Näytä sisältövaroitukset</string>
+	<string name="settings_hide_sensitive_media">Piilota arkaluontoiseksi merkitty media</string>
+	<string name="settings_show_interaction_counts">Näytä reaktiolaskurit</string>
+	<string name="settings_show_emoji_in_names">Mukautetut emojit näyttönimissä</string>
+	<plurals name="in_x_seconds">
+		<item quantity="one">%d sekunnin kuluttua</item>
+		<item quantity="other">%d sekunnin kuluttua</item>
+	</plurals>
+	<plurals name="in_x_minutes">
+		<item quantity="one">%d minuutin kuluttua</item>
+		<item quantity="other">%d minuutin kuluttua</item>
+	</plurals>
+	<plurals name="in_x_hours">
+		<item quantity="one">%d tunnin kuluttua</item>
+		<item quantity="other">%d tunnin kuluttua</item>
+	</plurals>
+	<plurals name="x_hours_ago">
+		<item quantity="one">%d tunti sitten</item>
+		<item quantity="other">%d tuntia sitten</item>
+	</plurals>
+	<string name="alt_text_reminder_title">Mediasta puuttuu selitysteksti</string>
+	<plurals name="alt_text_reminder_x_images">
+		<item quantity="one">%s kuvastasi puuttuu selitysteksti. Julkaistaanko silti?</item>
+		<item quantity="other">%s kuvastasi puuttuu selitysteksti. Julkaistaanko silti?</item>
+	</plurals>
+	<plurals name="alt_text_reminder_x_attachments">
+		<item quantity="one">%s mediatiedostostasi puuttuu selitysteksti. Julkaistaanko silti?</item>
+		<item quantity="other">%s mediatiedostostasi puuttuu selitysteksti. Julkaistaanko silti?</item>
+	</plurals>
+	<string name="count_one">Yksi</string>
+	<string name="count_two">Kaksi</string>
+	<string name="count_three">Kolme</string>
+	<string name="count_four">Neljä</string>
+	<string name="alt_text_reminder_post_anyway">Julkaise</string>
 	<!-- %s is the username -->
+	<string name="unfollow_confirmation">Lopeta käyttäjän %s seuraaminen?</string>
+	<string name="filter_active">Aktiivinen</string>
+	<string name="filter_inactive">Ei käytössä</string>
+	<string name="settings_add_filter">Lisää suodatin</string>
+	<string name="settings_edit_filter">Muokkaa suodatinta</string>
+	<string name="settings_filter_duration">Kesto</string>
+	<string name="settings_filter_muted_words">Mykistetyt sanat</string>
+	<string name="settings_filter_context">Mykistä alkaen</string>
+	<string name="settings_filter_show_cw">Näytä sisältövaroituksella</string>
+	<string name="settings_filter_show_cw_explanation">Näytä vielä viestejä, jotka täsmäävät tähän suodattimeen, mutta sisällönvaroituksen takana</string>
+	<string name="settings_delete_filter">Poista suodatin</string>
+	<string name="filter_duration_forever">Ikuisesti</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="settings_filter_ends">Päättyy %s</string>
+	<plurals name="settings_x_muted_words">
+		<item quantity="one">%d mykistetty sana tai lause</item>
+		<item quantity="other">%d mykistettyä sanaa tai lauseita</item>
+	</plurals>
+	<string name="selection_2_options">%1$s ja %2$s</string>
+	<string name="selection_3_options">%1$s, %2$s ja %3$s</string>
+	<string name="selection_4_or_more">%1$s, %2$s, ja %3$d lisää</string>
+	<string name="filter_context_home_lists">Koti &amp; listat</string>
+	<string name="filter_context_notifications">Ilmoitukset</string>
+	<string name="filter_context_public_timelines">Julkiset aikajanat</string>
+	<string name="filter_context_threads_replies">Langat &amp; vastaukset</string>
+	<string name="filter_context_profiles">Profiilit</string>
+	<string name="settings_filter_title">Otsikko</string>
+	<string name="settings_delete_filter_title">Poistetaanko suodatin “%s”?</string>
+	<string name="settings_delete_filter_confirmation">Tämä suodatin poistetaan tililtäsi kaikissa laitteissa.</string>
+	<string name="add_muted_word">Lisää mykistetty sana</string>
+	<string name="edit_muted_word">Muokkaa mykistettyä sanaa</string>
+	<string name="add">Lisää</string>
+	<string name="filter_word_or_phrase">Sana tai lause</string>
+	<string name="filter_add_word_help">Sanat ovat tapauskohtaisia ja vastaavat vain kokonaisia sanoja.\n\nJos suodattaa avainsana “Apple”, se piilottaa viestit sisältävät “omena” tai “aPPLe” mutta ei “ananas\".</string>
+	<string name="settings_delete_filter_word">Poista sana “%s”?</string>
+	<string name="enter_selection_mode">Valitse</string>
+	<string name="select_all">Valitse kaikki</string>
+	<string name="settings_filter_duration_title">Suodattimen kesto</string>
+	<string name="filter_duration_custom">Mukautettu</string>
+	<plurals name="settings_delete_x_filter_words">
+		<item quantity="one">Poista %d sana?</item>
+		<item quantity="other">Poista %d sanaa?</item>
+	</plurals>
+	<plurals name="x_items_selected">
+		<item quantity="one">%d valittu</item>
+		<item quantity="other">%d valittu</item>
+	</plurals>
+	<string name="required_form_field_blank">Tätä ei voi jättää tyhjäksi</string>
+	<string name="filter_word_already_in_list">Jo luettelossa</string>
+	<string name="app_update_ready">Sovelluksen päivitys valmis</string>
+	<string name="app_update_version">Versio %s</string>
+	<string name="downloading_update">Ladataan (%d%%)</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
+	<string name="post_matches_filter_x">Sopii suodattimeen ”%s”</string>
+	<string name="search_mastodon">Etsi Mastodonista</string>
+	<string name="clear_all">Tyhjennä kaikki</string>
+	<string name="search_open_url">Avaa URL-osoite Mastodonissa</string>
+	<string name="posts_matching_hashtag">Julkaisut joissa on \"%s\"</string>
+	<string name="search_go_to_account">Siirry tiliin %s</string>
+	<string name="posts_matching_string">Julkaisut joissa on \"%s\"</string>
+	<string name="accounts_matching_string">Henkilöt jossa on \"%s\"</string>
 	<!-- Shown in the post header. Please keep it short -->
+	<string name="time_seconds_ago_short">%ds sitten</string>
+	<string name="time_minutes_ago_short">%dm sitten</string>
+	<string name="time_hours_ago_short">%dh sitten</string>
+	<string name="time_days_ago_short">%dd sitten</string>
 </resources>
