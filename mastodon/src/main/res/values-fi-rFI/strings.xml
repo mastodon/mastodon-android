@@ -45,8 +45,34 @@
 	<string name="report_user">Raportoi %s</string>
 	<string name="block_domain">Estä %s</string>
 	<string name="unblock_domain">Poista käyttäjän %s esto</string>
+	<string name="profile_joined">Liittynyt</string>
 	<string name="done">Valmis</string>
+	<string name="loading">Ladataan…</string>
+	<string name="field_label">Nimi</string>
+	<string name="field_content">Sisältö</string>
 	<string name="saving">Tallennetaan…</string>
+	<string name="post_from_user">Julkaisu tililtä %s</string>
+	<string name="poll_option_hint">Vaihtoehto %d</string>
+	<plurals name="x_minutes">
+		<item quantity="one">%d minuutti</item>
+		<item quantity="other">%d minuuttia</item>
+	</plurals>
+	<plurals name="x_hours">
+		<item quantity="one">%d tunti</item>
+		<item quantity="other">%d tuntia</item>
+	</plurals>
+	<plurals name="x_days">
+		<item quantity="one">%d päivä</item>
+		<item quantity="other">%d päivää</item>
+	</plurals>
+	<plurals name="x_seconds_left">
+		<item quantity="one">%d sekunti jäljellä</item>
+		<item quantity="other">%d sekunttia jäljellä</item>
+	</plurals>
+	<plurals name="x_minutes_left">
+		<item quantity="one">%d minuutti jäljellä</item>
+		<item quantity="other">%d minuuttia jäljellä</item>
+	</plurals>
 	<string name="back">Takaisin</string>
 	<string name="category_academia">Akateeminen</string>
 	<string name="category_activism">Aktivismi</string>
