@@ -6,6 +6,9 @@ import org.joinmastodon.android.model.FilterContext;
 import java.util.EnumSet;
 import java.util.List;
 
+import androidx.annotation.Keep;
+
+@Keep
 class FilterRequest{
 	public String title;
 	public EnumSet<FilterContext> context;
