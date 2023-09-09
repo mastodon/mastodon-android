@@ -73,7 +73,92 @@
 		<item quantity="one">%d minuutti jäljellä</item>
 		<item quantity="other">%d minuuttia jäljellä</item>
 	</plurals>
+	<plurals name="x_hours_left">
+		<item quantity="one">%d tunti jäljellä</item>
+		<item quantity="other">%d tuntia jäljellä</item>
+	</plurals>
+	<plurals name="x_days_left">
+		<item quantity="one">%d päivä jäljellä</item>
+		<item quantity="other">%d päivää jäljellä</item>
+	</plurals>
+	<plurals name="x_votes">
+		<item quantity="one">%d ääni</item>
+		<item quantity="other">%d ääntä</item>
+	</plurals>
+	<string name="poll_closed">Suljettu</string>
+	<string name="confirm_mute_title">Mykistä tili</string>
+	<string name="confirm_mute">Vahvista käyttäjän %s mykistys</string>
+	<string name="do_mute">Mykistä</string>
+	<string name="confirm_unmute_title">Poista tilin mykistys</string>
+	<string name="confirm_unmute">Vahvista, että haluat poistaa mykistyksen tililtä %s</string>
+	<string name="do_unmute">Poista mykistys</string>
+	<string name="confirm_block_title">Estä tili</string>
+	<string name="confirm_block_domain_title">Estä verkkotunnus</string>
+	<string name="confirm_block">Vahvista käyttäjän %s esto</string>
+	<string name="do_block">Estä</string>
+	<string name="confirm_unblock_title">Poista tilin esto</string>
+	<string name="confirm_unblock_domain_title">Poista verkkotunnuksen esto</string>
+	<string name="confirm_unblock">Vahvista, että haluat poistaa tilin %s eston</string>
+	<string name="do_unblock">Poista esto</string>
+	<string name="button_blocked">Estetty</string>
+	<string name="action_vote">Äänestä</string>
+	<string name="delete">Poista</string>
+	<string name="confirm_delete_title">Poista julkaisu</string>
+	<string name="confirm_delete">Haluatko varmasti poistaa tämän julkaisun?</string>
+	<string name="deleting">Poistetaan…</string>
+	<string name="notification_channel_audio_player">Äänen toisto</string>
+	<string name="play">Toista</string>
+	<string name="pause">Tauko</string>
+	<string name="log_out">Kirjaudu ulos</string>
+	<string name="add_account">Lisää tili</string>
+	<string name="search_hint">Haku</string>
+	<string name="hashtags">Aihetunnisteet</string>
+	<string name="news">Uutiset</string>
+	<string name="for_you">Sinulle</string>
+	<string name="all_notifications">Kaikki</string>
+	<string name="mentions">Maininnat</string>
+	<plurals name="x_people_talking">
+		<item quantity="one">%d henkilö puhuu</item>
+		<item quantity="other">%d henkilöä puhuu</item>
+	</plurals>
+	<string name="report_title">Raportoi %s</string>
+	<string name="report_choose_reason">Mikä on väärin tässä julkaisussa?</string>
+	<string name="report_choose_reason_account">Mikä on vialla käyttäjässä %s?</string>
+	<string name="report_choose_reason_subtitle">Valitse se, mikä sopii parhaiten</string>
+	<string name="report_reason_personal">En pidä siitä</string>
+	<string name="report_reason_personal_subtitle">Tätä ei halua nähdä</string>
+	<string name="report_reason_spam">Se on roskapostia</string>
+	<string name="report_reason_spam_subtitle">Haitalliset linkit, väärennetyt sitoutumiset tai toistuvat vastaukset</string>
+	<string name="report_reason_violation">Se rikkoo palvelimen sääntöjä</string>
+	<string name="report_reason_violation_subtitle">Tiedät, että se rikkoo tiettyjä sääntöjä</string>
+	<string name="report_reason_other">Jotain muuta</string>
+	<string name="report_reason_other_subtitle">Ongelma ei sovi muihin kategorioihin</string>
+	<string name="report_choose_rule">Mitä sääntöjä rikotaan?</string>
+	<string name="report_choose_rule_subtitle">Valitse kaikki sopivat</string>
+	<string name="report_choose_posts">Onko julkaisuja, jotka tukevat tätä raporttia?</string>
+	<string name="report_choose_posts_subtitle">Valitse kaikki sopivat</string>
+	<string name="report_comment_title">Olisiko jotain muuta, mitä meidän pitäisi tietää?</string>
+	<string name="report_comment_hint">Lisäkommentit</string>
+	<string name="sending_report">Lähetetään raporttia…</string>
+	<string name="report_sent_title">Kiitos raportista, tutkimme asiaa.</string>
+	<string name="report_sent_subtitle">Sillä välin kun tarkistamme tätä, voit ryhtyä toimenpiteisiin käyttäjää @%s vastaan:</string>
+	<string name="unfollow_user">Lopeta käyttäjän %s seuraaminen</string>
+	<string name="unfollow">Lopeta seuraaminen</string>
+	<string name="mute_user_explain">Et näe hänen viestejään. Hän voi silti seurata sinua ja nähdä viestisi. Hän ei tiedä, että on mykistetty.</string>
+	<string name="block_user_explain">Et näe hänen viestejään, eikä hän voi nähdä viestejäsi tai seurata sinua. Hän näkevät, että olet estänyt hänet.</string>
+	<string name="report_personal_title">Etkö halua nähdä tätä?</string>
+	<string name="report_personal_subtitle">Tässä on vaihtoehtosi hallita näkemääsi Mastodonissa:</string>
 	<string name="back">Takaisin</string>
+	<string name="search_communities">Palvelimen nimi tai URL-osoite</string>
+	<string name="instance_rules_title">Palvelimen säännöt</string>
+	<string name="instance_rules_subtitle">Jatkamalla sitoudut noudattamaan seuraavia sääntöjä, jotka %s moderaattorit ovat asettaneet ja valvoneet.</string>
+	<string name="signup_title">Luo tili</string>
+	<string name="display_name">Nimi</string>
+	<string name="username">Käyttäjätunnus</string>
+	<string name="email">Sähköposti</string>
+	<string name="password">Salasana</string>
+	<string name="confirm_password">Vahvista salasana</string>
+	<string name="password_note">Sisällytä suuraakkoset, erikoismerkit, ja numerot, jotta voit lisätä salasanan voimaa.</string>
 	<string name="category_academia">Akateeminen</string>
 	<string name="category_activism">Aktivismi</string>
 	<string name="category_all">Kaikki</string>
@@ -87,10 +172,48 @@
 	<string name="category_music">Musiikki</string>
 	<string name="category_regional">Alueellinen</string>
 	<string name="category_tech">Teknologia</string>
+	<string name="confirm_email_title">Tarkista sähköpostisi</string>
 	<!-- %s is the email address -->
+	<string name="confirm_email_subtitle">Napauta lähettämäämme linkkiä vahvistaaksesi tunnuksen %s. Odotamme täällä.</string>
+	<string name="confirm_email_didnt_get">Etkö saanut linkkiä?</string>
+	<string name="resend">Lähetä uudelleen</string>
+	<string name="open_email_app">Avaa sähköpostiohjelma</string>
+	<string name="resent_email">Vahvistusviesti lähetetty</string>
+	<string name="compose_hint">Kirjoita tai liitä mitä mietit</string>
+	<string name="content_warning">Sisältövaroitus</string>
 	<string name="save">Tallenna</string>
+	<string name="add_alt_text">Lisää selitys</string>
+	<string name="visibility_public">Julkinen</string>
+	<string name="visibility_followers_only">Vain seuraajat</string>
+	<string name="visibility_private">Vain mainitsemani tilit</string>
+	<string name="recent_searches">Viimeisimmät</string>
+	<string name="skip">Ohita</string>
+	<string name="notification_type_follow">Uudet seuraajat</string>
+	<string name="notification_type_favorite">Suosikit</string>
+	<string name="notification_type_reblog">Tehostukset</string>
+	<string name="notification_type_mention">Maininnat</string>
+	<string name="notification_type_poll">Kyselyt</string>
+	<string name="choose_account">Valitse tili</string>
+	<string name="err_not_logged_in">Kirjaudu ensin Mastodoniin</string>
+	<plurals name="cant_add_more_than_x_attachments">
+		<item quantity="one">Et voi lisätä enempää kuin %d medialiitteen</item>
+		<item quantity="other">Et voi lisätä enempää kuin %d medialiitettä</item>
+	</plurals>
+	<string name="media_attachment_unsupported_type">Tiedosto %s on tyyppiä jota ei tueta</string>
+	<string name="media_attachment_too_big">Tiedosto %1$s ylittää %2$s MB kokorajan</string>
+	<string name="settings_theme">Ulkoasu</string>
+	<string name="theme_auto">Käytä laitteen ulkoasua</string>
 	<string name="theme_light">Vaalea</string>
 	<string name="theme_dark">Tumma</string>
+	<string name="settings_behavior">Toiminnot</string>
+	<string name="settings_gif">Toista animoidut käyttäjäkuvat ja emojit</string>
+	<string name="settings_custom_tabs">Käytä sovelluksen sisäistä selainta</string>
+	<string name="settings_notifications">Ilmoitukset</string>
+	<string name="settings_contribute">Osallistu Mastodoniin</string>
+	<string name="settings_tos">Käyttöehdot</string>
+	<string name="settings_privacy_policy">Tietosuojakäytäntö</string>
+	<string name="settings_clear_cache">Tyhjennä median välimuisti</string>
+	<string name="settings_app_version">Mastodon Android v%1$s (%2$d)</string>
 	<string name="button_reply">Vastaa</string>
 	<string name="button_share">Jaa</string>
 	<string name="emoji">Emoji</string>
@@ -105,6 +228,10 @@
 	<!-- %s is the server domain -->
 	<string name="follow_back">Seuraa takaisin</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
+	<string name="edit_text_edited">Tekstiä muokattu</string>
+	<string name="edit_spoiler_added">Sisältövaroitus</string>
+	<string name="edit_spoiler_edited">Sisältövaroitus muokattu</string>
+	<string name="edit_spoiler_removed">Sisältövaroitus poistettu</string>
 	<!-- %s is version like 1.2.3 -->
 	<!-- %s is version like 1.2.3 -->
 	<!-- %s is file size -->
