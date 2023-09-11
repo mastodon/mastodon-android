@@ -272,6 +272,7 @@
 	<string name="no_app_to_handle_action">Ni programa za ravnanje s tem dejanjem</string>
 	<string name="local_timeline">Krajevno</string>
 	<string name="trending_posts_info_banner">To so objave, ki plenijo pozornost po Mastodonu.</string>
+	<string name="trending_links_info_banner">To so novice, o katerih se govori na Mastodonu.</string>
 	<!-- %s is the server domain -->
 	<string name="see_new_posts">Pokaži nove objave</string>
 	<string name="load_missing_posts">Naloži manjkajoče objave</string>
@@ -385,6 +386,7 @@
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<string name="sending_follows">Sledenje uporabnikom ...</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<string name="signup_email_domain_blocked">%1$s ne dovoljuje prijav s/z %2$s. Poskusite drugega ali &lt;a&gt;izberite drug strežnik&lt;/a&gt;.</string>
 	<string name="spoiler_show">Vseeno pokaži</string>
 	<string name="spoiler_hide">Ponovno skrij</string>
 	<string name="poll_multiple_choice">Izberi eno ali več izbir</string>
@@ -403,30 +405,51 @@
 	<string name="welcome_to_mastodon">Dobrodošli na Mastodon</string>
 	<string name="welcome_paragraph1">Mastodon je decentralizirano družbeno omrežje, kar pomeni, da ga ne upravlja nobeno posamezno podjetje. Sestavljajo ga številni neodvisni strežniki, ki so medsebojno povezani.</string>
 	<string name="what_are_servers">Kaj so strežniki?</string>
-	<string name="welcome_paragraph2"><![CDATA[Vsak račun Mastodon gostuje na strežniku — vsak strežnik ima svoje vrednote, pravila in skbrnike. Vseeno je, katerega izberete - sledite in komunicirate lahko z osebbami na poljubnem strežniku.]]></string>
+	<string name="welcome_paragraph2">Vsak račun Mastodon gostuje na strežniku — vsak strežnik ima svoje vrednote, pravila in skbrnike. Vseeno je, katerega izberete - sledite in komunicirate lahko z osebbami na poljubnem strežniku.</string>
 	<string name="opening_link">Odpiranje povezav ...</string>
+	<string name="link_not_supported">Ta povezava v aplikaciji ni podprta</string>
 	<string name="log_out_all_accounts">Odjava iz vseh računov</string>
 	<string name="confirm_log_out_all_accounts">Ali se želite odjaviti iz vseh računov?</string>
 	<string name="retry">Poskusi znova</string>
+	<string name="post_failed">Objave ni možno poslati</string>
 	<!-- %s is formatted file size ("467 KB image") -->
+	<string name="attachment_description_image">%s slika</string>
+	<string name="attachment_description_video">%s video posnetek</string>
+	<string name="attachment_description_audio">%s zvočni posnetek</string>
+	<string name="attachment_description_unknown">%s datoteka</string>
 	<string name="attachment_type_image">Slika</string>
 	<string name="attachment_type_video">Video</string>
 	<string name="attachment_type_audio">Zvok</string>
 	<string name="attachment_type_gif">GIF</string>
 	<string name="attachment_type_unknown">Datoteka</string>
+	<string name="add_poll_option">Dodaj možen odgovor v anketi</string>
+	<string name="poll_length">Dolžina ankete</string>
 	<string name="poll_style">Slog</string>
+	<string name="compose_poll_single_choice">Izberite eno možnost</string>
+	<string name="compose_poll_multiple_choice">Več možnosti</string>
+	<string name="delete_poll_option">Izbriši možen odgovor v anketi</string>
 	<string name="poll_style_title">Slog ankete</string>
+	<string name="alt_text">Nadomestno besedilo</string>
 	<string name="help">Pomoč</string>
+	<string name="what_is_alt_text">Kaj je nadomestno besedilo (alt text)?</string>
 	<string name="edit_post">Uredi objavo</string>
 	<string name="no_verified_link">Ni preverjenih povezav</string>
+	<string name="compose_autocomplete_users_empty">Najdite tiste, ki jih iščete</string>
+	<string name="no_search_results">Za ta iskalni niz ni zadetkov</string>
 	<string name="language">Jezik</string>
 	<string name="language_default">Privzeto</string>
 	<string name="language_system">sistemski</string>
 	<string name="language_detecting">Zaznavanje jezika</string>
 	<string name="language_cant_detect">Jezika ni moč zaznati</string>
 	<string name="language_detected">Zaznano</string>
+	<string name="media_hidden">Mediji so skriti</string>
+	<string name="post_hidden">Skrita objava</string>
+	<string name="report_title_post">Prijavi objavo</string>
+	<string name="forward_report_explanation">Račun je z drugega strežnika. Ali želite poslati anonimno kopijo prijave tudi na drugi strežnik?</string>
 	<!-- %s is the server domain -->
+	<string name="forward_report_to_server">Posreduj k %s</string>
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
+	<string name="reported">Prijavljeno</string>
 	<string name="mark_all_notifications_read">Označi vse kot prebrano</string>
 	<string name="settings_filters">Filtri</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
@@ -434,25 +457,34 @@
 	<string name="default_post_language">Privzeti jezik objave</string>
 	<string name="pause_all_notifications">Premor za vse</string>
 	<string name="pause_notifications_off">Izklopljeno</string>
+	<string name="notifications_policy_follower">Ljudje, ki jim sledite</string>
 	<string name="notifications_policy_no_one">Nihče</string>
 	<string name="notification_type_mentions_and_replies">Omembe in odgovori</string>
 	<string name="pause_all_notifications_title">Zaustavi vsa obvestila</string>
 	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
+	<string name="date_at_time">%1$s ob %2$s</string>
 	<string name="today">danes</string>
 	<string name="yesterday">včeraj</string>
 	<string name="tomorrow">jutri</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="pause_notifications_banner">Obveščanje se bo nadaljevalo: %s.</string>
 	<string name="resume_notifications_now">Nadaljuj zdaj</string>
+	<string name="open_system_notification_settings">Pojdi k nastavitvam obvestil</string>
 	<string name="about_server">O programu</string>
 	<string name="server_rules">Pravila</string>
 	<string name="server_administrator">Skrbnik</string>
 	<string name="settings_even_more">Še več nastavitev</string>
 	<string name="settings_show_cws">Pokaži opozorilo o vsebini</string>
 	<string name="settings_hide_sensitive_media">Skrij medij, ki je označen kot občutljiv</string>
+	<string name="settings_show_interaction_counts">Števci interakcije objave</string>
 	<string name="count_one">Ena</string>
+	<string name="count_two">Dva</string>
+	<string name="count_three">Tri</string>
+	<string name="count_four">Štiri</string>
 	<string name="alt_text_reminder_post_anyway">Objavi</string>
 	<!-- %s is the username -->
+	<string name="unfollow_confirmation">Ne želite slediti %s?</string>
 	<string name="filter_active">Dejaven</string>
 	<string name="filter_inactive">Nedejaven</string>
 	<string name="settings_add_filter">Dodaj filter</string>
@@ -463,14 +495,21 @@
 	<string name="settings_delete_filter">Izbriši filter</string>
 	<string name="filter_duration_forever">Za vedno</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="selection_2_options">%1$s in %2$s</string>
+	<string name="selection_3_options">%1$s, %2$s in %3$s</string>
+	<string name="selection_4_or_more">%1$s, %2$s in še dodatnih %3$d</string>
 	<string name="filter_context_notifications">Obvestila</string>
 	<string name="filter_context_public_timelines">Javne časovnice</string>
 	<string name="filter_context_threads_replies">Niti in odgovori</string>
 	<string name="filter_context_profiles">Profili</string>
 	<string name="settings_filter_title">Naslov</string>
 	<string name="settings_delete_filter_title">Ali želite izbrisati filter »%s«?</string>
+	<string name="add_muted_word">Dodaj utišano besedo</string>
+	<string name="edit_muted_word">Uredi utišano besedo</string>
 	<string name="add">Dodaj</string>
 	<string name="filter_word_or_phrase">Beseda ali besedna zveza</string>
+	<string name="settings_delete_filter_word">Ali želite izbrisati besedo »%s«?</string>
+	<string name="enter_selection_mode">Izberite</string>
 	<string name="select_all">Izberi vse</string>
 	<string name="settings_filter_duration_title">Filtriraj po trajanju</string>
 	<string name="filter_duration_custom">Po meri</string>
