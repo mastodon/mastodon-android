@@ -2,7 +2,6 @@ package org.joinmastodon.android.model;
 
 import org.joinmastodon.android.api.ObjectValidationException;
 import org.joinmastodon.android.api.RequiredField;
-import org.joinmastodon.android.model.viewmodel.AccountViewModel;
 
 public class SearchResult extends BaseModel implements DisplayItemsParent{
 	public Account account;
@@ -41,12 +40,6 @@ public class SearchResult extends BaseModel implements DisplayItemsParent{
 	@Override
 	public void postprocess() throws ObjectValidationException{
 		super.postprocess();
-		if(account!=null)
-			account.postprocess();
-		if(hashtag!=null)
-			hashtag.postprocess();
-		if(status!=null)
-			status.postprocess();
 		generateID();
 	}
 

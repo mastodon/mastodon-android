@@ -1,6 +1,5 @@
 package org.joinmastodon.android.model;
 
-import org.joinmastodon.android.api.ObjectValidationException;
 import org.joinmastodon.android.api.RequiredField;
 import org.parceler.Parcel;
 
@@ -37,13 +36,6 @@ public class Source extends BaseModel{
 	 * The number of pending follow requests.
 	 */
 	public int followRequestCount;
-
-	@Override
-	public void postprocess() throws ObjectValidationException{
-		super.postprocess();
-		for(AccountField f:fields)
-			f.postprocess();
-	}
 
 	@Override
 	public String toString(){

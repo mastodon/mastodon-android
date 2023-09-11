@@ -1,6 +1,5 @@
 package org.joinmastodon.android.model;
 
-import org.joinmastodon.android.api.ObjectValidationException;
 import org.joinmastodon.android.api.RequiredField;
 import org.parceler.Parcel;
 
@@ -12,10 +11,4 @@ public class FilterResult extends BaseModel{
 	public Filter filter;
 
 	public List<String> keywordMatches;
-
-	@Override
-	public void postprocess() throws ObjectValidationException{
-		super.postprocess();
-		filter.postprocess();
-	}
 }

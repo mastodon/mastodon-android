@@ -85,8 +85,6 @@ public class Instance extends BaseModel{
 	@Override
 	public void postprocess() throws ObjectValidationException{
 		super.postprocess();
-		if(contactAccount!=null)
-			contactAccount.postprocess();
 		if(rules==null)
 			rules=Collections.emptyList();
 		if(shortDescription==null)

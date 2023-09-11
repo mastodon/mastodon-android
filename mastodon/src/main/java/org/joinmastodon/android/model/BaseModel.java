@@ -1,14 +1,16 @@
 package org.joinmastodon.android.model;
 
+import androidx.annotation.CallSuper;
+import androidx.annotation.NonNull;
+
 import org.joinmastodon.android.api.AllFieldsAreRequired;
 import org.joinmastodon.android.api.ObjectValidationException;
 import org.joinmastodon.android.api.RequiredField;
+import org.parceler.OnUnwrap;
+import org.parceler.ParcelerRuntimeException;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
-
-import androidx.annotation.CallSuper;
-import androidx.annotation.NonNull;
 
 public abstract class BaseModel implements Cloneable{
 	@CallSuper
@@ -23,6 +25,16 @@ public abstract class BaseModel implements Cloneable{
 				}
 			}
 		}catch(IllegalAccessException ignore){}
+	}
+
+	// Makes sure to call postprocess() for BaseModel objects deserialized via Parceler
+	@OnUnwrap
+	protected void parcelerPostprocess() {
+		try {
+			postprocess();
+		} catch (ObjectValidationException e) {
+			throw new ParcelerRuntimeException("Could not parse Parcel", e);
+		}
 	}
 
 	@NonNull

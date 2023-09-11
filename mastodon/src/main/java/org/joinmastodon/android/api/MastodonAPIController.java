@@ -2,6 +2,9 @@ package org.joinmastodon.android.api;
 
 import android.util.Log;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -12,8 +15,10 @@ import com.google.gson.JsonParser;
 import com.google.gson.JsonSyntaxException;
 
 import org.joinmastodon.android.BuildConfig;
+import org.joinmastodon.android.api.gson.BaseModelTypeAdapterFactory;
 import org.joinmastodon.android.api.gson.IsoInstantTypeAdapter;
 import org.joinmastodon.android.api.gson.IsoLocalDateTypeAdapter;
+import org.joinmastodon.android.api.gson.OptionalItemListDeserializer;
 import org.joinmastodon.android.api.session.AccountSession;
 
 import java.io.IOException;
@@ -26,8 +31,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import me.grishka.appkit.utils.WorkerThread;
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -43,7 +46,12 @@ public class MastodonAPIController{
 			.setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
 			.registerTypeAdapter(Instant.class, new IsoInstantTypeAdapter())
 			.registerTypeAdapter(LocalDate.class, new IsoLocalDateTypeAdapter())
+			.registerTypeAdapterFactory(new BaseModelTypeAdapterFactory())
 			.create();
+	public static final Gson gsonOptionalItemList =gson.newBuilder()
+			.registerTypeAdapter(List.class, new OptionalItemListDeserializer())
+			.create();
+
 	private static WorkerThread thread=new WorkerThread("MastodonAPIController");
 	private static OkHttpClient httpClient=new OkHttpClient.Builder().build();
 
@@ -121,20 +129,21 @@ public class MastodonAPIController{
 							if(response.isSuccessful()){
 								T respObj;
 								try{
+									Gson gsonToUse = req.removeUnsupportedItems ? gsonOptionalItemList : gson;
 									if(BuildConfig.DEBUG){
 										JsonElement respJson=JsonParser.parseReader(reader);
 										Log.d(TAG, "["+(session==null ? "no-auth" : session.getID())+"] response body: "+respJson);
 										if(req.respTypeToken!=null)
-											respObj=gson.fromJson(respJson, req.respTypeToken.getType());
+											respObj=gsonToUse.fromJson(respJson, req.respTypeToken.getType());
 										else if(req.respClass!=null)
-											respObj=gson.fromJson(respJson, req.respClass);
+											respObj=gsonToUse.fromJson(respJson, req.respClass);
 										else
 											respObj=null;
 									}else{
 										if(req.respTypeToken!=null)
-											respObj=gson.fromJson(reader, req.respTypeToken.getType());
+											respObj=gsonToUse.fromJson(reader, req.respTypeToken.getType());
 										else if(req.respClass!=null)
-											respObj=gson.fromJson(reader, req.respClass);
+											respObj=gsonToUse.fromJson(reader, req.respClass);
 										else
 											respObj=null;
 									}

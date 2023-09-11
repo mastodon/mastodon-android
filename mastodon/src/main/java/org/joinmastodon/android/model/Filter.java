@@ -1,6 +1,5 @@
 package org.joinmastodon.android.model;
 
-import org.joinmastodon.android.api.ObjectValidationException;
 import org.joinmastodon.android.api.RequiredField;
 import org.parceler.Parcel;
 
@@ -26,15 +25,6 @@ public class Filter extends BaseModel{
 	public List<FilterKeyword> keywords=new ArrayList<>();
 
 	public List<FilterStatus> statuses=new ArrayList<>();
-
-	@Override
-	public void postprocess() throws ObjectValidationException{
-		super.postprocess();
-		for(FilterKeyword keyword:keywords)
-			keyword.postprocess();
-		for(FilterStatus status:statuses)
-			status.postprocess();
-	}
 
 	public boolean isActive(){
 		return expiresAt==null || expiresAt.isAfter(Instant.now());

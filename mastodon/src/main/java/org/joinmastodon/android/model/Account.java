@@ -137,16 +137,6 @@ public class Account extends BaseModel{
 	@Override
 	public void postprocess() throws ObjectValidationException{
 		super.postprocess();
-		if(fields!=null){
-			for(AccountField f:fields)
-				f.postprocess();
-		}
-		if(emojis!=null){
-			for(Emoji e:emojis)
-				e.postprocess();
-		}
-		if(moved!=null)
-			moved.postprocess();
 		if(TextUtils.isEmpty(displayName))
 			displayName=username;
 	}

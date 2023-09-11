@@ -1,6 +1,5 @@
 package org.joinmastodon.android.model;
 
-import org.joinmastodon.android.api.ObjectValidationException;
 import org.joinmastodon.android.api.RequiredField;
 import org.parceler.Parcel;
 
@@ -26,13 +25,6 @@ public class Poll extends BaseModel{
 	public List<Emoji> emojis;
 
 	public transient ArrayList<Option> selectedOptions;
-
-	@Override
-	public void postprocess() throws ObjectValidationException{
-		super.postprocess();
-		for(Emoji e:emojis)
-			e.postprocess();
-	}
 
 	@Override
 	public String toString(){
