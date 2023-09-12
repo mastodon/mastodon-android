@@ -1,5 +1,7 @@
 package org.joinmastodon.android.model;
 
+import android.text.TextUtils;
+
 import org.joinmastodon.android.api.ObjectValidationException;
 import org.joinmastodon.android.api.RequiredField;
 import org.joinmastodon.android.events.StatusCountersUpdatedEvent;
@@ -8,6 +10,8 @@ import org.parceler.Parcel;
 
 import java.time.Instant;
 import java.util.List;
+import java.util.Locale;
+import java.util.Objects;
 
 import androidx.annotation.NonNull;
 
@@ -61,6 +65,8 @@ public class Status extends BaseModel implements DisplayItemsParent{
 	public transient boolean spoilerRevealed;
 	public transient boolean hasGapAfter;
 	private transient String strippedText;
+	public transient TranslationState translationState=TranslationState.HIDDEN;
+	public transient Translation translation;
 
 	public Status(){}
 
@@ -161,6 +167,18 @@ public class Status extends BaseModel implements DisplayItemsParent{
 	public Status clone(){
 		Status copy=(Status) super.clone();
 		copy.spoilerRevealed=false;
+		copy.translationState=TranslationState.HIDDEN;
 		return copy;
+	}
+
+	public boolean isEligibleForTranslation(){
+		return !TextUtils.isEmpty(content) && !TextUtils.isEmpty(language) && !Objects.equals(Locale.getDefault().getLanguage(), language)
+				&& (visibility==StatusPrivacy.PUBLIC || visibility==StatusPrivacy.UNLISTED);
+	}
+
+	public enum TranslationState{
+		HIDDEN,
+		SHOWN,
+		LOADING
 	}
 }

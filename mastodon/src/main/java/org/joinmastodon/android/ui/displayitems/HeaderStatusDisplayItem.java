@@ -41,6 +41,7 @@ import org.parceler.Parcels;
 import java.time.Instant;
 import java.util.Collections;
 import java.util.List;
+import java.util.Locale;
 
 import androidx.annotation.LayoutRes;
 import me.grishka.appkit.Nav;
@@ -195,6 +196,8 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 					AccountSessionManager.getInstance().getAccount(item.accountID).getStatusInteractionController().setBookmarked(item.status, !item.status.bookmarked);
 				}else if(id==R.id.share){
 					UiUtils.openSystemShareSheet(activity, item.status.url);
+				}else if(id==R.id.translate){
+					item.parentFragment.togglePostTranslation(item.status, item.parentID);
 				}
 				return true;
 			});
@@ -285,6 +288,15 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 			Account account=item.user;
 			Menu menu=optionsMenu.getMenu();
 			boolean isOwnPost=AccountSessionManager.getInstance().isSelf(item.parentFragment.getAccountID(), account);
+			boolean canTranslate=item.status!=null && item.status.getContentStatus().isEligibleForTranslation();
+			MenuItem translate=menu.findItem(R.id.translate);
+			translate.setVisible(canTranslate);
+			if(canTranslate){
+				if(item.status.translationState==Status.TranslationState.SHOWN)
+					translate.setTitle(R.string.translation_show_original);
+				else
+					translate.setTitle(item.parentFragment.getString(R.string.translate_post, Locale.forLanguageTag(item.status.getContentStatus().language).getDisplayLanguage()));
+			}
 			menu.findItem(R.id.edit).setVisible(item.status!=null && isOwnPost);
 			menu.findItem(R.id.delete).setVisible(item.status!=null && isOwnPost);
 			menu.findItem(R.id.open_in_browser).setVisible(item.status!=null);

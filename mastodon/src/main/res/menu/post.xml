@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 	<group android:id="@+id/menu_group1">
-		<!-- TODO translate -->
+		<item android:id="@+id/translate" android:title="@string/translate_post"/>
 		<item android:id="@+id/bookmark" android:title="@string/add_bookmark"/>
 		<item android:id="@+id/share" android:title="@string/button_share"/>
 		<item android:id="@+id/open_in_browser" android:title="@string/open_in_browser"/>

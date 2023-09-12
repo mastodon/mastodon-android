@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
-	android:layout_height="wrap_content">
+	android:layout_height="wrap_content"
+	android:orientation="vertical">
 
 	<org.joinmastodon.android.ui.views.LinkedTextView
 		android:id="@+id/text"
@@ -16,4 +17,10 @@
 		android:paddingBottom="8dp"
 		android:textAppearance="@style/m3_body_large"/>
 
-</FrameLayout>
+	<ViewStub
+		android:id="@+id/translation_info"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout="@layout/footer_text_translation"/>
+
+</LinearLayout>

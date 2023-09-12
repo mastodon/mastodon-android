@@ -17,13 +17,16 @@ import org.joinmastodon.android.E;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.requests.accounts.GetAccountRelationships;
 import org.joinmastodon.android.api.requests.polls.SubmitPollVote;
+import org.joinmastodon.android.api.requests.statuses.TranslateStatus;
 import org.joinmastodon.android.events.PollUpdatedEvent;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.DisplayItemsParent;
 import org.joinmastodon.android.model.Poll;
 import org.joinmastodon.android.model.Relationship;
 import org.joinmastodon.android.model.Status;
+import org.joinmastodon.android.model.Translation;
 import org.joinmastodon.android.ui.BetterItemAnimator;
+import org.joinmastodon.android.ui.M3AlertDialogBuilder;
 import org.joinmastodon.android.ui.displayitems.AccountStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.ExtendedFooterStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.GapStatusDisplayItem;
@@ -33,6 +36,7 @@ import org.joinmastodon.android.ui.displayitems.PollFooterStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.PollOptionStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.SpoilerStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.StatusDisplayItem;
+import org.joinmastodon.android.ui.displayitems.TextStatusDisplayItem;
 import org.joinmastodon.android.ui.photoviewer.PhotoViewer;
 import org.joinmastodon.android.ui.photoviewer.PhotoViewerHost;
 import org.joinmastodon.android.ui.utils.MediaAttachmentViewController;
@@ -43,6 +47,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -558,6 +563,56 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 
 	public TypedObjectPool<MediaGridStatusDisplayItem.GridItemType, MediaAttachmentViewController> getAttachmentViewsPool(){
 		return attachmentViewsPool;
+	}
+
+	public void togglePostTranslation(Status status, String itemID){
+		switch(status.translationState){
+			case LOADING -> {
+				return;
+			}
+			case SHOWN -> {
+				status.translationState=Status.TranslationState.HIDDEN;
+			}
+			case HIDDEN -> {
+				if(status.translation!=null){
+					status.translationState=Status.TranslationState.SHOWN;
+				}else{
+					status.translationState=Status.TranslationState.LOADING;
+					new TranslateStatus(status.getContentStatus().id, Locale.getDefault().getLanguage())
+							.setCallback(new Callback<>(){
+								@Override
+								public void onSuccess(Translation result){
+									if(getActivity()==null)
+										return;
+									status.translation=result;
+									status.translationState=Status.TranslationState.SHOWN;
+									TextStatusDisplayItem.Holder text=findHolderOfType(itemID, TextStatusDisplayItem.Holder.class);
+									if(text!=null){
+										text.updateTranslation(true);
+										imgLoader.bindViewHolder((ImageLoaderRecyclerAdapter) list.getAdapter(), text, text.getAbsoluteAdapterPosition());
+									}
+								}
+
+								@Override
+								public void onError(ErrorResponse error){
+									if(getActivity()==null)
+										return;
+									new M3AlertDialogBuilder(getActivity())
+											.setTitle(R.string.error)
+											.setMessage(R.string.translation_failed)
+											.setPositiveButton(R.string.ok, null)
+											.show();
+								}
+							})
+							.exec(accountID);
+				}
+			}
+		}
+		TextStatusDisplayItem.Holder text=findHolderOfType(itemID, TextStatusDisplayItem.Holder.class);
+		if(text!=null){
+			text.updateTranslation(true);
+			imgLoader.bindViewHolder((ImageLoaderRecyclerAdapter) list.getAdapter(), text, text.getAbsoluteAdapterPosition());
+		}
 	}
 
 	public void rebuildAllDisplayItems(){
