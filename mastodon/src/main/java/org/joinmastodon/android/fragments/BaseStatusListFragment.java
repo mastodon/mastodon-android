@@ -597,6 +597,11 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 								public void onError(ErrorResponse error){
 									if(getActivity()==null)
 										return;
+									status.translationState=Status.TranslationState.HIDDEN;
+									TextStatusDisplayItem.Holder text=findHolderOfType(itemID, TextStatusDisplayItem.Holder.class);
+									if(text!=null){
+										text.updateTranslation(true);
+									}
 									new M3AlertDialogBuilder(getActivity())
 											.setTitle(R.string.error)
 											.setMessage(R.string.translation_failed)
