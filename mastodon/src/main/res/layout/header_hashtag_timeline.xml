@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:paddingHorizontal="16dp"
+	android:paddingBottom="8dp">
+
+	<TextView
+		android:id="@+id/title"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_toStartOf="@id/follow_btn_wrap"
+		android:layout_marginEnd="8dp"
+		android:textAppearance="@style/m3_headline_small"
+		android:textColor="?colorM3OnSurface"
+		android:maxLines="4"
+		android:ellipsize="end"
+		android:minHeight="36dp"
+		android:gravity="center_vertical"
+		tools:text="#CatsOfMastodonButLong"/>
+
+	<FrameLayout
+		android:id="@+id/follow_btn_wrap"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_alignTop="@id/title"
+		android:layout_alignBottom="@id/title"
+		android:layout_alignParentEnd="true">
+
+		<org.joinmastodon.android.ui.views.ProgressBarButton
+			android:id="@+id/profile_action_btn"
+			android:layout_width="wrap_content"
+			android:layout_height="36dp"
+			android:layout_gravity="center"
+			style="@style/Widget.Mastodon.M3.Button.Filled"
+			android:paddingHorizontal="16dp"
+			tools:text="@string/button_follow" />
+
+		<ProgressBar
+			android:id="@+id/action_progress"
+			style="?android:progressBarStyleSmall"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="center"
+			android:elevation="10dp"
+			android:indeterminate="true"
+			android:outlineProvider="none"
+			android:visibility="gone" />
+	</FrameLayout>
+
+	<TextView
+		android:id="@+id/subtitle"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_below="@id/title"
+		android:layout_marginTop="8dp"
+		android:textAppearance="@style/m3_label_large"
+		android:textColor="?colorM3OnSurfaceVariant"
+		tools:text="123 posts"/>
+
+</RelativeLayout>

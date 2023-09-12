@@ -4,6 +4,7 @@ import android.content.Context;
 import android.text.TextPaint;
 import android.text.style.CharacterStyle;
 
+import org.joinmastodon.android.model.Hashtag;
 import org.joinmastodon.android.ui.utils.UiUtils;
 
 public class LinkSpan extends CharacterStyle {
@@ -13,12 +14,14 @@ public class LinkSpan extends CharacterStyle {
 	private String link;
 	private Type type;
 	private String accountID;
+	private Object linkObject;
 
-	public LinkSpan(String link, OnLinkClickListener listener, Type type, String accountID){
+	public LinkSpan(String link, OnLinkClickListener listener, Type type, String accountID, Object linkObject){
 		this.listener=listener;
 		this.link=link;
 		this.type=type;
 		this.accountID=accountID;
+		this.linkObject=linkObject;
 	}
 
 	public int getColor(){
@@ -35,7 +38,12 @@ public class LinkSpan extends CharacterStyle {
 		switch(getType()){
 			case URL -> UiUtils.openURL(context, accountID, link);
 			case MENTION -> UiUtils.openProfileByID(context, accountID, link);
-			case HASHTAG -> UiUtils.openHashtagTimeline(context, accountID, link);
+			case HASHTAG -> {
+				if(linkObject instanceof Hashtag ht)
+					UiUtils.openHashtagTimeline(context, accountID, ht);
+				else
+					UiUtils.openHashtagTimeline(context, accountID, link);
+			}
 			case CUSTOM -> listener.onLinkClick(this);
 		}
 	}

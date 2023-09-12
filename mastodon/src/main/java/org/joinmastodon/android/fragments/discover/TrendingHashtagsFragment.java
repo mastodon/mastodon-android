@@ -105,7 +105,7 @@ public class TrendingHashtagsFragment extends BaseRecyclerFragment<Hashtag> impl
 
 		@Override
 		public void onClick(){
-			UiUtils.openHashtagTimeline(getActivity(), accountID, item.name);
+			UiUtils.openHashtagTimeline(getActivity(), accountID, item);
 		}
 	}
 }

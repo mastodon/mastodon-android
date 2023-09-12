@@ -596,4 +596,13 @@
 	<string name="post_translated">Translated from %1$s using %2$s</string>
 	<string name="translation_show_original">Show original</string>
 	<string name="translation_failed">Translation failed. Maybe the administrator has not enabled translations on this server or this server is running an older version of Mastodon where translations are not yet supported.</string>
+
+	<plurals name="x_participants">
+		<item quantity="one">%,d participant</item>
+		<item quantity="other">%,d participants</item>
+	</plurals>
+	<plurals name="x_posts_today">
+		<item quantity="one">%,d post today</item>
+		<item quantity="other">%,d posts today</item>
+	</plurals>
 </resources>

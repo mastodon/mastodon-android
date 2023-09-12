@@ -377,7 +377,7 @@ public class SearchQueryFragment extends MastodonRecyclerFragment<SearchResultVi
 	}
 
 	private void openHashtag(SearchResult res){
-		UiUtils.openHashtagTimeline(getActivity(), accountID, res.hashtag.name);
+		UiUtils.openHashtagTimeline(getActivity(), accountID, res.hashtag);
 		AccountSessionManager.getInstance().getAccount(accountID).getCacheController().putRecentSearch(res);
 	}
 

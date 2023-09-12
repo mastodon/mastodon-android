@@ -271,7 +271,7 @@ public class SignupFragment extends ToolbarFragment{
 						@Override
 						public void tail(Node node, int depth){
 							if(node instanceof Element){
-								ssb.setSpan(new LinkSpan("", SignupFragment.this::onGoBackLinkClick, LinkSpan.Type.CUSTOM, null), spanStart, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+								ssb.setSpan(new LinkSpan("", SignupFragment.this::onGoBackLinkClick, LinkSpan.Type.CUSTOM, null, null), spanStart, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 								ssb.setSpan(new TypefaceSpan("sans-serif-medium"), spanStart, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 							}
 						}

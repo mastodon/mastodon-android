@@ -61,6 +61,7 @@ import org.joinmastodon.android.fragments.ProfileFragment;
 import org.joinmastodon.android.fragments.ThreadFragment;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.Emoji;
+import org.joinmastodon.android.model.Hashtag;
 import org.joinmastodon.android.model.Relationship;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.M3AlertDialogBuilder;
@@ -342,10 +343,17 @@ public class UiUtils{
 		Nav.go((Activity)context, ProfileFragment.class, args);
 	}
 
+	public static void openHashtagTimeline(Context context, String accountID, Hashtag hashtag){
+		Bundle args=new Bundle();
+		args.putString("account", accountID);
+		args.putParcelable("hashtag", Parcels.wrap(hashtag));
+		Nav.go((Activity)context, HashtagTimelineFragment.class, args);
+	}
+
 	public static void openHashtagTimeline(Context context, String accountID, String hashtag){
 		Bundle args=new Bundle();
 		args.putString("account", accountID);
-		args.putString("hashtag", hashtag);
+		args.putString("hashtagName", hashtag);
 		Nav.go((Activity)context, HashtagTimelineFragment.class, args);
 	}
 

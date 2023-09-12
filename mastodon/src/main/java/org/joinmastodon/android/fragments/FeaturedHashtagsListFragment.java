@@ -15,6 +15,7 @@ import org.parceler.Parcels;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -44,7 +45,7 @@ public class FeaturedHashtagsListFragment extends BaseStatusListFragment<Hashtag
 
 	@Override
 	public void onItemClick(String id){
-		UiUtils.openHashtagTimeline(getActivity(), accountID, id);
+		UiUtils.openHashtagTimeline(getActivity(), accountID, Objects.requireNonNull(findItemOfType(id, HashtagStatusDisplayItem.class)).tag);
 	}
 
 	@Override

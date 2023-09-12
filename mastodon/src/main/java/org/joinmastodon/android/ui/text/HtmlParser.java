@@ -84,6 +84,7 @@ public class HtmlParser{
 		Map<String, String> idsByUrl=mentions.stream().collect(Collectors.toMap(m->m.url, m->m.id));
 		// Hashtags in remote posts have remote URLs, these have local URLs so they don't match.
 //		Map<String, String> tagsByUrl=tags.stream().collect(Collectors.toMap(t->t.url, t->t.name));
+		Map<String, Hashtag> tagsByTag=tags.stream().collect(Collectors.toMap(t->t.name.toLowerCase(), Function.identity()));
 
 		final SpannableStringBuilder ssb=new SpannableStringBuilder();
 		Jsoup.parseBodyFragment(source).body().traverse(new NodeVisitor(){
@@ -96,6 +97,7 @@ public class HtmlParser{
 				}else if(node instanceof Element el){
 					switch(el.nodeName()){
 						case "a" -> {
+							Object linkObject=null;
 							String href=el.attr("href");
 							LinkSpan.Type linkType;
 							if(el.hasClass("hashtag")){
@@ -103,6 +105,7 @@ public class HtmlParser{
 								if(text.startsWith("#")){
 									linkType=LinkSpan.Type.HASHTAG;
 									href=text.substring(1);
+									linkObject=tagsByTag.get(text.substring(1).toLowerCase());
 								}else{
 									linkType=LinkSpan.Type.URL;
 								}
@@ -117,7 +120,7 @@ public class HtmlParser{
 							}else{
 								linkType=LinkSpan.Type.URL;
 							}
-							openSpans.add(new SpanInfo(new LinkSpan(href, null, linkType, accountID), ssb.length(), el));
+							openSpans.add(new SpanInfo(new LinkSpan(href, null, linkType, accountID, linkObject), ssb.length(), el));
 						}
 						case "br" -> ssb.append('\n');
 						case "span" -> {
@@ -213,7 +216,7 @@ public class HtmlParser{
 			String url=matcher.group(3);
 			if(TextUtils.isEmpty(matcher.group(4)))
 				url="http://"+url;
-			ssb.setSpan(new LinkSpan(url, null, LinkSpan.Type.URL, null), matcher.start(3), matcher.end(3), 0);
+			ssb.setSpan(new LinkSpan(url, null, LinkSpan.Type.URL, null, null), matcher.start(3), matcher.end(3), 0);
 		}while(matcher.find()); // Find more URLs
 		return ssb;
 	}

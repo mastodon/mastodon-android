@@ -13,6 +13,7 @@ public class Hashtag extends BaseModel implements DisplayItemsParent{
 	public String url;
 	public List<History> history;
 	public int statusesCount;
+	public boolean following;
 
 	@Override
 	public String toString(){
@@ -21,6 +22,7 @@ public class Hashtag extends BaseModel implements DisplayItemsParent{
 				", url='"+url+'\''+
 				", history="+history+
 				", statusesCount="+statusesCount+
+				", following="+following+
 				'}';
 	}
 
