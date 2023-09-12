@@ -383,6 +383,7 @@
 	<string name="welcome_to_mastodon">Welkom bij Mastodon</string>
 	<string name="welcome_paragraph1">Mastodon is een gedecentraliseerd sociaal netwerk, wat betekent dat geen enkel bedrijf het controleert. Het bestaat uit veel onafhankelijk opererende servers, allemaal met elkaar verbonden.</string>
 	<string name="what_are_servers">Wat zijn servers?</string>
+	<string name="welcome_paragraph2">Elk Mastodon-account wordt gehost op een server – elk met diens eigen waarden, regels en beheerders. Het maakt niet uit welke server je kiest, je kunt mensen op elke server volgen en ermee communiceren.</string>
 	<string name="opening_link">Koppeling aan het openen…</string>
 	<string name="link_not_supported">Deze koppeling wordt niet ondersteund in de app</string>
 	<string name="log_out_all_accounts">Bij alle accounts afmelden</string>
@@ -401,6 +402,7 @@
 	<string name="attachment_type_unknown">Bestand</string>
 	<string name="attachment_x_percent_uploaded">%d%% geüpload</string>
 	<string name="add_poll_option">Enquete-optie toevoegen</string>
+	<string name="poll_length">Lengte enquête</string>
 	<string name="poll_style">Stijl</string>
 	<string name="compose_poll_single_choice">Kies een</string>
 	<string name="compose_poll_multiple_choice">Meerkeuze</string>
@@ -409,8 +411,25 @@
 	<string name="alt_text">Alternatieve tekst</string>
 	<string name="help">Hulp</string>
 	<string name="what_is_alt_text">Wat is alternatieve tekst?</string>
+	<string name="edit_post">Bericht bewerken</string>
+	<string name="no_verified_link">Geen geverifieerde koppeling</string>
+	<string name="compose_autocomplete_emoji_empty">Emoji doorzoeken</string>
+	<string name="compose_autocomplete_users_empty">Vind wie je zoekt</string>
+	<string name="no_search_results">Deze zoektermen leveren geen resultaat op</string>
+	<string name="language">Taal</string>
+	<string name="language_default">Standaard</string>
+	<string name="language_system">Systeem</string>
+	<string name="language_detecting">Taal detecteren</string>
+	<string name="language_cant_detect">Kan taal niet detecteren</string>
+	<string name="language_detected">Gedetecteerd</string>
+	<string name="media_hidden">Media verborgen</string>
+	<string name="post_hidden">Bericht verborgen</string>
+	<string name="report_title_post">Bericht rapporteren</string>
+	<string name="forward_report_explanation">De account bevindt zich op een andere server. Wil je daar eveneens een geanonimiseerde kopie van dit rapport naar toesturen?</string>
 	<!-- %s is the server domain -->
+	<string name="forward_report_to_server">Doorsturen naar %s</string>
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
+	<string name="reported">Gerapporteerd</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="settings_alt_text_reminders">Alt-tekst-herinneringen toevoegen</string>
 	<string name="settings_confirm_unfollow">Vraag voor ontvolgen iemand</string>
