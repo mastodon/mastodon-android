@@ -554,5 +554,15 @@
 	<string name="time_hours_ago_short">%d ชั่วโมงที่แล้ว</string>
 	<string name="time_days_ago_short">%d วันที่แล้ว</string>
 	<!-- %s is the name of the post language -->
+	<string name="translate_post">แปลจาก %s</string>
 	<!-- %1$s is the language, %2$s is the name of the translation service -->
+	<string name="post_translated">แปลจาก %1$s โดยใช้ %2$s</string>
+	<string name="translation_show_original">แสดงดั้งเดิม</string>
+	<string name="translation_failed">การแปลล้มเหลว บางทีผู้ดูแลอาจไม่ได้เปิดใช้งานการแปลในเซิร์ฟเวอร์นี้หรือเซิร์ฟเวอร์นี้กำลังใช้ Mastodon รุ่นเก่ากว่าที่ยังไม่รองรับการแปล</string>
+	<plurals name="x_participants">
+		<item quantity="other">%,d ผู้มีส่วนร่วม</item>
+	</plurals>
+	<plurals name="x_posts_today">
+		<item quantity="other">%,d โพสต์วันนี้</item>
+	</plurals>
 </resources>
