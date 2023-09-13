@@ -389,7 +389,28 @@
 	<string name="what_are_servers">Mitä palvelimet ovat?</string>
 	<string name="welcome_paragraph2">Jokainen Mastodon tili isännöi palvelimella - kullakin on omat arvot, säännöt, &amp; ylläpitäjät. Riippumatta siitä, minkä valitset, voit seurata ja olla vuorovaikutuksessa ihmisten kanssa millä tahansa palvelimella.</string>
 	<string name="opening_link">Avataan linkki…</string>
+	<string name="link_not_supported">Tämä linkki ei ole tuettu sovelluksessa</string>
+	<string name="log_out_all_accounts">Kirjaudu ulos kaikista tileistä</string>
+	<string name="confirm_log_out_all_accounts">Kirjaudu ulos kaikista tileistä?</string>
+	<string name="retry">Yritä uudelleen</string>
+	<string name="post_failed">Viestin lähettäminen epäonnistui</string>
 	<!-- %s is formatted file size ("467 KB image") -->
+	<string name="attachment_description_image">%s kuva</string>
+	<string name="attachment_description_video">%s video</string>
+	<string name="attachment_description_audio">%s ääni</string>
+	<string name="attachment_description_unknown">%s tiedosto</string>
+	<string name="attachment_type_image">Kuva</string>
+	<string name="attachment_type_video">Video</string>
+	<string name="attachment_type_audio">Ääni</string>
+	<string name="attachment_type_gif">GIF</string>
+	<string name="attachment_type_unknown">Tiedosto</string>
+	<string name="attachment_x_percent_uploaded">%d%% ladattu</string>
+	<string name="add_poll_option">Lisää kyselyyn vaihtoehto</string>
+	<string name="poll_length">Kyselyn kesto</string>
+	<string name="poll_style">Tyyli</string>
+	<string name="compose_poll_single_choice">Valitse yksi</string>
+	<string name="compose_poll_multiple_choice">Monivalinta</string>
+	<string name="delete_poll_option">Poista kyselyn vaihtoehto</string>
 	<string name="poll_style_title">Kyselyn tyyli</string>
 	<string name="alt_text">Selitys</string>
 	<string name="help">Ohje</string>
@@ -447,8 +468,15 @@
 	<string name="date_at_time">%1$s klo %2$s</string>
 	<string name="today">tänään</string>
 	<string name="yesterday">eilen</string>
+	<string name="tomorrow">huomenna</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="pause_notifications_ends">Päättyy %s</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="pause_notifications_banner">Ilmoitukset jatkuvat %s.</string>
+	<string name="resume_notifications_now">Jatka nyt</string>
+	<string name="open_system_notification_settings">Siirry ilmoitusasetuksiin</string>
+	<string name="about_server">Tietoja</string>
+	<string name="server_rules">Säännöt</string>
 	<string name="server_administrator">Ylläpitäjä</string>
 	<string name="send_email_to_server_admin">Viestin ylläpitäjä</string>
 	<string name="notifications_disabled_in_system">Ota ilmoitukset käyttöön laitteesi asetuksista nähdäksesi päivityksiä mistä tahansa.</string>
@@ -555,5 +583,17 @@
 	<string name="time_hours_ago_short">%dh sitten</string>
 	<string name="time_days_ago_short">%dd sitten</string>
 	<!-- %s is the name of the post language -->
+	<string name="translate_post">Käännetty kielestä %s</string>
 	<!-- %1$s is the language, %2$s is the name of the translation service -->
+	<string name="post_translated">Käännetty kielestä %1$s käyttäen %2$s</string>
+	<string name="translation_show_original">Näytä alkuperäinen</string>
+	<string name="translation_failed">Käännös epäonnistui. Ehkä järjestelmänvalvoja ei ole ottanut käyttöön käännöksiä tällä palvelimella tai tällä palvelimella on käynnissä vanhempi versio Mastodonista, jossa käännöksiä ei vielä tueta.</string>
+	<plurals name="x_participants">
+		<item quantity="one">%d osallistuja</item>
+		<item quantity="other">%d osallistujaa</item>
+	</plurals>
+	<plurals name="x_posts_today">
+		<item quantity="one">%,d viesti tänään</item>
+		<item quantity="other">%,d viestiä tänään</item>
+	</plurals>
 </resources>
