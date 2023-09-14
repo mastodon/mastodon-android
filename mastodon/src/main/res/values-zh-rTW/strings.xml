@@ -556,4 +556,13 @@
 	<!-- %s is the name of the post language -->
 	<string name="translate_post">翻譯自 %s</string>
 	<!-- %1$s is the language, %2$s is the name of the translation service -->
+	<string name="post_translated">透過 %2$s 翻譯 %1$s</string>
+	<string name="translation_show_original">顯示原文</string>
+	<string name="translation_failed">翻譯失敗。也許管理員未於此伺服器啟用翻譯功能，或此伺服器為未支援翻譯功能之舊版本 Mastodon。</string>
+	<plurals name="x_participants">
+		<item quantity="other">%,d 位參與者</item>
+	</plurals>
+	<plurals name="x_posts_today">
+		<item quantity="other">本日共 %,d 則嘟文</item>
+	</plurals>
 </resources>
