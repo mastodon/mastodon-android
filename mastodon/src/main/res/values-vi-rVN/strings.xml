@@ -554,5 +554,15 @@
 	<string name="time_hours_ago_short">%dh</string>
 	<string name="time_days_ago_short">%d ngày</string>
 	<!-- %s is the name of the post language -->
+	<string name="translate_post">Dịch từ %s</string>
 	<!-- %1$s is the language, %2$s is the name of the translation service -->
+	<string name="post_translated">Dịch từ %1$s bằng %2$s</string>
+	<string name="translation_show_original">Bản gốc</string>
+	<string name="translation_failed">Dịch không thành công. Có thể quản trị viên chưa bật dịch trên máy chủ này hoặc máy chủ này đang chạy phiên bản cũ hơn của Mastodon chưa hỗ trợ dịch.</string>
+	<plurals name="x_participants">
+		<item quantity="other">%,d người thảo luận</item>
+	</plurals>
+	<plurals name="x_posts_today">
+		<item quantity="other">%,d tút hôm nay</item>
+	</plurals>
 </resources>
