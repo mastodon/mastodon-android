@@ -583,5 +583,17 @@
 	<string name="time_hours_ago_short">%do fa</string>
 	<string name="time_days_ago_short">%dg fa</string>
 	<!-- %s is the name of the post language -->
+	<string name="translate_post">Traduci da %s</string>
 	<!-- %1$s is the language, %2$s is the name of the translation service -->
+	<string name="post_translated">Tradotto da %1$s utilizzando %2$s</string>
+	<string name="translation_show_original">Mostra originale</string>
+	<string name="translation_failed">Traduzione fallita. Forse l\'amministratore non ha abilitato le traduzioni su questo server, o su questo server è in esecuzione una versione precedente di Mastodon in cui le traduzioni non sono ancora supportate.</string>
+	<plurals name="x_participants">
+		<item quantity="one">%,d participante</item>
+		<item quantity="other">%,d partecipanti</item>
+	</plurals>
+	<plurals name="x_posts_today">
+		<item quantity="one">%,d post oggi</item>
+		<item quantity="other">%,d post oggi</item>
+	</plurals>
 </resources>
