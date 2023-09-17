@@ -15,15 +15,12 @@ import android.widget.TextView;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.requests.search.GetSearchResults;
 import org.joinmastodon.android.api.session.AccountSessionManager;
-import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.Emoji;
 import org.joinmastodon.android.model.Hashtag;
 import org.joinmastodon.android.model.SearchResults;
 import org.joinmastodon.android.model.viewmodel.AccountViewModel;
 import org.joinmastodon.android.ui.BetterItemAnimator;
 import org.joinmastodon.android.ui.OutlineProviders;
-import org.joinmastodon.android.ui.text.HtmlParser;
-import org.joinmastodon.android.ui.utils.CustomEmojiHelper;
 import org.joinmastodon.android.ui.utils.HideableSingleViewRecyclerAdapter;
 import org.joinmastodon.android.ui.utils.UiUtils;
 import org.joinmastodon.android.ui.views.FilterChipView;
@@ -240,7 +237,7 @@ public class ComposeAutocompleteViewController{
 	}
 
 	private void doSearchUsers(){
-		currentRequest=new GetSearchResults(lastText, GetSearchResults.Type.ACCOUNTS, false)
+		currentRequest=new GetSearchResults(lastText, GetSearchResults.Type.ACCOUNTS, false, null, 0, 0)
 				.setCallback(new Callback<>(){
 					@Override
 					public void onSuccess(SearchResults result){
@@ -276,7 +273,7 @@ public class ComposeAutocompleteViewController{
 	}
 
 	private void doSearchHashtags(){
-		currentRequest=new GetSearchResults(lastText, GetSearchResults.Type.HASHTAGS, false)
+		currentRequest=new GetSearchResults(lastText, GetSearchResults.Type.HASHTAGS, false, null, 0, 0)
 				.setCallback(new Callback<>(){
 					@Override
 					public void onSuccess(SearchResults result){

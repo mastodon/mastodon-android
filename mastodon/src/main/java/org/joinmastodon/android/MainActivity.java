@@ -136,7 +136,7 @@ public class MainActivity extends FragmentStackActivity{
 	}
 
 	public void openSearchQuery(String q, String accountID, int progressText, boolean fromSearch){
-		new GetSearchResults(q, null, true)
+		new GetSearchResults(q, null, true, null, 0, 0)
 				.setCallback(new Callback<>(){
 					@Override
 					public void onSuccess(SearchResults result){

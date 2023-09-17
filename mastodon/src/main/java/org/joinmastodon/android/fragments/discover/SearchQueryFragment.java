@@ -43,9 +43,7 @@ import org.joinmastodon.android.ui.viewholders.AccountViewHolder;
 import org.joinmastodon.android.ui.viewholders.SimpleListItemViewHolder;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
-import java.util.List;
 import java.util.function.Function;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -121,7 +119,7 @@ public class SearchQueryFragment extends MastodonRecyclerFragment<SearchResultVi
 				recentsHeader.setVisible(!data.isEmpty());
 			});
 		}else{
-			currentRequest=new GetSearchResults(currentQuery, null, false)
+			currentRequest=new GetSearchResults(currentQuery, null, false, null, 0, 0)
 					.limit(2)
 					.setCallback(new SimpleCallback<>(this){
 						@Override

@@ -47,7 +47,7 @@ public class ComposeAccountSearchFragment extends BaseAccountListFragment{
 	@Override
 	protected void doLoadData(int offset, int count){
 		refreshing=true;
-		currentRequest=new GetSearchResults(currentQuery, GetSearchResults.Type.ACCOUNTS, false)
+		currentRequest=new GetSearchResults(currentQuery, GetSearchResults.Type.ACCOUNTS, false, null, 0, 0)
 				.setCallback(new SimpleCallback<>(this){
 					@Override
 					public void onSuccess(SearchResults result){
