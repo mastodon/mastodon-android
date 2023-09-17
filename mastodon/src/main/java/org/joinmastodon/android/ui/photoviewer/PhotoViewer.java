@@ -859,6 +859,8 @@ public class PhotoViewer implements ZoomPanView.Listener{
 
 		@Override
 		public void onVideoSizeChanged(MediaPlayer mp, int width, int height){
+			if(width<=0 || height<=0)
+				return;
 			FrameLayout.LayoutParams params=(FrameLayout.LayoutParams) wrap.getLayoutParams();
 			params.width=width;
 			params.height=height;
