@@ -96,6 +96,24 @@ public class ComposeAutocompleteViewController{
 					outRect.right=V.dp(8);
 			}
 		});
+		// Set empty adapter to prevent NPEs
+		list.setAdapter(new RecyclerView.Adapter<>(){
+			@NonNull
+			@Override
+			public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType){
+				throw new UnsupportedOperationException();
+			}
+
+			@Override
+			public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position){
+
+			}
+
+			@Override
+			public int getItemCount(){
+				return 0;
+			}
+		});
 		contentView.addView(list, new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
 
 		emptyButton=new FilterChipView(activity);
@@ -227,6 +245,8 @@ public class ComposeAutocompleteViewController{
 					@Override
 					public void onSuccess(SearchResults result){
 						currentRequest=null;
+						if(mode!=Mode.USERS)
+							return;
 						List<AccountViewModel> oldList=users;
 						users=result.accounts.stream().map(a->new AccountViewModel(a, accountID)).collect(Collectors.toList());
 						if(isLoading){
