@@ -74,9 +74,9 @@ public class ComposePollViewController{
 		pollWrap=view.findViewById(R.id.poll_wrap);
 
 		Instance instance=fragment.instance;
-		if(instance.configuration!=null && instance.configuration.polls!=null && instance.configuration.polls.maxOptions>0)
+		if(instance!=null && instance.configuration!=null && instance.configuration.polls!=null && instance.configuration.polls.maxOptions>0)
 			maxPollOptions=instance.configuration.polls.maxOptions;
-		if(instance.configuration!=null && instance.configuration.polls!=null && instance.configuration.polls.maxCharactersPerOption>0)
+		if(instance!=null && instance.configuration!=null && instance.configuration.polls!=null && instance.configuration.polls.maxCharactersPerOption>0)
 			maxPollOptionLength=instance.configuration.polls.maxCharactersPerOption;
 
 		pollOptionsView=pollWrap.findViewById(R.id.poll_options);
