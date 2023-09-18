@@ -583,5 +583,17 @@
 	<string name="time_hours_ago_short">Il y a %dh</string>
 	<string name="time_days_ago_short">Il y a %dj</string>
 	<!-- %s is the name of the post language -->
+	<string name="translate_post">Traduire depuis %s</string>
 	<!-- %1$s is the language, %2$s is the name of the translation service -->
+	<string name="post_translated">Traduit depuis %1$s via %2$s</string>
+	<string name="translation_show_original">Afficher l’original</string>
+	<string name="translation_failed">La traduction a échoué. Peut-être que l’administrateur n’a pas activé les traductions sur ce serveur ou que ce serveur utilise une ancienne version de Mastodon où les traductions ne sont pas encore prises en charge.</string>
+	<plurals name="x_participants">
+		<item quantity="one">%,d participant</item>
+		<item quantity="other">%,d participants</item>
+	</plurals>
+	<plurals name="x_posts_today">
+		<item quantity="one">%,d message aujourd’hui</item>
+		<item quantity="other">%,d messages aujourd’hui</item>
+	</plurals>
 </resources>
