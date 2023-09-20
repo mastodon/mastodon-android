@@ -12,6 +12,7 @@
 	<string name="in_reply_to">Som svar på %s</string>
 	<string name="notifications">Notiser</string>
 	<string name="user_followed_you">%s följde dig</string>
+	<string name="user_favorited">%s favoritmarkerade ditt inlägg</string>
 	<string name="share_toot_title">Dela</string>
 	<string name="settings">Inställningar</string>
 	<string name="publish">Publicera</string>
@@ -229,6 +230,7 @@
 	<string name="file_saved">Filen sparad</string>
 	<string name="downloading">Laddar ner…</string>
 	<!-- %s is the server domain -->
+	<string name="recommended_accounts_info_banner">Du kanske gillar dessa konton baserat på andra konton du följer.</string>
 	<string name="see_new_posts">Se nya inlägg</string>
 	<string name="load_missing_posts">Ladda saknade inlägg</string>
 	<string name="follow_back">Följ tillbaka</string>
@@ -353,6 +355,8 @@
 	<string name="attachment_description_video">%s video</string>
 	<string name="attachment_description_audio">%s ljud</string>
 	<string name="attachment_description_unknown">%s fil</string>
+	<string name="attachment_type_image">Bild</string>
+	<string name="attachment_type_video">Video</string>
 	<string name="attachment_type_audio">Ljud</string>
 	<string name="attachment_type_gif">GIF</string>
 	<string name="attachment_type_unknown">Fil</string>
@@ -383,6 +387,7 @@
 	<string name="about_server">Om</string>
 	<string name="server_rules">Regler</string>
 	<string name="server_administrator">Administratör</string>
+	<string name="settings_show_emoji_in_names">Anpassad emoji i visningsnamn</string>
 	<plurals name="in_x_hours">
 		<item quantity="one">om %d timme</item>
 		<item quantity="other">om %d timmar</item>
@@ -391,6 +396,9 @@
 		<item quantity="one">%d timme sedan</item>
 		<item quantity="other">%d timmar sedan</item>
 	</plurals>
+	<string name="count_two">Två</string>
+	<string name="count_three">Tre</string>
+	<string name="count_four">Fyra</string>
 	<!-- %s is the username -->
 	<string name="filter_active">Aktiv</string>
 	<string name="filter_inactive">Inaktiv</string>
@@ -401,12 +409,19 @@
 	<string name="selection_2_options">%1$s och %2$s</string>
 	<string name="selection_3_options">%1$s, %2$s och %3$s</string>
 	<string name="filter_context_profiles">Profiler</string>
+	<string name="settings_delete_filter_confirmation">Detta filter kommer raderas från ditt konto på alla dina enheter.</string>
 	<string name="add">Lägg till</string>
 	<string name="filter_word_or_phrase">Ord eller fras</string>
 	<string name="enter_selection_mode">Välj</string>
 	<string name="select_all">Välj alla</string>
+	<plurals name="settings_delete_x_filter_words">
+		<item quantity="one">Radera %d ord?</item>
+		<item quantity="other">Radera %d ord?</item>
+	</plurals>
 	<string name="app_update_version">Version %s</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
+	<string name="post_matches_filter_x">Matchar filter \"%s\"</string>
+	<string name="search_mastodon">Sök i Mastodon</string>
 	<string name="clear_all">Rensa alla</string>
 	<string name="search_open_url">Öppna URL i Mastodon</string>
 	<string name="posts_matching_hashtag">Inlägg med \"%s\"</string>
@@ -417,5 +432,6 @@
 	<string name="time_hours_ago_short">%dt sedan</string>
 	<string name="time_days_ago_short">%dd sedan</string>
 	<!-- %s is the name of the post language -->
+	<string name="translate_post">Översätt från %s</string>
 	<!-- %1$s is the language, %2$s is the name of the translation service -->
 </resources>
