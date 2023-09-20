@@ -8,7 +8,7 @@
 	<string name="ok">حسنًا</string>
 	<string name="preparing_auth">جَارٍ الإعدَادُ لِلمُصادَقَة…</string>
 	<string name="finishing_auth">يُنهي المصادقة…</string>
-	<string name="user_boosted">%s إعادة نشر</string>
+	<string name="user_boosted">قام %s بإعادة نشر</string>
 	<string name="in_reply_to">ردًا على %s</string>
 	<string name="notifications">الإشعارات</string>
 	<string name="user_followed_you">%s بَدَأ بِمُتابَعَتِك</string>
@@ -242,7 +242,7 @@
 	<string name="skip">تخطى</string>
 	<string name="notification_type_follow">متابعُون جُدُد</string>
 	<string name="notification_type_favorite">المفضلة</string>
-	<string name="notification_type_reblog">المشاركات</string>
+	<string name="notification_type_reblog">المعاد نشرها</string>
 	<string name="notification_type_mention">الإشارات</string>
 	<string name="notification_type_poll">استطلاع رأي</string>
 	<string name="choose_account">اختر حسابًا</string>
@@ -277,7 +277,7 @@
 	<string name="more_options">مزيد من الخيارات</string>
 	<string name="new_post">منشور جديد</string>
 	<string name="button_reply">ردّ</string>
-	<string name="button_reblog">شارك</string>
+	<string name="button_reblog">إعادة النشر</string>
 	<string name="button_favorite">فضّل</string>
 	<string name="button_share">شارك</string>
 	<string name="media_no_description">وسائط بدون وصف</string>
@@ -292,8 +292,8 @@
 	<string name="followed_user">أنت تتابع الآن %s</string>
 	<string name="following_user_requested">طَلَبَ %s مُتابَعتك</string>
 	<string name="open_in_browser">افتح في المتصفح</string>
-	<string name="hide_boosts_from_user">اخف مشاركات %s</string>
-	<string name="show_boosts_from_user">أظهر مشاركات %s</string>
+	<string name="hide_boosts_from_user">أخفِ المعاد نشرها مِن %s</string>
+	<string name="show_boosts_from_user">أظهر ما أعاد %s نشرَه</string>
 	<string name="signup_reason">لماذا تريد الانضمام؟</string>
 	<string name="signup_reason_note">هذا سوف يساعدنا في مراجعة تطبيقك.</string>
 	<string name="clear">امسح</string>
@@ -346,10 +346,10 @@
 		<item quantity="other">%,d تفضيل</item>
 	</plurals>
 	<plurals name="x_reblogs">
-		<item quantity="zero">%,d إعادة نشر</item>
+		<item quantity="zero">لم يُعد نشره</item>
 		<item quantity="one">إعادة نشر واحدة</item>
 		<item quantity="two">أعيد نشره مرّتان</item>
-		<item quantity="few">أعيد نشره %,d مرة</item>
+		<item quantity="few">أعيد نشره %,d مرات</item>
 		<item quantity="many">أعيد نشره %,d مرات</item>
 		<item quantity="other">أعيد نشره %,d مرات</item>
 	</plurals>
@@ -698,4 +698,18 @@
 	<string name="time_minutes_ago_short">مُنذُ %dد</string>
 	<string name="time_hours_ago_short">مُنذُ %dسا</string>
 	<string name="time_days_ago_short">مُنذُ %d أيام</string>
+	<!-- %s is the name of the post language -->
+	<string name="translate_post">تُرجِم مِن %s</string>
+	<!-- %1$s is the language, %2$s is the name of the translation service -->
+	<string name="post_translated">مُترجَم مِن %1$s باستخدام %2$s</string>
+	<string name="translation_show_original">إظهار الأصل</string>
+	<string name="translation_failed">فشِلَت الترجَمة. قد لم يتمكّن مدير الخادم من تفعيل الترجمات على هذا الخادم أو أنّ هذا الخادم يُشغِّل نسخة قديمة من ماستدون حيث الترجمات غير مدعومة بعد.</string>
+	<plurals name="x_participants">
+		<item quantity="zero">لا مُشارِك</item>
+		<item quantity="one">مشارِك واحد</item>
+		<item quantity="two">مشاركَيْنِ</item>
+		<item quantity="few">مشاركين</item>
+		<item quantity="many">مُشارِكًا</item>
+		<item quantity="other">مُشارك</item>
+	</plurals>
 </resources>

@@ -85,6 +85,10 @@
 		<item quantity="one">%d dag resterend</item>
 		<item quantity="other">%d dagen resterend</item>
 	</plurals>
+	<plurals name="x_votes">
+		<item quantity="one">%,d stem</item>
+		<item quantity="other">%,d stemmen</item>
+	</plurals>
 	<string name="poll_closed">Gesloten</string>
 	<string name="confirm_mute_title">Account negeren</string>
 	<string name="confirm_mute">Het negeren van %s bevestigen</string>
@@ -383,6 +387,7 @@
 	<string name="welcome_to_mastodon">Welkom bij Mastodon</string>
 	<string name="welcome_paragraph1">Mastodon is een gedecentraliseerd sociaal netwerk, wat betekent dat geen enkel bedrijf het controleert. Het bestaat uit veel onafhankelijk opererende servers, allemaal met elkaar verbonden.</string>
 	<string name="what_are_servers">Wat zijn servers?</string>
+	<string name="welcome_paragraph2">Elk Mastodon-account wordt gehost op een server – elk met diens eigen waarden, regels en beheerders. Het maakt niet uit welke server je kiest, je kunt mensen op elke server volgen en ermee communiceren.</string>
 	<string name="opening_link">Koppeling aan het openen…</string>
 	<string name="link_not_supported">Deze koppeling wordt niet ondersteund in de app</string>
 	<string name="log_out_all_accounts">Bij alle accounts afmelden</string>
@@ -401,6 +406,7 @@
 	<string name="attachment_type_unknown">Bestand</string>
 	<string name="attachment_x_percent_uploaded">%d%% geüpload</string>
 	<string name="add_poll_option">Enquete-optie toevoegen</string>
+	<string name="poll_length">Lengte enquête</string>
 	<string name="poll_style">Stijl</string>
 	<string name="compose_poll_single_choice">Kies een</string>
 	<string name="compose_poll_multiple_choice">Meerkeuze</string>
@@ -409,9 +415,38 @@
 	<string name="alt_text">Alternatieve tekst</string>
 	<string name="help">Hulp</string>
 	<string name="what_is_alt_text">Wat is alternatieve tekst?</string>
+	<string name="alt_text_help">Alt tekst biedt afbeeldingsbeschrijvingen voor mensen met een visiuele beperking en verbindingen met een lage bandbreedte of voor mensen die naar extra context zoeken.\n\nJe kunt de toegankelijkheid en het begrip voor iedereen verbeteren door duidelijk, beknopt en objectief te schrijven.\n\n<ul><li>Beschrijf belangrijke elementen</li>\n<li>Vat tekst in afbeeldingen samen</li>\n<li>Gebruik de reguliere zinsopbouw</li>\n<li>Vermijd overbodige informatie</li>\n<li>Focus op trends en belangrijke bevindingen in complexe beelden (zoals diagrammen of kaarten)</li></ul> \n</string>
+	<string name="edit_post">Bericht bewerken</string>
+	<string name="no_verified_link">Geen geverifieerde koppeling</string>
+	<string name="compose_autocomplete_emoji_empty">Emoji doorzoeken</string>
+	<string name="compose_autocomplete_users_empty">Vind wie je zoekt</string>
+	<string name="no_search_results">Deze zoektermen leveren geen resultaat op</string>
+	<string name="language">Taal</string>
+	<string name="language_default">Standaard</string>
+	<string name="language_system">Systeem</string>
+	<string name="language_detecting">Taal detecteren</string>
+	<string name="language_cant_detect">Kan taal niet detecteren</string>
+	<string name="language_detected">Gedetecteerd</string>
+	<string name="media_hidden">Media verborgen</string>
+	<string name="post_hidden">Bericht verborgen</string>
+	<string name="report_title_post">Bericht rapporteren</string>
+	<string name="forward_report_explanation">De account bevindt zich op een andere server. Wil je daar eveneens een geanonimiseerde kopie van dit rapport naar toesturen?</string>
 	<!-- %s is the server domain -->
+	<string name="forward_report_to_server">Doorsturen naar %s</string>
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
+	<string name="reported">Gerapporteerd</string>
+	<string name="report_unfollow_explanation">Als je hun berichten niet meer in je home feed wilt zien, moet je deze persoon niet meer volgen.</string>
+	<string name="muted_user">%s gedempt</string>
+	<string name="report_sent_already_blocked">Je hebt deze gebruiker al geblokkeerd, dus je hoeft niets meer te doen terwijl we je rapport beoordelen.</string>
+	<string name="report_personal_already_blocked">Je hebt deze gebruiker al geblokkeerd, dus er is niets anders dat je hoeft te doen.\n\nBedankt voor het helpen om Mastodon een veilige plek voor iedereen te behouden!</string>
+	<string name="blocked_user">%s geblokkeerd</string>
+	<string name="mark_all_notifications_read">Alles als gelezen markeren</string>
+	<string name="settings_display">Weergave</string>
+	<string name="settings_filters">Filters</string>
+	<string name="settings_server_explanation">Overzicht, regels, moderators</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
+	<string name="about_app">Over %s</string>
+	<string name="default_post_language">Standaard taal bericht</string>
 	<string name="settings_alt_text_reminders">Alt-tekst-herinneringen toevoegen</string>
 	<string name="settings_confirm_unfollow">Vraag voor ontvolgen iemand</string>
 	<string name="settings_confirm_boost">Vragen voor boosten</string>
@@ -437,6 +472,44 @@
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<string name="pause_notifications_ends">Eindigt %s</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="pause_notifications_banner">Notificaties worden hervat %s.</string>
+	<string name="resume_notifications_now">Nu hervatten</string>
+	<string name="open_system_notification_settings">Ga naar de meldingsinstellingen</string>
+	<string name="about_server">Over</string>
+	<string name="server_rules">Regels</string>
+	<string name="server_administrator">Beheerder</string>
+	<string name="send_email_to_server_admin">Bericht aan beheerder</string>
+	<string name="notifications_disabled_in_system">Schakel meldingen vanuit instellingen van uw apparaat in om van overal updates te zien.</string>
+	<string name="settings_even_more">Nog meer instellingen</string>
+	<string name="settings_show_cws">Inhoudswaarschuwingen tonen</string>
+	<string name="settings_hide_sensitive_media">Als gevoelig gemarkeerde media verbergen</string>
+	<string name="settings_show_interaction_counts">Aantal berichtinteracties</string>
+	<string name="settings_show_emoji_in_names">Aangepaste emoji in weergavenamen</string>
+	<plurals name="in_x_seconds">
+		<item quantity="one">in %d seconde</item>
+		<item quantity="other">in %d seconden</item>
+	</plurals>
+	<plurals name="in_x_minutes">
+		<item quantity="one">in %d minuut</item>
+		<item quantity="other">in %d minuten</item>
+	</plurals>
+	<plurals name="in_x_hours">
+		<item quantity="one">in %d uur</item>
+		<item quantity="other">in %d uur</item>
+	</plurals>
+	<plurals name="x_hours_ago">
+		<item quantity="one">%d uur geleden</item>
+		<item quantity="other">%d uur geleden</item>
+	</plurals>
+	<string name="alt_text_reminder_title">Media zonder alt-tekst</string>
+	<plurals name="alt_text_reminder_x_images">
+		<item quantity="one">%s van je afbeeldingen mist alt-tekst. Toch plaatsen?</item>
+		<item quantity="other">%s van je afbeeldingen missen alt-tekst. Toch plaatsen?</item>
+	</plurals>
+	<plurals name="alt_text_reminder_x_attachments">
+		<item quantity="one">%s van je mediabijlagen mist alt-tekst. Toch plaatsen?</item>
+		<item quantity="other">%s van je mediabijlagen missen alt-tekst. Toch plaatsen?</item>
+	</plurals>
 	<string name="count_one">Een</string>
 	<string name="count_two">Twee</string>
 	<string name="count_three">Drie</string>
@@ -444,7 +517,83 @@
 	<string name="alt_text_reminder_post_anyway">Plaatsen</string>
 	<!-- %s is the username -->
 	<string name="unfollow_confirmation">%s ontvolgen?</string>
+	<string name="filter_active">Actief</string>
+	<string name="filter_inactive">Inactief</string>
+	<string name="settings_add_filter">Filter toevoegen</string>
+	<string name="settings_edit_filter">Filter bewerken</string>
+	<string name="settings_filter_duration">Duur</string>
+	<string name="settings_filter_muted_words">Gedempte woorden</string>
+	<string name="settings_filter_context">Gedempt van</string>
+	<string name="settings_filter_show_cw">Toon met inhoudswaarschuwing</string>
+	<string name="settings_filter_show_cw_explanation">Berichten die met dit filter overeenkomen, maar achter een inhoudswaarschuwing zitten toch tonen</string>
+	<string name="settings_delete_filter">Filter verwijderen</string>
+	<string name="filter_duration_forever">Voor altijd</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="settings_filter_ends">Eindigt %s</string>
+	<plurals name="settings_x_muted_words">
+		<item quantity="one">%d gedempt woord of zin</item>
+		<item quantity="other">%d gedempte woorden of zinnen</item>
+	</plurals>
+	<string name="selection_2_options">%1$s en %2$s</string>
+	<string name="selection_3_options">%1$s, %2$s en %3$s</string>
+	<string name="selection_4_or_more">%1$s, %2$s en %3$d meer</string>
+	<string name="filter_context_home_lists">Startpagina &amp; lijsten</string>
+	<string name="filter_context_notifications">Meldingen</string>
+	<string name="filter_context_public_timelines">Openbare tijdlijnen</string>
+	<string name="filter_context_threads_replies">Threads &amp; antwoorden</string>
+	<string name="filter_context_profiles">Profielen</string>
+	<string name="settings_filter_title">Titel</string>
+	<string name="settings_delete_filter_title">Filter ‘%s’ verwijderen?</string>
+	<string name="settings_delete_filter_confirmation">Dit filter zal op al uw apparaten uit uw account worden verwijderd.</string>
+	<string name="add_muted_word">Gedempte woord toevoegen</string>
+	<string name="edit_muted_word">Gedempte woord bewerken</string>
+	<string name="add">Toevoegen</string>
+	<string name="filter_word_or_phrase">Woord of zin</string>
+	<string name="filter_add_word_help">Woorden zijn niet hoofdlettergevoelig en komen alleen overeen met volledige woorden.\n\nAls je op de term ‘Apple’ filtert, verbergt het berichten die ‘apple’ of ‘aPpLe’ bevatten, maar niet ‘ananas’.</string>
+	<string name="settings_delete_filter_word">‘%s’ verwijderen?</string>
+	<string name="enter_selection_mode">Selecteren</string>
+	<string name="select_all">Alles selecteren</string>
+	<string name="settings_filter_duration_title">Filter tijdsduur</string>
+	<string name="filter_duration_custom">Aangepast</string>
+	<plurals name="settings_delete_x_filter_words">
+		<item quantity="one">%d woord verwijderen?</item>
+		<item quantity="other">%d woorden verwijderen?</item>
+	</plurals>
+	<plurals name="x_items_selected">
+		<item quantity="one">%d geselecteerd</item>
+		<item quantity="other">%d geselecteerd</item>
+	</plurals>
+	<string name="required_form_field_blank">Mag niet leeg zijn</string>
+	<string name="filter_word_already_in_list">Al in de lijst</string>
+	<string name="app_update_ready">App-update voltooid</string>
+	<string name="app_update_version">Versie %s</string>
+	<string name="downloading_update">Downloaden (%d%%)</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
+	<string name="post_matches_filter_x">Komt overeen met filter ‘%s’</string>
+	<string name="search_mastodon">Mastodon doorzoeken</string>
+	<string name="clear_all">Alles wissen</string>
+	<string name="search_open_url">URL in Mastodon openen</string>
+	<string name="posts_matching_hashtag">Berichten met ‘%s’</string>
+	<string name="search_go_to_account">Ga naar %s</string>
+	<string name="posts_matching_string">Berichten met ‘%s’</string>
+	<string name="accounts_matching_string">Personen met ‘%s’</string>
 	<!-- Shown in the post header. Please keep it short -->
+	<string name="time_seconds_ago_short">%ds geleden</string>
+	<string name="time_minutes_ago_short">%dm geleden</string>
+	<string name="time_hours_ago_short">%du geleden</string>
+	<string name="time_days_ago_short">%d dagen geleden</string>
+	<!-- %s is the name of the post language -->
+	<string name="translate_post">Vanuit het %s vertalen</string>
+	<!-- %1$s is the language, %2$s is the name of the translation service -->
+	<string name="post_translated">Vertaald vanuit het %1$s door %2$s</string>
+	<string name="translation_show_original">Origineel bekijken</string>
+	<string name="translation_failed">Vertaling mislukt. Mogelijk heeft de serverbeheerder vertalingen niet ingeschakeld op deze server, of draait deze server een oude versie van Mastodon waar vertalingen nog niet worden ondersteund.</string>
+	<plurals name="x_participants">
+		<item quantity="one">%d deelnemer</item>
+		<item quantity="other">%d deelnemers</item>
+	</plurals>
+	<plurals name="x_posts_today">
+		<item quantity="one">%,d bericht vandaag</item>
+		<item quantity="other">%,d berichten vandaag</item>
+	</plurals>
 </resources>
