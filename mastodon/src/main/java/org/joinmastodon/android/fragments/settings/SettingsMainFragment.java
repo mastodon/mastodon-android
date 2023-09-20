@@ -52,6 +52,7 @@ public class SettingsMainFragment extends BaseSettingsFragment<Void>{
 		onDataLoaded(List.of(
 				new ListItem<>(R.string.settings_behavior, 0, R.drawable.ic_settings_24px, this::onBehaviorClick),
 				new ListItem<>(R.string.settings_display, 0, R.drawable.ic_style_24px, this::onDisplayClick),
+				new ListItem<>(R.string.settings_privacy, 0, R.drawable.ic_privacy_tip_24px, this::onPrivacyClick),
 				new ListItem<>(R.string.settings_filters, 0, R.drawable.ic_filter_alt_24px, this::onFiltersClick),
 				new ListItem<>(R.string.settings_notifications, 0, R.drawable.ic_notifications_24px, this::onNotificationsClick),
 				new ListItem<>(AccountSessionManager.get(accountID).domain, getString(R.string.settings_server_explanation), R.drawable.ic_dns_24px, this::onServerClick),
@@ -63,7 +64,9 @@ public class SettingsMainFragment extends BaseSettingsFragment<Void>{
 			data.add(0, new ListItem<>("Debug settings", null, R.drawable.ic_settings_24px, ()->Nav.go(getActivity(), SettingsDebugFragment.class, makeFragmentArgs()), null, 0, true));
 		}
 
-		AccountSessionManager.get(accountID).reloadPreferences(null);
+		AccountSession session=AccountSessionManager.get(accountID);
+		session.reloadPreferences(null);
+		session.updateAccountInfo();
 		E.register(this);
 	}
 
@@ -125,6 +128,10 @@ public class SettingsMainFragment extends BaseSettingsFragment<Void>{
 
 	private void onDisplayClick(){
 		Nav.go(getActivity(), SettingsDisplayFragment.class, makeFragmentArgs());
+	}
+
+	private void onPrivacyClick(){
+		Nav.go(getActivity(), SettingsPrivacyFragment.class, makeFragmentArgs());
 	}
 
 	private void onFiltersClick(){

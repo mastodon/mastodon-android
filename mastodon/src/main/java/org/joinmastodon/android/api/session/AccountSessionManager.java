@@ -279,7 +279,7 @@ public class AccountSessionManager{
 		}
 	}
 
-	private void updateSessionLocalInfo(AccountSession session){
+	/*package*/ void updateSessionLocalInfo(AccountSession session){
 		new GetOwnAccount()
 				.setCallback(new Callback<>(){
 					@Override

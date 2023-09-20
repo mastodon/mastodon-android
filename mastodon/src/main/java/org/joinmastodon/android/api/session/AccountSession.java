@@ -195,7 +195,7 @@ public class AccountSession{
 
 	public void savePreferencesIfPending(){
 		if(preferencesNeedSaving){
-			new UpdateAccountCredentialsPreferences(preferences, null, null)
+			new UpdateAccountCredentialsPreferences(preferences, null, self.discoverable, !self.noindex)
 					.setCallback(new Callback<>(){
 						@Override
 						public void onSuccess(Account result){
@@ -260,5 +260,9 @@ public class AccountSession{
 			}
 			return false;
 		});
+	}
+
+	public void updateAccountInfo(){
+		AccountSessionManager.getInstance().updateSessionLocalInfo(this);
 	}
 }

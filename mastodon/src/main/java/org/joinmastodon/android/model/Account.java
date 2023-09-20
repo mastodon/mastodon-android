@@ -132,6 +132,9 @@ public class Account extends BaseModel{
 	 * When a timed mute will expire, if applicable.
 	 */
 	public Instant muteExpiresAt;
+	public boolean noindex;
+	public boolean indexable;
+	public boolean hideCollections;
 
 
 	@Override
@@ -191,6 +194,9 @@ public class Account extends BaseModel{
 				", source="+source+
 				", suspended="+suspended+
 				", muteExpiresAt="+muteExpiresAt+
+				", noindex="+noindex+
+				", indexable="+indexable+
+				", hideCollections="+hideCollections+
 				'}';
 	}
 }
