@@ -245,15 +245,23 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 
 		tabbar.setTabTextColors(UiUtils.getThemeColor(getActivity(), R.attr.colorM3OnSurfaceVariant), UiUtils.getThemeColor(getActivity(), R.attr.colorM3Primary));
 		tabbar.setTabTextSize(V.dp(14));
-		tabLayoutMediator=new TabLayoutMediator(tabbar, pager, new TabLayoutMediator.TabConfigurationStrategy(){
+		tabLayoutMediator=new TabLayoutMediator(tabbar, pager, (tab, position)->tab.setText(switch(position){
+			case 0 -> R.string.profile_featured;
+			case 1 -> R.string.profile_timeline;
+			case 2 -> R.string.profile_about;
+			default -> throw new IllegalStateException();
+		}));
+		tabbar.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener(){
 			@Override
-			public void onConfigureTab(@NonNull TabLayout.Tab tab, int position){
-				tab.setText(switch(position){
-					case 0 -> R.string.profile_featured;
-					case 1 -> R.string.profile_timeline;
-					case 2 -> R.string.profile_about;
-					default -> throw new IllegalStateException();
-				});
+			public void onTabSelected(TabLayout.Tab tab){}
+
+			@Override
+			public void onTabUnselected(TabLayout.Tab tab){}
+
+			@Override
+			public void onTabReselected(TabLayout.Tab tab){
+				if(getFragmentForPage(tab.getPosition()) instanceof ScrollableToTop stt)
+					stt.scrollToTop();
 			}
 		});
 
