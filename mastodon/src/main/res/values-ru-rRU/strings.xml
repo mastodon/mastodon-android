@@ -643,12 +643,12 @@
 	<!-- %s is the name of the post language -->
 	<string name="translate_post">Перевести %s</string>
 	<!-- %1$s is the language, %2$s is the name of the translation service -->
-	<string name="post_translated">Перевести %1$s используя %2$s</string>
+	<string name="post_translated">Переведено с %1$s с помощью %2$s</string>
 	<string name="translation_show_original">Показать оригинал</string>
 	<string name="translation_failed">Перевод не удался. Возможно, администратор не включил переводы на этом сервере или на этом сервере установлена ​​более старая версия Mastodon, где переводы еще не поддерживаются.</string>
 	<string name="settings_privacy">Приватность и доступ</string>
-	<string name="settings_discoverable">Профиль и сообщения в алгоритмах обнаружения</string>
-	<string name="settings_indexable">Включить публичные сообщения в результаты поиска</string>
+	<string name="settings_discoverable">Показывать профиль и посты в алгоритмах рекомендаций</string>
+	<string name="settings_indexable">Включить публичные посты в результаты поиска</string>
 	<plurals name="x_participants">
 		<item quantity="one">%,d участник</item>
 		<item quantity="few">%,d участника</item>
