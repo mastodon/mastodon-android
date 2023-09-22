@@ -559,4 +559,13 @@
 	<string name="post_translated">%2$sによる%1$sからの翻訳</string>
 	<string name="translation_show_original">原文を表示</string>
 	<string name="translation_failed">翻訳に失敗しました。このサーバーは翻訳機能を有効にしていないか、翻訳機能のない旧バージョンの Mastodon を実行しているのかもしれません。</string>
+	<string name="settings_privacy">プライバシーとつながりやすさ</string>
+	<string name="settings_discoverable">アカウントを見つけやすくする</string>
+	<string name="settings_indexable">公開投稿を検索できるようにする</string>
+	<plurals name="x_participants">
+		<item quantity="other">%d人が参加</item>
+	</plurals>
+	<plurals name="x_posts_today">
+		<item quantity="other">今日 %,d 件の投稿</item>
+	</plurals>
 </resources>
