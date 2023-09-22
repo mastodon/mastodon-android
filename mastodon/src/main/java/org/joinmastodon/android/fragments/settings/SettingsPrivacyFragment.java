@@ -19,8 +19,10 @@ public class SettingsPrivacyFragment extends BaseSettingsFragment<Void>{
 		Account self=AccountSessionManager.get(accountID).self;
 		onDataLoaded(List.of(
 			discoverableItem=new CheckableListItem<>(R.string.settings_discoverable, 0, CheckableListItem.Style.SWITCH, self.discoverable, R.drawable.ic_thumbs_up_down_24px, ()->toggleCheckableItem(discoverableItem)),
-			indexableItem=new CheckableListItem<>(R.string.settings_indexable, 0, CheckableListItem.Style.SWITCH, self.indexable, R.drawable.ic_search_24px, ()->toggleCheckableItem(indexableItem))
+			indexableItem=new CheckableListItem<>(R.string.settings_indexable, 0, CheckableListItem.Style.SWITCH, self.source.indexable!=null ? self.source.indexable : true, R.drawable.ic_search_24px, ()->toggleCheckableItem(indexableItem))
 		));
+		if(self.source.indexable==null)
+			indexableItem.isEnabled=false;
 	}
 
 	@Override
@@ -30,9 +32,9 @@ public class SettingsPrivacyFragment extends BaseSettingsFragment<Void>{
 	public void onPause(){
 		super.onPause();
 		Account self=AccountSessionManager.get(accountID).self;
-		if(self.discoverable!=discoverableItem.checked || self.indexable!=indexableItem.checked){
+		if(self.discoverable!=discoverableItem.checked || (self.source.indexable!=null && self.source.indexable!=indexableItem.checked)){
 			self.discoverable=discoverableItem.checked;
-			self.indexable=indexableItem.checked;
+			self.source.indexable=indexableItem.checked;
 			AccountSessionManager.get(accountID).savePreferencesLater();
 		}
 	}

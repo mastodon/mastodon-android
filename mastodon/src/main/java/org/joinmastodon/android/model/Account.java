@@ -133,8 +133,6 @@ public class Account extends BaseModel{
 	 */
 	public Instant muteExpiresAt;
 	public boolean noindex;
-	public boolean indexable;
-	public boolean hideCollections;
 
 
 	@Override
@@ -195,8 +193,6 @@ public class Account extends BaseModel{
 				", suspended="+suspended+
 				", muteExpiresAt="+muteExpiresAt+
 				", noindex="+noindex+
-				", indexable="+indexable+
-				", hideCollections="+hideCollections+
 				'}';
 	}
 }

@@ -37,6 +37,8 @@ public class Source extends BaseModel{
 	 * The number of pending follow requests.
 	 */
 	public int followRequestCount;
+	public Boolean indexable;
+	public boolean hideCollections;
 
 	@Override
 	public void postprocess() throws ObjectValidationException{
@@ -54,6 +56,8 @@ public class Source extends BaseModel{
 				", sensitive="+sensitive+
 				", language='"+language+'\''+
 				", followRequestCount="+followRequestCount+
+				", indexable="+indexable+
+				", hideCollections="+hideCollections+
 				'}';
 	}
 }

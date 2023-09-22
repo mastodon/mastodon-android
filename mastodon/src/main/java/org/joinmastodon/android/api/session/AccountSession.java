@@ -195,7 +195,7 @@ public class AccountSession{
 
 	public void savePreferencesIfPending(){
 		if(preferencesNeedSaving){
-			new UpdateAccountCredentialsPreferences(preferences, null, self.discoverable, !self.noindex)
+			new UpdateAccountCredentialsPreferences(preferences, null, self.discoverable, self.source.indexable)
 					.setCallback(new Callback<>(){
 						@Override
 						public void onSuccess(Account result){
