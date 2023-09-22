@@ -641,5 +641,24 @@
 	<string name="time_hours_ago_short">%d ч. назад</string>
 	<string name="time_days_ago_short">%d д. назад</string>
 	<!-- %s is the name of the post language -->
+	<string name="translate_post">Перевести %s</string>
 	<!-- %1$s is the language, %2$s is the name of the translation service -->
+	<string name="post_translated">Перевести %1$s используя %2$s</string>
+	<string name="translation_show_original">Показать оригинал</string>
+	<string name="translation_failed">Перевод не удался. Возможно, администратор не включил переводы на этом сервере или на этом сервере установлена ​​более старая версия Mastodon, где переводы еще не поддерживаются.</string>
+	<string name="settings_privacy">Приватность и доступ</string>
+	<string name="settings_discoverable">Профиль и сообщения в алгоритмах обнаружения</string>
+	<string name="settings_indexable">Включить публичные сообщения в результаты поиска</string>
+	<plurals name="x_participants">
+		<item quantity="one">%,d участник</item>
+		<item quantity="few">%,d участника</item>
+		<item quantity="many">%,d участников</item>
+		<item quantity="other">%,d участников</item>
+	</plurals>
+	<plurals name="x_posts_today">
+		<item quantity="one">%,d пост сегодня</item>
+		<item quantity="few">%,d поста сегодня</item>
+		<item quantity="many">%,d постов сегодня</item>
+		<item quantity="other">%,d постов сегодня</item>
+	</plurals>
 </resources>
