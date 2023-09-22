@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import org.joinmastodon.android.R;
+import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.fragments.BaseStatusListFragment;
 import org.joinmastodon.android.model.Emoji;
 import org.joinmastodon.android.ui.text.HtmlParser;
@@ -29,7 +30,8 @@ public class ReblogOrReplyLineStatusDisplayItem extends StatusDisplayItem{
 	public ReblogOrReplyLineStatusDisplayItem(String parentID, BaseStatusListFragment parentFragment, CharSequence text, List<Emoji> emojis, @DrawableRes int icon){
 		super(parentID, parentFragment);
 		SpannableStringBuilder ssb=new SpannableStringBuilder(text);
-		HtmlParser.parseCustomEmoji(ssb, emojis);
+		if(AccountSessionManager.get(parentFragment.getAccountID()).getLocalPreferences().customEmojiInNames)
+			HtmlParser.parseCustomEmoji(ssb, emojis);
 		this.text=ssb;
 		emojiHelper.setText(ssb);
 		this.icon=icon;
