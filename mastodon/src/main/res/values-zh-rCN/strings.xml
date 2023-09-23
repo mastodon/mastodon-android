@@ -553,5 +553,12 @@
 	<string name="time_hours_ago_short">%d 小时前</string>
 	<string name="time_days_ago_short">%d 天前</string>
 	<!-- %s is the name of the post language -->
+	<string name="translate_post">从 %s 翻译</string>
 	<!-- %1$s is the language, %2$s is the name of the translation service -->
+	<string name="post_translated">从 %1$s 翻译成 %2$s</string>
+	<string name="translation_show_original">显示原文</string>
+	<string name="translation_failed">翻译失败。此服务器运行的 Mastodon 版本不支持翻译功能，或管理员未将翻译功能开启。</string>
+	<string name="settings_privacy">隐私与可达性</string>
+	<string name="settings_discoverable">在发现算法中展示您的个人资料和嘟文</string>
+	<string name="settings_indexable">将您的公开嘟文纳入搜索范围</string>
 </resources>
