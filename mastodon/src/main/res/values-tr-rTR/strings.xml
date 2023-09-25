@@ -387,6 +387,7 @@
 	<string name="welcome_to_mastodon">Mastodon\'a hoş geldiniz</string>
 	<string name="welcome_paragraph1">Mastodon merkezi olmayan bir sosyal ağdır, yani onu tek bir şirket kontrol etmiyor. Hepsi birbirine bağlı, bağımsız olarak çalışan birçok sunucudan oluşur.</string>
 	<string name="what_are_servers">Sunucular nedir?</string>
+	<string name="welcome_paragraph2">Her Mastodon hesabı bir sunucuda barındırılır - her birinin kendi değerleri, kuralları ve yöneticileri vardır. Hangisini seçerseniz seçin, herhangi bir sunucudaki insanları takip edebilir ve onlarla etkileşime geçebilirsiniz.</string>
 	<string name="opening_link">Bağlantı açılıyor…</string>
 	<string name="link_not_supported">Bu bağlantı uygulamada desteklenmiyor</string>
 	<string name="log_out_all_accounts">Tüm hesaplardan çıkış yap</string>
@@ -582,5 +583,20 @@
 	<string name="time_hours_ago_short">%dsa önce</string>
 	<string name="time_days_ago_short">%dg önce</string>
 	<!-- %s is the name of the post language -->
+	<string name="translate_post">%s dilinden çevrildi</string>
 	<!-- %1$s is the language, %2$s is the name of the translation service -->
+	<string name="post_translated">%2$s kullanılarak %1$s dilinden çevrildi</string>
+	<string name="translation_show_original">Özgün içeriği göster</string>
+	<string name="translation_failed">Çeviri başarısız oldu. Yönetici bu sunucuda çevirileri etkinleştirmemiş olabilir veya bu sunucu çevirilerin henüz desteklenmediği eski bir Mastodon sürümünü çalıştırıyor olabilir.</string>
+	<string name="settings_privacy">Gizlilik ve erişim</string>
+	<string name="settings_discoverable">Profil ve gönderileri keşif algoritmalarında kullan</string>
+	<string name="settings_indexable">Herkese açık gönderileri arama sonuçlarına ekle</string>
+	<plurals name="x_participants">
+		<item quantity="one">%d katılımcılar</item>
+		<item quantity="other">%d katılımcılar</item>
+	</plurals>
+	<plurals name="x_posts_today">
+		<item quantity="one">%,bunu gönder</item>
+		<item quantity="other">%,bunları gönder</item>
+	</plurals>
 </resources>

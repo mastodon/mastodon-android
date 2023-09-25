@@ -274,6 +274,8 @@
 	<string name="trending_posts_info_banner">To so objave, ki plenijo pozornost po Mastodonu.</string>
 	<string name="trending_links_info_banner">To so novice, o katerih se govori na Mastodonu.</string>
 	<!-- %s is the server domain -->
+	<string name="local_timeline_info_banner">To so vse objave vseh uporabnikov na vašem strežniku (%s).</string>
+	<string name="recommended_accounts_info_banner">Glede na to, komu sledite, vam bodo ti računi všeč.</string>
 	<string name="see_new_posts">Pokaži nove objave</string>
 	<string name="load_missing_posts">Naloži manjkajoče objave</string>
 	<string name="follow_back">Sledijo nazaj</string>
@@ -455,8 +457,11 @@
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">O programu %s</string>
 	<string name="default_post_language">Privzeti jezik objave</string>
+	<string name="settings_confirm_delete_post">Vprašaj pred brisanjem objav</string>
 	<string name="pause_all_notifications">Premor za vse</string>
 	<string name="pause_notifications_off">Izklopljeno</string>
+	<string name="notifications_policy_anyone">Kdor koli</string>
+	<string name="notifications_policy_followed">Ljudje, ki vam sledijo</string>
 	<string name="notifications_policy_follower">Ljudje, ki jim sledite</string>
 	<string name="notifications_policy_no_one">Nihče</string>
 	<string name="notification_type_mentions_and_replies">Omembe in odgovori</string>
@@ -504,6 +509,7 @@
 	<string name="filter_context_profiles">Profili</string>
 	<string name="settings_filter_title">Naslov</string>
 	<string name="settings_delete_filter_title">Ali želite izbrisati filter »%s«?</string>
+	<string name="settings_delete_filter_confirmation">Ta filter bo izbrisan iz vašega računa na vseh vaših napravah.</string>
 	<string name="add_muted_word">Dodaj utišano besedo</string>
 	<string name="edit_muted_word">Uredi utišano besedo</string>
 	<string name="add">Dodaj</string>
@@ -533,5 +539,12 @@
 	<string name="time_hours_ago_short">pred %dh urami</string>
 	<string name="time_days_ago_short">pred %d dnemi</string>
 	<!-- %s is the name of the post language -->
+	<string name="translate_post">Prevedi iz jezika: %s</string>
 	<!-- %1$s is the language, %2$s is the name of the translation service -->
+	<string name="post_translated">Prevedeno iz %1$s s pomočjo %2$s</string>
+	<string name="translation_show_original">Pokaži izvirnik</string>
+	<string name="translation_failed">Prevod je spodletel. Morda skrbnik ni omogočil prevajanja na tem strežniku ali pa strežnik teče na starejši različici Masotodona, na kateri prevajanje še ni podprto.</string>
+	<string name="settings_privacy">Zasebnost in dosegljivost</string>
+	<string name="settings_discoverable">Izpostavljaj profile in objave v algoritmih odkrivanja</string>
+	<string name="settings_indexable">Med zadetke iskanja vključi javne objave</string>
 </resources>

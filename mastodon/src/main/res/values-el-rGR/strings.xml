@@ -387,6 +387,7 @@
 	<string name="welcome_to_mastodon">Καλώς ήρθες στο Mastodon</string>
 	<string name="welcome_paragraph1">Το Mastodon είναι ένα αποκεντρωμένο κοινωνικό δίκτυο που σημαίνει ότι καμία εταιρεία δεν το ελέγχει. Αποτελείται από πολλούς ανεξάρτητους διακομιστές, όλοι συνδεδεμένοι μαζί.</string>
 	<string name="what_are_servers">Τι είναι οι διακομιστές;</string>
+	<string name="welcome_paragraph2">Κάθε λογαριασμός Mastodon φιλοξενείται σε ένα διακομιστή - ο καθένας με τις δικές του αξίες, κανόνες &amp; διαχειριστές. Ανεξάρτητα από το ποιον μπορεί να επιλέξεις, μπορείς να ακολουθήσεις και να αλληλεπιδράσεις με άτομα από οποιονδήποτε διακομιστή.</string>
 	<string name="opening_link">Άνοιγμα συνδέσμου…</string>
 	<string name="link_not_supported">Αυτός ο σύνδεσμος δεν υποστηρίζεται στην εφαρμογή</string>
 	<string name="log_out_all_accounts">Αποσύνδεση από όλους τους λογαριασμούς</string>
@@ -582,5 +583,20 @@
 	<string name="time_hours_ago_short">%dώ πριν</string>
 	<string name="time_days_ago_short">%dημ πριν</string>
 	<!-- %s is the name of the post language -->
+	<string name="translate_post">Μετάφραση από %s</string>
 	<!-- %1$s is the language, %2$s is the name of the translation service -->
+	<string name="post_translated">Μεταφράστηκε από %1$s χρησιμοποιώντας %2$s</string>
+	<string name="translation_show_original">Εμφάνιση αρχικού</string>
+	<string name="translation_failed">Η μετάφραση απέτυχε. Ίσως ο διαχειριστής δεν έχει ενεργοποιήσει μεταφράσεις σε αυτόν τον διακομιστή ή αυτός ο διακομιστής εκτελεί μια παλαιότερη έκδοση του Mastodon όπου οι μεταφράσεις δεν υποστηρίζονται ακόμα.</string>
+	<string name="settings_privacy">Ιδιωτικότητα και προσιτότητα</string>
+	<string name="settings_discoverable">Παροχή προφίλ και δημοσιεύσεων σε αλγορίθμους ανακάλυψης</string>
+	<string name="settings_indexable">Συμπερίληψη δημόσιων αναρτήσεων στα αποτελέσματα αναζήτησης</string>
+	<plurals name="x_participants">
+		<item quantity="one">%,d συμμετέχων</item>
+		<item quantity="other">%,d συμμετέχοντες</item>
+	</plurals>
+	<plurals name="x_posts_today">
+		<item quantity="one">%,d ανάρτηση σήμερα</item>
+		<item quantity="other">%,d αναρτήσεις σήμερα</item>
+	</plurals>
 </resources>

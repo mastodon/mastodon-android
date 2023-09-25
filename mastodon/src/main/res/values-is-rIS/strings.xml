@@ -583,5 +583,20 @@
 	<string name="time_hours_ago_short">fyrir %dh síðan</string>
 	<string name="time_days_ago_short">fyrir %dd síðan</string>
 	<!-- %s is the name of the post language -->
+	<string name="translate_post">Þýða úr %s</string>
 	<!-- %1$s is the language, %2$s is the name of the translation service -->
+	<string name="post_translated">Þýtt úr %1$s með %2$s</string>
+	<string name="translation_show_original">Sýna upprunalegt</string>
+	<string name="translation_failed">Þýðing mistókst. Mögulega hefur kerfisstjórinn ekki virkjað þýðingar á þessum netþjóni, eða að netþjónninn sé keyrður á eldri útgáfu Mastodon þar sem þýðingar séu ekki studdar.</string>
+	<string name="settings_privacy">Gagnaleynd og útbreiðsla</string>
+	<string name="settings_discoverable">Hafa notandasnið og færslur með í reikniritum leitar</string>
+	<string name="settings_indexable">Hafa opinberar færslur með í leitarniðurstöðum</string>
+	<plurals name="x_participants">
+		<item quantity="one">%,d þátttakandi</item>
+		<item quantity="other">%,d þátttakendur</item>
+	</plurals>
+	<plurals name="x_posts_today">
+		<item quantity="one">%,d færsla í dag</item>
+		<item quantity="other">%,d færslur í dag</item>
+	</plurals>
 </resources>
