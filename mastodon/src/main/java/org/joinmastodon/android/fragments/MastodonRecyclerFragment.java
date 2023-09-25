@@ -2,6 +2,10 @@ package org.joinmastodon.android.fragments;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toolbar;
 
 import org.joinmastodon.android.R;
@@ -42,6 +46,14 @@ public abstract class MastodonRecyclerFragment<T> extends BaseRecyclerFragment<T
 			int colorPrimary=UiUtils.getThemeColor(getActivity(), R.attr.colorM3Primary);
 			refreshLayout.setProgressBackgroundColorSchemeColor(UiUtils.alphaBlendColors(colorBackground, colorPrimary, 0.11f));
 			refreshLayout.setColorSchemeColors(colorPrimary);
+		}
+
+		// This is to set the color of the 'This list is empty'
+		for (int i=0; i < ((LinearLayout) emptyView).getChildCount(); i++) {
+			View v = ((LinearLayout) emptyView).getChildAt(i);
+			if(v instanceof TextView) {
+				((TextView) v).setTextColor(UiUtils.getThemeColor(getContext(), android.R.attr.textColorSecondary));
+			}
 		}
 	}
 
