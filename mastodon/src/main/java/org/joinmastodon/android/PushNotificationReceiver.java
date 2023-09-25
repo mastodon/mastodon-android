@@ -147,6 +147,7 @@ public class PushNotificationReceiver extends BroadcastReceiver{
 				.setShowWhen(true)
 				.setCategory(Notification.CATEGORY_SOCIAL)
 				.setAutoCancel(true)
+				.setLights(context.getColor(R.color.primary_700), 500, 1000)
 				.setColor(context.getColor(R.color.primary_700));
 		if(avatar!=null){
 			builder.setLargeIcon(UiUtils.getBitmapFromDrawable(avatar));
