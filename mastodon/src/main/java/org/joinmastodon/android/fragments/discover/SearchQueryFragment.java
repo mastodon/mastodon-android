@@ -384,6 +384,8 @@ public class SearchQueryFragment extends MastodonRecyclerFragment<SearchResultVi
 	}
 
 	private void onSearchViewEnter(){
+		if(TextUtils.isEmpty(currentQuery) || currentQuery.trim().isEmpty())
+			return;
 		deliverResult(currentQuery, null);
 	}
 
