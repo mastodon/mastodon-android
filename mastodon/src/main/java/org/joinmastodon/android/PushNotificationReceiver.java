@@ -118,6 +118,8 @@ public class PushNotificationReceiver extends BroadcastReceiver{
 				List<NotificationChannel> channels=Arrays.stream(PushNotification.Type.values())
 						.map(type->{
 							NotificationChannel channel=new NotificationChannel(accountID+"_"+type, context.getString(type.localizedName), NotificationManager.IMPORTANCE_DEFAULT);
+							channel.setLightColor(context.getColor(R.color.primary_700));
+							channel.enableLights(true);
 							channel.setGroup(accountID);
 							return channel;
 						})
