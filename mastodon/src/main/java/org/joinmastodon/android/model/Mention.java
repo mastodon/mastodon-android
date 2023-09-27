@@ -20,4 +20,22 @@ public class Mention extends BaseModel{
 				", url='"+url+'\''+
 				'}';
 	}
+
+	@Override
+	public boolean equals(Object o){
+		if(this==o) return true;
+		if(o==null || getClass()!=o.getClass()) return false;
+
+		Mention mention=(Mention) o;
+
+		if(!id.equals(mention.id)) return false;
+		return url.equals(mention.url);
+	}
+
+	@Override
+	public int hashCode(){
+		int result=id.hashCode();
+		result=31*result+url.hashCode();
+		return result;
+	}
 }
