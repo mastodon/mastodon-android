@@ -18,7 +18,7 @@ public class MediaGridLayout extends ViewGroup{
 	public static final int MAX_WIDTH=400; // dp
 	private static final int GAP=2; // dp
 	private PhotoLayoutHelper.TiledLayoutResult tiledLayout;
-	private int[] columnStarts=new int[10], columnEnds=new int[10], rowStarts=new int[10], rowEnds=new int[10];
+	private int[] columnStarts, columnEnds, rowStarts, rowEnds;
 
 	public MediaGridLayout(Context context){
 		this(context, null);
@@ -45,6 +45,14 @@ public class MediaGridLayout extends ViewGroup{
 			width=Math.round(width*(tiledLayout.width/(float)PhotoLayoutHelper.MAX_WIDTH));
 		}
 
+		if(rowStarts==null || rowStarts.length<tiledLayout.rowSizes.length){
+			rowStarts=new int[tiledLayout.rowSizes.length];
+			rowEnds=new int[tiledLayout.rowSizes.length];
+		}
+		if(columnStarts==null || columnStarts.length<tiledLayout.columnSizes.length){
+			columnStarts=new int[tiledLayout.columnSizes.length];
+			columnEnds=new int[tiledLayout.columnSizes.length];
+		}
 		int offset=0;
 		for(int i=0;i<tiledLayout.columnSizes.length;i++){
 			columnStarts[i]=offset;
@@ -77,7 +85,7 @@ public class MediaGridLayout extends ViewGroup{
 
 	@Override
 	protected void onLayout(boolean changed, int l, int t, int r, int b){
-		if(tiledLayout==null)
+		if(tiledLayout==null || rowStarts==null)
 			return;
 
 		int maxWidth=V.dp(MAX_WIDTH);

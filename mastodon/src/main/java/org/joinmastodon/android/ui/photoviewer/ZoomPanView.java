@@ -119,6 +119,9 @@ public class ZoomPanView extends FrameLayout implements ScaleGestureDetector.OnS
 
 		int width=right-left;
 		int height=bottom-top;
+		if(width==0 || height==0)
+			return;
+
 		float scale=Math.min(width/(float)child.getWidth(), height/(float)child.getHeight());
 		minScale=scale;
 		maxScale=Math.max(3f, height/(float)child.getHeight());
@@ -306,8 +309,6 @@ public class ZoomPanView extends FrameLayout implements ScaleGestureDetector.OnS
 				}, 1f).setMinimumVisibleChange(DynamicAnimation.MIN_VISIBLE_CHANGE_ALPHA));
 			}
 		}else{
-			if(animatingTransition)
-				Log.w(TAG, "updateViewTransform: ", new Throwable().fillInStackTrace());
 			child.setScaleX(matrixValues[Matrix.MSCALE_X]);
 			child.setScaleY(matrixValues[Matrix.MSCALE_Y]);
 			child.setTranslationX(matrixValues[Matrix.MTRANS_X]);
