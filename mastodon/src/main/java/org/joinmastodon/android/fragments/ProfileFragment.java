@@ -238,7 +238,6 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 		pager.setOffscreenPageLimit(4);
 		pager.setAdapter(new ProfilePagerAdapter());
 		pager.getLayoutParams().height=getResources().getDisplayMetrics().heightPixels;
-		pager.setVisibility(View.GONE); // Prevents a strange NPE when search is opened on the search tab. Shown in onShown()
 
 		scrollView.setScrollableChildSupplier(this::getScrollableRecyclerView);
 
@@ -1041,19 +1040,11 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 		return actionButton.getVisibility()==View.VISIBLE && actionButtonWrap.getTop()+actionButtonWrap.getHeight()>scrollView.getScrollY();
 	}
 
-	@Override
-	protected void onShown(){
-		super.onShown();
-		pager.setVisibility(View.VISIBLE);
-	}
-
 	private class ProfilePagerAdapter extends RecyclerView.Adapter<SimpleViewHolder>{
 		@NonNull
 		@Override
 		public SimpleViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType){
-			FrameLayout view=tabViews[viewType];
-			((ViewGroup)view.getParent()).removeView(view);
-			view.setVisibility(View.VISIBLE);
+			FrameLayout view=new FrameLayout(parent.getContext());
 			view.setLayoutParams(new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
 			return new SimpleViewHolder(view);
 		}
@@ -1061,8 +1052,13 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 		@Override
 		public void onBindViewHolder(@NonNull SimpleViewHolder holder, int position){
 			Fragment fragment=getFragmentForPage(position);
+			FrameLayout fragmentView=tabViews[position];
+			fragmentView.setVisibility(View.VISIBLE);
+			if(fragmentView.getParent() instanceof ViewGroup parent)
+				parent.removeView(fragmentView);
+			((FrameLayout)holder.itemView).addView(fragmentView);
 			if(!fragment.isAdded()){
-				getChildFragmentManager().beginTransaction().add(holder.itemView.getId(), fragment).commit();
+				getChildFragmentManager().beginTransaction().add(fragmentView.getId(), fragment).commit();
 				holder.itemView.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener(){
 					@Override
 					public boolean onPreDraw(){
