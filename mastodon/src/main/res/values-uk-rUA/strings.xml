@@ -641,5 +641,24 @@
 	<string name="time_hours_ago_short">%dгод. тому</string>
 	<string name="time_days_ago_short">%dд. тому</string>
 	<!-- %s is the name of the post language -->
+	<string name="translate_post">Перекласти з %s</string>
 	<!-- %1$s is the language, %2$s is the name of the translation service -->
+	<string name="post_translated">Перекладено з %1$s за допомогою %2$s</string>
+	<string name="translation_show_original">Показати оригінал</string>
+	<string name="translation_failed">Не вдалося виконати переклад. Можливо, адміністратор не активував переклади на цьому сервері або цей сервер використовує стару версію Mastodon, де переклади ще не підтримуються.</string>
+	<string name="settings_privacy">Приватність і досяжність</string>
+	<string name="settings_discoverable">Враховувати профіль та дописи в алгоритмах пошуку</string>
+	<string name="settings_indexable">Включити загальнодоступні дописи в результати пошуку</string>
+	<plurals name="x_participants">
+		<item quantity="one">%,d учасник</item>
+		<item quantity="few">%,d учасники</item>
+		<item quantity="many">%,d учасників</item>
+		<item quantity="other">%,d учасника</item>
+	</plurals>
+	<plurals name="x_posts_today">
+		<item quantity="one">%,d допис сьогодні</item>
+		<item quantity="few">%,d дописи сьогодні</item>
+		<item quantity="many">%,d дописів сьогодні</item>
+		<item quantity="other">%,d дописа сьогодні</item>
+	</plurals>
 </resources>
