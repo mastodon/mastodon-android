@@ -146,18 +146,21 @@ public class SettingsServerFragment extends AppKitFragment{
 		@NonNull
 		@Override
 		public SimpleViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType){
-			FrameLayout view=tabViews[viewType];
-			((ViewGroup)view.getParent()).removeView(view);
-			view.setVisibility(View.VISIBLE);
+			FrameLayout view=new FrameLayout(parent.getContext());
 			view.setLayoutParams(new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
 			return new SimpleViewHolder(view);
 		}
 
 		@Override
 		public void onBindViewHolder(@NonNull SimpleViewHolder holder, int position){
+			FrameLayout view=tabViews[position];
+			if(view.getParent() instanceof ViewGroup parent)
+				parent.removeView(view);
+			view.setVisibility(View.VISIBLE);
+			((FrameLayout)holder.itemView).addView(view, new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
 			Fragment fragment=getFragmentForPage(position);
 			if(!fragment.isAdded()){
-				getChildFragmentManager().beginTransaction().add(holder.itemView.getId(), fragment).commit();
+				getChildFragmentManager().beginTransaction().add(view.getId(), fragment).commit();
 				holder.itemView.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener(){
 					@Override
 					public boolean onPreDraw(){
