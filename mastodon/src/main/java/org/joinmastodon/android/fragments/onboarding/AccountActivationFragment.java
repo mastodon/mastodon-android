@@ -165,9 +165,7 @@ public class AccountActivationFragment extends ToolbarFragment{
 	private void tryGetAccount(){
 		if(AccountSessionManager.getInstance().tryGetAccount(accountID)==null){
 			uiHandler.removeCallbacks(pollRunnable);
-			getActivity().finish();
-			Intent intent=new Intent(getActivity(), MainActivity.class);
-			startActivity(intent);
+			((MainActivity)getActivity()).restartHomeFragment();
 			return;
 		}
 		currentRequest=new GetOwnAccount()

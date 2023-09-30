@@ -42,40 +42,7 @@ public class MainActivity extends FragmentStackActivity{
 		super.onCreate(savedInstanceState);
 
 		if(savedInstanceState==null){
-			if(AccountSessionManager.getInstance().getLoggedInAccounts().isEmpty()){
-				showFragmentClearingBackStack(new SplashFragment());
-			}else{
-				AccountSessionManager.getInstance().maybeUpdateLocalInfo();
-				AccountSession session;
-				Bundle args=new Bundle();
-				Intent intent=getIntent();
-				if(intent.getBooleanExtra("fromNotification", false)){
-					String accountID=intent.getStringExtra("accountID");
-					try{
-						session=AccountSessionManager.getInstance().getAccount(accountID);
-						if(!intent.hasExtra("notification"))
-							args.putString("tab", "notifications");
-					}catch(IllegalStateException x){
-						session=AccountSessionManager.getInstance().getLastActiveAccount();
-					}
-				}else{
-					session=AccountSessionManager.getInstance().getLastActiveAccount();
-				}
-				args.putString("account", session.getID());
-				Fragment fragment=session.activated ? new HomeFragment() : new AccountActivationFragment();
-				fragment.setArguments(args);
-				showFragmentClearingBackStack(fragment);
-				if(intent.getBooleanExtra("fromNotification", false) && intent.hasExtra("notification")){
-					Notification notification=Parcels.unwrap(intent.getParcelableExtra("notification"));
-					showFragmentForNotification(notification, session.getID());
-				}else if(intent.getBooleanExtra("compose", false)){
-					showCompose();
-				}else if(Intent.ACTION_VIEW.equals(intent.getAction())){
-					handleURL(intent.getData(), null);
-				}else{
-					maybeRequestNotificationsPermission();
-				}
-			}
+			restartHomeFragment();
 		}
 
 		if(BuildConfig.BUILD_TYPE.startsWith("appcenter")){
@@ -198,6 +165,43 @@ public class MainActivity extends FragmentStackActivity{
 	private void maybeRequestNotificationsPermission(){
 		if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.TIRAMISU && checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS)!=PackageManager.PERMISSION_GRANTED){
 			requestPermissions(new String[]{Manifest.permission.POST_NOTIFICATIONS}, 100);
+		}
+	}
+
+	public void restartHomeFragment(){
+		if(AccountSessionManager.getInstance().getLoggedInAccounts().isEmpty()){
+			showFragmentClearingBackStack(new SplashFragment());
+		}else{
+			AccountSessionManager.getInstance().maybeUpdateLocalInfo();
+			AccountSession session;
+			Bundle args=new Bundle();
+			Intent intent=getIntent();
+			if(intent.getBooleanExtra("fromNotification", false)){
+				String accountID=intent.getStringExtra("accountID");
+				try{
+					session=AccountSessionManager.getInstance().getAccount(accountID);
+					if(!intent.hasExtra("notification"))
+						args.putString("tab", "notifications");
+				}catch(IllegalStateException x){
+					session=AccountSessionManager.getInstance().getLastActiveAccount();
+				}
+			}else{
+				session=AccountSessionManager.getInstance().getLastActiveAccount();
+			}
+			args.putString("account", session.getID());
+			Fragment fragment=session.activated ? new HomeFragment() : new AccountActivationFragment();
+			fragment.setArguments(args);
+			showFragmentClearingBackStack(fragment);
+			if(intent.getBooleanExtra("fromNotification", false) && intent.hasExtra("notification")){
+				Notification notification=Parcels.unwrap(intent.getParcelableExtra("notification"));
+				showFragmentForNotification(notification, session.getID());
+			}else if(intent.getBooleanExtra("compose", false)){
+				showCompose();
+			}else if(Intent.ACTION_VIEW.equals(intent.getAction())){
+				handleURL(intent.getData(), null);
+			}else{
+				maybeRequestNotificationsPermission();
+			}
 		}
 	}
 }

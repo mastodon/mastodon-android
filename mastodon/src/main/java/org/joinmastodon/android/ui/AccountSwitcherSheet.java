@@ -8,6 +8,7 @@ import android.graphics.drawable.Animatable;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
+import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowInsets;
@@ -36,6 +37,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import me.grishka.appkit.FragmentStackActivity;
 import me.grishka.appkit.Nav;
 import me.grishka.appkit.api.Callback;
 import me.grishka.appkit.api.ErrorResponse;
@@ -113,9 +115,7 @@ public class AccountSwitcherSheet extends BottomSheet{
 	private void logOut(String accountID){
 		AccountSessionManager.get(accountID).logOut(activity, ()->{
 			dismiss();
-			activity.finish();
-			Intent intent=new Intent(activity, MainActivity.class);
-			activity.startActivity(intent);
+			((MainActivity)activity).restartHomeFragment();
 		});
 	}
 
@@ -248,17 +248,17 @@ public class AccountSwitcherSheet extends BottomSheet{
 
 		@Override
 		public void onClick(){
+			dismiss();
 			if(AccountSessionManager.getInstance().getLastActiveAccountID().equals(item.getID())){
-				dismiss();
 				if(fragment!=null){
 					fragment.setCurrentTab(R.id.tab_profile);
 				}
 				return;
 			}
-			if(AccountSessionManager.getInstance().tryGetAccount(item.getID())!=null)
+			if(AccountSessionManager.getInstance().tryGetAccount(item.getID())!=null){
 				AccountSessionManager.getInstance().setLastActiveAccountID(item.getID());
-			activity.finish();
-			activity.startActivity(new Intent(activity, MainActivity.class));
+				((MainActivity)activity).restartHomeFragment();
+			}
 		}
 
 		@Override

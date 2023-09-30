@@ -156,9 +156,7 @@ public class SettingsMainFragment extends BaseSettingsFragment<Void>{
 				.setMessage(getString(R.string.confirm_log_out, session.getFullUsername()))
 				.setPositiveButton(R.string.log_out, (dialog, which)->AccountSessionManager.get(accountID).logOut(getActivity(), ()->{
 					loggedOut=true;
-					getActivity().finish();
-					Intent intent=new Intent(getActivity(), MainActivity.class);
-					startActivity(intent);
+					((MainActivity)getActivity()).restartHomeFragment();
 				}))
 				.setNegativeButton(R.string.cancel, null)
 				.show();
