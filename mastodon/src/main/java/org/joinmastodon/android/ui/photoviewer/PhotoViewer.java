@@ -822,7 +822,9 @@ public class PhotoViewer implements ZoomPanView.Listener{
 		@Override
 		public boolean onError(MediaPlayer mp, int what, int extra){
 			Log.e(TAG, "video player onError() called with: mp = ["+mp+"], what = ["+what+"], extra = ["+extra+"]");
-			return false;
+			Toast.makeText(activity, R.string.error_playing_video, Toast.LENGTH_SHORT).show();
+			onStartSwipeToDismissTransition(0f);
+			return true;
 		}
 
 		public void prepareAndStartPlayer(){
