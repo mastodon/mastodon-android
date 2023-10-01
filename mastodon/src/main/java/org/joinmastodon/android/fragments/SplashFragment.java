@@ -47,13 +47,12 @@ public class SplashFragment extends AppKitFragment{
 	private ProgressBarButton defaultServerButton;
 	private ProgressBar defaultServerProgress;
 	private String chosenDefaultServer=DEFAULT_SERVER;
-	private boolean loadingDefaultServer;
+	private boolean loadingDefaultServer, loadedDefaultServer;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		motionEffect=new InterpolatingMotionEffect(MastodonApp.context);
-		loadAndChooseDefaultServer();
 	}
 
 	@Nullable
@@ -101,6 +100,8 @@ public class SplashFragment extends AppKitFragment{
 				});
 			}
 		});
+		if(!loadedDefaultServer && !loadingDefaultServer)
+			loadAndChooseDefaultServer();
 
 		return contentView;
 	}
@@ -239,6 +240,7 @@ public class SplashFragment extends AppKitFragment{
 	private void setChosenDefaultServer(String domain){
 		chosenDefaultServer=domain;
 		loadingDefaultServer=false;
+		loadedDefaultServer=true;
 		if(defaultServerButton!=null && getActivity()!=null){
 			defaultServerButton.setTextVisible(true);
 			defaultServerProgress.setVisibility(View.GONE);
