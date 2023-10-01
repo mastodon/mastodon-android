@@ -119,8 +119,10 @@ public class ZoomPanView extends FrameLayout implements ScaleGestureDetector.OnS
 
 		int width=right-left;
 		int height=bottom-top;
-		if(width==0 || height==0)
+		if(width==0 || height==0 || child.getWidth()==0 || child.getWidth()==0){
+			matrix.reset();
 			return;
+		}
 
 		float scale=Math.min(width/(float)child.getWidth(), height/(float)child.getHeight());
 		minScale=scale;
