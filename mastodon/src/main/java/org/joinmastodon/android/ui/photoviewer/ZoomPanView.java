@@ -193,9 +193,6 @@ public class ZoomPanView extends FrameLayout implements ScaleGestureDetector.OnS
 
 	private float prepareTransitionCropRect(Rect rect){
 		float initialScale;
-		if(rect.isEmpty()){
-			rect.set(rect.centerX()-child.getWidth()/2, rect.centerY()-child.getHeight()/2, rect.centerX()+child.getWidth()/2, rect.centerY()+child.getWidth()/2);
-		}
 		float scaleW=rect.width()/(float)child.getWidth();
 		float scaleH=rect.height()/(float)child.getHeight();
 		if(scaleW>scaleH){

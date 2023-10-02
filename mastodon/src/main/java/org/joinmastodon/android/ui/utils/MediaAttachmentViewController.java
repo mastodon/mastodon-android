@@ -27,6 +27,7 @@ public class MediaAttachmentViewController{
 	private final Context context;
 	private boolean didClear;
 	private Status status;
+	private Attachment attachment;
 
 	public MediaAttachmentViewController(Context context, MediaGridStatusDisplayItem.GridItemType type){
 		view=context.getSystemService(LayoutInflater.class).inflate(switch(type){
@@ -50,6 +51,7 @@ public class MediaAttachmentViewController{
 
 	public void bind(Attachment attachment, Status status){
 		this.status=status;
+		this.attachment=attachment;
 		crossfadeDrawable.setSize(attachment.getWidth(), attachment.getHeight());
 		crossfadeDrawable.setBlurhashDrawable(attachment.blurhashPlaceholder);
 		crossfadeDrawable.setCrossfadeAlpha(0f);
@@ -69,6 +71,11 @@ public class MediaAttachmentViewController{
 		crossfadeDrawable.setImageDrawable(drawable);
 		if(didClear)
 			 crossfadeDrawable.animateAlpha(0f);
+		// Make sure the image is not stretched if the server returned wrong dimensions
+		if(drawable!=null && (drawable.getIntrinsicWidth()!=attachment.getWidth() || drawable.getIntrinsicHeight()!=attachment.getHeight())){
+			photo.setImageDrawable(null);
+			photo.setImageDrawable(crossfadeDrawable);
+		}
 	}
 
 	public void clearImage(){

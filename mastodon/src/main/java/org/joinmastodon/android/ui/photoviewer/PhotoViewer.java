@@ -716,9 +716,18 @@ public class PhotoViewer implements ZoomPanView.Listener{
 		public void onBind(Attachment item){
 			super.onBind(item);
 			FrameLayout.LayoutParams params=(FrameLayout.LayoutParams) imageView.getLayoutParams();
-			params.width=item.getWidth();
-			params.height=item.getHeight();
-			ViewImageLoader.load(this, listener.getPhotoViewCurrentDrawable(getAbsoluteAdapterPosition()), new UrlImageLoaderRequest(item.url), false);
+			Drawable currentDrawable=listener.getPhotoViewCurrentDrawable(getAbsoluteAdapterPosition());
+			if(item.hasKnownDimensions()){
+				params.width=item.getWidth();
+				params.height=item.getHeight();
+			}else if(currentDrawable!=null){
+				params.width=currentDrawable.getIntrinsicWidth();
+				params.height=currentDrawable.getIntrinsicHeight();
+			}else{
+				params.width=1920;
+				params.height=1080;
+			}
+			ViewImageLoader.load(this, currentDrawable, new UrlImageLoaderRequest(item.url), false);
 		}
 
 		@Override
@@ -760,9 +769,18 @@ public class PhotoViewer implements ZoomPanView.Listener{
 			super.onBind(item);
 			playerReady=false;
 			FrameLayout.LayoutParams params=(FrameLayout.LayoutParams) wrap.getLayoutParams();
-			params.width=item.getWidth();
-			params.height=item.getHeight();
-			wrap.setBackground(listener.getPhotoViewCurrentDrawable(getAbsoluteAdapterPosition()));
+			Drawable currentDrawable=listener.getPhotoViewCurrentDrawable(getAbsoluteAdapterPosition());
+			if(item.hasKnownDimensions()){
+				params.width=item.getWidth();
+				params.height=item.getHeight();
+			}else if(currentDrawable!=null){
+				params.width=currentDrawable.getIntrinsicWidth();
+				params.height=currentDrawable.getIntrinsicHeight();
+			}else{
+				params.width=1920;
+				params.height=1080;
+			}
+			wrap.setBackground(currentDrawable);
 			progressBar.setVisibility(item.type==Attachment.Type.VIDEO ? View.VISIBLE : View.GONE);
 			if(itemView.isAttachedToWindow()){
 				reset();
@@ -845,6 +863,8 @@ public class PhotoViewer implements ZoomPanView.Listener{
 				player.prepareAsync();
 			}catch(IOException x){
 				Log.w(TAG, "Error initializing gif player", x);
+				Toast.makeText(activity, R.string.error_playing_video, Toast.LENGTH_SHORT).show();
+				onStartSwipeToDismissTransition(0f);
 			}
 		}
 
