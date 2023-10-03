@@ -572,5 +572,15 @@
 	<string name="time_hours_ago_short">%dh atrás</string>
 	<string name="time_days_ago_short">%dd atrás</string>
 	<!-- %s is the name of the post language -->
+	<string name="translate_post">Traduzido de %s</string>
 	<!-- %1$s is the language, %2$s is the name of the translation service -->
+	<string name="post_translated">Traduzido de %1$s usando %2$s</string>
+	<string name="translation_show_original">Mostrar original</string>
+	<string name="translation_failed">A tradução falhou. Talvez o administrador não tenha habilitado as traduções neste servidor ou este servidor esteja executando uma versão mais antiga do Mastodon onde as traduções ainda não são suportadas.</string>
+	<string name="settings_privacy">Privacidade e alcance</string>
+	<string name="settings_indexable">Incluir publicações públicas nos resultados de pesquisa</string>
+	<plurals name="x_participants">
+		<item quantity="one">%,d participante</item>
+		<item quantity="other">%,d participantes</item>
+	</plurals>
 </resources>

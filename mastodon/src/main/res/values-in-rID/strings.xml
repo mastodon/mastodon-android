@@ -554,5 +554,18 @@
 	<string name="time_hours_ago_short">%dj yang lalu</string>
 	<string name="time_days_ago_short">%dh yang lalu</string>
 	<!-- %s is the name of the post language -->
+	<string name="translate_post">Terjemahkan dari bahasa %s</string>
 	<!-- %1$s is the language, %2$s is the name of the translation service -->
+	<string name="post_translated">Diterjemahkan dari bahasa %1$s menggunakan %2$s</string>
+	<string name="translation_show_original">Tampilkan yang asli</string>
+	<string name="translation_failed">Terjemahan gagal. Administrator mungkin belum mengaktifkan terjemahan di server ini atau server ini menjalankan Mastodon versi lama yang belum mendukung terjemahan.</string>
+	<string name="settings_privacy">Privasi dan jangkauan</string>
+	<string name="settings_discoverable">Fiturkan profil dan kiriman dalam algoritma penjelajahan</string>
+	<string name="settings_indexable">Sertakan kiriman publik dalam hasil pencarian</string>
+	<plurals name="x_participants">
+		<item quantity="other">%,d peserta</item>
+	</plurals>
+	<plurals name="x_posts_today">
+		<item quantity="other">%,d kiriman hari ini</item>
+	</plurals>
 </resources>
