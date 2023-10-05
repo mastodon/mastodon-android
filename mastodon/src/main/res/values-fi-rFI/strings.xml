@@ -270,11 +270,11 @@
 	<string name="manually_approves_followers">Hyväksyy seuraajat käsin</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<plurals name="x_followers">
-		<item quantity="one">%d seuraaja</item>
-		<item quantity="other">%d seuraajaa</item>
+		<item quantity="one">%,d seuraaja</item>
+		<item quantity="other">%,d seuraajaa</item>
 	</plurals>
 	<plurals name="x_following">
-		<item quantity="one">%d seurattu</item>
+		<item quantity="one">%,d seurattu</item>
 		<item quantity="other">%d seurattua</item>
 	</plurals>
 	<plurals name="x_favorites">
@@ -588,6 +588,9 @@
 	<string name="post_translated">Käännetty kielestä %1$s käyttäen %2$s</string>
 	<string name="translation_show_original">Näytä alkuperäinen</string>
 	<string name="translation_failed">Käännös epäonnistui. Ehkä järjestelmänvalvoja ei ole ottanut käyttöön käännöksiä tällä palvelimella tai tällä palvelimella on käynnissä vanhempi versio Mastodonista, jossa käännöksiä ei vielä tueta.</string>
+	<string name="settings_privacy">Yksityisyys ja tavoittavuus</string>
+	<string name="settings_discoverable">Nosta profiili ja julkaisut esille löytämisalgoritmeissa</string>
+	<string name="settings_indexable">Sisällytä julkiset julkaisut hakutuloksiin</string>
 	<plurals name="x_participants">
 		<item quantity="one">%d osallistuja</item>
 		<item quantity="other">%d osallistujaa</item>
@@ -596,4 +599,5 @@
 		<item quantity="one">%,d viesti tänään</item>
 		<item quantity="other">%,d viestiä tänään</item>
 	</plurals>
+	<string name="error_playing_video">Virhe videon toistossa</string>
 </resources>
