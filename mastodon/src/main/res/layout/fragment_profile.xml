@@ -329,6 +329,7 @@
 			android:layout_gravity="end|bottom"
 			android:layout_marginEnd="16dp"
 			android:layout_marginBottom="16dp"
+			android:visibility="gone"
 			android:background="@drawable/bg_fab"
 			android:contentDescription="@string/new_post"
 			android:scaleType="center"
