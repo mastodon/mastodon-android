@@ -36,6 +36,7 @@ import android.view.ViewTreeObserver;
 import android.view.WindowInsets;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
@@ -106,6 +107,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 	private static final int COVER_RESULT=343;
 
 	private ImageView avatar;
+	private ImageButton imageButton;
 	private CoverImageView cover;
 	private View avatarBorder;
 	private TextView name, username, bio, followersCount, followersLabel, followingCount, followingLabel;
@@ -180,7 +182,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 	@Override
 	public View onCreateContentView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
 		View content=inflater.inflate(R.layout.fragment_profile, container, false);
-
+        imageButton=content.findViewById(R.id.fab);
 		avatar=content.findViewById(R.id.avatar);
 		cover=content.findViewById(R.id.cover);
 		avatarBorder=content.findViewById(R.id.avatar_border);
@@ -767,9 +769,12 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 				loadAccountInfoAndEnterEditMode();
 			else
 				saveAndExitEditMode();
+			imageButton.setVisibility(View.GONE);
 		}else{
 			UiUtils.performAccountAction(getActivity(), account, accountID, relationship, actionButton, this::setActionProgressVisible, this::updateRelationship);
 		}
+		if(isInEditMode)
+			imageButton.setVisibility(View.VISIBLE);
 	}
 
 	private void setActionProgressVisible(boolean visible){
@@ -873,6 +878,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 			toolbar.setNavigationContentDescription(0);
 		}else{
 			toolbar.setNavigationIcon(null);
+			imageButton.setVisibility(View.VISIBLE);
 		}
 		editSaveMenuItem=null;
 
