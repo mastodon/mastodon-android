@@ -61,7 +61,7 @@ public class SettingsMainFragment extends BaseSettingsFragment<Void>{
 		));
 
 		if(BuildConfig.DEBUG || BuildConfig.BUILD_TYPE.equals("appcenterPrivateBeta")){
-			data.add(0, new ListItem<>("Debug settings", null, R.drawable.ic_settings_24px, ()->Nav.go(getActivity(), SettingsDebugFragment.class, makeFragmentArgs()), null, 0, true));
+			data.add(0, new ListItem<>("Debug settings", null, R.drawable.ic_settings_24px, i->Nav.go(getActivity(), SettingsDebugFragment.class, makeFragmentArgs()), null, 0, true));
 		}
 
 		AccountSession session=AccountSessionManager.get(accountID);
@@ -122,35 +122,35 @@ public class SettingsMainFragment extends BaseSettingsFragment<Void>{
 		return args;
 	}
 
-	private void onBehaviorClick(){
+	private void onBehaviorClick(ListItem<?> item_){
 		Nav.go(getActivity(), SettingsBehaviorFragment.class, makeFragmentArgs());
 	}
 
-	private void onDisplayClick(){
+	private void onDisplayClick(ListItem<?> item_){
 		Nav.go(getActivity(), SettingsDisplayFragment.class, makeFragmentArgs());
 	}
 
-	private void onPrivacyClick(){
+	private void onPrivacyClick(ListItem<?> item_){
 		Nav.go(getActivity(), SettingsPrivacyFragment.class, makeFragmentArgs());
 	}
 
-	private void onFiltersClick(){
+	private void onFiltersClick(ListItem<?> item_){
 		Nav.go(getActivity(), SettingsFiltersFragment.class, makeFragmentArgs());
 	}
 
-	private void onNotificationsClick(){
+	private void onNotificationsClick(ListItem<?> item_){
 		Nav.go(getActivity(), SettingsNotificationsFragment.class, makeFragmentArgs());
 	}
 
-	private void onServerClick(){
+	private void onServerClick(ListItem<?> item_){
 		Nav.go(getActivity(), SettingsServerFragment.class, makeFragmentArgs());
 	}
 
-	private void onAboutClick(){
+	private void onAboutClick(ListItem<?> item_){
 		Nav.go(getActivity(), SettingsAboutAppFragment.class, makeFragmentArgs());
 	}
 
-	private void onLogOutClick(){
+	private void onLogOutClick(ListItem<?> item_){
 		AccountSession session=AccountSessionManager.getInstance().getAccount(accountID);
 		new M3AlertDialogBuilder(getActivity())
 				.setMessage(getString(R.string.confirm_log_out, session.getFullUsername()))

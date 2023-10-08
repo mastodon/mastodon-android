@@ -39,7 +39,7 @@ public class SettingsDebugFragment extends BaseSettingsFragment<Void>{
 	@Override
 	protected void doLoadData(int offset, int count){}
 
-	private void onTestEmailConfirmClick(){
+	private void onTestEmailConfirmClick(ListItem<?> item){
 		AccountSession sess=AccountSessionManager.getInstance().getAccount(accountID);
 		sess.activated=false;
 		sess.activationInfo=new AccountActivationInfo("test@email", System.currentTimeMillis());
@@ -49,18 +49,18 @@ public class SettingsDebugFragment extends BaseSettingsFragment<Void>{
 		Nav.goClearingStack(getActivity(), AccountActivationFragment.class, args);
 	}
 
-	private void onForceSelfUpdateClick(){
+	private void onForceSelfUpdateClick(ListItem<?> item){
 		GithubSelfUpdater.forceUpdate=true;
 		GithubSelfUpdater.getInstance().maybeCheckForUpdates();
 		restartUI();
 	}
 
-	private void onResetUpdaterClick(){
+	private void onResetUpdaterClick(ListItem<?> item){
 		GithubSelfUpdater.getInstance().reset();
 		restartUI();
 	}
 
-	private void onResetDiscoverBannersClick(){
+	private void onResetDiscoverBannersClick(ListItem<?> item){
 		DiscoverInfoBannerHelper.reset();
 		restartUI();
 	}

@@ -150,6 +150,7 @@ public abstract class BaseAccountListFragment extends MastodonRecyclerFragment<A
 	}
 
 	protected void onConfigureViewHolder(AccountViewHolder holder){}
+	protected void onBindViewHolder(AccountViewHolder holder){}
 
 	protected class AccountsAdapter extends UsableRecyclerView.Adapter<AccountViewHolder> implements ImageLoaderRecyclerAdapter{
 		public AccountsAdapter(){
@@ -167,6 +168,7 @@ public abstract class BaseAccountListFragment extends MastodonRecyclerFragment<A
 		@Override
 		public void onBindViewHolder(AccountViewHolder holder, int position){
 			holder.bind(data.get(position));
+			BaseAccountListFragment.this.onBindViewHolder(holder);
 			super.onBindViewHolder(holder, position);
 		}
 

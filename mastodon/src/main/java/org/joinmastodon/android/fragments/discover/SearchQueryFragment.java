@@ -112,7 +112,7 @@ public class SearchQueryFragment extends MastodonRecyclerFragment<SearchResultVi
 				onDataLoaded(results.stream().map(sr->{
 					SearchResultViewModel vm=new SearchResultViewModel(sr, accountID, true);
 					if(sr.type==SearchResult.Type.HASHTAG){
-						vm.hashtagItem.onClick=()->openHashtag(sr);
+						vm.hashtagItem.setOnClick(i->openHashtag(sr));
 					}
 					return vm;
 				}).collect(Collectors.toList()), false);
@@ -129,7 +129,7 @@ public class SearchQueryFragment extends MastodonRecyclerFragment<SearchResultVi
 									.map(sr->{
 										SearchResultViewModel vm=new SearchResultViewModel(sr, accountID, false);
 										if(sr.type==SearchResult.Type.HASHTAG){
-											vm.hashtagItem.onClick=()->openHashtag(sr);
+											vm.hashtagItem.setOnClick(i->openHashtag(sr));
 										}
 										return vm;
 									})
@@ -389,18 +389,18 @@ public class SearchQueryFragment extends MastodonRecyclerFragment<SearchResultVi
 		deliverResult(currentQuery, null);
 	}
 
-	private void onOpenURLClick(){
+	private void onOpenURLClick(ListItem<?> item_){
 		((MainActivity)getActivity()).handleURL(Uri.parse(searchViewHelper.getQuery()), accountID);
 	}
 
-	private void onGoToHashtagClick(){
+	private void onGoToHashtagClick(ListItem<?> item_){
 		String q=searchViewHelper.getQuery();
 		if(q.startsWith("#"))
 			q=q.substring(1);
 		UiUtils.openHashtagTimeline(getActivity(), accountID, q);
 	}
 
-	private void onGoToAccountClick(){
+	private void onGoToAccountClick(ListItem<?> item_){
 		String q=searchViewHelper.getQuery();
 		if(!q.startsWith("@")){
 			q="@"+q;
@@ -411,11 +411,11 @@ public class SearchQueryFragment extends MastodonRecyclerFragment<SearchResultVi
 		((MainActivity)getActivity()).openSearchQuery(q, accountID, R.string.loading, true);
 	}
 
-	private void onGoToStatusSearchClick(){
+	private void onGoToStatusSearchClick(ListItem<?> item_){
 		deliverResult(searchViewHelper.getQuery(), SearchResult.Type.STATUS);
 	}
 
-	private void onGoToAccountSearchClick(){
+	private void onGoToAccountSearchClick(ListItem<?> item_){
 		deliverResult(searchViewHelper.getQuery(), SearchResult.Type.ACCOUNT);
 	}
 

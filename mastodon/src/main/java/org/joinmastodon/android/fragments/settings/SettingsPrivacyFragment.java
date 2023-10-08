@@ -18,8 +18,8 @@ public class SettingsPrivacyFragment extends BaseSettingsFragment<Void>{
 		setTitle(R.string.settings_privacy);
 		Account self=AccountSessionManager.get(accountID).self;
 		onDataLoaded(List.of(
-			discoverableItem=new CheckableListItem<>(R.string.settings_discoverable, 0, CheckableListItem.Style.SWITCH, self.discoverable, R.drawable.ic_thumbs_up_down_24px, ()->toggleCheckableItem(discoverableItem)),
-			indexableItem=new CheckableListItem<>(R.string.settings_indexable, 0, CheckableListItem.Style.SWITCH, self.source.indexable!=null ? self.source.indexable : true, R.drawable.ic_search_24px, ()->toggleCheckableItem(indexableItem))
+			discoverableItem=new CheckableListItem<>(R.string.settings_discoverable, 0, CheckableListItem.Style.SWITCH, self.discoverable, R.drawable.ic_thumbs_up_down_24px, this::toggleCheckableItem),
+			indexableItem=new CheckableListItem<>(R.string.settings_indexable, 0, CheckableListItem.Style.SWITCH, self.source.indexable!=null ? self.source.indexable : true, R.drawable.ic_search_24px, this::toggleCheckableItem)
 		));
 		if(self.source.indexable==null)
 			indexableItem.isEnabled=false;

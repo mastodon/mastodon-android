@@ -175,6 +175,7 @@ public class AccountSessionManager{
 	public void removeAccount(String id){
 		AccountSession session=getAccount(id);
 		session.getCacheController().closeDatabase();
+		session.getCacheController().getListsFile().delete();
 		MastodonApp.context.deleteDatabase(id+".db");
 		MastodonApp.context.getSharedPreferences(id, 0).edit().clear().commit();
 		if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.N){

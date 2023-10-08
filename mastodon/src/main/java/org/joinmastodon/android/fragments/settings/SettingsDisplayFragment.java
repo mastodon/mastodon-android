@@ -39,10 +39,10 @@ public class SettingsDisplayFragment extends BaseSettingsFragment<Void>{
 		AccountLocalPreferences lp=s.getLocalPreferences();
 		onDataLoaded(List.of(
 				themeItem=new ListItem<>(R.string.settings_theme, getAppearanceValue(), R.drawable.ic_dark_mode_24px, this::onAppearanceClick),
-				showCWsItem=new CheckableListItem<>(R.string.settings_show_cws, 0, CheckableListItem.Style.SWITCH, lp.showCWs, R.drawable.ic_warning_24px, ()->toggleCheckableItem(showCWsItem)),
-				hideSensitiveMediaItem=new CheckableListItem<>(R.string.settings_hide_sensitive_media, 0, CheckableListItem.Style.SWITCH, lp.hideSensitiveMedia, R.drawable.ic_no_adult_content_24px, ()->toggleCheckableItem(hideSensitiveMediaItem)),
-				interactionCountsItem=new CheckableListItem<>(R.string.settings_show_interaction_counts, 0, CheckableListItem.Style.SWITCH, lp.showInteractionCounts, R.drawable.ic_social_leaderboard_24px, ()->toggleCheckableItem(interactionCountsItem)),
-				emojiInNamesItem=new CheckableListItem<>(R.string.settings_show_emoji_in_names, 0, CheckableListItem.Style.SWITCH, lp.customEmojiInNames, R.drawable.ic_emoticon_24px, ()->toggleCheckableItem(emojiInNamesItem))
+				showCWsItem=new CheckableListItem<>(R.string.settings_show_cws, 0, CheckableListItem.Style.SWITCH, lp.showCWs, R.drawable.ic_warning_24px, this::toggleCheckableItem),
+				hideSensitiveMediaItem=new CheckableListItem<>(R.string.settings_hide_sensitive_media, 0, CheckableListItem.Style.SWITCH, lp.hideSensitiveMedia, R.drawable.ic_no_adult_content_24px, this::toggleCheckableItem),
+				interactionCountsItem=new CheckableListItem<>(R.string.settings_show_interaction_counts, 0, CheckableListItem.Style.SWITCH, lp.showInteractionCounts, R.drawable.ic_social_leaderboard_24px, this::toggleCheckableItem),
+				emojiInNamesItem=new CheckableListItem<>(R.string.settings_show_emoji_in_names, 0, CheckableListItem.Style.SWITCH, lp.customEmojiInNames, R.drawable.ic_emoticon_24px, this::toggleCheckableItem)
 		));
 	}
 
@@ -80,7 +80,7 @@ public class SettingsDisplayFragment extends BaseSettingsFragment<Void>{
 		};
 	}
 
-	private void onAppearanceClick(){
+	private void onAppearanceClick(ListItem<?> item_){
 		int selected=switch(GlobalUserPreferences.theme){
 			case LIGHT -> 0;
 			case DARK -> 1;

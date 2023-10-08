@@ -610,4 +610,39 @@
 	</plurals>
 
 	<string name="error_playing_video">Error playing video</string>
+	<string name="timeline_following">Following</string>
+	<string name="lists">Lists</string>
+	<string name="followed_hashtags">Followed hashtags</string>
+	<string name="no_lists">You don\'t have any lists yet.</string>
+	<string name="no_followed_hashtags">You don\'t follow any hashtags.</string>
+	<string name="manage_lists">Manage lists</string>
+	<string name="manage_hashtags">Manage hashtags</string>
+	<!-- Screen reader description for the menu on the home timeline screen -->
+	<string name="dropdown_menu">Dropdown menu</string>
+	<string name="edit_list">Edit list</string>
+	<string name="list_members">List members</string>
+	<string name="delete_list">Delete list</string>
+	<!-- %s is the name of the list -->
+	<string name="delete_list_confirm">Delete “%s”?</string>
+	<string name="list_exclusive">Hide members in Following</string>
+	<string name="list_exclusive_subtitle">If someone is on this list, hide them in your Following timeline to avoid seeing their posts twice.</string>
+	<string name="list_name">List name</string>
+	<string name="list_show_replies_to">Show replies to</string>
+	<string name="list_replies_no_one">No one</string>
+	<string name="list_replies_members">Members of the list</string>
+	<string name="list_replies_anyone">Anyone I follow</string>
+	<string name="confirm_remove_list_members">Remove members?</string>
+	<string name="remove">Remove</string>
+	<string name="add_list_member">Add member</string>
+	<string name="search_among_people_you_follow">Search among people you follow</string>
+	<string name="add_user_to_list">Add to list…</string>
+	<string name="add_user_to_list_title">Add to list</string>
+	<!-- %s is a username -->
+	<string name="manage_user_lists">Manage the lists %s appears on</string>
+	<string name="remove_from_list">Remove from list</string>
+	<string name="confirm_remove_list_member">Remove member?</string>
+	<plurals name="x_posts_recently">
+		<item quantity="one">%,d post recently</item>
+		<item quantity="other">%,d posts recently</item>
+	</plurals>
 </resources>

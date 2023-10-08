@@ -75,6 +75,6 @@ public abstract class ListItemViewHolder<T extends ListItem<?>> extends Bindable
 
 	@Override
 	public void onClick(){
-		item.onClick.run();
+		item.performClick();
 	}
 }

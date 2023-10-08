@@ -1,7 +1,6 @@
 package org.joinmastodon.android.fragments.discover;
 
 import android.os.Bundle;
-import android.view.View;
 
 import org.joinmastodon.android.api.requests.timelines.GetPublicTimeline;
 import org.joinmastodon.android.api.session.AccountSessionManager;
@@ -29,7 +28,7 @@ public class LocalTimelineFragment extends StatusListFragment{
 
 	@Override
 	protected void doLoadData(int offset, int count){
-		currentRequest=new GetPublicTimeline(true, false, refreshing ? null : maxID, count)
+		currentRequest=new GetPublicTimeline(true, false, refreshing ? null : maxID, null, count, null)
 				.setCallback(new SimpleCallback<>(this){
 					@Override
 					public void onSuccess(List<Status> result){

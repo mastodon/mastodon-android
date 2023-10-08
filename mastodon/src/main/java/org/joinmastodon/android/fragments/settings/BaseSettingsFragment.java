@@ -12,12 +12,10 @@ import org.joinmastodon.android.model.viewmodel.ListItem;
 import org.joinmastodon.android.ui.BetterItemAnimator;
 import org.joinmastodon.android.ui.DividerItemDecoration;
 import org.joinmastodon.android.ui.adapters.GenericListItemsAdapter;
-import org.joinmastodon.android.ui.viewholders.CheckableListItemViewHolder;
 import org.joinmastodon.android.ui.viewholders.ListItemViewHolder;
 import org.joinmastodon.android.ui.viewholders.SimpleListItemViewHolder;
 
 import androidx.recyclerview.widget.RecyclerView;
-import me.grishka.appkit.utils.V;
 
 public abstract class BaseSettingsFragment<T> extends MastodonRecyclerFragment<ListItem<T>>{
 	protected GenericListItemsAdapter<T> itemsAdapter;
@@ -45,7 +43,7 @@ public abstract class BaseSettingsFragment<T> extends MastodonRecyclerFragment<L
 
 	@Override
 	protected RecyclerView.Adapter<?> getAdapter(){
-		return itemsAdapter=new GenericListItemsAdapter<T>(data);
+		return itemsAdapter=new GenericListItemsAdapter<T>(imgLoader, data);
 	}
 
 	@Override
@@ -59,12 +57,13 @@ public abstract class BaseSettingsFragment<T> extends MastodonRecyclerFragment<L
 		return 0;
 	}
 
-	protected void toggleCheckableItem(CheckableListItem<T> item){
-		item.toggle();
+	protected void toggleCheckableItem(ListItem<?> item){
+		if(item instanceof CheckableListItem<?> checkable)
+			checkable.toggle();
 		rebindItem(item);
 	}
 
-	protected void rebindItem(ListItem<T> item){
+	protected void rebindItem(ListItem<?> item){
 		if(list==null)
 			return;
 		if(list.findViewHolderForAdapterPosition(indexOfItemsAdapter()+data.indexOf(item)) instanceof ListItemViewHolder<?> holder){

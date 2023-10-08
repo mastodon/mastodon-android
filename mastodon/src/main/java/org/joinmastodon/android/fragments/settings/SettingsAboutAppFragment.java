@@ -32,10 +32,10 @@ public class SettingsAboutAppFragment extends BaseSettingsFragment<Void>{
 		setTitle(getString(R.string.about_app, getString(R.string.app_name)));
 		AccountSession s=AccountSessionManager.get(accountID);
 		onDataLoaded(List.of(
-				new ListItem<>(R.string.settings_even_more, 0, ()->UiUtils.launchWebBrowser(getActivity(), "https://"+s.domain+"/auth/edit")),
-				new ListItem<>(R.string.settings_contribute, 0, ()->UiUtils.launchWebBrowser(getActivity(), getString(R.string.github_url))),
-				new ListItem<>(R.string.settings_tos, 0, ()->UiUtils.launchWebBrowser(getActivity(), "https://"+s.domain+"/terms")),
-				new ListItem<>(R.string.settings_privacy_policy, 0, ()->UiUtils.launchWebBrowser(getActivity(), getString(R.string.privacy_policy_url)), 0, true),
+				new ListItem<>(R.string.settings_even_more, 0, i->UiUtils.launchWebBrowser(getActivity(), "https://"+s.domain+"/auth/edit")),
+				new ListItem<>(R.string.settings_contribute, 0, i->UiUtils.launchWebBrowser(getActivity(), getString(R.string.github_url))),
+				new ListItem<>(R.string.settings_tos, 0, i->UiUtils.launchWebBrowser(getActivity(), "https://"+s.domain+"/terms")),
+				new ListItem<>(R.string.settings_privacy_policy, 0, i->UiUtils.launchWebBrowser(getActivity(), getString(R.string.privacy_policy_url)), 0, true),
 				mediaCacheItem=new ListItem<>(R.string.settings_clear_cache, 0, this::onClearMediaCacheClick)
 		));
 
@@ -62,7 +62,7 @@ public class SettingsAboutAppFragment extends BaseSettingsFragment<Void>{
 		return adapter;
 	}
 
-	private void onClearMediaCacheClick(){
+	private void onClearMediaCacheClick(ListItem<?> item){
 		MastodonAPIController.runInBackground(()->{
 			Activity activity=getActivity();
 			ImageCache.getInstance(getActivity()).clear();

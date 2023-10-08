@@ -34,11 +34,13 @@ import org.joinmastodon.android.ui.utils.UiUtils;
 import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.StringRes;
 import me.grishka.appkit.utils.CubicBezierInterpolator;
 import me.grishka.appkit.utils.CustomViewHelper;
 
 public class FloatingHintEditTextLayout extends FrameLayout implements CustomViewHelper{
 	private EditText edit;
+	private View firstChild;
 	private TextView label;
 	private int labelTextSize;
 	private int offsetY;
@@ -71,30 +73,37 @@ public class FloatingHintEditTextLayout extends FrameLayout implements CustomVie
 	@Override
 	protected void onFinishInflate(){
 		super.onFinishInflate();
-		if(getChildCount()>0 && getChildAt(0) instanceof EditText et){
-			edit=et;
+		if(getChildCount()>0){
+			firstChild=getChildAt(0);
+			if(firstChild instanceof EditText et)
+				edit=et;
 		}else{
-			throw new IllegalStateException("First child must be an EditText");
+			throw new IllegalStateException("Must contain at least one child view");
 		}
 
 		label=new TextView(getContext());
 		label.setTextSize(TypedValue.COMPLEX_UNIT_PX, labelTextSize);
 //		label.setTextColor(labelColors==null ? edit.getHintTextColors() : labelColors);
-		origHintColors=edit.getHintTextColors();
-		label.setText(edit.getHint());
+		if(edit!=null){
+			origHintColors=edit.getHintTextColors();
+			label.setText(edit.getHint());
+		}
 		label.setSingleLine();
 		label.setPivotX(0f);
 		label.setPivotY(0f);
 		label.setImportantForAccessibility(IMPORTANT_FOR_ACCESSIBILITY_NO);
 		LayoutParams lp=new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, Gravity.START | Gravity.TOP);
-		lp.setMarginStart(edit.getPaddingStart()+((LayoutParams)edit.getLayoutParams()).getMarginStart());
+		lp.setMarginStart(firstChild.getPaddingStart()+((LayoutParams)firstChild.getLayoutParams()).getMarginStart());
 		addView(label, lp);
 
-		hintVisible=edit.getText().length()==0;
+		hintVisible=edit!=null && edit.getText().length()==0;
 		if(hintVisible)
 			label.setAlpha(0f);
+		else
+			animProgress=1;
 
-		edit.addTextChangedListener(new SimpleTextWatcher(this::onTextChanged));
+		if(edit!=null)
+			edit.addTextChangedListener(new SimpleTextWatcher(this::onTextChanged));
 
 		errorView=new LinkedTextView(getContext());
 		errorView.setTextAppearance(R.style.m3_body_small);
@@ -108,6 +117,18 @@ public class FloatingHintEditTextLayout extends FrameLayout implements CustomVie
 
 	public void updateHint(){
 		label.setText(edit.getHint());
+	}
+
+	public void setHint(CharSequence hint){
+		label.setText(hint);
+	}
+
+	public void setHint(@StringRes int hint){
+		label.setText(hint);
+	}
+
+	public TextView getLabel(){
+		return label;
 	}
 
 	private void onTextChanged(Editable text){
@@ -244,7 +265,7 @@ public class FloatingHintEditTextLayout extends FrameLayout implements CustomVie
 	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec){
 		if(errorView.getVisibility()!=GONE){
 			int width=MeasureSpec.getSize(widthMeasureSpec)-getPaddingLeft()-getPaddingRight();
-			LayoutParams editLP=(LayoutParams) edit.getLayoutParams();
+			LayoutParams editLP=(LayoutParams) firstChild.getLayoutParams();
 			width-=editLP.leftMargin+editLP.rightMargin;
 			errorView.measure(width | MeasureSpec.EXACTLY, MeasureSpec.UNSPECIFIED);
 			LayoutParams lp=(LayoutParams) errorView.getLayoutParams();
@@ -254,7 +275,7 @@ public class FloatingHintEditTextLayout extends FrameLayout implements CustomVie
 			lp.leftMargin=editLP.leftMargin;
 			editLP.bottomMargin=errorView.getMeasuredHeight();
 		}else{
-			LayoutParams editLP=(LayoutParams) edit.getLayoutParams();
+			LayoutParams editLP=(LayoutParams) firstChild.getLayoutParams();
 			editLP.bottomMargin=0;
 		}
 		super.onMeasure(widthMeasureSpec, heightMeasureSpec);
@@ -355,7 +376,7 @@ public class FloatingHintEditTextLayout extends FrameLayout implements CustomVie
 		protected void onBoundsChange(@NonNull Rect bounds){
 			super.onBoundsChange(bounds);
 			int offset=dp(12);
-			wrapped.setBounds(edit.getLeft()-offset, edit.getTop()-offset, edit.getRight()+offset, edit.getBottom()+offset);
+			wrapped.setBounds(firstChild.getLeft()-offset, firstChild.getTop()-offset, firstChild.getRight()+offset, firstChild.getBottom()+offset);
 		}
 	}
 }

@@ -24,6 +24,7 @@ import org.joinmastodon.android.model.Application;
 import org.joinmastodon.android.model.FilterAction;
 import org.joinmastodon.android.model.FilterContext;
 import org.joinmastodon.android.model.FilterResult;
+import org.joinmastodon.android.model.FollowList;
 import org.joinmastodon.android.model.LegacyFilter;
 import org.joinmastodon.android.model.Preferences;
 import org.joinmastodon.android.model.PushSubscription;
@@ -32,6 +33,7 @@ import org.joinmastodon.android.model.TimelineMarkers;
 import org.joinmastodon.android.model.Token;
 import org.joinmastodon.android.utils.ObjectIdComparator;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
@@ -66,6 +68,7 @@ public class AccountSession{
 	private transient SharedPreferences prefs;
 	private transient boolean preferencesNeedSaving;
 	private transient AccountLocalPreferences localPreferences;
+	private transient List<FollowList> lists;
 
 	AccountSession(Token token, Account self, Application app, String domain, boolean activated, AccountActivationInfo activationInfo){
 		this.token=token;

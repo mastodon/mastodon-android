@@ -9,7 +9,7 @@
 		<item android:id="@+id/delete" android:title="@string/delete"/>
 	</group>
 	<group android:id="@+id/menu_group2">
-		<!-- TODO add to list -->
+		<item android:id="@+id/add_to_list" android:title="@string/add_user_to_list"/>
 		<item android:id="@+id/follow" android:title="@string/follow_user"/>
 		<item android:id="@+id/mute" android:title="@string/mute_user"/>
 		<item android:id="@+id/block" android:title="@string/block_user"/>

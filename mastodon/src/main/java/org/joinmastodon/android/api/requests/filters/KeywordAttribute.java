@@ -2,6 +2,9 @@ package org.joinmastodon.android.api.requests.filters;
 
 import com.google.gson.annotations.SerializedName;
 
+import androidx.annotation.Keep;
+
+@Keep
 class KeywordAttribute{
 	public String id;
 	@SerializedName("_destroy")

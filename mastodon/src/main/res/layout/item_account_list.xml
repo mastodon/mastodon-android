@@ -119,6 +119,17 @@
 			android:layout_marginTop="2dp"
 			android:duplicateParentState="true"
 			android:visibility="gone"/>
+		
+		<ImageButton
+			android:id="@+id/options_btn"
+			android:layout_width="40dp"
+			android:layout_height="36dp"
+			android:layout_gravity="top"
+			android:background="?android:actionBarItemBackground"
+			android:tint="?colorM3OnSurfaceVariant"
+			android:contentDescription="@string/more_options"
+			android:src="@drawable/ic_more_vert_24px"
+			android:visibility="gone"/>
 
 	</FrameLayout>
 

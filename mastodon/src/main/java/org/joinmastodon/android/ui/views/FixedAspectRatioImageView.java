@@ -6,6 +6,7 @@ import android.widget.ImageView;
 
 public class FixedAspectRatioImageView extends ImageView{
 	private float aspectRatio=1;
+	private boolean useHeight;
 
 	public FixedAspectRatioImageView(Context context){
 		this(context, null);
@@ -21,8 +22,13 @@ public class FixedAspectRatioImageView extends ImageView{
 
 	@Override
 	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec){
-		int width=MeasureSpec.getSize(widthMeasureSpec);
-		heightMeasureSpec=Math.round(width/aspectRatio) | MeasureSpec.EXACTLY;
+		if(useHeight){
+			int height=MeasureSpec.getSize(heightMeasureSpec);
+			widthMeasureSpec=Math.round(height*aspectRatio) | MeasureSpec.EXACTLY;
+		}else{
+			int width=MeasureSpec.getSize(widthMeasureSpec);
+			heightMeasureSpec=Math.round(width/aspectRatio) | MeasureSpec.EXACTLY;
+		}
 		super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 	}
 
@@ -32,5 +38,13 @@ public class FixedAspectRatioImageView extends ImageView{
 
 	public void setAspectRatio(float aspectRatio){
 		this.aspectRatio=aspectRatio;
+	}
+
+	public boolean isUseHeight(){
+		return useHeight;
+	}
+
+	public void setUseHeight(boolean useHeight){
+		this.useHeight=useHeight;
 	}
 }

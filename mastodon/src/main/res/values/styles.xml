@@ -7,6 +7,8 @@
 		<item name="android:splitMotionEvents">false</item>
 		<item name="android:windowBackground">@color/m3_sys_light_surface</item>
 		<item name="android:editTextStyle">@style/Widget.Mastodon.EditText</item>
+		<item name="android:spinnerStyle">@style/Widget.Mastodon.Spinner</item>
+		<item name="android:actionModeCloseButtonStyle">@style/action_mode_close</item>
 
 		<item name="android:buttonStyle">@style/Widget.Mastodon.M3.Button.Filled</item>
 		<item name="android:actionBarTheme">@style/Theme.Mastodon.Toolbar</item>
@@ -73,6 +75,8 @@
 		<item name="android:splitMotionEvents">false</item>
 		<item name="android:windowBackground">@color/m3_sys_dark_surface</item>
 		<item name="android:editTextStyle">@style/Widget.Mastodon.EditText</item>
+		<item name="android:spinnerStyle">@style/Widget.Mastodon.Spinner</item>
+		<item name="android:actionModeCloseButtonStyle">@style/action_mode_close</item>
 
 		<item name="android:buttonStyle">@style/Widget.Mastodon.M3.Button</item>
 		<item name="android:actionBarTheme">@style/Theme.Mastodon.Toolbar</item>
@@ -165,7 +169,12 @@
 		<item name="android:titleTextStyle">@style/action_mode_title</item>
 	</style>
 
+	<style name="action_mode_close" parent="@android:style/Widget.Material.ActionButton.CloseMode">
+		<item name="android:layout_margin">0dp</item>
+	</style>
+
 	<style name="action_mode_title" parent="android:TextAppearance.Material.Widget.ActionMode.Title">
+		<item name="android:fontFamily">sans-serif</item>
 		<item name="android:textColor">?colorM3OnPrimary</item>
 	</style>
 
@@ -190,6 +199,12 @@
 		<item name="android:textColor">?colorM3OnSurface</item>
 		<item name="android:textColorHint">?colorM3OnSurfaceVariant</item>
 		<item name="android:textAppearance">@style/m3_body_large</item>
+	</style>
+
+	<style name="Widget.Mastodon.Spinner" parent="android:Widget.Material.Light.Spinner">
+		<item name="android:popupBackground">@drawable/bg_popup</item>
+		<item name="android:background">@drawable/bg_spinner</item>
+		<item name="android:backgroundTint">?colorM3OnSurface</item>
 	</style>
 
 	<style name="Theme.Mastodon.Dialog.Alert" parent="android:Theme.Material.Light.Dialog.Alert">

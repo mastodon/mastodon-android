@@ -24,6 +24,7 @@ import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.requests.accounts.GetAccountRelationships;
 import org.joinmastodon.android.api.requests.statuses.GetStatusSourceText;
 import org.joinmastodon.android.api.session.AccountSessionManager;
+import org.joinmastodon.android.fragments.AddAccountToListsFragment;
 import org.joinmastodon.android.fragments.BaseStatusListFragment;
 import org.joinmastodon.android.fragments.ComposeFragment;
 import org.joinmastodon.android.fragments.ProfileFragment;
@@ -198,6 +199,11 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 					UiUtils.openSystemShareSheet(activity, item.status.url);
 				}else if(id==R.id.translate){
 					item.parentFragment.togglePostTranslation(item.status, item.parentID);
+				}else if(id==R.id.add_to_list){
+					Bundle args=new Bundle();
+					args.putString("account", item.parentFragment.getAccountID());
+					args.putParcelable("targetAccount", Parcels.wrap(account));
+					Nav.go(activity, AddAccountToListsFragment.class, args);
 				}
 				return true;
 			});
@@ -326,6 +332,7 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 				report.setTitle(item.parentFragment.getString(R.string.report_user, account.displayName));
 				follow.setTitle(item.parentFragment.getString(relationship!=null && relationship.following ? R.string.unfollow_user : R.string.follow_user, account.displayName));
 			}
+			menu.findItem(R.id.add_to_list).setVisible(relationship!=null && relationship.following);
 		}
 	}
 }

@@ -139,7 +139,7 @@ public class SettingsServerAboutFragment extends LoaderFragment{
 		if(!TextUtils.isEmpty(instance.email)){
 			needDivider=true;
 			SimpleListItemViewHolder holder=new SimpleListItemViewHolder(getActivity(), scrollingLayout);
-			ListItem<Void> item=new ListItem<>(R.string.send_email_to_server_admin, 0, R.drawable.ic_mail_24px, ()->{});
+			ListItem<Void> item=new ListItem<>(R.string.send_email_to_server_admin, 0, R.drawable.ic_mail_24px, i->{});
 			holder.bind(item);
 			holder.itemView.setBackground(UiUtils.getThemeDrawable(getActivity(), android.R.attr.selectableItemBackground));
 			holder.itemView.setOnClickListener(v->openAdminEmail());

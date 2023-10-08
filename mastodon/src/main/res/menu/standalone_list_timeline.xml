@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+	<item
+		android:id="@+id/members"
+		android:icon="@drawable/ic_group_24px"
+		android:title="@string/list_members"
+		android:showAsAction="always"/>
+	<item
+		android:id="@+id/edit_list"
+		android:icon="@drawable/ic_edit_24px"
+		android:showAsAction="always"
+		android:title="@string/edit_list"/>
+</menu>

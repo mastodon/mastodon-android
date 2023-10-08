@@ -22,10 +22,9 @@ public class FilterContextFragment extends BaseSettingsFragment<FilterContext> i
 		setTitle(R.string.settings_filter_context);
 		context=(EnumSet<FilterContext>) getArguments().getSerializable("context");
 		onDataLoaded(Arrays.stream(FilterContext.values()).map(c->{
-			CheckableListItem<FilterContext> item=new CheckableListItem<>(c.getDisplayNameRes(), 0, CheckableListItem.Style.CHECKBOX, context.contains(c), null);
+			CheckableListItem<FilterContext> item=new CheckableListItem<>(c.getDisplayNameRes(), 0, CheckableListItem.Style.CHECKBOX, context.contains(c), this::toggleCheckableItem);
 			item.parentObject=c;
 			item.isEnabled=true;
-			item.onClick=()->toggleCheckableItem(item);
 			return item;
 		}).collect(Collectors.toList()));
 	}

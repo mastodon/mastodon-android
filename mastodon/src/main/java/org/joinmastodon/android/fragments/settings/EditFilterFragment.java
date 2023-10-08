@@ -73,7 +73,7 @@ public class EditFilterFragment extends BaseSettingsFragment<Void> implements On
 				durationItem=new ListItem<>(R.string.settings_filter_duration, 0, this::onDurationClick),
 				wordsItem=new ListItem<>(R.string.settings_filter_muted_words, 0, this::onWordsClick),
 				contextItem=new ListItem<>(R.string.settings_filter_context, 0, this::onContextClick),
-				cwItem=new CheckableListItem<>(R.string.settings_filter_show_cw, R.string.settings_filter_show_cw_explanation, CheckableListItem.Style.SWITCH, filter==null || filter.filterAction==FilterAction.WARN, ()->toggleCheckableItem(cwItem))
+				cwItem=new CheckableListItem<>(R.string.settings_filter_show_cw, R.string.settings_filter_show_cw_explanation, CheckableListItem.Style.SWITCH, filter==null || filter.filterAction==FilterAction.WARN, this::toggleCheckableItem)
 		));
 
 		if(filter!=null){
@@ -113,7 +113,7 @@ public class EditFilterFragment extends BaseSettingsFragment<Void> implements On
 		return 1;
 	}
 
-	private void onDurationClick(){
+	private void onDurationClick(ListItem<Void> item_){
 		int[] durationOptions={
 				1800,
 				3600,
@@ -182,21 +182,21 @@ public class EditFilterFragment extends BaseSettingsFragment<Void> implements On
 		alert.setOnDismissListener(dialog->callback.accept(null));
 	}
 
-	private void onWordsClick(){
+	private void onWordsClick(ListItem<Void> item){
 		Bundle args=new Bundle();
 		args.putString("account", accountID);
 		args.putParcelableArrayList("words", (ArrayList<? extends Parcelable>) keywords.stream().map(Parcels::wrap).collect(Collectors.toCollection(ArrayList::new)));
 		Nav.goForResult(getActivity(), FilterWordsFragment.class, args, WORDS_RESULT, this);
 	}
 
-	private void onContextClick(){
+	private void onContextClick(ListItem<Void> item){
 		Bundle args=new Bundle();
 		args.putString("account", accountID);
 		args.putSerializable("context", context);
 		Nav.goForResult(getActivity(), FilterContextFragment.class, args, CONTEXT_RESULT, this);
 	}
 
-	private void onDeleteClick(){
+	private void onDeleteClick(ListItem<Void> item_){
 		AlertDialog alert=new M3AlertDialogBuilder(getActivity())
 				.setTitle(getString(R.string.settings_delete_filter_title, filter.title))
 				.setMessage(R.string.settings_delete_filter_confirmation)

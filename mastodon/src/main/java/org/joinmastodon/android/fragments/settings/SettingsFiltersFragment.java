@@ -67,16 +67,14 @@ public class SettingsFiltersFragment extends BaseSettingsFragment<Filter>{
 		Nav.go(getActivity(), EditFilterFragment.class, args);
 	}
 
-	private void onAddFilterClick(){
+	private void onAddFilterClick(ListItem<?> item){
 		Bundle args=new Bundle();
 		args.putString("account", accountID);
 		Nav.go(getActivity(), EditFilterFragment.class, args);
 	}
 
 	private ListItem<Filter> makeListItem(Filter f){
-		ListItem<Filter> item=new ListItem<>(f.title, getString(f.isActive() ? R.string.filter_active : R.string.filter_inactive), null, f);
-		item.onClick=()->onFilterClick(item);
-		item.isEnabled=true;
+		ListItem<Filter> item=new ListItem<>(f.title, getString(f.isActive() ? R.string.filter_active : R.string.filter_inactive), this::onFilterClick, f);
 		return item;
 	}
 

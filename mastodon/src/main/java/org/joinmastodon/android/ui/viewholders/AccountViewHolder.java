@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.ProgressBar;
@@ -26,6 +27,7 @@ import android.widget.TextView;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.requests.accounts.SetAccountFollowed;
 import org.joinmastodon.android.api.session.AccountSessionManager;
+import org.joinmastodon.android.fragments.AddAccountToListsFragment;
 import org.joinmastodon.android.fragments.ProfileFragment;
 import org.joinmastodon.android.fragments.report.ReportReasonChoiceFragment;
 import org.joinmastodon.android.model.Account;
@@ -40,6 +42,7 @@ import org.parceler.Parcels;
 import java.util.HashMap;
 import java.util.Objects;
 import java.util.function.Consumer;
+import java.util.function.Predicate;
 
 import me.grishka.appkit.Nav;
 import me.grishka.appkit.api.Callback;
@@ -58,12 +61,15 @@ public class AccountViewHolder extends BindableViewHolder<AccountViewModel> impl
 	private final CheckableRelativeLayout view;
 	private final View checkbox;
 	private final ProgressBar actionProgress;
+	private final ImageButton menuButton;
 
 	private final String accountID;
 	private final Fragment fragment;
 	private final HashMap<String, Relationship> relationships;
 
 	private Consumer<AccountViewHolder> onClick;
+	private Predicate<AccountViewHolder> onLongClick;
+	private Consumer<MenuItem> onCustomMenuItemSelected;
 	private AccessoryType accessoryType;
 	private boolean showBio;
 	private boolean checked;
@@ -85,6 +91,7 @@ public class AccountViewHolder extends BindableViewHolder<AccountViewModel> impl
 		bio=findViewById(R.id.bio);
 		checkbox=findViewById(R.id.checkbox);
 		actionProgress=findViewById(R.id.action_progress);
+		menuButton=findViewById(R.id.options_btn);
 
 		avatar.setOutlineProvider(OutlineProviders.roundedRect(10));
 		avatar.setClipToOutline(true);
@@ -94,6 +101,7 @@ public class AccountViewHolder extends BindableViewHolder<AccountViewModel> impl
 		contextMenu=new PopupMenu(fragment.getActivity(), menuAnchor);
 		contextMenu.inflate(R.menu.profile);
 		contextMenu.setOnMenuItemClickListener(this::onContextMenuItemSelected);
+		menuButton.setOnClickListener(v->showMenuFromButton());
 
 		setStyle(AccessoryType.BUTTON, false);
 	}
@@ -181,37 +189,13 @@ public class AccountViewHolder extends BindableViewHolder<AccountViewModel> impl
 
 	@Override
 	public boolean onLongClick(float x, float y){
-		if(relationships==null)
+		if(onLongClick!=null && onLongClick.test(this))
+			return true;
+		if(accessoryType==AccessoryType.MENU || !prepareMenu())
 			return false;
-		Relationship relationship=relationships.get(item.account.id);
-		if(relationship==null)
-			return false;
-		Menu menu=contextMenu.getMenu();
-		Account account=item.account;
-
-		menu.findItem(R.id.share).setTitle(fragment.getString(R.string.share_user, account.getDisplayUsername()));
-		menu.findItem(R.id.mute).setTitle(fragment.getString(relationship.muting ? R.string.unmute_user : R.string.mute_user, account.getDisplayUsername()));
-		menu.findItem(R.id.block).setTitle(fragment.getString(relationship.blocking ? R.string.unblock_user : R.string.block_user, account.getDisplayUsername()));
-		menu.findItem(R.id.report).setTitle(fragment.getString(R.string.report_user, account.getDisplayUsername()));
-		MenuItem hideBoosts=menu.findItem(R.id.hide_boosts);
-		if(relationship.following){
-			hideBoosts.setTitle(fragment.getString(relationship.showingReblogs ? R.string.hide_boosts_from_user : R.string.show_boosts_from_user, account.getDisplayUsername()));
-			hideBoosts.setVisible(true);
-		}else{
-			hideBoosts.setVisible(false);
-		}
-		MenuItem blockDomain=menu.findItem(R.id.block_domain);
-		if(!account.isLocal()){
-			blockDomain.setTitle(fragment.getString(relationship.domainBlocking ? R.string.unblock_domain : R.string.block_domain, account.getDomain()));
-			blockDomain.setVisible(true);
-		}else{
-			blockDomain.setVisible(false);
-		}
-
 		menuAnchor.setTranslationX(x);
 		menuAnchor.setTranslationY(y);
 		contextMenu.show();
-
 		return true;
 	}
 
@@ -279,6 +263,13 @@ public class AccountViewHolder extends BindableViewHolder<AccountViewModel> impl
 					})
 					.wrapProgress(fragment.getActivity(), R.string.loading, false)
 					.exec(accountID);
+		}else if(id==R.id.add_to_list){
+			Bundle args=new Bundle();
+			args.putString("account", accountID);
+			args.putParcelable("targetAccount", Parcels.wrap(account));
+			Nav.go(fragment.getActivity(), AddAccountToListsFragment.class, args);
+		}else if(onCustomMenuItemSelected!=null){
+			onCustomMenuItemSelected.accept(item);
 		}
 		return true;
 	}
@@ -292,6 +283,14 @@ public class AccountViewHolder extends BindableViewHolder<AccountViewModel> impl
 		onClick=listener;
 	}
 
+	public void setOnLongClickListener(Predicate<AccountViewHolder> onLongClick){
+		this.onLongClick=onLongClick;
+	}
+
+	public void setOnCustomMenuItemSelectedListener(Consumer<MenuItem> onCustomMenuItemSelected){
+		this.onCustomMenuItemSelected=onCustomMenuItemSelected;
+	}
+
 	public void setStyle(AccessoryType accessoryType, boolean showBio){
 		if(accessoryType!=this.accessoryType){
 			this.accessoryType=accessoryType;
@@ -299,20 +298,29 @@ public class AccountViewHolder extends BindableViewHolder<AccountViewModel> impl
 				case NONE -> {
 					button.setVisibility(View.GONE);
 					checkbox.setVisibility(View.GONE);
+					menuButton.setVisibility(View.GONE);
 				}
 				case CHECKBOX -> {
 					button.setVisibility(View.GONE);
 					checkbox.setVisibility(View.VISIBLE);
+					menuButton.setVisibility(View.GONE);
 					checkbox.setBackground(new CheckBox(checkbox.getContext()).getButtonDrawable());
 				}
 				case RADIOBUTTON -> {
 					button.setVisibility(View.GONE);
 					checkbox.setVisibility(View.VISIBLE);
+					menuButton.setVisibility(View.GONE);
 					checkbox.setBackground(new RadioButton(checkbox.getContext()).getButtonDrawable());
 				}
 				case BUTTON -> {
 					button.setVisibility(View.VISIBLE);
 					checkbox.setVisibility(View.GONE);
+					menuButton.setVisibility(View.GONE);
+				}
+				case MENU -> {
+					button.setVisibility(View.GONE);
+					checkbox.setVisibility(View.GONE);
+					menuButton.setVisibility(View.VISIBLE);
 				}
 			}
 			view.setCheckable(accessoryType==AccessoryType.CHECKBOX || accessoryType==AccessoryType.RADIOBUTTON);
@@ -321,15 +329,63 @@ public class AccountViewHolder extends BindableViewHolder<AccountViewModel> impl
 		bio.setVisibility(showBio ? View.VISIBLE : View.GONE);
 	}
 
+	private boolean prepareMenu(){
+		if(relationships==null)
+			return false;
+		Relationship relationship=relationships.get(item.account.id);
+		if(relationship==null)
+			return false;
+		Menu menu=contextMenu.getMenu();
+		Account account=item.account;
+
+		menu.findItem(R.id.share).setTitle(fragment.getString(R.string.share_user, account.getDisplayUsername()));
+		menu.findItem(R.id.mute).setTitle(fragment.getString(relationship.muting ? R.string.unmute_user : R.string.mute_user, account.getDisplayUsername()));
+		menu.findItem(R.id.block).setTitle(fragment.getString(relationship.blocking ? R.string.unblock_user : R.string.block_user, account.getDisplayUsername()));
+		menu.findItem(R.id.report).setTitle(fragment.getString(R.string.report_user, account.getDisplayUsername()));
+		MenuItem hideBoosts=menu.findItem(R.id.hide_boosts);
+		if(relationship.following){
+			hideBoosts.setTitle(fragment.getString(relationship.showingReblogs ? R.string.hide_boosts_from_user : R.string.show_boosts_from_user, account.getDisplayUsername()));
+			hideBoosts.setVisible(true);
+		}else{
+			hideBoosts.setVisible(false);
+		}
+		MenuItem blockDomain=menu.findItem(R.id.block_domain);
+		if(!account.isLocal()){
+			blockDomain.setTitle(fragment.getString(relationship.domainBlocking ? R.string.unblock_domain : R.string.block_domain, account.getDomain()));
+			blockDomain.setVisible(true);
+		}else{
+			blockDomain.setVisible(false);
+		}
+		menu.findItem(R.id.add_to_list).setVisible(relationship.following);
+		return true;
+	}
+
+	private void showMenuFromButton(){
+		if(!prepareMenu())
+			return;
+		int[] xy={0, 0};
+		itemView.getLocationInWindow(xy);
+		int x=xy[0], y=xy[1];
+		menuButton.getLocationInWindow(xy);
+		menuAnchor.setTranslationX(xy[0]-x+menuButton.getWidth()/2f);
+		menuAnchor.setTranslationY(xy[1]-y+menuButton.getHeight());
+		contextMenu.show();
+	}
+
 	public void setChecked(boolean checked){
 		this.checked=checked;
 		view.setChecked(checked);
+	}
+
+	public PopupMenu getContextMenu(){
+		return contextMenu;
 	}
 
 	public enum AccessoryType{
 		NONE,
 		BUTTON,
 		CHECKBOX,
-		RADIOBUTTON
+		RADIOBUTTON,
+		MENU
 	}
 }

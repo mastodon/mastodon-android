@@ -5,7 +5,6 @@ import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.app.Activity;
-import android.content.res.ColorStateList;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
@@ -15,30 +14,40 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.accessibility.AccessibilityNodeInfo;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toolbar;
 
 import com.squareup.otto.Subscribe;
 
 import org.joinmastodon.android.E;
 import org.joinmastodon.android.R;
+import org.joinmastodon.android.api.MastodonAPIRequest;
 import org.joinmastodon.android.api.requests.markers.SaveMarkers;
 import org.joinmastodon.android.api.requests.timelines.GetHomeTimeline;
+import org.joinmastodon.android.api.requests.timelines.GetListTimeline;
+import org.joinmastodon.android.api.requests.timelines.GetPublicTimeline;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.events.SelfUpdateStateChangedEvent;
-import org.joinmastodon.android.events.StatusCreatedEvent;
 import org.joinmastodon.android.fragments.settings.SettingsMainFragment;
 import org.joinmastodon.android.model.CacheablePaginatedResponse;
 import org.joinmastodon.android.model.FilterContext;
+import org.joinmastodon.android.model.FollowList;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.model.TimelineMarkers;
 import org.joinmastodon.android.ui.displayitems.GapStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.StatusDisplayItem;
 import org.joinmastodon.android.ui.utils.UiUtils;
+import org.joinmastodon.android.ui.viewcontrollers.HomeTimelineMenuController;
+import org.joinmastodon.android.ui.viewcontrollers.ToolbarDropdownMenuController;
+import org.joinmastodon.android.ui.views.FixedAspectRatioImageView;
 import org.joinmastodon.android.updater.GithubSelfUpdater;
+import org.parceler.Parcels;
 
 import java.util.Collections;
 import java.util.HashSet;
@@ -54,12 +63,19 @@ import me.grishka.appkit.api.SimpleCallback;
 import me.grishka.appkit.utils.CubicBezierInterpolator;
 import me.grishka.appkit.utils.V;
 
-public class HomeTimelineFragment extends StatusListFragment{
+public class HomeTimelineFragment extends StatusListFragment implements ToolbarDropdownMenuController.HostFragment{
 	private ImageButton fab;
-	private ImageView toolbarLogo;
+	private LinearLayout listsDropdown;
+	private FixedAspectRatioImageView listsDropdownArrow;
+	private TextView listsDropdownText;
 	private Button toolbarShowNewPostsBtn;
 	private boolean newPostsBtnShown;
 	private AnimatorSet currentNewPostsAnim;
+	private ToolbarDropdownMenuController dropdownController;
+	private HomeTimelineMenuController dropdownMainMenuController;
+	private List<FollowList> lists=List.of();
+	private ListMode listMode=ListMode.FOLLOWING;
+	private FollowList currentList;
 
 	private String maxID;
 	private String lastSavedMarkerID;
@@ -71,25 +87,103 @@ public class HomeTimelineFragment extends StatusListFragment{
 	@Override
 	public void onAttach(Activity activity){
 		super.onAttach(activity);
+		dropdownController=new ToolbarDropdownMenuController(this);
+		dropdownMainMenuController=new HomeTimelineMenuController(dropdownController, new HomeTimelineMenuController.Callback(){
+			@Override
+			public void onFollowingSelected(){
+				if(listMode==ListMode.FOLLOWING)
+					return;
+				listMode=ListMode.FOLLOWING;
+				reload();
+			}
+
+			@Override
+			public void onLocalSelected(){
+				if(listMode==ListMode.LOCAL)
+					return;
+				listMode=ListMode.LOCAL;
+				reload();
+			}
+
+			@Override
+			public List<FollowList> getLists(){
+				return lists;
+			}
+
+			@Override
+			public void onListSelected(FollowList list){
+				if(listMode==ListMode.LIST && currentList==list)
+					return;
+				listMode=ListMode.LIST;
+				currentList=list;
+				reload();
+			}
+		});
 		setHasOptionsMenu(true);
 		loadData();
+		AccountSessionManager.get(accountID).getCacheController().getLists(new Callback<>(){
+			@Override
+			public void onSuccess(List<FollowList> result){
+				lists=result;
+			}
+
+			@Override
+			public void onError(ErrorResponse error){}
+		});
 	}
 
 	@Override
 	protected void doLoadData(int offset, int count){
-		AccountSessionManager.getInstance()
-				.getAccount(accountID).getCacheController()
-				.getHomeTimeline(offset>0 ? maxID : null, count, refreshing, new SimpleCallback<>(this){
-					@Override
-					public void onSuccess(CacheablePaginatedResponse<List<Status>> result){
-						if(getActivity()==null)
-							return;
-						onDataLoaded(result.items, !result.items.isEmpty());
-						maxID=result.maxID;
-						if(result.isFromCache())
-							loadNewPosts();
-					}
-				});
+		switch(listMode){
+			case FOLLOWING -> {
+				AccountSessionManager.getInstance()
+						.getAccount(accountID).getCacheController()
+						.getHomeTimeline(offset>0 ? maxID : null, count, refreshing, new SimpleCallback<>(this){
+							@Override
+							public void onSuccess(CacheablePaginatedResponse<List<Status>> result){
+								if(getActivity()==null || listMode!=ListMode.FOLLOWING)
+									return;
+								if(refreshing)
+									list.scrollToPosition(0);
+								onDataLoaded(result.items, !result.items.isEmpty());
+								maxID=result.maxID;
+								if(result.isFromCache())
+									loadNewPosts();
+							}
+
+							@Override
+							public void onError(ErrorResponse error){
+								if(listMode!=ListMode.FOLLOWING)
+									return;
+								super.onError(error);
+							}
+						});
+			}
+			case LOCAL -> {
+				currentRequest=new GetPublicTimeline(true, false, offset>0 ? maxID : null, null, count, null)
+						.setCallback(new SimpleCallback<>(this){
+							@Override
+							public void onSuccess(List<Status> result){
+								if(refreshing)
+									list.scrollToPosition(0);
+								onDataLoaded(result, !result.isEmpty());
+							}
+						})
+						.exec(accountID);
+			}
+			case LIST -> {
+				currentRequest=new GetListTimeline(currentList.id, offset>0 ? maxID : null, null, count, null)
+						.setCallback(new SimpleCallback<>(this){
+							@Override
+							public void onSuccess(List<Status> result){
+								if(refreshing)
+									list.scrollToPosition(0);
+								onDataLoaded(result, !result.isEmpty());
+							}
+						})
+						.exec(accountID);
+			}
+		}
 	}
 
 	@Override
@@ -116,13 +210,26 @@ public class HomeTimelineFragment extends StatusListFragment{
 	@Override
 	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater){
 		inflater.inflate(R.menu.home, menu);
+		menu.findItem(R.id.edit_list).setVisible(listMode==ListMode.LIST);
+		GithubSelfUpdater.UpdateState state=GithubSelfUpdater.UpdateState.NO_UPDATE;
+		GithubSelfUpdater updater=GithubSelfUpdater.getInstance();
+		if(updater!=null)
+			state=updater.getState();
+		if(state!=GithubSelfUpdater.UpdateState.NO_UPDATE && state!=GithubSelfUpdater.UpdateState.CHECKING)
+			getToolbar().getMenu().findItem(R.id.settings).setIcon(R.drawable.ic_settings_updateready_24px);
 	}
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item){
 		Bundle args=new Bundle();
 		args.putString("account", accountID);
-		Nav.go(getActivity(), SettingsMainFragment.class, args);
+		int id=item.getItemId();
+		if(id==R.id.settings){
+			Nav.go(getActivity(), SettingsMainFragment.class, args);
+		}else if(id==R.id.edit_list){
+			args.putParcelable("list", Parcels.wrap(currentList));
+			Nav.go(getActivity(), EditListFragment.class, args);
+		}
 		return true;
 	}
 
@@ -147,7 +254,7 @@ public class HomeTimelineFragment extends StatusListFragment{
 	@Override
 	protected void onHidden(){
 		super.onHidden();
-		if(!data.isEmpty()){
+		if(!data.isEmpty() && listMode==ListMode.FOLLOWING){
 			String topPostID=displayItems.get(Math.max(0, list.getChildAdapterPosition(list.getChildAt(0))-getMainAdapterOffset())).parentID;
 			if(!topPostID.equals(lastSavedMarkerID)){
 				lastSavedMarkerID=topPostID;
@@ -183,8 +290,8 @@ public class HomeTimelineFragment extends StatusListFragment{
 		// we'll get the currently topmost post as last in the response. This way we know there's no gap
 		// between the existing and newly loaded parts of the timeline.
 		String sinceID=data.size()>1 ? data.get(1).id : "1";
-		currentRequest=new GetHomeTimeline(null, null, 20, sinceID)
-				.setCallback(new Callback<>(){
+		boolean needCache=listMode==ListMode.FOLLOWING;
+		loadAdditionalPosts(null, null, 20, sinceID, new Callback<>(){
 					@Override
 					public void onSuccess(List<Status> result){
 						currentRequest=null;
@@ -199,11 +306,13 @@ public class HomeTimelineFragment extends StatusListFragment{
 							result.get(result.size()-1).hasGapAfter=true;
 							toAdd=result;
 						}
-						AccountSessionManager.get(accountID).filterStatuses(toAdd, FilterContext.HOME);
+						if(needCache)
+							AccountSessionManager.get(accountID).filterStatuses(toAdd, FilterContext.HOME);
 						if(!toAdd.isEmpty()){
 							prependItems(toAdd, true);
 							showNewPostsButton();
-							AccountSessionManager.getInstance().getAccount(accountID).getCacheController().putHomeTimeline(toAdd, false);
+							if(needCache)
+								AccountSessionManager.getInstance().getAccount(accountID).getCacheController().putHomeTimeline(toAdd, false);
 						}
 					}
 
@@ -212,8 +321,7 @@ public class HomeTimelineFragment extends StatusListFragment{
 						currentRequest=null;
 						dataLoading=false;
 					}
-				})
-				.exec(accountID);
+				});
 	}
 
 	@Override
@@ -225,10 +333,11 @@ public class HomeTimelineFragment extends StatusListFragment{
 		V.setVisibilityAnimated(item.text, View.GONE);
 		GapStatusDisplayItem gap=item.getItem();
 		dataLoading=true;
-		currentRequest=new GetHomeTimeline(item.getItemID(), null, 20, null)
-				.setCallback(new Callback<>(){
+		boolean needCache=listMode==ListMode.FOLLOWING;
+		loadAdditionalPosts(item.getItemID(), null, 20, null, new Callback<>(){
 					@Override
 					public void onSuccess(List<Status> result){
+
 						currentRequest=null;
 						dataLoading=false;
 						if(getActivity()==null)
@@ -242,7 +351,8 @@ public class HomeTimelineFragment extends StatusListFragment{
 							Status gapStatus=getStatusByID(gap.parentID);
 							if(gapStatus!=null){
 								gapStatus.hasGapAfter=false;
-								AccountSessionManager.getInstance().getAccount(accountID).getCacheController().putHomeTimeline(Collections.singletonList(gapStatus), false);
+								if(needCache)
+									AccountSessionManager.getInstance().getAccount(accountID).getCacheController().putHomeTimeline(Collections.singletonList(gapStatus), false);
 							}
 						}else{
 							Set<String> idsBelowGap=new HashSet<>();
@@ -254,7 +364,8 @@ public class HomeTimelineFragment extends StatusListFragment{
 								}else if(s.id.equals(gap.parentID)){
 									belowGap=true;
 									s.hasGapAfter=false;
-									AccountSessionManager.getInstance().getAccount(accountID).getCacheController().putHomeTimeline(Collections.singletonList(s), false);
+									if(needCache)
+										AccountSessionManager.getInstance().getAccount(accountID).getCacheController().putHomeTimeline(Collections.singletonList(s), false);
 								}else{
 									gapPostIndex++;
 								}
@@ -270,7 +381,8 @@ public class HomeTimelineFragment extends StatusListFragment{
 							}else{
 								result=result.subList(0, endIndex);
 							}
-							AccountSessionManager.get(accountID).filterStatuses(result, FilterContext.HOME);
+							if(needCache)
+								AccountSessionManager.get(accountID).filterStatuses(result, FilterContext.HOME);
 							List<StatusDisplayItem> targetList=displayItems.subList(gapPos, gapPos+1);
 							targetList.clear();
 							List<Status> insertedPosts=data.subList(gapPostIndex+1, gapPostIndex+1);
@@ -287,7 +399,8 @@ public class HomeTimelineFragment extends StatusListFragment{
 								adapter.notifyItemChanged(getMainAdapterOffset()+gapPos);
 								adapter.notifyItemRangeInserted(getMainAdapterOffset()+gapPos+1, targetList.size()-1);
 							}
-							AccountSessionManager.getInstance().getAccount(accountID).getCacheController().putHomeTimeline(insertedPosts, false);
+							if(needCache)
+								AccountSessionManager.getInstance().getAccount(accountID).getCacheController().putHomeTimeline(insertedPosts, false);
 						}
 					}
 
@@ -304,9 +417,17 @@ public class HomeTimelineFragment extends StatusListFragment{
 								adapter.notifyItemChanged(gapPos);
 						}
 					}
-				})
-				.exec(accountID);
+				});
+	}
 
+	private void loadAdditionalPosts(String maxID, String minID, int limit, String sinceID, Callback<List<Status>> callback){
+		MastodonAPIRequest<List<Status>> req=switch(listMode){
+			case FOLLOWING -> new GetHomeTimeline(maxID, minID, limit, sinceID);
+			case LOCAL -> new GetPublicTimeline(true, false, maxID, minID, limit, sinceID);
+			case LIST -> new GetListTimeline(currentList.id, maxID, minID, limit, sinceID);
+		};
+		currentRequest=req;
+		req.setCallback(callback).exec(accountID);
 	}
 
 	@Override
@@ -320,10 +441,31 @@ public class HomeTimelineFragment extends StatusListFragment{
 	}
 
 	private void updateToolbarLogo(){
-		toolbarLogo=new ImageView(getActivity());
-		toolbarLogo.setScaleType(ImageView.ScaleType.CENTER);
-		toolbarLogo.setImageResource(R.drawable.logo);
-		toolbarLogo.setImageTintList(ColorStateList.valueOf(UiUtils.getThemeColor(getActivity(), android.R.attr.textColorPrimary)));
+		listsDropdown=new LinearLayout(getActivity());
+		listsDropdown.setOnClickListener(this::onListsDropdownClick);
+		listsDropdown.setBackgroundResource(R.drawable.bg_button_m3_text);
+		listsDropdown.setAccessibilityDelegate(new View.AccessibilityDelegate(){
+			@Override
+			public void onInitializeAccessibilityNodeInfo(@NonNull View host, @NonNull AccessibilityNodeInfo info){
+				super.onInitializeAccessibilityNodeInfo(host, info);
+				info.setClassName("android.widget.Spinner");
+			}
+		});
+		listsDropdownArrow=new FixedAspectRatioImageView(getActivity());
+		listsDropdownArrow.setUseHeight(true);
+		listsDropdownArrow.setImageResource(R.drawable.ic_arrow_drop_down_24px);
+		listsDropdownArrow.setScaleType(ImageView.ScaleType.CENTER);
+		listsDropdownArrow.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
+		listsDropdown.addView(listsDropdownArrow, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT));
+		listsDropdownText=new TextView(getActivity());
+		listsDropdownText.setTextAppearance(R.style.action_bar_title);
+		listsDropdownText.setSingleLine();
+		listsDropdownText.setGravity(Gravity.START | Gravity.CENTER_VERTICAL);
+		listsDropdownText.setPaddingRelative(V.dp(4), 0, V.dp(16), 0);
+		listsDropdownText.setText(getCurrentListTitle());
+		listsDropdownArrow.setImageTintList(listsDropdownText.getTextColors());
+		listsDropdown.setBackgroundTintList(listsDropdownText.getTextColors());
+		listsDropdown.addView(listsDropdownText, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT));
 
 		toolbarShowNewPostsBtn=new Button(getActivity());
 		toolbarShowNewPostsBtn.setTextAppearance(R.style.m3_title_medium);
@@ -340,22 +482,33 @@ public class HomeTimelineFragment extends StatusListFragment{
 
 		if(newPostsBtnShown){
 			toolbarShowNewPostsBtn.setVisibility(View.VISIBLE);
-			toolbarLogo.setVisibility(View.INVISIBLE);
-			toolbarLogo.setAlpha(0f);
+			listsDropdown.setVisibility(View.INVISIBLE);
+			listsDropdown.setAlpha(0f);
 		}else{
 			toolbarShowNewPostsBtn.setVisibility(View.INVISIBLE);
 			toolbarShowNewPostsBtn.setAlpha(0f);
 			toolbarShowNewPostsBtn.setScaleX(.8f);
 			toolbarShowNewPostsBtn.setScaleY(.8f);
-			toolbarLogo.setVisibility(View.VISIBLE);
+			listsDropdown.setVisibility(View.VISIBLE);
 		}
 
-		FrameLayout logoWrap=new FrameLayout(getActivity());
-		logoWrap.addView(toolbarLogo, new FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, Gravity.CENTER));
+		FrameLayout logoWrap=new FrameLayout(getActivity()){
+			@Override
+			protected void onLayout(boolean changed, int left, int top, int right, int bottom){
+				super.onLayout(changed, left, top, right, bottom);
+				// I'm sorry for doing this. This centers the button within the entire toolbar
+				int rightGap=getToolbar().getWidth()-right;
+				toolbarShowNewPostsBtn.offsetLeftAndRight((rightGap-left)/2);
+			}
+		};
+		FrameLayout.LayoutParams ddlp=new FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT, Gravity.START);
+		ddlp.topMargin=ddlp.bottomMargin=V.dp(8);
+		logoWrap.addView(listsDropdown, ddlp);
 		logoWrap.addView(toolbarShowNewPostsBtn, new FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, V.dp(32), Gravity.CENTER));
 
 		Toolbar toolbar=getToolbar();
-		toolbar.addView(logoWrap, new Toolbar.LayoutParams(Gravity.CENTER));
+		toolbar.addView(logoWrap, new Toolbar.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+		toolbar.setContentInsetsRelative(V.dp(16), 0);
 	}
 
 	private void showNewPostsButton(){
@@ -368,7 +521,7 @@ public class HomeTimelineFragment extends StatusListFragment{
 		toolbarShowNewPostsBtn.setVisibility(View.VISIBLE);
 		AnimatorSet set=new AnimatorSet();
 		set.playTogether(
-				ObjectAnimator.ofFloat(toolbarLogo, View.ALPHA, 0f),
+				ObjectAnimator.ofFloat(listsDropdown, View.ALPHA, 0f),
 				ObjectAnimator.ofFloat(toolbarShowNewPostsBtn, View.ALPHA, 1f),
 				ObjectAnimator.ofFloat(toolbarShowNewPostsBtn, View.SCALE_X, 1f),
 				ObjectAnimator.ofFloat(toolbarShowNewPostsBtn, View.SCALE_Y, 1f)
@@ -378,7 +531,7 @@ public class HomeTimelineFragment extends StatusListFragment{
 		set.addListener(new AnimatorListenerAdapter(){
 			@Override
 			public void onAnimationEnd(Animator animation){
-				toolbarLogo.setVisibility(View.INVISIBLE);
+				listsDropdown.setVisibility(View.INVISIBLE);
 				currentNewPostsAnim=null;
 			}
 		});
@@ -393,10 +546,10 @@ public class HomeTimelineFragment extends StatusListFragment{
 		if(currentNewPostsAnim!=null){
 			currentNewPostsAnim.cancel();
 		}
-		toolbarLogo.setVisibility(View.VISIBLE);
+		listsDropdown.setVisibility(View.VISIBLE);
 		AnimatorSet set=new AnimatorSet();
 		set.playTogether(
-				ObjectAnimator.ofFloat(toolbarLogo, View.ALPHA, 1f),
+				ObjectAnimator.ofFloat(listsDropdown, View.ALPHA, 1f),
 				ObjectAnimator.ofFloat(toolbarShowNewPostsBtn, View.ALPHA, 0f),
 				ObjectAnimator.ofFloat(toolbarShowNewPostsBtn, View.SCALE_X, .8f),
 				ObjectAnimator.ofFloat(toolbarShowNewPostsBtn, View.SCALE_Y, .8f)
@@ -421,6 +574,20 @@ public class HomeTimelineFragment extends StatusListFragment{
 		}
 	}
 
+	private void onListsDropdownClick(View v){
+		listsDropdownArrow.animate().rotation(-180f).setDuration(150).setInterpolator(CubicBezierInterpolator.DEFAULT).start();
+		dropdownController.show(dropdownMainMenuController);
+		AccountSessionManager.get(accountID).getCacheController().reloadLists(new Callback<>(){
+			@Override
+			public void onSuccess(java.util.List<FollowList> result){
+				lists=result;
+			}
+
+			@Override
+			public void onError(ErrorResponse error){}
+		});
+	}
+
 	@Override
 	public void onDestroyView(){
 		super.onDestroyView();
@@ -442,5 +609,48 @@ public class HomeTimelineFragment extends StatusListFragment{
 	@Override
 	protected boolean shouldRemoveAccountPostsWhenUnfollowing(){
 		return true;
+	}
+
+	@Override
+	public Toolbar getToolbar(){
+		return super.getToolbar();
+	}
+
+	@Override
+	public void onDropdownWillDismiss(){
+		listsDropdownArrow.animate().rotation(0f).setDuration(150).setInterpolator(CubicBezierInterpolator.DEFAULT).start();
+
+	}
+
+	@Override
+	public void onDropdownDismissed(){
+
+	}
+
+	@Override
+	public void reload(){
+		if(currentRequest!=null){
+			currentRequest.cancel();
+			currentRequest=null;
+		}
+		refreshing=true;
+		showProgress();
+		loadData();
+		listsDropdownText.setText(getCurrentListTitle());
+		invalidateOptionsMenu();
+	}
+
+	private String getCurrentListTitle(){
+		return switch(listMode){
+			case FOLLOWING -> getString(R.string.timeline_following);
+			case LOCAL -> getString(R.string.local_timeline);
+			case LIST -> currentList.title;
+		};
+	}
+
+	private enum ListMode{
+		FOLLOWING,
+		LOCAL,
+		LIST
 	}
 }

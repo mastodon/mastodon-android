@@ -609,6 +609,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 			menu.findItem(R.id.block_domain).setTitle(getString(relationship.domainBlocking ? R.string.unblock_domain : R.string.block_domain, account.getDomain()));
 		else
 			menu.findItem(R.id.block_domain).setVisible(false);
+		menu.findItem(R.id.add_to_list).setVisible(relationship.following);
 	}
 
 	@Override
@@ -662,6 +663,11 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 		}else if(id==R.id.save){
 			if(isInEditMode)
 				saveAndExitEditMode();
+		}else if(id==R.id.add_to_list){
+			Bundle args=new Bundle();
+			args.putString("account", accountID);
+			args.putParcelable("targetAccount", Parcels.wrap(account));
+			Nav.go(getActivity(), AddAccountToListsFragment.class, args);
 		}
 		return true;
 	}

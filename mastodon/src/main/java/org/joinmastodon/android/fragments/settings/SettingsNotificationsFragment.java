@@ -55,14 +55,14 @@ public class SettingsNotificationsFragment extends BaseSettingsFragment<Void>{
 		getPushSubscription();
 
 		onDataLoaded(List.of(
-				pauseItem=new CheckableListItem<>(getString(R.string.pause_all_notifications), getPauseItemSubtitle(), CheckableListItem.Style.SWITCH, false, R.drawable.ic_notifications_paused_24px, ()->onPauseNotificationsClick(false)),
+				pauseItem=new CheckableListItem<>(getString(R.string.pause_all_notifications), getPauseItemSubtitle(), CheckableListItem.Style.SWITCH, false, R.drawable.ic_notifications_paused_24px, i->onPauseNotificationsClick(false)),
 				policyItem=new ListItem<>(R.string.settings_notifications_policy, 0, R.drawable.ic_group_24px, this::onNotificationsPolicyClick),
 
-				mentionsItem=new CheckableListItem<>(R.string.notification_type_mentions_and_replies, 0, CheckableListItem.Style.CHECKBOX, pushSubscription.alerts.mention, ()->toggleCheckableItem(mentionsItem)),
-				boostsItem=new CheckableListItem<>(R.string.notification_type_reblog, 0, CheckableListItem.Style.CHECKBOX, pushSubscription.alerts.reblog, ()->toggleCheckableItem(boostsItem)),
-				favoritesItem=new CheckableListItem<>(R.string.notification_type_favorite, 0, CheckableListItem.Style.CHECKBOX, pushSubscription.alerts.favourite, ()->toggleCheckableItem(favoritesItem)),
-				followersItem=new CheckableListItem<>(R.string.notification_type_follow, 0, CheckableListItem.Style.CHECKBOX, pushSubscription.alerts.follow, ()->toggleCheckableItem(followersItem)),
-				pollsItem=new CheckableListItem<>(R.string.notification_type_poll, 0, CheckableListItem.Style.CHECKBOX, pushSubscription.alerts.poll, ()->toggleCheckableItem(pollsItem))
+				mentionsItem=new CheckableListItem<>(R.string.notification_type_mentions_and_replies, 0, CheckableListItem.Style.CHECKBOX, pushSubscription.alerts.mention, this::toggleCheckableItem),
+				boostsItem=new CheckableListItem<>(R.string.notification_type_reblog, 0, CheckableListItem.Style.CHECKBOX, pushSubscription.alerts.reblog, this::toggleCheckableItem),
+				favoritesItem=new CheckableListItem<>(R.string.notification_type_favorite, 0, CheckableListItem.Style.CHECKBOX, pushSubscription.alerts.favourite, this::toggleCheckableItem),
+				followersItem=new CheckableListItem<>(R.string.notification_type_follow, 0, CheckableListItem.Style.CHECKBOX, pushSubscription.alerts.follow, this::toggleCheckableItem),
+				pollsItem=new CheckableListItem<>(R.string.notification_type_poll, 0, CheckableListItem.Style.CHECKBOX, pushSubscription.alerts.poll, this::toggleCheckableItem)
 		));
 
 		typeItems=List.of(mentionsItem, boostsItem, favoritesItem, followersItem, pollsItem);
@@ -209,7 +209,7 @@ public class SettingsNotificationsFragment extends BaseSettingsFragment<Void>{
 		alert.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(false);
 	}
 
-	private void onNotificationsPolicyClick(){
+	private void onNotificationsPolicyClick(ListItem<?> item_){
 		String[] items=Stream.of(
 				R.string.notifications_policy_anyone,
 				R.string.notifications_policy_followed,

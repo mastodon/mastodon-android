@@ -1,11 +1,6 @@
 package org.joinmastodon.android.fragments.settings;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.animation.IntEvaluator;
-import android.animation.ObjectAnimator;
 import android.app.AlertDialog;
-import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcelable;
@@ -27,6 +22,7 @@ import org.joinmastodon.android.model.FilterKeyword;
 import org.joinmastodon.android.model.viewmodel.CheckableListItem;
 import org.joinmastodon.android.model.viewmodel.ListItem;
 import org.joinmastodon.android.ui.M3AlertDialogBuilder;
+import org.joinmastodon.android.ui.utils.ActionModeHelper;
 import org.joinmastodon.android.ui.utils.SimpleTextWatcher;
 import org.joinmastodon.android.ui.utils.UiUtils;
 import org.joinmastodon.android.ui.views.FloatingHintEditTextLayout;
@@ -37,7 +33,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import me.grishka.appkit.FragmentStackActivity;
 import me.grishka.appkit.fragments.OnBackPressedListener;
 import me.grishka.appkit.utils.V;
 
@@ -60,7 +55,7 @@ public class FilterWordsFragment extends BaseSettingsFragment<FilterKeyword> imp
 			FilterKeyword word=Parcels.unwrap(p);
 			ListItem<FilterKeyword> item=new ListItem<>(word.keyword, null, null, word);
 			item.isEnabled=true;
-			item.onClick=()->onWordClick(item);
+			item.setOnClick(this::onWordClick);
 			return item;
 		}).collect(Collectors.toList()));
 		setHasOptionsMenu(true);
@@ -114,7 +109,7 @@ public class FilterWordsFragment extends BaseSettingsFragment<FilterKeyword> imp
 
 	@Override
 	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater){
-		inflater.inflate(R.menu.settings_filter_words, menu);
+		inflater.inflate(R.menu.selectable_list, menu);
 	}
 
 	@Override
@@ -174,7 +169,7 @@ public class FilterWordsFragment extends BaseSettingsFragment<FilterKeyword> imp
 				w.keyword=input;
 				ListItem<FilterKeyword> item=new ListItem<>(w.keyword, null, null, w);
 				item.isEnabled=true;
-				item.onClick=()->onWordClick(item);
+				item.setOnClick(this::onWordClick);
 				data.add(item);
 				itemsAdapter.notifyItemInserted(data.size()-1);
 			}else{
@@ -228,29 +223,15 @@ public class FilterWordsFragment extends BaseSettingsFragment<FilterKeyword> imp
 			return;
 		V.setVisibilityAnimated(fab, View.GONE);
 
-		actionMode=getActivity().startActionMode(new ActionMode.Callback(){
+		actionMode=ActionModeHelper.startActionMode(this, ()->elevationOnScrollListener.getCurrentStatusBarColor(), new ActionMode.Callback(){
 			@Override
 			public boolean onCreateActionMode(ActionMode mode, Menu menu){
-				ObjectAnimator anim=ObjectAnimator.ofInt(getActivity().getWindow(), "statusBarColor", elevationOnScrollListener.getCurrentStatusBarColor(), UiUtils.getThemeColor(getActivity(), R.attr.colorM3Primary));
-				anim.setEvaluator(new IntEvaluator(){
-					@Override
-					public Integer evaluate(float fraction, Integer startValue, Integer endValue){
-						return UiUtils.alphaBlendColors(startValue, endValue, fraction);
-					}
-				});
-				anim.start();
-				((FragmentStackActivity) getActivity()).invalidateSystemBarColors(FilterWordsFragment.this);
 				return true;
 			}
 
 			@Override
 			public boolean onPrepareActionMode(ActionMode mode, Menu menu){
 				mode.getMenuInflater().inflate(R.menu.settings_filter_words_action_mode, menu);
-				for(int i=0;i<menu.size();i++){
-					Drawable icon=menu.getItem(i).getIcon().mutate();
-					icon.setTint(UiUtils.getThemeColor(getActivity(), R.attr.colorM3OnPrimary));
-					menu.getItem(i).setIcon(icon);
-				}
 				deleteItem=menu.findItem(R.id.delete);
 				return true;
 			}
@@ -266,21 +247,6 @@ public class FilterWordsFragment extends BaseSettingsFragment<FilterKeyword> imp
 			@Override
 			public void onDestroyActionMode(ActionMode mode){
 				leaveSelectionMode(true);
-				ObjectAnimator anim=ObjectAnimator.ofInt(getActivity().getWindow(), "statusBarColor", UiUtils.getThemeColor(getActivity(), R.attr.colorM3Primary), elevationOnScrollListener.getCurrentStatusBarColor());
-				anim.setEvaluator(new IntEvaluator(){
-					@Override
-					public Integer evaluate(float fraction, Integer startValue, Integer endValue){
-						return UiUtils.alphaBlendColors(startValue, endValue, fraction);
-					}
-				});
-				anim.addListener(new AnimatorListenerAdapter(){
-					@Override
-					public void onAnimationEnd(Animator animation){
-						getActivity().getWindow().setStatusBarColor(0);
-					}
-				});
-				anim.start();
-				((FragmentStackActivity) getActivity()).invalidateSystemBarColors(FilterWordsFragment.this);
 			}
 		});
 
@@ -289,7 +255,7 @@ public class FilterWordsFragment extends BaseSettingsFragment<FilterKeyword> imp
 			ListItem<FilterKeyword> item=data.get(i);
 			CheckableListItem<FilterKeyword> newItem=new CheckableListItem<>(item.title, null, CheckableListItem.Style.CHECKBOX, selectAll, null);
 			newItem.isEnabled=true;
-			newItem.onClick=()->onSelectionModeWordClick(newItem);
+			newItem.setOnClick(this::onSelectionModeWordClick);
 			newItem.parentObject=item.parentObject;
 			if(selectAll)
 				selectedItems.add(newItem);
@@ -313,7 +279,7 @@ public class FilterWordsFragment extends BaseSettingsFragment<FilterKeyword> imp
 			ListItem<FilterKeyword> item=data.get(i);
 			ListItem<FilterKeyword> newItem=new ListItem<>(item.title, null, null);
 			newItem.isEnabled=true;
-			newItem.onClick=()->onWordClick(newItem);
+			newItem.setOnClick(this::onWordClick);
 			newItem.parentObject=item.parentObject;
 			data.set(i, newItem);
 		}
