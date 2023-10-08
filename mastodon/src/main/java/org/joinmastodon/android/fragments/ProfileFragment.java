@@ -856,6 +856,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 		aboutFragment.enterEditMode(account.source.fields);
 		refreshLayout.setEnabled(false);
 		editDirty=false;
+		V.setVisibilityAnimated(fab, View.GONE);
 	}
 
 	private void exitEditMode(){
@@ -898,6 +899,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 		refreshLayout.setEnabled(true);
 
 		bindHeaderView();
+		V.setVisibilityAnimated(fab, View.VISIBLE);
 	}
 
 	private void saveAndExitEditMode(){
