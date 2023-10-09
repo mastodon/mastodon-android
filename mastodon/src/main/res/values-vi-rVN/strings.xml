@@ -568,7 +568,23 @@
 	<plurals name="x_posts_today">
 		<item quantity="other">%,d tút hôm nay</item>
 	</plurals>
+	<string name="error_playing_video">Lỗi khi phát video</string>
+	<string name="timeline_following">Đang theo dõi</string>
+	<string name="lists">Danh sách</string>
+	<string name="followed_hashtags">Hashtag theo dõi</string>
+	<string name="no_lists">Bạn chưa có danh sách nào.</string>
+	<string name="no_followed_hashtags">Bạn chưa theo dõi hashtag nào.</string>
+	<string name="manage_lists">Quản lý danh sách</string>
+	<string name="manage_hashtags">Quản lý hashtag</string>
 	<!-- Screen reader description for the menu on the home timeline screen -->
+	<string name="dropdown_menu">Menu xổ xuống</string>
+	<string name="edit_list">Sửa danh sách</string>
+	<string name="list_members">Liệt kê các thành viên</string>
+	<string name="delete_list">Xóa danh sách</string>
 	<!-- %s is the name of the list -->
+	<string name="delete_list_confirm">Xóa “%s”?</string>
+	<string name="list_exclusive">Ẩn người đang theo dõi</string>
+	<string name="list_exclusive_subtitle">Nếu ai đó có trong danh sách này, ẩn họ trong bảng tin Đang theo dõi để tránh thấy tút của họ hiện trùng lặp.</string>
+	<string name="list_name">Tên danh sách</string>
 	<!-- %s is a username -->
 </resources>
