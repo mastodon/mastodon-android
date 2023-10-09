@@ -577,12 +577,14 @@
 	<string name="manage_lists">จัดการรายการ</string>
 	<string name="manage_hashtags">จัดการแฮชแท็ก</string>
 	<!-- Screen reader description for the menu on the home timeline screen -->
+	<string name="dropdown_menu">เมนูแบบเลื่อนลง</string>
 	<string name="edit_list">แก้ไขรายการ</string>
 	<string name="list_members">สมาชิกของรายการ</string>
 	<string name="delete_list">ลบรายการ</string>
 	<!-- %s is the name of the list -->
 	<string name="delete_list_confirm">ลบ “%s”?</string>
 	<string name="list_exclusive">ซ่อนสมาชิกในกำลังติดตาม</string>
+	<string name="list_exclusive_subtitle">หากใครสักคนอยู่ในรายการนี้ ให้ซ่อนเขาในเส้นเวลากำลังติดตามของคุณเพื่อหลีกเลี่ยงการเห็นโพสต์ของเขาสองครั้ง</string>
 	<string name="list_name">ชื่อรายการ</string>
 	<string name="list_show_replies_to">แสดงการตอบกลับแก่</string>
 	<string name="list_replies_no_one">ไม่มีใคร</string>
@@ -595,6 +597,10 @@
 	<string name="add_user_to_list">เพิ่มไปยังรายการ…</string>
 	<string name="add_user_to_list_title">เพิ่มไปยังรายการ</string>
 	<!-- %s is a username -->
+	<string name="manage_user_lists">จัดการรายการที่ %s ปรากฏอยู่ใน</string>
 	<string name="remove_from_list">เอาออกจากรายการ</string>
 	<string name="confirm_remove_list_member">เอาสมาชิกออก?</string>
+	<plurals name="x_posts_recently">
+		<item quantity="other">%,d โพสต์ล่าสุด</item>
+	</plurals>
 </resources>
