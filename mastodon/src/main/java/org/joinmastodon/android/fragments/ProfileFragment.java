@@ -840,7 +840,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 		username.setVisibility(View.GONE);
 		bio.setVisibility(View.GONE);
 		countersLayout.setVisibility(View.GONE);
-
+		fab.setVisibility(View.GONE);
 		nameEditWrap.setVisibility(View.VISIBLE);
 		nameEdit.setText(account.displayName);
 
@@ -888,6 +888,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 		name.setVisibility(View.VISIBLE);
 		username.setVisibility(View.VISIBLE);
 		bio.setVisibility(View.VISIBLE);
+		fab.setVisibility(View.VISIBLE);
 		countersLayout.setVisibility(View.VISIBLE);
 		refreshLayout.setEnabled(true);
 
