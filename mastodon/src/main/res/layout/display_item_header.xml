@@ -73,8 +73,9 @@
 		android:singleLine="true"
 		android:ellipsize="end"
 		android:textAppearance="@style/m3_body_medium"
-		android:gravity="center_vertical"
+		android:gravity="center_vertical|start"
 		android:textColor="?colorM3OnSurfaceVariant"
+		android:textAlignment="viewStart"
 		tools:text="9h ago · \@Gargron@mastodon.social"/>
 
 </RelativeLayout>

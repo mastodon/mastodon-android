@@ -41,9 +41,10 @@
 			android:layout_marginStart="4dp"
 			android:singleLine="true"
 			android:ellipsize="end"
-			android:gravity="center_vertical"
+			android:gravity="center_vertical|start"
 			android:textAppearance="@style/m3_body_medium"
 			android:textColor="?colorM3Secondary"
+			android:textAlignment="viewStart"
 			tools:text="\@user@server"/>
 		
 	</LinearLayout>

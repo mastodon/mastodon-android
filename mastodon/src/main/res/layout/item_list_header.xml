@@ -15,7 +15,8 @@
 		android:layout_marginBottom="8dp"
 		android:textAppearance="@style/m3_headline_medium"
 		android:minHeight="36dp"
-		android:gravity="center_vertical"
+		android:gravity="center_vertical|start"
+		android:textAlignment="viewStart"
 		android:textColor="?colorM3OnSurface"
 		tools:text="Title"/>
 
@@ -26,7 +27,8 @@
 		android:textAppearance="@style/m3_title_medium"
 		android:textColor="?colorM3OnSurfaceVariant"
 		android:minHeight="24dp"
-		android:gravity="center_vertical"
+		android:gravity="center_vertical|start"
+		android:textAlignment="viewStart"
 		tools:text="Subtitle"/>
 
 </LinearLayout>

@@ -22,9 +22,10 @@
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:minHeight="24dp"
-			android:gravity="center_vertical"
+			android:gravity="center_vertical|start"
 			android:textAppearance="@style/m3_body_large"
 			android:textColor="?colorM3OnSurface"
+			android:textAlignment="viewStart"
 			tools:text="Title"/>
 
 		<TextView
@@ -32,9 +33,10 @@
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:minHeight="20dp"
-			android:gravity="center_vertical"
+			android:gravity="center_vertical|start"
 			android:textAppearance="@style/m3_body_medium"
 			android:textColor="?colorM3OnSurfaceVariant"
+			android:textAlignment="viewStart"
 			tools:text="Subtitle"/>
 
 	</LinearLayout>

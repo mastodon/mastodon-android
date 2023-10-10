@@ -7,11 +7,12 @@
 	android:paddingEnd="24dp"
 	android:drawablePadding="16dp"
 	android:maxLines="2"
-	android:gravity="center_vertical"
+	android:gravity="center_vertical|start"
 	android:textAppearance="@style/m3_body_large"
 	android:textColor="?colorM3OnSurface"
 	android:drawableTint="?colorM3OnSurface"
 	android:ellipsize="end"
+	android:textAlignment="viewStart"
 	tools:text="Menu item">
 
 </TextView>
