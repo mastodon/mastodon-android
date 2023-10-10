@@ -600,7 +600,39 @@
 		<item quantity="other">%,d færslur í dag</item>
 	</plurals>
 	<string name="error_playing_video">Villa við að spila myndskeið</string>
+	<string name="timeline_following">Fylgist með</string>
+	<string name="lists">Listar</string>
+	<string name="followed_hashtags">Myllumerki sem fylgst er með</string>
+	<string name="no_lists">Þú ert ekki ennþá með neina lista.</string>
+	<string name="no_followed_hashtags">Þú fylgist ekki með neinum myllumerkjum.</string>
+	<string name="manage_lists">Sýsla með lista</string>
+	<string name="manage_hashtags">Sýsla með myllumerki</string>
 	<!-- Screen reader description for the menu on the home timeline screen -->
+	<string name="dropdown_menu">Fellivalmynd</string>
+	<string name="edit_list">Breyta lista</string>
+	<string name="list_members">Meðlimir lista</string>
+	<string name="delete_list">Eyða lista</string>
 	<!-- %s is the name of the list -->
+	<string name="delete_list_confirm">Eyða “%s”?</string>
+	<string name="list_exclusive">Fela meðlimi í Fylgist með</string>
+	<string name="list_exclusive_subtitle">Ef einhver er á þessum lista, geturðu falið viðkomandi í \'Fylgist með\'-tímalínunni þinni til að koma í veg fyrir að þú sjáir færslurnar frá þeim tvisvar.</string>
+	<string name="list_name">Heiti lista</string>
+	<string name="list_show_replies_to">Sýna svör til</string>
+	<string name="list_replies_no_one">Engra</string>
+	<string name="list_replies_members">Meðlima listans</string>
+	<string name="list_replies_anyone">Hverjum þeim sem ég fylgi</string>
+	<string name="confirm_remove_list_members">Fjarlægja meðlimi?</string>
+	<string name="remove">Fjarlægja</string>
+	<string name="add_list_member">Bæta við meðlimi</string>
+	<string name="search_among_people_you_follow">Leita meðal þeirra sem þú fylgist með</string>
+	<string name="add_user_to_list">Bæta á lista…</string>
+	<string name="add_user_to_list_title">Bæta á lista</string>
 	<!-- %s is a username -->
+	<string name="manage_user_lists">Sýsla með lista sem %s birtist á</string>
+	<string name="remove_from_list">Fjarlægja af lista</string>
+	<string name="confirm_remove_list_member">Fjarlægja meðlim?</string>
+	<plurals name="x_posts_recently">
+		<item quantity="one">%,d nýleg færsla</item>
+		<item quantity="other">%,d nýlegar færslur</item>
+	</plurals>
 </resources>
