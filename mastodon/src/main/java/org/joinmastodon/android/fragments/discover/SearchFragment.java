@@ -32,6 +32,7 @@ import java.util.stream.Collectors;
 import me.grishka.appkit.Nav;
 import me.grishka.appkit.api.Callback;
 import me.grishka.appkit.api.ErrorResponse;
+import me.grishka.appkit.api.SimpleCallback;
 
 public class SearchFragment extends BaseStatusListFragment<SearchResult>{
 	private String currentQuery;
@@ -137,7 +138,7 @@ public class SearchFragment extends BaseStatusListFragment<SearchResult>{
 		}*/
 		int offset=_offset;
 		currentRequest=new GetSearchResults(currentQuery, type, type==null, maxID, offset, type==null ? 0 : count)
-				.setCallback(new Callback<>(){
+				.setCallback(new SimpleCallback<SearchResults>(this){
 					@Override
 					public void onSuccess(SearchResults result){
 						ArrayList<SearchResult> results=new ArrayList<>();
@@ -158,16 +159,10 @@ public class SearchFragment extends BaseStatusListFragment<SearchResult>{
 						}
 						prevDisplayItems=new ArrayList<>(displayItems);
 						unfilteredResults=results;
+						boolean wasRefreshing=refreshing;
 						onDataLoaded(filterSearchResults(results), type!=null && !results.isEmpty());
-					}
-
-					@Override
-					public void onError(ErrorResponse error){
-						currentRequest=null;
-						Activity a=getActivity();
-						if(a==null)
-							return;
-						error.showToast(a);
+						if(wasRefreshing)
+							list.scrollToPosition(0);
 					}
 				})
 				.exec(accountID);
