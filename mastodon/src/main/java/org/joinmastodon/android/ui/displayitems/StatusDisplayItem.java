@@ -125,11 +125,11 @@ public abstract class StatusDisplayItem{
 			items.add(spoilerItem);
 			contentItems=spoilerItem.contentItems;
 			status.spoilerRevealed=false;
-		}else if(!TextUtils.isEmpty(statusForContent.spoilerText) && AccountSessionManager.get(accountID).getLocalPreferences().showCWs){
+		}else if(!TextUtils.isEmpty(statusForContent.spoilerText)){
 			SpoilerStatusDisplayItem spoilerItem=new SpoilerStatusDisplayItem(parentID, fragment, null, status, statusForContent, Type.SPOILER);
 			items.add(spoilerItem);
 			contentItems=spoilerItem.contentItems;
-			status.spoilerRevealed=false;
+			status.spoilerRevealed=!AccountSessionManager.get(accountID).getLocalPreferences().showCWs;
 		}else{
 			contentItems=items;
 		}
