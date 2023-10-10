@@ -199,6 +199,8 @@ public class SplashFragment extends AppKitFragment{
 
 	private void loadAndChooseDefaultServer(){
 		loadingDefaultServer=true;
+		defaultServerButton.setTextVisible(false);
+		defaultServerProgress.setVisibility(View.VISIBLE);
 		new GetCatalogDefaultInstances()
 				.setCallback(new Callback<>(){
 					@Override

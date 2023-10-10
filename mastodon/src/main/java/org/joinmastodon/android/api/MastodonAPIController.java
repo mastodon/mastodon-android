@@ -97,7 +97,7 @@ public class MastodonAPIController{
 				call.enqueue(new Callback(){
 					@Override
 					public void onFailure(@NonNull Call call, @NonNull IOException e){
-						if(call.isCanceled())
+						if(req.canceled)
 							return;
 						if(BuildConfig.DEBUG)
 							Log.w(TAG, "["+(session==null ? "no-auth" : session.getID())+"] "+hreq+" failed", e);
@@ -109,7 +109,7 @@ public class MastodonAPIController{
 
 					@Override
 					public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException{
-						if(call.isCanceled())
+						if(req.canceled)
 							return;
 						if(BuildConfig.DEBUG)
 							Log.d(TAG, "["+(session==null ? "no-auth" : session.getID())+"] "+hreq+" received response: "+response);
