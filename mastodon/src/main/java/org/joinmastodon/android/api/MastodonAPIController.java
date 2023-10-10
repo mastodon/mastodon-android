@@ -92,7 +92,7 @@ public class MastodonAPIController{
 				}
 
 				if(BuildConfig.DEBUG)
-					Log.d(TAG, "["+(session==null ? "no-auth" : session.getID())+"] Sending request: "+hreq);
+					Log.d(TAG, logTag(session)+"Sending request: "+hreq);
 
 				call.enqueue(new Callback(){
 					@Override
@@ -100,7 +100,7 @@ public class MastodonAPIController{
 						if(req.canceled)
 							return;
 						if(BuildConfig.DEBUG)
-							Log.w(TAG, "["+(session==null ? "no-auth" : session.getID())+"] "+hreq+" failed", e);
+							Log.w(TAG, logTag(session)+""+hreq+" failed", e);
 						synchronized(req){
 							req.okhttpCall=null;
 						}
@@ -112,7 +112,7 @@ public class MastodonAPIController{
 						if(req.canceled)
 							return;
 						if(BuildConfig.DEBUG)
-							Log.d(TAG, "["+(session==null ? "no-auth" : session.getID())+"] "+hreq+" received response: "+response);
+							Log.d(TAG, logTag(session)+hreq+" received response: "+response);
 						synchronized(req){
 							req.okhttpCall=null;
 						}
@@ -123,7 +123,7 @@ public class MastodonAPIController{
 								try{
 									if(BuildConfig.DEBUG){
 										JsonElement respJson=JsonParser.parseReader(reader);
-										Log.d(TAG, "["+(session==null ? "no-auth" : session.getID())+"] response body: "+respJson);
+										Log.d(TAG, logTag(session)+"response body: "+respJson);
 										if(req.respTypeToken!=null)
 											respObj=gson.fromJson(respJson, req.respTypeToken.getType());
 										else if(req.respClass!=null)
@@ -140,7 +140,7 @@ public class MastodonAPIController{
 									}
 								}catch(JsonIOException|JsonSyntaxException x){
 									if(BuildConfig.DEBUG)
-										Log.w(TAG, "["+(session==null ? "no-auth" : session.getID())+"] "+response+" error parsing or reading body", x);
+										Log.w(TAG, logTag(session)+response+" error parsing or reading body", x);
 									req.onError(x.getLocalizedMessage(), response.code(), x);
 									return;
 								}
@@ -149,19 +149,19 @@ public class MastodonAPIController{
 									req.validateAndPostprocessResponse(respObj, response);
 								}catch(IOException x){
 									if(BuildConfig.DEBUG)
-										Log.w(TAG, "["+(session==null ? "no-auth" : session.getID())+"] "+response+" error post-processing or validating response", x);
+										Log.w(TAG, logTag(session)+response+" error post-processing or validating response", x);
 									req.onError(x.getLocalizedMessage(), response.code(), x);
 									return;
 								}
 
 								if(BuildConfig.DEBUG)
-									Log.d(TAG, "["+(session==null ? "no-auth" : session.getID())+"] "+response+" parsed successfully: "+respObj);
+									Log.d(TAG, logTag(session)+response+" parsed successfully: "+respObj);
 
 								req.onSuccess(respObj);
 							}else{
 								try{
 									JsonObject error=JsonParser.parseReader(reader).getAsJsonObject();
-									Log.w(TAG, "["+(session==null ? "no-auth" : session.getID())+"] "+response+" received error: "+error);
+									Log.w(TAG, logTag(session)+response+" received error: "+error);
 									if(error.has("details")){
 										MastodonDetailedErrorResponse err=new MastodonDetailedErrorResponse(error.get("error").getAsString(), response.code(), null);
 										HashMap<String, List<MastodonDetailedErrorResponse.FieldError>> details=new HashMap<>();
@@ -196,7 +196,7 @@ public class MastodonAPIController{
 				});
 			}catch(Exception x){
 				if(BuildConfig.DEBUG)
-					Log.w(TAG, "["+(session==null ? "no-auth" : session.getID())+"] error creating and sending http request", x);
+					Log.w(TAG, logTag(session)+"error creating and sending http request", x);
 				req.onError(x.getLocalizedMessage(), 0, x);
 			}
 		}, 0);
@@ -208,5 +208,9 @@ public class MastodonAPIController{
 
 	public static OkHttpClient getHttpClient(){
 		return httpClient;
+	}
+
+	private static String logTag(AccountSession session){
+		return "["+(session==null ? "no-auth" : session.getID())+"] ";
 	}
 }
