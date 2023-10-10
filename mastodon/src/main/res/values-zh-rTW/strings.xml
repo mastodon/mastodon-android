@@ -569,7 +569,38 @@
 		<item quantity="other">本日共 %,d 則嘟文</item>
 	</plurals>
 	<string name="error_playing_video">播放影片時發生錯誤</string>
+	<string name="timeline_following">跟隨中</string>
+	<string name="lists">列表</string>
+	<string name="followed_hashtags">已跟隨主題標籤</string>
+	<string name="no_lists">您尚未建立任何列表。</string>
+	<string name="no_followed_hashtags">您尚未跟隨任何主題標籤。</string>
+	<string name="manage_lists">管理列表</string>
+	<string name="manage_hashtags">管理主題標籤</string>
 	<!-- Screen reader description for the menu on the home timeline screen -->
+	<string name="dropdown_menu">下拉選單</string>
+	<string name="edit_list">編輯列表</string>
+	<string name="list_members">列表成員</string>
+	<string name="delete_list">刪除列表</string>
 	<!-- %s is the name of the list -->
+	<string name="delete_list_confirm">刪除「%s」？</string>
+	<string name="list_exclusive">隱藏跟隨中之成員</string>
+	<string name="list_exclusive_subtitle">如果某個帳號於此列表中，將自您跟隨河道中隱藏此帳號，以防重複見到他們的嘟文。</string>
+	<string name="list_name">列表名稱</string>
+	<string name="list_show_replies_to">顯示回覆：</string>
+	<string name="list_replies_no_one">沒有人</string>
+	<string name="list_replies_members">列表成員</string>
+	<string name="list_replies_anyone">任何我跟隨的人</string>
+	<string name="confirm_remove_list_members">移除這些成員？</string>
+	<string name="remove">移除</string>
+	<string name="add_list_member">新增成員</string>
+	<string name="search_among_people_you_follow">搜尋您跟隨的使用者</string>
+	<string name="add_user_to_list">新增至列表...</string>
+	<string name="add_user_to_list_title">新增至列表</string>
 	<!-- %s is a username -->
+	<string name="manage_user_lists">管理包含 %s 之列表</string>
+	<string name="remove_from_list">從列表中移除</string>
+	<string name="confirm_remove_list_member">移除此成員？</string>
+	<plurals name="x_posts_recently">
+		<item quantity="other">%,d 最近發嘟</item>
+	</plurals>
 </resources>
