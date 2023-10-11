@@ -569,7 +569,34 @@
 		<item quantity="other">今日の投稿 %,d 件</item>
 	</plurals>
 	<string name="error_playing_video">動画再生に失敗しました</string>
+	<string name="timeline_following">フォロー中</string>
+	<string name="lists">リスト</string>
+	<string name="followed_hashtags">フォロー中のハッシュタグ</string>
+	<string name="no_lists">まだリストがありません。</string>
+	<string name="no_followed_hashtags">ハッシュタグをフォローしていません。</string>
+	<string name="manage_lists">リストを管理</string>
+	<string name="manage_hashtags">ハッシュタグを管理</string>
 	<!-- Screen reader description for the menu on the home timeline screen -->
+	<string name="dropdown_menu">ドロップダウンメニュー</string>
+	<string name="edit_list">リストを編集</string>
+	<string name="list_members">リストのメンバー</string>
+	<string name="delete_list">リストを削除</string>
 	<!-- %s is the name of the list -->
+	<string name="delete_list_confirm">「%s」を削除しますか？</string>
+	<string name="list_exclusive">フォロー中のメンバーを非表示</string>
+	<string name="list_exclusive_subtitle">このリストに誰かが表示されている場合は、フォロー中タイムラインで投稿を 2 回表示しないように非表示にしてください。</string>
+	<string name="list_name">リスト名</string>
+	<string name="list_show_replies_to">リプライを表示</string>
+	<string name="list_replies_no_one">なし</string>
+	<string name="list_replies_members">リストのメンバー</string>
+	<string name="list_replies_anyone">フォローしている人</string>
+	<string name="confirm_remove_list_members">メンバーを削除しますか？</string>
+	<string name="remove">削除</string>
+	<string name="add_list_member">メンバーを追加</string>
+	<string name="search_among_people_you_follow">フォローしている人の中から検索</string>
+	<string name="add_user_to_list">リストに追加…</string>
+	<string name="add_user_to_list_title">リストに追加</string>
 	<!-- %s is a username -->
+	<string name="remove_from_list">リストから外す</string>
+	<string name="confirm_remove_list_member">メンバーを削除しますか？</string>
 </resources>
