@@ -597,6 +597,10 @@
 	<string name="add_user_to_list">リストに追加…</string>
 	<string name="add_user_to_list_title">リストに追加</string>
 	<!-- %s is a username -->
+	<string name="manage_user_lists">%s さんが表示されるリストを管理</string>
 	<string name="remove_from_list">リストから外す</string>
 	<string name="confirm_remove_list_member">メンバーを削除しますか？</string>
+	<plurals name="x_posts_recently">
+		<item quantity="other">最近の投稿 %,d 件</item>
+	</plurals>
 </resources>
