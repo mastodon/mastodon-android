@@ -599,7 +599,21 @@
 		<item quantity="one">%,d ανάρτηση σήμερα</item>
 		<item quantity="other">%,d αναρτήσεις σήμερα</item>
 	</plurals>
+	<string name="error_playing_video">Σφάλμα αναπαραγωγής βίντεο</string>
+	<string name="timeline_following">Ακολουθείς</string>
+	<string name="lists">Λίστες</string>
+	<string name="followed_hashtags">Ετικέτες που ακολουθούνται</string>
+	<string name="no_lists">Δεν έχεις καμία λίστα ακόμα.</string>
+	<string name="no_followed_hashtags">Δεν ακολουθείς καμία ετικέτα.</string>
+	<string name="manage_lists">Διαχείριση λιστών</string>
+	<string name="manage_hashtags">Διαχείριση ετικετών</string>
 	<!-- Screen reader description for the menu on the home timeline screen -->
+	<string name="dropdown_menu">Αναπτυσσόμενο μενού</string>
+	<string name="edit_list">Επεξεργασία λίστας</string>
+	<string name="list_members">Μέλη λίστας</string>
+	<string name="delete_list">Διαγραφή λίστας</string>
 	<!-- %s is the name of the list -->
+	<string name="delete_list_confirm">Διαγραφή “%s”;</string>
+	<string name="list_exclusive">Απόκρυψη μελών στο Ακολουθείς</string>
 	<!-- %s is a username -->
 </resources>
