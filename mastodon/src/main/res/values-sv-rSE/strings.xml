@@ -126,6 +126,8 @@
 		<item quantity="other">%d personer pratar</item>
 	</plurals>
 	<string name="report_title">Rapportera %s</string>
+	<string name="report_choose_reason">Vad är fel med det här inlägget?</string>
+	<string name="report_choose_reason_account">Vad är fel med %s?</string>
 	<string name="report_choose_reason_subtitle">Välj den bästa träffen</string>
 	<string name="report_reason_personal">Jag gillar det inte</string>
 	<string name="report_reason_personal_subtitle">Det är inget som du vill se</string>
@@ -133,6 +135,7 @@
 	<string name="report_reason_spam_subtitle">Skadliga länkar, bedrägligt beteende eller repetitiva svar</string>
 	<string name="report_reason_violation">Det bryter mot serverns regler</string>
 	<string name="report_reason_violation_subtitle">Du är medveten om att det bryter mot specifika regler</string>
+	<string name="report_reason_other">Det är något annat</string>
 	<string name="report_reason_other_subtitle">Frågan passar inte in i andra kategorier</string>
 	<string name="report_choose_rule">Vilka regler överträds?</string>
 	<string name="report_choose_rule_subtitle">Välj alla som stämmer</string>
@@ -141,9 +144,14 @@
 	<string name="report_comment_title">Finns det något annat vi borde veta?</string>
 	<string name="report_comment_hint">Ytterligare kommentarer</string>
 	<string name="sending_report">Skickar rapport…</string>
+	<string name="report_sent_title">Tack för att du rapporterar, vi kommer att titta på detta.</string>
+	<string name="report_sent_subtitle">Medan vi granskar detta kan du vidta åtgärder mot %s:</string>
 	<string name="unfollow_user">Avfölj %s</string>
 	<string name="unfollow">Avfölj</string>
+	<string name="mute_user_explain">Du kommer inte se deras inlägg. De kan fortfarande följa dig och se dina inlägg. De kommer inte veta att de är tystade.</string>
+	<string name="block_user_explain">Du kommer inte se deras inlägg. De kommer inte kunna se dina inlägg eller följa dig. De kommer kunna se att de är blockerade.</string>
 	<string name="report_personal_title">Vill du inte se detta?</string>
+	<string name="report_personal_subtitle">Här är dina alternativ för att bestämma vad du ser på Mastodon:</string>
 	<string name="back">Tillbaka</string>
 	<string name="search_communities">Servernamn eller URL</string>
 	<string name="instance_rules_title">Serverregler</string>
@@ -170,10 +178,12 @@
 	<string name="category_tech">Teknik</string>
 	<string name="confirm_email_title">Kolla din inkorg</string>
 	<!-- %s is the email address -->
+	<string name="confirm_email_subtitle">Klicka på länken som vi har skickat till dig för att bekräfta %s. Vi väntar här.</string>
 	<string name="confirm_email_didnt_get">Fick du ingen länk?</string>
 	<string name="resend">Skicka igen</string>
 	<string name="open_email_app">Öppna e-postappen</string>
 	<string name="resent_email">Bekräftelse via e-post skickad</string>
+	<string name="compose_hint">Skriv eller klistra in vad du har på hjärtat</string>
 	<string name="content_warning">Innehållsvarning</string>
 	<string name="save">Spara</string>
 	<string name="add_alt_text">Lägg till alternativtext</string>
