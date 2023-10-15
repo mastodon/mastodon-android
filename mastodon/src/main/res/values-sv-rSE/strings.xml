@@ -15,6 +15,7 @@
 	<string name="user_sent_follow_request">%s skickade en förfrågan om att följa dig</string>
 	<string name="user_favorited">%s favoritmarkerade ditt inlägg</string>
 	<string name="notification_boosted">%s boostade ditt inlägg</string>
+	<string name="poll_ended">Se resultatet av en omröstning du röstade i</string>
 	<string name="share_toot_title">Dela</string>
 	<string name="settings">Inställningar</string>
 	<string name="publish">Publicera</string>
@@ -118,6 +119,7 @@
 	<string name="hashtags">Hashtaggar</string>
 	<string name="news">Nyheter</string>
 	<string name="for_you">För dig</string>
+	<string name="all_notifications">Alla</string>
 	<string name="mentions">Omnämningar</string>
 	<plurals name="x_people_talking">
 		<item quantity="one">%d person pratar</item>
@@ -177,6 +179,7 @@
 	<string name="add_alt_text">Lägg till alternativtext</string>
 	<string name="visibility_public">Offentlig</string>
 	<string name="visibility_followers_only">Endast följare</string>
+	<string name="visibility_private">Bara omnämnda personer</string>
 	<string name="recent_searches">Nyligen</string>
 	<string name="skip">Hoppa över</string>
 	<string name="notification_type_follow">Nya följare</string>
@@ -201,6 +204,7 @@
 	<string name="settings_app_version">Mastodon för Android v%1$s (%2$d)</string>
 	<string name="media_cache_cleared">Mediacache rensad</string>
 	<string name="confirm_log_out">Logga ut från %s?</string>
+	<string name="avatar_description">Gå till %ss profil</string>
 	<string name="more_options">Fler alternativ</string>
 	<string name="new_post">Nytt inlägg</string>
 	<string name="button_reply">Svara</string>
@@ -306,6 +310,7 @@
 	<string name="login_title">Välkommen tillbaka</string>
 	<string name="login_subtitle">Logga in på den server där du skapade ditt konto.</string>
 	<string name="server_url">Server-URL</string>
+	<string name="signup_random_server_explain">Vi kommer att välja en server baserat på ditt språk om du fortsätter utan att göra ett val.</string>
 	<string name="server_filter_any_language">Vilket språk som helst</string>
 	<string name="server_filter_instant_signup">Omedelbar registrering</string>
 	<string name="server_filter_manual_review">Manuell granskning</string>
@@ -327,6 +332,7 @@
 	<string name="popular_on_mastodon">Populärt på Mastodon</string>
 	<string name="follow_all">Följ alla</string>
 	<string name="server_rules_disagree">Instämmer inte alls</string>
+	<string name="privacy_policy_explanation">TL;DR: Vi samlar inte in eller bearbetar något.</string>
 	<!-- %s is server domain -->
 	<string name="server_policy_disagree">Håller inte med %s</string>
 	<string name="profile_bio">Biografi</string>
@@ -349,6 +355,7 @@
 	<string name="welcome_to_mastodon">Välkommen till Mastodon</string>
 	<string name="welcome_paragraph1">Mastodon är ett decentraliserat socialt nätverk, vilket innebär att inget enskilt företag kontrollerar det. Det består av många oberoende servrar, alla sammankopplade.</string>
 	<string name="what_are_servers">Vad är servrar?</string>
+	<string name="opening_link">Öppnar länk…</string>
 	<string name="log_out_all_accounts">Logga ut från alla konton</string>
 	<string name="confirm_log_out_all_accounts">Logga ut från alla konton?</string>
 	<string name="retry">Försök igen</string>
@@ -362,15 +369,30 @@
 	<string name="attachment_type_audio">Ljud</string>
 	<string name="attachment_type_gif">GIF</string>
 	<string name="attachment_type_unknown">Fil</string>
+	<string name="add_poll_option">Lägg till röstningsalternativ</string>
+	<string name="poll_length">Undersökningens längd</string>
+	<string name="poll_style">Stil</string>
+	<string name="compose_poll_single_choice">Välj en</string>
+	<string name="compose_poll_multiple_choice">Flera val</string>
+	<string name="delete_poll_option">Ta bort röstningsalternativ</string>
+	<string name="poll_style_title">Undersökningsstil</string>
+	<string name="alt_text">Alt-Text</string>
 	<string name="help">Hjälp</string>
+	<string name="what_is_alt_text">Vad är alt-text?</string>
 	<string name="edit_post">Redigera inlägg</string>
 	<string name="no_verified_link">Ingen verifierad länk</string>
 	<string name="language">Språk</string>
 	<string name="language_default">Standard</string>
+	<string name="language_system">System</string>
+	<string name="language_detecting">Identifiera språk</string>
+	<string name="language_cant_detect">Det gick inte att identifiera språk</string>
+	<string name="media_hidden">Dold media</string>
+	<string name="post_hidden">Inlägg dolt</string>
 	<string name="report_title_post">Rapportera inlägg</string>
 	<!-- %s is the server domain -->
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
 	<string name="reported">Rapporterad</string>
+	<string name="muted_user">Tystade %s</string>
 	<string name="mark_all_notifications_read">Markera alla som lästa</string>
 	<string name="settings_filters">Filter</string>
 	<string name="settings_server_explanation">Översikt, regler och moderatorer</string>
@@ -379,16 +401,24 @@
 	<string name="settings_confirm_delete_post">Fråga innan du raderar inlägg</string>
 	<string name="notifications_policy_followed">Personer som följer dig</string>
 	<string name="notifications_policy_no_one">Ingen</string>
+	<string name="settings_notifications_policy">Få aviseringar från</string>
+	<string name="pause_all_notifications_title">Pausa alla aviseringar</string>
 	<plurals name="x_weeks">
 		<item quantity="one">%d vecka</item>
 		<item quantity="other">%d veckor</item>
 	</plurals>
 	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
+	<string name="today">idag</string>
+	<string name="yesterday">igår</string>
+	<string name="tomorrow">i morgon</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="resume_notifications_now">Återuppta nu</string>
+	<string name="open_system_notification_settings">Gå till aviseringsinställningar</string>
 	<string name="about_server">Om</string>
 	<string name="server_rules">Regler</string>
 	<string name="server_administrator">Administratör</string>
+	<string name="settings_even_more">Ännu fler inställningar</string>
 	<string name="settings_show_emoji_in_names">Anpassad emoji i visningsnamn</string>
 	<plurals name="in_x_hours">
 		<item quantity="one">om %d timme</item>
@@ -398,19 +428,23 @@
 		<item quantity="one">%d timme sedan</item>
 		<item quantity="other">%d timmar sedan</item>
 	</plurals>
+	<string name="count_one">En</string>
 	<string name="count_two">Två</string>
 	<string name="count_three">Tre</string>
 	<string name="count_four">Fyra</string>
 	<!-- %s is the username -->
+	<string name="unfollow_confirmation">Avfölj %s?</string>
 	<string name="filter_active">Aktiv</string>
 	<string name="filter_inactive">Inaktiv</string>
 	<string name="settings_add_filter">Lägg till filter</string>
 	<string name="settings_edit_filter">Redigera filter</string>
 	<string name="settings_delete_filter">Radera filter</string>
+	<string name="filter_duration_forever">För alltid</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<string name="selection_2_options">%1$s och %2$s</string>
 	<string name="selection_3_options">%1$s, %2$s och %3$s</string>
 	<string name="filter_context_profiles">Profiler</string>
+	<string name="settings_filter_title">Rubrik</string>
 	<string name="settings_delete_filter_confirmation">Detta filter kommer raderas från ditt konto på alla dina enheter.</string>
 	<string name="add">Lägg till</string>
 	<string name="filter_word_or_phrase">Ord eller fras</string>
@@ -420,6 +454,8 @@
 		<item quantity="one">Radera %d ord?</item>
 		<item quantity="other">Radera %d ord?</item>
 	</plurals>
+	<string name="filter_word_already_in_list">Redan finns i listan</string>
+	<string name="app_update_ready">Appuppdateringen är redo</string>
 	<string name="app_update_version">Version %s</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
 	<string name="post_matches_filter_x">Matchar filter \"%s\"</string>
@@ -436,7 +472,27 @@
 	<!-- %s is the name of the post language -->
 	<string name="translate_post">Översätt från %s</string>
 	<!-- %1$s is the language, %2$s is the name of the translation service -->
+	<string name="followed_hashtags">Följda hashtaggar</string>
+	<string name="no_lists">Du har inga listor ännu.</string>
+	<string name="no_followed_hashtags">Du följer inga hashtaggar.</string>
+	<string name="manage_lists">Hantera listor</string>
+	<string name="manage_hashtags">Hantera hashtaggar</string>
 	<!-- Screen reader description for the menu on the home timeline screen -->
+	<string name="dropdown_menu">Nedrullningsmeny</string>
+	<string name="edit_list">Redigera lista</string>
+	<string name="list_members">Lista medlemmar</string>
+	<string name="delete_list">Ta bort lista</string>
 	<!-- %s is the name of the list -->
+	<string name="list_exclusive">Dölj medlemmar i Följer</string>
+	<string name="list_name">Listnamn</string>
+	<string name="list_show_replies_to">Visa svar till</string>
+	<string name="list_replies_no_one">Ingen</string>
+	<string name="list_replies_members">Listmedlemmar</string>
+	<string name="confirm_remove_list_members">Ta bort medlemmar?</string>
+	<string name="remove">Ta bort</string>
+	<string name="add_list_member">Lägg till medlem</string>
+	<string name="search_among_people_you_follow">Sök bland personer du följer</string>
+	<string name="add_user_to_list">Lägg till i lista…</string>
+	<string name="add_user_to_list_title">Lägg till i lista</string>
 	<!-- %s is a username -->
 </resources>
