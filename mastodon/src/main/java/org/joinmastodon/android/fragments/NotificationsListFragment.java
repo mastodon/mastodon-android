@@ -312,7 +312,6 @@ public class NotificationsListFragment extends BaseStatusListFragment<Notificati
 	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater){
 		inflater.inflate(R.menu.notifications, menu);
 		markAllReadItem=menu.findItem(R.id.mark_all_read);
-		updateMarkAllReadButton();
 	}
 
 	@Override
@@ -330,7 +329,6 @@ public class NotificationsListFragment extends BaseStatusListFragment<Notificati
 			new SaveMarkers(null, id).exec(accountID);
 			AccountSessionManager.get(accountID).setNotificationsMarker(id, true);
 			realUnreadMarker=id;
-			updateMarkAllReadButton();
 		}
 	}
 
@@ -346,10 +344,6 @@ public class NotificationsListFragment extends BaseStatusListFragment<Notificati
 		AccountSessionManager.get(accountID).reloadNotificationsMarker(m->{
 			unreadMarker=realUnreadMarker=m;
 		});
-	}
-
-	private void updateMarkAllReadButton(){
-		markAllReadItem.setEnabled(!data.isEmpty() && realUnreadMarker!=null && !realUnreadMarker.equals(data.get(0).id));
 	}
 
 	@Override
