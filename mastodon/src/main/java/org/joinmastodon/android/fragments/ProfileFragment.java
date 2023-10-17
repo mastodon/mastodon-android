@@ -301,9 +301,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 				username+="@"+AccountSessionManager.getInstance().getAccount(accountID).domain;
 			}
 			getActivity().getSystemService(ClipboardManager.class).setPrimaryClip(ClipData.newPlainText(null, "@"+username));
-			if(Build.VERSION.SDK_INT<Build.VERSION_CODES.TIRAMISU || UiUtils.isMIUI()){ // Android 13+ SystemUI shows its own thing when you put things into the clipboard
-				Toast.makeText(getActivity(), R.string.text_copied, Toast.LENGTH_SHORT).show();
-			}
+			UiUtils.maybeShowTextCopiedToast(getActivity());
 			return true;
 		});
 

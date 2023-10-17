@@ -783,4 +783,12 @@ public class UiUtils{
 		intent.putExtra(Intent.EXTRA_TEXT, url);
 		context.startActivity(Intent.createChooser(intent, context.getString(R.string.share_toot_title)));
 	}
+
+	public static void maybeShowTextCopiedToast(Context context){
+		//show toast, android from S_V2 on has built-in popup, as documented in
+		//https://developer.android.com/develop/ui/views/touch-and-input/copy-paste#duplicate-notifications
+		if(Build.VERSION.SDK_INT<=Build.VERSION_CODES.S_V2){
+			Toast.makeText(context, R.string.text_copied, Toast.LENGTH_SHORT).show();
+		}
+	}
 }

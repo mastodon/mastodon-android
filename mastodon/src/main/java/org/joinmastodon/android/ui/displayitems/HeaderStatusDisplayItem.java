@@ -3,6 +3,8 @@ package org.joinmastodon.android.ui.displayitems;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.graphics.drawable.Animatable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
@@ -204,6 +206,9 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 					args.putString("account", item.parentFragment.getAccountID());
 					args.putParcelable("targetAccount", Parcels.wrap(account));
 					Nav.go(activity, AddAccountToListsFragment.class, args);
+				}else if(id==R.id.copy_link){
+					activity.getSystemService(ClipboardManager.class).setPrimaryClip(ClipData.newPlainText(null, item.status.url));
+					UiUtils.maybeShowTextCopiedToast(activity);
 				}
 				return true;
 			});

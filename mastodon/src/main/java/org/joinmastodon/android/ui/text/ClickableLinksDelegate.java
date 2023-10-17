@@ -18,6 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import org.joinmastodon.android.R;
+import org.joinmastodon.android.ui.utils.UiUtils;
 
 import androidx.annotation.NonNull;
 import me.grishka.appkit.utils.CustomViewHelper;
@@ -130,11 +131,7 @@ public class ClickableLinksDelegate implements CustomViewHelper{
 			//copy link text to clipboard
 			ClipboardManager clipboard = (ClipboardManager) view.getContext().getSystemService(Context.CLIPBOARD_SERVICE);
 			clipboard.setPrimaryClip(ClipData.newPlainText("", selectedSpan.getLink()));
-			//show toast, android from S_V2 on has built-in popup, as documented in
-			//https://developer.android.com/develop/ui/views/touch-and-input/copy-paste#duplicate-notifications
-			if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.S_V2) {
-				Toast.makeText(view.getContext(), R.string.text_copied, Toast.LENGTH_SHORT).show();
-			}
+			UiUtils.maybeShowTextCopiedToast(view.getContext());
 			//reset view
 			resetAndInvalidate();
 		}
