@@ -44,7 +44,7 @@ import me.grishka.appkit.Nav;
 import me.grishka.appkit.api.SimpleCallback;
 
 public class NotificationsListFragment extends BaseStatusListFragment<Notification>{
-	private boolean onlyMentions=true;
+	private boolean onlyMentions;
 	private String maxID;
 	private View tabBar;
 	private View mentionsTab, allTab;
@@ -58,9 +58,7 @@ public class NotificationsListFragment extends BaseStatusListFragment<Notificati
 		super.onCreate(savedInstanceState);
 		setLayout(R.layout.fragment_notifications);
 		E.register(this);
-		if(savedInstanceState!=null){
-			onlyMentions=savedInstanceState.getBoolean("onlyMentions", true);
-		}
+		onlyMentions=AccountSessionManager.get(accountID).isNotificationsMentionsOnly();
 		setHasOptionsMenu(true);
 	}
 
@@ -133,12 +131,8 @@ public class NotificationsListFragment extends BaseStatusListFragment<Notificati
 		super.onShown();
 		unreadMarker=realUnreadMarker=AccountSessionManager.get(accountID).getLastKnownNotificationsMarker();
 		if(!dataLoading){
-			if(onlyMentions){
-				refresh();
-			}else{
-				reloadingFromCache=true;
-				refresh();
-			}
+			reloadingFromCache=true;
+			refresh();
 		}
 	}
 
@@ -221,12 +215,6 @@ public class NotificationsListFragment extends BaseStatusListFragment<Notificati
 		return views;
 	}
 
-	@Override
-	public void onSaveInstanceState(Bundle outState){
-		super.onSaveInstanceState(outState);
-		outState.putBoolean("onlyMentions", onlyMentions);
-	}
-
 	private Notification getNotificationByID(String id){
 		for(Notification n:data){
 			if(n.id.equals(id))
@@ -291,8 +279,10 @@ public class NotificationsListFragment extends BaseStatusListFragment<Notificati
 		allTab.setSelected(!onlyMentions);
 		maxID=null;
 		showProgress();
-		loadData(0, 20);
 		refreshing=true;
+		reloadingFromCache=true;
+		loadData(0, 20);
+		AccountSessionManager.get(accountID).setNotificationsMentionsOnly(onlyMentions);
 	}
 
 	@Override

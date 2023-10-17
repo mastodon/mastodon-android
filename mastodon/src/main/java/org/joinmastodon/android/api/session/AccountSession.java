@@ -268,4 +268,12 @@ public class AccountSession{
 	public void updateAccountInfo(){
 		AccountSessionManager.getInstance().updateSessionLocalInfo(this);
 	}
+
+	public boolean isNotificationsMentionsOnly(){
+		return getRawLocalPreferences().getBoolean("notificationsMentionsOnly", false);
+	}
+
+	public void setNotificationsMentionsOnly(boolean mentionsOnly){
+		getRawLocalPreferences().edit().putBoolean("notificationsMentionsOnly", mentionsOnly).apply();
+	}
 }

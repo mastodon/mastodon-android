@@ -36,21 +36,21 @@
 					style="@style/Widget.Mastodon.M3.SegmentedButtonContainer">
 
 					<FrameLayout
-						android:id="@+id/mentions_tab"
-						style="@style/Widget.Mastodon.M3.SegmentedButton">
-						<org.joinmastodon.android.ui.views.CheckIconSelectableTextView
-							android:id="@+id/mentions_text"
-							style="@style/Widget.Mastodon.M3.SegmentedButtonText"
-							android:text="@string/mentions"/>
-					</FrameLayout>
-
-					<FrameLayout
 						android:id="@+id/all_tab"
 						style="@style/Widget.Mastodon.M3.SegmentedButton">
 						<org.joinmastodon.android.ui.views.CheckIconSelectableTextView
 							android:id="@+id/all_text"
 							style="@style/Widget.Mastodon.M3.SegmentedButtonText"
 							android:text="@string/all_notifications"/>
+					</FrameLayout>
+
+					<FrameLayout
+						android:id="@+id/mentions_tab"
+						style="@style/Widget.Mastodon.M3.SegmentedButton">
+						<org.joinmastodon.android.ui.views.CheckIconSelectableTextView
+							android:id="@+id/mentions_text"
+							style="@style/Widget.Mastodon.M3.SegmentedButtonText"
+							android:text="@string/mentions"/>
 					</FrameLayout>
 
 				</LinearLayout>
