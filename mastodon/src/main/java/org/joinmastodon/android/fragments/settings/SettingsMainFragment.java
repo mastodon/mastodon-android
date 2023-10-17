@@ -17,6 +17,7 @@ import org.joinmastodon.android.api.session.AccountSession;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.events.SelfUpdateStateChangedEvent;
 import org.joinmastodon.android.model.viewmodel.ListItem;
+import org.joinmastodon.android.ui.AccountSwitcherSheet;
 import org.joinmastodon.android.ui.M3AlertDialogBuilder;
 import org.joinmastodon.android.ui.utils.HideableSingleViewRecyclerAdapter;
 import org.joinmastodon.android.ui.utils.UiUtils;
@@ -57,6 +58,7 @@ public class SettingsMainFragment extends BaseSettingsFragment<Void>{
 				new ListItem<>(R.string.settings_notifications, 0, R.drawable.ic_notifications_24px, this::onNotificationsClick),
 				new ListItem<>(AccountSessionManager.get(accountID).domain, getString(R.string.settings_server_explanation), R.drawable.ic_dns_24px, this::onServerClick),
 				new ListItem<>(getString(R.string.about_app, getString(R.string.app_name)), null, R.drawable.ic_info_24px, this::onAboutClick, null, 0, true),
+				new ListItem<>(R.string.manage_accounts, 0, R.drawable.ic_switch_account_24px, this::onManageAccountsClick),
 				new ListItem<>(R.string.log_out, 0, R.drawable.ic_logout_24px, this::onLogOutClick, R.attr.colorM3Error, false)
 		));
 
@@ -148,6 +150,10 @@ public class SettingsMainFragment extends BaseSettingsFragment<Void>{
 
 	private void onAboutClick(ListItem<?> item_){
 		Nav.go(getActivity(), SettingsAboutAppFragment.class, makeFragmentArgs());
+	}
+
+	private void onManageAccountsClick(ListItem<?> item){
+		new AccountSwitcherSheet(getActivity(), null).show();
 	}
 
 	private void onLogOutClick(ListItem<?> item_){
