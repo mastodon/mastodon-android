@@ -4,10 +4,11 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.animation.StateListAnimator;
 import android.app.Activity;
 import android.content.res.Configuration;
-import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -15,6 +16,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.accessibility.AccessibilityNodeInfo;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
@@ -42,7 +44,6 @@ import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.model.TimelineMarkers;
 import org.joinmastodon.android.ui.displayitems.GapStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.StatusDisplayItem;
-import org.joinmastodon.android.ui.utils.UiUtils;
 import org.joinmastodon.android.ui.viewcontrollers.HomeTimelineMenuController;
 import org.joinmastodon.android.ui.viewcontrollers.ToolbarDropdownMenuController;
 import org.joinmastodon.android.ui.views.FixedAspectRatioImageView;
@@ -68,7 +69,8 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 	private LinearLayout listsDropdown;
 	private FixedAspectRatioImageView listsDropdownArrow;
 	private TextView listsDropdownText;
-	private Button toolbarShowNewPostsBtn;
+	private Button newPostsBtn;
+	private StateListAnimator newPostsBtnStateAnimator;
 	private boolean newPostsBtnShown;
 	private AnimatorSet currentNewPostsAnim;
 	private ToolbarDropdownMenuController dropdownController;
@@ -81,7 +83,7 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 	private String lastSavedMarkerID;
 
 	public HomeTimelineFragment(){
-		setListLayoutId(R.layout.recycler_fragment_with_fab);
+		setListLayoutId(R.layout.fragment_timeline);
 	}
 
 	@Override
@@ -191,6 +193,20 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 		super.onViewCreated(view, savedInstanceState);
 		fab=view.findViewById(R.id.fab);
 		fab.setOnClickListener(this::onFabClick);
+		newPostsBtn=view.findViewById(R.id.new_posts_btn);
+		newPostsBtn.setOnClickListener(this::onNewPostsBtnClick);
+		newPostsBtnStateAnimator=newPostsBtn.getStateListAnimator();
+
+		if(newPostsBtnShown){
+			newPostsBtn.setVisibility(View.VISIBLE);
+		}else{
+			newPostsBtn.setVisibility(View.GONE);
+			newPostsBtn.setStateListAnimator(null);
+			newPostsBtn.setScaleX(0.9f);
+			newPostsBtn.setScaleY(0.9f);
+			newPostsBtn.setAlpha(0f);
+			newPostsBtn.setTranslationY(V.dp(-56));
+		}
 		updateToolbarLogo();
 		list.addOnScrollListener(new RecyclerView.OnScrollListener(){
 			@Override
@@ -467,44 +483,10 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 		listsDropdown.setBackgroundTintList(listsDropdownText.getTextColors());
 		listsDropdown.addView(listsDropdownText, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT));
 
-		toolbarShowNewPostsBtn=new Button(getActivity());
-		toolbarShowNewPostsBtn.setTextAppearance(R.style.m3_title_medium);
-		toolbarShowNewPostsBtn.setTextColor(0xffffffff);
-		toolbarShowNewPostsBtn.setStateListAnimator(null);
-		toolbarShowNewPostsBtn.setBackgroundResource(R.drawable.bg_button_new_posts);
-		toolbarShowNewPostsBtn.setText(R.string.see_new_posts);
-		toolbarShowNewPostsBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.ic_fluent_arrow_up_16_filled, 0, 0, 0);
-		toolbarShowNewPostsBtn.setCompoundDrawableTintList(toolbarShowNewPostsBtn.getTextColors());
-		toolbarShowNewPostsBtn.setCompoundDrawablePadding(V.dp(8));
-		if(Build.VERSION.SDK_INT<Build.VERSION_CODES.N)
-			UiUtils.fixCompoundDrawableTintOnAndroid6(toolbarShowNewPostsBtn);
-		toolbarShowNewPostsBtn.setOnClickListener(this::onNewPostsBtnClick);
-
-		if(newPostsBtnShown){
-			toolbarShowNewPostsBtn.setVisibility(View.VISIBLE);
-			listsDropdown.setVisibility(View.INVISIBLE);
-			listsDropdown.setAlpha(0f);
-		}else{
-			toolbarShowNewPostsBtn.setVisibility(View.INVISIBLE);
-			toolbarShowNewPostsBtn.setAlpha(0f);
-			toolbarShowNewPostsBtn.setScaleX(.8f);
-			toolbarShowNewPostsBtn.setScaleY(.8f);
-			listsDropdown.setVisibility(View.VISIBLE);
-		}
-
-		FrameLayout logoWrap=new FrameLayout(getActivity()){
-			@Override
-			protected void onLayout(boolean changed, int left, int top, int right, int bottom){
-				super.onLayout(changed, left, top, right, bottom);
-				// I'm sorry for doing this. This centers the button within the entire toolbar
-				int rightGap=getToolbar().getWidth()-right;
-				toolbarShowNewPostsBtn.offsetLeftAndRight((rightGap-left)/2);
-			}
-		};
+		FrameLayout logoWrap=new FrameLayout(getActivity());
 		FrameLayout.LayoutParams ddlp=new FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT, Gravity.START);
 		ddlp.topMargin=ddlp.bottomMargin=V.dp(8);
 		logoWrap.addView(listsDropdown, ddlp);
-		logoWrap.addView(toolbarShowNewPostsBtn, new FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, V.dp(32), Gravity.CENTER));
 
 		Toolbar toolbar=getToolbar();
 		toolbar.addView(logoWrap, new Toolbar.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
@@ -518,21 +500,21 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 		if(currentNewPostsAnim!=null){
 			currentNewPostsAnim.cancel();
 		}
-		toolbarShowNewPostsBtn.setVisibility(View.VISIBLE);
+		newPostsBtn.setVisibility(View.VISIBLE);
 		AnimatorSet set=new AnimatorSet();
 		set.playTogether(
-				ObjectAnimator.ofFloat(listsDropdown, View.ALPHA, 0f),
-				ObjectAnimator.ofFloat(toolbarShowNewPostsBtn, View.ALPHA, 1f),
-				ObjectAnimator.ofFloat(toolbarShowNewPostsBtn, View.SCALE_X, 1f),
-				ObjectAnimator.ofFloat(toolbarShowNewPostsBtn, View.SCALE_Y, 1f)
+				ObjectAnimator.ofFloat(newPostsBtn, View.ALPHA, 1f),
+				ObjectAnimator.ofFloat(newPostsBtn, View.SCALE_X, 1f),
+				ObjectAnimator.ofFloat(newPostsBtn, View.SCALE_Y, 1f),
+				ObjectAnimator.ofFloat(newPostsBtn, View.TRANSLATION_Y, 0f)
 		);
-		set.setDuration(300);
-		set.setInterpolator(CubicBezierInterpolator.DEFAULT);
+		set.setDuration(getResources().getInteger(R.integer.m3_sys_motion_duration_medium3));
+		set.setInterpolator(AnimationUtils.loadInterpolator(getActivity(), R.interpolator.m3_sys_motion_easing_standard_decelerate));
 		set.addListener(new AnimatorListenerAdapter(){
 			@Override
 			public void onAnimationEnd(Animator animation){
-				listsDropdown.setVisibility(View.INVISIBLE);
 				currentNewPostsAnim=null;
+				newPostsBtn.setStateListAnimator(newPostsBtnStateAnimator);
 			}
 		});
 		currentNewPostsAnim=set;
@@ -546,20 +528,23 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 		if(currentNewPostsAnim!=null){
 			currentNewPostsAnim.cancel();
 		}
-		listsDropdown.setVisibility(View.VISIBLE);
+		float scale=newPostsBtn.getScaleX();
+		float alpha=newPostsBtn.getAlpha();
+		newPostsBtnStateAnimator.jumpToCurrentState();
+		newPostsBtn.setStateListAnimator(null);
 		AnimatorSet set=new AnimatorSet();
 		set.playTogether(
-				ObjectAnimator.ofFloat(listsDropdown, View.ALPHA, 1f),
-				ObjectAnimator.ofFloat(toolbarShowNewPostsBtn, View.ALPHA, 0f),
-				ObjectAnimator.ofFloat(toolbarShowNewPostsBtn, View.SCALE_X, .8f),
-				ObjectAnimator.ofFloat(toolbarShowNewPostsBtn, View.SCALE_Y, .8f)
+				ObjectAnimator.ofFloat(newPostsBtn, View.ALPHA, alpha, 0f),
+				ObjectAnimator.ofFloat(newPostsBtn, View.SCALE_X, scale, scale*.9f),
+				ObjectAnimator.ofFloat(newPostsBtn, View.SCALE_Y, scale, scale*.9f),
+				ObjectAnimator.ofFloat(newPostsBtn, View.TRANSLATION_Y, V.dp(-56))
 		);
-		set.setDuration(300);
-		set.setInterpolator(CubicBezierInterpolator.DEFAULT);
+		set.setDuration(getResources().getInteger(R.integer.m3_sys_motion_duration_medium3));
+		set.setInterpolator(AnimationUtils.loadInterpolator(getActivity(), R.interpolator.m3_sys_motion_easing_standard_accelerate));
 		set.addListener(new AnimatorListenerAdapter(){
 			@Override
 			public void onAnimationEnd(Animator animation){
-				toolbarShowNewPostsBtn.setVisibility(View.INVISIBLE);
+				newPostsBtn.setVisibility(View.GONE);
 				currentNewPostsAnim=null;
 			}
 		});

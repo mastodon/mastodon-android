@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<me.grishka.appkit.views.RecursiveSwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/refresh_layout"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+
+	<FrameLayout
+		android:id="@+id/content_wrap"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+		<me.grishka.appkit.views.UsableRecyclerView
+			android:id="@+id/list"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:scrollbars="vertical"
+			android:clipToPadding="false"/>
+
+		<ViewStub android:layout="?emptyViewLayout"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:id="@+id/empty"/>
+
+		<ImageButton
+			android:id="@+id/fab"
+			android:layout_width="56dp"
+			android:layout_height="56dp"
+			android:layout_gravity="end|bottom"
+			android:layout_marginEnd="16dp"
+			android:layout_marginBottom="16dp"
+			android:background="@drawable/bg_fab"
+			android:tint="?colorM3Primary"
+			android:scaleType="center"
+			android:stateListAnimator="@animator/fab_shadow"
+			android:contentDescription="@string/new_post"
+			android:src="@drawable/ic_edit_24px"/>
+
+		<Button
+			android:id="@+id/new_posts_btn"
+			android:layout_width="wrap_content"
+			android:layout_height="40dp"
+			android:layout_gravity="center_horizontal|top"
+			android:layout_marginTop="16dp"
+			android:background="@drawable/round_rect"
+			android:backgroundTint="?colorM3Primary"
+			android:paddingHorizontal="16dp"
+			android:paddingVertical="0dp"
+			android:textAppearance="@style/m3_label_large"
+			android:textColor="?colorM3OnPrimary"
+			android:drawableStart="@drawable/ic_arrow_upward_24px"
+			android:drawableTint="?colorM3OnPrimary"
+			android:drawablePadding="8dp"
+			android:elevation="@dimen/m3_sys_elevation_level4"
+			android:stateListAnimator="@animator/squish"
+			android:text="@string/see_new_posts"/>
+
+	</FrameLayout>
+</me.grishka.appkit.views.RecursiveSwipeRefreshLayout>
