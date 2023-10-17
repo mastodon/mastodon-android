@@ -4,11 +4,9 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
-import android.animation.StateListAnimator;
 import android.app.Activity;
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -70,7 +68,7 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 	private FixedAspectRatioImageView listsDropdownArrow;
 	private TextView listsDropdownText;
 	private Button newPostsBtn;
-	private StateListAnimator newPostsBtnStateAnimator;
+	private View newPostsBtnWrap;
 	private boolean newPostsBtnShown;
 	private AnimatorSet currentNewPostsAnim;
 	private ToolbarDropdownMenuController dropdownController;
@@ -195,17 +193,16 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 		fab.setOnClickListener(this::onFabClick);
 		newPostsBtn=view.findViewById(R.id.new_posts_btn);
 		newPostsBtn.setOnClickListener(this::onNewPostsBtnClick);
-		newPostsBtnStateAnimator=newPostsBtn.getStateListAnimator();
+		newPostsBtnWrap=view.findViewById(R.id.new_posts_btn_wrap);
 
 		if(newPostsBtnShown){
-			newPostsBtn.setVisibility(View.VISIBLE);
+			newPostsBtnWrap.setVisibility(View.VISIBLE);
 		}else{
-			newPostsBtn.setVisibility(View.GONE);
-			newPostsBtn.setStateListAnimator(null);
-			newPostsBtn.setScaleX(0.9f);
-			newPostsBtn.setScaleY(0.9f);
-			newPostsBtn.setAlpha(0f);
-			newPostsBtn.setTranslationY(V.dp(-56));
+			newPostsBtnWrap.setVisibility(View.GONE);
+			newPostsBtnWrap.setScaleX(0.9f);
+			newPostsBtnWrap.setScaleY(0.9f);
+			newPostsBtnWrap.setAlpha(0f);
+			newPostsBtnWrap.setTranslationY(V.dp(-56));
 		}
 		updateToolbarLogo();
 		list.addOnScrollListener(new RecyclerView.OnScrollListener(){
@@ -500,13 +497,13 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 		if(currentNewPostsAnim!=null){
 			currentNewPostsAnim.cancel();
 		}
-		newPostsBtn.setVisibility(View.VISIBLE);
+		newPostsBtnWrap.setVisibility(View.VISIBLE);
 		AnimatorSet set=new AnimatorSet();
 		set.playTogether(
-				ObjectAnimator.ofFloat(newPostsBtn, View.ALPHA, 1f),
-				ObjectAnimator.ofFloat(newPostsBtn, View.SCALE_X, 1f),
-				ObjectAnimator.ofFloat(newPostsBtn, View.SCALE_Y, 1f),
-				ObjectAnimator.ofFloat(newPostsBtn, View.TRANSLATION_Y, 0f)
+				ObjectAnimator.ofFloat(newPostsBtnWrap, View.ALPHA, 1f),
+				ObjectAnimator.ofFloat(newPostsBtnWrap, View.SCALE_X, 1f),
+				ObjectAnimator.ofFloat(newPostsBtnWrap, View.SCALE_Y, 1f),
+				ObjectAnimator.ofFloat(newPostsBtnWrap, View.TRANSLATION_Y, 0f)
 		);
 		set.setDuration(getResources().getInteger(R.integer.m3_sys_motion_duration_medium3));
 		set.setInterpolator(AnimationUtils.loadInterpolator(getActivity(), R.interpolator.m3_sys_motion_easing_standard_decelerate));
@@ -514,7 +511,6 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 			@Override
 			public void onAnimationEnd(Animator animation){
 				currentNewPostsAnim=null;
-				newPostsBtn.setStateListAnimator(newPostsBtnStateAnimator);
 			}
 		});
 		currentNewPostsAnim=set;
@@ -528,23 +524,19 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 		if(currentNewPostsAnim!=null){
 			currentNewPostsAnim.cancel();
 		}
-		float scale=newPostsBtn.getScaleX();
-		float alpha=newPostsBtn.getAlpha();
-		newPostsBtnStateAnimator.jumpToCurrentState();
-		newPostsBtn.setStateListAnimator(null);
 		AnimatorSet set=new AnimatorSet();
 		set.playTogether(
-				ObjectAnimator.ofFloat(newPostsBtn, View.ALPHA, alpha, 0f),
-				ObjectAnimator.ofFloat(newPostsBtn, View.SCALE_X, scale, scale*.9f),
-				ObjectAnimator.ofFloat(newPostsBtn, View.SCALE_Y, scale, scale*.9f),
-				ObjectAnimator.ofFloat(newPostsBtn, View.TRANSLATION_Y, V.dp(-56))
+				ObjectAnimator.ofFloat(newPostsBtnWrap, View.ALPHA, 0f),
+				ObjectAnimator.ofFloat(newPostsBtnWrap, View.SCALE_X, .9f),
+				ObjectAnimator.ofFloat(newPostsBtnWrap, View.SCALE_Y, .9f),
+				ObjectAnimator.ofFloat(newPostsBtnWrap, View.TRANSLATION_Y, V.dp(-56))
 		);
 		set.setDuration(getResources().getInteger(R.integer.m3_sys_motion_duration_medium3));
 		set.setInterpolator(AnimationUtils.loadInterpolator(getActivity(), R.interpolator.m3_sys_motion_easing_standard_accelerate));
 		set.addListener(new AnimatorListenerAdapter(){
 			@Override
 			public void onAnimationEnd(Animator animation){
-				newPostsBtn.setVisibility(View.GONE);
+				newPostsBtnWrap.setVisibility(View.GONE);
 				currentNewPostsAnim=null;
 			}
 		});

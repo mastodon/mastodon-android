@@ -34,24 +34,29 @@
 			android:contentDescription="@string/new_post"
 			android:src="@drawable/ic_edit_24px"/>
 
-		<Button
-			android:id="@+id/new_posts_btn"
+		<FrameLayout
+			android:id="@+id/new_posts_btn_wrap"
 			android:layout_width="wrap_content"
-			android:layout_height="40dp"
-			android:layout_gravity="center_horizontal|top"
-			android:layout_marginTop="16dp"
-			android:background="@drawable/round_rect"
-			android:backgroundTint="?colorM3Primary"
-			android:paddingHorizontal="16dp"
-			android:paddingVertical="0dp"
-			android:textAppearance="@style/m3_label_large"
-			android:textColor="?colorM3OnPrimary"
-			android:drawableStart="@drawable/ic_arrow_upward_24px"
-			android:drawableTint="?colorM3OnPrimary"
-			android:drawablePadding="8dp"
-			android:elevation="@dimen/m3_sys_elevation_level4"
-			android:stateListAnimator="@animator/squish"
-			android:text="@string/see_new_posts"/>
+			android:layout_height="wrap_content"
+			android:layout_gravity="center_horizontal|top">
+			<Button
+				android:id="@+id/new_posts_btn"
+				android:layout_width="wrap_content"
+				android:layout_height="40dp"
+				android:layout_margin="16dp"
+				android:background="@drawable/round_rect"
+				android:backgroundTint="?colorM3Primary"
+				android:paddingHorizontal="16dp"
+				android:paddingVertical="0dp"
+				android:textAppearance="@style/m3_label_large"
+				android:textColor="?colorM3OnPrimary"
+				android:drawableStart="@drawable/ic_arrow_upward_24px"
+				android:drawableTint="?colorM3OnPrimary"
+				android:drawablePadding="8dp"
+				android:elevation="@dimen/m3_sys_elevation_level4"
+				android:stateListAnimator="@animator/squish"
+				android:text="@string/see_new_posts"/>
+		</FrameLayout>
 
 	</FrameLayout>
 </me.grishka.appkit.views.RecursiveSwipeRefreshLayout>
