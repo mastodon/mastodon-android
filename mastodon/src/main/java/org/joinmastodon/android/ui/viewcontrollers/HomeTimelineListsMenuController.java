@@ -5,6 +5,7 @@ import android.os.Bundle;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.fragments.ManageListsFragment;
 import org.joinmastodon.android.model.FollowList;
+import org.joinmastodon.android.ui.utils.HideableSingleViewRecyclerAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +15,7 @@ import me.grishka.appkit.Nav;
 public class HomeTimelineListsMenuController extends DropdownSubmenuController{
 	private final List<FollowList> lists;
 	private final HomeTimelineMenuController.Callback callback;
+	private HideableSingleViewRecyclerAdapter emptyAdapter;
 
 	public HomeTimelineListsMenuController(ToolbarDropdownMenuController dropdownController, HomeTimelineMenuController.Callback callback){
 		super(dropdownController);
@@ -34,6 +36,15 @@ public class HomeTimelineListsMenuController extends DropdownSubmenuController{
 	@Override
 	protected CharSequence getBackItemTitle(){
 		return dropdownController.getActivity().getString(R.string.lists);
+	}
+
+	@Override
+	protected void createView(){
+		super.createView();
+		emptyAdapter=createEmptyView(R.drawable.ic_list_alt_24px, R.string.no_lists_title, R.string.no_lists_subtitle);
+		if(lists.isEmpty()){
+			mergeAdapter.addAdapter(0, emptyAdapter);
+		}
 	}
 
 	private void onListSelected(Item<FollowList> item){

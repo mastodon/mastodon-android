@@ -28,6 +28,7 @@ import me.grishka.appkit.utils.V;
 
 public class HomeTimelineHashtagsMenuController extends DropdownSubmenuController{
 	private HideableSingleViewRecyclerAdapter largeProgressAdapter;
+	private HideableSingleViewRecyclerAdapter emptyAdapter;
 	private APIRequest<?> currentRequest;
 
 	public HomeTimelineHashtagsMenuController(ToolbarDropdownMenuController dropdownController){
@@ -39,6 +40,7 @@ public class HomeTimelineHashtagsMenuController extends DropdownSubmenuControlle
 	@Override
 	protected void createView(){
 		super.createView();
+		emptyAdapter=createEmptyView(R.drawable.ic_tag_24px, R.string.no_followed_hashtags_title, R.string.no_followed_hashtags_subtitle);
 		FrameLayout largeProgressView=new FrameLayout(dropdownController.getActivity());
 		int pad=V.dp(32);
 		largeProgressView.setPadding(0, pad, 0, pad);
@@ -47,6 +49,8 @@ public class HomeTimelineHashtagsMenuController extends DropdownSubmenuControlle
 		largeProgressView.addView(progress, new FrameLayout.LayoutParams(V.dp(48), V.dp(48), Gravity.CENTER));
 		largeProgressAdapter=new HideableSingleViewRecyclerAdapter(largeProgressView);
 		mergeAdapter.addAdapter(0, largeProgressAdapter);
+		emptyAdapter.setVisible(false);
+		mergeAdapter.addAdapter(0, emptyAdapter);
 	}
 
 	@Override
@@ -89,6 +93,7 @@ public class HomeTimelineHashtagsMenuController extends DropdownSubmenuControlle
 						}
 						items.add(new Item<Void>(R.string.manage_hashtags, false, true, i->onManageTagsClick()));
 						itemsAdapter.notifyItemRangeInserted(prevSize, result.size()+1);
+						emptyAdapter.setVisible(result.isEmpty());
 					}
 
 					@Override

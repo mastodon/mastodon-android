@@ -7,17 +7,19 @@ import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.accessibility.AccessibilityNodeInfo;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.ui.BetterItemAnimator;
+import org.joinmastodon.android.ui.utils.HideableSingleViewRecyclerAdapter;
 import org.joinmastodon.android.ui.utils.UiUtils;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
 
+import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.StringRes;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -106,6 +108,17 @@ public abstract class DropdownSubmenuController{
 		if(contentView==null)
 			createView();
 		return contentView;
+	}
+
+	protected HideableSingleViewRecyclerAdapter createEmptyView(@DrawableRes int icon, @StringRes int title, @StringRes int subtitle){
+		View view=dropdownController.getActivity().getLayoutInflater().inflate(R.layout.popup_menu_empty, list, false);
+		ImageView iconView=view.findViewById(R.id.icon);
+		TextView titleView=view.findViewById(R.id.title);
+		TextView subtitleView=view.findViewById(R.id.subtitle);
+		iconView.setImageResource(icon);
+		titleView.setText(title);
+		subtitleView.setText(subtitle);
+		return new HideableSingleViewRecyclerAdapter(view);
 	}
 
 	protected final class Item<T>{
