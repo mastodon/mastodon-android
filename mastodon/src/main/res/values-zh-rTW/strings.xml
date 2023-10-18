@@ -249,6 +249,7 @@
 	<!-- %s is the server domain -->
 	<string name="local_timeline_info_banner">這些是來自您伺服器 (%s) 所有使用者之嘟文。</string>
 	<string name="recommended_accounts_info_banner">基於您所跟隨的其他人，您可能會喜歡這些帳號。</string>
+	<string name="see_new_posts">新嘟文</string>
 	<string name="load_missing_posts">讀取錯過的嘟文</string>
 	<string name="follow_back">跟隨回去</string>
 	<string name="button_follow_pending">等待中</string>
@@ -599,6 +600,11 @@
 	<string name="manage_user_lists">管理包含 %s 之列表</string>
 	<string name="remove_from_list">從列表中移除</string>
 	<string name="confirm_remove_list_member">移除此成員？</string>
+	<string name="no_followed_hashtags_title">跟隨主題標籤以跟上興趣主題</string>
+	<string name="no_followed_hashtags_subtitle">已跟隨的主題標籤將顯示於此</string>
+	<string name="no_lists_title">藉由列表以整理您的首頁河道</string>
+	<string name="no_lists_subtitle">您的將出現於此</string>
+	<string name="manage_accounts">新增或切換帳號</string>
 	<plurals name="x_posts_recently">
 		<item quantity="other">%,d 最近發嘟</item>
 	</plurals>
