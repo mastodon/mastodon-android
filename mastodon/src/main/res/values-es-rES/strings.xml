@@ -262,6 +262,7 @@
 	<!-- %s is the server domain -->
 	<string name="local_timeline_info_banner">Estos son todos los mensajes de todos los usuarios de tu servidor (%s).</string>
 	<string name="recommended_accounts_info_banner">Es posible que te gusten estas cuentas basadas en otras que sigues.</string>
+	<string name="see_new_posts">Nuevas publicaciones</string>
 	<string name="load_missing_posts">Cargar publicaciones faltantes</string>
 	<string name="follow_back">Seguir de vuelta</string>
 	<string name="button_follow_pending">Pendiente</string>
@@ -386,6 +387,7 @@
 	<string name="welcome_to_mastodon">Bienvenido/da a Mastodon</string>
 	<string name="welcome_paragraph1">Mastodon es una red social descentralizada, lo que significa que no la controla una sola compañía. Está formada por muchos servidores independientes, todos juntos conectados.</string>
 	<string name="what_are_servers">¿Qué son los servidores?</string>
+	<string name="welcome_paragraph2">Cada cuenta de Mastodon está alojada en un servidor — cada uno con sus propios valores, reglas y administradores. Sin importar cuál elijas, puedes seguir e interactuar con personas en cualquier servidor.</string>
 	<string name="opening_link">Abriendo enlace…</string>
 	<string name="link_not_supported">Este enlace no es compatible con la aplicación</string>
 	<string name="log_out_all_accounts">Cerrar sesión en todas las cuentas</string>
@@ -413,6 +415,7 @@
 	<string name="alt_text">Texto alternativo</string>
 	<string name="help">Ayuda</string>
 	<string name="what_is_alt_text">¿Qué es el texto alternativo?</string>
+	<string name="alt_text_help">El texto alternativo entrega descripciones de una imagen a las personas con discapacidad visual, conexiones de internet con bajo ancho de banda o a quienes buscan un mayor contexto.\n\nPuedes mejorar la accesibilidad y la comprensión de todos al escribir texto alternativo que sea claro, conciso y objetivo.\n\n&lt;ul&gt;&lt;il&gt; Captura elementos importantes&lt;/li&gt;\n&lt;li&gt;Resume el texto en las imágenes&lt;/li&gt;\n&lt;li&gt;Construye las frases de manera normal&lt;/li&gt;\n&lt;li&gt;Evita la información redundante&lt;/li&gt;\n&lt;li&gt;Enfócate en tendencias y en hallazgos claves en imágenes complejas (como diagramas o mapas)&lt;/li&gt;&lt;/ul&gt;</string>
 	<string name="edit_post">Editar publicación</string>
 	<string name="no_verified_link">Enlace no verificado</string>
 	<string name="compose_autocomplete_emoji_empty">Explorar emojis</string>
@@ -432,6 +435,7 @@
 	<string name="forward_report_to_server">Reenviar a %s</string>
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
 	<string name="reported">Reportado</string>
+	<string name="report_unfollow_explanation">Para no ver más sus mensajes en tu feed de inicio, deja de seguirlos.</string>
 	<string name="muted_user">Silenciado %s</string>
 	<string name="report_sent_already_blocked">Ya has bloqueado a este usuario, así que no tienes nada más que hacer mientras revisamos tu informe.</string>
 	<string name="report_personal_already_blocked">Ya has bloqueado a este usuario, así que no tienes nada más que hacer.\n\n¡Gracias por ayudar a mantener Mastodon un lugar seguro para todos!</string>
@@ -474,9 +478,13 @@
 	<string name="about_server">Acerca de</string>
 	<string name="server_rules">Reglas</string>
 	<string name="server_administrator">Administrador</string>
+	<string name="send_email_to_server_admin">Envía mensaje a un administrador</string>
 	<string name="notifications_disabled_in_system">Active las notificaciones desde la configuración de su dispositivo para ver actualizaciones desde cualquier lugar.</string>
 	<string name="settings_even_more">Aún más ajustes</string>
 	<string name="settings_show_cws">Mostrar advertencias de contenido</string>
+	<string name="settings_hide_sensitive_media">Esconder contenidos marcados como explícitos</string>
+	<string name="settings_show_interaction_counts">Contador de interacciones con una publicación</string>
+	<string name="settings_show_emoji_in_names">Emoji personalizado en los nombres de las pantallas</string>
 	<plurals name="in_x_seconds">
 		<item quantity="one">en %d segundo</item>
 		<item quantity="other">en %d segundos</item>
@@ -531,6 +539,7 @@
 	<string name="selection_4_or_more">%1$s, %2$s, y %3$d más</string>
 	<string name="filter_context_home_lists">Inicio y listas</string>
 	<string name="filter_context_notifications">Notificaciones</string>
+	<string name="filter_context_public_timelines">Líneas de tiempo públicas</string>
 	<string name="filter_context_threads_replies">Hilos y respuestas</string>
 	<string name="filter_context_profiles">Profiles</string>
 	<string name="settings_filter_title">Título</string>
@@ -540,6 +549,7 @@
 	<string name="edit_muted_word">Editar palabra silenciada</string>
 	<string name="add">Añadir</string>
 	<string name="filter_word_or_phrase">Palabra o frase</string>
+	<string name="filter_add_word_help">Las palabras no distinguen letras mayúsculas y solo reconocen palabras completas.\n\nSi filtras la palabra \"Agua\", se ocultarán posteos que incluyan \"agua\" o \"aGua\", pero no los que contengan \"paraguas\".</string>
 	<string name="settings_delete_filter_word">¿Eliminar palabra “%s”?</string>
 	<string name="enter_selection_mode">Seleccionar</string>
 	<string name="select_all">Seleccionar todo</string>
@@ -573,7 +583,14 @@
 	<string name="time_hours_ago_short">hace %dh</string>
 	<string name="time_days_ago_short">hace %dd</string>
 	<!-- %s is the name of the post language -->
+	<string name="translate_post">Traducir desde %s</string>
 	<!-- %1$s is the language, %2$s is the name of the translation service -->
+	<string name="post_translated">Traducido desde %1$s usando %2$s</string>
+	<string name="translation_show_original">Ver original</string>
+	<string name="translation_failed">Error al traducir. Tal vez el administrador no ha habilitado las traducciones en este servidor o este servidor está ejecutando una versión antigua de Mastodon donde las traducciones aún no están soportadas.</string>
+	<string name="settings_privacy">Privacidad y alcance</string>
+	<string name="settings_discoverable">Mostrar perfil y publicaciones en algoritmos de descubrimiento</string>
+	<string name="settings_indexable">Incluir posteos públicos en los resultados de búsqueda</string>
 	<!-- Screen reader description for the menu on the home timeline screen -->
 	<!-- %s is the name of the list -->
 	<!-- %s is a username -->
