@@ -262,6 +262,7 @@
 	<!-- %s is the server domain -->
 	<string name="local_timeline_info_banner">Estas son as publicacións das usuarias do teu servidor (%s).</string>
 	<string name="recommended_accounts_info_banner">Poderían interesarche estas contas en función doutras que segues.</string>
+	<string name="see_new_posts">Novas publicacións</string>
 	<string name="load_missing_posts">Cargar publicacións que faltan</string>
 	<string name="follow_back">Seguir tamén</string>
 	<string name="button_follow_pending">Pendente</string>
@@ -598,7 +599,45 @@
 		<item quantity="one">%,d publicación hoxe</item>
 		<item quantity="other">%,d publicacións hoxe</item>
 	</plurals>
+	<string name="error_playing_video">Erro ao reproducir o vídeo</string>
+	<string name="timeline_following">A Seguir</string>
+	<string name="lists">Listas</string>
+	<string name="followed_hashtags">Cancelos seguidos</string>
+	<string name="no_lists">Aínda non tes ningunha lista.</string>
+	<string name="no_followed_hashtags">Non segues ningún cancelo.</string>
+	<string name="manage_lists">Xestionar listas</string>
+	<string name="manage_hashtags">Xestionar cancelos</string>
 	<!-- Screen reader description for the menu on the home timeline screen -->
+	<string name="dropdown_menu">Menú despregable</string>
+	<string name="edit_list">Editar lista</string>
+	<string name="list_members">Membros da lista</string>
+	<string name="delete_list">Eliminar lista</string>
 	<!-- %s is the name of the list -->
+	<string name="delete_list_confirm">Eliminar \"%s\"?</string>
+	<string name="list_exclusive">Agochar contidos na Cronoloxía</string>
+	<string name="list_exclusive_subtitle">Se alguén está nesta lista, oculta as súas publicacións na Cronoloxía de inicio para non velas dúas veces.</string>
+	<string name="list_name">Nome da lista</string>
+	<string name="list_show_replies_to">Mostrar respostas a</string>
+	<string name="list_replies_no_one">Ninguén</string>
+	<string name="list_replies_members">Membros da lista</string>
+	<string name="list_replies_anyone">Alguén a quen sigo</string>
+	<string name="confirm_remove_list_members">Eliminar participantes?</string>
+	<string name="remove">Eliminar</string>
+	<string name="add_list_member">Engadir participante</string>
+	<string name="search_among_people_you_follow">Procurar entre as persoas que segues</string>
+	<string name="add_user_to_list">Engadir á lista…</string>
+	<string name="add_user_to_list_title">Engadir á lista</string>
 	<!-- %s is a username -->
+	<string name="manage_user_lists">Xestionar as listas nas que aparece %s</string>
+	<string name="remove_from_list">Eliminar da lista</string>
+	<string name="confirm_remove_list_member">Eliminar participante?</string>
+	<string name="no_followed_hashtags_title">Infórmate dos teus intereses seguindo cancelos</string>
+	<string name="no_followed_hashtags_subtitle">Aquí verás os seguimentos</string>
+	<string name="no_lists_title">Organiza a cronoloxía de inicio con Listas</string>
+	<string name="no_lists_subtitle">Aquí verás as túas</string>
+	<string name="manage_accounts">Engade ou cambia de conta</string>
+	<plurals name="x_posts_recently">
+		<item quantity="one">%,d publicación recente</item>
+		<item quantity="other">%,d publicacións recentes</item>
+	</plurals>
 </resources>
