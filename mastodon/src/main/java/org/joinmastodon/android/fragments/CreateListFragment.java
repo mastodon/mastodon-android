@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.WindowInsets;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 
 import com.squareup.otto.Subscribe;
@@ -129,6 +130,7 @@ public class CreateListFragment extends BaseEditListFragment{
 		args.putParcelable("list", Parcels.wrap(followList));
 		args.putBoolean("needLoadMembers", needLoadMembers);
 		Nav.go(getActivity(), CreateListAddMembersFragment.class, args);
+		getActivity().getSystemService(InputMethodManager.class).hideSoftInputFromWindow(contentView.getWindowToken(), 0);
 	}
 
 	@Subscribe

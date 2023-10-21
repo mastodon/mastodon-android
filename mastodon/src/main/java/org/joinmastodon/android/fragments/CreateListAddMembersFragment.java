@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewStub;
 import android.view.WindowInsets;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.TextView;
@@ -189,6 +190,7 @@ public class CreateListAddMembersFragment extends BaseAccountListFragment implem
 			searchFragment=null;
 			dismissingSearchFragment=false;
 		}).start();
+		getActivity().getSystemService(InputMethodManager.class).hideSoftInputFromWindow(contentView.getWindowToken(), 0);
 	}
 
 	private void onNextClick(View v){
@@ -270,6 +272,7 @@ public class CreateListAddMembersFragment extends BaseAccountListFragment implem
 	@Override
 	protected void onConfigureViewHolder(AccountViewHolder holder){
 		holder.setStyle(AccountViewHolder.AccessoryType.CUSTOM_BUTTON, false);
+		holder.setOnLongClickListener(vh->false);
 		Button button=holder.getButton();
 		button.setPadding(V.dp(24), 0, V.dp(24), 0);
 		button.setMinimumWidth(0);
@@ -308,5 +311,10 @@ public class CreateListAddMembersFragment extends BaseAccountListFragment implem
 		ta=button.getContext().obtainStyledAttributes(styleRes, new int[]{android.R.attr.textColor});
 		button.setTextColor(ta.getColorStateList(0));
 		ta.recycle();
+	}
+
+	@Override
+	protected void loadRelationships(List<AccountViewModel> accounts){
+		// no-op
 	}
 }

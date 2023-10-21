@@ -67,6 +67,7 @@ public class AddNewListMembersFragment extends AccountSearchFragment{
 	@Override
 	protected void onConfigureViewHolder(AccountViewHolder holder){
 		holder.setStyle(AccountViewHolder.AccessoryType.CUSTOM_BUTTON, false);
+		holder.setOnLongClickListener(vh->false);
 		Button button=holder.getButton();
 		button.setPadding(V.dp(24), 0, V.dp(24), 0);
 		button.setMinimumWidth(0);
@@ -106,6 +107,11 @@ public class AddNewListMembersFragment extends AccountSearchFragment{
 		ta=button.getContext().obtainStyledAttributes(styleRes, new int[]{android.R.attr.textColor});
 		button.setTextColor(ta.getColorStateList(0));
 		ta.recycle();
+	}
+
+	@Override
+	protected void loadRelationships(List<AccountViewModel> accounts){
+		// no-op
 	}
 
 	public interface Listener{
