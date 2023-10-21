@@ -18,6 +18,8 @@ import org.joinmastodon.android.api.MastodonErrorResponse;
 import org.joinmastodon.android.api.requests.tags.GetTag;
 import org.joinmastodon.android.api.requests.tags.SetTagFollowed;
 import org.joinmastodon.android.api.requests.timelines.GetHashtagTimeline;
+import org.joinmastodon.android.api.session.AccountSessionManager;
+import org.joinmastodon.android.model.FilterContext;
 import org.joinmastodon.android.model.Hashtag;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.text.SpacerSpan;
@@ -47,6 +49,7 @@ public class HashtagTimelineFragment extends StatusListFragment{
 	private MenuItem followMenuItem;
 	private boolean followRequestRunning;
 	private boolean toolbarContentVisible;
+	private String maxID;
 
 	public HashtagTimelineFragment(){
 		setListLayoutId(R.layout.recycler_fragment_with_fab);
@@ -67,10 +70,13 @@ public class HashtagTimelineFragment extends StatusListFragment{
 
 	@Override
 	protected void doLoadData(int offset, int count){
-		currentRequest=new GetHashtagTimeline(hashtagName, offset==0 ? null : getMaxID(), null, count)
+		currentRequest=new GetHashtagTimeline(hashtagName, offset==0 ? null : maxID, null, count)
 				.setCallback(new SimpleCallback<>(this){
 					@Override
 					public void onSuccess(List<Status> result){
+						if(!result.isEmpty())
+							maxID=result.get(result.size()-1).id;
+						AccountSessionManager.get(accountID).filterStatuses(result, FilterContext.PUBLIC);
 						onDataLoaded(result, !result.isEmpty());
 					}
 				})

@@ -3,7 +3,9 @@ package org.joinmastodon.android.fragments.discover;
 import android.os.Bundle;
 
 import org.joinmastodon.android.api.requests.trends.GetTrendingStatuses;
+import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.fragments.StatusListFragment;
+import org.joinmastodon.android.model.FilterContext;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.utils.DiscoverInfoBannerHelper;
 
@@ -15,6 +17,7 @@ import me.grishka.appkit.utils.MergeRecyclerAdapter;
 
 public class DiscoverPostsFragment extends StatusListFragment{
 	private DiscoverInfoBannerHelper bannerHelper;
+	private int realOffset=0;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState){
@@ -24,10 +27,12 @@ public class DiscoverPostsFragment extends StatusListFragment{
 
 	@Override
 	protected void doLoadData(int offset, int count){
-		currentRequest=new GetTrendingStatuses(offset, count)
+		currentRequest=new GetTrendingStatuses(offset==0 ? 0 : realOffset, count)
 				.setCallback(new SimpleCallback<>(this){
 					@Override
 					public void onSuccess(List<Status> result){
+						realOffset+=result.size();
+						AccountSessionManager.get(accountID).filterStatuses(result, FilterContext.PUBLIC);
 						onDataLoaded(result, !result.isEmpty());
 						bannerHelper.onBannerBecameVisible();
 					}
