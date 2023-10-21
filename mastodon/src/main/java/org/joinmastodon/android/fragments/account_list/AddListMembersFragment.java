@@ -1,5 +1,7 @@
 package org.joinmastodon.android.fragments.account_list;
 
+import android.os.Bundle;
+
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.requests.accounts.SearchAccounts;
 import org.joinmastodon.android.model.Account;
@@ -9,6 +11,12 @@ import java.util.List;
 import me.grishka.appkit.api.SimpleCallback;
 
 public class AddListMembersFragment extends AccountSearchFragment{
+	@Override
+	public void onCreate(Bundle savedInstanceState){
+		super.onCreate(savedInstanceState);
+		dataLoaded();
+	}
+
 	@Override
 	protected void doLoadData(int offset, int count){
 		refreshing=true;

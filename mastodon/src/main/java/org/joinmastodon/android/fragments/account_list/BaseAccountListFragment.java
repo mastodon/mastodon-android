@@ -73,6 +73,8 @@ public abstract class BaseAccountListFragment extends MastodonRecyclerFragment<A
 
 	protected void loadRelationships(List<AccountViewModel> accounts){
 		Set<String> ids=accounts.stream().map(ai->ai.account.id).collect(Collectors.toSet());
+		if(ids.isEmpty())
+			return;
 		GetAccountRelationships req=new GetAccountRelationships(ids);
 		relationshipsRequests.add(req);
 		req.setCallback(new Callback<>(){
@@ -122,18 +124,7 @@ public abstract class BaseAccountListFragment extends MastodonRecyclerFragment<A
 		Toolbar toolbar=getToolbar();
 		if(toolbar!=null && toolbar.getNavigationIcon()!=null){
 			toolbar.setNavigationContentDescription(R.string.back);
-			if(hasSubtitle()){
-				toolbar.setTitleTextAppearance(getActivity(), R.style.m3_title_medium);
-				toolbar.setSubtitleTextAppearance(getActivity(), R.style.m3_body_medium);
-				int color=UiUtils.getThemeColor(getActivity(), android.R.attr.textColorPrimary);
-				toolbar.setTitleTextColor(color);
-				toolbar.setSubtitleTextColor(color);
-			}
 		}
-	}
-
-	protected boolean hasSubtitle(){
-		return true;
 	}
 
 	@Override

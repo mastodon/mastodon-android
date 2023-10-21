@@ -210,7 +210,7 @@ public class AccountViewHolder extends BindableViewHolder<AccountViewModel> impl
 		});
 	}
 
-	private void setActionProgressVisible(boolean visible){
+	public void setActionProgressVisible(boolean visible){
 		if(visible)
 			actionProgress.setIndeterminateTintList(button.getTextColors());
 		button.setTextVisible(!visible);
@@ -312,7 +312,7 @@ public class AccountViewHolder extends BindableViewHolder<AccountViewModel> impl
 					menuButton.setVisibility(View.GONE);
 					checkbox.setBackground(new RadioButton(checkbox.getContext()).getButtonDrawable());
 				}
-				case BUTTON -> {
+				case BUTTON, CUSTOM_BUTTON -> {
 					button.setVisibility(View.VISIBLE);
 					checkbox.setVisibility(View.GONE);
 					menuButton.setVisibility(View.GONE);
@@ -381,11 +381,16 @@ public class AccountViewHolder extends BindableViewHolder<AccountViewModel> impl
 		return contextMenu;
 	}
 
+	public ProgressBarButton getButton(){
+		return button;
+	}
+
 	public enum AccessoryType{
 		NONE,
 		BUTTON,
 		CHECKBOX,
 		RADIOBUTTON,
-		MENU
+		MENU,
+		CUSTOM_BUTTON
 	}
 }

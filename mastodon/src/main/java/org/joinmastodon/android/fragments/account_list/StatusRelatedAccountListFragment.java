@@ -14,8 +14,4 @@ public abstract class StatusRelatedAccountListFragment extends PaginatedAccountL
 		status=Parcels.unwrap(getArguments().getParcelable("status"));
 	}
 
-	@Override
-	protected boolean hasSubtitle(){
-		return false;
-	}
 }

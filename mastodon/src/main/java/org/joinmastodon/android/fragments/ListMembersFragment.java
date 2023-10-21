@@ -6,6 +6,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowInsets;
 import android.widget.ImageButton;
 
 import com.squareup.otto.Subscribe;
@@ -29,7 +30,6 @@ import org.joinmastodon.android.ui.utils.UiUtils;
 import org.joinmastodon.android.ui.viewholders.AccountViewHolder;
 import org.parceler.Parcels;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
@@ -74,11 +74,6 @@ public class ListMembersFragment extends PaginatedAccountListFragment{
 	@Override
 	public HeaderPaginationRequest<Account> onCreateRequest(String maxID, int count){
 		return new GetListAccounts(followList.id, maxID, count);
-	}
-
-	@Override
-	protected boolean hasSubtitle(){
-		return false;
 	}
 
 	@Override
@@ -133,6 +128,12 @@ public class ListMembersFragment extends PaginatedAccountListFragment{
 		fab.setImageResource(R.drawable.ic_add_24px);
 		fab.setContentDescription(getString(R.string.add_list_member));
 		fab.setOnClickListener(v->onFabClick());
+	}
+
+	@Override
+	public void onApplyWindowInsets(WindowInsets insets){
+		super.onApplyWindowInsets(insets);
+		UiUtils.applyBottomInsetToFAB(fab, insets);
 	}
 
 	@Override

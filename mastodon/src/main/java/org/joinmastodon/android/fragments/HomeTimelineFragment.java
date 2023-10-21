@@ -7,6 +7,7 @@ import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -473,6 +474,7 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 		listsDropdownText=new TextView(getActivity());
 		listsDropdownText.setTextAppearance(R.style.action_bar_title);
 		listsDropdownText.setSingleLine();
+		listsDropdownText.setEllipsize(TextUtils.TruncateAt.END);
 		listsDropdownText.setGravity(Gravity.START | Gravity.CENTER_VERTICAL);
 		listsDropdownText.setPaddingRelative(V.dp(4), 0, V.dp(16), 0);
 		listsDropdownText.setText(getCurrentListTitle());

@@ -31,7 +31,6 @@ public class AccountSearchFragment extends BaseAccountListFragment{
 		super.onCreate(savedInstanceState);
 		setRefreshEnabled(false);
 		setEmptyText("");
-		dataLoaded();
 	}
 
 	@Override

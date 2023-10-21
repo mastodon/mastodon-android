@@ -3,6 +3,7 @@ package org.joinmastodon.android.ui.viewcontrollers;
 import android.os.Bundle;
 
 import org.joinmastodon.android.R;
+import org.joinmastodon.android.fragments.CreateListFragment;
 import org.joinmastodon.android.fragments.ManageListsFragment;
 import org.joinmastodon.android.model.FollowList;
 import org.joinmastodon.android.ui.utils.HideableSingleViewRecyclerAdapter;
@@ -25,7 +26,13 @@ public class HomeTimelineListsMenuController extends DropdownSubmenuController{
 		for(FollowList l:lists){
 			items.add(new Item<>(l.title, false, false, l, this::onListSelected));
 		}
-		items.add(new Item<Void>(dropdownController.getActivity().getString(R.string.manage_lists), false, true, i->{
+		items.add(new Item<Void>(dropdownController.getActivity().getString(R.string.create_list), false, true, i->{
+			dropdownController.dismiss();
+			Bundle args=new Bundle();
+			args.putString("account", dropdownController.getAccountID());
+			Nav.go(dropdownController.getActivity(), CreateListFragment.class, args);
+		}));
+		items.add(new Item<Void>(dropdownController.getActivity().getString(R.string.manage_lists), false, false, i->{
 			dropdownController.dismiss();
 			Bundle args=new Bundle();
 			args.putString("account", dropdownController.getAccountID());

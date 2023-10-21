@@ -36,8 +36,14 @@ public abstract class MastodonRecyclerFragment<T> extends BaseRecyclerFragment<T
 	@CallSuper
 	public void onViewCreated(View view, Bundle savedInstanceState){
 		super.onViewCreated(view, savedInstanceState);
-		if(wantsElevationOnScrollEffect())
-			list.addOnScrollListener(elevationOnScrollListener=new ElevationOnScrollListener((FragmentRootLinearLayout) view, getViewsForElevationEffect()));
+		if(wantsElevationOnScrollEffect()){
+			FragmentRootLinearLayout rootView;
+			if(view instanceof FragmentRootLinearLayout frl)
+				rootView=frl;
+			else
+				rootView=view.findViewById(R.id.appkit_loader_root);
+			list.addOnScrollListener(elevationOnScrollListener=new ElevationOnScrollListener(rootView, getViewsForElevationEffect()));
+		}
 		list.setItemAnimator(new BetterItemAnimator());
 		if(refreshLayout!=null){
 			int colorBackground=UiUtils.getThemeColor(getActivity(), R.attr.colorM3Background);

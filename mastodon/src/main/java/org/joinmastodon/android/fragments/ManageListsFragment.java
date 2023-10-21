@@ -4,6 +4,9 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.WindowInsets;
+import android.widget.ImageButton;
 
 import com.squareup.otto.Subscribe;
 
@@ -18,6 +21,7 @@ import org.joinmastodon.android.model.FollowList;
 import org.joinmastodon.android.model.viewmodel.ListItem;
 import org.joinmastodon.android.model.viewmodel.ListItemWithOptionsMenu;
 import org.joinmastodon.android.ui.M3AlertDialogBuilder;
+import org.joinmastodon.android.ui.utils.UiUtils;
 import org.parceler.Parcels;
 
 import java.util.List;
@@ -29,6 +33,12 @@ import me.grishka.appkit.api.ErrorResponse;
 import me.grishka.appkit.api.SimpleCallback;
 
 public class ManageListsFragment extends BaseSettingsFragment<FollowList> implements ListItemWithOptionsMenu.OptionsMenuListener<FollowList>{
+	private ImageButton fab;
+
+	public ManageListsFragment(){
+		setListLayoutId(R.layout.recycler_fragment_with_fab);
+	}
+
 	@Override
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
@@ -94,6 +104,21 @@ public class ManageListsFragment extends BaseSettingsFragment<FollowList> implem
 		}
 	}
 
+	@Override
+	public void onViewCreated(View view, Bundle savedInstanceState){
+		super.onViewCreated(view, savedInstanceState);
+		fab=view.findViewById(R.id.fab);
+		fab.setImageResource(R.drawable.ic_add_24px);
+		fab.setContentDescription(getString(R.string.create_list));
+		fab.setOnClickListener(v->onFabClick());
+	}
+
+	@Override
+	public void onApplyWindowInsets(WindowInsets insets){
+		super.onApplyWindowInsets(insets);
+		UiUtils.applyBottomInsetToFAB(fab, insets);
+	}
+
 	private void doDeleteList(FollowList list){
 		new DeleteList(list.id)
 				.setCallback(new Callback<>(){
@@ -148,5 +173,11 @@ public class ManageListsFragment extends BaseSettingsFragment<FollowList> implem
 			}
 			i++;
 		}
+	}
+
+	private void onFabClick(){
+		Bundle args=new Bundle();
+		args.putString("account", accountID);
+		Nav.go(getActivity(), CreateListFragment.class, args);
 	}
 }

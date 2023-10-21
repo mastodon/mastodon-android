@@ -761,6 +761,17 @@ public class UiUtils{
 		return insets;
 	}
 
+	public static void applyBottomInsetToFAB(View fab, WindowInsets insets){
+		int inset;
+		if(Build.VERSION.SDK_INT>=29 && insets.getTappableElementInsets().bottom==0 /*&& wantsOverlaySystemNavigation()*/){
+			int bottomInset=insets.getSystemWindowInsetBottom();
+			inset=bottomInset>0 ? Math.max(V.dp(40), bottomInset) : 0;
+		}else{
+			inset=0;
+		}
+		((ViewGroup.MarginLayoutParams) fab.getLayoutParams()).bottomMargin=V.dp(16)+inset;
+	}
+
 	public static String formatDuration(Context context, int seconds){
 		if(seconds<3600){
 			int minutes=seconds/60;
