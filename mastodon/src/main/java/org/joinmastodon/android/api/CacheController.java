@@ -321,13 +321,7 @@ public class CacheController{
 						lists=result;
 						if(callback!=null)
 							callback.onSuccess(result);
-						databaseThread.postRunnable(()->{
-							try(OutputStreamWriter out=new OutputStreamWriter(new FileOutputStream(getListsFile()))){
-								MastodonAPIController.gson.toJson(result, out);
-							}catch(IOException x){
-								Log.w(TAG, "failed to write lists to cache file", x);
-							}
-						}, 0);
+						writeListsToFile();
 					}
 
 					@Override
@@ -351,6 +345,16 @@ public class CacheController{
 		}
 	}
 
+	private void writeListsToFile(){
+		databaseThread.postRunnable(()->{
+			try(OutputStreamWriter out=new OutputStreamWriter(new FileOutputStream(getListsFile()))){
+				MastodonAPIController.gson.toJson(lists, out);
+			}catch(IOException x){
+				Log.w(TAG, "failed to write lists to cache file", x);
+			}
+		}, 0);
+	}
+
 	public void getLists(Callback<List<FollowList>> callback){
 		if(lists!=null){
 			if(callback!=null)
@@ -371,6 +375,34 @@ public class CacheController{
 
 	public File getListsFile(){
 		return new File(MastodonApp.context.getFilesDir(), "lists_"+accountID+".json");
+	}
+
+	public void addList(FollowList list){
+		if(lists==null)
+			return;
+		lists.add(list);
+		lists.sort(Comparator.comparing(l->l.title));
+		writeListsToFile();
+	}
+
+	public void deleteList(String id){
+		if(lists==null)
+			return;
+		lists.removeIf(l->l.id.equals(id));
+		writeListsToFile();
+	}
+
+	public void updateList(FollowList list){
+		if(lists==null)
+			return;
+		for(int i=0;i<lists.size();i++){
+			if(lists.get(i).id.equals(list.id)){
+				lists.set(i, list);
+				lists.sort(Comparator.comparing(l->l.title));
+				writeListsToFile();
+				break;
+			}
+		}
 	}
 
 	private class DatabaseHelper extends SQLiteOpenHelper{

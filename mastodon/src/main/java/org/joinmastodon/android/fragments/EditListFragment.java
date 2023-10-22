@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import org.joinmastodon.android.E;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.requests.lists.UpdateList;
+import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.events.ListUpdatedEvent;
 import org.joinmastodon.android.model.FollowList;
 import org.joinmastodon.android.ui.M3AlertDialogBuilder;
@@ -51,6 +52,7 @@ public class EditListFragment extends BaseEditListFragment{
 					.setCallback(new Callback<>(){
 						@Override
 						public void onSuccess(FollowList result){
+							AccountSessionManager.get(accountID).getCacheController().updateList(result);
 							E.post(new ListUpdatedEvent(accountID, result));
 						}
 

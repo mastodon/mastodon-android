@@ -12,6 +12,7 @@ import org.joinmastodon.android.E;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.requests.lists.DeleteList;
 import org.joinmastodon.android.api.requests.lists.GetListAccounts;
+import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.events.ListDeletedEvent;
 import org.joinmastodon.android.fragments.settings.BaseSettingsFragment;
 import org.joinmastodon.android.model.Account;
@@ -117,6 +118,7 @@ public abstract class BaseEditListFragment extends BaseSettingsFragment<Void>{
 				.setCallback(new Callback<>(){
 					@Override
 					public void onSuccess(Void result){
+						AccountSessionManager.get(accountID).getCacheController().deleteList(followList.id);
 						E.post(new ListDeletedEvent(accountID, followList.id));
 						Nav.finish(BaseEditListFragment.this);
 					}

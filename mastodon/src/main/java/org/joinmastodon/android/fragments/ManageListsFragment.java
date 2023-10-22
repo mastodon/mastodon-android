@@ -14,6 +14,7 @@ import org.joinmastodon.android.E;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.requests.lists.DeleteList;
 import org.joinmastodon.android.api.session.AccountSessionManager;
+import org.joinmastodon.android.events.ListCreatedEvent;
 import org.joinmastodon.android.events.ListDeletedEvent;
 import org.joinmastodon.android.events.ListUpdatedEvent;
 import org.joinmastodon.android.fragments.settings.BaseSettingsFragment;
@@ -24,6 +25,7 @@ import org.joinmastodon.android.ui.M3AlertDialogBuilder;
 import org.joinmastodon.android.ui.utils.UiUtils;
 import org.parceler.Parcels;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -59,7 +61,7 @@ public class ManageListsFragment extends BaseSettingsFragment<FollowList> implem
 		Callback<List<FollowList>> callback=new SimpleCallback<>(this){
 			@Override
 			public void onSuccess(List<FollowList> result){
-				onDataLoaded(result.stream().map(l->new ListItemWithOptionsMenu<>(l.title, null, ManageListsFragment.this, R.drawable.ic_list_alt_24px, ManageListsFragment.this::onListClick, l, false)).collect(Collectors.toList()), false);
+				onDataLoaded(result.stream().map(ManageListsFragment.this::makeItem).collect(Collectors.toList()), false);
 			}
 		};
 		if(refreshing){
@@ -71,6 +73,10 @@ public class ManageListsFragment extends BaseSettingsFragment<FollowList> implem
 					.getCacheController()
 					.getLists(callback);
 		}
+	}
+
+	private ListItem<FollowList> makeItem(FollowList l){
+		return new ListItemWithOptionsMenu<>(l.title, null, ManageListsFragment.this, R.drawable.ic_list_alt_24px, ManageListsFragment.this::onListClick, l, false);
 	}
 
 	private void onListClick(ListItemWithOptionsMenu<FollowList> item){
@@ -128,7 +134,7 @@ public class ManageListsFragment extends BaseSettingsFragment<FollowList> implem
 							if(data.get(i).parentObject==list){
 								data.remove(i);
 								itemsAdapter.notifyItemRemoved(i);
-								AccountSessionManager.get(accountID).getCacheController().reloadLists(null);
+								AccountSessionManager.get(accountID).getCacheController().deleteList(list.id);
 								break;
 							}
 						}
@@ -173,6 +179,16 @@ public class ManageListsFragment extends BaseSettingsFragment<FollowList> implem
 			}
 			i++;
 		}
+	}
+
+	@Subscribe
+	public void onListCreated(ListCreatedEvent ev){
+		if(!ev.accountID.equals(accountID))
+			return;
+		ListItem<FollowList> item=makeItem(ev.list);
+		data.add(item);
+		((List<ListItem<FollowList>>)data).sort(Comparator.comparing(l->l.parentObject.title));
+		itemsAdapter.notifyItemInserted(data.indexOf(item));
 	}
 
 	private void onFabClick(){

@@ -13,7 +13,10 @@ import org.joinmastodon.android.E;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.requests.lists.CreateList;
 import org.joinmastodon.android.api.requests.lists.UpdateList;
+import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.events.FinishListCreationFragmentEvent;
+import org.joinmastodon.android.events.ListCreatedEvent;
+import org.joinmastodon.android.events.ListUpdatedEvent;
 import org.joinmastodon.android.model.FollowList;
 import org.joinmastodon.android.ui.utils.UiUtils;
 import org.parceler.Parcels;
@@ -94,6 +97,8 @@ public class CreateListFragment extends BaseEditListFragment{
 						public void onSuccess(FollowList result){
 							followList=result;
 							proceed(false);
+							E.post(new ListCreatedEvent(accountID, result));
+							AccountSessionManager.get(accountID).getCacheController().addList(result);
 						}
 
 						@Override
@@ -110,6 +115,8 @@ public class CreateListFragment extends BaseEditListFragment{
 						public void onSuccess(FollowList result){
 							followList=result;
 							proceed(true);
+							E.post(new ListUpdatedEvent(accountID, result));
+							AccountSessionManager.get(accountID).getCacheController().updateList(result);
 						}
 
 						@Override
