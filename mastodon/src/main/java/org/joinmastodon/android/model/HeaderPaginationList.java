@@ -21,4 +21,10 @@ public class HeaderPaginationList<T> extends ArrayList<T>{
 	public HeaderPaginationList(@NonNull Collection<? extends T> c){
 		super(c);
 	}
+
+	public String getNextPageMaxID(){
+		if(nextPageUri==null)
+			return null;
+		return nextPageUri.getQueryParameter("max_id");
+	}
 }

@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.view.ViewGroup;
 import android.widget.Button;
 
 import org.joinmastodon.android.R;
@@ -17,6 +16,7 @@ import org.joinmastodon.android.model.viewmodel.AccountViewModel;
 import org.joinmastodon.android.ui.viewholders.AccountViewHolder;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import me.grishka.appkit.api.SimpleCallback;
 import me.grishka.appkit.utils.V;
@@ -24,6 +24,7 @@ import me.grishka.appkit.utils.V;
 @SuppressLint("ValidFragment") // This shouldn't be part of any saved states anyway
 public class AddNewListMembersFragment extends AccountSearchFragment{
 	private Listener listener;
+	private String maxID;
 
 	public AddNewListMembersFragment(Listener listener){
 		this.listener=listener;
@@ -38,11 +39,13 @@ public class AddNewListMembersFragment extends AccountSearchFragment{
 	@Override
 	protected void doLoadData(int offset, int count){
 		if(TextUtils.isEmpty(currentQuery)){
-			currentRequest=new GetAccountFollowing(AccountSessionManager.get(accountID).self.id, null, 10)
+			currentRequest=new GetAccountFollowing(AccountSessionManager.get(accountID).self.id, offset>0 ? maxID : null, count)
 					.setCallback(new SimpleCallback<>(this){
 						@Override
 						public void onSuccess(HeaderPaginationList<Account> result){
-							AddNewListMembersFragment.this.onSuccess(result);
+							setEmptyText("");
+							onDataLoaded(result.stream().map(a->new AccountViewModel(a, accountID)).collect(Collectors.toList()), result.nextPageUri!=null);
+							maxID=result.getNextPageMaxID();
 						}
 					})
 					.exec(accountID);
