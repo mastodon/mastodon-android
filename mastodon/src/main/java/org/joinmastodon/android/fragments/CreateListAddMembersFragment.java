@@ -153,7 +153,9 @@ public class CreateListAddMembersFragment extends BaseAccountListFragment implem
 			searchFragment.onApplyWindowInsets(lastInsets);
 		searchFragmentContainer.setTranslationX(V.dp(100));
 		searchFragmentContainer.setAlpha(0f);
-		searchFragmentContainer.animate().translationX(0).alpha(1).setDuration(300).setInterpolator(CubicBezierInterpolator.DEFAULT).start();
+		searchFragmentContainer.animate().translationX(0).alpha(1).setDuration(300).withLayer().setInterpolator(CubicBezierInterpolator.DEFAULT).withEndAction(()->{
+			rootView.setVisibility(View.GONE);
+		}).start();
 		return true;
 	}
 
@@ -182,7 +184,8 @@ public class CreateListAddMembersFragment extends BaseAccountListFragment implem
 		if(searchFragment==null || dismissingSearchFragment)
 			return;
 		dismissingSearchFragment=true;
-		searchFragmentContainer.animate().translationX(V.dp(100)).alpha(0).setDuration(200).setInterpolator(CubicBezierInterpolator.DEFAULT).withEndAction(()->{
+		rootView.setVisibility(View.VISIBLE);
+		searchFragmentContainer.animate().translationX(V.dp(100)).alpha(0).setDuration(200).withLayer().setInterpolator(CubicBezierInterpolator.DEFAULT).withEndAction(()->{
 			getChildFragmentManager().beginTransaction().remove(searchFragment).commit();
 			getChildFragmentManager().executePendingTransactions();
 			fragmentContentWrap.removeView(searchFragmentContainer);
