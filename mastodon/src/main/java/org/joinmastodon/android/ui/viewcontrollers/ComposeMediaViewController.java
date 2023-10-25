@@ -126,25 +126,7 @@ public class ComposeMediaViewController{
 		}
 	}
 
-	private String sanitizeMediaDescription(String description){
-		if(description == null){
-			return null;
-		}
-
-		// The Gboard android keyboard attaches this text whenever the user
-		// pastes something from the keyboard's suggestion bar.
-		// Due to different end user locales, the exact text may vary, but at
-		// least in version 13.4.08, all of the translations contained the
-		// string "Gboard".
-		if (description.contains("Gboard")){
-			return null;
-		}
-
-		return description;
-	}
-	
 	public boolean addMediaAttachment(Uri uri, String description){
-		description = sanitizeMediaDescription(description);
 		if(getMediaAttachmentsCount()==MAX_ATTACHMENTS){
 			showMediaAttachmentError(fragment.getResources().getQuantityString(R.plurals.cant_add_more_than_x_attachments, MAX_ATTACHMENTS, MAX_ATTACHMENTS));
 			return false;
