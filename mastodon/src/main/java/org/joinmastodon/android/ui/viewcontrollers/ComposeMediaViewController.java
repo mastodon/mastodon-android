@@ -125,7 +125,7 @@ public class ComposeMediaViewController{
 			updateMediaAttachmentsLayout();
 		}
 	}
-	
+
 	public boolean addMediaAttachment(Uri uri, String description){
 		if(getMediaAttachmentsCount()==MAX_ATTACHMENTS){
 			showMediaAttachmentError(fragment.getResources().getQuantityString(R.plurals.cant_add_more_than_x_attachments, MAX_ATTACHMENTS, MAX_ATTACHMENTS));
