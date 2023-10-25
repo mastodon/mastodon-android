@@ -288,7 +288,6 @@
 	<!-- %s is the server domain -->
 	<string name="local_timeline_info_banner">Toto jsou všechny příspěvky od všech uživatelů na vašem serveru (%s).</string>
 	<string name="recommended_accounts_info_banner">Podle toho, koho sledujete, by se vám mohly líbit tyto účty.</string>
-	<string name="see_new_posts">Zobrazit nové příspěvky</string>
 	<string name="load_missing_posts">Načíst chybějící příspěvky</string>
 	<string name="follow_back">Sledovat nazpět</string>
 	<string name="button_follow_pending">Čekající</string>
@@ -641,4 +640,7 @@
 	<string name="time_days_ago_short">Před %dd</string>
 	<!-- %s is the name of the post language -->
 	<!-- %1$s is the language, %2$s is the name of the translation service -->
+	<!-- Screen reader description for the menu on the home timeline screen -->
+	<!-- %s is the name of the list -->
+	<!-- %s is a username -->
 </resources>

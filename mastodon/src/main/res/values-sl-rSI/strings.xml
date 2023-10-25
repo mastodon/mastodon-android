@@ -276,7 +276,6 @@
 	<!-- %s is the server domain -->
 	<string name="local_timeline_info_banner">To so vse objave vseh uporabnikov na vašem strežniku (%s).</string>
 	<string name="recommended_accounts_info_banner">Glede na to, komu sledite, vam bodo ti računi všeč.</string>
-	<string name="see_new_posts">Pokaži nove objave</string>
 	<string name="load_missing_posts">Naloži manjkajoče objave</string>
 	<string name="follow_back">Sledijo nazaj</string>
 	<string name="button_follow_pending">Na čakanju</string>
@@ -547,4 +546,7 @@
 	<string name="settings_privacy">Zasebnost in dosegljivost</string>
 	<string name="settings_discoverable">Izpostavljaj profile in objave v algoritmih odkrivanja</string>
 	<string name="settings_indexable">Med zadetke iskanja vključi javne objave</string>
+	<!-- Screen reader description for the menu on the home timeline screen -->
+	<!-- %s is the name of the list -->
+	<!-- %s is a username -->
 </resources>

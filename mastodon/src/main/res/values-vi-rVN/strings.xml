@@ -249,7 +249,7 @@
 	<!-- %s is the server domain -->
 	<string name="local_timeline_info_banner">Đây là những tút từ người trên máy chủ của bạn (%s)</string>
 	<string name="recommended_accounts_info_banner">Có thể bạn quen những người này chăng?!</string>
-	<string name="see_new_posts">Đọc những tút mới</string>
+	<string name="see_new_posts">Những tút mới</string>
 	<string name="load_missing_posts">Tải tút chưa đọc</string>
 	<string name="follow_back">Theo dõi lại</string>
 	<string name="button_follow_pending">Đang chờ</string>
@@ -567,5 +567,44 @@
 	</plurals>
 	<plurals name="x_posts_today">
 		<item quantity="other">%,d tút hôm nay</item>
+	</plurals>
+	<string name="error_playing_video">Lỗi khi phát video</string>
+	<string name="lists">Danh sách</string>
+	<string name="followed_hashtags">Hashtag theo dõi</string>
+	<string name="no_lists">Bạn chưa có danh sách nào.</string>
+	<string name="no_followed_hashtags">Bạn chưa theo dõi hashtag nào.</string>
+	<string name="manage_lists">Quản lý danh sách</string>
+	<string name="manage_hashtags">Quản lý hashtag</string>
+	<!-- Screen reader description for the menu on the home timeline screen -->
+	<string name="dropdown_menu">Menu xổ xuống</string>
+	<string name="edit_list">Sửa danh sách</string>
+	<string name="list_members">Liệt kê các thành viên</string>
+	<string name="delete_list">Xóa danh sách</string>
+	<!-- %s is the name of the list -->
+	<string name="delete_list_confirm">Xóa “%s”?</string>
+	<string name="list_exclusive">Ẩn người đang theo dõi</string>
+	<string name="list_exclusive_subtitle">Nếu ai đó có trong danh sách này, ẩn họ trong bảng tin Đang theo dõi để tránh thấy tút của họ hiện trùng lặp.</string>
+	<string name="list_name">Tên danh sách</string>
+	<string name="list_show_replies_to">Hiện trả lời với</string>
+	<string name="list_replies_no_one">Không ai</string>
+	<string name="list_replies_members">Người trong danh sách</string>
+	<string name="list_replies_anyone">Người tôi theo dõi</string>
+	<string name="confirm_remove_list_members">Xóa người này?</string>
+	<string name="remove">Xóa</string>
+	<string name="add_list_member">Thêm người</string>
+	<string name="search_among_people_you_follow">Tìm những người mà bạn quan tâm</string>
+	<string name="add_user_to_list">Thêm vào danh sách…</string>
+	<string name="add_user_to_list_title">Thêm vào danh sách</string>
+	<!-- %s is a username -->
+	<string name="manage_user_lists">Quản lý danh sách %s xuất hiện trên</string>
+	<string name="remove_from_list">Xóa khỏi danh sách</string>
+	<string name="confirm_remove_list_member">Xóa người này?</string>
+	<string name="no_followed_hashtags_title">Theo dõi những hashtag bạn thích</string>
+	<string name="no_followed_hashtags_subtitle">Chúng sẽ xuất hiện ở đây</string>
+	<string name="no_lists_title">Sắp xếp bảng tin bằng Danh sách</string>
+	<string name="no_lists_subtitle">Danh sách sẽ xuất hiện ở đây</string>
+	<string name="manage_accounts">Thêm hoặc đổi tài khoản</string>
+	<plurals name="x_posts_recently">
+		<item quantity="other">%,d tút mới</item>
 	</plurals>
 </resources>

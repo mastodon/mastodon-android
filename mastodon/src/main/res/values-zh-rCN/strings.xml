@@ -249,7 +249,6 @@
 	<!-- %s is the server domain -->
 	<string name="local_timeline_info_banner">以下是来自你所在实例（%s）的所有嘟文。</string>
 	<string name="recommended_accounts_info_banner">根据你所关注的，你或许也会喜欢这些用户。</string>
-	<string name="see_new_posts">查看新嘟文</string>
 	<string name="load_missing_posts">加载嘟文</string>
 	<string name="follow_back">关注</string>
 	<string name="button_follow_pending">已发送关注请求</string>
@@ -561,4 +560,7 @@
 	<string name="settings_privacy">隐私与可达性</string>
 	<string name="settings_discoverable">在发现算法中展示您的个人资料和嘟文</string>
 	<string name="settings_indexable">将您的公开嘟文纳入搜索范围</string>
+	<!-- Screen reader description for the menu on the home timeline screen -->
+	<!-- %s is the name of the list -->
+	<!-- %s is a username -->
 </resources>

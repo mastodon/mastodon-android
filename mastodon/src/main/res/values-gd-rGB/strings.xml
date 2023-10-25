@@ -288,7 +288,7 @@
 	<!-- %s is the server domain -->
 	<string name="local_timeline_info_banner">Seo gach post o gach cleachdaiche an fhrithealaiche agad (%s).</string>
 	<string name="recommended_accounts_info_banner">Dh’fhaoidte gun còrd na cunntasan seo riut stèidhichte air feadhainn eile a tha thu a’ leantainn.</string>
-	<string name="see_new_posts">Seall na postaichean ùra</string>
+	<string name="see_new_posts">Postaichean ùra</string>
 	<string name="load_missing_posts">Luchdaich postaichean a dhìth</string>
 	<string name="follow_back">Lean air ais</string>
 	<string name="button_follow_pending">Ri dhèiligeadh</string>
@@ -641,5 +641,40 @@
 	<string name="time_hours_ago_short">%du air ais</string>
 	<string name="time_days_ago_short">%dl air ais</string>
 	<!-- %s is the name of the post language -->
+	<string name="translate_post">Eadar-theangaich o %s</string>
 	<!-- %1$s is the language, %2$s is the name of the translation service -->
+	<string name="post_translated">Air eadar-theangachadh o %1$s le %2$s</string>
+	<string name="translation_show_original">Seall an tionndadh tùsail</string>
+	<string name="translation_failed">Dh’fhàillig an t-eadar-theangachadh. Dh’fhaoidte nach do chuir an rianaire na h-eadar-theangachaidhean an comas air an fhrithealaiche seo no gu bheil am frithealaiche a’ ruith seann-tionndadh de Mhastodon far nach eil taic ri eadar-theangachadh fhathast.</string>
+	<string name="settings_privacy">Prìobhaideachd ’s ruigse</string>
+	<string name="settings_discoverable">Brosnaich a’ phròifil is postaichean agad sna h-algairimean luirg</string>
+	<string name="settings_indexable">Gabh na postaichean poblach a-staigh ann an toraidhean luirg</string>
+	<plurals name="x_participants">
+		<item quantity="one">%,d chom-pàirtiche</item>
+		<item quantity="two">%,d chom-pàirtiche</item>
+		<item quantity="few">%,d com-pàirtichean</item>
+		<item quantity="other">%,d com-pàirtiche</item>
+	</plurals>
+	<plurals name="x_posts_today">
+		<item quantity="one">%,d phost an-diugh</item>
+		<item quantity="two">%,d phost an-diugh</item>
+		<item quantity="few">%,d postaichean an-diugh</item>
+		<item quantity="other">%,d post an-diugh</item>
+	</plurals>
+	<string name="error_playing_video">Mearachd le cluich a’ video</string>
+	<string name="timeline_following">Dachaigh</string>
+	<string name="lists">Liostaichean</string>
+	<string name="followed_hashtags">Tagaichean hais ’gan leantainn</string>
+	<string name="no_lists">Chan eil liosta agad fhathast.</string>
+	<string name="no_followed_hashtags">Chan eil thu a’ leantainn taga hais fhathast.</string>
+	<string name="manage_lists">Stiùirich na liostaichean</string>
+	<string name="manage_hashtags">Stiùirich na tagaichean hais</string>
+	<!-- Screen reader description for the menu on the home timeline screen -->
+	<string name="dropdown_menu">Clàr-taice teàrnach</string>
+	<string name="edit_list">Deasaich an liosta</string>
+	<string name="list_members">Buill na liosta</string>
+	<string name="delete_list">Sguab às an liosta</string>
+	<!-- %s is the name of the list -->
+	<string name="delete_list_confirm">A bheil thu airson “%s” a sguabadh às?</string>
+	<!-- %s is a username -->
 </resources>

@@ -249,7 +249,7 @@
 	<!-- %s is the server domain -->
 	<string name="local_timeline_info_banner">あなたのサーバー (%s) の全ユーザーの全投稿です。</string>
 	<string name="recommended_accounts_info_banner">こちらは、あなたがフォローしている人に基づいた、おすすめのアカウントです。</string>
-	<string name="see_new_posts">新しい投稿を見る</string>
+	<string name="see_new_posts">新しい投稿</string>
 	<string name="load_missing_posts">不足している投稿を読み込む</string>
 	<string name="follow_back">フォローバック</string>
 	<string name="button_follow_pending">保留</string>
@@ -568,4 +568,50 @@
 	<plurals name="x_posts_today">
 		<item quantity="other">今日の投稿 %,d 件</item>
 	</plurals>
+	<string name="error_playing_video">動画再生に失敗しました</string>
+	<string name="timeline_following">ホーム</string>
+	<string name="lists">リスト</string>
+	<string name="followed_hashtags">フォロー中のハッシュタグ</string>
+	<string name="no_lists">まだリストがありません。</string>
+	<string name="no_followed_hashtags">ハッシュタグをフォローしていません。</string>
+	<string name="manage_lists">リストを管理</string>
+	<string name="manage_hashtags">ハッシュタグを管理</string>
+	<!-- Screen reader description for the menu on the home timeline screen -->
+	<string name="dropdown_menu">ドロップダウンメニュー</string>
+	<string name="edit_list">リストを編集</string>
+	<string name="list_members">リストのメンバー</string>
+	<string name="delete_list">リストを削除</string>
+	<!-- %s is the name of the list -->
+	<string name="delete_list_confirm">「%s」を削除しますか？</string>
+	<string name="list_exclusive">フォロー中のメンバーを非表示</string>
+	<string name="list_exclusive_subtitle">このリストに誰かが表示されている場合は、フォロー中タイムラインで投稿を 2 回表示しないように非表示にしてください。</string>
+	<string name="list_name">リスト名</string>
+	<string name="list_show_replies_to">リプライを表示</string>
+	<string name="list_replies_no_one">なし</string>
+	<string name="list_replies_members">リストのメンバー</string>
+	<string name="list_replies_anyone">フォローしている人</string>
+	<string name="confirm_remove_list_members">メンバーを削除しますか？</string>
+	<string name="remove">削除</string>
+	<string name="add_list_member">メンバーを追加</string>
+	<string name="search_among_people_you_follow">フォローしている人の中から検索</string>
+	<string name="add_user_to_list">リストに追加…</string>
+	<string name="add_user_to_list_title">リストに追加</string>
+	<!-- %s is a username -->
+	<string name="manage_user_lists">%s さんが表示されるリストを管理</string>
+	<string name="remove_from_list">リストから外す</string>
+	<string name="confirm_remove_list_member">メンバーを削除しますか？</string>
+	<string name="no_followed_hashtags_title">ハッシュタグをフォローして関心を持ち続けましょう</string>
+	<string name="no_followed_hashtags_subtitle">ここにフォローが表示されます</string>
+	<string name="no_lists_title">リストでホームフィードを整理する</string>
+	<string name="no_lists_subtitle">ここにリストが表示されます</string>
+	<string name="manage_accounts">アカウントの追加または切り替え</string>
+	<plurals name="x_posts_recently">
+		<item quantity="other">最近の投稿 %,d 件</item>
+	</plurals>
+	<string name="create_list">リストを作成</string>
+	<string name="step_x_of_y">%2$d ステップの %1$d</string>
+	<string name="create">作成</string>
+	<string name="manage_list_members">リストのメンバーを管理</string>
+	<string name="list_no_members">まだメンバーがいません</string>
+	<string name="list_find_users">追加したいユーザーを探す</string>
 </resources>

@@ -84,6 +84,10 @@
 		<item quantity="one">%d egun falta da</item>
 		<item quantity="other">%d egun falta dira</item>
 	</plurals>
+	<plurals name="x_votes">
+		<item quantity="one">Boto %,d</item>
+		<item quantity="other">%,d boto</item>
+	</plurals>
 	<string name="poll_closed">Itxita</string>
 	<string name="confirm_mute_title">Mututu kontua</string>
 	<string name="confirm_mute">Berretsi %s mututzea</string>
@@ -246,7 +250,6 @@
 	<string name="local_timeline">Lokala</string>
 	<string name="trending_posts_info_banner">Hauek dira zure Mastodon txokoan beraien lekua hartzen ari diren argitalpenak.</string>
 	<!-- %s is the server domain -->
-	<string name="see_new_posts">Ikusi bidalketa berriak</string>
 	<string name="load_missing_posts">Falta diren bidalketak kargatu</string>
 	<string name="follow_back">Jarraitu</string>
 	<string name="button_follow_pending">Zain</string>
@@ -443,4 +446,7 @@
 	<!-- Shown in the post header. Please keep it short -->
 	<!-- %s is the name of the post language -->
 	<!-- %1$s is the language, %2$s is the name of the translation service -->
+	<!-- Screen reader description for the menu on the home timeline screen -->
+	<!-- %s is the name of the list -->
+	<!-- %s is a username -->
 </resources>

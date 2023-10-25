@@ -9,7 +9,7 @@
 	<string name="preparing_auth">Valmistellaan todennusta…</string>
 	<string name="finishing_auth">Viimeistellään todennusta…</string>
 	<string name="user_boosted">%s tehosti</string>
-	<string name="in_reply_to">Vastauksessa %s</string>
+	<string name="in_reply_to">Vastaus käyttäjälle %s</string>
 	<string name="notifications">Ilmoitukset</string>
 	<string name="user_followed_you">%s seurasi sinua</string>
 	<string name="user_sent_follow_request">%s lähetti sinulle seurauspyynnön</string>
@@ -228,7 +228,7 @@
 	<string name="button_reblog">Tehosta</string>
 	<string name="button_favorite">Suosikki</string>
 	<string name="button_share">Jaa</string>
-	<string name="media_no_description">Kuva ilma kuvausta</string>
+	<string name="media_no_description">Kuva ilman kuvausta</string>
 	<string name="add_media">Lisää mediatiedosto</string>
 	<string name="add_poll">Lisää kysely</string>
 	<string name="emoji">Emoji</string>
@@ -240,8 +240,8 @@
 	<string name="followed_user">Seuraat nyt käyttäjää %s</string>
 	<string name="following_user_requested">Käyttäjän %s seuraamista pyydetty</string>
 	<string name="open_in_browser">Avaa selaimessa</string>
-	<string name="hide_boosts_from_user">Piilota käyttäjän @%s tehostukset</string>
-	<string name="show_boosts_from_user">Näytä tehostukset käyttäjältä @%s</string>
+	<string name="hide_boosts_from_user">Piilota käyttäjän %s tehostukset</string>
+	<string name="show_boosts_from_user">Näytä tehostukset käyttäjältä %s</string>
 	<string name="signup_reason">Miksi haluat liittyä?</string>
 	<string name="signup_reason_note">Tämä auttaa meitä arvioimaan hakemustasi.</string>
 	<string name="clear">Tyhjennä</string>
@@ -262,7 +262,6 @@
 	<!-- %s is the server domain -->
 	<string name="local_timeline_info_banner">Nämä ovat viestit kaikilta palvelimesi (%s) käyttäjiltä.</string>
 	<string name="recommended_accounts_info_banner">Muiden seuraamiesi perusteella saattaisit pitää näistä tileistä.</string>
-	<string name="see_new_posts">Uusia julkaisuja</string>
 	<string name="load_missing_posts">Lataa puuttuvat julkaisut</string>
 	<string name="follow_back">Seuraa takaisin</string>
 	<string name="button_follow_pending">Pyydetty</string>
@@ -270,11 +269,11 @@
 	<string name="manually_approves_followers">Hyväksyy seuraajat käsin</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<plurals name="x_followers">
-		<item quantity="one">%d seuraaja</item>
-		<item quantity="other">%d seuraajaa</item>
+		<item quantity="one">%,d seuraaja</item>
+		<item quantity="other">%,d seuraajaa</item>
 	</plurals>
 	<plurals name="x_following">
-		<item quantity="one">%d seurattu</item>
+		<item quantity="one">%,d seurattu</item>
 		<item quantity="other">%d seurattua</item>
 	</plurals>
 	<plurals name="x_favorites">
@@ -351,7 +350,7 @@
 	<string name="server_filter_region_asia">Aasia</string>
 	<string name="server_filter_region_oceania">Oseania</string>
 	<string name="not_accepting_new_members">Ei hyväksy uusia jäseniä</string>
-	<string name="category_special_interests">Erityiset Kiinnostukset</string>
+	<string name="category_special_interests">Erityiset kiinnostuksen kohteet</string>
 	<string name="signup_passwords_dont_match">Salasanat eivät täsmää</string>
 	<string name="pick_server_for_me">Valitse minulle</string>
 	<string name="profile_add_row">Lisää rivi</string>
@@ -385,7 +384,7 @@
 	<string name="signup_or_login">tai</string>
 	<string name="learn_more">Lue lisää</string>
 	<string name="welcome_to_mastodon">Tervetuloa Mastodoniin</string>
-	<string name="welcome_paragraph1">Mastodon on hajautettu sosiaalinen verkosto, joka tarkoittaa sitä, ettei sitä hallitse mikään yksittäinen yritys. Se koostuu monista itsenäisesti ylläpidetyistä palvelimista, jotka on liitetty yhteen.</string>
+	<string name="welcome_paragraph1">Mastodon on hajautettu sosiaalinen verkosto, mikä tarkoittaa sitä, ettei sitä hallitse mikään yksittäinen yritys. Se koostuu monista itsenäisesti ylläpidetyistä palvelimista, jotka on liitetty yhteen.</string>
 	<string name="what_are_servers">Mitä palvelimet ovat?</string>
 	<string name="welcome_paragraph2">Jokainen Mastodon tili isännöi palvelimella - kullakin on omat arvot, säännöt, &amp; ylläpitäjät. Riippumatta siitä, minkä valitset, voit seurata ja olla vuorovaikutuksessa ihmisten kanssa millä tahansa palvelimella.</string>
 	<string name="opening_link">Avataan linkki…</string>
@@ -583,11 +582,14 @@
 	<string name="time_hours_ago_short">%dh sitten</string>
 	<string name="time_days_ago_short">%dd sitten</string>
 	<!-- %s is the name of the post language -->
-	<string name="translate_post">Käännetty kielestä %s</string>
+	<string name="translate_post">Käännä kielestä %s</string>
 	<!-- %1$s is the language, %2$s is the name of the translation service -->
 	<string name="post_translated">Käännetty kielestä %1$s käyttäen %2$s</string>
 	<string name="translation_show_original">Näytä alkuperäinen</string>
 	<string name="translation_failed">Käännös epäonnistui. Ehkä järjestelmänvalvoja ei ole ottanut käyttöön käännöksiä tällä palvelimella tai tällä palvelimella on käynnissä vanhempi versio Mastodonista, jossa käännöksiä ei vielä tueta.</string>
+	<string name="settings_privacy">Yksityisyys ja tavoittavuus</string>
+	<string name="settings_discoverable">Nosta profiili ja julkaisut esille löytämisalgoritmeissa</string>
+	<string name="settings_indexable">Sisällytä julkiset julkaisut hakutuloksiin</string>
 	<plurals name="x_participants">
 		<item quantity="one">%d osallistuja</item>
 		<item quantity="other">%d osallistujaa</item>
@@ -596,4 +598,8 @@
 		<item quantity="one">%,d viesti tänään</item>
 		<item quantity="other">%,d viestiä tänään</item>
 	</plurals>
+	<string name="error_playing_video">Virhe videon toistossa</string>
+	<!-- Screen reader description for the menu on the home timeline screen -->
+	<!-- %s is the name of the list -->
+	<!-- %s is a username -->
 </resources>
