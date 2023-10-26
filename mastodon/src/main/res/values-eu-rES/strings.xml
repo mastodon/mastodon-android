@@ -250,6 +250,7 @@
 	<string name="local_timeline">Lokala</string>
 	<string name="trending_posts_info_banner">Hauek dira zure Mastodon txokoan beraien lekua hartzen ari diren argitalpenak.</string>
 	<!-- %s is the server domain -->
+	<string name="see_new_posts">Bidalketa berriak</string>
 	<string name="load_missing_posts">Falta diren bidalketak kargatu</string>
 	<string name="follow_back">Jarraitu</string>
 	<string name="button_follow_pending">Zain</string>
@@ -357,6 +358,10 @@
 	<string name="opening_link">Lotura irekitzen…</string>
 	<string name="retry">Berriro saiatu</string>
 	<!-- %s is formatted file size ("467 KB image") -->
+	<string name="attachment_description_image">irudi %s</string>
+	<string name="attachment_description_video">bideo %s</string>
+	<string name="attachment_description_audio">audio %s</string>
+	<string name="attachment_description_unknown">fitxategi %s</string>
 	<string name="attachment_type_image">Irudia</string>
 	<string name="attachment_type_video">Bideoa</string>
 	<string name="attachment_type_audio">Audioa</string>
