@@ -482,6 +482,24 @@
 	<string name="settings_show_cws">Pokaži opozorilo o vsebini</string>
 	<string name="settings_hide_sensitive_media">Skrij medij, ki je označen kot občutljiv</string>
 	<string name="settings_show_interaction_counts">Števci interakcije objave</string>
+	<plurals name="in_x_seconds">
+		<item quantity="one">čez %d sekundo</item>
+		<item quantity="two">čez %d sekundi</item>
+		<item quantity="few">čez %d sekunde</item>
+		<item quantity="other">čez %d sekund</item>
+	</plurals>
+	<plurals name="in_x_hours">
+		<item quantity="one">čez %d uro</item>
+		<item quantity="two">čez %d uri</item>
+		<item quantity="few">čez %d ure</item>
+		<item quantity="other">čez %d ur</item>
+	</plurals>
+	<plurals name="x_hours_ago">
+		<item quantity="one">pred %d uro</item>
+		<item quantity="two">pred %d urama</item>
+		<item quantity="few">pred %d urami</item>
+		<item quantity="other">pred %d urami</item>
+	</plurals>
 	<string name="count_one">Ena</string>
 	<string name="count_two">Dva</string>
 	<string name="count_three">Tri</string>
@@ -534,9 +552,9 @@
 	<string name="accounts_matching_string">Osebe s/z »%s«</string>
 	<!-- Shown in the post header. Please keep it short -->
 	<string name="time_seconds_ago_short">pred %d s</string>
-	<string name="time_minutes_ago_short">pred %d meseci</string>
-	<string name="time_hours_ago_short">pred %dh urami</string>
-	<string name="time_days_ago_short">pred %d dnemi</string>
+	<string name="time_minutes_ago_short">pred %d m</string>
+	<string name="time_hours_ago_short">pred %d u</string>
+	<string name="time_days_ago_short">pred %d d</string>
 	<!-- %s is the name of the post language -->
 	<string name="translate_post">Prevedi iz jezika: %s</string>
 	<!-- %1$s is the language, %2$s is the name of the translation service -->
