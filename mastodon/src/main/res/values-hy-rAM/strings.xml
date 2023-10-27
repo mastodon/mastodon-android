@@ -2,7 +2,9 @@
 <resources>
 	<string name="log_in">Մուտք գործել</string>
 	<string name="next">Հաջորդը</string>
+	<string name="loading_instance">Սերվերի տվյալների ստացում...</string>
 	<string name="error">Սխալ</string>
+	<string name="not_a_mastodon_instance">%s-ը Մաստոդոնի սերվեր չի։</string>
 	<string name="ok">Լավ</string>
 	<string name="preparing_auth">Պատրաստում ենք ավտոենտիֆիկացիայի…</string>
 	<string name="finishing_auth">Ավարտում ենք ավտոենտիֆիկացիան…</string>
@@ -42,6 +44,7 @@
 	<string name="unblock_user">Հանել արգելափակումից %s</string>
 	<string name="report_user">Բողոքել %s</string>
 	<string name="block_domain">Արգելափակել %s-ին</string>
+	<string name="unblock_domain">Հանել արգելափակումից %s</string>
 	<plurals name="x_posts">
 		<item quantity="one">%,d գրառում</item>
 		<item quantity="other">%,d գրառում</item>
