@@ -105,6 +105,12 @@
 		<item quantity="few">na voljo še %d dnevi</item>
 		<item quantity="other">na voljo še %d dni</item>
 	</plurals>
+	<plurals name="x_votes">
+		<item quantity="one">%,d glas</item>
+		<item quantity="two">%,d glasova</item>
+		<item quantity="few">%,d glasovi</item>
+		<item quantity="other">%,d glasov</item>
+	</plurals>
 	<string name="poll_closed">Zaprto</string>
 	<string name="confirm_mute_title">Utišaj račun</string>
 	<string name="confirm_mute">Potrdite utišanje %s</string>
@@ -217,6 +223,12 @@
 	<string name="notification_type_poll">Ankete</string>
 	<string name="choose_account">Izberite račun</string>
 	<string name="err_not_logged_in">Najprej se prijavite v Mastodon</string>
+	<plurals name="cant_add_more_than_x_attachments">
+		<item quantity="one">Ne morete dodati več kot %d medijske priloge</item>
+		<item quantity="two">Ne morete dodati več kot %d medijskih prilog</item>
+		<item quantity="few">Ne morete dodati več kot %d medijskih prilog</item>
+		<item quantity="other">Ne morete dodati več kot %d medijskih prilog</item>
+	</plurals>
 	<string name="media_attachment_unsupported_type">Vrsta datoteke %s ni podprta</string>
 	<string name="media_attachment_too_big">Datoteka %1$s presega omejitev velikosti %2$s MB</string>
 	<string name="settings_theme">Videz</string>
@@ -300,6 +312,12 @@
 		<item quantity="two">%,d priljubljena</item>
 		<item quantity="few">%,d priljubljeni</item>
 		<item quantity="other">%,d priljubljenih</item>
+	</plurals>
+	<plurals name="x_reblogs">
+		<item quantity="one">%,d izpostavitev</item>
+		<item quantity="two">%,d izpostavitvi</item>
+		<item quantity="few">%,d izpostavitve</item>
+		<item quantity="other">%,d izpostavitev</item>
 	</plurals>
 	<string name="timestamp_via_app">%1$s prek %2$s</string>
 	<string name="time_now">zdaj</string>
@@ -480,6 +498,12 @@
 	<string name="settings_notifications_policy">Prejemanje obvestil od</string>
 	<string name="notification_type_mentions_and_replies">Omembe in odgovori</string>
 	<string name="pause_all_notifications_title">Zaustavi vsa obvestila</string>
+	<plurals name="x_weeks">
+		<item quantity="one">%d teden</item>
+		<item quantity="two">%d tedna</item>
+		<item quantity="few">%d tedne</item>
+		<item quantity="other">%d tednov</item>
+	</plurals>
 	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
 	<string name="date_at_time">%1$s ob %2$s</string>
 	<string name="today">danes</string>
@@ -579,11 +603,24 @@
 	<string name="edit_muted_word">Uredi utišano besedo</string>
 	<string name="add">Dodaj</string>
 	<string name="filter_word_or_phrase">Beseda ali besedna zveza</string>
+	<string name="filter_add_word_help">Za besede se ne upošteva velikosti črk in se upoštevajo v celoti.\n\nČe filtrirate besedo »Pingvin«, bodo skrite objave, ki vsebujejo »pingvin« ali »pInGvIn«, ne pa »pingvinji«.</string>
 	<string name="settings_delete_filter_word">Ali želite izbrisati besedo »%s«?</string>
 	<string name="enter_selection_mode">Izberite</string>
 	<string name="select_all">Izberi vse</string>
 	<string name="settings_filter_duration_title">Filtriraj po trajanju</string>
 	<string name="filter_duration_custom">Po meri</string>
+	<plurals name="settings_delete_x_filter_words">
+		<item quantity="one">Ali želite izbrisati %d besedo?</item>
+		<item quantity="two">Ali želite izbrisati %d besedi?</item>
+		<item quantity="few">Ali želite izbrisati %d besede?</item>
+		<item quantity="other">Ali želite izbrisati %d besed?</item>
+	</plurals>
+	<plurals name="x_items_selected">
+		<item quantity="one">Izbranih: %d</item>
+		<item quantity="two">Izbranih: %d</item>
+		<item quantity="few">Izbranih: %d</item>
+		<item quantity="other">Izbranih: %d</item>
+	</plurals>
 	<string name="required_form_field_blank">Ne sme biti prazno</string>
 	<string name="filter_word_already_in_list">Že na seznamu</string>
 	<string name="app_update_ready">Posodobitev aplikacije je pripravljena</string>
@@ -612,13 +649,65 @@
 	<string name="settings_privacy">Zasebnost in dosegljivost</string>
 	<string name="settings_discoverable">Izpostavljaj profile in objave v algoritmih odkrivanja</string>
 	<string name="settings_indexable">Med zadetke iskanja vključi javne objave</string>
+	<plurals name="x_participants">
+		<item quantity="one">%,d udeleženec</item>
+		<item quantity="two">%,d udeleženca</item>
+		<item quantity="few">%,d udeleženci</item>
+		<item quantity="other">%,d udeležencev</item>
+	</plurals>
 	<plurals name="x_posts_today">
 		<item quantity="one">%,d objava danes</item>
 		<item quantity="two">%,d objavi danes</item>
 		<item quantity="few">%,d objave danes</item>
 		<item quantity="other">%,d objav danes</item>
 	</plurals>
+	<string name="error_playing_video">Napaka predvajanja videa</string>
+	<string name="timeline_following">Dom</string>
+	<string name="lists">Seznami</string>
+	<string name="followed_hashtags">Sledeni ključniki</string>
+	<string name="no_lists">Ustvarili niste še nobenega seznama.</string>
+	<string name="no_followed_hashtags">Ne sledite še nobenemu ključniku.</string>
+	<string name="manage_lists">Upravljanje seznamov</string>
+	<string name="manage_hashtags">Upravljanje ključnikov</string>
 	<!-- Screen reader description for the menu on the home timeline screen -->
+	<string name="dropdown_menu">Padajoči meni</string>
+	<string name="edit_list">Uredi seznam</string>
+	<string name="list_members">Člani seznama</string>
+	<string name="delete_list">Izbriši seznam</string>
 	<!-- %s is the name of the list -->
+	<string name="delete_list_confirm">Ali želite izbrisati »%s«?</string>
+	<string name="list_exclusive">Skrij v Sledeni</string>
+	<string name="list_exclusive_subtitle">Če je nekdo na tem seznamu, bodo njihove objave skrite v časovnici Sledeni in jih ne boste videli dvakrat.</string>
+	<string name="list_name">Ime seznama</string>
+	<string name="list_show_replies_to">Prikaz odgovorov</string>
+	<string name="list_replies_no_one">Nikomur</string>
+	<string name="list_replies_members">Članom seznama</string>
+	<string name="list_replies_anyone">Vsem, ki jim sledim</string>
+	<string name="confirm_remove_list_members">Odstranim člane?</string>
+	<string name="remove">Odstrani</string>
+	<string name="add_list_member">Dodaj člana</string>
+	<string name="search_among_people_you_follow">Iščite med ljudmi, katerim sledite</string>
+	<string name="add_user_to_list">Dodaj na seznam…</string>
+	<string name="add_user_to_list_title">Dodaj na seznam</string>
 	<!-- %s is a username -->
+	<string name="manage_user_lists">Upravljaj sezname, na katerih je %s</string>
+	<string name="remove_from_list">Odstrani s seznama</string>
+	<string name="confirm_remove_list_member">Odstranim člana?</string>
+	<string name="no_followed_hashtags_title">Spremljajte, kar vas zanima, s sledenjem ključnikom</string>
+	<string name="no_followed_hashtags_subtitle">Tu bodo prikazana sledenja</string>
+	<string name="no_lists_title">Organizirajte domači vir s seznami</string>
+	<string name="no_lists_subtitle">Tu bodo prikazan seznami</string>
+	<string name="manage_accounts">Dodajte profile ali preklopite med njimi</string>
+	<plurals name="x_posts_recently">
+		<item quantity="one">%,d nedavna objava</item>
+		<item quantity="two">%,d nedavni objavi</item>
+		<item quantity="few">%,d nedavne objave</item>
+		<item quantity="other">%,d nedavnih objav</item>
+	</plurals>
+	<string name="create_list">Ustvari seznam</string>
+	<string name="step_x_of_y">%1$d. korak od %2$d</string>
+	<string name="create">Ustvari</string>
+	<string name="manage_list_members">Upravljanje članov seznama</string>
+	<string name="list_no_members">Ni še nobenega člana</string>
+	<string name="list_find_users">Poišči člane za dodajanje</string>
 </resources>
