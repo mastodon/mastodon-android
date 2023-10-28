@@ -641,6 +641,7 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 		if(refreshing){
 			if(listMode==ListMode.LOCAL){
 				localTimelineBannerHelper.maybeAddBanner(list, mergeAdapter);
+				localTimelineBannerHelper.onBannerBecameVisible();
 			}else{
 				localTimelineBannerHelper.removeBanner(mergeAdapter);
 			}
