@@ -43,6 +43,7 @@ import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.model.TimelineMarkers;
 import org.joinmastodon.android.ui.displayitems.GapStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.StatusDisplayItem;
+import org.joinmastodon.android.ui.utils.DiscoverInfoBannerHelper;
 import org.joinmastodon.android.ui.viewcontrollers.HomeTimelineMenuController;
 import org.joinmastodon.android.ui.viewcontrollers.ToolbarDropdownMenuController;
 import org.joinmastodon.android.ui.views.FixedAspectRatioImageView;
@@ -61,6 +62,7 @@ import me.grishka.appkit.api.Callback;
 import me.grishka.appkit.api.ErrorResponse;
 import me.grishka.appkit.api.SimpleCallback;
 import me.grishka.appkit.utils.CubicBezierInterpolator;
+import me.grishka.appkit.utils.MergeRecyclerAdapter;
 import me.grishka.appkit.utils.V;
 
 public class HomeTimelineFragment extends StatusListFragment implements ToolbarDropdownMenuController.HostFragment{
@@ -77,12 +79,20 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 	private List<FollowList> lists=List.of();
 	private ListMode listMode=ListMode.FOLLOWING;
 	private FollowList currentList;
+	private MergeRecyclerAdapter mergeAdapter;
+	private DiscoverInfoBannerHelper localTimelineBannerHelper;
 
 	private String maxID;
 	private String lastSavedMarkerID;
 
 	public HomeTimelineFragment(){
 		setListLayoutId(R.layout.fragment_timeline);
+	}
+
+	@Override
+	public void onCreate(Bundle savedInstanceState){
+		super.onCreate(savedInstanceState);
+		localTimelineBannerHelper=new DiscoverInfoBannerHelper(DiscoverInfoBannerHelper.BannerType.LOCAL_TIMELINE, accountID);
 	}
 
 	@Override
@@ -617,6 +627,25 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 		loadData();
 		listsDropdownText.setText(getCurrentListTitle());
 		invalidateOptionsMenu();
+	}
+
+	@Override
+	protected RecyclerView.Adapter getAdapter(){
+		mergeAdapter=new MergeRecyclerAdapter();
+		mergeAdapter.addAdapter(super.getAdapter());
+		return mergeAdapter;
+	}
+
+	@Override
+	protected void onDataLoaded(List<Status> d, boolean more){
+		if(refreshing){
+			if(listMode==ListMode.LOCAL){
+				localTimelineBannerHelper.maybeAddBanner(list, mergeAdapter);
+			}else{
+				localTimelineBannerHelper.removeBanner(mergeAdapter);
+			}
+		}
+		super.onDataLoaded(d, more);
 	}
 
 	private String getCurrentListTitle(){
