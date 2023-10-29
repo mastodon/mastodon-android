@@ -45,12 +45,14 @@ import android.widget.Toolbar;
 
 import org.joinmastodon.android.E;
 import org.joinmastodon.android.GlobalUserPreferences;
+import org.joinmastodon.android.MainActivity;
 import org.joinmastodon.android.MastodonApp;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.requests.accounts.SetAccountBlocked;
 import org.joinmastodon.android.api.requests.accounts.SetAccountFollowed;
 import org.joinmastodon.android.api.requests.accounts.SetAccountMuted;
 import org.joinmastodon.android.api.requests.accounts.SetDomainBlocked;
+import org.joinmastodon.android.api.requests.search.GetSearchResults;
 import org.joinmastodon.android.api.requests.statuses.DeleteStatus;
 import org.joinmastodon.android.api.requests.statuses.GetStatusByID;
 import org.joinmastodon.android.api.session.AccountSessionManager;
@@ -63,6 +65,7 @@ import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.Emoji;
 import org.joinmastodon.android.model.Hashtag;
 import org.joinmastodon.android.model.Relationship;
+import org.joinmastodon.android.model.SearchResults;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.M3AlertDialogBuilder;
 import org.joinmastodon.android.ui.text.CustomEmojiSpan;
@@ -615,10 +618,10 @@ public class UiUtils{
 
 	public static void openURL(Context context, String accountID, String url){
 		Uri uri=Uri.parse(url);
-		if(accountID!=null && "https".equals(uri.getScheme()) && AccountSessionManager.getInstance().getAccount(accountID).domain.equalsIgnoreCase(uri.getAuthority())){
+		if(accountID!=null && "https".equals(uri.getScheme())){
 			List<String> path=uri.getPathSegments();
-			// Match URLs like https://mastodon.social/@Gargron/108132679274083591
-			if(path.size()==2 && path.get(0).matches("^@[a-zA-Z0-9_]+$") && path.get(1).matches("^[0-9]+$")){
+			if(AccountSessionManager.getInstance().getAccount(accountID).domain.equalsIgnoreCase(uri.getAuthority()) && path.size()==2 && path.get(0).matches("^@[a-zA-Z0-9_]+$") && path.get(1).matches("^[0-9]+$")){
+				// Match URLs like https://mastodon.social/@Gargron/108132679274083591
 				new GetStatusByID(path.get(1))
 						.setCallback(new Callback<>(){
 							@Override
@@ -632,6 +635,32 @@ public class UiUtils{
 							@Override
 							public void onError(ErrorResponse error){
 								error.showToast(context);
+								launchWebBrowser(context, url);
+							}
+						})
+						.wrapProgress((Activity)context, R.string.loading, true)
+						.exec(accountID);
+				return;
+			}else{
+				new GetSearchResults(url, null, true, null, 0, 0)
+						.setCallback(new Callback<>(){
+							@Override
+							public void onSuccess(SearchResults result){
+								Bundle args=new Bundle();
+								args.putString("account", accountID);
+								if(result.statuses!=null && !result.statuses.isEmpty()){
+									args.putParcelable("status", Parcels.wrap(result.statuses.get(0)));
+									Nav.go((Activity)context, ThreadFragment.class, args);
+								}else if(result.accounts!=null && !result.accounts.isEmpty()){
+									args.putParcelable("profileAccount", Parcels.wrap(result.accounts.get(0)));
+									Nav.go((Activity)context, ProfileFragment.class, args);
+								}else{
+									launchWebBrowser(context, url);
+								}
+							}
+
+							@Override
+							public void onError(ErrorResponse error){
 								launchWebBrowser(context, url);
 							}
 						})
