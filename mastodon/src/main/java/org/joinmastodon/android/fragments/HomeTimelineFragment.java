@@ -177,6 +177,7 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 							public void onSuccess(List<Status> result){
 								if(refreshing)
 									list.scrollToPosition(0);
+								maxID=result.isEmpty() ? null : result.get(result.size()-1).id;
 								onDataLoaded(result, !result.isEmpty());
 							}
 						})
@@ -189,6 +190,7 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 							public void onSuccess(List<Status> result){
 								if(refreshing)
 									list.scrollToPosition(0);
+								maxID=result.isEmpty() ? null : result.get(result.size()-1).id;
 								onDataLoaded(result, !result.isEmpty());
 							}
 						})
