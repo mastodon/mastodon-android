@@ -10,6 +10,7 @@ public class Translation extends BaseModel{
 	public String detectedSourceLanguage;
 	@RequiredField
 	public String provider;
+	public String spoilerText;
 	public MediaAttachment[] mediaAttachments;
 	public PollTranslation poll;
 
