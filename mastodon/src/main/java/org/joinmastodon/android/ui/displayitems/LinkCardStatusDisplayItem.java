@@ -102,7 +102,7 @@ public class LinkCardStatusDisplayItem extends StatusDisplayItem{
 		}
 
 		private void onClick(View v){
-			UiUtils.launchWebBrowser(itemView.getContext(), item.status.card.url);
+			UiUtils.openURL(itemView.getContext(), item.parentFragment.getAccountID(), item.status.card.url);
 		}
 	}
 }
