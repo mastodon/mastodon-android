@@ -616,6 +616,11 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 			imgLoader.bindViewHolder((ImageLoaderRecyclerAdapter) list.getAdapter(), text, text.getAbsoluteAdapterPosition());
 		}
 
+		SpoilerStatusDisplayItem.Holder spoiler=findHolderOfType(itemID, SpoilerStatusDisplayItem.Holder.class);
+		if(spoiler!=null){
+			spoiler.rebind();
+		}
+
 		MediaGridStatusDisplayItem.Holder media=findHolderOfType(itemID, MediaGridStatusDisplayItem.Holder.class);
 		if (media!=null) {
 			media.rebind();
