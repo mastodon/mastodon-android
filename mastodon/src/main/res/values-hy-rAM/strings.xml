@@ -2,7 +2,9 @@
 <resources>
 	<string name="log_in">Մուտք գործել</string>
 	<string name="next">Հաջորդը</string>
+	<string name="loading_instance">Սերվերի տվյալների ստացում...</string>
 	<string name="error">Սխալ</string>
+	<string name="not_a_mastodon_instance">%s-ը Մաստոդոնի սերվեր չի։</string>
 	<string name="ok">Լավ</string>
 	<string name="preparing_auth">Պատրաստում ենք ավտոենտիֆիկացիայի…</string>
 	<string name="finishing_auth">Ավարտում ենք ավտոենտիֆիկացիան…</string>
@@ -42,6 +44,7 @@
 	<string name="unblock_user">Հանել արգելափակումից %s</string>
 	<string name="report_user">Բողոքել %s</string>
 	<string name="block_domain">Արգելափակել %s-ին</string>
+	<string name="unblock_domain">Հանել արգելափակումից %s</string>
 	<plurals name="x_posts">
 		<item quantity="one">%,d գրառում</item>
 		<item quantity="other">%,d գրառում</item>
@@ -128,12 +131,14 @@
 	<string name="report_choose_posts">Կա՞ն զեկույցը ապացուցող գրառումներ։</string>
 	<string name="report_comment_hint">Լրացուցիչ մեկնաբանություններ</string>
 	<string name="sending_report">Զեկույցը ուղարկվում է․․․</string>
+	<string name="report_sent_title">Շնորհակալ ենք զեկուցման համար։</string>
 	<string name="mute_user_explain">Դուք չեք տեսնի նրա գրառումները։ Նա դեռ կարող է ձեզ հետևել և տեսնել ձեր գրառումները և չի իմանա, որ խլեցված է։</string>
 	<string name="block_user_explain">Դուք չեք տեսնի նրա գրառումները։ Նա չի կարող ձեզ հետևել կամ տեսնել ձեր գրառումները։ Նա կիմանա, որ արգելափակված է։</string>
 	<string name="report_personal_title">Չե՞ք ուզում սա տեսնել։</string>
 	<string name="back">Ետ</string>
 	<string name="search_communities">Սպասարկչի անուն կամ հասցե</string>
 	<string name="instance_rules_title">Սպասարկչի կանոնները</string>
+	<string name="instance_rules_subtitle">Շարունակելով` համաձայնվում եք հետևել %s-ի մոդերատորների կողմից սահմանված հետևյալ կանոններին.</string>
 	<string name="signup_title">Ստեղծել հաշիվ</string>
 	<string name="display_name">Անուն</string>
 	<string name="username">Մուտքանուն</string>
@@ -159,11 +164,14 @@
 	<string name="confirm_email_didnt_get">Հղում չե՞ք ստացել։</string>
 	<string name="resend">Ուղարկել նորից</string>
 	<string name="open_email_app">Բացել էլ․ փոստի հավելվածը</string>
+	<string name="resent_email">Հաստատման նամակը ուղարկվել է</string>
+	<string name="compose_hint">Գրեք կամ պատճենեք այն, ինչի մասին մտածում եք</string>
 	<string name="content_warning">Նախազգուշացում</string>
 	<string name="save">Պահպանել</string>
 	<string name="add_alt_text">Ավելացնել բացատրություն</string>
 	<string name="visibility_public">Հրապարակային</string>
 	<string name="visibility_followers_only">Միայն հետեւողներին</string>
+	<string name="visibility_private">Միայն նշած մարդկանց</string>
 	<string name="skip">Բաց թողնել</string>
 	<string name="notification_type_follow">Նոր հետևորդներ</string>
 	<string name="notification_type_favorite">Հավանումներ</string>
@@ -193,6 +201,7 @@
 	<string name="home_timeline">Տեղական հոսք</string>
 	<string name="my_profile">Իմ հաշիվ</string>
 	<string name="follow_user">Հետևել %s-ին</string>
+	<string name="followed_user">Դուք այժմ հետեւում եք %s-ին</string>
 	<string name="open_in_browser">Բացել բրաուզերում</string>
 	<string name="hide_boosts_from_user">Թաքցնել @%s-ի տարածումները</string>
 	<string name="show_boosts_from_user">Ցուցադրել @%s-ի տարածումները</string>
@@ -203,7 +212,9 @@
 	<string name="reorder">Վերադասավորել</string>
 	<string name="download">Ներբեռնել</string>
 	<string name="permission_required">Անհրաժեշտ է թույլտվություն</string>
+	<string name="storage_permission_to_download">Ֆայլը պահպանելու համար ծրագրին պահանջվում է հիշողության թույլտվություն։</string>
 	<string name="open_settings">Բացել կարգավորումները</string>
+	<string name="file_saved">Ֆայլը պահպանվել է</string>
 	<string name="downloading">Բեռնում․․․</string>
 	<string name="local_timeline">Տեղական</string>
 	<string name="trending_posts_info_banner">Այս գրառումները տարածված են Մաստոդոնում։</string>
@@ -250,6 +261,7 @@
 	<string name="edit_marked_sensitive">Նշվել է որպես դյուրազգաց</string>
 	<string name="edit_multiple_changed">Գրառումը խմբագրվել է</string>
 	<string name="edit">Խմբագրել</string>
+	<string name="discard_changes">Չեղարկե՞լ փոփոխությունները</string>
 	<string name="file_size_bytes">%d բայթ</string>
 	<string name="file_size_kb">%.2f ԿԲ</string>
 	<string name="file_size_mb">%.2f ՄԲ</string>
@@ -261,15 +273,21 @@
 	<string name="download_update">Ներբեռնել (%s)</string>
 	<string name="install_update">Տեղադրել</string>
 	<string name="privacy_policy_title">Ձեր գաղտնիությունը</string>
+	<string name="privacy_policy_subtitle">Չնայած նրան, որ Մաստոդոնի ծրագիրը չի պահպանում անձնական տվյալներ, սերվերը, որտեղ դուք գրանցվում եք, կարող է ունենալ այլ գաղտնիության քաղաքականություն։\n\nԵթե դուք համաձայն չեք %s-ի գաղտնիության քաղաքականության հետ, դուք կարող եք հետ գնալ եւ ընտրել ուրիշ սերվեր։</string>
 	<string name="i_agree">Համաձայն եմ</string>
 	<string name="empty_list">Ցանկը դատարկ է</string>
 	<string name="instance_signup_closed">Սպասարկիչը գրանցումներ չի ընդունում։</string>
 	<string name="text_copied">Պատճենվել է</string>
+	<string name="add_bookmark">Ավելացնել էջանիշ</string>
+	<string name="remove_bookmark">Հեռացնել էջանիշը</string>
 	<string name="bookmarks">Էջանիշեր</string>
 	<string name="your_favorites">Հավանածներ</string>
 	<string name="login_title">Բարի վերադարձ</string>
 	<string name="server_url">Սերվերի հասցե</string>
 	<string name="server_filter_any_language">Որևե լեզու</string>
+	<string name="server_filter_instant_signup">Գրանցում միանգամից</string>
+	<string name="server_filter_manual_review">Հայտերի ստուգում</string>
+	<string name="server_filter_any_signup_speed">Գրանցման որեւէ արագություն</string>
 	<string name="server_filter_region_europe">Եվրոպա</string>
 	<string name="server_filter_region_north_america">Հյուսիսային Ամերիկա</string>
 	<string name="server_filter_region_south_america">Հարավային Ամերիկա</string>
@@ -280,16 +298,23 @@
 	<string name="category_special_interests">Հատուկ հետաքրքրություններ</string>
 	<string name="signup_passwords_dont_match">Գաղտնաբառերը չեն համընկնում</string>
 	<string name="pick_server_for_me">Ընտրել իմ համար</string>
+	<string name="profile_add_row">Ավելացնել տող</string>
+	<string name="profile_setup">Հաշվի կարգավորում</string>
+	<string name="profile_setup_subtitle">Դուք կարող եք սա կատարել ավելի ուշ` Հաշիվ բաժնում։</string>
+	<string name="profile_setup_explanation">Դուք կարող եք ավելացնել ոչ ավել, քան չորս դաշտ։ Ավելացրեք այն, ինչ ուզում եք` դիրք, հղումներ, դերանուններ և այլն։</string>
 	<string name="popular_on_mastodon">Տարածված Մաստոդոնում</string>
 	<string name="follow_all">Հետևել բոլորին</string>
 	<string name="server_rules_disagree">Համաձայն չեմ</string>
 	<string name="privacy_policy_explanation">Կարճ ասած՝ մենք ոչինչ չենք հավաքում։</string>
 	<!-- %s is server domain -->
+	<string name="server_policy_disagree">Համաձայն չեմ %s-ի հետ</string>
 	<string name="profile_bio">Կենսագրություն</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<string name="signup_email_domain_blocked">%1$s-ը %2$s-ից գրանցումներ չի ընդունում։ Փորձեք ուրիշը կամ &lt;a&gt;ընտրեք ուրիշ սերվեր&lt;/a&gt;։</string>
 	<string name="spoiler_show">Ցույց տալ</string>
 	<string name="spoiler_hide">Թաքցնել</string>
+	<string name="poll_multiple_choice">Ընտրեք առնվազն մեկը</string>
 	<string name="save_changes">Պահպանել</string>
 	<string name="profile_timeline">Հոսք</string>
 	<string name="view_all">Դիտել բոլորը</string>
@@ -304,14 +329,34 @@
 	<string name="welcome_to_mastodon">Բարի գալուստ Մաստոդոն</string>
 	<string name="welcome_paragraph1">Մաստոդոնը ապակենտրոնացված սոցցանց է, այսինքն՝ այն չի պատկանում մի ընկերության։ Այն բաղկացած է բազմաթիվ անկախ և կապակցված սերվերներից։</string>
 	<string name="what_are_servers">Ի՞նչ է սերվերը։</string>
+	<string name="welcome_paragraph2">Մաստոդոնի որևէ հաշիվ գտնվում է սերվերի վրա - ամեն մեկը՝ իր արժեքներով, կանոններով և ադմիններով։ Դուք կարող եք հետևել և շփվել որևէ սերվերի մարդկանց հետ՝ անկախ ձեր ընտրությունից։</string>
+	<string name="log_out_all_accounts">Ելք բոլոր հաշիվներից</string>
 	<string name="retry">Կրկին</string>
 	<!-- %s is formatted file size ("467 KB image") -->
+	<string name="attachment_description_image">%s նկար</string>
+	<string name="attachment_description_video">%s տեսանյութ</string>
+	<string name="attachment_description_audio">%s ձայնագրություն</string>
+	<string name="attachment_description_unknown">%s ֆայլ</string>
+	<string name="attachment_type_image">Նկար</string>
+	<string name="attachment_type_video">Տեսանյութ</string>
+	<string name="attachment_type_audio">Ձայնագրություն</string>
+	<string name="attachment_type_gif">GIF</string>
+	<string name="attachment_type_unknown">Ֆայլ</string>
+	<string name="attachment_x_percent_uploaded">Բեռնվել է %d%%</string>
+	<string name="add_poll_option">Ավելացնել տարբերակ</string>
+	<string name="poll_length">Հարցման ժամկետ</string>
+	<string name="poll_style">Տեսակ</string>
+	<string name="compose_poll_single_choice">Նշել մեկը</string>
+	<string name="compose_poll_multiple_choice">Բազմակի ընտրություն</string>
+	<string name="delete_poll_option">Ջնջել տարբերակը</string>
+	<string name="poll_style_title">Հարցման տեսակ</string>
 	<string name="alt_text">Բացատրություն</string>
 	<string name="help">Օգնություն</string>
 	<string name="what_is_alt_text">Ի՞նչ է բացատրությունը։</string>
 	<string name="alt_text_help">Բացատրությունը օգնում է տեսողական խնդիրներ կամ դանդաղ կապ ունեցող մարդկանց և նրանց, ում պետք է կոնտեքստ:\n\nՀասկանալի, հակիրճ և օբյեկտիվ բացատրություն գրելով՝ դուք կարող եք գրառումը դարձնել ավելի հասկանալի և մատչելի։\n\n<ul><li>Նշեք կարևորը</li>\n<li>Կրճատեք նկարների տեքստը</li>\n<li>Օգտագործեք նախադասության սովորական կազմություն</li>\n<li>Մի՛ ավելացրեք անպետք տեքստ</li>\n<li>Բարդ նկարների (օրինակ՝ սխեմաների և քարտեզների) համար նշեք ուղղությունը և առանցքային հայտնաբերումները</li></ul></string>
 	<string name="edit_post">Խմբագրել գրառումը</string>
 	<string name="no_verified_link">Չկա հաստատված հղում</string>
+	<string name="compose_autocomplete_emoji_empty">Փնտրել էմոջի</string>
 	<string name="no_search_results">Այս հարցման համար ոչինչ չգտնվեց</string>
 	<string name="language">Լեզու</string>
 	<string name="language_default">Լռելյայն</string>
@@ -336,12 +381,19 @@
 	<string name="notifications_policy_followed">Մարդիկ, որոնք ձեզ հետեւում են</string>
 	<string name="notifications_policy_follower">Մարդիկ, որոնց դուք հետեւում եք</string>
 	<string name="notifications_policy_no_one">Ոչ ոք</string>
+	<plurals name="x_weeks">
+		<item quantity="one">%d շաբաթ</item>
+		<item quantity="other">%d շաբաթ</item>
+	</plurals>
 	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
+	<string name="date_at_time">%1$s, ժամը %2$s</string>
 	<string name="today">այսօր</string>
 	<string name="yesterday">երեկ</string>
 	<string name="tomorrow">վաղը</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="pause_notifications_ends">Ավարտվում է %s</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="open_system_notification_settings">Բացել ծանուցումների կարգավորումները</string>
 	<string name="about_server">Մեր մասին</string>
 	<string name="server_rules">Կանոններ</string>
 	<string name="server_administrator">Ադմինիստրատոր</string>
@@ -380,7 +432,14 @@
 	<string name="settings_edit_filter">Խմբագրել ֆիլտրը</string>
 	<string name="settings_filter_duration">Տեւողություն</string>
 	<string name="settings_filter_muted_words">Լռեցված բառեր</string>
+	<string name="filter_duration_forever">Միշտ</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="settings_filter_ends">Ավարտվում է %s</string>
+	<string name="selection_2_options">%1$s և %2$s</string>
+	<string name="selection_3_options">%1$s, %2$s և %3$s</string>
+	<string name="selection_4_or_more">%1$s,%2$s և ևս %3$d</string>
+	<string name="filter_word_or_phrase">Բառ կամ արտահայտություն</string>
+	<string name="filter_add_word_help">Բառերը զգայուն են տառաշարին եւ համապատասխանում են ամբողջ բառերի։\n\nՕրինակ, \"խնձոր\" բառը ավելացնելու դեպքում կթաքցվեն \"Խնձոր\" և \"ԽնՁոՐ\" բառերով գրառումները, բայց ոչ \"արքայախնձոր\" բառով գրառումները։</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
 	<!-- Shown in the post header. Please keep it short -->
 	<!-- %s is the name of the post language -->

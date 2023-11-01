@@ -262,6 +262,7 @@
 	<!-- %s is the server domain -->
 	<string name="local_timeline_info_banner">Bunlar, sunucunuzdaki (%s) tüm kullanıcıların gönderileridir.</string>
 	<string name="recommended_accounts_info_banner">Takip ettiğiniz hesaplara göre bu hesapları beğenebilirsiniz.</string>
+	<string name="see_new_posts">Yeni gönderiler</string>
 	<string name="load_missing_posts">Daha fazlası</string>
 	<string name="follow_back">Geri takip et</string>
 	<string name="button_follow_pending">Bekliyor</string>
@@ -598,7 +599,47 @@
 		<item quantity="one">%,d bunu gönder</item>
 		<item quantity="other">%,d bunları gönder</item>
 	</plurals>
+	<string name="error_playing_video">Video oynatılırken hata oluştu</string>
+	<string name="timeline_following">Anasayfa</string>
+	<string name="lists">Listeler</string>
+	<string name="followed_hashtags">Takip edilen etiketler</string>
+	<string name="no_lists">Henüz hiç bir listeniz yok.</string>
+	<string name="no_followed_hashtags">Hiçbir etiketleri takip etmiyorsun.</string>
+	<string name="manage_lists">Listeleri yönetin</string>
+	<string name="manage_hashtags">Etiketleri yönetin</string>
 	<!-- Screen reader description for the menu on the home timeline screen -->
+	<string name="dropdown_menu">Açılır menü</string>
+	<string name="edit_list">Listeyi düzenle</string>
+	<string name="list_members">Liste üyeleri</string>
+	<string name="delete_list">Listeyi sil</string>
 	<!-- %s is the name of the list -->
+	<string name="delete_list_confirm">Sil “%s”?</string>
+	<string name="list_exclusive">Takip edilen üyeleri gizle</string>
+	<string name="list_exclusive_subtitle">Birisi bu listede yer alıyorsa, gönderilerini iki kez görmekten kaçınmak için onu Takip Edenleri zaman akışınızdan gizleyin.</string>
+	<string name="list_name">Liste ismi</string>
+	<string name="list_show_replies_to">Yanıtları göster</string>
+	<string name="list_replies_no_one">Hiç kimse</string>
+	<string name="list_replies_members">Liste üyeleri</string>
+	<string name="list_replies_anyone">Takip ettiğim herkes</string>
+	<string name="confirm_remove_list_members">Üyeleri çıkar?</string>
+	<string name="remove">Kaldır</string>
+	<string name="add_list_member">Üye ekle</string>
+	<string name="search_among_people_you_follow">Takip ettiğiniz kişiler arasında arama yapın</string>
+	<string name="add_user_to_list">Listeye ekle...</string>
+	<string name="add_user_to_list_title">Listeye ekle</string>
 	<!-- %s is a username -->
+	<string name="manage_user_lists">Listeleri yönet %s şurada görünür</string>
+	<string name="remove_from_list">Listeden çıkar</string>
+	<string name="confirm_remove_list_member">Üyeyi çıkar?</string>
+	<string name="no_followed_hashtags_title">Etiketleri takip ederek ilgi alanlarınızı takip edin</string>
+	<string name="no_followed_hashtags_subtitle">Takipler burada görüntülenecek</string>
+	<string name="no_lists_title">Ev beslemenizi Listeler ile düzenleyin</string>
+	<string name="no_lists_subtitle">Sizinki burada görüntülenecek</string>
+	<string name="manage_accounts">Hesap ekleme veya değiştirme</string>
+	<string name="create_list">Liste oluştur</string>
+	<string name="step_x_of_y"></string>
+	<string name="create">Oluştur</string>
+	<string name="manage_list_members">Liste üyelerini yönet</string>
+	<string name="list_no_members">Henüz üye yok.</string>
+	<string name="list_find_users">Eklenecek kullanıcıları bul</string>
 </resources>

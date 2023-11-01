@@ -262,6 +262,7 @@
 	<!-- %s is the server domain -->
 	<string name="local_timeline_info_banner">Αυτές είναι όλες οι αναρτήσεις από όλους τους χρήστες στο διακομιστή σου (%s).</string>
 	<string name="recommended_accounts_info_banner">Μπορεί να σου αρέσουν αυτοί οι λογαριασμοί με βάση άλλους που ακολουθείς.</string>
+	<string name="see_new_posts">Νέες αναρτήσεις</string>
 	<string name="load_missing_posts">Φόρτωση αναρτήσεων που λείπουν</string>
 	<string name="follow_back">Ακολούθησε και εσύ</string>
 	<string name="button_follow_pending">Εκκρεμεί</string>
@@ -599,6 +600,7 @@
 		<item quantity="other">%,d αναρτήσεις σήμερα</item>
 	</plurals>
 	<string name="error_playing_video">Σφάλμα αναπαραγωγής βίντεο</string>
+	<string name="timeline_following">Αρχική</string>
 	<string name="lists">Λίστες</string>
 	<string name="followed_hashtags">Ετικέτες που ακολουθούνται</string>
 	<string name="no_lists">Δεν έχεις καμία λίστα ακόμα.</string>
@@ -613,5 +615,17 @@
 	<!-- %s is the name of the list -->
 	<string name="delete_list_confirm">Διαγραφή “%s”;</string>
 	<string name="list_exclusive">Απόκρυψη μελών στο Ακολουθείς</string>
+	<string name="list_exclusive_subtitle">Αν κάποιος είναι σε αυτή τη λίστα, κρύψε τον στη ροή Ακολουθείς σας για να αποφεύγεις να βλέπεις τις αναρτήσεις του δύο φορές.</string>
+	<string name="list_name">Όνομα λίστας</string>
+	<string name="list_show_replies_to">Εμφάνιση απαντήσεων σε</string>
+	<string name="list_replies_no_one">Κανένας</string>
+	<string name="list_replies_members">Μέλη της λίστας</string>
+	<string name="list_replies_anyone">Όποιον ακολουθώ</string>
+	<string name="confirm_remove_list_members">Αφαίρεση μελών;</string>
+	<string name="remove">Αφαίρεση</string>
+	<string name="add_list_member">Προσθήκη μέλους</string>
+	<string name="search_among_people_you_follow">Αναζήτησε μεταξύ των ανθρώπων που ακουλουθείς</string>
+	<string name="add_user_to_list">Προσθήκη στη λίστα…</string>
+	<string name="add_user_to_list_title">Προσθήκη στη λίστα</string>
 	<!-- %s is a username -->
 </resources>
