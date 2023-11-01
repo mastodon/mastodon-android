@@ -9,6 +9,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
 import android.text.TextUtils;
+import android.util.Pair;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +22,8 @@ import org.joinmastodon.android.R;
 import org.joinmastodon.android.fragments.BaseStatusListFragment;
 import org.joinmastodon.android.model.Attachment;
 import org.joinmastodon.android.model.Status;
+import org.joinmastodon.android.model.Translation;
+import org.joinmastodon.android.ui.OutlineProviders;
 import org.joinmastodon.android.ui.PhotoLayoutHelper;
 import org.joinmastodon.android.ui.drawables.SpoilerStripesDrawable;
 import org.joinmastodon.android.ui.photoviewer.PhotoViewerHost;
@@ -31,7 +34,12 @@ import org.joinmastodon.android.ui.views.MediaGridLayout;
 import org.joinmastodon.android.utils.TypedObjectPool;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Optional;
 
 import me.grishka.appkit.imageloader.ImageLoaderViewHolder;
 import me.grishka.appkit.imageloader.requests.ImageLoaderRequest;
@@ -45,6 +53,7 @@ public class MediaGridStatusDisplayItem extends StatusDisplayItem{
 	private final PhotoLayoutHelper.TiledLayoutResult tiledLayout;
 	private final TypedObjectPool<GridItemType, MediaAttachmentViewController> viewPool;
 	private final List<Attachment> attachments;
+	private final Map<String, Pair<String, String>> translatedAttachments = new HashMap<>();
 	private final ArrayList<ImageLoaderRequest> requests=new ArrayList<>();
 	public final Status status;
 	public boolean sensitiveRevealed;
@@ -181,6 +190,25 @@ public class MediaGridStatusDisplayItem extends StatusDisplayItem{
 					c.altButton.setAlpha(1f);
 				}
 				controllers.add(c);
+
+				if (item.status.translation != null){
+					if(item.status.translationState==Status.TranslationState.SHOWN){
+						if(!item.translatedAttachments.containsKey(att.id)){
+							Optional<Translation.MediaAttachment> translatedAttachment=Arrays.stream(item.status.translation.mediaAttachments).filter(mediaAttachment->mediaAttachment.id.equals(att.id)).findFirst();
+							translatedAttachment.ifPresent(mediaAttachment->{
+								item.translatedAttachments.put(mediaAttachment.id, new Pair<>(att.description, mediaAttachment.description));
+								att.description=mediaAttachment.description;
+							});
+						}else{
+							//SAFETY: must be non-null, as we check if the map contains the attachment before
+							att.description=Objects.requireNonNull(item.translatedAttachments.get(att.id)).second;
+						}
+					}else{
+						if (item.translatedAttachments.containsKey(att.id)) {
+							att.description=Objects.requireNonNull(item.translatedAttachments.get(att.id)).first;
+						}
+					}
+				}
 				c.bind(att, item.status);
 				i++;
 			}

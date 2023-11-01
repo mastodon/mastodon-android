@@ -586,6 +586,10 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 										return;
 									status.translation=result;
 									status.translationState=Status.TranslationState.SHOWN;
+									MediaGridStatusDisplayItem.Holder media=findHolderOfType(itemID, MediaGridStatusDisplayItem.Holder.class);
+									if (media!=null) {
+										media.rebind();
+									}
 									TextStatusDisplayItem.Holder text=findHolderOfType(itemID, TextStatusDisplayItem.Holder.class);
 									if(text!=null){
 										text.updateTranslation(true);
@@ -618,7 +622,14 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 			text.updateTranslation(true);
 			imgLoader.bindViewHolder((ImageLoaderRecyclerAdapter) list.getAdapter(), text, text.getAbsoluteAdapterPosition());
 		}
+
+		MediaGridStatusDisplayItem.Holder media=findHolderOfType(itemID, MediaGridStatusDisplayItem.Holder.class);
+		if (media!=null) {
+			media.rebind();
+		}
 	}
+
+	private void updateTranslation() {}
 
 	public void rebuildAllDisplayItems(){
 		displayItems.clear();
