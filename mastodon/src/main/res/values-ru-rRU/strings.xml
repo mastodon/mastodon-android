@@ -591,10 +591,10 @@
 	<string name="selection_2_options">%1$s и %2$s</string>
 	<string name="selection_3_options">%1$s, %2$s и %3$s</string>
 	<string name="selection_4_or_more">%1$s, %2$s и ещё %3$d</string>
-	<string name="filter_context_home_lists">Главная &amp; списки</string>
+	<string name="filter_context_home_lists">Главная и списки</string>
 	<string name="filter_context_notifications">Уведомления</string>
 	<string name="filter_context_public_timelines">Публичная лента</string>
-	<string name="filter_context_threads_replies">Темы &amp; ответы</string>
+	<string name="filter_context_threads_replies">Темы и ответы</string>
 	<string name="filter_context_profiles">Профили</string>
 	<string name="settings_filter_title">Название</string>
 	<string name="settings_delete_filter_title">Удалить фильтр “%s”?</string>
@@ -666,7 +666,7 @@
 	<string name="lists">Списки</string>
 	<string name="followed_hashtags">Отслеживаемые хэштеги</string>
 	<string name="no_lists">У вас пока нет списков.</string>
-	<string name="no_followed_hashtags">Вы не следите за хэштэгами.</string>
+	<string name="no_followed_hashtags">Вы не следите за хэштегами.</string>
 	<string name="manage_lists">Управление списками</string>
 	<string name="manage_hashtags">Управление хэштегами</string>
 	<!-- Screen reader description for the menu on the home timeline screen -->
@@ -679,19 +679,35 @@
 	<string name="list_exclusive">Скрыть участников в подписках</string>
 	<string name="list_exclusive_subtitle">Если кто-то есть в этом списке, скройте его в ленте подписок, чтобы его посты не появлялись дважды.</string>
 	<string name="list_name">Название списка</string>
-	<string name="list_replies_members">Участники списка</string>
+	<string name="list_show_replies_to">Показывать</string>
+	<string name="list_replies_no_one">Никого</string>
+	<string name="list_replies_members">Участников списка</string>
+	<string name="list_replies_anyone">Любого, на кого я подписан(а)</string>
 	<string name="confirm_remove_list_members">Удалить участников?</string>
 	<string name="remove">Удалить</string>
 	<string name="add_list_member">Добавить участника</string>
+	<string name="search_among_people_you_follow">Искать среди подписок</string>
 	<string name="add_user_to_list">Добавить в список…</string>
 	<string name="add_user_to_list_title">Добавить в список</string>
 	<!-- %s is a username -->
+	<string name="manage_user_lists">Управлять списками с %s</string>
 	<string name="remove_from_list">Удалить из списка</string>
 	<string name="confirm_remove_list_member">Удалить участника?</string>
+	<string name="no_followed_hashtags_title">Следите за интересами по хэштегам</string>
+	<string name="no_followed_hashtags_subtitle">Здесь появятся хэштеги</string>
+	<string name="no_lists_title">Организуйте свою ленту с помощью списков</string>
+	<string name="no_lists_subtitle">Здесь появятся списки</string>
 	<string name="manage_accounts">Добавить или переключить аккаунты</string>
+	<plurals name="x_posts_recently">
+		<item quantity="one">%,d пост недавно</item>
+		<item quantity="few">%,d поста недавно</item>
+		<item quantity="many">%,d постов недавно</item>
+		<item quantity="other">%,d постов недавно</item>
+	</plurals>
 	<string name="create_list">Создать список</string>
 	<string name="step_x_of_y">Шаг %1$d из %2$d</string>
 	<string name="create">Создать</string>
 	<string name="manage_list_members">Управление списоком участников</string>
+	<string name="list_no_members">Участников пока нет</string>
 	<string name="list_find_users">Найти пользователей для добавления</string>
 </resources>
