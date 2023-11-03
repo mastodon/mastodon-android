@@ -282,7 +282,7 @@
 	<string name="file_saved">Файл сохранён</string>
 	<string name="downloading">Скачивание…</string>
 	<string name="no_app_to_handle_action">Нет приложения для обработки этого действия</string>
-	<string name="local_timeline">Локальные</string>
+	<string name="local_timeline">Локальная</string>
 	<string name="trending_posts_info_banner">Эти посты набирают популярность в Mastodon.</string>
 	<string name="trending_links_info_banner">Это новости, о которых говорят в Mastodon.</string>
 	<!-- %s is the server domain -->
@@ -666,7 +666,32 @@
 	<string name="lists">Списки</string>
 	<string name="followed_hashtags">Отслеживаемые хэштеги</string>
 	<string name="no_lists">У вас пока нет списков.</string>
+	<string name="no_followed_hashtags">Вы не следите за хэштэгами.</string>
+	<string name="manage_lists">Управление списками</string>
+	<string name="manage_hashtags">Управление хэштегами</string>
 	<!-- Screen reader description for the menu on the home timeline screen -->
+	<string name="dropdown_menu">Выпадающее меню</string>
+	<string name="edit_list">Изменить список</string>
+	<string name="list_members">Список участников</string>
+	<string name="delete_list">Удалить список</string>
 	<!-- %s is the name of the list -->
+	<string name="delete_list_confirm">Удалить “%s”?</string>
+	<string name="list_exclusive">Скрыть участников в подписках</string>
+	<string name="list_exclusive_subtitle">Если кто-то есть в этом списке, скройте его в ленте подписок, чтобы его посты не появлялись дважды.</string>
+	<string name="list_name">Название списка</string>
+	<string name="list_replies_members">Участники списка</string>
+	<string name="confirm_remove_list_members">Удалить участников?</string>
+	<string name="remove">Удалить</string>
+	<string name="add_list_member">Добавить участника</string>
+	<string name="add_user_to_list">Добавить в список…</string>
+	<string name="add_user_to_list_title">Добавить в список</string>
 	<!-- %s is a username -->
+	<string name="remove_from_list">Удалить из списка</string>
+	<string name="confirm_remove_list_member">Удалить участника?</string>
+	<string name="manage_accounts">Добавить или переключить аккаунты</string>
+	<string name="create_list">Создать список</string>
+	<string name="step_x_of_y">Шаг %1$d из %2$d</string>
+	<string name="create">Создать</string>
+	<string name="manage_list_members">Управление списоком участников</string>
+	<string name="list_find_users">Найти пользователей для добавления</string>
 </resources>
