@@ -352,6 +352,7 @@
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
 	<string name="spoiler_show">Erakutsi hala ere</string>
+	<string name="spoiler_hide">Berrezkutatu</string>
 	<string name="poll_multiple_choice">Aukeratu bat edo gehiago</string>
 	<string name="save_changes">Gorde aldaketak</string>
 	<string name="profile_featured">Nabarmenak</string>
@@ -429,9 +430,17 @@
 	<string name="server_rules">Arauak</string>
 	<string name="server_administrator">Administratzailea</string>
 	<string name="settings_show_cws">Erakutsi eduki abisuak</string>
+	<plurals name="in_x_minutes">
+		<item quantity="one">minutu %d barru</item>
+		<item quantity="other">%d minutu barru</item>
+	</plurals>
 	<plurals name="in_x_hours">
 		<item quantity="one">Ordu %d barru</item>
 		<item quantity="other">%d ordu barru</item>
+	</plurals>
+	<plurals name="x_hours_ago">
+		<item quantity="one">Duela ordu %d</item>
+		<item quantity="other">Duela %d ordu</item>
 	</plurals>
 	<string name="count_one">Bat</string>
 	<string name="count_two">Bi</string>
@@ -469,6 +478,7 @@
 	<string name="search_mastodon">Bilatu Mastodonen</string>
 	<string name="clear_all">Garbitu dena</string>
 	<string name="search_open_url">Ireki URLa Mastodonen</string>
+	<string name="search_go_to_account">Joan hona %s</string>
 	<!-- Shown in the post header. Please keep it short -->
 	<string name="time_seconds_ago_short">Duela %d segundo</string>
 	<string name="time_minutes_ago_short">Duela %d minutu</string>
@@ -480,6 +490,10 @@
 	<string name="settings_privacy">Pribatutasuna eta irismena</string>
 	<string name="settings_discoverable">Ezagutarazi profila eta bidalketak bilaketa algoritmoetan</string>
 	<string name="settings_indexable">Gehitu argitalpen publikoak bilaketa-emaitzetan</string>
+	<plurals name="x_participants">
+		<item quantity="one">partaide %,d</item>
+		<item quantity="other">%d partaide</item>
+	</plurals>
 	<string name="timeline_following">Hasiera</string>
 	<string name="lists">Zerrendak</string>
 	<string name="followed_hashtags">Jarraitutako traolak</string>
