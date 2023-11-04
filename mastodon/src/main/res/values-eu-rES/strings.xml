@@ -419,6 +419,10 @@
 	<string name="notifications_policy_follower">Zuk jarraitzen dituzun pertsonak</string>
 	<string name="notifications_policy_no_one">Bat ere ez</string>
 	<string name="pause_all_notifications_title">Pausatu jakinarazpen guztiak</string>
+	<plurals name="x_weeks">
+		<item quantity="one">aste %d</item>
+		<item quantity="other">%d aste</item>
+	</plurals>
 	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
 	<string name="date_at_time">%1$s %2$s-etan</string>
 	<string name="today">gaur</string>
@@ -429,7 +433,12 @@
 	<string name="about_server">Honi buruz</string>
 	<string name="server_rules">Arauak</string>
 	<string name="server_administrator">Administratzailea</string>
+	<string name="send_email_to_server_admin">Administratzaileari mezua</string>
 	<string name="settings_show_cws">Erakutsi eduki abisuak</string>
+	<plurals name="in_x_seconds">
+		<item quantity="one">segundo %d barru</item>
+		<item quantity="other">%d segundo barru</item>
+	</plurals>
 	<plurals name="in_x_minutes">
 		<item quantity="one">minutu %d barru</item>
 		<item quantity="other">%d minutu barru</item>
@@ -521,8 +530,10 @@
 	<!-- %s is a username -->
 	<string name="remove_from_list">Kendu zerrendatik</string>
 	<string name="confirm_remove_list_member">Kendu kideak?</string>
+	<string name="no_lists_subtitle">Zurea hemen agertuko da</string>
 	<string name="create_list">Sortu zerrenda</string>
 	<string name="step_x_of_y">%1$d pausua %2$d -(e)tik</string>
 	<string name="create">Sortu</string>
+	<string name="manage_list_members">Kudeatu partaide zerrrenda</string>
 	<string name="list_no_members">Oraindik ez dago kiderik</string>
 </resources>
