@@ -93,7 +93,7 @@ public class InsetStatusItemDecoration extends RecyclerView.ItemDecoration{
 					outRect.left=outRect.right=V.dp(8);
 				if(!bottomSiblingInset)
 					outRect.bottom=V.dp(16);
-				if(!topSiblingInset && displayItems.get(pos-1) instanceof NotificationHeaderStatusDisplayItem)
+				if(!topSiblingInset && pos > 1 && displayItems.get(pos-1) instanceof NotificationHeaderStatusDisplayItem)
 					outRect.top=V.dp(-8);
 			}
 		}
