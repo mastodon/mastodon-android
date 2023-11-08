@@ -226,6 +226,7 @@
 	<string name="media_attachment_unsupported_type">Тып файла %s не падтрымліваецца</string>
 	<string name="media_attachment_too_big">Памер файла %1$s перавышае абмежаванне ў %2$s МБ</string>
 	<string name="settings_theme">Знешні выгляд</string>
+	<string name="theme_auto">Выкарыстоўваць сістэмную тэму</string>
 	<string name="theme_light">Светлая</string>
 	<string name="theme_dark">Цёмная</string>
 	<string name="settings_behavior">Паводзіны</string>
@@ -238,6 +239,8 @@
 	<string name="settings_clear_cache">Ачысціць кэш медыя</string>
 	<string name="settings_app_version">Mastodon для Android v%1$s (%2$d)</string>
 	<string name="media_cache_cleared">Кэш медыя ачышчаны</string>
+	<string name="confirm_log_out">Выйсці з %s?</string>
+	<string name="sensitive_content_explain">Аўтар пазначыў гэтае медыя як адчувальнае.</string>
 	<string name="avatar_description">Перайсці да профілю %s</string>
 	<string name="more_options">Больш опцый</string>
 	<string name="new_post">Новы допіс</string>
@@ -272,8 +275,14 @@
 	<string name="error_saving_file">Памылка пры захаванні файла</string>
 	<string name="file_saved">Файл захаваны</string>
 	<string name="downloading">Спампоўванне…</string>
+	<string name="no_app_to_handle_action">Няма патрэбнай праграмы для гэтага дзеяння</string>
 	<string name="local_timeline">Лакальнае</string>
+	<string name="trending_posts_info_banner">Гэтыя допісы набіраюць папулярнасць у Mastodon.</string>
+	<string name="trending_links_info_banner">Гэта навіны, аб якіх кажуць на Mastodon.</string>
 	<!-- %s is the server domain -->
+	<string name="local_timeline_info_banner">Гэта ўсе допісы ад усіх карыстальнікаў на вашым серверы (%s).</string>
+	<string name="recommended_accounts_info_banner">Вам могуць спадабацца гэтыя ўліковыя запісы на аснове вашых падпісак.</string>
+	<string name="see_new_posts">Новыя допісы</string>
 	<string name="load_missing_posts">Загрузіць адсутныя допісы</string>
 	<string name="follow_back">Падпісацца ў адказ</string>
 	<string name="button_follow_pending">Чакаюць</string>
@@ -362,6 +371,7 @@
 	<string name="login_title">З вяртаннем</string>
 	<string name="login_subtitle">Увайдзіце з дапамогай сервера, на якім вы стварылі свой уліковы запіс.</string>
 	<string name="server_url">URL-адрас сервера</string>
+	<string name="signup_random_server_explain">Мы абярэм сервер на аснове вашай мовы, калі вы працягнеце без выбару.</string>
 	<string name="server_filter_any_language">Любая мова</string>
 	<string name="server_filter_instant_signup">Імгненная рэгістрацыя</string>
 	<string name="server_filter_manual_review">Ручная праверка</string>
@@ -390,11 +400,16 @@
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<string name="sending_follows">Падпісваемся…</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<string name="signup_email_domain_blocked">%1$s не дазваляе зарэгістравацца ад %2$s. Паспрабуйце іншы ці &lt;a&gt;выберыце іншы сервер&lt;/a&gt;.</string>
 	<string name="spoiler_show">Усё адно паказаць</string>
+	<string name="spoiler_hide">Схаваць зноў</string>
+	<string name="poll_multiple_choice">Абярыце адзін або некалькі</string>
 	<string name="save_changes">Захаваць змены</string>
 	<string name="profile_featured">Рэкамендаванае</string>
+	<string name="profile_timeline">Стужка</string>
 	<string name="view_all">Праглядзець усё</string>
 	<string name="profile_endorsed_accounts">Уліковыя запісы</string>
+	<string name="verified_link">Правераная спасылка</string>
 	<string name="show">Паказаць</string>
 	<string name="hide">Схаваць</string>
 	<string name="join_default_server">Далучыцца да %s</string>
@@ -404,30 +419,75 @@
 	<string name="welcome_to_mastodon">Вітаем у Mastodon</string>
 	<string name="welcome_paragraph1">Mastodon - гэта дэцэнтралізаваная сацыяльная сетка, што азначае, што ні адна кампанія не кантралюе яе. Яна складаецца з мноства незалежна працуючых сервераў, злучаных разам.</string>
 	<string name="what_are_servers">Што такое серверы?</string>
+	<string name="welcome_paragraph2">Кожны ўліковы запіс Mastodon размяшчаецца на серверы - кожны са сваімі каштоўнасцямі, правіламі, &amp; адміністратарамі. Незалежна ад таго, які сервер вы вылучыце, вы можаце сачыць і ўзаемадзейнічаць з людзьмі на любым серверы.</string>
+	<string name="opening_link">Адкрыццё спасылкі…</string>
+	<string name="link_not_supported">Гэтая спасылка не падтрымліваецца ў праграме</string>
+	<string name="log_out_all_accounts">Выйсці з усіх уліковых запісаў</string>
+	<string name="confirm_log_out_all_accounts">Выйсці з усіх уліковых запісаў?</string>
 	<string name="retry">Паўтарыць</string>
+	<string name="post_failed">Не ўдалося адправіць допіс</string>
 	<!-- %s is formatted file size ("467 KB image") -->
+	<string name="attachment_description_image">%s выява</string>
+	<string name="attachment_description_video">%s відэа</string>
+	<string name="attachment_description_audio">%s аўдыё</string>
+	<string name="attachment_description_unknown">%s файл</string>
+	<string name="attachment_type_image">Выява</string>
 	<string name="attachment_type_video">Відэа</string>
+	<string name="attachment_type_audio">Аўдыё</string>
 	<string name="attachment_type_gif">GIF</string>
 	<string name="attachment_type_unknown">Файл</string>
+	<string name="attachment_x_percent_uploaded">%d%% загружана</string>
+	<string name="add_poll_option">Дадаць варыянт адказу</string>
+	<string name="poll_length">Тэрмін апытання</string>
 	<string name="poll_style">Стыль</string>
+	<string name="compose_poll_single_choice">Адзін варыянт</string>
+	<string name="compose_poll_multiple_choice">Некалькі варыянтаў</string>
+	<string name="delete_poll_option">Выдаліць варыянт адказу</string>
+	<string name="poll_style_title">Стыль апытання</string>
+	<string name="alt_text">Альтэрнатыўны тэкст</string>
 	<string name="help">Даведка</string>
+	<string name="what_is_alt_text">Што такое альтэрнатыўны тэкст?</string>
+	<string name="alt_text_help">Альтэрнатыўны тэкст змяшчае апісанні выяў для людзей з парушэннямі зроку, нізкахуткаснымі злучэннямі або тых, хто шукае дадатковы кантэкст.\n\nВы можаце палепшыць даступнасць і разуменне для ўсіх, напісаўшы ясны і кароткі альтэрнатыўны тэкст.\n\n<ul><li>Адзначце важныя элементы</li>\n<li>Ахоплівайце тэкст выявам</li>\n<li>Выкарыстоўвайце звычайную структуру прапаноў</li>\n<li>Пазбягайце лішняй інфармацыі</li>\n<li>Засяродзьцеся на тэндэнцыях і ключавых высновах у складаных візуальных формах (напрыклад, дыяграмах або картах)</li></ul></string>
 	<string name="edit_post">Рэдагаваць допіс</string>
 	<string name="no_verified_link">Няма спраўджанай спасылкі</string>
+	<string name="compose_autocomplete_emoji_empty">Агляд emoji</string>
+	<string name="compose_autocomplete_users_empty">Знайдзіце тых, каго шукаеце</string>
+	<string name="no_search_results">Нічога не знойдзена па гэтым запыце</string>
 	<string name="language">Мова</string>
 	<string name="language_default">Перадвызначана</string>
 	<string name="language_system">Сістэма</string>
+	<string name="language_detecting">Вызначэнне мовы</string>
+	<string name="language_cant_detect">Не ўдалося вызначыць мову</string>
+	<string name="language_detected">Выяўлена</string>
 	<string name="media_hidden">Медыя схавана</string>
 	<string name="post_hidden">Допіс схаваны</string>
 	<string name="report_title_post">Паскардзіцца на допіс</string>
+	<string name="forward_report_explanation">Уліковы запіс належыць іншаму серверу. Адправіць туды ананімную копію гэтай справаздачы?</string>
 	<!-- %s is the server domain -->
+	<string name="forward_report_to_server">Пераслаць на %s</string>
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
+	<string name="reported">Паведамлена</string>
+	<string name="report_unfollow_explanation">Каб больш не бачыць іх допісы ў вашай стужцы, адмяніце падпіску на іх.</string>
+	<string name="muted_user">Ігнараваць %s</string>
+	<string name="report_sent_already_blocked">Вы ўжо заблакіравалі гэтага карыстальніка, таму вам больш нічога не трэба рабіць, пакуль мы разглядаем ваша данясенне.</string>
+	<string name="report_personal_already_blocked">Вы ўжо заблакіравалі гэтага карыстальніка, таму больш нічога рабіць не трэба.\n\nДзякуй, што дапамагаеце захаваць Mastodon бяспечным месцам для ўсіх!</string>
+	<string name="blocked_user">Заблакіраваць %s</string>
+	<string name="mark_all_notifications_read">Адзначыць усё як прачытанае</string>
 	<string name="settings_display">Адлюстраванне</string>
 	<string name="settings_filters">Фільтры</string>
+	<string name="settings_server_explanation">Агульныя звесткі, правілы, мадэратары</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">Аб %s</string>
+	<string name="default_post_language">Мова допісаў па змаўчанні</string>
+	<string name="settings_alt_text_reminders">Даданне напамінаў пра тэкст alt</string>
+	<string name="settings_confirm_unfollow">Спытайце, перш чым адпісацца ад каго-небудзь</string>
 	<string name="settings_confirm_boost">Пытаць перад пашырэннем</string>
+	<string name="settings_confirm_delete_post">Спытаць перад выдаленнем допісаў</string>
 	<string name="pause_all_notifications">Прыпыніць усе</string>
+	<string name="pause_notifications_off">Выкл.</string>
 	<string name="notifications_policy_anyone">Кожны</string>
+	<string name="notifications_policy_followed">Людзі, якія падпісаны на вас</string>
+	<string name="notifications_policy_follower">Людзі, на якіх вы падпісаны</string>
 	<string name="notifications_policy_no_one">Ніхто</string>
 	<string name="settings_notifications_policy">Атрымліваць апавяшчэнні ад</string>
 	<string name="notification_type_mentions_and_replies">Згадванні і адказы</string>
@@ -446,9 +506,19 @@
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<string name="pause_notifications_ends">Скончыцца %s</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="pause_notifications_banner">Апавяшчэнні адновяцца %s.</string>
+	<string name="resume_notifications_now">Аднавіць зараз</string>
+	<string name="open_system_notification_settings">Перайсці ў налады апавяшчэнняў</string>
 	<string name="about_server">Пра сервер</string>
 	<string name="server_rules">Правілы</string>
 	<string name="server_administrator">Адміністратар</string>
+	<string name="send_email_to_server_admin">Напісаць адміністратару</string>
+	<string name="notifications_disabled_in_system">Уключыце апавяшчэння ў наладах прылады, каб бачыць абнаўлення адкуль згодна.</string>
+	<string name="settings_even_more">Яшчэ больш налад</string>
+	<string name="settings_show_cws">Паказваць папярэджанні аб змесце</string>
+	<string name="settings_hide_sensitive_media">Хаваць медыя пазначаныя як далікатныя</string>
+	<string name="settings_show_interaction_counts">Паказваць колькасць узаемадзеянняў пад допісамі</string>
+	<string name="settings_show_emoji_in_names">Карыстальніцкія emoji у імёнах</string>
 	<plurals name="in_x_seconds">
 		<item quantity="one">праз %d секунду</item>
 		<item quantity="few">праз %d секунды</item>
@@ -473,29 +543,40 @@
 		<item quantity="many">%d гадзін таму</item>
 		<item quantity="other">%d гадзіны таму</item>
 	</plurals>
+	<string name="alt_text_reminder_title">У медыя адсутнічае альтэрнатыўны тэкст</string>
 	<string name="count_one">Адзін</string>
 	<string name="count_two">Два</string>
 	<string name="count_three">Тры</string>
 	<string name="count_four">Чатыры</string>
 	<string name="alt_text_reminder_post_anyway">Допіс</string>
 	<!-- %s is the username -->
+	<string name="unfollow_confirmation">Адпісацца ад %s?</string>
 	<string name="filter_active">Актыўны</string>
 	<string name="filter_inactive">Неактыўны</string>
 	<string name="settings_add_filter">Дадаць фільтр</string>
 	<string name="settings_edit_filter">Рэдагаваць фільтр</string>
 	<string name="settings_filter_duration">Працягласць</string>
 	<string name="settings_filter_muted_words">Ігнараваныя словы</string>
+	<string name="settings_filter_context">Ігнараваць</string>
+	<string name="settings_filter_show_cw">Паказаць з папярэджаннем аб змесце</string>
+	<string name="settings_filter_show_cw_explanation">Па-ранейшаму паказваць допісы, якія адпавядаюць гэтаму фільтру, але з папярэджаннем аб змесце</string>
 	<string name="settings_delete_filter">Выдаліць фільтр</string>
 	<string name="filter_duration_forever">Назаўсёды</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<string name="settings_filter_ends">Скончыцца %s</string>
 	<string name="selection_2_options">%1$s і %2$s</string>
 	<string name="selection_3_options">%1$s, %2$s і %3$s</string>
+	<string name="selection_4_or_more">%1$s, %2$s і %3$d больш</string>
+	<string name="filter_context_home_lists">Галоўная &amp; спісы</string>
 	<string name="filter_context_notifications">Апавяшчэнні</string>
 	<string name="filter_context_public_timelines">Публічныя стужкі</string>
+	<string name="filter_context_threads_replies">Ланцугі &amp; адказы</string>
 	<string name="filter_context_profiles">Профілі</string>
 	<string name="settings_filter_title">Загаловак</string>
 	<string name="settings_delete_filter_title">Выдаліць фільтр \"%s\"?</string>
+	<string name="settings_delete_filter_confirmation">Гэты фільтр будзе выдалены з уліковага запісу на ўсіх вашых прыладах.</string>
+	<string name="add_muted_word">Дадаць слова да ігнаруемых</string>
+	<string name="edit_muted_word">Рэдагаваць ігнараванае слова</string>
 	<string name="add">Дадаць</string>
 	<string name="filter_word_or_phrase">Слова або фраза</string>
 	<string name="settings_delete_filter_word">Выдаліць слова \"%s\"?</string>
@@ -529,6 +610,12 @@
 	<string name="time_days_ago_short">%d дз таму</string>
 	<!-- %s is the name of the post language -->
 	<!-- %1$s is the language, %2$s is the name of the translation service -->
+	<string name="lists">Спісы</string>
+	<string name="followed_hashtags">Адсочваныя хэштэгі</string>
+	<string name="no_lists">У вас пакуль няма спісаў.</string>
+	<string name="no_followed_hashtags">Вы не сочыце ні за якімі хэштэгамі.</string>
+	<string name="manage_lists">Кіраванне спісамі</string>
+	<string name="manage_hashtags">Кіраванне хэштэгамі</string>
 	<!-- Screen reader description for the menu on the home timeline screen -->
 	<!-- %s is the name of the list -->
 	<!-- %s is a username -->
