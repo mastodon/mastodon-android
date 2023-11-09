@@ -704,6 +704,9 @@
 	<string name="post_translated">مُترجَم مِن %1$s باستخدام %2$s</string>
 	<string name="translation_show_original">إظهار الأصل</string>
 	<string name="translation_failed">فشِلَت الترجَمة. قد لم يتمكّن مدير الخادم من تفعيل الترجمات على هذا الخادم أو أنّ هذا الخادم يُشغِّل نسخة قديمة من ماستدون حيث الترجمات غير مدعومة بعد.</string>
+	<string name="settings_privacy">الخصوصية و الوصول</string>
+	<string name="settings_discoverable">ميزة الملف الشخصي والمشاركات في خوارزميات الاكتشاف</string>
+	<string name="settings_indexable">تضمين المشاركات العامة في نتائج البحث</string>
 	<plurals name="x_participants">
 		<item quantity="zero">لا مُشارِك</item>
 		<item quantity="one">مشارِك واحد</item>
@@ -712,7 +715,37 @@
 		<item quantity="many">مُشارِكًا</item>
 		<item quantity="other">مُشارك</item>
 	</plurals>
+	<string name="error_playing_video">خطأ في تشغيل الفيديو</string>
+	<string name="timeline_following">الصفحة الرئيسية</string>
+	<string name="lists">القوائم</string>
+	<string name="followed_hashtags">الوسوم المتابَعة</string>
+	<string name="no_lists">ليس لديك أي قوائم بعد.</string>
+	<string name="no_followed_hashtags">لا تتابع أي وسوم.</string>
+	<string name="manage_lists">إدارة القوائم</string>
+	<string name="manage_hashtags">إدارة الوسوم</string>
 	<!-- Screen reader description for the menu on the home timeline screen -->
+	<string name="edit_list">تعديل القائمة</string>
+	<string name="list_members">قائمة الاعضاء</string>
+	<string name="delete_list">حذف القائمة</string>
 	<!-- %s is the name of the list -->
+	<string name="delete_list_confirm">حذف \"%s\"؟</string>
+	<string name="list_exclusive">إخفاء الأعضاء في المتابعة</string>
+	<string name="list_name">اسم القائمة</string>
+	<string name="list_show_replies_to">إظهار الردود على</string>
+	<string name="list_replies_no_one">لا أحد</string>
+	<string name="list_replies_members">أعضاء القائمة</string>
+	<string name="list_replies_anyone">أي شخص أتابعه</string>
+	<string name="confirm_remove_list_members">إزالة أعضاء؟</string>
+	<string name="remove">إزالة</string>
+	<string name="add_list_member">إضافة عضو</string>
+	<string name="search_among_people_you_follow">البحث بين الأشخاص الذين تتابعهم</string>
+	<string name="add_user_to_list">إضافة القائمة…</string>
+	<string name="add_user_to_list_title">إضافة إلى القائمة</string>
 	<!-- %s is a username -->
+	<string name="remove_from_list">إزالة من القائمة</string>
+	<string name="confirm_remove_list_member">إزالة عضو؟</string>
+	<string name="manage_accounts">إضافة أو تبديل الحسابات</string>
+	<string name="create_list">إنشاء قائمة</string>
+	<string name="create">إنشاء</string>
+	<string name="list_find_users">البحث عن مستخدمين للإضافة</string>
 </resources>
