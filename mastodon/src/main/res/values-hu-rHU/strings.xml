@@ -258,6 +258,7 @@
 	<!-- %s is the server domain -->
 	<string name="local_timeline_info_banner">Itt található az összes bejegyzés az összes felhasznólótól a példányodon (%s).</string>
 	<string name="recommended_accounts_info_banner">Ezek a fiókok tetszhetnek neked azok alapján, akiket követsz.</string>
+	<string name="see_new_posts">Új poszt</string>
 	<string name="load_missing_posts">Hiányzó bejegyzések betöltése</string>
 	<string name="follow_back">Visszakövetés</string>
 	<string name="button_follow_pending">Függőben</string>
@@ -359,21 +360,58 @@
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<string name="sending_follows">Felhasználók bekövetése…</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<string name="save_changes">Módosítások mentése</string>
+	<string name="profile_timeline">Idővonal</string>
+	<string name="profile_endorsed_accounts">Fiókok</string>
+	<string name="show">Megjelenítés</string>
+	<string name="hide">Elrejtés</string>
+	<string name="signup_or_login">vagy</string>
+	<string name="learn_more">További információ</string>
+	<string name="welcome_to_mastodon">Üdvözöl a Mastodon</string>
 	<!-- %s is formatted file size ("467 KB image") -->
+	<string name="attachment_description_image">%s kép</string>
+	<string name="attachment_description_video">%s videó</string>
+	<string name="attachment_description_audio">%s audio</string>
+	<string name="attachment_description_unknown">%s fájl</string>
+	<string name="attachment_type_image">Kép</string>
+	<string name="attachment_type_video">Videó</string>
+	<string name="attachment_type_audio">Audio</string>
+	<string name="attachment_type_gif">GIF</string>
+	<string name="attachment_type_unknown">Fájl</string>
+	<string name="poll_style">Stílus</string>
+	<string name="help">Súgó</string>
+	<string name="no_verified_link">Nem ellenőrzött link</string>
 	<string name="compose_autocomplete_users_empty">Találd meg akiket keresel</string>
 	<!-- %s is the server domain -->
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
+	<string name="settings_filters">Szűrők</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
+	<string name="today">ma</string>
+	<string name="yesterday">tegnap</string>
+	<string name="tomorrow">holnap</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="server_rules">Szabályok</string>
+	<string name="server_administrator">Adminisztrátor</string>
+	<string name="count_one">Egy</string>
+	<string name="count_two">Kettő</string>
+	<string name="count_three">Három</string>
+	<string name="count_four">Négy</string>
+	<string name="alt_text_reminder_post_anyway">Poszt</string>
 	<!-- %s is the username -->
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="filter_context_notifications">Értesítések</string>
+	<string name="filter_context_public_timelines">Nyilvános idővonalak</string>
+	<string name="filter_context_profiles">Profilok</string>
+	<string name="settings_filter_title">Cím</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
 	<!-- Shown in the post header. Please keep it short -->
 	<!-- %s is the name of the post language -->
 	<!-- %1$s is the language, %2$s is the name of the translation service -->
+	<string name="translation_show_original">Eredeti megjelenítése</string>
 	<!-- Screen reader description for the menu on the home timeline screen -->
+	<string name="delete_list">Lista törlése</string>
 	<!-- %s is the name of the list -->
 	<!-- %s is a username -->
 </resources>
