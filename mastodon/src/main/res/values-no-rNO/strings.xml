@@ -595,6 +595,10 @@
 		<item quantity="one">%,d deltaker</item>
 		<item quantity="other">%,d deltakere</item>
 	</plurals>
+	<plurals name="x_posts_today">
+		<item quantity="one">%,d innlegg idag</item>
+		<item quantity="other">%,d innlegg i dag</item>
+	</plurals>
 	<string name="error_playing_video">Feil ved avspilling av video</string>
 	<string name="timeline_following">Hjem</string>
 	<string name="lists">Lister</string>
@@ -610,6 +614,8 @@
 	<string name="delete_list">Slett liste</string>
 	<!-- %s is the name of the list -->
 	<string name="delete_list_confirm">Slette \"%s\"?</string>
+	<string name="list_exclusive">Gjem medlemmer i følger</string>
+	<string name="list_exclusive_subtitle">Hvis noen er på denne listen, skjul dem på tidslinjen på din neste side for å unngå å se innleggene deres to ganger.</string>
 	<string name="list_name">Navn på liste</string>
 	<string name="list_show_replies_to">Vis svar til</string>
 	<string name="list_replies_no_one">Ingen</string>
@@ -622,12 +628,18 @@
 	<string name="add_user_to_list">Legg til i liste…</string>
 	<string name="add_user_to_list_title">Legg til i liste</string>
 	<!-- %s is a username -->
+	<string name="manage_user_lists">Behandle liste %s vises på</string>
 	<string name="remove_from_list">Fjern fra liste</string>
 	<string name="confirm_remove_list_member">Fjern medlem?</string>
+	<string name="no_followed_hashtags_title">Holde deg oppdatert ved å følge emneknagger</string>
 	<string name="no_followed_hashtags_subtitle">Følgere vises her</string>
 	<string name="no_lists_title">Organiser tidslinjen din med lister</string>
 	<string name="no_lists_subtitle">Din vil vises her</string>
 	<string name="manage_accounts">Legg til eller bytt konto</string>
+	<plurals name="x_posts_recently">
+		<item quantity="one">%,d nylig innlegg</item>
+		<item quantity="other">%,d nylig innlegg</item>
+	</plurals>
 	<string name="create_list">Lag liste</string>
 	<string name="step_x_of_y">Steg %1$d av %2$d</string>
 	<string name="create">Opprett</string>
