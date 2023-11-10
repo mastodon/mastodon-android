@@ -357,7 +357,7 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 		List<StatusDisplayItem> pollItems=displayItems.subList(firstOptionIndex, footerIndex+1);
 		int prevSize=pollItems.size();
 		pollItems.clear();
-		StatusDisplayItem.buildPollItems(itemID, this, poll, pollItems, status);
+		StatusDisplayItem.buildPollItems(itemID, this, poll, status, pollItems);
 		if(prevSize!=pollItems.size()){
 			adapter.notifyItemRangeRemoved(firstOptionIndex, prevSize);
 			adapter.notifyItemRangeInserted(firstOptionIndex, pollItems.size());
