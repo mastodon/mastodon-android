@@ -10,6 +10,7 @@ import android.widget.TextView;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.fragments.BaseStatusListFragment;
 import org.joinmastodon.android.model.Poll;
+import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.OutlineProviders;
 import org.joinmastodon.android.ui.text.HtmlParser;
 import org.joinmastodon.android.ui.utils.CustomEmojiHelper;
@@ -22,6 +23,7 @@ import me.grishka.appkit.imageloader.requests.ImageLoaderRequest;
 
 public class PollOptionStatusDisplayItem extends StatusDisplayItem{
 	private CharSequence text;
+	private CharSequence translatedText;
 	public final Poll.Option option;
 	private CustomEmojiHelper emojiHelper=new CustomEmojiHelper();
 	private boolean showResults;
@@ -29,12 +31,15 @@ public class PollOptionStatusDisplayItem extends StatusDisplayItem{
 	private boolean isMostVoted;
 	private final int optionIndex;
 	public final Poll poll;
+	public final Status status;
 
-	public PollOptionStatusDisplayItem(String parentID, Poll poll, int optionIndex, BaseStatusListFragment parentFragment){
+
+	public PollOptionStatusDisplayItem(String parentID, Poll poll, int optionIndex, BaseStatusListFragment parentFragment, Status status){
 		super(parentID, parentFragment);
 		this.optionIndex=optionIndex;
 		option=poll.options.get(optionIndex);
 		this.poll=poll;
+		this.status=status;
 		text=HtmlParser.parseCustomEmoji(option.title, poll.emojis);
 		emojiHelper.setText(text);
 		showResults=poll.isExpired() || poll.voted;
@@ -83,7 +88,14 @@ public class PollOptionStatusDisplayItem extends StatusDisplayItem{
 
 		@Override
 		public void onBind(PollOptionStatusDisplayItem item){
-			text.setText(item.text);
+			if (item.status.translation != null && item.status.translationState == Status.TranslationState.SHOWN) {
+				if(item.translatedText==null){
+					item.translatedText=item.status.translation.poll.options[item.optionIndex].title;
+				}
+				text.setText(item.translatedText);
+			} else {
+				text.setText(item.text);
+			}
 			percent.setVisibility(item.showResults ? View.VISIBLE : View.GONE);
 			itemView.setClickable(!item.showResults);
 			if(item.showResults){
