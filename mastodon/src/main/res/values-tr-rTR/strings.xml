@@ -226,7 +226,7 @@
 	<string name="new_post">Yeni gönderi</string>
 	<string name="button_reply">Cevapla</string>
 	<string name="button_reblog">Yinele</string>
-	<string name="button_favorite">Gözdele</string>
+	<string name="button_favorite">Favorile</string>
 	<string name="button_share">Paylaş</string>
 	<string name="media_no_description">Açıklamasız medya</string>
 	<string name="add_media">Medya ekle</string>
@@ -278,7 +278,7 @@
 		<item quantity="other">%,d takipçiler</item>
 	</plurals>
 	<plurals name="x_favorites">
-		<item quantity="one">%,d gözde</item>
+		<item quantity="one">%,d favori</item>
 		<item quantity="other">%,d gözdeler</item>
 	</plurals>
 	<plurals name="x_reblogs">
@@ -335,7 +335,7 @@
 	<string name="add_bookmark">Yer imlerine ekle</string>
 	<string name="remove_bookmark">Yer imini kaldır</string>
 	<string name="bookmarks">Yer imleri</string>
-	<string name="your_favorites">Gözdelerin</string>
+	<string name="your_favorites">Favorilerin</string>
 	<string name="login_title">Hoşgeldiniz</string>
 	<string name="login_subtitle">Hesabınızı oluşturduğunuz sunucuya giriş yapın.</string>
 	<string name="server_url">Sunucu bağlantısı</string>
@@ -583,7 +583,7 @@
 	<string name="time_hours_ago_short">%dsa önce</string>
 	<string name="time_days_ago_short">%dg önce</string>
 	<!-- %s is the name of the post language -->
-	<string name="translate_post">%s dilinden çevrildi</string>
+	<string name="translate_post">%s dilinden çevir</string>
 	<!-- %1$s is the language, %2$s is the name of the translation service -->
 	<string name="post_translated">%2$s kullanılarak %1$s dilinden çevrildi</string>
 	<string name="translation_show_original">Özgün içeriği göster</string>
