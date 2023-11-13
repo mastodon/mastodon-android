@@ -93,10 +93,15 @@
 	<string name="confirm_mute_title">Լռեցնել հաշիվը</string>
 	<string name="confirm_mute">Հաստատեք %s-ի լռեցումը</string>
 	<string name="do_mute">Լռեցնել</string>
+	<string name="confirm_unmute_title">Հանել արգելափակումից</string>
+	<string name="do_unmute">Ապախլացնել</string>
 	<string name="confirm_block_title">Արգելափակել հաշիվը</string>
 	<string name="confirm_block_domain_title">Արգելափակել տիրույթը</string>
 	<string name="confirm_block">Հաստատեք %s-ի արգելափակումը</string>
 	<string name="do_block">Արգելափակել</string>
+	<string name="confirm_unblock_title">Հանել արգելափակումից</string>
+	<string name="confirm_unblock_domain_title">Հանել տիրույթը արգելափակումից</string>
+	<string name="confirm_unblock">Հաստատեք %s-ի` արգելափակումից հանելը</string>
 	<string name="do_unblock">Արգելաբացել</string>
 	<string name="button_blocked">Արգելափակված</string>
 	<string name="action_vote">Քվեարկել</string>
@@ -189,6 +194,9 @@
 	<string name="settings_tos">Ծառայության պայմանները</string>
 	<string name="settings_privacy_policy">Գաղտնիության քաղաքականություն</string>
 	<string name="settings_app_version">Մաստոդոն Android-ի համար, տարբերակ %1$s (%2$d)</string>
+	<string name="confirm_log_out">Դուրս գա՞լ %s-ից։</string>
+	<string name="sensitive_content_explain">Հեղինակը սա նշել է՝ որպես զգայուն բովանդակություն։</string>
+	<string name="avatar_description">Գնալ %s-ի հաշիվ</string>
 	<string name="more_options">Ավելին</string>
 	<string name="new_post">Նոր գրառում</string>
 	<string name="button_reply">Պատասխանել</string>
@@ -227,6 +235,10 @@
 		<item quantity="one">%,d հետեւորդ</item>
 		<item quantity="other">%,d հետեւորդ</item>
 	</plurals>
+	<plurals name="x_following">
+		<item quantity="one">%,d հետեւում</item>
+		<item quantity="other">%,d հետեւում</item>
+	</plurals>
 	<plurals name="x_favorites">
 		<item quantity="one">%,d նախընտրելի</item>
 		<item quantity="other">%,d նախընտրելի</item>
@@ -252,6 +264,7 @@
 	<string name="edit_original_post">Սկզբնական գրառում</string>
 	<string name="edit_text_edited">Տեքստը փոփոխվել է</string>
 	<string name="edit_spoiler_added">Ավելացվել է նախազգուշացում</string>
+	<string name="edit_spoiler_edited">Նախազգուշացումը խմբագրվել է</string>
 	<string name="edit_spoiler_removed">Նախազգուշացումը հեռացվել է</string>
 	<string name="edit_poll_added">Հարցումն ավելացել է</string>
 	<string name="edit_poll_edited">Հարցումը խմբագրվել է</string>
@@ -368,6 +381,7 @@
 	<!-- %s is the server domain -->
 	<string name="forward_report_to_server">Ուղարկել %s</string>
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
+	<string name="reported">Բողոքարկված</string>
 	<string name="muted_user">%s-ը լռեցվել է</string>
 	<string name="settings_display">Տեսք</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
