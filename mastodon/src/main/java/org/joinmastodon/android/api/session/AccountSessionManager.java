@@ -181,7 +181,11 @@ public class AccountSessionManager{
 		if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.N){
 			MastodonApp.context.deleteSharedPreferences(id);
 		}else{
-			new File(MastodonApp.context.getDir("shared_prefs", Context.MODE_PRIVATE), id+".xml").delete();
+			String dataDir=MastodonApp.context.getApplicationInfo().dataDir;
+			if(dataDir!=null){
+				File prefsDir=new File(dataDir, "shared_prefs");
+				new File(prefsDir, id+".xml").delete();
+			}
 		}
 		sessions.remove(id);
 		if(lastActiveAccountID.equals(id)){
