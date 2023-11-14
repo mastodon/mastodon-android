@@ -13,14 +13,17 @@ import android.text.style.TypefaceSpan;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.fragments.BaseStatusListFragment;
 import org.joinmastodon.android.fragments.StatusEditHistoryFragment;
+import org.joinmastodon.android.fragments.ThreadFragment;
 import org.joinmastodon.android.fragments.account_list.StatusFavoritesListFragment;
 import org.joinmastodon.android.fragments.account_list.StatusReblogsListFragment;
 import org.joinmastodon.android.fragments.account_list.StatusRelatedAccountListFragment;
 import org.joinmastodon.android.model.Status;
+import org.joinmastodon.android.ui.Snackbar;
 import org.joinmastodon.android.ui.utils.UiUtils;
 import org.parceler.Parcels;
 
@@ -34,11 +37,13 @@ import java.util.Locale;
 import androidx.annotation.PluralsRes;
 import androidx.annotation.StringRes;
 import me.grishka.appkit.Nav;
+import me.grishka.appkit.utils.V;
 
 public class ExtendedFooterStatusDisplayItem extends StatusDisplayItem{
 	public final Status status;
 
 	private static final DateTimeFormatter TIME_FORMATTER=DateTimeFormatter.ofLocalizedTime(FormatStyle.SHORT);
+	private static final DateTimeFormatter TIME_FORMATTER_LONG=DateTimeFormatter.ofLocalizedTime(FormatStyle.MEDIUM);
 	private static final DateTimeFormatter DATE_FORMATTER=DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM);
 
 	public ExtendedFooterStatusDisplayItem(String parentID, BaseStatusListFragment parentFragment, Status status){
@@ -160,7 +165,14 @@ public class ExtendedFooterStatusDisplayItem extends StatusDisplayItem{
 		}
 
 		private void showTimeSnackbar(){
-
+			int bottomOffset=0;
+			if(item.parentFragment instanceof ThreadFragment tf){
+				bottomOffset=tf.getSnackbarOffset();
+			}
+			new Snackbar.Builder(itemView.getContext())
+					.setText(itemView.getContext().getString(R.string.posted_at, TIME_FORMATTER_LONG.format(item.status.createdAt.atZone(ZoneId.systemDefault()))))
+					.setBottomOffset(bottomOffset)
+					.show();
 		}
 	}
 }
