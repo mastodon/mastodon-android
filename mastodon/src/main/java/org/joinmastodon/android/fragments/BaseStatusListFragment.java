@@ -713,7 +713,7 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 				// Do not draw dividers between hashtag and/or account rows
 				if((ih instanceof HashtagStatusDisplayItem.Holder || ih instanceof AccountStatusDisplayItem.Holder) && (sh instanceof HashtagStatusDisplayItem.Holder || sh instanceof AccountStatusDisplayItem.Holder))
 					return false;
-				return (!ih.getItemID().equals(sh.getItemID()) || sh instanceof ExtendedFooterStatusDisplayItem.Holder) && ih.getItem().getType()!=StatusDisplayItem.Type.GAP;
+				return !ih.getItemID().equals(sh.getItemID()) && ih.getItem().getType()!=StatusDisplayItem.Type.GAP;
 			}
 			return false;
 		}

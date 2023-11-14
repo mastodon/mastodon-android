@@ -4,73 +4,133 @@
 	android:orientation="vertical"
 	android:layout_width="match_parent"
 	android:layout_height="wrap_content"
-	android:divider="@drawable/divider_inset_16dp_start"
+	android:paddingBottom="8dp"
+	android:divider="@drawable/divider_inset_16dp"
 	android:showDividers="middle">
 
-	<TextView
-		android:id="@+id/timestamp"
+	<org.joinmastodon.android.ui.views.WrappingLinearLayout
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:layout_marginStart="16dp"
-		android:layout_marginEnd="20dp"
-		android:layout_marginTop="12dp"
-		android:layout_marginBottom="12dp"
-		android:minHeight="20dp"
-		android:gravity="center_vertical"
-		android:textAppearance="@style/m3_body_large"
-		android:textSize="16sp"
-		android:textColor="?colorM3OnSurfaceVariant"
-		tools:text="Dec 12, 2021, 12:42 PM via Mastodon for Android"/>
+		android:paddingHorizontal="16dp"
+		android:paddingVertical="8dp"
+		android:horizontalGap="8dp"
+		android:verticalGap="8dp"
+		android:clipToPadding="false">
+
+		<TextView
+			android:id="@+id/time"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textAppearance="@style/m3_label_large"
+			android:textColor="?colorM3Secondary"
+			android:background="@drawable/bg_button_borderless_rounded"
+			android:backgroundTint="?colorM3Secondary"
+			android:singleLine="true"
+			android:ellipsize="end"
+			android:paddingVertical="4dp"
+			android:paddingHorizontal="8dp"
+			android:layout_marginVertical="-4dp"
+			android:layout_marginHorizontal="-8dp"
+			tools:text="8:24 AM"/>
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textAppearance="@style/m3_label_large"
+			android:textColor="?colorM3Secondary"
+			android:importantForAccessibility="no"
+			android:text="·"/>
+
+		<TextView
+			android:id="@+id/date"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textAppearance="@style/m3_label_large"
+			android:textColor="?colorM3Secondary"
+			android:singleLine="true"
+			android:ellipsize="end"
+			tools:text="2023-11-08"/>
+
+		<TextView
+			android:id="@+id/date_app_separator"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textAppearance="@style/m3_label_large"
+			android:textColor="?colorM3Secondary"
+			android:importantForAccessibility="no"
+			android:text="·"/>
+
+		<TextView
+			android:id="@+id/app_name"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textAppearance="@style/m3_label_large"
+			android:textColor="?colorM3Secondary"
+			android:singleLine="true"
+			android:ellipsize="end"
+			android:paddingVertical="4dp"
+			android:paddingHorizontal="8dp"
+			android:layout_marginVertical="-4dp"
+			android:layout_marginHorizontal="-8dp"
+			android:background="@drawable/bg_button_borderless_rounded"
+			android:backgroundTint="?colorM3Secondary"
+			tools:text="Mastodon for Android dfjklafjdsalkfjdslakfjdsaklfjdslak"/>
+
+	</org.joinmastodon.android.ui.views.WrappingLinearLayout>
 
 	<TextView
 		android:id="@+id/edit_history"
 		android:layout_width="match_parent"
-		android:layout_height="48dp"
+		android:layout_height="36dp"
 		android:paddingStart="16dp"
 		android:paddingEnd="24dp"
 		android:background="?android:selectableItemBackground"
-		android:textAppearance="@style/m3_body_large"
-		android:textColor="?colorM3OnSurface"
-		android:singleLine="true"
-		android:ellipsize="end"
+		android:textAppearance="@style/m3_label_large"
+		android:textColor="?colorM3Secondary"
 		android:gravity="center_vertical"
-		android:drawableStart="@drawable/ic_edit_24px"
-		android:drawableTint="?colorM3OnSurfaceVariant"
-		android:drawablePadding="16dp"
 		tools:text="Last edit bla bla"/>
 
-	<TextView
-		android:id="@+id/reblogs"
+	<org.joinmastodon.android.ui.views.WrappingLinearLayout
 		android:layout_width="match_parent"
-		android:layout_height="48dp"
-		android:paddingStart="16dp"
-		android:paddingEnd="24dp"
-		android:background="?android:selectableItemBackground"
-		android:textAppearance="@style/m3_body_large"
-		android:textColor="?colorM3OnSurface"
-		android:singleLine="true"
-		android:ellipsize="end"
-		android:gravity="center_vertical"
-		android:drawableStart="@drawable/ic_repeat_24px"
-		android:drawableTint="?colorM3OnSurfaceVariant"
-		android:drawablePadding="16dp"
-		tools:text="123 boosts"/>
+		android:layout_height="wrap_content"
+		android:paddingHorizontal="16dp"
+		android:paddingVertical="8dp"
+		android:horizontalGap="8dp"
+		android:verticalGap="8dp"
+		android:clipToPadding="false">
 
-	<TextView
-		android:id="@+id/favorites"
-		android:layout_width="match_parent"
-		android:layout_height="48dp"
-		android:paddingStart="16dp"
-		android:paddingEnd="24dp"
-		android:background="?android:selectableItemBackground"
-		android:textAppearance="@style/m3_body_large"
-		android:textColor="?colorM3OnSurface"
-		android:singleLine="true"
-		android:ellipsize="end"
-		android:gravity="center_vertical"
-		android:drawableStart="@drawable/ic_star_24px"
-		android:drawableTint="?colorM3OnSurfaceVariant"
-		android:drawablePadding="16dp"
-		tools:text="123 favorites"/>
+		<TextView
+			android:id="@+id/reblogs"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textAppearance="@style/m3_label_large"
+			android:textColor="?colorM3Secondary"
+			android:background="@drawable/bg_button_borderless_rounded"
+			android:backgroundTint="?colorM3Secondary"
+			android:singleLine="true"
+			android:ellipsize="end"
+			android:paddingVertical="4dp"
+			android:paddingHorizontal="8dp"
+			android:layout_marginVertical="-4dp"
+			android:layout_marginHorizontal="-8dp"
+			tools:text="123 boosts"/>
+
+		<TextView
+			android:id="@+id/favorites"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textAppearance="@style/m3_label_large"
+			android:textColor="?colorM3Secondary"
+			android:background="@drawable/bg_button_borderless_rounded"
+			android:backgroundTint="?colorM3Secondary"
+			android:singleLine="true"
+			android:ellipsize="end"
+			android:paddingVertical="4dp"
+			android:paddingHorizontal="8dp"
+			android:layout_marginVertical="-4dp"
+			android:layout_marginHorizontal="-8dp"
+			tools:text="123 favorites"/>
+
+	</org.joinmastodon.android.ui.views.WrappingLinearLayout>
 
 </LinearLayout>

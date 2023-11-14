@@ -47,4 +47,9 @@
 	<declare-styleable name="NestedRecyclerScrollView">
 		<attr name="takePriorityOverChildViews" format="boolean"/>
 	</declare-styleable>
+
+	<declare-styleable name="WrappingLinearLayout">
+		<attr name="android:verticalGap" format="dimension"/>
+		<attr name="android:horizontalGap" format="dimension"/>
+	</declare-styleable>
 </resources>

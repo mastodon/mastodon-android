@@ -69,7 +69,7 @@ public class ThreadFragment extends StatusListFragment{
 					}
 				}
 			}
-			items.add(new ExtendedFooterStatusDisplayItem(s.id, this, s.getContentStatus()));
+			items.add(items.size()-1, new ExtendedFooterStatusDisplayItem(s.id, this, s.getContentStatus()));
 		}
 		return items;
 	}
