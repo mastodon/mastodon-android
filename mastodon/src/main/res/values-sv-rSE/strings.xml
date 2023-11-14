@@ -258,6 +258,7 @@
 	<!-- %s is the server domain -->
 	<string name="local_timeline_info_banner">Detta är alla inlägg från alla användare på din server (%s).</string>
 	<string name="recommended_accounts_info_banner">Du kanske gillar dessa konton baserat på andra konton du följer.</string>
+	<string name="see_new_posts">Nya inlägg</string>
 	<string name="load_missing_posts">Ladda saknade inlägg</string>
 	<string name="follow_back">Följ tillbaka</string>
 	<string name="button_follow_pending">Väntande</string>
@@ -543,6 +544,14 @@
 	<string name="translation_failed">Översättningen misslyckades. Det kan hända att administratören inte har aktiverat översättningar på den här servern eller att servern kör en äldre version av Mastodon som inte har stöd för översättningar ännu.</string>
 	<string name="settings_privacy">Integritet och räckvidd</string>
 	<string name="settings_indexable">Inkludera offentliga inlägg i sökresultaten</string>
+	<plurals name="x_participants">
+		<item quantity="one">%,d deltagare</item>
+		<item quantity="other">%,d deltagare</item>
+	</plurals>
+	<plurals name="x_posts_today">
+		<item quantity="one">%,d inlägg idag</item>
+		<item quantity="other">%,d inlägg idag</item>
+	</plurals>
 	<string name="error_playing_video">Fel vid videouppspelning</string>
 	<string name="lists">Listor</string>
 	<string name="followed_hashtags">Följda hashtaggar</string>
@@ -571,4 +580,9 @@
 	<!-- %s is a username -->
 	<string name="remove_from_list">Ta bort från lista</string>
 	<string name="confirm_remove_list_member">Ta bort medlem?</string>
+	<string name="create_list">Skapa lista</string>
+	<string name="step_x_of_y">Steg %1$d av %2$d</string>
+	<string name="create">Skapa</string>
+	<string name="manage_list_members">Hantera listmedlemmar</string>
+	<string name="list_no_members">Inga medlemmar än</string>
 </resources>
