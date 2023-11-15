@@ -614,5 +614,22 @@
 	<string name="manage_list_members">リストのメンバーを管理</string>
 	<string name="list_no_members">まだメンバーがいません</string>
 	<string name="list_find_users">追加したいユーザーを探す</string>
+	<string name="reply_to_user">%s に返信</string>
+	<string name="non_mutual_sheet_title">新しい関係を始めよう！</string>
+	<string name="non_mutual_sheet_text">相互フォローでない誰かに返信しようとしているようです。素晴らしい第一印象を与えましょう。</string>
+	<string name="got_it">了解</string>
+	<string name="dont_remind_again">次回からリマインドしない</string>
 	<!-- %s is a time interval ("5 months") -->
+	<string name="old_post_sheet_title">この投稿から %s 経過しています</string>
+	<string name="old_post_sheet_text">まだ返信することはできますが、関連性がなくなっているかもしれません。</string>
+	<plurals name="x_months">
+		<item quantity="other">%,d か月</item>
+	</plurals>
+	<string name="more_than_two_years">2 年以上</string>
+	<string name="non_mutual_title1">尊重し合う姿勢と関連性を意識しましょう</string>
+	<string name="non_mutual_text1">返信が失礼でないか、話題から逸れていないかを確認してください。</string>
+	<string name="non_mutual_title2">優しさを持ちましょう</string>
+	<string name="non_mutual_text2">ポジティブなトーンは常に好まれます。</string>
+	<string name="non_mutual_title3">オープンでいましょう</string>
+	<string name="non_mutual_text3">会話スタイルは十人十色です。適応する準備をしておきましょう。</string>
 </resources>
