@@ -647,10 +647,14 @@
 	<string name="list_no_members">Ingen medlemmer ennå</string>
 	<string name="list_find_users">Finn brukere å legge til</string>
 	<string name="reply_to_user">Svar til %s</string>
+	<string name="posted_at">Postet på %s</string>
+	<string name="non_mutual_sheet_title">Hei, ny tilkobling!</string>
+	<string name="non_mutual_sheet_text">Ser ut som du er i ferd med å svare til noen som ikke er i en gjensidig forbindelse ennå. La oss gjøre et godt førsteinntrykk.</string>
 	<string name="got_it">Forstått</string>
 	<string name="dont_remind_again">Ikke spør meg igjen</string>
 	<!-- %s is a time interval ("5 months") -->
 	<string name="old_post_sheet_title">Dette innlegget er %s gammelt</string>
+	<string name="old_post_sheet_text">Du kan fortsatt svare, men det er ikke lenger relevant.</string>
 	<plurals name="x_months">
 		<item quantity="one">%,d måned</item>
 		<item quantity="other">%,d måneder</item>
@@ -661,4 +665,5 @@
 	<string name="non_mutual_title2">Omfavn vennlighet</string>
 	<string name="non_mutual_text2">En positiv tone blir alltid verdsatt.</string>
 	<string name="non_mutual_title3">Vær åpen</string>
+	<string name="non_mutual_text3">Alles samtalestil er unik. Vær klar til å tilpasse deg.</string>
 </resources>
