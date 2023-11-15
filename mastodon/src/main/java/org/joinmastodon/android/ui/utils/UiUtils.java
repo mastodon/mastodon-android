@@ -83,6 +83,7 @@ import java.time.format.FormatStyle;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.function.BiPredicate;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
@@ -616,9 +617,15 @@ public class UiUtils{
 		return GlobalUserPreferences.theme==GlobalUserPreferences.ThemePreference.DARK;
 	}
 
-	public static void openURL(Context context, String accountID, String url){
+	public static void openURL(Context context, String accountID, String url, Object parentObject){
+		String objectURL=null;
+		if(parentObject instanceof Status s){
+			objectURL=s.url;
+		}else if(parentObject instanceof Account a){
+			objectURL=a.url;
+		}
 		Uri uri=Uri.parse(url);
-		if(accountID!=null && "https".equals(uri.getScheme())){
+		if(accountID!=null && "https".equals(uri.getScheme()) && !Objects.equals(url, objectURL)){
 			List<String> path=uri.getPathSegments();
 			if(AccountSessionManager.getInstance().getAccount(accountID).domain.equalsIgnoreCase(uri.getAuthority()) && path.size()==2 && path.get(0).matches("^@[a-zA-Z0-9_]+$") && path.get(1).matches("^[0-9]+$")){
 				// Match URLs like https://mastodon.social/@Gargron/108132679274083591
@@ -649,10 +656,20 @@ public class UiUtils{
 								Bundle args=new Bundle();
 								args.putString("account", accountID);
 								if(result.statuses!=null && !result.statuses.isEmpty()){
-									args.putParcelable("status", Parcels.wrap(result.statuses.get(0)));
+									Status s=result.statuses.get(0);
+									if(parentObject instanceof Status status && s.id.equals(status.id)){
+										launchWebBrowser(context, url);
+										return;
+									}
+									args.putParcelable("status", Parcels.wrap(s));
 									Nav.go((Activity)context, ThreadFragment.class, args);
 								}else if(result.accounts!=null && !result.accounts.isEmpty()){
-									args.putParcelable("profileAccount", Parcels.wrap(result.accounts.get(0)));
+									Account a=result.accounts.get(0);
+									if(parentObject instanceof Account account && a.id.equals(account.id)){
+										launchWebBrowser(context, url);
+										return;
+									}
+									args.putParcelable("profileAccount", Parcels.wrap(a));
 									Nav.go((Activity)context, ProfileFragment.class, args);
 								}else{
 									launchWebBrowser(context, url);

@@ -135,7 +135,7 @@ public abstract class StatusDisplayItem{
 		}
 
 		if(!TextUtils.isEmpty(statusForContent.content)){
-			SpannableStringBuilder parsedText=HtmlParser.parse(statusForContent.content, statusForContent.emojis, statusForContent.mentions, statusForContent.tags, accountID);
+			SpannableStringBuilder parsedText=HtmlParser.parse(statusForContent.content, statusForContent.emojis, statusForContent.mentions, statusForContent.tags, accountID, statusForContent);
 			if(filtered){
 				HtmlParser.applyFilterHighlights(fragment.getActivity(), parsedText, status.filtered);
 			}
