@@ -616,5 +616,16 @@
 	<string name="list_find_users">尋找欲新增之使用者</string>
 	<string name="reply_to_user">回覆 %s</string>
 	<string name="posted_at">於 %s 發嘟</string>
+	<string name="non_mutual_sheet_title">歡迎，新朋友！</string>
+	<string name="non_mutual_sheet_text">您似乎正在似乎正在回覆沒有互相跟隨的帳號。讓我們建立個美好的第一印象。</string>
+	<string name="got_it">了解</string>
+	<string name="dont_remind_again">不要再提醒我</string>
 	<!-- %s is a time interval ("5 months") -->
+	<string name="old_post_sheet_title">此嘟文有 %s 的歷史了</string>
+	<string name="old_post_sheet_text">您仍可繼續回覆，但可能不再引起任何波瀾。</string>
+	<plurals name="x_months">
+		<item quantity="other">%,d 個月</item>
+	</plurals>
+	<string name="more_than_two_years">超過兩年</string>
+	<string name="non_mutual_title1">保持禮貌並且不偏離主題</string>
 </resources>
