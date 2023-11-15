@@ -115,8 +115,6 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 		private final TextView name, timeAndUsername, extraText;
 		private final ImageView avatar, more;
 		private final PopupMenu optionsMenu;
-		private Relationship relationship;
-		private APIRequest<?> currentRelationshipRequest;
 
 		public Holder(Activity activity, ViewGroup parent){
 			this(activity, R.layout.display_item_header, parent);
@@ -140,6 +138,7 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 				optionsMenu.getMenu().setGroupDividerEnabled(true);
 			optionsMenu.setOnMenuItemClickListener(menuItem->{
 				Account account=item.user;
+				Relationship relationship=item.parentFragment.getRelationship(account.id);
 				int id=menuItem.getItemId();
 				if(id==R.id.edit){
 					final Bundle args=new Bundle();
@@ -192,7 +191,7 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 						else
 							progress.dismiss();
 					}, rel->{
-						relationship=rel;
+						item.parentFragment.putRelationship(account.id, rel);
 						Toast.makeText(activity, activity.getString(rel.following ? R.string.followed_user : rel.requested ? R.string.following_user_requested : R.string.unfollowed_user, account.getDisplayUsername()), Toast.LENGTH_SHORT).show();
 					});
 				}else if(id==R.id.bookmark){
@@ -235,10 +234,6 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 			more.setVisibility(item.inset ? View.GONE : View.VISIBLE);
 			avatar.setClickable(!item.inset);
 			avatar.setContentDescription(item.parentFragment.getString(R.string.avatar_description, item.user.acct));
-			if(currentRelationshipRequest!=null){
-				currentRelationshipRequest.cancel();
-			}
-			relationship=null;
 		}
 
 		@Override
@@ -272,31 +267,13 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 		private void onMoreClick(View v){
 			updateOptionsMenu();
 			optionsMenu.show();
-			if(relationship==null && currentRelationshipRequest==null){
-				currentRelationshipRequest=new GetAccountRelationships(Collections.singletonList(item.user.id))
-						.setCallback(new Callback<>(){
-							@Override
-							public void onSuccess(List<Relationship> result){
-								if(!result.isEmpty()){
-									relationship=result.get(0);
-									updateOptionsMenu();
-								}
-								currentRelationshipRequest=null;
-							}
-
-							@Override
-							public void onError(ErrorResponse error){
-								currentRelationshipRequest=null;
-							}
-						})
-						.exec(item.parentFragment.getAccountID());
-			}
 		}
 
 		private void updateOptionsMenu(){
 			if(item.parentFragment.getActivity()==null)
 				return;
 			Account account=item.user;
+			Relationship relationship=item.parentFragment.getRelationship(account.id);
 			Menu menu=optionsMenu.getMenu();
 			boolean isOwnPost=AccountSessionManager.getInstance().isSelf(item.parentFragment.getAccountID(), account);
 			boolean canTranslate=item.status!=null && item.status.getContentStatus().isEligibleForTranslation();

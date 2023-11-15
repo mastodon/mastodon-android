@@ -658,4 +658,22 @@
 	<string name="list_find_users">Find users to add</string>
 	<string name="reply_to_user">Reply to %s</string>
 	<string name="posted_at">Posted at %s</string>
+	<string name="non_mutual_sheet_title">Hello, new connection!</string>
+	<string name="non_mutual_sheet_text">Looks like you’re about to reply to someone who isn’t a mutual connection yet. Let’s make a great first impression.</string>
+	<string name="got_it">Got it</string>
+	<string name="dont_remind_again">Don’t remind me again</string>
+	<!-- %s is a time interval ("5 months") -->
+	<string name="old_post_sheet_title">This post is %s old</string>
+	<string name="old_post_sheet_text">You can still reply, but it may no longer be relevant.</string>
+	<plurals name="x_months">
+		<item quantity="one">%,d month</item>
+		<item quantity="other">%,d months</item>
+	</plurals>
+	<string name="more_than_two_years">more than 2 years</string>
+	<string name="non_mutual_title1">Stay respectful &amp; relevant</string>
+	<string name="non_mutual_text1">Ensure your reply is courteous and on-topic.</string>
+	<string name="non_mutual_title2">Embrace kindness</string>
+	<string name="non_mutual_text2">A positive tone is always appreciated.</string>
+	<string name="non_mutual_title3">Be open</string>
+	<string name="non_mutual_text3">Everyone’s conversation style is unique. Be ready to adapt.</string>
 </resources>

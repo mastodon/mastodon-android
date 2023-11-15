@@ -835,4 +835,18 @@ public class UiUtils{
 			Toast.makeText(context, R.string.text_copied, Toast.LENGTH_SHORT).show();
 		}
 	}
+
+	public static void setAllPaddings(View view, int paddingDp){
+		int pad=V.dp(paddingDp);
+		view.setPadding(pad, pad, pad, pad);
+	}
+
+	public static ViewGroup.MarginLayoutParams makeLayoutParams(int width, int height, int marginStart, int marginTop, int marginEnd, int marginBottom){
+		ViewGroup.MarginLayoutParams lp=new ViewGroup.MarginLayoutParams(width>0 ? V.dp(width) : width, height>0 ? V.dp(height) : height);
+		lp.topMargin=V.dp(marginTop);
+		lp.bottomMargin=V.dp(marginBottom);
+		lp.setMarginStart(V.dp(marginStart));
+		lp.setMarginEnd(V.dp(marginEnd));
+		return lp;
+	}
 }

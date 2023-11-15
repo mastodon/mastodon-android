@@ -204,7 +204,7 @@ public class HtmlParser{
 		Document doc=Jsoup.parseBodyFragment(html);
 		doc.body().select("span.invisible").remove();
 		Cleaner cleaner=new Cleaner(Safelist.none());
-		return cleaner.clean(doc).body().html();
+		return cleaner.clean(doc).body().text();
 	}
 
 	public static CharSequence parseLinks(String text){

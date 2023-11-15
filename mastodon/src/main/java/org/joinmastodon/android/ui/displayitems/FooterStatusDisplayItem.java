@@ -129,10 +129,12 @@ public class FooterStatusDisplayItem extends StatusDisplayItem{
 		}
 
 		private void onReplyClick(View v){
-			Bundle args=new Bundle();
-			args.putString("account", item.accountID);
-			args.putParcelable("replyTo", Parcels.wrap(item.status));
-			Nav.go(item.parentFragment.getActivity(), ComposeFragment.class, args);
+			item.parentFragment.maybeShowPreReplySheet(item.status, ()->{
+				Bundle args=new Bundle();
+				args.putString("account", item.accountID);
+				args.putParcelable("replyTo", Parcels.wrap(item.status));
+				Nav.go(item.parentFragment.getActivity(), ComposeFragment.class, args);
+			});
 		}
 
 		private void onBoostClick(View v){

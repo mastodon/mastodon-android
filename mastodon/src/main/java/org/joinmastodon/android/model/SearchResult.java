@@ -34,8 +34,16 @@ public class SearchResult extends BaseModel implements DisplayItemsParent{
 		generateID();
 	}
 
+	@Override
 	public String getID(){
 		return id;
+	}
+
+	@Override
+	public String getAccountID(){
+		if(type==Type.STATUS)
+			return status.getAccountID();
+		return null;
 	}
 
 	@Override

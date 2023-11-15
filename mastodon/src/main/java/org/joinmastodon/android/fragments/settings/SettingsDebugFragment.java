@@ -1,10 +1,9 @@
 package org.joinmastodon.android.fragments.settings;
 
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.widget.Toast;
 
-import org.joinmastodon.android.MastodonApp;
+import org.joinmastodon.android.GlobalUserPreferences;
 import org.joinmastodon.android.api.session.AccountActivationInfo;
 import org.joinmastodon.android.api.session.AccountSession;
 import org.joinmastodon.android.api.session.AccountSessionManager;
@@ -28,7 +27,8 @@ public class SettingsDebugFragment extends BaseSettingsFragment<Void>{
 				new ListItem<>("Test email confirmation flow", null, this::onTestEmailConfirmClick),
 				selfUpdateItem=new ListItem<>("Force self-update", null, this::onForceSelfUpdateClick),
 				resetUpdateItem=new ListItem<>("Reset self-updater", null, this::onResetUpdaterClick),
-				new ListItem<>("Reset search info banners", null, this::onResetDiscoverBannersClick)
+				new ListItem<>("Reset search info banners", null, this::onResetDiscoverBannersClick),
+				new ListItem<>("Reset pre-reply sheets", null, this::onResetPreReplySheetsClick)
 		));
 		if(!GithubSelfUpdater.needSelfUpdating()){
 			resetUpdateItem.isEnabled=selfUpdateItem.isEnabled=false;
@@ -63,6 +63,11 @@ public class SettingsDebugFragment extends BaseSettingsFragment<Void>{
 	private void onResetDiscoverBannersClick(ListItem<?> item){
 		DiscoverInfoBannerHelper.reset();
 		restartUI();
+	}
+
+	private void onResetPreReplySheetsClick(ListItem<?> item){
+		GlobalUserPreferences.resetPreReplySheets();
+		Toast.makeText(getActivity(), "Pre-reply sheets were reset", Toast.LENGTH_SHORT).show();
 	}
 
 	private void restartUI(){

@@ -143,6 +143,11 @@ public class Status extends BaseModel implements DisplayItemsParent{
 		return id;
 	}
 
+	@Override
+	public String getAccountID(){
+		return getContentStatus().account.id;
+	}
+
 	public void update(StatusCountersUpdatedEvent ev){
 		favouritesCount=ev.favorites;
 		reblogsCount=ev.reblogs;

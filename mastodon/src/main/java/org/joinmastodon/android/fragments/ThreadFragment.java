@@ -210,11 +210,13 @@ public class ThreadFragment extends StatusListFragment{
 	}
 
 	private void openReply(){
-		Bundle args=new Bundle();
-		args.putString("account", accountID);
-		args.putParcelable("replyTo", Parcels.wrap(mainStatus));
-		args.putBoolean("fromThreadFragment", true);
-		Nav.go(getActivity(), ComposeFragment.class, args);
+		maybeShowPreReplySheet(mainStatus, ()->{
+			Bundle args=new Bundle();
+			args.putString("account", accountID);
+			args.putParcelable("replyTo", Parcels.wrap(mainStatus));
+			args.putBoolean("fromThreadFragment", true);
+			Nav.go(getActivity(), ComposeFragment.class, args);
+		});
 	}
 
 	public int getSnackbarOffset(){
