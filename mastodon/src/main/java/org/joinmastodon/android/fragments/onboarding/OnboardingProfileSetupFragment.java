@@ -12,6 +12,7 @@ import android.view.WindowInsets;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ScrollView;
 
 import org.joinmastodon.android.R;
@@ -20,12 +21,17 @@ import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.fragments.HomeFragment;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.AccountField;
+import org.joinmastodon.android.model.viewmodel.CheckableListItem;
+import org.joinmastodon.android.ui.M3AlertDialogBuilder;
 import org.joinmastodon.android.ui.OutlineProviders;
+import org.joinmastodon.android.ui.adapters.GenericListItemsAdapter;
 import org.joinmastodon.android.ui.utils.UiUtils;
+import org.joinmastodon.android.ui.viewholders.ListItemViewHolder;
 import org.joinmastodon.android.ui.views.ReorderableLinearLayout;
 import org.joinmastodon.android.utils.ElevationOnScrollListener;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import me.grishka.appkit.Nav;
 import me.grishka.appkit.api.Callback;
@@ -36,7 +42,7 @@ import me.grishka.appkit.imageloader.requests.UrlImageLoaderRequest;
 import me.grishka.appkit.utils.V;
 import me.grishka.appkit.views.FragmentRootLinearLayout;
 
-public class OnboardingProfileSetupFragment extends ToolbarFragment implements ReorderableLinearLayout.OnDragListener{
+public class OnboardingProfileSetupFragment extends ToolbarFragment{
 	private Button btn;
 	private View buttonBar;
 	private String accountID;
@@ -44,9 +50,9 @@ public class OnboardingProfileSetupFragment extends ToolbarFragment implements R
 	private ScrollView scroller;
 	private EditText nameEdit, bioEdit;
 	private ImageView avaImage, coverImage;
-	private Button addRow;
-	private ReorderableLinearLayout profileFieldsLayout;
 	private Uri avatarUri, coverUri;
+	private LinearLayout scrollContent;
+	private CheckableListItem<Void> discoverableItem;
 
 	private static final int AVATAR_RESULT=348;
 	private static final int COVER_RESULT=183;
@@ -74,8 +80,6 @@ public class OnboardingProfileSetupFragment extends ToolbarFragment implements R
 		bioEdit=view.findViewById(R.id.bio);
 		avaImage=view.findViewById(R.id.avatar);
 		coverImage=view.findViewById(R.id.header);
-		addRow=view.findViewById(R.id.add_row);
-		profileFieldsLayout=view.findViewById(R.id.profile_fields);
 
 		btn=view.findViewById(R.id.btn_next);
 		btn.setOnClickListener(v->onButtonClick());
@@ -87,30 +91,19 @@ public class OnboardingProfileSetupFragment extends ToolbarFragment implements R
 		Account account=AccountSessionManager.getInstance().getAccount(accountID).self;
 		if(savedInstanceState==null){
 			nameEdit.setText(account.displayName);
-			makeFieldsRow();
-		}else{
-			ArrayList<String> fieldTitles=savedInstanceState.getStringArrayList("fieldTitles");
-			ArrayList<String> fieldValues=savedInstanceState.getStringArrayList("fieldValues");
-			for(int i=0;i<fieldTitles.size();i++){
-				View row=makeFieldsRow();
-				EditText title=row.findViewById(R.id.title);
-				EditText content=row.findViewById(R.id.content);
-				title.setText(fieldTitles.get(i));
-				content.setText(fieldValues.get(i));
-			}
-			if(fieldTitles.size()==4)
-				addRow.setVisibility(View.GONE);
 		}
 
-		addRow.setOnClickListener(v->{
-			makeFieldsRow();
-			if(profileFieldsLayout.getChildCount()==4){
-				addRow.setVisibility(View.GONE);
-			}
-		});
-		profileFieldsLayout.setDragListener(this);
 		avaImage.setOnClickListener(v->startActivityForResult(UiUtils.getMediaPickerIntent(new String[]{"image/*"}, 1), AVATAR_RESULT));
 		coverImage.setOnClickListener(v->startActivityForResult(UiUtils.getMediaPickerIntent(new String[]{"image/*"}, 1), COVER_RESULT));
+
+		scrollContent=view.findViewById(R.id.scrollable_content);
+		discoverableItem=new CheckableListItem<>(R.string.make_profile_discoverable, 0, CheckableListItem.Style.SWITCH_SEPARATED, true, R.drawable.ic_campaign_24px, item->showDiscoverabilityAlert());
+		GenericListItemsAdapter<Void> fakeAdapter=new GenericListItemsAdapter<>(List.of(discoverableItem));
+		ListItemViewHolder<?> holder=fakeAdapter.onCreateViewHolder(scrollContent, fakeAdapter.getItemViewType(0));
+		fakeAdapter.bindViewHolder(holder, 0);
+		holder.itemView.setBackground(UiUtils.getThemeDrawable(getActivity(), android.R.attr.selectableItemBackground));
+		holder.itemView.setOnClickListener(v->holder.onClick());
+		scrollContent.addView(holder.itemView);
 
 		return view;
 	}
@@ -130,17 +123,8 @@ public class OnboardingProfileSetupFragment extends ToolbarFragment implements R
 	}
 
 	protected void onButtonClick(){
-		ArrayList<AccountField> fields=new ArrayList<>();
-		for(int i=0;i<profileFieldsLayout.getChildCount();i++){
-			View row=profileFieldsLayout.getChildAt(i);
-			EditText title=row.findViewById(R.id.title);
-			EditText content=row.findViewById(R.id.content);
-			AccountField fld=new AccountField();
-			fld.name=title.getText().toString();
-			fld.value=content.getText().toString();
-			fields.add(fld);
-		}
-		new UpdateAccountCredentials(nameEdit.getText().toString(), bioEdit.getText().toString(), avatarUri, coverUri, fields)
+		new UpdateAccountCredentials(nameEdit.getText().toString(), bioEdit.getText().toString(), avatarUri, coverUri, null)
+				.setDiscoverableIndexable(discoverableItem.checked, discoverableItem.checked)
 				.setCallback(new Callback<>(){
 					@Override
 					public void onSuccess(Account result){
@@ -164,39 +148,6 @@ public class OnboardingProfileSetupFragment extends ToolbarFragment implements R
 		super.onApplyWindowInsets(UiUtils.applyBottomInsetToFixedView(buttonBar, insets));
 	}
 
-	private View makeFieldsRow(){
-		View view=LayoutInflater.from(getActivity()).inflate(R.layout.onboarding_profile_field, profileFieldsLayout, false);
-		profileFieldsLayout.addView(view);
-		view.findViewById(R.id.dragger_thingy).setOnLongClickListener(v->{
-			profileFieldsLayout.startDragging(view);
-			return true;
-		});
-		view.findViewById(R.id.delete).setOnClickListener(v->{
-			profileFieldsLayout.removeView(view);
-			if(addRow.getVisibility()==View.GONE)
-				addRow.setVisibility(View.VISIBLE);
-		});
-		return view;
-	}
-
-	@Override
-	public void onSwapItems(int oldIndex, int newIndex){}
-
-	@Override
-	public void onSaveInstanceState(Bundle outState){
-		super.onSaveInstanceState(outState);
-		ArrayList<String> fieldTitles=new ArrayList<>(), fieldValues=new ArrayList<>();
-		for(int i=0;i<profileFieldsLayout.getChildCount();i++){
-			View row=profileFieldsLayout.getChildAt(i);
-			EditText title=row.findViewById(R.id.title);
-			EditText content=row.findViewById(R.id.content);
-			fieldTitles.add(title.getText().toString());
-			fieldValues.add(content.getText().toString());
-		}
-		outState.putStringArrayList("fieldTitles", fieldTitles);
-		outState.putStringArrayList("fieldValues", fieldValues);
-	}
-
 	@Override
 	public void onActivityResult(int requestCode, int resultCode, Intent data){
 		if(resultCode!=Activity.RESULT_OK)
@@ -215,5 +166,13 @@ public class OnboardingProfileSetupFragment extends ToolbarFragment implements R
 		}
 		img.setForeground(null);
 		ViewImageLoader.load(img, null, new UrlImageLoaderRequest(uri, size, size));
+	}
+
+	private void showDiscoverabilityAlert(){
+		new M3AlertDialogBuilder(getActivity())
+				.setTitle(R.string.discoverability)
+				.setMessage(R.string.discoverability_help)
+				.setPositiveButton(R.string.ok, null)
+				.show();
 	}
 }

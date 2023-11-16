@@ -39,8 +39,8 @@ public class GenericListItemsAdapter<T> extends UsableRecyclerView.Adapter<ListI
 	public ListItemViewHolder<?> onCreateViewHolder(@NonNull ViewGroup parent, int viewType){
 		if(viewType==R.id.list_item_simple || viewType==R.id.list_item_simple_tinted)
 			return new SimpleListItemViewHolder(parent.getContext(), parent);
-		if(viewType==R.id.list_item_switch)
-			return new SwitchListItemViewHolder(parent.getContext(), parent);
+		if(viewType==R.id.list_item_switch || viewType==R.id.list_item_switch_separated)
+			return new SwitchListItemViewHolder(parent.getContext(), parent, viewType==R.id.list_item_switch_separated);
 		if(viewType==R.id.list_item_checkbox)
 			return new CheckboxOrRadioListItemViewHolder(parent.getContext(), parent, false);
 		if(viewType==R.id.list_item_radio)

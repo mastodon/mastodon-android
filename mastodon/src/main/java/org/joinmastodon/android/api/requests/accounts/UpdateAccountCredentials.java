@@ -22,6 +22,7 @@ public class UpdateAccountCredentials extends MastodonAPIRequest<Account>{
 	private Uri avatar, cover;
 	private File avatarFile, coverFile;
 	private List<AccountField> fields;
+	private Boolean discoverable, indexable;
 
 	public UpdateAccountCredentials(String displayName, String bio, Uri avatar, Uri cover, List<AccountField> fields){
 		super(HttpMethod.PATCH, "/accounts/update_credentials", Account.class);
@@ -41,6 +42,12 @@ public class UpdateAccountCredentials extends MastodonAPIRequest<Account>{
 		this.fields=fields;
 	}
 
+	public UpdateAccountCredentials setDiscoverableIndexable(boolean discoverable, boolean indexable){
+		this.discoverable=discoverable;
+		this.indexable=indexable;
+		return this;
+	}
+
 	@Override
 	public RequestBody getRequestBody() throws IOException{
 		MultipartBody.Builder bldr=new MultipartBody.Builder()
@@ -58,15 +65,21 @@ public class UpdateAccountCredentials extends MastodonAPIRequest<Account>{
 		}else if(coverFile!=null){
 			bldr.addFormDataPart("header", coverFile.getName(), new ResizedImageRequestBody(Uri.fromFile(coverFile), 1500*500, null));
 		}
-		if(fields.isEmpty()){
-			bldr.addFormDataPart("fields_attributes[0][name]", "").addFormDataPart("fields_attributes[0][value]", "");
-		}else{
-			int i=0;
-			for(AccountField field:fields){
-				bldr.addFormDataPart("fields_attributes["+i+"][name]", field.name).addFormDataPart("fields_attributes["+i+"][value]", field.value);
-				i++;
+		if(fields!=null){
+			if(fields.isEmpty()){
+				bldr.addFormDataPart("fields_attributes[0][name]", "").addFormDataPart("fields_attributes[0][value]", "");
+			}else{
+				int i=0;
+				for(AccountField field:fields){
+					bldr.addFormDataPart("fields_attributes["+i+"][name]", field.name).addFormDataPart("fields_attributes["+i+"][value]", field.value);
+					i++;
+				}
 			}
 		}
+		if(discoverable!=null)
+			bldr.addFormDataPart("discoverable", discoverable.toString());
+		if(indexable!=null)
+			bldr.addFormDataPart("indexable", indexable.toString());
 
 		return bldr.build();
 	}

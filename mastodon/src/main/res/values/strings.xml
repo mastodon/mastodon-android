@@ -168,19 +168,7 @@
 	<string name="password">Password</string>
 	<string name="confirm_password">Confirm password</string>
 	<string name="password_note">Include capital letters, special characters, and numbers to increase your password strength.</string>
-	<string name="category_academia">Academia</string>
-	<string name="category_activism">Activism</string>
-	<string name="category_all">All</string>
-	<string name="category_art">Art</string>
-	<string name="category_food">Food</string>
-	<string name="category_furry">Furry</string>
-	<string name="category_games">Games</string>
 	<string name="category_general">General</string>
-	<string name="category_journalism">Journalism</string>
-	<string name="category_lgbt">LGBT</string>
-	<string name="category_music">Music</string>
-	<string name="category_regional">Regional</string>
-	<string name="category_tech">Tech</string>
 	<string name="confirm_email_title">Check Your Inbox</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">Tap the link we sent you to verify %s. We’ll wait right here.</string>
@@ -362,7 +350,6 @@
 	<string name="profile_add_row">Add row</string>
 	<string name="profile_setup">Profile setup</string>
 	<string name="profile_setup_subtitle">You can always complete this later in the Profile tab.</string>
-	<string name="profile_setup_explanation">You can add up to four profile fields for anything you want. Location, links, pronouns — the sky is the limit.</string>
 	<string name="popular_on_mastodon">Popular on Mastodon</string>
 	<string name="follow_all">Follow all</string>
 	<string name="server_rules_disagree">Disagree</string>
@@ -673,4 +660,7 @@
 	<string name="non_mutual_text2">A positive tone is always appreciated.</string>
 	<string name="non_mutual_title3">Be open</string>
 	<string name="non_mutual_text3">Everyone’s conversation style is unique. Be ready to adapt.</string>
+	<string name="make_profile_discoverable">Make my profile discoverable</string>
+	<string name="discoverability">Discoverability</string>
+	<string name="discoverability_help">When you opt into discoverability on Mastodon, your posts may appear in search results and trending.\n\nYour profile may be suggested to people with similar interests to you.\n\nOpting out does not hide your profile if someone searches for you by name.</string>
 </resources>
