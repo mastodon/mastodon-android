@@ -632,5 +632,26 @@
 	<string name="list_find_users">Trova gli utenti da aggiungere</string>
 	<string name="reply_to_user">Risposta a %s</string>
 	<string name="posted_at">Postato: %s</string>
+	<string name="non_mutual_sheet_title">Ciao, nuova connessione!</string>
+	<string name="non_mutual_sheet_text">Sembra che tu stia per rispondere a qualcuno che non ha ancora una connessione reciproca. Facciamo un\'ottima prima impressione.</string>
+	<string name="got_it">Ho capito</string>
+	<string name="dont_remind_again">Non ricordarmelo di nuovo</string>
 	<!-- %s is a time interval ("5 months") -->
+	<string name="old_post_sheet_title">Questo post è vecchio di %s</string>
+	<string name="old_post_sheet_text">Puoi ancora rispondere, ma potrebbe non essere più rilevante.</string>
+	<plurals name="x_months">
+		<item quantity="one">%,d mese</item>
+		<item quantity="other">%,d mesi</item>
+	</plurals>
+	<string name="more_than_two_years">più di 2 anni</string>
+	<string name="non_mutual_title1">Rimani rispettoso &amp; pertinente</string>
+	<string name="non_mutual_text1">Assicurati che la tua risposta sia cortese e in tema.</string>
+	<string name="non_mutual_title2">Abbraccia la gentilezza</string>
+	<string name="non_mutual_text2">Un tono positivo è sempre apprezzato.</string>
+	<string name="non_mutual_title3">Sii aperto</string>
+	<string name="non_mutual_text3">Lo stile di conversazione di ognuno è unico. Sii pronto ad adattarti.</string>
+	<string name="make_profile_discoverable">Rendi il mio profilo rilevabile</string>
+	<string name="discoverability">Rilevabilità</string>
+	<string name="discoverability_help">Quando attivi la rilevabilità su Mastodon, i tuoi post potrebbero apparire nei risultati di ricerca e nelle tendenze.\n\nIl tuo profilo potrebbe essere suggerito a persone con interessi simili ai tuoi.\n\nLa disattivazione non nasconde il tuo profilo se qualcuno ti cerca per nome.</string>
+	<string name="app_version_copied">Numero di versione copiato negli appunti</string>
 </resources>
