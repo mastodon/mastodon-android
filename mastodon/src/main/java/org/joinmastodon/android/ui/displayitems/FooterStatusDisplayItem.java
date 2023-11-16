@@ -1,12 +1,11 @@
 package org.joinmastodon.android.ui.displayitems;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.accessibility.AccessibilityNodeInfo;
@@ -25,10 +24,7 @@ import org.joinmastodon.android.model.StatusPrivacy;
 import org.joinmastodon.android.ui.utils.UiUtils;
 import org.parceler.Parcels;
 
-import java.text.DecimalFormat;
-
 import me.grishka.appkit.Nav;
-import me.grishka.appkit.utils.BindableViewHolder;
 import me.grishka.appkit.utils.V;
 
 public class FooterStatusDisplayItem extends StatusDisplayItem{
@@ -51,6 +47,7 @@ public class FooterStatusDisplayItem extends StatusDisplayItem{
 		private final TextView reply, boost, favorite;
 		private final ImageView share;
 		private final ColorStateList buttonColors;
+		private final View replyBtn, boostBtn, favoriteBtn, shareBtn;
 
 		private final View.AccessibilityDelegate buttonAccessibilityDelegate=new View.AccessibilityDelegate(){
 			@Override
@@ -93,18 +90,18 @@ public class FooterStatusDisplayItem extends StatusDisplayItem{
 				UiUtils.fixCompoundDrawableTintOnAndroid6(boost);
 				UiUtils.fixCompoundDrawableTintOnAndroid6(favorite);
 			}
-			View reply=findViewById(R.id.reply_btn);
-			View boost=findViewById(R.id.boost_btn);
-			View favorite=findViewById(R.id.favorite_btn);
-			View share=findViewById(R.id.share_btn);
-			reply.setOnClickListener(this::onReplyClick);
-			reply.setAccessibilityDelegate(buttonAccessibilityDelegate);
-			boost.setOnClickListener(this::onBoostClick);
-			boost.setAccessibilityDelegate(buttonAccessibilityDelegate);
-			favorite.setOnClickListener(this::onFavoriteClick);
-			favorite.setAccessibilityDelegate(buttonAccessibilityDelegate);
-			share.setOnClickListener(this::onShareClick);
-			share.setAccessibilityDelegate(buttonAccessibilityDelegate);
+			replyBtn=findViewById(R.id.reply_btn);
+			boostBtn=findViewById(R.id.boost_btn);
+			favoriteBtn=findViewById(R.id.favorite_btn);
+			shareBtn=findViewById(R.id.share_btn);
+			replyBtn.setOnClickListener(this::onReplyClick);
+			replyBtn.setAccessibilityDelegate(buttonAccessibilityDelegate);
+			boostBtn.setOnClickListener(this::onBoostClick);
+			boostBtn.setAccessibilityDelegate(buttonAccessibilityDelegate);
+			favoriteBtn.setOnClickListener(this::onFavoriteClick);
+			favoriteBtn.setAccessibilityDelegate(buttonAccessibilityDelegate);
+			shareBtn.setOnClickListener(this::onShareClick);
+			shareBtn.setAccessibilityDelegate(buttonAccessibilityDelegate);
 		}
 
 		@Override
@@ -112,10 +109,18 @@ public class FooterStatusDisplayItem extends StatusDisplayItem{
 			bindButton(reply, item.status.repliesCount);
 			bindButton(boost, item.status.reblogsCount);
 			bindButton(favorite, item.status.favouritesCount);
-			boost.setSelected(item.status.reblogged);
-			favorite.setSelected(item.status.favourited);
-			boost.setEnabled(item.status.visibility==StatusPrivacy.PUBLIC || item.status.visibility==StatusPrivacy.UNLISTED
-					|| (item.status.visibility==StatusPrivacy.PRIVATE && item.status.account.id.equals(AccountSessionManager.getInstance().getAccount(item.accountID).self.id)));
+			boostBtn.setSelected(item.status.reblogged);
+			favoriteBtn.setSelected(item.status.favourited);
+			boolean isOwn=item.status.account.id.equals(AccountSessionManager.getInstance().getAccount(item.accountID).self.id);
+			boostBtn.setEnabled(item.status.visibility==StatusPrivacy.PUBLIC || item.status.visibility==StatusPrivacy.UNLISTED
+					|| (item.status.visibility==StatusPrivacy.PRIVATE && isOwn));
+			Drawable d=itemView.getResources().getDrawable(switch(item.status.visibility){
+				case PUBLIC, UNLISTED -> R.drawable.ic_boost;
+				case PRIVATE -> isOwn ? R.drawable.ic_boost_private : R.drawable.ic_boost_disabled_24px;
+				case DIRECT -> R.drawable.ic_boost_disabled_24px;
+			}, itemView.getContext().getTheme());
+			d.setBounds(0, 0, V.dp(20), V.dp(20));
+			boost.setCompoundDrawablesRelative(d, null, null, null);
 		}
 
 		private void bindButton(TextView btn, long count){
