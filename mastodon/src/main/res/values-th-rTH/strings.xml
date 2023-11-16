@@ -598,5 +598,12 @@
 	<string name="manage_list_members">จัดการสมาชิกของรายการ</string>
 	<string name="list_no_members">ยังไม่มีสมาชิก</string>
 	<string name="list_find_users">ค้นหาผู้ใช้ที่จะเพิ่ม</string>
+	<string name="reply_to_user">ตอบกลับ %s</string>
 	<!-- %s is a time interval ("5 months") -->
+	<string name="old_post_sheet_title">โพสต์นี้มีอายุ %s</string>
+	<plurals name="x_months">
+		<item quantity="other">%,d เดือน</item>
+	</plurals>
+	<string name="more_than_two_years">มากกว่า 2 ปี</string>
+	<string name="app_version_copied">คัดลอกหมายเลขรุ่นไปยังคลิปบอร์ดแล้ว</string>
 </resources>
