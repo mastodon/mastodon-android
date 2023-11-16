@@ -381,63 +381,6 @@ public class InstanceCatalogSignupFragment extends InstanceCatalogFragment imple
 		onNextClick(v);
 	}
 
-//	private String getEmojiForCategory(String category){
-//		return switch(category){
-//			case "all" -> "💬";
-//			case "academia" -> "📚";
-//			case "activism" -> "✊";
-//			case "food" -> "🍕";
-//			case "furry" -> "🦁";
-//			case "games" -> "🕹";
-//			case "general" -> "🐘";
-//			case "journalism" -> "📰";
-//			case "lgbt" -> "🏳️‍🌈";
-//			case "regional" -> "📍";
-//			case "art" -> "🎨";
-//			case "music" -> "🎼";
-//			case "tech" -> "📱";
-//			default -> "❓";
-//		};
-//	}
-
-	private int getEmojiForCategory(String category){
-		return switch(category){
-			case "all" -> R.drawable.ic_category_all;
-			case "academia" -> R.drawable.ic_category_academia;
-			case "activism" -> R.drawable.ic_category_activism;
-			case "food" -> R.drawable.ic_category_food;
-			case "furry" -> R.drawable.ic_category_furry;
-			case "games" -> R.drawable.ic_category_games;
-			case "general" -> R.drawable.ic_category_general;
-			case "journalism" -> R.drawable.ic_category_journalism;
-			case "lgbt" -> R.drawable.ic_category_lgbt;
-			case "regional" -> R.drawable.ic_category_regional;
-			case "art" -> R.drawable.ic_category_art;
-			case "music" -> R.drawable.ic_category_music;
-			case "tech" -> R.drawable.ic_category_tech;
-			default -> R.drawable.ic_category_unknown;
-		};
-	}
-
-	private int getTitleForCategory(String category){
-		return switch(category){
-			case "all" -> R.string.category_all;
-			case "academia" -> R.string.category_academia;
-			case "activism" -> R.string.category_activism;
-			case "food" -> R.string.category_food;
-			case "furry" -> R.string.category_furry;
-			case "games" -> R.string.category_games;
-			case "general" -> R.string.category_general;
-			case "journalism" -> R.string.category_journalism;
-			case "lgbt" -> R.string.category_lgbt;
-			case "regional" -> R.string.category_regional;
-			case "art" -> R.string.category_art;
-			case "music" -> R.string.category_music;
-			case "tech" -> R.string.category_tech;
-			default -> 0;
-		};
-	}
-
 	@Override
 	protected void updateFilteredList(){
 		ArrayList<CatalogInstance> prevData=new ArrayList<>(filteredData);
