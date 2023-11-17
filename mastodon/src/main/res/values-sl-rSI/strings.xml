@@ -703,6 +703,12 @@
 	<!-- %s is a time interval ("5 months") -->
 	<string name="old_post_sheet_title">Ta objava je stara %s</string>
 	<string name="old_post_sheet_text">Še vedno lahko odgovorite, a morda ni več relevantno.</string>
+	<plurals name="x_months">
+		<item quantity="one">%,d mesec</item>
+		<item quantity="two">%,d meseca</item>
+		<item quantity="few">%,d meseci</item>
+		<item quantity="other">%,d mesecev</item>
+	</plurals>
 	<string name="more_than_two_years">več kot dve leti</string>
 	<string name="non_mutual_title1">Ostanite spoštljivi in pri temi</string>
 	<string name="non_mutual_text1">Poskrbite, da bo vaš odgovor vljuden in v skladu s temo.</string>
