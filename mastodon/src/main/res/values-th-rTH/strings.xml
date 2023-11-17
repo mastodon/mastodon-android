@@ -599,12 +599,18 @@
 	<string name="list_no_members">ยังไม่มีสมาชิก</string>
 	<string name="list_find_users">ค้นหาผู้ใช้ที่จะเพิ่ม</string>
 	<string name="reply_to_user">ตอบกลับ %s</string>
+	<string name="posted_at">โพสต์เมื่อ %s</string>
 	<string name="got_it">เข้าใจแล้ว</string>
+	<string name="dont_remind_again">ไม่ต้องเตือนฉันอีก</string>
 	<!-- %s is a time interval ("5 months") -->
 	<string name="old_post_sheet_title">โพสต์นี้มีอายุ %s</string>
+	<string name="old_post_sheet_text">คุณยังคงสามารถตอบกลับ แต่การตอบกลับอาจไม่สำคัญอีกต่อไป</string>
 	<plurals name="x_months">
 		<item quantity="other">%,d เดือน</item>
 	</plurals>
 	<string name="more_than_two_years">มากกว่า 2 ปี</string>
+	<string name="make_profile_discoverable">ทำให้โปรไฟล์ของฉันสามารถค้นพบได้</string>
+	<string name="discoverability">ความสามารถในการค้นพบ</string>
+	<string name="discoverability_help">เมื่อคุณเลือกรับความสามารถในการค้นพบใน Mastodon โพสต์ของคุณอาจปรากฏในผลลัพธ์การค้นหาและกำลังนิยม\n\nอาจเสนอแนะโปรไฟล์ของคุณให้กับผู้คนที่มีความสนใจคล้ายกับคุณ\n\nการเลือกไม่รับจะไม่ซ่อนโปรไฟล์ของคุณหากใครสักคนค้นหาคุณโดยชื่อ</string>
 	<string name="app_version_copied">คัดลอกหมายเลขรุ่นไปยังคลิปบอร์ดแล้ว</string>
 </resources>
