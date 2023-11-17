@@ -696,10 +696,12 @@
 	<string name="list_find_users">Найти пользователей для добавления</string>
 	<string name="reply_to_user">Ответить %s</string>
 	<string name="posted_at">Пост в %s</string>
+	<string name="non_mutual_sheet_title">Привет, новый контакт!</string>
+	<string name="non_mutual_sheet_text">Похоже, вы собираетесь ответить кому-то, с кем у вас пока не было контакта. Давайте произведем хорошее первое впечатление.</string>
 	<string name="got_it">Понятно</string>
 	<string name="dont_remind_again">Больше не напоминать</string>
 	<!-- %s is a time interval ("5 months") -->
-	<string name="old_post_sheet_title">Этому посту больше %s</string>
+	<string name="old_post_sheet_title">Этому посту больше чем %s</string>
 	<string name="old_post_sheet_text">Вы все еще можете ответить, но это может быть уже неактуально.</string>
 	<plurals name="x_months">
 		<item quantity="one">%,d месяц</item>
@@ -707,7 +709,15 @@
 		<item quantity="many">%,d месяцев</item>
 		<item quantity="other">%,d месяцев</item>
 	</plurals>
-	<string name="more_than_two_years">более 2 лет</string>
+	<string name="more_than_two_years">2 года и более</string>
+	<string name="non_mutual_title1">Оставайтесь уважительными и уместными</string>
+	<string name="non_mutual_text1">Убедитесь, что ваш ответ вежлив и по теме.</string>
+	<string name="non_mutual_title2">Примите доброту</string>
+	<string name="non_mutual_text2">Позитивный тон всегда приветствуется.</string>
+	<string name="non_mutual_title3">Будьте открыты</string>
+	<string name="non_mutual_text3">У каждого свой стиль общения. Будьте к этому готовы.</string>
 	<string name="make_profile_discoverable">Сделать мой профиль открытым</string>
+	<string name="discoverability">Открытость</string>
+	<string name="discoverability_help">Когда вы станете открыты для просмотра на Mastodon, ваши посты могут появляться в результатах поиска и в трендах.\n\nВаш профиль может быть предложен людям со схожими с вами интересами.\n\nОткажитесь скрывать свой профиль, если кто-то ищет вас по имени.</string>
 	<string name="app_version_copied">Номер версии скопирован в буфер обмена</string>
 </resources>
