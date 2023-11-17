@@ -323,7 +323,7 @@
 	<string name="signup_passwords_dont_match">Mật khẩu không khớp</string>
 	<string name="pick_server_for_me">Chọn giúp tôi</string>
 	<string name="profile_add_row">Thêm hàng</string>
-	<string name="profile_setup">Thiệt lập hồ sơ</string>
+	<string name="profile_setup">Thiết lập hồ sơ</string>
 	<string name="profile_setup_subtitle">Bạn có thể sửa sau trong mục Hồ sơ.</string>
 	<string name="popular_on_mastodon">Thịnh hành trên Mastodon</string>
 	<string name="follow_all">Theo dõi tất cả</string>
@@ -598,5 +598,27 @@
 	<string name="manage_list_members">Quản lý danh sách</string>
 	<string name="list_no_members">Chưa có người nào</string>
 	<string name="list_find_users">Tìm người để thêm vào</string>
+	<string name="reply_to_user">Trả lời %s</string>
+	<string name="posted_at">Được đăng tại %s</string>
+	<string name="non_mutual_sheet_title">Xin chào, kết nối mới!</string>
+	<string name="non_mutual_sheet_text">Có vẻ như bạn sắp trả lời một người chưa có mối quan hệ chung. Hãy tạo ấn tượng đầu tiên tuyệt vời.</string>
+	<string name="got_it">Đã hiểu</string>
+	<string name="dont_remind_again">Đừng nhắc nữa</string>
 	<!-- %s is a time interval ("5 months") -->
+	<string name="old_post_sheet_title">Tút đăng %s trước</string>
+	<string name="old_post_sheet_text">Bạn vẫn có thể trả lời nhưng nó có thể không còn phù hợp nữa.</string>
+	<plurals name="x_months">
+		<item quantity="other">%,d tháng</item>
+	</plurals>
+	<string name="more_than_two_years">hơn 2 năm</string>
+	<string name="non_mutual_title1">Tôn trọng &amp; liên quan</string>
+	<string name="non_mutual_text1">Đảm bảo câu trả lời của bạn lịch sự và đúng chủ đề.</string>
+	<string name="non_mutual_title2">Nói chuyện tử tế</string>
+	<string name="non_mutual_text2">Thái độ tích cực luôn được đánh giá cao.</string>
+	<string name="non_mutual_title3">Hãy cởi mở</string>
+	<string name="non_mutual_text3">Phong cách trò chuyện của mỗi người là duy nhất. Hãy sẵn sàng để thích nghi.</string>
+	<string name="make_profile_discoverable">Bật khám phá cho hồ sơ của tôi</string>
+	<string name="discoverability">Khám phá</string>
+	<string name="discoverability_help">Khi bạn chọn bật khám phá trên Mastodon, tút của bạn sẽ được xuất hiện trong kết quả tìm kiếm và thịnh hành.\n\nHồ sơ của bạn có thể được đề xuất cho những người có cùng sở thích với bạn.\n\nViệc tắt khám phá sẽ không làm ẩn hồ sơ của bạn nếu ai đó tìm kiếm bạn.</string>
+	<string name="app_version_copied">Số phiên bản đã được sao chép vào bộ nhớ tạm</string>
 </resources>
