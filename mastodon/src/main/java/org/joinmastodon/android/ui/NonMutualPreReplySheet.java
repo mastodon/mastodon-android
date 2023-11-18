@@ -2,12 +2,7 @@ package org.joinmastodon.android.ui;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.graphics.Typeface;
-import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
-import android.text.style.AbsoluteSizeSpan;
-import android.text.style.ForegroundColorSpan;
-import android.text.style.TextAppearanceSpan;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,7 +13,6 @@ import android.widget.TextView;
 
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.model.Account;
-import org.joinmastodon.android.model.AccountField;
 import org.joinmastodon.android.ui.text.HtmlParser;
 import org.joinmastodon.android.ui.utils.UiUtils;
 
@@ -28,6 +22,8 @@ import me.grishka.appkit.imageloader.requests.UrlImageLoaderRequest;
 import me.grishka.appkit.utils.V;
 
 public class NonMutualPreReplySheet extends PreReplySheet{
+	private boolean fullBioShown=false;
+
 	@SuppressLint("DefaultLocale")
 	public NonMutualPreReplySheet(@NonNull Context context, ResultListener resultListener, Account account){
 		super(context, resultListener);
@@ -62,30 +58,33 @@ public class NonMutualPreReplySheet extends PreReplySheet{
 		name.setText(account.displayName);
 		name.setGravity(Gravity.CENTER_VERTICAL | Gravity.START);
 		nameAndFields.addView(name, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, V.dp(24)));
-		if(account.fields!=null && !account.fields.isEmpty()){
-			for(AccountField field:account.fields){
-				LinearLayout fieldView=new LinearLayout(context);
-				fieldView.setOrientation(LinearLayout.HORIZONTAL);
-				TextView key=new TextView(context);
-				key.setTextAppearance(R.style.m3_body_medium);
-				key.setTextColor(UiUtils.getThemeColor(context, R.attr.colorM3Secondary));
-				key.setSingleLine();
-				key.setEllipsize(TextUtils.TruncateAt.END);
-				key.setText(field.name);
-				key.setGravity(Gravity.CENTER_VERTICAL | Gravity.START);
-				key.setPaddingRelative(0, 0, V.dp(8), 0);
-				fieldView.addView(key, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT));
-				TextView value=new TextView(context);
-				value.setTextAppearance(R.style.m3_body_medium);
-				value.setTypeface(Typeface.create("sans-serif-medium", Typeface.NORMAL));
-				value.setTextColor(UiUtils.getThemeColor(context, R.attr.colorM3Secondary));
-				value.setSingleLine();
-				value.setEllipsize(TextUtils.TruncateAt.END);
-				value.setText(HtmlParser.stripAndRemoveInvisibleSpans(field.value));
-				value.setGravity(Gravity.CENTER_VERTICAL | Gravity.END);
-				fieldView.addView(value, new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.MATCH_PARENT, 1f));
-				nameAndFields.addView(fieldView, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, V.dp(20)));
-			}
+		if(!TextUtils.isEmpty(account.note)){
+			String strippedBio=HtmlParser.stripAndRemoveInvisibleSpans(account.note);
+			TextView bioShort=new TextView(context);
+			bioShort.setTextAppearance(R.style.m3_body_medium);
+			bioShort.setTextColor(UiUtils.getThemeColor(context, R.attr.colorM3Secondary));
+			bioShort.setMaxLines(2);
+			bioShort.setEllipsize(TextUtils.TruncateAt.END);
+			bioShort.setText(strippedBio);
+			nameAndFields.addView(bioShort, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+
+			TextView bioFull=new TextView(context);
+			bioFull.setTextAppearance(R.style.m3_body_medium);
+			bioFull.setTextColor(UiUtils.getThemeColor(context, R.attr.colorM3Secondary));
+			bioFull.setText(strippedBio);
+			bioFull.setVisibility(View.GONE);
+			nameAndFields.addView(bioFull, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+			nameAndFields.setOnClickListener(v->{
+				UiUtils.beginLayoutTransition((ViewGroup) getWindow().getDecorView());
+				fullBioShown=!fullBioShown;
+				if(fullBioShown){
+					bioFull.setVisibility(View.VISIBLE);
+					bioShort.setVisibility(View.GONE);
+				}else{
+					bioFull.setVisibility(View.GONE);
+					bioShort.setVisibility(View.VISIBLE);
+				}
+			});
 		}else{
 			TextView username=new TextView(context);
 			username.setTextAppearance(R.style.m3_body_medium);

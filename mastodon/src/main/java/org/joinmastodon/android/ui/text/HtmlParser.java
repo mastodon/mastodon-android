@@ -203,8 +203,28 @@ public class HtmlParser{
 	public static String stripAndRemoveInvisibleSpans(String html){
 		Document doc=Jsoup.parseBodyFragment(html);
 		doc.body().select("span.invisible").remove();
-		Cleaner cleaner=new Cleaner(Safelist.none());
-		return cleaner.clean(doc).body().text();
+		Cleaner cleaner=new Cleaner(Safelist.none().addTags("br", "p"));
+		StringBuilder sb=new StringBuilder();
+		cleaner.clean(doc).body().traverse(new NodeVisitor(){
+			@Override
+			public void head(Node node, int depth){
+				if(node instanceof TextNode tn){
+					sb.append(tn.text());
+				}else if(node instanceof Element el){
+					if("br".equals(el.tagName())){
+						sb.append('\n');
+					}
+				}
+			}
+
+			@Override
+			public void tail(Node node, int depth){
+				if(node instanceof Element el && "p".equals(el.tagName()) && el.nextSibling()!=null){
+					sb.append("\n\n");
+				}
+			}
+		});
+		return sb.toString();
 	}
 
 	public static CharSequence parseLinks(String text){
