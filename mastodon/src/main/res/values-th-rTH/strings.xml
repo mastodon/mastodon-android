@@ -601,20 +601,22 @@
 	<string name="reply_to_user">ตอบกลับ %s</string>
 	<string name="posted_at">โพสต์เมื่อ %s</string>
 	<string name="non_mutual_sheet_title">สวัสดี การเชื่อมต่อใหม่!</string>
+	<string name="non_mutual_sheet_text">ดูเหมือนว่าคุณกำลังจะตอบกลับใครสักคนที่ยังไม่มีการเชื่อมต่อร่วมกัน มาสร้างความประทับใจแรกที่ยอดเยี่ยมกันเลย</string>
 	<string name="got_it">เข้าใจแล้ว</string>
 	<string name="dont_remind_again">ไม่ต้องเตือนฉันอีก</string>
 	<!-- %s is a time interval ("5 months") -->
 	<string name="old_post_sheet_title">โพสต์นี้มีอายุ %s</string>
-	<string name="old_post_sheet_text">คุณยังคงสามารถตอบกลับ แต่การตอบกลับอาจไม่ตรงประเด็นอีกต่อไป</string>
+	<string name="old_post_sheet_text">คุณยังคงสามารถตอบกลับ แต่การตอบกลับอาจไม่เกี่ยวข้องอีกต่อไป</string>
 	<plurals name="x_months">
 		<item quantity="other">%,d เดือน</item>
 	</plurals>
 	<string name="more_than_two_years">มากกว่า 2 ปี</string>
-	<string name="non_mutual_title1">แสดงความเคารพและตรงประเด็น</string>
+	<string name="non_mutual_title1">แสดงความเคารพและเกี่ยวข้อง</string>
 	<string name="non_mutual_text1">ทำให้แน่ใจว่าการตอบกลับของคุณสุภาพและตรงประเด็น</string>
 	<string name="non_mutual_title2">นำความกรุณามาใช้</string>
 	<string name="non_mutual_text2">น้ำเสียงเชิงบวกเป็นที่ชื่นชมเสมอ</string>
 	<string name="non_mutual_title3">เปิดกว้าง</string>
+	<string name="non_mutual_text3">ลักษณะการสนทนาของทุกคนมีเอกลักษณ์เฉพาะตัว เตรียมพร้อมที่จะปรับตัว</string>
 	<string name="make_profile_discoverable">ทำให้โปรไฟล์ของฉันสามารถค้นพบได้</string>
 	<string name="discoverability">ความสามารถในการค้นพบ</string>
 	<string name="discoverability_help">เมื่อคุณเลือกรับความสามารถในการค้นพบใน Mastodon โพสต์ของคุณอาจปรากฏในผลลัพธ์การค้นหาและกำลังนิยม\n\nอาจเสนอแนะโปรไฟล์ของคุณให้กับผู้คนที่มีความสนใจคล้ายกับคุณ\n\nการเลือกไม่รับจะไม่ซ่อนโปรไฟล์ของคุณหากใครสักคนค้นหาคุณโดยชื่อ</string>
