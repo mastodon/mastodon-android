@@ -94,6 +94,7 @@
 	<string name="confirm_mute">Հաստատեք %s-ի լռեցումը</string>
 	<string name="do_mute">Լռեցնել</string>
 	<string name="confirm_unmute_title">Հանել արգելափակումից</string>
+	<string name="confirm_unmute">Հաստատեք %s-ի` լռեցումից հեռացումը</string>
 	<string name="do_unmute">Ապախլացնել</string>
 	<string name="confirm_block_title">Արգելափակել հաշիվը</string>
 	<string name="confirm_block_domain_title">Արգելափակել տիրույթը</string>
@@ -166,6 +167,7 @@
 	<string name="visibility_public">Հրապարակային</string>
 	<string name="visibility_followers_only">Միայն հետեւողներին</string>
 	<string name="visibility_private">Միայն նշած մարդկանց</string>
+	<string name="recent_searches">Վերջին</string>
 	<string name="skip">Բաց թողնել</string>
 	<string name="notification_type_follow">Նոր հետևորդներ</string>
 	<string name="notification_type_favorite">Հավանումներ</string>
@@ -174,6 +176,9 @@
 	<string name="notification_type_poll">Հարցումներ</string>
 	<string name="choose_account">Ընտրել հաշիվը</string>
 	<string name="err_not_logged_in">Սկզբից մուտք գործեք Մաստոդոն</string>
+	<string name="media_attachment_unsupported_type">%s ֆայլը անհամատեղելի տեսակի է</string>
+	<string name="media_attachment_too_big">%1$s ֆայլի չափսը գերազանցում է %2$s ՄԲ առավելագույն շեմը</string>
+	<string name="settings_theme">Տեսք</string>
 	<string name="theme_light">Բաց</string>
 	<string name="theme_dark">Մուգ</string>
 	<string name="settings_behavior">Պահվածքը</string>
@@ -205,6 +210,7 @@
 	<string name="signup_reason">Ինչո՞ւ եք ցանկանում միանալ։</string>
 	<string name="signup_reason_note">Սա կօգնի մեզ ստուգել ձեր հայտը։</string>
 	<string name="clear">Մաքրել</string>
+	<string name="profile_header">Շապիկ</string>
 	<string name="profile_picture">Պրոֆիլի նկար</string>
 	<string name="reorder">Վերադասավորել</string>
 	<string name="download">Ներբեռնել</string>
@@ -285,6 +291,7 @@
 	<string name="your_favorites">Հավանածներ</string>
 	<string name="login_title">Բարի վերադարձ</string>
 	<string name="server_url">Սերվերի հասցե</string>
+	<string name="signup_random_server_explain">Եթե շարունակեք՝ առանց ընտրելու, մենք կընտրենք սերվեր՝ ըստ ձեր լեզվի։</string>
 	<string name="server_filter_any_language">Որևե լեզու</string>
 	<string name="server_filter_instant_signup">Գրանցում միանգամից</string>
 	<string name="server_filter_manual_review">Հայտերի ստուգում</string>
