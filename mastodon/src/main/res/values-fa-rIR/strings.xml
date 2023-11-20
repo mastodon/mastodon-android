@@ -163,19 +163,7 @@
 	<string name="password">گذرواژه</string>
 	<string name="confirm_password">تأیید گذرواژه</string>
 	<string name="password_note">برای افزایش قدرت گذرواژه خود، حروف بزرگ، کاراکترهای خاص و اعداد را اضافه کنید.</string>
-	<string name="category_academia">دانشگاه</string>
-	<string name="category_activism">فعالیت</string>
-	<string name="category_all">همه</string>
-	<string name="category_art">هنر</string>
-	<string name="category_food">غذا</string>
-	<string name="category_furry">خزدار</string>
-	<string name="category_games">بازی‌ها</string>
 	<string name="category_general">عمومی</string>
-	<string name="category_journalism">روزنامه نگاری</string>
-	<string name="category_lgbt">LGBT</string>
-	<string name="category_music">موسیقی</string>
-	<string name="category_regional">منطقه‌ای</string>
-	<string name="category_tech">فناوری</string>
 	<string name="confirm_email_title">صندوق ورودیتان را بررسی کنید</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">برای تأیید %s، روی پیوندی که برای شما ارسال کردیم ضربه بزنید. همین جا منتظر می‌مانیم.</string>
@@ -285,7 +273,6 @@
 		<item quantity="one">%,d تقویت</item>
 		<item quantity="other">%,d تقویت‌ها</item>
 	</plurals>
-	<string name="timestamp_via_app">%1$s از طریق %2$s</string>
 	<string name="time_now">اکنون</string>
 	<string name="edit_history">ویرایش تاریخچه</string>
 	<string name="last_edit_at_x">آخرین ویرایش %s</string>
@@ -357,7 +344,6 @@
 	<string name="profile_add_row">افزودن سطر</string>
 	<string name="profile_setup">تنظیم نمایه</string>
 	<string name="profile_setup_subtitle">همیشه می‌توانید این را بعداً در برگه نمایه تکمیل کنید.</string>
-	<string name="profile_setup_explanation">شما می توانید تا چهار قسمت نمایه برای هر چیزی که می خواهید اضافه کنید. مکان، پیوندها، ضمایر - آسمان حد است.</string>
 	<string name="popular_on_mastodon">محبوب در ماستودون</string>
 	<string name="follow_all">پی‌گیری همه</string>
 	<string name="server_rules_disagree">مخالفم</string>
@@ -603,8 +589,6 @@
 	<string name="timeline_following">خانه</string>
 	<string name="lists">سیاهه‌ها</string>
 	<string name="followed_hashtags">برچسب‌های پی‌گرفته</string>
-	<string name="no_lists">شما هنوز هیچ سیاهه‌ای ندارید.</string>
-	<string name="no_followed_hashtags">شما هیچ برچسبی را پی نمی‌گیرید.</string>
 	<string name="manage_lists">مدیریت سیاهه‌ها</string>
 	<string name="manage_hashtags">مدیریت برچسب‌ها</string>
 	<!-- Screen reader description for the menu on the home timeline screen -->
@@ -623,11 +607,16 @@
 	<string name="confirm_remove_list_members">حذف اعضا؟</string>
 	<string name="remove">برداشتن</string>
 	<string name="add_list_member">افزودن عضو</string>
+	<string name="search_among_people_you_follow">جست‌وجو بین کسانی که پی‌گرفته‌اید</string>
 	<string name="add_user_to_list">افزودن به سیاهه…</string>
 	<string name="add_user_to_list_title">افزودن به سیاهه</string>
 	<!-- %s is a username -->
 	<string name="remove_from_list">برداشتن از سیاهه</string>
 	<string name="confirm_remove_list_member">حذف عضو؟</string>
+	<string name="no_followed_hashtags_title">با پیگیری برچسب‌ها با علاقه‌مندی‌ها همراه باشید</string>
+	<string name="no_followed_hashtags_subtitle">پیگیرهای شما اینجا ظاهر می‌شود</string>
+	<string name="no_lists_title">سازماندهی کردن خوراک خانه خود با سیاهه‌ها</string>
+	<string name="no_lists_subtitle">مال شما اینجا ظاهر می‌شود</string>
 	<string name="manage_accounts">افزودن یا جابجا شدن بین حساب‌ها</string>
 	<plurals name="x_posts_recently">
 		<item quantity="one">%,d فرسته اخیرا ارسال کرده</item>
@@ -639,4 +628,5 @@
 	<string name="manage_list_members">مدیریت اعضای سیاهه</string>
 	<string name="list_no_members">هنوز هیچ عضوی نیست</string>
 	<string name="list_find_users">پیدا کردن کاربرانی برای افزودن</string>
+	<!-- %s is a time interval ("5 months") -->
 </resources>

@@ -163,19 +163,7 @@
 	<string name="password">Contraseña</string>
 	<string name="confirm_password">Confirmar contraseña</string>
 	<string name="password_note">Incluye letras mayúsculas, caracteres especiales y números para aumentar la fuerza de tu contraseña.</string>
-	<string name="category_academia">Académico</string>
-	<string name="category_activism">Activismo</string>
-	<string name="category_all">Todas</string>
-	<string name="category_art">Arte</string>
-	<string name="category_food">Comida</string>
-	<string name="category_furry">Furry</string>
-	<string name="category_games">Juegos</string>
 	<string name="category_general">General</string>
-	<string name="category_journalism">Periodismo</string>
-	<string name="category_lgbt">LGBT</string>
-	<string name="category_music">Música</string>
-	<string name="category_regional">Regional</string>
-	<string name="category_tech">Tecnología</string>
 	<string name="confirm_email_title">Revisa tu bandeja de entrada</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">Pulsa el enlace que te hemos enviado para verificar %s. Esperaremos aquí mismo.</string>
@@ -285,7 +273,6 @@
 		<item quantity="one">%,d retooteo</item>
 		<item quantity="other">%,d retooteos</item>
 	</plurals>
-	<string name="timestamp_via_app">%1$s a través de %2$s</string>
 	<string name="time_now">ahora</string>
 	<string name="edit_history">Editar historial</string>
 	<string name="last_edit_at_x">Última edición: %s</string>
@@ -357,7 +344,6 @@
 	<string name="profile_add_row">Añadir fila</string>
 	<string name="profile_setup">Configuración del perfil</string>
 	<string name="profile_setup_subtitle">Siempre puedes completar esto más tarde en la pestaña Perfil.</string>
-	<string name="profile_setup_explanation">Puedes añadir hasta cuatro campos de perfil para todo lo que quieras. Ubicación, enlaces, pronombres — el cielo es el límite.</string>
 	<string name="popular_on_mastodon">Popular en Mastodon</string>
 	<string name="follow_all">Seguir a todos</string>
 	<string name="server_rules_disagree">En desacuerdo</string>
@@ -594,8 +580,6 @@
 	<string name="error_playing_video">Error al reproducir el video</string>
 	<string name="lists">Listas</string>
 	<string name="followed_hashtags">Etiquetas seguidas</string>
-	<string name="no_lists">Aún no tienes ninguna lista.</string>
-	<string name="no_followed_hashtags">Aún no sigues ninguna etiqueta.</string>
 	<string name="manage_lists">Administrar listas</string>
 	<string name="manage_hashtags">Administrar etiquetas</string>
 	<!-- Screen reader description for the menu on the home timeline screen -->
@@ -624,4 +608,5 @@
 	<string name="confirm_remove_list_member">¿Eliminar miembro?</string>
 	<string name="no_followed_hashtags_title">Manténgase al día con los intereses siguiendo las etiquetas</string>
 	<string name="no_followed_hashtags_subtitle">Los seguidores aparecerán aquí</string>
+	<!-- %s is a time interval ("5 months") -->
 </resources>

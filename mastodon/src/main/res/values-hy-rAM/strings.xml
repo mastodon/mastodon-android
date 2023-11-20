@@ -93,10 +93,16 @@
 	<string name="confirm_mute_title">Լռեցնել հաշիվը</string>
 	<string name="confirm_mute">Հաստատեք %s-ի լռեցումը</string>
 	<string name="do_mute">Լռեցնել</string>
+	<string name="confirm_unmute_title">Հանել արգելափակումից</string>
+	<string name="confirm_unmute">Հաստատեք %s-ի` լռեցումից հեռացումը</string>
+	<string name="do_unmute">Ապախլացնել</string>
 	<string name="confirm_block_title">Արգելափակել հաշիվը</string>
 	<string name="confirm_block_domain_title">Արգելափակել տիրույթը</string>
 	<string name="confirm_block">Հաստատեք %s-ի արգելափակումը</string>
 	<string name="do_block">Արգելափակել</string>
+	<string name="confirm_unblock_title">Հանել արգելափակումից</string>
+	<string name="confirm_unblock_domain_title">Հանել տիրույթը արգելափակումից</string>
+	<string name="confirm_unblock">Հաստատեք %s-ի` արգելափակումից հանելը</string>
 	<string name="do_unblock">Արգելաբացել</string>
 	<string name="button_blocked">Արգելափակված</string>
 	<string name="action_vote">Քվեարկել</string>
@@ -146,18 +152,7 @@
 	<string name="password">Գաղտնաբառ</string>
 	<string name="confirm_password">Գաղտնաբառի հաստատում</string>
 	<string name="password_note">Գաղտնաբառի ապահովությունը բարձրացնելու համար ավելացրեք մեծատառեր, հատուկ նշաններ և թվեր։</string>
-	<string name="category_academia">Ակադեմիական</string>
-	<string name="category_activism">Ակտիվիզմ</string>
-	<string name="category_all">Բոլորը</string>
-	<string name="category_art">Արվեստ</string>
-	<string name="category_food">Ուտեստներ</string>
-	<string name="category_games">Խաղեր</string>
 	<string name="category_general">Ընդհանուր</string>
-	<string name="category_journalism">Լրագրություն</string>
-	<string name="category_lgbt">ԼԳԲՏ</string>
-	<string name="category_music">Երաժշտություն</string>
-	<string name="category_regional">Տարածաշրջանային</string>
-	<string name="category_tech">Տեխնոլոգիա</string>
 	<string name="confirm_email_title">Ստուգեք Ձեր էլ․ փոստը</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">Սեղմեք %s-ին ուղարկված հղման վրա։ Մենք կսպասենք։</string>
@@ -172,6 +167,7 @@
 	<string name="visibility_public">Հրապարակային</string>
 	<string name="visibility_followers_only">Միայն հետեւողներին</string>
 	<string name="visibility_private">Միայն նշած մարդկանց</string>
+	<string name="recent_searches">Վերջին</string>
 	<string name="skip">Բաց թողնել</string>
 	<string name="notification_type_follow">Նոր հետևորդներ</string>
 	<string name="notification_type_favorite">Հավանումներ</string>
@@ -180,6 +176,9 @@
 	<string name="notification_type_poll">Հարցումներ</string>
 	<string name="choose_account">Ընտրել հաշիվը</string>
 	<string name="err_not_logged_in">Սկզբից մուտք գործեք Մաստոդոն</string>
+	<string name="media_attachment_unsupported_type">%s ֆայլը անհամատեղելի տեսակի է</string>
+	<string name="media_attachment_too_big">%1$s ֆայլի չափսը գերազանցում է %2$s ՄԲ առավելագույն շեմը</string>
+	<string name="settings_theme">Տեսք</string>
 	<string name="theme_light">Բաց</string>
 	<string name="theme_dark">Մուգ</string>
 	<string name="settings_behavior">Պահվածքը</string>
@@ -189,6 +188,9 @@
 	<string name="settings_tos">Ծառայության պայմանները</string>
 	<string name="settings_privacy_policy">Գաղտնիության քաղաքականություն</string>
 	<string name="settings_app_version">Մաստոդոն Android-ի համար, տարբերակ %1$s (%2$d)</string>
+	<string name="confirm_log_out">Դուրս գա՞լ %s-ից։</string>
+	<string name="sensitive_content_explain">Հեղինակը սա նշել է՝ որպես զգայուն բովանդակություն։</string>
+	<string name="avatar_description">Գնալ %s-ի հաշիվ</string>
 	<string name="more_options">Ավելին</string>
 	<string name="new_post">Նոր գրառում</string>
 	<string name="button_reply">Պատասխանել</string>
@@ -208,6 +210,7 @@
 	<string name="signup_reason">Ինչո՞ւ եք ցանկանում միանալ։</string>
 	<string name="signup_reason_note">Սա կօգնի մեզ ստուգել ձեր հայտը։</string>
 	<string name="clear">Մաքրել</string>
+	<string name="profile_header">Շապիկ</string>
 	<string name="profile_picture">Պրոֆիլի նկար</string>
 	<string name="reorder">Վերադասավորել</string>
 	<string name="download">Ներբեռնել</string>
@@ -227,6 +230,10 @@
 		<item quantity="one">%,d հետեւորդ</item>
 		<item quantity="other">%,d հետեւորդ</item>
 	</plurals>
+	<plurals name="x_following">
+		<item quantity="one">%,d հետեւում</item>
+		<item quantity="other">%,d հետեւում</item>
+	</plurals>
 	<plurals name="x_favorites">
 		<item quantity="one">%,d նախընտրելի</item>
 		<item quantity="other">%,d նախընտրելի</item>
@@ -235,7 +242,6 @@
 		<item quantity="one">%,d տարածում</item>
 		<item quantity="other">%,d տարածում</item>
 	</plurals>
-	<string name="timestamp_via_app">%1$s %2$s-ի միջոցով</string>
 	<string name="time_now">նոր</string>
 	<string name="edit_history">Խմբագրել պատմությունը</string>
 	<string name="last_edit_at_x">Վերջին խմբագրում՝ %s</string>
@@ -252,6 +258,7 @@
 	<string name="edit_original_post">Սկզբնական գրառում</string>
 	<string name="edit_text_edited">Տեքստը փոփոխվել է</string>
 	<string name="edit_spoiler_added">Ավելացվել է նախազգուշացում</string>
+	<string name="edit_spoiler_edited">Նախազգուշացումը խմբագրվել է</string>
 	<string name="edit_spoiler_removed">Նախազգուշացումը հեռացվել է</string>
 	<string name="edit_poll_added">Հարցումն ավելացել է</string>
 	<string name="edit_poll_edited">Հարցումը խմբագրվել է</string>
@@ -284,6 +291,7 @@
 	<string name="your_favorites">Հավանածներ</string>
 	<string name="login_title">Բարի վերադարձ</string>
 	<string name="server_url">Սերվերի հասցե</string>
+	<string name="signup_random_server_explain">Եթե շարունակեք՝ առանց ընտրելու, մենք կընտրենք սերվեր՝ ըստ ձեր լեզվի։</string>
 	<string name="server_filter_any_language">Որևե լեզու</string>
 	<string name="server_filter_instant_signup">Գրանցում միանգամից</string>
 	<string name="server_filter_manual_review">Հայտերի ստուգում</string>
@@ -301,7 +309,6 @@
 	<string name="profile_add_row">Ավելացնել տող</string>
 	<string name="profile_setup">Հաշվի կարգավորում</string>
 	<string name="profile_setup_subtitle">Դուք կարող եք սա կատարել ավելի ուշ` Հաշիվ բաժնում։</string>
-	<string name="profile_setup_explanation">Դուք կարող եք ավելացնել ոչ ավել, քան չորս դաշտ։ Ավելացրեք այն, ինչ ուզում եք` դիրք, հղումներ, դերանուններ և այլն։</string>
 	<string name="popular_on_mastodon">Տարածված Մաստոդոնում</string>
 	<string name="follow_all">Հետևել բոլորին</string>
 	<string name="server_rules_disagree">Համաձայն չեմ</string>
@@ -368,6 +375,7 @@
 	<!-- %s is the server domain -->
 	<string name="forward_report_to_server">Ուղարկել %s</string>
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
+	<string name="reported">Բողոքարկված</string>
 	<string name="muted_user">%s-ը լռեցվել է</string>
 	<string name="settings_display">Տեսք</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
@@ -447,4 +455,5 @@
 	<!-- Screen reader description for the menu on the home timeline screen -->
 	<!-- %s is the name of the list -->
 	<!-- %s is a username -->
+	<!-- %s is a time interval ("5 months") -->
 </resources>

@@ -163,19 +163,7 @@
 	<string name="password">Salasana</string>
 	<string name="confirm_password">Vahvista salasana</string>
 	<string name="password_note">Sisällytä suuraakkoset, erikoismerkit, ja numerot, jotta voit lisätä salasanan voimaa.</string>
-	<string name="category_academia">Akateeminen</string>
-	<string name="category_activism">Aktivismi</string>
-	<string name="category_all">Kaikki</string>
-	<string name="category_art">Taide</string>
-	<string name="category_food">Ruoka</string>
-	<string name="category_furry">Turri</string>
-	<string name="category_games">Pelit</string>
 	<string name="category_general">Yleinen</string>
-	<string name="category_journalism">Journalismi</string>
-	<string name="category_lgbt">HLBT</string>
-	<string name="category_music">Musiikki</string>
-	<string name="category_regional">Alueellinen</string>
-	<string name="category_tech">Teknologia</string>
 	<string name="confirm_email_title">Tarkista sähköpostisi</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">Napauta lähettämäämme linkkiä vahvistaaksesi tunnuksen %s. Odotamme täällä.</string>
@@ -285,7 +273,6 @@
 		<item quantity="one">%,d tehostus</item>
 		<item quantity="other">%,d tehostusta</item>
 	</plurals>
-	<string name="timestamp_via_app">%1$s sovelluksella %2$s</string>
 	<string name="time_now">nyt</string>
 	<string name="edit_history">Muokkaushistoria</string>
 	<string name="last_edit_at_x">Muokattiin viimeksi %s</string>
@@ -357,7 +344,6 @@
 	<string name="profile_add_row">Lisää rivi</string>
 	<string name="profile_setup">Profiilin asetukset</string>
 	<string name="profile_setup_subtitle">Voit myös täyttää tämän myöhemmin Profiili-välilehdellä.</string>
-	<string name="profile_setup_explanation">Voit lisätä enintään neljä profiilikenttää joissa on mitä haluat. Sijainti, linkit, pronominit — taivas on rajana.</string>
 	<string name="popular_on_mastodon">Suosittua Mastodonissa</string>
 	<string name="follow_all">Seuraa kaikkia</string>
 	<string name="server_rules_disagree">Eri mieltä</string>
@@ -603,8 +589,6 @@
 	<string name="timeline_following">Koti</string>
 	<string name="lists">Listat</string>
 	<string name="followed_hashtags">Seuratut aihetunnisteet</string>
-	<string name="no_lists">Sinulla ei ole vielä yhtään listaa.</string>
-	<string name="no_followed_hashtags">Et seuraa yhtään aihetunnistetta.</string>
 	<string name="manage_lists">Hallitse listoja</string>
 	<string name="manage_hashtags">Hallitse aihetunnisteita</string>
 	<!-- Screen reader description for the menu on the home timeline screen -->
@@ -646,4 +630,5 @@
 	<string name="manage_list_members">Hallitse listan jäseniä</string>
 	<string name="list_no_members">Ei vielä jäseniä</string>
 	<string name="list_find_users">Etsi lisättäviä käyttäjiä</string>
+	<!-- %s is a time interval ("5 months") -->
 </resources>

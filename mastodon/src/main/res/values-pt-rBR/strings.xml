@@ -163,19 +163,7 @@
 	<string name="password">Senha</string>
 	<string name="confirm_password">Confirmar senha</string>
 	<string name="password_note">Inclua letras maiúsculas, caracteres especiais e números para deixar sua senha mais forte e segura.</string>
-	<string name="category_academia">Acadêmico</string>
-	<string name="category_activism">Ativismo</string>
-	<string name="category_all">Todas</string>
-	<string name="category_art">Arte</string>
-	<string name="category_food">Comida</string>
-	<string name="category_furry">Furry</string>
-	<string name="category_games">Jogos</string>
 	<string name="category_general">Geral</string>
-	<string name="category_journalism">Jornalismo</string>
-	<string name="category_lgbt">LGBT</string>
-	<string name="category_music">Música</string>
-	<string name="category_regional">Regional</string>
-	<string name="category_tech">Tecnologia</string>
 	<string name="confirm_email_title">Verifique sua caixa de entrada</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">Toque no link que te enviamos para verificar %s. Esperaremos por aqui.</string>
@@ -194,6 +182,7 @@
 	<string name="skip">Pular</string>
 	<string name="notification_type_follow">Novos seguidores</string>
 	<string name="notification_type_favorite">Favoritos</string>
+	<string name="notification_type_reblog">Impulsos</string>
 	<string name="notification_type_mention">Menções</string>
 	<string name="notification_type_poll">Enquetes</string>
 	<string name="choose_account">Escolher conta</string>
@@ -277,7 +266,6 @@
 		<item quantity="one">%,d favorito</item>
 		<item quantity="other">%,d favoritos</item>
 	</plurals>
-	<string name="timestamp_via_app">%1$s via %2$s</string>
 	<string name="time_now">agora</string>
 	<string name="edit_history">Histórico de edição</string>
 	<string name="last_edit_at_x">Última edição %s</string>
@@ -349,7 +337,6 @@
 	<string name="profile_add_row">Adicionar linha</string>
 	<string name="profile_setup">Configuração do perfil</string>
 	<string name="profile_setup_subtitle">Você sempre pode concluir isso mais tarde na guia de Perfil.</string>
-	<string name="profile_setup_explanation">Você pode adicionar até quatro campos no seu perfil para o que quiser. Local, links, pronomes — o céu é o limite.</string>
 	<string name="popular_on_mastodon">Popular no Mastodon</string>
 	<string name="follow_all">Seguir todos</string>
 	<string name="server_rules_disagree">Discordo</string>
@@ -585,4 +572,6 @@
 	<!-- Screen reader description for the menu on the home timeline screen -->
 	<!-- %s is the name of the list -->
 	<!-- %s is a username -->
+	<string name="manage_list_members">Gerenciar membros da lista</string>
+	<!-- %s is a time interval ("5 months") -->
 </resources>

@@ -163,19 +163,7 @@
 	<string name="password">Lösenord</string>
 	<string name="confirm_password">Bekräfta lösenord</string>
 	<string name="password_note">Inkludera stora bokstäver, specialtecken och siffror för att öka ditt lösenords styrka.</string>
-	<string name="category_academia">Vetenskap</string>
-	<string name="category_activism">Aktivism</string>
-	<string name="category_all">Allt</string>
-	<string name="category_art">Konst</string>
-	<string name="category_food">Mat</string>
-	<string name="category_furry">Furry</string>
-	<string name="category_games">Spel</string>
 	<string name="category_general">Allmänt</string>
-	<string name="category_journalism">Journalistik</string>
-	<string name="category_lgbt">HBTQ</string>
-	<string name="category_music">Musik</string>
-	<string name="category_regional">Regionalt</string>
-	<string name="category_tech">Teknik</string>
 	<string name="confirm_email_title">Kolla din inkorg</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">Klicka på länken som vi har skickat till dig för att bekräfta %s. Vi väntar här.</string>
@@ -258,6 +246,7 @@
 	<!-- %s is the server domain -->
 	<string name="local_timeline_info_banner">Detta är alla inlägg från alla användare på din server (%s).</string>
 	<string name="recommended_accounts_info_banner">Du kanske gillar dessa konton baserat på andra konton du följer.</string>
+	<string name="see_new_posts">Nya inlägg</string>
 	<string name="load_missing_posts">Ladda saknade inlägg</string>
 	<string name="follow_back">Följ tillbaka</string>
 	<string name="button_follow_pending">Väntande</string>
@@ -276,7 +265,6 @@
 		<item quantity="one">%,d favorit</item>
 		<item quantity="other">%,d favoriter</item>
 	</plurals>
-	<string name="timestamp_via_app">%1$s via %2$s</string>
 	<string name="time_now">nu</string>
 	<string name="edit_history">Redigera historik</string>
 	<string name="last_edit_at_x">Senaste redigering %s</string>
@@ -348,7 +336,6 @@
 	<string name="profile_add_row">Lägg till rad</string>
 	<string name="profile_setup">Konfiguration av profil</string>
 	<string name="profile_setup_subtitle">Du kan alltid fylla i detta senare i fliken Profil.</string>
-	<string name="profile_setup_explanation">Du kan lägga till upp till fyra profilfält för vad du vill. Plats, länkar, pronomen - himlen är gränsen.</string>
 	<string name="popular_on_mastodon">Populärt på Mastodon</string>
 	<string name="follow_all">Följ alla</string>
 	<string name="server_rules_disagree">Instämmer inte alls</string>
@@ -543,11 +530,17 @@
 	<string name="translation_failed">Översättningen misslyckades. Det kan hända att administratören inte har aktiverat översättningar på den här servern eller att servern kör en äldre version av Mastodon som inte har stöd för översättningar ännu.</string>
 	<string name="settings_privacy">Integritet och räckvidd</string>
 	<string name="settings_indexable">Inkludera offentliga inlägg i sökresultaten</string>
+	<plurals name="x_participants">
+		<item quantity="one">%,d deltagare</item>
+		<item quantity="other">%,d deltagare</item>
+	</plurals>
+	<plurals name="x_posts_today">
+		<item quantity="one">%,d inlägg idag</item>
+		<item quantity="other">%,d inlägg idag</item>
+	</plurals>
 	<string name="error_playing_video">Fel vid videouppspelning</string>
 	<string name="lists">Listor</string>
 	<string name="followed_hashtags">Följda hashtaggar</string>
-	<string name="no_lists">Du har inga listor ännu.</string>
-	<string name="no_followed_hashtags">Du följer inga hashtaggar.</string>
 	<string name="manage_lists">Hantera listor</string>
 	<string name="manage_hashtags">Hantera hashtaggar</string>
 	<!-- Screen reader description for the menu on the home timeline screen -->
@@ -571,4 +564,10 @@
 	<!-- %s is a username -->
 	<string name="remove_from_list">Ta bort från lista</string>
 	<string name="confirm_remove_list_member">Ta bort medlem?</string>
+	<string name="create_list">Skapa lista</string>
+	<string name="step_x_of_y">Steg %1$d av %2$d</string>
+	<string name="create">Skapa</string>
+	<string name="manage_list_members">Hantera listmedlemmar</string>
+	<string name="list_no_members">Inga medlemmar än</string>
+	<!-- %s is a time interval ("5 months") -->
 </resources>

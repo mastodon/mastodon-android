@@ -162,19 +162,7 @@
 	<string name="password">Pasahitza</string>
 	<string name="confirm_password">Berretsi pasahitza</string>
 	<string name="password_note">Sartu letra larriak, karaktere bereziak eta zenbakiak zure pasahitzaren segurtasuna areagotzeko.</string>
-	<string name="category_academia">Akademia</string>
-	<string name="category_activism">Aktibismoa</string>
-	<string name="category_all">Denak</string>
-	<string name="category_art">Artea</string>
-	<string name="category_food">Janaria</string>
-	<string name="category_furry">Furry</string>
-	<string name="category_games">Jokoak</string>
 	<string name="category_general">Orokorra</string>
-	<string name="category_journalism">Kazetaritza</string>
-	<string name="category_lgbt">LGBT</string>
-	<string name="category_music">Musika</string>
-	<string name="category_regional">Herrialdekoa</string>
-	<string name="category_tech">Teknologia</string>
 	<string name="confirm_email_title">Egiaztatu zure sarrerako ontzia</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_didnt_get">Ez duzu estekarik jaso?</string>
@@ -275,7 +263,6 @@
 		<item quantity="one">Gogoko bat</item>
 		<item quantity="other">%,d gogoko</item>
 	</plurals>
-	<string name="timestamp_via_app">%1$s %2$s -en bidez</string>
 	<string name="time_now">orain</string>
 	<string name="edit_history">Editatu historia</string>
 	<string name="last_edit_at_x">Azken edizioa %s</string>
@@ -352,6 +339,7 @@
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
 	<string name="spoiler_show">Erakutsi hala ere</string>
+	<string name="spoiler_hide">Berrezkutatu</string>
 	<string name="poll_multiple_choice">Aukeratu bat edo gehiago</string>
 	<string name="save_changes">Gorde aldaketak</string>
 	<string name="profile_featured">Nabarmenak</string>
@@ -418,6 +406,10 @@
 	<string name="notifications_policy_follower">Zuk jarraitzen dituzun pertsonak</string>
 	<string name="notifications_policy_no_one">Bat ere ez</string>
 	<string name="pause_all_notifications_title">Pausatu jakinarazpen guztiak</string>
+	<plurals name="x_weeks">
+		<item quantity="one">aste %d</item>
+		<item quantity="other">%d aste</item>
+	</plurals>
 	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
 	<string name="date_at_time">%1$s %2$s-etan</string>
 	<string name="today">gaur</string>
@@ -428,10 +420,23 @@
 	<string name="about_server">Honi buruz</string>
 	<string name="server_rules">Arauak</string>
 	<string name="server_administrator">Administratzailea</string>
+	<string name="send_email_to_server_admin">Administratzaileari mezua</string>
 	<string name="settings_show_cws">Erakutsi eduki abisuak</string>
+	<plurals name="in_x_seconds">
+		<item quantity="one">segundo %d barru</item>
+		<item quantity="other">%d segundo barru</item>
+	</plurals>
+	<plurals name="in_x_minutes">
+		<item quantity="one">minutu %d barru</item>
+		<item quantity="other">%d minutu barru</item>
+	</plurals>
 	<plurals name="in_x_hours">
 		<item quantity="one">Ordu %d barru</item>
 		<item quantity="other">%d ordu barru</item>
+	</plurals>
+	<plurals name="x_hours_ago">
+		<item quantity="one">Duela ordu %d</item>
+		<item quantity="other">Duela %d ordu</item>
 	</plurals>
 	<string name="count_one">Bat</string>
 	<string name="count_two">Bi</string>
@@ -469,6 +474,7 @@
 	<string name="search_mastodon">Bilatu Mastodonen</string>
 	<string name="clear_all">Garbitu dena</string>
 	<string name="search_open_url">Ireki URLa Mastodonen</string>
+	<string name="search_go_to_account">Joan hona %s</string>
 	<!-- Shown in the post header. Please keep it short -->
 	<string name="time_seconds_ago_short">Duela %d segundo</string>
 	<string name="time_minutes_ago_short">Duela %d minutu</string>
@@ -480,10 +486,13 @@
 	<string name="settings_privacy">Pribatutasuna eta irismena</string>
 	<string name="settings_discoverable">Ezagutarazi profila eta bidalketak bilaketa algoritmoetan</string>
 	<string name="settings_indexable">Gehitu argitalpen publikoak bilaketa-emaitzetan</string>
+	<plurals name="x_participants">
+		<item quantity="one">partaide %,d</item>
+		<item quantity="other">%d partaide</item>
+	</plurals>
 	<string name="timeline_following">Hasiera</string>
 	<string name="lists">Zerrendak</string>
 	<string name="followed_hashtags">Jarraitutako traolak</string>
-	<string name="no_lists">Ez duzu zerrendarik oraindik.</string>
 	<string name="manage_lists">Kudeatu zerrendak</string>
 	<string name="manage_hashtags">Kudeatu traolak</string>
 	<!-- Screen reader description for the menu on the home timeline screen -->
@@ -507,8 +516,11 @@
 	<!-- %s is a username -->
 	<string name="remove_from_list">Kendu zerrendatik</string>
 	<string name="confirm_remove_list_member">Kendu kideak?</string>
+	<string name="no_lists_subtitle">Zurea hemen agertuko da</string>
 	<string name="create_list">Sortu zerrenda</string>
 	<string name="step_x_of_y">%1$d pausua %2$d -(e)tik</string>
 	<string name="create">Sortu</string>
+	<string name="manage_list_members">Kudeatu partaide zerrrenda</string>
 	<string name="list_no_members">Oraindik ez dago kiderik</string>
+	<!-- %s is a time interval ("5 months") -->
 </resources>

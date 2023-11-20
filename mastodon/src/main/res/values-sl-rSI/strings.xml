@@ -187,19 +187,7 @@
 	<string name="password">Geslo</string>
 	<string name="confirm_password">Potrdite geslo</string>
 	<string name="password_note">Vključite velike črke, posebne znake in števke, da okrepite geslo.</string>
-	<string name="category_academia">Akademsko</string>
-	<string name="category_activism">Aktivizem</string>
-	<string name="category_all">Vse</string>
-	<string name="category_art">Umetnost</string>
-	<string name="category_food">Hrana</string>
-	<string name="category_furry">Kosmato</string>
-	<string name="category_games">Igre</string>
 	<string name="category_general">Splošno</string>
-	<string name="category_journalism">Novinarstvo</string>
-	<string name="category_lgbt">LGBT</string>
-	<string name="category_music">Glasba</string>
-	<string name="category_regional">Regionalno</string>
-	<string name="category_tech">Tehnologija</string>
 	<string name="confirm_email_title">Preverite svojo dohodno e-pošto</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">Tapnite povezavo, ki smo vam jo poslali, da overite %s. Počakali bomo.</string>
@@ -290,7 +278,7 @@
 	<string name="recommended_accounts_info_banner">Glede na to, komu sledite, vam bodo ti računi všeč.</string>
 	<string name="see_new_posts">Nove objave</string>
 	<string name="load_missing_posts">Naloži manjkajoče objave</string>
-	<string name="follow_back">Sledijo nazaj</string>
+	<string name="follow_back">Sledi nazaj</string>
 	<string name="button_follow_pending">Na čakanju</string>
 	<string name="follows_you">Vam sledi</string>
 	<string name="manually_approves_followers">Ročno odobri sledilce</string>
@@ -319,7 +307,6 @@
 		<item quantity="few">%,d izpostavitve</item>
 		<item quantity="other">%,d izpostavitev</item>
 	</plurals>
-	<string name="timestamp_via_app">%1$s prek %2$s</string>
 	<string name="time_now">zdaj</string>
 	<string name="edit_history">Uredi zgodovino</string>
 	<string name="last_edit_at_x">Zadnjič urejano %s</string>
@@ -395,7 +382,6 @@
 	<string name="profile_add_row">Dodaj vrstico</string>
 	<string name="profile_setup">Nastavitev profila</string>
 	<string name="profile_setup_subtitle">To lahko vedno izpolnite kasneje na zavihku Profil.</string>
-	<string name="profile_setup_explanation">Dodate lahko največ štiri polja profila za poljubne vsebine. Lokacija, povezave, vzdevki — ni meja.</string>
 	<string name="popular_on_mastodon">Priljubljeno na Mastodonu</string>
 	<string name="follow_all">Sledi vsem</string>
 	<string name="server_rules_disagree">Ne strinjam se</string>
@@ -665,8 +651,6 @@
 	<string name="timeline_following">Dom</string>
 	<string name="lists">Seznami</string>
 	<string name="followed_hashtags">Sledeni ključniki</string>
-	<string name="no_lists">Ustvarili niste še nobenega seznama.</string>
-	<string name="no_followed_hashtags">Ne sledite še nobenemu ključniku.</string>
 	<string name="manage_lists">Upravljanje seznamov</string>
 	<string name="manage_hashtags">Upravljanje ključnikov</string>
 	<!-- Screen reader description for the menu on the home timeline screen -->
@@ -710,4 +694,30 @@
 	<string name="manage_list_members">Upravljanje članov seznama</string>
 	<string name="list_no_members">Ni še nobenega člana</string>
 	<string name="list_find_users">Poišči člane za dodajanje</string>
+	<string name="reply_to_user">Odgovori %s</string>
+	<string name="posted_at">Objavljeno %s</string>
+	<string name="non_mutual_sheet_title">Pozdravljena, nova povezava!</string>
+	<string name="non_mutual_sheet_text">Zdi se, da boste odgovorili nekomu, s katerim še nimate vzajemne povezave. Naredite odličen prvi vtis.</string>
+	<string name="got_it">Razumem</string>
+	<string name="dont_remind_again">Ne opominjaj me več</string>
+	<!-- %s is a time interval ("5 months") -->
+	<string name="old_post_sheet_title">Ta objava je stara %s</string>
+	<string name="old_post_sheet_text">Še vedno lahko odgovorite, a morda ni več relevantno.</string>
+	<plurals name="x_months">
+		<item quantity="one">%,d mesec</item>
+		<item quantity="two">%,d meseca</item>
+		<item quantity="few">%,d meseci</item>
+		<item quantity="other">%,d mesecev</item>
+	</plurals>
+	<string name="more_than_two_years">več kot dve leti</string>
+	<string name="non_mutual_title1">Ostanite spoštljivi in pri temi</string>
+	<string name="non_mutual_text1">Poskrbite, da bo vaš odgovor vljuden in v skladu s temo.</string>
+	<string name="non_mutual_title2">Oprimite se prijaznosti</string>
+	<string name="non_mutual_text2">Pozitiven ton je vedno cenjen.</string>
+	<string name="non_mutual_title3">Bodite odprti</string>
+	<string name="non_mutual_text3">Vsakdo ima edinstven slog pogovora. Bodite pripravljeni na prilagajanje.</string>
+	<string name="make_profile_discoverable">Naj bo moj profil mogoče najti</string>
+	<string name="discoverability">Razkrivanje</string>
+	<string name="discoverability_help">Ko se odločite za razkrivanje na Mastodonu, se lahko vaše objave pojavijo v rezultatih iskanja in trendih.\n\nVaš profil se lahko predlaga ljudem s podobnimi interesi kot vi.\n\nOdjava ne skrije vašega profila, če vas nekdo išče po imenu.</string>
+	<string name="app_version_copied">Številka različice je kopirana v odložišče</string>
 </resources>

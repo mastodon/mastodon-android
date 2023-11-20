@@ -163,19 +163,7 @@
 	<string name="password">Passord</string>
 	<string name="confirm_password">Bekreft passord</string>
 	<string name="password_note">Inkluder store bokstaver, spesialtegn og tall for å øke passordstyrken.</string>
-	<string name="category_academia">Akademi</string>
-	<string name="category_activism">Aktivisme</string>
-	<string name="category_all">Alle</string>
-	<string name="category_art">Kunst</string>
-	<string name="category_food">Mat</string>
-	<string name="category_furry">Pelskledde</string>
-	<string name="category_games">Spill</string>
 	<string name="category_general">Generelt</string>
-	<string name="category_journalism">Journalisme</string>
-	<string name="category_lgbt">LHBT</string>
-	<string name="category_music">Musikk</string>
-	<string name="category_regional">Region</string>
-	<string name="category_tech">Teknologi</string>
 	<string name="confirm_email_title">Sjekk innboksen din</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">Trykk på linken vi sendte deg for å verifisere %s. Vi venter her.</string>
@@ -262,6 +250,7 @@
 	<!-- %s is the server domain -->
 	<string name="local_timeline_info_banner">Dette er alle innlegg fra alle brukere på din server (%s).</string>
 	<string name="recommended_accounts_info_banner">Du liker kanskje disse kontoene basert på de andre du følger.</string>
+	<string name="see_new_posts">Nye innlegg</string>
 	<string name="load_missing_posts">Last inn manglende innlegg</string>
 	<string name="follow_back">Følg tilbake</string>
 	<string name="button_follow_pending">Ventende</string>
@@ -284,7 +273,6 @@
 		<item quantity="one">%,d fremhev</item>
 		<item quantity="other">%,d fremheve</item>
 	</plurals>
-	<string name="timestamp_via_app">%1$s via %2$s</string>
 	<string name="time_now">nå</string>
 	<string name="edit_history">Rediger historikk</string>
 	<string name="last_edit_at_x">Sist redigert %s</string>
@@ -356,7 +344,6 @@
 	<string name="profile_add_row">Legg til rad</string>
 	<string name="profile_setup">Konfigurering av profil</string>
 	<string name="profile_setup_subtitle">Du kan alltid fullføre dette senere i profilfanen.</string>
-	<string name="profile_setup_explanation">Du kan legge opp til fire profilfelter for det du vil. Plassering, lenker, uttalelser – himmelen er grensen.</string>
 	<string name="popular_on_mastodon">Populært på Mastodon</string>
 	<string name="follow_all">Følg alle</string>
 	<string name="server_rules_disagree">Uenig</string>
@@ -386,6 +373,7 @@
 	<string name="welcome_to_mastodon">Velkommen til Mastodon</string>
 	<string name="welcome_paragraph1">Mastodon er et desentralisert sosialt nettverk, som betyr at ingen selskaper kontrollerer det. Det består av mange uavhengige servere som er koblet sammen.</string>
 	<string name="what_are_servers">Hva er en server?</string>
+	<string name="welcome_paragraph2">Hver Mastodon konto ligger på en server - hver med sine egne verdier, regler, &amp; administratorer. Uansett hvilken du velger, kan du følge og samhandle med folk på hvilken som helst server.</string>
 	<string name="opening_link">Åpner link…</string>
 	<string name="link_not_supported">Denne linken støttes ikke av appen</string>
 	<string name="log_out_all_accounts">Logg ut av alle kontoer</string>
@@ -581,8 +569,89 @@
 	<string name="time_hours_ago_short">%dt siden</string>
 	<string name="time_days_ago_short">%dd siden</string>
 	<!-- %s is the name of the post language -->
+	<string name="translate_post">Oversett fra %s</string>
 	<!-- %1$s is the language, %2$s is the name of the translation service -->
+	<string name="post_translated">Oversatt fra %1$s ved å bruke %2$s</string>
+	<string name="translation_show_original">Vi original</string>
+	<string name="translation_failed">Oversettelsen mislyktes. Kanskje administratoren ikke har aktivert oversettelser på denne serveren, eller denne serveren kjører en eldre versjon av Mastodon der oversettelser ennå ikke støttes.</string>
+	<string name="settings_privacy">Personvern og rekkevidde</string>
+	<string name="settings_discoverable">Fremhevet profiler og innlegg i oppdagelsesalgoritmer</string>
+	<string name="settings_indexable">Inkluder offentlige innlegg i søkeresultatene</string>
+	<plurals name="x_participants">
+		<item quantity="one">%,d deltaker</item>
+		<item quantity="other">%,d deltakere</item>
+	</plurals>
+	<plurals name="x_posts_today">
+		<item quantity="one">%,d innlegg idag</item>
+		<item quantity="other">%,d innlegg i dag</item>
+	</plurals>
+	<string name="error_playing_video">Feil ved avspilling av video</string>
+	<string name="timeline_following">Hjem</string>
+	<string name="lists">Lister</string>
+	<string name="followed_hashtags">Fulgte emneknagger</string>
+	<string name="manage_lists">Behandle lister</string>
+	<string name="manage_hashtags">Behandle emneknagger</string>
 	<!-- Screen reader description for the menu on the home timeline screen -->
+	<string name="dropdown_menu">Nedtrekksmeny</string>
+	<string name="edit_list">Rediger liste</string>
+	<string name="list_members">Vis medlemmer</string>
+	<string name="delete_list">Slett liste</string>
 	<!-- %s is the name of the list -->
+	<string name="delete_list_confirm">Slette \"%s\"?</string>
+	<string name="list_exclusive">Gjem medlemmer i følger</string>
+	<string name="list_exclusive_subtitle">Hvis noen er på denne listen, skjul dem på tidslinjen på din neste side for å unngå å se innleggene deres to ganger.</string>
+	<string name="list_name">Navn på liste</string>
+	<string name="list_show_replies_to">Vis svar til</string>
+	<string name="list_replies_no_one">Ingen</string>
+	<string name="list_replies_members">Medlemmer i listen</string>
+	<string name="list_replies_anyone">Alle jeg følger</string>
+	<string name="confirm_remove_list_members">Fjern medlemmer?</string>
+	<string name="remove">Fjern</string>
+	<string name="add_list_member">Legg til medlem</string>
+	<string name="search_among_people_you_follow">Søk blant personer du følger</string>
+	<string name="add_user_to_list">Legg til i liste…</string>
+	<string name="add_user_to_list_title">Legg til i liste</string>
 	<!-- %s is a username -->
+	<string name="manage_user_lists">Behandle liste %s vises på</string>
+	<string name="remove_from_list">Fjern fra liste</string>
+	<string name="confirm_remove_list_member">Fjern medlem?</string>
+	<string name="no_followed_hashtags_title">Holde deg oppdatert ved å følge emneknagger</string>
+	<string name="no_followed_hashtags_subtitle">Følgere vises her</string>
+	<string name="no_lists_title">Organiser tidslinjen din med lister</string>
+	<string name="no_lists_subtitle">Din vil vises her</string>
+	<string name="manage_accounts">Legg til eller bytt konto</string>
+	<plurals name="x_posts_recently">
+		<item quantity="one">%,d nylig innlegg</item>
+		<item quantity="other">%,d nylig innlegg</item>
+	</plurals>
+	<string name="create_list">Lag liste</string>
+	<string name="step_x_of_y">Steg %1$d av %2$d</string>
+	<string name="create">Opprett</string>
+	<string name="manage_list_members">Administrere listemedlemmer</string>
+	<string name="list_no_members">Ingen medlemmer ennå</string>
+	<string name="list_find_users">Finn brukere å legge til</string>
+	<string name="reply_to_user">Svar til %s</string>
+	<string name="posted_at">Postet på %s</string>
+	<string name="non_mutual_sheet_title">Hei, ny tilkobling!</string>
+	<string name="non_mutual_sheet_text">Ser ut som du er i ferd med å svare til noen som ikke er i en gjensidig forbindelse ennå. La oss gjøre et godt førsteinntrykk.</string>
+	<string name="got_it">Forstått</string>
+	<string name="dont_remind_again">Ikke spør meg igjen</string>
+	<!-- %s is a time interval ("5 months") -->
+	<string name="old_post_sheet_title">Dette innlegget er %s gammelt</string>
+	<string name="old_post_sheet_text">Du kan fortsatt svare, men det er ikke lenger relevant.</string>
+	<plurals name="x_months">
+		<item quantity="one">%,d måned</item>
+		<item quantity="other">%,d måneder</item>
+	</plurals>
+	<string name="more_than_two_years">mer enn 2 år</string>
+	<string name="non_mutual_title1">Vær respektfull &amp; relevant</string>
+	<string name="non_mutual_text1">Sikre at svaret ditt er høflig og har samme emne.</string>
+	<string name="non_mutual_title2">Omfavn vennlighet</string>
+	<string name="non_mutual_text2">En positiv tone blir alltid verdsatt.</string>
+	<string name="non_mutual_title3">Vær åpen</string>
+	<string name="non_mutual_text3">Alles samtalestil er unik. Vær klar til å tilpasse deg.</string>
+	<string name="make_profile_discoverable">Gjør min profil synlig</string>
+	<string name="discoverability">Synlighet</string>
+	<string name="discoverability_help">Når du aktivere oppdagbarhet på Mastodon, kan innleggene dine vises i søkeresultater og trender.\n\nDin profil kan bli foreslått for personer med lignende interesser som deg.\n\nDeaktivere oppdagbarhet vil ikke skjule profilen din hvis noen søker etter deg med navn.</string>
+	<string name="app_version_copied">Versjonsnummer kopiert til utklippstavlen</string>
 </resources>

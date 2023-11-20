@@ -163,19 +163,7 @@
 	<string name="password">Contrasinal</string>
 	<string name="confirm_password">Confirmar contrasinal</string>
 	<string name="password_note">Inclúe letras maiúsculas, caracteres especiais e números para aumentar a calidade do contrasinal.</string>
-	<string name="category_academia">Academia</string>
-	<string name="category_activism">Activismo</string>
-	<string name="category_all">Todo</string>
-	<string name="category_art">Arte</string>
-	<string name="category_food">Comida</string>
-	<string name="category_furry">Peluxos</string>
-	<string name="category_games">Xogos</string>
 	<string name="category_general">Xeral</string>
-	<string name="category_journalism">Xornalismo</string>
-	<string name="category_lgbt">LGBT</string>
-	<string name="category_music">Música</string>
-	<string name="category_regional">Rexional</string>
-	<string name="category_tech">Tecnoloxía</string>
 	<string name="confirm_email_title">Mira na caixa de correo</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">Preme na ligazón que che enviamos para verificar a %s. Agardamos por ti.</string>
@@ -285,7 +273,6 @@
 		<item quantity="one">%,d promoción</item>
 		<item quantity="other">%,d promocións</item>
 	</plurals>
-	<string name="timestamp_via_app">%1$s vía %2$s</string>
 	<string name="time_now">agora</string>
 	<string name="edit_history">Editar historial</string>
 	<string name="last_edit_at_x">Última edición %s</string>
@@ -357,7 +344,6 @@
 	<string name="profile_add_row">Engadir fila</string>
 	<string name="profile_setup">Configuración do perfil</string>
 	<string name="profile_setup_subtitle">Sempre podes completar isto máis tarde na lapela de Perfil.</string>
-	<string name="profile_setup_explanation">Podes engadir ata catro campos de perfil para calquera cousa que queras. Ubicación, ligazóns, pronomes — o límite é a túa imaxinación.</string>
 	<string name="popular_on_mastodon">Popular en Mastodon</string>
 	<string name="follow_all">Seguir a todas</string>
 	<string name="server_rules_disagree">Non aceptar</string>
@@ -600,10 +586,9 @@
 		<item quantity="other">%,d publicacións hoxe</item>
 	</plurals>
 	<string name="error_playing_video">Erro ao reproducir o vídeo</string>
+	<string name="timeline_following">Inicio</string>
 	<string name="lists">Listas</string>
 	<string name="followed_hashtags">Cancelos seguidos</string>
-	<string name="no_lists">Aínda non tes ningunha lista.</string>
-	<string name="no_followed_hashtags">Non segues ningún cancelo.</string>
 	<string name="manage_lists">Xestionar listas</string>
 	<string name="manage_hashtags">Xestionar cancelos</string>
 	<!-- Screen reader description for the menu on the home timeline screen -->
@@ -639,4 +624,11 @@
 		<item quantity="one">%,d publicación recente</item>
 		<item quantity="other">%,d publicacións recentes</item>
 	</plurals>
+	<string name="create_list">Crear lista</string>
+	<string name="step_x_of_y">Paso %1$d de %2$d</string>
+	<string name="create">Crear</string>
+	<string name="manage_list_members">Xestionar membros da lista</string>
+	<string name="list_no_members">Aínda non tes ninguén</string>
+	<string name="list_find_users">Buscar persoas que engadir</string>
+	<!-- %s is a time interval ("5 months") -->
 </resources>

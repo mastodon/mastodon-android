@@ -163,19 +163,7 @@
 	<string name="password">Password</string>
 	<string name="confirm_password">Conferma la password</string>
 	<string name="password_note">Includi lettere maiuscole, caratteri speciali e numeri per aumentare la forza della tua password.</string>
-	<string name="category_academia">Accademia</string>
-	<string name="category_activism">Attivismo</string>
-	<string name="category_all">Tutto</string>
-	<string name="category_art">Arte</string>
-	<string name="category_food">Alimenti</string>
-	<string name="category_furry">Peloso</string>
-	<string name="category_games">Giochi</string>
 	<string name="category_general">Generale</string>
-	<string name="category_journalism">Giornalismo</string>
-	<string name="category_lgbt">LGBT</string>
-	<string name="category_music">Musica</string>
-	<string name="category_regional">Regionale</string>
-	<string name="category_tech">Tecnologia</string>
 	<string name="confirm_email_title">Controlla la tua casella di posta</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">Tocca il collegamento che ti abbiamo inviato per verificare %s. Aspetteremo proprio qui.</string>
@@ -285,7 +273,6 @@
 		<item quantity="one">%,d condivisione</item>
 		<item quantity="other">%,d condivisioni</item>
 	</plurals>
-	<string name="timestamp_via_app">%1$s tramite %2$s</string>
 	<string name="time_now">ora</string>
 	<string name="edit_history">Cronologia delle modifiche</string>
 	<string name="last_edit_at_x">Ultima modifica: %s</string>
@@ -357,7 +344,6 @@
 	<string name="profile_add_row">Aggiungi riga</string>
 	<string name="profile_setup">Configurazione del profilo</string>
 	<string name="profile_setup_subtitle">Puoi sempre completarlo più tardi nella scheda Profilo.</string>
-	<string name="profile_setup_explanation">Puoi aggiungere fino a quattro campi del profilo per tutto ciò che desideri. Posizione, collegamenti, pronomi — il limite è il cielo.</string>
 	<string name="popular_on_mastodon">Popolare su Mastodon</string>
 	<string name="follow_all">Segui tutto</string>
 	<string name="server_rules_disagree">Non sono d\'accordo</string>
@@ -603,8 +589,6 @@
 	<string name="timeline_following">Inizio</string>
 	<string name="lists">Liste</string>
 	<string name="followed_hashtags">Hashtag seguiti</string>
-	<string name="no_lists">Non hai ancora nessuna lista.</string>
-	<string name="no_followed_hashtags">Non segui alcun hashtag.</string>
 	<string name="manage_lists">Gestisci le liste</string>
 	<string name="manage_hashtags">Gestisci gli hashtag</string>
 	<!-- Screen reader description for the menu on the home timeline screen -->
@@ -646,4 +630,28 @@
 	<string name="manage_list_members">Gestisci i membri della lista</string>
 	<string name="list_no_members">Ancora nessun membro</string>
 	<string name="list_find_users">Trova gli utenti da aggiungere</string>
+	<string name="reply_to_user">Risposta a %s</string>
+	<string name="posted_at">Postato: %s</string>
+	<string name="non_mutual_sheet_title">Ciao, nuova connessione!</string>
+	<string name="non_mutual_sheet_text">Sembra che tu stia per rispondere a qualcuno che non ha ancora una connessione reciproca. Facciamo un\'ottima prima impressione.</string>
+	<string name="got_it">Ho capito</string>
+	<string name="dont_remind_again">Non ricordarmelo di nuovo</string>
+	<!-- %s is a time interval ("5 months") -->
+	<string name="old_post_sheet_title">Questo post è vecchio di %s</string>
+	<string name="old_post_sheet_text">Puoi ancora rispondere, ma potrebbe non essere più rilevante.</string>
+	<plurals name="x_months">
+		<item quantity="one">%,d mese</item>
+		<item quantity="other">%,d mesi</item>
+	</plurals>
+	<string name="more_than_two_years">più di 2 anni</string>
+	<string name="non_mutual_title1">Rimani rispettoso &amp; pertinente</string>
+	<string name="non_mutual_text1">Assicurati che la tua risposta sia cortese e in tema.</string>
+	<string name="non_mutual_title2">Abbraccia la gentilezza</string>
+	<string name="non_mutual_text2">Un tono positivo è sempre apprezzato.</string>
+	<string name="non_mutual_title3">Sii aperto</string>
+	<string name="non_mutual_text3">Lo stile di conversazione di ognuno è unico. Sii pronto ad adattarti.</string>
+	<string name="make_profile_discoverable">Rendi il mio profilo rilevabile</string>
+	<string name="discoverability">Rilevabilità</string>
+	<string name="discoverability_help">Quando attivi la rilevabilità su Mastodon, i tuoi post potrebbero apparire nei risultati di ricerca e nelle tendenze.\n\nIl tuo profilo potrebbe essere suggerito a persone con interessi simili ai tuoi.\n\nLa disattivazione non nasconde il tuo profilo se qualcuno ti cerca per nome.</string>
+	<string name="app_version_copied">Numero di versione copiato negli appunti</string>
 </resources>

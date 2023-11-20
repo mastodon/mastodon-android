@@ -187,19 +187,7 @@
 	<string name="password">Пароль</string>
 	<string name="confirm_password">Підтвердження паролю</string>
 	<string name="password_note">Використовуйте великі літери, спеціальні символи та цифри для посилення пароля.</string>
-	<string name="category_academia">Академія</string>
-	<string name="category_activism">Активізм</string>
-	<string name="category_all">Все</string>
-	<string name="category_art">Мистецтво</string>
-	<string name="category_food">Їжа</string>
-	<string name="category_furry">Фурі</string>
-	<string name="category_games">Ігри</string>
 	<string name="category_general">Загальні</string>
-	<string name="category_journalism">Журналістика</string>
-	<string name="category_lgbt">ЛГБТ</string>
-	<string name="category_music">Музика</string>
-	<string name="category_regional">Регіональні</string>
-	<string name="category_tech">Технології</string>
 	<string name="confirm_email_title">Перевірте вашу електронну пошту</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">Натисніть на посилання, яке ми надіслали вам, щоб підтвердити %s. Ми чекатимемо прямо тут.</string>
@@ -319,7 +307,6 @@
 		<item quantity="many">%,d поширень</item>
 		<item quantity="other">%,d поширень</item>
 	</plurals>
-	<string name="timestamp_via_app">%1$s через %2$s</string>
 	<string name="time_now">щойно</string>
 	<string name="edit_history">Історія редагувань</string>
 	<string name="last_edit_at_x">Востаннє відредаговано %s</string>
@@ -395,7 +382,6 @@
 	<string name="profile_add_row">Додати рядок</string>
 	<string name="profile_setup">Налаштування профілю</string>
 	<string name="profile_setup_subtitle">Ви завжди можете завершити це пізніше у вкладці профілю.</string>
-	<string name="profile_setup_explanation">Ви можете додати до чотирьох рядків у профілі для будь-чого. Місце, посилання, інтереси — безмежні можливості.</string>
 	<string name="popular_on_mastodon">Популярне на Mastodon</string>
 	<string name="follow_all">Підписатися на всіх</string>
 	<string name="server_rules_disagree">Не погоджуюся</string>
@@ -665,8 +651,6 @@
 	<string name="timeline_following">Головна</string>
 	<string name="lists">Списки</string>
 	<string name="followed_hashtags">Відстежувані хештеги</string>
-	<string name="no_lists">У вас ще немає списків.</string>
-	<string name="no_followed_hashtags">Ви не підписані на жодний хештег.</string>
 	<string name="manage_lists">Керувати списками</string>
 	<string name="manage_hashtags">Керувати хештегами</string>
 	<!-- Screen reader description for the menu on the home timeline screen -->
@@ -702,4 +686,5 @@
 	<string name="create">Створити</string>
 	<string name="manage_list_members">Керувати учасниками списку</string>
 	<string name="list_no_members">Ще немає учасників</string>
+	<!-- %s is a time interval ("5 months") -->
 </resources>

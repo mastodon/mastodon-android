@@ -151,19 +151,7 @@
 	<string name="password">Mật khẩu</string>
 	<string name="confirm_password">Nhập lại mật khẩu</string>
 	<string name="password_note">Hãy thêm chữ viết hoa, ký tự đặc biệt và số để tăng độ mạnh mật khẩu.</string>
-	<string name="category_academia">Học thuật</string>
-	<string name="category_activism">Hoạt động xã hội</string>
-	<string name="category_all">Toàn bộ</string>
-	<string name="category_art">Nghệ thuật</string>
-	<string name="category_food">Ăn uống</string>
-	<string name="category_furry">Furry</string>
-	<string name="category_games">Trò chơi điện tử</string>
 	<string name="category_general">Chung</string>
-	<string name="category_journalism">Tin tức</string>
-	<string name="category_lgbt">LGBT</string>
-	<string name="category_music">Âm nhạc</string>
-	<string name="category_regional">Khu vực</string>
-	<string name="category_tech">Công nghệ</string>
 	<string name="confirm_email_title">Kiểm tra hộp thư của bạn</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">Nhấn vào liên kết chúng tôi vừa gửi để xác minh %s. Nhanh nhé bạn.</string>
@@ -268,7 +256,6 @@
 	<plurals name="x_reblogs">
 		<item quantity="other">%,d đăng lại</item>
 	</plurals>
-	<string name="timestamp_via_app">%1$s qua %2$s</string>
 	<string name="time_now">vừa xong</string>
 	<string name="edit_history">Lịch sử chỉnh sửa</string>
 	<string name="last_edit_at_x">Sửa lần cuối %s</string>
@@ -336,9 +323,8 @@
 	<string name="signup_passwords_dont_match">Mật khẩu không khớp</string>
 	<string name="pick_server_for_me">Chọn giúp tôi</string>
 	<string name="profile_add_row">Thêm hàng</string>
-	<string name="profile_setup">Thiệt lập hồ sơ</string>
+	<string name="profile_setup">Thiết lập hồ sơ</string>
 	<string name="profile_setup_subtitle">Bạn có thể sửa sau trong mục Hồ sơ.</string>
-	<string name="profile_setup_explanation">Bạn có thể thêm tối đa bốn trường hồ sơ cho bất cứ thứ gì bạn muốn. Vị trí, liên kết, công việc - không giới hạn.</string>
 	<string name="popular_on_mastodon">Thịnh hành trên Mastodon</string>
 	<string name="follow_all">Theo dõi tất cả</string>
 	<string name="server_rules_disagree">Không đồng ý</string>
@@ -572,8 +558,6 @@
 	<string name="timeline_following">Trang chính</string>
 	<string name="lists">Danh sách</string>
 	<string name="followed_hashtags">Hashtag theo dõi</string>
-	<string name="no_lists">Bạn chưa có danh sách nào.</string>
-	<string name="no_followed_hashtags">Bạn chưa theo dõi hashtag nào.</string>
 	<string name="manage_lists">Quản lý danh sách</string>
 	<string name="manage_hashtags">Quản lý hashtag</string>
 	<!-- Screen reader description for the menu on the home timeline screen -->
@@ -614,4 +598,27 @@
 	<string name="manage_list_members">Quản lý danh sách</string>
 	<string name="list_no_members">Chưa có người nào</string>
 	<string name="list_find_users">Tìm người để thêm vào</string>
+	<string name="reply_to_user">Trả lời %s</string>
+	<string name="posted_at">Được đăng tại %s</string>
+	<string name="non_mutual_sheet_title">Xin chào, kết nối mới!</string>
+	<string name="non_mutual_sheet_text">Có vẻ như bạn sắp trả lời một người chưa có mối quan hệ chung. Hãy tạo ấn tượng đầu tiên tuyệt vời.</string>
+	<string name="got_it">Đã hiểu</string>
+	<string name="dont_remind_again">Đừng nhắc nữa</string>
+	<!-- %s is a time interval ("5 months") -->
+	<string name="old_post_sheet_title">Tút đăng %s trước</string>
+	<string name="old_post_sheet_text">Bạn vẫn có thể trả lời nhưng nó có thể không còn phù hợp nữa.</string>
+	<plurals name="x_months">
+		<item quantity="other">%,d tháng</item>
+	</plurals>
+	<string name="more_than_two_years">hơn 2 năm</string>
+	<string name="non_mutual_title1">Tôn trọng &amp; liên quan</string>
+	<string name="non_mutual_text1">Đảm bảo câu trả lời của bạn lịch sự và đúng chủ đề.</string>
+	<string name="non_mutual_title2">Nói chuyện tử tế</string>
+	<string name="non_mutual_text2">Thái độ tích cực luôn được đánh giá cao.</string>
+	<string name="non_mutual_title3">Hãy cởi mở</string>
+	<string name="non_mutual_text3">Phong cách trò chuyện của mỗi người là duy nhất. Hãy sẵn sàng để thích nghi.</string>
+	<string name="make_profile_discoverable">Bật khám phá cho hồ sơ của tôi</string>
+	<string name="discoverability">Khám phá</string>
+	<string name="discoverability_help">Khi bạn chọn bật khám phá trên Mastodon, tút của bạn sẽ được xuất hiện trong kết quả tìm kiếm và thịnh hành.\n\nHồ sơ của bạn có thể được đề xuất cho những người có cùng sở thích với bạn.\n\nViệc tắt khám phá sẽ không làm ẩn hồ sơ của bạn nếu ai đó tìm kiếm bạn.</string>
+	<string name="app_version_copied">Số phiên bản đã được sao chép vào bộ nhớ tạm</string>
 </resources>

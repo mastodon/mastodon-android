@@ -163,19 +163,7 @@
 	<string name="password">Passwort</string>
 	<string name="confirm_password">Passwort bestätigen</string>
 	<string name="password_note">Verwende Großbuchstaben, Sonderzeichen und Zahlen, um deine Passwortstärke zu erhöhen.</string>
-	<string name="category_academia">Bildung</string>
-	<string name="category_activism">Bürgerbeteiligung</string>
-	<string name="category_all">Alle</string>
-	<string name="category_art">Kunst</string>
-	<string name="category_food">Essen</string>
-	<string name="category_furry">Furry</string>
-	<string name="category_games">Spiele</string>
 	<string name="category_general">Allgemein</string>
-	<string name="category_journalism">Journalismus</string>
-	<string name="category_lgbt">LGBT</string>
-	<string name="category_music">Musik</string>
-	<string name="category_regional">Regional</string>
-	<string name="category_tech">Technik</string>
 	<string name="confirm_email_title">Überprüfe deinen Posteingang</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">Bitte klicke auf den Link, den wir an %s geschickt haben, um dich zu verifizieren. Wir warten bis dahin einfach hier.</string>
@@ -285,7 +273,6 @@
 		<item quantity="one">%,d geteilter Beitrag</item>
 		<item quantity="other">%,d geteilte Beiträge</item>
 	</plurals>
-	<string name="timestamp_via_app">%1$s via %2$s</string>
 	<string name="time_now">jetzt</string>
 	<string name="edit_history">Verlauf bearbeiten</string>
 	<string name="last_edit_at_x">Zuletzt bearbeitet: %s</string>
@@ -357,7 +344,6 @@
 	<string name="profile_add_row">Zeile hinzufügen</string>
 	<string name="profile_setup">Profil einrichten</string>
 	<string name="profile_setup_subtitle">Du kannst dies jederzeit später auf dem Profil-Reiter vervollständigen.</string>
-	<string name="profile_setup_explanation">Du kannst bis zu vier Profilfelder für alles, was du möchtest, hinzufügen. Standort, Links, Pronomen - deiner Fantasie sind hier keine Grenzen gesetzt.</string>
 	<string name="popular_on_mastodon">Beliebt auf Mastodon</string>
 	<string name="follow_all">Allen folgen</string>
 	<string name="server_rules_disagree">Ablehnen</string>
@@ -594,8 +580,6 @@
 	<string name="error_playing_video">Fehler bei Videowiedergabe</string>
 	<string name="lists">Listen</string>
 	<string name="followed_hashtags">Gefolgte Hashtags</string>
-	<string name="no_lists">Du hast noch keine Listen.</string>
-	<string name="no_followed_hashtags">Du folgst keinen Hashtags.</string>
 	<string name="manage_lists">Listen verwalten</string>
 	<string name="manage_hashtags">Hashtags verwalten</string>
 	<!-- Screen reader description for the menu on the home timeline screen -->
@@ -627,4 +611,11 @@
 	<string name="no_lists_title">Startseite mit Listen organisieren</string>
 	<string name="no_lists_subtitle">Deine werden hier erscheinen</string>
 	<string name="manage_accounts">Konten hinzufügen oder wechseln</string>
+	<string name="create_list">Liste erstellen</string>
+	<string name="step_x_of_y">Schritt %1$d von %2$d</string>
+	<string name="manage_list_members">Listenmitglieder verwalten</string>
+	<string name="list_no_members">Noch keine Mitglieder</string>
+	<string name="dont_remind_again">Nicht erneut erinnern</string>
+	<!-- %s is a time interval ("5 months") -->
+	<string name="old_post_sheet_title">Dieser Beitrag ist %s alt</string>
 </resources>

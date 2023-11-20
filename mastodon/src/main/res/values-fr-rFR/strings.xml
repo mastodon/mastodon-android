@@ -163,19 +163,7 @@
 	<string name="password">Mot de passe</string>
 	<string name="confirm_password">Confirmez le mot de passe</string>
 	<string name="password_note">Inclure les lettres majuscules, les caractères spéciaux et les chiffres pour augmenter la force de votre mot de passe.</string>
-	<string name="category_academia">Universitaire</string>
-	<string name="category_activism">Activisme</string>
-	<string name="category_all">Tout</string>
-	<string name="category_art">Art</string>
-	<string name="category_food">Nourriture</string>
-	<string name="category_furry">Fourrure</string>
-	<string name="category_games">Jeux</string>
 	<string name="category_general">Général</string>
-	<string name="category_journalism">Journalisme</string>
-	<string name="category_lgbt">LGBT</string>
-	<string name="category_music">Musique</string>
-	<string name="category_regional">Régional</string>
-	<string name="category_tech">Technologie</string>
 	<string name="confirm_email_title">Consultez votre boîte de réception</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">Cliquez sur le lien que nous avons envoyé à %s pour confirmer votre email. Nous vous attendons ici.</string>
@@ -285,7 +273,6 @@
 		<item quantity="one">%,d partage</item>
 		<item quantity="other">%,d partages</item>
 	</plurals>
-	<string name="timestamp_via_app">%1$s via %2$s</string>
 	<string name="time_now">à l’instant</string>
 	<string name="edit_history">Historique des modifications</string>
 	<string name="last_edit_at_x">Dernière modification %s</string>
@@ -333,7 +320,7 @@
 	<string name="instance_signup_closed">Ce serveur n\'accepte pas les nouvelles inscriptions.</string>
 	<string name="text_copied">Copié dans le presse-papier</string>
 	<string name="add_bookmark">Ajouter aux marque-pages</string>
-	<string name="remove_bookmark">Retirer des favoris</string>
+	<string name="remove_bookmark">Retirer des marque-pages</string>
 	<string name="bookmarks">Marque-pages</string>
 	<string name="your_favorites">Vos favoris</string>
 	<string name="login_title">Content de vous revoir</string>
@@ -357,7 +344,6 @@
 	<string name="profile_add_row">Ajouter une ligne</string>
 	<string name="profile_setup">Configuration du profil</string>
 	<string name="profile_setup_subtitle">Vous pourrez toujours compléter cela plus tard dans l\'onglet Profil.</string>
-	<string name="profile_setup_explanation">Vous pouvez ajouter jusqu\'à quatre champs de profil pour tout ce que vous souhaitez. Localisation, liens, surnoms — le ciel est la limite.</string>
 	<string name="popular_on_mastodon">Populaire sur Mastodon</string>
 	<string name="follow_all">Tout suivre</string>
 	<string name="server_rules_disagree">Refuser</string>
@@ -603,8 +589,6 @@
 	<string name="timeline_following">Accueil</string>
 	<string name="lists">Listes</string>
 	<string name="followed_hashtags">Hashtags suivis</string>
-	<string name="no_lists">Vous n’avez pas encore de listes.</string>
-	<string name="no_followed_hashtags">Vous ne suivez aucun hashtag.</string>
 	<string name="manage_lists">Gérer les listes</string>
 	<string name="manage_hashtags">Gérer les hashtags</string>
 	<!-- Screen reader description for the menu on the home timeline screen -->
@@ -646,4 +630,5 @@
 	<string name="manage_list_members">Gérer les membres de la liste</string>
 	<string name="list_no_members">Aucun membre pour l\'instant</string>
 	<string name="list_find_users">Trouver des utilisateurs à ajouter</string>
+	<!-- %s is a time interval ("5 months") -->
 </resources>

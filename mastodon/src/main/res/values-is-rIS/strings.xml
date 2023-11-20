@@ -163,19 +163,7 @@
 	<string name="password">Lykilorð</string>
 	<string name="confirm_password">Staðfestu lykilorðið</string>
 	<string name="password_note">Settu hástafi, sértákn og tölustafi til að auka styrk lykilorðins þíns.</string>
-	<string name="category_academia">Akademískt</string>
-	<string name="category_activism">Aðgerðasinnar</string>
-	<string name="category_all">Allt</string>
-	<string name="category_art">Listir</string>
-	<string name="category_food">Matur</string>
-	<string name="category_furry">Loðið</string>
-	<string name="category_games">Leikir</string>
 	<string name="category_general">Almennt</string>
-	<string name="category_journalism">Blaðamennska</string>
-	<string name="category_lgbt">LGBT</string>
-	<string name="category_music">Tónlist</string>
-	<string name="category_regional">Svæðisbundið</string>
-	<string name="category_tech">Tækni</string>
 	<string name="confirm_email_title">Athugaðu innhólfið þitt</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">Ýttu á tengilinn sem við sendum þér til að staðfesta %s. Við bíðum á meðan.</string>
@@ -285,7 +273,6 @@
 		<item quantity="one">%,d endurbirting</item>
 		<item quantity="other">%,d endurbirtingar</item>
 	</plurals>
-	<string name="timestamp_via_app">%1$s með %2$s</string>
 	<string name="time_now">núna</string>
 	<string name="edit_history">Breytingaferill</string>
 	<string name="last_edit_at_x">Síðasta breyting %s</string>
@@ -357,7 +344,6 @@
 	<string name="profile_add_row">Bæta við röð</string>
 	<string name="profile_setup">Uppsetning notandasniðs</string>
 	<string name="profile_setup_subtitle">Þú getur alltaf klárað þetta síðar á notendasniðaflipanum.</string>
-	<string name="profile_setup_explanation">Þú getur bætt við allt að fjórum gagnasviðum að eigin vali. Staðsetning, tenglar, fornöfn - ímyndunaraflið er einu takmörkin.</string>
 	<string name="popular_on_mastodon">Vinsælt á Mastodon</string>
 	<string name="follow_all">Fylgjast með öllum</string>
 	<string name="server_rules_disagree">Ósammála</string>
@@ -603,8 +589,6 @@
 	<string name="timeline_following">Heim</string>
 	<string name="lists">Listar</string>
 	<string name="followed_hashtags">Myllumerki sem fylgst er með</string>
-	<string name="no_lists">Þú ert ekki ennþá með neina lista.</string>
-	<string name="no_followed_hashtags">Þú fylgist ekki með neinum myllumerkjum.</string>
 	<string name="manage_lists">Sýsla með lista</string>
 	<string name="manage_hashtags">Sýsla með myllumerki</string>
 	<!-- Screen reader description for the menu on the home timeline screen -->
@@ -646,4 +630,5 @@
 	<string name="manage_list_members">Sýsla með meðlimi listans</string>
 	<string name="list_no_members">Engir meðlimir ennþá</string>
 	<string name="list_find_users">Finndu notendur til að bæta við</string>
+	<!-- %s is a time interval ("5 months") -->
 </resources>

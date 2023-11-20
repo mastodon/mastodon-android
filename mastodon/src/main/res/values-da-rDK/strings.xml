@@ -163,19 +163,7 @@
 	<string name="password">Adgangskode</string>
 	<string name="confirm_password">Bekræft adgangskode</string>
 	<string name="password_note">Benyt majuskler, specialtegn og tal for at øge adgangskodens styrke.</string>
-	<string name="category_academia">Forskning og højere uddannelser</string>
-	<string name="category_activism">Aktivisme</string>
-	<string name="category_all">Alt</string>
-	<string name="category_art">Kunst</string>
-	<string name="category_food">Mad</string>
-	<string name="category_furry">Pelsdyr</string>
-	<string name="category_games">Spil</string>
 	<string name="category_general">Generelt</string>
-	<string name="category_journalism">Journalistik</string>
-	<string name="category_lgbt">LGBT</string>
-	<string name="category_music">Musik</string>
-	<string name="category_regional">Regionalt</string>
-	<string name="category_tech">Teknologi</string>
 	<string name="confirm_email_title">Tjek din indbakke</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">Tryk på det modtage link for at bekræfte %s. Vi venter her så længe.</string>
@@ -284,7 +272,6 @@
 		<item quantity="one">%,d fremhævning</item>
 		<item quantity="other">%,d fremhævninger</item>
 	</plurals>
-	<string name="timestamp_via_app">%1$s via %2$s</string>
 	<string name="time_now">nu</string>
 	<string name="edit_history">Rediger historik</string>
 	<string name="last_edit_at_x">Senest ændret: %s</string>
@@ -356,7 +343,6 @@
 	<string name="profile_add_row">Tilføj række</string>
 	<string name="profile_setup">Profilopsætning</string>
 	<string name="profile_setup_subtitle">Du kan altid afslutte dette senere i fanen Profil.</string>
-	<string name="profile_setup_explanation">Du kan tilføje op til fire profilfelter til lige, hvad du ønsker. Placering, links, pronomener — du bestemmer.</string>
 	<string name="popular_on_mastodon">Populært på Mastodon</string>
 	<string name="follow_all">Følg alle</string>
 	<string name="server_rules_disagree">Ikke enig</string>
@@ -507,4 +493,5 @@
 	<!-- Screen reader description for the menu on the home timeline screen -->
 	<!-- %s is the name of the list -->
 	<!-- %s is a username -->
+	<!-- %s is a time interval ("5 months") -->
 </resources>
