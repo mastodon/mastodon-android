@@ -248,6 +248,7 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 			@Override
 			public void photoViewerDismissed(){
 				currentPhotoViewer=null;
+				gridHolder.itemView.setHasTransientState(false);
 			}
 
 			@Override
@@ -259,6 +260,7 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 				return gridHolder.getViewController(index);
 			}
 		});
+		gridHolder.itemView.setHasTransientState(true);
 	}
 
 	@Override

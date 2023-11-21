@@ -173,6 +173,7 @@ public class ReorderableLinearLayout extends LinearLayout implements CustomViewH
 		else
 			bottomSibling=null;
 		dragListener.onSwapItems(prevIndex, index);
+		final View draggedView=this.draggedView;
 		draggedView.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener(){
 			@Override
 			public boolean onPreDraw(){

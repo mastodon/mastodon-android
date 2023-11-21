@@ -181,6 +181,8 @@ public class ToolbarDropdownMenuController{
 	public void resizeOnNextFrame(){
 		if(currentTransition!=null)
 			currentTransition.cancel();
+		if(windowView==null)
+			return;
 		int origBottom=menuContainer.getBottom();
 		menuContainer.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener(){
 			@Override
