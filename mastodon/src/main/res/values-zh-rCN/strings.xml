@@ -105,7 +105,7 @@
 	<string name="log_out">注销</string>
 	<string name="add_account">添加账户</string>
 	<string name="search_hint">搜索</string>
-	<string name="hashtags">话题</string>
+	<string name="hashtags">标签</string>
 	<string name="news">新闻</string>
 	<string name="for_you">推荐关注</string>
 	<string name="all_notifications">全部</string>
@@ -546,8 +546,26 @@
 	<string name="settings_privacy">隐私与可达性</string>
 	<string name="settings_discoverable">在发现算法中展示您的个人资料和嘟文</string>
 	<string name="settings_indexable">将您的公开嘟文纳入搜索范围</string>
+	<string name="error_playing_video">播放视频出错</string>
+	<string name="timeline_following">主页</string>
+	<string name="lists">列表</string>
+	<string name="followed_hashtags">关注的标签</string>
+	<string name="manage_hashtags">管理标签</string>
 	<!-- Screen reader description for the menu on the home timeline screen -->
+	<string name="dropdown_menu">下拉菜单</string>
+	<string name="edit_list">编辑列表</string>
+	<string name="list_members">列表成员</string>
 	<!-- %s is the name of the list -->
+	<string name="list_exclusive_subtitle">列表成员不显示在主页时间线上，以免重复看到嘟文</string>
+	<string name="list_name">列表名</string>
+	<string name="remove">移除</string>
 	<!-- %s is a username -->
+	<string name="confirm_remove_list_member">移除成员？</string>
+	<string name="manage_accounts">管理账户</string>
+	<string name="create_list">创建列表</string>
+	<string name="create">创建</string>
+	<string name="dont_remind_again">不再提醒</string>
 	<!-- %s is a time interval ("5 months") -->
+	<string name="non_mutual_title1">保持尊重 &amp; 切题</string>
+	<string name="non_mutual_text1">确保您的回复礼貌且切题。</string>
 </resources>
