@@ -98,7 +98,7 @@ public class WrappingLinearLayout extends ViewGroup{
 					xOffset+=mlp.leftMargin+mlp.rightMargin;
 				}
 				firstInRow=false;
-			}else{
+			}else if(currentRowIndex<rowHeights.size()-1){
 				xOffset=rtl ? getPaddingRight() : getPaddingLeft();
 				yOffset+=rowHeight+verticalGap;
 				currentRowIndex++;
