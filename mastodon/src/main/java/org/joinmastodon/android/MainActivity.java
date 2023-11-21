@@ -6,6 +6,7 @@ import android.app.Fragment;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.os.BadParcelableException;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -36,6 +37,8 @@ import me.grishka.appkit.api.Callback;
 import me.grishka.appkit.api.ErrorResponse;
 
 public class MainActivity extends FragmentStackActivity{
+	private static final String TAG="MainActivity";
+
 	@Override
 	protected void onCreate(@Nullable Bundle savedInstanceState){
 		UiUtils.setUserPreferredTheme(this);
@@ -193,8 +196,14 @@ public class MainActivity extends FragmentStackActivity{
 			fragment.setArguments(args);
 			showFragmentClearingBackStack(fragment);
 			if(intent.getBooleanExtra("fromNotification", false) && intent.hasExtra("notification")){
-				Notification notification=Parcels.unwrap(intent.getParcelableExtra("notification"));
-				showFragmentForNotification(notification, session.getID());
+				// Parcelables might not be compatible across app versions so this protects against possible crashes
+				// when a notification was received, then the app was updated, and then the user opened the notification
+				try{
+					Notification notification=Parcels.unwrap(intent.getParcelableExtra("notification"));
+					showFragmentForNotification(notification, session.getID());
+				}catch(BadParcelableException x){
+					Log.w(TAG, x);
+				}
 			}else if(intent.getBooleanExtra("compose", false)){
 				showCompose();
 			}else if(Intent.ACTION_VIEW.equals(intent.getAction())){
