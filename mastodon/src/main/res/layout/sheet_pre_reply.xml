@@ -48,6 +48,7 @@
 			android:layout_below="@id/title"
 			android:layout_toEndOf="@id/icon"
 			android:textAppearance="@style/m3_body_medium"
+			android:textColor="?colorM3OnSurfaceVariant"
 			tools:text="@string/non_mutual_sheet_text"/>
 
 		<LinearLayout
