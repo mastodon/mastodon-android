@@ -159,17 +159,17 @@
 	<string name="signup_title">Hesap oluştur</string>
 	<string name="display_name">Ad</string>
 	<string name="username">Kullanıcı adı</string>
-	<string name="email">Eposta</string>
+	<string name="email">E-Posta</string>
 	<string name="password">Parola</string>
 	<string name="confirm_password">Parolayı doğrula</string>
 	<string name="password_note">Daha güçlü parolalar için parolanıza büyük harfler, özel karakterler ve sayılar ekleyin.</string>
 	<string name="category_general">Genel</string>
-	<string name="confirm_email_title">E-posta gelen kutunuzu kontrol edin</string>
+	<string name="confirm_email_title">E-Posta gelen kutunuzu kontrol edin</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">%s adresini doğrulamak için size gönderdiğimiz bağlantıya dokunun. Hemen burada bekleyeceğiz.</string>
 	<string name="confirm_email_didnt_get">Bağlantı gelmedi mi?</string>
 	<string name="resend">Yeniden gönder</string>
-	<string name="open_email_app">Eposta uygulamasını aç</string>
+	<string name="open_email_app">E-Posta uygulamasını aç</string>
 	<string name="resent_email">Onay epostası gönderildi</string>
 	<string name="compose_hint">Aklınızdan geçenleri yazın veya yapıştırın</string>
 	<string name="content_warning">İçerik uyarısı</string>
@@ -181,12 +181,12 @@
 	<string name="recent_searches">Son aramalar</string>
 	<string name="skip">Atla</string>
 	<string name="notification_type_follow">Yeni takipçiler</string>
-	<string name="notification_type_favorite">Favoriler</string>
+	<string name="notification_type_favorite">Gözdeler</string>
 	<string name="notification_type_reblog">Yinelemeler</string>
 	<string name="notification_type_mention">Bahsetmeler</string>
 	<string name="notification_type_poll">Anketler</string>
 	<string name="choose_account">Hesap seç</string>
-	<string name="err_not_logged_in">Lütfen önce Mastodon\'da oturum açın</string>
+	<string name="err_not_logged_in">Lütfen önce Mastodonda oturum açın</string>
 	<plurals name="cant_add_more_than_x_attachments">
 		<item quantity="one">%d adetten fazla medya ekleyemezsiniz</item>
 		<item quantity="other">%d adetten fazla medya ekleyemezsiniz</item>
@@ -245,10 +245,10 @@
 	<string name="downloading">İndiriliyor…</string>
 	<string name="no_app_to_handle_action">Bu eylemi gerçekleştirebilecek bir uygulama bulunmuyor</string>
 	<string name="local_timeline">Yerel</string>
-	<string name="trending_posts_info_banner">Bunlar, Mastodon\'da ilgi gören gönderilerdir.</string>
+	<string name="trending_posts_info_banner">Bunlar, Mastodon\'da ilgi gören gönderiler.</string>
 	<string name="trending_links_info_banner">Bunlar Mastodon\'da konuşulan haberler.</string>
 	<!-- %s is the server domain -->
-	<string name="local_timeline_info_banner">Bunlar, sunucunuzdaki (%s) tüm kullanıcıların gönderileridir.</string>
+	<string name="local_timeline_info_banner">Bunlar, sunucunuzdaki (%s) tüm kullanıcıların gönderileri.</string>
 	<string name="recommended_accounts_info_banner">Takip ettiğiniz hesaplara göre bu hesapları beğenebilirsiniz.</string>
 	<string name="see_new_posts">Yeni gönderiler</string>
 	<string name="load_missing_posts">Daha fazlası</string>
@@ -620,10 +620,34 @@
 	<string name="no_lists_title">Ev beslemenizi Listeler ile düzenleyin</string>
 	<string name="no_lists_subtitle">Sizinki burada görüntülenecek</string>
 	<string name="manage_accounts">Hesap ekleme veya değiştirme</string>
+	<plurals name="x_posts_recently">
+		<item quantity="one">%,d son zamanlardaki yayın</item>
+		<item quantity="other">%,d yakın zamanda gönderilerim</item>
+	</plurals>
 	<string name="create_list">Liste oluştur</string>
+	<string name="step_x_of_y">Step %1$d ile %2$d</string>
 	<string name="create">Oluştur</string>
 	<string name="manage_list_members">Liste üyelerini yönet</string>
 	<string name="list_no_members">Henüz üye yok.</string>
 	<string name="list_find_users">Eklenecek kullanıcıları bul</string>
+	<string name="reply_to_user">Yanıtla %s</string>
+	<string name="posted_at">%s tarafından gönderildi</string>
+	<string name="non_mutual_sheet_title">Merhaba, yeni bağlantı!</string>
+	<string name="non_mutual_sheet_text">Görünüşe göre henüz ortak bağlantınız olmayan birine yanıt vermek üzeresiniz. Harika bir ilk izlenim bırakınız.</string>
+	<string name="got_it">Anladım</string>
+	<string name="dont_remind_again">Bana tekrar hatırlatmayınız.</string>
 	<!-- %s is a time interval ("5 months") -->
+	<string name="old_post_sheet_title">Bu gönderi %s eski</string>
+	<string name="old_post_sheet_text">Hâlâ yanıt verebilirsiniz, ancak konuyla ilgili olmayabilir.</string>
+	<string name="more_than_two_years">2 yıldan fazla süredir</string>
+	<string name="non_mutual_title1">Saygılı ve ilgili &amp; plunuz</string>
+	<string name="non_mutual_text1">Yanıtınızın nazik ve konuyla ilgili olduğundan emin olunuz.</string>
+	<string name="non_mutual_title2">Nezaketle sarıl</string>
+	<string name="non_mutual_text2">Olumlu bir yaklaşım her zaman takdir edilir.</string>
+	<string name="non_mutual_title3">Açık olunuz</string>
+	<string name="non_mutual_text3">Herkesin konuşma tarzı kendine özgüdür. Uyum sağlamaya hazır olunuz.</string>
+	<string name="make_profile_discoverable">Profilimi keşfedilebilir hale getiriniz</string>
+	<string name="discoverability">Keşfedebilirlik</string>
+	<string name="discoverability_help">Mastodon\'da keşfedilebilirliği tercih ettiğinizde, gönderileriniz arama sonuçlarında ve trendlerde görünebilir.\n\nProfiliniz sizinle benzer ilgi alanlarına sahip kişilere önerilebilir.\n\nBirisi sizi isminizle ararsa, devre dışı bırakma işlemi profilinizi gizlemez.</string>
+	<string name="app_version_copied">Sürüm numarası panoya kopyalandı</string>
 </resources>
