@@ -5,6 +5,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -13,6 +14,7 @@ import org.joinmastodon.android.R;
 import org.joinmastodon.android.ui.utils.UiUtils;
 
 import androidx.annotation.NonNull;
+import me.grishka.appkit.utils.V;
 import me.grishka.appkit.views.BottomSheet;
 
 public abstract class PreReplySheet extends BottomSheet{
@@ -26,6 +28,8 @@ public abstract class PreReplySheet extends BottomSheet{
 
 		View content=context.getSystemService(LayoutInflater.class).inflate(R.layout.sheet_pre_reply, null);
 		setContentView(content);
+		FrameLayout.LayoutParams lp=(FrameLayout.LayoutParams) content.getLayoutParams();
+		lp.topMargin=V.dp(72);
 
 		setNavigationBarBackground(new ColorDrawable(UiUtils.alphaBlendColors(UiUtils.getThemeColor(context, R.attr.colorM3Surface),
 				UiUtils.getThemeColor(context, R.attr.colorM3Primary), 0.05f)), !UiUtils.isDarkTheme());
