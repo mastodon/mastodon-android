@@ -661,7 +661,7 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 			new NonMutualPreReplySheet(getActivity(), notAgain->{
 				GlobalUserPreferences.optOutOfPreReplySheet(GlobalUserPreferences.PreReplySheetType.NON_MUTUAL, notAgain ? null : status.account, accountID);
 				proceed.run();
-			}, status.account).show();
+			}, status.account, accountID).show();
 		}else if(!GlobalUserPreferences.isOptedOutOfPreReplySheet(GlobalUserPreferences.PreReplySheetType.OLD_POST, null, null) &&
 				status.createdAt.isBefore(Instant.now().minus(90, ChronoUnit.DAYS))){
 			new OldPostPreReplySheet(getActivity(), notAgain->{

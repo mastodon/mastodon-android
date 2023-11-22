@@ -12,6 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import org.joinmastodon.android.R;
+import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.ui.text.HtmlParser;
 import org.joinmastodon.android.ui.utils.UiUtils;
@@ -25,7 +26,7 @@ public class NonMutualPreReplySheet extends PreReplySheet{
 	private boolean fullBioShown=false;
 
 	@SuppressLint("DefaultLocale")
-	public NonMutualPreReplySheet(@NonNull Context context, ResultListener resultListener, Account account){
+	public NonMutualPreReplySheet(@NonNull Context context, ResultListener resultListener, Account account, String accountID){
 		super(context, resultListener);
 		icon.setImageResource(R.drawable.ic_waving_hand_24px);
 		title.setText(R.string.non_mutual_sheet_title);
@@ -55,11 +56,16 @@ public class NonMutualPreReplySheet extends PreReplySheet{
 		name.setEllipsize(TextUtils.TruncateAt.END);
 		name.setTextAppearance(R.style.m3_title_medium);
 		name.setTextColor(UiUtils.getThemeColor(context, R.attr.colorM3OnSurface));
-		name.setText(account.displayName);
+		if(AccountSessionManager.get(accountID).getLocalPreferences().customEmojiInNames){
+			name.setText(HtmlParser.parseCustomEmoji(account.displayName, account.emojis));
+			UiUtils.loadCustomEmojiInTextView(name);
+		}else{
+			name.setText(account.displayName);
+		}
 		name.setGravity(Gravity.CENTER_VERTICAL | Gravity.START);
 		nameAndFields.addView(name, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, V.dp(24)));
 		if(!TextUtils.isEmpty(account.note)){
-			String strippedBio=HtmlParser.stripAndRemoveInvisibleSpans(account.note);
+			CharSequence strippedBio=HtmlParser.parseCustomEmoji(HtmlParser.stripAndRemoveInvisibleSpans(account.note), account.emojis);
 			TextView bioShort=new TextView(context);
 			bioShort.setTextAppearance(R.style.m3_body_medium);
 			bioShort.setTextColor(UiUtils.getThemeColor(context, R.attr.colorM3Secondary));
@@ -85,6 +91,8 @@ public class NonMutualPreReplySheet extends PreReplySheet{
 					bioShort.setVisibility(View.VISIBLE);
 				}
 			});
+			UiUtils.loadCustomEmojiInTextView(bioShort);
+			UiUtils.loadCustomEmojiInTextView(bioFull);
 		}else{
 			TextView username=new TextView(context);
 			username.setTextAppearance(R.style.m3_body_medium);
