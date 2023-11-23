@@ -276,6 +276,7 @@
 	<!-- %s is the server domain -->
 	<string name="local_timeline_info_banner">Toto jsou všechny příspěvky od všech uživatelů na vašem serveru (%s).</string>
 	<string name="recommended_accounts_info_banner">Podle toho, koho sledujete, by se vám mohly líbit tyto účty.</string>
+	<string name="see_new_posts">Nové příspěvky</string>
 	<string name="load_missing_posts">Načíst chybějící příspěvky</string>
 	<string name="follow_back">Sledovat nazpět</string>
 	<string name="button_follow_pending">Čekající</string>
@@ -410,6 +411,7 @@
 	<string name="welcome_to_mastodon">Vítejte na Mastodonu</string>
 	<string name="welcome_paragraph1">Mastodon je decentralizovaná sociální síť, což znamená, že ji neovládá žádná jednotlivá společnost. Skládá se z mnoha nezávisle spravovaných serverů, všechny jsou propojeny dohromady.</string>
 	<string name="what_are_servers">Co jsou to servery?</string>
+	<string name="welcome_paragraph2">Každý účet Mastodon je hostován na serveru — každý s vlastními hodnotami, pravidly a správci. Bez ohledu na to, který si vyberete, můžete sledovat a komunikovat s lidmi na jakémkoliv serveru.</string>
 	<string name="opening_link">Odkaz se otevírá…</string>
 	<string name="link_not_supported">Tento odkaz není v aplikaci podporovaný</string>
 	<string name="log_out_all_accounts">Odhlásit se ze všech účtů</string>
@@ -625,9 +627,97 @@
 	<string name="time_hours_ago_short">Před %dh</string>
 	<string name="time_days_ago_short">Před %dd</string>
 	<!-- %s is the name of the post language -->
+	<string name="translate_post">Přeložit z %s</string>
 	<!-- %1$s is the language, %2$s is the name of the translation service -->
+	<string name="post_translated">Přelozeno z %1$s za použití %2$s</string>
+	<string name="translation_show_original">Zobrazit originál</string>
+	<string name="translation_failed">Přeložení selhalo. Možná administrátor nepovolil překlady na serveru nebo server používá starší verzi Mastodonu, kde překlady ještě nejsou podporovány.</string>
+	<string name="settings_privacy">Soukromí a dosah</string>
+	<string name="settings_discoverable">Zobrazovat profil a příspěvky ve vyhledávacích algoritmech</string>
+	<string name="settings_indexable">Zahrnout veřejné příspěvky do výsledků hledání</string>
+	<plurals name="x_participants">
+		<item quantity="one">%,d účastník</item>
+		<item quantity="few">%,d účastníci</item>
+		<item quantity="many">%,d účastníků</item>
+		<item quantity="other">%,d účastníků</item>
+	</plurals>
+	<plurals name="x_posts_today">
+		<item quantity="one">dnes %,d příspěvek</item>
+		<item quantity="few">dnes %,d příspěvky</item>
+		<item quantity="many">dnes %,d příspěvků</item>
+		<item quantity="other">dnes %,d příspěvků</item>
+	</plurals>
+	<string name="error_playing_video">Chyba při přehrávání videa</string>
+	<string name="timeline_following">Domů</string>
+	<string name="lists">Seznamy</string>
+	<string name="followed_hashtags">Sledované hashtagy</string>
+	<string name="manage_lists">Spravovat seznamy</string>
+	<string name="manage_hashtags">Spravovat hashtagy</string>
 	<!-- Screen reader description for the menu on the home timeline screen -->
+	<string name="dropdown_menu">Rozbalovací nabídka</string>
+	<string name="edit_list">Upravit seznam</string>
+	<string name="list_members">Členové seznamu</string>
+	<string name="delete_list">Smazat seznam</string>
 	<!-- %s is the name of the list -->
+	<string name="delete_list_confirm">Smazat „%s“?</string>
+	<string name="list_exclusive">Skrýt členy mezi Sledovanými</string>
+	<string name="list_exclusive_subtitle">Pokud je někdo na tomto seznamu, skryjte je v časové ose Sledovaných, abyste jejich příspěvky neviděli dvakrát.</string>
+	<string name="list_name">Název seznamu</string>
+	<string name="list_show_replies_to">Zobrazit odpovědi</string>
+	<string name="list_replies_no_one">Nikomu</string>
+	<string name="list_replies_members">Členům seznamu</string>
+	<string name="list_replies_anyone">Všem, které sleduji</string>
+	<string name="confirm_remove_list_members">Odstranit členy?</string>
+	<string name="remove">Odstranit</string>
+	<string name="add_list_member">Přidat člena</string>
+	<string name="search_among_people_you_follow">Hledejte mezi lidmi, které sledujete</string>
+	<string name="add_user_to_list">Přidat do seznamu…</string>
+	<string name="add_user_to_list_title">Přidat do seznamu</string>
 	<!-- %s is a username -->
+	<string name="manage_user_lists">Spravovat seznamy, v kterých je %s</string>
+	<string name="remove_from_list">Odebrat ze seznamu</string>
+	<string name="confirm_remove_list_member">Odebrat člena?</string>
+	<string name="no_followed_hashtags_title">Držte krok se svými zájmy sledováním hashtagů</string>
+	<string name="no_followed_hashtags_subtitle">Sledované hashtagy se zobrazí zde</string>
+	<string name="no_lists_title">Uspořádat domovský feed se Seznamy</string>
+	<string name="no_lists_subtitle">Vaše seznamy se zobrazí zde</string>
+	<string name="manage_accounts">Přidat nebo přepnout účty</string>
+	<plurals name="x_posts_recently">
+		<item quantity="one">V poslední době %,d příspěvek</item>
+		<item quantity="few">V poslední době %,d příspěvky</item>
+		<item quantity="many">V poslední době %,d příspěvků</item>
+		<item quantity="other">V poslední době %,d příspěvků</item>
+	</plurals>
+	<string name="create_list">Vytvořit seznam</string>
+	<string name="step_x_of_y">Krok %1$d z %2$d</string>
+	<string name="create">Vytvořit</string>
+	<string name="manage_list_members">Spravovat členy seznamu</string>
+	<string name="list_no_members">Zatím žádní členové</string>
+	<string name="list_find_users">Najít uživatele, které chcete přidat</string>
+	<string name="reply_to_user">Odpovědět uživateli %s</string>
+	<string name="posted_at">Publikováno v %s</string>
+	<string name="non_mutual_sheet_title">Ahoj, nové spojení!</string>
+	<string name="non_mutual_sheet_text">Vypadá to, že se chystáte odpovědět někomu, s kým ještě nemáte vzájemné propojení. Udělejte skvělý první dojem.</string>
+	<string name="got_it">Rozumím</string>
+	<string name="dont_remind_again">Znovu nepřípomínat</string>
 	<!-- %s is a time interval ("5 months") -->
+	<string name="old_post_sheet_title">Tento příspěvek je starý %s</string>
+	<string name="old_post_sheet_text">Můžete stále odpovědět, ale už to nemusí být relevantní.</string>
+	<plurals name="x_months">
+		<item quantity="one">%,d měsíc</item>
+		<item quantity="few">%,d měsíce</item>
+		<item quantity="many">%,d měsíců</item>
+		<item quantity="other">%,d měsíců</item>
+	</plurals>
+	<string name="more_than_two_years">více než 2 roky</string>
+	<string name="non_mutual_title1">Zachovejte si respekt a relevanci</string>
+	<string name="non_mutual_text1">Ujistěte se, že vaše odpověď je zdvořilá a k tématu.</string>
+	<string name="non_mutual_title2">Buďte laskaví</string>
+	<string name="non_mutual_text2">Pozitivní tón se vždy cení.</string>
+	<string name="non_mutual_title3">Buďte otevření</string>
+	<string name="non_mutual_text3">Styl konverzace každého z nás je jedinečný. Zkuste se tomu přizpůsobit.</string>
+	<string name="make_profile_discoverable">Udělejte svůj profil vyhledatelným</string>
+	<string name="discoverability">Objevitelnost</string>
+	<string name="discoverability_help">Když zapnete objevitelnost na Mastodonu, vaše příspěvky se mohou objevit ve výsledcích vyhledávání a v trendech.\n\nVáš profil může být nabídnut lidem s podobnými zájmy jako vy.\n\nVypnutí neskryje váš profil, pokud vás někdo hledá podle jména.</string>
+	<string name="app_version_copied">Číslo verze zkopírováno do schránky</string>
 </resources>
