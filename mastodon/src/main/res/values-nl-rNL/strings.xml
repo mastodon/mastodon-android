@@ -38,13 +38,13 @@
 	<string name="button_following">Volgend</string>
 	<string name="edit_profile">Profiel bewerken</string>
 	<string name="share_user">Profiel delen</string>
-	<string name="mute_user">%s negeren</string>
+	<string name="mute_user">Negeer %s</string>
 	<string name="unmute_user">%s niet langer negeren</string>
-	<string name="block_user">%s blokkeren</string>
-	<string name="unblock_user">%s deblokkeren</string>
+	<string name="block_user">Blokkeer %s</string>
+	<string name="unblock_user">Deblokkeer %s</string>
 	<string name="report_user">%s rapporteren</string>
-	<string name="block_domain">%s blokkeren</string>
-	<string name="unblock_domain">%s deblokkeren</string>
+	<string name="block_domain">Blokkeer %s</string>
+	<string name="unblock_domain">Deblokkeer %s</string>
 	<plurals name="x_posts">
 		<item quantity="one">%,d bericht</item>
 		<item quantity="other">%,d berichten</item>
@@ -91,18 +91,18 @@
 	</plurals>
 	<string name="poll_closed">Gesloten</string>
 	<string name="confirm_mute_title">Account negeren</string>
-	<string name="confirm_mute">Het negeren van %s bevestigen</string>
+	<string name="confirm_mute">Negeren van %s bevestigen</string>
 	<string name="do_mute">Negeren</string>
 	<string name="confirm_unmute_title">Account niet langer negeren</string>
 	<string name="confirm_unmute">Het niet langer negeren van %s bevestigen</string>
 	<string name="do_unmute">Niet langer negeren</string>
 	<string name="confirm_block_title">Account blokkeren</string>
 	<string name="confirm_block_domain_title">Domein blokkeren</string>
-	<string name="confirm_block">Het blokkeren van %s bevestigen</string>
+	<string name="confirm_block">Blokkeren van %s bevestigen</string>
 	<string name="do_block">Blokkeren</string>
 	<string name="confirm_unblock_title">Account deblokkeren</string>
 	<string name="confirm_unblock_domain_title">Domein deblokkeren</string>
-	<string name="confirm_unblock">Het deblokkeren van %s bevestigen</string>
+	<string name="confirm_unblock">Deblokkeren van %s bevestigen</string>
 	<string name="do_unblock">Deblokkeren</string>
 	<string name="button_blocked">Geblokkeerd</string>
 	<string name="action_vote">Stemmen</string>
@@ -574,6 +574,7 @@
 	<string name="post_translated">Vertaald vanuit het %1$s door %2$s</string>
 	<string name="translation_show_original">Origineel bekijken</string>
 	<string name="translation_failed">Vertaling mislukt. Mogelijk heeft de serverbeheerder vertalingen niet ingeschakeld op deze server, of draait deze server een oude versie van Mastodon waar vertalingen nog niet worden ondersteund.</string>
+	<string name="settings_privacy">Privacy en bereik</string>
 	<plurals name="x_participants">
 		<item quantity="one">%d deelnemer</item>
 		<item quantity="other">%d deelnemers</item>
@@ -582,8 +583,19 @@
 		<item quantity="one">%,d bericht vandaag</item>
 		<item quantity="other">%,d berichten vandaag</item>
 	</plurals>
+	<string name="timeline_following">Start</string>
+	<string name="lists">Lijsten</string>
+	<string name="followed_hashtags">Gevolgde hashtags</string>
+	<string name="manage_lists">Lijsten beheren</string>
+	<string name="manage_hashtags">Hashtags beheren</string>
 	<!-- Screen reader description for the menu on the home timeline screen -->
+	<string name="dropdown_menu">Dropdown-menu</string>
+	<string name="edit_list">Lijst bewerken</string>
+	<string name="list_members">Lijstleden</string>
+	<string name="delete_list">Lijst verwijderen</string>
 	<!-- %s is the name of the list -->
+	<string name="delete_list_confirm">“%s” verwijderen?</string>
+	<string name="list_name">Naam nieuwe lijst</string>
 	<!-- %s is a username -->
 	<!-- %s is a time interval ("5 months") -->
 </resources>
