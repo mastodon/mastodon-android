@@ -583,6 +583,7 @@
 		<item quantity="one">%,d bericht vandaag</item>
 		<item quantity="other">%,d berichten vandaag</item>
 	</plurals>
+	<string name="error_playing_video">Fout tijdens afspelen video</string>
 	<string name="timeline_following">Start</string>
 	<string name="lists">Lijsten</string>
 	<string name="followed_hashtags">Gevolgde hashtags</string>
@@ -596,7 +597,29 @@
 	<!-- %s is the name of the list -->
 	<string name="delete_list_confirm">“%s” verwijderen?</string>
 	<string name="list_exclusive">Verberg lijstleden op je starttijdlijn</string>
+	<string name="list_exclusive_subtitle">Wanneer iemand lid is van deze lijst, verberg deze gebruiker dan op je starttijdlijn, om zo te voorkomen dat je diens berichten twee keer ziet.</string>
 	<string name="list_name">Naam nieuwe lijst</string>
+	<string name="list_show_replies_to">Reacties tonen aan</string>
+	<string name="list_replies_no_one">Niemand</string>
+	<string name="list_replies_members">Lijstleden</string>
+	<string name="list_replies_anyone">Iedereen die ik volg</string>
+	<string name="confirm_remove_list_members">Leden verwijderen?</string>
+	<string name="remove">Verwijderen</string>
+	<string name="add_list_member">Lid toevoegen</string>
+	<string name="add_user_to_list">Aan lijst toevoegen…</string>
+	<string name="add_user_to_list_title">Aan lijst toevoegen</string>
 	<!-- %s is a username -->
+	<string name="remove_from_list">Uit lijst verwijderen</string>
+	<string name="confirm_remove_list_member">Lid verwijderen?</string>
+	<string name="no_followed_hashtags_title">Blijf op de hoogte van je interesses door hashtags te volgen</string>
+	<string name="create_list">Lijst aanmaken</string>
+	<string name="step_x_of_y">Stap %1$d van %2$d</string>
+	<string name="create">Aanmaken</string>
+	<string name="manage_list_members">Lijstleden beheren</string>
+	<string name="list_no_members">Nog geen leden</string>
+	<string name="list_find_users">Vind gebruikers om toe te voegen</string>
+	<string name="reply_to_user">Reageer op %s</string>
+	<string name="posted_at">Geplaatst op %s</string>
 	<!-- %s is a time interval ("5 months") -->
+	<string name="app_version_copied">Versienummer naar het klembord gekopieerd</string>
 </resources>
