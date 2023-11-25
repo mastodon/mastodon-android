@@ -178,6 +178,7 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 								if(refreshing)
 									list.scrollToPosition(0);
 								maxID=result.isEmpty() ? null : result.get(result.size()-1).id;
+								AccountSessionManager.get(accountID).filterStatuses(result, FilterContext.PUBLIC);
 								onDataLoaded(result, !result.isEmpty());
 							}
 						})
@@ -191,6 +192,7 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 								if(refreshing)
 									list.scrollToPosition(0);
 								maxID=result.isEmpty() ? null : result.get(result.size()-1).id;
+								AccountSessionManager.get(accountID).filterStatuses(result, FilterContext.HOME);
 								onDataLoaded(result, !result.isEmpty());
 							}
 						})
