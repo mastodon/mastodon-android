@@ -102,11 +102,11 @@ public class MainActivity extends FragmentStackActivity{
 			session=AccountSessionManager.get(accountID);
 		if(session==null || !session.activated)
 			return;
-		openSearchQuery(uri.toString(), session.getID(), R.string.opening_link, false);
+		openSearchQuery(uri.toString(), session.getID(), R.string.opening_link, false, null);
 	}
 
-	public void openSearchQuery(String q, String accountID, int progressText, boolean fromSearch){
-		new GetSearchResults(q, null, true, null, 0, 0)
+	public void openSearchQuery(String q, String accountID, int progressText, boolean fromSearch, GetSearchResults.Type type){
+		new GetSearchResults(q, type, true, null, 0, 0)
 				.setCallback(new Callback<>(){
 					@Override
 					public void onSuccess(SearchResults result){
