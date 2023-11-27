@@ -617,6 +617,12 @@
 	<string name="confirm_remove_list_member">Lid verwijderen?</string>
 	<string name="no_followed_hashtags_title">Blijf op de hoogte van je interesses door hashtags te volgen</string>
 	<string name="no_followed_hashtags_subtitle">Accounts die je volgt verschijnen hier</string>
+	<string name="no_lists_title">Organiseer jouw tijdlijn met lijsten</string>
+	<string name="manage_accounts">Accounts toevoegen of omschakelen</string>
+	<plurals name="x_posts_recently">
+		<item quantity="one">Onlangs %,d bericht</item>
+		<item quantity="other">Recentelijk %,d berichten</item>
+	</plurals>
 	<string name="create_list">Lijst aanmaken</string>
 	<string name="step_x_of_y">Stap %1$d van %2$d</string>
 	<string name="create">Aanmaken</string>
@@ -625,7 +631,10 @@
 	<string name="list_find_users">Vind gebruikers om toe te voegen</string>
 	<string name="reply_to_user">Reageer op %s</string>
 	<string name="posted_at">Geplaatst op %s</string>
+	<string name="dont_remind_again">Herrinner me niet opnieuw</string>
 	<!-- %s is a time interval ("5 months") -->
+	<string name="old_post_sheet_title">Dit bericht is %s oud</string>
+	<string name="more_than_two_years">meer dan 2 jaar</string>
 	<string name="make_profile_discoverable">Maak mijn profiel vindbaar</string>
 	<string name="discoverability">Vindbaarheid</string>
 	<string name="discoverability_help">Wanneer je akkoord gaat met het vindbaar zijn op Mastodon, verschijnen je berichten in zoekresultaten en kunnen ze trending worden.\n\nJe profiel kan aan andere mensen worden aanbevolen wanneer ze vergelijkbare interesses hebben.\n\nWanneer je niet akkoord gaat verbergt dat niet je profiel wanneer iemand direct op je naam zoekt.</string>
