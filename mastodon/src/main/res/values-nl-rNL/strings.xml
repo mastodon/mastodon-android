@@ -575,6 +575,8 @@
 	<string name="translation_show_original">Origineel bekijken</string>
 	<string name="translation_failed">Vertaling mislukt. Mogelijk heeft de serverbeheerder vertalingen niet ingeschakeld op deze server, of draait deze server een oude versie van Mastodon waar vertalingen nog niet worden ondersteund.</string>
 	<string name="settings_privacy">Privacy en bereik</string>
+	<string name="settings_discoverable">Jouw account en berichten laten uitlichten door Mastodon</string>
+	<string name="settings_indexable">Openbare berichten in zoekresultaten opnemen</string>
 	<plurals name="x_participants">
 		<item quantity="one">%d deelnemer</item>
 		<item quantity="other">%d deelnemers</item>
@@ -614,6 +616,7 @@
 	<string name="remove_from_list">Uit lijst verwijderen</string>
 	<string name="confirm_remove_list_member">Lid verwijderen?</string>
 	<string name="no_followed_hashtags_title">Blijf op de hoogte van je interesses door hashtags te volgen</string>
+	<string name="no_followed_hashtags_subtitle">Accounts die je volgt verschijnen hier</string>
 	<string name="create_list">Lijst aanmaken</string>
 	<string name="step_x_of_y">Stap %1$d van %2$d</string>
 	<string name="create">Aanmaken</string>
