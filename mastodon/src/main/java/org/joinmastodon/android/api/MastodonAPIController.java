@@ -45,7 +45,11 @@ public class MastodonAPIController{
 			.registerTypeAdapter(LocalDate.class, new IsoLocalDateTypeAdapter())
 			.create();
 	private static WorkerThread thread=new WorkerThread("MastodonAPIController");
-	private static OkHttpClient httpClient=new OkHttpClient.Builder().build();
+	private static OkHttpClient httpClient=new OkHttpClient.Builder()
+			.connectTimeout(30, TimeUnit.SECONDS)
+			.writeTimeout(30, TimeUnit.SECONDS)
+			.readTimeout(30, TimeUnit.SECONDS)
+			.build();
 
 	private AccountSession session;
 
