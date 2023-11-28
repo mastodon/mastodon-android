@@ -38,6 +38,7 @@ public abstract class BaseAccountListFragment extends MastodonRecyclerFragment<A
 	protected HashMap<String, Relationship> relationships=new HashMap<>();
 	protected String accountID;
 	protected ArrayList<APIRequest<?>> relationshipsRequests=new ArrayList<>();
+	protected int itemLayoutRes=R.layout.item_account_list;
 
 	public BaseAccountListFragment(){
 		super(40);
@@ -151,7 +152,7 @@ public abstract class BaseAccountListFragment extends MastodonRecyclerFragment<A
 		@NonNull
 		@Override
 		public AccountViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType){
-			AccountViewHolder holder=new AccountViewHolder(BaseAccountListFragment.this, parent, relationships);
+			AccountViewHolder holder=new AccountViewHolder(BaseAccountListFragment.this, parent, relationships, itemLayoutRes);
 			onConfigureViewHolder(holder);
 			return holder;
 		}
