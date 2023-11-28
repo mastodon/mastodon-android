@@ -631,9 +631,15 @@
 	<string name="list_find_users">Vind gebruikers om toe te voegen</string>
 	<string name="reply_to_user">Reageer op %s</string>
 	<string name="posted_at">Geplaatst op %s</string>
+	<string name="got_it">Begrepen</string>
 	<string name="dont_remind_again">Herrinner me niet opnieuw</string>
 	<!-- %s is a time interval ("5 months") -->
 	<string name="old_post_sheet_title">Dit bericht is %s oud</string>
+	<string name="old_post_sheet_text">Je kunt nog steeds reageren, maar het is misschien niet langer relevant.</string>
+	<plurals name="x_months">
+		<item quantity="one">%,d maand</item>
+		<item quantity="other">%,d maanden</item>
+	</plurals>
 	<string name="more_than_two_years">meer dan 2 jaar</string>
 	<string name="make_profile_discoverable">Maak mijn profiel vindbaar</string>
 	<string name="discoverability">Vindbaarheid</string>
