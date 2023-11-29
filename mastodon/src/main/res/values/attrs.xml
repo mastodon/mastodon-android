@@ -54,4 +54,9 @@
 		<attr name="android:verticalGap" format="dimension"/>
 		<attr name="android:horizontalGap" format="dimension"/>
 	</declare-styleable>
+
+	<declare-styleable name="FixedAspectRatioImageView">
+		<attr name="aspectRatio" format="float"/>
+		<attr name="useHeight" format="boolean"/>
+	</declare-styleable>
 </resources>

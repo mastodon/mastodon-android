@@ -1,6 +1,8 @@
 package org.joinmastodon.android.ui.displayitems;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.res.ColorStateList;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.text.TextUtils;
@@ -13,6 +15,7 @@ import org.joinmastodon.android.R;
 import org.joinmastodon.android.fragments.BaseStatusListFragment;
 import org.joinmastodon.android.model.Card;
 import org.joinmastodon.android.model.Status;
+import org.joinmastodon.android.ui.OutlineProviders;
 import org.joinmastodon.android.ui.drawables.BlurhashCrossfadeDrawable;
 import org.joinmastodon.android.ui.utils.UiUtils;
 
@@ -35,7 +38,7 @@ public class LinkCardStatusDisplayItem extends StatusDisplayItem{
 
 	@Override
 	public Type getType(){
-		return Type.CARD;
+		return status.card.type==Card.Type.VIDEO || (status.card.image!=null && status.card.width>status.card.height) ? Type.CARD_LARGE : Type.CARD_COMPACT;
 	}
 
 	@Override
@@ -49,36 +52,65 @@ public class LinkCardStatusDisplayItem extends StatusDisplayItem{
 	}
 
 	public static class Holder extends StatusDisplayItem.Holder<LinkCardStatusDisplayItem> implements ImageLoaderViewHolder{
-		private final TextView title, description, domain;
+		private final TextView title, description, domain, timestamp;
 		private final ImageView photo;
 		private BlurhashCrossfadeDrawable crossfadeDrawable=new BlurhashCrossfadeDrawable();
 		private boolean didClear;
+		private final View inner;
+		private final boolean isLarge;
 
-		public Holder(Context context, ViewGroup parent){
-			super(context, R.layout.display_item_link_card, parent);
+		public Holder(Context context, ViewGroup parent, boolean isLarge){
+			super(context, isLarge ? R.layout.display_item_link_card : R.layout.display_item_link_card_compact, parent);
+			this.isLarge=isLarge;
 			title=findViewById(R.id.title);
 			description=findViewById(R.id.description);
 			domain=findViewById(R.id.domain);
+			timestamp=findViewById(R.id.timestamp);
 			photo=findViewById(R.id.photo);
-			findViewById(R.id.inner).setOnClickListener(this::onClick);
+			inner=findViewById(R.id.inner);
+			inner.setOnClickListener(this::onClick);
+			inner.setOutlineProvider(OutlineProviders.roundedRect(12));
+			inner.setClipToOutline(true);
 		}
 
+		@SuppressLint("SetTextI18n")
 		@Override
 		public void onBind(LinkCardStatusDisplayItem item){
 			Card card=item.status.card;
 			title.setText(card.title);
-			description.setText(card.description);
-			description.setVisibility(TextUtils.isEmpty(card.description) ? View.GONE : View.VISIBLE);
-			domain.setText(Uri.parse(card.url).getHost());
+			if(description!=null){
+				description.setText(card.description);
+				description.setVisibility(TextUtils.isEmpty(card.description) ? View.GONE : View.VISIBLE);
+			}
+			String cardDomain=Uri.parse(card.url).getHost();
+			if(isLarge && !TextUtils.isEmpty(card.authorName)){
+				domain.setText(itemView.getContext().getString(R.string.article_by_author, card.authorName)+" · "+cardDomain);
+			}else{
+				domain.setText(cardDomain);
+			}
+			if(card.publishedAt!=null){
+				timestamp.setVisibility(View.VISIBLE);
+				timestamp.setText(" · "+UiUtils.formatRelativeTimestamp(itemView.getContext(), card.publishedAt));
+			}else{
+				timestamp.setVisibility(View.GONE);
+			}
 
 			photo.setImageDrawable(null);
 			if(item.imgRequest!=null){
+				photo.setScaleType(ImageView.ScaleType.CENTER_CROP);
+				photo.setBackground(null);
+				photo.setImageTintList(null);
 				crossfadeDrawable.setSize(card.width, card.height);
 				crossfadeDrawable.setBlurhashDrawable(card.blurhashPlaceholder);
 				crossfadeDrawable.setCrossfadeAlpha(0f);
 				photo.setImageDrawable(null);
 				photo.setImageDrawable(crossfadeDrawable);
 				didClear=false;
+			}else{
+				photo.setBackgroundColor(UiUtils.getThemeColor(itemView.getContext(), R.attr.colorM3SurfaceVariant));
+				photo.setImageTintList(ColorStateList.valueOf(UiUtils.getThemeColor(itemView.getContext(), R.attr.colorM3Outline)));
+				photo.setScaleType(ImageView.ScaleType.CENTER);
+				photo.setImageResource(R.drawable.ic_feed_48px);
 			}
 		}
 

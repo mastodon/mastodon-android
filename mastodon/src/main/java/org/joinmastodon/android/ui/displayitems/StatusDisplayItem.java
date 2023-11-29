@@ -68,7 +68,8 @@ public abstract class StatusDisplayItem{
 			case AUDIO -> new AudioStatusDisplayItem.Holder(activity, parent);
 			case POLL_OPTION -> new PollOptionStatusDisplayItem.Holder(activity, parent);
 			case POLL_FOOTER -> new PollFooterStatusDisplayItem.Holder(activity, parent);
-			case CARD -> new LinkCardStatusDisplayItem.Holder(activity, parent);
+			case CARD_LARGE -> new LinkCardStatusDisplayItem.Holder(activity, parent, true);
+			case CARD_COMPACT -> new LinkCardStatusDisplayItem.Holder(activity, parent, false);
 			case FOOTER -> new FooterStatusDisplayItem.Holder(activity, parent);
 			case ACCOUNT -> new AccountStatusDisplayItem.Holder(new AccountViewHolder(parentFragment, parent, null));
 			case HASHTAG -> new HashtagStatusDisplayItem.Holder(activity, parent);
@@ -208,7 +209,8 @@ public abstract class StatusDisplayItem{
 		AUDIO,
 		POLL_OPTION,
 		POLL_FOOTER,
-		CARD,
+		CARD_LARGE,
+		CARD_COMPACT,
 		FOOTER,
 		ACCOUNT,
 		HASHTAG,

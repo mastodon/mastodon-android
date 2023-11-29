@@ -7,27 +7,30 @@
 	android:paddingHorizontal="16dp"
 	android:paddingBottom="8dp">
 
-	<LinearLayout
+	<RelativeLayout
 		android:id="@+id/inner"
 		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
+		android:layout_height="128dp"
 		android:layout_gravity="center_horizontal"
 		android:orientation="vertical"
 		android:foreground="@drawable/fg_link_card"
 		android:padding="1dp"
 		android:maxWidth="400dp">
-		<org.joinmastodon.android.ui.views.FixedAspectRatioImageView
+		<ImageView
 			android:id="@+id/photo"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
+			android:layout_width="128dp"
+			android:layout_height="128dp"
+			android:layout_alignParentEnd="true"
 			android:scaleType="centerCrop"
 			android:importantForAccessibility="no"
-			app:aspectRatio="1.7777777778"
 			tools:src="#0f0"/>
 		<TextView
 			android:id="@+id/title"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
+			android:layout_alignParentTop="true"
+			android:layout_alignParentStart="true"
+			android:layout_toStartOf="@id/photo"
 			android:layout_marginHorizontal="16dp"
 			android:layout_marginTop="16dp"
 			android:textAppearance="@style/m3_title_medium"
@@ -35,19 +38,12 @@
 			android:ellipsize="end"
 			android:textColor="?colorM3OnSurface"
 			tools:text="Link title"/>
-		<TextView
-			android:id="@+id/description"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:layout_marginHorizontal="16dp"
-			android:maxLines="2"
-			android:ellipsize="end"
-			android:textAppearance="@style/m3_body_medium"
-			android:textColor="?colorM3OnSurface"
-			tools:text="Link description"/>
 		<org.joinmastodon.android.ui.views.HeaderSubtitleLinearLayout
 			android:layout_width="match_parent"
 			android:layout_height="20dp"
+			android:layout_alignParentStart="true"
+			android:layout_alignParentBottom="true"
+			android:layout_toStartOf="@id/photo"
 			android:layout_marginHorizontal="16dp"
 			android:layout_marginTop="8dp"
 			android:layout_marginBottom="16dp">
@@ -72,6 +68,6 @@
 				android:gravity="center_vertical"
 				tools:text="example.com"/>
 		</org.joinmastodon.android.ui.views.HeaderSubtitleLinearLayout>
-	</LinearLayout>
+	</RelativeLayout>
 
 </FrameLayout>
