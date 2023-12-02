@@ -363,7 +363,7 @@
 	<string name="your_favorites">Ваше избранное</string>
 	<string name="login_title">С возвращением</string>
 	<string name="login_subtitle">Войдите на сервер, на котором вы создали свою учётную запись.</string>
-	<string name="server_url">URL-адрес сервера</string>
+	<string name="server_url">Адрес сервера</string>
 	<string name="signup_random_server_explain">Мы выберем сервер на основе вашего языка, если вы продолжите, не сделав выбор.</string>
 	<string name="server_filter_any_language">Любой язык</string>
 	<string name="server_filter_instant_signup">Мгновенная регистрация</string>
@@ -392,7 +392,7 @@
 	<string name="sending_follows">Подписка на пользователей…</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
 	<string name="signup_email_domain_blocked">%1$s не позволяет зарегистрироваться от %2$s. Попробуйте другой или &lt;a&gt;выберите другой сервер&lt;/a&gt;.</string>
-	<string name="spoiler_show">Все равно показать</string>
+	<string name="spoiler_show">Всё равно показать</string>
 	<string name="spoiler_hide">Спрятать повторно</string>
 	<string name="poll_multiple_choice">Выберите один или более</string>
 	<string name="save_changes">Сохранить изменения</string>
@@ -440,7 +440,7 @@
 	<string name="what_is_alt_text">Что такое альтернативный текст?</string>
 	<string name="alt_text_help">Альтернативный текст содержит описания изображений для людей с ограничениями и тех, кому нужен дополнительный контекст.\n\nВы можете улучшить доступность и понимание для всех, написав четкий, краткий и объективный альтернативный текст.\n\n<ul><li>Фиксируйте важные элементы</li>\n<li>Описывайте изображение</li>\n<li>Используйте правильную структуру предложений</li>\n<li>Избегайте избыточной информации</li>\n<li>Сосредоточьтесь на основных и ключевых визуальных элементах (таких как диаграммы или карты)</li></ul></string>
 	<string name="edit_post">Изменить пост</string>
-	<string name="no_verified_link">Не подтвержденная ссылка</string>
+	<string name="no_verified_link">Нет подтверждённой ссылки</string>
 	<string name="compose_autocomplete_emoji_empty">Просмотр эмодзи</string>
 	<string name="compose_autocomplete_users_empty">Найдите тех, кого ищете</string>
 	<string name="no_search_results">Ничего не найдено по этому запросу</string>
@@ -463,7 +463,7 @@
 	<string name="report_sent_already_blocked">Вы уже заблокировали этого пользователя, так что вам больше ничего не нужно делать, пока мы просматриваем ваше обращение.</string>
 	<string name="report_personal_already_blocked">Вы уже заблокировали этого пользователя, так что вам больше ничего не нужно делать.\n\nСпасибо, что помогаете сделать Mastodon безопасным для всех!</string>
 	<string name="blocked_user">Заблокировать %s</string>
-	<string name="mark_all_notifications_read">Отметить всё как прочитанное</string>
+	<string name="mark_all_notifications_read">Отметить все как прочитанные</string>
 	<string name="settings_display">Отображение</string>
 	<string name="settings_filters">Фильтры</string>
 	<string name="settings_server_explanation">Обзор, правила, модераторы</string>
@@ -578,7 +578,7 @@
 	<string name="selection_4_or_more">%1$s, %2$s и ещё %3$d</string>
 	<string name="filter_context_home_lists">Главная и списки</string>
 	<string name="filter_context_notifications">Уведомления</string>
-	<string name="filter_context_public_timelines">Публичная лента</string>
+	<string name="filter_context_public_timelines">Публичные ленты</string>
 	<string name="filter_context_threads_replies">Темы и ответы</string>
 	<string name="filter_context_profiles">Профили</string>
 	<string name="settings_filter_title">Название</string>
@@ -617,7 +617,7 @@
 	<string name="clear_all">Очистить все</string>
 	<string name="search_open_url">Открывать ссылки в Mastodon</string>
 	<string name="posts_matching_hashtag">Посты с “%s”</string>
-	<string name="search_go_to_account">Перейти в %s</string>
+	<string name="search_go_to_account">Перейти к %s</string>
 	<string name="posts_matching_string">Посты с “%s”</string>
 	<string name="accounts_matching_string">Аккаунты с “%s”</string>
 	<!-- Shown in the post header. Please keep it short -->
