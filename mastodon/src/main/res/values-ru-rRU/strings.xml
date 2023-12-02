@@ -514,25 +514,25 @@
 		<item quantity="one">через %d секунду</item>
 		<item quantity="few">через %d секунд(ы)</item>
 		<item quantity="many">через %d секунд(ы)</item>
-		<item quantity="other">через %d секунд(ы)</item>
+		<item quantity="other">через %d секунд</item>
 	</plurals>
 	<plurals name="in_x_minutes">
 		<item quantity="one">через %d минуту</item>
-		<item quantity="few">через %d минут(ы)</item>
-		<item quantity="many">через %d минут(ы)</item>
-		<item quantity="other">через %d минут(ы)</item>
+		<item quantity="few">через %d минуты</item>
+		<item quantity="many">через %d минут</item>
+		<item quantity="other">через %d минут</item>
 	</plurals>
 	<plurals name="in_x_hours">
 		<item quantity="one">через %d час</item>
-		<item quantity="few">через %d часа(ов)</item>
+		<item quantity="few">через %d часа</item>
 		<item quantity="many">через %d часов</item>
 		<item quantity="other">через %d часов</item>
 	</plurals>
 	<plurals name="x_hours_ago">
 		<item quantity="one">%d час назад</item>
-		<item quantity="few">%d часов(-а) назад</item>
-		<item quantity="many">%d часов(-а) назад</item>
-		<item quantity="other">%d часов(-а) назад</item>
+		<item quantity="few">%d часа назад</item>
+		<item quantity="many">%d часов назад</item>
+		<item quantity="other">%d часов назад</item>
 	</plurals>
 	<string name="alt_text_reminder_title">В материале отсутствует альтернативный текст</string>
 	<plurals name="alt_text_reminder_x_images">
@@ -564,13 +564,13 @@
 	<string name="settings_filter_show_cw">Показывать предупреждения о содержании</string>
 	<string name="settings_filter_show_cw_explanation">Показывать посты, которые соответствуют этому фильтру, но с предупреждением о содержании</string>
 	<string name="settings_delete_filter">Удалить фильтр</string>
-	<string name="filter_duration_forever">Всегда</string>
+	<string name="filter_duration_forever">Навсегда</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<string name="settings_filter_ends">Закончится %s</string>
 	<plurals name="settings_x_muted_words">
 		<item quantity="one">%d игнорируемое слово или фраза</item>
 		<item quantity="few">%d игнорируемых слов(а) или фраз</item>
-		<item quantity="many">%d игнорируемых слов(а) или фраз</item>
+		<item quantity="many">%d игнорируемых слов или фраз</item>
 		<item quantity="other">%d игнорируемых слов(а) или фраз</item>
 	</plurals>
 	<string name="selection_2_options">%1$s и %2$s</string>
