@@ -53,6 +53,8 @@
 		<item name="colorM3ErrorContainer">#F9DEDC</item>
 		<item name="colorM3OnErrorContainer">#410E0B</item>
 		<item name="colorM3PrimaryInverse">@color/m3_sys_dark_primary</item>
+		<item name="colorM3SurfaceInverse">@color/m3_sys_dark_surface</item>
+		<item name="colorM3OnSurfaceInverse">@color/m3_sys_dark_on_surface</item>
 		<item name="colorWhite">#FFF</item>
 		<item name="colorFavorite">#8b5000</item>
 		<item name="colorBoost">#ab332a</item>
@@ -120,6 +122,8 @@
 		<item name="colorM3ErrorContainer">#8C1D18</item>
 		<item name="colorM3OnErrorContainer">#F9DEDC</item>
 		<item name="colorM3PrimaryInverse">@color/m3_sys_light_primary</item>
+		<item name="colorM3SurfaceInverse">@color/m3_sys_light_surface</item>
+		<item name="colorM3OnSurfaceInverse">@color/m3_sys_light_on_surface</item>
 		<item name="colorWhite">#000</item>
 		<item name="colorFavorite">#ffb871</item>
 		<item name="colorBoost">#ffb4aa</item>
@@ -285,6 +289,14 @@
 		<item name="android:textColor">@color/button_text_m3_tonal_error</item>
 	</style>
 
+	<style name="Widget.Mastodon.M3.Button.Elevated">
+		<item name="android:background">@drawable/bg_button_m3_elevated</item>
+		<item name="android:textColor">@color/button_text_m3_text</item>
+		<item name="android:paddingLeft">24dp</item>
+		<item name="android:paddingRight">24dp</item>
+		<item name="android:elevation">1dp</item>
+	</style>
+
 	<style name="Widget.Mastodon.M3.Button.Outlined">
 		<item name="android:background">@drawable/bg_button_m3_outlined</item>
 		<item name="android:textColor">@color/button_text_m3_text</item>
@@ -363,6 +375,7 @@
 	<style name="m3_body_medium">
 		<item name="android:textSize">14dp</item>
 		<item name="android:lineSpacingExtra">4dp</item>
+		<item name="android:lineHeight">20dp</item>
 	</style>
 
 	<style name="m3_body_small">
@@ -374,6 +387,7 @@
 		<item name="android:fontFamily">sans-serif-medium</item>
 		<item name="android:textSize">16dp</item>
 		<item name="android:lineSpacingExtra">5dp</item>
+		<item name="android:lineHeight">24dp</item>
 	</style>
 
 	<style name="m3_title_small">

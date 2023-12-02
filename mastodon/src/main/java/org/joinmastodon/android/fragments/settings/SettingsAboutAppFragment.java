@@ -1,6 +1,9 @@
 package org.joinmastodon.android.fragments.settings;
 
 import android.app.Activity;
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.ViewGroup;
@@ -13,6 +16,7 @@ import org.joinmastodon.android.api.MastodonAPIController;
 import org.joinmastodon.android.api.session.AccountSession;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.model.viewmodel.ListItem;
+import org.joinmastodon.android.ui.Snackbar;
 import org.joinmastodon.android.ui.utils.UiUtils;
 
 import java.util.List;
@@ -57,6 +61,14 @@ public class SettingsAboutAppFragment extends BaseSettingsFragment<Void>{
 		versionInfo.setTextColor(UiUtils.getThemeColor(getActivity(), R.attr.colorM3Outline));
 		versionInfo.setGravity(Gravity.CENTER);
 		versionInfo.setText(getString(R.string.settings_app_version, BuildConfig.VERSION_NAME, BuildConfig.VERSION_CODE));
+		versionInfo.setOnClickListener(v->{
+			getActivity().getSystemService(ClipboardManager.class).setPrimaryClip(ClipData.newPlainText("", BuildConfig.VERSION_NAME+" ("+BuildConfig.VERSION_CODE+")"));
+			if(Build.VERSION.SDK_INT<=Build.VERSION_CODES.S_V2){
+				new Snackbar.Builder(getActivity())
+						.setText(R.string.app_version_copied)
+						.show();
+			}
+		});
 		adapter.addAdapter(new SingleViewRecyclerAdapter(versionInfo));
 
 		return adapter;

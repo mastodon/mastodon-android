@@ -151,19 +151,7 @@
 	<string name="password">รหัสผ่าน</string>
 	<string name="confirm_password">ยืนยันรหัสผ่าน</string>
 	<string name="password_note">รวมตัวพิมพ์ใหญ่, อักขระพิเศษ และตัวเลขเพื่อเพิ่มความแข็งแรงของรหัสผ่านของคุณ</string>
-	<string name="category_academia">สถาบันการศึกษา</string>
-	<string name="category_activism">กิจกรรมเพื่อการเปลี่ยนแปลง</string>
-	<string name="category_all">ทั้งหมด</string>
-	<string name="category_art">ศิลปะ</string>
-	<string name="category_food">อาหาร</string>
-	<string name="category_furry">สัตว์ขนยาว</string>
-	<string name="category_games">เกม</string>
 	<string name="category_general">ทั่วไป</string>
-	<string name="category_journalism">วารสารศาสตร์</string>
-	<string name="category_lgbt">LGBT</string>
-	<string name="category_music">ดนตรี</string>
-	<string name="category_regional">ภูมิภาค</string>
-	<string name="category_tech">เทคโนโลยี</string>
 	<string name="confirm_email_title">ตรวจสอบกล่องขาเข้าของคุณ</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">แตะลิงก์ที่เราส่งถึงคุณเพื่อยืนยัน %s เราจะรออยู่ตรงนี้</string>
@@ -249,7 +237,7 @@
 	<!-- %s is the server domain -->
 	<string name="local_timeline_info_banner">นี่คือโพสต์ทั้งหมดจากผู้ใช้ทั้งหมดในเซิร์ฟเวอร์ของคุณ (%s)</string>
 	<string name="recommended_accounts_info_banner">คุณอาจชอบบัญชีเหล่านี้โดยอิงตามผู้อื่นที่คุณติดตาม</string>
-	<string name="see_new_posts">ดูโพสต์ใหม่</string>
+	<string name="see_new_posts">โพสต์ใหม่</string>
 	<string name="load_missing_posts">โหลดโพสต์ที่ขาดหายไป</string>
 	<string name="follow_back">ติดตามกลับ</string>
 	<string name="button_follow_pending">รอดำเนินการ</string>
@@ -268,7 +256,6 @@
 	<plurals name="x_reblogs">
 		<item quantity="other">%,d การดัน</item>
 	</plurals>
-	<string name="timestamp_via_app">%1$s ผ่าน %2$s</string>
 	<string name="time_now">ตอนนี้</string>
 	<string name="edit_history">ประวัติการแก้ไข</string>
 	<string name="last_edit_at_x">การแก้ไขล่าสุดเมื่อ %s</string>
@@ -338,7 +325,6 @@
 	<string name="profile_add_row">เพิ่มแถว</string>
 	<string name="profile_setup">การตั้งค่าโปรไฟล์</string>
 	<string name="profile_setup_subtitle">คุณสามารถทำสิ่งนี้ให้เสร็จสมบูรณ์ได้ในภายหลังเสมอในแท็บโปรไฟล์</string>
-	<string name="profile_setup_explanation">คุณสามารถเพิ่มได้มากถึงสี่ช่องโปรไฟล์สำหรับสิ่งใดก็ตามที่คุณต้องการ ตำแหน่งที่ตั้ง, ลิงก์, สรรพนาม — ไม่มีที่สิ้นสุด</string>
 	<string name="popular_on_mastodon">เป็นที่นิยมใน Mastodon</string>
 	<string name="follow_all">ติดตามทั้งหมด</string>
 	<string name="server_rules_disagree">ไม่เห็นด้วย</string>
@@ -568,4 +554,71 @@
 	<plurals name="x_posts_today">
 		<item quantity="other">%,d โพสต์วันนี้</item>
 	</plurals>
+	<string name="error_playing_video">เกิดข้อผิดพลาดในการเล่นวิดีโอ</string>
+	<string name="timeline_following">หน้าแรก</string>
+	<string name="lists">รายการ</string>
+	<string name="followed_hashtags">แฮชแท็กที่ติดตาม</string>
+	<string name="manage_lists">จัดการรายการ</string>
+	<string name="manage_hashtags">จัดการแฮชแท็ก</string>
+	<!-- Screen reader description for the menu on the home timeline screen -->
+	<string name="dropdown_menu">เมนูแบบเลื่อนลง</string>
+	<string name="edit_list">แก้ไขรายการ</string>
+	<string name="list_members">สมาชิกของรายการ</string>
+	<string name="delete_list">ลบรายการ</string>
+	<!-- %s is the name of the list -->
+	<string name="delete_list_confirm">ลบ “%s”?</string>
+	<string name="list_exclusive">ซ่อนสมาชิกในกำลังติดตาม</string>
+	<string name="list_exclusive_subtitle">หากใครสักคนอยู่ในรายการนี้ ให้ซ่อนเขาในเส้นเวลากำลังติดตามของคุณเพื่อหลีกเลี่ยงการเห็นโพสต์ของเขาสองครั้ง</string>
+	<string name="list_name">ชื่อรายการ</string>
+	<string name="list_show_replies_to">แสดงการตอบกลับแก่</string>
+	<string name="list_replies_no_one">ไม่มีใคร</string>
+	<string name="list_replies_members">สมาชิกของรายการ</string>
+	<string name="list_replies_anyone">ใครก็ตามที่ฉันติดตาม</string>
+	<string name="confirm_remove_list_members">เอาสมาชิกออก?</string>
+	<string name="remove">เอาออก</string>
+	<string name="add_list_member">เพิ่มสมาชิก</string>
+	<string name="search_among_people_you_follow">ค้นหาในหมู่ผู้คนที่คุณติดตาม</string>
+	<string name="add_user_to_list">เพิ่มไปยังรายการ…</string>
+	<string name="add_user_to_list_title">เพิ่มไปยังรายการ</string>
+	<!-- %s is a username -->
+	<string name="manage_user_lists">จัดการรายการที่ %s ปรากฏอยู่ใน</string>
+	<string name="remove_from_list">เอาออกจากรายการ</string>
+	<string name="confirm_remove_list_member">เอาสมาชิกออก?</string>
+	<string name="no_followed_hashtags_title">ตามให้ทันความสนใจโดยการติดตามแฮชแท็ก</string>
+	<string name="no_followed_hashtags_subtitle">การติดตามจะปรากฏที่นี่</string>
+	<string name="no_lists_title">จัดระเบียบฟีดหน้าแรกของคุณด้วยรายการ</string>
+	<string name="no_lists_subtitle">ของคุณจะปรากฏที่นี่</string>
+	<string name="manage_accounts">เพิ่มหรือสลับบัญชี</string>
+	<plurals name="x_posts_recently">
+		<item quantity="other">%,d โพสต์ล่าสุด</item>
+	</plurals>
+	<string name="create_list">สร้างรายการ</string>
+	<string name="step_x_of_y">ขั้นตอนที่ %1$d จาก %2$d</string>
+	<string name="create">สร้าง</string>
+	<string name="manage_list_members">จัดการสมาชิกของรายการ</string>
+	<string name="list_no_members">ยังไม่มีสมาชิก</string>
+	<string name="list_find_users">ค้นหาผู้ใช้ที่จะเพิ่ม</string>
+	<string name="reply_to_user">ตอบกลับ %s</string>
+	<string name="posted_at">โพสต์เมื่อ %s</string>
+	<string name="non_mutual_sheet_title">สวัสดี การเชื่อมต่อใหม่!</string>
+	<string name="non_mutual_sheet_text">ดูเหมือนว่าคุณกำลังจะตอบกลับใครสักคนที่ยังไม่มีการเชื่อมต่อร่วมกัน มาสร้างความประทับใจแรกที่ยอดเยี่ยมกันเลย</string>
+	<string name="got_it">เข้าใจแล้ว</string>
+	<string name="dont_remind_again">ไม่ต้องเตือนฉันอีก</string>
+	<!-- %s is a time interval ("5 months") -->
+	<string name="old_post_sheet_title">โพสต์นี้มีอายุ %s</string>
+	<string name="old_post_sheet_text">คุณยังคงสามารถตอบกลับ แต่การตอบกลับอาจไม่เกี่ยวข้องอีกต่อไป</string>
+	<plurals name="x_months">
+		<item quantity="other">%,d เดือน</item>
+	</plurals>
+	<string name="more_than_two_years">มากกว่า 2 ปี</string>
+	<string name="non_mutual_title1">แสดงความเคารพและเกี่ยวข้อง</string>
+	<string name="non_mutual_text1">ทำให้แน่ใจว่าการตอบกลับของคุณสุภาพและตรงประเด็น</string>
+	<string name="non_mutual_title2">นำความกรุณามาใช้</string>
+	<string name="non_mutual_text2">น้ำเสียงเชิงบวกเป็นที่ชื่นชมเสมอ</string>
+	<string name="non_mutual_title3">เปิดกว้าง</string>
+	<string name="non_mutual_text3">ลักษณะการสนทนาของทุกคนมีเอกลักษณ์เฉพาะตัว เตรียมพร้อมที่จะปรับตัว</string>
+	<string name="make_profile_discoverable">ทำให้โปรไฟล์ของฉันสามารถค้นพบได้</string>
+	<string name="discoverability">ความสามารถในการค้นพบ</string>
+	<string name="discoverability_help">เมื่อคุณเลือกรับความสามารถในการค้นพบใน Mastodon โพสต์ของคุณอาจปรากฏในผลลัพธ์การค้นหาและกำลังนิยม\n\nอาจเสนอแนะโปรไฟล์ของคุณให้กับผู้คนที่มีความสนใจคล้ายกับคุณ\n\nการเลือกไม่รับจะไม่ซ่อนโปรไฟล์ของคุณหากใครสักคนค้นหาคุณโดยชื่อ</string>
+	<string name="app_version_copied">คัดลอกหมายเลขรุ่นไปยังคลิปบอร์ดแล้ว</string>
 </resources>

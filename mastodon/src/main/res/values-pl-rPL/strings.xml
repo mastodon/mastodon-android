@@ -187,19 +187,7 @@
 	<string name="password">Hasło</string>
 	<string name="confirm_password">Potwierdź hasło</string>
 	<string name="password_note">Użyj wielkich liter, znaków specjalnych i liczb, aby zwiększyć siłę swojego hasła.</string>
-	<string name="category_academia">Środowiska akademickie</string>
-	<string name="category_activism">Aktywizm</string>
-	<string name="category_all">Wszystkie</string>
-	<string name="category_art">Sztuka</string>
-	<string name="category_food">Jedzenie</string>
-	<string name="category_furry">„Futrzaki”</string>
-	<string name="category_games">Gry</string>
 	<string name="category_general">Ogólne</string>
-	<string name="category_journalism">Dziennikarstwo</string>
-	<string name="category_lgbt">LGBT</string>
-	<string name="category_music">Muzyka</string>
-	<string name="category_regional">Regionalne</string>
-	<string name="category_tech">Technologia</string>
 	<string name="confirm_email_title">Sprawdź skrzynkę E-mail</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">Kliknij w link, który wysłaliśmy, żeby zweryfikować %s. Poczekamy na Ciebie.</string>
@@ -288,7 +276,6 @@
 	<!-- %s is the server domain -->
 	<string name="local_timeline_info_banner">To są wszystkie posty od wszystkich użytkowników na Twoim serwerze (%s).</string>
 	<string name="recommended_accounts_info_banner">Może spodobają się Tobie te konta, bazując na tych, których już obserwujesz?</string>
-	<string name="see_new_posts">Zobacz nowe wpisy</string>
 	<string name="load_missing_posts">Załaduj brakujące wpisy</string>
 	<string name="follow_back">Obserwuj wzajemnie</string>
 	<string name="button_follow_pending">Oczekujące</string>
@@ -319,7 +306,6 @@
 		<item quantity="many">%,d podbić</item>
 		<item quantity="other">%,d podbić</item>
 	</plurals>
-	<string name="timestamp_via_app">%1$s przez %2$s</string>
 	<string name="time_now">przed chwilą</string>
 	<string name="edit_history">Historia edycji</string>
 	<string name="last_edit_at_x">Ostatnia zmiana: %s</string>
@@ -395,7 +381,6 @@
 	<string name="profile_add_row">Dodaj wiersz</string>
 	<string name="profile_setup">Ustawienia profilu</string>
 	<string name="profile_setup_subtitle">Zawsze możesz to uzupełnić później w zakładce Profil.</string>
-	<string name="profile_setup_explanation">Możesz dodać do czterech pól profilowych dla czegokolwiek: Lokalizacja, linki, zaimki itp.</string>
 	<string name="popular_on_mastodon">Popularne na Mastodonie</string>
 	<string name="follow_all">Obserwuj każdego</string>
 	<string name="server_rules_disagree">Nie zgadzam się</string>
@@ -459,4 +444,8 @@
 	<!-- Shown in the post header. Please keep it short -->
 	<!-- %s is the name of the post language -->
 	<!-- %1$s is the language, %2$s is the name of the translation service -->
+	<!-- Screen reader description for the menu on the home timeline screen -->
+	<!-- %s is the name of the list -->
+	<!-- %s is a username -->
+	<!-- %s is a time interval ("5 months") -->
 </resources>

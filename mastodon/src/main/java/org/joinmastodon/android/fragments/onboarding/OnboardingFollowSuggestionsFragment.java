@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowInsets;
+import android.widget.TextView;
 
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.requests.accounts.GetFollowSuggestions;
@@ -12,35 +13,38 @@ import org.joinmastodon.android.fragments.account_list.BaseAccountListFragment;
 import org.joinmastodon.android.model.FollowSuggestion;
 import org.joinmastodon.android.model.Relationship;
 import org.joinmastodon.android.model.viewmodel.AccountViewModel;
+import org.joinmastodon.android.ui.OutlineProviders;
 import org.joinmastodon.android.ui.utils.UiUtils;
 import org.joinmastodon.android.ui.viewholders.AccountViewHolder;
-import org.joinmastodon.android.utils.ElevationOnScrollListener;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import androidx.recyclerview.widget.RecyclerView;
 import me.grishka.appkit.Nav;
 import me.grishka.appkit.api.Callback;
 import me.grishka.appkit.api.ErrorResponse;
 import me.grishka.appkit.api.SimpleCallback;
-import me.grishka.appkit.views.FragmentRootLinearLayout;
+import me.grishka.appkit.utils.MergeRecyclerAdapter;
+import me.grishka.appkit.utils.SingleViewRecyclerAdapter;
+import me.grishka.appkit.utils.V;
 
 public class OnboardingFollowSuggestionsFragment extends BaseAccountListFragment{
 	private String accountID;
 	private View buttonBar;
-	private ElevationOnScrollListener onScrollListener;
 	private int numRunningFollowRequests=0;
 
 	public OnboardingFollowSuggestionsFragment(){
 		super(R.layout.fragment_onboarding_follow_suggestions, 40);
+		itemLayoutRes=R.layout.item_account_list_onboarding;
 	}
 
 	@Override
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		setRetainInstance(true);
-		setTitle(R.string.popular_on_mastodon);
+		setTitle(R.string.onboarding_recommendations_title);
 		accountID=getArguments().getString("account");
 		loadData();
 	}
@@ -49,7 +53,6 @@ public class OnboardingFollowSuggestionsFragment extends BaseAccountListFragment
 	public void onViewCreated(View view, Bundle savedInstanceState){
 		super.onViewCreated(view, savedInstanceState);
 		buttonBar=view.findViewById(R.id.button_bar);
-		list.addOnScrollListener(onScrollListener=new ElevationOnScrollListener((FragmentRootLinearLayout) view, buttonBar, getToolbar()));
 
 		view.findViewById(R.id.btn_next).setOnClickListener(UiUtils.rateLimitedClickListener(this::onFollowAllClick));
 		view.findViewById(R.id.btn_skip).setOnClickListener(UiUtils.rateLimitedClickListener(v->proceed()));
@@ -58,9 +61,7 @@ public class OnboardingFollowSuggestionsFragment extends BaseAccountListFragment
 	@Override
 	protected void onUpdateToolbar(){
 		super.onUpdateToolbar();
-		if(onScrollListener!=null){
-			onScrollListener.setViews(buttonBar, getToolbar());
-		}
+		getToolbar().setContentInsetsRelative(V.dp(56), 0);
 	}
 
 	@Override
@@ -69,7 +70,7 @@ public class OnboardingFollowSuggestionsFragment extends BaseAccountListFragment
 				.setCallback(new SimpleCallback<>(this){
 					@Override
 					public void onSuccess(List<FollowSuggestion> result){
-						onDataLoaded(result.stream().map(fs->new AccountViewModel(fs.account, accountID)).collect(Collectors.toList()), false);
+						onDataLoaded(result.stream().map(fs->new AccountViewModel(fs.account, accountID).stripLinksFromBio()).collect(Collectors.toList()), false);
 					}
 				})
 				.exec(accountID);
@@ -78,6 +79,19 @@ public class OnboardingFollowSuggestionsFragment extends BaseAccountListFragment
 	@Override
 	public void onApplyWindowInsets(WindowInsets insets){
 		super.onApplyWindowInsets(UiUtils.applyBottomInsetToFixedView(buttonBar, insets));
+	}
+
+	@Override
+	protected RecyclerView.Adapter<?> getAdapter(){
+		TextView introText=new TextView(getActivity());
+		introText.setTextAppearance(R.style.m3_body_large);
+		introText.setTextColor(UiUtils.getThemeColor(getActivity(), R.attr.colorM3OnSurface));
+		introText.setPaddingRelative(V.dp(56), 0, V.dp(24), V.dp(8));
+		introText.setText(R.string.onboarding_recommendations_intro);
+		MergeRecyclerAdapter mergeAdapter=new MergeRecyclerAdapter();
+		mergeAdapter.addAdapter(new SingleViewRecyclerAdapter(introText));
+		mergeAdapter.addAdapter(super.getAdapter());
+		return mergeAdapter;
 	}
 
 	private void onFollowAllClick(View v){
@@ -155,5 +169,6 @@ public class OnboardingFollowSuggestionsFragment extends BaseAccountListFragment
 	protected void onConfigureViewHolder(AccountViewHolder holder){
 		super.onConfigureViewHolder(holder);
 		holder.setStyle(AccountViewHolder.AccessoryType.BUTTON, true);
+		holder.avatar.setOutlineProvider(OutlineProviders.roundedRect(8));
 	}
 }

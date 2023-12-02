@@ -151,19 +151,7 @@
 	<string name="password">Kata sandi</string>
 	<string name="confirm_password">Konfirmasi kata sandi</string>
 	<string name="password_note">Tambahkan huruf besar, karakter spesial, dan nomor untuk meningkatkan kekuatan kata sandi Anda.</string>
-	<string name="category_academia">Akademisi</string>
-	<string name="category_activism">Aktivisme</string>
-	<string name="category_all">Semua</string>
-	<string name="category_art">Seni</string>
-	<string name="category_food">Makanan</string>
-	<string name="category_furry">Furry</string>
-	<string name="category_games">Permainan</string>
 	<string name="category_general">Umum</string>
-	<string name="category_journalism">Jurnalisme</string>
-	<string name="category_lgbt">LGBT</string>
-	<string name="category_music">Musik</string>
-	<string name="category_regional">Regional</string>
-	<string name="category_tech">Teknologi</string>
 	<string name="confirm_email_title">Periksa Kotak Masuk Anda</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">Ketuk tautan yang kami kirim kepada Anda untuk memverifikasi %s. Kami akan tunggu di sini.</string>
@@ -249,7 +237,6 @@
 	<!-- %s is the server domain -->
 	<string name="local_timeline_info_banner">Ini adalah kiriman dari semua pengguna di server Anda (%s).</string>
 	<string name="recommended_accounts_info_banner">Anda mungkin suka akun berikut berdasarkan orang-orang yang Anda ikuti.</string>
-	<string name="see_new_posts">Lihat kiriman baru</string>
 	<string name="load_missing_posts">Muat kiriman yang hilang</string>
 	<string name="follow_back">Ikuti Balik</string>
 	<string name="button_follow_pending">Ditunda</string>
@@ -268,7 +255,6 @@
 	<plurals name="x_reblogs">
 		<item quantity="other">%,d boost</item>
 	</plurals>
-	<string name="timestamp_via_app">%1$s melalui %2$s</string>
 	<string name="time_now">sekarang</string>
 	<string name="edit_history">Riwayat penyuntingan</string>
 	<string name="last_edit_at_x">Terakhir disunting %s</string>
@@ -338,7 +324,6 @@
 	<string name="profile_add_row">Tambahkan baris</string>
 	<string name="profile_setup">Pengaturan profil</string>
 	<string name="profile_setup_subtitle">Anda dapat selalu menyelesaikan ini nanti di tab Profil.</string>
-	<string name="profile_setup_explanation">Anda dapat menambahkan hingga empat kolom baris untuk apa saja yang Anda inginkan. Lokasi, tautan, kata ganti — langit adalah batasnya.</string>
 	<string name="popular_on_mastodon">Populer di Mastodon</string>
 	<string name="follow_all">Ikuti semua</string>
 	<string name="server_rules_disagree">Tolak</string>
@@ -568,4 +553,8 @@
 	<plurals name="x_posts_today">
 		<item quantity="other">%,d kiriman hari ini</item>
 	</plurals>
+	<!-- Screen reader description for the menu on the home timeline screen -->
+	<!-- %s is the name of the list -->
+	<!-- %s is a username -->
+	<!-- %s is a time interval ("5 months") -->
 </resources>

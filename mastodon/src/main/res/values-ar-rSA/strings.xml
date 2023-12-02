@@ -18,9 +18,9 @@
 	<string name="poll_ended">الاطلاع على نتائج استطلاع الرأي الذي صوّت فيه</string>
 	<string name="share_toot_title">شارك</string>
 	<string name="settings">الإعدادات</string>
-	<string name="publish">انشر</string>
-	<string name="discard_draft">أتريد التخلص من المسودة؟</string>
-	<string name="discard">تخلص</string>
+	<string name="publish">نَشر</string>
+	<string name="discard_draft">أتريد إلغاء المسودة؟</string>
+	<string name="discard">إلغاء</string>
 	<string name="cancel">إلغاء</string>
 	<plurals name="followers">
 		<item quantity="zero">لا متابِعين</item>
@@ -211,19 +211,7 @@
 	<string name="password">كلمة المرور</string>
 	<string name="confirm_password">تأكيد كلمة المرور</string>
 	<string name="password_note">ضمّن الأحرف الكبيرة والأحرف الخاصة والأرقام لزيادة قوة كلمة المرور.</string>
-	<string name="category_academia">أكاديمي</string>
-	<string name="category_activism">النشطاء</string>
-	<string name="category_all">الكل</string>
-	<string name="category_art">فنون</string>
-	<string name="category_food">طعام</string>
-	<string name="category_furry">حيوان ذو فرو</string>
-	<string name="category_games">ألعاب</string>
 	<string name="category_general">عام</string>
-	<string name="category_journalism">صحافة</string>
-	<string name="category_lgbt">مجتمع الميم</string>
-	<string name="category_music">موسيقى</string>
-	<string name="category_regional">إقليمي</string>
-	<string name="category_tech">تقني</string>
 	<string name="confirm_email_title">تحقق من صندوق الوارد الخاص بك</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">اضغط على الرابط الذي أرسلناه إليك للتحقق من %s. سننتظر هنا.</string>
@@ -314,7 +302,7 @@
 	<!-- %s is the server domain -->
 	<string name="local_timeline_info_banner">هذه هي جميع المشاركات من جميع المستخدمين في الخادم الخاص بك (%s).</string>
 	<string name="recommended_accounts_info_banner">قد تعجبك هذه الحسابات استنادا إلى حسابات أخرى تتابعها.</string>
-	<string name="see_new_posts">استعرض المنشورات الجديدة</string>
+	<string name="see_new_posts">المنشورات الجديدة</string>
 	<string name="load_missing_posts">حمّل المَنشورات المَفقودَة</string>
 	<string name="follow_back">رُدّ المتابعة</string>
 	<string name="button_follow_pending">معلق</string>
@@ -353,7 +341,6 @@
 		<item quantity="many">أعيد نشره %,d مرات</item>
 		<item quantity="other">أعيد نشره %,d مرات</item>
 	</plurals>
-	<string name="timestamp_via_app">%1$s عبر %2$s</string>
 	<string name="time_now">الآن</string>
 	<string name="edit_history">تاريخ التعديل</string>
 	<string name="last_edit_at_x">آخر تعديل %s</string>
@@ -433,7 +420,6 @@
 	<string name="profile_add_row">إضافة صف</string>
 	<string name="profile_setup">إعداد الملف الشخصي</string>
 	<string name="profile_setup_subtitle">يمكنك دائماً إكمال هذا في وقت لاحق في علامة التبويب الملف الشخصي.</string>
-	<string name="profile_setup_explanation">يمكنك إضافة ما يصل إلى أربعة حقول شخصية لأي شيء تريده. الموقع، الروابط، الضمائر - السماء هي الحد الأقصى.</string>
 	<string name="popular_on_mastodon">مشهور على ماستدون</string>
 	<string name="follow_all">اتبع الكل</string>
 	<string name="server_rules_disagree">لا أوافق</string>
@@ -704,6 +690,9 @@
 	<string name="post_translated">مُترجَم مِن %1$s باستخدام %2$s</string>
 	<string name="translation_show_original">إظهار الأصل</string>
 	<string name="translation_failed">فشِلَت الترجَمة. قد لم يتمكّن مدير الخادم من تفعيل الترجمات على هذا الخادم أو أنّ هذا الخادم يُشغِّل نسخة قديمة من ماستدون حيث الترجمات غير مدعومة بعد.</string>
+	<string name="settings_privacy">الخصوصية و الوصول</string>
+	<string name="settings_discoverable">ميزة الملف الشخصي والمشاركات في خوارزميات الاكتشاف</string>
+	<string name="settings_indexable">تضمين المشاركات العامة في نتائج البحث</string>
 	<plurals name="x_participants">
 		<item quantity="zero">لا مُشارِك</item>
 		<item quantity="one">مشارِك واحد</item>
@@ -712,4 +701,44 @@
 		<item quantity="many">مُشارِكًا</item>
 		<item quantity="other">مُشارك</item>
 	</plurals>
+	<string name="error_playing_video">خطأ في تشغيل الفيديو</string>
+	<string name="timeline_following">الصفحة الرئيسية</string>
+	<string name="lists">القوائم</string>
+	<string name="followed_hashtags">الوسوم المتابَعة</string>
+	<string name="manage_lists">إدارة القوائم</string>
+	<string name="manage_hashtags">إدارة الوسوم</string>
+	<!-- Screen reader description for the menu on the home timeline screen -->
+	<string name="dropdown_menu">القائمة المنسدلة</string>
+	<string name="edit_list">تعديل القائمة</string>
+	<string name="list_members">قائمة الاعضاء</string>
+	<string name="delete_list">حذف القائمة</string>
+	<!-- %s is the name of the list -->
+	<string name="delete_list_confirm">حذف \"%s\"؟</string>
+	<string name="list_exclusive">إخفاء الأعضاء في المتابعة</string>
+	<string name="list_exclusive_subtitle">إذا كان هناك شخص ما في هذه القائمة، فقم بإخفائه في مخططك الزمني لتجنب رؤية مشاركاته مرتين.</string>
+	<string name="list_name">اسم القائمة</string>
+	<string name="list_show_replies_to">إظهار الردود على</string>
+	<string name="list_replies_no_one">لا أحد</string>
+	<string name="list_replies_members">أعضاء القائمة</string>
+	<string name="list_replies_anyone">أي شخص أتابعه</string>
+	<string name="confirm_remove_list_members">إزالة أعضاء؟</string>
+	<string name="remove">إزالة</string>
+	<string name="add_list_member">إضافة عضو</string>
+	<string name="search_among_people_you_follow">البحث بين الأشخاص الذين تتابعهم</string>
+	<string name="add_user_to_list">إضافة القائمة…</string>
+	<string name="add_user_to_list_title">إضافة إلى القائمة</string>
+	<!-- %s is a username -->
+	<string name="remove_from_list">إزالة من القائمة</string>
+	<string name="confirm_remove_list_member">إزالة عضو؟</string>
+	<string name="no_followed_hashtags_title">مواكبة الاهتمامات من خلال متابعة الوسوم</string>
+	<string name="no_followed_hashtags_subtitle">سوف تظهر المتابعات هنا</string>
+	<string name="no_lists_title">تنظيم موجزك باستخدام القوائم</string>
+	<string name="manage_accounts">إضافة أو تبديل الحسابات</string>
+	<string name="create_list">إنشاء قائمة</string>
+	<string name="step_x_of_y">الخطوة %1$d من %2$d</string>
+	<string name="create">إنشاء</string>
+	<string name="manage_list_members">إدارة قائمة الأعضاء</string>
+	<string name="list_no_members">لا أعضاء حتى الآن</string>
+	<string name="list_find_users">البحث عن مستخدمين للإضافة</string>
+	<!-- %s is a time interval ("5 months") -->
 </resources>

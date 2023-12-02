@@ -34,6 +34,11 @@ public class Notification extends BaseModel implements DisplayItemsParent{
 		return id;
 	}
 
+	@Override
+	public String getAccountID(){
+		return status!=null ? account.id : null;
+	}
+
 	public enum Type{
 		@SerializedName("follow")
 		FOLLOW,

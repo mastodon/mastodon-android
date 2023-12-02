@@ -87,13 +87,13 @@ public class InsetStatusItemDecoration extends RecyclerView.ItemDecoration{
 				boolean topSiblingInset=pos>0 && displayItems.get(pos-1).inset;
 				boolean bottomSiblingInset=pos<displayItems.size()-1 && displayItems.get(pos+1).inset;
 				StatusDisplayItem.Type type=sdi.getItem().getType();
-				if(type==StatusDisplayItem.Type.CARD || type==StatusDisplayItem.Type.MEDIA_GRID)
+				if(type==StatusDisplayItem.Type.CARD_LARGE || type==StatusDisplayItem.Type.MEDIA_GRID)
 					outRect.left=outRect.right=V.dp(16);
 				else
 					outRect.left=outRect.right=V.dp(8);
 				if(!bottomSiblingInset)
 					outRect.bottom=V.dp(16);
-				if(!topSiblingInset && displayItems.get(pos-1) instanceof NotificationHeaderStatusDisplayItem)
+				if(!topSiblingInset && pos > 1 && displayItems.get(pos-1) instanceof NotificationHeaderStatusDisplayItem)
 					outRect.top=V.dp(-8);
 			}
 		}

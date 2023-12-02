@@ -126,19 +126,7 @@
 	<string name="password">암호</string>
 	<string name="confirm_password">암호 확인</string>
 	<string name="password_note">대문자, 특수문자, 숫자를 포함해서 암호의 강도를 높이세요.</string>
-	<string name="category_academia">학술</string>
-	<string name="category_activism">사회운동</string>
-	<string name="category_all">모두</string>
-	<string name="category_art">예술</string>
-	<string name="category_food">음식</string>
-	<string name="category_furry">수인</string>
-	<string name="category_games">게임</string>
 	<string name="category_general">일반</string>
-	<string name="category_journalism">언론</string>
-	<string name="category_lgbt">LGBT</string>
-	<string name="category_music">음악</string>
-	<string name="category_regional">지역</string>
-	<string name="category_tech">기술</string>
 	<string name="confirm_email_title">받은 편지함을 확인하세요</string>
 	<!-- %s is the email address -->
 	<string name="resend">재전송</string>
@@ -199,7 +187,6 @@
 	<string name="file_saved">파일 저장됨</string>
 	<string name="downloading">다운로드 중…</string>
 	<!-- %s is the server domain -->
-	<string name="see_new_posts">새 게시물 보기</string>
 	<string name="load_missing_posts">놓친 게시물 불러오기</string>
 	<string name="follow_back">맞팔로우</string>
 	<string name="button_follow_pending">대기 중</string>
@@ -215,7 +202,6 @@
 	<plurals name="x_favorites">
 		<item quantity="other">%,d개의 좋아요</item>
 	</plurals>
-	<string name="timestamp_via_app">%1$s에 %2$s에서</string>
 	<string name="time_now">방금</string>
 	<string name="edit_history">수정 내역</string>
 	<string name="last_edit_at_x">마지막 수정: %s</string>
@@ -302,4 +288,8 @@
 	<!-- Shown in the post header. Please keep it short -->
 	<!-- %s is the name of the post language -->
 	<!-- %1$s is the language, %2$s is the name of the translation service -->
+	<!-- Screen reader description for the menu on the home timeline screen -->
+	<!-- %s is the name of the list -->
+	<!-- %s is a username -->
+	<!-- %s is a time interval ("5 months") -->
 </resources>

@@ -15,13 +15,15 @@ public class LinkSpan extends CharacterStyle {
 	private Type type;
 	private String accountID;
 	private Object linkObject;
+	private Object parentObject;
 
-	public LinkSpan(String link, OnLinkClickListener listener, Type type, String accountID, Object linkObject){
+	public LinkSpan(String link, OnLinkClickListener listener, Type type, String accountID, Object linkObject, Object parentObject){
 		this.listener=listener;
 		this.link=link;
 		this.type=type;
 		this.accountID=accountID;
 		this.linkObject=linkObject;
+		this.parentObject=parentObject;
 	}
 
 	public int getColor(){
@@ -36,7 +38,7 @@ public class LinkSpan extends CharacterStyle {
 	
 	public void onClick(Context context){
 		switch(getType()){
-			case URL -> UiUtils.openURL(context, accountID, link);
+			case URL -> UiUtils.openURL(context, accountID, link, parentObject);
 			case MENTION -> UiUtils.openProfileByID(context, accountID, link);
 			case HASHTAG -> {
 				if(linkObject instanceof Hashtag ht)

@@ -5,4 +5,8 @@ package org.joinmastodon.android.model;
  */
 public interface DisplayItemsParent{
 	String getID();
+
+	default String getAccountID(){
+		return null;
+	}
 }

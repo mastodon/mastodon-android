@@ -68,7 +68,8 @@ public abstract class StatusDisplayItem{
 			case AUDIO -> new AudioStatusDisplayItem.Holder(activity, parent);
 			case POLL_OPTION -> new PollOptionStatusDisplayItem.Holder(activity, parent);
 			case POLL_FOOTER -> new PollFooterStatusDisplayItem.Holder(activity, parent);
-			case CARD -> new LinkCardStatusDisplayItem.Holder(activity, parent);
+			case CARD_LARGE -> new LinkCardStatusDisplayItem.Holder(activity, parent, true);
+			case CARD_COMPACT -> new LinkCardStatusDisplayItem.Holder(activity, parent, false);
 			case FOOTER -> new FooterStatusDisplayItem.Holder(activity, parent);
 			case ACCOUNT -> new AccountStatusDisplayItem.Holder(new AccountViewHolder(parentFragment, parent, null));
 			case HASHTAG -> new HashtagStatusDisplayItem.Holder(activity, parent);
@@ -135,7 +136,7 @@ public abstract class StatusDisplayItem{
 		}
 
 		if(!TextUtils.isEmpty(statusForContent.content)){
-			SpannableStringBuilder parsedText=HtmlParser.parse(statusForContent.content, statusForContent.emojis, statusForContent.mentions, statusForContent.tags, accountID);
+			SpannableStringBuilder parsedText=HtmlParser.parse(statusForContent.content, statusForContent.emojis, statusForContent.mentions, statusForContent.tags, accountID, statusForContent);
 			if(filtered){
 				HtmlParser.applyFilterHighlights(fragment.getActivity(), parsedText, status.filtered);
 			}
@@ -162,7 +163,7 @@ public abstract class StatusDisplayItem{
 			}
 		}
 		if(statusForContent.poll!=null){
-			buildPollItems(parentID, fragment, statusForContent.poll, contentItems);
+			buildPollItems(parentID, fragment, statusForContent.poll, status, contentItems);
 		}
 		if(statusForContent.card!=null && statusForContent.mediaAttachments.isEmpty() && TextUtils.isEmpty(statusForContent.spoilerText)){
 			contentItems.add(new LinkCardStatusDisplayItem(parentID, fragment, statusForContent));
@@ -192,10 +193,10 @@ public abstract class StatusDisplayItem{
 		return items;
 	}
 
-	public static void buildPollItems(String parentID, BaseStatusListFragment fragment, Poll poll, List<StatusDisplayItem> items){
+	public static void buildPollItems(String parentID, BaseStatusListFragment fragment, Poll poll, Status status, List<StatusDisplayItem> items){
 		int i=0;
 		for(Poll.Option opt:poll.options){
-			items.add(new PollOptionStatusDisplayItem(parentID, poll, i, fragment));
+			items.add(new PollOptionStatusDisplayItem(parentID, poll, i, fragment, status));
 			i++;
 		}
 		items.add(new PollFooterStatusDisplayItem(parentID, fragment, poll));
@@ -208,7 +209,8 @@ public abstract class StatusDisplayItem{
 		AUDIO,
 		POLL_OPTION,
 		POLL_FOOTER,
-		CARD,
+		CARD_LARGE,
+		CARD_COMPACT,
 		FOOTER,
 		ACCOUNT,
 		HASHTAG,

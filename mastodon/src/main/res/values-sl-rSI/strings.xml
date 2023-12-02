@@ -37,9 +37,9 @@
 	<string name="posts">Objave</string>
 	<string name="posts_and_replies">Objave in odgovori</string>
 	<string name="media">Mediji</string>
-	<string name="profile_about">O programu</string>
+	<string name="profile_about">O računu</string>
 	<string name="button_follow">Sledi</string>
-	<string name="button_following">Sledi</string>
+	<string name="button_following">Sleden</string>
 	<string name="edit_profile">Uredi profil</string>
 	<string name="share_user">Profil v skupno rabo</string>
 	<string name="mute_user">Utišaj %s</string>
@@ -105,6 +105,12 @@
 		<item quantity="few">na voljo še %d dnevi</item>
 		<item quantity="other">na voljo še %d dni</item>
 	</plurals>
+	<plurals name="x_votes">
+		<item quantity="one">%,d glas</item>
+		<item quantity="two">%,d glasova</item>
+		<item quantity="few">%,d glasovi</item>
+		<item quantity="other">%,d glasov</item>
+	</plurals>
 	<string name="poll_closed">Zaprto</string>
 	<string name="confirm_mute_title">Utišaj račun</string>
 	<string name="confirm_mute">Potrdite utišanje %s</string>
@@ -164,8 +170,8 @@
 	<string name="sending_report">Pošiljanje prijave ...</string>
 	<string name="report_sent_title">Hvala za poročilo, bomo preverili.</string>
 	<string name="report_sent_subtitle">Medtem, ko to pregledujemo, lahko proti %s ukrepate:</string>
-	<string name="unfollow_user">Prenehaj slediti %s</string>
-	<string name="unfollow">Prenehaj slediti</string>
+	<string name="unfollow_user">Ne sledi več %s</string>
+	<string name="unfollow">Ne sledi več</string>
 	<string name="mute_user_explain">Njihovih objav ne boste videli. Še vedno vam lahko sledijo in vidijo vaše objave, ne bodo pa vedeli, da so utišani.</string>
 	<string name="block_user_explain">Njihovih objav ne boste videli. Oni ne bodo videli vaših objav, niti vam ne morejo slediti. Lahko bodo ugotovili, da so blokirani.</string>
 	<string name="report_personal_title">Ne želite videti tega?</string>
@@ -181,19 +187,7 @@
 	<string name="password">Geslo</string>
 	<string name="confirm_password">Potrdite geslo</string>
 	<string name="password_note">Vključite velike črke, posebne znake in števke, da okrepite geslo.</string>
-	<string name="category_academia">Akademsko</string>
-	<string name="category_activism">Aktivizem</string>
-	<string name="category_all">Vse</string>
-	<string name="category_art">Umetnost</string>
-	<string name="category_food">Hrana</string>
-	<string name="category_furry">Kosmato</string>
-	<string name="category_games">Igre</string>
 	<string name="category_general">Splošno</string>
-	<string name="category_journalism">Novinarstvo</string>
-	<string name="category_lgbt">LGBT</string>
-	<string name="category_music">Glasba</string>
-	<string name="category_regional">Regionalno</string>
-	<string name="category_tech">Tehnologija</string>
 	<string name="confirm_email_title">Preverite svojo dohodno e-pošto</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">Tapnite povezavo, ki smo vam jo poslali, da overite %s. Počakali bomo.</string>
@@ -217,6 +211,12 @@
 	<string name="notification_type_poll">Ankete</string>
 	<string name="choose_account">Izberite račun</string>
 	<string name="err_not_logged_in">Najprej se prijavite v Mastodon</string>
+	<plurals name="cant_add_more_than_x_attachments">
+		<item quantity="one">Ne morete dodati več kot %d medijske priloge</item>
+		<item quantity="two">Ne morete dodati več kot %d medijskih prilog</item>
+		<item quantity="few">Ne morete dodati več kot %d medijskih prilog</item>
+		<item quantity="other">Ne morete dodati več kot %d medijskih prilog</item>
+	</plurals>
 	<string name="media_attachment_unsupported_type">Vrsta datoteke %s ni podprta</string>
 	<string name="media_attachment_too_big">Datoteka %1$s presega omejitev velikosti %2$s MB</string>
 	<string name="settings_theme">Videz</string>
@@ -276,9 +276,9 @@
 	<!-- %s is the server domain -->
 	<string name="local_timeline_info_banner">To so vse objave vseh uporabnikov na vašem strežniku (%s).</string>
 	<string name="recommended_accounts_info_banner">Glede na to, komu sledite, vam bodo ti računi všeč.</string>
-	<string name="see_new_posts">Pokaži nove objave</string>
+	<string name="see_new_posts">Nove objave</string>
 	<string name="load_missing_posts">Naloži manjkajoče objave</string>
-	<string name="follow_back">Sledijo nazaj</string>
+	<string name="follow_back">Sledi nazaj</string>
 	<string name="button_follow_pending">Na čakanju</string>
 	<string name="follows_you">Vam sledi</string>
 	<string name="manually_approves_followers">Ročno odobri sledilce</string>
@@ -301,7 +301,12 @@
 		<item quantity="few">%,d priljubljeni</item>
 		<item quantity="other">%,d priljubljenih</item>
 	</plurals>
-	<string name="timestamp_via_app">%1$s prek %2$s</string>
+	<plurals name="x_reblogs">
+		<item quantity="one">%,d izpostavitev</item>
+		<item quantity="two">%,d izpostavitvi</item>
+		<item quantity="few">%,d izpostavitve</item>
+		<item quantity="other">%,d izpostavitev</item>
+	</plurals>
 	<string name="time_now">zdaj</string>
 	<string name="edit_history">Uredi zgodovino</string>
 	<string name="last_edit_at_x">Zadnjič urejano %s</string>
@@ -377,7 +382,6 @@
 	<string name="profile_add_row">Dodaj vrstico</string>
 	<string name="profile_setup">Nastavitev profila</string>
 	<string name="profile_setup_subtitle">To lahko vedno izpolnite kasneje na zavihku Profil.</string>
-	<string name="profile_setup_explanation">Dodate lahko največ štiri polja profila za poljubne vsebine. Lokacija, povezave, vzdevki — ni meja.</string>
 	<string name="popular_on_mastodon">Priljubljeno na Mastodonu</string>
 	<string name="follow_all">Sledi vsem</string>
 	<string name="server_rules_disagree">Ne strinjam se</string>
@@ -393,7 +397,7 @@
 	<string name="spoiler_hide">Ponovno skrij</string>
 	<string name="poll_multiple_choice">Izberi eno ali več izbir</string>
 	<string name="save_changes">Shrani spremembe</string>
-	<string name="profile_featured">Predstavljeni</string>
+	<string name="profile_featured">Izpostavljeni</string>
 	<string name="profile_timeline">Časovnica</string>
 	<string name="view_all">Prikaži vse</string>
 	<string name="profile_endorsed_accounts">Računi</string>
@@ -424,6 +428,7 @@
 	<string name="attachment_type_audio">Zvok</string>
 	<string name="attachment_type_gif">GIF</string>
 	<string name="attachment_type_unknown">Datoteka</string>
+	<string name="attachment_x_percent_uploaded">Naloženo %d %%</string>
 	<string name="add_poll_option">Dodaj možen odgovor v anketi</string>
 	<string name="poll_length">Dolžina ankete</string>
 	<string name="poll_style">Slog</string>
@@ -434,8 +439,10 @@
 	<string name="alt_text">Nadomestno besedilo</string>
 	<string name="help">Pomoč</string>
 	<string name="what_is_alt_text">Kaj je nadomestno besedilo (alt text)?</string>
+	<string name="alt_text_help">Nadomestno besedilo vsebuje opis slike za ljudi, ki imajo težave z vidom, počasne omrežne povezave ali za ljudi, ki jih zanima dodaten kontekst.\n\nZ dodajanjem jasnega, jedrnatega in objektivnega nadomestnega besedila lahko izboljšate dostopnost in razumevanje za vse.\n\n<ul><li>Zajemite pomembne elemente</li>\n<li>Povzemite besedila na slikah</li>\n<li>Uporabite običajno stavčno obliko</li>\n<li>Izogibajte se odvečnim podatkom</li>\n<li>Osredotočite se na trende in ključne ugotovitve v kompleksnih vizualnih elementih (npr. v grafikonih ali na zemljevidih)</li></ul></string>
 	<string name="edit_post">Uredi objavo</string>
 	<string name="no_verified_link">Ni preverjenih povezav</string>
+	<string name="compose_autocomplete_emoji_empty">Brskajte po emotikonih</string>
 	<string name="compose_autocomplete_users_empty">Najdite tiste, ki jih iščete</string>
 	<string name="no_search_results">Za ta iskalni niz ni zadetkov</string>
 	<string name="language">Jezik</string>
@@ -452,11 +459,21 @@
 	<string name="forward_report_to_server">Posreduj k %s</string>
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
 	<string name="reported">Prijavljeno</string>
+	<string name="report_unfollow_explanation">Da ne bi videli njihovih objav v svojem domačem viru, jim prenehajte slediti.</string>
+	<string name="muted_user">%s je utišan</string>
+	<string name="report_sent_already_blocked">Tega uporabnika ste že blokirali. Medtem ko pregledujemo vašo prijavo, vam ni potrebno storiti nič več.</string>
+	<string name="report_personal_already_blocked">Tega uporabnika ste že blokirali. Medtem ko pregledujemo vašo prijavo, vam ni potrebno storiti nič več.\n\nHvala, ker ta Mastodon ohranjate varen za vse!</string>
+	<string name="blocked_user">%s je blokiran</string>
 	<string name="mark_all_notifications_read">Označi vse kot prebrano</string>
+	<string name="settings_display">Prikaz</string>
 	<string name="settings_filters">Filtri</string>
+	<string name="settings_server_explanation">Pregled, pravila, moderatorji</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">O programu %s</string>
 	<string name="default_post_language">Privzeti jezik objave</string>
+	<string name="settings_alt_text_reminders">Dodaj opomnike za nadomestno besedilo</string>
+	<string name="settings_confirm_unfollow">Vprašaj pred prenehanjem sledenja uporabniku</string>
+	<string name="settings_confirm_boost">Vprašaj pred izpostavljanjem objave</string>
 	<string name="settings_confirm_delete_post">Vprašaj pred brisanjem objav</string>
 	<string name="pause_all_notifications">Premor za vse</string>
 	<string name="pause_notifications_off">Izklopljeno</string>
@@ -464,25 +481,73 @@
 	<string name="notifications_policy_followed">Ljudje, ki vam sledijo</string>
 	<string name="notifications_policy_follower">Ljudje, ki jim sledite</string>
 	<string name="notifications_policy_no_one">Nihče</string>
+	<string name="settings_notifications_policy">Prejemanje obvestil od</string>
 	<string name="notification_type_mentions_and_replies">Omembe in odgovori</string>
 	<string name="pause_all_notifications_title">Zaustavi vsa obvestila</string>
+	<plurals name="x_weeks">
+		<item quantity="one">%d teden</item>
+		<item quantity="two">%d tedna</item>
+		<item quantity="few">%d tedne</item>
+		<item quantity="other">%d tednov</item>
+	</plurals>
 	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
 	<string name="date_at_time">%1$s ob %2$s</string>
 	<string name="today">danes</string>
 	<string name="yesterday">včeraj</string>
 	<string name="tomorrow">jutri</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="pause_notifications_ends">Se konča %s</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<string name="pause_notifications_banner">Obveščanje se bo nadaljevalo: %s.</string>
 	<string name="resume_notifications_now">Nadaljuj zdaj</string>
 	<string name="open_system_notification_settings">Pojdi k nastavitvam obvestil</string>
-	<string name="about_server">O programu</string>
+	<string name="about_server">O strežniku</string>
 	<string name="server_rules">Pravila</string>
 	<string name="server_administrator">Skrbnik</string>
+	<string name="send_email_to_server_admin">Pošlji e-pošto skrbniku</string>
+	<string name="notifications_disabled_in_system">Da vidite vse posodobitve, omogočite obvestila v nastavitvah naprave.</string>
 	<string name="settings_even_more">Še več nastavitev</string>
 	<string name="settings_show_cws">Pokaži opozorilo o vsebini</string>
 	<string name="settings_hide_sensitive_media">Skrij medij, ki je označen kot občutljiv</string>
 	<string name="settings_show_interaction_counts">Števci interakcije objave</string>
+	<string name="settings_show_emoji_in_names">Emotikoni po meri v prikaznih imenih</string>
+	<plurals name="in_x_seconds">
+		<item quantity="one">čez %d sekundo</item>
+		<item quantity="two">čez %d sekundi</item>
+		<item quantity="few">čez %d sekunde</item>
+		<item quantity="other">čez %d sekund</item>
+	</plurals>
+	<plurals name="in_x_minutes">
+		<item quantity="one">čez %d minuto</item>
+		<item quantity="two">čez %d minuti</item>
+		<item quantity="few">čez %d minute</item>
+		<item quantity="other">čez %d minut</item>
+	</plurals>
+	<plurals name="in_x_hours">
+		<item quantity="one">čez %d uro</item>
+		<item quantity="two">čez %d uri</item>
+		<item quantity="few">čez %d ure</item>
+		<item quantity="other">čez %d ur</item>
+	</plurals>
+	<plurals name="x_hours_ago">
+		<item quantity="one">pred %d uro</item>
+		<item quantity="two">pred %d urama</item>
+		<item quantity="few">pred %d urami</item>
+		<item quantity="other">pred %d urami</item>
+	</plurals>
+	<string name="alt_text_reminder_title">Manjka nadomestno besedilo za večpredstavnostno vsebino</string>
+	<plurals name="alt_text_reminder_x_images">
+		<item quantity="one">Manjka nadomestno besedilo za %s sliko. Ali vseeno objavim?</item>
+		<item quantity="two">Manjka nadomestno besedilo za %s sliki. Ali vseeno objavim?</item>
+		<item quantity="few">Manjka nadomestno besedilo za %s slike. Ali vseeno objavim?</item>
+		<item quantity="other">Manjka nadomestno besedilo za %s slik. Ali vseeno objavim?</item>
+	</plurals>
+	<plurals name="alt_text_reminder_x_attachments">
+		<item quantity="one">Manjka nadomestno besedilo za %s prilogo. Ali vseeno objavim?</item>
+		<item quantity="two">Manjka nadomestno besedilo za %s prilogi. Ali vseeno objavim?</item>
+		<item quantity="few">Manjka nadomestno besedilo za %s priloge. Ali vseeno objavim?</item>
+		<item quantity="other">Manjka nadomestno besedilo za %s prilog. Ali vseeno objavim?</item>
+	</plurals>
 	<string name="count_one">Ena</string>
 	<string name="count_two">Dva</string>
 	<string name="count_three">Tri</string>
@@ -496,13 +561,23 @@
 	<string name="settings_edit_filter">Uredi filter</string>
 	<string name="settings_filter_duration">Trajanje</string>
 	<string name="settings_filter_muted_words">Utišane besede</string>
+	<string name="settings_filter_context">Mesto utišanja</string>
 	<string name="settings_filter_show_cw">Pokaži z oporozilom o vsebini</string>
+	<string name="settings_filter_show_cw_explanation">Še vedno prikaži objave, ki ustrezajo temu filtru, vendar za opozorilom o vsebini</string>
 	<string name="settings_delete_filter">Izbriši filter</string>
 	<string name="filter_duration_forever">Za vedno</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="settings_filter_ends">Se konča %s</string>
+	<plurals name="settings_x_muted_words">
+		<item quantity="one">%d utišana beseda ali fraza</item>
+		<item quantity="two">%d utišani besedi ali frazi</item>
+		<item quantity="few">%d utišane besede ali fraze</item>
+		<item quantity="other">%d utišanih besed ali fraz</item>
+	</plurals>
 	<string name="selection_2_options">%1$s in %2$s</string>
 	<string name="selection_3_options">%1$s, %2$s in %3$s</string>
 	<string name="selection_4_or_more">%1$s, %2$s in še dodatnih %3$d</string>
+	<string name="filter_context_home_lists">Domača časovnica in seznami</string>
 	<string name="filter_context_notifications">Obvestila</string>
 	<string name="filter_context_public_timelines">Javne časovnice</string>
 	<string name="filter_context_threads_replies">Niti in odgovori</string>
@@ -514,11 +589,24 @@
 	<string name="edit_muted_word">Uredi utišano besedo</string>
 	<string name="add">Dodaj</string>
 	<string name="filter_word_or_phrase">Beseda ali besedna zveza</string>
+	<string name="filter_add_word_help">Za besede se ne upošteva velikosti črk in se upoštevajo v celoti.\n\nČe filtrirate besedo »Pingvin«, bodo skrite objave, ki vsebujejo »pingvin« ali »pInGvIn«, ne pa »pingvinji«.</string>
 	<string name="settings_delete_filter_word">Ali želite izbrisati besedo »%s«?</string>
 	<string name="enter_selection_mode">Izberite</string>
 	<string name="select_all">Izberi vse</string>
 	<string name="settings_filter_duration_title">Filtriraj po trajanju</string>
 	<string name="filter_duration_custom">Po meri</string>
+	<plurals name="settings_delete_x_filter_words">
+		<item quantity="one">Ali želite izbrisati %d besedo?</item>
+		<item quantity="two">Ali želite izbrisati %d besedi?</item>
+		<item quantity="few">Ali želite izbrisati %d besede?</item>
+		<item quantity="other">Ali želite izbrisati %d besed?</item>
+	</plurals>
+	<plurals name="x_items_selected">
+		<item quantity="one">Izbranih: %d</item>
+		<item quantity="two">Izbranih: %d</item>
+		<item quantity="few">Izbranih: %d</item>
+		<item quantity="other">Izbranih: %d</item>
+	</plurals>
 	<string name="required_form_field_blank">Ne sme biti prazno</string>
 	<string name="filter_word_already_in_list">Že na seznamu</string>
 	<string name="app_update_ready">Posodobitev aplikacije je pripravljena</string>
@@ -535,9 +623,9 @@
 	<string name="accounts_matching_string">Osebe s/z »%s«</string>
 	<!-- Shown in the post header. Please keep it short -->
 	<string name="time_seconds_ago_short">pred %d s</string>
-	<string name="time_minutes_ago_short">pred %d meseci</string>
-	<string name="time_hours_ago_short">pred %dh urami</string>
-	<string name="time_days_ago_short">pred %d dnemi</string>
+	<string name="time_minutes_ago_short">pred %d m</string>
+	<string name="time_hours_ago_short">pred %d u</string>
+	<string name="time_days_ago_short">pred %d d</string>
 	<!-- %s is the name of the post language -->
 	<string name="translate_post">Prevedi iz jezika: %s</string>
 	<!-- %1$s is the language, %2$s is the name of the translation service -->
@@ -547,4 +635,89 @@
 	<string name="settings_privacy">Zasebnost in dosegljivost</string>
 	<string name="settings_discoverable">Izpostavljaj profile in objave v algoritmih odkrivanja</string>
 	<string name="settings_indexable">Med zadetke iskanja vključi javne objave</string>
+	<plurals name="x_participants">
+		<item quantity="one">%,d udeleženec</item>
+		<item quantity="two">%,d udeleženca</item>
+		<item quantity="few">%,d udeleženci</item>
+		<item quantity="other">%,d udeležencev</item>
+	</plurals>
+	<plurals name="x_posts_today">
+		<item quantity="one">%,d objava danes</item>
+		<item quantity="two">%,d objavi danes</item>
+		<item quantity="few">%,d objave danes</item>
+		<item quantity="other">%,d objav danes</item>
+	</plurals>
+	<string name="error_playing_video">Napaka predvajanja videa</string>
+	<string name="timeline_following">Dom</string>
+	<string name="lists">Seznami</string>
+	<string name="followed_hashtags">Sledeni ključniki</string>
+	<string name="manage_lists">Upravljanje seznamov</string>
+	<string name="manage_hashtags">Upravljanje ključnikov</string>
+	<!-- Screen reader description for the menu on the home timeline screen -->
+	<string name="dropdown_menu">Padajoči meni</string>
+	<string name="edit_list">Uredi seznam</string>
+	<string name="list_members">Člani seznama</string>
+	<string name="delete_list">Izbriši seznam</string>
+	<!-- %s is the name of the list -->
+	<string name="delete_list_confirm">Ali želite izbrisati »%s«?</string>
+	<string name="list_exclusive">Skrij v Sledeni</string>
+	<string name="list_exclusive_subtitle">Če je nekdo na tem seznamu, bodo njihove objave skrite v časovnici Sledeni in jih ne boste videli dvakrat.</string>
+	<string name="list_name">Ime seznama</string>
+	<string name="list_show_replies_to">Prikaz odgovorov</string>
+	<string name="list_replies_no_one">Nikomur</string>
+	<string name="list_replies_members">Članom seznama</string>
+	<string name="list_replies_anyone">Vsem, ki jim sledim</string>
+	<string name="confirm_remove_list_members">Odstranim člane?</string>
+	<string name="remove">Odstrani</string>
+	<string name="add_list_member">Dodaj člana</string>
+	<string name="search_among_people_you_follow">Iščite med ljudmi, katerim sledite</string>
+	<string name="add_user_to_list">Dodaj na seznam…</string>
+	<string name="add_user_to_list_title">Dodaj na seznam</string>
+	<!-- %s is a username -->
+	<string name="manage_user_lists">Upravljaj sezname, na katerih je %s</string>
+	<string name="remove_from_list">Odstrani s seznama</string>
+	<string name="confirm_remove_list_member">Odstranim člana?</string>
+	<string name="no_followed_hashtags_title">Spremljajte, kar vas zanima, s sledenjem ključnikom</string>
+	<string name="no_followed_hashtags_subtitle">Tu bodo prikazana sledenja</string>
+	<string name="no_lists_title">Organizirajte domači vir s seznami</string>
+	<string name="no_lists_subtitle">Tu bodo prikazan seznami</string>
+	<string name="manage_accounts">Dodajte profile ali preklopite med njimi</string>
+	<plurals name="x_posts_recently">
+		<item quantity="one">%,d nedavna objava</item>
+		<item quantity="two">%,d nedavni objavi</item>
+		<item quantity="few">%,d nedavne objave</item>
+		<item quantity="other">%,d nedavnih objav</item>
+	</plurals>
+	<string name="create_list">Ustvari seznam</string>
+	<string name="step_x_of_y">%1$d. korak od %2$d</string>
+	<string name="create">Ustvari</string>
+	<string name="manage_list_members">Upravljanje članov seznama</string>
+	<string name="list_no_members">Ni še nobenega člana</string>
+	<string name="list_find_users">Poišči člane za dodajanje</string>
+	<string name="reply_to_user">Odgovori %s</string>
+	<string name="posted_at">Objavljeno %s</string>
+	<string name="non_mutual_sheet_title">Pozdravljena, nova povezava!</string>
+	<string name="non_mutual_sheet_text">Zdi se, da boste odgovorili nekomu, s katerim še nimate vzajemne povezave. Naredite odličen prvi vtis.</string>
+	<string name="got_it">Razumem</string>
+	<string name="dont_remind_again">Ne opominjaj me več</string>
+	<!-- %s is a time interval ("5 months") -->
+	<string name="old_post_sheet_title">Ta objava je stara %s</string>
+	<string name="old_post_sheet_text">Še vedno lahko odgovorite, a morda ni več relevantno.</string>
+	<plurals name="x_months">
+		<item quantity="one">%,d mesec</item>
+		<item quantity="two">%,d meseca</item>
+		<item quantity="few">%,d meseci</item>
+		<item quantity="other">%,d mesecev</item>
+	</plurals>
+	<string name="more_than_two_years">več kot dve leti</string>
+	<string name="non_mutual_title1">Ostanite spoštljivi in pri temi</string>
+	<string name="non_mutual_text1">Poskrbite, da bo vaš odgovor vljuden in v skladu s temo.</string>
+	<string name="non_mutual_title2">Oprimite se prijaznosti</string>
+	<string name="non_mutual_text2">Pozitiven ton je vedno cenjen.</string>
+	<string name="non_mutual_title3">Bodite odprti</string>
+	<string name="non_mutual_text3">Vsakdo ima edinstven slog pogovora. Bodite pripravljeni na prilagajanje.</string>
+	<string name="make_profile_discoverable">Naj bo moj profil mogoče najti</string>
+	<string name="discoverability">Razkrivanje</string>
+	<string name="discoverability_help">Ko se odločite za razkrivanje na Mastodonu, se lahko vaše objave pojavijo v rezultatih iskanja in trendih.\n\nVaš profil se lahko predlaga ljudem s podobnimi interesi kot vi.\n\nOdjava ne skrije vašega profila, če vas nekdo išče po imenu.</string>
+	<string name="app_version_copied">Številka različice je kopirana v odložišče</string>
 </resources>

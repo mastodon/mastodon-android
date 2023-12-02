@@ -11,6 +11,7 @@
 		android:layout_height="0dp"
 		android:layout_weight="1">
 		<LinearLayout
+			android:id="@+id/scrollable_content"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:paddingBottom="16dp"
@@ -34,6 +35,7 @@
 				android:foregroundGravity="center"
 				android:foregroundTint="?colorM3OnSecondaryContainer"
 				android:scaleType="centerCrop"
+				android:contentDescription="@string/profile_header"
 				android:background="?colorM3SecondaryContainer"/>
 
 			<FrameLayout
@@ -51,6 +53,7 @@
 					android:foregroundGravity="center"
 					android:foregroundTint="?colorM3OnSecondaryContainer"
 					android:scaleType="centerCrop"
+					android:contentDescription="@string/profile_picture"
 					android:background="?colorM3SecondaryContainer"/>
 			</FrameLayout>
 
@@ -104,39 +107,6 @@
 					android:hint="@string/profile_bio"/>
 
 			</org.joinmastodon.android.ui.views.FloatingHintEditTextLayout>
-			
-			<org.joinmastodon.android.ui.views.ReorderableLinearLayout
-				android:id="@+id/profile_fields"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:orientation="vertical"/>
-			
-			<Button
-				android:id="@+id/add_row"
-				android:layout_width="match_parent"
-				android:layout_height="56dp"
-				android:gravity="center_vertical"
-				android:paddingStart="16dp"
-				android:paddingEnd="24dp"
-				android:textAppearance="@style/m3_body_large"
-				android:textColor="?colorM3OnSurface"
-				android:drawableEnd="@drawable/ic_add_24px"
-				android:drawableTint="?colorM3OnSurface"
-				android:drawablePadding="16dp"
-				android:singleLine="true"
-				android:ellipsize="end"
-				android:background="?android:attr/selectableItemBackground"
-				android:stateListAnimator="@null"
-				android:text="@string/profile_add_row"/>
-
-			<TextView
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:layout_marginLeft="16dp"
-				android:layout_marginRight="16dp"
-				android:textAppearance="@style/m3_body_small"
-				android:textColor="?colorM3OnSurfaceVariant"
-				android:text="@string/profile_setup_explanation"/>
 
 		</LinearLayout>
 	</ScrollView>

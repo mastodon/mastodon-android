@@ -314,6 +314,8 @@ public class NotificationsListFragment extends BaseStatusListFragment<Notificati
 	}
 
 	private void markAsRead(){
+		if(data.isEmpty())
+			return;
 		String id=data.get(0).id;
 		if(ObjectIdComparator.INSTANCE.compare(id, realUnreadMarker)>0){
 			new SaveMarkers(null, id).exec(accountID);

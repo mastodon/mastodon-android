@@ -187,19 +187,7 @@
 	<string name="password">Heslo</string>
 	<string name="confirm_password">Potvrdit heslo</string>
 	<string name="password_note">Použijte velká písmena, speciální znaky a čísla, abyste zvýšili sílu hesla.</string>
-	<string name="category_academia">Akademická sféra</string>
-	<string name="category_activism">Aktivismus</string>
-	<string name="category_all">Vše</string>
-	<string name="category_art">Umění</string>
-	<string name="category_food">Jídlo</string>
-	<string name="category_furry">Furry</string>
-	<string name="category_games">Hry</string>
 	<string name="category_general">Obecné</string>
-	<string name="category_journalism">Žurnalistika</string>
-	<string name="category_lgbt">LGBT</string>
-	<string name="category_music">Hudba</string>
-	<string name="category_regional">Regionální</string>
-	<string name="category_tech">Technologie</string>
 	<string name="confirm_email_title">Zkontrolujte si příchozí poštu</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">Klepněte na odkaz, který jsme vám poslali, abyste ověřili %s. Budeme tu na vás čekat.</string>
@@ -288,7 +276,6 @@
 	<!-- %s is the server domain -->
 	<string name="local_timeline_info_banner">Toto jsou všechny příspěvky od všech uživatelů na vašem serveru (%s).</string>
 	<string name="recommended_accounts_info_banner">Podle toho, koho sledujete, by se vám mohly líbit tyto účty.</string>
-	<string name="see_new_posts">Zobrazit nové příspěvky</string>
 	<string name="load_missing_posts">Načíst chybějící příspěvky</string>
 	<string name="follow_back">Sledovat nazpět</string>
 	<string name="button_follow_pending">Čekající</string>
@@ -319,7 +306,6 @@
 		<item quantity="many">%,d boostů</item>
 		<item quantity="other">%,d boostů</item>
 	</plurals>
-	<string name="timestamp_via_app">%1$s přes %2$s</string>
 	<string name="time_now">teď</string>
 	<string name="edit_history">Historie úprav</string>
 	<string name="last_edit_at_x">Poslední úprava %s</string>
@@ -395,7 +381,6 @@
 	<string name="profile_add_row">Přidat řádek</string>
 	<string name="profile_setup">Nastavení profilu</string>
 	<string name="profile_setup_subtitle">Toto můžete vždy dokončit později v záložce Profil.</string>
-	<string name="profile_setup_explanation">Můžete přidat až čtyři pole profilu pro cokoliv, co chcete. Umístění, odkazy, oslovení — limitem je obloha.</string>
 	<string name="popular_on_mastodon">Populární na Mastodonu</string>
 	<string name="follow_all">Sledovat všechny</string>
 	<string name="server_rules_disagree">Nesouhlasit</string>
@@ -641,4 +626,8 @@
 	<string name="time_days_ago_short">Před %dd</string>
 	<!-- %s is the name of the post language -->
 	<!-- %1$s is the language, %2$s is the name of the translation service -->
+	<!-- Screen reader description for the menu on the home timeline screen -->
+	<!-- %s is the name of the list -->
+	<!-- %s is a username -->
+	<!-- %s is a time interval ("5 months") -->
 </resources>

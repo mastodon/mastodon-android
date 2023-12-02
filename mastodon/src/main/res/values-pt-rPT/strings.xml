@@ -137,19 +137,7 @@
 	<string name="unfollow">Deixar de seguir</string>
 	<string name="back">Voltar</string>
 	<string name="password_note">Inclua letras maiúsculas, caracteres especiais e números para aumentar a força da sua senha.</string>
-	<string name="category_academia">Academia</string>
-	<string name="category_activism">Ativismo</string>
-	<string name="category_all">Tudo</string>
-	<string name="category_art">Arte</string>
-	<string name="category_food">Comida</string>
-	<string name="category_furry">Fofo</string>
-	<string name="category_games">Jogos</string>
 	<string name="category_general">Geral</string>
-	<string name="category_journalism">Jornalismo</string>
-	<string name="category_lgbt">LGBT</string>
-	<string name="category_music">Música</string>
-	<string name="category_regional">Regional</string>
-	<string name="category_tech">Tecnologia</string>
 	<!-- %s is the email address -->
 	<string name="resend">Reenviar</string>
 	<string name="open_email_app">Abrir aplicação de e-mail</string>
@@ -180,7 +168,6 @@
 	<string name="file_saved">Ficheiro guardado</string>
 	<string name="downloading">A transferir…</string>
 	<!-- %s is the server domain -->
-	<string name="see_new_posts">Ver novas publicações</string>
 	<string name="load_missing_posts">Carregar publicações em falta</string>
 	<string name="follow_back">Seguir de volta</string>
 	<string name="button_follow_pending">Pendente</string>
@@ -199,7 +186,6 @@
 		<item quantity="one">%,d favorito</item>
 		<item quantity="other">%,d favoritos</item>
 	</plurals>
-	<string name="timestamp_via_app">%1$s via %2$s</string>
 	<string name="time_now">agora</string>
 	<string name="edit_history">Editar histórico</string>
 	<string name="last_edit_at_x">Última edição: %s</string>
@@ -236,4 +222,8 @@
 	<!-- Shown in the post header. Please keep it short -->
 	<!-- %s is the name of the post language -->
 	<!-- %1$s is the language, %2$s is the name of the translation service -->
+	<!-- Screen reader description for the menu on the home timeline screen -->
+	<!-- %s is the name of the list -->
+	<!-- %s is a username -->
+	<!-- %s is a time interval ("5 months") -->
 </resources>

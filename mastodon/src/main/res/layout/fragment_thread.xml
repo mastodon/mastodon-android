@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<me.grishka.appkit.views.FragmentRootLinearLayout android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:orientation="vertical"
+	android:id="@+id/appkit_loader_root"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:background="?colorM3Surface">
+
+	<include layout="@layout/appkit_toolbar"/>
+
+	<FrameLayout
+		android:id="@+id/appkit_loader_content"
+		android:layout_width="match_parent"
+		android:layout_height="0dp"
+		android:layout_weight="1">
+
+		<include layout="@layout/loading"
+				 android:id="@+id/loading"/>
+
+		<ViewStub android:layout="?errorViewLayout"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+				 android:id="@+id/error"
+				 android:visibility="gone"/>
+
+		<View
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:id="@+id/content_stub"/>
+
+	</FrameLayout>
+
+	<View
+		android:layout_width="match_parent"
+		android:layout_height="0.5dp"
+		android:background="?colorM3OutlineVariant"/>
+
+	<FrameLayout
+		android:id="@+id/reply_button_wrapper"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:background="@drawable/bg_m3_surface2">
+		
+		<LinearLayout
+			android:id="@+id/reply_button"
+			android:layout_width="match_parent"
+			android:layout_height="40dp"
+			android:layout_marginHorizontal="16dp"
+			android:layout_marginVertical="8dp"
+			android:orientation="horizontal"
+			android:background="?colorM3SurfaceVariant"
+			android:foreground="@drawable/bg_rect_4dp_ripple"
+			android:foregroundTint="?colorM3OnSurfaceVariant"
+			android:padding="8dp">
+			
+			<ImageView
+				android:id="@+id/avatar"
+				android:layout_width="24dp"
+				android:layout_height="24dp"
+				android:layout_marginEnd="8dp"
+				android:importantForAccessibility="no"
+				android:scaleType="centerCrop"/>
+
+			<TextView
+				android:id="@+id/reply_btn_text"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center"
+				android:textAppearance="@style/m3_body_medium"
+				android:textColor="?colorM3OnSurfaceVariant"
+				android:singleLine="true"
+				android:ellipsize="end"
+				tools:text="Reply to ..."/>
+			
+		</LinearLayout>
+		
+	</FrameLayout>
+
+</me.grishka.appkit.views.FragmentRootLinearLayout>

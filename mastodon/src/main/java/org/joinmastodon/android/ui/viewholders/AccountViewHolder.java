@@ -44,6 +44,7 @@ import java.util.Objects;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 
+import androidx.annotation.LayoutRes;
 import me.grishka.appkit.Nav;
 import me.grishka.appkit.api.Callback;
 import me.grishka.appkit.api.ErrorResponse;
@@ -53,7 +54,7 @@ import me.grishka.appkit.views.UsableRecyclerView;
 
 public class AccountViewHolder extends BindableViewHolder<AccountViewModel> implements ImageLoaderViewHolder, UsableRecyclerView.Clickable, UsableRecyclerView.LongClickable{
 	private final TextView name, username, followers, verifiedLink, bio;
-	private final ImageView avatar;
+	public final ImageView avatar;
 	private final ProgressBarButton button;
 	private final PopupMenu contextMenu;
 	private final View menuAnchor;
@@ -75,7 +76,11 @@ public class AccountViewHolder extends BindableViewHolder<AccountViewModel> impl
 	private boolean checked;
 
 	public AccountViewHolder(Fragment fragment, ViewGroup list, HashMap<String, Relationship> relationships){
-		super(fragment.getActivity(), R.layout.item_account_list, list);
+		this(fragment, list, relationships, R.layout.item_account_list);
+	}
+
+	public AccountViewHolder(Fragment fragment, ViewGroup list, HashMap<String, Relationship> relationships, @LayoutRes int layout){
+		super(fragment.getActivity(), layout, list);
 		this.fragment=fragment;
 		this.accountID=Objects.requireNonNull(fragment.getArguments().getString("account"));
 		this.relationships=relationships;
@@ -111,24 +116,28 @@ public class AccountViewHolder extends BindableViewHolder<AccountViewModel> impl
 	public void onBind(AccountViewModel item){
 		name.setText(item.parsedName);
 		username.setText("@"+item.account.acct);
-		String followersStr=fragment.getResources().getQuantityString(R.plurals.x_followers, item.account.followersCount>1000 ? 999 : (int)item.account.followersCount);
-		String followersNum=UiUtils.abbreviateNumber(item.account.followersCount);
-		int index=followersStr.indexOf("%,d");
-		followersStr=followersStr.replace("%,d", followersNum);
-		SpannableStringBuilder followersFormatted=new SpannableStringBuilder(followersStr);
-		if(index!=-1){
-			followersFormatted.setSpan(mediumSpan, index, index+followersNum.length(), 0);
+		if(followers!=null){
+			String followersStr=fragment.getResources().getQuantityString(R.plurals.x_followers, item.account.followersCount>1000 ? 999 : (int)item.account.followersCount);
+			String followersNum=UiUtils.abbreviateNumber(item.account.followersCount);
+			int index=followersStr.indexOf("%,d");
+			followersStr=followersStr.replace("%,d", followersNum);
+			SpannableStringBuilder followersFormatted=new SpannableStringBuilder(followersStr);
+			if(index!=-1){
+				followersFormatted.setSpan(mediumSpan, index, index+followersNum.length(), 0);
+			}
+			followers.setText(followersFormatted);
 		}
-		followers.setText(followersFormatted);
-		boolean hasVerifiedLink=item.verifiedLink!=null;
-		if(!hasVerifiedLink)
-			verifiedLink.setText(R.string.no_verified_link);
-		else
-			verifiedLink.setText(item.verifiedLink);
-		verifiedLink.setCompoundDrawablesRelativeWithIntrinsicBounds(hasVerifiedLink ? R.drawable.ic_check_small_16px : R.drawable.ic_help_16px, 0, 0, 0);
-		int tintColor=UiUtils.getThemeColor(fragment.getActivity(), hasVerifiedLink ? R.attr.colorM3Primary : R.attr.colorM3Secondary);
-		verifiedLink.setTextColor(tintColor);
-		verifiedLink.setCompoundDrawableTintList(ColorStateList.valueOf(tintColor));
+		if(verifiedLink!=null){
+			boolean hasVerifiedLink=item.verifiedLink!=null;
+			if(!hasVerifiedLink)
+				verifiedLink.setText(R.string.no_verified_link);
+			else
+				verifiedLink.setText(item.verifiedLink);
+			verifiedLink.setCompoundDrawablesRelativeWithIntrinsicBounds(hasVerifiedLink ? R.drawable.ic_check_small_16px : R.drawable.ic_help_16px, 0, 0, 0);
+			int tintColor=UiUtils.getThemeColor(fragment.getActivity(), hasVerifiedLink ? R.attr.colorM3Primary : R.attr.colorM3Secondary);
+			verifiedLink.setTextColor(tintColor);
+			verifiedLink.setCompoundDrawableTintList(ColorStateList.valueOf(tintColor));
+		}
 		bindRelationship();
 		if(showBio){
 			bio.setText(item.parsedBio);
@@ -338,7 +347,7 @@ public class AccountViewHolder extends BindableViewHolder<AccountViewModel> impl
 		Menu menu=contextMenu.getMenu();
 		Account account=item.account;
 
-		menu.findItem(R.id.share).setTitle(fragment.getString(R.string.share_user, account.getDisplayUsername()));
+		menu.findItem(R.id.share).setTitle(R.string.share_user);
 		menu.findItem(R.id.mute).setTitle(fragment.getString(relationship.muting ? R.string.unmute_user : R.string.mute_user, account.getDisplayUsername()));
 		menu.findItem(R.id.block).setTitle(fragment.getString(relationship.blocking ? R.string.unblock_user : R.string.block_user, account.getDisplayUsername()));
 		menu.findItem(R.id.report).setTitle(fragment.getString(R.string.report_user, account.getDisplayUsername()));

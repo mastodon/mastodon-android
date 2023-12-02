@@ -163,19 +163,7 @@
 	<string name="password">Κωδικός πρόσβασης</string>
 	<string name="confirm_password">Επιβεβαίωση κωδικού πρόσβασης</string>
 	<string name="password_note">Να συμπεριλάβεις κεφαλαία γράμματα, ειδικούς χαρακτήρες και αριθμούς για να αυξήσεις την ισχύ του κωδικού πρόσβασης.</string>
-	<string name="category_academia">Ακαδημία</string>
-	<string name="category_activism">Ακτιβισμός</string>
-	<string name="category_all">Όλα</string>
-	<string name="category_art">Τέχνη</string>
-	<string name="category_food">Φαγητό</string>
-	<string name="category_furry">Γούνινη</string>
-	<string name="category_games">Παιχνίδια</string>
 	<string name="category_general">Γενικά</string>
-	<string name="category_journalism">Δημοσιογραφία</string>
-	<string name="category_lgbt">LGBT</string>
-	<string name="category_music">Μουσική</string>
-	<string name="category_regional">Τοπικό</string>
-	<string name="category_tech">Τεχνολογία</string>
 	<string name="confirm_email_title">Έλεγξε τα Εισερχόμενα σου</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">Πάτησε το σύνδεσμο που σού στείλαμε για να επαληθεύσεις το %s. Θα σε περιμένουμε εδώ.</string>
@@ -262,7 +250,7 @@
 	<!-- %s is the server domain -->
 	<string name="local_timeline_info_banner">Αυτές είναι όλες οι αναρτήσεις από όλους τους χρήστες στο διακομιστή σου (%s).</string>
 	<string name="recommended_accounts_info_banner">Μπορεί να σου αρέσουν αυτοί οι λογαριασμοί με βάση άλλους που ακολουθείς.</string>
-	<string name="see_new_posts">Δες νέες αναρτήσεις</string>
+	<string name="see_new_posts">Νέες αναρτήσεις</string>
 	<string name="load_missing_posts">Φόρτωση αναρτήσεων που λείπουν</string>
 	<string name="follow_back">Ακολούθησε και εσύ</string>
 	<string name="button_follow_pending">Εκκρεμεί</string>
@@ -285,7 +273,6 @@
 		<item quantity="one">%,d ενίσχυση</item>
 		<item quantity="other">%,d ενισχύσεις</item>
 	</plurals>
-	<string name="timestamp_via_app">%1$s μέσω %2$s</string>
 	<string name="time_now">τώρα</string>
 	<string name="edit_history">Επεξεργασία ιστορικού</string>
 	<string name="last_edit_at_x">Τελευταία επεξεργασία %s</string>
@@ -357,7 +344,6 @@
 	<string name="profile_add_row">Προσθήκη γραμμής</string>
 	<string name="profile_setup">Ρύθμιση προφίλ</string>
 	<string name="profile_setup_subtitle">Μπορείς πάντα να το ολοκληρώσεις αργότερα στην καρτέλα Προφίλ.</string>
-	<string name="profile_setup_explanation">Μπορείς να προσθέσεις έως και τέσσερα πεδία προφίλ για οτιδήποτε θες. Τοποθεσία, συνδέσμους, αντωνυμίες - δεν υπάρχουν όρια.</string>
 	<string name="popular_on_mastodon">Δημοφιλή στο Mastodon</string>
 	<string name="follow_all">Ακολούθησε όλους</string>
 	<string name="server_rules_disagree">Διαφωνώ</string>
@@ -599,4 +585,32 @@
 		<item quantity="one">%,d ανάρτηση σήμερα</item>
 		<item quantity="other">%,d αναρτήσεις σήμερα</item>
 	</plurals>
+	<string name="error_playing_video">Σφάλμα αναπαραγωγής βίντεο</string>
+	<string name="timeline_following">Αρχική</string>
+	<string name="lists">Λίστες</string>
+	<string name="followed_hashtags">Ετικέτες που ακολουθούνται</string>
+	<string name="manage_lists">Διαχείριση λιστών</string>
+	<string name="manage_hashtags">Διαχείριση ετικετών</string>
+	<!-- Screen reader description for the menu on the home timeline screen -->
+	<string name="dropdown_menu">Αναπτυσσόμενο μενού</string>
+	<string name="edit_list">Επεξεργασία λίστας</string>
+	<string name="list_members">Μέλη λίστας</string>
+	<string name="delete_list">Διαγραφή λίστας</string>
+	<!-- %s is the name of the list -->
+	<string name="delete_list_confirm">Διαγραφή “%s”;</string>
+	<string name="list_exclusive">Απόκρυψη μελών στο Ακολουθείς</string>
+	<string name="list_exclusive_subtitle">Αν κάποιος είναι σε αυτή τη λίστα, κρύψε τον στη ροή Ακολουθείς σας για να αποφεύγεις να βλέπεις τις αναρτήσεις του δύο φορές.</string>
+	<string name="list_name">Όνομα λίστας</string>
+	<string name="list_show_replies_to">Εμφάνιση απαντήσεων σε</string>
+	<string name="list_replies_no_one">Κανένας</string>
+	<string name="list_replies_members">Μέλη της λίστας</string>
+	<string name="list_replies_anyone">Όποιον ακολουθώ</string>
+	<string name="confirm_remove_list_members">Αφαίρεση μελών;</string>
+	<string name="remove">Αφαίρεση</string>
+	<string name="add_list_member">Προσθήκη μέλους</string>
+	<string name="search_among_people_you_follow">Αναζήτησε μεταξύ των ανθρώπων που ακουλουθείς</string>
+	<string name="add_user_to_list">Προσθήκη στη λίστα…</string>
+	<string name="add_user_to_list_title">Προσθήκη στη λίστα</string>
+	<!-- %s is a username -->
+	<!-- %s is a time interval ("5 months") -->
 </resources>

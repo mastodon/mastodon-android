@@ -151,19 +151,7 @@
 	<string name="password">パスワード</string>
 	<string name="confirm_password">パスワードの確認</string>
 	<string name="password_note">パスワードの強度を高めるため、英大文字・数字・特殊文字を含めてください。</string>
-	<string name="category_academia">学問</string>
-	<string name="category_activism">社会運動</string>
-	<string name="category_all">すべて</string>
-	<string name="category_art">芸術</string>
-	<string name="category_food">食べ物</string>
-	<string name="category_furry">動物</string>
-	<string name="category_games">ゲーム</string>
 	<string name="category_general">一般</string>
-	<string name="category_journalism">ジャーナリズム</string>
-	<string name="category_lgbt">LGBT</string>
-	<string name="category_music">音楽</string>
-	<string name="category_regional">地域</string>
-	<string name="category_tech">技術</string>
 	<string name="confirm_email_title">確認のメールを送信しました</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">%s を認証するためのリンクをメールで送信しました。リンクをタップしてメールアドレスを認証し、この画面に戻ってきてください。</string>
@@ -249,7 +237,7 @@
 	<!-- %s is the server domain -->
 	<string name="local_timeline_info_banner">あなたのサーバー (%s) の全ユーザーの全投稿です。</string>
 	<string name="recommended_accounts_info_banner">こちらは、あなたがフォローしている人に基づいた、おすすめのアカウントです。</string>
-	<string name="see_new_posts">新しい投稿を見る</string>
+	<string name="see_new_posts">新しい投稿</string>
 	<string name="load_missing_posts">不足している投稿を読み込む</string>
 	<string name="follow_back">フォローバック</string>
 	<string name="button_follow_pending">保留</string>
@@ -268,7 +256,6 @@
 	<plurals name="x_reblogs">
 		<item quantity="other">ブースト %,d 件</item>
 	</plurals>
-	<string name="timestamp_via_app">%1$s に %2$s から投稿</string>
 	<string name="time_now">今</string>
 	<string name="edit_history">編集履歴</string>
 	<string name="last_edit_at_x">最終更新 %s</string>
@@ -338,7 +325,6 @@
 	<string name="profile_add_row">フィールドを追加</string>
 	<string name="profile_setup">プロフィールの設定</string>
 	<string name="profile_setup_subtitle">プロフィール画面であとから設定することもできます。</string>
-	<string name="profile_setup_explanation">プロフィールには 4 つまでフィールドを追加できます。現在地やウェブサイト、座右の銘など、なんでも自由に書いてみましょう。</string>
 	<string name="popular_on_mastodon">人気のアカウント</string>
 	<string name="follow_all">すべてフォロー</string>
 	<string name="server_rules_disagree">同意しない</string>
@@ -568,4 +554,71 @@
 	<plurals name="x_posts_today">
 		<item quantity="other">今日の投稿 %,d 件</item>
 	</plurals>
+	<string name="error_playing_video">動画再生に失敗しました</string>
+	<string name="timeline_following">ホーム</string>
+	<string name="lists">リスト</string>
+	<string name="followed_hashtags">フォロー中のハッシュタグ</string>
+	<string name="manage_lists">リストを管理</string>
+	<string name="manage_hashtags">ハッシュタグを管理</string>
+	<!-- Screen reader description for the menu on the home timeline screen -->
+	<string name="dropdown_menu">ドロップダウンメニュー</string>
+	<string name="edit_list">リストを編集</string>
+	<string name="list_members">リストのメンバー</string>
+	<string name="delete_list">リストを削除</string>
+	<!-- %s is the name of the list -->
+	<string name="delete_list_confirm">「%s」を削除しますか？</string>
+	<string name="list_exclusive">フォロー中のメンバーを非表示</string>
+	<string name="list_exclusive_subtitle">このリストに誰かが表示されている場合は、フォロー中タイムラインで投稿を 2 回表示しないように非表示にしてください。</string>
+	<string name="list_name">リスト名</string>
+	<string name="list_show_replies_to">リプライを表示</string>
+	<string name="list_replies_no_one">なし</string>
+	<string name="list_replies_members">リストのメンバー</string>
+	<string name="list_replies_anyone">フォローしている人</string>
+	<string name="confirm_remove_list_members">メンバーを削除しますか？</string>
+	<string name="remove">削除</string>
+	<string name="add_list_member">メンバーを追加</string>
+	<string name="search_among_people_you_follow">フォローしている人の中から検索</string>
+	<string name="add_user_to_list">リストに追加…</string>
+	<string name="add_user_to_list_title">リストに追加</string>
+	<!-- %s is a username -->
+	<string name="manage_user_lists">%s さんが表示されるリストを管理</string>
+	<string name="remove_from_list">リストから外す</string>
+	<string name="confirm_remove_list_member">メンバーを削除しますか？</string>
+	<string name="no_followed_hashtags_title">ハッシュタグをフォローして関心を持ち続けましょう</string>
+	<string name="no_followed_hashtags_subtitle">ここにフォローが表示されます</string>
+	<string name="no_lists_title">リストでホームフィードを整理する</string>
+	<string name="no_lists_subtitle">ここにリストが表示されます</string>
+	<string name="manage_accounts">アカウントの追加または切り替え</string>
+	<plurals name="x_posts_recently">
+		<item quantity="other">最近の投稿 %,d 件</item>
+	</plurals>
+	<string name="create_list">リストを作成</string>
+	<string name="step_x_of_y">%2$d ステップの %1$d</string>
+	<string name="create">作成</string>
+	<string name="manage_list_members">リストのメンバーを管理</string>
+	<string name="list_no_members">まだメンバーがいません</string>
+	<string name="list_find_users">追加したいユーザーを探す</string>
+	<string name="reply_to_user">%s に返信</string>
+	<string name="posted_at">%s に投稿しました</string>
+	<string name="non_mutual_sheet_title">新しい関係を始めよう！</string>
+	<string name="non_mutual_sheet_text">相互フォローでない誰かに返信しようとしているようです。素晴らしい第一印象を与えましょう。</string>
+	<string name="got_it">了解</string>
+	<string name="dont_remind_again">次回からリマインドしない</string>
+	<!-- %s is a time interval ("5 months") -->
+	<string name="old_post_sheet_title">この投稿から %s 経過しています</string>
+	<string name="old_post_sheet_text">まだ返信することはできますが、関連性がなくなっているかもしれません。</string>
+	<plurals name="x_months">
+		<item quantity="other">%,d か月</item>
+	</plurals>
+	<string name="more_than_two_years">2 年以上</string>
+	<string name="non_mutual_title1">尊重し合う姿勢と関連性を意識しましょう</string>
+	<string name="non_mutual_text1">返信が失礼でないか、話題から逸れていないかを確認してください。</string>
+	<string name="non_mutual_title2">優しさを持ちましょう</string>
+	<string name="non_mutual_text2">ポジティブなトーンは常に好まれます。</string>
+	<string name="non_mutual_title3">オープンでいましょう</string>
+	<string name="non_mutual_text3">会話スタイルは十人十色です。適応する準備をしておきましょう。</string>
+	<string name="make_profile_discoverable">プロフィールを見つけられるようにする</string>
+	<string name="discoverability">見つけられやすさ</string>
+	<string name="discoverability_help">Mastodon で見つけられやすさをオプトインにすると、投稿を検索結果やトレンドに表示することがあります。\n\nあなたと似た興味を持つ人にプロフィールが候補表示されることもあります。\n\nオプトアウトしても、名前で検索された場合はプロフィールが表示されます。</string>
+	<string name="app_version_copied">バージョン番号をクリップボードにコピーしました</string>
 </resources>

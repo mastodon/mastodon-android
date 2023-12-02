@@ -187,19 +187,7 @@
 	<string name="password">Пароль</string>
 	<string name="confirm_password">Подтверждение пароля</string>
 	<string name="password_note">Используйте заглавные буквы, числа и специальные символы, чтобы повысить стойкость пароля.</string>
-	<string name="category_academia">Академия</string>
-	<string name="category_activism">Активизм</string>
-	<string name="category_all">Все</string>
-	<string name="category_art">Искусство</string>
-	<string name="category_food">Еда</string>
-	<string name="category_furry">Фурри</string>
-	<string name="category_games">Игры</string>
 	<string name="category_general">Общей тематики</string>
-	<string name="category_journalism">Журнализм</string>
-	<string name="category_lgbt">ЛГБТ</string>
-	<string name="category_music">Музыка</string>
-	<string name="category_regional">Региональные</string>
-	<string name="category_tech">Технологии</string>
 	<string name="confirm_email_title">Проверьте входящие сообщения</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">Нажмите на ссылку, которую мы вам отправили, чтобы подтвердить %s. Мы подождем здесь.</string>
@@ -282,13 +270,13 @@
 	<string name="file_saved">Файл сохранён</string>
 	<string name="downloading">Скачивание…</string>
 	<string name="no_app_to_handle_action">Нет приложения для обработки этого действия</string>
-	<string name="local_timeline">Локальные</string>
+	<string name="local_timeline">Локальная</string>
 	<string name="trending_posts_info_banner">Эти посты набирают популярность в Mastodon.</string>
 	<string name="trending_links_info_banner">Это новости, о которых говорят в Mastodon.</string>
 	<!-- %s is the server domain -->
 	<string name="local_timeline_info_banner">Это все посты от всех пользователей на вашем сервере (%s).</string>
 	<string name="recommended_accounts_info_banner">Вам могут понравиться эти учетные записи, основаные на ваших подписках.</string>
-	<string name="see_new_posts">Показать новые</string>
+	<string name="see_new_posts">Новые посты</string>
 	<string name="load_missing_posts">Загрузить недостающие посты</string>
 	<string name="follow_back">Подписаться в ответ</string>
 	<string name="button_follow_pending">В ожидании</string>
@@ -319,7 +307,6 @@
 		<item quantity="many">%,d продвинуто</item>
 		<item quantity="other">%,d продвинутых</item>
 	</plurals>
-	<string name="timestamp_via_app">%1$s через %2$s</string>
 	<string name="time_now">только что</string>
 	<string name="edit_history">История изменений</string>
 	<string name="last_edit_at_x">Последнее изменение: %s</string>
@@ -395,7 +382,6 @@
 	<string name="profile_add_row">Добавить строку</string>
 	<string name="profile_setup">Настройка профиля</string>
 	<string name="profile_setup_subtitle">Вы всегда можете завершить это позже на вкладке Профиль.</string>
-	<string name="profile_setup_explanation">Вы можете добавить до четырех полей профиля для всего, что хотите. Местоположение, ссылки, местоимения — нет предела возможностям.</string>
 	<string name="popular_on_mastodon">Популярно на Mastodon</string>
 	<string name="follow_all">Подписаться на всех</string>
 	<string name="server_rules_disagree">Отклонить</string>
@@ -591,10 +577,10 @@
 	<string name="selection_2_options">%1$s и %2$s</string>
 	<string name="selection_3_options">%1$s, %2$s и %3$s</string>
 	<string name="selection_4_or_more">%1$s, %2$s и ещё %3$d</string>
-	<string name="filter_context_home_lists">Главная &amp; списки</string>
+	<string name="filter_context_home_lists">Главная и списки</string>
 	<string name="filter_context_notifications">Уведомления</string>
 	<string name="filter_context_public_timelines">Публичная лента</string>
-	<string name="filter_context_threads_replies">Темы &amp; ответы</string>
+	<string name="filter_context_threads_replies">Темы и ответы</string>
 	<string name="filter_context_profiles">Профили</string>
 	<string name="settings_filter_title">Название</string>
 	<string name="settings_delete_filter_title">Удалить фильтр “%s”?</string>
@@ -661,4 +647,77 @@
 		<item quantity="many">%,d постов сегодня</item>
 		<item quantity="other">%,d постов сегодня</item>
 	</plurals>
+	<string name="error_playing_video">Ошибка воспроизведения видео</string>
+	<string name="timeline_following">Главная</string>
+	<string name="lists">Списки</string>
+	<string name="followed_hashtags">Отслеживаемые хэштеги</string>
+	<string name="manage_lists">Управление списками</string>
+	<string name="manage_hashtags">Управление хэштегами</string>
+	<!-- Screen reader description for the menu on the home timeline screen -->
+	<string name="dropdown_menu">Выпадающее меню</string>
+	<string name="edit_list">Изменить список</string>
+	<string name="list_members">Список участников</string>
+	<string name="delete_list">Удалить список</string>
+	<!-- %s is the name of the list -->
+	<string name="delete_list_confirm">Удалить “%s”?</string>
+	<string name="list_exclusive">Скрыть участников в подписках</string>
+	<string name="list_exclusive_subtitle">Если кто-то есть в этом списке, скройте его в ленте подписок, чтобы его посты не появлялись дважды.</string>
+	<string name="list_name">Название списка</string>
+	<string name="list_show_replies_to">Показывать</string>
+	<string name="list_replies_no_one">Никого</string>
+	<string name="list_replies_members">Участников списка</string>
+	<string name="list_replies_anyone">Любого, на кого я подписан(а)</string>
+	<string name="confirm_remove_list_members">Удалить участников?</string>
+	<string name="remove">Удалить</string>
+	<string name="add_list_member">Добавить участника</string>
+	<string name="search_among_people_you_follow">Искать среди подписок</string>
+	<string name="add_user_to_list">Добавить в список…</string>
+	<string name="add_user_to_list_title">Добавить в список</string>
+	<!-- %s is a username -->
+	<string name="manage_user_lists">Управлять списками с %s</string>
+	<string name="remove_from_list">Удалить из списка</string>
+	<string name="confirm_remove_list_member">Удалить участника?</string>
+	<string name="no_followed_hashtags_title">Следите за интересами по хэштегам</string>
+	<string name="no_followed_hashtags_subtitle">Здесь появятся хэштеги</string>
+	<string name="no_lists_title">Организуйте свою ленту с помощью списков</string>
+	<string name="no_lists_subtitle">Здесь появятся списки</string>
+	<string name="manage_accounts">Добавить или переключить аккаунты</string>
+	<plurals name="x_posts_recently">
+		<item quantity="one">%,d пост недавно</item>
+		<item quantity="few">%,d поста недавно</item>
+		<item quantity="many">%,d постов недавно</item>
+		<item quantity="other">%,d постов недавно</item>
+	</plurals>
+	<string name="create_list">Создать список</string>
+	<string name="step_x_of_y">Шаг %1$d из %2$d</string>
+	<string name="create">Создать</string>
+	<string name="manage_list_members">Управление списоком участников</string>
+	<string name="list_no_members">Участников пока нет</string>
+	<string name="list_find_users">Найти пользователей для добавления</string>
+	<string name="reply_to_user">Ответить %s</string>
+	<string name="posted_at">Пост в %s</string>
+	<string name="non_mutual_sheet_title">Привет, новый контакт!</string>
+	<string name="non_mutual_sheet_text">Похоже, вы собираетесь ответить кому-то, с кем у вас пока не было контакта. Давайте произведем хорошее первое впечатление.</string>
+	<string name="got_it">Понятно</string>
+	<string name="dont_remind_again">Больше не напоминать</string>
+	<!-- %s is a time interval ("5 months") -->
+	<string name="old_post_sheet_title">Этому посту больше чем %s</string>
+	<string name="old_post_sheet_text">Вы все еще можете ответить, но это может быть уже неактуально.</string>
+	<plurals name="x_months">
+		<item quantity="one">%,d месяц</item>
+		<item quantity="few">%,d месяца</item>
+		<item quantity="many">%,d месяцев</item>
+		<item quantity="other">%,d месяцев</item>
+	</plurals>
+	<string name="more_than_two_years">2 года и более</string>
+	<string name="non_mutual_title1">Оставайтесь уважительными и уместными</string>
+	<string name="non_mutual_text1">Убедитесь, что ваш ответ вежлив и по теме.</string>
+	<string name="non_mutual_title2">Примите доброту</string>
+	<string name="non_mutual_text2">Позитивный тон всегда приветствуется.</string>
+	<string name="non_mutual_title3">Будьте открыты</string>
+	<string name="non_mutual_text3">У каждого свой стиль общения. Будьте к этому готовы.</string>
+	<string name="make_profile_discoverable">Сделать мой профиль открытым</string>
+	<string name="discoverability">Открытость</string>
+	<string name="discoverability_help">Когда вы станете открыты для просмотра на Mastodon, ваши посты могут появляться в результатах поиска и в трендах.\n\nВаш профиль может быть предложен людям со схожими с вами интересами.\n\nОткажитесь скрывать свой профиль, если кто-то ищет вас по имени.</string>
+	<string name="app_version_copied">Номер версии скопирован в буфер обмена</string>
 </resources>

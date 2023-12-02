@@ -408,7 +408,7 @@ public class SearchQueryFragment extends MastodonRecyclerFragment<SearchResultVi
 		if(q.lastIndexOf('@')==0){
 			q+="@"+AccountSessionManager.get(accountID).domain;
 		}
-		((MainActivity)getActivity()).openSearchQuery(q, accountID, R.string.loading, true);
+		((MainActivity)getActivity()).openSearchQuery(q, accountID, R.string.loading, true, GetSearchResults.Type.ACCOUNTS);
 	}
 
 	private void onGoToStatusSearchClick(ListItem<?> item_){

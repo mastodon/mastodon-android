@@ -15,7 +15,9 @@
 	<attr name="colorM3Background" format="color"/>
 	<attr name="colorM3OnBackground" format="color"/>
 	<attr name="colorM3Surface" format="color"/>
+	<attr name="colorM3SurfaceInverse" format="color"/>
 	<attr name="colorM3OnSurface" format="color"/>
+	<attr name="colorM3OnSurfaceInverse" format="color"/>
 	<attr name="colorM3SurfaceVariant" format="color"/>
 	<attr name="colorM3OnSurfaceVariant" format="color"/>
 	<attr name="colorM3Outline" format="color"/>
@@ -46,5 +48,15 @@
 
 	<declare-styleable name="NestedRecyclerScrollView">
 		<attr name="takePriorityOverChildViews" format="boolean"/>
+	</declare-styleable>
+
+	<declare-styleable name="WrappingLinearLayout">
+		<attr name="android:verticalGap" format="dimension"/>
+		<attr name="android:horizontalGap" format="dimension"/>
+	</declare-styleable>
+
+	<declare-styleable name="FixedAspectRatioImageView">
+		<attr name="aspectRatio" format="float"/>
+		<attr name="useHeight" format="boolean"/>
 	</declare-styleable>
 </resources>

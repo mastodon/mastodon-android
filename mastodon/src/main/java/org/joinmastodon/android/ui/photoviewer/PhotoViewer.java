@@ -13,6 +13,7 @@ import android.graphics.Insets;
 import android.graphics.PixelFormat;
 import android.graphics.Rect;
 import android.graphics.SurfaceTexture;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.media.AudioManager;
@@ -533,23 +534,31 @@ public class PhotoViewer implements ZoomPanView.Listener{
 		}
 	}
 
-	private MediaPlayer findCurrentVideoPlayer(){
+	private GifVViewHolder findCurrentVideoPlayerHolder(){
 		RecyclerView rv=(RecyclerView) pager.getChildAt(0);
 		if(rv.findViewHolderForAdapterPosition(pager.getCurrentItem()) instanceof GifVViewHolder vvh && vvh.playerReady){
-			return vvh.player;
+			return vvh;
 		}
 		return null;
 	}
 
+	private MediaPlayer findCurrentVideoPlayer(){
+		GifVViewHolder holder=findCurrentVideoPlayerHolder();
+		return holder!=null ? holder.player : null;
+	}
+
 	private void pauseVideo(){
-		MediaPlayer player=findCurrentVideoPlayer();
-		if(player==null || !player.isPlaying())
+		GifVViewHolder holder=findCurrentVideoPlayerHolder();
+		if(holder==null || !holder.player.isPlaying())
 			return;
-		player.pause();
+		holder.player.pause();
 		videoPlayPauseButton.setImageResource(R.drawable.ic_play_24);
 		videoPlayPauseButton.setContentDescription(activity.getString(R.string.play));
 		stopUpdatingVideoPosition();
 		windowView.removeCallbacks(uiAutoHider);
+		// Some MediaPlayer implementations clear the texture when the app goes into background.
+		// This makes sure the frame on which the video was paused is retained on the screen.
+		holder.wrap.setBackground(new BitmapDrawable(holder.textureView.getBitmap()));
 	}
 
 	private void resumeVideo(){
@@ -817,7 +826,10 @@ public class PhotoViewer implements ZoomPanView.Listener{
 
 		@Override
 		public void onSurfaceTextureUpdated(@NonNull SurfaceTexture surface){
-
+			// A new frame of video was rendered. Clear the thumbnail or paused frame, if any, to avoid overdraw and free up some memory.
+			if(player.isPlaying() && wrap.getBackground()!=null){
+				wrap.setBackground(null);
+			}
 		}
 
 		private void startPlayer(){

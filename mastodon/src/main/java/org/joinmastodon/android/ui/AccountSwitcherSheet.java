@@ -60,6 +60,7 @@ public class AccountSwitcherSheet extends BottomSheet{
 	private UsableRecyclerView list;
 	private List<WrappedAccount> accounts;
 	private ListImageLoaderWrapper imgLoader;
+	private Runnable onLoggedOutCallback;
 
 	public AccountSwitcherSheet(@NonNull Activity activity, @Nullable HomeFragment fragment){
 		super(activity);
@@ -95,6 +96,11 @@ public class AccountSwitcherSheet extends BottomSheet{
 				UiUtils.getThemeColor(activity, R.attr.colorM3Primary), 0.05f)), !UiUtils.isDarkTheme());
 	}
 
+	public AccountSwitcherSheet setOnLoggedOutCallback(Runnable onLoggedOutCallback){
+		this.onLoggedOutCallback=onLoggedOutCallback;
+		return this;
+	}
+
 	private void confirmLogOut(String accountID){
 		AccountSession session=AccountSessionManager.getInstance().getAccount(accountID);
 		new M3AlertDialogBuilder(activity)
@@ -113,7 +119,10 @@ public class AccountSwitcherSheet extends BottomSheet{
 	}
 
 	private void logOut(String accountID){
+		String activeAccount=AccountSessionManager.getInstance().getLastActiveAccountID();
 		AccountSessionManager.get(accountID).logOut(activity, ()->{
+			if(accountID.equals(activeAccount) && onLoggedOutCallback!=null)
+				onLoggedOutCallback.run();
 			dismiss();
 			((MainActivity)activity).restartHomeFragment();
 		});
@@ -133,6 +142,8 @@ public class AccountSwitcherSheet extends BottomSheet{
 							AccountSessionManager.getInstance().removeAccount(session.getID());
 							sessions.remove(session);
 							if(sessions.isEmpty()){
+								if(onLoggedOutCallback!=null)
+									onLoggedOutCallback.run();
 								progress.dismiss();
 								Nav.goClearingStack(activity, SplashFragment.class, null);
 								dismiss();
@@ -144,6 +155,8 @@ public class AccountSwitcherSheet extends BottomSheet{
 							AccountSessionManager.getInstance().removeAccount(session.getID());
 							sessions.remove(session);
 							if(sessions.isEmpty()){
+								if(onLoggedOutCallback!=null)
+									onLoggedOutCallback.run();
 								progress.dismiss();
 								Nav.goClearingStack(activity, SplashFragment.class, null);
 								dismiss();

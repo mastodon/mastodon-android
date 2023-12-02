@@ -1,5 +1,6 @@
 package org.joinmastodon.android.model.viewmodel;
 
+import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 
 import org.joinmastodon.android.GlobalUserPreferences;
@@ -7,6 +8,7 @@ import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.AccountField;
 import org.joinmastodon.android.ui.text.HtmlParser;
+import org.joinmastodon.android.ui.text.LinkSpan;
 import org.joinmastodon.android.ui.utils.CustomEmojiHelper;
 
 import java.util.Collections;
@@ -30,7 +32,7 @@ public class AccountViewModel{
 			parsedName=HtmlParser.parseCustomEmoji(account.displayName, account.emojis);
 		else
 			parsedName=account.displayName;
-		parsedBio=HtmlParser.parse(account.note, account.emojis, Collections.emptyList(), Collections.emptyList(), accountID);
+		parsedBio=HtmlParser.parse(account.note, account.emojis, Collections.emptyList(), Collections.emptyList(), accountID, account);
 		SpannableStringBuilder ssb=new SpannableStringBuilder(parsedName);
 		ssb.append(parsedBio);
 		emojiHelper.setText(ssb);
@@ -42,5 +44,14 @@ public class AccountViewModel{
 			}
 		}
 		this.verifiedLink=verifiedLink;
+	}
+
+	public AccountViewModel stripLinksFromBio(){
+		if(parsedBio instanceof Spannable spannable){
+			for(LinkSpan span:spannable.getSpans(0, spannable.length(), LinkSpan.class)){
+				spannable.removeSpan(span);
+			}
+		}
+		return this;
 	}
 }

@@ -45,12 +45,14 @@ import android.widget.Toolbar;
 
 import org.joinmastodon.android.E;
 import org.joinmastodon.android.GlobalUserPreferences;
+import org.joinmastodon.android.MainActivity;
 import org.joinmastodon.android.MastodonApp;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.requests.accounts.SetAccountBlocked;
 import org.joinmastodon.android.api.requests.accounts.SetAccountFollowed;
 import org.joinmastodon.android.api.requests.accounts.SetAccountMuted;
 import org.joinmastodon.android.api.requests.accounts.SetDomainBlocked;
+import org.joinmastodon.android.api.requests.search.GetSearchResults;
 import org.joinmastodon.android.api.requests.statuses.DeleteStatus;
 import org.joinmastodon.android.api.requests.statuses.GetStatusByID;
 import org.joinmastodon.android.api.session.AccountSessionManager;
@@ -63,6 +65,7 @@ import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.Emoji;
 import org.joinmastodon.android.model.Hashtag;
 import org.joinmastodon.android.model.Relationship;
+import org.joinmastodon.android.model.SearchResults;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.M3AlertDialogBuilder;
 import org.joinmastodon.android.ui.text.CustomEmojiSpan;
@@ -80,6 +83,7 @@ import java.time.format.FormatStyle;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.function.BiPredicate;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
@@ -613,12 +617,18 @@ public class UiUtils{
 		return GlobalUserPreferences.theme==GlobalUserPreferences.ThemePreference.DARK;
 	}
 
-	public static void openURL(Context context, String accountID, String url){
+	public static void openURL(Context context, String accountID, String url, Object parentObject){
+		String objectURL=null;
+		if(parentObject instanceof Status s){
+			objectURL=s.url;
+		}else if(parentObject instanceof Account a){
+			objectURL=a.url;
+		}
 		Uri uri=Uri.parse(url);
-		if(accountID!=null && "https".equals(uri.getScheme()) && AccountSessionManager.getInstance().getAccount(accountID).domain.equalsIgnoreCase(uri.getAuthority())){
+		if(accountID!=null && "https".equals(uri.getScheme()) && !Objects.equals(url, objectURL)){
 			List<String> path=uri.getPathSegments();
-			// Match URLs like https://mastodon.social/@Gargron/108132679274083591
-			if(path.size()==2 && path.get(0).matches("^@[a-zA-Z0-9_]+$") && path.get(1).matches("^[0-9]+$")){
+			if(AccountSessionManager.getInstance().getAccount(accountID).domain.equalsIgnoreCase(uri.getAuthority()) && path.size()==2 && path.get(0).matches("^@[a-zA-Z0-9_]+$") && path.get(1).matches("^[0-9]+$")){
+				// Match URLs like https://mastodon.social/@Gargron/108132679274083591
 				new GetStatusByID(path.get(1))
 						.setCallback(new Callback<>(){
 							@Override
@@ -632,6 +642,42 @@ public class UiUtils{
 							@Override
 							public void onError(ErrorResponse error){
 								error.showToast(context);
+								launchWebBrowser(context, url);
+							}
+						})
+						.wrapProgress((Activity)context, R.string.loading, true)
+						.exec(accountID);
+				return;
+			}else{
+				new GetSearchResults(url, null, true, null, 0, 0)
+						.setCallback(new Callback<>(){
+							@Override
+							public void onSuccess(SearchResults result){
+								Bundle args=new Bundle();
+								args.putString("account", accountID);
+								if(result.statuses!=null && !result.statuses.isEmpty()){
+									Status s=result.statuses.get(0);
+									if(parentObject instanceof Status status && s.id.equals(status.id)){
+										launchWebBrowser(context, url);
+										return;
+									}
+									args.putParcelable("status", Parcels.wrap(s));
+									Nav.go((Activity)context, ThreadFragment.class, args);
+								}else if(result.accounts!=null && !result.accounts.isEmpty()){
+									Account a=result.accounts.get(0);
+									if(parentObject instanceof Account account && a.id.equals(account.id)){
+										launchWebBrowser(context, url);
+										return;
+									}
+									args.putParcelable("profileAccount", Parcels.wrap(a));
+									Nav.go((Activity)context, ProfileFragment.class, args);
+								}else{
+									launchWebBrowser(context, url);
+								}
+							}
+
+							@Override
+							public void onError(ErrorResponse error){
 								launchWebBrowser(context, url);
 							}
 						})
@@ -654,6 +700,10 @@ public class UiUtils{
 
 	public static boolean isMIUI(){
 		return !TextUtils.isEmpty(getSystemProperty("ro.miui.ui.version.code"));
+	}
+
+	public static boolean isEMUI() {
+		return !TextUtils.isEmpty(getSystemProperty("ro.build.version.emui"));
 	}
 
 	public static int alphaBlendColors(int color1, int color2, float alpha){
@@ -801,5 +851,19 @@ public class UiUtils{
 		if(Build.VERSION.SDK_INT<=Build.VERSION_CODES.S_V2){
 			Toast.makeText(context, R.string.text_copied, Toast.LENGTH_SHORT).show();
 		}
+	}
+
+	public static void setAllPaddings(View view, int paddingDp){
+		int pad=V.dp(paddingDp);
+		view.setPadding(pad, pad, pad, pad);
+	}
+
+	public static ViewGroup.MarginLayoutParams makeLayoutParams(int width, int height, int marginStart, int marginTop, int marginEnd, int marginBottom){
+		ViewGroup.MarginLayoutParams lp=new ViewGroup.MarginLayoutParams(width>0 ? V.dp(width) : width, height>0 ? V.dp(height) : height);
+		lp.topMargin=V.dp(marginTop);
+		lp.bottomMargin=V.dp(marginBottom);
+		lp.setMarginStart(V.dp(marginStart));
+		lp.setMarginEnd(V.dp(marginEnd));
+		return lp;
 	}
 }

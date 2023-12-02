@@ -105,7 +105,7 @@
 	<string name="log_out">注销</string>
 	<string name="add_account">添加账户</string>
 	<string name="search_hint">搜索</string>
-	<string name="hashtags">话题</string>
+	<string name="hashtags">标签</string>
 	<string name="news">新闻</string>
 	<string name="for_you">推荐关注</string>
 	<string name="all_notifications">全部</string>
@@ -151,19 +151,7 @@
 	<string name="password">密码</string>
 	<string name="confirm_password">确认密码</string>
 	<string name="password_note">包括大写字母、特殊字符和数字以增加你的密码强度。</string>
-	<string name="category_academia">学术</string>
-	<string name="category_activism">行动主义</string>
-	<string name="category_all">全部</string>
-	<string name="category_art">艺术</string>
-	<string name="category_food">美食</string>
-	<string name="category_furry">兽迷</string>
-	<string name="category_games">游戏</string>
 	<string name="category_general">通用</string>
-	<string name="category_journalism">新闻</string>
-	<string name="category_lgbt">性少数</string>
-	<string name="category_music">音乐</string>
-	<string name="category_regional">地区</string>
-	<string name="category_tech">科技</string>
 	<string name="confirm_email_title">检查你的收件箱</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">点击我们发送给你的链接来验证 %s。我们在此守候。</string>
@@ -249,7 +237,6 @@
 	<!-- %s is the server domain -->
 	<string name="local_timeline_info_banner">以下是来自你所在实例（%s）的所有嘟文。</string>
 	<string name="recommended_accounts_info_banner">根据你所关注的，你或许也会喜欢这些用户。</string>
-	<string name="see_new_posts">查看新嘟文</string>
 	<string name="load_missing_posts">加载嘟文</string>
 	<string name="follow_back">关注</string>
 	<string name="button_follow_pending">已发送关注请求</string>
@@ -268,7 +255,6 @@
 	<plurals name="x_reblogs">
 		<item quantity="other">%d 次转嘟</item>
 	</plurals>
-	<string name="timestamp_via_app">%1$s 来自 %2$s</string>
 	<string name="time_now">刚刚</string>
 	<string name="edit_history">编辑记录</string>
 	<string name="last_edit_at_x">编辑于 %s</string>
@@ -338,7 +324,6 @@
 	<string name="profile_add_row">添加</string>
 	<string name="profile_setup">个人资料设定</string>
 	<string name="profile_setup_subtitle">你可以随时在个人资料标签中进行补充。</string>
-	<string name="profile_setup_explanation">你可以将任何你喜欢的信息填入这四个字段。地点、链接、人称代词——请发挥想象。</string>
 	<string name="popular_on_mastodon">Mastodon上流行的</string>
 	<string name="follow_all">全部关注</string>
 	<string name="server_rules_disagree">不同意</string>
@@ -561,4 +546,26 @@
 	<string name="settings_privacy">隐私与可达性</string>
 	<string name="settings_discoverable">在发现算法中展示您的个人资料和嘟文</string>
 	<string name="settings_indexable">将您的公开嘟文纳入搜索范围</string>
+	<string name="error_playing_video">播放视频出错</string>
+	<string name="timeline_following">主页</string>
+	<string name="lists">列表</string>
+	<string name="followed_hashtags">关注的标签</string>
+	<string name="manage_hashtags">管理标签</string>
+	<!-- Screen reader description for the menu on the home timeline screen -->
+	<string name="dropdown_menu">下拉菜单</string>
+	<string name="edit_list">编辑列表</string>
+	<string name="list_members">列表成员</string>
+	<!-- %s is the name of the list -->
+	<string name="list_exclusive_subtitle">列表成员不显示在主页时间线上，以免重复看到嘟文</string>
+	<string name="list_name">列表名</string>
+	<string name="remove">移除</string>
+	<!-- %s is a username -->
+	<string name="confirm_remove_list_member">移除成员？</string>
+	<string name="manage_accounts">管理账户</string>
+	<string name="create_list">创建列表</string>
+	<string name="create">创建</string>
+	<string name="dont_remind_again">不再提醒</string>
+	<!-- %s is a time interval ("5 months") -->
+	<string name="non_mutual_title1">保持尊重 &amp; 切题</string>
+	<string name="non_mutual_text1">确保您的回复礼貌且切题。</string>
 </resources>

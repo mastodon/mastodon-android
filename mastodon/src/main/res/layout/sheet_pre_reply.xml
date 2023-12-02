@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<org.joinmastodon.android.ui.views.CustomScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:background="@drawable/bg_bottom_sheet">
+	<RelativeLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:paddingHorizontal="16dp">
+
+		<View
+			android:id="@+id/handle"
+			android:layout_width="match_parent"
+			android:layout_height="36dp"
+			android:background="@drawable/bg_bottom_sheet_handle"/>
+
+		<ImageView
+			android:id="@+id/icon"
+			android:layout_width="40dp"
+			android:layout_height="40dp"
+			android:layout_below="@id/handle"
+			android:layout_alignParentStart="true"
+			android:layout_marginEnd="16dp"
+			android:background="@drawable/white_circle"
+			android:backgroundTint="?colorM3PrimaryContainer"
+			android:scaleType="center"
+			android:tint="?colorM3OnPrimaryContainer"
+			tools:src="@drawable/ic_waving_hand_24px"
+			android:importantForAccessibility="no"/>
+
+		<TextView
+			android:id="@+id/title"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_toEndOf="@id/icon"
+			android:layout_below="@id/handle"
+			android:layout_marginBottom="4dp"
+			android:textAppearance="@style/m3_title_large"
+			android:fontFamily="sans-serif"
+			android:textColor="?colorM3OnSurface"
+			tools:text="@string/non_mutual_sheet_title"/>
+
+		<TextView
+			android:id="@+id/text"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_below="@id/title"
+			android:layout_toEndOf="@id/icon"
+			android:textAppearance="@style/m3_body_medium"
+			android:textColor="?colorM3OnSurfaceVariant"
+			tools:text="@string/non_mutual_sheet_text"/>
+
+		<LinearLayout
+			android:id="@+id/content_wrap"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_below="@id/text"
+			android:layout_marginTop="16dp"
+			android:layout_marginBottom="8dp"
+			android:minHeight="8dp"
+			android:orientation="vertical"/>
+
+		<Button
+			android:id="@+id/btn_got_it"
+			android:layout_width="match_parent"
+			android:layout_height="40dp"
+			android:layout_below="@id/content_wrap"
+			android:layout_marginBottom="8dp"
+			style="@style/Widget.Mastodon.M3.Button.Tonal"
+			android:text="@string/got_it"/>
+
+		<Button
+			android:id="@+id/btn_dont_remind_again"
+			android:layout_width="match_parent"
+			android:layout_height="40dp"
+			android:layout_below="@id/btn_got_it"
+			android:layout_marginBottom="8dp"
+			style="@style/Widget.Mastodon.M3.Button.Text"
+			android:text="@string/dont_remind_again"/>
+
+	</RelativeLayout>
+</org.joinmastodon.android.ui.views.CustomScrollView>

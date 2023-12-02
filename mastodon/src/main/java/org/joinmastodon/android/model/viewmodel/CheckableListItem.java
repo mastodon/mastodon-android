@@ -55,6 +55,7 @@ public class CheckableListItem<T> extends ListItem<T>{
 			case CHECKBOX -> R.id.list_item_checkbox;
 			case RADIO -> R.id.list_item_radio;
 			case SWITCH -> R.id.list_item_switch;
+			case SWITCH_SEPARATED -> R.id.list_item_switch_separated;
 		};
 	}
 
@@ -69,6 +70,7 @@ public class CheckableListItem<T> extends ListItem<T>{
 	public enum Style{
 		CHECKBOX,
 		RADIO,
-		SWITCH
+		SWITCH,
+		SWITCH_SEPARATED
 	}
 }

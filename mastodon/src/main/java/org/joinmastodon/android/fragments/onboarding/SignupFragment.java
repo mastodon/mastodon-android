@@ -1,18 +1,15 @@
 package org.joinmastodon.android.fragments.onboarding;
 
 import android.app.ProgressDialog;
-import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.LocaleList;
 import android.text.Editable;
-import android.text.Html;
-import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.text.style.TypefaceSpan;
-import android.text.style.URLSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,10 +43,13 @@ import org.jsoup.select.NodeVisitor;
 import org.parceler.Parcels;
 
 import java.time.ZoneId;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import androidx.annotation.Nullable;
@@ -58,7 +58,6 @@ import me.grishka.appkit.api.APIRequest;
 import me.grishka.appkit.api.Callback;
 import me.grishka.appkit.api.ErrorResponse;
 import me.grishka.appkit.fragments.ToolbarFragment;
-import me.grishka.appkit.utils.V;
 import me.grishka.appkit.views.FragmentRootLinearLayout;
 
 public class SignupFragment extends ToolbarFragment{
@@ -79,6 +78,7 @@ public class SignupFragment extends ToolbarFragment{
 	private ProgressDialog progressDialog;
 	private HashSet<EditText> errorFields=new HashSet<>();
 	private ElevationOnScrollListener onScrollListener;
+	private Set<String> serverSupportedTimezones, serverSupportedLocales;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState){
@@ -87,6 +87,8 @@ public class SignupFragment extends ToolbarFragment{
 		instance=Parcels.unwrap(getArguments().getParcelable("instance"));
 		createAppAndGetToken();
 		setTitle(R.string.signup_title);
+		serverSupportedTimezones=Arrays.stream(getResources().getStringArray(R.array.server_supported_timezones)).collect(Collectors.toSet());
+		serverSupportedLocales=Arrays.stream(getResources().getStringArray(R.array.server_supported_locales)).collect(Collectors.toSet());
 	}
 
 	@Nullable
@@ -190,7 +192,34 @@ public class SignupFragment extends ToolbarFragment{
 			edit.setError(null);
 		}
 		errorFields.clear();
-		new RegisterAccount(username, email, password.getText().toString(), getResources().getConfiguration().locale.getLanguage(), reason.getText().toString(), ZoneId.systemDefault().getId())
+		String locale=null;
+		String timezone=ZoneId.systemDefault().getId();
+
+		if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.N){
+			LocaleList localeList=getResources().getConfiguration().getLocales();
+			for(int i=0;i<localeList.size();i++){
+				Locale l=localeList.get(i);
+				if(serverSupportedLocales.contains(l.toLanguageTag())){
+					locale=l.toLanguageTag();
+					break;
+				}else if(serverSupportedLocales.contains(l.getLanguage())){
+					locale=l.getLanguage();
+					break;
+				}
+			}
+		}else{
+			Locale l=getResources().getConfiguration().locale;
+			if(serverSupportedLocales.contains(l.toLanguageTag())){
+				locale=l.toLanguageTag();
+			}else if(serverSupportedLocales.contains(l.getLanguage())){
+				locale=l.getLanguage();
+			}
+		}
+
+		if(!serverSupportedTimezones.contains(timezone))
+			timezone=null;
+
+		new RegisterAccount(username, email, password.getText().toString(), locale, reason.getText().toString(), timezone)
 				.setCallback(new Callback<>(){
 					@Override
 					public void onSuccess(Token result){
@@ -271,7 +300,7 @@ public class SignupFragment extends ToolbarFragment{
 						@Override
 						public void tail(Node node, int depth){
 							if(node instanceof Element){
-								ssb.setSpan(new LinkSpan("", SignupFragment.this::onGoBackLinkClick, LinkSpan.Type.CUSTOM, null, null), spanStart, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+								ssb.setSpan(new LinkSpan("", SignupFragment.this::onGoBackLinkClick, LinkSpan.Type.CUSTOM, null, null, null), spanStart, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 								ssb.setSpan(new TypefaceSpan("sans-serif-medium"), spanStart, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 							}
 						}

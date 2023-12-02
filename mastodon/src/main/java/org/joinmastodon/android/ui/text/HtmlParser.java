@@ -68,7 +68,7 @@ public class HtmlParser{
 	 * @param emojis Custom emojis that are present in source as <code>:code:</code>
 	 * @return a spanned string
 	 */
-	public static SpannableStringBuilder parse(String source, List<Emoji> emojis, List<Mention> mentions, List<Hashtag> tags, String accountID){
+	public static SpannableStringBuilder parse(String source, List<Emoji> emojis, List<Mention> mentions, List<Hashtag> tags, String accountID, Object parentObject){
 		class SpanInfo{
 			public Object span;
 			public int start;
@@ -120,7 +120,7 @@ public class HtmlParser{
 							}else{
 								linkType=LinkSpan.Type.URL;
 							}
-							openSpans.add(new SpanInfo(new LinkSpan(href, null, linkType, accountID, linkObject), ssb.length(), el));
+							openSpans.add(new SpanInfo(new LinkSpan(href, null, linkType, accountID, linkObject, parentObject), ssb.length(), el));
 						}
 						case "br" -> ssb.append('\n');
 						case "span" -> {
@@ -203,8 +203,28 @@ public class HtmlParser{
 	public static String stripAndRemoveInvisibleSpans(String html){
 		Document doc=Jsoup.parseBodyFragment(html);
 		doc.body().select("span.invisible").remove();
-		Cleaner cleaner=new Cleaner(Safelist.none());
-		return cleaner.clean(doc).body().html();
+		Cleaner cleaner=new Cleaner(Safelist.none().addTags("br", "p"));
+		StringBuilder sb=new StringBuilder();
+		cleaner.clean(doc).body().traverse(new NodeVisitor(){
+			@Override
+			public void head(Node node, int depth){
+				if(node instanceof TextNode tn){
+					sb.append(tn.text());
+				}else if(node instanceof Element el){
+					if("br".equals(el.tagName())){
+						sb.append('\n');
+					}
+				}
+			}
+
+			@Override
+			public void tail(Node node, int depth){
+				if(node instanceof Element el && "p".equals(el.tagName()) && el.nextSibling()!=null){
+					sb.append("\n\n");
+				}
+			}
+		});
+		return sb.toString();
 	}
 
 	public static CharSequence parseLinks(String text){
@@ -216,7 +236,7 @@ public class HtmlParser{
 			String url=matcher.group(3);
 			if(TextUtils.isEmpty(matcher.group(4)))
 				url="http://"+url;
-			ssb.setSpan(new LinkSpan(url, null, LinkSpan.Type.URL, null, null), matcher.start(3), matcher.end(3), 0);
+			ssb.setSpan(new LinkSpan(url, null, LinkSpan.Type.URL, null, null, null), matcher.start(3), matcher.end(3), 0);
 		}while(matcher.find()); // Find more URLs
 		return ssb;
 	}

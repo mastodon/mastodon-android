@@ -136,19 +136,7 @@
 	<string name="password">Contrasenya</string>
 	<string name="confirm_password">Confirmar contrasenya</string>
 	<string name="password_note">Inclou lletres majúscules, caràcters especials i números per augmentar la seguretat de la teva contrasenya.</string>
-	<string name="category_academia">Acadèmic</string>
-	<string name="category_activism">Activisme</string>
-	<string name="category_all">Totes</string>
-	<string name="category_art">Art</string>
-	<string name="category_food">Menjar</string>
-	<string name="category_furry">Furry</string>
-	<string name="category_games">Jocs</string>
 	<string name="category_general">General</string>
-	<string name="category_journalism">Periodisme</string>
-	<string name="category_lgbt">LGBT</string>
-	<string name="category_music">Música</string>
-	<string name="category_regional">Regional</string>
-	<string name="category_tech">Tecnologia</string>
 	<string name="confirm_email_title">Comprova la teva safata d\'entrada</string>
 	<!-- %s is the email address -->
 	<string name="resend">Reenvia</string>
@@ -208,7 +196,6 @@
 	<string name="file_saved">Fitxer desat</string>
 	<string name="downloading">S\'està baixant…</string>
 	<!-- %s is the server domain -->
-	<string name="see_new_posts">Publicacions noves</string>
 	<string name="load_missing_posts">Carrega les publicacions faltants</string>
 	<string name="follow_back">Segueix</string>
 	<string name="button_follow_pending">Pendent</string>
@@ -227,7 +214,6 @@
 		<item quantity="one">%,d favorit</item>
 		<item quantity="other">%,d favorits</item>
 	</plurals>
-	<string name="timestamp_via_app">%1$s través de %2$s</string>
 	<string name="time_now">ara</string>
 	<string name="edit_history">Editar l’historial</string>
 	<string name="last_edit_at_x">Darrera edició: %s</string>
@@ -295,4 +281,8 @@
 	<!-- Shown in the post header. Please keep it short -->
 	<!-- %s is the name of the post language -->
 	<!-- %1$s is the language, %2$s is the name of the translation service -->
+	<!-- Screen reader description for the menu on the home timeline screen -->
+	<!-- %s is the name of the list -->
+	<!-- %s is a username -->
+	<!-- %s is a time interval ("5 months") -->
 </resources>

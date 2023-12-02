@@ -187,19 +187,7 @@
 	<string name="password">Пароль</string>
 	<string name="confirm_password">Підтвердження паролю</string>
 	<string name="password_note">Використовуйте великі літери, спеціальні символи та цифри для посилення пароля.</string>
-	<string name="category_academia">Академія</string>
-	<string name="category_activism">Активізм</string>
-	<string name="category_all">Все</string>
-	<string name="category_art">Мистецтво</string>
-	<string name="category_food">Їжа</string>
-	<string name="category_furry">Фурі</string>
-	<string name="category_games">Ігри</string>
 	<string name="category_general">Загальні</string>
-	<string name="category_journalism">Журналістика</string>
-	<string name="category_lgbt">ЛГБТ</string>
-	<string name="category_music">Музика</string>
-	<string name="category_regional">Регіональні</string>
-	<string name="category_tech">Технології</string>
 	<string name="confirm_email_title">Перевірте вашу електронну пошту</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">Натисніть на посилання, яке ми надіслали вам, щоб підтвердити %s. Ми чекатимемо прямо тут.</string>
@@ -288,7 +276,7 @@
 	<!-- %s is the server domain -->
 	<string name="local_timeline_info_banner">Всі ці дописи створені користувачами вашого серверу (%s).</string>
 	<string name="recommended_accounts_info_banner">Вам можуть сподобатися ці профілі, озираючись на ваші підписки.</string>
-	<string name="see_new_posts">Переглянути нові дописи</string>
+	<string name="see_new_posts">Нові дописи</string>
 	<string name="load_missing_posts">Завантажити пропущені дописи</string>
 	<string name="follow_back">Підписатися взаємно</string>
 	<string name="button_follow_pending">Очікується</string>
@@ -319,7 +307,6 @@
 		<item quantity="many">%,d поширень</item>
 		<item quantity="other">%,d поширень</item>
 	</plurals>
-	<string name="timestamp_via_app">%1$s через %2$s</string>
 	<string name="time_now">щойно</string>
 	<string name="edit_history">Історія редагувань</string>
 	<string name="last_edit_at_x">Востаннє відредаговано %s</string>
@@ -395,7 +382,6 @@
 	<string name="profile_add_row">Додати рядок</string>
 	<string name="profile_setup">Налаштування профілю</string>
 	<string name="profile_setup_subtitle">Ви завжди можете завершити це пізніше у вкладці профілю.</string>
-	<string name="profile_setup_explanation">Ви можете додати до чотирьох рядків у профілі для будь-чого. Місце, посилання, інтереси — безмежні можливості.</string>
 	<string name="popular_on_mastodon">Популярне на Mastodon</string>
 	<string name="follow_all">Підписатися на всіх</string>
 	<string name="server_rules_disagree">Не погоджуюся</string>
@@ -661,4 +647,44 @@
 		<item quantity="many">%,d дописів сьогодні</item>
 		<item quantity="other">%,d дописа сьогодні</item>
 	</plurals>
+	<string name="error_playing_video">Помилка відтворення відео</string>
+	<string name="timeline_following">Головна</string>
+	<string name="lists">Списки</string>
+	<string name="followed_hashtags">Відстежувані хештеги</string>
+	<string name="manage_lists">Керувати списками</string>
+	<string name="manage_hashtags">Керувати хештегами</string>
+	<!-- Screen reader description for the menu on the home timeline screen -->
+	<string name="dropdown_menu">Випадаюче меню</string>
+	<string name="edit_list">Редагувати список</string>
+	<string name="list_members">Учасники списку</string>
+	<string name="delete_list">Видалити список</string>
+	<!-- %s is the name of the list -->
+	<string name="delete_list_confirm">Видалити “%s”?</string>
+	<string name="list_name">Назва списку</string>
+	<string name="list_show_replies_to">Показати відповіді для</string>
+	<string name="list_replies_no_one">Ніхто</string>
+	<string name="list_replies_members">Учасники списку</string>
+	<string name="list_replies_anyone">Хтось, за ким я слідкую</string>
+	<string name="confirm_remove_list_members">Видалити учасників?</string>
+	<string name="remove">Видалити</string>
+	<string name="add_list_member">Додати учасника</string>
+	<string name="search_among_people_you_follow">Шукати серед людей, на яких ви підписані</string>
+	<string name="add_user_to_list">Додати до списку…</string>
+	<string name="add_user_to_list_title">Додати до списку</string>
+	<!-- %s is a username -->
+	<string name="remove_from_list">Видалити зі списку</string>
+	<string name="confirm_remove_list_member">Видалити учасника?</string>
+	<string name="manage_accounts">Додати або змінити обліковий запис</string>
+	<plurals name="x_posts_recently">
+		<item quantity="one">%,d допис нещодавно</item>
+		<item quantity="few">%,d дописи нещодавно</item>
+		<item quantity="many">%,d дописів нещодавно</item>
+		<item quantity="other">%,d допису нещодавно</item>
+	</plurals>
+	<string name="create_list">Створити список</string>
+	<string name="step_x_of_y">Крок %1$d з %2$d</string>
+	<string name="create">Створити</string>
+	<string name="manage_list_members">Керувати учасниками списку</string>
+	<string name="list_no_members">Ще немає учасників</string>
+	<!-- %s is a time interval ("5 months") -->
 </resources>

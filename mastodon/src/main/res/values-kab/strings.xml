@@ -132,19 +132,7 @@
 	<string name="password">Awal uffir</string>
 	<string name="confirm_password">Sentem awal uffir</string>
 	<string name="password_note">Seddu isekkilen imeqqranen, isekkilen imaẓlayen d wuṭṭunen i useǧhed ugar n wawal-ik•im uffir.</string>
-	<string name="category_academia">Akadimi</string>
-	<string name="category_activism">Tinuɣmest</string>
-	<string name="category_all">Akk</string>
-	<string name="category_art">Taẓuri</string>
-	<string name="category_food">Učči</string>
-	<string name="category_furry">S taḍut</string>
-	<string name="category_games">Uraren</string>
 	<string name="category_general">Amatu</string>
-	<string name="category_journalism">Taɣamsa</string>
-	<string name="category_lgbt">LGBT</string>
-	<string name="category_music">Aẓawan</string>
-	<string name="category_regional">Amnaḍan</string>
-	<string name="category_tech">Atiknikan</string>
 	<!-- %s is the email address -->
 	<string name="resend">Ales tuzna</string>
 	<string name="open_email_app">Ldi asnas n yimayl</string>
@@ -203,13 +191,11 @@
 	<string name="file_saved">Afaylu yettwasekles</string>
 	<string name="downloading">Asader…</string>
 	<!-- %s is the server domain -->
-	<string name="see_new_posts">Ẓer tissufaɣ timaynutin</string>
 	<string name="load_missing_posts">Sali tisuffaɣ i iruḥen</string>
 	<string name="follow_back">Ḍfeṛ</string>
 	<string name="button_follow_pending">Yettraǧu</string>
 	<string name="follows_you">Yeṭṭafaṛ-ik·em-id</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
-	<string name="timestamp_via_app">%1$s s %2$s</string>
 	<string name="time_now">tura</string>
 	<string name="time_just_now">tura kan</string>
 	<string name="edit">Ẓreg</string>
@@ -244,4 +230,8 @@
 	<!-- Shown in the post header. Please keep it short -->
 	<!-- %s is the name of the post language -->
 	<!-- %1$s is the language, %2$s is the name of the translation service -->
+	<!-- Screen reader description for the menu on the home timeline screen -->
+	<!-- %s is the name of the list -->
+	<!-- %s is a username -->
+	<!-- %s is a time interval ("5 months") -->
 </resources>

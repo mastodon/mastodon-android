@@ -1,11 +1,14 @@
 package org.joinmastodon.android.ui.views;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 
+import org.joinmastodon.android.R;
+
 public class FixedAspectRatioImageView extends ImageView{
-	private float aspectRatio=1;
+	private float aspectRatio;
 	private boolean useHeight;
 
 	public FixedAspectRatioImageView(Context context){
@@ -18,6 +21,10 @@ public class FixedAspectRatioImageView extends ImageView{
 
 	public FixedAspectRatioImageView(Context context, AttributeSet attrs, int defStyle){
 		super(context, attrs, defStyle);
+		TypedArray ta=context.obtainStyledAttributes(attrs, R.styleable.FixedAspectRatioImageView);
+		aspectRatio=ta.getFloat(R.styleable.FixedAspectRatioImageView_aspectRatio, 1);
+		useHeight=ta.getBoolean(R.styleable.FixedAspectRatioImageView_useHeight, false);
+		ta.recycle();
 	}
 
 	@Override

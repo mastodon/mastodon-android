@@ -2,7 +2,7 @@
 <org.joinmastodon.android.ui.views.CheckableRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:orientation="horizontal"
 	android:layout_width="match_parent"
-	android:layout_height="72dp"
+	android:layout_height="wrap_content"
 	android:gravity="center_vertical">
 	
 	<ImageView
@@ -11,6 +11,7 @@
 		android:layout_height="40dp"
 		android:layout_margin="16dp"
 		android:layout_alignParentStart="true"
+		android:layout_centerInParent="true"
 		android:importantForAccessibility="no"/>
 
 	<View
@@ -26,11 +27,13 @@
 	<TextView
 		android:id="@+id/name"
 		android:layout_width="match_parent"
-		android:layout_height="24dp"
+		android:layout_height="wrap_content"
+		android:minHeight="24dp"
 		android:layout_marginTop="14dp"
 		android:layout_toEndOf="@id/avatar"
 		android:layout_toStartOf="@id/radiobtn"
 		android:textAppearance="@style/m3_body_large"
+		android:textSize="16sp"
 		android:textColor="?colorM3OnSurface"
 		android:gravity="center_vertical|start"
 		android:textAlignment="viewStart"
@@ -40,12 +43,15 @@
 	<TextView
 		android:id="@+id/username"
 		android:layout_width="match_parent"
-		android:layout_height="20dp"
+		android:layout_height="wrap_content"
+		android:minHeight="20dp"
+		android:layout_marginBottom="14dp"
 		android:layout_below="@id/name"
 		android:layout_toEndOf="@id/avatar"
 		android:layout_toStartOf="@id/radiobtn"
 		android:textColor="?colorM3OnSurfaceVariant"
 		android:textAppearance="@style/m3_body_medium"
+		android:textSize="14sp"
 		android:singleLine="true"
 		android:gravity="center_vertical|start"
 		android:textAlignment="viewStart"

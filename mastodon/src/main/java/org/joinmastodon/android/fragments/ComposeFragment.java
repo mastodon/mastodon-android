@@ -1,5 +1,8 @@
 package org.joinmastodon.android.fragments;
 
+import android.animation.Animator;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.ClipData;
@@ -90,12 +93,14 @@ import java.util.stream.Collectors;
 import me.grishka.appkit.Nav;
 import me.grishka.appkit.api.Callback;
 import me.grishka.appkit.api.ErrorResponse;
+import me.grishka.appkit.fragments.CustomTransitionsFragment;
 import me.grishka.appkit.fragments.OnBackPressedListener;
 import me.grishka.appkit.imageloader.ViewImageLoader;
 import me.grishka.appkit.imageloader.requests.UrlImageLoaderRequest;
+import me.grishka.appkit.utils.CubicBezierInterpolator;
 import me.grishka.appkit.utils.V;
 
-public class ComposeFragment extends MastodonToolbarFragment implements OnBackPressedListener, ComposeEditText.SelectionListener{
+public class ComposeFragment extends MastodonToolbarFragment implements OnBackPressedListener, ComposeEditText.SelectionListener, CustomTransitionsFragment{
 
 	private static final int MEDIA_RESULT=717;
 	public static final int IMAGE_DESCRIPTION_RESULT=363;
@@ -1012,8 +1017,26 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 		return new String[]{"image/jpeg", "image/gif", "image/png", "video/mp4"};
 	}
 
+	private String sanitizeMediaDescription(String description){
+		if(description == null){
+			return null;
+		}
+
+		// The Gboard android keyboard attaches this text whenever the user
+		// pastes something from the keyboard's suggestion bar.
+		// Due to different end user locales, the exact text may vary, but at
+		// least in version 13.4.08, all of the translations contained the
+		// string "Gboard".
+		if (description.contains("Gboard")){
+			return null;
+		}
+
+		return description;
+	}
+
 	@Override
 	public boolean onAddMediaAttachmentFromEditText(Uri uri, String description){
+		description = sanitizeMediaDescription(description);
 		return mediaViewController.addMediaAttachment(uri, description);
 	}
 
@@ -1105,5 +1128,36 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 
 	private void setPostLanguage(ComposeLanguageAlertViewController.SelectedOption language){
 		postLang=language;
+	}
+
+	@Override
+	public Animator onCreateEnterTransition(View prev, View container){
+		AnimatorSet anim=new AnimatorSet();
+		if(getArguments().getBoolean("fromThreadFragment")){
+			anim.playTogether(
+					ObjectAnimator.ofFloat(container, View.ALPHA, 0f, 1f),
+					ObjectAnimator.ofFloat(container, View.TRANSLATION_Y, V.dp(200), 0)
+			);
+		}else{
+			anim.playTogether(
+					ObjectAnimator.ofFloat(container, View.ALPHA, 0f, 1f),
+					ObjectAnimator.ofFloat(container, View.TRANSLATION_X, V.dp(100), 0)
+			);
+		}
+		anim.setDuration(300);
+		anim.setInterpolator(CubicBezierInterpolator.DEFAULT);
+		return anim;
+	}
+
+	@Override
+	public Animator onCreateExitTransition(View prev, View container){
+		AnimatorSet anim=new AnimatorSet();
+		anim.playTogether(
+				ObjectAnimator.ofFloat(container, View.TRANSLATION_X, V.dp(100)),
+				ObjectAnimator.ofFloat(container, View.ALPHA, 0)
+		);
+		anim.setDuration(200);
+		anim.setInterpolator(CubicBezierInterpolator.DEFAULT);
+		return anim;
 	}
 }

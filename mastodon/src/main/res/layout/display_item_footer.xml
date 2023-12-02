@@ -27,6 +27,7 @@
 			android:textColor="?colorM3OnSurfaceVariant"
 			android:gravity="center_vertical"
 			android:textAppearance="@style/m3_label_medium"
+			android:duplicateParentState="true"
 			tools:text="123"/>
 	</FrameLayout>
 
@@ -54,6 +55,7 @@
 			android:textColor="?colorM3OnSurfaceVariant"
 			android:gravity="center_vertical"
 			android:textAppearance="@style/m3_label_medium"
+			android:duplicateParentState="true"
 			tools:text="123"/>
 	</FrameLayout>
 
@@ -81,6 +83,7 @@
 			android:textColor="?colorM3OnSurfaceVariant"
 			android:gravity="center_vertical"
 			android:textAppearance="@style/m3_label_medium"
+			android:duplicateParentState="true"
 			tools:text="123"/>
 	</FrameLayout>
 
