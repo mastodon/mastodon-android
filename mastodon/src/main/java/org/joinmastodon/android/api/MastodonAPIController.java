@@ -46,9 +46,9 @@ public class MastodonAPIController{
 			.create();
 	private static WorkerThread thread=new WorkerThread("MastodonAPIController");
 	private static OkHttpClient httpClient=new OkHttpClient.Builder()
-			.connectTimeout(30, TimeUnit.SECONDS)
-			.writeTimeout(30, TimeUnit.SECONDS)
-			.readTimeout(30, TimeUnit.SECONDS)
+			.connectTimeout(60, TimeUnit.SECONDS)
+			.writeTimeout(60, TimeUnit.SECONDS)
+			.readTimeout(60, TimeUnit.SECONDS)
 			.build();
 
 	private AccountSession session;
