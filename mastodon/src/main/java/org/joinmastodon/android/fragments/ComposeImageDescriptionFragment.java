@@ -7,10 +7,7 @@ import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.media.MediaMetadataRetriever;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
-import android.text.SpannableStringBuilder;
-import android.text.style.BulletSpan;
 import android.util.Log;
 import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
@@ -131,20 +128,9 @@ public class ComposeImageDescriptionFragment extends MastodonToolbarFragment imp
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item){
 		if(item.getItemId()==R.id.help){
-			SpannableStringBuilder msg=new SpannableStringBuilder(getText(R.string.alt_text_help));
-			BulletSpan[] spans=msg.getSpans(0, msg.length(), BulletSpan.class);
-			for(BulletSpan span:spans){
-				BulletSpan betterSpan;
-				if(Build.VERSION.SDK_INT<Build.VERSION_CODES.Q)
-					betterSpan=new BulletSpan(V.dp(10), UiUtils.getThemeColor(themeWrapper, R.attr.colorM3OnSurface));
-				else
-					betterSpan=new BulletSpan(V.dp(10), UiUtils.getThemeColor(themeWrapper, R.attr.colorM3OnSurface), V.dp(1.5f));
-				msg.setSpan(betterSpan, msg.getSpanStart(span), msg.getSpanEnd(span), msg.getSpanFlags(span));
-				msg.removeSpan(span);
-			}
 			new M3AlertDialogBuilder(themeWrapper)
 					.setTitle(R.string.what_is_alt_text)
-					.setMessage(msg)
+					.setMessage(UiUtils.fixBulletListInString(themeWrapper, R.string.alt_text_help))
 					.setPositiveButton(R.string.ok, null)
 					.show();
 		}
@@ -181,7 +167,7 @@ public class ComposeImageDescriptionFragment extends MastodonToolbarFragment imp
 		fakeAttachment.meta.width=width;
 		fakeAttachment.meta.height=height;
 
-		photoViewer=new PhotoViewer(getActivity(), Collections.singletonList(fakeAttachment), 0, new PhotoViewer.Listener(){
+		photoViewer=new PhotoViewer(getActivity(), Collections.singletonList(fakeAttachment), 0, null, accountID, new PhotoViewer.Listener(){
 			@Override
 			public void setPhotoViewVisibility(int index, boolean visible){
 				image.setAlpha(visible ? 1f : 0f);

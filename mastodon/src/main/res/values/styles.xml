@@ -297,6 +297,18 @@
 		<item name="android:elevation">1dp</item>
 	</style>
 
+	<style name="Widget.Mastodon.M3.Button.IconWithLabel">
+		<item name="android:background">@drawable/bg_button_m3_icon_label</item>
+		<item name="android:textColor">@color/button_text_m3_text</item>
+		<item name="android:drawableTint">@color/button_text_m3_text</item>
+		<item name="android:drawablePadding">4dp</item>
+		<item name="android:textSize">11dp</item>
+		<item name="android:paddingLeft">0dp</item>
+		<item name="android:paddingRight">0dp</item>
+		<item name="android:paddingTop">11dp</item>
+		<item name="android:paddingBottom">11dp</item>
+	</style>
+
 	<style name="Widget.Mastodon.M3.Button.Outlined">
 		<item name="android:background">@drawable/bg_button_m3_outlined</item>
 		<item name="android:textColor">@color/button_text_m3_text</item>

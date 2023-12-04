@@ -1,6 +1,10 @@
 package org.joinmastodon.android.ui.photoviewer;
 
 import android.Manifest;
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.DownloadManager;
@@ -26,6 +30,8 @@ import android.os.SystemClock;
 import android.provider.MediaStore;
 import android.provider.Settings;
 import android.util.Log;
+import android.util.Property;
+import android.view.ContextThemeWrapper;
 import android.view.DisplayCutout;
 import android.view.Gravity;
 import android.view.KeyEvent;
@@ -48,8 +54,12 @@ import android.widget.Toolbar;
 
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.MastodonAPIController;
+import org.joinmastodon.android.api.session.AccountSessionManager;
+import org.joinmastodon.android.events.StatusCountersUpdatedEvent;
 import org.joinmastodon.android.model.Attachment;
+import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.M3AlertDialogBuilder;
+import org.joinmastodon.android.ui.utils.UiUtils;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -85,6 +95,8 @@ public class PhotoViewer implements ZoomPanView.Listener{
 	private int currentIndex;
 	private WindowManager wm;
 	private Listener listener;
+	private Status status;
+	private String accountID;
 
 	private FrameLayout windowView;
 	private FragmentRootLinearLayout uiOverlay;
@@ -104,17 +116,32 @@ public class PhotoViewer implements ZoomPanView.Listener{
 		if(uiVisible)
 			toggleUI();
 	};
+	private Animator currentSheetRelatedToolbarAnimation;
 
 	private boolean videoPositionNeedsUpdating;
 	private Runnable videoPositionUpdater=this::updateVideoPosition;
 	private int videoDuration, videoInitialPosition, videoLastTimeUpdatePosition;
 	private long videoInitialPositionTime;
 
-	public PhotoViewer(Activity activity, List<Attachment> attachments, int index, Listener listener){
+	private static final Property<FragmentRootLinearLayout, Integer> STATUS_BAR_COLOR_PROPERTY=new Property<>(Integer.class, "Fdsafdsa"){
+		@Override
+		public Integer get(FragmentRootLinearLayout object){
+			return object.getStatusBarColor();
+		}
+
+		@Override
+		public void set(FragmentRootLinearLayout object, Integer value){
+			object.setStatusBarColor(value);
+		}
+	};
+
+	public PhotoViewer(Activity activity, List<Attachment> attachments, int index, Status status, String accountID, Listener listener){
 		this.activity=activity;
 		this.attachments=attachments.stream().filter(a->a.type==Attachment.Type.IMAGE || a.type==Attachment.Type.GIFV || a.type==Attachment.Type.VIDEO).collect(Collectors.toList());
 		currentIndex=index;
 		this.listener=listener;
+		this.status=status;
+		this.accountID=accountID;
 
 		wm=activity.getWindowManager();
 
@@ -175,9 +202,15 @@ public class PhotoViewer implements ZoomPanView.Listener{
 		toolbarWrap=uiOverlay.findViewById(R.id.toolbar_wrap);
 		toolbar=uiOverlay.findViewById(R.id.toolbar);
 		toolbar.setNavigationOnClickListener(v->onStartSwipeToDismissTransition(0));
-		toolbar.getMenu().add(R.string.download).setIcon(R.drawable.ic_download_24px).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+		if(status!=null)
+			toolbar.getMenu().add(R.string.info).setIcon(R.drawable.ic_info_24px).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+		else
+			toolbar.getMenu().add(R.string.download).setIcon(R.drawable.ic_download_24px).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
 		toolbar.setOnMenuItemClickListener(item->{
-			saveCurrentFile();
+			if(status!=null)
+				showInfoSheet();
+			else
+				saveCurrentFile();
 			return true;
 		});
 		uiOverlay.setAlpha(0f);
@@ -608,6 +641,93 @@ public class PhotoViewer implements ZoomPanView.Listener{
 			boolean includeHours=videoDuration>=3600_000;
 			videoTimeView.setText(formatTime(currentPositionSec, includeHours)+" / "+formatTime(videoDuration/1000, includeHours));
 		}
+	}
+
+	private void showInfoSheet(){
+		pauseVideo();
+		PhotoViewerInfoSheet sheet=new PhotoViewerInfoSheet(new ContextThemeWrapper(activity, R.style.Theme_Mastodon_Dark), attachments.get(currentIndex), toolbar.getHeight(), new PhotoViewerInfoSheet.Listener(){
+			private boolean ignoreBeforeDismiss;
+
+			@Override
+			public void onBeforeDismiss(int duration){
+				if(ignoreBeforeDismiss)
+					return;
+				if(currentSheetRelatedToolbarAnimation!=null)
+					currentSheetRelatedToolbarAnimation.cancel();
+				AnimatorSet set=new AnimatorSet();
+				set.playTogether(
+						ObjectAnimator.ofFloat(pager, View.TRANSLATION_Y, 0),
+						ObjectAnimator.ofFloat(toolbarWrap, View.ALPHA, 1f),
+						ObjectAnimator.ofArgb(uiOverlay, STATUS_BAR_COLOR_PROPERTY, 0x80000000)
+				);
+				set.setDuration(duration);
+				set.setInterpolator(CubicBezierInterpolator.EASE_OUT);
+				currentSheetRelatedToolbarAnimation=set;
+				set.addListener(new AnimatorListenerAdapter(){
+					@Override
+					public void onAnimationEnd(Animator animation){
+						currentSheetRelatedToolbarAnimation=null;
+					}
+				});
+				set.start();
+			}
+
+			@Override
+			public void onDismissEntireViewer(){
+				ignoreBeforeDismiss=true;
+				onStartSwipeToDismissTransition(0);
+			}
+
+			@Override
+			public void onButtonClick(int id){
+				if(id==R.id.btn_boost){
+					if(status!=null){
+						AccountSessionManager.get(accountID).getStatusInteractionController().setReblogged(status, !status.reblogged);
+					}
+				}else if(id==R.id.btn_favorite){
+					if(status!=null){
+						AccountSessionManager.get(accountID).getStatusInteractionController().setFavorited(status, !status.favourited);
+					}
+				}else if(id==R.id.btn_share){
+					if(status!=null){
+						UiUtils.openSystemShareSheet(activity, status.url);
+					}
+				}else if(id==R.id.btn_bookmark){
+					if(status!=null){
+						AccountSessionManager.get(accountID).getStatusInteractionController().setBookmarked(status, !status.bookmarked);
+					}
+				}else if(id==R.id.btn_download){
+					saveCurrentFile();
+				}
+			}
+		});
+		sheet.setStatus(status);
+		sheet.show();
+		if(currentSheetRelatedToolbarAnimation!=null)
+			currentSheetRelatedToolbarAnimation.cancel();
+		sheet.getWindow().getDecorView().getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener(){
+			@Override
+			public boolean onPreDraw(){
+				sheet.getWindow().getDecorView().getViewTreeObserver().removeOnPreDrawListener(this);
+				AnimatorSet set=new AnimatorSet();
+				set.playTogether(
+						ObjectAnimator.ofFloat(pager, View.TRANSLATION_Y, -pager.getHeight()*0.2f),
+						ObjectAnimator.ofFloat(toolbarWrap, View.ALPHA, 0f),
+						ObjectAnimator.ofArgb(uiOverlay, STATUS_BAR_COLOR_PROPERTY, 0)
+				);
+				set.setDuration(300);
+				set.setInterpolator(CubicBezierInterpolator.DEFAULT);
+				currentSheetRelatedToolbarAnimation=set;
+				set.addListener(new AnimatorListenerAdapter(){
+					@Override
+					public void onAnimationEnd(Animator animation){
+						currentSheetRelatedToolbarAnimation=null;
+					}
+				});
+				set.start();
+				return true;
+			}
+		});
 	}
 
 	public interface Listener{

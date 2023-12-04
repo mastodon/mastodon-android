@@ -26,6 +26,7 @@ import android.provider.OpenableColumns;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextUtils;
+import android.text.style.BulletSpan;
 import android.transition.ChangeBounds;
 import android.transition.ChangeScroll;
 import android.transition.Fade;
@@ -865,5 +866,20 @@ public class UiUtils{
 		lp.setMarginStart(V.dp(marginStart));
 		lp.setMarginEnd(V.dp(marginEnd));
 		return lp;
+	}
+
+	public static CharSequence fixBulletListInString(Context context, @StringRes int res){
+		SpannableStringBuilder msg=new SpannableStringBuilder(context.getText(res));
+		BulletSpan[] spans=msg.getSpans(0, msg.length(), BulletSpan.class);
+		for(BulletSpan span:spans){
+			BulletSpan betterSpan;
+			if(Build.VERSION.SDK_INT<Build.VERSION_CODES.Q)
+				betterSpan=new BulletSpan(V.dp(10), UiUtils.getThemeColor(context, R.attr.colorM3OnSurface));
+			else
+				betterSpan=new BulletSpan(V.dp(10), UiUtils.getThemeColor(context, R.attr.colorM3OnSurface), V.dp(1.5f));
+			msg.setSpan(betterSpan, msg.getSpanStart(span), msg.getSpanEnd(span), msg.getSpanFlags(span));
+			msg.removeSpan(span);
+		}
+		return msg;
 	}
 }
