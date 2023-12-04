@@ -278,7 +278,7 @@ public class ComposeAutocompleteViewController{
 					@Override
 					public void onSuccess(SearchResults result){
 						currentRequest=null;
-						if(result.hashtags.isEmpty() || (result.hashtags.size()==1 && result.hashtags.get(0).name.equals(lastText.substring(1))))
+						if(result.hashtags.isEmpty() || (result.hashtags.size()==1 && result.hashtags.get(0).name.equals(lastText.substring(1))) || mode!=Mode.HASHTAGS)
 							return;
 						List<Hashtag> oldList=hashtags;
 						hashtags=result.hashtags;

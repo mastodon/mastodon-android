@@ -1077,6 +1077,8 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 		Editable e=mainEditText.getText();
 		int start=e.getSpanStart(currentAutocompleteSpan);
 		int end=e.getSpanEnd(currentAutocompleteSpan);
+		if(start==-1 || end==-1)
+			return;
 		e.replace(start, end, text+" ");
 		finishAutocomplete();
 		InputConnection conn=mainEditText.getCurrentInputConnection();
