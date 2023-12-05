@@ -619,5 +619,30 @@
 	<string name="no_lists_title">Οργάνωσε την αρχική σου ροή με Λίστες</string>
 	<string name="no_lists_subtitle">Η δική σου θα εμφανίζεται εδώ</string>
 	<string name="manage_accounts">Προσθήκη ή εναλλαγή λογαριασμού</string>
+	<plurals name="x_posts_recently">
+		<item quantity="one">%,d ανάρτηση πρόσφατα</item>
+		<item quantity="other">%,d αναρτήσεις πρόσφατα</item>
+	</plurals>
+	<string name="create_list">Δημιουργία λίστας</string>
+	<string name="step_x_of_y">Βήμα %1$d από %2$d</string>
+	<string name="create">Δημιουργία</string>
+	<string name="manage_list_members">Διαχείριση μελών λίστας</string>
+	<string name="list_no_members">Κανένα μέλος ακόμα</string>
+	<string name="list_find_users">Εύρεση χρηστών για προσθήκη</string>
+	<string name="reply_to_user">Απάντηση σε %s</string>
+	<string name="posted_at">Αναρτήθηκε σε %s</string>
+	<string name="non_mutual_sheet_title">Γεια σου, νέα σύνδεση!</string>
+	<string name="non_mutual_sheet_text">Φαίνεται ότι είσαι έτοιμος/η να απαντήσεις σε κάποιον που δεν είναι αμοιβαία σύνδεση ακόμα. Ας κάνουμε καλή εντύπωση.</string>
+	<string name="got_it">Το \'πιασα</string>
+	<string name="dont_remind_again">Μη μου το ξαναθυμίσεις</string>
 	<!-- %s is a time interval ("5 months") -->
+	<string name="old_post_sheet_title">Αυτή η ανάρτηση έγινε πριν %s</string>
+	<string name="old_post_sheet_text">Μπορείς ακόμα να απαντήσεις αλλά μπορεί να μην είναι πλέον σχετικό.</string>
+	<plurals name="x_months">
+		<item quantity="one">%,d μήνας</item>
+		<item quantity="other">%,d μήνες</item>
+	</plurals>
+	<string name="more_than_two_years">άνω των 2 ετών</string>
+	<string name="non_mutual_title1">Να είναι ευγενικό &amp; σχετικό</string>
+	<string name="non_mutual_text1">Βεβαιώσου ότι η απάντησή σου είναι ευγενική και σχετική με το θέμα.</string>
 </resources>
