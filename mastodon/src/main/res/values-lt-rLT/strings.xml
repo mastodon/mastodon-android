@@ -234,6 +234,17 @@
 	<!-- %s is file size -->
 	<string name="install_update">Degti</string>
 	<string name="privacy_policy_title">Tavo privatumas</string>
+	<string name="privacy_policy_subtitle">Nors Mastodon programėlė nerenka jokių duomenų, serveris, per kurį užsiregistruoji, gali turėti kitokią politiką.\n\nJei nesutinki su %s politika, gali grįžti ir pasirinkti kitą serverį.</string>
+	<string name="i_agree">Sutinku</string>
+	<string name="empty_list">Šis sąrašas tuščias</string>
+	<string name="instance_signup_closed">Šis serveris nepriima naujų registracijų.</string>
+	<string name="text_copied">Nukopijuota į iškarpinę</string>
+	<string name="login_title">Sveiki sugrįžę</string>
+	<string name="login_subtitle">Prisijunk prie serverio, kuriame susikūrei paskyrą.</string>
+	<string name="server_url">Serverio URL</string>
+	<string name="signup_random_server_explain">Mes parinksime serverį pagal tavo kalbą, jei tęsi nepasirinkęs (-usi).</string>
+	<string name="server_filter_any_language">Bet kokia kalba</string>
+	<string name="server_filter_any_signup_speed">Bet kokio registravimo greitis</string>
 	<string name="server_filter_region_europe">Europa</string>
 	<string name="server_filter_region_north_america">Šiaurės Amerika</string>
 	<string name="server_filter_region_south_america">Pietų Amerika</string>
@@ -241,27 +252,72 @@
 	<string name="server_filter_region_asia">Azija</string>
 	<string name="server_filter_region_oceania">Okeanija</string>
 	<string name="not_accepting_new_members">Naujų narių nepriima</string>
+	<string name="category_special_interests">Specialūs pomėgiai</string>
+	<string name="signup_passwords_dont_match">Slaptažodžiai nesutampa.</string>
+	<string name="pick_server_for_me">Parinkti už mane</string>
+	<string name="profile_add_row">Pridėti eilutę</string>
+	<string name="profile_setup">Profilio sąranka</string>
+	<string name="profile_setup_subtitle">Tai visada gali užbaigti vėliau Profilio skirtuke.</string>
+	<string name="follow_all">Sekti visus</string>
+	<string name="server_rules_disagree">Nesutikti</string>
 	<string name="privacy_policy_explanation">PL;N: mes nieko nerenkame ir neapdorojame.</string>
 	<!-- %s is server domain -->
+	<string name="server_policy_disagree">Nesutikti su %s</string>
+	<string name="profile_bio">Biografija</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
+	<string name="sending_follows">Sekami naudotojai…</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<string name="spoiler_show">Rodyti vis tiek</string>
+	<string name="spoiler_hide">Perslėpti</string>
+	<string name="save_changes">Išsaugoti pakeitimus</string>
+	<string name="profile_featured">Rekomenduojama</string>
 	<string name="profile_timeline">Laiko skalė</string>
+	<string name="view_all">Peržiūrėti visus</string>
 	<string name="profile_endorsed_accounts">Paskyros</string>
+	<string name="verified_link">Patikrinta nuoroda</string>
 	<string name="show">Rodyti</string>
 	<string name="hide">Slėpti</string>
+	<string name="join_default_server">Prisijungti %s</string>
+	<string name="pick_server">Pasirinkti kitą serverį</string>
+	<string name="signup_or_login">arba</string>
 	<string name="learn_more">Sužinoti daugiau</string>
+	<string name="welcome_paragraph1">Mastodon yra decentralizuotas socialinis tinklas – tai reiškia, kad jo nekontroliuoja nė viena įmonė. Jį sudaro daugybė nepriklausomai veikiančių serverių, sujungtų tarpusavyje.</string>
+	<string name="what_are_servers">Kas yra serveriai?</string>
+	<string name="welcome_paragraph2">Kiekviena Mastodon paskyra talpinama serveryje - kiekvienas jų turi savo reikšmes, taisykles, &amp; administratorius. Nesvarbu, kurį iš jų pasirinksi, galėsi sekti ir bendrauti su bet kuriame serveryje esančiais žmonėmis.</string>
+	<string name="opening_link">Atidaroma nuoroda…</string>
+	<string name="link_not_supported">Ši nuoroda programėlėje nepalaikoma.</string>
+	<string name="log_out_all_accounts">Atsijungti nuo visų paskyrų</string>
+	<string name="confirm_log_out_all_accounts">Atsijungti nuo visų paskyrų?</string>
+	<string name="retry">Kartoti</string>
 	<!-- %s is formatted file size ("467 KB image") -->
 	<string name="attachment_description_image">%s vaizdas</string>
+	<string name="attachment_description_video">%s vaizdo įrašas</string>
+	<string name="attachment_description_unknown">%s failas</string>
+	<string name="attachment_type_image">Vaizdas</string>
 	<string name="attachment_type_video">Vaizdo įrašas</string>
 	<string name="attachment_type_audio">Garso įrašas</string>
 	<string name="attachment_type_gif">GIF</string>
 	<string name="attachment_type_unknown">Failas</string>
+	<string name="attachment_x_percent_uploaded">%d%% įkelta</string>
+	<string name="add_poll_option">Pridėti apklausos parinktį</string>
+	<string name="poll_length">Apklausos ilgis</string>
 	<string name="poll_style">Stilius</string>
+	<string name="compose_poll_single_choice">Pasirinkti vieną</string>
+	<string name="compose_poll_multiple_choice">Keli pasirinkimai</string>
+	<string name="no_verified_link">Nėra patikrintos nuorodos</string>
+	<string name="compose_autocomplete_emoji_empty">Naršyti jaustuką</string>
+	<string name="compose_autocomplete_users_empty">Rask, ko ieškai</string>
+	<string name="no_search_results">Nepavyko rasti nieko pagal šiuos paieškos terminus.</string>
 	<string name="language">Kalba</string>
 	<string name="language_default">Numatyta</string>
 	<string name="language_system">Sistema</string>
+	<string name="language_detecting">Aptinkama kalba</string>
+	<string name="language_cant_detect">Nepavyko aptikti kalbos</string>
 	<string name="language_detected">Aptikta</string>
 	<string name="media_hidden">Paslėpta medija</string>
+	<string name="post_hidden">Paslėptas įrašas</string>
+	<string name="report_title_post">Pranešti apie įrašą</string>
+	<string name="forward_report_explanation">Paskyra yra iš kito serverio. Siųsti anoniminę šios pranešimo kopiją ir ten?</string>
 	<!-- %s is the server domain -->
 	<string name="forward_report_to_server">Persiųsta į %s</string>
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
@@ -289,11 +345,26 @@
 	<!-- %s is the name of the list -->
 	<!-- %s is a username -->
 	<string name="manage_accounts">Pridėti arba perjungti paskyras</string>
+	<plurals name="x_posts_recently">
+		<item quantity="one">%,d įrašas neseniai</item>
+		<item quantity="few">%,d įrašai neseniai</item>
+		<item quantity="many">%,d įrašo neseniai</item>
+		<item quantity="other">%,d įrašų neseniai</item>
+	</plurals>
+	<string name="create_list">Kurti sąrašą</string>
+	<string name="step_x_of_y">%1$d žingsnis iš %2$d</string>
+	<string name="create">Kurti</string>
+	<string name="manage_list_members">Tvarkyti sąrašo narius</string>
+	<string name="list_no_members">Dar nėra narių</string>
 	<string name="posted_at">Paskelbta %s</string>
+	<string name="non_mutual_sheet_title">Labas, naujas ryšys!</string>
+	<string name="non_mutual_sheet_text">Atrodo, kad netrukus ketini atsakyti žmogui, kuris (-i) dar neturi bendro ryšio. Padarykime puikų pirmąjį įspūdį.</string>
 	<string name="got_it">Supratau</string>
 	<string name="dont_remind_again">Nepriminti man daugiau</string>
 	<!-- %s is a time interval ("5 months") -->
+	<string name="old_post_sheet_title">Šis įrašas %s senas</string>
 	<string name="old_post_sheet_text">Vis dar gali atsakyti, bet tai gali būti nebeaktualu.</string>
+	<string name="more_than_two_years">daugiau nei 2 metai</string>
 	<string name="non_mutual_text1">Užtikrink, kad tavo atsakymas mandagus ir atitinka temą.</string>
 	<string name="non_mutual_title2">Priimk gerumą</string>
 	<string name="non_mutual_title3">Būk atvirus (-i)</string>
