@@ -568,5 +568,11 @@
 	<string name="create">Skapa</string>
 	<string name="manage_list_members">Hantera listmedlemmar</string>
 	<string name="list_no_members">Inga medlemmar än</string>
+	<string name="dont_remind_again">Påminn mig inte igen</string>
 	<!-- %s is a time interval ("5 months") -->
+	<plurals name="x_months">
+		<item quantity="one">%,d månad</item>
+		<item quantity="other">%,d månader</item>
+	</plurals>
+	<string name="more_than_two_years">mer än 2 år</string>
 </resources>
