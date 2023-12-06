@@ -84,22 +84,88 @@
 	<string name="report_choose_posts_subtitle">Pasirink viską, kas tinka</string>
 	<string name="report_comment_title">Ar yra dar kas nors, ką turėtume žinoti?</string>
 	<string name="report_comment_hint">Papildomi komentarai</string>
+	<string name="report_sent_title">Ačiū, kad pranešei, mes tai išnagrinėsime.</string>
+	<string name="report_sent_subtitle">Kol peržiūrėsime, gali imtis veiksmų prieš %s:</string>
+	<string name="unfollow_user">Nebesekti %s</string>
+	<string name="unfollow">Nebesekti</string>
+	<string name="mute_user_explain">Jų įrašų nematysi. Jie vis tiek gali tave sekti ir matyti įrašus, bet nežinos, kad jie nutildyti.</string>
 	<!-- %s is the email address -->
+	<string name="err_not_logged_in">Pirmiausia prisijunk prie Mastodon.</string>
+	<string name="settings_theme">Išvaizda</string>
+	<string name="theme_auto">Naudoti įrenginio išvaizdą</string>
+	<string name="theme_light">Šviesi</string>
+	<string name="theme_dark">Tamsi</string>
+	<string name="download">Atsisiųsti</string>
+	<string name="permission_required">Reikalingas leidimas</string>
+	<string name="storage_permission_to_download">Norint išsaugoti šį failą, programėlei reikia prieigos prie tavo saugyklos.</string>
+	<string name="open_settings">Atidaryti nustatymus</string>
+	<string name="error_saving_file">Klaida išsaugant failą.</string>
+	<string name="file_saved">Failas išsaugotas</string>
+	<string name="downloading">Atsisiunčiama…</string>
 	<!-- %s is the server domain -->
+	<string name="see_new_posts">Nauji įrašai</string>
+	<string name="load_missing_posts">Krauti trūkstamus įrašus</string>
+	<string name="follow_back">Sekti atgal</string>
+	<string name="button_follow_pending">Laukiama</string>
+	<string name="follows_you">Seka tave</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
+	<string name="time_now">dabar</string>
+	<string name="edit_history">Redaguoti istoriją</string>
+	<string name="last_edit_at_x">Paskutinis redagavimas %s</string>
+	<string name="time_just_now">ką tik</string>
+	<string name="discard_changes">Atmesti pakeitimus?</string>
+	<string name="upload_failed">Įkėlimas nepavyko</string>
+	<string name="file_size_bytes">%d baitai</string>
+	<string name="upload_processing">Apdorojama…</string>
 	<!-- %s is version like 1.2.3 -->
 	<!-- %s is version like 1.2.3 -->
 	<!-- %s is file size -->
+	<string name="install_update">Degti</string>
+	<string name="server_filter_region_europe">Europa</string>
+	<string name="server_filter_region_north_america">Šiaurės Amerika</string>
+	<string name="server_filter_region_south_america">Pietų Amerika</string>
+	<string name="server_filter_region_africa">Afrika</string>
+	<string name="server_filter_region_asia">Azija</string>
+	<string name="server_filter_region_oceania">Okeanija</string>
+	<string name="not_accepting_new_members">Naujų narių nepriima</string>
+	<string name="privacy_policy_explanation">PL;N: mes nieko nerenkame ir neapdorojame.</string>
 	<!-- %s is server domain -->
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<string name="profile_timeline">Laiko skalė</string>
+	<string name="profile_endorsed_accounts">Paskyros</string>
+	<string name="show">Rodyti</string>
+	<string name="hide">Slėpti</string>
+	<string name="learn_more">Sužinoti daugiau</string>
 	<!-- %s is formatted file size ("467 KB image") -->
+	<string name="attachment_description_image">%s vaizdas</string>
+	<string name="attachment_type_video">Vaizdo įrašas</string>
+	<string name="attachment_type_audio">Garso įrašas</string>
+	<string name="attachment_type_gif">GIF</string>
+	<string name="attachment_type_unknown">Failas</string>
+	<string name="poll_style">Stilius</string>
+	<string name="language">Kalba</string>
+	<string name="language_default">Numatyta</string>
+	<string name="language_system">Sistema</string>
+	<string name="language_detected">Aptikta</string>
+	<string name="media_hidden">Paslėpta medija</string>
 	<!-- %s is the server domain -->
+	<string name="forward_report_to_server">Persiųsta į %s</string>
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
+	<string name="reported">Pranešta</string>
+	<string name="report_unfollow_explanation">Jei nori nebematyti jų įrašų savo pagrindiniame kanale, nebesek jų.</string>
+	<string name="report_sent_already_blocked">Jau užblokavai šį naudotoją, todėl kol peržiūrėsime pranešimą, nieko daugiau daryti nereikia.</string>
+	<string name="settings_filters">Filtrai</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
+	<string name="pause_notifications_off">Išjungta</string>
 	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
+	<string name="today">šiandien</string>
+	<string name="yesterday">vakar</string>
+	<string name="tomorrow">rytoj</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="pause_notifications_ends">Baigiasi %s</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="pause_notifications_banner">Pranešimai bus atnaujinti %s.</string>
 	<!-- %s is the username -->
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<!-- Shown like a content warning, %s is the name of the filter -->
@@ -109,5 +175,9 @@
 	<!-- Screen reader description for the menu on the home timeline screen -->
 	<!-- %s is the name of the list -->
 	<!-- %s is a username -->
+	<string name="manage_accounts">Pridėti arba perjungti paskyras</string>
+	<string name="got_it">Supratau</string>
+	<string name="dont_remind_again">Nepriminti man daugiau</string>
 	<!-- %s is a time interval ("5 months") -->
+	<string name="old_post_sheet_text">Vis dar gali atsakyti, bet tai gali būti nebeaktualu.</string>
 </resources>
