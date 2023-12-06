@@ -1,5 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+	<string name="log_in">Prisijungti</string>
+	<string name="next">Kitas</string>
+	<string name="loading_instance">Gaunama serverio informacija…</string>
+	<string name="error">Klaida</string>
+	<string name="not_a_mastodon_instance">%s atrodo nėra Mastodon serveris.</string>
+	<string name="ok">Gerai</string>
+	<string name="preparing_auth">Ruošimas tapatybės nustatymui…</string>
+	<string name="finishing_auth">Baigiamas tapatybės nustatymas…</string>
+	<string name="user_boosted">%s pakėlė</string>
+	<string name="notifications">Pranešimai</string>
+	<string name="user_followed_you">%s seka tave</string>
+	<string name="user_sent_follow_request">%s išsiuntė sekimo prašymą</string>
+	<string name="user_favorited">%s pamėgo tavo įrašą</string>
+	<string name="notification_boosted">%s pakėlė tavo įrašą</string>
+	<string name="share_toot_title">Bendrinti</string>
+	<string name="settings">Nustatymai</string>
+	<string name="publish">Skelbti</string>
+	<string name="discard_draft">Atmesti juodraštį?</string>
+	<string name="discard">Atmesti</string>
+	<string name="cancel">Atšaukti</string>
+	<string name="posts">Įrašai</string>
+	<string name="posts_and_replies">Įrašai ir atsakymai</string>
+	<string name="media">Medija</string>
+	<string name="profile_about">Apie</string>
+	<string name="button_follow">Sekti</string>
+	<string name="edit_profile">Redaguoti profilį</string>
+	<string name="share_user">Bendrinti profilį</string>
+	<string name="mute_user">Nutildyti %s</string>
+	<string name="unmute_user">Atitildyti %s</string>
+	<string name="block_user">Blokuoti %s</string>
+	<string name="unblock_user">Atblokuoti %s</string>
+	<string name="report_user">Pranešti %s</string>
+	<string name="block_domain">Blokuoti %s</string>
+	<string name="unblock_domain">Atblokuoti %s</string>
+	<plurals name="x_posts">
+		<item quantity="one">%,d įrašas</item>
+		<item quantity="few">%,d įrašai</item>
+		<item quantity="many">%,d įrašo</item>
+		<item quantity="other">%,d įrašų</item>
+	</plurals>
+	<string name="profile_joined">Prisijungė</string>
+	<string name="done">Atlikta</string>
+	<string name="loading">Kraunama…</string>
+	<string name="saving">Išsaugoma…</string>
+	<plurals name="x_minutes">
+		<item quantity="one">%d minutė</item>
+		<item quantity="few">%d minutes</item>
+		<item quantity="many">%d minutės</item>
+		<item quantity="other">%d minučių</item>
+	</plurals>
+	<plurals name="x_hours">
+		<item quantity="one">%d valanda</item>
+		<item quantity="few">%d valandos</item>
+		<item quantity="many">%d valandos</item>
+		<item quantity="other">%d valandų</item>
+	</plurals>
+	<plurals name="x_days_left">
+		<item quantity="one">Liko %d diena</item>
+		<item quantity="few">Liko %d dienos</item>
+		<item quantity="many">Liko %d dienos</item>
+		<item quantity="other">Liko %d dienų</item>
+	</plurals>
+	<string name="poll_closed">Uždaryta</string>
+	<string name="confirm_mute_title">Nutildyti paskyrą</string>
+	<string name="all_notifications">Visi</string>
+	<string name="mentions">Paminėjimai</string>
+	<string name="report_title">Pranešti %s</string>
+	<string name="report_choose_reason">Kas negerai su šiuo įrašu?</string>
+	<string name="report_choose_reason_account">Kas negerai su %s?</string>
+	<string name="report_choose_reason_subtitle">Pasirink geriausią atitikmenį</string>
+	<string name="report_reason_personal">Man tai nepatinka</string>
+	<string name="report_reason_personal_subtitle">Tai nėra tai, ką nori matyti.</string>
+	<string name="report_reason_spam">Tai šlamštas</string>
+	<string name="report_reason_spam_subtitle">Kenkėjiškos nuorodos, netikras įsitraukimas arba pasikartojantys atsakymai.</string>
+	<string name="report_reason_violation">Tai pažeidžia serverio taisykles</string>
+	<string name="report_reason_violation_subtitle">Žinai, kad tai pažeidžia konkrečias taisykles.</string>
+	<string name="report_reason_other">Tai kažkas kita</string>
+	<string name="report_reason_other_subtitle">Ši problema netinka kitų kategorijų</string>
+	<string name="report_choose_rule">Kokios taisyklės pažeidžiamos?</string>
+	<string name="report_choose_rule_subtitle">Pasirink viską, kas tinka</string>
+	<string name="report_choose_posts">Ar yra kokių nors įrašų, patvirtinančių šį pranešimą?</string>
+	<string name="report_choose_posts_subtitle">Pasirink viską, kas tinka</string>
+	<string name="report_comment_title">Ar yra dar kas nors, ką turėtume žinoti?</string>
+	<string name="report_comment_hint">Papildomi komentarai</string>
 	<!-- %s is the email address -->
 	<!-- %s is the server domain -->
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
