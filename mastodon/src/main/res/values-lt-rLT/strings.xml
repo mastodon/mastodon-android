@@ -280,7 +280,26 @@
 	<string name="follow_back">Sekti atgal</string>
 	<string name="button_follow_pending">Laukiama</string>
 	<string name="follows_you">Seka tave</string>
+	<string name="manually_approves_followers">Rankiniu būdu patvirtina sekėjus</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
+	<plurals name="x_followers">
+		<item quantity="one">%,d sekėjas</item>
+		<item quantity="few">%,d sekėjai</item>
+		<item quantity="many">%,d sekėjo</item>
+		<item quantity="other">%,d sekėjų</item>
+	</plurals>
+	<plurals name="x_following">
+		<item quantity="one">%,d sekimas</item>
+		<item quantity="few">%,d sekimai</item>
+		<item quantity="many">%,d sekimo</item>
+		<item quantity="other">%,d sekimų</item>
+	</plurals>
+	<plurals name="x_favorites">
+		<item quantity="one">%,d mėgstamas</item>
+		<item quantity="few">%,d mėgstami</item>
+		<item quantity="many">%,d mėgstamo</item>
+		<item quantity="other">%,d mėgstamų</item>
+	</plurals>
 	<plurals name="x_reblogs">
 		<item quantity="one">%,d pakėlimas</item>
 		<item quantity="few">%,d pakėlimai</item>
@@ -305,9 +324,11 @@
 	</plurals>
 	<string name="edited_timestamp">redaguota %s</string>
 	<string name="edit_original_post">Originalus įrašas</string>
+	<string name="edit">Redaguoti</string>
 	<string name="discard_changes">Atmesti pakeitimus?</string>
 	<string name="upload_failed">Įkėlimas nepavyko</string>
 	<string name="file_size_bytes">%d baitai</string>
+	<string name="file_size_kb">%.2f KB</string>
 	<string name="upload_processing">Apdorojama…</string>
 	<!-- %s is version like 1.2.3 -->
 	<!-- %s is version like 1.2.3 -->
