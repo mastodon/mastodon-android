@@ -75,6 +75,12 @@
 		<item quantity="many">%d valandos</item>
 		<item quantity="other">%d valandų</item>
 	</plurals>
+	<plurals name="x_days">
+		<item quantity="one">%d diena</item>
+		<item quantity="few">%d dienos</item>
+		<item quantity="many">%d dienos</item>
+		<item quantity="other">%d dienų</item>
+	</plurals>
 	<plurals name="x_seconds_left">
 		<item quantity="one">Liko %d sekundė</item>
 		<item quantity="few">Liko %d sekundės</item>
@@ -111,9 +117,10 @@
 	<string name="do_mute">Nutildyti</string>
 	<string name="confirm_unmute_title">Atšaukti paskyros nutildymą</string>
 	<string name="confirm_unmute">Patvirtinti, kad atšaukti nutildymą %s</string>
-	<string name="do_unmute">Atitildyti</string>
+	<string name="do_unmute">Atšaukti nutildymą</string>
 	<string name="confirm_block_title">Blokuoti paskyrą</string>
 	<string name="confirm_block_domain_title">Blokuoti domeną</string>
+	<string name="confirm_block">Patvirtinti, kad blokuoti %s</string>
 	<string name="do_block">Blokuoti</string>
 	<string name="confirm_unblock_title">Atblokuoti paskyrą</string>
 	<string name="confirm_unblock_domain_title">Atblokuoti domeną</string>
@@ -198,6 +205,8 @@
 	<string name="theme_auto">Naudoti įrenginio išvaizdą</string>
 	<string name="theme_light">Šviesi</string>
 	<string name="theme_dark">Tamsi</string>
+	<string name="settings_contribute">Prisidėti prie Mastodon</string>
+	<string name="settings_tos">Paslaugų teikimo sąlygos</string>
 	<string name="follow_user">Sekti %s</string>
 	<string name="unfollowed_user">Nebesekama %s</string>
 	<string name="followed_user">Dabar seki %s</string>
@@ -335,6 +344,7 @@
 	<string name="pause_notifications_ends">Baigiasi %s</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<string name="pause_notifications_banner">Pranešimai bus atnaujinti %s.</string>
+	<string name="settings_even_more">Dar daugiau nustatymų</string>
 	<!-- %s is the username -->
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<!-- Shown like a content warning, %s is the name of the filter -->
@@ -356,6 +366,8 @@
 	<string name="create">Kurti</string>
 	<string name="manage_list_members">Tvarkyti sąrašo narius</string>
 	<string name="list_no_members">Dar nėra narių</string>
+	<string name="list_find_users">Rask naudotojų, kurių pridėti</string>
+	<string name="reply_to_user">Atsakyti į %s</string>
 	<string name="posted_at">Paskelbta %s</string>
 	<string name="non_mutual_sheet_title">Labas, naujas ryšys!</string>
 	<string name="non_mutual_sheet_text">Atrodo, kad netrukus ketini atsakyti žmogui, kuris (-i) dar neturi bendro ryšio. Padarykime puikų pirmąjį įspūdį.</string>
@@ -373,9 +385,11 @@
 	<string name="non_mutual_text3">Kiekvieno pokalbio stilius unikalus. Būk pasiruošęs (-usi) prisitaikyti.</string>
 	<string name="make_profile_discoverable">Padaryti mano profilį atrandamą</string>
 	<string name="discoverability">Atrandamumas</string>
+	<string name="discoverability_help">Kai pasirenki Mastodon atrandamumą, tavo įrašai gali būti rodomi paieškos rezultatuose ir tendencijose.\n\nProfilis gali būti siūlomas žmonėms, kurių pomėgiai yra panašūs į tavo.\n\nAtsisakant nebus paslėptas tavo profilis, jei kas nors ieškos pagal vardą.</string>
 	<string name="app_version_copied">Versijos numeris nukopijuotas į iškarpinę</string>
 	<string name="article_by_author">Sukūrė %s</string>
 	<string name="info">Informacija</string>
 	<string name="button_reblogged">Pakelta</string>
 	<string name="button_favorited">Pamėgta</string>
+	<string name="bookmarked">Pažymėta</string>
 </resources>
