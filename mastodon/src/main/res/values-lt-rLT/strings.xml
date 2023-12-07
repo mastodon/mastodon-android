@@ -137,11 +137,18 @@
 	<string name="pause">Pristabdyti</string>
 	<string name="log_out">Atsijungti</string>
 	<string name="add_account">Pridėti paskyrą</string>
+	<string name="search_hint">Paieška</string>
 	<string name="hashtags">Saitažodžiai</string>
 	<string name="news">Naujienos</string>
 	<string name="for_you">Tau</string>
 	<string name="all_notifications">Visi</string>
 	<string name="mentions">Paminėjimai</string>
+	<plurals name="x_people_talking">
+		<item quantity="one">%d asmuo kalba</item>
+		<item quantity="few">%d asmenys kalbasi</item>
+		<item quantity="many">%d asmenys kalbasi</item>
+		<item quantity="other">%d asmenų kalbasi</item>
+	</plurals>
 	<string name="report_title">Pranešti %s</string>
 	<string name="report_choose_reason">Kas negerai su šiuo įrašu?</string>
 	<string name="report_choose_reason_account">Kas negerai su %s?</string>
@@ -160,12 +167,13 @@
 	<string name="report_choose_posts_subtitle">Pasirink viską, kas tinka</string>
 	<string name="report_comment_title">Ar yra dar kas nors, ką turėtume žinoti?</string>
 	<string name="report_comment_hint">Papildomi komentarai</string>
-	<string name="sending_report">Siunčiama pranešimas…</string>
+	<string name="sending_report">Siunčiamas pranešimas…</string>
 	<string name="report_sent_title">Ačiū, kad pranešei, mes tai išnagrinėsime.</string>
 	<string name="report_sent_subtitle">Kol peržiūrėsime, gali imtis veiksmų prieš %s:</string>
 	<string name="unfollow_user">Nebesekti %s</string>
 	<string name="unfollow">Nebesekti</string>
 	<string name="mute_user_explain">Jų įrašų nematysi. Jie vis tiek gali tave sekti ir matyti įrašus, bet nežinos, kad jie nutildyti.</string>
+	<string name="block_user_explain">Jų įrašų nematysi. Jie negalės matyti tavo įrašų ar sekti tavęs. Jie galės pasakyti, kad yra užblokuoti.</string>
 	<string name="report_personal_title">Nenori to matyti?</string>
 	<string name="report_personal_subtitle">Štai parinktys, kaip kontroliuoti, ką matai Mastodon:</string>
 	<string name="back">Atgal</string>
@@ -223,6 +231,7 @@
 	<string name="error_saving_file">Klaida išsaugant failą.</string>
 	<string name="file_saved">Failas išsaugotas</string>
 	<string name="downloading">Atsisiunčiama…</string>
+	<string name="trending_links_info_banner">Tai naujienos, apie kurias kalbama Mastodon.</string>
 	<!-- %s is the server domain -->
 	<string name="see_new_posts">Nauji įrašai</string>
 	<string name="load_missing_posts">Krauti trūkstamus įrašus</string>
@@ -253,7 +262,9 @@
 	<string name="server_url">Serverio URL</string>
 	<string name="signup_random_server_explain">Mes parinksime serverį pagal tavo kalbą, jei tęsi nepasirinkęs (-usi).</string>
 	<string name="server_filter_any_language">Bet kokia kalba</string>
-	<string name="server_filter_any_signup_speed">Bet kokio registravimo greitis</string>
+	<string name="server_filter_instant_signup">Momentinė registracija</string>
+	<string name="server_filter_manual_review">Rankinė apžvalga</string>
+	<string name="server_filter_any_signup_speed">Bet kokio registracijos greitis</string>
 	<string name="server_filter_region_europe">Europa</string>
 	<string name="server_filter_region_north_america">Šiaurės Amerika</string>
 	<string name="server_filter_region_south_america">Pietų Amerika</string>
@@ -346,13 +357,44 @@
 	<string name="pause_notifications_banner">Pranešimai bus atnaujinti %s.</string>
 	<string name="settings_even_more">Dar daugiau nustatymų</string>
 	<!-- %s is the username -->
+	<string name="filter_active">Aktyvi</string>
+	<string name="filter_inactive">Neaktyvi</string>
+	<string name="settings_add_filter">Pridėti filtrą</string>
+	<string name="settings_edit_filter">Redaguoti filtrą</string>
+	<string name="settings_filter_duration">Trukmė</string>
+	<string name="settings_filter_muted_words">Nutildyti žodžiai</string>
+	<string name="settings_filter_context">Nutildyta iš</string>
+	<string name="settings_filter_show_cw">Rodyti su turinio įspėjimu</string>
+	<string name="settings_filter_show_cw_explanation">Vis dar rodyti įrašus, kurie atitinka šį filtrą, bet po turinio įspėjimu</string>
+	<string name="settings_delete_filter">Ištrinti failą</string>
+	<string name="filter_duration_forever">Amžinai</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="settings_filter_ends">Baigiasi %s</string>
+	<string name="filter_context_home_lists">Pagrindinis ir sąrašai</string>
+	<string name="filter_context_notifications">Pranešimai</string>
+	<string name="filter_context_public_timelines">Viešieji laiko skalės</string>
+	<string name="filter_context_threads_replies">Gijos ir atsakymai</string>
+	<string name="filter_context_profiles">Profiliai</string>
+	<string name="settings_filter_title">Pavadinimas</string>
+	<string name="settings_delete_filter_title">Ištrinti filtrą „%s“?</string>
+	<string name="settings_delete_filter_confirmation">Šis filtras bus ištrintas iš paskyros visuose tavo įrenginiuose.</string>
+	<string name="filter_word_or_phrase">Žodis arba frazė</string>
+	<string name="filter_add_word_help">Žodžiai atskiriami pagal didžiąsias raides ir atitinka tik pilnus žodžius.\n\nJei filtruosi raktažodį „Apple“, bus paslėpti įrašai, turintys „apple“ arba „aPpLe“, bet ne „pineapple“.</string>
+	<string name="settings_delete_filter_word">Ištrinti žodį „%s“?</string>
+	<string name="settings_filter_duration_title">Filtro trukmė</string>
+	<string name="filter_duration_custom">Pasirinktinis</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
+	<string name="post_matches_filter_x">Atitinka filtrą „%s“</string>
+	<string name="search_mastodon">Ieškoti Mastodon</string>
+	<string name="search_open_url">Atidaryti URL adresą Mastodon</string>
+	<string name="search_go_to_account">Eiti į %s</string>
 	<!-- Shown in the post header. Please keep it short -->
 	<!-- %s is the name of the post language -->
 	<!-- %1$s is the language, %2$s is the name of the translation service -->
+	<string name="settings_indexable">Įtraukti viešus įrašus į paieškos rezultatus</string>
 	<!-- Screen reader description for the menu on the home timeline screen -->
 	<!-- %s is the name of the list -->
+	<string name="search_among_people_you_follow">Ieškoti tarp sekamų žmonių</string>
 	<!-- %s is a username -->
 	<string name="manage_accounts">Pridėti arba perjungti paskyras</string>
 	<plurals name="x_posts_recently">
