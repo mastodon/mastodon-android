@@ -270,6 +270,7 @@
 	<string name="file_saved">Failas išsaugotas</string>
 	<string name="downloading">Atsisiunčiama…</string>
 	<string name="no_app_to_handle_action">Nėra programėlės šiam veiksmui atlikti</string>
+	<string name="local_timeline">Vietinis (-ė)</string>
 	<string name="trending_posts_info_banner">Tai įrašai, sulaukiantys didžiausio susidomėjimo Mastodon tinkle.</string>
 	<string name="trending_links_info_banner">Tai naujienos, apie kurias kalbama Mastodon.</string>
 	<!-- %s is the server domain -->
@@ -324,15 +325,31 @@
 	</plurals>
 	<string name="edited_timestamp">redaguota %s</string>
 	<string name="edit_original_post">Originalus įrašas</string>
+	<string name="edit_text_edited">Redaguotas tekstas</string>
+	<string name="edit_spoiler_added">Turinio įspėjimas pridėtas</string>
+	<string name="edit_spoiler_edited">Turinio įspėjimas redaguotas</string>
+	<string name="edit_spoiler_removed">Turinio įspėjimas pašalintas</string>
+	<string name="edit_poll_added">Apklausa pridėta</string>
+	<string name="edit_poll_edited">Apklausa redaguota</string>
+	<string name="edit_poll_removed">Apklausa pašalinta</string>
+	<string name="edit_media_added">Medija pridėta</string>
+	<string name="edit_media_removed">Medija pašalinta</string>
+	<string name="edit_media_reordered">Medija pertvarkyta</string>
+	<string name="edit_marked_sensitive">Pažymėta kaip jautrią</string>
+	<string name="edit_marked_not_sensitive">Pažymėta kaip nejautrią</string>
+	<string name="edit_multiple_changed">Įrašas redaguotas</string>
 	<string name="edit">Redaguoti</string>
 	<string name="discard_changes">Atmesti pakeitimus?</string>
 	<string name="upload_failed">Įkėlimas nepavyko</string>
 	<string name="file_size_bytes">%d baitai</string>
 	<string name="file_size_kb">%.2f KB</string>
+	<string name="file_size_mb">%.2f MB</string>
+	<string name="file_size_gb">%.2f GB</string>
 	<string name="upload_processing">Apdorojama…</string>
 	<!-- %s is version like 1.2.3 -->
 	<!-- %s is version like 1.2.3 -->
 	<!-- %s is file size -->
+	<string name="download_update">Atsisiųsti (%s)</string>
 	<string name="install_update">Degti</string>
 	<string name="privacy_policy_title">Tavo privatumas</string>
 	<string name="privacy_policy_subtitle">Nors Mastodon programėlė nerenka jokių duomenų, serveris, per kurį užsiregistruoji, gali turėti kitokią politiką.\n\nJei nesutinki su %s politika, gali grįžti ir pasirinkti kitą serverį.</string>
@@ -340,7 +357,11 @@
 	<string name="empty_list">Šis sąrašas tuščias</string>
 	<string name="instance_signup_closed">Šis serveris nepriima naujų registracijų.</string>
 	<string name="text_copied">Nukopijuota į iškarpinę</string>
-	<string name="login_title">Sveiki sugrįžę</string>
+	<string name="add_bookmark">Pridėti į žymės</string>
+	<string name="remove_bookmark">Pašalinti žymę</string>
+	<string name="bookmarks">Žymės</string>
+	<string name="your_favorites">Tavo mėgstamos</string>
+	<string name="login_title">Sveikas (-a) sugrįžęs (-usi)</string>
 	<string name="login_subtitle">Prisijunk prie serverio, kuriame susikūrei paskyrą.</string>
 	<string name="server_url">Serverio URL</string>
 	<string name="signup_random_server_explain">Mes parinksime serverį pagal tavo kalbą, jei tęsi nepasirinkęs (-usi).</string>
@@ -370,6 +391,7 @@
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<string name="sending_follows">Sekami naudotojai…</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<string name="signup_email_domain_blocked">%1$s neleidžia registracijų iš %2$s. Išbandyk kitą arba &lt;a&gt;pasirink kitą serverį&lt;/a&gt;.</string>
 	<string name="spoiler_show">Rodyti vis tiek</string>
 	<string name="spoiler_hide">Perslėpti</string>
 	<string name="poll_multiple_choice">Pasirink vieną ar daugiau</string>
@@ -385,6 +407,7 @@
 	<string name="pick_server">Pasirinkti kitą serverį</string>
 	<string name="signup_or_login">arba</string>
 	<string name="learn_more">Sužinoti daugiau</string>
+	<string name="welcome_to_mastodon">Sveikas (-a) atvykęs (-usi) į Mastodon</string>
 	<string name="welcome_paragraph1">Mastodon yra decentralizuotas socialinis tinklas – tai reiškia, kad jo nekontroliuoja nė viena įmonė. Jį sudaro daugybė nepriklausomai veikiančių serverių, sujungtų tarpusavyje.</string>
 	<string name="what_are_servers">Kas yra serveriai?</string>
 	<string name="welcome_paragraph2">Kiekviena Mastodon paskyra talpinama serveryje - kiekvienas jų turi savo reikšmes, taisykles, &amp; administratorius. Nesvarbu, kurį iš jų pasirinksi, galėsi sekti ir bendrauti su bet kuriame serveryje esančiais žmonėmis.</string>
@@ -393,9 +416,11 @@
 	<string name="log_out_all_accounts">Atsijungti nuo visų paskyrų</string>
 	<string name="confirm_log_out_all_accounts">Atsijungti nuo visų paskyrų?</string>
 	<string name="retry">Kartoti</string>
+	<string name="post_failed">Nepavyko išsiųsti įrašo.</string>
 	<!-- %s is formatted file size ("467 KB image") -->
 	<string name="attachment_description_image">%s vaizdas</string>
 	<string name="attachment_description_video">%s vaizdo įrašas</string>
+	<string name="attachment_description_audio">%s garso įrašas</string>
 	<string name="attachment_description_unknown">%s failas</string>
 	<string name="attachment_type_image">Vaizdas</string>
 	<string name="attachment_type_video">Vaizdo įrašas</string>
@@ -408,6 +433,12 @@
 	<string name="poll_style">Stilius</string>
 	<string name="compose_poll_single_choice">Pasirinkti vieną</string>
 	<string name="compose_poll_multiple_choice">Keli pasirinkimai</string>
+	<string name="delete_poll_option">Ištrinti apklausos parinktį</string>
+	<string name="poll_style_title">Apklausos stilius</string>
+	<string name="alt_text">Alternatyvus tekstas</string>
+	<string name="help">Pagalba</string>
+	<string name="what_is_alt_text">Kas yra alternatyvus tekstas?</string>
+	<string name="edit_post">Redaguoti įrašą</string>
 	<string name="no_verified_link">Nėra patikrintos nuorodos</string>
 	<string name="compose_autocomplete_emoji_empty">Naršyti jaustuką</string>
 	<string name="compose_autocomplete_users_empty">Rask, ko ieškai</string>
@@ -426,12 +457,23 @@
 	<string name="forward_report_to_server">Persiųsta į %s</string>
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
 	<string name="reported">Pranešta</string>
-	<string name="report_unfollow_explanation">Jei nori nebematyti jų įrašų savo pagrindiniame kanale, nebesek jų.</string>
+	<string name="report_unfollow_explanation">Jei nori nebematyti jų įrašų savo pagrindiniame sraute, nebesek jų.</string>
+	<string name="muted_user">Nutildytas %s</string>
 	<string name="report_sent_already_blocked">Jau užblokavai šį naudotoją, todėl kol peržiūrėsime pranešimą, nieko daugiau daryti nereikia.</string>
+	<string name="report_personal_already_blocked">Jau užblokavai šį naudotoją, todėl daugiau nieko daryti nereikia.\n\nAčiū, kad padedi išlaikyti Mastodon saugią vietą visiems!</string>
+	<string name="mark_all_notifications_read">Žymėti viską kaip perskaitytą</string>
+	<string name="settings_display">Rodinys</string>
 	<string name="settings_filters">Filtrai</string>
+	<string name="settings_server_explanation">Apžvalga, taisyklės, prižiūrėtojai</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
+	<string name="about_app">Apie %s</string>
+	<string name="default_post_language">Numatytoji įrašo kalba</string>
+	<string name="settings_alt_text_reminders">Pridėti alternatyvųjį teksto priminimus</string>
+	<string name="settings_confirm_unfollow">Klausti prieš atšaukant sekimą kažkam</string>
+	<string name="pause_all_notifications">Pristabdyti visus</string>
 	<string name="pause_notifications_off">Išjungta</string>
 	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
+	<string name="date_at_time">%1$s, %2$s</string>
 	<string name="today">šiandien</string>
 	<string name="yesterday">vakar</string>
 	<string name="tomorrow">rytoj</string>
@@ -439,8 +481,22 @@
 	<string name="pause_notifications_ends">Baigiasi %s</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<string name="pause_notifications_banner">Pranešimai bus atnaujinti %s.</string>
+	<string name="about_server">Apie</string>
+	<string name="server_rules">Taisyklės</string>
+	<string name="server_administrator">Administratorius (-ė)</string>
+	<string name="send_email_to_server_admin">Siųsti laišką administratoriui</string>
+	<string name="notifications_disabled_in_system">Įjunk pranešimus iš įrenginio nustatymų, kad pamatytum atnaujinimus iš bet kurios vietos.</string>
 	<string name="settings_even_more">Dar daugiau nustatymų</string>
+	<string name="settings_show_cws">Rodyti turinio įspėjimus</string>
+	<plurals name="x_hours_ago">
+		<item quantity="one">Prieš %d valandą</item>
+		<item quantity="few">Prieš %d valandas</item>
+		<item quantity="many">Prieš %d valandos</item>
+		<item quantity="other">Prieš %d valandų</item>
+	</plurals>
+	<string name="alt_text_reminder_title">Medijoje trūksta alternatyvo teksto</string>
 	<!-- %s is the username -->
+	<string name="unfollow_confirmation">Nebesekti %s?</string>
 	<string name="filter_active">Aktyvi</string>
 	<string name="filter_inactive">Neaktyvi</string>
 	<string name="settings_add_filter">Pridėti filtrą</string>
