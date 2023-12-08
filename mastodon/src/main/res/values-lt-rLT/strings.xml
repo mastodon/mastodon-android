@@ -511,6 +511,12 @@
 		<item quantity="other">Prieš %d valandų</item>
 	</plurals>
 	<string name="alt_text_reminder_title">Medijoje trūksta alternatyvo teksto</string>
+	<plurals name="alt_text_reminder_x_images">
+		<item quantity="one">%s vaizdų trūksta alternatyvaus teksto. Skelbti vis tiek?</item>
+		<item quantity="few">%s vaizdų trūksta alternatyvaus teksto. Skelbti vis tiek?</item>
+		<item quantity="many">%s vaizdų trūksta alternatyvaus teksto. Skelbti vis tiek?</item>
+		<item quantity="other">%s vaizdų trūksta alternatyvaus teksto. Skelbti vis tiek?</item>
+	</plurals>
 	<string name="alt_text_reminder_post_anyway">Skelbti</string>
 	<!-- %s is the username -->
 	<string name="unfollow_confirmation">Nebesekti %s?</string>
