@@ -224,6 +224,7 @@
 	<string name="follow_user">Jarraitu %s</string>
 	<string name="unfollowed_user">Utzi %s jarraitzeari</string>
 	<string name="followed_user">%s jarraitzen ari zara</string>
+	<string name="following_user_requested">%s jarraitzea eskatuta</string>
 	<string name="open_in_browser">Ireki nabigatzailean</string>
 	<string name="hide_boosts_from_user">Ezkutatu %s(r)en bultzadak</string>
 	<string name="show_boosts_from_user">Erakutsi @%s(r)en bultzadak</string>
@@ -262,6 +263,10 @@
 	<plurals name="x_favorites">
 		<item quantity="one">Gogoko bat</item>
 		<item quantity="other">%,d gogoko</item>
+	</plurals>
+	<plurals name="x_reblogs">
+		<item quantity="one">Bultzada %,d</item>
+		<item quantity="other">%,d bultzada</item>
 	</plurals>
 	<string name="time_now">orain</string>
 	<string name="edit_history">Editatu historia</string>
@@ -334,8 +339,10 @@
 	<string name="follow_all">Jarraitu denak</string>
 	<string name="server_rules_disagree">Ez ados</string>
 	<!-- %s is server domain -->
+	<string name="server_policy_disagree">%s rekin desados</string>
 	<string name="profile_bio">Biografia</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
+	<string name="sending_follows">Erabiltzaileak jarraitzen…</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
 	<string name="spoiler_show">Erakutsi hala ere</string>
 	<string name="spoiler_hide">Berrezkutatu</string>
@@ -348,12 +355,16 @@
 	<string name="verified_link">Lotura egiaztatua</string>
 	<string name="show">Erakutsi</string>
 	<string name="hide">Ezkutatu</string>
+	<string name="join_default_server">Batu %s -ra</string>
 	<string name="pick_server">Aukeratu beste zerbitzari bat</string>
 	<string name="signup_or_login">edo</string>
 	<string name="learn_more">Ikasi gehiago</string>
 	<string name="welcome_to_mastodon">Ongi etorri Mastodon-era</string>
 	<string name="what_are_servers">Zer dira zerbitzariak?</string>
 	<string name="opening_link">Lotura irekitzen…</string>
+	<string name="link_not_supported">Lotura hau ezin da aplikazioan ireki</string>
+	<string name="log_out_all_accounts">Irten kontu guztietatik</string>
+	<string name="confirm_log_out_all_accounts">Kontu guztietatik irten?</string>
 	<string name="retry">Berriro saiatu</string>
 	<!-- %s is formatted file size ("467 KB image") -->
 	<string name="attachment_description_image">irudi %s</string>
