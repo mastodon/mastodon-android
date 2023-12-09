@@ -43,7 +43,7 @@
 	<string name="edit_profile">Redaguoti profilį</string>
 	<string name="share_user">Bendrinti profilį</string>
 	<string name="mute_user">Nutildyti %s</string>
-	<string name="unmute_user">Atitildyti %s</string>
+	<string name="unmute_user">Atšaukti nutildymą %s</string>
 	<string name="block_user">Blokuoti %s</string>
 	<string name="unblock_user">Atblokuoti %s</string>
 	<string name="report_user">Pranešti %s</string>
@@ -212,10 +212,10 @@
 	<string name="choose_account">Pasirinkti paskyrą</string>
 	<string name="err_not_logged_in">Pirmiausia prisijunk prie Mastodon.</string>
 	<plurals name="cant_add_more_than_x_attachments">
-		<item quantity="one">Negalima pridėti daugiau nei %d medijos priedo.</item>
-		<item quantity="few">Negalima pridėti daugiau nei %d medijos priedus.</item>
-		<item quantity="many">Negalima pridėti daugiau nei %d medijos priedo.</item>
-		<item quantity="other">Negalima pridėti daugiau nei %d medijos priedų.</item>
+		<item quantity="one">Negalima pridėti daugiau kaip %d medijos priedo.</item>
+		<item quantity="few">Negalima pridėti daugiau kaip %d medijos priedus.</item>
+		<item quantity="many">Negalima pridėti daugiau kaip %d medijos priedo.</item>
+		<item quantity="other">Negalima pridėti daugiau kaip %d medijos priedų.</item>
 	</plurals>
 	<string name="media_attachment_unsupported_type">Failas %s – nepalaikomo tipo</string>
 	<string name="media_attachment_too_big">Failas %1$s viršija %2$s MB dydžio ribą</string>
