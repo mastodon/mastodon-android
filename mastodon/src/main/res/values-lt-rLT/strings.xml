@@ -483,6 +483,12 @@
 	<string name="settings_notifications_policy">Gauti pranešimus iš</string>
 	<string name="notification_type_mentions_and_replies">Paminėjimai ir atsakymai</string>
 	<string name="pause_all_notifications_title">Pristabdyti visus pranešimus</string>
+	<plurals name="x_weeks">
+		<item quantity="one">%d savaitė</item>
+		<item quantity="few">%d savaites</item>
+		<item quantity="many">%d savaitės</item>
+		<item quantity="other">%d savaičių</item>
+	</plurals>
 	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
 	<string name="date_at_time">%1$s, %2$s</string>
 	<string name="today">šiandien</string>
@@ -581,6 +587,7 @@
 	<!-- Screen reader description for the menu on the home timeline screen -->
 	<string name="dropdown_menu">Išskleidžiamasis meniu</string>
 	<string name="edit_list">Redaguoti sąrašą</string>
+	<string name="list_members">Sąrašo nariai</string>
 	<string name="delete_list">Ištrinti sąrašą</string>
 	<!-- %s is the name of the list -->
 	<string name="delete_list_confirm">Ištrinti „%s“?</string>
