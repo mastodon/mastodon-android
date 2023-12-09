@@ -553,8 +553,18 @@
 	<string name="filter_word_or_phrase">Žodis arba frazė</string>
 	<string name="filter_add_word_help">Žodžiai atskiriami pagal didžiąsias raides ir atitinka tik pilnus žodžius.\n\nJei filtruosi raktažodį „Apple“, bus paslėpti įrašai, turintys „apple“ arba „aPpLe“, bet ne „pineapple“.</string>
 	<string name="settings_delete_filter_word">Ištrinti žodį „%s“?</string>
+	<string name="enter_selection_mode">Pasirinkti</string>
+	<string name="select_all">Pasirinkti visus</string>
 	<string name="settings_filter_duration_title">Filtro trukmė</string>
 	<string name="filter_duration_custom">Pasirinktinis</string>
+	<plurals name="x_items_selected">
+		<item quantity="one">%d pasirinktas</item>
+		<item quantity="few">%d pasirinkta</item>
+		<item quantity="many">%d pasirinkta</item>
+		<item quantity="other">%d pasirinkta</item>
+	</plurals>
+	<string name="required_form_field_blank">Negali būti tuščias.</string>
+	<string name="filter_word_already_in_list">Jau yra sąraše.</string>
 	<string name="downloading_update">Atsiunčiama (%d%%)</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
 	<string name="post_matches_filter_x">Atitinka filtrą „%s“</string>
