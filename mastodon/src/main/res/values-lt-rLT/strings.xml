@@ -6,7 +6,7 @@
 	<string name="error">Klaida</string>
 	<string name="not_a_mastodon_instance">%s atrodo, kad nėra Mastodon serveris.</string>
 	<string name="ok">Gerai</string>
-	<string name="preparing_auth">Ruošimas tapatybės nustatymui…</string>
+	<string name="preparing_auth">Ruošima tapatybės nustatymui…</string>
 	<string name="finishing_auth">Baigiamas tapatybės nustatymas…</string>
 	<string name="user_boosted">%s pakėlė</string>
 	<string name="in_reply_to">Atsakant į %s</string>
@@ -408,7 +408,7 @@
 	<string name="signup_or_login">arba</string>
 	<string name="learn_more">Sužinoti daugiau</string>
 	<string name="welcome_to_mastodon">Sveikas (-a) atvykęs (-usi) į Mastodon</string>
-	<string name="welcome_paragraph1">Mastodon yra decentralizuotas socialinis tinklas – tai reiškia, kad jo nekontroliuoja nė viena įmonė. Jį sudaro daugybė nepriklausomai veikiančių serverių, sujungtų tarpusavyje.</string>
+	<string name="welcome_paragraph1">Mastodon yra decentralizuotas socialinis tinklas ir tai reiškia, kad jo nekontroliuoja nė viena įmonė. Jį sudaro daugybė nepriklausomai veikiančių serverių, sujungtų tarpusavyje.</string>
 	<string name="what_are_servers">Kas yra serveriai?</string>
 	<string name="welcome_paragraph2">Kiekviena Mastodon paskyra talpinamas serveryje – kiekvienas jų turi savo reikšmes, taisykles ir administratorius. Nesvarbu, kurį iš jų pasirinksi, galėsi sekti ir bendrauti su bet kuriame serveryje esančiais žmonėmis.</string>
 	<string name="opening_link">Atidaroma nuoroda…</string>
@@ -510,6 +510,24 @@
 	<string name="settings_hide_sensitive_media">Paslėpti mediją, pažymėtą kaip jautrią</string>
 	<string name="settings_show_interaction_counts">Įrašų sąveikos skaičiai</string>
 	<string name="settings_show_emoji_in_names">Pasirinktinis jaustukas rodomuose varduose</string>
+	<plurals name="in_x_seconds">
+		<item quantity="one">po %d sekundės</item>
+		<item quantity="few">po %d sekundžių</item>
+		<item quantity="many">po %d sekundžių</item>
+		<item quantity="other">po %d sekundžių</item>
+	</plurals>
+	<plurals name="in_x_minutes">
+		<item quantity="one">po %d minutės</item>
+		<item quantity="few">po %d minučių</item>
+		<item quantity="many">po %d minučių</item>
+		<item quantity="other">po %d minučių</item>
+	</plurals>
+	<plurals name="in_x_hours">
+		<item quantity="one">po %d valandos</item>
+		<item quantity="few">po %d valandų</item>
+		<item quantity="many">po %d valandų</item>
+		<item quantity="other">po %d valandų</item>
+	</plurals>
 	<plurals name="x_hours_ago">
 		<item quantity="one">Prieš %d valandą</item>
 		<item quantity="few">Prieš %d valandas</item>
@@ -523,6 +541,16 @@
 		<item quantity="many">%s vaizdų trūksta alternatyvaus teksto. Skelbti vis tiek?</item>
 		<item quantity="other">%s vaizdų trūksta alternatyvaus teksto. Skelbti vis tiek?</item>
 	</plurals>
+	<plurals name="alt_text_reminder_x_attachments">
+		<item quantity="one">%s medijos priedas trūksta alternatyvaus teksto. Skelbti vis tiek?</item>
+		<item quantity="few">%s medijos priedai trūksta alternatyvaus teksto. Skelbti vis tiek?</item>
+		<item quantity="many">%s medijos priedo trūksta alternatyvaus teksto. Skelbti vis tiek?</item>
+		<item quantity="other">%s medijos priedų trūksta alternatyvaus teksto. Skelbti vis tiek?</item>
+	</plurals>
+	<string name="count_one">Vienas</string>
+	<string name="count_two">Du</string>
+	<string name="count_three">Trys</string>
+	<string name="count_four">Keturi</string>
 	<string name="alt_text_reminder_post_anyway">Skelbti</string>
 	<!-- %s is the username -->
 	<string name="unfollow_confirmation">Nebesekti %s?</string>
@@ -539,6 +567,15 @@
 	<string name="filter_duration_forever">Amžinai</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<string name="settings_filter_ends">Baigiasi %s</string>
+	<plurals name="settings_x_muted_words">
+		<item quantity="one">%d nutildytas žodis arba frazė</item>
+		<item quantity="few">%d nutildyti žodžiai ar frazės</item>
+		<item quantity="many">%d nutildyto žodžio arba frazio</item>
+		<item quantity="other">%d nutildytų žodžių arba frazių</item>
+	</plurals>
+	<string name="selection_2_options">%1$s ir %2$s</string>
+	<string name="selection_3_options">%1$s, %2$s ir %3$s</string>
+	<string name="selection_4_or_more">%1$s, %2$s ir %3$d daugiau</string>
 	<string name="filter_context_home_lists">Pagrindinis ir sąrašai</string>
 	<string name="filter_context_notifications">Pranešimai</string>
 	<string name="filter_context_public_timelines">Viešieji laiko skalės</string>
@@ -557,6 +594,12 @@
 	<string name="select_all">Pasirinkti visus</string>
 	<string name="settings_filter_duration_title">Filtro trukmė</string>
 	<string name="filter_duration_custom">Pasirinktinis</string>
+	<plurals name="settings_delete_x_filter_words">
+		<item quantity="one">Ištrinti %d žodį?</item>
+		<item quantity="few">Ištrinti %d žodžius?</item>
+		<item quantity="many">Ištrinti %d žodžio?</item>
+		<item quantity="other">Ištrinti %d žodžių?</item>
+	</plurals>
 	<plurals name="x_items_selected">
 		<item quantity="one">%d pasirinktas</item>
 		<item quantity="few">%d pasirinkta</item>
@@ -565,6 +608,8 @@
 	</plurals>
 	<string name="required_form_field_blank">Negali būti tuščias.</string>
 	<string name="filter_word_already_in_list">Jau yra sąraše.</string>
+	<string name="app_update_ready">Parengtas programėlės naujinimas</string>
+	<string name="app_update_version">Versija %s</string>
 	<string name="downloading_update">Atsiunčiama (%d%%)</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
 	<string name="post_matches_filter_x">Atitinka filtrą „%s“</string>
@@ -576,6 +621,8 @@
 	<string name="posts_matching_string">Įrašai su „%s“</string>
 	<string name="accounts_matching_string">Žmonės su „%s“</string>
 	<!-- Shown in the post header. Please keep it short -->
+	<string name="time_seconds_ago_short">Prieš %d sek.</string>
+	<string name="time_minutes_ago_short">Prieš %d min.</string>
 	<string name="time_hours_ago_short">Prieš %d val.</string>
 	<string name="time_days_ago_short">Prieš %d d.</string>
 	<!-- %s is the name of the post language -->
