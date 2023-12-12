@@ -617,6 +617,7 @@
 	<string name="no_followed_hashtags_title">Blijf op de hoogte van je interesses door hashtags te volgen</string>
 	<string name="no_followed_hashtags_subtitle">Accounts die je volgt verschijnen hier</string>
 	<string name="no_lists_title">Organiseer jouw tijdlijn met lijsten</string>
+	<string name="no_lists_subtitle">Je eigen verschijnen hier</string>
 	<string name="manage_accounts">Accounts toevoegen of omschakelen</string>
 	<plurals name="x_posts_recently">
 		<item quantity="one">Onlangs %,d bericht</item>
@@ -630,6 +631,8 @@
 	<string name="list_find_users">Vind gebruikers om toe te voegen</string>
 	<string name="reply_to_user">Reageer op %s</string>
 	<string name="posted_at">Geplaatst op %s</string>
+	<string name="non_mutual_sheet_title">Hallo, nieuwe connectie!</string>
+	<string name="non_mutual_sheet_text">Het lijkt erop dat je gaat reageren op iemand die nog geen wederzijdse connectie is. Laten we een goede eerste indruk maken.</string>
 	<string name="got_it">Begrepen</string>
 	<string name="dont_remind_again">Herrinner me niet opnieuw</string>
 	<!-- %s is a time interval ("5 months") -->
@@ -640,8 +643,21 @@
 		<item quantity="other">%,d maanden</item>
 	</plurals>
 	<string name="more_than_two_years">meer dan 2 jaar</string>
+	<string name="non_mutual_title1">Blijf respectvol &amp; relevant</string>
+	<string name="non_mutual_text1">Zorg ervoor dat je antwoord beleefd en on-topic is.</string>
+	<string name="non_mutual_title2">Omarm aardigheid</string>
+	<string name="non_mutual_text2">Een positieve toon wordt altijd op prijs gesteld.</string>
+	<string name="non_mutual_title3">Wees open</string>
+	<string name="non_mutual_text3">Ieders gespreksstijl is uniek. Wees bereid om je aan te passen.</string>
 	<string name="make_profile_discoverable">Maak mijn profiel vindbaar</string>
 	<string name="discoverability">Vindbaarheid</string>
 	<string name="discoverability_help">Wanneer je akkoord gaat met het vindbaar zijn op Mastodon, verschijnen je berichten in zoekresultaten en kunnen ze trending worden.\n\nJe profiel kan aan andere mensen worden aanbevolen wanneer ze vergelijkbare interesses hebben.\n\nWanneer je niet akkoord gaat verbergt dat niet je profiel wanneer iemand direct op je naam zoekt.</string>
 	<string name="app_version_copied">Versienummer naar het klembord gekopieerd</string>
+	<string name="onboarding_recommendations_intro">Je beheert je eigen huisfeed. Hoe meer mensen je volgt, hoe actiever en interessanter het zal zijn.</string>
+	<string name="onboarding_recommendations_title">Personaliseer uw homefeed</string>
+	<string name="article_by_author">Door %s</string>
+	<string name="info">Info</string>
+	<string name="button_reblogged">Boostte</string>
+	<string name="button_favorited">Als favoriet gemarkeerd</string>
+	<string name="bookmarked">Bladwijzer aangemaakt</string>
 </resources>
