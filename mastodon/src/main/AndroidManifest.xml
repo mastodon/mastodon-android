@@ -31,7 +31,7 @@
 		android:theme="@style/Theme.Mastodon.AutoLightDark"
 		android:largeHeap="true">
 
-		<activity android:name=".MainActivity" android:exported="true" android:configChanges="orientation|screenSize" android:windowSoftInputMode="adjustResize" android:launchMode="singleTask">
+		<activity android:name=".MainActivity" android:exported="true" android:theme="@style/Theme.App.Starting" android:configChanges="orientation|screenSize" android:windowSoftInputMode="adjustResize" android:launchMode="singleTask">
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN"/>
 				<category android:name="android.intent.category.LAUNCHER"/>
