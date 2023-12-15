@@ -569,7 +569,11 @@
 		<item quantity="other">%,d participantes</item>
 	</plurals>
 	<!-- Screen reader description for the menu on the home timeline screen -->
+	<string name="edit_list">Editar lista</string>
+	<string name="delete_list">Excluir lista</string>
 	<!-- %s is the name of the list -->
+	<string name="delete_list_confirm">Excluir “%s”?</string>
+	<string name="remove">Remover</string>
 	<string name="add_user_to_list">Adicionar à lista…</string>
 	<string name="add_user_to_list_title">Adicionar à lista</string>
 	<!-- %s is a username -->
@@ -579,4 +583,10 @@
 	<string name="create">Criar</string>
 	<string name="manage_list_members">Gerenciar membros da lista</string>
 	<!-- %s is a time interval ("5 months") -->
+	<plurals name="x_months">
+		<item quantity="one">%,d mês</item>
+		<item quantity="other">%,d meses</item>
+	</plurals>
+	<string name="more_than_two_years">mais de 2 anos</string>
+	<string name="app_version_copied">Número da versão copiado para a área de transferência</string>
 </resources>
