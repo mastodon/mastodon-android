@@ -557,7 +557,7 @@
 	<string name="time_hours_ago_short">%dh atrás</string>
 	<string name="time_days_ago_short">%dd atrás</string>
 	<!-- %s is the name of the post language -->
-	<string name="translate_post">Traduzido de %s</string>
+	<string name="translate_post">Traduzir do %s</string>
 	<!-- %1$s is the language, %2$s is the name of the translation service -->
 	<string name="post_translated">Traduzido de %1$s usando %2$s</string>
 	<string name="translation_show_original">Mostrar original</string>
@@ -570,7 +570,13 @@
 	</plurals>
 	<!-- Screen reader description for the menu on the home timeline screen -->
 	<!-- %s is the name of the list -->
+	<string name="add_user_to_list">Adicionar à lista…</string>
+	<string name="add_user_to_list_title">Adicionar à lista</string>
 	<!-- %s is a username -->
+	<string name="remove_from_list">Remover da lista</string>
+	<string name="confirm_remove_list_member">Remover membro?</string>
+	<string name="create_list">Criar lista</string>
+	<string name="create">Criar</string>
 	<string name="manage_list_members">Gerenciar membros da lista</string>
 	<!-- %s is a time interval ("5 months") -->
 </resources>
