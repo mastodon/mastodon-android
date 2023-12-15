@@ -179,6 +179,7 @@
 	<string name="media_attachment_unsupported_type">%s ֆայլը անհամատեղելի տեսակի է</string>
 	<string name="media_attachment_too_big">%1$s ֆայլի չափսը գերազանցում է %2$s ՄԲ առավելագույն շեմը</string>
 	<string name="settings_theme">Տեսք</string>
+	<string name="theme_auto">Օգտագործել սարքի տեսքը</string>
 	<string name="theme_light">Բաց</string>
 	<string name="theme_dark">Մուգ</string>
 	<string name="settings_behavior">Պահվածքը</string>
@@ -217,12 +218,16 @@
 	<string name="permission_required">Անհրաժեշտ է թույլտվություն</string>
 	<string name="storage_permission_to_download">Ֆայլը պահպանելու համար ծրագրին պահանջվում է հիշողության թույլտվություն։</string>
 	<string name="open_settings">Բացել կարգավորումները</string>
+	<string name="error_saving_file">Չհաջողվեց պահպանել ֆայլը</string>
 	<string name="file_saved">Ֆայլը պահպանվել է</string>
 	<string name="downloading">Բեռնում․․․</string>
+	<string name="no_app_to_handle_action">Այս գործողությունը կատարող ծրագիր չկա</string>
 	<string name="local_timeline">Տեղական</string>
 	<string name="trending_posts_info_banner">Այս գրառումները տարածված են Մաստոդոնում։</string>
 	<string name="trending_links_info_banner">Այս նորությունների մասին խոսում են Մաստոդոնում։</string>
 	<!-- %s is the server domain -->
+	<string name="local_timeline_info_banner">Ձեր սերվերի (%s) բոլոր օգտատերերի բոլոր գրառումները այստեղ են։</string>
+	<string name="see_new_posts">Նոր գրառումներ</string>
 	<string name="load_missing_posts">Բեռնել բաց թողնված գրառումները</string>
 	<string name="follows_you">Հետեւում է ձեզ</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
@@ -447,17 +452,63 @@
 	<string name="selection_2_options">%1$s և %2$s</string>
 	<string name="selection_3_options">%1$s, %2$s և %3$s</string>
 	<string name="selection_4_or_more">%1$s,%2$s և ևս %3$d</string>
+	<string name="filter_context_home_lists">Տեղական հոսք</string>
+	<string name="filter_context_notifications">Ծանուցումներ</string>
+	<string name="filter_context_public_timelines">Հանրային հոսքեր</string>
+	<string name="settings_filter_title">Վերնագիր</string>
+	<string name="add_muted_word">Նոր խլեցրած բառ</string>
+	<string name="edit_muted_word">Խմբագրել խլեցրած բառը</string>
+	<string name="add">Աւելացնել</string>
 	<string name="filter_word_or_phrase">Բառ կամ արտահայտություն</string>
 	<string name="filter_add_word_help">Բառերը զգայուն են տառաշարին եւ համապատասխանում են ամբողջ բառերի։\n\nՕրինակ, \"խնձոր\" բառը ավելացնելու դեպքում կթաքցվեն \"Խնձոր\" և \"ԽնՁոՐ\" բառերով գրառումները, բայց ոչ \"արքայախնձոր\" բառով գրառումները։</string>
+	<string name="settings_delete_filter_word">Ջնջե՞լ «%s» բառը</string>
+	<string name="enter_selection_mode">Ընտրել</string>
+	<string name="select_all">Ընտրել բոլորը</string>
+	<plurals name="settings_delete_x_filter_words">
+		<item quantity="one">Ջնջե՞լ %d բառ։</item>
+		<item quantity="other">Ջնջե՞լ %d բառ։</item>
+	</plurals>
+	<plurals name="x_items_selected">
+		<item quantity="one">%d ընտրված</item>
+		<item quantity="other">%d ընտրված</item>
+	</plurals>
+	<string name="required_form_field_blank">Դատարկ չի կարող լինել</string>
+	<string name="filter_word_already_in_list">Արդեն կա ցանկում</string>
 	<string name="app_update_ready">Թարմացումը պատրաստ է</string>
 	<string name="app_update_version">Տարբերակ՝ %s</string>
+	<string name="downloading_update">Ներբեռնվում է (%d%%)</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
+	<string name="search_mastodon">Որոնել Մաստոդոնում</string>
+	<string name="clear_all">Մաքրել բոլորը</string>
+	<string name="search_open_url">Բացել հղումը Մաստոդոնում</string>
+	<string name="posts_matching_hashtag">«%s»-ով գրառումներ</string>
+	<string name="search_go_to_account">Գնալ %s</string>
+	<string name="posts_matching_string">«%s»-ով գրառումներ</string>
+	<string name="accounts_matching_string">«%s»-ով մարդիկ</string>
 	<!-- Shown in the post header. Please keep it short -->
 	<string name="time_seconds_ago_short">%dվ առաջ</string>
+	<string name="time_minutes_ago_short">%dր առաջ</string>
+	<string name="time_hours_ago_short">%dժ առաջ</string>
+	<string name="time_days_ago_short">%d օր առաջ</string>
 	<!-- %s is the name of the post language -->
+	<string name="translate_post">Թարգմանել %sից</string>
 	<!-- %1$s is the language, %2$s is the name of the translation service -->
+	<string name="post_translated">Թարգմանված %1$sից` %2$s-ի միջոցով</string>
+	<string name="translation_show_original">Ցոյց տալ բնօրինակը</string>
 	<!-- Screen reader description for the menu on the home timeline screen -->
 	<!-- %s is the name of the list -->
 	<!-- %s is a username -->
+	<string name="step_x_of_y">Քայլ %1$d՝ %2$d-ից</string>
+	<string name="create">Ստեղծել</string>
+	<string name="non_mutual_sheet_title">Բարև, նոր կապ</string>
+	<string name="got_it">Պարզ է</string>
+	<string name="dont_remind_again">Այլևս չհիշեցնել</string>
 	<!-- %s is a time interval ("5 months") -->
+	<string name="old_post_sheet_title">Այս գրառումը գրվել է %s առաջ</string>
+	<plurals name="x_months">
+		<item quantity="one">%,d ամիս</item>
+		<item quantity="other">%,d ամիս</item>
+	</plurals>
+	<string name="more_than_two_years">2 տարուց ավելի</string>
+	<string name="non_mutual_title1">Եղեք հարգող և պատշաճ</string>
 </resources>
