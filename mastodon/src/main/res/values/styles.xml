@@ -436,12 +436,7 @@
 	</style>
                         <!--adding splash screen-->
 
-	<style name="Theme.App.Starting" parent="Theme.SplashScreen">
-		<!-- splash screen background -->
-		<item name="windowSplashScreenBackground">@color/m3_sys_dark_primary_container</item>
-
-		<!-- adding a drawable or an animated Icon -->
-		<item name="windowSplashScreenAnimatedIcon">@drawable/ic_launcher_foreground</item>
-
+	<style name="Theme.App.Starting" parent="Theme.AppKit.Light">
+		<item name="android:windowBackground">@drawable/splash_screen</item>
 	</style>
 </resources>
