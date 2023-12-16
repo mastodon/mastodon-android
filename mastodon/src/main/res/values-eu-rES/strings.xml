@@ -165,6 +165,7 @@
 	<string name="category_general">Orokorra</string>
 	<string name="confirm_email_title">Egiaztatu zure sarrerako ontzia</string>
 	<!-- %s is the email address -->
+	<string name="confirm_email_subtitle">Sakatu bidali dizugun esteka %s helbidea egiaztatzeko. Hementxe itxarongo zaitugu.</string>
 	<string name="confirm_email_didnt_get">Ez duzu estekarik jaso?</string>
 	<string name="resend">Berbidali</string>
 	<string name="open_email_app">Ireki eposta aplikazioa</string>
@@ -417,6 +418,7 @@
 	<string name="notifications_policy_followed">Zu jarraitzen zaituzten pertsonak</string>
 	<string name="notifications_policy_follower">Zuk jarraitzen dituzun pertsonak</string>
 	<string name="notifications_policy_no_one">Bat ere ez</string>
+	<string name="notification_type_mentions_and_replies">Aipamenak eta erantzunak</string>
 	<string name="pause_all_notifications_title">Pausatu jakinarazpen guztiak</string>
 	<plurals name="x_weeks">
 		<item quantity="one">aste %d</item>
@@ -478,11 +480,23 @@
 	<string name="settings_filter_title">Izenburua</string>
 	<string name="settings_delete_filter_title">Ezabatu \"%s\" iragazkia”?</string>
 	<string name="add">Gehitu</string>
+	<string name="settings_delete_filter_word">“%s” hitza ezabatu?</string>
 	<string name="enter_selection_mode">Hautatu</string>
 	<string name="select_all">Hautatu dena</string>
 	<string name="filter_duration_custom">Pertsonalizatua</string>
+	<plurals name="settings_delete_x_filter_words">
+		<item quantity="one">Ezabatu hitz %d?</item>
+		<item quantity="other">%d hitz ezabatu?</item>
+	</plurals>
+	<plurals name="x_items_selected">
+		<item quantity="one">%d hautatuta</item>
+		<item quantity="other">%d hautatuta</item>
+	</plurals>
 	<string name="required_form_field_blank">Ezin da hutsik egon</string>
+	<string name="filter_word_already_in_list">Dagoeneko zerrendan</string>
+	<string name="app_update_ready">Aplikazioaren eguneraketa prest</string>
 	<string name="app_update_version">Bertsioa: %s</string>
+	<string name="downloading_update">Deskargatzen (%d%%)</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
 	<string name="search_mastodon">Bilatu Mastodonen</string>
 	<string name="clear_all">Garbitu dena</string>
@@ -503,6 +517,7 @@
 		<item quantity="one">partaide %,d</item>
 		<item quantity="other">%d partaide</item>
 	</plurals>
+	<string name="error_playing_video">Errorea bideoa erreproduzitzerakoan</string>
 	<string name="timeline_following">Hasiera</string>
 	<string name="lists">Zerrendak</string>
 	<string name="followed_hashtags">Jarraitutako traolak</string>
@@ -529,13 +544,23 @@
 	<!-- %s is a username -->
 	<string name="remove_from_list">Kendu zerrendatik</string>
 	<string name="confirm_remove_list_member">Kendu kideak?</string>
+	<string name="no_followed_hashtags_subtitle">Jarraituak hemen agertuko dira</string>
 	<string name="no_lists_subtitle">Zurea hemen agertuko da</string>
+	<string name="manage_accounts">Gehitu edo aldatu kontuz</string>
 	<string name="create_list">Sortu zerrenda</string>
 	<string name="step_x_of_y">%1$d pausua %2$d -(e)tik</string>
 	<string name="create">Sortu</string>
 	<string name="manage_list_members">Kudeatu partaide zerrrenda</string>
 	<string name="list_no_members">Oraindik ez dago kiderik</string>
+	<string name="reply_to_user">Erantzun honi: %s</string>
 	<string name="got_it">Ulertuta</string>
 	<string name="dont_remind_again">Ez gogorarazi berriro</string>
 	<!-- %s is a time interval ("5 months") -->
+	<plurals name="x_months">
+		<item quantity="one">hilabete %,d</item>
+		<item quantity="other">%,d hilabete</item>
+	</plurals>
+	<string name="non_mutual_title3">Irekia izan</string>
+	<string name="onboarding_recommendations_title">Pertsonalizatu zure hasiera lerroa</string>
+	<string name="info">Informazioa</string>
 </resources>
