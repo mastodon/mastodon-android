@@ -431,14 +431,75 @@
 	<string name="poll_style">Wygląd</string>
 	<string name="delete_poll_option">Usuń opcję wyboru z ankiety</string>
 	<string name="poll_style_title">Wygląd ankiety</string>
+	<string name="language">Język</string>
+	<string name="language_default">Domyślny</string>
+	<string name="language_system">System</string>
+	<string name="language_detecting">Wykrywanie języka</string>
+	<string name="language_cant_detect">Nie można wykryć języka</string>
+	<string name="language_detected">Wykryto</string>
+	<string name="media_hidden">Multimedia ukryte</string>
+	<string name="post_hidden">Post został ukryty</string>
+	<string name="report_title_post">Zgłoś post</string>
+	<string name="forward_report_explanation">Konto jest z innego serwera. Czy wysłać anonimową kopię zgłoszenia?</string>
 	<!-- %s is the server domain -->
+	<string name="forward_report_to_server">Przekaż do %s</string>
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
+	<string name="reported">Zgłoszono</string>
+	<string name="report_unfollow_explanation">Jeżeli nie chcesz widzieć ich postów na twojej stronie głównej, od obserwuj ich.</string>
+	<string name="muted_user">Wyciszono %s</string>
+	<string name="report_sent_already_blocked">Już zablokowałeś tego użytkownika, więc nie musisz już więcej robić, podczas gdy my sprawdzamy twoje zgłoszenie.</string>
+	<string name="report_personal_already_blocked">Już zablokowałeś tego użytkownika, więc nie musisz już nic więcej robić.\n\n Dziękujemy za pomoc w utrzymywaniu Mastodona bezpiecznym miejscem dla każdego!</string>
+	<string name="blocked_user">Zablokowany %s</string>
+	<string name="mark_all_notifications_read">Oznacz wszystko jako przeczytane</string>
+	<string name="settings_display">Widok</string>
+	<string name="settings_filters">Filtry</string>
+	<string name="settings_server_explanation">Przegląd, zasady, moderacja</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
+	<string name="about_app">O %s</string>
+	<string name="default_post_language">Domyślny język posta</string>
+	<string name="settings_alt_text_reminders">Dodaj opis przypomnienia</string>
+	<string name="settings_confirm_unfollow">Zapytaj przed usunięciem obserwacji</string>
+	<string name="settings_confirm_boost">Zapytaj przed podbijaniem</string>
+	<string name="settings_confirm_delete_post">Zapytaj przed usunięciem posta</string>
+	<string name="pause_all_notifications">Wstrzymaj wszystkie powiadomienia</string>
+	<string name="pause_notifications_off">Wyłącz</string>
+	<string name="notifications_policy_anyone">Każdy</string>
+	<string name="notifications_policy_followed">Ludzie, którzy ciebie obserwują</string>
+	<string name="notifications_policy_follower">Ludzie, których obserwujesz</string>
+	<string name="notifications_policy_no_one">Nikt</string>
+	<string name="settings_notifications_policy">Otrzymuj powiadomienia od</string>
+	<string name="notification_type_mentions_and_replies">Wzmianki i odpowiedzi</string>
+	<string name="pause_all_notifications_title">Wstrzymaj wszystkie powiadomienia</string>
+	<plurals name="x_weeks">
+		<item quantity="one">%d Tydzień</item>
+		<item quantity="few">%d Tygodni</item>
+		<item quantity="many">%d Tygodni</item>
+		<item quantity="other">%d Tygodnie</item>
+	</plurals>
 	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<!-- %s is the username -->
+	<string name="settings_filter_context">Wycisz z</string>
+	<string name="settings_filter_show_cw">Pokaż z ostrzeżeniem o zawartości</string>
+	<string name="settings_filter_show_cw_explanation">Nadal pokazuj posty, które pasują do tego filtra, ale za ostrzeżeniem o zawartości</string>
+	<string name="settings_delete_filter">Usuń filtr</string>
+	<string name="filter_duration_forever">Ciągle</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="settings_filter_ends">Kończy się o %s</string>
+	<plurals name="settings_x_muted_words">
+		<item quantity="one">%d wyciszone słowo lub fraza</item>
+		<item quantity="few">%d wyciszone słowa lub frazy</item>
+		<item quantity="many">%d wyciszonych słów lub fraz</item>
+		<item quantity="other">%d wyciszonych słów lub fraz</item>
+	</plurals>
+	<string name="selection_2_options">%1$s i %2$s</string>
+	<string name="selection_3_options">%1$s, %2$s i %3$s</string>
+	<string name="selection_4_or_more">%1$s, %2$s, %3$d i więcej</string>
+	<string name="filter_context_home_lists">Strona główna &amp; listy</string>
+	<string name="filter_context_notifications">Powiadomienia</string>
+	<string name="filter_context_public_timelines">Publiczna oś czasu</string>
+	<string name="filter_context_threads_replies">Wątki &amp; odpowiedzi</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
 	<!-- Shown in the post header. Please keep it short -->
 	<!-- %s is the name of the post language -->
