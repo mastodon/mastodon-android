@@ -576,6 +576,14 @@
 	<string name="settings_privacy">Privacidad y alcance</string>
 	<string name="settings_discoverable">Mostrar perfil y publicaciones en algoritmos de descubrimiento</string>
 	<string name="settings_indexable">Incluir publicaciones públicas en los resultados de búsqueda</string>
+	<plurals name="x_participants">
+		<item quantity="one">%,d participante</item>
+		<item quantity="other">%,d participantes</item>
+	</plurals>
+	<plurals name="x_posts_today">
+		<item quantity="one">%,d publicación hoy</item>
+		<item quantity="other">%,d publicaciones hoy</item>
+	</plurals>
 	<string name="error_playing_video">Error al reproducir el video</string>
 	<string name="timeline_following">Inicio</string>
 	<string name="lists">Listas</string>
@@ -611,6 +619,10 @@
 	<string name="no_lists_title">Organiza tu feed de inicio con Listas</string>
 	<string name="no_lists_subtitle">Tus listas aparecerán aquí</string>
 	<string name="manage_accounts">Añadir o cambiar de cuentas</string>
+	<plurals name="x_posts_recently">
+		<item quantity="one">%,d publicación reciente</item>
+		<item quantity="other">%,d publicaciones recientes</item>
+	</plurals>
 	<string name="create_list">Crear una lista</string>
 	<string name="step_x_of_y">Paso %1$d de %2$d</string>
 	<string name="create">Crear</string>
@@ -626,6 +638,10 @@
 	<!-- %s is a time interval ("5 months") -->
 	<string name="old_post_sheet_title">Ésta publicación es de hace %s</string>
 	<string name="old_post_sheet_text">Todavía puedes responder, pero puede que ya no sea relevante.</string>
+	<plurals name="x_months">
+		<item quantity="one">%,d mes</item>
+		<item quantity="other">%,d meses</item>
+	</plurals>
 	<string name="more_than_two_years">más de 2 años</string>
 	<string name="non_mutual_title1">Sé respetuoso &amp; relevante</string>
 	<string name="non_mutual_text1">Asegúrate de que tu respuesta sea cordial y en el tema.</string>
@@ -635,12 +651,14 @@
 	<string name="non_mutual_text3">El estilo de conversación de todo el mundo es único. Prepárate para adaptarte.</string>
 	<string name="make_profile_discoverable">Hacer que mi perfil aparezca en búsquedas</string>
 	<string name="discoverability">Descubrimiento</string>
+	<string name="discoverability_help">Cuando eliges que tu cuenta aparezca en búsquedas en Mastodon, tus publicaciones podrán aparecer en resultados de búsqueda y tendencias.\n\nTu perfil podrá ser recomendado a gente con gustos similares a tí.\n\nElegir que no aparezca en búsquedas no esconderá tu perfil si alguien te busca por tu nombre.</string>
 	<string name="app_version_copied">Numero de versión copiado al portapapeles</string>
 	<string name="onboarding_recommendations_intro">Tú curas tu feed de inicio.
 Mientras más personas sigas, más activo e interesante será.</string>
 	<string name="onboarding_recommendations_title">Personaliza tu feed de inicio</string>
 	<string name="article_by_author">Por %s</string>
 	<string name="info">Información</string>
+	<string name="button_reblogged">Impulsado</string>
 	<string name="button_favorited">Añadido a favoritos</string>
 	<string name="bookmarked">Añadido a marcadores</string>
 </resources>
