@@ -134,7 +134,10 @@
 	<string name="report_reason_other">Այլ բան է</string>
 	<string name="report_reason_other_subtitle">Խնդիրը չի պատկանում այլ տարբերակներին</string>
 	<string name="report_choose_rule">Ո՞ր կանոններն են խախտվել։</string>
+	<string name="report_choose_rule_subtitle">Նշեք բոլոր առնչվող կետերը</string>
 	<string name="report_choose_posts">Կա՞ն զեկույցը ապացուցող գրառումներ։</string>
+	<string name="report_choose_posts_subtitle">Նշեք բոլոր առնչվող կետերը</string>
+	<string name="report_comment_title">Կա՞ այլ բան, որը մեզ արժի իմանալ։</string>
 	<string name="report_comment_hint">Լրացուցիչ մեկնաբանություններ</string>
 	<string name="sending_report">Զեկույցը ուղարկվում է․․․</string>
 	<string name="report_sent_title">Շնորհակալ ենք զեկուցման համար։</string>
@@ -502,8 +505,18 @@
 	<!-- %1$s is the language, %2$s is the name of the translation service -->
 	<string name="post_translated">Թարգմանված %1$sից` %2$s-ի միջոցով</string>
 	<string name="translation_show_original">Ցոյց տալ բնօրինակը</string>
+	<string name="timeline_following">Հիմնական</string>
+	<string name="lists">Ցանկեր</string>
+	<string name="followed_hashtags">Հետեւած պիտակներ</string>
+	<string name="manage_lists">Խմբագրել ցանկերը</string>
+	<string name="manage_hashtags">Խմբագրել պիտակները</string>
 	<!-- Screen reader description for the menu on the home timeline screen -->
+	<string name="dropdown_menu">Բացվող ընտրացանկ</string>
+	<string name="edit_list">Խմբագրել ցանկը</string>
+	<string name="list_members">Ցանկի մասնակիցներ</string>
+	<string name="delete_list">Ջնջել ցանկը</string>
 	<!-- %s is the name of the list -->
+	<string name="delete_list_confirm">Ջնջե՞լ «%s»-ը</string>
 	<string name="list_show_replies_to">Ցույց տալ պատասխանները</string>
 	<string name="remove">Ջնջել</string>
 	<string name="add_list_member">Ավելացնել անդամ</string>
