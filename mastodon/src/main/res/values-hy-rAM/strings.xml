@@ -345,6 +345,7 @@
 	<string name="welcome_paragraph2">Մաստոդոնի որևէ հաշիվ գտնվում է սերվերի վրա - ամեն մեկը՝ իր արժեքներով, կանոններով և ադմիններով։ Դուք կարող եք հետևել և շփվել որևէ սերվերի մարդկանց հետ՝ անկախ ձեր ընտրությունից։</string>
 	<string name="log_out_all_accounts">Ելք բոլոր հաշիվներից</string>
 	<string name="retry">Կրկին</string>
+	<string name="post_failed">Չհաջողվեց ուղարկել գրառումը</string>
 	<!-- %s is formatted file size ("467 KB image") -->
 	<string name="attachment_description_image">%s նկար</string>
 	<string name="attachment_description_video">%s տեսանյութ</string>
@@ -370,10 +371,14 @@
 	<string name="edit_post">Խմբագրել գրառումը</string>
 	<string name="no_verified_link">Չկա հաստատված հղում</string>
 	<string name="compose_autocomplete_emoji_empty">Փնտրել էմոջի</string>
+	<string name="compose_autocomplete_users_empty">Գտեք նրան, ում փնտրում եք</string>
 	<string name="no_search_results">Այս հարցման համար ոչինչ չգտնվեց</string>
 	<string name="language">Լեզու</string>
 	<string name="language_default">Լռելյայն</string>
 	<string name="language_system">Համակարգի</string>
+	<string name="language_detecting">Լեզուն որոշվում է</string>
+	<string name="language_cant_detect">Չհաջողվեց որոշել լեզուն</string>
+	<string name="language_detected">Որոշված</string>
 	<string name="media_hidden">Մեդիան թաքցված է</string>
 	<string name="post_hidden">Գրառումը թաքցված է</string>
 	<string name="report_title_post">Զեկուցել %s-ի մասին</string>
@@ -384,8 +389,10 @@
 	<string name="reported">Բողոքարկված</string>
 	<string name="muted_user">%s-ը լռեցվել է</string>
 	<string name="settings_display">Տեսք</string>
+	<string name="settings_server_explanation">Կանոններ, մոդերատորներ</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">%s-ի մասին</string>
+	<string name="default_post_language">Գրառման լռելյայն լեզու</string>
 	<string name="settings_alt_text_reminders">Ավելացնել բացատրության մասին հիշեցումներ</string>
 	<string name="settings_confirm_boost">Հարցնել տարածելուց առաջ</string>
 	<string name="settings_confirm_delete_post">Հարցնել գրառում ջնջելուց առաջ</string>
