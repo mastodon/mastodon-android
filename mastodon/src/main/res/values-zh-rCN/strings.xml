@@ -237,6 +237,7 @@
 	<!-- %s is the server domain -->
 	<string name="local_timeline_info_banner">以下是来自你所在实例（%s）的所有嘟文。</string>
 	<string name="recommended_accounts_info_banner">根据你所关注的，你或许也会喜欢这些用户。</string>
+	<string name="see_new_posts">新嘟文</string>
 	<string name="load_missing_posts">加载嘟文</string>
 	<string name="follow_back">关注</string>
 	<string name="button_follow_pending">已发送关注请求</string>
@@ -352,6 +353,7 @@
 	<string name="welcome_to_mastodon">欢迎来到Mastodon</string>
 	<string name="welcome_paragraph1">Mastodon 是去中心化的社交网络，这意味着它不由任何企业独控。它是由众多独立运行的实例共同联结而成的。</string>
 	<string name="what_are_servers">是什么实例？</string>
+	<string name="welcome_paragraph2">每个Mastodon帐户都托管在服务器上，每个服务器都有自己的价值取向、规则、 &amp; 管理员。 无论你选择什么，你都可以在任何服务器上跟随和与其他人交互。</string>
 	<string name="opening_link">打开链接…</string>
 	<string name="link_not_supported">应用不支持该链接</string>
 	<string name="log_out_all_accounts">登出所有账户</string>
@@ -545,19 +547,38 @@
 	<string name="settings_privacy">隐私与可达性</string>
 	<string name="settings_discoverable">在发现算法中展示您的个人资料和嘟文</string>
 	<string name="settings_indexable">将您的公开嘟文纳入搜索范围</string>
+	<plurals name="x_participants">
+		<item quantity="other">%,d 名参与者</item>
+	</plurals>
+	<plurals name="x_posts_today">
+		<item quantity="other">今日有 %,d 条嘟文</item>
+	</plurals>
 	<string name="error_playing_video">播放视频出错</string>
 	<string name="timeline_following">主页</string>
 	<string name="lists">列表</string>
 	<string name="followed_hashtags">关注的标签</string>
+	<string name="manage_lists">管理列表</string>
 	<string name="manage_hashtags">管理标签</string>
 	<!-- Screen reader description for the menu on the home timeline screen -->
 	<string name="dropdown_menu">下拉菜单</string>
 	<string name="edit_list">编辑列表</string>
 	<string name="list_members">列表成员</string>
+	<string name="delete_list">删除列表</string>
 	<!-- %s is the name of the list -->
+	<string name="delete_list_confirm">删除 “%s”？</string>
+	<string name="list_exclusive">在关注中隐藏成员</string>
 	<string name="list_exclusive_subtitle">列表成员不显示在主页时间线上，以免重复看到嘟文</string>
 	<string name="list_name">列表名</string>
+	<string name="list_show_replies_to">显示回复</string>
+	<string name="list_replies_no_one">不显示</string>
+	<string name="list_replies_members">列表成员</string>
+	<string name="list_replies_anyone">我关注的任何人</string>
+	<string name="confirm_remove_list_members">移除成员？</string>
 	<string name="remove">移除</string>
+	<string name="add_list_member">添加成员</string>
+	<string name="search_among_people_you_follow">在你关注的人中搜索</string>
+	<string name="add_user_to_list">添加到列表…</string>
+	<string name="add_user_to_list_title">添加到列表</string>
 	<!-- %s is a username -->
 	<string name="confirm_remove_list_member">移除成员？</string>
 	<string name="manage_accounts">管理账户</string>
