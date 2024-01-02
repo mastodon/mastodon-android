@@ -629,6 +629,36 @@
 	<string name="manage_list_members">Sýsla með meðlimi listans</string>
 	<string name="list_no_members">Engir meðlimir ennþá</string>
 	<string name="list_find_users">Finndu notendur til að bæta við</string>
+	<string name="reply_to_user">Svara %s</string>
+	<string name="posted_at">Birt klukkan %s</string>
+	<string name="non_mutual_sheet_title">Halló, ný tenging!</string>
+	<string name="non_mutual_sheet_text">Það lítur út eins og þú sért að fara að svara einhverjum sem ekki er enn með sameiginlega tengingu við þig. Nú ætti að passa upp á fyrstu viðkynningu.</string>
 	<string name="got_it">Náði því</string>
+	<string name="dont_remind_again">Ekki minna mig aftur á þetta</string>
 	<!-- %s is a time interval ("5 months") -->
+	<string name="old_post_sheet_title">Þessi færsla er %s gömul</string>
+	<string name="old_post_sheet_text">Þú getur samt svarað, en ekki er víst að þetta skipti neinu máli lengur.</string>
+	<plurals name="x_months">
+		<item quantity="one">%,d mánaðar</item>
+		<item quantity="other">%,d mánaða</item>
+	</plurals>
+	<string name="more_than_two_years">meira en 2 ára</string>
+	<string name="non_mutual_title1">Sýndu virðingu og haltu þig við efnið</string>
+	<string name="non_mutual_text1">Gakktu úr skugga um að svarið þitt sé kurteislegt og viðeigandi.</string>
+	<string name="non_mutual_title2">Sýndu umhyggju</string>
+	<string name="non_mutual_text2">Jákvæður tónn verður alltaf þeginn með þökkum.</string>
+	<string name="non_mutual_title3">Vertu opin/n</string>
+	<string name="non_mutual_text3">Samræðustíll hvers og eins er einstakur. Vertu tilbúin/n að aðlaga þig.</string>
+	<string name="make_profile_discoverable">Gera notandasniðið mitt finnanlegt</string>
+	<string name="discoverability">Finnanleiki</string>
+	<string name="discoverability_help">Þegar þú kýst finnanleika á Mastodon, munu færslurnar þínar birtast í leitarniðurstöðum og vinsældalistum.\n\nStungið verður upp á notandasniðinu þínu við fólk með svipuð áhugamál og þú hefur.\n\nKjósir þú að vera ekki með, mun annað fólk geta fundið þig með nafninu þínu.</string>
+	<string name="app_version_copied">Útgáfunúmer afritað á klippispjald</string>
+	<string name="onboarding_recommendations_intro">Þú ræktar heimastreymið þitt.
+ Því fleira fólki sem þú fylgist með, því virkara og áhugaverðara verður það.</string>
+	<string name="onboarding_recommendations_title">Aðlagaðu heimastreymið þitt eftir þínu höfði</string>
+	<string name="article_by_author">Frá %s</string>
+	<string name="info">Upplýsingar</string>
+	<string name="button_reblogged">Endurbirt</string>
+	<string name="button_favorited">Sett í eftirlæti</string>
+	<string name="bookmarked">Bókamerkt</string>
 </resources>
