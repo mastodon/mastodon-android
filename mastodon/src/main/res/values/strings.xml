@@ -332,7 +332,6 @@
 	<string name="login_title">Welcome Back</string>
 	<string name="login_subtitle">Log in with the server where you created your account.</string>
 	<string name="server_url">Server URL</string>
-	<string name="signup_random_server_explain">We’ll pick a server based on your language if you continue without making a selection.</string>
 	<string name="server_filter_any_language">Any Language</string>
 	<string name="server_filter_instant_signup">Instant Sign-up</string>
 	<string name="server_filter_manual_review">Manual Review</string>
@@ -346,7 +345,6 @@
 	<string name="not_accepting_new_members">Not accepting new members</string>
 	<string name="category_special_interests">Special Interests</string>
 	<string name="signup_passwords_dont_match">Passwords don’t match</string>
-	<string name="pick_server_for_me">Pick for me</string>
 	<string name="profile_add_row">Add row</string>
 	<string name="profile_setup">Profile setup</string>
 	<string name="profile_setup_subtitle">You can always complete this later in the Profile tab.</string>
@@ -670,4 +668,15 @@
 	<string name="button_reblogged">Boosted</string>
 	<string name="button_favorited">Favorited</string>
 	<string name="bookmarked">Bookmarked</string>
+	<string name="join_server_x_with_invite">Join %s with invite</string>
+	<string name="expired_invite_link">Expired invite link</string>
+	<string name="expired_clipboard_invite_link_alert">The invite link for %1$s in your clipboard has expired and cannot be used to sign up.\n\nYou can request a new link from an existing user, sign up through %2$s, or pick another server to sign up through.</string>
+	<string name="invalid_invite_link">Invalid invite link</string>
+	<string name="invalid_clipboard_invite_link_alert">The invite link for %1$s in your clipboard is not valid and cannot be used to sign up.\n\nYou can request a new link from an existing user, sign up through %2$s, or pick another server to sign up through.</string>
+	<string name="use_invite_link">Use invite link</string>
+	<string name="enter_invite_link">Enter invite link</string>
+	<string name="this_invite_is_invalid">This invite link is not valid.</string>
+	<string name="this_invite_has_expired">This invite link has expired.</string>
+	<string name="invite_link_pasted">Link pasted from your clipboard.</string>
+	<string name="need_invite_to_join_server">To join %s, you’ll need an invite link from an existing user.</string>
 </resources>

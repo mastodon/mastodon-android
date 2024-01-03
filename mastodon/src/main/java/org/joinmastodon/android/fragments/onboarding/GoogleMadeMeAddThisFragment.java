@@ -137,6 +137,9 @@ public class GoogleMadeMeAddThisFragment extends ToolbarFragment{
 	protected void onButtonClick(){
 		Bundle args=new Bundle();
 		args.putParcelable("instance", Parcels.wrap(instance));
+		if(getArguments().containsKey("inviteCode")){
+			args.putString("inviteCode", getArguments().getString("inviteCode"));
+		}
 		Nav.goForResult(getActivity(), SignupFragment.class, args, SIGNUP_REQUEST, this);
 	}
 

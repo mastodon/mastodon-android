@@ -219,7 +219,9 @@ public class SignupFragment extends ToolbarFragment{
 		if(!serverSupportedTimezones.contains(timezone))
 			timezone=null;
 
-		new RegisterAccount(username, email, password.getText().toString(), locale, reason.getText().toString(), timezone)
+		String inviteCode=getArguments().getString("inviteCode");
+
+		new RegisterAccount(username, email, password.getText().toString(), locale, reason.getText().toString(), timezone, inviteCode)
 				.setCallback(new Callback<>(){
 					@Override
 					public void onSuccess(Token result){

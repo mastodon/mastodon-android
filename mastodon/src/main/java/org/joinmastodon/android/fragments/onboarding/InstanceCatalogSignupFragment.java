@@ -1,8 +1,13 @@
 package org.joinmastodon.android.fragments.onboarding;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.res.ColorStateList;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
@@ -12,6 +17,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowInsets;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
@@ -19,9 +26,12 @@ import android.widget.PopupMenu;
 import android.widget.RadioButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.MastodonAPIRequest;
+import org.joinmastodon.android.api.MastodonErrorResponse;
+import org.joinmastodon.android.api.requests.accounts.CheckInviteLink;
 import org.joinmastodon.android.api.requests.catalog.GetCatalogCategories;
 import org.joinmastodon.android.api.requests.catalog.GetCatalogInstances;
 import org.joinmastodon.android.model.Instance;
@@ -29,6 +39,8 @@ import org.joinmastodon.android.model.catalog.CatalogCategory;
 import org.joinmastodon.android.model.catalog.CatalogInstance;
 import org.joinmastodon.android.ui.BetterItemAnimator;
 import org.joinmastodon.android.ui.M3AlertDialogBuilder;
+import org.joinmastodon.android.ui.text.HtmlParser;
+import org.joinmastodon.android.ui.utils.SimpleTextWatcher;
 import org.joinmastodon.android.ui.utils.UiUtils;
 import org.joinmastodon.android.ui.views.FilterChipView;
 import org.joinmastodon.android.utils.ElevationOnScrollListener;
@@ -40,7 +52,9 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
+import java.util.Objects;
 import java.util.Random;
+import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 import androidx.annotation.NonNull;
@@ -76,6 +90,9 @@ public class InstanceCatalogSignupFragment extends InstanceCatalogFragment imple
 	private List<FilterChipView> regionalFilters;
 	private CatalogInstance.Region chosenRegion;
 	private CategoryChoice categoryChoice=CategoryChoice.GENERAL;
+
+	private String inviteCode, inviteCodeHost;
+	private AlertDialog currentInviteLinkAlert;
 
 	public InstanceCatalogSignupFragment(){
 		super(R.layout.fragment_onboarding_common, 10);
@@ -317,7 +334,7 @@ public class InstanceCatalogSignupFragment extends InstanceCatalogFragment imple
 		focusThing=view.findViewById(R.id.focus_thing);
 		focusThing.requestFocus();
 
-		view.findViewById(R.id.btn_random_instance).setOnClickListener(this::onPickRandomInstanceClick);
+		view.findViewById(R.id.btn_use_invite).setOnClickListener(this::onUseInviteClick);
 		nextButton.setEnabled(chosenInstance!=null);
 	}
 
@@ -351,34 +368,191 @@ public class InstanceCatalogSignupFragment extends InstanceCatalogFragment imple
 
 	@Override
 	protected void proceedWithAuthOrSignup(Instance instance){
+		if(currentInviteLinkAlert!=null){
+			currentInviteLinkAlert.dismiss();
+		}else if(!TextUtils.isEmpty(currentSearchQuery) && HtmlParser.INVITE_LINK_PATTERN.matcher(currentSearchQueryButWithCasePreserved).find()){
+			if(TextUtils.isEmpty(inviteCode) || !Objects.equals(instance.uri, inviteCodeHost)){
+				Uri inviteLink=Uri.parse(currentSearchQueryButWithCasePreserved);
+				new CheckInviteLink(inviteLink.getPath())
+						.setCallback(new Callback<>(){
+							@Override
+							public void onSuccess(CheckInviteLink.Response result){
+								inviteCodeHost=inviteLink.getHost();
+								inviteCode=result.inviteCode;
+								proceedWithAuthOrSignup(instance);
+							}
+
+							@Override
+							public void onError(ErrorResponse error){
+								if(getActivity()==null)
+									return;
+								if(error instanceof MastodonErrorResponse mer){
+									switch(mer.httpStatus){
+										case 401 -> new M3AlertDialogBuilder(getActivity())
+												.setTitle(R.string.expired_invite_link)
+												.setMessage(getString(R.string.expired_clipboard_invite_link_alert, inviteLink.getHost(), getArguments().getString("defaultServer")))
+												.setPositiveButton(R.string.ok, null)
+												.show();
+										case 404 -> new M3AlertDialogBuilder(getActivity())
+												.setTitle(R.string.invalid_invite_link)
+												.setMessage(getString(R.string.invalid_clipboard_invite_link_alert, inviteLink.getHost(), getArguments().getString("defaultServer")))
+												.setPositiveButton(R.string.ok, null)
+												.show();
+										default -> error.showToast(getActivity());
+									}
+								}
+							}
+						})
+						.wrapProgress(getActivity(), R.string.loading_instance, true)
+						.execNoAuth(inviteLink.getHost());
+				return;
+			}
+		}
 		getActivity().getSystemService(InputMethodManager.class).hideSoftInputFromWindow(contentView.getWindowToken(), 0);
-		if(!instance.registrations){
-			new M3AlertDialogBuilder(getActivity())
-					.setTitle(R.string.error)
-					.setMessage(R.string.instance_signup_closed)
-					.setPositiveButton(R.string.ok, null)
-					.show();
+		if(!instance.registrations && (TextUtils.isEmpty(inviteCode) || !Objects.equals(instance.uri, inviteCodeHost))){
+			if(instance.invitesEnabled){
+				showInviteLinkAlert(instance.uri);
+			}else{
+				new M3AlertDialogBuilder(getActivity())
+						.setTitle(R.string.error)
+						.setMessage(R.string.instance_signup_closed)
+						.setPositiveButton(R.string.ok, null)
+						.show();
+			}
 			return;
 		}
 		Bundle args=new Bundle();
 		args.putParcelable("instance", Parcels.wrap(instance));
+		if(!TextUtils.isEmpty(inviteCode) && Objects.equals(instance.uri, inviteCodeHost))
+			args.putString("inviteCode", inviteCode);
 		Nav.go(getActivity(), InstanceRulesFragment.class, args);
 	}
 
-	private void onPickRandomInstanceClick(View v){
-		String lang=Locale.getDefault().getLanguage();
-		List<CatalogInstance> instances=data.stream().filter(ci->!ci.approvalRequired && ("general".equals(ci.category) || (ci.categories!=null && ci.categories.contains("general"))) && (lang.equals(ci.language) || (ci.languages!=null && ci.languages.contains(lang)))).collect(Collectors.toList());
-		if(instances.isEmpty()){
-			instances=data.stream().filter(ci->!ci.approvalRequired && ("general".equals(ci.category) || (ci.categories!=null && ci.categories.contains("general")))).collect(Collectors.toList());
+	private void onUseInviteClick(View v){
+		showInviteLinkAlert(null);
+	}
+
+	private void showInviteLinkAlert(String domain){
+		AlertDialog alert=new M3AlertDialogBuilder(getActivity())
+				.setView(R.layout.alert_invite_link)
+				.setPositiveButton(R.string.next, null)
+				.setNegativeButton(R.string.cancel, null)
+				.create();
+
+		Button next=alert.getButton(AlertDialog.BUTTON_POSITIVE);
+		EditText edit=alert.findViewById(R.id.edit);
+		TextView supportingText=alert.findViewById(R.id.supporting_text);
+		TextView label=alert.findViewById(R.id.label);
+		TextView subtitle=alert.findViewById(R.id.subtitle);
+		ImageButton clear=alert.findViewById(R.id.clear);
+		clear.setVisibility(View.GONE);
+
+		if(TextUtils.isEmpty(domain)){
+			subtitle.setVisibility(View.GONE);
+		}else{
+			subtitle.setText(getString(R.string.need_invite_to_join_server, domain));
 		}
-		if(instances.isEmpty()){
-			instances=data.stream().filter(ci->("general".equals(ci.category) || (ci.categories!=null && ci.categories.contains("general")))).collect(Collectors.toList());
+
+		Consumer<String> errorSetter=err->{
+			supportingText.setText(err);
+			int errorColor=UiUtils.getThemeColor(getActivity(), R.attr.colorM3Error);
+			supportingText.setTextColor(errorColor);
+			label.setTextColor(errorColor);
+			edit.setBackgroundResource(R.drawable.bg_m3_filled_text_field_error);
+		};
+
+		next.setOnClickListener(_v->{
+			Uri inviteLink=Uri.parse(edit.getText().toString());
+			if(TextUtils.isEmpty(inviteLink.getHost()) || TextUtils.isEmpty(inviteLink.getPath())){
+				errorSetter.accept(getString(R.string.this_invite_is_invalid));
+				return;
+			}
+			UiUtils.showProgressForAlertButton(next, true);
+			new CheckInviteLink(inviteLink.getPath())
+					.setCallback(new Callback<>(){
+						@Override
+						public void onSuccess(CheckInviteLink.Response result){
+							if(getActivity()==null || !alert.isShowing())
+								return;
+
+							String host=inviteLink.getHost();
+							inviteCode=result.inviteCode;
+							inviteCodeHost=host;
+
+							Instance instance=instancesCache.get(normalizeInstanceDomain(host));
+							if(instance==null){
+								loadInstanceInfo(host, false, err->{
+									String errorStr;
+									if(err instanceof String str){
+										errorStr=str;
+									}else if(err instanceof Throwable x){
+										errorStr=x.getMessage();
+									}else if(err instanceof MastodonErrorResponse mer){
+										errorStr=mer.error;
+									}else{
+										errorStr=getString(R.string.error);
+									}
+									errorSetter.accept(errorStr);
+									UiUtils.showProgressForAlertButton(next, false);
+								});
+							}else{
+								proceedWithAuthOrSignup(instance);
+							}
+						}
+
+						@Override
+						public void onError(ErrorResponse error){
+							if(getActivity()==null || !alert.isShowing())
+								return;
+							UiUtils.showProgressForAlertButton(next, false);
+							if(error instanceof MastodonErrorResponse mer){
+								errorSetter.accept(switch(mer.httpStatus){
+									case 404 -> getString(R.string.this_invite_is_invalid);
+									case 401 -> getString(R.string.this_invite_has_expired);
+									default -> mer.error;
+								});
+							}
+						}
+					})
+					.execNoAuth(inviteLink.getHost());
+		});
+		next.setEnabled(false);
+		edit.addTextChangedListener(new SimpleTextWatcher(e->{
+			boolean wasEmpty=!next.isEnabled();
+			next.setEnabled(e.length()>0);
+			if(supportingText.length()>0){
+				supportingText.setText("");
+				int regularColor=UiUtils.getThemeColor(getActivity(), R.attr.colorM3OnSurfaceVariant);
+				supportingText.setTextColor(regularColor);
+				label.setTextColor(regularColor);
+				edit.setBackgroundResource(R.drawable.bg_m3_filled_text_field);
+			}
+			if(wasEmpty!=(e.length()==0)){
+				int padEnd;
+				if(e.length()==0){
+					clear.setVisibility(View.GONE);
+					padEnd=V.dp(16);
+				}else{
+					clear.setVisibility(View.VISIBLE);
+					padEnd=V.dp(48);
+				}
+				edit.setPaddingRelative(edit.getPaddingStart(), edit.getPaddingTop(), padEnd, edit.getPaddingBottom());
+			}
+		}));
+		clear.setOnClickListener(_v->edit.setText(""));
+
+		ClipData clipData=getActivity().getSystemService(ClipboardManager.class).getPrimaryClip();
+		if(clipData!=null && clipData.getItemCount()>0){
+			CharSequence clipText=clipData.getItemAt(0).coerceToText(getActivity());
+			if(HtmlParser.INVITE_LINK_PATTERN.matcher(clipText).find()){
+				edit.setText(clipText);
+				supportingText.setText(R.string.invite_link_pasted);
+			}
 		}
-		if(instances.isEmpty()){
-			return;
-		}
-		chosenInstance=instances.get(new Random().nextInt(instances.size()));
-		onNextClick(v);
+
+		currentInviteLinkAlert=alert;
+		alert.setOnDismissListener(dialog->currentInviteLinkAlert=null);
+		alert.show();
 	}
 
 	@Override
@@ -387,8 +561,14 @@ public class InstanceCatalogSignupFragment extends InstanceCatalogFragment imple
 		filteredData.clear();
 		if(searchQueryMode){
 			if(!TextUtils.isEmpty(currentSearchQuery)){
+				String actualQuery;
+				if(currentSearchQuery.startsWith("https:")){
+					actualQuery=Uri.parse(currentSearchQuery).getHost();
+				}else{
+					actualQuery=currentSearchQuery;
+				}
 				for(CatalogInstance instance:data){
-					if(instance.domain.contains(currentSearchQuery)){
+					if(instance.domain.contains(actualQuery)){
 						filteredData.add(instance);
 					}
 				}

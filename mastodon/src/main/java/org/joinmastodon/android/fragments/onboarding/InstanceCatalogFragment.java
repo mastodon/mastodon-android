@@ -3,7 +3,6 @@ package org.joinmastodon.android.fragments.onboarding;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.KeyEvent;
@@ -37,6 +36,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -48,7 +48,6 @@ import me.grishka.appkit.api.ErrorResponse;
 import me.grishka.appkit.fragments.BaseRecyclerFragment;
 import me.grishka.appkit.utils.BindableViewHolder;
 import me.grishka.appkit.utils.MergeRecyclerAdapter;
-import me.grishka.appkit.utils.V;
 import okhttp3.Call;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -61,6 +60,7 @@ abstract class InstanceCatalogFragment extends BaseRecyclerFragment<CatalogInsta
 	protected EditText searchEdit;
 	protected Runnable searchDebouncer=this::onSearchChangedDebounced;
 	protected String currentSearchQuery;
+	protected String currentSearchQueryButWithCasePreserved;
 	protected String loadingInstanceDomain;
 	protected HashMap<String, Instance> instancesCache=new HashMap<>();
 	protected View buttonBar;
@@ -91,6 +91,7 @@ abstract class InstanceCatalogFragment extends BaseRecyclerFragment<CatalogInsta
 		if(event!=null && event.getAction()!=KeyEvent.ACTION_DOWN)
 			return true;
 		currentSearchQuery=searchEdit.getText().toString().toLowerCase().trim();
+		currentSearchQueryButWithCasePreserved=searchEdit.getText().toString().trim();
 		updateFilteredList();
 		searchEdit.removeCallbacks(searchDebouncer);
 		Instance instance=instancesCache.get(normalizeInstanceDomain(currentSearchQuery));
@@ -105,6 +106,7 @@ abstract class InstanceCatalogFragment extends BaseRecyclerFragment<CatalogInsta
 
 	protected void onSearchChangedDebounced(){
 		currentSearchQuery=searchEdit.getText().toString().toLowerCase().trim();
+		currentSearchQueryButWithCasePreserved=searchEdit.getText().toString().trim();
 		updateFilteredList();
 		loadInstanceInfo(currentSearchQuery, false);
 	}
@@ -149,6 +151,10 @@ abstract class InstanceCatalogFragment extends BaseRecyclerFragment<CatalogInsta
 	}
 
 	protected void loadInstanceInfo(String _domain, boolean isFromRedirect){
+		loadInstanceInfo(_domain, isFromRedirect, null);
+	}
+
+	protected void loadInstanceInfo(String _domain, boolean isFromRedirect, Consumer<Object> onError){
 		if(TextUtils.isEmpty(_domain))
 			return;
 		String domain=normalizeInstanceDomain(_domain);
@@ -173,7 +179,10 @@ abstract class InstanceCatalogFragment extends BaseRecyclerFragment<CatalogInsta
 		try{
 			new URI("https://"+domain+"/api/v1/instance"); // Validate the host by trying to parse the URI
 		}catch(URISyntaxException x){
-			showInstanceInfoLoadError(domain, x);
+			if(onError!=null)
+				onError.accept(x);
+			else
+				showInstanceInfoLoadError(domain, x);
 			if(fakeInstance!=null){
 				fakeInstance.description=getString(R.string.error);
 				if(filteredData.size()>0 && filteredData.get(0)==fakeInstance){
@@ -193,10 +202,11 @@ abstract class InstanceCatalogFragment extends BaseRecyclerFragment<CatalogInsta
 				loadingInstanceDomain=null;
 				result.uri=domain; // needed for instances that use domain redirection
 				instancesCache.put(domain, result);
+				if(instanceProgressDialog!=null || onError!=null)
+					proceedWithAuthOrSignup(result);
 				if(instanceProgressDialog!=null){
 					instanceProgressDialog.dismiss();
 					instanceProgressDialog=null;
-					proceedWithAuthOrSignup(result);
 				}
 				if(Objects.equals(domain, currentSearchQuery) || Objects.equals(currentSearchQuery, redirects.get(domain)) || Objects.equals(currentSearchQuery, redirectsInverse.get(domain))){
 					boolean found=false;
@@ -223,11 +233,14 @@ abstract class InstanceCatalogFragment extends BaseRecyclerFragment<CatalogInsta
 			public void onError(ErrorResponse error){
 				loadingInstanceRequest=null;
 				if(!isFromRedirect && error instanceof MastodonErrorResponse me && me.httpStatus==404){
-					fetchDomainFromHostMetaAndMaybeRetry(domain, error);
+					fetchDomainFromHostMetaAndMaybeRetry(domain, error, onError);
 					return;
 				}
 				loadingInstanceDomain=null;
-				showInstanceInfoLoadError(domain, error);
+				if(onError!=null)
+					onError.accept(error);
+				else
+					showInstanceInfoLoadError(domain, error);
 				if(fakeInstance!=null && getActivity()!=null){
 					fakeInstance.description=getString(R.string.error);
 					if(filteredData.size()>0 && filteredData.get(0)==fakeInstance){
@@ -276,7 +289,7 @@ abstract class InstanceCatalogFragment extends BaseRecyclerFragment<CatalogInsta
 		}
 	}
 
-	private void fetchDomainFromHostMetaAndMaybeRetry(String domain, Object origError){
+	private void fetchDomainFromHostMetaAndMaybeRetry(String domain, Object origError, Consumer<Object> onError){
 		String url="https://"+domain+"/.well-known/host-meta";
 		Request req=new Request.Builder()
 				.url(url)
@@ -290,7 +303,12 @@ abstract class InstanceCatalogFragment extends BaseRecyclerFragment<CatalogInsta
 				Activity a=getActivity();
 				if(a==null)
 					return;
-				a.runOnUiThread(()->showInstanceInfoLoadError(domain, e));
+				a.runOnUiThread(()->{
+					if(onError!=null)
+						onError.accept(e);
+					else
+						showInstanceInfoLoadError(domain, e);
+				});
 			}
 
 			@Override
@@ -302,7 +320,13 @@ abstract class InstanceCatalogFragment extends BaseRecyclerFragment<CatalogInsta
 					return;
 				try(response){
 					if(!response.isSuccessful()){
-						a.runOnUiThread(()->showInstanceInfoLoadError(domain, response.code()+" "+response.message()));
+						a.runOnUiThread(()->{
+							String err=response.code()+" "+response.message();
+							if(onError!=null)
+								onError.accept(err);
+							else
+								showInstanceInfoLoadError(domain, err);
+						});
 						return;
 					}
 					InputSource source=new InputSource(response.body().charStream());
@@ -321,9 +345,19 @@ abstract class InstanceCatalogFragment extends BaseRecyclerFragment<CatalogInsta
 							}
 						}
 					}
-					a.runOnUiThread(()->showInstanceInfoLoadError(domain, origError));
+					a.runOnUiThread(()->{
+						if(onError!=null)
+							onError.accept(origError);
+						else
+							showInstanceInfoLoadError(domain, origError);
+					});
 				}catch(Exception x){
-					a.runOnUiThread(()->showInstanceInfoLoadError(domain, x));
+					a.runOnUiThread(()->{
+						if(onError!=null)
+							onError.accept(x);
+						else
+							showInstanceInfoLoadError(domain, x);
+					});
 				}
 			}
 		});

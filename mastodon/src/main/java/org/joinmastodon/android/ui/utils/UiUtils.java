@@ -11,9 +11,11 @@ import android.content.res.TypedArray;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.graphics.drawable.Animatable;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.InsetDrawable;
+import android.graphics.drawable.LayerDrawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -32,6 +34,8 @@ import android.transition.ChangeScroll;
 import android.transition.Fade;
 import android.transition.TransitionManager;
 import android.transition.TransitionSet;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -39,7 +43,9 @@ import android.view.ViewGroup;
 import android.view.WindowInsets;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.PopupMenu;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Toolbar;
@@ -881,5 +887,32 @@ public class UiUtils{
 			msg.removeSpan(span);
 		}
 		return msg;
+	}
+
+	public static void showProgressForAlertButton(Button button, boolean show){
+		boolean shown=button.getTag(R.id.button_progress_orig_color)!=null;
+		if(shown==show)
+			return;
+		button.setEnabled(!show);
+		if(show){
+			ColorStateList origColor=button.getTextColors();
+			button.setTag(R.id.button_progress_orig_color, origColor);
+			button.setTextColor(0);
+			ProgressBar progressBar=(ProgressBar) LayoutInflater.from(button.getContext()).inflate(R.layout.progress_bar, null);
+			Drawable progress=progressBar.getIndeterminateDrawable().mutate();
+			progress.setTint(getThemeColor(button.getContext(), R.attr.colorM3OnSurface) & 0x60ffffff);
+			if(progress instanceof Animatable a)
+				a.start();
+			LayerDrawable layerList=new LayerDrawable(new Drawable[]{progress});
+			layerList.setLayerGravity(0, Gravity.CENTER);
+			layerList.setLayerSize(0, V.dp(24), V.dp(24));
+			layerList.setBounds(0, 0, button.getWidth(), button.getHeight());
+			button.getOverlay().add(layerList);
+		}else{
+			button.getOverlay().clear();
+			ColorStateList origColor=(ColorStateList) button.getTag(R.id.button_progress_orig_color);
+			button.setTag(R.id.button_progress_orig_color, null);
+			button.setTextColor(origColor);
+		}
 	}
 }

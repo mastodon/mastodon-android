@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:orientation="vertical"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:paddingHorizontal="24dp"
+	android:paddingTop="24dp">
+
+	<TextView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:gravity="center"
+		android:textAppearance="@style/m3_headline_small"
+		android:textColor="?colorM3OnSurface"
+		android:drawableTop="@drawable/ic_confirmation_number_24px"
+		android:drawableTint="?colorM3Secondary"
+		android:drawablePadding="16dp"
+		android:text="@string/enter_invite_link"/>
+
+	<TextView
+		android:id="@+id/subtitle"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="16dp"
+		android:textAppearance="@style/m3_body_medium"
+		android:textColor="?colorM3OnSurfaceVariant"
+		tools:text="@string/need_invite_to_join_server"/>
+
+	<FrameLayout
+		android:layout_width="match_parent"
+		android:layout_height="76dp"
+		android:layout_marginTop="16dp">
+
+		<EditText
+			android:id="@+id/edit"
+			android:layout_width="match_parent"
+			android:layout_height="56dp"
+			android:background="@drawable/bg_m3_filled_text_field"
+			android:paddingHorizontal="16dp"
+			android:textColorHint="?colorM3OnSurfaceVariant"
+			android:textColor="?colorM3OnSurface"
+			android:gravity="start|bottom"
+			android:paddingBottom="8dp"
+			android:singleLine="true"
+			android:inputType="textUri"
+			android:textAppearance="@style/m3_body_large"
+			android:hint="example.social/invite/AbC123"/>
+
+		<TextView
+			android:id="@+id/label"
+			android:layout_width="match_parent"
+			android:layout_height="16dp"
+			android:layout_marginHorizontal="16dp"
+			android:layout_marginTop="8dp"
+			android:layout_gravity="top"
+			android:paddingEnd="23dp"
+			android:textAppearance="@style/m3_body_small"
+			android:textColor="?colorM3OnSurfaceVariant"
+			android:singleLine="true"
+			android:ellipsize="end"
+			android:text="@string/server_url"/>
+
+		<TextView
+			android:id="@+id/supporting_text"
+			android:layout_width="match_parent"
+			android:layout_height="16dp"
+			android:layout_marginHorizontal="16dp"
+			android:layout_gravity="bottom"
+			android:textAppearance="@style/m3_body_small"
+			android:textColor="?colorM3OnSurfaceVariant"
+			android:singleLine="true"
+			android:ellipsize="end"
+			android:text=""/>
+		
+		<ImageButton
+			android:id="@+id/clear"
+			android:layout_width="48dp"
+			android:layout_height="48dp"
+			android:layout_marginTop="4dp"
+			android:layout_gravity="end|top"
+			android:src="@drawable/ic_m3_cancel"
+			android:background="?android:actionBarItemBackground"
+			android:contentDescription="@string/clear"/>
+	</FrameLayout>
+
+</LinearLayout>

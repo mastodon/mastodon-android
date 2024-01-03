@@ -91,6 +91,9 @@ public class InstanceRulesFragment extends ToolbarFragment{
 	protected void onButtonClick(){
 		Bundle args=new Bundle();
 		args.putParcelable("instance", Parcels.wrap(instance));
+		if(getArguments().containsKey("inviteCode")){
+			args.putString("inviteCode", getArguments().getString("inviteCode"));
+		}
 		Nav.goForResult(getActivity(), GoogleMadeMeAddThisFragment.class, args, RULES_REQUEST, this);
 	}
 

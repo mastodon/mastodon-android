@@ -52,6 +52,7 @@ public class HtmlParser{
 						")" +
 					")";
 	public static final Pattern URL_PATTERN=Pattern.compile(VALID_URL_PATTERN_STRING, Pattern.CASE_INSENSITIVE);
+	public static final Pattern INVITE_LINK_PATTERN=Pattern.compile("^https://"+Regex.URL_VALID_DOMAIN+"/invite/[a-z\\d]+$", Pattern.CASE_INSENSITIVE);
 	private static Pattern EMOJI_CODE_PATTERN=Pattern.compile(":([\\w]+):");
 
 	private HtmlParser(){}
