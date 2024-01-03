@@ -19,6 +19,7 @@ import org.joinmastodon.android.MainActivity;
 import org.joinmastodon.android.MastodonApp;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.MastodonAPIController;
+import org.joinmastodon.android.api.MastodonAPIRequest;
 import org.joinmastodon.android.api.PushSubscriptionManager;
 import org.joinmastodon.android.api.requests.filters.GetLegacyFilters;
 import org.joinmastodon.android.api.requests.instance.GetCustomEmojis;
@@ -47,6 +48,7 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -104,7 +106,10 @@ public class AccountSessionManager{
 		sessions.put(session.getID(), session);
 		lastActiveAccountID=session.getID();
 		writeAccountsFile();
-		updateInstanceEmojis(instance, instance.uri);
+
+		if(instance.version==null) updateInstanceInfo(instance.uri);
+		else updateInstanceEmojis(instance, instance.uri);
+
 		if(PushSubscriptionManager.arePushNotificationsAvailable()){
 			session.getPushSubscriptionManager().registerAccountForPush(null);
 		}
@@ -321,43 +326,39 @@ public class AccountSessionManager{
 	}
 
 	public void updateInstanceInfo(String domain){
-		new GetInstance()
-				.setCallback(new Callback<>(){
-					@Override
-					public void onSuccess(Instance instance){
-						instances.put(domain, instance);
-						updateInstanceEmojis(instance, domain);
-					}
+		execWithOptionalAuth(new GetInstance().setCallback(new Callback<>(){
+			@Override
+			public void onSuccess(Instance instance1){
+				instances.put(domain, instance1);
+				updateInstanceEmojis(instance1, domain);
+			}
 
-					@Override
-					public void onError(ErrorResponse error){
+			@Override
+			public void onError(ErrorResponse error){
 
-					}
-				})
-				.execNoAuth(domain);
+			}
+		}), domain);
 	}
 
 	private void updateInstanceEmojis(Instance instance, String domain){
-		new GetCustomEmojis()
-				.setCallback(new Callback<>(){
-					@Override
-					public void onSuccess(List<Emoji> result){
-						InstanceInfoStorageWrapper emojis=new InstanceInfoStorageWrapper();
-						emojis.lastUpdated=System.currentTimeMillis();
-						emojis.emojis=result;
-						emojis.instance=instance;
-						customEmojis.put(domain, groupCustomEmojis(emojis));
-						instancesLastUpdated.put(domain, emojis.lastUpdated);
-						MastodonAPIController.runInBackground(()->writeInstanceInfoFile(emojis, domain));
-						E.post(new EmojiUpdatedEvent(domain));
-					}
+		execWithOptionalAuth(new GetCustomEmojis().setCallback(new Callback<>(){
+			@Override
+			public void onSuccess(List<Emoji> result){
+				InstanceInfoStorageWrapper emojis=new InstanceInfoStorageWrapper();
+				emojis.lastUpdated=System.currentTimeMillis();
+				emojis.emojis=result;
+				emojis.instance=instance;
+				customEmojis.put(domain, groupCustomEmojis(emojis));
+				instancesLastUpdated.put(domain, emojis.lastUpdated);
+				MastodonAPIController.runInBackground(()->writeInstanceInfoFile(emojis, domain));
+				E.post(new EmojiUpdatedEvent(domain));
+			}
 
-					@Override
-					public void onError(ErrorResponse error){
+			@Override
+			public void onError(ErrorResponse error){
 
-					}
-				})
-				.execNoAuth(domain);
+			}
+		}), domain);
 	}
 
 	private File getInstanceInfoFile(String domain){
@@ -440,6 +441,11 @@ public class AccountSessionManager{
 		}else{
 			sm.enableShortcuts(Collections.singletonList("compose"));
 		}
+	}
+
+	private <T> MastodonAPIRequest<T> execWithOptionalAuth(MastodonAPIRequest<T> request, String domain){
+		Optional<AccountSession> session=sessions.values().stream().filter(x->x.domain.equalsIgnoreCase(domain)).findAny();
+		return session.isEmpty() ? request.execNoAuth(domain) : request.exec(session.get().getID());
 	}
 
 	private static class SessionsStorageWrapper{
