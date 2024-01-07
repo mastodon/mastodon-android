@@ -626,7 +626,15 @@
 	<string name="button_reblogged">ブーストしました</string>
 	<string name="button_favorited">お気に入りに登録しました</string>
 	<string name="bookmarked">ブックマークしました</string>
-	<string name="join_server_x_with_invite">%s に招待ありで参加</string>
+	<string name="join_server_x_with_invite">%s に招待ありで参加する</string>
 	<string name="expired_invite_link">招待リンクが有効期限切れです</string>
 	<string name="expired_clipboard_invite_link_alert">クリップボードにある %1$s への招待リンクは有効期限切れのため、登録に使用できません。\n\n既存ユーザーに新しいリンクを貰うか、%2$s に登録するか、別のサーバーを選択して登録できます。</string>
+	<string name="invalid_invite_link">招待リンクが無効です</string>
+	<string name="invalid_clipboard_invite_link_alert">クリップボードにある %1$s への招待リンクは有効ではないため、登録に使用できません。\n\n既存ユーザーに新しいリンクを貰うか、%2$s に登録するか、別のサーバーを選択して登録できます。</string>
+	<string name="use_invite_link">招待リンクを使用する</string>
+	<string name="enter_invite_link">招待リンクを入力してください</string>
+	<string name="this_invite_is_invalid">この招待リンクは有効ではありません。</string>
+	<string name="this_invite_has_expired">この招待リンクは有効期限切れです。</string>
+	<string name="invite_link_pasted">クリップボードからリンクが貼り付けられました。</string>
+	<string name="need_invite_to_join_server">%s に参加するには、既存ユーザーからの招待リンクが必要です。</string>
 </resources>
