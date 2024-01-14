@@ -440,6 +440,7 @@
 	<string name="edit_post">Edytuj wpis</string>
 	<string name="no_verified_link">Niezweryfikowany link</string>
 	<string name="compose_autocomplete_emoji_empty">Przeglądaj emoji</string>
+	<string name="compose_autocomplete_users_empty">Znajdź, kogo szukasz</string>
 	<string name="no_search_results">Nie znaleziono żadnych wyników dla tego wyszukania</string>
 	<string name="language">Język</string>
 	<string name="language_default">Domyślny</string>
@@ -528,8 +529,14 @@
 		<item quantity="other">%d godzin temu</item>
 	</plurals>
 	<string name="alt_text_reminder_title">Brak tekstu alternatywnego dla mediów</string>
+	<string name="count_one">Jeden</string>
+	<string name="count_two">Dwa</string>
+	<string name="count_three">Trzy</string>
+	<string name="count_four">Cztery</string>
 	<string name="alt_text_reminder_post_anyway">Opublikuj</string>
 	<!-- %s is the username -->
+	<string name="filter_active">Aktywny</string>
+	<string name="filter_inactive">Nieaktywny</string>
 	<string name="settings_add_filter">Dodaj filtr</string>
 	<string name="settings_edit_filter">Edytuj filtr</string>
 	<string name="settings_filter_duration">Czas trwania</string>
@@ -564,6 +571,7 @@
 	<string name="filter_word_or_phrase">Słowo lub wyrażenie</string>
 	<string name="filter_add_word_help">Słowa ignorują wielkość liter i pasują tylko do pełnych wyrazów.\n\nJeśli filtrujesz słowo kluczowe \"Żabka\", ukryje posty zawierające \"żabka\" lub \"żAbKa\", ale nie \"żabkarka\".</string>
 	<string name="settings_delete_filter_word">Usunąć słowo „%s”?</string>
+	<string name="required_form_field_blank">Nie może być puste</string>
 	<string name="app_update_version">Wersja %s</string>
 	<string name="downloading_update">Pobieranie (%d%%)</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
@@ -605,13 +613,17 @@
 	<string name="remove_from_list">Usuń z listy</string>
 	<string name="confirm_remove_list_member">Usunąć członka?</string>
 	<string name="no_followed_hashtags_subtitle">Obserwowane pojawią się tutaj</string>
+	<string name="no_lists_title">Organizuj swoją stronę główną za pomocą List</string>
 	<string name="no_lists_subtitle">Twoje pojawią się tutaj</string>
 	<string name="manage_accounts">Dodaj lub przełącz konta</string>
 	<string name="create_list">Utwórz listę</string>
 	<string name="step_x_of_y">Krok %1$d z %2$d</string>
 	<string name="create">Utwórz</string>
 	<string name="manage_list_members">Zarządzaj członkami listy</string>
+	<string name="got_it">Jasne</string>
+	<string name="dont_remind_again">Nie przypominaj ponownie</string>
 	<!-- %s is a time interval ("5 months") -->
+	<string name="old_post_sheet_title">Ten wpis ma %s</string>
 	<plurals name="x_months">
 		<item quantity="one">%,d miesiąc</item>
 		<item quantity="few">%,d miesiące</item>
@@ -619,6 +631,15 @@
 		<item quantity="other">%,d miesięcy</item>
 	</plurals>
 	<string name="more_than_two_years">ponad 2 lata</string>
+	<string name="non_mutual_text1">Upewnij się, że Twoja odpowiedź jest uprzejma i na temat.</string>
+	<string name="non_mutual_title2">Otwórz się na życzliwość</string>
+	<string name="app_version_copied">Numer wersji skopiowany do schowka</string>
+	<string name="onboarding_recommendations_intro">To Ty kształtujesz swoją stronę główną.
+Im więcej ludzi obserwujesz, tym aktywniejsza i bardziej interesująca się staje.</string>
+	<string name="onboarding_recommendations_title">Spersonalizuj swoją stronę główną</string>
+	<string name="join_server_x_with_invite">Dołącz do %s z zaproszeniem</string>
+	<string name="expired_invite_link">Link zaproszenia wygasł</string>
+	<string name="invalid_invite_link">Nieprawidłowy link zaproszenia</string>
 	<string name="invite_link_pasted">Link wklejony ze schowka.</string>
 	<string name="need_invite_to_join_server">Aby dołączyć do %s, potrzebujesz linku z zaproszeniem od istniejącego użytkownika.</string>
 </resources>
