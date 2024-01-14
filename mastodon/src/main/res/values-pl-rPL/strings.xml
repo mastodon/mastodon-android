@@ -562,8 +562,14 @@
 	<string name="edit_muted_word">Edytuj wyciszone słowo</string>
 	<string name="add">Dodaj</string>
 	<string name="filter_word_or_phrase">Słowo lub wyrażenie</string>
+	<string name="filter_add_word_help">Słowa ignorują wielkość liter i pasują tylko do pełnych wyrazów.\n\nJeśli filtrujesz słowo kluczowe \"Żabka\", ukryje posty zawierające \"żabka\" lub \"żAbKa\", ale nie \"żabkarka\".</string>
+	<string name="settings_delete_filter_word">Usunąć słowo „%s”?</string>
+	<string name="app_update_version">Wersja %s</string>
+	<string name="downloading_update">Pobieranie (%d%%)</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
 	<!-- Shown in the post header. Please keep it short -->
+	<string name="time_seconds_ago_short">%d s. temu</string>
+	<string name="time_minutes_ago_short">%d min. temu</string>
 	<string name="time_hours_ago_short">%d g. temu</string>
 	<string name="time_days_ago_short">%d d. temu</string>
 	<!-- %s is the name of the post language -->
@@ -606,6 +612,13 @@
 	<string name="create">Utwórz</string>
 	<string name="manage_list_members">Zarządzaj członkami listy</string>
 	<!-- %s is a time interval ("5 months") -->
+	<plurals name="x_months">
+		<item quantity="one">%,d miesiąc</item>
+		<item quantity="few">%,d miesiące</item>
+		<item quantity="many">%,d miesięcy</item>
+		<item quantity="other">%,d miesięcy</item>
+	</plurals>
+	<string name="more_than_two_years">ponad 2 lata</string>
 	<string name="invite_link_pasted">Link wklejony ze schowka.</string>
 	<string name="need_invite_to_join_server">Aby dołączyć do %s, potrzebujesz linku z zaproszeniem od istniejącego użytkownika.</string>
 </resources>
