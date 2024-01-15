@@ -499,6 +499,7 @@
 	<string name="resume_notifications_now">Wznów teraz</string>
 	<string name="open_system_notification_settings">Przejdź do ustawień powiadomień</string>
 	<string name="about_server">O tej instancji</string>
+	<string name="server_rules">Zasady</string>
 	<string name="server_administrator">Administrator</string>
 	<string name="send_email_to_server_admin">Wyślij wiadomość administratorowi</string>
 	<string name="settings_even_more">Jeszcze więcej ustawień</string>
@@ -537,6 +538,7 @@
 	<string name="count_four">Cztery</string>
 	<string name="alt_text_reminder_post_anyway">Opublikuj</string>
 	<!-- %s is the username -->
+	<string name="unfollow_confirmation">Przestać obserwować %s?</string>
 	<string name="filter_active">Aktywny</string>
 	<string name="filter_inactive">Nieaktywny</string>
 	<string name="settings_add_filter">Dodaj filtr</string>
@@ -576,12 +578,19 @@
 	<string name="settings_filter_duration_title">Czas trwania filtra</string>
 	<string name="filter_duration_custom">Niestandardowy</string>
 	<string name="required_form_field_blank">Nie może być puste</string>
+	<string name="filter_word_already_in_list">Już na liście</string>
 	<string name="app_update_ready">Aktualizacja aplikacji jest gotowa</string>
 	<string name="app_update_version">Wersja %s</string>
 	<string name="downloading_update">Pobieranie (%d%%)</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
+	<string name="post_matches_filter_x">Dopasowano do filtra \"%s\"</string>
 	<string name="search_mastodon">Przeszukaj Mastodona</string>
 	<string name="clear_all">Wyczyść wszystko</string>
+	<string name="search_open_url">Otwórz adres URL w Mastodonie</string>
+	<string name="posts_matching_hashtag">Wpisy otagowane „%s”</string>
+	<string name="search_go_to_account">Przejdź do %s</string>
+	<string name="posts_matching_string">Wpisy z „%s”</string>
+	<string name="accounts_matching_string">Ludzie z „%s”</string>
 	<!-- Shown in the post header. Please keep it short -->
 	<string name="time_seconds_ago_short">%d s. temu</string>
 	<string name="time_minutes_ago_short">%d min. temu</string>
@@ -646,9 +655,11 @@
 		<item quantity="other">%,d miesięcy</item>
 	</plurals>
 	<string name="more_than_two_years">ponad 2 lata</string>
-	<string name="non_mutual_title1">Zachowaj szacunek i nie odbiegaj od tematu</string>
+	<string name="non_mutual_title1">Zachowaj szacunek i zwięzłość wypowiedzi</string>
 	<string name="non_mutual_text1">Upewnij się, że Twoja odpowiedź jest uprzejma i na temat.</string>
 	<string name="non_mutual_title2">Otwórz się na życzliwość</string>
+	<string name="non_mutual_text2">Pozytywny ton jest zawsze mile widziany.</string>
+	<string name="non_mutual_title3">Bądź plastyczny</string>
 	<string name="non_mutual_text3">Każdy ma swój unikalny styl prowadzenia rozmowy. Dostosuj się, jeśli trzeba.</string>
 	<string name="app_version_copied">Numer wersji skopiowany do schowka</string>
 	<string name="onboarding_recommendations_intro">To Ty kształtujesz swoją stronę główną.
