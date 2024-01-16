@@ -452,6 +452,7 @@
 	<string name="pause_notifications_ends">Termina %s</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<string name="pause_notifications_banner">Notificações serão retomadas %s.</string>
+	<string name="resume_notifications_now">Retomar</string>
 	<string name="open_system_notification_settings">Vá para as configurações de notificação</string>
 	<string name="about_server">Sobre</string>
 	<string name="server_rules">Regras</string>
@@ -461,6 +462,7 @@
 	<string name="settings_even_more">Ainda mais configurações</string>
 	<string name="settings_show_cws">Mostrar avisos de conteúdo</string>
 	<string name="settings_hide_sensitive_media">Ocultar mídia marcada como sensível</string>
+	<string name="settings_show_interaction_counts">Contagem de interações com publicações</string>
 	<string name="settings_show_emoji_in_names">Exibir emojis personalizados em nomes</string>
 	<plurals name="in_x_seconds">
 		<item quantity="one">em %d segundo</item>
@@ -514,7 +516,9 @@
 	<string name="selection_2_options">%1$s e %2$s</string>
 	<string name="selection_3_options">%1$s, %2$s, e %3$s</string>
 	<string name="selection_4_or_more">%1$s, %2$s, %3$d e mais</string>
+	<string name="filter_context_home_lists">Inicial &amp; listas</string>
 	<string name="filter_context_notifications">Notificações</string>
+	<string name="filter_context_public_timelines">Timelines públicas</string>
 	<string name="filter_context_threads_replies">Tópicos &amp; respostas</string>
 	<string name="filter_context_profiles">Perfis</string>
 	<string name="settings_filter_title">Título</string>
@@ -564,13 +568,22 @@
 	<string name="translation_show_original">Mostrar original</string>
 	<string name="translation_failed">A tradução falhou. Talvez o administrador não tenha habilitado as traduções neste servidor ou este servidor esteja executando uma versão mais antiga do Mastodon onde as traduções ainda não são suportadas.</string>
 	<string name="settings_privacy">Privacidade e alcance</string>
+	<string name="settings_discoverable">Destacar perfil e publicações nos algoritmos de descoberta</string>
 	<string name="settings_indexable">Incluir publicações públicas nos resultados de pesquisa</string>
 	<plurals name="x_participants">
 		<item quantity="one">%,d participante</item>
 		<item quantity="other">%,d participantes</item>
 	</plurals>
+	<string name="error_playing_video">Erro ao reproduzir vídeo</string>
+	<string name="timeline_following">Início</string>
+	<string name="lists">Listas</string>
+	<string name="followed_hashtags">Hashtags seguidas</string>
+	<string name="manage_lists">Gerir listas</string>
+	<string name="manage_hashtags">Gerir hashtags</string>
 	<!-- Screen reader description for the menu on the home timeline screen -->
+	<string name="dropdown_menu">Menu dropdown</string>
 	<string name="edit_list">Editar lista</string>
+	<string name="list_members">Membros da lista</string>
 	<string name="delete_list">Excluir lista</string>
 	<!-- %s is the name of the list -->
 	<string name="delete_list_confirm">Excluir “%s”?</string>
