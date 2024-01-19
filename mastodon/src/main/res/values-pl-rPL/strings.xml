@@ -502,6 +502,7 @@
 	<string name="server_rules">Zasady</string>
 	<string name="server_administrator">Administrator</string>
 	<string name="send_email_to_server_admin">Wyślij wiadomość administratorowi</string>
+	<string name="notifications_disabled_in_system">Włącz powiadomienia w ustawieniach urządzenia, aby cały czas być na bieżąco.</string>
 	<string name="settings_even_more">Jeszcze więcej ustawień</string>
 	<string name="settings_show_cws">Pokazuj ostrzeżenia o zawartości</string>
 	<string name="settings_hide_sensitive_media">Ukrywaj zawartość multimedialną oznaczoną jako wrażliwa</string>
@@ -575,8 +576,16 @@
 	<string name="filter_word_or_phrase">Słowo lub wyrażenie</string>
 	<string name="filter_add_word_help">Słowa ignorują wielkość liter i pasują tylko do pełnych wyrazów.\n\nJeśli filtrujesz słowo kluczowe \"Żabka\", ukryje posty zawierające \"żabka\" lub \"żAbKa\", ale nie \"żabkarka\".</string>
 	<string name="settings_delete_filter_word">Usunąć słowo „%s”?</string>
+	<string name="enter_selection_mode">Wybierz</string>
+	<string name="select_all">Zaznacz wszystkie</string>
 	<string name="settings_filter_duration_title">Czas trwania filtra</string>
 	<string name="filter_duration_custom">Niestandardowy</string>
+	<plurals name="x_items_selected">
+		<item quantity="one">%d wybrany</item>
+		<item quantity="few">%d wybrane</item>
+		<item quantity="many">%d wybranych</item>
+		<item quantity="other">%d wybranych</item>
+	</plurals>
 	<string name="required_form_field_blank">Nie może być puste</string>
 	<string name="filter_word_already_in_list">Już na liście</string>
 	<string name="app_update_ready">Aktualizacja aplikacji jest gotowa</string>
@@ -661,6 +670,8 @@
 	<string name="non_mutual_text2">Pozytywny ton jest zawsze mile widziany.</string>
 	<string name="non_mutual_title3">Bądź plastyczny</string>
 	<string name="non_mutual_text3">Każdy ma swój unikalny styl prowadzenia rozmowy. Dostosuj się, jeśli trzeba.</string>
+	<string name="make_profile_discoverable">Spraw, by mój profil mógł być wyszukiwalny</string>
+	<string name="discoverability">Wyszukiwalność</string>
 	<string name="app_version_copied">Numer wersji skopiowany do schowka</string>
 	<string name="onboarding_recommendations_intro">To Ty kształtujesz swoją stronę główną.
 Im więcej ludzi obserwujesz, tym aktywniejsza i bardziej interesująca się staje.</string>
