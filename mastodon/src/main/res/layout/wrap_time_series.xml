@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:orientation="vertical"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:paddingTop="96dp">
+
+	<TextView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginHorizontal="16dp"
+		android:textColor="#858AFA"
+		android:fontFamily="@font/manrope_w600"
+		android:textSize="25dp"
+		android:text="@string/wrap_numbers_title"/>
+
+	<TextView
+		android:id="@+id/posts_counter"
+		android:layout_width="match_parent"
+		android:layout_height="92dp"
+		android:layout_marginTop="22dp"
+		android:singleLine="true"
+		android:gravity="center"
+		android:fontFamily="@font/manrope_w600"
+		android:textSize="76.29dp"
+		android:textColor="#FFC954"
+		tools:text="12,345"/>
+
+	<TextView
+		android:id="@+id/posts_label"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:singleLine="true"
+		android:gravity="center"
+		android:textSize="20dp"
+		android:fontFamily="@font/manrope_w400"
+		android:textColor="#858AFA"
+		tools:text="posts"/>
+
+	<TextView
+		android:id="@+id/followers_counter"
+		android:layout_width="match_parent"
+		android:layout_height="92dp"
+		android:layout_marginTop="32dp"
+		android:singleLine="true"
+		android:gravity="center"
+		android:fontFamily="@font/manrope_w600"
+		android:textSize="76.29dp"
+		android:textColor="#FFC954"
+		tools:text="12,345"/>
+
+	<TextView
+		android:id="@+id/followers_label"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:singleLine="true"
+		android:gravity="center"
+		android:textSize="20dp"
+		android:fontFamily="@font/manrope_w400"
+		android:textColor="#858AFA"
+		tools:text="followers"/>
+
+	<TextView
+		android:id="@+id/following_counter"
+		android:layout_width="match_parent"
+		android:layout_height="92dp"
+		android:layout_marginTop="32dp"
+		android:singleLine="true"
+		android:gravity="center"
+		android:fontFamily="@font/manrope_w600"
+		android:textSize="76.29dp"
+		android:textColor="#FFC954"
+		tools:text="12,345"/>
+
+	<TextView
+		android:id="@+id/following_label"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:singleLine="true"
+		android:gravity="center"
+		android:textSize="20dp"
+		android:fontFamily="@font/manrope_w400"
+		android:textColor="#858AFA"
+		tools:text="following"/>
+
+	<TextView
+		android:id="@+id/month_label"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:textSize="12.8dp"
+		android:textColor="#FFBE2E"
+		android:fontFamily="@font/manrope_w600"
+		tools:text="January"/>
+
+</LinearLayout>

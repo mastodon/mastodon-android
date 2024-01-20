@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@drawable/wrap_numbers_bg_circle">
+
+	<TextView
+		android:id="@+id/number"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_centerInParent="true"
+		android:textSize="131dp"
+		android:textColor="#17063B"
+		android:singleLine="true"
+		android:gravity="center_horizontal"
+		android:letterSpacing="-0.06"
+		android:fontFamily="@font/manrope_w700"/>
+
+	<TextView
+		android:id="@+id/top_text"
+		android:layout_width="272dp"
+		android:layout_height="wrap_content"
+		android:layout_above="@id/number"
+		android:layout_centerHorizontal="true"
+		android:layout_marginBottom="-14dp"
+		android:textSize="14dp"
+		android:textColor="#17063B"
+		android:gravity="center_horizontal"
+		android:fontFamily="@font/manrope_w400"/>
+
+	<TextView
+		android:id="@+id/bottom_text"
+		android:layout_width="272dp"
+		android:layout_height="wrap_content"
+		android:layout_below="@id/number"
+		android:layout_centerHorizontal="true"
+		android:layout_marginTop="-6dp"
+		android:textSize="17dp"
+		android:textColor="#17063B"
+		android:gravity="center_horizontal"
+		android:fontFamily="@font/manrope_w600"/>
+
+</RelativeLayout>

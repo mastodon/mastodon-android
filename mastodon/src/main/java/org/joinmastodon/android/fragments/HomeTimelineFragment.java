@@ -5,6 +5,7 @@ import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.app.Activity;
+import android.content.res.ColorStateList;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -41,9 +42,12 @@ import org.joinmastodon.android.model.FilterContext;
 import org.joinmastodon.android.model.FollowList;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.model.TimelineMarkers;
+import org.joinmastodon.android.ui.OutlineProviders;
 import org.joinmastodon.android.ui.displayitems.GapStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.StatusDisplayItem;
 import org.joinmastodon.android.ui.utils.DiscoverInfoBannerHelper;
+import org.joinmastodon.android.ui.utils.HideableSingleViewRecyclerAdapter;
+import org.joinmastodon.android.ui.utils.UiUtils;
 import org.joinmastodon.android.ui.viewcontrollers.HomeTimelineMenuController;
 import org.joinmastodon.android.ui.viewcontrollers.ToolbarDropdownMenuController;
 import org.joinmastodon.android.ui.views.FixedAspectRatioImageView;
@@ -81,6 +85,7 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 	private FollowList currentList;
 	private MergeRecyclerAdapter mergeAdapter;
 	private DiscoverInfoBannerHelper localTimelineBannerHelper;
+	private HideableSingleViewRecyclerAdapter yearlyWrapBannerAdapter;
 
 	private String maxID;
 	private String lastSavedMarkerID;
@@ -635,7 +640,11 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 
 	@Override
 	protected RecyclerView.Adapter getAdapter(){
+		yearlyWrapBannerAdapter=new HideableSingleViewRecyclerAdapter(makeWrapstodonBannerView());
+		// TODO only show banner when some condition is met (TBD)
+
 		mergeAdapter=new MergeRecyclerAdapter();
+		mergeAdapter.addAdapter(yearlyWrapBannerAdapter);
 		mergeAdapter.addAdapter(super.getAdapter());
 		return mergeAdapter;
 	}
@@ -659,6 +668,43 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 			case LOCAL -> getString(R.string.local_timeline);
 			case LIST -> currentList.title;
 		};
+	}
+
+	private View makeWrapstodonBannerView(){
+		int bgColor, accentColor, iconContainerColor, textColor;
+		accentColor=0xFFBAFF3B;
+		bgColor=0xFF2F0C7A;
+		iconContainerColor=0xFF563ACC;
+		if(UiUtils.isDarkTheme()){
+			textColor=0xFFEEE5FF;
+		}else{
+			textColor=0xFFCCCFFF;
+		}
+		View banner=getActivity().getLayoutInflater().inflate(R.layout.item_settings_banner, list, false);
+		TextView bannerText=banner.findViewById(R.id.text);
+		TextView bannerTitle=banner.findViewById(R.id.title);
+		ImageView bannerIcon=banner.findViewById(R.id.icon);
+		Button bannerButton=banner.findViewById(R.id.button);
+		banner.findViewById(R.id.button2).setVisibility(View.GONE);
+		bannerTitle.setText(getString(R.string.yearly_wrap_title, "2023"));
+		bannerText.setText(R.string.yearly_wrap_text);
+		bannerButton.setText(R.string.yearly_wrap_view);
+		bannerIcon.setImageResource(R.drawable.ic_celebration_24px);
+		banner.setBackgroundColor(bgColor);
+		bannerText.setTextColor(textColor);
+		bannerTitle.setTextColor(textColor);
+		bannerIcon.setBackgroundTintList(ColorStateList.valueOf(iconContainerColor));
+		bannerIcon.setImageTintList(ColorStateList.valueOf(accentColor));
+		bannerButton.setTextColor(accentColor);
+		bannerButton.setBackgroundTintList(ColorStateList.valueOf(accentColor));
+		bannerButton.setOnClickListener(v->{
+			Bundle args=new Bundle();
+			args.putString("account", accountID);
+			Nav.go(getActivity(), WrapstodonFragment.class, args);
+		});
+		banner.setOutlineProvider(OutlineProviders.roundedRect(12));
+		banner.setClipToOutline(true);
+		return banner;
 	}
 
 	private enum ListMode{

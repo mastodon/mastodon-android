@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:orientation="vertical"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:paddingTop="96dp">
+
+	<TextView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginHorizontal="16dp"
+		android:fontFamily="@font/manrope_w600"
+		android:textSize="25dp"
+		android:textColor="#BAFF3B"
+		android:lineSpacingExtra="-4dp"
+		android:text="@string/wrap_apps_title"/>
+
+	<TextView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginHorizontal="16dp"
+		android:fontFamily="@font/manrope_w600"
+		android:textColor="#858AFA"
+		android:textSize="16dp"
+		android:lineSpacingExtra="-3dp"
+		android:text="@string/wrap_apps_subtitle"/>
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:layout_marginTop="16dp"
+		android:orientation="horizontal">
+
+		<RelativeLayout
+			android:id="@+id/app2_bar"
+			android:layout_width="0dp"
+			android:layout_height="match_parent"
+			android:layout_weight="1">
+
+			<View
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:layout_marginTop="32dp"
+				android:background="@drawable/wrap_app2_bar"/>
+
+			<org.joinmastodon.android.ui.wrapstodon.RoundedImageView
+				android:id="@+id/app2_icon"
+				android:layout_width="96dp"
+				android:layout_height="96dp"
+				android:layout_centerHorizontal="true"
+				app:cornerRadius="24dp"
+				android:foreground="@drawable/wrap_app_icon_border"
+				tools:src="#0f0"/>
+
+			<TextView
+				android:id="@+id/app2_name"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_below="@id/app2_icon"
+				android:layout_marginTop="16dp"
+				android:gravity="center_horizontal"
+				android:fontFamily="@font/manrope_w600"
+				android:textSize="16dp"
+				android:textColor="#CCCFFF"
+				android:lineSpacingExtra="-3dp"
+				tools:text="Mastodon for Android"/>
+
+		</RelativeLayout>
+
+		<RelativeLayout
+			android:id="@+id/app1_bar"
+			android:layout_width="0dp"
+			android:layout_height="match_parent"
+			android:layout_weight="1">
+
+			<View
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:layout_marginTop="32dp"
+				android:background="@drawable/wrap_app1_bar"/>
+
+			<org.joinmastodon.android.ui.wrapstodon.RoundedImageView
+				android:id="@+id/app1_icon"
+				android:layout_width="96dp"
+				android:layout_height="96dp"
+				android:layout_centerHorizontal="true"
+				app:cornerRadius="24dp"
+				android:foreground="@drawable/wrap_app_icon_border"
+				tools:src="#0f0"/>
+
+			<TextView
+				android:id="@+id/app1_name"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_below="@id/app1_icon"
+				android:layout_marginTop="16dp"
+				android:gravity="center_horizontal"
+				android:fontFamily="@font/manrope_w600"
+				android:textSize="16dp"
+				android:textColor="#17063B"
+				android:lineSpacingExtra="-3dp"
+				tools:text="Mastodon for Android"/>
+
+		</RelativeLayout>
+
+		<RelativeLayout
+			android:id="@+id/app3_bar"
+			android:layout_width="0dp"
+			android:layout_height="match_parent"
+			android:layout_weight="1">
+
+			<View
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:layout_marginTop="32dp"
+				android:background="@drawable/wrap_app3_bar"/>
+
+			<org.joinmastodon.android.ui.wrapstodon.RoundedImageView
+				android:id="@+id/app3_icon"
+				android:layout_width="96dp"
+				android:layout_height="96dp"
+				android:layout_centerHorizontal="true"
+				app:cornerRadius="24dp"
+				android:foreground="@drawable/wrap_app_icon_border"
+				tools:src="#0f0"/>
+
+			<TextView
+				android:id="@+id/app3_name"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_below="@id/app3_icon"
+				android:layout_marginTop="16dp"
+				android:gravity="center_horizontal"
+				android:fontFamily="@font/manrope_w600"
+				android:textSize="16dp"
+				android:textColor="#E0E0EB"
+				android:lineSpacingExtra="-3dp"
+				tools:text="Mastodon for Android"/>
+
+		</RelativeLayout>
+
+	</LinearLayout>
+
+</LinearLayout>

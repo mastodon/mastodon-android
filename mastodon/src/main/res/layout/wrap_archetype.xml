@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:orientation="vertical"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:paddingHorizontal="16dp"
+	android:paddingTop="80dp">
+
+	<TextView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:textColor="#CCCFFF"
+		android:textSize="25dp"
+		android:fontFamily="@font/manrope_w600"
+		android:text="@string/yearly_wrap_archetype_title"/>
+
+	<TextView
+		android:id="@+id/subtitle"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:textColor="#858AFA"
+		android:textSize="20dp"
+		android:fontFamily="@font/manrope_w600"
+		tools:text="@string/yearly_wrap_archetype_subtitle"/>
+	
+	<LinearLayout
+		android:id="@+id/picture_frame"
+		android:layout_width="280dp"
+		android:layout_height="352dp"
+		android:layout_gravity="center_horizontal"
+		android:layout_marginTop="20dp"
+		android:layout_marginBottom="20dp"
+		android:orientation="vertical"
+		android:paddingHorizontal="16dp"
+		android:paddingTop="16dp"
+		android:paddingBottom="15dp"
+		android:background="@drawable/paper_texture_tiled">
+
+		<org.joinmastodon.android.ui.wrapstodon.RoundedFrameLayout
+			android:id="@+id/photo_wrap"
+			android:layout_width="248dp"
+			android:layout_height="248dp">
+			<ImageView
+				android:id="@+id/photo"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:importantForAccessibility="no"/>
+		</org.joinmastodon.android.ui.wrapstodon.RoundedFrameLayout>
+
+		<TextView
+			android:id="@+id/username"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="15dp"
+			android:fontFamily="@font/caveat_w700"
+			android:textSize="28dp"
+			android:textColor="#222222"
+			android:singleLine="true"
+			android:ellipsize="end"
+			tools:text="\@username"/>
+
+		<TextView
+			android:id="@+id/domain"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:fontFamily="@font/caveat_w700"
+			android:textSize="20dp"
+			android:textColor="#72737C"
+			android:singleLine="true"
+			android:ellipsize="end"
+			tools:text="\@mastodon.social"/>
+
+	</LinearLayout>
+
+	<TextView
+		android:id="@+id/archetype_text"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:textSize="39dp"
+		android:textColor="#BAFF3B"
+		android:fontFamily="@font/manrope_w600"
+		tools:text="Pollster"/>
+
+	<TextView
+		android:id="@+id/archetype_explanation"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:fontFamily="@font/manrope_w600"
+		android:textSize="16dp"
+		android:textColor="#858AFA"
+		tools:text="You post a lot of polls or something"/>
+
+</LinearLayout>

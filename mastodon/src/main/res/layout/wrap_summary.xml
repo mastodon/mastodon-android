@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:paddingTop="96dp"
+	android:paddingHorizontal="16dp">
+
+	<TextView
+		android:id="@+id/title"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:fontFamily="@font/manrope_w600"
+		android:textSize="25dp"
+		android:lineSpacingExtra="-4dp"
+		android:textColor="#BAFF3B"
+		android:text="@string/wrap_summary_title"/>
+
+	<TextView
+		android:id="@+id/subtitle"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_below="@id/title"
+		android:layout_marginBottom="16dp"
+		android:textColor="#CCCFFF"
+		android:lineSpacingExtra="-3dp"
+		android:fontFamily="@font/manrope_w600"
+		android:text="@string/wrap_summary_subtitle"/>
+	
+	<LinearLayout
+		android:id="@+id/most_used_app_block"
+		android:layout_width="104dp"
+		android:layout_height="113dp"
+		android:layout_below="@id/subtitle"
+		android:layout_alignParentStart="true"
+		android:orientation="vertical"
+		android:paddingTop="10dp"
+		android:background="@drawable/wrap_summary_block_bg">
+
+		<org.joinmastodon.android.ui.wrapstodon.RoundedImageView
+			android:id="@+id/app_icon"
+			android:layout_width="52dp"
+			android:layout_height="52dp"
+			android:layout_gravity="center_horizontal"
+			android:foreground="@drawable/wrap_app_icon_border_small"
+			app:cornerRadius="4dp"
+			tools:src="#f00"/>
+
+		<TextView
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:layout_marginTop="8dp"
+			android:layout_marginHorizontal="8dp"
+			android:fontFamily="@font/manrope_w600"
+			android:textColor="#CCCFFF"
+			android:textSize="14dp"
+			android:lineSpacingExtra="-2dp"
+			android:text="@string/wrap_most_used_app"/>
+
+	</LinearLayout>
+	
+	<org.joinmastodon.android.ui.wrapstodon.RoundedFrameLayout
+		android:id="@+id/followers_stats_block"
+		android:layout_width="104dp"
+		android:layout_height="127dp"
+		android:layout_alignParentStart="true"
+		android:layout_below="@id/most_used_app_block"
+		android:layout_marginVertical="8dp"
+		app:cornerRadius="4dp"
+		android:background="@drawable/wrap_summary_block_bg">
+
+		<View
+			android:id="@+id/followers_chart"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"/>
+
+		<TextView
+			android:id="@+id/plus_followers"
+			android:layout_width="300dp"
+			android:layout_height="wrap_content"
+			android:paddingHorizontal="8dp"
+			android:layout_marginTop="37dp"
+			android:singleLine="true"
+			android:fontFamily="@font/manrope_w600"
+			android:textSize="31.25dp"
+			android:textColor="#BAFF3B"
+			tools:text="+1.2K"/>
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_gravity="bottom"
+			android:layout_margin="8dp"
+			android:orientation="vertical">
+
+			<TextView
+				android:id="@+id/followers_label"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:textColor="#CCCFFF"
+				android:fontFamily="@font/manrope_w600"
+				android:textSize="14dp"
+				android:singleLine="true"
+				tools:text="followers"/>
+
+			<TextView
+				android:id="@+id/followers_total"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:textColor="#858AFA"
+				android:textSize="10.24dp"
+				android:fontFamily="@font/manrope_w400"
+				android:singleLine="true"
+				tools:text="21.5K total"/>
+
+		</LinearLayout>
+
+	</org.joinmastodon.android.ui.wrapstodon.RoundedFrameLayout>
+
+	<RelativeLayout
+		android:id="@+id/most_boosted_post_block"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:layout_below="@id/subtitle"
+		android:layout_toEndOf="@id/most_used_app_block"
+		android:layout_alignBottom="@id/followers_stats_block"
+		android:layout_marginStart="8dp"
+		android:background="@drawable/wrap_summary_block_bg"
+		android:padding="16dp">
+
+		<org.joinmastodon.android.ui.wrapstodon.RoundedImageView
+			android:id="@+id/self_ava"
+			android:layout_width="40dp"
+			android:layout_height="40dp"
+			android:layout_marginEnd="8dp"
+			app:cornerRadius="10dp"
+			android:foreground="@drawable/wrap_app_icon_border_medium"
+			tools:src="#00f"/>
+		
+		<TextView
+			android:id="@+id/self_name"
+			android:layout_width="match_parent"
+			android:layout_height="20dp"
+			android:layout_toEndOf="@id/self_ava"
+			android:textColor="#CCCFFF"
+			android:fontFamily="sans-serif-medium"
+			android:textSize="14dp"
+			android:singleLine="true"
+			android:ellipsize="end"
+			tools:text="Cody Fisher"/>
+
+		<TextView
+			android:layout_width="match_parent"
+			android:layout_height="20dp"
+			android:layout_toEndOf="@id/self_ava"
+			android:layout_below="@id/self_name"
+			android:textColor="#858AFA"
+			android:textSize="14dp"
+			android:singleLine="true"
+			android:text="@string/wrap_most_boosted_post"/>
+
+		<TextView
+			android:id="@+id/most_boosted_post_text"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:layout_below="@id/self_ava"
+			android:layout_marginTop="8dp"
+			android:textColor="#CCCFFF"
+			android:textSize="16dp"
+			android:lineSpacingExtra="5dp"
+			android:ellipsize="end"
+			tools:text="Post text goes here"/>
+
+	</RelativeLayout>
+
+	<FrameLayout
+		android:id="@+id/most_used_hashtag_block"
+		android:layout_width="216dp"
+		android:layout_height="75dp"
+		android:layout_below="@id/followers_stats_block"
+		android:background="@drawable/wrap_summary_block_bg">
+		
+		<TextView
+			android:id="@+id/most_used_hashtag"
+			android:layout_width="500dp"
+			android:layout_height="wrap_content"
+			android:layout_gravity="center_horizontal"
+			android:layout_marginTop="-8dp"
+			android:gravity="center"
+			android:textSize="48.83dp"
+			android:fontFamily="@font/manrope_w600"
+			android:textColor="#CCCFFF"
+			android:singleLine="true"
+			tools:text="#caturday"/>
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="center_horizontal|bottom"
+			android:layout_marginBottom="8dp"
+			android:singleLine="true"
+			android:textSize="14dp"
+			android:fontFamily="@font/manrope_w600"
+			android:textColor="#858AFA"
+			android:text="@string/wrap_most_used_hashtag"/>
+		
+	</FrameLayout>
+
+	<org.joinmastodon.android.ui.wrapstodon.RoundedFrameLayout
+		android:id="@+id/new_posts_block"
+		android:layout_width="216dp"
+		android:layout_height="127dp"
+		android:layout_below="@id/most_used_hashtag_block"
+		android:layout_marginTop="8dp"
+		app:cornerRadius="8dp">
+
+		<TextView
+			android:id="@+id/new_posts"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="6dp"
+			android:gravity="center_horizontal"
+			android:singleLine="true"
+			android:textSize="76.29dp"
+			android:textColor="#FFC954"
+			android:fontFamily="@font/manrope_w600"
+			tools:text="313"/>
+
+		<TextView
+			android:id="@+id/new_posts_label"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_gravity="bottom"
+			android:layout_marginBottom="13dp"
+			android:textSize="20dp"
+			android:fontFamily="@font/manrope_w600"
+			android:gravity="center_horizontal"
+			android:textColor="#CCCFFF"
+			android:singleLine="true"
+			tools:text="new posts"/>
+
+	</org.joinmastodon.android.ui.wrapstodon.RoundedFrameLayout>
+
+	<FrameLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:layout_below="@id/followers_stats_block"
+		android:layout_toEndOf="@id/most_used_hashtag_block"
+		android:layout_alignBottom="@id/new_posts_block"
+		android:layout_marginStart="8dp"
+		android:paddingVertical="8dp"
+		android:background="@drawable/wrap_summary_block_bg">
+
+		<TextView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginHorizontal="7dp"
+			android:textColor="#858AFA"
+			android:textSize="10.24dp"
+			android:fontFamily="@font/manrope_w400"
+			android:gravity="center_horizontal"
+			android:text="@string/wrap_percentile_before"/>
+		
+		<TextView
+			android:id="@+id/followers_percentile"
+			android:layout_width="300dp"
+			android:layout_height="wrap_content"
+			android:layout_gravity="center"
+			android:gravity="center_horizontal"
+			android:textColor="#FFC954"
+			android:textSize="61.04dp"
+			android:fontFamily="@font/manrope_w600"
+			tools:text="2%"/>
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_gravity="bottom"
+			android:layout_marginHorizontal="7dp"
+			android:orientation="vertical">
+
+			<TextView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:textColor="#858AFA"
+				android:textSize="10.24dp"
+				android:fontFamily="@font/manrope_w400"
+				android:gravity="center_horizontal"
+				android:text="@string/wrap_percentile_after"/>
+
+			<TextView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:textColor="#858AFA"
+				android:textSize="8.19dp"
+				android:fontFamily="@font/manrope_w400"
+				android:gravity="center_horizontal"
+				android:alpha="0.5"
+				android:text="@string/wrap_percentile_after_after"/>
+
+		</LinearLayout>
+
+	</FrameLayout>
+
+</RelativeLayout>

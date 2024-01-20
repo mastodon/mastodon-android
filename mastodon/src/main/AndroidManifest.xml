@@ -84,6 +84,12 @@
 			</intent-filter>
 		</receiver>
 
+		<provider
+			android:authorities="${applicationId}.provider.wrapstodon_share"
+			android:name=".WrapstodonImageProvider"
+			android:exported="false"
+			android:grantUriPermissions="true"/>
+
 	</application>
 
 </manifest>

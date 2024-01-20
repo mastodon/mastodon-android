@@ -59,4 +59,9 @@
 		<attr name="aspectRatio" format="float"/>
 		<attr name="useHeight" format="boolean"/>
 	</declare-styleable>
+
+	<declare-styleable name="RoundedImageView">
+		<attr name="cornerRadius" format="dimension"/>
+		<attr name="roundBottomCorners" format="boolean"/>
+	</declare-styleable>
 </resources>

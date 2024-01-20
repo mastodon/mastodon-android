@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+
+	<LinearLayout
+		android:id="@+id/content"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:clipToPadding="false"
+		android:orientation="vertical"
+		android:paddingTop="96dp">
+
+		<TextView
+			android:id="@+id/title"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginHorizontal="16dp"
+			android:fontFamily="@font/manrope_w600"
+			android:text="@string/wrap_interacted_accounts_title"
+			android:textColor="#BAFF3B"
+			android:textSize="25dp" />
+
+		<TextView
+			android:id="@+id/subtitle"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginHorizontal="16dp"
+			android:fontFamily="@font/manrope_w600"
+			android:text="@string/wrap_interacted_accounts_subtitle"
+			android:textColor="#858AFA"
+			android:textSize="20dp" />
+
+		<FrameLayout
+			android:id="@+id/orbit"
+			android:layout_width="match_parent"
+			android:layout_height="449dp">
+
+			<View
+				android:id="@+id/orbit_bg"
+				android:layout_width="449dp"
+				android:layout_height="449dp"
+				android:layout_gravity="center" />
+
+			<FrameLayout
+				android:id="@+id/inner_ring"
+				android:layout_width="296dp"
+				android:layout_height="296dp"
+				android:layout_gravity="center" />
+
+			<FrameLayout
+				android:id="@+id/outer_ring"
+				android:layout_width="449dp"
+				android:layout_height="449dp"
+				android:layout_gravity="center" />
+
+			<org.joinmastodon.android.ui.wrapstodon.RoundedImageView
+				android:id="@+id/self_ava"
+				android:layout_width="160dp"
+				android:layout_height="160dp"
+				android:layout_gravity="center"
+				android:foreground="@drawable/wrap_ava_border"
+				app:cornerRadius="80dp"
+				tools:src="#0f0" />
+
+		</FrameLayout>
+
+	</LinearLayout>
+
+	<LinearLayout
+		android:id="@+id/details_overlay"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:orientation="vertical"
+		android:gravity="center_vertical"
+		android:paddingStart="164dp"
+		android:paddingEnd="16dp">
+
+		<TextView
+			android:id="@+id/details_number"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:gravity="center"
+			android:fontFamily="@font/manrope_w600"
+			android:textSize="76.29dp"
+			android:textColor="#BAFF3B"
+			android:singleLine="true"
+			tools:text="97"/>
+
+		<TextView
+			android:id="@+id/details_text"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="-15dp"
+			android:gravity="center"
+			android:fontFamily="@font/manrope_w600"
+			android:textColor="#858AFA"
+			android:textSize="16dp"
+			tools:text="replies exchanged with Theresa Webb"/>
+
+	</LinearLayout>
+</FrameLayout>

@@ -2,7 +2,6 @@ package org.joinmastodon.android.ui.views;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.ViewConfiguration;
 import android.widget.ScrollView;
@@ -43,6 +42,7 @@ public class NestableScrollView extends ScrollView{
 				didDisallow=true;
 			}else{
 				didDisallow=false;
+				return false;
 			}
 			downY=ev.getY();
 		}else if(didDisallow && ev.getAction()==MotionEvent.ACTION_MOVE){
@@ -50,6 +50,7 @@ public class NestableScrollView extends ScrollView{
 				if(!canScrollVertically((int)(downY-ev.getY()))){
 					didDisallow=false;
 					getParent().requestDisallowInterceptTouchEvent(false);
+					return false;
 				}
 			}
 		}

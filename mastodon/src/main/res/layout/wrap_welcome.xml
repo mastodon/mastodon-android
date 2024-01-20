@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_gravity="center"
+		android:orientation="vertical"
+		android:paddingStart="14dp">
+		
+		<TextView
+			android:id="@+id/title"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:gravity="center_vertical"
+			android:textSize="20dp"
+			android:textColor="#858AFA"
+			android:fontFamily="@font/manrope_w600"
+			android:includeFontPadding="false"
+			tools:text="Welcome to your 2023"/>
+
+		<TextView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:gravity="center_vertical"
+			android:textSize="48.83dp"
+			android:textColor="#F0F0F0"
+			android:fontFamily="@font/manrope_w600"
+			android:includeFontPadding="false"
+			android:text="#Wrapstodon"/>
+
+		<TextView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="32dp"
+			android:textSize="20dp"
+			android:textColor="#CCCFFF"
+			android:fontFamily="@font/manrope_w500"
+			android:includeFontPadding="false"
+			android:text="@string/yearly_wrap_intro_text"/>
+		
+	</LinearLayout>
+
+	<View
+		android:layout_width="38dp"
+		android:layout_height="77dp"
+		android:layout_marginBottom="48dp"
+		android:layout_gravity="bottom|center_horizontal"
+		android:background="@drawable/wrap_intro_chevrons"/>
+
+</FrameLayout>

@@ -679,4 +679,68 @@
 	<string name="this_invite_has_expired">This invite link has expired.</string>
 	<string name="invite_link_pasted">Link pasted from your clipboard.</string>
 	<string name="need_invite_to_join_server">To join %s, you’ll need an invite link from an existing user.</string>
+	<string name="yearly_wrap_title">Your %s #Wrapstodon awaits!</string>
+	<string name="yearly_wrap_text">Unveil your year’s highlights and memorable moments on Mastodon.</string>
+	<string name="yearly_wrap_view">View #Wrapstodon</string>
+	<string name="yearly_wrap_intro_title">Welcome to your %s</string>
+	<string name="yearly_wrap_intro_text">Let’s take a minute to celebrate your past year on Mastodon.</string>
+	<string name="yearly_wrap_archetype_title">Vibe check!</string>
+	<string name="yearly_wrap_archetype_subtitle">Your %s Mastodon archetype is:</string>
+	<string name="yearly_wrap_archetype_lurker">Lurker</string>
+	<string name="yearly_wrap_archetype_booster">Booster</string>
+	<string name="yearly_wrap_archetype_replier">Replier</string>
+	<string name="yearly_wrap_archetype_pollster">Pollster</string>
+	<string name="yearly_wrap_archetype_oracle">Oracle</string>
+	<string name="wrap_numbers_total_title">you posted, replied, and boosted</string>
+	<string name="wrap_numbers_boosts_title">%,d, or</string>
+	<string name="wrap_numbers_replies_title">...%,d, or</string>
+	<string name="wrap_numbers_standalone_posts_title">...and %,d, or</string>
+	<string name="wrap_numbers_x_times_in_year">times in %s.</string>
+	<string name="wrap_numbers_boosts">were boosts...</string>
+	<string name="wrap_numbers_replies">were replies...</string>
+	<string name="wrap_numbers_standalone_posts">were new posts.</string>
+	<string name="wrap_most_reblogged_title">Those were the fan favorites. But what about <b>your favorites</b>?</string>
+	<string name="wrap_most_reblogged_subtitle">These are accounts you <b>boosted</b> the most in %s:</string>
+	<plurals name="posts">
+		<item quantity="one">post</item>
+		<item quantity="other">posts</item>
+	</plurals>
+	<string name="wrap_favorite_tags_title">What about your <b>favorite hashtags</b>?</string>
+	<string name="wrap_favorite_tags_subtitle">Discover your most posted, liked, and boosted hashtags.</string>
+	<string name="wrap_interacted_accounts_title">In your orbit</string>
+	<string name="wrap_interacted_accounts_subtitle">These are the people you replied to the most over the past year.</string>
+	<string name="wrap_apps_title">Mastodon is nothing without amazing apps.</string>
+	<string name="wrap_apps_subtitle">It should come as no surprise, but here are your favorites:</string>
+	<string name="wrap_numbers_title">It’s been a big year for you.</string>
+	<string name="wrap_summary_title">Thanks for being part of Mastodon!</string>
+	<string name="wrap_summary_subtitle">That’s all for now. Share your stats to your followers:</string>
+	<string name="wrap_most_used_app">most used app</string>
+	<string name="wrap_most_boosted_post">most boosted post</string>
+	<string name="wrap_most_used_hashtag">most used hashtag</string>
+	<string name="wrap_percentile_before">That puts you in the top</string>
+	<string name="wrap_percentile_after">of Mastodon users.</string>
+	<string name="wrap_percentile_after_after">We won’t tell Bernie.</string>
+	<string name="x_followers_total">%s total</string>
+	<plurals name="wrap_replies_exchanged">
+		<item quantity="one">reply exchanged with %s</item>
+		<item quantity="other">replies exchanged with %s</item>
+	</plurals>
+	<string-array name="months_standalone">
+		<item>January</item>
+		<item>February</item>
+		<item>March</item>
+		<item>April</item>
+		<item>May</item>
+		<item>June</item>
+		<item>July</item>
+		<item>August</item>
+		<item>September</item>
+		<item>October</item>
+		<item>November</item>
+		<item>December</item>
+	</string-array>
+	<plurals name="new_posts">
+		<item quantity="one">new post</item>
+		<item quantity="other">new posts</item>
+	</plurals>
 </resources>
