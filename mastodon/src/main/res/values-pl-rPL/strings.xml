@@ -623,12 +623,17 @@
 	<!-- Screen reader description for the menu on the home timeline screen -->
 	<string name="dropdown_menu">Menu rozwijane</string>
 	<string name="edit_list">Edytuj listę</string>
+	<string name="list_members">Członkowie listy</string>
 	<string name="delete_list">Usuń listę</string>
 	<!-- %s is the name of the list -->
 	<string name="delete_list_confirm">Usunąć „%s”?</string>
 	<string name="list_exclusive">Ukryj członków w Obserwowanych</string>
 	<string name="list_exclusive_subtitle">Jeśli ktoś jest na tej liście, ukrywa go z Twojej osi czasu Obserwowanych, aby uniknąć pokazywania jego wpisów dwukrotnie.</string>
 	<string name="list_name">Nazwa listy</string>
+	<string name="list_show_replies_to">Pokaż odpowiedzi do</string>
+	<string name="list_replies_no_one">Nikt</string>
+	<string name="list_replies_members">Członkowie listy</string>
+	<string name="list_replies_anyone">Każdy, kogo obserwuję</string>
 	<string name="confirm_remove_list_members">Usunąć członków?</string>
 	<string name="remove">Usuń</string>
 	<string name="add_list_member">Dodaj członka</string>
@@ -648,6 +653,8 @@
 	<string name="step_x_of_y">Krok %1$d z %2$d</string>
 	<string name="create">Utwórz</string>
 	<string name="manage_list_members">Zarządzaj członkami listy</string>
+	<string name="list_no_members">Brak członków</string>
+	<string name="list_find_users">Znajdź użytkowników do dodania</string>
 	<string name="reply_to_user">Odpowiedz %s</string>
 	<string name="posted_at">Opublikowano %s</string>
 	<string name="non_mutual_sheet_title">Witaj, nowy kontakcie!</string>
