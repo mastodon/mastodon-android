@@ -97,7 +97,7 @@ public class ComposeLanguageAlertViewController{
 				int i=0;
 				boolean found=false;
 				for(SpecialLocaleInfo li:specialLocales){
-					if(li.locale.equals(previouslySelected.locale)){
+					if(null!=li.locale&&li.locale.equals(previouslySelected.locale)){
 						selectedLocale=li.locale;
 						selectedIndex=i;
 						found=true;
