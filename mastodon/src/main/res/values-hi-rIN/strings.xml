@@ -120,6 +120,7 @@
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<string name="about_server">सर्वर के बारे में</string>
 	<string name="server_administrator">एडमिन</string>
+	<string name="send_email_to_server_admin">एडमिन को मैसेज करें</string>
 	<plurals name="in_x_seconds">
 		<item quantity="one">%d सेकंड में</item>
 		<item quantity="other">%d सेकंड में</item>
@@ -136,6 +137,11 @@
 		<item quantity="one">%d घंटे पहले</item>
 		<item quantity="other">%d घंटे पहले</item>
 	</plurals>
+	<string name="count_one">एक</string>
+	<string name="count_two">दो</string>
+	<string name="count_three">तीन</string>
+	<string name="count_four">चार</string>
+	<string name="alt_text_reminder_post_anyway">पोस्ट करें</string>
 	<!-- %s is the username -->
 	<string name="unfollow_confirmation">%s को अनफॉलो करें?</string>
 	<string name="settings_add_filter">फिल्टर जोड़ें</string>
@@ -152,10 +158,13 @@
 	<string name="time_days_ago_short">%d दिन पहले</string>
 	<!-- %s is the name of the post language -->
 	<!-- %1$s is the language, %2$s is the name of the translation service -->
+	<string name="settings_privacy">प्राइवसी और पहुंच</string>
+	<string name="error_playing_video">वीडियो चलाने में गड़बड़</string>
 	<string name="lists">लिस्ट</string>
 	<!-- Screen reader description for the menu on the home timeline screen -->
 	<!-- %s is the name of the list -->
 	<string name="list_name">लिस्ट का नाम</string>
+	<string name="remove">हटाएं</string>
 	<!-- %s is a username -->
 	<string name="non_mutual_sheet_title">हैलो, नए कनेक्शन!</string>
 	<string name="got_it">समझ गए</string>
@@ -166,5 +175,11 @@
 		<item quantity="other">%,d महीने</item>
 	</plurals>
 	<string name="more_than_two_years">2 से ज़्यादा साल</string>
+	<string name="non_mutual_title1">इज़्ज़त से बात करें और रेलेवेंट रहें</string>
+	<string name="non_mutual_text1">अपना जवाब शालीनता से लिखें और ऑन-द-टॉपिक रहें।</string>
+	<string name="non_mutual_title2">शराफत अपनाएं</string>
+	<string name="non_mutual_text2">पॉज़िटिविटी हर कोई पसंद करता है।</string>
+	<string name="non_mutual_title3">खुले मन से बात करें</string>
+	<string name="non_mutual_text3">सबका बात करने का तरीका अलग है। ज़रूरत के हिसाब से बदलने को तैयार रहें।</string>
 	<string name="info">जानकारी</string>
 </resources>
