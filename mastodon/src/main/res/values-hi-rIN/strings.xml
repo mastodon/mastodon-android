@@ -1,59 +1,170 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="log_in">लॉग इन करें</string>
-	<string name="next">आगे</string>
+	<string name="next">अगला</string>
 	<string name="loading_instance">सर्वर की जानकारी ला रहे…</string>
 	<string name="error">गड़बड़</string>
 	<string name="not_a_mastodon_instance">%s एक Mastodon सर्वर नहीं है।</string>
 	<string name="ok">ठीक है</string>
-	<string name="preparing_auth">प्रमाणीकरण के लिए रीडायरेक्ट कर रहा है…</string>
-	<string name="notifications">सूचनाएँ</string>
+	<string name="preparing_auth">ऑथेंटिकेशन की तैयारी कर रहे…</string>
+	<string name="finishing_auth">ऑथेंटिकेशन खत्म कर रहे…</string>
+	<string name="user_boosted">%s ने बूस्ट किया</string>
+	<string name="notifications">नोटिफिकेशन</string>
+	<plurals name="x_hours_left">
+		<item quantity="one">%d घंटा बाकी</item>
+		<item quantity="other">%d घंटे बाकी</item>
+	</plurals>
+	<plurals name="x_days_left">
+		<item quantity="one">%d दिन बाकी</item>
+		<item quantity="other">%d दिन बाकी</item>
+	</plurals>
 	<string name="poll_closed">बंद</string>
-	<string name="confirm_mute_title">म्यूट किए गए खाते</string>
-	<string name="do_mute">शांत करें</string>
-	<string name="confirm_unmute_title">खाता अनम्यूट करें</string>
-	<string name="confirm_unmute">%s को अनम्यूट करने की पुष्टि करें</string>
+	<string name="confirm_mute_title">अकाउंट म्यूट करें</string>
+	<string name="do_mute">म्यूट करें</string>
+	<string name="confirm_unmute_title">अकाउंट अनम्यूट करें</string>
+	<string name="confirm_unmute">%s को अनम्यूट करें</string>
 	<string name="do_unmute">अनम्यूट करें</string>
-	<string name="confirm_block_title">अवरोधित खाते</string>
-	<string name="do_block">रोके</string>
-	<string name="confirm_unblock">%s को अनम्यूट करने की पुष्टि करें</string>
+	<string name="confirm_block_title">अकाउंट ब्लॉक करें</string>
+	<string name="do_block">ब्लॉक करें</string>
+	<string name="confirm_unblock">%s को अनब्लॉक करें</string>
 	<string name="do_unblock">अनब्लॉक करें</string>
-	<string name="delete">मिटाए</string>
-	<string name="confirm_delete">क्या आप वाकई इस पोस्ट को हटाना चाहते हैं?</string>
-	<string name="deleting">डिलीट हो रहा है</string>
-	<string name="notification_channel_audio_player">संगीत प्लेबैक</string>
-	<string name="play">चलाएँ</string>
-	<string name="pause">विराम</string>
-	<string name="add_account">खाता जोड़ें</string>
-	<string name="search_hint">खोजें</string>
+	<string name="action_vote">वोट करें</string>
+	<string name="delete">हटाएं</string>
+	<string name="confirm_delete">इस पोस्ट को वाकई हटाएं?</string>
+	<string name="deleting">हटा रहे…</string>
+	<string name="notification_channel_audio_player">ऑडियो प्लेबैक</string>
+	<string name="play">सुनें</string>
+	<string name="pause">पॉज़ करें</string>
+	<string name="add_account">अकाउंट जोड़ें</string>
+	<string name="search_hint">सर्च करें</string>
 	<string name="hashtags">हैशटैग</string>
-	<string name="news">समाचार</string>
+	<string name="news">खबर</string>
 	<string name="for_you">आपके लिए</string>
-	<string name="mentions">उल्लेख</string>
+	<string name="mentions">ज़िक्र</string>
+	<plurals name="x_people_talking">
+		<item quantity="one">%d बात कर रहा है</item>
+		<item quantity="other">%d बात कर रहे है</item>
+	</plurals>
+	<string name="report_title">%s रिपोर्ट करें</string>
+	<string name="report_reason_spam">ये स्पैम है</string>
+	<string name="display_name">नाम</string>
 	<!-- %s is the email address -->
+	<string name="local_timeline">लोकल</string>
 	<!-- %s is the server domain -->
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
+	<string name="file_size_bytes">%d बाइट</string>
+	<string name="file_size_kb">%.2f केबी</string>
+	<string name="file_size_mb">%.2f एमबी</string>
+	<string name="file_size_gb">%.2f जीबी</string>
 	<!-- %s is version like 1.2.3 -->
 	<!-- %s is version like 1.2.3 -->
 	<!-- %s is file size -->
+	<string name="install_update">इंस्टॉल करें</string>
+	<string name="privacy_policy_title">आपकी प्राइवसी</string>
+	<string name="privacy_policy_subtitle">वैसे तो Mastodon ऐप कोई डाटा इकट्ठा नहीं करता, लेकिन आपके सर्वर की पॉलिसी अलग हो सकती है।\n\nअगर आपको %s के पॉलिसी से दिक्कत है, तो आप पीछे जाकर कोई दूसरा सर्वर चुन सकते है।</string>
+	<string name="empty_list">ये लिस्ट खाली है</string>
+	<string name="add_bookmark">बुकमार्क करें</string>
+	<string name="remove_bookmark">बुकमार्क हटाएं</string>
+	<string name="server_url">सर्वर यूआरएल</string>
+	<string name="server_filter_region_europe">यूरोप</string>
+	<string name="server_filter_region_north_america">नॉर्थ अमेरिका</string>
+	<string name="server_filter_region_south_america">साउथ अमेरिका</string>
+	<string name="server_filter_region_africa">अफ्रीका</string>
+	<string name="server_filter_region_asia">एशिया</string>
+	<string name="server_filter_region_oceania">ओशिआनिया</string>
+	<string name="signup_passwords_dont_match">पासवर्ड मैच नहीं कर रहे</string>
+	<string name="profile_setup">प्रोफाइल सेटअप</string>
+	<string name="follow_all">सबको फॉलो करें</string>
+	<string name="privacy_policy_explanation">छोटे शब्दों में, हम कुछ भी इकट्ठा या प्रॉसेस नहीं करते है।</string>
 	<!-- %s is server domain -->
+	<string name="profile_bio">बायो</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<string name="profile_timeline">टाइमलाइन</string>
+	<string name="view_all">सब देखें</string>
+	<string name="profile_endorsed_accounts">अकाउंट</string>
+	<string name="signup_or_login">या</string>
+	<string name="learn_more">ज़्यादा जानें</string>
+	<string name="welcome_to_mastodon">Mastodon में वेलकम</string>
+	<string name="what_are_servers">सर्वर क्या होते है?</string>
 	<!-- %s is formatted file size ("467 KB image") -->
+	<string name="attachment_description_image">%s की फोटो</string>
+	<string name="attachment_description_video">%s की वीडियो</string>
+	<string name="attachment_description_audio">%s की ऑडियो</string>
+	<string name="attachment_description_unknown">%s की फाइल</string>
+	<string name="attachment_type_image">फोटो</string>
+	<string name="attachment_type_video">वीडियो</string>
+	<string name="attachment_type_audio">ऑडियो</string>
+	<string name="attachment_type_gif">GIF</string>
+	<string name="attachment_type_unknown"> फाइल</string>
+	<string name="attachment_x_percent_uploaded">%d%% अपलोड हुआ</string>
+	<string name="poll_style">स्टाइल</string>
+	<string name="compose_poll_single_choice">एक चुननेवाला</string>
+	<string name="compose_poll_multiple_choice">कई चुननेवाला</string>
+	<string name="poll_style_title">पोल स्टाइल</string>
+	<string name="help">मदद</string>
+	<string name="language">भाषा</string>
+	<string name="language_default">डिफॉल्ट</string>
+	<string name="language_system">सिस्टम</string>
 	<!-- %s is the server domain -->
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
+	<string name="settings_display">डिस्प्ले</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
+	<string name="pause_notifications_off">ऑफ</string>
+	<string name="notifications_policy_no_one">कोई नहीं</string>
 	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
+	<string name="today">आज</string>
+	<string name="yesterday">कल</string>
+	<string name="tomorrow">कल</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="about_server">सर्वर के बारे में</string>
+	<string name="server_administrator">एडमिन</string>
+	<plurals name="in_x_seconds">
+		<item quantity="one">%d सेकंड में</item>
+		<item quantity="other">%d सेकंड में</item>
+	</plurals>
+	<plurals name="in_x_minutes">
+		<item quantity="one">%d मिनट में</item>
+		<item quantity="other">%d मिनट में</item>
+	</plurals>
+	<plurals name="in_x_hours">
+		<item quantity="one">%d घंटे में</item>
+		<item quantity="other">%d घंटे में</item>
+	</plurals>
+	<plurals name="x_hours_ago">
+		<item quantity="one">%d घंटे पहले</item>
+		<item quantity="other">%d घंटे पहले</item>
+	</plurals>
 	<!-- %s is the username -->
+	<string name="unfollow_confirmation">%s को अनफॉलो करें?</string>
+	<string name="settings_add_filter">फिल्टर जोड़ें</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="enter_selection_mode">चुनें</string>
+	<string name="select_all">सब चुनें</string>
+	<string name="required_form_field_blank">खाली नहीं हो सकता</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
+	<string name="clear_all">सब साफ करें</string>
 	<!-- Shown in the post header. Please keep it short -->
+	<string name="time_seconds_ago_short">%d सेकंड पहले</string>
+	<string name="time_minutes_ago_short">%d मिनट पहले</string>
+	<string name="time_hours_ago_short">%d घंटे पहले</string>
+	<string name="time_days_ago_short">%d दिन पहले</string>
 	<!-- %s is the name of the post language -->
 	<!-- %1$s is the language, %2$s is the name of the translation service -->
+	<string name="lists">लिस्ट</string>
 	<!-- Screen reader description for the menu on the home timeline screen -->
 	<!-- %s is the name of the list -->
+	<string name="list_name">लिस्ट का नाम</string>
 	<!-- %s is a username -->
+	<string name="non_mutual_sheet_title">हैलो, नए कनेक्शन!</string>
+	<string name="got_it">समझ गए</string>
 	<!-- %s is a time interval ("5 months") -->
+	<string name="old_post_sheet_title">ये पोस्ट %s पुराना है</string>
+	<plurals name="x_months">
+		<item quantity="one">%,d महीना</item>
+		<item quantity="other">%,d महीने</item>
+	</plurals>
+	<string name="more_than_two_years">2 से ज़्यादा साल</string>
+	<string name="info">जानकारी</string>
 </resources>
