@@ -90,7 +90,7 @@ public class ComposeLanguageAlertViewController{
 
 		if(previouslySelected!=null){
 			if(previouslySelected.index!=-1 && ((previouslySelected.index<specialLocales.size() && Objects.equals(previouslySelected.locale, specialLocales.get(previouslySelected.index).locale)) ||
-					(previouslySelected.index<specialLocales.size()+allLocales.size() && Objects.equals(previouslySelected.locale, allLocales.get(previouslySelected.index-specialLocales.size()).locale)))){
+					(previouslySelected.index<specialLocales.size()+allLocales.size() && previouslySelected.index>-1 && Objects.equals(previouslySelected.locale, allLocales.get(previouslySelected.index-specialLocales.size()).locale)))){
 				selectedIndex=previouslySelected.index;
 				selectedLocale=previouslySelected.locale;
 			}else{
