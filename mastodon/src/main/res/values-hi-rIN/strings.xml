@@ -10,6 +10,33 @@
 	<string name="finishing_auth">ऑथेंटिकेशन खत्म कर रहे…</string>
 	<string name="user_boosted">%s ने बूस्ट किया</string>
 	<string name="notifications">नोटिफिकेशन</string>
+	<string name="share_toot_title">शेयर करें</string>
+	<string name="settings">सेटिंग</string>
+	<string name="posts">पोस्ट</string>
+	<string name="posts_and_replies">पोस्ट और जवाब</string>
+	<string name="media">मीडिया</string>
+	<string name="profile_about">आपके बारे में</string>
+	<string name="field_label">लेबल</string>
+	<plurals name="x_minutes">
+		<item quantity="one">%d मिनट</item>
+		<item quantity="other">%d मिनट</item>
+	</plurals>
+	<plurals name="x_hours">
+		<item quantity="one">%d घंटा</item>
+		<item quantity="other">%d घंटे</item>
+	</plurals>
+	<plurals name="x_days">
+		<item quantity="one">%d दिन</item>
+		<item quantity="other">%d दिन</item>
+	</plurals>
+	<plurals name="x_seconds_left">
+		<item quantity="one">%d सेकंड बाकी</item>
+		<item quantity="other">%d सेकंड बाकी</item>
+	</plurals>
+	<plurals name="x_minutes_left">
+		<item quantity="one">%d मिनट बाकी</item>
+		<item quantity="other">%d मिनट बाकी</item>
+	</plurals>
 	<plurals name="x_hours_left">
 		<item quantity="one">%d घंटा बाकी</item>
 		<item quantity="other">%d घंटे बाकी</item>
@@ -17,6 +44,10 @@
 	<plurals name="x_days_left">
 		<item quantity="one">%d दिन बाकी</item>
 		<item quantity="other">%d दिन बाकी</item>
+	</plurals>
+	<plurals name="x_votes">
+		<item quantity="one">%,d वोट</item>
+		<item quantity="other">%,d वोट</item>
 	</plurals>
 	<string name="poll_closed">बंद</string>
 	<string name="confirm_mute_title">अकाउंट म्यूट करें</string>
