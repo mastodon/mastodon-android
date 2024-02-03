@@ -35,6 +35,7 @@
 	<string name="media">मीडिया</string>
 	<string name="profile_about">आपके बारे में</string>
 	<string name="button_follow">फॉलो करें</string>
+	<string name="button_following">फॉलो कर रहे</string>
 	<string name="edit_profile">प्रोफाइल एडिट करें</string>
 	<string name="share_user">प्रोफाइल शेयर करें</string>
 	<string name="mute_user">%s को म्यूट करें</string>
@@ -48,11 +49,14 @@
 		<item quantity="one">%,d पोस्ट</item>
 		<item quantity="other">%,d पोस्ट</item>
 	</plurals>
+	<string name="profile_joined">ने जॉइन किया</string>
 	<string name="done">हो गया</string>
 	<string name="loading">लोड कर रहे…</string>
 	<string name="field_label">लेबल</string>
 	<string name="field_content">कंटेंट</string>
 	<string name="saving">सेव कर रहे…</string>
+	<string name="post_from_user">%s से पोस्ट</string>
+	<string name="poll_option_hint">ऑप्शन %d</string>
 	<plurals name="x_minutes">
 		<item quantity="one">%d मिनट</item>
 		<item quantity="other">%d मिनट</item>
@@ -87,17 +91,20 @@
 	</plurals>
 	<string name="poll_closed">बंद</string>
 	<string name="confirm_mute_title">अकाउंट म्यूट करें</string>
+	<string name="confirm_mute">%s को म्यूट करें</string>
 	<string name="do_mute">म्यूट करें</string>
 	<string name="confirm_unmute_title">अकाउंट अनम्यूट करें</string>
 	<string name="confirm_unmute">%s को अनम्यूट करें</string>
 	<string name="do_unmute">अनम्यूट करें</string>
 	<string name="confirm_block_title">अकाउंट ब्लॉक करें</string>
 	<string name="confirm_block_domain_title">डोमेन ब्लॉक करें</string>
+	<string name="confirm_block">%s को ब्लॉक करें</string>
 	<string name="do_block">ब्लॉक करें</string>
 	<string name="confirm_unblock_title">अकाउंट अनब्लॉक करें</string>
 	<string name="confirm_unblock_domain_title">डोमेन अनब्लॉक करें</string>
 	<string name="confirm_unblock">%s को अनब्लॉक करें</string>
 	<string name="do_unblock">अनब्लॉक करें</string>
+	<string name="button_blocked">ब्लॉक किया</string>
 	<string name="action_vote">वोट करें</string>
 	<string name="delete">हटाएं</string>
 	<string name="confirm_delete_title">पोस्ट हटाएं</string>
@@ -112,6 +119,7 @@
 	<string name="hashtags">हैशटैग</string>
 	<string name="news">खबर</string>
 	<string name="for_you">आपके लिए</string>
+	<string name="all_notifications">सारे</string>
 	<string name="mentions">ज़िक्र</string>
 	<plurals name="x_people_talking">
 		<item quantity="one">%d बात कर रहा है</item>
@@ -130,8 +138,18 @@
 	<string name="report_reason_other">कुछ और है</string>
 	<string name="report_reason_other_subtitle">प्रॉब्लम किसी भी दूसरे कैटेगरी में फिट नहीं हो रहा</string>
 	<string name="report_choose_rule">कौनसे रूल तोड़े गए?</string>
+	<string name="report_choose_rule_subtitle">सारे चुनें जो अप्लाए हो रहे है</string>
+	<string name="report_choose_posts">इस रिपोर्ट के सबूत के तौर पे कोई पोस्ट है?</string>
+	<string name="report_choose_posts_subtitle">सारे चुनें जो अप्लाए हो रहे है</string>
+	<string name="report_comment_title">क्या कुछ और है जो हमारे लिए जानना ज़रूरी है?</string>
+	<string name="report_comment_hint">एक्स्ट्रा कमेंट</string>
 	<string name="sending_report">रिपोर्ट भेज रहे…</string>
 	<string name="report_sent_title">रिपोर्ट करने के लिए थैंक यू, हम इसे चेक करेंगे।</string>
+	<string name="report_sent_subtitle">जब तक हम इसे रिव्यू कर रहे है, आप %s के खिलाफ एक्शन ले सकते है:</string>
+	<string name="unfollow_user">%s को अनफॉलो करें</string>
+	<string name="unfollow">अनफॉलो करें</string>
+	<string name="mute_user_explain">आपको उनके पोस्ट नहीं दिखाए जाएंगे। वो आपको फिर भी फॉलो कर सकते है और आपके पोस्ट देख सकते है और उनको पता नहीं चलेगा की आपने उन्हें म्यूट किया हुआ है।</string>
+	<string name="block_user_explain">आपको उनके पोस्ट नहीं दिखाए जाएंगे। वो आपको फॉलो नहीं कर पाएंगे है और आपके पोस्ट नहीं देख पाएंगे है। उनको पता चल जाएगा कि आपने उन्हें ब्लॉक किया हुआ है।</string>
 	<string name="report_personal_title">इसे देखना नहीं चाहते?</string>
 	<string name="search_communities">सर्वर का नाम या यूआरएल</string>
 	<string name="instance_rules_title">सर्वर के रूल</string>
@@ -140,6 +158,8 @@
 	<string name="username">यूज़रनेम</string>
 	<string name="email">ईमेल</string>
 	<string name="password">पासवर्ड</string>
+	<string name="password_note">पासवर्ड की ताकत बढ़ाने के लिए उसमें कैपिटल लेटर, स्पेशल कैरेक्टर, और नंबर इस्तेमाल करें।</string>
+	<string name="category_general">जेनरल</string>
 	<string name="confirm_email_title">अपना इनबॉक्स चेक करें</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_didnt_get">लिंक नहीं मिला?</string>
@@ -187,6 +207,7 @@
 		<item quantity="other">%d सेकंड पहले</item>
 	</plurals>
 	<string name="edit_poll_added">पोल जोड़ा गया</string>
+	<string name="edit_poll_removed">पोल हटाया गया</string>
 	<string name="file_size_bytes">%d बाइट</string>
 	<string name="file_size_kb">%.2f केबी</string>
 	<string name="file_size_mb">%.2f एमबी</string>
@@ -194,6 +215,7 @@
 	<!-- %s is version like 1.2.3 -->
 	<!-- %s is version like 1.2.3 -->
 	<!-- %s is file size -->
+	<string name="download_update">डाउनलोड करें (%s)</string>
 	<string name="install_update">इंस्टॉल करें</string>
 	<string name="privacy_policy_title">आपकी प्राइवसी</string>
 	<string name="privacy_policy_subtitle">वैसे तो Mastodon ऐप कोई डाटा इकट्ठा नहीं करता, लेकिन आपके सर्वर की पॉलिसी अलग हो सकती है।\n\nअगर आपको %s के पॉलिसी से दिक्कत है, तो आप पीछे जाकर कोई दूसरा सर्वर चुन सकते है।</string>
@@ -201,6 +223,7 @@
 	<string name="add_bookmark">बुकमार्क करें</string>
 	<string name="remove_bookmark">बुकमार्क हटाएं</string>
 	<string name="server_url">सर्वर यूआरएल</string>
+	<string name="server_filter_any_language">कोई भी भाषा</string>
 	<string name="server_filter_region_europe">यूरोप</string>
 	<string name="server_filter_region_north_america">नॉर्थ अमेरिका</string>
 	<string name="server_filter_region_south_america">साउथ अमेरिका</string>
@@ -208,6 +231,7 @@
 	<string name="server_filter_region_asia">एशिया</string>
 	<string name="server_filter_region_oceania">ओशिआनिया</string>
 	<string name="signup_passwords_dont_match">पासवर्ड मैच नहीं कर रहे</string>
+	<string name="profile_add_row">लाइन जोड़ें</string>
 	<string name="profile_setup">प्रोफाइल सेटअप</string>
 	<string name="follow_all">सबको फॉलो करें</string>
 	<string name="privacy_policy_explanation">छोटे शब्दों में, हम कुछ भी इकट्ठा या प्रॉसेस नहीं करते है।</string>
@@ -215,12 +239,17 @@
 	<string name="profile_bio">बायो</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<string name="poll_multiple_choice">एक या उससे ज़्यादा चुनें</string>
+	<string name="save_changes">बदलाव सेव करें</string>
 	<string name="profile_timeline">टाइमलाइन</string>
 	<string name="view_all">सब देखें</string>
 	<string name="profile_endorsed_accounts">अकाउंट</string>
+	<string name="join_default_server">%s को जॉइन करें</string>
+	<string name="pick_server">दूसरा सर्वर चुनें</string>
 	<string name="signup_or_login">या</string>
 	<string name="learn_more">ज़्यादा जानें</string>
 	<string name="welcome_to_mastodon">Mastodon में वेलकम</string>
+	<string name="welcome_paragraph1">Mastodon एक डिसेंट्रलाइज़्ड सोशल नेटवर्क है, मतलब कोई एक कंपनी इसे कंट्रोल नहीं करती। ये कई आज़ाद सर्वरों का नेटवर्क।</string>
 	<string name="what_are_servers">सर्वर क्या होते है?</string>
 	<!-- %s is formatted file size ("467 KB image") -->
 	<string name="attachment_description_image">%s की फोटो</string>
