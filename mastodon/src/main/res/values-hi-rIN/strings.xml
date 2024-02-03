@@ -137,6 +137,7 @@
 	<string name="instance_rules_title">सर्वर के रूल</string>
 	<string name="signup_title">अकाउंट बनाएं</string>
 	<string name="display_name">नाम</string>
+	<string name="username">यूज़रनेम</string>
 	<string name="email">ईमेल</string>
 	<string name="password">पासवर्ड</string>
 	<string name="confirm_email_title">अपना इनबॉक्स चेक करें</string>
@@ -145,8 +146,14 @@
 	<string name="resend">वापस भेजें</string>
 	<string name="open_email_app">ईमेल का ऐप खोलें</string>
 	<string name="content_warning">कंटेंट चेतावनी</string>
+	<string name="visibility_public">पब्लिक</string>
+	<string name="skip">छोड़ें</string>
 	<string name="choose_account">अकाउंट चुनें</string>
 	<string name="err_not_logged_in">सबसे पहले Mastodon में लॉग इन करें</string>
+	<plurals name="cant_add_more_than_x_attachments">
+		<item quantity="one">आप %d से ज़्यादा मीडिया अटैचमेंट नहीं जोड़ सकते</item>
+		<item quantity="other">आप %d से ज़्यादा मीडिया अटैचमेंट नहीं जोड़ सकते</item>
+	</plurals>
 	<string name="settings_theme">थीम</string>
 	<string name="theme_auto">डिवाइस थीम इस्तेमाल करें</string>
 	<string name="theme_light">लाइट</string>
@@ -158,12 +165,18 @@
 	<string name="settings_tos">सर्विस की शर्ते</string>
 	<string name="settings_privacy_policy">प्राइवसी पॉलिसी</string>
 	<string name="settings_clear_cache">मीडिया कैश साफ करें</string>
+	<string name="button_reply">जवाब दें</string>
+	<string name="button_reblog">बूस्ट करें</string>
 	<string name="add_media">मीडिया डालें</string>
 	<string name="add_poll">पोल डालें</string>
 	<string name="emoji">इमोजी</string>
 	<string name="my_profile">मेरा प्रोफाइल</string>
 	<string name="open_in_browser">ब्राउज़र में खोलें</string>
+	<string name="clear">साफ करें</string>
+	<string name="profile_header">हैडर फोटो</string>
 	<string name="profile_picture">प्रोफाइल फोटो</string>
+	<string name="reorder">ऑर्डर बदलें</string>
+	<string name="download">डाउनलोड करें</string>
 	<string name="storage_permission_to_download">ये फाइल सेव करने के लिए ऐप को आपके स्टोरेज का एक्सेस चाहिए।</string>
 	<string name="local_timeline">लोकल</string>
 	<!-- %s is the server domain -->
@@ -271,19 +284,28 @@
 	<string name="enter_selection_mode">चुनें</string>
 	<string name="select_all">सब चुनें</string>
 	<string name="required_form_field_blank">खाली नहीं हो सकता</string>
+	<string name="app_update_ready">ऐप अपडेट तैयार</string>
+	<string name="app_update_version">वर्शन %s</string>
+	<string name="downloading_update">डाउनलोड कर रहे (%d%%)</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
+	<string name="search_mastodon">Mastodon सर्च करें</string>
 	<string name="clear_all">सब साफ करें</string>
+	<string name="search_open_url">Mastodon में यूआरएल खोलें</string>
 	<!-- Shown in the post header. Please keep it short -->
 	<string name="time_seconds_ago_short">%d सेकंड पहले</string>
 	<string name="time_minutes_ago_short">%d मिनट पहले</string>
 	<string name="time_hours_ago_short">%d घंटे पहले</string>
 	<string name="time_days_ago_short">%d दिन पहले</string>
 	<!-- %s is the name of the post language -->
+	<string name="translate_post">%s से ट्रांसलेट करें</string>
 	<!-- %1$s is the language, %2$s is the name of the translation service -->
+	<string name="translation_show_original">ऑरिजिनल दिखाएं</string>
 	<string name="settings_privacy">प्राइवसी और पहुंच</string>
 	<string name="error_playing_video">वीडियो चलाने में गड़बड़</string>
+	<string name="timeline_following">होम</string>
 	<string name="lists">लिस्ट</string>
 	<!-- Screen reader description for the menu on the home timeline screen -->
+	<string name="dropdown_menu">ड्रॉपडाउन मेन्यू</string>
 	<!-- %s is the name of the list -->
 	<string name="list_name">लिस्ट का नाम</string>
 	<string name="remove">हटाएं</string>
