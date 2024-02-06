@@ -9,6 +9,7 @@
 	<string name="finishing_auth">Finalitzant l\'autenticació…</string>
 	<string name="in_reply_to">En resposta a %s</string>
 	<string name="notifications">Notificacions</string>
+	<string name="poll_ended">Veieu els resultats d\'una enquesta on heu votat</string>
 	<string name="share_toot_title">Comparteix</string>
 	<string name="settings">Configuració</string>
 	<string name="publish">Publica</string>
@@ -100,6 +101,7 @@
 	<string name="notification_channel_audio_player">Reproducció d\'àudio</string>
 	<string name="play">Reprodueix</string>
 	<string name="pause">Pausa</string>
+	<string name="log_out">Tanca la sessió</string>
 	<string name="add_account">Afegeix un compte</string>
 	<string name="search_hint">Cerca</string>
 	<string name="hashtags">Etiquetes</string>
@@ -156,6 +158,8 @@
 	<string name="err_not_logged_in">Primer inicia sessió a Mastodon</string>
 	<string name="media_attachment_unsupported_type">El tipus de fitxer %s no és compatible</string>
 	<string name="media_attachment_too_big">El fitxer %1$s supera el límit de mida de %2$s MB</string>
+	<string name="settings_theme">Aparença</string>
+	<string name="theme_auto">Fes servir l\'aparença del dispositiu</string>
 	<string name="theme_light">Clar</string>
 	<string name="theme_dark">Fosc</string>
 	<string name="settings_behavior">Comportament</string>
@@ -195,6 +199,7 @@
 	<string name="error_saving_file">Error en desar el fitxer</string>
 	<string name="file_saved">Fitxer desat</string>
 	<string name="downloading">S\'està baixant…</string>
+	<string name="local_timeline">Local</string>
 	<!-- %s is the server domain -->
 	<string name="load_missing_posts">Carrega les publicacions faltants</string>
 	<string name="follow_back">Segueix</string>
@@ -265,10 +270,19 @@
 	<string name="login_title">Hola de nou</string>
 	<string name="login_subtitle">Inicia sessió amb el servidor on vas crear el compte.</string>
 	<string name="server_url">URL del servidor</string>
+	<string name="server_filter_region_europe">Europa</string>
+	<string name="server_filter_region_north_america">Amèrica del Nord</string>
+	<string name="server_filter_region_south_america">Amèrica del Sud</string>
+	<string name="server_filter_region_africa">Àfrica</string>
+	<string name="server_filter_region_asia">Àsia</string>
+	<string name="server_filter_region_oceania">Oceania</string>
+	<string name="signup_passwords_dont_match">Les contrasenyes no coincideixen</string>
 	<!-- %s is server domain -->
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<string name="profile_timeline">Línia de temps</string>
 	<!-- %s is formatted file size ("467 KB image") -->
+	<string name="poll_style">Estil</string>
 	<!-- %s is the server domain -->
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
@@ -277,6 +291,7 @@
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<!-- %s is the username -->
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="filter_context_public_timelines">Línies de temps públiques</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
 	<!-- Shown in the post header. Please keep it short -->
 	<!-- %s is the name of the post language -->
