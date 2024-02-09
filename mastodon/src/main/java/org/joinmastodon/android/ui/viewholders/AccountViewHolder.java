@@ -255,7 +255,7 @@ public class AccountViewHolder extends BindableViewHolder<AccountViewModel> impl
 			UiUtils.confirmToggleBlockDomain(fragment.getActivity(), accountID, account, relationship.domainBlocking, ()->{
 				relationship.domainBlocking=!relationship.domainBlocking;
 				bindRelationship();
-			});
+			}, this::updateRelationship);
 		}else if(id==R.id.hide_boosts){
 			new SetAccountFollowed(account.id, true, !relationship.showingReblogs)
 					.setCallback(new Callback<>(){

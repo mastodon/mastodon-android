@@ -426,7 +426,7 @@ public class UiUtils{
 		}
 	}
 
-	public static void confirmToggleBlockDomain(Activity activity, String accountID, Account account, boolean currentlyBlocked, Runnable resultCallback){
+	public static void confirmToggleBlockDomain(Activity activity, String accountID, Account account, boolean currentlyBlocked, Runnable resultCallback, Consumer<Relationship> callbackInCaseUserWasBlockedInstead){
 		if(!currentlyBlocked){
 			new BlockDomainConfirmationSheet(activity, account, (onSuccess, onError)->{
 				new SetDomainBlocked(account.getDomain(), true)
@@ -449,7 +449,7 @@ public class UiUtils{
 						.setCallback(new Callback<>(){
 							@Override
 							public void onSuccess(Relationship result){
-								resultCallback.run();
+								callbackInCaseUserWasBlockedInstead.accept(result);
 								onSuccess.run();
 								E.post(new RemoveAccountPostsEvent(accountID, account.id, false));
 							}

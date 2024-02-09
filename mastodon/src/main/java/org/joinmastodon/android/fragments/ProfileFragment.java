@@ -633,7 +633,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 			UiUtils.confirmToggleBlockDomain(getActivity(), accountID, account, relationship.domainBlocking, ()->{
 				relationship.domainBlocking=!relationship.domainBlocking;
 				updateRelationship();
-			});
+			}, this::updateRelationship);
 		}else if(id==R.id.hide_boosts){
 			new SetAccountFollowed(account.id, true, !relationship.showingReblogs)
 					.setCallback(new Callback<>(){
