@@ -75,6 +75,10 @@ import org.joinmastodon.android.model.Relationship;
 import org.joinmastodon.android.model.SearchResults;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.M3AlertDialogBuilder;
+import org.joinmastodon.android.ui.Snackbar;
+import org.joinmastodon.android.ui.sheets.BlockAccountConfirmationSheet;
+import org.joinmastodon.android.ui.sheets.BlockDomainConfirmationSheet;
+import org.joinmastodon.android.ui.sheets.MuteAccountConfirmationSheet;
 import org.joinmastodon.android.ui.text.CustomEmojiSpan;
 import org.joinmastodon.android.ui.text.SpacerSpan;
 import org.parceler.Parcels;
@@ -382,72 +386,142 @@ public class UiUtils{
 	}
 
 	public static void confirmToggleBlockUser(Activity activity, String accountID, Account account, boolean currentlyBlocked, Consumer<Relationship> resultCallback){
-		showConfirmationAlert(activity, activity.getString(currentlyBlocked ? R.string.confirm_unblock_title : R.string.confirm_block_title),
-				activity.getString(currentlyBlocked ? R.string.confirm_unblock : R.string.confirm_block, account.displayName),
-				activity.getString(currentlyBlocked ? R.string.do_unblock : R.string.do_block), ()->{
-					new SetAccountBlocked(account.id, !currentlyBlocked)
-							.setCallback(new Callback<>(){
-								@Override
-								public void onSuccess(Relationship result){
-									resultCallback.accept(result);
-									if(!currentlyBlocked){
-										E.post(new RemoveAccountPostsEvent(accountID, account.id, false));
-									}
-								}
+		if(!currentlyBlocked){
+			new BlockAccountConfirmationSheet(activity, account, (onSuccess, onError)->{
+				new SetAccountBlocked(account.id, true)
+						.setCallback(new Callback<>(){
+							@Override
+							public void onSuccess(Relationship result){
+								resultCallback.accept(result);
+								onSuccess.run();
+								E.post(new RemoveAccountPostsEvent(accountID, account.id, false));
+							}
 
-								@Override
-								public void onError(ErrorResponse error){
-									error.showToast(activity);
-								}
-							})
-							.wrapProgress(activity, R.string.loading, false)
-							.exec(accountID);
-				});
+							@Override
+							public void onError(ErrorResponse error){
+								error.showToast(activity);
+								onError.run();
+							}
+						})
+						.exec(accountID);
+			}).show();
+		}else{
+			new SetAccountBlocked(account.id, false)
+					.setCallback(new Callback<>(){
+						@Override
+						public void onSuccess(Relationship result){
+							resultCallback.accept(result);
+							new Snackbar.Builder(activity)
+									.setText(activity.getString(R.string.unblocked_user_x, account.getDisplayUsername()))
+									.show();
+						}
+
+						@Override
+						public void onError(ErrorResponse error){
+							error.showToast(activity);
+						}
+					})
+					.wrapProgress(activity, R.string.loading, false)
+					.exec(accountID);
+		}
 	}
 
-	public static void confirmToggleBlockDomain(Activity activity, String accountID, String domain, boolean currentlyBlocked, Runnable resultCallback){
-		showConfirmationAlert(activity, activity.getString(currentlyBlocked ? R.string.confirm_unblock_domain_title : R.string.confirm_block_domain_title),
-				activity.getString(currentlyBlocked ? R.string.confirm_unblock : R.string.confirm_block, domain),
-				activity.getString(currentlyBlocked ? R.string.do_unblock : R.string.do_block), ()->{
-					new SetDomainBlocked(domain, !currentlyBlocked)
-							.setCallback(new Callback<>(){
-								@Override
-								public void onSuccess(Object result){
-									resultCallback.run();
-								}
+	public static void confirmToggleBlockDomain(Activity activity, String accountID, Account account, boolean currentlyBlocked, Runnable resultCallback){
+		if(!currentlyBlocked){
+			new BlockDomainConfirmationSheet(activity, account, (onSuccess, onError)->{
+				new SetDomainBlocked(account.getDomain(), true)
+						.setCallback(new Callback<>(){
+							@Override
+							public void onSuccess(Object result){
+								resultCallback.run();
+								onSuccess.run();
+							}
 
-								@Override
-								public void onError(ErrorResponse error){
-									error.showToast(activity);
-								}
-							})
-							.wrapProgress(activity, R.string.loading, false)
-							.exec(accountID);
-				});
+							@Override
+							public void onError(ErrorResponse error){
+								error.showToast(activity);
+								onError.run();
+							}
+						})
+						.exec(accountID);
+			}, (onSuccess, onError)->{
+				new SetAccountBlocked(account.id, true)
+						.setCallback(new Callback<>(){
+							@Override
+							public void onSuccess(Relationship result){
+								resultCallback.run();
+								onSuccess.run();
+								E.post(new RemoveAccountPostsEvent(accountID, account.id, false));
+							}
+
+							@Override
+							public void onError(ErrorResponse error){
+								error.showToast(activity);
+								onError.run();
+							}
+						})
+						.exec(accountID);
+			}).show();
+		}else{
+			new SetDomainBlocked(account.getDomain(), false)
+					.setCallback(new Callback<>(){
+						@Override
+						public void onSuccess(Object result){
+							resultCallback.run();
+							new Snackbar.Builder(activity)
+									.setText(activity.getString(R.string.unblocked_domain_x, account.getDomain()))
+									.show();
+						}
+
+						@Override
+						public void onError(ErrorResponse error){
+							error.showToast(activity);
+						}
+					})
+					.wrapProgress(activity, R.string.loading, false)
+					.exec(accountID);
+		}
 	}
 
 	public static void confirmToggleMuteUser(Activity activity, String accountID, Account account, boolean currentlyMuted, Consumer<Relationship> resultCallback){
-		showConfirmationAlert(activity, activity.getString(currentlyMuted ? R.string.confirm_unmute_title : R.string.confirm_mute_title),
-				activity.getString(currentlyMuted ? R.string.confirm_unmute : R.string.confirm_mute, account.displayName),
-				activity.getString(currentlyMuted ? R.string.do_unmute : R.string.do_mute), ()->{
-					new SetAccountMuted(account.id, !currentlyMuted)
-							.setCallback(new Callback<>(){
-								@Override
-								public void onSuccess(Relationship result){
-									resultCallback.accept(result);
-									if(!currentlyMuted){
-										E.post(new RemoveAccountPostsEvent(accountID, account.id, false));
-									}
-								}
+		if(!currentlyMuted){
+			new MuteAccountConfirmationSheet(activity, account, (onSuccess, onError)->{
+				new SetAccountMuted(account.id, true)
+						.setCallback(new Callback<>(){
+							@Override
+							public void onSuccess(Relationship result){
+								resultCallback.accept(result);
+								onSuccess.run();
+								E.post(new RemoveAccountPostsEvent(accountID, account.id, false));
+							}
 
-								@Override
-								public void onError(ErrorResponse error){
-									error.showToast(activity);
-								}
-							})
-							.wrapProgress(activity, R.string.loading, false)
-							.exec(accountID);
-				});
+							@Override
+							public void onError(ErrorResponse error){
+								error.showToast(activity);
+								onError.run();
+							}
+						})
+						.exec(accountID);
+			}).show();
+		}else{
+			new SetAccountMuted(account.id, false)
+					.setCallback(new Callback<>(){
+						@Override
+						public void onSuccess(Relationship result){
+							resultCallback.accept(result);
+							new Snackbar.Builder(activity)
+									.setText(activity.getString(R.string.unmuted_user_x, account.getDisplayUsername()))
+									.show();
+						}
+
+						@Override
+						public void onError(ErrorResponse error){
+							error.showToast(activity);
+						}
+					})
+					.wrapProgress(activity, R.string.loading, false)
+					.exec(accountID);
+		}
 	}
 
 	public static void confirmDeletePost(Activity activity, String accountID, Status status, Consumer<Status> resultCallback){

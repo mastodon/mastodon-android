@@ -1,6 +1,5 @@
 package org.joinmastodon.android.fragments.settings;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -17,7 +16,7 @@ import org.joinmastodon.android.api.session.AccountSession;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.events.SelfUpdateStateChangedEvent;
 import org.joinmastodon.android.model.viewmodel.ListItem;
-import org.joinmastodon.android.ui.AccountSwitcherSheet;
+import org.joinmastodon.android.ui.sheets.AccountSwitcherSheet;
 import org.joinmastodon.android.ui.M3AlertDialogBuilder;
 import org.joinmastodon.android.ui.utils.HideableSingleViewRecyclerAdapter;
 import org.joinmastodon.android.ui.utils.UiUtils;

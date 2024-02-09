@@ -1,4 +1,4 @@
-package org.joinmastodon.android.ui;
+package org.joinmastodon.android.ui.sheets;
 
 import android.content.Context;
 import android.graphics.drawable.ColorDrawable;

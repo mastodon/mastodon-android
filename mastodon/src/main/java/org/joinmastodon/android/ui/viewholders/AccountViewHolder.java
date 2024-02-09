@@ -252,7 +252,7 @@ public class AccountViewHolder extends BindableViewHolder<AccountViewModel> impl
 		}else if(id==R.id.open_in_browser){
 			UiUtils.launchWebBrowser(fragment.getActivity(), account.url);
 		}else if(id==R.id.block_domain){
-			UiUtils.confirmToggleBlockDomain(fragment.getActivity(), accountID, account.getDomain(), relationship.domainBlocking, ()->{
+			UiUtils.confirmToggleBlockDomain(fragment.getActivity(), accountID, account, relationship.domainBlocking, ()->{
 				relationship.domainBlocking=!relationship.domainBlocking;
 				bindRelationship();
 			});

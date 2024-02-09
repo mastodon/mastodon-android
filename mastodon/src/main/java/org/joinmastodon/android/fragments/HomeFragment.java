@@ -30,7 +30,7 @@ import org.joinmastodon.android.fragments.onboarding.OnboardingFollowSuggestions
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.Notification;
 import org.joinmastodon.android.model.PaginatedResponse;
-import org.joinmastodon.android.ui.AccountSwitcherSheet;
+import org.joinmastodon.android.ui.sheets.AccountSwitcherSheet;
 import org.joinmastodon.android.ui.OutlineProviders;
 import org.joinmastodon.android.ui.utils.UiUtils;
 import org.joinmastodon.android.ui.views.TabBar;
