@@ -59,4 +59,8 @@
 		<attr name="aspectRatio" format="float"/>
 		<attr name="useHeight" format="boolean"/>
 	</declare-styleable>
+
+	<declare-styleable name="ProgressBarButton">
+		<attr name="progressBar" format="reference"/>
+	</declare-styleable>
 </resources>

@@ -28,7 +28,6 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
-import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 import androidx.annotation.NonNull;
@@ -90,14 +89,14 @@ public class ComposeLanguageAlertViewController{
 
 		if(previouslySelected!=null){
 			if(previouslySelected.index!=-1 && ((previouslySelected.index<specialLocales.size() && Objects.equals(previouslySelected.locale, specialLocales.get(previouslySelected.index).locale)) ||
-					(previouslySelected.index<specialLocales.size()+allLocales.size() && Objects.equals(previouslySelected.locale, allLocales.get(previouslySelected.index-specialLocales.size()).locale)))){
+					(previouslySelected.index<specialLocales.size()+allLocales.size() && previouslySelected.index>-1 && Objects.equals(previouslySelected.locale, allLocales.get(previouslySelected.index-specialLocales.size()).locale)))){
 				selectedIndex=previouslySelected.index;
 				selectedLocale=previouslySelected.locale;
 			}else{
 				int i=0;
 				boolean found=false;
 				for(SpecialLocaleInfo li:specialLocales){
-					if(li.locale.equals(previouslySelected.locale)){
+					if(null!=li.locale&&li.locale.equals(previouslySelected.locale)){
 						selectedLocale=li.locale;
 						selectedIndex=i;
 						found=true;

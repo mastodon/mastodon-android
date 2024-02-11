@@ -630,10 +630,10 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 		}else if(id==R.id.open_in_browser){
 			UiUtils.launchWebBrowser(getActivity(), account.url);
 		}else if(id==R.id.block_domain){
-			UiUtils.confirmToggleBlockDomain(getActivity(), accountID, account.getDomain(), relationship.domainBlocking, ()->{
+			UiUtils.confirmToggleBlockDomain(getActivity(), accountID, account, relationship.domainBlocking, ()->{
 				relationship.domainBlocking=!relationship.domainBlocking;
 				updateRelationship();
-			});
+			}, this::updateRelationship);
 		}else if(id==R.id.hide_boosts){
 			new SetAccountFollowed(account.id, true, !relationship.showingReblogs)
 					.setCallback(new Callback<>(){
