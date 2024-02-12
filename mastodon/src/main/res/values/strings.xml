@@ -672,7 +672,7 @@
 	<string name="mute_user_confirm_title">Mute user?</string>
 	<string name="user_wont_know_muted">They won’t know they’ve been muted.</string>
 	<string name="user_can_still_see_your_posts">They can still see your posts, but you won’t see theirs.</string>
-	<string name="you_wont_see_user_mentions">You won’t see mentions to them.</string>
+	<string name="you_wont_see_user_mentions">You won’t see posts that mention them.</string>
 	<string name="user_can_mention_and_follow_you">They can mention and follow you, but you won’t see them.</string>
 	<string name="unmuted_user_x">Unmuted %s</string>
 	<string name="block_user_confirm_title">Block user?</string>
@@ -683,10 +683,10 @@
 	<string name="block_domain_confirm_title">Block domain?</string>
 	<string name="do_block_server">Block server</string>
 	<string name="block_user_x_instead">Block %s instead</string>
-	<string name="users_cant_see_blocked">They won’t know they’ve been blocked.</string>
+	<string name="users_cant_see_blocked">You won’t see posts or notifications from users on this server.</string>
 	<string name="you_wont_see_server_posts">You won’t see any posts from users on this server.</string>
 	<string name="server_followers_will_be_removed">Your followers from this server will be removed.</string>
-	<string name="server_cant_mention_or_follow_you">Nobody from this server can mention or follow you.</string>
+	<string name="server_cant_mention_or_follow_you">Nobody from this server can follow you.</string>
 	<string name="server_can_interact_with_older">People from this server can interact with your old posts.</string>
 	<string name="unblocked_domain_x">Unblocked domain %s</string>
 </resources>
