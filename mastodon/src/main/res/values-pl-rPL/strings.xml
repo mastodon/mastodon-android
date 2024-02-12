@@ -276,6 +276,7 @@
 	<!-- %s is the server domain -->
 	<string name="local_timeline_info_banner">To są wszystkie posty od wszystkich użytkowników na Twoim serwerze (%s).</string>
 	<string name="recommended_accounts_info_banner">Może spodobają się Tobie te konta, bazując na tych, których już obserwujesz?</string>
+	<string name="see_new_posts">Zobacz nowe posty</string>
 	<string name="load_missing_posts">Załaduj brakujące wpisy</string>
 	<string name="follow_back">Obserwuj wzajemnie</string>
 	<string name="button_follow_pending">Oczekujące</string>
@@ -363,7 +364,6 @@
 	<string name="login_title">Witaj ponownie</string>
 	<string name="login_subtitle">Zaloguj się na serwer, na którym utworzyłeś swoje konto.</string>
 	<string name="server_url">Adres URL serwera</string>
-	<string name="signup_random_server_explain">Wybierzemy Tobie instancję opartą na Twoim języku, jeżeli kontynuujesz bez żadnego wyboru.</string>
 	<string name="server_filter_any_language">Dowolny język</string>
 	<string name="server_filter_instant_signup">Natychmiastowa rejestracja</string>
 	<string name="server_filter_manual_review">Ręczne sprawdzenie</string>
@@ -377,11 +377,9 @@
 	<string name="not_accepting_new_members">Nie przyjmuje nowych członków</string>
 	<string name="category_special_interests">Specjalne zainteresowania</string>
 	<string name="signup_passwords_dont_match">Hasła się nie zgadzają</string>
-	<string name="pick_server_for_me">Wybierz dla mnie</string>
 	<string name="profile_add_row">Dodaj wiersz</string>
 	<string name="profile_setup">Ustawienia profilu</string>
 	<string name="profile_setup_subtitle">Zawsze możesz to uzupełnić później w zakładce Profil.</string>
-	<string name="popular_on_mastodon">Popularne na Mastodonie</string>
 	<string name="follow_all">Obserwuj każdego</string>
 	<string name="server_rules_disagree">Nie zgadzam się</string>
 	<string name="privacy_policy_explanation">Krótka piłka: nie zbieramy, ani nie przetwarzamy niczego.</string>
@@ -410,6 +408,7 @@
 	<string name="welcome_to_mastodon">Witaj na Mastodonie</string>
 	<string name="welcome_paragraph1">Mastodon to zdecentralizowana sieć społecznościowa, co oznacza że żadna firma nie może nią kontrolować w całości. Składa się z wielu niezależnych od siebie serwerów, które się ze sobą komunikują.</string>
 	<string name="what_are_servers">Czym są serwery?</string>
+	<string name="welcome_paragraph2">Każde konto na Mastodonie jest hostowane na instancjach, które wyróżniają się wartościami, zasadami i administracją. Nieważne, jaką wybierzesz - i tak będziesz mógł/mogła kontaktować się nawet z tymi spoza Twojej instancji.</string>
 	<string name="opening_link">Otwieranie linku…</string>
 	<string name="link_not_supported">Ten link nie jest wspierany w aplikacji</string>
 	<string name="log_out_all_accounts">Wyloguj się wszędzie</string>
@@ -430,22 +429,275 @@
 	<string name="add_poll_option">Dodaj opcję wyboru do ankiety</string>
 	<string name="poll_length">Czas trwania ankiety</string>
 	<string name="poll_style">Wygląd</string>
+	<string name="compose_poll_single_choice">Wybierz jedno</string>
+	<string name="compose_poll_multiple_choice">Wielokrotnego wyboru</string>
 	<string name="delete_poll_option">Usuń opcję wyboru z ankiety</string>
 	<string name="poll_style_title">Wygląd ankiety</string>
+	<string name="alt_text">Tekst alternatywny</string>
+	<string name="help">Pomoc</string>
+	<string name="what_is_alt_text">Czym jest tekst alternatywny?</string>
+	<string name="alt_text_help">Tekst alternatywny zapewnia opisy grafik i zdjęć ludziom z zaburzeniami widzenia, słabymi łączami internetowymi oraz tymi poszukującymi dodatkowego kontekstu.\n\nMożesz poprawić dostępność oraz zrozumiałość informacji poprzez pisanie jasnego, zwięzłego i obiektywnego tekstu alternatywnego.\n\n<ul><li>Uchwyć istotne elementy</li>\n<li>Podsumuj tekst na obrazach</li>\n<li>Używaj standardowej składni zdań</li>\n<li>Unikaj zbędnych informacji</li>\n<li>Skup się na tendencjach i kluczowych punktach złożonych grafik (jak diagramy czy mapy)</li></ul></string>
+	<string name="edit_post">Edytuj wpis</string>
+	<string name="no_verified_link">Niezweryfikowany link</string>
+	<string name="compose_autocomplete_emoji_empty">Przeglądaj emoji</string>
+	<string name="compose_autocomplete_users_empty">Znajdź, kogo szukasz</string>
+	<string name="no_search_results">Nie znaleziono żadnych wyników dla tego wyszukania</string>
+	<string name="language">Język</string>
+	<string name="language_default">Domyślny</string>
+	<string name="language_system">System</string>
+	<string name="language_detecting">Wykrywanie języka</string>
+	<string name="language_cant_detect">Nie można wykryć języka</string>
+	<string name="language_detected">Wykryto</string>
+	<string name="media_hidden">Multimedia ukryte</string>
+	<string name="post_hidden">Post został ukryty</string>
+	<string name="report_title_post">Zgłoś post</string>
+	<string name="forward_report_explanation">Konto jest z innego serwera. Czy wysłać anonimową kopię zgłoszenia?</string>
 	<!-- %s is the server domain -->
+	<string name="forward_report_to_server">Przekaż do %s</string>
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
+	<string name="reported">Zgłoszono</string>
+	<string name="report_unfollow_explanation">Jeżeli nie chcesz widzieć ich postów na twojej stronie głównej, od obserwuj ich.</string>
+	<string name="muted_user">Wyciszono %s</string>
+	<string name="report_sent_already_blocked">Już zablokowałeś tego użytkownika, więc nie musisz już więcej robić, podczas gdy my sprawdzamy twoje zgłoszenie.</string>
+	<string name="report_personal_already_blocked">Już zablokowałeś tego użytkownika, więc nie musisz już nic więcej robić.\n\n Dziękujemy za pomoc w utrzymywaniu Mastodona bezpiecznym miejscem dla każdego!</string>
+	<string name="blocked_user">Zablokowany %s</string>
+	<string name="mark_all_notifications_read">Oznacz wszystko jako przeczytane</string>
+	<string name="settings_display">Wyświetlanie</string>
+	<string name="settings_filters">Filtry</string>
+	<string name="settings_server_explanation">Przegląd, zasady, moderacja</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
+	<string name="about_app">O %s</string>
+	<string name="default_post_language">Domyślny język posta</string>
+	<string name="settings_alt_text_reminders">Dodaj opis przypomnienia</string>
+	<string name="settings_confirm_unfollow">Zapytaj przed usunięciem obserwacji</string>
+	<string name="settings_confirm_boost">Zapytaj przed podbijaniem</string>
+	<string name="settings_confirm_delete_post">Zapytaj przed usunięciem posta</string>
+	<string name="pause_all_notifications">Wstrzymaj wszystkie powiadomienia</string>
+	<string name="pause_notifications_off">Wyłącz</string>
+	<string name="notifications_policy_anyone">Każdy</string>
+	<string name="notifications_policy_followed">Ludzie, którzy ciebie obserwują</string>
+	<string name="notifications_policy_follower">Ludzie, których obserwujesz</string>
+	<string name="notifications_policy_no_one">Nikt</string>
+	<string name="settings_notifications_policy">Otrzymuj powiadomienia od</string>
+	<string name="notification_type_mentions_and_replies">Wzmianki i odpowiedzi</string>
+	<string name="pause_all_notifications_title">Wstrzymaj wszystkie powiadomienia</string>
+	<plurals name="x_weeks">
+		<item quantity="one">%d Tydzień</item>
+		<item quantity="few">%d Tygodni</item>
+		<item quantity="many">%d Tygodni</item>
+		<item quantity="other">%d Tygodnie</item>
+	</plurals>
 	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
+	<string name="date_at_time">%1$s o %2$s</string>
+	<string name="today">dzisiaj</string>
+	<string name="yesterday">wczoraj</string>
+	<string name="tomorrow">jutro</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="pause_notifications_ends">Kończy się %s</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="pause_notifications_banner">Powiadomienia zostaną wznowione %s.</string>
+	<string name="resume_notifications_now">Wznów teraz</string>
+	<string name="open_system_notification_settings">Przejdź do ustawień powiadomień</string>
+	<string name="about_server">O tej instancji</string>
+	<string name="server_rules">Zasady</string>
+	<string name="server_administrator">Administrator</string>
+	<string name="send_email_to_server_admin">Wyślij wiadomość administratorowi</string>
+	<string name="notifications_disabled_in_system">Włącz powiadomienia w ustawieniach urządzenia, aby cały czas być na bieżąco.</string>
+	<string name="settings_even_more">Jeszcze więcej ustawień</string>
+	<string name="settings_show_cws">Pokazuj ostrzeżenia o zawartości</string>
+	<string name="settings_hide_sensitive_media">Ukrywaj zawartość multimedialną oznaczoną jako wrażliwa</string>
+	<string name="settings_show_interaction_counts">Liczniki interakcji ze wpisami</string>
+	<string name="settings_show_emoji_in_names">Niestandardowe emoji w nazwach użytkownika</string>
+	<plurals name="in_x_seconds">
+		<item quantity="one">za %d sekundę</item>
+		<item quantity="few">za %d sekundy</item>
+		<item quantity="many">za %d sekund</item>
+		<item quantity="other">za %d sekund</item>
+	</plurals>
+	<plurals name="in_x_minutes">
+		<item quantity="one">za %d minutę</item>
+		<item quantity="few">za %d minuty</item>
+		<item quantity="many">za %d minut</item>
+		<item quantity="other">za %d minut</item>
+	</plurals>
+	<plurals name="in_x_hours">
+		<item quantity="one">za %d godzinę</item>
+		<item quantity="few">za %d godziny</item>
+		<item quantity="many">za %d godzin</item>
+		<item quantity="other">za %d godzin</item>
+	</plurals>
+	<plurals name="x_hours_ago">
+		<item quantity="one">%d godzinę temu</item>
+		<item quantity="few">%d godziny temu</item>
+		<item quantity="many">%d godzin temu</item>
+		<item quantity="other">%d godzin temu</item>
+	</plurals>
+	<string name="alt_text_reminder_title">Brak tekstu alternatywnego dla mediów</string>
+	<string name="count_one">Jeden</string>
+	<string name="count_two">Dwa</string>
+	<string name="count_three">Trzy</string>
+	<string name="count_four">Cztery</string>
+	<string name="alt_text_reminder_post_anyway">Opublikuj</string>
 	<!-- %s is the username -->
+	<string name="unfollow_confirmation">Przestać obserwować %s?</string>
+	<string name="filter_active">Aktywny</string>
+	<string name="filter_inactive">Nieaktywny</string>
+	<string name="settings_add_filter">Dodaj filtr</string>
+	<string name="settings_edit_filter">Edytuj filtr</string>
+	<string name="settings_filter_duration">Czas trwania</string>
+	<string name="settings_filter_muted_words">Wyciszone słowa</string>
+	<string name="settings_filter_context">Wycisz z</string>
+	<string name="settings_filter_show_cw">Pokaż z ostrzeżeniem o zawartości</string>
+	<string name="settings_filter_show_cw_explanation">Nadal pokazuj posty, które pasują do tego filtra, ale za ostrzeżeniem o zawartości</string>
+	<string name="settings_delete_filter">Usuń filtr</string>
+	<string name="filter_duration_forever">Ciągle</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="settings_filter_ends">Kończy się o %s</string>
+	<plurals name="settings_x_muted_words">
+		<item quantity="one">%d wyciszone słowo lub fraza</item>
+		<item quantity="few">%d wyciszone słowa lub frazy</item>
+		<item quantity="many">%d wyciszonych słów lub fraz</item>
+		<item quantity="other">%d wyciszonych słów lub fraz</item>
+	</plurals>
+	<string name="selection_2_options">%1$s i %2$s</string>
+	<string name="selection_3_options">%1$s, %2$s i %3$s</string>
+	<string name="selection_4_or_more">%1$s, %2$s, %3$d i więcej</string>
+	<string name="filter_context_home_lists">Strona główna &amp; listy</string>
+	<string name="filter_context_notifications">Powiadomienia</string>
+	<string name="filter_context_public_timelines">Publiczna oś czasu</string>
+	<string name="filter_context_threads_replies">Wątki &amp; odpowiedzi</string>
+	<string name="filter_context_profiles">Profile</string>
+	<string name="settings_filter_title">Tytuł</string>
+	<string name="settings_delete_filter_title">Usunąć filtr „%s”?</string>
+	<string name="settings_delete_filter_confirmation">Ten filtr zostanie usunięty z Twojego konta na wszystkich urządzeniach.</string>
+	<string name="add_muted_word">Dodaj wyciszone słowo</string>
+	<string name="edit_muted_word">Edytuj wyciszone słowo</string>
+	<string name="add">Dodaj</string>
+	<string name="filter_word_or_phrase">Słowo lub wyrażenie</string>
+	<string name="filter_add_word_help">Słowa ignorują wielkość liter i pasują tylko do pełnych wyrazów.\n\nJeśli filtrujesz słowo kluczowe \"Żabka\", ukryje posty zawierające \"żabka\" lub \"żAbKa\", ale nie \"żabkarka\".</string>
+	<string name="settings_delete_filter_word">Usunąć słowo „%s”?</string>
+	<string name="enter_selection_mode">Wybierz</string>
+	<string name="select_all">Zaznacz wszystkie</string>
+	<string name="settings_filter_duration_title">Czas trwania filtra</string>
+	<string name="filter_duration_custom">Niestandardowy</string>
+	<plurals name="x_items_selected">
+		<item quantity="one">%d wybrany</item>
+		<item quantity="few">%d wybrane</item>
+		<item quantity="many">%d wybranych</item>
+		<item quantity="other">%d wybranych</item>
+	</plurals>
+	<string name="required_form_field_blank">Nie może być puste</string>
+	<string name="filter_word_already_in_list">Już na liście</string>
+	<string name="app_update_ready">Aktualizacja aplikacji jest gotowa</string>
+	<string name="app_update_version">Wersja %s</string>
+	<string name="downloading_update">Pobieranie (%d%%)</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
+	<string name="post_matches_filter_x">Dopasowano do filtra \"%s\"</string>
+	<string name="search_mastodon">Przeszukaj Mastodona</string>
+	<string name="clear_all">Wyczyść wszystko</string>
+	<string name="search_open_url">Otwórz adres URL w Mastodonie</string>
+	<string name="posts_matching_hashtag">Wpisy otagowane „%s”</string>
+	<string name="search_go_to_account">Przejdź do %s</string>
+	<string name="posts_matching_string">Wpisy z „%s”</string>
+	<string name="accounts_matching_string">Ludzie z „%s”</string>
 	<!-- Shown in the post header. Please keep it short -->
+	<string name="time_seconds_ago_short">%d s. temu</string>
+	<string name="time_minutes_ago_short">%d min. temu</string>
+	<string name="time_hours_ago_short">%d g. temu</string>
+	<string name="time_days_ago_short">%d d. temu</string>
 	<!-- %s is the name of the post language -->
+	<string name="translate_post">Przetłumacz z %s</string>
 	<!-- %1$s is the language, %2$s is the name of the translation service -->
+	<string name="post_translated">Przetłumaczono z %1$s przy użyciu %2$s</string>
+	<string name="translation_show_original">Pokaż oryginał</string>
+	<string name="translation_failed">Tłumaczenie nie powiodło się. Być może administrator nie włączył tłumaczeń na tym serwerze lub ten serwer używa starszej wersji Mastodona, gdzie tłumaczenia nie są jeszcze obsługiwane.</string>
+	<string name="settings_privacy">Prywatność i zasięg</string>
+	<string name="settings_discoverable">Udostępniaj profil i wpisy funkcjom odkrywania</string>
+	<string name="settings_indexable">Pokaż publiczne wpisy w wynikach wyszukiwania</string>
+	<string name="error_playing_video">Błąd odtwarzania wideo</string>
+	<string name="timeline_following">Strona główna</string>
+	<string name="lists">Listy</string>
+	<string name="followed_hashtags">Obserwowane hasztagi</string>
+	<string name="manage_lists">Zarządzaj listami</string>
+	<string name="manage_hashtags">Zarządzaj hasztagami</string>
 	<!-- Screen reader description for the menu on the home timeline screen -->
+	<string name="dropdown_menu">Menu rozwijane</string>
+	<string name="edit_list">Edytuj listę</string>
+	<string name="list_members">Członkowie listy</string>
+	<string name="delete_list">Usuń listę</string>
 	<!-- %s is the name of the list -->
+	<string name="delete_list_confirm">Usunąć „%s”?</string>
+	<string name="list_exclusive">Ukryj członków w Obserwowanych</string>
+	<string name="list_exclusive_subtitle">Jeśli ktoś jest na tej liście, ukrywa go z Twojej osi czasu Obserwowanych, aby uniknąć pokazywania jego wpisów dwukrotnie.</string>
+	<string name="list_name">Nazwa listy</string>
+	<string name="list_show_replies_to">Pokaż odpowiedzi do</string>
+	<string name="list_replies_no_one">Nikt</string>
+	<string name="list_replies_members">Członkowie listy</string>
+	<string name="list_replies_anyone">Każdy, kogo obserwuję</string>
+	<string name="confirm_remove_list_members">Usunąć członków?</string>
+	<string name="remove">Usuń</string>
+	<string name="add_list_member">Dodaj członka</string>
+	<string name="search_among_people_you_follow">Szukaj wśród osób, które obserwujesz</string>
+	<string name="add_user_to_list">Dodaj do listy…</string>
+	<string name="add_user_to_list_title">Dodaj do listy</string>
 	<!-- %s is a username -->
+	<string name="manage_user_lists">Zarządzaj listami, na których pojawia się %s</string>
+	<string name="remove_from_list">Usuń z listy</string>
+	<string name="confirm_remove_list_member">Usunąć członka?</string>
+	<string name="no_followed_hashtags_title">Bądź na bieżąco z zainteresowaniami, obserwując hasztagi</string>
+	<string name="no_followed_hashtags_subtitle">Obserwowane pojawią się tutaj</string>
+	<string name="no_lists_title">Organizuj swoją stronę główną za pomocą List</string>
+	<string name="no_lists_subtitle">Twoje pojawią się tutaj</string>
+	<string name="manage_accounts">Dodaj lub przełącz konta</string>
+	<string name="create_list">Utwórz listę</string>
+	<string name="step_x_of_y">Krok %1$d z %2$d</string>
+	<string name="create">Utwórz</string>
+	<string name="manage_list_members">Zarządzaj członkami listy</string>
+	<string name="list_no_members">Brak członków</string>
+	<string name="list_find_users">Znajdź użytkowników do dodania</string>
+	<string name="reply_to_user">Odpowiedz %s</string>
+	<string name="posted_at">Opublikowano %s</string>
+	<string name="non_mutual_sheet_title">Witaj, nowy kontakcie!</string>
+	<string name="non_mutual_sheet_text">Wygląda na to, że masz zamiar odpowiedzieć komuś, kto nie jest jeszcze Twoim znajomym. Zróbmy dobre pierwsze wrażenie.</string>
+	<string name="got_it">Jasne</string>
+	<string name="dont_remind_again">Nie przypominaj ponownie</string>
 	<!-- %s is a time interval ("5 months") -->
+	<string name="old_post_sheet_title">Ten wpis ma %s</string>
+	<string name="old_post_sheet_text">Nadal możesz odpowiedzieć, ale informacje mogą już być nieaktualne.</string>
+	<plurals name="x_months">
+		<item quantity="one">%,d miesiąc</item>
+		<item quantity="few">%,d miesiące</item>
+		<item quantity="many">%,d miesięcy</item>
+		<item quantity="other">%,d miesięcy</item>
+	</plurals>
+	<string name="more_than_two_years">ponad 2 lata</string>
+	<string name="non_mutual_title1">Zachowaj szacunek i zwięzłość wypowiedzi</string>
+	<string name="non_mutual_text1">Upewnij się, że Twoja odpowiedź jest uprzejma i na temat.</string>
+	<string name="non_mutual_title2">Otwórz się na życzliwość</string>
+	<string name="non_mutual_text2">Pozytywny ton jest zawsze mile widziany.</string>
+	<string name="non_mutual_title3">Bądź plastyczny</string>
+	<string name="non_mutual_text3">Każdy ma swój unikalny styl prowadzenia rozmowy. Dostosuj się, jeśli trzeba.</string>
+	<string name="make_profile_discoverable">Spraw, by mój profil mógł być wyszukiwalny</string>
+	<string name="discoverability">Wyszukiwalność</string>
+	<string name="discoverability_help">Kiedy zdecydujesz się na wyszukiwalność na Mastodonie, Twoje posty mogą zacząć pojawiać się w wynikach wyszukiwania oraz listach trendów.\n\nTwój profil może też zostać polecany osobom z podobnymi zainteresowaniami do Twoich.\n\nJeżeli się nie zgodzisz, inni wciąż będą mogli Cię znaleźć po Twojej nazwie użytkownika.</string>
+	<string name="app_version_copied">Numer wersji skopiowany do schowka</string>
+	<string name="onboarding_recommendations_intro">To Ty kształtujesz swoją stronę główną.
+Im więcej ludzi obserwujesz, tym aktywniejsza i bardziej interesująca się staje.</string>
+	<string name="onboarding_recommendations_title">Spersonalizuj swoją stronę główną</string>
+	<string name="article_by_author">Od %s</string>
+	<string name="info">Info</string>
+	<string name="button_reblogged">Podano dalej</string>
+	<string name="button_favorited">Dodano do ulubionych</string>
+	<string name="bookmarked">Dodano do zakładek</string>
+	<string name="join_server_x_with_invite">Dołącz do %s z zaproszeniem</string>
+	<string name="expired_invite_link">Link zaproszenia wygasł</string>
+	<string name="expired_clipboard_invite_link_alert">Link zaproszenia do %1$s z Twojego schowka wygasł i nie może być użyty do rejestracji.\n\nMożesz poprosić o nowy link od istniejącego użytkownika, zarejestrować się przez %2$s lub wybrać inną instancję, na której założysz nowe konto.</string>
+	<string name="invalid_invite_link">Nieprawidłowy link zaproszenia</string>
+	<string name="invalid_clipboard_invite_link_alert">Link zaproszenia do %1$s z Twojego schowka jest nieprawidłowy i nie może być użyty do rejestracji.\n\nMożesz poprosić o nowy link od istniejącego użytkownika, zarejestrować się przez %2$s lub wybrać inną instancję, na której założysz nowe konto.</string>
+	<string name="use_invite_link">Użyj linku zaproszenia</string>
+	<string name="enter_invite_link">Wprowadź link zaproszenia</string>
+	<string name="this_invite_is_invalid">Ten link zaproszenia jest nieprawidłowy.</string>
+	<string name="this_invite_has_expired">Ten link zaproszenia wygasł.</string>
+	<string name="invite_link_pasted">Link wklejony ze schowka.</string>
+	<string name="need_invite_to_join_server">Aby dołączyć do %s, potrzebujesz linku z zaproszeniem od istniejącego użytkownika.</string>
 </resources>

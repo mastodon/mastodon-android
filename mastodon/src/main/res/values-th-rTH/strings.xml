@@ -16,7 +16,7 @@
 	<string name="user_favorited">%s ได้ชื่นชอบโพสต์ของคุณ</string>
 	<string name="notification_boosted">%s ได้ดันโพสต์ของคุณ</string>
 	<string name="poll_ended">ดูผลลัพธ์ของการสำรวจความคิดเห็นที่คุณได้ลงคะแนน</string>
-	<string name="share_toot_title">แบ่งปัน</string>
+	<string name="share_toot_title">แชร์</string>
 	<string name="settings">การตั้งค่า</string>
 	<string name="publish">เผยแพร่</string>
 	<string name="discard_draft">ละทิ้งแบบร่าง?</string>
@@ -35,7 +35,7 @@
 	<string name="button_follow">ติดตาม</string>
 	<string name="button_following">กำลังติดตาม</string>
 	<string name="edit_profile">แก้ไขโปรไฟล์</string>
-	<string name="share_user">แบ่งปันโปรไฟล์</string>
+	<string name="share_user">แชร์โปรไฟล์</string>
 	<string name="mute_user">ซ่อน %s</string>
 	<string name="unmute_user">เลิกซ่อน %s</string>
 	<string name="block_user">ปิดกั้น %s</string>
@@ -133,7 +133,7 @@
 	<string name="report_comment_hint">ความคิดเห็นเพิ่มเติม</string>
 	<string name="sending_report">กำลังส่งรายงาน…</string>
 	<string name="report_sent_title">ขอบคุณสำหรับการรายงาน เราจะตรวจสอบสิ่งนี้</string>
-	<string name="report_sent_subtitle">ขณะที่เราตรวจทานสิ่งนี้ คุณสามารถดำเนินการกับ %s:</string>
+	<string name="report_sent_subtitle">ขณะที่เราตรวจทานสิ่งนี้ คุณสามารถใช้การกระทำต่อ %s:</string>
 	<string name="unfollow_user">เลิกติดตาม %s</string>
 	<string name="unfollow">เลิกติดตาม</string>
 	<string name="mute_user_explain">คุณจะไม่เห็นโพสต์ของเขา เขายังคงสามารถติดตามคุณและเห็นโพสต์ของคุณและจะไม่ทราบว่ามีการซ่อนเขา</string>
@@ -202,7 +202,7 @@
 	<string name="button_reply">ตอบกลับ</string>
 	<string name="button_reblog">ดัน</string>
 	<string name="button_favorite">ชื่นชอบ</string>
-	<string name="button_share">แบ่งปัน</string>
+	<string name="button_share">แชร์</string>
 	<string name="media_no_description">สื่อที่ไม่มีคำอธิบาย</string>
 	<string name="add_media">เพิ่มสื่อ</string>
 	<string name="add_poll">เพิ่มการสำรวจความคิดเห็น</string>
@@ -307,7 +307,6 @@
 	<string name="login_title">ยินดีต้อนรับกลับมา</string>
 	<string name="login_subtitle">เข้าสู่ระบบด้วยเซิร์ฟเวอร์ที่ซึ่งคุณได้สร้างบัญชีของคุณ</string>
 	<string name="server_url">URL ของเซิร์ฟเวอร์</string>
-	<string name="signup_random_server_explain">เราจะเลือกเซิร์ฟเวอร์โดยอิงตามภาษาของคุณหากคุณดำเนินการต่อโดยไม่ได้ทำการเลือก</string>
 	<string name="server_filter_any_language">ภาษาใด ๆ</string>
 	<string name="server_filter_instant_signup">การลงทะเบียนทันที</string>
 	<string name="server_filter_manual_review">การตรวจทานด้วยตนเอง</string>
@@ -321,11 +320,9 @@
 	<string name="not_accepting_new_members">ไม่ได้กำลังเปิดรับสมาชิกใหม่</string>
 	<string name="category_special_interests">ความสนใจพิเศษ</string>
 	<string name="signup_passwords_dont_match">รหัสผ่านไม่ตรงกัน</string>
-	<string name="pick_server_for_me">เลือกสำหรับฉัน</string>
 	<string name="profile_add_row">เพิ่มแถว</string>
 	<string name="profile_setup">การตั้งค่าโปรไฟล์</string>
 	<string name="profile_setup_subtitle">คุณสามารถทำสิ่งนี้ให้เสร็จสมบูรณ์ได้ในภายหลังเสมอในแท็บโปรไฟล์</string>
-	<string name="popular_on_mastodon">เป็นที่นิยมใน Mastodon</string>
 	<string name="follow_all">ติดตามทั้งหมด</string>
 	<string name="server_rules_disagree">ไม่เห็นด้วย</string>
 	<string name="privacy_policy_explanation">ยาวไป ไม่อ่าน: เราไม่เก็บรวบรวมหรือประมวลผลสิ่งใด</string>
@@ -354,7 +351,7 @@
 	<string name="welcome_to_mastodon">ยินดีต้อนรับสู่ Mastodon</string>
 	<string name="welcome_paragraph1">Mastodon เป็นเครือข่ายสังคมแบบกระจายศูนย์ หมายความว่าไม่มีบริษัทใดควบคุมเครือข่ายสังคม เครือข่ายสังคมประกอบด้วยเซิร์ฟเวอร์ที่ทำงานอย่างอิสระจำนวนมาก ทั้งหมดเชื่อมต่อเข้าด้วยกัน</string>
 	<string name="what_are_servers">เซิร์ฟเวอร์คืออะไร?</string>
-	<string name="welcome_paragraph2">ทุกบัญชี Mastodon ได้รับการโฮสต์ในเซิร์ฟเวอร์ — แต่ละแห่งมีค่า, กฎ และผู้ดูแลของเซิร์ฟเวอร์เอง ไม่ว่าคุณจะเลือกเซิร์ฟเวอร์ใด คุณสามารถติดตามและโต้ตอบกับผู้คนในเซิร์ฟเวอร์ใด ๆ</string>
+	<string name="welcome_paragraph2">ทุกบัญชี Mastodon จะถูกโฮสต์ในเซิร์ฟเวอร์ ซึ่งแต่ละแห่งมีค่านิยม, กฎ และผู้ดูแลของเซิร์ฟเวอร์เอง ไม่ว่าคุณจะเลือกเซิร์ฟเวอร์ใด คุณสามารถติดตามและโต้ตอบกับผู้คนในเซิร์ฟเวอร์ใดก็ได้</string>
 	<string name="opening_link">กำลังเปิดลิงก์…</string>
 	<string name="link_not_supported">ไม่รองรับลิงก์นี้ในแอป</string>
 	<string name="log_out_all_accounts">ออกจากระบบบัญชีทั้งหมด</string>
@@ -621,4 +618,23 @@
 	<string name="discoverability">ความสามารถในการค้นพบ</string>
 	<string name="discoverability_help">เมื่อคุณเลือกรับความสามารถในการค้นพบใน Mastodon โพสต์ของคุณอาจปรากฏในผลลัพธ์การค้นหาและกำลังนิยม\n\nอาจเสนอแนะโปรไฟล์ของคุณให้กับผู้คนที่มีความสนใจคล้ายกับคุณ\n\nการเลือกไม่รับจะไม่ซ่อนโปรไฟล์ของคุณหากใครสักคนค้นหาคุณโดยชื่อ</string>
 	<string name="app_version_copied">คัดลอกหมายเลขรุ่นไปยังคลิปบอร์ดแล้ว</string>
+	<string name="onboarding_recommendations_intro">คุณเรียบเรียงฟีดหน้าแรกของคุณเอง
+ยิ่งคุณติดตามผู้คนมากเท่าไร ฟีดหน้าแรกก็จะยิ่งมีการใช้งานและน่าสนใจมากขึ้นเท่านั้น</string>
+	<string name="onboarding_recommendations_title">ปรับแต่งฟีดหน้าแรกของคุณ</string>
+	<string name="article_by_author">โดย %s</string>
+	<string name="info">ข้อมูล</string>
+	<string name="button_reblogged">ดันแล้ว</string>
+	<string name="button_favorited">ชื่นชอบแล้ว</string>
+	<string name="bookmarked">เพิ่มที่คั่นหน้าแล้ว</string>
+	<string name="join_server_x_with_invite">เข้าร่วม %s ด้วยคำเชิญ</string>
+	<string name="expired_invite_link">ลิงก์เชิญหมดอายุแล้ว</string>
+	<string name="expired_clipboard_invite_link_alert">ลิงก์เชิญสำหรับ %1$s ในคลิปบอร์ดของคุณหมดอายุแล้วและไม่สามารถใช้เพื่อลงทะเบียน\n\nคุณสามารถขอลิงก์ใหม่จากผู้ใช้ที่มีอยู่ ลงทะเบียนผ่าน %2$s หรือเลือกเซิร์ฟเวอร์อื่นเพื่อลงทะเบียนผ่าน</string>
+	<string name="invalid_invite_link">ลิงก์เชิญไม่ถูกต้อง</string>
+	<string name="invalid_clipboard_invite_link_alert">ลิงก์เชิญสำหรับ %1$s ในคลิปบอร์ดของคุณไม่ถูกต้องและไม่สามารถใช้เพื่อลงทะเบียน\n\nคุณสามารถขอลิงก์ใหม่จากผู้ใช้ที่มีอยู่ ลงทะเบียนผ่าน %2$s หรือเลือกเซิร์ฟเวอร์อื่นเพื่อลงทะเบียนผ่าน</string>
+	<string name="use_invite_link">ใช้ลิงก์เชิญ</string>
+	<string name="enter_invite_link">ป้อนลิงก์เชิญ</string>
+	<string name="this_invite_is_invalid">ลิงก์เชิญนี้ไม่ถูกต้อง</string>
+	<string name="this_invite_has_expired">ลิงก์เชิญนี้หมดอายุแล้ว</string>
+	<string name="invite_link_pasted">วางลิงก์จากคลิปบอร์ดของคุณแล้ว</string>
+	<string name="need_invite_to_join_server">เพื่อเข้าร่วม %s คุณจะต้องมีลิงก์เชิญจากผู้ใช้ที่มีอยู่</string>
 </resources>

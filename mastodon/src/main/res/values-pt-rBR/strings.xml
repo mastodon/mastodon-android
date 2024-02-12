@@ -13,7 +13,7 @@
 	<string name="notifications">Notificações</string>
 	<string name="user_followed_you">%s seguiu você</string>
 	<string name="user_sent_follow_request">%s enviou uma solicitação para seguir você</string>
-	<string name="user_favorited">%s favoritou sua publicação</string>
+	<string name="user_favorited">%s gostou da sua publicação</string>
 	<string name="notification_boosted">%s impulsionou a sua publicação</string>
 	<string name="poll_ended">Veja os resultados de uma enquete em que você votou</string>
 	<string name="share_toot_title">Compartilhar</string>
@@ -213,7 +213,8 @@
 	<string name="more_options">Mais opções</string>
 	<string name="new_post">Novo post</string>
 	<string name="button_reply">Responder</string>
-	<string name="button_favorite">Favoritar</string>
+	<string name="button_reblog">Impulsionar</string>
+	<string name="button_favorite">Gostar</string>
 	<string name="button_share">Compartilhar</string>
 	<string name="media_no_description">Mídia sem descrição</string>
 	<string name="add_media">Adicionar mídia</string>
@@ -228,6 +229,7 @@
 	<string name="following_user_requested">Solicitou para te seguir %s</string>
 	<string name="open_in_browser">Abrir no navegador</string>
 	<string name="hide_boosts_from_user">Ocultar boosts de %s</string>
+	<string name="show_boosts_from_user">Mostrar publicações impulsionadas de %s</string>
 	<string name="signup_reason">Por que você deseja se inscrever?</string>
 	<string name="signup_reason_note">Isso vai nos ajudar a revisar sua inscrição.</string>
 	<string name="clear">Limpar</string>
@@ -248,6 +250,7 @@
 	<!-- %s is the server domain -->
 	<string name="local_timeline_info_banner">Estas são as publicações de todos os usuários em seu servidor (%s).</string>
 	<string name="recommended_accounts_info_banner">Você pode gostar dessas contas com base em outras que segue.</string>
+	<string name="see_new_posts">Publicações novas</string>
 	<string name="load_missing_posts">Carregar publicações perdidas</string>
 	<string name="follow_back">Seguir de volta</string>
 	<string name="button_follow_pending">Pendente</string>
@@ -319,7 +322,6 @@
 	<string name="login_title">Bem-vindo de Volta</string>
 	<string name="login_subtitle">Faça login no servidor onde você criou sua conta.</string>
 	<string name="server_url">URL do servidor</string>
-	<string name="signup_random_server_explain">Escolheremos um servidor com base no seu idioma se você continuar sem fazer uma seleção.</string>
 	<string name="server_filter_any_language">Qualquer idioma</string>
 	<string name="server_filter_instant_signup">Cadastro Rápido</string>
 	<string name="server_filter_manual_review">Revisão manual</string>
@@ -333,11 +335,9 @@
 	<string name="not_accepting_new_members">Não está aceitando novos membros</string>
 	<string name="category_special_interests">Interesses especiais</string>
 	<string name="signup_passwords_dont_match">As senhas não correspondem</string>
-	<string name="pick_server_for_me">Escolher para mim</string>
 	<string name="profile_add_row">Adicionar linha</string>
 	<string name="profile_setup">Configuração do perfil</string>
 	<string name="profile_setup_subtitle">Você sempre pode concluir isso mais tarde na guia de Perfil.</string>
-	<string name="popular_on_mastodon">Popular no Mastodon</string>
 	<string name="follow_all">Seguir todos</string>
 	<string name="server_rules_disagree">Discordo</string>
 	<string name="privacy_policy_explanation">TL;DR: Não coletamos ou processamos nada.</string>
@@ -452,6 +452,7 @@
 	<string name="pause_notifications_ends">Termina %s</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<string name="pause_notifications_banner">Notificações serão retomadas %s.</string>
+	<string name="resume_notifications_now">Retomar</string>
 	<string name="open_system_notification_settings">Vá para as configurações de notificação</string>
 	<string name="about_server">Sobre</string>
 	<string name="server_rules">Regras</string>
@@ -461,6 +462,7 @@
 	<string name="settings_even_more">Ainda mais configurações</string>
 	<string name="settings_show_cws">Mostrar avisos de conteúdo</string>
 	<string name="settings_hide_sensitive_media">Ocultar mídia marcada como sensível</string>
+	<string name="settings_show_interaction_counts">Contagem de interações com publicações</string>
 	<string name="settings_show_emoji_in_names">Exibir emojis personalizados em nomes</string>
 	<plurals name="in_x_seconds">
 		<item quantity="one">em %d segundo</item>
@@ -514,7 +516,9 @@
 	<string name="selection_2_options">%1$s e %2$s</string>
 	<string name="selection_3_options">%1$s, %2$s, e %3$s</string>
 	<string name="selection_4_or_more">%1$s, %2$s, %3$d e mais</string>
+	<string name="filter_context_home_lists">Inicial &amp; listas</string>
 	<string name="filter_context_notifications">Notificações</string>
+	<string name="filter_context_public_timelines">Timelines públicas</string>
 	<string name="filter_context_threads_replies">Tópicos &amp; respostas</string>
 	<string name="filter_context_profiles">Perfis</string>
 	<string name="settings_filter_title">Título</string>
@@ -558,20 +562,46 @@
 	<string name="time_hours_ago_short">%dh atrás</string>
 	<string name="time_days_ago_short">%dd atrás</string>
 	<!-- %s is the name of the post language -->
-	<string name="translate_post">Traduzido de %s</string>
+	<string name="translate_post">Traduzir do %s</string>
 	<!-- %1$s is the language, %2$s is the name of the translation service -->
 	<string name="post_translated">Traduzido de %1$s usando %2$s</string>
 	<string name="translation_show_original">Mostrar original</string>
 	<string name="translation_failed">A tradução falhou. Talvez o administrador não tenha habilitado as traduções neste servidor ou este servidor esteja executando uma versão mais antiga do Mastodon onde as traduções ainda não são suportadas.</string>
 	<string name="settings_privacy">Privacidade e alcance</string>
+	<string name="settings_discoverable">Destacar perfil e publicações nos algoritmos de descoberta</string>
 	<string name="settings_indexable">Incluir publicações públicas nos resultados de pesquisa</string>
 	<plurals name="x_participants">
 		<item quantity="one">%,d participante</item>
 		<item quantity="other">%,d participantes</item>
 	</plurals>
+	<string name="error_playing_video">Erro ao reproduzir vídeo</string>
+	<string name="timeline_following">Início</string>
+	<string name="lists">Listas</string>
+	<string name="followed_hashtags">Hashtags seguidas</string>
+	<string name="manage_lists">Gerir listas</string>
+	<string name="manage_hashtags">Gerir hashtags</string>
 	<!-- Screen reader description for the menu on the home timeline screen -->
+	<string name="dropdown_menu">Menu dropdown</string>
+	<string name="edit_list">Editar lista</string>
+	<string name="list_members">Membros da lista</string>
+	<string name="delete_list">Excluir lista</string>
 	<!-- %s is the name of the list -->
+	<string name="delete_list_confirm">Excluir “%s”?</string>
+	<string name="remove">Remover</string>
+	<string name="add_user_to_list">Adicionar à lista…</string>
+	<string name="add_user_to_list_title">Adicionar à lista</string>
 	<!-- %s is a username -->
+	<string name="remove_from_list">Remover da lista</string>
+	<string name="confirm_remove_list_member">Remover membro?</string>
+	<string name="create_list">Criar lista</string>
+	<string name="create">Criar</string>
 	<string name="manage_list_members">Gerenciar membros da lista</string>
 	<!-- %s is a time interval ("5 months") -->
+	<plurals name="x_months">
+		<item quantity="one">%,d mês</item>
+		<item quantity="other">%,d meses</item>
+	</plurals>
+	<string name="more_than_two_years">mais de 2 anos</string>
+	<string name="app_version_copied">Número da versão copiado para a área de transferência</string>
+	<string name="button_favorited">Gostado</string>
 </resources>

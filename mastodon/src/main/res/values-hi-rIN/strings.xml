@@ -1,56 +1,370 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="log_in">लॉग इन करें</string>
-	<string name="next">आगे</string>
+	<string name="next">अगला</string>
+	<string name="loading_instance">सर्वर की जानकारी ला रहे…</string>
+	<string name="error">गड़बड़</string>
+	<string name="not_a_mastodon_instance">%s एक Mastodon सर्वर नहीं है।</string>
 	<string name="ok">ठीक है</string>
-	<string name="preparing_auth">प्रमाणीकरण के लिए रीडायरेक्ट कर रहा है…</string>
-	<string name="notifications">सूचनाएँ</string>
+	<string name="preparing_auth">ऑथेंटिकेशन की तैयारी कर रहे…</string>
+	<string name="finishing_auth">ऑथेंटिकेशन खत्म कर रहे…</string>
+	<string name="user_boosted">%s ने बूस्ट किया</string>
+	<string name="in_reply_to">%s के जवाब में</string>
+	<string name="notifications">नोटिफिकेशन</string>
+	<string name="user_followed_you">%s ने आपको फॉलो किया</string>
+	<string name="user_sent_follow_request">%s आपको फॉलो करना चाहते है</string>
+	<string name="user_favorited">%s ने आपका पोस्ट पसंद किया</string>
+	<string name="notification_boosted">%s ने आपका पोस्ट बूस्ट किया</string>
+	<string name="poll_ended">आपने जिस पोल में वोट किया था उसका रिज़ल्ट आ गया</string>
+	<string name="share_toot_title">शेयर करें</string>
+	<string name="settings">सेटिंग</string>
+	<string name="publish">पब्लिश करें</string>
+	<string name="discard_draft">ड्राफ्ट फैंक दें?</string>
+	<string name="discard">फैंक दें</string>
+	<string name="cancel">कैंसिल करें</string>
+	<plurals name="followers">
+		<item quantity="one">फॉलो कर रहे</item>
+		<item quantity="other">फॉलो कर रहे</item>
+	</plurals>
+	<plurals name="following">
+		<item quantity="one">को फॉलो कर रहे</item>
+		<item quantity="other">को फॉलो कर रहे</item>
+	</plurals>
+	<string name="posts">पोस्ट</string>
+	<string name="posts_and_replies">पोस्ट और जवाब</string>
+	<string name="media">मीडिया</string>
+	<string name="profile_about">आपके बारे में</string>
+	<string name="button_follow">फॉलो करें</string>
+	<string name="button_following">फॉलो कर रहे</string>
+	<string name="edit_profile">प्रोफाइल एडिट करें</string>
+	<string name="share_user">प्रोफाइल शेयर करें</string>
+	<string name="mute_user">%s को म्यूट करें</string>
+	<string name="unmute_user">%s को अनम्यूट करें</string>
+	<string name="block_user">%s को ब्लॉक करें</string>
+	<string name="unblock_user">%s को अनब्लॉक करें</string>
+	<string name="report_user">%s को रिपोर्ट करें</string>
+	<string name="block_domain">%s को ब्लॉक करें</string>
+	<string name="unblock_domain">%s को अनब्लॉक करें</string>
+	<plurals name="x_posts">
+		<item quantity="one">%,d पोस्ट</item>
+		<item quantity="other">%,d पोस्ट</item>
+	</plurals>
+	<string name="profile_joined">ने जॉइन किया</string>
+	<string name="done">हो गया</string>
+	<string name="loading">लोड कर रहे…</string>
+	<string name="field_label">लेबल</string>
+	<string name="field_content">कंटेंट</string>
+	<string name="saving">सेव कर रहे…</string>
+	<string name="post_from_user">%s से पोस्ट</string>
+	<string name="poll_option_hint">ऑप्शन %d</string>
+	<plurals name="x_minutes">
+		<item quantity="one">%d मिनट</item>
+		<item quantity="other">%d मिनट</item>
+	</plurals>
+	<plurals name="x_hours">
+		<item quantity="one">%d घंटा</item>
+		<item quantity="other">%d घंटे</item>
+	</plurals>
+	<plurals name="x_days">
+		<item quantity="one">%d दिन</item>
+		<item quantity="other">%d दिन</item>
+	</plurals>
+	<plurals name="x_seconds_left">
+		<item quantity="one">%d सेकंड बाकी</item>
+		<item quantity="other">%d सेकंड बाकी</item>
+	</plurals>
+	<plurals name="x_minutes_left">
+		<item quantity="one">%d मिनट बाकी</item>
+		<item quantity="other">%d मिनट बाकी</item>
+	</plurals>
+	<plurals name="x_hours_left">
+		<item quantity="one">%d घंटा बाकी</item>
+		<item quantity="other">%d घंटे बाकी</item>
+	</plurals>
+	<plurals name="x_days_left">
+		<item quantity="one">%d दिन बाकी</item>
+		<item quantity="other">%d दिन बाकी</item>
+	</plurals>
+	<plurals name="x_votes">
+		<item quantity="one">%,d वोट</item>
+		<item quantity="other">%,d वोट</item>
+	</plurals>
 	<string name="poll_closed">बंद</string>
-	<string name="confirm_mute_title">म्यूट किए गए खाते</string>
-	<string name="do_mute">शांत करें</string>
-	<string name="confirm_unmute_title">खाता अनम्यूट करें</string>
-	<string name="confirm_unmute">%s को अनम्यूट करने की पुष्टि करें</string>
+	<string name="confirm_mute_title">अकाउंट म्यूट करें</string>
+	<string name="confirm_mute">%s को म्यूट करें</string>
+	<string name="do_mute">म्यूट करें</string>
+	<string name="confirm_unmute_title">अकाउंट अनम्यूट करें</string>
+	<string name="confirm_unmute">%s को अनम्यूट करें</string>
 	<string name="do_unmute">अनम्यूट करें</string>
-	<string name="confirm_block_title">अवरोधित खाते</string>
-	<string name="do_block">रोके</string>
-	<string name="confirm_unblock">%s को अनम्यूट करने की पुष्टि करें</string>
+	<string name="confirm_block_title">अकाउंट ब्लॉक करें</string>
+	<string name="confirm_block_domain_title">डोमेन ब्लॉक करें</string>
+	<string name="confirm_block">%s को ब्लॉक करें</string>
+	<string name="do_block">ब्लॉक करें</string>
+	<string name="confirm_unblock_title">अकाउंट अनब्लॉक करें</string>
+	<string name="confirm_unblock_domain_title">डोमेन अनब्लॉक करें</string>
+	<string name="confirm_unblock">%s को अनब्लॉक करें</string>
 	<string name="do_unblock">अनब्लॉक करें</string>
-	<string name="delete">मिटाए</string>
-	<string name="confirm_delete">क्या आप वाकई इस पोस्ट को हटाना चाहते हैं?</string>
-	<string name="deleting">डिलीट हो रहा है</string>
-	<string name="notification_channel_audio_player">संगीत प्लेबैक</string>
-	<string name="play">चलाएँ</string>
-	<string name="pause">विराम</string>
-	<string name="add_account">खाता जोड़ें</string>
-	<string name="search_hint">खोजें</string>
+	<string name="button_blocked">ब्लॉक किया</string>
+	<string name="action_vote">वोट करें</string>
+	<string name="delete">हटाएं</string>
+	<string name="confirm_delete_title">पोस्ट हटाएं</string>
+	<string name="confirm_delete">इस पोस्ट को वाकई हटाएं?</string>
+	<string name="deleting">हटा रहे…</string>
+	<string name="notification_channel_audio_player">ऑडियो प्लेबैक</string>
+	<string name="play">सुनें</string>
+	<string name="pause">पॉज़ करें</string>
+	<string name="log_out">लॉग आउट करें</string>
+	<string name="add_account">अकाउंट जोड़ें</string>
+	<string name="search_hint">सर्च करें</string>
 	<string name="hashtags">हैशटैग</string>
-	<string name="news">समाचार</string>
+	<string name="news">खबर</string>
 	<string name="for_you">आपके लिए</string>
-	<string name="mentions">उल्लेख</string>
+	<string name="all_notifications">सारे</string>
+	<string name="mentions">ज़िक्र</string>
+	<plurals name="x_people_talking">
+		<item quantity="one">%d बात कर रहा है</item>
+		<item quantity="other">%d बात कर रहे है</item>
+	</plurals>
+	<string name="report_title">%s रिपोर्ट करें</string>
+	<string name="report_choose_reason">इस पोस्ट में क्या गलत है?</string>
+	<string name="report_choose_reason_account">%s में क्या गलत है?</string>
+	<string name="report_choose_reason_subtitle">सबसे अच्छा मैच चुनें</string>
+	<string name="report_reason_personal">मुझे ये पसंद नहीं आया</string>
+	<string name="report_reason_personal_subtitle">आप ऐसी चीज़ नहीं देखना चाहते</string>
+	<string name="report_reason_spam">ये स्पैम है</string>
+	<string name="report_reason_spam_subtitle">बुरा लिंक, नकली इंगेजमेंट, या रिप्लाए बार-बार दोहराना</string>
+	<string name="report_reason_violation">ये सर्वर के रूल फॉलो नहीं करता</string>
+	<string name="report_reason_violation_subtitle">आपको पता है कि ये किसी रूल को तोड़ता है</string>
+	<string name="report_reason_other">कुछ और है</string>
+	<string name="report_reason_other_subtitle">प्रॉब्लम किसी भी दूसरे कैटेगरी में फिट नहीं हो रहा</string>
+	<string name="report_choose_rule">कौनसे रूल तोड़े गए?</string>
+	<string name="report_choose_rule_subtitle">सारे चुनें जो अप्लाए हो रहे है</string>
+	<string name="report_choose_posts">इस रिपोर्ट के सबूत के तौर पे कोई पोस्ट है?</string>
+	<string name="report_choose_posts_subtitle">सारे चुनें जो अप्लाए हो रहे है</string>
+	<string name="report_comment_title">क्या कुछ और है जो हमारे लिए जानना ज़रूरी है?</string>
+	<string name="report_comment_hint">एक्स्ट्रा कमेंट</string>
+	<string name="sending_report">रिपोर्ट भेज रहे…</string>
+	<string name="report_sent_title">रिपोर्ट करने के लिए थैंक यू, हम इसे चेक करेंगे।</string>
+	<string name="report_sent_subtitle">जब तक हम इसे रिव्यू कर रहे है, आप %s के खिलाफ एक्शन ले सकते है:</string>
+	<string name="unfollow_user">%s को अनफॉलो करें</string>
+	<string name="unfollow">अनफॉलो करें</string>
+	<string name="mute_user_explain">आपको उनके पोस्ट नहीं दिखाए जाएंगे। वो आपको फिर भी फॉलो कर सकते है और आपके पोस्ट देख सकते है और उनको पता नहीं चलेगा की आपने उन्हें म्यूट किया हुआ है।</string>
+	<string name="block_user_explain">आपको उनके पोस्ट नहीं दिखाए जाएंगे। वो आपको फॉलो नहीं कर पाएंगे है और आपके पोस्ट नहीं देख पाएंगे है। उनको पता चल जाएगा कि आपने उन्हें ब्लॉक किया हुआ है।</string>
+	<string name="report_personal_title">इसे देखना नहीं चाहते?</string>
+	<string name="report_personal_subtitle">Mastodon पे अपना फीड कंट्रोल करने के लिए आपके पास ये ऑप्शन है:</string>
+	<string name="back">पिछला</string>
+	<string name="search_communities">सर्वर का नाम या यूआरएल</string>
+	<string name="instance_rules_title">सर्वर के रूल</string>
+	<string name="instance_rules_subtitle">जारी रखते हुए, आप %s के एडमिन के ये रूल फॉलो करने को राज़ी है।</string>
+	<string name="signup_title">अकाउंट बनाएं</string>
+	<string name="display_name">नाम</string>
+	<string name="username">यूज़रनेम</string>
+	<string name="email">ईमेल</string>
+	<string name="password">पासवर्ड</string>
+	<string name="confirm_password">पासवर्ड वापस लिखें</string>
+	<string name="password_note">पासवर्ड की ताकत बढ़ाने के लिए उसमें कैपिटल लेटर, स्पेशल कैरेक्टर, और नंबर इस्तेमाल करें।</string>
+	<string name="category_general">जेनरल</string>
+	<string name="confirm_email_title">अपना इनबॉक्स चेक करें</string>
 	<!-- %s is the email address -->
+	<string name="confirm_email_subtitle">%s वैरिफाइ करने के लिए भेजे गए लिंक पे टैप करें। हम यहां पे इंतज़ार करेंगे।</string>
+	<string name="confirm_email_didnt_get">लिंक नहीं मिला?</string>
+	<string name="resend">वापस भेजें</string>
+	<string name="open_email_app">ईमेल का ऐप खोलें</string>
+	<string name="resent_email">वैरिफिकेशन ईमेल भेजा गया</string>
+	<string name="compose_hint">आपने मन की बात टाइप या पेस्ट करें</string>
+	<string name="content_warning">कंटेंट चेतावनी</string>
+	<string name="save">सेव करें</string>
+	<string name="add_alt_text">अल्ट टेक्सट डालें</string>
+	<string name="visibility_public">पब्लिक</string>
+	<string name="visibility_followers_only">सिर्फ फॉलो करनेवालों के लिए</string>
+	<string name="visibility_private">सिर्फ जिनका ज़िक्र किया है</string>
+	<string name="recent_searches">हाल के सर्च</string>
+	<string name="skip">छोड़ें</string>
+	<string name="choose_account">अकाउंट चुनें</string>
+	<string name="err_not_logged_in">सबसे पहले Mastodon में लॉग इन करें</string>
+	<plurals name="cant_add_more_than_x_attachments">
+		<item quantity="one">आप %d से ज़्यादा मीडिया अटैचमेंट नहीं जोड़ सकते</item>
+		<item quantity="other">आप %d से ज़्यादा मीडिया अटैचमेंट नहीं जोड़ सकते</item>
+	</plurals>
+	<string name="settings_theme">थीम</string>
+	<string name="theme_auto">डिवाइस थीम इस्तेमाल करें</string>
+	<string name="theme_light">लाइट</string>
+	<string name="theme_dark">डार्क</string>
+	<string name="settings_behavior">बर्ताव</string>
+	<string name="settings_custom_tabs">ऐप में ब्राउज़र इस्तेमाल करें</string>
+	<string name="settings_notifications">नोटिफिकेशन</string>
+	<string name="settings_contribute">Mastodon को दान करें</string>
+	<string name="settings_tos">सर्विस की शर्ते</string>
+	<string name="settings_privacy_policy">प्राइवसी पॉलिसी</string>
+	<string name="settings_clear_cache">मीडिया कैश साफ करें</string>
+	<string name="button_reply">जवाब दें</string>
+	<string name="button_reblog">बूस्ट करें</string>
+	<string name="add_media">मीडिया डालें</string>
+	<string name="add_poll">पोल डालें</string>
+	<string name="emoji">इमोजी</string>
+	<string name="my_profile">मेरा प्रोफाइल</string>
+	<string name="open_in_browser">ब्राउज़र में खोलें</string>
+	<string name="clear">साफ करें</string>
+	<string name="profile_header">हैडर फोटो</string>
+	<string name="profile_picture">प्रोफाइल फोटो</string>
+	<string name="reorder">ऑर्डर बदलें</string>
+	<string name="download">डाउनलोड करें</string>
+	<string name="storage_permission_to_download">ये फाइल सेव करने के लिए ऐप को आपके स्टोरेज का एक्सेस चाहिए।</string>
+	<string name="local_timeline">लोकल</string>
 	<!-- %s is the server domain -->
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
+	<string name="time_just_now">अभी-अभी</string>
+	<plurals name="x_seconds_ago">
+		<item quantity="one">%d सेकंड पहले</item>
+		<item quantity="other">%d सेकंड पहले</item>
+	</plurals>
+	<string name="edit_poll_added">पोल जोड़ा गया</string>
+	<string name="edit_poll_removed">पोल हटाया गया</string>
+	<string name="file_size_bytes">%d बाइट</string>
+	<string name="file_size_kb">%.2f केबी</string>
+	<string name="file_size_mb">%.2f एमबी</string>
+	<string name="file_size_gb">%.2f जीबी</string>
 	<!-- %s is version like 1.2.3 -->
 	<!-- %s is version like 1.2.3 -->
 	<!-- %s is file size -->
+	<string name="download_update">डाउनलोड करें (%s)</string>
+	<string name="install_update">इंस्टॉल करें</string>
+	<string name="privacy_policy_title">आपकी प्राइवसी</string>
+	<string name="privacy_policy_subtitle">वैसे तो Mastodon ऐप कोई डाटा इकट्ठा नहीं करता, लेकिन आपके सर्वर की पॉलिसी अलग हो सकती है।\n\nअगर आपको %s के पॉलिसी से दिक्कत है, तो आप पीछे जाकर कोई दूसरा सर्वर चुन सकते है।</string>
+	<string name="empty_list">ये लिस्ट खाली है</string>
+	<string name="add_bookmark">बुकमार्क करें</string>
+	<string name="remove_bookmark">बुकमार्क हटाएं</string>
+	<string name="server_url">सर्वर यूआरएल</string>
+	<string name="server_filter_any_language">कोई भी भाषा</string>
+	<string name="server_filter_region_europe">यूरोप</string>
+	<string name="server_filter_region_north_america">नॉर्थ अमेरिका</string>
+	<string name="server_filter_region_south_america">साउथ अमेरिका</string>
+	<string name="server_filter_region_africa">अफ्रीका</string>
+	<string name="server_filter_region_asia">एशिया</string>
+	<string name="server_filter_region_oceania">ओशिआनिया</string>
+	<string name="signup_passwords_dont_match">पासवर्ड मैच नहीं कर रहे</string>
+	<string name="profile_add_row">लाइन जोड़ें</string>
+	<string name="profile_setup">प्रोफाइल सेटअप</string>
+	<string name="follow_all">सबको फॉलो करें</string>
+	<string name="privacy_policy_explanation">छोटे शब्दों में, हम कुछ भी इकट्ठा या प्रॉसेस नहीं करते है।</string>
 	<!-- %s is server domain -->
+	<string name="profile_bio">बायो</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<string name="poll_multiple_choice">एक या उससे ज़्यादा चुनें</string>
+	<string name="save_changes">बदलाव सेव करें</string>
+	<string name="profile_timeline">टाइमलाइन</string>
+	<string name="view_all">सब देखें</string>
+	<string name="profile_endorsed_accounts">अकाउंट</string>
+	<string name="join_default_server">%s को जॉइन करें</string>
+	<string name="pick_server">दूसरा सर्वर चुनें</string>
+	<string name="signup_or_login">या</string>
+	<string name="learn_more">ज़्यादा जानें</string>
+	<string name="welcome_to_mastodon">Mastodon में वेलकम</string>
+	<string name="welcome_paragraph1">Mastodon एक डिसेंट्रलाइज़्ड सोशल नेटवर्क है, मतलब कोई एक कंपनी इसे कंट्रोल नहीं करती। ये कई आज़ाद सर्वरों का नेटवर्क।</string>
+	<string name="what_are_servers">सर्वर क्या होते है?</string>
 	<!-- %s is formatted file size ("467 KB image") -->
+	<string name="attachment_description_image">%s की फोटो</string>
+	<string name="attachment_description_video">%s की वीडियो</string>
+	<string name="attachment_description_audio">%s की ऑडियो</string>
+	<string name="attachment_description_unknown">%s की फाइल</string>
+	<string name="attachment_type_image">फोटो</string>
+	<string name="attachment_type_video">वीडियो</string>
+	<string name="attachment_type_audio">ऑडियो</string>
+	<string name="attachment_type_gif">GIF</string>
+	<string name="attachment_type_unknown"> फाइल</string>
+	<string name="attachment_x_percent_uploaded">%d%% अपलोड हुआ</string>
+	<string name="poll_style">स्टाइल</string>
+	<string name="compose_poll_single_choice">एक चुननेवाला</string>
+	<string name="compose_poll_multiple_choice">कई चुननेवाला</string>
+	<string name="poll_style_title">पोल स्टाइल</string>
+	<string name="help">मदद</string>
+	<string name="language">भाषा</string>
+	<string name="language_default">डिफॉल्ट</string>
+	<string name="language_system">सिस्टम</string>
 	<!-- %s is the server domain -->
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
+	<string name="settings_display">डिस्प्ले</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
+	<string name="pause_notifications_off">ऑफ</string>
+	<string name="notifications_policy_no_one">कोई नहीं</string>
 	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
+	<string name="today">आज</string>
+	<string name="yesterday">कल</string>
+	<string name="tomorrow">कल</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="about_server">सर्वर के बारे में</string>
+	<string name="server_administrator">एडमिन</string>
+	<string name="send_email_to_server_admin">एडमिन को मैसेज करें</string>
+	<plurals name="in_x_seconds">
+		<item quantity="one">%d सेकंड में</item>
+		<item quantity="other">%d सेकंड में</item>
+	</plurals>
+	<plurals name="in_x_minutes">
+		<item quantity="one">%d मिनट में</item>
+		<item quantity="other">%d मिनट में</item>
+	</plurals>
+	<plurals name="in_x_hours">
+		<item quantity="one">%d घंटे में</item>
+		<item quantity="other">%d घंटे में</item>
+	</plurals>
+	<plurals name="x_hours_ago">
+		<item quantity="one">%d घंटे पहले</item>
+		<item quantity="other">%d घंटे पहले</item>
+	</plurals>
+	<string name="count_one">एक</string>
+	<string name="count_two">दो</string>
+	<string name="count_three">तीन</string>
+	<string name="count_four">चार</string>
+	<string name="alt_text_reminder_post_anyway">पोस्ट करें</string>
 	<!-- %s is the username -->
+	<string name="unfollow_confirmation">%s को अनफॉलो करें?</string>
+	<string name="settings_add_filter">फिल्टर जोड़ें</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="enter_selection_mode">चुनें</string>
+	<string name="select_all">सब चुनें</string>
+	<string name="required_form_field_blank">खाली नहीं हो सकता</string>
+	<string name="app_update_ready">ऐप अपडेट तैयार</string>
+	<string name="app_update_version">वर्शन %s</string>
+	<string name="downloading_update">डाउनलोड कर रहे (%d%%)</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
+	<string name="search_mastodon">Mastodon सर्च करें</string>
+	<string name="clear_all">सब साफ करें</string>
+	<string name="search_open_url">Mastodon में यूआरएल खोलें</string>
 	<!-- Shown in the post header. Please keep it short -->
+	<string name="time_seconds_ago_short">%d सेकंड पहले</string>
+	<string name="time_minutes_ago_short">%d मिनट पहले</string>
+	<string name="time_hours_ago_short">%d घंटे पहले</string>
+	<string name="time_days_ago_short">%d दिन पहले</string>
 	<!-- %s is the name of the post language -->
+	<string name="translate_post">%s से ट्रांसलेट करें</string>
 	<!-- %1$s is the language, %2$s is the name of the translation service -->
+	<string name="translation_show_original">ऑरिजिनल दिखाएं</string>
+	<string name="settings_privacy">प्राइवसी और पहुंच</string>
+	<string name="error_playing_video">वीडियो चलाने में गड़बड़</string>
+	<string name="timeline_following">होम</string>
+	<string name="lists">लिस्ट</string>
 	<!-- Screen reader description for the menu on the home timeline screen -->
+	<string name="dropdown_menu">ड्रॉपडाउन मेन्यू</string>
 	<!-- %s is the name of the list -->
+	<string name="list_name">लिस्ट का नाम</string>
+	<string name="remove">हटाएं</string>
 	<!-- %s is a username -->
+	<string name="non_mutual_sheet_title">हैलो, नए कनेक्शन!</string>
+	<string name="got_it">समझ गए</string>
 	<!-- %s is a time interval ("5 months") -->
+	<string name="old_post_sheet_title">ये पोस्ट %s पुराना है</string>
+	<plurals name="x_months">
+		<item quantity="one">%,d महीना</item>
+		<item quantity="other">%,d महीने</item>
+	</plurals>
+	<string name="more_than_two_years">2 से ज़्यादा साल</string>
+	<string name="non_mutual_title1">इज़्ज़त से बात करें और रेलेवेंट रहें</string>
+	<string name="non_mutual_text1">अपना जवाब शालीनता से लिखें और ऑन-द-टॉपिक रहें।</string>
+	<string name="non_mutual_title2">शराफत अपनाएं</string>
+	<string name="non_mutual_text2">पॉज़िटिविटी हर कोई पसंद करता है।</string>
+	<string name="non_mutual_title3">खुले मन से बात करें</string>
+	<string name="non_mutual_text3">सबका बात करने का तरीका अलग है। ज़रूरत के हिसाब से बदलने को तैयार रहें।</string>
+	<string name="info">जानकारी</string>
 </resources>

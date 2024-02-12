@@ -364,7 +364,6 @@
 	<string name="login_title">Dobrodošli nazaj</string>
 	<string name="login_subtitle">Prijavite se na strežniku, na katerem ste ustvarili svoj račun.</string>
 	<string name="server_url">URL strežnika</string>
-	<string name="signup_random_server_explain">Izbrali bomo strežnik na osnovi vašega jezika, če nadaljujete brez izbire.</string>
 	<string name="server_filter_any_language">Katerikoli jezik</string>
 	<string name="server_filter_instant_signup">Takojšnja prijava</string>
 	<string name="server_filter_manual_review">Ročni pregled</string>
@@ -378,11 +377,9 @@
 	<string name="not_accepting_new_members">Ne sprejema novih članov</string>
 	<string name="category_special_interests">Posebni interesi</string>
 	<string name="signup_passwords_dont_match">Vneseni gesli se ne ujemata</string>
-	<string name="pick_server_for_me">Izberi v mojem imenu</string>
 	<string name="profile_add_row">Dodaj vrstico</string>
 	<string name="profile_setup">Nastavitev profila</string>
 	<string name="profile_setup_subtitle">To lahko vedno izpolnite kasneje na zavihku Profil.</string>
-	<string name="popular_on_mastodon">Priljubljeno na Mastodonu</string>
 	<string name="follow_all">Sledi vsem</string>
 	<string name="server_rules_disagree">Ne strinjam se</string>
 	<string name="privacy_policy_explanation">TL;DR: Ne zbiramo ali obdelujemo nobenih podatkov.</string>
@@ -720,4 +717,23 @@
 	<string name="discoverability">Razkrivanje</string>
 	<string name="discoverability_help">Ko se odločite za razkrivanje na Mastodonu, se lahko vaše objave pojavijo v rezultatih iskanja in trendih.\n\nVaš profil se lahko predlaga ljudem s podobnimi interesi kot vi.\n\nOdjava ne skrije vašega profila, če vas nekdo išče po imenu.</string>
 	<string name="app_version_copied">Številka različice je kopirana v odložišče</string>
+	<string name="onboarding_recommendations_intro">Sami kurirate svoj domači vir.
+Več osebam kot sledite, bolj dejaven in zanimiv bo.</string>
+	<string name="onboarding_recommendations_title">Poosebite svoj domači vir</string>
+	<string name="article_by_author">Avtor_ica %s</string>
+	<string name="info">Podrobnosti</string>
+	<string name="button_reblogged">Izpostavljeno</string>
+	<string name="button_favorited">Dodano med priljubljene</string>
+	<string name="bookmarked">Dodano med zaznamke</string>
+	<string name="join_server_x_with_invite">Pridruži se %s s povabilom</string>
+	<string name="expired_invite_link">Potekla povezava povabila</string>
+	<string name="expired_clipboard_invite_link_alert">Povezava s povabilom za %1$s je potekla in je ne morete uporabiti za registracijo.\n\nObstoječega uporabnika lahko zaprosite za novo povezavo, se registrirate preko %2$s ali pa se registrirate na drugem strežniku.</string>
+	<string name="invalid_invite_link">Neveljavna povezava povabila</string>
+	<string name="invalid_clipboard_invite_link_alert">Povezava s povabilom za %1$s ni veljavna in je ne morete uporabiti za registracijo.\n\nObstoječega uporabnika lahko zaprosite za novo povezavo, se registrirate preko %2$s ali pa se registrirate na drugem strežniku.</string>
+	<string name="use_invite_link">Uporabi povezavo povabila</string>
+	<string name="enter_invite_link">Vnesite povezavo povabila</string>
+	<string name="this_invite_is_invalid">Ta povezava povabila ni veljavna.</string>
+	<string name="this_invite_has_expired">Ta povezava povabila je potekla.</string>
+	<string name="invite_link_pasted">Povezava je prilepljena iz odložišča.</string>
+	<string name="need_invite_to_join_server">Za registracijo na %s boste potrebovali povezavo s povabilom od obstoječega uporabnika.</string>
 </resources>

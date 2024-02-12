@@ -174,7 +174,7 @@
 	<string name="compose_hint">Skrifaðu eða límdu það sem þér liggur á hjarta</string>
 	<string name="content_warning">Viðvörun vegna efnis</string>
 	<string name="save">Vista</string>
-	<string name="add_alt_text">Bæta við ALT-varatexta</string>
+	<string name="add_alt_text">Bæta við ALT-myndatexta</string>
 	<string name="visibility_public">Opinbert</string>
 	<string name="visibility_followers_only">Einungis fylgjendur</string>
 	<string name="visibility_private">Aðeins fólk sem minnst er á</string>
@@ -326,7 +326,6 @@
 	<string name="login_title">Velkomin aftur</string>
 	<string name="login_subtitle">Skráðu þig inn á netþjóninn þar sem þú útbjóst notandaaðganginn þinn.</string>
 	<string name="server_url">Vefslóð netþjóns</string>
-	<string name="signup_random_server_explain">Við munum velja netþjón út frá tungumálinu þínu, ef þú heldur áfram án þess að velja neitt.</string>
 	<string name="server_filter_any_language">Hvaða tungumál sem er</string>
 	<string name="server_filter_instant_signup">Nýskráning á stundinni</string>
 	<string name="server_filter_manual_review">Handvirk yfirferð</string>
@@ -340,11 +339,9 @@
 	<string name="not_accepting_new_members">Tekur ekki við nýjum meðlimum</string>
 	<string name="category_special_interests">Sérstök áhugamál</string>
 	<string name="signup_passwords_dont_match">Lykilorðin samsvara ekki</string>
-	<string name="pick_server_for_me">Velja fyrir mig</string>
 	<string name="profile_add_row">Bæta við röð</string>
 	<string name="profile_setup">Uppsetning notandasniðs</string>
 	<string name="profile_setup_subtitle">Þú getur alltaf klárað þetta síðar á notendasniðaflipanum.</string>
-	<string name="popular_on_mastodon">Vinsælt á Mastodon</string>
 	<string name="follow_all">Fylgjast með öllum</string>
 	<string name="server_rules_disagree">Ósammála</string>
 	<string name="privacy_policy_explanation">Athugaðu: Við söfnum ekki eða vinnum með neinar upplýsingar.</string>
@@ -398,10 +395,10 @@
 	<string name="compose_poll_multiple_choice">Margir valkostir</string>
 	<string name="delete_poll_option">Eyða valkosti úr könnun</string>
 	<string name="poll_style_title">Stíll könnunar</string>
-	<string name="alt_text">Alt-varatexti</string>
+	<string name="alt_text">Alt-myndatexti</string>
 	<string name="help">Hjálp</string>
-	<string name="what_is_alt_text">Hvað er alt-varatexti?</string>
-	<string name="alt_text_help">ALT-varatexti inniheldur lýsingu á myndefni fyrir fólk með ýmsar gerðir sjónskerðingar, fyrir tengingar með litla bandbreidd, eða til að gefa nánara samhengi fyrir myndefni.\n\nÞú getur með þessu bætt almennt aðgengi og aukið skilning á efni sem þú birtir með því að skrifa skýran, skorinortan og hlutlægan alt-texta til vara.\n\n<ul><li>Lýstu mikilvægum atriðum</li>\n<li>Hafðu yfirlit með þeim texta sem sést í myndum</li>\n<li>Notaðu eðlilega setningaskipan</li>\n<li>Forðastu óþarfar upplýsingar</li>\n<li>Leggðu áherslu á aðalatriði í flóknu myndefni (eins og línuritum eða landakortum)</li></ul></string>
+	<string name="what_is_alt_text">Hvað er alt-myndatexti?</string>
+	<string name="alt_text_help">ALT-myndatexti inniheldur lýsingu á myndefni fyrir fólk með ýmsar gerðir sjónskerðingar, fyrir tengingar með litla bandbreidd, eða til að gefa nánara samhengi fyrir myndefni.\n\nÞú getur með þessu bætt almennt aðgengi og aukið skilning á efni sem þú birtir með því að skrifa skýran, skorinortan og hlutlægan alt-texta til vara.\n\n<ul><li>Lýstu mikilvægum atriðum</li>\n<li>Hafðu yfirlit með þeim texta sem sést í myndum</li>\n<li>Notaðu eðlilega setningaskipan</li>\n<li>Forðastu óþarfar upplýsingar</li>\n<li>Leggðu áherslu á aðalatriði í flóknu myndefni (eins og línuritum eða landakortum)</li></ul></string>
 	<string name="edit_post">Breyta færslu</string>
 	<string name="no_verified_link">Enginn staðfestur tengill</string>
 	<string name="compose_autocomplete_emoji_empty">Skoða tjáningartákn</string>
@@ -433,7 +430,7 @@
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">Um %s</string>
 	<string name="default_post_language">Sjálfgefið tungumál færslu</string>
-	<string name="settings_alt_text_reminders">Bætta við áminningum vegna ALT-varatexta</string>
+	<string name="settings_alt_text_reminders">Bætta við áminningum vegna ALT-myndatexta</string>
 	<string name="settings_confirm_unfollow">Spyrja áður en hætt er að fylgjast með einhverjum</string>
 	<string name="settings_confirm_boost">Spyrja áður en endurbirting fer fram</string>
 	<string name="settings_confirm_delete_post">Spyrja áður en færslum er eytt</string>
@@ -487,14 +484,14 @@
 		<item quantity="one">fyrir %d klukkustund</item>
 		<item quantity="other">fyrir %d klukkustundum</item>
 	</plurals>
-	<string name="alt_text_reminder_title">Myndgögn vantar ALT-varatexta</string>
+	<string name="alt_text_reminder_title">Myndgögn vantar ALT-myndatexta</string>
 	<plurals name="alt_text_reminder_x_images">
-		<item quantity="one">%s myndanna þinna vantar alt-varatexta. Birta samt?</item>
-		<item quantity="other">%s myndanna þinna vantar alt-varatexta. Birta samt?</item>
+		<item quantity="one">%s myndanna þinna vantar alt-myndatexta. Birta samt?</item>
+		<item quantity="other">%s myndanna þinna vantar alt-myndatexta. Birta samt?</item>
 	</plurals>
 	<plurals name="alt_text_reminder_x_attachments">
-		<item quantity="one">%s margmiðlunarviðhengjanna þinna vantar alt-varatexta. Birta samt?</item>
-		<item quantity="other">%s margmiðlunarviðhengjanna þinna vantar alt-varatexta. Birta samt?</item>
+		<item quantity="one">%s margmiðlunarviðhengjanna þinna vantar alt-myndatexta. Birta samt?</item>
+		<item quantity="other">%s margmiðlunarviðhengjanna þinna vantar alt-myndatexta. Birta samt?</item>
 	</plurals>
 	<string name="count_one">Einn</string>
 	<string name="count_two">Tveir</string>
@@ -630,5 +627,47 @@
 	<string name="manage_list_members">Sýsla með meðlimi listans</string>
 	<string name="list_no_members">Engir meðlimir ennþá</string>
 	<string name="list_find_users">Finndu notendur til að bæta við</string>
+	<string name="reply_to_user">Svara %s</string>
+	<string name="posted_at">Birt klukkan %s</string>
+	<string name="non_mutual_sheet_title">Halló, ný tenging!</string>
+	<string name="non_mutual_sheet_text">Það lítur út eins og þú sért að fara að svara einhverjum sem ekki er enn með sameiginlega tengingu við þig. Nú ætti að passa upp á fyrstu viðkynningu.</string>
+	<string name="got_it">Náði því</string>
+	<string name="dont_remind_again">Ekki minna mig aftur á þetta</string>
 	<!-- %s is a time interval ("5 months") -->
+	<string name="old_post_sheet_title">Þessi færsla er %s gömul</string>
+	<string name="old_post_sheet_text">Þú getur samt svarað, en ekki er víst að þetta skipti neinu máli lengur.</string>
+	<plurals name="x_months">
+		<item quantity="one">%,d mánaðar</item>
+		<item quantity="other">%,d mánaða</item>
+	</plurals>
+	<string name="more_than_two_years">meira en 2 ára</string>
+	<string name="non_mutual_title1">Sýndu virðingu og haltu þig við efnið</string>
+	<string name="non_mutual_text1">Gakktu úr skugga um að svarið þitt sé kurteislegt og viðeigandi.</string>
+	<string name="non_mutual_title2">Sýndu umhyggju</string>
+	<string name="non_mutual_text2">Jákvæður tónn verður alltaf þeginn með þökkum.</string>
+	<string name="non_mutual_title3">Vertu opin/n</string>
+	<string name="non_mutual_text3">Samræðustíll hvers og eins er einstakur. Vertu tilbúin/n að aðlaga þig.</string>
+	<string name="make_profile_discoverable">Gera notandasniðið mitt finnanlegt</string>
+	<string name="discoverability">Finnanleiki</string>
+	<string name="discoverability_help">Þegar þú kýst finnanleika á Mastodon, munu færslurnar þínar birtast í leitarniðurstöðum og vinsældalistum.\n\nStungið verður upp á notandasniðinu þínu við fólk með svipuð áhugamál og þú hefur.\n\nKjósir þú að vera ekki með, mun annað fólk geta fundið þig með nafninu þínu.</string>
+	<string name="app_version_copied">Útgáfunúmer afritað á klippispjald</string>
+	<string name="onboarding_recommendations_intro">Þú ræktar heimastreymið þitt.
+ Því fleira fólki sem þú fylgist með, því virkara og áhugaverðara verður það.</string>
+	<string name="onboarding_recommendations_title">Aðlagaðu heimastreymið þitt eftir þínu höfði</string>
+	<string name="article_by_author">Frá %s</string>
+	<string name="info">Upplýsingar</string>
+	<string name="button_reblogged">Endurbirt</string>
+	<string name="button_favorited">Sett í eftirlæti</string>
+	<string name="bookmarked">Bókamerkt</string>
+	<string name="join_server_x_with_invite">Taka þátt í %s með boðstengli</string>
+	<string name="expired_invite_link">Útrunninn boðstengill</string>
+	<string name="expired_clipboard_invite_link_alert">Boðstengillinn á klippispjaldinu þínu fyrir %1$s er útrunninn og því ekki hægt að nota hann til nýskráningar.\n\nÞú getur beðið um nýjan boðstengil frá fyrirliggjandi þátttakanda, nýskráð þig í gegnum %2$s, eða valið annan netþjón til að skrá þig á.</string>
+	<string name="invalid_invite_link">Ógildur boðstengill</string>
+	<string name="invalid_clipboard_invite_link_alert">Boðstengillinn á klippispjaldinu þínu fyrir %1$s er ógildur og því ekki hægt að nota hann til nýskráningar.\n\nÞú getur beðið um nýjan boðstengil frá fyrirliggjandi þátttakanda, nýskráð þig í gegnum %2$s, eða valið annan netþjón til að skrá þig á.</string>
+	<string name="use_invite_link">Nota boðstengil</string>
+	<string name="enter_invite_link">Settu inn boðstengil</string>
+	<string name="this_invite_is_invalid">Þessi boðstengill er ekki gildur.</string>
+	<string name="this_invite_has_expired">Þessi boðstengill er útrunninn.</string>
+	<string name="invite_link_pasted">Tengill afritaður af klippispjaldinu þínu.</string>
+	<string name="need_invite_to_join_server">Til að ganga til liðs við %s þarftu boðstengil frá einhverjum sem þegar er þátttakandi.</string>
 </resources>

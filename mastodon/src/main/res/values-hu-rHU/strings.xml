@@ -11,11 +11,11 @@
 	<string name="user_boosted">%s megtolta</string>
 	<string name="in_reply_to">Válasz neki: %s</string>
 	<string name="notifications">Értesítések</string>
-	<string name="user_followed_you">%s bekövetett téged</string>
-	<string name="user_sent_follow_request">%s követési kérelmet küldött neked</string>
-	<string name="user_favorited">%s kedvencnek jelölte a bejegyzésedet</string>
-	<string name="notification_boosted">%s megtolta a bejegyzésedet</string>
-	<string name="poll_ended">Nézd meg a szavazás eredményeit amiben részt vettél</string>
+	<string name="user_followed_you">%s bekövetette önt</string>
+	<string name="user_sent_follow_request">%s követési kérelmet küldött önnek</string>
+	<string name="user_favorited">%s kedvencnek jelölte a bejegyzését</string>
+	<string name="notification_boosted">%s megtolta a bejegyzését</string>
+	<string name="poll_ended">Nézze meg a szavazás eredményét, amiben részt vett</string>
 	<string name="share_toot_title">Megosztás</string>
 	<string name="settings">Beállítások</string>
 	<string name="publish">Közzététel</string>
@@ -91,24 +91,24 @@
 	</plurals>
 	<string name="poll_closed">Lezárva</string>
 	<string name="confirm_mute_title">Fiók némítása</string>
-	<string name="confirm_mute">Valóban némítani szeretnéd őt: %s?</string>
+	<string name="confirm_mute">Valóban némítani szeretné őt: %s?</string>
 	<string name="do_mute">Némítás</string>
 	<string name="confirm_unmute_title">Fiók némításának feloldása</string>
-	<string name="confirm_unmute">Valóban fel szeretnéd oldani %s némítását?</string>
+	<string name="confirm_unmute">Valóban fel szeretné oldani %s némítását?</string>
 	<string name="do_unmute">Némítás feloldása</string>
 	<string name="confirm_block_title">Fiók tiltása</string>
 	<string name="confirm_block_domain_title">Domain letiltása</string>
-	<string name="confirm_block">Erősítsd meg, hogy tiltod a(z) %s domaint</string>
+	<string name="confirm_block">Erősítse meg, hogy tiltja a(z) %s domaint</string>
 	<string name="do_block">Letilt</string>
 	<string name="confirm_unblock_title">Fiók tiltásának feloldása</string>
 	<string name="confirm_unblock_domain_title">Domén letiltásának feloldása</string>
-	<string name="confirm_unblock">Valóban fel szeretnéd oldani %s tiltását?</string>
+	<string name="confirm_unblock">Valóban fel szeretné oldani %s tiltását?</string>
 	<string name="do_unblock">Tiltás feloldása</string>
 	<string name="button_blocked">Tiltva</string>
 	<string name="action_vote">Szavazás</string>
 	<string name="delete">Törlés</string>
 	<string name="confirm_delete_title">Bejegyzés törlése</string>
-	<string name="confirm_delete">Biztos, hogy törölni szeretnéd ezt a bejegyzést?</string>
+	<string name="confirm_delete">Biztos, hogy törölni szeretné ezt a bejegyzést?</string>
 	<string name="deleting">Törlés…</string>
 	<string name="notification_channel_audio_player">Audiolejátszás</string>
 	<string name="play">Lejátszás</string>
@@ -118,7 +118,7 @@
 	<string name="search_hint">Keresés</string>
 	<string name="hashtags">Címkék</string>
 	<string name="news">Hírek</string>
-	<string name="for_you">Neked</string>
+	<string name="for_you">Ajánlások</string>
 	<string name="all_notifications">Összes</string>
 	<string name="mentions">Említések</string>
 	<plurals name="x_people_talking">
@@ -146,7 +146,7 @@
 	<string name="sending_report">Jelentés elküldése…</string>
 	<string name="report_sent_title">Köszönjük, hogy jelentetted, meg fogjuk nézni.</string>
 	<string name="report_sent_subtitle">Amíg megnézzük, a következőket teheted %s felhasználóval szemben:</string>
-	<string name="unfollow_user">%s követésének megszüntetése</string>
+	<string name="unfollow_user">%s kikövetése</string>
 	<string name="unfollow">Követés megszüntetése</string>
 	<string name="mute_user_explain">Nem fogod látni a bejegyzéseit. Továbbra is fog tudni követni, és látni fogja a bejegyzéseidet, és nem fogja tudni, hogy némítottad.</string>
 	<string name="block_user_explain">A bejegyzései nem lesznek láthatóak számodra. Nem nézheti majd meg a saját bejegyzéseidet és nem tud majd követni sem. Azt is meg fogja tudni mondani, hogy letiltották.</string>
@@ -171,7 +171,7 @@
 	<string name="resend">Újraküldés</string>
 	<string name="open_email_app">E-mail alkalmazás megnyitása</string>
 	<string name="resent_email">Megerősítő email elküldve</string>
-	<string name="compose_hint">Gépeld vagy másold be, ami a fejedben jár</string>
+	<string name="compose_hint">Írd vagy másold be, ami a fejedben jár</string>
 	<string name="content_warning">Tartalmi figyelmeztetés</string>
 	<string name="save">Mentés</string>
 	<string name="add_alt_text">Helyettesítő szöveg hozzáadása</string>
@@ -326,7 +326,6 @@
 	<string name="login_title">Üdv újra</string>
 	<string name="login_subtitle">Azon a kiszolgálón jelentkezz be, ahol a fiókodat létrehoztad.</string>
 	<string name="server_url">Kiszolgáló URL</string>
-	<string name="signup_random_server_explain">Választunk egy kiszolgálót a saját nyelvedhez igazodva, ha választás nélkül folytatod.</string>
 	<string name="server_filter_any_language">Bármely Nyelv</string>
 	<string name="server_filter_instant_signup">Azonnali Regisztráció</string>
 	<string name="server_filter_manual_review">Kézi Felülvizsgálat</string>
@@ -340,11 +339,9 @@
 	<string name="not_accepting_new_members">Nem fogad új tagokat</string>
 	<string name="category_special_interests">Különleges Érdeklődés</string>
 	<string name="signup_passwords_dont_match">Jelszavak nem egyeznek</string>
-	<string name="pick_server_for_me">Válassz egyet nekem</string>
 	<string name="profile_add_row">Sor hozzáadása</string>
 	<string name="profile_setup">Profilbeállítás</string>
 	<string name="profile_setup_subtitle">Ezt később is bármikor kitöltheted a Profil fülön.</string>
-	<string name="popular_on_mastodon">Népszerű Mastodonon</string>
 	<string name="follow_all">Összes követése</string>
 	<string name="server_rules_disagree">Elutasítás</string>
 	<string name="privacy_policy_explanation">Röviden: Nem gyűjtünk és nem dolgozunk fel semmit.</string>
@@ -355,10 +352,12 @@
 	<string name="sending_follows">Felhasználók bekövetése…</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
 	<string name="spoiler_show">Megjelenítés mindenképp</string>
+	<string name="spoiler_hide">Elrejt</string>
 	<string name="poll_multiple_choice">Válasszon egyet vagy többet</string>
 	<string name="save_changes">Módosítások mentése</string>
 	<string name="profile_featured">Ajánlott</string>
 	<string name="profile_timeline">Idővonal</string>
+	<string name="view_all">Összes megtekintése</string>
 	<string name="profile_endorsed_accounts">Fiókok</string>
 	<string name="verified_link">Ellenőrzött link</string>
 	<string name="show">Megjelenítés</string>
@@ -387,10 +386,10 @@
 	<string name="attachment_type_unknown">Fájl</string>
 	<string name="attachment_x_percent_uploaded">%d%% feltöltve</string>
 	<string name="add_poll_option">Szavazási opció hozzáadása</string>
-	<string name="poll_length">Szavazás hossza</string>
+	<string name="poll_length">Szavazás időtartama</string>
 	<string name="poll_style">Stílus</string>
 	<string name="compose_poll_single_choice">Egy válasz</string>
-	<string name="compose_poll_multiple_choice">Többválasztós</string>
+	<string name="compose_poll_multiple_choice">Többválaszos</string>
 	<string name="delete_poll_option">Szavazási opció eltávolítása</string>
 	<string name="poll_style_title">Szavazás stílusa</string>
 	<string name="alt_text">Alt szöveg</string>
@@ -412,19 +411,22 @@
 	<string name="report_title_post">Poszt jelentése</string>
 	<string name="forward_report_explanation">A fiók egy másik szerverről származik. Elküldi a jelentés anonimizált másolatát oda is?</string>
 	<!-- %s is the server domain -->
+	<string name="forward_report_to_server">Tovább a következőnek: %s</string>
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
 	<string name="reported">Jelentve</string>
 	<string name="muted_user">Némítva %s</string>
+	<string name="blocked_user">%s letiltva</string>
 	<string name="mark_all_notifications_read">Összes megjelölése olvasottként</string>
-	<string name="settings_display">Kijelző</string>
+	<string name="settings_display">Megjelenés</string>
 	<string name="settings_filters">Szűrők</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">%s névjegy</string>
 	<string name="default_post_language">Alapértelmezett poszt nyelv</string>
+	<string name="settings_alt_text_reminders">Alt szöveges emlékeztetők</string>
 	<string name="settings_confirm_unfollow">Kikövetés előtt rákérdezés</string>
 	<string name="settings_confirm_boost">Megtolás előtt rákérdezés</string>
 	<string name="settings_confirm_delete_post">Törlés előtt rákérdezés</string>
-	<string name="pause_all_notifications">Minden szüneteltetése</string>
+	<string name="pause_all_notifications">Összes szüneteltetése</string>
 	<string name="pause_notifications_off">Ki</string>
 	<string name="notifications_policy_anyone">Bárkitől</string>
 	<string name="notifications_policy_followed">A követőktől</string>
@@ -449,7 +451,9 @@
 	<string name="server_administrator">Adminisztrátor</string>
 	<string name="settings_even_more">További beállítások</string>
 	<string name="settings_show_cws">Tartalmi figyelmeztetések megjelenítése</string>
+	<string name="settings_hide_sensitive_media">Kényesnek jelölt média elrejtése</string>
 	<string name="settings_show_interaction_counts">Poszt interakció számláló</string>
+	<string name="settings_show_emoji_in_names">Egyéni emojik a megjelenített nevekben</string>
 	<plurals name="x_hours_ago">
 		<item quantity="one">%d órája</item>
 		<item quantity="other">%d hónapja</item>
@@ -467,7 +471,9 @@
 	<string name="settings_edit_filter">Szűrő szerkesztése</string>
 	<string name="settings_filter_duration">Időtartam</string>
 	<string name="settings_filter_muted_words">Némított szavak</string>
-	<string name="settings_filter_show_cw">Megjelenítés tartalmi figyelmeztetésekkel</string>
+	<string name="settings_filter_context">Némítás</string>
+	<string name="settings_filter_show_cw">Megjelenítés figyelmeztetésekkel</string>
+	<string name="settings_filter_show_cw_explanation">Megjeleníti a szűrőnek megfelelő bejegyzéseket, de egy tartalmi figyelmeztetés mögött</string>
 	<string name="settings_delete_filter">Szűrő törlése</string>
 	<string name="filter_duration_forever">Állandó</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
@@ -507,7 +513,9 @@
 	<string name="downloading_update">Letöltés (%d%%)</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
 	<string name="search_mastodon">Keresés a Mastodon-on</string>
+	<string name="clear_all">Összes törlése</string>
 	<string name="search_open_url">URL megnyitása a Mastodonon</string>
+	<string name="search_go_to_account">Ugrás ide: %s</string>
 	<!-- Shown in the post header. Please keep it short -->
 	<string name="time_seconds_ago_short">%d mp-e</string>
 	<string name="time_minutes_ago_short">%d perce</string>
@@ -516,9 +524,11 @@
 	<!-- %s is the name of the post language -->
 	<string name="translate_post">Fordítás erre: %s</string>
 	<!-- %1$s is the language, %2$s is the name of the translation service -->
+	<string name="post_translated">%1$s nyelvről fordítva %2$s szolgáltatással</string>
 	<string name="translation_show_original">Eredeti megjelenítése</string>
 	<string name="translation_failed">A fordítás nem sikerült. Lehet, hogy a rendszergazda nem engedélyezte a fordításokat ezen a szerveren, vagy a szerveren a Mastodon egy régebbi verziója fut, ahol a fordítások még nem támogatottak.</string>
 	<string name="settings_privacy">Adatvédelem és elérhetőség</string>
+	<string name="settings_discoverable">Profilok és bejegyzések a felfedező algoritmusokban</string>
 	<string name="settings_indexable">Nyilvános bejegyzések a keresési eredményekben</string>
 	<plurals name="x_participants">
 		<item quantity="one">%,d résztvevő</item>
@@ -540,8 +550,13 @@
 	<string name="list_members">Lista tagok</string>
 	<string name="delete_list">Lista törlése</string>
 	<!-- %s is the name of the list -->
+	<string name="delete_list_confirm">\"%s\" törlése?</string>
+	<string name="list_exclusive">Tagok elrejtése a Követésekben</string>
+	<string name="list_exclusive_subtitle">Ha valaki szerepel ezen a listán, elrejtjük őt a Követettek idővonalán, hogy ne lássa kétszer a bejegyzéseit.</string>
 	<string name="list_name">Lista neve</string>
+	<string name="list_replies_no_one">Senkitől</string>
 	<string name="list_replies_members">A lista tagjai</string>
+	<string name="list_replies_anyone">Bárki, akit követek</string>
 	<string name="confirm_remove_list_members">Tagok eltávolítása?</string>
 	<string name="remove">Eltávolítás</string>
 	<string name="add_list_member">Tag hozzáadása</string>
@@ -550,9 +565,40 @@
 	<!-- %s is a username -->
 	<string name="remove_from_list">Eltávolítás a listából</string>
 	<string name="confirm_remove_list_member">Tag eltávolítása?</string>
+	<string name="no_lists_subtitle">Az öné itt fog megjelenni</string>
 	<string name="manage_accounts">Fiókok hozzáadása vagy váltása</string>
 	<string name="create_list">Lista létrehozása</string>
+	<string name="step_x_of_y">%1$d. lépés a %2$d-ből</string>
 	<string name="create">Létrehozás</string>
 	<string name="manage_list_members">Lista tagok kezelése</string>
+	<string name="list_no_members">Nincsenek még tagok</string>
+	<string name="reply_to_user">Válasz neki: %s</string>
+	<string name="non_mutual_sheet_title">Hello, úk kapcsolat!</string>
+	<string name="non_mutual_sheet_text">Úgy néz ki, hogy olyan valakinek akarsz válaszolni, aki még nem kapcsolatod. Tégy nagyszerű első benyomást.</string>
+	<string name="got_it">Rendben</string>
+	<string name="dont_remind_again">Ne emlékeztessen többet</string>
 	<!-- %s is a time interval ("5 months") -->
+	<string name="more_than_two_years">2 évnél régebbi</string>
+	<string name="non_mutual_text1">Ügyelj arra, hogy válaszod udvarias és a témához illő legyen.</string>
+	<string name="non_mutual_title2">Fogadd el a kedvességet</string>
+	<string name="non_mutual_text2">A pozitív hangnemet mindig értékelik.</string>
+	<string name="non_mutual_title3">Légy nyitott</string>
+	<string name="non_mutual_text3">Mindenki beszélgetési stílusa egyedi. Készülj fel az alkalmazkodásra.</string>
+	<string name="make_profile_discoverable">Legyen felfedezhető a profilom</string>
+	<string name="discoverability">Felfedezhetőség</string>
+	<string name="info">Infó</string>
+	<string name="button_reblogged">Megtolta</string>
+	<string name="button_favorited">Kedvenc</string>
+	<string name="bookmarked">Könyvjelzőkben</string>
+	<string name="join_server_x_with_invite">%s meghívóval csatlakozott</string>
+	<string name="expired_invite_link">Lejárt meghívó</string>
+	<string name="expired_clipboard_invite_link_alert">A vágólapon lévő %1$s meghívó link lejárt, emiatt nem használható regisztrációhoz.\n\n\nKérhet új linket egy meglévő felhasználótól, regisztrálhat %2$s-on keresztül, vagy választhat egy másik szervert a regisztrációhoz.</string>
+	<string name="invalid_invite_link">Érvénytelen meghívó link</string>
+	<string name="invalid_clipboard_invite_link_alert">A vágólapon lévő %1$s meghívó link nem érvényes, és nem használható feliratkozásra.\n\nKérhet egy új linket egy meglévő felhasználótól, feliratkozhat %2$s-on keresztül, vagy választhat egy másik szervert a feliratkozáshoz.</string>
+	<string name="use_invite_link">Meghívó link használata</string>
+	<string name="enter_invite_link">Meghívó link megadása</string>
+	<string name="this_invite_is_invalid">Ez a meghívó link nem érvényes.</string>
+	<string name="this_invite_has_expired">Ez a meghívó link lejárt.</string>
+	<string name="invite_link_pasted">Link beillesztve a vágólapról.</string>
+	<string name="need_invite_to_join_server">Ahhoz, hogy csatlakozhass %s-hoz, szükséged lesz egy meghívó linkre egy meglévő felhasználótól.</string>
 </resources>

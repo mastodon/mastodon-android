@@ -326,7 +326,6 @@
 	<string name="login_title">Benvida outra vez</string>
 	<string name="login_subtitle">Accede co servidor onde creaches a conta.</string>
 	<string name="server_url">URL do servidor</string>
-	<string name="signup_random_server_explain">Elixiremos un servidor no teu idioma se segues sen seleccionar nada.</string>
 	<string name="server_filter_any_language">Calquer idioma</string>
 	<string name="server_filter_instant_signup">Rexistro Instantáneo</string>
 	<string name="server_filter_manual_review">Revisión manual</string>
@@ -340,11 +339,9 @@
 	<string name="not_accepting_new_members">Non se aceptan novas usuarias</string>
 	<string name="category_special_interests">Intereses Especiais</string>
 	<string name="signup_passwords_dont_match">Os contrasinais non coinciden</string>
-	<string name="pick_server_for_me">Elixe por min</string>
 	<string name="profile_add_row">Engadir fila</string>
 	<string name="profile_setup">Configuración do perfil</string>
 	<string name="profile_setup_subtitle">Sempre podes completar isto máis tarde na lapela de Perfil.</string>
-	<string name="popular_on_mastodon">Popular en Mastodon</string>
 	<string name="follow_all">Seguir a todas</string>
 	<string name="server_rules_disagree">Non aceptar</string>
 	<string name="privacy_policy_explanation">Resumo: non recollemos nin procesamos nada.</string>
@@ -630,5 +627,47 @@
 	<string name="manage_list_members">Xestionar membros da lista</string>
 	<string name="list_no_members">Aínda non tes ninguén</string>
 	<string name="list_find_users">Buscar persoas que engadir</string>
+	<string name="reply_to_user">Responder a %s</string>
+	<string name="posted_at">Publicado o %s</string>
+	<string name="non_mutual_sheet_title">Ola, novo contacto!</string>
+	<string name="non_mutual_sheet_text">Semella que lle vas responder a alguén que aínda non tedes un seguimento recíproco. Intenta crear boa impresión.</string>
+	<string name="got_it">Entendo</string>
+	<string name="dont_remind_again">Non lembrarme isto</string>
 	<!-- %s is a time interval ("5 months") -->
+	<string name="old_post_sheet_title">Esta públicación ten %s</string>
+	<string name="old_post_sheet_text">Podes responder igualmente, pero podería xa non ser relevante.</string>
+	<plurals name="x_months">
+		<item quantity="one">%,d mes</item>
+		<item quantity="other">%,d meses</item>
+	</plurals>
+	<string name="more_than_two_years">máis de 2 anos</string>
+	<string name="non_mutual_title1">Que sexa respetuosa e relevante</string>
+	<string name="non_mutual_text1">Pon tino en que a resposta sexa cortés e atenda ao tema.</string>
+	<string name="non_mutual_title2">Facer propia a amabilidade</string>
+	<string name="non_mutual_text2">Un tono positivo sempre se agradece.</string>
+	<string name="non_mutual_title3">Abraza a diferencia</string>
+	<string name="non_mutual_text3">Cada persoa temos un xeito de conversar. Hai que ser flexibles.</string>
+	<string name="make_profile_discoverable">Que o meu perfil se poida atopar</string>
+	<string name="discoverability">Visibilidade</string>
+	<string name="discoverability_help">Cando marcas as opcións de visibilidade en Mastodon as túas publicacións aparecen nos resultados das buscas e nas tendencias.\n\nO teu perfil podería ser suxerido a persoas con intereses parecidos aos teus.\n\nRexeitalas non agocha o teu perfil se alguén o busca polo teu nome.</string>
+	<string name="app_version_copied">Copiouse o número de versión ao portapeis</string>
+	<string name="onboarding_recommendations_intro">Ti constrúes a túa propia cronoloxía.
+Canta máis xente sigas, máis activo e interesante será.</string>
+	<string name="onboarding_recommendations_title">Personaliza a túa cronoloxía de inicio</string>
+	<string name="article_by_author">Por %s</string>
+	<string name="info">Info</string>
+	<string name="button_reblogged">Promovida</string>
+	<string name="button_favorited">Favorecida</string>
+	<string name="bookmarked">Marcada</string>
+	<string name="join_server_x_with_invite">Únete a %s cun convite</string>
+	<string name="expired_invite_link">Ligazón de convite caducada</string>
+	<string name="expired_clipboard_invite_link_alert">A ligazón de convite para %1$s no portapapeis está caducada e non serve.\n\nPodes pedir unha nova ligazón a unha usuaria existente, crear a conta en %2$s, ou elexir outro servidor para crear a conta.</string>
+	<string name="invalid_invite_link">Ligazón de convite non válida</string>
+	<string name="invalid_clipboard_invite_link_alert">A ligazón de convite para %1$s no portapapeis non é válida e non serve para crear a conta.\n\nPodes pedir unha nova ligazón a unha usuaria existente, crear a conta en %2$s, ou elexir outro servidor no que crear a conta.</string>
+	<string name="use_invite_link">Usar ligazón de convite</string>
+	<string name="enter_invite_link">Escribir ligazón de convite</string>
+	<string name="this_invite_is_invalid">Esta ligazón de convite non é válida.</string>
+	<string name="this_invite_has_expired">A ligazón de convite caducou.</string>
+	<string name="invite_link_pasted">Pegouse a ligazón desde o portapapeis.</string>
+	<string name="need_invite_to_join_server">Precisas unha ligazón de convite dunha usuaria actual para unirte a %s.</string>
 </resources>

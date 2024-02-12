@@ -326,7 +326,6 @@
 	<string name="login_title">Hoşgeldiniz</string>
 	<string name="login_subtitle">Hesabınızı oluşturduğunuz sunucuya giriş yapın.</string>
 	<string name="server_url">Sunucu bağlantısı</string>
-	<string name="signup_random_server_explain">Seçim yapmadan devam ederseniz, dilinize göre bir sunucu seçeceğiz.</string>
 	<string name="server_filter_any_language">Herhangi bir dil</string>
 	<string name="server_filter_instant_signup">Koşulsuz Kayıt</string>
 	<string name="server_filter_manual_review">İnceleme Gerekli</string>
@@ -340,11 +339,9 @@
 	<string name="not_accepting_new_members">Yeni üyelikler kabul edilmiyor</string>
 	<string name="category_special_interests">Özel ilgi alanları</string>
 	<string name="signup_passwords_dont_match">Parolalar eşleşmiyor</string>
-	<string name="pick_server_for_me">Benim için seç</string>
 	<string name="profile_add_row">Satır ekle</string>
 	<string name="profile_setup">Profilini ayarla</string>
 	<string name="profile_setup_subtitle">Bunu istediğin zaman Profil sekmesinden tamamlayabilirsin.</string>
-	<string name="popular_on_mastodon">Mastodon\'da popüler</string>
 	<string name="follow_all">Hepsini takip et</string>
 	<string name="server_rules_disagree">Reddet</string>
 	<string name="privacy_policy_explanation">Kısacası: Hiçbir şey toplamıyoruz veya işlemiyoruz.</string>
@@ -630,7 +627,7 @@
 	<string name="manage_list_members">Liste üyelerini yönet</string>
 	<string name="list_no_members">Henüz üye yok.</string>
 	<string name="list_find_users">Eklenecek kullanıcıları bul</string>
-	<string name="reply_to_user">Yanıtla %s</string>
+	<string name="reply_to_user"> %s Yanıtla</string>
 	<string name="posted_at">%s tarafından gönderildi</string>
 	<string name="non_mutual_sheet_title">Merhaba, yeni bağlantı!</string>
 	<string name="non_mutual_sheet_text">Görünüşe göre henüz ortak bağlantınız olmayan birine yanıt vermek üzeresiniz. Harika bir ilk izlenim bırakınız.</string>
@@ -639,8 +636,12 @@
 	<!-- %s is a time interval ("5 months") -->
 	<string name="old_post_sheet_title">Bu gönderi %s eski</string>
 	<string name="old_post_sheet_text">Hâlâ yanıt verebilirsiniz, ancak konuyla ilgili olmayabilir.</string>
+	<plurals name="x_months">
+		<item quantity="one">%,d ay</item>
+		<item quantity="other">%,d aylar</item>
+	</plurals>
 	<string name="more_than_two_years">2 yıldan fazla süredir</string>
-	<string name="non_mutual_title1">Saygılı ve ilgili &amp; plunuz</string>
+	<string name="non_mutual_title1">Saygılı ve ilgili amp; olunuz</string>
 	<string name="non_mutual_text1">Yanıtınızın nazik ve konuyla ilgili olduğundan emin olunuz.</string>
 	<string name="non_mutual_title2">Nezaketle sarıl</string>
 	<string name="non_mutual_text2">Olumlu bir yaklaşım her zaman takdir edilir.</string>
@@ -650,4 +651,19 @@
 	<string name="discoverability">Keşfedebilirlik</string>
 	<string name="discoverability_help">Mastodon\'da keşfedilebilirliği tercih ettiğinizde, gönderileriniz arama sonuçlarında ve trendlerde görünebilir.\n\nProfiliniz sizinle benzer ilgi alanlarına sahip kişilere önerilebilir.\n\nBirisi sizi isminizle ararsa, devre dışı bırakma işlemi profilinizi gizlemez.</string>
 	<string name="app_version_copied">Sürüm numarası panoya kopyalandı</string>
+	<string name="onboarding_recommendations_intro">Kendi ana akışınızı düzenlersiniz.
+Ne kadar çok kişiyi takip ederseniz, o kadar aktif ve ilginç olacaktır.</string>
+	<string name="onboarding_recommendations_title">Anasayfa akışınızı kişiselleştirin</string>
+	<string name="article_by_author">Yazan %s</string>
+	<string name="info">Bilgi</string>
+	<string name="button_reblogged">Yeniden paylaştı</string>
+	<string name="button_favorited">Sık Kullanılanlar</string>
+	<string name="bookmarked">Yer işareti</string>
+	<string name="expired_invite_link">Süresi dolmuş davet bağlantısı</string>
+	<string name="invalid_invite_link">Geçersiz davet bağlantısı</string>
+	<string name="use_invite_link">Davet bağlantısını kullan</string>
+	<string name="enter_invite_link">Davet bağlantısı gir</string>
+	<string name="this_invite_is_invalid">Bu davet bağlantısı geçerli değil.</string>
+	<string name="this_invite_has_expired">Bu davet bağlantısının süresi doldu.</string>
+	<string name="invite_link_pasted">Bağlantı panodan yapıştırıldı.</string>
 </resources>

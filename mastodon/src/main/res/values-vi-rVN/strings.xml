@@ -207,7 +207,7 @@
 	<string name="add_media">Thêm media</string>
 	<string name="add_poll">Tạo bình chọn</string>
 	<string name="emoji">Emoji</string>
-	<string name="home_timeline">Trang chính</string>
+	<string name="home_timeline">Trang chủ</string>
 	<string name="my_profile">Hồ sơ của tôi</string>
 	<string name="media_viewer">Xem media</string>
 	<string name="follow_user">Theo dõi %s</string>
@@ -307,7 +307,6 @@
 	<string name="login_title">Chào mừng quay trở lại!</string>
 	<string name="login_subtitle">Đăng nhập với máy chủ nơi bạn tạo tài khoản.</string>
 	<string name="server_url">URL Máy chủ</string>
-	<string name="signup_random_server_explain">Chúng tôi sẽ chọn một máy chủ dựa trên ngôn ngữ của bạn nếu bạn tiếp tục mà không lựa chọn.</string>
 	<string name="server_filter_any_language">Mọi ngôn ngữ</string>
 	<string name="server_filter_instant_signup">Duyệt tự động</string>
 	<string name="server_filter_manual_review">Duyệt thủ công</string>
@@ -321,11 +320,9 @@
 	<string name="not_accepting_new_members">Tạm dừng đăng ký mới</string>
 	<string name="category_special_interests">Sở thích đặc biệt</string>
 	<string name="signup_passwords_dont_match">Mật khẩu không khớp</string>
-	<string name="pick_server_for_me">Chọn giúp tôi</string>
 	<string name="profile_add_row">Thêm hàng</string>
 	<string name="profile_setup">Thiết lập hồ sơ</string>
 	<string name="profile_setup_subtitle">Bạn có thể sửa sau trong mục Hồ sơ.</string>
-	<string name="popular_on_mastodon">Thịnh hành trên Mastodon</string>
 	<string name="follow_all">Theo dõi tất cả</string>
 	<string name="server_rules_disagree">Không đồng ý</string>
 	<string name="privacy_policy_explanation">TL;DR: Chúng tôi không thu thập bất cứ gì.</string>
@@ -555,7 +552,7 @@
 		<item quantity="other">%,d tút hôm nay</item>
 	</plurals>
 	<string name="error_playing_video">Lỗi khi phát video</string>
-	<string name="timeline_following">Trang chính</string>
+	<string name="timeline_following">Trang chủ</string>
 	<string name="lists">Danh sách</string>
 	<string name="followed_hashtags">Hashtag theo dõi</string>
 	<string name="manage_lists">Quản lý danh sách</string>
@@ -600,10 +597,10 @@
 	<string name="list_find_users">Tìm người để thêm vào</string>
 	<string name="reply_to_user">Trả lời %s</string>
 	<string name="posted_at">Được đăng tại %s</string>
-	<string name="non_mutual_sheet_title">Xin chào, kết nối mới!</string>
-	<string name="non_mutual_sheet_text">Có vẻ như bạn sắp trả lời một người chưa có mối quan hệ chung. Hãy tạo ấn tượng đầu tiên tuyệt vời.</string>
+	<string name="non_mutual_sheet_title">Chào kết nối mới!</string>
+	<string name="non_mutual_sheet_text">Bạn sắp trả lời tút của một người chưa quen biết. Hãy tạo thiện cảm đầu tiên nhé.</string>
 	<string name="got_it">Đã hiểu</string>
-	<string name="dont_remind_again">Đừng nhắc nữa</string>
+	<string name="dont_remind_again">Không nhắc lại</string>
 	<!-- %s is a time interval ("5 months") -->
 	<string name="old_post_sheet_title">Tút đăng %s trước</string>
 	<string name="old_post_sheet_text">Bạn vẫn có thể trả lời nhưng nó có thể không còn phù hợp nữa.</string>
@@ -611,14 +608,33 @@
 		<item quantity="other">%,d tháng</item>
 	</plurals>
 	<string name="more_than_two_years">hơn 2 năm</string>
-	<string name="non_mutual_title1">Tôn trọng &amp; liên quan</string>
-	<string name="non_mutual_text1">Đảm bảo câu trả lời của bạn lịch sự và đúng chủ đề.</string>
+	<string name="non_mutual_title1">Tôn trọng &amp; đúng chủ đề</string>
+	<string name="non_mutual_text1">Đảm bảo trả lời lịch sự và liên quan tút.</string>
 	<string name="non_mutual_title2">Nói chuyện tử tế</string>
 	<string name="non_mutual_text2">Thái độ tích cực luôn được đánh giá cao.</string>
-	<string name="non_mutual_title3">Hãy cởi mở</string>
+	<string name="non_mutual_title3">Cởi mở</string>
 	<string name="non_mutual_text3">Phong cách trò chuyện của mỗi người là duy nhất. Hãy sẵn sàng để thích nghi.</string>
 	<string name="make_profile_discoverable">Bật khám phá cho hồ sơ của tôi</string>
 	<string name="discoverability">Khám phá</string>
 	<string name="discoverability_help">Khi bạn chọn bật khám phá trên Mastodon, tút của bạn sẽ được xuất hiện trong kết quả tìm kiếm và thịnh hành.\n\nHồ sơ của bạn có thể được đề xuất cho những người có cùng sở thích với bạn.\n\nViệc tắt khám phá sẽ không làm ẩn hồ sơ của bạn nếu ai đó tìm kiếm bạn.</string>
 	<string name="app_version_copied">Số phiên bản đã được sao chép vào bộ nhớ tạm</string>
+	<string name="onboarding_recommendations_intro">Bạn quản lý trang chủ của riêng bạn.
+Bạn càng theo dõi nhiều người thì nó sẽ càng sôi động và thú vị.</string>
+	<string name="onboarding_recommendations_title">Cá nhân hóa trang chủ</string>
+	<string name="article_by_author">Bởi %s</string>
+	<string name="info">Thông tin</string>
+	<string name="button_reblogged">Đã đăng lại</string>
+	<string name="button_favorited">Đã thích</string>
+	<string name="bookmarked">Đã lưu</string>
+	<string name="join_server_x_with_invite">Tham gia %s qua lời mời</string>
+	<string name="expired_invite_link">Lời mời hết hạn</string>
+	<string name="expired_clipboard_invite_link_alert">Lời mời %1$s trong bộ nhớ tạm đã hết hạn và không dùng để đăng ký được.\n\nBạn hãy yêu cầu lời mời mới, đăng ký qua %2$s, hoặc chọn một máy chủ khác.</string>
+	<string name="invalid_invite_link">Lời mời không hợp lệ</string>
+	<string name="invalid_clipboard_invite_link_alert">Lời mời %1$s trong bộ nhớ tạm không hợp lệ và không dùng để đăng ký được.\n\nBạn hãy yêu cầu lời mời mới, đăng ký qua %2$s, hoặc chọn một máy chủ khác.</string>
+	<string name="use_invite_link">Dùng lời mời</string>
+	<string name="enter_invite_link">Nhập lời mời</string>
+	<string name="this_invite_is_invalid">Lời mời này không hợp lệ.</string>
+	<string name="this_invite_has_expired">Lời mời này đã hết hạn.</string>
+	<string name="invite_link_pasted">Đã sao chép vào bộ nhớ tạm.</string>
+	<string name="need_invite_to_join_server">Để tham gia %s, bạn cần phải có lời mời từ một thành viên.</string>
 </resources>

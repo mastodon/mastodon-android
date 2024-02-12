@@ -326,7 +326,6 @@
 	<string name="login_title">Καλώς Ήρθες Ξανά</string>
 	<string name="login_subtitle">Συνδέσου με τον διακομιστή όπου δημιούργησες τον λογαριασμό σου.</string>
 	<string name="server_url">URL διακομιστή</string>
-	<string name="signup_random_server_explain">Θα επιλέξουμε έναν διακομιστή με βάση τη γλώσσα σου αν συνεχίσεις χωρίς να κάνεις κάποια επιλογή.</string>
 	<string name="server_filter_any_language">Οποιαδήποτε Γλώσσα</string>
 	<string name="server_filter_instant_signup">Άμεση Εγγραφή</string>
 	<string name="server_filter_manual_review">Χειροκίνητη Αξιολόγηση</string>
@@ -340,11 +339,9 @@
 	<string name="not_accepting_new_members">Δεν δέχεται νέα μέλη</string>
 	<string name="category_special_interests">Ειδικά Ενδιαφέροντα</string>
 	<string name="signup_passwords_dont_match">Οι κωδικοί πρόσβασης δεν ταιριάζουν</string>
-	<string name="pick_server_for_me">Διάλεξε για μένα</string>
 	<string name="profile_add_row">Προσθήκη γραμμής</string>
 	<string name="profile_setup">Ρύθμιση προφίλ</string>
 	<string name="profile_setup_subtitle">Μπορείς πάντα να το ολοκληρώσεις αργότερα στην καρτέλα Προφίλ.</string>
-	<string name="popular_on_mastodon">Δημοφιλή στο Mastodon</string>
 	<string name="follow_all">Ακολούθησε όλους</string>
 	<string name="server_rules_disagree">Διαφωνώ</string>
 	<string name="privacy_policy_explanation">Σύνοψη: Δεν συλλέγουμε ή επεξεργαζόμαστε τίποτα.</string>
@@ -612,5 +609,64 @@
 	<string name="add_user_to_list">Προσθήκη στη λίστα…</string>
 	<string name="add_user_to_list_title">Προσθήκη στη λίστα</string>
 	<!-- %s is a username -->
+	<string name="manage_user_lists">Διαχείριση λιστών όπου εμφανίζεται ο/η %s</string>
+	<string name="remove_from_list">Αφαίρεση από τη λίστα</string>
+	<string name="confirm_remove_list_member">Αφαίρεση μέλους;</string>
+	<string name="no_followed_hashtags_title">Μείνε σε επαφή με τα ενδιαφέροντα σου ακολουθώντας ετικέτες</string>
+	<string name="no_followed_hashtags_subtitle">Αυτά που ακολουθείς θα εμφανίζονται εδώ</string>
+	<string name="no_lists_title">Οργάνωσε την αρχική σου ροή με Λίστες</string>
+	<string name="no_lists_subtitle">Η δική σου θα εμφανίζεται εδώ</string>
+	<string name="manage_accounts">Προσθήκη ή εναλλαγή λογαριασμού</string>
+	<plurals name="x_posts_recently">
+		<item quantity="one">%,d ανάρτηση πρόσφατα</item>
+		<item quantity="other">%,d αναρτήσεις πρόσφατα</item>
+	</plurals>
+	<string name="create_list">Δημιουργία λίστας</string>
+	<string name="step_x_of_y">Βήμα %1$d από %2$d</string>
+	<string name="create">Δημιουργία</string>
+	<string name="manage_list_members">Διαχείριση μελών λίστας</string>
+	<string name="list_no_members">Κανένα μέλος ακόμα</string>
+	<string name="list_find_users">Εύρεση χρηστών για προσθήκη</string>
+	<string name="reply_to_user">Απάντηση σε %s</string>
+	<string name="posted_at">Αναρτήθηκε σε %s</string>
+	<string name="non_mutual_sheet_title">Γεια σου, νέα σύνδεση!</string>
+	<string name="non_mutual_sheet_text">Φαίνεται ότι είσαι έτοιμος/η να απαντήσεις σε κάποιον που δεν είναι αμοιβαία σύνδεση ακόμα. Ας κάνουμε καλή εντύπωση.</string>
+	<string name="got_it">Το \'πιασα</string>
+	<string name="dont_remind_again">Μη μου το ξαναθυμίσεις</string>
 	<!-- %s is a time interval ("5 months") -->
+	<string name="old_post_sheet_title">Αυτή η ανάρτηση έγινε πριν %s</string>
+	<string name="old_post_sheet_text">Μπορείς ακόμα να απαντήσεις αλλά μπορεί να μην είναι πλέον σχετικό.</string>
+	<plurals name="x_months">
+		<item quantity="one">%,d μήνας</item>
+		<item quantity="other">%,d μήνες</item>
+	</plurals>
+	<string name="more_than_two_years">άνω των 2 ετών</string>
+	<string name="non_mutual_title1">Να είναι ευγενικό &amp; σχετικό</string>
+	<string name="non_mutual_text1">Βεβαιώσου ότι η απάντησή σου είναι ευγενική και σχετική με το θέμα.</string>
+	<string name="non_mutual_title2">Αγκάλιασε την καλοσύνη</string>
+	<string name="non_mutual_text2">Ένας θετικός τόνος εκτιμάται πάντα.</string>
+	<string name="non_mutual_title3">Να είσαι ανοιχτός/η</string>
+	<string name="non_mutual_text3">Το στυλ συνομιλίας όλων είναι μοναδικό. Προετοιμάσου να προσαρμοστείς.</string>
+	<string name="make_profile_discoverable">Κάνε το προφίλ μου ανακαλύψιμο</string>
+	<string name="discoverability">Ορατότητα</string>
+	<string name="discoverability_help">Όταν συμφωνείς στην ορατότητα στο Mastodon, οι αναρτήσεις σου μπορεί να εμφανίζονται στα αποτελέσματα αναζήτησης και στις τάσεις.\n\nΤο προφίλ σου μπορεί να προτείνεται σε άτομα με παρόμοια ενδιαφέροντα με εσένα.\n\nΤο να την αρνηθείς, δεν αποκρύπτει το προφίλ σου αν κάποιος σε αναζητήσει.</string>
+	<string name="app_version_copied">Ο αριθμός έκδοσης αντιγράφηκε στο πρόχειρο</string>
+	<string name="onboarding_recommendations_intro">Εσύ επιμελείσαι την Αρχική σου ροή. Όσο περισσότερους ανθρώπους ακολουθείς, τόσο πιο δραστήρια και ενδιαφέρουσα θα είναι.</string>
+	<string name="onboarding_recommendations_title">Προσάρμοσε την αρχική ροή σου</string>
+	<string name="article_by_author">Βάσει %s</string>
+	<string name="info">Πληροφορίες</string>
+	<string name="button_reblogged">Ενισχύθηκε</string>
+	<string name="button_favorited">Είναι αγαπημένο</string>
+	<string name="bookmarked">Σε σελιδοδείκτη</string>
+	<string name="join_server_x_with_invite">Συμμετοχή σε %s με πρόσκληση</string>
+	<string name="expired_invite_link">Ο ληγμένος σύνδεσμος πρόσκλησης</string>
+	<string name="expired_clipboard_invite_link_alert">Ο σύνδεσμος πρόσκλησης %1$s στο πρόχειρό σου έχει λήξει και δεν μπορεί να χρησιμοποιηθεί για εγγραφή.\n\nΜπορείς να αιτηθείς νέο σύνδεσμο από υφιστάμενο χρήστη, να εγγραφείς μέσω %2$s ή επέλεξε άλλον διακομιστή να εγγραφείς.</string>
+	<string name="invalid_invite_link">Μη έγκυρος σύνδεσμος πρόσκλησης</string>
+	<string name="invalid_clipboard_invite_link_alert">Ο σύνδεσμος πρόσκλησης %1$s στο πρόχειρό σου δεν είναι έγκυρος και δεν μπορεί να χρησιμοποιηθεί για εγγραφή.\n\nΜπορείς να αιτηθείς νέο σύνδεσμο από υφιστάμενο χρήστη, να εγγραφείς μέσω %2$s ή επέλεξε άλλον διακομιστή να εγγραφείς.</string>
+	<string name="use_invite_link">Χρήση συνδέσμου πρόσκλησης</string>
+	<string name="enter_invite_link">Εισαγωγή σύνδεσμο πρόσκλησης</string>
+	<string name="this_invite_is_invalid">Αυτός ο σύνδεσμος πρόσκλησης δεν είναι έγκυρος.</string>
+	<string name="this_invite_has_expired">Αυτός ο σύνδεσμος πρόσκλησης έχει λήξει.</string>
+	<string name="invite_link_pasted">Ο σύνδεσμος επικολλήθηκε από το πρόχειρο.</string>
+	<string name="need_invite_to_join_server">Για να γίνεις μέλος στο %s, θα χρειαστείς έναν σύνδεσμο πρόσκλησης από έναν υπάρχοντα χρήστη.</string>
 </resources>

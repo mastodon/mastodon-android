@@ -307,7 +307,6 @@
 	<string name="login_title">歡迎回來</string>
 	<string name="login_subtitle">以您建立帳號之伺服器登入。</string>
 	<string name="server_url">伺服器 URL</string>
-	<string name="signup_random_server_explain">如果您不選擇而繼續的話，我們將透過您的語言設定替您選擇一台伺服器。</string>
 	<string name="server_filter_any_language">任何語言</string>
 	<string name="server_filter_instant_signup">立即註冊</string>
 	<string name="server_filter_manual_review">手動審核</string>
@@ -321,11 +320,9 @@
 	<string name="not_accepting_new_members">目前暫不開放新成員</string>
 	<string name="category_special_interests">特別興趣</string>
 	<string name="signup_passwords_dont_match">密碼不一致</string>
-	<string name="pick_server_for_me">請替我選擇</string>
 	<string name="profile_add_row">新增</string>
 	<string name="profile_setup">個人檔案設定</string>
 	<string name="profile_setup_subtitle">您隨時能稍候於個人檔案頁面完成此設定。</string>
-	<string name="popular_on_mastodon">Mastodon 上之流行內容</string>
 	<string name="follow_all">跟隨所有</string>
 	<string name="server_rules_disagree">不同意</string>
 	<string name="privacy_policy_explanation">TL;DR：我們不蒐集或處理任何資料。</string>
@@ -586,7 +583,7 @@
 	<string name="confirm_remove_list_member">移除此成員？</string>
 	<string name="no_followed_hashtags_title">跟隨主題標籤以跟上興趣主題</string>
 	<string name="no_followed_hashtags_subtitle">已跟隨的主題標籤將顯示於此</string>
-	<string name="no_lists_title">藉由列表以整理您的首頁河道</string>
+	<string name="no_lists_title">藉由列表以整理您的首頁時間軸</string>
 	<string name="no_lists_subtitle">您的將出現於此</string>
 	<string name="manage_accounts">新增或切換帳號</string>
 	<plurals name="x_posts_recently">
@@ -621,4 +618,23 @@
 	<string name="discoverability">可發現性</string>
 	<string name="discoverability_help">當您於 Mastodon 上選擇加入可發現性時，您的嘟文可能會出現於搜尋結果與趨勢中。\n\n您的個人檔案可能會被推薦給與您志趣相投的人。\n\n即使選擇退出，當其他人以帳號搜尋您時仍將顯示您的個人檔案。</string>
 	<string name="app_version_copied">版本號碼已複製到剪貼簿</string>
+	<string name="onboarding_recommendations_intro">您決定自己的首頁時間軸。
+若您跟隨越多人，首頁時間軸將會越活躍且有趣。</string>
+	<string name="onboarding_recommendations_title">客製化您的首頁時間軸</string>
+	<string name="article_by_author">來自 %s</string>
+	<string name="info">關於</string>
+	<string name="button_reblogged">已轉嘟</string>
+	<string name="button_favorited">已加入最愛</string>
+	<string name="bookmarked">已加入書籤</string>
+	<string name="join_server_x_with_invite">透過邀請加入 %s</string>
+	<string name="expired_invite_link">已過期邀請連結</string>
+	<string name="expired_clipboard_invite_link_alert">您剪貼簿中 %1$s 之邀請連結已過期且無法用於註冊。\n\n您可以透過既有使用者請求新的連結，透過 %2$s 註冊，或者於其他伺服器註冊。</string>
+	<string name="invalid_invite_link">無效的邀請連結</string>
+	<string name="invalid_clipboard_invite_link_alert">您剪貼簿中 %1$s 之邀請連結是無效的且無法用於註冊。\n\n您可以透過既有使用者請求新的連結，透過 %2$s 註冊，或者於其他伺服器註冊。</string>
+	<string name="use_invite_link">使用邀請連結</string>
+	<string name="enter_invite_link">輸入邀請連結</string>
+	<string name="this_invite_is_invalid">此邀請連結是無效的。</string>
+	<string name="this_invite_has_expired">此邀請連結已過期。</string>
+	<string name="invite_link_pasted">已由剪貼簿貼上連結。</string>
+	<string name="need_invite_to_join_server">您需要一份由既有使用者取得之邀請連結以加入 %s。</string>
 </resources>

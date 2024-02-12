@@ -318,7 +318,6 @@
 	<string name="login_title">Välkommen tillbaka</string>
 	<string name="login_subtitle">Logga in på den server där du skapade ditt konto.</string>
 	<string name="server_url">Server-URL</string>
-	<string name="signup_random_server_explain">Vi kommer att välja en server baserat på ditt språk om du fortsätter utan att göra ett val.</string>
 	<string name="server_filter_any_language">Vilket språk som helst</string>
 	<string name="server_filter_instant_signup">Omedelbar registrering</string>
 	<string name="server_filter_manual_review">Manuell granskning</string>
@@ -332,11 +331,9 @@
 	<string name="not_accepting_new_members">Accepterar inte nya medlemmar</string>
 	<string name="category_special_interests">Specialintressen</string>
 	<string name="signup_passwords_dont_match">Lösenorden matchar inte</string>
-	<string name="pick_server_for_me">Välj för mig</string>
 	<string name="profile_add_row">Lägg till rad</string>
 	<string name="profile_setup">Konfiguration av profil</string>
 	<string name="profile_setup_subtitle">Du kan alltid fylla i detta senare i fliken Profil.</string>
-	<string name="popular_on_mastodon">Populärt på Mastodon</string>
 	<string name="follow_all">Följ alla</string>
 	<string name="server_rules_disagree">Instämmer inte alls</string>
 	<string name="privacy_policy_explanation">TL;DR: Vi samlar inte in eller bearbetar något.</string>
@@ -467,6 +464,7 @@
 	<string name="count_two">Två</string>
 	<string name="count_three">Tre</string>
 	<string name="count_four">Fyra</string>
+	<string name="alt_text_reminder_post_anyway">Inlägg</string>
 	<!-- %s is the username -->
 	<string name="unfollow_confirmation">Avfölj %s?</string>
 	<string name="filter_active">Aktiv</string>
@@ -539,6 +537,7 @@
 		<item quantity="other">%,d inlägg idag</item>
 	</plurals>
 	<string name="error_playing_video">Fel vid videouppspelning</string>
+	<string name="timeline_following">Hem</string>
 	<string name="lists">Listor</string>
 	<string name="followed_hashtags">Följda hashtaggar</string>
 	<string name="manage_lists">Hantera listor</string>
@@ -555,6 +554,7 @@
 	<string name="list_show_replies_to">Visa svar till</string>
 	<string name="list_replies_no_one">Ingen</string>
 	<string name="list_replies_members">Listmedlemmar</string>
+	<string name="list_replies_anyone">Alla jag följer</string>
 	<string name="confirm_remove_list_members">Ta bort medlemmar?</string>
 	<string name="remove">Ta bort</string>
 	<string name="add_list_member">Lägg till medlem</string>
@@ -569,5 +569,13 @@
 	<string name="create">Skapa</string>
 	<string name="manage_list_members">Hantera listmedlemmar</string>
 	<string name="list_no_members">Inga medlemmar än</string>
+	<string name="got_it">Jag förstår</string>
+	<string name="dont_remind_again">Påminn mig inte igen</string>
 	<!-- %s is a time interval ("5 months") -->
+	<plurals name="x_months">
+		<item quantity="one">%,d månad</item>
+		<item quantity="other">%,d månader</item>
+	</plurals>
+	<string name="more_than_two_years">mer än 2 år</string>
+	<string name="non_mutual_title3">Var öppen</string>
 </resources>

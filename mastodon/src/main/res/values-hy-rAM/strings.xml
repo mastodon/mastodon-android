@@ -134,7 +134,10 @@
 	<string name="report_reason_other">Այլ բան է</string>
 	<string name="report_reason_other_subtitle">Խնդիրը չի պատկանում այլ տարբերակներին</string>
 	<string name="report_choose_rule">Ո՞ր կանոններն են խախտվել։</string>
+	<string name="report_choose_rule_subtitle">Նշեք բոլոր առնչվող կետերը</string>
 	<string name="report_choose_posts">Կա՞ն զեկույցը ապացուցող գրառումներ։</string>
+	<string name="report_choose_posts_subtitle">Նշեք բոլոր առնչվող կետերը</string>
+	<string name="report_comment_title">Կա՞ այլ բան, որը մեզ արժի իմանալ։</string>
 	<string name="report_comment_hint">Լրացուցիչ մեկնաբանություններ</string>
 	<string name="sending_report">Զեկույցը ուղարկվում է․․․</string>
 	<string name="report_sent_title">Շնորհակալ ենք զեկուցման համար։</string>
@@ -179,6 +182,7 @@
 	<string name="media_attachment_unsupported_type">%s ֆայլը անհամատեղելի տեսակի է</string>
 	<string name="media_attachment_too_big">%1$s ֆայլի չափսը գերազանցում է %2$s ՄԲ առավելագույն շեմը</string>
 	<string name="settings_theme">Տեսք</string>
+	<string name="theme_auto">Օգտագործել սարքի տեսքը</string>
 	<string name="theme_light">Բաց</string>
 	<string name="theme_dark">Մուգ</string>
 	<string name="settings_behavior">Պահվածքը</string>
@@ -217,12 +221,16 @@
 	<string name="permission_required">Անհրաժեշտ է թույլտվություն</string>
 	<string name="storage_permission_to_download">Ֆայլը պահպանելու համար ծրագրին պահանջվում է հիշողության թույլտվություն։</string>
 	<string name="open_settings">Բացել կարգավորումները</string>
+	<string name="error_saving_file">Չհաջողվեց պահպանել ֆայլը</string>
 	<string name="file_saved">Ֆայլը պահպանվել է</string>
 	<string name="downloading">Բեռնում․․․</string>
+	<string name="no_app_to_handle_action">Այս գործողությունը կատարող ծրագիր չկա</string>
 	<string name="local_timeline">Տեղական</string>
 	<string name="trending_posts_info_banner">Այս գրառումները տարածված են Մաստոդոնում։</string>
 	<string name="trending_links_info_banner">Այս նորությունների մասին խոսում են Մաստոդոնում։</string>
 	<!-- %s is the server domain -->
+	<string name="local_timeline_info_banner">Ձեր սերվերի (%s) բոլոր օգտատերերի բոլոր գրառումները այստեղ են։</string>
+	<string name="see_new_posts">Նոր գրառումներ</string>
 	<string name="load_missing_posts">Բեռնել բաց թողնված գրառումները</string>
 	<string name="follows_you">Հետեւում է ձեզ</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
@@ -266,9 +274,11 @@
 	<string name="edit_media_added">Մեդիան ավելացվել է</string>
 	<string name="edit_media_removed">Մեդիան հեռացվել է</string>
 	<string name="edit_marked_sensitive">Նշվել է որպես դյուրազգաց</string>
+	<string name="edit_marked_not_sensitive">Նշվել է որպես ոչ դյուրազգաց</string>
 	<string name="edit_multiple_changed">Գրառումը խմբագրվել է</string>
 	<string name="edit">Խմբագրել</string>
 	<string name="discard_changes">Չեղարկե՞լ փոփոխությունները</string>
+	<string name="upload_failed">Վերբեռնել չհաջողվեց</string>
 	<string name="file_size_bytes">%d բայթ</string>
 	<string name="file_size_kb">%.2f ԿԲ</string>
 	<string name="file_size_mb">%.2f ՄԲ</string>
@@ -290,8 +300,8 @@
 	<string name="bookmarks">Էջանիշեր</string>
 	<string name="your_favorites">Հավանածներ</string>
 	<string name="login_title">Բարի վերադարձ</string>
+	<string name="login_subtitle">Մուտք գործեք այն սերվերի միջոցով, որտեղ ստեղծել եք ձեր հաշիվը։</string>
 	<string name="server_url">Սերվերի հասցե</string>
-	<string name="signup_random_server_explain">Եթե շարունակեք՝ առանց ընտրելու, մենք կընտրենք սերվեր՝ ըստ ձեր լեզվի։</string>
 	<string name="server_filter_any_language">Որևե լեզու</string>
 	<string name="server_filter_instant_signup">Գրանցում միանգամից</string>
 	<string name="server_filter_manual_review">Հայտերի ստուգում</string>
@@ -305,11 +315,9 @@
 	<string name="not_accepting_new_members">Չի ընդունում նոր անդամներ</string>
 	<string name="category_special_interests">Հատուկ հետաքրքրություններ</string>
 	<string name="signup_passwords_dont_match">Գաղտնաբառերը չեն համընկնում</string>
-	<string name="pick_server_for_me">Ընտրել իմ համար</string>
 	<string name="profile_add_row">Ավելացնել տող</string>
 	<string name="profile_setup">Հաշվի կարգավորում</string>
 	<string name="profile_setup_subtitle">Դուք կարող եք սա կատարել ավելի ուշ` Հաշիվ բաժնում։</string>
-	<string name="popular_on_mastodon">Տարածված Մաստոդոնում</string>
 	<string name="follow_all">Հետևել բոլորին</string>
 	<string name="server_rules_disagree">Համաձայն չեմ</string>
 	<string name="privacy_policy_explanation">Կարճ ասած՝ մենք ոչինչ չենք հավաքում։</string>
@@ -339,6 +347,7 @@
 	<string name="welcome_paragraph2">Մաստոդոնի որևէ հաշիվ գտնվում է սերվերի վրա - ամեն մեկը՝ իր արժեքներով, կանոններով և ադմիններով։ Դուք կարող եք հետևել և շփվել որևէ սերվերի մարդկանց հետ՝ անկախ ձեր ընտրությունից։</string>
 	<string name="log_out_all_accounts">Ելք բոլոր հաշիվներից</string>
 	<string name="retry">Կրկին</string>
+	<string name="post_failed">Չհաջողվեց ուղարկել գրառումը</string>
 	<!-- %s is formatted file size ("467 KB image") -->
 	<string name="attachment_description_image">%s նկար</string>
 	<string name="attachment_description_video">%s տեսանյութ</string>
@@ -364,10 +373,14 @@
 	<string name="edit_post">Խմբագրել գրառումը</string>
 	<string name="no_verified_link">Չկա հաստատված հղում</string>
 	<string name="compose_autocomplete_emoji_empty">Փնտրել էմոջի</string>
+	<string name="compose_autocomplete_users_empty">Գտեք նրան, ում փնտրում եք</string>
 	<string name="no_search_results">Այս հարցման համար ոչինչ չգտնվեց</string>
 	<string name="language">Լեզու</string>
 	<string name="language_default">Լռելյայն</string>
 	<string name="language_system">Համակարգի</string>
+	<string name="language_detecting">Լեզուն որոշվում է</string>
+	<string name="language_cant_detect">Չհաջողվեց որոշել լեզուն</string>
+	<string name="language_detected">Որոշված</string>
 	<string name="media_hidden">Մեդիան թաքցված է</string>
 	<string name="post_hidden">Գրառումը թաքցված է</string>
 	<string name="report_title_post">Զեկուցել %s-ի մասին</string>
@@ -378,8 +391,10 @@
 	<string name="reported">Բողոքարկված</string>
 	<string name="muted_user">%s-ը լռեցվել է</string>
 	<string name="settings_display">Տեսք</string>
+	<string name="settings_server_explanation">Կանոններ, մոդերատորներ</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">%s-ի մասին</string>
+	<string name="default_post_language">Գրառման լռելյայն լեզու</string>
 	<string name="settings_alt_text_reminders">Ավելացնել բացատրության մասին հիշեցումներ</string>
 	<string name="settings_confirm_boost">Հարցնել տարածելուց առաջ</string>
 	<string name="settings_confirm_delete_post">Հարցնել գրառում ջնջելուց առաջ</string>
@@ -407,6 +422,7 @@
 	<string name="server_administrator">Ադմինիստրատոր</string>
 	<string name="send_email_to_server_admin">Գրել ադմինիստրատորին</string>
 	<string name="settings_even_more">Ավելի շատ կարգավորումներ</string>
+	<string name="settings_show_cws">Ցույց տալ նախազգուշացումները</string>
 	<plurals name="in_x_seconds">
 		<item quantity="one">%d վայրկյանից</item>
 		<item quantity="other">%d վայրկյանից</item>
@@ -436,24 +452,104 @@
 	<!-- %s is the username -->
 	<string name="filter_active">Ակտիվ</string>
 	<string name="filter_inactive">Ոչ ակտիվ</string>
-	<string name="settings_add_filter">Ավելացնել ֆիլտր</string>
-	<string name="settings_edit_filter">Խմբագրել ֆիլտրը</string>
+	<string name="settings_add_filter">Ավելացնել զտիչ</string>
+	<string name="settings_edit_filter">Խմբագրել զտիչը</string>
 	<string name="settings_filter_duration">Տեւողություն</string>
 	<string name="settings_filter_muted_words">Լռեցված բառեր</string>
+	<string name="settings_filter_show_cw">Ցուցադրել` նախազգուշացմամբ</string>
+	<string name="settings_filter_show_cw_explanation">Ցուցադրել այս զտիչին համապատասխանող գրառումները, բայց ավելացնել նախազգուշացում։</string>
+	<string name="settings_delete_filter">Ջնջել զտիչը</string>
 	<string name="filter_duration_forever">Միշտ</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<string name="settings_filter_ends">Ավարտվում է %s</string>
+	<plurals name="settings_x_muted_words">
+		<item quantity="one">%d խլեցված բառ կամ բառակապակցություն</item>
+		<item quantity="other">%d խլեցված բառ կամ բառակապակցություն</item>
+	</plurals>
 	<string name="selection_2_options">%1$s և %2$s</string>
 	<string name="selection_3_options">%1$s, %2$s և %3$s</string>
 	<string name="selection_4_or_more">%1$s,%2$s և ևս %3$d</string>
+	<string name="filter_context_home_lists">Տեղական հոսք</string>
+	<string name="filter_context_notifications">Ծանուցումներ</string>
+	<string name="filter_context_public_timelines">Հանրային հոսքեր</string>
+	<string name="settings_filter_title">Վերնագիր</string>
+	<string name="settings_delete_filter_title">Ջնջե՞լ «%s» զտիչը</string>
+	<string name="settings_delete_filter_confirmation">Զտիչը կջնջվի ձեր հաշվից` ձեր բոլոր սարքերից։</string>
+	<string name="add_muted_word">Նոր խլեցրած բառ</string>
+	<string name="edit_muted_word">Խմբագրել խլեցրած բառը</string>
+	<string name="add">Աւելացնել</string>
 	<string name="filter_word_or_phrase">Բառ կամ արտահայտություն</string>
-	<string name="filter_add_word_help">Բառերը զգայուն են տառաշարին եւ համապատասխանում են ամբողջ բառերի։\n\nՕրինակ, \"խնձոր\" բառը ավելացնելու դեպքում կթաքցվեն \"Խնձոր\" և \"ԽնՁոՐ\" բառերով գրառումները, բայց ոչ \"արքայախնձոր\" բառով գրառումները։</string>
+	<string name="filter_add_word_help">Բառերը զգայուն չեն տառաշարին եւ համապատասխանում են ամբողջ բառերի։\n\nՕրինակ, \"խնձոր\" բառը ավելացնելու դեպքում կթաքցվեն \"Խնձոր\" և \"ԽնՁոՐ\" բառերով գրառումները, բայց ոչ \"արքայախնձոր\" բառով գրառումները։</string>
+	<string name="settings_delete_filter_word">Ջնջե՞լ «%s» բառը</string>
+	<string name="enter_selection_mode">Ընտրել</string>
+	<string name="select_all">Ընտրել բոլորը</string>
+	<plurals name="settings_delete_x_filter_words">
+		<item quantity="one">Ջնջե՞լ %d բառ։</item>
+		<item quantity="other">Ջնջե՞լ %d բառ։</item>
+	</plurals>
+	<plurals name="x_items_selected">
+		<item quantity="one">%d ընտրված</item>
+		<item quantity="other">%d ընտրված</item>
+	</plurals>
+	<string name="required_form_field_blank">Դատարկ չի կարող լինել</string>
+	<string name="filter_word_already_in_list">Արդեն կա ցանկում</string>
+	<string name="app_update_ready">Թարմացումը պատրաստ է</string>
+	<string name="app_update_version">Տարբերակ՝ %s</string>
+	<string name="downloading_update">Ներբեռնվում է (%d%%)</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
+	<string name="post_matches_filter_x">Թաքնված է «%s» զտիչի պատճառով</string>
+	<string name="search_mastodon">Որոնել Մաստոդոնում</string>
+	<string name="clear_all">Մաքրել բոլորը</string>
+	<string name="search_open_url">Բացել հղումը Մաստոդոնում</string>
+	<string name="posts_matching_hashtag">«%s»-ով գրառումներ</string>
+	<string name="search_go_to_account">Գնալ %s</string>
+	<string name="posts_matching_string">«%s»-ով գրառումներ</string>
+	<string name="accounts_matching_string">«%s»-ով մարդիկ</string>
 	<!-- Shown in the post header. Please keep it short -->
+	<string name="time_seconds_ago_short">%dվ առաջ</string>
+	<string name="time_minutes_ago_short">%dր առաջ</string>
+	<string name="time_hours_ago_short">%dժ առաջ</string>
+	<string name="time_days_ago_short">%d օր առաջ</string>
 	<!-- %s is the name of the post language -->
+	<string name="translate_post">Թարգմանել %sից</string>
 	<!-- %1$s is the language, %2$s is the name of the translation service -->
+	<string name="post_translated">Թարգմանված %1$sից` %2$s-ի միջոցով</string>
+	<string name="translation_show_original">Ցոյց տալ բնօրինակը</string>
+	<string name="timeline_following">Հիմնական</string>
+	<string name="lists">Ցանկեր</string>
+	<string name="followed_hashtags">Հետեւած պիտակներ</string>
+	<string name="manage_lists">Խմբագրել ցանկերը</string>
+	<string name="manage_hashtags">Խմբագրել պիտակները</string>
 	<!-- Screen reader description for the menu on the home timeline screen -->
+	<string name="dropdown_menu">Բացվող ընտրացանկ</string>
+	<string name="edit_list">Խմբագրել ցանկը</string>
+	<string name="list_members">Ցանկի մասնակիցներ</string>
+	<string name="delete_list">Ջնջել ցանկը</string>
 	<!-- %s is the name of the list -->
+	<string name="delete_list_confirm">Ջնջե՞լ «%s»-ը</string>
+	<string name="list_show_replies_to">Ցույց տալ պատասխանները</string>
+	<string name="remove">Ջնջել</string>
+	<string name="add_list_member">Ավելացնել անդամ</string>
+	<string name="search_among_people_you_follow">Փնտրել ձեր հետեւումների մեջ</string>
 	<!-- %s is a username -->
+	<string name="no_lists_subtitle">Ձեր ցուցակները կհայտնվեն այստեղ</string>
+	<string name="create_list">Ստեղծել ցուցակ</string>
+	<string name="step_x_of_y">Քայլ %1$d՝ %2$d-ից</string>
+	<string name="create">Ստեղծել</string>
+	<string name="non_mutual_sheet_title">Բարև, նոր կապ</string>
+	<string name="got_it">Պարզ է</string>
+	<string name="dont_remind_again">Այլևս չհիշեցնել</string>
 	<!-- %s is a time interval ("5 months") -->
+	<string name="old_post_sheet_title">Այս գրառումը գրվել է %s առաջ</string>
+	<plurals name="x_months">
+		<item quantity="one">%,d ամիս</item>
+		<item quantity="other">%,d ամիս</item>
+	</plurals>
+	<string name="more_than_two_years">2 տարուց ավելի</string>
+	<string name="non_mutual_title1">Եղեք հարգող և պատշաճ</string>
+	<string name="non_mutual_text1">Համոզվեք, որ ձեր գրառումը քաղաքակիրթ է և առնչվում է գրառման հետ։</string>
+	<string name="non_mutual_title2">Բարի եղեք</string>
+	<string name="non_mutual_text2">Դրական երանգը միշտ խրախուսվում է։</string>
+	<string name="non_mutual_title3">Բաց եղեք</string>
+	<string name="non_mutual_text3">Բոլորի շփման ձևը տարբեր է։ Պատրաստ եղեք հարմարվելու։</string>
 </resources>

@@ -188,7 +188,7 @@
 	<string name="settings_gif">播放动态头像和表情</string>
 	<string name="settings_custom_tabs">使用内置浏览器</string>
 	<string name="settings_notifications">通知</string>
-	<string name="settings_contribute">贡献给Mastodon</string>
+	<string name="settings_contribute">为Mastodon作出贡献</string>
 	<string name="settings_tos">使用条款</string>
 	<string name="settings_privacy_policy">隐私政策</string>
 	<string name="settings_clear_cache">清除媒体缓存</string>
@@ -207,7 +207,7 @@
 	<string name="add_media">添加媒体</string>
 	<string name="add_poll">发起投票</string>
 	<string name="emoji">表情</string>
-	<string name="home_timeline">主页时间轴</string>
+	<string name="home_timeline">主页时间线</string>
 	<string name="my_profile">我的资料</string>
 	<string name="media_viewer">媒体查看器</string>
 	<string name="follow_user">关注 %s</string>
@@ -237,6 +237,7 @@
 	<!-- %s is the server domain -->
 	<string name="local_timeline_info_banner">以下是来自你所在实例（%s）的所有嘟文。</string>
 	<string name="recommended_accounts_info_banner">根据你所关注的，你或许也会喜欢这些用户。</string>
+	<string name="see_new_posts">新嘟文</string>
 	<string name="load_missing_posts">加载嘟文</string>
 	<string name="follow_back">关注</string>
 	<string name="button_follow_pending">已发送关注请求</string>
@@ -306,7 +307,6 @@
 	<string name="login_title">欢迎回来</string>
 	<string name="login_subtitle">登陆到你创建账户的服务器。</string>
 	<string name="server_url">实例 URL</string>
-	<string name="signup_random_server_explain">如果你不做任何选择，我们会根据你的语言为你挑选一个实例。</string>
 	<string name="server_filter_any_language">语言</string>
 	<string name="server_filter_instant_signup">即时生效</string>
 	<string name="server_filter_manual_review">人工审核</string>
@@ -320,11 +320,9 @@
 	<string name="not_accepting_new_members">不接受新成员</string>
 	<string name="category_special_interests">特定兴趣</string>
 	<string name="signup_passwords_dont_match">密码不匹配</string>
-	<string name="pick_server_for_me">帮我挑选</string>
 	<string name="profile_add_row">添加</string>
 	<string name="profile_setup">个人资料设定</string>
 	<string name="profile_setup_subtitle">你可以随时在个人资料标签中进行补充。</string>
-	<string name="popular_on_mastodon">Mastodon上流行的</string>
 	<string name="follow_all">全部关注</string>
 	<string name="server_rules_disagree">不同意</string>
 	<string name="privacy_policy_explanation">长话短说：我们不会收集、处理任何信息。</string>
@@ -353,6 +351,7 @@
 	<string name="welcome_to_mastodon">欢迎来到Mastodon</string>
 	<string name="welcome_paragraph1">Mastodon 是去中心化的社交网络，这意味着它不由任何企业独控。它是由众多独立运行的实例共同联结而成的。</string>
 	<string name="what_are_servers">是什么实例？</string>
+	<string name="welcome_paragraph2">每个Mastodon帐户都托管在服务器上，每个服务器都有自己的价值取向、规则、 &amp; 管理员。 无论你选择什么，你都可以在任何服务器上跟随和与其他人交互。</string>
 	<string name="opening_link">打开链接…</string>
 	<string name="link_not_supported">应用不支持该链接</string>
 	<string name="log_out_all_accounts">登出所有账户</string>
@@ -394,13 +393,13 @@
 	<string name="language_detected">检测到语言</string>
 	<string name="media_hidden">已隐藏媒体</string>
 	<string name="post_hidden">已隐藏嘟文</string>
-	<string name="report_title_post">报告嘟文</string>
-	<string name="forward_report_explanation">该用户来自另一个实例，是否要向该实例匿名发送此报告？</string>
+	<string name="report_title_post">举报嘟文</string>
+	<string name="forward_report_explanation">该用户来自另一个实例，是否要向该实例匿名发送此举报？</string>
 	<!-- %s is the server domain -->
 	<string name="forward_report_to_server">转发至 %s</string>
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
-	<string name="reported">已报告</string>
-	<string name="report_unfollow_explanation">取消关注这些用户来避免在主页时间流中看到更多此类嘟文。</string>
+	<string name="reported">已举报</string>
+	<string name="report_unfollow_explanation">取消关注这些用户来避免在主页动态中看到更多此类嘟文。</string>
 	<string name="muted_user">隐藏 %s</string>
 	<string name="report_sent_already_blocked">你已屏蔽该用户，在我们审阅报告的过程中你不需要再做任何事情了。</string>
 	<string name="report_personal_already_blocked">你已屏蔽该用户，所以不需要做任何事了。\n\n感谢你帮我们保持 Mastodon 及其用户的安全！</string>
@@ -411,7 +410,7 @@
 	<string name="settings_server_explanation">概览、规则与管理员</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">关于 %s</string>
-	<string name="default_post_language">默认嘟文语言</string>
+	<string name="default_post_language">默认发嘟语言</string>
 	<string name="settings_alt_text_reminders">提醒我添加替代文本</string>
 	<string name="settings_confirm_unfollow">取消关注前询问我</string>
 	<string name="settings_confirm_boost">转嘟前询问我</string>
@@ -546,26 +545,84 @@
 	<string name="settings_privacy">隐私与可达性</string>
 	<string name="settings_discoverable">在发现算法中展示您的个人资料和嘟文</string>
 	<string name="settings_indexable">将您的公开嘟文纳入搜索范围</string>
+	<plurals name="x_participants">
+		<item quantity="other">%,d 名参与者</item>
+	</plurals>
+	<plurals name="x_posts_today">
+		<item quantity="other">今日有 %,d 条嘟文</item>
+	</plurals>
 	<string name="error_playing_video">播放视频出错</string>
 	<string name="timeline_following">主页</string>
 	<string name="lists">列表</string>
 	<string name="followed_hashtags">关注的标签</string>
+	<string name="manage_lists">管理列表</string>
 	<string name="manage_hashtags">管理标签</string>
 	<!-- Screen reader description for the menu on the home timeline screen -->
 	<string name="dropdown_menu">下拉菜单</string>
 	<string name="edit_list">编辑列表</string>
 	<string name="list_members">列表成员</string>
+	<string name="delete_list">删除列表</string>
 	<!-- %s is the name of the list -->
+	<string name="delete_list_confirm">删除 “%s”？</string>
+	<string name="list_exclusive">在关注中隐藏成员</string>
 	<string name="list_exclusive_subtitle">列表成员不显示在主页时间线上，以免重复看到嘟文</string>
 	<string name="list_name">列表名</string>
+	<string name="list_show_replies_to">显示回复</string>
+	<string name="list_replies_no_one">不显示</string>
+	<string name="list_replies_members">列表成员</string>
+	<string name="list_replies_anyone">我关注的任何人</string>
+	<string name="confirm_remove_list_members">移除成员？</string>
 	<string name="remove">移除</string>
+	<string name="add_list_member">添加成员</string>
+	<string name="search_among_people_you_follow">在你关注的人中搜索</string>
+	<string name="add_user_to_list">添加到列表…</string>
+	<string name="add_user_to_list_title">添加到列表</string>
 	<!-- %s is a username -->
+	<string name="manage_user_lists">管理包含 %s 的列表</string>
+	<string name="remove_from_list">从列表中移除</string>
 	<string name="confirm_remove_list_member">移除成员？</string>
+	<string name="no_followed_hashtags_title">关注话题标签以保持对兴趣的追踪</string>
+	<string name="no_followed_hashtags_subtitle">关注的标签将出现在这里</string>
+	<string name="no_lists_title">用列表来管理您的主页动态</string>
+	<string name="no_lists_subtitle">你的列表将出现在这里</string>
 	<string name="manage_accounts">管理账户</string>
+	<plurals name="x_posts_recently">
+		<item quantity="other">最近有 %,d 条嘟文</item>
+	</plurals>
 	<string name="create_list">创建列表</string>
+	<string name="step_x_of_y">第 %1$d 步（共 %2$d 步）</string>
 	<string name="create">创建</string>
+	<string name="manage_list_members">管理列表成员</string>
+	<string name="list_no_members">尚无成员</string>
+	<string name="list_find_users">查找要添加的用户</string>
+	<string name="reply_to_user">回复 %s</string>
+	<string name="posted_at">发表于 %s</string>
+	<string name="non_mutual_sheet_title">你好，新的联系！</string>
+	<string name="non_mutual_sheet_text">看起来你正准备回复一个还未互相关注的人。让我们留下一个好的第一印象吧。</string>
+	<string name="got_it">明白了</string>
 	<string name="dont_remind_again">不再提醒</string>
 	<!-- %s is a time interval ("5 months") -->
+	<string name="old_post_sheet_title">这条嘟文已经发布了 %s 了</string>
+	<string name="old_post_sheet_text">你仍然可以回复，但它可能不再与现状相关。</string>
+	<plurals name="x_months">
+		<item quantity="other">%,d 个月</item>
+	</plurals>
+	<string name="more_than_two_years">2年多</string>
 	<string name="non_mutual_title1">保持尊重 &amp; 切题</string>
 	<string name="non_mutual_text1">确保您的回复礼貌且切题。</string>
+	<string name="non_mutual_title2">拥抱善良</string>
+	<string name="non_mutual_text2">积极的语气总是受欢迎的</string>
+	<string name="non_mutual_title3">保持开放</string>
+	<string name="non_mutual_text3">每个人的对话风格都是独一无二的。做好适应的准备。</string>
+	<string name="make_profile_discoverable">让我的资料卡可被他人发现</string>
+	<string name="discoverability">可发现性</string>
+	<string name="discoverability_help">当你在Mastodon上将你的账户设为可发现时，你的嘟文可能会出现在搜索结果和热门中。\n\n你的资料卡可能会被推荐给与你有类似兴趣的人。\n\n取消可发现设定并不会在有人通过名字搜索你时隐藏你的资料卡。</string>
+	<string name="app_version_copied">版本号已复制到剪贴板</string>
+	<string name="onboarding_recommendations_intro">你来打造你自己的首页动态。
+你关注的人越多，它就会越活跃和有趣。</string>
+	<string name="onboarding_recommendations_title">个性化你的首页动态</string>
+	<string name="article_by_author">来自 %s</string>
+	<string name="info">信息</string>
+	<string name="button_reblogged">已转嘟</string>
+	<string name="button_favorited">已喜欢</string>
 </resources>
