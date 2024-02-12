@@ -102,6 +102,8 @@ public class VerifyTranslatedStringFormatting{
 	}
 
 	private static boolean verifyString(String str, List<String> placeholders){
+		if(placeholders==null)
+			return true;
 		for(String placeholder:placeholders){
 			if(placeholder.equals("%,d")){
 				// %,d and %d are interchangeable but %,d provides nicer formatting
