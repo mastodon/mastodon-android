@@ -275,6 +275,19 @@ abstract class InstanceCatalogFragment extends BaseRecyclerFragment<CatalogInsta
 			instanceProgressDialog=null;
 			String additionalInfo;
 			if(error instanceof MastodonErrorResponse me){
+				if(me.httpStatus==401 && me.error.contentEquals("This method requires an authenticated user")){
+					new M3AlertDialogBuilder(getActivity())
+							.setTitle(R.string.error)
+							.setMessage(getString(R.string.is_limited_federation_mastodon_instance, domain))
+							.setNegativeButton(R.string.cancel, null)
+							.setPositiveButton(R.string.ok, (dialog, which)->{
+								Instance potentiallyLimitedInstance=new Instance();
+								potentiallyLimitedInstance.uri=domain;
+								proceedWithAuthOrSignup(potentiallyLimitedInstance);
+							})
+							.show();
+					return;
+				}
 				additionalInfo="\n\n"+me.error;
 			}else if(error instanceof Throwable t){
 				additionalInfo="\n\n"+t.getLocalizedMessage();
