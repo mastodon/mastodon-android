@@ -685,6 +685,12 @@
 	<string name="got_it">Добра</string>
 	<string name="dont_remind_again">Больш не нагадваць</string>
 	<!-- %s is a time interval ("5 months") -->
+	<plurals name="x_months">
+		<item quantity="one">%,d месяц</item>
+		<item quantity="few">%,d месяцы</item>
+		<item quantity="many">%,d месяцаў</item>
+		<item quantity="other">%,d месяцаў</item>
+	</plurals>
 	<string name="more_than_two_years">больш чым за 2 гады</string>
 	<string name="make_profile_discoverable">Зрабіць мой профіль бачным</string>
 	<string name="app_version_copied">Нумар версіі скапіяваны ў буфер абмену</string>
@@ -700,4 +706,5 @@
 	<string name="block_user_confirm_title">Заблакіраваць карыстальніка?</string>
 	<string name="unblocked_user_x">Разблакіраваць %s</string>
 	<string name="block_domain_confirm_title">Заблакіраваць дамен?</string>
+	<string name="server">Сэрвер</string>
 </resources>
