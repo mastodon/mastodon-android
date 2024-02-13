@@ -15,7 +15,7 @@
 	<string name="user_sent_follow_request">%s išsiuntė sekimo prašymą</string>
 	<string name="user_favorited">%s pamėgo tavo įrašą</string>
 	<string name="notification_boosted">%s pakėlė tavo įrašą</string>
-	<string name="poll_ended">Žiūrėti apklausos, kurioje balsavai, rezultatus</string>
+	<string name="poll_ended">Žiūrėti apklausos, kurioje balsavai, rezultatus.</string>
 	<string name="share_toot_title">Bendrinti</string>
 	<string name="settings">Nustatymai</string>
 	<string name="publish">Skelbti</string>
@@ -39,7 +39,7 @@
 	<string name="media">Medija</string>
 	<string name="profile_about">Apie</string>
 	<string name="button_follow">Sekti</string>
-	<string name="button_following">Sekama</string>
+	<string name="button_following">Sekiama</string>
 	<string name="edit_profile">Redaguoti profilį</string>
 	<string name="share_user">Bendrinti profilį</string>
 	<string name="mute_user">Nutildyti %s</string>
@@ -139,10 +139,10 @@
 		<item quantity="many">%d žmonių kalba</item>
 		<item quantity="other">%d žmonių kalba</item>
 	</plurals>
-	<string name="report_title">Pranešti %s</string>
+	<string name="report_title">Pranešti apie %s</string>
 	<string name="report_choose_reason">Kas negerai su šiuo įrašu?</string>
 	<string name="report_choose_reason_account">Kas negerai su %s?</string>
-	<string name="report_choose_reason_subtitle">Pasirink geriausią atitikmenį</string>
+	<string name="report_choose_reason_subtitle">Pasirink geriausią atitikmenį.</string>
 	<string name="report_reason_personal">Man tai nepatinka</string>
 	<string name="report_reason_personal_subtitle">Tai nėra tai, ką nori matyti</string>
 	<string name="report_reason_spam">Tai šlamštas</string>
@@ -154,22 +154,22 @@
 	<string name="report_choose_rule">Kokios taisyklės pažeidžiamos?</string>
 	<string name="report_choose_rule_subtitle">Pasirink viską, kas tinka</string>
 	<string name="report_choose_posts">Ar yra kokių nors įrašų, patvirtinančių šį pranešimą?</string>
-	<string name="report_choose_posts_subtitle">Pasirink viską, kas tinka</string>
+	<string name="report_choose_posts_subtitle">Pasirink viską, kas tinka.</string>
 	<string name="report_comment_title">Ar yra dar kas nors, ką turėtume žinoti?</string>
 	<string name="report_comment_hint">Papildomi komentarai</string>
-	<string name="sending_report">Siunčiamas pranešimas…</string>
+	<string name="sending_report">Siunčiamas ataskaitas…</string>
 	<string name="report_sent_title">Ačiū, kad pranešei, mes tai išnagrinėsime.</string>
 	<string name="report_sent_subtitle">Kol peržiūrėsime, gali imtis veiksmų prieš %s:</string>
 	<string name="unfollow_user">Nebesekti %s</string>
 	<string name="unfollow">Nebesekti</string>
 	<string name="mute_user_explain">Jų įrašų nematysi. Jie vis tiek gali tave sekti ir matyti įrašus, bet nežinos, kad jie nutildyti.</string>
-	<string name="block_user_explain">Jų įrašų nematysi. Jie negalės matyti tavo įrašų ar sekti tavęs. Jie galės pasakyti, kad yra užblokuoti.</string>
+	<string name="block_user_explain">Jų įrašų nematysi. Jie negalės matyti tavo įrašų ar sekti tavęs. Jie galės pamatyti, kad yra užblokuoti.</string>
 	<string name="report_personal_title">Nenori to matyti?</string>
 	<string name="report_personal_subtitle">Štai parinktys, kaip kontroliuoti, ką matai Mastodon:</string>
-	<string name="back">Atgal</string>
+	<string name="back">Grįžti</string>
 	<string name="search_communities">Serverio pavadinimas arba URL</string>
 	<string name="instance_rules_title">Serverio taisyklės</string>
-	<string name="instance_rules_subtitle">Tęsdamas (-a) sutinki laikytis šių taisyklių, kurias nustatė ir taiko %s prižiūrėtojai.</string>
+	<string name="instance_rules_subtitle">Tęsdant sutinki laikytis šių taisyklių, kurias nustatė ir taiko %s prižiūrėtojai.</string>
 	<string name="signup_title">Sukurti paskyrą</string>
 	<string name="display_name">Vardas</string>
 	<string name="username">Naudotojo vardas</string>
@@ -185,14 +185,14 @@
 	<string name="resend">Siųsti dar kartą</string>
 	<string name="open_email_app">Atidaryti el. pašto programėlę</string>
 	<string name="resent_email">Patvirtinimo el. laiškas išsiųstas</string>
-	<string name="compose_hint">Rašyk arba įklijuok tai, kas tau yra mintyse</string>
+	<string name="compose_hint">Rašyk arba įklijuok tai, kas tau yra mintyse.</string>
 	<string name="content_warning">Turinio įspėjimas</string>
 	<string name="save">Išsaugoti</string>
 	<string name="add_alt_text">Pridėti alternatyvųjį tekstą</string>
 	<string name="visibility_public">Vieša</string>
 	<string name="visibility_followers_only">Tik sekėjams</string>
 	<string name="visibility_private">Tik paminėtams žmonėms</string>
-	<string name="recent_searches">Neseniai</string>
+	<string name="recent_searches">Naujausiai</string>
 	<string name="skip">Praleisti</string>
 	<string name="notification_type_follow">Nauji sekėjai</string>
 	<string name="notification_type_favorite">Mėgstami</string>
@@ -240,7 +240,7 @@
 	<string name="my_profile">Mano profilis</string>
 	<string name="media_viewer">Medijos žiūryklė</string>
 	<string name="follow_user">Sekti %s</string>
-	<string name="unfollowed_user">Nebesekama %s</string>
+	<string name="unfollowed_user">Nebesekiama %s</string>
 	<string name="followed_user">Dabar seki %s</string>
 	<string name="following_user_requested">Paprašyta sekti %s</string>
 	<string name="open_in_browser">Atidaryti naršyklėje</string>
@@ -316,14 +316,14 @@
 	<string name="edited_timestamp">redaguota %s</string>
 	<string name="edit_original_post">Originalus įrašas</string>
 	<string name="edit_text_edited">Redaguotas tekstas</string>
-	<string name="edit_spoiler_added">Turinio įspėjimas pridėtas</string>
-	<string name="edit_spoiler_edited">Turinio įspėjimas redaguotas</string>
-	<string name="edit_spoiler_removed">Turinio įspėjimas pašalintas</string>
-	<string name="edit_poll_added">Apklausa pridėta</string>
-	<string name="edit_poll_edited">Apklausa redaguota</string>
-	<string name="edit_poll_removed">Apklausa pašalinta</string>
-	<string name="edit_media_added">Medija pridėta</string>
-	<string name="edit_media_removed">Medija pašalinta</string>
+	<string name="edit_spoiler_added">Pridėtas turinio įspėjimas</string>
+	<string name="edit_spoiler_edited">Redaguotas turinio įspėjimas</string>
+	<string name="edit_spoiler_removed">Pašalintas turinio įspėjimas</string>
+	<string name="edit_poll_added">Pridėta apklausa</string>
+	<string name="edit_poll_edited">Redaguota apklausa</string>
+	<string name="edit_poll_removed">Pašalinta apklausa</string>
+	<string name="edit_media_added">Pridėta medija</string>
+	<string name="edit_media_removed">Pašalinta medija</string>
 	<string name="edit_media_reordered">Medija pertvarkyta</string>
 	<string name="edit_marked_sensitive">Pažymėta kaip jautrią</string>
 	<string name="edit_marked_not_sensitive">Pažymėta kaip nejautrią</string>
@@ -344,14 +344,14 @@
 	<string name="privacy_policy_title">Tavo privatumas</string>
 	<string name="privacy_policy_subtitle">Nors Mastodon programėlė nerenka jokių duomenų, serveris, per kurį užsiregistruoji, gali turėti kitokią politiką.\n\nJei nesutinki su %s politika, gali grįžti ir pasirinkti kitą serverį.</string>
 	<string name="i_agree">Sutinku</string>
-	<string name="empty_list">Šis sąrašas tuščias</string>
+	<string name="empty_list">Šis sąrašas tuščias.</string>
 	<string name="instance_signup_closed">Šis serveris nepriima naujų registracijų.</string>
 	<string name="text_copied">Nukopijuota į iškarpinę</string>
 	<string name="add_bookmark">Pridėti į žymės</string>
 	<string name="remove_bookmark">Pašalinti žymę</string>
 	<string name="bookmarks">Žymės</string>
 	<string name="your_favorites">Tavo mėgstamos</string>
-	<string name="login_title">Sveikas sugrįžęs</string>
+	<string name="login_title">Sveiki sugrįžę</string>
 	<string name="login_subtitle">Prisijunk prie serverio, kuriame susikūrei paskyrą.</string>
 	<string name="server_url">Serverio URL</string>
 	<string name="server_filter_any_language">Bet kokia kalba</string>
@@ -365,7 +365,7 @@
 	<string name="server_filter_region_asia">Azija</string>
 	<string name="server_filter_region_oceania">Okeanija</string>
 	<string name="not_accepting_new_members">Naujų narių nepriima</string>
-	<string name="category_special_interests">Specialūs pomėgiai</string>
+	<string name="category_special_interests">Ypatingūs pomėgiai</string>
 	<string name="signup_passwords_dont_match">Slaptažodžiai nesutampa.</string>
 	<string name="profile_add_row">Pridėti eilutę</string>
 	<string name="profile_setup">Profilio sąranka</string>
@@ -377,7 +377,7 @@
 	<string name="server_policy_disagree">Nesutikti su %s</string>
 	<string name="profile_bio">Biografija</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
-	<string name="sending_follows">Sekami naudotojai…</string>
+	<string name="sending_follows">Sekiami naudotojai…</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
 	<string name="signup_email_domain_blocked">%1$s neleidžia registracijų iš %2$s. Išbandyk kitą arba &lt;a&gt;pasirink kitą serverį&lt;/a&gt;.</string>
 	<string name="spoiler_show">Rodyti vis tiek</string>
@@ -395,7 +395,7 @@
 	<string name="pick_server">Pasirinkti kitą serverį</string>
 	<string name="signup_or_login">arba</string>
 	<string name="learn_more">Sužinoti daugiau</string>
-	<string name="welcome_to_mastodon">Sveikas atvykęs į Mastodon</string>
+	<string name="welcome_to_mastodon">Sveiki atvykę į Mastodon</string>
 	<string name="welcome_paragraph1">Mastodon yra decentralizuotas socialinis tinklas ir tai reiškia, kad jo nekontroliuoja nė viena įmonė. Jį sudaro daugybė nepriklausomai veikiančių serverių, sujungtų tarpusavyje.</string>
 	<string name="what_are_servers">Kas yra serveriai?</string>
 	<string name="welcome_paragraph2">Kiekviena Mastodon paskyra talpinamas serveryje – kiekvienas jų turi savo reikšmes, taisykles ir administratorius. Nesvarbu, kurį iš jų pasirinksi, galėsi sekti ir bendrauti su bet kuriame serveryje esančiais žmonėmis.</string>
@@ -743,7 +743,15 @@ Kuo daugiau žmonių seksi, tuo aktyvesnis ir įdomesnis jis bus.</string>
 	<string name="users_cant_see_blocked">Nematysi naudotojų įrašų ar pranešimų šiame serveryje.</string>
 	<string name="server_can_interact_with_older">Žmonės iš šio serverio gali bendrauti su tavo senomis įrašomis.</string>
 	<string name="unblocked_domain_x">Atblokuotas domenas %s</string>
+	<string name="handle_help_title">Kas yra socialiniame medijos varde?</string>
+	<string name="handle_title">Jų socialinis medijos vardas</string>
+	<string name="handle_username_explanation">Jų unikalus identifikatorius jų serveryje. Skirtinguose serveriuose galima rasti naudotojų, turinčių tą patį naudotojo vardą.</string>
+	<string name="handle_title_own">Tavo socialinis medijos vardas</string>
+	<string name="handle_username_explanation_own">Tavo unikalus identifikatorius šiame serveryje. Skirtinguose serveriuose galima rasti naudotojų, turinčių tą patį naudotojo vardą.</string>
 	<string name="server">Serveris</string>
+	<string name="handle_server_explanation">Jų skaitmeniniai namai, kuriuose saugomi visi jų įrašai.</string>
+	<string name="handle_explanation">Kadangi socialines medijos vardai pasako, kas ir kur yra, galima bendrauti su žmonėmis visame socialiniame tinkle, kuriame yra &lt;a&gt; ActivityPub valdomos platformos&lt;/a&gt;.</string>
+	<string name="handle_server_explanation_own">Tavo skaitmeniniai namai, kuriuose saugomi visi tavo įrašai. Nepatinka šis? Bet kada perkelk serverius ir atsivesk ir savo sekėjus.</string>
 	<string name="what_is_activitypub_title">Kas yra ActivityPub?</string>
 	<string name="what_is_activitypub">ActivityPub – tarsi kalba, kuria Mastodon kalba su kitais socialiniais tinklais.\n\nTai leidžia tau bendrauti su žmonėmis ne tik Mastodon, bet ir įvairiose socialinėse programėlėse.</string>
 </resources>
