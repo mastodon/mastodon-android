@@ -140,7 +140,7 @@
 	<string name="email">電子郵件地址</string>
 	<string name="password">密碼</string>
 	<string name="confirm_password">確認密碼</string>
-	<string name="password_note">包含大寫、特殊字元、以及數字來提升您的密碼強度。</string>
+	<string name="password_note">包含大寫、特殊字元、以及數字以提升您的密碼強度。</string>
 	<string name="category_general">一般</string>
 	<string name="confirm_email_title">請檢查您的收件夾</string>
 	<!-- %s is the email address -->
@@ -204,7 +204,7 @@
 	<string name="unfollowed_user">取消跟隨 %s</string>
 	<string name="followed_user">您現在開始跟隨 %s</string>
 	<string name="following_user_requested">要求跟隨 %s</string>
-	<string name="open_in_browser">在瀏覽器中開啟</string>
+	<string name="open_in_browser">於瀏覽器中開啟</string>
 	<string name="hide_boosts_from_user">隱藏來自 %s 的轉嘟</string>
 	<string name="show_boosts_from_user">顯示來自 %s 的轉嘟</string>
 	<string name="signup_reason">為什麼想要加入呢？</string>
@@ -369,7 +369,7 @@
 	<string name="alt_text">ALT 說明文字</string>
 	<string name="help">幫助</string>
 	<string name="what_is_alt_text">什麼是 ALT 說明文字？</string>
-	<string name="alt_text_help">ALT 說明文字為視覺障礙者、低網路頻寬或尋求額外上下文語境的人們提供圖片描述。\n\n您可以透過撰寫清晰、簡潔及客觀的說明文字以替所有人改善無障礙特性與協助理解。\n\n<ul><li>掌握幾個重要元素</li>\n<li>替圖片提供文字摘要</li>\n<li>使用常規行文結構</li>\n<li>避免冗贅資訊</li>\n<li>聚焦於趨勢和複雜視覺中之關鍵（如圖表或地圖）</li></ul></string>
+	<string name="alt_text_help">ALT 說明文字為視覺障礙者、低網路頻寬或尋求額外上下文語境的人們提供圖片描述。\n\n您可以透過撰寫清晰、簡潔及客觀的說明文字以替所有人改善無障礙特性與協助理解。\n\n<ul><li>掌握幾個重要元素</li>\n<li>替圖片提供文字摘要</li>\n<li>使用常規行文結構</li>\n<li>避免冗贅資訊</li>\n<li>聚焦於趨勢與複雜視覺中之關鍵（如圖表或地圖）</li></ul></string>
 	<string name="edit_post">編輯嘟文</string>
 	<string name="no_verified_link">無已驗證連結</string>
 	<string name="compose_autocomplete_emoji_empty">瀏覽 emoji</string>
@@ -569,7 +569,7 @@
 	<string name="add_user_to_list_title">新增至列表</string>
 	<!-- %s is a username -->
 	<string name="manage_user_lists">管理包含 %s 之列表</string>
-	<string name="remove_from_list">從列表中移除</string>
+	<string name="remove_from_list">自列表中移除</string>
 	<string name="confirm_remove_list_member">移除此成員？</string>
 	<string name="no_followed_hashtags_title">跟隨主題標籤以跟上興趣主題</string>
 	<string name="no_followed_hashtags_subtitle">已跟隨的主題標籤將顯示於此</string>
@@ -647,4 +647,17 @@
 	<string name="server_cant_mention_or_follow_you">來自此伺服器之使用者將無法跟隨您。</string>
 	<string name="server_can_interact_with_older">來自此伺服器之使用者能與您以往的嘟文互動。</string>
 	<string name="unblocked_domain_x">解除封鎖網域 %s</string>
+	<string name="handle_help_title">什麼是帳號 (@handle) ？</string>
+	<string name="handle_title">他們的帳號</string>
+	<string name="handle_username_explanation">他們於他們的伺服器中獨一無二的識別。於不同的伺服器上可能找到具有相同帳號的使用者。</string>
+	<string name="handle_title_own">您的帳號</string>
+	<string name="handle_username_explanation_own">您於您的伺服器中獨一無二的識別。於不同的伺服器上可能找到具有相同帳號的使用者。</string>
+	<string name="server">伺服器</string>
+	<string name="handle_server_explanation">他們數位世界的家，他們所有的嘟文都在這裡。</string>
+	<string name="handle_explanation">由於帳號 (@handle) 能說明某人是誰以及他們來自何方，您能於 &lt;a&gt;支援 ActivityPub 的平臺&lt;/a&gt; 之社群網路上與人們互動。</string>
+	<string name="handle_server_explanation_own">您數位世界的家，您所有的嘟文都在這裡。不喜歡這台伺服器嗎？您能隨時搬家至其他伺服器並且仍保有您的跟隨者。</string>
+	<string name="handle_explanation_own">由於帳號 (@handle) 能說明您是誰以及您來自何方，人們能於 &lt;a&gt;支援 ActivityPub 的平臺&lt;/a&gt; 之社群網路上與您互動。</string>
+	<string name="what_is_activitypub_title">什麼是 ActivityPub？</string>
+	<string name="what_is_activitypub">ActivityPub 像是 Mastodon 與其他社群網路溝通的語言。\n\n它能讓您不只於 Mastodon 且與其他社群網路的人們互動。</string>
+	<string name="handle_copied">帳號 (@handle) 已複製至剪貼簿。</string>
 </resources>
