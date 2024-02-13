@@ -436,19 +436,19 @@
 	<string name="language_default">Numatyta</string>
 	<string name="language_system">Sistema</string>
 	<string name="language_detecting">Aptinkama kalba</string>
-	<string name="language_cant_detect">Nepavyko aptikti kalbos</string>
+	<string name="language_cant_detect">Nepavyko aptikti kalbos.</string>
 	<string name="language_detected">Aptikta</string>
 	<string name="media_hidden">Paslėpta medija</string>
 	<string name="post_hidden">Paslėptas įrašas</string>
 	<string name="report_title_post">Pranešti apie įrašą</string>
-	<string name="forward_report_explanation">Paskyra yra iš kito serverio. Siųsti anoniminę šios pranešimo kopiją ir ten?</string>
+	<string name="forward_report_explanation">Paskyra yra iš kito serverio. Siųsti anoniminę šios ataskaitos kopiją ir ten?</string>
 	<!-- %s is the server domain -->
-	<string name="forward_report_to_server">Persiųsta į %s</string>
+	<string name="forward_report_to_server">Persiųsti į %s</string>
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
 	<string name="reported">Pranešta</string>
 	<string name="report_unfollow_explanation">Jei nori nebematyti jų įrašų savo pagrindiniame sraute, nebesek jų.</string>
 	<string name="muted_user">Nutildytas %s</string>
-	<string name="report_sent_already_blocked">Jau užblokavai šį naudotoją, todėl kol peržiūrėsime pranešimą, nieko daugiau daryti nereikia.</string>
+	<string name="report_sent_already_blocked">Jau užblokavai šį naudotoją, todėl kol peržiūrėsime ataskaitą, nieko daugiau daryti nereikia.</string>
 	<string name="report_personal_already_blocked">Jau užblokavai šį naudotoją, todėl daugiau nieko daryti nereikia.\n\nAčiū, kad padedi išlaikyti Mastodon saugią vietą visiems!</string>
 	<string name="blocked_user">Užblokuota %s</string>
 	<string name="mark_all_notifications_read">Žymėti viską kaip perskaitytą</string>
@@ -464,10 +464,10 @@
 	<string name="settings_confirm_delete_post">Klausti prieš ištrinant įrašus</string>
 	<string name="pause_all_notifications">Pristabdyti visus</string>
 	<string name="pause_notifications_off">Išjungta</string>
-	<string name="notifications_policy_anyone">Bet kas</string>
-	<string name="notifications_policy_followed">Žmonės, kurie seka</string>
-	<string name="notifications_policy_follower">Žmonės, kuriuos seki</string>
-	<string name="notifications_policy_no_one">Niekam</string>
+	<string name="notifications_policy_anyone">Bet kurių</string>
+	<string name="notifications_policy_followed">Žmonių, kurie seka</string>
+	<string name="notifications_policy_follower">Žmonių, kuriuos seki</string>
+	<string name="notifications_policy_no_one">Nei vieno</string>
 	<string name="settings_notifications_policy">Gauti pranešimus iš</string>
 	<string name="notification_type_mentions_and_replies">Paminėjimai ir atsakymai</string>
 	<string name="pause_all_notifications_title">Pristabdyti visus pranešimus</string>
@@ -548,17 +548,17 @@
 	<string name="settings_edit_filter">Redaguoti filtrą</string>
 	<string name="settings_filter_duration">Trukmė</string>
 	<string name="settings_filter_muted_words">Nutildyti žodžiai</string>
-	<string name="settings_filter_context">Nutildyta iš</string>
+	<string name="settings_filter_context">Nutildyti iš</string>
 	<string name="settings_filter_show_cw">Rodyti su turinio įspėjimu</string>
 	<string name="settings_filter_show_cw_explanation">Vis dar rodyti įrašus, kurie atitinka šį filtrą, bet po turinio įspėjimu</string>
-	<string name="settings_delete_filter">Ištrinti failą</string>
+	<string name="settings_delete_filter">Ištrinti filtrą</string>
 	<string name="filter_duration_forever">Amžinai</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<string name="settings_filter_ends">Baigiasi %s</string>
 	<plurals name="settings_x_muted_words">
 		<item quantity="one">%d nutildytas žodis arba frazė</item>
 		<item quantity="few">%d nutildyti žodžiai ar frazės</item>
-		<item quantity="many">%d nutildyto žodžio arba frazio</item>
+		<item quantity="many">%d nutildyto žodžio arba frazė</item>
 		<item quantity="other">%d nutildytų žodžių arba frazių</item>
 	</plurals>
 	<string name="selection_2_options">%1$s ir %2$s</string>
@@ -579,7 +579,7 @@
 	<string name="filter_add_word_help">Žodžiai atskiriami pagal didžiąsias raides ir atitinka tik pilnus žodžius.\n\nJei filtruosi raktažodį „Apple“, bus paslėpti įrašai, turintys „apple“ arba „aPpLe“, bet ne „pineapple“.</string>
 	<string name="settings_delete_filter_word">Ištrinti žodį „%s“?</string>
 	<string name="enter_selection_mode">Pasirinkti</string>
-	<string name="select_all">Pasirinkti visus</string>
+	<string name="select_all">Pasirinkti viską</string>
 	<string name="settings_filter_duration_title">Filtro trukmė</string>
 	<string name="filter_duration_custom">Pasirinktinis</string>
 	<plurals name="settings_delete_x_filter_words">
@@ -637,7 +637,7 @@
 	<string name="error_playing_video">Klaida leidžiant vaizdo įrašą.</string>
 	<string name="timeline_following">Pagrindinis</string>
 	<string name="lists">Sąrašai</string>
-	<string name="followed_hashtags">Sekami saitažodžiai</string>
+	<string name="followed_hashtags">Sekiami saitažodžiai</string>
 	<string name="manage_lists">Tvarkyti sąrašus</string>
 	<string name="manage_hashtags">Tvarkyti saitažodžius</string>
 	<!-- Screen reader description for the menu on the home timeline screen -->
@@ -651,35 +651,35 @@
 	<string name="list_exclusive_subtitle">Jei kas nors yra šiame sąraše, paslėpk juos sekimo laiko skalėje, kad nematytum jų įrašus du kartus.</string>
 	<string name="list_name">Sąrašo pavadinimas</string>
 	<string name="list_show_replies_to">Rodyti atsakymus</string>
-	<string name="list_replies_no_one">Niekam</string>
+	<string name="list_replies_no_one">Nei vienam</string>
 	<string name="list_replies_members">Sąrašo nariams</string>
 	<string name="list_replies_anyone">Visiems, kuriuos seku</string>
 	<string name="confirm_remove_list_members">Pašalinti narius?</string>
 	<string name="remove">Pašalinti</string>
 	<string name="add_list_member">Pridėti narį</string>
-	<string name="search_among_people_you_follow">Ieškoti tarp sekamų žmonių</string>
+	<string name="search_among_people_you_follow">Ieškoti tarp sekiamų žmonių</string>
 	<string name="add_user_to_list">Pridėti į sąrašą…</string>
 	<string name="add_user_to_list_title">Pridėti į sąrašą</string>
 	<!-- %s is a username -->
 	<string name="manage_user_lists">Tvarkyti sąrašus, kuriuose pasirodo %s</string>
 	<string name="remove_from_list">Pašalinti iš sąrašo</string>
 	<string name="confirm_remove_list_member">Pašalinti narį?</string>
-	<string name="no_followed_hashtags_title">Laikykis pomėgių sekdamas (-a) saitažodžius</string>
-	<string name="no_followed_hashtags_subtitle">Sekimai pasirodys čia</string>
-	<string name="no_lists_title">Organizuok savo pagrindinį srautą naudojant sąrašus</string>
-	<string name="no_lists_subtitle">Tavo pasirodys čia</string>
+	<string name="no_followed_hashtags_title">Laikykis pomėgių sekdant saitažodžius</string>
+	<string name="no_followed_hashtags_subtitle">Sekimai pasirodys čia.</string>
+	<string name="no_lists_title">Organizuok savo pagrindinį srautą su sąrašais</string>
+	<string name="no_lists_subtitle">Tavo pasirodys čia.</string>
 	<string name="manage_accounts">Pridėti arba perjungti paskyras</string>
 	<plurals name="x_posts_recently">
-		<item quantity="one">%,d įrašas neseniai</item>
-		<item quantity="few">%,d įrašai neseniai</item>
-		<item quantity="many">%,d įrašo neseniai</item>
-		<item quantity="other">%,d įrašų neseniai</item>
+		<item quantity="one">%,d naujausias įrašas</item>
+		<item quantity="few">%,d naujausiai įrašai</item>
+		<item quantity="many">%,d naujausio įrašo</item>
+		<item quantity="other">%,d naujausių įrašų</item>
 	</plurals>
 	<string name="create_list">Sukurti sąrašą</string>
 	<string name="step_x_of_y">%1$d žingsnis iš %2$d</string>
 	<string name="create">Kurti</string>
 	<string name="manage_list_members">Tvarkyti sąrašo narius</string>
-	<string name="list_no_members">Dar nėra narių</string>
+	<string name="list_no_members">Dar nėra narių.</string>
 	<string name="list_find_users">Rask naudotojų, kurių pridėti</string>
 	<string name="reply_to_user">Atsakyti į %s</string>
 	<string name="posted_at">Paskelbta %s</string>
@@ -697,7 +697,7 @@
 		<item quantity="other">%,d mėnesių</item>
 	</plurals>
 	<string name="more_than_two_years">daugiau nei 2 metai</string>
-	<string name="non_mutual_title1">Išlik pagarbus (-i) ir aktualus (-a)</string>
+	<string name="non_mutual_title1">Išlik pagarbus (-i) ir aktualus (-i)</string>
 	<string name="non_mutual_text1">Užtikrink, kad tavo atsakymas mandagus (-i) ir atitinka temą.</string>
 	<string name="non_mutual_title2">Priimk gerumą</string>
 	<string name="non_mutual_text2">Pozityvus tonas visada vertinamas.</string>
@@ -709,7 +709,7 @@
 	<string name="app_version_copied">Versijos numeris nukopijuotas į iškarpinę</string>
 	<string name="onboarding_recommendations_intro">Pats (-i) kuruoji savo pagrindinį srautą.
 Kuo daugiau žmonių seksi, tuo aktyvesnis ir įdomesnis jis bus.</string>
-	<string name="onboarding_recommendations_title">Suasmenink savo pagrindinį srautą</string>
+	<string name="onboarding_recommendations_title">Suasmeninti savo pagrindinį srautą</string>
 	<string name="article_by_author">Sukūrė %s</string>
 	<string name="info">Informacija</string>
 	<string name="button_reblogged">Pakelta</string>
@@ -741,6 +741,9 @@ Kuo daugiau žmonių seksi, tuo aktyvesnis ir įdomesnis jis bus.</string>
 	<string name="do_block_server">Blokuoti serverį</string>
 	<string name="block_user_x_instead">Blokuoti %s vietoj to</string>
 	<string name="users_cant_see_blocked">Nematysi naudotojų įrašų ar pranešimų šiame serveryje.</string>
+	<string name="you_wont_see_server_posts">Nematysi jokių naudotojų įrašų šiame serveryje.</string>
+	<string name="server_followers_will_be_removed">Tavo sekėjai iš šio serverio bus pašalinti.</string>
+	<string name="server_cant_mention_or_follow_you">Niekas iš šio serverio negali tavęs sekti.</string>
 	<string name="server_can_interact_with_older">Žmonės iš šio serverio gali bendrauti su tavo senomis įrašomis.</string>
 	<string name="unblocked_domain_x">Atblokuotas domenas %s</string>
 	<string name="handle_help_title">Kas yra socialiniame medijos varde?</string>
@@ -750,8 +753,10 @@ Kuo daugiau žmonių seksi, tuo aktyvesnis ir įdomesnis jis bus.</string>
 	<string name="handle_username_explanation_own">Tavo unikalus identifikatorius šiame serveryje. Skirtinguose serveriuose galima rasti naudotojų, turinčių tą patį naudotojo vardą.</string>
 	<string name="server">Serveris</string>
 	<string name="handle_server_explanation">Jų skaitmeniniai namai, kuriuose saugomi visi jų įrašai.</string>
-	<string name="handle_explanation">Kadangi socialines medijos vardai pasako, kas ir kur yra, galima bendrauti su žmonėmis visame socialiniame tinkle, kuriame yra &lt;a&gt; ActivityPub valdomos platformos&lt;/a&gt;.</string>
+	<string name="handle_explanation">Kadangi socialines medijos vardai nurodo, kas ir kur jie yra, galima bendrauti su žmonėmis visame socialiniame tinkle, kuriame yra &lt;a&gt; ActivityPub valdomos platformos&lt;/a&gt;.</string>
 	<string name="handle_server_explanation_own">Tavo skaitmeniniai namai, kuriuose saugomi visi tavo įrašai. Nepatinka šis? Bet kada perkelk serverius ir atsivesk ir savo sekėjus.</string>
+	<string name="handle_explanation_own">Kadangi tavo socialinis medijos vardas nurodo, kas esi ir kur esi, žmonės gali bendrauti su tavimi visame socialiniame tinkle, kurį sudaro &lt;a&gt; ActivityPub valdomos platformos&lt;/a&gt;.</string>
 	<string name="what_is_activitypub_title">Kas yra ActivityPub?</string>
 	<string name="what_is_activitypub">ActivityPub – tarsi kalba, kuria Mastodon kalba su kitais socialiniais tinklais.\n\nTai leidžia tau bendrauti su žmonėmis ne tik Mastodon, bet ir įvairiose socialinėse programėlėse.</string>
+	<string name="handle_copied">Socialinis medijos vardas nukopijuotas į iškarpinę.</string>
 </resources>
