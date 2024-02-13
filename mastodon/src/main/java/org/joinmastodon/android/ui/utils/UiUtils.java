@@ -929,9 +929,13 @@ public class UiUtils{
 	public static void maybeShowTextCopiedToast(Context context){
 		//show toast, android from S_V2 on has built-in popup, as documented in
 		//https://developer.android.com/develop/ui/views/touch-and-input/copy-paste#duplicate-notifications
-		if(Build.VERSION.SDK_INT<=Build.VERSION_CODES.S_V2){
+		if(needShowClipboardToast()){
 			Toast.makeText(context, R.string.text_copied, Toast.LENGTH_SHORT).show();
 		}
+	}
+
+	public static boolean needShowClipboardToast(){
+		return Build.VERSION.SDK_INT<=Build.VERSION_CODES.S_V2;
 	}
 
 	public static void setAllPaddings(View view, int paddingDp){

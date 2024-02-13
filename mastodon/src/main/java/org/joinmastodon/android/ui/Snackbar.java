@@ -90,7 +90,7 @@ public class Snackbar{
 		if(current!=null)
 			current.dismiss();
 		current=this;
-		WindowManager.LayoutParams lp=new WindowManager.LayoutParams(WindowManager.LayoutParams.TYPE_APPLICATION_PANEL, WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE | WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN, PixelFormat.TRANSLUCENT);
+		WindowManager.LayoutParams lp=new WindowManager.LayoutParams(WindowManager.LayoutParams.LAST_APPLICATION_WINDOW, WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE | WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN, PixelFormat.TRANSLUCENT);
 		lp.width=ViewGroup.LayoutParams.MATCH_PARENT;
 		lp.height=ViewGroup.LayoutParams.WRAP_CONTENT;
 		lp.gravity=Gravity.BOTTOM;

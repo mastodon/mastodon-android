@@ -62,10 +62,12 @@ import org.joinmastodon.android.ui.OutlineProviders;
 import org.joinmastodon.android.ui.SimpleViewHolder;
 import org.joinmastodon.android.ui.SingleImagePhotoViewerListener;
 import org.joinmastodon.android.ui.photoviewer.PhotoViewer;
+import org.joinmastodon.android.ui.sheets.DecentralizationExplainerSheet;
 import org.joinmastodon.android.ui.tabs.TabLayout;
 import org.joinmastodon.android.ui.tabs.TabLayoutMediator;
 import org.joinmastodon.android.ui.text.CustomEmojiSpan;
 import org.joinmastodon.android.ui.text.HtmlParser;
+import org.joinmastodon.android.ui.text.ImageSpanThatDoesNotBreakShitForNoGoodReason;
 import org.joinmastodon.android.ui.utils.SimpleTextWatcher;
 import org.joinmastodon.android.ui.utils.UiUtils;
 import org.joinmastodon.android.ui.views.CoverImageView;
@@ -107,7 +109,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 	private ImageView avatar;
 	private CoverImageView cover;
 	private View avatarBorder;
-	private TextView name, username, bio, followersCount, followersLabel, followingCount, followingLabel;
+	private TextView name, username, usernameDomain, bio, followersCount, followersLabel, followingCount, followingLabel;
 	private ProgressBarButton actionButton;
 	private ViewPager2 pager;
 	private NestedRecyclerScrollView scrollView;
@@ -185,6 +187,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 		avatarBorder=content.findViewById(R.id.avatar_border);
 		name=content.findViewById(R.id.name);
 		username=content.findViewById(R.id.username);
+		usernameDomain=content.findViewById(R.id.username_domain);
 		bio=content.findViewById(R.id.bio);
 		followersCount=content.findViewById(R.id.followers_count);
 		followersLabel=content.findViewById(R.id.followers_label);
@@ -319,6 +322,8 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 
 		nameEdit.addTextChangedListener(new SimpleTextWatcher(e->editDirty=true));
 		bioEdit.addTextChangedListener(new SimpleTextWatcher(e->editDirty=true));
+
+		usernameDomain.setOnClickListener(v->new DecentralizationExplainerSheet(getActivity(), accountID, account).show());
 
 		return sizeWrapper;
 	}
@@ -499,22 +504,21 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 		boolean isSelf=AccountSessionManager.getInstance().isSelf(accountID, account);
 
 		if(account.locked){
-			ssb=new SpannableStringBuilder("@");
-			ssb.append(account.acct);
-			if(isSelf){
-				ssb.append('@');
-				ssb.append(AccountSessionManager.getInstance().getAccount(accountID).domain);
-			}
+			ssb=new SpannableStringBuilder(account.username);
 			ssb.append(" ");
 			Drawable lock=username.getResources().getDrawable(R.drawable.ic_lock_fill1_20px, getActivity().getTheme()).mutate();
 			lock.setBounds(0, 0, lock.getIntrinsicWidth(), lock.getIntrinsicHeight());
 			lock.setTint(username.getCurrentTextColor());
-			ssb.append(getString(R.string.manually_approves_followers), new ImageSpan(lock, ImageSpan.ALIGN_BOTTOM), 0);
+			ssb.append(getString(R.string.manually_approves_followers), new ImageSpanThatDoesNotBreakShitForNoGoodReason(lock, ImageSpan.ALIGN_BOTTOM), 0);
 			username.setText(ssb);
 		}else{
-			// noinspection SetTextI18n
-			username.setText('@'+account.acct+(isSelf ? ('@'+AccountSessionManager.getInstance().getAccount(accountID).domain) : ""));
+			username.setText(account.username);
 		}
+		String domain=account.getDomain();
+		if(TextUtils.isEmpty(domain))
+			domain=AccountSessionManager.get(accountID).domain;
+		usernameDomain.setText(domain);
+
 		CharSequence parsedBio=HtmlParser.parse(account.note, account.emojis, Collections.emptyList(), Collections.emptyList(), accountID, account);
 		if(TextUtils.isEmpty(parsedBio)){
 			bio.setVisibility(View.GONE);
