@@ -682,9 +682,14 @@
 	<string name="list_no_members">Пакуль няма ўдзельнікаў</string>
 	<string name="list_find_users">Знайдзіце карыстальнікаў для дадання</string>
 	<string name="reply_to_user">Адказаць %s</string>
+	<string name="posted_at">Допіс у %s</string>
+	<string name="non_mutual_sheet_title">Прывітанне, новы кантакт!</string>
+	<string name="non_mutual_sheet_text">Падобна, вы збіраецеся адказаць камусьці, з кім у вас пакуль не было кантакту. Давайце зробім добрае першае ўражанне.</string>
 	<string name="got_it">Добра</string>
 	<string name="dont_remind_again">Больш не нагадваць</string>
 	<!-- %s is a time interval ("5 months") -->
+	<string name="old_post_sheet_title">Гэтаму допісу больш за %s</string>
+	<string name="old_post_sheet_text">Вы ўсё яшчэ можаце адказаць, але гэта можа быць ужо неактуальна.</string>
 	<plurals name="x_months">
 		<item quantity="one">%,d месяц</item>
 		<item quantity="few">%,d месяцы</item>
@@ -692,14 +697,26 @@
 		<item quantity="other">%,d месяцаў</item>
 	</plurals>
 	<string name="more_than_two_years">больш чым за 2 гады</string>
+	<string name="non_mutual_title1">Заставайцеся ўважлівымі &amp; дарэчнымі</string>
+	<string name="non_mutual_text1">Пераканайцеся, што ваш адказ ветлівы і па тэме.</string>
+	<string name="non_mutual_title2">Прыміце дабрыню</string>
+	<string name="non_mutual_text2">Пазітыўны тон заўсёды вітаецца.</string>
+	<string name="non_mutual_title3">Будзьце адкрыты</string>
+	<string name="non_mutual_text3">У кожнага свой стыль зносін. Будзьце да гэтага гатовыя.</string>
 	<string name="make_profile_discoverable">Зрабіць мой профіль бачным</string>
+	<string name="discoverability">Адкрытасць</string>
+	<string name="discoverability_help">Калі вы станеце адчыненыя для прагляду на Mastodon, вашы допісы могуць з\'яўляцца ў выніках пошуку і ў трэндах. \n\nВаш профіль можа быць прапанаваны людзям з падобнымі з вамі інтарэсамі.\n\nАдмовіцеся хаваць свой профіль, калі нехта шукае вас па імені.</string>
 	<string name="app_version_copied">Нумар версіі скапіяваны ў буфер абмену</string>
 	<string name="onboarding_recommendations_title">Папулярна на Mastodon</string>
 	<string name="article_by_author">Ад %s</string>
 	<string name="info">Звесткі</string>
 	<string name="button_reblogged">Пашыраны</string>
 	<string name="button_favorited">Упадабанае</string>
+	<string name="join_server_x_with_invite">Далучайцеся да %s па запрашэнні</string>
+	<string name="expired_invite_link">Тэрмін дзеяння запрашальнай спасылкі скончыўся</string>
 	<string name="invalid_invite_link">Несапраўдная спасылка для запрашэння</string>
+	<string name="use_invite_link">Выкарыстаць запрашальную спасылку</string>
+	<string name="enter_invite_link">Увядзіце запрашальную спасылку</string>
 	<string name="this_invite_is_invalid">Гэтая запрашальная спасылка несапраўдная.</string>
 	<string name="mute_user_confirm_title">Ігнараваць карыстальніка?</string>
 	<string name="unmuted_user_x">Не ігнараваць %s</string>
@@ -707,4 +724,6 @@
 	<string name="unblocked_user_x">Разблакіраваць %s</string>
 	<string name="block_domain_confirm_title">Заблакіраваць дамен?</string>
 	<string name="server">Сэрвер</string>
+	<string name="what_is_activitypub_title">Што такое ActivityPub?</string>
+	<string name="what_is_activitypub">ActivityPub - гэта мова, на якой Mastodon размаўляе з іншымі сацыяльнымі сеткамі.\n\nГэта дазваляе вам звязвацца і ўзаемадзейнічаць з людзьмі не толькі ў Mastodon, але і ў розных сацыяльных праграмах.</string>
 </resources>
