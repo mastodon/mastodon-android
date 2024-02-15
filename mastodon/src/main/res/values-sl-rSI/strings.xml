@@ -729,6 +729,7 @@ Več osebam kot sledite, bolj dejaven in zanimiv bo.</string>
 	<string name="mute_user_confirm_title">Ali želite utišati uporabnika?</string>
 	<string name="user_wont_know_muted">Ne bodo vedeli, da so utišani.</string>
 	<string name="user_can_still_see_your_posts">Še vedno vidijo vaše objave, vi pa ne njihovih.</string>
+	<string name="you_wont_see_user_mentions">Objav, ki jih omenjajo, ne boste videli.</string>
 	<string name="user_can_mention_and_follow_you">Lahko vas omenijo ali vam sledijo, vi pa jih ne morete videti.</string>
 	<string name="unmuted_user_x">Odtišani %s</string>
 	<string name="block_user_confirm_title">Ali želite blokirati uporabnika?</string>
@@ -739,7 +740,22 @@ Več osebam kot sledite, bolj dejaven in zanimiv bo.</string>
 	<string name="block_domain_confirm_title">Ali želite blokirati domeno?</string>
 	<string name="do_block_server">Blokiraj strežnik</string>
 	<string name="block_user_x_instead">Namesto tega blokiraj %s</string>
+	<string name="users_cant_see_blocked">Objav ali obvestil uporabnikov s tega strežnika ne boste videli.</string>
 	<string name="you_wont_see_server_posts">Nobenih objav uporabnikov s tega strežnika ne boste videli.</string>
 	<string name="server_followers_will_be_removed">Vaši sledilci s tega strežnika bodo odstranjeni.</string>
+	<string name="server_cant_mention_or_follow_you">Nihče s tega strežnika vam ne more slediti.</string>
+	<string name="server_can_interact_with_older">Osebe s tega strežnika so lahko v interakciji z vašimi starimi objavami.</string>
 	<string name="unblocked_domain_x">Odblokirana domena %s</string>
+	<string name="handle_help_title">Čemu ročica?</string>
+	<string name="handle_title">Njihova ročica</string>
+	<string name="handle_username_explanation">Njihov edinstveni identifikator na njihovem strežniku. Uporabnike z istim uporabniškim imenom lahko poiščete na različnih strežnikih.</string>
+	<string name="handle_title_own">Vaša ročica</string>
+	<string name="handle_username_explanation_own">Vaš edinstveni identifikator na tem strežniku. Uporabnike z istim uporabniškim imenom je možno poiskati na različnih strežnikih.</string>
+	<string name="server">Strežnik</string>
+	<string name="handle_server_explanation">Njigovo digitalno domovanje, kjer bivajo vse njihove objave.</string>
+	<string name="handle_explanation">Ker ročice povedo, kdo je kdo in kje so, ste lahko z osebami v interakciji prek družabnega spleta &lt;a&gt;platform, ki jih poganja ActivityPub&lt;/a&gt;.</string>
+	<string name="handle_server_explanation_own">Vaše digitalno domovanje, kjer bivajo vse vaše objave. Vam ta ni všeč? Prenesite ga med strežniki kadar koli in s tem tudi svoje sledilce.</string>
+	<string name="what_is_activitypub_title">Kaj je ActivityPub?</string>
+	<string name="what_is_activitypub">ActivityPubb je kot jezik, ki ga Mastodon uprablja z drugimi družbenimi omrežji.\n\nOmogočq povezovanje in interakcijo z osebami ne le na Mastodonu, ampak tudi na drugih družabnih omrežjih.</string>
+	<string name="handle_copied">Ročica je kopirana na odložišče.</string>
 </resources>
