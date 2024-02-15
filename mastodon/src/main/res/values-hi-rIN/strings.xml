@@ -210,6 +210,7 @@
 	<string name="local_timeline">लोकल</string>
 	<!-- %s is the server domain -->
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
+	<string name="time_now">अभी</string>
 	<string name="time_just_now">अभी-अभी</string>
 	<plurals name="x_seconds_ago">
 		<item quantity="one">%d सेकंड पहले</item>
@@ -228,7 +229,9 @@
 	<string name="install_update">इंस्टॉल करें</string>
 	<string name="privacy_policy_title">आपकी प्राइवसी</string>
 	<string name="privacy_policy_subtitle">वैसे तो Mastodon ऐप कोई डाटा इकट्ठा नहीं करता, लेकिन आपके सर्वर की पॉलिसी अलग हो सकती है।\n\nअगर आपको %s के पॉलिसी से दिक्कत है, तो आप पीछे जाकर कोई दूसरा सर्वर चुन सकते है।</string>
+	<string name="i_agree">मैं राज़ी हूं</string>
 	<string name="empty_list">ये लिस्ट खाली है</string>
+	<string name="instance_signup_closed">ये सर्वर नए रजिस्ट्रेशन एक्सेप्ट नहीं कर रहा।</string>
 	<string name="add_bookmark">बुकमार्क करें</string>
 	<string name="remove_bookmark">बुकमार्क हटाएं</string>
 	<string name="server_url">सर्वर यूआरएल</string>
@@ -275,7 +278,9 @@
 	<string name="compose_poll_single_choice">एक चुननेवाला</string>
 	<string name="compose_poll_multiple_choice">कई चुननेवाला</string>
 	<string name="poll_style_title">पोल स्टाइल</string>
+	<string name="alt_text">अल्ट टेक्सट</string>
 	<string name="help">मदद</string>
+	<string name="what_is_alt_text">अल्ट टेक्सट क्या होता है?</string>
 	<string name="language">भाषा</string>
 	<string name="language_default">डिफॉल्ट</string>
 	<string name="language_system">सिस्टम</string>
