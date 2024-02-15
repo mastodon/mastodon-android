@@ -170,6 +170,11 @@
 	<string name="visibility_private">सिर्फ जिनका ज़िक्र किया है</string>
 	<string name="recent_searches">हाल के सर्च</string>
 	<string name="skip">छोड़ें</string>
+	<string name="notification_type_follow">नए फॉलोवर</string>
+	<string name="notification_type_favorite">मनपसंद</string>
+	<string name="notification_type_reblog">बूस्ट</string>
+	<string name="notification_type_mention">मेंशन</string>
+	<string name="notification_type_poll">पोल</string>
 	<string name="choose_account">अकाउंट चुनें</string>
 	<string name="err_not_logged_in">सबसे पहले Mastodon में लॉग इन करें</string>
 	<plurals name="cant_add_more_than_x_attachments">
@@ -189,6 +194,7 @@
 	<string name="settings_clear_cache">मीडिया कैश साफ करें</string>
 	<string name="button_reply">जवाब दें</string>
 	<string name="button_reblog">बूस्ट करें</string>
+	<string name="button_share">शेयर करें</string>
 	<string name="add_media">मीडिया डालें</string>
 	<string name="add_poll">पोल डालें</string>
 	<string name="emoji">इमोजी</string>
@@ -200,6 +206,7 @@
 	<string name="reorder">ऑर्डर बदलें</string>
 	<string name="download">डाउनलोड करें</string>
 	<string name="storage_permission_to_download">ये फाइल सेव करने के लिए ऐप को आपके स्टोरेज का एक्सेस चाहिए।</string>
+	<string name="open_settings">सेटिंग खोलें</string>
 	<string name="local_timeline">लोकल</string>
 	<!-- %s is the server domain -->
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
