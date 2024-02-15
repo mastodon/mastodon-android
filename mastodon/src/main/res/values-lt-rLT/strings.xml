@@ -82,28 +82,28 @@
 		<item quantity="other">%d dienų</item>
 	</plurals>
 	<plurals name="x_seconds_left">
-		<item quantity="one">Liko %d sekundė</item>
-		<item quantity="few">Liko %d sekundės</item>
-		<item quantity="many">Liko %d sekundes</item>
-		<item quantity="other">Liko %d sekundžių</item>
+		<item quantity="one">liko %d sekundė</item>
+		<item quantity="few">liko %d sekundės</item>
+		<item quantity="many">liko %d sekundes</item>
+		<item quantity="other">liko %d sekundžių</item>
 	</plurals>
 	<plurals name="x_minutes_left">
-		<item quantity="one">Liko %d minutė</item>
-		<item quantity="few">Liko %d minutės</item>
-		<item quantity="many">Liko %d minutes</item>
-		<item quantity="other">Liko %d minučių</item>
+		<item quantity="one">liko %d minutė</item>
+		<item quantity="few">liko %d minutės</item>
+		<item quantity="many">liko %d minutes</item>
+		<item quantity="other">liko %d minučių</item>
 	</plurals>
 	<plurals name="x_hours_left">
-		<item quantity="one">Liko %d valanda</item>
-		<item quantity="few">Liko %d valandos</item>
-		<item quantity="many">Liko %d valandos</item>
-		<item quantity="other">Liko %d valandų</item>
+		<item quantity="one">liko %d valanda</item>
+		<item quantity="few">liko %d valandos</item>
+		<item quantity="many">liko %d valandos</item>
+		<item quantity="other">liko %d valandų</item>
 	</plurals>
 	<plurals name="x_days_left">
-		<item quantity="one">Liko %d diena</item>
-		<item quantity="few">Liko %d dienos</item>
-		<item quantity="many">Liko %d dienos</item>
-		<item quantity="other">Liko %d dienų</item>
+		<item quantity="one">liko %d diena</item>
+		<item quantity="few">liko %d dienos</item>
+		<item quantity="many">liko %d dienos</item>
+		<item quantity="other">liko %d dienų</item>
 	</plurals>
 	<plurals name="x_votes">
 		<item quantity="one">%,d balsas</item>
@@ -169,7 +169,7 @@
 	<string name="back">Grįžti</string>
 	<string name="search_communities">Serverio pavadinimas arba URL</string>
 	<string name="instance_rules_title">Serverio taisyklės</string>
-	<string name="instance_rules_subtitle">Tęsdant sutinki laikytis šių taisyklių, kurias nustatė ir taiko %s prižiūrėtojai.</string>
+	<string name="instance_rules_subtitle">Tęsdamas (-a) sutinki laikytis šių taisyklių, kurias nustatė ir taiko %s prižiūrėtojai.</string>
 	<string name="signup_title">Sukurti paskyrą</string>
 	<string name="display_name">Vardas</string>
 	<string name="username">Naudotojo vardas</string>
@@ -207,7 +207,7 @@
 		<item quantity="many">Negalima pridėti daugiau kaip %d medijos priedo.</item>
 		<item quantity="other">Negalima pridėti daugiau kaip %d medijos priedų.</item>
 	</plurals>
-	<string name="media_attachment_unsupported_type">Failas %s – nepalaikomo tipo</string>
+	<string name="media_attachment_unsupported_type">Failas %s nepalaikomo tipo.</string>
 	<string name="media_attachment_too_big">Failas %1$s viršija %2$s MB dydžio ribą.</string>
 	<string name="settings_theme">Išvaizda</string>
 	<string name="theme_auto">Naudoti įrenginio išvaizdą</string>
@@ -264,7 +264,7 @@
 	<string name="trending_posts_info_banner">Tai įrašai, sulaukiantys didžiausio susidomėjimo Mastodon tinkle.</string>
 	<string name="trending_links_info_banner">Tai naujienos, apie kurias kalbama Mastodon.</string>
 	<!-- %s is the server domain -->
-	<string name="local_timeline_info_banner">Tai yra visų naudotojų įrašai serveryje (%s).</string>
+	<string name="local_timeline_info_banner">Tai visų naudotojų įrašai serveryje (%s).</string>
 	<string name="recommended_accounts_info_banner">Galbūt šios paskyros tau patiks pagal kitas, kurias seki.</string>
 	<string name="see_new_posts">Nauji įrašai</string>
 	<string name="load_missing_posts">Krauti trūkstamus įrašus</string>
@@ -302,16 +302,16 @@
 	<string name="last_edit_at_x">Paskutinį kartą redaguota %s</string>
 	<string name="time_just_now">ką tik</string>
 	<plurals name="x_seconds_ago">
-		<item quantity="one">Prieš %d sekundę</item>
-		<item quantity="few">Prieš %d sekundes</item>
-		<item quantity="many">Prieš %d sekundės</item>
-		<item quantity="other">Prieš %d sekundžių</item>
+		<item quantity="one">prieš %d sekundę</item>
+		<item quantity="few">prieš %d sekundes</item>
+		<item quantity="many">prieš %d sekundės</item>
+		<item quantity="other">prieš %d sekundžių</item>
 	</plurals>
 	<plurals name="x_minutes_ago">
-		<item quantity="one">Prieš %d minutę</item>
-		<item quantity="few">Prieš %d minutes</item>
-		<item quantity="many">Prieš %d minutės</item>
-		<item quantity="other">Prieš %d minučių</item>
+		<item quantity="one">prieš %d minutę</item>
+		<item quantity="few">prieš %d minutes</item>
+		<item quantity="many">prieš %d minutės</item>
+		<item quantity="other">prieš %d minučių</item>
 	</plurals>
 	<string name="edited_timestamp">redaguota %s</string>
 	<string name="edit_original_post">Originalus įrašas</string>
@@ -330,7 +330,7 @@
 	<string name="edit_multiple_changed">Įrašas redaguotas</string>
 	<string name="edit">Redaguoti</string>
 	<string name="discard_changes">Atmesti pakeitimus?</string>
-	<string name="upload_failed">Įkėlimas nepavyko</string>
+	<string name="upload_failed">Įkėlimas nepavyko.</string>
 	<string name="file_size_bytes">%d baitai</string>
 	<string name="file_size_kb">%.2f KB</string>
 	<string name="file_size_mb">%.2f MB</string>
@@ -370,7 +370,7 @@
 	<string name="profile_add_row">Pridėti eilutę</string>
 	<string name="profile_setup">Profilio sąranka</string>
 	<string name="profile_setup_subtitle">Tai visada gali užbaigti vėliau Profilio skirtuke.</string>
-	<string name="follow_all">Sekti visus</string>
+	<string name="follow_all">Sekti viską</string>
 	<string name="server_rules_disagree">Nesutikti</string>
 	<string name="privacy_policy_explanation">PL;N: mes nieko nerenkame ir neapdorojame.</string>
 	<!-- %s is server domain -->
@@ -386,7 +386,7 @@
 	<string name="save_changes">Išsaugoti pakeitimus</string>
 	<string name="profile_featured">Rekomenduojama</string>
 	<string name="profile_timeline">Laiko skalė</string>
-	<string name="view_all">Peržiūrėti visus</string>
+	<string name="view_all">Peržiūrėti viską</string>
 	<string name="profile_endorsed_accounts">Paskyros</string>
 	<string name="verified_link">Patikrinta nuoroda</string>
 	<string name="show">Rodyti</string>
