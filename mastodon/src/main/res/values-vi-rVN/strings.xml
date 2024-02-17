@@ -15,7 +15,7 @@
 	<string name="user_sent_follow_request">%s yêu cầu theo dõi bạn</string>
 	<string name="user_favorited">%s thích tút của bạn</string>
 	<string name="notification_boosted">%s đăng lại tút của bạn</string>
-	<string name="poll_ended">Xem kết quả bình chọn</string>
+	<string name="poll_ended">Kết quả bình chọn của bạn</string>
 	<string name="share_toot_title">Chia sẻ</string>
 	<string name="settings">Cài đặt</string>
 	<string name="publish">Đăng</string>
@@ -185,7 +185,7 @@
 	<string name="settings_app_version">Mastodon for Android v%1$s (%2$d)</string>
 	<string name="media_cache_cleared">Đã xóa bộ nhớ đệm</string>
 	<string name="confirm_log_out">Đăng xuất %s?</string>
-	<string name="sensitive_content_explain">Người đăng đánh dấu media này nhạy cảm</string>
+	<string name="sensitive_content_explain">Media nhạy cảm</string>
 	<string name="avatar_description">Xem hồ sơ %s</string>
 	<string name="more_options">Nhiều tùy chọn hơn</string>
 	<string name="new_post">Soạn tút</string>
@@ -544,7 +544,7 @@
 	<string name="error_playing_video">Lỗi khi phát video</string>
 	<string name="timeline_following">Trang chủ</string>
 	<string name="lists">Danh sách</string>
-	<string name="followed_hashtags">Hashtag theo dõi</string>
+	<string name="followed_hashtags">Hashtag t.dõi</string>
 	<string name="manage_lists">Quản lý danh sách</string>
 	<string name="manage_hashtags">Quản lý hashtag</string>
 	<!-- Screen reader description for the menu on the home timeline screen -->
@@ -568,7 +568,7 @@
 	<string name="add_user_to_list">Thêm vào danh sách…</string>
 	<string name="add_user_to_list_title">Thêm vào danh sách</string>
 	<!-- %s is a username -->
-	<string name="manage_user_lists">Quản lý danh sách %s xuất hiện trên</string>
+	<string name="manage_user_lists">%s sẽ xếp trong danh sách</string>
 	<string name="remove_from_list">Xóa khỏi danh sách</string>
 	<string name="confirm_remove_list_member">Xóa người này?</string>
 	<string name="no_followed_hashtags_title">Theo dõi những hashtag bạn thích</string>
@@ -648,6 +648,16 @@ Bạn càng theo dõi nhiều người thì nó sẽ càng sôi động và thú
 	<string name="server_can_interact_with_older">Thành viên máy chủ này có thể tương tác với các tút cũ của bạn.</string>
 	<string name="unblocked_domain_x">Bỏ chặn máy chủ %s</string>
 	<string name="handle_help_title">Địa chỉ Mastodon là gì?</string>
-	<string name="handle_title">Địa chỉ Mastodon của họ</string>
+	<string name="handle_title">Địa chỉ Mastodon của một người</string>
 	<string name="handle_username_explanation">Danh tính duy nhất của một người trên máy chủ của họ. Có thể có tên người dùng giống nhau trên các máy chủ khác nhau.</string>
+	<string name="handle_title_own">Địa chỉ Mastodon của bạn</string>
+	<string name="handle_username_explanation_own">Danh tính duy nhất của bạn trên máy chủ này. Có thể có tên người dùng giống bạn trên các máy chủ khác.</string>
+	<string name="server">Máy chủ</string>
+	<string name="handle_server_explanation">Ngôi nhà kỹ thuật số, nơi lưu giữ tút của ai đó.</string>
+	<string name="handle_explanation">Vì địa chỉ Mastodon cho biết một người là ai và họ ở đâu, nên bạn có thể tương tác với mọi người trên các nền tảng có &lt;a&gt;hỗ trợ ActivityPub&lt;/a&gt;.</string>
+	<string name="handle_server_explanation_own">Ngôi nhà kỹ thuật số, nơi lưu giữ tút của bạn. Không thích ở đây? Chuyển sang máy chủ khác và mang theo người theo dõi của bạn.</string>
+	<string name="handle_explanation_own">Vì địa chỉ Mastodon cho biết bạn là ai và bạn ở đâu, nên bạn có thể tương tác với mọi người trên các nền tảng có &lt;a&gt;hỗ trợ ActivityPub&lt;/a&gt;.</string>
+	<string name="what_is_activitypub_title">ActivityPub là gì?</string>
+	<string name="what_is_activitypub">ActivityPub giống như ngôn ngữ Mastodon giao tiếp với các mạng xã hội khác.\n\nNó giúp bạn kết nối và tương tác với mọi người không chỉ trên Mastodon mà còn trên các nền tảng khác nữa.</string>
+	<string name="handle_copied">Đã sao chép địa chỉ Mastodon.</string>
 </resources>
