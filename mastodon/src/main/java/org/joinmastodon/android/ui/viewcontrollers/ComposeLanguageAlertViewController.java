@@ -46,6 +46,7 @@ public class ComposeLanguageAlertViewController{
 	private List<SpecialLocaleInfo> specialLocales=new ArrayList<>();
 	private int selectedIndex=0;
 	private Locale selectedLocale;
+	private Locale detectedLocale;
 
 	public ComposeLanguageAlertViewController(Context context, String preferred, SelectedOption previouslySelected, String postText){
 		this.context=context;
@@ -81,15 +82,22 @@ public class ComposeLanguageAlertViewController{
 
 		if(Build.VERSION.SDK_INT>=29 && !TextUtils.isEmpty(postText)){
 			SpecialLocaleInfo detected=new SpecialLocaleInfo();
-			detected.displayName=context.getString(R.string.language_detecting);
-			detected.enabled=false;
+			if(previouslySelected!=null && previouslySelected.detectedLocale!=null){
+				detectedLocale=previouslySelected.detectedLocale;
+				detected.locale=detectedLocale;
+				detected.displayName=capitalizeLanguageName(detectedLocale.getDisplayName(Locale.getDefault()));
+				detected.title=context.getString(R.string.language_detected);
+			}else{
+				detected.displayName=context.getString(R.string.language_detecting);
+				detected.enabled=false;
+			}
 			specialLocales.add(detected);
 			detectLanguage(detected, postText);
 		}
 
 		if(previouslySelected!=null){
 			if(previouslySelected.index!=-1 && ((previouslySelected.index<specialLocales.size() && Objects.equals(previouslySelected.locale, specialLocales.get(previouslySelected.index).locale)) ||
-					(previouslySelected.index<specialLocales.size()+allLocales.size() && previouslySelected.index>-1 && Objects.equals(previouslySelected.locale, allLocales.get(previouslySelected.index-specialLocales.size()).locale)))){
+					(previouslySelected.index<specialLocales.size()+allLocales.size() && previouslySelected.index>=specialLocales.size() && Objects.equals(previouslySelected.locale, allLocales.get(previouslySelected.index-specialLocales.size()).locale)))){
 				selectedIndex=previouslySelected.index;
 				selectedLocale=previouslySelected.locale;
 			}else{
@@ -174,6 +182,7 @@ public class ComposeLanguageAlertViewController{
 					info.displayName=context.getString(R.string.language_cant_detect);
 				}else{
 					Locale locale=lang.getLocale(0).toLocale();
+					detectedLocale=locale;
 					info.locale=locale;
 					info.displayName=capitalizeLanguageName(locale.getDisplayName(Locale.getDefault()));
 					info.title=context.getString(R.string.language_detected);
@@ -197,7 +206,7 @@ public class ComposeLanguageAlertViewController{
 	}
 
 	public SelectedOption getSelectedOption(){
-		return new SelectedOption(selectedIndex, selectedLocale);
+		return new SelectedOption(selectedIndex, selectedLocale, detectedLocale);
 	}
 
 	private void selectItem(int index){
@@ -343,12 +352,14 @@ public class ComposeLanguageAlertViewController{
 	public static class SelectedOption{
 		public int index;
 		public Locale locale;
+		public Locale detectedLocale;
 
 		public SelectedOption(){}
 
-		public SelectedOption(int index, Locale locale){
+		public SelectedOption(int index, Locale locale, Locale detectedLocale){
 			this.index=index;
 			this.locale=locale;
+			this.detectedLocale=detectedLocale;
 		}
 	}
 }

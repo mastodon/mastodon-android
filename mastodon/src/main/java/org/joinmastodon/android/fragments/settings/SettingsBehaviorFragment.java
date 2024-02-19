@@ -46,7 +46,7 @@ public class SettingsBehaviorFragment extends BaseSettingsFragment<Void>{
 	protected void doLoadData(int offset, int count){}
 
 	private void onDefaultLanguageClick(ListItem<?> item){
-		ComposeLanguageAlertViewController vc=new ComposeLanguageAlertViewController(getActivity(), null, new ComposeLanguageAlertViewController.SelectedOption(-1, postLanguage), null);
+		ComposeLanguageAlertViewController vc=new ComposeLanguageAlertViewController(getActivity(), null, new ComposeLanguageAlertViewController.SelectedOption(-1, postLanguage, null), null);
 		new M3AlertDialogBuilder(getActivity())
 				.setTitle(R.string.default_post_language)
 				.setView(vc.getView())
