@@ -446,4 +446,9 @@
 	<style name="empty_text" parent="m3_body_large">
 		<item name="android:textColor">?colorM3OnSurfaceVariant</item>
 	</style>
+                        <!--adding splash screen-->
+
+	<style name="Theme.App.Starting" parent="Theme.AppKit.Light">
+		<item name="android:windowBackground">@drawable/splash_screen</item>
+	</style>
 </resources>
