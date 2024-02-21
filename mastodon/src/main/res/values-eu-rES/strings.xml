@@ -388,6 +388,7 @@
 	<string name="alt_text">Alt testua</string>
 	<string name="help">Laguntza</string>
 	<string name="what_is_alt_text">Zer da alt testua?</string>
+	<string name="alt_text_help">Alt testuak irudiak deskribatzeko aukera ematen du, ikusmen-urritasunak, banda-zabalera txikiko konexioak edo testuinguru gehigarria nahi duten pertsonentzat.\n\nAlt testu argi, zehatz eta objektiboen bidez, guztion irisgarritasuna eta ulermena hobetu ditzakezu.\n\n<ul><li>Hartu errementu garrantzitsuenak</li>\n<li>Irudietako testua laburbildu.</li>\n<li>Esaldien egitura erregularra erabili.</li>\n<li>Baztertu informazio erredundantea.</li>\n<li>Enfokatu joeretan eta funtsezko aurkikuntzetan irudi konplexuetan (diagrametan edo mapetan, adibidez)</li></ul></string>
 	<string name="edit_post">Editatu argitalpena</string>
 	<string name="no_verified_link">Lotura ez egiaztatua</string>
 	<string name="compose_autocomplete_emoji_empty">Esploratu emojiak</string>
@@ -473,6 +474,10 @@
 		<item quantity="other">Duela %d ordu</item>
 	</plurals>
 	<string name="alt_text_reminder_title">Multimedien alt testua falta da</string>
+	<plurals name="alt_text_reminder_x_attachments">
+		<item quantity="one">Zure multimedia fitxategi erantsi %sek ez du alt testurik. Nolanahi ere, argitaratu?</item>
+		<item quantity="other">Zure multimedia fitxategi erantsi %sk ez dute alt testurik. Nolanahi ere, argitaratu?</item>
+	</plurals>
 	<string name="count_one">Bat</string>
 	<string name="count_two">Bi</string>
 	<string name="count_three">Hiru</string>
@@ -596,6 +601,7 @@
 	<string name="got_it">Ulertuta</string>
 	<string name="dont_remind_again">Ez gogorarazi berriro</string>
 	<!-- %s is a time interval ("5 months") -->
+	<string name="old_post_sheet_text">Oraindik erantzun dezakezu, baina baliteke jada garrantzitsua ez izatea.</string>
 	<plurals name="x_months">
 		<item quantity="one">hilabete %,d</item>
 		<item quantity="other">%,d hilabete</item>
@@ -609,6 +615,7 @@
 	<string name="non_mutual_text3">Pertsona guztien elkarrizketa estiloa bakarra da. Prest egon egokitzeko.</string>
 	<string name="make_profile_discoverable">Profila aurkitzeko moduan jarri</string>
 	<string name="discoverability">Aurkigarritasuna</string>
+	<string name="discoverability_help">Zure kontua Mastodonen bilaketan agertzea aukeratzen baduzu, zure argitalpenak bilaketa emaitzetan eta joeretan ager daitezke.\n\nZure profila zure antzeko gustuak dituzten pertsonentzat gomenda daiteke.\n\nBilaketan ez agertzea aukeratzeak ez du zure profila ezkutatuko norbaitek zure izena bilatzen badu.</string>
 	<string name="app_version_copied">Bertsio zenbakia arbelera kopiatu da</string>
 	<string name="onboarding_recommendations_intro">Zuk ontzen duzu zure hasiera lerroa.
 Zenbat eta jende gehiago jarraitu, orduan eta aktiboagoa eta interesgarriagoa izango da.</string>
