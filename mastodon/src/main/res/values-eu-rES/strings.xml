@@ -443,6 +443,7 @@
 	<string name="yesterday">atzo</string>
 	<string name="tomorrow">bihar</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="pause_notifications_ends">Amaiera: %s</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<string name="pause_notifications_banner">%s jakinarazpenak berriro hasiko dira.</string>
 	<string name="resume_notifications_now">Jarraitu orain</string>
@@ -474,6 +475,10 @@
 		<item quantity="other">Duela %d ordu</item>
 	</plurals>
 	<string name="alt_text_reminder_title">Multimedien alt testua falta da</string>
+	<plurals name="alt_text_reminder_x_images">
+		<item quantity="one">Zure argazki %sek ez du alt testurik. Nolanahi ere, argitaratu?</item>
+		<item quantity="other">Zure %s argazkik ez dute alt testurik. Nolanahi ere, argitaratu?</item>
+	</plurals>
 	<plurals name="alt_text_reminder_x_attachments">
 		<item quantity="one">Zure multimedia fitxategi erantsi %sek ez du alt testurik. Nolanahi ere, argitaratu?</item>
 		<item quantity="other">Zure multimedia fitxategi erantsi %sk ez dute alt testurik. Nolanahi ere, argitaratu?</item>
@@ -583,8 +588,10 @@
 	<string name="add_user_to_list">Gehitu zerrendara…</string>
 	<string name="add_user_to_list_title">Gehitu zerrendara</string>
 	<!-- %s is a username -->
+	<string name="manage_user_lists">%s agertzen den zerrendak kudeatu</string>
 	<string name="remove_from_list">Kendu zerrendatik</string>
 	<string name="confirm_remove_list_member">Kendu kideak?</string>
+	<string name="no_followed_hashtags_title">Mantendu egunean interesatzen zaizuna, traolak jarraituz</string>
 	<string name="no_followed_hashtags_subtitle">Jarraituak hemen agertuko dira</string>
 	<string name="no_lists_title">Antolatu zure hasiera lerroa Zerrendekin</string>
 	<string name="no_lists_subtitle">Zurea hemen agertuko da</string>
@@ -596,11 +603,13 @@
 	<string name="list_no_members">Oraindik ez dago kiderik</string>
 	<string name="list_find_users">Bilatu gehitzeko erabiltzaileak</string>
 	<string name="reply_to_user">Erantzun honi: %s</string>
+	<string name="posted_at">%s(e)an argitaratua</string>
 	<string name="non_mutual_sheet_title">Kaixo, konexio berria!</string>
 	<string name="non_mutual_sheet_text">Oraindik alde biko loturarik ez duen norbaiti erantzutera zoazela dirudi. Eman dezagun lehen itxura on bat.</string>
 	<string name="got_it">Ulertuta</string>
 	<string name="dont_remind_again">Ez gogorarazi berriro</string>
 	<!-- %s is a time interval ("5 months") -->
+	<string name="old_post_sheet_title">Argitalpen hau duela %s(e)koa da</string>
 	<string name="old_post_sheet_text">Oraindik erantzun dezakezu, baina baliteke jada garrantzitsua ez izatea.</string>
 	<plurals name="x_months">
 		<item quantity="one">hilabete %,d</item>
@@ -622,9 +631,14 @@ Zenbat eta jende gehiago jarraitu, orduan eta aktiboagoa eta interesgarriagoa iz
 	<string name="onboarding_recommendations_title">Pertsonalizatu zure hasiera lerroa</string>
 	<string name="article_by_author">%s(r)en eskutik</string>
 	<string name="info">Informazioa</string>
+	<string name="button_reblogged">Bultzatuta</string>
+	<string name="button_favorited">Gogokoetara gehituta</string>
+	<string name="bookmarked">Laster-marketara gehituta</string>
 	<string name="join_server_x_with_invite">Batu %s -ra gonbidapenarekin</string>
 	<string name="expired_invite_link">Iraungitako gonbidapen esteka</string>
+	<string name="expired_clipboard_invite_link_alert">Zure arbeleko %1$s(e)rako gonbidapen-esteka iraungi egin da eta ezin da erregistratzeko erabili.\n\nLehendik dagoen erabiltzaile bati esteka berri bat eska diezaiokezu %2$s(e)ren bidez, edo erregistratzeko beste zerbitzari bat aukeratu.</string>
 	<string name="invalid_invite_link">Gonbidapen esteka baliogabea</string>
+	<string name="invalid_clipboard_invite_link_alert">Zure arbeleko %1$s(e)rako gonbidapen-esteka baliogabea da eta ezin da erregistratzeko erabili.\n\nLehendik dagoen erabiltzaile bati esteka berri bat eska diezaiokezu %2$s(e)ren bidez, edo erregistratzeko beste zerbitzari bat aukeratu.</string>
 	<string name="use_invite_link">Erabili gonbidapen esteka</string>
 	<string name="enter_invite_link">Sartu gonbidapena esteka</string>
 	<string name="this_invite_is_invalid">Gonbidapen esteka hau ez da baliozkoa.</string>
@@ -650,10 +664,17 @@ Zenbat eta jende gehiago jarraitu, orduan eta aktiboagoa eta interesgarriagoa iz
 	<string name="server_cant_mention_or_follow_you">Zerbitzari honetako inork ezin zaitu jarraitu.</string>
 	<string name="server_can_interact_with_older">Zerbitzari honetako erabiltzaileek zure bidalketa zaharrekin elkarreragin dezakete.</string>
 	<string name="unblocked_domain_x">%s domeinua desblokeatu da</string>
-	<string name="handle_username_explanation_own">Zure identifikatzaile bakarra zerbitzari honetan. Erabiltzaile-izen bera duten erabiltzaileak hainbat zerbitzaritan aurki daitezke.</string>
+	<string name="handle_help_title">Zer dago helbidean?</string>
+	<string name="handle_title">Haien helbidea</string>
+	<string name="handle_username_explanation">Haien helbide bakarra beraien zerbitzarian. Erabiltzaile-izen bera duten erabiltzaileak hainbat zerbitzaritan aurki daitezke.</string>
+	<string name="handle_title_own">Zure helbidea</string>
+	<string name="handle_username_explanation_own">Zure helbide bakarra zerbitzari honetan. Erabiltzaile-izen bera duten erabiltzaileak hainbat zerbitzaritan aurki daitezke.</string>
 	<string name="server">Zerbitzaria</string>
 	<string name="handle_server_explanation">Beraien etxe digitala, beraien bidalketa guztiak bizi diren tokia.</string>
+	<string name="handle_explanation">Helbideek nor diren eta non dauden adierazten duelako, pertsonekin elkarreraginean jardun zaitezke &lt;a&gt;ActivityPub-ek bultzatutako plataformen&lt;/a&gt; sare sozialaren bidez.</string>
 	<string name="handle_server_explanation_own">Zure etxe digitala, zure bidalketa guztiak bizi diren tokia. Ez duzu hau gustuko? Transferitu zerbitzariak noiznahi, eta eraman zure jarraitzaileak ere.</string>
+	<string name="handle_explanation_own">Zure helbideak nor zaren eta non zauden adierazten duenez, jendeak zurekin elkarreraginean jardun daiteke, &lt;a&gt;ActivityPub-ek bultzatutako plataformen&lt;/a&gt; sare sozialaren bidez.</string>
 	<string name="what_is_activitypub_title">Zer da ActivityPub?</string>
 	<string name="what_is_activitypub">ActivityPub Mastodonek beste sare sozial batzuekin hitz egiten duen hizkuntza da.\n\nMastodonen ez ezik, bestelako aplikazio sozialetan ere konektatzeko eta elkarreraginean aritzeko aukera ematen dizu.</string>
+	<string name="handle_copied">Helbidea arbelera kopiatu da.</string>
 </resources>
