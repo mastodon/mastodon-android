@@ -356,6 +356,7 @@
 	<string name="log_out_all_accounts">Irten kontu guztietatik</string>
 	<string name="confirm_log_out_all_accounts">Kontu guztietatik irten?</string>
 	<string name="retry">Berriro saiatu</string>
+	<string name="post_failed">Bidalketak huts egin du</string>
 	<!-- %s is formatted file size ("467 KB image") -->
 	<string name="attachment_description_image">irudi %s</string>
 	<string name="attachment_description_video">bideo %s</string>
@@ -394,6 +395,7 @@
 	<string name="forward_report_to_server">Birbidali hona: %s</string>
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
 	<string name="reported">Salatua</string>
+	<string name="report_unfollow_explanation">Zure hasierako denbora-lerroan beraien bidalketa gehiago ez ikusteko, utzi jarraitzeari.</string>
 	<string name="muted_user">Mututu %s</string>
 	<string name="blocked_user">Blokeatu %s</string>
 	<string name="mark_all_notifications_read">Markatu denak irakurrita bezala</string>
@@ -401,6 +403,9 @@
 	<string name="settings_filters">Iragazkiak</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">%s(r)i buruz</string>
+	<string name="default_post_language">Lehenetsitako bidalketa hizkuntza</string>
+	<string name="settings_alt_text_reminders">Gehitu alt testu gogorarazleak</string>
+	<string name="settings_confirm_delete_post">Galdetu bidalketa ezabatu orduko</string>
 	<string name="pause_all_notifications">Pausatu denak</string>
 	<string name="pause_notifications_off">Itzali</string>
 	<string name="notifications_policy_anyone">Edozein</string>
@@ -426,6 +431,7 @@
 	<string name="server_administrator">Administratzailea</string>
 	<string name="send_email_to_server_admin">Administratzaileari mezua</string>
 	<string name="settings_show_cws">Erakutsi eduki abisuak</string>
+	<string name="settings_show_interaction_counts">Bidalketarekiko interakzio-kontagailua</string>
 	<plurals name="in_x_seconds">
 		<item quantity="one">segundo %d barru</item>
 		<item quantity="other">%d segundo barru</item>
@@ -468,10 +474,14 @@
 	<string name="filter_context_profiles">Profilak</string>
 	<string name="settings_filter_title">Izenburua</string>
 	<string name="settings_delete_filter_title">Ezabatu \"%s\" iragazkia”?</string>
+	<string name="add_muted_word">Gehitu mutututako hitza</string>
+	<string name="edit_muted_word">Editatu mutututako hitza</string>
 	<string name="add">Gehitu</string>
+	<string name="filter_word_or_phrase">Hitz edo esaldia</string>
 	<string name="settings_delete_filter_word">“%s” hitza ezabatu?</string>
 	<string name="enter_selection_mode">Hautatu</string>
 	<string name="select_all">Hautatu dena</string>
+	<string name="settings_filter_duration_title">Irgazkiaren iraupena</string>
 	<string name="filter_duration_custom">Pertsonalizatua</string>
 	<plurals name="settings_delete_x_filter_words">
 		<item quantity="one">Ezabatu hitz %d?</item>
@@ -499,6 +509,7 @@
 	<!-- %s is the name of the post language -->
 	<!-- %1$s is the language, %2$s is the name of the translation service -->
 	<string name="translation_show_original">Erakutsi jatorrizkoa</string>
+	<string name="translation_failed">Itzulpenak huts egin du. Agian administratzaileak ez du itzulpenik gaitu zerbitzari honetan, edo zerbitzari hau Mastodon bertsio zaharrago bat exekutatzen ari da, non itzulpenak oraindik onartzen ez diren.</string>
 	<string name="settings_privacy">Pribatutasuna eta irismena</string>
 	<string name="settings_discoverable">Ezagutarazi profila eta bidalketak bilaketa algoritmoetan</string>
 	<string name="settings_indexable">Gehitu argitalpen publikoak bilaketa-emaitzetan</string>
@@ -541,7 +552,10 @@
 	<string name="create">Sortu</string>
 	<string name="manage_list_members">Kudeatu partaide zerrrenda</string>
 	<string name="list_no_members">Oraindik ez dago kiderik</string>
+	<string name="list_find_users">Bilatu gehitzeko erabiltzaileak</string>
 	<string name="reply_to_user">Erantzun honi: %s</string>
+	<string name="non_mutual_sheet_title">Kaixo, konexio berria!</string>
+	<string name="non_mutual_sheet_text">Oraindik alde biko loturarik ez duen norbaiti erantzutera zoazela dirudi. Eman dezagun lehen itxura on bat.</string>
 	<string name="got_it">Ulertuta</string>
 	<string name="dont_remind_again">Ez gogorarazi berriro</string>
 	<!-- %s is a time interval ("5 months") -->
@@ -549,7 +563,43 @@
 		<item quantity="one">hilabete %,d</item>
 		<item quantity="other">%,d hilabete</item>
 	</plurals>
+	<string name="more_than_two_years">2 urte baino gehiago</string>
+	<string name="non_mutual_title1">Izan adeitsua &amp; esanguratsua</string>
+	<string name="non_mutual_text1">Ziurtatu zure erantzuna adeitsua eta gaiari buruzkoa dela.</string>
+	<string name="non_mutual_title2">Besarkatu adeitasuna</string>
+	<string name="non_mutual_text2">Tonu positiboa beti da eskertzekoa.</string>
 	<string name="non_mutual_title3">Irekia izan</string>
+	<string name="non_mutual_text3">Pertsona guztien elkarrizketa estiloa bakarra da. Prest egon egokitzeko.</string>
+	<string name="make_profile_discoverable">Profila aurkitzeko moduan jarri</string>
+	<string name="discoverability">Aurkigarritasuna</string>
+	<string name="app_version_copied">Bertsio zenbakia arbelera kopiatu da</string>
 	<string name="onboarding_recommendations_title">Pertsonalizatu zure hasiera lerroa</string>
+	<string name="article_by_author">%s(r)en eskutik</string>
 	<string name="info">Informazioa</string>
+	<string name="join_server_x_with_invite">Batu %s -ra gonbidapenarekin</string>
+	<string name="expired_invite_link">Iraungitako gonbidapen esteka</string>
+	<string name="invalid_invite_link">Gonbidapen esteka baliogabea</string>
+	<string name="use_invite_link">Erabili gonbidapen esteka</string>
+	<string name="enter_invite_link">Sartu gonbidapena esteka</string>
+	<string name="this_invite_is_invalid">Gonbidapen esteka hau ez da baliozkoa.</string>
+	<string name="this_invite_has_expired">Gonbidapen esteka hau iraungita dago.</string>
+	<string name="need_invite_to_join_server">%s -ra batzeko lehendik dagoen erabiltzaile baten gonbidapen esteka beharko duzu.</string>
+	<string name="mute_user_confirm_title">Mututu erabiltzailea?</string>
+	<string name="user_can_still_see_your_posts">Oraindik ikus ditzakete zure bidalketak, baina ez dituzu beraienak ikusiko.</string>
+	<string name="block_user_confirm_title">Erabiltzailea blokeatu?</string>
+	<string name="user_can_see_blocked">Blokeatuta daudela ikus dezakete.</string>
+	<string name="user_cant_see_each_other_posts">Ezin dituzte zure bidalketak ikusi eta ez dituzu baraienak ikusiko.</string>
+	<string name="user_cant_mention_or_follow_you">Ezin zaituzte aipatu edo jarraitu.</string>
+	<string name="block_domain_confirm_title">Blokeatu domeinua?</string>
+	<string name="do_block_server">Blokeatu zerbitzaria</string>
+	<string name="users_cant_see_blocked">Ez dituzu zerbitzari honetako erabiltzaileen bidalketarik edota jakinarazpenik ikusiko.</string>
+	<string name="you_wont_see_server_posts">Ez dituzu zerbitzari honetako erabiltzaileen bidalketarik ikusiko.</string>
+	<string name="server_cant_mention_or_follow_you">Zerbitzari honetako inork ezin zaitu jarraitu.</string>
+	<string name="server_can_interact_with_older">Zerbitzari honetako erabiltzaileek zure bidalketa zaharrekin elkarreragin dezakete.</string>
+	<string name="handle_username_explanation_own">Zure identifikatzaile bakarra zerbitzari honetan. Erabiltzaile-izen bera duten erabiltzaileak hainbat zerbitzaritan aurki daitezke.</string>
+	<string name="server">Zerbitzaria</string>
+	<string name="handle_server_explanation">Beraien etxe digitala, beraien bidalketa guztiak bizi diren tokia.</string>
+	<string name="handle_server_explanation_own">Zure etxe digitala, zure bidalketa guztiak bizi diren tokia. Ez duzu hau gustuko? Transferitu zerbitzariak noiznahi, eta eraman zure jarraitzaileak ere.</string>
+	<string name="what_is_activitypub_title">Zer da ActivityPub?</string>
+	<string name="what_is_activitypub">ActivityPub Mastodonek beste sare sozial batzuekin hitz egiten duen hizkuntza da.\n\nMastodonen ez ezik, bestelako aplikazio sozialetan ere konektatzeko eta elkarreraginean aritzeko aukera ematen dizu.</string>
 </resources>
