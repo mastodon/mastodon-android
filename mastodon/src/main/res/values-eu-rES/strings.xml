@@ -496,11 +496,17 @@
 	<string name="settings_edit_filter">Editatu iragazkia</string>
 	<string name="settings_filter_duration">Iraupena</string>
 	<string name="settings_filter_muted_words">Mutututako hitzak</string>
+	<string name="settings_filter_context">Isilarazi</string>
 	<string name="settings_filter_show_cw">Erakutsi eduki abisuarekin</string>
 	<string name="settings_filter_show_cw_explanation">Iragazki horrekin bat datozen sarrerak erakusten jarraitzen du, baina edukien abisuarekin</string>
 	<string name="settings_delete_filter">Ezabatu iragazkia</string>
 	<string name="filter_duration_forever">Betirakoa</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="settings_filter_ends">Amaiera: %s</string>
+	<plurals name="settings_x_muted_words">
+		<item quantity="one">Hitz edo esaldi %d mutututa</item>
+		<item quantity="other">%d hitz edo esaldi mutututa</item>
+	</plurals>
 	<string name="selection_2_options">%1$s eta %2$s</string>
 	<string name="selection_3_options">%1$s, %2$s, eta %3$s</string>
 	<string name="selection_4_or_more">%1$s, %2$s, eta beste %3$d</string>
@@ -516,6 +522,7 @@
 	<string name="edit_muted_word">Editatu mutututako hitza</string>
 	<string name="add">Gehitu</string>
 	<string name="filter_word_or_phrase">Hitz edo esaldia</string>
+	<string name="filter_add_word_help">Hitzek ez dute maiuskulak eta minuskulak bereizten eta hitz osoak bakarrik bereizten dituzte.\n\n\"Sagar,\" hitza filtratzen baduzu, \"sagar\" edo \"sAgar\" duten bidalketak ezkutatuko dira, baina ez \"sagardo\" dutenak.</string>
 	<string name="settings_delete_filter_word">“%s” hitza ezabatu?</string>
 	<string name="enter_selection_mode">Hautatu</string>
 	<string name="select_all">Hautatu dena</string>
@@ -561,6 +568,10 @@
 		<item quantity="one">partaide %,d</item>
 		<item quantity="other">%d partaide</item>
 	</plurals>
+	<plurals name="x_posts_today">
+		<item quantity="one">%,d bidalketa gaur</item>
+		<item quantity="other">%,d bidalketa gaur</item>
+	</plurals>
 	<string name="error_playing_video">Errorea bideoa erreproduzitzerakoan</string>
 	<string name="timeline_following">Hasiera</string>
 	<string name="lists">Zerrendak</string>
@@ -596,6 +607,10 @@
 	<string name="no_lists_title">Antolatu zure hasiera lerroa Zerrendekin</string>
 	<string name="no_lists_subtitle">Zurea hemen agertuko da</string>
 	<string name="manage_accounts">Gehitu edo aldatu kontuz</string>
+	<plurals name="x_posts_recently">
+		<item quantity="one">Bidalketa berri %,d</item>
+		<item quantity="other">%,d bidalketa berri</item>
+	</plurals>
 	<string name="create_list">Sortu zerrenda</string>
 	<string name="step_x_of_y">%1$d pausua %2$d -(e)tik</string>
 	<string name="create">Sortu</string>
@@ -658,6 +673,7 @@ Zenbat eta jende gehiago jarraitu, orduan eta aktiboagoa eta interesgarriagoa iz
 	<string name="unblocked_user_x">%s desblokeatu da</string>
 	<string name="block_domain_confirm_title">Blokeatu domeinua?</string>
 	<string name="do_block_server">Blokeatu zerbitzaria</string>
+	<string name="block_user_x_instead">Blokeatu %s haren ordez</string>
 	<string name="users_cant_see_blocked">Ez dituzu zerbitzari honetako erabiltzaileen bidalketarik edota jakinarazpenik ikusiko.</string>
 	<string name="you_wont_see_server_posts">Ez dituzu zerbitzari honetako erabiltzaileen bidalketarik ikusiko.</string>
 	<string name="server_followers_will_be_removed">Zerbitzari honetako zure jarraitzaileak ezabatu egingo dira.</string>
