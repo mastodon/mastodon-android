@@ -92,7 +92,6 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.util.List;
 import java.util.Map;
-import java.util.UUID;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -158,7 +157,9 @@ public class ProfileQrCodeFragment extends AppKitFragment{
 	@Override
 	public void onDismiss(DialogInterface dialog){
 		super.onDismiss(dialog);
-		getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
+		Activity activity=getActivity();
+		if(activity!=null)
+			activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
 	}
 
 	@Override
