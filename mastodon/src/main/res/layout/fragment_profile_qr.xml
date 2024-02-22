@@ -98,6 +98,7 @@
 				android:layout_width="0dp"
 				android:layout_height="40dp"
 				android:layout_weight="1"
+				android:paddingStart="16dp"
 				style="@style/Widget.Mastodon.M3.Button.Filled">
 				<TextView
 					android:layout_width="wrap_content"
@@ -108,23 +109,38 @@
 					android:background="@null"
 					android:padding="0dp"
 					android:drawablePadding="7dp"
-					android:drawableTint="?colorM3OnPrimary"
+					android:drawableTint="@color/button_text_m3_filled"
 					android:clickable="false"
 					android:focusable="false"
 					android:text="@string/share_user"/>
 			</FrameLayout>
-			
-			<Button
+
+
+			<FrameLayout
 				android:id="@+id/save_btn"
 				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
+				android:layout_height="40dp"
 				android:layout_marginStart="16dp"
-				android:drawableStart="@drawable/ic_download_20px"
-				android:drawablePadding="7dp"
-				android:drawableTint="?colorM3OnPrimary"
-				style="@style/Widget.Mastodon.M3.Button.Filled"
-				android:text="@string/save"/>
-			
+				android:paddingStart="16dp"
+				style="@style/Widget.Mastodon.M3.Button.Filled">
+				<TextView
+					android:id="@+id/save_text"
+					android:layout_width="wrap_content"
+					android:layout_height="40dp"
+					android:layout_gravity="center_horizontal"
+					android:drawableStart="@drawable/ic_download_20px"
+					style="@style/Widget.Mastodon.M3.Button.Filled"
+					android:background="@null"
+					android:padding="0dp"
+					android:drawablePadding="7dp"
+					android:drawableTint="@color/button_text_m3_filled"
+					android:clickable="false"
+					android:focusable="false"
+					android:minWidth="0dp"
+					android:duplicateParentState="true"
+					android:text="@string/save"/>
+			</FrameLayout>
+
 		</LinearLayout>
 
 	</view>

@@ -5,8 +5,10 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Dialog;
+import android.app.DownloadManager;
 import android.app.ProgressDialog;
 import android.content.ContentResolver;
 import android.content.ContentValues;
@@ -44,11 +46,12 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
+import android.view.VelocityTracker;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -80,6 +83,7 @@ import org.joinmastodon.android.googleservices.barcodescanner.Barcode;
 import org.joinmastodon.android.googleservices.barcodescanner.BarcodeScanner;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.ui.M3AlertDialogBuilder;
+import org.joinmastodon.android.ui.Snackbar;
 import org.joinmastodon.android.ui.drawables.FancyQrCodeDrawable;
 import org.joinmastodon.android.ui.drawables.RadialParticleSystemDrawable;
 import org.joinmastodon.android.ui.utils.UiUtils;
@@ -95,6 +99,9 @@ import java.util.Map;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.dynamicanimation.animation.DynamicAnimation;
+import androidx.dynamicanimation.animation.SpringAnimation;
+import androidx.dynamicanimation.animation.SpringForce;
 import me.grishka.appkit.fragments.AppKitFragment;
 import me.grishka.appkit.imageloader.ViewImageLoader;
 import me.grishka.appkit.imageloader.requests.UrlImageLoaderRequest;
@@ -113,6 +120,8 @@ public class ProfileQrCodeFragment extends AppKitFragment{
 	private View codeContainer;
 	private View particleAnimContainer;
 	private Animator currentTransition;
+	private View saveBtn;
+	private TextView saveBtnText;
 
 	private String accountID;
 	private Account account;
@@ -168,6 +177,7 @@ public class ProfileQrCodeFragment extends AppKitFragment{
 		themeWrapper=new ContextThemeWrapper(activity, R.style.Theme_Mastodon_Dark);
 	}
 
+	@SuppressLint("ClickableViewAccessibility")
 	@Nullable
 	@Override
 	public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState){
@@ -196,7 +206,8 @@ public class ProfileQrCodeFragment extends AppKitFragment{
 		TextView username=content.findViewById(R.id.username);
 		TextView domain=content.findViewById(R.id.domain);
 		View share=content.findViewById(R.id.share_btn);
-		Button save=content.findViewById(R.id.save_btn);
+		saveBtn=content.findViewById(R.id.save_btn);
+		saveBtnText=content.findViewById(R.id.save_text);
 		View cornerAnimContainer=content.findViewById(R.id.corner_animation_container);
 		particleAnimContainer=content.findViewById(R.id.particle_animation_container);
 		codeContainer=content.findViewById(R.id.code_container);
@@ -217,12 +228,16 @@ public class ProfileQrCodeFragment extends AppKitFragment{
 			intent.putExtra(Intent.EXTRA_TEXT, account.url);
 			startActivity(Intent.createChooser(intent, getString(R.string.share_user)));
 		});
-		save.setOnClickListener(v->saveCodeAsFile());
+		saveBtn.setOnClickListener(v->saveCodeAsFile());
 
 		cornerAnimContainer.setBackground(new AnimatedCornersDrawable(themeWrapper));
 		int particleColor=UiUtils.getThemeColor(themeWrapper, R.attr.colorM3Primary);
 		particles=new RadialParticleSystemDrawable(5000, 200, (particleColor & 0xFFFFFF) | 0x80000000, particleColor & 0xFFFFFF, V.dp(65), V.dp(50), getResources().getDisplayMetrics().density);
 		particleAnimContainer.setBackground(particles);
+		content.setOnTouchListener(new TouchDismissListener());
+
+		int buttonExtraWidth=saveBtn.getPaddingLeft()+saveBtn.getPaddingRight()+saveBtnText.getCompoundDrawablesRelative()[0].getIntrinsicWidth()+saveBtnText.getCompoundDrawablePadding();
+		saveBtn.getLayoutParams().width=(int)Math.max(saveBtnText.getPaint().measureText(getString(R.string.save)), saveBtnText.getPaint().measureText(getString(R.string.saved)))+buttonExtraWidth;
 
 		return content;
 	}
@@ -253,7 +268,7 @@ public class ProfileQrCodeFragment extends AppKitFragment{
 
 	@Override
 	public void dismiss(){
-		dismissWithAnimation(super::dismiss);
+		dismissWithAnimation(super::dismiss, true);
 	}
 
 	@Override
@@ -404,13 +419,13 @@ public class ProfileQrCodeFragment extends AppKitFragment{
 		}
 	}
 
-	private void dismissWithAnimation(Runnable onDone){
+	private void dismissWithAnimation(Runnable onDone, boolean animateTranslationDown){
 		if(currentTransition!=null)
 			currentTransition.cancel();
 		AnimatorSet set=new AnimatorSet();
 		set.playTogether(
 				ObjectAnimator.ofInt(scrim, "alpha", 0),
-				ObjectAnimator.ofFloat(particleAnimContainer, View.TRANSLATION_Y, V.dp(50)),
+				ObjectAnimator.ofFloat(particleAnimContainer, View.TRANSLATION_Y, particleAnimContainer.getTranslationY()+V.dp(animateTranslationDown ? 50 : -50)),
 				ObjectAnimator.ofFloat(particleAnimContainer, View.ALPHA, 0),
 				ObjectAnimator.ofFloat(getToolbar(), View.ALPHA, 0)
 		);
@@ -449,13 +464,25 @@ public class ProfileQrCodeFragment extends AppKitFragment{
 			String fileName=account.username+"_"+accountDomain+".png";
 			try(OutputStream os=destinationStreamForFile(fileName)){
 				bmp.compress(Bitmap.CompressFormat.PNG, 100, os);
-				activity.runOnUiThread(()->Toast.makeText(activity, R.string.file_saved, Toast.LENGTH_SHORT).show());
+				activity.runOnUiThread(()->{
+					saveBtn.setEnabled(false);
+					saveBtnText.setText(R.string.saved);
+					saveBtnText.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.ic_check_20px, 0, 0, 0);
+					new Snackbar.Builder(activity)
+							.setText(R.string.image_saved)
+							.setAction(R.string.view_file, ()->startActivity(new Intent(DownloadManager.ACTION_VIEW_DOWNLOADS)))
+							.show();
+				});
 				if(Build.VERSION.SDK_INT<29){
 					File dstFile=new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), fileName);
 					MediaScannerConnection.scanFile(activity, new String[]{dstFile.getAbsolutePath()}, new String[]{"image/png"}, null);
 				}
 			}catch(IOException x){
-				activity.runOnUiThread(()->Toast.makeText(activity, R.string.error_saving_file, Toast.LENGTH_SHORT).show());
+				activity.runOnUiThread(()->{
+					new Snackbar.Builder(activity)
+							.setText(R.string.error_saving_file)
+							.show();
+				});
 			}
 		});
 	}
@@ -579,6 +606,75 @@ public class ProfileQrCodeFragment extends AppKitFragment{
 			float[] intervals=new float[]{3.1415f*radius*0.5f+additionalLength*2f, tmpRect.width()-radius*2f-additionalLength*2f};
 			paint.setPathEffect(new DashPathEffect(intervals, intervals[0]-additionalLength));
 			updateParticleEmitter();
+		}
+	}
+
+	private class TouchDismissListener implements View.OnTouchListener{
+		private Rect tmpRect=new Rect();
+		private int[] xy={0, 0};
+		private boolean dragging;
+		private float dragDownY;
+		private VelocityTracker velocityTracker;
+		private SpringAnimation springBackAnim;
+
+		@Override
+		public boolean onTouch(View v, MotionEvent ev){
+			if(ev.getAction()==MotionEvent.ACTION_DOWN){
+				codeContainer.getLocationInWindow(xy);
+				tmpRect.set(xy[0], xy[1], xy[0]+codeContainer.getWidth(), xy[1]+codeContainer.getHeight());
+				if(springBackAnim!=null){
+					springBackAnim.skipToEnd();
+				}
+				if(tmpRect.contains((int)ev.getX(), (int)ev.getY())){
+					dragging=true;
+					dragDownY=ev.getY();
+					velocityTracker=VelocityTracker.obtain();
+					velocityTracker.addMovement(ev);
+				}else{
+					dismiss();
+				}
+			}else if(dragging){
+				if(ev.getAction()==MotionEvent.ACTION_MOVE){
+					float transY=ev.getY()-dragDownY;
+					particleAnimContainer.setTranslationY(transY);
+					float alpha=1f-Math.abs(transY)/particleAnimContainer.getHeight();
+					scrim.setAlpha(Math.round(alpha*255));
+					getToolbar().setAlpha(alpha);
+					velocityTracker.addMovement(ev);
+				}else if(ev.getAction()==MotionEvent.ACTION_UP){
+					dragging=false;
+					velocityTracker.addMovement(ev);
+					velocityTracker.computeCurrentVelocity(1000);
+					float velocity=velocityTracker.getYVelocity();
+					if(Math.abs(velocity)>=V.dp(1000) || Math.abs(particleAnimContainer.getTranslationY())>particleAnimContainer.getHeight()/4f){
+						dismissWithAnimation(ProfileQrCodeFragment.super::dismiss, velocity>0);
+					}else{
+						springBack(velocity);
+					}
+					velocityTracker.recycle();
+					velocityTracker=null;
+				}else if(ev.getAction()==MotionEvent.ACTION_CANCEL){
+					dragging=false;
+					springBack(velocityTracker.getYVelocity());
+					velocityTracker.recycle();
+					velocityTracker=null;
+				}
+			}
+			return true;
+		}
+
+		private void springBack(float velocityY){
+			SpringAnimation anim=new SpringAnimation(particleAnimContainer, DynamicAnimation.TRANSLATION_Y, 0);
+			anim.getSpring().setStiffness(SpringForce.STIFFNESS_LOW).setDampingRatio(SpringForce.DAMPING_RATIO_NO_BOUNCY);
+			anim.setStartVelocity(velocityY);
+			anim.addEndListener((animation, canceled, value, velocity)->springBackAnim=null);
+			anim.addUpdateListener((animation, value, velocity)->{
+				float alpha=1f-Math.abs(particleAnimContainer.getTranslationY())/particleAnimContainer.getHeight();
+				scrim.setAlpha(Math.round(alpha*255));
+				getToolbar().setAlpha(alpha);
+			});
+			springBackAnim=anim;
+			anim.start();
 		}
 	}
 }

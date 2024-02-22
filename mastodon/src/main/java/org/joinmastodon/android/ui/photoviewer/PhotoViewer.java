@@ -8,9 +8,12 @@ import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.DownloadManager;
+import android.content.BroadcastReceiver;
 import android.content.ContentResolver;
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.content.res.ColorStateList;
 import android.graphics.Insets;
@@ -59,6 +62,7 @@ import org.joinmastodon.android.events.StatusCountersUpdatedEvent;
 import org.joinmastodon.android.model.Attachment;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.M3AlertDialogBuilder;
+import org.joinmastodon.android.ui.Snackbar;
 import org.joinmastodon.android.ui.utils.UiUtils;
 
 import java.io.File;
@@ -122,6 +126,8 @@ public class PhotoViewer implements ZoomPanView.Listener{
 	private Runnable videoPositionUpdater=this::updateVideoPosition;
 	private int videoDuration, videoInitialPosition, videoLastTimeUpdatePosition;
 	private long videoInitialPositionTime;
+	private long lastDownloadID;
+	private boolean receiverRegistered;
 
 	private static final Property<FragmentRootLinearLayout, Integer> STATUS_BAR_COLOR_PROPERTY=new Property<>(Integer.class, "Fdsafdsa"){
 		@Override
@@ -132,6 +138,21 @@ public class PhotoViewer implements ZoomPanView.Listener{
 		@Override
 		public void set(FragmentRootLinearLayout object, Integer value){
 			object.setStatusBarColor(value);
+		}
+	};
+
+	private final BroadcastReceiver downloadCompletedReceiver=new BroadcastReceiver(){
+		@Override
+		public void onReceive(Context context, Intent intent){
+			long id=intent.getLongExtra(DownloadManager.EXTRA_DOWNLOAD_ID, -1);
+			if(id==lastDownloadID){
+				new Snackbar.Builder(activity)
+						.setText(R.string.video_saved)
+						.setAction(R.string.view_file, ()->activity.startActivity(new Intent(DownloadManager.ACTION_VIEW_DOWNLOADS)))
+						.show();
+				activity.unregisterReceiver(this);
+				receiverRegistered=false;
+			}
 		}
 	};
 
@@ -370,6 +391,9 @@ public class PhotoViewer implements ZoomPanView.Listener{
 		listener.setPhotoViewVisibility(pager.getCurrentItem(), true);
 		wm.removeView(windowView);
 		listener.photoViewerDismissed();
+		if(receiverRegistered){
+			activity.unregisterReceiver(downloadCompletedReceiver);
+		}
 	}
 
 	@Override
@@ -531,7 +555,12 @@ public class PhotoViewer implements ZoomPanView.Listener{
 						BufferedSink buf=Okio.buffer(sink);
 						buf.writeAll(src);
 						buf.flush();
-						activity.runOnUiThread(()->Toast.makeText(activity, R.string.file_saved, Toast.LENGTH_SHORT).show());
+						activity.runOnUiThread(()->{
+							new Snackbar.Builder(activity)
+									.setText(R.string.image_saved)
+									.setAction(R.string.view_file, ()->activity.startActivity(new Intent(DownloadManager.ACTION_VIEW_DOWNLOADS)))
+									.show();
+						});
 						if(Build.VERSION.SDK_INT<29){
 							String fileName=Uri.parse(att.url).getLastPathSegment();
 							File dstFile=new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), fileName);
@@ -539,12 +568,18 @@ public class PhotoViewer implements ZoomPanView.Listener{
 						}
 					}catch(IOException x){
 						Log.w(TAG, "doSaveCurrentFile: ", x);
-						activity.runOnUiThread(()->Toast.makeText(activity, R.string.error_saving_file, Toast.LENGTH_SHORT).show());
+						activity.runOnUiThread(()->{
+							new Snackbar.Builder(activity)
+									.setText(R.string.error_saving_file)
+									.show();
+						});
 					}
 				});
 			}catch(IOException x){
 				Log.w(TAG, "doSaveCurrentFile: ", x);
-				Toast.makeText(activity, R.string.error_saving_file, Toast.LENGTH_SHORT).show();
+				new Snackbar.Builder(activity)
+						.setText(R.string.error_saving_file)
+						.show();
 			}
 		}else{
 			saveViaDownloadManager(att);
@@ -557,8 +592,12 @@ public class PhotoViewer implements ZoomPanView.Listener{
 		req.allowScanningByMediaScanner();
 		req.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
 		req.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, uri.getLastPathSegment());
-		activity.getSystemService(DownloadManager.class).enqueue(req);
-		Toast.makeText(activity, R.string.downloading, Toast.LENGTH_SHORT).show();
+		activity.registerReceiver(downloadCompletedReceiver, new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
+		receiverRegistered=true;
+		lastDownloadID=activity.getSystemService(DownloadManager.class).enqueue(req);
+		new Snackbar.Builder(activity)
+				.setText(R.string.downloading)
+				.show();
 	}
 
 	private void onAudioFocusChanged(int change){
