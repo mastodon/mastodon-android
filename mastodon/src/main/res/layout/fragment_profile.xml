@@ -24,6 +24,7 @@
 				android:orientation="vertical">
 
 				<RelativeLayout
+					android:id="@+id/profile_header"
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content">
 
@@ -291,8 +292,9 @@
 
 					<FrameLayout
 						android:id="@+id/profile_action_btn_wrap"
-						android:layout_width="match_parent"
-						android:layout_height="wrap_content">
+						android:layout_width="0dp"
+						android:layout_height="wrap_content"
+						android:layout_weight="1">
 
 						<org.joinmastodon.android.ui.views.ProgressBarButton
 							android:id="@+id/profile_action_btn"
@@ -314,6 +316,20 @@
 							android:outlineProvider="none"
 							android:visibility="gone" />
 					</FrameLayout>
+					
+					<ImageButton
+						android:id="@+id/qr_code"
+						android:layout_width="36.67dp"
+						android:layout_height="36.67dp"
+						android:layout_gravity="center_vertical"
+						style="@style/Widget.Mastodon.M3.Button.Outlined"
+						android:tint="?colorM3OnSurfaceVariant"
+						android:layout_marginStart="8dp"
+						android:layout_marginEnd="1.67dp"
+						android:contentDescription="@string/qr_code"
+						android:scaleType="centerCrop"
+						android:padding="9dp"
+						android:src="@drawable/ic_qr_code_20px"/>
 
 				</LinearLayout>
 

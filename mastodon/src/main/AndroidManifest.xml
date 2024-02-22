@@ -31,6 +31,10 @@
 		android:theme="@style/Theme.Mastodon.AutoLightDark"
 		android:largeHeap="true">
 
+		<meta-data
+			android:name="com.google.mlkit.vision.DEPENDENCIES"
+			android:value="barcode_ui"/>
+
 		<activity android:name=".MainActivity" android:exported="true" android:configChanges="orientation|screenSize" android:windowSoftInputMode="adjustResize" android:launchMode="singleTask">
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN"/>

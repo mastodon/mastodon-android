@@ -23,8 +23,10 @@ import android.text.TextUtils;
 import android.text.style.ImageSpan;
 import android.transition.ChangeBounds;
 import android.transition.Fade;
+import android.transition.Transition;
 import android.transition.TransitionManager;
 import android.transition.TransitionSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -36,6 +38,7 @@ import android.view.ViewTreeObserver;
 import android.view.WindowInsets;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
@@ -129,6 +132,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 	private View tabsDivider;
 	private View actionButtonWrap;
 	private CustomDrawingOrderLinearLayout scrollableContent;
+	private ImageButton qrCodeButton;
 
 	private Account account;
 	private String accountID;
@@ -211,6 +215,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 		tabsDivider=content.findViewById(R.id.tabs_divider);
 		actionButtonWrap=content.findViewById(R.id.profile_action_btn_wrap);
 		scrollableContent=content.findViewById(R.id.scrollable_content);
+		qrCodeButton=content.findViewById(R.id.qr_code);
 
 		avatar.setOutlineProvider(OutlineProviders.roundedRect(24));
 		avatar.setClipToOutline(true);
@@ -324,6 +329,14 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 		bioEdit.addTextChangedListener(new SimpleTextWatcher(e->editDirty=true));
 
 		usernameDomain.setOnClickListener(v->new DecentralizationExplainerSheet(getActivity(), accountID, account).show());
+		qrCodeButton.setOnClickListener(v->{
+			Bundle args=new Bundle();
+			args.putString("account", accountID);
+			args.putParcelable("targetAccount", Parcels.wrap(account));
+			ProfileQrCodeFragment qf=new ProfileQrCodeFragment();
+			qf.setArguments(args);
+			qf.show(getChildFragmentManager(), "qrDialog");
+		});
 
 		return sizeWrapper;
 	}
@@ -836,17 +849,48 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 		toolbar.setNavigationContentDescription(R.string.discard);
 
 		ViewGroup parent=contentView.findViewById(R.id.scrollable_content);
+		Runnable updater=new Runnable(){
+			@Override
+			public void run(){
+				// setPadding() calls nullLayouts() internally, forcing the text layout to update
+				actionButton.setPadding(actionButton.getPaddingLeft(), 1, actionButton.getPaddingRight(), 0);
+				actionButton.setPadding(actionButton.getPaddingLeft(), 0, actionButton.getPaddingRight(), 0);
+				actionButton.measure(actionButton.getWidth()|View.MeasureSpec.EXACTLY, actionButton.getHeight()|View.MeasureSpec.EXACTLY);
+				actionButton.postOnAnimation(this);
+			}
+		};
+		actionButton.postOnAnimation(updater);
 		TransitionManager.beginDelayedTransition(parent, new TransitionSet()
 				.addTransition(new Fade(Fade.IN | Fade.OUT))
 				.addTransition(new ChangeBounds())
 				.setDuration(250)
 				.setInterpolator(CubicBezierInterpolator.DEFAULT)
+				.addListener(new Transition.TransitionListener(){
+					@Override
+					public void onTransitionStart(Transition transition){}
+
+					@Override
+					public void onTransitionEnd(Transition transition){
+						actionButton.removeCallbacks(updater);
+					}
+
+					@Override
+					public void onTransitionCancel(Transition transition){}
+
+					@Override
+					public void onTransitionPause(Transition transition){}
+
+					@Override
+					public void onTransitionResume(Transition transition){}
+				})
 		);
 
-		name.setVisibility(View.GONE);
-		username.setVisibility(View.GONE);
+		name.setVisibility(View.INVISIBLE);
+		username.setVisibility(View.INVISIBLE);
 		bio.setVisibility(View.GONE);
 		countersLayout.setVisibility(View.GONE);
+		qrCodeButton.setVisibility(View.GONE);
+		usernameDomain.setVisibility(View.INVISIBLE);
 
 		nameEditWrap.setVisibility(View.VISIBLE);
 		nameEdit.setText(account.displayName);
@@ -885,11 +929,40 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 		editSaveMenuItem=null;
 
 		ViewGroup parent=contentView.findViewById(R.id.scrollable_content);
+		Runnable updater=new Runnable(){
+			@Override
+			public void run(){
+				// setPadding() calls nullLayouts() internally, forcing the text layout to update
+				actionButton.setPadding(actionButton.getPaddingLeft(), 1, actionButton.getPaddingRight(), 0);
+				actionButton.setPadding(actionButton.getPaddingLeft(), 0, actionButton.getPaddingRight(), 0);
+				actionButton.measure(actionButton.getWidth()|View.MeasureSpec.EXACTLY, actionButton.getHeight()|View.MeasureSpec.EXACTLY);
+				actionButton.postOnAnimation(this);
+			}
+		};
+		actionButton.postOnAnimation(updater);
 		TransitionManager.beginDelayedTransition(parent, new TransitionSet()
 				.addTransition(new Fade(Fade.IN | Fade.OUT))
 				.addTransition(new ChangeBounds())
 				.setDuration(250)
 				.setInterpolator(CubicBezierInterpolator.DEFAULT)
+				.addListener(new Transition.TransitionListener(){
+					@Override
+					public void onTransitionStart(Transition transition){}
+
+					@Override
+					public void onTransitionEnd(Transition transition){
+						actionButton.removeCallbacks(updater);
+					}
+
+					@Override
+					public void onTransitionCancel(Transition transition){}
+
+					@Override
+					public void onTransitionPause(Transition transition){}
+
+					@Override
+					public void onTransitionResume(Transition transition){}
+				})
 		);
 		nameEditWrap.setVisibility(View.GONE);
 		bioEditWrap.setVisibility(View.GONE);
@@ -898,6 +971,8 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 		bio.setVisibility(View.VISIBLE);
 		countersLayout.setVisibility(View.VISIBLE);
 		refreshLayout.setEnabled(true);
+		usernameDomain.setVisibility(View.VISIBLE);
+		qrCodeButton.setVisibility(View.VISIBLE);
 
 		bindHeaderView();
 		V.setVisibilityAnimated(fab, View.VISIBLE);

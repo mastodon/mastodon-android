@@ -151,7 +151,7 @@ public class ThreadFragment extends StatusListFragment{
 		replyButton.setOnClickListener(v->openReply());
 		Account self=AccountSessionManager.get(accountID).self;
 		if(!TextUtils.isEmpty(self.avatar)){
-			ViewImageLoader.loadWithoutAnimation(replyButtonAva, getResources().getDrawable(R.drawable.image_placeholder), new UrlImageLoaderRequest(self.avatar, V.dp(24), V.dp(24)));
+			ViewImageLoader.loadWithoutAnimation(replyButtonAva, getResources().getDrawable(R.drawable.image_placeholder, getActivity().getTheme()), new UrlImageLoaderRequest(self.avatar, V.dp(24), V.dp(24)));
 		}
 		UiUtils.loadCustomEmojiInTextView(toolbarTitleView);
 		showContent();

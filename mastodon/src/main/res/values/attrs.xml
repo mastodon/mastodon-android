@@ -63,4 +63,9 @@
 	<declare-styleable name="ProgressBarButton">
 		<attr name="progressBar" format="reference"/>
 	</declare-styleable>
+
+	<declare-styleable name="RoundedImageView">
+		<attr name="cornerRadius" format="dimension"/>
+		<attr name="roundBottomCorners" format="boolean"/>
+	</declare-styleable>
 </resources>

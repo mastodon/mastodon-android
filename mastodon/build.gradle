@@ -9,7 +9,7 @@ android {
 		applicationId "org.joinmastodon.android"
 		minSdk 23
 		targetSdk 33
-		versionCode 84
+		versionCode 85
 		versionName "2.3.0"
 		testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 		resConfigs "ar-rSA", "be-rBY", "bn-rBD", "bs-rBA", "ca-rES", "cs-rCZ", "da-rDK", "de-rDE", "el-rGR", "es-rES", "eu-rES", "fa-rIR", "fi-rFI", "fil-rPH", "fr-rFR", "ga-rIE", "gd-rGB", "gl-rES", "hi-rIN", "hr-rHR", "hu-rHU", "hy-rAM", "ig-rNG", "in-rID", "is-rIS", "it-rIT", "iw-rIL", "ja-rJP", "ka-rGE", "kab", "ko-rKR", "lt-rLT", "my-rMM", "nl-rNL", "no-rNO", "oc-rFR", "pl-rPL", "pt-rBR", "pt-rPT", "ro-rRO", "ru-rRU", "si-rLK", "sl-rSI", "sv-rSE", "th-rTH", "tr-rTR", "uk-rUA", "ur-rIN", "vi-rVN", "zh-rCN", "zh-rTW"
@@ -64,6 +64,9 @@ android {
 		checkReleaseBuilds false
 		abortOnError false
 	}
+	buildFeatures{
+		aidl true
+	}
 }
 
 dependencies {
@@ -81,6 +84,8 @@ dependencies {
 	implementation 'org.jsoup:jsoup:1.14.3'
 	implementation 'com.squareup:otto:1.3.8'
 	implementation 'de.psdev:async-otto:1.0.3'
+	implementation 'com.google.zxing:core:3.5.3'
+	implementation 'org.microg:safe-parcel:1.5.0'
 	implementation 'org.parceler:parceler-api:1.1.12'
 	annotationProcessor 'org.parceler:parceler:1.1.12'
 	coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.0.3'
