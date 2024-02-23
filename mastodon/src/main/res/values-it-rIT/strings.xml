@@ -31,13 +31,10 @@
 		<item quantity="other">seguiti</item>
 	</plurals>
 	<string name="posts">Post</string>
-	<string name="posts_and_replies">Post e risposte</string>
 	<string name="media">Media</string>
 	<string name="profile_about">Info</string>
 	<string name="button_follow">Segui</string>
 	<string name="button_following">Stai seguendo</string>
-	<string name="edit_profile">Modifica profilo</string>
-	<string name="share_user">Condividi il profilo</string>
 	<string name="mute_user">Silenzia %s</string>
 	<string name="unmute_user">Riattiva %s</string>
 	<string name="block_user">Blocca %s</string>
@@ -144,9 +141,7 @@
 	<string name="report_personal_subtitle">Ecco le tue opzioni per controllare ciò che vedi su Mastodon:</string>
 	<string name="back">Indietro</string>
 	<string name="search_communities">Nome del server o URL</string>
-	<string name="instance_rules_title">Regole del server</string>
 	<string name="instance_rules_subtitle">Continuando, accetti di seguire le seguenti regole stabilite e applicate dai moderatori di %s.</string>
-	<string name="signup_title">Crea un profilo</string>
 	<string name="display_name">Nome</string>
 	<string name="username">Nome utente</string>
 	<string name="email">Email</string>
@@ -154,7 +149,6 @@
 	<string name="confirm_password">Conferma la password</string>
 	<string name="password_note">Includi lettere maiuscole, caratteri speciali e numeri per aumentare la forza della tua password.</string>
 	<string name="category_general">Generale</string>
-	<string name="confirm_email_title">Controlla la tua casella di posta</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">Tocca il collegamento che ti abbiamo inviato per verificare %s. Aspetteremo proprio qui.</string>
 	<string name="confirm_email_didnt_get">Non hai ricevuto un collegamento?</string>
@@ -189,7 +183,6 @@
 	<string name="theme_dark">Scuro</string>
 	<string name="settings_behavior">Comportamento</string>
 	<string name="settings_gif">Riproduci avatar ed emoji animati</string>
-	<string name="settings_custom_tabs">Usa browser integrato</string>
 	<string name="settings_notifications">Notifiche</string>
 	<string name="settings_contribute">Contribuisci a Mastodon</string>
 	<string name="settings_tos">Termini di servizio</string>
@@ -218,8 +211,6 @@
 	<string name="followed_user">Ora stai seguendo %s</string>
 	<string name="following_user_requested">Richiesto di seguire %s</string>
 	<string name="open_in_browser">Apri nel browser</string>
-	<string name="hide_boosts_from_user">Nascondi condivisioni da %s</string>
-	<string name="show_boosts_from_user">Mostra condivisioni da %s</string>
 	<string name="signup_reason">Perché vuoi unirti?</string>
 	<string name="signup_reason_note">Questo ci aiuterà ad esaminare la tua richiesta.</string>
 	<string name="clear">Cancella</string>
@@ -242,7 +233,6 @@
 	<string name="recommended_accounts_info_banner">Questi account potrebbero piacerti in base agli altri che segui.</string>
 	<string name="see_new_posts">Nuovi post</string>
 	<string name="load_missing_posts">Carica i post mancanti</string>
-	<string name="follow_back">Segui anche tu</string>
 	<string name="button_follow_pending">In attesa</string>
 	<string name="follows_you">Ha iniziato a seguirti</string>
 	<string name="manually_approves_followers">Approva manualmente i followers</string>
@@ -298,28 +288,18 @@
 	<string name="file_size_mb">%.2f MB</string>
 	<string name="file_size_gb">%.2f GB</string>
 	<string name="upload_processing">In elaborazione…</string>
-	<!-- %s is version like 1.2.3 -->
-	<!-- %s is version like 1.2.3 -->
 	<!-- %s is file size -->
 	<string name="download_update">Scarica (%s)</string>
 	<string name="install_update">Installa</string>
-	<string name="privacy_policy_title">La tua privacy</string>
 	<string name="privacy_policy_subtitle">Sebbene l\'app Mastodon non raccolga alcun dato, il server attraverso il quale ti registri potrebbe avere una politica diversa.\n\nSe non sei d\'accordo con la politica per %s, puoi tornare indietro e scegliere un server diverso.</string>
-	<string name="i_agree">Accetto</string>
 	<string name="empty_list">Questo elenco è vuoto</string>
 	<string name="instance_signup_closed">Questo server non accetta nuove registrazioni.</string>
 	<string name="text_copied">Copiato negli appunti</string>
 	<string name="add_bookmark">Segnalibro</string>
 	<string name="remove_bookmark">Rimuovi segnalibro</string>
 	<string name="bookmarks">Segnalibri</string>
-	<string name="your_favorites">I Tuoi Preferiti</string>
-	<string name="login_title">Bentornato/a</string>
 	<string name="login_subtitle">Accedi con il server in cui hai creato il tuo account.</string>
 	<string name="server_url">URL del server</string>
-	<string name="server_filter_any_language">Qualsiasi lingua</string>
-	<string name="server_filter_instant_signup">Iscrizione immediata</string>
-	<string name="server_filter_manual_review">Revisione manuale</string>
-	<string name="server_filter_any_signup_speed">Qualsiasi velocità di iscrizione</string>
 	<string name="server_filter_region_europe">Europa</string>
 	<string name="server_filter_region_north_america">America del nord</string>
 	<string name="server_filter_region_south_america">America del sud</string>
@@ -327,7 +307,6 @@
 	<string name="server_filter_region_asia">Asia</string>
 	<string name="server_filter_region_oceania">Oceania</string>
 	<string name="not_accepting_new_members">Non accetta nuovi membri</string>
-	<string name="category_special_interests">Interessi speciali</string>
 	<string name="signup_passwords_dont_match">Le password non corrispondono</string>
 	<string name="profile_add_row">Aggiungi riga</string>
 	<string name="profile_setup">Configurazione del profilo</string>
@@ -596,7 +575,6 @@
 	<string name="remove">Rimuovi</string>
 	<string name="add_list_member">Aggiungi membro</string>
 	<string name="search_among_people_you_follow">Cerca tra le persone che segui</string>
-	<string name="add_user_to_list">Aggiungi alla lista…</string>
 	<string name="add_user_to_list_title">Aggiungi alla lista</string>
 	<!-- %s is a username -->
 	<string name="manage_user_lists">Gestisci gli elenchi in cui appare %s</string>
