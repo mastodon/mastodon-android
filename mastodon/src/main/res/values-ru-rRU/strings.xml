@@ -35,13 +35,10 @@
 		<item quantity="other">подписок</item>
 	</plurals>
 	<string name="posts">Посты</string>
-	<string name="posts_and_replies">Посты и ответы</string>
 	<string name="media">Медиа</string>
 	<string name="profile_about">О себе</string>
 	<string name="button_follow">Подписаться</string>
 	<string name="button_following">В подписках</string>
-	<string name="edit_profile">Изменить профиль</string>
-	<string name="share_user">Поделиться профилем</string>
 	<string name="mute_user">Игнорировать %s</string>
 	<string name="unmute_user">Убрать %s из игнорируемых</string>
 	<string name="block_user">Заблокировать %s</string>
@@ -168,9 +165,7 @@
 	<string name="report_personal_subtitle">Вот несколько опций управления тем, что вы видите в Mastodon:</string>
 	<string name="back">Назад</string>
 	<string name="search_communities">Имя сервера или URL</string>
-	<string name="instance_rules_title">Правила сервера</string>
 	<string name="instance_rules_subtitle">Продолжая, вы соглашаетесь соблюдать следующие правила, установленные и применяемые модераторами %s.</string>
-	<string name="signup_title">Создать Аккаунт</string>
 	<string name="display_name">Имя</string>
 	<string name="username">Имя пользователя</string>
 	<string name="email">E-mail</string>
@@ -178,7 +173,6 @@
 	<string name="confirm_password">Подтверждение пароля</string>
 	<string name="password_note">Используйте заглавные буквы, числа и специальные символы, чтобы повысить стойкость пароля.</string>
 	<string name="category_general">Общей тематики</string>
-	<string name="confirm_email_title">Проверьте входящие сообщения</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">Нажмите на ссылку, которую мы вам отправили, чтобы подтвердить %s. Мы подождем здесь.</string>
 	<string name="confirm_email_didnt_get">Не получили ссылку?</string>
@@ -215,7 +209,6 @@
 	<string name="theme_dark">Тёмный</string>
 	<string name="settings_behavior">Поведение</string>
 	<string name="settings_gif">Проигрывать анимированные аватарки и эмодзи</string>
-	<string name="settings_custom_tabs">Использовать браузер в приложении</string>
 	<string name="settings_notifications">Уведомления</string>
 	<string name="settings_contribute">Внести вклад в Mastodon</string>
 	<string name="settings_tos">Условия использования</string>
@@ -244,8 +237,6 @@
 	<string name="followed_user">Вы подписались на %s</string>
 	<string name="following_user_requested">Отправлен запрос на подписку %s</string>
 	<string name="open_in_browser">Открыть в браузере</string>
-	<string name="hide_boosts_from_user">Скрыть продвигаемые от %s</string>
-	<string name="show_boosts_from_user">Показать продвигаемые от %s</string>
 	<string name="signup_reason">Почему вы хотите присоединиться?</string>
 	<string name="signup_reason_note">Это поможет нам рассмотреть вашу заявку.</string>
 	<string name="clear">Очистить</string>
@@ -268,7 +259,6 @@
 	<string name="recommended_accounts_info_banner">Вам могут понравиться эти учетные записи, основаные на ваших подписках.</string>
 	<string name="see_new_posts">Новые посты</string>
 	<string name="load_missing_posts">Загрузить недостающие посты</string>
-	<string name="follow_back">Подписаться в ответ</string>
 	<string name="button_follow_pending">В ожидании</string>
 	<string name="follows_you">Подписан(а) на вас</string>
 	<string name="manually_approves_followers">Вручную подтверждает подписки</string>
@@ -336,28 +326,18 @@
 	<string name="file_size_mb">%.2f МБ</string>
 	<string name="file_size_gb">%.2f ГБ</string>
 	<string name="upload_processing">Обработка…</string>
-	<!-- %s is version like 1.2.3 -->
-	<!-- %s is version like 1.2.3 -->
 	<!-- %s is file size -->
 	<string name="download_update">Скачать (%s)</string>
 	<string name="install_update">Установить</string>
-	<string name="privacy_policy_title">Ваша конфиденциальность</string>
 	<string name="privacy_policy_subtitle">Хотя приложение Mastodon не собирает никаких данных, сервер, через который вы регистрируетесь, может иметь другую политику.\n\nЕсли вы не согласны с политикой %s, вы можете вернуться и выбрать другой сервер.</string>
-	<string name="i_agree">Я согласен</string>
 	<string name="empty_list">Этот список пуст</string>
 	<string name="instance_signup_closed">Этот сервер не принимает новые регистрации.</string>
 	<string name="text_copied">Скопировано в буфер обмена</string>
 	<string name="add_bookmark">Закладка</string>
 	<string name="remove_bookmark">Удалить закладку</string>
 	<string name="bookmarks">Закладки</string>
-	<string name="your_favorites">Ваше избранное</string>
-	<string name="login_title">С возвращением</string>
 	<string name="login_subtitle">Войдите на сервер, на котором вы создали свою учётную запись.</string>
 	<string name="server_url">Адрес сервера</string>
-	<string name="server_filter_any_language">Любой язык</string>
-	<string name="server_filter_instant_signup">Мгновенная регистрация</string>
-	<string name="server_filter_manual_review">Ручная проверка</string>
-	<string name="server_filter_any_signup_speed">Любая скорость регистрации</string>
 	<string name="server_filter_region_europe">Европа</string>
 	<string name="server_filter_region_north_america">Северная Америка</string>
 	<string name="server_filter_region_south_america">Южная Америка</string>
@@ -365,7 +345,6 @@
 	<string name="server_filter_region_asia">Азия</string>
 	<string name="server_filter_region_oceania">Океания</string>
 	<string name="not_accepting_new_members">Не принимает новых участников</string>
-	<string name="category_special_interests">Особые интересы</string>
 	<string name="signup_passwords_dont_match">Пароли не совпадают</string>
 	<string name="profile_add_row">Добавить строку</string>
 	<string name="profile_setup">Настройка профиля</string>
@@ -658,7 +637,6 @@
 	<string name="remove">Удалить</string>
 	<string name="add_list_member">Добавить участника</string>
 	<string name="search_among_people_you_follow">Искать среди подписок</string>
-	<string name="add_user_to_list">Добавить в список…</string>
 	<string name="add_user_to_list_title">Добавить в список</string>
 	<!-- %s is a username -->
 	<string name="manage_user_lists">Управлять списками с %s</string>
