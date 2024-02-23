@@ -31,13 +31,10 @@
 		<item quantity="other">հետեւում ես</item>
 	</plurals>
 	<string name="posts">Գրառումներ</string>
-	<string name="posts_and_replies">Գրառումներ եւ պատասխաններ</string>
 	<string name="media">Մեդիա</string>
 	<string name="profile_about">Իմ մասին</string>
 	<string name="button_follow">Հետեւել</string>
 	<string name="button_following">Հետեւում ես</string>
-	<string name="edit_profile">Խմբագրել անձնական էջը</string>
-	<string name="share_user">Կիսվել էջով</string>
 	<string name="mute_user">Անջատել ձայնը%s</string>
 	<string name="unmute_user">Միացնել ձայնը%s</string>
 	<string name="block_user">Արգելափակել%s</string>
@@ -136,9 +133,7 @@
 	<string name="report_personal_title">Չե՞ք ուզում սա տեսնել։</string>
 	<string name="back">Ետ</string>
 	<string name="search_communities">Սպասարկչի անուն կամ հասցե</string>
-	<string name="instance_rules_title">Սպասարկչի կանոնները</string>
 	<string name="instance_rules_subtitle">Շարունակելով` համաձայնվում եք հետևել %s-ի մոդերատորների կողմից սահմանված հետևյալ կանոններին.</string>
-	<string name="signup_title">Ստեղծել հաշիվ</string>
 	<string name="display_name">Անուն</string>
 	<string name="username">Մուտքանուն</string>
 	<string name="email">Էլ. փոստ</string>
@@ -146,7 +141,6 @@
 	<string name="confirm_password">Գաղտնաբառի հաստատում</string>
 	<string name="password_note">Գաղտնաբառի ապահովությունը բարձրացնելու համար ավելացրեք մեծատառեր, հատուկ նշաններ և թվեր։</string>
 	<string name="category_general">Ընդհանուր</string>
-	<string name="confirm_email_title">Ստուգեք Ձեր էլ․ փոստը</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">Սեղմեք %s-ին ուղարկված հղման վրա։ Մենք կսպասենք։</string>
 	<string name="confirm_email_didnt_get">Հղում չե՞ք ստացել։</string>
@@ -176,7 +170,6 @@
 	<string name="theme_light">Բաց</string>
 	<string name="theme_dark">Մուգ</string>
 	<string name="settings_behavior">Պահվածքը</string>
-	<string name="settings_custom_tabs">Օգտագործել ներքին բրաուզերը</string>
 	<string name="settings_notifications">Ծանուցումներ</string>
 	<string name="settings_contribute">Աջակցել Մաստոդոնին</string>
 	<string name="settings_tos">Ծառայության պայմանները</string>
@@ -199,8 +192,6 @@
 	<string name="follow_user">Հետևել %s-ին</string>
 	<string name="followed_user">Դուք այժմ հետեւում եք %s-ին</string>
 	<string name="open_in_browser">Բացել բրաուզերում</string>
-	<string name="hide_boosts_from_user">Թաքցնել @%s-ի տարածումները</string>
-	<string name="show_boosts_from_user">Ցուցադրել @%s-ի տարածումները</string>
 	<string name="signup_reason">Ինչո՞ւ եք ցանկանում միանալ։</string>
 	<string name="signup_reason_note">Սա կօգնի մեզ ստուգել ձեր հայտը։</string>
 	<string name="clear">Մաքրել</string>
@@ -274,28 +265,18 @@
 	<string name="file_size_mb">%.2f ՄԲ</string>
 	<string name="file_size_gb">%.2f ԳԲ</string>
 	<string name="upload_processing">Մշակվում է...</string>
-	<!-- %s is version like 1.2.3 -->
-	<!-- %s is version like 1.2.3 -->
 	<!-- %s is file size -->
 	<string name="download_update">Ներբեռնել (%s)</string>
 	<string name="install_update">Տեղադրել</string>
-	<string name="privacy_policy_title">Ձեր գաղտնիությունը</string>
 	<string name="privacy_policy_subtitle">Չնայած նրան, որ Մաստոդոնի ծրագիրը չի պահպանում անձնական տվյալներ, սերվերը, որտեղ դուք գրանցվում եք, կարող է ունենալ այլ գաղտնիության քաղաքականություն։\n\nԵթե դուք համաձայն չեք %s-ի գաղտնիության քաղաքականության հետ, դուք կարող եք հետ գնալ եւ ընտրել ուրիշ սերվեր։</string>
-	<string name="i_agree">Համաձայն եմ</string>
 	<string name="empty_list">Ցանկը դատարկ է</string>
 	<string name="instance_signup_closed">Սպասարկիչը գրանցումներ չի ընդունում։</string>
 	<string name="text_copied">Պատճենվել է</string>
 	<string name="add_bookmark">Ավելացնել էջանիշ</string>
 	<string name="remove_bookmark">Հեռացնել էջանիշը</string>
 	<string name="bookmarks">Էջանիշեր</string>
-	<string name="your_favorites">Հավանածներ</string>
-	<string name="login_title">Բարի վերադարձ</string>
 	<string name="login_subtitle">Մուտք գործեք այն սերվերի միջոցով, որտեղ ստեղծել եք ձեր հաշիվը։</string>
 	<string name="server_url">Սերվերի հասցե</string>
-	<string name="server_filter_any_language">Որևե լեզու</string>
-	<string name="server_filter_instant_signup">Գրանցում միանգամից</string>
-	<string name="server_filter_manual_review">Հայտերի ստուգում</string>
-	<string name="server_filter_any_signup_speed">Գրանցման որեւէ արագություն</string>
 	<string name="server_filter_region_europe">Եվրոպա</string>
 	<string name="server_filter_region_north_america">Հյուսիսային Ամերիկա</string>
 	<string name="server_filter_region_south_america">Հարավային Ամերիկա</string>
@@ -303,7 +284,6 @@
 	<string name="server_filter_region_asia">Ասիա</string>
 	<string name="server_filter_region_oceania">Օվկիանիա</string>
 	<string name="not_accepting_new_members">Չի ընդունում նոր անդամներ</string>
-	<string name="category_special_interests">Հատուկ հետաքրքրություններ</string>
 	<string name="signup_passwords_dont_match">Գաղտնաբառերը չեն համընկնում</string>
 	<string name="profile_add_row">Ավելացնել տող</string>
 	<string name="profile_setup">Հաշվի կարգավորում</string>
