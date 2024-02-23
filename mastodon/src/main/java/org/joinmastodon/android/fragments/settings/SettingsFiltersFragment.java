@@ -44,6 +44,8 @@ public class SettingsFiltersFragment extends BaseSettingsFragment<Filter>{
 				.setCallback(new SimpleCallback<>(this){
 					@Override
 					public void onSuccess(List<Filter> result){
+						if(getActivity()==null)
+							return;
 						onDataLoaded(result.stream().map(f->makeListItem(f)).collect(Collectors.toList()));
 					}
 				})

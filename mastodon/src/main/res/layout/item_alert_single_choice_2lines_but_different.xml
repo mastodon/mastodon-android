@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<org.joinmastodon.android.ui.views.CheckableLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:orientation="horizontal"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:minHeight="56dp"
+	android:paddingHorizontal="16dp"
+	android:paddingVertical="12dp"
+	android:gravity="center_vertical">
+
+	<View
+		android:id="@+id/radiobutton"
+		android:layout_width="32dp"
+		android:layout_height="32dp"
+		android:layout_gravity="center_vertical"
+		android:background="?android:attr/listChoiceIndicatorSingle"
+		android:duplicateParentState="true"/>
+	
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="12dp"
+		android:orientation="vertical"
+		android:gravity="center_vertical">
+		<TextView
+			android:id="@+id/text"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:minHeight="24dp"
+			android:gravity="center_vertical|start"
+			android:textAppearance="@style/m3_body_large"
+			android:textSize="16sp"
+			android:textColor="?colorM3OnSurface"
+			android:textAlignment="viewStart"
+			tools:text="Title"/>
+
+		<TextView
+			android:id="@+id/subtitle"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:minHeight="20dp"
+			android:gravity="center_vertical|start"
+			android:textAppearance="@style/m3_body_medium"
+			android:textSize="14sp"
+			android:textColor="?colorM3OnSurfaceVariant"
+			android:textAlignment="viewStart"
+			tools:text="Subtitle"/>
+	</LinearLayout>
+
+</org.joinmastodon.android.ui.views.CheckableLinearLayout>
