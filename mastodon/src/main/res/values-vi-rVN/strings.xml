@@ -29,13 +29,10 @@
 		<item quantity="other">theo dõi</item>
 	</plurals>
 	<string name="posts">Tút</string>
-	<string name="posts_and_replies">Lượt trả lời</string>
 	<string name="media">Media</string>
 	<string name="profile_about">Giới thiệu</string>
 	<string name="button_follow">Theo dõi</string>
 	<string name="button_following">Đang theo dõi</string>
-	<string name="edit_profile">Sửa hồ sơ</string>
-	<string name="share_user">Chia sẻ hồ sơ</string>
 	<string name="mute_user">Ẩn %s</string>
 	<string name="unmute_user">Bỏ ẩn %s</string>
 	<string name="block_user">Chặn %s</string>
@@ -132,9 +129,7 @@
 	<string name="report_personal_subtitle">Đây là một số cách để kiểm soát thứ bạn nhìn thấy trên Mastodon:</string>
 	<string name="back">Quay lại</string>
 	<string name="search_communities">Tên máy chủ hoặc URL</string>
-	<string name="instance_rules_title">Nội quy máy chủ</string>
 	<string name="instance_rules_subtitle">Tiếp tục nghĩa là bạn đồng ý tuân theo các quy tắc sau do kiểm duyệt viên %s đặt ra và thực thi.</string>
-	<string name="signup_title">Tạo tài khoản</string>
 	<string name="display_name">Biệt danh</string>
 	<string name="username">Tên người dùng</string>
 	<string name="email">Email</string>
@@ -142,7 +137,6 @@
 	<string name="confirm_password">Nhập lại mật khẩu</string>
 	<string name="password_note">Hãy thêm chữ viết hoa, ký tự đặc biệt và số để tăng độ mạnh mật khẩu.</string>
 	<string name="category_general">Chung</string>
-	<string name="confirm_email_title">Kiểm tra hộp thư của bạn</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">Nhấn vào liên kết chúng tôi vừa gửi để xác minh %s. Nhanh nhé bạn.</string>
 	<string name="confirm_email_didnt_get">Không nhận được mã?</string>
@@ -176,7 +170,6 @@
 	<string name="theme_dark">Tối</string>
 	<string name="settings_behavior">Thao tác</string>
 	<string name="settings_gif">Ảnh đại diện và emoji động</string>
-	<string name="settings_custom_tabs">Dùng trình duyệt tích hợp</string>
 	<string name="settings_notifications">Thông báo</string>
 	<string name="settings_contribute">Đóng góp cho Mastodon</string>
 	<string name="settings_tos">Điều khoản dịch vụ</string>
@@ -205,8 +198,6 @@
 	<string name="followed_user">Bạn đã theo dõi %s</string>
 	<string name="following_user_requested">Yêu cầu theo dõi %s</string>
 	<string name="open_in_browser">Mở trong trình duyệt</string>
-	<string name="hide_boosts_from_user">Ẩn đăng lại từ %s</string>
-	<string name="show_boosts_from_user">Hiện đăng lại từ %s</string>
 	<string name="signup_reason">Vì sao bạn muốn tham gia?</string>
 	<string name="signup_reason_note">Điều này sẽ giúp chúng tôi phê duyệt đăng ký của bạn.</string>
 	<string name="clear">Xóa</string>
@@ -229,7 +220,6 @@
 	<string name="recommended_accounts_info_banner">Có thể bạn quen những người này chăng?!</string>
 	<string name="see_new_posts">Những tút mới</string>
 	<string name="load_missing_posts">Tải tút chưa đọc</string>
-	<string name="follow_back">Theo dõi lại</string>
 	<string name="button_follow_pending">Đang chờ</string>
 	<string name="follows_you">Đang theo dõi bạn</string>
 	<string name="manually_approves_followers">Duyệt người theo dõi thủ công</string>
@@ -279,28 +269,18 @@
 	<string name="file_size_mb">%.2f MB</string>
 	<string name="file_size_gb">%.2f GB</string>
 	<string name="upload_processing">Đang tải lên…</string>
-	<!-- %s is version like 1.2.3 -->
-	<!-- %s is version like 1.2.3 -->
 	<!-- %s is file size -->
 	<string name="download_update">Tải về (%s)</string>
 	<string name="install_update">Cài đặt</string>
-	<string name="privacy_policy_title">Sự riêng tư của bạn</string>
 	<string name="privacy_policy_subtitle">Mặc dù ứng dụng Mastodon không thu thập bất kỳ dữ liệu nào, máy chủ mà bạn đăng ký có thể có chính sách khác.\n\nNếu không đồng ý với chính sách dành cho %s, bạn có thể quay lại và chọn một máy chủ khác.</string>
-	<string name="i_agree">Tôi đồng ý</string>
 	<string name="empty_list">Trống.</string>
 	<string name="instance_signup_closed">Máy chủ này không chấp nhận đăng kí mới.</string>
 	<string name="text_copied">Đã sao chép vào bộ nhớ tạm</string>
 	<string name="add_bookmark">Lưu</string>
 	<string name="remove_bookmark">Bỏ lưu</string>
 	<string name="bookmarks">Những tút đã lưu</string>
-	<string name="your_favorites">Những tút đã thích</string>
-	<string name="login_title">Chào mừng quay trở lại!</string>
 	<string name="login_subtitle">Đăng nhập với máy chủ nơi bạn tạo tài khoản.</string>
 	<string name="server_url">URL Máy chủ</string>
-	<string name="server_filter_any_language">Mọi ngôn ngữ</string>
-	<string name="server_filter_instant_signup">Duyệt tự động</string>
-	<string name="server_filter_manual_review">Duyệt thủ công</string>
-	<string name="server_filter_any_signup_speed">Mọi hình thức duyệt</string>
 	<string name="server_filter_region_europe">Châu Âu</string>
 	<string name="server_filter_region_north_america">Bắc Mỹ</string>
 	<string name="server_filter_region_south_america">Nam Mỹ</string>
@@ -308,7 +288,6 @@
 	<string name="server_filter_region_asia">Châu Á</string>
 	<string name="server_filter_region_oceania">Châu Đại Dương</string>
 	<string name="not_accepting_new_members">Tạm dừng đăng ký mới</string>
-	<string name="category_special_interests">Sở thích đặc biệt</string>
 	<string name="signup_passwords_dont_match">Mật khẩu không khớp</string>
 	<string name="profile_add_row">Thêm hàng</string>
 	<string name="profile_setup">Thiết lập hồ sơ</string>
@@ -565,7 +544,6 @@
 	<string name="remove">Xóa</string>
 	<string name="add_list_member">Thêm người</string>
 	<string name="search_among_people_you_follow">Tìm những người mà bạn quan tâm</string>
-	<string name="add_user_to_list">Thêm vào danh sách…</string>
 	<string name="add_user_to_list_title">Thêm vào danh sách</string>
 	<!-- %s is a username -->
 	<string name="manage_user_lists">%s sẽ xếp trong danh sách</string>
