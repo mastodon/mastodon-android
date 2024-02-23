@@ -29,13 +29,10 @@
 		<item quantity="other">กำลังติดตาม</item>
 	</plurals>
 	<string name="posts">โพสต์</string>
-	<string name="posts_and_replies">โพสต์และการตอบกลับ</string>
 	<string name="media">สื่อ</string>
 	<string name="profile_about">เกี่ยวกับ</string>
 	<string name="button_follow">ติดตาม</string>
 	<string name="button_following">กำลังติดตาม</string>
-	<string name="edit_profile">แก้ไขโปรไฟล์</string>
-	<string name="share_user">แชร์โปรไฟล์</string>
 	<string name="mute_user">ซ่อน %s</string>
 	<string name="unmute_user">เลิกซ่อน %s</string>
 	<string name="block_user">ปิดกั้น %s</string>
@@ -132,9 +129,7 @@
 	<string name="report_personal_subtitle">นี่คือตัวเลือกของคุณสำหรับการควบคุมสิ่งที่คุณเห็นใน Mastodon:</string>
 	<string name="back">ย้อนกลับ</string>
 	<string name="search_communities">ชื่อหรือ URL ของเซิร์ฟเวอร์</string>
-	<string name="instance_rules_title">กฎของเซิร์ฟเวอร์</string>
 	<string name="instance_rules_subtitle">การดำเนินการต่อแสดงว่าคุณเห็นด้วยที่จะปฏิบัติตามกฎดังต่อไปนี้ที่ได้รับการตั้งและบังคับใช้โดยผู้ควบคุมของ %s</string>
-	<string name="signup_title">สร้างบัญชี</string>
 	<string name="display_name">ชื่อ</string>
 	<string name="username">ชื่อผู้ใช้</string>
 	<string name="email">อีเมล</string>
@@ -142,7 +137,6 @@
 	<string name="confirm_password">ยืนยันรหัสผ่าน</string>
 	<string name="password_note">รวมตัวพิมพ์ใหญ่, อักขระพิเศษ และตัวเลขเพื่อเพิ่มความแข็งแรงของรหัสผ่านของคุณ</string>
 	<string name="category_general">ทั่วไป</string>
-	<string name="confirm_email_title">ตรวจสอบกล่องขาเข้าของคุณ</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">แตะลิงก์ที่เราส่งถึงคุณเพื่อยืนยัน %s เราจะรออยู่ตรงนี้</string>
 	<string name="confirm_email_didnt_get">ไม่ได้รับลิงก์?</string>
@@ -176,7 +170,6 @@
 	<string name="theme_dark">มืด</string>
 	<string name="settings_behavior">พฤติกรรม</string>
 	<string name="settings_gif">เล่นภาพประจำตัวและอีโมจิแบบเคลื่อนไหว</string>
-	<string name="settings_custom_tabs">ใช้เบราว์เซอร์ในแอป</string>
 	<string name="settings_notifications">การแจ้งเตือน</string>
 	<string name="settings_contribute">มีส่วนร่วมกับ Mastodon</string>
 	<string name="settings_tos">เงื่อนไขการให้บริการ</string>
@@ -205,8 +198,6 @@
 	<string name="followed_user">ตอนนี้คุณกำลังติดตาม %s</string>
 	<string name="following_user_requested">ขอติดตาม %s แล้ว</string>
 	<string name="open_in_browser">เปิดในเบราว์เซอร์</string>
-	<string name="hide_boosts_from_user">ซ่อนการดันจาก %s</string>
-	<string name="show_boosts_from_user">แสดงการดันจาก %s</string>
 	<string name="signup_reason">ทำไมคุณจึงต้องการเข้าร่วม?</string>
 	<string name="signup_reason_note">นี่จะช่วยให้เราตรวจทานใบสมัครของคุณ</string>
 	<string name="clear">ล้าง</string>
@@ -229,7 +220,6 @@
 	<string name="recommended_accounts_info_banner">คุณอาจชอบบัญชีเหล่านี้โดยอิงตามผู้อื่นที่คุณติดตาม</string>
 	<string name="see_new_posts">โพสต์ใหม่</string>
 	<string name="load_missing_posts">โหลดโพสต์ที่ขาดหายไป</string>
-	<string name="follow_back">ติดตามกลับ</string>
 	<string name="button_follow_pending">รอดำเนินการ</string>
 	<string name="follows_you">ติดตามคุณ</string>
 	<string name="manually_approves_followers">อนุมัติผู้ติดตามด้วยตนเอง</string>
@@ -279,28 +269,18 @@
 	<string name="file_size_mb">%.2f เมกะไบต์</string>
 	<string name="file_size_gb">%.2f กิกะไบต์</string>
 	<string name="upload_processing">กำลังประมวลผล…</string>
-	<!-- %s is version like 1.2.3 -->
-	<!-- %s is version like 1.2.3 -->
 	<!-- %s is file size -->
 	<string name="download_update">ดาวน์โหลด (%s)</string>
 	<string name="install_update">ติดตั้ง</string>
-	<string name="privacy_policy_title">ความเป็นส่วนตัวของคุณ</string>
 	<string name="privacy_policy_subtitle">แม้ว่าแอป Mastodon ไม่เก็บรวบรวมข้อมูลใด ๆ เซิร์ฟเวอร์ที่คุณลงทะเบียนผ่านอาจมีนโยบายที่แตกต่างกัน\n\nหากคุณไม่เห็นด้วยกับนโยบายสำหรับ %s คุณสามารถย้อนกลับและเลือกเซิร์ฟเวอร์อื่น</string>
-	<string name="i_agree">ฉันเห็นด้วย</string>
 	<string name="empty_list">รายการนี้ว่างเปล่า</string>
 	<string name="instance_signup_closed">เซิร์ฟเวอร์นี้ไม่เปิดรับการลงทะเบียนใหม่</string>
 	<string name="text_copied">คัดลอกไปยังคลิปบอร์ดแล้ว</string>
 	<string name="add_bookmark">เพิ่มที่คั่นหน้า</string>
 	<string name="remove_bookmark">เอาที่คั่นหน้าออก</string>
 	<string name="bookmarks">ที่คั่นหน้า</string>
-	<string name="your_favorites">รายการโปรดของคุณ</string>
-	<string name="login_title">ยินดีต้อนรับกลับมา</string>
 	<string name="login_subtitle">เข้าสู่ระบบด้วยเซิร์ฟเวอร์ที่ซึ่งคุณได้สร้างบัญชีของคุณ</string>
 	<string name="server_url">URL ของเซิร์ฟเวอร์</string>
-	<string name="server_filter_any_language">ภาษาใด ๆ</string>
-	<string name="server_filter_instant_signup">การลงทะเบียนทันที</string>
-	<string name="server_filter_manual_review">การตรวจทานด้วยตนเอง</string>
-	<string name="server_filter_any_signup_speed">ความเร็วการลงทะเบียนใด ๆ</string>
 	<string name="server_filter_region_europe">ยุโรป</string>
 	<string name="server_filter_region_north_america">อเมริกาเหนือ</string>
 	<string name="server_filter_region_south_america">อเมริกาใต้</string>
@@ -308,7 +288,6 @@
 	<string name="server_filter_region_asia">เอเชีย</string>
 	<string name="server_filter_region_oceania">โอเชียเนีย</string>
 	<string name="not_accepting_new_members">ไม่ได้กำลังเปิดรับสมาชิกใหม่</string>
-	<string name="category_special_interests">ความสนใจพิเศษ</string>
 	<string name="signup_passwords_dont_match">รหัสผ่านไม่ตรงกัน</string>
 	<string name="profile_add_row">เพิ่มแถว</string>
 	<string name="profile_setup">การตั้งค่าโปรไฟล์</string>
@@ -565,7 +544,6 @@
 	<string name="remove">เอาออก</string>
 	<string name="add_list_member">เพิ่มสมาชิก</string>
 	<string name="search_among_people_you_follow">ค้นหาในหมู่ผู้คนที่คุณติดตาม</string>
-	<string name="add_user_to_list">เพิ่มไปยังรายการ…</string>
 	<string name="add_user_to_list_title">เพิ่มไปยังรายการ</string>
 	<!-- %s is a username -->
 	<string name="manage_user_lists">จัดการรายการที่ %s ปรากฏอยู่ใน</string>
