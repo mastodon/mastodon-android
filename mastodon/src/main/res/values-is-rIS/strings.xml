@@ -31,13 +31,10 @@
 		<item quantity="other">fylgjast með</item>
 	</plurals>
 	<string name="posts">Færslur</string>
-	<string name="posts_and_replies">Færslur og svör</string>
 	<string name="media">Gagnamiðlar</string>
 	<string name="profile_about">Um hugbúnaðinn</string>
 	<string name="button_follow">Fylgja</string>
 	<string name="button_following">Fylgist með</string>
-	<string name="edit_profile">Breyta notandasniði</string>
-	<string name="share_user">Deila notandasniði</string>
 	<string name="mute_user">Þagga niður í %s</string>
 	<string name="unmute_user">Afþagga %s</string>
 	<string name="block_user">Útiloka %s</string>
@@ -144,9 +141,7 @@
 	<string name="report_personal_subtitle">Hér eru nokkrir valkostir til að stýra hvað þú sérð á Mastodon:</string>
 	<string name="back">Til baka</string>
 	<string name="search_communities">Nafn þjóns eða vefslóð</string>
-	<string name="instance_rules_title">Reglur netþjónsins</string>
 	<string name="instance_rules_subtitle">Með því að halda áfram, samþykkir þú að fylgja eftirfarandi reglum sem settar eru af umsjónarmönnum %s, sem sjá um að þeim sé fylgt.</string>
-	<string name="signup_title">Búa til notandaaðgang</string>
 	<string name="display_name">Nafn</string>
 	<string name="username">Notandanafn</string>
 	<string name="email">Tölvupóstfang</string>
@@ -154,7 +149,6 @@
 	<string name="confirm_password">Staðfestu lykilorðið</string>
 	<string name="password_note">Settu hástafi, sértákn og tölustafi til að auka styrk lykilorðins þíns.</string>
 	<string name="category_general">Almennt</string>
-	<string name="confirm_email_title">Athugaðu innhólfið þitt</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">Ýttu á tengilinn sem við sendum þér til að staðfesta %s. Við bíðum á meðan.</string>
 	<string name="confirm_email_didnt_get">Fékkstu ekki neinn tengil?</string>
@@ -189,7 +183,6 @@
 	<string name="theme_dark">Dökkt</string>
 	<string name="settings_behavior">Hegðun</string>
 	<string name="settings_gif">Spila auðkennismyndir með hreyfingu</string>
-	<string name="settings_custom_tabs">Nota innbyggðan vafra forritsins</string>
 	<string name="settings_notifications">Tilkynningar</string>
 	<string name="settings_contribute">Leggðu Mastodon lið</string>
 	<string name="settings_tos">Þjónustuskilmálar</string>
@@ -218,8 +211,6 @@
 	<string name="followed_user">Þú fylgist núna með %s</string>
 	<string name="following_user_requested">Bað um að fylgjast með %s</string>
 	<string name="open_in_browser">Opna í vafra</string>
-	<string name="hide_boosts_from_user">Fela endurbirtingar frá %s</string>
-	<string name="show_boosts_from_user">Sýna endurbirtingar frá %s</string>
 	<string name="signup_reason">Hvers vegna vilt þú taka þátt?</string>
 	<string name="signup_reason_note">Þetta mun hjálpa okkur við að yfirfara umsóknina þína.</string>
 	<string name="clear">Hreinsa</string>
@@ -242,7 +233,6 @@
 	<string name="recommended_accounts_info_banner">Þú gætir einnig haft áhuga á þessum aðgöngum, miðað við hverjum þú ert að fylgjast með.</string>
 	<string name="see_new_posts">Nýjar færslur</string>
 	<string name="load_missing_posts">Hlaða inn færslum sem vantar</string>
-	<string name="follow_back">Fylgjast með til baka</string>
 	<string name="button_follow_pending">Í bið</string>
 	<string name="follows_you">Fylgist með þér</string>
 	<string name="manually_approves_followers">Samþykkir fylgjendur handvirkt</string>
@@ -298,28 +288,18 @@
 	<string name="file_size_mb">%.2f MB</string>
 	<string name="file_size_gb">%.2f GB</string>
 	<string name="upload_processing">Í vinnslu…</string>
-	<!-- %s is version like 1.2.3 -->
-	<!-- %s is version like 1.2.3 -->
 	<!-- %s is file size -->
 	<string name="download_update">Sækja (%s)</string>
 	<string name="install_update">Setja upp</string>
-	<string name="privacy_policy_title">Friðhelgi þín</string>
 	<string name="privacy_policy_subtitle">Þó svo að Mastodon-forritið safni engum gögnum, þá getur netþjónninn sem þú skráir þig á haft aðra stefnu varðandi þetta.\n\nEf þú samþykkir ekki stefnuna hjá %s, geturðu farið til baka og valið annan netþjón.</string>
-	<string name="i_agree">Ég samþykki</string>
 	<string name="empty_list">Þessi listi er tómur</string>
 	<string name="instance_signup_closed">Þessi netþjónn tekur ekki við nýjum skráningum.</string>
 	<string name="text_copied">Afritað á klippispjald</string>
 	<string name="add_bookmark">Bókamerki</string>
 	<string name="remove_bookmark">Fjarlægja bókamerki</string>
 	<string name="bookmarks">Bókamerki</string>
-	<string name="your_favorites">Eftirlætin þín</string>
-	<string name="login_title">Velkomin aftur</string>
 	<string name="login_subtitle">Skráðu þig inn á netþjóninn þar sem þú útbjóst notandaaðganginn þinn.</string>
 	<string name="server_url">Vefslóð netþjóns</string>
-	<string name="server_filter_any_language">Hvaða tungumál sem er</string>
-	<string name="server_filter_instant_signup">Nýskráning á stundinni</string>
-	<string name="server_filter_manual_review">Handvirk yfirferð</string>
-	<string name="server_filter_any_signup_speed">Hvaða afgreiðsluhraði nýskráninga sem er</string>
 	<string name="server_filter_region_europe">Evrópa</string>
 	<string name="server_filter_region_north_america">Norður-Ameríka</string>
 	<string name="server_filter_region_south_america">Suður-Ameríka</string>
@@ -327,7 +307,6 @@
 	<string name="server_filter_region_asia">Asía</string>
 	<string name="server_filter_region_oceania">Eyjaálfa</string>
 	<string name="not_accepting_new_members">Tekur ekki við nýjum meðlimum</string>
-	<string name="category_special_interests">Sérstök áhugamál</string>
 	<string name="signup_passwords_dont_match">Lykilorðin samsvara ekki</string>
 	<string name="profile_add_row">Bæta við röð</string>
 	<string name="profile_setup">Uppsetning notandasniðs</string>
@@ -596,7 +575,6 @@
 	<string name="remove">Fjarlægja</string>
 	<string name="add_list_member">Bæta við meðlimi</string>
 	<string name="search_among_people_you_follow">Leita meðal þeirra sem þú fylgist með</string>
-	<string name="add_user_to_list">Bæta á lista…</string>
 	<string name="add_user_to_list_title">Bæta á lista</string>
 	<!-- %s is a username -->
 	<string name="manage_user_lists">Sýsla með lista sem %s birtist á</string>
