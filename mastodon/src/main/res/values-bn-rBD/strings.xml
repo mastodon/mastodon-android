@@ -22,7 +22,6 @@
 	<string name="media">মিডিয়া</string>
 	<string name="button_follow">ফলো করুন</string>
 	<string name="button_following">ফলো করছেন</string>
-	<string name="edit_profile">প্রোফাইল সংশোধন করুন</string>
 	<string name="mute_user">%s -কে মিউট করুন</string>
 	<string name="unmute_user">%s -কে আনমিউট করুন</string>
 	<string name="block_user">%s -কে ব্লক করুন</string>
@@ -108,14 +107,11 @@
 	<string name="report_personal_title">আপনি এটি আর দেখতে চান না?</string>
 	<string name="back">ফিরে যান</string>
 	<string name="search_communities">সার্ভারের নাম বা লিঙ্ক</string>
-	<string name="instance_rules_title">সার্ভারের নিয়মাবলী</string>
-	<string name="signup_title">অ্যাকাউন্ট তৈরি করুন</string>
 	<string name="display_name">নাম</string>
 	<string name="username">ইউজারনেম</string>
 	<string name="email">ই-মেইল</string>
 	<string name="password">পাসওয়ার্ড</string>
 	<string name="confirm_password">পাসওয়ার্ড নিশ্চিত করুন</string>
-	<string name="confirm_email_title">আপনার ইনবক্স দেখুন</string>
 	<!-- %s is the email address -->
 	<string name="open_email_app">ই-মেইল অ্যাপ খুলুন</string>
 	<string name="resent_email">নিশ্চিতকরনের ই-মেইল পাঠানো হয়েছে</string>
@@ -168,8 +164,6 @@
 		<item quantity="one">%d মিনিট আগে</item>
 		<item quantity="other">%d মিনিট আগে</item>
 	</plurals>
-	<!-- %s is version like 1.2.3 -->
-	<!-- %s is version like 1.2.3 -->
 	<!-- %s is file size -->
 	<!-- %s is server domain -->
 	<!-- Shown in a progress dialog when you tap "follow all" -->
