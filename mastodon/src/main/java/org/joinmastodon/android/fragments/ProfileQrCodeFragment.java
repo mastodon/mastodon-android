@@ -223,10 +223,7 @@ public class ProfileQrCodeFragment extends AppKitFragment{
 		codeView.setBackground(new FancyQrCodeDrawable(code, UiUtils.getThemeColor(themeWrapper, R.attr.colorM3OnPrimary), logo));
 
 		share.setOnClickListener(v->{
-			Intent intent=new Intent(Intent.ACTION_SEND);
-			intent.setType("text/plain");
-			intent.putExtra(Intent.EXTRA_TEXT, account.url);
-			startActivity(Intent.createChooser(intent, getString(R.string.share_user)));
+			UiUtils.openSystemShareSheet(getActivity(), account);
 		});
 		saveBtn.setOnClickListener(v->saveCodeAsFile());
 
@@ -411,9 +408,11 @@ public class ProfileQrCodeFragment extends AppKitFragment{
 		if(requestCode==SCAN_RESULT && resultCode==Activity.RESULT_OK && BarcodeScanner.isValidResult(data)){
 			Barcode code=BarcodeScanner.getResult(data);
 			if(code!=null){
-				if(code.rawValue.startsWith("https:")){
+				if(code.rawValue.startsWith("https:") || code.rawValue.startsWith("http:")){
 					((MainActivity)getActivity()).handleURL(Uri.parse(code.rawValue), accountID);
 					dismiss();
+				}else{
+					Toast.makeText(themeWrapper, R.string.link_not_supported, Toast.LENGTH_SHORT).show();
 				}
 			}
 		}

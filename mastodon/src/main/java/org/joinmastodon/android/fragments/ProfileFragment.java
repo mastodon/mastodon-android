@@ -630,10 +630,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 	public boolean onOptionsItemSelected(MenuItem item){
 		int id=item.getItemId();
 		if(id==R.id.share){
-			Intent intent=new Intent(Intent.ACTION_SEND);
-			intent.setType("text/plain");
-			intent.putExtra(Intent.EXTRA_TEXT, account.url);
-			startActivity(Intent.createChooser(intent, item.getTitle()));
+			UiUtils.openSystemShareSheet(getActivity(), account);
 		}else if(id==R.id.mute){
 			confirmToggleMuted();
 		}else if(id==R.id.block){

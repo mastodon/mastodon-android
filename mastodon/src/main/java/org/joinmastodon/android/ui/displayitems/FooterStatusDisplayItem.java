@@ -169,7 +169,7 @@ public class FooterStatusDisplayItem extends StatusDisplayItem{
 		}
 
 		private void onShareClick(View v){
-			UiUtils.openSystemShareSheet(v.getContext(), item.status.url);
+			UiUtils.openSystemShareSheet(v.getContext(), item.status);
 		}
 
 		private int descriptionForId(int id){

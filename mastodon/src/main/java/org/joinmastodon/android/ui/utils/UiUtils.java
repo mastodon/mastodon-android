@@ -3,6 +3,7 @@ package org.joinmastodon.android.ui.utils;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
+import android.content.ClipData;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.ColorStateList;
@@ -25,6 +26,8 @@ import android.os.SystemClock;
 import android.os.ext.SdkExtensions;
 import android.provider.MediaStore;
 import android.provider.OpenableColumns;
+import android.system.ErrnoException;
+import android.system.Os;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextUtils;
@@ -34,6 +37,7 @@ import android.transition.ChangeScroll;
 import android.transition.Fade;
 import android.transition.TransitionManager;
 import android.transition.TransitionSet;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -51,6 +55,7 @@ import android.widget.Toast;
 import android.widget.Toolbar;
 
 import org.joinmastodon.android.E;
+import org.joinmastodon.android.FileProvider;
 import org.joinmastodon.android.GlobalUserPreferences;
 import org.joinmastodon.android.MainActivity;
 import org.joinmastodon.android.MastodonApp;
@@ -84,6 +89,7 @@ import org.joinmastodon.android.ui.text.SpacerSpan;
 import org.parceler.Parcels;
 
 import java.io.File;
+import java.io.IOException;
 import java.lang.reflect.Method;
 import java.time.Instant;
 import java.time.LocalDate;
@@ -107,6 +113,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import me.grishka.appkit.Nav;
 import me.grishka.appkit.api.Callback;
 import me.grishka.appkit.api.ErrorResponse;
+import me.grishka.appkit.imageloader.ImageCache;
 import me.grishka.appkit.imageloader.ViewImageLoader;
 import me.grishka.appkit.imageloader.requests.UrlImageLoaderRequest;
 import me.grishka.appkit.utils.CubicBezierInterpolator;
@@ -919,10 +926,48 @@ public class UiUtils{
 		}
 	}
 
-	public static void openSystemShareSheet(Context context, String url){
+	public static Uri getFileProviderUri(Context context, File file){
+		return FileProvider.getUriForFile(context, context.getPackageName()+".fileprovider", file);
+	}
+
+	public static void openSystemShareSheet(Context context, Object obj){
 		Intent intent=new Intent(Intent.ACTION_SEND);
 		intent.setType("text/plain");
+		Account account;
+		String url;
+		String previewTitle;
+
+		if(obj instanceof Account acc){
+			account=acc;
+			url=acc.url;
+			previewTitle=context.getString(R.string.share_sheet_preview_profile, account.displayName);
+		}else if(obj instanceof Status st){
+			account=st.account;
+			url=st.url;
+			String postText=st.getStrippedText();
+			if(TextUtils.isEmpty(postText)){
+				previewTitle=context.getString(R.string.share_sheet_preview_profile, account.displayName);
+			}else{
+				if(postText.length()>100)
+					postText=postText.substring(0, 100)+"...";
+				previewTitle=context.getString(R.string.share_sheet_preview_post, account.displayName, postText);
+			}
+		}else{
+			throw new IllegalArgumentException("Unsupported share object type");
+		}
+
 		intent.putExtra(Intent.EXTRA_TEXT, url);
+		intent.putExtra(Intent.EXTRA_TITLE, previewTitle);
+		ImageCache cache=ImageCache.getInstance(context);
+		try{
+			File ava=cache.getFile(new UrlImageLoaderRequest(account.avatarStatic));
+			if(!ava.exists())
+				ava=cache.getFile(new UrlImageLoaderRequest(account.avatar));
+			if(ava.exists()){
+				intent.setClipData(ClipData.newRawUri(null, getFileProviderUri(context, ava)));
+				intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+			}
+		}catch(IOException ignore){}
 		context.startActivity(Intent.createChooser(intent, context.getString(R.string.share_toot_title)));
 	}
 

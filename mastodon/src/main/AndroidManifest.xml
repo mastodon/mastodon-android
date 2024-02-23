@@ -88,6 +88,14 @@
 			</intent-filter>
 		</receiver>
 
+		<provider
+			android:authorities="${applicationId}.fileprovider"
+			android:name=".TweakedFileProvider"
+			android:grantUriPermissions="true"
+			android:exported="false">
+			<meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/fileprovider_paths"/>
+		</provider>
+
 	</application>
 
 </manifest>

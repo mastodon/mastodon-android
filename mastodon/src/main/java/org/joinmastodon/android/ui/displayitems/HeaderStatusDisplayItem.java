@@ -197,7 +197,7 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 				}else if(id==R.id.bookmark){
 					AccountSessionManager.getInstance().getAccount(item.accountID).getStatusInteractionController().setBookmarked(item.status, !item.status.bookmarked);
 				}else if(id==R.id.share){
-					UiUtils.openSystemShareSheet(activity, item.status.url);
+					UiUtils.openSystemShareSheet(activity, item.status);
 				}else if(id==R.id.translate){
 					item.parentFragment.togglePostTranslation(item.status, item.parentID);
 				}else if(id==R.id.add_to_list){

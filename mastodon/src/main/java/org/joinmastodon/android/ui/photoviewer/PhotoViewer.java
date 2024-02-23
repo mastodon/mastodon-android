@@ -729,7 +729,7 @@ public class PhotoViewer implements ZoomPanView.Listener{
 					}
 				}else if(id==R.id.btn_share){
 					if(status!=null){
-						UiUtils.openSystemShareSheet(activity, status.url);
+						UiUtils.openSystemShareSheet(activity, status);
 					}
 				}else if(id==R.id.btn_bookmark){
 					if(status!=null){
