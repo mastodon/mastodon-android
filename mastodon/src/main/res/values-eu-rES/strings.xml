@@ -31,10 +31,12 @@
 		<item quantity="other">jarraitzen</item>
 	</plurals>
 	<string name="posts">Bidalketak</string>
+	<string name="posts_and_replies">Bidalketak eta erantzunak</string>
 	<string name="media">Multimedia</string>
 	<string name="profile_about">Honi buruz</string>
 	<string name="button_follow">Jarraitu</string>
 	<string name="button_following">Jarraitzen</string>
+	<string name="edit_profile">Editatu profila</string>
 	<string name="mute_user">Mututu %s</string>
 	<string name="unmute_user">Desmututu %s</string>
 	<string name="block_user">Blokeatu %s</string>
@@ -141,7 +143,9 @@
 	<string name="report_personal_subtitle">Hemen dituzu Mastodonen ikusiko duzuna kontrolatzeko aukerak:</string>
 	<string name="back">Atzera</string>
 	<string name="search_communities">Zerbitzari izena edo URLa</string>
+	<string name="instance_rules_title">Zerbitzariaren arauak</string>
 	<string name="instance_rules_subtitle">Aurrera egitean, %s-ko moderatzaileek ezarritako eta aplikatutako arau hauek jarraitzea onartzen duzu.</string>
+	<string name="signup_title">Sortu kontua</string>
 	<string name="display_name">Izena</string>
 	<string name="username">Erabiltzaile-izena</string>
 	<string name="email">Eposta</string>
@@ -149,6 +153,7 @@
 	<string name="confirm_password">Berretsi pasahitza</string>
 	<string name="password_note">Sartu letra larriak, karaktere bereziak eta zenbakiak zure pasahitzaren segurtasuna areagotzeko.</string>
 	<string name="category_general">Orokorra</string>
+	<string name="confirm_email_title">Begiratu zure sarrera-ontzia</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">Sakatu bidali dizugun esteka %s helbidea egiaztatzeko. Hementxe itxarongo zaitugu.</string>
 	<string name="confirm_email_didnt_get">Ez duzu estekarik jaso?</string>
@@ -211,6 +216,8 @@
 	<string name="followed_user">%s jarraitzen ari zara</string>
 	<string name="following_user_requested">%s jarraitzea eskatuta</string>
 	<string name="open_in_browser">Ireki nabigatzailean</string>
+	<string name="hide_boosts_from_user">Ezkutatu bultzadak</string>
+	<string name="show_boosts_from_user">Erakutsi bultzadak</string>
 	<string name="signup_reason">Zergatik elkartu nahi duzu?</string>
 	<string name="signup_reason_note">Honek zure eskaera berrikustean lagunduko digu.</string>
 	<string name="clear">Garbitu</string>
@@ -233,6 +240,7 @@
 	<string name="recommended_accounts_info_banner">Jarraitzen dituzun beste batzuetan oinarrituta, baliteke kontu hauek gustuko izatea.</string>
 	<string name="see_new_posts">Bidalketa berriak</string>
 	<string name="load_missing_posts">Falta diren bidalketak kargatu</string>
+	<string name="follow_back">Jarraitu bueltan</string>
 	<string name="button_follow_pending">Zain</string>
 	<string name="follows_you">Jarraitzen zaitu</string>
 	<string name="manually_approves_followers">Jarraitzaileak eskuz onartu</string>
@@ -291,15 +299,23 @@
 	<!-- %s is file size -->
 	<string name="download_update">(%s) deskargatu</string>
 	<string name="install_update">Instalatu</string>
+	<string name="privacy_policy_title">Zure pribatutasuna</string>
 	<string name="privacy_policy_subtitle">Mastodon aplikazioak daturik biltzen ez duen arren, erregistratzen zaren zerbitzariak beste politika bat izan dezake.\n\nEz bazaude %s zerbitzariaren politikarekin ados, atzera egin eta beste zerbitzari bat aukeratu dezakezu.</string>
+	<string name="i_agree">Ados nago</string>
 	<string name="empty_list">Zerrenda hau hutsik dago</string>
 	<string name="instance_signup_closed">Zerbitzari honek ez ditu izen-emate berriak onartzen.</string>
 	<string name="text_copied">Arbelean kopiatuta</string>
 	<string name="add_bookmark">Laster-marka</string>
 	<string name="remove_bookmark">Kendu laster-marka</string>
 	<string name="bookmarks">Laster-markak</string>
+	<string name="your_favorites">Zure gogokoak</string>
+	<string name="login_title">Ongi etorri berriro ere</string>
 	<string name="login_subtitle">Hasi saioa kontua sortu zenuen zerbitzariarekin.</string>
 	<string name="server_url">Zerbitzariaren URLa</string>
+	<string name="server_filter_any_language">Edozein hizkuntza</string>
+	<string name="server_filter_instant_signup">Berehalako erregistroa</string>
+	<string name="server_filter_manual_review">Eskuzko berrikuspena</string>
+	<string name="server_filter_any_signup_speed">Edozein erregistro abiadura</string>
 	<string name="server_filter_region_europe">Europa</string>
 	<string name="server_filter_region_north_america">Ipar Amerika</string>
 	<string name="server_filter_region_south_america">Hego Amerika</string>
@@ -307,6 +323,7 @@
 	<string name="server_filter_region_asia">Asia</string>
 	<string name="server_filter_region_oceania">Ozeania</string>
 	<string name="not_accepting_new_members">Ez da kide berririk onartzen</string>
+	<string name="category_special_interests">Interes bereziak</string>
 	<string name="signup_passwords_dont_match">Pasahitzak ez datoz bat</string>
 	<string name="profile_add_row">Gehitu errenkada</string>
 	<string name="profile_setup">Profilaren konfigurazioa</string>
@@ -575,6 +592,7 @@
 	<string name="remove">Kendu</string>
 	<string name="add_list_member">Gehitu kidea</string>
 	<string name="search_among_people_you_follow">Bilatu jarraitzen dituzun pertsonen artean</string>
+	<string name="add_user_to_list">Gehitu edo kendu zerrendetatik…</string>
 	<string name="add_user_to_list_title">Gehitu zerrendara</string>
 	<!-- %s is a username -->
 	<string name="manage_user_lists">%s agertzen den zerrendak kudeatu</string>
@@ -671,5 +689,12 @@ Zenbat eta jende gehiago jarraitu, orduan eta aktiboagoa eta interesgarriagoa iz
 	<string name="what_is_activitypub_title">Zer da ActivityPub?</string>
 	<string name="what_is_activitypub">ActivityPub Mastodonek beste sare sozial batzuekin hitz egiten duen hizkuntza da.\n\nMastodonen ez ezik, bestelako aplikazio sozialetan ere konektatzeko eta elkarreraginean aritzeko aukera ematen dizu.</string>
 	<string name="handle_copied">Helbidea arbelera kopiatu da.</string>
+	<string name="qr_code">QR kodea</string>
+	<string name="scan_qr_code">Eskaneatu QR kodea</string>
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
+	<string name="saved">Gordea</string>
+	<string name="image_saved">Irudia gorde da.</string>
+	<string name="video_saved">Bideoa gorde da.</string>
+	<string name="view_file">Ikusi</string>
+	<string name="copy_profile_link">Kopiatu profilerako esteka</string>
 </resources>
