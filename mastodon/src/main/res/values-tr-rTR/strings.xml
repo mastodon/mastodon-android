@@ -31,13 +31,10 @@
 		<item quantity="other">takip</item>
 	</plurals>
 	<string name="posts">Gönderiler</string>
-	<string name="posts_and_replies">Gönderiler ve Cevaplar</string>
 	<string name="media">Medya</string>
 	<string name="profile_about">Hakkında</string>
 	<string name="button_follow">Takip et</string>
 	<string name="button_following">Takip ediliyor</string>
-	<string name="edit_profile">Profili düzenle</string>
-	<string name="share_user">Profili paylaş</string>
 	<string name="mute_user">%s Sustur</string>
 	<string name="unmute_user">%s Sesini aç</string>
 	<string name="block_user">%s Engelle</string>
@@ -144,9 +141,7 @@
 	<string name="report_personal_subtitle">Mastodon\'da görebileceklerinizi kontrol etmek için seçenekleriniz şunlardır:</string>
 	<string name="back">Geri</string>
 	<string name="search_communities">Sunucu adı veya bağlantısı</string>
-	<string name="instance_rules_title">Sunucu kuralları</string>
 	<string name="instance_rules_subtitle">Devam ederseniz %s yöneticileri tarafından yayınlanan kuralları kabul etmiş olursunuz.</string>
-	<string name="signup_title">Hesap oluştur</string>
 	<string name="display_name">Ad</string>
 	<string name="username">Kullanıcı adı</string>
 	<string name="email">E-Posta</string>
@@ -154,7 +149,6 @@
 	<string name="confirm_password">Parolayı doğrula</string>
 	<string name="password_note">Daha güçlü parolalar için parolanıza büyük harfler, özel karakterler ve sayılar ekleyin.</string>
 	<string name="category_general">Genel</string>
-	<string name="confirm_email_title">E-Posta gelen kutunuzu kontrol edin</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">%s adresini doğrulamak için size gönderdiğimiz bağlantıya dokunun. Hemen burada bekleyeceğiz.</string>
 	<string name="confirm_email_didnt_get">Bağlantı gelmedi mi?</string>
@@ -189,7 +183,6 @@
 	<string name="theme_dark">Karanlık</string>
 	<string name="settings_behavior">Ayarlar</string>
 	<string name="settings_gif">Animasyonlu avatarları ve emojileri oynat</string>
-	<string name="settings_custom_tabs">Uygulama içi tarayıcıyı kullan</string>
 	<string name="settings_notifications">Bildirimler</string>
 	<string name="settings_contribute">Mastodon\'a katkıda bulunun</string>
 	<string name="settings_tos">Kullanım şartları</string>
@@ -218,8 +211,6 @@
 	<string name="followed_user">Artık %s kullanıcısını takip ediyorsun</string>
 	<string name="following_user_requested">%s takip isteği gönderdi</string>
 	<string name="open_in_browser">Tarayıcıda aç</string>
-	<string name="hide_boosts_from_user">%s kişisinin yeniden paylaşımını gizle</string>
-	<string name="show_boosts_from_user">%s kişisinin yeniden paylaşımını göster</string>
 	<string name="signup_reason">Neden katılmak istiyorsunuz?</string>
 	<string name="signup_reason_note">Bu, başvurunuzu incelememize yardımcı olacaktır.</string>
 	<string name="clear">Temizle</string>
@@ -242,7 +233,6 @@
 	<string name="recommended_accounts_info_banner">Takip ettiğiniz hesaplara göre bu hesapları beğenebilirsiniz.</string>
 	<string name="see_new_posts">Yeni gönderiler</string>
 	<string name="load_missing_posts">Daha fazlası</string>
-	<string name="follow_back">Geri takip et</string>
 	<string name="button_follow_pending">Bekliyor</string>
 	<string name="follows_you">Seni takip ediyor</string>
 	<string name="manually_approves_followers">Takipçileri elle kabul et</string>
@@ -298,28 +288,18 @@
 	<string name="file_size_mb">%.2f MB</string>
 	<string name="file_size_gb">%.2f GB</string>
 	<string name="upload_processing">İşleniyor…</string>
-	<!-- %s is version like 1.2.3 -->
-	<!-- %s is version like 1.2.3 -->
 	<!-- %s is file size -->
 	<string name="download_update">İndir (%s)</string>
 	<string name="install_update">Kur</string>
-	<string name="privacy_policy_title">Gizliliğiniz</string>
 	<string name="privacy_policy_subtitle">Mastodon uygulaması herhangi bir veri toplamasa da, kaydolduğunuz sunucunun politikası farklı olabilir.\n\n%s politikasına katılmıyorsanız, geri dönüp farklı bir sunucu seçebilirsiniz.</string>
-	<string name="i_agree">Kabul ediyorum</string>
 	<string name="empty_list">Bu liste boş</string>
 	<string name="instance_signup_closed">Bu sunucu yeni kayıtları kabul etmemektedir.</string>
 	<string name="text_copied">Panoya kopyalandı</string>
 	<string name="add_bookmark">Yer imlerine ekle</string>
 	<string name="remove_bookmark">Yer imini kaldır</string>
 	<string name="bookmarks">Yer imleri</string>
-	<string name="your_favorites">Favorilerin</string>
-	<string name="login_title">Hoşgeldiniz</string>
 	<string name="login_subtitle">Hesabınızı oluşturduğunuz sunucuya giriş yapın.</string>
 	<string name="server_url">Sunucu bağlantısı</string>
-	<string name="server_filter_any_language">Herhangi bir dil</string>
-	<string name="server_filter_instant_signup">Koşulsuz Kayıt</string>
-	<string name="server_filter_manual_review">İnceleme Gerekli</string>
-	<string name="server_filter_any_signup_speed">Herhangi Biri</string>
 	<string name="server_filter_region_europe">Avrupa</string>
 	<string name="server_filter_region_north_america">Kuzey Amerika</string>
 	<string name="server_filter_region_south_america">Güney Amerika</string>
@@ -327,7 +307,6 @@
 	<string name="server_filter_region_asia">Asya</string>
 	<string name="server_filter_region_oceania">Okyanusya</string>
 	<string name="not_accepting_new_members">Yeni üyelikler kabul edilmiyor</string>
-	<string name="category_special_interests">Özel ilgi alanları</string>
 	<string name="signup_passwords_dont_match">Parolalar eşleşmiyor</string>
 	<string name="profile_add_row">Satır ekle</string>
 	<string name="profile_setup">Profilini ayarla</string>
@@ -596,7 +575,6 @@
 	<string name="remove">Kaldır</string>
 	<string name="add_list_member">Üye ekle</string>
 	<string name="search_among_people_you_follow">Takip ettiğiniz kişiler arasında arama yapın</string>
-	<string name="add_user_to_list">Listeye ekle...</string>
 	<string name="add_user_to_list_title">Listeye ekle</string>
 	<!-- %s is a username -->
 	<string name="manage_user_lists">Listeleri yönet %s şurada görünür</string>
