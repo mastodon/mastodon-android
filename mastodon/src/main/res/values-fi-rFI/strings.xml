@@ -31,13 +31,10 @@
 		<item quantity="other">seurataan</item>
 	</plurals>
 	<string name="posts">Julkaisut</string>
-	<string name="posts_and_replies">Julkaisut ja vastaukset</string>
 	<string name="media">Media</string>
 	<string name="profile_about">Tietoja</string>
 	<string name="button_follow">Seuraa</string>
 	<string name="button_following">Seurataan</string>
-	<string name="edit_profile">Muokkaa profiilia</string>
-	<string name="share_user">Jaa profiili</string>
 	<string name="mute_user">Mykistä %s</string>
 	<string name="unmute_user">Poista mykistys tililtä %s</string>
 	<string name="block_user">Estä %s</string>
@@ -144,9 +141,7 @@
 	<string name="report_personal_subtitle">Tässä on vaihtoehtosi hallita näkemääsi Mastodonissa:</string>
 	<string name="back">Takaisin</string>
 	<string name="search_communities">Palvelimen nimi tai URL-osoite</string>
-	<string name="instance_rules_title">Palvelimen säännöt</string>
 	<string name="instance_rules_subtitle">Jatkamalla sitoudut noudattamaan seuraavia sääntöjä, jotka %s moderaattorit ovat asettaneet ja valvoneet.</string>
-	<string name="signup_title">Luo tili</string>
 	<string name="display_name">Nimi</string>
 	<string name="username">Käyttäjätunnus</string>
 	<string name="email">Sähköposti</string>
@@ -154,7 +149,6 @@
 	<string name="confirm_password">Vahvista salasana</string>
 	<string name="password_note">Sisällytä suuraakkoset, erikoismerkit, ja numerot, jotta voit lisätä salasanan voimaa.</string>
 	<string name="category_general">Yleinen</string>
-	<string name="confirm_email_title">Tarkista sähköpostisi</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">Napauta lähettämäämme linkkiä vahvistaaksesi tunnuksen %s. Odotamme täällä.</string>
 	<string name="confirm_email_didnt_get">Etkö saanut linkkiä?</string>
@@ -189,7 +183,6 @@
 	<string name="theme_dark">Tumma</string>
 	<string name="settings_behavior">Toiminnot</string>
 	<string name="settings_gif">Toista animoidut käyttäjäkuvat ja emojit</string>
-	<string name="settings_custom_tabs">Käytä sovelluksen sisäistä selainta</string>
 	<string name="settings_notifications">Ilmoitukset</string>
 	<string name="settings_contribute">Osallistu Mastodoniin</string>
 	<string name="settings_tos">Käyttöehdot</string>
@@ -218,8 +211,6 @@
 	<string name="followed_user">Seuraat nyt käyttäjää %s</string>
 	<string name="following_user_requested">Käyttäjän %s seuraamista pyydetty</string>
 	<string name="open_in_browser">Avaa selaimessa</string>
-	<string name="hide_boosts_from_user">Piilota käyttäjän %s tehostukset</string>
-	<string name="show_boosts_from_user">Näytä tehostukset käyttäjältä %s</string>
 	<string name="signup_reason">Miksi haluat liittyä?</string>
 	<string name="signup_reason_note">Tämä auttaa meitä arvioimaan hakemustasi.</string>
 	<string name="clear">Tyhjennä</string>
@@ -242,7 +233,6 @@
 	<string name="recommended_accounts_info_banner">Muiden seuraamiesi perusteella saattaisit pitää näistä tileistä.</string>
 	<string name="see_new_posts">Uudet julkaisut</string>
 	<string name="load_missing_posts">Lataa puuttuvat julkaisut</string>
-	<string name="follow_back">Seuraa takaisin</string>
 	<string name="button_follow_pending">Pyydetty</string>
 	<string name="follows_you">Seuraa sinua</string>
 	<string name="manually_approves_followers">Hyväksyy seuraajat käsin</string>
@@ -298,28 +288,18 @@
 	<string name="file_size_mb">%.2f MB</string>
 	<string name="file_size_gb">%.2f GB</string>
 	<string name="upload_processing">Käsitellään…</string>
-	<!-- %s is version like 1.2.3 -->
-	<!-- %s is version like 1.2.3 -->
 	<!-- %s is file size -->
 	<string name="download_update">Lataa (%s)</string>
 	<string name="install_update">Asenna</string>
-	<string name="privacy_policy_title">Yksityisyytesi</string>
 	<string name="privacy_policy_subtitle">Vaikka Mastodon-sovellus ei kerää mitään tietoja, palvelimella, jonka olet rekisteröitynyt, voi olla eri käytäntö.\n\nJos olet eri mieltä käytännöstä %s, voit palata ja valita eri palvelin.</string>
-	<string name="i_agree">Hyväksyn</string>
 	<string name="empty_list">Luettelo on tyhjä</string>
 	<string name="instance_signup_closed">Tämä palvelin ei hyväksy uusia rekisteröintejä.</string>
 	<string name="text_copied">Kopioitu leikepöydälle</string>
 	<string name="add_bookmark">Kirjanmerkki</string>
 	<string name="remove_bookmark">Poista kirjanmerkki</string>
 	<string name="bookmarks">Kirjanmerkit</string>
-	<string name="your_favorites">Omat suosikit</string>
-	<string name="login_title">Tervetuloa takaisin</string>
 	<string name="login_subtitle">Kirjaudu sisään palvelimella, jossa olet luonut tilisi.</string>
 	<string name="server_url">Palvelimen URL-osoite</string>
-	<string name="server_filter_any_language">Millä tahansa kielellä</string>
-	<string name="server_filter_instant_signup">Välitön rekisteröityminen</string>
-	<string name="server_filter_manual_review">Manuaalinen hyväksyntä</string>
-	<string name="server_filter_any_signup_speed">Mikä tahansa rekisteröintinopeus</string>
 	<string name="server_filter_region_europe">Eurooppa</string>
 	<string name="server_filter_region_north_america">Pohjois-Amerikka</string>
 	<string name="server_filter_region_south_america">Etelä-Amerikka</string>
@@ -327,7 +307,6 @@
 	<string name="server_filter_region_asia">Aasia</string>
 	<string name="server_filter_region_oceania">Oseania</string>
 	<string name="not_accepting_new_members">Ei hyväksy uusia jäseniä</string>
-	<string name="category_special_interests">Erityiset kiinnostuksen kohteet</string>
 	<string name="signup_passwords_dont_match">Salasanat eivät täsmää</string>
 	<string name="profile_add_row">Lisää rivi</string>
 	<string name="profile_setup">Profiilin asetukset</string>
@@ -596,7 +575,6 @@
 	<string name="remove">Poista</string>
 	<string name="add_list_member">Lisää jäsen</string>
 	<string name="search_among_people_you_follow">Etsi seuraamistasi henkilöistä</string>
-	<string name="add_user_to_list">Lisää listalle…</string>
 	<string name="add_user_to_list_title">Lisää listalle</string>
 	<!-- %s is a username -->
 	<string name="manage_user_lists">Hallitse listoja joissa %s on mukana</string>
