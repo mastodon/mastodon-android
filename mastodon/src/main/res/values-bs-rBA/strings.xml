@@ -25,12 +25,10 @@
 		<item quantity="other">prati</item>
 	</plurals>
 	<string name="posts">Objave</string>
-	<string name="posts_and_replies">Objave i Odgovori</string>
 	<string name="media">Slike / Video</string>
 	<string name="profile_about">O</string>
 	<string name="button_follow">Prati</string>
 	<string name="button_following">Prati</string>
-	<string name="edit_profile">Uredi Profil</string>
 	<string name="mute_user">Utišaj %s</string>
 	<string name="unmute_user">Uključi %s</string>
 	<string name="block_user">Blokiraj %s</string>
@@ -106,7 +104,6 @@
 	<string name="theme_dark">Tamna</string>
 	<string name="settings_behavior">Ponašanje</string>
 	<string name="settings_gif">Play animirane avatare i smajlije</string>
-	<string name="settings_custom_tabs">Koristi preglednik aplikacije</string>
 	<string name="settings_notifications">Obavijesti</string>
 	<string name="settings_contribute">Pomozite Mastodon-u</string>
 	<string name="settings_tos">Uslovi korištenja</string>
@@ -143,8 +140,6 @@
 	<string name="downloading">Downloading…</string>
 	<!-- %s is the server domain -->
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
-	<!-- %s is version like 1.2.3 -->
-	<!-- %s is version like 1.2.3 -->
 	<!-- %s is file size -->
 	<!-- %s is server domain -->
 	<!-- Shown in a progress dialog when you tap "follow all" -->
