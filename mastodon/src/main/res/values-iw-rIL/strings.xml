@@ -27,12 +27,10 @@
 		<item quantity="other">עוקבים</item>
 	</plurals>
 	<string name="posts">רשומות</string>
-	<string name="posts_and_replies">רשומות ותגובות</string>
 	<string name="media">מדיה</string>
 	<string name="profile_about">אודות</string>
 	<string name="button_follow">לעקוב</string>
 	<string name="button_following">עוקב</string>
-	<string name="edit_profile">עריכת הפרופיל</string>
 	<string name="mute_user">השתק את %s</string>
 	<string name="unmute_user">הפסק השתקה של %s</string>
 	<string name="block_user">חסום את %s</string>
@@ -62,8 +60,6 @@
 	<!-- %s is the email address -->
 	<!-- %s is the server domain -->
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
-	<!-- %s is version like 1.2.3 -->
-	<!-- %s is version like 1.2.3 -->
 	<!-- %s is file size -->
 	<!-- %s is server domain -->
 	<!-- Shown in a progress dialog when you tap "follow all" -->
