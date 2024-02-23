@@ -24,12 +24,10 @@
 		<item quantity="other">sumusunod</item>
 	</plurals>
 	<string name="posts">Mga Post</string>
-	<string name="posts_and_replies">Mga post at Mga tugon</string>
 	<string name="media">Media</string>
 	<string name="profile_about">Tungkol</string>
 	<string name="button_follow">Sundan</string>
 	<string name="button_following">Sumusunod</string>
-	<string name="edit_profile">I-edit ang profile</string>
 	<string name="mute_user">I-mute %s</string>
 	<string name="unmute_user">I-unmute %s</string>
 	<string name="block_user">I-Block %s</string>
@@ -141,7 +139,6 @@
 	<string name="theme_dark">Madilim</string>
 	<string name="settings_behavior">Pag-uugali</string>
 	<string name="settings_gif">Maglaro ng mga animated na avatar at emoji</string>
-	<string name="settings_custom_tabs">Gumamit ng in-app browser</string>
 	<string name="settings_notifications">Mga abiso</string>
 	<string name="settings_contribute">Mag-ambag sa Mastodon</string>
 	<string name="settings_tos">Mga tuntunin ng serbisyo</string>
@@ -178,7 +175,6 @@
 	<string name="downloading">Nagda-download…</string>
 	<!-- %s is the server domain -->
 	<string name="load_missing_posts">Mag-Load ng nawawalang mga post</string>
-	<string name="follow_back">Sundan Pabalik</string>
 	<string name="button_follow_pending">Nakabinbin</string>
 	<string name="follows_you">Sinundan ka</string>
 	<string name="manually_approves_followers">Manu-manong aprubahan ang mga tagasunod</string>
@@ -230,20 +226,15 @@
 	<string name="file_size_mb">%.2f MB</string>
 	<string name="file_size_gb">%.2f GB</string>
 	<string name="upload_processing">Pagproseso…</string>
-	<!-- %s is version like 1.2.3 -->
-	<!-- %s is version like 1.2.3 -->
 	<!-- %s is file size -->
 	<string name="download_update">I-Download (%s)</string>
 	<string name="install_update">I-install</string>
-	<string name="i_agree">Sang-ayon ako</string>
 	<string name="empty_list">Walang laman ang listahang ito</string>
 	<string name="instance_signup_closed">Ang server na ito ay hindi tumatanggap ng mga bagong pagrerehistro.</string>
 	<string name="text_copied">Kinopya sa clipboard</string>
 	<string name="add_bookmark">Bookmark</string>
 	<string name="remove_bookmark">Alisin ang bookmark</string>
 	<string name="bookmarks">Mga bookmark</string>
-	<string name="your_favorites">Ang Iyong Mga Paborito</string>
-	<string name="login_title">Maligayang pagbalik,</string>
 	<string name="login_subtitle">Mag-Log in gamit ang server kung saan mo nilikha ang iyong account.</string>
 	<string name="server_url">Ang URL ng server</string>
 	<!-- %s is server domain -->
