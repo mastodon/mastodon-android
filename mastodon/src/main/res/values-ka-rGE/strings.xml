@@ -19,12 +19,9 @@
 	<string name="discard">წაშლა</string>
 	<string name="cancel">გაუქმება</string>
 	<string name="posts">პოსტები</string>
-	<string name="posts_and_replies">პოსტები და პასუხები</string>
 	<string name="media">მედია</string>
 	<string name="profile_about">ჩემს შესახებ</string>
 	<string name="button_follow">გამოწერა</string>
-	<string name="edit_profile">პროფილის რედაქტირება</string>
-	<string name="share_user">პროფილის გაზიარება</string>
 	<string name="mute_user">%s-ის იგნორირება</string>
 	<string name="unmute_user">%s-ის ამოღება იგნორირებულთა სიიდან</string>
 	<string name="block_user">%s-ის დაბლოკვა</string>
@@ -106,8 +103,6 @@
 	<string name="sending_report">მიმდინარეობს საჩივრის გაგზავნა…</string>
 	<string name="back">უკან</string>
 	<string name="search_communities">სერვერის სახელი ან URL მისამართი</string>
-	<string name="instance_rules_title">სერვერის წესები</string>
-	<string name="signup_title">ანგარიშის შექმნა</string>
 	<string name="display_name">სახელი</string>
 	<string name="username">მომხმარებლის სახელი</string>
 	<string name="email">ელექტრონული ფოსტის მისამართი</string>
@@ -115,7 +110,6 @@
 	<string name="confirm_password">დაადასტურეთ პაროლი</string>
 	<string name="password_note">გამოიყენეთ დიდი ასოები, ციფრები და სპეციალური სიმბოლოები, რათა გაზარდოთ პაროლის სიძლიერე.</string>
 	<string name="category_general">ზოგადი</string>
-	<string name="confirm_email_title">შეამოწმეთ შემოსული წერილები</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">%s-ის დასადასტურებლად, დააწკაპუნეთ ბმულზე, რომელიც გამოგიგზავნეთ. ჩვენ აქ დაგელოდებით.</string>
 	<string name="confirm_email_didnt_get">არ მიგიღიათ ბმული?</string>
@@ -139,8 +133,6 @@
 	<string name="err_not_logged_in">თავდაპირველად, გაიარეთ ავტორიზაცია Mastodon-ში</string>
 	<!-- %s is the server domain -->
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
-	<!-- %s is version like 1.2.3 -->
-	<!-- %s is version like 1.2.3 -->
 	<!-- %s is file size -->
 	<!-- %s is server domain -->
 	<!-- Shown in a progress dialog when you tap "follow all" -->
