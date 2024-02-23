@@ -31,13 +31,10 @@
 		<item quantity="other">jarraitzen</item>
 	</plurals>
 	<string name="posts">Bidalketak</string>
-	<string name="posts_and_replies">Bidalketak eta erantzunak</string>
 	<string name="media">Multimedia</string>
 	<string name="profile_about">Honi buruz</string>
 	<string name="button_follow">Jarraitu</string>
 	<string name="button_following">Jarraitzen</string>
-	<string name="edit_profile">Editatu profila</string>
-	<string name="share_user">Partekatu profila</string>
 	<string name="mute_user">Mututu %s</string>
 	<string name="unmute_user">Desmututu %s</string>
 	<string name="block_user">Blokeatu %s</string>
@@ -144,9 +141,7 @@
 	<string name="report_personal_subtitle">Hemen dituzu Mastodonen ikusiko duzuna kontrolatzeko aukerak:</string>
 	<string name="back">Atzera</string>
 	<string name="search_communities">Zerbitzari izena edo URLa</string>
-	<string name="instance_rules_title">Zerbitzariaren arauak</string>
 	<string name="instance_rules_subtitle">Aurrera egitean, %s-ko moderatzaileek ezarritako eta aplikatutako arau hauek jarraitzea onartzen duzu.</string>
-	<string name="signup_title">Sortu kontua</string>
 	<string name="display_name">Izena</string>
 	<string name="username">Erabiltzaile-izena</string>
 	<string name="email">Eposta</string>
@@ -154,7 +149,6 @@
 	<string name="confirm_password">Berretsi pasahitza</string>
 	<string name="password_note">Sartu letra larriak, karaktere bereziak eta zenbakiak zure pasahitzaren segurtasuna areagotzeko.</string>
 	<string name="category_general">Orokorra</string>
-	<string name="confirm_email_title">Egiaztatu zure sarrerako ontzia</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">Sakatu bidali dizugun esteka %s helbidea egiaztatzeko. Hementxe itxarongo zaitugu.</string>
 	<string name="confirm_email_didnt_get">Ez duzu estekarik jaso?</string>
@@ -189,7 +183,6 @@
 	<string name="theme_dark">Iluna</string>
 	<string name="settings_behavior">Jokabidea</string>
 	<string name="settings_gif">Erreproduzitu animatutako abatarrak eta emojiak</string>
-	<string name="settings_custom_tabs">Erabili aplikazio barneko nabigatzailea</string>
 	<string name="settings_notifications">Jakinarazpenak</string>
 	<string name="settings_contribute">Lagundu Mastodon</string>
 	<string name="settings_tos">Erabilera baldintzak</string>
@@ -218,8 +211,6 @@
 	<string name="followed_user">%s jarraitzen ari zara</string>
 	<string name="following_user_requested">%s jarraitzea eskatuta</string>
 	<string name="open_in_browser">Ireki nabigatzailean</string>
-	<string name="hide_boosts_from_user">Ezkutatu %s(r)en bultzadak</string>
-	<string name="show_boosts_from_user">Erakutsi @%s(r)en bultzadak</string>
 	<string name="signup_reason">Zergatik elkartu nahi duzu?</string>
 	<string name="signup_reason_note">Honek zure eskaera berrikustean lagunduko digu.</string>
 	<string name="clear">Garbitu</string>
@@ -242,7 +233,6 @@
 	<string name="recommended_accounts_info_banner">Jarraitzen dituzun beste batzuetan oinarrituta, baliteke kontu hauek gustuko izatea.</string>
 	<string name="see_new_posts">Bidalketa berriak</string>
 	<string name="load_missing_posts">Falta diren bidalketak kargatu</string>
-	<string name="follow_back">Jarraitu</string>
 	<string name="button_follow_pending">Zain</string>
 	<string name="follows_you">Jarraitzen zaitu</string>
 	<string name="manually_approves_followers">Jarraitzaileak eskuz onartu</string>
@@ -298,28 +288,18 @@
 	<string name="file_size_mb">%.2f MB</string>
 	<string name="file_size_gb">%.2f GB</string>
 	<string name="upload_processing">Prozesatzen…</string>
-	<!-- %s is version like 1.2.3 -->
-	<!-- %s is version like 1.2.3 -->
 	<!-- %s is file size -->
 	<string name="download_update">(%s) deskargatu</string>
 	<string name="install_update">Instalatu</string>
-	<string name="privacy_policy_title">Zure pribatutasuna</string>
 	<string name="privacy_policy_subtitle">Mastodon aplikazioak daturik biltzen ez duen arren, erregistratzen zaren zerbitzariak beste politika bat izan dezake.\n\nEz bazaude %s zerbitzariaren politikarekin ados, atzera egin eta beste zerbitzari bat aukeratu dezakezu.</string>
-	<string name="i_agree">Ados nago</string>
 	<string name="empty_list">Zerrenda hau hutsik dago</string>
 	<string name="instance_signup_closed">Zerbitzari honek ez ditu izen-emate berriak onartzen.</string>
 	<string name="text_copied">Arbelean kopiatuta</string>
 	<string name="add_bookmark">Laster-marka</string>
 	<string name="remove_bookmark">Kendu laster-marka</string>
 	<string name="bookmarks">Laster-markak</string>
-	<string name="your_favorites">Zure gogokoak</string>
-	<string name="login_title">Ongi etorri berriro ere</string>
 	<string name="login_subtitle">Hasi saioa kontua sortu zenuen zerbitzariarekin.</string>
 	<string name="server_url">Zerbitzariaren URLa</string>
-	<string name="server_filter_any_language">Edozein hizkuntza</string>
-	<string name="server_filter_instant_signup">Berehalako erregistroa</string>
-	<string name="server_filter_manual_review">Eskuzko berrikuspena</string>
-	<string name="server_filter_any_signup_speed">Edozein erregistro abiadura</string>
 	<string name="server_filter_region_europe">Europa</string>
 	<string name="server_filter_region_north_america">Ipar Amerika</string>
 	<string name="server_filter_region_south_america">Hego Amerika</string>
@@ -327,7 +307,6 @@
 	<string name="server_filter_region_asia">Asia</string>
 	<string name="server_filter_region_oceania">Ozeania</string>
 	<string name="not_accepting_new_members">Ez da kide berririk onartzen</string>
-	<string name="category_special_interests">Interes bereziak</string>
 	<string name="signup_passwords_dont_match">Pasahitzak ez datoz bat</string>
 	<string name="profile_add_row">Gehitu errenkada</string>
 	<string name="profile_setup">Profilaren konfigurazioa</string>
@@ -596,7 +575,6 @@
 	<string name="remove">Kendu</string>
 	<string name="add_list_member">Gehitu kidea</string>
 	<string name="search_among_people_you_follow">Bilatu jarraitzen dituzun pertsonen artean</string>
-	<string name="add_user_to_list">Gehitu zerrendara…</string>
 	<string name="add_user_to_list_title">Gehitu zerrendara</string>
 	<!-- %s is a username -->
 	<string name="manage_user_lists">%s agertzen den zerrendak kudeatu</string>
