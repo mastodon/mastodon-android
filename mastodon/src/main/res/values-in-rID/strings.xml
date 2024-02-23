@@ -29,13 +29,10 @@
 		<item quantity="other">mengikuti</item>
 	</plurals>
 	<string name="posts">Kiriman</string>
-	<string name="posts_and_replies">Kiriman dan Balasan</string>
 	<string name="media">Media</string>
 	<string name="profile_about">Tentang</string>
 	<string name="button_follow">Ikuti</string>
 	<string name="button_following">Mengikuti</string>
-	<string name="edit_profile">Sunting Profil</string>
-	<string name="share_user">Bagikan profil</string>
 	<string name="mute_user">Bisukan %s</string>
 	<string name="unmute_user">Berhenti membisukan %s</string>
 	<string name="block_user">Blokir %s</string>
@@ -132,9 +129,7 @@
 	<string name="report_personal_subtitle">Berikut adalah pilihan Anda untuk mengatur apa yang Anda lihat di Mastodon:</string>
 	<string name="back">Kembali</string>
 	<string name="search_communities">Nama server atau URL</string>
-	<string name="instance_rules_title">Aturan Server</string>
 	<string name="instance_rules_subtitle">Dengan melanjutkan, Anda setuju mengikuti peraturan berikut yang ditetapkan oleh moderator %s.</string>
-	<string name="signup_title">Buat Akun</string>
 	<string name="display_name">Nama</string>
 	<string name="username">Nama pengguna</string>
 	<string name="email">Surel</string>
@@ -142,7 +137,6 @@
 	<string name="confirm_password">Konfirmasi kata sandi</string>
 	<string name="password_note">Tambahkan huruf besar, karakter spesial, dan nomor untuk meningkatkan kekuatan kata sandi Anda.</string>
 	<string name="category_general">Umum</string>
-	<string name="confirm_email_title">Periksa Kotak Masuk Anda</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">Ketuk tautan yang kami kirim kepada Anda untuk memverifikasi %s. Kami akan tunggu di sini.</string>
 	<string name="confirm_email_didnt_get">Tidak mendapatkan tautan?</string>
@@ -176,7 +170,6 @@
 	<string name="theme_dark">Gelap</string>
 	<string name="settings_behavior">Perilaku</string>
 	<string name="settings_gif">Mainkan avatar dan emoji beranimasi</string>
-	<string name="settings_custom_tabs">Gunakan peramban dalam aplikasi</string>
 	<string name="settings_notifications">Notifikasi</string>
 	<string name="settings_contribute">Berkontribusi ke Mastodon</string>
 	<string name="settings_tos">Ketentuan layanan</string>
@@ -205,8 +198,6 @@
 	<string name="followed_user">Anda sekarang mengikuti %s</string>
 	<string name="following_user_requested">Diminta untuk mengikuti %s</string>
 	<string name="open_in_browser">Buka di peramban</string>
-	<string name="hide_boosts_from_user">Sembunyikan boost dari %s</string>
-	<string name="show_boosts_from_user">Tampilkan boost dari %s</string>
 	<string name="signup_reason">Mengapa Anda ingin bergabung?</string>
 	<string name="signup_reason_note">Ini akan membantu kami meninjau aplikasi Anda.</string>
 	<string name="clear">Hapus</string>
@@ -228,7 +219,6 @@
 	<string name="local_timeline_info_banner">Ini adalah kiriman dari semua pengguna di server Anda (%s).</string>
 	<string name="recommended_accounts_info_banner">Anda mungkin suka akun berikut berdasarkan orang-orang yang Anda ikuti.</string>
 	<string name="load_missing_posts">Muat kiriman yang hilang</string>
-	<string name="follow_back">Ikuti Balik</string>
 	<string name="button_follow_pending">Ditunda</string>
 	<string name="follows_you">Mengikuti Anda</string>
 	<string name="manually_approves_followers">Menerima pengikut secara manual</string>
@@ -278,28 +268,18 @@
 	<string name="file_size_mb">%.2f MB</string>
 	<string name="file_size_gb">%.2f GB</string>
 	<string name="upload_processing">Memproses…</string>
-	<!-- %s is version like 1.2.3 -->
-	<!-- %s is version like 1.2.3 -->
 	<!-- %s is file size -->
 	<string name="download_update">Unduh (%s)</string>
 	<string name="install_update">Pasang</string>
-	<string name="privacy_policy_title">Privasi Anda</string>
 	<string name="privacy_policy_subtitle">Walaupun aplikasi Mastodon tidak mengumpulkan data apa pun, server yang Anda daftarkan di sana dapat memiliki kebijakan yang berbeda.\n\nJika Anda tidak setuju dengan kebijakan %s, Anda dapat kembali dan pilih server yang lain.</string>
-	<string name="i_agree">Saya Setuju</string>
 	<string name="empty_list">Daftar ini kosong</string>
 	<string name="instance_signup_closed">Server ini tidak menerima pendaftaran baru.</string>
 	<string name="text_copied">Disalin ke papan klip</string>
 	<string name="add_bookmark">Markah</string>
 	<string name="remove_bookmark">Hapus markah</string>
 	<string name="bookmarks">Markah</string>
-	<string name="your_favorites">Favorit Anda</string>
-	<string name="login_title">Selamat Datang Kembali</string>
 	<string name="login_subtitle">Masuk dengan server di mana Anda buat akun Anda.</string>
 	<string name="server_url">URL Server</string>
-	<string name="server_filter_any_language">Bahasa Apa Pun</string>
-	<string name="server_filter_instant_signup">Pendaftaran Instan</string>
-	<string name="server_filter_manual_review">Pemeriksaan Manual</string>
-	<string name="server_filter_any_signup_speed">Kecepatan Pendaftaran Apa Pun</string>
 	<string name="server_filter_region_europe">Eropa</string>
 	<string name="server_filter_region_north_america">Amerika Utara</string>
 	<string name="server_filter_region_south_america">Amerika Selatan</string>
@@ -307,7 +287,6 @@
 	<string name="server_filter_region_asia">Asia</string>
 	<string name="server_filter_region_oceania">Oseania</string>
 	<string name="not_accepting_new_members">Tidak menerima anggota baru</string>
-	<string name="category_special_interests">Minat Khusus</string>
 	<string name="signup_passwords_dont_match">Kata sandi tidak cocok</string>
 	<string name="profile_add_row">Tambahkan baris</string>
 	<string name="profile_setup">Pengaturan profil</string>
