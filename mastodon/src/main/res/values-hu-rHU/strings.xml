@@ -353,12 +353,14 @@
 	<string name="show">Megjelenítés</string>
 	<string name="hide">Elrejtés</string>
 	<string name="join_default_server">Csatlakozol ide? %s</string>
+	<string name="pick_server">Másik kiszolgáló választása</string>
 	<string name="signup_or_login">vagy</string>
 	<string name="learn_more">További információ</string>
 	<string name="welcome_to_mastodon">Üdvözöl a Mastodon</string>
 	<string name="welcome_paragraph1">A Mastodon egy decentralizált közösségi hálózat, ami azt jelenti, hogy nem egyetlen vállalat irányítja. Sok, egymástól függetlenül működtetett szerverből áll, amelyek össze vannak egymással kötve.</string>
 	<string name="what_are_servers">Mik azok a szerverek?</string>
 	<string name="welcome_paragraph2">Minden Mastodon-fiók egy szerveren van elhelyezve - mindegyiknek saját értékei, szabályai, &amp; adminjai vannak. Nem számít, melyiket választod, bármelyik szerveren lévő embereket követheted és kapcsolatba léphetsz velük.</string>
+	<string name="opening_link">Link megnyitása…</string>
 	<string name="link_not_supported">Ez a link nem támogatott az alkalmazásban</string>
 	<string name="log_out_all_accounts">Kilépés mindegyik fiókból</string>
 	<string name="confirm_log_out_all_accounts">Kilépés mindegyik fiókból?</string>
@@ -409,6 +411,7 @@
 	<string name="mark_all_notifications_read">Összes megjelölése olvasottként</string>
 	<string name="settings_display">Megjelenés</string>
 	<string name="settings_filters">Szűrők</string>
+	<string name="settings_server_explanation">Áttekintés, szabályok, moderátorok</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">%s névjegy</string>
 	<string name="default_post_language">Alapértelmezett poszt nyelv</string>
@@ -434,6 +437,7 @@
 	<string name="yesterday">tegnap</string>
 	<string name="tomorrow">holnap</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="pause_notifications_ends">Vége %s</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<string name="open_system_notification_settings">Értesítések beállításai</string>
 	<string name="about_server">Névjegy</string>
@@ -444,6 +448,10 @@
 	<string name="settings_hide_sensitive_media">Kényesnek jelölt média elrejtése</string>
 	<string name="settings_show_interaction_counts">Poszt interakció számláló</string>
 	<string name="settings_show_emoji_in_names">Egyéni emojik a megjelenített nevekben</string>
+	<plurals name="in_x_seconds">
+		<item quantity="one">%d mp-en belül</item>
+		<item quantity="other">%d mp-en belül</item>
+	</plurals>
 	<plurals name="x_hours_ago">
 		<item quantity="one">%d órája</item>
 		<item quantity="other">%d hónapja</item>
@@ -550,6 +558,7 @@
 	<string name="confirm_remove_list_members">Tagok eltávolítása?</string>
 	<string name="remove">Eltávolítás</string>
 	<string name="add_list_member">Tag hozzáadása</string>
+	<string name="search_among_people_you_follow">Keresés a követett személyek között</string>
 	<string name="add_user_to_list">Hozzáadás listához…</string>
 	<string name="add_user_to_list_title">Hozzáadás listához</string>
 	<!-- %s is a username -->
@@ -576,6 +585,8 @@
 	<string name="non_mutual_text3">Mindenki beszélgetési stílusa egyedi. Készülj fel az alkalmazkodásra.</string>
 	<string name="make_profile_discoverable">Legyen felfedezhető a profilom</string>
 	<string name="discoverability">Felfedezhetőség</string>
+	<string name="onboarding_recommendations_title">Hírfolyam testreszabása</string>
+	<string name="article_by_author">%s szerint</string>
 	<string name="info">Infó</string>
 	<string name="button_reblogged">Megtolta</string>
 	<string name="button_favorited">Kedvenc</string>
@@ -591,5 +602,16 @@
 	<string name="this_invite_has_expired">Ez a meghívó link lejárt.</string>
 	<string name="invite_link_pasted">Link beillesztve a vágólapról.</string>
 	<string name="need_invite_to_join_server">Ahhoz, hogy csatlakozhass %s-hoz, szükséged lesz egy meghívó linkre egy meglévő felhasználótól.</string>
+	<string name="mute_user_confirm_title">Felhasználó némítása?</string>
+	<string name="unblocked_user_x">Feloldva %s</string>
+	<string name="block_domain_confirm_title">Domain letiltása?</string>
+	<string name="do_block_server">Szerver blokkolása</string>
+	<string name="server">Szerver</string>
+	<string name="qr_code">QR kód</string>
+	<string name="scan_qr_code">QR kód beolvasása</string>
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
+	<string name="saved">Elmentve</string>
+	<string name="image_saved">Kép elmentve.</string>
+	<string name="video_saved">Videó elmentve.</string>
+	<string name="view_file">Megtekintés</string>
 </resources>
