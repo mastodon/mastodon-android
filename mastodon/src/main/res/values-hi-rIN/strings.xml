@@ -31,13 +31,10 @@
 		<item quantity="other">को फॉलो कर रहे</item>
 	</plurals>
 	<string name="posts">पोस्ट</string>
-	<string name="posts_and_replies">पोस्ट और जवाब</string>
 	<string name="media">मीडिया</string>
 	<string name="profile_about">आपके बारे में</string>
 	<string name="button_follow">फॉलो करें</string>
 	<string name="button_following">फॉलो कर रहे</string>
-	<string name="edit_profile">प्रोफाइल एडिट करें</string>
-	<string name="share_user">प्रोफाइल शेयर करें</string>
 	<string name="mute_user">%s को म्यूट करें</string>
 	<string name="unmute_user">%s को अनम्यूट करें</string>
 	<string name="block_user">%s को ब्लॉक करें</string>
@@ -144,9 +141,7 @@
 	<string name="report_personal_subtitle">Mastodon पे अपना फीड कंट्रोल करने के लिए आपके पास ये ऑप्शन है:</string>
 	<string name="back">पिछला</string>
 	<string name="search_communities">सर्वर का नाम या यूआरएल</string>
-	<string name="instance_rules_title">सर्वर के रूल</string>
 	<string name="instance_rules_subtitle">जारी रखते हुए, आप %s के एडमिन के ये रूल फॉलो करने को राज़ी है।</string>
-	<string name="signup_title">अकाउंट बनाएं</string>
 	<string name="display_name">नाम</string>
 	<string name="username">यूज़रनेम</string>
 	<string name="email">ईमेल</string>
@@ -154,7 +149,6 @@
 	<string name="confirm_password">पासवर्ड वापस लिखें</string>
 	<string name="password_note">पासवर्ड की ताकत बढ़ाने के लिए उसमें कैपिटल लेटर, स्पेशल कैरेक्टर, और नंबर इस्तेमाल करें।</string>
 	<string name="category_general">जेनरल</string>
-	<string name="confirm_email_title">अपना इनबॉक्स चेक करें</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">%s वैरिफाइ करने के लिए भेजे गए लिंक पे टैप करें। हम यहां पे इंतज़ार करेंगे।</string>
 	<string name="confirm_email_didnt_get">लिंक नहीं मिला?</string>
@@ -186,7 +180,6 @@
 	<string name="theme_light">लाइट</string>
 	<string name="theme_dark">डार्क</string>
 	<string name="settings_behavior">बर्ताव</string>
-	<string name="settings_custom_tabs">ऐप में ब्राउज़र इस्तेमाल करें</string>
 	<string name="settings_notifications">नोटिफिकेशन</string>
 	<string name="settings_contribute">Mastodon को दान करें</string>
 	<string name="settings_tos">सर्विस की शर्ते</string>
@@ -222,20 +215,15 @@
 	<string name="file_size_kb">%.2f केबी</string>
 	<string name="file_size_mb">%.2f एमबी</string>
 	<string name="file_size_gb">%.2f जीबी</string>
-	<!-- %s is version like 1.2.3 -->
-	<!-- %s is version like 1.2.3 -->
 	<!-- %s is file size -->
 	<string name="download_update">डाउनलोड करें (%s)</string>
 	<string name="install_update">इंस्टॉल करें</string>
-	<string name="privacy_policy_title">आपकी प्राइवसी</string>
 	<string name="privacy_policy_subtitle">वैसे तो Mastodon ऐप कोई डाटा इकट्ठा नहीं करता, लेकिन आपके सर्वर की पॉलिसी अलग हो सकती है।\n\nअगर आपको %s के पॉलिसी से दिक्कत है, तो आप पीछे जाकर कोई दूसरा सर्वर चुन सकते है।</string>
-	<string name="i_agree">मैं राज़ी हूं</string>
 	<string name="empty_list">ये लिस्ट खाली है</string>
 	<string name="instance_signup_closed">ये सर्वर नए रजिस्ट्रेशन एक्सेप्ट नहीं कर रहा।</string>
 	<string name="add_bookmark">बुकमार्क करें</string>
 	<string name="remove_bookmark">बुकमार्क हटाएं</string>
 	<string name="server_url">सर्वर यूआरएल</string>
-	<string name="server_filter_any_language">कोई भी भाषा</string>
 	<string name="server_filter_region_europe">यूरोप</string>
 	<string name="server_filter_region_north_america">नॉर्थ अमेरिका</string>
 	<string name="server_filter_region_south_america">साउथ अमेरिका</string>
