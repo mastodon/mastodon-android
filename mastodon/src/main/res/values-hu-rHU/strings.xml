@@ -31,13 +31,10 @@
 		<item quantity="other">követettek</item>
 	</plurals>
 	<string name="posts">Bejegyzések</string>
-	<string name="posts_and_replies">Bejegyzések és válaszok</string>
 	<string name="media">Média</string>
 	<string name="profile_about">Névjegy</string>
 	<string name="button_follow">Követés</string>
 	<string name="button_following">Követve</string>
-	<string name="edit_profile">Profil szerkesztése</string>
-	<string name="share_user">Profil megosztása</string>
 	<string name="mute_user">%s némítása</string>
 	<string name="unmute_user">%s némításának feloldása</string>
 	<string name="block_user">%s letiltása</string>
@@ -144,9 +141,7 @@
 	<string name="report_personal_subtitle">Itt vannak a beállítások, melyek szabályozzák, hogy mit lát a Mastodonon:</string>
 	<string name="back">Vissza</string>
 	<string name="search_communities">Kiszolgáló neve vagy URL</string>
-	<string name="instance_rules_title">Kiszolgáló Szabályai</string>
 	<string name="instance_rules_subtitle">A folytatással beleegyezik, hogy követi a következő szabályokat, melyeket a %s moderátorai alkottak és tartatnak be.</string>
-	<string name="signup_title">Fiók létrehozása</string>
 	<string name="display_name">Név</string>
 	<string name="username">Felhasználónév</string>
 	<string name="email">Email</string>
@@ -154,7 +149,6 @@
 	<string name="confirm_password">Jelszó megerősítése</string>
 	<string name="password_note">A jelszó erősségének növelése érdekében használjon nagybetűket, speciális karaktereket és számokat.</string>
 	<string name="category_general">Általános</string>
-	<string name="confirm_email_title">Nézd meg a bejővő emailfiókját</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">Kattintson a hivatkozásra, melyet a %s ellenőrzése céljából küldtünk önnek. Mi addig itt várunk.</string>
 	<string name="confirm_email_didnt_get">Nem kapta meg a hivatkozást?</string>
@@ -189,7 +183,6 @@
 	<string name="theme_dark">Sötét</string>
 	<string name="settings_behavior">Viselkedés</string>
 	<string name="settings_gif">Animált avatarok és hangulatjelek lejátszása</string>
-	<string name="settings_custom_tabs">Beépített böngésző használata</string>
 	<string name="settings_notifications">Értesítések</string>
 	<string name="settings_contribute">Közreműködés a Mastodonhoz</string>
 	<string name="settings_tos">Felhasználási feltételek</string>
@@ -218,8 +211,6 @@
 	<string name="followed_user">Most már követi őt: %s</string>
 	<string name="following_user_requested">Követési kérelem elküldve %s felhasználónak</string>
 	<string name="open_in_browser">Megnyitás böngészőben</string>
-	<string name="hide_boosts_from_user">\@%s megtolásainak elrejtése</string>
-	<string name="show_boosts_from_user">\@%s megtolásainak mutatása</string>
 	<string name="signup_reason">Miért szeretne csatlakozni?</string>
 	<string name="signup_reason_note">Ez segít nekünk átnézni a jelentkezését.</string>
 	<string name="clear">Törlés</string>
@@ -242,7 +233,6 @@
 	<string name="recommended_accounts_info_banner">Ezek a fiókok tetszhetnek önnek azok alapján, akiket követ.</string>
 	<string name="see_new_posts">Új posztok</string>
 	<string name="load_missing_posts">Hiányzó bejegyzések betöltése</string>
-	<string name="follow_back">Visszakövetés</string>
 	<string name="button_follow_pending">Függőben</string>
 	<string name="follows_you">Követi önt</string>
 	<string name="manually_approves_followers">Kézzel erősíti meg a követőit</string>
@@ -298,28 +288,18 @@
 	<string name="file_size_mb">%.2f MB</string>
 	<string name="file_size_gb">%.2f GB</string>
 	<string name="upload_processing">Feldolgozás…</string>
-	<!-- %s is version like 1.2.3 -->
-	<!-- %s is version like 1.2.3 -->
 	<!-- %s is file size -->
 	<string name="download_update">(%s) letöltése</string>
 	<string name="install_update">Telepítés</string>
-	<string name="privacy_policy_title">Személyes Adatbiztonság</string>
 	<string name="privacy_policy_subtitle">Bár a Mastodon app nem gyűjt adatokat, a kiszolgáló, melyen bejelentkezik rendelkezhet más szabályokkal.\n\nHa nem ért egyet a %s szabályzatával, visszamehet és választhat egy másik kiszolgálót.</string>
-	<string name="i_agree">Elfogadom</string>
 	<string name="empty_list">A lista üres</string>
 	<string name="instance_signup_closed">Ez a szerver nem fogad új regisztrációkat.</string>
 	<string name="text_copied">A szöveg a vágólapra másolva</string>
 	<string name="add_bookmark">Könyvjelzőzés</string>
 	<string name="remove_bookmark">Könyvjelző eltávolítása</string>
 	<string name="bookmarks">Könyvjelzők</string>
-	<string name="your_favorites">Kedvencek</string>
-	<string name="login_title">Üdv újra</string>
 	<string name="login_subtitle">Azon a kiszolgálón jelentkezzen be, ahol a fiókját létrehozta.</string>
 	<string name="server_url">Kiszolgáló URL</string>
-	<string name="server_filter_any_language">Bármely nyelv</string>
-	<string name="server_filter_instant_signup">Azonnali regisztráció</string>
-	<string name="server_filter_manual_review">Kézi felülvizsgálat</string>
-	<string name="server_filter_any_signup_speed">Bármely regisztrációs sebesség</string>
 	<string name="server_filter_region_europe">Európa</string>
 	<string name="server_filter_region_north_america">Észak-Amerika</string>
 	<string name="server_filter_region_south_america">Dél-Amerika</string>
@@ -327,7 +307,6 @@
 	<string name="server_filter_region_asia">Ázsia</string>
 	<string name="server_filter_region_oceania">Óceánia</string>
 	<string name="not_accepting_new_members">Nem fogad új tagokat</string>
-	<string name="category_special_interests">Különleges érdeklődés</string>
 	<string name="signup_passwords_dont_match">A jelszavak nem egyeznek</string>
 	<string name="profile_add_row">Sor hozzáadása</string>
 	<string name="profile_setup">Profilbeállítás</string>
@@ -565,7 +544,6 @@
 	<string name="remove">Eltávolítás</string>
 	<string name="add_list_member">Tag hozzáadása</string>
 	<string name="search_among_people_you_follow">Keresés a követett személyek között</string>
-	<string name="add_user_to_list">Hozzáadás listához…</string>
 	<string name="add_user_to_list_title">Hozzáadás listához</string>
 	<!-- %s is a username -->
 	<string name="remove_from_list">Eltávolítás a listából</string>
