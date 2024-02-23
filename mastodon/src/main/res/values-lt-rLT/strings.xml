@@ -35,13 +35,10 @@
 		<item quantity="other">sekimų</item>
 	</plurals>
 	<string name="posts">Įrašai</string>
-	<string name="posts_and_replies">Įrašai ir atsakymai</string>
 	<string name="media">Medija</string>
 	<string name="profile_about">Apie</string>
 	<string name="button_follow">Sekti</string>
 	<string name="button_following">Sekama</string>
-	<string name="edit_profile">Redaguoti profilį</string>
-	<string name="share_user">Bendrinti profilį</string>
 	<string name="mute_user">Nutildyti %s</string>
 	<string name="unmute_user">Atšaukti nutildymą %s</string>
 	<string name="block_user">Blokuoti %s</string>
@@ -168,9 +165,7 @@
 	<string name="report_personal_subtitle">Štai parinktys, kaip kontroliuoti, ką matai Mastodon:</string>
 	<string name="back">Grįžti</string>
 	<string name="search_communities">Serverio pavadinimas arba URL</string>
-	<string name="instance_rules_title">Serverio taisyklės</string>
 	<string name="instance_rules_subtitle">Tęsdant sutinki laikytis šių taisyklių, kurias nustatė ir taiko %s prižiūrėtojai.</string>
-	<string name="signup_title">Sukurti paskyrą</string>
 	<string name="display_name">Vardas</string>
 	<string name="username">Naudotojo vardas</string>
 	<string name="email">El. paštas</string>
@@ -178,7 +173,6 @@
 	<string name="confirm_password">Patvirtinti slaptažodį</string>
 	<string name="password_note">Į slaptažodį įtrauk didžiąsias raides, specialius simbolius ir skaičius, kad padidintum slaptažodžio stiprumą.</string>
 	<string name="category_general">Bendra</string>
-	<string name="confirm_email_title">Patikrink pašto dėžutę</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">Spustelėk nuorodą, kurią atsiuntėme, kad patvirtintum %s. Lauksime čia.</string>
 	<string name="confirm_email_didnt_get">Negavai nuorodos?</string>
@@ -215,7 +209,6 @@
 	<string name="theme_dark">Tamsi</string>
 	<string name="settings_behavior">Elgesys</string>
 	<string name="settings_gif">Leisti animuotus avatarus ir jaustukus</string>
-	<string name="settings_custom_tabs">Naudoti programėlės naršyklę</string>
 	<string name="settings_notifications">Pranešimai</string>
 	<string name="settings_contribute">Prisidėti prie Mastodon</string>
 	<string name="settings_tos">Paslaugų teikimo sąlygos</string>
@@ -244,8 +237,6 @@
 	<string name="followed_user">Dabar seki %s</string>
 	<string name="following_user_requested">Paprašyta sekti %s</string>
 	<string name="open_in_browser">Atidaryti naršyklėje</string>
-	<string name="hide_boosts_from_user">Slėpti pakėlimus iš %s</string>
-	<string name="show_boosts_from_user">Rodyti pakėlimus iš %s</string>
 	<string name="signup_reason">Kodėl nori prisijungti?</string>
 	<string name="signup_reason_note">Tai padės mums peržiūrėti tavo paraišką.</string>
 	<string name="clear">Išvalyti</string>
@@ -268,7 +259,6 @@
 	<string name="recommended_accounts_info_banner">Galbūt šios paskyros tau patiks pagal kitas, kurias seki.</string>
 	<string name="see_new_posts">Nauji įrašai</string>
 	<string name="load_missing_posts">Krauti trūkstamus įrašus</string>
-	<string name="follow_back">Sekti atgal</string>
 	<string name="button_follow_pending">Laukiama</string>
 	<string name="follows_you">Seka tave</string>
 	<string name="manually_approves_followers">Rankiniu būdu patvirtina sekėjus</string>
@@ -336,28 +326,18 @@
 	<string name="file_size_mb">%.2f MB</string>
 	<string name="file_size_gb">%.2f GB</string>
 	<string name="upload_processing">Apdorojama…</string>
-	<!-- %s is version like 1.2.3 -->
-	<!-- %s is version like 1.2.3 -->
 	<!-- %s is file size -->
 	<string name="download_update">Atsisiųsti (%s)</string>
 	<string name="install_update">Degti</string>
-	<string name="privacy_policy_title">Tavo privatumas</string>
 	<string name="privacy_policy_subtitle">Nors Mastodon programėlė nerenka jokių duomenų, serveris, per kurį užsiregistruoji, gali turėti kitokią politiką.\n\nJei nesutinki su %s politika, gali grįžti ir pasirinkti kitą serverį.</string>
-	<string name="i_agree">Sutinku</string>
 	<string name="empty_list">Šis sąrašas tuščias.</string>
 	<string name="instance_signup_closed">Šis serveris nepriima naujų registracijų.</string>
 	<string name="text_copied">Nukopijuota į iškarpinę</string>
 	<string name="add_bookmark">Pridėti į žymės</string>
 	<string name="remove_bookmark">Pašalinti žymę</string>
 	<string name="bookmarks">Žymės</string>
-	<string name="your_favorites">Tavo mėgstamos</string>
-	<string name="login_title">Sveiki sugrįžę</string>
 	<string name="login_subtitle">Prisijunk prie serverio, kuriame susikūrei paskyrą.</string>
 	<string name="server_url">Serverio URL</string>
-	<string name="server_filter_any_language">Bet kokia kalba</string>
-	<string name="server_filter_instant_signup">Momentinė registracija</string>
-	<string name="server_filter_manual_review">Rankinė apžvalga</string>
-	<string name="server_filter_any_signup_speed">Bet kokio registracijos greitis</string>
 	<string name="server_filter_region_europe">Europa</string>
 	<string name="server_filter_region_north_america">Šiaurės Amerika</string>
 	<string name="server_filter_region_south_america">Pietų Amerika</string>
@@ -365,7 +345,6 @@
 	<string name="server_filter_region_asia">Azija</string>
 	<string name="server_filter_region_oceania">Okeanija</string>
 	<string name="not_accepting_new_members">Naujų narių nepriima</string>
-	<string name="category_special_interests">Ypatingūs pomėgiai</string>
 	<string name="signup_passwords_dont_match">Slaptažodžiai nesutampa.</string>
 	<string name="profile_add_row">Pridėti eilutę</string>
 	<string name="profile_setup">Profilio sąranka</string>
@@ -658,7 +637,6 @@
 	<string name="remove">Pašalinti</string>
 	<string name="add_list_member">Pridėti narį</string>
 	<string name="search_among_people_you_follow">Ieškoti tarp sekiamų žmonių</string>
-	<string name="add_user_to_list">Pridėti į sąrašą…</string>
 	<string name="add_user_to_list_title">Pridėti į sąrašą</string>
 	<!-- %s is a username -->
 	<string name="manage_user_lists">Tvarkyti sąrašus, kuriuose pasirodo %s</string>
