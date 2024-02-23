@@ -31,13 +31,10 @@
 		<item quantity="other">volgend</item>
 	</plurals>
 	<string name="posts">Berichten</string>
-	<string name="posts_and_replies">Berichten en reacties</string>
 	<string name="media">Media</string>
 	<string name="profile_about">Over</string>
 	<string name="button_follow">Volgen</string>
 	<string name="button_following">Volgend</string>
-	<string name="edit_profile">Profiel bewerken</string>
-	<string name="share_user">Profiel delen</string>
 	<string name="mute_user">Negeer %s</string>
 	<string name="unmute_user">%s niet langer negeren</string>
 	<string name="block_user">Blokkeer %s</string>
@@ -144,9 +141,7 @@
 	<string name="report_personal_subtitle">Hier zijn jouw opties waarmee je kunt bepalen wat je in Mastodon wilt zien:</string>
 	<string name="back">Terug</string>
 	<string name="search_communities">Servernaam of URL</string>
-	<string name="instance_rules_title">Serverregels</string>
 	<string name="instance_rules_subtitle">Door verder te gaan, ga je akkoord met het volgen van de regels ingesteld door de %s-moderatoren.</string>
-	<string name="signup_title">Account registreren</string>
 	<string name="display_name">Naam</string>
 	<string name="username">Gebruikersnaam</string>
 	<string name="email">E-mailadres</string>
@@ -154,7 +149,6 @@
 	<string name="confirm_password">Wachtwoord bevestigen</string>
 	<string name="password_note">Voeg hoofdletters, speciale tekens en cijfers toe om je wachtwoord veiliger te maken.</string>
 	<string name="category_general">Algemeen</string>
-	<string name="confirm_email_title">Controleer je Postvak In</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">Klik op de koppeling die we je hebben gestuurd om %s te verifiëren. We wachten op je.</string>
 	<string name="confirm_email_didnt_get">Geen verificatielink ontvangen?</string>
@@ -189,7 +183,6 @@
 	<string name="theme_dark">Donker</string>
 	<string name="settings_behavior">Gedrag</string>
 	<string name="settings_gif">Geanimeerde profielfoto\'s en emoji\'s afspelen</string>
-	<string name="settings_custom_tabs">In-appbrowser gebruiken</string>
 	<string name="settings_notifications">Meldingen</string>
 	<string name="settings_contribute">Bijdragen aan Mastodon</string>
 	<string name="settings_tos">Gebruiksvoorwaarden</string>
@@ -218,8 +211,6 @@
 	<string name="followed_user">Je volgt %s nu</string>
 	<string name="following_user_requested">Je volgverzoek is aan %s verstuurd</string>
 	<string name="open_in_browser">In browser openen</string>
-	<string name="hide_boosts_from_user">Verberg boosts van @%s</string>
-	<string name="show_boosts_from_user">Toon boosts van %s</string>
 	<string name="signup_reason">Waarom wil je je hier registreren?</string>
 	<string name="signup_reason_note">Dit helpt ons om jouw aanvraag te beoordelen.</string>
 	<string name="clear">Leegmaken</string>
@@ -242,7 +233,6 @@
 	<string name="recommended_accounts_info_banner">Mogelijk vind je deze accounts leuk op basis van andere accounts die je volgt.</string>
 	<string name="see_new_posts">Nieuwe berichten</string>
 	<string name="load_missing_posts">Resterende berichten laden</string>
-	<string name="follow_back">Terugvolgen</string>
 	<string name="button_follow_pending">In afwachting</string>
 	<string name="follows_you">Volgt jou</string>
 	<string name="manually_approves_followers">Handmatig volgers goedkeuren</string>
@@ -298,28 +288,18 @@
 	<string name="file_size_mb">%.2f MB</string>
 	<string name="file_size_gb">%.2f GB</string>
 	<string name="upload_processing">Verwerken…</string>
-	<!-- %s is version like 1.2.3 -->
-	<!-- %s is version like 1.2.3 -->
 	<!-- %s is file size -->
 	<string name="download_update">Downloaden (%s)</string>
 	<string name="install_update">Installeren</string>
-	<string name="privacy_policy_title">Jouw privacy</string>
 	<string name="privacy_policy_subtitle">Hoewel de Mastodon-app geen gegevens verzamelt, kan de server waar je je aanmeldt een ander beleid hebben.\n\nAls je niet akkoord gaat met het beleid voor %s, kun je teruggaan en een andere server kiezen.</string>
-	<string name="i_agree">Ik ga akkoord</string>
 	<string name="empty_list">Deze lijst is leeg</string>
 	<string name="instance_signup_closed">Deze server accepteert geen nieuwe registraties.</string>
 	<string name="text_copied">Gekopieerd naar klembord</string>
 	<string name="add_bookmark">Bladwijzer toevoegen</string>
 	<string name="remove_bookmark">Bladwijzer verwijderen</string>
 	<string name="bookmarks">Bladwijzers</string>
-	<string name="your_favorites">Jouw favorieten</string>
-	<string name="login_title">Welkom terug</string>
 	<string name="login_subtitle">Bij de server waar je je account hebt aangemaakt inloggen.</string>
 	<string name="server_url">Server-URL</string>
-	<string name="server_filter_any_language">Elke taal</string>
-	<string name="server_filter_instant_signup">Direct aanmelden</string>
-	<string name="server_filter_manual_review">Handmatige beoordeling</string>
-	<string name="server_filter_any_signup_speed">Elke registratiesnelheid</string>
 	<string name="server_filter_region_europe">Europa</string>
 	<string name="server_filter_region_north_america">Noord-Amerika</string>
 	<string name="server_filter_region_south_america">Zuid-Amerika</string>
@@ -327,7 +307,6 @@
 	<string name="server_filter_region_asia">Azië</string>
 	<string name="server_filter_region_oceania">Oceanië</string>
 	<string name="not_accepting_new_members">Laat geen nieuwe gebruikers toe</string>
-	<string name="category_special_interests">Bijzondere interesses</string>
 	<string name="signup_passwords_dont_match">Wachtwoorden zijn niet gelijk</string>
 	<string name="profile_add_row">Rij toevoegen</string>
 	<string name="profile_setup">Profiel instellen</string>
@@ -596,7 +575,6 @@
 	<string name="remove">Verwijderen</string>
 	<string name="add_list_member">Lid toevoegen</string>
 	<string name="search_among_people_you_follow">Zoek tussen de mensen die je volgt</string>
-	<string name="add_user_to_list">Aan lijst toevoegen…</string>
 	<string name="add_user_to_list_title">Aan lijst toevoegen</string>
 	<!-- %s is a username -->
 	<string name="manage_user_lists">Beheer de lijsten waar %s lid van is</string>
