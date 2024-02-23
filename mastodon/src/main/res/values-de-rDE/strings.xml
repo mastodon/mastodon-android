@@ -31,13 +31,10 @@
 		<item quantity="other">Folge ich</item>
 	</plurals>
 	<string name="posts">Beiträge</string>
-	<string name="posts_and_replies">Beiträge und Antworten</string>
 	<string name="media">Medien</string>
 	<string name="profile_about">Über</string>
 	<string name="button_follow">Folgen</string>
 	<string name="button_following">Folge ich</string>
-	<string name="edit_profile">Profil bearbeiten</string>
-	<string name="share_user">Profil teilen</string>
 	<string name="mute_user">%s stummschalten</string>
 	<string name="unmute_user">%s nicht mehr stummschalten</string>
 	<string name="block_user">%s sperren</string>
@@ -144,9 +141,7 @@
 	<string name="report_personal_subtitle">Das sind deine Möglichkeiten zu bestimmen, was du auf Mastodon sehen möchtest:</string>
 	<string name="back">Zurück</string>
 	<string name="search_communities">Servername oder -adresse</string>
-	<string name="instance_rules_title">Server-Regeln</string>
 	<string name="instance_rules_subtitle">Solltest du fortfahren, erklärst du dich mit den Serverregeln, die die Moderator*innen von %s aufgestellt haben und durchsetzen werden, einverstanden.</string>
-	<string name="signup_title">Konto erstellen</string>
 	<string name="display_name">Name</string>
 	<string name="username">Profilname</string>
 	<string name="email">E-Mail</string>
@@ -154,7 +149,6 @@
 	<string name="confirm_password">Passwort bestätigen</string>
 	<string name="password_note">Verwende Großbuchstaben, Sonderzeichen und Zahlen, um deine Passwortstärke zu erhöhen.</string>
 	<string name="category_general">Allgemein</string>
-	<string name="confirm_email_title">Überprüfe deinen Posteingang</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">Bitte klicke auf den Link, den wir an %s geschickt haben, um dich zu verifizieren. Wir warten bis dahin einfach hier.</string>
 	<string name="confirm_email_didnt_get">Kein Link angekommen?</string>
@@ -189,7 +183,6 @@
 	<string name="theme_dark">Dunkel</string>
 	<string name="settings_behavior">Verhalten</string>
 	<string name="settings_gif">Animierte GIFs, Avatare und Emojis abspielen</string>
-	<string name="settings_custom_tabs">In-App-Browser verwenden</string>
 	<string name="settings_notifications">Benachrichtigungen</string>
 	<string name="settings_contribute">Zu Mastodon beitragen</string>
 	<string name="settings_tos">Nutzungsbedingungen</string>
@@ -218,8 +211,6 @@
 	<string name="followed_user">Du folgst nun %s</string>
 	<string name="following_user_requested">Deine Follower-Anfrage an %s wurde gesendet</string>
 	<string name="open_in_browser">Im Browser öffnen</string>
-	<string name="hide_boosts_from_user">Geteilte Beiträge von %s ausblenden</string>
-	<string name="show_boosts_from_user">Geteilte Beiträge von %s anzeigen</string>
 	<string name="signup_reason">Warum möchtest du beitreten?</string>
 	<string name="signup_reason_note">Das erleichtert uns die Prüfung deiner Anmeldung.</string>
 	<string name="clear">Leeren</string>
@@ -242,7 +233,6 @@
 	<string name="recommended_accounts_info_banner">Dir könnten diese Konten gefallen, basierend auf Leuten, denen du folgst.</string>
 	<string name="see_new_posts">Neue Beiträge</string>
 	<string name="load_missing_posts">Weitere Beiträge laden</string>
-	<string name="follow_back">Zurückfolgen</string>
 	<string name="button_follow_pending">Ausstehend</string>
 	<string name="follows_you">Folgt dir</string>
 	<string name="manually_approves_followers">Manuelles Genehmigen von Followern</string>
@@ -298,28 +288,18 @@
 	<string name="file_size_mb">%.2f MB</string>
 	<string name="file_size_gb">%.2f GB</string>
 	<string name="upload_processing">Wird verarbeitet …</string>
-	<!-- %s is version like 1.2.3 -->
-	<!-- %s is version like 1.2.3 -->
 	<!-- %s is file size -->
 	<string name="download_update">(%s) herunterladen</string>
 	<string name="install_update">Installieren</string>
-	<string name="privacy_policy_title">Deine Privatsphäre</string>
 	<string name="privacy_policy_subtitle">Auch wenn die Mastodon-App keine Daten sammelt, kann der Server, über den du dich anmeldest, eine andere Richtlinie haben.\n\nWenn du mit der Richtlinie für %s nicht einverstanden bist, kannst du zurückkehren und einen anderen Server wählen.</string>
-	<string name="i_agree">Ich stimme zu</string>
 	<string name="empty_list">Diese Liste ist leer</string>
 	<string name="instance_signup_closed">Dieser Server akzeptiert keine neuen Registrierungen.</string>
 	<string name="text_copied">In die Zwischenablage kopiert</string>
 	<string name="add_bookmark">Lesezeichen setzen</string>
 	<string name="remove_bookmark">Lesezeichen entfernen</string>
 	<string name="bookmarks">Lesezeichen</string>
-	<string name="your_favorites">Deine Favoriten</string>
-	<string name="login_title">Willkommen zurück</string>
 	<string name="login_subtitle">Melde dich mit dem Server an, auf dem du dein Konto erstellt hast.</string>
 	<string name="server_url">Serveradresse</string>
-	<string name="server_filter_any_language">Alle Sprachen</string>
-	<string name="server_filter_instant_signup">Schnellregistrierung</string>
-	<string name="server_filter_manual_review">Manuelle Überprüfung</string>
-	<string name="server_filter_any_signup_speed">Beliebige Registrierungsdauer</string>
 	<string name="server_filter_region_europe">Europa</string>
 	<string name="server_filter_region_north_america">Nordamerika</string>
 	<string name="server_filter_region_south_america">Südamerika</string>
@@ -327,7 +307,6 @@
 	<string name="server_filter_region_asia">Asien</string>
 	<string name="server_filter_region_oceania">Ozeanien</string>
 	<string name="not_accepting_new_members">Keine Aufnahme neuer Mitglieder</string>
-	<string name="category_special_interests">Besondere Interessen</string>
 	<string name="signup_passwords_dont_match">Passwörter stimmen nicht überein</string>
 	<string name="profile_add_row">Zeile hinzufügen</string>
 	<string name="profile_setup">Profil einrichten</string>
@@ -587,7 +566,6 @@
 	<string name="remove">Entfernen</string>
 	<string name="add_list_member">Mitglied hinzufügen</string>
 	<string name="search_among_people_you_follow">Suche nach Leuten, denen du folgst</string>
-	<string name="add_user_to_list">Zur Liste hinzufügen…</string>
 	<string name="add_user_to_list_title">Zur Liste hinzufügen</string>
 	<!-- %s is a username -->
 	<string name="manage_user_lists">Listen mit %s verwalten</string>
