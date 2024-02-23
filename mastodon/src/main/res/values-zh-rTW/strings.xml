@@ -29,13 +29,10 @@
 		<item quantity="other">跟隨中</item>
 	</plurals>
 	<string name="posts">嘟文</string>
-	<string name="posts_and_replies">嘟文及回覆</string>
 	<string name="media">媒體</string>
 	<string name="profile_about">關於</string>
 	<string name="button_follow">跟隨</string>
 	<string name="button_following">正在跟隨</string>
-	<string name="edit_profile">編輯個人檔案</string>
-	<string name="share_user">分享個人檔案</string>
 	<string name="mute_user">靜音 %s</string>
 	<string name="unmute_user">取消靜音 %s</string>
 	<string name="block_user">封鎖 %s</string>
@@ -132,9 +129,7 @@
 	<string name="report_personal_subtitle">以下是控制您想於 Mastodon 看到什麼內容之選項：</string>
 	<string name="back">返回</string>
 	<string name="search_communities">伺服器名稱或 URL</string>
-	<string name="instance_rules_title">伺服器規則</string>
 	<string name="instance_rules_subtitle">繼續的話，您將同意以下由 %s 之管理員訂定及執行之伺服器規則。</string>
-	<string name="signup_title">新增帳號</string>
 	<string name="display_name">名稱</string>
 	<string name="username">使用者名稱</string>
 	<string name="email">電子郵件地址</string>
@@ -142,7 +137,6 @@
 	<string name="confirm_password">確認密碼</string>
 	<string name="password_note">包含大寫、特殊字元、以及數字以提升您的密碼強度。</string>
 	<string name="category_general">一般</string>
-	<string name="confirm_email_title">請檢查您的收件夾</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">請點擊我們寄給您連結以驗證 %s。我們將於此稍候。</string>
 	<string name="confirm_email_didnt_get">無法取得連結嗎？</string>
@@ -176,7 +170,6 @@
 	<string name="theme_dark">深色</string>
 	<string name="settings_behavior">行為</string>
 	<string name="settings_gif">播放動畫大頭貼與表情符號</string>
-	<string name="settings_custom_tabs">使用應用程式內建瀏覽器</string>
 	<string name="settings_notifications">通知</string>
 	<string name="settings_contribute">貢獻 Mastodon</string>
 	<string name="settings_tos">服務條款</string>
@@ -205,8 +198,6 @@
 	<string name="followed_user">您現在開始跟隨 %s</string>
 	<string name="following_user_requested">要求跟隨 %s</string>
 	<string name="open_in_browser">於瀏覽器中開啟</string>
-	<string name="hide_boosts_from_user">隱藏來自 %s 的轉嘟</string>
-	<string name="show_boosts_from_user">顯示來自 %s 的轉嘟</string>
 	<string name="signup_reason">為什麼想要加入呢？</string>
 	<string name="signup_reason_note">這會協助我們審核您的申請。</string>
 	<string name="clear">清除</string>
@@ -229,7 +220,6 @@
 	<string name="recommended_accounts_info_banner">基於您所跟隨的其他人，您可能會喜歡這些帳號。</string>
 	<string name="see_new_posts">新嘟文</string>
 	<string name="load_missing_posts">讀取錯過的嘟文</string>
-	<string name="follow_back">跟隨回去</string>
 	<string name="button_follow_pending">等待中</string>
 	<string name="follows_you">已跟隨您</string>
 	<string name="manually_approves_followers">手動審核跟隨者</string>
@@ -279,28 +269,18 @@
 	<string name="file_size_mb">%.2f MB</string>
 	<string name="file_size_gb">%.2f GB</string>
 	<string name="upload_processing">處理中...</string>
-	<!-- %s is version like 1.2.3 -->
-	<!-- %s is version like 1.2.3 -->
 	<!-- %s is file size -->
 	<string name="download_update">下載 (%s)</string>
 	<string name="install_update">安裝</string>
-	<string name="privacy_policy_title">您的隱私</string>
 	<string name="privacy_policy_subtitle">即使 Mastodon app 本身不會蒐集任何資料，您所註冊之伺服器可能有不一樣的隱私權政策。\n\n若您不同意 %s 之隱私權政策，您可以重新挑選另一個不同的伺服器。</string>
-	<string name="i_agree">我已閱讀並同意</string>
 	<string name="empty_list">此列表為空</string>
 	<string name="instance_signup_closed">此伺服器不接受新的註冊。</string>
 	<string name="text_copied">已複製至剪貼簿</string>
 	<string name="add_bookmark">書籤</string>
 	<string name="remove_bookmark">移除書籤</string>
 	<string name="bookmarks">書籤</string>
-	<string name="your_favorites">您的最愛</string>
-	<string name="login_title">歡迎回來</string>
 	<string name="login_subtitle">以您建立帳號之伺服器登入。</string>
 	<string name="server_url">伺服器 URL</string>
-	<string name="server_filter_any_language">任何語言</string>
-	<string name="server_filter_instant_signup">立即註冊</string>
-	<string name="server_filter_manual_review">手動審核</string>
-	<string name="server_filter_any_signup_speed">任何註冊速度</string>
 	<string name="server_filter_region_europe">歐洲</string>
 	<string name="server_filter_region_north_america">北美洲</string>
 	<string name="server_filter_region_south_america">南美洲</string>
@@ -308,7 +288,6 @@
 	<string name="server_filter_region_asia">亞洲</string>
 	<string name="server_filter_region_oceania">大洋洲</string>
 	<string name="not_accepting_new_members">目前暫不開放新成員</string>
-	<string name="category_special_interests">特別興趣</string>
 	<string name="signup_passwords_dont_match">密碼不一致</string>
 	<string name="profile_add_row">新增</string>
 	<string name="profile_setup">個人檔案設定</string>
@@ -565,7 +544,6 @@
 	<string name="remove">移除</string>
 	<string name="add_list_member">新增成員</string>
 	<string name="search_among_people_you_follow">搜尋您跟隨的使用者</string>
-	<string name="add_user_to_list">新增至列表...</string>
 	<string name="add_user_to_list_title">新增至列表</string>
 	<!-- %s is a username -->
 	<string name="manage_user_lists">管理包含 %s 之列表</string>
