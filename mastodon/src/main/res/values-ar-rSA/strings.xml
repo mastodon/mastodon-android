@@ -39,13 +39,10 @@
 		<item quantity="other">متابَع</item>
 	</plurals>
 	<string name="posts">منشورات</string>
-	<string name="posts_and_replies">مَنشُوراتٌ وَرُدُود</string>
 	<string name="media">وسائط</string>
 	<string name="profile_about">حَول</string>
 	<string name="button_follow">تابِع</string>
 	<string name="button_following">مُتابَع</string>
-	<string name="edit_profile">تعديل الملف الشخصي</string>
-	<string name="share_user">شارك الصفحة الشخصية</string>
 	<string name="mute_user">كَتمُ %s</string>
 	<string name="unmute_user">إلغاء الكَتم عن @%s</string>
 	<string name="block_user">حَظرُ %s</string>
@@ -192,9 +189,7 @@
 	<string name="report_personal_subtitle">فيما يلي خياراتك للتحكم بما يُعرَض عليك في ماستدون:</string>
 	<string name="back">العودة</string>
 	<string name="search_communities">اسم الخادم أو عنوان URL</string>
-	<string name="instance_rules_title">قواعد الخادم</string>
 	<string name="instance_rules_subtitle">من خلال المتابعة، أنت توافق على اتباع القواعد التالية التي تم تعيينها وإنفاذها من قبل مشرفي %s.</string>
-	<string name="signup_title">إنشاء حساب</string>
 	<string name="display_name">الاسم</string>
 	<string name="username">اسم المستخدم</string>
 	<string name="email">البريد الإلكتروني</string>
@@ -202,7 +197,6 @@
 	<string name="confirm_password">تأكيد كلمة المرور</string>
 	<string name="password_note">ضمّن الأحرف الكبيرة والأحرف الخاصة والأرقام لزيادة قوة كلمة المرور.</string>
 	<string name="category_general">عام</string>
-	<string name="confirm_email_title">تحقق من صندوق الوارد الخاص بك</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">اضغط على الرابط الذي أرسلناه إليك للتحقق من %s. سننتظر هنا.</string>
 	<string name="confirm_email_didnt_get">ألم تحصل على رابط؟</string>
@@ -241,7 +235,6 @@
 	<string name="theme_dark">داكن</string>
 	<string name="settings_behavior">السلوك</string>
 	<string name="settings_gif">تشغيل الصور الرمزية المتحركة والرموز التعبيرية المتحركة</string>
-	<string name="settings_custom_tabs">استخدم المتصفح المضمن</string>
 	<string name="settings_notifications">الإشعارات</string>
 	<string name="settings_contribute">ساهم في ماستدون</string>
 	<string name="settings_tos">شروط الخدمة</string>
@@ -270,8 +263,6 @@
 	<string name="followed_user">أنت تتابع الآن %s</string>
 	<string name="following_user_requested">طَلَبَ %s مُتابَعتك</string>
 	<string name="open_in_browser">افتح في المتصفح</string>
-	<string name="hide_boosts_from_user">أخفِ المعاد نشرها مِن %s</string>
-	<string name="show_boosts_from_user">أظهر ما أعاد %s نشرَه</string>
 	<string name="signup_reason">لماذا تريد الانضمام؟</string>
 	<string name="signup_reason_note">هذا سوف يساعدنا في مراجعة تطبيقك.</string>
 	<string name="clear">امسح</string>
@@ -294,7 +285,6 @@
 	<string name="recommended_accounts_info_banner">قد تعجبك هذه الحسابات استنادا إلى حسابات أخرى تتابعها.</string>
 	<string name="see_new_posts">المنشورات الجديدة</string>
 	<string name="load_missing_posts">حمّل المَنشورات المَفقودَة</string>
-	<string name="follow_back">رُدّ المتابعة</string>
 	<string name="button_follow_pending">معلق</string>
 	<string name="follows_you">يُتابِعُك</string>
 	<string name="manually_approves_followers">الموافقة اليدوية على طلبات المتابعة</string>
@@ -374,28 +364,18 @@
 	<string name="file_size_mb">%.2f ميغابايت</string>
 	<string name="file_size_gb">%.2f جيجابايت</string>
 	<string name="upload_processing">قيد المعالجة…</string>
-	<!-- %s is version like 1.2.3 -->
-	<!-- %s is version like 1.2.3 -->
 	<!-- %s is file size -->
 	<string name="download_update">جارٍ التنزيل (%s)</string>
 	<string name="install_update">تثبيت</string>
-	<string name="privacy_policy_title">خصوصيتك</string>
 	<string name="privacy_policy_subtitle">على الرغم من أن تطبيق ماستدون لا يجمع أي بيانات، فإن الخادم الذي قمت بالتسجيل من خلاله قد تكون له سياسة مختلفة.\n\nإذا لم توافق على سياسة %s، يمكنك العودة واختيار خادم مختلف.</string>
-	<string name="i_agree">أنا مُوافِق</string>
 	<string name="empty_list">هذه القائمة فارغة</string>
 	<string name="instance_signup_closed">هذا الخادم لا يقبل التسجيلات الجديدة.</string>
 	<string name="text_copied">نُسِخ إلى الحافظة</string>
 	<string name="add_bookmark">إضافة إلى الفواصل المرجعية</string>
 	<string name="remove_bookmark">إزالة الفاصلة المرجعية</string>
 	<string name="bookmarks">الفواصل المرجعية</string>
-	<string name="your_favorites">مفضّلاتك</string>
-	<string name="login_title">مرحبا بك مجددًا</string>
 	<string name="login_subtitle">قم بتسجيل الدخول باستخدام الخادم حيث قمتَ بإنشاء حسابك فيه.</string>
 	<string name="server_url">رابط الخادم</string>
-	<string name="server_filter_any_language">أي لغة</string>
-	<string name="server_filter_instant_signup">تسجيل فوري</string>
-	<string name="server_filter_manual_review">مراجعة يدوية</string>
-	<string name="server_filter_any_signup_speed">أي سرعة تسجيل</string>
 	<string name="server_filter_region_europe">أوروبا</string>
 	<string name="server_filter_region_north_america">أمريكا الشمالية</string>
 	<string name="server_filter_region_south_america">أمريكا الجنوبية</string>
@@ -403,7 +383,6 @@
 	<string name="server_filter_region_asia">آسيا</string>
 	<string name="server_filter_region_oceania">أوقيانوسيا</string>
 	<string name="not_accepting_new_members">لا يقبل  استقبال أعضاء جدد</string>
-	<string name="category_special_interests">المصالح الخاصة</string>
 	<string name="signup_passwords_dont_match">كلمات المرور غير متطابقة</string>
 	<string name="profile_add_row">إضافة صف</string>
 	<string name="profile_setup">إعداد الملف الشخصي</string>
@@ -712,7 +691,6 @@
 	<string name="remove">إزالة</string>
 	<string name="add_list_member">إضافة عضو</string>
 	<string name="search_among_people_you_follow">البحث بين الأشخاص الذين تتابعهم</string>
-	<string name="add_user_to_list">إضافة القائمة…</string>
 	<string name="add_user_to_list_title">إضافة إلى القائمة</string>
 	<!-- %s is a username -->
 	<string name="remove_from_list">إزالة من القائمة</string>
