@@ -18,8 +18,11 @@ import android.graphics.drawable.LayerDrawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
+import android.text.SpannedString;
 import android.text.TextUtils;
+import android.text.style.ForegroundColorSpan;
 import android.text.style.ImageSpan;
 import android.transition.ChangeBounds;
 import android.transition.Fade;
@@ -596,6 +599,13 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 		}
 	}
 
+	private CharSequence makeRedString(CharSequence s){
+		int color=UiUtils.getThemeColor(getActivity(), R.attr.colorM3Error);
+		SpannableString ss=new SpannableString(s);
+		ss.setSpan(new ForegroundColorSpan(color), 0, ss.length(), 0);
+		return ss;
+	}
+
 	@Override
 	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater){
 		if(isOwnProfile && isInEditMode){
@@ -612,18 +622,22 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 		if(isOwnProfile)
 			return;
 
-		menu.findItem(R.id.mute).setTitle(getString(relationship.muting ? R.string.unmute_user : R.string.mute_user, account.displayName));
-		menu.findItem(R.id.block).setTitle(getString(relationship.blocking ? R.string.unblock_user : R.string.block_user, account.displayName));
-		menu.findItem(R.id.report).setTitle(getString(R.string.report_user, account.displayName));
+		menu.findItem(R.id.mute).setTitle(getString(relationship.muting ? R.string.unmute_user : R.string.mute_user, account.getDisplayUsername()));
+		menu.findItem(R.id.block).setTitle(makeRedString(getString(relationship.blocking ? R.string.unblock_user : R.string.block_user, account.getDisplayUsername())));
+		menu.findItem(R.id.report).setTitle(makeRedString(getString(R.string.report_user, account.getDisplayUsername())));
 		if(relationship.following)
-			menu.findItem(R.id.hide_boosts).setTitle(getString(relationship.showingReblogs ? R.string.hide_boosts_from_user : R.string.show_boosts_from_user, account.displayName));
+			menu.findItem(R.id.hide_boosts).setTitle(getString(relationship.showingReblogs ? R.string.hide_boosts_from_user : R.string.show_boosts_from_user));
 		else
 			menu.findItem(R.id.hide_boosts).setVisible(false);
 		if(!account.isLocal())
-			menu.findItem(R.id.block_domain).setTitle(getString(relationship.domainBlocking ? R.string.unblock_domain : R.string.block_domain, account.getDomain()));
+			menu.findItem(R.id.block_domain).setTitle(makeRedString(getString(relationship.domainBlocking ? R.string.unblock_domain : R.string.block_domain, account.getDomain())));
 		else
 			menu.findItem(R.id.block_domain).setVisible(false);
 		menu.findItem(R.id.add_to_list).setVisible(relationship.following);
+
+		if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.P){
+			menu.setGroupDividerEnabled(true);
+		}
 	}
 
 	@Override

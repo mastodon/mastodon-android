@@ -68,6 +68,7 @@
 		<item name="colorSensitiveOverlay">#a6ffffff</item>
 		<item name="android:textColorPrimary">?colorM3OnSurface</item>
 		<item name="android:textColorSecondary">?colorM3OnSurfaceVariant</item>
+		<item name="android:textAppearanceLargePopupMenu">@style/popup_menu_item_text</item>
 	</style>
 
 	<style name="Theme.Mastodon.Dark" parent="Theme.AppKit">
@@ -137,6 +138,7 @@
 		<item name="colorSensitiveOverlay">#80000000</item>
 		<item name="android:textColorPrimary">?colorM3OnSurface</item>
 		<item name="android:textColorSecondary">?colorM3OnSurfaceVariant</item>
+		<item name="android:textAppearanceLargePopupMenu">@style/popup_menu_item_text</item>
 	</style>
 
 	<style name="Theme.Mastodon.Dark.SplashFragment">
@@ -445,5 +447,9 @@
 
 	<style name="empty_text" parent="m3_body_large">
 		<item name="android:textColor">?colorM3OnSurfaceVariant</item>
+	</style>
+
+	<style name="popup_menu_item_text" parent="m3_body_large">
+		<item name="android:textColor">?colorM3OnSurface</item>
 	</style>
 </resources>
