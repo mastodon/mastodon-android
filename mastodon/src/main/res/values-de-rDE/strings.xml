@@ -143,7 +143,9 @@
 	<string name="report_personal_subtitle">Das sind deine Möglichkeiten zu bestimmen, was du auf Mastodon sehen möchtest:</string>
 	<string name="back">Zurück</string>
 	<string name="search_communities">Servername oder -adresse</string>
+	<string name="instance_rules_title">Serverregeln</string>
 	<string name="instance_rules_subtitle">Solltest du fortfahren, erklärst du dich mit den Serverregeln, die die Moderator*innen von %s aufgestellt haben und durchsetzen werden, einverstanden.</string>
+	<string name="signup_title">Account erstellen</string>
 	<string name="display_name">Name</string>
 	<string name="username">Profilname</string>
 	<string name="email">E-Mail</string>
@@ -151,6 +153,7 @@
 	<string name="confirm_password">Passwort bestätigen</string>
 	<string name="password_note">Verwende Großbuchstaben, Sonderzeichen und Zahlen, um deine Passwortstärke zu erhöhen.</string>
 	<string name="category_general">Allgemein</string>
+	<string name="confirm_email_title">Überprüfe dein E-Mail-Postfach</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">Bitte klicke auf den Link, den wir an %s geschickt haben, um dich zu verifizieren. Wir warten bis dahin einfach hier.</string>
 	<string name="confirm_email_didnt_get">Kein Link angekommen?</string>
@@ -235,6 +238,7 @@
 	<string name="recommended_accounts_info_banner">Dir könnten diese Konten gefallen, basierend auf Leuten, denen du folgst.</string>
 	<string name="see_new_posts">Neue Beiträge</string>
 	<string name="load_missing_posts">Weitere Beiträge laden</string>
+	<string name="follow_back">Ebenfalls folgen</string>
 	<string name="button_follow_pending">Ausstehend</string>
 	<string name="follows_you">Folgt dir</string>
 	<string name="manually_approves_followers">Manuelles Genehmigen von Followern</string>
@@ -300,7 +304,9 @@
 	<string name="add_bookmark">Lesezeichen setzen</string>
 	<string name="remove_bookmark">Lesezeichen entfernen</string>
 	<string name="bookmarks">Lesezeichen</string>
-	<string name="login_subtitle">Melde dich mit dem Server an, auf dem du dein Konto erstellt hast.</string>
+	<string name="your_favorites">Deine Favoriten</string>
+	<string name="login_title">Willkommen zurück</string>
+	<string name="login_subtitle">Melde dich mit dem Server an, auf dem du dein Account erstellt hast.</string>
 	<string name="server_url">Serveradresse</string>
 	<string name="server_filter_region_europe">Europa</string>
 	<string name="server_filter_region_north_america">Nordamerika</string>
@@ -330,7 +336,7 @@
 	<string name="profile_featured">Empfohlen</string>
 	<string name="profile_timeline">Timeline</string>
 	<string name="view_all">Alle anzeigen</string>
-	<string name="profile_endorsed_accounts">Konten</string>
+	<string name="profile_endorsed_accounts">Accounts</string>
 	<string name="verified_link">Verifizierter Link</string>
 	<string name="show">Anzeigen</string>
 	<string name="hide">Ausblenden</string>
@@ -545,7 +551,12 @@
 	<string name="settings_privacy">Datenschutz und Reichweite</string>
 	<string name="settings_discoverable">Profil und Beiträge in Suchalgorithmen berücksichtigen</string>
 	<string name="settings_indexable">Öffentliche Beiträge in die Suchergebnisse einbeziehen</string>
+	<plurals name="x_posts_today">
+		<item quantity="one">%,d Beitrag heute</item>
+		<item quantity="other">%,d Beiträge heute</item>
+	</plurals>
 	<string name="error_playing_video">Fehler bei Videowiedergabe</string>
+	<string name="timeline_following">Startseite</string>
 	<string name="lists">Listen</string>
 	<string name="followed_hashtags">Gefolgte Hashtags</string>
 	<string name="manage_lists">Listen verwalten</string>
@@ -578,12 +589,27 @@
 	<string name="no_lists_title">Startseite mit Listen organisieren</string>
 	<string name="no_lists_subtitle">Deine werden hier erscheinen</string>
 	<string name="manage_accounts">Konten hinzufügen oder wechseln</string>
+	<plurals name="x_posts_recently">
+		<item quantity="one">%,d kürzlicher Beitrag</item>
+		<item quantity="other">%,d kürzliche Beiträge</item>
+	</plurals>
 	<string name="create_list">Liste erstellen</string>
 	<string name="step_x_of_y">Schritt %1$d von %2$d</string>
 	<string name="manage_list_members">Listenmitglieder verwalten</string>
 	<string name="list_no_members">Noch keine Mitglieder</string>
+	<string name="posted_at">Veröffentlicht um %s Uhr</string>
 	<string name="dont_remind_again">Nicht erneut erinnern</string>
 	<!-- %s is a time interval ("5 months") -->
 	<string name="old_post_sheet_title">Dieser Beitrag ist %s alt</string>
+	<plurals name="x_months">
+		<item quantity="one">%,d Monat</item>
+		<item quantity="other">%,d Monate</item>
+	</plurals>
+	<string name="info">Info</string>
+	<string name="expired_invite_link">Abgelaufener Einladungslink</string>
+	<string name="server">Server</string>
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
+	<string name="saved">Gespeichert</string>
+	<string name="image_saved">Bild gespeichert.</string>
+	<string name="video_saved">Video gespeichert.</string>
 </resources>
