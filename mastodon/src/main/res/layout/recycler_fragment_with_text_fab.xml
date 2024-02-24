@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<me.grishka.appkit.views.RecursiveSwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:id="@+id/refresh_layout"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+
+	<FrameLayout
+		android:id="@+id/content_wrap"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+		<me.grishka.appkit.views.UsableRecyclerView
+			android:id="@+id/list"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:scrollbars="vertical"
+			android:clipToPadding="false"/>
+
+		<ViewStub android:layout="?emptyViewLayout"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:id="@+id/empty"/>
+
+		<Button
+			android:id="@+id/fab"
+			android:layout_width="wrap_content"
+			android:layout_height="56dp"
+			android:layout_gravity="end|bottom"
+			android:layout_marginEnd="16dp"
+			android:layout_marginBottom="16dp"
+			android:background="@drawable/bg_fab"
+			android:textColor="?colorM3Primary"
+			android:drawableTint="?colorM3Primary"
+			android:stateListAnimator="@animator/fab_shadow"
+			android:paddingStart="16dp"
+			android:paddingEnd="20dp"
+			android:drawablePadding="12dp"
+			android:textAppearance="@style/m3_label_large"
+			tools:text="Some text"
+			tools:drawableStart="@drawable/ic_edit_24px"/>
+
+	</FrameLayout>
+</me.grishka.appkit.views.RecursiveSwipeRefreshLayout>

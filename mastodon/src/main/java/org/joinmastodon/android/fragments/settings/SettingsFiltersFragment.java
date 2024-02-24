@@ -1,6 +1,9 @@
 package org.joinmastodon.android.fragments.settings;
 
 import android.os.Bundle;
+import android.view.View;
+import android.view.WindowInsets;
+import android.widget.Button;
 
 import com.squareup.otto.Subscribe;
 
@@ -12,6 +15,7 @@ import org.joinmastodon.android.events.SettingsFilterDeletedEvent;
 import org.joinmastodon.android.model.Filter;
 import org.joinmastodon.android.model.viewmodel.ListItem;
 import org.joinmastodon.android.ui.adapters.GenericListItemsAdapter;
+import org.joinmastodon.android.ui.utils.UiUtils;
 import org.parceler.Parcels;
 
 import java.util.Collections;
@@ -24,6 +28,12 @@ import me.grishka.appkit.api.SimpleCallback;
 import me.grishka.appkit.utils.MergeRecyclerAdapter;
 
 public class SettingsFiltersFragment extends BaseSettingsFragment<Filter>{
+	private Button fab;
+
+	public SettingsFiltersFragment(){
+		setListLayoutId(R.layout.recycler_fragment_with_text_fab);
+	}
+
 	@Override
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
@@ -53,13 +63,12 @@ public class SettingsFiltersFragment extends BaseSettingsFragment<Filter>{
 	}
 
 	@Override
-	protected RecyclerView.Adapter<?> getAdapter(){
-		MergeRecyclerAdapter adapter=new MergeRecyclerAdapter();
-		adapter.addAdapter(super.getAdapter());
-		adapter.addAdapter(new GenericListItemsAdapter<>(Collections.singletonList(
-				new ListItem<Void>(R.string.settings_add_filter, 0, R.drawable.ic_add_24px, this::onAddFilterClick)
-		)));
-		return adapter;
+	public void onViewCreated(View view, Bundle savedInstanceState){
+		super.onViewCreated(view, savedInstanceState);
+		fab=view.findViewById(R.id.fab);
+		fab.setText(R.string.settings_add_filter);
+		fab.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.ic_add_24px, 0, 0, 0);
+		fab.setOnClickListener(v->onAddFilterClick());
 	}
 
 	private void onFilterClick(ListItem<Filter> filter){
@@ -69,7 +78,7 @@ public class SettingsFiltersFragment extends BaseSettingsFragment<Filter>{
 		Nav.go(getActivity(), EditFilterFragment.class, args);
 	}
 
-	private void onAddFilterClick(ListItem<?> item){
+	private void onAddFilterClick(){
 		Bundle args=new Bundle();
 		args.putString("account", accountID);
 		Nav.go(getActivity(), EditFilterFragment.class, args);
@@ -108,5 +117,11 @@ public class SettingsFiltersFragment extends BaseSettingsFragment<Filter>{
 		}
 		data.add(makeListItem(ev.filter));
 		itemsAdapter.notifyItemInserted(data.size()-1);
+	}
+
+	@Override
+	public void onApplyWindowInsets(WindowInsets insets){
+		UiUtils.applyBottomInsetToFAB(fab, insets);
+		super.onApplyWindowInsets(insets);
 	}
 }

@@ -37,14 +37,14 @@ import me.grishka.appkit.fragments.OnBackPressedListener;
 import me.grishka.appkit.utils.V;
 
 public class FilterWordsFragment extends BaseSettingsFragment<FilterKeyword> implements OnBackPressedListener{
-	private ImageButton fab;
+	private Button fab;
 	private ActionMode actionMode;
 	private ArrayList<ListItem<FilterKeyword>> selectedItems=new ArrayList<>();
 	private ArrayList<String> deletedItemIDs=new ArrayList<>();
 	private MenuItem deleteItem;
 
 	public FilterWordsFragment(){
-		setListLayoutId(R.layout.recycler_fragment_with_fab);
+		setListLayoutId(R.layout.recycler_fragment_with_text_fab);
 	}
 
 	@Override
@@ -92,18 +92,14 @@ public class FilterWordsFragment extends BaseSettingsFragment<FilterKeyword> imp
 	public void onViewCreated(View view, Bundle savedInstanceState){
 		super.onViewCreated(view, savedInstanceState);
 		fab=view.findViewById(R.id.fab);
-		fab.setImageResource(R.drawable.ic_add_24px);
-		fab.setContentDescription(getString(R.string.add_muted_word));
+		fab.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.ic_add_24px, 0, 0, 0);
+		fab.setText(R.string.add_muted_word_short);
 		fab.setOnClickListener(v->onFabClick());
 	}
 
 	@Override
 	public void onApplyWindowInsets(WindowInsets insets){
-		int fabInset=0;
-		if(Build.VERSION.SDK_INT>=29 && insets.getTappableElementInsets().bottom==0){
-			fabInset=insets.getSystemWindowInsetBottom();
-		}
-		((ViewGroup.MarginLayoutParams) fab.getLayoutParams()).bottomMargin=V.dp(16)+fabInset;
+		UiUtils.applyBottomInsetToFAB(fab, insets);
 		super.onApplyWindowInsets(insets);
 	}
 
