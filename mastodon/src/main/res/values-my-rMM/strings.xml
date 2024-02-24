@@ -21,12 +21,10 @@
 		<item quantity="other">ဦးကို ဖောလိုးထား</item>
 	</plurals>
 	<string name="posts">ပို့စ်များ</string>
-	<string name="posts_and_replies">ပို့စ်နှင့် ရီပလိုင်းများ</string>
 	<string name="media">ဓာတ်ပုံနှင့် ဗီဒီယိုများ</string>
 	<string name="profile_about">အကြောင်း</string>
 	<string name="button_follow">ဖောလိုး</string>
 	<string name="button_following">ဖောလိုးလုပ်ထား</string>
-	<string name="edit_profile">ပရိုဖိုင်းပြင်မည်</string>
 	<string name="mute_user">%s ကို mute</string>
 	<string name="unmute_user">%s ကို unmute</string>
 	<string name="block_user">%s ကို ဘလော့မည်</string>
@@ -63,13 +61,7 @@
 		<item quantity="other">%d ရက် ကျန်ရှိ</item>
 	</plurals>
 	<string name="poll_closed">မဲပေးခွင့်ပိတ်သွားပါပြီ</string>
-	<string name="confirm_block_title">အကောင့်ဘလော့ခြင်း</string>
-	<string name="confirm_block_domain_title">ဒိုမိန်းကို ဘလော့လုပ်ခြင်း</string>
-	<string name="confirm_block">%s ကို ဘလော့မှာသေချာပြီလား</string>
 	<string name="do_block">ဘလော့မည်</string>
-	<string name="confirm_unblock_title">အကောင့်ဘလော့ဖြုတ်ခြင်း</string>
-	<string name="confirm_unblock_domain_title">ဒိုမိန်းကို ဘလော့ဖြုတ်ခြင်း</string>
-	<string name="confirm_unblock">%s ကို ဘလော့ဖြုတ်မှာသေချာပြီလား</string>
 	<string name="do_unblock">ဘလော့ဖြုတ်မည်</string>
 	<string name="button_blocked">ဘလော့ထား</string>
 	<string name="action_vote">မဲပေးမည်</string>
@@ -104,9 +96,7 @@
 	<string name="unfollow_user">%s ကို ဖောလိုးမလုပ်တော့</string>
 	<string name="unfollow">ဖောလိုးမလုပ်တော့</string>
 	<string name="search_communities">ဆာဗာအမည် သို့မဟုတ် URL</string>
-	<string name="instance_rules_title">ဆာဗာစည်းမျဉ်းများ</string>
 	<string name="instance_rules_subtitle">ရှေ့ဆက်ခြင်းအားဖြင့် သင်သည် %s ၏ စီမံကွပ်ကဲသူများမှ ချမှတ်ထားသော အောက်ပါစည်းမျဉ်းများကို သဘောတူပြီးဖြစ်ပါသည်။</string>
-	<string name="signup_title">အကောင့်ဖန်တီးမည်</string>
 	<string name="display_name">အမည်</string>
 	<string name="username">အသုံးပြုသူအမည်</string>
 	<string name="email">အီးမေးလ်</string>
@@ -114,7 +104,6 @@
 	<string name="confirm_password">စကားဝှက်ကို အတည်ပြုပါ</string>
 	<string name="password_note">သင့်စကားဝှက်ခိုင်မာမှုကို မြှင့်တင်ရန် စာလုံးအကြီးများ၊ special character များနှင့် နံပါတ်များထည့်သွင်းပါ။</string>
 	<string name="category_general">အထွေထွေ</string>
-	<string name="confirm_email_title">သင့်အီးမေးလ် စာဝင်ပုံးကို စစ်ဆေးပါ</string>
 	<!-- %s is the email address -->
 	<string name="media_attachment_unsupported_type">ဖိုင် %s သည် ထောက်ပံ့မပေးထားသည့်အမျိုးအစားဖြစ်သည်</string>
 	<string name="media_attachment_too_big">ဖိုင် %1$s သည် အရွယ်အစားကန့်သတ်ချက်ဖြစ်သော %2$s MB ထက် ကျော်လွန်နေသည်</string>
@@ -122,7 +111,6 @@
 	<string name="theme_dark">အမှောင်</string>
 	<string name="settings_behavior">အပြုအမူဆိုင်ရာ</string>
 	<string name="settings_gif">ရွေ့လျားနေသော Avatar များနှင့် အီမိုဂျီများ</string>
-	<string name="settings_custom_tabs">အက်ပ်တွင်း ဘရောက်ဇာကို သုံးမည်</string>
 	<string name="settings_notifications">နိုတီများ</string>
 	<string name="settings_tos">ဝန်ဆောင်မှုဆိုင်ရာ စည်းကမ်းချက်များ</string>
 	<string name="settings_privacy_policy">ကိုယ်ရေးအချက်အလက်မူဝါဒ</string>
@@ -152,8 +140,6 @@
 	<string name="edit_spoiler_added">အကြောင်းအရာသတိပေးချက် ထည့်လိုက်သည်</string>
 	<string name="edit_spoiler_edited">အကြောင်းအရာသတိပေးချက်ကို ပြင်လိုက်သည်</string>
 	<string name="edit_spoiler_removed">အကြောင်းအရာသတိပေးချက်ကို ဖယ်ရှားလိုက်သည်</string>
-	<!-- %s is version like 1.2.3 -->
-	<!-- %s is version like 1.2.3 -->
 	<!-- %s is file size -->
 	<!-- %s is server domain -->
 	<!-- Shown in a progress dialog when you tap "follow all" -->
@@ -175,4 +161,5 @@
 	<!-- %s is the name of the list -->
 	<!-- %s is a username -->
 	<!-- %s is a time interval ("5 months") -->
+	<!-- Shown on a button that saves a file, after it was successfully saved -->
 </resources>

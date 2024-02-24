@@ -31,13 +31,10 @@
 		<item quantity="other">को फॉलो कर रहे</item>
 	</plurals>
 	<string name="posts">पोस्ट</string>
-	<string name="posts_and_replies">पोस्ट और जवाब</string>
 	<string name="media">मीडिया</string>
 	<string name="profile_about">आपके बारे में</string>
 	<string name="button_follow">फॉलो करें</string>
 	<string name="button_following">फॉलो कर रहे</string>
-	<string name="edit_profile">प्रोफाइल एडिट करें</string>
-	<string name="share_user">प्रोफाइल शेयर करें</string>
 	<string name="mute_user">%s को म्यूट करें</string>
 	<string name="unmute_user">%s को अनम्यूट करें</string>
 	<string name="block_user">%s को ब्लॉक करें</string>
@@ -90,19 +87,9 @@
 		<item quantity="other">%,d वोट</item>
 	</plurals>
 	<string name="poll_closed">बंद</string>
-	<string name="confirm_mute_title">अकाउंट म्यूट करें</string>
-	<string name="confirm_mute">%s को म्यूट करें</string>
 	<string name="do_mute">म्यूट करें</string>
-	<string name="confirm_unmute_title">अकाउंट अनम्यूट करें</string>
-	<string name="confirm_unmute">%s को अनम्यूट करें</string>
 	<string name="do_unmute">अनम्यूट करें</string>
-	<string name="confirm_block_title">अकाउंट ब्लॉक करें</string>
-	<string name="confirm_block_domain_title">डोमेन ब्लॉक करें</string>
-	<string name="confirm_block">%s को ब्लॉक करें</string>
 	<string name="do_block">ब्लॉक करें</string>
-	<string name="confirm_unblock_title">अकाउंट अनब्लॉक करें</string>
-	<string name="confirm_unblock_domain_title">डोमेन अनब्लॉक करें</string>
-	<string name="confirm_unblock">%s को अनब्लॉक करें</string>
 	<string name="do_unblock">अनब्लॉक करें</string>
 	<string name="button_blocked">ब्लॉक किया</string>
 	<string name="action_vote">वोट करें</string>
@@ -154,9 +141,7 @@
 	<string name="report_personal_subtitle">Mastodon पे अपना फीड कंट्रोल करने के लिए आपके पास ये ऑप्शन है:</string>
 	<string name="back">पिछला</string>
 	<string name="search_communities">सर्वर का नाम या यूआरएल</string>
-	<string name="instance_rules_title">सर्वर के रूल</string>
 	<string name="instance_rules_subtitle">जारी रखते हुए, आप %s के एडमिन के ये रूल फॉलो करने को राज़ी है।</string>
-	<string name="signup_title">अकाउंट बनाएं</string>
 	<string name="display_name">नाम</string>
 	<string name="username">यूज़रनेम</string>
 	<string name="email">ईमेल</string>
@@ -164,7 +149,6 @@
 	<string name="confirm_password">पासवर्ड वापस लिखें</string>
 	<string name="password_note">पासवर्ड की ताकत बढ़ाने के लिए उसमें कैपिटल लेटर, स्पेशल कैरेक्टर, और नंबर इस्तेमाल करें।</string>
 	<string name="category_general">जेनरल</string>
-	<string name="confirm_email_title">अपना इनबॉक्स चेक करें</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">%s वैरिफाइ करने के लिए भेजे गए लिंक पे टैप करें। हम यहां पे इंतज़ार करेंगे।</string>
 	<string name="confirm_email_didnt_get">लिंक नहीं मिला?</string>
@@ -180,6 +164,11 @@
 	<string name="visibility_private">सिर्फ जिनका ज़िक्र किया है</string>
 	<string name="recent_searches">हाल के सर्च</string>
 	<string name="skip">छोड़ें</string>
+	<string name="notification_type_follow">नए फॉलोवर</string>
+	<string name="notification_type_favorite">मनपसंद</string>
+	<string name="notification_type_reblog">बूस्ट</string>
+	<string name="notification_type_mention">मेंशन</string>
+	<string name="notification_type_poll">पोल</string>
 	<string name="choose_account">अकाउंट चुनें</string>
 	<string name="err_not_logged_in">सबसे पहले Mastodon में लॉग इन करें</string>
 	<plurals name="cant_add_more_than_x_attachments">
@@ -191,7 +180,6 @@
 	<string name="theme_light">लाइट</string>
 	<string name="theme_dark">डार्क</string>
 	<string name="settings_behavior">बर्ताव</string>
-	<string name="settings_custom_tabs">ऐप में ब्राउज़र इस्तेमाल करें</string>
 	<string name="settings_notifications">नोटिफिकेशन</string>
 	<string name="settings_contribute">Mastodon को दान करें</string>
 	<string name="settings_tos">सर्विस की शर्ते</string>
@@ -199,6 +187,7 @@
 	<string name="settings_clear_cache">मीडिया कैश साफ करें</string>
 	<string name="button_reply">जवाब दें</string>
 	<string name="button_reblog">बूस्ट करें</string>
+	<string name="button_share">शेयर करें</string>
 	<string name="add_media">मीडिया डालें</string>
 	<string name="add_poll">पोल डालें</string>
 	<string name="emoji">इमोजी</string>
@@ -210,9 +199,11 @@
 	<string name="reorder">ऑर्डर बदलें</string>
 	<string name="download">डाउनलोड करें</string>
 	<string name="storage_permission_to_download">ये फाइल सेव करने के लिए ऐप को आपके स्टोरेज का एक्सेस चाहिए।</string>
+	<string name="open_settings">सेटिंग खोलें</string>
 	<string name="local_timeline">लोकल</string>
 	<!-- %s is the server domain -->
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
+	<string name="time_now">अभी</string>
 	<string name="time_just_now">अभी-अभी</string>
 	<plurals name="x_seconds_ago">
 		<item quantity="one">%d सेकंड पहले</item>
@@ -224,18 +215,15 @@
 	<string name="file_size_kb">%.2f केबी</string>
 	<string name="file_size_mb">%.2f एमबी</string>
 	<string name="file_size_gb">%.2f जीबी</string>
-	<!-- %s is version like 1.2.3 -->
-	<!-- %s is version like 1.2.3 -->
 	<!-- %s is file size -->
 	<string name="download_update">डाउनलोड करें (%s)</string>
 	<string name="install_update">इंस्टॉल करें</string>
-	<string name="privacy_policy_title">आपकी प्राइवसी</string>
 	<string name="privacy_policy_subtitle">वैसे तो Mastodon ऐप कोई डाटा इकट्ठा नहीं करता, लेकिन आपके सर्वर की पॉलिसी अलग हो सकती है।\n\nअगर आपको %s के पॉलिसी से दिक्कत है, तो आप पीछे जाकर कोई दूसरा सर्वर चुन सकते है।</string>
 	<string name="empty_list">ये लिस्ट खाली है</string>
+	<string name="instance_signup_closed">ये सर्वर नए रजिस्ट्रेशन एक्सेप्ट नहीं कर रहा।</string>
 	<string name="add_bookmark">बुकमार्क करें</string>
 	<string name="remove_bookmark">बुकमार्क हटाएं</string>
 	<string name="server_url">सर्वर यूआरएल</string>
-	<string name="server_filter_any_language">कोई भी भाषा</string>
 	<string name="server_filter_region_europe">यूरोप</string>
 	<string name="server_filter_region_north_america">नॉर्थ अमेरिका</string>
 	<string name="server_filter_region_south_america">साउथ अमेरिका</string>
@@ -278,7 +266,9 @@
 	<string name="compose_poll_single_choice">एक चुननेवाला</string>
 	<string name="compose_poll_multiple_choice">कई चुननेवाला</string>
 	<string name="poll_style_title">पोल स्टाइल</string>
+	<string name="alt_text">अल्ट टेक्सट</string>
 	<string name="help">मदद</string>
+	<string name="what_is_alt_text">अल्ट टेक्सट क्या होता है?</string>
 	<string name="language">भाषा</string>
 	<string name="language_default">डिफॉल्ट</string>
 	<string name="language_system">सिस्टम</string>
@@ -367,4 +357,5 @@
 	<string name="non_mutual_title3">खुले मन से बात करें</string>
 	<string name="non_mutual_text3">सबका बात करने का तरीका अलग है। ज़रूरत के हिसाब से बदलने को तैयार रहें।</string>
 	<string name="info">जानकारी</string>
+	<!-- Shown on a button that saves a file, after it was successfully saved -->
 </resources>

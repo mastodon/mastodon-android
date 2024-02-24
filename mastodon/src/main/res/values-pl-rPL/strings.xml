@@ -35,13 +35,10 @@
 		<item quantity="other">śledzonych</item>
 	</plurals>
 	<string name="posts">Wpisy</string>
-	<string name="posts_and_replies">Wpisy i odpowiedzi</string>
 	<string name="media">Media</string>
 	<string name="profile_about">Informacje</string>
 	<string name="button_follow">Obserwuj</string>
 	<string name="button_following">Obserwujesz</string>
-	<string name="edit_profile">Edytuj profil</string>
-	<string name="share_user">Udostępnij profil</string>
 	<string name="mute_user">Wycisz %s</string>
 	<string name="unmute_user">Cofnij wyciszenie %s</string>
 	<string name="block_user">Zablokuj %s</string>
@@ -112,19 +109,9 @@
 		<item quantity="other">%,d głosów</item>
 	</plurals>
 	<string name="poll_closed">Zakończone</string>
-	<string name="confirm_mute_title">Wycisz konto</string>
-	<string name="confirm_mute">Potwierdź wyciszenie %s</string>
 	<string name="do_mute">Wycisz</string>
-	<string name="confirm_unmute_title">Cofnij wyciszenie oknta</string>
-	<string name="confirm_unmute">Potwierdź cofnięcie wyciszenia %s</string>
 	<string name="do_unmute">Cofnij wyciszenie</string>
-	<string name="confirm_block_title">Zablokuj konto</string>
-	<string name="confirm_block_domain_title">Zablokuj domenę</string>
-	<string name="confirm_block">Potwierdź zablokowanie %s</string>
 	<string name="do_block">Zablokuj</string>
-	<string name="confirm_unblock_title">Odblokuj konto</string>
-	<string name="confirm_unblock_domain_title">Odblokuj domenę</string>
-	<string name="confirm_unblock">Potwierdź odblokowanie %s</string>
 	<string name="do_unblock">Odblokuj</string>
 	<string name="button_blocked">Zablokowano</string>
 	<string name="action_vote">Zagłosuj</string>
@@ -178,9 +165,7 @@
 	<string name="report_personal_subtitle">Oto opcje, za pomocą których możesz kontrolować to co widzisz na Mastodonie:</string>
 	<string name="back">Wróć</string>
 	<string name="search_communities">Nazwa serwera lub jego adres URL</string>
-	<string name="instance_rules_title">Zasady serwera</string>
 	<string name="instance_rules_subtitle">Kontynuując, zgadzasz się przestrzegać następujących zasad ustalonych i wymuszonych przez %s moderatorów.</string>
-	<string name="signup_title">Utwórz konto</string>
 	<string name="display_name">Nazwa</string>
 	<string name="username">Nazwa użytkownika</string>
 	<string name="email">Adres e-mail</string>
@@ -188,7 +173,6 @@
 	<string name="confirm_password">Potwierdź hasło</string>
 	<string name="password_note">Użyj wielkich liter, znaków specjalnych i liczb, aby zwiększyć siłę swojego hasła.</string>
 	<string name="category_general">Ogólne</string>
-	<string name="confirm_email_title">Sprawdź skrzynkę E-mail</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">Kliknij w link, który wysłaliśmy, żeby zweryfikować %s. Poczekamy na Ciebie.</string>
 	<string name="confirm_email_didnt_get">Nie masz linku?</string>
@@ -225,7 +209,6 @@
 	<string name="theme_dark">Ciemny</string>
 	<string name="settings_behavior">Zachowanie</string>
 	<string name="settings_gif">Wyświetlaj animowane awatary i emoji</string>
-	<string name="settings_custom_tabs">Użyj przeglądarki w aplikacji</string>
 	<string name="settings_notifications">Powiadomienia</string>
 	<string name="settings_contribute">Weź udział w rozwoju Mastodona</string>
 	<string name="settings_tos">Zasady użytkowania</string>
@@ -254,8 +237,6 @@
 	<string name="followed_user">Obserwujesz %s</string>
 	<string name="following_user_requested">Wysłano prośbę o obserwację %s</string>
 	<string name="open_in_browser">Otwórz w przeglądarce</string>
-	<string name="hide_boosts_from_user">Ukryj podbicia od %s</string>
-	<string name="show_boosts_from_user">Pokaż podbicia od %s</string>
 	<string name="signup_reason">Dlaczego chcesz dołączyć?</string>
 	<string name="signup_reason_note">To pomoże nam ocenić Twoją aplikację.</string>
 	<string name="clear">Wyczyść</string>
@@ -278,7 +259,6 @@
 	<string name="recommended_accounts_info_banner">Może spodobają się Tobie te konta, bazując na tych, których już obserwujesz?</string>
 	<string name="see_new_posts">Zobacz nowe posty</string>
 	<string name="load_missing_posts">Załaduj brakujące wpisy</string>
-	<string name="follow_back">Obserwuj wzajemnie</string>
 	<string name="button_follow_pending">Oczekujące</string>
 	<string name="follows_you">Obserwuje cię</string>
 	<string name="manually_approves_followers">Ręcznie zatwierdza obserwujących</string>
@@ -346,28 +326,18 @@
 	<string name="file_size_mb">%.2f MB</string>
 	<string name="file_size_gb">%.2f GB</string>
 	<string name="upload_processing">Przetwarzanie…</string>
-	<!-- %s is version like 1.2.3 -->
-	<!-- %s is version like 1.2.3 -->
 	<!-- %s is file size -->
 	<string name="download_update">Pobierz (%s)</string>
 	<string name="install_update">Zainstaluj</string>
-	<string name="privacy_policy_title">Twoja prywatność</string>
 	<string name="privacy_policy_subtitle">Chociaż aplikacja Mastodon nie zbiera żadnych danych, serwer, przez który się zarejestrujesz, może mieć inną politykę prywatności.\n\nJeśli nie zgadzasz się z zasadami dotyczącymi %s, możesz wrócić i wybrać inny serwer.</string>
-	<string name="i_agree">Wyrażam zgodę</string>
 	<string name="empty_list">Lista jest pusta</string>
 	<string name="instance_signup_closed">Ten serwer nie akceptuje nowych rejestracji.</string>
 	<string name="text_copied">Skopiowano do schowka</string>
 	<string name="add_bookmark">Dodaj zakładkę</string>
 	<string name="remove_bookmark">Usuń zakładkę</string>
 	<string name="bookmarks">Zakładki</string>
-	<string name="your_favorites">Twoje ulubione</string>
-	<string name="login_title">Witaj ponownie</string>
 	<string name="login_subtitle">Zaloguj się na serwer, na którym utworzyłeś swoje konto.</string>
 	<string name="server_url">Adres URL serwera</string>
-	<string name="server_filter_any_language">Dowolny język</string>
-	<string name="server_filter_instant_signup">Natychmiastowa rejestracja</string>
-	<string name="server_filter_manual_review">Ręczne sprawdzenie</string>
-	<string name="server_filter_any_signup_speed">Dowolna szybkość rejestracji</string>
 	<string name="server_filter_region_europe">Europa</string>
 	<string name="server_filter_region_north_america">Ameryka Północna</string>
 	<string name="server_filter_region_south_america">Ameryka Południowa</string>
@@ -375,7 +345,6 @@
 	<string name="server_filter_region_asia">Azja</string>
 	<string name="server_filter_region_oceania">Oceania</string>
 	<string name="not_accepting_new_members">Nie przyjmuje nowych członków</string>
-	<string name="category_special_interests">Specjalne zainteresowania</string>
 	<string name="signup_passwords_dont_match">Hasła się nie zgadzają</string>
 	<string name="profile_add_row">Dodaj wiersz</string>
 	<string name="profile_setup">Ustawienia profilu</string>
@@ -638,7 +607,6 @@
 	<string name="remove">Usuń</string>
 	<string name="add_list_member">Dodaj członka</string>
 	<string name="search_among_people_you_follow">Szukaj wśród osób, które obserwujesz</string>
-	<string name="add_user_to_list">Dodaj do listy…</string>
 	<string name="add_user_to_list_title">Dodaj do listy</string>
 	<!-- %s is a username -->
 	<string name="manage_user_lists">Zarządzaj listami, na których pojawia się %s</string>
@@ -700,4 +668,5 @@ Im więcej ludzi obserwujesz, tym aktywniejsza i bardziej interesująca się sta
 	<string name="this_invite_has_expired">Ten link zaproszenia wygasł.</string>
 	<string name="invite_link_pasted">Link wklejony ze schowka.</string>
 	<string name="need_invite_to_join_server">Aby dołączyć do %s, potrzebujesz linku z zaproszeniem od istniejącego użytkownika.</string>
+	<!-- Shown on a button that saves a file, after it was successfully saved -->
 </resources>

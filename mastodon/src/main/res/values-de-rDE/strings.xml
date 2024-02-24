@@ -37,7 +37,7 @@
 	<string name="button_follow">Folgen</string>
 	<string name="button_following">Folge ich</string>
 	<string name="edit_profile">Profil bearbeiten</string>
-	<string name="share_user">Profil teilen</string>
+	<string name="share_user">Profil teilen…</string>
 	<string name="mute_user">%s stummschalten</string>
 	<string name="unmute_user">%s nicht mehr stummschalten</string>
 	<string name="block_user">%s sperren</string>
@@ -90,19 +90,9 @@
 		<item quantity="other">%,d Stimmen</item>
 	</plurals>
 	<string name="poll_closed">Beendet</string>
-	<string name="confirm_mute_title">Konto stummschalten</string>
-	<string name="confirm_mute">Bestätigen, um %s stummzuschalten</string>
 	<string name="do_mute">Stummschalten</string>
-	<string name="confirm_unmute_title">Konto nicht mehr stummschalten</string>
-	<string name="confirm_unmute">Bestätigen, um %s nicht mehr stummzuschalten</string>
 	<string name="do_unmute">Nicht mehr stummschalten</string>
-	<string name="confirm_block_title">Konto sperren</string>
-	<string name="confirm_block_domain_title">Domain sperren</string>
-	<string name="confirm_block">Bestätigen, um %s zu blockieren</string>
 	<string name="do_block">Sperren</string>
-	<string name="confirm_unblock_title">Konto nicht mehr sperren</string>
-	<string name="confirm_unblock_domain_title">Domain nicht mehr blockieren</string>
-	<string name="confirm_unblock">Bestätigen, um %s nicht mehr zu blockieren</string>
 	<string name="do_unblock">Nicht mehr blockieren</string>
 	<string name="button_blocked">Blockiert</string>
 	<string name="action_vote">Abstimmen</string>
@@ -154,9 +144,9 @@
 	<string name="report_personal_subtitle">Das sind deine Möglichkeiten zu bestimmen, was du auf Mastodon sehen möchtest:</string>
 	<string name="back">Zurück</string>
 	<string name="search_communities">Servername oder -adresse</string>
-	<string name="instance_rules_title">Server-Regeln</string>
+	<string name="instance_rules_title">Serverregeln</string>
 	<string name="instance_rules_subtitle">Solltest du fortfahren, erklärst du dich mit den Serverregeln, die die Moderator*innen von %s aufgestellt haben und durchsetzen werden, einverstanden.</string>
-	<string name="signup_title">Konto erstellen</string>
+	<string name="signup_title">Account erstellen</string>
 	<string name="display_name">Name</string>
 	<string name="username">Profilname</string>
 	<string name="email">E-Mail</string>
@@ -164,7 +154,7 @@
 	<string name="confirm_password">Passwort bestätigen</string>
 	<string name="password_note">Verwende Großbuchstaben, Sonderzeichen und Zahlen, um deine Passwortstärke zu erhöhen.</string>
 	<string name="category_general">Allgemein</string>
-	<string name="confirm_email_title">Überprüfe deinen Posteingang</string>
+	<string name="confirm_email_title">Überprüfe dein E-Mail-Postfach</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">Bitte klicke auf den Link, den wir an %s geschickt haben, um dich zu verifizieren. Wir warten bis dahin einfach hier.</string>
 	<string name="confirm_email_didnt_get">Kein Link angekommen?</string>
@@ -199,7 +189,6 @@
 	<string name="theme_dark">Dunkel</string>
 	<string name="settings_behavior">Verhalten</string>
 	<string name="settings_gif">Animierte GIFs, Avatare und Emojis abspielen</string>
-	<string name="settings_custom_tabs">In-App-Browser verwenden</string>
 	<string name="settings_notifications">Benachrichtigungen</string>
 	<string name="settings_contribute">Zu Mastodon beitragen</string>
 	<string name="settings_tos">Nutzungsbedingungen</string>
@@ -228,8 +217,6 @@
 	<string name="followed_user">Du folgst nun %s</string>
 	<string name="following_user_requested">Deine Follower-Anfrage an %s wurde gesendet</string>
 	<string name="open_in_browser">Im Browser öffnen</string>
-	<string name="hide_boosts_from_user">Geteilte Beiträge von %s ausblenden</string>
-	<string name="show_boosts_from_user">Geteilte Beiträge von %s anzeigen</string>
 	<string name="signup_reason">Warum möchtest du beitreten?</string>
 	<string name="signup_reason_note">Das erleichtert uns die Prüfung deiner Anmeldung.</string>
 	<string name="clear">Leeren</string>
@@ -252,7 +239,7 @@
 	<string name="recommended_accounts_info_banner">Dir könnten diese Konten gefallen, basierend auf Leuten, denen du folgst.</string>
 	<string name="see_new_posts">Neue Beiträge</string>
 	<string name="load_missing_posts">Weitere Beiträge laden</string>
-	<string name="follow_back">Zurückfolgen</string>
+	<string name="follow_back">Ebenfalls folgen</string>
 	<string name="button_follow_pending">Ausstehend</string>
 	<string name="follows_you">Folgt dir</string>
 	<string name="manually_approves_followers">Manuelles Genehmigen von Followern</string>
@@ -308,14 +295,10 @@
 	<string name="file_size_mb">%.2f MB</string>
 	<string name="file_size_gb">%.2f GB</string>
 	<string name="upload_processing">Wird verarbeitet …</string>
-	<!-- %s is version like 1.2.3 -->
-	<!-- %s is version like 1.2.3 -->
 	<!-- %s is file size -->
 	<string name="download_update">(%s) herunterladen</string>
 	<string name="install_update">Installieren</string>
-	<string name="privacy_policy_title">Deine Privatsphäre</string>
 	<string name="privacy_policy_subtitle">Auch wenn die Mastodon-App keine Daten sammelt, kann der Server, über den du dich anmeldest, eine andere Richtlinie haben.\n\nWenn du mit der Richtlinie für %s nicht einverstanden bist, kannst du zurückkehren und einen anderen Server wählen.</string>
-	<string name="i_agree">Ich stimme zu</string>
 	<string name="empty_list">Diese Liste ist leer</string>
 	<string name="instance_signup_closed">Dieser Server akzeptiert keine neuen Registrierungen.</string>
 	<string name="text_copied">In die Zwischenablage kopiert</string>
@@ -324,12 +307,8 @@
 	<string name="bookmarks">Lesezeichen</string>
 	<string name="your_favorites">Deine Favoriten</string>
 	<string name="login_title">Willkommen zurück</string>
-	<string name="login_subtitle">Melde dich mit dem Server an, auf dem du dein Konto erstellt hast.</string>
+	<string name="login_subtitle">Melde dich mit dem Server an, auf dem du dein Account erstellt hast.</string>
 	<string name="server_url">Serveradresse</string>
-	<string name="server_filter_any_language">Alle Sprachen</string>
-	<string name="server_filter_instant_signup">Schnellregistrierung</string>
-	<string name="server_filter_manual_review">Manuelle Überprüfung</string>
-	<string name="server_filter_any_signup_speed">Beliebige Registrierungsdauer</string>
 	<string name="server_filter_region_europe">Europa</string>
 	<string name="server_filter_region_north_america">Nordamerika</string>
 	<string name="server_filter_region_south_america">Südamerika</string>
@@ -337,7 +316,6 @@
 	<string name="server_filter_region_asia">Asien</string>
 	<string name="server_filter_region_oceania">Ozeanien</string>
 	<string name="not_accepting_new_members">Keine Aufnahme neuer Mitglieder</string>
-	<string name="category_special_interests">Besondere Interessen</string>
 	<string name="signup_passwords_dont_match">Passwörter stimmen nicht überein</string>
 	<string name="profile_add_row">Zeile hinzufügen</string>
 	<string name="profile_setup">Profil einrichten</string>
@@ -359,7 +337,7 @@
 	<string name="profile_featured">Empfohlen</string>
 	<string name="profile_timeline">Timeline</string>
 	<string name="view_all">Alle anzeigen</string>
-	<string name="profile_endorsed_accounts">Konten</string>
+	<string name="profile_endorsed_accounts">Accounts</string>
 	<string name="verified_link">Verifizierter Link</string>
 	<string name="show">Anzeigen</string>
 	<string name="hide">Ausblenden</string>
@@ -574,7 +552,12 @@
 	<string name="settings_privacy">Datenschutz und Reichweite</string>
 	<string name="settings_discoverable">Profil und Beiträge in Suchalgorithmen berücksichtigen</string>
 	<string name="settings_indexable">Öffentliche Beiträge in die Suchergebnisse einbeziehen</string>
+	<plurals name="x_posts_today">
+		<item quantity="one">%,d Beitrag heute</item>
+		<item quantity="other">%,d Beiträge heute</item>
+	</plurals>
 	<string name="error_playing_video">Fehler bei Videowiedergabe</string>
+	<string name="timeline_following">Startseite</string>
 	<string name="lists">Listen</string>
 	<string name="followed_hashtags">Gefolgte Hashtags</string>
 	<string name="manage_lists">Listen verwalten</string>
@@ -597,7 +580,6 @@
 	<string name="remove">Entfernen</string>
 	<string name="add_list_member">Mitglied hinzufügen</string>
 	<string name="search_among_people_you_follow">Suche nach Leuten, denen du folgst</string>
-	<string name="add_user_to_list">Zur Liste hinzufügen…</string>
 	<string name="add_user_to_list_title">Zur Liste hinzufügen</string>
 	<!-- %s is a username -->
 	<string name="manage_user_lists">Listen mit %s verwalten</string>
@@ -608,11 +590,28 @@
 	<string name="no_lists_title">Startseite mit Listen organisieren</string>
 	<string name="no_lists_subtitle">Deine werden hier erscheinen</string>
 	<string name="manage_accounts">Konten hinzufügen oder wechseln</string>
+	<plurals name="x_posts_recently">
+		<item quantity="one">%,d kürzlicher Beitrag</item>
+		<item quantity="other">%,d kürzliche Beiträge</item>
+	</plurals>
 	<string name="create_list">Liste erstellen</string>
 	<string name="step_x_of_y">Schritt %1$d von %2$d</string>
 	<string name="manage_list_members">Listenmitglieder verwalten</string>
 	<string name="list_no_members">Noch keine Mitglieder</string>
+	<string name="posted_at">Veröffentlicht um %s Uhr</string>
 	<string name="dont_remind_again">Nicht erneut erinnern</string>
 	<!-- %s is a time interval ("5 months") -->
 	<string name="old_post_sheet_title">Dieser Beitrag ist %s alt</string>
+	<plurals name="x_months">
+		<item quantity="one">%,d Monat</item>
+		<item quantity="other">%,d Monate</item>
+	</plurals>
+	<string name="more_than_two_years">mehr als 2 Jahre</string>
+	<string name="info">Info</string>
+	<string name="expired_invite_link">Abgelaufener Einladungslink</string>
+	<string name="server">Server</string>
+	<!-- Shown on a button that saves a file, after it was successfully saved -->
+	<string name="saved">Gespeichert</string>
+	<string name="image_saved">Bild gespeichert.</string>
+	<string name="video_saved">Video gespeichert.</string>
 </resources>

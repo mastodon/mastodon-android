@@ -31,13 +31,10 @@
 		<item quantity="other">följer</item>
 	</plurals>
 	<string name="posts">Inlägg</string>
-	<string name="posts_and_replies">Inlägg och svar</string>
 	<string name="media">Media</string>
 	<string name="profile_about">Om</string>
 	<string name="button_follow">Följ</string>
 	<string name="button_following">Följer</string>
-	<string name="edit_profile">Redigera profil</string>
-	<string name="share_user">Dela profil</string>
 	<string name="mute_user">Tysta %s</string>
 	<string name="unmute_user">Avtysta %s</string>
 	<string name="block_user">Blockera %s</string>
@@ -90,19 +87,9 @@
 		<item quantity="other">%,d röster</item>
 	</plurals>
 	<string name="poll_closed">Stängd</string>
-	<string name="confirm_mute_title">Tysta konto</string>
-	<string name="confirm_mute">Bekräfta för att tysta %s</string>
 	<string name="do_mute">Tysta</string>
-	<string name="confirm_unmute_title">Avtysta konto</string>
-	<string name="confirm_unmute">Bekräfta för att avtysta %s</string>
 	<string name="do_unmute">Avtysta</string>
-	<string name="confirm_block_title">Blockera konto</string>
-	<string name="confirm_block_domain_title">Blockera domän</string>
-	<string name="confirm_block">Bekräfta för att blockera %s</string>
 	<string name="do_block">Blockera</string>
-	<string name="confirm_unblock_title">Avblockera konto</string>
-	<string name="confirm_unblock_domain_title">Avblockera domän</string>
-	<string name="confirm_unblock">Bekräfta för att avblockera %s</string>
 	<string name="do_unblock">Avblockera</string>
 	<string name="button_blocked">Blockerad</string>
 	<string name="action_vote">Rösta</string>
@@ -154,9 +141,7 @@
 	<string name="report_personal_subtitle">Här är dina alternativ för att bestämma vad du ser på Mastodon:</string>
 	<string name="back">Tillbaka</string>
 	<string name="search_communities">Servernamn eller URL</string>
-	<string name="instance_rules_title">Serverregler</string>
 	<string name="instance_rules_subtitle">Genom att fortsätta, samtycker du till att följa följande regler som fastställts och verkställs av %s moderatorer.</string>
-	<string name="signup_title">Skapa konto</string>
 	<string name="display_name">Namn</string>
 	<string name="username">Användarnamn</string>
 	<string name="email">E-post</string>
@@ -164,7 +149,6 @@
 	<string name="confirm_password">Bekräfta lösenord</string>
 	<string name="password_note">Inkludera stora bokstäver, specialtecken och siffror för att öka ditt lösenords styrka.</string>
 	<string name="category_general">Allmänt</string>
-	<string name="confirm_email_title">Kolla din inkorg</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">Klicka på länken som vi har skickat till dig för att bekräfta %s. Vi väntar här.</string>
 	<string name="confirm_email_didnt_get">Fick du ingen länk?</string>
@@ -195,7 +179,6 @@
 	<string name="theme_dark">Mörkt</string>
 	<string name="settings_behavior">Beteende</string>
 	<string name="settings_gif">Spela animerade avatarer och emojis</string>
-	<string name="settings_custom_tabs">Använd webbläsaren i appen</string>
 	<string name="settings_notifications">Aviseringar</string>
 	<string name="settings_contribute">Bidra till Mastodon</string>
 	<string name="settings_tos">Användarvillkor</string>
@@ -224,8 +207,6 @@
 	<string name="followed_user">Du följer nu %s</string>
 	<string name="following_user_requested">Begär att följa %s</string>
 	<string name="open_in_browser">Öppna i webbläsare</string>
-	<string name="hide_boosts_from_user">Dölj boostar från %s</string>
-	<string name="show_boosts_from_user">Visa boostar från %s</string>
 	<string name="signup_reason">Varför vill du gå med?</string>
 	<string name="signup_reason_note">Detta kommer hjälpa oss att granska din ansökan.</string>
 	<string name="clear">Rensa</string>
@@ -248,7 +229,6 @@
 	<string name="recommended_accounts_info_banner">Du kanske gillar dessa konton baserat på andra konton du följer.</string>
 	<string name="see_new_posts">Nya inlägg</string>
 	<string name="load_missing_posts">Ladda saknade inlägg</string>
-	<string name="follow_back">Följ tillbaka</string>
 	<string name="button_follow_pending">Väntande</string>
 	<string name="follows_you">Följer dig</string>
 	<string name="manually_approves_followers">Godkänner följare manuellt</string>
@@ -300,28 +280,18 @@
 	<string name="file_size_mb">%.2f MB</string>
 	<string name="file_size_gb">%.2f GB</string>
 	<string name="upload_processing">Bearbetar…</string>
-	<!-- %s is version like 1.2.3 -->
-	<!-- %s is version like 1.2.3 -->
 	<!-- %s is file size -->
 	<string name="download_update">Ladda ner (%s)</string>
 	<string name="install_update">Installera</string>
-	<string name="privacy_policy_title">Din integritet</string>
 	<string name="privacy_policy_subtitle">Även om Mastodon-appen inte samlar in några data, kan servern du registrerar dig genom ha en annan policy.\n\nOm du inte håller med policyn för %skan du gå tillbaka och välja en annan server.</string>
-	<string name="i_agree">Jag godkänner</string>
 	<string name="empty_list">Den här listan är tom</string>
 	<string name="instance_signup_closed">Denna server accepterar inte nyregistreringar.</string>
 	<string name="text_copied">Kopierat till urklipp</string>
 	<string name="add_bookmark">Bokmärk</string>
 	<string name="remove_bookmark">Ta bort bokmärke</string>
 	<string name="bookmarks">Bokmärken</string>
-	<string name="your_favorites">Dina favoriter</string>
-	<string name="login_title">Välkommen tillbaka</string>
 	<string name="login_subtitle">Logga in på den server där du skapade ditt konto.</string>
 	<string name="server_url">Server-URL</string>
-	<string name="server_filter_any_language">Vilket språk som helst</string>
-	<string name="server_filter_instant_signup">Omedelbar registrering</string>
-	<string name="server_filter_manual_review">Manuell granskning</string>
-	<string name="server_filter_any_signup_speed">Valfri registreringshastighet</string>
 	<string name="server_filter_region_europe">Europa</string>
 	<string name="server_filter_region_north_america">Nordamerika</string>
 	<string name="server_filter_region_south_america">Sydamerika</string>
@@ -329,7 +299,6 @@
 	<string name="server_filter_region_asia">Asien</string>
 	<string name="server_filter_region_oceania">Oceanien</string>
 	<string name="not_accepting_new_members">Accepterar inte nya medlemmar</string>
-	<string name="category_special_interests">Specialintressen</string>
 	<string name="signup_passwords_dont_match">Lösenorden matchar inte</string>
 	<string name="profile_add_row">Lägg till rad</string>
 	<string name="profile_setup">Konfiguration av profil</string>
@@ -559,7 +528,6 @@
 	<string name="remove">Ta bort</string>
 	<string name="add_list_member">Lägg till medlem</string>
 	<string name="search_among_people_you_follow">Sök bland personer du följer</string>
-	<string name="add_user_to_list">Lägg till i lista…</string>
 	<string name="add_user_to_list_title">Lägg till i lista</string>
 	<!-- %s is a username -->
 	<string name="remove_from_list">Ta bort från lista</string>
@@ -578,4 +546,7 @@
 	</plurals>
 	<string name="more_than_two_years">mer än 2 år</string>
 	<string name="non_mutual_title3">Var öppen</string>
+	<string name="server">Server</string>
+	<string name="what_is_activitypub_title">Vad är ActivityPub?</string>
+	<!-- Shown on a button that saves a file, after it was successfully saved -->
 </resources>

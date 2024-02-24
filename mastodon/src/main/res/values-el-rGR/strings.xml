@@ -31,13 +31,10 @@
 		<item quantity="other">ακολουθεί</item>
 	</plurals>
 	<string name="posts">Αναρτήσεις</string>
-	<string name="posts_and_replies">Αναρτήσεις και Απαντήσεις</string>
 	<string name="media">Πολυμέσα</string>
 	<string name="profile_about">Σχετικά</string>
 	<string name="button_follow">Ακολούθησε</string>
 	<string name="button_following">Ακολουθείς</string>
-	<string name="edit_profile">Επεξεργασία Προφίλ</string>
-	<string name="share_user">Κοινοποίηση προφίλ</string>
 	<string name="mute_user">Σίγαση %s</string>
 	<string name="unmute_user">Κατάργηση σίγασης %s</string>
 	<string name="block_user">Αποκλεισμός %s</string>
@@ -90,19 +87,9 @@
 		<item quantity="other">%,d ψήφοι</item>
 	</plurals>
 	<string name="poll_closed">Κλειστό</string>
-	<string name="confirm_mute_title">Σίγαση Λογαριασμού</string>
-	<string name="confirm_mute">Επιβεβαίωσε για σίγαση %s</string>
 	<string name="do_mute">Σίγαση</string>
-	<string name="confirm_unmute_title">Κατάργηση Σίγασης Λογαριασμού</string>
-	<string name="confirm_unmute">Επιβεβαίωσε για κατάργηση σίγασης %s</string>
 	<string name="do_unmute">Κατάργηση σίγασης</string>
-	<string name="confirm_block_title">Αποκλεισμός Λογαριασμού</string>
-	<string name="confirm_block_domain_title">Αποκλεισμός Τομέα</string>
-	<string name="confirm_block">Επιβεβαίωση αποκλεισμού %s</string>
 	<string name="do_block">Αποκλεισμός</string>
-	<string name="confirm_unblock_title">Άρση Αποκλεισμού Λογαριασμού</string>
-	<string name="confirm_unblock_domain_title">Άρση αποκλεισμού Τομέα</string>
-	<string name="confirm_unblock">Επιβεβαίωση άρσης αποκλεισμού %s</string>
 	<string name="do_unblock">Άρση αποκλεισμού</string>
 	<string name="button_blocked">Αποκλείστηκε</string>
 	<string name="action_vote">Ψήφισε</string>
@@ -154,9 +141,7 @@
 	<string name="report_personal_subtitle">Αυτές είναι οι επιλογές σου για να ελέγχεις τί βλέπεις στο Mastodon:</string>
 	<string name="back">Πίσω</string>
 	<string name="search_communities">Όνομα διακομιστή ή διεύθυνση URL</string>
-	<string name="instance_rules_title">Κανόνες Διακομιστή</string>
 	<string name="instance_rules_subtitle">Συνεχίζοντας, συμφωνείς να τηρείς τους ακόλουθους κανόνες που έχουν οριστεί και επιβάλλονται από τους %s συντονιστές.</string>
-	<string name="signup_title">Δημιουργία Λογαριασμού</string>
 	<string name="display_name">Όνομα</string>
 	<string name="username">Όνομα χρήστη</string>
 	<string name="email">Email</string>
@@ -164,7 +149,6 @@
 	<string name="confirm_password">Επιβεβαίωση κωδικού πρόσβασης</string>
 	<string name="password_note">Να συμπεριλάβεις κεφαλαία γράμματα, ειδικούς χαρακτήρες και αριθμούς για να αυξήσεις την ισχύ του κωδικού πρόσβασης.</string>
 	<string name="category_general">Γενικά</string>
-	<string name="confirm_email_title">Έλεγξε τα Εισερχόμενα σου</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">Πάτησε το σύνδεσμο που σού στείλαμε για να επαληθεύσεις το %s. Θα σε περιμένουμε εδώ.</string>
 	<string name="confirm_email_didnt_get">Δεν έλαβες τον σύνδεσμο;</string>
@@ -199,7 +183,6 @@
 	<string name="theme_dark">Σκοτεινό</string>
 	<string name="settings_behavior">Συμπεριφορά</string>
 	<string name="settings_gif">Αναπαραγωγή κινούμενων άβαταρ και εμότζι</string>
-	<string name="settings_custom_tabs">Χρήση περιηγητή εντός εφαρμογής</string>
 	<string name="settings_notifications">Ειδοποιήσεις</string>
 	<string name="settings_contribute">Συνείσφερε στο Mastodon</string>
 	<string name="settings_tos">Όροι χρήσης</string>
@@ -228,8 +211,6 @@
 	<string name="followed_user">Ακολουθείς πλέον τον/την %s</string>
 	<string name="following_user_requested">Έγινε αίτημα ακολούθησης του/της %s</string>
 	<string name="open_in_browser">Άνοιξε στον περιηγητή</string>
-	<string name="hide_boosts_from_user">Απόκρυψη ενισχύσεων από @%s</string>
-	<string name="show_boosts_from_user">Εμφάνιση ενισχύσεων από @%s</string>
 	<string name="signup_reason">Γιατί θέλεις να συμμετάσχεις;</string>
 	<string name="signup_reason_note">Αυτό θα μας βοηθήσει να εξετάσουμε την αίτησή σου.</string>
 	<string name="clear">Εκκαθάριση</string>
@@ -252,7 +233,6 @@
 	<string name="recommended_accounts_info_banner">Μπορεί να σου αρέσουν αυτοί οι λογαριασμοί με βάση άλλους που ακολουθείς.</string>
 	<string name="see_new_posts">Νέες αναρτήσεις</string>
 	<string name="load_missing_posts">Φόρτωση αναρτήσεων που λείπουν</string>
-	<string name="follow_back">Ακολούθησε και εσύ</string>
 	<string name="button_follow_pending">Εκκρεμεί</string>
 	<string name="follows_you">Σε ακολουθεί</string>
 	<string name="manually_approves_followers">Χειροκίνητη έγκριση ακολούθων</string>
@@ -308,28 +288,18 @@
 	<string name="file_size_mb">%.2f MB</string>
 	<string name="file_size_gb">%.2f GB</string>
 	<string name="upload_processing">Επεξεργασία…</string>
-	<!-- %s is version like 1.2.3 -->
-	<!-- %s is version like 1.2.3 -->
 	<!-- %s is file size -->
 	<string name="download_update">Λήψη (%s)</string>
 	<string name="install_update">Εγκατάσταση</string>
-	<string name="privacy_policy_title">Το Απόρρητό σου</string>
 	<string name="privacy_policy_subtitle">Αν και η εφαρμογή Mastodon δεν συλλέγει δεδομένα, ο διακομιστής που εγγράφεσαι μπορεί να έχει διαφορετική πολιτική.\n\nΕάν διαφωνείς με την πολιτική του %s, μπορείς να επιστρέψεις και να επιλέξεις διαφορετικό διακομιστή.</string>
-	<string name="i_agree">Συμφωνώ</string>
 	<string name="empty_list">Αυτή η λίστα είναι κενή</string>
 	<string name="instance_signup_closed">Αυτός ο διακομιστής δεν δέχεται νέες εγγραφές.</string>
 	<string name="text_copied">Αντιγράφηκε στο πρόχειρο</string>
 	<string name="add_bookmark">Σελιδοδείκτης</string>
 	<string name="remove_bookmark">Αφαίρεση σελιδοδείκτη</string>
 	<string name="bookmarks">Σελιδοδείκτες</string>
-	<string name="your_favorites">Τα Αγαπημένα σας</string>
-	<string name="login_title">Καλώς Ήρθες Ξανά</string>
 	<string name="login_subtitle">Συνδέσου με τον διακομιστή όπου δημιούργησες τον λογαριασμό σου.</string>
 	<string name="server_url">URL διακομιστή</string>
-	<string name="server_filter_any_language">Οποιαδήποτε Γλώσσα</string>
-	<string name="server_filter_instant_signup">Άμεση Εγγραφή</string>
-	<string name="server_filter_manual_review">Χειροκίνητη Αξιολόγηση</string>
-	<string name="server_filter_any_signup_speed">Οποιαδήποτε Ταχύτητα Εγγραφής</string>
 	<string name="server_filter_region_europe">Ευρώπη</string>
 	<string name="server_filter_region_north_america">Βόρεια Αμερική</string>
 	<string name="server_filter_region_south_america">Νότια Αμερική</string>
@@ -337,7 +307,6 @@
 	<string name="server_filter_region_asia">Ασία</string>
 	<string name="server_filter_region_oceania">Oceania</string>
 	<string name="not_accepting_new_members">Δεν δέχεται νέα μέλη</string>
-	<string name="category_special_interests">Ειδικά Ενδιαφέροντα</string>
 	<string name="signup_passwords_dont_match">Οι κωδικοί πρόσβασης δεν ταιριάζουν</string>
 	<string name="profile_add_row">Προσθήκη γραμμής</string>
 	<string name="profile_setup">Ρύθμιση προφίλ</string>
@@ -606,7 +575,6 @@
 	<string name="remove">Αφαίρεση</string>
 	<string name="add_list_member">Προσθήκη μέλους</string>
 	<string name="search_among_people_you_follow">Αναζήτησε μεταξύ των ανθρώπων που ακουλουθείς</string>
-	<string name="add_user_to_list">Προσθήκη στη λίστα…</string>
 	<string name="add_user_to_list_title">Προσθήκη στη λίστα</string>
 	<!-- %s is a username -->
 	<string name="manage_user_lists">Διαχείριση λιστών όπου εμφανίζεται ο/η %s</string>
@@ -669,4 +637,19 @@
 	<string name="this_invite_has_expired">Αυτός ο σύνδεσμος πρόσκλησης έχει λήξει.</string>
 	<string name="invite_link_pasted">Ο σύνδεσμος επικολλήθηκε από το πρόχειρο.</string>
 	<string name="need_invite_to_join_server">Για να γίνεις μέλος στο %s, θα χρειαστείς έναν σύνδεσμο πρόσκλησης από έναν υπάρχοντα χρήστη.</string>
+	<string name="mute_user_confirm_title">Σίγαση χρήστη;</string>
+	<string name="user_wont_know_muted">Δε θα ξέρουν ότι είναι σε σίγαση.</string>
+	<string name="user_can_still_see_your_posts">Μπορεί ακόμα να δει τις αναρτήσεις σου, αλλά δε θα βλέπεις τις δικές του.</string>
+	<string name="you_wont_see_user_mentions">Δε θα βλέπεις τις αναρτήσεις που τον αναφέρουν.</string>
+	<string name="user_can_mention_and_follow_you">Μπορούν να σε αναφέρουν και να σε ακολουθήσουν, αλλά δε θα τους βλέπεις.</string>
+	<string name="unmuted_user_x">Κατάργηση σίγασης %s</string>
+	<string name="block_user_confirm_title">Αποκλεισμός χρήστη;</string>
+	<string name="user_can_see_blocked">Μπορούν να δουν ότι είναι αποκλεισμένοι.</string>
+	<string name="user_cant_see_each_other_posts">Δεν μπορεί να δει τις αναρτήσεις σου και δε θα δεις τις δικές του.</string>
+	<string name="user_cant_mention_or_follow_you">Δεν μπορούν να σε επισημάνει ή να σε ακολουθήσει.</string>
+	<string name="unblocked_user_x">Άρση αποκλεισμού %s</string>
+	<string name="block_domain_confirm_title">Αποκλεισμός τομέα;</string>
+	<string name="do_block_server">Αποκλεισμός διακομιστή</string>
+	<string name="block_user_x_instead">Αποκλεισμός %s αντ\' αυτού</string>
+	<!-- Shown on a button that saves a file, after it was successfully saved -->
 </resources>

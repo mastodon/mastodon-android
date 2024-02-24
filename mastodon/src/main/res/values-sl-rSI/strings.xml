@@ -35,13 +35,10 @@
 		<item quantity="other">sledi</item>
 	</plurals>
 	<string name="posts">Objave</string>
-	<string name="posts_and_replies">Objave in odgovori</string>
 	<string name="media">Mediji</string>
 	<string name="profile_about">O računu</string>
 	<string name="button_follow">Sledi</string>
 	<string name="button_following">Sleden</string>
-	<string name="edit_profile">Uredi profil</string>
-	<string name="share_user">Profil v skupno rabo</string>
 	<string name="mute_user">Utišaj %s</string>
 	<string name="unmute_user">Odtišaj %s</string>
 	<string name="block_user">Blokiraj %s</string>
@@ -112,19 +109,9 @@
 		<item quantity="other">%,d glasov</item>
 	</plurals>
 	<string name="poll_closed">Zaprto</string>
-	<string name="confirm_mute_title">Utišaj račun</string>
-	<string name="confirm_mute">Potrdite utišanje %s</string>
 	<string name="do_mute">Utišaj</string>
-	<string name="confirm_unmute_title">Odtišaj račun</string>
-	<string name="confirm_unmute">Potrdite umik utišanja %s</string>
 	<string name="do_unmute">Odtišaj</string>
-	<string name="confirm_block_title">Blokiraj račun</string>
-	<string name="confirm_block_domain_title">Blokiraj domeno</string>
-	<string name="confirm_block">Potrdite blokado %s</string>
 	<string name="do_block">Blokiraj</string>
-	<string name="confirm_unblock_title">Odblokiraj račun</string>
-	<string name="confirm_unblock_domain_title">Odblokiraj domeno</string>
-	<string name="confirm_unblock">Potrdite umik blokade %s</string>
 	<string name="do_unblock">Odblokiraj</string>
 	<string name="button_blocked">Blokirano</string>
 	<string name="action_vote">Glasuj</string>
@@ -178,9 +165,7 @@
 	<string name="report_personal_subtitle">Tukaj so vaše možnosti za nadzor tistega, kar vidite na Mastodonu:</string>
 	<string name="back">Nazaj</string>
 	<string name="search_communities">Ime strežnika ali URL</string>
-	<string name="instance_rules_title">Pravila strežnika</string>
 	<string name="instance_rules_subtitle">Če nadaljujete, to pomeni, da se strinjate in da boste sledili naslednjim pravilom, ki so jih določili in jih uveljavljajo moderatorji %s.</string>
-	<string name="signup_title">Ustvari račun</string>
 	<string name="display_name">Ime</string>
 	<string name="username">Uporabniško ime</string>
 	<string name="email">E-naslov</string>
@@ -188,7 +173,6 @@
 	<string name="confirm_password">Potrdite geslo</string>
 	<string name="password_note">Vključite velike črke, posebne znake in števke, da okrepite geslo.</string>
 	<string name="category_general">Splošno</string>
-	<string name="confirm_email_title">Preverite svojo dohodno e-pošto</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">Tapnite povezavo, ki smo vam jo poslali, da overite %s. Počakali bomo.</string>
 	<string name="confirm_email_didnt_get">Niste prejeli povezave?</string>
@@ -225,7 +209,6 @@
 	<string name="theme_dark">Temno</string>
 	<string name="settings_behavior">Vedenje</string>
 	<string name="settings_gif">Predvajaj animirane avatarje in emotikone</string>
-	<string name="settings_custom_tabs">Uporabi vgrajeni brskalnik</string>
 	<string name="settings_notifications">Obvestila</string>
 	<string name="settings_contribute">Prispevajte Mastodonu</string>
 	<string name="settings_tos">Pogoji uporabe</string>
@@ -254,8 +237,6 @@
 	<string name="followed_user">Zdaj sledite %s</string>
 	<string name="following_user_requested">Zaprošeni ste, da sledite %s</string>
 	<string name="open_in_browser">Odpri v brskalniku</string>
-	<string name="hide_boosts_from_user">Skrij izpostavitve od %s</string>
-	<string name="show_boosts_from_user">Pokaži izpostavitve osebe %s</string>
 	<string name="signup_reason">Zakaj se želite pridružiti?</string>
 	<string name="signup_reason_note">To nam bo pomagalo pregledati vašo prijavo.</string>
 	<string name="clear">Počisti</string>
@@ -278,7 +259,6 @@
 	<string name="recommended_accounts_info_banner">Glede na to, komu sledite, vam bodo ti računi všeč.</string>
 	<string name="see_new_posts">Nove objave</string>
 	<string name="load_missing_posts">Naloži manjkajoče objave</string>
-	<string name="follow_back">Sledi nazaj</string>
 	<string name="button_follow_pending">Na čakanju</string>
 	<string name="follows_you">Vam sledi</string>
 	<string name="manually_approves_followers">Ročno odobri sledilce</string>
@@ -346,28 +326,18 @@
 	<string name="file_size_mb">%.2f MB</string>
 	<string name="file_size_gb">%.2f GB</string>
 	<string name="upload_processing">Obdelovanje …</string>
-	<!-- %s is version like 1.2.3 -->
-	<!-- %s is version like 1.2.3 -->
 	<!-- %s is file size -->
 	<string name="download_update">Prenesi (%s)</string>
 	<string name="install_update">Namesti</string>
-	<string name="privacy_policy_title">Vaša zasebnost</string>
 	<string name="privacy_policy_subtitle">Čeprav program Mastodon ne zbira nobenih podatkov, ima lahko strežnik, prek katerega se prijavite, drugačno pravila glede zasebnosti.\n\nČe se s pravili za %s ne strinjate, se lahko vrnete in izberete drug strežnik.</string>
-	<string name="i_agree">Strinjam se</string>
 	<string name="empty_list">Ta seznam je prazen</string>
 	<string name="instance_signup_closed">Ta strežnik ne sprejema novih registracij.</string>
 	<string name="text_copied">Kopirano v odložišče</string>
 	<string name="add_bookmark">Dodaj med zaznamke</string>
 	<string name="remove_bookmark">Odstrani zaznamek</string>
 	<string name="bookmarks">Zaznamki</string>
-	<string name="your_favorites">Vaši priljubljeni</string>
-	<string name="login_title">Dobrodošli nazaj</string>
 	<string name="login_subtitle">Prijavite se na strežniku, na katerem ste ustvarili svoj račun.</string>
 	<string name="server_url">URL strežnika</string>
-	<string name="server_filter_any_language">Katerikoli jezik</string>
-	<string name="server_filter_instant_signup">Takojšnja prijava</string>
-	<string name="server_filter_manual_review">Ročni pregled</string>
-	<string name="server_filter_any_signup_speed">Prijava poljubne hitrosti</string>
 	<string name="server_filter_region_europe">Evropa</string>
 	<string name="server_filter_region_north_america">Severna Amerika</string>
 	<string name="server_filter_region_south_america">Južna Amerika</string>
@@ -375,7 +345,6 @@
 	<string name="server_filter_region_asia">Azija</string>
 	<string name="server_filter_region_oceania">Oceanija</string>
 	<string name="not_accepting_new_members">Ne sprejema novih članov</string>
-	<string name="category_special_interests">Posebni interesi</string>
 	<string name="signup_passwords_dont_match">Vneseni gesli se ne ujemata</string>
 	<string name="profile_add_row">Dodaj vrstico</string>
 	<string name="profile_setup">Nastavitev profila</string>
@@ -668,7 +637,6 @@
 	<string name="remove">Odstrani</string>
 	<string name="add_list_member">Dodaj člana</string>
 	<string name="search_among_people_you_follow">Iščite med ljudmi, katerim sledite</string>
-	<string name="add_user_to_list">Dodaj na seznam…</string>
 	<string name="add_user_to_list_title">Dodaj na seznam</string>
 	<!-- %s is a username -->
 	<string name="manage_user_lists">Upravljaj sezname, na katerih je %s</string>
@@ -736,4 +704,38 @@ Več osebam kot sledite, bolj dejaven in zanimiv bo.</string>
 	<string name="this_invite_has_expired">Ta povezava povabila je potekla.</string>
 	<string name="invite_link_pasted">Povezava je prilepljena iz odložišča.</string>
 	<string name="need_invite_to_join_server">Za registracijo na %s boste potrebovali povezavo s povabilom od obstoječega uporabnika.</string>
+	<string name="mute_user_confirm_title">Ali želite utišati uporabnika?</string>
+	<string name="user_wont_know_muted">Ne bodo vedeli, da so utišani.</string>
+	<string name="user_can_still_see_your_posts">Še vedno vidijo vaše objave, vi pa ne njihovih.</string>
+	<string name="you_wont_see_user_mentions">Objav, ki jih omenjajo, ne boste videli.</string>
+	<string name="user_can_mention_and_follow_you">Lahko vas omenijo ali vam sledijo, vi pa jih ne morete videti.</string>
+	<string name="unmuted_user_x">Odtišani %s</string>
+	<string name="block_user_confirm_title">Ali želite blokirati uporabnika?</string>
+	<string name="user_can_see_blocked">Ne morejo videti, da so blokirani.</string>
+	<string name="user_cant_see_each_other_posts">Ne vidijo vaših objav, vi pa ne njihovih.</string>
+	<string name="user_cant_mention_or_follow_you">Ne morejo vas omenjati ali vam slediti.</string>
+	<string name="unblocked_user_x">Odblokirani %s</string>
+	<string name="block_domain_confirm_title">Ali želite blokirati domeno?</string>
+	<string name="do_block_server">Blokiraj strežnik</string>
+	<string name="block_user_x_instead">Namesto tega blokiraj %s</string>
+	<string name="users_cant_see_blocked">Objav ali obvestil uporabnikov s tega strežnika ne boste videli.</string>
+	<string name="you_wont_see_server_posts">Nobenih objav uporabnikov s tega strežnika ne boste videli.</string>
+	<string name="server_followers_will_be_removed">Vaši sledilci s tega strežnika bodo odstranjeni.</string>
+	<string name="server_cant_mention_or_follow_you">Nihče s tega strežnika vam ne more slediti.</string>
+	<string name="server_can_interact_with_older">Osebe s tega strežnika so lahko v interakciji z vašimi starimi objavami.</string>
+	<string name="unblocked_domain_x">Odblokirana domena %s</string>
+	<string name="handle_help_title">Čemu ročica?</string>
+	<string name="handle_title">Njihova ročica</string>
+	<string name="handle_username_explanation">Njihov edinstveni identifikator na njihovem strežniku. Uporabnike z istim uporabniškim imenom lahko poiščete na različnih strežnikih.</string>
+	<string name="handle_title_own">Vaša ročica</string>
+	<string name="handle_username_explanation_own">Vaš edinstveni identifikator na tem strežniku. Uporabnike z istim uporabniškim imenom je možno poiskati na različnih strežnikih.</string>
+	<string name="server">Strežnik</string>
+	<string name="handle_server_explanation">Njigovo digitalno domovanje, kjer bivajo vse njihove objave.</string>
+	<string name="handle_explanation">Ker ročice povedo, kdo je kdo in kje so, ste lahko z osebami v interakciji prek družabnega spleta &lt;a&gt;platform, ki jih poganja ActivityPub&lt;/a&gt;.</string>
+	<string name="handle_server_explanation_own">Vaše digitalno domovanje, kjer bivajo vse vaše objave. Vam ta ni všeč? Prenesite ga med strežniki kadar koli in s tem tudi svoje sledilce.</string>
+	<string name="handle_explanation_own">Ker ročice povedo, kdo ste in kje ste, ste lahko z osebami v interakciji prek družabnega spleta &lt;a&gt;platform, ki jih poganja ActivityPub&lt;/a&gt;.</string>
+	<string name="what_is_activitypub_title">Kaj je ActivityPub?</string>
+	<string name="what_is_activitypub">ActivityPubb je kot jezik, ki ga Mastodon uprablja z drugimi družbenimi omrežji.\n\nOmogočq povezovanje in interakcijo z osebami ne le na Mastodonu, ampak tudi na drugih družabnih omrežjih.</string>
+	<string name="handle_copied">Ročica je kopirana na odložišče.</string>
+	<!-- Shown on a button that saves a file, after it was successfully saved -->
 </resources>

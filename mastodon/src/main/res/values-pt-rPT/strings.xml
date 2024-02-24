@@ -31,13 +31,10 @@
 		<item quantity="other">a seguir</item>
 	</plurals>
 	<string name="posts">Publicações</string>
-	<string name="posts_and_replies">Publicações e respostas</string>
 	<string name="media">Multimédia</string>
 	<string name="profile_about">Sobre</string>
 	<string name="button_follow">Seguir</string>
 	<string name="button_following">A seguir</string>
-	<string name="edit_profile">Editar Perfil</string>
-	<string name="share_user">Partilhar perfil</string>
 	<string name="mute_user">Silenciar %s</string>
 	<string name="unmute_user">Deixar de silenciar @%s</string>
 	<string name="block_user">Bloquear %s</string>
@@ -90,19 +87,9 @@
 		<item quantity="other">%,d votos</item>
 	</plurals>
 	<string name="poll_closed">Fechado</string>
-	<string name="confirm_mute_title">Silenciar Conta</string>
-	<string name="confirm_mute">Confirme para silenciar %s</string>
 	<string name="do_mute">Silenciar</string>
-	<string name="confirm_unmute_title">Desativar Silêncio</string>
-	<string name="confirm_unmute">Confirme para desativar silêncio para %s</string>
 	<string name="do_unmute">Desativar silêncio</string>
-	<string name="confirm_block_title">Bloquear Conta</string>
-	<string name="confirm_block_domain_title">Bloquear Domínio</string>
-	<string name="confirm_block">Confirme para bloquear %s</string>
 	<string name="do_block">Bloquear</string>
-	<string name="confirm_unblock_title">Desbloquear Conta</string>
-	<string name="confirm_unblock_domain_title">Desbloquear Domínio</string>
-	<string name="confirm_unblock">Confirme para desbloquear %s</string>
 	<string name="do_unblock">Desbloquear</string>
 	<string name="button_blocked">Bloqueado</string>
 	<string name="action_vote">Votar</string>
@@ -154,9 +141,7 @@
 	<string name="report_personal_subtitle">Aqui estão as suas opções para controlar o que vê no Mastodon:</string>
 	<string name="back">Voltar</string>
 	<string name="search_communities">Nome ou endereço do servidor</string>
-	<string name="instance_rules_title">Regras do Servidor</string>
 	<string name="instance_rules_subtitle">Ao continuar, aceita seguir as seguintes regras definidas e aplicadas pelos moderadores de %s.</string>
-	<string name="signup_title">Criar Conta</string>
 	<string name="display_name">Nome</string>
 	<string name="username">Nome de utilizador</string>
 	<string name="email">Email</string>
@@ -164,7 +149,6 @@
 	<string name="confirm_password">Confirmar palavra-passe</string>
 	<string name="password_note">Inclua letras maiúsculas, caracteres especiais e números para aumentar a força da sua senha.</string>
 	<string name="category_general">Geral</string>
-	<string name="confirm_email_title">Verifique o seu email</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">Clique na hiperligação que enviámos por email para verificar %s. Aguardaremos enquanto o faz.</string>
 	<string name="confirm_email_didnt_get">Não recebeu um email com uma hiperligação?</string>
@@ -195,7 +179,6 @@
 	<string name="theme_dark">Escuro</string>
 	<string name="settings_behavior">Comportamento</string>
 	<string name="settings_gif">Reproduzir emojis e avatares animados</string>
-	<string name="settings_custom_tabs">Usar navegador interno</string>
 	<string name="settings_notifications">Notificações</string>
 	<string name="settings_contribute">Contribua para o Mastodon</string>
 	<string name="settings_tos">Termos de serviço</string>
@@ -218,7 +201,6 @@
 	<string name="downloading">A transferir…</string>
 	<!-- %s is the server domain -->
 	<string name="load_missing_posts">Carregar publicações em falta</string>
-	<string name="follow_back">Seguir de volta</string>
 	<string name="button_follow_pending">Pendente</string>
 	<string name="follows_you">Segue-te</string>
 	<string name="manually_approves_followers">Aprova manualmente seguidores</string>
@@ -252,8 +234,6 @@
 	<string name="edit_poll_added">Sondagem adicionada</string>
 	<string name="edit_poll_edited">Sondagem editada</string>
 	<string name="edit_poll_removed">Sondagem removida</string>
-	<!-- %s is version like 1.2.3 -->
-	<!-- %s is version like 1.2.3 -->
 	<!-- %s is file size -->
 	<string name="empty_list">A lista está vazia</string>
 	<string name="instance_signup_closed">Este servidor não aceita novos registos.</string>
@@ -261,14 +241,8 @@
 	<string name="add_bookmark">Guardar nos marcadores</string>
 	<string name="remove_bookmark">Remover dos marcadores</string>
 	<string name="bookmarks">Marcadores</string>
-	<string name="your_favorites">Os seus gostos</string>
-	<string name="login_title">Olá novamente</string>
 	<string name="login_subtitle">Entre com o servidor onde criou a sua conta.</string>
 	<string name="server_url">Endereço do Servidor</string>
-	<string name="server_filter_any_language">Todos os idiomas</string>
-	<string name="server_filter_instant_signup">Inscrição instantânea</string>
-	<string name="server_filter_manual_review">Revisão manual</string>
-	<string name="server_filter_any_signup_speed">Qualquer velocidade de inscrição</string>
 	<string name="server_filter_region_europe">Europa</string>
 	<string name="server_filter_region_north_america">América do Norte</string>
 	<string name="server_filter_region_south_america">América do Sul</string>
@@ -276,7 +250,6 @@
 	<string name="server_filter_region_asia">Ásia</string>
 	<string name="server_filter_region_oceania">Oceânia</string>
 	<string name="not_accepting_new_members">Não aceita novos membros de momento</string>
-	<string name="category_special_interests">Interesses Especiais</string>
 	<string name="signup_passwords_dont_match">As palavras-passe não coincidem</string>
 	<string name="profile_add_row">Adicionar linha</string>
 	<string name="profile_setup">Configuração do perfil</string>
@@ -372,4 +345,5 @@
 	<!-- %s is the name of the list -->
 	<!-- %s is a username -->
 	<!-- %s is a time interval ("5 months") -->
+	<!-- Shown on a button that saves a file, after it was successfully saved -->
 </resources>

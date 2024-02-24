@@ -25,12 +25,10 @@
 		<item quantity="other">praćenih</item>
 	</plurals>
 	<string name="posts">Objave</string>
-	<string name="posts_and_replies">Objave i Odgovori</string>
 	<string name="media">Mediji</string>
 	<string name="profile_about">O</string>
 	<string name="button_follow">Prati</string>
 	<string name="button_following">Pratim</string>
-	<string name="edit_profile">Uredi Profil</string>
 	<string name="mute_user">Utišaj %s</string>
 	<string name="unmute_user">Uključi %s</string>
 	<string name="block_user">Blokiraj %s</string>
@@ -87,19 +85,9 @@
 		<item quantity="other">%d dana preostalo</item>
 	</plurals>
 	<string name="poll_closed">Završeno</string>
-	<string name="confirm_mute_title">Utišaj Račun</string>
-	<string name="confirm_mute">Potvrdi utišavanje %s</string>
 	<string name="do_mute">Utišaj</string>
-	<string name="confirm_unmute_title">Pojačaj Račun</string>
-	<string name="confirm_unmute">Potvrdi pojačavanje %s</string>
 	<string name="do_unmute">Pojačaj</string>
-	<string name="confirm_block_title">Blokiraj Račun</string>
-	<string name="confirm_block_domain_title">Blokiraj Domenu</string>
-	<string name="confirm_block">Potvrdi blokiranje %s</string>
 	<string name="do_block">Blokiraj</string>
-	<string name="confirm_unblock_title">Uključi Račun</string>
-	<string name="confirm_unblock_domain_title">Uključi Domenu</string>
-	<string name="confirm_unblock">Potvrdi uključivanje %s</string>
 	<string name="do_unblock">Uključi</string>
 	<string name="button_blocked">Blokiran</string>
 	<string name="action_vote">Glasaj</string>
@@ -161,7 +149,6 @@
 	<string name="theme_dark">Tamna</string>
 	<string name="settings_behavior">Ponašanje</string>
 	<string name="settings_gif">Animiraj avatare i emotikone</string>
-	<string name="settings_custom_tabs">Koristi interni preglednik</string>
 	<string name="settings_notifications">Obavijesti</string>
 	<string name="settings_contribute">Doprinesi Mastodonu</string>
 	<string name="settings_tos">Uvjeti pružanja usluga</string>
@@ -198,8 +185,6 @@
 	<string name="downloading">Preuzimanje…</string>
 	<!-- %s is the server domain -->
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
-	<!-- %s is version like 1.2.3 -->
-	<!-- %s is version like 1.2.3 -->
 	<!-- %s is file size -->
 	<!-- %s is server domain -->
 	<!-- Shown in a progress dialog when you tap "follow all" -->
@@ -221,4 +206,5 @@
 	<!-- %s is the name of the list -->
 	<!-- %s is a username -->
 	<!-- %s is a time interval ("5 months") -->
+	<!-- Shown on a button that saves a file, after it was successfully saved -->
 </resources>

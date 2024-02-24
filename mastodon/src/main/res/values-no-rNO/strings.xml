@@ -31,13 +31,10 @@
 		<item quantity="other">følger</item>
 	</plurals>
 	<string name="posts">Innlegg</string>
-	<string name="posts_and_replies">Innlegg med svar</string>
 	<string name="media">Medier</string>
 	<string name="profile_about">Om</string>
 	<string name="button_follow">Følg</string>
 	<string name="button_following">Følgere</string>
-	<string name="edit_profile">Endre Profil</string>
-	<string name="share_user">Del profil</string>
 	<string name="mute_user">Demp %s</string>
 	<string name="unmute_user">Opphev demping %s</string>
 	<string name="block_user">Blokker %s</string>
@@ -90,19 +87,9 @@
 		<item quantity="other">%,d stemmer</item>
 	</plurals>
 	<string name="poll_closed">Lukket</string>
-	<string name="confirm_mute_title">Demp konto</string>
-	<string name="confirm_mute">Bekreft demping av %s</string>
 	<string name="do_mute">Demp</string>
-	<string name="confirm_unmute_title">Opphev demping av konto</string>
-	<string name="confirm_unmute">Bekreft opphev demping av %s</string>
 	<string name="do_unmute">Opphev demping</string>
-	<string name="confirm_block_title">Blokker konto</string>
-	<string name="confirm_block_domain_title">Blokker domene</string>
-	<string name="confirm_block">Bekreft blokkering %s</string>
 	<string name="do_block">Blokker</string>
-	<string name="confirm_unblock_title">Opphev blokkering av konto</string>
-	<string name="confirm_unblock_domain_title">Opphev blokkering av domene</string>
-	<string name="confirm_unblock">Bekreft oppheving av %s</string>
 	<string name="do_unblock">Opphev blokkering</string>
 	<string name="button_blocked">Blokkert</string>
 	<string name="action_vote">Stem</string>
@@ -154,9 +141,7 @@
 	<string name="report_personal_subtitle">Her er alternativene dine for å kontrollere hva du ser på Mastodon:</string>
 	<string name="back">Tilbake</string>
 	<string name="search_communities">Servernavn eller link</string>
-	<string name="instance_rules_title">Server regler</string>
 	<string name="instance_rules_subtitle">Ved å fortsette godtar du å følge de følgende reglene gitt og håndheves av %s moderatorene.</string>
-	<string name="signup_title">Opprett konto</string>
 	<string name="display_name">Navn</string>
 	<string name="username">Brukernavn</string>
 	<string name="email">E-post</string>
@@ -164,7 +149,6 @@
 	<string name="confirm_password">Bekreft passord</string>
 	<string name="password_note">Inkluder store bokstaver, spesialtegn og tall for å øke passordstyrken.</string>
 	<string name="category_general">Generelt</string>
-	<string name="confirm_email_title">Sjekk innboksen din</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">Trykk på linken vi sendte deg for å verifisere %s. Vi venter her.</string>
 	<string name="confirm_email_didnt_get">Fikk du ikke linken?</string>
@@ -199,7 +183,6 @@
 	<string name="theme_dark">Mørkt</string>
 	<string name="settings_behavior">Oppførsel</string>
 	<string name="settings_gif">Spill av animerte avatarer og emoji</string>
-	<string name="settings_custom_tabs">Bruk integrert nettleser</string>
 	<string name="settings_notifications">Varslinger</string>
 	<string name="settings_contribute">Bidra til Mastodon</string>
 	<string name="settings_tos">Bruksvilkår</string>
@@ -228,8 +211,6 @@
 	<string name="followed_user">Du følger nå %s</string>
 	<string name="following_user_requested">Forespør å følge %s</string>
 	<string name="open_in_browser">Åpne i nettleser</string>
-	<string name="hide_boosts_from_user">Skjul fremhevinger fra %s</string>
-	<string name="show_boosts_from_user">Hvis fremhevinger fra %s</string>
 	<string name="signup_reason">Hvorfor vil du bli med?</string>
 	<string name="signup_reason_note">Dette vil hjelpe oss med å gjennomgå din søknad.</string>
 	<string name="clear">Tøm</string>
@@ -252,7 +233,6 @@
 	<string name="recommended_accounts_info_banner">Du liker kanskje disse kontoene basert på de andre du følger.</string>
 	<string name="see_new_posts">Nye innlegg</string>
 	<string name="load_missing_posts">Last inn manglende innlegg</string>
-	<string name="follow_back">Følg tilbake</string>
 	<string name="button_follow_pending">Ventende</string>
 	<string name="follows_you">Følger deg</string>
 	<string name="manually_approves_followers">Godkjenn følgere manuelt</string>
@@ -308,28 +288,18 @@
 	<string name="file_size_mb">%.2f MB</string>
 	<string name="file_size_gb">%.2f GB</string>
 	<string name="upload_processing">Behandler…</string>
-	<!-- %s is version like 1.2.3 -->
-	<!-- %s is version like 1.2.3 -->
 	<!-- %s is file size -->
 	<string name="download_update">Last ned (%s)</string>
 	<string name="install_update">Installer</string>
-	<string name="privacy_policy_title">Ditt personvern</string>
 	<string name="privacy_policy_subtitle">Selv om Mastodon appen ikke samler inn data, kan det hende at serveren du registrerte deg på har en annen politikk.\n\nHvis du er uenig i retningslinjene for %s, kan du gå tilbake og velge en annen server.</string>
-	<string name="i_agree">Jeg godtar</string>
 	<string name="empty_list">Denne listen er tom</string>
 	<string name="instance_signup_closed">Denne serveren godtar ikke nye registreringer.</string>
 	<string name="text_copied">Kopiert til utklippstavle</string>
 	<string name="add_bookmark">Bokmerke</string>
 	<string name="remove_bookmark">Fjern bokmerke</string>
 	<string name="bookmarks">Bokmerker</string>
-	<string name="your_favorites">Dine favoritter</string>
-	<string name="login_title">Velkommen tilbake</string>
 	<string name="login_subtitle">Logg inn med serveren der du opprettet kontoen din.</string>
 	<string name="server_url">Server link</string>
-	<string name="server_filter_any_language">Ethvert språk</string>
-	<string name="server_filter_instant_signup">Direkte registrering</string>
-	<string name="server_filter_manual_review">Manuell gjennomgang</string>
-	<string name="server_filter_any_signup_speed">Enhver opptakshastighet</string>
 	<string name="server_filter_region_europe">Europa</string>
 	<string name="server_filter_region_north_america">Nord-Amerika</string>
 	<string name="server_filter_region_south_america">Sør-Amerika</string>
@@ -337,7 +307,6 @@
 	<string name="server_filter_region_asia">Asia</string>
 	<string name="server_filter_region_oceania">Oseania</string>
 	<string name="not_accepting_new_members">Aksepterer ikke nye medlemmer</string>
-	<string name="category_special_interests">Spesielle interesser</string>
 	<string name="signup_passwords_dont_match">Passordet samsvarer ikke</string>
 	<string name="profile_add_row">Legg til rad</string>
 	<string name="profile_setup">Konfigurering av profil</string>
@@ -606,7 +575,6 @@
 	<string name="remove">Fjern</string>
 	<string name="add_list_member">Legg til medlem</string>
 	<string name="search_among_people_you_follow">Søk blant personer du følger</string>
-	<string name="add_user_to_list">Legg til i liste…</string>
 	<string name="add_user_to_list_title">Legg til i liste</string>
 	<!-- %s is a username -->
 	<string name="manage_user_lists">Behandle liste %s vises på</string>
@@ -651,4 +619,5 @@
 	<string name="discoverability">Synlighet</string>
 	<string name="discoverability_help">Når du aktivere oppdagbarhet på Mastodon, kan innleggene dine vises i søkeresultater og trender.\n\nDin profil kan bli foreslått for personer med lignende interesser som deg.\n\nDeaktivere oppdagbarhet vil ikke skjule profilen din hvis noen søker etter deg med navn.</string>
 	<string name="app_version_copied">Versjonsnummer kopiert til utklippstavlen</string>
+	<!-- Shown on a button that saves a file, after it was successfully saved -->
 </resources>

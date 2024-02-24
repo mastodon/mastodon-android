@@ -31,13 +31,10 @@
 		<item quantity="other">følger</item>
 	</plurals>
 	<string name="posts">Indlæg</string>
-	<string name="posts_and_replies">Indlæg og svar</string>
 	<string name="media">Medier</string>
 	<string name="profile_about">Om</string>
 	<string name="button_follow">Følg</string>
 	<string name="button_following">Følger</string>
-	<string name="edit_profile">Redigér profil</string>
-	<string name="share_user">Del profil</string>
 	<string name="mute_user">Gør tavs %s</string>
 	<string name="unmute_user">Vis %s igen</string>
 	<string name="block_user">Blokér %s</string>
@@ -90,19 +87,9 @@
 		<item quantity="other">%,d stemmer</item>
 	</plurals>
 	<string name="poll_closed">Lukket</string>
-	<string name="confirm_mute_title">Tavsgør konto</string>
-	<string name="confirm_mute">Bekræft tavsgørelse af %s</string>
 	<string name="do_mute">Tavsgør</string>
-	<string name="confirm_unmute_title">Vis konto igen</string>
-	<string name="confirm_unmute">Bekræft, at %s ikke længere er tavsgjort</string>
 	<string name="do_unmute">Ophæv tavsgørelse</string>
-	<string name="confirm_block_title">Blokér konto</string>
-	<string name="confirm_block_domain_title">Blokér domæne</string>
-	<string name="confirm_block">Bekræft blokering af %s</string>
 	<string name="do_block">Blokér</string>
-	<string name="confirm_unblock_title">Afblokér konto</string>
-	<string name="confirm_unblock_domain_title">Afblokér domæne</string>
-	<string name="confirm_unblock">Bekræft afblokeringen af %s</string>
 	<string name="do_unblock">Afblokér</string>
 	<string name="button_blocked">Blokeret</string>
 	<string name="action_vote">Stem</string>
@@ -154,9 +141,7 @@
 	<string name="report_personal_subtitle">Her er mulighederne for at styre, hvad du ser på Mastodon:</string>
 	<string name="back">Retur</string>
 	<string name="search_communities">Servernavn eller -URL</string>
-	<string name="instance_rules_title">Serverregler</string>
 	<string name="instance_rules_subtitle">Ved at fortsætte accepterer du at overholde flg. regler, som angivet og håndhævet af %s moderatorerne.</string>
-	<string name="signup_title">Opret konto</string>
 	<string name="display_name">Navn</string>
 	<string name="username">Brugernavn</string>
 	<string name="email">E-mail</string>
@@ -164,7 +149,6 @@
 	<string name="confirm_password">Bekræft adgangskode</string>
 	<string name="password_note">Benyt majuskler, specialtegn og tal for at øge adgangskodens styrke.</string>
 	<string name="category_general">Generelt</string>
-	<string name="confirm_email_title">Tjek din indbakke</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">Tryk på det modtage link for at bekræfte %s. Vi venter her så længe.</string>
 	<string name="confirm_email_didnt_get">Modtog intet link?</string>
@@ -199,7 +183,6 @@
 	<string name="theme_dark">Mørk</string>
 	<string name="settings_behavior">Adfærd</string>
 	<string name="settings_gif">Afspil animerede avatarer og emojier</string>
-	<string name="settings_custom_tabs">Benyt in-app browser</string>
 	<string name="settings_notifications">Notifikationer</string>
 	<string name="settings_contribute">Bidrag til Mastodon</string>
 	<string name="settings_tos">Tjenestevilkår</string>
@@ -228,8 +211,6 @@
 	<string name="followed_user">Du følger nu %s</string>
 	<string name="following_user_requested">Anmodede om at følge %s</string>
 	<string name="open_in_browser">Åbn i browser</string>
-	<string name="hide_boosts_from_user">Skjul fremhævninger fra %s</string>
-	<string name="show_boosts_from_user">Vis fremhævninger fra %s</string>
 	<string name="signup_reason">Hvorfor ønsker du at tilmelde dig?</string>
 	<string name="signup_reason_note">Dette hjælper os med at vurdere din ansøgning.</string>
 	<string name="clear">Ryd</string>
@@ -251,7 +232,6 @@
 	<string name="local_timeline_info_banner">Disse er alle indlæg fra alle brugere på din server (%s).</string>
 	<string name="recommended_accounts_info_banner">Baseret på andre, du følger, vil du måske synes om disse konti.</string>
 	<string name="load_missing_posts">Indlæs manglende indlæg</string>
-	<string name="follow_back">Følg Tilbage</string>
 	<string name="button_follow_pending">Afventer</string>
 	<string name="follows_you">Følger dig</string>
 	<string name="manually_approves_followers">Godkender følgere manuelt</string>
@@ -307,28 +287,18 @@
 	<string name="file_size_mb">%.2f MB</string>
 	<string name="file_size_gb">%.2f GB</string>
 	<string name="upload_processing">Behandler…</string>
-	<!-- %s is version like 1.2.3 -->
-	<!-- %s is version like 1.2.3 -->
 	<!-- %s is file size -->
 	<string name="download_update">Download (%s)</string>
 	<string name="install_update">Installér</string>
-	<string name="privacy_policy_title">Din fortrolighed</string>
 	<string name="privacy_policy_subtitle">Selvom Mastodon-appen ikke indsamler data, kan serveren, via hvilken man tilmelder sig, have en anden politik.\n\nEr man uenig i politikken for %s, kan man gå tilbage og vælge en anden server.</string>
-	<string name="i_agree">Jeg accepterer</string>
 	<string name="empty_list">Denne liste er tom</string>
 	<string name="instance_signup_closed">Denne server accepterer ikke nye tilmeldinger.</string>
 	<string name="text_copied">Kopieret til udklipsholderen</string>
 	<string name="add_bookmark">Bogmærk</string>
 	<string name="remove_bookmark">Fjern bogmærke</string>
 	<string name="bookmarks">Bogmærker</string>
-	<string name="your_favorites">Dine Favoritter</string>
-	<string name="login_title">Velkommen tilbage</string>
 	<string name="login_subtitle">Log ind med serveren, på hvilken din konto blev oprettet.</string>
 	<string name="server_url">Server-URL</string>
-	<string name="server_filter_any_language">Hvilket som helst sprog</string>
-	<string name="server_filter_instant_signup">Øjeblikkelig tilmelding</string>
-	<string name="server_filter_manual_review">Manuel evaluering</string>
-	<string name="server_filter_any_signup_speed">Hvilken som helst tilmeldingshastghed</string>
 	<string name="server_filter_region_europe">Europa</string>
 	<string name="server_filter_region_north_america">Nordamerika</string>
 	<string name="server_filter_region_south_america">Sydamerika</string>
@@ -336,7 +306,6 @@
 	<string name="server_filter_region_asia">Asien</string>
 	<string name="server_filter_region_oceania">Oceania</string>
 	<string name="not_accepting_new_members">Ikke åben for nye medlemmer</string>
-	<string name="category_special_interests">Særlige Interesser</string>
 	<string name="signup_passwords_dont_match">Adgangskoder matcher ikke</string>
 	<string name="profile_add_row">Tilføj række</string>
 	<string name="profile_setup">Profilopsætning</string>
@@ -491,4 +460,5 @@
 	<!-- %s is the name of the list -->
 	<!-- %s is a username -->
 	<!-- %s is a time interval ("5 months") -->
+	<!-- Shown on a button that saves a file, after it was successfully saved -->
 </resources>

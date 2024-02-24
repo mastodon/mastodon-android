@@ -29,13 +29,10 @@
 		<item quantity="other">正在关注</item>
 	</plurals>
 	<string name="posts">嘟文</string>
-	<string name="posts_and_replies">嘟文和回复</string>
 	<string name="media">媒体</string>
 	<string name="profile_about">关于</string>
 	<string name="button_follow">关注</string>
 	<string name="button_following">已关注</string>
-	<string name="edit_profile">修改个人资料</string>
-	<string name="share_user">分享用户资料</string>
 	<string name="mute_user">隐藏 %s</string>
 	<string name="unmute_user">不再隐藏 %s</string>
 	<string name="block_user">屏蔽 %s</string>
@@ -79,19 +76,9 @@
 		<item quantity="other">%,d 票</item>
 	</plurals>
 	<string name="poll_closed">已关闭</string>
-	<string name="confirm_mute_title">隐藏用户</string>
-	<string name="confirm_mute">确定要隐藏 %s 吗？</string>
 	<string name="do_mute">确定</string>
-	<string name="confirm_unmute_title">取消隐藏</string>
-	<string name="confirm_unmute">确定不再隐藏 %s 吗？</string>
 	<string name="do_unmute">确定</string>
-	<string name="confirm_block_title">屏蔽用户</string>
-	<string name="confirm_block_domain_title">屏蔽域名</string>
-	<string name="confirm_block">确定要屏蔽 %s 吗？</string>
 	<string name="do_block">确定</string>
-	<string name="confirm_unblock_title">解除屏蔽</string>
-	<string name="confirm_unblock_domain_title">解除屏蔽</string>
-	<string name="confirm_unblock">确定不再屏蔽 %s 吗？</string>
 	<string name="do_unblock">确定</string>
 	<string name="button_blocked">已屏蔽</string>
 	<string name="action_vote">投票</string>
@@ -142,9 +129,7 @@
 	<string name="report_personal_subtitle">通过这些选项来控制你在 Mastodon 上可查看到的内容：</string>
 	<string name="back">返回</string>
 	<string name="search_communities">实例名称或 URL</string>
-	<string name="instance_rules_title">实例规则</string>
 	<string name="instance_rules_subtitle">继续意味着你同意并且愿意遵循由 %s 管理员设置和执行的规则。</string>
-	<string name="signup_title">创建账户</string>
 	<string name="display_name">名字</string>
 	<string name="username">用户名</string>
 	<string name="email">邮箱</string>
@@ -152,7 +137,6 @@
 	<string name="confirm_password">确认密码</string>
 	<string name="password_note">包括大写字母、特殊字符和数字以增加你的密码强度。</string>
 	<string name="category_general">通用</string>
-	<string name="confirm_email_title">检查你的收件箱</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">点击我们发送给你的链接来验证 %s。我们在此守候。</string>
 	<string name="confirm_email_didnt_get">没有收到链接？</string>
@@ -186,7 +170,6 @@
 	<string name="theme_dark">深色</string>
 	<string name="settings_behavior">行为</string>
 	<string name="settings_gif">播放动态头像和表情</string>
-	<string name="settings_custom_tabs">使用内置浏览器</string>
 	<string name="settings_notifications">通知</string>
 	<string name="settings_contribute">为Mastodon作出贡献</string>
 	<string name="settings_tos">使用条款</string>
@@ -215,8 +198,6 @@
 	<string name="followed_user">你正在关注 %s</string>
 	<string name="following_user_requested">请求关注 %s</string>
 	<string name="open_in_browser">在浏览器中打开</string>
-	<string name="hide_boosts_from_user">隐藏来自 %s 的转嘟</string>
-	<string name="show_boosts_from_user">显示来自 %s 的转嘟</string>
 	<string name="signup_reason">你想要加入的原因是什么？</string>
 	<string name="signup_reason_note">这会帮助我们评估你的申请。</string>
 	<string name="clear">清除</string>
@@ -239,7 +220,6 @@
 	<string name="recommended_accounts_info_banner">根据你所关注的，你或许也会喜欢这些用户。</string>
 	<string name="see_new_posts">新嘟文</string>
 	<string name="load_missing_posts">加载嘟文</string>
-	<string name="follow_back">关注</string>
 	<string name="button_follow_pending">已发送关注请求</string>
 	<string name="follows_you">已关注你</string>
 	<string name="manually_approves_followers">手动批准关注请求</string>
@@ -289,28 +269,18 @@
 	<string name="file_size_mb">%.2f MB</string>
 	<string name="file_size_gb">%.2f GB</string>
 	<string name="upload_processing">正在处理…</string>
-	<!-- %s is version like 1.2.3 -->
-	<!-- %s is version like 1.2.3 -->
 	<!-- %s is file size -->
 	<string name="download_update">已下载(%s)</string>
 	<string name="install_update">安装</string>
-	<string name="privacy_policy_title">你的隐私</string>
 	<string name="privacy_policy_subtitle">尽管 Mastodon 客户端本身不采集任何数据，你注册的实例可能会有不同的隐私政策。\n\n如果你不同意 %s 的这些政策，请返回并选择其他实例。</string>
-	<string name="i_agree">我同意</string>
 	<string name="empty_list">还没有内容</string>
 	<string name="instance_signup_closed">此实例不接受新注册。</string>
 	<string name="text_copied">复制成功</string>
 	<string name="add_bookmark">添加书签</string>
 	<string name="remove_bookmark">移除书签</string>
 	<string name="bookmarks">书签</string>
-	<string name="your_favorites">你喜欢的</string>
-	<string name="login_title">欢迎回来</string>
 	<string name="login_subtitle">登陆到你创建账户的服务器。</string>
 	<string name="server_url">实例 URL</string>
-	<string name="server_filter_any_language">语言</string>
-	<string name="server_filter_instant_signup">即时生效</string>
-	<string name="server_filter_manual_review">人工审核</string>
-	<string name="server_filter_any_signup_speed">注册机制</string>
 	<string name="server_filter_region_europe">欧洲</string>
 	<string name="server_filter_region_north_america">北美洲</string>
 	<string name="server_filter_region_south_america">南美洲</string>
@@ -318,7 +288,6 @@
 	<string name="server_filter_region_asia">亚洲</string>
 	<string name="server_filter_region_oceania">大洋洲</string>
 	<string name="not_accepting_new_members">不接受新成员</string>
-	<string name="category_special_interests">特定兴趣</string>
 	<string name="signup_passwords_dont_match">密码不匹配</string>
 	<string name="profile_add_row">添加</string>
 	<string name="profile_setup">个人资料设定</string>
@@ -575,7 +544,6 @@
 	<string name="remove">移除</string>
 	<string name="add_list_member">添加成员</string>
 	<string name="search_among_people_you_follow">在你关注的人中搜索</string>
-	<string name="add_user_to_list">添加到列表…</string>
 	<string name="add_user_to_list_title">添加到列表</string>
 	<!-- %s is a username -->
 	<string name="manage_user_lists">管理包含 %s 的列表</string>
@@ -625,4 +593,5 @@
 	<string name="info">信息</string>
 	<string name="button_reblogged">已转嘟</string>
 	<string name="button_favorited">已喜欢</string>
+	<!-- Shown on a button that saves a file, after it was successfully saved -->
 </resources>
