@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animated-vector xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:aapt="http://schemas.android.com/aapt"
+	android:drawable="@drawable/bg_tabbar_tab_vector">
+	<target
+		android:name="shape">
+		<aapt:attr name="android:animation">
+			<objectAnimator
+				android:duration="500"
+				android:interpolator="@interpolator/m3_sys_motion_easing_standard"
+				android:propertyName="fillAlpha"
+				android:valueFrom="1.0"
+				android:valueTo="0.0"
+				android:valueType="floatType"/>
+		</aapt:attr>
+	</target>
+</animated-vector>

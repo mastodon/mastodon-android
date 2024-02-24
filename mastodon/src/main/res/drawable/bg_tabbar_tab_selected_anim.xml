@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animated-vector xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:aapt="http://schemas.android.com/aapt"
+	android:drawable="@drawable/bg_tabbar_tab_vector">
+	<target
+		android:name="shape">
+		<aapt:attr name="android:animation">
+			<set>
+				<objectAnimator
+					android:duration="500"
+					android:interpolator="@interpolator/m3_sys_motion_easing_standard"
+					android:propertyName="pathData"
+					android:valueFrom="M32 0A16 16 0 0 0 16 16A16 16 0 0 0 32 32h0A16 16 0 0 0 48 16A16 16 0 0 0 32 0Z"
+					android:valueTo="M16 0A16 16 0 0 0 0 16A16 16 0 0 0 16 32h32A16 16 0 0 0 64 16A16 16 0 0 0 48 0Z"
+					android:valueType="pathType"/>
+				<objectAnimator
+					android:duration="250"
+					android:interpolator="@interpolator/m3_sys_motion_easing_standard"
+					android:propertyName="fillAlpha"
+					android:valueFrom="0.0"
+					android:valueTo="1.0"
+					android:valueType="floatType"/>
+			</set>
+		</aapt:attr>
+	</target>
+</animated-vector>
