@@ -192,18 +192,13 @@ public class SettingsNotificationsFragment extends BaseSettingsFragment<Void>{
 				3*24*3600,
 				7*24*3600
 		};
-		int[] selectedOption={0};
 		AlertDialog alert=new M3AlertDialogBuilder(getActivity())
 				.setTitle(R.string.pause_all_notifications_title)
 				.setSupportingText(time>System.currentTimeMillis() ? getString(R.string.pause_notifications_ends, UiUtils.formatRelativeTimestampAsMinutesAgo(getActivity(), Instant.ofEpochMilli(time), false)) : null)
 				.setSingleChoiceItems((String[])Arrays.stream(durationOptions).mapToObj(d->UiUtils.formatDuration(getActivity(), d)).toArray(String[]::new), -1, (dlg, item)->{
-					if(selectedOption[0]==0){
-						((AlertDialog)dlg).getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(true);
-					}
-					selectedOption[0]=durationOptions[item];
+					AccountSessionManager.get(accountID).getLocalPreferences().setNotificationsPauseEndTime(System.currentTimeMillis()+durationOptions[item]*1000L);
+					dlg.dismiss();
 				})
-				.setPositiveButton(R.string.ok, (dlg, item)->AccountSessionManager.get(accountID).getLocalPreferences().setNotificationsPauseEndTime(System.currentTimeMillis()+selectedOption[0]*1000L))
-				.setNegativeButton(R.string.cancel, null)
 				.show();
 		alert.setOnDismissListener(dialog->updatePauseItem());
 		alert.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(false);
@@ -216,20 +211,18 @@ public class SettingsNotificationsFragment extends BaseSettingsFragment<Void>{
 				R.string.notifications_policy_follower,
 				R.string.notifications_policy_no_one
 		).map(this::getString).toArray(String[]::new);
-		int[] selectedItem={getPushSubscription().policy.ordinal()};
 		new M3AlertDialogBuilder(getActivity())
 				.setTitle(R.string.settings_notifications_policy)
-				.setSingleChoiceItems(items, selectedItem[0], (dlg, which)->selectedItem[0]=which)
-				.setPositiveButton(R.string.ok, (dlg, which)->{
+				.setSingleChoiceItems(items, getPushSubscription().policy.ordinal(), (dlg, which)->{
+					dlg.dismiss();
 					PushSubscription.Policy prevValue=getPushSubscription().policy;
-					PushSubscription.Policy newValue=PushSubscription.Policy.values()[selectedItem[0]];
+					PushSubscription.Policy newValue=PushSubscription.Policy.values()[which];
 					if(prevValue==newValue)
 						return;
 					getPushSubscription().policy=newValue;
 					updatePolicyItem(prevValue);
 					needUpdateNotificationSettings=true;
 				})
-				.setNegativeButton(R.string.cancel, null)
 				.show();
 	}
 

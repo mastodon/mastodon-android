@@ -5,6 +5,7 @@ import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.ClipData;
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -1120,12 +1121,15 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 	private void showLanguageAlert(){
 		Preferences prefs=AccountSessionManager.getInstance().getAccount(accountID).preferences;
 		ComposeLanguageAlertViewController vc=new ComposeLanguageAlertViewController(getActivity(), prefs!=null ? prefs.postingDefaultLanguage : null, postLang, mainEditText.getText().toString());
-		new M3AlertDialogBuilder(getActivity())
+		final AlertDialog dlg=new M3AlertDialogBuilder(getActivity())
 				.setTitle(R.string.language)
 				.setView(vc.getView())
-				.setPositiveButton(R.string.ok, (dialog, which)->setPostLanguage(vc.getSelectedOption()))
-				.setNegativeButton(R.string.cancel, null)
+				.setPositiveButton(R.string.cancel, null)
 				.show();
+		vc.setSelectionListener(opt->{
+			setPostLanguage(opt);
+			dlg.dismiss();
+		});
 	}
 
 	private void setPostLanguage(ComposeLanguageAlertViewController.SelectedOption language){

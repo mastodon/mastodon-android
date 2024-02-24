@@ -125,41 +125,40 @@ public class EditFilterFragment extends BaseSettingsFragment<Void> implements On
 		ArrayList<String> options=Arrays.stream(durationOptions).mapToObj(d->UiUtils.formatDuration(getActivity(), d)).collect(Collectors.toCollection(ArrayList<String>::new));
 		options.add(0, getString(R.string.filter_duration_forever));
 		options.add(getString(R.string.filter_duration_custom));
-		Instant[] newEnd={null};
-		boolean[] isCustom={false};
 		AlertDialog alert=new M3AlertDialogBuilder(getActivity())
 				.setTitle(R.string.settings_filter_duration_title)
 				.setSupportingText(endsAt==null ? null : getString(R.string.settings_filter_ends, UiUtils.formatRelativeTimestampAsMinutesAgo(getActivity(), endsAt, false)))
 				.setSingleChoiceItems(options.toArray(new String[0]), -1, (dlg, item)->{
 					AlertDialog a=(AlertDialog) dlg;
 					if(item==options.size()-1){ // custom
-						showCustomDurationAlert(isCustom[0] ? newEnd[0] : null, date->{
+						showCustomDurationAlert(null, date->{
 							if(date==null){
 								a.getListView().setItemChecked(item, false);
 							}else{
-								isCustom[0]=true;
-								newEnd[0]=date;
-								a.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(true);
+								Instant newEnd=date;
+								if(!Objects.equals(endsAt, newEnd)){
+									endsAt=newEnd;
+									updateDurationItem();
+									dirty=true;
+								}
+								a.dismiss();
 							}
 						});
 					}else{
-						isCustom[0]=false;
+						Instant newEnd;
 						if(item==0){
-							newEnd[0]=null;
+							newEnd=null;
 						}else{
-							newEnd[0]=Instant.now().plusSeconds(durationOptions[item-1]);
+							newEnd=Instant.now().plusSeconds(durationOptions[item-1]);
 						}
-						a.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(true);
+						if(!Objects.equals(endsAt, newEnd)){
+							endsAt=newEnd;
+							updateDurationItem();
+							dirty=true;
+						}
+						a.dismiss();
 					}
 				})
-				.setPositiveButton(R.string.ok, (dlg, item)->{
-					if(!Objects.equals(endsAt, newEnd[0])){
-						endsAt=newEnd[0];
-						updateDurationItem();
-						dirty=true;
-					}
-				})
-				.setNegativeButton(R.string.cancel, null)
 				.show();
 		alert.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(false);
 	}

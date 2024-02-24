@@ -1,5 +1,6 @@
 package org.joinmastodon.android.fragments.settings;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
@@ -57,20 +58,20 @@ public class SettingsBehaviorFragment extends BaseSettingsFragment<Void>{
 	protected void doLoadData(int offset, int count){}
 
 	private void onDefaultLanguageClick(ListItem<?> item){
-		ComposeLanguageAlertViewController vc=new ComposeLanguageAlertViewController(getActivity(), null, new ComposeLanguageAlertViewController.SelectedOption(-1, postLanguage, null), null);
-		new M3AlertDialogBuilder(getActivity())
+		ComposeLanguageAlertViewController vc=new ComposeLanguageAlertViewController(getActivity(), null, newPostLanguage==null ? new ComposeLanguageAlertViewController.SelectedOption(-1, postLanguage, null) : newPostLanguage, null);
+		AlertDialog dlg=new M3AlertDialogBuilder(getActivity())
 				.setTitle(R.string.default_post_language)
 				.setView(vc.getView())
-				.setPositiveButton(R.string.ok, (dlg, which)->{
-					ComposeLanguageAlertViewController.SelectedOption opt=vc.getSelectedOption();
-					if(!opt.locale.equals(postLanguage)){
-						newPostLanguage=opt;
-						languageItem.subtitle=newPostLanguage.locale.getDisplayLanguage(Locale.getDefault());
-						rebindItem(languageItem);
-					}
-				})
-				.setNegativeButton(R.string.cancel, null)
+				.setPositiveButton(R.string.cancel, null)
 				.show();
+		vc.setSelectionListener(opt->{
+			if(!opt.locale.equals(postLanguage)){
+				newPostLanguage=opt;
+				languageItem.subtitle=newPostLanguage.locale.getDisplayLanguage(Locale.getDefault());
+				rebindItem(languageItem);
+			}
+			dlg.dismiss();
+		});
 	}
 
 	private void onCustomTabsClick(ListItem<?> item){

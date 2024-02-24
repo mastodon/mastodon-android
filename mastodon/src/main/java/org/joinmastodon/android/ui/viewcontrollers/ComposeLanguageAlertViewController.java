@@ -28,6 +28,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
+import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 import androidx.annotation.NonNull;
@@ -47,6 +48,7 @@ public class ComposeLanguageAlertViewController{
 	private int selectedIndex=0;
 	private Locale selectedLocale;
 	private Locale detectedLocale;
+	private Consumer<SelectedOption> selectionListener;
 
 	public ComposeLanguageAlertViewController(Context context, String preferred, SelectedOption previouslySelected, String postText){
 		this.context=context;
@@ -221,6 +223,12 @@ public class ComposeLanguageAlertViewController{
 		if(holder!=null && holder.itemView instanceof Checkable checkable)
 			checkable.setChecked(true);
 		selectedIndex=index;
+		if(selectionListener!=null)
+			selectionListener.accept(getSelectedOption());
+	}
+
+	public void setSelectionListener(Consumer<SelectedOption> selectionListener){
+		this.selectionListener=selectionListener;
 	}
 
 	private class AllLocalesAdapter extends RecyclerView.Adapter<SimpleLanguageViewHolder>{
@@ -264,8 +272,8 @@ public class ComposeLanguageAlertViewController{
 
 		@Override
 		public void onClick(){
-			selectItem(getAbsoluteAdapterPosition());
 			selectedLocale=item.locale;
+			selectItem(getAbsoluteAdapterPosition());
 		}
 	}
 
@@ -321,8 +329,8 @@ public class ComposeLanguageAlertViewController{
 
 		@Override
 		public void onClick(){
-			selectItem(getAbsoluteAdapterPosition());
 			selectedLocale=item.locale;
+			selectItem(getAbsoluteAdapterPosition());
 		}
 
 		@Override
