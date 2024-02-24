@@ -1,12 +1,17 @@
 package org.joinmastodon.android.fragments;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.view.ActionMode;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.WindowInsets;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 
 import com.squareup.otto.Subscribe;
@@ -19,7 +24,7 @@ import org.joinmastodon.android.api.requests.lists.GetListAccounts;
 import org.joinmastodon.android.api.requests.lists.RemoveAccountsFromList;
 import org.joinmastodon.android.events.AccountAddedToListEvent;
 import org.joinmastodon.android.events.AccountRemovedFromListEvent;
-import org.joinmastodon.android.fragments.account_list.AddListMembersFragment;
+import org.joinmastodon.android.fragments.account_list.AddNewListMembersFragment;
 import org.joinmastodon.android.fragments.account_list.PaginatedAccountListFragment;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.FollowList;
@@ -33,24 +38,31 @@ import org.parceler.Parcels;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
 
 import me.grishka.appkit.Nav;
 import me.grishka.appkit.api.Callback;
 import me.grishka.appkit.api.ErrorResponse;
+import me.grishka.appkit.fragments.OnBackPressedListener;
+import me.grishka.appkit.utils.CubicBezierInterpolator;
 import me.grishka.appkit.utils.V;
+import me.grishka.appkit.views.FragmentRootLinearLayout;
 
-public class ListMembersFragment extends PaginatedAccountListFragment{
-	private static final int ADD_MEMBER_RESULT=600;
-
+public class ListMembersFragment extends PaginatedAccountListFragment implements AddNewListMembersFragment.Listener, OnBackPressedListener{
 	private ImageButton fab;
 	private FollowList followList;
 	private boolean inSelectionMode;
 	private Set<String> selectedAccounts=new HashSet<>();
 	private ActionMode actionMode;
 	private MenuItem deleteItem;
+	private FrameLayout searchFragmentContainer;
+	private FrameLayout fragmentContentWrap;
+	private AddNewListMembersFragment searchFragment;
+	private FragmentRootLinearLayout rootView;
+	private WindowInsets lastInsets;
+	private HashSet<String> accountIDsInList=new HashSet<>();
+	private boolean dismissingSearchFragment;
 
 	public ListMembersFragment(){
 		setListLayoutId(R.layout.recycler_fragment_with_fab);
@@ -74,6 +86,26 @@ public class ListMembersFragment extends PaginatedAccountListFragment{
 	@Override
 	public HeaderPaginationRequest<Account> onCreateRequest(String maxID, int count){
 		return new GetListAccounts(followList.id, maxID, count);
+	}
+
+	@Override
+	protected void onDataLoaded(List<AccountViewModel> d, boolean more){
+		if(refreshing)
+			accountIDsInList.clear();
+		for(AccountViewModel a:d){
+			accountIDsInList.add(a.account.id);
+		}
+		super.onDataLoaded(d, more);
+	}
+
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+		View view=super.onCreateView(inflater, container, savedInstanceState);
+		FrameLayout wrapper=new FrameLayout(getActivity());
+		wrapper.addView(view);
+		rootView=(FragmentRootLinearLayout) view;
+		fragmentContentWrap=wrapper;
+		return wrapper;
 	}
 
 	@Override
@@ -132,16 +164,19 @@ public class ListMembersFragment extends PaginatedAccountListFragment{
 
 	@Override
 	public void onApplyWindowInsets(WindowInsets insets){
-		super.onApplyWindowInsets(insets);
+		lastInsets=insets;
+		if(searchFragment!=null)
+			searchFragment.onApplyWindowInsets(insets);
 		UiUtils.applyBottomInsetToFAB(fab, insets);
-	}
-
-	@Override
-	public void onFragmentResult(int reqCode, boolean success, Bundle result){
-		if(reqCode==ADD_MEMBER_RESULT && success){
-			Account acc=Objects.requireNonNull(Parcels.unwrap(result.getParcelable("selectedAccount")));
-			addAccounts(List.of(acc));
+		if(Build.VERSION.SDK_INT>=29 && insets.getTappableElementInsets().bottom==0){
+			list.setPadding(0, 0, 0, insets.getSystemWindowInsetBottom());
+			emptyView.setPadding(0, 0, 0, insets.getSystemWindowInsetBottom());
+			progress.setPadding(0, 0, 0, insets.getSystemWindowInsetBottom());
+			insets=insets.inset(0, 0, 0, insets.getSystemWindowInsetBottom());
+		}else{
+			list.setPadding(0, 0, 0, 0);
 		}
+		rootView.onApplyWindowInsets(insets);
 	}
 
 	@Subscribe
@@ -160,9 +195,25 @@ public class ListMembersFragment extends PaginatedAccountListFragment{
 	}
 
 	private void onFabClick(){
+		searchFragmentContainer=new FrameLayout(getActivity());
+		searchFragmentContainer.setId(R.id.search_fragment);
+		fragmentContentWrap.addView(searchFragmentContainer);
+
 		Bundle args=new Bundle();
 		args.putString("account", accountID);
-		Nav.goForResult(getActivity(), AddListMembersFragment.class, args, ADD_MEMBER_RESULT, this);
+		args.putParcelable("list", Parcels.wrap(followList));
+		args.putBoolean("_can_go_back", true);
+		searchFragment=new AddNewListMembersFragment(this);
+		searchFragment.setArguments(args);
+		getChildFragmentManager().beginTransaction().add(R.id.search_fragment, searchFragment).commit();
+		getChildFragmentManager().executePendingTransactions();
+		if(lastInsets!=null)
+			searchFragment.onApplyWindowInsets(lastInsets);
+		searchFragmentContainer.setTranslationX(V.dp(100));
+		searchFragmentContainer.setAlpha(0f);
+		searchFragmentContainer.animate().translationX(0).alpha(1).setDuration(300).withLayer().setInterpolator(CubicBezierInterpolator.DEFAULT).withEndAction(()->{
+			rootView.setVisibility(View.GONE);
+		}).start();
 	}
 
 	private void onItemClick(AccountViewHolder holder){
@@ -198,7 +249,7 @@ public class ListMembersFragment extends PaginatedAccountListFragment{
 		if(id==R.id.remove_from_list){
 			new M3AlertDialogBuilder(getActivity())
 					.setTitle(R.string.confirm_remove_list_member)
-					.setPositiveButton(R.string.remove, (dlg, which)->removeAccounts(Set.of(holder.getItem().account.id)))
+					.setPositiveButton(R.string.remove, (dlg, which)->removeAccounts(Set.of(holder.getItem().account.id), null))
 					.setNegativeButton(R.string.cancel, null)
 					.show();
 		}
@@ -229,7 +280,7 @@ public class ListMembersFragment extends PaginatedAccountListFragment{
 			public boolean onActionItemClicked(ActionMode mode, MenuItem item){
 				new M3AlertDialogBuilder(getActivity())
 						.setTitle(R.string.confirm_remove_list_members)
-						.setPositiveButton(R.string.remove, (dlg, which)->removeAccounts(new HashSet<>(selectedAccounts)))
+						.setPositiveButton(R.string.remove, (dlg, which)->removeAccounts(new HashSet<>(selectedAccounts), null))
 						.setNegativeButton(R.string.cancel, null)
 						.show();
 				return true;
@@ -251,13 +302,16 @@ public class ListMembersFragment extends PaginatedAccountListFragment{
 		actionMode.setTitle(getResources().getQuantityString(R.plurals.x_items_selected, selectedAccounts.size(), selectedAccounts.size()));
 	}
 
-	private void removeAccounts(Set<String> ids){
+	private void removeAccounts(Set<String> ids, Runnable onDone){
 		new RemoveAccountsFromList(followList.id, ids)
 				.setCallback(new Callback<>(){
 					@Override
 					public void onSuccess(Void result){
+						if(onDone!=null)
+							onDone.run();
 						if(inSelectionMode)
 							actionMode.finish();
+						accountIDsInList.removeAll(ids);
 						removeAccountRows(ids);
 					}
 
@@ -270,12 +324,15 @@ public class ListMembersFragment extends PaginatedAccountListFragment{
 				.exec(accountID);
 	}
 
-	private void addAccounts(Collection<Account> accounts){
+	private void addAccounts(Collection<Account> accounts, Runnable onDone){
 		new AddAccountsToList(followList.id, accounts.stream().map(a->a.id).collect(Collectors.toSet()))
 				.setCallback(new Callback<>(){
 					@Override
 					public void onSuccess(Void result){
+						if(onDone!=null)
+							onDone.run();
 						for(Account acc:accounts){
+							accountIDsInList.add(acc.id);
 							data.add(new AccountViewModel(acc, accountID));
 						}
 						list.getAdapter().notifyItemRangeInserted(data.size()-accounts.size(), accounts.size());
@@ -297,5 +354,55 @@ public class ListMembersFragment extends PaginatedAccountListFragment{
 				list.getAdapter().notifyItemRemoved(i);
 			}
 		}
+	}
+
+	@Override
+	public boolean isAccountInList(AccountViewModel account){
+		return accountIDsInList.contains(account.account.id);
+	}
+
+	@Override
+	public void addAccountToList(AccountViewModel account, Runnable onDone){
+		addAccounts(Set.of(account.account), onDone);
+	}
+
+	@Override
+	public void removeAccountAccountFromList(AccountViewModel account, Runnable onDone){
+		removeAccounts(Set.of(account.account.id), onDone);
+	}
+
+	@Override
+	public boolean onBackPressed(){
+		if(searchFragment!=null){
+			dismissSearchFragment();
+			return true;
+		}
+		return false;
+	}
+
+	private void dismissSearchFragment(){
+		if(searchFragment==null || dismissingSearchFragment)
+			return;
+		dismissingSearchFragment=true;
+		rootView.setVisibility(View.VISIBLE);
+		searchFragmentContainer.animate().translationX(V.dp(100)).alpha(0).setDuration(200).withLayer().setInterpolator(CubicBezierInterpolator.DEFAULT).withEndAction(()->{
+			getChildFragmentManager().beginTransaction().remove(searchFragment).commit();
+			getChildFragmentManager().executePendingTransactions();
+			fragmentContentWrap.removeView(searchFragmentContainer);
+			searchFragmentContainer=null;
+			searchFragment=null;
+			dismissingSearchFragment=false;
+		}).start();
+		getActivity().getSystemService(InputMethodManager.class).hideSoftInputFromWindow(contentView.getWindowToken(), 0);
+	}
+
+	@Override
+	protected void setStatusBarColor(int color){
+		rootView.setStatusBarColor(color);
+	}
+
+	@Override
+	protected void setNavigationBarColor(int color){
+		rootView.setNavigationBarColor(color);
 	}
 }
