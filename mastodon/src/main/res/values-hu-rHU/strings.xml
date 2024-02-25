@@ -24,17 +24,19 @@
 	<string name="cancel">Mégsem</string>
 	<plurals name="followers">
 		<item quantity="one">követő</item>
-		<item quantity="other">követők</item>
+		<item quantity="other">követő</item>
 	</plurals>
 	<plurals name="following">
 		<item quantity="one">követett</item>
-		<item quantity="other">követettek</item>
+		<item quantity="other">követett</item>
 	</plurals>
 	<string name="posts">Bejegyzések</string>
+	<string name="posts_and_replies">Bejegyzések és válaszok</string>
 	<string name="media">Média</string>
 	<string name="profile_about">Névjegy</string>
 	<string name="button_follow">Követés</string>
 	<string name="button_following">Követve</string>
+	<string name="edit_profile">Profil szerkesztése</string>
 	<string name="mute_user">%s némítása</string>
 	<string name="unmute_user">%s némításának feloldása</string>
 	<string name="block_user">%s letiltása</string>
@@ -298,6 +300,7 @@
 	<string name="add_bookmark">Könyvjelzőzés</string>
 	<string name="remove_bookmark">Könyvjelző eltávolítása</string>
 	<string name="bookmarks">Könyvjelzők</string>
+	<string name="login_title">Üdv ismét</string>
 	<string name="login_subtitle">Azon a kiszolgálón jelentkezzen be, ahol a fiókját létrehozta.</string>
 	<string name="server_url">Kiszolgáló URL</string>
 	<string name="server_filter_region_europe">Európa</string>
@@ -463,7 +466,7 @@
 		<item quantity="one">%d néma szó vagy kifejezés</item>
 		<item quantity="other">%d néma szó vagy kifejezés</item>
 	</plurals>
-	<string name="filter_context_home_lists">Kezdőoldal &amp; listák</string>
+	<string name="filter_context_home_lists">Főoldal &amp; listák</string>
 	<string name="filter_context_notifications">Értesítések</string>
 	<string name="filter_context_public_timelines">Nyilvános idővonalak</string>
 	<string name="filter_context_threads_replies">Témák &amp; válaszok</string>
@@ -522,7 +525,7 @@
 		<item quantity="other">%,d mai bejegyzés</item>
 	</plurals>
 	<string name="error_playing_video">Hiba a videó lejátszásakor</string>
-	<string name="timeline_following">Kezdőoldal</string>
+	<string name="timeline_following">Főoldal</string>
 	<string name="lists">Listák</string>
 	<string name="followed_hashtags">Követett címkék (hashtag)</string>
 	<string name="manage_lists">Listák kezelése</string>
@@ -544,6 +547,7 @@
 	<string name="remove">Eltávolítás</string>
 	<string name="add_list_member">Tag hozzáadása</string>
 	<string name="search_among_people_you_follow">Keresés a követett személyek között</string>
+	<string name="add_user_to_list">Hozzáadás/eltávolítás listákról…</string>
 	<string name="add_user_to_list_title">Hozzáadás listához</string>
 	<!-- %s is a username -->
 	<string name="remove_from_list">Eltávolítás a listából</string>
@@ -603,4 +607,6 @@
 	<string name="image_saved">Kép elmentve.</string>
 	<string name="video_saved">Videó elmentve.</string>
 	<string name="view_file">Megtekintés</string>
+	<string name="tab_home">Főoldal</string>
+	<string name="tab_search">Felfedezés</string>
 </resources>
