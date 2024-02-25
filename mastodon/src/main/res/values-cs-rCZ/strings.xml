@@ -348,8 +348,14 @@
 	<string name="add_bookmark">Přidat do záložek</string>
 	<string name="remove_bookmark">Odstranit ze záložek</string>
 	<string name="bookmarks">Záložky</string>
+	<string name="your_favorites">Vaše oblíbené</string>
+	<string name="login_title">Vítej zpět</string>
 	<string name="login_subtitle">Přihlaste se pomocí serveru, kde jste vytvořili svůj účet.</string>
 	<string name="server_url">URL serveru</string>
+	<string name="server_filter_any_language">Jakýkoliv jazyk</string>
+	<string name="server_filter_instant_signup">Okamžitá registrace</string>
+	<string name="server_filter_manual_review">S ruční kontrolou</string>
+	<string name="server_filter_any_signup_speed">Jakákoliv rychlost registrace</string>
 	<string name="server_filter_region_europe">Evropa</string>
 	<string name="server_filter_region_north_america">Severní Amerika</string>
 	<string name="server_filter_region_south_america">Jižní Amerika</string>
@@ -357,6 +363,7 @@
 	<string name="server_filter_region_asia">Asie</string>
 	<string name="server_filter_region_oceania">Oceánie</string>
 	<string name="not_accepting_new_members">Nepřijímá nové členy</string>
+	<string name="category_special_interests">Speciální zájmy</string>
 	<string name="signup_passwords_dont_match">Hesla se neshodují</string>
 	<string name="profile_add_row">Přidat řádek</string>
 	<string name="profile_setup">Nastavení profilu</string>
@@ -649,6 +656,7 @@
 	<string name="remove">Odstranit</string>
 	<string name="add_list_member">Přidat člena</string>
 	<string name="search_among_people_you_follow">Hledejte mezi lidmi, které sledujete</string>
+	<string name="add_user_to_list">Přidat/odstranit ze seznamů…</string>
 	<string name="add_user_to_list_title">Přidat do seznamu</string>
 	<!-- %s is a username -->
 	<string name="manage_user_lists">Spravovat seznamy, v kterých je %s</string>
@@ -749,5 +757,20 @@
 	<string name="what_is_activitypub_title">Co je ActivityPub?</string>
 	<string name="what_is_activitypub">ActivityPub je jako jazyk, kterým Mastodon mluví s ostatními sociálními sítěmi.\n\nUmožňuje vám se propojit a komunikovat s lidmi nejen na Mastodonu, ale také napříč různými sociálními aplikacemi.</string>
 	<string name="handle_copied">Jméno zkopírováno do schránky.</string>
+	<string name="qr_code">QR kód</string>
+	<string name="scan_qr_code">Načíst QR kód</string>
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
+	<string name="saved">Uloženo</string>
+	<string name="image_saved">Obrázek uložen.</string>
+	<string name="video_saved">Video uloženo.</string>
+	<string name="view_file">Zobrazit</string>
+	<string name="share_sheet_preview_profile">%s na Mastodonu</string>
+	<string name="share_sheet_preview_post">%1$s na Mastodonu: „%2$s“</string>
+	<string name="copy_profile_link">Zkopírovat odkaz na profil</string>
+	<string name="in_app_browser">Prohlížeč v aplikaci</string>
+	<string name="system_browser">Systémový prohlížeč</string>
+	<string name="add_muted_word_short">Přidat slovo</string>
+	<string name="tab_home">Domů</string>
+	<string name="tab_search">Prozkoumat</string>
+	<string name="tab_profile">Profil</string>
 </resources>
