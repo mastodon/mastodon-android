@@ -185,6 +185,7 @@
 	<string name="theme_dark">Sötét</string>
 	<string name="settings_behavior">Viselkedés</string>
 	<string name="settings_gif">Animált avatarok és hangulatjelek lejátszása</string>
+	<string name="settings_custom_tabs">Hivatkozások megnyitása</string>
 	<string name="settings_notifications">Értesítések</string>
 	<string name="settings_contribute">Közreműködés a Mastodonhoz</string>
 	<string name="settings_tos">Felhasználási feltételek</string>
@@ -205,7 +206,7 @@
 	<string name="add_media">Média hozzáadása</string>
 	<string name="add_poll">Szavazás hozzáadása</string>
 	<string name="emoji">Hangulatjel</string>
-	<string name="home_timeline">Kezdőoldal idővonala</string>
+	<string name="home_timeline">Főoldal idővonala</string>
 	<string name="my_profile">Profilom</string>
 	<string name="media_viewer">Média nézegető</string>
 	<string name="follow_user">%s követése</string>
@@ -413,7 +414,7 @@
 	<string name="notifications_policy_no_one">Senkitől</string>
 	<string name="settings_notifications_policy">Értesítés fogadása</string>
 	<string name="notification_type_mentions_and_replies">Említések és válaszok</string>
-	<string name="pause_all_notifications_title">Minden értesítés szüneteltetése</string>
+	<string name="pause_all_notifications_title">Összes értesítés szüneteltetése</string>
 	<plurals name="x_weeks">
 		<item quantity="one">1 hét</item>
 		<item quantity="other">%d hét</item>
@@ -429,11 +430,12 @@
 	<string name="about_server">Névjegy</string>
 	<string name="server_rules">Szabályok</string>
 	<string name="server_administrator">Adminisztrátor</string>
+	<string name="send_email_to_server_admin">Üzenet admin</string>
 	<string name="notifications_disabled_in_system">Kapcsolja be az értesítéseket a készülék beállításaiban, hogy bárhonnan láthassa a frissítéseket.</string>
 	<string name="settings_even_more">További beállítások</string>
 	<string name="settings_show_cws">Tartalmi figyelmeztetések megjelenítése</string>
 	<string name="settings_hide_sensitive_media">Kényesnek jelölt média elrejtése</string>
-	<string name="settings_show_interaction_counts">Poszt interakció számláló</string>
+	<string name="settings_show_interaction_counts">Poszt interakciók számlálója</string>
 	<string name="settings_show_emoji_in_names">Egyéni emojik a megjelenített nevekben</string>
 	<plurals name="in_x_seconds">
 		<item quantity="one">%d mp-en belül</item>
@@ -466,6 +468,7 @@
 		<item quantity="one">%d néma szó vagy kifejezés</item>
 		<item quantity="other">%d néma szó vagy kifejezés</item>
 	</plurals>
+	<string name="selection_4_or_more">%1$s, %2$s, és további %3$d</string>
 	<string name="filter_context_home_lists">Főoldal &amp; listák</string>
 	<string name="filter_context_notifications">Értesítések</string>
 	<string name="filter_context_public_timelines">Nyilvános idővonalak</string>
@@ -607,6 +610,9 @@
 	<string name="image_saved">Kép elmentve.</string>
 	<string name="video_saved">Videó elmentve.</string>
 	<string name="view_file">Megtekintés</string>
+	<string name="in_app_browser">Beépített böngésző</string>
+	<string name="system_browser">Rendszer böngésző</string>
+	<string name="add_muted_word_short">Szó hozzáadása</string>
 	<string name="tab_home">Főoldal</string>
 	<string name="tab_search">Felfedezés</string>
 </resources>
