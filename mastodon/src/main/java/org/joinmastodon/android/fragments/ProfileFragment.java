@@ -635,7 +635,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 			menu.findItem(R.id.block_domain).setVisible(false);
 		menu.findItem(R.id.add_to_list).setVisible(relationship.following);
 
-		if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.P){
+		if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.P && !UiUtils.isEMUI()){
 			menu.setGroupDividerEnabled(true);
 		}
 	}
