@@ -35,10 +35,13 @@
 		<item quantity="other">sledovaných</item>
 	</plurals>
 	<string name="posts">Příspěvky</string>
+	<string name="posts_and_replies">Příspěvky a odpovědi</string>
 	<string name="media">Média</string>
 	<string name="profile_about">O uživateli</string>
 	<string name="button_follow">Sledovat</string>
 	<string name="button_following">Sleduji</string>
+	<string name="edit_profile">Upravit profil</string>
+	<string name="share_user">Sdílet profil přes…</string>
 	<string name="mute_user">Skrýt %s</string>
 	<string name="unmute_user">Zrušit skrytí @%s</string>
 	<string name="block_user">Blokovat %s</string>
@@ -165,7 +168,9 @@
 	<string name="report_personal_subtitle">Tady jsou vaše možnosti pro řízení toho, co na Mastodonu vidíte:</string>
 	<string name="back">Zpět</string>
 	<string name="search_communities">Název nebo URL serveru</string>
+	<string name="instance_rules_title">Pravidla serveru</string>
 	<string name="instance_rules_subtitle">Pokračováním souhlasíte s následujícími pravidly, která jsou nastavena a prosazována moderátory %s.</string>
+	<string name="signup_title">Vytvořit účet</string>
 	<string name="display_name">Jméno</string>
 	<string name="username">Uživatelské jméno</string>
 	<string name="email">E-mail</string>
@@ -173,6 +178,7 @@
 	<string name="confirm_password">Potvrdit heslo</string>
 	<string name="password_note">Použijte velká písmena, speciální znaky a čísla, abyste zvýšili sílu hesla.</string>
 	<string name="category_general">Obecné</string>
+	<string name="confirm_email_title">Zkontrolujte si příchozí poštu</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">Klepněte na odkaz, který jsme vám poslali, abyste ověřili %s. Budeme tu na vás čekat.</string>
 	<string name="confirm_email_didnt_get">Nedostali jste odkaz?</string>
@@ -209,6 +215,7 @@
 	<string name="theme_dark">Tmavý</string>
 	<string name="settings_behavior">Chování</string>
 	<string name="settings_gif">Přehrávat animované avatary a emoji</string>
+	<string name="settings_custom_tabs">Otevírat odkazy v</string>
 	<string name="settings_notifications">Oznámení</string>
 	<string name="settings_contribute">Přispějte do Mastodonu</string>
 	<string name="settings_tos">Podmínky užití</string>
@@ -237,6 +244,8 @@
 	<string name="followed_user">Nyní sledujete %s</string>
 	<string name="following_user_requested">Požádáno o sledování %s</string>
 	<string name="open_in_browser">Otevřít v prohlížeči</string>
+	<string name="hide_boosts_from_user">Skrýt boosty</string>
+	<string name="show_boosts_from_user">Zobrazit boosty</string>
 	<string name="signup_reason">Proč se chcete připojit?</string>
 	<string name="signup_reason_note">Toto nám pomůže posoudit vaši žádost.</string>
 	<string name="clear">Vyčistit</string>
@@ -259,6 +268,7 @@
 	<string name="recommended_accounts_info_banner">Podle toho, koho sledujete, by se vám mohly líbit tyto účty.</string>
 	<string name="see_new_posts">Nové příspěvky</string>
 	<string name="load_missing_posts">Načíst chybějící příspěvky</string>
+	<string name="follow_back">Také sledovat</string>
 	<string name="button_follow_pending">Čekající</string>
 	<string name="follows_you">Sleduje vás</string>
 	<string name="manually_approves_followers">Ručně schvaluje sledující</string>
@@ -329,7 +339,9 @@
 	<!-- %s is file size -->
 	<string name="download_update">Stáhnout (%s)</string>
 	<string name="install_update">Instalovat</string>
+	<string name="privacy_policy_title">Vaše soukromí</string>
 	<string name="privacy_policy_subtitle">Přestože aplikace Mastodon neshromažďuje žádná data, server, který se přihlásíte, může mít jiné zásady.\n\nPokud nesouhlasíte se zásadami pro %s, můžete se vrátit a vybrat jiný server.</string>
+	<string name="i_agree">Souhlasím</string>
 	<string name="empty_list">Tento seznam je prázdný</string>
 	<string name="instance_signup_closed">Tento server nepřijímá nové registrace.</string>
 	<string name="text_copied">Zkopírováno do schránky</string>
