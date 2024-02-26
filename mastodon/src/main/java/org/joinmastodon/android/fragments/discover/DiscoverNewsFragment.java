@@ -1,5 +1,6 @@
 package org.joinmastodon.android.fragments.discover;
 
+import android.annotation.SuppressLint;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -18,6 +19,7 @@ import org.joinmastodon.android.ui.DividerItemDecoration;
 import org.joinmastodon.android.ui.OutlineProviders;
 import org.joinmastodon.android.ui.drawables.BlurhashCrossfadeDrawable;
 import org.joinmastodon.android.ui.utils.DiscoverInfoBannerHelper;
+import org.joinmastodon.android.ui.utils.HorizontalScrollingTouchListener;
 import org.joinmastodon.android.ui.utils.UiUtils;
 
 import java.util.ArrayList;
@@ -81,6 +83,7 @@ public class DiscoverNewsFragment extends BaseRecyclerFragment<CardViewModel> im
 				.exec(accountID);
 	}
 
+	@SuppressLint("ClickableViewAccessibility")
 	@Override
 	protected RecyclerView.Adapter getAdapter(){
 		cardsList=new UsableRecyclerView(getActivity());
@@ -98,6 +101,7 @@ public class DiscoverNewsFragment extends BaseRecyclerFragment<CardViewModel> im
 		});
 		cardsList.setSelector(R.drawable.bg_rect_12dp_ripple);
 		cardsList.setDrawSelectorOnTop(true);
+		cardsList.setOnTouchListener(new HorizontalScrollingTouchListener(getActivity()));
 
 		mergeAdapter=new MergeRecyclerAdapter();
 		bannerHelper.maybeAddBanner(list, mergeAdapter);
