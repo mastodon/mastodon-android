@@ -260,9 +260,9 @@ public class SplashFragment extends AppKitFragment{
 	private void loadAndChooseDefaultServer(){
 		ClipData clipData=getActivity().getSystemService(ClipboardManager.class).getPrimaryClip();
 		if(clipData!=null && clipData.getItemCount()>0){
-			CharSequence clipText=clipData.getItemAt(0).coerceToText(getActivity());
-			if(HtmlParser.INVITE_LINK_PATTERN.matcher(clipText).find()){
-				currentInviteLink=Uri.parse(clipText.toString());
+			String clipText=clipData.getItemAt(0).coerceToText(getActivity()).toString();
+			if(HtmlParser.isValidInviteUrl(clipText)){
+				currentInviteLink=Uri.parse(clipText);
 				defaultServerButton.setText(getString(R.string.join_server_x_with_invite, currentInviteLink.getHost()));
 			}
 		}else{

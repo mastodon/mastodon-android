@@ -370,7 +370,7 @@ public class InstanceCatalogSignupFragment extends InstanceCatalogFragment imple
 	protected void proceedWithAuthOrSignup(Instance instance){
 		if(currentInviteLinkAlert!=null){
 			currentInviteLinkAlert.dismiss();
-		}else if(!TextUtils.isEmpty(currentSearchQuery) && HtmlParser.INVITE_LINK_PATTERN.matcher(currentSearchQueryButWithCasePreserved).find()){
+		}else if(!TextUtils.isEmpty(currentSearchQuery) && HtmlParser.isValidInviteUrl(currentSearchQueryButWithCasePreserved)){
 			if(TextUtils.isEmpty(inviteCode) || !Objects.equals(instance.uri, inviteCodeHost)){
 				Uri inviteLink=Uri.parse(currentSearchQueryButWithCasePreserved);
 				new CheckInviteLink(inviteLink.getPath())
@@ -543,8 +543,8 @@ public class InstanceCatalogSignupFragment extends InstanceCatalogFragment imple
 
 		ClipData clipData=getActivity().getSystemService(ClipboardManager.class).getPrimaryClip();
 		if(clipData!=null && clipData.getItemCount()>0){
-			CharSequence clipText=clipData.getItemAt(0).coerceToText(getActivity());
-			if(HtmlParser.INVITE_LINK_PATTERN.matcher(clipText).find()){
+			String clipText=clipData.getItemAt(0).coerceToText(getActivity()).toString();
+			if(HtmlParser.isValidInviteUrl(clipText)){
 				edit.setText(clipText);
 				supportingText.setText(R.string.invite_link_pasted);
 			}
