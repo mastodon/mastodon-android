@@ -83,6 +83,8 @@ public class LinkCardStatusDisplayItem extends StatusDisplayItem{
 				description.setVisibility(TextUtils.isEmpty(card.description) ? View.GONE : View.VISIBLE);
 			}
 			String cardDomain=Uri.parse(card.url).getHost();
+			if(cardDomain.startsWith("www."))
+				cardDomain=cardDomain.substring(4);
 			if(isLarge && !TextUtils.isEmpty(card.authorName)){
 				domain.setText(itemView.getContext().getString(R.string.article_by_author, card.authorName)+" · "+cardDomain);
 			}else{
