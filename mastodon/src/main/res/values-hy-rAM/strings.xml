@@ -132,6 +132,8 @@
 	<string name="report_comment_hint">Լրացուցիչ մեկնաբանություններ</string>
 	<string name="sending_report">Զեկույցը ուղարկվում է․․․</string>
 	<string name="report_sent_title">Շնորհակալ ենք զեկուցման համար։</string>
+	<string name="unfollow_user">Չհետեւել %s-ին</string>
+	<string name="unfollow">Չհետեւել</string>
 	<string name="mute_user_explain">Դուք չեք տեսնի նրա գրառումները։ Նա դեռ կարող է ձեզ հետևել և տեսնել ձեր գրառումները և չի իմանա, որ խլեցված է։</string>
 	<string name="block_user_explain">Դուք չեք տեսնի նրա գրառումները։ Նա չի կարող ձեզ հետևել կամ տեսնել ձեր գրառումները։ Նա կիմանա, որ արգելափակված է։</string>
 	<string name="report_personal_title">Չե՞ք ուզում սա տեսնել։</string>
@@ -224,6 +226,7 @@
 	<string name="recommended_accounts_info_banner">Ըստ ձեր հետևած հաշիվների` գուցե ձեզ դուր կգան այս հաշիվները։</string>
 	<string name="see_new_posts">Նոր գրառումներ</string>
 	<string name="load_missing_posts">Բեռնել բաց թողնված գրառումները</string>
+	<string name="button_follow_pending">Սպասվող</string>
 	<string name="follows_you">Հետեւում է ձեզ</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<plurals name="x_followers">
@@ -393,6 +396,7 @@
 	<string name="notifications_policy_followed">Մարդիկ, որոնք ձեզ հետեւում են</string>
 	<string name="notifications_policy_follower">Մարդիկ, որոնց դուք հետեւում եք</string>
 	<string name="notifications_policy_no_one">Ոչ ոք</string>
+	<string name="pause_all_notifications_title">Դադարեցնել բոլոր ծանուցումները</string>
 	<plurals name="x_weeks">
 		<item quantity="one">%d շաբաթ</item>
 		<item quantity="other">%d շաբաթ</item>
@@ -405,6 +409,8 @@
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<string name="pause_notifications_ends">Ավարտվում է %s</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="pause_notifications_banner">Ծանուցումները կմիացվեն %s:</string>
+	<string name="resume_notifications_now">Միացնել հիմա</string>
 	<string name="open_system_notification_settings">Բացել ծանուցումների կարգավորումները</string>
 	<string name="about_server">Մեր մասին</string>
 	<string name="server_rules">Կանոններ</string>
@@ -412,6 +418,7 @@
 	<string name="send_email_to_server_admin">Գրել ադմինիստրատորին</string>
 	<string name="settings_even_more">Ավելի շատ կարգավորումներ</string>
 	<string name="settings_show_cws">Ցույց տալ նախազգուշացումները</string>
+	<string name="settings_hide_sensitive_media">Թաքցնել կասկածելի բովանդակութիւնը</string>
 	<plurals name="in_x_seconds">
 		<item quantity="one">%d վայրկյանից</item>
 		<item quantity="other">%d վայրկյանից</item>
@@ -439,6 +446,7 @@
 	<string name="count_four">Չորս</string>
 	<string name="alt_text_reminder_post_anyway">Այո</string>
 	<!-- %s is the username -->
+	<string name="unfollow_confirmation">Չհետեւե՞լ %s-ին</string>
 	<string name="filter_active">Ակտիվ</string>
 	<string name="filter_inactive">Ոչ ակտիվ</string>
 	<string name="settings_add_filter">Ավելացնել զտիչ</string>
@@ -461,6 +469,7 @@
 	<string name="filter_context_home_lists">Տեղական հոսք</string>
 	<string name="filter_context_notifications">Ծանուցումներ</string>
 	<string name="filter_context_public_timelines">Հանրային հոսքեր</string>
+	<string name="filter_context_profiles">Հաշիվներ</string>
 	<string name="settings_filter_title">Վերնագիր</string>
 	<string name="settings_delete_filter_title">Ջնջե՞լ «%s» զտիչը</string>
 	<string name="settings_delete_filter_confirmation">Զտիչը կջնջվի ձեր հաշվից` ձեր բոլոր սարքերից։</string>
