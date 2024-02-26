@@ -177,6 +177,7 @@
 	<string name="theme_light">Բաց</string>
 	<string name="theme_dark">Մուգ</string>
 	<string name="settings_behavior">Պահվածքը</string>
+	<string name="settings_custom_tabs">Բացել հղումները` օգտագործելով</string>
 	<string name="settings_notifications">Ծանուցումներ</string>
 	<string name="settings_contribute">Աջակցել Մաստոդոնին</string>
 	<string name="settings_tos">Ծառայության պայմանները</string>
@@ -199,6 +200,8 @@
 	<string name="follow_user">Հետևել %s-ին</string>
 	<string name="followed_user">Դուք այժմ հետեւում եք %s-ին</string>
 	<string name="open_in_browser">Բացել բրաուզերում</string>
+	<string name="hide_boosts_from_user">Թաքցնել տարածածները</string>
+	<string name="show_boosts_from_user">Ցուցադրել տարածածները</string>
 	<string name="signup_reason">Ինչո՞ւ եք ցանկանում միանալ։</string>
 	<string name="signup_reason_note">Սա կօգնի մեզ ստուգել ձեր հայտը։</string>
 	<string name="clear">Մաքրել</string>
@@ -218,6 +221,7 @@
 	<string name="trending_links_info_banner">Այս նորությունների մասին խոսում են Մաստոդոնում։</string>
 	<!-- %s is the server domain -->
 	<string name="local_timeline_info_banner">Ձեր սերվերի (%s) բոլոր օգտատերերի բոլոր գրառումները այստեղ են։</string>
+	<string name="recommended_accounts_info_banner">Ըստ ձեր հետևած հաշիվների` գուցե ձեզ դուր կգան այս հաշիվները։</string>
 	<string name="see_new_posts">Նոր գրառումներ</string>
 	<string name="load_missing_posts">Բեռնել բաց թողնված գրառումները</string>
 	<string name="follows_you">Հետեւում է ձեզ</string>
@@ -265,7 +269,7 @@
 	<string name="edit_marked_not_sensitive">Նշվել է որպես ոչ դյուրազգաց</string>
 	<string name="edit_multiple_changed">Գրառումը խմբագրվել է</string>
 	<string name="edit">Խմբագրել</string>
-	<string name="discard_changes">Չեղարկե՞լ փոփոխությունները</string>
+	<string name="discard_changes">Հեռացնե՞լ փոփոխությունները</string>
 	<string name="upload_failed">Վերբեռնել չհաջողվեց</string>
 	<string name="file_size_bytes">%d բայթ</string>
 	<string name="file_size_kb">%.2f ԿԲ</string>
@@ -298,6 +302,7 @@
 	<string name="server_filter_region_asia">Ասիա</string>
 	<string name="server_filter_region_oceania">Օվկիանիա</string>
 	<string name="not_accepting_new_members">Չի ընդունում նոր անդամներ</string>
+	<string name="category_special_interests">Հատուկ հետաքրքրություններ</string>
 	<string name="signup_passwords_dont_match">Գաղտնաբառերը չեն համընկնում</string>
 	<string name="profile_add_row">Ավելացնել տող</string>
 	<string name="profile_setup">Հաշվի կարգավորում</string>
@@ -499,6 +504,10 @@
 	<!-- %1$s is the language, %2$s is the name of the translation service -->
 	<string name="post_translated">Թարգմանված %1$sից` %2$s-ի միջոցով</string>
 	<string name="translation_show_original">Ցոյց տալ բնօրինակը</string>
+	<plurals name="x_participants">
+		<item quantity="one">%,d մասնակից</item>
+		<item quantity="other">%,d մասնակից</item>
+	</plurals>
 	<string name="timeline_following">Հիմնական</string>
 	<string name="lists">Ցանկեր</string>
 	<string name="followed_hashtags">Հետեւած պիտակներ</string>
