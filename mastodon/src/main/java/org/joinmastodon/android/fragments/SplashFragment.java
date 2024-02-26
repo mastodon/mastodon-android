@@ -34,6 +34,7 @@ import org.joinmastodon.android.ui.views.SizeListenerFrameLayout;
 import org.parceler.Parcels;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.concurrent.ThreadLocalRandom;
 
 import androidx.annotation.Nullable;
@@ -263,7 +264,7 @@ public class SplashFragment extends AppKitFragment{
 			String clipText=clipData.getItemAt(0).coerceToText(getActivity()).toString();
 			if(HtmlParser.isValidInviteUrl(clipText)){
 				currentInviteLink=Uri.parse(clipText);
-				defaultServerButton.setText(getString(R.string.join_server_x_with_invite, currentInviteLink.getHost()));
+				defaultServerButton.setText(getString(R.string.join_server_x_with_invite, HtmlParser.normalizeDomain(Objects.requireNonNull(currentInviteLink.getHost()))));
 			}
 		}else{
 			loadingDefaultServer=true;
@@ -315,7 +316,7 @@ public class SplashFragment extends AppKitFragment{
 		if(defaultServerButton!=null && getActivity()!=null && currentInviteLink==null){
 			defaultServerButton.setTextVisible(true);
 			defaultServerProgress.setVisibility(View.GONE);
-			defaultServerButton.setText(getString(R.string.join_default_server, chosenDefaultServer));
+			defaultServerButton.setText(getString(R.string.join_default_server, HtmlParser.normalizeDomain(chosenDefaultServer)));
 		}
 	}
 }

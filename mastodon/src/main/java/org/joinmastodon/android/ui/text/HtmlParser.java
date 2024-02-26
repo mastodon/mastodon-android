@@ -263,4 +263,10 @@ public class HtmlParser{
 	public static boolean isValidInviteUrl(String url){
 		return url.startsWith("https://") && INVITE_LINK_PATH.matcher(url).find();
 	}
+
+	public static String normalizeDomain(String domain){
+		if(domain.startsWith("www."))
+			domain=domain.substring(4);
+		return domain;
+	}
 }

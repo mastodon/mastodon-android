@@ -17,7 +17,10 @@ import org.joinmastodon.android.model.Card;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.OutlineProviders;
 import org.joinmastodon.android.ui.drawables.BlurhashCrossfadeDrawable;
+import org.joinmastodon.android.ui.text.HtmlParser;
 import org.joinmastodon.android.ui.utils.UiUtils;
+
+import java.util.Objects;
 
 import me.grishka.appkit.imageloader.ImageLoaderViewHolder;
 import me.grishka.appkit.imageloader.requests.ImageLoaderRequest;
@@ -82,9 +85,7 @@ public class LinkCardStatusDisplayItem extends StatusDisplayItem{
 				description.setText(card.description);
 				description.setVisibility(TextUtils.isEmpty(card.description) ? View.GONE : View.VISIBLE);
 			}
-			String cardDomain=Uri.parse(card.url).getHost();
-			if(cardDomain.startsWith("www."))
-				cardDomain=cardDomain.substring(4);
+			String cardDomain=HtmlParser.normalizeDomain(Objects.requireNonNull(Uri.parse(card.url).getHost()));
 			if(isLarge && !TextUtils.isEmpty(card.authorName)){
 				domain.setText(itemView.getContext().getString(R.string.article_by_author, card.authorName)+" · "+cardDomain);
 			}else{
