@@ -31,10 +31,13 @@
 		<item quantity="other">volgend</item>
 	</plurals>
 	<string name="posts">Berichten</string>
+	<string name="posts_and_replies">Berichten en reacties</string>
 	<string name="media">Media</string>
 	<string name="profile_about">Over</string>
 	<string name="button_follow">Volgen</string>
 	<string name="button_following">Volgend</string>
+	<string name="edit_profile">Profiel bewerken</string>
+	<string name="share_user">Profiel delen via…</string>
 	<string name="mute_user">Negeer %s</string>
 	<string name="unmute_user">%s niet langer negeren</string>
 	<string name="block_user">Blokkeer %s</string>
@@ -141,7 +144,9 @@
 	<string name="report_personal_subtitle">Hier zijn jouw opties waarmee je kunt bepalen wat je in Mastodon wilt zien:</string>
 	<string name="back">Terug</string>
 	<string name="search_communities">Servernaam of URL</string>
+	<string name="instance_rules_title">Serverregels</string>
 	<string name="instance_rules_subtitle">Door verder te gaan, ga je akkoord met het volgen van de regels ingesteld door de %s-moderatoren.</string>
+	<string name="signup_title">Account registreren</string>
 	<string name="display_name">Naam</string>
 	<string name="username">Gebruikersnaam</string>
 	<string name="email">E-mailadres</string>
@@ -149,6 +154,7 @@
 	<string name="confirm_password">Wachtwoord bevestigen</string>
 	<string name="password_note">Voeg hoofdletters, speciale tekens en cijfers toe om je wachtwoord veiliger te maken.</string>
 	<string name="category_general">Algemeen</string>
+	<string name="confirm_email_title">Controleer jouw e-mail</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">Klik op de koppeling die we je hebben gestuurd om %s te verifiëren. We wachten op je.</string>
 	<string name="confirm_email_didnt_get">Geen verificatielink ontvangen?</string>
@@ -183,6 +189,7 @@
 	<string name="theme_dark">Donker</string>
 	<string name="settings_behavior">Gedrag</string>
 	<string name="settings_gif">Geanimeerde profielfoto\'s en emoji\'s afspelen</string>
+	<string name="settings_custom_tabs">Links openen in</string>
 	<string name="settings_notifications">Meldingen</string>
 	<string name="settings_contribute">Bijdragen aan Mastodon</string>
 	<string name="settings_tos">Gebruiksvoorwaarden</string>
@@ -211,6 +218,8 @@
 	<string name="followed_user">Je volgt %s nu</string>
 	<string name="following_user_requested">Je volgverzoek is aan %s verstuurd</string>
 	<string name="open_in_browser">In browser openen</string>
+	<string name="hide_boosts_from_user">Boosts verbergen</string>
+	<string name="show_boosts_from_user">Boosts tonen</string>
 	<string name="signup_reason">Waarom wil je je hier registreren?</string>
 	<string name="signup_reason_note">Dit helpt ons om jouw aanvraag te beoordelen.</string>
 	<string name="clear">Leegmaken</string>
@@ -233,6 +242,7 @@
 	<string name="recommended_accounts_info_banner">Mogelijk vind je deze accounts leuk op basis van andere accounts die je volgt.</string>
 	<string name="see_new_posts">Nieuwe berichten</string>
 	<string name="load_missing_posts">Resterende berichten laden</string>
+	<string name="follow_back">Terugvolgen</string>
 	<string name="button_follow_pending">In afwachting</string>
 	<string name="follows_you">Volgt jou</string>
 	<string name="manually_approves_followers">Handmatig volgers goedkeuren</string>
@@ -291,15 +301,23 @@
 	<!-- %s is file size -->
 	<string name="download_update">Downloaden (%s)</string>
 	<string name="install_update">Installeren</string>
+	<string name="privacy_policy_title">Jouw privacy</string>
 	<string name="privacy_policy_subtitle">Hoewel de Mastodon-app geen gegevens verzamelt, kan de server waar je je aanmeldt een ander beleid hebben.\n\nAls je niet akkoord gaat met het beleid voor %s, kun je teruggaan en een andere server kiezen.</string>
+	<string name="i_agree">Ik ga akkoord</string>
 	<string name="empty_list">Deze lijst is leeg</string>
 	<string name="instance_signup_closed">Deze server accepteert geen nieuwe registraties.</string>
 	<string name="text_copied">Gekopieerd naar klembord</string>
 	<string name="add_bookmark">Bladwijzer toevoegen</string>
 	<string name="remove_bookmark">Bladwijzer verwijderen</string>
 	<string name="bookmarks">Bladwijzers</string>
+	<string name="your_favorites">Jouw favorieten</string>
+	<string name="login_title">Welkom terug</string>
 	<string name="login_subtitle">Bij de server waar je je account hebt aangemaakt inloggen.</string>
 	<string name="server_url">Server-URL</string>
+	<string name="server_filter_any_language">Elke taal</string>
+	<string name="server_filter_instant_signup">Je kunt direct registreren</string>
+	<string name="server_filter_manual_review">Handmatige beoordeling nodig</string>
+	<string name="server_filter_any_signup_speed">Elke registratiesnelheid</string>
 	<string name="server_filter_region_europe">Europa</string>
 	<string name="server_filter_region_north_america">Noord-Amerika</string>
 	<string name="server_filter_region_south_america">Zuid-Amerika</string>
@@ -307,6 +325,7 @@
 	<string name="server_filter_region_asia">Azië</string>
 	<string name="server_filter_region_oceania">Oceanië</string>
 	<string name="not_accepting_new_members">Laat geen nieuwe gebruikers toe</string>
+	<string name="category_special_interests">Speciale interesses</string>
 	<string name="signup_passwords_dont_match">Wachtwoorden zijn niet gelijk</string>
 	<string name="profile_add_row">Rij toevoegen</string>
 	<string name="profile_setup">Profiel instellen</string>
@@ -466,7 +485,7 @@
 	<string name="count_two">Twee</string>
 	<string name="count_three">Drie</string>
 	<string name="count_four">Vier</string>
-	<string name="alt_text_reminder_post_anyway">Plaatsen</string>
+	<string name="alt_text_reminder_post_anyway">Alsnog plaatsen</string>
 	<!-- %s is the username -->
 	<string name="unfollow_confirmation">%s ontvolgen?</string>
 	<string name="filter_active">Actief</string>
@@ -575,6 +594,7 @@
 	<string name="remove">Verwijderen</string>
 	<string name="add_list_member">Lid toevoegen</string>
 	<string name="search_among_people_you_follow">Zoek tussen de mensen die je volgt</string>
+	<string name="add_user_to_list">Toevoegen/verwijderen uit lijsten…</string>
 	<string name="add_user_to_list_title">Aan lijst toevoegen</string>
 	<!-- %s is a username -->
 	<string name="manage_user_lists">Beheer de lijsten waar %s lid van is</string>
@@ -670,5 +690,20 @@
 	<string name="what_is_activitypub_title">Wat is ActivityPub?</string>
 	<string name="what_is_activitypub">ActivityPub is de taal die Mastodon met andere sociale netwerken spreekt.\n\nHet zorgt ervoor dat je niet alleen maar kunt verbinden en communiceren met mensen op Mastodon, maar ook met andere sociale apps.</string>
 	<string name="handle_copied">Mastodon-adres naar het klembord gekopieerd.</string>
+	<string name="qr_code">QR-code</string>
+	<string name="scan_qr_code">QR-code scannen</string>
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
+	<string name="saved">Opgeslagen</string>
+	<string name="image_saved">Afbeelding opgeslagen.</string>
+	<string name="video_saved">Video opgeslagen.</string>
+	<string name="view_file">Weergeven</string>
+	<string name="share_sheet_preview_profile">%s op Mastodon</string>
+	<string name="share_sheet_preview_post">%1$s op Mastodon: “%2$s”</string>
+	<string name="copy_profile_link">Link naar profiel kopiëren</string>
+	<string name="in_app_browser">In-app-browser</string>
+	<string name="system_browser">Systeembrowser</string>
+	<string name="add_muted_word_short">Woord toevoegen</string>
+	<string name="tab_home">Start</string>
+	<string name="tab_search">Verkennen</string>
+	<string name="tab_profile">Profiel</string>
 </resources>
