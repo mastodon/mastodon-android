@@ -60,7 +60,7 @@ public class Status extends BaseModel implements DisplayItemsParent{
 	public boolean reblogged;
 	public boolean muted;
 	public boolean bookmarked;
-	public boolean pinned;
+	public Boolean pinned;
 
 	public transient boolean spoilerRevealed;
 	public transient boolean hasGapAfter;

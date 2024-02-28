@@ -25,6 +25,7 @@ import org.joinmastodon.android.GlobalUserPreferences;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.requests.accounts.GetAccountRelationships;
 import org.joinmastodon.android.api.requests.statuses.GetStatusSourceText;
+import org.joinmastodon.android.api.requests.statuses.SetStatusPinned;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.fragments.AddAccountToListsFragment;
 import org.joinmastodon.android.fragments.BaseStatusListFragment;
@@ -36,6 +37,7 @@ import org.joinmastodon.android.model.Attachment;
 import org.joinmastodon.android.model.Relationship;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.OutlineProviders;
+import org.joinmastodon.android.ui.Snackbar;
 import org.joinmastodon.android.ui.text.HtmlParser;
 import org.joinmastodon.android.ui.utils.CustomEmojiHelper;
 import org.joinmastodon.android.ui.utils.UiUtils;
@@ -208,6 +210,24 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 				}else if(id==R.id.copy_link){
 					activity.getSystemService(ClipboardManager.class).setPrimaryClip(ClipData.newPlainText(null, item.status.url));
 					UiUtils.maybeShowTextCopiedToast(activity);
+				}else if(id==R.id.pin){
+					new SetStatusPinned(item.status.id, !item.status.pinned)
+							.setCallback(new Callback<>(){
+								@Override
+								public void onSuccess(Status result){
+									item.status.pinned=!item.status.pinned;
+									new Snackbar.Builder(activity)
+											.setText(item.status.pinned ? R.string.post_pinned : R.string.post_unpinned)
+											.show();
+								}
+
+								@Override
+								public void onError(ErrorResponse error){
+									error.showToast(activity);
+								}
+							})
+							.wrapProgress(activity, R.string.loading, true)
+							.exec(item.accountID);
 				}
 				return true;
 			});
@@ -293,11 +313,17 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 			MenuItem report=menu.findItem(R.id.report);
 			MenuItem follow=menu.findItem(R.id.follow);
 			MenuItem bookmark=menu.findItem(R.id.bookmark);
+			MenuItem pin=menu.findItem(R.id.pin);
 			if(item.status!=null){
 				bookmark.setVisible(true);
 				bookmark.setTitle(item.status.bookmarked ? R.string.remove_bookmark : R.string.add_bookmark);
+				pin.setVisible(item.status.pinned!=null);
+				if(item.status.pinned!=null){
+					pin.setTitle(item.status.pinned ? R.string.unpin_post : R.string.pin_post);
+				}
 			}else{
 				bookmark.setVisible(false);
+				pin.setVisible(false);
 			}
 			if(isOwnPost){
 				mute.setVisible(false);

@@ -2,6 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 	<group android:id="@+id/menu_group1">
 		<item android:id="@+id/translate" android:title="@string/translate_post"/>
+		<item android:id="@+id/pin" android:title="@string/pin_post"/>
 		<item android:id="@+id/bookmark" android:title="@string/add_bookmark"/>
 		<item android:id="@+id/share" android:title="@string/button_share"/>
 		<item android:id="@+id/open_in_browser" android:title="@string/open_in_browser"/>
