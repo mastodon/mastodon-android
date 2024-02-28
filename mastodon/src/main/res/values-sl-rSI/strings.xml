@@ -35,10 +35,13 @@
 		<item quantity="other">sledi</item>
 	</plurals>
 	<string name="posts">Objave</string>
+	<string name="posts_and_replies">Objave in odgovori</string>
 	<string name="media">Mediji</string>
 	<string name="profile_about">O računu</string>
 	<string name="button_follow">Sledi</string>
 	<string name="button_following">Sleden</string>
+	<string name="edit_profile">Uredi profil</string>
+	<string name="share_user">Deli profil prek ...</string>
 	<string name="mute_user">Utišaj %s</string>
 	<string name="unmute_user">Odtišaj %s</string>
 	<string name="block_user">Blokiraj %s</string>
@@ -165,7 +168,9 @@
 	<string name="report_personal_subtitle">Tukaj so vaše možnosti za nadzor tistega, kar vidite na Mastodonu:</string>
 	<string name="back">Nazaj</string>
 	<string name="search_communities">Ime strežnika ali URL</string>
+	<string name="instance_rules_title">Pravila strežnika</string>
 	<string name="instance_rules_subtitle">Če nadaljujete, to pomeni, da se strinjate in da boste sledili naslednjim pravilom, ki so jih določili in jih uveljavljajo moderatorji %s.</string>
+	<string name="signup_title">Ustvari račun</string>
 	<string name="display_name">Ime</string>
 	<string name="username">Uporabniško ime</string>
 	<string name="email">E-naslov</string>
@@ -173,6 +178,7 @@
 	<string name="confirm_password">Potrdite geslo</string>
 	<string name="password_note">Vključite velike črke, posebne znake in števke, da okrepite geslo.</string>
 	<string name="category_general">Splošno</string>
+	<string name="confirm_email_title">Preverite svojo dohodno e-pošto</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">Tapnite povezavo, ki smo vam jo poslali, da overite %s. Počakali bomo.</string>
 	<string name="confirm_email_didnt_get">Niste prejeli povezave?</string>
@@ -209,6 +215,7 @@
 	<string name="theme_dark">Temno</string>
 	<string name="settings_behavior">Vedenje</string>
 	<string name="settings_gif">Predvajaj animirane avatarje in emotikone</string>
+	<string name="settings_custom_tabs">Odpri povezave v</string>
 	<string name="settings_notifications">Obvestila</string>
 	<string name="settings_contribute">Prispevajte Mastodonu</string>
 	<string name="settings_tos">Pogoji uporabe</string>
@@ -237,6 +244,8 @@
 	<string name="followed_user">Zdaj sledite %s</string>
 	<string name="following_user_requested">Zaprošeni ste, da sledite %s</string>
 	<string name="open_in_browser">Odpri v brskalniku</string>
+	<string name="hide_boosts_from_user">Skrij izpostavitve</string>
+	<string name="show_boosts_from_user">Pokaži izpostavitve</string>
 	<string name="signup_reason">Zakaj se želite pridružiti?</string>
 	<string name="signup_reason_note">To nam bo pomagalo pregledati vašo prijavo.</string>
 	<string name="clear">Počisti</string>
@@ -259,6 +268,7 @@
 	<string name="recommended_accounts_info_banner">Glede na to, komu sledite, vam bodo ti računi všeč.</string>
 	<string name="see_new_posts">Nove objave</string>
 	<string name="load_missing_posts">Naloži manjkajoče objave</string>
+	<string name="follow_back">Sledi nazaj</string>
 	<string name="button_follow_pending">Na čakanju</string>
 	<string name="follows_you">Vam sledi</string>
 	<string name="manually_approves_followers">Ročno odobri sledilce</string>
@@ -329,15 +339,23 @@
 	<!-- %s is file size -->
 	<string name="download_update">Prenesi (%s)</string>
 	<string name="install_update">Namesti</string>
+	<string name="privacy_policy_title">Vaša zasebnost</string>
 	<string name="privacy_policy_subtitle">Čeprav program Mastodon ne zbira nobenih podatkov, ima lahko strežnik, prek katerega se prijavite, drugačno pravila glede zasebnosti.\n\nČe se s pravili za %s ne strinjate, se lahko vrnete in izberete drug strežnik.</string>
+	<string name="i_agree">Strinjam se</string>
 	<string name="empty_list">Ta seznam je prazen</string>
 	<string name="instance_signup_closed">Ta strežnik ne sprejema novih registracij.</string>
 	<string name="text_copied">Kopirano v odložišče</string>
 	<string name="add_bookmark">Dodaj med zaznamke</string>
 	<string name="remove_bookmark">Odstrani zaznamek</string>
 	<string name="bookmarks">Zaznamki</string>
+	<string name="your_favorites">Vaši priljubljeni</string>
+	<string name="login_title">Dobrodošli nazaj</string>
 	<string name="login_subtitle">Prijavite se na strežniku, na katerem ste ustvarili svoj račun.</string>
 	<string name="server_url">URL strežnika</string>
+	<string name="server_filter_any_language">Katerikoli jezik</string>
+	<string name="server_filter_instant_signup">Takojšnja prijava</string>
+	<string name="server_filter_manual_review">Ročni pregled</string>
+	<string name="server_filter_any_signup_speed">Prijava poljubne hitrosti</string>
 	<string name="server_filter_region_europe">Evropa</string>
 	<string name="server_filter_region_north_america">Severna Amerika</string>
 	<string name="server_filter_region_south_america">Južna Amerika</string>
@@ -345,6 +363,7 @@
 	<string name="server_filter_region_asia">Azija</string>
 	<string name="server_filter_region_oceania">Oceanija</string>
 	<string name="not_accepting_new_members">Ne sprejema novih članov</string>
+	<string name="category_special_interests">Posebni interesi</string>
 	<string name="signup_passwords_dont_match">Vneseni gesli se ne ujemata</string>
 	<string name="profile_add_row">Dodaj vrstico</string>
 	<string name="profile_setup">Nastavitev profila</string>
@@ -637,6 +656,7 @@
 	<string name="remove">Odstrani</string>
 	<string name="add_list_member">Dodaj člana</string>
 	<string name="search_among_people_you_follow">Iščite med ljudmi, katerim sledite</string>
+	<string name="add_user_to_list">Dodaj ali odstrani s seznamov ...</string>
 	<string name="add_user_to_list_title">Dodaj na seznam</string>
 	<!-- %s is a username -->
 	<string name="manage_user_lists">Upravljaj sezname, na katerih je %s</string>
@@ -737,5 +757,24 @@ Več osebam kot sledite, bolj dejaven in zanimiv bo.</string>
 	<string name="what_is_activitypub_title">Kaj je ActivityPub?</string>
 	<string name="what_is_activitypub">ActivityPubb je kot jezik, ki ga Mastodon uprablja z drugimi družbenimi omrežji.\n\nOmogočq povezovanje in interakcijo z osebami ne le na Mastodonu, ampak tudi na drugih družabnih omrežjih.</string>
 	<string name="handle_copied">Ročica je kopirana na odložišče.</string>
+	<string name="qr_code">QR-koda</string>
+	<string name="scan_qr_code">Skeniraj QR-kodo</string>
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
+	<string name="saved">Shranjeno</string>
+	<string name="image_saved">Slika je shranjena.</string>
+	<string name="video_saved">Videoposnetek je shranjen.</string>
+	<string name="view_file">Pogled</string>
+	<string name="share_sheet_preview_profile">%s na Mastodonu</string>
+	<string name="share_sheet_preview_post">%1$s na Mastodonu: »%2$s«</string>
+	<string name="copy_profile_link">Kopiraj povezavo do profila</string>
+	<string name="in_app_browser">Brskalnik v okviru programa</string>
+	<string name="system_browser">Sistemski brskalnik</string>
+	<string name="add_muted_word_short">Dodaj besedo</string>
+	<string name="tab_home">Domov</string>
+	<string name="tab_search">Razišči</string>
+	<string name="tab_profile">Profil</string>
+	<string name="pin_post">Pripni na profil</string>
+	<string name="unpin_post">Odpni iz profila</string>
+	<string name="post_pinned">Objava je sedaj pripeta</string>
+	<string name="post_unpinned">Objava je sedaj odpeta</string>
 </resources>
