@@ -35,6 +35,7 @@
 	<string name="profile_about">À propos</string>
 	<string name="button_follow">Suivre</string>
 	<string name="button_following">Abonné·e</string>
+	<string name="edit_profile">Modifier le profil</string>
 	<string name="mute_user">Masquer %s</string>
 	<string name="unmute_user">Ne plus masquer %s</string>
 	<string name="block_user">Bloquer %s</string>
@@ -141,7 +142,9 @@
 	<string name="report_personal_subtitle">Voici les possibilités que vous avez pour contrôler ce que vous voyez sur Mastodon :</string>
 	<string name="back">Retour</string>
 	<string name="search_communities">Nom ou URL du serveur</string>
+	<string name="instance_rules_title">Règles du serveur</string>
 	<string name="instance_rules_subtitle">En continuant, vous acceptez de respecter les règles suivantes définies et appliquées par les modérateurs de %s.</string>
+	<string name="signup_title">Créer un compte</string>
 	<string name="display_name">Nom</string>
 	<string name="username">Nom d’utilisateur</string>
 	<string name="email">E-mail</string>
@@ -183,6 +186,7 @@
 	<string name="theme_dark">Sombre</string>
 	<string name="settings_behavior">Comportement</string>
 	<string name="settings_gif">Jouer les avatars animés et émojis</string>
+	<string name="settings_custom_tabs">Ouvrir les liens dans</string>
 	<string name="settings_notifications">Notifications</string>
 	<string name="settings_contribute">Contribuer à Mastodon</string>
 	<string name="settings_tos">Conditions d’utilisation</string>
@@ -233,6 +237,7 @@
 	<string name="recommended_accounts_info_banner">Vous pourriez aimer ces comptes en fonction des autres que vous suivez.</string>
 	<string name="see_new_posts">Nouveaux messages </string>
 	<string name="load_missing_posts">Charger les messages manquants</string>
+	<string name="follow_back">Suivre en retour</string>
 	<string name="button_follow_pending">En attente</string>
 	<string name="follows_you">Vous suit</string>
 	<string name="manually_approves_followers">Approuver manuellement les demande de suivie</string>
@@ -308,6 +313,7 @@
 	<string name="server_filter_region_asia">Asie</string>
 	<string name="server_filter_region_oceania">Océanie</string>
 	<string name="not_accepting_new_members">N\'accepte pas de nouveaux membres</string>
+	<string name="category_special_interests">Intérêts particuliers</string>
 	<string name="signup_passwords_dont_match">Les mots de passe ne correspondent pas</string>
 	<string name="profile_add_row">Ajouter une ligne</string>
 	<string name="profile_setup">Configuration du profil</string>
