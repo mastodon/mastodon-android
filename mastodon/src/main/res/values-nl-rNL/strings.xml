@@ -184,7 +184,7 @@
 	<string name="media_attachment_unsupported_type">Het bestand %s wordt niet ondersteund</string>
 	<string name="media_attachment_too_big">Het bestand %1$s overschrijdt de maximale grootte van %2$s MB</string>
 	<string name="settings_theme">Uiterlijk</string>
-	<string name="theme_auto">Weergave van apparaat gebruiken</string>
+	<string name="theme_auto">Systeemstandaard</string>
 	<string name="theme_light">Licht</string>
 	<string name="theme_dark">Donker</string>
 	<string name="settings_behavior">Gedrag</string>
@@ -417,10 +417,10 @@
 	<string name="settings_server_explanation">Overzicht, regels, moderators</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">Over %s</string>
-	<string name="default_post_language">Standaard taal bericht</string>
+	<string name="default_post_language">Standaardtaal voor berichten</string>
 	<string name="settings_alt_text_reminders">Alt-tekst-herinneringen toevoegen</string>
-	<string name="settings_confirm_unfollow">Vraag voor ontvolgen iemand</string>
-	<string name="settings_confirm_boost">Vragen voor boosten</string>
+	<string name="settings_confirm_unfollow">Vragen voordat je iemand ontvolgd</string>
+	<string name="settings_confirm_boost">Vragen voordat je boost</string>
 	<string name="settings_confirm_delete_post">Vragen voordat berichten worden verwijderd</string>
 	<string name="pause_all_notifications">Alles pauzeren</string>
 	<string name="pause_notifications_off">Uit</string>
@@ -450,7 +450,7 @@
 	<string name="server_rules">Regels</string>
 	<string name="server_administrator">Beheerder</string>
 	<string name="send_email_to_server_admin">Bericht aan beheerder</string>
-	<string name="notifications_disabled_in_system">Schakel meldingen vanuit instellingen van uw apparaat in om van overal updates te zien.</string>
+	<string name="notifications_disabled_in_system">Meldingen in je apparaatinstellingen inschakelen om overal updates te kunnen zien.</string>
 	<string name="settings_even_more">Nog meer instellingen</string>
 	<string name="settings_show_cws">Inhoudswaarschuwingen tonen</string>
 	<string name="settings_hide_sensitive_media">Als gevoelig gemarkeerde media verbergen</string>
