@@ -30,14 +30,25 @@
 
 			<TextView
 				android:id="@+id/search_text"
-				android:layout_width="match_parent"
+				android:layout_width="0dp"
 				android:layout_height="match_parent"
+				android:layout_weight="1"
 				android:gravity="center_vertical|start"
 				android:textAlignment="viewStart"
 				android:singleLine="true"
 				android:textColor="?colorM3OnSurfaceVariant"
 				android:textAppearance="@style/m3_body_large"
 				android:text="@string/search_mastodon"/>
+
+			<ImageButton
+				android:id="@+id/search_scan_qr"
+				android:layout_width="40dp"
+				android:layout_height="40dp"
+				android:layout_margin="8dp"
+				android:contentDescription="@string/scan_qr_code"
+				android:background="@drawable/bg_round_ripple"
+				android:tint="?colorM3OnSurfaceVariant"
+				android:src="@drawable/ic_qr_code_scanner_24px"/>
 
 		</LinearLayout>
 	</FrameLayout>

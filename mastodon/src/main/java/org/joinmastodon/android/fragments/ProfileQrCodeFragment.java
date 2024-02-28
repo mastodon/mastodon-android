@@ -282,77 +282,7 @@ public class ProfileQrCodeFragment extends AppKitFragment{
 		if(scannerIntent.resolveActivity(getActivity().getPackageManager())!=null){
 			startActivityForResult(scannerIntent, SCAN_RESULT);
 		}else{
-			ProgressDialog progress=new ProgressDialog(getActivity());
-			progress.setMessage(getString(R.string.loading));
-			progress.setCancelable(false);
-			progress.show();
-			GmsClient.getModuleInstallerService(getActivity(), new GmsClient.ServiceConnectionCallback<>(){
-				@Override
-				public void onSuccess(IModuleInstallService service, int connectionID){
-					ApiFeatureRequest req=new ApiFeatureRequest();
-					req.callingPackage=getActivity().getPackageName();
-					Feature feature=new Feature();
-					feature.name="mlkit.barcode.ui";
-					feature.version=1;
-					feature.oldVersion=-1;
-					req.features=List.of(feature);
-					req.urgent=true;
-					try{
-						service.installModules(new IModuleInstallCallbacks.Stub(){
-							@Override
-							public void onModuleAvailabilityResponse(Status status, ModuleAvailabilityResponse response) throws RemoteException{}
-
-							@Override
-							public void onModuleInstallResponse(Status status, ModuleInstallResponse response) throws RemoteException{}
-
-							@Override
-							public void onModuleInstallIntentResponse(Status status, ModuleInstallIntentResponse response) throws RemoteException{}
-
-							@Override
-							public void onStatus(Status status) throws RemoteException{}
-						}, req, new IModuleInstallStatusListener.Stub(){
-							@Override
-							public void onModuleInstallStatusUpdate(ModuleInstallStatusUpdate statusUpdate) throws RemoteException{
-								if(statusUpdate.installState==ModuleInstallStatusUpdate.STATE_COMPLETED){
-									Runnable r=new Runnable(){
-										@Override
-										public void run(){
-											if(scannerIntent.resolveActivity(getActivity().getPackageManager())!=null){
-												progress.dismiss();
-												startActivityForResult(scannerIntent, SCAN_RESULT);
-											}else{
-												codeContainer.postDelayed(this, 100);
-											}
-										}
-									};
-									getActivity().runOnUiThread(r);
-									GmsClient.disconnectFromService(getActivity(), connectionID);
-								}else if(statusUpdate.installState==ModuleInstallStatusUpdate.STATE_FAILED || statusUpdate.installState==ModuleInstallStatusUpdate.STATE_CANCELED){
-									getActivity().runOnUiThread(()->{
-										progress.dismiss();
-										Toast.makeText(themeWrapper, R.string.error, Toast.LENGTH_SHORT).show();
-									});
-									GmsClient.disconnectFromService(getActivity(), connectionID);
-								}
-							}
-						});
-					}catch(RemoteException e){
-						Log.e(TAG, "onSuccess: ", e);
-						getActivity().runOnUiThread(()->{
-							progress.dismiss();
-							Toast.makeText(themeWrapper, R.string.error, Toast.LENGTH_SHORT).show();
-						});
-						GmsClient.disconnectFromService(getActivity(), connectionID);
-					}
-				}
-
-				@Override
-				public void onError(Exception error){
-					Log.e(TAG, "onError() called with: error = ["+error+"]");
-					Toast.makeText(themeWrapper, R.string.error, Toast.LENGTH_SHORT).show();
-					progress.dismiss();
-				}
-			});
+			BarcodeScanner.installScannerModule(themeWrapper, ()->startActivityForResult(scannerIntent, SCAN_RESULT));
 		}
 		return true;
 	}

@@ -1,6 +1,9 @@
 package org.joinmastodon.android.fragments.discover;
 
+import android.app.Activity;
 import android.app.Fragment;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -11,9 +14,14 @@ import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import org.joinmastodon.android.MainActivity;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.fragments.ScrollableToTop;
+import org.joinmastodon.android.googleservices.GmsClient;
+import org.joinmastodon.android.googleservices.barcodescanner.Barcode;
+import org.joinmastodon.android.googleservices.barcodescanner.BarcodeScanner;
 import org.joinmastodon.android.model.SearchResult;
 import org.joinmastodon.android.ui.OutlineProviders;
 import org.joinmastodon.android.ui.SimpleViewHolder;
@@ -33,6 +41,7 @@ import me.grishka.appkit.utils.V;
 
 public class DiscoverFragment extends AppKitFragment implements ScrollableToTop, OnBackPressedListener{
 	private static final int QUERY_RESULT=937;
+	private static final int SCAN_RESULT=456;
 
 	private TabLayout tabLayout;
 	private ViewPager2 pager;
@@ -40,7 +49,7 @@ public class DiscoverFragment extends AppKitFragment implements ScrollableToTop,
 	private TabLayoutMediator tabLayoutMediator;
 	private boolean searchActive;
 	private FrameLayout searchView;
-	private ImageButton searchBack;
+	private ImageButton searchBack, searchScanQR;
 	private TextView searchText;
 	private View tabsDivider;
 
@@ -52,6 +61,7 @@ public class DiscoverFragment extends AppKitFragment implements ScrollableToTop,
 
 	private String accountID;
 	private String currentQuery;
+	private Intent scannerIntent;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState){
@@ -60,6 +70,7 @@ public class DiscoverFragment extends AppKitFragment implements ScrollableToTop,
 			setRetainInstance(true);
 
 		accountID=getArguments().getString("account");
+		scannerIntent=BarcodeScanner.createIntent(Barcode.FORMAT_QR_CODE, false, true);
 	}
 
 	@Nullable
@@ -174,6 +185,12 @@ public class DiscoverFragment extends AppKitFragment implements ScrollableToTop,
 			tabLayout.setVisibility(View.GONE);
 			searchView.setVisibility(View.VISIBLE);
 		}
+		searchScanQR=view.findViewById(R.id.search_scan_qr);
+		if(!GmsClient.isGooglePlayServicesAvailable(getActivity())){
+			searchScanQR.setVisibility(View.GONE);
+		}else{
+			searchScanQR.setOnClickListener(v->openQrScanner());
+		}
 
 		View searchWrap=view.findViewById(R.id.search_wrap);
 		searchWrap.setOutlineProvider(OutlineProviders.roundedRect(28));
@@ -265,6 +282,28 @@ public class DiscoverFragment extends AppKitFragment implements ScrollableToTop,
 			}
 			searchFragment.setQuery(currentQuery, type);
 			searchText.setText(currentQuery);
+		}
+	}
+
+	@Override
+	public void onActivityResult(int requestCode, int resultCode, Intent data){
+		if(requestCode==SCAN_RESULT && resultCode==Activity.RESULT_OK && BarcodeScanner.isValidResult(data)){
+			Barcode code=BarcodeScanner.getResult(data);
+			if(code!=null){
+				if(code.rawValue.startsWith("https:") || code.rawValue.startsWith("http:")){
+					((MainActivity)getActivity()).handleURL(Uri.parse(code.rawValue), accountID);
+				}else{
+					Toast.makeText(getActivity(), R.string.link_not_supported, Toast.LENGTH_SHORT).show();
+				}
+			}
+		}
+	}
+
+	private void openQrScanner(){
+		if(scannerIntent.resolveActivity(getActivity().getPackageManager())!=null){
+			startActivityForResult(scannerIntent, SCAN_RESULT);
+		}else{
+			BarcodeScanner.installScannerModule(getActivity(), ()->startActivityForResult(scannerIntent, SCAN_RESULT));
 		}
 	}
 
