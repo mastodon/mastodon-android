@@ -31,10 +31,12 @@
 		<item quantity="other">fylgjast með</item>
 	</plurals>
 	<string name="posts">Færslur</string>
+	<string name="posts_and_replies">Færslur og svör</string>
 	<string name="media">Gagnamiðlar</string>
 	<string name="profile_about">Um hugbúnaðinn</string>
 	<string name="button_follow">Fylgja</string>
 	<string name="button_following">Fylgist með</string>
+	<string name="edit_profile">Breyta notandasniði</string>
 	<string name="mute_user">Þagga niður í %s</string>
 	<string name="unmute_user">Afþagga %s</string>
 	<string name="block_user">Útiloka %s</string>
@@ -141,7 +143,9 @@
 	<string name="report_personal_subtitle">Hér eru nokkrir valkostir til að stýra hvað þú sérð á Mastodon:</string>
 	<string name="back">Til baka</string>
 	<string name="search_communities">Nafn þjóns eða vefslóð</string>
+	<string name="instance_rules_title">Reglur netþjónsins</string>
 	<string name="instance_rules_subtitle">Með því að halda áfram, samþykkir þú að fylgja eftirfarandi reglum sem settar eru af umsjónarmönnum %s, sem sjá um að þeim sé fylgt.</string>
+	<string name="signup_title">Búa til notandaaðgang</string>
 	<string name="display_name">Nafn</string>
 	<string name="username">Notandanafn</string>
 	<string name="email">Tölvupóstfang</string>
@@ -149,6 +153,7 @@
 	<string name="confirm_password">Staðfestu lykilorðið</string>
 	<string name="password_note">Settu hástafi, sértákn og tölustafi til að auka styrk lykilorðins þíns.</string>
 	<string name="category_general">Almennt</string>
+	<string name="confirm_email_title">Athugaðu pósthólfið þitt</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">Ýttu á tengilinn sem við sendum þér til að staðfesta %s. Við bíðum á meðan.</string>
 	<string name="confirm_email_didnt_get">Fékkstu ekki neinn tengil?</string>
@@ -211,6 +216,8 @@
 	<string name="followed_user">Þú fylgist núna með %s</string>
 	<string name="following_user_requested">Bað um að fylgjast með %s</string>
 	<string name="open_in_browser">Opna í vafra</string>
+	<string name="hide_boosts_from_user">Fela endurbirtingar</string>
+	<string name="show_boosts_from_user">Sýna endurbirtingar</string>
 	<string name="signup_reason">Hvers vegna vilt þú taka þátt?</string>
 	<string name="signup_reason_note">Þetta mun hjálpa okkur við að yfirfara umsóknina þína.</string>
 	<string name="clear">Hreinsa</string>
@@ -233,6 +240,7 @@
 	<string name="recommended_accounts_info_banner">Þú gætir einnig haft áhuga á þessum aðgöngum, miðað við hverjum þú ert að fylgjast með.</string>
 	<string name="see_new_posts">Nýjar færslur</string>
 	<string name="load_missing_posts">Hlaða inn færslum sem vantar</string>
+	<string name="follow_back">Fylgjast með til baka</string>
 	<string name="button_follow_pending">Í bið</string>
 	<string name="follows_you">Fylgist með þér</string>
 	<string name="manually_approves_followers">Samþykkir fylgjendur handvirkt</string>
@@ -291,15 +299,22 @@
 	<!-- %s is file size -->
 	<string name="download_update">Sækja (%s)</string>
 	<string name="install_update">Setja upp</string>
+	<string name="privacy_policy_title">Friðhelgi þín</string>
 	<string name="privacy_policy_subtitle">Þó svo að Mastodon-forritið safni engum gögnum, þá getur netþjónninn sem þú skráir þig á haft aðra stefnu varðandi þetta.\n\nEf þú samþykkir ekki stefnuna hjá %s, geturðu farið til baka og valið annan netþjón.</string>
+	<string name="i_agree">Ég samþykki</string>
 	<string name="empty_list">Þessi listi er tómur</string>
 	<string name="instance_signup_closed">Þessi netþjónn tekur ekki við nýjum skráningum.</string>
 	<string name="text_copied">Afritað á klippispjald</string>
 	<string name="add_bookmark">Bókamerki</string>
 	<string name="remove_bookmark">Fjarlægja bókamerki</string>
 	<string name="bookmarks">Bókamerki</string>
+	<string name="your_favorites">Eftirlætin þín</string>
+	<string name="login_title">Velkomin aftur</string>
 	<string name="login_subtitle">Skráðu þig inn á netþjóninn þar sem þú útbjóst notandaaðganginn þinn.</string>
 	<string name="server_url">Vefslóð netþjóns</string>
+	<string name="server_filter_any_language">Hvaða tungumál sem er</string>
+	<string name="server_filter_instant_signup">Nýskráning á stundinni</string>
+	<string name="server_filter_manual_review">Handvirk yfirferð</string>
 	<string name="server_filter_region_europe">Evrópa</string>
 	<string name="server_filter_region_north_america">Norður-Ameríka</string>
 	<string name="server_filter_region_south_america">Suður-Ameríka</string>
@@ -307,6 +322,7 @@
 	<string name="server_filter_region_asia">Asía</string>
 	<string name="server_filter_region_oceania">Eyjaálfa</string>
 	<string name="not_accepting_new_members">Tekur ekki við nýjum meðlimum</string>
+	<string name="category_special_interests">Sérstök áhugamál</string>
 	<string name="signup_passwords_dont_match">Lykilorðin samsvara ekki</string>
 	<string name="profile_add_row">Bæta við röð</string>
 	<string name="profile_setup">Uppsetning notandasniðs</string>
@@ -671,5 +687,18 @@
 	<string name="what_is_activitypub_title">Hvað er ActivityPub?</string>
 	<string name="what_is_activitypub">ActivityPub má líkja við að vera tungumálið sem Mastodon notar til að tala við önnur samfélagsnet.\n\nÞað gerir þér kleift að tengjast og eiga í samskiptum við annað fólk, ekki bara á Mastodon, heldur einnig í mörgum öðrum samfélagsmiðlaforritum.</string>
 	<string name="handle_copied">Kennislóð afrituð á klippispjald.</string>
+	<string name="qr_code">QR-kóði</string>
+	<string name="scan_qr_code">Skanna QR-kóða</string>
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
+	<string name="saved">Vistað</string>
+	<string name="image_saved">Mynd vistuð.</string>
+	<string name="video_saved">Myndskeið vistað.</string>
+	<string name="view_file">Skoða</string>
+	<string name="share_sheet_preview_profile">%s á Mastodon</string>
+	<string name="share_sheet_preview_post">%1$s á Mastodon: “%2$s”</string>
+	<string name="copy_profile_link">Afrita tengil í notandasnið</string>
+	<string name="add_muted_word_short">Bæta við orði</string>
+	<string name="tab_home">Heim</string>
+	<string name="tab_search">Kanna</string>
+	<string name="tab_profile">Notandasnið</string>
 </resources>
