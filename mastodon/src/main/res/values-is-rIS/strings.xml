@@ -164,7 +164,7 @@
 	<string name="compose_hint">Skrifaðu eða límdu það sem þér liggur á hjarta</string>
 	<string name="content_warning">Viðvörun vegna efnis</string>
 	<string name="save">Vista</string>
-	<string name="add_alt_text">Bæta við ALT-myndatexta</string>
+	<string name="add_alt_text">Bæta við hjálpartexta</string>
 	<string name="visibility_public">Opinbert</string>
 	<string name="visibility_followers_only">Einungis fylgjendur</string>
 	<string name="visibility_private">Aðeins fólk sem minnst er á</string>
@@ -317,6 +317,7 @@
 	<string name="server_filter_any_language">Hvaða tungumál sem er</string>
 	<string name="server_filter_instant_signup">Nýskráning á stundinni</string>
 	<string name="server_filter_manual_review">Handvirk yfirferð</string>
+	<string name="server_filter_any_signup_speed">Hvaða hraði nýskráninga sem er</string>
 	<string name="server_filter_region_europe">Evrópa</string>
 	<string name="server_filter_region_north_america">Norður-Ameríka</string>
 	<string name="server_filter_region_south_america">Suður-Ameríka</string>
@@ -382,10 +383,10 @@
 	<string name="compose_poll_multiple_choice">Margir valkostir</string>
 	<string name="delete_poll_option">Eyða valkosti úr könnun</string>
 	<string name="poll_style_title">Stíll könnunar</string>
-	<string name="alt_text">Alt-myndatexti</string>
+	<string name="alt_text">Hjálpartexti mynda</string>
 	<string name="help">Hjálp</string>
-	<string name="what_is_alt_text">Hvað er alt-myndatexti?</string>
-	<string name="alt_text_help">ALT-myndatexti inniheldur lýsingu á myndefni fyrir fólk með ýmsar gerðir sjónskerðingar, fyrir tengingar með litla bandbreidd, eða til að gefa nánara samhengi fyrir myndefni.\n\nÞú getur með þessu bætt almennt aðgengi og aukið skilning á efni sem þú birtir með því að skrifa skýran, skorinortan og hlutlægan alt-texta til vara.\n\n<ul><li>Lýstu mikilvægum atriðum</li>\n<li>Hafðu yfirlit með þeim texta sem sést í myndum</li>\n<li>Notaðu eðlilega setningaskipan</li>\n<li>Forðastu óþarfar upplýsingar</li>\n<li>Leggðu áherslu á aðalatriði í flóknu myndefni (eins og línuritum eða landakortum)</li></ul></string>
+	<string name="what_is_alt_text">Hvað er hjálpartexti?</string>
+	<string name="alt_text_help">Hjálpartexti eða ALT-myndatexti inniheldur lýsingu á myndefni fyrir fólk með ýmsar gerðir sjónskerðingar, fyrir tengingar með litla bandbreidd, eða til að gefa nánara samhengi fyrir myndefni.\n\nÞú getur með þessu bætt almennt aðgengi og aukið skilning á efni sem þú birtir með því að skrifa skýran, skorinortan og hlutlægan alt-texta til vara.\n\n<ul><li>Lýstu mikilvægum atriðum</li>\n<li>Hafðu yfirlit með þeim texta sem sést í myndum</li>\n<li>Notaðu eðlilega setningaskipan</li>\n<li>Forðastu óþarfar upplýsingar</li>\n<li>Leggðu áherslu á aðalatriði í flóknu myndefni (eins og línuritum eða landakortum)</li></ul></string>
 	<string name="edit_post">Breyta færslu</string>
 	<string name="no_verified_link">Enginn staðfestur tengill</string>
 	<string name="compose_autocomplete_emoji_empty">Skoða tjáningartákn</string>
@@ -417,7 +418,7 @@
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">Um %s</string>
 	<string name="default_post_language">Sjálfgefið tungumál færslu</string>
-	<string name="settings_alt_text_reminders">Bætta við áminningum vegna ALT-myndatexta</string>
+	<string name="settings_alt_text_reminders">Bætta við áminningum vegna hjálpartexta</string>
 	<string name="settings_confirm_unfollow">Spyrja áður en hætt er að fylgjast með einhverjum</string>
 	<string name="settings_confirm_boost">Spyrja áður en endurbirting fer fram</string>
 	<string name="settings_confirm_delete_post">Spyrja áður en færslum er eytt</string>
@@ -471,20 +472,20 @@
 		<item quantity="one">fyrir %d klukkustund</item>
 		<item quantity="other">fyrir %d klukkustundum</item>
 	</plurals>
-	<string name="alt_text_reminder_title">Myndgögn vantar ALT-myndatexta</string>
+	<string name="alt_text_reminder_title">Myndgögn vantar hjálpartexta</string>
 	<plurals name="alt_text_reminder_x_images">
-		<item quantity="one">%s myndanna þinna vantar alt-myndatexta. Birta samt?</item>
-		<item quantity="other">%s myndanna þinna vantar alt-myndatexta. Birta samt?</item>
+		<item quantity="one">%s myndina þína vantar hjálpartexta. Birta samt?</item>
+		<item quantity="other">%s myndanna þinna vantar hjálpartexta. Birta samt?</item>
 	</plurals>
 	<plurals name="alt_text_reminder_x_attachments">
-		<item quantity="one">%s margmiðlunarviðhengjanna þinna vantar alt-myndatexta. Birta samt?</item>
-		<item quantity="other">%s margmiðlunarviðhengjanna þinna vantar alt-myndatexta. Birta samt?</item>
+		<item quantity="one">%s margmiðlunarviðhengið þitt vantar hjálpartexta. Birta samt?</item>
+		<item quantity="other">%s margmiðlunarviðhengjanna þinna vantar hjálpartexta. Birta samt?</item>
 	</plurals>
 	<string name="count_one">Einn</string>
 	<string name="count_two">Tveir</string>
 	<string name="count_three">Þrír</string>
 	<string name="count_four">Fjórir</string>
-	<string name="alt_text_reminder_post_anyway">Færsla</string>
+	<string name="alt_text_reminder_post_anyway">Birta</string>
 	<!-- %s is the username -->
 	<string name="unfollow_confirmation">Hætta að fylgjast með %s?</string>
 	<string name="filter_active">Virkur</string>
@@ -700,8 +701,14 @@
 	<string name="share_sheet_preview_profile">%s á Mastodon</string>
 	<string name="share_sheet_preview_post">%1$s á Mastodon: “%2$s”</string>
 	<string name="copy_profile_link">Afrita tengil í notandasnið</string>
+	<string name="in_app_browser">Skoðari forrits</string>
+	<string name="system_browser">Skoðari kerfis</string>
 	<string name="add_muted_word_short">Bæta við orði</string>
 	<string name="tab_home">Heim</string>
 	<string name="tab_search">Kanna</string>
 	<string name="tab_profile">Notandasnið</string>
+	<string name="pin_post">Festa á notandasnið</string>
+	<string name="unpin_post">Losa af notandasniði</string>
+	<string name="post_pinned">Færslan hefur verið fest</string>
+	<string name="post_unpinned">Færslan hefur verið losuð</string>
 </resources>
