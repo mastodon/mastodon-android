@@ -154,6 +154,7 @@
 	<string name="confirm_password">Confirmez le mot de passe</string>
 	<string name="password_note">Inclure les lettres majuscules, les caractères spéciaux et les chiffres pour augmenter la force de votre mot de passe.</string>
 	<string name="category_general">Général</string>
+	<string name="confirm_email_title">Vérifier votre boîte de réception</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">Cliquez sur le lien que nous avons envoyé à %s pour confirmer votre email. Nous vous attendons ici.</string>
 	<string name="confirm_email_didnt_get">Lien non reçu ?</string>
@@ -306,8 +307,10 @@
 	<string name="add_bookmark">Ajouter aux marque-pages</string>
 	<string name="remove_bookmark">Retirer des marque-pages</string>
 	<string name="bookmarks">Marque-pages</string>
+	<string name="your_favorites">Vos favoris</string>
 	<string name="login_subtitle">Connectez-vous avec le serveur sur lequel vous avez créé votre compte.</string>
 	<string name="server_url">URL du serveur</string>
+	<string name="server_filter_instant_signup">Inscription instantanée</string>
 	<string name="server_filter_region_europe">Europe</string>
 	<string name="server_filter_region_north_america">Amérique du Nord</string>
 	<string name="server_filter_region_south_america">Amérique du Sud</string>
@@ -584,6 +587,7 @@
 	<string name="remove">Supprimer</string>
 	<string name="add_list_member">Ajouter un membre</string>
 	<string name="search_among_people_you_follow">Rechercher parmi les gens que vous suivez</string>
+	<string name="add_user_to_list">Ajouter/supprimer des listes…</string>
 	<string name="add_user_to_list_title">Ajouter à la liste</string>
 	<!-- %s is a username -->
 	<string name="manage_user_lists">Gérer les listes où %s apparaît</string>
@@ -631,15 +635,22 @@
 	<string name="button_reblogged">Boosté</string>
 	<string name="button_favorited">Ajouté au favoris</string>
 	<string name="bookmarked">Ajouté aux signets</string>
+	<string name="server_followers_will_be_removed">Vos abonné·e·s de ce serveur seront supprimés.</string>
 	<string name="server">Serveur</string>
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
+	<string name="saved">Enregistré</string>
 	<string name="image_saved">Image enregistrée.</string>
 	<string name="video_saved">Vidéo enregistrée.</string>
+	<string name="view_file">Afficher</string>
 	<string name="share_sheet_preview_profile">%s sur Mastodon</string>
+	<string name="share_sheet_preview_post">%1$s sur Mastodon : \"%2$s\"</string>
 	<string name="in_app_browser">Navigateur intégré</string>
 	<string name="system_browser">Navigateur système</string>
 	<string name="tab_home">Accueil</string>
 	<string name="tab_search">Explorer</string>
 	<string name="tab_profile">Profil</string>
 	<string name="pin_post">Épingler sur le profil</string>
+	<string name="unpin_post">Retirer du profil</string>
+	<string name="post_pinned">Le message a été épinglé</string>
+	<string name="post_unpinned">Le message a été désépinglé</string>
 </resources>
