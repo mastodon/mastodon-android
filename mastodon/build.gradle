@@ -66,6 +66,7 @@ android {
 	}
 	buildFeatures{
 		aidl true
+		buildConfig true
 	}
 	dependenciesInfo{
 		// Disables dependency metadata when building APKs.
@@ -73,6 +74,7 @@ android {
 		// Disables dependency metadata when building Android App Bundles.
 		includeInBundle false
 	}
+	namespace 'org.joinmastodon.android'
 }
 
 dependencies {

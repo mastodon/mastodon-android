@@ -63,7 +63,7 @@ public class PhotoViewerInfoSheet extends BottomSheet{
 		}
 
 		backButton=new ImageButton(context);
-		backButton.setImageResource(R.drawable.ic_arrow_back);
+		backButton.setImageResource(me.grishka.appkit.R.drawable.ic_arrow_back);
 		backButton.setImageTintList(ColorStateList.valueOf(UiUtils.getThemeColor(context, R.attr.colorM3OnSurfaceVariant)));
 		backButton.setBackgroundResource(R.drawable.bg_button_m3_tonal_icon);
 		backButton.setOutlineProvider(ViewOutlineProvider.BACKGROUND);

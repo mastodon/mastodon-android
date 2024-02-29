@@ -310,7 +310,7 @@ public class ProfileAboutFragment extends Fragment implements WindowInsetsAwareF
 		public void onSelectedChanged(@Nullable RecyclerView.ViewHolder viewHolder, int actionState){
 			super.onSelectedChanged(viewHolder, actionState);
 			if(actionState==ItemTouchHelper.ACTION_STATE_DRAG){
-				viewHolder.itemView.setTag(R.id.item_touch_helper_previous_elevation, viewHolder.itemView.getElevation()); // prevents the default behavior of changing elevation in onDraw()
+				viewHolder.itemView.setTag(me.grishka.appkit.R.id.item_touch_helper_previous_elevation, viewHolder.itemView.getElevation()); // prevents the default behavior of changing elevation in onDraw()
 				viewHolder.itemView.animate().translationZ(V.dp(1)).setDuration(200).setInterpolator(CubicBezierInterpolator.DEFAULT).start();
 			}
 		}

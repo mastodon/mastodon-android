@@ -284,7 +284,7 @@ public class ReorderableLinearLayout extends LinearLayout implements CustomViewH
 
 	private int getMaxDragScroll(){
 		if(cachedMaxScrollSpeed==-1){
-			cachedMaxScrollSpeed=getResources().getDimensionPixelSize(R.dimen.item_touch_helper_max_drag_scroll_per_frame);
+			cachedMaxScrollSpeed=getResources().getDimensionPixelSize(me.grishka.appkit.R.dimen.item_touch_helper_max_drag_scroll_per_frame);
 		}
 		return cachedMaxScrollSpeed;
 	}

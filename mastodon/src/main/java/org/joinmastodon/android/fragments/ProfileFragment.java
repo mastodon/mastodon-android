@@ -930,7 +930,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 
 		Toolbar toolbar=getToolbar();
 		if(canGoBack()){
-			Drawable back=getToolbarContext().getDrawable(R.drawable.ic_arrow_back).mutate();
+			Drawable back=getToolbarContext().getDrawable(me.grishka.appkit.R.drawable.ic_arrow_back).mutate();
 			back.setTint(UiUtils.getThemeColor(getToolbarContext(), R.attr.colorM3OnSurfaceVariant));
 			toolbar.setNavigationIcon(back);
 			toolbar.setNavigationContentDescription(0);
