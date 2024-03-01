@@ -26,12 +26,6 @@ platform :android do
     gradle(
       task: "bundle",
       build_type: "release",
-      properties: {
-        "android.injected.signing.store.file" => ENV["KEYSTORE_FILE"],
-        "android.injected.signing.store.password" => ENV["KEYSTORE_PASSWORD"],
-        "android.injected.signing.key.alias" => "key0",
-        "android.injected.signing.key.password" => ENV["KEYSTORE_PASSWORD"],
-      }
     )
     upload_to_play_store(
       changes_not_sent_for_review: true

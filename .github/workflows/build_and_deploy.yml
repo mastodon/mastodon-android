@@ -1,0 +1,56 @@
+name: Build and deploy
+ 
+on:
+ workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up JDK
+        uses: actions/setup-java@v1
+        with:
+          java-version: 21
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.7.2
+          bundler-cache: true
+
+      - name: Decode keystore
+        uses: timheuer/base64-to-file@v1
+        id: android_keystore
+        with:
+          fileName: "release.jks"
+          encodedString: ${{ secrets.KEYSTORE_FILE }}
+
+      - name: Add signing configs to build.gradle
+        run: echo "apply from: 'ci_signing.gradle'" >> mastodon/build.gradle
+
+      - name: Build and deploy to Google Play
+        run: bundle exec fastlane deploy
+        env:
+          KEYSTORE_FILE: ${{ steps.android_keystore.outputs.filePath }}
+          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+          SUPPLY_JSON_KEY_DATA: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_KEY }}
+
+      - name: Build release apk
+        run: ./gradlew assembleRelease
+        env:
+          KEYSTORE_FILE: ${{ steps.android_keystore.outputs.filePath }}
+          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+
+      - name: Build githubRelease apk
+        run: ./gradlew assembleGithubRelease
+        env:
+          KEYSTORE_FILE: ${{ steps.android_keystore.outputs.filePath }}
+          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+
+      - uses: actions/upload-artifact@v4
+        with:
+          path: |
+            mastodon/build/outputs/apk/*/*.apk
+            mastodon/build/outputs/mapping/*/mapping.txt
