@@ -172,7 +172,7 @@
 	<string name="skip">Atla</string>
 	<string name="notification_type_follow">Yeni takipçiler</string>
 	<string name="notification_type_favorite">Gözdeler</string>
-	<string name="notification_type_reblog">Yinelemeler</string>
+	<string name="notification_type_reblog">Yeniden Paylaşımlar</string>
 	<string name="notification_type_mention">Bahsetmeler</string>
 	<string name="notification_type_poll">Anketler</string>
 	<string name="choose_account">Hesap seç</string>
@@ -302,7 +302,7 @@
 	<string name="download_update">İndir (%s)</string>
 	<string name="install_update">Kur</string>
 	<string name="privacy_policy_title">Gizlilik</string>
-	<string name="privacy_policy_subtitle">Mastodon uygulaması herhangi bir veri toplamasa da, kaydolduğunuz sunucunun politikası farklı olabilir.\n\n%s politikasına katılmıyorsanız, geri dönüp farklı bir sunucu seçebilirsiniz.</string>
+	<string name="privacy_policy_subtitle">Mastodon uygulaması herhangi bir veri toplamasa da, kaydolduğunuz sunucunun farklı bir politikası olabilir.\n\nlf için politikayı kabul etmiyorsanız %s, geri dönüp farklı bir sunucu seçebilirsiniz.</string>
 	<string name="i_agree">Kabul ediyorum</string>
 	<string name="empty_list">Bu liste boş</string>
 	<string name="instance_signup_closed">Bu sunucu yeni kayıtları kabul etmemektedir.</string>
@@ -508,14 +508,14 @@
 	<string name="selection_2_options">%1$s ve %2$s</string>
 	<string name="selection_3_options">%1$s, %2$s ve %3$s</string>
 	<string name="selection_4_or_more">%1$s, %2$s ve %3$d daha fazlası</string>
-	<string name="filter_context_home_lists">Ana sayfa &amp; listeler</string>
+	<string name="filter_context_home_lists">Anasayfa ve listeler</string>
 	<string name="filter_context_notifications">Bildirimler</string>
 	<string name="filter_context_public_timelines">Herkese açık zaman çizelgeleri</string>
 	<string name="filter_context_threads_replies">Konular &amp; cevaplar</string>
 	<string name="filter_context_profiles">Profiller</string>
 	<string name="settings_filter_title">Başlık</string>
-	<string name="settings_delete_filter_title">“%s” filtresi silinsin mi?</string>
-	<string name="settings_delete_filter_confirmation">Bu filtre, tüm cihazlarınızdaki hesabınızdan silinecek.</string>
+	<string name="settings_delete_filter_title">“%s” süzgeci silinsin mi?</string>
+	<string name="settings_delete_filter_confirmation">Bu süzgeç, tüm cihazlarınızdaki hesabınızdan silinecek.</string>
 	<string name="add_muted_word">Sessize alınacak kelime ekle</string>
 	<string name="edit_muted_word">Sessize alınmış kelimeyi düzenle</string>
 	<string name="add">Ekle</string>
@@ -540,7 +540,7 @@
 	<string name="app_update_version">Sürüm %s</string>
 	<string name="downloading_update">İndiriliyor (%d%%)</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
-	<string name="post_matches_filter_x">“%s” filtresiyle eşleşiyor</string>
+	<string name="post_matches_filter_x">“%s” süzgeciyle eşleşiyor</string>
 	<string name="search_mastodon">Mastodon\'da ara</string>
 	<string name="clear_all">Tümünü temizle</string>
 	<string name="search_open_url">Bağlantıyı Mastodon\'da aç</string>
@@ -629,7 +629,7 @@
 		<item quantity="other">%,d aylar</item>
 	</plurals>
 	<string name="more_than_two_years">2 yıldan fazla süredir</string>
-	<string name="non_mutual_title1">Saygılı ve ilgili &amp; olunuz</string>
+	<string name="non_mutual_title1">Saygılı ve ilgili olunuz</string>
 	<string name="non_mutual_text1">Yanıtınızın nazik ve konuyla ilgili olduğundan emin olunuz.</string>
 	<string name="non_mutual_title2">Nezaketle sarıl</string>
 	<string name="non_mutual_text2">Olumlu bir yaklaşım her zaman takdir edilir.</string>
@@ -676,5 +676,7 @@ Ne kadar çok kişiyi takip ederseniz, o kadar aktif ve ilginç olacaktır.</str
 	<string name="you_wont_see_server_posts">Bu sunucudaki kullanıcılardan gelen gönderileri veya bildirimleri göremezsiniz.</string>
 	<string name="server_followers_will_be_removed">Bu sunucudaki takipçileriniz kaldırılacaktır.</string>
 	<string name="server">Sunucu</string>
+	<string name="handle_explanation">Tanıtıcılar bir kişinin kim olduğunu ve nerede olduğunu söylediği için, &lt;a&gt;ActivityPub destekli platformların&lt;/a&gt; sosyal ağındaki insanlarla etkileşime geçebilirsiniz.</string>
+	<string name="handle_explanation_own">Tanıtıcılar bir kişinin kim olduğunu ve nerede olduğunu söylediği için, &lt;a&gt;ActivityPub destekli platformların&lt;/a&gt; sosyal ağındaki insanlarla etkileşime geçebilirsiniz.</string>
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
 </resources>
