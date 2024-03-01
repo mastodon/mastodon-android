@@ -10,10 +10,10 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       - name: Set up JDK
-        uses: actions/setup-java@v1
+        uses: actions/setup-java@v2
         with:
           java-version: 21
 
@@ -54,15 +54,26 @@ jobs:
           KEYSTORE_FILE: ${{ steps.android_keystore.outputs.filePath }}
           KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
 
+      - name: Upload release apk
+        uses: actions/upload-artifact@v4
+        with:
+          name: mastodon-release.apk
+          path: mastodon/build/outputs/apk/release/mastodon-release.apk
+
       - name: Build githubRelease apk
         run: ./gradlew assembleGithubRelease
         env:
           KEYSTORE_FILE: ${{ steps.android_keystore.outputs.filePath }}
           KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
 
-      - name: Upload artifacts
+      - name: Upload githubRelease apk
         uses: actions/upload-artifact@v4
         with:
-          path: |
-            mastodon/build/outputs/apk/*/*.apk
-            mastodon/build/outputs/mapping/*/mapping.txt
+          name: mastodon-githubRelease.apk
+          path: mastodon/build/outputs/apk/githubRelease/mastodon-githubRelease.apk
+
+      - name: Upload mappings
+        uses: actions/upload-artifact@v4
+        with:
+          name: mappings
+          path: mastodon/build/outputs/mapping/*/mapping.txt
