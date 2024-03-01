@@ -46,6 +46,7 @@ jobs:
           SUPPLY_JSON_KEY_DATA: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_KEY }}
           SUPPLY_VALIDATE_ONLY: true
           SUPPLY_SKIP_UPLOAD_METADATA: true
+          SUPPLY_SKIP_UPLOAD_CHANGELOGS: true
 
       - name: Build release apk
         run: ./gradlew assembleRelease
