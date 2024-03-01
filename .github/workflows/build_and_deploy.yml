@@ -44,6 +44,8 @@ jobs:
           KEYSTORE_FILE: ${{ steps.android_keystore.outputs.filePath }}
           KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
           SUPPLY_JSON_KEY_DATA: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_KEY }}
+          SUPPLY_VALIDATE_ONLY: true
+          SUPPLY_SKIP_UPLOAD_METADATA: true
 
       - name: Build release apk
         run: ./gradlew assembleRelease
