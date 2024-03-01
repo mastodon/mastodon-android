@@ -28,7 +28,8 @@ jobs:
           encodedString: ${{ secrets.KEYSTORE_FILE }}
 
       - name: Add signing configs to build.gradle
-        run: echo "apply from: 'ci_signing.gradle'" >> mastodon/build.gradle
+        run: >
+          echo "apply from: 'ci_signing.gradle'" >> mastodon/build.gradle
 
       - name: Build and deploy to Google Play
         run: bundle exec fastlane deploy
