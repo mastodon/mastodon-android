@@ -34,7 +34,7 @@ jobs:
           encodedString: ${{ secrets.KEYSTORE_FILE }}
 
       - name: Prepare Gradle environment
-        run: >
+        run: |
           echo "apply from: 'ci_signing.gradle'" >> mastodon/build.gradle
           echo "sdk.dir=$ANDROID_SDK_ROOT" > local.properties
 
