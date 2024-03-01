@@ -16,6 +16,7 @@ jobs:
         uses: actions/setup-java@v2
         with:
           java-version: 21
+          distribution: temurin
 
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
