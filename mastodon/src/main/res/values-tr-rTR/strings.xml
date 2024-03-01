@@ -31,10 +31,13 @@
 		<item quantity="other">takip</item>
 	</plurals>
 	<string name="posts">Gönderiler</string>
+	<string name="posts_and_replies">Gönderiler ve yanıtlar</string>
 	<string name="media">Medya</string>
 	<string name="profile_about">Hakkında</string>
 	<string name="button_follow">Takip et</string>
 	<string name="button_following">Takip ediliyor</string>
+	<string name="edit_profile">Profili düzenle</string>
+	<string name="share_user">Profili şu yolla paylaş…</string>
 	<string name="mute_user">%s Sustur</string>
 	<string name="unmute_user">%s Sesini aç</string>
 	<string name="block_user">%s Engelle</string>
@@ -141,7 +144,9 @@
 	<string name="report_personal_subtitle">Mastodon\'da görebileceklerinizi kontrol etmek için seçenekleriniz şunlardır:</string>
 	<string name="back">Geri</string>
 	<string name="search_communities">Sunucu adı veya bağlantısı</string>
+	<string name="instance_rules_title">Sunucu kuralları</string>
 	<string name="instance_rules_subtitle">Devam ederseniz %s yöneticileri tarafından yayınlanan kuralları kabul etmiş olursunuz.</string>
+	<string name="signup_title">Hesap oluştur</string>
 	<string name="display_name">Ad</string>
 	<string name="username">Kullanıcı adı</string>
 	<string name="email">E-Posta</string>
@@ -149,6 +154,7 @@
 	<string name="confirm_password">Parolayı doğrula</string>
 	<string name="password_note">Daha güçlü parolalar için parolanıza büyük harfler, özel karakterler ve sayılar ekleyin.</string>
 	<string name="category_general">Genel</string>
+	<string name="confirm_email_title">Gelen kutunuzu kontrol ediniz</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">%s adresini doğrulamak için size gönderdiğimiz bağlantıya dokunun. Hemen burada bekleyeceğiz.</string>
 	<string name="confirm_email_didnt_get">Bağlantı gelmedi mi?</string>
@@ -183,6 +189,7 @@
 	<string name="theme_dark">Karanlık</string>
 	<string name="settings_behavior">Ayarlar</string>
 	<string name="settings_gif">Animasyonlu avatarları ve emojileri oynat</string>
+	<string name="settings_custom_tabs">Bağlantıyı aç</string>
 	<string name="settings_notifications">Bildirimler</string>
 	<string name="settings_contribute">Mastodon\'a katkıda bulunun</string>
 	<string name="settings_tos">Kullanım şartları</string>
@@ -211,6 +218,8 @@
 	<string name="followed_user">Artık %s kullanıcısını takip ediyorsun</string>
 	<string name="following_user_requested">%s takip isteği gönderdi</string>
 	<string name="open_in_browser">Tarayıcıda aç</string>
+	<string name="hide_boosts_from_user">Yeniden paylaşanları gizle</string>
+	<string name="show_boosts_from_user">Yeniden paylaşımları göster</string>
 	<string name="signup_reason">Neden katılmak istiyorsunuz?</string>
 	<string name="signup_reason_note">Bu, başvurunuzu incelememize yardımcı olacaktır.</string>
 	<string name="clear">Temizle</string>
@@ -233,6 +242,7 @@
 	<string name="recommended_accounts_info_banner">Takip ettiğiniz hesaplara göre bu hesapları beğenebilirsiniz.</string>
 	<string name="see_new_posts">Yeni gönderiler</string>
 	<string name="load_missing_posts">Daha fazlası</string>
+	<string name="follow_back">Geri takip et</string>
 	<string name="button_follow_pending">Bekliyor</string>
 	<string name="follows_you">Seni takip ediyor</string>
 	<string name="manually_approves_followers">Takipçileri elle kabul et</string>
@@ -291,15 +301,23 @@
 	<!-- %s is file size -->
 	<string name="download_update">İndir (%s)</string>
 	<string name="install_update">Kur</string>
+	<string name="privacy_policy_title">Gizlilik</string>
 	<string name="privacy_policy_subtitle">Mastodon uygulaması herhangi bir veri toplamasa da, kaydolduğunuz sunucunun politikası farklı olabilir.\n\n%s politikasına katılmıyorsanız, geri dönüp farklı bir sunucu seçebilirsiniz.</string>
+	<string name="i_agree">Kabul ediyorum</string>
 	<string name="empty_list">Bu liste boş</string>
 	<string name="instance_signup_closed">Bu sunucu yeni kayıtları kabul etmemektedir.</string>
 	<string name="text_copied">Panoya kopyalandı</string>
 	<string name="add_bookmark">Yer imlerine ekle</string>
 	<string name="remove_bookmark">Yer imini kaldır</string>
 	<string name="bookmarks">Yer imleri</string>
+	<string name="your_favorites">Gözdeler</string>
+	<string name="login_title">Tekrar hoşgeldiniz</string>
 	<string name="login_subtitle">Hesabınızı oluşturduğunuz sunucuya giriş yapın.</string>
 	<string name="server_url">Sunucu bağlantısı</string>
+	<string name="server_filter_any_language">Herhangi bir dil</string>
+	<string name="server_filter_instant_signup">Koşulsuz kayıt</string>
+	<string name="server_filter_manual_review">Elle inceleme</string>
+	<string name="server_filter_any_signup_speed">Herhangi bir kayıt hızı</string>
 	<string name="server_filter_region_europe">Avrupa</string>
 	<string name="server_filter_region_north_america">Kuzey Amerika</string>
 	<string name="server_filter_region_south_america">Güney Amerika</string>
@@ -307,6 +325,7 @@
 	<string name="server_filter_region_asia">Asya</string>
 	<string name="server_filter_region_oceania">Okyanusya</string>
 	<string name="not_accepting_new_members">Yeni üyelikler kabul edilmiyor</string>
+	<string name="category_special_interests">Özel ilgi alanları</string>
 	<string name="signup_passwords_dont_match">Parolalar eşleşmiyor</string>
 	<string name="profile_add_row">Satır ekle</string>
 	<string name="profile_setup">Profilini ayarla</string>
@@ -477,8 +496,8 @@
 	<string name="settings_filter_muted_words">Sessize alınmış kelimeler</string>
 	<string name="settings_filter_context">Sessize alınacak yerler</string>
 	<string name="settings_filter_show_cw">İçerik uyarısı ile göster</string>
-	<string name="settings_filter_show_cw_explanation">Yine de bu filtreyle eşleşen içerikleri göster, ancak bunu arkasında bir içerik uyarısıyla yap</string>
-	<string name="settings_delete_filter">Filtreyi sil</string>
+	<string name="settings_filter_show_cw_explanation">Yine de bu süzgeçle eşleşen içerikleri göster, ancak bunu arkasında bir içerik uyarısıyla yap</string>
+	<string name="settings_delete_filter">Süzgeci sil</string>
 	<string name="filter_duration_forever">Sonsuza dek</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<string name="settings_filter_ends">Bitiş %s</string>
@@ -575,6 +594,7 @@
 	<string name="remove">Kaldır</string>
 	<string name="add_list_member">Üye ekle</string>
 	<string name="search_among_people_you_follow">Takip ettiğiniz kişiler arasında arama yapın</string>
+	<string name="add_user_to_list">Listelere ekle/kaldır...</string>
 	<string name="add_user_to_list_title">Listeye ekle</string>
 	<!-- %s is a username -->
 	<string name="manage_user_lists">Listeleri yönet %s şurada görünür</string>
@@ -627,12 +647,34 @@ Ne kadar çok kişiyi takip ederseniz, o kadar aktif ve ilginç olacaktır.</str
 	<string name="button_reblogged">Yeniden paylaştı</string>
 	<string name="button_favorited">Sık Kullanılanlar</string>
 	<string name="bookmarked">Yer işareti</string>
+	<string name="join_server_x_with_invite">Davetiye ile %s \'ye katılınız</string>
 	<string name="expired_invite_link">Süresi dolmuş davet bağlantısı</string>
+	<string name="expired_clipboard_invite_link_alert">Panonuzdaki %1$s davet bağlantısının süresi doldu ve kaydolmak için kullanılamıyor.\n\nMevcut bir kullanıcıdan yeni bir bağlantı talep edebilir, %2$s, üzerinden kaydolabilir veya kaydolmak için başka bir sunucu seçebilirsiniz.</string>
 	<string name="invalid_invite_link">Geçersiz davet bağlantısı</string>
+	<string name="invalid_clipboard_invite_link_alert">Panonuzdaki %1$s davet bağlantısının süresi doldu ve kaydolmak için kullanılamıyor.\n\nMevcut bir kullanıcıdan yeni bir bağlantı talep edebilir, %2$s, üzerinden kaydolabilir veya kaydolmak için başka bir sunucu seçebilirsiniz.</string>
 	<string name="use_invite_link">Davet bağlantısını kullan</string>
 	<string name="enter_invite_link">Davet bağlantısı gir</string>
 	<string name="this_invite_is_invalid">Bu davet bağlantısı geçerli değil.</string>
 	<string name="this_invite_has_expired">Bu davet bağlantısının süresi doldu.</string>
 	<string name="invite_link_pasted">Bağlantı panodan yapıştırıldı.</string>
+	<string name="need_invite_to_join_server">Katılmak %s için mevcut bir kullanıcıdan davet bağlantısı almanız gerekir.</string>
+	<string name="mute_user_confirm_title">Kullanıcıyı sustur?</string>
+	<string name="user_wont_know_muted">Susturulduklarını bilmeyecekler.</string>
+	<string name="user_can_still_see_your_posts">Onlar sizin gönderilerinizi görmeye devam edebilir, ancak siz onlarınkini göremezsiniz.</string>
+	<string name="you_wont_see_user_mentions">Onlardan bahseden gönderiler göremezsiniz.</string>
+	<string name="user_can_mention_and_follow_you">Sizden bahsedebilir ve sizi takip edebilirler, ancak siz onları göremezsiniz.</string>
+	<string name="unmuted_user_x">%s Sesini aç</string>
+	<string name="block_user_confirm_title">Kullanıcıyı Engelle?</string>
+	<string name="user_can_see_blocked">Engellendiklerini görebiliyorlar.</string>
+	<string name="user_cant_see_each_other_posts">Onlar sizin gönderilerinizi görmeye devam edebilir, ancak siz onlarınkini göremezsiniz.</string>
+	<string name="user_cant_mention_or_follow_you">Sizden bahsedemez veya sizi takip edemezler.</string>
+	<string name="unblocked_user_x">%s İçin Engel Kaldırılsın</string>
+	<string name="block_domain_confirm_title">Alan adını engelle?</string>
+	<string name="do_block_server">Sunucuyu engelle</string>
+	<string name="block_user_x_instead">Bunun yerine %s\'yi engelle</string>
+	<string name="users_cant_see_blocked">Bu sunucudaki kullanıcılardan gelen gönderileri veya bildirimleri göremezsiniz.</string>
+	<string name="you_wont_see_server_posts">Bu sunucudaki kullanıcılardan gelen gönderileri veya bildirimleri göremezsiniz.</string>
+	<string name="server_followers_will_be_removed">Bu sunucudaki takipçileriniz kaldırılacaktır.</string>
+	<string name="server">Sunucu</string>
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
 </resources>
