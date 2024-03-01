@@ -23,6 +23,9 @@ jobs:
           ruby-version: 2.7.2
           bundler-cache: true
 
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+
       - name: Decode keystore
         uses: timheuer/base64-to-file@v1
         id: android_keystore
@@ -53,7 +56,8 @@ jobs:
           KEYSTORE_FILE: ${{ steps.android_keystore.outputs.filePath }}
           KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
 
-      - uses: actions/upload-artifact@v4
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
         with:
           path: |
             mastodon/build/outputs/apk/*/*.apk
