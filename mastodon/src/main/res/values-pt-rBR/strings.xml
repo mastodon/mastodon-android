@@ -35,6 +35,8 @@
 	<string name="profile_about">Sobre</string>
 	<string name="button_follow">Seguir</string>
 	<string name="button_following">Seguindo</string>
+	<string name="edit_profile">Editar perfil</string>
+	<string name="share_user">Compartilhar perfil via…</string>
 	<string name="mute_user">Silenciar %s</string>
 	<string name="unmute_user">Remover silenciar de %s</string>
 	<string name="block_user">Bloquear %s</string>
@@ -141,7 +143,9 @@
 	<string name="report_personal_subtitle">Aqui estão suas opções para controlar o que você vê no Mastodon:</string>
 	<string name="back">Voltar</string>
 	<string name="search_communities">Nome do servidor ou URL</string>
+	<string name="instance_rules_title">Regras do servidor</string>
 	<string name="instance_rules_subtitle">Ao continuar, você concorda em seguir as seguintes regras definidas e aplicadas pelos moderadores de %s.</string>
+	<string name="signup_title">Criar conta</string>
 	<string name="display_name">Nome</string>
 	<string name="username">Nome de usuário</string>
 	<string name="email">E-mail</string>
@@ -149,6 +153,7 @@
 	<string name="confirm_password">Confirmar senha</string>
 	<string name="password_note">Inclua letras maiúsculas, caracteres especiais e números para deixar sua senha mais forte e segura.</string>
 	<string name="category_general">Geral</string>
+	<string name="confirm_email_title">Verifique sua caixa de entrada</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">Toque no link que te enviamos para verificar %s. Esperaremos por aqui.</string>
 	<string name="confirm_email_didnt_get">Não recebeu um link?</string>
@@ -183,6 +188,7 @@
 	<string name="theme_dark">Escuro</string>
 	<string name="settings_behavior">Comportamento</string>
 	<string name="settings_gif">Reproduzir emojis e avatares animados</string>
+	<string name="settings_custom_tabs">Abrir links em</string>
 	<string name="settings_notifications">Notificações</string>
 	<string name="settings_contribute">Contribua para o Mastodon</string>
 	<string name="settings_tos">Termos de serviço</string>
@@ -233,6 +239,7 @@
 	<string name="recommended_accounts_info_banner">Você pode gostar dessas contas com base em outras que segue.</string>
 	<string name="see_new_posts">Publicações novas</string>
 	<string name="load_missing_posts">Carregar publicações perdidas</string>
+	<string name="follow_back">Seguir de volta</string>
 	<string name="button_follow_pending">Pendente</string>
 	<string name="follows_you">Segue você</string>
 	<string name="manually_approves_followers">Aprovar seguidores manualmente</string>
@@ -287,13 +294,16 @@
 	<!-- %s is file size -->
 	<string name="download_update">Baixar (%s)</string>
 	<string name="install_update">Instalar</string>
+	<string name="privacy_policy_title">Sua privacidade</string>
 	<string name="privacy_policy_subtitle">Embora o aplicativo Mastodon não colete nenhum dado, o servidor pelo qual você se inscreveu pode ter uma política diferente.\n\nSe você discordar da política de %s, pode voltar e escolher um servidor diferente.</string>
+	<string name="i_agree">Eu concordo</string>
 	<string name="empty_list">Essa lista está vazia</string>
 	<string name="instance_signup_closed">Este servidor não aceita novos registros.</string>
 	<string name="text_copied">Copiado para a área de transferência</string>
 	<string name="add_bookmark">Salvar</string>
 	<string name="remove_bookmark">Remover dos salvos</string>
 	<string name="bookmarks">Salvos</string>
+	<string name="your_favorites">Seus favoritos</string>
 	<string name="login_subtitle">Faça login no servidor onde você criou sua conta.</string>
 	<string name="server_url">URL do servidor</string>
 	<string name="server_filter_region_europe">Europa</string>
@@ -556,7 +566,14 @@
 	<string name="delete_list">Excluir lista</string>
 	<!-- %s is the name of the list -->
 	<string name="delete_list_confirm">Excluir “%s”?</string>
+	<string name="list_show_replies_to">Mostrar respostas para</string>
+	<string name="list_replies_no_one">Ninguém</string>
+	<string name="list_replies_members">Membros da lista</string>
+	<string name="list_replies_anyone">Qualquer um que eu siga</string>
+	<string name="confirm_remove_list_members">Remover membros?</string>
 	<string name="remove">Remover</string>
+	<string name="add_list_member">Adicionar membro</string>
+	<string name="add_user_to_list">Adicionar/remover das listas…</string>
 	<string name="add_user_to_list_title">Adicionar à lista</string>
 	<!-- %s is a username -->
 	<string name="remove_from_list">Remover da lista</string>
@@ -572,5 +589,6 @@
 	<string name="more_than_two_years">mais de 2 anos</string>
 	<string name="app_version_copied">Número da versão copiado para a área de transferência</string>
 	<string name="button_favorited">Gostado</string>
+	<string name="expired_invite_link">Link de convite expirado</string>
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
 </resources>
