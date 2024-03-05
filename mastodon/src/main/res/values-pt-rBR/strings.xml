@@ -237,7 +237,7 @@
 	<!-- %s is the server domain -->
 	<string name="local_timeline_info_banner">Estas são as publicações de todos os usuários em seu servidor (%s).</string>
 	<string name="recommended_accounts_info_banner">Você pode gostar dessas contas com base em outras que segue.</string>
-	<string name="see_new_posts">Publicações novas</string>
+	<string name="see_new_posts">Novas publicações</string>
 	<string name="load_missing_posts">Carregar publicações perdidas</string>
 	<string name="follow_back">Seguir de volta</string>
 	<string name="button_follow_pending">Pendente</string>
@@ -575,6 +575,7 @@
 	<string name="confirm_remove_list_members">Remover membros?</string>
 	<string name="remove">Remover</string>
 	<string name="add_list_member">Adicionar membro</string>
+	<string name="search_among_people_you_follow">Pesquisar entre as pessoas que você segue</string>
 	<string name="add_user_to_list">Adicionar/remover das listas…</string>
 	<string name="add_user_to_list_title">Adicionar à lista</string>
 	<!-- %s is a username -->
@@ -584,14 +585,51 @@
 	<string name="create">Criar</string>
 	<string name="manage_list_members">Gerenciar membros da lista</string>
 	<string name="non_mutual_sheet_title">Olá, nova conexão!</string>
+	<string name="non_mutual_sheet_text">Parece que você está prestes a responder a alguém que ainda não tem uma conexão mútua. Vamos causar uma ótima primeira impressão.</string>
+	<string name="got_it">Entendido</string>
 	<!-- %s is a time interval ("5 months") -->
 	<plurals name="x_months">
 		<item quantity="one">%,d mês</item>
 		<item quantity="other">%,d meses</item>
 	</plurals>
 	<string name="more_than_two_years">mais de 2 anos</string>
+	<string name="non_mutual_title1">Seja respeitoso &amp; relevante</string>
+	<string name="non_mutual_text1">Certifique-se de que sua resposta seja cortês e sobre o assunto.</string>
+	<string name="non_mutual_title2">Abrace a bondade</string>
+	<string name="non_mutual_text2">Um tom positivo é sempre apreciado.</string>
+	<string name="non_mutual_title3">Estar aberto</string>
+	<string name="non_mutual_text3">O estilo de conversação de cada pessoa é único. Esteja pronto para se adaptar.</string>
 	<string name="app_version_copied">Número da versão copiado para a área de transferência</string>
+	<string name="article_by_author">Por %s</string>
 	<string name="button_favorited">Gostado</string>
 	<string name="expired_invite_link">Link de convite expirado</string>
+	<string name="mute_user_confirm_title">Silenciar usuário?</string>
+	<string name="user_wont_know_muted">Eles não saberão que foram silenciados.</string>
+	<string name="user_can_still_see_your_posts">Eles ainda poderão ver suas publicações, mas você não verá as deles.</string>
+	<string name="you_wont_see_user_mentions">Você não verá publicações que os mencionem.</string>
+	<string name="user_can_mention_and_follow_you">Eles podem mencionar e seguir você, mas você não os verá.</string>
+	<string name="block_user_confirm_title">Bloquear usuário?</string>
+	<string name="user_can_see_blocked">Eles podem ver que estão bloqueados.</string>
+	<string name="server">Servidor</string>
+	<string name="handle_server_explanation">Sua casa digital, onde ficam todas as suas publicações.</string>
+	<string name="handle_server_explanation_own">Sua casa digital, onde ficam todas as suas publicações. Não gosta deste? Transfira servidores a qualquer momento e traga seus seguidores também.</string>
+	<string name="what_is_activitypub_title">Qual é o ActivityPub?</string>
+	<string name="what_is_activitypub">ActivityPub é como a linguagem que o Mastodon fala com outras redes sociais.\n\nEle permite que você se conecte e interaja com pessoas não apenas no Mastodon, mas também em diferentes aplicativos sociais.</string>
+	<string name="qr_code">Código QR</string>
+	<string name="scan_qr_code">Escanear código QR</string>
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
+	<string name="saved">Salvo</string>
+	<string name="image_saved">Imagem salva.</string>
+	<string name="video_saved">Vídeo salvo.</string>
+	<string name="view_file">Visualizar</string>
+	<string name="share_sheet_preview_profile">%s no Mastodon</string>
+	<string name="share_sheet_preview_post">%1$s no Mastodon: “%2$s”</string>
+	<string name="copy_profile_link">Copiar link para o perfil</string>
+	<string name="in_app_browser">Navegador do aplicativo</string>
+	<string name="system_browser">Navegador do sistema</string>
+	<string name="add_muted_word_short">Adicionar palavra</string>
+	<string name="tab_search">Explorar</string>
+	<string name="tab_profile">Perfil</string>
+	<string name="pin_post">Fixar no perfil</string>
+	<string name="unpin_post">Desafixar do perfil</string>
 </resources>
