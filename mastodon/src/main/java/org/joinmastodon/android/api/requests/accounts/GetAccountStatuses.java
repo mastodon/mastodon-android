@@ -1,5 +1,7 @@
 package org.joinmastodon.android.api.requests.accounts;
 
+import android.text.TextUtils;
+
 import com.google.gson.reflect.TypeToken;
 
 import org.joinmastodon.android.api.MastodonAPIRequest;
@@ -10,7 +12,7 @@ import java.util.List;
 import androidx.annotation.NonNull;
 
 public class GetAccountStatuses extends MastodonAPIRequest<List<Status>>{
-	public GetAccountStatuses(String id, String maxID, String minID, int limit, @NonNull Filter filter){
+	public GetAccountStatuses(String id, String maxID, String minID, int limit, @NonNull Filter filter, String hashtag){
 		super(HttpMethod.GET, "/accounts/"+id+"/statuses", new TypeToken<>(){});
 		if(maxID!=null)
 			addQueryParameter("max_id", maxID);
@@ -29,6 +31,8 @@ public class GetAccountStatuses extends MastodonAPIRequest<List<Status>>{
 			case OWN_POSTS_AND_REPLIES -> addQueryParameter("exclude_reblogs", "true");
 			case PINNED -> addQueryParameter("pinned", "true");
 		}
+		if(!TextUtils.isEmpty(hashtag))
+			addQueryParameter("tagged", hashtag);
 	}
 
 	public enum Filter{

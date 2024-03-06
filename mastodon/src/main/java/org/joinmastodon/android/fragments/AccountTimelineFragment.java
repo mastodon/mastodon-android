@@ -10,7 +10,6 @@ import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.requests.accounts.GetAccountStatuses;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.events.RemoveAccountPostsEvent;
-import org.joinmastodon.android.events.StatusCreatedEvent;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.FilterContext;
 import org.joinmastodon.android.model.Status;
@@ -58,7 +57,7 @@ public class AccountTimelineFragment extends StatusListFragment{
 
 	@Override
 	protected void doLoadData(int offset, int count){
-		currentRequest=new GetAccountStatuses(user.id, offset>0 ? getMaxID() : null, null, count, filter)
+		currentRequest=new GetAccountStatuses(user.id, offset>0 ? getMaxID() : null, null, count, filter, null)
 				.setCallback(new SimpleCallback<>(this){
 					@Override
 					public void onSuccess(List<Status> result){

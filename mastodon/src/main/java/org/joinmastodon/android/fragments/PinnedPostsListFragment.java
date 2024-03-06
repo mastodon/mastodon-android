@@ -25,7 +25,7 @@ public class PinnedPostsListFragment extends StatusListFragment{
 
 	@Override
 	protected void doLoadData(int offset, int count){
-		new GetAccountStatuses(account.id, null, null, 100, GetAccountStatuses.Filter.PINNED)
+		new GetAccountStatuses(account.id, null, null, 100, GetAccountStatuses.Filter.PINNED, null)
 				.setCallback(new SimpleCallback<>(this){
 					@Override
 					public void onSuccess(List<Status> result){

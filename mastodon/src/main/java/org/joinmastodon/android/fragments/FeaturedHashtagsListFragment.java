@@ -10,7 +10,6 @@ import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.Hashtag;
 import org.joinmastodon.android.ui.displayitems.HashtagStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.StatusDisplayItem;
-import org.joinmastodon.android.ui.utils.UiUtils;
 import org.parceler.Parcels;
 
 import java.util.Collections;
@@ -19,6 +18,7 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 
 import androidx.recyclerview.widget.RecyclerView;
+import me.grishka.appkit.Nav;
 
 public class FeaturedHashtagsListFragment extends BaseStatusListFragment<Hashtag>{
 	private Account account;
@@ -45,7 +45,11 @@ public class FeaturedHashtagsListFragment extends BaseStatusListFragment<Hashtag
 
 	@Override
 	public void onItemClick(String id){
-		UiUtils.openHashtagTimeline(getActivity(), accountID, Objects.requireNonNull(findItemOfType(id, HashtagStatusDisplayItem.class)).tag);
+		Bundle args=new Bundle();
+		args.putParcelable("targetAccount", Parcels.wrap(account));
+		args.putParcelable("hashtag", Parcels.wrap(Objects.requireNonNull(findItemOfType(id, HashtagStatusDisplayItem.class)).tag));
+		args.putString("account", accountID);
+		Nav.go(getActivity(), HashtagFeaturedTimelineFragment.class, args);
 	}
 
 	@Override

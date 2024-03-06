@@ -18,7 +18,6 @@ import org.joinmastodon.android.ui.displayitems.FooterStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.HashtagStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.SectionHeaderStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.StatusDisplayItem;
-import org.joinmastodon.android.ui.utils.UiUtils;
 import org.parceler.Parcels;
 
 import java.util.ArrayList;
@@ -93,7 +92,13 @@ public class ProfileFeaturedFragment extends BaseStatusListFragment<SearchResult
 				args.putParcelable("profileAccount", Parcels.wrap(res.account));
 				Nav.go(getActivity(), ProfileFragment.class, args);
 			}
-			case HASHTAG -> UiUtils.openHashtagTimeline(getActivity(), accountID, res.hashtag);
+			case HASHTAG -> {
+				Bundle args=new Bundle();
+				args.putParcelable("targetAccount", Parcels.wrap(profileAccount));
+				args.putParcelable("hashtag", Parcels.wrap(res.hashtag));
+				args.putString("account", accountID);
+				Nav.go(getActivity(), HashtagFeaturedTimelineFragment.class, args);
+			}
 			case STATUS -> {
 				Status status=res.status.getContentStatus();
 				Bundle args=new Bundle();
@@ -109,7 +114,7 @@ public class ProfileFeaturedFragment extends BaseStatusListFragment<SearchResult
 	@Override
 	protected void doLoadData(int offset, int count){
 		if(!statusesLoaded){
-			new GetAccountStatuses(profileAccount.id, null, null, 2, GetAccountStatuses.Filter.PINNED)
+			new GetAccountStatuses(profileAccount.id, null, null, 2, GetAccountStatuses.Filter.PINNED, null)
 					 .setCallback(new SimpleCallback<>(this){
 						  @Override
 						  public void onSuccess(List<Status> result){
