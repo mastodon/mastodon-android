@@ -254,7 +254,6 @@ public class ProfileQrCodeFragment extends AppKitFragment{
 
 	@Override
 	public void dismiss(){
-		content.setOnTouchListener(null);
 		dismissWithAnimation(super::dismiss, true);
 	}
 
@@ -342,6 +341,7 @@ public class ProfileQrCodeFragment extends AppKitFragment{
 		if(dismissing)
 			return;
 		dismissing=true;
+		content.setOnTouchListener(null);
 		if(currentTransition!=null)
 			currentTransition.cancel();
 		AnimatorSet set=new AnimatorSet();
