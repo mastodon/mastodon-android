@@ -22,7 +22,7 @@
 
 # Keep all model classes as they're used with gson and their names are shown in errors
 -keep public class org.joinmastodon.android.model.**{
-	<fields>;
+	*;
 }
 
 # Inner classes in api requests are used with gson
@@ -51,6 +51,7 @@
 -keep class org.joinmastodon.android.AppCenterWrapper { *; }
 
 -keepattributes LineNumberTable
--keep class com.google.gson.reflect.TypeToken
+-keepattributes Signature
+-keep class com.google.gson.reflect.TypeToken { *; }
 -keep class * extends com.google.gson.reflect.TypeToken
 -keep public class * implements java.lang.reflect.Type
