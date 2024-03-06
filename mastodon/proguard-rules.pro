@@ -51,3 +51,6 @@
 -keep class org.joinmastodon.android.AppCenterWrapper { *; }
 
 -keepattributes LineNumberTable
+-keep class com.google.gson.reflect.TypeToken
+-keep class * extends com.google.gson.reflect.TypeToken
+-keep public class * implements java.lang.reflect.Type
