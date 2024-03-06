@@ -31,10 +31,13 @@
 		<item quantity="other">հետեւում ես</item>
 	</plurals>
 	<string name="posts">Գրառումներ</string>
+	<string name="posts_and_replies">Գրառումներ եւ պատասխաններ</string>
 	<string name="media">Մեդիա</string>
 	<string name="profile_about">Իմ մասին</string>
 	<string name="button_follow">Հետեւել</string>
 	<string name="button_following">Հետեւում ես</string>
+	<string name="edit_profile">Խմբագրել հաշիվը</string>
+	<string name="share_user">Կիսվել էջով</string>
 	<string name="mute_user">Անջատել ձայնը%s</string>
 	<string name="unmute_user">Միացնել ձայնը%s</string>
 	<string name="block_user">Արգելափակել%s</string>
@@ -112,6 +115,7 @@
 		<item quantity="other">Խոսում է %d մարդ</item>
 	</plurals>
 	<string name="report_title">Զեկուցել %s-ի մասին</string>
+	<string name="report_choose_reason_subtitle">Ընտրեք ամենաշատ համապատասխանող տարբերակը</string>
 	<string name="report_reason_personal">Ինձ դուր չի գալիս</string>
 	<string name="report_reason_personal_subtitle">Դուք սա չեք ուզում տեսնել</string>
 	<string name="report_reason_spam">Սպամ է</string>
@@ -128,12 +132,16 @@
 	<string name="report_comment_hint">Լրացուցիչ մեկնաբանություններ</string>
 	<string name="sending_report">Զեկույցը ուղարկվում է․․․</string>
 	<string name="report_sent_title">Շնորհակալ ենք զեկուցման համար։</string>
+	<string name="unfollow_user">Չհետեւել %s-ին</string>
+	<string name="unfollow">Չհետեւել</string>
 	<string name="mute_user_explain">Դուք չեք տեսնի նրա գրառումները։ Նա դեռ կարող է ձեզ հետևել և տեսնել ձեր գրառումները և չի իմանա, որ խլեցված է։</string>
 	<string name="block_user_explain">Դուք չեք տեսնի նրա գրառումները։ Նա չի կարող ձեզ հետևել կամ տեսնել ձեր գրառումները։ Նա կիմանա, որ արգելափակված է։</string>
 	<string name="report_personal_title">Չե՞ք ուզում սա տեսնել։</string>
 	<string name="back">Ետ</string>
 	<string name="search_communities">Սպասարկչի անուն կամ հասցե</string>
+	<string name="instance_rules_title">Սպասարկչի կանոնները</string>
 	<string name="instance_rules_subtitle">Շարունակելով` համաձայնվում եք հետևել %s-ի մոդերատորների կողմից սահմանված հետևյալ կանոններին.</string>
+	<string name="signup_title">Ստեղծել հաշիվ</string>
 	<string name="display_name">Անուն</string>
 	<string name="username">Մուտքանուն</string>
 	<string name="email">Էլ. փոստ</string>
@@ -141,6 +149,7 @@
 	<string name="confirm_password">Գաղտնաբառի հաստատում</string>
 	<string name="password_note">Գաղտնաբառի ապահովությունը բարձրացնելու համար ավելացրեք մեծատառեր, հատուկ նշաններ և թվեր։</string>
 	<string name="category_general">Ընդհանուր</string>
+	<string name="confirm_email_title">Ստուգեք ձեր փոստարկղը</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">Սեղմեք %s-ին ուղարկված հղման վրա։ Մենք կսպասենք։</string>
 	<string name="confirm_email_didnt_get">Հղում չե՞ք ստացել։</string>
@@ -170,6 +179,7 @@
 	<string name="theme_light">Բաց</string>
 	<string name="theme_dark">Մուգ</string>
 	<string name="settings_behavior">Պահվածքը</string>
+	<string name="settings_custom_tabs">Բացել հղումները` օգտագործելով</string>
 	<string name="settings_notifications">Ծանուցումներ</string>
 	<string name="settings_contribute">Աջակցել Մաստոդոնին</string>
 	<string name="settings_tos">Ծառայության պայմանները</string>
@@ -192,6 +202,8 @@
 	<string name="follow_user">Հետևել %s-ին</string>
 	<string name="followed_user">Դուք այժմ հետեւում եք %s-ին</string>
 	<string name="open_in_browser">Բացել բրաուզերում</string>
+	<string name="hide_boosts_from_user">Թաքցնել տարածածները</string>
+	<string name="show_boosts_from_user">Ցուցադրել տարածածները</string>
 	<string name="signup_reason">Ինչո՞ւ եք ցանկանում միանալ։</string>
 	<string name="signup_reason_note">Սա կօգնի մեզ ստուգել ձեր հայտը։</string>
 	<string name="clear">Մաքրել</string>
@@ -211,8 +223,10 @@
 	<string name="trending_links_info_banner">Այս նորությունների մասին խոսում են Մաստոդոնում։</string>
 	<!-- %s is the server domain -->
 	<string name="local_timeline_info_banner">Ձեր սերվերի (%s) բոլոր օգտատերերի բոլոր գրառումները այստեղ են։</string>
+	<string name="recommended_accounts_info_banner">Ըստ ձեր հետևած հաշիվների` գուցե ձեզ դուր կգան այս հաշիվները։</string>
 	<string name="see_new_posts">Նոր գրառումներ</string>
 	<string name="load_missing_posts">Բեռնել բաց թողնված գրառումները</string>
+	<string name="button_follow_pending">Սպասվող</string>
 	<string name="follows_you">Հետեւում է ձեզ</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<plurals name="x_followers">
@@ -258,7 +272,7 @@
 	<string name="edit_marked_not_sensitive">Նշվել է որպես ոչ դյուրազգաց</string>
 	<string name="edit_multiple_changed">Գրառումը խմբագրվել է</string>
 	<string name="edit">Խմբագրել</string>
-	<string name="discard_changes">Չեղարկե՞լ փոփոխությունները</string>
+	<string name="discard_changes">Հեռացնե՞լ փոփոխությունները</string>
 	<string name="upload_failed">Վերբեռնել չհաջողվեց</string>
 	<string name="file_size_bytes">%d բայթ</string>
 	<string name="file_size_kb">%.2f ԿԲ</string>
@@ -269,14 +283,21 @@
 	<string name="download_update">Ներբեռնել (%s)</string>
 	<string name="install_update">Տեղադրել</string>
 	<string name="privacy_policy_subtitle">Չնայած նրան, որ Մաստոդոնի ծրագիրը չի պահպանում անձնական տվյալներ, սերվերը, որտեղ դուք գրանցվում եք, կարող է ունենալ այլ գաղտնիության քաղաքականություն։\n\nԵթե դուք համաձայն չեք %s-ի գաղտնիության քաղաքականության հետ, դուք կարող եք հետ գնալ եւ ընտրել ուրիշ սերվեր։</string>
+	<string name="i_agree">Համաձայն եմ</string>
 	<string name="empty_list">Ցանկը դատարկ է</string>
 	<string name="instance_signup_closed">Սպասարկիչը գրանցումներ չի ընդունում։</string>
 	<string name="text_copied">Պատճենվել է</string>
 	<string name="add_bookmark">Ավելացնել էջանիշ</string>
 	<string name="remove_bookmark">Հեռացնել էջանիշը</string>
 	<string name="bookmarks">Էջանիշեր</string>
+	<string name="your_favorites">Հավանածներ</string>
+	<string name="login_title">Բարի վերադարձ</string>
 	<string name="login_subtitle">Մուտք գործեք այն սերվերի միջոցով, որտեղ ստեղծել եք ձեր հաշիվը։</string>
 	<string name="server_url">Սերվերի հասցե</string>
+	<string name="server_filter_any_language">Որևե լեզու</string>
+	<string name="server_filter_instant_signup">Գրանցում միանգամից</string>
+	<string name="server_filter_manual_review">Հայտերի ստուգում</string>
+	<string name="server_filter_any_signup_speed">Գրանցման որեւէ արագություն</string>
 	<string name="server_filter_region_europe">Եվրոպա</string>
 	<string name="server_filter_region_north_america">Հյուսիսային Ամերիկա</string>
 	<string name="server_filter_region_south_america">Հարավային Ամերիկա</string>
@@ -284,6 +305,7 @@
 	<string name="server_filter_region_asia">Ասիա</string>
 	<string name="server_filter_region_oceania">Օվկիանիա</string>
 	<string name="not_accepting_new_members">Չի ընդունում նոր անդամներ</string>
+	<string name="category_special_interests">Հատուկ հետաքրքրություններ</string>
 	<string name="signup_passwords_dont_match">Գաղտնաբառերը չեն համընկնում</string>
 	<string name="profile_add_row">Ավելացնել տող</string>
 	<string name="profile_setup">Հաշվի կարգավորում</string>
@@ -374,6 +396,7 @@
 	<string name="notifications_policy_followed">Մարդիկ, որոնք ձեզ հետեւում են</string>
 	<string name="notifications_policy_follower">Մարդիկ, որոնց դուք հետեւում եք</string>
 	<string name="notifications_policy_no_one">Ոչ ոք</string>
+	<string name="pause_all_notifications_title">Դադարեցնել բոլոր ծանուցումները</string>
 	<plurals name="x_weeks">
 		<item quantity="one">%d շաբաթ</item>
 		<item quantity="other">%d շաբաթ</item>
@@ -386,6 +409,8 @@
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<string name="pause_notifications_ends">Ավարտվում է %s</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="pause_notifications_banner">Ծանուցումները կմիացվեն %s:</string>
+	<string name="resume_notifications_now">Միացնել հիմա</string>
 	<string name="open_system_notification_settings">Բացել ծանուցումների կարգավորումները</string>
 	<string name="about_server">Մեր մասին</string>
 	<string name="server_rules">Կանոններ</string>
@@ -393,6 +418,7 @@
 	<string name="send_email_to_server_admin">Գրել ադմինիստրատորին</string>
 	<string name="settings_even_more">Ավելի շատ կարգավորումներ</string>
 	<string name="settings_show_cws">Ցույց տալ նախազգուշացումները</string>
+	<string name="settings_hide_sensitive_media">Թաքցնել կասկածելի բովանդակութիւնը</string>
 	<plurals name="in_x_seconds">
 		<item quantity="one">%d վայրկյանից</item>
 		<item quantity="other">%d վայրկյանից</item>
@@ -420,6 +446,7 @@
 	<string name="count_four">Չորս</string>
 	<string name="alt_text_reminder_post_anyway">Այո</string>
 	<!-- %s is the username -->
+	<string name="unfollow_confirmation">Չհետեւե՞լ %s-ին</string>
 	<string name="filter_active">Ակտիվ</string>
 	<string name="filter_inactive">Ոչ ակտիվ</string>
 	<string name="settings_add_filter">Ավելացնել զտիչ</string>
@@ -442,6 +469,7 @@
 	<string name="filter_context_home_lists">Տեղական հոսք</string>
 	<string name="filter_context_notifications">Ծանուցումներ</string>
 	<string name="filter_context_public_timelines">Հանրային հոսքեր</string>
+	<string name="filter_context_profiles">Հաշիվներ</string>
 	<string name="settings_filter_title">Վերնագիր</string>
 	<string name="settings_delete_filter_title">Ջնջե՞լ «%s» զտիչը</string>
 	<string name="settings_delete_filter_confirmation">Զտիչը կջնջվի ձեր հաշվից` ձեր բոլոր սարքերից։</string>
@@ -485,6 +513,10 @@
 	<!-- %1$s is the language, %2$s is the name of the translation service -->
 	<string name="post_translated">Թարգմանված %1$sից` %2$s-ի միջոցով</string>
 	<string name="translation_show_original">Ցոյց տալ բնօրինակը</string>
+	<plurals name="x_participants">
+		<item quantity="one">%,d մասնակից</item>
+		<item quantity="other">%,d մասնակից</item>
+	</plurals>
 	<string name="timeline_following">Հիմնական</string>
 	<string name="lists">Ցանկեր</string>
 	<string name="followed_hashtags">Հետեւած պիտակներ</string>
@@ -501,6 +533,7 @@
 	<string name="remove">Ջնջել</string>
 	<string name="add_list_member">Ավելացնել անդամ</string>
 	<string name="search_among_people_you_follow">Փնտրել ձեր հետեւումների մեջ</string>
+	<string name="add_user_to_list_title">Ավելացնել ցանկ</string>
 	<!-- %s is a username -->
 	<string name="no_lists_subtitle">Ձեր ցուցակները կհայտնվեն այստեղ</string>
 	<string name="create_list">Ստեղծել ցուցակ</string>
@@ -522,5 +555,6 @@
 	<string name="non_mutual_text2">Դրական երանգը միշտ խրախուսվում է։</string>
 	<string name="non_mutual_title3">Բաց եղեք</string>
 	<string name="non_mutual_text3">Բոլորի շփման ձևը տարբեր է։ Պատրաստ եղեք հարմարվելու։</string>
+	<string name="discoverability">Տեսանելիություն</string>
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
 </resources>
