@@ -9,7 +9,6 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Dialog;
 import android.app.DownloadManager;
-import android.app.ProgressDialog;
 import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Context;
@@ -33,13 +32,11 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
-import android.os.RemoteException;
 import android.os.SystemClock;
 import android.provider.MediaStore;
 import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.ContextThemeWrapper;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -57,16 +54,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.common.Feature;
-import com.google.android.gms.common.api.Status;
-import com.google.android.gms.common.moduleinstall.ModuleAvailabilityResponse;
-import com.google.android.gms.common.moduleinstall.ModuleInstallIntentResponse;
-import com.google.android.gms.common.moduleinstall.ModuleInstallResponse;
-import com.google.android.gms.common.moduleinstall.ModuleInstallStatusUpdate;
-import com.google.android.gms.common.moduleinstall.internal.ApiFeatureRequest;
-import com.google.android.gms.common.moduleinstall.internal.IModuleInstallCallbacks;
-import com.google.android.gms.common.moduleinstall.internal.IModuleInstallService;
-import com.google.android.gms.common.moduleinstall.internal.IModuleInstallStatusListener;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.EncodeHintType;
 import com.google.zxing.WriterException;
@@ -122,11 +109,13 @@ public class ProfileQrCodeFragment extends AppKitFragment{
 	private Animator currentTransition;
 	private View saveBtn;
 	private TextView saveBtnText;
+	private View content;
 
 	private String accountID;
 	private Account account;
 	private String accountDomain;
 	private Intent scannerIntent;
+	private boolean dismissing;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState){
@@ -181,7 +170,7 @@ public class ProfileQrCodeFragment extends AppKitFragment{
 	@Nullable
 	@Override
 	public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState){
-		View content=View.inflate(themeWrapper, R.layout.fragment_profile_qr, container);
+		content=View.inflate(themeWrapper, R.layout.fragment_profile_qr, container);
 		View decor=getDialog().getWindow().getDecorView();
 		decor.setOnApplyWindowInsetsListener((v, insets)->{
 			content.setPadding(insets.getStableInsetLeft(), insets.getStableInsetTop(), insets.getStableInsetRight(), insets.getStableInsetBottom());
@@ -265,6 +254,7 @@ public class ProfileQrCodeFragment extends AppKitFragment{
 
 	@Override
 	public void dismiss(){
+		content.setOnTouchListener(null);
 		dismissWithAnimation(super::dismiss, true);
 	}
 
@@ -349,6 +339,9 @@ public class ProfileQrCodeFragment extends AppKitFragment{
 	}
 
 	private void dismissWithAnimation(Runnable onDone, boolean animateTranslationDown){
+		if(dismissing)
+			return;
+		dismissing=true;
 		if(currentTransition!=null)
 			currentTransition.cancel();
 		AnimatorSet set=new AnimatorSet();
