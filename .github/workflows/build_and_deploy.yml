@@ -1,0 +1,80 @@
+name: Build and deploy
+ 
+on:
+  push:
+    branches:
+      - 'ci_setup'
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          java-version: 21
+          distribution: temurin
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.7.2
+          bundler-cache: true
+
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Decode keystore
+        uses: timheuer/base64-to-file@v1
+        id: android_keystore
+        with:
+          fileName: "release.jks"
+          encodedString: ${{ secrets.KEYSTORE_FILE }}
+
+      - name: Prepare Gradle environment
+        run: |
+          echo "apply from: 'ci_signing.gradle'" >> mastodon/build.gradle
+          echo "sdk.dir=$ANDROID_SDK_ROOT" > local.properties
+
+      - name: Build and deploy to Google Play
+        run: bundle exec fastlane deploy
+        env:
+          KEYSTORE_FILE: ${{ steps.android_keystore.outputs.filePath }}
+          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+          SUPPLY_JSON_KEY_DATA: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_KEY }}
+          SUPPLY_VALIDATE_ONLY: true
+          SUPPLY_SKIP_UPLOAD_METADATA: true
+          SUPPLY_SKIP_UPLOAD_CHANGELOGS: true
+
+      - name: Build release apk
+        run: ./gradlew assembleRelease
+        env:
+          KEYSTORE_FILE: ${{ steps.android_keystore.outputs.filePath }}
+          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+
+      - name: Upload release apk
+        uses: actions/upload-artifact@v4
+        with:
+          name: mastodon-release.apk
+          path: mastodon/build/outputs/apk/release/mastodon-release.apk
+
+      - name: Build githubRelease apk
+        run: ./gradlew assembleGithubRelease
+        env:
+          KEYSTORE_FILE: ${{ steps.android_keystore.outputs.filePath }}
+          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+
+      - name: Upload githubRelease apk
+        uses: actions/upload-artifact@v4
+        with:
+          name: mastodon-githubRelease.apk
+          path: mastodon/build/outputs/apk/githubRelease/mastodon-githubRelease.apk
+
+      - name: Upload mappings
+        uses: actions/upload-artifact@v4
+        with:
+          name: mappings
+          path: mastodon/build/outputs/mapping/*/mapping.txt

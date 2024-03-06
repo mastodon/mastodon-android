@@ -166,7 +166,7 @@ public class SearchQueryFragment extends MastodonRecyclerFragment<SearchResultVi
 
 		navigationIcon=new LayerDrawable(new Drawable[]{
 				searchIcon=getToolbarContext().getResources().getDrawable(R.drawable.ic_search_24px, getToolbarContext().getTheme()).mutate(),
-				backIcon=getToolbarContext().getResources().getDrawable(R.drawable.ic_arrow_back, getToolbarContext().getTheme()).mutate()
+				backIcon=getToolbarContext().getResources().getDrawable(me.grishka.appkit.R.drawable.ic_arrow_back, getToolbarContext().getTheme()).mutate()
 		}){
 			@Override
 			public Drawable mutate(){

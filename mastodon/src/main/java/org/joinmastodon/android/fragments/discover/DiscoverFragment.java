@@ -180,7 +180,7 @@ public class DiscoverFragment extends AppKitFragment implements ScrollableToTop,
 		searchBack.setImportantForAccessibility(searchActive ? View.IMPORTANT_FOR_ACCESSIBILITY_YES : View.IMPORTANT_FOR_ACCESSIBILITY_NO);
 		searchBack.setOnClickListener(v->exitSearch());
 		if(searchActive){
-			searchBack.setImageResource(R.drawable.ic_arrow_back);
+			searchBack.setImageResource(me.grishka.appkit.R.drawable.ic_arrow_back);
 			pager.setVisibility(View.GONE);
 			tabLayout.setVisibility(View.GONE);
 			searchView.setVisibility(View.VISIBLE);
@@ -228,7 +228,7 @@ public class DiscoverFragment extends AppKitFragment implements ScrollableToTop,
 			pager.setVisibility(View.GONE);
 			tabLayout.setVisibility(View.GONE);
 			searchView.setVisibility(View.VISIBLE);
-			searchBack.setImageResource(R.drawable.ic_arrow_back);
+			searchBack.setImageResource(me.grishka.appkit.R.drawable.ic_arrow_back);
 			searchBack.setEnabled(true);
 			searchBack.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_YES);
 			tabsDivider.setVisibility(View.GONE);

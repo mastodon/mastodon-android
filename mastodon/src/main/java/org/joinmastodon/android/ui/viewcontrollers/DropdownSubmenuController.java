@@ -53,7 +53,7 @@ public abstract class DropdownSubmenuController{
 			backItem=(TextView) dropdownController.getActivity().getLayoutInflater().inflate(R.layout.item_dropdown_menu, contentView, false);
 			((LinearLayout.LayoutParams) backItem.getLayoutParams()).topMargin=V.dp(8);
 			backItem.setText(backTitle);
-			backItem.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.ic_arrow_back, 0, 0, 0);
+			backItem.setCompoundDrawablesRelativeWithIntrinsicBounds(me.grishka.appkit.R.drawable.ic_arrow_back, 0, 0, 0);
 			backItem.setBackground(UiUtils.getThemeDrawable(dropdownController.getActivity(), android.R.attr.selectableItemBackground));
 			backItem.setOnClickListener(v->dropdownController.popSubmenuController());
 			backItem.setAccessibilityDelegate(new View.AccessibilityDelegate(){

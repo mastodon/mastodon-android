@@ -112,7 +112,7 @@ public class HomeFragment extends AppKitFragment implements OnBackPressedListene
 		content.setOrientation(LinearLayout.VERTICAL);
 
 		FrameLayout fragmentContainer=new FrameLayout(getActivity());
-		fragmentContainer.setId(R.id.fragment_wrap);
+		fragmentContainer.setId(me.grishka.appkit.R.id.fragment_wrap);
 		content.addView(fragmentContainer, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0, 1f));
 
 		inflater.inflate(R.layout.tab_bar, content);
@@ -131,10 +131,10 @@ public class HomeFragment extends AppKitFragment implements OnBackPressedListene
 
 		if(savedInstanceState==null){
 			getChildFragmentManager().beginTransaction()
-					.add(R.id.fragment_wrap, homeTimelineFragment)
-					.add(R.id.fragment_wrap, searchFragment).hide(searchFragment)
-					.add(R.id.fragment_wrap, notificationsFragment).hide(notificationsFragment)
-					.add(R.id.fragment_wrap, profileFragment).hide(profileFragment)
+					.add(me.grishka.appkit.R.id.fragment_wrap, homeTimelineFragment)
+					.add(me.grishka.appkit.R.id.fragment_wrap, searchFragment).hide(searchFragment)
+					.add(me.grishka.appkit.R.id.fragment_wrap, notificationsFragment).hide(notificationsFragment)
+					.add(me.grishka.appkit.R.id.fragment_wrap, profileFragment).hide(profileFragment)
 					.commit();
 
 			String defaultTab=getArguments().getString("tab");
