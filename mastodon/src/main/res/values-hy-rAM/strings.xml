@@ -337,6 +337,8 @@
 	<string name="welcome_paragraph1">Մաստոդոնը ապակենտրոնացված սոցցանց է, այսինքն՝ այն չի պատկանում մի ընկերության։ Այն բաղկացած է բազմաթիվ անկախ և կապակցված սերվերներից։</string>
 	<string name="what_are_servers">Ի՞նչ է սերվերը։</string>
 	<string name="welcome_paragraph2">Մաստոդոնի որևէ հաշիվ գտնվում է սերվերի վրա - ամեն մեկը՝ իր արժեքներով, կանոններով և ադմիններով։ Դուք կարող եք հետևել և շփվել որևէ սերվերի մարդկանց հետ՝ անկախ ձեր ընտրությունից։</string>
+	<string name="opening_link">Հղումը բացվում է...</string>
+	<string name="link_not_supported">Հղումը համատեղելի չէ ծրագրի հետ</string>
 	<string name="log_out_all_accounts">Ելք բոլոր հաշիվներից</string>
 	<string name="retry">Կրկին</string>
 	<string name="post_failed">Չհաջողվեց ուղարկել գրառումը</string>
@@ -382,7 +384,10 @@
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
 	<string name="reported">Բողոքարկված</string>
 	<string name="muted_user">%s-ը լռեցվել է</string>
+	<string name="blocked_user">%s-ը արգելափակվել է</string>
+	<string name="mark_all_notifications_read">Նշել բոլորը` որպես ընթերցված</string>
 	<string name="settings_display">Տեսք</string>
+	<string name="settings_filters">Զտիչներ</string>
 	<string name="settings_server_explanation">Կանոններ, մոդերատորներ</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">%s-ի մասին</string>
@@ -439,6 +444,10 @@
 	<plurals name="alt_text_reminder_x_images">
 		<item quantity="one">%s նկար չունի բացատրություն։ Հրապարակե՞լ։</item>
 		<item quantity="other">%s նկար չունի բացատրություն։ Հրապարակե՞լ։</item>
+	</plurals>
+	<plurals name="alt_text_reminder_x_attachments">
+		<item quantity="one">%s մեդիա չունի բացատրություն։ Հրապարակե՞լ։</item>
+		<item quantity="other">%s մեդիա չունի բացատրություն։ Հրապարակե՞լ։</item>
 	</plurals>
 	<string name="count_one">Մեկ</string>
 	<string name="count_two">Երկու</string>
@@ -513,6 +522,9 @@
 	<!-- %1$s is the language, %2$s is the name of the translation service -->
 	<string name="post_translated">Թարգմանված %1$sից` %2$s-ի միջոցով</string>
 	<string name="translation_show_original">Ցոյց տալ բնօրինակը</string>
+	<string name="settings_privacy">Գաղտնիություն և հասանելիություն</string>
+	<string name="settings_discoverable">Ցուցադրել հաշիվը եւ գրառումները հայտնաբերման ալգորիթմներում</string>
+	<string name="settings_indexable">Ցուցադրել հանրային գրառումները որոնման արդյունքներում</string>
 	<plurals name="x_participants">
 		<item quantity="one">%,d մասնակից</item>
 		<item quantity="other">%,d մասնակից</item>
