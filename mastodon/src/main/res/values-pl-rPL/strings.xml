@@ -35,10 +35,13 @@
 		<item quantity="other">śledzonych</item>
 	</plurals>
 	<string name="posts">Wpisy</string>
+	<string name="posts_and_replies">Wpisy i odpowiedzi</string>
 	<string name="media">Media</string>
 	<string name="profile_about">Informacje</string>
 	<string name="button_follow">Obserwuj</string>
 	<string name="button_following">Obserwujesz</string>
+	<string name="edit_profile">Edytuj profil</string>
+	<string name="share_user">Udostępnij profil…</string>
 	<string name="mute_user">Wycisz %s</string>
 	<string name="unmute_user">Cofnij wyciszenie %s</string>
 	<string name="block_user">Zablokuj %s</string>
@@ -165,7 +168,9 @@
 	<string name="report_personal_subtitle">Oto opcje, za pomocą których możesz kontrolować to co widzisz na Mastodonie:</string>
 	<string name="back">Wróć</string>
 	<string name="search_communities">Nazwa serwera lub jego adres URL</string>
+	<string name="instance_rules_title">Zasady serwera</string>
 	<string name="instance_rules_subtitle">Kontynuując, zgadzasz się przestrzegać następujących zasad ustalonych i wymuszonych przez %s moderatorów.</string>
+	<string name="signup_title">Utwórz konto</string>
 	<string name="display_name">Nazwa</string>
 	<string name="username">Nazwa użytkownika</string>
 	<string name="email">Adres e-mail</string>
@@ -173,6 +178,7 @@
 	<string name="confirm_password">Potwierdź hasło</string>
 	<string name="password_note">Użyj wielkich liter, znaków specjalnych i liczb, aby zwiększyć siłę swojego hasła.</string>
 	<string name="category_general">Ogólne</string>
+	<string name="confirm_email_title">Sprawdź swoją skrzynkę odbiorczą</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">Kliknij w link, który wysłaliśmy, żeby zweryfikować %s. Poczekamy na Ciebie.</string>
 	<string name="confirm_email_didnt_get">Nie masz linku?</string>
@@ -209,6 +215,7 @@
 	<string name="theme_dark">Ciemny</string>
 	<string name="settings_behavior">Zachowanie</string>
 	<string name="settings_gif">Wyświetlaj animowane awatary i emoji</string>
+	<string name="settings_custom_tabs">Otwieraj linki za pomocą</string>
 	<string name="settings_notifications">Powiadomienia</string>
 	<string name="settings_contribute">Weź udział w rozwoju Mastodona</string>
 	<string name="settings_tos">Zasady użytkowania</string>
@@ -237,6 +244,8 @@
 	<string name="followed_user">Obserwujesz %s</string>
 	<string name="following_user_requested">Wysłano prośbę o obserwację %s</string>
 	<string name="open_in_browser">Otwórz w przeglądarce</string>
+	<string name="hide_boosts_from_user">Ukryj podbicia</string>
+	<string name="show_boosts_from_user">Pokaż podbicia</string>
 	<string name="signup_reason">Dlaczego chcesz dołączyć?</string>
 	<string name="signup_reason_note">To pomoże nam ocenić Twoją aplikację.</string>
 	<string name="clear">Wyczyść</string>
@@ -259,6 +268,7 @@
 	<string name="recommended_accounts_info_banner">Może spodobają się Tobie te konta, bazując na tych, których już obserwujesz?</string>
 	<string name="see_new_posts">Zobacz nowe posty</string>
 	<string name="load_missing_posts">Załaduj brakujące wpisy</string>
+	<string name="follow_back">Obserwuj wzajemnie</string>
 	<string name="button_follow_pending">Oczekujące</string>
 	<string name="follows_you">Obserwuje cię</string>
 	<string name="manually_approves_followers">Ręcznie zatwierdza obserwujących</string>
@@ -329,15 +339,23 @@
 	<!-- %s is file size -->
 	<string name="download_update">Pobierz (%s)</string>
 	<string name="install_update">Zainstaluj</string>
+	<string name="privacy_policy_title">Twoja prywatność</string>
 	<string name="privacy_policy_subtitle">Chociaż aplikacja Mastodon nie zbiera żadnych danych, serwer, przez który się zarejestrujesz, może mieć inną politykę prywatności.\n\nJeśli nie zgadzasz się z zasadami dotyczącymi %s, możesz wrócić i wybrać inny serwer.</string>
+	<string name="i_agree">Zgadzam się</string>
 	<string name="empty_list">Lista jest pusta</string>
 	<string name="instance_signup_closed">Ten serwer nie akceptuje nowych rejestracji.</string>
 	<string name="text_copied">Skopiowano do schowka</string>
 	<string name="add_bookmark">Dodaj zakładkę</string>
 	<string name="remove_bookmark">Usuń zakładkę</string>
 	<string name="bookmarks">Zakładki</string>
+	<string name="your_favorites">Twoje ulubione</string>
+	<string name="login_title">Witaj ponownie</string>
 	<string name="login_subtitle">Zaloguj się na serwer, na którym utworzyłeś swoje konto.</string>
 	<string name="server_url">Adres URL serwera</string>
+	<string name="server_filter_any_language">Dowolny język</string>
+	<string name="server_filter_instant_signup">Natychmiastowa rejestracja</string>
+	<string name="server_filter_manual_review">Ręczne sprawdzenie</string>
+	<string name="server_filter_any_signup_speed">Dowolna szybkość rejestracji</string>
 	<string name="server_filter_region_europe">Europa</string>
 	<string name="server_filter_region_north_america">Ameryka Północna</string>
 	<string name="server_filter_region_south_america">Ameryka Południowa</string>
@@ -345,6 +363,7 @@
 	<string name="server_filter_region_asia">Azja</string>
 	<string name="server_filter_region_oceania">Oceania</string>
 	<string name="not_accepting_new_members">Nie przyjmuje nowych członków</string>
+	<string name="category_special_interests">Inne zainteresowania</string>
 	<string name="signup_passwords_dont_match">Hasła się nie zgadzają</string>
 	<string name="profile_add_row">Dodaj wiersz</string>
 	<string name="profile_setup">Ustawienia profilu</string>
@@ -607,6 +626,7 @@
 	<string name="remove">Usuń</string>
 	<string name="add_list_member">Dodaj członka</string>
 	<string name="search_among_people_you_follow">Szukaj wśród osób, które obserwujesz</string>
+	<string name="add_user_to_list">Dodaj lub usuń z list…</string>
 	<string name="add_user_to_list_title">Dodaj do listy</string>
 	<!-- %s is a username -->
 	<string name="manage_user_lists">Zarządzaj listami, na których pojawia się %s</string>
@@ -668,5 +688,32 @@ Im więcej ludzi obserwujesz, tym aktywniejsza i bardziej interesująca się sta
 	<string name="this_invite_has_expired">Ten link zaproszenia wygasł.</string>
 	<string name="invite_link_pasted">Link wklejony ze schowka.</string>
 	<string name="need_invite_to_join_server">Aby dołączyć do %s, potrzebujesz linku z zaproszeniem od istniejącego użytkownika.</string>
+	<string name="mute_user_confirm_title">Wyciszyć użytkownika?</string>
+	<string name="user_wont_know_muted">Użytkownik nie dowie się, że został wyciszony.</string>
+	<string name="user_can_still_see_your_posts">Użytkownik dalej będzie widzieć Twoje posty, ale Ty nie będziesz widzieć jego.</string>
+	<string name="you_wont_see_user_mentions">Nie zobaczysz postów, które wspominają tego użytkownika.</string>
+	<string name="user_can_mention_and_follow_you">Użytkownik może Cię obserwować oraz dodawać wzmianki, ale Ty ich nie zobaczysz.</string>
+	<string name="unmuted_user_x">Odciszono %s</string>
+	<string name="block_user_confirm_title">Zablokować użytkownika?</string>
+	<string name="user_can_see_blocked">Użytkownik będzie wiedział, że jest zablokowany.</string>
+	<string name="user_cant_see_each_other_posts">Użytkownik nie będzie widzieć Twoich posty, a Ty jego.</string>
+	<string name="user_cant_mention_or_follow_you">Użytkownik nie może Cię obserwować oraz dodawać wzmianek o Tobie.</string>
+	<string name="unblocked_user_x">Odblokowano %s</string>
+	<string name="block_domain_confirm_title">Zablokować domenę?</string>
+	<string name="do_block_server">Blokuj serwer</string>
+	<string name="block_user_x_instead">Zamiast tego blokuj %s</string>
+	<string name="users_cant_see_blocked">Nie zobaczysz postów ani powiadomień od użytkowników na tym serwerze.</string>
+	<string name="you_wont_see_server_posts">Nie zobaczysz postów od użytkowników na tym serwerze.</string>
+	<string name="server_followers_will_be_removed">Twoi obserwujący z tego serwera zostaną usunięci.</string>
+	<string name="server_cant_mention_or_follow_you">Nikt z tego serwera nie może Cię obserwować.</string>
+	<string name="server_can_interact_with_older">Ludzie z tego serwera mogą wchodzić w interakcje z Twoimi starymi wpisami.</string>
+	<string name="unblocked_domain_x">Odblokowano domenę %s</string>
+	<string name="handle_help_title">Co zawiera uchwyt użytkownika?</string>
+	<string name="handle_title">Uchwyt</string>
+	<string name="handle_username_explanation">Unikalny identyfikator na serwerze. Umożliwia istnienie użytkowników o tej samej nazwie użytkownika na różnych serwerach.</string>
+	<string name="handle_title_own">Twój uchwyt</string>
+	<string name="handle_username_explanation_own">Twój unikalny identyfikator na tym serwerze. Możliwe jest znalezienie użytkowników o tej samej nazwie użytkownika na różnych serwerach.</string>
+	<string name="server">Serwer</string>
+	<string name="handle_server_explanation">Cyfrowy dom, w którym znajdują się wszystkie posty.</string>
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
 </resources>
