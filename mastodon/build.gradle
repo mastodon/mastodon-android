@@ -73,6 +73,7 @@ android {
 		// Disables dependency metadata when building Android App Bundles.
 		includeInBundle false
 	}
+	namespace 'org.joinmastodon.android'
 }
 
 dependencies {
