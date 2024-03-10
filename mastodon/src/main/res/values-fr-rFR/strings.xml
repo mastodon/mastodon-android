@@ -299,6 +299,7 @@
 	<!-- %s is file size -->
 	<string name="download_update">Téléchargement (%s)</string>
 	<string name="install_update">Installer</string>
+	<string name="privacy_policy_title">Votre vie privée</string>
 	<string name="privacy_policy_subtitle">Bien que l\'application Mastodon ne collecte aucune donnée, le serveur auquel vous vous inscrivez peut avoir une politique différente.\n\nSi vous n\'êtes pas d\'accord avec la politique de %s, vous pouvez revenir en arrière et choisir un serveur différent.</string>
 	<string name="i_agree">J\'accepte</string>
 	<string name="empty_list">Cette liste est vide</string>
@@ -642,6 +643,9 @@
 	<string name="this_invite_has_expired">Ce lien d\'invitation a expiré.</string>
 	<string name="invite_link_pasted">Lien collé depuis votre presse-papiers.</string>
 	<string name="need_invite_to_join_server">Pour rejoindre %s, vous aurez besoin d\'un lien d\'invitation d\'un utilisateur existant.</string>
+	<string name="mute_user_confirm_title">Masquer l\'utilisateur ?</string>
+	<string name="user_wont_know_muted">Ils ne sauront pas qu\'ils ont été masqués.</string>
+	<string name="unmuted_user_x">%s n\'est plus masqué</string>
 	<string name="do_block_server">Bloquer le serveur</string>
 	<string name="block_user_x_instead">Bloquer %s à la place</string>
 	<string name="server_followers_will_be_removed">Vos abonné·e·s de ce serveur seront supprimés.</string>
