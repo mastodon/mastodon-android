@@ -26,8 +26,6 @@ import android.os.SystemClock;
 import android.os.ext.SdkExtensions;
 import android.provider.MediaStore;
 import android.provider.OpenableColumns;
-import android.system.ErrnoException;
-import android.system.Os;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextUtils;
@@ -37,7 +35,6 @@ import android.transition.ChangeScroll;
 import android.transition.Fade;
 import android.transition.TransitionManager;
 import android.transition.TransitionSet;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -47,17 +44,14 @@ import android.view.ViewGroup;
 import android.view.WindowInsets;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
-import android.widget.FrameLayout;
 import android.widget.PopupMenu;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
 import org.joinmastodon.android.E;
 import org.joinmastodon.android.FileProvider;
 import org.joinmastodon.android.GlobalUserPreferences;
-import org.joinmastodon.android.MainActivity;
 import org.joinmastodon.android.MastodonApp;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.requests.accounts.SetAccountBlocked;
@@ -590,7 +584,7 @@ public class UiUtils{
 		}else{
 			Runnable action=()->{
 				progressCallback.accept(true);
-				new SetAccountFollowed(account.id, !relationship.following && !relationship.requested, true)
+				new SetAccountFollowed(account.id, !relationship.following && !relationship.requested, true, false)
 						.setCallback(new Callback<>(){
 							@Override
 							public void onSuccess(Relationship result){

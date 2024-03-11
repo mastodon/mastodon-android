@@ -20,7 +20,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
-import android.text.SpannedString;
 import android.text.TextUtils;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.ImageSpan;
@@ -29,7 +28,6 @@ import android.transition.Fade;
 import android.transition.Transition;
 import android.transition.TransitionManager;
 import android.transition.TransitionSet;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -67,6 +65,7 @@ import org.joinmastodon.android.ui.M3AlertDialogBuilder;
 import org.joinmastodon.android.ui.OutlineProviders;
 import org.joinmastodon.android.ui.SimpleViewHolder;
 import org.joinmastodon.android.ui.SingleImagePhotoViewerListener;
+import org.joinmastodon.android.ui.Snackbar;
 import org.joinmastodon.android.ui.photoviewer.PhotoViewer;
 import org.joinmastodon.android.ui.sheets.DecentralizationExplainerSheet;
 import org.joinmastodon.android.ui.tabs.TabLayout;
@@ -635,6 +634,13 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 			menu.findItem(R.id.block_domain).setVisible(false);
 		menu.findItem(R.id.add_to_list).setVisible(relationship.following);
 
+		if(relationship.following){
+			MenuItem notifications=menu.findItem(R.id.notifications);
+			notifications.setVisible(true);
+			notifications.setIcon(relationship.notifying ? R.drawable.ic_notifications_fill1_24px : R.drawable.ic_notifications_24px);
+			notifications.setTitle(getString(relationship.notifying ? R.string.disable_new_post_notifications : R.string.enable_new_post_notifications, account.getDisplayUsername()));
+		}
+
 		if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.P && !UiUtils.isEMUI()){
 			menu.setGroupDividerEnabled(true);
 		}
@@ -663,7 +669,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 				updateRelationship();
 			}, this::updateRelationship);
 		}else if(id==R.id.hide_boosts){
-			new SetAccountFollowed(account.id, true, !relationship.showingReblogs)
+			new SetAccountFollowed(account.id, true, !relationship.showingReblogs, relationship.notifying)
 					.setCallback(new Callback<>(){
 						@Override
 						public void onSuccess(Relationship result){
@@ -693,6 +699,24 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 			args.putString("account", accountID);
 			args.putParcelable("targetAccount", Parcels.wrap(account));
 			Nav.go(getActivity(), AddAccountToListsFragment.class, args);
+		}else if(id==R.id.notifications){
+			new SetAccountFollowed(account.id, true, relationship.showingReblogs, !relationship.notifying)
+					.setCallback(new Callback<>(){
+						@Override
+						public void onSuccess(Relationship result){
+							updateRelationship(result);
+							new Snackbar.Builder(getActivity())
+									.setText(result.notifying ? R.string.new_post_notifications_enabled : R.string.new_post_notifications_disabled)
+									.show();
+						}
+
+						@Override
+						public void onError(ErrorResponse error){
+							error.showToast(getActivity());
+						}
+					})
+					.wrapProgress(getActivity(), R.string.loading, false)
+					.exec(accountID);
 		}
 		return true;
 	}

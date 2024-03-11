@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:tools="http://schemas.android.com/tools"
+	xmlns:android="http://schemas.android.com/apk/res/android">
+	<item android:id="@+id/notifications"
+		android:icon="@drawable/ic_tab_notifications"
+		android:showAsAction="always"
+		android:visible="false"
+		tools:ignore="MenuTitle" />
+
 	<group android:orderInCategory="1" android:id="@+id/menu_group1">
 		<item android:id="@+id/share" android:title="@string/share_user"/>
 		<item android:id="@+id/copy_link" android:title="@string/copy_profile_link"/>

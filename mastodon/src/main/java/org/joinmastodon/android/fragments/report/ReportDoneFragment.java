@@ -34,7 +34,6 @@ import me.grishka.appkit.api.Callback;
 import me.grishka.appkit.api.ErrorResponse;
 import me.grishka.appkit.imageloader.ViewImageLoader;
 import me.grishka.appkit.imageloader.requests.UrlImageLoaderRequest;
-import me.grishka.appkit.utils.CubicBezierInterpolator;
 import me.grishka.appkit.utils.V;
 
 public class ReportDoneFragment extends MastodonToolbarFragment{
@@ -177,7 +176,7 @@ public class ReportDoneFragment extends MastodonToolbarFragment{
 	}
 
 	private void onUnfollowClick(){
-		new SetAccountFollowed(reportAccount.id, false, false)
+		new SetAccountFollowed(reportAccount.id, false, false, false)
 				.setCallback(new Callback<>(){
 					@Override
 					public void onSuccess(Relationship result){
