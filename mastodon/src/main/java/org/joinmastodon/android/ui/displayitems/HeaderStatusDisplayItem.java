@@ -25,11 +25,13 @@ import org.joinmastodon.android.GlobalUserPreferences;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.requests.accounts.GetAccountRelationships;
 import org.joinmastodon.android.api.requests.statuses.GetStatusSourceText;
+import org.joinmastodon.android.api.requests.statuses.SetStatusConversationMuted;
 import org.joinmastodon.android.api.requests.statuses.SetStatusPinned;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.fragments.AddAccountToListsFragment;
 import org.joinmastodon.android.fragments.BaseStatusListFragment;
 import org.joinmastodon.android.fragments.ComposeFragment;
+import org.joinmastodon.android.fragments.NotificationsListFragment;
 import org.joinmastodon.android.fragments.ProfileFragment;
 import org.joinmastodon.android.fragments.report.ReportReasonChoiceFragment;
 import org.joinmastodon.android.model.Account;
@@ -228,6 +230,22 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 							})
 							.wrapProgress(activity, R.string.loading, true)
 							.exec(item.accountID);
+				}else if(id==R.id.mute_conversation){
+					new SetStatusConversationMuted(item.status.id, !item.status.muted)
+							.setCallback(new Callback<>(){
+								@Override
+								public void onSuccess(Status result){
+									// TODO snackbar?
+									item.status.muted=result.muted;
+								}
+
+								@Override
+								public void onError(ErrorResponse error){
+									error.showToast(activity);
+								}
+							})
+							.wrapProgress(activity, R.string.loading, true)
+							.exec(item.accountID);
 				}
 				return true;
 			});
@@ -314,6 +332,7 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 			MenuItem follow=menu.findItem(R.id.follow);
 			MenuItem bookmark=menu.findItem(R.id.bookmark);
 			MenuItem pin=menu.findItem(R.id.pin);
+			MenuItem muteConversation=menu.findItem(R.id.mute_conversation);
 			if(item.status!=null){
 				bookmark.setVisible(true);
 				bookmark.setTitle(item.status.bookmarked ? R.string.remove_bookmark : R.string.add_bookmark);
@@ -339,6 +358,12 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 				block.setTitle(item.parentFragment.getString(relationship!=null && relationship.blocking ? R.string.unblock_user : R.string.block_user, account.displayName));
 				report.setTitle(item.parentFragment.getString(R.string.report_user, account.displayName));
 				follow.setTitle(item.parentFragment.getString(relationship!=null && relationship.following ? R.string.unfollow_user : R.string.follow_user, account.displayName));
+			}
+			if(item.status.muted!=null){
+				muteConversation.setVisible(isOwnPost || item.parentFragment instanceof NotificationsListFragment);
+				muteConversation.setTitle(item.status.muted ? R.string.unmute_conversation : R.string.mute_conversation);
+			}else{
+				muteConversation.setVisible(false);
 			}
 			menu.findItem(R.id.add_to_list).setVisible(relationship!=null && relationship.following);
 		}

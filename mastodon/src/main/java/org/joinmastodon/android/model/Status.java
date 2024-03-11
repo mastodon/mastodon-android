@@ -58,7 +58,7 @@ public class Status extends BaseModel implements DisplayItemsParent{
 
 	public boolean favourited;
 	public boolean reblogged;
-	public boolean muted;
+	public Boolean muted;
 	public boolean bookmarked;
 	public Boolean pinned;
 
