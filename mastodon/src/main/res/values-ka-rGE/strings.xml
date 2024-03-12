@@ -5,6 +5,7 @@
 	<string name="loading_instance">მიმდინარეობს სერვერის ინფორმაციის მიღება…</string>
 	<string name="error">შეცდომა</string>
 	<string name="not_a_mastodon_instance">როგორც ჩანს, %s არ არის Mastodon-ის სერვერი.</string>
+	<string name="ok">OK</string>
 	<string name="preparing_auth">მიმდინარეობს ავტორიზაციისთვის მზადება…</string>
 	<string name="finishing_auth">მიმდინარეობს ავტორიზაციის დასრულება…</string>
 	<string name="notifications">შეტყობინებები</string>
@@ -22,6 +23,8 @@
 	<string name="media">მედია</string>
 	<string name="profile_about">ჩემს შესახებ</string>
 	<string name="button_follow">გამოწერა</string>
+	<string name="edit_profile">პროფილის რედაქტირება</string>
+	<string name="share_user">პროფილის გაზიარება…</string>
 	<string name="mute_user">%s-ის იგნორირება</string>
 	<string name="unmute_user">%s-ის ამოღება იგნორირებულთა სიიდან</string>
 	<string name="block_user">%s-ის დაბლოკვა</string>
@@ -103,6 +106,8 @@
 	<string name="sending_report">მიმდინარეობს საჩივრის გაგზავნა…</string>
 	<string name="back">უკან</string>
 	<string name="search_communities">სერვერის სახელი ან URL მისამართი</string>
+	<string name="instance_rules_title">სერვერის წესები</string>
+	<string name="signup_title">ანგარიშის შექმნა</string>
 	<string name="display_name">სახელი</string>
 	<string name="username">მომხმარებლის სახელი</string>
 	<string name="email">ელექტრონული ფოსტის მისამართი</string>
@@ -110,6 +115,7 @@
 	<string name="confirm_password">დაადასტურეთ პაროლი</string>
 	<string name="password_note">გამოიყენეთ დიდი ასოები, ციფრები და სპეციალური სიმბოლოები, რათა გაზარდოთ პაროლის სიძლიერე.</string>
 	<string name="category_general">ზოგადი</string>
+	<string name="confirm_email_title">შეამოწმეთ თქვენი შემოსული წერილები</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">%s-ის დასადასტურებლად, დააწკაპუნეთ ბმულზე, რომელიც გამოგიგზავნეთ. ჩვენ აქ დაგელოდებით.</string>
 	<string name="confirm_email_didnt_get">არ მიგიღიათ ბმული?</string>
@@ -130,14 +136,82 @@
 	<string name="notification_type_mention">მონიშვნები</string>
 	<string name="notification_type_poll">გამოკითხვები</string>
 	<string name="choose_account">აირჩიეთ ანგარიში</string>
-	<string name="err_not_logged_in">თავდაპირველად, გაიარეთ ავტორიზაცია Mastodon-ში</string>
+	<string name="err_not_logged_in">გთხოვთ, თავდაპირველად, გაიარეთ ავტორიზაცია Mastodon-ში</string>
+	<string name="settings_notifications">შეტყობინებები</string>
+	<string name="settings_tos">მომსახურების პირობები</string>
+	<string name="settings_privacy_policy">კონფიდენციალურობის პოლიტიკა</string>
+	<string name="button_share">გაზიარება</string>
+	<string name="emoji">Emoji</string>
+	<string name="my_profile">ჩემი პროფილი</string>
+	<string name="open_in_browser">ბრაუზერში გახსნა</string>
+	<string name="signup_reason">რატომ გსურთ შემოუერთდეთ?</string>
+	<string name="clear">გასუფთავება</string>
+	<string name="profile_picture">პროფილის სურათი</string>
+	<string name="download">გადმოწერა</string>
+	<string name="permission_required">საჭიროა ნებართვა</string>
+	<string name="open_settings">პარამეტრების გახსნა</string>
+	<string name="error_saving_file">შეცდომა ფაილის შენახვისას</string>
+	<string name="file_saved">ფაილი შენახულია</string>
+	<string name="downloading">მიმდინარეობს გადმოწერა…</string>
 	<!-- %s is the server domain -->
+	<string name="see_new_posts">ახალი პოსტები</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
+	<string name="time_just_now">ახლახანს</string>
+	<plurals name="x_seconds_ago">
+		<item quantity="one">%d წამის წინ</item>
+		<item quantity="other">%d წამის წინ</item>
+	</plurals>
+	<plurals name="x_minutes_ago">
+		<item quantity="one">%d წუთის წინ</item>
+		<item quantity="other">%d წუთის წინ</item>
+	</plurals>
+	<string name="edit_original_post">Original post</string>
+	<string name="edit">რედაქტირება</string>
+	<string name="discard_changes">გსურთ ცვლილებების გაუქმება?</string>
+	<string name="upload_failed">ატვირთვა ვერ მოხერხდა</string>
+	<string name="file_size_bytes">%d bytes</string>
+	<string name="file_size_kb">%.2f KB</string>
+	<string name="file_size_mb">%.2f MB</string>
+	<string name="file_size_gb">%.2f GB</string>
+	<string name="upload_processing">მუშავდება…</string>
 	<!-- %s is file size -->
+	<string name="install_update">დაყენება</string>
+	<string name="privacy_policy_title">თქვენი კონფიდენციალურობა</string>
+	<string name="i_agree">ვეთანხმები</string>
+	<string name="empty_list">ეს სია ცარიელია</string>
+	<string name="instance_signup_closed">ეს სერვერი არ იღებს ახალ რეგისტრაციას.</string>
+	<string name="text_copied">დაკოპირებულია ბუფერში</string>
+	<string name="server_url">სერვერის URL მისამართი</string>
+	<string name="server_filter_region_europe">ევროპა</string>
+	<string name="server_filter_region_north_america">ჩრდილოეთ ამერიკა</string>
+	<string name="server_filter_region_south_america">სამხრეთ ამერიკა</string>
+	<string name="server_filter_region_africa">აფრიკა</string>
+	<string name="server_filter_region_asia">აზია</string>
+	<string name="server_filter_region_oceania">ოკეანეთი</string>
+	<string name="not_accepting_new_members">არ იღებს ახალ წევრებს</string>
+	<string name="signup_passwords_dont_match">პაროლები არ ემთხვევა</string>
 	<!-- %s is server domain -->
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<string name="save_changes">ცვლილებების შენახვა</string>
+	<string name="profile_endorsed_accounts">ანგარიშები</string>
+	<string name="learn_more">გაიგეთ მეტი</string>
+	<string name="welcome_to_mastodon">მოგესალმებათ Mastodon</string>
+	<string name="what_are_servers">რა არის სერვერები?</string>
+	<string name="log_out_all_accounts">ყველა ანგარიშიდან გამოსვლა</string>
+	<string name="confirm_log_out_all_accounts">გსურთ გამოხვიდეთ ყველა ანგარიშიდან?</string>
+	<string name="retry">ხელახლა ცდა</string>
+	<string name="post_failed">პოსტის გაგზავნა ვერ მოხერხდა</string>
 	<!-- %s is formatted file size ("467 KB image") -->
+	<string name="attachment_type_image">სურათი</string>
+	<string name="attachment_type_video">ვიდეო</string>
+	<string name="attachment_type_audio">აუდიო</string>
+	<string name="attachment_type_gif">GIF</string>
+	<string name="attachment_type_unknown">ფაილი</string>
+	<string name="poll_style">სტილი</string>
+	<string name="help">დახმარება</string>
+	<string name="what_is_alt_text">რა არის ალტერნატიული ტექსტი?</string>
+	<string name="edit_post">პოსტის რედაქტირება</string>
 	<string name="language">ენა</string>
 	<string name="language_default">ნაგულისხმევი</string>
 	<string name="language_system">სისტემის შესაბამისი</string>
@@ -202,6 +276,28 @@
 	<!-- %s is the name of the list -->
 	<!-- %s is a username -->
 	<!-- %s is a time interval ("5 months") -->
+	<string name="do_block_server">სერვერის დაბლოკვა</string>
+	<string name="users_cant_see_blocked">You won’t see posts or notifications from users on this server.</string>
+	<string name="server">სერვერი</string>
+	<string name="qr_code">QR code</string>
+	<string name="scan_qr_code">QR კოდის დასკანერება</string>
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
+	<string name="saved">შენახულია</string>
+	<string name="image_saved">სურათი შენახულია.</string>
+	<string name="video_saved">ვიდეო შენახულია.</string>
+	<string name="copy_profile_link">პროფილის ბმულის დაკოპირება</string>
+	<string name="in_app_browser">აპლიკაციის ბრაუზერი</string>
+	<string name="system_browser">სისტემური ბრაუზერი</string>
+	<string name="tab_home">მთავარი</string>
+	<string name="tab_search">დათვალიერება</string>
+	<string name="tab_profile">პროფილი</string>
+	<string name="pin_post">პროფილზე მიმაგრება</string>
+	<string name="unpin_post">პროფილიდან მოხსნა</string>
+	<string name="post_pinned">პოსტი მიმაგრებულია</string>
+	<string name="post_unpinned">პოსტი მოხსნილია</string>
 	<!-- %s is the username -->
+	<string name="enable_new_post_notifications">შემატყობინე, როდესაც %s დაპოსტავს</string>
+	<string name="disable_new_post_notifications">აღარ შემატყობინო, როდესაც %s დაპოსტავს</string>
+	<string name="new_post_notifications_enabled">თქვენ მიიღებთ შეტყობინებებს ახალი პოსტის შესახებ.</string>
+	<string name="new_post_notifications_disabled">თქვენ აღარ მიიღებთ შეტყობინებებს ახალი პოსტის შესახებ.</string>
 </resources>
