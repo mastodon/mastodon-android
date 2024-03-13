@@ -8,43 +8,6 @@
 	android:paddingHorizontal="8dp">
 
 	<org.joinmastodon.android.ui.views.CheckableLinearLayout
-		android:id="@+id/multiple_choice"
-		android:layout_width="0dp"
-		android:layout_height="wrap_content"
-		android:layout_weight="1"
-		android:layout_marginHorizontal="8dp"
-		android:orientation="vertical"
-		android:paddingTop="8dp"
-		android:background="@drawable/bg_rect_4dp_ripple"
-		android:gravity="center_horizontal">
-		<ImageView
-			android:layout_width="80dp"
-			android:layout_height="80dp"
-			android:src="@drawable/poll_multiple"
-			android:duplicateParentState="true"
-			android:importantForAccessibility="no"/>
-		<TextView
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_marginTop="16dp"
-			android:textAppearance="@style/m3_title_small"
-			android:textColor="?colorM3OnSurface"
-			android:text="@string/compose_poll_multiple_choice"/>
-		<FrameLayout
-			android:layout_width="48dp"
-			android:layout_height="48dp"
-			android:duplicateParentState="true">
-			<RadioButton
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_gravity="center"
-				android:clickable="false"
-				android:focusable="false"
-				android:duplicateParentState="true"/>
-		</FrameLayout>
-	</org.joinmastodon.android.ui.views.CheckableLinearLayout>
-
-	<org.joinmastodon.android.ui.views.CheckableLinearLayout
 		android:id="@+id/single_choice"
 		android:layout_width="0dp"
 		android:layout_height="wrap_content"
@@ -67,6 +30,43 @@
 			android:textAppearance="@style/m3_title_small"
 			android:textColor="?colorM3OnSurface"
 			android:text="@string/compose_poll_single_choice"/>
+		<FrameLayout
+			android:layout_width="48dp"
+			android:layout_height="48dp"
+			android:duplicateParentState="true">
+			<RadioButton
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center"
+				android:clickable="false"
+				android:focusable="false"
+				android:duplicateParentState="true"/>
+		</FrameLayout>
+	</org.joinmastodon.android.ui.views.CheckableLinearLayout>
+
+	<org.joinmastodon.android.ui.views.CheckableLinearLayout
+		android:id="@+id/multiple_choice"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_weight="1"
+		android:layout_marginHorizontal="8dp"
+		android:orientation="vertical"
+		android:paddingTop="8dp"
+		android:background="@drawable/bg_rect_4dp_ripple"
+		android:gravity="center_horizontal">
+		<ImageView
+			android:layout_width="80dp"
+			android:layout_height="80dp"
+			android:src="@drawable/poll_multiple"
+			android:duplicateParentState="true"
+			android:importantForAccessibility="no"/>
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="16dp"
+			android:textAppearance="@style/m3_title_small"
+			android:textColor="?colorM3OnSurface"
+			android:text="@string/compose_poll_multiple_choice"/>
 		<FrameLayout
 			android:layout_width="48dp"
 			android:layout_height="48dp"
