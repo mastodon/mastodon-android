@@ -39,17 +39,17 @@
 	<string name="edit_profile">Profiel bewerken</string>
 	<string name="share_user">Profiel delen via…</string>
 	<string name="mute_user">Negeer %s</string>
-	<string name="unmute_user">%s niet langer negeren</string>
+	<string name="unmute_user">Negeer niet langer %s</string>
 	<string name="block_user">Blokkeer %s</string>
 	<string name="unblock_user">Deblokkeer %s</string>
-	<string name="report_user">%s rapporteren</string>
+	<string name="report_user">Rapporteer %s</string>
 	<string name="block_domain">Blokkeer %s</string>
 	<string name="unblock_domain">Deblokkeer %s</string>
 	<plurals name="x_posts">
 		<item quantity="one">%,d bericht</item>
 		<item quantity="other">%,d berichten</item>
 	</plurals>
-	<string name="profile_joined">Geregistreerd</string>
+	<string name="profile_joined">Geregistreerd op</string>
 	<string name="done">Klaar</string>
 	<string name="loading">Aan het laden…</string>
 	<string name="field_label">Label</string>
@@ -115,7 +115,7 @@
 		<item quantity="one">%d persoon praat hierover</item>
 		<item quantity="other">%d mensen praten hierover</item>
 	</plurals>
-	<string name="report_title">%s rapporteren</string>
+	<string name="report_title">Rapporteer %s</string>
 	<string name="report_choose_reason">Wat is er mis met dit bericht?</string>
 	<string name="report_choose_reason_account">Wat is er mis met %s?</string>
 	<string name="report_choose_reason_subtitle">Kies wat het beste overeenkomt</string>
@@ -197,7 +197,7 @@
 	<string name="settings_clear_cache">Mediabuffer leegmaken</string>
 	<string name="settings_app_version">Mastodon voor Android v%1$s (%2$d)</string>
 	<string name="media_cache_cleared">Mediabuffer leeggemaakt</string>
-	<string name="confirm_log_out">Afmelden van %s?</string>
+	<string name="confirm_log_out">Uitloggen van %s?</string>
 	<string name="sensitive_content_explain">De auteur heeft deze media als gevoelig aangemerkt.</string>
 	<string name="avatar_description">Ga naar het profiel van %s</string>
 	<string name="more_options">Meer opties</string>
@@ -213,8 +213,8 @@
 	<string name="home_timeline">Starttijdlijn</string>
 	<string name="my_profile">Mijn profiel</string>
 	<string name="media_viewer">Mediaviewer</string>
-	<string name="follow_user">%s volgen</string>
-	<string name="unfollowed_user">%s ontvolgd</string>
+	<string name="follow_user">Volg %s</string>
+	<string name="unfollowed_user">Ontvolg %s</string>
 	<string name="followed_user">Je volgt %s nu</string>
 	<string name="following_user_requested">Je volgverzoek is aan %s verstuurd</string>
 	<string name="open_in_browser">In browser openen</string>
@@ -443,7 +443,7 @@
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<string name="pause_notifications_ends">Eindigt %s</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
-	<string name="pause_notifications_banner">Notificaties worden hervat %s.</string>
+	<string name="pause_notifications_banner">Meldingen worden %s hervat.</string>
 	<string name="resume_notifications_now">Nu hervatten</string>
 	<string name="open_system_notification_settings">Ga naar de meldingsinstellingen</string>
 	<string name="about_server">Over</string>
@@ -604,7 +604,7 @@
 	<string name="no_followed_hashtags_subtitle">Accounts die je volgt verschijnen hier</string>
 	<string name="no_lists_title">Organiseer jouw tijdlijn met lijsten</string>
 	<string name="no_lists_subtitle">Je eigen verschijnen hier</string>
-	<string name="manage_accounts">Accounts toevoegen of omschakelen</string>
+	<string name="manage_accounts">Accounts toevoegen of wisselen</string>
 	<plurals name="x_posts_recently">
 		<item quantity="one">Onlangs %,d bericht</item>
 		<item quantity="other">Recentelijk %,d berichten</item>
@@ -623,7 +623,7 @@
 	<string name="dont_remind_again">Herrinner me niet opnieuw</string>
 	<!-- %s is a time interval ("5 months") -->
 	<string name="old_post_sheet_title">Dit bericht is %s oud</string>
-	<string name="old_post_sheet_text">Je kunt nog steeds reageren, maar het is misschien niet langer relevant.</string>
+	<string name="old_post_sheet_text">Je kunt nog steeds reageren, maar het is misschien niet langer meer relevant.</string>
 	<plurals name="x_months">
 		<item quantity="one">%,d maand</item>
 		<item quantity="other">%,d maanden</item>
@@ -684,9 +684,9 @@
 	<string name="handle_username_explanation_own">Jouw unieke identificatie-adres op jouw server, bestaande uit @gebruikersnaam@server.tld. Het is mogelijk dat er gebruikers met dezelfde gebruikersnaam op verschillende servers te vinden zijn.</string>
 	<string name="server">Server</string>
 	<string name="handle_server_explanation">Hun digitale thuis, waar al hun berichten zich bevinden.</string>
-	<string name="handle_explanation">Omdat je aan een Mastodon-adres kunt zien wie iemand is en waar die zich bevindt, kun je met mensen op het sociale web aan &lt;a&gt;ActivityPub-platformen&lt;/a&gt; communiceren.</string>
-	<string name="handle_server_explanation_own">Jouw digitale thuis, waar al jouw berichten zich bevinden. Is deze server toch niet naar jouw wens? Dan kun je op elk moment naar een andere server verhuizen en jouw volgers ook overbrengen.</string>
-	<string name="handle_explanation_own">Omdat je aan jouw Mastodon-adres kunt zien wie je bent is en waar jij je bevindt, kunnen mensen op het sociale web aan &lt;a&gt;ActivityPub-platformen&lt;/a&gt; met jou communiceren.</string>
+	<string name="handle_explanation">Omdat je aan een Mastodon-adres kunt zien wie iemand is en waar die zich bevindt, kun je met mensen op het door &lt;a&gt;ActivityPub aangedreven&lt;/a&gt; sociale web communiceren.</string>
+	<string name="handle_server_explanation_own">Jouw digitale thuis, waar al jouw berichten zich bevinden. Is deze server toch niet naar jouw wens? Dan kun je op elk moment naar een andere server verhuizen en ook jouw volgers overbrengen.</string>
+	<string name="handle_explanation_own">Omdat je aan jouw Mastodon-adres kunt zien wie jij bent is en waar je je bevindt, kunnen mensen op het door &lt;a&gt;ActivityPub aangedreven&lt;/a&gt; sociale web met jou communiceren.</string>
 	<string name="what_is_activitypub_title">Wat is ActivityPub?</string>
 	<string name="what_is_activitypub">ActivityPub is de taal die Mastodon met andere sociale netwerken spreekt.\n\nHet zorgt ervoor dat je niet alleen maar kunt verbinden en communiceren met mensen op Mastodon, maar ook met andere sociale apps.</string>
 	<string name="handle_copied">Mastodon-adres naar het klembord gekopieerd.</string>
@@ -706,5 +706,15 @@
 	<string name="tab_home">Start</string>
 	<string name="tab_search">Verkennen</string>
 	<string name="tab_profile">Profiel</string>
+	<string name="pin_post">Aan profielpagina vastmaken</string>
+	<string name="unpin_post">Van profielpagina losmaken</string>
+	<string name="post_pinned">Bericht is vastgemaakt</string>
+	<string name="post_unpinned">Bericht is losgemaakt</string>
 	<!-- %s is the username -->
+	<string name="enable_new_post_notifications">Geef een melding wanneer %s een bericht plaatst</string>
+	<string name="disable_new_post_notifications">Geen melding meer geven wanneer %s een bericht plaatst</string>
+	<string name="new_post_notifications_enabled">Je krijgt meldingen voor nieuwe berichten.</string>
+	<string name="new_post_notifications_disabled">Je krijgt geen meldingen meer voor nieuwe berichten.</string>
+	<string name="mute_conversation">Gesprek negeren</string>
+	<string name="unmute_conversation">Gesprek niet langer negeren</string>
 </resources>
