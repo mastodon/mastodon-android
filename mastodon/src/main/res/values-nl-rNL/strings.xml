@@ -330,7 +330,7 @@
 	<string name="profile_add_row">Rij toevoegen</string>
 	<string name="profile_setup">Profiel instellen</string>
 	<string name="profile_setup_subtitle">Je kunt dit later altijd aanvullen op het tabblad Profiel.</string>
-	<string name="follow_all">Volg iedereen</string>
+	<string name="follow_all">Iedereen volgen</string>
 	<string name="server_rules_disagree">Ik ga niet akkoord</string>
 	<string name="privacy_policy_explanation">TL;DR: We verzamelen of verwerken niets.</string>
 	<!-- %s is server domain -->
@@ -361,8 +361,8 @@
 	<string name="welcome_paragraph2">Elk Mastodon-account wordt gehost op een server – elk met diens eigen waarden, regels en beheerders. Het maakt niet uit welke server je kiest, je kunt mensen op elke server volgen en ermee communiceren.</string>
 	<string name="opening_link">Link aan het openen…</string>
 	<string name="link_not_supported">Deze link wordt door de app ondersteund</string>
-	<string name="log_out_all_accounts">Bij alle accounts afmelden</string>
-	<string name="confirm_log_out_all_accounts">Bij alle accounts afmelden?</string>
+	<string name="log_out_all_accounts">Bij alle accounts uitloggen</string>
+	<string name="confirm_log_out_all_accounts">Bij alle accounts uitloggen?</string>
 	<string name="retry">Opnieuw proberen</string>
 	<string name="post_failed">Kan bericht niet versturen</string>
 	<!-- %s is formatted file size ("467 KB image") -->
@@ -376,17 +376,17 @@
 	<string name="attachment_type_gif">GIF</string>
 	<string name="attachment_type_unknown">Bestand</string>
 	<string name="attachment_x_percent_uploaded">%d%% geüpload</string>
-	<string name="add_poll_option">Enquete-optie toevoegen</string>
-	<string name="poll_length">Lengte enquête</string>
+	<string name="add_poll_option">Optie toevoegen</string>
+	<string name="poll_length">Tijdsduur</string>
 	<string name="poll_style">Stijl</string>
-	<string name="compose_poll_single_choice">Kies een</string>
+	<string name="compose_poll_single_choice">Kies er een</string>
 	<string name="compose_poll_multiple_choice">Meerkeuze</string>
 	<string name="delete_poll_option">Optie verwijderen</string>
-	<string name="poll_style_title">Enquêtestijl</string>
+	<string name="poll_style_title">Pollstijl</string>
 	<string name="alt_text">Alternatieve tekst</string>
 	<string name="help">Hulp</string>
 	<string name="what_is_alt_text">Wat is alternatieve tekst?</string>
-	<string name="alt_text_help">Alt tekst biedt afbeeldingsbeschrijvingen voor mensen met een visiuele beperking en verbindingen met een lage bandbreedte of voor mensen die naar extra context zoeken.\n\nJe kunt de toegankelijkheid en het begrip voor iedereen verbeteren door duidelijk, beknopt en objectief te schrijven.\n\n<ul><li>Beschrijf belangrijke elementen</li>\n<li>Vat tekst in afbeeldingen samen</li>\n<li>Gebruik de reguliere zinsopbouw</li>\n<li>Vermijd overbodige informatie</li>\n<li>Focus op trends en belangrijke bevindingen in complexe beelden (zoals diagrammen of kaarten)</li></ul> \n</string>
+	<string name="alt_text_help">Alt-tekst biedt afbeeldingsbeschrijvingen voor mensen met een visuele beperking en verbindingen met een lage bandbreedte of voor mensen die naar extra context zoeken.\n\nJe kunt de toegankelijkheid en de begrijpelijkheid voor iedereen verbeteren door duidelijk, beknopt en objectief te schrijven.\n\n<ul><li>Beschrijf belangrijke elementen</li>\n<li>Vat tekst in afbeeldingen samen</li>\n<li>Gebruik een normale zinsbouw</li>\n<li>Vermijd overbodige informatie</li>\n<li>Focus op trends en belangrijke bevindingen in complexe beelden (zoals diagrammen of kaarten)</li></ul> \n</string>
 	<string name="edit_post">Bericht bewerken</string>
 	<string name="no_verified_link">Geen geverifieerde link</string>
 	<string name="compose_autocomplete_emoji_empty">Emoji doorzoeken</string>
@@ -492,10 +492,10 @@
 	<string name="filter_inactive">Inactief</string>
 	<string name="settings_add_filter">Filter toevoegen</string>
 	<string name="settings_edit_filter">Filter bewerken</string>
-	<string name="settings_filter_duration">Duur</string>
+	<string name="settings_filter_duration">Tijdsduur</string>
 	<string name="settings_filter_muted_words">Genegeerde woorden</string>
 	<string name="settings_filter_context">Genegeerd op</string>
-	<string name="settings_filter_show_cw">Toon met inhoudswaarschuwing</string>
+	<string name="settings_filter_show_cw">Met inhoudswaarschuwing tonen</string>
 	<string name="settings_filter_show_cw_explanation">Berichten die met dit filter overeenkomen, maar achter een inhoudswaarschuwing zitten toch tonen</string>
 	<string name="settings_delete_filter">Filter verwijderen</string>
 	<string name="filter_duration_forever">Voor altijd</string>
@@ -508,10 +508,10 @@
 	<string name="selection_2_options">%1$s en %2$s</string>
 	<string name="selection_3_options">%1$s, %2$s en %3$s</string>
 	<string name="selection_4_or_more">%1$s, %2$s en %3$d meer</string>
-	<string name="filter_context_home_lists">Startpagina &amp; lijsten</string>
+	<string name="filter_context_home_lists">Starttijdlijn en lijsten</string>
 	<string name="filter_context_notifications">Meldingen</string>
 	<string name="filter_context_public_timelines">Openbare tijdlijnen</string>
-	<string name="filter_context_threads_replies">Threads &amp; antwoorden</string>
+	<string name="filter_context_threads_replies">Gesprekken en reacties</string>
 	<string name="filter_context_profiles">Profielen</string>
 	<string name="settings_filter_title">Titel</string>
 	<string name="settings_delete_filter_title">Filter ‘%s’ verwijderen?</string>
