@@ -87,6 +87,7 @@
 	<string name="notification_channel_audio_player">Taɣuri n umeslaw</string>
 	<string name="play">Urar</string>
 	<string name="pause">Seḥbes</string>
+	<string name="log_out">Ffeɣ</string>
 	<string name="add_account">Rnu amiḍan</string>
 	<string name="search_hint">Nadi</string>
 	<string name="hashtags">Ihacṭagen</string>
@@ -114,6 +115,7 @@
 	<string name="unfollow_user">Y•Teḥbes aḍfar n %s</string>
 	<string name="unfollow">Ur ṭṭafaṛ ara</string>
 	<string name="back">Tuɣalin</string>
+	<string name="instance_rules_title">Ilugan n uqeddac</string>
 	<string name="display_name">Isem</string>
 	<string name="username">Isem n useqdac</string>
 	<string name="email">Imayl</string>
@@ -150,6 +152,8 @@
 	<string name="settings_clear_cache">Sfeḍ takatut tuffirt n umidyat</string>
 	<string name="settings_app_version">Mastodon i Android v%1$s (%2$d)</string>
 	<string name="media_cache_cleared">Takatut tuffirt n umidyat tettwasfeḍ</string>
+	<string name="confirm_log_out">Ffeɣ seg %s?</string>
+	<string name="avatar_description">Ddu ɣer umaɣnu n %s</string>
 	<string name="more_options">Ugar n yiɣewwaren</string>
 	<string name="new_post">Tasuffeɣt tamaynut</string>
 	<string name="button_reply">Err</string>
@@ -178,6 +182,7 @@
 	<string name="file_saved">Afaylu yettwasekles</string>
 	<string name="downloading">Asader…</string>
 	<!-- %s is the server domain -->
+	<string name="see_new_posts">Tisuffaɣ timaynutin</string>
 	<string name="load_missing_posts">Sali tisuffaɣ i iruḥen</string>
 	<string name="button_follow_pending">Yettraǧu</string>
 	<string name="follows_you">Yeṭṭafaṛ-ik·em-id</string>
@@ -190,31 +195,67 @@
 	<!-- %s is file size -->
 	<string name="download_update">Asider (%s)</string>
 	<string name="install_update">Sbedd</string>
+	<string name="i_agree">Qebleɣ</string>
 	<string name="add_bookmark">Creḍ</string>
+	<string name="bookmarks">Ticraḍ</string>
+	<string name="your_favorites">Ismenyifen-ik·im</string>
+	<string name="login_title">Ansuf yes-k·m tikkelt niḍen</string>
+	<string name="server_filter_any_language">Yal tutlayt</string>
 	<string name="server_filter_region_europe">Turuft</string>
+	<string name="server_filter_region_north_america">Tamrikt n ugafa</string>
 	<string name="server_filter_region_africa">Tafriqt</string>
 	<string name="server_filter_region_asia">Asya</string>
 	<string name="server_filter_region_oceania">Usyani</string>
+	<string name="follow_all">Ḍfeṛ-iten akk</string>
 	<!-- %s is server domain -->
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<string name="save_changes">Sekles ibeddilen</string>
+	<string name="profile_endorsed_accounts">Imiḍanen</string>
+	<string name="show">Sken</string>
+	<string name="hide">Ffer</string>
+	<string name="join_default_server">Zeddi deg %s</string>
+	<string name="pick_server">Fren aqeddac nniḍen</string>
+	<string name="signup_or_login">neɣ</string>
+	<string name="learn_more">Issin ugar</string>
+	<string name="welcome_to_mastodon">Ansuf ɣer Mastodon</string>
 	<!-- %s is formatted file size ("467 KB image") -->
+	<string name="language_detecting">Tifinagh tawurmant n tutlayt</string>
 	<!-- %s is the server domain -->
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
+	<string name="today">ass-a</string>
+	<string name="yesterday">iḍelli</string>
+	<string name="tomorrow">azekka</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="about_server">Ɣef</string>
+	<string name="server_rules">Alugen</string>
+	<string name="server_administrator">Anedbal</string>
+	<string name="count_one">Yiwen</string>
+	<string name="count_two">Sin</string>
 	<!-- %s is the username -->
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="settings_filter_title">Azwel</string>
+	<string name="add">Rnu</string>
+	<string name="enter_selection_mode">Fren</string>
+	<string name="select_all">Fren-iten akk</string>
+	<string name="app_update_version">Lqem %s</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
 	<!-- Shown in the post header. Please keep it short -->
 	<!-- %s is the name of the post language -->
 	<!-- %1$s is the language, %2$s is the name of the translation service -->
 	<!-- Screen reader description for the menu on the home timeline screen -->
 	<!-- %s is the name of the list -->
+	<string name="remove">Kkes</string>
 	<!-- %s is a username -->
+	<string name="create">Snulfu</string>
 	<!-- %s is a time interval ("5 months") -->
+	<string name="server">Aqeddac</string>
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
+	<string name="add_muted_word_short">Rnu awal</string>
+	<string name="tab_profile">Amaɣnu</string>
+	<string name="pin_post">Senteḍ-itt ɣef umaɣnu</string>
 	<!-- %s is the username -->
 </resources>
