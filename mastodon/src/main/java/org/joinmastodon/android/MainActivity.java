@@ -152,6 +152,11 @@ public class MainActivity extends FragmentStackActivity{
 		}
 		fragment.setArguments(args);
 		showFragment(fragment);
+		Intent intent=getIntent();
+		intent.removeExtra("fromNotification");
+		intent.removeExtra("notification");
+		intent.removeExtra("accountID");
+		setIntent(intent);
 	}
 
 	private void showCompose(){
