@@ -31,10 +31,13 @@
 		<item quantity="other">پی‌گرفته</item>
 	</plurals>
 	<string name="posts">فرسته‌ها</string>
+	<string name="posts_and_replies">فرسته‌ها و پاسخ‌ها</string>
 	<string name="media">رسانه</string>
 	<string name="profile_about">درباره</string>
 	<string name="button_follow">پی‌گیری</string>
 	<string name="button_following">پی می‌گیرید</string>
+	<string name="edit_profile">ویرایش نمایه</string>
+	<string name="share_user">هم‌رسانی نمایهٔ از طریق…</string>
 	<string name="mute_user">خموشی %s</string>
 	<string name="unmute_user">ناخموشی ‎%s</string>
 	<string name="block_user">مسدود %s</string>
@@ -141,7 +144,9 @@
 	<string name="report_personal_subtitle">در اینجا گزینه‌هایی برای کنترل آنچه در ماستودون میبینید، وجود دارد:</string>
 	<string name="back">بازگشت</string>
 	<string name="search_communities">نام کارساز یا نشانی</string>
+	<string name="instance_rules_title">قوانین کارساز</string>
 	<string name="instance_rules_subtitle">با ادامه دادن، موافقت می‌کنید که از قوانین زیر پیروی کنید که توسط ناظران %s تنظیم و اجرا شده است.</string>
+	<string name="signup_title">ایجاد حساب</string>
 	<string name="display_name">نام</string>
 	<string name="username">نام کاربری</string>
 	<string name="email">رایانامه</string>
@@ -211,6 +216,8 @@
 	<string name="followed_user">شما اکنون %s را پی می‌گیرید</string>
 	<string name="following_user_requested">درخواست پی‌گیری %s شد</string>
 	<string name="open_in_browser">بازکردن در مرورگر</string>
+	<string name="hide_boosts_from_user">نهفتن تقویت‌ها</string>
+	<string name="show_boosts_from_user">نمایش تقویت‌ها</string>
 	<string name="signup_reason">چرا می‌خواهید عضو شوید؟</string>
 	<string name="signup_reason_note">این برای بررسی درخواست شما به ما کمک خواهد کرد.</string>
 	<string name="clear">پاک‌کردن</string>
@@ -233,6 +240,7 @@
 	<string name="recommended_accounts_info_banner">ممکن است این حساب‌ها را بر اساس حساب‌های دیگری که پی می‌گیرید بپسندید.</string>
 	<string name="see_new_posts">فرسته‌های جدید</string>
 	<string name="load_missing_posts">بارگذاری فرسته‌های گم شده</string>
+	<string name="follow_back">پیگیری متقابل</string>
 	<string name="button_follow_pending">منتظر</string>
 	<string name="follows_you">پی‌گیرتان است</string>
 	<string name="manually_approves_followers">به‌صورت دستی پی‌گیران را تایید می‌کند</string>
@@ -291,15 +299,21 @@
 	<!-- %s is file size -->
 	<string name="download_update">بارگیری (%s)</string>
 	<string name="install_update">نصب</string>
+	<string name="privacy_policy_title">حریم خصوصی شما</string>
 	<string name="privacy_policy_subtitle">اگرچه برنامه ماستودون هیچ داده ای را جمع‌آوری نمی کند، کارسازی که از طریق آن ثبت نام می کنید ممکن است خط مشی متفاوتی داشته باشد.\n\nاگر با خط مشی %s موافق نیستید، می توانید به عقب برگردید و سرور دیگری را انتخاب کنید.</string>
+	<string name="i_agree">می‌پذیرم</string>
 	<string name="empty_list">این سیاهه خالی است</string>
 	<string name="instance_signup_closed">این کارساز ثبت نام های جدید را نمی پذیرد.</string>
 	<string name="text_copied">در تخته‌گیره رونوشت شد</string>
 	<string name="add_bookmark">نشانک</string>
 	<string name="remove_bookmark">برداشتن نشانک</string>
 	<string name="bookmarks">نشانک‌ها</string>
+	<string name="your_favorites">برگزیده‌های شما</string>
+	<string name="login_title">خوش برگشتید</string>
 	<string name="login_subtitle">با کارسازی که حساب خود را در آن ایجاد کردید وارد شوید.</string>
 	<string name="server_url">نشانی کارساز</string>
+	<string name="server_filter_any_language">هر زبانی</string>
+	<string name="server_filter_instant_signup">ثبت نام فوری</string>
 	<string name="server_filter_region_europe">اروپا</string>
 	<string name="server_filter_region_north_america">آمریکای شمالی</string>
 	<string name="server_filter_region_south_america">آمریکای جنوبی</string>
@@ -615,8 +629,15 @@
 	<string name="enter_invite_link">واردکردن پیوند دعوت</string>
 	<string name="this_invite_is_invalid">این پیوند دعوت معتبر نیست.</string>
 	<string name="this_invite_has_expired">این پیوند دعوت منقضی شده است.</string>
+	<string name="mute_user_confirm_title">کاربران خموش شود؟</string>
+	<string name="block_domain_confirm_title">دامنه مسدود شود؟</string>
 	<string name="server">کارساز</string>
 	<string name="what_is_activitypub_title">اکتیویتی پاپ چیست؟</string>
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
+	<string name="tab_home">خانه</string>
+	<string name="tab_search">کاوش</string>
+	<string name="tab_profile">نمایه</string>
+	<string name="pin_post">سنجاق به نمایه</string>
+	<string name="unpin_post">برداشتن سنجاق از نمایه</string>
 	<!-- %s is the username -->
 </resources>
