@@ -351,7 +351,7 @@
 	<string name="verified_link">پیوند تأییدشده</string>
 	<string name="show">نمایش</string>
 	<string name="hide">نهفتن</string>
-	<string name="join_default_server">%s پیوست</string>
+	<string name="join_default_server">پیوستن به %s</string>
 	<string name="pick_server">انتخاب کارسازی دیگر</string>
 	<string name="signup_or_login">یا</string>
 	<string name="learn_more">بیش‌تر بیاموزید</string>
@@ -449,7 +449,7 @@
 	<string name="about_server">درباره</string>
 	<string name="server_rules">قوانین</string>
 	<string name="server_administrator">مدیر</string>
-	<string name="send_email_to_server_admin">ادمین پیام بده</string>
+	<string name="send_email_to_server_admin">به ادمین پیام بده</string>
 	<string name="notifications_disabled_in_system">آگاهی‌ها را از تنظیمات دستگاهتان روشن کنید تا به‌روزرسانی‌ها را از هر کجا ببینید.</string>
 	<string name="settings_even_more">تنظیمات بیشتر</string>
 	<string name="settings_show_cws">نمایش هشدارهای محتوا</string>
@@ -624,12 +624,16 @@
 		<item quantity="other">%,d ماه</item>
 	</plurals>
 	<string name="more_than_two_years">بیش از ۲ سال</string>
+	<string name="non_mutual_title2">مهربانی را در آغوش بگیر</string>
+	<string name="non_mutual_text2">لحن مثبت همیشه قدردانی میشود.</string>
+	<string name="non_mutual_title3">باز باش</string>
 	<string name="make_profile_discoverable">نمایه من را قابل کشف کن</string>
 	<string name="article_by_author">توسط %s</string>
 	<string name="info">اطلاعات</string>
 	<string name="button_reblogged">تقویت شد</string>
 	<string name="button_favorited">برگزیده‌ شد</string>
 	<string name="bookmarked">نشانک‌گذاری شد</string>
+	<string name="join_server_x_with_invite">پیوستن به %s با دعوت</string>
 	<string name="expired_invite_link">منقضی کردن پیوند دعوت</string>
 	<string name="invalid_invite_link">باطل کردن لینک دعوت</string>
 	<string name="use_invite_link">استفاده از پیوند دعوت</string>
@@ -653,6 +657,7 @@
 	<string name="video_saved">ویدئو ذخیره شد.</string>
 	<string name="view_file">نمایش</string>
 	<string name="share_sheet_preview_profile">%s در ماستودون است</string>
+	<string name="in_app_browser">مرورگر درون برنامه‌ای</string>
 	<string name="system_browser">مرورگر سیستم</string>
 	<string name="add_muted_word_short">افزودن کلمه</string>
 	<string name="tab_home">خانه</string>
@@ -661,4 +666,5 @@
 	<string name="pin_post">سنجاق به نمایه</string>
 	<string name="unpin_post">برداشتن سنجاق از نمایه</string>
 	<!-- %s is the username -->
+	<string name="unmute_conversation">رفع خموشی گفت‌وگو</string>
 </resources>
