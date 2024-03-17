@@ -154,6 +154,7 @@
 	<string name="confirm_password">تأیید گذرواژه</string>
 	<string name="password_note">برای افزایش قدرت گذرواژه خود، حروف بزرگ، کاراکترهای خاص و اعداد را اضافه کنید.</string>
 	<string name="category_general">عمومی</string>
+	<string name="confirm_email_title">صندوق ورودیتان را بررسی کنید</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">برای تأیید %s، روی پیوندی که برای شما ارسال کردیم ضربه بزنید. همین جا منتظر می‌مانیم.</string>
 	<string name="confirm_email_didnt_get">پیوندی نگرفتید؟</string>
@@ -188,6 +189,7 @@
 	<string name="theme_dark">تاریک</string>
 	<string name="settings_behavior">رفتار</string>
 	<string name="settings_gif">پخش ایموجی و آواتار های متحرک</string>
+	<string name="settings_custom_tabs">باز کردن پیوند در</string>
 	<string name="settings_notifications">آگاهی‌ها</string>
 	<string name="settings_contribute">کمک به ماستودون</string>
 	<string name="settings_tos">شرایط استفاده از خدمات</string>
@@ -314,6 +316,8 @@
 	<string name="server_url">نشانی کارساز</string>
 	<string name="server_filter_any_language">هر زبانی</string>
 	<string name="server_filter_instant_signup">ثبت نام فوری</string>
+	<string name="server_filter_manual_review">بازبینی دستی</string>
+	<string name="server_filter_any_signup_speed">هر سرعت ثبت نام</string>
 	<string name="server_filter_region_europe">اروپا</string>
 	<string name="server_filter_region_north_america">آمریکای شمالی</string>
 	<string name="server_filter_region_south_america">آمریکای جنوبی</string>
@@ -321,6 +325,7 @@
 	<string name="server_filter_region_asia">آسیا</string>
 	<string name="server_filter_region_oceania">اقیانوسیه</string>
 	<string name="not_accepting_new_members">عدم پذیرش اعضای جدید</string>
+	<string name="category_special_interests">منافع خاص</string>
 	<string name="signup_passwords_dont_match">گذرواژه‌ها مطابقت ندارند</string>
 	<string name="profile_add_row">افزودن سطر</string>
 	<string name="profile_setup">تنظیم نمایه</string>
@@ -588,6 +593,7 @@
 	<string name="remove">برداشتن</string>
 	<string name="add_list_member">افزودن عضو</string>
 	<string name="search_among_people_you_follow">جست‌وجو بین کسانی که پی‌گرفته‌اید</string>
+	<string name="add_user_to_list">افزودن یا برداشتن از سیاهه‌ها…</string>
 	<string name="add_user_to_list_title">افزودن به سیاهه</string>
 	<!-- %s is a username -->
 	<string name="remove_from_list">برداشتن از سیاهه</string>
@@ -618,6 +624,7 @@
 		<item quantity="other">%,d ماه</item>
 	</plurals>
 	<string name="more_than_two_years">بیش از ۲ سال</string>
+	<string name="make_profile_discoverable">نمایه من را قابل کشف کن</string>
 	<string name="article_by_author">توسط %s</string>
 	<string name="info">اطلاعات</string>
 	<string name="button_reblogged">تقویت شد</string>
@@ -630,10 +637,24 @@
 	<string name="this_invite_is_invalid">این پیوند دعوت معتبر نیست.</string>
 	<string name="this_invite_has_expired">این پیوند دعوت منقضی شده است.</string>
 	<string name="mute_user_confirm_title">کاربران خموش شود؟</string>
+	<string name="unmuted_user_x">خموشی %s رفع شد</string>
+	<string name="block_user_confirm_title">کاربر مسدود شود؟</string>
+	<string name="unblocked_user_x">مسدودیت %s رفع شد</string>
 	<string name="block_domain_confirm_title">دامنه مسدود شود؟</string>
+	<string name="do_block_server">مسدود کردن کارساز</string>
+	<string name="unblocked_domain_x">مسدودیت دامنه %s رفع شد</string>
 	<string name="server">کارساز</string>
 	<string name="what_is_activitypub_title">اکتیویتی پاپ چیست؟</string>
+	<string name="qr_code">کد QR</string>
+	<string name="scan_qr_code">اسکن کد QR</string>
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
+	<string name="saved">ذخیره شد</string>
+	<string name="image_saved">تصویر ذخیره شد.</string>
+	<string name="video_saved">ویدئو ذخیره شد.</string>
+	<string name="view_file">نمایش</string>
+	<string name="share_sheet_preview_profile">%s در ماستودون است</string>
+	<string name="system_browser">مرورگر سیستم</string>
+	<string name="add_muted_word_short">افزودن کلمه</string>
 	<string name="tab_home">خانه</string>
 	<string name="tab_search">کاوش</string>
 	<string name="tab_profile">نمایه</string>
