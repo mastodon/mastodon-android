@@ -915,6 +915,8 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 			int id=item.getItemId();
 			if(id==R.id.vis_public){
 				statusVisibility=StatusPrivacy.PUBLIC;
+			}else if(id==R.id.vis_unlisted){
+				statusVisibility=StatusPrivacy.UNLISTED;
 			}else if(id==R.id.vis_followers){
 				statusVisibility=StatusPrivacy.PRIVATE;
 			}else if(id==R.id.vis_private){
@@ -950,12 +952,7 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 	private void applyPreferencesForPostVisibility(Preferences prefs, Bundle savedInstanceState){
 		// Only override the reply visibility if our preference is more private
 		if(prefs.postingDefaultVisibility.isLessVisibleThan(statusVisibility)){
-			// Map unlisted from the API onto public, because we don't have unlisted in the UI
-			statusVisibility=switch(prefs.postingDefaultVisibility){
-				case PUBLIC, UNLISTED -> StatusPrivacy.PUBLIC;
-				case PRIVATE -> StatusPrivacy.PRIVATE;
-				case DIRECT -> StatusPrivacy.DIRECT;
-			};
+			statusVisibility=prefs.postingDefaultVisibility;
 		}
 
 		// A saved privacy setting from a previous compose session wins over all
@@ -973,12 +970,14 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 			statusVisibility=StatusPrivacy.PUBLIC;
 		}
 		visibilityBtn.setText(switch(statusVisibility){
-			case PUBLIC, UNLISTED -> R.string.visibility_public;
+			case PUBLIC -> R.string.visibility_public;
+			case UNLISTED -> R.string.visibility_unlisted;
 			case PRIVATE -> R.string.visibility_followers_only;
 			case DIRECT -> R.string.visibility_private;
 		});
 		Drawable icon=getResources().getDrawable(switch(statusVisibility){
-			case PUBLIC, UNLISTED -> R.drawable.ic_public_20px;
+			case PUBLIC -> R.drawable.ic_public_20px;
+			case UNLISTED -> R.drawable.ic_clear_night_20px;
 			case PRIVATE -> R.drawable.ic_group_20px;
 			case DIRECT -> R.drawable.ic_alternate_email_20px;
 		}, getActivity().getTheme()).mutate();
