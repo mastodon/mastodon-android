@@ -197,7 +197,7 @@
 	<string name="settings_clear_cache">Vider le cache des médias</string>
 	<string name="settings_app_version">Mastodon pour Android v%1$s (%2$d)</string>
 	<string name="media_cache_cleared">Cache des médias vidé</string>
-	<string name="confirm_log_out">Se déconnecter de %s?</string>
+	<string name="confirm_log_out">Se déconnecter de %s ?</string>
 	<string name="sensitive_content_explain">L’auteur a marqué ce média comme sensible.</string>
 	<string name="avatar_description">Voir le profil de %s</string>
 	<string name="more_options">Paramètres supplémentaires</string>
@@ -218,6 +218,8 @@
 	<string name="followed_user">Vous suivez désormais %s</string>
 	<string name="following_user_requested">Demande de suivi envoyée à %s</string>
 	<string name="open_in_browser">Ouvrir dans le navigateur</string>
+	<string name="hide_boosts_from_user">Masquer les partages</string>
+	<string name="show_boosts_from_user">Afficher les partages</string>
 	<string name="signup_reason">Pourquoi voulez-vous vous inscrire ?</string>
 	<string name="signup_reason_note">Cela nous aidera à examiner votre demande.</string>
 	<string name="clear">Effacer</string>
@@ -309,9 +311,13 @@
 	<string name="remove_bookmark">Retirer des marque-pages</string>
 	<string name="bookmarks">Marque-pages</string>
 	<string name="your_favorites">Vos favoris</string>
+	<string name="login_title">Bienvenue à nouveau</string>
 	<string name="login_subtitle">Connectez-vous avec le serveur sur lequel vous avez créé votre compte.</string>
 	<string name="server_url">URL du serveur</string>
+	<string name="server_filter_any_language">N\'importe quelle langue</string>
 	<string name="server_filter_instant_signup">Inscription instantanée</string>
+	<string name="server_filter_manual_review">Approbation manuelle</string>
+	<string name="server_filter_any_signup_speed">Tout délai d’inscription</string>
 	<string name="server_filter_region_europe">Europe</string>
 	<string name="server_filter_region_north_america">Amérique du Nord</string>
 	<string name="server_filter_region_south_america">Amérique du Sud</string>
@@ -618,6 +624,10 @@
 	<!-- %s is a time interval ("5 months") -->
 	<string name="old_post_sheet_title">Ce message est vieux de %s</string>
 	<string name="old_post_sheet_text">Vous pouvez toujours y répondre, mais cela peut ne plus être pertinent.</string>
+	<plurals name="x_months">
+		<item quantity="one">%,d mois</item>
+		<item quantity="other">%,d mois</item>
+	</plurals>
 	<string name="more_than_two_years">plus de 2 ans</string>
 	<string name="non_mutual_title1">Soyez respectueux &amp; pertinent</string>
 	<string name="non_mutual_text1">Assurez-vous que votre réponse est courtoise et en ligne avec le sujet.</string>
@@ -636,20 +646,50 @@
 	<string name="button_reblogged">Boosté</string>
 	<string name="button_favorited">Ajouté au favoris</string>
 	<string name="bookmarked">Ajouté aux signets</string>
+	<string name="join_server_x_with_invite">Rejoindre %s avec invitation</string>
 	<string name="expired_invite_link">Lien d\'invitation expiré</string>
+	<string name="expired_clipboard_invite_link_alert">Le lien d\'invitation pour %1$s dans votre presse-papiers a expiré et ne peut pas être utilisé pour vous inscrire.\n\nVous pouvez demander un nouveau lien à un utilisateur existant, inscrivez-vous via %2$s, ou choisissez un autre serveur pour vous inscrire.</string>
 	<string name="invalid_invite_link">Lien d\'invitation invalide</string>
+	<string name="invalid_clipboard_invite_link_alert">Le lien d\'invitation pour %1$s dans votre presse-papiers n\'est pas valide et ne peut pas être utilisé pour vous inscrire.\n\nVous pouvez demander un nouveau lien à un utilisateur existant, inscrivez-vous via %2$s, ou choisissez un autre serveur pour vous inscrire.</string>
 	<string name="use_invite_link">Utiliser le lien d\'invitation</string>
+	<string name="enter_invite_link">Entrez le lien d\'invitation</string>
 	<string name="this_invite_is_invalid">Ce lien d\'invitation n\'est pas valide.</string>
 	<string name="this_invite_has_expired">Ce lien d\'invitation a expiré.</string>
 	<string name="invite_link_pasted">Lien collé depuis votre presse-papiers.</string>
 	<string name="need_invite_to_join_server">Pour rejoindre %s, vous aurez besoin d\'un lien d\'invitation d\'un utilisateur existant.</string>
 	<string name="mute_user_confirm_title">Masquer l\'utilisateur ?</string>
 	<string name="user_wont_know_muted">Ils ne sauront pas qu\'ils ont été masqués.</string>
+	<string name="user_can_still_see_your_posts">Ils peuvent toujours voir vos messages, mais vous ne verrez pas les leurs.</string>
+	<string name="you_wont_see_user_mentions">Vous ne verrez pas les messages qui les mentionnent.</string>
+	<string name="user_can_mention_and_follow_you">Iels peuvent vous mentionner et vous suivre, mais vous ne les verrez pas.</string>
 	<string name="unmuted_user_x">%s n\'est plus masqué</string>
+	<string name="block_user_confirm_title">Bloquer l\'utilisateur·rice ?</string>
+	<string name="user_can_see_blocked">Ils peuvent voir qu’iels sont bloqué·e·s.</string>
+	<string name="user_cant_see_each_other_posts">Iels ne peuvent pas voir vos messages et vous ne verrez pas les leurs.</string>
+	<string name="user_cant_mention_or_follow_you">Iels ne peuvent ni vous mentionner ni vous suivre.</string>
+	<string name="unblocked_user_x">%s débloqué</string>
+	<string name="block_domain_confirm_title">Bloquer le domaine ?</string>
 	<string name="do_block_server">Bloquer le serveur</string>
 	<string name="block_user_x_instead">Bloquer %s à la place</string>
+	<string name="users_cant_see_blocked">Vous ne verrez plus les messages ou les notifications des utilisateur·rice·s de ce serveur.</string>
+	<string name="you_wont_see_server_posts">Vous ne verrez aucun message des utilisateur·rice·s de ce serveur.</string>
 	<string name="server_followers_will_be_removed">Vos abonné·e·s de ce serveur seront supprimés.</string>
+	<string name="server_cant_mention_or_follow_you">Personne de ce serveur ne peut vous suivre.</string>
+	<string name="server_can_interact_with_older">Les personnes de ce serveur peuvent interagir avec vos anciennes publications.</string>
+	<string name="unblocked_domain_x">Débloquage du domaine %s</string>
+	<string name="handle_help_title">Qu\'est-ce qu\'un identifiant ?</string>
+	<string name="handle_title">Leur identifiant</string>
+	<string name="handle_username_explanation">Leur identifiant unique sur leur serveur. Il est possible de trouver des utilisateur·rice·s ayant le même nom d\'utilisateur sur différents serveurs.</string>
+	<string name="handle_title_own">Votre identifiant</string>
+	<string name="handle_username_explanation_own">Votre identifiant unique sur ce serveur. Il est possible de trouver des utilisateurs ayant le même nom d\'utilisateur sur différents serveurs.</string>
 	<string name="server">Serveur</string>
+	<string name="handle_server_explanation">Leur foyer numérique, là où leurs messages résident.</string>
+	<string name="handle_explanation">Comme un identifiant contient le nom et le service hébergeant une personne, vous pouvez interagir sur &lt;a&gt;les plateformes sociales implémentant ActivityPub&lt;/a&gt;.</string>
+	<string name="handle_server_explanation_own">Votre foyer numérique, là où vos messages résident. Vous souhaitez changer ? Lancez un transfert vers un autre serveur quand vous le voulez et vos abonné·e·s suivront automatiquement.</string>
+	<string name="handle_explanation_own">Comme un identifiant indique votre nom et le service vous hébergeant, vous pouvez interagir avec &lt;a&gt;les autres plateformes sociales implémentant ActivityPub&lt;/a&gt;.</string>
+	<string name="what_is_activitypub_title">Qu\'est-ce que ActivityPub ?</string>
+	<string name="what_is_activitypub">ActivityPub est comme la langue que Mastodon parle avec d\'autres réseaux sociaux.\n\nIl vous permet de vous connecter et d\'interagir avec des personnes non seulement sur Mastodon, mais aussi sur différentes applications sociales.</string>
+	<string name="handle_copied">Identifiant copié dans le presse-papiers.</string>
 	<string name="qr_code">Code QR</string>
 	<string name="scan_qr_code">Scanner le code QR</string>
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
@@ -662,6 +702,7 @@
 	<string name="copy_profile_link">Copier le lien vers le profil</string>
 	<string name="in_app_browser">Navigateur intégré</string>
 	<string name="system_browser">Navigateur système</string>
+	<string name="add_muted_word_short">Ajouter un mot</string>
 	<string name="tab_home">Accueil</string>
 	<string name="tab_search">Explorer</string>
 	<string name="tab_profile">Profil</string>
@@ -670,4 +711,11 @@
 	<string name="post_pinned">Le message a été épinglé</string>
 	<string name="post_unpinned">Le message a été désépinglé</string>
 	<!-- %s is the username -->
+	<string name="enable_new_post_notifications">Me notifier quand %s publie quelque chose</string>
+	<string name="disable_new_post_notifications">Ne plus me notifier quand %s publie quelque chose</string>
+	<string name="new_post_notifications_enabled">Vous recevrez des notifications pour les nouveaux messages.</string>
+	<string name="new_post_notifications_disabled">Vous ne recevrez plus de notifications pour les nouveaux messages.</string>
+	<string name="mute_conversation">Masquer la conversation</string>
+	<string name="unmute_conversation">Ne plus masquer la conversation</string>
+	<string name="visibility_unlisted">Public calme</string>
 </resources>
