@@ -140,11 +140,6 @@ public class AccountTimelineFragment extends StatusListFragment{
 		return mergeAdapter;
 	}
 
-	@Override
-	protected int getMainAdapterOffset(){
-		return super.getMainAdapterOffset()+1;
-	}
-
 	private FilterChipView getViewForFilter(GetAccountStatuses.Filter filter){
 		return switch(filter){
 			case DEFAULT -> defaultFilter;

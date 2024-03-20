@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-	<item android:id="@+id/mark_all_read" android:icon="@drawable/ic_done_all_24px" android:title="@string/mark_all_notifications_read" android:showAsAction="always"/>
+	<item
+		android:id="@+id/mark_all_read"
+		android:icon="@drawable/ic_done_all_24px"
+		android:showAsAction="always"
+		android:title="@string/mark_all_notifications_read" />
+	<item
+		android:id="@+id/filters"
+		android:icon="@drawable/ic_tune_24px"
+		android:showAsAction="always"
+		android:title="@string/filter_notifications"/>
 </menu>

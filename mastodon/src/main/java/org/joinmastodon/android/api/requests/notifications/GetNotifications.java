@@ -1,6 +1,7 @@
 package org.joinmastodon.android.api.requests.notifications;
 
-import com.google.gson.annotations.SerializedName;
+import android.text.TextUtils;
+
 import com.google.gson.reflect.TypeToken;
 
 import org.joinmastodon.android.api.ApiUtils;
@@ -12,6 +13,10 @@ import java.util.List;
 
 public class GetNotifications extends MastodonAPIRequest<List<Notification>>{
 	public GetNotifications(String maxID, int limit, EnumSet<Notification.Type> includeTypes){
+		this(maxID, limit, includeTypes, null);
+	}
+
+	public GetNotifications(String maxID, int limit, EnumSet<Notification.Type> includeTypes, String onlyAccountID){
 		super(HttpMethod.GET, "/notifications", new TypeToken<>(){});
 		if(maxID!=null)
 			addQueryParameter("max_id", maxID);
@@ -25,6 +30,8 @@ public class GetNotifications extends MastodonAPIRequest<List<Notification>>{
 				addQueryParameter("exclude_types[]", type);
 			}
 		}
+		if(!TextUtils.isEmpty(onlyAccountID))
+			addQueryParameter("account_id", onlyAccountID);
 		removeUnsupportedItems=true;
 	}
 }

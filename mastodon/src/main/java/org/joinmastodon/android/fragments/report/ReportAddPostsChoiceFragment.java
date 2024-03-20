@@ -134,7 +134,7 @@ public class ReportAddPostsChoiceFragment extends StatusListFragment{
 	}
 
 	@Override
-	protected int getMainAdapterOffset(){
+	public int getMainAdapterOffset(){
 		return 1;
 	}
 

@@ -25,6 +25,10 @@ public class AccountViewModel{
 	public final String verifiedLink;
 
 	public AccountViewModel(Account account, String accountID){
+		this(account, accountID, true);
+	}
+
+	public AccountViewModel(Account account, String accountID, boolean needBio){
 		this.account=account;
 		avaRequest=new UrlImageLoaderRequest(GlobalUserPreferences.playGifs ? account.avatar : account.avatarStatic, V.dp(50), V.dp(50));
 		emojiHelper=new CustomEmojiHelper();
@@ -32,9 +36,13 @@ public class AccountViewModel{
 			parsedName=HtmlParser.parseCustomEmoji(account.displayName, account.emojis);
 		else
 			parsedName=account.displayName;
-		parsedBio=HtmlParser.parse(account.note, account.emojis, Collections.emptyList(), Collections.emptyList(), accountID, account);
 		SpannableStringBuilder ssb=new SpannableStringBuilder(parsedName);
-		ssb.append(parsedBio);
+		if(needBio){
+			parsedBio=HtmlParser.parse(account.note, account.emojis, Collections.emptyList(), Collections.emptyList(), accountID, account);
+			ssb.append(parsedBio);
+		}else{
+			parsedBio=null;
+		}
 		emojiHelper.setText(ssb);
 		String verifiedLink=null;
 		for(AccountField fld:account.fields){

@@ -1,57 +1,70 @@
 package org.joinmastodon.android.fragments;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 
 import com.squareup.otto.Subscribe;
 
 import org.joinmastodon.android.E;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.requests.markers.SaveMarkers;
+import org.joinmastodon.android.api.requests.notifications.GetNotificationsPolicy;
+import org.joinmastodon.android.api.requests.notifications.SetNotificationsPolicy;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.events.PollUpdatedEvent;
 import org.joinmastodon.android.events.RemoveAccountPostsEvent;
 import org.joinmastodon.android.model.Notification;
+import org.joinmastodon.android.model.NotificationsPolicy;
 import org.joinmastodon.android.model.PaginatedResponse;
 import org.joinmastodon.android.model.Status;
+import org.joinmastodon.android.model.viewmodel.CheckableListItem;
+import org.joinmastodon.android.model.viewmodel.ListItem;
+import org.joinmastodon.android.ui.M3AlertDialogBuilder;
 import org.joinmastodon.android.ui.OutlineProviders;
-import org.joinmastodon.android.ui.displayitems.NotificationHeaderStatusDisplayItem;
+import org.joinmastodon.android.ui.adapters.GenericListItemsAdapter;
 import org.joinmastodon.android.ui.displayitems.StatusDisplayItem;
 import org.joinmastodon.android.ui.utils.InsetStatusItemDecoration;
 import org.joinmastodon.android.ui.utils.UiUtils;
+import org.joinmastodon.android.ui.viewcontrollers.GenericListItemsViewController;
 import org.joinmastodon.android.ui.views.NestedRecyclerScrollView;
 import org.joinmastodon.android.utils.ObjectIdComparator;
-import org.parceler.Parcels;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
+import java.util.function.Consumer;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import me.grishka.appkit.Nav;
+import me.grishka.appkit.api.Callback;
+import me.grishka.appkit.api.ErrorResponse;
 import me.grishka.appkit.api.SimpleCallback;
+import me.grishka.appkit.utils.MergeRecyclerAdapter;
 
-public class NotificationsListFragment extends BaseStatusListFragment<Notification>{
+public class NotificationsListFragment extends BaseNotificationsListFragment{
 	private boolean onlyMentions;
-	private String maxID;
 	private View tabBar;
 	private View mentionsTab, allTab;
-	private View endMark;
 	private String unreadMarker, realUnreadMarker;
 	private MenuItem markAllReadItem;
 	private boolean reloadingFromCache;
+	private ListItem<Void> requestsItem=new ListItem<>(R.string.filtered_notifications, 0, R.drawable.ic_inventory_2_24px, i->openNotificationRequests());
+	private ArrayList<ListItem<Void>> requestsItems=new ArrayList<>();
+	private GenericListItemsAdapter<Void> requestsRowAdapter=new GenericListItemsAdapter<>(requestsItems);
+	private NotificationsPolicy lastPolicy;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState){
@@ -75,42 +88,11 @@ public class NotificationsListFragment extends BaseStatusListFragment<Notificati
 	}
 
 	@Override
-	protected List<StatusDisplayItem> buildDisplayItems(Notification n){
-		NotificationHeaderStatusDisplayItem titleItem;
-		if(n.type==Notification.Type.MENTION || n.type==Notification.Type.STATUS){
-			titleItem=null;
-		}else{
-			titleItem=new NotificationHeaderStatusDisplayItem(n.id, this, n, accountID);
-			if(n.status!=null){
-				n.status.card=null;
-				n.status.spoilerText=null;
-			}
-		}
-		if(n.status!=null){
-			int flags=titleItem==null ? 0 : (StatusDisplayItem.FLAG_NO_FOOTER | StatusDisplayItem.FLAG_INSET | StatusDisplayItem.FLAG_NO_HEADER);
-			ArrayList<StatusDisplayItem> items=StatusDisplayItem.buildItems(this, n.status, accountID, n, knownAccounts, flags);
-			if(titleItem!=null)
-				items.add(0, titleItem);
-			return items;
-		}else if(titleItem!=null){
-			return Collections.singletonList(titleItem);
-		}else{
-			return Collections.emptyList();
-		}
-	}
-
-	@Override
-	protected void addAccountToKnown(Notification s){
-		if(!knownAccounts.containsKey(s.account.id))
-			knownAccounts.put(s.account.id, s.account);
-		if(s.status!=null && !knownAccounts.containsKey(s.status.account.id))
-			knownAccounts.put(s.status.account.id, s.status.account);
-	}
-
-	@Override
 	protected void doLoadData(int offset, int count){
 		if(!refreshing && !reloadingFromCache)
 			endMark.setVisibility(View.GONE);
+		if(offset==0)
+			reloadPolicy();
 		AccountSessionManager.getInstance()
 				.getAccount(accountID).getCacheController()
 				.getNotifications(offset>0 ? maxID : null, count, onlyMentions, refreshing && !reloadingFromCache, new SimpleCallback<>(this){
@@ -143,29 +125,9 @@ public class NotificationsListFragment extends BaseStatusListFragment<Notificati
 	}
 
 	@Override
-	public void onItemClick(String id){
-		Notification n=getNotificationByID(id);
-		if(n.status!=null){
-			Status status=n.status;
-			Bundle args=new Bundle();
-			args.putString("account", accountID);
-			args.putParcelable("status", Parcels.wrap(status.clone()));
-			if(status.inReplyToAccountId!=null && knownAccounts.containsKey(status.inReplyToAccountId))
-				args.putParcelable("inReplyToAccount", Parcels.wrap(knownAccounts.get(status.inReplyToAccountId)));
-			Nav.go(getActivity(), ThreadFragment.class, args);
-		}else{
-			Bundle args=new Bundle();
-			args.putString("account", accountID);
-			args.putParcelable("profileAccount", Parcels.wrap(n.account));
-			Nav.go(getActivity(), ProfileFragment.class, args);
-		}
-	}
-
-	@Override
 	public void onViewCreated(View view, Bundle savedInstanceState){
 		tabBar=view.findViewById(R.id.tabbar);
 		super.onViewCreated(view, savedInstanceState);
-		list.addItemDecoration(new InsetStatusItemDecoration(this));
 
 		View tabBarItself=view.findViewById(R.id.tabbar_inner);
 		tabBarItself.setOutlineProvider(OutlineProviders.roundedRect(20));
@@ -215,14 +177,6 @@ public class NotificationsListFragment extends BaseStatusListFragment<Notificati
 		return views;
 	}
 
-	private Notification getNotificationByID(String id){
-		for(Notification n:data){
-			if(n.id.equals(id))
-				return n;
-		}
-		return null;
-	}
-
 	@Subscribe
 	public void onPollUpdated(PollUpdatedEvent ev){
 		if(!ev.accountID.equals(accountID))
@@ -249,25 +203,9 @@ public class NotificationsListFragment extends BaseStatusListFragment<Notificati
 		}
 	}
 
-	private void removeNotification(Notification n){
-		data.remove(n);
-		preloadedData.remove(n);
-		int index=-1;
-		for(int i=0;i<displayItems.size();i++){
-			if(n.id.equals(displayItems.get(i).parentID)){
-				index=i;
-				break;
-			}
-		}
-		if(index==-1)
-			return;
-		int lastIndex;
-		for(lastIndex=index;lastIndex<displayItems.size();lastIndex++){
-			if(!displayItems.get(lastIndex).parentID.equals(n.id))
-				break;
-		}
-		displayItems.subList(index, lastIndex).clear();
-		adapter.notifyItemRangeRemoved(index, lastIndex-index);
+	@Override
+	protected boolean needDividerForExtraItem(View child, View bottomSibling, RecyclerView.ViewHolder holder, RecyclerView.ViewHolder siblingHolder){
+		return super.needDividerForExtraItem(child, bottomSibling, holder, siblingHolder) || (siblingHolder!=null && siblingHolder.getAbsoluteAdapterPosition()>=adapter.getItemCount()) || holder.getAbsoluteAdapterPosition()<requestsItems.size();
 	}
 
 	private void onTabClick(View v){
@@ -286,31 +224,31 @@ public class NotificationsListFragment extends BaseStatusListFragment<Notificati
 	}
 
 	@Override
-	protected View onCreateFooterView(LayoutInflater inflater){
-		View v=inflater.inflate(R.layout.load_more_with_end_mark, null);
-		endMark=v.findViewById(R.id.end_mark);
-		endMark.setVisibility(View.GONE);
-		return v;
-	}
-
-	@Override
-	protected boolean needDividerForExtraItem(View child, View bottomSibling, RecyclerView.ViewHolder holder, RecyclerView.ViewHolder siblingHolder){
-		return super.needDividerForExtraItem(child, bottomSibling, holder, siblingHolder) || (siblingHolder!=null && siblingHolder.getAbsoluteAdapterPosition()>=adapter.getItemCount());
-	}
-
-	@Override
 	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater){
 		inflater.inflate(R.menu.notifications, menu);
 		markAllReadItem=menu.findItem(R.id.mark_all_read);
+		MenuItem filters=menu.findItem(R.id.filters);
+		filters.setVisible(lastPolicy!=null);
 	}
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item){
-		if(item.getItemId()==R.id.mark_all_read){
+		int id=item.getItemId();
+		if(id==R.id.mark_all_read){
 			markAsRead();
 			resetUnreadBackground();
+		}else if(id==R.id.filters){
+			showFiltersAlert();
 		}
 		return true;
+	}
+
+	@Override
+	protected RecyclerView.Adapter getAdapter(){
+		MergeRecyclerAdapter mergeAdapter=new MergeRecyclerAdapter();
+		mergeAdapter.addAdapter(requestsRowAdapter);
+		mergeAdapter.addAdapter(super.getAdapter());
+		return mergeAdapter;
 	}
 
 	private void markAsRead(){
@@ -365,5 +303,94 @@ public class NotificationsListFragment extends BaseStatusListFragment<Notificati
 			}
 		}
 		return true;
+	}
+
+	private void updatePolicy(NotificationsPolicy policy){
+		int count=policy.summary==null ? 0 : policy.summary.pendingRequestsCount;
+		boolean isShown=!requestsItems.isEmpty();
+		boolean needShow=count>0;
+		if(isShown && !needShow){
+			requestsItems.clear();
+			requestsRowAdapter.notifyItemRemoved(0);
+		}else if(!isShown && needShow){
+			requestsItem.subtitle=getResources().getQuantityString(R.plurals.x_people_you_may_know, count, count);
+			requestsItems.add(requestsItem);
+			requestsRowAdapter.notifyItemInserted(0);
+		}else if(isShown){
+			requestsItem.subtitle=getResources().getQuantityString(R.plurals.x_people_you_may_know, count, count);
+			requestsRowAdapter.notifyItemChanged(0);
+		}
+		lastPolicy=policy;
+		invalidateOptionsMenu();
+	}
+
+	private void reloadPolicy(){
+		new GetNotificationsPolicy()
+				.setCallback(new Callback<>(){
+					@Override
+					public void onSuccess(NotificationsPolicy policy){
+						updatePolicy(policy);
+					}
+
+					@Override
+					public void onError(ErrorResponse errorResponse){
+
+					}
+				})
+				.exec(accountID);
+	}
+
+	private void showFiltersAlert(){
+		GenericListItemsViewController<Void> controller=new GenericListItemsViewController<>(getActivity());
+		Consumer<CheckableListItem<Void>> toggler=item->{
+			item.toggle();
+			controller.rebindItem(item);
+		};
+		CheckableListItem<Void> followingItem, followersItem, newAccountsItem, mentionsItem;
+		List<ListItem<Void>> items=List.of(
+				followingItem=new CheckableListItem<>(R.string.notification_filter_following, R.string.notification_filter_following_explanation, CheckableListItem.Style.CHECKBOX, lastPolicy.filterNotFollowing, toggler, true),
+				followersItem=new CheckableListItem<>(R.string.notification_filter_followers, R.string.notification_filter_followers_explanation, CheckableListItem.Style.CHECKBOX, lastPolicy.filterNotFollowers, toggler, true),
+				newAccountsItem=new CheckableListItem<>(R.string.notification_filter_new_accounts, R.string.notification_filter_new_accounts_explanation, CheckableListItem.Style.CHECKBOX, lastPolicy.filterNewAccounts, toggler, true),
+				mentionsItem=new CheckableListItem<>(R.string.notification_filter_mentions, R.string.notification_filter_mentions_explanation, CheckableListItem.Style.CHECKBOX, lastPolicy.filterPrivateMentions, toggler, true)
+		);
+		controller.setItems(items);
+		AlertDialog dlg=new M3AlertDialogBuilder(getActivity())
+				.setTitle(R.string.filter_notifications)
+				.setView(controller.getView())
+				.setPositiveButton(R.string.save, null)
+				.show();
+		Button btn=dlg.getButton(Dialog.BUTTON_POSITIVE);
+		btn.setOnClickListener(v->{
+			UiUtils.showProgressForAlertButton(btn, true);
+			NotificationsPolicy newPolicy=new NotificationsPolicy();
+			newPolicy.filterNotFollowing=followingItem.checked;
+			newPolicy.filterNotFollowers=followersItem.checked;
+			newPolicy.filterNewAccounts=newAccountsItem.checked;
+			newPolicy.filterPrivateMentions=mentionsItem.checked;
+			new SetNotificationsPolicy(newPolicy)
+					.setCallback(new Callback<>(){
+						@Override
+						public void onSuccess(NotificationsPolicy policy){
+							updatePolicy(policy);
+							dlg.dismiss();
+						}
+
+						@Override
+						public void onError(ErrorResponse errorResponse){
+							Activity activity=getActivity();
+							if(activity==null)
+								return;
+							UiUtils.showProgressForAlertButton(btn, false);
+							errorResponse.showToast(activity);
+						}
+					})
+					.exec(accountID);
+		});
+	}
+
+	private void openNotificationRequests(){
+		Bundle args=new Bundle();
+		args.putString("account", accountID);
+		Nav.go(getActivity(), NotificationRequestsFragment.class, args);
 	}
 }

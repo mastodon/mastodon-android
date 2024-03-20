@@ -35,8 +35,9 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration{
 		this.drawDividerPredicate=drawDividerPredicate;
 	}
 
-	public void setDrawBelowLastItem(boolean drawBelowLastItem){
+	public DividerItemDecoration setDrawBelowLastItem(boolean drawBelowLastItem){
 		this.drawBelowLastItem=drawBelowLastItem;
+		return this;
 	}
 
 	@Override

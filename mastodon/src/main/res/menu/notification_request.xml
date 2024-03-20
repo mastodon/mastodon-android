@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+	<item
+		android:id="@+id/mute"
+		android:title="@string/mute_notifications"
+		android:icon="@drawable/ic_volume_off_24px"
+		android:checkable="true"
+		android:showAsAction="always"/>
+	<item
+		android:id="@+id/allow"
+		android:title="@string/allow_notifications"
+		android:icon="@drawable/ic_check_24px"
+		android:checkable="true"
+		android:showAsAction="always"/>
+</menu>

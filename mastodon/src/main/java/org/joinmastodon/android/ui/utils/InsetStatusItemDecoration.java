@@ -37,7 +37,7 @@ public class InsetStatusItemDecoration extends RecyclerView.ItemDecoration{
 		for(int i=0; i<parent.getChildCount(); i++){
 			View child=parent.getChildAt(i);
 			RecyclerView.ViewHolder holder=parent.getChildViewHolder(child);
-			pos=holder.getAbsoluteAdapterPosition();
+			pos=holder.getAbsoluteAdapterPosition()-listFragment.getMainAdapterOffset();
 			boolean inset=(holder instanceof StatusDisplayItem.Holder<?> sdi) && sdi.getItem().inset;
 			if(inset){
 				if(rect.isEmpty()){
@@ -82,7 +82,7 @@ public class InsetStatusItemDecoration extends RecyclerView.ItemDecoration{
 		RecyclerView.ViewHolder holder=parent.getChildViewHolder(view);
 		if(holder instanceof StatusDisplayItem.Holder<?> sdi){
 			boolean inset=sdi.getItem().inset;
-			int pos=holder.getAbsoluteAdapterPosition();
+			int pos=holder.getAbsoluteAdapterPosition()-listFragment.getMainAdapterOffset();
 			if(inset){
 				boolean topSiblingInset=pos>0 && displayItems.get(pos-1).inset;
 				boolean bottomSiblingInset=pos<displayItems.size()-1 && displayItems.get(pos+1).inset;

@@ -151,10 +151,12 @@ public abstract class StatusDisplayItem{
 		if(!imageAttachments.isEmpty()){
 			PhotoLayoutHelper.TiledLayoutResult layout=PhotoLayoutHelper.processThumbs(imageAttachments);
 			MediaGridStatusDisplayItem mediaGrid=new MediaGridStatusDisplayItem(parentID, fragment, layout, imageAttachments, statusForContent);
-			if((flags & FLAG_MEDIA_FORCE_HIDDEN)!=0)
+			if((flags & FLAG_MEDIA_FORCE_HIDDEN)!=0){
 				mediaGrid.sensitiveTitle=fragment.getString(R.string.media_hidden);
-			else if(statusForContent.sensitive && !AccountSessionManager.get(accountID).getLocalPreferences().hideSensitiveMedia)
+				mediaGrid.sensitiveRevealed=false;
+			}else if(statusForContent.sensitive && !AccountSessionManager.get(accountID).getLocalPreferences().hideSensitiveMedia){
 				mediaGrid.sensitiveRevealed=true;
+			}
 			contentItems.add(mediaGrid);
 		}
 		for(Attachment att:statusForContent.mediaAttachments){

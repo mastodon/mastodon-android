@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:paddingHorizontal="16dp">
+	
+	<ImageView
+		android:id="@+id/ava"
+		android:layout_width="32dp"
+		android:layout_height="32dp"
+		android:layout_marginVertical="20dp"
+		android:layout_marginEnd="12dp"
+		android:importantForAccessibility="no"
+		tools:src="#0f0"/>
+	
+	<TextView
+		android:id="@+id/badge"
+		android:layout_width="wrap_content"
+		android:layout_height="16dp"
+		android:layout_alignEnd="@id/ava"
+		android:layout_alignBottom="@id/ava"
+		android:layout_marginEnd="-4dp"
+		android:layout_marginBottom="-4dp"
+		android:minWidth="16dp"
+		android:gravity="center"
+		android:background="@drawable/bg_ava_badge"
+		android:paddingHorizontal="4dp"
+		android:textAppearance="@style/m3_label_small"
+		android:textColor="?colorM3OnPrimary"
+		tools:text="99+"/>
+	
+	<ImageButton
+		android:id="@+id/btn_allow"
+		android:layout_width="40dp"
+		android:layout_height="40dp"
+		android:layout_marginStart="12dp"
+		android:layout_alignParentEnd="true"
+		android:layout_centerVertical="true"
+		style="@style/Widget.Mastodon.M3.Button.Outlined"
+		android:contentDescription="@string/allow_notifications"
+		android:src="@drawable/ic_check_24px"/>
+
+	<ImageButton
+		android:id="@+id/btn_mute"
+		android:layout_width="40dp"
+		android:layout_height="40dp"
+		android:layout_marginStart="12dp"
+		android:layout_toStartOf="@id/btn_allow"
+		android:layout_centerVertical="true"
+		style="@style/Widget.Mastodon.M3.Button.Outlined"
+		android:contentDescription="@string/mute_notifications"
+		android:src="@drawable/ic_volume_off_24px"/>
+	
+	<TextView
+		android:id="@+id/name"
+		android:layout_width="match_parent"
+		android:layout_height="24dp"
+		android:layout_toEndOf="@id/ava"
+		android:layout_toStartOf="@id/btn_mute"
+		android:layout_marginTop="14dp"
+		android:singleLine="true"
+		android:ellipsize="end"
+		android:textAppearance="@style/m3_body_large"
+		android:gravity="center_vertical"
+		android:textColor="?colorM3OnSurface"
+		tools:text="User Name"/>
+	
+	<TextView
+		android:id="@+id/username"
+		android:layout_width="match_parent"
+		android:layout_height="20dp"
+		android:layout_below="@id/name"
+		android:layout_toEndOf="@id/ava"
+		android:layout_toStartOf="@id/btn_mute"
+		android:singleLine="true"
+		android:ellipsize="end"
+		android:textAppearance="@style/m3_body_medium"
+		android:gravity="center_vertical"
+		android:textColor="?colorM3OnSurfaceVariant"
+		tools:text="\@username@domain"/>
+
+</RelativeLayout>

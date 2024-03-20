@@ -215,6 +215,8 @@
 
 	<style name="Theme.Mastodon.Dialog.Alert" parent="android:Theme.Material.Light.Dialog.Alert">
 		<item name="android:windowTitleStyle">@style/alert_title</item>
+		<!-- it's unfortunate that https://cs.android.com/android/platform/superproject/main/+/main:frameworks/base/core/java/com/android/internal/widget/DialogTitle.java exists -->
+		<item name="android:textAppearanceMedium">@style/alert_title</item>
 		<item name="android:dialogPreferredPadding">24dp</item>
 		<item name="android:windowBackground">@drawable/bg_alert</item>
 		<item name="android:buttonBarButtonStyle">@style/Widget.Mastodon.ButtonBarButton</item>
@@ -229,6 +231,7 @@
 
 	<style name="Theme.Mastodon.Dialog.Alert.Dark" parent="android:Theme.Material.Dialog.Alert">
 		<item name="android:windowTitleStyle">@style/alert_title</item>
+		<item name="android:textAppearanceMedium">@style/alert_title</item>
 		<item name="android:dialogPreferredPadding">24dp</item>
 		<item name="android:windowBackground">@drawable/bg_alert</item>
 		<item name="android:buttonBarButtonStyle">@style/Widget.Mastodon.ButtonBarButton</item>
@@ -314,6 +317,7 @@
 	<style name="Widget.Mastodon.M3.Button.Outlined">
 		<item name="android:background">@drawable/bg_button_m3_outlined</item>
 		<item name="android:textColor">@color/button_text_m3_text</item>
+		<item name="android:tint">@color/action_bar_icons</item>
 		<item name="android:paddingLeft">24dp</item>
 		<item name="android:paddingRight">24dp</item>
 	</style>

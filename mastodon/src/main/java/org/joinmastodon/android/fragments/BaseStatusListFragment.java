@@ -325,7 +325,7 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 		toolbar.setNavigationContentDescription(R.string.back);
 	}
 
-	protected int getMainAdapterOffset(){
+	public int getMainAdapterOffset(){
 		if(list.getAdapter() instanceof MergeRecyclerAdapter mergeAdapter){
 			return mergeAdapter.getPositionForAdapter(adapter);
 		}
