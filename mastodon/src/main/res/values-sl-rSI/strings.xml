@@ -786,5 +786,24 @@ Več osebam kot sledite, bolj dejaven in zanimiv bo.</string>
 	<string name="unmute_conversation">Povrni glas pogovoru</string>
 	<string name="visibility_unlisted">Tiho javno</string>
 	<string name="filtered_notifications">Filtrirana obvestila</string>
-	<string name="filter_notifications">Skrij obvestila od …</string>
+	<string name="filter_notifications">Filtriraj obvestila od …</string>
+	<string name="notification_filter_following">Ljudje, ki jim ne sledite</string>
+	<string name="notification_filter_following_explanation">Dokler jih ročno ne odobrite</string>
+	<string name="notification_filter_followers">Ljudje, ki vam ne sledijo</string>
+	<string name="notification_filter_followers_explanation">Vključno z ljudmi, ki vam sledijo manj kot 3 dneve</string>
+	<string name="notification_filter_new_accounts">Novi računi</string>
+	<string name="notification_filter_new_accounts_explanation">Ustvarjeni v zadnjih 30 dnevih</string>
+	<string name="notification_filter_mentions">Neželene zasebne omembe</string>
+	<string name="notification_filter_mentions_explanation">Filtrirano, razen če je odgovor na vašo lastno omembo ali če sledite pošiljatelju</string>
+	<string name="allow_notifications">Dovoli obvestila</string>
+	<string name="mute_notifications">Utišaj obvestila</string>
+	<plurals name="x_people_you_may_know">
+		<item quantity="one">%,d oseba, ki jo morda poznate</item>
+		<item quantity="two">%,d osebi, ki jih morda poznate</item>
+		<item quantity="few">%,d osebe, ki jih morda poznate</item>
+		<item quantity="other">%,d oseb, ki jih morda poznate</item>
+	</plurals>
+	<string name="notifications_from_user">Obvestila od %s</string>
+	<string name="notifications_muted">Obvestila od %s bodo utišana.</string>
+	<string name="notifications_allowed">%s se bo sedaj pojavil v vašem seznamu obvestil.</string>
 </resources>
