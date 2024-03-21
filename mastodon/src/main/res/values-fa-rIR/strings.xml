@@ -596,6 +596,7 @@
 	<string name="add_user_to_list">افزودن یا برداشتن از سیاهه‌ها…</string>
 	<string name="add_user_to_list_title">افزودن به سیاهه</string>
 	<!-- %s is a username -->
+	<string name="manage_user_lists">مدیریت سیاهه‌هایی که %s در آن ظاهر می‌شود</string>
 	<string name="remove_from_list">برداشتن از سیاهه</string>
 	<string name="confirm_remove_list_member">حذف عضو؟</string>
 	<string name="no_followed_hashtags_title">با پیگیری برچسب‌ها با علاقه‌مندی‌ها همراه باشید</string>
@@ -647,7 +648,9 @@
 	<string name="block_domain_confirm_title">دامنه مسدود شود؟</string>
 	<string name="do_block_server">مسدود کردن کارساز</string>
 	<string name="unblocked_domain_x">مسدودیت دامنه %s رفع شد</string>
+	<string name="handle_username_explanation_own">شناسه منحصر به فرد شما در این کارساز. امکان یافتن کاربرانی با نام کاربری مشابه در کارسازهای مختلف وجود دارد.</string>
 	<string name="server">کارساز</string>
+	<string name="handle_server_explanation">خانه دیجیتالی آنها، جایی که همه فرسته‌های آنها در آن زندگی می کنند.</string>
 	<string name="what_is_activitypub_title">اکتیویتی پاپ چیست؟</string>
 	<string name="qr_code">کد QR</string>
 	<string name="scan_qr_code">اسکن کد QR</string>
@@ -668,4 +671,5 @@
 	<string name="unpin_post">برداشتن سنجاق از نمایه</string>
 	<!-- %s is the username -->
 	<string name="unmute_conversation">رفع خموشی گفت‌وگو</string>
+	<string name="notification_filter_following">کسانی که شما پی نمی‌گیرید</string>
 </resources>
