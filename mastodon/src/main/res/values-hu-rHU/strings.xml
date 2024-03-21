@@ -153,6 +153,7 @@
 	<string name="confirm_password">Jelszó megerősítése</string>
 	<string name="password_note">A jelszó erősségének növelése érdekében használjon nagybetűket, speciális karaktereket és számokat.</string>
 	<string name="category_general">Általános</string>
+	<string name="confirm_email_title">Bejövő postaláda ellenőrzése</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">Kattintson a hivatkozásra, melyet a %s ellenőrzése céljából küldtünk önnek. Mi addig itt várunk.</string>
 	<string name="confirm_email_didnt_get">Nem kapta meg a hivatkozást?</string>
@@ -216,6 +217,8 @@
 	<string name="followed_user">Most már követi őt: %s</string>
 	<string name="following_user_requested">Követési kérelem elküldve %s felhasználónak</string>
 	<string name="open_in_browser">Megnyitás böngészőben</string>
+	<string name="hide_boosts_from_user">Megtolások elrejtése</string>
+	<string name="show_boosts_from_user">Megtolások megjelenítése</string>
 	<string name="signup_reason">Miért szeretne csatlakozni?</string>
 	<string name="signup_reason_note">Ez segít nekünk átnézni a jelentkezését.</string>
 	<string name="clear">Törlés</string>
@@ -609,7 +612,10 @@
 	<string name="unblocked_user_x">Feloldva %s</string>
 	<string name="block_domain_confirm_title">Domain letiltása?</string>
 	<string name="do_block_server">Szerver blokkolása</string>
+	<string name="server_cant_mention_or_follow_you">Erről a kiszolgálóról senki sem követhet.</string>
 	<string name="server">Szerver</string>
+	<string name="what_is_activitypub_title">Mi az az ActivityPub?</string>
+	<string name="what_is_activitypub">Az ActivityPub olyan, mint egy nyelv, amelyet a Mastodon más közösségi hálózatokkal beszél.\n\nLehetővé teszi, hogy ne csak a Mastodonon, hanem különböző közösségi alkalmazásokon keresztül is kapcsolatba és interakcióba lépjen az emberekkel.</string>
 	<string name="qr_code">QR kód</string>
 	<string name="scan_qr_code">QR kód beolvasása</string>
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
@@ -617,6 +623,7 @@
 	<string name="image_saved">Kép elmentve.</string>
 	<string name="video_saved">Videó elmentve.</string>
 	<string name="view_file">Megtekintés</string>
+	<string name="copy_profile_link">Hivatkozás másolása a profilba</string>
 	<string name="in_app_browser">Beépített böngésző</string>
 	<string name="system_browser">Rendszer böngésző</string>
 	<string name="add_muted_word_short">Szó hozzáadása</string>
@@ -629,10 +636,17 @@
 	<string name="post_unpinned">A bejegyzés kitűzése visszavonva</string>
 	<!-- %s is the username -->
 	<string name="enable_new_post_notifications">Figyelmeztés, ha @%s bejegyzést tesz közzé</string>
+	<string name="new_post_notifications_disabled">Többé nem kap értesítést az új bejegyzésekről.</string>
+	<string name="mute_conversation">Beszélgetés némítása</string>
+	<string name="unmute_conversation">Beszélgetés némításának feloldása</string>
 	<string name="filtered_notifications">Szűrt értesítések</string>
 	<string name="notification_filter_following">Nem követett emberek</string>
+	<string name="notification_filter_following_explanation">Amíg kézileg jóvá nem hagyja őket</string>
 	<string name="notification_filter_followers">Olyan emberek, akik nem követnek</string>
+	<string name="notification_filter_followers_explanation">Beleértve azokat is, akik kevesebb, mint 3 napja követnek téged</string>
 	<string name="notification_filter_new_accounts">Új fiókok</string>
+	<string name="notification_filter_new_accounts_explanation">Az elmúlt 30 napban létrehozott</string>
+	<string name="notification_filter_mentions">Kéretlen privát említések</string>
 	<string name="allow_notifications">Értesítések engedélyezése</string>
 	<string name="mute_notifications">Értesítések némítása</string>
 </resources>
