@@ -686,4 +686,22 @@
 	<string name="mute_conversation">靜音對話</string>
 	<string name="unmute_conversation">取消此對話的靜音</string>
 	<string name="visibility_unlisted">不於公開時間軸顯示</string>
+	<string name="filtered_notifications">已過濾之通知</string>
+	<string name="filter_notifications">過濾通知來自...</string>
+	<string name="notification_filter_following">您未跟隨之使用者</string>
+	<string name="notification_filter_following_explanation">直至您手動核准他們</string>
+	<string name="notification_filter_followers">未跟隨您之使用者</string>
+	<string name="notification_filter_followers_explanation">包含近三日內跟隨您的人</string>
+	<string name="notification_filter_new_accounts">新帳號</string>
+	<string name="notification_filter_new_accounts_explanation">三十天內之新帳號</string>
+	<string name="notification_filter_mentions">不請自來的私訊</string>
+	<string name="notification_filter_mentions_explanation">過濾通知，除非嘟文包含於您的提及，或您跟隨該發嘟帳號</string>
+	<string name="allow_notifications">允許通知</string>
+	<string name="mute_notifications">靜音推播通知</string>
+	<plurals name="x_people_you_may_know">
+		<item quantity="other">您可能認識的 %,d 人</item>
+	</plurals>
+	<string name="notifications_from_user">來自 %s 之通知</string>
+	<string name="notifications_muted">來自 %s 之通知將被靜音。</string>
+	<string name="notifications_allowed">%s 將不再出現於您的通知列表。</string>
 </resources>
