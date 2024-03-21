@@ -739,12 +739,12 @@
 	<string name="notification_filter_mentions">Unsolicited private mentions</string>
 	<string name="notification_filter_mentions_explanation">Filtered unless it’s in reply to your own mention or if you follow the sender</string>
 	<string name="allow_notifications">Allow notifications</string>
-	<string name="mute_notifications">Mute notifications</string>
+	<string name="mute_notifications">Dismiss notification request</string>
 	<plurals name="x_people_you_may_know">
 		<item quantity="one">%,d person you may know</item>
 		<item quantity="other">%,d people you may know</item>
 	</plurals>
 	<string name="notifications_from_user">Notifications from %s</string>
-	<string name="notifications_muted">Notifications from %s will be muted.</string>
+	<string name="notifications_muted">Notifications from %s have been dismissed.</string>
 	<string name="notifications_allowed">%s will now appear in your notification list.</string>
 </resources>

@@ -50,7 +50,7 @@
 		android:layout_centerVertical="true"
 		style="@style/Widget.Mastodon.M3.Button.Outlined"
 		android:contentDescription="@string/mute_notifications"
-		android:src="@drawable/ic_volume_off_24px"/>
+		android:src="@drawable/ic_delete_24px"/>
 	
 	<TextView
 		android:id="@+id/name"

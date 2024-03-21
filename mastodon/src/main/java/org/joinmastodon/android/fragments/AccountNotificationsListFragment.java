@@ -118,7 +118,7 @@ public class AccountNotificationsListFragment extends BaseNotificationsListFragm
 			tintMenuIcon(allow, R.attr.colorM3OnSurfaceVariant);
 		}
 		if(choiceMade && !allowed){
-			mute.setIcon(R.drawable.ic_volume_off_wght700_24px);
+			mute.setIcon(R.drawable.ic_delete_wght700_24px);
 			tintMenuIcon(mute, R.attr.colorM3Primary);
 		}else{
 			tintMenuIcon(mute, R.attr.colorM3OnSurfaceVariant);
