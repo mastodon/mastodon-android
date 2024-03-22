@@ -27,7 +27,7 @@
 		<item quantity="other">követő</item>
 	</plurals>
 	<plurals name="following">
-		<item quantity="one">követve</item>
+		<item quantity="one">követett</item>
 		<item quantity="other">követett</item>
 	</plurals>
 	<string name="posts">Bejegyzések</string>
@@ -35,7 +35,7 @@
 	<string name="media">Média</string>
 	<string name="profile_about">Névjegy</string>
 	<string name="button_follow">Követés</string>
-	<string name="button_following">Követve</string>
+	<string name="button_following">Követett</string>
 	<string name="edit_profile">Profil módosítása</string>
 	<string name="mute_user">%s némítása</string>
 	<string name="unmute_user">%s némításának feloldása</string>
@@ -332,7 +332,7 @@
 	<string name="server_policy_disagree">Nem egyezek bele a %s szabályzatába</string>
 	<string name="profile_bio">Bemutatkozás</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
-	<string name="sending_follows">Felhasználók bekövetése…</string>
+	<string name="sending_follows">Felhasználók követése…</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
 	<string name="signup_email_domain_blocked">%1$s nem engedélyez feliratkozásokat innen: %2$s. Próbáljon egy másikat, vagy &lt;a&gt;válasszon másik kiszolgálót&lt;/a&gt;.</string>
 	<string name="spoiler_show">Megjelenítés mindenképp</string>
