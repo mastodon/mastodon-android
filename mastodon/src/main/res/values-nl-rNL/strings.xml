@@ -401,15 +401,15 @@
 	<string name="media_hidden">Media verborgen</string>
 	<string name="post_hidden">Bericht verborgen</string>
 	<string name="report_title_post">Bericht rapporteren</string>
-	<string name="forward_report_explanation">De account bevindt zich op een andere server. Wil je daar eveneens een geanonimiseerde kopie van dit rapport naar toesturen?</string>
+	<string name="forward_report_explanation">Het account bevindt zich op een andere server. Wil je daar eveneens een geanonimiseerde kopie van dit rapport naar toesturen?</string>
 	<!-- %s is the server domain -->
 	<string name="forward_report_to_server">Doorsturen naar %s</string>
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
 	<string name="reported">Gerapporteerd</string>
-	<string name="report_unfollow_explanation">Als je hun berichten niet meer in je home feed wilt zien, moet je deze persoon niet meer volgen.</string>
+	<string name="report_unfollow_explanation">Als je hun berichten niet meer op je starttijdlijn wilt zien, moet je deze persoon niet meer volgen.</string>
 	<string name="muted_user">%s wordt genegeerd</string>
 	<string name="report_sent_already_blocked">Je hebt deze gebruiker al geblokkeerd, dus je hoeft niets meer te doen terwijl we je rapport beoordelen.</string>
-	<string name="report_personal_already_blocked">Je hebt deze gebruiker al geblokkeerd, dus er is niets anders dat je hoeft te doen.\n\nBedankt voor het helpen om Mastodon een veilige plek voor iedereen te behouden!</string>
+	<string name="report_personal_already_blocked">Je hebt deze gebruiker al geblokkeerd, dus er is niets anders dat je hoeft te doen.\n\nBedankt voor je hulp om Mastodon voor iedereen veilig te houden!</string>
 	<string name="blocked_user">%s geblokkeerd</string>
 	<string name="mark_all_notifications_read">Alles als gelezen markeren</string>
 	<string name="settings_display">Weergave</string>
@@ -419,9 +419,9 @@
 	<string name="about_app">Over %s</string>
 	<string name="default_post_language">Standaardtaal voor berichten</string>
 	<string name="settings_alt_text_reminders">Alt-tekst-herinneringen toevoegen</string>
-	<string name="settings_confirm_unfollow">Vragen voordat je iemand ontvolgd</string>
-	<string name="settings_confirm_boost">Vragen voordat je boost</string>
-	<string name="settings_confirm_delete_post">Vragen voordat berichten worden verwijderd</string>
+	<string name="settings_confirm_unfollow">Voordat je iemand ontvolgd om bevestiging vragen</string>
+	<string name="settings_confirm_boost">Voordat je een bericht boost om bevestiging vragen</string>
+	<string name="settings_confirm_delete_post">Voordat je een bericht verwijderd om bevestiging vragen</string>
 	<string name="pause_all_notifications">Alles pauzeren</string>
 	<string name="pause_notifications_off">Uit</string>
 	<string name="notifications_policy_anyone">Iedereen</string>
@@ -429,7 +429,7 @@
 	<string name="notifications_policy_follower">Mensen die je volgt</string>
 	<string name="notifications_policy_no_one">Niemand</string>
 	<string name="settings_notifications_policy">Meldingen ontvangen van</string>
-	<string name="notification_type_mentions_and_replies">Vermeldingen en antwoorden</string>
+	<string name="notification_type_mentions_and_replies">Vermeldingen en reacties</string>
 	<string name="pause_all_notifications_title">Alle meldingen pauzeren</string>
 	<plurals name="x_weeks">
 		<item quantity="one">%d week</item>
@@ -441,9 +441,9 @@
 	<string name="yesterday">gisteren</string>
 	<string name="tomorrow">morgen</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
-	<string name="pause_notifications_ends">Eindigt %s</string>
+	<string name="pause_notifications_ends">Eindigt om %s</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
-	<string name="pause_notifications_banner">Meldingen worden %s hervat.</string>
+	<string name="pause_notifications_banner">Meldingen worden om %s hervat.</string>
 	<string name="resume_notifications_now">Nu hervatten</string>
 	<string name="open_system_notification_settings">Ga naar de meldingsinstellingen</string>
 	<string name="about_server">Over</string>
@@ -519,12 +519,12 @@
 	<string name="add_muted_word">Genegeerd woord toevoegen</string>
 	<string name="edit_muted_word">Genegeerd woord bewerken</string>
 	<string name="add">Toevoegen</string>
-	<string name="filter_word_or_phrase">Woord of zin</string>
-	<string name="filter_add_word_help">Woorden zijn niet hoofdlettergevoelig en komen alleen overeen met volledige woorden.\n\nAls je op de term ‘Apple’ filtert, verbergt het berichten die ‘apple’ of ‘aPpLe’ bevatten, maar niet ‘ananas’.</string>
+	<string name="filter_word_or_phrase">Woord of zinsdeel</string>
+	<string name="filter_add_word_help">Woorden zijn niet hoofdlettergevoelig en komen alleen overeen met volledige woorden.\n\nWanneer je op de term ‘Appel’ filtert, verbergt het berichten die ‘appel’ of ‘aPpEl’ bevatten, maar niet ‘ananas’.</string>
 	<string name="settings_delete_filter_word">‘%s’ verwijderen?</string>
 	<string name="enter_selection_mode">Selecteren</string>
 	<string name="select_all">Alles selecteren</string>
-	<string name="settings_filter_duration_title">Filter tijdsduur</string>
+	<string name="settings_filter_duration_title">Tijdsduur filter</string>
 	<string name="filter_duration_custom">Aangepast</string>
 	<plurals name="settings_delete_x_filter_words">
 		<item quantity="one">%d woord verwijderen?</item>
@@ -583,7 +583,7 @@
 	<string name="delete_list">Lijst verwijderen</string>
 	<!-- %s is the name of the list -->
 	<string name="delete_list_confirm">“%s” verwijderen?</string>
-	<string name="list_exclusive">Verberg lijstleden op je starttijdlijn</string>
+	<string name="list_exclusive">Lijstleden op je starttijdlijn verbergen</string>
 	<string name="list_exclusive_subtitle">Wanneer iemand lid is van deze lijst, verberg deze gebruiker dan op je starttijdlijn, om zo te voorkomen dat je diens berichten twee keer ziet.</string>
 	<string name="list_name">Naam nieuwe lijst</string>
 	<string name="list_show_replies_to">Reacties tonen aan</string>
@@ -601,9 +601,9 @@
 	<string name="remove_from_list">Uit lijst verwijderen</string>
 	<string name="confirm_remove_list_member">Lid verwijderen?</string>
 	<string name="no_followed_hashtags_title">Blijf op de hoogte van je interesses door hashtags te volgen</string>
-	<string name="no_followed_hashtags_subtitle">Accounts die je volgt verschijnen hier</string>
-	<string name="no_lists_title">Organiseer jouw tijdlijn met lijsten</string>
-	<string name="no_lists_subtitle">Je eigen verschijnen hier</string>
+	<string name="no_followed_hashtags_subtitle">Berichten met hashtags die je volgt verschijnen hier</string>
+	<string name="no_lists_title">Jouw starttijdlijn met behulp van lijsten organiseren</string>
+	<string name="no_lists_subtitle">Je eigen lijsten verschijnen hier</string>
 	<string name="manage_accounts">Accounts toevoegen of wisselen</string>
 	<plurals name="x_posts_recently">
 		<item quantity="one">Onlangs %,d bericht</item>
@@ -620,7 +620,7 @@
 	<string name="non_mutual_sheet_title">Hallo, een nieuwe connectie!</string>
 	<string name="non_mutual_sheet_text">Het lijkt erop dat je gaat reageren op iemand die nog geen wederzijdse connectie is. Laten we een goede eerste indruk maken.</string>
 	<string name="got_it">Begrepen</string>
-	<string name="dont_remind_again">Herrinner me niet opnieuw</string>
+	<string name="dont_remind_again">Herinner me niet opnieuw</string>
 	<!-- %s is a time interval ("5 months") -->
 	<string name="old_post_sheet_title">Dit bericht is %s oud</string>
 	<string name="old_post_sheet_text">Je kunt nog steeds reageren, maar het is misschien niet langer meer relevant.</string>
@@ -688,7 +688,7 @@
 	<string name="handle_server_explanation_own">Jouw digitale thuis, waar al jouw berichten zich bevinden. Is deze server toch niet naar jouw wens? Dan kun je op elk moment naar een andere server verhuizen en ook jouw volgers overbrengen.</string>
 	<string name="handle_explanation_own">Omdat je aan jouw fediverse-adres kunt zien wie jij bent is en waar je je bevindt, kunnen mensen op het door &lt;a&gt;ActivityPub aangedreven&lt;/a&gt; sociale web (fediverse) met jou communiceren.</string>
 	<string name="what_is_activitypub_title">Wat is ActivityPub?</string>
-	<string name="what_is_activitypub">ActivityPub is de taal die Mastodon met andere sociale netwerken spreekt.\n\nHet zorgt ervoor dat je niet alleen maar kunt verbinden en communiceren met mensen op Mastodon, maar ook met andere sociale apps.</string>
+	<string name="what_is_activitypub">ActivityPub is de taal die Mastodon met andere sociale netwerken (fediverse) spreekt.\n\nHet zorgt ervoor dat je niet alleen maar kunt verbinden en communiceren met mensen op Mastodon, maar ook met andere sociale apps.</string>
 	<string name="handle_copied">Fediverse-adres naar het klembord gekopieerd.</string>
 	<string name="qr_code">QR-code</string>
 	<string name="scan_qr_code">QR-code scannen</string>
@@ -718,4 +718,23 @@
 	<string name="mute_conversation">Gesprek negeren</string>
 	<string name="unmute_conversation">Gesprek niet langer negeren</string>
 	<string name="visibility_unlisted">Minder openbaar</string>
+	<string name="filtered_notifications">Gefilterde meldingen</string>
+	<string name="filter_notifications">Meldingen verbergen van…</string>
+	<string name="notification_filter_following">Mensen die jij niet volgt</string>
+	<string name="notification_filter_following_explanation">Totdat je ze handmatig goedkeurt</string>
+	<string name="notification_filter_followers">Mensen die jou niet volgen</string>
+	<string name="notification_filter_followers_explanation">Inclusief mensen die jou korter dan 3 dagen volgen</string>
+	<string name="notification_filter_new_accounts">Nieuwe accounts</string>
+	<string name="notification_filter_new_accounts_explanation">In de afgelopen 30 dagen geregistreerd</string>
+	<string name="notification_filter_mentions">Ongevraagde privéberichten</string>
+	<string name="notification_filter_mentions_explanation">Onzichtbaar tenzij het een antwoord is op een privébericht van jou of wanneer je de afzender volgt</string>
+	<string name="allow_notifications">Meldingen toestaan</string>
+	<string name="mute_notifications">Meldingen afwijzen</string>
+	<plurals name="x_people_you_may_know">
+		<item quantity="one">%,d persoon die je misschien kent</item>
+		<item quantity="other">%,d mensen die je misschien kent</item>
+	</plurals>
+	<string name="notifications_from_user">Meldingen van %s</string>
+	<string name="notifications_muted">Notifications from %s zijn afgewezen.</string>
+	<string name="notifications_allowed">%s verschijnt vanaf nu onder jouw meldingen.</string>
 </resources>
