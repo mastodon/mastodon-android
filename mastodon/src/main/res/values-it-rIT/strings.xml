@@ -718,6 +718,7 @@ Più persone segui, più sarà attivo e interessante.</string>
 	<string name="new_post_notifications_disabled">Non riceverai più notifiche per i nuovi post.</string>
 	<string name="mute_conversation">Silenzia la conversazione</string>
 	<string name="unmute_conversation">Riattiva le notifiche della conversazione</string>
+	<string name="visibility_unlisted">Pubblico tranquillo</string>
 	<string name="filtered_notifications">Notifiche filtrate</string>
 	<string name="filter_notifications">Filtra le notifiche da...</string>
 	<string name="notification_filter_following">Persone che non segui</string>
@@ -729,4 +730,12 @@ Più persone segui, più sarà attivo e interessante.</string>
 	<string name="notification_filter_mentions">Menzioni private indesiderate</string>
 	<string name="notification_filter_mentions_explanation">Filtrate, a meno che non sia in risposta alla tua menzione o se segui il mittente</string>
 	<string name="allow_notifications">Consenti le notifiche</string>
+	<string name="mute_notifications">Respingi la richiesta di notifica</string>
+	<plurals name="x_people_you_may_know">
+		<item quantity="one">%,d persona che potresti conoscere</item>
+		<item quantity="other">%,d persone che potresti conoscere</item>
+	</plurals>
+	<string name="notifications_from_user">Notifiche da %s</string>
+	<string name="notifications_muted">Le notifiche da %s sono state respinte.</string>
+	<string name="notifications_allowed">%s apparirà ora nella tua lista di notifiche.</string>
 </resources>
