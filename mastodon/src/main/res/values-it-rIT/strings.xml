@@ -678,19 +678,19 @@ Più persone segui, più sarà attivo e interessante.</string>
 	<string name="server_cant_mention_or_follow_you">Nessuno da questo server può seguirti.</string>
 	<string name="server_can_interact_with_older">Le persone da questo server possono interagire con i tuoi vecchi post.</string>
 	<string name="unblocked_domain_x">Dominio %s sbloccato</string>
-	<string name="handle_help_title">Cosa c\'è in un nome utente?</string>
-	<string name="handle_title">Il loro nome utente</string>
+	<string name="handle_help_title">Cosa c\'è in un nome univoco?</string>
+	<string name="handle_title">Il loro nome univoco</string>
 	<string name="handle_username_explanation">Il loro identificatore univoco sul loro server. È possibile trovare utenti con lo stesso nome utente su server diversi.</string>
-	<string name="handle_title_own">Il tuo nome utente</string>
+	<string name="handle_title_own">Il tuo nome univoco</string>
 	<string name="handle_username_explanation_own">Il tuo identificatore univoco su questo server. È possibile trovare utenti con lo stesso nome utente su server diversi.</string>
 	<string name="server">Server</string>
 	<string name="handle_server_explanation">La loro casa digitale, dove risiedono tutti i loro post.</string>
-	<string name="handle_explanation">Poiché i nomi utente indicano chi sia qualcuno e dove si trovi, puoi interagire con le persone attraverso il social web delle &lt;a&gt;piattaforme basate su ActivityPub&lt;/a&gt;.</string>
+	<string name="handle_explanation">Poiché i nomi univoci indicano chi sia qualcuno e dove si trovi, puoi interagire con le persone attraverso la rete sociale delle &lt;a&gt;piattaforme basate su ActivityPub&lt;/a&gt;.</string>
 	<string name="handle_server_explanation_own">La tua casa digitale, dove vivono tutti i tuoi post. Non ti piace questa? Cambia server in qualsiasi momento e porta con te anche i tuoi seguaci.</string>
-	<string name="handle_explanation_own">Poiché il tuo nome utente indica chi tu sia e dove ti trovi, le persone possono interagire con te attraverso il social web delle &lt;a&gt;piattaforme basate su ActivityPub&lt;/a&gt;.</string>
+	<string name="handle_explanation_own">Poiché il tuo nome univoco indica chi tu sia e dove ti trovi, le persone possono interagire con te attraverso la rete sociale delle &lt;a&gt;piattaforme basate su ActivityPub&lt;/a&gt;.</string>
 	<string name="what_is_activitypub_title">Cos\'è ActivityPub?</string>
 	<string name="what_is_activitypub">ActivityPub è come il linguaggio che Mastodon parla con altri social network.\n\nTi consente di connetterti e interagire con le persone non solo su Mastodon, ma anche attraverso diverse app social.</string>
-	<string name="handle_copied">Nome utente copiato negli appunti.</string>
+	<string name="handle_copied">Nome univoco copiato negli appunti.</string>
 	<string name="qr_code">Codice QR</string>
 	<string name="scan_qr_code">Scansiona il codice QR</string>
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
@@ -718,4 +718,15 @@ Più persone segui, più sarà attivo e interessante.</string>
 	<string name="new_post_notifications_disabled">Non riceverai più notifiche per i nuovi post.</string>
 	<string name="mute_conversation">Silenzia la conversazione</string>
 	<string name="unmute_conversation">Riattiva le notifiche della conversazione</string>
+	<string name="filtered_notifications">Notifiche filtrate</string>
+	<string name="filter_notifications">Filtra le notifiche da...</string>
+	<string name="notification_filter_following">Persone che non segui</string>
+	<string name="notification_filter_following_explanation">Fino a quando non le approvi manualmente</string>
+	<string name="notification_filter_followers">Persone che non ti seguono</string>
+	<string name="notification_filter_followers_explanation">Incluse le persone che ti seguono da meno di 3 giorni</string>
+	<string name="notification_filter_new_accounts">Nuovi account</string>
+	<string name="notification_filter_new_accounts_explanation">Creati negli ultimi 30 giorni</string>
+	<string name="notification_filter_mentions">Menzioni private indesiderate</string>
+	<string name="notification_filter_mentions_explanation">Filtrate, a meno che non sia in risposta alla tua menzione o se segui il mittente</string>
+	<string name="allow_notifications">Consenti le notifiche</string>
 </resources>
