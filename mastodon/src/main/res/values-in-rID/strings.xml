@@ -218,6 +218,7 @@
 	<!-- %s is the server domain -->
 	<string name="local_timeline_info_banner">Ini adalah kiriman dari semua pengguna di server Anda (%s).</string>
 	<string name="recommended_accounts_info_banner">Anda mungkin suka akun berikut berdasarkan orang-orang yang Anda ikuti.</string>
+	<string name="see_new_posts">Kiriman baru</string>
 	<string name="load_missing_posts">Muat kiriman yang hilang</string>
 	<string name="button_follow_pending">Ditunda</string>
 	<string name="follows_you">Mengikuti Anda</string>
@@ -272,6 +273,7 @@
 	<string name="download_update">Unduh (%s)</string>
 	<string name="install_update">Pasang</string>
 	<string name="privacy_policy_subtitle">Walaupun aplikasi Mastodon tidak mengumpulkan data apa pun, server yang Anda daftarkan di sana dapat memiliki kebijakan yang berbeda.\n\nJika Anda tidak setuju dengan kebijakan %s, Anda dapat kembali dan pilih server yang lain.</string>
+	<string name="i_agree">Saya setuju</string>
 	<string name="empty_list">Daftar ini kosong</string>
 	<string name="instance_signup_closed">Server ini tidak menerima pendaftaran baru.</string>
 	<string name="text_copied">Disalin ke papan klip</string>
@@ -519,10 +521,34 @@
 	<plurals name="x_posts_today">
 		<item quantity="other">%,d kiriman hari ini</item>
 	</plurals>
+	<string name="timeline_following">Beranda</string>
+	<string name="lists">Daftar</string>
 	<!-- Screen reader description for the menu on the home timeline screen -->
+	<string name="edit_list">Sunting daftar</string>
 	<!-- %s is the name of the list -->
+	<string name="list_name">Nama daftar</string>
+	<string name="list_replies_no_one">Tidak ada</string>
+	<string name="remove">Hapus</string>
 	<!-- %s is a username -->
+	<string name="create">Buat</string>
+	<string name="got_it">Saya mengerti</string>
 	<!-- %s is a time interval ("5 months") -->
+	<plurals name="x_months">
+		<item quantity="other">%,d bulan</item>
+	</plurals>
+	<string name="non_mutual_title3">Jadilah terbuka</string>
+	<string name="article_by_author">Oleh %s</string>
+	<string name="info">Info</string>
+	<string name="button_reblogged">Dibagikan</string>
+	<string name="button_favorited">Difavorit</string>
+	<string name="server">Server</string>
+	<string name="qr_code">Kode QR</string>
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
+	<string name="saved">Disimpan</string>
+	<string name="view_file">Tampilan</string>
+	<string name="add_muted_word_short">Tambahkan kata</string>
+	<string name="tab_home">Beranda</string>
+	<string name="tab_search">Jelajahi</string>
+	<string name="tab_profile">Profil</string>
 	<!-- %s is the username -->
 </resources>
