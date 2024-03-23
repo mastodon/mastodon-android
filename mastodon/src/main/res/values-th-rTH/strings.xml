@@ -686,5 +686,20 @@
 	<string name="mute_conversation">ซ่อนการสนทนา</string>
 	<string name="unmute_conversation">เลิกซ่อนการสนทนา</string>
 	<string name="visibility_unlisted">สาธารณะแบบเงียบ</string>
+	<string name="filtered_notifications">การแจ้งเตือนที่กรองอยู่</string>
+	<string name="filter_notifications">กรองการแจ้งเตือนจาก...</string>
+	<string name="notification_filter_following">ผู้คนที่คุณไม่ได้ติดตาม</string>
+	<string name="notification_filter_following_explanation">จนกว่าคุณจะอนุมัติเขาด้วยตนเอง</string>
+	<string name="notification_filter_followers">ผู้คนที่ไม่ได้ติดตามคุณ</string>
+	<string name="notification_filter_new_accounts">บัญชีใหม่</string>
+	<string name="notification_filter_new_accounts_explanation">สร้างขึ้นภายใน 30 วันที่ผ่านมา</string>
+	<string name="notification_filter_mentions">การกล่าวถึงแบบส่วนตัวที่ไม่พึงประสงค์</string>
+	<string name="notification_filter_mentions_explanation">กรองไว้เว้นแต่การกล่าวถึงแบบส่วนตัวอยู่ในการตอบกลับการกล่าวถึงของคุณเองหรือหากคุณติดตามผู้ส่ง</string>
 	<string name="allow_notifications">อนุญาตการแจ้งเตือน</string>
+	<string name="mute_notifications">ปิดคำขอการแจ้งเตือน</string>
+	<plurals name="x_people_you_may_know">
+		<item quantity="other">%,d คนที่คุณอาจรู้จัก</item>
+	</plurals>
+	<string name="notifications_from_user">การแจ้งเตือนจาก %s</string>
+	<string name="notifications_muted">ปิดการแจ้งเตือนจาก %s แล้ว</string>
 </resources>
