@@ -29,10 +29,13 @@
 		<item quantity="other">正在关注</item>
 	</plurals>
 	<string name="posts">嘟文</string>
+	<string name="posts_and_replies">嘟文和回复</string>
 	<string name="media">媒体</string>
 	<string name="profile_about">关于</string>
 	<string name="button_follow">关注</string>
 	<string name="button_following">已关注</string>
+	<string name="edit_profile">编辑资料</string>
+	<string name="share_user">分享用户</string>
 	<string name="mute_user">隐藏 %s</string>
 	<string name="unmute_user">不再隐藏 %s</string>
 	<string name="block_user">屏蔽 %s</string>
@@ -129,7 +132,9 @@
 	<string name="report_personal_subtitle">通过这些选项来控制你在 Mastodon 上可查看到的内容：</string>
 	<string name="back">返回</string>
 	<string name="search_communities">实例名称或 URL</string>
+	<string name="instance_rules_title">站点规则</string>
 	<string name="instance_rules_subtitle">继续意味着你同意并且愿意遵循由 %s 管理员设置和执行的规则。</string>
+	<string name="signup_title">创建账户</string>
 	<string name="display_name">名字</string>
 	<string name="username">用户名</string>
 	<string name="email">邮箱</string>
@@ -137,6 +142,7 @@
 	<string name="confirm_password">确认密码</string>
 	<string name="password_note">包括大写字母、特殊字符和数字以增加你的密码强度。</string>
 	<string name="category_general">通用</string>
+	<string name="confirm_email_title">请检查你的电子邮件收件箱</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">点击我们发送给你的链接来验证 %s。我们在此守候。</string>
 	<string name="confirm_email_didnt_get">没有收到链接？</string>
@@ -170,6 +176,7 @@
 	<string name="theme_dark">深色</string>
 	<string name="settings_behavior">行为</string>
 	<string name="settings_gif">播放动态头像和表情</string>
+	<string name="settings_custom_tabs">打开链接</string>
 	<string name="settings_notifications">通知</string>
 	<string name="settings_contribute">为Mastodon作出贡献</string>
 	<string name="settings_tos">使用条款</string>
@@ -198,6 +205,8 @@
 	<string name="followed_user">你正在关注 %s</string>
 	<string name="following_user_requested">请求关注 %s</string>
 	<string name="open_in_browser">在浏览器中打开</string>
+	<string name="hide_boosts_from_user">隐藏转嘟</string>
+	<string name="show_boosts_from_user">显示转嘟</string>
 	<string name="signup_reason">你想要加入的原因是什么？</string>
 	<string name="signup_reason_note">这会帮助我们评估你的申请。</string>
 	<string name="clear">清除</string>
@@ -220,6 +229,7 @@
 	<string name="recommended_accounts_info_banner">根据你所关注的，你或许也会喜欢这些用户。</string>
 	<string name="see_new_posts">新嘟文</string>
 	<string name="load_missing_posts">加载嘟文</string>
+	<string name="follow_back">回关</string>
 	<string name="button_follow_pending">已发送关注请求</string>
 	<string name="follows_you">已关注你</string>
 	<string name="manually_approves_followers">手动批准关注请求</string>
@@ -272,6 +282,7 @@
 	<!-- %s is file size -->
 	<string name="download_update">已下载(%s)</string>
 	<string name="install_update">安装</string>
+	<string name="privacy_policy_title">你的隐私</string>
 	<string name="privacy_policy_subtitle">尽管 Mastodon 客户端本身不采集任何数据，你注册的实例可能会有不同的隐私政策。\n\n如果你不同意 %s 的这些政策，请返回并选择其他实例。</string>
 	<string name="empty_list">还没有内容</string>
 	<string name="instance_signup_closed">此实例不接受新注册。</string>
@@ -595,4 +606,5 @@
 	<string name="button_favorited">已喜欢</string>
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
 	<!-- %s is the username -->
+	<string name="visibility_unlisted">静默公开</string>
 </resources>
