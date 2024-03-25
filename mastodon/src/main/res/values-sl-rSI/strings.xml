@@ -796,6 +796,7 @@ Več osebam kot sledite, bolj dejaven in zanimiv bo.</string>
 	<string name="notification_filter_mentions">Neželene zasebne omembe</string>
 	<string name="notification_filter_mentions_explanation">Filtrirano, razen če je odgovor na vašo lastno omembo ali če sledite pošiljatelju</string>
 	<string name="allow_notifications">Dovoli obvestila</string>
+	<string name="mute_notifications">Opusti zahteve za obvestila</string>
 	<plurals name="x_people_you_may_know">
 		<item quantity="one">%,d oseba, ki jo morda poznate</item>
 		<item quantity="two">%,d osebi, ki jih morda poznate</item>
@@ -803,5 +804,6 @@ Več osebam kot sledite, bolj dejaven in zanimiv bo.</string>
 		<item quantity="other">%,d oseb, ki jih morda poznate</item>
 	</plurals>
 	<string name="notifications_from_user">Obvestila od %s</string>
+	<string name="notifications_muted">Obvestila od %s so bila opuščena.</string>
 	<string name="notifications_allowed">%s se bo sedaj pojavil v vašem seznamu obvestil.</string>
 </resources>
