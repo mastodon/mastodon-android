@@ -727,6 +727,13 @@
 	<string name="notification_filter_new_accounts">Νέοι λογαριασμοί</string>
 	<string name="notification_filter_new_accounts_explanation">Δημιουργήθηκαν μέσα στις τελευταίες 30 ημέρες</string>
 	<string name="notification_filter_mentions">Μη συναινετικές ιδιωτικές αναφορές</string>
+	<string name="notification_filter_mentions_explanation">Φιλτράρισμα εκτός αν είναι σε απάντηση στη δική σου αναφορά ή αν ακολουθείς τον αποστολέα</string>
 	<string name="allow_notifications">Να επιτρέπονται οι ειδοποιήσεις</string>
 	<string name="mute_notifications">Απόρριψη αιτήματος ειδοποίησης</string>
+	<plurals name="x_people_you_may_know">
+		<item quantity="one">%,d άτομο που μπορεί να ξέρεις</item>
+		<item quantity="other">%,d άτομα που μπορεί να γνωρίζεις</item>
+	</plurals>
+	<string name="notifications_from_user">Ειδοποιήσεις από %s</string>
+	<string name="notifications_muted">Οι ειδοποιήσεις από %s έχουν απορριφθεί.</string>
 </resources>
