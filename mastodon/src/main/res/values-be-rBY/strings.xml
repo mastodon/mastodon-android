@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
 	<string name="log_in">Увайсці</string>
 	<string name="next">Далей</string>
 	<string name="loading_instance">Атрыманне інфармацыі аб серверы…</string>
@@ -35,10 +35,13 @@
 		<item quantity="other">падпісаны</item>
 	</plurals>
 	<string name="posts">Допісы</string>
+	<string name="posts_and_replies">Допісы і адказы</string>
 	<string name="media">Медыя</string>
 	<string name="profile_about">Інфармацыя</string>
 	<string name="button_follow">Падпісацца</string>
 	<string name="button_following">Вы падпісаны</string>
+	<string name="edit_profile">Рэдагаваць профіль</string>
+	<string name="share_user">Падзяліцца профілем праз…</string>
 	<string name="mute_user">Ігнараваць %s</string>
 	<string name="unmute_user">Не ігнараваць %s</string>
 	<string name="block_user">Заблакіраваць %s</string>
@@ -165,7 +168,9 @@
 	<string name="report_personal_subtitle">Вось вашыя варыянты кантролю над тым, што вы бачыце в Mastodon:</string>
 	<string name="back">Назад</string>
 	<string name="search_communities">Назва сервера або URL</string>
+	<string name="instance_rules_title">Правілы сервера</string>
 	<string name="instance_rules_subtitle">Працягваючы, вы згаджаецеся выконваць правілы, устаноўленыя мадэратарам %s.</string>
+	<string name="signup_title">Стварыць уліковы запіс</string>
 	<string name="display_name">Імя</string>
 	<string name="username">Імя карыстальніка</string>
 	<string name="email">Электронная пошта</string>
@@ -173,6 +178,7 @@
 	<string name="confirm_password">Пацвердзіць пароль</string>
 	<string name="password_note">Выкарыстоўвайце вялікія літары, спецыяльныя сімвалы і лічбы, каб павялічыць надзейнасць пароля.</string>
 	<string name="category_general">Асноўныя</string>
+	<string name="confirm_email_title">Праверце вашу пошту</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">Націсніце на спасылку, якую мы адправілі, каб спраўдзіць %s. Мы вас пачакаем тут.</string>
 	<string name="confirm_email_didnt_get">Не атрымалі спасылку?</string>
@@ -209,6 +215,7 @@
 	<string name="theme_dark">Цёмная</string>
 	<string name="settings_behavior">Паводзіны</string>
 	<string name="settings_gif">Прайграваць аніміраваныя аватары і эмодзі</string>
+	<string name="settings_custom_tabs">Адкрываць спасылкі ў</string>
 	<string name="settings_notifications">Апавяшчэнні</string>
 	<string name="settings_contribute">Унесці ўклад у Mastodon</string>
 	<string name="settings_tos">Умовы выкарыстання</string>
@@ -237,6 +244,8 @@
 	<string name="followed_user">Цяпер вы падпісаны на %s</string>
 	<string name="following_user_requested">Запытана падпісацца на %s</string>
 	<string name="open_in_browser">Адкрыць у браўзеры</string>
+	<string name="hide_boosts_from_user">Схаваць пашырэнні</string>
+	<string name="show_boosts_from_user">Паказаць пашырэнні</string>
 	<string name="signup_reason">Чаму вы хочаце далучыцца?</string>
 	<string name="signup_reason_note">Гэта дапаможа нам разгледзець вашу заяўку.</string>
 	<string name="clear">Ачысціць</string>
@@ -259,6 +268,7 @@
 	<string name="recommended_accounts_info_banner">Вам могуць спадабацца гэтыя ўліковыя запісы на аснове вашых падпісак.</string>
 	<string name="see_new_posts">Новыя допісы</string>
 	<string name="load_missing_posts">Загрузіць адсутныя допісы</string>
+	<string name="follow_back">Падпісацца ў адказ</string>
 	<string name="button_follow_pending">Чакаюць</string>
 	<string name="follows_you">Падпісаны(-а) на вас</string>
 	<string name="manually_approves_followers">Уручную пацвярджае падпісчыкаў</string>
@@ -329,15 +339,23 @@
 	<!-- %s is file size -->
 	<string name="download_update">Спампаваць (%s)</string>
 	<string name="install_update">Усталяваць</string>
+	<string name="privacy_policy_title">Ваша прыватнасць</string>
 	<string name="privacy_policy_subtitle">Нягледзячы на ​​тое, што праграма Mastodon не збірае даных, сервер, на якім вы рэгіструецеся, можа мець іншую палітыку.\n\nКалі вы адмовіцеся ад палітыкі %s, вы можаце вярнуцца і выбраць іншы сервер.</string>
+	<string name="i_agree">Прыняць</string>
 	<string name="empty_list">Гэты ліст пусты</string>
 	<string name="instance_signup_closed">Гэты сервер не прымае новыя рэгістрацыі.</string>
 	<string name="text_copied">Скапіявана ў буфер абмену</string>
 	<string name="add_bookmark">Закладка</string>
 	<string name="remove_bookmark">Выдаліць закладку</string>
 	<string name="bookmarks">Закладкі</string>
+	<string name="your_favorites">Вашыя ўпадабанні</string>
+	<string name="login_title">З вяртаннем</string>
 	<string name="login_subtitle">Увайдзіце з дапамогай сервера, на якім вы стварылі свой уліковы запіс.</string>
 	<string name="server_url">URL-адрас сервера</string>
+	<string name="server_filter_any_language">Любая мова</string>
+	<string name="server_filter_instant_signup">Імгненная рэгістрацыя</string>
+	<string name="server_filter_manual_review">Ручная праверка</string>
+	<string name="server_filter_any_signup_speed">Любая хуткасць рэгістрацыі</string>
 	<string name="server_filter_region_europe">Еўропа</string>
 	<string name="server_filter_region_north_america">Паўночная Амерыка</string>
 	<string name="server_filter_region_south_america">Паўднёвая Амерыка</string>
@@ -345,6 +363,7 @@
 	<string name="server_filter_region_asia">Азія</string>
 	<string name="server_filter_region_oceania">Акіянія</string>
 	<string name="not_accepting_new_members">Не прымае новых удзельнікаў</string>
+	<string name="category_special_interests">Асаблівыя інтарэсы</string>
 	<string name="signup_passwords_dont_match">Паролі не супадаюць</string>
 	<string name="profile_add_row">Дадаць радок</string>
 	<string name="profile_setup">Налады профілю</string>
@@ -637,6 +656,7 @@
 	<string name="remove">Выдаліць</string>
 	<string name="add_list_member">Дадаць удзельніка</string>
 	<string name="search_among_people_you_follow">Шукайце сярод людзей, на якіх Вы падпісаны</string>
+	<string name="add_user_to_list">Дадаць/выдаліць са спісаў…</string>
 	<string name="add_user_to_list_title">Дадаць да спісу</string>
 	<!-- %s is a username -->
 	<string name="manage_user_lists">Кіраваць спісамі з %s</string>
@@ -737,5 +757,31 @@
 	<string name="what_is_activitypub_title">Што такое ActivityPub?</string>
 	<string name="what_is_activitypub">ActivityPub - гэта мова, на якой Mastodon размаўляе з іншымі сацыяльнымі сеткамі.\n\nГэта дазваляе вам звязвацца і ўзаемадзейнічаць з людзьмі не толькі ў Mastodon, але і ў розных сацыяльных праграмах.</string>
 	<string name="handle_copied">Ідэнтыфікатар карыстальніка скапіяваны ў буфер абмену.</string>
+	<string name="qr_code">QR-код</string>
+	<string name="scan_qr_code">Сканіраваць QR-код</string>
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
+	<string name="saved">Захавана</string>
+	<string name="image_saved">Выява захаваная.</string>
+	<string name="video_saved">Відэа захавана.</string>
+	<string name="view_file">Паглядзець</string>
+	<string name="share_sheet_preview_profile">%s у Mastodon</string>
+	<string name="share_sheet_preview_post">%1$s у Mastodon “%2$s”</string>
+	<string name="copy_profile_link">Скапіраваць спасылку на профіль</string>
+	<string name="in_app_browser">Убудаваны браўзер</string>
+	<string name="system_browser">Сістэмны браўзер</string>
+	<string name="add_muted_word_short">Дадаць слова</string>
+	<string name="tab_home">Галоўная</string>
+	<string name="tab_search">Агляд</string>
+	<string name="tab_profile">Профіль</string>
+	<string name="pin_post">Замацаваць у профілі</string>
+	<string name="unpin_post">Адмацаваць ад профілю</string>
+	<string name="post_pinned">Допіс быў замацаваны</string>
+	<string name="post_unpinned">Допіс была адмацаваны</string>
+	<!-- %s is the username -->
+	<string name="enable_new_post_notifications">Апавяшчаць мяне пра допісы %s</string>
+	<string name="disable_new_post_notifications">Не паведамляць мне пра допісы %s</string>
+	<string name="new_post_notifications_enabled">Вы будзеце атрымліваць апавяшчэнні аб новых допісах.</string>
+	<string name="new_post_notifications_disabled">Вы больш не будзеце атрымліваць апавяшчэнні аб новых допісах.</string>
+	<string name="mute_conversation">Ігнараваць размову</string>
+	<string name="unmute_conversation">Не ігнараваць размову</string>
 </resources>

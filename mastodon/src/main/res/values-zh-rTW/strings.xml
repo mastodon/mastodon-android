@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
 	<string name="log_in">登入</string>
 	<string name="next">下一步</string>
 	<string name="loading_instance">正在取得伺服器資訊...</string>
@@ -133,7 +133,7 @@
 	<string name="back">返回</string>
 	<string name="search_communities">伺服器名稱或 URL</string>
 	<string name="instance_rules_title">伺服器規則</string>
-	<string name="instance_rules_subtitle">繼續的話，您將同意以下由 %s 之管理員訂定及執行之伺服器規則。</string>
+	<string name="instance_rules_subtitle">如果繼續，您將同意以下由 %s 之管理員訂定及執行之伺服器規則。</string>
 	<string name="signup_title">新增帳號</string>
 	<string name="display_name">名稱</string>
 	<string name="username">使用者名稱</string>
@@ -678,4 +678,30 @@
 	<string name="unpin_post">自個人檔案頁面取消釘選</string>
 	<string name="post_pinned">該嘟文已被釘選</string>
 	<string name="post_unpinned">該嘟文已被取消釘選</string>
+	<!-- %s is the username -->
+	<string name="enable_new_post_notifications">當 %s 嘟文時通知我</string>
+	<string name="disable_new_post_notifications">取消來自 %s 的嘟文通知</string>
+	<string name="new_post_notifications_enabled">您將會收到新嘟文的通知。</string>
+	<string name="new_post_notifications_disabled">您將不再收到新嘟文的通知。</string>
+	<string name="mute_conversation">靜音對話</string>
+	<string name="unmute_conversation">取消此對話的靜音</string>
+	<string name="visibility_unlisted">不於公開時間軸顯示</string>
+	<string name="filtered_notifications">已過濾之通知</string>
+	<string name="filter_notifications">過濾通知來自...</string>
+	<string name="notification_filter_following">您未跟隨之使用者</string>
+	<string name="notification_filter_following_explanation">直至您手動核准他們</string>
+	<string name="notification_filter_followers">未跟隨您之使用者</string>
+	<string name="notification_filter_followers_explanation">包含近三日內跟隨您的人</string>
+	<string name="notification_filter_new_accounts">新帳號</string>
+	<string name="notification_filter_new_accounts_explanation">三十天內之新帳號</string>
+	<string name="notification_filter_mentions">不請自來的私訊</string>
+	<string name="notification_filter_mentions_explanation">過濾通知，除非嘟文包含於您的提及，或您跟隨該發嘟帳號</string>
+	<string name="allow_notifications">允許通知</string>
+	<string name="mute_notifications">關閉推播通知請求</string>
+	<plurals name="x_people_you_may_know">
+		<item quantity="other">您可能認識的 %,d 人</item>
+	</plurals>
+	<string name="notifications_from_user">來自 %s 之通知</string>
+	<string name="notifications_muted">已關閉來自 %s 之推播通知請求。</string>
+	<string name="notifications_allowed">%s 將不再出現於您的通知列表。</string>
 </resources>

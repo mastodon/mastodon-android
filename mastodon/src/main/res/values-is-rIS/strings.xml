@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
 	<string name="log_in">Skrá inn</string>
 	<string name="next">Næsta</string>
 	<string name="loading_instance">Sæki upplýsingar um netþjón…</string>
@@ -711,4 +711,31 @@
 	<string name="unpin_post">Losa af notandasniði</string>
 	<string name="post_pinned">Færslan hefur verið fest</string>
 	<string name="post_unpinned">Færslan hefur verið losuð</string>
+	<!-- %s is the username -->
+	<string name="enable_new_post_notifications">Láta mig vita þegar %s sendir inn</string>
+	<string name="disable_new_post_notifications">Hætta að láta mig vita þegar %s sendir inn</string>
+	<string name="new_post_notifications_enabled">Þú munt fá tilkynningar um nýjar færslur.</string>
+	<string name="new_post_notifications_disabled">Þú munt ekki lengur fá tilkynningar um nýjar færslur.</string>
+	<string name="mute_conversation">Þagga niður í samtali</string>
+	<string name="unmute_conversation">Hætta að þagga niður í samtali</string>
+	<string name="visibility_unlisted">Hljóðlátt opinbert</string>
+	<string name="filtered_notifications">Síaðar tilkynningar</string>
+	<string name="filter_notifications">Sía út tilkynningar frá...</string>
+	<string name="notification_filter_following">Fólk sem þú fylgist ekki með</string>
+	<string name="notification_filter_following_explanation">Þar til þú samþykkir viðkomandi handvirkt</string>
+	<string name="notification_filter_followers">Fólk sem fylgist ekki með þér</string>
+	<string name="notification_filter_followers_explanation">Að meðtöldum þeim sem hafa verið að fylgjast með þér í minna en 3 daga</string>
+	<string name="notification_filter_new_accounts">Nýir notendur</string>
+	<string name="notification_filter_new_accounts_explanation">Útbúnar síðustu 30 daga</string>
+	<string name="notification_filter_mentions">Óumbeðið einkaspjall</string>
+	<string name="notification_filter_mentions_explanation">Síað nema það sé í svari við einhverju þar sem þú minntist á viðkomandi eða ef þú fylgist með sendandanum</string>
+	<string name="allow_notifications">Leyfa tilkynningar</string>
+	<string name="mute_notifications">Hunsa beiðni um tilkynningu</string>
+	<plurals name="x_people_you_may_know">
+		<item quantity="one">%,d aðili sem þú gætir þekkt</item>
+		<item quantity="other">%,d aðilar sem þú gætir þekkt</item>
+	</plurals>
+	<string name="notifications_from_user">Tilkynningar frá %s</string>
+	<string name="notifications_muted">Tilkynningum frá %s hefur verið hafnað.</string>
+	<string name="notifications_allowed">%s mun núna birtast í tilkynningalistanum þínum.</string>
 </resources>

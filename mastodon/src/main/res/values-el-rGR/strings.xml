@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
 	<string name="log_in">Σύνδεση</string>
 	<string name="next">Επόμενο</string>
 	<string name="loading_instance">Ανάκτηση πληροφοριών διακομιστή…</string>
@@ -686,7 +686,7 @@
 	<string name="handle_server_explanation">Το ψηφιακό τους σπίτι, όπου ζουν όλες οι αναρτήσεις τους.</string>
 	<string name="handle_explanation">Από τη στιγμή που τα handles λένε ποιος είναι κάποιος και πού είναι, μπορείς να αλληλεπιδράσεις με τους ανθρώπους απ\' όλο τον κοινωνικό ιστό των &lt;a&gt; πλατφορμών που στηρίζονται στο ActivityPub&lt;/a&gt;.</string>
 	<string name="handle_server_explanation_own">Το ψηφιακό σπίτι σου, όπου ζουν όλες οι αναρτήσεις σου. Δεν σ\' αρέσει αυτός; Μετακινήσου σε διακομιστές ανά πάσα στιγμή και φέρε και τους ακόλουθούς σου.</string>
-	<string name="handle_explanation_own">Επειδή το handle σου λέει ποιος είσαι και πού βρίσκεσαι, οι άνθρωποι μπορούν να αλληλεπιδράσουν μαζί σας στον κοινωνικό ιστό των &lt;a&gt;πλατφορμών που στηρίζονται στο ActivityPub&lt;/a&gt;.</string>
+	<string name="handle_explanation_own">Επειδή το handle σου λέει ποιος είσαι και πού βρίσκεσαι, οι άνθρωποι μπορούν να αλληλεπιδράσουν μαζί σou στον κοινωνικό ιστό των &lt;a&gt;πλατφορμών που στηρίζονται στο ActivityPub&lt;/a&gt;.</string>
 	<string name="what_is_activitypub_title">Τί είναι το ActivityPub;</string>
 	<string name="what_is_activitypub">Το ActivityPub είναι σαν τη γλώσσα που μιλάει το Mastodon με άλλα κοινωνικά δίκτυα.\n\nΣου επιτρέπει να συνδεθείς και να αλληλεπιδράσεις με ανθρώπους όχι μόνο στο Mastodon, αλλά και σε διαφορετικές κοινωνικές εφαρμογές.</string>
 	<string name="handle_copied">Το handle αντιγράφηκε στο πρόχειρο.</string>
@@ -706,4 +706,34 @@
 	<string name="tab_home">Αρχική</string>
 	<string name="tab_search">Εξερεύνηση</string>
 	<string name="tab_profile">Προφίλ</string>
+	<string name="pin_post">Καρφίτσωμα στο προφίλ</string>
+	<string name="unpin_post">Ξεκαρφίτσωμα από το προφίλ</string>
+	<string name="post_pinned">Η ανάρτηση καρφιτσώθηκε</string>
+	<string name="post_unpinned">Η ανάρτηση ξεκαρφιτσώθηκε</string>
+	<!-- %s is the username -->
+	<string name="enable_new_post_notifications">Ειδοποίησέ με όταν δημοσιεύει ο @%s</string>
+	<string name="disable_new_post_notifications">Σταμάτα να με ειδοποιείς όταν δημοσιεύει ο @%s</string>
+	<string name="new_post_notifications_enabled">Θα λάβεις ειδοποιήσεις για νέες αναρτήσεις.</string>
+	<string name="new_post_notifications_disabled">Δε θα λαμβάνεις πλέον ειδοποιήσεις για νέες αναρτήσεις.</string>
+	<string name="mute_conversation">Σίγαση συνομιλίας</string>
+	<string name="unmute_conversation">Αναίρεση σίγασης συνομιλίας</string>
+	<string name="visibility_unlisted">Ήσυχη δημόσια</string>
+	<string name="filtered_notifications">Φιλτραρισμένες ειδοποιήσεις</string>
+	<string name="filter_notifications">Φιλτράρισμα ειδοποιήσεων από...</string>
+	<string name="notification_filter_following">Άνθρωποι που δεν ακολουθείς</string>
+	<string name="notification_filter_following_explanation">Μέχρι να τους εγκρίνεις χειροκίνητα</string>
+	<string name="notification_filter_followers">Άτομα που δε σε ακολουθούν</string>
+	<string name="notification_filter_followers_explanation">Συμπεριλαμβανομένων των ατόμων που σ\' έχουν ακολουθήσει λιγότερο από 3 ημέρες</string>
+	<string name="notification_filter_new_accounts">Νέοι λογαριασμοί</string>
+	<string name="notification_filter_new_accounts_explanation">Δημιουργήθηκαν μέσα στις τελευταίες 30 ημέρες</string>
+	<string name="notification_filter_mentions">Μη συναινετικές ιδιωτικές αναφορές</string>
+	<string name="notification_filter_mentions_explanation">Φιλτράρισμα εκτός αν είναι σε απάντηση στη δική σου αναφορά ή αν ακολουθείς τον αποστολέα</string>
+	<string name="allow_notifications">Να επιτρέπονται οι ειδοποιήσεις</string>
+	<string name="mute_notifications">Απόρριψη αιτήματος ειδοποίησης</string>
+	<plurals name="x_people_you_may_know">
+		<item quantity="one">%,d άτομο που μπορεί να ξέρεις</item>
+		<item quantity="other">%,d άτομα που μπορεί να γνωρίζεις</item>
+	</plurals>
+	<string name="notifications_from_user">Ειδοποιήσεις από %s</string>
+	<string name="notifications_muted">Οι ειδοποιήσεις από %s έχουν απορριφθεί.</string>
 </resources>

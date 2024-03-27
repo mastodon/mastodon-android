@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
 	<string name="log_in">Iniciar sesión</string>
 	<string name="next">Siguiente</string>
 	<string name="loading_instance">Recuperando información del servidor…</string>
@@ -656,4 +656,5 @@ Mientras más personas sigas, más activo e interesante será.</string>
 	<string name="server_can_interact_with_older">Las personas de este servidor pueden interactuar con tus mensajes antiguos.</string>
 	<string name="unblocked_domain_x">El dominio %s ya no está bloqueado</string>
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
+	<!-- %s is the username -->
 </resources>
