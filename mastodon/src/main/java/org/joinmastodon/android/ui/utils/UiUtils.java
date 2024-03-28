@@ -353,9 +353,17 @@ public class UiUtils{
 	}
 
 	public static void openProfileByID(Context context, String selfID, String id){
+		openProfileByID(context, selfID, id, null, null);
+	}
+
+	public static void openProfileByID(Context context, String selfID, String id, String username, String domain){
 		Bundle args=new Bundle();
 		args.putString("account", selfID);
 		args.putString("profileAccountID", id);
+		if(username!=null && domain!=null){
+			args.putString("accountUsername", username);
+			args.putString("accountDomain", domain);
+		}
 		Nav.go((Activity)context, ProfileFragment.class, args);
 	}
 

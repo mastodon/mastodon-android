@@ -32,7 +32,7 @@
 						android:id="@+id/cover"
 						android:layout_width="match_parent"
 						android:layout_height="144dp"
-						android:background="#808080"
+						android:background="@drawable/image_placeholder"
 						android:contentDescription="@string/profile_header"
 						android:scaleType="centerCrop" />
 
@@ -133,6 +133,14 @@
 					</org.joinmastodon.android.ui.views.WrappingLinearLayout>
 
 				</RelativeLayout>
+
+				<ProgressBar
+					android:id="@+id/profile_progress"
+					android:layout_width="50dp"
+					android:layout_height="50dp"
+					android:layout_gravity="center_horizontal"
+					android:layout_marginTop="16dp"
+					android:visibility="gone"/>
 
 				<org.joinmastodon.android.ui.views.LinkedTextView
 					android:id="@+id/bio"
@@ -284,6 +292,7 @@
 				</org.joinmastodon.android.ui.views.FloatingHintEditTextLayout>
 				
 				<LinearLayout
+					android:id="@+id/profile_actions"
 					android:layout_width="match_parent"
 					android:layout_height="40dp"
 					android:orientation="horizontal"

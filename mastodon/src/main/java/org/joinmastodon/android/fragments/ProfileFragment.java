@@ -135,6 +135,8 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 	private View actionButtonWrap;
 	private CustomDrawingOrderLinearLayout scrollableContent;
 	private ImageButton qrCodeButton;
+	private ProgressBar innerProgress;
+	private View actions;
 
 	private Account account;
 	private String accountID;
@@ -218,6 +220,8 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 		actionButtonWrap=content.findViewById(R.id.profile_action_btn_wrap);
 		scrollableContent=content.findViewById(R.id.scrollable_content);
 		qrCodeButton=content.findViewById(R.id.qr_code);
+		innerProgress=content.findViewById(R.id.profile_progress);
+		actions=content.findViewById(R.id.profile_actions);
 
 		avatar.setOutlineProvider(OutlineProviders.roundedRect(24));
 		avatar.setClipToOutline(true);
@@ -305,6 +309,8 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 		followingBtn.setOnClickListener(this::onFollowersOrFollowingClick);
 
 		username.setOnLongClickListener(v->{
+			if(account==null)
+				return true;
 			String username=account.acct;
 			if(!username.contains("@")){
 				username+="@"+AccountSessionManager.getInstance().getAccount(accountID).domain;
@@ -330,7 +336,11 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 		nameEdit.addTextChangedListener(new SimpleTextWatcher(e->editDirty=true));
 		bioEdit.addTextChangedListener(new SimpleTextWatcher(e->editDirty=true));
 
-		usernameDomain.setOnClickListener(v->new DecentralizationExplainerSheet(getActivity(), accountID, account).show());
+		usernameDomain.setOnClickListener(v->{
+			if(account==null)
+				return;
+			new DecentralizationExplainerSheet(getActivity(), accountID, account).show();
+		});
 		qrCodeButton.setOnClickListener(v->{
 			Bundle args=new Bundle();
 			args.putString("account", accountID);
@@ -461,6 +471,8 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 				return true;
 			}
 		});
+		if(!loaded)
+			bindHeaderViewForPreviewMaybe();
 	}
 
 	@Override
@@ -505,7 +517,41 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 		}
 	}
 
+	private void bindHeaderViewForPreviewMaybe(){
+		if(loaded)
+			return;
+		String username=getArguments().getString("accountUsername");
+		String domain=getArguments().getString("accountDomain");
+		if(TextUtils.isEmpty(username) || TextUtils.isEmpty(domain))
+			return;
+		content.setVisibility(View.VISIBLE);
+		progress.setVisibility(View.GONE);
+		errorView.setVisibility(View.GONE);
+		innerProgress.setVisibility(View.VISIBLE);
+		this.username.setText(username);
+		name.setText(username);
+		usernameDomain.setText(domain);
+		avatar.setImageResource(R.drawable.image_placeholder);
+		cover.setImageResource(R.drawable.image_placeholder);
+		actions.setVisibility(View.GONE);
+		bio.setVisibility(View.GONE);
+		countersLayout.setVisibility(View.GONE);
+		tabsDivider.setVisibility(View.GONE);
+	}
+
 	private void bindHeaderView(){
+		if(innerProgress.getVisibility()==View.VISIBLE){
+			TransitionManager.beginDelayedTransition(contentView, new TransitionSet()
+					.addTransition(new Fade(Fade.IN | Fade.OUT))
+					.excludeChildren(actions, true)
+					.setDuration(250)
+					.setInterpolator(CubicBezierInterpolator.DEFAULT)
+			);
+			innerProgress.setVisibility(View.GONE);
+			countersLayout.setVisibility(View.VISIBLE);
+			actions.setVisibility(View.VISIBLE);
+			tabsDivider.setVisibility(View.VISIBLE);
+		}
 		setTitle(account.displayName);
 		setSubtitle(getResources().getQuantityString(R.plurals.x_posts, (int)(account.statusesCount%1000), account.statusesCount));
 		ViewImageLoader.load(avatar, null, new UrlImageLoaderRequest(GlobalUserPreferences.playGifs ? account.avatar : account.avatarStatic, V.dp(100), V.dp(100)));
@@ -1082,6 +1128,8 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 	}
 
 	private void onAvatarClick(View v){
+		if(account==null)
+			return;
 		if(isInEditMode){
 			startImagePicker(AVATAR_RESULT);
 		}else{
@@ -1095,6 +1143,8 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 	}
 
 	private void onCoverClick(View v){
+		if(account==null)
+			return;
 		if(isInEditMode){
 			startImagePicker(COVER_RESULT);
 		}else{

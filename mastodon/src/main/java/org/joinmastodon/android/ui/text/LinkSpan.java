@@ -2,9 +2,12 @@ package org.joinmastodon.android.ui.text;
 
 import android.content.Context;
 import android.text.TextPaint;
+import android.text.TextUtils;
 import android.text.style.CharacterStyle;
 
+import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.model.Hashtag;
+import org.joinmastodon.android.model.Mention;
 import org.joinmastodon.android.ui.utils.UiUtils;
 
 public class LinkSpan extends CharacterStyle {
@@ -39,7 +42,21 @@ public class LinkSpan extends CharacterStyle {
 	public void onClick(Context context){
 		switch(getType()){
 			case URL -> UiUtils.openURL(context, accountID, link, parentObject);
-			case MENTION -> UiUtils.openProfileByID(context, accountID, link);
+			case MENTION -> {
+				String username, domain;
+				if(linkObject instanceof Mention m && !TextUtils.isEmpty(m.acct)){
+					String[] parts=m.acct.split("@", 2);
+					username=parts[0];
+					if(parts.length==2){
+						domain=parts[1];
+					}else{
+						domain=AccountSessionManager.get(accountID).domain;
+					}
+				}else{
+					username=domain=null;
+				}
+				UiUtils.openProfileByID(context, accountID, link, username, domain);
+			}
 			case HASHTAG -> {
 				if(linkObject instanceof Hashtag ht)
 					UiUtils.openHashtagTimeline(context, accountID, ht);
