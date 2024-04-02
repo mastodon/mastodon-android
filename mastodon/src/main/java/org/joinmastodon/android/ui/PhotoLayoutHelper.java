@@ -58,7 +58,7 @@ public class PhotoLayoutHelper{
 		float avgRatio=!ratios.isEmpty() ? sum(ratios)/ratios.size() : 1.0f;
 
 		if(cnt==2){
-			if(allAreWide && avgRatio>1.4*maxRatio && (ratios.get(1)-ratios.get(0))<0.2){ // two wide photos, one above the other
+			if(allAreWide && avgRatio>1.4*maxRatio && Math.abs(ratios.get(1)-ratios.get(0))<0.2){ // two wide photos, one above the other
 				float h=Math.max(Math.min(MAX_WIDTH/ratios.get(0), Math.min(MAX_WIDTH/ratios.get(1), (MAX_HEIGHT-GAP)/2.0f)), MIN_HEIGHT/2f);
 
 				result.width=MAX_WIDTH;
@@ -69,7 +69,23 @@ public class PhotoLayoutHelper{
 						new TiledLayoutResult.Tile(1, 1, 0, 0),
 						new TiledLayoutResult.Tile(1, 1, 0, 1)
 				};
-			}else if(allAreWide || allAreSquare){ // next to each other, same ratio
+			}else if(allAreWide){ // two wide photos, one above the other, different ratios
+				result.width=MAX_WIDTH;
+				float h0=MAX_WIDTH/ratios.get(0);
+				float h1=MAX_WIDTH/ratios.get(1);
+				if(h0+h1<MIN_HEIGHT){
+					float prevTotalHeight=h0+h1;
+					h0=MIN_HEIGHT*(h0/prevTotalHeight);
+					h1=MIN_HEIGHT*(h1/prevTotalHeight);
+				}
+				result.height=Math.round(h0+h1+GAP);
+				result.rowSizes=new int[]{Math.round(h0), Math.round(h1)};
+				result.columnSizes=new int[]{MAX_WIDTH};
+				result.tiles=new TiledLayoutResult.Tile[]{
+						new TiledLayoutResult.Tile(1, 1, 0, 0),
+						new TiledLayoutResult.Tile(1, 1, 0, 1)
+				};
+			}else if(allAreSquare){ // next to each other, same ratio
 				float w=((MAX_WIDTH-GAP)/2);
 				float h=Math.max(Math.min(w/ratios.get(0), Math.min(w/ratios.get(1), MAX_HEIGHT)), MIN_HEIGHT);
 
