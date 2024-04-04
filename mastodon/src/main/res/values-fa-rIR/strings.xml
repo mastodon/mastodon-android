@@ -24,7 +24,7 @@
 	<string name="cancel">لغو</string>
 	<plurals name="followers">
 		<item quantity="one">پی‌گیر</item>
-		<item quantity="other">پی‌گیرندگان</item>
+		<item quantity="other">پی‌گیرنده</item>
 	</plurals>
 	<plurals name="following">
 		<item quantity="one">پی‌گرفته</item>
@@ -166,7 +166,7 @@
 	<string name="save">ذخیره</string>
 	<string name="add_alt_text">اضافه کردن متن جایگزین</string>
 	<string name="visibility_public">عمومی</string>
-	<string name="visibility_followers_only">فقط پی‌گیرندگان</string>
+	<string name="visibility_followers_only">فقط پی‌گیران</string>
 	<string name="visibility_private">فقط افرادی نام‌برده</string>
 	<string name="recent_searches">اخیر</string>
 	<string name="skip">بعدی</string>
@@ -249,11 +249,11 @@
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<plurals name="x_followers">
 		<item quantity="one">%,d پی‌گیر</item>
-		<item quantity="other">%,d پی‌گیرندگان</item>
+		<item quantity="other">%,d پی‌گیرنده</item>
 	</plurals>
 	<plurals name="x_following">
-		<item quantity="one">%,d پی‌گیرنده</item>
-		<item quantity="other">%,d پی‌گیرنده</item>
+		<item quantity="one">%,d پی‌گرفته</item>
+		<item quantity="other">%,d پی‌گرفته</item>
 	</plurals>
 	<plurals name="x_favorites">
 		<item quantity="one">%,d برگزیده</item>
@@ -337,7 +337,7 @@
 	<string name="server_policy_disagree">با %s مخالفم</string>
 	<string name="profile_bio">دربارهٔ شما</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
-	<string name="sending_follows">پی‌گیری کاربران…</string>
+	<string name="sending_follows">درحال پی‌گرفتن کاربران…</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
 	<string name="signup_email_domain_blocked">%1$s اجازه ثبت نام از %2$s را نمی دهد. یکی دیگر را امتحان کنید یا &lt;a&gt;کارساز دیگری انتخاب کنید&lt;/a&gt;.</string>
 	<string name="spoiler_show">به هرصورت نشان داده شود</string>
@@ -600,7 +600,7 @@
 	<string name="remove_from_list">برداشتن از سیاهه</string>
 	<string name="confirm_remove_list_member">حذف عضو؟</string>
 	<string name="no_followed_hashtags_title">با پیگیری برچسب‌ها با علاقه‌مندی‌ها همراه باشید</string>
-	<string name="no_followed_hashtags_subtitle">پیگیرهای شما اینجا ظاهر می‌شود</string>
+	<string name="no_followed_hashtags_subtitle">پی‌گیرهای شما اینجا ظاهر می‌شود</string>
 	<string name="no_lists_title">سازماندهی کردن خوراک خانه خود با سیاهه‌ها</string>
 	<string name="no_lists_subtitle">مال شما اینجا ظاهر می‌شود</string>
 	<string name="manage_accounts">افزودن یا جابجا شدن بین حساب‌ها</string>
