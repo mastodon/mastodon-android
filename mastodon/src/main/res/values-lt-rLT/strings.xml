@@ -773,5 +773,27 @@ Kuo daugiau žmonių seksi, tuo aktyvesnis ir įdomesnis jis bus.</string>
 	<string name="tab_home">Pagrindinis</string>
 	<string name="tab_search">Naršyti</string>
 	<string name="tab_profile">Profilis</string>
+	<string name="pin_post">Prisegti prie profilio</string>
+	<string name="unpin_post">Atsegti iš profilio</string>
+	<string name="post_pinned">Įrašas buvo prisegtas</string>
+	<string name="post_unpinned">Įrašas buvo atsegtas</string>
 	<!-- %s is the username -->
+	<string name="enable_new_post_notifications">Pranešti man, kai %s paskelbia</string>
+	<string name="disable_new_post_notifications">Nustoti man pranešti, kai %s paskelbia</string>
+	<string name="new_post_notifications_enabled">Gausi pranešimus apie naujus įrašus.</string>
+	<string name="new_post_notifications_disabled">Negausi daugiau pranešimus apie naujus įrašus.</string>
+	<string name="mute_conversation">Nutildyti pokalbį</string>
+	<string name="unmute_conversation">Atšaukti pokalbio nutildymą</string>
+	<string name="visibility_unlisted">Tyliai vieša</string>
+	<string name="filtered_notifications">Filtruojami pranešimai</string>
+	<string name="filter_notifications">Filtruoti pranešimus iš...</string>
+	<string name="notification_filter_following">Žmonės, kurių neseki</string>
+	<string name="notification_filter_following_explanation">Kol jų nepatvirtinsi rankiniu būdu. </string>
+	<string name="notification_filter_followers">Žmonės, kurie neseka</string>
+	<string name="notification_filter_followers_explanation">Įtraukant žmones, kurie tave seka mažiau nei 3 dienas.</string>
+	<string name="notification_filter_new_accounts">Naujos paskyros</string>
+	<string name="notification_filter_new_accounts_explanation">Sukurta per pastarąsias 30 dienų</string>
+	<string name="notification_filter_mentions">Nepageidaujami privatūs paminėjimai</string>
+	<string name="notification_filter_mentions_explanation">Filtruojama, nebent tai atsakymas į tavo paties paminėjimą arba jei seki siuntėją.</string>
+	<string name="allow_notifications">Leisti pranešimus</string>
 </resources>
