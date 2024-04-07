@@ -712,7 +712,7 @@ Kuo daugiau žmonių seksi, tuo aktyvesnis ir įdomesnis jis bus.</string>
 	<string name="info">Informacija</string>
 	<string name="button_reblogged">Pakelta</string>
 	<string name="button_favorited">Pamėgta</string>
-	<string name="bookmarked">Pažymėta</string>
+	<string name="bookmarked">Pridėta</string>
 	<string name="join_server_x_with_invite">Prisijungti %s su kvietimu</string>
 	<string name="expired_invite_link">Nebegaliojanti kvietimo nuoroda</string>
 	<string name="expired_clipboard_invite_link_alert">Tavo iškarpinėje esančios %1$s kvietimo nuorodos galiojimo laikas baigėsi ir jos negalima naudoti registracijai.\n\nGali paprašyti naujos nuorodos iš esamo naudotojo, užsiregistruoti per %2$s arba pasirinkti kitą serverį, per kurį nori užsiregistruoti.</string>
@@ -796,4 +796,14 @@ Kuo daugiau žmonių seksi, tuo aktyvesnis ir įdomesnis jis bus.</string>
 	<string name="notification_filter_mentions">Nepageidaujami privatūs paminėjimai</string>
 	<string name="notification_filter_mentions_explanation">Filtruojama, nebent tai atsakymas į tavo paties paminėjimą arba jei seki siuntėją.</string>
 	<string name="allow_notifications">Leisti pranešimus</string>
+	<string name="mute_notifications">Atmesti pranešimo prašymą</string>
+	<plurals name="x_people_you_may_know">
+		<item quantity="one">%,d žmogus, kurį galbūt pažįsti</item>
+		<item quantity="few">%,d žmonės, kuriuos galbūt pažįsti</item>
+		<item quantity="many">%,d žmones, kuriuos galbūt pažįsti</item>
+		<item quantity="other">%,d žmonių, kurių galbūt pažįsti</item>
+	</plurals>
+	<string name="notifications_from_user">Pranešimai iš %s</string>
+	<string name="notifications_muted">Pranešimai iš %s buvo atmesti.</string>
+	<string name="notifications_allowed">%s dabar bus rodomi pranešimų sąraše.</string>
 </resources>
