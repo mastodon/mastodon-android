@@ -198,6 +198,7 @@ public class ProfileFeaturedFragment extends BaseStatusListFragment<SearchResult
 	private void showAllFeaturedHashtags(){
 		Bundle args=new Bundle();
 		args.putString("account", accountID);
+		args.putParcelable("profileAccount", Parcels.wrap(profileAccount));
 		ArrayList<Parcelable> tags=featuredTags.stream().map(Parcels::wrap).collect(Collectors.toCollection(ArrayList::new));
 		args.putParcelableArrayList("hashtags", tags);
 		Nav.go(getActivity(), FeaturedHashtagsListFragment.class, args);
