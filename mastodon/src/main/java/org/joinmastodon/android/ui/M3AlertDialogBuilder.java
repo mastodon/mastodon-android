@@ -50,6 +50,11 @@ public class M3AlertDialogBuilder extends AlertDialog.Builder{
 				helpButton.setSelected(helpText.getVisibility()==View.VISIBLE);
 			});
 			setCustomTitle(titleLayout);
+		}else if(!TextUtils.isEmpty(title)){
+			View titleLayout=getContext().getSystemService(LayoutInflater.class).inflate(R.layout.alert_title, null);
+			TextView title=titleLayout.findViewById(R.id.title);
+			title.setText(this.title);
+			setCustomTitle(titleLayout);
 		}
 
 		alert=super.create();
