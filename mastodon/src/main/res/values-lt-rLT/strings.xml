@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
 	<string name="log_in">Prisijungti</string>
 	<string name="next">Kitas</string>
 	<string name="loading_instance">Gaunama serverio informacija…</string>
@@ -617,7 +617,7 @@
 	<string name="post_translated">Išversta iš %1$s naudojant %2$s</string>
 	<string name="translation_show_original">Rodyti originalą</string>
 	<string name="translation_failed">Vertimas nepavyko. Galbūt administratorius (-ė) šiame serveryje neįjungė vertimų arba šiame serveryje veikia senesnė Mastodon versija, kurioje vertimai dar nepalaikomi.</string>
-	<string name="settings_privacy">Privatumas ir pasiekiamas</string>
+	<string name="settings_privacy">Privatumas ir pasiekiamumas</string>
 	<string name="settings_discoverable">Rekomenduoti profilį ir įrašus į atradimo algoritmus</string>
 	<string name="settings_indexable">Įtraukti viešus įrašus į paieškos rezultatus</string>
 	<plurals name="x_participants">
@@ -712,7 +712,7 @@ Kuo daugiau žmonių seksi, tuo aktyvesnis ir įdomesnis jis bus.</string>
 	<string name="info">Informacija</string>
 	<string name="button_reblogged">Pakelta</string>
 	<string name="button_favorited">Pamėgta</string>
-	<string name="bookmarked">Pažymėta</string>
+	<string name="bookmarked">Pridėta</string>
 	<string name="join_server_x_with_invite">Prisijungti %s su kvietimu</string>
 	<string name="expired_invite_link">Nebegaliojanti kvietimo nuoroda</string>
 	<string name="expired_clipboard_invite_link_alert">Tavo iškarpinėje esančios %1$s kvietimo nuorodos galiojimo laikas baigėsi ir jos negalima naudoti registracijai.\n\nGali paprašyti naujos nuorodos iš esamo naudotojo, užsiregistruoti per %2$s arba pasirinkti kitą serverį, per kurį nori užsiregistruoti.</string>
@@ -773,4 +773,37 @@ Kuo daugiau žmonių seksi, tuo aktyvesnis ir įdomesnis jis bus.</string>
 	<string name="tab_home">Pagrindinis</string>
 	<string name="tab_search">Naršyti</string>
 	<string name="tab_profile">Profilis</string>
+	<string name="pin_post">Prisegti prie profilio</string>
+	<string name="unpin_post">Atsegti iš profilio</string>
+	<string name="post_pinned">Įrašas buvo prisegtas</string>
+	<string name="post_unpinned">Įrašas buvo atsegtas</string>
+	<!-- %s is the username -->
+	<string name="enable_new_post_notifications">Pranešti man, kai %s paskelbia</string>
+	<string name="disable_new_post_notifications">Nustoti man pranešti, kai %s paskelbia</string>
+	<string name="new_post_notifications_enabled">Gausi pranešimus apie naujus įrašus.</string>
+	<string name="new_post_notifications_disabled">Negausi daugiau pranešimus apie naujus įrašus.</string>
+	<string name="mute_conversation">Nutildyti pokalbį</string>
+	<string name="unmute_conversation">Atšaukti pokalbio nutildymą</string>
+	<string name="visibility_unlisted">Tyliai vieša</string>
+	<string name="filtered_notifications">Filtruojami pranešimai</string>
+	<string name="filter_notifications">Filtruoti pranešimus iš...</string>
+	<string name="notification_filter_following">Žmonės, kurių neseki</string>
+	<string name="notification_filter_following_explanation">Kol jų nepatvirtinsi rankiniu būdu. </string>
+	<string name="notification_filter_followers">Žmonės, kurie neseka</string>
+	<string name="notification_filter_followers_explanation">Įtraukant žmones, kurie tave seka mažiau nei 3 dienas.</string>
+	<string name="notification_filter_new_accounts">Naujos paskyros</string>
+	<string name="notification_filter_new_accounts_explanation">Sukurta per pastarąsias 30 dienų</string>
+	<string name="notification_filter_mentions">Nepageidaujami privatūs paminėjimai</string>
+	<string name="notification_filter_mentions_explanation">Filtruojama, nebent tai atsakymas į tavo paties paminėjimą arba jei seki siuntėją.</string>
+	<string name="allow_notifications">Leisti pranešimus</string>
+	<string name="mute_notifications">Atmesti pranešimo prašymą</string>
+	<plurals name="x_people_you_may_know">
+		<item quantity="one">%,d žmogus, kurį galbūt pažįsti</item>
+		<item quantity="few">%,d žmonės, kuriuos galbūt pažįsti</item>
+		<item quantity="many">%,d žmones, kuriuos galbūt pažįsti</item>
+		<item quantity="other">%,d žmonių, kurių galbūt pažįsti</item>
+	</plurals>
+	<string name="notifications_from_user">Pranešimai iš %s</string>
+	<string name="notifications_muted">Pranešimai iš %s buvo atmesti.</string>
+	<string name="notifications_allowed">%s dabar bus rodomi pranešimų sąraše.</string>
 </resources>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
 	<string name="log_in">Մուտք գործել</string>
 	<string name="next">Հաջորդը</string>
 	<string name="loading_instance">Սերվերի տվյալների ստացում...</string>
@@ -282,6 +282,7 @@
 	<!-- %s is file size -->
 	<string name="download_update">Ներբեռնել (%s)</string>
 	<string name="install_update">Տեղադրել</string>
+	<string name="privacy_policy_title">Ձեր գաղտնիությունը</string>
 	<string name="privacy_policy_subtitle">Չնայած նրան, որ Մաստոդոնի ծրագիրը չի պահպանում անձնական տվյալներ, սերվերը, որտեղ դուք գրանցվում եք, կարող է ունենալ այլ գաղտնիության քաղաքականություն։\n\nԵթե դուք համաձայն չեք %s-ի գաղտնիության քաղաքականության հետ, դուք կարող եք հետ գնալ եւ ընտրել ուրիշ սերվեր։</string>
 	<string name="i_agree">Համաձայն եմ</string>
 	<string name="empty_list">Ցանկը դատարկ է</string>
@@ -323,6 +324,7 @@
 	<string name="spoiler_hide">Թաքցնել</string>
 	<string name="poll_multiple_choice">Ընտրեք առնվազն մեկը</string>
 	<string name="save_changes">Պահպանել</string>
+	<string name="profile_featured">Նշանավոր</string>
 	<string name="profile_timeline">Հոսք</string>
 	<string name="view_all">Դիտել բոլորը</string>
 	<string name="profile_endorsed_accounts">Հաշիվներ</string>
@@ -337,6 +339,8 @@
 	<string name="welcome_paragraph1">Մաստոդոնը ապակենտրոնացված սոցցանց է, այսինքն՝ այն չի պատկանում մի ընկերության։ Այն բաղկացած է բազմաթիվ անկախ և կապակցված սերվերներից։</string>
 	<string name="what_are_servers">Ի՞նչ է սերվերը։</string>
 	<string name="welcome_paragraph2">Մաստոդոնի որևէ հաշիվ գտնվում է սերվերի վրա - ամեն մեկը՝ իր արժեքներով, կանոններով և ադմիններով։ Դուք կարող եք հետևել և շփվել որևէ սերվերի մարդկանց հետ՝ անկախ ձեր ընտրությունից։</string>
+	<string name="opening_link">Հղումը բացվում է...</string>
+	<string name="link_not_supported">Հղումը համատեղելի չէ ծրագրի հետ</string>
 	<string name="log_out_all_accounts">Ելք բոլոր հաշիվներից</string>
 	<string name="retry">Կրկին</string>
 	<string name="post_failed">Չհաջողվեց ուղարկել գրառումը</string>
@@ -381,8 +385,12 @@
 	<string name="forward_report_to_server">Ուղարկել %s</string>
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
 	<string name="reported">Բողոքարկված</string>
+	<string name="report_unfollow_explanation">Նրա գրառումները այլևս չտեսնելու համար ապահետեւեք նրան։</string>
 	<string name="muted_user">%s-ը լռեցվել է</string>
+	<string name="blocked_user">%s-ը արգելափակվել է</string>
+	<string name="mark_all_notifications_read">Նշել բոլորը` որպես ընթերցված</string>
 	<string name="settings_display">Տեսք</string>
+	<string name="settings_filters">Զտիչներ</string>
 	<string name="settings_server_explanation">Կանոններ, մոդերատորներ</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">%s-ի մասին</string>
@@ -439,6 +447,10 @@
 	<plurals name="alt_text_reminder_x_images">
 		<item quantity="one">%s նկար չունի բացատրություն։ Հրապարակե՞լ։</item>
 		<item quantity="other">%s նկար չունի բացատրություն։ Հրապարակե՞լ։</item>
+	</plurals>
+	<plurals name="alt_text_reminder_x_attachments">
+		<item quantity="one">%s մեդիա չունի բացատրություն։ Հրապարակե՞լ։</item>
+		<item quantity="other">%s մեդիա չունի բացատրություն։ Հրապարակե՞լ։</item>
 	</plurals>
 	<string name="count_one">Մեկ</string>
 	<string name="count_two">Երկու</string>
@@ -513,6 +525,9 @@
 	<!-- %1$s is the language, %2$s is the name of the translation service -->
 	<string name="post_translated">Թարգմանված %1$sից` %2$s-ի միջոցով</string>
 	<string name="translation_show_original">Ցոյց տալ բնօրինակը</string>
+	<string name="settings_privacy">Գաղտնիություն և հասանելիություն</string>
+	<string name="settings_discoverable">Ցուցադրել հաշիվը եւ գրառումները հայտնաբերման ալգորիթմներում</string>
+	<string name="settings_indexable">Ցուցադրել հանրային գրառումները որոնման արդյունքներում</string>
 	<plurals name="x_participants">
 		<item quantity="one">%,d մասնակից</item>
 		<item quantity="other">%,d մասնակից</item>
@@ -529,7 +544,9 @@
 	<string name="delete_list">Ջնջել ցանկը</string>
 	<!-- %s is the name of the list -->
 	<string name="delete_list_confirm">Ջնջե՞լ «%s»-ը</string>
+	<string name="list_name">Ցանկի անվանում</string>
 	<string name="list_show_replies_to">Ցույց տալ պատասխանները</string>
+	<string name="list_replies_no_one">Ոչ ոք</string>
 	<string name="remove">Ջնջել</string>
 	<string name="add_list_member">Ավելացնել անդամ</string>
 	<string name="search_among_people_you_follow">Փնտրել ձեր հետեւումների մեջ</string>
@@ -556,5 +573,21 @@
 	<string name="non_mutual_title3">Բաց եղեք</string>
 	<string name="non_mutual_text3">Բոլորի շփման ձևը տարբեր է։ Պատրաստ եղեք հարմարվելու։</string>
 	<string name="discoverability">Տեսանելիություն</string>
+	<string name="app_version_copied">Տարբերակի համարը պատճենվեց</string>
+	<string name="join_server_x_with_invite">Միանալ %s-ին հրավերով</string>
+	<string name="expired_invite_link">Հղման ժամկետը անցել է</string>
+	<string name="expired_clipboard_invite_link_alert">%1$s-ի` ձեր սեղմատաղտակում գտնվող հրավերի հղման վավերության ժամկետը անցել է, և այն չի կարելի օգտագործել գրանցման համար։ \n\nԴուք կարող եք գրանցված օգտատիրոջից խնդրել նորը, գրանցվել %2$s-ի միջոցով, կամ ընտրել այլ սերվեր` գրանցվելու համար։</string>
+	<string name="invalid_invite_link">Անվավեր հրավերի հղում</string>
+	<string name="invalid_clipboard_invite_link_alert">%1$s-ի` ձեր սեղմատաղտակում գտնվող հրավերի հղումը անվավեր է, և այն չի կարելի օգտագործել գրանցման համար։ \n\nԴուք կարող եք գրանցված օգտատիրոջից խնդրել նորը, գրանցվել %2$s-ի միջոցով, կամ ընտրել այլ սերվեր` գրանցվելու համար։</string>
+	<string name="use_invite_link">Օգտագործել հղումը</string>
+	<string name="enter_invite_link">Մուտքագրեք հրավերի հղում</string>
+	<string name="this_invite_is_invalid">Այս հղումը անվավեր է։</string>
+	<string name="this_invite_has_expired">Այս հղման վավերության ժամկետը անցել է։</string>
+	<string name="invite_link_pasted">Հղումը տեղադրվեց ձեր սեղմատաղտակից։</string>
+	<string name="need_invite_to_join_server">%s-ին միանալու համար ձեզ պետք է հրավերի հղում։</string>
+	<string name="mute_user_confirm_title">Լռեցնե՞լ օգտատերին:</string>
+	<string name="user_wont_know_muted">Նա չի իմանա, որ լռեցված է։</string>
+	<string name="user_can_still_see_your_posts">Նա դեռ կարող է տեսնել ձեր գրառումները, բայց դուք նրա գրառումները չեք տեսնի։</string>
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
+	<!-- %s is the username -->
 </resources>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
 	<string name="log_in">เข้าสู่ระบบ</string>
 	<string name="next">ถัดไป</string>
 	<string name="loading_instance">กำลังเรียกข้อมูลเซิร์ฟเวอร์…</string>
@@ -678,4 +678,30 @@
 	<string name="unpin_post">ถอนหมุดจากโปรไฟล์</string>
 	<string name="post_pinned">ปักหมุดโพสต์แล้ว</string>
 	<string name="post_unpinned">ถอนหมุดโพสต์แล้ว</string>
+	<!-- %s is the username -->
+	<string name="enable_new_post_notifications">แจ้งเตือนฉันเมื่อ %s โพสต์</string>
+	<string name="disable_new_post_notifications">หยุดแจ้งเตือนฉันเมื่อ %s โพสต์</string>
+	<string name="new_post_notifications_enabled">คุณจะได้รับการแจ้งเตือนสำหรับโพสต์ใหม่</string>
+	<string name="new_post_notifications_disabled">คุณจะไม่ได้รับการแจ้งเตือนสำหรับโพสต์ใหม่อีกต่อไป</string>
+	<string name="mute_conversation">ซ่อนการสนทนา</string>
+	<string name="unmute_conversation">เลิกซ่อนการสนทนา</string>
+	<string name="visibility_unlisted">สาธารณะแบบเงียบ</string>
+	<string name="filtered_notifications">การแจ้งเตือนที่กรองอยู่</string>
+	<string name="filter_notifications">กรองการแจ้งเตือนจาก...</string>
+	<string name="notification_filter_following">ผู้คนที่คุณไม่ได้ติดตาม</string>
+	<string name="notification_filter_following_explanation">จนกว่าคุณจะอนุมัติเขาด้วยตนเอง</string>
+	<string name="notification_filter_followers">ผู้คนที่ไม่ได้ติดตามคุณ</string>
+	<string name="notification_filter_followers_explanation">รวมถึงผู้คนที่ได้ติดตามคุณน้อยกว่า 3 วัน</string>
+	<string name="notification_filter_new_accounts">บัญชีใหม่</string>
+	<string name="notification_filter_new_accounts_explanation">สร้างขึ้นภายใน 30 วันที่ผ่านมา</string>
+	<string name="notification_filter_mentions">การกล่าวถึงแบบส่วนตัวที่ไม่พึงประสงค์</string>
+	<string name="notification_filter_mentions_explanation">กรองไว้เว้นแต่การกล่าวถึงแบบส่วนตัวอยู่ในการตอบกลับการกล่าวถึงของคุณเองหรือหากคุณติดตามผู้ส่ง</string>
+	<string name="allow_notifications">อนุญาตการแจ้งเตือน</string>
+	<string name="mute_notifications">ปิดคำขอการแจ้งเตือน</string>
+	<plurals name="x_people_you_may_know">
+		<item quantity="other">%,d คนที่คุณอาจรู้จัก</item>
+	</plurals>
+	<string name="notifications_from_user">การแจ้งเตือนจาก %s</string>
+	<string name="notifications_muted">ปิดการแจ้งเตือนจาก %s แล้ว</string>
+	<string name="notifications_allowed">ตอนนี้ %s จะปรากฏในรายการการแจ้งเตือนของคุณ</string>
 </resources>
