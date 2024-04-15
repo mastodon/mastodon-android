@@ -14,7 +14,7 @@
 	<string name="user_followed_you">%s obserwuje Cię</string>
 	<string name="user_sent_follow_request">%s wysyła Tobie prośbę o obserwację</string>
 	<string name="user_favorited">%s lubi Twój post</string>
-	<string name="notification_boosted">%s podał(a/o) Twojego posta dalej</string>
+	<string name="notification_boosted">%s podał(a/o) Twój wpis dalej</string>
 	<string name="poll_ended">Zobacz wyniki ankiety, w której oddałeś/aś głos</string>
 	<string name="share_toot_title">Udostępnij</string>
 	<string name="settings">Ustawienia</string>
@@ -146,7 +146,7 @@
 	<string name="report_reason_personal">Nie lubię tego</string>
 	<string name="report_reason_personal_subtitle">To coś, czego inni nie chcieliby widzieć</string>
 	<string name="report_reason_spam">To spam</string>
-	<string name="report_reason_spam_subtitle">Niebezpieczne linki, fałszywe zaangażowanie lub powtarzające się odpowiedzi</string>
+	<string name="report_reason_spam_subtitle">Niebezpieczne odnośniki, fałszywe zaangażowanie lub powtarzające się odpowiedzi</string>
 	<string name="report_reason_violation">To narusza zasady serwera</string>
 	<string name="report_reason_violation_subtitle">Wiesz, że narusza to określone zasady</string>
 	<string name="report_reason_other">To coś innego</string>
@@ -215,7 +215,7 @@
 	<string name="theme_dark">Ciemny</string>
 	<string name="settings_behavior">Zachowanie</string>
 	<string name="settings_gif">Wyświetlaj animowane awatary i emoji</string>
-	<string name="settings_custom_tabs">Otwieraj linki za pomocą</string>
+	<string name="settings_custom_tabs">Otwieraj odnośniki za pomocą</string>
 	<string name="settings_notifications">Powiadomienia</string>
 	<string name="settings_contribute">Weź udział w rozwoju Mastodona</string>
 	<string name="settings_tos">Zasady użytkowania</string>
@@ -402,7 +402,7 @@
 	<string name="log_out_all_accounts">Wyloguj się wszędzie</string>
 	<string name="confirm_log_out_all_accounts">Wylogować się ze wszystkich kont?</string>
 	<string name="retry">Ponów</string>
-	<string name="post_failed">Nie udało się wysłać posta</string>
+	<string name="post_failed">Nie udało się wysłać wpisu</string>
 	<!-- %s is formatted file size ("467 KB image") -->
 	<string name="attachment_description_image">Obraz %s</string>
 	<string name="attachment_description_video">Film %s</string>
@@ -455,11 +455,11 @@
 	<string name="settings_server_explanation">Przegląd, zasady, moderacja</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">O %s</string>
-	<string name="default_post_language">Domyślny język posta</string>
+	<string name="default_post_language">Domyślny język wpisu</string>
 	<string name="settings_alt_text_reminders">Dodaj opis przypomnienia</string>
 	<string name="settings_confirm_unfollow">Zapytaj przed usunięciem obserwacji</string>
 	<string name="settings_confirm_boost">Zapytaj przed podbijaniem</string>
-	<string name="settings_confirm_delete_post">Zapytaj przed usunięciem posta</string>
+	<string name="settings_confirm_delete_post">Zapytaj przed usunięciem wpisów</string>
 	<string name="pause_all_notifications">Wstrzymaj wszystkie powiadomienia</string>
 	<string name="pause_notifications_off">Wyłącz</string>
 	<string name="notifications_policy_anyone">Każdy</string>
