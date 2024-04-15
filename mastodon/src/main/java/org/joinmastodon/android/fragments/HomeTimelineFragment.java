@@ -264,6 +264,8 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 			E.register(this);
 			updateUpdateState(GithubSelfUpdater.getInstance().getState());
 		}
+		if(currentDonationCampaign!=null)
+			showDonationBanner(currentDonationCampaign);
 	}
 
 	@Override
@@ -618,6 +620,8 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 		if(GithubSelfUpdater.needSelfUpdating()){
 			E.unregister(this);
 		}
+		donationBanner=null;
+		donationBannerDismissing=false;
 	}
 
 	private void updateUpdateState(GithubSelfUpdater.UpdateState state){

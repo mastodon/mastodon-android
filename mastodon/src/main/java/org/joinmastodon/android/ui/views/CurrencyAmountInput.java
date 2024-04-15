@@ -294,7 +294,6 @@ public class CurrencyAmountInput extends LinearLayout implements CustomViewHelpe
 		public CurrencySymbolSpan(Paint paint){
 			this.paint=new Paint(paint);
 			this.paint.setTextSize(paint.getTextSize()*0.66f);
-			this.paint.setAlpha(77);
 		}
 
 		@Override
@@ -304,6 +303,8 @@ public class CurrencyAmountInput extends LinearLayout implements CustomViewHelpe
 
 		@Override
 		public void draw(@NonNull Canvas canvas, CharSequence text, int start, int end, float x, int top, int y, int bottom, @NonNull Paint paint){
+			this.paint.setColor(paint.getColor());
+			this.paint.setAlpha(77);
 			if(!symbolBeforeAmount)
 				x+=dp(2);
 			canvas.drawText(currentCurrency.symbol, x, top+dp(1.5f)-this.paint.ascent(), this.paint);
