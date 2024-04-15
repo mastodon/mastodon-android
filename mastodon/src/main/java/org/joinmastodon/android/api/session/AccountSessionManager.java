@@ -3,11 +3,16 @@ package org.joinmastodon.android.api.session;
 import android.app.Activity;
 import android.app.NotificationManager;
 import android.content.ComponentName;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ShortcutInfo;
 import android.content.pm.ShortcutManager;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteException;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.graphics.drawable.Icon;
 import android.net.Uri;
 import android.os.Build;
@@ -18,11 +23,13 @@ import org.joinmastodon.android.E;
 import org.joinmastodon.android.MainActivity;
 import org.joinmastodon.android.MastodonApp;
 import org.joinmastodon.android.R;
+import org.joinmastodon.android.api.CacheController;
+import org.joinmastodon.android.api.DatabaseRunnable;
 import org.joinmastodon.android.api.MastodonAPIController;
 import org.joinmastodon.android.api.PushSubscriptionManager;
+import org.joinmastodon.android.api.requests.accounts.GetOwnAccount;
 import org.joinmastodon.android.api.requests.filters.GetLegacyFilters;
 import org.joinmastodon.android.api.requests.instance.GetCustomEmojis;
-import org.joinmastodon.android.api.requests.accounts.GetOwnAccount;
 import org.joinmastodon.android.api.requests.instance.GetInstance;
 import org.joinmastodon.android.api.requests.oauth.CreateOAuthApp;
 import org.joinmastodon.android.events.EmojiUpdatedEvent;
@@ -30,9 +37,10 @@ import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.Application;
 import org.joinmastodon.android.model.Emoji;
 import org.joinmastodon.android.model.EmojiCategory;
-import org.joinmastodon.android.model.LegacyFilter;
 import org.joinmastodon.android.model.Instance;
+import org.joinmastodon.android.model.LegacyFilter;
 import org.joinmastodon.android.model.Token;
+import org.joinmastodon.android.ui.utils.UiUtils;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -60,6 +68,7 @@ public class AccountSessionManager{
 	private static final String TAG="AccountSessionManager";
 	public static final String SCOPE="read write follow push";
 	public static final String REDIRECT_URI="mastodon-android-auth://callback";
+	private static final int DB_VERSION=1;
 
 	private static final AccountSessionManager instance=new AccountSessionManager();
 
@@ -73,6 +82,8 @@ public class AccountSessionManager{
 	private String lastActiveAccountID;
 	private SharedPreferences prefs;
 	private boolean loadedInstances;
+	private DatabaseHelper db;
+	private final Runnable databaseCloseRunnable=this::closeDatabase;
 
 	public static AccountSessionManager getInstance(){
 		return instance;
@@ -442,6 +453,68 @@ public class AccountSessionManager{
 		}
 	}
 
+	private void closeDelayed(){
+		CacheController.databaseThread.postRunnable(databaseCloseRunnable, 10_000);
+	}
+
+	public void closeDatabase(){
+		if(db!=null){
+			if(BuildConfig.DEBUG)
+				Log.d(TAG, "closeDatabase");
+			db.close();
+			db=null;
+		}
+	}
+
+	private void cancelDelayedClose(){
+		if(db!=null){
+			CacheController.databaseThread.handler.removeCallbacks(databaseCloseRunnable);
+		}
+	}
+
+	private SQLiteDatabase getOrOpenDatabase(){
+		if(db==null)
+			db=new DatabaseHelper();
+		return db.getWritableDatabase();
+	}
+
+	private void runOnDbThread(DatabaseRunnable r){
+		cancelDelayedClose();
+		CacheController.databaseThread.postRunnable(()->{
+			try{
+				SQLiteDatabase db=getOrOpenDatabase();
+				r.run(db);
+			}catch(SQLiteException|IOException x){
+				Log.w(TAG, x);
+			}finally{
+				closeDelayed();
+			}
+		}, 0);
+	}
+
+	public void runIfDonationCampaignNotDismissed(String id, Runnable action){
+		runOnDbThread(db->{
+			try(Cursor cursor=db.query("dismissed_donation_campaigns", null, "id=?", new String[]{id}, null, null, null)){
+				if(!cursor.moveToFirst()){
+					UiUtils.runOnUiThread(action);
+				}
+			}
+		});
+	}
+
+	public void markDonationCampaignAsDismissed(String id){
+		runOnDbThread(db->{
+			ContentValues values=new ContentValues();
+			values.put("id", id);
+			values.put("dismissed_at", System.currentTimeMillis());
+			db.insert("dismissed_donation_campaigns", null, values);
+		});
+	}
+
+	public void clearDismissedDonationCampaigns(){
+		runOnDbThread(db->db.delete("dismissed_donation_campaigns", null, null));
+	}
+
 	private static class SessionsStorageWrapper{
 		public List<AccountSession> accounts;
 	}
@@ -450,5 +523,25 @@ public class AccountSessionManager{
 		public Instance instance;
 		public List<Emoji> emojis;
 		public long lastUpdated;
+	}
+
+	private static class DatabaseHelper extends SQLiteOpenHelper{
+		public DatabaseHelper(){
+			super(MastodonApp.context, "accounts.db", null, DB_VERSION);
+		}
+
+		@Override
+		public void onCreate(SQLiteDatabase db){
+			db.execSQL("""
+						CREATE TABLE `dismissed_donation_campaigns` (
+							`id` text PRIMARY KEY,
+							`dismissed_at` bigint
+						)""");
+		}
+
+		@Override
+		public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion){
+
+		}
 	}
 }

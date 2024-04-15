@@ -24,7 +24,6 @@ import org.joinmastodon.android.model.Notification;
 import org.joinmastodon.android.model.PaginatedResponse;
 import org.joinmastodon.android.model.SearchResult;
 import org.joinmastodon.android.model.Status;
-import org.joinmastodon.android.ui.utils.UiUtils;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -45,8 +44,8 @@ import me.grishka.appkit.utils.WorkerThread;
 public class CacheController{
 	private static final String TAG="CacheController";
 	private static final int DB_VERSION=3;
-	private static final WorkerThread databaseThread=new WorkerThread("databaseThread");
-	private static final Handler uiHandler=new Handler(Looper.getMainLooper());
+	public static final WorkerThread databaseThread=new WorkerThread("databaseThread");
+	public static final Handler uiHandler=new Handler(Looper.getMainLooper());
 
 	private final String accountID;
 	private DatabaseHelper db;
@@ -466,10 +465,5 @@ public class CacheController{
 			db.execSQL("ALTER TABLE `notifications_all` ADD `time` INTEGER NOT NULL DEFAULT 0");
 			db.execSQL("ALTER TABLE `notifications_mentions` ADD `time` INTEGER NOT NULL DEFAULT 0");
 		}
-	}
-
-	@FunctionalInterface
-	private interface DatabaseRunnable{
-		void run(SQLiteDatabase db) throws IOException;
 	}
 }

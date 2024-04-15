@@ -28,7 +28,8 @@ public class SettingsDebugFragment extends BaseSettingsFragment<Void>{
 				selfUpdateItem=new ListItem<>("Force self-update", null, this::onForceSelfUpdateClick),
 				resetUpdateItem=new ListItem<>("Reset self-updater", null, this::onResetUpdaterClick),
 				new ListItem<>("Reset search info banners", null, this::onResetDiscoverBannersClick),
-				new ListItem<>("Reset pre-reply sheets", null, this::onResetPreReplySheetsClick)
+				new ListItem<>("Reset pre-reply sheets", null, this::onResetPreReplySheetsClick),
+				new ListItem<>("Clear dismissed donation campaigns", null, this::onClearDismissedCampaignsClick)
 		));
 		if(!GithubSelfUpdater.needSelfUpdating()){
 			resetUpdateItem.isEnabled=selfUpdateItem.isEnabled=false;
@@ -68,6 +69,11 @@ public class SettingsDebugFragment extends BaseSettingsFragment<Void>{
 	private void onResetPreReplySheetsClick(ListItem<?> item){
 		GlobalUserPreferences.resetPreReplySheets();
 		Toast.makeText(getActivity(), "Pre-reply sheets were reset", Toast.LENGTH_SHORT).show();
+	}
+
+	private void onClearDismissedCampaignsClick(ListItem<?> item){
+		AccountSessionManager.getInstance().clearDismissedDonationCampaigns();
+		Toast.makeText(getActivity(), "Dismissed campaigns cleared. Restart app to see your current campaign, if any", Toast.LENGTH_LONG).show();
 	}
 
 	private void restartUI(){

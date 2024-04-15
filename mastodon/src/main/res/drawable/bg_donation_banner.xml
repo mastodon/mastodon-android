@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+	<item>
+		<color android:color="@color/masterialDark_secondaryContainer"/>
+	</item>
+	<item android:height="0dp">
+		<layer-list>
+			<item android:gravity="center_vertical|end">
+				<bitmap android:src="@drawable/scribble" android:alpha="0.08" android:autoMirrored="true"/>
+			</item>
+		</layer-list>
+	</item>
+</layer-list>

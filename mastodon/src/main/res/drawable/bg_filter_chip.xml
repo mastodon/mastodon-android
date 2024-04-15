@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
+	<item android:state_checked="true">
+		<ripple android:color="@color/m3_on_secondary_container_overlay">
+			<item>
+				<shape>
+					<corners android:radius="8dp"/>
+					<solid android:color="?colorM3SecondaryContainer"/>
+				</shape>
+			</item>
+		</ripple>
+	</item>
 	<item android:state_selected="true">
 		<ripple android:color="@color/m3_on_secondary_container_overlay">
 			<item>

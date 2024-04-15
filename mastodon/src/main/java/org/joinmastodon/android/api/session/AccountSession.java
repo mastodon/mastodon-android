@@ -33,7 +33,6 @@ import org.joinmastodon.android.model.TimelineMarkers;
 import org.joinmastodon.android.model.Token;
 import org.joinmastodon.android.utils.ObjectIdComparator;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
@@ -275,5 +274,13 @@ public class AccountSession{
 
 	public void setNotificationsMentionsOnly(boolean mentionsOnly){
 		getRawLocalPreferences().edit().putBoolean("notificationsMentionsOnly", mentionsOnly).apply();
+	}
+
+	public boolean isEligibleForDonations(){
+		return "mastodon.social".equalsIgnoreCase(domain) || "mastodon.online".equalsIgnoreCase(domain);
+	}
+
+	public int getDonationSeed(){
+		return Math.abs(getFullUsername().hashCode())%100;
 	}
 }
