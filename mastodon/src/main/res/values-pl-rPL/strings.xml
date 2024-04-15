@@ -9,6 +9,7 @@
 	<string name="preparing_auth">Przygotowywanie do uwierzytelniania…</string>
 	<string name="finishing_auth">Kończenie uwierzytelniania…</string>
 	<string name="user_boosted">%s podaje dalej</string>
+	<string name="in_reply_to">w odpowiedzi do %s</string>
 	<string name="notifications">Powiadomienia</string>
 	<string name="user_followed_you">%s obserwuje Cię</string>
 	<string name="user_sent_follow_request">%s wysyła Tobie prośbę o obserwację</string>
@@ -741,4 +742,24 @@ Im więcej ludzi obserwujesz, tym aktywniejsza i bardziej interesująca się sta
 	<string name="post_pinned">Wpis został przypięty</string>
 	<string name="post_unpinned">Wpis został odpięty</string>
 	<!-- %s is the username -->
+	<string name="enable_new_post_notifications">Powiadamiaj mnie o wpisach %s</string>
+	<string name="disable_new_post_notifications">Przestań powiadamiać mnie o wpisach %s</string>
+	<string name="new_post_notifications_enabled">Otrzymasz powiadomienia o nowych wpisach.</string>
+	<string name="new_post_notifications_disabled">Nie będziesz już otrzymywać powiadomień o nowych wpisach.</string>
+	<string name="mute_conversation">Wycisz konwersację</string>
+	<string name="unmute_conversation">Cofnij wyciszenie konwersacji</string>
+	<string name="filtered_notifications">Filtrowane powiadomienia</string>
+	<string name="filter_notifications">Odfiltruj powiadomienia od...</string>
+	<string name="notification_filter_following">Osoby, których nie obserwujesz</string>
+	<string name="notification_filter_following_explanation">Dopóki nie zatwierdzisz ich ręcznie</string>
+	<string name="notification_filter_followers">Ludzie, którzy cię nie obserwują</string>
+	<string name="notification_filter_followers_explanation">Łącznie z osobami obserwującymi Cię przez mniej niż 3 dni</string>
+	<string name="notification_filter_new_accounts">Nowe konta</string>
+	<string name="notification_filter_new_accounts_explanation">Utworzone w ciągu ostatnich 30 dni</string>
+	<string name="notification_filter_mentions">Nieproszone prywatne wzmianki</string>
+	<string name="allow_notifications">Zezwalaj na powiadomienia</string>
+	<string name="mute_notifications">Odrzuć żądanie powiadomienia</string>
+	<string name="notifications_from_user">Powiadomienia od %s</string>
+	<string name="notifications_muted">Powiadomienia od %s zostały odrzucone.</string>
+	<string name="notifications_allowed">%s pojawi się teraz na liście powiadomień.</string>
 </resources>
