@@ -79,11 +79,10 @@
 			android:layout_height="52dp"
 			android:layout_marginTop="16dp"/>
 		
-		<LinearLayout
+		<view class="org.joinmastodon.android.ui.sheets.DonationSheet$SuggestedAmountsLayout"
 			android:id="@+id/suggested_amounts"
 			android:layout_width="match_parent"
 			android:layout_height="32dp"
-			android:orientation="horizontal"
 			android:layout_marginTop="8dp"/>
 
 		<FrameLayout

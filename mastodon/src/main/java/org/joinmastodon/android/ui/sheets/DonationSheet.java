@@ -5,6 +5,7 @@ import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,6 +25,7 @@ import org.joinmastodon.android.ui.utils.UiUtils;
 import org.joinmastodon.android.ui.views.CurrencyAmountInput;
 
 import java.text.NumberFormat;
+import java.util.Arrays;
 import java.util.Currency;
 import java.util.List;
 import java.util.Locale;
@@ -31,6 +33,7 @@ import java.util.stream.Collectors;
 
 import androidx.annotation.NonNull;
 import me.grishka.appkit.Nav;
+import me.grishka.appkit.utils.CustomViewHelper;
 import me.grishka.appkit.utils.V;
 import me.grishka.appkit.views.BottomSheet;
 
@@ -128,7 +131,7 @@ public class DonationSheet extends BottomSheet{
 		button=findViewById(R.id.button);
 		buttonText=findViewById(R.id.button_text);
 
-		LinearLayout suggestedAmounts=findViewById(R.id.suggested_amounts);
+		ViewGroup suggestedAmounts=findViewById(R.id.suggested_amounts);
 		for(int i=0;i<suggestedAmountButtons.length;i++){
 			ToggleButton btn=new ToggleButton(context);
 			btn.setBackgroundResource(R.drawable.bg_filter_chip);
@@ -144,14 +147,14 @@ public class DonationSheet extends BottomSheet{
 			btn.setOnClickListener(this::onSuggestedAmountClick);
 			btn.setTag(i);
 			suggestedAmountButtons[i]=btn;
-			LinearLayout.LayoutParams lp=new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT);
-			lp.rightMargin=V.dp(8);
-			suggestedAmounts.addView(btn, lp);
+			suggestedAmounts.addView(btn);
 		}
 		updateSuggestedAmounts(campaign.defaultCurrency);
 		button.setEnabled(false);
 		buttonText.setText(campaign.bannerButtonText);
 		button.setOnClickListener(v->openWebView());
+
+		Arrays.stream(getCurrentSuggestedAmounts(campaign.defaultCurrency)).min().ifPresent(amountField::setAmount);
 	}
 
 	@Override
@@ -284,5 +287,62 @@ public class DonationSheet extends BottomSheet{
 		ONCE,
 		MONTHLY,
 		YEARLY
+	}
+
+	public static class SuggestedAmountsLayout extends ViewGroup implements CustomViewHelper{
+		private int visibleChildCount;
+		private static final int H_GAP=24;
+		private static final int V_GAP=8;
+		private static final int ROW_HEIGHT=32;
+
+		public SuggestedAmountsLayout(Context context){
+			this(context, null);
+		}
+
+		public SuggestedAmountsLayout(Context context, AttributeSet attrs){
+			this(context, attrs, 0);
+		}
+
+		public SuggestedAmountsLayout(Context context, AttributeSet attrs, int defStyle){
+			super(context, attrs, defStyle);
+		}
+
+		@Override
+		protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec){
+			visibleChildCount=0;
+			for(int i=0;i<getChildCount();i++){
+				View child=getChildAt(i);
+				if(child.getVisibility()==GONE)
+					continue;
+				visibleChildCount++;
+			}
+			int width=MeasureSpec.getSize(widthMeasureSpec);
+			setMeasuredDimension(width, visibleChildCount>4 ? dp(ROW_HEIGHT*2+V_GAP) : dp(ROW_HEIGHT));
+			int buttonsPerRow=visibleChildCount>4 ? 3 : visibleChildCount;
+			int buttonWidth=(width-dp(H_GAP)*(buttonsPerRow-1))/buttonsPerRow;
+			for(int i=0;i<getChildCount();i++){
+				View child=getChildAt(i);
+				if(child.getVisibility()==GONE)
+					continue;
+				child.measure(buttonWidth | MeasureSpec.EXACTLY, dp(ROW_HEIGHT) | MeasureSpec.EXACTLY);
+			}
+		}
+
+		@Override
+		protected void onLayout(boolean changed, int l, int t, int r, int b){
+			int width=r-l;
+			int buttonsPerRow=visibleChildCount>4 ? 3 : visibleChildCount;
+			int buttonWidth=(width-dp(H_GAP)*(buttonsPerRow-1))/buttonsPerRow;
+			for(int i=0;i<getChildCount();i++){
+				View child=getChildAt(i);
+				if(child.getVisibility()==GONE)
+					continue;
+				int column=i%buttonsPerRow;
+				int row=i/buttonsPerRow;
+				int left=(buttonWidth+dp(H_GAP))*column;
+				int top=dp(ROW_HEIGHT+V_GAP)*row;
+				child.layout(left, top, left+buttonWidth, top+dp(ROW_HEIGHT));
+			}
+		}
 	}
 }
