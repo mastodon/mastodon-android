@@ -9,6 +9,7 @@
 	<string name="preparing_auth">Preparando para autenticación…</string>
 	<string name="finishing_auth">Finalizando autenticación…</string>
 	<string name="user_boosted">Impulsado por %s</string>
+	<string name="in_reply_to">en respuesta a %s</string>
 	<string name="notifications">Notificaciones</string>
 	<string name="user_followed_you">%s te ha seguido</string>
 	<string name="user_sent_follow_request">%s te envió una solicitud de seguimiento</string>
@@ -223,7 +224,7 @@
 	<string name="signup_reason_note">Esto nos ayudará a revisar tu solicitud.</string>
 	<string name="clear">Borrar</string>
 	<string name="profile_header">Imagen de cabecera</string>
-	<string name="profile_picture">Imagen de perfil</string>
+	<string name="profile_picture">Foto de perfil</string>
 	<string name="reorder">Reordenar</string>
 	<string name="download">Descargar</string>
 	<string name="permission_required">Permiso requerido</string>
@@ -241,6 +242,7 @@
 	<string name="recommended_accounts_info_banner">Es posible que te gusten estas cuentas basadas en otras que sigues.</string>
 	<string name="see_new_posts">Nuevas publicaciones</string>
 	<string name="load_missing_posts">Cargar publicaciones faltantes</string>
+	<string name="follow_back">Seguir también</string>
 	<string name="button_follow_pending">Pendiente</string>
 	<string name="follows_you">Te sigue</string>
 	<string name="manually_approves_followers">Aprueba seguidores manualmente</string>
@@ -301,6 +303,7 @@
 	<string name="install_update">Instalar</string>
 	<string name="privacy_policy_title">Tu privacidad</string>
 	<string name="privacy_policy_subtitle">Aunque la aplicación Mastodon no recoge ningún dato, el servidor al que se registra puede tener una política diferente.\n\nSi no está de acuerdo con la política para %s, puede volver atrás y elegir un servidor diferente.</string>
+	<string name="i_agree">De acuerdo</string>
 	<string name="empty_list">Esta lista está vacía</string>
 	<string name="instance_signup_closed">Este servidor no acepta altas nuevas.</string>
 	<string name="text_copied">Copiado en el portapapeles</string>
@@ -669,16 +672,46 @@ Mientras más personas sigas, más activo e interesante será.</string>
 	<string name="block_domain_confirm_title">¿Bloquear dominio?</string>
 	<string name="do_block_server">Bloquear servidor</string>
 	<string name="block_user_x_instead">Bloquear a %s en su lugar</string>
+	<string name="users_cant_see_blocked">No verás publicaciones ni notificaciones de usuarios en este servidor.</string>
 	<string name="you_wont_see_server_posts">No verás ninguna publicación de usuarios en este servidor.</string>
 	<string name="server_followers_will_be_removed">Tus seguidores de este servidor serán eliminados.</string>
+	<string name="server_cant_mention_or_follow_you">Nadie de este servidor puede seguirte.</string>
 	<string name="server_can_interact_with_older">Las personas de este servidor pueden interactuar con tus mensajes antiguos.</string>
 	<string name="unblocked_domain_x">El dominio %s ya no está bloqueado</string>
 	<string name="handle_help_title">¿En qué consiste el alias?</string>
 	<string name="handle_title">Su alias</string>
 	<string name="handle_username_explanation">Su identificador único en su servidor. Es posible encontrar usuarios con el mismo nombre de usuario en diferentes servidores.</string>
 	<string name="handle_title_own">Tu alias</string>
+	<string name="handle_username_explanation_own">Tu identificador único en este servidor. Es posible encontrar usuarios con el mismo nombre de usuario en diferentes servidores.</string>
 	<string name="server">Servidor</string>
+	<string name="handle_server_explanation">Su hogar digital, donde residen todas sus publicaciones.</string>
+	<string name="handle_explanation">Los alias indican quiénes son y dónde se encuentran, y gracias a ellos puedes interactuar con personas a través de las redes sociales compatibles con &lt;a&gt;ActivityPub&lt;/a&gt;.</string>
+	<string name="handle_server_explanation_own">Tu hogar digital, donde residen todas tus publicaciones. ¿No te gusta este sitio? Muévete a otro servidor en cualquier momento y llévate a tus seguidores.</string>
+	<string name="handle_explanation_own">Los alias indican quién eres y dónde te encuentras, y gracias a ellos puedes interactuar con personas a través de las redes sociales compatibles con &lt;a&gt;ActivityPub&lt;/a&gt;.</string>
 	<string name="what_is_activitypub_title">¿Qué es ActivityPub?</string>
+	<string name="what_is_activitypub">ActivityPub es como el idioma que Mastodon habla con otras redes sociales.\n\nTe permite conectar e interactuar con personas no sólo en Mastodon, sino también a través de diferentes aplicaciones sociales.</string>
+	<string name="handle_copied">Alias copiado al portapapeles.</string>
+	<string name="qr_code">Código QR</string>
+	<string name="scan_qr_code">Escanear código QR</string>
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
+	<string name="saved">Guardado</string>
+	<string name="image_saved">Imagen guardada.</string>
+	<string name="video_saved">Vídeo guardado.</string>
+	<string name="view_file">Ver</string>
+	<string name="share_sheet_preview_profile">%s en Mastodon</string>
+	<string name="share_sheet_preview_post">%1$s en Mastodon: “%2$s”</string>
+	<string name="copy_profile_link">Copiar enlace de perfil</string>
+	<string name="add_muted_word_short">Añadir palabra</string>
+	<string name="tab_home">Inicio</string>
+	<string name="tab_search">Explorar</string>
+	<string name="tab_profile">Perfil</string>
 	<!-- %s is the username -->
+	<string name="enable_new_post_notifications">Notificarme cuando %s publique algo</string>
+	<string name="disable_new_post_notifications">Dejar de notificarme cuando %s publique algo</string>
+	<string name="visibility_unlisted">Público silencioso</string>
+	<string name="filtered_notifications">Notificaciones filtradas</string>
+	<string name="filter_notifications">Filtrar notificaciones de...</string>
+	<string name="allow_notifications">Permitir notificaciones</string>
+	<string name="mute_notifications">Descartar solicitud de notificación</string>
+	<string name="notifications_from_user">Notificaciones de %s</string>
 </resources>
