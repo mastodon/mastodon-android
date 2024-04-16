@@ -701,17 +701,41 @@ Mientras más personas sigas, más activo e interesante será.</string>
 	<string name="share_sheet_preview_profile">%s en Mastodon</string>
 	<string name="share_sheet_preview_post">%1$s en Mastodon: “%2$s”</string>
 	<string name="copy_profile_link">Copiar enlace de perfil</string>
+	<string name="in_app_browser">Navegador en la app</string>
+	<string name="system_browser">Navegador del sistema</string>
 	<string name="add_muted_word_short">Añadir palabra</string>
 	<string name="tab_home">Inicio</string>
 	<string name="tab_search">Explorar</string>
 	<string name="tab_profile">Perfil</string>
+	<string name="pin_post">Anclar en el perfil</string>
+	<string name="unpin_post">Desanclar del perfil</string>
+	<string name="post_pinned">La publicación ha sido anclada</string>
+	<string name="post_unpinned">La publicación ha sido desanclada</string>
 	<!-- %s is the username -->
 	<string name="enable_new_post_notifications">Notificarme cuando %s publique algo</string>
 	<string name="disable_new_post_notifications">Dejar de notificarme cuando %s publique algo</string>
+	<string name="new_post_notifications_enabled">Recibirás notificaciones de nuevas publicaciones.</string>
+	<string name="new_post_notifications_disabled">Ya no recibirás notificaciones de nuevas publicaciones.</string>
+	<string name="mute_conversation">Silenciar conversación</string>
+	<string name="unmute_conversation">Dejar de silenciar conversación</string>
 	<string name="visibility_unlisted">Público silencioso</string>
 	<string name="filtered_notifications">Notificaciones filtradas</string>
 	<string name="filter_notifications">Filtrar notificaciones de...</string>
+	<string name="notification_filter_following">Personas que no sigues</string>
+	<string name="notification_filter_following_explanation">Hasta que los apruebes manualmente</string>
+	<string name="notification_filter_followers">Personas que no te siguen</string>
+	<string name="notification_filter_followers_explanation">Incluyendo a las personas que te han seguido por menos de 3 días</string>
+	<string name="notification_filter_new_accounts">Cuentas nuevas</string>
+	<string name="notification_filter_new_accounts_explanation">Creadas en los últimos 30 días</string>
+	<string name="notification_filter_mentions">Menciones privadas no solicitadas</string>
+	<string name="notification_filter_mentions_explanation">Filtradas a menos que sea en respuesta a tu propia mención o sigas al remitente</string>
 	<string name="allow_notifications">Permitir notificaciones</string>
 	<string name="mute_notifications">Descartar solicitud de notificación</string>
+	<plurals name="x_people_you_may_know">
+		<item quantity="one">%,d persona a la que tal vez conoces</item>
+		<item quantity="other">%,d personas a las que tal vez conoces</item>
+	</plurals>
 	<string name="notifications_from_user">Notificaciones de %s</string>
+	<string name="notifications_muted">Las notificaciones de %s han sido descartadas.</string>
+	<string name="notifications_allowed">Ahora aparecerá %s en tu lista de notificaciones.</string>
 </resources>
