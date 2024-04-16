@@ -30,11 +30,13 @@
 		<item quantity="other">siguiendo</item>
 	</plurals>
 	<string name="posts">Publicaciones</string>
+	<string name="posts_and_replies">Publicaciones y respuestas</string>
 	<string name="media">Multimedia</string>
 	<string name="profile_about">Acerca de</string>
 	<string name="button_follow">Seguir</string>
 	<string name="button_following">Siguiendo</string>
 	<string name="edit_profile">Editar perfil</string>
+	<string name="share_user">Compartir perfil a través de…</string>
 	<string name="mute_user">Silenciar a %s</string>
 	<string name="unmute_user">Dejar de silenciar a %s</string>
 	<string name="block_user">Bloquear a %s</string>
@@ -143,6 +145,7 @@
 	<string name="search_communities">Nombre del servidor o URL</string>
 	<string name="instance_rules_title">Reglas del servidor</string>
 	<string name="instance_rules_subtitle">Al continuar, aceptas seguir las siguientes reglas establecidas y aplicadas por los %s moderadores.</string>
+	<string name="signup_title">Crear cuenta</string>
 	<string name="display_name">Nombre</string>
 	<string name="username">Nombre de usuario</string>
 	<string name="email">Correo electrónico</string>
@@ -168,7 +171,7 @@
 	<string name="skip">Saltar</string>
 	<string name="notification_type_follow">Nuevos seguidores</string>
 	<string name="notification_type_favorite">Favoritos</string>
-	<string name="notification_type_reblog">Retoots</string>
+	<string name="notification_type_reblog">Impulsos</string>
 	<string name="notification_type_mention">Menciones</string>
 	<string name="notification_type_poll">Encuestas</string>
 	<string name="choose_account">Elegir cuenta</string>
@@ -185,6 +188,7 @@
 	<string name="theme_dark">Oscuro</string>
 	<string name="settings_behavior">Comportamiento</string>
 	<string name="settings_gif">Reproducir avatares animados y emoji</string>
+	<string name="settings_custom_tabs">Abrir enlaces en</string>
 	<string name="settings_notifications">Notificaciones</string>
 	<string name="settings_contribute">Contribuir a Mastodon</string>
 	<string name="settings_tos">Términos del servicio</string>
@@ -198,7 +202,7 @@
 	<string name="more_options">Más opciones</string>
 	<string name="new_post">Nueva publicación</string>
 	<string name="button_reply">Responder</string>
-	<string name="button_reblog">Retootear</string>
+	<string name="button_reblog">Impulsar</string>
 	<string name="button_favorite">Favorito</string>
 	<string name="button_share">Compartir</string>
 	<string name="media_no_description">Medios sin descripción</string>
@@ -213,6 +217,8 @@
 	<string name="followed_user">Ahora estás siguiendo a %s</string>
 	<string name="following_user_requested">%s solicitó seguirte</string>
 	<string name="open_in_browser">Abrir en el navegador</string>
+	<string name="hide_boosts_from_user">Ocultar impulsos</string>
+	<string name="show_boosts_from_user">Mostrar impulsos</string>
 	<string name="signup_reason">¿Por qué quieres unirte?</string>
 	<string name="signup_reason_note">Esto nos ayudará a revisar tu solicitud.</string>
 	<string name="clear">Borrar</string>
@@ -252,8 +258,8 @@
 		<item quantity="other">%,d favoritos</item>
 	</plurals>
 	<plurals name="x_reblogs">
-		<item quantity="one">%,d retooteo</item>
-		<item quantity="other">%,d retooteos</item>
+		<item quantity="one">%,d impulso</item>
+		<item quantity="other">%,d impulsos</item>
 	</plurals>
 	<string name="time_now">ahora</string>
 	<string name="edit_history">Editar historial</string>
@@ -293,6 +299,7 @@
 	<!-- %s is file size -->
 	<string name="download_update">Descargar (%s)</string>
 	<string name="install_update">Instalar</string>
+	<string name="privacy_policy_title">Tu privacidad</string>
 	<string name="privacy_policy_subtitle">Aunque la aplicación Mastodon no recoge ningún dato, el servidor al que se registra puede tener una política diferente.\n\nSi no está de acuerdo con la política para %s, puede volver atrás y elegir un servidor diferente.</string>
 	<string name="empty_list">Esta lista está vacía</string>
 	<string name="instance_signup_closed">Este servidor no acepta altas nuevas.</string>
@@ -300,9 +307,14 @@
 	<string name="add_bookmark">Añadir marcador</string>
 	<string name="remove_bookmark">Eliminar marcador</string>
 	<string name="bookmarks">Marcadores</string>
+	<string name="your_favorites">Tus favoritos</string>
+	<string name="login_title">Bienvenido/da de nuevo</string>
 	<string name="login_subtitle">Inicia sesión con el servidor donde creaste tu cuenta.</string>
 	<string name="server_url">URL del servidor</string>
 	<string name="server_filter_any_language">Cualquier idioma</string>
+	<string name="server_filter_instant_signup">Registro instantáneo</string>
+	<string name="server_filter_manual_review">Revisión manual</string>
+	<string name="server_filter_any_signup_speed">Cualquier velocidad de registro</string>
 	<string name="server_filter_region_europe">Europa</string>
 	<string name="server_filter_region_north_america">Norteamérica</string>
 	<string name="server_filter_region_south_america">Suramérica</string>
@@ -310,6 +322,7 @@
 	<string name="server_filter_region_asia">Asia</string>
 	<string name="server_filter_region_oceania">Oceanía</string>
 	<string name="not_accepting_new_members">No se aceptan nuevos miembros</string>
+	<string name="category_special_interests">Intereses especiales</string>
 	<string name="signup_passwords_dont_match">Las contraseñas no coinciden</string>
 	<string name="profile_add_row">Añadir fila</string>
 	<string name="profile_setup">Configuración del perfil</string>
@@ -578,6 +591,7 @@
 	<string name="remove">Eliminar</string>
 	<string name="add_list_member">Añadir miembro</string>
 	<string name="search_among_people_you_follow">Buscar entre las personas a las que sigues</string>
+	<string name="add_user_to_list">Añadir/quitar de listas…</string>
 	<string name="add_user_to_list_title">Añadir a lista</string>
 	<!-- %s is a username -->
 	<string name="manage_user_lists">Administrar las listas en las que %s aparece</string>
@@ -644,6 +658,7 @@ Mientras más personas sigas, más activo e interesante será.</string>
 	<string name="mute_user_confirm_title">¿Silenciar usuario?</string>
 	<string name="user_wont_know_muted">No sabrán que han sido silenciados.</string>
 	<string name="user_can_still_see_your_posts">Todavía pueden ver tus publicaciones, pero no verás las suyas.</string>
+	<string name="you_wont_see_user_mentions">No verás publicaciones que lo mencionen.</string>
 	<string name="user_can_mention_and_follow_you">Pueden mencionarte y seguirte, pero no los verás.</string>
 	<string name="unmuted_user_x">%s ya no está silenciado</string>
 	<string name="block_user_confirm_title">¿Bloquear usuario?</string>
@@ -658,6 +673,12 @@ Mientras más personas sigas, más activo e interesante será.</string>
 	<string name="server_followers_will_be_removed">Tus seguidores de este servidor serán eliminados.</string>
 	<string name="server_can_interact_with_older">Las personas de este servidor pueden interactuar con tus mensajes antiguos.</string>
 	<string name="unblocked_domain_x">El dominio %s ya no está bloqueado</string>
+	<string name="handle_help_title">¿En qué consiste el alias?</string>
+	<string name="handle_title">Su alias</string>
+	<string name="handle_username_explanation">Su identificador único en su servidor. Es posible encontrar usuarios con el mismo nombre de usuario en diferentes servidores.</string>
+	<string name="handle_title_own">Tu alias</string>
+	<string name="server">Servidor</string>
+	<string name="what_is_activitypub_title">¿Qué es ActivityPub?</string>
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
 	<!-- %s is the username -->
 </resources>
