@@ -12,6 +12,7 @@ public class GetDonationCampaigns extends MastodonAPIRequest<DonationCampaign>{
 		super(HttpMethod.GET, null, DonationCampaign.class);
 		this.locale=locale;
 		this.seed=seed;
+		setCacheable();
 	}
 
 	@Override

@@ -12,10 +12,12 @@ import com.google.gson.JsonParser;
 import com.google.gson.JsonSyntaxException;
 
 import org.joinmastodon.android.BuildConfig;
+import org.joinmastodon.android.MastodonApp;
 import org.joinmastodon.android.api.gson.IsoInstantTypeAdapter;
 import org.joinmastodon.android.api.gson.IsoLocalDateTypeAdapter;
 import org.joinmastodon.android.api.session.AccountSession;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.Reader;
 import java.time.Instant;
@@ -29,6 +31,8 @@ import java.util.concurrent.TimeUnit;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import me.grishka.appkit.utils.WorkerThread;
+import okhttp3.Cache;
+import okhttp3.CacheControl;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.OkHttpClient;
@@ -49,7 +53,10 @@ public class MastodonAPIController{
 			.connectTimeout(60, TimeUnit.SECONDS)
 			.writeTimeout(60, TimeUnit.SECONDS)
 			.readTimeout(60, TimeUnit.SECONDS)
+			.cache(new Cache(new File(MastodonApp.context.getCacheDir(), "http"), 10*1024*1024))
 			.build();
+
+	private static final CacheControl NO_CACHE_WHATSOEVER=new CacheControl.Builder().noCache().noStore().build();
 
 	private AccountSession session;
 
@@ -79,6 +86,9 @@ public class MastodonAPIController{
 
 				if(token!=null)
 					builder.header("Authorization", "Bearer "+token);
+
+				if(!req.cacheable)
+					builder.cacheControl(NO_CACHE_WHATSOEVER);
 
 				if(req.headers!=null){
 					for(Map.Entry<String, String> header:req.headers.entrySet()){

@@ -46,6 +46,7 @@ public abstract class MastodonAPIRequest<T> extends APIRequest<T>{
 	boolean canceled;
 	Map<String, String> headers;
 	long timeout;
+	boolean cacheable;
 	private ProgressDialog progressDialog;
 	protected boolean removeUnsupportedItems;
 
@@ -130,6 +131,10 @@ public abstract class MastodonAPIRequest<T> extends APIRequest<T>{
 
 	protected void setTimeout(long timeout){
 		this.timeout=timeout;
+	}
+
+	protected void setCacheable(){
+		cacheable=true;
 	}
 
 	protected String getPathPrefix(){
