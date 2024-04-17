@@ -78,6 +78,9 @@ public class CurrencyAmountInput extends LinearLayout implements CustomViewHelpe
 		currencyBtn.setMinimumWidth(0);
 		currencyBtn.setMinWidth(0);
 		currencyBtn.setOnClickListener(v->showCurrencySelector());
+		currencyBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.ic_unfold_more_wght600_15pt_8x20px, 0, 0, 0);
+		currencyBtn.setCompoundDrawableTintList(currencyBtn.getTextColors());
+		currencyBtn.setCompoundDrawablePadding(dp(4));
 		addView(currencyBtn, new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT));
 
 		edit=new ActualEditText(context);
