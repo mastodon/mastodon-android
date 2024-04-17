@@ -20,7 +20,7 @@ public class GetDonationCampaigns extends MastodonAPIRequest<DonationCampaign>{
 		Uri.Builder builder=new Uri.Builder()
 				.scheme("https")
 				.authority("api.joinmastodon.org")
-				.path("/donations/campaigns")
+				.path("/v1/donations/campaigns/active")
 				.appendQueryParameter("platform", "android")
 				.appendQueryParameter("locale", locale)
 				.appendQueryParameter("seed", seed);
