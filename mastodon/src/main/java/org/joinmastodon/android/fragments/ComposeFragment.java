@@ -23,6 +23,10 @@ import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.text.style.BackgroundColorSpan;
 import android.text.style.ForegroundColorSpan;
+import android.transition.ChangeBounds;
+import android.transition.Fade;
+import android.transition.TransitionManager;
+import android.transition.TransitionSet;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -32,15 +36,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewOutlineProvider;
 import android.view.WindowManager;
+import android.view.accessibility.AccessibilityNodeInfo;
 import android.view.inputmethod.InputConnection;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.PopupMenu;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -94,6 +97,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
+import androidx.annotation.NonNull;
 import me.grishka.appkit.Nav;
 import me.grishka.appkit.api.Callback;
 import me.grishka.appkit.api.ErrorResponse;
@@ -134,7 +138,8 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 
 	private ImageButton mediaBtn, pollBtn, emojiBtn, spoilerBtn, languageBtn;
 	private TextView replyText;
-	private Button visibilityBtn;
+	private LinearLayout visibilityBtn;
+	private TextView visibilityText1, visibilityText2, visibilityCurrentText;
 	private LinearLayout bottomBar;
 	private View autocompleteDivider;
 
@@ -274,6 +279,9 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 		emojiBtn=view.findViewById(R.id.btn_emoji);
 		spoilerBtn=view.findViewById(R.id.btn_spoiler);
 		visibilityBtn=view.findViewById(R.id.btn_visibility);
+		visibilityText1=view.findViewById(R.id.visibility_text1);
+		visibilityText2=view.findViewById(R.id.visibility_text2);
+		visibilityCurrentText=visibilityText1;
 		languageBtn=view.findViewById(R.id.btn_language);
 		replyText=view.findViewById(R.id.reply_text);
 
@@ -283,9 +291,15 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 		spoilerBtn.setOnClickListener(v->toggleSpoiler());
 		languageBtn.setOnClickListener(v->showLanguageAlert());
 		visibilityBtn.setOnClickListener(this::onVisibilityClick);
+		visibilityBtn.setAccessibilityDelegate(new View.AccessibilityDelegate(){
+			@Override
+			public void onInitializeAccessibilityNodeInfo(@NonNull View host, @NonNull AccessibilityNodeInfo info){
+				super.onInitializeAccessibilityNodeInfo(host, info);
+				info.setClassName("android.widget.Spinner");
+			}
+		});
 		Drawable arrow=getResources().getDrawable(R.drawable.ic_baseline_arrow_drop_down_18, getActivity().getTheme()).mutate();
 		arrow.setTint(UiUtils.getThemeColor(getActivity(), R.attr.colorM3OnSurface));
-		visibilityBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(null, null, arrow, null);
 		emojiKeyboard.setOnIconChangedListener(new PopupKeyboard.OnIconChangeListener(){
 			@Override
 			public void onIconChanged(int icon){
@@ -326,7 +340,7 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 		if(editingStatus!=null && editingStatus.visibility!=null) {
 			statusVisibility=editingStatus.visibility;
 		}
-		updateVisibilityIcon();
+		updateVisibilityIcon(false);
 
 		autocompleteViewController=new ComposeAutocompleteViewController(getActivity(), accountID);
 		autocompleteViewController.setCompletionSelectedListener(new ComposeAutocompleteViewController.AutocompleteListener(){
@@ -915,8 +929,10 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 		ArrayList<ListItem<StatusPrivacy>> items=new ArrayList<>();
 		ExtendedPopupMenu menu=new ExtendedPopupMenu(getActivity(), items);
 		Consumer<ListItem<StatusPrivacy>> onClick=i->{
-			statusVisibility=i.parentObject;
-			updateVisibilityIcon();
+			if(statusVisibility!=i.parentObject){
+				statusVisibility=i.parentObject;
+				updateVisibilityIcon(true);
+			}
 			menu.dismiss();
 		};
 		items.add(new ListItem<>(R.string.visibility_public, R.string.visibility_subtitle_public, R.drawable.ic_public_24px, StatusPrivacy.PUBLIC, onClick));
@@ -957,16 +973,31 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 			statusVisibility=(StatusPrivacy) savedInstanceState.getSerializable("visibility");
 		}
 
-		updateVisibilityIcon();
+		updateVisibilityIcon(false);
 	}
 
-	private void updateVisibilityIcon(){
+	private void updateVisibilityIcon(boolean animated){
 		if(getActivity()==null)
 			return;
 		if(statusVisibility==null){ // TODO find out why this happens
 			statusVisibility=StatusPrivacy.PUBLIC;
 		}
-		visibilityBtn.setText(switch(statusVisibility){
+		TextView visibilityText;
+		if(!animated){
+			visibilityText=visibilityCurrentText;
+		}else{
+			TransitionManager.beginDelayedTransition(visibilityBtn, new TransitionSet()
+					.addTransition(new Fade(Fade.IN | Fade.OUT))
+					.addTransition(new ChangeBounds().excludeTarget(TextView.class, true))
+					.setDuration(250)
+					.setInterpolator(CubicBezierInterpolator.DEFAULT)
+			);
+			visibilityText=visibilityCurrentText==visibilityText1 ? visibilityText2 : visibilityText1;
+			visibilityText.setVisibility(View.VISIBLE);
+			visibilityCurrentText.setVisibility(View.GONE);
+			visibilityCurrentText=visibilityText;
+		}
+		visibilityText.setText(switch(statusVisibility){
 			case PUBLIC -> R.string.visibility_public;
 			case UNLISTED -> R.string.visibility_unlisted;
 			case PRIVATE -> R.string.visibility_followers_only;
@@ -980,7 +1011,7 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 		}, getActivity().getTheme()).mutate();
 		icon.setBounds(0, 0, V.dp(18), V.dp(18));
 		icon.setTint(UiUtils.getThemeColor(getActivity(), R.attr.colorM3Primary));
-		visibilityBtn.setCompoundDrawablesRelative(icon, null, visibilityBtn.getCompoundDrawablesRelative()[2], null);
+		visibilityText.setCompoundDrawablesRelative(icon, null, null, null);
 	}
 
 	@Override
