@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.accessibility.AccessibilityNodeInfo;
@@ -19,6 +20,9 @@ import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.fragments.BaseStatusListFragment;
 import org.joinmastodon.android.fragments.ComposeFragment;
+import org.joinmastodon.android.fragments.account_list.StatusFavoritesListFragment;
+import org.joinmastodon.android.fragments.account_list.StatusReblogsListFragment;
+import org.joinmastodon.android.fragments.account_list.StatusRelatedAccountListFragment;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.model.StatusPrivacy;
 import org.joinmastodon.android.ui.utils.UiUtils;
@@ -48,6 +52,7 @@ public class FooterStatusDisplayItem extends StatusDisplayItem{
 		private final ImageView share;
 		private final ColorStateList buttonColors;
 		private final View replyBtn, boostBtn, favoriteBtn, shareBtn;
+		private final PopupMenu boostLongTapMenu, favoriteLongTapMenu;
 
 		private final View.AccessibilityDelegate buttonAccessibilityDelegate=new View.AccessibilityDelegate(){
 			@Override
@@ -97,11 +102,20 @@ public class FooterStatusDisplayItem extends StatusDisplayItem{
 			replyBtn.setOnClickListener(this::onReplyClick);
 			replyBtn.setAccessibilityDelegate(buttonAccessibilityDelegate);
 			boostBtn.setOnClickListener(this::onBoostClick);
+			boostBtn.setOnLongClickListener(this::onBoostLongClick);
 			boostBtn.setAccessibilityDelegate(buttonAccessibilityDelegate);
 			favoriteBtn.setOnClickListener(this::onFavoriteClick);
+			favoriteBtn.setOnLongClickListener(this::onFavoriteLongClick);
 			favoriteBtn.setAccessibilityDelegate(buttonAccessibilityDelegate);
 			shareBtn.setOnClickListener(this::onShareClick);
 			shareBtn.setAccessibilityDelegate(buttonAccessibilityDelegate);
+
+			favoriteLongTapMenu=new PopupMenu(activity, favoriteBtn);
+			favoriteLongTapMenu.inflate(R.menu.favorite_longtap);
+			favoriteLongTapMenu.setOnMenuItemClickListener(this::onLongTapMenuItemSelected);
+			boostLongTapMenu=new PopupMenu(activity, boostBtn);
+			boostLongTapMenu.inflate(R.menu.boost_longtap);
+			boostLongTapMenu.setOnMenuItemClickListener(this::onLongTapMenuItemSelected);
 		}
 
 		@Override
@@ -170,6 +184,45 @@ public class FooterStatusDisplayItem extends StatusDisplayItem{
 
 		private void onShareClick(View v){
 			UiUtils.openSystemShareSheet(v.getContext(), item.status);
+		}
+
+		private boolean onBoostLongClick(View v){
+			MenuItem boost=boostLongTapMenu.getMenu().findItem(R.id.boost);
+			boost.setTitle(item.status.reblogged ? R.string.undo_reblog : R.string.button_reblog);
+			boostLongTapMenu.show();
+			return true;
+		}
+
+		private boolean onFavoriteLongClick(View v){
+			MenuItem favorite=favoriteLongTapMenu.getMenu().findItem(R.id.favorite);
+			MenuItem bookmark=favoriteLongTapMenu.getMenu().findItem(R.id.bookmark);
+			favorite.setTitle(item.status.favourited ? R.string.undo_favorite : R.string.button_favorite);
+			bookmark.setTitle(item.status.bookmarked ? R.string.remove_bookmark : R.string.add_bookmark);
+			favoriteLongTapMenu.show();
+			return true;
+		}
+
+		private boolean onLongTapMenuItemSelected(MenuItem item){
+			int id=item.getItemId();
+			if(id==R.id.favorite){
+				onFavoriteClick(null);
+			}else if(id==R.id.boost){
+				onBoostClick(null);
+			}else if(id==R.id.bookmark){
+				AccountSessionManager.getInstance().getAccount(this.item.accountID).getStatusInteractionController().setBookmarked(this.item.status, !this.item.status.bookmarked);
+			}else if(id==R.id.view_favorites){
+				startAccountListFragment(StatusFavoritesListFragment.class);
+			}else if(id==R.id.view_boosts){
+				startAccountListFragment(StatusReblogsListFragment.class);
+			}
+			return true;
+		}
+
+		private void startAccountListFragment(Class<? extends StatusRelatedAccountListFragment> cls){
+			Bundle args=new Bundle();
+			args.putString("account", item.parentFragment.getAccountID());
+			args.putParcelable("status", Parcels.wrap(item.status));
+			Nav.go(item.parentFragment.getActivity(), cls, args);
 		}
 
 		private int descriptionForId(int id){
