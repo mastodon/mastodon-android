@@ -66,7 +66,9 @@ import org.joinmastodon.android.model.Mention;
 import org.joinmastodon.android.model.Preferences;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.model.StatusPrivacy;
+import org.joinmastodon.android.model.viewmodel.ListItem;
 import org.joinmastodon.android.ui.CustomEmojiPopupKeyboard;
+import org.joinmastodon.android.ui.ExtendedPopupMenu;
 import org.joinmastodon.android.ui.M3AlertDialogBuilder;
 import org.joinmastodon.android.ui.OutlineProviders;
 import org.joinmastodon.android.ui.PopupKeyboard;
@@ -87,6 +89,7 @@ import org.parceler.Parcels;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+import java.util.function.Consumer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
@@ -909,24 +912,18 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 	}
 
 	private void onVisibilityClick(View v){
-		PopupMenu menu=new PopupMenu(getActivity(), v);
-		menu.inflate(R.menu.compose_visibility);
-		menu.setOnMenuItemClickListener(item->{
-			int id=item.getItemId();
-			if(id==R.id.vis_public){
-				statusVisibility=StatusPrivacy.PUBLIC;
-			}else if(id==R.id.vis_unlisted){
-				statusVisibility=StatusPrivacy.UNLISTED;
-			}else if(id==R.id.vis_followers){
-				statusVisibility=StatusPrivacy.PRIVATE;
-			}else if(id==R.id.vis_private){
-				statusVisibility=StatusPrivacy.DIRECT;
-			}
-			item.setChecked(true);
+		ArrayList<ListItem<StatusPrivacy>> items=new ArrayList<>();
+		ExtendedPopupMenu menu=new ExtendedPopupMenu(getActivity(), items);
+		Consumer<ListItem<StatusPrivacy>> onClick=i->{
+			statusVisibility=i.parentObject;
 			updateVisibilityIcon();
-			return true;
-		});
-		menu.show();
+			menu.dismiss();
+		};
+		items.add(new ListItem<>(R.string.visibility_public, R.string.visibility_subtitle_public, R.drawable.ic_public_24px, StatusPrivacy.PUBLIC, onClick));
+		items.add(new ListItem<>(R.string.visibility_unlisted, R.string.visibility_subtitle_unlisted, R.drawable.ic_clear_night_24px, StatusPrivacy.UNLISTED, onClick));
+		items.add(new ListItem<>(R.string.visibility_followers_only, R.string.visibility_subtitle_followers, R.drawable.ic_lock_24px, StatusPrivacy.PRIVATE, onClick));
+		items.add(new ListItem<>(R.string.visibility_private, R.string.visibility_subtitle_private, R.drawable.ic_alternate_email_24px, StatusPrivacy.DIRECT, onClick));
+		menu.showAsDropDown(v);
 	}
 
 	private void loadDefaultStatusVisibility(Bundle savedInstanceState){
