@@ -211,6 +211,7 @@
 		<item name="android:popupBackground">@drawable/bg_popup</item>
 		<item name="android:background">@drawable/bg_spinner</item>
 		<item name="android:backgroundTint">?colorM3OnSurface</item>
+		<item name="android:popupElevation">3dp</item>
 	</style>
 
 	<style name="Theme.Mastodon.Dialog.Alert" parent="android:Theme.Material.Light.Dialog.Alert">
@@ -253,6 +254,7 @@
 
 	<style name="Widget.Mastodon.PopupMenu" parent="android:Widget.Material.Light.PopupMenu">
 		<item name="android:popupBackground">@drawable/bg_popup</item>
+		<item name="android:popupElevation">3dp</item>
 	</style>
 
 	<style name="Widget.Mastodon.M3.Button" parent="android:Widget.Material.Button">

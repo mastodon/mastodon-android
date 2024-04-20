@@ -68,6 +68,12 @@ public class ListItem<T>{
 		this.subtitleRes=subtitleRes;
 	}
 
+	public ListItem(@StringRes int titleRes, @StringRes int subtitleRes, @DrawableRes int iconRes, T parentObject, Consumer<ListItem<T>> onClick){
+		this(null, null, iconRes, onClick, parentObject, 0, false);
+		this.titleRes=titleRes;
+		this.subtitleRes=subtitleRes;
+	}
+
 	public ListItem(@StringRes int titleRes, @StringRes int subtitleRes, @DrawableRes int iconRes, Consumer<ListItem<T>> onClick, int colorOverrideAttr, boolean dividerAfter){
 		this(null, null, iconRes, onClick, null, colorOverrideAttr, dividerAfter);
 		this.titleRes=titleRes;

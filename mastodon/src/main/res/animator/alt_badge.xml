@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+	<item android:state_pressed="true">
+		<set>
+			<objectAnimator
+				android:duration="100"
+				android:propertyName="alpha"
+				android:valueTo="0.85"
+				android:valueFrom="1.0"
+				android:valueType="floatType"/>
+			<objectAnimator
+				android:duration="100"
+				android:propertyName="textColor"
+				android:valueTo="#80ffffff"
+				android:valueFrom="#fff"
+				android:valueType="colorType"/>
+		</set>
+	</item>
+	<item>
+		<set>
+			<objectAnimator
+				android:duration="200"
+				android:propertyName="alpha"
+				android:valueTo="1.0"
+				android:valueFrom="0.85"
+				android:valueType="floatType"/>
+			<objectAnimator
+				android:duration="200"
+				android:propertyName="textColor"
+				android:valueTo="#fff"
+				android:valueFrom="#80ffffff"
+				android:valueType="colorType"/>
+		</set>
+	</item>
+</selector>

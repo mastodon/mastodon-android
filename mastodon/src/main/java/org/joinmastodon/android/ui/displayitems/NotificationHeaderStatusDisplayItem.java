@@ -125,7 +125,8 @@ public class NotificationHeaderStatusDisplayItem extends StatusDisplayItem{
 		public void onBind(NotificationHeaderStatusDisplayItem item){
 			text.setText(item.text);
 			avatar.setVisibility(item.notification.type==Notification.Type.POLL ? View.GONE : View.VISIBLE);
-			// TODO use real icons
+			if(item.notification.type!=Notification.Type.POLL)
+				avatar.setContentDescription(item.parentFragment.getString(R.string.avatar_description, item.notification.account.acct));
 			icon.setImageResource(switch(item.notification.type){
 				case FAVORITE -> R.drawable.ic_star_fill1_24px;
 				case REBLOG -> R.drawable.ic_repeat_fill1_24px;

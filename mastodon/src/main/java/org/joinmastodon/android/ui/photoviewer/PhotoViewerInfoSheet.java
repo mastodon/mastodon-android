@@ -69,6 +69,7 @@ public class PhotoViewerInfoSheet extends BottomSheet{
 		backButton.setOutlineProvider(ViewOutlineProvider.BACKGROUND);
 		backButton.setElevation(V.dp(2));
 		backButton.setAlpha(0f);
+		backButton.setContentDescription(context.getString(R.string.back));
 		backButton.setOnClickListener(v->{
 			listener.onDismissEntireViewer();
 			dismiss();
@@ -82,6 +83,7 @@ public class PhotoViewerInfoSheet extends BottomSheet{
 		infoButton.setElevation(V.dp(2));
 		infoButton.setAlpha(0f);
 		infoButton.setSelected(true);
+		infoButton.setContentDescription(context.getString(R.string.info));
 		infoButton.setOnClickListener(v->dismiss());
 
 		FrameLayout.LayoutParams lp=new FrameLayout.LayoutParams(V.dp(48), V.dp(48));

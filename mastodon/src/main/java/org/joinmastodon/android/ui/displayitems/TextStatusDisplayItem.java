@@ -94,7 +94,7 @@ public class TextStatusDisplayItem extends StatusDisplayItem{
 			text.setTextIsSelectable(item.textSelectable);
 			text.setInvalidateOnEveryFrame(false);
 			itemView.setClickable(false);
-			text.setPadding(text.getPaddingLeft(), item.reduceTopPadding ? V.dp(8) : V.dp(16), text.getPaddingRight(), text.getPaddingBottom());
+			text.setPadding(text.getPaddingLeft(), item.reduceTopPadding ? V.dp(8) : V.dp(12), text.getPaddingRight(), text.getPaddingBottom());
 			text.setTextColor(UiUtils.getThemeColor(text.getContext(), item.inset ? R.attr.colorM3OnSurfaceVariant : R.attr.colorM3OnSurface));
 			updateTranslation(false);
 		}
