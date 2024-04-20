@@ -14,5 +14,6 @@
 	android:includeFontPadding="false"
 	android:background="@drawable/bg_image_alt_overlay"
 	android:text="ALT"
+	android:stateListAnimator="@animator/alt_badge"
 	tools:ignore="HardcodedText"
 	tools:showIn="@layout/display_item_photo" />
