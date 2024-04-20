@@ -4,8 +4,9 @@
 	android:layout_width="match_parent"
 	android:layout_height="wrap_content"
 	android:paddingTop="16dp"
-	android:paddingRight="16dp"
-	android:paddingLeft="16dp">
+	android:paddingHorizontal="16dp"
+	android:paddingBottom="4dp"
+	android:clipToPadding="false">
 
 	<ImageView
 		android:id="@+id/more"
@@ -21,6 +22,18 @@
 		android:contentDescription="@string/more_options"
 		android:src="@drawable/ic_more_vert_20px" />
 
+	<View
+		android:id="@+id/clickable_thing"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginHorizontal="-4dp"
+		android:layout_marginVertical="-4dp"
+		android:layout_alignLeft="@id/avatar"
+		android:layout_alignRight="@id/time_and_username"
+		android:layout_alignTop="@id/avatar"
+		android:layout_alignBottom="@id/avatar"
+		android:background="@drawable/bg_status_header"/>
+
 	<ImageView
 		android:id="@+id/avatar"
 		android:layout_width="40dp"
@@ -28,7 +41,8 @@
 		android:layout_alignParentStart="true"
 		android:layout_alignParentTop="true"
 		android:layout_marginTop="2dp"
-		android:layout_marginEnd="8dp" />
+		android:layout_marginEnd="8dp"
+		android:importantForAccessibility="no"/>
 
 	<org.joinmastodon.android.ui.views.HeaderSubtitleLinearLayout
 		android:id="@+id/name_wrap"
@@ -70,6 +84,8 @@
 		android:layout_height="20dp"
 		android:layout_below="@id/name_wrap"
 		android:layout_toEndOf="@id/avatar"
+		android:layout_toStartOf="@id/more"
+		android:layout_marginEnd="8dp"
 		android:singleLine="true"
 		android:ellipsize="end"
 		android:textAppearance="@style/m3_body_medium"

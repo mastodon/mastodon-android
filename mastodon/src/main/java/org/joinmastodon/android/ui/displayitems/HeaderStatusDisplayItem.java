@@ -119,6 +119,7 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 		private final TextView name, timeAndUsername, extraText;
 		private final ImageView avatar, more;
 		private final PopupMenu optionsMenu;
+		private final View clickableThing;
 
 		public Holder(Activity activity, ViewGroup parent){
 			this(activity, R.layout.display_item_header, parent);
@@ -131,7 +132,8 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 			avatar=findViewById(R.id.avatar);
 			more=findViewById(R.id.more);
 			extraText=findViewById(R.id.extra_text);
-			avatar.setOnClickListener(this::onAvaClick);
+			clickableThing=findViewById(R.id.clickable_thing);
+			clickableThing.setOnClickListener(this::onAvaClick);
 			avatar.setOutlineProvider(OutlineProviders.roundedRect(10));
 			avatar.setClipToOutline(true);
 			more.setOnClickListener(this::onMoreClick);
@@ -262,7 +264,7 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 				time=item.parentFragment.getString(R.string.edited_timestamp, UiUtils.formatRelativeTimestamp(itemView.getContext(), item.status.editedAt));
 
 			timeAndUsername.setText(time+" · @"+item.user.acct);
-			itemView.setPadding(itemView.getPaddingLeft(), itemView.getPaddingTop(), itemView.getPaddingRight(), item.needBottomPadding ? V.dp(16) : 0);
+			itemView.setPadding(itemView.getPaddingLeft(), itemView.getPaddingTop(), itemView.getPaddingRight(), item.needBottomPadding ? V.dp(16) : V.dp(4));
 			if(TextUtils.isEmpty(item.extraText)){
 				extraText.setVisibility(View.GONE);
 			}else{
@@ -270,8 +272,8 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 				extraText.setText(item.extraText);
 			}
 			more.setVisibility(item.inset ? View.GONE : View.VISIBLE);
-			avatar.setClickable(!item.inset);
-			avatar.setContentDescription(item.parentFragment.getString(R.string.avatar_description, item.user.acct));
+			clickableThing.setClickable(!item.inset);
+			clickableThing.setContentDescription(item.parentFragment.getString(R.string.avatar_description, item.user.acct));
 		}
 
 		@Override
