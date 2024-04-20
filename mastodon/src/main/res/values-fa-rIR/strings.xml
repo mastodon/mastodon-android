@@ -9,6 +9,7 @@
 	<string name="preparing_auth">درحال آماده‌سازی برای احرازهویت…</string>
 	<string name="finishing_auth">درحال تکمیل احرازهویت…</string>
 	<string name="user_boosted">‫%s‬ تقویت کرد</string>
+	<string name="in_reply_to">در پاسخ به %s</string>
 	<string name="notifications">آگاهی‌ها</string>
 	<string name="user_followed_you">‫%s‬ پی‌گیرتان شد</string>
 	<string name="user_sent_follow_request">%s یک درخواست پی‌گیری برای شما ارسال کرد</string>
@@ -165,6 +166,8 @@
 	<string name="save">ذخیره</string>
 	<string name="add_alt_text">اضافه کردن متن جایگزین</string>
 	<string name="visibility_public">عمومی</string>
+	<string name="visibility_followers_only">پی‌گیرندگان</string>
+	<string name="visibility_private">افراد مشخّص</string>
 	<string name="recent_searches">اخیر</string>
 	<string name="skip">بعدی</string>
 	<string name="notification_type_follow">پی‌گیرندگان جدید</string>
@@ -305,6 +308,7 @@
 	<string name="instance_signup_closed">این کارساز ثبت نام های جدید را نمی پذیرد.</string>
 	<string name="text_copied">در تخته‌گیره رونوشت شد</string>
 	<string name="add_bookmark">نشانک</string>
+	<string name="remove_bookmark">برداشتن نشانک</string>
 	<string name="bookmarks">نشانک‌ها</string>
 	<string name="your_favorites">برگزیده‌های شما</string>
 	<string name="login_title">خوش برگشتید</string>
@@ -627,6 +631,9 @@
 	<string name="non_mutual_text2">لحن مثبت همیشه قدردانی میشود.</string>
 	<string name="non_mutual_title3">باز باش</string>
 	<string name="make_profile_discoverable">نمایه من را قابل کشف کن</string>
+	<string name="discoverability">قابلیت کشف</string>
+	<string name="app_version_copied">شماره نسخه به تخته‌گیره رونوشت شد</string>
+	<string name="onboarding_recommendations_title">خوراک خانه خود را شخصی سازی کنید</string>
 	<string name="article_by_author">توسط %s</string>
 	<string name="info">اطلاعات</string>
 	<string name="button_reblogged">تقویت شد</string>
@@ -651,9 +658,13 @@
 	<string name="you_wont_see_server_posts">شما هیچ پستی از افراد این سرور نخواهید دید.</string>
 	<string name="server_followers_will_be_removed">دنبال کننده های شما در این سرور حذف خواهند شد.</string>
 	<string name="unblocked_domain_x">مسدودیت دامنه %s رفع شد</string>
+	<string name="handle_help_title">شناسه چیست؟</string>
+	<string name="handle_title">شناسه آنها</string>
+	<string name="handle_title_own">شناسه شما</string>
 	<string name="handle_username_explanation_own">شناسه منحصر به فرد شما در این کارساز. امکان یافتن کاربرانی با نام کاربری مشابه در کارسازهای مختلف وجود دارد.</string>
 	<string name="server">کارساز</string>
 	<string name="handle_server_explanation">خانه دیجیتالی آنها، جایی که همه فرسته‌های آنها در آن زندگی می کنند.</string>
+	<string name="handle_explanation_own">از آنجایی که شناسه شما می‌گوید شما کی هستید و کجا هستید، افراد می‌توانند در &lt;a&gt;سکوهای قدرت گرفته از اکتیویتی پاپ&lt;/a&gt; از وب اجتماعی با شما تعامل داشته باشند.</string>
 	<string name="what_is_activitypub_title">اکتیویتی پاپ چیست؟</string>
 	<string name="qr_code">کد QR</string>
 	<string name="scan_qr_code">اسکن کد QR</string>
@@ -677,6 +688,8 @@
 	<string name="post_unpinned">سنجاق فرسته برداشته شد</string>
 	<!-- %s is the username -->
 	<string name="enable_new_post_notifications">هنگامی که %s فرسته می‌فرستد مرا آگاه کن</string>
+	<string name="new_post_notifications_enabled">برای فرسته‌های جدید آگاهی دریافت خواهید کرد.</string>
+	<string name="new_post_notifications_disabled">دیگر برای فرسته‌های جدید آگاهی دریافت نخواهید کرد.</string>
 	<string name="mute_conversation">خموشاندن گفت‌وگو</string>
 	<string name="unmute_conversation">رفع خموشی گفت‌وگو</string>
 	<string name="visibility_unlisted">عمومی ساکت</string>
@@ -688,5 +701,12 @@
 	<string name="allow_notifications">اجازه دادن به آگاهی‌ها</string>
 	<string name="mute_notifications">رد درخواست آگاهی</string>
 	<string name="notifications_from_user">آگاهی‌ها از %s</string>
+	<string name="visibility_subtitle_public">هرکسی در و بیرون از ماستودون</string>
+	<string name="visibility_subtitle_unlisted">سروصدای الگوریتمی کم‌تر</string>
+	<string name="visibility_subtitle_followers">تنها پی‌گیرندگانتان</string>
+	<string name="visibility_subtitle_private">هرکسی که در فرسته نام برده شده</string>
 	<string name="view_boosts">مشاهده تقویت‌ّها</string>
+	<string name="view_favorites">دیدن برگزیده‌ها</string>
+	<string name="undo_reblog">لغو تقویت</string>
+	<string name="undo_favorite">لغو برگزیدگی</string>
 </resources>
