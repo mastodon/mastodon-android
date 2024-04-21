@@ -316,8 +316,10 @@ abstract class InstanceCatalogFragment extends BaseRecyclerFragment<CatalogInsta
 				loadingInstanceRedirectRequest=null;
 				loadingInstanceDomain=null;
 				Activity a=getActivity();
-				if(a==null)
+				if(a==null) {
+					response.close();
 					return;
+				}
 				try(response){
 					if(!response.isSuccessful()){
 						a.runOnUiThread(()->{
