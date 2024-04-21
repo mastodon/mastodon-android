@@ -113,8 +113,10 @@ public class MastodonAPIController{
 
 					@Override
 					public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException{
-						if(req.canceled)
+						if(req.canceled){
+							response.close();
 							return;
+						}
 						if(BuildConfig.DEBUG)
 							Log.d(TAG, logTag(session)+hreq+" received response: "+response);
 						synchronized(req){
