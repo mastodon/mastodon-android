@@ -166,6 +166,8 @@
 	<string name="save">Salva</string>
 	<string name="add_alt_text">Aggiungi testo alt</string>
 	<string name="visibility_public">Pubblico</string>
+	<string name="visibility_followers_only">Seguaci</string>
+	<string name="visibility_private">Persone specifiche</string>
 	<string name="recent_searches">Recenti</string>
 	<string name="skip">Salta</string>
 	<string name="notification_type_follow">Nuovi seguaci</string>
@@ -306,6 +308,7 @@
 	<string name="instance_signup_closed">Questo server non accetta nuove registrazioni.</string>
 	<string name="text_copied">Copiato negli appunti</string>
 	<string name="add_bookmark">Segnalibro</string>
+	<string name="remove_bookmark">Rimuovi il segnalibro</string>
 	<string name="bookmarks">Segnalibri</string>
 	<string name="your_favorites">I tuoi preferiti</string>
 	<string name="login_title">Bentornato/a</string>
@@ -735,4 +738,7 @@ Più persone segui, più sarà attivo e interessante.</string>
 	<string name="notifications_from_user">Notifiche da %s</string>
 	<string name="notifications_muted">Le notifiche da %s sono state respinte.</string>
 	<string name="notifications_allowed">%s apparirà ora nella tua lista di notifiche.</string>
+	<string name="visibility_subtitle_public">Tutti, dentro e fuori Mastodon</string>
+	<string name="visibility_subtitle_unlisted">Meno fanfare algoritmiche</string>
+	<string name="visibility_subtitle_followers">Solo i tuoi seguaci</string>
 </resources>
