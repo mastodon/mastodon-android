@@ -9,6 +9,7 @@
 	<string name="preparing_auth">Підготовка до автентифікації…</string>
 	<string name="finishing_auth">Завершення автентифікації…</string>
 	<string name="user_boosted">%s поширив</string>
+	<string name="in_reply_to">у відповідь на %s</string>
 	<string name="notifications">Сповіщення</string>
 	<string name="user_followed_you">%s підписався(-лася) на вас</string>
 	<string name="user_sent_follow_request">%s надсилає вам запит на підписку</string>
@@ -34,10 +35,13 @@
 		<item quantity="other">підписок</item>
 	</plurals>
 	<string name="posts">Дописи</string>
+	<string name="posts_and_replies">Дописи та відповіді</string>
 	<string name="media">Медіа</string>
 	<string name="profile_about">Інформація</string>
 	<string name="button_follow">Підписатися</string>
 	<string name="button_following">Ви підписані</string>
+	<string name="edit_profile">Редагувати профіль</string>
+	<string name="share_user">Поширити профіль через…</string>
 	<string name="mute_user">Заглушити %s</string>
 	<string name="unmute_user">Не глушити %s</string>
 	<string name="block_user">Заблокувати %s</string>
@@ -164,7 +168,9 @@
 	<string name="report_personal_subtitle">Ось ваші варіанти керування тим, що ви бачите в Mastodon:</string>
 	<string name="back">Назад</string>
 	<string name="search_communities">Назва сервера або URL</string>
+	<string name="instance_rules_title">Правила серверу</string>
 	<string name="instance_rules_subtitle">Продовжуючи, ви погоджуєтеся дотримуватися правил встановлених модерацією %s.</string>
+	<string name="signup_title">Створити акаунт</string>
 	<string name="display_name">Ім\'я</string>
 	<string name="username">Ім\'я користувача</string>
 	<string name="email">Email</string>
@@ -172,6 +178,7 @@
 	<string name="confirm_password">Підтвердження паролю</string>
 	<string name="password_note">Використовуйте великі літери, спеціальні символи та цифри для посилення пароля.</string>
 	<string name="category_general">Загальні</string>
+	<string name="confirm_email_title">Перевірте вашу поштову скриньку</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">Натисніть на посилання, яке ми надіслали вам, щоб підтвердити %s. Ми чекатимемо прямо тут.</string>
 	<string name="confirm_email_didnt_get">Не отримали посилання?</string>
@@ -183,6 +190,8 @@
 	<string name="save">Зберегти</string>
 	<string name="add_alt_text">Додати альтернативний текст</string>
 	<string name="visibility_public">Для всіх</string>
+	<string name="visibility_followers_only">Підписники</string>
+	<string name="visibility_private">Певні люди</string>
 	<string name="recent_searches">Нещодавні</string>
 	<string name="skip">Пропустити</string>
 	<string name="notification_type_follow">Нові підписники</string>
@@ -206,6 +215,7 @@
 	<string name="theme_dark">Темна</string>
 	<string name="settings_behavior">Поведінка</string>
 	<string name="settings_gif">Відтворювати анімовані фото профілю та емодзі</string>
+	<string name="settings_custom_tabs">Відкривати посилання в</string>
 	<string name="settings_notifications">Сповіщення</string>
 	<string name="settings_contribute">Допомогти Mastodon</string>
 	<string name="settings_tos">Умови використання</string>
@@ -234,6 +244,8 @@
 	<string name="followed_user">Тепер ви підписані на %s</string>
 	<string name="following_user_requested">Запитано на підписку %s</string>
 	<string name="open_in_browser">Відкрити у браузері</string>
+	<string name="hide_boosts_from_user">Сховати поширення</string>
+	<string name="show_boosts_from_user">Показувати поширення</string>
 	<string name="signup_reason">Чому ви бажаєте приєднатися?</string>
 	<string name="signup_reason_note">Це допоможе нам розглянути вашу заяву.</string>
 	<string name="clear">Очистити</string>
@@ -256,6 +268,7 @@
 	<string name="recommended_accounts_info_banner">Вам можуть сподобатися ці профілі, озираючись на ваші підписки.</string>
 	<string name="see_new_posts">Нові дописи</string>
 	<string name="load_missing_posts">Завантажити пропущені дописи</string>
+	<string name="follow_back">Підписатися навзаєм</string>
 	<string name="button_follow_pending">Очікується</string>
 	<string name="follows_you">Підписаний(-на) на вас</string>
 	<string name="manually_approves_followers">Підтверджувати підписників власноруч</string>
@@ -326,14 +339,23 @@
 	<!-- %s is file size -->
 	<string name="download_update">Завантажити (%s)</string>
 	<string name="install_update">Встановити</string>
+	<string name="privacy_policy_title">Ваша конфіденційність</string>
 	<string name="privacy_policy_subtitle">Хоча застосунок Mastodon не збирає дані, сервер на якому ви зареєструєтеся може мати іншу політику.\n\nЯкщо ви відмовитеся з політикою %s, ви зможете повернутися й вибрати інший сервер.</string>
+	<string name="i_agree">Приймаю</string>
 	<string name="empty_list">Цей список порожній</string>
 	<string name="instance_signup_closed">Цей сервер не приймає нові реєстрації.</string>
 	<string name="text_copied">Скопійовано до буфера обміну</string>
 	<string name="add_bookmark">До закладок</string>
+	<string name="remove_bookmark">Вилучити закладку</string>
 	<string name="bookmarks">Закладки</string>
+	<string name="your_favorites">Ваші уподобання</string>
+	<string name="login_title">З поверненням</string>
 	<string name="login_subtitle">Увійдіть за допомогою сервера, де ви створили свій обліковий запис.</string>
 	<string name="server_url">URL-адреса сервера</string>
+	<string name="server_filter_any_language">Будь-яка мова</string>
+	<string name="server_filter_instant_signup">Миттєва реєстрація</string>
+	<string name="server_filter_manual_review">Ручна перевірка</string>
+	<string name="server_filter_any_signup_speed">Будь-яка швидкість реєстрації</string>
 	<string name="server_filter_region_europe">Європа</string>
 	<string name="server_filter_region_north_america">Північна Америка</string>
 	<string name="server_filter_region_south_america">Південна Америка</string>
@@ -341,6 +363,7 @@
 	<string name="server_filter_region_asia">Азія</string>
 	<string name="server_filter_region_oceania">Океанія</string>
 	<string name="not_accepting_new_members">Не приймає нових користувачів</string>
+	<string name="category_special_interests">Особливі Інтереси</string>
 	<string name="signup_passwords_dont_match">Паролі не збігаються</string>
 	<string name="profile_add_row">Додати рядок</string>
 	<string name="profile_setup">Налаштування профілю</string>
@@ -622,6 +645,8 @@
 	<string name="delete_list">Видалити список</string>
 	<!-- %s is the name of the list -->
 	<string name="delete_list_confirm">Видалити “%s”?</string>
+	<string name="list_exclusive">Приховати учасників у Підписаних</string>
+	<string name="list_exclusive_subtitle">Якщо хтось є у цьому списку, сховати їх у стрічці підписок, щоб не бачити їх пости двічі.</string>
 	<string name="list_name">Назва списку</string>
 	<string name="list_show_replies_to">Показати відповіді для</string>
 	<string name="list_replies_no_one">Ніхто</string>
@@ -631,10 +656,16 @@
 	<string name="remove">Видалити</string>
 	<string name="add_list_member">Додати учасника</string>
 	<string name="search_among_people_you_follow">Шукати серед людей, на яких ви підписані</string>
+	<string name="add_user_to_list">Додати/видалити зі списків…</string>
 	<string name="add_user_to_list_title">Додати до списку</string>
 	<!-- %s is a username -->
+	<string name="manage_user_lists">Редагувати списки, на яких показується %s</string>
 	<string name="remove_from_list">Видалити зі списку</string>
 	<string name="confirm_remove_list_member">Видалити учасника?</string>
+	<string name="no_followed_hashtags_title">Будьте в курсі з вашими інтересами, підписуючись на хештеги</string>
+	<string name="no_followed_hashtags_subtitle">Підписки з\'являтимуться тут</string>
+	<string name="no_lists_title">Організуйте вашу домашню стрічку зі Списками</string>
+	<string name="no_lists_subtitle">Ваші з\'являтимуться тут</string>
 	<string name="manage_accounts">Додати або змінити обліковий запис</string>
 	<plurals name="x_posts_recently">
 		<item quantity="one">%,d допис нещодавно</item>
@@ -647,6 +678,10 @@
 	<string name="create">Створити</string>
 	<string name="manage_list_members">Керувати учасниками списку</string>
 	<string name="list_no_members">Ще немає учасників</string>
+	<string name="list_find_users">Знайти користувачів, щоб додати їх</string>
+	<string name="reply_to_user">Відповісти на %s</string>
+	<string name="posted_at">Опубліковано на %s</string>
+	<string name="non_mutual_sheet_title">Вітаємо, нове знайомство!</string>
 	<!-- %s is a time interval ("5 months") -->
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
 	<!-- %s is the username -->
