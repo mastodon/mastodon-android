@@ -218,8 +218,8 @@
 	<string name="followed_user">Agora você está seguindo %s</string>
 	<string name="following_user_requested">Solicitou para te seguir %s</string>
 	<string name="open_in_browser">Abrir no navegador</string>
-	<string name="hide_boosts_from_user">Ocultar publicação</string>
-	<string name="show_boosts_from_user">Mostrar postagens</string>
+	<string name="hide_boosts_from_user">Ocultar boosts</string>
+	<string name="show_boosts_from_user">Mostrar boosts</string>
 	<string name="signup_reason">Por que você deseja se inscrever?</string>
 	<string name="signup_reason_note">Isso vai nos ajudar a revisar sua inscrição.</string>
 	<string name="clear">Limpar</string>
@@ -587,6 +587,7 @@
 	<string name="add_user_to_list">Adicionar/remover das listas…</string>
 	<string name="add_user_to_list_title">Adicionar à lista</string>
 	<!-- %s is a username -->
+	<string name="manage_user_lists">Gerenciar as listas em que %s aparece</string>
 	<string name="remove_from_list">Remover da lista</string>
 	<string name="confirm_remove_list_member">Remover membro?</string>
 	<string name="no_followed_hashtags_title">Acompanhe seus interesses seguindo hashtags</string>
@@ -606,6 +607,7 @@
 	<string name="got_it">Entendido</string>
 	<string name="dont_remind_again">Não me lembre novamente</string>
 	<!-- %s is a time interval ("5 months") -->
+	<string name="old_post_sheet_title">Esta postagem tem %s de idade</string>
 	<string name="old_post_sheet_text">Você ainda pode responder, mas isso pode não ser mais relevante.</string>
 	<plurals name="x_months">
 		<item quantity="one">%,d mês</item>
@@ -621,7 +623,7 @@
 	<string name="make_profile_discoverable">Tornar meu perfil visível</string>
 	<string name="discoverability_help">Quando você opta pela visibilidade no Mastodon, suas postagens podem aparecer nos resultados de pesquisa e nos tópicos em destaque.\n\nSeu perfil pode ser sugerido para pessoas com interesses similares aos seus. \n\nNão escolher essa opção não oculta seu perfil caso alguém busque pelo seu nome.</string>
 	<string name="app_version_copied">Número da versão copiado para a área de transferência</string>
-	<string name="onboarding_recommendations_title">Personalize sua tela inicial</string>
+	<string name="onboarding_recommendations_title">Personalize o seu feed inicial</string>
 	<string name="article_by_author">Por %s</string>
 	<string name="info">Informações</string>
 	<string name="button_favorited">Gostado</string>
@@ -648,11 +650,16 @@
 	<string name="user_cant_mention_or_follow_you">Eles não podem mencionar ou seguir você.</string>
 	<string name="unblocked_user_x">Desbloquear %s</string>
 	<string name="do_block_server">Bloquear servidor</string>
+	<string name="block_user_x_instead">Bloquear %s em vez disso</string>
 	<string name="users_cant_see_blocked">Você não verá publicações ou notificações de usuários neste servidor.</string>
 	<string name="you_wont_see_server_posts">Você não verá nenhuma publicação de usuários neste servidor.</string>
 	<string name="server_followers_will_be_removed">Seus seguidores deste servidor serão removidos.</string>
 	<string name="server_cant_mention_or_follow_you">Ninguém deste servidor pode te seguir.</string>
 	<string name="server_can_interact_with_older">Pessoas deste servidor podem interagir com suas publicações antigas.</string>
+	<string name="unblocked_domain_x">Desbloquear domínio %s</string>
+	<string name="handle_username_explanation">Seu identificador exclusivo neste servidor. É possível encontrar usuários com o mesmo nome de usuário em servidores diferentes.</string>
+	<string name="handle_title_own">Seu identificador</string>
+	<string name="handle_username_explanation_own">Seu identificador exclusivo neste servidor. É possível encontrar usuários com o mesmo nome de usuário em servidores diferentes.</string>
 	<string name="server">Servidor</string>
 	<string name="handle_server_explanation">Sua casa digital, onde ficam todas as suas publicações.</string>
 	<string name="handle_server_explanation_own">Sua casa digital, onde ficam todas as suas publicações. Não gosta deste? Transfira servidores a qualquer momento e traga seus seguidores também.</string>
@@ -677,12 +684,14 @@
 	<string name="pin_post">Fixar no perfil</string>
 	<string name="unpin_post">Desafixar do perfil</string>
 	<string name="post_pinned">A publicação foi fixada</string>
+	<string name="post_unpinned">A postagem foi desfixada</string>
 	<!-- %s is the username -->
 	<string name="enable_new_post_notifications">Avise-me quando %s postar</string>
 	<string name="disable_new_post_notifications">Pare de me notificar quando %s postar</string>
 	<string name="new_post_notifications_enabled">Você receberá notificações de novas postagens.</string>
 	<string name="new_post_notifications_disabled">Você não será mais notificado sobre novas postagens.</string>
 	<string name="mute_conversation">Silenciar conversa</string>
+	<string name="unmute_conversation">Desativar silenciamento da conversa</string>
 	<string name="filtered_notifications">Notificações filtradas</string>
 	<string name="filter_notifications">Filtrar notificações de...</string>
 	<string name="notification_filter_following">Pessoas que você não segue</string>
