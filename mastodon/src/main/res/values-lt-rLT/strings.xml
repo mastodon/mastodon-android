@@ -9,6 +9,7 @@
 	<string name="preparing_auth">Ruošima tapatybės nustatymui…</string>
 	<string name="finishing_auth">Baigiamas tapatybės nustatymas…</string>
 	<string name="user_boosted">%s pakėlė</string>
+	<string name="in_reply_to">atsakant į %s</string>
 	<string name="notifications">Pranešimai</string>
 	<string name="user_followed_you">%s seka tave</string>
 	<string name="user_sent_follow_request">%s išsiuntė sekimo prašymą</string>
@@ -189,6 +190,8 @@
 	<string name="save">Išsaugoti</string>
 	<string name="add_alt_text">Pridėti alternatyvųjį tekstą</string>
 	<string name="visibility_public">Vieša</string>
+	<string name="visibility_followers_only">Sekėjai</string>
+	<string name="visibility_private">Konkretūs žmonės</string>
 	<string name="recent_searches">Naujausiai</string>
 	<string name="skip">Praleisti</string>
 	<string name="notification_type_follow">Nauji sekėjai</string>
@@ -343,6 +346,7 @@
 	<string name="instance_signup_closed">Šis serveris nepriima naujų registracijų.</string>
 	<string name="text_copied">Nukopijuota į iškarpinę</string>
 	<string name="add_bookmark">Pridėti į žymės</string>
+	<string name="remove_bookmark">Pašalinti žymę</string>
 	<string name="bookmarks">Žymės</string>
 	<string name="your_favorites">Tavo mėgstamos</string>
 	<string name="login_title">Sveiki sugrįžę</string>
@@ -802,4 +806,5 @@ Kuo daugiau žmonių seksi, tuo aktyvesnis ir įdomesnis jis bus.</string>
 	<string name="notifications_from_user">Pranešimai iš %s</string>
 	<string name="notifications_muted">Pranešimai iš %s buvo atmesti.</string>
 	<string name="notifications_allowed">%s dabar bus rodomi pranešimų sąraše.</string>
+	<string name="visibility_subtitle_public">Bet kas iš Mastodon ir ne Mastodon</string>
 </resources>
