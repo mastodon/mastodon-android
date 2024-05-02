@@ -346,6 +346,7 @@
 	<string name="instance_signup_closed">Šis serveris nepriima naujų registracijų.</string>
 	<string name="text_copied">Nukopijuota į iškarpinę</string>
 	<string name="add_bookmark">Pridėti į žymės</string>
+	<string name="remove_bookmark">Pašalinti žymę</string>
 	<string name="bookmarks">Žymės</string>
 	<string name="your_favorites">Tavo mėgstamos</string>
 	<string name="login_title">Sveiki sugrįžę</string>
@@ -514,10 +515,10 @@
 		<item quantity="other">po %d valandų</item>
 	</plurals>
 	<plurals name="x_hours_ago">
-		<item quantity="one">Prieš %d valandą</item>
-		<item quantity="few">Prieš %d valandas</item>
-		<item quantity="many">Prieš %d valandos</item>
-		<item quantity="other">Prieš %d valandų</item>
+		<item quantity="one">prieš %d valandą</item>
+		<item quantity="few">prieš %d valandas</item>
+		<item quantity="many">prieš %d valandos</item>
+		<item quantity="other">prieš %d valandų</item>
 	</plurals>
 	<string name="alt_text_reminder_title">Medijoje trūksta alternatyvo teksto</string>
 	<plurals name="alt_text_reminder_x_images">
@@ -606,10 +607,10 @@
 	<string name="posts_matching_string">Įrašai su „%s“</string>
 	<string name="accounts_matching_string">Žmonės su „%s“</string>
 	<!-- Shown in the post header. Please keep it short -->
-	<string name="time_seconds_ago_short">Prieš %d sek.</string>
-	<string name="time_minutes_ago_short">Prieš %d min.</string>
-	<string name="time_hours_ago_short">Prieš %d val.</string>
-	<string name="time_days_ago_short">Prieš %d d.</string>
+	<string name="time_seconds_ago_short">prieš %d sek.</string>
+	<string name="time_minutes_ago_short">prieš %d min.</string>
+	<string name="time_hours_ago_short">prieš %d val.</string>
+	<string name="time_days_ago_short">prieš %d d.</string>
 	<!-- %s is the name of the post language -->
 	<string name="translate_post">Versti iš %s</string>
 	<!-- %1$s is the language, %2$s is the name of the translation service -->
@@ -809,4 +810,8 @@ Kuo daugiau žmonių seksi, tuo aktyvesnis ir įdomesnis jis bus.</string>
 	<string name="visibility_subtitle_unlisted">Mažiau algoritminių fanfarų</string>
 	<string name="visibility_subtitle_followers">Tik sekėjams</string>
 	<string name="visibility_subtitle_private">Visus, paminėtus įraše</string>
+	<string name="view_boosts">Peržiūrėti pakėlimus</string>
+	<string name="view_favorites">Peržiūrėti mėgstamus</string>
+	<string name="undo_reblog">Panaikinti pakėlimą</string>
+	<string name="undo_favorite">Panaikinti mėgstamą</string>
 </resources>
