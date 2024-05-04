@@ -165,6 +165,8 @@
 	<string name="save">Speichern</string>
 	<string name="add_alt_text">Bildbeschreibung hinzufügen</string>
 	<string name="visibility_public">Öffentlich</string>
+	<string name="visibility_followers_only">Folgende</string>
+	<string name="visibility_private">Bestimmte Personen</string>
 	<string name="recent_searches">Verlauf</string>
 	<string name="skip">Überspringen</string>
 	<string name="notification_type_follow">Neue Follower</string>
@@ -186,6 +188,7 @@
 	<string name="theme_dark">Dunkel</string>
 	<string name="settings_behavior">Verhalten</string>
 	<string name="settings_gif">Animierte GIFs, Avatare und Emojis abspielen</string>
+	<string name="settings_custom_tabs">Link öffnen in</string>
 	<string name="settings_notifications">Benachrichtigungen</string>
 	<string name="settings_contribute">Zu Mastodon beitragen</string>
 	<string name="settings_tos">Nutzungsbedingungen</string>
@@ -214,6 +217,8 @@
 	<string name="followed_user">Du folgst nun %s</string>
 	<string name="following_user_requested">Deine Follower-Anfrage an %s wurde gesendet</string>
 	<string name="open_in_browser">Im Browser öffnen</string>
+	<string name="hide_boosts_from_user">Boosts ausblenden</string>
+	<string name="show_boosts_from_user">Boosts anzeigen</string>
 	<string name="signup_reason">Warum möchtest du beitreten?</string>
 	<string name="signup_reason_note">Das erleichtert uns die Prüfung deiner Anmeldung.</string>
 	<string name="clear">Leeren</string>
@@ -295,16 +300,23 @@
 	<!-- %s is file size -->
 	<string name="download_update">(%s) herunterladen</string>
 	<string name="install_update">Installieren</string>
+	<string name="privacy_policy_title">Deine Privatsphäre</string>
 	<string name="privacy_policy_subtitle">Auch wenn die Mastodon-App keine Daten sammelt, kann der Server, über den du dich anmeldest, eine andere Richtlinie haben.\n\nWenn du mit der Richtlinie für %s nicht einverstanden bist, kannst du zurückkehren und einen anderen Server wählen.</string>
+	<string name="i_agree">Ich stimme zu</string>
 	<string name="empty_list">Diese Liste ist leer</string>
 	<string name="instance_signup_closed">Dieser Server akzeptiert keine neuen Registrierungen.</string>
 	<string name="text_copied">In die Zwischenablage kopiert</string>
 	<string name="add_bookmark">Lesezeichen setzen</string>
+	<string name="remove_bookmark">Lesezeichen entfernen</string>
 	<string name="bookmarks">Lesezeichen</string>
 	<string name="your_favorites">Deine Favoriten</string>
 	<string name="login_title">Willkommen zurück</string>
 	<string name="login_subtitle">Melde dich mit dem Server an, auf dem du dein Account erstellt hast.</string>
 	<string name="server_url">Serveradresse</string>
+	<string name="server_filter_any_language">Beliebige Sprache</string>
+	<string name="server_filter_instant_signup">Schnellregistrierung</string>
+	<string name="server_filter_manual_review">Manuelle Überprüfung</string>
+	<string name="server_filter_any_signup_speed">Beliebige Registrierungsdauer</string>
 	<string name="server_filter_region_europe">Europa</string>
 	<string name="server_filter_region_north_america">Nordamerika</string>
 	<string name="server_filter_region_south_america">Südamerika</string>
@@ -312,6 +324,7 @@
 	<string name="server_filter_region_asia">Asien</string>
 	<string name="server_filter_region_oceania">Ozeanien</string>
 	<string name="not_accepting_new_members">Keine Aufnahme neuer Mitglieder</string>
+	<string name="category_special_interests">Besondere Interessen</string>
 	<string name="signup_passwords_dont_match">Passwörter stimmen nicht überein</string>
 	<string name="profile_add_row">Zeile hinzufügen</string>
 	<string name="profile_setup">Profil einrichten</string>
@@ -576,6 +589,7 @@
 	<string name="remove">Entfernen</string>
 	<string name="add_list_member">Mitglied hinzufügen</string>
 	<string name="search_among_people_you_follow">Suche nach Leuten, denen du folgst</string>
+	<string name="add_user_to_list">Zu Listen hinzufügen/entfernen…</string>
 	<string name="add_user_to_list_title">Zur Liste hinzufügen</string>
 	<!-- %s is a username -->
 	<string name="manage_user_lists">Listen mit %s verwalten</string>
@@ -592,23 +606,41 @@
 	</plurals>
 	<string name="create_list">Liste erstellen</string>
 	<string name="step_x_of_y">Schritt %1$d von %2$d</string>
+	<string name="create">Erstellen</string>
 	<string name="manage_list_members">Listenmitglieder verwalten</string>
 	<string name="list_no_members">Noch keine Mitglieder</string>
+	<string name="list_find_users">Benutzer zum Hinzufügen finden</string>
+	<string name="reply_to_user">Antwort an %s</string>
 	<string name="posted_at">Veröffentlicht um %s Uhr</string>
+	<string name="non_mutual_sheet_title">Hallo, neues Bindeglied!</string>
+	<string name="non_mutual_sheet_text">Es wirkt so, als ob Sie jemandem antworten, der Ihnen noch nicht folgt. Lassen Sie uns einen ersten guten Eindruck machen.</string>
+	<string name="got_it">Verstanden</string>
 	<string name="dont_remind_again">Nicht erneut erinnern</string>
 	<!-- %s is a time interval ("5 months") -->
 	<string name="old_post_sheet_title">Dieser Beitrag ist %s alt</string>
+	<string name="old_post_sheet_text">Sie können immer noch antworten, aber es ist möglicherweise nicht mehr relevant.</string>
 	<plurals name="x_months">
 		<item quantity="one">%,d Monat</item>
 		<item quantity="other">%,d Monate</item>
 	</plurals>
 	<string name="more_than_two_years">mehr als 2 Jahre</string>
+	<string name="non_mutual_title1">Bleiben Sie respektvoll &amp; relevant</string>
+	<string name="non_mutual_text1">Vergewissern Sie sich, dass Ihre Antwort höflich und relevant ist.</string>
+	<string name="non_mutual_text2">Eine freundliche Ausdrucksweise wird immer gewürdigt.</string>
+	<string name="non_mutual_title3">Sei offen</string>
+	<string name="non_mutual_text3">Jedermanns Gesprächsstil ist einzigartig. Seien Sie bereit, sich anzupassen.</string>
+	<string name="make_profile_discoverable">Mein Profil entdeckbar machen</string>
+	<string name="discoverability">Auffindbarkeit</string>
+	<string name="discoverability_help">Wenn Sie sich für die Auffindbarkeit auf Mastodon entscheiden, können Ihre Beiträge in Suchergebnissen und Trends erscheinen.\n\nIhr Profil kann Personen mit ähnlichen Interessen empfohlen werden.\n\nWidersprechen versteckt Ihr Profil nicht, wenn jemand nach Ihrem Namen sucht.</string>
+	<string name="app_version_copied">Versionsnummer in die Zwischenablage kopiert</string>
 	<string name="info">Info</string>
+	<string name="button_favorited">Favorisiert</string>
 	<string name="expired_invite_link">Abgelaufener Einladungslink</string>
 	<string name="server">Server</string>
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
 	<string name="saved">Gespeichert</string>
 	<string name="image_saved">Bild gespeichert.</string>
 	<string name="video_saved">Video gespeichert.</string>
+	<string name="tab_search">Entdecken</string>
 	<!-- %s is the username -->
 </resources>
