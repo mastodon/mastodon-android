@@ -346,6 +346,7 @@
 	<string name="instance_signup_closed">Цей сервер не приймає нові реєстрації.</string>
 	<string name="text_copied">Скопійовано до буфера обміну</string>
 	<string name="add_bookmark">До закладок</string>
+	<string name="remove_bookmark">Вилучити закладку</string>
 	<string name="bookmarks">Закладки</string>
 	<string name="your_favorites">Ваші уподобання</string>
 	<string name="login_title">З поверненням</string>
@@ -748,6 +749,24 @@
 	<string name="handle_server_explanation_own">Ваш цифровий дім, де живуть усі ваші пости. Не подобається цей? Ви можете будь-коли перейти на інший сервер, разом з вашим списком підписок.</string>
 	<string name="handle_explanation_own">Через те, що ваша адреса містить ваш нік та де ви зареєстровані, люди з усієї соціальної павутини з платформ, що підтримують протокол &lt;a&gt;ActivityPub&lt;/a&gt;, можуть взаємодіяти з вами.</string>
 	<string name="what_is_activitypub_title">Що таке ActivityPub?</string>
+	<string name="qr_code">QR-код</string>
+	<string name="scan_qr_code">Сканувати QR-код</string>
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
+	<string name="saved">Збережено</string>
+	<string name="image_saved">Зображення збережено.</string>
+	<string name="video_saved">Відео збережено.</string>
+	<string name="view_file">Переглянути</string>
+	<string name="copy_profile_link">Копіювати посилання на профіль</string>
+	<string name="in_app_browser">Вбудований браузер</string>
+	<string name="system_browser">Системний браузер</string>
+	<string name="add_muted_word_short">Додайте слово</string>
+	<string name="tab_home">Головна</string>
+	<string name="tab_search">Огляд</string>
+	<string name="tab_profile">Профіль</string>
+	<string name="pin_post">Закріпити у профілі</string>
+	<string name="unpin_post">Відкріпити від профілю</string>
+	<string name="post_pinned">Допис закріплено</string>
+	<string name="post_unpinned">Допис відкріплено</string>
 	<!-- %s is the username -->
+	<string name="enable_new_post_notifications">Повідомляти мене, коли %s пише</string>
 </resources>
