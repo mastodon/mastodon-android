@@ -85,14 +85,36 @@
 	<string name="mentions">Mentiones</string>
 	<string name="report_title">Reportar %s</string>
 	<string name="report_choose_reason">Que ha il que non va con iste message?</string>
+	<string name="report_choose_reason_account">Que ha il que non va con %s?</string>
+	<string name="report_choose_reason_subtitle">Selige le concordantia melior</string>
+	<string name="report_reason_personal">Isto non me place</string>
+	<string name="report_reason_personal_subtitle">Il non es alco que tu vole vider</string>
 	<string name="report_reason_spam">Isto es spam</string>
+	<string name="report_reason_spam_subtitle">Ligamines maligne, false ingagiamento, o responsas repetitive</string>
+	<string name="report_reason_violation">Isto viola le regulas de servitor</string>
+	<string name="report_reason_violation_subtitle">Tu es conscie que isto viola regulas specific</string>
+	<string name="back">Retro</string>
+	<string name="instance_rules_title">Regulas del servitor</string>
+	<string name="signup_title">Crear un conto</string>
 	<string name="display_name">Nomine</string>
 	<string name="username">Nomine de usator</string>
 	<string name="email">Email</string>
 	<string name="password">Contrasigno</string>
+	<string name="confirm_password">Confirmar contrasigno</string>
+	<string name="category_general">General</string>
 	<!-- %s is the email address -->
+	<string name="resend">Reinviar</string>
 	<string name="content_warning">Advertimento de contento</string>
+	<string name="save">Salvar</string>
+	<string name="add_alt_text">Adder texto alt</string>
 	<string name="visibility_public">Public</string>
+	<string name="visibility_followers_only">Sequaces</string>
+	<string name="visibility_private">Personas specific</string>
+	<string name="recent_searches">Recentes</string>
+	<string name="skip">Saltar</string>
+	<string name="notification_type_follow">Nove sequaces</string>
+	<string name="notification_type_favorite">Favoritos</string>
+	<string name="settings_theme">Apparentia</string>
 	<string name="theme_light">Clar</string>
 	<string name="theme_dark">Obscur</string>
 	<string name="settings_behavior">Comportamento</string>
@@ -103,7 +125,11 @@
 	<string name="button_share">Compartir</string>
 	<string name="emoji">Emoticone</string>
 	<string name="my_profile">Mi profilo</string>
+	<string name="media_viewer">Visor multimedial</string>
 	<string name="follow_user">Sequer %s</string>
+	<string name="unfollowed_user">Non plus sequite %s</string>
+	<string name="followed_user">Tu ora seque %s</string>
+	<string name="following_user_requested">Requirite de sequer %s</string>
 	<!-- %s is the server domain -->
 	<string name="see_new_posts">Nove messages</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
