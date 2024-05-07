@@ -13,30 +13,119 @@
 	<string name="done">Facite</string>
 	<string name="field_label">Etiquetta</string>
 	<string name="poll_option_hint">Option %d</string>
+	<string name="confirm_delete">Es tu secur que tu vole deler iste message?</string>
+	<string name="deleting">Delente…</string>
+	<string name="search_hint">Cercar</string>
+	<string name="hashtags">Hashtags</string>
+	<string name="news">Novas</string>
+	<string name="for_you">Pro te</string>
+	<string name="mentions">Mentiones</string>
+	<string name="report_reason_spam">Isto es spam</string>
+	<string name="display_name">Nomine</string>
+	<string name="username">Nomine de usator</string>
+	<string name="email">Email</string>
+	<string name="password">Contrasigno</string>
 	<!-- %s is the email address -->
+	<string name="visibility_public">Public</string>
+	<string name="theme_light">Clar</string>
+	<string name="theme_dark">Obscur</string>
+	<string name="settings_behavior">Comportamento</string>
+	<string name="settings_notifications">Notificationes</string>
+	<string name="settings_contribute">Contribue a Mastodon</string>
+	<string name="new_post">Nove message</string>
+	<string name="button_reply">Responder</string>
+	<string name="button_share">Compartir</string>
+	<string name="emoji">Emoticone</string>
+	<string name="my_profile">Mi profilo</string>
+	<string name="follow_user">Sequer %s</string>
 	<!-- %s is the server domain -->
+	<string name="see_new_posts">Nove messages</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
+	<string name="time_now">ora</string>
+	<string name="time_just_now">justo ora</string>
+	<string name="edit_text_edited">Testo redigite</string>
+	<string name="edit_media_added">Medios addite</string>
+	<string name="edit_media_removed">Medios removite</string>
+	<string name="edit_media_reordered">Medios reordinate</string>
+	<string name="edit">Rediger</string>
+	<string name="file_size_bytes">%d bytes</string>
+	<string name="file_size_kb">%.2f KB</string>
+	<string name="file_size_mb">%.2f MB</string>
+	<string name="file_size_gb">%.2f GB</string>
+	<string name="upload_processing">Processante…</string>
 	<!-- %s is file size -->
+	<string name="download_update">Discargar (%s)</string>
+	<string name="server_filter_manual_review">Revision manual</string>
+	<string name="server_filter_region_africa">Africa</string>
 	<!-- %s is server domain -->
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<string name="hide">Celar</string>
+	<string name="join_default_server">Junge te a %s</string>
+	<string name="signup_or_login">o</string>
+	<string name="learn_more">Pro saper plus</string>
+	<string name="welcome_to_mastodon">Benvenite in Mastodon</string>
 	<!-- %s is formatted file size ("467 KB image") -->
+	<string name="attachment_description_unknown">%s file</string>
+	<string name="help">Adjuta</string>
+	<string name="what_is_alt_text">Que es le texto alt?</string>
+	<string name="language">Lingua</string>
+	<string name="language_default">Predefinite</string>
+	<string name="language_system">Systema</string>
 	<!-- %s is the server domain -->
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
+	<string name="notifications_policy_anyone">Quicunque</string>
+	<string name="notifications_policy_no_one">Nemo</string>
 	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="server_rules">Regulas</string>
+	<string name="server_administrator">Administrator</string>
+	<string name="count_one">Un</string>
+	<string name="count_two">Duo</string>
+	<string name="count_three">Tres</string>
+	<string name="count_four">Quatro</string>
+	<string name="alt_text_reminder_post_anyway">Publicar</string>
 	<!-- %s is the username -->
+	<string name="filter_active">Active</string>
+	<string name="filter_inactive">Inactive</string>
+	<string name="settings_filter_duration">Duration</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="filter_context_profiles">Profilos</string>
+	<string name="settings_filter_title">Titulo</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
 	<!-- Shown in the post header. Please keep it short -->
+	<string name="time_seconds_ago_short">%ds retro</string>
+	<string name="time_minutes_ago_short">%dm retro</string>
+	<string name="time_hours_ago_short">%dh retro</string>
+	<string name="time_days_ago_short">%dd retro</string>
 	<!-- %s is the name of the post language -->
+	<string name="translate_post">Traducer ab %s</string>
 	<!-- %1$s is the language, %2$s is the name of the translation service -->
+	<string name="post_translated">Traducite ab %1$s usante %2$s</string>
+	<string name="translation_show_original">Monstrar original</string>
+	<string name="timeline_following">Initio</string>
+	<string name="lists">Listas</string>
+	<string name="followed_hashtags">Hashtags sequite</string>
 	<!-- Screen reader description for the menu on the home timeline screen -->
+	<string name="edit_list">Modificar lista</string>
 	<!-- %s is the name of the list -->
+	<string name="delete_list_confirm">Deler “%s”?</string>
 	<!-- %s is a username -->
+	<string name="confirm_remove_list_member">Remover membro?</string>
+	<string name="got_it">Io comprendeva</string>
 	<!-- %s is a time interval ("5 months") -->
+	<string name="non_mutual_title3">Sia aperte</string>
+	<string name="article_by_author">Per %s</string>
+	<string name="info">Info</string>
+	<string name="server">Servitor</string>
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
+	<string name="view_file">Vider</string>
+	<string name="share_sheet_preview_profile">%s sur Mastodon</string>
+	<string name="tab_home">Initio</string>
+	<string name="tab_search">Explorar</string>
+	<string name="tab_profile">Profilo</string>
 	<!-- %s is the username -->
+	<string name="notification_filter_new_accounts">Nove contos</string>
 </resources>
