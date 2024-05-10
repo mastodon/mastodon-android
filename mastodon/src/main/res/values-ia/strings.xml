@@ -189,6 +189,7 @@
 	<string name="theme_dark">Obscur</string>
 	<string name="settings_behavior">Comportamento</string>
 	<string name="settings_gif">Reproducer avatares e emoticones animate</string>
+	<string name="settings_custom_tabs">Aperir ligamine in</string>
 	<string name="settings_notifications">Notificationes</string>
 	<string name="settings_contribute">Contribue a Mastodon</string>
 	<string name="settings_tos">Terminos del servicio</string>
@@ -241,6 +242,18 @@
 	<plurals name="x_followers">
 		<item quantity="one">%,d sequace</item>
 		<item quantity="other">%,d sequace</item>
+	</plurals>
+	<plurals name="x_following">
+		<item quantity="one">%,d sequite</item>
+		<item quantity="other">%,d sequites</item>
+	</plurals>
+	<plurals name="x_favorites">
+		<item quantity="one">%,d favorite</item>
+		<item quantity="other">%,d favorites</item>
+	</plurals>
+	<plurals name="x_reblogs">
+		<item quantity="one">%,d promovite</item>
+		<item quantity="other">%,d promovites</item>
 	</plurals>
 	<string name="time_now">ora</string>
 	<string name="time_just_now">justo ora</string>
