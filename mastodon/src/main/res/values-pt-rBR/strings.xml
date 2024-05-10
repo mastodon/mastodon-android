@@ -31,7 +31,7 @@
 		<item quantity="other">seguindo</item>
 	</plurals>
 	<string name="posts">Publicações</string>
-	<string name="posts_and_replies">Posts e réplicas</string>
+	<string name="posts_and_replies">Publicações e respostas</string>
 	<string name="media">Mídia</string>
 	<string name="profile_about">Sobre</string>
 	<string name="button_follow">Seguir</string>
@@ -218,8 +218,8 @@
 	<string name="followed_user">Agora você está seguindo %s</string>
 	<string name="following_user_requested">Solicitou para te seguir %s</string>
 	<string name="open_in_browser">Abrir no navegador</string>
-	<string name="hide_boosts_from_user">Ocultar boosts</string>
-	<string name="show_boosts_from_user">Mostrar boosts</string>
+	<string name="hide_boosts_from_user">Ocultar impulsos</string>
+	<string name="show_boosts_from_user">Mostrar impulsos</string>
 	<string name="signup_reason">Por que você deseja se inscrever?</string>
 	<string name="signup_reason_note">Isso vai nos ajudar a revisar sua inscrição.</string>
 	<string name="clear">Limpar</string>
@@ -260,7 +260,7 @@
 		<item quantity="other">%,d favoritos</item>
 	</plurals>
 	<plurals name="x_reblogs">
-		<item quantity="one">%,d impulso</item>
+		<item quantity="one">%,d impulsos</item>
 		<item quantity="other">%,d impulsos</item>
 	</plurals>
 	<string name="time_now">agora</string>
@@ -308,6 +308,7 @@
 	<string name="instance_signup_closed">Este servidor não aceita novos registros.</string>
 	<string name="text_copied">Copiado para a área de transferência</string>
 	<string name="add_bookmark">Salvar</string>
+	<string name="remove_bookmark">Remover favorito</string>
 	<string name="bookmarks">Salvos</string>
 	<string name="your_favorites">Seus favoritos</string>
 	<string name="login_title">Bem-vindo de volta</string>
@@ -741,4 +742,8 @@ Quanto mais pessoas que você seguir, mas interessantes e ativas serão.</string
 	<string name="visibility_subtitle_unlisted">Menos notificações e recomendações do algoritmo</string>
 	<string name="visibility_subtitle_followers">Mostrar somente seus seguidores</string>
 	<string name="visibility_subtitle_private">Todos mencionados na postagem</string>
+	<string name="view_boosts">Visualizar impulsos</string>
+	<string name="view_favorites">Visualizar favoritos</string>
+	<string name="undo_reblog">Desfazer boost</string>
+	<string name="undo_favorite">Desfazer favorito</string>
 </resources>
