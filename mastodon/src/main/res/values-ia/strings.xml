@@ -26,6 +26,10 @@
 		<item quantity="one">sequace</item>
 		<item quantity="other">sequaces</item>
 	</plurals>
+	<plurals name="following">
+		<item quantity="one">sequente</item>
+		<item quantity="other">sequente</item>
+	</plurals>
 	<string name="posts">Messages</string>
 	<string name="posts_and_replies">Messages e responsas</string>
 	<string name="media">Medios</string>
@@ -41,6 +45,10 @@
 	<string name="report_user">Reportar %s</string>
 	<string name="block_domain">Blocar %s</string>
 	<string name="unblock_domain">Disblocar %s</string>
+	<plurals name="x_posts">
+		<item quantity="one">%,d message</item>
+		<item quantity="other">%,d messages</item>
+	</plurals>
 	<string name="profile_joined">Inscribite</string>
 	<string name="done">Facite</string>
 	<string name="loading">Cargante…</string>
@@ -49,9 +57,29 @@
 	<string name="saving">Salvante…</string>
 	<string name="post_from_user">Message ab %s</string>
 	<string name="poll_option_hint">Option %d</string>
+	<plurals name="x_minutes">
+		<item quantity="one">%d minuta</item>
+		<item quantity="other">%d minutas</item>
+	</plurals>
+	<plurals name="x_hours">
+		<item quantity="one">%d hora</item>
+		<item quantity="other">%d horas</item>
+	</plurals>
 	<plurals name="x_days">
 		<item quantity="one">%d die</item>
 		<item quantity="other">%d dies</item>
+	</plurals>
+	<plurals name="x_seconds_left">
+		<item quantity="one">%d secunda restante</item>
+		<item quantity="other">%d secundas restante</item>
+	</plurals>
+	<plurals name="x_minutes_left">
+		<item quantity="one">%d minuta restante</item>
+		<item quantity="other">%d minutas restante</item>
+	</plurals>
+	<plurals name="x_hours_left">
+		<item quantity="one">%d hora restante</item>
+		<item quantity="other">%d horas restante</item>
 	</plurals>
 	<plurals name="x_days_left">
 		<item quantity="one">%d die restante</item>
@@ -83,6 +111,10 @@
 	<string name="for_you">Pro te</string>
 	<string name="all_notifications">Toto</string>
 	<string name="mentions">Mentiones</string>
+	<plurals name="x_people_talking">
+		<item quantity="one">%d persona parla</item>
+		<item quantity="other">%d personas parla</item>
+	</plurals>
 	<string name="report_title">Reportar %s</string>
 	<string name="report_choose_reason">Que ha il que non va con iste message?</string>
 	<string name="report_choose_reason_account">Que ha il que non va con %s?</string>
@@ -145,6 +177,10 @@
 	<string name="notification_type_poll">Sondages</string>
 	<string name="choose_account">Eliger conto</string>
 	<string name="err_not_logged_in">Primo accede a Mastodon</string>
+	<plurals name="cant_add_more_than_x_attachments">
+		<item quantity="one">Tu non pote adder plus que %d annexo de medios</item>
+		<item quantity="other">Tu non pote adder plus que %d annexos de medios</item>
+	</plurals>
 	<string name="media_attachment_unsupported_type">File %s es de un typo non tractate</string>
 	<string name="media_attachment_too_big">Le file %1$s excede le dimension limite de %2$s MB</string>
 	<string name="settings_theme">Apparentia</string>
@@ -200,9 +236,23 @@
 	<string name="local_timeline">Local</string>
 	<!-- %s is the server domain -->
 	<string name="see_new_posts">Nove messages</string>
+	<string name="button_follow_pending">In tractamento</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
+	<plurals name="x_followers">
+		<item quantity="one">%,d sequace</item>
+		<item quantity="other">%,d sequace</item>
+	</plurals>
 	<string name="time_now">ora</string>
 	<string name="time_just_now">justo ora</string>
+	<plurals name="x_seconds_ago">
+		<item quantity="one">%d secunda retro</item>
+		<item quantity="other">%d secundas retro</item>
+	</plurals>
+	<plurals name="x_minutes_ago">
+		<item quantity="one">%d minuta retro</item>
+		<item quantity="other">%d minutas retro</item>
+	</plurals>
+	<string name="edit_original_post">Message original</string>
 	<string name="edit_text_edited">Testo redigite</string>
 	<string name="edit_media_added">Medios addite</string>
 	<string name="edit_media_removed">Medios removite</string>
@@ -215,8 +265,20 @@
 	<string name="upload_processing">Processante…</string>
 	<!-- %s is file size -->
 	<string name="download_update">Discargar (%s)</string>
+	<string name="install_update">Installar</string>
+	<string name="i_agree">Io consenti</string>
+	<string name="empty_list">Iste lista es vacue</string>
+	<string name="text_copied">Copiate al area de transferentia</string>
+	<string name="add_bookmark">Adder al marcapaginas</string>
+	<string name="remove_bookmark">Remover marcapagina</string>
+	<string name="bookmarks">Marcapaginas</string>
+	<string name="your_favorites">Tu favorite</string>
 	<string name="server_filter_manual_review">Revision manual</string>
+	<string name="server_filter_region_europe">Europa</string>
+	<string name="server_filter_region_north_america">Nord America</string>
+	<string name="server_filter_region_south_america">Sud America</string>
 	<string name="server_filter_region_africa">Africa</string>
+	<string name="server_filter_region_asia">Asia</string>
 	<string name="server_filter_region_oceania">Oceania</string>
 	<string name="not_accepting_new_members">Non acceptante nove membros</string>
 	<string name="category_special_interests">Interesses special</string>
@@ -228,43 +290,117 @@
 	<string name="server_rules_disagree">Io dissenti</string>
 	<string name="privacy_policy_explanation">TL;DR: Nos non collige o processa alco.</string>
 	<!-- %s is server domain -->
+	<string name="server_policy_disagree">Io dissenti de %s</string>
+	<string name="profile_bio">Bio</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
+	<string name="sending_follows">Sequente usatores…</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<string name="signup_email_domain_blocked">%1$s non permitte registrationes de %2$s. Tenta un altere o&lt;a&gt;selige un servitor differente&lt;/a&gt;.</string>
+	<string name="spoiler_show">Monstrar comocunque</string>
+	<string name="spoiler_hide">Re-celar</string>
+	<string name="poll_multiple_choice">Selige un o plus</string>
+	<string name="save_changes">Salvar le cambiamentos</string>
+	<string name="profile_featured">Favorite</string>
+	<string name="profile_timeline">Classification temporal</string>
+	<string name="view_all">Vider toto</string>
+	<string name="profile_endorsed_accounts">Contos</string>
+	<string name="verified_link">Ligamine verificate</string>
+	<string name="show">Monstrar</string>
 	<string name="hide">Celar</string>
 	<string name="join_default_server">Junge te a %s</string>
+	<string name="pick_server">Elige un altere servitor</string>
 	<string name="signup_or_login">o</string>
 	<string name="learn_more">Pro saper plus</string>
 	<string name="welcome_to_mastodon">Benvenite in Mastodon</string>
+	<string name="welcome_paragraph1">Mastodon es un rete social decentralisate, significa que nulle singule compania controla illo. Illo es formate de multe servitores que functiona in maniera independente, totos connectite insimul.</string>
+	<string name="what_are_servers">Qual es servitores?</string>
 	<!-- %s is formatted file size ("467 KB image") -->
+	<string name="attachment_description_audio">%s audio</string>
 	<string name="attachment_description_unknown">%s file</string>
+	<string name="attachment_type_image">Imagine</string>
+	<string name="attachment_type_video">Video</string>
+	<string name="attachment_type_audio">Audio</string>
+	<string name="attachment_type_gif">GIF</string>
+	<string name="attachment_type_unknown">File</string>
+	<string name="attachment_x_percent_uploaded">%d%% cargate</string>
+	<string name="poll_style">Stilo</string>
+	<string name="compose_poll_single_choice">Seliger un</string>
+	<string name="compose_poll_multiple_choice">Selection multiple</string>
 	<string name="help">Adjuta</string>
 	<string name="what_is_alt_text">Que es le texto alt?</string>
+	<string name="edit_post">Rediger message</string>
+	<string name="no_verified_link">Ligamine non verificate</string>
+	<string name="no_search_results">Nihil trovate pro iste terminos de recerca</string>
 	<string name="language">Lingua</string>
 	<string name="language_default">Predefinite</string>
 	<string name="language_system">Systema</string>
+	<string name="language_detected">Relevate</string>
+	<string name="media_hidden">Medios celate</string>
+	<string name="post_hidden">Message celate</string>
+	<string name="report_title_post">Reportar message</string>
 	<!-- %s is the server domain -->
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
+	<string name="muted_user">Silentiate %s</string>
+	<string name="settings_display">Schermo</string>
+	<string name="settings_filters">Filtros</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
+	<string name="pause_all_notifications">Pausar toto</string>
 	<string name="notifications_policy_anyone">Quicunque</string>
 	<string name="notifications_policy_no_one">Nemo</string>
+	<plurals name="x_weeks">
+		<item quantity="one">%d septimana</item>
+		<item quantity="other">%d septimanas</item>
+	</plurals>
 	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
+	<string name="date_at_time">%1$s a %2$s</string>
+	<string name="today">hodie</string>
+	<string name="yesterday">heri</string>
+	<string name="tomorrow">deman</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="resume_notifications_now">Resumer ora</string>
+	<string name="about_server">A proposito</string>
 	<string name="server_rules">Regulas</string>
 	<string name="server_administrator">Administrator</string>
+	<plurals name="in_x_seconds">
+		<item quantity="one">in %d secunda</item>
+		<item quantity="other">in %d secundas</item>
+	</plurals>
+	<plurals name="in_x_minutes">
+		<item quantity="one">in %d minuta</item>
+		<item quantity="other">in %d minutas</item>
+	</plurals>
+	<plurals name="in_x_hours">
+		<item quantity="one">in %d hora</item>
+		<item quantity="other">in %d horas</item>
+	</plurals>
 	<string name="count_one">Un</string>
 	<string name="count_two">Duo</string>
 	<string name="count_three">Tres</string>
 	<string name="count_four">Quatro</string>
 	<string name="alt_text_reminder_post_anyway">Publicar</string>
 	<!-- %s is the username -->
+	<string name="unfollow_confirmation">Non plus sequer %s?</string>
 	<string name="filter_active">Active</string>
 	<string name="filter_inactive">Inactive</string>
+	<string name="settings_add_filter">Adder filtro</string>
+	<string name="settings_edit_filter">Modificar filtro</string>
 	<string name="settings_filter_duration">Duration</string>
+	<string name="settings_filter_muted_words">Parolas silentiate</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="filter_context_notifications">Notificationes</string>
+	<string name="filter_context_public_timelines">Chronologias public</string>
 	<string name="filter_context_profiles">Profilos</string>
 	<string name="settings_filter_title">Titulo</string>
+	<string name="add">Adder</string>
+	<string name="enter_selection_mode">Seliger</string>
+	<string name="select_all">Seliger toto</string>
+	<string name="filter_duration_custom">Personalisate</string>
+	<string name="filter_word_already_in_list">Jam in le lista</string>
+	<string name="app_update_version">Version %s</string>
+	<string name="downloading_update">Discargante (%d%%)</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
+	<string name="search_go_to_account">Ir a %s</string>
 	<!-- Shown in the post header. Please keep it short -->
 	<string name="time_seconds_ago_short">%ds retro</string>
 	<string name="time_minutes_ago_short">%dm retro</string>
@@ -280,15 +416,27 @@
 	<string name="followed_hashtags">Hashtags sequite</string>
 	<!-- Screen reader description for the menu on the home timeline screen -->
 	<string name="edit_list">Modificar lista</string>
+	<string name="delete_list">Deler lista</string>
 	<!-- %s is the name of the list -->
 	<string name="delete_list_confirm">Deler “%s”?</string>
+	<string name="list_replies_no_one">Nemo</string>
+	<string name="list_replies_members">Membros del lista</string>
 	<!-- %s is a username -->
 	<string name="confirm_remove_list_member">Remover membro?</string>
+	<string name="create_list">Crear lista</string>
+	<string name="step_x_of_y">Passo %1$d de %2$d</string>
+	<string name="create">Crear</string>
 	<string name="got_it">Io comprendeva</string>
 	<!-- %s is a time interval ("5 months") -->
+	<plurals name="x_months">
+		<item quantity="one">%,d mense</item>
+		<item quantity="other">%,d menses</item>
+	</plurals>
 	<string name="non_mutual_title3">Sia aperte</string>
 	<string name="article_by_author">Per %s</string>
 	<string name="info">Info</string>
+	<string name="button_reblogged">Promovite</string>
+	<string name="button_favorited">Favorite</string>
 	<string name="server">Servitor</string>
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
 	<string name="view_file">Vider</string>
