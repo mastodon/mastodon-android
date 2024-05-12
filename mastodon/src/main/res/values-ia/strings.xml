@@ -540,8 +540,13 @@
 	<string name="downloading_update">Discargante (%d%%)</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
 	<string name="post_matches_filter_x">Concorda con filtro “%s”</string>
+	<string name="search_mastodon">Cercar Mastodon</string>
 	<string name="clear_all">Clarar toto</string>
+	<string name="search_open_url">Aperir URL in Mastodon</string>
+	<string name="posts_matching_hashtag">Messages con “%s”</string>
 	<string name="search_go_to_account">Ir a %s</string>
+	<string name="posts_matching_string">Messages con “%s”</string>
+	<string name="accounts_matching_string">Personas con “%s”</string>
 	<!-- Shown in the post header. Please keep it short -->
 	<string name="time_seconds_ago_short">%ds retro</string>
 	<string name="time_minutes_ago_short">%dm retro</string>
@@ -552,10 +557,26 @@
 	<!-- %1$s is the language, %2$s is the name of the translation service -->
 	<string name="post_translated">Traducite ab %1$s usante %2$s</string>
 	<string name="translation_show_original">Monstrar original</string>
+	<string name="translation_failed">Traduction fallite. Forsan le administrator non ha activate traductiones sur iste servitor o sur iste servitor es exequite un version de Mastodon plus vetere ubi le traductiones non es ancora supportate.</string>
+	<string name="settings_privacy">Confidentialitate e capacitate</string>
+	<string name="settings_discoverable">Evidentiar le profilo e messages in le algorithmos de discoperta</string>
+	<string name="settings_indexable">Includer messages public in le resultatos de recerca</string>
+	<plurals name="x_participants">
+		<item quantity="one">%,d participante</item>
+		<item quantity="other">%,d participantes</item>
+	</plurals>
+	<plurals name="x_posts_today">
+		<item quantity="one">%,d message hodie</item>
+		<item quantity="other">%,d messages hodie</item>
+	</plurals>
+	<string name="error_playing_video">Error reproducente video</string>
 	<string name="timeline_following">Initio</string>
 	<string name="lists">Listas</string>
 	<string name="followed_hashtags">Hashtags sequite</string>
+	<string name="manage_lists">Gerer le listas</string>
+	<string name="manage_hashtags">Gerer hashtags</string>
 	<!-- Screen reader description for the menu on the home timeline screen -->
+	<string name="dropdown_menu">Menu a cadita</string>
 	<string name="edit_list">Modificar lista</string>
 	<string name="list_members">Listar membros</string>
 	<string name="delete_list">Deler lista</string>
@@ -575,6 +596,7 @@
 	<string name="add_user_to_list">Adder/remover ab lista…</string>
 	<string name="add_user_to_list_title">Adder al lista</string>
 	<!-- %s is a username -->
+	<string name="manage_user_lists">Gerer le lista sur que appare %s</string>
 	<string name="remove_from_list">Remover del lista</string>
 	<string name="confirm_remove_list_member">Remover membro?</string>
 	<string name="no_followed_hashtags_title">Tene te al currente con interesses sequente hashtags</string>
@@ -595,6 +617,7 @@
 	<string name="reply_to_user">Responder a: %s</string>
 	<string name="posted_at">Inviate “%s”</string>
 	<string name="non_mutual_sheet_title">Hallo, nove connexion!</string>
+	<string name="non_mutual_sheet_text">Pare que tu va responder a alcuno qui non es ancora in connexion reciproc. Que nos face un grande prime impression.</string>
 	<string name="got_it">Io comprendeva</string>
 	<!-- %s is a time interval ("5 months") -->
 	<plurals name="x_months">
@@ -602,11 +625,22 @@
 		<item quantity="other">%,d menses</item>
 	</plurals>
 	<string name="non_mutual_title3">Sia aperte</string>
+	<string name="app_version_copied">Numero de version copiate al area de transferentia</string>
 	<string name="article_by_author">Per %s</string>
 	<string name="info">Info</string>
 	<string name="button_reblogged">Promovite</string>
 	<string name="button_favorited">Favorite</string>
+	<string name="handle_title">Su pseudonymo</string>
+	<string name="handle_username_explanation">Su identificator unic sur su servitor. Es possibile trovar usatores con le mesme nomine de usator sur servitores differente.</string>
+	<string name="handle_title_own">Tu pseudonymo</string>
+	<string name="handle_username_explanation_own">Tu identificator unic sur iste servitor. Es possibile trovar usatores con le mesme nomine de usator sur servitores differente.</string>
 	<string name="server">Servitor</string>
+	<string name="handle_server_explanation">Su casa digital, ubi vive tote su messages.</string>
+	<string name="handle_explanation">Un pseudonymo indica qui un persona es e ubi se trova, de maniera que tu pote interager con personas sur tote le rete social de &lt;a&gt;platteformas basate sur ActivityPub&lt;/a&gt;.</string>
+	<string name="handle_server_explanation_own">Tu casa digital, ubi vive tote tu messages. Non te place? Cambia de servitor a omne momento e porta tu sequitores con te.</string>
+	<string name="handle_explanation_own">Perque tu pseudonymo indica qui tu es e ubi tu te trova, le gente pote interager con te desde tote le rete social de &lt;a&gt;platteformas basate sur ActivityPub&lt;/a&gt;.</string>
+	<string name="what_is_activitypub_title">Que’s ActivityPub?</string>
+	<string name="qr_code">Codice QR</string>
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
 	<string name="view_file">Vider</string>
 	<string name="share_sheet_preview_profile">%s sur Mastodon</string>
