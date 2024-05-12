@@ -755,9 +755,8 @@
 	<string name="view_favorites">View favorites</string>
 	<string name="undo_reblog">Undo boost</string>
 	<string name="undo_favorite">Undo favorite</string>
-	<string name="could_not_reach_server">Could not reach the server. Make sure you\'re connected to the internet and try again.</string>
-	<string name="connection_timed_out">Connection timed out. Make sure you\'re connected to the internet and try again.</string>
-	<string name="server_error">There may be a problem with your instance or your internet. Make sure you have access to the internet and try again.</string>
-	<string name="not_found">Not found. It probably doesn\'t exist anymore.</string>
-	<string name="unknown_error">Unknown error: %s</string>
+	<string name="could_not_reach_server">Couldn’t reach the server. Check your connection and try again?</string>
+	<string name="connection_timed_out">The request timed out. Check your connection and try again?</string>
+	<string name="server_error">Something went wrong talking with your server. It’s probably not your fault. Try again?</string>
+	<string name="not_found">It could’ve been deleted, or maybe it never existed at all.</string>
 </resources>
