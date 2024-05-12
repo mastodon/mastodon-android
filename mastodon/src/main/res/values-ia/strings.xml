@@ -264,6 +264,8 @@
 		<item quantity="other">%,d promovites</item>
 	</plurals>
 	<string name="time_now">ora</string>
+	<string name="edit_history">Chronologia de redaction</string>
+	<string name="last_edit_at_x">Ultime redaction %s</string>
 	<string name="time_just_now">justo ora</string>
 	<plurals name="x_seconds_ago">
 		<item quantity="one">%d secunda retro</item>
@@ -273,12 +275,24 @@
 		<item quantity="one">%d minuta retro</item>
 		<item quantity="other">%d minutas retro</item>
 	</plurals>
+	<string name="edited_timestamp">redigite %s</string>
 	<string name="edit_original_post">Message original</string>
 	<string name="edit_text_edited">Testo redigite</string>
+	<string name="edit_spoiler_added">Aviso re contento addite</string>
+	<string name="edit_spoiler_edited">Aviso re contento redigite</string>
+	<string name="edit_spoiler_removed">Aviso re contento removite</string>
+	<string name="edit_poll_added">Sondage addite</string>
+	<string name="edit_poll_edited">Sondage redigite</string>
+	<string name="edit_poll_removed">Sondage removite</string>
 	<string name="edit_media_added">Medios addite</string>
 	<string name="edit_media_removed">Medios removite</string>
 	<string name="edit_media_reordered">Medios reordinate</string>
+	<string name="edit_marked_sensitive">Aviso re contento redigite</string>
+	<string name="edit_marked_not_sensitive">Marcate como non sensibile</string>
+	<string name="edit_multiple_changed">Message redigite</string>
 	<string name="edit">Rediger</string>
+	<string name="discard_changes">Refusar le modificationes?</string>
+	<string name="upload_failed">Cargamento fallite</string>
 	<string name="file_size_bytes">%d bytes</string>
 	<string name="file_size_kb">%.2f KB</string>
 	<string name="file_size_mb">%.2f MB</string>
