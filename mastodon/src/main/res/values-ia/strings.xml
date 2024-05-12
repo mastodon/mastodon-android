@@ -301,14 +301,23 @@
 	<!-- %s is file size -->
 	<string name="download_update">Discargar (%s)</string>
 	<string name="install_update">Installar</string>
+	<string name="privacy_policy_title">Tu confidentialitate</string>
+	<string name="privacy_policy_subtitle">Ben que le app Mastodon non collige alcun datos, le servitor per que tu te inscribe pote haber un differente regulamento.\n\nSi tu dissenti del regulamento pro %s, tu pote retornar e seliger un servitor differente.</string>
 	<string name="i_agree">Io consenti</string>
 	<string name="empty_list">Iste lista es vacue</string>
+	<string name="instance_signup_closed">Iste servitor non accepta nove registrationes.</string>
 	<string name="text_copied">Copiate al area de transferentia</string>
 	<string name="add_bookmark">Adder al marcapaginas</string>
 	<string name="remove_bookmark">Remover marcapagina</string>
 	<string name="bookmarks">Marcapaginas</string>
 	<string name="your_favorites">Tu favorite</string>
+	<string name="login_title">Ben tornate</string>
+	<string name="login_subtitle">Aperi session con le servitor ubi tu ha create tu conto.</string>
+	<string name="server_url">URL del servitor</string>
+	<string name="server_filter_any_language">Qualcunque lingua</string>
+	<string name="server_filter_instant_signup">Inscription instantanee</string>
 	<string name="server_filter_manual_review">Revision manual</string>
+	<string name="server_filter_any_signup_speed">Inscription instantanee</string>
 	<string name="server_filter_region_europe">Europa</string>
 	<string name="server_filter_region_north_america">Nord America</string>
 	<string name="server_filter_region_south_america">Sud America</string>
@@ -349,7 +358,13 @@
 	<string name="welcome_to_mastodon">Benvenite in Mastodon</string>
 	<string name="welcome_paragraph1">Mastodon es un rete social decentralisate, significa que nulle singule compania controla illo. Illo es formate de multe servitores que functiona in maniera independente, totos connectite insimul.</string>
 	<string name="what_are_servers">Qual es servitores?</string>
+	<string name="welcome_paragraph2">Cata conto Mastodon es hospite sur un servitor, cata con su proprie valores, regulas, e administratores. Non importa qual tu selige, tu pote sequer e interager con le personas sur ulle servitor.</string>
+	<string name="opening_link">Aperiente ligamine…</string>
+	<string name="link_not_supported">Iste ligamine non es supportate in le app</string>
+	<string name="log_out_all_accounts">Disconnecter de tote le contos</string>
+	<string name="confirm_log_out_all_accounts">Disconnecter de tote le contos?</string>
 	<string name="retry">Retentar</string>
+	<string name="post_failed">Falta a inviar message</string>
 	<!-- %s is formatted file size ("467 KB image") -->
 	<string name="attachment_description_image">%s immagine</string>
 	<string name="attachment_description_video">%s video</string>
@@ -361,30 +376,60 @@
 	<string name="attachment_type_gif">GIF</string>
 	<string name="attachment_type_unknown">File</string>
 	<string name="attachment_x_percent_uploaded">%d%% cargate</string>
+	<string name="add_poll_option">Adder option de sondage</string>
+	<string name="poll_length">Longor de sondage</string>
 	<string name="poll_style">Stilo</string>
 	<string name="compose_poll_single_choice">Seliger un</string>
 	<string name="compose_poll_multiple_choice">Selection multiple</string>
+	<string name="delete_poll_option">Deler option de sondage</string>
+	<string name="poll_style_title">Stilo de sondage</string>
+	<string name="alt_text">Texto alt</string>
 	<string name="help">Adjuta</string>
 	<string name="what_is_alt_text">Que es le texto alt?</string>
 	<string name="edit_post">Rediger message</string>
 	<string name="no_verified_link">Ligamine non verificate</string>
+	<string name="compose_autocomplete_emoji_empty">Navigar per emoticones</string>
+	<string name="compose_autocomplete_users_empty">Trova qui tu cerca</string>
 	<string name="no_search_results">Nihil trovate pro iste terminos de recerca</string>
 	<string name="language">Lingua</string>
 	<string name="language_default">Predefinite</string>
 	<string name="language_system">Systema</string>
+	<string name="language_detecting">Detectante lingua</string>
+	<string name="language_cant_detect">Impossibile detectar le lingua</string>
 	<string name="language_detected">Relevate</string>
 	<string name="media_hidden">Medios celate</string>
 	<string name="post_hidden">Message celate</string>
 	<string name="report_title_post">Reportar message</string>
+	<string name="forward_report_explanation">Le conto es del un altere servitor. Inviar anque illac un copia anonyme de iste reporto?</string>
 	<!-- %s is the server domain -->
+	<string name="forward_report_to_server">Inultrar a %s</string>
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
+	<string name="reported">Reportate</string>
+	<string name="report_unfollow_explanation">Non plus vider lor messages in tu fluxo principal, cessar de sequer los.</string>
 	<string name="muted_user">Silentiate %s</string>
+	<string name="report_sent_already_blocked">Tu ha jam blocate iste usator, assi il ha nihil altere que tu debe facer dum nos revide tu reporto.</string>
+	<string name="report_personal_already_blocked">Tu ha jam blocate iste usator, assi il ha nihil altere que tu debe facer.\n\nGratias pro adjutar a mantener Mastodon un posto secur pro totes!</string>
+	<string name="blocked_user">Blocate %s</string>
+	<string name="mark_all_notifications_read">Marcar toto como legite</string>
 	<string name="settings_display">Schermo</string>
 	<string name="settings_filters">Filtros</string>
+	<string name="settings_server_explanation">Summario, regulas, moderatores</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
+	<string name="about_app">A proposito de %s</string>
+	<string name="default_post_language">Lingua predefinite del message</string>
+	<string name="settings_alt_text_reminders">Adder mementos de texto alt</string>
+	<string name="settings_confirm_unfollow">Demandar ante cessar de sequer alcuno</string>
+	<string name="settings_confirm_boost">Demandar ante promover</string>
+	<string name="settings_confirm_delete_post">Demandar ante deler messages</string>
 	<string name="pause_all_notifications">Pausar toto</string>
+	<string name="pause_notifications_off">Inactive</string>
 	<string name="notifications_policy_anyone">Quicunque</string>
+	<string name="notifications_policy_followed">Illes qui te seque</string>
+	<string name="notifications_policy_follower">Illes que tu seque</string>
 	<string name="notifications_policy_no_one">Nemo</string>
+	<string name="settings_notifications_policy">Reciper notificationes ab</string>
+	<string name="notification_type_mentions_and_replies">Mentiones e responsas</string>
+	<string name="pause_all_notifications_title">Pausar tote le notificationes</string>
 	<plurals name="x_weeks">
 		<item quantity="one">%d septimana</item>
 		<item quantity="other">%d septimanas</item>
@@ -395,11 +440,15 @@
 	<string name="yesterday">heri</string>
 	<string name="tomorrow">deman</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="pause_notifications_ends">Fini %s</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="pause_notifications_banner">Le notificationes recomenciara %s.</string>
 	<string name="resume_notifications_now">Resumer ora</string>
+	<string name="open_system_notification_settings">Ir a parametros de notificationes</string>
 	<string name="about_server">A proposito</string>
 	<string name="server_rules">Regulas</string>
 	<string name="server_administrator">Administrator</string>
+	<string name="send_email_to_server_admin">Administrator de messages</string>
 	<plurals name="in_x_seconds">
 		<item quantity="one">in %d secunda</item>
 		<item quantity="other">in %d secundas</item>
@@ -456,16 +505,44 @@
 	<string name="followed_hashtags">Hashtags sequite</string>
 	<!-- Screen reader description for the menu on the home timeline screen -->
 	<string name="edit_list">Modificar lista</string>
+	<string name="list_members">Listar membros</string>
 	<string name="delete_list">Deler lista</string>
 	<!-- %s is the name of the list -->
 	<string name="delete_list_confirm">Deler “%s”?</string>
+	<string name="list_exclusive">Celar membros in Lista de sequites</string>
+	<string name="list_exclusive_subtitle">Si alcuno es sur iste lista, celar illes in tu classification temporal de sequites pro evitar de vider lor messages duo vices.</string>
+	<string name="list_name">Nomine del lista</string>
+	<string name="list_show_replies_to">Monstrar responsas a</string>
 	<string name="list_replies_no_one">Nemo</string>
 	<string name="list_replies_members">Membros del lista</string>
+	<string name="list_replies_anyone">Quicunque io seque</string>
+	<string name="confirm_remove_list_members">Remover membros?</string>
+	<string name="remove">Remover</string>
+	<string name="add_list_member">Adder membro</string>
+	<string name="search_among_people_you_follow">Cercar inter personas que tu seque</string>
+	<string name="add_user_to_list">Adder/remover ab lista…</string>
+	<string name="add_user_to_list_title">Adder al lista</string>
 	<!-- %s is a username -->
+	<string name="remove_from_list">Remover del lista</string>
 	<string name="confirm_remove_list_member">Remover membro?</string>
+	<string name="no_followed_hashtags_title">Tene te al currente con interesses sequente hashtags</string>
+	<string name="no_followed_hashtags_subtitle">Los sequite apparera ci</string>
+	<string name="no_lists_title">Organisa tu fluxo principal con Listas</string>
+	<string name="no_lists_subtitle">Le tue apparera ci</string>
+	<string name="manage_accounts">Adder o mutar contos</string>
+	<plurals name="x_posts_recently">
+		<item quantity="one">%,d message recente</item>
+		<item quantity="other">%,d messages recente</item>
+	</plurals>
 	<string name="create_list">Crear lista</string>
 	<string name="step_x_of_y">Passo %1$d de %2$d</string>
 	<string name="create">Crear</string>
+	<string name="manage_list_members">Gerer le membros del lista</string>
+	<string name="list_no_members">Nulle membros ancora</string>
+	<string name="list_find_users">Trovar usatores a adder</string>
+	<string name="reply_to_user">Responder a: %s</string>
+	<string name="posted_at">Inviate “%s”</string>
+	<string name="non_mutual_sheet_title">Hallo, nove connexion!</string>
 	<string name="got_it">Io comprendeva</string>
 	<!-- %s is a time interval ("5 months") -->
 	<plurals name="x_months">
