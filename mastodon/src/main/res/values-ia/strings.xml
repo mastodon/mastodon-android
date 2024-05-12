@@ -500,19 +500,46 @@
 	<string name="filter_duration_forever">Sempre</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<string name="settings_filter_ends">Fini %s</string>
+	<plurals name="settings_x_muted_words">
+		<item quantity="one">%d parola o expression silentiate</item>
+		<item quantity="other">%d parolas o expressiones silentiate</item>
+	</plurals>
+	<string name="selection_2_options">%1$s e %2$s</string>
+	<string name="selection_3_options">%1$s, %2$s, e %3$s</string>
+	<string name="selection_4_or_more">%1$s, %2$s, e %3$d altero</string>
+	<string name="filter_context_home_lists">Pagina de initio e listas</string>
 	<string name="filter_context_notifications">Notificationes</string>
 	<string name="filter_context_public_timelines">Chronologias public</string>
+	<string name="filter_context_threads_replies">Argumentos e responsas</string>
 	<string name="filter_context_profiles">Profilos</string>
 	<string name="settings_filter_title">Titulo</string>
+	<string name="settings_delete_filter_title">Deler filtro “%s”?</string>
+	<string name="settings_delete_filter_confirmation">Iste filtro sera delite de tu conto sur tote tu apparatos.</string>
+	<string name="add_muted_word">Adder parola silentiate</string>
+	<string name="edit_muted_word">Rediger parola silentiate</string>
 	<string name="add">Adder</string>
 	<string name="filter_word_or_phrase">Messages con “%s”</string>
+	<string name="filter_add_word_help">Le parolas es insensibile a majuscule/minuscule e solo concorda con parolas integre.\n\nSi tu filtra per parola clave “Apple,” illo celara messages que contine “apple” o “aPpLe” ma non “pineapple.”</string>
+	<string name="settings_delete_filter_word">Deler parola “%s”?</string>
 	<string name="enter_selection_mode">Seliger</string>
 	<string name="select_all">Seliger toto</string>
+	<string name="settings_filter_duration_title">Duration del filtro</string>
 	<string name="filter_duration_custom">Personalisate</string>
+	<plurals name="settings_delete_x_filter_words">
+		<item quantity="one">Deler %d parola?</item>
+		<item quantity="other">Deler %d parolas?</item>
+	</plurals>
+	<plurals name="x_items_selected">
+		<item quantity="one">%d seligite</item>
+		<item quantity="other">%d seligite</item>
+	</plurals>
+	<string name="required_form_field_blank">Non pote esser vacue</string>
 	<string name="filter_word_already_in_list">Jam in le lista</string>
+	<string name="app_update_ready">App preste actualisate</string>
 	<string name="app_update_version">Version %s</string>
 	<string name="downloading_update">Discargante (%d%%)</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
+	<string name="post_matches_filter_x">Concorda con filtro “%s”</string>
 	<string name="clear_all">Clarar toto</string>
 	<string name="search_go_to_account">Ir a %s</string>
 	<!-- Shown in the post header. Please keep it short -->
