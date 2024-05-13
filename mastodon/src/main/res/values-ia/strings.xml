@@ -386,6 +386,7 @@
 	<string name="alt_text">Texto alt</string>
 	<string name="help">Adjuta</string>
 	<string name="what_is_alt_text">Que es le texto alt?</string>
+	<string name="alt_text_help">Le texto alt offere descriptiones de imagine pro personas con insufficientias visive, connexiones con basse largessa de banda, o qui cerca contexto extra.\n\nTu pote meliorar le accessibilitate e le comprension pro totes scribente texto alt clar, concise, e objective.\n\n<ul><li>Capturar elementos importante</li>\n<li>Summarisar texto in imagines</li>\n<li>Usar structura de phrase regular</li>\n<li>Evitar informationes redundante</li>\n<li>Examinar tendentias e discopertas clave in figuras complexe (como diagrammas o mappas)</li></ul></string>
 	<string name="edit_post">Rediger message</string>
 	<string name="no_verified_link">Ligamine non verificate</string>
 	<string name="compose_autocomplete_emoji_empty">Navigar per emoticones</string>
@@ -622,6 +623,7 @@
 	<string name="dont_remind_again">Non rememorar me ancora</string>
 	<!-- %s is a time interval ("5 months") -->
 	<string name="old_post_sheet_title">Iste message es %s vetere</string>
+	<string name="old_post_sheet_text">Tu pote ancora responder, ma illo pote non plus esser pertinente.</string>
 	<plurals name="x_months">
 		<item quantity="one">%,d mense</item>
 		<item quantity="other">%,d menses</item>
@@ -661,6 +663,22 @@ Quanto plus personas tu seque, tanto plus active e interessante illo sera.</stri
 	<string name="user_can_still_see_your_posts">Illes pote ancora vider tu messages, ma tu non videra le lore.</string>
 	<string name="you_wont_see_user_mentions">Tu non videra messages que les mentiona.</string>
 	<string name="user_can_mention_and_follow_you">Illes pote mentionar e sequer te, ma tu non les videra.</string>
+	<string name="unmuted_user_x">Non plus silentiate %s</string>
+	<string name="block_user_confirm_title">Blocar usator?</string>
+	<string name="user_can_see_blocked">Illes pote vider que illes es blocate.</string>
+	<string name="user_cant_see_each_other_posts">Illes non pote vider tu messages e tu non videra le lore.</string>
+	<string name="user_cant_mention_or_follow_you">Illes non pote mentionar o sequer te.</string>
+	<string name="unblocked_user_x">Disblocate %s</string>
+	<string name="block_domain_confirm_title">Blocar dominio?</string>
+	<string name="do_block_server">Blocar servitor</string>
+	<string name="block_user_x_instead">Blocar %s in vice</string>
+	<string name="users_cant_see_blocked">Tu non videra messages o notificationes de usatores sur iste servitor.</string>
+	<string name="you_wont_see_server_posts">Tu non videra ulle messages de usatores sur iste servitor.</string>
+	<string name="server_followers_will_be_removed">Tu sequaces ab iste servitor sera removite.</string>
+	<string name="server_cant_mention_or_follow_you">Nemo ab iste servitor pote sequer te.</string>
+	<string name="server_can_interact_with_older">Le personas de iste servitor pote interager con tu messages ancian.</string>
+	<string name="unblocked_domain_x">Dominio %s disblocate</string>
+	<string name="handle_help_title">Que ha il in un manico?</string>
 	<string name="handle_title">Su pseudonymo</string>
 	<string name="handle_username_explanation">Su identificator unic sur su servitor. Es possibile trovar usatores con le mesme nomine de usator sur servitores differente.</string>
 	<string name="handle_title_own">Tu pseudonymo</string>
@@ -673,11 +691,45 @@ Quanto plus personas tu seque, tanto plus active e interessante illo sera.</stri
 	<string name="what_is_activitypub_title">Que’s ActivityPub?</string>
 	<string name="qr_code">Codice QR</string>
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
+	<string name="saved">Salvate</string>
+	<string name="image_saved">Imagine salvate.</string>
+	<string name="video_saved">Video salvate.</string>
 	<string name="view_file">Vider</string>
 	<string name="share_sheet_preview_profile">%s sur Mastodon</string>
+	<string name="share_sheet_preview_post">%1$s sur Mastodon: “%2$s”</string>
+	<string name="copy_profile_link">Copiar ligamine a profilo</string>
+	<string name="in_app_browser">Navigator in-app</string>
+	<string name="system_browser">Navigator de systema</string>
+	<string name="add_muted_word_short">Adder parola</string>
 	<string name="tab_home">Initio</string>
 	<string name="tab_search">Explorar</string>
 	<string name="tab_profile">Profilo</string>
+	<string name="pin_post">Appunctar sur le profilo</string>
+	<string name="unpin_post">Distaccar ab le profilo</string>
+	<string name="post_pinned">Message fixate</string>
+	<string name="post_unpinned">Le message ha essite distaccate</string>
 	<!-- %s is the username -->
+	<string name="enable_new_post_notifications">Avisa me quando %s publica un message</string>
+	<string name="disable_new_post_notifications">Cessa avisar me quando %s publica un message</string>
+	<string name="new_post_notifications_enabled">Tu recipera notificationes pro nove messages.</string>
+	<string name="new_post_notifications_disabled">Tu non plus recipera notificationes pro nove messages.</string>
+	<string name="mute_conversation">Silentiar conversation</string>
+	<string name="unmute_conversation">Non plus silentiar conversation</string>
+	<string name="visibility_unlisted">Public, non listate</string>
+	<string name="filtered_notifications">Notificationes filtrate</string>
+	<string name="filter_notifications">Filtrar notificationes de...</string>
+	<string name="notification_filter_following">Personas que tu non seque</string>
+	<string name="notification_filter_following_explanation">Usque tu les approba manualmente</string>
+	<string name="notification_filter_followers">Personas qui non te seque</string>
+	<string name="notification_filter_followers_explanation">Includite illes qui ha sequite tu movimentos minus que 3 dies</string>
 	<string name="notification_filter_new_accounts">Nove contos</string>
+	<string name="notification_filter_new_accounts_explanation">Create in le passate 30 dies</string>
+	<string name="notification_filter_mentions">Mentiones private indesirate</string>
+	<string name="notification_filter_mentions_explanation">Filtrate salvo que illes es in responsa a tu proprie mention o si tu seque le expeditor</string>
+	<string name="allow_notifications">Permitter le notificationes</string>
+	<string name="mute_notifications">Dimitter petition de aviso</string>
+	<string name="notifications_from_user">Notificationes de %s</string>
+	<string name="visibility_subtitle_unlisted">Minus fanfares algorithmic</string>
+	<string name="visibility_subtitle_followers">Solmente tu sequaces</string>
+	<string name="visibility_subtitle_private">Tote le personas mentionate in le message</string>
 </resources>
