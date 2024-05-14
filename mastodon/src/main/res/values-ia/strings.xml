@@ -689,7 +689,10 @@ Quanto plus personas tu seque, tanto plus active e interessante illo sera.</stri
 	<string name="handle_server_explanation_own">Tu casa digital, ubi vive tote tu messages. Non te place? Cambia de servitor a omne momento e porta tu sequitores con te.</string>
 	<string name="handle_explanation_own">Perque tu pseudonymo indica qui tu es e ubi tu te trova, le gente pote interager con te desde tote le rete social de &lt;a&gt;platteformas basate sur ActivityPub&lt;/a&gt;.</string>
 	<string name="what_is_activitypub_title">Que’s ActivityPub?</string>
+	<string name="what_is_activitypub">ActivityPub es como le lingua que Mastodon usa con altere retes social.\n\nIllo te permitte de connecter te e interager con le personas non solo sur Mastodon, ma alsi inter apps social differente.</string>
+	<string name="handle_copied">Manico copiate al area de transferentia.</string>
 	<string name="qr_code">Codice QR</string>
+	<string name="scan_qr_code">Scander codice QR</string>
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
 	<string name="saved">Salvate</string>
 	<string name="image_saved">Imagine salvate.</string>
@@ -728,7 +731,14 @@ Quanto plus personas tu seque, tanto plus active e interessante illo sera.</stri
 	<string name="notification_filter_mentions_explanation">Filtrate salvo que illes es in responsa a tu proprie mention o si tu seque le expeditor</string>
 	<string name="allow_notifications">Permitter le notificationes</string>
 	<string name="mute_notifications">Dimitter petition de aviso</string>
+	<plurals name="x_people_you_may_know">
+		<item quantity="one">%,d persona que tu pote cognoscer</item>
+		<item quantity="other">%,d personas que tu pote cognoscer</item>
+	</plurals>
 	<string name="notifications_from_user">Notificationes de %s</string>
+	<string name="notifications_muted">Le notificationes de %s ha essite dimittite.</string>
+	<string name="notifications_allowed">%s apparera ora in tu lista del avisos.</string>
+	<string name="visibility_subtitle_public">Totes sur e foras de Mastodon</string>
 	<string name="visibility_subtitle_unlisted">Minus fanfares algorithmic</string>
 	<string name="visibility_subtitle_followers">Solmente tu sequaces</string>
 	<string name="visibility_subtitle_private">Tote le personas mentionate in le message</string>
@@ -736,4 +746,8 @@ Quanto plus personas tu seque, tanto plus active e interessante illo sera.</stri
 	<string name="view_favorites">Vider favoritos</string>
 	<string name="undo_reblog">Annullar promotion</string>
 	<string name="undo_favorite">Annullar preferentia</string>
+	<string name="could_not_reach_server">Impossibile contactar le servitor. Controla tu connexion e retenta?</string>
+	<string name="connection_timed_out">Le petition exiva del tempore limite. Verifica tu connexion e retenta?</string>
+	<string name="server_error">Alco errate eveniva parlante con tu servitor. Illo probabilemente non es tu culpa. Retenta?</string>
+	<string name="not_found">Illo poterea haber essite delite, o forsan illo jammais existeva del toto.</string>
 </resources>
