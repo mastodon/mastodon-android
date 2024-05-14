@@ -9,6 +9,7 @@
 	<string name="preparing_auth">Préparation à l’authentification…</string>
 	<string name="finishing_auth">Fin de l’authentification…</string>
 	<string name="user_boosted">%s a boosté</string>
+	<string name="in_reply_to">en réponse à %s</string>
 	<string name="notifications">Notifications</string>
 	<string name="user_followed_you">%s vous suit</string>
 	<string name="user_sent_follow_request">%s voudrait vous suivre</string>
@@ -165,6 +166,8 @@
 	<string name="save">Enregistrer</string>
 	<string name="add_alt_text">Ajouter un texte alternatif</string>
 	<string name="visibility_public">Public</string>
+	<string name="visibility_followers_only">Abonné·e·s</string>
+	<string name="visibility_private">Personnes spécifiques</string>
 	<string name="recent_searches">Récents</string>
 	<string name="skip">Passer</string>
 	<string name="notification_type_follow">Nouveaux⋅elles abonné⋅e⋅s</string>
@@ -305,6 +308,7 @@
 	<string name="instance_signup_closed">Ce serveur n\'accepte pas les nouvelles inscriptions.</string>
 	<string name="text_copied">Copié dans le presse-papier</string>
 	<string name="add_bookmark">Ajouter aux marque-pages</string>
+	<string name="remove_bookmark">Supprimer le signet</string>
 	<string name="bookmarks">Marque-pages</string>
 	<string name="your_favorites">Vos favoris</string>
 	<string name="login_title">Bienvenue à nouveau</string>
@@ -714,6 +718,15 @@
 	<string name="mute_conversation">Masquer la conversation</string>
 	<string name="unmute_conversation">Ne plus masquer la conversation</string>
 	<string name="visibility_unlisted">Public calme</string>
+	<string name="filtered_notifications">Notifications filtrées</string>
+	<string name="notification_filter_following">Personnes que vous ne suivez pas</string>
+	<string name="notification_filter_following_explanation">Jusqu\'à ce que vous les approuviez manuellement</string>
+	<string name="notification_filter_followers">Personnes qui ne vous suivent pas</string>
 	<string name="notification_filter_new_accounts">Nouveaux comptes</string>
+	<string name="notification_filter_new_accounts_explanation">Créé au cours des 30 derniers jours</string>
+	<string name="notification_filter_mentions">Mentions privées non sollicitées</string>
 	<string name="allow_notifications">Autoriser les notifications</string>
+	<string name="notifications_from_user">Notifications de %s</string>
+	<string name="visibility_subtitle_public">Tout le monde sur et en dehors de Mastodon</string>
+	<string name="visibility_subtitle_unlisted">Moins de fanfares algorithmiques</string>
 </resources>
