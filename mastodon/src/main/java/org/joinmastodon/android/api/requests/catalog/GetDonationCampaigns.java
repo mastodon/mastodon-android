@@ -7,12 +7,17 @@ import org.joinmastodon.android.model.donations.DonationCampaign;
 
 public class GetDonationCampaigns extends MastodonAPIRequest<DonationCampaign>{
 	private final String locale, seed;
+	private boolean staging;
 
 	public GetDonationCampaigns(String locale, String seed){
 		super(HttpMethod.GET, null, DonationCampaign.class);
 		this.locale=locale;
 		this.seed=seed;
 		setCacheable();
+	}
+
+	public void setStaging(boolean staging){
+		this.staging=staging;
 	}
 
 	@Override
@@ -24,6 +29,8 @@ public class GetDonationCampaigns extends MastodonAPIRequest<DonationCampaign>{
 				.appendQueryParameter("platform", "android")
 				.appendQueryParameter("locale", locale)
 				.appendQueryParameter("seed", seed);
+		if(staging)
+			builder.appendQueryParameter("environment", "staging");
 		return builder.build();
 	}
 }

@@ -1,5 +1,7 @@
 package org.joinmastodon.android.fragments.settings;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -9,6 +11,7 @@ import org.joinmastodon.android.api.session.AccountSession;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.fragments.HomeFragment;
 import org.joinmastodon.android.fragments.onboarding.AccountActivationFragment;
+import org.joinmastodon.android.model.viewmodel.CheckableListItem;
 import org.joinmastodon.android.model.viewmodel.ListItem;
 import org.joinmastodon.android.ui.utils.DiscoverInfoBannerHelper;
 import org.joinmastodon.android.updater.GithubSelfUpdater;
@@ -18,6 +21,8 @@ import java.util.List;
 import me.grishka.appkit.Nav;
 
 public class SettingsDebugFragment extends BaseSettingsFragment<Void>{
+	private CheckableListItem<Void> donationsStagingItem;
+
 	@Override
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
@@ -29,7 +34,8 @@ public class SettingsDebugFragment extends BaseSettingsFragment<Void>{
 				resetUpdateItem=new ListItem<>("Reset self-updater", null, this::onResetUpdaterClick),
 				new ListItem<>("Reset search info banners", null, this::onResetDiscoverBannersClick),
 				new ListItem<>("Reset pre-reply sheets", null, this::onResetPreReplySheetsClick),
-				new ListItem<>("Clear dismissed donation campaigns", null, this::onClearDismissedCampaignsClick)
+				new ListItem<>("Clear dismissed donation campaigns", null, this::onClearDismissedCampaignsClick),
+				donationsStagingItem=new CheckableListItem<>("Use staging environment for donations", null, CheckableListItem.Style.SWITCH, getPrefs().getBoolean("donationsStaging", false), this::toggleCheckableItem)
 		));
 		if(!GithubSelfUpdater.needSelfUpdating()){
 			resetUpdateItem.isEnabled=selfUpdateItem.isEnabled=false;
@@ -39,6 +45,12 @@ public class SettingsDebugFragment extends BaseSettingsFragment<Void>{
 
 	@Override
 	protected void doLoadData(int offset, int count){}
+
+	@Override
+	public void onStop(){
+		super.onStop();
+		getPrefs().edit().putBoolean("donationsStaging", donationsStagingItem.checked).apply();
+	}
 
 	private void onTestEmailConfirmClick(ListItem<?> item){
 		AccountSession sess=AccountSessionManager.getInstance().getAccount(accountID);
@@ -80,5 +92,9 @@ public class SettingsDebugFragment extends BaseSettingsFragment<Void>{
 		Bundle args=new Bundle();
 		args.putString("account", accountID);
 		Nav.goClearingStack(getActivity(), HomeFragment.class, args);
+	}
+
+	private SharedPreferences getPrefs(){
+		return getActivity().getSharedPreferences("debug", Context.MODE_PRIVATE);
 	}
 }

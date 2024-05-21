@@ -5,6 +5,7 @@ import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.app.Activity;
+import android.content.Context;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.text.SpannableStringBuilder;
@@ -32,6 +33,7 @@ import android.widget.Toolbar;
 
 import com.squareup.otto.Subscribe;
 
+import org.joinmastodon.android.BuildConfig;
 import org.joinmastodon.android.E;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.MastodonAPIRequest;
@@ -110,8 +112,11 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 
 		// TODO how often do we do this request? Maybe cache something somewhere?
 		if(AccountSessionManager.get(accountID).isEligibleForDonations()){
-			new GetDonationCampaigns(Locale.getDefault().toLanguageTag().replace('-', '_'), String.valueOf(AccountSessionManager.get(accountID).getDonationSeed()))
-					.setCallback(new Callback<>(){
+			GetDonationCampaigns req=new GetDonationCampaigns(Locale.getDefault().toLanguageTag().replace('-', '_'), String.valueOf(AccountSessionManager.get(accountID).getDonationSeed()));
+			if(BuildConfig.DEBUG && getActivity().getSharedPreferences("debug", Context.MODE_PRIVATE).getBoolean("donationsStaging", false)){
+				req.setStaging(true);
+			}
+			req.setCallback(new Callback<>(){
 						@Override
 						public void onSuccess(DonationCampaign result){
 							if(result==null)
