@@ -313,7 +313,12 @@ public class ComposeMediaViewController{
 		int maxSize=0;
 		String contentType=fragment.getActivity().getContentResolver().getType(attachment.uri);
 		if(contentType!=null && contentType.startsWith("image/")){
-			maxSize=2_073_600; // TODO get this from instance configuration when it gets added there
+			Instance instance=fragment.instance;
+			if(instance.configuration!=null && instance.configuration.mediaAttachments!=null && instance.configuration.mediaAttachments.imageMatrixLimit>0){
+				maxSize=instance.configuration.mediaAttachments.imageMatrixLimit;
+			}else{
+				maxSize=2_073_600;
+			}
 		}
 		attachment.progressBar.setProgress(0);
 		attachment.speedTracker.reset();

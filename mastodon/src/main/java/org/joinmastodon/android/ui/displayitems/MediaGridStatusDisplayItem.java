@@ -173,7 +173,7 @@ public class MediaGridStatusDisplayItem extends StatusDisplayItem{
 				}
 				controllers.add(c);
 
-				if (item.status.translation != null){
+				if (item.status.translation!=null && item.status.translation.mediaAttachments!=null){
 					if(item.status.translationState==Status.TranslationState.SHOWN){
 						if(!item.translatedAttachments.containsKey(att.id)){
 							Optional<Translation.MediaAttachment> translatedAttachment=Arrays.stream(item.status.translation.mediaAttachments).filter(mediaAttachment->mediaAttachment.id.equals(att.id)).findFirst();

@@ -314,7 +314,7 @@
 	<string name="instance_signup_closed">This server does not accept new registrations.</string>
 	<string name="text_copied">Copied to clipboard</string>
 	<string name="add_bookmark">Bookmark</string>
-	<string name="remove_bookmark">Remove Bookmark</string>
+	<string name="remove_bookmark">Remove bookmark</string>
 	<string name="bookmarks">Bookmarks</string>
 	<string name="your_favorites">Your favorites</string>
 	<string name="login_title">Welcome back</string>
@@ -751,10 +751,14 @@
 	<string name="visibility_subtitle_unlisted">Fewer algorithmic fanfares</string>
 	<string name="visibility_subtitle_followers">Only your followers</string>
 	<string name="visibility_subtitle_private">Everyone mentioned in the post</string>
-	<string name="view_boosts">View Boosts</string>
-	<string name="view_favorites">View Favorites</string>
-	<string name="undo_reblog">Undo Boost</string>
-	<string name="undo_favorite">Undo Favorite</string>
+	<string name="view_boosts">View boosts</string>
+	<string name="view_favorites">View favorites</string>
+	<string name="undo_reblog">Undo boost</string>
+	<string name="undo_favorite">Undo favorite</string>
+	<string name="could_not_reach_server">Couldn’t reach the server. Check your connection and try again?</string>
+	<string name="connection_timed_out">The request timed out. Check your connection and try again?</string>
+	<string name="server_error">Something went wrong talking with your server. It’s probably not your fault. Try again?</string>
+	<string name="not_found">It could’ve been deleted, or maybe it never existed at all.</string>
 	<string name="dismiss">Dismiss</string>
 	<string name="donation_once">Just once</string>
 	<string name="donation_monthly">Monthly</string>

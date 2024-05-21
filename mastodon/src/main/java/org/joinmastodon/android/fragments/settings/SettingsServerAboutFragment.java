@@ -100,15 +100,19 @@ public class SettingsServerAboutFragment extends LoaderFragment{
 		scroller.setClipToPadding(false);
 		scroller.addView(scrollingLayout);
 
-		FixedAspectRatioImageView banner=new FixedAspectRatioImageView(getActivity());
-		banner.setAspectRatio(1.914893617f);
-		banner.setScaleType(ImageView.ScaleType.CENTER_CROP);
-		banner.setOutlineProvider(OutlineProviders.bottomRoundedRect(16));
-		banner.setClipToOutline(true);
-		ViewImageLoader.loadWithoutAnimation(banner, getResources().getDrawable(R.drawable.image_placeholder, getActivity().getTheme()), new UrlImageLoaderRequest(instance.thumbnail));
-		LinearLayout.LayoutParams blp=new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-		blp.bottomMargin=V.dp(24);
-		scrollingLayout.addView(banner, blp);
+		if(!TextUtils.isEmpty(instance.thumbnail)){
+			FixedAspectRatioImageView banner=new FixedAspectRatioImageView(getActivity());
+			banner.setAspectRatio(1.914893617f);
+			banner.setScaleType(ImageView.ScaleType.CENTER_CROP);
+			banner.setOutlineProvider(OutlineProviders.bottomRoundedRect(16));
+			banner.setClipToOutline(true);
+			ViewImageLoader.loadWithoutAnimation(banner, getResources().getDrawable(R.drawable.image_placeholder, getActivity().getTheme()), new UrlImageLoaderRequest(instance.thumbnail));
+			LinearLayout.LayoutParams blp=new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+			blp.bottomMargin=V.dp(24);
+			scrollingLayout.addView(banner, blp);
+		}else{
+			scrollingLayout.setPadding(0, V.dp(24), 0, 0);
+		}
 
 		boolean needDivider=false;
 		if(instance.contactAccount!=null){
