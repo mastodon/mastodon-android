@@ -9,6 +9,7 @@
 	<string name="preparing_auth">Падрыхтоўка да аўтэнтыфікацыі…</string>
 	<string name="finishing_auth">Завяршэнне аўтэнтыфікацыі…</string>
 	<string name="user_boosted">%s пашырыў(-ла)</string>
+	<string name="in_reply_to">у адказ на %s</string>
 	<string name="notifications">Апавяшчэнні</string>
 	<string name="user_followed_you">%s падпісаўся на вас</string>
 	<string name="user_sent_follow_request">%s адправіў вам запыт на падпіску</string>
@@ -189,6 +190,7 @@
 	<string name="save">Захаваць</string>
 	<string name="add_alt_text">Дадаць альтэрнатыўны тэкст</string>
 	<string name="visibility_public">Публічны</string>
+	<string name="visibility_followers_only">Падпісчыкаў</string>
 	<string name="visibility_private">Канкрэтныя людзі</string>
 	<string name="recent_searches">Нядаўняе</string>
 	<string name="skip">Прапусціць</string>
@@ -788,11 +790,23 @@
 	<string name="notification_filter_following">Людзі, на якіх вы не падпісаны</string>
 	<string name="notification_filter_following_explanation">Пакуль вы не пацвердзіце іх уручную</string>
 	<string name="notification_filter_followers">Людзі, якія не падпісаны на вас</string>
+	<string name="notification_filter_followers_explanation">Уключаючы людзей, якія падпісаны на вас менш за 3 дні</string>
 	<string name="notification_filter_new_accounts">Новыя ўліковыя запісы</string>
+	<string name="notification_filter_new_accounts_explanation">Створана за апошнія 30 дзён</string>
 	<string name="notification_filter_mentions">Непажаданыя асаблівыя згадванні</string>
 	<string name="notification_filter_mentions_explanation">Фільтруецца за выключэннем адказу на вашае згадванне ці калі вы падпісаны на адпраўніка</string>
 	<string name="allow_notifications">Дазволіць апавяшчэнні</string>
+	<string name="mute_notifications">Адхіліць запыт на апавяшчэнне</string>
+	<plurals name="x_people_you_may_know">
+		<item quantity="one">%,d чалавек, якога вы можаце ведаць</item>
+		<item quantity="few">%,d чалавека, якога вы можаце ведаць</item>
+		<item quantity="many">%,d людзей, якіх вы можаце ведаць</item>
+		<item quantity="other">%,d людзей, якіх вы можаце ведаць</item>
+	</plurals>
 	<string name="notifications_from_user">Апавяшчэнні ад %s</string>
+	<string name="notifications_muted">Апавяшчэнні ад %s былі адключаныя.</string>
+	<string name="notifications_allowed">Цяпер %s з\'явіцца ў вашым спісе апавяшчэнняў.</string>
+	<string name="visibility_subtitle_public">Усе, хто ёсць і каго няма ў Mastodon</string>
 	<string name="visibility_subtitle_unlisted">Менш фанфар ад алгарытмаў</string>
 	<string name="visibility_subtitle_followers">Толькі вашыя падпісчыкі</string>
 	<string name="visibility_subtitle_private">Усе згаданыя ў допісе</string>
@@ -800,4 +814,8 @@
 	<string name="view_favorites">Праглядзець абранае</string>
 	<string name="undo_reblog">Адмяніць пашырэнне</string>
 	<string name="undo_favorite">Адмяніць абранне</string>
+	<string name="could_not_reach_server">Не ўдалося звязацца з серверам. Праверце злучэнне і паспрабуйце яшчэ раз.</string>
+	<string name="connection_timed_out">Запыт быў перапынены. Праверце злучэнне і паспрабуйце яшчэ раз.</string>
+	<string name="server_error">Нешта пайшло не так у сувязі з вашым серверам. Хутчэй за ўсё, гэта не ваша віна. Паспрабаваць яшчэ раз?</string>
+	<string name="not_found">Ён мог быць выдалены, а можа, яго ўвогуле не існавала.</string>
 </resources>
