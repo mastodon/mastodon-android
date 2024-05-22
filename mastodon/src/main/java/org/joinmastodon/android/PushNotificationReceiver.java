@@ -75,7 +75,7 @@ public class PushNotificationReceiver extends BroadcastReceiver{
 						}
 						String accountID=account.getID();
 						PushNotification pn=AccountSessionManager.getInstance().getAccount(accountID).getPushSubscriptionManager().decryptNotification(k, p, s);
-						new GetNotificationByID(pn.notificationId+"")
+						new GetNotificationByID(pn.notificationId)
 								.setCallback(new Callback<>(){
 									@Override
 									public void onSuccess(org.joinmastodon.android.model.Notification result){
