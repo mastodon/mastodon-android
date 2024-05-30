@@ -8,13 +8,13 @@
 	<string name="ok">Gerai</string>
 	<string name="preparing_auth">Ruošima tapatybės nustatymui…</string>
 	<string name="finishing_auth">Baigiamas tapatybės nustatymas…</string>
-	<string name="user_boosted">%s pakėlė</string>
+	<string name="user_boosted">%s pasidalino</string>
 	<string name="in_reply_to">atsakant į %s</string>
 	<string name="notifications">Pranešimai</string>
 	<string name="user_followed_you">%s seka tave</string>
 	<string name="user_sent_follow_request">%s išsiuntė sekimo prašymą</string>
 	<string name="user_favorited">%s pamėgo tavo įrašą</string>
-	<string name="notification_boosted">%s pakėlė tavo įrašą</string>
+	<string name="notification_boosted">%s pasidalino tavo įrašą</string>
 	<string name="poll_ended">Žiūrėti apklausos, kurioje balsavai, rezultatus.</string>
 	<string name="share_toot_title">Bendrinti</string>
 	<string name="settings">Nustatymai</string>
@@ -196,7 +196,7 @@
 	<string name="skip">Praleisti</string>
 	<string name="notification_type_follow">Nauji sekėjai</string>
 	<string name="notification_type_favorite">Mėgstami</string>
-	<string name="notification_type_reblog">Pakėlimai</string>
+	<string name="notification_type_reblog">Pasidalinimai</string>
 	<string name="notification_type_mention">Paminėjimai</string>
 	<string name="notification_type_poll">Apklausos</string>
 	<string name="choose_account">Pasirinkti paskyrą</string>
@@ -229,7 +229,7 @@
 	<string name="more_options">Daugiau parinkčių</string>
 	<string name="new_post">Naujas įrašas</string>
 	<string name="button_reply">Atsakyti</string>
-	<string name="button_reblog">Pakelti</string>
+	<string name="button_reblog">Pasidalinti</string>
 	<string name="button_favorite">Pamėgti</string>
 	<string name="button_share">Bendrinti</string>
 	<string name="media_no_description">Medija be aprašymo</string>
@@ -244,8 +244,8 @@
 	<string name="followed_user">Dabar seki %s</string>
 	<string name="following_user_requested">Paprašyta sekti %s</string>
 	<string name="open_in_browser">Atidaryti naršyklėje</string>
-	<string name="hide_boosts_from_user">Slėpti pakėlimus</string>
-	<string name="show_boosts_from_user">Rodyti pakėlimus</string>
+	<string name="hide_boosts_from_user">Slėpti pasidalinimus</string>
+	<string name="show_boosts_from_user">Rodyti pasidalinimus</string>
 	<string name="signup_reason">Kodėl nori prisijungti?</string>
 	<string name="signup_reason_note">Tai padės mums peržiūrėti tavo paraišką.</string>
 	<string name="clear">Išvalyti</string>
@@ -292,10 +292,10 @@
 		<item quantity="other">%,d mėgstamų</item>
 	</plurals>
 	<plurals name="x_reblogs">
-		<item quantity="one">%,d pakėlimas</item>
-		<item quantity="few">%,d pakėlimai</item>
-		<item quantity="many">%,d pakėlimo</item>
-		<item quantity="other">%,d pakėlimų</item>
+		<item quantity="one">%,d pasidalinimas</item>
+		<item quantity="few">%,d pasidalinimai</item>
+		<item quantity="many">%,d pasidalinimo</item>
+		<item quantity="other">%,d pasidalinimų</item>
 	</plurals>
 	<string name="time_now">dabar</string>
 	<string name="edit_history">Redaguoti istoriją</string>
@@ -458,7 +458,7 @@
 	<string name="default_post_language">Numatytoji įrašo kalba</string>
 	<string name="settings_alt_text_reminders">Pridėti alternatyvųjį teksto priminimus</string>
 	<string name="settings_confirm_unfollow">Klausti prieš atšaukant sekimą kažkam</string>
-	<string name="settings_confirm_boost">Klausti prieš pakeliant</string>
+	<string name="settings_confirm_boost">Klausti prieš pasidalinat</string>
 	<string name="settings_confirm_delete_post">Klausti prieš ištrinant įrašus</string>
 	<string name="pause_all_notifications">Pristabdyti visus</string>
 	<string name="pause_notifications_off">Išjungta</string>
@@ -710,7 +710,7 @@ Kuo daugiau žmonių seksi, tuo aktyvesnis ir įdomesnis jis bus.</string>
 	<string name="onboarding_recommendations_title">Suasmeninti savo pagrindinį srautą</string>
 	<string name="article_by_author">Sukūrė %s</string>
 	<string name="info">Informacija</string>
-	<string name="button_reblogged">Pakelta</string>
+	<string name="button_reblogged">Pasidalinta</string>
 	<string name="button_favorited">Pamėgta</string>
 	<string name="bookmarked">Pridėta</string>
 	<string name="join_server_x_with_invite">Prisijungti %s su kvietimu</string>
@@ -810,9 +810,9 @@ Kuo daugiau žmonių seksi, tuo aktyvesnis ir įdomesnis jis bus.</string>
 	<string name="visibility_subtitle_unlisted">Mažiau algoritminių fanfarų</string>
 	<string name="visibility_subtitle_followers">Tik sekėjams</string>
 	<string name="visibility_subtitle_private">Visus, paminėtus įraše</string>
-	<string name="view_boosts">Peržiūrėti pakėlimus</string>
+	<string name="view_boosts">Peržiūrėti pasidalinimus</string>
 	<string name="view_favorites">Peržiūrėti mėgstamus</string>
-	<string name="undo_reblog">Panaikinti pakėlimą</string>
+	<string name="undo_reblog">Atšaukti pasidalinimą</string>
 	<string name="undo_favorite">Panaikinti mėgstamą</string>
 	<string name="could_not_reach_server">Nepavyko pasiekti serverio. Patikrinti ryšį ir bandyti dar kartą?</string>
 	<string name="connection_timed_out">Užklausa užtruko. Patikrinti ryšį ir bandyti dar kartą?</string>
