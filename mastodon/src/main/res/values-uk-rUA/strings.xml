@@ -750,6 +750,7 @@
 	<string name="handle_explanation_own">Через те, що ваша адреса містить ваш нік та де ви зареєстровані, люди з усієї соціальної павутини з платформ, що підтримують протокол &lt;a&gt;ActivityPub&lt;/a&gt;, можуть взаємодіяти з вами.</string>
 	<string name="what_is_activitypub_title">Що таке ActivityPub?</string>
 	<string name="what_is_activitypub">ActivityPub - це як мова, якою Mastodon розмовляє з іншими соціальними мережами.\n\nЦе дозволяє вам спілкуватися та взаємодіяти з людьми не лише на Mastodon, але й у різних соціальних додатках.</string>
+	<string name="handle_copied">Адресу скопійовано.</string>
 	<string name="qr_code">QR-код</string>
 	<string name="scan_qr_code">Сканувати QR-код</string>
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
@@ -757,6 +758,8 @@
 	<string name="image_saved">Зображення збережено.</string>
 	<string name="video_saved">Відео збережено.</string>
 	<string name="view_file">Переглянути</string>
+	<string name="share_sheet_preview_profile">%s на Mastodon</string>
+	<string name="share_sheet_preview_post">%1$s на Mastodon: «%2$s»</string>
 	<string name="copy_profile_link">Копіювати посилання на профіль</string>
 	<string name="in_app_browser">Вбудований браузер</string>
 	<string name="system_browser">Системний браузер</string>
@@ -770,4 +773,15 @@
 	<string name="post_unpinned">Допис відкріплено</string>
 	<!-- %s is the username -->
 	<string name="enable_new_post_notifications">Повідомляти мене, коли %s пише</string>
+	<string name="disable_new_post_notifications">Перестати повідомляти мене, коли %s постить</string>
+	<string name="new_post_notifications_enabled">Ви отримуватимете сповіщення про нові пости.</string>
+	<string name="new_post_notifications_disabled">Ви більше не отримуватимете сповіщення про нові пости.</string>
+	<string name="mute_conversation">Ігнорувати бесіду</string>
+	<string name="unmute_conversation">Більше не ігнорувати розмову</string>
+	<string name="visibility_unlisted">Тихо публічно</string>
+	<string name="filtered_notifications">Відфільтровані сповіщення</string>
+	<string name="filter_notifications">Відфільтрувати сповіщення від...</string>
+	<string name="notification_filter_following">Люди, на яких ви не підписані</string>
+	<string name="notification_filter_following_explanation">Доки ви не схвалюєте їх вручну</string>
+	<string name="notification_filter_followers">Люди, які не підписані на вас</string>
 </resources>
