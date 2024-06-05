@@ -720,8 +720,11 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 		if(!pollViewController.isEmpty()){
 			req.poll=pollViewController.getPollForRequest();
 		}
-		if(hasSpoiler && spoilerEdit.length()>0){
-			req.spoilerText=spoilerEdit.getText().toString();
+		if(hasSpoiler){
+			if(spoilerEdit.length()>0)
+				req.spoilerText=spoilerEdit.getText().toString();
+			else
+				req.sensitive=true;
 		}
 		if(postLang!=null){
 			req.language=postLang.locale.toLanguageTag();
