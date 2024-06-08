@@ -96,7 +96,7 @@ public class InstanceChooserLoginFragment extends InstanceCatalogFragment{
 
 	private void loadAutocompleteServers(){
 		loadedAutocomplete=true;
-		new GetCatalogInstances(null, null)
+		new GetCatalogInstances(null, null, true)
 				.setCallback(new Callback<>(){
 					@Override
 					public void onSuccess(List<CatalogInstance> result){

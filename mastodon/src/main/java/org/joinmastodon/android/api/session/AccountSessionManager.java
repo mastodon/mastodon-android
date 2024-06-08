@@ -425,7 +425,7 @@ public class AccountSessionManager{
 		ShortcutManager sm=MastodonApp.context.getSystemService(ShortcutManager.class);
 		if((sm.getDynamicShortcuts().isEmpty() || BuildConfig.DEBUG) && !sessions.isEmpty()){
 			// There are no shortcuts, but there are accounts. Add a compose shortcut.
-			ShortcutInfo info=new ShortcutInfo.Builder(MastodonApp.context, "compose")
+			ShortcutInfo compose=new ShortcutInfo.Builder(MastodonApp.context, "compose")
 					.setActivity(ComponentName.createRelative(MastodonApp.context, MainActivity.class.getName()))
 					.setShortLabel(MastodonApp.context.getString(R.string.new_post))
 					.setIcon(Icon.createWithResource(MastodonApp.context, R.mipmap.ic_shortcut_compose))
@@ -433,12 +433,20 @@ public class AccountSessionManager{
 							.setAction(Intent.ACTION_MAIN)
 							.putExtra("compose", true))
 					.build();
-			sm.setDynamicShortcuts(Collections.singletonList(info));
+			ShortcutInfo explore=new ShortcutInfo.Builder(MastodonApp.context, "explore")
+					.setActivity(ComponentName.createRelative(MastodonApp.context, MainActivity.class.getName()))
+					.setShortLabel(MastodonApp.context.getString(R.string.tab_search))
+					.setIcon(Icon.createWithResource(MastodonApp.context, R.mipmap.ic_shortcut_explore))
+					.setIntent(new Intent(MastodonApp.context, MainActivity.class)
+							.setAction(Intent.ACTION_MAIN)
+							.putExtra("explore", true))
+					.build();
+			sm.setDynamicShortcuts(List.of(compose, explore));
 		}else if(sessions.isEmpty()){
 			// There are shortcuts, but no accounts. Disable existing shortcuts.
-			sm.disableShortcuts(Collections.singletonList("compose"), MastodonApp.context.getString(R.string.err_not_logged_in));
+			sm.disableShortcuts(List.of("compose", "explore"), MastodonApp.context.getString(R.string.err_not_logged_in));
 		}else{
-			sm.enableShortcuts(Collections.singletonList("compose"));
+			sm.enableShortcuts(List.of("compose", "explore"));
 		}
 	}
 

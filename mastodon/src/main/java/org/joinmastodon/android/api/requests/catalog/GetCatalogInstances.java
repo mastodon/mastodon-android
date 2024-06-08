@@ -13,11 +13,13 @@ import java.util.List;
 public class GetCatalogInstances extends MastodonAPIRequest<List<CatalogInstance>>{
 
 	private String lang, category;
+	private boolean includeClosedSignups;
 
-	public GetCatalogInstances(String lang, String category){
+	public GetCatalogInstances(String lang, String category, boolean includeClosedSignups){
 		super(HttpMethod.GET, null, new TypeToken<>(){});
 		this.lang=lang;
 		this.category=category;
+		this.includeClosedSignups=includeClosedSignups;
 	}
 
 	@Override
@@ -30,6 +32,8 @@ public class GetCatalogInstances extends MastodonAPIRequest<List<CatalogInstance
 			builder.appendQueryParameter("language", lang);
 		if(!TextUtils.isEmpty(category))
 			builder.appendQueryParameter("category", category);
+		if(includeClosedSignups)
+			builder.appendQueryParameter("registrations", "all");
 		return builder.build();
 	}
 }

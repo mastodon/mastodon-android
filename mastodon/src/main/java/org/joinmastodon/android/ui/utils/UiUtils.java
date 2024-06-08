@@ -52,6 +52,7 @@ import android.widget.Toast;
 import org.joinmastodon.android.E;
 import org.joinmastodon.android.FileProvider;
 import org.joinmastodon.android.GlobalUserPreferences;
+import org.joinmastodon.android.MainActivity;
 import org.joinmastodon.android.MastodonApp;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.requests.accounts.SetAccountBlocked;
@@ -368,6 +369,8 @@ public class UiUtils{
 	}
 
 	public static void openHashtagTimeline(Context context, String accountID, Hashtag hashtag){
+		if(checkIfAlreadyDisplayingSameHashtag(context, hashtag.name))
+			return;
 		Bundle args=new Bundle();
 		args.putString("account", accountID);
 		args.putParcelable("hashtag", Parcels.wrap(hashtag));
@@ -375,10 +378,20 @@ public class UiUtils{
 	}
 
 	public static void openHashtagTimeline(Context context, String accountID, String hashtag){
+		if(checkIfAlreadyDisplayingSameHashtag(context, hashtag))
+			return;
 		Bundle args=new Bundle();
 		args.putString("account", accountID);
 		args.putString("hashtagName", hashtag);
 		Nav.go((Activity)context, HashtagTimelineFragment.class, args);
+	}
+
+	private static boolean checkIfAlreadyDisplayingSameHashtag(Context context, String hashtag){
+		if(context instanceof MainActivity ma && ma.getTopmostFragment() instanceof HashtagTimelineFragment htf && htf.getHashtagName().equalsIgnoreCase(hashtag)){
+			htf.shakeListView();
+			return true;
+		}
+		return false;
 	}
 
 	public static void showConfirmationAlert(Context context, @StringRes int title, @StringRes int message, @StringRes int confirmButton, Runnable onConfirmed){

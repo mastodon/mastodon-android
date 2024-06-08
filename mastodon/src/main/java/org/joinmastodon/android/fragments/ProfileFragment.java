@@ -1149,7 +1149,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 			startImagePicker(COVER_RESULT);
 		}else{
 			Drawable drawable=cover.getDrawable();
-			if(drawable==null || drawable instanceof ColorDrawable)
+			if(drawable==null || drawable instanceof ColorDrawable || account.headerStatic.endsWith("/missing.png"))
 				return;
 			currentPhotoViewer=new PhotoViewer(getActivity(), createFakeAttachments(account.header, drawable), 0,
 					null, accountID, new SingleImagePhotoViewerListener(cover, cover, null, this, ()->currentPhotoViewer=null, ()->drawable, ()->avatarBorder.setTranslationZ(2), ()->avatarBorder.setTranslationZ(0)));

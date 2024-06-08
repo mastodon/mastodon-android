@@ -37,7 +37,6 @@ import org.joinmastodon.android.model.catalog.CatalogInstance;
 import org.joinmastodon.android.ui.BetterItemAnimator;
 import org.joinmastodon.android.ui.M3AlertDialogBuilder;
 import org.joinmastodon.android.ui.text.HtmlParser;
-import org.joinmastodon.android.ui.utils.HideableSingleViewRecyclerAdapter;
 import org.joinmastodon.android.ui.utils.SimpleTextWatcher;
 import org.joinmastodon.android.ui.utils.UiUtils;
 import org.joinmastodon.android.ui.views.FilterChipView;
@@ -61,8 +60,6 @@ import me.grishka.appkit.api.Callback;
 import me.grishka.appkit.api.ErrorResponse;
 import me.grishka.appkit.fragments.OnBackPressedListener;
 import me.grishka.appkit.utils.BindableViewHolder;
-import me.grishka.appkit.utils.MergeRecyclerAdapter;
-import me.grishka.appkit.utils.SingleViewRecyclerAdapter;
 import me.grishka.appkit.utils.V;
 import me.grishka.appkit.views.UsableRecyclerView;
 
@@ -106,7 +103,7 @@ public class InstanceCatalogSignupFragment extends InstanceCatalogFragment imple
 
 	@Override
 	protected void doLoadData(int offset, int count){
-		currentRequest=new GetCatalogInstances(null, null)
+		currentRequest=new GetCatalogInstances(null, null, false)
 				.setCallback(new Callback<>(){
 					@Override
 					public void onSuccess(List<CatalogInstance> result){

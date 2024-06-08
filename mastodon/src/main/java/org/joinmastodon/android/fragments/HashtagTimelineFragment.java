@@ -275,4 +275,8 @@ public class HashtagTimelineFragment extends StatusListFragment{
 				})
 				.exec(accountID);
 	}
+
+	public String getHashtagName(){
+		return hashtagName;
+	}
 }

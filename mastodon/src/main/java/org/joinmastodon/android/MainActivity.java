@@ -61,6 +61,7 @@ public class MainActivity extends FragmentStackActivity{
 	@Override
 	protected void onNewIntent(Intent intent){
 		super.onNewIntent(intent);
+		setIntent(intent);
 		if(intent.getBooleanExtra("fromNotification", false)){
 			String accountID=intent.getStringExtra("accountID");
 			AccountSession accountSession;
@@ -85,6 +86,8 @@ public class MainActivity extends FragmentStackActivity{
 			showCompose();
 		}else if(Intent.ACTION_VIEW.equals(intent.getAction())){
 			handleURL(intent.getData(), null);
+		}else if(intent.getBooleanExtra("explore", false)){
+			restartHomeFragment();
 		}/*else if(intent.hasExtra(PackageInstaller.EXTRA_STATUS) && GithubSelfUpdater.needSelfUpdating()){
 			GithubSelfUpdater.getInstance().handleIntentFromInstaller(intent, this);
 		}*/
@@ -211,11 +214,19 @@ public class MainActivity extends FragmentStackActivity{
 				}
 			}else if(intent.getBooleanExtra("compose", false)){
 				showCompose();
+			}else if(intent.getBooleanExtra("explore", false) && fragment instanceof HomeFragment hf){
+				getWindow().getDecorView().post(()->hf.setCurrentTab(R.id.tab_search));
 			}else if(Intent.ACTION_VIEW.equals(intent.getAction())){
 				handleURL(intent.getData(), null);
 			}else{
 				maybeRequestNotificationsPermission();
 			}
 		}
+	}
+
+	public Fragment getTopmostFragment(){
+		if(fragmentContainers.isEmpty())
+			return null;
+		return getFragmentManager().findFragmentById(fragmentContainers.get(fragmentContainers.size()-1).getId());
 	}
 }
