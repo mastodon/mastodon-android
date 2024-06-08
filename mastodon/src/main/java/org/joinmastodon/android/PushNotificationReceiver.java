@@ -5,14 +5,15 @@ import android.app.NotificationChannel;
 import android.app.NotificationChannelGroup;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.app.RemoteInput;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.Icon;
 import android.os.Build;
 import android.os.Bundle;
+import android.service.notification.StatusBarNotification;
 import android.text.TextUtils;
 import android.util.Log;
 
@@ -21,10 +22,13 @@ import org.joinmastodon.android.api.requests.notifications.GetNotificationByID;
 import org.joinmastodon.android.api.session.AccountSession;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.model.Account;
+import org.joinmastodon.android.model.Mention;
 import org.joinmastodon.android.model.PushNotification;
+import org.joinmastodon.android.model.StatusPrivacy;
 import org.joinmastodon.android.ui.utils.UiUtils;
 import org.parceler.Parcels;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -144,19 +148,110 @@ public class PushNotificationReceiver extends BroadcastReceiver{
 				.setContentText(pn.body)
 				.setStyle(new Notification.BigTextStyle().bigText(pn.body))
 				.setSmallIcon(R.drawable.ic_ntf_logo)
-				.setContentIntent(PendingIntent.getActivity(context, accountID.hashCode() & 0xFFFF, contentIntent, PendingIntent.FLAG_IMMUTABLE | PendingIntent.FLAG_UPDATE_CURRENT))
+				.setContentIntent(PendingIntent.getActivity(context, (accountID+pn.notificationId).hashCode() & 0xFFFF, contentIntent, PendingIntent.FLAG_IMMUTABLE | PendingIntent.FLAG_UPDATE_CURRENT))
 				.setWhen(notification==null ? System.currentTimeMillis() : notification.createdAt.toEpochMilli())
 				.setShowWhen(true)
 				.setCategory(Notification.CATEGORY_SOCIAL)
 				.setAutoCancel(true)
+				.setOnlyAlertOnce(true)
 				.setLights(context.getColor(R.color.primary_700), 500, 1000)
-				.setColor(context.getColor(R.color.primary_700));
+				.setColor(context.getColor(R.color.primary_700))
+				.setGroup(accountID);
 		if(avatar!=null){
 			builder.setLargeIcon(UiUtils.getBitmapFromDrawable(avatar));
 		}
 		if(AccountSessionManager.getInstance().getLoggedInAccounts().size()>1){
 			builder.setSubText(accountName);
 		}
-		nm.notify(accountID, NOTIFICATION_ID, builder.build());
+		String notificationTag=accountID+"_"+(notification==null ? 0 : notification.id);
+		if(notification!=null && (notification.type==org.joinmastodon.android.model.Notification.Type.MENTION)){
+			ArrayList<String> mentions=new ArrayList<>();
+			String ownID=AccountSessionManager.getInstance().getAccount(accountID).self.id;
+			if(!notification.status.account.id.equals(ownID))
+				mentions.add('@'+notification.status.account.acct);
+			for(Mention mention:notification.status.mentions){
+				if(mention.id.equals(ownID))
+					continue;
+				String m='@'+mention.acct;
+				if(!mentions.contains(m))
+					mentions.add(m);
+			}
+			String replyPrefix=mentions.isEmpty() ? "" : TextUtils.join(" ", mentions)+" ";
+
+			Intent replyIntent=new Intent(context, NotificationActionHandlerService.class);
+			replyIntent.putExtra("action", "reply");
+			replyIntent.putExtra("account", accountID);
+			replyIntent.putExtra("post", notification.status.id);
+			replyIntent.putExtra("notificationTag", notificationTag);
+			replyIntent.putExtra("visibility", notification.status.visibility.toString());
+			replyIntent.putExtra("replyPrefix", replyPrefix);
+			builder.addAction(new Notification.Action.Builder(Icon.createWithResource(context, R.drawable.ic_reply_24px),
+					context.getString(R.string.button_reply), PendingIntent.getService(context, (accountID+pn.notificationId+"reply").hashCode(), replyIntent, PendingIntent.FLAG_UPDATE_CURRENT))
+							.addRemoteInput(new RemoteInput.Builder("replyText").build())
+							.build());
+
+			Intent favIntent=new Intent(context, NotificationActionHandlerService.class);
+			favIntent.putExtra("action", "favorite");
+			favIntent.putExtra("account", accountID);
+			favIntent.putExtra("post", notification.status.id);
+			favIntent.putExtra("notificationTag", notificationTag);
+			builder.addAction(new Notification.Action.Builder(Icon.createWithResource(context, R.drawable.ic_star_24px),
+					context.getString(R.string.button_favorite), PendingIntent.getService(context, (accountID+pn.notificationId+"favorite").hashCode(), favIntent, PendingIntent.FLAG_UPDATE_CURRENT)).build());
+
+			PendingIntent boostActionIntent;
+			if(notification.status.visibility!=StatusPrivacy.DIRECT){
+				Intent boostIntent=new Intent(context, NotificationActionHandlerService.class);
+				boostIntent.putExtra("action", "boost");
+				boostIntent.putExtra("account", accountID);
+				boostIntent.putExtra("post", notification.status.id);
+				boostIntent.putExtra("notificationTag", notificationTag);
+				boostActionIntent=PendingIntent.getService(context, (accountID+pn.notificationId+"boost").hashCode(), boostIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+			}else{
+				boostActionIntent=null;
+			}
+			builder.addAction(new Notification.Action.Builder(Icon.createWithResource(context, R.drawable.ic_boost_24px),
+					context.getString(R.string.button_reblog), boostActionIntent).build());
+		}
+		nm.notify(notificationTag, NOTIFICATION_ID, builder.build());
+
+		StatusBarNotification[] activeNotifications=nm.getActiveNotifications();
+		ArrayList<String> summaryLines=new ArrayList<>();
+		for(StatusBarNotification sbn:activeNotifications){
+			String tag=sbn.getTag();
+			if(tag!=null && tag.startsWith(accountID+"_")){
+				if((sbn.getNotification().flags & Notification.FLAG_GROUP_SUMMARY)==0){
+					summaryLines.add(sbn.getNotification().extras.getString("android.title"));
+					if(summaryLines.size()==5)
+						break;
+				}
+			}
+		}
+
+		if(summaryLines.size()>1){
+			Notification.Builder summaryBuilder;
+			if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.O){
+				summaryBuilder=new Notification.Builder(context, accountID+"_"+pn.notificationType);
+			}else{
+				summaryBuilder=new Notification.Builder(context)
+						.setPriority(Notification.PRIORITY_DEFAULT);
+			}
+			Notification.InboxStyle inboxStyle=new Notification.InboxStyle();
+			for(String line:summaryLines){
+				inboxStyle.addLine(line);
+			}
+			summaryBuilder.setContentTitle("content title")
+					.setContentText("content text")
+					.setSmallIcon(R.drawable.ic_ntf_logo)
+					.setColor(context.getColor(R.color.primary_700))
+					.setContentIntent(PendingIntent.getActivity(context, accountID.hashCode() & 0xFFFF, contentIntent, PendingIntent.FLAG_IMMUTABLE | PendingIntent.FLAG_UPDATE_CURRENT))
+					.setWhen(notification==null ? System.currentTimeMillis() : notification.createdAt.toEpochMilli())
+					.setShowWhen(true)
+					.setCategory(Notification.CATEGORY_SOCIAL)
+					.setAutoCancel(true)
+					.setGroup(accountID)
+					.setGroupSummary(true)
+					.setStyle(inboxStyle.setSummaryText(accountName));
+			nm.notify(accountID+"_summary", NOTIFICATION_ID, summaryBuilder.build());
+		}
 	}
 }
