@@ -73,8 +73,6 @@ abstract class InstanceCatalogFragment extends BaseRecyclerFragment<CatalogInsta
 	protected boolean isSignup;
 	protected CatalogInstance fakeInstance=new CatalogInstance();
 
-	private static final double DUNBAR=Math.log(800);
-
 	public InstanceCatalogFragment(int layout, int perPage){
 		super(layout, perPage);
 	}
@@ -155,7 +153,7 @@ abstract class InstanceCatalogFragment extends BaseRecyclerFragment<CatalogInsta
 	}
 
 	protected void loadInstanceInfo(String _domain, boolean isFromRedirect, Consumer<Object> onError){
-		if(TextUtils.isEmpty(_domain))
+		if(TextUtils.isEmpty(_domain) || _domain.indexOf('.')==-1)
 			return;
 		String domain=normalizeInstanceDomain(_domain);
 		Instance cachedInstance=instancesCache.get(domain);

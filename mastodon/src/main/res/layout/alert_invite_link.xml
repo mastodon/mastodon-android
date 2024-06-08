@@ -39,14 +39,15 @@
 			android:layout_height="56dp"
 			android:background="@drawable/bg_m3_filled_text_field"
 			android:paddingHorizontal="16dp"
-			android:textColorHint="?colorM3OnSurfaceVariant"
+			android:textColorHint="@color/m3_on_surface_variant_alpha40"
 			android:textColor="?colorM3OnSurface"
 			android:gravity="start|bottom"
 			android:paddingBottom="8dp"
 			android:singleLine="true"
 			android:inputType="textUri"
 			android:textAppearance="@style/m3_body_large"
-			android:hint="example.social/invite/AbC123"/>
+			android:hint="example.social/invite/AbC123"
+			tools:ignore="HardcodedText" />
 
 		<TextView
 			android:id="@+id/label"

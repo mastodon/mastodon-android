@@ -56,10 +56,12 @@
 			<org.joinmastodon.android.ui.views.FloatingHintEditTextLayout
 				android:id="@+id/username_wrap"
 				android:layout_width="match_parent"
-				android:layout_height="80dp"
+				android:layout_height="wrap_content"
 				android:paddingTop="4dp"
+				android:paddingBottom="12dp"
 				app:labelTextColor="@color/m3_outlined_text_field_label"
-				android:foreground="@drawable/bg_m3_outlined_text_field">
+				android:foreground="@drawable/bg_m3_outlined_text_field"
+				tools:ignore="RtlHardcoded">
 
 				<EditText
 					android:id="@+id/username"
@@ -90,6 +92,20 @@
 					android:gravity="center_vertical"
 					android:textColor="?colorM3OnSurface"
 					tools:text="\@mastodon.social"/>
+
+				<TextView
+					android:id="@+id/at_sign"
+					android:layout_width="wrap_content"
+					android:layout_height="56dp"
+					android:layout_gravity="left|top"
+					android:layout_marginLeft="56dp"
+					android:layout_marginTop="8dp"
+					android:paddingLeft="8dp"
+					android:paddingRight="2dp"
+					android:textAppearance="@style/m3_body_large"
+					android:gravity="center_vertical"
+					android:textColor="?colorM3OnSurface"
+					android:text="\@"/>
 
 			</org.joinmastodon.android.ui.views.FloatingHintEditTextLayout>
 
@@ -190,19 +206,6 @@
 					android:hint="@string/confirm_password"/>
 
 			</org.joinmastodon.android.ui.views.FloatingHintEditTextLayout>
-
-			<TextView
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:layout_marginStart="56dp"
-				android:layout_marginEnd="20dp"
-				android:layout_marginTop="-8dp"
-				android:paddingLeft="16dp"
-				android:paddingRight="16dp"
-				android:textAppearance="@style/m3_body_small"
-				android:textColor="?colorM3OnSurfaceVariant"
-				android:text="@string/password_note"/>
-
 
 			<org.joinmastodon.android.ui.views.FloatingHintEditTextLayout
 				android:id="@+id/reason_wrap"

@@ -1040,4 +1040,20 @@ public class UiUtils{
 			button.setTextColor(origColor);
 		}
 	}
+
+	public static void updateRecyclerViewKeepingAbsoluteScrollPosition(RecyclerView rv, Runnable onUpdate){
+		int topItem=-1;
+		int topItemOffset=0;
+		if(rv.getChildCount()>0){
+			View item=rv.getChildAt(0);
+			topItem=rv.getChildAdapterPosition(item);
+			topItemOffset=item.getTop();
+		}
+		onUpdate.run();
+		int newCount=rv.getAdapter().getItemCount();
+		if(newCount>=topItem){
+			rv.scrollToPosition(topItem);
+			rv.scrollBy(0, -topItemOffset);
+		}
+	}
 }

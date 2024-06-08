@@ -10,7 +10,7 @@
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:textAppearance="@style/m3_body_large"
-		android:paddingStart="56dp"
+		android:paddingStart="80dp"
 		android:paddingEnd="24dp"
 		android:textColor="?colorM3OnSurface"
 		android:text="@string/login_subtitle"/>
@@ -38,7 +38,7 @@
 			android:textColorHint="?colorM3OnSurfaceVariant"
 			android:inputType="textUri"
 			android:importantForAutofill="no"
-			android:paddingStart="48dp"
+			android:paddingStart="64dp"
 			android:layout_marginEnd="52dp"
 			android:drawablePadding="16dp"
 			android:textAppearance="@style/m3_body_large"
@@ -47,6 +47,7 @@
 		<ImageView
 			android:layout_width="44dp"
 			android:layout_height="20dp"
+			android:layout_marginStart="8dp"
 			android:layout_gravity="start|center_vertical"
 			android:scaleType="center"
 			android:importantForAccessibility="no"

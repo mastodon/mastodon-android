@@ -158,6 +158,9 @@ public class FloatingHintEditTextLayout extends FrameLayout implements CustomVie
 				}else{
 					transY=edit.getHeight()/2f-edit.getLineHeight()/2f+(edit.getTop()-label.getTop())-(label.getHeight()/2f-label.getLineHeight()/2f);
 				}
+				int labelX=label.getLeft();
+				int editX=edit.getLeft()+edit.getPaddingLeft();
+				float xOffset=editX-labelX;
 
 				AnimatorSet anim=new AnimatorSet();
 				if(hintVisible){
@@ -166,6 +169,7 @@ public class FloatingHintEditTextLayout extends FrameLayout implements CustomVie
 							ObjectAnimator.ofFloat(label, SCALE_X, scale),
 							ObjectAnimator.ofFloat(label, SCALE_Y, scale),
 							ObjectAnimator.ofFloat(label, TRANSLATION_Y, transY),
+							ObjectAnimator.ofFloat(label, TRANSLATION_X, xOffset),
 							ObjectAnimator.ofFloat(FloatingHintEditTextLayout.this, "animProgress", 0f)
 					);
 					edit.setHintTextColor(0);
@@ -173,11 +177,13 @@ public class FloatingHintEditTextLayout extends FrameLayout implements CustomVie
 					label.setScaleX(scale);
 					label.setScaleY(scale);
 					label.setTranslationY(transY);
+					label.setTranslationX(xOffset);
 					anim.playTogether(
 							ObjectAnimator.ofFloat(edit, TRANSLATION_Y, offsetY),
 							ObjectAnimator.ofFloat(label, SCALE_X, 1f),
 							ObjectAnimator.ofFloat(label, SCALE_Y, 1f),
 							ObjectAnimator.ofFloat(label, TRANSLATION_Y, 0f),
+							ObjectAnimator.ofFloat(label, TRANSLATION_X, 0f),
 							ObjectAnimator.ofFloat(FloatingHintEditTextLayout.this, "animProgress", 1f)
 					);
 				}

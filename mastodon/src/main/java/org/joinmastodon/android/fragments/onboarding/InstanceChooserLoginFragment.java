@@ -1,12 +1,11 @@
 package org.joinmastodon.android.fragments.onboarding;
 
-import android.graphics.Canvas;
 import android.graphics.Outline;
 import android.graphics.Rect;
-import android.graphics.RectF;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.View;
 import android.view.ViewGroup;
@@ -65,7 +64,7 @@ public class InstanceChooserLoginFragment extends InstanceCatalogFragment{
 	protected void updateFilteredList(){
 		ArrayList<CatalogInstance> prevData=new ArrayList<>(filteredData);
 		filteredData.clear();
-		if(currentSearchQuery.length()>0){
+		if(!TextUtils.isEmpty(currentSearchQuery)){
 			boolean foundExactMatch=false;
 			for(CatalogInstance inst:data){
 				if(inst.normalizedDomain.contains(currentSearchQuery)){
@@ -74,8 +73,15 @@ public class InstanceChooserLoginFragment extends InstanceCatalogFragment{
 						foundExactMatch=true;
 				}
 			}
-			if(!foundExactMatch)
+			if(!foundExactMatch && currentSearchQuery.indexOf('.')!=-1)
 				filteredData.add(0, fakeInstance);
+		}
+		if(filteredData.isEmpty()){
+			for(CatalogInstance inst:data){
+				if(inst.normalizedDomain.equals("mastodon.social") || inst.normalizedDomain.equals("mastodon.online")){
+					filteredData.add(inst);
+				}
+			}
 		}
 		UiUtils.updateList(prevData, filteredData, list, adapter, Objects::equals);
 		for(int i=0;i<list.getChildCount();i++){
@@ -96,6 +102,7 @@ public class InstanceChooserLoginFragment extends InstanceCatalogFragment{
 					public void onSuccess(List<CatalogInstance> result){
 						data.clear();
 						data.addAll(sortInstances(result));
+						updateFilteredList();
 					}
 
 					@Override
@@ -112,6 +119,9 @@ public class InstanceChooserLoginFragment extends InstanceCatalogFragment{
 		Toolbar toolbar=getToolbar();
 		toolbar.setElevation(0);
 		toolbar.setBackground(null);
+		if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.N){
+			toolbar.setContentInsetStartWithNavigation(V.dp(80));
+		}
 	}
 
 	@Override
