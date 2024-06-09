@@ -295,7 +295,9 @@
 	<string name="login_subtitle">以您建立帳號之伺服器登入。</string>
 	<string name="server_url">伺服器 URL</string>
 	<string name="server_filter_any_language">任何語言</string>
+	<string name="server_filter_instant_signup">立即註冊</string>
 	<string name="server_filter_manual_review">手動審核</string>
+	<string name="server_filter_any_signup_speed">任何註冊速度</string>
 	<string name="server_filter_region_europe">歐洲</string>
 	<string name="server_filter_region_north_america">北美洲</string>
 	<string name="server_filter_region_south_america">南美洲</string>
@@ -713,4 +715,8 @@
 	<string name="connection_timed_out">請求已逾時。請您檢查連線並再重試。</string>
 	<string name="server_error">連線至您的伺服器時發生了某些錯誤。應該不是您的錯，請再試一次？</string>
 	<string name="not_found">可能已被刪除，或從來都不曾存在過。</string>
+	<string name="no_servers_found">找不到伺服器「%s」</string>
+	<string name="signup_username_taken">此帳號已被註冊。請嘗試不同帳號或 &lt;a&gt;挑選另一個伺服器&lt;/a&gt;。</string>
+	<string name="signup_email_invalid">您的郵件地址也許不是有效的。</string>
+	<string name="signup_email_taken">此電子郵件信箱已被使用。您是否 &lt;a&gt;忘記密碼&lt;/a&gt;？</string>
 </resources>
