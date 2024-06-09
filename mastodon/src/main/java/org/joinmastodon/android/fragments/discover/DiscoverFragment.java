@@ -36,10 +36,9 @@ import androidx.viewpager2.widget.ViewPager2;
 import me.grishka.appkit.Nav;
 import me.grishka.appkit.fragments.AppKitFragment;
 import me.grishka.appkit.fragments.BaseRecyclerFragment;
-import me.grishka.appkit.fragments.OnBackPressedListener;
 import me.grishka.appkit.utils.V;
 
-public class DiscoverFragment extends AppKitFragment implements ScrollableToTop, OnBackPressedListener{
+public class DiscoverFragment extends AppKitFragment implements ScrollableToTop{
 	private static final int QUERY_RESULT=937;
 	private static final int SCAN_RESULT=456;
 
@@ -62,6 +61,7 @@ public class DiscoverFragment extends AppKitFragment implements ScrollableToTop,
 	private String accountID;
 	private String currentQuery;
 	private Intent scannerIntent;
+	private Runnable searchExitCallback=this::exitSearch;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState){
@@ -232,6 +232,7 @@ public class DiscoverFragment extends AppKitFragment implements ScrollableToTop,
 			searchBack.setEnabled(true);
 			searchBack.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_YES);
 			tabsDivider.setVisibility(View.GONE);
+			addBackCallback(searchExitCallback);
 		}
 	}
 
@@ -248,6 +249,7 @@ public class DiscoverFragment extends AppKitFragment implements ScrollableToTop,
 		searchBack.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
 		tabsDivider.setVisibility(View.VISIBLE);
 		currentQuery=null;
+		removeBackCallback(searchExitCallback);
 	}
 
 	private Fragment getFragmentForPage(int page){
@@ -258,15 +260,6 @@ public class DiscoverFragment extends AppKitFragment implements ScrollableToTop,
 			case 3 -> accountsFragment;
 			default -> throw new IllegalStateException("Unexpected value: "+page);
 		};
-	}
-
-	@Override
-	public boolean onBackPressed(){
-		if(searchActive){
-			exitSearch();
-			return true;
-		}
-		return false;
 	}
 
 	@Override

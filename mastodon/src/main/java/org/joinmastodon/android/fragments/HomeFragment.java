@@ -30,8 +30,8 @@ import org.joinmastodon.android.fragments.onboarding.OnboardingFollowSuggestions
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.Notification;
 import org.joinmastodon.android.model.PaginatedResponse;
-import org.joinmastodon.android.ui.sheets.AccountSwitcherSheet;
 import org.joinmastodon.android.ui.OutlineProviders;
+import org.joinmastodon.android.ui.sheets.AccountSwitcherSheet;
 import org.joinmastodon.android.ui.utils.UiUtils;
 import org.joinmastodon.android.ui.views.TabBar;
 import org.joinmastodon.android.utils.ObjectIdComparator;
@@ -48,13 +48,12 @@ import me.grishka.appkit.api.Callback;
 import me.grishka.appkit.api.ErrorResponse;
 import me.grishka.appkit.fragments.AppKitFragment;
 import me.grishka.appkit.fragments.LoaderFragment;
-import me.grishka.appkit.fragments.OnBackPressedListener;
 import me.grishka.appkit.imageloader.ViewImageLoader;
 import me.grishka.appkit.imageloader.requests.UrlImageLoaderRequest;
 import me.grishka.appkit.utils.V;
 import me.grishka.appkit.views.FragmentRootLinearLayout;
 
-public class HomeFragment extends AppKitFragment implements OnBackPressedListener{
+public class HomeFragment extends AppKitFragment{
 	private FragmentRootLinearLayout content;
 	private HomeTimelineFragment homeTimelineFragment;
 	private NotificationsListFragment notificationsFragment;
@@ -269,15 +268,6 @@ public class HomeFragment extends AppKitFragment implements OnBackPressedListene
 			args.putString("account", accountID);
 			Nav.go(getActivity(), OnboardingFollowSuggestionsFragment.class, args);
 		}
-		return false;
-	}
-
-	@Override
-	public boolean onBackPressed(){
-		if(currentTab==R.id.tab_profile)
-			return profileFragment.onBackPressed();
-		if(currentTab==R.id.tab_search)
-			return searchFragment.onBackPressed();
 		return false;
 	}
 

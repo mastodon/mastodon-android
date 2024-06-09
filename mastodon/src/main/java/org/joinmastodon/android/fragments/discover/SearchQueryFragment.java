@@ -57,14 +57,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import me.grishka.appkit.Nav;
 import me.grishka.appkit.api.SimpleCallback;
 import me.grishka.appkit.fragments.CustomTransitionsFragment;
-import me.grishka.appkit.fragments.OnBackPressedListener;
 import me.grishka.appkit.imageloader.ImageLoaderRecyclerAdapter;
 import me.grishka.appkit.imageloader.requests.ImageLoaderRequest;
 import me.grishka.appkit.utils.MergeRecyclerAdapter;
 import me.grishka.appkit.utils.V;
 import me.grishka.appkit.views.UsableRecyclerView;
 
-public class SearchQueryFragment extends MastodonRecyclerFragment<SearchResultViewModel> implements CustomTransitionsFragment, OnBackPressedListener{
+public class SearchQueryFragment extends MastodonRecyclerFragment<SearchResultViewModel> implements CustomTransitionsFragment{
 	private static final Pattern HASHTAG_REGEX=Pattern.compile("^(\\w*[a-zA-Z·]\\w*)$", Pattern.CASE_INSENSITIVE);
 	private static final Pattern USERNAME_REGEX=Pattern.compile("^@?([a-z0-9_-]+)(@[^\\s]+)?$", Pattern.CASE_INSENSITIVE);
 
@@ -371,6 +370,11 @@ public class SearchQueryFragment extends MastodonRecyclerFragment<SearchResultVi
 			container.invalidateOutline();
 			navigationIcon.invalidateSelf();
 		});
+		if(!enter){
+			String initialQuery=getArguments().getString("query");
+			searchViewHelper.setQuery(TextUtils.isEmpty(initialQuery) ? "" : initialQuery);
+			currentQuery=initialQuery;
+		}
 		return set;
 	}
 
@@ -435,14 +439,6 @@ public class SearchQueryFragment extends MastodonRecyclerFragment<SearchResultVi
 			res.putInt("filter", typeFilter.ordinal());
 		setResult(true, res);
 		Nav.finish(this);
-	}
-
-	@Override
-	public boolean onBackPressed(){
-		String initialQuery=getArguments().getString("query");
-		searchViewHelper.setQuery(TextUtils.isEmpty(initialQuery) ? "" : initialQuery);
-		currentQuery=initialQuery;
-		return false;
 	}
 
 	private static class AnimatableOutlineProvider extends ViewOutlineProvider{

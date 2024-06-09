@@ -1,7 +1,6 @@
 package org.joinmastodon.android.fragments.settings;
 
 import android.app.AlertDialog;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.text.InputType;
@@ -11,11 +10,9 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.WindowInsets;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.model.FilterKeyword;
@@ -33,15 +30,15 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import me.grishka.appkit.fragments.OnBackPressedListener;
 import me.grishka.appkit.utils.V;
 
-public class FilterWordsFragment extends BaseSettingsFragment<FilterKeyword> implements OnBackPressedListener{
+public class FilterWordsFragment extends BaseSettingsFragment<FilterKeyword>{
 	private Button fab;
 	private ActionMode actionMode;
 	private ArrayList<ListItem<FilterKeyword>> selectedItems=new ArrayList<>();
 	private ArrayList<String> deletedItemIDs=new ArrayList<>();
 	private MenuItem deleteItem;
+	private Runnable actionModeDismisser=()->actionMode.finish();
 
 	public FilterWordsFragment(){
 		setListLayoutId(R.layout.recycler_fragment_with_text_fab);
@@ -80,12 +77,12 @@ public class FilterWordsFragment extends BaseSettingsFragment<FilterKeyword> imp
 	}
 
 	@Override
-	public boolean onBackPressed(){
+	public void onStop(){
+		super.onStop();
 		Bundle result=new Bundle();
 		result.putParcelableArrayList("words", (ArrayList<? extends Parcelable>) data.stream().map(i->i.parentObject).map(Parcels::wrap).collect(Collectors.toCollection(ArrayList::new)));
 		result.putStringArrayList("deleted", deletedItemIDs);
 		setResult(true, result);
-		return false;
 	}
 
 	@Override
@@ -259,6 +256,7 @@ public class FilterWordsFragment extends BaseSettingsFragment<FilterKeyword> imp
 		}
 		itemsAdapter.notifyItemRangeChanged(0, data.size());
 		updateActionModeTitle();
+		addBackCallback(actionModeDismisser);
 	}
 
 	private void leaveSelectionMode(boolean fromActionMode){
@@ -280,6 +278,7 @@ public class FilterWordsFragment extends BaseSettingsFragment<FilterKeyword> imp
 			data.set(i, newItem);
 		}
 		itemsAdapter.notifyItemRangeChanged(0, data.size());
+		removeBackCallback(actionModeDismisser);
 	}
 
 	private void updateActionModeTitle(){

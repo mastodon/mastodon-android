@@ -33,7 +33,8 @@
 		android:supportsRtl="true"
 		android:icon="@mipmap/ic_launcher"
 		android:theme="@style/Theme.Mastodon.AutoLightDark"
-		android:largeHeap="true">
+		android:largeHeap="true"
+		android:enableOnBackInvokedCallback="true">
 
 		<meta-data
 			android:name="com.google.mlkit.vision.DEPENDENCIES"

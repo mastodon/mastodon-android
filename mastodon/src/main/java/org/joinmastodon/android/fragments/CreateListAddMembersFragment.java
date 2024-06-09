@@ -42,13 +42,11 @@ import me.grishka.appkit.Nav;
 import me.grishka.appkit.api.Callback;
 import me.grishka.appkit.api.ErrorResponse;
 import me.grishka.appkit.api.SimpleCallback;
-import me.grishka.appkit.fragments.OnBackPressedListener;
-import me.grishka.appkit.fragments.WindowInsetsAwareFragment;
 import me.grishka.appkit.utils.CubicBezierInterpolator;
 import me.grishka.appkit.utils.V;
 import me.grishka.appkit.views.FragmentRootLinearLayout;
 
-public class CreateListAddMembersFragment extends BaseAccountListFragment implements OnBackPressedListener, AddNewListMembersFragment.Listener{
+public class CreateListAddMembersFragment extends BaseAccountListFragment implements AddNewListMembersFragment.Listener{
 	private FollowList followList;
 	private Button nextButton;
 	private View buttonBar;
@@ -59,6 +57,7 @@ public class CreateListAddMembersFragment extends BaseAccountListFragment implem
 	private WindowInsets lastInsets;
 	private boolean dismissingSearchFragment;
 	private HashSet<String> accountIDsInList=new HashSet<>();
+	private Runnable searchFragmentDismisser=this::dismissSearchFragment;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState){
@@ -156,6 +155,7 @@ public class CreateListAddMembersFragment extends BaseAccountListFragment implem
 		searchFragmentContainer.animate().translationX(0).alpha(1).setDuration(300).withLayer().setInterpolator(CubicBezierInterpolator.DEFAULT).withEndAction(()->{
 			rootView.setVisibility(View.GONE);
 		}).start();
+		addBackCallback(searchFragmentDismisser);
 		return true;
 	}
 
@@ -183,6 +183,7 @@ public class CreateListAddMembersFragment extends BaseAccountListFragment implem
 	private void dismissSearchFragment(){
 		if(searchFragment==null || dismissingSearchFragment)
 			return;
+		removeBackCallback(searchFragmentDismisser);
 		dismissingSearchFragment=true;
 		rootView.setVisibility(View.VISIBLE);
 		searchFragmentContainer.animate().translationX(V.dp(100)).alpha(0).setDuration(200).withLayer().setInterpolator(CubicBezierInterpolator.DEFAULT).withEndAction(()->{
@@ -199,15 +200,6 @@ public class CreateListAddMembersFragment extends BaseAccountListFragment implem
 	private void onNextClick(View v){
 		E.post(new FinishListCreationFragmentEvent(accountID, followList.id));
 		Nav.finish(this);
-	}
-
-	@Override
-	public boolean onBackPressed(){
-		if(searchFragment!=null){
-			dismissSearchFragment();
-			return true;
-		}
-		return false;
 	}
 
 	@Override

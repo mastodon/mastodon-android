@@ -11,9 +11,7 @@ import java.util.Arrays;
 import java.util.EnumSet;
 import java.util.stream.Collectors;
 
-import me.grishka.appkit.fragments.OnBackPressedListener;
-
-public class FilterContextFragment extends BaseSettingsFragment<FilterContext> implements OnBackPressedListener{
+public class FilterContextFragment extends BaseSettingsFragment<FilterContext>{
 	private EnumSet<FilterContext> context;
 
 	@Override
@@ -33,7 +31,8 @@ public class FilterContextFragment extends BaseSettingsFragment<FilterContext> i
 	protected void doLoadData(int offset, int count){}
 
 	@Override
-	public boolean onBackPressed(){
+	public void onStop(){
+		super.onStop();
 		context=EnumSet.noneOf(FilterContext.class);
 		for(ListItem<FilterContext> item:data){
 			if(((CheckableListItem<FilterContext>) item).checked)
@@ -42,6 +41,5 @@ public class FilterContextFragment extends BaseSettingsFragment<FilterContext> i
 		Bundle args=new Bundle();
 		args.putSerializable("context", context);
 		setResult(true, args);
-		return false;
 	}
 }

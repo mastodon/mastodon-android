@@ -58,12 +58,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import me.grishka.appkit.Nav;
 import me.grishka.appkit.api.Callback;
 import me.grishka.appkit.api.ErrorResponse;
-import me.grishka.appkit.fragments.OnBackPressedListener;
 import me.grishka.appkit.utils.BindableViewHolder;
 import me.grishka.appkit.utils.V;
 import me.grishka.appkit.views.UsableRecyclerView;
 
-public class InstanceCatalogSignupFragment extends InstanceCatalogFragment implements OnBackPressedListener{
+public class InstanceCatalogSignupFragment extends InstanceCatalogFragment{
 	private View topBar;
 
 	private List<String> languages=Collections.emptyList();
@@ -83,6 +82,8 @@ public class InstanceCatalogSignupFragment extends InstanceCatalogFragment imple
 
 	private String inviteCode, inviteCodeHost;
 	private AlertDialog currentInviteLinkAlert;
+
+	private Runnable exitQueryModeCallback=()->setSearchQueryMode(false);
 
 	public InstanceCatalogSignupFragment(){
 		super(R.layout.fragment_onboarding_common, 10);
@@ -582,19 +583,13 @@ public class InstanceCatalogSignupFragment extends InstanceCatalogFragment imple
 		super.onApplyWindowInsets(insets.replaceSystemWindowInsets(insets.getSystemWindowInsetLeft(), 0, insets.getSystemWindowInsetRight(), insets.getSystemWindowInsetBottom()));
 	}
 
-	@Override
-	public boolean onBackPressed(){
-		if(searchQueryMode){
-			setSearchQueryMode(false);
-			return true;
-		}
-		return false;
-	}
-
 	private void setSearchQueryMode(boolean enabled){
+		if(searchQueryMode==enabled)
+			return;
 		searchQueryMode=enabled;
 		RelativeLayout.LayoutParams lp=(RelativeLayout.LayoutParams) searchEdit.getLayoutParams();
 		if(searchQueryMode){
+			addBackCallback(exitQueryModeCallback);
 			filtersScroll.setVisibility(View.GONE);
 			lp.removeRule(RelativeLayout.END_OF);
 			backBtn.setScaleX(0.83333333f);
@@ -602,6 +597,7 @@ public class InstanceCatalogSignupFragment extends InstanceCatalogFragment imple
 			backBtn.setTranslationX(V.dp(8));
 			searchEdit.setCompoundDrawableTintList(ColorStateList.valueOf(0));
 		}else{
+			removeBackCallback(exitQueryModeCallback);
 			filtersScroll.setVisibility(View.VISIBLE);
 			focusThing.requestFocus();
 			searchEdit.setText("");
