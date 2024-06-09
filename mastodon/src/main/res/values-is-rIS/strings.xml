@@ -314,7 +314,9 @@
 	<string name="login_subtitle">Skráðu þig inn á netþjóninn þar sem þú útbjóst notandaaðganginn þinn.</string>
 	<string name="server_url">Vefslóð netþjóns</string>
 	<string name="server_filter_any_language">Hvaða tungumál sem er</string>
+	<string name="server_filter_instant_signup">Nýskráning á stundinni</string>
 	<string name="server_filter_manual_review">Handvirk yfirferð</string>
+	<string name="server_filter_any_signup_speed">Hvaða hraði nýskráninga sem er</string>
 	<string name="server_filter_region_europe">Evrópa</string>
 	<string name="server_filter_region_north_america">Norður-Ameríka</string>
 	<string name="server_filter_region_south_america">Suður-Ameríka</string>
@@ -747,4 +749,8 @@
 	<string name="connection_timed_out">Beiðnin rann út á tíma. Athugaðu nettenginguna þína og prófaðu aftur?</string>
 	<string name="server_error">Eitthvað fór úrskeiðis í samskiptum við netþjóninn þinn. Líklega er það ekki þér að kenna. Prófa aftur?</string>
 	<string name="not_found">Kannski var honum eytt eða kannski var hann aldrei til.</string>
+	<string name="no_servers_found">Engir netþjónar fyndust fyrir “%s”</string>
+	<string name="signup_username_taken">Þetta notandanafn er frátekið. Prófaðu eitthvað annað eða &lt;a&gt;veldu annan netþjón&lt;/a&gt;.</string>
+	<string name="signup_email_invalid">Þetta lítur ekki út fyrir að vera leyfilegt tölvupóstfang.</string>
+	<string name="signup_email_taken">Tölvupóstfangið er þegar í notkun. &lt;a&gt;Gleymdirðu lykilorðinu þínu&lt;/a&gt;?</string>
 </resources>
