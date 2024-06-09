@@ -687,7 +687,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 			notifications.setTitle(getString(relationship.notifying ? R.string.disable_new_post_notifications : R.string.enable_new_post_notifications, account.getDisplayUsername()));
 		}
 
-		if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.P && !UiUtils.isEMUI()){
+		if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.P && !UiUtils.isEMUI() && !UiUtils.isMagic()){
 			menu.setGroupDividerEnabled(true);
 		}
 	}

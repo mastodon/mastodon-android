@@ -809,6 +809,10 @@ public class UiUtils{
 		return !TextUtils.isEmpty(getSystemProperty("ro.build.version.emui"));
 	}
 
+	public static boolean isMagic() {
+		return !TextUtils.isEmpty(getSystemProperty("ro.build.version.magic"));
+	}
+
 	public static int alphaBlendColors(int color1, int color2, float alpha){
 		float alpha0=1f-alpha;
 		int r=Math.round(((color1 >> 16) & 0xFF)*alpha0+((color2 >> 16) & 0xFF)*alpha);
