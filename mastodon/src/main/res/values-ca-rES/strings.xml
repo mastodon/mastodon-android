@@ -4,10 +4,13 @@
 	<string name="next">Següent</string>
 	<string name="loading_instance">S\'està recuperant la informació del servidor…</string>
 	<string name="error">Error</string>
+	<string name="not_a_mastodon_instance">Sembla que %s no és un servidor de Mastodon.</string>
 	<string name="ok">D\'acord</string>
 	<string name="preparing_auth">Preparant l\'autenticació…</string>
 	<string name="finishing_auth">Finalitzant l\'autenticació…</string>
 	<string name="notifications">Notificacions</string>
+	<string name="user_followed_you">%s et segueix</string>
+	<string name="user_favorited">%s ha afavorit la teva publicació</string>
 	<string name="poll_ended">Veieu els resultats d\'una enquesta on heu votat</string>
 	<string name="share_toot_title">Comparteix</string>
 	<string name="settings">Configuració</string>
@@ -24,10 +27,13 @@
 		<item quantity="other">seguint</item>
 	</plurals>
 	<string name="posts">Publicacions</string>
+	<string name="posts_and_replies">Tuts i respostes</string>
 	<string name="media">Multimèdia</string>
 	<string name="profile_about">Quant a</string>
 	<string name="button_follow">Segueix</string>
 	<string name="button_following">Seguint</string>
+	<string name="edit_profile">Edita el perfil</string>
+	<string name="share_user">Comparteix el perfil via…</string>
 	<string name="mute_user">Silencia %s</string>
 	<string name="unmute_user">Deixa de silenciar %s</string>
 	<string name="block_user">Bloca %s</string>
@@ -153,6 +159,7 @@
 	<string name="settings_clear_cache">Esborra la memòria cau multimèdia</string>
 	<string name="settings_app_version">Mastodon per a Android v%1$s (%2$d)</string>
 	<string name="media_cache_cleared">S\'ha esborrat la memòria cau multimèdia</string>
+	<string name="avatar_description">Ves al perfil de: %s</string>
 	<string name="more_options">Més opcions</string>
 	<string name="new_post">Nova publicació</string>
 	<string name="button_reply">Respon</string>
@@ -251,10 +258,15 @@
 	<string name="server_filter_region_asia">Àsia</string>
 	<string name="server_filter_region_oceania">Oceania</string>
 	<string name="signup_passwords_dont_match">Les contrasenyes no coincideixen</string>
+	<string name="profile_add_row">Afegeix una fila</string>
+	<string name="profile_setup">Configuració del perfil</string>
 	<!-- %s is server domain -->
+	<string name="profile_bio">Biografia</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<string name="profile_featured">Destacat</string>
 	<string name="profile_timeline">Línia de temps</string>
+	<string name="profile_endorsed_accounts">Comptes</string>
 	<!-- %s is formatted file size ("467 KB image") -->
 	<string name="poll_style">Estil</string>
 	<!-- %s is the server domain -->
@@ -266,14 +278,21 @@
 	<!-- %s is the username -->
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<string name="filter_context_public_timelines">Línies de temps públiques</string>
+	<string name="filter_context_profiles">Perfils</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
 	<!-- Shown in the post header. Please keep it short -->
 	<!-- %s is the name of the post language -->
 	<!-- %1$s is the language, %2$s is the name of the translation service -->
+	<string name="timeline_following">Inici</string>
 	<!-- Screen reader description for the menu on the home timeline screen -->
 	<!-- %s is the name of the list -->
 	<!-- %s is a username -->
 	<!-- %s is a time interval ("5 months") -->
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
+	<string name="copy_profile_link">Copia l\'enllaç al perfil</string>
+	<string name="tab_home">Inici</string>
+	<string name="tab_search">Explora</string>
+	<string name="tab_profile">Perfil</string>
+	<string name="pin_post">Fixa en el perfil</string>
 	<!-- %s is the username -->
 </resources>
