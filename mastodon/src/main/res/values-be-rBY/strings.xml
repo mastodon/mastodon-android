@@ -352,7 +352,9 @@
 	<string name="login_subtitle">Увайдзіце з дапамогай сервера, на якім вы стварылі свой уліковы запіс.</string>
 	<string name="server_url">URL-адрас сервера</string>
 	<string name="server_filter_any_language">Любая мова</string>
+	<string name="server_filter_instant_signup">Імгненная рэгістрацыя</string>
 	<string name="server_filter_manual_review">Ручная праверка</string>
+	<string name="server_filter_any_signup_speed">Любая хуткасць рэгістрацыі</string>
 	<string name="server_filter_region_europe">Еўропа</string>
 	<string name="server_filter_region_north_america">Паўночная Амерыка</string>
 	<string name="server_filter_region_south_america">Паўднёвая Амерыка</string>
@@ -815,4 +817,14 @@
 	<string name="connection_timed_out">Запыт быў перапынены. Праверце злучэнне і паспрабуйце яшчэ раз.</string>
 	<string name="server_error">Нешта пайшло не так у сувязі з вашым серверам. Хутчэй за ўсё, гэта не ваша віна. Паспрабаваць яшчэ раз?</string>
 	<string name="not_found">Ён мог быць выдалены, а можа, яго ўвогуле не існавала.</string>
+	<string name="no_servers_found">Не знойдзена ніводнага сервера для “%s”</string>
+	<string name="signup_username_taken">Гэтае імя карыстальніка занята. Паспрабуйце іншае ці &lt;a&gt;выберыце іншы сервер&lt;/a&gt;.</string>
+	<string name="signup_email_invalid">Гэта не падобна на сапраўдны адрас электроннай пошты.</string>
+	<string name="signup_email_taken">Адрас электроннай пошты ўжо выкарыстоўваецца. Вы &lt;a&gt;забылі свой пароль&lt;/a&gt;?</string>
+	<plurals name="x_new_notifications">
+		<item quantity="one">%,d новае апавяшчэнне</item>
+		<item quantity="few">%,d новыя апавяшчэнні</item>
+		<item quantity="many">%,d новыя апавяшчэнняў</item>
+		<item quantity="other">%,d новыя апавяшчэнняў</item>
+	</plurals>
 </resources>
