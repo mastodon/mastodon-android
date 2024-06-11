@@ -762,4 +762,8 @@
 	<string name="signup_username_taken">This username is taken. Try a different one or &lt;a>pick a different server&lt;/a>.</string>
 	<string name="signup_email_invalid">That doesn’t look like a valid email address.</string>
 	<string name="signup_email_taken">Email address is already in use. Did you &lt;a>forget your password&lt;/a>?</string>
+	<plurals name="x_new_notifications">
+		<item quantity="one">%,d new notification</item>
+		<item quantity="other">%,d new notifications</item>
+	</plurals>
 </resources>

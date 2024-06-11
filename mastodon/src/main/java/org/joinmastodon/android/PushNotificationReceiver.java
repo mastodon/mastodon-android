@@ -178,17 +178,19 @@ public class PushNotificationReceiver extends BroadcastReceiver{
 			}
 			String replyPrefix=mentions.isEmpty() ? "" : TextUtils.join(" ", mentions)+" ";
 
-			Intent replyIntent=new Intent(context, NotificationActionHandlerService.class);
-			replyIntent.putExtra("action", "reply");
-			replyIntent.putExtra("account", accountID);
-			replyIntent.putExtra("post", notification.status.id);
-			replyIntent.putExtra("notificationTag", notificationTag);
-			replyIntent.putExtra("visibility", notification.status.visibility.toString());
-			replyIntent.putExtra("replyPrefix", replyPrefix);
-			builder.addAction(new Notification.Action.Builder(Icon.createWithResource(context, R.drawable.ic_reply_24px),
-					context.getString(R.string.button_reply), PendingIntent.getService(context, (accountID+pn.notificationId+"reply").hashCode(), replyIntent, PendingIntent.FLAG_UPDATE_CURRENT))
-							.addRemoteInput(new RemoteInput.Builder("replyText").build())
-							.build());
+			if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.N){
+				Intent replyIntent=new Intent(context, NotificationActionHandlerService.class);
+				replyIntent.putExtra("action", "reply");
+				replyIntent.putExtra("account", accountID);
+				replyIntent.putExtra("post", notification.status.id);
+				replyIntent.putExtra("notificationTag", notificationTag);
+				replyIntent.putExtra("visibility", notification.status.visibility.toString());
+				replyIntent.putExtra("replyPrefix", replyPrefix);
+				builder.addAction(new Notification.Action.Builder(Icon.createWithResource(context, R.drawable.ic_reply_24px),
+						context.getString(R.string.button_reply), PendingIntent.getService(context, (accountID+pn.notificationId+"reply").hashCode(), replyIntent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_MUTABLE))
+								.addRemoteInput(new RemoteInput.Builder("replyText").setLabel(context.getString(R.string.button_reply)).build())
+								.build());
+			}
 
 			Intent favIntent=new Intent(context, NotificationActionHandlerService.class);
 			favIntent.putExtra("action", "favorite");
@@ -196,7 +198,7 @@ public class PushNotificationReceiver extends BroadcastReceiver{
 			favIntent.putExtra("post", notification.status.id);
 			favIntent.putExtra("notificationTag", notificationTag);
 			builder.addAction(new Notification.Action.Builder(Icon.createWithResource(context, R.drawable.ic_star_24px),
-					context.getString(R.string.button_favorite), PendingIntent.getService(context, (accountID+pn.notificationId+"favorite").hashCode(), favIntent, PendingIntent.FLAG_UPDATE_CURRENT)).build());
+					context.getString(R.string.button_favorite), PendingIntent.getService(context, (accountID+pn.notificationId+"favorite").hashCode(), favIntent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE)).build());
 
 			PendingIntent boostActionIntent;
 			if(notification.status.visibility!=StatusPrivacy.DIRECT){
@@ -205,7 +207,7 @@ public class PushNotificationReceiver extends BroadcastReceiver{
 				boostIntent.putExtra("account", accountID);
 				boostIntent.putExtra("post", notification.status.id);
 				boostIntent.putExtra("notificationTag", notificationTag);
-				boostActionIntent=PendingIntent.getService(context, (accountID+pn.notificationId+"boost").hashCode(), boostIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+				boostActionIntent=PendingIntent.getService(context, (accountID+pn.notificationId+"boost").hashCode(), boostIntent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
 			}else{
 				boostActionIntent=null;
 			}
@@ -216,13 +218,15 @@ public class PushNotificationReceiver extends BroadcastReceiver{
 
 		StatusBarNotification[] activeNotifications=nm.getActiveNotifications();
 		ArrayList<String> summaryLines=new ArrayList<>();
+		int notificationCount=0;
 		for(StatusBarNotification sbn:activeNotifications){
 			String tag=sbn.getTag();
 			if(tag!=null && tag.startsWith(accountID+"_")){
 				if((sbn.getNotification().flags & Notification.FLAG_GROUP_SUMMARY)==0){
-					summaryLines.add(sbn.getNotification().extras.getString("android.title"));
-					if(summaryLines.size()==5)
-						break;
+					if(summaryLines.size()<5){
+						summaryLines.add(sbn.getNotification().extras.getString("android.title"));
+					}
+					notificationCount++;
 				}
 			}
 		}
@@ -239,8 +243,8 @@ public class PushNotificationReceiver extends BroadcastReceiver{
 			for(String line:summaryLines){
 				inboxStyle.addLine(line);
 			}
-			summaryBuilder.setContentTitle("content title")
-					.setContentText("content text")
+			summaryBuilder.setContentTitle(context.getString(R.string.app_name))
+					.setContentText(context.getResources().getQuantityString(R.plurals.x_new_notifications, notificationCount, notificationCount))
 					.setSmallIcon(R.drawable.ic_ntf_logo)
 					.setColor(context.getColor(R.color.primary_700))
 					.setContentIntent(PendingIntent.getActivity(context, accountID.hashCode() & 0xFFFF, contentIntent, PendingIntent.FLAG_IMMUTABLE | PendingIntent.FLAG_UPDATE_CURRENT))

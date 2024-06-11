@@ -6,6 +6,7 @@ import android.app.PendingIntent;
 import android.app.RemoteInput;
 import android.app.Service;
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.IBinder;
 import android.service.notification.StatusBarNotification;
 
@@ -46,7 +47,12 @@ public class NotificationActionHandlerService extends Service{
 		NotificationManager nm=getSystemService(NotificationManager.class);
 		StatusBarNotification notification=findNotification(notificationTag);
 		if("reply".equals(action)){
-			CharSequence replyText=RemoteInput.getResultsFromIntent(intent).getCharSequence("replyText");
+			Bundle remoteInputResults=RemoteInput.getResultsFromIntent(intent);
+			if(remoteInputResults==null){
+				maybeStopSelf();
+				return START_NOT_STICKY;
+			}
+			CharSequence replyText=remoteInputResults.getCharSequence("replyText");
 			if(replyText==null){
 				maybeStopSelf();
 				return START_NOT_STICKY;
