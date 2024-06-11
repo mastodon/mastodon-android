@@ -719,4 +719,7 @@
 	<string name="signup_username_taken">此帳號已被註冊。請嘗試不同帳號或 &lt;a&gt;挑選另一個伺服器&lt;/a&gt;。</string>
 	<string name="signup_email_invalid">您的郵件地址也許不是有效的。</string>
 	<string name="signup_email_taken">此電子郵件信箱已被使用。您是否 &lt;a&gt;忘記密碼&lt;/a&gt;？</string>
+	<plurals name="x_new_notifications">
+		<item quantity="other">%,d 則新通知</item>
+	</plurals>
 </resources>
