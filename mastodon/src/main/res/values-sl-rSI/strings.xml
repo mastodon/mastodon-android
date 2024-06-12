@@ -352,7 +352,9 @@
 	<string name="login_subtitle">Prijavite se na strežniku, na katerem ste ustvarili svoj račun.</string>
 	<string name="server_url">URL strežnika</string>
 	<string name="server_filter_any_language">Katerikoli jezik</string>
+	<string name="server_filter_instant_signup">Takojšnja prijava</string>
 	<string name="server_filter_manual_review">Ročni pregled</string>
+	<string name="server_filter_any_signup_speed">Prijava poljubne hitrosti</string>
 	<string name="server_filter_region_europe">Evropa</string>
 	<string name="server_filter_region_north_america">Severna Amerika</string>
 	<string name="server_filter_region_south_america">Južna Amerika</string>
@@ -815,4 +817,8 @@ Več osebam kot sledite, bolj dejaven in zanimiv bo.</string>
 	<string name="connection_timed_out">Čas za zahtevo je potekel. Preverite omrežno povezavo in poskusite znova.</string>
 	<string name="server_error">Pri pogovarjanju s strežnikom je nekaj šlo narobe. Najverjetneje krivda ni vaša. Poskusite znova.</string>
 	<string name="not_found">Morda je bilo izbrisano ali pa sploh nikoli ni obstajalo.</string>
+	<string name="no_servers_found">Ni najdenih strežnikov za %s</string>
+	<string name="signup_username_taken">Uporabniško ime je zasedeno. Poskusite z drugim ali &lt;a&gt;&lt;a&gt;izberite drug strežnik&lt;/a&gt;&lt;/a&gt;.</string>
+	<string name="signup_email_invalid">To ni videti kot veljaven naslov e-pošte.</string>
+	<string name="signup_email_taken">E-naslov je že v rabi. Ali ste morda &lt;a&gt;&lt;a&gt;pozabili svoje geslo&lt;/a&gt;&lt;/a&gt;?</string>
 </resources>
