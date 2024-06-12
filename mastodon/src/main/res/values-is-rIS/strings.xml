@@ -753,4 +753,8 @@
 	<string name="signup_username_taken">Þetta notandanafn er frátekið. Prófaðu eitthvað annað eða &lt;a&gt;veldu annan netþjón&lt;/a&gt;.</string>
 	<string name="signup_email_invalid">Þetta lítur ekki út fyrir að vera leyfilegt tölvupóstfang.</string>
 	<string name="signup_email_taken">Tölvupóstfangið er þegar í notkun. &lt;a&gt;Gleymdirðu lykilorðinu þínu&lt;/a&gt;?</string>
+	<plurals name="x_new_notifications">
+		<item quantity="one">%,d ný tilkynning</item>
+		<item quantity="other">%,d nýjar tilkynningar</item>
+	</plurals>
 </resources>
