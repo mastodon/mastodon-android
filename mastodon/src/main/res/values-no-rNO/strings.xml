@@ -19,32 +19,32 @@
 	<string name="share_toot_title">Del</string>
 	<string name="settings">Innstillinger</string>
 	<string name="publish">Publiser</string>
-	<string name="discard_draft">Forkast utkast?</string>
-	<string name="discard">Forkast</string>
+	<string name="discard_draft">Vil du slette utkastet?</string>
+	<string name="discard">Slett</string>
 	<string name="cancel">Avbryt</string>
 	<plurals name="followers">
 		<item quantity="one">følger</item>
 		<item quantity="other">følgere</item>
 	</plurals>
 	<plurals name="following">
-		<item quantity="one">følger</item>
-		<item quantity="other">følger</item>
+		<item quantity="one">følges</item>
+		<item quantity="other">følges</item>
 	</plurals>
 	<string name="posts">Innlegg</string>
-	<string name="posts_and_replies">Innlegg og kommentarer</string>
+	<string name="posts_and_replies">Innlegg og svar</string>
 	<string name="media">Medier</string>
-	<string name="profile_about">Om</string>
+	<string name="profile_about">Info</string>
 	<string name="button_follow">Følg</string>
-	<string name="button_following">Følgere</string>
+	<string name="button_following">Følger</string>
 	<string name="edit_profile">Rediger profil</string>
-	<string name="share_user">Del profil med…</string>
-	<string name="mute_user">Demp %s</string>
-	<string name="unmute_user">Opphev demping %s</string>
+	<string name="share_user">Del profilen via…</string>
+	<string name="mute_user">Skjul %s</string>
+	<string name="unmute_user">Slutt å skjule %s</string>
 	<string name="block_user">Blokker %s</string>
-	<string name="unblock_user">Opphev blokkering %s</string>
+	<string name="unblock_user">Opphev blokkeringen av %s</string>
 	<string name="report_user">Rapporter %s</string>
 	<string name="block_domain">Blokker %s</string>
-	<string name="unblock_domain">Opphev blokkering %s</string>
+	<string name="unblock_domain">Opphev blokkeringen av %s</string>
 	<plurals name="x_posts">
 		<item quantity="one">%,d innlegg</item>
 		<item quantity="other">%,d innlegg</item>
@@ -56,7 +56,7 @@
 	<string name="field_content">Innhold</string>
 	<string name="saving">Lagrer…</string>
 	<string name="post_from_user">Innlegg fra %s</string>
-	<string name="poll_option_hint">Valg %d</string>
+	<string name="poll_option_hint">Valgmulighet %d</string>
 	<plurals name="x_minutes">
 		<item quantity="one">%d minutt</item>
 		<item quantity="other">%d minutter</item>
@@ -90,8 +90,8 @@
 		<item quantity="other">%,d stemmer</item>
 	</plurals>
 	<string name="poll_closed">Lukket</string>
-	<string name="do_mute">Demp</string>
-	<string name="do_unmute">Opphev demping</string>
+	<string name="do_mute">Skjul</string>
+	<string name="do_unmute">Slutt å skjule</string>
 	<string name="do_block">Blokker</string>
 	<string name="do_unblock">Opphev blokkering</string>
 	<string name="button_blocked">Blokkert</string>
