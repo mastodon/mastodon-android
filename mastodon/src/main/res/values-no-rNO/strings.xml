@@ -9,6 +9,7 @@
 	<string name="preparing_auth">Forbereder autentisering…</string>
 	<string name="finishing_auth">Ferdigstiller autentisering…</string>
 	<string name="user_boosted">Fremhevet av %s</string>
+	<string name="in_reply_to">som svar til %s</string>
 	<string name="notifications">Varslinger</string>
 	<string name="user_followed_you">%s fulgte deg</string>
 	<string name="user_sent_follow_request">%s har sendt deg en følgeforespørsel</string>
@@ -30,10 +31,13 @@
 		<item quantity="other">følger</item>
 	</plurals>
 	<string name="posts">Innlegg</string>
+	<string name="posts_and_replies">Innlegg og kommentarer</string>
 	<string name="media">Medier</string>
 	<string name="profile_about">Om</string>
 	<string name="button_follow">Følg</string>
 	<string name="button_following">Følgere</string>
+	<string name="edit_profile">Rediger profil</string>
+	<string name="share_user">Del profil med…</string>
 	<string name="mute_user">Demp %s</string>
 	<string name="unmute_user">Opphev demping %s</string>
 	<string name="block_user">Blokker %s</string>
@@ -140,13 +144,16 @@
 	<string name="report_personal_subtitle">Her er alternativene dine for å kontrollere hva du ser på Mastodon:</string>
 	<string name="back">Tilbake</string>
 	<string name="search_communities">Servernavn eller link</string>
+	<string name="instance_rules_title">Serverens regler</string>
 	<string name="instance_rules_subtitle">Ved å fortsette godtar du å følge de følgende reglene gitt og håndheves av %s moderatorene.</string>
+	<string name="signup_title">Opprett konto</string>
 	<string name="display_name">Navn</string>
 	<string name="username">Brukernavn</string>
 	<string name="email">E-post</string>
 	<string name="password">Passord</string>
 	<string name="confirm_password">Bekreft passord</string>
 	<string name="category_general">Generelt</string>
+	<string name="confirm_email_title">Sjekk innboksen din</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">Trykk på linken vi sendte deg for å verifisere %s. Vi venter her.</string>
 	<string name="confirm_email_didnt_get">Fikk du ikke linken?</string>
@@ -158,6 +165,8 @@
 	<string name="save">Lagre</string>
 	<string name="add_alt_text">Legg til alternativ tekst</string>
 	<string name="visibility_public">Offentlig</string>
+	<string name="visibility_followers_only">Følgere</string>
+	<string name="visibility_private">Utvalgte personer</string>
 	<string name="recent_searches">Nylige</string>
 	<string name="skip">Hopp over</string>
 	<string name="notification_type_follow">Nye følgere</string>
@@ -179,6 +188,7 @@
 	<string name="theme_dark">Mørkt</string>
 	<string name="settings_behavior">Oppførsel</string>
 	<string name="settings_gif">Spill av animerte avatarer og emoji</string>
+	<string name="settings_custom_tabs">Åpne lenker i</string>
 	<string name="settings_notifications">Varslinger</string>
 	<string name="settings_contribute">Bidra til Mastodon</string>
 	<string name="settings_tos">Bruksvilkår</string>
@@ -207,6 +217,8 @@
 	<string name="followed_user">Du følger nå %s</string>
 	<string name="following_user_requested">Forespør å følge %s</string>
 	<string name="open_in_browser">Åpne i nettleser</string>
+	<string name="hide_boosts_from_user">Skjul boostere</string>
+	<string name="show_boosts_from_user">Vis boostere</string>
 	<string name="signup_reason">Hvorfor vil du bli med?</string>
 	<string name="signup_reason_note">Dette vil hjelpe oss med å gjennomgå din søknad.</string>
 	<string name="clear">Tøm</string>
@@ -229,6 +241,7 @@
 	<string name="recommended_accounts_info_banner">Du liker kanskje disse kontoene basert på de andre du følger.</string>
 	<string name="see_new_posts">Nye innlegg</string>
 	<string name="load_missing_posts">Last inn manglende innlegg</string>
+	<string name="follow_back">Følg tilbake</string>
 	<string name="button_follow_pending">Ventende</string>
 	<string name="follows_you">Følger deg</string>
 	<string name="manually_approves_followers">Godkjenn følgere manuelt</string>
