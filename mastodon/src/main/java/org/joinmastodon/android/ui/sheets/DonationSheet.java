@@ -2,6 +2,7 @@ package org.joinmastodon.android.ui.sheets;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
@@ -11,11 +12,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import org.joinmastodon.android.DonationFragmentActivity;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.fragments.DonationWebViewFragment;
 import org.joinmastodon.android.model.donations.DonationCampaign;
@@ -29,10 +30,10 @@ import java.util.Arrays;
 import java.util.Currency;
 import java.util.List;
 import java.util.Locale;
+import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 import androidx.annotation.NonNull;
-import me.grishka.appkit.Nav;
 import me.grishka.appkit.utils.CustomViewHelper;
 import me.grishka.appkit.utils.V;
 import me.grishka.appkit.views.BottomSheet;
@@ -40,6 +41,7 @@ import me.grishka.appkit.views.BottomSheet;
 public class DonationSheet extends BottomSheet{
 	private final DonationCampaign campaign;
 	private final String accountID;
+	private final Consumer<Intent> startCallback;
 	private DonationFrequency frequency=DonationFrequency.MONTHLY;
 
 	private View onceTab, monthlyTab, yearlyTab;
@@ -50,11 +52,12 @@ public class DonationSheet extends BottomSheet{
 	private TextView buttonText;
 	private Activity activity;
 
-	public DonationSheet(@NonNull Activity activity, DonationCampaign campaign, String accountID){
+	public DonationSheet(@NonNull Activity activity, DonationCampaign campaign, String accountID, Consumer<Intent> startCallback){
 		super(activity);
 		this.campaign=campaign;
 		this.accountID=accountID;
 		this.activity=activity;
+		this.startCallback=startCallback;
 		Context context=activity;
 
 		View content=context.getSystemService(LayoutInflater.class).inflate(R.layout.sheet_donation, null);
@@ -246,8 +249,8 @@ public class DonationSheet extends BottomSheet{
 		args.putString("url", builder.build().toString());
 		args.putString("account", accountID);
 		args.putString("campaignID", campaign.id);
-		Nav.go(activity, DonationWebViewFragment.class, args);
-		dismiss();
+		args.putBoolean("_can_go_back", true);
+		startCallback.accept(new Intent(activity, DonationFragmentActivity.class).putExtra("fragmentArgs", args));
 	}
 
 	private static long getMinimumChargeAmount(String currency){

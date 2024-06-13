@@ -79,6 +79,7 @@
 				<data android:mimeType="*/*"/>
 			</intent-filter>
 		</activity>
+		<activity android:name=".DonationFragmentActivity" android:exported="false" android:configChanges="orientation|screenSize" android:windowSoftInputMode="adjustResize"/>
 
 		<service android:name=".AudioPlayerService" android:foregroundServiceType="mediaPlayback"/>
 		<service android:name=".NotificationActionHandlerService" android:exported="false"/>

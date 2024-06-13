@@ -6,6 +6,7 @@ import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.text.SpannableStringBuilder;
@@ -55,6 +56,7 @@ import org.joinmastodon.android.model.donations.DonationCampaign;
 import org.joinmastodon.android.ui.displayitems.GapStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.StatusDisplayItem;
 import org.joinmastodon.android.ui.sheets.DonationSheet;
+import org.joinmastodon.android.ui.sheets.DonationSuccessfulSheet;
 import org.joinmastodon.android.ui.utils.DiscoverInfoBannerHelper;
 import org.joinmastodon.android.ui.viewcontrollers.HomeTimelineMenuController;
 import org.joinmastodon.android.ui.viewcontrollers.ToolbarDropdownMenuController;
@@ -77,8 +79,11 @@ import me.grishka.appkit.api.SimpleCallback;
 import me.grishka.appkit.utils.CubicBezierInterpolator;
 import me.grishka.appkit.utils.MergeRecyclerAdapter;
 import me.grishka.appkit.utils.V;
+import me.grishka.appkit.views.BottomSheet;
 
 public class HomeTimelineFragment extends StatusListFragment implements ToolbarDropdownMenuController.HostFragment{
+	private static final int DONATION_RESULT=211;
+
 	private ImageButton fab;
 	private LinearLayout listsDropdown;
 	private FixedAspectRatioImageView listsDropdownArrow;
@@ -100,6 +105,7 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 	private String maxID;
 	private String lastSavedMarkerID;
 	private DonationCampaign currentDonationCampaign;
+	private BottomSheet donationSheet;
 
 	public HomeTimelineFragment(){
 		setListLayoutId(R.layout.fragment_timeline);
@@ -129,6 +135,13 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 					})
 					.execNoAuth("");
 		}
+		E.register(this);
+	}
+
+	@Override
+	public void onDestroy(){
+		super.onDestroy();
+		E.unregister(this);
 	}
 
 	@Override
@@ -639,6 +652,7 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 		updateUpdateState(ev.state);
 	}
 
+	@Subscribe
 	public void onDismissDonationCampaignBanner(DismissDonationCampaignBannerEvent ev){
 		if(currentDonationCampaign!=null && ev.campaignID.equals(currentDonationCampaign.id)){
 			dismissDonationBanner();
@@ -697,6 +711,17 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 			}
 		}
 		super.onDataLoaded(d, more);
+	}
+
+	@Override
+	public void onActivityResult(int requestCode, int resultCode, Intent data){
+		if(requestCode==DONATION_RESULT){
+			if(donationSheet!=null)
+				donationSheet.dismissWithoutAnimation();
+			if(resultCode==Activity.RESULT_OK){
+				new DonationSuccessfulSheet(getActivity(), accountID).showWithoutAnimation();
+			}
+		}
 	}
 
 	private String getCurrentListTitle(){
@@ -773,7 +798,9 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 	}
 
 	private void openDonationSheet(){
-		new DonationSheet(getActivity(), currentDonationCampaign, accountID).show();
+		donationSheet=new DonationSheet(getActivity(), currentDonationCampaign, accountID, intent->startActivityForResult(intent, DONATION_RESULT));
+		donationSheet.setOnDismissListener(dialog->donationSheet=null);
+		donationSheet.show();
 	}
 
 	private enum ListMode{
