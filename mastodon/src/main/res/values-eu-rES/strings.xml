@@ -314,7 +314,9 @@
 	<string name="login_subtitle">Hasi saioa kontua sortu zenuen zerbitzariarekin.</string>
 	<string name="server_url">Zerbitzariaren URLa</string>
 	<string name="server_filter_any_language">Edozein hizkuntza</string>
+	<string name="server_filter_instant_signup">Berehalako erregistroa</string>
 	<string name="server_filter_manual_review">Eskuzko berrikuspena</string>
+	<string name="server_filter_any_signup_speed">Edozein erregistro abiadura</string>
 	<string name="server_filter_region_europe">Europa</string>
 	<string name="server_filter_region_north_america">Ipar Amerika</string>
 	<string name="server_filter_region_south_america">Hego Amerika</string>
@@ -348,7 +350,7 @@
 	<string name="verified_link">Lotura egiaztatua</string>
 	<string name="show">Erakutsi</string>
 	<string name="hide">Ezkutatu</string>
-	<string name="join_default_server">Batu %s -ra</string>
+	<string name="join_default_server">Batu %s-(e)ra</string>
 	<string name="pick_server">Aukeratu beste zerbitzari bat</string>
 	<string name="signup_or_login">edo</string>
 	<string name="learn_more">Ikasi gehiago</string>
@@ -747,4 +749,12 @@ Zenbat eta jende gehiago jarraitu, orduan eta aktiboagoa eta interesgarriagoa iz
 	<string name="connection_timed_out">Eskaerak denbora-muga gainditu du. Zure konexioa egiaztatu eta saiatu berriro?</string>
 	<string name="server_error">Zerbait gaizki atera da zure zerbitzariarekin hitz egiterakoan. Seguruenik, ez da zure errua. Berriro saiatu?</string>
 	<string name="not_found">Ezaba zitekeen, edo agian ez zen inoiz existitu.</string>
+	<string name="no_servers_found">Ez da aurkitu “%s”-(r)entzako zerbitzaririk</string>
+	<string name="signup_username_taken">Erabiltzaile-izen hau hartuta dago. Probatu beste bat edo &lt;a&gt;aukeratu beste zerbitzari bat&lt;/a&gt;.</string>
+	<string name="signup_email_invalid">Ez dirudi baliozko helbide elektronikoa.</string>
+	<string name="signup_email_taken">Helbide elektronikoa dagoeneko erabilita dago. &lt;a&gt;Pasahitza ahaztu duzu&lt;/a&gt;?</string>
+	<plurals name="x_new_notifications">
+		<item quantity="one">Jakinarazpen berri %,d</item>
+		<item quantity="other">%,d jakinarazpen berri</item>
+	</plurals>
 </resources>
