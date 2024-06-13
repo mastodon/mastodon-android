@@ -100,14 +100,13 @@ import me.grishka.appkit.api.ErrorResponse;
 import me.grishka.appkit.api.SimpleCallback;
 import me.grishka.appkit.fragments.BaseRecyclerFragment;
 import me.grishka.appkit.fragments.LoaderFragment;
-import me.grishka.appkit.fragments.OnBackPressedListener;
 import me.grishka.appkit.imageloader.ViewImageLoader;
 import me.grishka.appkit.imageloader.requests.UrlImageLoaderRequest;
 import me.grishka.appkit.utils.CubicBezierInterpolator;
 import me.grishka.appkit.utils.V;
 import me.grishka.appkit.views.FragmentRootLinearLayout;
 
-public class ProfileFragment extends LoaderFragment implements OnBackPressedListener, ScrollableToTop{
+public class ProfileFragment extends LoaderFragment implements ScrollableToTop{
 	private static final int AVATAR_RESULT=722;
 	private static final int COVER_RESULT=343;
 
@@ -158,6 +157,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 	private Animator tabBarColorAnim;
 	private MenuItem editSaveMenuItem;
 	private boolean savingEdits;
+	private Runnable editModeBackCallback=this::onEditModeBackCallback;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState){
@@ -687,7 +687,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 			notifications.setTitle(getString(relationship.notifying ? R.string.disable_new_post_notifications : R.string.enable_new_post_notifications, account.getDisplayUsername()));
 		}
 
-		if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.P && !UiUtils.isEMUI()){
+		if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.P && !UiUtils.isEMUI() && !UiUtils.isMagic()){
 			menu.setGroupDividerEnabled(true);
 		}
 	}
@@ -983,12 +983,14 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 		refreshLayout.setEnabled(false);
 		editDirty=false;
 		V.setVisibilityAnimated(fab, View.GONE);
+		addBackCallback(editModeBackCallback);
 	}
 
 	private void exitEditMode(){
 		if(!isInEditMode)
 			throw new IllegalStateException();
 		isInEditMode=false;
+		removeBackCallback(editModeBackCallback);
 
 		invalidateOptionsMenu();
 		actionButton.setText(R.string.edit_profile);
@@ -1098,23 +1100,18 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 		updateRelationship();
 	}
 
-	@Override
-	public boolean onBackPressed(){
-		if(isInEditMode){
-			if(savingEdits)
-				return true;
-			if(editDirty || aboutFragment.isEditDirty()){
-				new M3AlertDialogBuilder(getActivity())
-						.setTitle(R.string.discard_changes)
-						.setPositiveButton(R.string.discard, (dlg, btn)->exitEditMode())
-						.setNegativeButton(R.string.cancel, null)
-						.show();
-			}else{
-				exitEditMode();
-			}
-			return true;
+	private void onEditModeBackCallback(){
+		if(savingEdits)
+			return;
+		if(editDirty || aboutFragment.isEditDirty()){
+			new M3AlertDialogBuilder(getActivity())
+					.setTitle(R.string.discard_changes)
+					.setPositiveButton(R.string.discard, (dlg, btn)->exitEditMode())
+					.setNegativeButton(R.string.cancel, null)
+					.show();
+		}else{
+			exitEditMode();
 		}
-		return false;
 	}
 
 	private List<Attachment> createFakeAttachments(String url, Drawable drawable){
@@ -1149,7 +1146,7 @@ public class ProfileFragment extends LoaderFragment implements OnBackPressedList
 			startImagePicker(COVER_RESULT);
 		}else{
 			Drawable drawable=cover.getDrawable();
-			if(drawable==null || drawable instanceof ColorDrawable)
+			if(drawable==null || drawable instanceof ColorDrawable || account.headerStatic.endsWith("/missing.png"))
 				return;
 			currentPhotoViewer=new PhotoViewer(getActivity(), createFakeAttachments(account.header, drawable), 0,
 					null, accountID, new SingleImagePhotoViewerListener(cover, cover, null, this, ()->currentPhotoViewer=null, ()->drawable, ()->avatarBorder.setTranslationZ(2), ()->avatarBorder.setTranslationZ(0)));

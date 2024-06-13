@@ -32,12 +32,11 @@ import java.util.Collections;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import me.grishka.appkit.fragments.OnBackPressedListener;
 import me.grishka.appkit.imageloader.ViewImageLoader;
 import me.grishka.appkit.imageloader.requests.UrlImageLoaderRequest;
 import me.grishka.appkit.utils.V;
 
-public class ComposeImageDescriptionFragment extends MastodonToolbarFragment implements OnBackPressedListener{
+public class ComposeImageDescriptionFragment extends MastodonToolbarFragment{
 	private static final String TAG="ComposeImageDescription";
 
 	private String accountID, attachmentID;
@@ -138,9 +137,9 @@ public class ComposeImageDescriptionFragment extends MastodonToolbarFragment imp
 	}
 
 	@Override
-	public boolean onBackPressed(){
+	public void onStop(){
+		super.onStop();
 		deliverResult();
-		return false;
 	}
 
 	@Override

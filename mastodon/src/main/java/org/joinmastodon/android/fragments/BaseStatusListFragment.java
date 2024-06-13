@@ -59,6 +59,9 @@ import java.util.stream.Collectors;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.dynamicanimation.animation.DynamicAnimation;
+import androidx.dynamicanimation.animation.SpringAnimation;
+import androidx.dynamicanimation.animation.SpringForce;
 import androidx.recyclerview.widget.RecyclerView;
 import me.grishka.appkit.api.Callback;
 import me.grishka.appkit.api.ErrorResponse;
@@ -79,6 +82,7 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 	protected HashMap<String, Relationship> relationships=new HashMap<>();
 	protected Rect tmpRect=new Rect();
 	protected TypedObjectPool<MediaGridStatusDisplayItem.GridItemType, MediaAttachmentViewController> attachmentViewsPool=new TypedObjectPool<>(this::makeNewMediaAttachmentView);
+	private SpringAnimation listShakeAnimation;
 
 	public BaseStatusListFragment(){
 		super(20);
@@ -674,6 +678,17 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 	}
 
 	protected void onModifyItemViewHolder(BindableViewHolder<StatusDisplayItem> holder){}
+
+	public void shakeListView(){
+		if(listShakeAnimation!=null)
+			listShakeAnimation.cancel();
+		SpringAnimation anim=new SpringAnimation(list, DynamicAnimation.TRANSLATION_X, 0);
+		anim.setStartVelocity(V.dp(-500));
+		anim.getSpring().setStiffness(500).setDampingRatio(SpringForce.DAMPING_RATIO_LOW_BOUNCY);
+		listShakeAnimation=anim;
+		anim.addEndListener((animation, canceled, value, velocity)->listShakeAnimation=null);
+		anim.start();
+	}
 
 	protected class DisplayItemsAdapter extends UsableRecyclerView.Adapter<BindableViewHolder<StatusDisplayItem>> implements ImageLoaderRecyclerAdapter{
 

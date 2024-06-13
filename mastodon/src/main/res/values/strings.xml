@@ -157,7 +157,6 @@
 	<string name="email">Email</string>
 	<string name="password">Password</string>
 	<string name="confirm_password">Confirm password</string>
-	<string name="password_note">Include capital letters, special characters, and numbers to increase your password strength.</string>
 	<string name="category_general">General</string>
 	<string name="confirm_email_title">Check your inbox</string>
 	<!-- %s is the email address -->
@@ -321,9 +320,9 @@
 	<string name="login_subtitle">Log in with the server where you created your account.</string>
 	<string name="server_url">Server URL</string>
 	<string name="server_filter_any_language">Any language</string>
-	<string name="server_filter_instant_signup">Instant sign-up</string>
+	<string name="server_filter_instant_signup">Instant sign up</string>
 	<string name="server_filter_manual_review">Manual review</string>
-	<string name="server_filter_any_signup_speed">Any sign-up speed</string>
+	<string name="server_filter_any_signup_speed">Any sign up speed</string>
 	<string name="server_filter_region_europe">Europe</string>
 	<string name="server_filter_region_north_america">North America</string>
 	<string name="server_filter_region_south_america">South America</string>
@@ -759,6 +758,14 @@
 	<string name="connection_timed_out">The request timed out. Check your connection and try again?</string>
 	<string name="server_error">Something went wrong talking with your server. It’s probably not your fault. Try again?</string>
 	<string name="not_found">It could’ve been deleted, or maybe it never existed at all.</string>
+	<string name="no_servers_found">No servers found for “%s”</string>
+	<string name="signup_username_taken">This username is taken. Try a different one or &lt;a>pick a different server&lt;/a>.</string>
+	<string name="signup_email_invalid">That doesn’t look like a valid email address.</string>
+	<string name="signup_email_taken">Email address is already in use. Did you &lt;a>forget your password&lt;/a>?</string>
+	<plurals name="x_new_notifications">
+		<item quantity="one">%,d new notification</item>
+		<item quantity="other">%,d new notifications</item>
+	</plurals>
 	<string name="dismiss">Dismiss</string>
 	<string name="donation_once">Just once</string>
 	<string name="donation_monthly">Monthly</string>

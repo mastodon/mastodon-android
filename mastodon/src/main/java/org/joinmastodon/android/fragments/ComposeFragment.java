@@ -102,13 +102,12 @@ import me.grishka.appkit.Nav;
 import me.grishka.appkit.api.Callback;
 import me.grishka.appkit.api.ErrorResponse;
 import me.grishka.appkit.fragments.CustomTransitionsFragment;
-import me.grishka.appkit.fragments.OnBackPressedListener;
 import me.grishka.appkit.imageloader.ViewImageLoader;
 import me.grishka.appkit.imageloader.requests.UrlImageLoaderRequest;
 import me.grishka.appkit.utils.CubicBezierInterpolator;
 import me.grishka.appkit.utils.V;
 
-public class ComposeFragment extends MastodonToolbarFragment implements OnBackPressedListener, ComposeEditText.SelectionListener, CustomTransitionsFragment{
+public class ComposeFragment extends MastodonToolbarFragment implements ComposeEditText.SelectionListener, CustomTransitionsFragment{
 
 	private static final int MEDIA_RESULT=717;
 	public static final int IMAGE_DESCRIPTION_RESULT=363;
@@ -172,6 +171,11 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 
 	private BackgroundColorSpan overLimitBG;
 	private ForegroundColorSpan overLimitFG;
+
+	private Runnable emojiKeyboardHider;
+	private Runnable sendingBackButtonBlocker;
+	private Runnable discardConfirmationCallback=this::confirmDiscardDraftAndFinish;
+	private boolean prevHadDraft;
 
 	public ComposeFragment(){
 		super(R.layout.toolbar_fragment_with_progressbar);
@@ -249,6 +253,7 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 				getActivity().dispatchKeyEvent(new KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_DEL));
 			}
 		});
+		emojiKeyboardHider=emojiKeyboard::hide;
 
 		View view=inflater.inflate(R.layout.fragment_compose, container, false);
 		mainLayout=view.findViewById(R.id.compose_main_ll);
@@ -305,6 +310,10 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 			public void onIconChanged(int icon){
 				emojiBtn.setSelected(icon!=PopupKeyboard.ICON_HIDDEN);
 				updateNavigationBarColor(icon!=PopupKeyboard.ICON_HIDDEN);
+				if(icon!=PopupKeyboard.ICON_HIDDEN)
+					addBackCallback(emojiKeyboardHider);
+				else
+					removeBackCallback(emojiKeyboardHider);
 				if(autocompleteViewController.getMode()==ComposeAutocompleteViewController.Mode.EMOJIS){
 					contentView.layout(contentView.getLeft(), contentView.getTop(), contentView.getRight(), contentView.getBottom());
 					if(icon==PopupKeyboard.ICON_HIDDEN)
@@ -480,6 +489,7 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 				}
 
 				updateCharCounter();
+				updateDraftState();
 			}
 		});
 		spoilerEdit.addTextChangedListener(new SimpleTextWatcher(e->updateCharCounter()));
@@ -621,6 +631,7 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 		if(publishButton==null)
 			return;
 		publishButton.setEnabled((trimmedCharCount>0 || !mediaViewController.isEmpty()) && charCount<=charLimit && mediaViewController.getNonDoneAttachmentCount()==0 && (pollViewController.isEmpty() || pollViewController.getNonEmptyOptionsCount()>1));
+		updateDraftState();
 	}
 
 	private void onCustomEmojiClick(Emoji emoji){
@@ -696,6 +707,7 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 		overlayParams.softInputMode=WindowManager.LayoutParams.SOFT_INPUT_STATE_UNCHANGED;
 		overlayParams.token=mainEditText.getWindowToken();
 		wm.addView(sendingOverlay, overlayParams);
+		addBackCallback(sendingBackButtonBlocker);
 
 		publishButton.setEnabled(false);
 		V.setVisibilityAnimated(sendProgress, View.VISIBLE);
@@ -720,8 +732,11 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 		if(!pollViewController.isEmpty()){
 			req.poll=pollViewController.getPollForRequest();
 		}
-		if(hasSpoiler && spoilerEdit.length()>0){
-			req.spoilerText=spoilerEdit.getText().toString();
+		if(hasSpoiler){
+			if(spoilerEdit.length()>0)
+				req.spoilerText=spoilerEdit.getText().toString();
+			else
+				req.sensitive=true;
 		}
 		if(postLang!=null){
 			req.language=postLang.locale.toLanguageTag();
@@ -734,6 +749,7 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 			public void onSuccess(Status result){
 				wm.removeView(sendingOverlay);
 				sendingOverlay=null;
+				removeBackCallback(sendingBackButtonBlocker);
 				if(editingStatus==null){
 					E.post(new StatusCreatedEvent(result, accountID));
 					if(replyTo!=null){
@@ -766,6 +782,7 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 	private void handlePublishError(ErrorResponse error){
 		wm.removeView(sendingOverlay);
 		sendingOverlay=null;
+		removeBackCallback(sendingBackButtonBlocker);
 		V.setVisibilityAnimated(sendProgress, View.GONE);
 		publishButton.setEnabled(true);
 		if(error instanceof MastodonErrorResponse me){
@@ -793,19 +810,16 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 		return (mainEditText.length()>0 && !mainEditText.getText().toString().equals(initialText)) || !mediaViewController.isEmpty() || pollFieldsHaveContent;
 	}
 
-	@Override
-	public boolean onBackPressed(){
-		if(emojiKeyboard.isVisible()){
-			emojiKeyboard.hide();
-			return true;
+	private void updateDraftState(){
+		boolean hasDraft=hasDraft();
+		if(hasDraft!=prevHadDraft){
+			prevHadDraft=hasDraft;
+			if(hasDraft){
+				addBackCallback(discardConfirmationCallback);
+			}else{
+				removeBackCallback(discardConfirmationCallback);
+			}
 		}
-		if(hasDraft()){
-			confirmDiscardDraftAndFinish();
-			return true;
-		}
-		if(sendingOverlay!=null)
-			return true;
-		return false;
 	}
 
 	@Override
@@ -839,7 +853,10 @@ public class ComposeFragment extends MastodonToolbarFragment implements OnBackPr
 	private void confirmDiscardDraftAndFinish(){
 		new M3AlertDialogBuilder(getActivity())
 				.setTitle(editingStatus==null ? R.string.discard_draft : R.string.discard_changes)
-				.setPositiveButton(R.string.discard, (dialog, which)->Nav.finish(this))
+				.setPositiveButton(R.string.discard, (dialog, which)->{
+					removeBackCallback(discardConfirmationCallback);
+					Nav.finish(this);
+				})
 				.setNegativeButton(R.string.cancel, null)
 				.show();
 	}

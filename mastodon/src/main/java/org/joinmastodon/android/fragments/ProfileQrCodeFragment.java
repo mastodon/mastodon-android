@@ -53,6 +53,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.window.OnBackInvokedCallback;
+import android.window.OnBackInvokedDispatcher;
 
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.EncodeHintType;
@@ -144,12 +146,16 @@ public class ProfileQrCodeFragment extends AppKitFragment{
 		if(!isTablet){
 			getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 		}
-		dlg.setOnKeyListener((dialog, keyCode, event)->{
-			if(keyCode==KeyEvent.KEYCODE_BACK && event.getAction()==KeyEvent.ACTION_DOWN){
-				dismiss();
-			}
-			return true;
-		});
+		if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.TIRAMISU){
+			dlg.getOnBackInvokedDispatcher().registerOnBackInvokedCallback(OnBackInvokedDispatcher.PRIORITY_DEFAULT, this::dismiss);
+		}else{
+			dlg.setOnKeyListener((dialog, keyCode, event)->{
+				if(keyCode==KeyEvent.KEYCODE_BACK && event.getAction()==KeyEvent.ACTION_DOWN){
+					dismiss();
+				}
+				return true;
+			});
+		}
 	}
 
 	@Override

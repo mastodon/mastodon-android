@@ -52,6 +52,7 @@ import android.widget.Toast;
 import org.joinmastodon.android.E;
 import org.joinmastodon.android.FileProvider;
 import org.joinmastodon.android.GlobalUserPreferences;
+import org.joinmastodon.android.MainActivity;
 import org.joinmastodon.android.MastodonApp;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.requests.accounts.SetAccountBlocked;
@@ -368,6 +369,8 @@ public class UiUtils{
 	}
 
 	public static void openHashtagTimeline(Context context, String accountID, Hashtag hashtag){
+		if(checkIfAlreadyDisplayingSameHashtag(context, hashtag.name))
+			return;
 		Bundle args=new Bundle();
 		args.putString("account", accountID);
 		args.putParcelable("hashtag", Parcels.wrap(hashtag));
@@ -375,10 +378,20 @@ public class UiUtils{
 	}
 
 	public static void openHashtagTimeline(Context context, String accountID, String hashtag){
+		if(checkIfAlreadyDisplayingSameHashtag(context, hashtag))
+			return;
 		Bundle args=new Bundle();
 		args.putString("account", accountID);
 		args.putString("hashtagName", hashtag);
 		Nav.go((Activity)context, HashtagTimelineFragment.class, args);
+	}
+
+	private static boolean checkIfAlreadyDisplayingSameHashtag(Context context, String hashtag){
+		if(context instanceof MainActivity ma && ma.getTopmostFragment() instanceof HashtagTimelineFragment htf && htf.getHashtagName().equalsIgnoreCase(hashtag)){
+			htf.shakeListView();
+			return true;
+		}
+		return false;
 	}
 
 	public static void showConfirmationAlert(Context context, @StringRes int title, @StringRes int message, @StringRes int confirmButton, Runnable onConfirmed){
@@ -796,6 +809,10 @@ public class UiUtils{
 		return !TextUtils.isEmpty(getSystemProperty("ro.build.version.emui"));
 	}
 
+	public static boolean isMagic() {
+		return !TextUtils.isEmpty(getSystemProperty("ro.build.version.magic"));
+	}
+
 	public static int alphaBlendColors(int color1, int color2, float alpha){
 		float alpha0=1f-alpha;
 		int r=Math.round(((color1 >> 16) & 0xFF)*alpha0+((color2 >> 16) & 0xFF)*alpha);
@@ -1038,6 +1055,22 @@ public class UiUtils{
 			ColorStateList origColor=(ColorStateList) button.getTag(R.id.button_progress_orig_color);
 			button.setTag(R.id.button_progress_orig_color, null);
 			button.setTextColor(origColor);
+		}
+	}
+
+	public static void updateRecyclerViewKeepingAbsoluteScrollPosition(RecyclerView rv, Runnable onUpdate){
+		int topItem=-1;
+		int topItemOffset=0;
+		if(rv.getChildCount()>0){
+			View item=rv.getChildAt(0);
+			topItem=rv.getChildAdapterPosition(item);
+			topItemOffset=item.getTop();
+		}
+		onUpdate.run();
+		int newCount=rv.getAdapter().getItemCount();
+		if(newCount>=topItem){
+			rv.scrollToPosition(topItem);
+			rv.scrollBy(0, -topItemOffset);
 		}
 	}
 }

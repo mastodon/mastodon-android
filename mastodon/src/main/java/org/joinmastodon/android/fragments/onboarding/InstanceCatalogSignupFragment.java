@@ -5,8 +5,9 @@ import android.app.AlertDialog;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.res.ColorStateList;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.LayerDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.Editable;
@@ -26,16 +27,12 @@ import android.widget.PopupMenu;
 import android.widget.RadioButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import org.joinmastodon.android.R;
-import org.joinmastodon.android.api.MastodonAPIRequest;
 import org.joinmastodon.android.api.MastodonErrorResponse;
 import org.joinmastodon.android.api.requests.accounts.CheckInviteLink;
-import org.joinmastodon.android.api.requests.catalog.GetCatalogCategories;
 import org.joinmastodon.android.api.requests.catalog.GetCatalogInstances;
 import org.joinmastodon.android.model.Instance;
-import org.joinmastodon.android.model.catalog.CatalogCategory;
 import org.joinmastodon.android.model.catalog.CatalogInstance;
 import org.joinmastodon.android.ui.BetterItemAnimator;
 import org.joinmastodon.android.ui.M3AlertDialogBuilder;
@@ -49,11 +46,9 @@ import org.parceler.Parcels;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
-import java.util.Random;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
@@ -63,17 +58,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import me.grishka.appkit.Nav;
 import me.grishka.appkit.api.Callback;
 import me.grishka.appkit.api.ErrorResponse;
-import me.grishka.appkit.fragments.OnBackPressedListener;
 import me.grishka.appkit.utils.BindableViewHolder;
-import me.grishka.appkit.utils.MergeRecyclerAdapter;
-import me.grishka.appkit.utils.SingleViewRecyclerAdapter;
 import me.grishka.appkit.utils.V;
 import me.grishka.appkit.views.UsableRecyclerView;
 
-public class InstanceCatalogSignupFragment extends InstanceCatalogFragment implements OnBackPressedListener{
-	private MastodonAPIRequest<?> getCategoriesRequest;
-	private String currentCategory="all";
-	private List<CatalogCategory> categories=new ArrayList<>();
+public class InstanceCatalogSignupFragment extends InstanceCatalogFragment{
 	private View topBar;
 
 	private List<String> languages=Collections.emptyList();
@@ -94,6 +83,8 @@ public class InstanceCatalogSignupFragment extends InstanceCatalogFragment imple
 	private String inviteCode, inviteCodeHost;
 	private AlertDialog currentInviteLinkAlert;
 
+	private Runnable exitQueryModeCallback=()->setSearchQueryMode(false);
+
 	public InstanceCatalogSignupFragment(){
 		super(R.layout.fragment_onboarding_common, 10);
 	}
@@ -113,7 +104,7 @@ public class InstanceCatalogSignupFragment extends InstanceCatalogFragment imple
 
 	@Override
 	protected void doLoadData(int offset, int count){
-		currentRequest=new GetCatalogInstances(null, null)
+		currentRequest=new GetCatalogInstances(null, null, false)
 				.setCallback(new Callback<>(){
 					@Override
 					public void onSuccess(List<CatalogInstance> result){
@@ -149,58 +140,16 @@ public class InstanceCatalogSignupFragment extends InstanceCatalogFragment imple
 					}
 				})
 				.execNoAuth("");
-		getCategoriesRequest=new GetCatalogCategories(null)
-				.setCallback(new Callback<>(){
-					@Override
-					public void onSuccess(List<CatalogCategory> result){
-						getCategoriesRequest=null;
-						CatalogCategory all=new CatalogCategory();
-						all.category="all";
-						categories.add(all);
-						result.stream().sorted(Comparator.comparingInt((CatalogCategory cc)->cc.serversCount).reversed()).forEach(categories::add);
-						updateCategories();
-					}
-
-					@Override
-					public void onError(ErrorResponse error){
-						getCategoriesRequest=null;
-						error.showToast(getActivity());
-						CatalogCategory all=new CatalogCategory();
-						all.category="all";
-						categories.add(all);
-						updateCategories();
-					}
-				})
-				.execNoAuth("");
-	}
-
-	private void updateCategories(){
-//		categoriesList.removeAllTabs();
-//		for(CatalogCategory cat:categories){
-//			int titleRes=getTitleForCategory(cat.category);
-//			TabLayout.Tab tab=categoriesList.newTab().setText(titleRes!=0 ? getString(titleRes) : cat.category).setCustomView(R.layout.item_instance_category);
-//			ImageView emoji=tab.getCustomView().findViewById(R.id.emoji);
-//			emoji.setImageResource(getEmojiForCategory(cat.category));
-//			categoriesList.addTab(tab);
-//		}
 	}
 
 	@Override
 	public void onDestroy(){
 		super.onDestroy();
-		if(getCategoriesRequest!=null)
-			getCategoriesRequest.cancel();
 	}
 
 	@Override
 	protected RecyclerView.Adapter getAdapter(){
-		View headerView=new View(getActivity());
-		headerView.setLayoutParams(new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 1));
-
-		mergeAdapter=new MergeRecyclerAdapter();
-		mergeAdapter.addAdapter(new SingleViewRecyclerAdapter(headerView));
-		mergeAdapter.addAdapter(adapter=new InstancesAdapter());
-		return mergeAdapter;
+		return adapter=new InstancesAdapter();
 	}
 
 	@SuppressLint("ClickableViewAccessibility")
@@ -222,7 +171,16 @@ public class InstanceCatalogSignupFragment extends InstanceCatalogFragment imple
 		setStatusBarColor(0);
 		topBar=view.findViewById(R.id.top_bar);
 
-		list.addOnScrollListener(new ElevationOnScrollListener(null, topBar, buttonBar));
+		list.addOnScrollListener(new ElevationOnScrollListener(null, topBar));
+		if(buttonBar.getBackground() instanceof LayerDrawable ld){
+			ld=(LayerDrawable) ld.mutate();
+			buttonBar.setBackground(ld);
+			Drawable overlay=ld.findDrawableByLayerId(R.id.color_overlay);
+			if(overlay!=null){
+				overlay.setAlpha(20);
+			}
+		}
+		buttonBar.setElevation(V.dp(3));
 
 		searchEdit=view.findViewById(R.id.search_edit);
 		searchEdit.setOnEditorActionListener(this::onSearchEnterPressed);
@@ -572,6 +530,9 @@ public class InstanceCatalogSignupFragment extends InstanceCatalogFragment imple
 						filteredData.add(instance);
 					}
 				}
+				setEmptyText(getString(R.string.no_servers_found, currentSearchQuery));
+			}else{
+				setEmptyText("");
 			}
 		}else{
 			for(CatalogInstance instance:data){
@@ -591,27 +552,29 @@ public class InstanceCatalogSignupFragment extends InstanceCatalogFragment imple
 				}
 			}
 		}
-		DiffUtil.calculateDiff(new DiffUtil.Callback(){
-			@Override
-			public int getOldListSize(){
-				return prevData.size();
-			}
+		UiUtils.updateRecyclerViewKeepingAbsoluteScrollPosition(list, ()->{
+			DiffUtil.calculateDiff(new DiffUtil.Callback(){
+				@Override
+				public int getOldListSize(){
+					return prevData.size();
+				}
 
-			@Override
-			public int getNewListSize(){
-				return filteredData.size();
-			}
+				@Override
+				public int getNewListSize(){
+					return filteredData.size();
+				}
 
-			@Override
-			public boolean areItemsTheSame(int oldItemPosition, int newItemPosition){
-				return prevData.get(oldItemPosition)==filteredData.get(newItemPosition);
-			}
+				@Override
+				public boolean areItemsTheSame(int oldItemPosition, int newItemPosition){
+					return prevData.get(oldItemPosition)==filteredData.get(newItemPosition);
+				}
 
-			@Override
-			public boolean areContentsTheSame(int oldItemPosition, int newItemPosition){
-				return prevData.get(oldItemPosition)==filteredData.get(newItemPosition);
-			}
-		}).dispatchUpdatesTo(adapter);
+				@Override
+				public boolean areContentsTheSame(int oldItemPosition, int newItemPosition){
+					return prevData.get(oldItemPosition)==filteredData.get(newItemPosition);
+				}
+			}).dispatchUpdatesTo(adapter);
+		});
 	}
 
 	@Override
@@ -620,19 +583,13 @@ public class InstanceCatalogSignupFragment extends InstanceCatalogFragment imple
 		super.onApplyWindowInsets(insets.replaceSystemWindowInsets(insets.getSystemWindowInsetLeft(), 0, insets.getSystemWindowInsetRight(), insets.getSystemWindowInsetBottom()));
 	}
 
-	@Override
-	public boolean onBackPressed(){
-		if(searchQueryMode){
-			setSearchQueryMode(false);
-			return true;
-		}
-		return false;
-	}
-
 	private void setSearchQueryMode(boolean enabled){
+		if(searchQueryMode==enabled)
+			return;
 		searchQueryMode=enabled;
 		RelativeLayout.LayoutParams lp=(RelativeLayout.LayoutParams) searchEdit.getLayoutParams();
 		if(searchQueryMode){
+			addBackCallback(exitQueryModeCallback);
 			filtersScroll.setVisibility(View.GONE);
 			lp.removeRule(RelativeLayout.END_OF);
 			backBtn.setScaleX(0.83333333f);
@@ -640,6 +597,7 @@ public class InstanceCatalogSignupFragment extends InstanceCatalogFragment imple
 			backBtn.setTranslationX(V.dp(8));
 			searchEdit.setCompoundDrawableTintList(ColorStateList.valueOf(0));
 		}else{
+			removeBackCallback(exitQueryModeCallback);
 			filtersScroll.setVisibility(View.VISIBLE);
 			focusThing.requestFocus();
 			searchEdit.setText("");

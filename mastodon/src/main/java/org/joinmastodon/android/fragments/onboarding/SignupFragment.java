@@ -50,6 +50,7 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 import androidx.annotation.Nullable;
@@ -62,6 +63,7 @@ import me.grishka.appkit.views.FragmentRootLinearLayout;
 
 public class SignupFragment extends ToolbarFragment{
 	private static final String TAG="SignupFragment";
+	private final Pattern emailRegex=Pattern.compile("^[^@]+@[^@]+\\.[^@]{2,}$");
 
 	private Instance instance;
 
@@ -97,6 +99,7 @@ public class SignupFragment extends ToolbarFragment{
 		View view=inflater.inflate(R.layout.fragment_onboarding_signup, container, false);
 
 		TextView domain=view.findViewById(R.id.domain);
+		TextView atSign=view.findViewById(R.id.at_sign);
 		displayName=view.findViewById(R.id.display_name);
 		username=view.findViewById(R.id.username);
 		email=view.findViewById(R.id.email);
@@ -118,7 +121,7 @@ public class SignupFragment extends ToolbarFragment{
 			@Override
 			public boolean onPreDraw(){
 				username.getViewTreeObserver().removeOnPreDrawListener(this);
-				username.setPadding(username.getPaddingLeft(), username.getPaddingTop(), domain.getWidth(), username.getPaddingBottom());
+				username.setPadding(atSign.getWidth(), username.getPaddingTop(), domain.getWidth(), username.getPaddingBottom());
 				return true;
 			}
 		});
@@ -144,6 +147,10 @@ public class SignupFragment extends ToolbarFragment{
 			reason.setVisibility(View.GONE);
 			reasonExplain.setVisibility(View.GONE);
 		}
+
+		password.setOnFocusChangeListener(this::onPasswordFieldFocusChange);
+		passwordConfirm.setOnFocusChangeListener(this::onPasswordFieldFocusChange);
+		email.setOnFocusChangeListener(this::onEmailFieldFocusChange);
 
 		return view;
 	}
@@ -281,34 +288,44 @@ public class SignupFragment extends ToolbarFragment{
 				.exec(instance.uri, apiToken);
 	}
 
+	private CharSequence makeLinkInErrorMessage(String source, LinkSpan.OnLinkClickListener onClick){
+		SpannableStringBuilder ssb=new SpannableStringBuilder();
+		Jsoup.parseBodyFragment(source).body().traverse(new NodeVisitor(){
+			private int spanStart;
+			@Override
+			public void head(Node node, int depth){
+				if(node instanceof TextNode tn){
+					ssb.append(tn.text());
+				}else if(node instanceof Element){
+					spanStart=ssb.length();
+				}
+			}
+
+			@Override
+			public void tail(Node node, int depth){
+				if(node instanceof Element){
+					ssb.setSpan(new LinkSpan("", onClick, LinkSpan.Type.CUSTOM, null, null, null), spanStart, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+					ssb.setSpan(new TypefaceSpan("sans-serif-medium"), spanStart, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+				}
+			}
+		});
+		return ssb;
+	}
+
 	private CharSequence getErrorDescription(MastodonDetailedErrorResponse.FieldError error, String fieldName){
 		return switch(fieldName){
 			case "email" -> switch(error.error){
 				case "ERR_BLOCKED" -> {
 					String emailAddr=email.getText().toString();
 					String s=getResources().getString(R.string.signup_email_domain_blocked, TextUtils.htmlEncode(instance.uri), TextUtils.htmlEncode(emailAddr.substring(emailAddr.lastIndexOf('@')+1)));
-					SpannableStringBuilder ssb=new SpannableStringBuilder();
-					Jsoup.parseBodyFragment(s).body().traverse(new NodeVisitor(){
-						private int spanStart;
-						@Override
-						public void head(Node node, int depth){
-							if(node instanceof TextNode tn){
-								ssb.append(tn.text());
-							}else if(node instanceof Element){
-								spanStart=ssb.length();
-							}
-						}
-
-						@Override
-						public void tail(Node node, int depth){
-							if(node instanceof Element){
-								ssb.setSpan(new LinkSpan("", SignupFragment.this::onGoBackLinkClick, LinkSpan.Type.CUSTOM, null, null, null), spanStart, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-								ssb.setSpan(new TypefaceSpan("sans-serif-medium"), spanStart, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-							}
-						}
-					});
-					yield ssb;
+					yield makeLinkInErrorMessage(s, this::onGoBackLinkClick);
 				}
+				case "ERR_INVALID" -> getString(R.string.signup_email_invalid);
+				case "ERR_TAKEN" -> makeLinkInErrorMessage(getString(R.string.signup_email_taken), this::onForgotPasswordLinkClick);
+				default -> error.description;
+			};
+			case "username" -> switch(error.error){
+				case "ERR_TAKEN" -> makeLinkInErrorMessage(getString(R.string.signup_username_taken), this::onGoBackLinkClick);
 				default -> error.description;
 			};
 			default -> error.description;
@@ -345,7 +362,9 @@ public class SignupFragment extends ToolbarFragment{
 	}
 
 	private void updateButtonState(){
-		btn.setEnabled(username.length()>0 && email.length()>0 && email.getText().toString().contains("@") && password.length()>=8 && passwordConfirm.length()>=8 && (!instance.approvalRequired || reason.length()>0));
+		btn.setEnabled(username.length()>0 && email.length()>0 && emailRegex.matcher(email.getText()).find()
+				&& password.length()>=8 && passwordConfirm.length()>=8 && password.getText().toString().equals(passwordConfirm.getText().toString())
+				&& (!instance.approvalRequired || reason.length()>0));
 	}
 
 	private void createAppAndGetToken(){
@@ -404,6 +423,24 @@ public class SignupFragment extends ToolbarFragment{
 	private void onGoBackLinkClick(LinkSpan span){
 		setResult(false, null);
 		Nav.finish(this);
+	}
+
+	private void onForgotPasswordLinkClick(LinkSpan span){
+		UiUtils.launchWebBrowser(getActivity(), "https://"+instance.uri+"/auth/password/new");
+	}
+
+	private void onPasswordFieldFocusChange(View v, boolean hasFocus){
+		if(hasFocus || password.length()==0 || passwordConfirm.length()==0)
+			return;
+		if(!password.getText().toString().equals(passwordConfirm.getText().toString())){
+			passwordConfirmWrap.setErrorState(getString(R.string.signup_passwords_dont_match));
+		}
+	}
+
+	private void onEmailFieldFocusChange(View v, boolean hasFocus){
+		if(!hasFocus && email.length()>0 && !emailRegex.matcher(email.getText()).find()){
+			emailWrap.setErrorState(getString(R.string.signup_email_invalid));
+		}
 	}
 
 	private class ErrorClearingListener implements TextWatcher{

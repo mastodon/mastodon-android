@@ -10,6 +10,7 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.PixelFormat;
 import android.graphics.Rect;
+import android.os.Build;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
@@ -19,6 +20,7 @@ import android.view.ViewTreeObserver;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.Toolbar;
+import android.window.OnBackInvokedDispatcher;
 
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.ui.OutlineProviders;
@@ -83,6 +85,15 @@ public class ToolbarDropdownMenuController{
 				.withLayer()
 				.start();
 		controllerStack.add(initialSubmenu);
+
+		if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.TIRAMISU){
+			windowView.findOnBackInvokedDispatcher().registerOnBackInvokedCallback(OnBackInvokedDispatcher.PRIORITY_DEFAULT, ()->{
+				if(controllerStack.size()>1)
+					popSubmenuController();
+				else
+					dismiss();
+			});
+		}
 	}
 
 	public void dismiss(){
@@ -243,7 +254,7 @@ public class ToolbarDropdownMenuController{
 
 		@Override
 		public boolean dispatchKeyEvent(KeyEvent event){
-			if(event.getKeyCode()==KeyEvent.KEYCODE_BACK){
+			if(Build.VERSION.SDK_INT<Build.VERSION_CODES.TIRAMISU && event.getKeyCode()==KeyEvent.KEYCODE_BACK){
 				if(event.getAction()==KeyEvent.ACTION_DOWN){
 					if(controllerStack.size()>1)
 						popSubmenuController();

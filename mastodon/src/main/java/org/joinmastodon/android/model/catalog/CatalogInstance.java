@@ -7,6 +7,7 @@ import com.google.gson.annotations.SerializedName;
 
 import org.joinmastodon.android.api.AllFieldsAreRequired;
 import org.joinmastodon.android.api.ObjectValidationException;
+import org.joinmastodon.android.api.RequiredField;
 import org.joinmastodon.android.model.BaseModel;
 
 import java.net.IDN;
@@ -15,14 +16,18 @@ import java.util.List;
 import me.grishka.appkit.imageloader.requests.UrlImageLoaderRequest;
 import me.grishka.appkit.utils.V;
 
-@AllFieldsAreRequired
 public class CatalogInstance extends BaseModel{
+	@RequiredField
 	public String domain;
+	@RequiredField
 	public String version;
+	@RequiredField
 	public String description;
+	@RequiredField
 	public List<String> languages;
 	@SerializedName("region")
 	private String _region;
+	@RequiredField
 	public List<String> categories;
 	public String proxiedThumbnail;
 	public int totalUsers;

@@ -44,12 +44,11 @@ import java.util.stream.Collectors;
 import me.grishka.appkit.Nav;
 import me.grishka.appkit.api.Callback;
 import me.grishka.appkit.api.ErrorResponse;
-import me.grishka.appkit.fragments.OnBackPressedListener;
 import me.grishka.appkit.utils.CubicBezierInterpolator;
 import me.grishka.appkit.utils.V;
 import me.grishka.appkit.views.FragmentRootLinearLayout;
 
-public class ListMembersFragment extends PaginatedAccountListFragment implements AddNewListMembersFragment.Listener, OnBackPressedListener{
+public class ListMembersFragment extends PaginatedAccountListFragment implements AddNewListMembersFragment.Listener{
 	private ImageButton fab;
 	private FollowList followList;
 	private boolean inSelectionMode;
@@ -63,6 +62,8 @@ public class ListMembersFragment extends PaginatedAccountListFragment implements
 	private WindowInsets lastInsets;
 	private HashSet<String> accountIDsInList=new HashSet<>();
 	private boolean dismissingSearchFragment;
+	private Runnable searchFragmentDismisser=this::dismissSearchFragment;;
+	private Runnable actionModeDismisser=()->actionMode.finish();
 
 	public ListMembersFragment(){
 		setListLayoutId(R.layout.recycler_fragment_with_fab);
@@ -214,6 +215,7 @@ public class ListMembersFragment extends PaginatedAccountListFragment implements
 		searchFragmentContainer.animate().translationX(0).alpha(1).setDuration(300).withLayer().setInterpolator(CubicBezierInterpolator.DEFAULT).withEndAction(()->{
 			rootView.setVisibility(View.GONE);
 		}).start();
+		addBackCallback(searchFragmentDismisser);
 	}
 
 	private void onItemClick(AccountViewHolder holder){
@@ -293,9 +295,11 @@ public class ListMembersFragment extends PaginatedAccountListFragment implements
 				selectedAccounts.clear();
 				updateItemsForSelectionModeTransition();
 				V.setVisibilityAnimated(fab, View.VISIBLE);
+				removeBackCallback(actionModeDismisser);
 			}
 		});
 		updateActionModeTitle();
+		addBackCallback(actionModeDismisser);
 	}
 
 	private void updateActionModeTitle(){
@@ -371,15 +375,6 @@ public class ListMembersFragment extends PaginatedAccountListFragment implements
 		removeAccounts(Set.of(account.account.id), onDone);
 	}
 
-	@Override
-	public boolean onBackPressed(){
-		if(searchFragment!=null){
-			dismissSearchFragment();
-			return true;
-		}
-		return false;
-	}
-
 	private void dismissSearchFragment(){
 		if(searchFragment==null || dismissingSearchFragment)
 			return;
@@ -393,6 +388,7 @@ public class ListMembersFragment extends PaginatedAccountListFragment implements
 			searchFragment=null;
 			dismissingSearchFragment=false;
 		}).start();
+		removeBackCallback(searchFragmentDismisser);
 		getActivity().getSystemService(InputMethodManager.class).hideSoftInputFromWindow(contentView.getWindowToken(), 0);
 	}
 

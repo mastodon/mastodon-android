@@ -54,6 +54,7 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Toolbar;
+import android.window.OnBackInvokedDispatcher;
 
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.MastodonAPIController;
@@ -169,7 +170,7 @@ public class PhotoViewer implements ZoomPanView.Listener{
 		windowView=new FrameLayout(activity){
 			@Override
 			public boolean dispatchKeyEvent(KeyEvent event){
-				if(event.getKeyCode()==KeyEvent.KEYCODE_BACK){
+				if(Build.VERSION.SDK_INT<Build.VERSION_CODES.TIRAMISU && event.getKeyCode()==KeyEvent.KEYCODE_BACK){
 					if(event.getAction()==KeyEvent.ACTION_DOWN){
 						onStartSwipeToDismissTransition(0f);
 					}
@@ -257,6 +258,10 @@ public class PhotoViewer implements ZoomPanView.Listener{
 			wlp.layoutInDisplayCutoutMode=Build.VERSION.SDK_INT>=30 ? WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_ALWAYS : WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES;
 		windowView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
 		wm.addView(windowView, wlp);
+		if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.TIRAMISU){
+			// TODO make use of the progress callback for nicer animation
+			windowView.findOnBackInvokedDispatcher().registerOnBackInvokedCallback(OnBackInvokedDispatcher.PRIORITY_DEFAULT, ()->onStartSwipeToDismissTransition(0));
+		}
 
 		windowView.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener(){
 			@Override
