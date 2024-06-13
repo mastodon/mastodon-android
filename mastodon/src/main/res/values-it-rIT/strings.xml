@@ -749,4 +749,12 @@ Più persone segui, più sarà attivo e interessante.</string>
 	<string name="connection_timed_out">La richiesta è scaduta. Controllare la tua connessione e riprovare?</string>
 	<string name="server_error">Qualcosa è andato storto durante la conversazione con il tuo server. Probabilmente non è colpa tua. Riprovare?</string>
 	<string name="not_found">Potrebbe essere stato cancellato, o forse non è mai esistito.</string>
+	<string name="no_servers_found">Nessun server trovato per «%s»</string>
+	<string name="signup_username_taken">Questo nome utente è già preso. Provane uno diverso o &lt;a&gt;scegli un server diverso&lt;/a&gt;.</string>
+	<string name="signup_email_invalid">Non sembra un indirizzo email valido.</string>
+	<string name="signup_email_taken">L\'indirizzo email è già in uso. Hai &lt;a&gt;dimenticato la password&lt;/a&gt;?</string>
+	<plurals name="x_new_notifications">
+		<item quantity="one">%,d nuova notifica</item>
+		<item quantity="other">%,d nuove notifiche</item>
+	</plurals>
 </resources>
