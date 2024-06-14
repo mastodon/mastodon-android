@@ -173,7 +173,7 @@ public class ComposeFragment extends MastodonToolbarFragment implements ComposeE
 	private ForegroundColorSpan overLimitFG;
 
 	private Runnable emojiKeyboardHider;
-	private Runnable sendingBackButtonBlocker;
+	private Runnable sendingBackButtonBlocker=()->{};
 	private Runnable discardConfirmationCallback=this::confirmDiscardDraftAndFinish;
 	private boolean prevHadDraft;
 
@@ -750,6 +750,7 @@ public class ComposeFragment extends MastodonToolbarFragment implements ComposeE
 				wm.removeView(sendingOverlay);
 				sendingOverlay=null;
 				removeBackCallback(sendingBackButtonBlocker);
+				removeBackCallback(discardConfirmationCallback);
 				if(editingStatus==null){
 					E.post(new StatusCreatedEvent(result, accountID));
 					if(replyTo!=null){

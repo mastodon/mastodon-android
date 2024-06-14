@@ -36,6 +36,7 @@ public class Card extends BaseModel{
 	public String blurhash;
 	public List<History> history;
 	public Instant publishedAt;
+	public Account authorAccount;
 
 	public transient Drawable blurhashPlaceholder;
 
@@ -49,6 +50,8 @@ public class Card extends BaseModel{
 			if(placeholder!=null)
 				blurhashPlaceholder=new BlurHashDrawable(placeholder, width, height);
 		}
+		if(authorAccount!=null)
+			authorAccount.postprocess();
 	}
 
 	@Override

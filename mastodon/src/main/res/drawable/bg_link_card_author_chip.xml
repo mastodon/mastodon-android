@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android" android:color="@color/m3_on_surface_overlay">
+	<item>
+		<shape>
+			<solid android:color="?colorM3SurfaceVariant"/>
+			<corners android:radius="6dp"/>
+		</shape>
+	</item>
+</ripple>
