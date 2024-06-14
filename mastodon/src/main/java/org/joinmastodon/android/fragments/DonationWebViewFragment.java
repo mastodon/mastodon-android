@@ -1,6 +1,7 @@
 package org.joinmastodon.android.fragments;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -82,7 +83,7 @@ public class DonationWebViewFragment extends WebViewFragment{
 		String campaignID=getArguments().getString("campaignID");
 		AccountSessionManager.getInstance().markDonationCampaignAsDismissed(campaignID);
 		E.post(new DismissDonationCampaignBannerEvent(campaignID));
-		getActivity().setResult(Activity.RESULT_OK);
+		getActivity().setResult(Activity.RESULT_OK, new Intent().putExtra("postText", getArguments().getString("successPostText")));
 		getActivity().finish();
 	}
 }

@@ -67,6 +67,7 @@
 				android:clickable="false"
 				android:focusable="false"
 				android:duplicateParentState="true"
+				android:minWidth="0dp"
 				android:text="@string/donation_success_share"/>
 		</FrameLayout>
 

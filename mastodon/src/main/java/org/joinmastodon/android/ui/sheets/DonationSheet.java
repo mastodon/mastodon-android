@@ -154,7 +154,7 @@ public class DonationSheet extends BottomSheet{
 		}
 		updateSuggestedAmounts(campaign.defaultCurrency);
 		button.setEnabled(false);
-		buttonText.setText(campaign.bannerButtonText);
+		buttonText.setText(campaign.donationButtonText);
 		button.setOnClickListener(v->openWebView());
 
 		Arrays.stream(getCurrentSuggestedAmounts(campaign.defaultCurrency)).min().ifPresent(amountField::setAmount);
@@ -249,6 +249,7 @@ public class DonationSheet extends BottomSheet{
 		args.putString("url", builder.build().toString());
 		args.putString("account", accountID);
 		args.putString("campaignID", campaign.id);
+		args.putString("successPostText", campaign.donationSuccessPost);
 		args.putBoolean("_can_go_back", true);
 		startCallback.accept(new Intent(activity, DonationFragmentActivity.class).putExtra("fragmentArgs", args));
 	}

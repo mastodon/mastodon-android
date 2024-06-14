@@ -719,7 +719,7 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 			if(donationSheet!=null)
 				donationSheet.dismissWithoutAnimation();
 			if(resultCode==Activity.RESULT_OK){
-				new DonationSuccessfulSheet(getActivity(), accountID).showWithoutAnimation();
+				new DonationSuccessfulSheet(getActivity(), accountID, data.getStringExtra("postText")).showWithoutAnimation();
 			}
 		}
 	}

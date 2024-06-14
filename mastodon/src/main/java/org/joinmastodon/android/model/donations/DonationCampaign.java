@@ -17,6 +17,7 @@ public class DonationCampaign extends BaseModel{
 	public Amounts amounts;
 	public String defaultCurrency;
 	public String donationUrl;
+	public String donationSuccessPost;
 
 	@Override
 	public void postprocess() throws ObjectValidationException{

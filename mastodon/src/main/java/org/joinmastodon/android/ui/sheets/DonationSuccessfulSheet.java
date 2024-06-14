@@ -17,7 +17,7 @@ import me.grishka.appkit.views.BottomSheet;
 
 public class DonationSuccessfulSheet extends BottomSheet{
 
-	public DonationSuccessfulSheet(@NonNull Context context, @NonNull String accountID){
+	public DonationSuccessfulSheet(@NonNull Context context, @NonNull String accountID, String postText){
 		super(context);
 		View content=context.getSystemService(LayoutInflater.class).inflate(R.layout.sheet_donation_success, null);
 		setContentView(content);
@@ -25,10 +25,14 @@ public class DonationSuccessfulSheet extends BottomSheet{
 				UiUtils.getThemeColor(context, R.attr.colorM3Primary), 0.05f)), !UiUtils.isDarkTheme());
 
 		content.findViewById(R.id.btn_done).setOnClickListener(v->dismiss());
-		content.findViewById(R.id.btn_share).setOnClickListener(v->{
+		View shareButton=content.findViewById(R.id.btn_share);
+		if(postText==null){
+			shareButton.setEnabled(false);
+		}
+		shareButton.setOnClickListener(v->{
 			Bundle args=new Bundle();
 			args.putString("account", accountID);
-			args.putString("prefilledText", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a sapien metus. Nunc feugiat a felis sed hendrerit.");
+			args.putString("prefilledText", postText);
 			Nav.go((Activity) context, ComposeFragment.class, args);
 			dismiss();
 		});
