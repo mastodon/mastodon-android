@@ -295,7 +295,9 @@
 	<string name="login_subtitle">アカウントがあるサーバーの URL を入力してください。</string>
 	<string name="server_url">サーバーの URL</string>
 	<string name="server_filter_any_language">すべての言語</string>
+	<string name="server_filter_instant_signup">開放</string>
 	<string name="server_filter_manual_review">承認制</string>
+	<string name="server_filter_any_signup_speed">すべての登録方法</string>
 	<string name="server_filter_region_europe">ヨーロッパ</string>
 	<string name="server_filter_region_north_america">北アメリカ</string>
 	<string name="server_filter_region_south_america">南アメリカ</string>
@@ -713,4 +715,11 @@
 	<string name="connection_timed_out">リクエストがタイムアウトしました。接続を確認して再試行しますか？</string>
 	<string name="server_error">サーバーとの対話に失敗しました。原因はあなたにはない可能性があります。再試行しますか？</string>
 	<string name="not_found">削除できないか、既に存在していない可能性があります。</string>
+	<string name="no_servers_found">「%s」に該当するサーバーは見つかりませんでした</string>
+	<string name="signup_username_taken">このユーザー名はすでに使用されています。別のユーザー名にするか、&lt;a&gt;サーバーの選択をやり直し&lt;/a&gt;てください。</string>
+	<string name="signup_email_invalid">有効なメールアドレスではないようです。</string>
+	<string name="signup_email_taken">使用中のメールアドレスです。&lt;a&gt;パスワードをお忘れですか&lt;/a&gt;？</string>
+	<plurals name="x_new_notifications">
+		<item quantity="other">新着通知 %,d 件</item>
+	</plurals>
 </resources>
