@@ -10,7 +10,7 @@
 	<RelativeLayout
 		android:id="@+id/inner"
 		android:layout_width="match_parent"
-		android:layout_height="128dp"
+		android:layout_height="wrap_content"
 		android:layout_gravity="center_horizontal"
 		android:orientation="vertical"
 		android:foreground="@drawable/fg_link_card"
@@ -18,40 +18,30 @@
 		android:maxWidth="400dp">
 		<ImageView
 			android:id="@+id/photo"
-			android:layout_width="128dp"
-			android:layout_height="128dp"
+			android:layout_width="96dp"
+			android:layout_height="96dp"
 			android:layout_alignParentEnd="true"
 			android:scaleType="centerCrop"
 			android:importantForAccessibility="no"
+			android:layout_marginVertical="12dp"
+			android:layout_marginEnd="12dp"
+			android:layout_marginStart="16dp"
 			tools:src="#0f0"/>
-		<TextView
-			android:id="@+id/title"
+		<org.joinmastodon.android.ui.views.HeaderSubtitleLinearLayout
+			android:id="@+id/domain_and_time"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
+			android:layout_alignParentStart="true"
 			android:layout_alignParentTop="true"
-			android:layout_alignParentStart="true"
 			android:layout_toStartOf="@id/photo"
-			android:layout_marginHorizontal="16dp"
-			android:layout_marginTop="16dp"
-			android:textAppearance="@style/m3_title_medium"
-			android:maxLines="3"
-			android:ellipsize="end"
-			android:textColor="?colorM3OnSurface"
-			tools:text="Link title"/>
-		<org.joinmastodon.android.ui.views.HeaderSubtitleLinearLayout
-			android:layout_width="match_parent"
-			android:layout_height="20dp"
-			android:layout_alignParentStart="true"
-			android:layout_alignParentBottom="true"
-			android:layout_toStartOf="@id/photo"
-			android:layout_marginHorizontal="16dp"
-			android:layout_marginTop="8dp"
-			android:layout_marginBottom="16dp">
+			android:layout_marginStart="12dp"
+			android:layout_marginTop="12dp"
+			android:layout_marginBottom="2dp">
 			<TextView
 				android:id="@+id/domain"
 				android:layout_width="wrap_content"
 				android:layout_height="20dp"
-				android:textAppearance="@style/m3_body_medium"
+				android:textAppearance="@style/m3_body_small"
 				android:textColor="?colorM3OnSurfaceVariant"
 				android:singleLine="true"
 				android:ellipsize="end"
@@ -61,13 +51,32 @@
 				android:id="@+id/timestamp"
 				android:layout_width="wrap_content"
 				android:layout_height="20dp"
-				android:textAppearance="@style/m3_body_medium"
+				android:textAppearance="@style/m3_body_small"
 				android:textColor="?colorM3OnSurfaceVariant"
 				android:singleLine="true"
 				android:ellipsize="end"
 				android:gravity="center_vertical"
 				tools:text="example.com"/>
 		</org.joinmastodon.android.ui.views.HeaderSubtitleLinearLayout>
+		<TextView
+			android:id="@+id/title"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_alignParentStart="true"
+			android:layout_below="@id/domain_and_time"
+			android:layout_toStartOf="@id/photo"
+			android:layout_marginStart="12dp"
+			android:textAppearance="@style/m3_title_medium"
+			android:maxLines="3"
+			android:ellipsize="end"
+			android:textColor="?colorM3OnSurface"
+			tools:text="Link title"/>
+		<include
+			layout="@layout/link_card_author_footer"
+			android:id="@+id/author_footer"
+			android:layout_width="match_parent"
+			android:layout_height="40dp"
+			android:layout_below="@id/photo"/>
 	</RelativeLayout>
 
 </FrameLayout>

@@ -14,7 +14,10 @@
 		android:layout_gravity="center_horizontal"
 		android:orientation="vertical"
 		android:foreground="@drawable/fg_link_card"
-		android:padding="1dp"
+		android:paddingHorizontal="1dp"
+		android:paddingTop="1dp"
+		android:paddingBottom="16dp"
+		android:clipToPadding="false"
 		android:maxWidth="400dp">
 		<org.joinmastodon.android.ui.views.FixedAspectRatioImageView
 			android:id="@+id/photo"
@@ -24,14 +27,42 @@
 			android:importantForAccessibility="no"
 			app:aspectRatio="1.7777777778"
 			tools:src="#0f0"/>
+
+		<org.joinmastodon.android.ui.views.HeaderSubtitleLinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="20dp"
+			android:layout_marginHorizontal="16dp"
+			android:layout_marginTop="16dp"
+			android:layout_marginBottom="2dp">
+			<TextView
+				android:id="@+id/domain"
+				android:layout_width="wrap_content"
+				android:layout_height="20dp"
+				android:textAppearance="@style/m3_body_small"
+				android:textColor="?colorM3OnSurfaceVariant"
+				android:singleLine="true"
+				android:ellipsize="end"
+				android:gravity="center_vertical"
+				tools:text="example.com"/>
+			<TextView
+				android:id="@+id/timestamp"
+				android:layout_width="wrap_content"
+				android:layout_height="20dp"
+				android:textAppearance="@style/m3_body_small"
+				android:textColor="?colorM3OnSurfaceVariant"
+				android:singleLine="true"
+				android:ellipsize="end"
+				android:gravity="center_vertical"
+				tools:text="example.com"/>
+		</org.joinmastodon.android.ui.views.HeaderSubtitleLinearLayout>
+
 		<TextView
 			android:id="@+id/title"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:layout_marginHorizontal="16dp"
-			android:layout_marginTop="16dp"
 			android:textAppearance="@style/m3_title_medium"
-			android:maxLines="3"
+			android:maxLines="4"
 			android:ellipsize="end"
 			android:textColor="?colorM3OnSurface"
 			tools:text="Link title"/>
@@ -45,33 +76,13 @@
 			android:textAppearance="@style/m3_body_medium"
 			android:textColor="?colorM3OnSurface"
 			tools:text="Link description"/>
-		<org.joinmastodon.android.ui.views.HeaderSubtitleLinearLayout
+		<include
+			layout="@layout/link_card_author_footer"
+			android:id="@+id/author_footer"
 			android:layout_width="match_parent"
-			android:layout_height="20dp"
-			android:layout_marginHorizontal="16dp"
+			android:layout_height="40dp"
 			android:layout_marginTop="8dp"
-			android:layout_marginBottom="16dp">
-			<TextView
-				android:id="@+id/domain"
-				android:layout_width="wrap_content"
-				android:layout_height="20dp"
-				android:textAppearance="@style/m3_body_medium"
-				android:textColor="?colorM3OnSurfaceVariant"
-				android:singleLine="true"
-				android:ellipsize="end"
-				android:gravity="center_vertical"
-				tools:text="example.com"/>
-			<TextView
-				android:id="@+id/timestamp"
-				android:layout_width="wrap_content"
-				android:layout_height="20dp"
-				android:textAppearance="@style/m3_body_medium"
-				android:textColor="?colorM3OnSurfaceVariant"
-				android:singleLine="true"
-				android:ellipsize="end"
-				android:gravity="center_vertical"
-				tools:text="example.com"/>
-		</org.joinmastodon.android.ui.views.HeaderSubtitleLinearLayout>
+			android:layout_marginBottom="-16dp"/>
 	</LinearLayout>
 
 </FrameLayout>

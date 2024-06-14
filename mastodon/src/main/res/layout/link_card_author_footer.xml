@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:orientation="horizontal"
+	android:layout_width="match_parent"
+	android:layout_height="40dp"
+	android:paddingHorizontal="16dp"
+	android:gravity="center_vertical"
+	android:background="@drawable/bg_link_card_author">
+
+	<TextView
+		android:id="@+id/author_before"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:singleLine="true"
+		android:ellipsize="end"
+		android:textAppearance="@style/m3_body_medium"
+		android:textColor="?colorM3OnSurfaceVariant"
+		android:drawablePadding="8dp"
+		android:drawableTint="?colorM3Outline"
+		tools:text="By"/>
+
+	<LinearLayout
+		android:id="@+id/author_chip"
+		android:layout_width="wrap_content"
+		android:layout_height="24dp"
+		android:orientation="horizontal"
+		android:layout_marginHorizontal="8dp"
+		android:paddingHorizontal="6dp"
+		android:gravity="center_vertical"
+		android:background="@drawable/bg_link_card_author_chip">
+
+		<ImageView
+			android:id="@+id/author_ava"
+			android:layout_width="16dp"
+			android:layout_height="16dp"
+			android:importantForAccessibility="no"
+			android:foreground="@drawable/fg_link_card_author_chip_ava"
+			tools:src="#0f0"/>
+
+		<TextView
+			android:id="@+id/author_name"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:singleLine="true"
+			android:textSize="14dp"
+			android:fontFamily="sans-serif-medium"
+			android:textColor="?colorM3OnSurface"
+			android:layout_marginStart="4dp"
+			tools:text="John Appleseed"/>
+	</LinearLayout>
+
+	<TextView
+		android:id="@+id/author_after"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:singleLine="true"
+		android:ellipsize="end"
+		android:textAppearance="@style/m3_body_medium"
+		android:textColor="?colorM3OnSurfaceVariant"
+		tools:text="some languages might need this"/>
+
+</LinearLayout>
