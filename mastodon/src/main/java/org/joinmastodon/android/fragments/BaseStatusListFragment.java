@@ -287,8 +287,8 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 					outRect.set(view.getLeft(), view.getTop(), view.getRight(), view.getBottom());
 				}
 				RecyclerView.ViewHolder holder=list.getChildViewHolder(view);
-				if(holder instanceof StatusDisplayItem.Holder){
-					if(((StatusDisplayItem.Holder<?>) holder).getItem().getType()==StatusDisplayItem.Type.GAP){
+				if(holder instanceof StatusDisplayItem.Holder<?> sih){
+					if(sih.getItem() instanceof StatusDisplayItem sdi && sdi.getType()==StatusDisplayItem.Type.GAP){
 						outRect.setEmpty();
 						return;
 					}
@@ -296,8 +296,8 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 					for(int i=0;i<list.getChildCount();i++){
 						View child=list.getChildAt(i);
 						holder=list.getChildViewHolder(child);
-						if(holder instanceof StatusDisplayItem.Holder){
-							String otherID=((StatusDisplayItem.Holder<?>) holder).getItemID();
+						if(holder instanceof StatusDisplayItem.Holder<?> sih2){
+							String otherID=sih2.getItemID();
 							if(otherID.equals(id)){
 								list.getDecoratedBoundsWithMargins(child, tmpRect);
 								outRect.left=Math.min(outRect.left, tmpRect.left);
@@ -760,7 +760,7 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 				// Do not draw dividers between hashtag and/or account rows
 				if((ih instanceof HashtagStatusDisplayItem.Holder || ih instanceof AccountStatusDisplayItem.Holder) && (sh instanceof HashtagStatusDisplayItem.Holder || sh instanceof AccountStatusDisplayItem.Holder))
 					return false;
-				return !ih.getItemID().equals(sh.getItemID()) && ih.getItem().getType()!=StatusDisplayItem.Type.GAP;
+				return !ih.getItemID().equals(sh.getItemID()) && ih.getItem() instanceof StatusDisplayItem sdi && sdi.getType()!=StatusDisplayItem.Type.GAP;
 			}
 			return false;
 		}

@@ -71,11 +71,11 @@ public class DiscoverNewsFragment extends BaseRecyclerFragment<CardViewModel> im
 					@Override
 					public void onSuccess(List<Card> result){
 						top3.clear();
-						top3.addAll(result.subList(0, Math.min(3, result.size())).stream().map(card->new CardViewModel(card, 280, 140)).collect(Collectors.toList()));
+						top3.addAll(result.subList(0, Math.min(3, result.size())).stream().map(card->new CardViewModel(card, 280, 140, card, accountID)).collect(Collectors.toList()));
 						cardsAdapter.notifyDataSetChanged();
 
 						onDataLoaded(result.subList(top3.size(), result.size()).stream()
-								.map(card->new CardViewModel(card, 56, 56))
+								.map(card->new CardViewModel(card, 56, 56, card, accountID))
 								.collect(Collectors.toList()), false);
 						bannerHelper.onBannerBecameVisible();
 					}
