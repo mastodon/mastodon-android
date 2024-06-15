@@ -295,7 +295,9 @@
 	<string name="login_subtitle">Đăng nhập với máy chủ nơi bạn tạo tài khoản.</string>
 	<string name="server_url">URL Máy chủ</string>
 	<string name="server_filter_any_language">Mọi ngôn ngữ</string>
+	<string name="server_filter_instant_signup">Duyệt tự động</string>
 	<string name="server_filter_manual_review">Duyệt thủ công</string>
+	<string name="server_filter_any_signup_speed">Mọi hình thức duyệt</string>
 	<string name="server_filter_region_europe">Châu Âu</string>
 	<string name="server_filter_region_north_america">Bắc Mỹ</string>
 	<string name="server_filter_region_south_america">Nam Mỹ</string>
@@ -713,4 +715,11 @@ Bạn càng theo dõi nhiều người thì nó sẽ càng sôi động và thú
 	<string name="connection_timed_out">Hết thời gian chờ. Kiểm tra kết nối của bạn và thử lại?</string>
 	<string name="server_error">Xảy ra lỗi khi kết nối với máy chủ của bạn. Đó có thể không phải là lỗi của bạn. Thử lại?</string>
 	<string name="not_found">Nó có thể đã bị xóa hoặc có thể chưa bao giờ tồn tại.</string>
+	<string name="no_servers_found">Không tìm thấy máy chủ “%s”</string>
+	<string name="signup_username_taken">Tên người dùng đã tồn tại. Thử tên khác hoặc &lt;a&gt;chọn máy chủ khác&lt;/a&gt;.</string>
+	<string name="signup_email_invalid">Đây không phải địa chỉ email hợp lệ.</string>
+	<string name="signup_email_taken">Địa chỉ email đã tồn tại. Bạn bị &lt;a&gt;quên mật khẩu&lt;/a&gt;?</string>
+	<plurals name="x_new_notifications">
+		<item quantity="other">%,d thông báo mới</item>
+	</plurals>
 </resources>
