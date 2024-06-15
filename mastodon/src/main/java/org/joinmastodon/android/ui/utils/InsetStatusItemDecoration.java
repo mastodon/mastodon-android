@@ -38,7 +38,7 @@ public class InsetStatusItemDecoration extends RecyclerView.ItemDecoration{
 			View child=parent.getChildAt(i);
 			RecyclerView.ViewHolder holder=parent.getChildViewHolder(child);
 			pos=holder.getAbsoluteAdapterPosition()-listFragment.getMainAdapterOffset();
-			boolean inset=(holder instanceof StatusDisplayItem.Holder<?> sdi) && sdi.getItem().inset;
+			boolean inset=holder instanceof StatusDisplayItem.Holder<?> sdi && sdi.getItem() instanceof StatusDisplayItem item && item.inset;
 			if(inset){
 				if(rect.isEmpty()){
 					float childY=child.getY();
@@ -80,13 +80,13 @@ public class InsetStatusItemDecoration extends RecyclerView.ItemDecoration{
 	public void getItemOffsets(@NonNull Rect outRect, @NonNull View view, @NonNull RecyclerView parent, @NonNull RecyclerView.State state){
 		List<StatusDisplayItem> displayItems=listFragment.getDisplayItems();
 		RecyclerView.ViewHolder holder=parent.getChildViewHolder(view);
-		if(holder instanceof StatusDisplayItem.Holder<?> sdi){
-			boolean inset=sdi.getItem().inset;
+		if(holder instanceof StatusDisplayItem.Holder<?> sdi && sdi.getItem() instanceof StatusDisplayItem item){
+			boolean inset=item.inset;
 			int pos=holder.getAbsoluteAdapterPosition()-listFragment.getMainAdapterOffset();
 			if(inset){
 				boolean topSiblingInset=pos>0 && displayItems.get(pos-1).inset;
 				boolean bottomSiblingInset=pos<displayItems.size()-1 && displayItems.get(pos+1).inset;
-				StatusDisplayItem.Type type=sdi.getItem().getType();
+				StatusDisplayItem.Type type=item.getType();
 				if(type==StatusDisplayItem.Type.CARD_LARGE || type==StatusDisplayItem.Type.MEDIA_GRID)
 					outRect.left=outRect.right=V.dp(16);
 				else

@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.fragments.BaseStatusListFragment;
+import org.joinmastodon.android.fragments.StatusListFragment;
 import org.joinmastodon.android.fragments.ThreadFragment;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.Attachment;
@@ -68,8 +69,8 @@ public abstract class StatusDisplayItem{
 			case AUDIO -> new AudioStatusDisplayItem.Holder(activity, parent);
 			case POLL_OPTION -> new PollOptionStatusDisplayItem.Holder(activity, parent);
 			case POLL_FOOTER -> new PollFooterStatusDisplayItem.Holder(activity, parent);
-			case CARD_LARGE -> new LinkCardStatusDisplayItem.Holder(activity, parent, true);
-			case CARD_COMPACT -> new LinkCardStatusDisplayItem.Holder(activity, parent, false);
+			case CARD_LARGE -> new LinkCardStatusDisplayItem.Holder(activity, parent, true, ((StatusListFragment)parentFragment).getAccountID());
+			case CARD_COMPACT -> new LinkCardStatusDisplayItem.Holder(activity, parent, false, ((StatusListFragment)parentFragment).getAccountID());
 			case FOOTER -> new FooterStatusDisplayItem.Holder(activity, parent);
 			case ACCOUNT -> new AccountStatusDisplayItem.Holder(new AccountViewHolder(parentFragment, parent, null));
 			case HASHTAG -> new HashtagStatusDisplayItem.Holder(activity, parent);
@@ -226,7 +227,7 @@ public abstract class StatusDisplayItem{
 		FILTER_SPOILER
 	}
 
-	public static abstract class Holder<T extends StatusDisplayItem> extends BindableViewHolder<T> implements UsableRecyclerView.DisableableClickable{
+	public static abstract class Holder<T> extends BindableViewHolder<T> implements UsableRecyclerView.DisableableClickable{
 		public Holder(View itemView){
 			super(itemView);
 		}
@@ -236,17 +237,18 @@ public abstract class StatusDisplayItem{
 		}
 
 		public String getItemID(){
-			return item.parentID;
+			return item instanceof StatusDisplayItem sdi ? sdi.parentID : null;
 		}
 
 		@Override
 		public void onClick(){
-			item.parentFragment.onItemClick(item.parentID);
+			if(item instanceof StatusDisplayItem sdi)
+				sdi.parentFragment.onItemClick(sdi.parentID);
 		}
 
 		@Override
 		public boolean isEnabled(){
-			return item.parentFragment.isItemEnabled(item.parentID);
+			return item instanceof StatusDisplayItem sdi && sdi.parentFragment.isItemEnabled(sdi.parentID);
 		}
 	}
 }

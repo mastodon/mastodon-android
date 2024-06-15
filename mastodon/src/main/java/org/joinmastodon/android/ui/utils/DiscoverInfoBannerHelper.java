@@ -85,6 +85,10 @@ public class DiscoverInfoBannerHelper{
 		bannerTypesToShow=EnumSet.allOf(BannerType.class);
 	}
 
+	public boolean isBannerShown(){
+		return added;
+	}
+
 	public enum BannerType{
 		TRENDING_POSTS,
 		TRENDING_LINKS,
