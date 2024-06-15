@@ -20,7 +20,6 @@ import org.joinmastodon.android.ui.OutlineProviders;
 import org.joinmastodon.android.ui.displayitems.StatusDisplayItem;
 import org.joinmastodon.android.ui.drawables.BlurhashCrossfadeDrawable;
 import org.joinmastodon.android.ui.text.HtmlParser;
-import org.joinmastodon.android.ui.utils.CustomEmojiHelper;
 import org.joinmastodon.android.ui.utils.UiUtils;
 import org.parceler.Parcels;
 
@@ -28,7 +27,6 @@ import java.util.Objects;
 
 import me.grishka.appkit.Nav;
 import me.grishka.appkit.imageloader.ImageLoaderViewHolder;
-import me.grishka.appkit.imageloader.requests.ImageLoaderRequest;
 import me.grishka.appkit.utils.V;
 
 public class LinkCardHolder<T extends LinkCardHolder.LinkCardProvider> extends StatusDisplayItem.Holder<T> implements ImageLoaderViewHolder{
@@ -41,6 +39,7 @@ public class LinkCardHolder<T extends LinkCardHolder.LinkCardProvider> extends S
 	private final Drawable logoIcon;
 	private final String accountID;
 	private Activity activity;
+	private boolean tryResolving=true;
 
 	public LinkCardHolder(Activity context, ViewGroup parent, boolean isLarge, String accountID){
 		super(context, isLarge ? R.layout.display_item_link_card : R.layout.display_item_link_card_compact, parent);
@@ -172,9 +171,16 @@ public class LinkCardHolder<T extends LinkCardHolder.LinkCardProvider> extends S
 		}
 	}
 
+	public void setTryResolving(boolean tryResolving){
+		this.tryResolving=tryResolving;
+	}
+
 	private void onClick(View v){
 		CardViewModel card=item.getCard();
-		UiUtils.openURL(itemView.getContext(), accountID, card.card.url, card.parentObject);
+		if(tryResolving)
+			UiUtils.openURL(activity, accountID, card.card.url, card.parentObject);
+		else
+			UiUtils.launchWebBrowser(activity, card.card.url);
 	}
 
 	private void onAuthorChipClick(View v){
