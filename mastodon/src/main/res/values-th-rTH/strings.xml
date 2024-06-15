@@ -295,7 +295,9 @@
 	<string name="login_subtitle">เข้าสู่ระบบด้วยเซิร์ฟเวอร์ที่ซึ่งคุณได้สร้างบัญชีของคุณ</string>
 	<string name="server_url">URL ของเซิร์ฟเวอร์</string>
 	<string name="server_filter_any_language">ภาษาใด ๆ</string>
+	<string name="server_filter_instant_signup">การลงทะเบียนทันที</string>
 	<string name="server_filter_manual_review">การตรวจทานด้วยตนเอง</string>
+	<string name="server_filter_any_signup_speed">ความเร็วการลงทะเบียนใด ๆ</string>
 	<string name="server_filter_region_europe">ยุโรป</string>
 	<string name="server_filter_region_north_america">อเมริกาเหนือ</string>
 	<string name="server_filter_region_south_america">อเมริกาใต้</string>
@@ -713,4 +715,7 @@
 	<string name="connection_timed_out">คำขอหมดเวลา ตรวจสอบการเชื่อมต่อของคุณและลองอีกครั้ง?</string>
 	<string name="server_error">มีบางอย่างผิดพลาดในการพูดคุยกับเซิร์ฟเวอร์ของคุณ อาจไม่ใช่ความผิดพลาดของคุณ ลองอีกครั้ง?</string>
 	<string name="not_found">อาจมีการลบทรัพยากร หรือบางทีอาจไม่เคยมีทรัพยากรอยู่เลย</string>
+	<plurals name="x_new_notifications">
+		<item quantity="other">%,d การแจ้งเตือนใหม่</item>
+	</plurals>
 </resources>
