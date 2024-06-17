@@ -69,8 +69,8 @@ public abstract class StatusDisplayItem{
 			case AUDIO -> new AudioStatusDisplayItem.Holder(activity, parent);
 			case POLL_OPTION -> new PollOptionStatusDisplayItem.Holder(activity, parent);
 			case POLL_FOOTER -> new PollFooterStatusDisplayItem.Holder(activity, parent);
-			case CARD_LARGE -> new LinkCardStatusDisplayItem.Holder(activity, parent, true, ((StatusListFragment)parentFragment).getAccountID());
-			case CARD_COMPACT -> new LinkCardStatusDisplayItem.Holder(activity, parent, false, ((StatusListFragment)parentFragment).getAccountID());
+			case CARD_LARGE -> new LinkCardStatusDisplayItem.Holder(activity, parent, true, ((BaseStatusListFragment<?>)parentFragment).getAccountID());
+			case CARD_COMPACT -> new LinkCardStatusDisplayItem.Holder(activity, parent, false, ((BaseStatusListFragment<?>)parentFragment).getAccountID());
 			case FOOTER -> new FooterStatusDisplayItem.Holder(activity, parent);
 			case ACCOUNT -> new AccountStatusDisplayItem.Holder(new AccountViewHolder(parentFragment, parent, null));
 			case HASHTAG -> new HashtagStatusDisplayItem.Holder(activity, parent);
