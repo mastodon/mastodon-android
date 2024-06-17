@@ -75,8 +75,8 @@ public class DonationWebViewFragment extends WebViewFragment{
 
 	private void onFailure(){
 		new M3AlertDialogBuilder(getActivity())
-				.setTitle("Failure")
-				.setMessage("Some sort of UI that would tell the user that their payment didn't go through")
+				.setTitle(R.string.error)
+				.setMessage(R.string.donation_server_error)
 				.setPositiveButton(R.string.ok, null)
 				.setOnDismissListener(dlg->Nav.finish(this))
 				.show();
