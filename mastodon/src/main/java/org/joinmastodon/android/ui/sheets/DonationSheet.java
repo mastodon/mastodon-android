@@ -244,6 +244,7 @@ public class DonationSheet extends BottomSheet{
 					case YEARLY -> "yearly";
 				})
 				.appendQueryParameter("success_callback_url", DonationWebViewFragment.SUCCESS_URL)
+				.appendQueryParameter("cancel_callback_url", DonationWebViewFragment.CANCEL_URL)
 				.appendQueryParameter("failure_callback_url", DonationWebViewFragment.FAILURE_URL);
 		Bundle args=new Bundle();
 		args.putString("url", builder.build().toString());

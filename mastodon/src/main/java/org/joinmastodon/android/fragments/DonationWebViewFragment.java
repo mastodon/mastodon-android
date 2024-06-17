@@ -15,15 +15,15 @@ import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.events.DismissDonationCampaignBannerEvent;
 import org.joinmastodon.android.ui.M3AlertDialogBuilder;
-import org.joinmastodon.android.ui.sheets.DonationSuccessfulSheet;
 
 import java.util.Objects;
 
 import me.grishka.appkit.Nav;
 
 public class DonationWebViewFragment extends WebViewFragment{
-	public static final String SUCCESS_URL="https://sponsor.joinmastodon.org/donation/success";
-	public static final String FAILURE_URL="https://sponsor.joinmastodon.org/donation/failure";
+	public static final String SUCCESS_URL="https://sponsor.joinmastodon.org/donate/success";
+	public static final String FAILURE_URL="https://sponsor.joinmastodon.org/donate/failure";
+	public static final String CANCEL_URL="https://sponsor.joinmastodon.org/donate/cancel";
 
 	@Override
 	public void onCreate(Bundle savedInstanceState){
@@ -47,6 +47,9 @@ public class DonationWebViewFragment extends WebViewFragment{
 			return true;
 		}else if(url.equalsIgnoreCase(FAILURE_URL)){
 			onFailure();
+			return true;
+		}else if(url.equalsIgnoreCase(CANCEL_URL)){
+			onCancel();
 			return true;
 		}
 		return false;
@@ -84,6 +87,10 @@ public class DonationWebViewFragment extends WebViewFragment{
 		AccountSessionManager.getInstance().markDonationCampaignAsDismissed(campaignID);
 		E.post(new DismissDonationCampaignBannerEvent(campaignID));
 		getActivity().setResult(Activity.RESULT_OK, new Intent().putExtra("postText", getArguments().getString("successPostText")));
+		getActivity().finish();
+	}
+
+	private void onCancel(){
 		getActivity().finish();
 	}
 }
