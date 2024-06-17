@@ -314,7 +314,9 @@
 	<string name="login_subtitle">با کارسازی که حساب خود را در آن ایجاد کردید وارد شوید.</string>
 	<string name="server_url">نشانی کارساز</string>
 	<string name="server_filter_any_language">هر زبانی</string>
+	<string name="server_filter_instant_signup">ثبت نام فوری</string>
 	<string name="server_filter_manual_review">بازبینی دستی</string>
+	<string name="server_filter_any_signup_speed">هر سرعت ثبت نام</string>
 	<string name="server_filter_region_europe">اروپا</string>
 	<string name="server_filter_region_north_america">آمریکای شمالی</string>
 	<string name="server_filter_region_south_america">آمریکای جنوبی</string>
@@ -630,6 +632,8 @@
 	<string name="make_profile_discoverable">نمایه من را قابل کشف کن</string>
 	<string name="discoverability">قابلیت کشف</string>
 	<string name="app_version_copied">شماره نسخه به تخته‌گیره رونوشت شد</string>
+	<string name="onboarding_recommendations_intro">شما خوراک خانه خود را مدیریت می‌کنید.
+هرچه افراد بیشتری را پی‌گیری کنید، فعال‌تر و جالب‌تر خواهد بود.</string>
 	<string name="onboarding_recommendations_title">خوراک خانه خود را شخصی سازی کنید</string>
 	<string name="article_by_author">توسط %s</string>
 	<string name="info">اطلاعات</string>
@@ -661,6 +665,7 @@
 	<string name="handle_username_explanation_own">شناسه منحصر به فرد شما در این کارساز. امکان یافتن کاربرانی با نام کاربری مشابه در کارسازهای مختلف وجود دارد.</string>
 	<string name="server">کارساز</string>
 	<string name="handle_server_explanation">خانه دیجیتالی آنها، جایی که همه فرسته‌های آنها در آن زندگی می کنند.</string>
+	<string name="handle_explanation">از آنجایی که شناسه‌ها می‌گوید کسی کیست و کجاست، می‌توانید با افراد در سراسر وب اجتماعی &lt;a&gt;سکوهای قدرت گرفته از اکتیویتی پاپ&lt;/a&gt; تعامل داشته باشید.</string>
 	<string name="handle_explanation_own">از آنجایی که شناسه شما می‌گوید شما کی هستید و کجا هستید، افراد می‌توانند در &lt;a&gt;سکوهای قدرت گرفته از اکتیویتی پاپ&lt;/a&gt; از وب اجتماعی با شما تعامل داشته باشند.</string>
 	<string name="what_is_activitypub_title">اکتیویتی پاپ چیست؟</string>
 	<string name="qr_code">کد QR</string>
@@ -702,4 +707,6 @@
 	<string name="visibility_subtitle_unlisted">سروصدای الگوریتمی کم‌تر</string>
 	<string name="visibility_subtitle_followers">تنها پی‌گیرندگانتان</string>
 	<string name="visibility_subtitle_private">هرکسی که در فرسته نام برده شده</string>
+	<string name="undo_reblog">لغو تقویت</string>
+	<string name="undo_favorite">لغو برگزیدگی</string>
 </resources>
