@@ -527,10 +527,10 @@
 		<item quantity="other">%s iš vaizdų trūksta alternatyvaus teksto. Skelbti vis tiek?</item>
 	</plurals>
 	<plurals name="alt_text_reminder_x_attachments">
-		<item quantity="one">%s medijos priedas trūksta alternatyvaus teksto. Skelbti vis tiek?</item>
-		<item quantity="few">%s medijos priedai trūksta alternatyvaus teksto. Skelbti vis tiek?</item>
-		<item quantity="many">%s medijos priedo trūksta alternatyvaus teksto. Skelbti vis tiek?</item>
-		<item quantity="other">%s medijos priedų trūksta alternatyvaus teksto. Skelbti vis tiek?</item>
+		<item quantity="one">%s iš medijos priedų trūksta alternatyvaus teksto. Skelbti vis tiek?</item>
+		<item quantity="few">%s iš medijos priedų trūksta alternatyvaus teksto. Skelbti vis tiek?</item>
+		<item quantity="many">%s iš medijos priedų trūksta alternatyvaus teksto. Skelbti vis tiek?</item>
+		<item quantity="other">%s iš medijos priedų trūksta alternatyvaus teksto. Skelbti vis tiek?</item>
 	</plurals>
 	<string name="count_one">Vienas</string>
 	<string name="count_two">Du</string>
@@ -617,10 +617,10 @@
 	<string name="translation_show_original">Rodyti originalą</string>
 	<string name="translation_failed">Vertimas nepavyko. Galbūt administratorius (-ė) šiame serveryje neįjungė vertimų arba šiame serveryje veikia senesnė Mastodon versija, kurioje vertimai dar nepalaikomi.</string>
 	<string name="settings_privacy">Privatumas ir pasiekiamumas</string>
-	<string name="settings_discoverable">Rekomenduoti profilį ir įrašus į atradimo algoritmus</string>
+	<string name="settings_discoverable">Rodyti profilį ir įrašus į atradimo algoritmus</string>
 	<string name="settings_indexable">Įtraukti viešus įrašus į paieškos rezultatus</string>
 	<plurals name="x_participants">
-		<item quantity="one">%,d dalyvis (-ė)</item>
+		<item quantity="one">%,d dalyvis</item>
 		<item quantity="few">%,d dalyviai</item>
 		<item quantity="many">%,d dalyvio</item>
 		<item quantity="other">%,d dalyvių</item>
@@ -661,10 +661,10 @@
 	<string name="manage_user_lists">Tvarkyti sąrašus, kuriuose pasirodo %s</string>
 	<string name="remove_from_list">Pašalinti iš sąrašo</string>
 	<string name="confirm_remove_list_member">Pašalinti narį?</string>
-	<string name="no_followed_hashtags_title">Laikykis pomėgių sekdant saitažodžius</string>
+	<string name="no_followed_hashtags_title">Laikykis pomėgių sekant saitažodžius</string>
 	<string name="no_followed_hashtags_subtitle">Sekimai pasirodys čia.</string>
 	<string name="no_lists_title">Organizuok savo pagrindinį srautą su sąrašais</string>
-	<string name="no_lists_subtitle">Tavo pasirodys čia.</string>
+	<string name="no_lists_subtitle">Tavo pasirodys čia</string>
 	<string name="manage_accounts">Pridėti arba perjungti paskyras</string>
 	<plurals name="x_posts_recently">
 		<item quantity="one">%,d naujausias įrašas</item>
@@ -672,7 +672,7 @@
 		<item quantity="many">%,d naujausio įrašo</item>
 		<item quantity="other">%,d naujausių įrašų</item>
 	</plurals>
-	<string name="create_list">Sukurti sąrašą</string>
+	<string name="create_list">Kurti sąrašą</string>
 	<string name="step_x_of_y">%1$d žingsnis iš %2$d</string>
 	<string name="create">Kurti</string>
 	<string name="manage_list_members">Tvarkyti sąrašo narius</string>
@@ -702,10 +702,10 @@
 	<string name="non_mutual_text3">Kiekvieno pokalbio stilius unikalus. Būk pasiruošęs (-usi) prisitaikyti.</string>
 	<string name="make_profile_discoverable">Padaryti mano profilį atrandamą</string>
 	<string name="discoverability">Atrandamumas</string>
-	<string name="discoverability_help">Kai pasirenki Mastodon atrandamumą, tavo įrašai gali būti rodomi paieškos rezultatuose ir tendencijose.\n\nProfilis gali būti siūlomas žmonėms, kurių pomėgiai yra panašūs į tavo.\n\nAtsisakant nebus paslėptas tavo profilis, jei kas nors ieškos pagal vardą.</string>
+	<string name="discoverability_help">Kai pasirenki „Mastodon“ atrandamumą, tavo įrašai gali būti rodomi paieškos rezultatuose ir tendencijose.\n\nProfilis gali būti siūlomas žmonėms, kurių pomėgiai yra panašūs į tavo.\n\nAtsisakymas nepaslepia tavo profilis, jei kas nors ieškos pagal vardą.</string>
 	<string name="app_version_copied">Versijos numeris nukopijuotas į iškarpinę</string>
 	<string name="onboarding_recommendations_intro">Pats (-i) kuruoji savo pagrindinį srautą.
-Kuo daugiau žmonių seksi, tuo aktyvesnis ir įdomesnis jis bus.</string>
+Kuo daugiau žmonių seki, tuo aktyvesnis ir įdomesnis jis bus.</string>
 	<string name="onboarding_recommendations_title">Suasmeninti savo pagrindinį srautą</string>
 	<string name="article_by_author">Sukūrė %s</string>
 	<string name="info">Informacija</string>
@@ -714,23 +714,23 @@ Kuo daugiau žmonių seksi, tuo aktyvesnis ir įdomesnis jis bus.</string>
 	<string name="bookmarked">Pridėta</string>
 	<string name="join_server_x_with_invite">Prisijungti %s su kvietimu</string>
 	<string name="expired_invite_link">Nebegaliojanti kvietimo nuoroda</string>
-	<string name="expired_clipboard_invite_link_alert">Tavo iškarpinėje esančios %1$s kvietimo nuorodos galiojimo laikas baigėsi ir jos negalima naudoti registracijai.\n\nGali paprašyti naujos nuorodos iš esamo naudotojo, užsiregistruoti per %2$s arba pasirinkti kitą serverį, per kurį nori užsiregistruoti.</string>
+	<string name="expired_clipboard_invite_link_alert">Tavo iškarpinėje esanti %1$s kvietimo nuorodos galiojimo pabaigos laikas baigėsi ir jos negalima naudoti registracijai.\n\nGali paprašyti naujos nuorodos iš esamo naudotojo, užsiregistruoti per %2$s arba pasirinkti kitą serverį, per kurį nori registruotis.</string>
 	<string name="invalid_invite_link">Netinkama kvietimo nuoroda</string>
 	<string name="invalid_clipboard_invite_link_alert">Tavo iškarpinėje esanti %1$s kvietimo nuoroda yra netinkama ir jos negalima naudoti registracijai.\n\nGali paprašyti naujos nuorodos iš esamo naudotojo, užsiregistruoti per %2$s arba pasirinkti kitą serverį, per kurį nori užsiregistruoti.</string>
 	<string name="use_invite_link">Naudoti kvietimo nuorodą</string>
 	<string name="enter_invite_link">Įvesk kvietimo nuorodą</string>
 	<string name="this_invite_is_invalid">Ši kvietimo nuoroda netinkama.</string>
-	<string name="this_invite_has_expired">Šios kvietimo nuorodos galiojimas laikas baigėsi.</string>
+	<string name="this_invite_has_expired">Šios kvietimo nuorodos galiojimo pabaigos laikas baigėsi.</string>
 	<string name="invite_link_pasted">Nuoroda įklijuota iš iškarpinės.</string>
-	<string name="need_invite_to_join_server">Norint prisijungti prie %s, tau reikės esamo naudotojo kvietimo nuorodos.</string>
+	<string name="need_invite_to_join_server">Norint prisijungti prie %s, tau reikės kvietimo nuorodos iš esamo naudotojo.</string>
 	<string name="mute_user_confirm_title">Nutildyti naudotoją?</string>
 	<string name="user_wont_know_muted">Jie nežinos, kad buvo nutildyti.</string>
-	<string name="user_can_still_see_your_posts">Jie vis tiek matys tavo įrašus, bet tu nematysi jų.</string>
+	<string name="user_can_still_see_your_posts">Jie vis tiek gali matyti tavo įrašus, bet tu nematysi jų.</string>
 	<string name="you_wont_see_user_mentions">Nematysi įrašus, kuriuose jie paminimi.</string>
 	<string name="user_can_mention_and_follow_you">Jie gali tave paminėti ir sekti, bet tu jų nematysi.</string>
-	<string name="unmuted_user_x">Atšauktas tildymas %s</string>
+	<string name="unmuted_user_x">Atšauktas nutildymas %s</string>
 	<string name="block_user_confirm_title">Blokuoti naudotoją?</string>
-	<string name="user_can_see_blocked">Jie mato, kad yra užblokuoti.</string>
+	<string name="user_can_see_blocked">Jie gali matyti, kad yra užblokuoti.</string>
 	<string name="user_cant_see_each_other_posts">Jie negali matyti tavo įrašus, o tu nematysi jų.</string>
 	<string name="user_cant_mention_or_follow_you">Jie negali tave paminėti ar sekti.</string>
 	<string name="unblocked_user_x">Atblokuotas %s</string>
