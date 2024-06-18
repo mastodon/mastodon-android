@@ -153,11 +153,11 @@
 	<string name="report_reason_other_subtitle">Problema netinka kitoms kategorijoms</string>
 	<string name="report_choose_rule">Kokios taisyklės pažeidžiamos?</string>
 	<string name="report_choose_rule_subtitle">Pasirink viską, kas tinka</string>
-	<string name="report_choose_posts">Ar yra kokių nors įrašų, patvirtinančių šį pranešimą?</string>
+	<string name="report_choose_posts">Ar yra kokių nors įrašų, patvirtinančių šį ataskaitą?</string>
 	<string name="report_choose_posts_subtitle">Pasirink viską, kas tinka</string>
 	<string name="report_comment_title">Ar yra dar kas nors, ką turėtume žinoti?</string>
 	<string name="report_comment_hint">Papildomi komentarai</string>
-	<string name="sending_report">Siunčiamas pranešimas…</string>
+	<string name="sending_report">Siunčiama ataskaita…</string>
 	<string name="report_sent_title">Ačiū, kad pranešei, mes tai išnagrinėsime.</string>
 	<string name="report_sent_subtitle">Kol peržiūrėsime, gali imtis veiksmų prieš %s:</string>
 	<string name="unfollow_user">Nebesekti %s</string>
@@ -165,7 +165,7 @@
 	<string name="mute_user_explain">Jų įrašų nematysi. Jie vis tiek gali tave sekti ir matyti įrašus, bet nežinos, kad jie nutildyti.</string>
 	<string name="block_user_explain">Jų įrašų nematysi. Jie negalės matyti tavo įrašų ar sekti tavęs. Jie galės pamatyti, kad yra užblokuoti.</string>
 	<string name="report_personal_title">Nenori to matyti?</string>
-	<string name="report_personal_subtitle">Štai parinktys, kaip valdyti, ką matai tinkle „Mastodon“:</string>
+	<string name="report_personal_subtitle">Štai parinktys, kaip valdyti, ką matai platformoje „Mastodon“:</string>
 	<string name="back">Grįžti</string>
 	<string name="search_communities">Serverio pavadinimas arba URL</string>
 	<string name="instance_rules_title">Serverio taisyklės</string>
@@ -446,7 +446,7 @@
 	<string name="report_unfollow_explanation">Jei nori nebematyti jų įrašų savo pagrindiniame sraute, nebesek jų.</string>
 	<string name="muted_user">Nutildytas %s</string>
 	<string name="report_sent_already_blocked">Jau užblokavai šį naudotoją, todėl kol peržiūrėsime ataskaitą, nieko daugiau daryti nereikia.</string>
-	<string name="report_personal_already_blocked">Jau užblokavai šį naudotoją, todėl daugiau nieko daryti nereikia.\n\nAčiū, kad padedi išlaikyti Mastodon saugią vietą visiems!</string>
+	<string name="report_personal_already_blocked">Jau užblokavai šį naudotoją, todėl daugiau nieko daryti nereikia.\n\nAčiū, kad padedi išlaikyti „Mastodon“ saugią vietą visiems!</string>
 	<string name="blocked_user">Užblokuota %s</string>
 	<string name="mark_all_notifications_read">Žymėti viską kaip skaitytą</string>
 	<string name="settings_display">Rodinys</string>
@@ -498,19 +498,19 @@
 	<plurals name="in_x_seconds">
 		<item quantity="one">po %d sekundės</item>
 		<item quantity="few">po %d sekundžių</item>
-		<item quantity="many">po %d sekundžių</item>
+		<item quantity="many">po %d sekundes</item>
 		<item quantity="other">po %d sekundžių</item>
 	</plurals>
 	<plurals name="in_x_minutes">
 		<item quantity="one">po %d minutės</item>
 		<item quantity="few">po %d minučių</item>
-		<item quantity="many">po %d minučių</item>
+		<item quantity="many">po %d minutes</item>
 		<item quantity="other">po %d minučių</item>
 	</plurals>
 	<plurals name="in_x_hours">
 		<item quantity="one">po %d valandos</item>
 		<item quantity="few">po %d valandų</item>
-		<item quantity="many">po %d valandų</item>
+		<item quantity="many">po %d valandos</item>
 		<item quantity="other">po %d valandų</item>
 	</plurals>
 	<plurals name="x_hours_ago">
@@ -519,12 +519,12 @@
 		<item quantity="many">prieš %d valandos</item>
 		<item quantity="other">prieš %d valandų</item>
 	</plurals>
-	<string name="alt_text_reminder_title">Medijoje trūksta alternatyvo teksto</string>
+	<string name="alt_text_reminder_title">Medijoje trūksta alternatyvaus teksto</string>
 	<plurals name="alt_text_reminder_x_images">
-		<item quantity="one">%s vaizdų trūksta alternatyvaus teksto. Skelbti vis tiek?</item>
-		<item quantity="few">%s vaizdų trūksta alternatyvaus teksto. Skelbti vis tiek?</item>
-		<item quantity="many">%s vaizdų trūksta alternatyvaus teksto. Skelbti vis tiek?</item>
-		<item quantity="other">%s vaizdų trūksta alternatyvaus teksto. Skelbti vis tiek?</item>
+		<item quantity="one">%s iš vaizdų trūksta alternatyvaus teksto. Skelbti vis tiek?</item>
+		<item quantity="few">%s iš vaizdų trūksta alternatyvaus teksto. Skelbti vis tiek?</item>
+		<item quantity="many">%s iš vaizdų trūksta alternatyvaus teksto. Skelbti vis tiek?</item>
+		<item quantity="other">%s iš vaizdų trūksta alternatyvaus teksto. Skelbti vis tiek?</item>
 	</plurals>
 	<plurals name="alt_text_reminder_x_attachments">
 		<item quantity="one">%s medijos priedas trūksta alternatyvaus teksto. Skelbti vis tiek?</item>
