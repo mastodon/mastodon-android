@@ -152,7 +152,6 @@
 	<string name="email">Eposta</string>
 	<string name="password">Pasahitza</string>
 	<string name="confirm_password">Berretsi pasahitza</string>
-	<string name="password_note">Sartu letra larriak, karaktere bereziak eta zenbakiak zure pasahitzaren segurtasuna areagotzeko.</string>
 	<string name="category_general">Orokorra</string>
 	<string name="confirm_email_title">Begiratu zure sarrera-ontzia</string>
 	<!-- %s is the email address -->
@@ -166,8 +165,8 @@
 	<string name="save">Gorde</string>
 	<string name="add_alt_text">Gehitu ordezko testua</string>
 	<string name="visibility_public">Publikoa</string>
-	<string name="visibility_followers_only">Jarraitzaileak soilik</string>
-	<string name="visibility_private">Aipatzen dudan jendea soilik</string>
+	<string name="visibility_followers_only">Jarraitzaileak</string>
+	<string name="visibility_private">Jende jakina</string>
 	<string name="recent_searches">Azkenaldikoak</string>
 	<string name="skip">Saltatu</string>
 	<string name="notification_type_follow">Jarraitzaile berriak</string>
@@ -351,7 +350,7 @@
 	<string name="verified_link">Lotura egiaztatua</string>
 	<string name="show">Erakutsi</string>
 	<string name="hide">Ezkutatu</string>
-	<string name="join_default_server">Batu %s -ra</string>
+	<string name="join_default_server">Batu %s-(e)ra</string>
 	<string name="pick_server">Aukeratu beste zerbitzari bat</string>
 	<string name="signup_or_login">edo</string>
 	<string name="learn_more">Ikasi gehiago</string>
@@ -738,4 +737,24 @@ Zenbat eta jende gehiago jarraitu, orduan eta aktiboagoa eta interesgarriagoa iz
 	<string name="notifications_from_user">%s erabiltzailearen jakinarazpenak</string>
 	<string name="notifications_muted">%s(r)en jakinarazpenak baztertu dira.</string>
 	<string name="notifications_allowed">%s jakinarazpen-zerrendan agertuko da orain.</string>
+	<string name="visibility_subtitle_public">Mastodonen dagoen edo ez dagoen edonor</string>
+	<string name="visibility_subtitle_unlisted">Tontakeria algoritmiko gutxiago</string>
+	<string name="visibility_subtitle_followers">Soilik jarraitzaileak</string>
+	<string name="visibility_subtitle_private">Argitalpen honetan aipatutako denak</string>
+	<string name="view_boosts">Ikusi bultzadak</string>
+	<string name="view_favorites">Ikusi Gogokoak</string>
+	<string name="undo_reblog">Desegin bultzada</string>
+	<string name="undo_favorite">Desegin Gogokoa</string>
+	<string name="could_not_reach_server">Ezin izan da zerbitzariarekin komunikatu. Zure konexioa egiaztatu eta saiatu berriro?</string>
+	<string name="connection_timed_out">Eskaerak denbora-muga gainditu du. Zure konexioa egiaztatu eta saiatu berriro?</string>
+	<string name="server_error">Zerbait gaizki atera da zure zerbitzariarekin hitz egiterakoan. Seguruenik, ez da zure errua. Berriro saiatu?</string>
+	<string name="not_found">Ezaba zitekeen, edo agian ez zen inoiz existitu.</string>
+	<string name="no_servers_found">Ez da aurkitu “%s”-(r)entzako zerbitzaririk</string>
+	<string name="signup_username_taken">Erabiltzaile-izen hau hartuta dago. Probatu beste bat edo &lt;a&gt;aukeratu beste zerbitzari bat&lt;/a&gt;.</string>
+	<string name="signup_email_invalid">Ez dirudi baliozko helbide elektronikoa.</string>
+	<string name="signup_email_taken">Helbide elektronikoa dagoeneko erabilita dago. &lt;a&gt;Pasahitza ahaztu duzu&lt;/a&gt;?</string>
+	<plurals name="x_new_notifications">
+		<item quantity="one">Jakinarazpen berri %,d</item>
+		<item quantity="other">%,d jakinarazpen berri</item>
+	</plurals>
 </resources>

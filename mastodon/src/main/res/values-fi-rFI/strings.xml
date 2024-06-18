@@ -9,7 +9,6 @@
 	<string name="preparing_auth">Valmistellaan todennusta…</string>
 	<string name="finishing_auth">Viimeistellään todennusta…</string>
 	<string name="user_boosted">%s tehosti</string>
-	<string name="in_reply_to">Vastaus käyttäjälle %s</string>
 	<string name="notifications">Ilmoitukset</string>
 	<string name="user_followed_you">%s seurasi sinua</string>
 	<string name="user_sent_follow_request">%s lähetti sinulle seurauspyynnön</string>
@@ -147,7 +146,6 @@
 	<string name="email">Sähköposti</string>
 	<string name="password">Salasana</string>
 	<string name="confirm_password">Vahvista salasana</string>
-	<string name="password_note">Sisällytä suuraakkoset, erikoismerkit, ja numerot, jotta voit lisätä salasanan voimaa.</string>
 	<string name="category_general">Yleinen</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">Napauta lähettämäämme linkkiä vahvistaaksesi tunnuksen %s. Odotamme täällä.</string>
@@ -160,8 +158,6 @@
 	<string name="save">Tallenna</string>
 	<string name="add_alt_text">Lisää selitys</string>
 	<string name="visibility_public">Julkinen</string>
-	<string name="visibility_followers_only">Vain seuraajat</string>
-	<string name="visibility_private">Vain mainitsemani tilit</string>
 	<string name="recent_searches">Viimeisimmät</string>
 	<string name="skip">Ohita</string>
 	<string name="notification_type_follow">Uudet seuraajat</string>
@@ -296,7 +292,6 @@
 	<string name="instance_signup_closed">Tämä palvelin ei hyväksy uusia rekisteröintejä.</string>
 	<string name="text_copied">Kopioitu leikepöydälle</string>
 	<string name="add_bookmark">Kirjanmerkki</string>
-	<string name="remove_bookmark">Poista kirjanmerkki</string>
 	<string name="bookmarks">Kirjanmerkit</string>
 	<string name="login_subtitle">Kirjaudu sisään palvelimella, jossa olet luonut tilisi.</string>
 	<string name="server_url">Palvelimen URL-osoite</string>

@@ -9,7 +9,6 @@
 	<string name="preparing_auth">Ag ullachadh an dearbhaidh…</string>
 	<string name="finishing_auth">A’ crìochnachadh an dearbhaidh…</string>
 	<string name="user_boosted">’Ga bhrosnachadh le %s</string>
-	<string name="in_reply_to">A’ freagairt dha %s</string>
 	<string name="notifications">Brathan</string>
 	<string name="user_followed_you">Tha %s ’gad leantainn a-nis</string>
 	<string name="user_sent_follow_request">Chuir %s iarrtas leantainn thugad</string>
@@ -176,7 +175,6 @@
 	<string name="email">Post-d</string>
 	<string name="password">Facal-faire</string>
 	<string name="confirm_password">Dearbh am facal-faire</string>
-	<string name="password_note">Gabh a-steach litrichean mòra, caractaran sònraichte agus àireamhan airson am facal-faire agad a dhèanamh nas treasa.</string>
 	<string name="category_general">Coitcheann</string>
 	<string name="confirm_email_title">Thoir sùil air a’ bhogsa a-steach agad</string>
 	<!-- %s is the email address -->
@@ -190,8 +188,6 @@
 	<string name="save">Sàbhail</string>
 	<string name="add_alt_text">Cuir roghainn teacsa ris</string>
 	<string name="visibility_public">Poblach</string>
-	<string name="visibility_followers_only">Luchd-leantainn a-mhàin</string>
-	<string name="visibility_private">Daoine air an dug mi iomradh a-mhàin</string>
 	<string name="recent_searches">O chionn goirid</string>
 	<string name="skip">Leum thairis air</string>
 	<string name="notification_type_follow">Luchd-leantainn ùr</string>
@@ -346,16 +342,13 @@
 	<string name="instance_signup_closed">Chan eil am frithealaiche seo a’ gabhail ri clàraidhean ùra.</string>
 	<string name="text_copied">Chaidh lethbhreac dheth a chur air an stòr-bhòrd</string>
 	<string name="add_bookmark">Cruthaich comharra-lìn</string>
-	<string name="remove_bookmark">Thoir an comharra-lìn air falbh</string>
 	<string name="bookmarks">Comharran-lìn</string>
 	<string name="your_favorites">Na h-annsachdan agad</string>
 	<string name="login_title">Fàilte air ais</string>
 	<string name="login_subtitle">Clàraich a-steach leis an fhrithealaiche far an do chruthaich thu an cunntas agad.</string>
 	<string name="server_url">URL an fhrithealaiche</string>
 	<string name="server_filter_any_language">Cànan sam bith</string>
-	<string name="server_filter_instant_signup">Clàradh sa bhad</string>
 	<string name="server_filter_manual_review">Lèirmheas a làimh</string>
-	<string name="server_filter_any_signup_speed">Luaths clàraidh sam bith</string>
 	<string name="server_filter_region_europe">An Roinn-Eòrpa</string>
 	<string name="server_filter_region_north_america">Aimeireaga a Tuath</string>
 	<string name="server_filter_region_south_america">Aimeireaga a Deas</string>
