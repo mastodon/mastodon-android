@@ -405,6 +405,21 @@ public class ComposeFragment extends MastodonToolbarFragment implements ComposeE
 	}
 
 	@Override
+	protected void onHidden(){
+		super.onHidden();
+		if(prevHadDraft){
+			prevHadDraft=false;
+			removeBackCallback(discardConfirmationCallback);
+		}
+	}
+
+	@Override
+	protected void onShown(){
+		super.onShown();
+		updateDraftState();
+	}
+
+	@Override
 	public void onViewCreated(View view, Bundle savedInstanceState){
 		super.onViewCreated(view, savedInstanceState);
 		if(editingStatus==null)
