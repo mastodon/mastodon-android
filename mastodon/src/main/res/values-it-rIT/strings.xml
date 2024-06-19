@@ -9,7 +9,7 @@
 	<string name="preparing_auth">Preparazione all\'autenticazione…</string>
 	<string name="finishing_auth">Completamento autenticazione…</string>
 	<string name="user_boosted">%s ha condiviso</string>
-	<string name="in_reply_to">In risposta a %s</string>
+	<string name="in_reply_to">in risposta a %s</string>
 	<string name="notifications">Notifiche</string>
 	<string name="user_followed_you">%s ha iniziato a seguirti</string>
 	<string name="user_sent_follow_request">%s ti ha inviato una richiesta per seguirti</string>
@@ -152,7 +152,6 @@
 	<string name="email">Email</string>
 	<string name="password">Password</string>
 	<string name="confirm_password">Conferma la password</string>
-	<string name="password_note">Includi lettere maiuscole, caratteri speciali e numeri per aumentare la forza della tua password.</string>
 	<string name="category_general">Generale</string>
 	<string name="confirm_email_title">Controlla la tua posta in arrivo</string>
 	<!-- %s is the email address -->
@@ -166,8 +165,8 @@
 	<string name="save">Salva</string>
 	<string name="add_alt_text">Aggiungi testo alt</string>
 	<string name="visibility_public">Pubblico</string>
-	<string name="visibility_followers_only">Solo i seguaci</string>
-	<string name="visibility_private">Solo le persone menzionate</string>
+	<string name="visibility_followers_only">Seguaci</string>
+	<string name="visibility_private">Persone specifiche</string>
 	<string name="recent_searches">Recenti</string>
 	<string name="skip">Salta</string>
 	<string name="notification_type_follow">Nuovi seguaci</string>
@@ -317,7 +316,7 @@
 	<string name="server_filter_any_language">Qualsiasi lingua</string>
 	<string name="server_filter_instant_signup">Iscrizione immediata</string>
 	<string name="server_filter_manual_review">Revisione manuale</string>
-	<string name="server_filter_any_signup_speed">Qualsiasi velocità di registrazione</string>
+	<string name="server_filter_any_signup_speed">Qualsiasi velocità di iscrizione</string>
 	<string name="server_filter_region_europe">Europa</string>
 	<string name="server_filter_region_north_america">America del nord</string>
 	<string name="server_filter_region_south_america">America del sud</string>
@@ -738,4 +737,24 @@ Più persone segui, più sarà attivo e interessante.</string>
 	<string name="notifications_from_user">Notifiche da %s</string>
 	<string name="notifications_muted">Le notifiche da %s sono state respinte.</string>
 	<string name="notifications_allowed">%s apparirà ora nella tua lista di notifiche.</string>
+	<string name="visibility_subtitle_public">Tutti, dentro e fuori Mastodon</string>
+	<string name="visibility_subtitle_unlisted">Meno fanfare algoritmiche</string>
+	<string name="visibility_subtitle_followers">Solo i tuoi seguaci</string>
+	<string name="visibility_subtitle_private">Tutti quelli menzionati nel post</string>
+	<string name="view_boosts">Visualizza potenziamenti</string>
+	<string name="view_favorites">Visualizza preferiti</string>
+	<string name="undo_reblog">Annulla potenziamento</string>
+	<string name="undo_favorite">Annulla preferito</string>
+	<string name="could_not_reach_server">Impossibile raggiungere il server. Controllare la tua connessione e riprovare?</string>
+	<string name="connection_timed_out">La richiesta è scaduta. Controllare la tua connessione e riprovare?</string>
+	<string name="server_error">Qualcosa è andato storto durante la conversazione con il tuo server. Probabilmente non è colpa tua. Riprovare?</string>
+	<string name="not_found">Potrebbe essere stato cancellato, o forse non è mai esistito.</string>
+	<string name="no_servers_found">Nessun server trovato per «%s»</string>
+	<string name="signup_username_taken">Questo nome utente è già preso. Provane uno diverso o &lt;a&gt;scegli un server diverso&lt;/a&gt;.</string>
+	<string name="signup_email_invalid">Non sembra un indirizzo email valido.</string>
+	<string name="signup_email_taken">L\'indirizzo email è già in uso. Hai &lt;a&gt;dimenticato la password&lt;/a&gt;?</string>
+	<plurals name="x_new_notifications">
+		<item quantity="one">%,d nuova notifica</item>
+		<item quantity="other">%,d nuove notifiche</item>
+	</plurals>
 </resources>

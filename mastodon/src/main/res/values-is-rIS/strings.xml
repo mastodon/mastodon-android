@@ -9,7 +9,7 @@
 	<string name="preparing_auth">Undirbý auðkenningu…</string>
 	<string name="finishing_auth">Lýk auðkenningu…</string>
 	<string name="user_boosted">%s endurbirti</string>
-	<string name="in_reply_to">Sem svar til %s</string>
+	<string name="in_reply_to">sem svar til %s</string>
 	<string name="notifications">Tilkynningar</string>
 	<string name="user_followed_you">%s fylgist með þér</string>
 	<string name="user_sent_follow_request">%s sendi þér beiðni um að fylgjast með þér</string>
@@ -152,7 +152,6 @@
 	<string name="email">Tölvupóstfang</string>
 	<string name="password">Lykilorð</string>
 	<string name="confirm_password">Staðfestu lykilorðið</string>
-	<string name="password_note">Settu hástafi, sértákn og tölustafi til að auka styrk lykilorðins þíns.</string>
 	<string name="category_general">Almennt</string>
 	<string name="confirm_email_title">Athugaðu pósthólfið þitt</string>
 	<!-- %s is the email address -->
@@ -166,8 +165,8 @@
 	<string name="save">Vista</string>
 	<string name="add_alt_text">Bæta við hjálpartexta</string>
 	<string name="visibility_public">Opinbert</string>
-	<string name="visibility_followers_only">Einungis fylgjendur</string>
-	<string name="visibility_private">Aðeins fólk sem minnst er á</string>
+	<string name="visibility_followers_only">Fylgjendur</string>
+	<string name="visibility_private">Tilteknir aðilar</string>
 	<string name="recent_searches">Nýlegt</string>
 	<string name="skip">Sleppa</string>
 	<string name="notification_type_follow">Nýir fylgjendur</string>
@@ -738,4 +737,24 @@
 	<string name="notifications_from_user">Tilkynningar frá %s</string>
 	<string name="notifications_muted">Tilkynningum frá %s hefur verið hafnað.</string>
 	<string name="notifications_allowed">%s mun núna birtast í tilkynningalistanum þínum.</string>
+	<string name="visibility_subtitle_public">Allir á Mastodon og víðar</string>
+	<string name="visibility_subtitle_unlisted">Minni stælar í reikniritum</string>
+	<string name="visibility_subtitle_followers">Einungis þeir sem fylgjast með þér</string>
+	<string name="visibility_subtitle_private">Allir sem minnst er á í færslunni</string>
+	<string name="view_boosts">Skoða endurbirtingar</string>
+	<string name="view_favorites">Skoða eftirlæti</string>
+	<string name="undo_reblog">Afturkalla endurbirtingu</string>
+	<string name="undo_favorite">Afturkalla eftirlæti</string>
+	<string name="could_not_reach_server">Náði ekki sambandi við netþjóninn. Athugaðu nettenginguna þína og prófaðu aftur?</string>
+	<string name="connection_timed_out">Beiðnin rann út á tíma. Athugaðu nettenginguna þína og prófaðu aftur?</string>
+	<string name="server_error">Eitthvað fór úrskeiðis í samskiptum við netþjóninn þinn. Líklega er það ekki þér að kenna. Prófa aftur?</string>
+	<string name="not_found">Kannski var honum eytt eða kannski var hann aldrei til.</string>
+	<string name="no_servers_found">Engir netþjónar fyndust fyrir “%s”</string>
+	<string name="signup_username_taken">Þetta notandanafn er frátekið. Prófaðu eitthvað annað eða &lt;a&gt;veldu annan netþjón&lt;/a&gt;.</string>
+	<string name="signup_email_invalid">Þetta lítur ekki út fyrir að vera leyfilegt tölvupóstfang.</string>
+	<string name="signup_email_taken">Tölvupóstfangið er þegar í notkun. &lt;a&gt;Gleymdirðu lykilorðinu þínu&lt;/a&gt;?</string>
+	<plurals name="x_new_notifications">
+		<item quantity="one">%,d ný tilkynning</item>
+		<item quantity="other">%,d nýjar tilkynningar</item>
+	</plurals>
 </resources>

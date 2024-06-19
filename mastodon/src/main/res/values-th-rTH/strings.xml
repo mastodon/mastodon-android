@@ -140,7 +140,6 @@
 	<string name="email">อีเมล</string>
 	<string name="password">รหัสผ่าน</string>
 	<string name="confirm_password">ยืนยันรหัสผ่าน</string>
-	<string name="password_note">รวมตัวพิมพ์ใหญ่, อักขระพิเศษ และตัวเลขเพื่อเพิ่มความแข็งแรงของรหัสผ่านของคุณ</string>
 	<string name="category_general">ทั่วไป</string>
 	<string name="confirm_email_title">ตรวจสอบกล่องขาเข้าของคุณ</string>
 	<!-- %s is the email address -->
@@ -154,8 +153,8 @@
 	<string name="save">บันทึก</string>
 	<string name="add_alt_text">เพิ่มข้อความแสดงแทน</string>
 	<string name="visibility_public">สาธารณะ</string>
-	<string name="visibility_followers_only">ผู้ติดตามเท่านั้น</string>
-	<string name="visibility_private">เฉพาะผู้คนที่ได้รับการกล่าวถึงเท่านั้น</string>
+	<string name="visibility_followers_only">ผู้ติดตาม</string>
+	<string name="visibility_private">ผู้คนที่เฉพาะเจาะจง</string>
 	<string name="recent_searches">รายการล่าสุด</string>
 	<string name="skip">ข้าม</string>
 	<string name="notification_type_follow">ผู้ติดตามใหม่</string>
@@ -704,4 +703,23 @@
 	<string name="notifications_from_user">การแจ้งเตือนจาก %s</string>
 	<string name="notifications_muted">ปิดการแจ้งเตือนจาก %s แล้ว</string>
 	<string name="notifications_allowed">ตอนนี้ %s จะปรากฏในรายการการแจ้งเตือนของคุณ</string>
+	<string name="visibility_subtitle_public">ทุกคนที่อยู่ในและนอก Mastodon</string>
+	<string name="visibility_subtitle_unlisted">การประโคมอัลกอริทึมที่น้อยลง</string>
+	<string name="visibility_subtitle_followers">เฉพาะผู้ติดตามของคุณเท่านั้น</string>
+	<string name="visibility_subtitle_private">ทุกคนที่กล่าวถึงในโพสต์</string>
+	<string name="view_boosts">ดูการดัน</string>
+	<string name="view_favorites">ดูรายการโปรด</string>
+	<string name="undo_reblog">เลิกทำการดัน</string>
+	<string name="undo_favorite">เลิกทำการชื่นชอบ</string>
+	<string name="could_not_reach_server">ไม่สามารถเข้าถึงเซิร์ฟเวอร์ ตรวจสอบการเชื่อมต่อของคุณและลองอีกครั้ง?</string>
+	<string name="connection_timed_out">คำขอหมดเวลา ตรวจสอบการเชื่อมต่อของคุณและลองอีกครั้ง?</string>
+	<string name="server_error">มีบางอย่างผิดพลาดในการพูดคุยกับเซิร์ฟเวอร์ของคุณ อาจไม่ใช่ความผิดพลาดของคุณ ลองอีกครั้ง?</string>
+	<string name="not_found">อาจมีการลบทรัพยากร หรือบางทีอาจไม่เคยมีทรัพยากรอยู่เลย</string>
+	<string name="no_servers_found">ไม่พบเซิร์ฟเวอร์สำหรับ “%s”</string>
+	<string name="signup_username_taken">มีการใช้ชื่อผู้ใช้นี้แล้ว ลองชื่อผู้ใช้อื่นหรือ &lt;a&gt;เลือกเซิร์ฟเวอร์อื่น&lt;/a&gt;</string>
+	<string name="signup_email_invalid">นั่นดูไม่เหมือนที่อยู่อีเมลที่ถูกต้อง</string>
+	<string name="signup_email_taken">มีการใช้ที่อยู่อีเมลไปแล้ว คุณ &lt;a&gt;ลืมรหัสผ่านของคุณ&lt;/a&gt; หรือไม่?</string>
+	<plurals name="x_new_notifications">
+		<item quantity="other">%,d การแจ้งเตือนใหม่</item>
+	</plurals>
 </resources>

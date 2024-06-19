@@ -9,7 +9,6 @@
 	<string name="preparing_auth">Příprava na autentizaci…</string>
 	<string name="finishing_auth">Dokončení autentizace…</string>
 	<string name="user_boosted">%s boostnul(a)</string>
-	<string name="in_reply_to">V odpovědi na %s</string>
 	<string name="notifications">Upozornění</string>
 	<string name="user_followed_you">%s vás sleduje</string>
 	<string name="user_sent_follow_request">%s vám poslal(a) žádost o sledování</string>
@@ -176,7 +175,6 @@
 	<string name="email">E-mail</string>
 	<string name="password">Heslo</string>
 	<string name="confirm_password">Potvrdit heslo</string>
-	<string name="password_note">Použijte velká písmena, speciální znaky a čísla, abyste zvýšili sílu hesla.</string>
 	<string name="category_general">Obecné</string>
 	<string name="confirm_email_title">Zkontrolujte si příchozí poštu</string>
 	<!-- %s is the email address -->
@@ -190,8 +188,6 @@
 	<string name="save">Uložit</string>
 	<string name="add_alt_text">Přidat alternativní text</string>
 	<string name="visibility_public">Veřejné</string>
-	<string name="visibility_followers_only">Pouze sledující</string>
-	<string name="visibility_private">Pouze lidé, které zmíním</string>
 	<string name="recent_searches">Nedávné</string>
 	<string name="skip">Přeskočit</string>
 	<string name="notification_type_follow">Noví sledující</string>
@@ -346,16 +342,13 @@
 	<string name="instance_signup_closed">Tento server nepřijímá nové registrace.</string>
 	<string name="text_copied">Zkopírováno do schránky</string>
 	<string name="add_bookmark">Přidat do záložek</string>
-	<string name="remove_bookmark">Odstranit ze záložek</string>
 	<string name="bookmarks">Záložky</string>
 	<string name="your_favorites">Vaše oblíbené</string>
 	<string name="login_title">Vítej zpět</string>
 	<string name="login_subtitle">Přihlaste se pomocí serveru, kde jste vytvořili svůj účet.</string>
 	<string name="server_url">URL serveru</string>
 	<string name="server_filter_any_language">Jakýkoliv jazyk</string>
-	<string name="server_filter_instant_signup">Okamžitá registrace</string>
 	<string name="server_filter_manual_review">S ruční kontrolou</string>
-	<string name="server_filter_any_signup_speed">Jakákoliv rychlost registrace</string>
 	<string name="server_filter_region_europe">Evropa</string>
 	<string name="server_filter_region_north_america">Severní Amerika</string>
 	<string name="server_filter_region_south_america">Jižní Amerika</string>

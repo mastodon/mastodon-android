@@ -140,7 +140,6 @@
 	<string name="email">メールアドレス</string>
 	<string name="password">パスワード</string>
 	<string name="confirm_password">パスワードの確認</string>
-	<string name="password_note">パスワードの強度を高めるため、英大文字・数字・特殊文字を含めてください。</string>
 	<string name="category_general">一般</string>
 	<string name="confirm_email_title">確認メールを送信しました</string>
 	<!-- %s is the email address -->
@@ -154,8 +153,8 @@
 	<string name="save">保存</string>
 	<string name="add_alt_text">代替テキストを追加</string>
 	<string name="visibility_public">公開</string>
-	<string name="visibility_followers_only">フォロワーのみ</string>
-	<string name="visibility_private">メンションした相手のみ</string>
+	<string name="visibility_followers_only">フォロワー</string>
+	<string name="visibility_private">特定の人</string>
 	<string name="recent_searches">最近</string>
 	<string name="skip">スキップ</string>
 	<string name="notification_type_follow">新しいフォロワー</string>
@@ -686,4 +685,41 @@
 	<string name="mute_conversation">会話をミュート</string>
 	<string name="unmute_conversation">会話のミュートを解除</string>
 	<string name="visibility_unlisted">ひかえめな公開</string>
+	<string name="filtered_notifications">フィルターされた通知</string>
+	<string name="filter_notifications">通知のフィルタリング...</string>
+	<string name="notification_filter_following">あなたがフォローしていないアカウント</string>
+	<string name="notification_filter_following_explanation">手動で通知を受け入れたアカウントはフィルタリングされません</string>
+	<string name="notification_filter_followers">あなたのフォロワーではないアカウント</string>
+	<string name="notification_filter_followers_explanation">フォローされていても、フォローから 3 日経っていない場合はフィルタリングされます</string>
+	<string name="notification_filter_new_accounts">新しいアカウント</string>
+	<string name="notification_filter_new_accounts_explanation">作成から 30 日以内のアカウントからの通知がフィルタリングされます</string>
+	<string name="notification_filter_mentions">会話外からの非公開メンション</string>
+	<string name="notification_filter_mentions_explanation">メンションした相手や、フォローしているアカウント以外からの返信がフィルタリングされます</string>
+	<string name="allow_notifications">通知を許可する</string>
+	<string name="mute_notifications">通知リクエストを無視する</string>
+	<plurals name="x_people_you_may_know">
+		<item quantity="other">%,d 人があなたを知っている可能性があります</item>
+	</plurals>
+	<string name="notifications_from_user">%s さんからの通知</string>
+	<string name="notifications_muted">%s さんからの通知は無視されました。</string>
+	<string name="notifications_allowed">%s さんはあなたの通知リストに登録されました。</string>
+	<string name="visibility_subtitle_public">Mastodon 以外も含むすべての人</string>
+	<string name="visibility_subtitle_unlisted">より表示機会の少ない公開</string>
+	<string name="visibility_subtitle_followers">フォロワーのみ</string>
+	<string name="visibility_subtitle_private">投稿でメンションした相手のみ</string>
+	<string name="view_boosts">ブーストを確認</string>
+	<string name="view_favorites">お気に入りを確認</string>
+	<string name="undo_reblog">ブーストを取り消す</string>
+	<string name="undo_favorite">お気に入りを取り消す</string>
+	<string name="could_not_reach_server">サーバーに到達できませんでした。接続を確認して再試行しますか？</string>
+	<string name="connection_timed_out">リクエストがタイムアウトしました。接続を確認して再試行しますか？</string>
+	<string name="server_error">サーバーとの対話に失敗しました。原因はあなたにはない可能性があります。再試行しますか？</string>
+	<string name="not_found">削除できないか、既に存在していない可能性があります。</string>
+	<string name="no_servers_found">「%s」に該当するサーバーは見つかりませんでした</string>
+	<string name="signup_username_taken">このユーザー名はすでに使用されています。別のユーザー名にするか、&lt;a&gt;サーバーの選択をやり直し&lt;/a&gt;てください。</string>
+	<string name="signup_email_invalid">有効なメールアドレスではないようです。</string>
+	<string name="signup_email_taken">使用中のメールアドレスです。&lt;a&gt;パスワードをお忘れですか&lt;/a&gt;？</string>
+	<plurals name="x_new_notifications">
+		<item quantity="other">新着通知 %,d 件</item>
+	</plurals>
 </resources>

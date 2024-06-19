@@ -8,13 +8,12 @@
 	<string name="ok">OK</string>
 	<string name="preparing_auth">Подготовка к авторизации…</string>
 	<string name="finishing_auth">Завершение авторизации…</string>
-	<string name="user_boosted">Пользователь %s продвинул</string>
-	<string name="in_reply_to">В ответ %s</string>
+	<string name="user_boosted">%s продвинул(а)</string>
 	<string name="notifications">Уведомления</string>
-	<string name="user_followed_you">Пользователь %s подписался на вас</string>
-	<string name="user_sent_follow_request">Пользователь %s отправил вам запрос на подписку</string>
-	<string name="user_favorited">Пользователь %s добавил в избранное ваш пост</string>
-	<string name="notification_boosted">Пользователь %s продвинул ваш пост</string>
+	<string name="user_followed_you">%s подписался(ась) на вас</string>
+	<string name="user_sent_follow_request">%s отправил(а) вам запрос на подписку</string>
+	<string name="user_favorited">%s добавил(а) в избранное ваш пост</string>
+	<string name="notification_boosted">%s продвинул(а) ваш пост</string>
 	<string name="poll_ended">Посмотреть результаты опроса, в котором вы проголосовали</string>
 	<string name="share_toot_title">Поделиться</string>
 	<string name="settings">Настройки</string>
@@ -176,7 +175,6 @@
 	<string name="email">E-mail</string>
 	<string name="password">Пароль</string>
 	<string name="confirm_password">Подтверждение пароля</string>
-	<string name="password_note">Используйте заглавные буквы, числа и специальные символы, чтобы повысить стойкость пароля.</string>
 	<string name="category_general">Общей тематики</string>
 	<string name="confirm_email_title">Проверьте вашу почту</string>
 	<!-- %s is the email address -->
@@ -190,8 +188,6 @@
 	<string name="save">Сохранить</string>
 	<string name="add_alt_text">Добавить альтернативный текст</string>
 	<string name="visibility_public">Публичный</string>
-	<string name="visibility_followers_only">Для подписчиков</string>
-	<string name="visibility_private">Для упомянутых</string>
 	<string name="recent_searches">Недавние</string>
 	<string name="skip">Пропустить</string>
 	<string name="notification_type_follow">Новые подписчики</string>
@@ -346,16 +342,13 @@
 	<string name="instance_signup_closed">Этот сервер не принимает новые регистрации.</string>
 	<string name="text_copied">Скопировано в буфер обмена</string>
 	<string name="add_bookmark">Закладка</string>
-	<string name="remove_bookmark">Удалить закладку</string>
 	<string name="bookmarks">Закладки</string>
 	<string name="your_favorites">Ваше избранное</string>
 	<string name="login_title">С возвращением</string>
 	<string name="login_subtitle">Войдите на сервер, на котором вы создали свою учётную запись.</string>
 	<string name="server_url">Адрес сервера</string>
 	<string name="server_filter_any_language">Любой язык</string>
-	<string name="server_filter_instant_signup">Мгновенная регистрация</string>
 	<string name="server_filter_manual_review">Ручная проверка</string>
-	<string name="server_filter_any_signup_speed">Любая скорость регистрации</string>
 	<string name="server_filter_region_europe">Европа</string>
 	<string name="server_filter_region_north_america">Северная Америка</string>
 	<string name="server_filter_region_south_america">Южная Америка</string>

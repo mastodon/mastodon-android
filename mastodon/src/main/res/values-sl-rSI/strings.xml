@@ -9,7 +9,7 @@
 	<string name="preparing_auth">Pripravljanje na preverjanje pristnosti …</string>
 	<string name="finishing_auth">Zaključevanje preverjanja pristnosti ...</string>
 	<string name="user_boosted">%s je izpostavil/a</string>
-	<string name="in_reply_to">Kot odgovor %s</string>
+	<string name="in_reply_to">kot odgovor %s</string>
 	<string name="notifications">Obvestila</string>
 	<string name="user_followed_you">%s vam sledi</string>
 	<string name="user_sent_follow_request">%s vam je poslal_a zahtevo za sledenje</string>
@@ -176,7 +176,6 @@
 	<string name="email">E-naslov</string>
 	<string name="password">Geslo</string>
 	<string name="confirm_password">Potrdite geslo</string>
-	<string name="password_note">Vključite velike črke, posebne znake in števke, da okrepite geslo.</string>
 	<string name="category_general">Splošno</string>
 	<string name="confirm_email_title">Preverite svojo dohodno e-pošto</string>
 	<!-- %s is the email address -->
@@ -190,8 +189,8 @@
 	<string name="save">Shrani</string>
 	<string name="add_alt_text">Dodaj nadomestno besedilo</string>
 	<string name="visibility_public">Javno</string>
-	<string name="visibility_followers_only">Samo sledilci</string>
-	<string name="visibility_private">Samo osebe, ki jih omenjam</string>
+	<string name="visibility_followers_only">Sledilcem</string>
+	<string name="visibility_private">Določenim ljudem</string>
 	<string name="recent_searches">Nedavno</string>
 	<string name="skip">Preskoči</string>
 	<string name="notification_type_follow">Novi sledilci</string>
@@ -806,4 +805,26 @@ Več osebam kot sledite, bolj dejaven in zanimiv bo.</string>
 	<string name="notifications_from_user">Obvestila od %s</string>
 	<string name="notifications_muted">Obvestila od %s so bila opuščena.</string>
 	<string name="notifications_allowed">%s se bo sedaj pojavil v vašem seznamu obvestil.</string>
+	<string name="visibility_subtitle_public">Vsem na Mastodonu in drugje</string>
+	<string name="visibility_subtitle_unlisted">Skrito za odkrivanje in iskanje</string>
+	<string name="visibility_subtitle_followers">Samo vašim sledilcem</string>
+	<string name="visibility_subtitle_private">Samo omenjenim v objavi</string>
+	<string name="view_boosts">Pokaži izpostavitve</string>
+	<string name="view_favorites">Pokaži priljubljene</string>
+	<string name="undo_reblog">Razveljavi izpostavitev</string>
+	<string name="undo_favorite">Razveljavi priljubitev</string>
+	<string name="could_not_reach_server">Strežnik ni bil dosegljiv. Preverite omrežno povezavo in poskusite znova.</string>
+	<string name="connection_timed_out">Čas za zahtevo je potekel. Preverite omrežno povezavo in poskusite znova.</string>
+	<string name="server_error">Pri pogovarjanju s strežnikom je nekaj šlo narobe. Najverjetneje krivda ni vaša. Poskusite znova.</string>
+	<string name="not_found">Morda je bilo izbrisano ali pa sploh nikoli ni obstajalo.</string>
+	<string name="no_servers_found">Ni najdenih strežnikov za %s</string>
+	<string name="signup_username_taken">Uporabniško ime je zasedeno. Poskusite z drugim ali &lt;a&gt;&lt;a&gt;izberite drug strežnik&lt;/a&gt;&lt;/a&gt;.</string>
+	<string name="signup_email_invalid">To ni videti kot veljaven naslov e-pošte.</string>
+	<string name="signup_email_taken">E-naslov je že v rabi. Ali ste morda &lt;a&gt;&lt;a&gt;pozabili svoje geslo&lt;/a&gt;&lt;/a&gt;?</string>
+	<plurals name="x_new_notifications">
+		<item quantity="one">%,d novo obvestilo</item>
+		<item quantity="two">%,d novi obvestili</item>
+		<item quantity="few">%,d nova obvestila</item>
+		<item quantity="other">%,d novih obvestil</item>
+	</plurals>
 </resources>

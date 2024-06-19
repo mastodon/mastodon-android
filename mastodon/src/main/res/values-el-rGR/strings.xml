@@ -9,7 +9,6 @@
 	<string name="preparing_auth">Προετοιμασία για έλεγχο ταυτότητας…</string>
 	<string name="finishing_auth">Ολοκλήρωση ταυτοποίησης…</string>
 	<string name="user_boosted">Ο χρήστης %s ενίσχυσε</string>
-	<string name="in_reply_to">Σε απάντηση στο %s</string>
 	<string name="notifications">Ειδοποιήσεις</string>
 	<string name="user_followed_you">%s σε ακολούθησε</string>
 	<string name="user_sent_follow_request">%s σού έστειλε ένα αίτημα ακολούθησης</string>
@@ -152,7 +151,6 @@
 	<string name="email">Email</string>
 	<string name="password">Κωδικός πρόσβασης</string>
 	<string name="confirm_password">Επιβεβαίωση κωδικού πρόσβασης</string>
-	<string name="password_note">Να συμπεριλάβεις κεφαλαία γράμματα, ειδικούς χαρακτήρες και αριθμούς για να αυξήσεις την ισχύ του κωδικού πρόσβασης.</string>
 	<string name="category_general">Γενικά</string>
 	<string name="confirm_email_title">Έλεγξε τα εισερχόμενά σου</string>
 	<!-- %s is the email address -->
@@ -166,8 +164,6 @@
 	<string name="save">Αποθήκευση</string>
 	<string name="add_alt_text">Προσθήκη εναλλακτικού κειμένου</string>
 	<string name="visibility_public">Δημόσιο</string>
-	<string name="visibility_followers_only">Μόνο ακόλουθοι</string>
-	<string name="visibility_private">Μόνο άτομα που επισημαίνω</string>
 	<string name="recent_searches">Πρόσφατα</string>
 	<string name="skip">Παράλειψη</string>
 	<string name="notification_type_follow">Νέοι ακόλουθοι</string>
@@ -308,16 +304,13 @@
 	<string name="instance_signup_closed">Αυτός ο διακομιστής δεν δέχεται νέες εγγραφές.</string>
 	<string name="text_copied">Αντιγράφηκε στο πρόχειρο</string>
 	<string name="add_bookmark">Σελιδοδείκτης</string>
-	<string name="remove_bookmark">Αφαίρεση σελιδοδείκτη</string>
 	<string name="bookmarks">Σελιδοδείκτες</string>
 	<string name="your_favorites">Τα αγαπημένα σου</string>
 	<string name="login_title">Καλωσόρισες και πάλι</string>
 	<string name="login_subtitle">Συνδέσου με τον διακομιστή όπου δημιούργησες τον λογαριασμό σου.</string>
 	<string name="server_url">URL διακομιστή</string>
 	<string name="server_filter_any_language">Οποιαδήποτε γλώσσα</string>
-	<string name="server_filter_instant_signup">Άμεση εγγραφή</string>
 	<string name="server_filter_manual_review">Χειροκίνητη αξιολόγηση</string>
-	<string name="server_filter_any_signup_speed">Οποιαδήποτε ταχύτητα εγγραφής</string>
 	<string name="server_filter_region_europe">Ευρώπη</string>
 	<string name="server_filter_region_north_america">Βόρεια Αμερική</string>
 	<string name="server_filter_region_south_america">Νότια Αμερική</string>
@@ -686,7 +679,7 @@
 	<string name="handle_server_explanation">Το ψηφιακό τους σπίτι, όπου ζουν όλες οι αναρτήσεις τους.</string>
 	<string name="handle_explanation">Από τη στιγμή που τα handles λένε ποιος είναι κάποιος και πού είναι, μπορείς να αλληλεπιδράσεις με τους ανθρώπους απ\' όλο τον κοινωνικό ιστό των &lt;a&gt; πλατφορμών που στηρίζονται στο ActivityPub&lt;/a&gt;.</string>
 	<string name="handle_server_explanation_own">Το ψηφιακό σπίτι σου, όπου ζουν όλες οι αναρτήσεις σου. Δεν σ\' αρέσει αυτός; Μετακινήσου σε διακομιστές ανά πάσα στιγμή και φέρε και τους ακόλουθούς σου.</string>
-	<string name="handle_explanation_own">Επειδή το handle σου λέει ποιος είσαι και πού βρίσκεσαι, οι άνθρωποι μπορούν να αλληλεπιδράσουν μαζί σou στον κοινωνικό ιστό των &lt;a&gt;πλατφορμών που στηρίζονται στο ActivityPub&lt;/a&gt;.</string>
+	<string name="handle_explanation_own">Επειδή το handle σου λέει ποιος είσαι και πού βρίσκεσαι, οι άνθρωποι μπορούν να αλληλεπιδράσουν μαζί σου στον κοινωνικό ιστό των &lt;a&gt;πλατφορμών που στηρίζονται στο ActivityPub&lt;/a&gt;.</string>
 	<string name="what_is_activitypub_title">Τί είναι το ActivityPub;</string>
 	<string name="what_is_activitypub">Το ActivityPub είναι σαν τη γλώσσα που μιλάει το Mastodon με άλλα κοινωνικά δίκτυα.\n\nΣου επιτρέπει να συνδεθείς και να αλληλεπιδράσεις με ανθρώπους όχι μόνο στο Mastodon, αλλά και σε διαφορετικές κοινωνικές εφαρμογές.</string>
 	<string name="handle_copied">Το handle αντιγράφηκε στο πρόχειρο.</string>

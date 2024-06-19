@@ -9,12 +9,12 @@
 	<string name="preparing_auth">Przygotowywanie do uwierzytelniania…</string>
 	<string name="finishing_auth">Kończenie uwierzytelniania…</string>
 	<string name="user_boosted">%s podaje dalej</string>
-	<string name="in_reply_to">W odpowiedzi do %s</string>
+	<string name="in_reply_to">w odpowiedzi do %s</string>
 	<string name="notifications">Powiadomienia</string>
 	<string name="user_followed_you">%s obserwuje Cię</string>
 	<string name="user_sent_follow_request">%s wysyła Tobie prośbę o obserwację</string>
 	<string name="user_favorited">%s lubi Twój post</string>
-	<string name="notification_boosted">%s podał(a/o) Twojego posta dalej</string>
+	<string name="notification_boosted">%s podał(a/o) Twój wpis dalej</string>
 	<string name="poll_ended">Zobacz wyniki ankiety, w której oddałeś/aś głos</string>
 	<string name="share_toot_title">Udostępnij</string>
 	<string name="settings">Ustawienia</string>
@@ -146,7 +146,7 @@
 	<string name="report_reason_personal">Nie lubię tego</string>
 	<string name="report_reason_personal_subtitle">To coś, czego inni nie chcieliby widzieć</string>
 	<string name="report_reason_spam">To spam</string>
-	<string name="report_reason_spam_subtitle">Niebezpieczne linki, fałszywe zaangażowanie lub powtarzające się odpowiedzi</string>
+	<string name="report_reason_spam_subtitle">Niebezpieczne odnośniki, fałszywe zaangażowanie lub powtarzające się odpowiedzi</string>
 	<string name="report_reason_violation">To narusza zasady serwera</string>
 	<string name="report_reason_violation_subtitle">Wiesz, że narusza to określone zasady</string>
 	<string name="report_reason_other">To coś innego</string>
@@ -176,7 +176,6 @@
 	<string name="email">Adres e-mail</string>
 	<string name="password">Hasło</string>
 	<string name="confirm_password">Potwierdź hasło</string>
-	<string name="password_note">Użyj wielkich liter, znaków specjalnych i liczb, aby zwiększyć siłę swojego hasła.</string>
 	<string name="category_general">Ogólne</string>
 	<string name="confirm_email_title">Sprawdź swoją skrzynkę odbiorczą</string>
 	<!-- %s is the email address -->
@@ -190,8 +189,6 @@
 	<string name="save">Zapisz</string>
 	<string name="add_alt_text">Dodaj tekst alternatywny</string>
 	<string name="visibility_public">Publiczny</string>
-	<string name="visibility_followers_only">Tylko dla obserwujących</string>
-	<string name="visibility_private">Tylko wspomniane osoby</string>
 	<string name="recent_searches">Ostatnie</string>
 	<string name="skip">Pomiń</string>
 	<string name="notification_type_follow">Nowi obserwujący</string>
@@ -215,7 +212,7 @@
 	<string name="theme_dark">Ciemny</string>
 	<string name="settings_behavior">Zachowanie</string>
 	<string name="settings_gif">Wyświetlaj animowane awatary i emoji</string>
-	<string name="settings_custom_tabs">Otwieraj linki za pomocą</string>
+	<string name="settings_custom_tabs">Otwieraj odnośniki za pomocą</string>
 	<string name="settings_notifications">Powiadomienia</string>
 	<string name="settings_contribute">Weź udział w rozwoju Mastodona</string>
 	<string name="settings_tos">Zasady użytkowania</string>
@@ -346,16 +343,13 @@
 	<string name="instance_signup_closed">Ten serwer nie akceptuje nowych rejestracji.</string>
 	<string name="text_copied">Skopiowano do schowka</string>
 	<string name="add_bookmark">Dodaj zakładkę</string>
-	<string name="remove_bookmark">Usuń zakładkę</string>
 	<string name="bookmarks">Zakładki</string>
 	<string name="your_favorites">Twoje ulubione</string>
 	<string name="login_title">Witaj ponownie</string>
 	<string name="login_subtitle">Zaloguj się na serwer, na którym utworzyłeś swoje konto.</string>
 	<string name="server_url">Adres URL serwera</string>
 	<string name="server_filter_any_language">Dowolny język</string>
-	<string name="server_filter_instant_signup">Natychmiastowa rejestracja</string>
 	<string name="server_filter_manual_review">Ręczne sprawdzenie</string>
-	<string name="server_filter_any_signup_speed">Dowolna szybkość rejestracji</string>
 	<string name="server_filter_region_europe">Europa</string>
 	<string name="server_filter_region_north_america">Ameryka Północna</string>
 	<string name="server_filter_region_south_america">Ameryka Południowa</string>
@@ -402,7 +396,7 @@
 	<string name="log_out_all_accounts">Wyloguj się wszędzie</string>
 	<string name="confirm_log_out_all_accounts">Wylogować się ze wszystkich kont?</string>
 	<string name="retry">Ponów</string>
-	<string name="post_failed">Nie udało się wysłać posta</string>
+	<string name="post_failed">Nie udało się wysłać wpisu</string>
 	<!-- %s is formatted file size ("467 KB image") -->
 	<string name="attachment_description_image">Obraz %s</string>
 	<string name="attachment_description_video">Film %s</string>
@@ -455,11 +449,11 @@
 	<string name="settings_server_explanation">Przegląd, zasady, moderacja</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">O %s</string>
-	<string name="default_post_language">Domyślny język posta</string>
+	<string name="default_post_language">Domyślny język wpisu</string>
 	<string name="settings_alt_text_reminders">Dodaj opis przypomnienia</string>
 	<string name="settings_confirm_unfollow">Zapytaj przed usunięciem obserwacji</string>
 	<string name="settings_confirm_boost">Zapytaj przed podbijaniem</string>
-	<string name="settings_confirm_delete_post">Zapytaj przed usunięciem posta</string>
+	<string name="settings_confirm_delete_post">Zapytaj przed usunięciem wpisów</string>
 	<string name="pause_all_notifications">Wstrzymaj wszystkie powiadomienia</string>
 	<string name="pause_notifications_off">Wyłącz</string>
 	<string name="notifications_policy_anyone">Każdy</string>
@@ -742,4 +736,24 @@ Im więcej ludzi obserwujesz, tym aktywniejsza i bardziej interesująca się sta
 	<string name="post_pinned">Wpis został przypięty</string>
 	<string name="post_unpinned">Wpis został odpięty</string>
 	<!-- %s is the username -->
+	<string name="enable_new_post_notifications">Powiadamiaj mnie o wpisach %s</string>
+	<string name="disable_new_post_notifications">Przestań powiadamiać mnie o wpisach %s</string>
+	<string name="new_post_notifications_enabled">Otrzymasz powiadomienia o nowych wpisach.</string>
+	<string name="new_post_notifications_disabled">Nie będziesz już otrzymywać powiadomień o nowych wpisach.</string>
+	<string name="mute_conversation">Wycisz konwersację</string>
+	<string name="unmute_conversation">Cofnij wyciszenie konwersacji</string>
+	<string name="filtered_notifications">Filtrowane powiadomienia</string>
+	<string name="filter_notifications">Odfiltruj powiadomienia od...</string>
+	<string name="notification_filter_following">Osoby, których nie obserwujesz</string>
+	<string name="notification_filter_following_explanation">Dopóki nie zatwierdzisz ich ręcznie</string>
+	<string name="notification_filter_followers">Ludzie, którzy cię nie obserwują</string>
+	<string name="notification_filter_followers_explanation">Łącznie z osobami obserwującymi Cię przez mniej niż 3 dni</string>
+	<string name="notification_filter_new_accounts">Nowe konta</string>
+	<string name="notification_filter_new_accounts_explanation">Utworzone w ciągu ostatnich 30 dni</string>
+	<string name="notification_filter_mentions">Nieproszone prywatne wzmianki</string>
+	<string name="allow_notifications">Zezwalaj na powiadomienia</string>
+	<string name="mute_notifications">Odrzuć żądanie powiadomienia</string>
+	<string name="notifications_from_user">Powiadomienia od %s</string>
+	<string name="notifications_muted">Powiadomienia od %s zostały odrzucone.</string>
+	<string name="notifications_allowed">%s pojawi się teraz na liście powiadomień.</string>
 </resources>

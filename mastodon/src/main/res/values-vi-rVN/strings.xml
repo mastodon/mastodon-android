@@ -9,7 +9,7 @@
 	<string name="preparing_auth">Chuẩn bị xác thực…</string>
 	<string name="finishing_auth">Hoàn tất xác thực…</string>
 	<string name="user_boosted">%s đăng lại</string>
-	<string name="in_reply_to">Trả lời %s</string>
+	<string name="in_reply_to">trả lời đến %s</string>
 	<string name="notifications">Thông báo</string>
 	<string name="user_followed_you">%s theo dõi bạn</string>
 	<string name="user_sent_follow_request">%s yêu cầu theo dõi bạn</string>
@@ -140,7 +140,6 @@
 	<string name="email">Email</string>
 	<string name="password">Mật khẩu</string>
 	<string name="confirm_password">Nhập lại mật khẩu</string>
-	<string name="password_note">Hãy thêm chữ viết hoa, ký tự đặc biệt và số để tăng độ mạnh mật khẩu.</string>
 	<string name="category_general">Chung</string>
 	<string name="confirm_email_title">Kiểm tra email của bạn</string>
 	<!-- %s is the email address -->
@@ -154,8 +153,8 @@
 	<string name="save">Lưu</string>
 	<string name="add_alt_text">Thêm văn bản thay thế</string>
 	<string name="visibility_public">Công khai</string>
-	<string name="visibility_followers_only">Chỉ người theo dõi</string>
-	<string name="visibility_private">Nhắn riêng</string>
+	<string name="visibility_followers_only">Người theo dõi</string>
+	<string name="visibility_private">Người cụ thể</string>
 	<string name="recent_searches">Gần đây</string>
 	<string name="skip">Bỏ qua</string>
 	<string name="notification_type_follow">Người theo dõi mới</string>
@@ -583,7 +582,7 @@
 	<string name="manage_list_members">Quản lý danh sách</string>
 	<string name="list_no_members">Chưa có người nào</string>
 	<string name="list_find_users">Tìm người để thêm vào</string>
-	<string name="reply_to_user">Trả lời %s</string>
+	<string name="reply_to_user">Trả lời đến %s</string>
 	<string name="posted_at">Được đăng tại %s</string>
 	<string name="non_mutual_sheet_title">Chào kết nối mới!</string>
 	<string name="non_mutual_sheet_text">Bạn sắp trả lời tút của một người chưa quen biết. Hãy tạo thiện cảm đầu tiên nhé.</string>
@@ -646,7 +645,7 @@ Bạn càng theo dõi nhiều người thì nó sẽ càng sôi động và thú
 	<string name="server_can_interact_with_older">Thành viên máy chủ này có thể tương tác với các tút cũ của bạn.</string>
 	<string name="unblocked_domain_x">Bỏ chặn máy chủ %s</string>
 	<string name="handle_help_title">Địa chỉ Mastodon là gì?</string>
-	<string name="handle_title">Địa chỉ Mastodon của một người</string>
+	<string name="handle_title">Địa chỉ Mastodon của người này</string>
 	<string name="handle_username_explanation">Danh tính duy nhất của một người trên máy chủ của họ. Có thể có tên người dùng giống nhau trên các máy chủ khác nhau.</string>
 	<string name="handle_title_own">Địa chỉ Mastodon của bạn</string>
 	<string name="handle_username_explanation_own">Danh tính duy nhất của bạn trên máy chủ này. Có thể có tên người dùng giống bạn trên các máy chủ khác.</string>
@@ -704,4 +703,23 @@ Bạn càng theo dõi nhiều người thì nó sẽ càng sôi động và thú
 	<string name="notifications_from_user">Thông báo từ %s</string>
 	<string name="notifications_muted">Thông báo từ %s đã bị bỏ qua.</string>
 	<string name="notifications_allowed">%s sẽ xuất hiện trong danh sách thông báo của bạn.</string>
+	<string name="visibility_subtitle_public">Bất cứ ai</string>
+	<string name="visibility_subtitle_unlisted">Ít hướng thuật toán hơn</string>
+	<string name="visibility_subtitle_followers">Chỉ người theo dõi</string>
+	<string name="visibility_subtitle_private">Những người được nhắc trong tút</string>
+	<string name="view_boosts">Xem lượt đăng lại</string>
+	<string name="view_favorites">Xem lượt thích</string>
+	<string name="undo_reblog">Bỏ đăng lại</string>
+	<string name="undo_favorite">Bỏ thích</string>
+	<string name="could_not_reach_server">Kiểm tra kết nối của bạn và thử lại</string>
+	<string name="connection_timed_out">Hết thời gian chờ. Kiểm tra kết nối của bạn và thử lại?</string>
+	<string name="server_error">Xảy ra lỗi khi kết nối với máy chủ của bạn. Đó có thể không phải là lỗi của bạn. Thử lại?</string>
+	<string name="not_found">Nó có thể đã bị xóa hoặc có thể chưa bao giờ tồn tại.</string>
+	<string name="no_servers_found">Không tìm thấy máy chủ “%s”</string>
+	<string name="signup_username_taken">Tên người dùng đã tồn tại. Thử tên khác hoặc &lt;a&gt;chọn máy chủ khác&lt;/a&gt;.</string>
+	<string name="signup_email_invalid">Đây không phải địa chỉ email hợp lệ.</string>
+	<string name="signup_email_taken">Địa chỉ email đã tồn tại. Bạn bị &lt;a&gt;quên mật khẩu&lt;/a&gt;?</string>
+	<plurals name="x_new_notifications">
+		<item quantity="other">%,d thông báo mới</item>
+	</plurals>
 </resources>

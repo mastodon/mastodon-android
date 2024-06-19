@@ -9,7 +9,7 @@
 	<string name="preparing_auth">Verificatie voorbereiden…</string>
 	<string name="finishing_auth">Verificatie afronden…</string>
 	<string name="user_boosted">%s boostte</string>
-	<string name="in_reply_to">Als reactie op %s</string>
+	<string name="in_reply_to">als reactie op %s</string>
 	<string name="notifications">Meldingen</string>
 	<string name="user_followed_you">%s volgt jou nu</string>
 	<string name="user_sent_follow_request">%s wil jou graag volgen</string>
@@ -152,7 +152,6 @@
 	<string name="email">E-mailadres</string>
 	<string name="password">Wachtwoord</string>
 	<string name="confirm_password">Wachtwoord bevestigen</string>
-	<string name="password_note">Voeg hoofdletters, speciale tekens en cijfers toe om je wachtwoord veiliger te maken.</string>
 	<string name="category_general">Algemeen</string>
 	<string name="confirm_email_title">Controleer jouw e-mail</string>
 	<!-- %s is the email address -->
@@ -166,7 +165,7 @@
 	<string name="save">Opslaan</string>
 	<string name="add_alt_text">Alt-tekst toevoegen</string>
 	<string name="visibility_public">Openbaar</string>
-	<string name="visibility_followers_only">Alleen volgers</string>
+	<string name="visibility_followers_only">Volgers</string>
 	<string name="visibility_private">Privébericht</string>
 	<string name="recent_searches">Recent gezocht</string>
 	<string name="skip">Overslaan</string>
@@ -308,16 +307,13 @@
 	<string name="instance_signup_closed">Deze server accepteert geen nieuwe registraties.</string>
 	<string name="text_copied">Gekopieerd naar klembord</string>
 	<string name="add_bookmark">Bladwijzer toevoegen</string>
-	<string name="remove_bookmark">Bladwijzer verwijderen</string>
 	<string name="bookmarks">Bladwijzers</string>
 	<string name="your_favorites">Jouw favorieten</string>
 	<string name="login_title">Welkom terug</string>
 	<string name="login_subtitle">Bij de server waar je je account hebt aangemaakt inloggen.</string>
 	<string name="server_url">Server-URL</string>
 	<string name="server_filter_any_language">Elke taal</string>
-	<string name="server_filter_instant_signup">Je kunt direct registreren</string>
 	<string name="server_filter_manual_review">Handmatige beoordeling nodig</string>
-	<string name="server_filter_any_signup_speed">Elke registratiesnelheid</string>
 	<string name="server_filter_region_europe">Europa</string>
 	<string name="server_filter_region_north_america">Noord-Amerika</string>
 	<string name="server_filter_region_south_america">Zuid-Amerika</string>
@@ -684,11 +680,11 @@
 	<string name="handle_username_explanation_own">Jouw unieke identificatie-adres op deze server. Het is mogelijk dat er gebruikers met dezelfde gebruikersnaam op verschillende servers te vinden zijn.</string>
 	<string name="server">Server</string>
 	<string name="handle_server_explanation">Hun digitale thuis, waar al hun berichten zich bevinden.</string>
-	<string name="handle_explanation">Omdat je aan een fediverse-adres kunt zien wie iemand is en waar die zich bevindt, kun je met mensen op het door &lt;a&gt;ActivityPub aangedreven&lt;/a&gt; sociale web (fediverse) communiceren.</string>
+	<string name="handle_explanation">Omdat je aan een fediverse-adres kunt zien hoe iemand heet en op welke server die zich bevindt, kun je met mensen op het door &lt;a&gt;ActivityPub aangedreven&lt;/a&gt; sociale web (fediverse) communiceren.</string>
 	<string name="handle_server_explanation_own">Jouw digitale thuis, waar al jouw berichten zich bevinden. Is deze server toch niet naar jouw wens? Dan kun je op elk moment naar een andere server verhuizen en ook jouw volgers overbrengen.</string>
-	<string name="handle_explanation_own">Omdat je aan jouw fediverse-adres kunt zien wie jij bent is en waar je je bevindt, kunnen mensen op het door &lt;a&gt;ActivityPub aangedreven&lt;/a&gt; sociale web (fediverse) met jou communiceren.</string>
+	<string name="handle_explanation_own">Omdat je aan jouw fediverse-adres kunt zien hoe je heet en op welke server je je bevindt, kunnen mensen op het door &lt;a&gt;ActivityPub aangedreven&lt;/a&gt; sociale web (fediverse) met jou communiceren.</string>
 	<string name="what_is_activitypub_title">Wat is ActivityPub?</string>
-	<string name="what_is_activitypub">ActivityPub is de taal die Mastodon met andere sociale netwerken (fediverse) spreekt.\n\nHet zorgt ervoor dat je niet alleen maar kunt verbinden en communiceren met mensen op Mastodon, maar ook met andere sociale apps.</string>
+	<string name="what_is_activitypub">ActivityPub is de taal die Mastodon met andere sociale netwerken (fediverse) spreekt.\n\nHet zorgt ervoor dat je niet alleen maar kunt verbinden en communiceren met mensen op Mastodon, maar ook met mensen op andere sociale apps.</string>
 	<string name="handle_copied">Fediverse-adres naar het klembord gekopieerd.</string>
 	<string name="qr_code">QR-code</string>
 	<string name="scan_qr_code">QR-code scannen</string>
@@ -737,4 +733,8 @@
 	<string name="notifications_from_user">Meldingen van %s</string>
 	<string name="notifications_muted">Notifications from %s zijn afgewezen.</string>
 	<string name="notifications_allowed">%s verschijnt vanaf nu onder jouw meldingen.</string>
+	<string name="visibility_subtitle_public">Iedereen op Mastodon en daarbuiten</string>
+	<string name="visibility_subtitle_unlisted">Voor iedereen zichtbaar, maar niet onder trends, hashtags en op openbare tijdlijnen</string>
+	<string name="visibility_subtitle_followers">Alleen jouw volgers</string>
+	<string name="visibility_subtitle_private">Alleen voor mensen die specifiek in het bericht worden vermeld</string>
 </resources>

@@ -9,7 +9,7 @@
 	<string name="preparing_auth">Preparando para autenticação…</string>
 	<string name="finishing_auth">Finalizando autenticação…</string>
 	<string name="user_boosted">%s impulsionou</string>
-	<string name="in_reply_to">Em resposta à %s</string>
+	<string name="in_reply_to">em resposta a %s</string>
 	<string name="notifications">Notificações</string>
 	<string name="user_followed_you">%s seguiu você</string>
 	<string name="user_sent_follow_request">%s enviou uma solicitação para seguir você</string>
@@ -31,6 +31,7 @@
 		<item quantity="other">seguindo</item>
 	</plurals>
 	<string name="posts">Publicações</string>
+	<string name="posts_and_replies">Publicações e respostas</string>
 	<string name="media">Mídia</string>
 	<string name="profile_about">Sobre</string>
 	<string name="button_follow">Seguir</string>
@@ -151,7 +152,6 @@
 	<string name="email">E-mail</string>
 	<string name="password">Senha</string>
 	<string name="confirm_password">Confirmar senha</string>
-	<string name="password_note">Inclua letras maiúsculas, caracteres especiais e números para deixar sua senha mais forte e segura.</string>
 	<string name="category_general">Geral</string>
 	<string name="confirm_email_title">Verifique sua caixa de entrada</string>
 	<!-- %s is the email address -->
@@ -165,8 +165,8 @@
 	<string name="save">Salvar</string>
 	<string name="add_alt_text">Adicionar texto alternativo</string>
 	<string name="visibility_public">Público</string>
-	<string name="visibility_followers_only">Apenas seguidores</string>
-	<string name="visibility_private">Apenas pessoas mencionadas</string>
+	<string name="visibility_followers_only">Seguidores</string>
+	<string name="visibility_private">Pessoas específicas</string>
 	<string name="recent_searches">Recente</string>
 	<string name="skip">Pular</string>
 	<string name="notification_type_follow">Novos seguidores</string>
@@ -217,6 +217,8 @@
 	<string name="followed_user">Agora você está seguindo %s</string>
 	<string name="following_user_requested">Solicitou para te seguir %s</string>
 	<string name="open_in_browser">Abrir no navegador</string>
+	<string name="hide_boosts_from_user">Ocultar impulsos</string>
+	<string name="show_boosts_from_user">Mostrar impulsos</string>
 	<string name="signup_reason">Por que você deseja se inscrever?</string>
 	<string name="signup_reason_note">Isso vai nos ajudar a revisar sua inscrição.</string>
 	<string name="clear">Limpar</string>
@@ -255,6 +257,10 @@
 	<plurals name="x_favorites">
 		<item quantity="one">%,d favorito</item>
 		<item quantity="other">%,d favoritos</item>
+	</plurals>
+	<plurals name="x_reblogs">
+		<item quantity="one">%,d impulsos</item>
+		<item quantity="other">%,d impulsos</item>
 	</plurals>
 	<string name="time_now">agora</string>
 	<string name="edit_history">Histórico de edição</string>
@@ -301,13 +307,14 @@
 	<string name="instance_signup_closed">Este servidor não aceita novos registros.</string>
 	<string name="text_copied">Copiado para a área de transferência</string>
 	<string name="add_bookmark">Salvar</string>
-	<string name="remove_bookmark">Remover dos salvos</string>
+	<string name="remove_bookmark">Remover favorito</string>
 	<string name="bookmarks">Salvos</string>
 	<string name="your_favorites">Seus favoritos</string>
 	<string name="login_title">Bem-vindo de volta</string>
 	<string name="login_subtitle">Faça login no servidor onde você criou sua conta.</string>
 	<string name="server_url">URL do servidor</string>
 	<string name="server_filter_any_language">Qualquer idioma</string>
+	<string name="server_filter_manual_review">Revisão manual</string>
 	<string name="server_filter_region_europe">Europa</string>
 	<string name="server_filter_region_north_america">América do Norte</string>
 	<string name="server_filter_region_south_america">América do Sul</string>
@@ -315,6 +322,7 @@
 	<string name="server_filter_region_asia">Ásia</string>
 	<string name="server_filter_region_oceania">Oceania</string>
 	<string name="not_accepting_new_members">Não está aceitando novos membros</string>
+	<string name="category_special_interests">Interesses especiais</string>
 	<string name="signup_passwords_dont_match">As senhas não correspondem</string>
 	<string name="profile_add_row">Adicionar linha</string>
 	<string name="profile_setup">Configuração do perfil</string>
@@ -440,7 +448,7 @@
 	<string name="server_administrator">Administrador</string>
 	<string name="send_email_to_server_admin">Contatar administrador</string>
 	<string name="notifications_disabled_in_system">Ative as notificações nas configurações do seu dispositivo para ver as atualizações de qualquer lugar.</string>
-	<string name="settings_even_more">Ainda mais configurações</string>
+	<string name="settings_even_more">Configurações Adicionais</string>
 	<string name="settings_show_cws">Mostrar avisos de conteúdo</string>
 	<string name="settings_hide_sensitive_media">Ocultar mídia marcada como sensível</string>
 	<string name="settings_show_interaction_counts">Contagem de interações com publicações</string>
@@ -555,6 +563,10 @@
 		<item quantity="one">%,d participante</item>
 		<item quantity="other">%,d participantes</item>
 	</plurals>
+	<plurals name="x_posts_today">
+		<item quantity="one">%,d publicação hoje</item>
+		<item quantity="other">%,d publicações hoje</item>
+	</plurals>
 	<string name="error_playing_video">Erro ao reproduzir vídeo</string>
 	<string name="timeline_following">Início</string>
 	<string name="lists">Listas</string>
@@ -568,6 +580,9 @@
 	<string name="delete_list">Excluir lista</string>
 	<!-- %s is the name of the list -->
 	<string name="delete_list_confirm">Excluir “%s”?</string>
+	<string name="list_exclusive">Ocultar membros que estou seguindo</string>
+	<string name="list_exclusive_subtitle">Se alguém estiver nesta lista, você pode ocultá-lo na sua timeline de Seguiindo para evitar ver as postagens dessa pessoa duas vezes.</string>
+	<string name="list_name">Nome da lista</string>
 	<string name="list_show_replies_to">Mostrar respostas para</string>
 	<string name="list_replies_no_one">Ninguém</string>
 	<string name="list_replies_members">Membros da lista</string>
@@ -579,15 +594,33 @@
 	<string name="add_user_to_list">Adicionar/remover das listas…</string>
 	<string name="add_user_to_list_title">Adicionar à lista</string>
 	<!-- %s is a username -->
+	<string name="manage_user_lists">Gerenciar as listas em que %s aparece</string>
 	<string name="remove_from_list">Remover da lista</string>
 	<string name="confirm_remove_list_member">Remover membro?</string>
+	<string name="no_followed_hashtags_title">Acompanhe seus interesses seguindo hashtags</string>
+	<string name="no_followed_hashtags_subtitle">Seguidores aparecerão aqui</string>
+	<string name="no_lists_title">Organize seu feed inicial com listas</string>
+	<string name="no_lists_subtitle">Seu aparecerá aqui</string>
+	<string name="manage_accounts">Adicionar ou trocar de conta</string>
+	<plurals name="x_posts_recently">
+		<item quantity="one">%,d publicação recentemente</item>
+		<item quantity="other">%,d publicações recentemente</item>
+	</plurals>
 	<string name="create_list">Criar lista</string>
+	<string name="step_x_of_y">Passo %1$d de %2$d</string>
 	<string name="create">Criar</string>
 	<string name="manage_list_members">Gerenciar membros da lista</string>
+	<string name="list_no_members">Nenhum membro ainda</string>
+	<string name="list_find_users">Encontrar usuários para adicionar</string>
+	<string name="reply_to_user">Responder a %s</string>
+	<string name="posted_at">Postado em %s</string>
 	<string name="non_mutual_sheet_title">Olá, nova conexão!</string>
 	<string name="non_mutual_sheet_text">Parece que você está prestes a responder a alguém que ainda não tem uma conexão mútua. Vamos causar uma ótima primeira impressão.</string>
 	<string name="got_it">Entendido</string>
+	<string name="dont_remind_again">Não me lembre novamente</string>
 	<!-- %s is a time interval ("5 months") -->
+	<string name="old_post_sheet_title">Esta postagem tem %s de idade</string>
+	<string name="old_post_sheet_text">Você ainda pode responder, mas isso pode não ser mais relevante.</string>
 	<plurals name="x_months">
 		<item quantity="one">%,d mês</item>
 		<item quantity="other">%,d meses</item>
@@ -599,22 +632,62 @@
 	<string name="non_mutual_text2">Um tom positivo é sempre apreciado.</string>
 	<string name="non_mutual_title3">Estar aberto</string>
 	<string name="non_mutual_text3">O estilo de conversação de cada pessoa é único. Esteja pronto para se adaptar.</string>
+	<string name="make_profile_discoverable">Tornar meu perfil visível</string>
+	<string name="discoverability">Descoberta</string>
+	<string name="discoverability_help">Quando você opta pela visibilidade no Mastodon, suas postagens podem aparecer nos resultados de pesquisa e nos tópicos em destaque.\n\nSeu perfil pode ser sugerido para pessoas com interesses similares aos seus. \n\nNão escolher essa opção não oculta seu perfil caso alguém busque pelo seu nome.</string>
 	<string name="app_version_copied">Número da versão copiado para a área de transferência</string>
+	<string name="onboarding_recommendations_intro">Você controla suas próprias recomendações.
+Quanto mais pessoas que você seguir, mas interessantes e ativas serão.</string>
+	<string name="onboarding_recommendations_title">Personalize o seu feed inicial</string>
 	<string name="article_by_author">Por %s</string>
+	<string name="info">Informações</string>
+	<string name="button_reblogged">Impulsionado</string>
 	<string name="button_favorited">Gostado</string>
+	<string name="bookmarked">Salvo</string>
+	<string name="join_server_x_with_invite">Junte-se a %s com convite</string>
 	<string name="expired_invite_link">Link de convite expirado</string>
+	<string name="expired_clipboard_invite_link_alert">O link de convite para %1$s em sua área de transferência expirou e não pode mais ser usado para se registrar.\n\nVocê pode solicitar um novo link de um usuário existente, cadastrar-se através de %2$s ou escolher outro servidor para se inscrever.</string>
+	<string name="invalid_invite_link">Link de convite inválido</string>
+	<string name="invalid_clipboard_invite_link_alert">O link de convite para %1$s em sua área de transferência não é válido e não pode mais ser usado para se registrar.\n\nVocê pode solicitar um novo link de um usuário existente, cadastrar-se através de %2$s ou escolher outro servidor para se inscrever.</string>
+	<string name="use_invite_link">Usar link de convite</string>
+	<string name="enter_invite_link">Inserir link de convite</string>
+	<string name="this_invite_is_invalid">Este link de convite não é válido.</string>
+	<string name="this_invite_has_expired">Este link de convite expirou.</string>
+	<string name="invite_link_pasted">Link colado da sua área de transferência.</string>
+	<string name="need_invite_to_join_server">Para se juntar a %s, você precisará de um link de convite de um usuário existente.</string>
 	<string name="mute_user_confirm_title">Silenciar usuário?</string>
 	<string name="user_wont_know_muted">Eles não saberão que foram silenciados.</string>
 	<string name="user_can_still_see_your_posts">Eles ainda poderão ver suas publicações, mas você não verá as deles.</string>
 	<string name="you_wont_see_user_mentions">Você não verá publicações que os mencionem.</string>
 	<string name="user_can_mention_and_follow_you">Eles podem mencionar e seguir você, mas você não os verá.</string>
+	<string name="unmuted_user_x">Desmutado %s</string>
 	<string name="block_user_confirm_title">Bloquear usuário?</string>
 	<string name="user_can_see_blocked">Eles podem ver que estão bloqueados.</string>
+	<string name="user_cant_see_each_other_posts">Eles não podem ver suas publicações e você não verá as deles.</string>
+	<string name="user_cant_mention_or_follow_you">Eles não podem mencionar ou seguir você.</string>
+	<string name="unblocked_user_x">Desbloquear %s</string>
+	<string name="block_domain_confirm_title">Bloquear domínio?</string>
+	<string name="do_block_server">Bloquear servidor</string>
+	<string name="block_user_x_instead">Bloquear %s em vez disso</string>
+	<string name="users_cant_see_blocked">Você não verá publicações ou notificações de usuários neste servidor.</string>
+	<string name="you_wont_see_server_posts">Você não verá nenhuma publicação de usuários neste servidor.</string>
+	<string name="server_followers_will_be_removed">Seus seguidores deste servidor serão removidos.</string>
+	<string name="server_cant_mention_or_follow_you">Ninguém deste servidor pode te seguir.</string>
+	<string name="server_can_interact_with_older">Pessoas deste servidor podem interagir com suas publicações antigas.</string>
+	<string name="unblocked_domain_x">Desbloquear domínio %s</string>
+	<string name="handle_help_title">O que tem em um arroba?</string>
+	<string name="handle_title">Seu arroba</string>
+	<string name="handle_username_explanation">Seu identificador exclusivo neste servidor. É possível encontrar usuários com o mesmo nome de usuário em servidores diferentes.</string>
+	<string name="handle_title_own">Seu identificador</string>
+	<string name="handle_username_explanation_own">Seu identificador exclusivo neste servidor. É possível encontrar usuários com o mesmo nome de usuário em servidores diferentes.</string>
 	<string name="server">Servidor</string>
 	<string name="handle_server_explanation">Sua casa digital, onde ficam todas as suas publicações.</string>
+	<string name="handle_explanation">Como os arrobas dizem quem alguém é e onde estão, você pode interagir com pessoas em redes sociais de &lt;a&gt;plataformas que usam o ActivityPub&lt;a&gt;.</string>
 	<string name="handle_server_explanation_own">Sua casa digital, onde ficam todas as suas publicações. Não gosta deste? Transfira servidores a qualquer momento e traga seus seguidores também.</string>
+	<string name="handle_explanation_own">Como seu arroba diz quem você é e onde está, pessoas em outras &lt;a&gt;redes sociais que usam o ActivityPub&lt;a&gt; podem interagir com você.</string>
 	<string name="what_is_activitypub_title">Qual é o ActivityPub?</string>
 	<string name="what_is_activitypub">ActivityPub é como a linguagem que o Mastodon fala com outras redes sociais.\n\nEle permite que você se conecte e interaja com pessoas não apenas no Mastodon, mas também em diferentes aplicativos sociais.</string>
+	<string name="handle_copied">Arroba copiado para a área de transferência.</string>
 	<string name="qr_code">Código QR</string>
 	<string name="scan_qr_code">Escanear código QR</string>
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
@@ -628,9 +701,46 @@
 	<string name="in_app_browser">Navegador do aplicativo</string>
 	<string name="system_browser">Navegador do sistema</string>
 	<string name="add_muted_word_short">Adicionar palavra</string>
+	<string name="tab_home">Página Inicial</string>
 	<string name="tab_search">Explorar</string>
 	<string name="tab_profile">Perfil</string>
 	<string name="pin_post">Fixar no perfil</string>
 	<string name="unpin_post">Desafixar do perfil</string>
+	<string name="post_pinned">A publicação foi fixada</string>
+	<string name="post_unpinned">A postagem foi desfixada</string>
 	<!-- %s is the username -->
+	<string name="enable_new_post_notifications">Avise-me quando %s postar</string>
+	<string name="disable_new_post_notifications">Pare de me notificar quando %s postar</string>
+	<string name="new_post_notifications_enabled">Você receberá notificações de novas postagens.</string>
+	<string name="new_post_notifications_disabled">Você não será mais notificado sobre novas postagens.</string>
+	<string name="mute_conversation">Silenciar conversa</string>
+	<string name="unmute_conversation">Desativar silenciamento da conversa</string>
+	<string name="visibility_unlisted">Não listado</string>
+	<string name="filtered_notifications">Notificações filtradas</string>
+	<string name="filter_notifications">Filtrar notificações de...</string>
+	<string name="notification_filter_following">Pessoas que você não segue</string>
+	<string name="notification_filter_following_explanation">Até você aprová-los manualmente</string>
+	<string name="notification_filter_followers">Pessoas que não seguem você</string>
+	<string name="notification_filter_followers_explanation">Incluindo pessoas que estão te seguindo há menos de 3 dias</string>
+	<string name="notification_filter_new_accounts">Novas contas</string>
+	<string name="notification_filter_new_accounts_explanation">Criado nos últimos 30 dias</string>
+	<string name="notification_filter_mentions">Menções privadas não solicitadas</string>
+	<string name="notification_filter_mentions_explanation">Filtrado, a menos que seja uma resposta à sua própria menção ou se você seguir o remetente</string>
+	<string name="allow_notifications">Permitir notificações</string>
+	<string name="mute_notifications">Ignorar solicitação de notificação</string>
+	<plurals name="x_people_you_may_know">
+		<item quantity="one">%,d pessoa que você talvez conheça</item>
+		<item quantity="other">%,d pessoas que você talvez conheça</item>
+	</plurals>
+	<string name="notifications_from_user">Notificações de %s</string>
+	<string name="notifications_muted">As notificações de %s foram dispensadas.</string>
+	<string name="notifications_allowed">%s agora aparecerá na sua lista de notificações.</string>
+	<string name="visibility_subtitle_public">Qualquer um dentro ou fora do Mastodon</string>
+	<string name="visibility_subtitle_unlisted">Menos notificações e recomendações do algoritmo</string>
+	<string name="visibility_subtitle_followers">Mostrar somente seus seguidores</string>
+	<string name="visibility_subtitle_private">Todos mencionados na postagem</string>
+	<string name="view_boosts">Visualizar impulsos</string>
+	<string name="view_favorites">Visualizar favoritos</string>
+	<string name="undo_reblog">Desfazer boost</string>
+	<string name="undo_favorite">Desfazer favorito</string>
 </resources>
