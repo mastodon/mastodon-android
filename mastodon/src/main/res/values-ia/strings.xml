@@ -1,38 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
-	<string name="log_in">Acceder</string>
+	<string name="log_in">Aperir session</string>
 	<string name="next">Sequente</string>
 	<string name="loading_instance">Recuperation de info de servitor…</string>
 	<string name="error">Error</string>
 	<string name="not_a_mastodon_instance">%s non pare esser un servitor de Mastodon.</string>
 	<string name="ok">OK</string>
 	<string name="preparing_auth">Preparation pro authentication…</string>
-	<string name="finishing_auth">Finiente authentication…</string>
+	<string name="finishing_auth">Finalisation del authentication…</string>
 	<string name="user_boosted">%s promovite</string>
-	<string name="in_reply_to">respondente a: %s</string>
+	<string name="in_reply_to">in responsa a %s</string>
 	<string name="notifications">Notificationes</string>
 	<string name="user_followed_you">%s te seque</string>
-	<string name="user_sent_follow_request">%s te ha inviate un requesta de sequer</string>
-	<string name="user_favorited">%s favoriva tu message</string>
-	<string name="notification_boosted">%s promoveva tu message</string>
-	<string name="poll_ended">Vider le resultatos de un sondage in que tu votava</string>
+	<string name="user_sent_follow_request">%s te ha inviate un requesta de sequimento</string>
+	<string name="user_favorited">%s ha marcate tu message como favorite</string>
+	<string name="notification_boosted">%s ha impulsate tu message</string>
+	<string name="poll_ended">Vider le resultatos de un sondage in que tu ha votate</string>
 	<string name="share_toot_title">Compartir</string>
 	<string name="settings">Parametros</string>
 	<string name="publish">Publicar</string>
-	<string name="discard_draft">Remover le minuta?</string>
-	<string name="discard">Remover</string>
+	<string name="discard_draft">Abandonar le version provisori?</string>
+	<string name="discard">Abandonar</string>
 	<string name="cancel">Cancellar</string>
 	<plurals name="followers">
-		<item quantity="one">sequace</item>
-		<item quantity="other">sequaces</item>
+		<item quantity="one">sequitor</item>
+		<item quantity="other">sequitores</item>
 	</plurals>
 	<plurals name="following">
-		<item quantity="one">sequente</item>
-		<item quantity="other">sequente</item>
+		<item quantity="one">sequite</item>
+		<item quantity="other">sequites</item>
 	</plurals>
 	<string name="posts">Messages</string>
 	<string name="posts_and_replies">Messages e responsas</string>
-	<string name="media">Medios</string>
+	<string name="media">Multimedia</string>
 	<string name="profile_about">A proposito</string>
 	<string name="button_follow">Sequer</string>
 	<string name="button_following">Sequente</string>
@@ -314,7 +314,9 @@
 	<string name="login_subtitle">Aperi session con le servitor ubi tu ha create tu conto.</string>
 	<string name="server_url">URL del servitor</string>
 	<string name="server_filter_any_language">Qualcunque lingua</string>
+	<string name="server_filter_instant_signup">Inscription instantanee</string>
 	<string name="server_filter_manual_review">Revision manual</string>
+	<string name="server_filter_any_signup_speed">Qualcunque velocitate de inscription</string>
 	<string name="server_filter_region_europe">Europa</string>
 	<string name="server_filter_region_north_america">Nord America</string>
 	<string name="server_filter_region_south_america">Sud America</string>
@@ -746,5 +748,13 @@ Quanto plus personas tu seque, tanto plus active e interessante illo sera.</stri
 	<string name="could_not_reach_server">Impossibile contactar le servitor. Controla tu connexion e retenta?</string>
 	<string name="connection_timed_out">Le petition exiva del tempore limite. Verifica tu connexion e retenta?</string>
 	<string name="server_error">Alco errate eveniva parlante con tu servitor. Illo probabilemente non es tu culpa. Retenta?</string>
-	<string name="not_found">Illo poterea haber essite delite, o forsan illo jammais existeva del toto.</string>
+	<string name="not_found">Illo poterea haber essite delite, o forsan illo non ha jammais existite.</string>
+	<string name="no_servers_found">Necun servitor trovate pro “%s”</string>
+	<string name="signup_username_taken">Iste nomine de usator es ja prendite. Tenta un altere nomine o &lt;a&gt;elige un altere servitor&lt;/a&gt;.</string>
+	<string name="signup_email_invalid">Isto non pare como un adresse de e-mail valide.</string>
+	<string name="signup_email_taken">Le adresse de e-mail es ja in uso. Ha tu &lt;a&gt;oblidate tu contrasigno&lt;/a&gt;?</string>
+	<plurals name="x_new_notifications">
+		<item quantity="one">%,d nove notification</item>
+		<item quantity="other">%,d nove notificationes</item>
+	</plurals>
 </resources>
