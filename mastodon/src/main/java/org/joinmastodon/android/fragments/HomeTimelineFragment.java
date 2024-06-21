@@ -116,9 +116,8 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 		super.onCreate(savedInstanceState);
 		localTimelineBannerHelper=new DiscoverInfoBannerHelper(DiscoverInfoBannerHelper.BannerType.LOCAL_TIMELINE, accountID);
 
-		// TODO how often do we do this request? Maybe cache something somewhere?
 		if(AccountSessionManager.get(accountID).isEligibleForDonations()){
-			GetDonationCampaigns req=new GetDonationCampaigns(Locale.getDefault().toLanguageTag().replace('-', '_'), String.valueOf(AccountSessionManager.get(accountID).getDonationSeed()));
+			GetDonationCampaigns req=new GetDonationCampaigns(Locale.getDefault().toLanguageTag().replace('-', '_'), String.valueOf(AccountSessionManager.get(accountID).getDonationSeed()), null);
 			if(BuildConfig.DEBUG && getActivity().getSharedPreferences("debug", Context.MODE_PRIVATE).getBoolean("donationsStaging", false)){
 				req.setStaging(true);
 			}
