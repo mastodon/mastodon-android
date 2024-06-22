@@ -8,7 +8,7 @@
 	<string name="ok">OK</string>
 	<string name="preparing_auth">Preparation pro authentication…</string>
 	<string name="finishing_auth">Finalisation del authentication…</string>
-	<string name="user_boosted">%s promovite</string>
+	<string name="user_boosted">%s impulsate</string>
 	<string name="in_reply_to">in responsa a %s</string>
 	<string name="notifications">Notificationes</string>
 	<string name="user_followed_you">%s te seque</string>
@@ -175,7 +175,7 @@
 	<string name="notification_type_mention">Mentiones</string>
 	<string name="notification_type_poll">Sondages</string>
 	<string name="choose_account">Eliger conto</string>
-	<string name="err_not_logged_in">Primo aperi session sur Mastodon</string>
+	<string name="err_not_logged_in">Per favor aperi session sur Mastodon primo</string>
 	<plurals name="cant_add_more_than_x_attachments">
 		<item quantity="one">Tu non pote adder plus de %d annexo multimedial</item>
 		<item quantity="other">Tu non pote adder plus de %d annexos multimedial</item>
@@ -277,13 +277,13 @@
 	<string name="edited_timestamp">modificate %s</string>
 	<string name="edit_original_post">Message original</string>
 	<string name="edit_text_edited">Texto modificate</string>
-	<string name="edit_spoiler_added">Aviso re contento addite</string>
+	<string name="edit_spoiler_added">Advertimento de contento addite</string>
 	<string name="edit_spoiler_edited">Advertimento de contento modificate</string>
 	<string name="edit_spoiler_removed">Advertimento de contento removite</string>
 	<string name="edit_poll_added">Sondage addite</string>
 	<string name="edit_poll_edited">Sondage modificate</string>
 	<string name="edit_poll_removed">Sondage removite</string>
-	<string name="edit_media_added">Medios addite</string>
+	<string name="edit_media_added">Multimedia addite</string>
 	<string name="edit_media_removed">Multimedia removite</string>
 	<string name="edit_media_reordered">Multimedia reordinate</string>
 	<string name="edit_marked_sensitive">Marcate como sensibile</string>
@@ -387,8 +387,8 @@
 	<string name="what_is_alt_text">Que es le texto alternative?</string>
 	<string name="alt_text_help">Le texto alternative forni descriptiones de imagines a personas con impedimentos visual, con connexiones lente, o qui cerca contexto additional.\n\nTu pote meliorar le accessibilitate e le comprension pro totes scribente un texto alternative clar, concise e objective.\n\n<ul><li>Captura le elementos importante</li>\n<li>Summarisa texto in imagines</li>\n<li>Usa le structura de phrase normal</li>\n<li>Evita information redundante</li>\n<li>In figuras complexe (como diagrammas o mappas), concentra te sur le tendentias e punctos clave</li></ul></string>
 	<string name="edit_post">Modificar message</string>
-	<string name="no_verified_link">Ligamine non verificate</string>
-	<string name="compose_autocomplete_emoji_empty">Navigar per emoticones</string>
+	<string name="no_verified_link">Necun ligamine verificate</string>
+	<string name="compose_autocomplete_emoji_empty">Percurrer emojis</string>
 	<string name="compose_autocomplete_users_empty">Trova qui tu cerca</string>
 	<string name="no_search_results">Nihil trovate pro iste terminos de recerca</string>
 	<string name="language">Lingua</string>
@@ -746,8 +746,8 @@ Quanto plus personas tu seque, tanto plus active e interessante illo essera.</st
 	<string name="undo_reblog">Disfacer impulso</string>
 	<string name="undo_favorite">Disfacer favorite</string>
 	<string name="could_not_reach_server">Impossibile contactar le servitor. Controla tu connexion e retenta?</string>
-	<string name="connection_timed_out">Le petition exiva del tempore limite. Verifica tu connexion e retenta?</string>
-	<string name="server_error">Alco errate eveniva parlante con tu servitor. Illo probabilemente non es tu culpa. Retenta?</string>
+	<string name="connection_timed_out">Le requesta ha expirate. Controla tu connexion e retenta.</string>
+	<string name="server_error">Un error ha occurrite durante le communication con tu servitor. Isto probabilemente non es tu cupla. Retentar?</string>
 	<string name="not_found">Illo poterea haber essite delite, o forsan illo non ha jammais existite.</string>
 	<string name="no_servers_found">Necun servitor trovate pro “%s”</string>
 	<string name="signup_username_taken">Iste nomine de usator es ja prendite. Tenta un altere nomine o &lt;a&gt;elige un altere servitor&lt;/a&gt;.</string>
