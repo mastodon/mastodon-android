@@ -133,7 +133,8 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 			more=findViewById(R.id.more);
 			extraText=findViewById(R.id.extra_text);
 			clickableThing=findViewById(R.id.clickable_thing);
-			clickableThing.setOnClickListener(this::onAvaClick);
+			if(clickableThing!=null)
+				clickableThing.setOnClickListener(this::onAvaClick);
 			avatar.setOutlineProvider(OutlineProviders.roundedRect(10));
 			avatar.setClipToOutline(true);
 			more.setOnClickListener(this::onMoreClick);
@@ -272,8 +273,10 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 				extraText.setText(item.extraText);
 			}
 			more.setVisibility(item.inset ? View.GONE : View.VISIBLE);
-			clickableThing.setClickable(!item.inset);
-			clickableThing.setContentDescription(item.parentFragment.getString(R.string.avatar_description, item.user.acct));
+			if(clickableThing!=null){
+				clickableThing.setClickable(!item.inset);
+				clickableThing.setContentDescription(item.parentFragment.getString(R.string.avatar_description, item.user.acct));
+			}
 		}
 
 		@Override
