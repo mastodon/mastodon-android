@@ -766,6 +766,7 @@ public class ComposeFragment extends MastodonToolbarFragment implements ComposeE
 				sendingOverlay=null;
 				removeBackCallback(sendingBackButtonBlocker);
 				removeBackCallback(discardConfirmationCallback);
+				removeBackCallback(emojiKeyboardHider);
 				if(editingStatus==null){
 					E.post(new StatusCreatedEvent(result, accountID));
 					if(replyTo!=null){

@@ -100,6 +100,8 @@ public class InstanceChooserLoginFragment extends InstanceCatalogFragment{
 				.setCallback(new Callback<>(){
 					@Override
 					public void onSuccess(List<CatalogInstance> result){
+						if(getActivity()==null)
+							return;
 						data.clear();
 						data.addAll(sortInstances(result));
 						updateFilteredList();

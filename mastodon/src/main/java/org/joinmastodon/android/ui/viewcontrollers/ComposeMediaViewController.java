@@ -550,7 +550,7 @@ public class ComposeMediaViewController{
 	}
 	
 	public List<String> getAttachmentIDs(){
-		return attachments.stream().map(a->a.serverAttachment.id).collect(Collectors.toList());
+		return attachments.stream().filter(a->a.serverAttachment!=null).map(a->a.serverAttachment.id).collect(Collectors.toList());
 	}
 
 	public List<CreateStatus.Request.MediaAttribute> getAttachmentAttributes(){
