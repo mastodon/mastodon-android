@@ -144,6 +144,7 @@ public class InstanceCatalogSignupFragment extends InstanceCatalogFragment{
 
 	@Override
 	public void onDestroy(){
+		removeBackCallback(exitQueryModeCallback);
 		super.onDestroy();
 	}
 
