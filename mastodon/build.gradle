@@ -13,7 +13,7 @@ android {
 		applicationId "org.joinmastodon.android"
 		minSdk 23
 		targetSdk 34
-		versionCode 104
+		versionCode 105
 		versionName "2.5.2"
 		testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 	}
@@ -101,7 +101,7 @@ dependencies {
 	annotationProcessor 'org.parceler:parceler:1.1.12'
 	coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.0.3'
 
-	def appCenterSdkVersion = "4.4.2"
+	def appCenterSdkVersion = "5.0.4"
 	appcenterPrivateBetaImplementation "com.microsoft.appcenter:appcenter-crashes:${appCenterSdkVersion}"
 	appcenterPrivateBetaImplementation "com.microsoft.appcenter:appcenter-distribute:${appCenterSdkVersion}"
 	appcenterPublicBetaImplementation "com.microsoft.appcenter:appcenter-crashes:${appCenterSdkVersion}"
