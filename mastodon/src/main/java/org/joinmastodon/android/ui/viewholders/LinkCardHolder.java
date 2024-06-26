@@ -87,7 +87,7 @@ public class LinkCardHolder<T extends LinkCardHolder.LinkCardProvider> extends S
 		}
 		String cardDomain=HtmlParser.normalizeDomain(Objects.requireNonNull(Uri.parse(card.url).getHost()));
 		domain.setText(TextUtils.isEmpty(card.providerName) ? cardDomain : card.providerName);
-		String authorName=card.authors!=null && !card.authors.isEmpty() ? card.authors.get(0).name : null;
+		String authorName=card.authors!=null && !card.authors.isEmpty() ? card.authors.get(0).name : card.authorName;
 
 		if(cardVM.parsedAuthorName!=null){
 			authorFooter.setVisibility(View.VISIBLE);
