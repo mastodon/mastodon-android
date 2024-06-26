@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.fragments.ProfileFragment;
+import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.Card;
 import org.joinmastodon.android.model.viewmodel.CardViewModel;
 import org.joinmastodon.android.ui.OutlineProviders;
@@ -86,7 +87,9 @@ public class LinkCardHolder<T extends LinkCardHolder.LinkCardProvider> extends S
 		}
 		String cardDomain=HtmlParser.normalizeDomain(Objects.requireNonNull(Uri.parse(card.url).getHost()));
 		domain.setText(TextUtils.isEmpty(card.providerName) ? cardDomain : card.providerName);
-		if(card.authorAccount!=null){
+		String authorName=card.authors!=null && !card.authors.isEmpty() ? card.authors.get(0).name : null;
+
+		if(cardVM.parsedAuthorName!=null){
 			authorFooter.setVisibility(View.VISIBLE);
 			authorChip.setVisibility(View.VISIBLE);
 			authorBefore.setVisibility(View.VISIBLE);
@@ -102,15 +105,15 @@ public class LinkCardHolder<T extends LinkCardHolder.LinkCardProvider> extends S
 				authorAfter.setVisibility(View.VISIBLE);
 				authorAfter.setText(after);
 			}
-			authorName.setText(cardVM.parsedAuthorName);
+			this.authorName.setText(cardVM.parsedAuthorName);
 			authorBefore.setCompoundDrawablesRelative(logoIcon, null, null, null);
-		}else if(!TextUtils.isEmpty(card.authorName)){
+		}else if(!TextUtils.isEmpty(authorName)){
 			authorFooter.setVisibility(View.VISIBLE);
 			authorBefore.setVisibility(View.VISIBLE);
 			authorBefore.setCompoundDrawables(null, null, null, null);
 			authorChip.setVisibility(View.GONE);
 			authorAfter.setVisibility(View.GONE);
-			authorBefore.setText(itemView.getContext().getString(R.string.article_by_author, card.authorName));
+			authorBefore.setText(itemView.getContext().getString(R.string.article_by_author, authorName));
 		}else{
 			authorFooter.setVisibility(View.GONE);
 		}

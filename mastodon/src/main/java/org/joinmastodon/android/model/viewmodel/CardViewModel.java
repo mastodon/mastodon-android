@@ -5,6 +5,7 @@ import android.text.TextUtils;
 
 import org.joinmastodon.android.GlobalUserPreferences;
 import org.joinmastodon.android.api.session.AccountSessionManager;
+import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.Card;
 import org.joinmastodon.android.ui.text.HtmlParser;
 import org.joinmastodon.android.ui.utils.CustomEmojiHelper;
@@ -26,12 +27,18 @@ public class CardViewModel{
 		this.parentObject=parentObject;
 		this.imageRequest=TextUtils.isEmpty(card.image) ? null : new UrlImageLoaderRequest(card.image, V.dp(width), V.dp(height));
 
-		if(card.authorAccount!=null){
-			parsedAuthorName=new SpannableStringBuilder(card.authorAccount.displayName);
+		Account authorAccount;
+		if(card.authors!=null && !card.authors.isEmpty() && card.authors.get(0).account!=null)
+			authorAccount=card.authors.get(0).account;
+		else
+			authorAccount=card.authorAccount;
+
+		if(authorAccount!=null){
+			parsedAuthorName=new SpannableStringBuilder(authorAccount.displayName);
 			if(AccountSessionManager.get(accountID).getLocalPreferences().customEmojiInNames)
-				HtmlParser.parseCustomEmoji(parsedAuthorName, card.authorAccount.emojis);
+				HtmlParser.parseCustomEmoji(parsedAuthorName, authorAccount.emojis);
 			authorNameEmojiHelper.setText(parsedAuthorName);
-			authorAvaRequest=new UrlImageLoaderRequest(GlobalUserPreferences.playGifs ? card.authorAccount.avatar : card.authorAccount.avatarStatic, V.dp(50), V.dp(50));
+			authorAvaRequest=new UrlImageLoaderRequest(GlobalUserPreferences.playGifs ? authorAccount.avatar : authorAccount.avatarStatic, V.dp(50), V.dp(50));
 		}else{
 			parsedAuthorName=null;
 			authorAvaRequest=null;

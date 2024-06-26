@@ -37,6 +37,7 @@ public class Card extends BaseModel{
 	public List<History> history;
 	public Instant publishedAt;
 	public Account authorAccount;
+	public List<Author> authors;
 
 	public transient Drawable blurhashPlaceholder;
 
@@ -52,6 +53,11 @@ public class Card extends BaseModel{
 		}
 		if(authorAccount!=null)
 			authorAccount.postprocess();
+		if(authors!=null){
+			for(Author a:authors){
+				a.postprocess();
+			}
+		}
 	}
 
 	@Override
@@ -84,5 +90,20 @@ public class Card extends BaseModel{
 		VIDEO,
 		@SerializedName("rich")
 		RICH
+	}
+
+	@Parcel
+	public static class Author extends BaseModel{
+		@RequiredField
+		public String name;
+		public String url;
+		public Account account;
+
+		@Override
+		public void postprocess() throws ObjectValidationException{
+			super.postprocess();
+			if(account!=null)
+				account.postprocess();
+		}
 	}
 }
