@@ -9,6 +9,7 @@
 	<string name="preparing_auth">Պատրաստում ենք ավտոենտիֆիկացիայի…</string>
 	<string name="finishing_auth">Ավարտում ենք ավտոենտիֆիկացիան…</string>
 	<string name="user_boosted">%s-ը տարածել է</string>
+	<string name="in_reply_to">ի պատասխան %s-ին</string>
 	<string name="notifications">Ծանուցումներ</string>
 	<string name="user_followed_you">%s սկսեց հետեւել ձեզ</string>
 	<string name="user_sent_follow_request">%s հետեւելու հարցում է ուղարկել</string>
@@ -99,6 +100,7 @@
 	<string name="confirm_delete_title">Ջնջել գրառումը</string>
 	<string name="confirm_delete">Վստա՞հ եք, որ ուզում եք ջնջել այս գրառումը։</string>
 	<string name="deleting">Ջնջում…</string>
+	<string name="notification_channel_audio_player">Ձայնի նվագարկում</string>
 	<string name="play">Նվագարկել</string>
 	<string name="pause">Դադար տալ</string>
 	<string name="log_out">Ելք</string>
@@ -136,6 +138,7 @@
 	<string name="mute_user_explain">Դուք չեք տեսնի նրա գրառումները։ Նա դեռ կարող է ձեզ հետևել և տեսնել ձեր գրառումները և չի իմանա, որ խլեցված է։</string>
 	<string name="block_user_explain">Դուք չեք տեսնի նրա գրառումները։ Նա չի կարող ձեզ հետևել կամ տեսնել ձեր գրառումները։ Նա կիմանա, որ արգելափակված է։</string>
 	<string name="report_personal_title">Չե՞ք ուզում սա տեսնել։</string>
+	<string name="report_personal_subtitle">Ահա ձեր տարբերակները` Մաստոդոնում ձեզ երևացող նյութերը կառավարելու համար.</string>
 	<string name="back">Ետ</string>
 	<string name="search_communities">Սպասարկչի անուն կամ հասցե</string>
 	<string name="instance_rules_title">Սպասարկչի կանոնները</string>
@@ -159,6 +162,8 @@
 	<string name="save">Պահպանել</string>
 	<string name="add_alt_text">Ավելացնել բացատրություն</string>
 	<string name="visibility_public">Հրապարակային</string>
+	<string name="visibility_followers_only">Հետևորդներ</string>
+	<string name="visibility_private">Նշված մարդիկ</string>
 	<string name="recent_searches">Վերջին</string>
 	<string name="skip">Բաց թողնել</string>
 	<string name="notification_type_follow">Նոր հետևորդներ</string>
@@ -168,6 +173,10 @@
 	<string name="notification_type_poll">Հարցումներ</string>
 	<string name="choose_account">Ընտրել հաշիվը</string>
 	<string name="err_not_logged_in">Սկզբից մուտք գործեք Մաստոդոն</string>
+	<plurals name="cant_add_more_than_x_attachments">
+		<item quantity="one">Չի կարելի կցել %d-ից ավել մեդիա</item>
+		<item quantity="other">Չի կարելի կցել %d-ից ավել մեդիա</item>
+	</plurals>
 	<string name="media_attachment_unsupported_type">%s ֆայլը անհամատեղելի տեսակի է</string>
 	<string name="media_attachment_too_big">%1$s ֆայլի չափսը գերազանցում է %2$s ՄԲ առավելագույն շեմը</string>
 	<string name="settings_theme">Տեսք</string>
@@ -291,7 +300,9 @@
 	<string name="login_subtitle">Մուտք գործեք այն սերվերի միջոցով, որտեղ ստեղծել եք ձեր հաշիվը։</string>
 	<string name="server_url">Սերվերի հասցե</string>
 	<string name="server_filter_any_language">Որևե լեզու</string>
+	<string name="server_filter_instant_signup">Գրանցում միանգամից</string>
 	<string name="server_filter_manual_review">Հայտերի ստուգում</string>
+	<string name="server_filter_any_signup_speed">Գրանցման որեւէ արագություն</string>
 	<string name="server_filter_region_europe">Եվրոպա</string>
 	<string name="server_filter_region_north_america">Հյուսիսային Ամերիկա</string>
 	<string name="server_filter_region_south_america">Հարավային Ամերիկա</string>
@@ -311,6 +322,7 @@
 	<string name="server_policy_disagree">Համաձայն չեմ %s-ի հետ</string>
 	<string name="profile_bio">Կենսագրություն</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
+	<string name="sending_follows">Հետեւում...</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
 	<string name="signup_email_domain_blocked">%1$s-ը %2$s-ից գրանցումներ չի ընդունում։ Փորձեք ուրիշը կամ &lt;a&gt;ընտրեք ուրիշ սերվեր&lt;/a&gt;։</string>
 	<string name="spoiler_show">Ցույց տալ</string>
@@ -335,6 +347,7 @@
 	<string name="opening_link">Հղումը բացվում է...</string>
 	<string name="link_not_supported">Հղումը համատեղելի չէ ծրագրի հետ</string>
 	<string name="log_out_all_accounts">Ելք բոլոր հաշիվներից</string>
+	<string name="confirm_log_out_all_accounts">Ելք բոլոր հաշիվների՞ց</string>
 	<string name="retry">Կրկին</string>
 	<string name="post_failed">Չհաջողվեց ուղարկել գրառումը</string>
 	<!-- %s is formatted file size ("467 KB image") -->
@@ -380,6 +393,8 @@
 	<string name="reported">Բողոքարկված</string>
 	<string name="report_unfollow_explanation">Նրա գրառումները այլևս չտեսնելու համար ապահետեւեք նրան։</string>
 	<string name="muted_user">%s-ը լռեցվել է</string>
+	<string name="report_sent_already_blocked">Դուք արդեն արգելափակել եք այս օգտատիրոջը։ Այլ գործողությունների կարիք չկա` մինչ մենք դիտարկում ենք ձեր զեկույցը։</string>
+	<string name="report_personal_already_blocked">Դուք արդեն արգելափակել եք այս օգտատիրոջը, և այլ գործողությունների կարիք չկա։\n\nՇնորհակալությու՜ն, որ օգնում եք պահել Մաստոդոնի ապահովությունը բոլորի համար։</string>
 	<string name="blocked_user">%s-ը արգելափակվել է</string>
 	<string name="mark_all_notifications_read">Նշել բոլորը` որպես ընթերցված</string>
 	<string name="settings_display">Տեսք</string>
@@ -389,14 +404,16 @@
 	<string name="about_app">%s-ի մասին</string>
 	<string name="default_post_language">Գրառման լռելյայն լեզու</string>
 	<string name="settings_alt_text_reminders">Ավելացնել բացատրության մասին հիշեցումներ</string>
+	<string name="settings_confirm_unfollow">Հարցնել` մեկին ապահետեւելուց առաջ</string>
 	<string name="settings_confirm_boost">Հարցնել տարածելուց առաջ</string>
 	<string name="settings_confirm_delete_post">Հարցնել գրառում ջնջելուց առաջ</string>
 	<string name="pause_all_notifications">Դադարեցնել բոլորը</string>
 	<string name="pause_notifications_off">Անջատ</string>
-	<string name="notifications_policy_anyone">Որեւե մեկը</string>
-	<string name="notifications_policy_followed">Մարդիկ, որոնք ձեզ հետեւում են</string>
-	<string name="notifications_policy_follower">Մարդիկ, որոնց դուք հետեւում եք</string>
-	<string name="notifications_policy_no_one">Ոչ ոք</string>
+	<string name="notifications_policy_anyone">Որեւէ մեկից</string>
+	<string name="notifications_policy_followed">Մարդկանցից, որոնք ձեզ հետեւում են</string>
+	<string name="notifications_policy_follower">Մարդկանցից, որոնց դուք հետեւում եք</string>
+	<string name="notifications_policy_no_one">Ոչ մեկից</string>
+	<string name="settings_notifications_policy">Ստանալ ծանուցումներ...</string>
 	<string name="pause_all_notifications_title">Դադարեցնել բոլոր ծանուցումները</string>
 	<plurals name="x_weeks">
 		<item quantity="one">%d շաբաթ</item>

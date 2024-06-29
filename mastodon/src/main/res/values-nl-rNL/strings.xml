@@ -307,13 +307,16 @@
 	<string name="instance_signup_closed">Deze server accepteert geen nieuwe registraties.</string>
 	<string name="text_copied">Gekopieerd naar klembord</string>
 	<string name="add_bookmark">Bladwijzer toevoegen</string>
+	<string name="remove_bookmark">Bladwijzer verwijderen</string>
 	<string name="bookmarks">Bladwijzers</string>
 	<string name="your_favorites">Jouw favorieten</string>
 	<string name="login_title">Welkom terug</string>
 	<string name="login_subtitle">Bij de server waar je je account hebt aangemaakt inloggen.</string>
 	<string name="server_url">Server-URL</string>
 	<string name="server_filter_any_language">Elke taal</string>
+	<string name="server_filter_instant_signup">Direct registreren</string>
 	<string name="server_filter_manual_review">Handmatige beoordeling nodig</string>
+	<string name="server_filter_any_signup_speed">Elke registratiesnelheid</string>
 	<string name="server_filter_region_europe">Europa</string>
 	<string name="server_filter_region_north_america">Noord-Amerika</string>
 	<string name="server_filter_region_south_america">Zuid-Amerika</string>
@@ -516,7 +519,7 @@
 	<string name="edit_muted_word">Genegeerd woord bewerken</string>
 	<string name="add">Toevoegen</string>
 	<string name="filter_word_or_phrase">Woord of zinsdeel</string>
-	<string name="filter_add_word_help">Woorden zijn niet hoofdlettergevoelig en komen alleen overeen met volledige woorden.\n\nWanneer je op de term ‘Appel’ filtert, verbergt het berichten die ‘appel’ of ‘aPpEl’ bevatten, maar niet ‘ananas’.</string>
+	<string name="filter_add_word_help">Woorden zijn niet hoofdlettergevoelig en komen alleen overeen met volledige woorden.\n\nWanneer je op de term ‘Appel’ filtert, worden berichten verborgen die ‘appel’ of ‘aPpEl’ bevatten, maar niet ‘sinaasappel’.</string>
 	<string name="settings_delete_filter_word">‘%s’ verwijderen?</string>
 	<string name="enter_selection_mode">Selecteren</string>
 	<string name="select_all">Alles selecteren</string>
@@ -731,10 +734,26 @@
 		<item quantity="other">%,d mensen die je misschien kent</item>
 	</plurals>
 	<string name="notifications_from_user">Meldingen van %s</string>
-	<string name="notifications_muted">Notifications from %s zijn afgewezen.</string>
+	<string name="notifications_muted">Meldingen van %s zijn afgewezen.</string>
 	<string name="notifications_allowed">%s verschijnt vanaf nu onder jouw meldingen.</string>
 	<string name="visibility_subtitle_public">Iedereen op Mastodon en daarbuiten</string>
 	<string name="visibility_subtitle_unlisted">Voor iedereen zichtbaar, maar niet onder trends, hashtags en op openbare tijdlijnen</string>
 	<string name="visibility_subtitle_followers">Alleen jouw volgers</string>
 	<string name="visibility_subtitle_private">Alleen voor mensen die specifiek in het bericht worden vermeld</string>
+	<string name="view_boosts">Boosts bekijken</string>
+	<string name="view_favorites">Favorieten bekijken</string>
+	<string name="undo_reblog">Boost ongedaan maken</string>
+	<string name="undo_favorite">Favoriet ongedaan maken</string>
+	<string name="could_not_reach_server">Kon de server niet bereiken. Controleer je verbinding en probeer het opnieuw.</string>
+	<string name="connection_timed_out">De aanvraag is verlopen. Controleer je verbinding en probeer het opnieuw.</string>
+	<string name="server_error">Er is iets misgegaan met de communicatie met je server. Waarschijnlijk is het niet jouw fout. Opnieuw proberen?</string>
+	<string name="not_found">Deze is wellicht verwijderd of heeft misschien nooit bestaan.</string>
+	<string name="no_servers_found">Geen servers gevonden voor “%s”</string>
+	<string name="signup_username_taken">Deze gebruikersnaam is al in gebruik. Probeer een andere gebruikersnaam of &lt;a&gt;kies een andere server&lt;/a&gt;.</string>
+	<string name="signup_email_invalid">Dat lijkt geen geldig e-mailadres te zijn.</string>
+	<string name="signup_email_taken">Dat e-mailadres is al in gebruik. Ben je misschien &lt;a&gt;je wachtwoord vergeten&lt;/a&gt;?</string>
+	<plurals name="x_new_notifications">
+		<item quantity="one">%,d nieuwe melding</item>
+		<item quantity="other">%,d nieuwe meldingen</item>
+	</plurals>
 </resources>
