@@ -10,7 +10,7 @@ public class GlobalUserPreferences{
 	public static boolean playGifs;
 	public static boolean useCustomTabs;
 	public static boolean altTextReminders, confirmUnfollow, confirmBoost, confirmDeletePost;
-	public static ThemePreference theme;
+	public static ThemePreference theme=ThemePreference.AUTO;
 
 	private static SharedPreferences getPrefs(){
 		return MastodonApp.context.getSharedPreferences("global", Context.MODE_PRIVATE);

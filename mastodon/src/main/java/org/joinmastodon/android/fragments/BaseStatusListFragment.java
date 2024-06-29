@@ -666,7 +666,7 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 				proceed.run();
 			}, status.account, accountID).show();
 		}else if(!GlobalUserPreferences.isOptedOutOfPreReplySheet(GlobalUserPreferences.PreReplySheetType.OLD_POST, null, null) &&
-				status.createdAt.isBefore(Instant.now().minus(90, ChronoUnit.DAYS))){
+				status.createdAt.isBefore(Instant.now().minus(90, ChronoUnit.DAYS)) && !status.account.id.equals(AccountSessionManager.get(accountID).self.id)){
 			new OldPostPreReplySheet(getActivity(), notAgain->{
 				if(notAgain)
 					GlobalUserPreferences.optOutOfPreReplySheet(GlobalUserPreferences.PreReplySheetType.OLD_POST, null, null);

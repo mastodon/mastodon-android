@@ -105,7 +105,7 @@ public class AccountSessionManager{
 			Log.e(TAG, "Error loading accounts", x);
 		}
 		lastActiveAccountID=prefs.getString("lastActiveAccount", null);
-		MastodonAPIController.runInBackground(()->readInstanceInfo(domains));
+		readInstanceInfo(domains);
 		maybeUpdateShortcuts();
 	}
 
