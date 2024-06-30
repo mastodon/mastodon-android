@@ -352,7 +352,9 @@
 	<string name="login_subtitle">Увійдіть за допомогою сервера, де ви створили свій обліковий запис.</string>
 	<string name="server_url">URL-адреса сервера</string>
 	<string name="server_filter_any_language">Будь-яка мова</string>
+	<string name="server_filter_instant_signup">Миттєва реєстрація</string>
 	<string name="server_filter_manual_review">Ручна перевірка</string>
+	<string name="server_filter_any_signup_speed">Будь-яка швидкість реєстрації</string>
 	<string name="server_filter_region_europe">Європа</string>
 	<string name="server_filter_region_north_america">Північна Америка</string>
 	<string name="server_filter_region_south_america">Південна Америка</string>
@@ -781,4 +783,20 @@
 	<string name="notification_filter_following">Люди, на яких ви не підписані</string>
 	<string name="notification_filter_following_explanation">Доки ви не схвалюєте їх вручну</string>
 	<string name="notification_filter_followers">Люди, які не підписані на вас</string>
+	<string name="notification_filter_followers_explanation">Включаючи людей, які підписані на вас менш ніж три дні</string>
+	<string name="notification_filter_new_accounts">Нові облікові записи</string>
+	<string name="notification_filter_new_accounts_explanation">Створені за останні 30 днів</string>
+	<string name="notification_filter_mentions">Небажані приватні згадки</string>
+	<string name="notification_filter_mentions_explanation">Відфільтровується, якщо це не відповідь на вашу власну згадку або якщо ви відстежуєте відправника</string>
+	<string name="allow_notifications">Дозволити сповіщення</string>
+	<string name="mute_notifications">Відхилити запит на сповіщення</string>
+	<string name="notifications_from_user">Сповіщення від %s</string>
+	<string name="notifications_muted">Сповіщення від %s було відхилено.</string>
+	<string name="notifications_allowed">%s тепер з\'явиться у вашому списку сповіщень.</string>
+	<string name="visibility_subtitle_public">Усі з Mastodon та поза Mastodon</string>
+	<string name="visibility_subtitle_unlisted">Менше алгоритмічних фанфар</string>
+	<string name="visibility_subtitle_followers">Лише ваші підписники</string>
+	<string name="visibility_subtitle_private">Усі згадані в дописі</string>
+	<string name="view_boosts">Переглянути поширення</string>
+	<string name="view_favorites">Подивитися обране</string>
 </resources>
