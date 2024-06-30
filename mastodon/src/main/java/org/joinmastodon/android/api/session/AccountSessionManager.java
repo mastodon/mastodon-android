@@ -270,11 +270,11 @@ public class AccountSessionManager{
 			}
 		}
 		if(loadedInstances){
-			maybeUpdateCustomEmojis(domains);
+			maybeUpdateInstanceInfo(domains);
 		}
 	}
 
-	private void maybeUpdateCustomEmojis(Set<String> domains){
+	private void maybeUpdateInstanceInfo(Set<String> domains){
 		long now=System.currentTimeMillis();
 		for(String domain:domains){
 			Long lastUpdated=instancesLastUpdated.get(domain);
@@ -388,7 +388,7 @@ public class AccountSessionManager{
 		}
 		if(!loadedInstances){
 			loadedInstances=true;
-			MastodonAPIController.runInBackground(()->maybeUpdateCustomEmojis(domains));
+			MastodonAPIController.runInBackground(()->maybeUpdateInstanceInfo(domains));
 		}
 	}
 
