@@ -743,4 +743,16 @@ Quanto mais pessoas que você seguir, mas interessantes e ativas serão.</string
 	<string name="view_favorites">Visualizar favoritos</string>
 	<string name="undo_reblog">Desfazer boost</string>
 	<string name="undo_favorite">Desfazer favorito</string>
+	<string name="could_not_reach_server">Não foi possível acessar o servidor. Verifique sua conexão e tente novamente?</string>
+	<string name="connection_timed_out">O pedido expirou. Verifique sua conexão e tente novamente?</string>
+	<string name="server_error">Algo deu errado ao falar com o seu servidor. Provavelmente não é culpa sua. Tentar novamente?</string>
+	<string name="not_found">Ele pode ter sido deletado, ou talvez nunca tenha existido.</string>
+	<string name="no_servers_found">Nenhum servidor encontrado para “%s”</string>
+	<string name="signup_username_taken">Este nome de usuário já foi usado. Tente usar outro ou &lt;a&gt;escolha um servidor diferente&lt;/a&gt;.</string>
+	<string name="signup_email_invalid">Este não parece ser um endereço de e-mail válido.</string>
+	<string name="signup_email_taken">O endereço de e-mail já está em uso. Você &lt;a&gt;esqueceu sua senha&lt;/a&gt;?</string>
+	<plurals name="x_new_notifications">
+		<item quantity="one">%,d nova notificação</item>
+		<item quantity="other">%,d novas notificações</item>
+	</plurals>
 </resources>

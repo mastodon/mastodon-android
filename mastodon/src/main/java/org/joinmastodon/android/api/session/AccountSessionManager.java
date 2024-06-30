@@ -399,7 +399,7 @@ public class AccountSessionManager{
 		}
 		if(!loadedInstances){
 			loadedInstances=true;
-			maybeUpdateCustomEmojis(domains);
+			MastodonAPIController.runInBackground(()->maybeUpdateCustomEmojis(domains));
 		}
 	}
 
