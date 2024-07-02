@@ -691,7 +691,7 @@ public class InstanceCatalogSignupFragment extends InstanceCatalogFragment{
 					boolean found=false;
 					for(int i=0;i<list.getChildCount();i++){
 						RecyclerView.ViewHolder holder=list.getChildViewHolder(list.getChildAt(i));
-						if(holder.getAbsoluteAdapterPosition()==mergeAdapter.getPositionForAdapter(adapter)+idx && holder instanceof InstanceViewHolder ivh){
+						if(holder instanceof InstanceViewHolder ivh && holder.getAbsoluteAdapterPosition()==mergeAdapter.getPositionForAdapter(adapter)+idx){
 							ivh.radioButton.setChecked(false);
 							found=true;
 							break;
