@@ -27,11 +27,7 @@ public class CardViewModel{
 		this.parentObject=parentObject;
 		this.imageRequest=TextUtils.isEmpty(card.image) ? null : new UrlImageLoaderRequest(card.image, V.dp(width), V.dp(height));
 
-		Account authorAccount;
-		if(card.authors!=null && !card.authors.isEmpty() && card.authors.get(0).account!=null)
-			authorAccount=card.authors.get(0).account;
-		else
-			authorAccount=card.authorAccount;
+		Account authorAccount=getAuthorAccount();
 
 		if(authorAccount!=null){
 			parsedAuthorName=new SpannableStringBuilder(authorAccount.displayName);
@@ -46,7 +42,7 @@ public class CardViewModel{
 	}
 
 	public int getImageCount(){
-		return 1+(card.authorAccount!=null ? (1+authorNameEmojiHelper.getImageCount()) : 0);
+		return 1+(getAuthorAccount()!=null ? (1+authorNameEmojiHelper.getImageCount()) : 0);
 	}
 
 	public ImageLoaderRequest getImageRequest(int index){
@@ -55,5 +51,12 @@ public class CardViewModel{
 			case 1 -> authorAvaRequest;
 			default -> authorNameEmojiHelper.getImageRequest(index-2);
 		};
+	}
+
+	public Account getAuthorAccount(){
+		if(card.authors!=null && !card.authors.isEmpty() && card.authors.get(0).account!=null)
+			return card.authors.get(0).account;
+		else
+			return card.authorAccount;
 	}
 }

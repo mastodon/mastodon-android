@@ -189,7 +189,7 @@ public class LinkCardHolder<T extends LinkCardHolder.LinkCardProvider> extends S
 	private void onAuthorChipClick(View v){
 		Bundle args=new Bundle();
 		args.putString("account", accountID);
-		args.putParcelable("profileAccount", Parcels.wrap(item.getCard().card.authorAccount));
+		args.putParcelable("profileAccount", Parcels.wrap(item.getCard().getAuthorAccount()));
 		Nav.go(activity, ProfileFragment.class, args);
 	}
 
