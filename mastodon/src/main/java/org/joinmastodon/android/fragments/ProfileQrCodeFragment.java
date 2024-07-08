@@ -53,7 +53,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.window.OnBackInvokedCallback;
 import android.window.OnBackInvokedDispatcher;
 
 import com.google.zxing.BarcodeFormat;
@@ -64,6 +63,7 @@ import com.google.zxing.qrcode.QRCodeWriter;
 import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
 
 import org.joinmastodon.android.MainActivity;
+import org.joinmastodon.android.QrCodeScanActivity;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.MastodonAPIController;
 import org.joinmastodon.android.api.session.AccountSessionManager;
@@ -127,7 +127,10 @@ public class ProfileQrCodeFragment extends AppKitFragment{
 		accountID=getArguments().getString("account");
 		account=Parcels.unwrap(getArguments().getParcelable("targetAccount"));
 		setCancelable(false);
-		scannerIntent=BarcodeScanner.createIntent(Barcode.FORMAT_QR_CODE, false, true);
+		scannerIntent=GmsClient.isGooglePlayServicesAvailable(getActivity())
+				? BarcodeScanner.createIntent(Barcode.FORMAT_QR_CODE, false, true)
+				: new Intent(getActivity(), QrCodeScanActivity.class);
+
 	}
 
 	@Override
@@ -265,11 +268,9 @@ public class ProfileQrCodeFragment extends AppKitFragment{
 
 	@Override
 	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater){
-		if(GmsClient.isGooglePlayServicesAvailable(getActivity())){
-			MenuItem item=menu.add(0, 0, 0, R.string.scan_qr_code);
-			item.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
-			item.setIcon(R.drawable.ic_qr_code_scanner_24px);
-		}
+		MenuItem item=menu.add(0, 0, 0, R.string.scan_qr_code);
+		item.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+		item.setIcon(R.drawable.ic_qr_code_scanner_24px);
 	}
 
 	@Override
@@ -330,11 +331,15 @@ public class ProfileQrCodeFragment extends AppKitFragment{
 
 	@Override
 	public void onActivityResult(int requestCode, int resultCode, Intent data){
-		if(requestCode==SCAN_RESULT && resultCode==Activity.RESULT_OK && BarcodeScanner.isValidResult(data)){
-			Barcode code=BarcodeScanner.getResult(data);
+		if(requestCode==SCAN_RESULT && resultCode==Activity.RESULT_OK){
+			String code=data.getStringExtra("barcode");
+			if(BarcodeScanner.isValidResult(data)){
+				Barcode barcode=BarcodeScanner.getResult(data);
+				code=barcode.rawValue;
+			}
 			if(code!=null){
-				if(code.rawValue.startsWith("https:") || code.rawValue.startsWith("http:")){
-					((MainActivity)getActivity()).handleURL(Uri.parse(code.rawValue), accountID);
+				if(code.startsWith("https:") || code.startsWith("http:")){
+					((MainActivity)getActivity()).handleURL(Uri.parse(code), accountID);
 					dismiss();
 				}else{
 					Toast.makeText(themeWrapper, R.string.link_not_supported, Toast.LENGTH_SHORT).show();
