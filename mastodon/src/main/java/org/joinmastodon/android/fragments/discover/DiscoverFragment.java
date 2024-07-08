@@ -17,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import org.joinmastodon.android.MainActivity;
+import org.joinmastodon.android.QrCodeScanActivity;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.fragments.ScrollableToTop;
 import org.joinmastodon.android.googleservices.GmsClient;
@@ -70,7 +71,9 @@ public class DiscoverFragment extends AppKitFragment implements ScrollableToTop{
 			setRetainInstance(true);
 
 		accountID=getArguments().getString("account");
-		scannerIntent=BarcodeScanner.createIntent(Barcode.FORMAT_QR_CODE, false, true);
+		scannerIntent=GmsClient.isGooglePlayServicesAvailable(getActivity())
+				? BarcodeScanner.createIntent(Barcode.FORMAT_QR_CODE, false, true)
+				: new Intent(getActivity(), QrCodeScanActivity.class);
 	}
 
 	@Nullable
@@ -186,11 +189,7 @@ public class DiscoverFragment extends AppKitFragment implements ScrollableToTop{
 			searchView.setVisibility(View.VISIBLE);
 		}
 		searchScanQR=view.findViewById(R.id.search_scan_qr);
-		if(!GmsClient.isGooglePlayServicesAvailable(getActivity())){
-			searchScanQR.setVisibility(View.GONE);
-		}else{
-			searchScanQR.setOnClickListener(v->openQrScanner());
-		}
+		searchScanQR.setOnClickListener(v->openQrScanner());
 
 		View searchWrap=view.findViewById(R.id.search_wrap);
 		searchWrap.setOutlineProvider(OutlineProviders.roundedRect(28));
@@ -280,11 +279,15 @@ public class DiscoverFragment extends AppKitFragment implements ScrollableToTop{
 
 	@Override
 	public void onActivityResult(int requestCode, int resultCode, Intent data){
-		if(requestCode==SCAN_RESULT && resultCode==Activity.RESULT_OK && BarcodeScanner.isValidResult(data)){
-			Barcode code=BarcodeScanner.getResult(data);
+		if(requestCode==SCAN_RESULT && resultCode==Activity.RESULT_OK){
+			String code=data.getStringExtra("barcode");
+			if(BarcodeScanner.isValidResult(data)){
+				Barcode barcode=BarcodeScanner.getResult(data);
+				code=barcode.rawValue;
+			}
 			if(code!=null){
-				if(code.rawValue.startsWith("https:") || code.rawValue.startsWith("http:")){
-					((MainActivity)getActivity()).handleURL(Uri.parse(code.rawValue), accountID);
+				if(code.startsWith("https:") || code.startsWith("http:")){
+					((MainActivity)getActivity()).handleURL(Uri.parse(code), accountID);
 				}else{
 					Toast.makeText(getActivity(), R.string.link_not_supported, Toast.LENGTH_SHORT).show();
 				}

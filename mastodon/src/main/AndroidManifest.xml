@@ -9,6 +9,9 @@
 	<uses-permission android:name="${applicationId}.permission.C2D_MESSAGE"/>
 	<uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
 	<uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+	<uses-permission android:name="android.permission.CAMERA" />
+	<uses-feature android:name="android.hardware.camera" />
+	<uses-feature android:name="android.hardware.camera.autofocus" />
 
 	<permission android:name="${applicationId}.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
 
@@ -79,6 +82,7 @@
 				<data android:mimeType="*/*"/>
 			</intent-filter>
 		</activity>
+		<activity android:name=".QrCodeScanActivity"/>
 
 		<service android:name=".AudioPlayerService" android:foregroundServiceType="mediaPlayback"/>
 		<service android:name=".NotificationActionHandlerService" android:exported="false"/>
