@@ -142,13 +142,13 @@ public class DonationSheet extends BottomSheet{
 			btn.setTextColor(context.getResources().getColorStateList(R.color.filter_chip_text, context.getTheme()));
 			btn.setMinWidth(V.dp(64));
 			btn.setMinimumWidth(0);
-			int pad=V.dp(16);
-			btn.setPadding(pad, 0, pad, 0);
+			btn.setPadding(0, 0, 0, 0);
 			btn.setStateListAnimator(null);
 			btn.setTextOff(null);
 			btn.setTextOn(null);
 			btn.setOnClickListener(this::onSuggestedAmountClick);
 			btn.setTag(i);
+			btn.setSingleLine();
 			suggestedAmountButtons[i]=btn;
 			suggestedAmounts.addView(btn);
 		}
