@@ -88,8 +88,13 @@ public class AudioPlayerService extends Service{
 		nm=getSystemService(NotificationManager.class);
 //		registerReceiver(receiver, new IntentFilter(Intent.ACTION_MEDIA_BUTTON));
 		registerReceiver(receiver, new IntentFilter(AudioManager.ACTION_AUDIO_BECOMING_NOISY));
-		registerReceiver(receiver, new IntentFilter(ACTION_PLAY_PAUSE));
-		registerReceiver(receiver, new IntentFilter(ACTION_STOP));
+		if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.TIRAMISU){
+			registerReceiver(receiver, new IntentFilter(ACTION_PLAY_PAUSE), RECEIVER_EXPORTED);
+			registerReceiver(receiver, new IntentFilter(ACTION_STOP), RECEIVER_EXPORTED);
+		}else{
+			registerReceiver(receiver, new IntentFilter(ACTION_PLAY_PAUSE));
+			registerReceiver(receiver, new IntentFilter(ACTION_STOP));
+		}
 		instance=this;
 	}
 

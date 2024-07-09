@@ -58,5 +58,12 @@
 				android:text="@string/see_new_posts"/>
 		</FrameLayout>
 
+		<ViewStub
+			android:id="@+id/donation_banner"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_gravity="bottom"
+			android:layout="@layout/donation_banner"/>
+
 	</FrameLayout>
 </me.grishka.appkit.views.RecursiveSwipeRefreshLayout>

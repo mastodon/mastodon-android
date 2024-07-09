@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<org.joinmastodon.android.ui.views.CustomScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@drawable/bg_bottom_sheet"
+	android:outlineProvider="background"
+	android:elevation="1dp">
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="vertical"
+		android:paddingBottom="16dp"
+		android:paddingHorizontal="16dp">
+
+		<View
+			android:id="@+id/handle"
+			android:layout_width="match_parent"
+			android:layout_height="36dp"
+			android:layout_marginBottom="8dp"
+			android:background="@drawable/bg_bottom_sheet_handle"/>
+
+		<TextView
+			android:id="@+id/text"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:textAppearance="@style/m3_body_large"
+			android:textColor="?colorM3OnSurfaceVariant"
+			tools:text="By supporting Mastodon, you help sustain a global network that values people over profit. Will you join us today?"/>
+
+		<FrameLayout
+			android:id="@+id/tabbar"
+			android:layout_width="match_parent"
+			android:layout_height="48dp"
+			android:layout_marginTop="16dp">
+
+			<LinearLayout
+				android:id="@+id/tabbar_inner"
+				android:layout_width="match_parent"
+				android:layout_height="40dp"
+				android:orientation="horizontal"
+				android:layout_gravity="center"
+				style="@style/Widget.Mastodon.M3.SegmentedButtonContainer">
+
+				<FrameLayout
+					android:id="@+id/once"
+					style="@style/Widget.Mastodon.M3.SegmentedButton">
+					<org.joinmastodon.android.ui.views.CheckIconSelectableTextView
+						style="@style/Widget.Mastodon.M3.SegmentedButtonText"
+						android:text="@string/donation_once"/>
+				</FrameLayout>
+
+				<FrameLayout
+					android:id="@+id/monthly"
+					style="@style/Widget.Mastodon.M3.SegmentedButton">
+					<TextView
+						style="@style/Widget.Mastodon.M3.SegmentedButtonText"
+						android:drawableStart="@drawable/ic_donation_monthly"
+						android:drawableTint="?colorM3OnSurface"
+						android:text="@string/donation_monthly"/>
+				</FrameLayout>
+
+				<FrameLayout
+					android:id="@+id/yearly"
+					style="@style/Widget.Mastodon.M3.SegmentedButton">
+					<org.joinmastodon.android.ui.views.CheckIconSelectableTextView
+						style="@style/Widget.Mastodon.M3.SegmentedButtonText"
+						android:text="@string/donation_yearly"/>
+				</FrameLayout>
+
+			</LinearLayout>
+
+		</FrameLayout>
+
+		<org.joinmastodon.android.ui.views.CurrencyAmountInput
+			android:id="@+id/amount"
+			android:layout_width="match_parent"
+			android:layout_height="52dp"
+			android:layout_marginTop="16dp"/>
+		
+		<view class="org.joinmastodon.android.ui.sheets.DonationSheet$SuggestedAmountsLayout"
+			android:id="@+id/suggested_amounts"
+			android:layout_width="match_parent"
+			android:layout_height="32dp"
+			android:layout_marginTop="8dp"/>
+
+		<FrameLayout
+			android:id="@+id/button"
+			android:layout_width="match_parent"
+			android:layout_height="40dp"
+			android:layout_marginTop="28dp"
+			style="@style/Widget.Mastodon.M3.Button.Filled">
+			<TextView
+				android:id="@+id/button_text"
+				android:layout_width="wrap_content"
+				android:layout_height="40dp"
+				android:layout_gravity="center_horizontal"
+				android:drawableStart="@drawable/ic_volunteer_activism_20px"
+				style="@style/Widget.Mastodon.M3.Button.Filled"
+				android:background="@null"
+				android:padding="0dp"
+				android:drawablePadding="8dp"
+				android:drawableTint="@color/button_text_m3_filled"
+				android:clickable="false"
+				android:focusable="false"
+				android:duplicateParentState="true"
+				android:minWidth="0dp"
+				tools:text="Donate"/>
+		</FrameLayout>
+
+	</LinearLayout>
+
+</org.joinmastodon.android.ui.views.CustomScrollView>

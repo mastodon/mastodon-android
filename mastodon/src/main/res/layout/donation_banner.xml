@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:orientation="horizontal"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:paddingVertical="12dp"
+	android:paddingStart="16dp"
+	android:paddingEnd="8dp"
+	android:gravity="center_vertical"
+	android:background="@drawable/bg_donation_banner">
+
+	<TextView
+		android:id="@+id/banner_text"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_weight="1"
+		android:textAppearance="@style/m3_body_medium"
+		android:textColor="@color/masterialDark_onSecondaryContainer"
+		tools:text="Donation banner text goes here"/>
+	
+	<ImageButton
+		android:id="@+id/banner_dismiss"
+		android:layout_width="40dp"
+		android:layout_height="40dp"
+		android:background="?android:actionBarItemBackground"
+		android:tint="@color/masterialDark_onSecondaryContainer"
+		android:backgroundTint="@color/masterialDark_onSecondaryContainer"
+		android:src="@drawable/ic_baseline_close_24"
+		android:contentDescription="@string/dismiss"/>
+
+</LinearLayout>

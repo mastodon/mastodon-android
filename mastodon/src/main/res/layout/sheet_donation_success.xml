@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<org.joinmastodon.android.ui.views.CustomScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:background="@drawable/bg_bottom_sheet"
+	android:outlineProvider="background"
+	android:elevation="1dp">
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="vertical"
+		android:paddingBottom="16dp"
+		android:paddingHorizontal="16dp">
+
+		<View
+			android:id="@+id/handle"
+			android:layout_width="match_parent"
+			android:layout_height="36dp"
+			android:layout_marginBottom="8dp"
+			android:background="@drawable/bg_bottom_sheet_handle"/>
+
+		<TextView
+			android:id="@+id/text"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:textAppearance="@style/m3_headline_medium"
+			android:textColor="?colorM3OnSurface"
+			android:gravity="center"
+			android:text="@string/donation_success_title"/>
+
+		<TextView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="8dp"
+			android:textAppearance="@style/m3_body_large"
+			android:gravity="center"
+			android:textColor="?colorM3OnSurfaceVariant"
+			android:text="@string/donation_success_subtitle"/>
+
+		<org.joinmastodon.android.ui.views.FixedAspectRatioImageView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="8dp"
+			android:src="@drawable/donation_successful_art"
+			app:aspectRatio="1.777777"/>
+
+		<FrameLayout
+			android:id="@+id/btn_share"
+			android:layout_width="match_parent"
+			android:layout_height="40dp"
+			android:layout_marginTop="16dp"
+			style="@style/Widget.Mastodon.M3.Button.Filled">
+			<TextView
+				android:id="@+id/button_text"
+				android:layout_width="wrap_content"
+				android:layout_height="40dp"
+				android:layout_gravity="center_horizontal"
+				android:drawableStart="@drawable/ic_campaign_20px"
+				style="@style/Widget.Mastodon.M3.Button.Filled"
+				android:background="@null"
+				android:padding="0dp"
+				android:drawablePadding="8dp"
+				android:drawableTint="@color/button_text_m3_filled"
+				android:clickable="false"
+				android:focusable="false"
+				android:duplicateParentState="true"
+				android:minWidth="0dp"
+				android:text="@string/donation_success_share"/>
+		</FrameLayout>
+
+		<Button
+			android:id="@+id/btn_done"
+			android:layout_width="match_parent"
+			android:layout_height="40dp"
+			android:layout_marginTop="16dp"
+			style="@style/Widget.Mastodon.M3.Button.Outlined"
+			android:text="@string/done"/>
+
+	</LinearLayout>
+
+</org.joinmastodon.android.ui.views.CustomScrollView>

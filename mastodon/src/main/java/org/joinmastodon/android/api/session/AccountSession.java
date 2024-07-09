@@ -33,7 +33,8 @@ import org.joinmastodon.android.model.TimelineMarkers;
 import org.joinmastodon.android.model.Token;
 import org.joinmastodon.android.utils.ObjectIdComparator;
 
-import java.io.File;
+import java.time.Instant;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
@@ -44,6 +45,7 @@ import me.grishka.appkit.api.ErrorResponse;
 
 public class AccountSession{
 	private static final String TAG="AccountSession";
+	private static final int MIN_DAYS_ACCOUNT_AGE_FOR_DONATIONS=28;
 
 	public Token token;
 	public Account self;
@@ -275,5 +277,13 @@ public class AccountSession{
 
 	public void setNotificationsMentionsOnly(boolean mentionsOnly){
 		getRawLocalPreferences().edit().putBoolean("notificationsMentionsOnly", mentionsOnly).apply();
+	}
+
+	public boolean isEligibleForDonations(){
+		return ("mastodon.social".equalsIgnoreCase(domain) || "mastodon.online".equalsIgnoreCase(domain)) && self.createdAt.isBefore(Instant.now().minus(MIN_DAYS_ACCOUNT_AGE_FOR_DONATIONS, ChronoUnit.DAYS));
+	}
+
+	public int getDonationSeed(){
+		return Math.abs(getFullUsername().hashCode())%100;
 	}
 }
