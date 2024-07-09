@@ -278,7 +278,6 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 		});
 
 		if(GithubSelfUpdater.needSelfUpdating()){
-			E.register(this);
 			updateUpdateState(GithubSelfUpdater.getInstance().getState());
 		}
 		if(currentDonationCampaign!=null)
@@ -634,9 +633,6 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 	@Override
 	public void onDestroyView(){
 		super.onDestroyView();
-		if(GithubSelfUpdater.needSelfUpdating()){
-			E.unregister(this);
-		}
 		donationBanner=null;
 		donationBannerDismissing=false;
 	}

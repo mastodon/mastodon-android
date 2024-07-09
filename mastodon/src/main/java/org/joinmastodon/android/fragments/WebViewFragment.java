@@ -45,8 +45,10 @@ public abstract class WebViewFragment extends LoaderFragment{
 
 			@Override
 			public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error){
-				onError(new MastodonErrorResponse(error.getDescription().toString(), -1, null));
-				updateBackCallback();
+				if(!loaded){
+					onError(new MastodonErrorResponse(error.getDescription().toString(), -1, null));
+					updateBackCallback();
+				}
 			}
 
 			@Override
