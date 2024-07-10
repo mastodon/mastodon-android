@@ -665,7 +665,7 @@
 	<string name="video_saved">影片已儲存。</string>
 	<string name="view_file">檢視</string>
 	<string name="share_sheet_preview_profile">%s 於 Mastodon</string>
-	<string name="share_sheet_preview_post">%1$s 於 Mastodon：「%2$s」</string>
+	<string name="share_sheet_preview_post" comment="share_sheet_preview_post&#10;%1$s is the username, %2$s is the post text">%1$s 於 Mastodon：「%2$s」</string>
 	<string name="copy_profile_link">複製個人檔案連結</string>
 	<string name="in_app_browser">應用程式內建瀏覽器</string>
 	<string name="system_browser">系統瀏覽器</string>
@@ -722,4 +722,15 @@
 	<plurals name="x_new_notifications">
 		<item quantity="other">%,d 則新通知</item>
 	</plurals>
+	<string name="dismiss">關閉</string>
+	<string name="donation_once">僅限一次</string>
+	<string name="donation_monthly">每月</string>
+	<string name="donation_yearly">每年</string>
+	<string name="currency">幣別</string>
+	<string name="donation_success_share">昭告天下！</string>
+	<string name="donation_success_title">感謝您的貢獻！</string>
+	<string name="donation_success_subtitle">您稍候應將收到一封 email 確認您的捐款。</string>
+	<string name="donation_server_error">很抱歉，發生錯誤且我們無法處理您的捐款。\n\n請稍候重試。</string>
+	<string name="settings_donate">捐款給 Mastodon</string>
+	<string name="settings_manage_donations">管理捐款</string>
 </resources>
