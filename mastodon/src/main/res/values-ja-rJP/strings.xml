@@ -174,10 +174,10 @@
 	<string name="theme_light">ライト</string>
 	<string name="theme_dark">ダーク</string>
 	<string name="settings_behavior">動作</string>
-	<string name="settings_gif">アニメーションアイコンと絵文字を再生</string>
+	<string name="settings_gif">アニメーションアイコンと絵文字を再生する</string>
 	<string name="settings_custom_tabs">リンクを開く</string>
 	<string name="settings_notifications">通知</string>
-	<string name="settings_contribute">Mastodon に貢献</string>
+	<string name="settings_contribute">Mastodon に貢献する</string>
 	<string name="settings_tos">利用規約</string>
 	<string name="settings_privacy_policy">プライバシーポリシー</string>
 	<string name="settings_clear_cache">メディアキャッシュをクリア</string>
@@ -398,10 +398,10 @@
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">%s について</string>
 	<string name="default_post_language">デフォルトの投稿言語</string>
-	<string name="settings_alt_text_reminders">代替テキストのリマインダーを追加</string>
-	<string name="settings_confirm_unfollow">フォローを解除する前に確認</string>
-	<string name="settings_confirm_boost">ブーストする前に確認</string>
-	<string name="settings_confirm_delete_post">投稿を削除する前に確認</string>
+	<string name="settings_alt_text_reminders">代替テキストのリマインダーを追加する</string>
+	<string name="settings_confirm_unfollow">フォローを解除する前に確認する</string>
+	<string name="settings_confirm_boost">ブーストする前に確認する</string>
+	<string name="settings_confirm_delete_post">投稿を削除する前に確認する</string>
 	<string name="pause_all_notifications">すべて一時停止</string>
 	<string name="pause_notifications_off">オフ</string>
 	<string name="notifications_policy_anyone">誰でも</string>
@@ -431,9 +431,9 @@
 	<string name="send_email_to_server_admin">管理者にメッセージを送信</string>
 	<string name="notifications_disabled_in_system">端末の設定から通知を有効にして、どこからでも最新情報を見られるようにしましょう。</string>
 	<string name="settings_even_more">さらに詳しい設定</string>
-	<string name="settings_show_cws">コンテンツ警告を表示</string>
+	<string name="settings_show_cws">コンテンツ警告を表示する</string>
 	<string name="settings_hide_sensitive_media">閲覧注意としてマークされたメディアを隠す</string>
-	<string name="settings_show_interaction_counts">投稿のインタラクションを表示</string>
+	<string name="settings_show_interaction_counts">投稿のインタラクションを表示する</string>
 	<string name="settings_show_emoji_in_names">表示名でのカスタム絵文字</string>
 	<plurals name="in_x_seconds">
 		<item quantity="other">%d 秒後</item>
@@ -468,7 +468,7 @@
 	<string name="settings_filter_duration">期間</string>
 	<string name="settings_filter_muted_words">ミュートする言葉</string>
 	<string name="settings_filter_context">ミュートする場所</string>
-	<string name="settings_filter_show_cw">コンテンツ警告を表示</string>
+	<string name="settings_filter_show_cw">コンテンツ警告を表示する</string>
 	<string name="settings_filter_show_cw_explanation">このフィルターに一致する投稿を継続して表示しますが、コンテンツ警告で隠します</string>
 	<string name="settings_delete_filter">フィルターを削除</string>
 	<string name="filter_duration_forever">無期限</string>
@@ -732,4 +732,5 @@
 	<string name="donation_success_subtitle">寄付を確認するメールがすぐに届きます。</string>
 	<string name="donation_server_error">申し訳ありません。エラーが発生し、寄付を処理できませんでした。\n\n数分後に再試行してください。</string>
 	<string name="settings_donate">Mastodon に寄付する</string>
+	<string name="settings_manage_donations">寄付を管理</string>
 </resources>
