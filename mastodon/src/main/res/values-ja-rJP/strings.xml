@@ -665,7 +665,7 @@
 	<string name="video_saved">動画を保存しました。</string>
 	<string name="view_file">表示</string>
 	<string name="share_sheet_preview_profile">%s の Mastodon</string>
-	<string name="share_sheet_preview_post">%1$s の Mastodon:「%2$s」</string>
+	<string name="share_sheet_preview_post" comment="share_sheet_preview_post&#10;%1$s is the username, %2$s is the post text">%1$s の Mastodon:「%2$s」</string>
 	<string name="copy_profile_link">プロフィールへのリンクをコピー</string>
 	<string name="in_app_browser">アプリ内ブラウザー</string>
 	<string name="system_browser">システムのブラウザー</string>
@@ -722,4 +722,14 @@
 	<plurals name="x_new_notifications">
 		<item quantity="other">新着通知 %,d 件</item>
 	</plurals>
+	<string name="dismiss">無視する</string>
+	<string name="donation_once">1 回だけ</string>
+	<string name="donation_monthly">毎月</string>
+	<string name="donation_yearly">毎年</string>
+	<string name="currency">通貨</string>
+	<string name="donation_success_share">みんなに広める</string>
+	<string name="donation_success_title">ご協力ありがとうございます！</string>
+	<string name="donation_success_subtitle">寄付を確認するメールがすぐに届きます。</string>
+	<string name="donation_server_error">申し訳ありません。エラーが発生し、寄付を処理できませんでした。\n\n数分後に再試行してください。</string>
+	<string name="settings_donate">Mastodon に寄付する</string>
 </resources>
