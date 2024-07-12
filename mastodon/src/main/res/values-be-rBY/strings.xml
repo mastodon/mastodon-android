@@ -189,7 +189,7 @@
 	<string name="save">Захаваць</string>
 	<string name="add_alt_text">Дадаць альтэрнатыўны тэкст</string>
 	<string name="visibility_public">Публічны</string>
-	<string name="visibility_followers_only">Падпісчыкам</string>
+	<string name="visibility_followers_only">Падпісчыкаў</string>
 	<string name="visibility_private">Канкрэтным людзям</string>
 	<string name="recent_searches">Нядаўняе</string>
 	<string name="skip">Прапусціць</string>
@@ -405,11 +405,11 @@
 	<!-- %s is formatted file size ("467 KB image") -->
 	<string name="attachment_description_image">%s выява</string>
 	<string name="attachment_description_video">%s відэа</string>
-	<string name="attachment_description_audio">%s аўдыя</string>
+	<string name="attachment_description_audio">%s аўдыё</string>
 	<string name="attachment_description_unknown">%s файл</string>
 	<string name="attachment_type_image">Выява</string>
 	<string name="attachment_type_video">Відэа</string>
-	<string name="attachment_type_audio">Аўдыя</string>
+	<string name="attachment_type_audio">Аўдыё</string>
 	<string name="attachment_type_gif">GIF</string>
 	<string name="attachment_type_unknown">Файл</string>
 	<string name="attachment_x_percent_uploaded">%d%% загружана</string>
@@ -454,7 +454,7 @@
 	<string name="settings_server_explanation">Агульныя звесткі, правілы, мадэратары</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">Аб %s</string>
-	<string name="default_post_language">Прадвызначана мова допісаў</string>
+	<string name="default_post_language">Мова допісаў па змаўчанні</string>
 	<string name="settings_alt_text_reminders">Даданне напамінаў пра тэкст alt</string>
 	<string name="settings_confirm_unfollow">Спытайце, перш чым адпісацца ад каго-небудзь</string>
 	<string name="settings_confirm_boost">Спытаць перад пашырэннем</string>
@@ -764,7 +764,7 @@
 	<string name="video_saved">Відэа захавана.</string>
 	<string name="view_file">Паглядзець</string>
 	<string name="share_sheet_preview_profile">%s у Mastodon</string>
-	<string name="share_sheet_preview_post">%1$s у Mastodon “%2$s”</string>
+	<string name="share_sheet_preview_post" comment="share_sheet_preview_post&#10;%1$s is the username, %2$s is the post text">%1$s у Mastodon “%2$s”</string>
 	<string name="copy_profile_link">Скапіраваць спасылку на профіль</string>
 	<string name="in_app_browser">Убудаваны браўзер</string>
 	<string name="system_browser">Сістэмны браўзер</string>
