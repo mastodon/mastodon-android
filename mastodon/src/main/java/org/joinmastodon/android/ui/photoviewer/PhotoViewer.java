@@ -597,7 +597,10 @@ public class PhotoViewer implements ZoomPanView.Listener{
 		req.allowScanningByMediaScanner();
 		req.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
 		req.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, uri.getLastPathSegment());
-		activity.registerReceiver(downloadCompletedReceiver, new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
+		if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.TIRAMISU)
+			activity.registerReceiver(downloadCompletedReceiver, new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE), Context.RECEIVER_EXPORTED);
+		else
+			activity.registerReceiver(downloadCompletedReceiver, new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
 		receiverRegistered=true;
 		lastDownloadID=activity.getSystemService(DownloadManager.class).enqueue(req);
 		new Snackbar.Builder(activity)
