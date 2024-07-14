@@ -748,7 +748,7 @@
 	<string name="connection_timed_out">De aanvraag is verlopen. Controleer je verbinding en probeer het opnieuw.</string>
 	<string name="server_error">Er is iets misgegaan met de communicatie met je server. Waarschijnlijk is het niet jouw fout. Opnieuw proberen?</string>
 	<string name="not_found">Deze is wellicht verwijderd of heeft misschien nooit bestaan.</string>
-	<string name="no_servers_found">Geen servers gevonden voor “%s”</string>
+	<string name="no_servers_found">Geen servers voor “%s” gevonden</string>
 	<string name="signup_username_taken">Deze gebruikersnaam is al in gebruik. Probeer een andere gebruikersnaam of &lt;a&gt;kies een andere server&lt;/a&gt;.</string>
 	<string name="signup_email_invalid">Dat lijkt geen geldig e-mailadres te zijn.</string>
 	<string name="signup_email_taken">Dat e-mailadres is al in gebruik. Ben je misschien &lt;a&gt;je wachtwoord vergeten&lt;/a&gt;?</string>
@@ -756,4 +756,15 @@
 		<item quantity="one">%,d nieuwe melding</item>
 		<item quantity="other">%,d nieuwe meldingen</item>
 	</plurals>
+	<string name="dismiss">Sluiten</string>
+	<string name="donation_once">Eenmalig</string>
+	<string name="donation_monthly">Maandelijks</string>
+	<string name="donation_yearly">Jaarlijks</string>
+	<string name="currency">Munteenheid</string>
+	<string name="donation_success_share">Delen</string>
+	<string name="donation_success_title">Bedankt voor je bijdrage!</string>
+	<string name="donation_success_subtitle">Je ontvangt binnenkort een e-mail ter bevestiging van je donatie.</string>
+	<string name="donation_server_error">Het spijt ons, er is een fout opgetreden en we zijn niet in staat om je donatie te verwerken.\n\nProbeer het over een paar minuten opnieuw.</string>
+	<string name="settings_donate">Aan Mastodon doneren</string>
+	<string name="settings_manage_donations">Donaties beheren</string>
 </resources>
