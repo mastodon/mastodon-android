@@ -143,7 +143,7 @@ public class DiscoverNewsFragment extends BaseRecyclerFragment<DiscoverNewsFragm
 
 		@Override
 		public int getItemViewType(int position){
-			return position==0 ? 1 : 2;
+			return position==0 ? -1 : -2;
 		}
 	}
 }

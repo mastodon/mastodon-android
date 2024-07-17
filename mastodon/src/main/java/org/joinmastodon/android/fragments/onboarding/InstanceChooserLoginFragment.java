@@ -40,6 +40,7 @@ public class InstanceChooserLoginFragment extends InstanceCatalogFragment{
 	private View headerView;
 	private boolean loadedAutocomplete;
 	private ImageButton clearBtn;
+	private MergeRecyclerAdapter mergeAdapter;
 
 	public InstanceChooserLoginFragment(){
 		super(R.layout.fragment_login, 10);

@@ -47,14 +47,12 @@ import me.grishka.appkit.api.Callback;
 import me.grishka.appkit.api.ErrorResponse;
 import me.grishka.appkit.fragments.BaseRecyclerFragment;
 import me.grishka.appkit.utils.BindableViewHolder;
-import me.grishka.appkit.utils.MergeRecyclerAdapter;
 import okhttp3.Call;
 import okhttp3.Request;
 import okhttp3.Response;
 
 abstract class InstanceCatalogFragment extends BaseRecyclerFragment<CatalogInstance>{
 	protected RecyclerView.Adapter adapter;
-	protected MergeRecyclerAdapter mergeAdapter;
 	protected CatalogInstance chosenInstance;
 	protected Button nextButton;
 	protected EditText searchEdit;
