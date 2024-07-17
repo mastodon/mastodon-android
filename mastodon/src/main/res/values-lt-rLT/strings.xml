@@ -212,14 +212,14 @@
 	<string name="theme_auto">Naudoti įrenginio išvaizdą</string>
 	<string name="theme_light">Šviesi</string>
 	<string name="theme_dark">Tamsi</string>
-	<string name="settings_behavior">Elgesys</string>
+	<string name="settings_behavior">Elgsena</string>
 	<string name="settings_gif">Leisti animuotus avatarus ir jaustukus</string>
 	<string name="settings_custom_tabs">Atidaryti nuorodas per</string>
 	<string name="settings_notifications">Pranešimai</string>
 	<string name="settings_contribute">Prisidėti prie „Mastodon“</string>
 	<string name="settings_tos">Paslaugų teikimo sąlygos</string>
 	<string name="settings_privacy_policy">Privatumo politika</string>
-	<string name="settings_clear_cache">Išvalyti medijos podėlį</string>
+	<string name="settings_clear_cache">Valyti medijos podėlį</string>
 	<string name="settings_app_version">„Mastodon“, skirta „Android“ v%1$s (%2$d)</string>
 	<string name="media_cache_cleared">Išvalyta medijos podėlis</string>
 	<string name="confirm_log_out">Atsijungti iš %s?</string>
@@ -297,7 +297,7 @@
 		<item quantity="other">%,d pasidalinimų</item>
 	</plurals>
 	<string name="time_now">dabar</string>
-	<string name="edit_history">Redaguoti istoriją</string>
+	<string name="edit_history">Redagavimo istoriją</string>
 	<string name="last_edit_at_x">Paskutinį kartą redaguota %s</string>
 	<string name="time_just_now">ką tik</string>
 	<plurals name="x_seconds_ago">
@@ -764,7 +764,7 @@ Kuo daugiau žmonių seki, tuo aktyvesnis ir įdomesnis jis bus.</string>
 	<string name="video_saved">Vaizdo įrašas išsaugotas.</string>
 	<string name="view_file">Peržiūrėti</string>
 	<string name="share_sheet_preview_profile">%s, platformoje „Mastodon“</string>
-	<string name="share_sheet_preview_post">%1$s, platformoje „Mastodon“: %2$s</string>
+	<string name="share_sheet_preview_post" comment="share_sheet_preview_post&#10;%1$s is the username, %2$s is the post text">%1$s, platformoje „Mastodon“: %2$s</string>
 	<string name="copy_profile_link">Kopijuoti nuorodą į profilį</string>
 	<string name="in_app_browser">Naršyklė programėlėje</string>
 	<string name="system_browser">Sistemos naršyklė</string>
@@ -827,4 +827,15 @@ Kuo daugiau žmonių seki, tuo aktyvesnis ir įdomesnis jis bus.</string>
 		<item quantity="many">%,d naujo pranešimo</item>
 		<item quantity="other">%,d naujų pranešimų</item>
 	</plurals>
+	<string name="dismiss">Atmesti</string>
+	<string name="donation_once">Tik vieną kartą</string>
+	<string name="donation_monthly">Kas mėnesį</string>
+	<string name="donation_yearly">Kasmet</string>
+	<string name="currency">Valiuta</string>
+	<string name="donation_success_share">Skleisk žodį</string>
+	<string name="donation_success_title">Ačiū už tavo prisidėjimą!</string>
+	<string name="donation_success_subtitle">Netrukus turėtum gauti auką patvirtinantį el. laišką.</string>
+	<string name="donation_server_error">Atsiprašome. Įvyko klaida ir negalėjome apdoroti tavo aukos.\n\nBandyk dar kartą po kelių minučių.</string>
+	<string name="settings_donate">Aukoti „Mastodon“</string>
+	<string name="settings_manage_donations">Tvarkyti aukas</string>
 </resources>

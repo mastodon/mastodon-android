@@ -165,6 +165,8 @@
 	<string name="save">Guardar</string>
 	<string name="add_alt_text">Añadir texto alternativo</string>
 	<string name="visibility_public">Público</string>
+	<string name="visibility_followers_only">Seguidores</string>
+	<string name="visibility_private">Personas específicas</string>
 	<string name="recent_searches">Recientes</string>
 	<string name="skip">Saltar</string>
 	<string name="notification_type_follow">Nuevos seguidores</string>
@@ -305,13 +307,16 @@
 	<string name="instance_signup_closed">Este servidor no acepta altas nuevas.</string>
 	<string name="text_copied">Copiado en el portapapeles</string>
 	<string name="add_bookmark">Añadir marcador</string>
+	<string name="remove_bookmark">Eliminar marcador</string>
 	<string name="bookmarks">Marcadores</string>
 	<string name="your_favorites">Tus favoritos</string>
 	<string name="login_title">Bienvenido/da de nuevo</string>
 	<string name="login_subtitle">Inicia sesión con el servidor donde creaste tu cuenta.</string>
 	<string name="server_url">URL del servidor</string>
 	<string name="server_filter_any_language">Cualquier idioma</string>
+	<string name="server_filter_instant_signup">Registro instantáneo</string>
 	<string name="server_filter_manual_review">Revisión manual</string>
+	<string name="server_filter_any_signup_speed">Cualquier velocidad de registro</string>
 	<string name="server_filter_region_europe">Europa</string>
 	<string name="server_filter_region_north_america">Norteamérica</string>
 	<string name="server_filter_region_south_america">Suramérica</string>
@@ -693,7 +698,7 @@ Mientras más personas sigas, más activo e interesante será.</string>
 	<string name="video_saved">Vídeo guardado.</string>
 	<string name="view_file">Ver</string>
 	<string name="share_sheet_preview_profile">%s en Mastodon</string>
-	<string name="share_sheet_preview_post">%1$s en Mastodon: “%2$s”</string>
+	<string name="share_sheet_preview_post" comment="share_sheet_preview_post&#10;%1$s is the username, %2$s is the post text">%1$s en Mastodon: “%2$s”</string>
 	<string name="copy_profile_link">Copiar enlace de perfil</string>
 	<string name="in_app_browser">Navegador en la app</string>
 	<string name="system_browser">Navegador del sistema</string>
@@ -732,4 +737,35 @@ Mientras más personas sigas, más activo e interesante será.</string>
 	<string name="notifications_from_user">Notificaciones de %s</string>
 	<string name="notifications_muted">Las notificaciones de %s han sido descartadas.</string>
 	<string name="notifications_allowed">Ahora aparecerá %s en tu lista de notificaciones.</string>
+	<string name="visibility_subtitle_public">Todo el mundo y fuera de Mastodon</string>
+	<string name="visibility_subtitle_unlisted">Sin algoritmos de descubrimiento</string>
+	<string name="visibility_subtitle_followers">Solo tus seguidores</string>
+	<string name="visibility_subtitle_private">Todo el mundo mencionado en la publicación</string>
+	<string name="view_boosts">Mostrar impulsos</string>
+	<string name="view_favorites">Ver favoritos</string>
+	<string name="undo_reblog">Deshacer impulso</string>
+	<string name="undo_favorite">Deshacer favorito</string>
+	<string name="could_not_reach_server">No se pudo acceder al servidor. ¿Comprueba tu conexión e inténtalo de nuevo?</string>
+	<string name="connection_timed_out">Se ha agotado el tiempo de espera. ¿Comprobar su conexión e inténtelo de nuevo?</string>
+	<string name="server_error">Algo salió mal al conectar con tu servidor. Probablemente no es tu culpa. ¿Intentar de nuevo?</string>
+	<string name="not_found">Podría haber sido eliminado, o tal vez nunca existió.</string>
+	<string name="no_servers_found">No se encontraron servidores para “%s”</string>
+	<string name="signup_username_taken">Este nombre de usuario ya está ocupado. Intenta con uno diferente o &lt;a&gt;selecciona un servidor diferente&lt;/a&gt;.</string>
+	<string name="signup_email_invalid">No parece una dirección de correo electrónico válida.</string>
+	<string name="signup_email_taken">El correo electrónico ya está en uso. ¿&lt;a&gt;Olvidaste tu contraseña&lt;/a&gt;?</string>
+	<plurals name="x_new_notifications">
+		<item quantity="one">%,d notificación nueva</item>
+		<item quantity="other">%,d notificaciones nuevas</item>
+	</plurals>
+	<string name="dismiss">Descartar</string>
+	<string name="donation_once">Solo una vez</string>
+	<string name="donation_monthly">Mensual</string>
+	<string name="donation_yearly">Anual</string>
+	<string name="currency">Moneda</string>
+	<string name="donation_success_share">Corre la voz</string>
+	<string name="donation_success_title">¡Gracias por tu contribución!</string>
+	<string name="donation_success_subtitle">Recibirás un correo electrónico pronto confirmando tu donación.</string>
+	<string name="donation_server_error">Lo sentimos, se ha producido un error y no hemos podido procesar tu donación.\n\nPor favor, vuelve a intentarlo en unos minutos.</string>
+	<string name="settings_donate">Donar a Mastodon</string>
+	<string name="settings_manage_donations">Administrar donaciones</string>
 </resources>

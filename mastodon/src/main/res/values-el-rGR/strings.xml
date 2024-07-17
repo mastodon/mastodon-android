@@ -9,6 +9,7 @@
 	<string name="preparing_auth">Προετοιμασία για έλεγχο ταυτότητας…</string>
 	<string name="finishing_auth">Ολοκλήρωση ταυτοποίησης…</string>
 	<string name="user_boosted">Ο χρήστης %s ενίσχυσε</string>
+	<string name="in_reply_to">σε απάντηση σε %s</string>
 	<string name="notifications">Ειδοποιήσεις</string>
 	<string name="user_followed_you">%s σε ακολούθησε</string>
 	<string name="user_sent_follow_request">%s σού έστειλε ένα αίτημα ακολούθησης</string>
@@ -164,6 +165,8 @@
 	<string name="save">Αποθήκευση</string>
 	<string name="add_alt_text">Προσθήκη εναλλακτικού κειμένου</string>
 	<string name="visibility_public">Δημόσιο</string>
+	<string name="visibility_followers_only">Ακόλουθοι</string>
+	<string name="visibility_private">Συγκεκριμένα άτομα</string>
 	<string name="recent_searches">Πρόσφατα</string>
 	<string name="skip">Παράλειψη</string>
 	<string name="notification_type_follow">Νέοι ακόλουθοι</string>
@@ -304,13 +307,16 @@
 	<string name="instance_signup_closed">Αυτός ο διακομιστής δεν δέχεται νέες εγγραφές.</string>
 	<string name="text_copied">Αντιγράφηκε στο πρόχειρο</string>
 	<string name="add_bookmark">Σελιδοδείκτης</string>
+	<string name="remove_bookmark">Αφαίρεση σελιδοδείκτη</string>
 	<string name="bookmarks">Σελιδοδείκτες</string>
 	<string name="your_favorites">Τα αγαπημένα σου</string>
 	<string name="login_title">Καλωσόρισες και πάλι</string>
 	<string name="login_subtitle">Συνδέσου με τον διακομιστή όπου δημιούργησες τον λογαριασμό σου.</string>
 	<string name="server_url">URL διακομιστή</string>
 	<string name="server_filter_any_language">Οποιαδήποτε γλώσσα</string>
+	<string name="server_filter_instant_signup">Άμεση εγγραφή</string>
 	<string name="server_filter_manual_review">Χειροκίνητη αξιολόγηση</string>
+	<string name="server_filter_any_signup_speed">Οποιαδήποτε ταχύτητα εγγραφής</string>
 	<string name="server_filter_region_europe">Ευρώπη</string>
 	<string name="server_filter_region_north_america">Βόρεια Αμερική</string>
 	<string name="server_filter_region_south_america">Νότια Αμερική</string>
@@ -691,7 +697,7 @@
 	<string name="video_saved">Το βίντεο αποθηκεύτηκε.</string>
 	<string name="view_file">Προβολή</string>
 	<string name="share_sheet_preview_profile">%s στο Mastodon</string>
-	<string name="share_sheet_preview_post">%1$s στο Mastodon: “%2$s”</string>
+	<string name="share_sheet_preview_post" comment="share_sheet_preview_post&#10;%1$s is the username, %2$s is the post text">%1$s στο Mastodon: “%2$s”</string>
 	<string name="copy_profile_link">Αντιγραφή συνδέσμου στο προφίλ</string>
 	<string name="in_app_browser">Περιηγητής εντός εφαρμογής</string>
 	<string name="system_browser">Περιηγητής συστήματος</string>
@@ -729,4 +735,36 @@
 	</plurals>
 	<string name="notifications_from_user">Ειδοποιήσεις από %s</string>
 	<string name="notifications_muted">Οι ειδοποιήσεις από %s έχουν απορριφθεί.</string>
+	<string name="notifications_allowed">%s θα εμφανιστεί τώρα στη λίστα ειδοποιήσεών σου.</string>
+	<string name="visibility_subtitle_public">Όλοι εντός και εκτός του Mastodon</string>
+	<string name="visibility_subtitle_unlisted">Λιγότερα αλγοριθμικά κόλπα</string>
+	<string name="visibility_subtitle_followers">Μόνο οι ακόλουθοί σου</string>
+	<string name="visibility_subtitle_private">Όλοι όσοι αναφέρθηκαν στην ανάρτηση</string>
+	<string name="view_boosts">Εμφάνιση ενισχύσεων</string>
+	<string name="view_favorites">Εμφάνιση αγαπημένων</string>
+	<string name="undo_reblog">Αναίρεση ενίσχυσης</string>
+	<string name="undo_favorite">Αναίρεση αγαπημένου</string>
+	<string name="could_not_reach_server">Δεν ήταν δυνατή η πρόσβαση στο διακομιστή. Έλεγξε τη σύνδεσή σου και προσπάθησε ξανά;</string>
+	<string name="connection_timed_out">Το αίτημα έληξε. Έλεγξε τη σύνδεσή σου και προσπάθησε ξανά;</string>
+	<string name="server_error">Κάτι πήγε στραβά μιλώντας με το διακομιστή σου. Πιθανώς δεν φταις. Πάμε πάλι;</string>
+	<string name="not_found">Θα μπορούσε να έχει διαγραφεί ή ίσως δεν υπήρξε ποτέ.</string>
+	<string name="no_servers_found">Δεν βρέθηκαν διακομιστές για το “%s”</string>
+	<string name="signup_username_taken">Αυτό το όνομα χρήστη χρησιμοποιείται. Δοκίμασε ένα διαφορετικό ή &lt;a&gt; επέλεξε ένα διαφορετικό διακομιστή&lt;/a&gt;.</string>
+	<string name="signup_email_invalid">Αυτό δεν μοιάζει με μια έγκυρη διεύθυνση email.</string>
+	<string name="signup_email_taken">Η διεύθυνση email χρησιμοποιείται ήδη. Μήπως &lt;a&gt;ξέχασες τον κωδικό σου&lt;/a&gt;;</string>
+	<plurals name="x_new_notifications">
+		<item quantity="one">%,d νέα ειδοποίηση</item>
+		<item quantity="other">%,d νέες ειδοποιήσεις</item>
+	</plurals>
+	<string name="dismiss">Παράβλεψη</string>
+	<string name="donation_once">Μόνο μία φορά</string>
+	<string name="donation_monthly">Μηνιαία</string>
+	<string name="donation_yearly">Ετήσια</string>
+	<string name="currency">Νόμισμα</string>
+	<string name="donation_success_share">Διάδωσέ το</string>
+	<string name="donation_success_title">Ευχαριστούμε για τη συνεισφορά σου!</string>
+	<string name="donation_success_subtitle">Θα λάβεις σύντομα ένα email που θα επιβεβαιώνει τη δωρεά σου.</string>
+	<string name="donation_server_error">Λυπούμαστε, πρόεκυψε ένα σφάλμα και δεν καταφέραμε να διεκπαιρεώσουμε την δωρέα.\n\nΔοκίμασε ξανά σε λίγα λεπτά.</string>
+	<string name="settings_donate">Συνείσφερε στο Mastodon</string>
+	<string name="settings_manage_donations">Διαχείριση δωρεών</string>
 </resources>

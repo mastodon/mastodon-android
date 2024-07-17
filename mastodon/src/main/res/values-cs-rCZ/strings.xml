@@ -9,6 +9,7 @@
 	<string name="preparing_auth">Příprava na autentizaci…</string>
 	<string name="finishing_auth">Dokončení autentizace…</string>
 	<string name="user_boosted">%s boostnul(a)</string>
+	<string name="in_reply_to">v odpovědi na %s</string>
 	<string name="notifications">Upozornění</string>
 	<string name="user_followed_you">%s vás sleduje</string>
 	<string name="user_sent_follow_request">%s vám poslal(a) žádost o sledování</string>
@@ -82,13 +83,13 @@
 	</plurals>
 	<plurals name="x_seconds_left">
 		<item quantity="one">Zbývá %d sekunda</item>
-		<item quantity="few">Zbývá %d sekundy</item>
+		<item quantity="few">Zbývají %d sekundy</item>
 		<item quantity="many">Zbývá %d sekund</item>
 		<item quantity="other">Zbývá %d sekund</item>
 	</plurals>
 	<plurals name="x_minutes_left">
 		<item quantity="one">Zbývá %d minuta</item>
-		<item quantity="few">Zbývá %d minuty</item>
+		<item quantity="few">Zbývají %d minuty</item>
 		<item quantity="many">Zbývá %d minut</item>
 		<item quantity="other">Zbývá %d minut</item>
 	</plurals>
@@ -188,6 +189,8 @@
 	<string name="save">Uložit</string>
 	<string name="add_alt_text">Přidat alternativní text</string>
 	<string name="visibility_public">Veřejné</string>
+	<string name="visibility_followers_only">Sledující</string>
+	<string name="visibility_private">Vybraní lidé</string>
 	<string name="recent_searches">Nedávné</string>
 	<string name="skip">Přeskočit</string>
 	<string name="notification_type_follow">Noví sledující</string>
@@ -342,13 +345,16 @@
 	<string name="instance_signup_closed">Tento server nepřijímá nové registrace.</string>
 	<string name="text_copied">Zkopírováno do schránky</string>
 	<string name="add_bookmark">Přidat do záložek</string>
+	<string name="remove_bookmark">Odstranit záložku</string>
 	<string name="bookmarks">Záložky</string>
 	<string name="your_favorites">Vaše oblíbené</string>
 	<string name="login_title">Vítej zpět</string>
 	<string name="login_subtitle">Přihlaste se pomocí serveru, kde jste vytvořili svůj účet.</string>
 	<string name="server_url">URL serveru</string>
 	<string name="server_filter_any_language">Jakýkoliv jazyk</string>
+	<string name="server_filter_instant_signup">Okamžitá registrace</string>
 	<string name="server_filter_manual_review">S ruční kontrolou</string>
+	<string name="server_filter_any_signup_speed">Jakákoliv rychlost registrace</string>
 	<string name="server_filter_region_europe">Evropa</string>
 	<string name="server_filter_region_north_america">Severní Amerika</string>
 	<string name="server_filter_region_south_america">Jižní Amerika</string>
@@ -758,7 +764,7 @@
 	<string name="video_saved">Video uloženo.</string>
 	<string name="view_file">Zobrazit</string>
 	<string name="share_sheet_preview_profile">%s na Mastodonu</string>
-	<string name="share_sheet_preview_post">%1$s na Mastodonu: „%2$s“</string>
+	<string name="share_sheet_preview_post" comment="share_sheet_preview_post&#10;%1$s is the username, %2$s is the post text">%1$s na Mastodonu: „%2$s“</string>
 	<string name="copy_profile_link">Zkopírovat odkaz na profil</string>
 	<string name="in_app_browser">Prohlížeč v aplikaci</string>
 	<string name="system_browser">Systémový prohlížeč</string>
@@ -766,5 +772,59 @@
 	<string name="tab_home">Domů</string>
 	<string name="tab_search">Prozkoumat</string>
 	<string name="tab_profile">Profil</string>
+	<string name="pin_post">Připnout na profil</string>
+	<string name="unpin_post">Odepnout z profilu</string>
+	<string name="post_pinned">Příspěvek byl připnut</string>
+	<string name="post_unpinned">Příspěvek byl odepnut</string>
 	<!-- %s is the username -->
+	<string name="enable_new_post_notifications">Upozornit mě, když %s zveřejní příspěvek</string>
+	<string name="disable_new_post_notifications">Přestat mě upozorňovat, když %s zveřejní příspěvek</string>
+	<string name="new_post_notifications_enabled">Obdržíte oznámení o nových příspěvcích.</string>
+	<string name="new_post_notifications_disabled">Již nebudete dostávat oznámení o nových příspěvcích.</string>
+	<string name="mute_conversation">Ztišit konverzaci</string>
+	<string name="unmute_conversation">Zrušit ztišení konverzace</string>
+	<string name="visibility_unlisted">Tichá veřejnost</string>
+	<string name="filtered_notifications">Filtrovaná oznámení</string>
+	<string name="filter_notifications">Vyfiltrovat oznámení od...</string>
+	<string name="notification_filter_following">Lidé, které nesledujete</string>
+	<string name="notification_filter_following_explanation">Dokud je ručně neschválíte</string>
+	<string name="notification_filter_followers">Lidé, kteří vás nesledují</string>
+	<string name="notification_filter_followers_explanation">Včetně lidí, kteří vás sledovali méně než 3 dny</string>
+	<string name="notification_filter_new_accounts">Nové účty</string>
+	<string name="notification_filter_new_accounts_explanation">Vytvořeno během posledních 30 dnů</string>
+	<string name="notification_filter_mentions">Nevyžádané soukromé zmínění</string>
+	<string name="notification_filter_mentions_explanation">Filtrováno, pokud to není v odpovědi na vaši vlastní zmínku nebo pokud nesledujete odesílatele</string>
+	<string name="allow_notifications">Povolit oznámení</string>
+	<string name="mute_notifications">Zrušit požadavek na oznámení</string>
+	<plurals name="x_people_you_may_know">
+		<item quantity="one">%,d osoba, kterou možná znáte</item>
+		<item quantity="few">%,d osoby, které možná znáte</item>
+		<item quantity="many">%,d osob, které možná znáte</item>
+		<item quantity="other">%,d osob, které možná znáte</item>
+	</plurals>
+	<string name="notifications_from_user">Oznámení od %s</string>
+	<string name="notifications_muted">Oznámení od %s byla zamítnuta.</string>
+	<string name="notifications_allowed">%s se nyní zobrazí ve vašem seznamu oznámení.</string>
+	<string name="visibility_subtitle_public">Kdokoliv na Mastodonu i mimo něj</string>
+	<string name="visibility_subtitle_unlisted">Méně algoritmických vzruchů</string>
+	<string name="visibility_subtitle_followers">Jen vaši sledující</string>
+	<string name="visibility_subtitle_private">Všichni zmínění v příspěvku</string>
+	<string name="view_boosts">Zobrazit boosty</string>
+	<string name="view_favorites">Zobrazit oblíbené</string>
+	<string name="undo_reblog">Vrátit zpět boost</string>
+	<string name="undo_favorite">Odebrat z oblíbených</string>
+	<string name="could_not_reach_server">Nelze se připojit k serveru. Zkontrolujte připojení a zkuste to znovu?</string>
+	<string name="connection_timed_out">Vypršel časový limit požadavku. Zkontrolujte připojení a zkuste to znovu?</string>
+	<string name="server_error">Něco se pokazilo s komunikací s vaším serverem. Pravděpodobně to není tvá chyba. Zkusit znovu?</string>
+	<string name="not_found">Možná došlo ke smazání nebo zde nikdy nic nebylo.</string>
+	<string name="no_servers_found">Nenalezeny žádné servery pro „%s“</string>
+	<string name="signup_username_taken">Toto uživatelské jméno je již obsazeno. Zkuste jiné nebo &lt;a&gt;si vyberte jiný server&lt;/a&gt;.</string>
+	<string name="signup_email_invalid">Toto nevypadá jako platná e-mailová adresa.</string>
+	<string name="signup_email_taken">Tato e-mailová adresa již byla použita. &lt;a&gt;Zapoměli jste své heslo&lt;/a&gt;?</string>
+	<plurals name="x_new_notifications">
+		<item quantity="one">%,d nové oznámení</item>
+		<item quantity="few">%,d nové oznámení</item>
+		<item quantity="many">%,d nových oznámení</item>
+		<item quantity="other">%,d nových oznámení</item>
+	</plurals>
 </resources>

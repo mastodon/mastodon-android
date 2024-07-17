@@ -762,7 +762,7 @@
 	<string name="video_saved">Видео сохранено.</string>
 	<string name="view_file">Просмотр</string>
 	<string name="share_sheet_preview_profile">%s на Mastodon</string>
-	<string name="share_sheet_preview_post">%1$s на Mastodon: “%2$s”</string>
+	<string name="share_sheet_preview_post" comment="share_sheet_preview_post&#10;%1$s is the username, %2$s is the post text">%1$s на Mastodon: “%2$s”</string>
 	<string name="copy_profile_link">Скопировать ссылку на профиль</string>
 	<string name="in_app_browser">Встроенный браузер</string>
 	<string name="system_browser">Системный браузер</string>
@@ -781,4 +781,5 @@
 	<string name="new_post_notifications_disabled">Вы больше не будете получать уведомления о новых постах.</string>
 	<string name="mute_conversation">Заглушить обсуждение</string>
 	<string name="unmute_conversation">Не игнорировать обсуждение</string>
+	<string name="not_found">Может, здесь ничего и не было.</string>
 </resources>

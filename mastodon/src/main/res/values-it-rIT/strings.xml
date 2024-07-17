@@ -698,7 +698,7 @@ Più persone segui, più sarà attivo e interessante.</string>
 	<string name="video_saved">Video salvato.</string>
 	<string name="view_file">Visualizza</string>
 	<string name="share_sheet_preview_profile">%s su Mastodon</string>
-	<string name="share_sheet_preview_post">%1$s su Mastodon: “%2$s”</string>
+	<string name="share_sheet_preview_post" comment="share_sheet_preview_post&#10;%1$s is the username, %2$s is the post text">%1$s su Mastodon: “%2$s”</string>
 	<string name="copy_profile_link">Copia link del profilo</string>
 	<string name="in_app_browser">Browser in-app</string>
 	<string name="system_browser">Browser di sistema</string>
@@ -757,4 +757,15 @@ Più persone segui, più sarà attivo e interessante.</string>
 		<item quantity="one">%,d nuova notifica</item>
 		<item quantity="other">%,d nuove notifiche</item>
 	</plurals>
+	<string name="dismiss">Ignora</string>
+	<string name="donation_once">Solo una volta</string>
+	<string name="donation_monthly">Mensile</string>
+	<string name="donation_yearly">Annuale</string>
+	<string name="currency">Valuta</string>
+	<string name="donation_success_share">Spargi la voce</string>
+	<string name="donation_success_title">Grazie per il tuo contributo!</string>
+	<string name="donation_success_subtitle">A breve dovresti ricevere un\'e-mail di conferma della tua donazione.</string>
+	<string name="donation_server_error">Siamo spiacenti, si è verificato un errore e non siamo stati in grado di elaborare la tua donazione.\n\nRiprova tra qualche minuto.</string>
+	<string name="settings_donate">Dona a Mastodon</string>
+	<string name="settings_manage_donations">Gestisci le donazioni</string>
 </resources>

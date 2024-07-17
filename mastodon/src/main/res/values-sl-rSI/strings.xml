@@ -764,7 +764,7 @@ Več osebam kot sledite, bolj dejaven in zanimiv bo.</string>
 	<string name="video_saved">Videoposnetek je shranjen.</string>
 	<string name="view_file">Pogled</string>
 	<string name="share_sheet_preview_profile">%s na Mastodonu</string>
-	<string name="share_sheet_preview_post">%1$s na Mastodonu: »%2$s«</string>
+	<string name="share_sheet_preview_post" comment="share_sheet_preview_post&#10;%1$s is the username, %2$s is the post text">%1$s na Mastodonu: »%2$s«</string>
 	<string name="copy_profile_link">Kopiraj povezavo do profila</string>
 	<string name="in_app_browser">Brskalnik v okviru programa</string>
 	<string name="system_browser">Sistemski brskalnik</string>
@@ -827,4 +827,15 @@ Več osebam kot sledite, bolj dejaven in zanimiv bo.</string>
 		<item quantity="few">%,d nova obvestila</item>
 		<item quantity="other">%,d novih obvestil</item>
 	</plurals>
+	<string name="dismiss">Opusti</string>
+	<string name="donation_once">Samo enkrat</string>
+	<string name="donation_monthly">Mesečno</string>
+	<string name="donation_yearly">Letno</string>
+	<string name="currency">Valuta</string>
+	<string name="donation_success_share">Razširite besedo</string>
+	<string name="donation_success_title">Hvala vam za vaš prispevek!</string>
+	<string name="donation_success_subtitle">Kmalu bi morali prejeti elektronsko pošto s potrdilom vaše donacije.</string>
+	<string name="donation_server_error">Oprostite, a prišlo je do napake in vaše donacije nismo mogli obdelati.\n\nPoskusite znova čez nekaj minut.</string>
+	<string name="settings_donate">Donirajte Mastodonu</string>
+	<string name="settings_manage_donations">Upravljanje donacij</string>
 </resources>
