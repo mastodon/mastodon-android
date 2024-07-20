@@ -20,7 +20,7 @@ public class JsonObjectRequestBody extends RequestBody{
 
 	@Override
 	public MediaType contentType(){
-		return MediaType.get("application/json;charset=utf-8");
+		return MediaType.get("application/json");
 	}
 
 	@Override
