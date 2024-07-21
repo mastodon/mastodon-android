@@ -28,7 +28,7 @@
 	</plurals>
 	<plurals name="following">
 		<item quantity="one">ακολουθεί</item>
-		<item quantity="other">ακολουθεί</item>
+		<item quantity="other">ακολουθούν</item>
 	</plurals>
 	<string name="posts">Αναρτήσεις</string>
 	<string name="posts_and_replies">Αναρτήσεις και απαντήσεις</string>
@@ -98,7 +98,7 @@
 	<string name="action_vote">Ψήφισε</string>
 	<string name="delete">Διαγραφή</string>
 	<string name="confirm_delete_title">Διαγραφή ανάρτησης</string>
-	<string name="confirm_delete">Είσαι βέβαιος ότι θες να διαγράψεις την ανάρτηση;</string>
+	<string name="confirm_delete">Σίγουρα θες να διαγράψεις την ανάρτηση;</string>
 	<string name="deleting">Διαγραφή…</string>
 	<string name="notification_channel_audio_player">Αναπαραγωγή ήχου</string>
 	<string name="play">Αναπαραγωγή</string>
@@ -136,9 +136,9 @@
 	<string name="sending_report">Αποστολή αναφοράς…</string>
 	<string name="report_sent_title">Σε ευχαριστούμε για την αναφορά, θα το διερευνήσουμε.</string>
 	<string name="report_sent_subtitle">Ενώ το εξετάζουμε, μπορείς να δράσεις εναντίον του %s:</string>
-	<string name="unfollow_user">Κατάργηση ακολούθησης του %s</string>
+	<string name="unfollow_user">Άρση ακολούθησης του %s</string>
 	<string name="unfollow">Άρση ακολούθησης</string>
-	<string name="mute_user_explain">Δεν θα βλέπεις τις αναρτήσεις του. Εκείνος μπορεί ακόμα να σε ακολουθεί και να βλέπει τις αναρτήσεις σου χωρίς να γνωρίζει ότι είναι σε σίγαση.</string>
+	<string name="mute_user_explain">Δε θα βλέπεις τις αναρτήσεις του. Εκείνος μπορεί ακόμα να σε ακολουθεί και να βλέπει τις αναρτήσεις σου χωρίς να γνωρίζει ότι είναι σε σίγαση.</string>
 	<string name="block_user_explain">Δε θα βλέπεις τις αναρτήσεις του. Δε θα μπορεί να δει τις αναρτήσεις σου ή να σε ακολουθήσει. Θα μπορεί να δει ότι έχει αποκλειστεί.</string>
 	<string name="report_personal_title">Δε θες να το βλέπεις;</string>
 	<string name="report_personal_subtitle">Αυτές είναι οι επιλογές σου για να ελέγχεις τί βλέπεις στο Mastodon:</string>
@@ -208,14 +208,14 @@
 	<string name="media_no_description">Πολυμέσα χωρίς περιγραφή</string>
 	<string name="add_media">Προσθήκη πολυμέσων</string>
 	<string name="add_poll">Προσθήκη δημοσκόπησης</string>
-	<string name="emoji">Emoji</string>
-	<string name="home_timeline">Αρχική</string>
+	<string name="emoji">Εμότζι</string>
+	<string name="home_timeline">Αρχική ροή</string>
 	<string name="my_profile">Το προφίλ μου</string>
-	<string name="media_viewer">Αναπαραγωγέας πολυμέσων</string>
+	<string name="media_viewer">Προβολέας πολυμέσων</string>
 	<string name="follow_user">Ακολούθησε %s</string>
 	<string name="unfollowed_user">Κατάργηση ακολούθησης του %s</string>
-	<string name="followed_user">Ακολουθείς πλέον τον/την %s</string>
-	<string name="following_user_requested">Έγινε αίτημα ακολούθησης του/της %s</string>
+	<string name="followed_user">Ακολουθείς πλέον τον χρήστη %s</string>
+	<string name="following_user_requested">Έγινε αίτημα ακολούθησης σε %s</string>
 	<string name="open_in_browser">Άνοιξε στον περιηγητή</string>
 	<string name="hide_boosts_from_user">Απόκρυψη ενισχύσεων</string>
 	<string name="show_boosts_from_user">Εμφάνιση ενισχύσεων</string>
@@ -238,7 +238,7 @@
 	<string name="trending_links_info_banner">Οι ειδήσεις που συζητούνται στο Mastodon.</string>
 	<!-- %s is the server domain -->
 	<string name="local_timeline_info_banner">Αυτές είναι όλες οι αναρτήσεις από όλους τους χρήστες στο διακομιστή σου (%s).</string>
-	<string name="recommended_accounts_info_banner">Μπορεί να σου αρέσουν αυτοί οι λογαριασμοί με βάση άλλους που ακολουθείς.</string>
+	<string name="recommended_accounts_info_banner">Μπορεί να σού αρέσουν αυτοί οι λογαριασμοί με βάση άλλους που ακολουθείς.</string>
 	<string name="see_new_posts">Νέες αναρτήσεις</string>
 	<string name="load_missing_posts">Φόρτωση αναρτήσεων που λείπουν</string>
 	<string name="follow_back">Ακολούθησε και εσύ</string>
@@ -301,7 +301,7 @@
 	<string name="download_update">Λήψη (%s)</string>
 	<string name="install_update">Εγκατάσταση</string>
 	<string name="privacy_policy_title">Το απόρρητό σου</string>
-	<string name="privacy_policy_subtitle">Αν και η εφαρμογή Mastodon δεν συλλέγει δεδομένα, ο διακομιστής που εγγράφεσαι μπορεί να έχει διαφορετική πολιτική.\n\nΕάν διαφωνείς με την πολιτική του %s, μπορείς να επιστρέψεις και να επιλέξεις διαφορετικό διακομιστή.</string>
+	<string name="privacy_policy_subtitle">Αν και η εφαρμογή Mastodon δε συλλέγει δεδομένα, ο διακομιστής που εγγράφεσαι μπορεί να έχει διαφορετική πολιτική.\n\nΕάν διαφωνείς με την πολιτική του %s, μπορείς να επιστρέψεις και να επιλέξεις διαφορετικό διακομιστή.</string>
 	<string name="i_agree">Συμφωνώ</string>
 	<string name="empty_list">Αυτή η λίστα είναι κενή</string>
 	<string name="instance_signup_closed">Αυτός ο διακομιστής δεν δέχεται νέες εγγραφές.</string>
@@ -322,8 +322,8 @@
 	<string name="server_filter_region_south_america">Νότια Αμερική</string>
 	<string name="server_filter_region_africa">Αφρική</string>
 	<string name="server_filter_region_asia">Ασία</string>
-	<string name="server_filter_region_oceania">Oceania</string>
-	<string name="not_accepting_new_members">Δεν δέχεται νέα μέλη</string>
+	<string name="server_filter_region_oceania">Ωκεανία</string>
+	<string name="not_accepting_new_members">Δε δέχεται νέα μέλη</string>
 	<string name="category_special_interests">Ειδικά ενδιαφέροντα</string>
 	<string name="signup_passwords_dont_match">Οι κωδικοί πρόσβασης δεν ταιριάζουν</string>
 	<string name="profile_add_row">Προσθήκη γραμμής</string>
@@ -331,7 +331,7 @@
 	<string name="profile_setup_subtitle">Μπορείς πάντα να το ολοκληρώσεις αργότερα στην καρτέλα Προφίλ.</string>
 	<string name="follow_all">Ακολούθησε όλους</string>
 	<string name="server_rules_disagree">Διαφωνώ</string>
-	<string name="privacy_policy_explanation">Σύνοψη: Δεν συλλέγουμε ή επεξεργαζόμαστε τίποτα.</string>
+	<string name="privacy_policy_explanation">Σύνοψη: Δε συλλέγουμε ή επεξεργαζόμαστε τίποτα.</string>
 	<!-- %s is server domain -->
 	<string name="server_policy_disagree">Διαφωνώ με %s</string>
 	<string name="profile_bio">Βιογραφικό</string>
