@@ -652,6 +652,7 @@
 	<string name="unmuted_user_x">خموشی %s رفع شد</string>
 	<string name="block_user_confirm_title">کاربر مسدود شود؟</string>
 	<string name="user_can_see_blocked">آنها می‌توانند ببینند که مسدود شده اند.</string>
+	<string name="user_cant_mention_or_follow_you">آنها نمی‌توانند شما را ذکر کنند یا پی‌گیریتان کنند.</string>
 	<string name="unblocked_user_x">مسدودیت %s رفع شد</string>
 	<string name="block_domain_confirm_title">دامنه مسدود شود؟</string>
 	<string name="do_block_server">مسدود کردن کارساز</string>
@@ -711,8 +712,10 @@
 	<string name="view_favorites">دیدن برگزیده‌ها</string>
 	<string name="undo_reblog">لغو تقویت</string>
 	<string name="undo_favorite">لغو برگزیدگی</string>
+	<string name="signup_email_taken">آدرس رایانامه درحال حاضر درحال استفاده است. آیا شما &lt;a&gt;گذرواژه خود را فراموش کرده‌اید&lt;/a&gt;؟</string>
 	<plurals name="x_new_notifications">
 		<item quantity="one">%,d اعلان جدید</item>
 		<item quantity="other">%,d اعلان جدید</item>
 	</plurals>
+	<string name="settings_donate">اعانه دادن به ماستودون</string>
 </resources>
