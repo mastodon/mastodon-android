@@ -561,6 +561,10 @@
 	<string name="settings_privacy">Datenschutz und Reichweite</string>
 	<string name="settings_discoverable">Profil und Beiträge in Suchalgorithmen berücksichtigen</string>
 	<string name="settings_indexable">Öffentliche Beiträge in die Suchergebnisse einbeziehen</string>
+	<plurals name="x_participants">
+		<item quantity="one">%,d Teilnehmer</item>
+		<item quantity="other">%,d Teilnehmer*innen</item>
+	</plurals>
 	<plurals name="x_posts_today">
 		<item quantity="one">%,d Beitrag heute</item>
 		<item quantity="other">%,d Beiträge heute</item>
