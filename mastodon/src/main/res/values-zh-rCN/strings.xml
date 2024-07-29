@@ -295,7 +295,9 @@
 	<string name="login_subtitle">登陆到你创建账户的服务器。</string>
 	<string name="server_url">实例 URL</string>
 	<string name="server_filter_any_language">所有语言</string>
+	<string name="server_filter_instant_signup">免审核注册</string>
 	<string name="server_filter_manual_review">人工审核</string>
+	<string name="server_filter_any_signup_speed">不限注册速度</string>
 	<string name="server_filter_region_europe">欧洲</string>
 	<string name="server_filter_region_north_america">北美洲</string>
 	<string name="server_filter_region_south_america">南美洲</string>
@@ -711,6 +713,7 @@
 	<string name="undo_favorite">取消喜欢</string>
 	<string name="could_not_reach_server">无法连接到服务器。请检查您的连接，然后再试一次？</string>
 	<string name="connection_timed_out">请求超时。检查您的连接后再试一次？</string>
+	<string name="server_error">与您的服务器沟通时出现问题。这可能不是您的错误。要再试试吗？</string>
 	<string name="not_found">它可能已被删除，或者可能根本不存在。</string>
 	<string name="no_servers_found">找不到 “%s” 的服务器</string>
 	<string name="signup_username_taken">用户名已被注册。试试另一个名字或&lt;a&gt;另一个服务器&lt;/a&gt;。</string>
@@ -724,6 +727,7 @@
 	<string name="donation_monthly">每月</string>
 	<string name="donation_yearly">每年</string>
 	<string name="currency">货币</string>
+	<string name="donation_success_share">捐赠寄语</string>
 	<string name="donation_success_title">感谢您的贡献！</string>
 	<string name="donation_success_subtitle">您应该很快收到一封确认您捐赠的电子邮件。</string>
 	<string name="donation_server_error">我们很抱歉，发生了一个错误，我们无法处理您的捐赠。\n\n请几分钟后再试。</string>
