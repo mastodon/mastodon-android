@@ -45,7 +45,7 @@ public class DiscoverNewsFragment extends BaseRecyclerFragment<DiscoverNewsFragm
 
 	@Override
 	protected void doLoadData(int offset, int count){
-		currentRequest=new GetTrendingLinks()
+		currentRequest=new GetTrendingLinks(40)
 				.setCallback(new SimpleCallback<>(this){
 					@Override
 					public void onSuccess(List<Card> result){

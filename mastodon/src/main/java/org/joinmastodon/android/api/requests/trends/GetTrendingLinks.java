@@ -8,7 +8,8 @@ import org.joinmastodon.android.model.Card;
 import java.util.List;
 
 public class GetTrendingLinks extends MastodonAPIRequest<List<Card>>{
-	public GetTrendingLinks(){
+	public GetTrendingLinks(int limit){
 		super(HttpMethod.GET, "/trends/links", new TypeToken<>(){});
+		addQueryParameter("limit", String.valueOf(limit));
 	}
 }
