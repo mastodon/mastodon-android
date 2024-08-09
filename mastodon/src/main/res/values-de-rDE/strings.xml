@@ -233,7 +233,7 @@
 	<string name="file_saved">Datei gespeichert</string>
 	<string name="downloading">wird heruntergeladen …</string>
 	<string name="no_app_to_handle_action">Es gibt keine App, um diese Aktion auszuführen</string>
-	<string name="local_timeline">Lokal</string>
+	<string name="local_timeline">Live-Feed</string>
 	<string name="trending_posts_info_banner">Dies sind Beiträge, die auf deinem Mastodon-Server gerade angesagt sind.</string>
 	<string name="trending_links_info_banner">Dies sind die Nachrichten, über die auf Mastodon gesprochen wird.</string>
 	<!-- %s is the server domain -->
@@ -561,6 +561,10 @@
 	<string name="settings_privacy">Datenschutz und Reichweite</string>
 	<string name="settings_discoverable">Profil und Beiträge in Suchalgorithmen berücksichtigen</string>
 	<string name="settings_indexable">Öffentliche Beiträge in die Suchergebnisse einbeziehen</string>
+	<plurals name="x_participants">
+		<item quantity="one">%,d Teilnehmer</item>
+		<item quantity="other">%,d Teilnehmer*innen</item>
+	</plurals>
 	<plurals name="x_posts_today">
 		<item quantity="one">%,d Beitrag heute</item>
 		<item quantity="other">%,d Beiträge heute</item>
@@ -693,7 +697,7 @@
 	<string name="video_saved">Video gespeichert.</string>
 	<string name="view_file">Ansehen</string>
 	<string name="share_sheet_preview_profile">%s auf Mastodon</string>
-	<string name="share_sheet_preview_post" comment="share_sheet_preview_post&#10;%1$s is the username, %2$s is the post text">%1$s auf Mastodon: „%2$s“</string>
+	<string name="share_sheet_preview_post">%1$s auf Mastodon: „%2$s“</string>
 	<string name="copy_profile_link">Link zum Profil kopieren</string>
 	<string name="in_app_browser">In-App-Browser</string>
 	<string name="system_browser">Systembrowser</string>
@@ -725,6 +729,10 @@
 	<string name="notification_filter_mentions_explanation">Herausgefiltert, solange es keine Antwort auf deine eigene Erwähnung ist oder du dem Absender folgst</string>
 	<string name="allow_notifications">Benachrichtigungen erlauben</string>
 	<string name="mute_notifications">Benachrichtigungsanfrage verwerfen</string>
+	<plurals name="x_people_you_may_know">
+		<item quantity="one">%,d Person, die du vielleicht kennst</item>
+		<item quantity="other">%,d Personen, die du vielleicht kennst</item>
+	</plurals>
 	<string name="notifications_from_user">Benachrichtigungen von %s</string>
 	<string name="notifications_muted">Benachrichtigungen von %s wurden verworfen.</string>
 	<string name="notifications_allowed">%s wird nun in deiner Benachrichtigungsliste erscheinen.</string>
@@ -744,6 +752,10 @@
 	<string name="signup_username_taken">Dieser Benutzername ist bereits vergeben. Probiere es mit einem anderen oder &lt;a&gt;wähle einen anderen Server&lt;/a&gt;.</string>
 	<string name="signup_email_invalid">Das sieht nicht nach einer gültigen E-Mail-Adresse aus.</string>
 	<string name="signup_email_taken">E-Mail-Adresse wird bereits verwendet. Hast du dein &lt;a&gt;Passwort vergessen&lt;/a&gt;?</string>
+	<plurals name="x_new_notifications">
+		<item quantity="one">%,d neue Benachrichtigung</item>
+		<item quantity="other">%,d neue Benachrichtigungen</item>
+	</plurals>
 	<string name="dismiss">Verwerfen</string>
 	<string name="donation_once">Nur einmal</string>
 	<string name="donation_monthly">Monatlich</string>

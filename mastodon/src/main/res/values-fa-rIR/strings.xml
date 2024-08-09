@@ -233,7 +233,6 @@
 	<string name="file_saved">پرونده ذخیره شد</string>
 	<string name="downloading">درحال بارگیری…</string>
 	<string name="no_app_to_handle_action">هیچ کاره‌ای برای رسیدگی به این اقدام وجود ندارد</string>
-	<string name="local_timeline">محلی</string>
 	<string name="trending_posts_info_banner">این‌ها فرسته‌هایی هستند که در سراسر ماستودون مورد توجه قرار می‌گیرند.</string>
 	<string name="trending_links_info_banner">این‌ها اخباری است که در ماستودون در مورد آنها صحبت می شود.</string>
 	<!-- %s is the server domain -->
@@ -652,6 +651,7 @@
 	<string name="unmuted_user_x">خموشی %s رفع شد</string>
 	<string name="block_user_confirm_title">کاربر مسدود شود؟</string>
 	<string name="user_can_see_blocked">آنها می‌توانند ببینند که مسدود شده اند.</string>
+	<string name="user_cant_mention_or_follow_you">آنها نمی‌توانند شما را ذکر کنند یا پی‌گیریتان کنند.</string>
 	<string name="unblocked_user_x">مسدودیت %s رفع شد</string>
 	<string name="block_domain_confirm_title">دامنه مسدود شود؟</string>
 	<string name="do_block_server">مسدود کردن کارساز</string>
@@ -676,7 +676,7 @@
 	<string name="video_saved">ویدئو ذخیره شد.</string>
 	<string name="view_file">نمایش</string>
 	<string name="share_sheet_preview_profile">%s در ماستودون است</string>
-	<string name="share_sheet_preview_post" comment="share_sheet_preview_post&#10;%1$s is the username, %2$s is the post text">%1$s در ماستودون است: \"%2$s\"</string>
+	<string name="share_sheet_preview_post">%1$s در ماستودون است: \"%2$s\"</string>
 	<string name="copy_profile_link">رونوشت پیوند به نمایه</string>
 	<string name="in_app_browser">مرورگر درون برنامه‌ای</string>
 	<string name="system_browser">مرورگر سیستم</string>
@@ -711,8 +711,10 @@
 	<string name="view_favorites">دیدن برگزیده‌ها</string>
 	<string name="undo_reblog">لغو تقویت</string>
 	<string name="undo_favorite">لغو برگزیدگی</string>
+	<string name="signup_email_taken">آدرس رایانامه درحال حاضر درحال استفاده است. آیا شما &lt;a&gt;گذرواژه خود را فراموش کرده‌اید&lt;/a&gt;؟</string>
 	<plurals name="x_new_notifications">
 		<item quantity="one">%,d اعلان جدید</item>
 		<item quantity="other">%,d اعلان جدید</item>
 	</plurals>
+	<string name="settings_donate">اعانه دادن به ماستودون</string>
 </resources>

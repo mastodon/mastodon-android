@@ -28,7 +28,7 @@
 	</plurals>
 	<plurals name="following">
 		<item quantity="one">ακολουθεί</item>
-		<item quantity="other">ακολουθεί</item>
+		<item quantity="other">ακολουθούν</item>
 	</plurals>
 	<string name="posts">Αναρτήσεις</string>
 	<string name="posts_and_replies">Αναρτήσεις και απαντήσεις</string>
@@ -98,7 +98,7 @@
 	<string name="action_vote">Ψήφισε</string>
 	<string name="delete">Διαγραφή</string>
 	<string name="confirm_delete_title">Διαγραφή ανάρτησης</string>
-	<string name="confirm_delete">Είσαι βέβαιος ότι θες να διαγράψεις την ανάρτηση;</string>
+	<string name="confirm_delete">Σίγουρα θες να διαγράψεις την ανάρτηση;</string>
 	<string name="deleting">Διαγραφή…</string>
 	<string name="notification_channel_audio_player">Αναπαραγωγή ήχου</string>
 	<string name="play">Αναπαραγωγή</string>
@@ -136,9 +136,9 @@
 	<string name="sending_report">Αποστολή αναφοράς…</string>
 	<string name="report_sent_title">Σε ευχαριστούμε για την αναφορά, θα το διερευνήσουμε.</string>
 	<string name="report_sent_subtitle">Ενώ το εξετάζουμε, μπορείς να δράσεις εναντίον του %s:</string>
-	<string name="unfollow_user">Κατάργηση ακολούθησης του %s</string>
+	<string name="unfollow_user">Άρση ακολούθησης του %s</string>
 	<string name="unfollow">Άρση ακολούθησης</string>
-	<string name="mute_user_explain">Δεν θα βλέπεις τις αναρτήσεις του. Εκείνος μπορεί ακόμα να σε ακολουθεί και να βλέπει τις αναρτήσεις σου χωρίς να γνωρίζει ότι είναι σε σίγαση.</string>
+	<string name="mute_user_explain">Δε θα βλέπεις τις αναρτήσεις του. Εκείνος μπορεί ακόμα να σε ακολουθεί και να βλέπει τις αναρτήσεις σου χωρίς να γνωρίζει ότι είναι σε σίγαση.</string>
 	<string name="block_user_explain">Δε θα βλέπεις τις αναρτήσεις του. Δε θα μπορεί να δει τις αναρτήσεις σου ή να σε ακολουθήσει. Θα μπορεί να δει ότι έχει αποκλειστεί.</string>
 	<string name="report_personal_title">Δε θες να το βλέπεις;</string>
 	<string name="report_personal_subtitle">Αυτές είναι οι επιλογές σου για να ελέγχεις τί βλέπεις στο Mastodon:</string>
@@ -208,14 +208,14 @@
 	<string name="media_no_description">Πολυμέσα χωρίς περιγραφή</string>
 	<string name="add_media">Προσθήκη πολυμέσων</string>
 	<string name="add_poll">Προσθήκη δημοσκόπησης</string>
-	<string name="emoji">Emoji</string>
-	<string name="home_timeline">Αρχική</string>
+	<string name="emoji">Εμότζι</string>
+	<string name="home_timeline">Αρχική ροή</string>
 	<string name="my_profile">Το προφίλ μου</string>
-	<string name="media_viewer">Αναπαραγωγέας πολυμέσων</string>
+	<string name="media_viewer">Προβολέας πολυμέσων</string>
 	<string name="follow_user">Ακολούθησε %s</string>
 	<string name="unfollowed_user">Κατάργηση ακολούθησης του %s</string>
-	<string name="followed_user">Ακολουθείς πλέον τον/την %s</string>
-	<string name="following_user_requested">Έγινε αίτημα ακολούθησης του/της %s</string>
+	<string name="followed_user">Ακολουθείς πλέον τον χρήστη %s</string>
+	<string name="following_user_requested">Έγινε αίτημα ακολούθησης σε %s</string>
 	<string name="open_in_browser">Άνοιξε στον περιηγητή</string>
 	<string name="hide_boosts_from_user">Απόκρυψη ενισχύσεων</string>
 	<string name="show_boosts_from_user">Εμφάνιση ενισχύσεων</string>
@@ -233,12 +233,11 @@
 	<string name="file_saved">Το αρχείο αποθηκεύτηκε</string>
 	<string name="downloading">Λήψη…</string>
 	<string name="no_app_to_handle_action">Δεν υπάρχει εφαρμογή για να χειριστεί αυτήν την ενέργεια</string>
-	<string name="local_timeline">Τοπική</string>
 	<string name="trending_posts_info_banner">Αναρτήσεις που κερδίζουν την προσοχή σε όλο το Mastodon.</string>
 	<string name="trending_links_info_banner">Οι ειδήσεις που συζητούνται στο Mastodon.</string>
 	<!-- %s is the server domain -->
 	<string name="local_timeline_info_banner">Αυτές είναι όλες οι αναρτήσεις από όλους τους χρήστες στο διακομιστή σου (%s).</string>
-	<string name="recommended_accounts_info_banner">Μπορεί να σου αρέσουν αυτοί οι λογαριασμοί με βάση άλλους που ακολουθείς.</string>
+	<string name="recommended_accounts_info_banner">Μπορεί να σού αρέσουν αυτοί οι λογαριασμοί με βάση άλλους που ακολουθείς.</string>
 	<string name="see_new_posts">Νέες αναρτήσεις</string>
 	<string name="load_missing_posts">Φόρτωση αναρτήσεων που λείπουν</string>
 	<string name="follow_back">Ακολούθησε και εσύ</string>
@@ -301,7 +300,7 @@
 	<string name="download_update">Λήψη (%s)</string>
 	<string name="install_update">Εγκατάσταση</string>
 	<string name="privacy_policy_title">Το απόρρητό σου</string>
-	<string name="privacy_policy_subtitle">Αν και η εφαρμογή Mastodon δεν συλλέγει δεδομένα, ο διακομιστής που εγγράφεσαι μπορεί να έχει διαφορετική πολιτική.\n\nΕάν διαφωνείς με την πολιτική του %s, μπορείς να επιστρέψεις και να επιλέξεις διαφορετικό διακομιστή.</string>
+	<string name="privacy_policy_subtitle">Αν και η εφαρμογή Mastodon δε συλλέγει δεδομένα, ο διακομιστής που εγγράφεσαι μπορεί να έχει διαφορετική πολιτική.\n\nΕάν διαφωνείς με την πολιτική του %s, μπορείς να επιστρέψεις και να επιλέξεις διαφορετικό διακομιστή.</string>
 	<string name="i_agree">Συμφωνώ</string>
 	<string name="empty_list">Αυτή η λίστα είναι κενή</string>
 	<string name="instance_signup_closed">Αυτός ο διακομιστής δεν δέχεται νέες εγγραφές.</string>
@@ -322,8 +321,8 @@
 	<string name="server_filter_region_south_america">Νότια Αμερική</string>
 	<string name="server_filter_region_africa">Αφρική</string>
 	<string name="server_filter_region_asia">Ασία</string>
-	<string name="server_filter_region_oceania">Oceania</string>
-	<string name="not_accepting_new_members">Δεν δέχεται νέα μέλη</string>
+	<string name="server_filter_region_oceania">Ωκεανία</string>
+	<string name="not_accepting_new_members">Δε δέχεται νέα μέλη</string>
 	<string name="category_special_interests">Ειδικά ενδιαφέροντα</string>
 	<string name="signup_passwords_dont_match">Οι κωδικοί πρόσβασης δεν ταιριάζουν</string>
 	<string name="profile_add_row">Προσθήκη γραμμής</string>
@@ -331,7 +330,7 @@
 	<string name="profile_setup_subtitle">Μπορείς πάντα να το ολοκληρώσεις αργότερα στην καρτέλα Προφίλ.</string>
 	<string name="follow_all">Ακολούθησε όλους</string>
 	<string name="server_rules_disagree">Διαφωνώ</string>
-	<string name="privacy_policy_explanation">Σύνοψη: Δεν συλλέγουμε ή επεξεργαζόμαστε τίποτα.</string>
+	<string name="privacy_policy_explanation">Σύνοψη: Δε συλλέγουμε ή επεξεργαζόμαστε τίποτα.</string>
 	<!-- %s is server domain -->
 	<string name="server_policy_disagree">Διαφωνώ με %s</string>
 	<string name="profile_bio">Βιογραφικό</string>
@@ -385,12 +384,12 @@
 	<string name="alt_text">Εναλλακτικό κείμενο</string>
 	<string name="help">Βοήθεια</string>
 	<string name="what_is_alt_text">Τι είναι το εναλλακτικό κείμενο;</string>
-	<string name="alt_text_help">Το εναλλακτικό κείμενο παρέχει περιγραφές εικόνας για άτομα με προβλήματα όρασης, συνδέσεις χαμηλής ταχύτητας ή για άτομα που αναζητούν επιπλέον περιεχόμενο.\n\nΜπορείς να βελτιώσεις την προσβασιμότητα και την κατανόηση για όλους, γράφοντας σαφές, συνοπτικό και αντικειμενικό εναλλακτικό κείμενο.\n\n<ul><li>Κατέγραψε σημαντικά στοιχεία</li>\n<li>Συνόψισε κείμενο σε εικόνες</li>\n<li>Χρησιμοποίησε δομή κανονικής πρότασης</li>\n<li>Απέφυγε περιττές πληροφορίες</li>\n<li>Εστίασε στις τάσεις και τα βασικά ευρήματα σε σύνθετα οπτικά στοιχεία (όπως διαγράμματα ή χάρτες)</li></ul></string>
+	<string name="alt_text_help">Το εναλλακτικό κείμενο παρέχει περιγραφές εικόνας για άτομα με προβλήματα όρασης, συνδέσεις χαμηλής ταχύτητας ή για άτομα που αναζητούν επιπλέον περιεχόμενο.\n\nΜπορείς να βελτιώσεις την προσβασιμότητα και την κατανόηση για όλους, γράφοντας σαφές, συνοπτικό και αντικειμενικό εναλλακτικό κείμενο.\n\n<ul><li>Κατέγραψε σημαντικά στοιχεία</li>\n<li>Συνόψισε το κείμενο στις εικόνες</li>\n<li>Χρησιμοποίησε δομή κανονικής πρότασης</li>\n<li>Απέφυγε περιττές πληροφορίες</li>\n<li>Εστίασε στις τάσεις και τα βασικά ευρήματα σε σύνθετα οπτικά στοιχεία (όπως διαγράμματα ή χάρτες)</li></ul></string>
 	<string name="edit_post">Επεξεργασία ανάρτησης</string>
 	<string name="no_verified_link">Χωρίς επαληθευμένο σύνδεσμο</string>
-	<string name="compose_autocomplete_emoji_empty">Περιήγηση emoji</string>
+	<string name="compose_autocomplete_emoji_empty">Περιήγηση εμότζι</string>
 	<string name="compose_autocomplete_users_empty">Βρες αυτόν που ψάχνεις</string>
-	<string name="no_search_results">Δεν βρέθηκε τίποτα με αυτούς τους όρους αναζήτησης</string>
+	<string name="no_search_results">Δε βρέθηκε τίποτα με αυτούς τους όρους αναζήτησης</string>
 	<string name="language">Γλώσσα</string>
 	<string name="language_default">Προεπιλογή</string>
 	<string name="language_system">Σύστημα</string>
@@ -405,20 +404,20 @@
 	<string name="forward_report_to_server">Προώθηση σε %s</string>
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
 	<string name="reported">Αναφέρθηκε</string>
-	<string name="report_unfollow_explanation">Για να μην βλέπεις τις αναρτήσεις του στην αρχική σου ροή πια, μην τον ακολουθείς.</string>
+	<string name="report_unfollow_explanation">Για να μη βλέπεις πια τις αναρτήσεις του στην αρχική σου ροή, μην τον ακολουθείς.</string>
 	<string name="muted_user">Έγινε σίγαση %s</string>
 	<string name="report_sent_already_blocked">Έχεις ήδη αποκλείσει αυτόν τον χρήστη, οπότε δεν υπάρχει τίποτα άλλο που πρέπει να κάνεις όσο εξετάζουμε την αναφορά σου.</string>
 	<string name="report_personal_already_blocked">Έχεις ήδη αποκλείσει αυτόν τον χρήστη, οπότε δεν υπάρχει τίποτα άλλο που πρέπει να κάνεις.\n\nΕυχαριστούμε που βοηθάς να παραμείνει το Mastodon ένα ασφαλές μέρος για όλους!</string>
-	<string name="blocked_user">Αποκλείστηκε %s</string>
+	<string name="blocked_user">Ο χρήστης %s αποκλείστηκε</string>
 	<string name="mark_all_notifications_read">Σήμανση όλων ως αναγνωσμένα</string>
-	<string name="settings_display">Εμφάνιση</string>
+	<string name="settings_display">Προβολή</string>
 	<string name="settings_filters">Φίλτρα</string>
 	<string name="settings_server_explanation">Επισκόπηση, κανόνες, συντονιστές</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">Σχετικά με το %s</string>
 	<string name="default_post_language">Προεπιλεγμένη γλώσσα ανάρτησης</string>
 	<string name="settings_alt_text_reminders">Προσθήκη υπενθυμίσεων για εναλλακτικό κείμενο</string>
-	<string name="settings_confirm_unfollow">Ερώτηση πριν την κατάργηση ακολούθησης κάποιου</string>
+	<string name="settings_confirm_unfollow">Ερώτηση πριν την άρση ακολούθησης κάποιου</string>
 	<string name="settings_confirm_boost">Ερώτηση πριν την ενίσχυση</string>
 	<string name="settings_confirm_delete_post">Ερώτηση πριν τη διαγραφή αναρτήσεων</string>
 	<string name="pause_all_notifications">Παύση όλων</string>
@@ -454,7 +453,7 @@
 	<string name="settings_show_cws">Εμφάνιση προειδοποιήσεων περιεχομένου</string>
 	<string name="settings_hide_sensitive_media">Κάλυψη μέσων που χαρακτηρίζονται ως ευαίσθητα</string>
 	<string name="settings_show_interaction_counts">Αριθμός αλληλεπιδράσεων ανάρτησης</string>
-	<string name="settings_show_emoji_in_names">Προσαρμοσμένα emoji στα εμφανιζόμενα ονόματα</string>
+	<string name="settings_show_emoji_in_names">Προσαρμοσμένα εμότζι στα εμφανιζόμενα ονόματα</string>
 	<plurals name="in_x_seconds">
 		<item quantity="one">σε %d δευτερόλεπτο</item>
 		<item quantity="other">σε %d δευτερόλεπτα</item>
@@ -537,7 +536,7 @@
 	<string name="filter_word_already_in_list">Ήδη στη λίστα</string>
 	<string name="app_update_ready">Η ενημέρωση εφαρμογής είναι έτοιμη</string>
 	<string name="app_update_version">Έκδοση %s</string>
-	<string name="downloading_update">Λήψη (%d%%)</string>
+	<string name="downloading_update">Γίνεται λήψη (%d%%)</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
 	<string name="post_matches_filter_x">Ταιριάζει με το φίλτρο “%s”</string>
 	<string name="search_mastodon">Αναζήτηση στο Mastodon</string>
@@ -617,7 +616,7 @@
 	<string name="reply_to_user">Απάντηση σε %s</string>
 	<string name="posted_at">Αναρτήθηκε σε %s</string>
 	<string name="non_mutual_sheet_title">Γεια σου, νέα σύνδεση!</string>
-	<string name="non_mutual_sheet_text">Φαίνεται ότι είσαι έτοιμος/η να απαντήσεις σε κάποιον που δεν είναι αμοιβαία σύνδεση ακόμα. Ας κάνουμε καλή εντύπωση.</string>
+	<string name="non_mutual_sheet_text">Φαίνεται ότι ετοιμάζεσαι να απαντήσεις σε κάποιον που δεν είναι αμοιβαία σύνδεση ακόμα. Ας κάνουμε καλή εντύπωση.</string>
 	<string name="got_it">Το \'πιασα</string>
 	<string name="dont_remind_again">Μη μου το ξαναθυμίσεις</string>
 	<!-- %s is a time interval ("5 months") -->
@@ -628,7 +627,7 @@
 		<item quantity="other">%,d μήνες</item>
 	</plurals>
 	<string name="more_than_two_years">άνω των 2 ετών</string>
-	<string name="non_mutual_title1">Να είναι ευγενικό &amp; σχετικό</string>
+	<string name="non_mutual_title1">Κράτα το ευγενικό &amp; σχετικό</string>
 	<string name="non_mutual_text1">Βεβαιώσου ότι η απάντησή σου είναι ευγενική και σχετική με το θέμα.</string>
 	<string name="non_mutual_title2">Αγκάλιασε την καλοσύνη</string>
 	<string name="non_mutual_text2">Ένας θετικός τόνος εκτιμάται πάντα.</string>
@@ -646,27 +645,27 @@
 	<string name="button_favorited">Είναι αγαπημένο</string>
 	<string name="bookmarked">Σε σελιδοδείκτη</string>
 	<string name="join_server_x_with_invite">Συμμετοχή σε %s με πρόσκληση</string>
-	<string name="expired_invite_link">Ο ληγμένος σύνδεσμος πρόσκλησης</string>
+	<string name="expired_invite_link">Λιγμένος σύνδεσμος πρόσκλησης</string>
 	<string name="expired_clipboard_invite_link_alert">Ο σύνδεσμος πρόσκλησης %1$s στο πρόχειρό σου έχει λήξει και δεν μπορεί να χρησιμοποιηθεί για εγγραφή.\n\nΜπορείς να αιτηθείς νέο σύνδεσμο από υφιστάμενο χρήστη, να εγγραφείς μέσω %2$s ή επέλεξε άλλον διακομιστή να εγγραφείς.</string>
 	<string name="invalid_invite_link">Μη έγκυρος σύνδεσμος πρόσκλησης</string>
 	<string name="invalid_clipboard_invite_link_alert">Ο σύνδεσμος πρόσκλησης %1$s στο πρόχειρό σου δεν είναι έγκυρος και δεν μπορεί να χρησιμοποιηθεί για εγγραφή.\n\nΜπορείς να αιτηθείς νέο σύνδεσμο από υφιστάμενο χρήστη, να εγγραφείς μέσω %2$s ή επέλεξε άλλον διακομιστή να εγγραφείς.</string>
 	<string name="use_invite_link">Χρήση συνδέσμου πρόσκλησης</string>
-	<string name="enter_invite_link">Εισαγωγή σύνδεσμο πρόσκλησης</string>
+	<string name="enter_invite_link">Εισαγωγή συνδέσμου πρόσκλησης</string>
 	<string name="this_invite_is_invalid">Αυτός ο σύνδεσμος πρόσκλησης δεν είναι έγκυρος.</string>
 	<string name="this_invite_has_expired">Αυτός ο σύνδεσμος πρόσκλησης έχει λήξει.</string>
 	<string name="invite_link_pasted">Ο σύνδεσμος επικολλήθηκε από το πρόχειρο.</string>
 	<string name="need_invite_to_join_server">Για να γίνεις μέλος στο %s, θα χρειαστείς έναν σύνδεσμο πρόσκλησης από έναν υπάρχοντα χρήστη.</string>
 	<string name="mute_user_confirm_title">Σίγαση χρήστη;</string>
-	<string name="user_wont_know_muted">Δε θα ξέρουν ότι είναι σε σίγαση.</string>
+	<string name="user_wont_know_muted">Δε θα ξέρει ότι είναι σε σίγαση.</string>
 	<string name="user_can_still_see_your_posts">Μπορεί ακόμα να δει τις αναρτήσεις σου, αλλά δε θα βλέπεις τις δικές του.</string>
 	<string name="you_wont_see_user_mentions">Δε θα βλέπεις τις αναρτήσεις που τον αναφέρουν.</string>
-	<string name="user_can_mention_and_follow_you">Μπορούν να σε αναφέρουν και να σε ακολουθήσουν, αλλά δε θα τους βλέπεις.</string>
+	<string name="user_can_mention_and_follow_you">Μπορεί να σε αναφέρει και να σε ακολουθήσει, αλλά δε θα τον βλέπεις.</string>
 	<string name="unmuted_user_x">Κατάργηση σίγασης %s</string>
 	<string name="block_user_confirm_title">Αποκλεισμός χρήστη;</string>
-	<string name="user_can_see_blocked">Μπορούν να δουν ότι είναι αποκλεισμένοι.</string>
+	<string name="user_can_see_blocked">Μπορεί να δει ότι έχει αποκλειστεί.</string>
 	<string name="user_cant_see_each_other_posts">Δεν μπορεί να δει τις αναρτήσεις σου και δε θα δεις τις δικές του.</string>
-	<string name="user_cant_mention_or_follow_you">Δεν μπορούν να σε επισημάνει ή να σε ακολουθήσει.</string>
-	<string name="unblocked_user_x">Άρση αποκλεισμού %s</string>
+	<string name="user_cant_mention_or_follow_you">Δεν μπορεί να σε επισημάνει ή να σε ακολουθήσει.</string>
+	<string name="unblocked_user_x">Έγινε άρση αποκλεισμού %s</string>
 	<string name="block_domain_confirm_title">Αποκλεισμός τομέα;</string>
 	<string name="do_block_server">Αποκλεισμός διακομιστή</string>
 	<string name="block_user_x_instead">Αποκλεισμός %s αντ\' αυτού</string>
@@ -676,19 +675,19 @@
 	<string name="server_cant_mention_or_follow_you">Κανείς από αυτόν τον διακομιστή δεν μπορεί να σε ακολουθήσει.</string>
 	<string name="server_can_interact_with_older">Άτομα από αυτόν τον διακομιστή μπορούν να αλληλεπιδράσουν με τις παλιές αναρτήσεις σου.</string>
 	<string name="unblocked_domain_x">Άρση αποκλεισμού τομέα %s</string>
-	<string name="handle_help_title">Τί υπάρχει σε ένα handle;</string>
-	<string name="handle_title">Το handle</string>
-	<string name="handle_username_explanation">Το μοναδικό αναγνωριστικό τους στο διακομιστή τους. Είναι πιθανό να βρεις χρήστες με το ίδιο όνομα χρήστη σε διαφορετικούς διακομιστές.</string>
-	<string name="handle_title_own">Το handle σου</string>
+	<string name="handle_help_title">Τί υπάρχει σε ένα πλήρες όνομα χρήστη;</string>
+	<string name="handle_title">Το πλήρες όνομα χρήστη</string>
+	<string name="handle_username_explanation">Το μοναδικό αναγνωριστικό του στο διακομιστή του. Είναι πιθανό να βρεις χρήστες με το ίδιο όνομα χρήστη σε διαφορετικούς διακομιστές.</string>
+	<string name="handle_title_own">Το πλήρες όνομα χρήστη σου</string>
 	<string name="handle_username_explanation_own">Το μοναδικό αναγνωριστικό σου σε τούτο τον διακομιστή. Είναι πιθανό να βρεις χρήστες με το ίδιο όνομα χρήστη σε διαφορετικούς διακομιστές.</string>
 	<string name="server">Διακομιστής</string>
-	<string name="handle_server_explanation">Το ψηφιακό τους σπίτι, όπου ζουν όλες οι αναρτήσεις τους.</string>
-	<string name="handle_explanation">Από τη στιγμή που τα handles λένε ποιος είναι κάποιος και πού είναι, μπορείς να αλληλεπιδράσεις με τους ανθρώπους απ\' όλο τον κοινωνικό ιστό των &lt;a&gt; πλατφορμών που στηρίζονται στο ActivityPub&lt;/a&gt;.</string>
-	<string name="handle_server_explanation_own">Το ψηφιακό σπίτι σου, όπου ζουν όλες οι αναρτήσεις σου. Δεν σ\' αρέσει αυτός; Μετακινήσου σε διακομιστές ανά πάσα στιγμή και φέρε και τους ακόλουθούς σου.</string>
-	<string name="handle_explanation_own">Επειδή το handle σου λέει ποιος είσαι και πού βρίσκεσαι, οι άνθρωποι μπορούν να αλληλεπιδράσουν μαζί σου στον κοινωνικό ιστό των &lt;a&gt;πλατφορμών που στηρίζονται στο ActivityPub&lt;/a&gt;.</string>
+	<string name="handle_server_explanation">Το ψηφιακό του σπίτι, όπου ζουν όλες οι αναρτήσεις του.</string>
+	<string name="handle_explanation">Από τη στιγμή που τα πλήρη ονόματα χρήστη λένε ποιος είναι κάποιος και πού είναι, μπορείς να αλληλεπιδράσεις με τους ανθρώπους απ\' όλο τον κοινωνικό ιστό των &lt;a&gt; πλατφορμών που στηρίζονται στο ActivityPub&lt;/a&gt;.</string>
+	<string name="handle_server_explanation_own">Το ψηφιακό σου σπίτι, όπου ζουν όλες οι αναρτήσεις σου. Δε σ\' αρέσει αυτός; Μετακινήσου σε διακομιστές ανά πάσα στιγμή και φέρε και τους ακόλουθούς σου.</string>
+	<string name="handle_explanation_own">Επειδή το πλήρες όνομα χρήστη σου λέει ποιος είσαι και πού βρίσκεσαι, οι άνθρωποι μπορούν να αλληλεπιδράσουν μαζί σου στον κοινωνικό ιστό των &lt;a&gt;πλατφορμών που στηρίζονται στο ActivityPub&lt;/a&gt;.</string>
 	<string name="what_is_activitypub_title">Τί είναι το ActivityPub;</string>
-	<string name="what_is_activitypub">Το ActivityPub είναι σαν τη γλώσσα που μιλάει το Mastodon με άλλα κοινωνικά δίκτυα.\n\nΣου επιτρέπει να συνδεθείς και να αλληλεπιδράσεις με ανθρώπους όχι μόνο στο Mastodon, αλλά και σε διαφορετικές κοινωνικές εφαρμογές.</string>
-	<string name="handle_copied">Το handle αντιγράφηκε στο πρόχειρο.</string>
+	<string name="what_is_activitypub">Το ActivityPub είναι σαν τη γλώσσα που μιλάει το Mastodon με άλλα κοινωνικά δίκτυα.\n\nΣού επιτρέπει να συνδεθείς και να αλληλεπιδράσεις με ανθρώπους όχι μόνο στο Mastodon, αλλά και σε διαφορετικές κοινωνικές εφαρμογές.</string>
+	<string name="handle_copied">Το πλήρες όνομα χρήστη αντιγράφηκε στο πρόχειρο.</string>
 	<string name="qr_code">Κωδικός QR</string>
 	<string name="scan_qr_code">Σάρωση κωδικού QR</string>
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
@@ -697,7 +696,7 @@
 	<string name="video_saved">Το βίντεο αποθηκεύτηκε.</string>
 	<string name="view_file">Προβολή</string>
 	<string name="share_sheet_preview_profile">%s στο Mastodon</string>
-	<string name="share_sheet_preview_post" comment="share_sheet_preview_post&#10;%1$s is the username, %2$s is the post text">%1$s στο Mastodon: “%2$s”</string>
+	<string name="share_sheet_preview_post">%1$s στο Mastodon: “%2$s”</string>
 	<string name="copy_profile_link">Αντιγραφή συνδέσμου στο προφίλ</string>
 	<string name="in_app_browser">Περιηγητής εντός εφαρμογής</string>
 	<string name="system_browser">Περιηγητής συστήματος</string>
@@ -719,19 +718,19 @@
 	<string name="visibility_unlisted">Ήσυχη δημόσια</string>
 	<string name="filtered_notifications">Φιλτραρισμένες ειδοποιήσεις</string>
 	<string name="filter_notifications">Φιλτράρισμα ειδοποιήσεων από...</string>
-	<string name="notification_filter_following">Άνθρωποι που δεν ακολουθείς</string>
+	<string name="notification_filter_following">Άτομα που δεν ακολουθείς</string>
 	<string name="notification_filter_following_explanation">Μέχρι να τους εγκρίνεις χειροκίνητα</string>
 	<string name="notification_filter_followers">Άτομα που δε σε ακολουθούν</string>
 	<string name="notification_filter_followers_explanation">Συμπεριλαμβανομένων των ατόμων που σ\' έχουν ακολουθήσει λιγότερο από 3 ημέρες</string>
 	<string name="notification_filter_new_accounts">Νέοι λογαριασμοί</string>
 	<string name="notification_filter_new_accounts_explanation">Δημιουργήθηκαν μέσα στις τελευταίες 30 ημέρες</string>
 	<string name="notification_filter_mentions">Μη συναινετικές ιδιωτικές αναφορές</string>
-	<string name="notification_filter_mentions_explanation">Φιλτράρισμα εκτός αν είναι σε απάντηση στη δική σου αναφορά ή αν ακολουθείς τον αποστολέα</string>
+	<string name="notification_filter_mentions_explanation">Φιλτράρισμα εκτός αν είναι σε απάντηση στη δική σου επισήμανση ή αν ακολουθείς τον αποστολέα</string>
 	<string name="allow_notifications">Να επιτρέπονται οι ειδοποιήσεις</string>
 	<string name="mute_notifications">Απόρριψη αιτήματος ειδοποίησης</string>
 	<plurals name="x_people_you_may_know">
 		<item quantity="one">%,d άτομο που μπορεί να ξέρεις</item>
-		<item quantity="other">%,d άτομα που μπορεί να γνωρίζεις</item>
+		<item quantity="other">%,d άτομα που μπορεί να ξέρεις</item>
 	</plurals>
 	<string name="notifications_from_user">Ειδοποιήσεις από %s</string>
 	<string name="notifications_muted">Οι ειδοποιήσεις από %s έχουν απορριφθεί.</string>

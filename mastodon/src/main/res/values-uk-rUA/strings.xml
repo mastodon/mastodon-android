@@ -259,7 +259,6 @@
 	<string name="file_saved">Файл збережено</string>
 	<string name="downloading">Завантаження…</string>
 	<string name="no_app_to_handle_action">Немає потрібного застосунку для цієї дії</string>
-	<string name="local_timeline">Локальні</string>
 	<string name="trending_posts_info_banner">Ось найбільш популярні дописи на Mastodon.</string>
 	<string name="trending_links_info_banner">Це новини, про які говорять на Mastodon.</string>
 	<!-- %s is the server domain -->
@@ -687,6 +686,12 @@
 	<!-- %s is a time interval ("5 months") -->
 	<string name="old_post_sheet_title">Ця було опубліковано %s тому</string>
 	<string name="old_post_sheet_text">Ви все ще можете відповісти, але можливо вже пізно.</string>
+	<plurals name="x_months">
+		<item quantity="one">%,d місяць</item>
+		<item quantity="few">%,d місяців</item>
+		<item quantity="many">%,d місяців</item>
+		<item quantity="other">%,d місяців</item>
+	</plurals>
 	<string name="more_than_two_years">більш ніж 2 роки</string>
 	<string name="non_mutual_title1">Поводьтеся шанобливо та не переводьте тему</string>
 	<string name="non_mutual_text1">Переконайтеся, що ваша відповідь ввічлива та в тему.</string>
@@ -758,7 +763,7 @@
 	<string name="video_saved">Відео збережено.</string>
 	<string name="view_file">Переглянути</string>
 	<string name="share_sheet_preview_profile">%s на Mastodon</string>
-	<string name="share_sheet_preview_post" comment="share_sheet_preview_post&#10;%1$s is the username, %2$s is the post text">%1$s на Mastodon: «%2$s»</string>
+	<string name="share_sheet_preview_post">%1$s на Mastodon: «%2$s»</string>
 	<string name="copy_profile_link">Копіювати посилання на профіль</string>
 	<string name="in_app_browser">Вбудований браузер</string>
 	<string name="system_browser">Системний браузер</string>
@@ -790,6 +795,12 @@
 	<string name="notification_filter_mentions_explanation">Відфільтровується, якщо це не відповідь на вашу власну згадку або якщо ви відстежуєте відправника</string>
 	<string name="allow_notifications">Дозволити сповіщення</string>
 	<string name="mute_notifications">Відхилити запит на сповіщення</string>
+	<plurals name="x_people_you_may_know">
+		<item quantity="one">%,d людина, яку ви можете знати</item>
+		<item quantity="few">%,d людей, яких ви можете знати</item>
+		<item quantity="many">%,d людей, яких ви можете знати</item>
+		<item quantity="other">%,d людей, яких ви можете знати</item>
+	</plurals>
 	<string name="notifications_from_user">Сповіщення від %s</string>
 	<string name="notifications_muted">Сповіщення від %s було відхилено.</string>
 	<string name="notifications_allowed">%s тепер з\'явиться у вашому списку сповіщень.</string>
@@ -809,4 +820,21 @@
 	<string name="signup_username_taken">Це ім\'я вже зайнято. Спробуйте інше, або &lt;a&gt;оберіть інший сервер&lt;/a&gt;.</string>
 	<string name="signup_email_invalid">Це не схоже на дійсну адресу електронної пошти.</string>
 	<string name="signup_email_taken">Адреса пошти вже використана. Ви &lt;a&gt;забули ваш пароль&lt;/a&gt;?</string>
+	<plurals name="x_new_notifications">
+		<item quantity="one">%,d нове сповіщень</item>
+		<item quantity="few">%,d нових сповіщення</item>
+		<item quantity="many">%,d нових сповіщень</item>
+		<item quantity="other">%,d нових сповіщення</item>
+	</plurals>
+	<string name="dismiss">Відхилити</string>
+	<string name="donation_once">Тільки один раз</string>
+	<string name="donation_monthly">Щомісяця</string>
+	<string name="donation_yearly">Щорічно</string>
+	<string name="currency">Валюта</string>
+	<string name="donation_success_share">Поширюйте інформацію</string>
+	<string name="donation_success_title">Дякуємо за Ваш внесок!</string>
+	<string name="donation_success_subtitle">Незабаром ви маєте отримати електронний лист із підтвердженням своєї пожертви.</string>
+	<string name="donation_server_error">На жаль, сталася помилка, і ми не змогли обробити вашу пожертву.\n\nПовторіть спробу через кілька хвилин.</string>
+	<string name="settings_donate">Пожертвувати Mastodon</string>
+	<string name="settings_manage_donations">Керувати пожертвами</string>
 </resources>

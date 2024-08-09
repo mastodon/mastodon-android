@@ -15,7 +15,7 @@
 	<string name="user_sent_follow_request">%s išsiuntė tau sekimo prašymą</string>
 	<string name="user_favorited">%s pamėgo tavo įrašą</string>
 	<string name="notification_boosted">%s pasidalino tavo įrašą</string>
-	<string name="poll_ended">Žiūrėk apklausos, kurioje balsavai, rezultatus</string>
+	<string name="poll_ended">Žiūrėk apklausos rezultatus, kurioje balsavai</string>
 	<string name="share_toot_title">Bendrinti</string>
 	<string name="settings">Nustatymai</string>
 	<string name="publish">Skelbti</string>
@@ -179,7 +179,7 @@
 	<string name="category_general">Bendra</string>
 	<string name="confirm_email_title">Patikrinti pašto dėžutę</string>
 	<!-- %s is the email address -->
-	<string name="confirm_email_subtitle">Spustelėk nuorodą, kurią atsiuntėme, kad patvirtintum %s. Lauksime čia.</string>
+	<string name="confirm_email_subtitle">Paliesk nuorodą, kurią atsiuntėme, kad patvirtintum %s. Lauksime čia.</string>
 	<string name="confirm_email_didnt_get">Negavai nuorodos?</string>
 	<string name="resend">Siųsti dar kartą</string>
 	<string name="open_email_app">Atidaryti el. pašto programėlę</string>
@@ -259,7 +259,7 @@
 	<string name="file_saved">Failas išsaugotas</string>
 	<string name="downloading">Atsisiunčiama…</string>
 	<string name="no_app_to_handle_action">Nėra programėlės šiam veiksmui atlikti</string>
-	<string name="local_timeline">Vietinis</string>
+	<string name="local_timeline">Tiesioginis srautas</string>
 	<string name="trending_posts_info_banner">Tai – įrašai, sulaukiantys didžiausio susidomėjimo „Mastodon“ platformoje.</string>
 	<string name="trending_links_info_banner">Tai – naujienos, apie kurias kalbama „Mastodon“ platformoje.</string>
 	<!-- %s is the server domain -->
@@ -385,7 +385,7 @@
 	<string name="profile_timeline">Laiko skalė</string>
 	<string name="view_all">Peržiūrėti viską</string>
 	<string name="profile_endorsed_accounts">Paskyros</string>
-	<string name="verified_link">Patikrinta nuoroda</string>
+	<string name="verified_link">Patvirtinta nuoroda</string>
 	<string name="show">Rodyti</string>
 	<string name="hide">Slėpti</string>
 	<string name="join_default_server">Prisijungti prie %s</string>
@@ -425,7 +425,7 @@
 	<string name="what_is_alt_text">Kas yra alternatyvusis tekstas?</string>
 	<string name="alt_text_help">Alternatyvusis tekstas pateikia vaizdų aprašymus žmonėms su regos sutrikimais, turintiems mažo pralaidumo ryšį arba ieškantiems papildomo konteksto.\n\nGali pagerinti prieinamumą ir suprantamumą visiems, jei parašysi aiškų, glaustą ir objektyvų alternatyvųjį tekstą.\n\n<ul><li>Užfiksuok svarbiausius elementus.</li>\n<li>Apibendrink tekstą vaizduose.</li>\n<li>Naudok normalu sakinio struktūrą.</li>\n<li>Venk nereikalingos informacijos.</li>\n<li>Sutelk dėmesį į tendencijas ir pagrindines išvadas sudėtinguose vaizdiniuose (tokiuose kaip diagramos ar žemėlapiai).</li></ul></string>
 	<string name="edit_post">Redaguoti įrašą</string>
-	<string name="no_verified_link">Nėra patikrintos nuorodos</string>
+	<string name="no_verified_link">Nėra patvirtintos nuorodos</string>
 	<string name="compose_autocomplete_emoji_empty">Naršyti jaustuką</string>
 	<string name="compose_autocomplete_users_empty">Rask, ko ieškai</string>
 	<string name="no_search_results">Nepavyko rasti nieko pagal šiuos paieškos terminus.</string>
@@ -464,7 +464,7 @@
 	<string name="notifications_policy_anyone">Bet kurių</string>
 	<string name="notifications_policy_followed">Žmonių, kurie seka</string>
 	<string name="notifications_policy_follower">Žmonių, kuriuos seki</string>
-	<string name="notifications_policy_no_one">Nei vieno</string>
+	<string name="notifications_policy_no_one">Niekieno</string>
 	<string name="settings_notifications_policy">Gauti pranešimus iš</string>
 	<string name="notification_type_mentions_and_replies">Paminėjimai ir atsakymai</string>
 	<string name="pause_all_notifications_title">Pristabdyti visus pranešimus</string>
@@ -644,7 +644,7 @@
 	<string name="delete_list">Ištrinti sąrašą</string>
 	<!-- %s is the name of the list -->
 	<string name="delete_list_confirm">Ištrinti „%s“?</string>
-	<string name="list_exclusive">Slėpti narius sekimose</string>
+	<string name="list_exclusive">Slėpti narius Sekimose</string>
 	<string name="list_exclusive_subtitle">Jei kas nors yra šiame sąraše, paslėpk juos sekimo laiko skalėje, kad nematytum jų įrašus du kartus.</string>
 	<string name="list_name">Sąrašo pavadinimas</string>
 	<string name="list_show_replies_to">Rodyti atsakymus</string>
@@ -654,7 +654,7 @@
 	<string name="confirm_remove_list_members">Pašalinti narius?</string>
 	<string name="remove">Pašalinti</string>
 	<string name="add_list_member">Pridėti narį</string>
-	<string name="search_among_people_you_follow">Ieškoti tarp sekiamų žmonių</string>
+	<string name="search_among_people_you_follow">Ieškoti tarp sekamų žmonių</string>
 	<string name="add_user_to_list">Pridėti / pašalinti iš sąrašų…</string>
 	<string name="add_user_to_list_title">Pridėti į sąrašą</string>
 	<!-- %s is a username -->
@@ -764,10 +764,10 @@ Kuo daugiau žmonių seki, tuo aktyvesnis ir įdomesnis jis bus.</string>
 	<string name="video_saved">Vaizdo įrašas išsaugotas.</string>
 	<string name="view_file">Peržiūrėti</string>
 	<string name="share_sheet_preview_profile">%s, platformoje „Mastodon“</string>
-	<string name="share_sheet_preview_post" comment="share_sheet_preview_post&#10;%1$s is the username, %2$s is the post text">%1$s, platformoje „Mastodon“: %2$s</string>
+	<string name="share_sheet_preview_post">%1$s, platformoje „Mastodon“: %2$s</string>
 	<string name="copy_profile_link">Kopijuoti nuorodą į profilį</string>
-	<string name="in_app_browser">Naršyklė programėlėje</string>
-	<string name="system_browser">Sistemos naršyklė</string>
+	<string name="in_app_browser">Programėlės naršyklę</string>
+	<string name="system_browser">Sistemos naršyklę</string>
 	<string name="add_muted_word_short">Pridėti žodį</string>
 	<string name="tab_home">Pagrindinis</string>
 	<string name="tab_search">Naršyti</string>
@@ -789,10 +789,10 @@ Kuo daugiau žmonių seki, tuo aktyvesnis ir įdomesnis jis bus.</string>
 	<string name="notification_filter_following">Žmonių, kuriuos neseki</string>
 	<string name="notification_filter_following_explanation">Kol jų nepatvirtinsi rankiniu būdu. </string>
 	<string name="notification_filter_followers">Žmonių, kurie neseka</string>
-	<string name="notification_filter_followers_explanation">Įtraukant žmones, kurie tave seka mažiau nei 3 dienas.</string>
-	<string name="notification_filter_new_accounts">Naujos paskyros</string>
+	<string name="notification_filter_followers_explanation">Įtraukiant žmones, kurie tave seka mažiau nei 3 dienas.</string>
+	<string name="notification_filter_new_accounts">Naujų paskyrų</string>
 	<string name="notification_filter_new_accounts_explanation">Sukurta per pastarąsias 30 dienų.</string>
-	<string name="notification_filter_mentions">Nepageidaujami privatūs paminėjimai</string>
+	<string name="notification_filter_mentions">Nepageidaujamų privačių paminėjimų</string>
 	<string name="notification_filter_mentions_explanation">Filtruojama, nebent tai atsakymas į tavo paties paminėjimą arba jei seki siuntėją.</string>
 	<string name="allow_notifications">Leisti pranešimus</string>
 	<string name="mute_notifications">Atmesti pranešimo prašymą</string>

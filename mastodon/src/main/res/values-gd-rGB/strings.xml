@@ -9,6 +9,7 @@
 	<string name="preparing_auth">Ag ullachadh an dearbhaidh…</string>
 	<string name="finishing_auth">A’ crìochnachadh an dearbhaidh…</string>
 	<string name="user_boosted">’Ga bhrosnachadh le %s</string>
+	<string name="in_reply_to">mar fhreagairt dha %s</string>
 	<string name="notifications">Brathan</string>
 	<string name="user_followed_you">Tha %s ’gad leantainn a-nis</string>
 	<string name="user_sent_follow_request">Chuir %s iarrtas leantainn thugad</string>
@@ -188,6 +189,8 @@
 	<string name="save">Sàbhail</string>
 	<string name="add_alt_text">Cuir roghainn teacsa ris</string>
 	<string name="visibility_public">Poblach</string>
+	<string name="visibility_followers_only">Luchd-leantainn</string>
+	<string name="visibility_private">Daoine àraidh</string>
 	<string name="recent_searches">O chionn goirid</string>
 	<string name="skip">Leum thairis air</string>
 	<string name="notification_type_follow">Luchd-leantainn ùr</string>
@@ -256,7 +259,7 @@
 	<string name="file_saved">Chaidh am faidhle a shàbhaladh</string>
 	<string name="downloading">’Ga luchdadh a-nuas…</string>
 	<string name="no_app_to_handle_action">Chan eil aplacaid ann a làimhsicheas an gnìomh seo</string>
-	<string name="local_timeline">Ionadail</string>
+	<string name="local_timeline">An inbhir bheò</string>
 	<string name="trending_posts_info_banner">Seo na postaichean fèillmhor thar Mastodon.</string>
 	<string name="trending_links_info_banner">Seo na sgeulachdan naidheachd air a bheilear a’ bruidhinn air Mastodon.</string>
 	<!-- %s is the server domain -->
@@ -342,13 +345,16 @@
 	<string name="instance_signup_closed">Chan eil am frithealaiche seo a’ gabhail ri clàraidhean ùra.</string>
 	<string name="text_copied">Chaidh lethbhreac dheth a chur air an stòr-bhòrd</string>
 	<string name="add_bookmark">Cruthaich comharra-lìn</string>
+	<string name="remove_bookmark">Thoir an comharra-lìn air falbh</string>
 	<string name="bookmarks">Comharran-lìn</string>
 	<string name="your_favorites">Na h-annsachdan agad</string>
 	<string name="login_title">Fàilte air ais</string>
 	<string name="login_subtitle">Clàraich a-steach leis an fhrithealaiche far an do chruthaich thu an cunntas agad.</string>
 	<string name="server_url">URL an fhrithealaiche</string>
 	<string name="server_filter_any_language">Cànan sam bith</string>
+	<string name="server_filter_instant_signup">Grad-chlàradh</string>
 	<string name="server_filter_manual_review">Lèirmheas a làimh</string>
+	<string name="server_filter_any_signup_speed">Luaths clàraidh sam bith</string>
 	<string name="server_filter_region_europe">An Roinn-Eòrpa</string>
 	<string name="server_filter_region_north_america">Aimeireaga a Tuath</string>
 	<string name="server_filter_region_south_america">Aimeireaga a Deas</string>
@@ -757,7 +763,7 @@
 	<string name="video_saved">Chaidh a’ video a shàbhaladh.</string>
 	<string name="view_file">Seall</string>
 	<string name="share_sheet_preview_profile">%s air Mastodon</string>
-	<string name="share_sheet_preview_post" comment="share_sheet_preview_post&#10;%1$s is the username, %2$s is the post text">%1$s air Mastodon: “%2$s”</string>
+	<string name="share_sheet_preview_post">%1$s air Mastodon: “%2$s”</string>
 	<string name="copy_profile_link">Dèan lethbhreac dhen cheangal dhan phròifil</string>
 	<string name="in_app_browser">Brabhsair am broinn na h-aplacaid</string>
 	<string name="system_browser">Brabhsair an t-siostaim</string>
@@ -770,4 +776,65 @@
 	<string name="post_pinned">Chaidh am post a phrìneachadh</string>
 	<string name="post_unpinned">Chaidh am post a dhì-phrìneachadh</string>
 	<!-- %s is the username -->
+	<string name="enable_new_post_notifications">Cuir brath thugam nuair a chuireas %s post ris</string>
+	<string name="disable_new_post_notifications">Na cuir brath thugam tuilleadh nuair a chuireas %s post ris</string>
+	<string name="new_post_notifications_enabled">Gheibh thu brathan air postaichean ùra.</string>
+	<string name="new_post_notifications_disabled">Chan fhaigh thu brathan air postaichean ùra tuilleadh.</string>
+	<string name="mute_conversation">Mùch an còmhradh</string>
+	<string name="unmute_conversation">Dì-mhùch an còmhradh</string>
+	<string name="visibility_unlisted">Poblach ach sàmhach</string>
+	<string name="filtered_notifications">Brathan criathraichte</string>
+	<string name="filter_notifications">Falaich na brathan o…</string>
+	<string name="notification_filter_following">Daoine nach eil thu a’ leantainn</string>
+	<string name="notification_filter_following_explanation">Gus an aontaich thu riutha a làimh</string>
+	<string name="notification_filter_followers">Daoine nach eil ’gad leantainn</string>
+	<string name="notification_filter_followers_explanation">A’ gabhail a-staigh an fheadhainn a lean thu nas lugha na 3 làithean</string>
+	<string name="notification_filter_new_accounts">Cunntasan ùra</string>
+	<string name="notification_filter_new_accounts_explanation">Air a chruthachadh am broinn an 30 latha seo chaidh</string>
+	<string name="notification_filter_mentions">Iomraidhean prìobhaideach o choigrich</string>
+	<string name="notification_filter_mentions_explanation">Criathraichte ach ma tha e a’ freagairt do dh’iomradh agad fhèin no ma tha thu a’ leantainn an seòladair</string>
+	<string name="allow_notifications">Ceadaich brathan</string>
+	<string name="mute_notifications">Leig seachad an t-iarrtas air brath</string>
+	<plurals name="x_people_you_may_know">
+		<item quantity="one">%,d neach as aithne dhut ’s dòcha</item>
+		<item quantity="two">%,d daoine as aithne dhut ’s dòcha</item>
+		<item quantity="few">%,d daoine as aithne dhut ’s dòcha</item>
+		<item quantity="other">%,d daoine as aithne dhut ’s dòcha</item>
+	</plurals>
+	<string name="notifications_from_user">Brathan o %s</string>
+	<string name="notifications_muted">Chaidh na brathan o %s a leigeil seachad.</string>
+	<string name="notifications_allowed">Nochdaidh %s ann an liosta nam brathan agad a-nis.</string>
+	<string name="visibility_subtitle_public">Duine sam bith taobh a-staigh no a-muigh Mhastodon</string>
+	<string name="visibility_subtitle_unlisted">Ìre bheag an algairim</string>
+	<string name="visibility_subtitle_followers">An luchd-leantainn agad a-mhàin</string>
+	<string name="visibility_subtitle_private">A h-uile duine air a bheil iomradh sa phost</string>
+	<string name="view_boosts">Seall na brosnachaidhean</string>
+	<string name="view_favorites">Seall na h-annsachdan</string>
+	<string name="undo_reblog">Na brosnaich tuilleadh</string>
+	<string name="undo_favorite">Chan annsa leam tuilleadh e</string>
+	<string name="could_not_reach_server">Cha b’ urrainn dhuinn am frithealaiche a ruigsinn. Dearbh an ceangal agad is feuch ris a-rithist.</string>
+	<string name="connection_timed_out">Dh’fhalbh an ùine air an iarrtas. Dearbh an ceangal agad is feuch ris a-rithist.</string>
+	<string name="server_error">Chaidh rudeigin ceàrr a’ bruidhinn ris an fhrithealaiche agad. Tha sinn an dùil nach tusa as coireach. Am feuch thu ris a-rithist?</string>
+	<string name="not_found">Dh’fhaoidte gun deach a sguabadh às no nach robh e ann a-riamh.</string>
+	<string name="no_servers_found">Cha deach frithealaiche a lorg airson “%s”</string>
+	<string name="signup_username_taken">Tha an t-ainm-cleachdaiche seo aig cuideigin eile. Feuch fear eile no &lt;a&gt;tagh frithealaiche eile&lt;/a&gt;.</string>
+	<string name="signup_email_invalid">Chan eil coltas puist-d dhlighich air seo.</string>
+	<string name="signup_email_taken">Tha an seòladh puist-d seo ga chleachdadh mu thràth. An do &lt;a&gt;dhìochuimhnich thu am facal-faire agad&lt;/a&gt;?</string>
+	<plurals name="x_new_notifications">
+		<item quantity="one">%,d bhrath ùr</item>
+		<item quantity="two">%,d bhrath ùr</item>
+		<item quantity="few">%,d brathan ùra</item>
+		<item quantity="other">%,d brath ùr</item>
+	</plurals>
+	<string name="dismiss">Leig seachad</string>
+	<string name="donation_once">Aon turas a-mhàin</string>
+	<string name="donation_monthly">Gach mìos</string>
+	<string name="donation_yearly">Gach bliadhna</string>
+	<string name="currency">Airgeadra</string>
+	<string name="donation_success_share">Sgaoil am facal</string>
+	<string name="donation_success_title">Mòran taing airson taic a thoirt dhuinn!</string>
+	<string name="donation_success_subtitle">Bu chòir dhut post-d fhaighinn a dh’aithghearr a dhearbhas an tabhartas agad.</string>
+	<string name="donation_server_error">Tha sinn duilich ach thachair mearachd agus cha b’ urrainn dhuinn an tabhartas agad a phròiseasadh.\n\nFeuch ris a-rithist an ceann mionaid no dhà.</string>
+	<string name="settings_donate">Thoir tabhartas do Mhastodon</string>
+	<string name="settings_manage_donations">Stiùirich na tabhartasan</string>
 </resources>

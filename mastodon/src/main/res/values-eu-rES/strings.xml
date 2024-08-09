@@ -233,7 +233,6 @@
 	<string name="file_saved">Fitxategia gorde da</string>
 	<string name="downloading">Jeisten…</string>
 	<string name="no_app_to_handle_action">Ez dago ekintza hau kudeatu dezkeen aplikaziorik</string>
-	<string name="local_timeline">Lokala</string>
 	<string name="trending_posts_info_banner">Hauek dira zure Mastodon txokoan beraien lekua hartzen ari diren argitalpenak.</string>
 	<string name="trending_links_info_banner">Hauek dira Mastodonen aipatzen diren albisteak.</string>
 	<!-- %s is the server domain -->
@@ -698,7 +697,7 @@ Zenbat eta jende gehiago jarraitu, orduan eta aktiboagoa eta interesgarriagoa iz
 	<string name="video_saved">Bideoa gorde da.</string>
 	<string name="view_file">Ikusi</string>
 	<string name="share_sheet_preview_profile">%s Mastodonen</string>
-	<string name="share_sheet_preview_post" comment="share_sheet_preview_post&#10;%1$s is the username, %2$s is the post text">%1$s Mastodonen: “%2$s”</string>
+	<string name="share_sheet_preview_post">%1$s Mastodonen: “%2$s”</string>
 	<string name="copy_profile_link">Kopiatu profilerako esteka</string>
 	<string name="in_app_browser">Aplikazio barneko nabigatzailea</string>
 	<string name="system_browser">Sistemaren nabigatzailea</string>
@@ -757,4 +756,15 @@ Zenbat eta jende gehiago jarraitu, orduan eta aktiboagoa eta interesgarriagoa iz
 		<item quantity="one">Jakinarazpen berri %,d</item>
 		<item quantity="other">%,d jakinarazpen berri</item>
 	</plurals>
+	<string name="dismiss">Baztertu</string>
+	<string name="donation_once">Behin</string>
+	<string name="donation_monthly">Hilero</string>
+	<string name="donation_yearly">Urtero</string>
+	<string name="currency">Moneta</string>
+	<string name="donation_success_share">Barreiatu hitza</string>
+	<string name="donation_success_title">Eskerrik asko zure ekarpenagatik!</string>
+	<string name="donation_success_subtitle">Laster jasoko duzu eposta bat zure dohaintza berresteko.</string>
+	<string name="donation_server_error">Sentitzen dugu, akats bat gertatu da eta ezin izan dugu zure dohaintza prozesatu.\n\nMesedez, saiatu berriro minutu batzuk barru.</string>
+	<string name="settings_donate">Egin dohaintza Mastodon-i</string>
+	<string name="settings_manage_donations">Kudeatu dohaintzak</string>
 </resources>

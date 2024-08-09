@@ -233,7 +233,7 @@
 	<string name="file_saved">Arquivo salvo</string>
 	<string name="downloading">Baixando…</string>
 	<string name="no_app_to_handle_action">Não há um app para executar esta ação</string>
-	<string name="local_timeline">Local</string>
+	<string name="local_timeline">Feed ao vivo</string>
 	<string name="trending_posts_info_banner">Estas são as publicações que estão ganhando força no Mastodon.</string>
 	<string name="trending_links_info_banner">Estas são as notícias que estão sendo comentadas no Mastodon.</string>
 	<!-- %s is the server domain -->
@@ -314,7 +314,9 @@
 	<string name="login_subtitle">Faça login no servidor onde você criou sua conta.</string>
 	<string name="server_url">URL do servidor</string>
 	<string name="server_filter_any_language">Qualquer idioma</string>
+	<string name="server_filter_instant_signup">Inscrição imediata</string>
 	<string name="server_filter_manual_review">Revisão manual</string>
+	<string name="server_filter_any_signup_speed">Qualquer velocidade de cadastro</string>
 	<string name="server_filter_region_europe">Europa</string>
 	<string name="server_filter_region_north_america">América do Norte</string>
 	<string name="server_filter_region_south_america">América do Sul</string>
@@ -696,7 +698,7 @@ Quanto mais pessoas que você seguir, mas interessantes e ativas serão.</string
 	<string name="video_saved">Vídeo salvo.</string>
 	<string name="view_file">Visualizar</string>
 	<string name="share_sheet_preview_profile">%s no Mastodon</string>
-	<string name="share_sheet_preview_post" comment="share_sheet_preview_post&#10;%1$s is the username, %2$s is the post text">%1$s no Mastodon: “%2$s”</string>
+	<string name="share_sheet_preview_post">%1$s no Mastodon: “%2$s”</string>
 	<string name="copy_profile_link">Copiar link para o perfil</string>
 	<string name="in_app_browser">Navegador do aplicativo</string>
 	<string name="system_browser">Navegador do sistema</string>
@@ -755,4 +757,15 @@ Quanto mais pessoas que você seguir, mas interessantes e ativas serão.</string
 		<item quantity="one">%,d nova notificação</item>
 		<item quantity="other">%,d novas notificações</item>
 	</plurals>
+	<string name="dismiss">Demitir</string>
+	<string name="donation_once">Apenas uma vez</string>
+	<string name="donation_monthly">Mensalmente</string>
+	<string name="donation_yearly">Anualmente</string>
+	<string name="currency">Moeda</string>
+	<string name="donation_success_share">Espalhe a palavra</string>
+	<string name="donation_success_title">Obrigado pela sua contribuição!</string>
+	<string name="donation_success_subtitle">Você deve receber um e-mail confirmando sua doação em breve.</string>
+	<string name="donation_server_error">Nos desculpe, um erro ocorreu e nós não conseguimos processar a sua doação. \n\nPor favor tente novamente em alguns minutos.</string>
+	<string name="settings_donate">Doe para o Mastodon</string>
+	<string name="settings_manage_donations">Gerenciar doações</string>
 </resources>

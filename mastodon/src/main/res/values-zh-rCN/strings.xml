@@ -92,7 +92,7 @@
 	<string name="notification_channel_audio_player">音频播放</string>
 	<string name="play">播放</string>
 	<string name="pause">暂停</string>
-	<string name="log_out">注销</string>
+	<string name="log_out">登出</string>
 	<string name="add_account">添加账户</string>
 	<string name="search_hint">搜索</string>
 	<string name="hashtags">标签</string>
@@ -153,6 +153,8 @@
 	<string name="save">保存</string>
 	<string name="add_alt_text">添加替代文本</string>
 	<string name="visibility_public">公开</string>
+	<string name="visibility_followers_only">关注者</string>
+	<string name="visibility_private">特定的人</string>
 	<string name="recent_searches">最近</string>
 	<string name="skip">跳过</string>
 	<string name="notification_type_follow">新关注者</string>
@@ -218,7 +220,7 @@
 	<string name="file_saved">文件已保存</string>
 	<string name="downloading">正在下载…</string>
 	<string name="no_app_to_handle_action">没有可用于处理该操作的 app</string>
-	<string name="local_timeline">本站</string>
+	<string name="local_timeline">实时动态</string>
 	<string name="trending_posts_info_banner">这些嘟文正在 Mastodon 上获得关注。</string>
 	<string name="trending_links_info_banner">以下是 Mastodon 中正在热议的新鲜事。</string>
 	<!-- %s is the server domain -->
@@ -286,13 +288,16 @@
 	<string name="instance_signup_closed">此实例不接受新注册。</string>
 	<string name="text_copied">复制成功</string>
 	<string name="add_bookmark">收藏</string>
+	<string name="remove_bookmark">移除书签</string>
 	<string name="bookmarks">收藏</string>
 	<string name="your_favorites">你的喜欢</string>
 	<string name="login_title">欢迎回来</string>
 	<string name="login_subtitle">登陆到你创建账户的服务器。</string>
 	<string name="server_url">实例 URL</string>
 	<string name="server_filter_any_language">所有语言</string>
+	<string name="server_filter_instant_signup">免审核注册</string>
 	<string name="server_filter_manual_review">人工审核</string>
+	<string name="server_filter_any_signup_speed">不限注册速度</string>
 	<string name="server_filter_region_europe">欧洲</string>
 	<string name="server_filter_region_north_america">北美洲</string>
 	<string name="server_filter_region_south_america">南美洲</string>
@@ -660,7 +665,7 @@
 	<string name="video_saved">视频已保存。</string>
 	<string name="view_file">查看</string>
 	<string name="share_sheet_preview_profile">Mastodon上的 %s</string>
-	<string name="share_sheet_preview_post" comment="share_sheet_preview_post&#10;%1$s is the username, %2$s is the post text">Mastodon上的%1$s ：“%2$s”</string>
+	<string name="share_sheet_preview_post">Mastodon上的%1$s ：“%2$s”</string>
 	<string name="copy_profile_link">复制个人资料页链接</string>
 	<string name="in_app_browser">应用内置浏览器</string>
 	<string name="system_browser">系统浏览器</string>
@@ -698,4 +703,34 @@
 	<string name="notifications_from_user">来自 %s 的通知</string>
 	<string name="notifications_muted">来自 %s 的通知已被忽略。</string>
 	<string name="notifications_allowed">%s 现在将出现在你的通知列表中。</string>
+	<string name="visibility_subtitle_public">所有人（无论是否注册了 Mastodon）</string>
+	<string name="visibility_subtitle_unlisted">减少算法影响</string>
+	<string name="visibility_subtitle_followers">仅限您的关注者</string>
+	<string name="visibility_subtitle_private">帖子中提到的每个人</string>
+	<string name="view_boosts">显示转嘟</string>
+	<string name="view_favorites">查看喜欢</string>
+	<string name="undo_reblog">撤消转嘟</string>
+	<string name="undo_favorite">取消喜欢</string>
+	<string name="could_not_reach_server">无法连接到服务器。请检查您的连接，然后再试一次？</string>
+	<string name="connection_timed_out">请求超时。检查您的连接后再试一次？</string>
+	<string name="server_error">与您的服务器沟通时出现问题。这可能不是您的错误。要再试试吗？</string>
+	<string name="not_found">它可能已被删除，或者可能根本不存在。</string>
+	<string name="no_servers_found">找不到 “%s” 的服务器</string>
+	<string name="signup_username_taken">用户名已被注册。试试另一个名字或&lt;a&gt;另一个服务器&lt;/a&gt;。</string>
+	<string name="signup_email_invalid">您的邮件地址也许不是有效的。</string>
+	<string name="signup_email_taken">此电子邮件已被注册。&lt;a&gt; 忘记了密码 &lt;/a&gt;？</string>
+	<plurals name="x_new_notifications">
+		<item quantity="other">%,d 条新通知</item>
+	</plurals>
+	<string name="dismiss">忽略</string>
+	<string name="donation_once">仅一次</string>
+	<string name="donation_monthly">每月</string>
+	<string name="donation_yearly">每年</string>
+	<string name="currency">货币</string>
+	<string name="donation_success_share">捐赠寄语</string>
+	<string name="donation_success_title">感谢您的贡献！</string>
+	<string name="donation_success_subtitle">您应该很快收到一封确认您捐赠的电子邮件。</string>
+	<string name="donation_server_error">我们很抱歉，发生了一个错误，我们无法处理您的捐赠。\n\n请几分钟后再试。</string>
+	<string name="settings_donate">捐助 Mastodon</string>
+	<string name="settings_manage_donations">管理捐赠</string>
 </resources>
