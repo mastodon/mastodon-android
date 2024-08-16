@@ -579,8 +579,44 @@
 	<string name="dropdown_menu">Rullemenu</string>
 	<string name="edit_list">Redigér liste</string>
 	<string name="list_members">Liste over medlemmer</string>
+	<string name="delete_list">Slet liste</string>
 	<!-- %s is the name of the list -->
+	<string name="delete_list_confirm">Slet “%s”?</string>
+	<string name="list_exclusive">Skjul medlemmer i Følger</string>
+	<string name="list_exclusive_subtitle">Hvis nogen er på denne liste, skjul vedkommende i Følger-tidslinjen for at undgå at se vedkommendes indlæg to gange.</string>
+	<string name="list_name">Listenavn</string>
+	<string name="list_show_replies_to">Vis svar til</string>
+	<string name="list_replies_no_one">Ingen</string>
+	<string name="list_replies_members">Listemedlemmer</string>
+	<string name="list_replies_anyone">Enhver, man følger</string>
+	<string name="confirm_remove_list_members">Fjern medlemmer?</string>
+	<string name="remove">Fjern</string>
+	<string name="add_list_member">Tilføj nogen som medlem</string>
+	<string name="search_among_people_you_follow">Søg blandt folk, som følges</string>
+	<string name="add_user_to_list">Tilføj/fjern fra lister…</string>
+	<string name="add_user_to_list_title">Føj til liste</string>
 	<!-- %s is a username -->
+	<string name="manage_user_lists">Håndtér listerne %s vises på</string>
+	<string name="remove_from_list">Fjern fra liste</string>
+	<string name="confirm_remove_list_member">Fjern medlem?</string>
+	<string name="no_followed_hashtags_title">Vær i tråd med interesser ved at følge hashtags</string>
+	<string name="no_followed_hashtags_subtitle">Dem som følges vises her</string>
+	<string name="no_lists_title">Organiser hjemme-feed med Lister</string>
+	<string name="no_lists_subtitle">Egne lister vises her</string>
+	<string name="manage_accounts">Tilføj eller skift konti</string>
+	<plurals name="x_posts_recently">
+		<item quantity="one">%,d nyligt indlæg</item>
+		<item quantity="other">%,d nylige indlæg</item>
+	</plurals>
+	<string name="create_list">Opret liste</string>
+	<string name="step_x_of_y">Trin %1$d af %2$d</string>
+	<string name="create">Opret</string>
+	<string name="manage_list_members">Håndtér listemedlemmer</string>
+	<string name="list_no_members">Ingen medlemmer endnu</string>
+	<string name="list_find_users">Find brugere at tilføje</string>
+	<string name="reply_to_user">Besvar %s</string>
+	<string name="posted_at">Opslået %s</string>
+	<string name="non_mutual_sheet_title">Hej, ny forbindelse!</string>
 	<!-- %s is a time interval ("5 months") -->
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
 	<!-- %s is the username -->
