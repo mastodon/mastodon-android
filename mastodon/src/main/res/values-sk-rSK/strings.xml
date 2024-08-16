@@ -6,9 +6,27 @@
 	<string name="not_a_mastodon_instance">Zdá sa, že %s nie je Mastodon server.</string>
 	<string name="ok">OK</string>
 	<string name="user_followed_you">%s vás začal sledovať</string>
+	<string name="share_toot_title">Zdielať</string>
+	<string name="settings">Nastavenia</string>
+	<string name="publish">Zverejniť</string>
+	<string name="discard_draft">Želáte si zahodiť koncept?</string>
+	<string name="discard">Zahodiť</string>
+	<string name="cancel">Zrušiť</string>
+	<plurals name="followers">
+		<item quantity="one">sledovateľ</item>
+		<item quantity="few">sledovatelia</item>
+		<item quantity="many">sledovateľov</item>
+		<item quantity="other">sledovateľov</item>
+	</plurals>
+	<string name="posts">Príspevky</string>
+	<string name="posts_and_replies">Príspevky a odpovede</string>
+	<string name="media">Súbory</string>
+	<string name="button_follow">Sledovať</string>
+	<string name="button_following">Sledované</string>
 	<string name="edit_profile">Upraviť profil</string>
 	<string name="share_user">Zdielať profil cez…</string>
 	<string name="mute_user">Stlmiť %s</string>
+	<string name="unmute_user">Zrušiť stlmenie pre %s</string>
 	<string name="block_user">Zablokovať %s</string>
 	<string name="unblock_user">Odblokovať %s</string>
 	<string name="report_user">Nahlásiť %s</string>
