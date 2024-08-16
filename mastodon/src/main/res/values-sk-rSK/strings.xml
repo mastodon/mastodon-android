@@ -14,6 +14,7 @@
 	<string name="report_user">Nahlásiť %s</string>
 	<string name="block_domain">Zablokovať %s</string>
 	<string name="unblock_domain">Odblokovať %s</string>
+	<string name="done">Hotovo</string>
 	<string name="loading">Načítavam…</string>
 	<string name="saving">Ukladám…</string>
 	<string name="post_from_user">Príspevky používateľa %s</string>
@@ -53,6 +54,12 @@
 		<item quantity="few">Zostávajú %d hodiny</item>
 		<item quantity="many">Zástava %d hodín</item>
 		<item quantity="other">Zástava %d hodín</item>
+	</plurals>
+	<plurals name="x_days_left">
+		<item quantity="one">Zostáva %d deň</item>
+		<item quantity="few">Zostávajú %d dni</item>
+		<item quantity="many">Zostáva %d dní</item>
+		<item quantity="other">Zostáva %d dní</item>
 	</plurals>
 	<!-- %s is the email address -->
 	<!-- %s is the server domain -->
