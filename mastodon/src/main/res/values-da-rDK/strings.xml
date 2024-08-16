@@ -617,7 +617,26 @@
 	<string name="reply_to_user">Besvar %s</string>
 	<string name="posted_at">Opslået %s</string>
 	<string name="non_mutual_sheet_title">Hej, ny forbindelse!</string>
+	<string name="non_mutual_sheet_text">Det ser ud til, at man er ved at svare en person, der endnu ikke er en gensidig forbindelse. Lad os gøre et godt første indtryk.</string>
+	<string name="got_it">Forstået</string>
+	<string name="dont_remind_again">Påmind ikke igen</string>
 	<!-- %s is a time interval ("5 months") -->
+	<string name="old_post_sheet_title">Dette indlæg er %s gammelt</string>
+	<string name="old_post_sheet_text">Det kan stadig besvares, men er måske ikke længere relevant.</string>
+	<plurals name="x_months">
+		<item quantity="one">%,d måned</item>
+		<item quantity="other">%,d måneder</item>
+	</plurals>
+	<string name="more_than_two_years">mere end 2 år</string>
+	<string name="non_mutual_title1">Forbliv respektfuld og relevant</string>
+	<string name="non_mutual_text1">Sørg for, at besvarelsen er høflig og emnerelevant.</string>
+	<string name="non_mutual_title2">Omfavn venlighed</string>
+	<string name="non_mutual_text2">En positiv tone værdsættes altid.</string>
+	<string name="non_mutual_title3">Vær åben</string>
+	<string name="non_mutual_text3">Folks samtalestil er unik. Vær klar til at tilpasse.</string>
+	<string name="make_profile_discoverable">Gør profilen synlig</string>
+	<string name="discoverability">Opdagelighed</string>
+	<string name="discoverability_help">Når opdagelighed tilvælges på Mastodon, kan ens indlæg vises i søgeresultater og tendenser.\n\nMan kan få sin profil foreslået til personer med sammenfaldende interesser.\n\nFravalg skjuler ikke ens profil, hvis man bliver søgt efter ved navn.</string>
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
 	<!-- %s is the username -->
 </resources>
