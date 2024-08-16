@@ -544,10 +544,41 @@
 	<string name="clear_all">Ryd alle</string>
 	<string name="search_open_url">Åbn URL i Mastodon</string>
 	<string name="posts_matching_hashtag">Indlæg med “%s”</string>
+	<string name="search_go_to_account">Gå til %s</string>
+	<string name="posts_matching_string">Indlæg med “%s”</string>
+	<string name="accounts_matching_string">Folk med “%s”</string>
 	<!-- Shown in the post header. Please keep it short -->
+	<string name="time_seconds_ago_short">%ds siden</string>
+	<string name="time_minutes_ago_short">%dm siden</string>
+	<string name="time_hours_ago_short">%dt siden</string>
+	<string name="time_days_ago_short">%dd siden</string>
 	<!-- %s is the name of the post language -->
+	<string name="translate_post">Oversæt fra %s</string>
 	<!-- %1$s is the language, %2$s is the name of the translation service -->
+	<string name="post_translated">Oversat fra %1$s vha. %2$s</string>
+	<string name="translation_show_original">Vis original</string>
+	<string name="translation_failed">Oversættelse mislykkedes. Administratoren har muligvis ikke aktiveret oversættelser på denne server, eller serveren kører en ældre Mastodon-version uden understøttelse af oversættelser.</string>
+	<string name="settings_privacy">Fortrolighed og udbredelse</string>
+	<string name="settings_discoverable">Fremhæv profil og indlæg i detekteringsalgoritmer</string>
+	<string name="settings_indexable">Medtag offentlige indlæg i søgeresultater</string>
+	<plurals name="x_participants">
+		<item quantity="one">%,d deltager</item>
+		<item quantity="other">%,d deltagere</item>
+	</plurals>
+	<plurals name="x_posts_today">
+		<item quantity="one">%,d indlæg i dag</item>
+		<item quantity="other">%,d indlæg i dag</item>
+	</plurals>
+	<string name="error_playing_video">Videoafspilningsfejl</string>
+	<string name="timeline_following">Hjem</string>
+	<string name="lists">Lister</string>
+	<string name="followed_hashtags">Hashtag, som følges</string>
+	<string name="manage_lists">Håndtér lister</string>
+	<string name="manage_hashtags">Håndtér hashtags</string>
 	<!-- Screen reader description for the menu on the home timeline screen -->
+	<string name="dropdown_menu">Rullemenu</string>
+	<string name="edit_list">Redigér liste</string>
+	<string name="list_members">Liste over medlemmer</string>
 	<!-- %s is the name of the list -->
 	<!-- %s is a username -->
 	<!-- %s is a time interval ("5 months") -->
