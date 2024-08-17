@@ -751,4 +751,18 @@ Jo flere folk, man følger, jo mere aktivt og interessant vil det være.</string
 	<string name="not_found">Der har muligvis aldrig været noget her.</string>
 	<string name="no_servers_found">Ingen servere fundet for “%s”</string>
 	<string name="signup_username_taken">Dette brugernavn er taget. Prøv et andet eller &lt;a&gt;vælg en anden server&lt;/a&gt;.</string>
+	<string name="signup_email_invalid">Ugyldig e-mailadresse.</string>
+	<string name="signup_email_taken">E-mailadressen bruges allerede. Glemt &lt;a&gt;adgangskoden&lt;/a&gt;, måske?</string>
+	<plurals name="x_new_notifications">
+		<item quantity="one">%,d ny notifikation</item>
+		<item quantity="other">%,d nye notifikationer</item>
+	</plurals>
+	<string name="dismiss">Afvis</string>
+	<string name="donation_once">Kun én gang</string>
+	<string name="donation_monthly">Månedligt</string>
+	<string name="donation_yearly">Årligt</string>
+	<string name="currency">Valuta</string>
+	<string name="donation_success_share">Spred budskabet</string>
+	<string name="donation_success_title">Tak for bidraget!</string>
+	<string name="donation_success_subtitle">En e-mail, der bekræfter donationen, bør snart lande i indbakken.</string>
 </resources>
