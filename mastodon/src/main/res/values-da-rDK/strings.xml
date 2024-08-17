@@ -726,4 +726,29 @@ Jo flere folk, man følger, jo mere aktivt og interessant vil det være.</string
 	<string name="notification_filter_followers_explanation">Herunder personer, man er blevet fulgt af i mindre end 3 dage</string>
 	<string name="notification_filter_new_accounts">Ny konti</string>
 	<string name="notification_filter_new_accounts_explanation">Oprettet inden for de seneste 30 dage</string>
+	<string name="notification_filter_mentions">Uopfordrede private omtaler</string>
+	<string name="notification_filter_mentions_explanation">Filtreret, medmindre det er i svar til egen omtale, eller hvis afsenderen følges</string>
+	<string name="allow_notifications">Tillad notifikationer</string>
+	<string name="mute_notifications">Afvis notifikationsanmodning</string>
+	<plurals name="x_people_you_may_know">
+		<item quantity="one">%,d person, man måske kender</item>
+		<item quantity="other">%,d personer, man måske kender</item>
+	</plurals>
+	<string name="notifications_from_user">Notifikationer fra %s</string>
+	<string name="notifications_muted">Notifikationer fra %s er blevet afvist.</string>
+	<string name="notifications_allowed">%s vises nu i på notifikationslisten.</string>
+	<string name="visibility_subtitle_public">Alle på og udenfor Mastodon</string>
+	<string name="visibility_subtitle_unlisted">Færre algoritmiske fanfarer</string>
+	<string name="visibility_subtitle_followers">Kun egne følgere</string>
+	<string name="visibility_subtitle_private">Alle omtalt i indlægget</string>
+	<string name="view_boosts">Vis boosts</string>
+	<string name="view_favorites">Vis favoritter</string>
+	<string name="undo_reblog">Fortryd boost</string>
+	<string name="undo_favorite">Fortryd favorit</string>
+	<string name="could_not_reach_server">Serveren kunne ikke kontaktes. Tjek forbindelsen og forsøg igen?</string>
+	<string name="connection_timed_out">Anmodningen fik timeout. Tjek forbindelsen og forsøg igen?</string>
+	<string name="server_error">Problemer med serverkommunikationen. Fejlen ligger sandsynligvis andetsteds. Forsøg igen?</string>
+	<string name="not_found">Der har muligvis aldrig været noget her.</string>
+	<string name="no_servers_found">Ingen servere fundet for “%s”</string>
+	<string name="signup_username_taken">Dette brugernavn er taget. Prøv et andet eller &lt;a&gt;vælg en anden server&lt;/a&gt;.</string>
 </resources>
