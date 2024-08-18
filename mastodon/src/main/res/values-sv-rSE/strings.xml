@@ -166,6 +166,7 @@
 	<string name="add_alt_text">Lägg till alternativtext</string>
 	<string name="visibility_public">Offentlig</string>
 	<string name="visibility_followers_only">Följare</string>
+	<string name="visibility_private">Specifika personer</string>
 	<string name="recent_searches">Nyligen</string>
 	<string name="skip">Hoppa över</string>
 	<string name="notification_type_follow">Nya följare</string>
@@ -233,6 +234,7 @@
 	<string name="recommended_accounts_info_banner">Du kanske gillar dessa konton baserat på andra konton du följer.</string>
 	<string name="see_new_posts">Nya inlägg</string>
 	<string name="load_missing_posts">Ladda saknade inlägg</string>
+	<string name="follow_back">Följ tillbaka</string>
 	<string name="button_follow_pending">Väntande</string>
 	<string name="follows_you">Följer dig</string>
 	<string name="manually_approves_followers">Godkänner följare manuellt</string>
@@ -426,6 +428,14 @@
 	<string name="settings_hide_sensitive_media">Dölj media markerad som känsligt</string>
 	<string name="settings_show_interaction_counts">Antal inläggsinteraktioner</string>
 	<string name="settings_show_emoji_in_names">Anpassad emoji i visningsnamn</string>
+	<plurals name="in_x_seconds">
+		<item quantity="one">om %d sekund</item>
+		<item quantity="other">om %d sekunder</item>
+	</plurals>
+	<plurals name="in_x_minutes">
+		<item quantity="one">om %d minut</item>
+		<item quantity="other">om %d minuter</item>
+	</plurals>
 	<plurals name="in_x_hours">
 		<item quantity="one">om %d timme</item>
 		<item quantity="other">om %d timmar</item>
@@ -552,6 +562,11 @@
 	<string name="more_than_two_years">mer än 2 år</string>
 	<string name="non_mutual_title3">Var öppen</string>
 	<string name="article_by_author">Av %s</string>
+	<string name="invalid_invite_link">Ogiltig inbjudningslänk</string>
+	<string name="use_invite_link">Använd inbjudningslänk</string>
+	<string name="block_user_confirm_title">Blockera användare?</string>
+	<string name="block_domain_confirm_title">Blockera domän?</string>
+	<string name="do_block_server">Blockera server</string>
 	<string name="server">Server</string>
 	<string name="what_is_activitypub_title">Vad är ActivityPub?</string>
 	<string name="qr_code">QR-kod</string>
@@ -567,6 +582,7 @@
 	<!-- %s is the username -->
 	<string name="notification_filter_following">Personer du inte följer</string>
 	<string name="notification_filter_new_accounts">Nya konton</string>
+	<string name="notification_filter_new_accounts_explanation">Skapad inom de senaste 30 dagarna</string>
 	<plurals name="x_people_you_may_know">
 		<item quantity="one">%,d person du kanske känner</item>
 		<item quantity="other">%,d personer du kanske känner</item>
