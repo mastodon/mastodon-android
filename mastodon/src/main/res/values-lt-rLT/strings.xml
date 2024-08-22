@@ -131,7 +131,7 @@
 	<string name="hashtags">Saitažodžiai</string>
 	<string name="news">Naujienos</string>
 	<string name="for_you">Tau</string>
-	<string name="all_notifications">Visi</string>
+	<string name="all_notifications">Viskas</string>
 	<string name="mentions">Paminėjimai</string>
 	<plurals name="x_people_talking">
 		<item quantity="one">%d žmogus kalba</item>
@@ -177,7 +177,7 @@
 	<string name="password">Slaptažodis</string>
 	<string name="confirm_password">Patvirtinti slaptažodį</string>
 	<string name="category_general">Bendra</string>
-	<string name="confirm_email_title">Patikrinti pašto dėžutę</string>
+	<string name="confirm_email_title">Patikrink pašto dėžutę</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">Paliesk nuorodą, kurią atsiuntėme, kad patvirtintum %s. Lauksime čia.</string>
 	<string name="confirm_email_didnt_get">Negavai nuorodos?</string>
@@ -201,19 +201,19 @@
 	<string name="choose_account">Pasirinkti paskyrą</string>
 	<string name="err_not_logged_in">Pirmiausia prisijunk prie „Mastodon“.</string>
 	<plurals name="cant_add_more_than_x_attachments">
-		<item quantity="one">Negalima pridėti daugiau kaip %d medijos priedą.</item>
-		<item quantity="few">Negalima pridėti daugiau kaip %d medijos priedus.</item>
-		<item quantity="many">Negalima pridėti daugiau kaip %d medijos priedo.</item>
-		<item quantity="other">Negalima pridėti daugiau kaip %d medijos priedų.</item>
+		<item quantity="one">Negalima pridėti daugiau nei %d medijos priedo.</item>
+		<item quantity="few">Negalima pridėti daugiau nei %d medijos priedų.</item>
+		<item quantity="many">Negalima pridėti daugiau nei %d medijos priedo.</item>
+		<item quantity="other">Negalima pridėti daugiau nei %d medijos priedų.</item>
 	</plurals>
-	<string name="media_attachment_unsupported_type">Failas %s nepalaikomo tipo.</string>
+	<string name="media_attachment_unsupported_type">Failas %s yra nepalaikomo tipo.</string>
 	<string name="media_attachment_too_big">Failas %1$s viršija %2$s MB dydžio ribą.</string>
 	<string name="settings_theme">Išvaizda</string>
 	<string name="theme_auto">Naudoti įrenginio išvaizdą</string>
 	<string name="theme_light">Šviesi</string>
 	<string name="theme_dark">Tamsi</string>
 	<string name="settings_behavior">Elgsena</string>
-	<string name="settings_gif">Leisti animuotus avatarus ir jaustukus</string>
+	<string name="settings_gif">Leisti animuotus pseudoportretus ir jaustukus</string>
 	<string name="settings_custom_tabs">Atidaryti nuorodas per</string>
 	<string name="settings_notifications">Pranešimai</string>
 	<string name="settings_contribute">Prisidėti prie „Mastodon“</string>
