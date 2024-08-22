@@ -308,9 +308,13 @@ public class CurrencyAmountInput extends LinearLayout implements CustomViewHelpe
 		public void draw(@NonNull Canvas canvas, CharSequence text, int start, int end, float x, int top, int y, int bottom, @NonNull Paint paint){
 			this.paint.setColor(paint.getColor());
 			this.paint.setAlpha(77);
-			if(!symbolBeforeAmount)
+			if(!symbolBeforeAmount){
 				x+=dp(2);
-			canvas.drawText(currentCurrency.symbol, x, top+dp(1.5f)-this.paint.ascent(), this.paint);
+			}
+			int verticalCenter=(top+bottom)/2;
+			float textHeight=this.paint.descent()-this.paint.ascent();
+			float yPosition=verticalCenter+(textHeight/2)-this.paint.descent();
+			canvas.drawText(currentCurrency.symbol, x, yPosition, this.paint);
 		}
 	}
 
