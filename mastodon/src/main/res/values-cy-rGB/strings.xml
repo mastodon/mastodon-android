@@ -1,13 +1,165 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+	<string name="log_in">Mewngofnodi</string>
+	<string name="next">Nesaf</string>
+	<string name="loading_instance">Wrthi\'n nôl gwybodaeth y gweinydd…</string>
+	<string name="error">Gwall</string>
+	<string name="ok">Iawn</string>
+	<string name="share_toot_title">Rhannu</string>
+	<string name="settings">Gosodiadau</string>
+	<string name="publish">Cyhoeddi</string>
+	<string name="discard_draft">Dileu drafft?</string>
+	<string name="discard">Dileu</string>
+	<string name="cancel">Canslo</string>
+	<plurals name="followers">
+		<item quantity="zero">dilynwyr</item>
+		<item quantity="one">dilynwr</item>
+		<item quantity="two">ddilynwr</item>
+		<item quantity="few">dilynwr</item>
+		<item quantity="many">dilynwr</item>
+		<item quantity="other">dilynwr</item>
+	</plurals>
+	<plurals name="following">
+		<item quantity="zero">yn dilyn</item>
+		<item quantity="one">yn dilyn</item>
+		<item quantity="two">yn dilyn</item>
+		<item quantity="few">yn dilyn</item>
+		<item quantity="many">yn dilyn</item>
+		<item quantity="other">yn dilyn</item>
+	</plurals>
+	<string name="posts">Postiadau</string>
+	<string name="posts_and_replies">Postiadau ac atebion</string>
+	<string name="media">Cyfryngau</string>
+	<string name="profile_about">Ynghylch</string>
+	<string name="button_follow">Dilyn</string>
+	<string name="button_following">Yn dilyn</string>
+	<string name="edit_profile">Golygu proffil</string>
+	<string name="share_user">Rhannu proffil trwy…</string>
+	<string name="mute_user">Anwybyddu %s</string>
+	<string name="unmute_user">Dad-anwybyddu %s</string>
+	<string name="block_user">Blocio %s</string>
+	<string name="unblock_user">Dadflocio %s</string>
+	<string name="report_user">Adrodd %s</string>
+	<string name="block_domain">Blocio %s</string>
+	<string name="unblock_domain">Dadflocio %s</string>
+	<plurals name="x_posts">
+		<item quantity="zero">%,d post</item>
+		<item quantity="one">%,d post</item>
+		<item quantity="two">%,d bost</item>
+		<item quantity="few">%,d phost</item>
+		<item quantity="many">%,d post</item>
+		<item quantity="other">%,d post</item>
+	</plurals>
+	<string name="profile_joined">Wedi ymuno</string>
+	<string name="done">Iawn</string>
+	<string name="loading">Wrthi\'n llwytho…</string>
+	<string name="field_label">Label</string>
+	<string name="field_content">Cynnwys</string>
+	<string name="saving">Wrthi\'n cadw…</string>
+	<string name="post_from_user">Post gan %s</string>
+	<string name="poll_option_hint">Dewis %d</string>
+	<plurals name="x_minutes">
+		<item quantity="zero">%d munud</item>
+		<item quantity="one">%d munud</item>
+		<item quantity="two">%d funud</item>
+		<item quantity="few">%d munud</item>
+		<item quantity="many">%d munud</item>
+		<item quantity="other">%d munud</item>
+	</plurals>
+	<plurals name="x_hours">
+		<item quantity="zero">%d awr</item>
+		<item quantity="one">%d awr</item>
+		<item quantity="two">%d awr</item>
+		<item quantity="few">%d awr</item>
+		<item quantity="many">%d awr</item>
+		<item quantity="other">%d awr</item>
+	</plurals>
+	<string name="delete">Dileu</string>
+	<string name="confirm_delete_title">Dileu post</string>
+	<string name="confirm_delete">Ydych chi wir eisiau dileu\'r post hwn?</string>
+	<string name="deleting">Wrthi\'n dileu…</string>
+	<string name="play">Chwarae</string>
+	<string name="pause">Seibio</string>
+	<string name="log_out">Allgofnodi</string>
+	<string name="add_account">Ychwanegu cyfrif</string>
+	<string name="search_hint">Chwilio</string>
+	<string name="hashtags">Hashnodau</string>
+	<string name="news">Newyddion</string>
 	<!-- %s is the email address -->
+	<string name="confirm_log_out">Allgofnodi o %s?</string>
+	<string name="avatar_description">Mynd i broffil %s</string>
+	<string name="more_options">Mwy o ddewisiadau</string>
+	<string name="new_post">Post newydd</string>
+	<string name="button_reply">Ymateb</string>
+	<string name="button_reblog">Hybu</string>
+	<string name="button_favorite">Ffafrio</string>
+	<string name="button_share">Rhannu</string>
+	<string name="media_no_description">Cyfryngau heb ddisgrifiad</string>
+	<string name="add_media">Ychwanegu cyfryngau</string>
+	<string name="add_poll">Ychwanegu pleidlais</string>
+	<string name="emoji">Emoji</string>
+	<string name="home_timeline">Ffrwd gartref</string>
+	<string name="my_profile">Fy mhroffil</string>
+	<string name="media_viewer">Syllwr cyfryngau</string>
+	<string name="follow_user">Dilyn %s</string>
+	<string name="unfollowed_user">Wedi dad-ddilyn %s</string>
+	<string name="followed_user">Rydych chi bellach yn dilyn %s</string>
+	<string name="following_user_requested">Wedi gwneud cais i ddilyn %s</string>
+	<string name="open_in_browser">Agor mewn porwr</string>
+	<string name="hide_boosts_from_user">Cuddio hybiau</string>
+	<string name="show_boosts_from_user">Dangos hybiau</string>
+	<string name="signup_reason">Pam ydych chi eisiau ymuno?</string>
+	<string name="signup_reason_note">Bydd hyn yn helpu ni adolygu eich cais.</string>
+	<string name="clear">Clirio</string>
 	<!-- %s is the server domain -->
+	<string name="see_new_posts">Postiadau newydd</string>
+	<string name="load_missing_posts">Llwytho postau coll</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
+	<string name="edit_marked_not_sensitive">Wedi\'i farcio fel nad yw\'n sensitif</string>
+	<string name="edit_multiple_changed">Golygwyd y post</string>
+	<string name="edit">Golygu</string>
 	<!-- %s is file size -->
+	<string name="download_update">Lawrlwytho (%s)</string>
+	<string name="install_update">Gosod</string>
+	<string name="privacy_policy_title">Eich preifatrwydd</string>
+	<string name="i_agree">Rwy\'n cytuno</string>
+	<string name="add_bookmark">Tudalnodi</string>
+	<string name="remove_bookmark">Tynnu nod tudalen</string>
+	<string name="bookmarks">Nodau Tudalen</string>
+	<string name="your_favorites">Eich ffefrynnau</string>
+	<string name="login_title">Croeso nôl</string>
+	<string name="login_subtitle">Mewngofnodwch gyda\'r gweinydd lle gwnaethoch chi greu eich cyfrif.</string>
+	<string name="server_url">URL y Gweinydd</string>
+	<string name="server_filter_any_language">Pob iaith</string>
+	<string name="server_filter_instant_signup">Cofrestru ar Unwaith</string>
+	<string name="server_filter_manual_review">Arolygu gan law</string>
+	<string name="server_filter_region_europe">Ewrop</string>
+	<string name="server_filter_region_north_america">Gogledd America</string>
+	<string name="server_filter_region_south_america">De America</string>
+	<string name="server_filter_region_africa">Affrica</string>
+	<string name="server_filter_region_asia">Asia</string>
+	<string name="server_filter_region_oceania">Oceania</string>
+	<string name="not_accepting_new_members">Nid yw\'n derbyn aelodau newydd</string>
+	<string name="follow_all">Dilyn pawb</string>
+	<string name="server_rules_disagree">Anghytuno</string>
 	<!-- %s is server domain -->
+	<string name="profile_bio">Bywgraffiad</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
 	<!-- %s is formatted file size ("467 KB image") -->
+	<string name="attachment_type_image">Llun</string>
+	<string name="attachment_type_video">Fideo</string>
+	<string name="attachment_type_audio">Sain</string>
+	<string name="attachment_type_gif">GIF</string>
+	<string name="attachment_type_unknown">Ffeil</string>
+	<string name="attachment_x_percent_uploaded">Uwchlwythwyd %d%%</string>
+	<string name="poll_style">Arddull</string>
+	<string name="compose_poll_single_choice">Un dewis</string>
+	<string name="compose_poll_multiple_choice">Dewis lluosog</string>
+	<string name="alt_text">Testun amgen</string>
+	<string name="help">Cymorth</string>
+	<string name="what_is_alt_text">Beth yw testun amgen?</string>
+	<string name="edit_post">Golygu post</string>
 	<!-- %s is the server domain -->
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
