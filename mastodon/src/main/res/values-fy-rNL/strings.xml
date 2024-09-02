@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+	<string name="log_in">Oanmelde</string>
+	<string name="next">Folgjende</string>
+	<string name="loading_instance">Serverynformaasje ophelje…</string>
+	<string name="error">Flater</string>
+	<string name="not_a_mastodon_instance">%s liket gjin Mastodon-server te wêzen.</string>
+	<string name="ok">OK</string>
+	<string name="preparing_auth">Ferifikaasje tariede…</string>
+	<string name="finishing_auth">Ferifikaasje foltôgje…</string>
+	<string name="user_boosted">%s boostte</string>
+	<string name="in_reply_to">as reaksje op %s</string>
+	<string name="notifications">Meldingen</string>
+	<string name="user_followed_you">%s folget jo no</string>
+	<string name="user_sent_follow_request">%s wol jo graach folgje</string>
+	<string name="user_favorited">%s hat jo berjocht as favoryt markearre</string>
+	<string name="notification_boosted">%s hat jo berjocht boost</string>
+	<!-- %s is the email address -->
+	<!-- %s is the server domain -->
+	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
+	<!-- %s is file size -->
+	<!-- %s is server domain -->
+	<!-- Shown in a progress dialog when you tap "follow all" -->
+	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<!-- %s is formatted file size ("467 KB image") -->
+	<!-- %s is the server domain -->
+	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
+	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
+	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
+	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<!-- %s is the username -->
+	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<!-- Shown like a content warning, %s is the name of the filter -->
+	<!-- Shown in the post header. Please keep it short -->
+	<!-- %s is the name of the post language -->
+	<!-- %1$s is the language, %2$s is the name of the translation service -->
+	<!-- Screen reader description for the menu on the home timeline screen -->
+	<!-- %s is the name of the list -->
+	<!-- %s is a username -->
+	<!-- %s is a time interval ("5 months") -->
+	<!-- Shown on a button that saves a file, after it was successfully saved -->
+	<!-- %s is the username -->
+</resources>
