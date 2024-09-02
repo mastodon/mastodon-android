@@ -15,10 +15,171 @@
 	<string name="user_sent_follow_request">%s wol jo graach folgje</string>
 	<string name="user_favorited">%s hat jo berjocht as favoryt markearre</string>
 	<string name="notification_boosted">%s hat jo berjocht boost</string>
+	<string name="poll_ended">Besjoch de resultaten fan in poll dêr’t jo op stimd hawwe</string>
+	<string name="share_toot_title">Diele</string>
+	<string name="settings">Ynstellingen</string>
+	<string name="publish">Publisearje</string>
+	<string name="discard_draft">Konsept fuortsmite?</string>
+	<string name="discard">Fuortsmite</string>
+	<string name="cancel">Annulearje</string>
+	<plurals name="followers">
+		<item quantity="one">folger</item>
+		<item quantity="other">folgers</item>
+	</plurals>
+	<plurals name="following">
+		<item quantity="one">folgjend</item>
+		<item quantity="other">folgjend</item>
+	</plurals>
+	<string name="posts">Berjochten</string>
+	<string name="posts_and_replies">Berjochten en reaksjes</string>
+	<string name="media">Media</string>
+	<string name="profile_about">Oer</string>
+	<string name="button_follow">Folgje</string>
+	<string name="button_following">Folgjend</string>
+	<string name="edit_profile">Profyl bewurkje</string>
+	<string name="share_user">Profyl diele fia…</string>
+	<string name="mute_user">%s negearje</string>
+	<string name="unmute_user">%s net langer negearje</string>
+	<string name="block_user">%s blokkearje</string>
+	<string name="unblock_user">%s deblokkearje</string>
+	<string name="report_user">%s rapportearje</string>
+	<string name="block_domain">%s blokkearje</string>
+	<string name="unblock_domain">%s deblokkearje</string>
+	<plurals name="x_posts">
+		<item quantity="one">%,d berjocht</item>
+		<item quantity="other">%,d berjochten</item>
+	</plurals>
+	<string name="profile_joined">Registrearre</string>
+	<string name="done">Klear</string>
+	<string name="loading">Lade…</string>
+	<string name="field_label">Label</string>
+	<string name="field_content">Ynhâld</string>
+	<string name="saving">Bewarje…</string>
+	<string name="post_from_user">Berjocht fan %s</string>
+	<string name="poll_option_hint">Opsje %d</string>
+	<plurals name="x_minutes">
+		<item quantity="one">%d minút</item>
+		<item quantity="other">%d minuten</item>
+	</plurals>
+	<plurals name="x_hours">
+		<item quantity="one">%d oere</item>
+		<item quantity="other">%d oeren</item>
+	</plurals>
+	<string name="unfollow_user">%s ûntfolgje</string>
+	<string name="unfollow">Untfolgje</string>
+	<string name="mute_user_explain">Jo kinne harren berjochten net sjen. Jo kinne noch wol folge wurde en jo berjochten binne noch sichtber, mar dyjinge kin net sjen dat dy negearre wurdt.</string>
+	<string name="block_user_explain">Jo sille harren berjochten net sjen kinne. Se sille jo berjochten net sjen kinne en jo net folgje kinne. Se sille wol sjen kinne dat se blokkearre binne.</string>
+	<string name="report_personal_title">Wolle jo dit net sjen?</string>
+	<string name="report_personal_subtitle">Hjir binne jo opsjes wêrmei’t jo bepale kinne wat jo yn Mastodon sjen wolle:</string>
+	<string name="back">Tebek</string>
+	<string name="search_communities">Servernamme of URL</string>
+	<string name="instance_rules_title">Serverrigels</string>
+	<string name="instance_rules_subtitle">Troch fierder te gean geane jo akkoard mei it folgjen fan de rigels, dy’t troch de moderatoaren fan %s hantearre wurde.</string>
+	<string name="signup_title">Account registrearje</string>
+	<string name="display_name">Namme</string>
+	<string name="username">Brûkersnamme</string>
+	<string name="email">E-mailadres</string>
+	<string name="password">Wachtwurd</string>
+	<string name="confirm_password">Wachtwurd befêstigje</string>
+	<string name="category_general">Algemien</string>
+	<string name="confirm_email_title">Kontrolearje jo Postfek YN</string>
 	<!-- %s is the email address -->
+	<string name="confirm_email_subtitle">Klik op de keppeling dy’t wy jo stjoerd hawwe om %s te ferifiearjen. Wy wachtsje wol even.</string>
+	<string name="confirm_email_didnt_get">Gjin keppeling krigen?</string>
+	<string name="resend">Opnij ferstjoere</string>
+	<string name="open_email_app">E-mail-app iepenje</string>
+	<string name="resent_email">Befêstigings-e-mailberjocht ferstjoerd</string>
+	<string name="compose_hint">Wat wolle jo fertelle</string>
+	<string name="content_warning">Ynhâldswarskôging</string>
+	<string name="save">Bewarje</string>
+	<string name="add_alt_text">Alt-tekst tafoegje</string>
+	<string name="visibility_public">Iepenbier</string>
+	<string name="visibility_followers_only">Folgers</string>
+	<string name="visibility_private">Bepaalde minsken</string>
+	<string name="recent_searches">Resint socht</string>
+	<string name="skip">Oerslaan</string>
+	<string name="notification_type_follow">Nije folgers</string>
+	<string name="notification_type_favorite">Favoriten</string>
+	<string name="notification_type_reblog">Boosts</string>
+	<string name="notification_type_mention">Fermeldingen</string>
+	<string name="notification_type_poll">Peilingen</string>
+	<string name="choose_account">Account kieze</string>
+	<string name="err_not_logged_in">Earst op Mastodon oanmelde</string>
+	<plurals name="cant_add_more_than_x_attachments">
+		<item quantity="one">Jo kinne net mear as %d mediabestân tafoegje</item>
+		<item quantity="other">Jo kinne net mear as %d mediabestannen tafoegje</item>
+	</plurals>
+	<string name="media_attachment_unsupported_type">It bestân %s wurdt net stipe</string>
+	<string name="media_attachment_too_big">It bestân %1$s is grutter as de maksimale grutte fan %2$s MB</string>
+	<string name="settings_theme">Werjefte</string>
+	<string name="theme_auto">Systeemstandert</string>
+	<string name="theme_light">Ljocht</string>
+	<string name="theme_dark">Donker</string>
+	<string name="settings_behavior">Gedrach</string>
+	<string name="settings_gif">Animearre profylfoto’s en emoji ôfspylje</string>
+	<string name="settings_custom_tabs">Keppelingen iepenje yn</string>
+	<string name="settings_notifications">Meldingen</string>
 	<!-- %s is the server domain -->
+	<string name="follow_back">Weromfolgje</string>
+	<string name="button_follow_pending">Yn ôfwachting</string>
+	<string name="follows_you">Folget jo</string>
+	<string name="manually_approves_followers">Hânmjittich folgers goedkarre</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
+	<plurals name="x_followers">
+		<item quantity="one">%,d folger</item>
+		<item quantity="other">%,d folgers</item>
+	</plurals>
+	<plurals name="x_following">
+		<item quantity="one">%,d folgjend</item>
+		<item quantity="other">%,d folgjend</item>
+	</plurals>
+	<plurals name="x_favorites">
+		<item quantity="one">%,d favoryt</item>
+		<item quantity="other">%,d favoriten</item>
+	</plurals>
+	<plurals name="x_reblogs">
+		<item quantity="one">%,d boost</item>
+		<item quantity="other">%,d boosts</item>
+	</plurals>
+	<string name="time_now">no</string>
+	<string name="edit_history">Bewurkingsskiednis</string>
+	<string name="last_edit_at_x">Lêst bywurke op %s</string>
+	<string name="time_just_now">sakrekt</string>
+	<plurals name="x_seconds_ago">
+		<item quantity="one">%d sekonde lyn</item>
+		<item quantity="other">%d sekonden lyn</item>
+	</plurals>
+	<plurals name="x_minutes_ago">
+		<item quantity="one">%d minút lyn</item>
+		<item quantity="other">%d minuten lyn</item>
+	</plurals>
+	<string name="edited_timestamp">bewurke op %s</string>
+	<string name="edit_original_post">Oarspronklik berjocht</string>
+	<string name="edit_text_edited">Tekst bewurke</string>
+	<string name="edit_spoiler_added">Ynhâldswarskôging tafoege</string>
+	<string name="edit_spoiler_edited">Ynhâldswarskôging bewurke</string>
+	<string name="edit_spoiler_removed">Ynhâldswarskôging fuortsmiten</string>
+	<string name="edit_poll_added">Peiling tafoege</string>
+	<string name="edit_poll_edited">Peiling bewurke</string>
+	<string name="edit_poll_removed">Peiling fuortsmiten</string>
+	<string name="edit_media_added">Media tafoege</string>
+	<string name="edit_media_removed">Media fuortsmiten</string>
+	<string name="edit_media_reordered">Media sortearre</string>
+	<string name="edit_marked_sensitive">As gefoelich markearre</string>
+	<string name="edit_marked_not_sensitive">Net as gefoelich markearre</string>
+	<string name="edit_multiple_changed">Berjocht bewurke</string>
+	<string name="edit">Bewurkje</string>
+	<string name="discard_changes">Wizigingen ferwerpe?</string>
+	<string name="upload_failed">Opladen mislearre</string>
+	<string name="file_size_bytes">%d bytes</string>
+	<string name="file_size_kb">%.2f KB</string>
+	<string name="file_size_mb">%.2f MB</string>
+	<string name="file_size_gb">%.2f GB</string>
+	<string name="upload_processing">Dwaande…</string>
 	<!-- %s is file size -->
+	<string name="download_update">Downloade (%s)</string>
+	<string name="install_update">Ynstallearje</string>
+	<string name="privacy_policy_title">Jo privacy</string>
 	<!-- %s is server domain -->
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
