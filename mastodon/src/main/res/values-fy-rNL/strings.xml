@@ -65,6 +65,77 @@
 		<item quantity="one">%d oere</item>
 		<item quantity="other">%d oeren</item>
 	</plurals>
+	<plurals name="x_days">
+		<item quantity="one">%d dei</item>
+		<item quantity="other">%d dagen</item>
+	</plurals>
+	<plurals name="x_seconds_left">
+		<item quantity="one">%d sekonde restearjend</item>
+		<item quantity="other">%d sekonden restearjend</item>
+	</plurals>
+	<plurals name="x_minutes_left">
+		<item quantity="one">%d minút restearjend</item>
+		<item quantity="other">%d minuten restearjend</item>
+	</plurals>
+	<plurals name="x_hours_left">
+		<item quantity="one">%d oere restearjend</item>
+		<item quantity="other">%d oeren restearjend</item>
+	</plurals>
+	<plurals name="x_days_left">
+		<item quantity="one">%d dei restearjend</item>
+		<item quantity="other">%d dagen restearjend</item>
+	</plurals>
+	<plurals name="x_votes">
+		<item quantity="one">%,d stim</item>
+		<item quantity="other">%,d stimmen</item>
+	</plurals>
+	<string name="poll_closed">Sluten</string>
+	<string name="do_mute">Negearje</string>
+	<string name="do_unmute">Net mear negearje</string>
+	<string name="do_block">Blokkearje</string>
+	<string name="do_unblock">Deblokkearje</string>
+	<string name="button_blocked">Blokkearre</string>
+	<string name="action_vote">Stimme</string>
+	<string name="delete">Fuortsmite</string>
+	<string name="confirm_delete_title">Berjocht fuortsmite</string>
+	<string name="confirm_delete">Binne jo wis dat jo dit berjocht fuortsmite wolle?</string>
+	<string name="deleting">Fuortsmite…</string>
+	<string name="notification_channel_audio_player">Lûd ôfspylje</string>
+	<string name="play">Ofspylje</string>
+	<string name="pause">Skoft</string>
+	<string name="log_out">Ofmelde</string>
+	<string name="add_account">Account tafoegje</string>
+	<string name="search_hint">Sykje</string>
+	<string name="hashtags">Hashtags</string>
+	<string name="news">Nijs</string>
+	<string name="for_you">Foar jo</string>
+	<string name="all_notifications">Alles</string>
+	<string name="mentions">Fermeldingen</string>
+	<plurals name="x_people_talking">
+		<item quantity="one">%d persoan praat hjiroer</item>
+		<item quantity="other">%d persoanen prate hjiroer</item>
+	</plurals>
+	<string name="report_title">%s rapportearje</string>
+	<string name="report_choose_reason">Wat is der mis mei dit berjocht?</string>
+	<string name="report_choose_reason_account">Wat is der mis mei %s?</string>
+	<string name="report_choose_reason_subtitle">Kies wat it bêste past</string>
+	<string name="report_reason_personal">Ik fyn der neat oan</string>
+	<string name="report_reason_personal_subtitle">It is net eat wat jo sjen wolle</string>
+	<string name="report_reason_spam">It is spam</string>
+	<string name="report_reason_spam_subtitle">Skeadlike keppelingen, reklame, mislieding of werheljende antwurden</string>
+	<string name="report_reason_violation">It skeint de serverregels</string>
+	<string name="report_reason_violation_subtitle">Jo witte dat it spesifike regels skeint</string>
+	<string name="report_reason_other">It is wat oars</string>
+	<string name="report_reason_other_subtitle">It probleem stiet der net tusken</string>
+	<string name="report_choose_rule">Hokker regels wurde skeind?</string>
+	<string name="report_choose_rule_subtitle">Selektearje wat fan tapassing is</string>
+	<string name="report_choose_posts">Binne der berjochten dy’t dizze rapportaazje stypje?</string>
+	<string name="report_choose_posts_subtitle">Selektearje wat fan tapassing is</string>
+	<string name="report_comment_title">Tinke jo dat wy noch mear witte moatte?</string>
+	<string name="report_comment_hint">Type or paste additional comments</string>
+	<string name="sending_report">Rapport ferstjoere…</string>
+	<string name="report_sent_title">Tank foar it rapportearjen, wy sille der nei sjen.</string>
+	<string name="report_sent_subtitle">Wylst wy dit beoardiele, kinne jo dizze aksjes tsjin %s nimme:</string>
 	<string name="unfollow_user">%s ûntfolgje</string>
 	<string name="unfollow">Untfolgje</string>
 	<string name="mute_user_explain">Jo kinne harren berjochten net sjen. Jo kinne noch wol folge wurde en jo berjochten binne noch sichtber, mar dyjinge kin net sjen dat dy negearre wurdt.</string>
@@ -180,13 +251,56 @@
 	<string name="download_update">Downloade (%s)</string>
 	<string name="install_update">Ynstallearje</string>
 	<string name="privacy_policy_title">Jo privacy</string>
+	<string name="server_filter_region_europe">Europa</string>
+	<string name="server_filter_region_north_america">Noard-Amearika</string>
+	<string name="server_filter_region_south_america">Súd-Amearika</string>
+	<string name="server_filter_region_africa">Afrika</string>
+	<string name="server_filter_region_asia">Azië</string>
+	<string name="server_filter_region_oceania">Oseanië</string>
+	<string name="not_accepting_new_members">Lit gjin nije brûkers ta</string>
 	<!-- %s is server domain -->
+	<string name="profile_bio">Biografy</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<string name="show">Toane</string>
+	<string name="hide">Ferstopje</string>
+	<string name="join_default_server">Registrearje op %s</string>
+	<string name="pick_server">Kies in oare server</string>
+	<string name="signup_or_login">of</string>
+	<string name="learn_more">Mear ynfo</string>
 	<!-- %s is formatted file size ("467 KB image") -->
+	<string name="attachment_type_image">Ofbylding</string>
+	<string name="attachment_type_video">Fideo</string>
+	<string name="attachment_type_audio">Audio</string>
+	<string name="attachment_type_gif">GIF</string>
+	<string name="attachment_type_unknown">Bestân</string>
+	<string name="attachment_x_percent_uploaded">%d%% oplaad</string>
+	<string name="add_poll_option">Opsje tafoegje</string>
+	<string name="poll_length">Tiid</string>
+	<string name="poll_style">Styl</string>
+	<string name="compose_poll_single_choice">Kies ien</string>
+	<string name="compose_poll_multiple_choice">Mearkar</string>
+	<string name="language">Taal</string>
+	<string name="language_default">Standert</string>
+	<string name="language_system">Systeem</string>
+	<string name="language_detecting">Taal detektearje</string>
+	<string name="language_cant_detect">Kin taal net detektearje</string>
+	<string name="language_detected">Detektearre</string>
+	<string name="media_hidden">Media ferstoppe</string>
+	<string name="post_hidden">Berjocht ferstoppe</string>
+	<string name="report_title_post">Berjocht rapportearje</string>
 	<!-- %s is the server domain -->
+	<string name="forward_report_to_server">Nei %s trochstjoere</string>
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
+	<string name="reported">Rapportearre</string>
+	<string name="muted_user">%s negearje</string>
+	<string name="blocked_user">%s blokkearre</string>
+	<string name="mark_all_notifications_read">Alles as lêzen markearje</string>
+	<string name="settings_display">Werjefte</string>
+	<string name="settings_filters">Filters</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
+	<string name="about_app">Oer %s</string>
+	<string name="default_post_language">Standert taal foar berjochten</string>
 	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
