@@ -426,11 +426,19 @@
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">Ynglŷn â %s</string>
 	<string name="default_post_language">Iaith bostio ddiofyn</string>
+	<string name="settings_alt_text_reminders">Atgofion ychwanegu testun amgen</string>
+	<string name="settings_confirm_unfollow">Gofyn cyn dad-ddilyn rhywun</string>
+	<string name="settings_confirm_boost">Gofyn cyn hybu</string>
+	<string name="settings_confirm_delete_post">Gofyn cyn dileu postiadau</string>
+	<string name="pause_all_notifications">Seibio popeth</string>
 	<string name="pause_notifications_off">Diffodd</string>
 	<string name="notifications_policy_anyone">Unrhyw un</string>
 	<string name="notifications_policy_followed">Pobl sy\'n eich dilyn</string>
 	<string name="notifications_policy_follower">Pobl rydych chi\'n eu dilyn</string>
 	<string name="notifications_policy_no_one">Neb</string>
+	<string name="settings_notifications_policy">Cael hysbysiadau o</string>
+	<string name="notification_type_mentions_and_replies">Crybwylliadau ac atebion</string>
+	<string name="pause_all_notifications_title">Seibio pob hysbysiad</string>
 	<plurals name="x_weeks">
 		<item quantity="zero">%d wythnos</item>
 		<item quantity="one">%d wythnos</item>
@@ -534,6 +542,14 @@
 	<string name="post_translated">Cyfieithwyd o %1$s gan ddefnyddio %2$s</string>
 	<string name="translation_show_original">Dangos y gwreiddiol</string>
 	<string name="settings_privacy">Preifatrwydd a chyrhaeddiad</string>
+	<plurals name="x_posts_today">
+		<item quantity="zero">%,d post heddiw</item>
+		<item quantity="one">%,d post heddiw</item>
+		<item quantity="two">%,d bost heddiw</item>
+		<item quantity="few">%,d phost heddiw</item>
+		<item quantity="many">%,d post heddiw</item>
+		<item quantity="other">%,d post heddiw</item>
+	</plurals>
 	<string name="error_playing_video">Gwall wrth chwarae fideo</string>
 	<string name="timeline_following">Cartref</string>
 	<string name="lists">Rhestrau</string>
@@ -577,6 +593,7 @@
 		<item quantity="other">%,d mis</item>
 	</plurals>
 	<string name="more_than_two_years">mwy na 2 flynedd</string>
+	<string name="non_mutual_title1">Byddwch yn gwrtais &amp; phriodol</string>
 	<string name="non_mutual_title2">Byddwch yn gyfeillgar</string>
 	<string name="non_mutual_title3">Byddwch yn agored</string>
 	<string name="onboarding_recommendations_title">Personolwch eich ffrwd gartref</string>
@@ -585,6 +602,9 @@
 	<string name="button_reblogged">Hybwyd</string>
 	<string name="button_favorited">Ffafriwyd</string>
 	<string name="bookmarked">Tudalnodwyd</string>
+	<string name="join_server_x_with_invite">Ymuno â %s gyda gwahoddiad</string>
+	<string name="use_invite_link">Defnyddio dolen wahodd</string>
+	<string name="enter_invite_link">Mewnosod dolen wahodd</string>
 	<string name="mute_user_confirm_title">Anwybyddu\'r defnyddiwr?</string>
 	<string name="unmuted_user_x">Dad-anwybyddwyd %s</string>
 	<string name="block_user_confirm_title">Blocio defnyddiwr?</string>
