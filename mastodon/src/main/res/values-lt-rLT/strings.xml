@@ -145,7 +145,7 @@
 	<string name="report_choose_reason_subtitle">Pasirink geriausią atitikmenį</string>
 	<string name="report_reason_personal">Man tai nepatinka</string>
 	<string name="report_reason_personal_subtitle">Tai nėra tai, ką nori matyti</string>
-	<string name="report_reason_spam">Tai šlamštas</string>
+	<string name="report_reason_spam">Tai brukalas</string>
 	<string name="report_reason_spam_subtitle">Kenkėjiškos nuorodos, netikras įsitraukimas arba pasikartojantys atsakymai</string>
 	<string name="report_reason_violation">Tai pažeidžia serverio taisykles</string>
 	<string name="report_reason_violation_subtitle">Žinai, kad tai pažeidžia konkrečias taisykles</string>
@@ -207,7 +207,7 @@
 		<item quantity="other">Negalima pridėti daugiau nei %d medijos priedų.</item>
 	</plurals>
 	<string name="media_attachment_unsupported_type">Failas %s yra nepalaikomo tipo.</string>
-	<string name="media_attachment_too_big">Failas %1$s viršija %2$s MB dydžio ribą.</string>
+	<string name="media_attachment_too_big">Failas %1$s viršija %2$s MB dydžio ribojimą.</string>
 	<string name="settings_theme">Išvaizda</string>
 	<string name="theme_auto">Naudoti įrenginio išvaizdą</string>
 	<string name="theme_light">Šviesi</string>
@@ -258,9 +258,9 @@
 	<string name="error_saving_file">Klaida išsaugant failą.</string>
 	<string name="file_saved">Failas išsaugotas</string>
 	<string name="downloading">Atsisiunčiama…</string>
-	<string name="no_app_to_handle_action">Nėra programėlės šiam veiksmui atlikti</string>
+	<string name="no_app_to_handle_action">Nėra programėlės šiam veiksmui atlikti.</string>
 	<string name="local_timeline">Tiesioginis srautas</string>
-	<string name="trending_posts_info_banner">Tai – įrašai, sulaukiantys didžiausio susidomėjimo „Mastodon“ platformoje.</string>
+	<string name="trending_posts_info_banner">Tai – įrašai, sulaukiantys didžiausio susidomėjimo per „Mastodon“.</string>
 	<string name="trending_links_info_banner">Tai – naujienos, apie kurias kalbama „Mastodon“ platformoje.</string>
 	<!-- %s is the server domain -->
 	<string name="local_timeline_info_banner">Tai – visų naudotojų įrašai serveryje (%s).</string>
@@ -347,7 +347,7 @@
 	<string name="add_bookmark">Pridėti į žymės</string>
 	<string name="remove_bookmark">Pašalinti žymę</string>
 	<string name="bookmarks">Žymės</string>
-	<string name="your_favorites">Tavo mėgstamos</string>
+	<string name="your_favorites">Tavo mėgstami</string>
 	<string name="login_title">Sveiki sugrįžę</string>
 	<string name="login_subtitle">Prisijunk prie serverio, kuriame susikūrei paskyrą.</string>
 	<string name="server_url">Serverio URL</string>
