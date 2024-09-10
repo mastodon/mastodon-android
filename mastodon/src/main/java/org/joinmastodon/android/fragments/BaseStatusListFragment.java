@@ -432,23 +432,33 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 
 	public void onRevealSpoilerClick(SpoilerStatusDisplayItem.Holder holder){
 		Status status=holder.getItem().status;
-		toggleSpoiler(status, holder.getItemID());
-	}
+		SpoilerStatusDisplayItem spoilerItem=holder.getItem();
+		if(status.revealedSpoilers.contains(spoilerItem.spoilerType))
+			status.revealedSpoilers.remove(spoilerItem.spoilerType);
+		else
+			status.revealedSpoilers.add(spoilerItem.spoilerType);
 
-	protected void toggleSpoiler(Status status, String itemID){
-		status.spoilerRevealed=!status.spoilerRevealed;
-		SpoilerStatusDisplayItem.Holder spoiler=findHolderOfType(itemID, SpoilerStatusDisplayItem.Holder.class);
-		if(spoiler!=null)
-			spoiler.rebind();
-		SpoilerStatusDisplayItem spoilerItem=Objects.requireNonNull(findItemOfType(itemID, SpoilerStatusDisplayItem.class));
+		holder.rebind();
 
 		int index=displayItems.indexOf(spoilerItem);
-		if(status.spoilerRevealed){
+		if(status.revealedSpoilers.contains(spoilerItem.spoilerType)){
+			int itemCount=spoilerItem.contentItems.size();
 			displayItems.addAll(index+1, spoilerItem.contentItems);
-			adapter.notifyItemRangeInserted(index+1, spoilerItem.contentItems.size());
+			if(spoilerItem.spoilerType==Status.SpoilerType.FILTER && spoilerItem.contentItems.get(0) instanceof SpoilerStatusDisplayItem nestedSpoiler
+					&& nestedSpoiler.spoilerType==Status.SpoilerType.CONTENT_WARNING && !AccountSessionManager.get(accountID).getLocalPreferences().showCWs){
+				status.revealedSpoilers.add(Status.SpoilerType.CONTENT_WARNING);
+				displayItems.addAll(index+1+itemCount, nestedSpoiler.contentItems);
+				itemCount+=nestedSpoiler.contentItems.size();
+			}
+			adapter.notifyItemRangeInserted(index+1, itemCount);
 		}else{
-			displayItems.subList(index+1, index+1+spoilerItem.contentItems.size()).clear();
-			adapter.notifyItemRangeRemoved(index+1, spoilerItem.contentItems.size());
+			int itemCount=spoilerItem.contentItems.size();
+			if(spoilerItem.contentItems.get(0) instanceof SpoilerStatusDisplayItem nestedSpoiler && status.revealedSpoilers.contains(nestedSpoiler.spoilerType)){
+				status.revealedSpoilers.remove(nestedSpoiler.spoilerType);
+				itemCount+=nestedSpoiler.contentItems.size();
+			}
+			displayItems.subList(index+1, index+1+itemCount).clear();
+			adapter.notifyItemRangeRemoved(index+1, itemCount);
 		}
 		list.invalidateItemDecorations();
 	}

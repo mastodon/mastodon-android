@@ -9,6 +9,7 @@ import org.joinmastodon.android.ui.text.HtmlParser;
 import org.parceler.Parcel;
 
 import java.time.Instant;
+import java.util.EnumSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
@@ -62,7 +63,7 @@ public class Status extends BaseModel implements DisplayItemsParent{
 	public boolean bookmarked;
 	public Boolean pinned;
 
-	public transient boolean spoilerRevealed;
+	public transient EnumSet<SpoilerType> revealedSpoilers=EnumSet.noneOf(SpoilerType.class);
 	public transient boolean hasGapAfter;
 	private transient String strippedText;
 	public transient TranslationState translationState=TranslationState.HIDDEN;
@@ -95,16 +96,18 @@ public class Status extends BaseModel implements DisplayItemsParent{
 				fr.postprocess();
 		}
 
-		spoilerRevealed=!sensitive;
+		if(!sensitive){
+			revealedSpoilers.add(SpoilerType.CONTENT_WARNING);
+		}
 	}
 
 	@Override
 	public String toString(){
 		return "Status{"+
-				"id='"+id+'\''+
+				"account="+account+
+				", id='"+id+'\''+
 				", uri='"+uri+'\''+
 				", createdAt="+createdAt+
-				", account="+account+
 				", content='"+content+'\''+
 				", visibility="+visibility+
 				", sensitive="+sensitive+
@@ -132,9 +135,11 @@ public class Status extends BaseModel implements DisplayItemsParent{
 				", muted="+muted+
 				", bookmarked="+bookmarked+
 				", pinned="+pinned+
-				", spoilerRevealed="+spoilerRevealed+
+				", revealedSpoilers="+revealedSpoilers+
 				", hasGapAfter="+hasGapAfter+
 				", strippedText='"+strippedText+'\''+
+				", translationState="+translationState+
+				", translation="+translation+
 				'}';
 	}
 
@@ -171,7 +176,7 @@ public class Status extends BaseModel implements DisplayItemsParent{
 	@Override
 	public Status clone(){
 		Status copy=(Status) super.clone();
-		copy.spoilerRevealed=false;
+		copy.revealedSpoilers=EnumSet.noneOf(SpoilerType.class);
 		copy.translationState=TranslationState.HIDDEN;
 		return copy;
 	}
@@ -185,5 +190,10 @@ public class Status extends BaseModel implements DisplayItemsParent{
 		HIDDEN,
 		SHOWN,
 		LOADING
+	}
+
+	public enum SpoilerType{
+		CONTENT_WARNING,
+		FILTER
 	}
 }

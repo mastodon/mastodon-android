@@ -121,19 +121,23 @@ public abstract class StatusDisplayItem{
 			}
 		}
 
-		ArrayList<StatusDisplayItem> contentItems;
+		ArrayList<StatusDisplayItem> contentItems=items;
+		ArrayList<StatusDisplayItem> cwParentItems=items;
+		boolean needAddCWItems=false;
 		if(filtered){
-			SpoilerStatusDisplayItem spoilerItem=new SpoilerStatusDisplayItem(parentID, fragment, fragment.getString(R.string.post_matches_filter_x, status.filtered.get(0).filter.title), status, statusForContent, Type.FILTER_SPOILER);
-			items.add(spoilerItem);
+			SpoilerStatusDisplayItem spoilerItem=new SpoilerStatusDisplayItem(parentID, fragment, fragment.getString(R.string.post_matches_filter_x, status.filtered.get(0).filter.title), status, statusForContent, Type.FILTER_SPOILER, Status.SpoilerType.FILTER);
+			contentItems.add(spoilerItem);
 			contentItems=spoilerItem.contentItems;
-			status.spoilerRevealed=false;
-		}else if(!TextUtils.isEmpty(statusForContent.spoilerText)){
-			SpoilerStatusDisplayItem spoilerItem=new SpoilerStatusDisplayItem(parentID, fragment, null, status, statusForContent, Type.SPOILER);
-			items.add(spoilerItem);
+			cwParentItems=contentItems;
+		}
+		if(!TextUtils.isEmpty(statusForContent.spoilerText)){
+			SpoilerStatusDisplayItem spoilerItem=new SpoilerStatusDisplayItem(parentID, fragment, null, status, statusForContent, Type.SPOILER, Status.SpoilerType.CONTENT_WARNING);
+			contentItems.add(spoilerItem);
 			contentItems=spoilerItem.contentItems;
-			status.spoilerRevealed=!AccountSessionManager.get(accountID).getLocalPreferences().showCWs;
-		}else{
-			contentItems=items;
+			if(!AccountSessionManager.get(accountID).getLocalPreferences().showCWs && !filtered){
+				status.revealedSpoilers.add(Status.SpoilerType.CONTENT_WARNING);
+				needAddCWItems=true;
+			}
 		}
 
 		if(!TextUtils.isEmpty(statusForContent.content)){
@@ -171,8 +175,8 @@ public abstract class StatusDisplayItem{
 		if(statusForContent.card!=null && statusForContent.mediaAttachments.isEmpty() && TextUtils.isEmpty(statusForContent.spoilerText)){
 			contentItems.add(new LinkCardStatusDisplayItem(parentID, fragment, statusForContent));
 		}
-		if(contentItems!=items && status.spoilerRevealed){
-			items.addAll(contentItems);
+		if(needAddCWItems){
+			cwParentItems.addAll(contentItems);
 		}
 		if((flags & FLAG_NO_FOOTER)==0){
 			FooterStatusDisplayItem footer=new FooterStatusDisplayItem(parentID, fragment, statusForContent, accountID);

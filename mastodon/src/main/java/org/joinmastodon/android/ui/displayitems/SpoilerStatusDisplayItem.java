@@ -25,15 +25,17 @@ import me.grishka.appkit.imageloader.requests.ImageLoaderRequest;
 public class SpoilerStatusDisplayItem extends StatusDisplayItem{
 	public final Status status;
 	public final ArrayList<StatusDisplayItem> contentItems=new ArrayList<>();
+	public final Status.SpoilerType spoilerType;
 	private final CharSequence parsedTitle;
 	private CharSequence translatedTitle;
 	private final CustomEmojiHelper emojiHelper;
 	private final Type type;
 
-	public SpoilerStatusDisplayItem(String parentID, BaseStatusListFragment parentFragment, String title, Status status, Status statusForContent, Type type){
+	public SpoilerStatusDisplayItem(String parentID, BaseStatusListFragment parentFragment, String title, Status status, Status statusForContent, Type type, Status.SpoilerType spoilerType){
 		super(parentID, parentFragment);
 		this.status=status;
 		this.type=type;
+		this.spoilerType=spoilerType;
 		if(TextUtils.isEmpty(title)){
 			parsedTitle=HtmlParser.parseCustomEmoji(statusForContent.spoilerText, statusForContent.emojis);
 			emojiHelper=new CustomEmojiHelper();
@@ -94,7 +96,7 @@ public class SpoilerStatusDisplayItem extends StatusDisplayItem{
 			}else{
 				title.setText(item.parsedTitle);
 			}
-			action.setText(item.status.spoilerRevealed ? R.string.spoiler_hide : R.string.spoiler_show);
+			action.setText(item.status.revealedSpoilers.contains(item.spoilerType) ? R.string.spoiler_hide : R.string.spoiler_show);
 		}
 
 		@Override
