@@ -66,7 +66,7 @@ public class DonationSheet extends BottomSheet{
 				UiUtils.getThemeColor(context, R.attr.colorM3Primary), 0.05f)), !UiUtils.isDarkTheme());
 
 		TextView text=findViewById(R.id.text);
-		text.setText(campaign.donationMessage);
+		text.setText(campaign.donationMessage.trim());
 
 		onceTab=findViewById(R.id.once);
 		monthlyTab=findViewById(R.id.monthly);

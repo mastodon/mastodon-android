@@ -744,9 +744,10 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 		}
 		TextView text=donationBanner.findViewById(R.id.banner_text);
 		SpannableStringBuilder ssb=new SpannableStringBuilder(campaign.bannerMessage);
-		ssb.append(' ');
+		if(!campaign.bannerMessage.endsWith("\n"))
+			ssb.append(' ');
 		int start=ssb.length();
-		ssb.append(campaign.bannerButtonText);
+		ssb.append(campaign.bannerButtonText.trim());
 		ssb.setSpan(new ForegroundColorSpan(getResources().getColor(R.color.masterialDark_colorGoldenrodContainer, getActivity().getTheme())), start, ssb.length(), 0);
 		ssb.setSpan(new UnderlineSpan(), start, ssb.length(), 0);
 		ssb.setSpan(new TypefaceSpan("sans-serif-medium"), start, ssb.length(), 0);

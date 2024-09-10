@@ -35,7 +35,7 @@ public class SettingsDebugFragment extends BaseSettingsFragment<Void>{
 				new ListItem<>("Reset search info banners", null, this::onResetDiscoverBannersClick),
 				new ListItem<>("Reset pre-reply sheets", null, this::onResetPreReplySheetsClick),
 				new ListItem<>("Clear dismissed donation campaigns", null, this::onClearDismissedCampaignsClick),
-				donationsStagingItem=new CheckableListItem<>("Use staging environment for donations", null, CheckableListItem.Style.SWITCH, getPrefs().getBoolean("donationsStaging", false), this::toggleCheckableItem)
+				donationsStagingItem=new CheckableListItem<>("Use staging environment for donations", "Restart app to apply", CheckableListItem.Style.SWITCH, getPrefs().getBoolean("donationsStaging", false), this::toggleCheckableItem)
 		));
 		if(!GithubSelfUpdater.needSelfUpdating()){
 			resetUpdateItem.isEnabled=selfUpdateItem.isEnabled=false;
