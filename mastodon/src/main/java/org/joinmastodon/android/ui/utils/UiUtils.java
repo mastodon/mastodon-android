@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.ClipData;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.ColorStateList;
@@ -124,18 +125,30 @@ public class UiUtils{
 	private UiUtils(){}
 
 	public static void launchWebBrowser(Context context, String url){
-		try{
-			if(GlobalUserPreferences.useCustomTabs){
-				new CustomTabsIntent.Builder()
-						.setShowTitle(true)
-						.build()
-						.launchUrl(context, Uri.parse(url));
-			}else{
-				context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
-			}
-		}catch(ActivityNotFoundException x){
-			Toast.makeText(context, R.string.no_app_to_handle_action, Toast.LENGTH_SHORT).show();
+		Intent intent;
+		if(GlobalUserPreferences.useCustomTabs){
+			intent=new CustomTabsIntent.Builder()
+					.setShowTitle(true)
+					.build()
+					.intent;
+		}else{
+			intent=new Intent(Intent.ACTION_VIEW);
 		}
+		intent.setData(Uri.parse(url));
+		ComponentName handler=intent.resolveActivity(context.getPackageManager());
+		if(handler==null){
+			Toast.makeText(context, R.string.no_app_to_handle_action, Toast.LENGTH_SHORT).show();
+			return;
+		}
+		if(handler.getPackageName().equals(context.getPackageName())){ // Oops. Let's prevent the app from opening itself.
+			ComponentName browserActivity=new Intent(Intent.ACTION_VIEW, Uri.parse("http://example.com")).resolveActivity(context.getPackageManager());
+			if(browserActivity==null){
+				Toast.makeText(context, R.string.no_app_to_handle_action, Toast.LENGTH_SHORT).show();
+				return;
+			}
+			intent.setComponent(browserActivity);
+		}
+		context.startActivity(intent);
 	}
 
 	public static String formatRelativeTimestamp(Context context, Instant instant){
