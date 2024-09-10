@@ -7,6 +7,7 @@ import android.graphics.Rect;
 import android.graphics.drawable.Animatable;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.View;
@@ -230,7 +231,9 @@ public class CustomEmojiPopupKeyboard extends PopupKeyboard{
 
 		@Override
 		public void onBind(Emoji item){
-
+			if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.O){
+				itemView.setTooltipText(':'+item.shortcode+':');
+			}
 		}
 
 		@Override
