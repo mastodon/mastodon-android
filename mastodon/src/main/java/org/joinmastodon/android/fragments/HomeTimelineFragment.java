@@ -4,6 +4,7 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -34,7 +35,6 @@ import android.widget.Toolbar;
 
 import com.squareup.otto.Subscribe;
 
-import org.joinmastodon.android.BuildConfig;
 import org.joinmastodon.android.E;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.MastodonAPIRequest;
@@ -61,6 +61,7 @@ import org.joinmastodon.android.ui.utils.DiscoverInfoBannerHelper;
 import org.joinmastodon.android.ui.viewcontrollers.HomeTimelineMenuController;
 import org.joinmastodon.android.ui.viewcontrollers.ToolbarDropdownMenuController;
 import org.joinmastodon.android.ui.views.FixedAspectRatioImageView;
+import org.joinmastodon.android.ui.views.NewPostsButtonContainer;
 import org.joinmastodon.android.updater.GithubSelfUpdater;
 import org.parceler.Parcels;
 
@@ -89,7 +90,7 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 	private FixedAspectRatioImageView listsDropdownArrow;
 	private TextView listsDropdownText;
 	private Button newPostsBtn;
-	private View newPostsBtnWrap;
+	private NewPostsButtonContainer newPostsBtnWrap;
 	private boolean newPostsBtnShown;
 	private AnimatorSet currentNewPostsAnim;
 	private ToolbarDropdownMenuController dropdownController;
@@ -249,6 +250,7 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 		}
 	}
 
+	@SuppressLint("ClickableViewAccessibility")
 	@Override
 	public void onViewCreated(View view, Bundle savedInstanceState){
 		super.onViewCreated(view, savedInstanceState);
@@ -267,6 +269,7 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 			newPostsBtnWrap.setAlpha(0f);
 			newPostsBtnWrap.setTranslationY(V.dp(-56));
 		}
+		newPostsBtnWrap.setOnHideButtonListener(this::hideNewPostsButton);
 		updateToolbarLogo();
 		list.addOnScrollListener(new RecyclerView.OnScrollListener(){
 			@Override
@@ -602,6 +605,7 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 			@Override
 			public void onAnimationEnd(Animator animation){
 				newPostsBtnWrap.setVisibility(View.GONE);
+				newPostsBtn.setTranslationY(0);
 				currentNewPostsAnim=null;
 			}
 		});
