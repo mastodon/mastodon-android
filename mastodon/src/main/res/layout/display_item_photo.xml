@@ -15,4 +15,34 @@
 	<include layout="@layout/alt_text_badge"
 		android:id="@+id/alt_button"/>
 
+	<LinearLayout
+		android:id="@+id/failed_overlay"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:orientation="vertical"
+		android:background="#33000000"
+		android:gravity="center"
+		android:visibility="gone"
+		tools:visibility="visible">
+
+		<View
+			android:layout_width="64dp"
+			android:layout_height="64dp"
+			android:background="@drawable/broken_media"
+			android:backgroundTint="#fff"/>
+
+		<TextView
+			android:id="@+id/failed_text"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginHorizontal="16dp"
+			android:layout_marginTop="20dp"
+			android:minHeight="16dp"
+			android:gravity="center"
+			android:textColor="#fff"
+			android:textAppearance="@style/m3_label_medium"
+			android:text="@string/cant_load_image"/>
+
+	</LinearLayout>
+
 </FrameLayout>

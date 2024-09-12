@@ -9,6 +9,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
 import android.text.TextUtils;
+import android.util.Log;
 import android.util.Pair;
 import android.view.Gravity;
 import android.view.View;
@@ -110,6 +111,7 @@ public class MediaGridStatusDisplayItem extends StatusDisplayItem{
 		private static final ColorDrawable drawableForWhenThereIsNoBlurhash=new ColorDrawable(0xffffffff);
 		private final TextView hideSensitiveButton;
 		private final TextView sensitiveText;
+		private boolean thereAreFailedImages;
 
 		public Holder(Activity activity, ViewGroup parent){
 			super(new FrameLayoutThatOnlyMeasuresFirstChild(activity));
@@ -143,6 +145,7 @@ public class MediaGridStatusDisplayItem extends StatusDisplayItem{
 
 		@Override
 		public void onBind(MediaGridStatusDisplayItem item){
+			thereAreFailedImages=false;
 			wrapper.setPadding(0, 0, 0, item.inset ? 0 : V.dp(8));
 
 			layout.setTiledLayout(item.tiledLayout);
@@ -220,9 +223,23 @@ public class MediaGridStatusDisplayItem extends StatusDisplayItem{
 			controllers.get(index).clearImage();
 		}
 
+		@Override
+		public void onImageLoadingFailed(int index, Throwable error){
+			controllers.get(index).showFailedOverlay();
+			thereAreFailedImages=true;
+		}
+
 		private void onViewClick(View v){
 			int index=(Integer)v.getTag();
 			((PhotoViewerHost) item.parentFragment).openPhotoViewer(item.parentID, item.status, index, this);
+			if(thereAreFailedImages){
+				for(MediaAttachmentViewController controller:controllers){
+					if(controller.isFailedOverlayShown()){
+						controller.clearImage();
+					}
+				}
+				item.parentFragment.retryFailedImages();
+			}
 		}
 
 		private void onAltTextClick(View v){

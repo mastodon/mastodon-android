@@ -700,6 +700,10 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 		anim.start();
 	}
 
+	public void retryFailedImages(){
+		imgLoader.retryFailedRequests();
+	}
+
 	protected class DisplayItemsAdapter extends UsableRecyclerView.Adapter<BindableViewHolder<StatusDisplayItem>> implements ImageLoaderRecyclerAdapter{
 
 		public DisplayItemsAdapter(){

@@ -11,7 +11,6 @@ import android.view.ViewGroup;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.fragments.BaseStatusListFragment;
-import org.joinmastodon.android.fragments.StatusListFragment;
 import org.joinmastodon.android.fragments.ThreadFragment;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.Attachment;
@@ -35,7 +34,7 @@ import me.grishka.appkit.views.UsableRecyclerView;
 
 public abstract class StatusDisplayItem{
 	public final String parentID;
-	public final BaseStatusListFragment parentFragment;
+	public final BaseStatusListFragment<?> parentFragment;
 	public boolean inset;
 	public int index;
 
@@ -45,7 +44,7 @@ public abstract class StatusDisplayItem{
 	public static final int FLAG_MEDIA_FORCE_HIDDEN=1 << 3;
 	public static final int FLAG_NO_HEADER=1 << 4;
 
-	public StatusDisplayItem(String parentID, BaseStatusListFragment parentFragment){
+	public StatusDisplayItem(String parentID, BaseStatusListFragment<?> parentFragment){
 		this.parentID=parentID;
 		this.parentFragment=parentFragment;
 	}

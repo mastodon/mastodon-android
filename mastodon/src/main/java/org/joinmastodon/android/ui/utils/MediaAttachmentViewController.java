@@ -16,6 +16,8 @@ import org.joinmastodon.android.ui.displayitems.MediaGridStatusDisplayItem;
 import org.joinmastodon.android.ui.drawables.BlurhashCrossfadeDrawable;
 import org.joinmastodon.android.ui.drawables.PlayIconDrawable;
 
+import me.grishka.appkit.utils.V;
+
 public class MediaAttachmentViewController{
 	public final View view;
 	public final MediaGridStatusDisplayItem.GridItemType type;
@@ -23,6 +25,8 @@ public class MediaAttachmentViewController{
 	public final View altButton;
 	public final TextView duration;
 	public final View playButton;
+	public final View failedOverlay;
+	public final View failedText;
 	private BlurhashCrossfadeDrawable crossfadeDrawable=new BlurhashCrossfadeDrawable();
 	private final Context context;
 	private boolean didClear;
@@ -39,6 +43,8 @@ public class MediaAttachmentViewController{
 		altButton=view.findViewById(R.id.alt_button);
 		duration=view.findViewById(R.id.duration);
 		playButton=view.findViewById(R.id.play_button);
+		failedOverlay=view.findViewById(R.id.failed_overlay);
+		failedText=view.findViewById(R.id.failed_text);
 		this.type=type;
 		this.context=context;
 		if(playButton!=null){
@@ -65,6 +71,11 @@ public class MediaAttachmentViewController{
 			duration.setText(UiUtils.formatMediaDuration((int)attachment.getDuration()));
 		}
 		didClear=false;
+		if(failedOverlay!=null){
+			V.cancelVisibilityAnimation(failedOverlay);
+			failedOverlay.setVisibility(View.GONE);
+			failedText.setVisibility(status.mediaAttachments.size()>1 ? View.GONE : View.VISIBLE);
+		}
 	}
 
 	public void setImage(Drawable drawable){
@@ -76,11 +87,27 @@ public class MediaAttachmentViewController{
 			photo.setImageDrawable(null);
 			photo.setImageDrawable(crossfadeDrawable);
 		}
+		if(failedOverlay!=null && failedOverlay.getVisibility()!=View.GONE){
+			V.setVisibilityAnimated(failedOverlay, View.GONE);
+		}
 	}
 
 	public void clearImage(){
 		crossfadeDrawable.setCrossfadeAlpha(1f);
 		crossfadeDrawable.setImageDrawable(null);
 		didClear=true;
+		if(failedOverlay!=null && failedOverlay.getVisibility()!=View.GONE){
+			V.setVisibilityAnimated(failedOverlay, View.GONE);
+		}
+	}
+
+	public void showFailedOverlay(){
+		if(failedOverlay!=null){
+			V.setVisibilityAnimated(failedOverlay, View.VISIBLE);
+		}
+	}
+
+	public boolean isFailedOverlayShown(){
+		return failedOverlay!=null && failedOverlay.getVisibility()!=View.GONE;
 	}
 }
