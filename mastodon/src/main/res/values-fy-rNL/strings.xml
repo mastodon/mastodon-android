@@ -357,7 +357,18 @@
 	<string name="welcome_to_mastodon">Wolkom by Mastodon</string>
 	<string name="welcome_paragraph1">Mastodon is in desintralisearre sosjaal netwurk, wat betsjut dat gjin inkeld bedriuw it kontrolearret. It bestiet út in protte ûnôfhinklik operearjende servers, allegearre mei inoar ferbûn.</string>
 	<string name="what_are_servers">Wat binne servers?</string>
+	<string name="welcome_paragraph2">Elk Mastodon-account wurdt host op in server – elk mei harren eigen wearden, rigels en behearders. It makket net út hokker server jo kieze, jo kinne minsken op elke server folgje en dêrmei kommunisearje.</string>
+	<string name="opening_link">Keppeling iepenje…</string>
+	<string name="link_not_supported">Dizze keppeling wurdt troch de app stipe</string>
+	<string name="log_out_all_accounts">By alle accounts ôfmelde</string>
+	<string name="confirm_log_out_all_accounts">By alle accounts ôfmelde?</string>
+	<string name="retry">Opnij probearje</string>
+	<string name="post_failed">Kin berjocht net ferstjoere</string>
 	<!-- %s is formatted file size ("467 KB image") -->
+	<string name="attachment_description_image">%s ôfbylding</string>
+	<string name="attachment_description_video">%s fideo</string>
+	<string name="attachment_description_audio">%s lûdsbestân</string>
+	<string name="attachment_description_unknown">%s bestân</string>
 	<string name="attachment_type_image">Ofbylding</string>
 	<string name="attachment_type_video">Fideo</string>
 	<string name="attachment_type_audio">Audio</string>
@@ -398,7 +409,21 @@
 	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="count_one">Ien</string>
+	<string name="count_two">Twa</string>
+	<string name="count_three">Trije</string>
+	<string name="count_four">Fjouwer</string>
+	<string name="alt_text_reminder_post_anyway">Ferstjoere</string>
 	<!-- %s is the username -->
+	<string name="unfollow_confirmation">%s ûntfolgje?</string>
+	<string name="filter_active">Aktyf</string>
+	<string name="filter_inactive">Ynaktyf</string>
+	<string name="settings_add_filter">Filter tafoegje</string>
+	<string name="settings_edit_filter">Filter bewurkje</string>
+	<string name="settings_filter_duration">Doer</string>
+	<string name="settings_filter_muted_words">Negearre wurden</string>
+	<string name="settings_filter_context">Negearre op</string>
+	<string name="settings_filter_show_cw">Mei ynhâldswarskôging toane</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<!-- Shown like a content warning, %s is the name of the filter -->
 	<!-- Shown in the post header. Please keep it short -->
