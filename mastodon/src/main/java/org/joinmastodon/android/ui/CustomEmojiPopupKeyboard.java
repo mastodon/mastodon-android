@@ -36,7 +36,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import me.grishka.appkit.imageloader.ImageLoaderRecyclerAdapter;
 import me.grishka.appkit.imageloader.ImageLoaderViewHolder;
 import me.grishka.appkit.imageloader.ListImageLoaderWrapper;
-import me.grishka.appkit.imageloader.RecyclerViewDelegate;
 import me.grishka.appkit.imageloader.requests.ImageLoaderRequest;
 import me.grishka.appkit.imageloader.requests.UrlImageLoaderRequest;
 import me.grishka.appkit.utils.BindableViewHolder;
@@ -82,7 +81,7 @@ public class CustomEmojiPopupKeyboard extends PopupKeyboard{
 		});
 		list.setLayoutManager(lm);
 		list.setPadding(V.dp(16), 0, V.dp(16), 0);
-		imgLoader=new ListImageLoaderWrapper(activity, list, new RecyclerViewDelegate(list), null);
+		imgLoader=new ListImageLoaderWrapper(activity, list, list, null);
 
 		for(EmojiCategory category:emojis)
 			adapter.addAdapter(new SingleCategoryAdapter(category));

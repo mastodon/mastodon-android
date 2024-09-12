@@ -36,7 +36,6 @@ import me.grishka.appkit.fragments.WindowInsetsAwareFragment;
 import me.grishka.appkit.imageloader.ImageLoaderRecyclerAdapter;
 import me.grishka.appkit.imageloader.ImageLoaderViewHolder;
 import me.grishka.appkit.imageloader.ListImageLoaderWrapper;
-import me.grishka.appkit.imageloader.RecyclerViewDelegate;
 import me.grishka.appkit.imageloader.requests.ImageLoaderRequest;
 import me.grishka.appkit.utils.BindableViewHolder;
 import me.grishka.appkit.utils.CubicBezierInterpolator;
@@ -72,7 +71,7 @@ public class ProfileAboutFragment extends Fragment implements WindowInsetsAwareF
 		list.setItemAnimator(new BetterItemAnimator());
 		list.setDrawSelectorOnTop(true);
 		list.setLayoutManager(new LinearLayoutManager(getActivity()));
-		imgLoader=new ListImageLoaderWrapper(getActivity(), list, new RecyclerViewDelegate(list), null);
+		imgLoader=new ListImageLoaderWrapper(getActivity(), list, list, null);
 		list.setAdapter(adapter=new AboutAdapter());
 		list.setPadding(0, V.dp(16), 0, 0);
 		list.setClipToPadding(false);

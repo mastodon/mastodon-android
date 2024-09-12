@@ -355,7 +355,7 @@ public class UiUtils{
 				public View getView(){
 					return view;
 				}
-			}, null, new UrlImageLoaderRequest(emoji.getKey().url, emojiSize, emojiSize), null, false, true);
+			}, null, new UrlImageLoaderRequest(emoji.getKey().url, emojiSize, emojiSize), false, true);
 		}
 	}
 

@@ -40,7 +40,6 @@ import me.grishka.appkit.api.ErrorResponse;
 import me.grishka.appkit.imageloader.ImageLoaderRecyclerAdapter;
 import me.grishka.appkit.imageloader.ImageLoaderViewHolder;
 import me.grishka.appkit.imageloader.ListImageLoaderWrapper;
-import me.grishka.appkit.imageloader.RecyclerViewDelegate;
 import me.grishka.appkit.imageloader.requests.ImageLoaderRequest;
 import me.grishka.appkit.imageloader.requests.UrlImageLoaderRequest;
 import me.grishka.appkit.utils.BindableViewHolder;
@@ -123,7 +122,7 @@ public class ComposeAutocompleteViewController{
 			}
 		});
 
-		imgLoader=new ListImageLoaderWrapper(activity, list, new RecyclerViewDelegate(list), null);
+		imgLoader=new ListImageLoaderWrapper(activity, list, list, null);
 	}
 
 	public void setText(String text){

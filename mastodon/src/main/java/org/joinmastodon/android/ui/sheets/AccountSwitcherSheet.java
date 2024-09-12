@@ -44,7 +44,6 @@ import me.grishka.appkit.api.ErrorResponse;
 import me.grishka.appkit.imageloader.ImageLoaderRecyclerAdapter;
 import me.grishka.appkit.imageloader.ImageLoaderViewHolder;
 import me.grishka.appkit.imageloader.ListImageLoaderWrapper;
-import me.grishka.appkit.imageloader.RecyclerViewDelegate;
 import me.grishka.appkit.imageloader.requests.ImageLoaderRequest;
 import me.grishka.appkit.imageloader.requests.UrlImageLoaderRequest;
 import me.grishka.appkit.utils.BindableViewHolder;
@@ -70,7 +69,7 @@ public class AccountSwitcherSheet extends BottomSheet{
 		accounts=AccountSessionManager.getInstance().getLoggedInAccounts().stream().map(WrappedAccount::new).collect(Collectors.toList());
 
 		list=new UsableRecyclerView(activity);
-		imgLoader=new ListImageLoaderWrapper(activity, list, new RecyclerViewDelegate(list), null);
+		imgLoader=new ListImageLoaderWrapper(activity, list, list, null);
 		list.setClipToPadding(false);
 		list.setLayoutManager(new LinearLayoutManager(activity));
 

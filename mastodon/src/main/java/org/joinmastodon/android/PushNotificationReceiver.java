@@ -36,6 +36,8 @@ import java.util.stream.Collectors;
 import me.grishka.appkit.api.Callback;
 import me.grishka.appkit.api.ErrorResponse;
 import me.grishka.appkit.imageloader.ImageCache;
+import me.grishka.appkit.imageloader.ImageLoaderCallback;
+import me.grishka.appkit.imageloader.requests.ImageLoaderRequest;
 import me.grishka.appkit.imageloader.requests.UrlImageLoaderRequest;
 import me.grishka.appkit.utils.V;
 
@@ -103,6 +105,24 @@ public class PushNotificationReceiver extends BroadcastReceiver{
 	}
 
 	private void notify(Context context, PushNotification pn, String accountID, org.joinmastodon.android.model.Notification notification){
+		if(TextUtils.isEmpty(pn.icon)){
+			doNotify(context, pn, accountID, notification, null);
+		}else{
+			ImageCache.getInstance(context).get(new UrlImageLoaderRequest(pn.icon, V.dp(50), V.dp(50)), null, new ImageLoaderCallback(){
+				@Override
+				public void onImageLoaded(ImageLoaderRequest req, Drawable image){
+					doNotify(context, pn, accountID, notification, image);
+				}
+
+				@Override
+				public void onImageLoadingFailed(ImageLoaderRequest req, Throwable error){
+					doNotify(context, pn, accountID, notification, null);
+				}
+			}, true);
+		}
+	}
+
+	private void doNotify(Context context, PushNotification pn, String accountID, org.joinmastodon.android.model.Notification notification, Drawable avatar){
 		NotificationManager nm=context.getSystemService(NotificationManager.class);
 		Account self=AccountSessionManager.getInstance().getAccount(accountID).self;
 		String accountName="@"+self.username+"@"+AccountSessionManager.getInstance().getAccount(accountID).domain;
@@ -136,7 +156,6 @@ public class PushNotificationReceiver extends BroadcastReceiver{
 					.setPriority(Notification.PRIORITY_DEFAULT)
 					.setDefaults(Notification.DEFAULT_SOUND | Notification.DEFAULT_VIBRATE);
 		}
-		Drawable avatar=ImageCache.getInstance(context).get(new UrlImageLoaderRequest(pn.icon, V.dp(50), V.dp(50)));
 		Intent contentIntent=new Intent(context, MainActivity.class);
 		contentIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 		contentIntent.putExtra("fromNotification", true);
