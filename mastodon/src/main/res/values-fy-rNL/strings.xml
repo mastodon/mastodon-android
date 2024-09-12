@@ -301,6 +301,22 @@
 	<string name="download_update">Downloade (%s)</string>
 	<string name="install_update">Ynstallearje</string>
 	<string name="privacy_policy_title">Jo privacy</string>
+	<string name="privacy_policy_subtitle">Hoewol de Mastodon-app gjin gegevens sammelet, kin de server dêr’t jo jo oanmelde in oar belied hawwe.\n\nAs jo net akkoard gean mei it belied foar %s, kinne jo weromgean en in oare server kieze.</string>
+	<string name="i_agree">Ik gean akkoard</string>
+	<string name="empty_list">Dizze list is leech</string>
+	<string name="instance_signup_closed">Dizze server akseptearret gjin nije registraasjes.</string>
+	<string name="text_copied">Nei klamboerd kopiearre</string>
+	<string name="add_bookmark">Blêdwizer tafoegje</string>
+	<string name="remove_bookmark">Blêdwizer fuortsmite</string>
+	<string name="bookmarks">Blêdwizers</string>
+	<string name="your_favorites">Jo favoriten</string>
+	<string name="login_title">Wolkom werom</string>
+	<string name="login_subtitle">Oanmelde by de server dêr’t jo jo account oanmakke hawwe.</string>
+	<string name="server_url">Server-URL</string>
+	<string name="server_filter_any_language">Elke taal</string>
+	<string name="server_filter_instant_signup">Daliks registrearje</string>
+	<string name="server_filter_manual_review">Hânmjittige beoardieling nedich</string>
+	<string name="server_filter_any_signup_speed">Elke registraasjesnelheid</string>
 	<string name="server_filter_region_europe">Europa</string>
 	<string name="server_filter_region_north_america">Noard-Amearika</string>
 	<string name="server_filter_region_south_america">Súd-Amearika</string>
@@ -308,16 +324,39 @@
 	<string name="server_filter_region_asia">Azië</string>
 	<string name="server_filter_region_oceania">Oseanië</string>
 	<string name="not_accepting_new_members">Lit gjin nije brûkers ta</string>
+	<string name="category_special_interests">Spesjale ynteressen</string>
+	<string name="signup_passwords_dont_match">Wachtwurden binne net lyk</string>
+	<string name="profile_add_row">Rige tafoegje</string>
+	<string name="profile_setup">Profyl ynstelle</string>
+	<string name="profile_setup_subtitle">Jo kinne dit letter altyd oanfolje op it ljepblêd Profyl.</string>
+	<string name="follow_all">Allen folgje</string>
+	<string name="server_rules_disagree">Ik gean net akkoard</string>
+	<string name="privacy_policy_explanation">TL;DR: Wy sammelje of ferwurkje neat.</string>
 	<!-- %s is server domain -->
+	<string name="server_policy_disagree">Net akkoard mei %s</string>
 	<string name="profile_bio">Biografy</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
+	<string name="sending_follows">Folge brûkers…</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<string name="signup_email_domain_blocked">%1$s stiet gjin registraasjes ta fan %2$s. Probearje it mei in oare e-mailprovider of &lt;a&gt;kies in oare server&lt;/a&gt;.</string>
+	<string name="spoiler_show">Dochs toane</string>
+	<string name="spoiler_hide">Opnij ferstopje</string>
+	<string name="poll_multiple_choice">Meitsje ien of mear karren</string>
+	<string name="save_changes">Wizigingen bewarje</string>
+	<string name="profile_featured">Oanrekommandearre</string>
+	<string name="profile_timeline">Tiidline</string>
+	<string name="view_all">Alles werjaan</string>
+	<string name="profile_endorsed_accounts">Accounts</string>
+	<string name="verified_link">Ferifiearre keppeling</string>
 	<string name="show">Toane</string>
 	<string name="hide">Ferstopje</string>
 	<string name="join_default_server">Registrearje op %s</string>
 	<string name="pick_server">Kies in oare server</string>
 	<string name="signup_or_login">of</string>
 	<string name="learn_more">Mear ynfo</string>
+	<string name="welcome_to_mastodon">Wolkom by Mastodon</string>
+	<string name="welcome_paragraph1">Mastodon is in desintralisearre sosjaal netwurk, wat betsjut dat gjin inkeld bedriuw it kontrolearret. It bestiet út in protte ûnôfhinklik operearjende servers, allegearre mei inoar ferbûn.</string>
+	<string name="what_are_servers">Wat binne servers?</string>
 	<!-- %s is formatted file size ("467 KB image") -->
 	<string name="attachment_type_image">Ofbylding</string>
 	<string name="attachment_type_video">Fideo</string>
