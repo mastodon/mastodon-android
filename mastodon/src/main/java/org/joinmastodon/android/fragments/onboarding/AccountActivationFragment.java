@@ -149,7 +149,7 @@ public class AccountActivationFragment extends ToolbarFragment{
 							session.activationInfo.lastEmailConfirmationResend=System.currentTimeMillis();
 						}
 						lastResendTime=session.activationInfo.lastEmailConfirmationResend;
-						AccountSessionManager.getInstance().writeAccountsFile();
+						AccountSessionManager.getInstance().writeAccountActivationInfo(accountID);
 						updateResendTimer();
 					}
 

@@ -10,6 +10,7 @@ import android.content.SharedPreferences;
 import android.content.pm.ShortcutInfo;
 import android.content.pm.ShortcutManager;
 import android.database.Cursor;
+import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -17,6 +18,11 @@ import android.graphics.drawable.Icon;
 import android.net.Uri;
 import android.os.Build;
 import android.util.Log;
+
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import com.google.gson.reflect.TypeToken;
 
 import org.joinmastodon.android.BuildConfig;
 import org.joinmastodon.android.E;
@@ -27,6 +33,7 @@ import org.joinmastodon.android.api.CacheController;
 import org.joinmastodon.android.api.DatabaseRunnable;
 import org.joinmastodon.android.api.MastodonAPIController;
 import org.joinmastodon.android.api.PushSubscriptionManager;
+import org.joinmastodon.android.api.gson.JsonObjectBuilder;
 import org.joinmastodon.android.api.requests.accounts.GetOwnAccount;
 import org.joinmastodon.android.api.requests.filters.GetLegacyFilters;
 import org.joinmastodon.android.api.requests.instance.GetCustomEmojis;
@@ -39,15 +46,14 @@ import org.joinmastodon.android.model.Emoji;
 import org.joinmastodon.android.model.EmojiCategory;
 import org.joinmastodon.android.model.Instance;
 import org.joinmastodon.android.model.LegacyFilter;
+import org.joinmastodon.android.model.Preferences;
 import org.joinmastodon.android.model.Token;
 import org.joinmastodon.android.ui.utils.UiUtils;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -68,7 +74,7 @@ public class AccountSessionManager{
 	private static final String TAG="AccountSessionManager";
 	public static final String SCOPE="read write follow push";
 	public static final String REDIRECT_URI="mastodon-android-auth://callback";
-	private static final int DB_VERSION=1;
+	private static final int DB_VERSION=2;
 
 	private static final AccountSessionManager instance=new AccountSessionManager();
 
@@ -84,6 +90,7 @@ public class AccountSessionManager{
 	private boolean loadedInstances;
 	private DatabaseHelper db;
 	private final Runnable databaseCloseRunnable=this::closeDatabase;
+	private final Object databaseLock=new Object();
 
 	public static AccountSessionManager getInstance(){
 		return instance;
@@ -91,21 +98,20 @@ public class AccountSessionManager{
 
 	private AccountSessionManager(){
 		prefs=MastodonApp.context.getSharedPreferences("account_manager", Context.MODE_PRIVATE);
-		File file=new File(MastodonApp.context.getFilesDir(), "accounts.json");
-		if(!file.exists())
-			return;
-		HashSet<String> domains=new HashSet<>();
-		try(FileInputStream in=new FileInputStream(file)){
-			SessionsStorageWrapper w=MastodonAPIController.gson.fromJson(new InputStreamReader(in, StandardCharsets.UTF_8), SessionsStorageWrapper.class);
-			for(AccountSession session:w.accounts){
-				domains.add(session.domain.toLowerCase());
-				sessions.put(session.getID(), session);
+		runWithDatabase(db->{
+			HashSet<String> domains=new HashSet<>();
+			try(Cursor cursor=db.query("accounts", null, null, null, null, null, null)){
+				ContentValues values=new ContentValues();
+				while(cursor.moveToNext()){
+					DatabaseUtils.cursorRowToContentValues(cursor, values);
+					AccountSession session=new AccountSession(values);
+					domains.add(session.domain.toLowerCase());
+					sessions.put(session.getID(), session);
+				}
 			}
-		}catch(Exception x){
-			Log.e(TAG, "Error loading accounts", x);
-		}
+			readInstanceInfo(db, domains);
+		});
 		lastActiveAccountID=prefs.getString("lastActiveAccount", null);
-		readInstanceInfo(domains);
 		maybeUpdateShortcuts();
 	}
 
@@ -114,28 +120,16 @@ public class AccountSessionManager{
 		AccountSession session=new AccountSession(token, self, app, instance.uri, activationInfo==null, activationInfo);
 		sessions.put(session.getID(), session);
 		lastActiveAccountID=session.getID();
-		writeAccountsFile();
+		runOnDbThread(db->{
+			ContentValues values=new ContentValues();
+			session.toContentValues(values);
+			db.insertWithOnConflict("accounts", null, values, SQLiteDatabase.CONFLICT_REPLACE);
+		});
 		updateInstanceEmojis(instance, instance.uri);
 		if(PushSubscriptionManager.arePushNotificationsAvailable()){
 			session.getPushSubscriptionManager().registerAccountForPush(null);
 		}
 		maybeUpdateShortcuts();
-	}
-
-	public synchronized void writeAccountsFile(){
-		File file=new File(MastodonApp.context.getFilesDir(), "accounts.json");
-		try{
-			try(FileOutputStream out=new FileOutputStream(file)){
-				SessionsStorageWrapper w=new SessionsStorageWrapper();
-				w.accounts=new ArrayList<>(sessions.values());
-				OutputStreamWriter writer=new OutputStreamWriter(out, StandardCharsets.UTF_8);
-				MastodonAPIController.gson.toJson(w, writer);
-				writer.flush();
-			}
-		}catch(IOException x){
-			Log.e(TAG, "Error writing accounts file", x);
-		}
-		prefs.edit().putString("lastActiveAccount", lastActiveAccountID).apply();
 	}
 
 	@NonNull
@@ -167,7 +161,7 @@ public class AccountSessionManager{
 		if(!sessions.containsKey(lastActiveAccountID)){
 			// TODO figure out why this happens. It should not be possible.
 			lastActiveAccountID=getLoggedInAccounts().get(0).getID();
-			writeAccountsFile();
+			prefs.edit().putString("lastActiveAccount", lastActiveAccountID).apply();
 		}
 		return getAccount(lastActiveAccountID);
 	}
@@ -186,7 +180,6 @@ public class AccountSessionManager{
 	public void removeAccount(String id){
 		AccountSession session=getAccount(id);
 		session.getCacheController().closeDatabase();
-		session.getCacheController().getListsFile().delete();
 		MastodonApp.context.deleteDatabase(id+".db");
 		MastodonApp.context.getSharedPreferences(id, 0).edit().clear().commit();
 		if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.N){
@@ -206,11 +199,10 @@ public class AccountSessionManager{
 				lastActiveAccountID=getLoggedInAccounts().get(0).getID();
 			prefs.edit().putString("lastActiveAccount", lastActiveAccountID).apply();
 		}
-		writeAccountsFile();
-		String domain=session.domain.toLowerCase();
-		if(sessions.isEmpty() || !sessions.values().stream().map(s->s.domain.toLowerCase()).collect(Collectors.toSet()).contains(domain)){
-			getInstanceInfoFile(domain).delete();
-		}
+		runOnDbThread(db->{
+			db.delete("accounts", "`id`=?", new String[]{id});
+			db.delete("instances", "`domain` NOT IN (SELECT DISTINCT `domain` FROM `accounts`)", new String[]{});
+		});
 		if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.O){
 			NotificationManager nm=MastodonApp.context.getSystemService(NotificationManager.class);
 			nm.deleteNotificationChannelGroup(id);
@@ -302,7 +294,12 @@ public class AccountSessionManager{
 					public void onSuccess(Account result){
 						session.self=result;
 						session.infoLastUpdated=System.currentTimeMillis();
-						writeAccountsFile();
+						runOnDbThread(db->{
+							ContentValues values=new ContentValues();
+							values.put("account_obj", MastodonAPIController.gson.toJson(result));
+							values.put("info_last_updated", session.infoLastUpdated);
+							db.update("accounts", values, "`id`=?", new String[]{session.getID()});
+						});
 					}
 
 					@Override
@@ -320,7 +317,15 @@ public class AccountSessionManager{
 					public void onSuccess(List<LegacyFilter> result){
 						session.wordFilters=result;
 						session.filtersLastUpdated=System.currentTimeMillis();
-						writeAccountsFile();
+						runOnDbThread(db->{
+							ContentValues values=new ContentValues();
+							values.put("legacy_filters", new JsonObjectBuilder()
+									.add("filters", MastodonAPIController.gson.toJsonTree(session.wordFilters))
+									.add("updated", session.filtersLastUpdated)
+									.build()
+									.toString());
+							db.update("accounts", values, "`id`=?", new String[]{session.getID()});
+						});
 					}
 
 					@Override
@@ -353,13 +358,10 @@ public class AccountSessionManager{
 				.setCallback(new Callback<>(){
 					@Override
 					public void onSuccess(List<Emoji> result){
-						InstanceInfoStorageWrapper emojis=new InstanceInfoStorageWrapper();
-						emojis.lastUpdated=System.currentTimeMillis();
-						emojis.emojis=result;
-						emojis.instance=instance;
-						customEmojis.put(domain, groupCustomEmojis(emojis));
-						instancesLastUpdated.put(domain, emojis.lastUpdated);
-						MastodonAPIController.runInBackground(()->writeInstanceInfoFile(emojis, domain));
+						long lastUpdated=System.currentTimeMillis();
+						customEmojis.put(domain, groupCustomEmojis(result));
+						instancesLastUpdated.put(domain, lastUpdated);
+						runOnDbThread(db->insertInstanceIntoDatabase(db, domain, instance, result, lastUpdated));
 						E.post(new EmojiUpdatedEvent(domain));
 					}
 
@@ -371,30 +373,17 @@ public class AccountSessionManager{
 				.execNoAuth(domain);
 	}
 
-	private File getInstanceInfoFile(String domain){
-		return new File(MastodonApp.context.getFilesDir(), "instance_"+domain.replace('.', '_')+".json");
-	}
-
-	private void writeInstanceInfoFile(InstanceInfoStorageWrapper emojis, String domain){
-		try(FileOutputStream out=new FileOutputStream(getInstanceInfoFile(domain))){
-			OutputStreamWriter writer=new OutputStreamWriter(out, StandardCharsets.UTF_8);
-			MastodonAPIController.gson.toJson(emojis, writer);
-			writer.flush();
-		}catch(IOException x){
-			Log.w(TAG, "Error writing instance info file for "+domain, x);
-		}
-	}
-
-	private void readInstanceInfo(Set<String> domains){
-		for(String domain:domains){
-			try(FileInputStream in=new FileInputStream(getInstanceInfoFile(domain))){
-				InputStreamReader reader=new InputStreamReader(in, StandardCharsets.UTF_8);
-				InstanceInfoStorageWrapper emojis=MastodonAPIController.gson.fromJson(reader, InstanceInfoStorageWrapper.class);
+	private void readInstanceInfo(SQLiteDatabase db, Set<String> domains){
+		try(Cursor cursor=db.query("instances", null, "`domain` IN ("+String.join(", ", Collections.nCopies(domains.size(), "?"))+")", domains.toArray(new String[0]), null, null, null)){
+			ContentValues values=new ContentValues();
+			while(cursor.moveToNext()){
+				DatabaseUtils.cursorRowToContentValues(cursor, values);
+				String domain=values.getAsString("domain");
+				Instance instance=MastodonAPIController.gson.fromJson(values.getAsString("instance_obj"), Instance.class);
+				List<Emoji> emojis=MastodonAPIController.gson.fromJson(values.getAsString("emojis"), new TypeToken<List<Emoji>>(){}.getType());
+				instances.put(domain, instance);
 				customEmojis.put(domain, groupCustomEmojis(emojis));
-				instances.put(domain, emojis.instance);
-				instancesLastUpdated.put(domain, emojis.lastUpdated);
-			}catch(Exception x){
-				Log.w(TAG, "Error reading instance info file for "+domain, x);
+				instancesLastUpdated.put(domain, values.getAsLong("last_updated"));
 			}
 		}
 		if(!loadedInstances){
@@ -403,8 +392,8 @@ public class AccountSessionManager{
 		}
 	}
 
-	private List<EmojiCategory> groupCustomEmojis(InstanceInfoStorageWrapper emojis){
-		return emojis.emojis.stream()
+	private List<EmojiCategory> groupCustomEmojis(List<Emoji> emojis){
+		return emojis.stream()
 				.filter(e->e.visibleInPicker)
 				.collect(Collectors.groupingBy(e->e.category==null ? "" : e.category))
 				.entrySet()
@@ -427,7 +416,48 @@ public class AccountSessionManager{
 		AccountSession session=getAccount(id);
 		session.self=account;
 		session.infoLastUpdated=System.currentTimeMillis();
-		writeAccountsFile();
+		runOnDbThread(db->{
+			ContentValues values=new ContentValues();
+			values.put("account_obj", MastodonAPIController.gson.toJson(account));
+			values.put("info_last_updated", session.infoLastUpdated);
+			db.update("accounts", values, "`id`=?", new String[]{session.getID()});
+		});
+	}
+
+	public void updateAccountPreferences(String id, Preferences prefs){
+		AccountSession session=getAccount(id);
+		session.preferences=prefs;
+		runOnDbThread(db->{
+			ContentValues values=new ContentValues();
+			values.put("preferences", MastodonAPIController.gson.toJson(prefs));
+			db.update("accounts", values, "`id`=?", new String[]{session.getID()});
+		});
+	}
+
+	public void writeAccountPushSettings(String id){
+		AccountSession session=getAccount(id);
+		runWithDatabase(db->{ // Called from a background thread anyway
+			ContentValues values=new ContentValues();
+			values.put("push_keys", new JsonObjectBuilder()
+					.add("auth", session.pushAuthKey)
+					.add("private", session.pushPrivateKey)
+					.add("public", session.pushPublicKey)
+					.build()
+					.toString());
+			values.put("push_subscription", MastodonAPIController.gson.toJson(session.pushSubscription));
+			values.put("flags", session.getFlagsForDatabase());
+			db.update("accounts", values, "`id`=?", new String[]{id});
+		});
+	}
+
+	public void writeAccountActivationInfo(String id){
+		AccountSession session=getAccount(id);
+		runOnDbThread(db->{
+			ContentValues values=new ContentValues();
+			values.put("activation_info", MastodonAPIController.gson.toJson(session.activationInfo));
+			values.put("flags", session.getFlagsForDatabase());
+			db.update("accounts", values, "`id`=?", new String[]{id});
+		});
 	}
 
 	private void maybeUpdateShortcuts(){
@@ -487,8 +517,24 @@ public class AccountSessionManager{
 	}
 
 	private void runOnDbThread(DatabaseRunnable r){
-		cancelDelayedClose();
 		CacheController.databaseThread.postRunnable(()->{
+			synchronized(databaseLock){
+				cancelDelayedClose();
+				try{
+					SQLiteDatabase db=getOrOpenDatabase();
+					r.run(db);
+				}catch(SQLiteException|IOException x){
+					Log.w(TAG, x);
+				}finally{
+					closeDelayed();
+				}
+			}
+		}, 0);
+	}
+
+	private void runWithDatabase(DatabaseRunnable r){
+		synchronized(databaseLock){
+			cancelDelayedClose();
 			try{
 				SQLiteDatabase db=getOrOpenDatabase();
 				r.run(db);
@@ -497,7 +543,7 @@ public class AccountSessionManager{
 			}finally{
 				closeDelayed();
 			}
-		}, 0);
+		}
 	}
 
 	public void runIfDonationCampaignNotDismissed(String id, Runnable action){
@@ -523,14 +569,13 @@ public class AccountSessionManager{
 		runOnDbThread(db->db.delete("dismissed_donation_campaigns", null, null));
 	}
 
-	private static class SessionsStorageWrapper{
-		public List<AccountSession> accounts;
-	}
-
-	private static class InstanceInfoStorageWrapper{
-		public Instance instance;
-		public List<Emoji> emojis;
-		public long lastUpdated;
+	private static void insertInstanceIntoDatabase(SQLiteDatabase db, String domain, Instance instance, List<Emoji> emojis, long lastUpdated){
+		ContentValues values=new ContentValues();
+		values.put("domain", domain);
+		values.put("instance_obj", MastodonAPIController.gson.toJson(instance));
+		values.put("emojis", MastodonAPIController.gson.toJson(emojis));
+		values.put("last_updated", lastUpdated);
+		db.insertWithOnConflict("instances", null, values, SQLiteDatabase.CONFLICT_REPLACE);
 	}
 
 	private static class DatabaseHelper extends SQLiteOpenHelper{
@@ -545,11 +590,71 @@ public class AccountSessionManager{
 							`id` text PRIMARY KEY,
 							`dismissed_at` bigint
 						)""");
+			createAccountsAndInstancesTables(db);
 		}
 
 		@Override
 		public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion){
+			if(oldVersion<2){
+				createAccountsAndInstancesTables(db);
 
+				File accountsFile=new File(MastodonApp.context.getFilesDir(), "accounts.json");
+				if(accountsFile.exists()){
+					HashSet<String> domains=new HashSet<>();
+					try(FileInputStream in=new FileInputStream(accountsFile)){
+						JsonObject jobj=JsonParser.parseReader(new InputStreamReader(in, StandardCharsets.UTF_8)).getAsJsonObject();
+						ContentValues values=new ContentValues();
+						for(JsonElement jacc:jobj.getAsJsonArray("accounts")){
+							AccountSession session=MastodonAPIController.gson.fromJson(jacc, AccountSession.class);
+							domains.add(session.domain.toLowerCase());
+							session.toContentValues(values);
+							db.insertWithOnConflict("accounts", null, values, SQLiteDatabase.CONFLICT_REPLACE);
+						}
+					}catch(Exception x){
+						Log.e(TAG, "Error migrating accounts", x);
+						return;
+					}
+					accountsFile.delete();
+					for(String domain:domains){
+						File file=new File(MastodonApp.context.getFilesDir(), "instance_"+domain.replace('.', '_')+".json");
+						try(FileInputStream in=new FileInputStream(file)){
+							JsonObject jobj=JsonParser.parseReader(new InputStreamReader(in, StandardCharsets.UTF_8)).getAsJsonObject();
+
+							insertInstanceIntoDatabase(db, domain, MastodonAPIController.gson.fromJson(jobj.get("instance"), Instance.class),
+									MastodonAPIController.gson.fromJson(jobj.get("emojis"), new TypeToken<>(){}.getType()), jobj.get("last_updated").getAsLong());
+						}catch(Exception x){
+							Log.w(TAG, "Error reading instance info file for "+domain, x);
+						}
+						file.delete();
+					}
+				}
+			}
+		}
+
+		private void createAccountsAndInstancesTables(SQLiteDatabase db){
+			db.execSQL("""
+						CREATE TABLE `accounts` (
+							`id` text PRIMARY KEY,
+							`domain` text,
+							`account_obj` text,
+							`token` text,
+							`application` text,
+							`info_last_updated` bigint,
+							`flags` bigint,
+							`push_keys` text,
+							`push_subscription` text,
+							`legacy_filters` text DEFAULT NULL,
+							`push_id` text,
+							`activation_info` text,
+							`preferences` text
+						)""");
+			db.execSQL("""
+						CREATE TABLE `instances` (
+							`domain` text PRIMARY KEY,
+							`instance_obj` text,
+							`emojis` text,
+							`last_updated` bigint
+						)""");
 		}
 	}
 }

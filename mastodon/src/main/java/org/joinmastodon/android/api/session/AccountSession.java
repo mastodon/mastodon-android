@@ -1,10 +1,15 @@
 package org.joinmastodon.android.api.session;
 
 import android.app.Activity;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
 import android.util.Log;
+
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import com.google.gson.reflect.TypeToken;
 
 import org.joinmastodon.android.E;
 import org.joinmastodon.android.MastodonApp;
@@ -13,6 +18,7 @@ import org.joinmastodon.android.api.CacheController;
 import org.joinmastodon.android.api.MastodonAPIController;
 import org.joinmastodon.android.api.PushSubscriptionManager;
 import org.joinmastodon.android.api.StatusInteractionController;
+import org.joinmastodon.android.api.gson.JsonObjectBuilder;
 import org.joinmastodon.android.api.requests.accounts.GetPreferences;
 import org.joinmastodon.android.api.requests.accounts.UpdateAccountCredentialsPreferences;
 import org.joinmastodon.android.api.requests.markers.GetMarkers;
@@ -47,6 +53,9 @@ public class AccountSession{
 	private static final String TAG="AccountSession";
 	private static final int MIN_DAYS_ACCOUNT_AGE_FOR_DONATIONS=28;
 
+	public static final int FLAG_ACTIVATED=1;
+	public static final int FLAG_NEED_UPDATE_PUSH_SETTINGS=1 << 1;
+
 	public Token token;
 	public Account self;
 	public String domain;
@@ -70,7 +79,6 @@ public class AccountSession{
 	private transient SharedPreferences prefs;
 	private transient boolean preferencesNeedSaving;
 	private transient AccountLocalPreferences localPreferences;
-	private transient List<FollowList> lists;
 
 	AccountSession(Token token, Account self, Application app, String domain, boolean activated, AccountActivationInfo activationInfo){
 		this.token=token;
@@ -83,6 +91,62 @@ public class AccountSession{
 	}
 
 	AccountSession(){}
+
+	AccountSession(ContentValues values){
+		domain=values.getAsString("domain");
+		self=MastodonAPIController.gson.fromJson(values.getAsString("account_obj"), Account.class);
+		token=MastodonAPIController.gson.fromJson(values.getAsString("token"), Token.class);
+		app=MastodonAPIController.gson.fromJson(values.getAsString("application"), Application.class);
+		infoLastUpdated=values.getAsLong("info_last_updated");
+		long flags=values.getAsLong("flags");
+		activated=(flags & FLAG_ACTIVATED)==FLAG_ACTIVATED;
+		needUpdatePushSettings=(flags & FLAG_NEED_UPDATE_PUSH_SETTINGS)==FLAG_NEED_UPDATE_PUSH_SETTINGS;
+		JsonObject pushKeys=JsonParser.parseString(values.getAsString("push_keys")).getAsJsonObject();
+		pushAuthKey=pushKeys.get("auth").getAsString();
+		pushPrivateKey=pushKeys.get("private").getAsString();
+		pushPublicKey=pushKeys.get("public").getAsString();
+		pushSubscription=MastodonAPIController.gson.fromJson(values.getAsString("push_subscription"), PushSubscription.class);
+		JsonObject legacyFilters=JsonParser.parseString(values.getAsString("legacy_filters")).getAsJsonObject();
+		wordFilters=MastodonAPIController.gson.fromJson(legacyFilters.getAsJsonArray("filters"), new TypeToken<List<LegacyFilter>>(){}.getType());
+		filtersLastUpdated=legacyFilters.get("updated").getAsLong();
+		pushAccountID=values.getAsString("push_id");
+		activationInfo=MastodonAPIController.gson.fromJson(values.getAsString("activation_info"), AccountActivationInfo.class);
+		preferences=MastodonAPIController.gson.fromJson(values.getAsString("preferences"), Preferences.class);
+	}
+
+	public void toContentValues(ContentValues values){
+		values.put("id", getID());
+		values.put("domain", domain.toLowerCase());
+		values.put("account_obj", MastodonAPIController.gson.toJson(self));
+		values.put("token", MastodonAPIController.gson.toJson(token));
+		values.put("application", MastodonAPIController.gson.toJson(app));
+		values.put("info_last_updated", infoLastUpdated);
+		values.put("flags", getFlagsForDatabase());
+		values.put("push_keys", new JsonObjectBuilder()
+				.add("auth", pushAuthKey)
+				.add("private", pushPrivateKey)
+				.add("public", pushPublicKey)
+				.build()
+				.toString());
+		values.put("push_subscription", MastodonAPIController.gson.toJson(pushSubscription));
+		values.put("legacy_filters", new JsonObjectBuilder()
+				.add("filters", MastodonAPIController.gson.toJsonTree(wordFilters))
+				.add("updated", filtersLastUpdated)
+				.build()
+				.toString());
+		values.put("push_id", pushAccountID);
+		values.put("activation_info", MastodonAPIController.gson.toJson(activationInfo));
+		values.put("preferences", MastodonAPIController.gson.toJson(preferences));
+	}
+
+	public long getFlagsForDatabase(){
+		long flags=0;
+		if(activated)
+			flags|=FLAG_ACTIVATED;
+		if(needUpdatePushSettings)
+			flags|=FLAG_NEED_UPDATE_PUSH_SETTINGS;
+		return flags;
+	}
 
 	public String getID(){
 		return domain+"_"+self.id;
@@ -124,7 +188,7 @@ public class AccountSession{
 						preferences=result;
 						if(callback!=null)
 							callback.accept(result);
-						AccountSessionManager.getInstance().writeAccountsFile();
+						AccountSessionManager.getInstance().updateAccountPreferences(getID(), result);
 					}
 
 					@Override
@@ -206,7 +270,7 @@ public class AccountSession{
 						public void onSuccess(Account result){
 							preferencesNeedSaving=false;
 							self=result;
-							AccountSessionManager.getInstance().writeAccountsFile();
+							AccountSessionManager.getInstance().updateAccountInfo(getID(), self);
 						}
 
 						@Override

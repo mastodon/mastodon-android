@@ -146,7 +146,7 @@ public class PushSubscriptionManager{
 				session.pushPublicKey=Base64.encodeToString(publicKey.getEncoded(), Base64.URL_SAFE | Base64.NO_WRAP | Base64.NO_PADDING);
 				session.pushAuthKey=encodedAuthKey=Base64.encodeToString(authKey, Base64.URL_SAFE | Base64.NO_WRAP | Base64.NO_PADDING);
 				session.pushAccountID=pushAccountID=Base64.encodeToString(randomAccountID, Base64.URL_SAFE | Base64.NO_WRAP | Base64.NO_PADDING);
-				AccountSessionManager.getInstance().writeAccountsFile();
+				AccountSessionManager.getInstance().writeAccountPushSettings(accountID);
 			}catch(NoSuchAlgorithmException|InvalidAlgorithmParameterException e){
 				Log.e(TAG, "registerAccountForPush: error generating encryption key", e);
 				return;
@@ -165,7 +165,7 @@ public class PushSubscriptionManager{
 								if(session==null)
 									return;
 								session.pushSubscription=result;
-								AccountSessionManager.getInstance().writeAccountsFile();
+								AccountSessionManager.getInstance().writeAccountPushSettings(accountID);
 								Log.d(TAG, "Successfully registered "+accountID+" for push notifications");
 							});
 						}
@@ -191,7 +191,7 @@ public class PushSubscriptionManager{
 							result.policy=subscription.policy;
 						session.pushSubscription=result;
 						session.needUpdatePushSettings=false;
-						AccountSessionManager.getInstance().writeAccountsFile();
+						AccountSessionManager.getInstance().writeAccountPushSettings(accountID);
 					}
 
 					@Override
@@ -204,7 +204,7 @@ public class PushSubscriptionManager{
 								return;
 							session.needUpdatePushSettings=true;
 							session.pushSubscription=subscription;
-							AccountSessionManager.getInstance().writeAccountsFile();
+							AccountSessionManager.getInstance().writeAccountPushSettings(accountID);
 						}
 					}
 				})

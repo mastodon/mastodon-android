@@ -27,10 +27,8 @@ import org.joinmastodon.android.model.Status;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.EnumSet;
@@ -43,7 +41,7 @@ import me.grishka.appkit.utils.WorkerThread;
 
 public class CacheController{
 	private static final String TAG="CacheController";
-	private static final int DB_VERSION=3;
+	private static final int DB_VERSION=4;
 	public static final WorkerThread databaseThread=new WorkerThread("databaseThread");
 	public static final Handler uiHandler=new Handler(Looper.getMainLooper());
 
@@ -320,7 +318,7 @@ public class CacheController{
 						lists=result;
 						if(callback!=null)
 							callback.onSuccess(result);
-						writeListsToFile();
+						writeLists();
 					}
 
 					@Override
@@ -332,26 +330,22 @@ public class CacheController{
 				.exec(accountID);
 	}
 
-	private List<FollowList> loadListsFromFile(){
-		File file=getListsFile();
-		if(!file.exists())
-			return null;
-		try(InputStreamReader in=new InputStreamReader(new FileInputStream(file))){
-			return MastodonAPIController.gson.fromJson(in, new TypeToken<List<FollowList>>(){}.getType());
-		}catch(Exception x){
-			Log.w(TAG, "failed to read lists from cache file", x);
-			return null;
+	private List<FollowList> loadLists(){
+		SQLiteDatabase db=getOrOpenDatabase();
+		try(Cursor cursor=db.query("misc", new String[]{"value"}, "`key`=?", new String[]{"lists"}, null, null, null)){
+			if(!cursor.moveToFirst())
+				return null;
+			return MastodonAPIController.gson.fromJson(cursor.getString(0), new TypeToken<List<FollowList>>(){}.getType());
 		}
 	}
 
-	private void writeListsToFile(){
-		databaseThread.postRunnable(()->{
-			try(OutputStreamWriter out=new OutputStreamWriter(new FileOutputStream(getListsFile()))){
-				MastodonAPIController.gson.toJson(lists, out);
-			}catch(IOException x){
-				Log.w(TAG, "failed to write lists to cache file", x);
-			}
-		}, 0);
+	private void writeLists(){
+		runOnDbThread(db->{
+			ContentValues values=new ContentValues();
+			values.put("key", "lists");
+			values.put("value", MastodonAPIController.gson.toJson(lists));
+			db.insertWithOnConflict("misc", null, values, SQLiteDatabase.CONFLICT_REPLACE);
+		});
 	}
 
 	public void getLists(Callback<List<FollowList>> callback){
@@ -361,7 +355,7 @@ public class CacheController{
 			return;
 		}
 		databaseThread.postRunnable(()->{
-			List<FollowList> lists=loadListsFromFile();
+			List<FollowList> lists=loadLists();
 			if(lists!=null){
 				this.lists=lists;
 				if(callback!=null)
@@ -372,23 +366,19 @@ public class CacheController{
 		}, 0);
 	}
 
-	public File getListsFile(){
-		return new File(MastodonApp.context.getFilesDir(), "lists_"+accountID+".json");
-	}
-
 	public void addList(FollowList list){
 		if(lists==null)
 			return;
 		lists.add(list);
 		lists.sort(Comparator.comparing(l->l.title));
-		writeListsToFile();
+		writeLists();
 	}
 
 	public void deleteList(String id){
 		if(lists==null)
 			return;
 		lists.removeIf(l->l.id.equals(id));
-		writeListsToFile();
+		writeLists();
 	}
 
 	public void updateList(FollowList list){
@@ -398,7 +388,7 @@ public class CacheController{
 			if(lists.get(i).id.equals(list.id)){
 				lists.set(i, list);
 				lists.sort(Comparator.comparing(l->l.title));
-				writeListsToFile();
+				writeLists();
 				break;
 			}
 		}
@@ -436,6 +426,7 @@ public class CacheController{
 							`time` INTEGER NOT NULL
 						)""");
 			createRecentSearchesTable(db);
+			createMiscTable(db);
 		}
 
 		@Override
@@ -445,6 +436,9 @@ public class CacheController{
 			}
 			if(oldVersion<3){
 				addTimeColumns(db);
+			}
+			if(oldVersion<4){
+				createMiscTable(db);
 			}
 		}
 
@@ -464,6 +458,14 @@ public class CacheController{
 			db.execSQL("ALTER TABLE `home_timeline` ADD `time` INTEGER NOT NULL DEFAULT 0");
 			db.execSQL("ALTER TABLE `notifications_all` ADD `time` INTEGER NOT NULL DEFAULT 0");
 			db.execSQL("ALTER TABLE `notifications_mentions` ADD `time` INTEGER NOT NULL DEFAULT 0");
+		}
+
+		private void createMiscTable(SQLiteDatabase db){
+			db.execSQL("""
+						CREATE TABLE `misc` (
+							`key` TEXT NOT NULL PRIMARY KEY,
+							`value` TEXT
+						)""");
 		}
 	}
 }
