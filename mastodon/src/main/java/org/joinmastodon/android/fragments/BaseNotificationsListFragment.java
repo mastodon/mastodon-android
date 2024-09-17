@@ -9,14 +9,12 @@ import org.joinmastodon.android.model.Notification;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.displayitems.NotificationHeaderStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.StatusDisplayItem;
-import org.joinmastodon.android.ui.utils.InsetStatusItemDecoration;
 import org.parceler.Parcels;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import androidx.recyclerview.widget.RecyclerView;
 import me.grishka.appkit.Nav;
 
 public abstract class BaseNotificationsListFragment extends BaseStatusListFragment<Notification>{
@@ -36,7 +34,8 @@ public abstract class BaseNotificationsListFragment extends BaseStatusListFragme
 			}
 		}
 		if(n.status!=null){
-			int flags=titleItem==null ? 0 : (StatusDisplayItem.FLAG_NO_FOOTER | StatusDisplayItem.FLAG_INSET | StatusDisplayItem.FLAG_NO_HEADER);
+			// TODO
+			int flags=titleItem==null ? 0 : (StatusDisplayItem.FLAG_NO_FOOTER | StatusDisplayItem.FLAG_NO_HEADER);
 			ArrayList<StatusDisplayItem> items=StatusDisplayItem.buildItems(this, n.status, accountID, n, knownAccounts, flags);
 			if(titleItem!=null)
 				items.add(0, titleItem);
@@ -110,11 +109,5 @@ public abstract class BaseNotificationsListFragment extends BaseStatusListFragme
 		endMark=v.findViewById(R.id.end_mark);
 		endMark.setVisibility(View.GONE);
 		return v;
-	}
-
-	@Override
-	public void onViewCreated(View view, Bundle savedInstanceState){
-		super.onViewCreated(view, savedInstanceState);
-		list.addItemDecoration(new InsetStatusItemDecoration(this));
 	}
 }

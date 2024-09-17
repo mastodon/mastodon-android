@@ -71,6 +71,7 @@ public class ThreadFragment extends StatusListFragment{
 		List<StatusDisplayItem> items=super.buildDisplayItems(s);
 		if(s.id.equals(mainStatus.id)){
 			for(StatusDisplayItem item:items){
+				item.fullWidth=true;
 				if(item instanceof TextStatusDisplayItem text)
 					text.textSelectable=true;
 				else if(item instanceof FooterStatusDisplayItem footer)

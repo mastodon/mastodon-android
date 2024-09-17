@@ -8,7 +8,6 @@ import android.graphics.Path;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
@@ -55,7 +54,7 @@ public class ZoomPanView extends FrameLayout implements ScaleGestureDetector.OnS
 	private float lastFlingVelocityY;
 	private float backgroundAlphaForTransition=1f;
 	private boolean forceUpdateLayout;
-	private int[] transitionCornerRadius;
+	private float[] transitionCornerRadius;
 	private Path transitionClipPath=new Path();
 	private float[] tmpFloatArray=new float[8];
 
@@ -72,13 +71,13 @@ public class ZoomPanView extends FrameLayout implements ScaleGestureDetector.OnS
 		@Override
 		public void setValue(ZoomPanView object, float value){
 			object.rawCropAndFadeValue=value;
-			if(value>0.1f)
-				object.child.setAlpha(Math.min((value-0.1f)/0.4f, 1f));
+			if(value>0.3f)
+				object.child.setAlpha(Math.min((value-0.3f)/0.2f, 1f));
 			else
 				object.child.setAlpha(0f);
 
-			if(value>0.3f)
-				object.setCropAnimationValue(Math.min(1f, (value-0.3f)/0.7f));
+			if(value>0.5f)
+				object.setCropAnimationValue(Math.min(1f, (value-0.5f)/0.5f));
 			else
 				object.setCropAnimationValue(0f);
 
@@ -159,10 +158,10 @@ public class ZoomPanView extends FrameLayout implements ScaleGestureDetector.OnS
 			canvas.save();
 			if(transitionCornerRadius!=null){
 				float radiusScale=child.getScaleX();
-				tmpFloatArray[0]=tmpFloatArray[1]=(float)transitionCornerRadius[0]*radiusScale*(1f-cropAnimationValue);
-				tmpFloatArray[2]=tmpFloatArray[3]=(float)transitionCornerRadius[1]*radiusScale*(1f-cropAnimationValue);
-				tmpFloatArray[4]=tmpFloatArray[5]=(float)transitionCornerRadius[2]*radiusScale*(1f-cropAnimationValue);
-				tmpFloatArray[6]=tmpFloatArray[7]=(float)transitionCornerRadius[3]*radiusScale*(1f-cropAnimationValue);
+				tmpFloatArray[0]=tmpFloatArray[1]=transitionCornerRadius[0]*radiusScale*(1f-cropAnimationValue);
+				tmpFloatArray[2]=tmpFloatArray[3]=transitionCornerRadius[1]*radiusScale*(1f-cropAnimationValue);
+				tmpFloatArray[4]=tmpFloatArray[5]=transitionCornerRadius[2]*radiusScale*(1f-cropAnimationValue);
+				tmpFloatArray[6]=tmpFloatArray[7]=transitionCornerRadius[3]*radiusScale*(1f-cropAnimationValue);
 				transitionClipPath.rewind();
 				transitionClipPath.addRoundRect(interpolate(tmpRect2.left, tmpRect.left, cropAnimationValue),
 						interpolate(tmpRect2.top, tmpRect.top, cropAnimationValue),
@@ -213,12 +212,15 @@ public class ZoomPanView extends FrameLayout implements ScaleGestureDetector.OnS
 		return initialScale;
 	}
 
-	private void validateAndSetCornerRadius(int[] cornerRadius){
+	private void validateAndSetCornerRadius(int[] cornerRadius, float scale){
 		transitionCornerRadius=null;
 		if(cornerRadius!=null && cornerRadius.length==4){
 			for(int corner:cornerRadius){
 				if(corner>0){
-					transitionCornerRadius=cornerRadius;
+					transitionCornerRadius=new float[4];
+					for(int i=0;i<4;i++){
+						transitionCornerRadius[i]=cornerRadius[i]*scale;
+					}
 					break;
 				}
 			}
@@ -240,7 +242,7 @@ public class ZoomPanView extends FrameLayout implements ScaleGestureDetector.OnS
 		animatingTransition=true;
 
 		matrix.getValues(matrixValues);
-		validateAndSetCornerRadius(cornerRadius);
+		validateAndSetCornerRadius(cornerRadius, 1f/initialScale);
 
 		child.setAlpha(0f);
 		setupAndStartTransitionAnim(new SpringAnimation(this, CROP_AND_FADE, 1f).setMinimumVisibleChange(DynamicAnimation.MIN_VISIBLE_CHANGE_SCALE));
@@ -270,7 +272,7 @@ public class ZoomPanView extends FrameLayout implements ScaleGestureDetector.OnS
 		animatingTransition=true;
 		dismissAfterTransition=true;
 		rawCropAndFadeValue=1f;
-		validateAndSetCornerRadius(cornerRadius);
+		validateAndSetCornerRadius(cornerRadius, 1f/initialScale);
 
 		setupAndStartTransitionAnim(new SpringAnimation(this, CROP_AND_FADE, 0f).setMinimumVisibleChange(DynamicAnimation.MIN_VISIBLE_CHANGE_SCALE));
 		setupAndStartTransitionAnim(new SpringAnimation(child, DynamicAnimation.SCALE_X, initialScale));

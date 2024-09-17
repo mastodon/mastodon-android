@@ -53,6 +53,7 @@ public class FooterStatusDisplayItem extends StatusDisplayItem{
 		private final ColorStateList buttonColors;
 		private final View replyBtn, boostBtn, favoriteBtn, shareBtn;
 		private final PopupMenu boostLongTapMenu, favoriteLongTapMenu;
+		private final View spacer1, spacer2;
 
 		private final View.AccessibilityDelegate buttonAccessibilityDelegate=new View.AccessibilityDelegate(){
 			@Override
@@ -69,6 +70,8 @@ public class FooterStatusDisplayItem extends StatusDisplayItem{
 			boost=findViewById(R.id.boost);
 			favorite=findViewById(R.id.favorite);
 			share=findViewById(R.id.share);
+			spacer1=findViewById(R.id.spacer1);
+			spacer2=findViewById(R.id.spacer2);
 
 			float[] hsb={0, 0, 0};
 			Color.colorToHSV(UiUtils.getThemeColor(activity, R.attr.colorM3Primary), hsb);
@@ -81,8 +84,8 @@ public class FooterStatusDisplayItem extends StatusDisplayItem{
 					{}
 			}, new int[]{
 					Color.HSVToColor(hsb),
-					UiUtils.getThemeColor(activity, R.attr.colorM3OnSurfaceVariant),
-					UiUtils.getThemeColor(activity, R.attr.colorM3OnSurfaceVariant) & 0x80FFFFFF
+					UiUtils.getThemeColor(activity, R.attr.colorM3Outline),
+					UiUtils.getThemeColor(activity, R.attr.colorM3Outline) & 0x80FFFFFF
 			});
 
 			boost.setTextColor(buttonColors);
@@ -120,6 +123,9 @@ public class FooterStatusDisplayItem extends StatusDisplayItem{
 
 		@Override
 		public void onBind(FooterStatusDisplayItem item){
+			spacer1.setVisibility(item.fullWidth ? View.VISIBLE : View.GONE);
+			spacer2.setVisibility(item.fullWidth ? View.VISIBLE : View.GONE);
+			itemView.setPaddingRelative(V.dp(item.fullWidth ? 8 : 56), itemView.getPaddingTop(), itemView.getPaddingEnd(), itemView.getPaddingBottom());
 			bindButton(reply, item.status.repliesCount);
 			bindButton(boost, item.status.reblogsCount);
 			bindButton(favorite, item.status.favouritesCount);

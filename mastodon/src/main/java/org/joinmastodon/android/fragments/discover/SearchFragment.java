@@ -30,8 +30,6 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 import me.grishka.appkit.Nav;
-import me.grishka.appkit.api.Callback;
-import me.grishka.appkit.api.ErrorResponse;
 import me.grishka.appkit.api.SimpleCallback;
 
 public class SearchFragment extends BaseStatusListFragment<SearchResult>{
@@ -65,7 +63,7 @@ public class SearchFragment extends BaseStatusListFragment<SearchResult>{
 		return switch(s.type){
 			case ACCOUNT -> Collections.singletonList(new AccountStatusDisplayItem(s.id, this, s.account));
 			case HASHTAG -> Collections.singletonList(new HashtagStatusDisplayItem(s.id, this, s.hashtag));
-			case STATUS -> StatusDisplayItem.buildItems(this, s.status, accountID, s, knownAccounts, false, true);
+			case STATUS -> StatusDisplayItem.buildItems(this, s.status, accountID, s, knownAccounts, true);
 		};
 	}
 

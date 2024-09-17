@@ -35,10 +35,10 @@ import me.grishka.appkit.views.UsableRecyclerView;
 public abstract class StatusDisplayItem{
 	public final String parentID;
 	public final BaseStatusListFragment<?> parentFragment;
-	public boolean inset;
+	public boolean fullWidth; // aka "highlighted"
 	public int index;
 
-	public static final int FLAG_INSET=1;
+	public static final int FLAG_FULL_WIDTH=1;
 	public static final int FLAG_NO_FOOTER=1 << 1;
 	public static final int FLAG_CHECKABLE=1 << 2;
 	public static final int FLAG_MEDIA_FORCE_HIDDEN=1 << 3;
@@ -82,16 +82,14 @@ public abstract class StatusDisplayItem{
 		};
 	}
 
-	public static ArrayList<StatusDisplayItem> buildItems(BaseStatusListFragment fragment, Status status, String accountID, DisplayItemsParent parentObject, Map<String, Account> knownAccounts, boolean inset, boolean addFooter){
+	public static ArrayList<StatusDisplayItem> buildItems(BaseStatusListFragment<?> fragment, Status status, String accountID, DisplayItemsParent parentObject, Map<String, Account> knownAccounts, boolean addFooter){
 		int flags=0;
-		if(inset)
-			flags|=FLAG_INSET;
 		if(!addFooter)
 			flags|=FLAG_NO_FOOTER;
 		return buildItems(fragment, status, accountID, parentObject, knownAccounts, flags);
 	}
 
-	public static ArrayList<StatusDisplayItem> buildItems(BaseStatusListFragment fragment, Status status, String accountID, DisplayItemsParent parentObject, Map<String, Account> knownAccounts, int flags){
+	public static ArrayList<StatusDisplayItem> buildItems(BaseStatusListFragment<?> fragment, Status status, String accountID, DisplayItemsParent parentObject, Map<String, Account> knownAccounts, int flags){
 		String parentID=parentObject.getID();
 		ArrayList<StatusDisplayItem> items=new ArrayList<>();
 		Status statusForContent=status.getContentStatus();
@@ -99,10 +97,10 @@ public abstract class StatusDisplayItem{
 		boolean hideCounts=!AccountSessionManager.get(accountID).getLocalPreferences().showInteractionCounts;
 		if((flags & FLAG_NO_HEADER)==0){
 			if(status.reblog!=null){
-				items.add(new ReblogOrReplyLineStatusDisplayItem(parentID, fragment, fragment.getString(R.string.user_boosted, status.account.displayName), status.account.emojis, R.drawable.ic_repeat_20px));
+				items.add(new ReblogOrReplyLineStatusDisplayItem(parentID, fragment, fragment.getString(R.string.user_boosted, status.account.displayName), status.account.emojis, R.drawable.ic_repeat_wght700_20px));
 			}else if(status.inReplyToAccountId!=null && knownAccounts.containsKey(status.inReplyToAccountId)){
 				Account account=Objects.requireNonNull(knownAccounts.get(status.inReplyToAccountId));
-				items.add(new ReblogOrReplyLineStatusDisplayItem(parentID, fragment, fragment.getString(R.string.in_reply_to, account.displayName), account.emojis, R.drawable.ic_reply_20px));
+				items.add(new ReblogOrReplyLineStatusDisplayItem(parentID, fragment, fragment.getString(R.string.in_reply_to, account.displayName), account.emojis, R.drawable.ic_reply_wght700_20px));
 			}
 			if((flags & FLAG_CHECKABLE)!=0)
 				items.add(header=new CheckableHeaderStatusDisplayItem(parentID, statusForContent.account, statusForContent.createdAt, fragment, accountID, statusForContent, null));
@@ -185,21 +183,20 @@ public abstract class StatusDisplayItem{
 				items.add(new GapStatusDisplayItem(parentID, fragment));
 		}
 		int i=1;
-		boolean inset=(flags & FLAG_INSET)!=0;
+		boolean fullWidth=(flags & FLAG_FULL_WIDTH)!=0;
 		for(StatusDisplayItem item:items){
-			item.inset=inset;
+			item.fullWidth=fullWidth;
 			item.index=i++;
 		}
 		if(items!=contentItems){
 			for(StatusDisplayItem item:contentItems){
-				item.inset=inset;
 				item.index=i++;
 			}
 		}
 		return items;
 	}
 
-	public static void buildPollItems(String parentID, BaseStatusListFragment fragment, Poll poll, Status status, List<StatusDisplayItem> items){
+	public static void buildPollItems(String parentID, BaseStatusListFragment<?> fragment, Poll poll, Status status, List<StatusDisplayItem> items){
 		int i=0;
 		for(Poll.Option opt:poll.options){
 			items.add(new PollOptionStatusDisplayItem(parentID, poll, i, fragment, status));

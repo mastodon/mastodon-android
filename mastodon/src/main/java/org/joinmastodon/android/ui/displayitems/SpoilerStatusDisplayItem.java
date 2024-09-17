@@ -21,6 +21,7 @@ import java.util.ArrayList;
 
 import me.grishka.appkit.imageloader.ImageLoaderViewHolder;
 import me.grishka.appkit.imageloader.requests.ImageLoaderRequest;
+import me.grishka.appkit.utils.V;
 
 public class SpoilerStatusDisplayItem extends StatusDisplayItem{
 	public final Status status;
@@ -88,6 +89,7 @@ public class SpoilerStatusDisplayItem extends StatusDisplayItem{
 
 		@Override
 		public void onBind(SpoilerStatusDisplayItem item){
+			itemView.setPaddingRelative(V.dp(item.fullWidth ? 16 : 64), itemView.getPaddingTop(), itemView.getPaddingEnd(), itemView.getPaddingBottom());
 			if(item.status.translationState==Status.TranslationState.SHOWN){
 				if(item.translatedTitle==null){
 					item.translatedTitle=item.status.translation.spoilerText;

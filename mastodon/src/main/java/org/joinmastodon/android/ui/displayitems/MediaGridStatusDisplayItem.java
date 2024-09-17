@@ -1,22 +1,15 @@
 package org.joinmastodon.android.ui.displayitems;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.animation.AnimatorSet;
-import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
 import android.text.TextUtils;
-import android.util.Log;
 import android.util.Pair;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
 import android.widget.FrameLayout;
-import android.widget.ImageButton;
 import android.widget.TextView;
 
 import org.joinmastodon.android.R;
@@ -46,7 +39,6 @@ import java.util.Optional;
 import me.grishka.appkit.imageloader.ImageLoaderViewHolder;
 import me.grishka.appkit.imageloader.requests.ImageLoaderRequest;
 import me.grishka.appkit.imageloader.requests.UrlImageLoaderRequest;
-import me.grishka.appkit.utils.CubicBezierInterpolator;
 import me.grishka.appkit.utils.V;
 
 public class MediaGridStatusDisplayItem extends StatusDisplayItem{
@@ -138,6 +130,8 @@ public class MediaGridStatusDisplayItem extends StatusDisplayItem{
 			sensitiveOverlayBG.setDrawableByLayerId(R.id.right_drawable, new SpoilerStripesDrawable(true));
 			sensitiveOverlay.setBackground(sensitiveOverlayBG);
 			sensitiveOverlay.setOnClickListener(v->revealSensitive());
+			sensitiveOverlay.setOutlineProvider(OutlineProviders.roundedRect(8));
+			sensitiveOverlay.setClipToOutline(true);
 			hideSensitiveButton.setOnClickListener(v->hideSensitive());
 
 			sensitiveText=findViewById(R.id.sensitive_text);
@@ -146,7 +140,7 @@ public class MediaGridStatusDisplayItem extends StatusDisplayItem{
 		@Override
 		public void onBind(MediaGridStatusDisplayItem item){
 			thereAreFailedImages=false;
-			wrapper.setPadding(0, 0, 0, item.inset ? 0 : V.dp(8));
+			wrapper.setPaddingRelative(V.dp(item.fullWidth ? 16 : 64), 0, V.dp(16), V.dp(8));
 
 			layout.setTiledLayout(item.tiledLayout);
 			for(MediaAttachmentViewController c:controllers){

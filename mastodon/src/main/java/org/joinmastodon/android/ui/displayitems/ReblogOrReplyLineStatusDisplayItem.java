@@ -20,6 +20,7 @@ import java.util.List;
 import androidx.annotation.DrawableRes;
 import me.grishka.appkit.imageloader.ImageLoaderViewHolder;
 import me.grishka.appkit.imageloader.requests.ImageLoaderRequest;
+import me.grishka.appkit.utils.V;
 
 public class ReblogOrReplyLineStatusDisplayItem extends StatusDisplayItem{
 	private CharSequence text;
@@ -62,9 +63,15 @@ public class ReblogOrReplyLineStatusDisplayItem extends StatusDisplayItem{
 		@Override
 		public void onBind(ReblogOrReplyLineStatusDisplayItem item){
 			text.setText(item.text);
-			text.setCompoundDrawablesRelativeWithIntrinsicBounds(item.icon, 0, 0, 0);
-			if(Build.VERSION.SDK_INT<Build.VERSION_CODES.N)
-				UiUtils.fixCompoundDrawableTintOnAndroid6(text);
+			if(item.icon!=0){
+				Drawable icon=itemView.getContext().getDrawable(item.icon);
+				icon.setBounds(0, 0, V.dp(16), V.dp(16));
+				text.setCompoundDrawablesRelative(icon, null, null, null);
+				if(Build.VERSION.SDK_INT<Build.VERSION_CODES.N)
+					UiUtils.fixCompoundDrawableTintOnAndroid6(text);
+			}else{
+				text.setCompoundDrawables(null, null, null, null);
+			}
 		}
 
 		@Override

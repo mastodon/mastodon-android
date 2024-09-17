@@ -98,10 +98,13 @@ public class AudioStatusDisplayItem extends StatusDisplayItem{
 			image.setOutlineProvider(OutlineProviders.OVAL);
 			image.setClipToOutline(true);
 			content.setBackground(bgDrawable=new AudioAttachmentBackgroundDrawable());
+			content.setOutlineProvider(OutlineProviders.roundedRect(8));
+			content.setClipToOutline(true);
 		}
 
 		@Override
 		public void onBind(AudioStatusDisplayItem item){
+			itemView.setPaddingRelative(V.dp(item.fullWidth ? 16 : 64), itemView.getPaddingTop(), itemView.getPaddingEnd(), itemView.getPaddingBottom());
 			int seconds=(int)item.attachment.getDuration();
 			String duration=UiUtils.formatMediaDuration(seconds);
 			AudioPlayerService service=AudioPlayerService.getInstance();

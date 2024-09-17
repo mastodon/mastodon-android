@@ -9,7 +9,6 @@ import android.graphics.drawable.Animatable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Parcel;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.view.Menu;
@@ -23,7 +22,6 @@ import android.widget.Toast;
 
 import org.joinmastodon.android.GlobalUserPreferences;
 import org.joinmastodon.android.R;
-import org.joinmastodon.android.api.requests.accounts.GetAccountRelationships;
 import org.joinmastodon.android.api.requests.statuses.GetStatusSourceText;
 import org.joinmastodon.android.api.requests.statuses.SetStatusConversationMuted;
 import org.joinmastodon.android.api.requests.statuses.SetStatusPinned;
@@ -46,13 +44,10 @@ import org.joinmastodon.android.ui.utils.UiUtils;
 import org.parceler.Parcels;
 
 import java.time.Instant;
-import java.util.Collections;
-import java.util.List;
 import java.util.Locale;
 
 import androidx.annotation.LayoutRes;
 import me.grishka.appkit.Nav;
-import me.grishka.appkit.api.APIRequest;
 import me.grishka.appkit.api.Callback;
 import me.grishka.appkit.api.ErrorResponse;
 import me.grishka.appkit.imageloader.ImageLoaderViewHolder;
@@ -272,9 +267,7 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 				extraText.setVisibility(View.VISIBLE);
 				extraText.setText(item.extraText);
 			}
-			more.setVisibility(item.inset ? View.GONE : View.VISIBLE);
 			if(clickableThing!=null){
-				clickableThing.setClickable(!item.inset);
 				clickableThing.setContentDescription(item.parentFragment.getString(R.string.avatar_description, item.user.acct));
 			}
 		}

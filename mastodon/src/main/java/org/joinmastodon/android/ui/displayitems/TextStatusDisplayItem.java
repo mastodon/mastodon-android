@@ -3,7 +3,7 @@ package org.joinmastodon.android.ui.displayitems;
 import android.app.Activity;
 import android.graphics.drawable.Animatable;
 import android.graphics.drawable.Drawable;
-import android.text.SpannableStringBuilder;
+import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewStub;
@@ -95,7 +95,9 @@ public class TextStatusDisplayItem extends StatusDisplayItem{
 			text.setInvalidateOnEveryFrame(false);
 			itemView.setClickable(false);
 			text.setPadding(text.getPaddingLeft(), item.reduceTopPadding ? V.dp(8) : V.dp(12), text.getPaddingRight(), text.getPaddingBottom());
-			text.setTextColor(UiUtils.getThemeColor(text.getContext(), item.inset ? R.attr.colorM3OnSurfaceVariant : R.attr.colorM3OnSurface));
+			itemView.setPaddingRelative(V.dp(item.fullWidth ? 0 : 48), 0, 0, 0);
+			text.setTextColor(UiUtils.getThemeColor(text.getContext(), R.attr.colorM3OnSurface));
+			text.setTextSize(TypedValue.COMPLEX_UNIT_SP, item.fullWidth ? 18 : 16);
 			updateTranslation(false);
 		}
 

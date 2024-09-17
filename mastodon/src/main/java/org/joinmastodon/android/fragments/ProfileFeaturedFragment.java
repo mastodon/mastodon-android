@@ -51,7 +51,7 @@ public class ProfileFeaturedFragment extends BaseStatusListFragment<SearchResult
 		ArrayList<StatusDisplayItem> items=switch(s.type){
 			case ACCOUNT -> new ArrayList<>(Collections.singletonList(new AccountStatusDisplayItem(s.id, this, s.account)));
 			case HASHTAG -> new ArrayList<>(Collections.singletonList(new HashtagStatusDisplayItem(s.id, this, s.hashtag)));
-			case STATUS -> StatusDisplayItem.buildItems(this, s.status, accountID, s, knownAccounts, false, true);
+			case STATUS -> StatusDisplayItem.buildItems(this, s.status, accountID, s, knownAccounts, true);
 		};
 
 		if(s.firstInSection){

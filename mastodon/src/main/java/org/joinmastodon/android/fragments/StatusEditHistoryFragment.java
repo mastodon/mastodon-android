@@ -2,14 +2,12 @@ package org.joinmastodon.android.fragments;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.view.View;
 
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.requests.statuses.GetStatusEditHistory;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.displayitems.ReblogOrReplyLineStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.StatusDisplayItem;
-import org.joinmastodon.android.ui.utils.InsetStatusItemDecoration;
 import org.joinmastodon.android.ui.utils.UiUtils;
 
 import java.time.ZoneId;
@@ -54,7 +52,7 @@ public class StatusEditHistoryFragment extends StatusListFragment{
 
 	@Override
 	protected List<StatusDisplayItem> buildDisplayItems(Status s){
-		List<StatusDisplayItem> items=StatusDisplayItem.buildItems(this, s, accountID, s, knownAccounts, true, false);
+		List<StatusDisplayItem> items=StatusDisplayItem.buildItems(this, s, accountID, s, knownAccounts, false);
 		int idx=data.indexOf(s);
 		if(idx>=0){
 			String date=UiUtils.DATE_TIME_FORMATTER.format(s.createdAt.atZone(ZoneId.systemDefault()));
@@ -142,12 +140,6 @@ public class StatusEditHistoryFragment extends StatusListFragment{
 			items.add(0, new ReblogOrReplyLineStatusDisplayItem(s.id, this, action+" · "+date, Collections.emptyList(), 0));
 		}
 		return items;
-	}
-
-	@Override
-	public void onViewCreated(View view, Bundle savedInstanceState){
-		super.onViewCreated(view, savedInstanceState);
-		list.addItemDecoration(new InsetStatusItemDecoration(this));
 	}
 
 	@Override

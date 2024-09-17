@@ -2,19 +2,20 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="match_parent"
 	android:layout_height="wrap_content"
-	android:paddingLeft="16dp"
-	android:paddingRight="16dp"
-	android:paddingTop="16dp">
+	android:paddingStart="40dp"
+	android:paddingEnd="16dp"
+	android:paddingTop="12dp"
+	android:layout_marginBottom="-8dp">
 
 	<TextView
 		android:id="@+id/text"
 		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:textAppearance="@style/m3_label_large"
-		android:drawableStart="@drawable/ic_repeat_20px"
-		android:drawableTint="?colorM3OnSurfaceVariant"
-		android:textColor="?colorM3OnSurfaceVariant"
-		android:drawablePadding="6dp"
+		android:layout_height="16dp"
+		android:textAppearance="@style/m3_label_medium"
+		android:drawableTint="?colorM3Outline"
+		android:textColor="?colorM3Outline"
+		android:drawablePadding="8dp"
+		android:gravity="center_vertical"
 		android:singleLine="true"
 		android:ellipsize="end"/>
 

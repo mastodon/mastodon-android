@@ -25,6 +25,7 @@ public class FrameLayoutThatOnlyMeasuresFirstChild extends FrameLayout{
 		View child0=getChildAt(0);
 		measureChild(child0, widthMeasureSpec, heightMeasureSpec);
 		int vpad=getPaddingTop()+getPaddingBottom();
-		super.onMeasure(child0.getMeasuredWidth() | MeasureSpec.EXACTLY, (child0.getMeasuredHeight()+vpad) | MeasureSpec.EXACTLY);
+		int hpad=getPaddingLeft()+getPaddingRight();
+		super.onMeasure((child0.getMeasuredWidth()+hpad) | MeasureSpec.EXACTLY, (child0.getMeasuredHeight()+vpad) | MeasureSpec.EXACTLY);
 	}
 }

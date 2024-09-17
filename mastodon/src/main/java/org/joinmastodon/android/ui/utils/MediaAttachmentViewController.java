@@ -1,20 +1,24 @@
 package org.joinmastodon.android.ui.utils;
 
 import android.content.Context;
+import android.graphics.Outline;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewOutlineProvider;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.model.Attachment;
 import org.joinmastodon.android.model.Status;
+import org.joinmastodon.android.ui.PhotoLayoutHelper;
 import org.joinmastodon.android.ui.displayitems.MediaGridStatusDisplayItem;
 import org.joinmastodon.android.ui.drawables.BlurhashCrossfadeDrawable;
 import org.joinmastodon.android.ui.drawables.PlayIconDrawable;
+import org.joinmastodon.android.ui.views.MediaGridLayout;
 
 import me.grishka.appkit.utils.V;
 
@@ -32,6 +36,31 @@ public class MediaAttachmentViewController{
 	private boolean didClear;
 	private Status status;
 	private Attachment attachment;
+	private ViewOutlineProvider outlineProvider=new ViewOutlineProvider(){
+		@Override
+		public void getOutline(View view, Outline outline){
+			MediaGridLayout.LayoutParams lp=(MediaGridLayout.LayoutParams) MediaAttachmentViewController.this.view.getLayoutParams();
+			int mask=lp.tile.getRoundCornersMask();
+			int radius=V.dp(8);
+			if(mask==(PhotoLayoutHelper.CORNER_TL | PhotoLayoutHelper.CORNER_TR | PhotoLayoutHelper.CORNER_BL | PhotoLayoutHelper.CORNER_BR)){
+				outline.setRoundRect(0, 0, view.getWidth(), view.getHeight(), radius);
+			}else if(mask==(PhotoLayoutHelper.CORNER_TL | PhotoLayoutHelper.CORNER_TR)){
+				outline.setRoundRect(0, 0, view.getWidth(), view.getHeight()+radius, radius);
+			}else if(mask==(PhotoLayoutHelper.CORNER_BL | PhotoLayoutHelper.CORNER_BR)){
+				outline.setRoundRect(0, -radius, view.getWidth(), view.getHeight(), radius);
+			}else if(mask==PhotoLayoutHelper.CORNER_TL){
+				outline.setRoundRect(0, 0, view.getWidth()+radius, view.getHeight()+radius, radius);
+			}else if(mask==PhotoLayoutHelper.CORNER_TR){
+				outline.setRoundRect(-radius, 0, view.getWidth(), view.getHeight()+radius, radius);
+			}else if(mask==PhotoLayoutHelper.CORNER_BL){
+				outline.setRoundRect(0, -radius, view.getWidth()+radius, view.getHeight(), radius);
+			}else if(mask==PhotoLayoutHelper.CORNER_BR){
+				outline.setRoundRect(-radius, -radius, view.getWidth(), view.getHeight(), radius);
+			}else{
+				outline.setRect(0, 0, view.getWidth(), view.getHeight());
+			}
+		}
+	};
 
 	public MediaAttachmentViewController(Context context, MediaGridStatusDisplayItem.GridItemType type){
 		view=context.getSystemService(LayoutInflater.class).inflate(switch(type){
@@ -52,6 +81,12 @@ public class MediaAttachmentViewController{
 			if(Build.VERSION.SDK_INT<28)
 				playButton.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
 			playButton.setBackground(new PlayIconDrawable(context));
+		}
+		photo.setOutlineProvider(outlineProvider);
+		photo.setClipToOutline(true);
+		if(failedOverlay!=null){
+			failedOverlay.setOutlineProvider(outlineProvider);
+			failedOverlay.setClipToOutline(true);
 		}
 	}
 

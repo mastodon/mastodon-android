@@ -12,19 +12,19 @@
 		android:id="@+id/reply_btn"
 		android:layout_width="wrap_content"
 		android:layout_height="match_parent"
-		android:paddingLeft="8dp"
-		android:paddingRight="8dp"
+		android:layout_marginEnd="4dp"
+		android:paddingHorizontal="8dp"
 		android:background="?android:actionBarItemBackground"
-		android:minWidth="34dp">
+		android:minWidth="64dp">
 		<TextView
 			android:id="@+id/reply"
 			android:layout_width="wrap_content"
 			android:layout_height="24dp"
-			android:layout_gravity="center"
+			android:layout_gravity="center|start"
 			android:drawableStart="@drawable/ic_reply_20px"
 			android:drawablePadding="6dp"
-			android:drawableTint="?colorM3OnSurfaceVariant"
-			android:textColor="?colorM3OnSurfaceVariant"
+			android:drawableTint="?colorM3Outline"
+			android:textColor="?colorM3Outline"
 			android:gravity="center_vertical"
 			android:textAppearance="@style/m3_label_medium"
 			android:duplicateParentState="true"
@@ -32,6 +32,7 @@
 	</FrameLayout>
 
 	<Space
+		android:id="@+id/spacer1"
 		android:layout_width="0px"
 		android:layout_height="1px"
 		android:layout_weight="1"/>
@@ -40,19 +41,19 @@
 		android:id="@+id/boost_btn"
 		android:layout_width="wrap_content"
 		android:layout_height="match_parent"
-		android:paddingLeft="8dp"
-		android:paddingRight="8dp"
+		android:layout_marginHorizontal="4dp"
+		android:paddingHorizontal="8dp"
 		android:background="?android:actionBarItemBackground"
-		android:minWidth="34dp">
+		android:minWidth="64dp">
 		<TextView
 			android:id="@+id/boost"
 			android:layout_width="wrap_content"
 			android:layout_height="24dp"
-			android:layout_gravity="center"
+			android:layout_gravity="center|start"
 			android:drawableStart="@drawable/ic_repeat_selector"
 			android:drawablePadding="6dp"
-			android:drawableTint="?colorM3OnSurfaceVariant"
-			android:textColor="?colorM3OnSurfaceVariant"
+			android:drawableTint="?colorM3Outline"
+			android:textColor="?colorM3Outline"
 			android:gravity="center_vertical"
 			android:textAppearance="@style/m3_label_medium"
 			android:duplicateParentState="true"
@@ -60,6 +61,7 @@
 	</FrameLayout>
 
 	<Space
+		android:id="@+id/spacer2"
 		android:layout_width="0px"
 		android:layout_height="1px"
 		android:layout_weight="1"/>
@@ -68,19 +70,19 @@
 		android:id="@+id/favorite_btn"
 		android:layout_width="wrap_content"
 		android:layout_height="match_parent"
-		android:paddingLeft="8dp"
-		android:paddingRight="8dp"
+		android:layout_marginHorizontal="4dp"
+		android:paddingHorizontal="8dp"
 		android:background="?android:actionBarItemBackground"
-		android:minWidth="34dp">
+		android:minWidth="64dp">
 		<TextView
 			android:id="@+id/favorite"
 			android:layout_width="wrap_content"
 			android:layout_height="24dp"
-			android:layout_gravity="center"
+			android:layout_gravity="center|start"
 			android:drawableStart="@drawable/ic_star_selector"
 			android:drawablePadding="6dp"
-			android:drawableTint="?colorM3OnSurfaceVariant"
-			android:textColor="?colorM3OnSurfaceVariant"
+			android:drawableTint="?colorM3Outline"
+			android:textColor="?colorM3Outline"
 			android:gravity="center_vertical"
 			android:textAppearance="@style/m3_label_medium"
 			android:duplicateParentState="true"
@@ -96,8 +98,8 @@
 		android:id="@+id/share_btn"
 		android:layout_width="wrap_content"
 		android:layout_height="match_parent"
-		android:paddingLeft="8dp"
-		android:paddingRight="8dp"
+		android:layout_marginStart="4dp"
+		android:paddingHorizontal="8dp"
 		android:background="?android:actionBarItemBackground"
 		android:minWidth="34dp">
 		<ImageView
@@ -106,7 +108,7 @@
 			android:layout_height="24dp"
 			android:layout_gravity="center"
 			android:src="@drawable/ic_share_20px"
-			android:tint="?colorM3OnSurfaceVariant"
+			android:tint="?colorM3Outline"
 			android:gravity="center_vertical"/>
 	</FrameLayout>
 

@@ -29,6 +29,7 @@ import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.model.Translation;
 import org.joinmastodon.android.ui.BetterItemAnimator;
 import org.joinmastodon.android.ui.M3AlertDialogBuilder;
+import org.joinmastodon.android.ui.PhotoLayoutHelper;
 import org.joinmastodon.android.ui.sheets.NonMutualPreReplySheet;
 import org.joinmastodon.android.ui.sheets.OldPostPreReplySheet;
 import org.joinmastodon.android.ui.displayitems.AccountStatusDisplayItem;
@@ -44,6 +45,7 @@ import org.joinmastodon.android.ui.photoviewer.PhotoViewer;
 import org.joinmastodon.android.ui.photoviewer.PhotoViewerHost;
 import org.joinmastodon.android.ui.utils.MediaAttachmentViewController;
 import org.joinmastodon.android.ui.utils.UiUtils;
+import org.joinmastodon.android.ui.views.MediaGridLayout;
 import org.joinmastodon.android.utils.TypedObjectPool;
 
 import java.time.Instant;
@@ -207,6 +209,15 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 					list.setClipChildren(false);
 					gridHolder.setClipChildren(false);
 					transitioningHolder.view.setElevation(1f);
+					int cornerMask=((MediaGridLayout.LayoutParams)holder.view.getLayoutParams()).tile.getRoundCornersMask();
+					if((cornerMask & PhotoLayoutHelper.CORNER_TL)!=0)
+						outCornerRadius[0]=V.dp(8);
+					if((cornerMask & PhotoLayoutHelper.CORNER_TR)!=0)
+						outCornerRadius[1]=V.dp(8);
+					if((cornerMask & PhotoLayoutHelper.CORNER_BR)!=0)
+						outCornerRadius[2]=V.dp(8);
+					if((cornerMask & PhotoLayoutHelper.CORNER_BL)!=0)
+						outCornerRadius[3]=V.dp(8);
 					return true;
 				}
 				return false;

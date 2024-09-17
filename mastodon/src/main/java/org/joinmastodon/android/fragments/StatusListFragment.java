@@ -29,7 +29,7 @@ public abstract class StatusListFragment extends BaseStatusListFragment<Status>{
 	protected EventListener eventListener=new EventListener();
 
 	protected List<StatusDisplayItem> buildDisplayItems(Status s){
-		return StatusDisplayItem.buildItems(this, s, accountID, s, knownAccounts, false, true);
+		return StatusDisplayItem.buildItems(this, s, accountID, s, knownAccounts, true);
 	}
 
 	@Override
