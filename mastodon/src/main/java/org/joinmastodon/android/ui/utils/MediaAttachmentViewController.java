@@ -48,6 +48,10 @@ public class MediaAttachmentViewController{
 				outline.setRoundRect(0, 0, view.getWidth(), view.getHeight()+radius, radius);
 			}else if(mask==(PhotoLayoutHelper.CORNER_BL | PhotoLayoutHelper.CORNER_BR)){
 				outline.setRoundRect(0, -radius, view.getWidth(), view.getHeight(), radius);
+			}else if(mask==(PhotoLayoutHelper.CORNER_TL | PhotoLayoutHelper.CORNER_BL)){
+				outline.setRoundRect(0, 0, view.getWidth()+radius, view.getHeight(), radius);
+			}else if(mask==(PhotoLayoutHelper.CORNER_TR | PhotoLayoutHelper.CORNER_BR)){
+				outline.setRoundRect(-radius, 0, view.getWidth(), view.getHeight(), radius);
 			}else if(mask==PhotoLayoutHelper.CORNER_TL){
 				outline.setRoundRect(0, 0, view.getWidth()+radius, view.getHeight()+radius, radius);
 			}else if(mask==PhotoLayoutHelper.CORNER_TR){

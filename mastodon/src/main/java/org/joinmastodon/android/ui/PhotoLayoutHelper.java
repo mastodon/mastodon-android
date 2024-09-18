@@ -385,6 +385,8 @@ public class PhotoLayoutHelper{
 					return CORNER_BL | CORNER_BR;
 				}else if(startCol==0 && startRow==0 && rowSpan==rowCount){ // Left attachment in a vertical layout
 					return CORNER_TL | CORNER_BL;
+				}else if(startCol==columnCount-1 && startRow==0 && rowSpan==rowCount){ // Right attachment
+					return CORNER_TR | CORNER_BR;
 				}else if(startCol==0 && startRow==0){ // Top left
 					return CORNER_TL;
 				}else if(startCol==columnCount-colSpan && startRow==0){ // Top right
