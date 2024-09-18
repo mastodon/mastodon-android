@@ -349,7 +349,11 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 	protected void drawDivider(View child, View bottomSibling, RecyclerView.ViewHolder holder, RecyclerView.ViewHolder siblingHolder, RecyclerView parent, Canvas c, Paint paint){
 		parent.getDecoratedBoundsWithMargins(child, tmpRect);
 		tmpRect.offset(0, Math.round(child.getTranslationY()));
-		float y=tmpRect.bottom-V.dp(.5f);
+		float y=tmpRect.bottom;
+		int strokeWidth=V.dp(0.5f);
+		if(strokeWidth%2==1){
+			y-=0.5f;
+		}
 		paint.setAlpha(Math.round(255*child.getAlpha()));
 		c.drawLine(0, y, parent.getWidth(), y, paint);
 	}

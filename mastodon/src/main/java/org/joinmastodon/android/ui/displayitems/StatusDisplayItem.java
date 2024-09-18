@@ -43,6 +43,7 @@ public abstract class StatusDisplayItem{
 	public static final int FLAG_CHECKABLE=1 << 2;
 	public static final int FLAG_MEDIA_FORCE_HIDDEN=1 << 3;
 	public static final int FLAG_NO_HEADER=1 << 4;
+	public static final int FLAG_NO_IN_REPLY_TO=1 << 5;
 
 	public StatusDisplayItem(String parentID, BaseStatusListFragment<?> parentFragment){
 		this.parentID=parentID;
@@ -98,7 +99,7 @@ public abstract class StatusDisplayItem{
 		if((flags & FLAG_NO_HEADER)==0){
 			if(status.reblog!=null){
 				items.add(new ReblogOrReplyLineStatusDisplayItem(parentID, fragment, fragment.getString(R.string.user_boosted, status.account.displayName), status.account.emojis, R.drawable.ic_repeat_wght700_20px));
-			}else if(status.inReplyToAccountId!=null && knownAccounts.containsKey(status.inReplyToAccountId)){
+			}else if(status.inReplyToAccountId!=null && knownAccounts.containsKey(status.inReplyToAccountId) && (flags & FLAG_NO_IN_REPLY_TO)==0){
 				Account account=Objects.requireNonNull(knownAccounts.get(status.inReplyToAccountId));
 				items.add(new ReblogOrReplyLineStatusDisplayItem(parentID, fragment, fragment.getString(R.string.in_reply_to, account.displayName), account.emojis, R.drawable.ic_reply_wght700_20px));
 			}

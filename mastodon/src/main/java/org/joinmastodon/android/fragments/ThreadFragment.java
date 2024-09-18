@@ -1,6 +1,8 @@
 package org.joinmastodon.android.fragments;
 
 import android.content.res.ColorStateList;
+import android.graphics.Canvas;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -22,6 +24,7 @@ import org.joinmastodon.android.model.StatusContext;
 import org.joinmastodon.android.ui.OutlineProviders;
 import org.joinmastodon.android.ui.displayitems.ExtendedFooterStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.FooterStatusDisplayItem;
+import org.joinmastodon.android.ui.displayitems.HeaderStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.SpoilerStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.StatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.TextStatusDisplayItem;
@@ -31,7 +34,9 @@ import org.parceler.Parcels;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import me.grishka.appkit.Nav;
 import me.grishka.appkit.api.SimpleCallback;
@@ -49,6 +54,7 @@ public class ThreadFragment extends StatusListFragment{
 	private ImageView replyButtonAva;
 	private TextView replyButtonText;
 	private int lastBottomInset;
+	private Paint replyLinePaint=new Paint(Paint.ANTI_ALIAS_FLAG);
 
 	@Override
 	public void onCreate(Bundle savedInstanceState){
@@ -68,7 +74,7 @@ public class ThreadFragment extends StatusListFragment{
 
 	@Override
 	protected List<StatusDisplayItem> buildDisplayItems(Status s){
-		List<StatusDisplayItem> items=super.buildDisplayItems(s);
+		List<StatusDisplayItem> items=StatusDisplayItem.buildItems(this, s, accountID, s, knownAccounts, StatusDisplayItem.FLAG_NO_IN_REPLY_TO);
 		if(s.id.equals(mainStatus.id)){
 			for(StatusDisplayItem item:items){
 				item.fullWidth=true;
@@ -158,6 +164,8 @@ public class ThreadFragment extends StatusListFragment{
 		showContent();
 		if(!loaded)
 			footerProgress.setVisibility(View.VISIBLE);
+
+		list.addItemDecoration(new ReplyLinesItemDecoration());
 	}
 
 	protected void onStatusCreated(Status status){
@@ -222,5 +230,79 @@ public class ThreadFragment extends StatusListFragment{
 
 	public int getSnackbarOffset(){
 		return replyContainer.getHeight()-lastBottomInset;
+	}
+
+	@Override
+	protected void drawDivider(View child, View bottomSibling, RecyclerView.ViewHolder holder, RecyclerView.ViewHolder siblingHolder, RecyclerView parent, Canvas c, Paint paint){
+		if(holder instanceof StatusDisplayItem.Holder<?> statusHolder && siblingHolder instanceof StatusDisplayItem.Holder<?> siblingStatusHolder){
+			Status siblingStatus=getStatusByID(siblingStatusHolder.getItemID());
+			if(statusHolder.getItemID().equals(siblingStatus.inReplyToId) && siblingStatus!=mainStatus && !statusHolder.getItemID().equals(mainStatus.id))
+				return;
+		}
+		super.drawDivider(child, bottomSibling, holder, siblingHolder, parent, c, paint);
+	}
+
+	private Status findPreviousStatus(String id){
+		for(int i=0;i<data.size();i++){
+			if(data.get(i).id.equals(id))
+				return i>0 ? data.get(i-1) : null;
+		}
+		return null;
+	}
+
+	private Status findNextStatus(String id){
+		for(int i=0;i<data.size();i++){
+			if(data.get(i).id.equals(id))
+				return i<data.size()-1 ? data.get(i+1) : null;
+		}
+		return null;
+	}
+
+	private class ReplyLinesItemDecoration extends RecyclerView.ItemDecoration{
+		private Paint paint=new Paint(Paint.ANTI_ALIAS_FLAG);
+
+		@Override
+		public void onDraw(@NonNull Canvas c, @NonNull RecyclerView parent, @NonNull RecyclerView.State state){
+			String currentID=null;
+			boolean connectUp=false, connectToRoot=false, connectReply=false;
+			paint.setColor(UiUtils.getThemeColor(getActivity(), R.attr.colorM3OutlineVariant));
+			paint.setStyle(Paint.Style.STROKE);
+			paint.setStrokeWidth(V.dp(2));
+			paint.setStrokeCap(Paint.Cap.ROUND);
+			for(int i=0;i<parent.getChildCount();i++){
+				View child=parent.getChildAt(i);
+				if(!(parent.getChildViewHolder(child) instanceof StatusDisplayItem.Holder<?> holder) || holder.getItemID().equals(mainStatus.id))
+					continue;
+				String itemID=holder.getItemID();
+				if(!Objects.equals(currentID, itemID)){
+					currentID=itemID;
+					Status current=getStatusByID(currentID);
+					Status previous=findPreviousStatus(currentID);
+					Status next=findNextStatus(currentID);
+
+					connectUp=previous!=null && previous.id.equals(current.inReplyToId);
+					connectToRoot=mainStatus.id.equals(current.inReplyToId);
+					connectReply=next!=null && itemID.equals(next.inReplyToId);
+				}
+
+				if(!connectUp && !connectToRoot && !connectReply)
+					continue;
+
+				float lineX=V.dp(36);
+				c.save();
+				c.clipRect(child.getX(), child.getY(), child.getX()+child.getWidth(), child.getY()+child.getHeight());
+				if(holder instanceof HeaderStatusDisplayItem.Holder){
+					if(connectUp || connectToRoot){
+						c.drawLine(lineX, child.getY()-V.dp(2), lineX, child.getY()+V.dp(14), paint);
+					}
+					if(connectReply){
+						c.drawLine(lineX, child.getY()+V.dp(62), lineX, child.getY()+child.getHeight()+V.dp(2), paint);
+					}
+				}else if(connectReply){
+					c.drawLine(lineX, child.getY(), lineX, child.getY()+child.getHeight(), paint);
+				}
+				c.restore();
+			}
+		}
 	}
 }
