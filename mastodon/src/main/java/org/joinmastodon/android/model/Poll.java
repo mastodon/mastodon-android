@@ -26,12 +26,14 @@ public class Poll extends BaseModel{
 	public List<Emoji> emojis;
 
 	public transient ArrayList<Option> selectedOptions;
+	public transient boolean showResults;
 
 	@Override
 	public void postprocess() throws ObjectValidationException{
 		super.postprocess();
 		for(Emoji e:emojis)
 			e.postprocess();
+		showResults=voted || isExpired();
 	}
 
 	@Override

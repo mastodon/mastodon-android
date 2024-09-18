@@ -30,8 +30,6 @@ import org.joinmastodon.android.model.Translation;
 import org.joinmastodon.android.ui.BetterItemAnimator;
 import org.joinmastodon.android.ui.M3AlertDialogBuilder;
 import org.joinmastodon.android.ui.PhotoLayoutHelper;
-import org.joinmastodon.android.ui.sheets.NonMutualPreReplySheet;
-import org.joinmastodon.android.ui.sheets.OldPostPreReplySheet;
 import org.joinmastodon.android.ui.displayitems.AccountStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.GapStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.HashtagStatusDisplayItem;
@@ -43,6 +41,8 @@ import org.joinmastodon.android.ui.displayitems.StatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.TextStatusDisplayItem;
 import org.joinmastodon.android.ui.photoviewer.PhotoViewer;
 import org.joinmastodon.android.ui.photoviewer.PhotoViewerHost;
+import org.joinmastodon.android.ui.sheets.NonMutualPreReplySheet;
+import org.joinmastodon.android.ui.sheets.OldPostPreReplySheet;
 import org.joinmastodon.android.ui.utils.MediaAttachmentViewController;
 import org.joinmastodon.android.ui.utils.UiUtils;
 import org.joinmastodon.android.ui.views.MediaGridLayout;
@@ -51,7 +51,6 @@ import org.joinmastodon.android.utils.TypedObjectPool;
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
@@ -362,7 +361,8 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 	public abstract void onItemClick(String id);
 
 	protected void updatePoll(String itemID, Status status, Poll poll){
-		status.poll=poll;
+		if(status.poll!=poll)
+			status.poll=poll;
 		int firstOptionIndex=-1, footerIndex=-1;
 		int i=0;
 		for(StatusDisplayItem item:displayItems){
@@ -393,28 +393,68 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 	public void onPollOptionClick(PollOptionStatusDisplayItem.Holder holder){
 		Poll poll=holder.getItem().poll;
 		Poll.Option option=holder.getItem().option;
+		if(poll.selectedOptions==null)
+			poll.selectedOptions=new ArrayList<>();
 		if(poll.multiple){
-			if(poll.selectedOptions==null)
-				poll.selectedOptions=new ArrayList<>();
 			if(poll.selectedOptions.contains(option)){
 				poll.selectedOptions.remove(option);
-				holder.itemView.setSelected(false);
 			}else{
 				poll.selectedOptions.add(option);
-				holder.itemView.setSelected(true);
 			}
-			for(int i=0;i<list.getChildCount();i++){
-				RecyclerView.ViewHolder vh=list.getChildViewHolder(list.getChildAt(i));
-				if(vh instanceof PollFooterStatusDisplayItem.Holder footer){
-					if(footer.getItemID().equals(holder.getItemID())){
-						footer.rebind();
-						break;
+		}else{
+			if(poll.selectedOptions.contains(option))
+				return;
+			if(!poll.selectedOptions.isEmpty()){
+				Poll.Option previouslySelected=poll.selectedOptions.get(0);
+				poll.selectedOptions.clear();
+				for(int i=0;i<list.getChildCount();i++){
+					RecyclerView.ViewHolder vh=list.getChildViewHolder(list.getChildAt(i));
+					if(vh instanceof PollOptionStatusDisplayItem.Holder otherOption){
+						if(otherOption.getItemID().equals(holder.getItemID()) && otherOption.getItem().option==previouslySelected){
+							otherOption.updateCheckedState();
+							break;
+						}
 					}
 				}
 			}
-		}else{
-			submitPollVote(holder.getItemID(), poll.id, Collections.singletonList(poll.options.indexOf(option)));
+			poll.selectedOptions.add(option);
 		}
+		holder.updateCheckedState();
+		for(int i=0;i<list.getChildCount();i++){
+			RecyclerView.ViewHolder vh=list.getChildViewHolder(list.getChildAt(i));
+			if(vh instanceof PollFooterStatusDisplayItem.Holder footer){
+				if(footer.getItemID().equals(holder.getItemID())){
+					footer.rebind();
+					break;
+				}
+			}
+		}
+	}
+
+	public void onPollToggleResultsClick(PollFooterStatusDisplayItem.Holder holder){
+		Status status=holder.getItem().status.getContentStatus();
+		status.poll.showResults=!status.poll.showResults;
+		String itemID=holder.getItemID();
+		if(status.poll.selectedOptions!=null)
+			status.poll.selectedOptions.clear();
+		int firstOptionIndex=-1, footerIndex=-1;
+		int i=0;
+		for(StatusDisplayItem item:displayItems){
+			if(item.parentID.equals(itemID)){
+				if(item instanceof PollOptionStatusDisplayItem optItem){
+					if(firstOptionIndex==-1)
+						firstOptionIndex=i;
+					optItem.showResults=status.poll.showResults;
+				}else if(item instanceof PollFooterStatusDisplayItem){
+					footerIndex=i;
+					break;
+				}
+			}
+			i++;
+		}
+		if(firstOptionIndex==-1 || footerIndex==-1)
+			throw new IllegalStateException("Can't find all poll items in displayItems");
+		adapter.notifyItemRangeChanged(firstOptionIndex, status.poll.options.size());
 	}
 
 	public void onPollVoteButtonClick(PollFooterStatusDisplayItem.Holder holder){

@@ -202,7 +202,7 @@ public abstract class StatusDisplayItem{
 			items.add(new PollOptionStatusDisplayItem(parentID, poll, i, fragment, status));
 			i++;
 		}
-		items.add(new PollFooterStatusDisplayItem(parentID, fragment, poll));
+		items.add(new PollFooterStatusDisplayItem(parentID, fragment, poll, status));
 	}
 
 	public enum Type{

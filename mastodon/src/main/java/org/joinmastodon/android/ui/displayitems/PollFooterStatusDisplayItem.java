@@ -9,14 +9,19 @@ import android.widget.TextView;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.fragments.BaseStatusListFragment;
 import org.joinmastodon.android.model.Poll;
+import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.utils.UiUtils;
+
+import me.grishka.appkit.utils.V;
 
 public class PollFooterStatusDisplayItem extends StatusDisplayItem{
 	public final Poll poll;
+	public final Status status;
 
-	public PollFooterStatusDisplayItem(String parentID, BaseStatusListFragment parentFragment, Poll poll){
+	public PollFooterStatusDisplayItem(String parentID, BaseStatusListFragment parentFragment, Poll poll, Status status){
 		super(parentID, parentFragment);
 		this.poll=poll;
+		this.status=status;
 	}
 
 	@Override
@@ -25,18 +30,24 @@ public class PollFooterStatusDisplayItem extends StatusDisplayItem{
 	}
 
 	public static class Holder extends StatusDisplayItem.Holder<PollFooterStatusDisplayItem>{
-		private TextView text;
-		private Button button;
+		private final TextView text;
+		private final Button voteButton, toggleResultsButton;
 
 		public Holder(Activity activity, ViewGroup parent){
 			super(activity, R.layout.display_item_poll_footer, parent);
 			text=findViewById(R.id.text);
-			button=findViewById(R.id.vote_btn);
-			button.setOnClickListener(v->item.parentFragment.onPollVoteButtonClick(this));
+			voteButton=findViewById(R.id.vote_btn);
+			toggleResultsButton=findViewById(R.id.show_results_btn);
+			voteButton.setOnClickListener(v->item.parentFragment.onPollVoteButtonClick(this));
+			toggleResultsButton.setOnClickListener(v->{
+				item.parentFragment.onPollToggleResultsClick(this);
+				rebind();
+			});
 		}
 
 		@Override
 		public void onBind(PollFooterStatusDisplayItem item){
+			itemView.setPaddingRelative(V.dp(item.fullWidth ? 16 : 64), itemView.getPaddingTop(), itemView.getPaddingEnd(), itemView.getPaddingBottom());
 			String text=item.parentFragment.getResources().getQuantityString(R.plurals.x_votes, item.poll.votesCount, item.poll.votesCount);
 			if(item.poll.expiresAt!=null && !item.poll.isExpired()){
 				text+=" · "+UiUtils.formatTimeLeft(itemView.getContext(), item.poll.expiresAt);
@@ -46,8 +57,9 @@ public class PollFooterStatusDisplayItem extends StatusDisplayItem{
 				text+=" · "+item.parentFragment.getString(R.string.poll_closed);
 			}
 			this.text.setText(text);
-			button.setVisibility(item.poll.isExpired() || item.poll.voted || !item.poll.multiple ? View.GONE : View.VISIBLE);
-			button.setEnabled(item.poll.selectedOptions!=null && !item.poll.selectedOptions.isEmpty());
+			voteButton.setEnabled(item.poll.selectedOptions!=null && !item.poll.selectedOptions.isEmpty() && !item.poll.isExpired() && !item.poll.voted);
+			toggleResultsButton.setVisibility(item.poll.isExpired() || item.poll.voted ? View.GONE : View.VISIBLE);
+			toggleResultsButton.setText(item.poll.showResults ? R.string.poll_hide_results : R.string.poll_see_results);
 		}
 	}
 }
