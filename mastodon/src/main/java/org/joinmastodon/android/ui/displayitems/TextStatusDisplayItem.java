@@ -32,7 +32,6 @@ public class TextStatusDisplayItem extends StatusDisplayItem{
 	private CharSequence translatedText;
 	private CustomEmojiHelper translationEmojiHelper=new CustomEmojiHelper();
 	public boolean textSelectable;
-	public boolean reduceTopPadding;
 	public final Status status;
 
 	public TextStatusDisplayItem(String parentID, CharSequence text, BaseStatusListFragment parentFragment, Status status){
@@ -94,7 +93,6 @@ public class TextStatusDisplayItem extends StatusDisplayItem{
 			text.setTextIsSelectable(item.textSelectable);
 			text.setInvalidateOnEveryFrame(false);
 			itemView.setClickable(false);
-			text.setPadding(text.getPaddingLeft(), item.reduceTopPadding ? V.dp(8) : V.dp(12), text.getPaddingRight(), text.getPaddingBottom());
 			itemView.setPaddingRelative(V.dp(item.fullWidth ? 0 : 48), 0, 0, 0);
 			text.setTextColor(UiUtils.getThemeColor(text.getContext(), R.attr.colorM3OnSurface));
 			text.setTextSize(TypedValue.COMPLEX_UNIT_SP, item.fullWidth ? 18 : 16);

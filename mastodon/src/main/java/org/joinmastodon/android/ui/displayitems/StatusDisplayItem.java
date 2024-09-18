@@ -144,7 +144,6 @@ public abstract class StatusDisplayItem{
 				HtmlParser.applyFilterHighlights(fragment.getActivity(), parsedText, status.filtered);
 			}
 			TextStatusDisplayItem text=new TextStatusDisplayItem(parentID, parsedText, fragment, statusForContent);
-			text.reduceTopPadding=header==null;
 			contentItems.add(text);
 		}else if(header!=null){
 			header.needBottomPadding=true;
