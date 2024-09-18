@@ -6,11 +6,13 @@ import android.os.Bundle;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.requests.statuses.GetStatusEditHistory;
 import org.joinmastodon.android.model.Status;
+import org.joinmastodon.android.ui.displayitems.InlineStatusStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.ReblogOrReplyLineStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.StatusDisplayItem;
 import org.joinmastodon.android.ui.utils.UiUtils;
 
 import java.time.ZoneId;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.EnumSet;
@@ -52,7 +54,10 @@ public class StatusEditHistoryFragment extends StatusListFragment{
 
 	@Override
 	protected List<StatusDisplayItem> buildDisplayItems(Status s){
-		List<StatusDisplayItem> items=StatusDisplayItem.buildItems(this, s, accountID, s, knownAccounts, false);
+		List<StatusDisplayItem> items=new ArrayList<>();
+		InlineStatusStatusDisplayItem inlineItem=new InlineStatusStatusDisplayItem(s.getID(), this, s);
+		inlineItem.fullWidth=true;
+		items.add(inlineItem);
 		int idx=data.indexOf(s);
 		if(idx>=0){
 			String date=UiUtils.DATE_TIME_FORMATTER.format(s.createdAt.atZone(ZoneId.systemDefault()));

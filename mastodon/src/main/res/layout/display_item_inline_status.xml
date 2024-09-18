@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:paddingHorizontal="16dp"
+	android:paddingBottom="12dp"
+	android:paddingTop="8dp">
+
+	<RelativeLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:padding="8dp"
+		android:background="@drawable/bg_inline_status">
+
+		<ImageView
+			android:id="@+id/ava"
+			android:layout_width="16dp"
+			android:layout_height="16dp"
+			android:layout_marginVertical="2dp"
+			android:importantForAccessibility="no"
+			tools:src="#0f0"/>
+		
+		<TextView
+			android:id="@+id/name"
+			android:layout_width="wrap_content"
+			android:layout_height="20dp"
+			android:layout_toEndOf="@id/ava"
+			android:layout_marginStart="4dp"
+			android:textAppearance="@style/m3_title_small"
+			android:textColor="?colorM3OnSurface"
+			android:singleLine="true"
+			android:ellipsize="end"
+			android:gravity="center_vertical"
+			tools:text="Name"/>
+
+		<TextView
+			android:id="@+id/username"
+			android:layout_width="wrap_content"
+			android:layout_height="20dp"
+			android:layout_toEndOf="@id/name"
+			android:layout_marginStart="4dp"
+			android:textAppearance="@style/m3_body_medium"
+			android:textColor="?colorM3Outline"
+			android:singleLine="true"
+			android:ellipsize="end"
+			android:gravity="center_vertical"
+			tools:text="\@username@server"/>
+
+		<TextView
+			android:id="@+id/text"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_below="@id/name"
+			android:layout_marginTop="4dp"
+			android:textAppearance="@style/m3_body_large"
+			android:textColor="?colorM3OnSurfaceVariant"
+			android:maxLines="3"
+			android:ellipsize="end"
+			android:drawableTint="?colorM3Outline"
+			android:drawablePadding="4dp"
+			tools:text="Post text goes here"/>
+
+	</RelativeLayout>
+
+</FrameLayout>
