@@ -96,7 +96,7 @@ public class Status extends BaseModel implements DisplayItemsParent{
 				fr.postprocess();
 		}
 
-		if(!sensitive){
+		if(!sensitive && (reblog==null || !reblog.sensitive)){
 			revealedSpoilers.add(SpoilerType.CONTENT_WARNING);
 		}
 	}
