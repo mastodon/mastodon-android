@@ -32,12 +32,15 @@ import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.CacheController;
 import org.joinmastodon.android.api.DatabaseRunnable;
 import org.joinmastodon.android.api.MastodonAPIController;
+import org.joinmastodon.android.api.MastodonErrorResponse;
 import org.joinmastodon.android.api.PushSubscriptionManager;
+import org.joinmastodon.android.api.WrapperRequest;
 import org.joinmastodon.android.api.gson.JsonObjectBuilder;
 import org.joinmastodon.android.api.requests.accounts.GetOwnAccount;
 import org.joinmastodon.android.api.requests.filters.GetLegacyFilters;
 import org.joinmastodon.android.api.requests.instance.GetCustomEmojis;
-import org.joinmastodon.android.api.requests.instance.GetInstance;
+import org.joinmastodon.android.api.requests.instance.GetInstanceV1;
+import org.joinmastodon.android.api.requests.instance.GetInstanceV2;
 import org.joinmastodon.android.api.requests.oauth.CreateOAuthApp;
 import org.joinmastodon.android.events.EmojiUpdatedEvent;
 import org.joinmastodon.android.model.Account;
@@ -45,6 +48,8 @@ import org.joinmastodon.android.model.Application;
 import org.joinmastodon.android.model.Emoji;
 import org.joinmastodon.android.model.EmojiCategory;
 import org.joinmastodon.android.model.Instance;
+import org.joinmastodon.android.model.InstanceV1;
+import org.joinmastodon.android.model.InstanceV2;
 import org.joinmastodon.android.model.LegacyFilter;
 import org.joinmastodon.android.model.Preferences;
 import org.joinmastodon.android.model.Token;
@@ -67,6 +72,7 @@ import java.util.stream.Collectors;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.browser.customtabs.CustomTabsIntent;
+import me.grishka.appkit.api.APIRequest;
 import me.grishka.appkit.api.Callback;
 import me.grishka.appkit.api.ErrorResponse;
 
@@ -74,7 +80,7 @@ public class AccountSessionManager{
 	private static final String TAG="AccountSessionManager";
 	public static final String SCOPE="read write follow push";
 	public static final String REDIRECT_URI="mastodon-android-auth://callback";
-	private static final int DB_VERSION=2;
+	private static final int DB_VERSION=3;
 
 	private static final AccountSessionManager instance=new AccountSessionManager();
 
@@ -116,8 +122,8 @@ public class AccountSessionManager{
 	}
 
 	public void addAccount(Instance instance, Token token, Account self, Application app, AccountActivationInfo activationInfo){
-		instances.put(instance.uri, instance);
-		AccountSession session=new AccountSession(token, self, app, instance.uri, activationInfo==null, activationInfo);
+		instances.put(instance.getDomain(), instance);
+		AccountSession session=new AccountSession(token, self, app, instance.getDomain(), activationInfo==null, activationInfo);
 		sessions.put(session.getID(), session);
 		lastActiveAccountID=session.getID();
 		runOnDbThread(db->{
@@ -125,7 +131,7 @@ public class AccountSessionManager{
 			session.toContentValues(values);
 			db.insertWithOnConflict("accounts", null, values, SQLiteDatabase.CONFLICT_REPLACE);
 		});
-		updateInstanceEmojis(instance, instance.uri);
+		updateInstanceEmojis(instance, instance.getDomain());
 		if(PushSubscriptionManager.arePushNotificationsAvailable()){
 			session.getPushSubscriptionManager().registerAccountForPush(null);
 		}
@@ -224,7 +230,7 @@ public class AccountSessionManager{
 						authenticatingApp=result;
 						Uri uri=new Uri.Builder()
 								.scheme("https")
-								.authority(instance.uri)
+								.authority(instance.getDomain())
 								.path("/oauth/authorize")
 								.appendQueryParameter("response_type", "code")
 								.appendQueryParameter("client_id", result.clientId)
@@ -245,7 +251,7 @@ public class AccountSessionManager{
 					}
 				})
 				.wrapProgress(activity, R.string.preparing_auth, false)
-				.execNoAuth(instance.uri);
+				.execNoAuth(instance.getDomain());
 	}
 
 	public boolean isSelf(String id, Account other){
@@ -337,8 +343,7 @@ public class AccountSessionManager{
 	}
 
 	public void updateInstanceInfo(String domain){
-		new GetInstance()
-				.setCallback(new Callback<>(){
+		loadInstanceInfo(domain, new Callback<>(){
 					@Override
 					public void onSuccess(Instance instance){
 						instances.put(domain, instance);
@@ -349,8 +354,7 @@ public class AccountSessionManager{
 					public void onError(ErrorResponse error){
 
 					}
-				})
-				.execNoAuth(domain);
+				});
 	}
 
 	private void updateInstanceEmojis(Instance instance, String domain){
@@ -379,7 +383,12 @@ public class AccountSessionManager{
 			while(cursor.moveToNext()){
 				DatabaseUtils.cursorRowToContentValues(cursor, values);
 				String domain=values.getAsString("domain");
-				Instance instance=MastodonAPIController.gson.fromJson(values.getAsString("instance_obj"), Instance.class);
+				int version=values.getAsInteger("version");
+				Instance instance=MastodonAPIController.gson.fromJson(values.getAsString("instance_obj"), switch(version){
+					case 1 -> InstanceV1.class;
+					case 2 -> InstanceV2.class;
+					default -> throw new IllegalStateException("Unexpected value: " + version);
+				});
 				List<Emoji> emojis=MastodonAPIController.gson.fromJson(values.getAsString("emojis"), new TypeToken<List<Emoji>>(){}.getType());
 				instances.put(domain, instance);
 				customEmojis.put(domain, groupCustomEmojis(emojis));
@@ -575,7 +584,47 @@ public class AccountSessionManager{
 		values.put("instance_obj", MastodonAPIController.gson.toJson(instance));
 		values.put("emojis", MastodonAPIController.gson.toJson(emojis));
 		values.put("last_updated", lastUpdated);
+		values.put("version", instance.getVersion());
 		db.insertWithOnConflict("instances", null, values, SQLiteDatabase.CONFLICT_REPLACE);
+	}
+
+	public static APIRequest<Instance> loadInstanceInfo(String domain, Callback<Instance> callback){
+		final WrapperRequest<Instance> wrapper=new WrapperRequest<>();
+		wrapper.wrappedRequest=new GetInstanceV2()
+				.setCallback(new Callback<>(){
+					@Override
+					public void onSuccess(InstanceV2 result){
+						wrapper.wrappedRequest=null;
+						callback.onSuccess(result);
+					}
+
+					@Override
+					public void onError(ErrorResponse error){
+						if(error instanceof MastodonErrorResponse mr && mr.httpStatus==404){
+							// Mastodon pre-4.0 or a non-Mastodon server altogether. Let's try /api/v1/instance
+							wrapper.wrappedRequest=new GetInstanceV1()
+									.setCallback(new Callback<>(){
+										@Override
+										public void onSuccess(InstanceV1 result){
+											wrapper.wrappedRequest=null;
+											callback.onSuccess(result);
+										}
+
+										@Override
+										public void onError(ErrorResponse error){
+											wrapper.wrappedRequest=null;
+											callback.onError(error);
+										}
+									})
+									.execNoAuth(domain);
+						}else{
+							wrapper.wrappedRequest=null;
+							callback.onError(error);
+						}
+					}
+				})
+				.execNoAuth(domain);
+		return wrapper;
 	}
 
 	private static class DatabaseHelper extends SQLiteOpenHelper{
@@ -590,13 +639,28 @@ public class AccountSessionManager{
 							`id` text PRIMARY KEY,
 							`dismissed_at` bigint
 						)""");
-			createAccountsAndInstancesTables(db);
+			createAccountsTable(db);
+			db.execSQL("""
+						CREATE TABLE `instances` (
+							`domain` text PRIMARY KEY,
+							`instance_obj` text,
+							`emojis` text,
+							`last_updated` bigint,
+							`version` integer NOT NULL DEFAULT 1
+						)""");
 		}
 
 		@Override
 		public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion){
 			if(oldVersion<2){
-				createAccountsAndInstancesTables(db);
+				createAccountsTable(db);
+				db.execSQL("""
+						CREATE TABLE `instances` (
+							`domain` text PRIMARY KEY,
+							`instance_obj` text,
+							`emojis` text,
+							`last_updated` bigint
+						)""");
 
 				File accountsFile=new File(MastodonApp.context.getFilesDir(), "accounts.json");
 				if(accountsFile.exists()){
@@ -629,9 +693,12 @@ public class AccountSessionManager{
 					}
 				}
 			}
+			if(oldVersion<3){
+				db.execSQL("ALTER TABLE `instances` ADD `version` integer NOT NULL DEFAULT 1");
+			}
 		}
 
-		private void createAccountsAndInstancesTables(SQLiteDatabase db){
+		private void createAccountsTable(SQLiteDatabase db){
 			db.execSQL("""
 						CREATE TABLE `accounts` (
 							`id` text PRIMARY KEY,
@@ -647,13 +714,6 @@ public class AccountSessionManager{
 							`push_id` text,
 							`activation_info` text,
 							`preferences` text
-						)""");
-			db.execSQL("""
-						CREATE TABLE `instances` (
-							`domain` text PRIMARY KEY,
-							`instance_obj` text,
-							`emojis` text,
-							`last_updated` bigint
 						)""");
 		}
 	}

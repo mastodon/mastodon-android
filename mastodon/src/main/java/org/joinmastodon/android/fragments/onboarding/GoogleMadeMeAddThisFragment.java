@@ -1,9 +1,6 @@
 package org.joinmastodon.android.fragments.onboarding;
 
 import android.app.Activity;
-import android.graphics.Paint;
-import android.graphics.Rect;
-import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -11,14 +8,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowInsets;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.MastodonAPIController;
 import org.joinmastodon.android.model.Instance;
-import org.joinmastodon.android.ui.DividerItemDecoration;
-import org.joinmastodon.android.ui.OutlineProviders;
 import org.joinmastodon.android.ui.utils.UiUtils;
 import org.joinmastodon.android.utils.ElevationOnScrollListener;
 import org.jsoup.Jsoup;
@@ -26,7 +20,6 @@ import org.jsoup.nodes.Document;
 import org.parceler.Parcels;
 
 import java.io.IOException;
-import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Locale;
@@ -36,14 +29,10 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import me.grishka.appkit.Nav;
-import me.grishka.appkit.fragments.AppKitFragment;
 import me.grishka.appkit.fragments.ToolbarFragment;
-import me.grishka.appkit.imageloader.ViewImageLoader;
-import me.grishka.appkit.imageloader.requests.UrlImageLoaderRequest;
 import me.grishka.appkit.utils.BindableViewHolder;
 import me.grishka.appkit.utils.MergeRecyclerAdapter;
 import me.grishka.appkit.utils.SingleViewRecyclerAdapter;
-import me.grishka.appkit.utils.V;
 import me.grishka.appkit.views.FragmentRootLinearLayout;
 import me.grishka.appkit.views.UsableRecyclerView;
 import okhttp3.Call;
@@ -99,7 +88,7 @@ public class GoogleMadeMeAddThisFragment extends ToolbarFragment{
 		list.setLayoutManager(new LinearLayoutManager(getActivity()));
 		View headerView=inflater.inflate(R.layout.item_list_header_simple, list, false);
 		TextView text=headerView.findViewById(R.id.text);
-		text.setText(getString(R.string.privacy_policy_subtitle, instance.uri));
+		text.setText(getString(R.string.privacy_policy_subtitle, instance.getDomain()));
 
 		adapter=new MergeRecyclerAdapter();
 		adapter.addAdapter(new SingleViewRecyclerAdapter(headerView));
@@ -111,7 +100,7 @@ public class GoogleMadeMeAddThisFragment extends ToolbarFragment{
 		buttonBar=view.findViewById(R.id.button_bar);
 
 		Button backBtn=view.findViewById(R.id.btn_back);
-		backBtn.setText(getString(R.string.server_policy_disagree, instance.uri));
+		backBtn.setText(getString(R.string.server_policy_disagree, instance.getDomain()));
 		backBtn.setOnClickListener(v->{
 			setResult(false, null);
 			Nav.finish(this);
@@ -159,7 +148,7 @@ public class GoogleMadeMeAddThisFragment extends ToolbarFragment{
 
 	private void loadServerPrivacyPolicy(){
 		Request req=new Request.Builder()
-				.url("https://"+instance.uri+"/terms")
+				.url("https://"+instance.getDomain()+"/terms")
 				.addHeader("Accept-Language", Locale.getDefault().toLanguageTag())
 				.build();
 		currentRequest=MastodonAPIController.getHttpClient().newCall(req);
@@ -176,7 +165,7 @@ public class GoogleMadeMeAddThisFragment extends ToolbarFragment{
 					if(!response.isSuccessful())
 						return;
 					Document doc=Jsoup.parse(Objects.requireNonNull(body).byteStream(), Objects.requireNonNull(body.contentType()).charset(StandardCharsets.UTF_8).name(), req.url().toString());
-					final Item item=new Item(doc.title(), null, instance.uri, req.url().toString(), "https://"+instance.uri+"/favicon.ico");
+					final Item item=new Item(doc.title(), null, instance.getDomain(), req.url().toString(), "https://"+instance.getDomain()+"/favicon.ico");
 					Activity activity=getActivity();
 					if(activity!=null){
 						activity.runOnUiThread(()->{

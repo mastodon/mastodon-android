@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.widget.Toast;
 
 import org.joinmastodon.android.api.requests.accounts.GetOwnAccount;
@@ -79,7 +78,7 @@ public class OAuthActivity extends Activity{
 										progress.dismiss();
 									}
 								})
-								.exec(instance.uri, token);
+								.exec(instance.getDomain(), token);
 					}
 
 					@Override
@@ -88,7 +87,7 @@ public class OAuthActivity extends Activity{
 						progress.dismiss();
 					}
 				})
-				.execNoAuth(instance.uri);
+				.execNoAuth(instance.getDomain());
 	}
 
 	private void handleError(ErrorResponse error){

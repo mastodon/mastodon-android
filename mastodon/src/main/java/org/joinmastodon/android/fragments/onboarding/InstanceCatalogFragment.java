@@ -15,8 +15,11 @@ import android.widget.TextView;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.MastodonAPIController;
 import org.joinmastodon.android.api.MastodonErrorResponse;
-import org.joinmastodon.android.api.requests.instance.GetInstance;
+import org.joinmastodon.android.api.requests.instance.GetInstanceV1;
+import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.model.Instance;
+import org.joinmastodon.android.model.InstanceV1;
+import org.joinmastodon.android.model.InstanceV2;
 import org.joinmastodon.android.model.catalog.CatalogInstance;
 import org.joinmastodon.android.ui.M3AlertDialogBuilder;
 import org.joinmastodon.android.ui.utils.UiUtils;
@@ -43,6 +46,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import me.grishka.appkit.api.APIRequest;
 import me.grishka.appkit.api.Callback;
 import me.grishka.appkit.api.ErrorResponse;
 import me.grishka.appkit.fragments.BaseRecyclerFragment;
@@ -63,7 +67,7 @@ abstract class InstanceCatalogFragment extends BaseRecyclerFragment<CatalogInsta
 	protected HashMap<String, Instance> instancesCache=new HashMap<>();
 	protected View buttonBar;
 	protected List<CatalogInstance> filteredData=new ArrayList<>();
-	protected GetInstance loadingInstanceRequest;
+	protected APIRequest<Instance> loadingInstanceRequest;
 	protected Call loadingInstanceRedirectRequest;
 	protected ProgressDialog instanceProgressDialog;
 	protected HashMap<String, String> redirects=new HashMap<>();
@@ -181,7 +185,7 @@ abstract class InstanceCatalogFragment extends BaseRecyclerFragment<CatalogInsta
 				showInstanceInfoLoadError(domain, x);
 			if(fakeInstance!=null){
 				fakeInstance.description=getString(R.string.error);
-				if(filteredData.size()>0 && filteredData.get(0)==fakeInstance){
+				if(!filteredData.isEmpty() && filteredData.get(0)==fakeInstance){
 					if(list.findViewHolderForAdapterPosition(1) instanceof BindableViewHolder<?> ivh){
 						ivh.rebind();
 					}
@@ -190,13 +194,15 @@ abstract class InstanceCatalogFragment extends BaseRecyclerFragment<CatalogInsta
 			return;
 		}
 		loadingInstanceDomain=domain;
-		loadingInstanceRequest=new GetInstance();
-		loadingInstanceRequest.setCallback(new Callback<>(){
+		loadingInstanceRequest=AccountSessionManager.loadInstanceInfo(domain, new Callback<>(){
 			@Override
 			public void onSuccess(Instance result){
 				loadingInstanceRequest=null;
 				loadingInstanceDomain=null;
-				result.uri=domain; // needed for instances that use domain redirection
+				if(result instanceof InstanceV1 v1)
+					v1.uri=domain; // needed for instances that use domain redirection
+				else if(result instanceof InstanceV2 v2)
+					v2.domain=domain;
 				instancesCache.put(domain, result);
 				if(instanceProgressDialog!=null || onError!=null)
 					proceedWithAuthOrSignup(result);
@@ -246,7 +252,7 @@ abstract class InstanceCatalogFragment extends BaseRecyclerFragment<CatalogInsta
 					}
 				}
 			}
-		}).execNoAuth(domain);
+		});
 	}
 
 	private void cancelLoadingInstanceInfo(){

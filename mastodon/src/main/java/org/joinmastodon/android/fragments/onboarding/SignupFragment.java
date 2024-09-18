@@ -115,7 +115,7 @@ public class SignupFragment extends ToolbarFragment{
 		passwordConfirmWrap=view.findViewById(R.id.password_confirm_wrap);
 		reasonWrap=view.findViewById(R.id.reason_wrap);
 
-		domain.setText('@'+instance.uri);
+		domain.setText('@'+instance.getDomain());
 
 		username.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener(){
 			@Override
@@ -143,7 +143,7 @@ public class SignupFragment extends ToolbarFragment{
 		passwordConfirm.addTextChangedListener(new ErrorClearingListener(passwordConfirm));
 		reason.addTextChangedListener(new ErrorClearingListener(reason));
 
-		if(!instance.approvalRequired){
+		if(!instance.isApprovalRequired()){
 			reason.setVisibility(View.GONE);
 			reasonExplain.setVisibility(View.GONE);
 		}
@@ -285,7 +285,7 @@ public class SignupFragment extends ToolbarFragment{
 						progressDialog.dismiss();
 					}
 				})
-				.exec(instance.uri, apiToken);
+				.exec(instance.getDomain(), apiToken);
 	}
 
 	private CharSequence makeLinkInErrorMessage(String source, LinkSpan.OnLinkClickListener onClick){
@@ -317,7 +317,7 @@ public class SignupFragment extends ToolbarFragment{
 			case "email" -> switch(error.error){
 				case "ERR_BLOCKED" -> {
 					String emailAddr=email.getText().toString();
-					String s=getResources().getString(R.string.signup_email_domain_blocked, TextUtils.htmlEncode(instance.uri), TextUtils.htmlEncode(emailAddr.substring(emailAddr.lastIndexOf('@')+1)));
+					String s=getResources().getString(R.string.signup_email_domain_blocked, TextUtils.htmlEncode(instance.getDomain()), TextUtils.htmlEncode(emailAddr.substring(emailAddr.lastIndexOf('@')+1)));
 					yield makeLinkInErrorMessage(s, this::onGoBackLinkClick);
 				}
 				case "ERR_INVALID" -> getString(R.string.signup_email_invalid);
@@ -364,7 +364,7 @@ public class SignupFragment extends ToolbarFragment{
 	private void updateButtonState(){
 		btn.setEnabled(username.length()>0 && email.length()>0 && emailRegex.matcher(email.getText()).find()
 				&& password.length()>=8 && passwordConfirm.length()>=8 && password.getText().toString().equals(passwordConfirm.getText().toString())
-				&& (!instance.approvalRequired || reason.length()>0));
+				&& (!instance.isApprovalRequired() || reason.length()>0));
 	}
 
 	private void createAppAndGetToken(){
@@ -386,7 +386,7 @@ public class SignupFragment extends ToolbarFragment{
 						}
 					}
 				})
-				.execNoAuth(instance.uri);
+				.execNoAuth(instance.getDomain());
 	}
 
 	private void getToken(){
@@ -412,7 +412,7 @@ public class SignupFragment extends ToolbarFragment{
 						}
 					}
 				})
-				.execNoAuth(instance.uri);
+				.execNoAuth(instance.getDomain());
 	}
 
 	@Override
@@ -426,7 +426,7 @@ public class SignupFragment extends ToolbarFragment{
 	}
 
 	private void onForgotPasswordLinkClick(LinkSpan span){
-		UiUtils.launchWebBrowser(getActivity(), "https://"+instance.uri+"/auth/password/new");
+		UiUtils.launchWebBrowser(getActivity(), "https://"+instance.getDomain()+"/auth/password/new");
 	}
 
 	private void onPasswordFieldFocusChange(View v, boolean hasFocus){

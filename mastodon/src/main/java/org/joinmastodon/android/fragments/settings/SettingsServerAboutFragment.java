@@ -100,13 +100,13 @@ public class SettingsServerAboutFragment extends LoaderFragment{
 		scroller.setClipToPadding(false);
 		scroller.addView(scrollingLayout);
 
-		if(!TextUtils.isEmpty(instance.thumbnail)){
+		if(!TextUtils.isEmpty(instance.getThumbnailURL())){
 			FixedAspectRatioImageView banner=new FixedAspectRatioImageView(getActivity());
 			banner.setAspectRatio(1.914893617f);
 			banner.setScaleType(ImageView.ScaleType.CENTER_CROP);
 			banner.setOutlineProvider(OutlineProviders.bottomRoundedRect(16));
 			banner.setClipToOutline(true);
-			ViewImageLoader.loadWithoutAnimation(banner, getResources().getDrawable(R.drawable.image_placeholder, getActivity().getTheme()), new UrlImageLoaderRequest(instance.thumbnail));
+			ViewImageLoader.loadWithoutAnimation(banner, getResources().getDrawable(R.drawable.image_placeholder, getActivity().getTheme()), new UrlImageLoaderRequest(instance.getThumbnailURL()));
 			LinearLayout.LayoutParams blp=new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
 			blp.bottomMargin=V.dp(24);
 			scrollingLayout.addView(banner, blp);
@@ -115,7 +115,7 @@ public class SettingsServerAboutFragment extends LoaderFragment{
 		}
 
 		boolean needDivider=false;
-		if(instance.contactAccount!=null){
+		if(instance.getContactAccount()!=null){
 			needDivider=true;
 			TextView heading=new TextView(getActivity());
 			heading.setTextAppearance(R.style.m3_title_small);
@@ -128,7 +128,7 @@ public class SettingsServerAboutFragment extends LoaderFragment{
 			hlp.leftMargin=hlp.rightMargin=V.dp(16);
 			scrollingLayout.addView(heading, hlp);
 
-			AccountViewModel model=new AccountViewModel(instance.contactAccount, accountID);
+			AccountViewModel model=new AccountViewModel(instance.getContactAccount(), accountID);
 			AccountViewHolder holder=new AccountViewHolder(this, scrollingLayout, null);
 			holder.setStyle(AccountViewHolder.AccessoryType.NONE, false);
 			holder.bind(model);
@@ -140,7 +140,7 @@ public class SettingsServerAboutFragment extends LoaderFragment{
 				ViewImageLoader.load(new ViewImageLoaderHolderTarget(holder, i+1), null, model.emojiHelper.getImageRequest(i), false);
 			}
 		}
-		if(!TextUtils.isEmpty(instance.email)){
+		if(!TextUtils.isEmpty(instance.getContactEmail())){
 			needDivider=true;
 			SimpleListItemViewHolder holder=new SimpleListItemViewHolder(getActivity(), scrollingLayout);
 			ListItem<Void> item=new ListItem<>(R.string.send_email_to_server_admin, 0, R.drawable.ic_mail_24px, i->{});
@@ -208,7 +208,7 @@ public class SettingsServerAboutFragment extends LoaderFragment{
 	public void onRefresh(){}
 
 	private void openAdminEmail(){
-		Intent intent=new Intent(Intent.ACTION_VIEW, Uri.fromParts("mailto", instance.email, null));
+		Intent intent=new Intent(Intent.ACTION_VIEW, Uri.fromParts("mailto", instance.getContactEmail(), null));
 		intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 		try{
 			startActivity(intent);

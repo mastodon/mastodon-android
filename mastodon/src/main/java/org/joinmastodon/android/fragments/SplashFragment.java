@@ -19,11 +19,13 @@ import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.MastodonErrorResponse;
 import org.joinmastodon.android.api.requests.accounts.CheckInviteLink;
 import org.joinmastodon.android.api.requests.catalog.GetCatalogDefaultInstances;
-import org.joinmastodon.android.api.requests.instance.GetInstance;
+import org.joinmastodon.android.api.requests.instance.GetInstanceV1;
+import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.fragments.onboarding.InstanceCatalogSignupFragment;
 import org.joinmastodon.android.fragments.onboarding.InstanceChooserLoginFragment;
 import org.joinmastodon.android.fragments.onboarding.InstanceRulesFragment;
 import org.joinmastodon.android.model.Instance;
+import org.joinmastodon.android.model.InstanceV1;
 import org.joinmastodon.android.model.catalog.CatalogDefaultInstance;
 import org.joinmastodon.android.ui.InterpolatingMotionEffect;
 import org.joinmastodon.android.ui.M3AlertDialogBuilder;
@@ -172,15 +174,14 @@ public class SplashFragment extends AppKitFragment{
 	}
 
 	private void proceedWithServerDomain(String domain){
-		new GetInstance()
-				.setCallback(new Callback<>(){
+		AccountSessionManager.loadInstanceInfo(domain, new Callback<>(){
 					@Override
 					public void onSuccess(Instance result){
 						if(getActivity()==null)
 							return;
 						instanceLoadingProgress.dismiss();
 						instanceLoadingProgress=null;
-						if(!result.registrations && TextUtils.isEmpty(inviteCode)){
+						if(!result.areRegistrationsOpen() && TextUtils.isEmpty(inviteCode)){
 							new M3AlertDialogBuilder(getActivity())
 									.setTitle(R.string.error)
 									.setMessage(R.string.instance_signup_closed)
@@ -203,8 +204,7 @@ public class SplashFragment extends AppKitFragment{
 						instanceLoadingProgress=null;
 						error.showToast(getActivity());
 					}
-				})
-				.execNoAuth(domain);
+				});
 	}
 
 	private void onLearnMoreClick(View v){

@@ -330,7 +330,7 @@ public class InstanceCatalogSignupFragment extends InstanceCatalogFragment{
 		if(currentInviteLinkAlert!=null){
 			currentInviteLinkAlert.dismiss();
 		}else if(!TextUtils.isEmpty(currentSearchQuery) && HtmlParser.isValidInviteUrl(currentSearchQueryButWithCasePreserved)){
-			if(TextUtils.isEmpty(inviteCode) || !Objects.equals(instance.uri, inviteCodeHost)){
+			if(TextUtils.isEmpty(inviteCode) || !Objects.equals(instance.getDomain(), inviteCodeHost)){
 				Uri inviteLink=Uri.parse(currentSearchQueryButWithCasePreserved);
 				new CheckInviteLink(inviteLink.getPath())
 						.setCallback(new Callback<>(){
@@ -368,9 +368,9 @@ public class InstanceCatalogSignupFragment extends InstanceCatalogFragment{
 			}
 		}
 		getActivity().getSystemService(InputMethodManager.class).hideSoftInputFromWindow(contentView.getWindowToken(), 0);
-		if(!instance.registrations && (TextUtils.isEmpty(inviteCode) || !Objects.equals(instance.uri, inviteCodeHost))){
-			if(instance.invitesEnabled){
-				showInviteLinkAlert(instance.uri);
+		if(!instance.areRegistrationsOpen() && (TextUtils.isEmpty(inviteCode) || !Objects.equals(instance.getDomain(), inviteCodeHost))){
+			if(instance.areInvitesEnabled()){
+				showInviteLinkAlert(instance.getDomain());
 			}else{
 				new M3AlertDialogBuilder(getActivity())
 						.setTitle(R.string.error)
@@ -382,7 +382,7 @@ public class InstanceCatalogSignupFragment extends InstanceCatalogFragment{
 		}
 		Bundle args=new Bundle();
 		args.putParcelable("instance", Parcels.wrap(instance));
-		if(!TextUtils.isEmpty(inviteCode) && Objects.equals(instance.uri, inviteCodeHost))
+		if(!TextUtils.isEmpty(inviteCode) && Objects.equals(instance.getDomain(), inviteCodeHost))
 			args.putString("inviteCode", inviteCode);
 		Nav.go(getActivity(), InstanceRulesFragment.class, args);
 	}
@@ -667,7 +667,7 @@ public class InstanceCatalogSignupFragment extends InstanceCatalogFragment{
 			radioButton.setChecked(chosenInstance==item);
 			Instance realInstance=instancesCache.get(item.normalizedDomain);
 			float alpha;
-			if(realInstance!=null && !realInstance.registrations){
+			if(realInstance!=null && !realInstance.areRegistrationsOpen()){
 				alpha=0.38f;
 				description.setText(R.string.not_accepting_new_members);
 				enabled=false;
