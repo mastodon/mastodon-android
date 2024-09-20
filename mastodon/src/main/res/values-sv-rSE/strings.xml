@@ -591,4 +591,8 @@
 	<string name="donation_success_subtitle">Du kommer snart att få ett e-postmeddelande som bekräftar din donation.</string>
 	<string name="settings_donate">Donera till Mastodon</string>
 	<string name="settings_manage_donations">Hantera donationer</string>
+	<plurals name="x_attachments">
+		<item quantity="one">%d bilaga</item>
+		<item quantity="other">%d bilagor</item>
+	</plurals>
 </resources>
