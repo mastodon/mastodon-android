@@ -796,6 +796,12 @@
 	<string name="notification_filter_mentions_explanation">Фильтруется, если только это не ответ на ваше собственное упоминание или если вы следите за отправителем</string>
 	<string name="allow_notifications">Разрешить уведомления</string>
 	<string name="mute_notifications">Отклонить запрос уведомления</string>
+	<plurals name="x_people_you_may_know">
+		<item quantity="one">%,d человек, которого вы можете знать</item>
+		<item quantity="few">%,d человек, которого вы можете знать</item>
+		<item quantity="many">%,d людей, которых вы можете знать</item>
+		<item quantity="other">%,d людей, которых вы можете знать</item>
+	</plurals>
 	<string name="notifications_from_user">Уведомления от %s</string>
 	<string name="notifications_muted">Уведомления от %s были отклонены.</string>
 	<string name="notifications_allowed">Теперь %s появится в списке ваших уведомлений.</string>
@@ -807,5 +813,30 @@
 	<string name="view_favorites">Посмотреть избранное</string>
 	<string name="undo_reblog">Отменить повышение</string>
 	<string name="undo_favorite">Отменить избранное</string>
+	<string name="could_not_reach_server">Не удалось связаться с сервером. Проверьте соединение и повторите попытку?</string>
+	<string name="connection_timed_out">Запрос был отложен. Проверьте соединение и повторите попытку?</string>
+	<string name="server_error">Что-то пошло не так в разговоре с вашим сервером. Скорее всего, это не ваша вина. Попробовать еще раз?</string>
 	<string name="not_found">Может, здесь ничего и не было.</string>
+	<string name="no_servers_found">Не найдено ни одного сервера для \"%s\"</string>
+	<string name="signup_username_taken">Это имя пользователя занято. Попробуйте другое или &lt;a&gt;выберите другой сервер&lt;/a&gt;.</string>
+	<string name="signup_email_invalid">Это не похоже на действительный адрес электронной почты.</string>
+	<string name="signup_email_taken">Адрес электронной почты уже используется. Вы &lt;a&gt;забыли свой пароль&lt;/a&gt;?</string>
+	<plurals name="x_new_notifications">
+		<item quantity="one">%,d новое уведомление</item>
+		<item quantity="few">%,d нового уведомления</item>
+		<item quantity="many">%,d новых уведомлений</item>
+		<item quantity="other">%,d новых уведомлений</item>
+	</plurals>
+	<string name="dismiss">Отклонить</string>
+	<string name="donation_once">Только раз</string>
+	<string name="donation_monthly">Ежемесячно</string>
+	<string name="donation_yearly">Ежегодно</string>
+	<string name="currency">Валюта</string>
+	<string name="donation_success_share">Распространите слово</string>
+	<string name="donation_success_title">Спасибо за ваш вклад!</string>
+	<string name="donation_success_subtitle">В ближайшее время вы получите электронное письмо с подтверждением вашего пожертвования.</string>
+	<string name="donation_server_error">Нам очень жаль, но произошла ошибка, и мы не смогли обработать ваше пожертвование.\n\nПожалуйста, повторите попытку через несколько минут.</string>
+	<string name="settings_donate">Пожертвовать Mastodon</string>
+	<string name="settings_manage_donations">Управление пожертвованиями</string>
+	<string name="cant_load_image">Не удалось загрузить изображение</string>
 </resources>
