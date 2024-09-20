@@ -93,6 +93,10 @@ public class PushSubscriptionManager{
 		this.accountID=accountID;
 	}
 
+	public static void resetLocalPreferences(){
+		getPrefs().edit().clear().apply();
+	}
+
 	public static void tryRegisterFCM(){
 		deviceToken=getPrefs().getString("deviceToken", null);
 		int tokenVersion=getPrefs().getInt("version", 0);

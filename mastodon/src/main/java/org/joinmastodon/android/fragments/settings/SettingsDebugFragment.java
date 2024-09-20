@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import org.joinmastodon.android.GlobalUserPreferences;
+import org.joinmastodon.android.api.PushSubscriptionManager;
 import org.joinmastodon.android.api.session.AccountActivationInfo;
 import org.joinmastodon.android.api.session.AccountSession;
 import org.joinmastodon.android.api.session.AccountSessionManager;
@@ -29,6 +30,7 @@ public class SettingsDebugFragment extends BaseSettingsFragment<Void>{
 		setTitle("Debug settings");
 		ListItem<Void> selfUpdateItem, resetUpdateItem;
 		onDataLoaded(List.of(
+				new ListItem<>("Re-register for FCM", null, this::onUpdatePushRegistrationClick),
 				new ListItem<>("Test email confirmation flow", null, this::onTestEmailConfirmClick),
 				selfUpdateItem=new ListItem<>("Force self-update", null, this::onForceSelfUpdateClick),
 				resetUpdateItem=new ListItem<>("Reset self-updater", null, this::onResetUpdaterClick),
@@ -50,6 +52,11 @@ public class SettingsDebugFragment extends BaseSettingsFragment<Void>{
 	public void onStop(){
 		super.onStop();
 		getPrefs().edit().putBoolean("donationsStaging", donationsStagingItem.checked).apply();
+	}
+
+	private void onUpdatePushRegistrationClick(ListItem<?> item){
+		PushSubscriptionManager.resetLocalPreferences();
+		PushSubscriptionManager.tryRegisterFCM();
 	}
 
 	private void onTestEmailConfirmClick(ListItem<?> item){
