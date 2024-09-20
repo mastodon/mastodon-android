@@ -13,6 +13,8 @@
 	<string name="notifications">Notificações</string>
 	<string name="user_followed_you">%s seguiu você</string>
 	<string name="user_sent_follow_request">%s enviou uma solicitação para seguir você</string>
+	<string name="user_favorited">%s favoritado:</string>
+	<string name="notification_boosted">%s impulsionado:</string>
 	<string name="share_toot_title">Compartilhar</string>
 	<string name="settings">Configurações</string>
 	<string name="publish">Publicar</string>
@@ -765,4 +767,24 @@ Quanto mais pessoas que você seguir, mas interessantes e ativas serão.</string
 	<string name="donation_server_error">Nos desculpe, um erro ocorreu e nós não conseguimos processar a sua doação. \n\nPor favor tente novamente em alguns minutos.</string>
 	<string name="settings_donate">Doe para o Mastodon</string>
 	<string name="settings_manage_donations">Gerenciar doações</string>
+	<string name="cant_load_image">Não foi possível carregar a imagem</string>
+	<string name="poll_see_results">Ver resultados</string>
+	<string name="poll_hide_results">Ocultar resultados</string>
+	<plurals name="x_attachments">
+		<item quantity="one">%d anexo</item>
+		<item quantity="other">%d anexos</item>
+	</plurals>
+	<plurals name="user_and_x_more_favorited">
+		<item quantity="one">%1$s e %2$,d outro favoritou:</item>
+		<item quantity="other">%1$s e %2$,d outros favoritaram:</item>
+	</plurals>
+	<plurals name="user_and_x_more_boosted">
+		<item quantity="one">%1$s e %2$,d outro impulsionou:</item>
+		<item quantity="other">%1$s e %2$,d outros impulsionaram:</item>
+	</plurals>
+	<plurals name="poll_ended_x_voters">
+		<item quantity="one">%1$s fez uma enquete que você e %2$,d outro votou</item>
+		<item quantity="other">%1$s fez uma enquete que você e %2$,d outros votaram</item>
+	</plurals>
+	<string name="own_poll_ended">Sua enquete acabou</string>
 </resources>
