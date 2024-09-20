@@ -13,6 +13,8 @@
 	<string name="notifications">Notifiche</string>
 	<string name="user_followed_you">%s ha iniziato a seguirti</string>
 	<string name="user_sent_follow_request">%s ti ha inviato una richiesta per seguirti</string>
+	<string name="user_favorited">%s ha aggiunto ai preferiti:</string>
+	<string name="notification_boosted">%s ha condiviso:</string>
 	<string name="share_toot_title">Condividi</string>
 	<string name="settings">Impostazioni</string>
 	<string name="publish">Pubblica</string>
@@ -765,4 +767,24 @@ Più persone segui, più sarà attivo e interessante.</string>
 	<string name="donation_server_error">Siamo spiacenti, si è verificato un errore e non siamo stati in grado di elaborare la tua donazione.\n\nRiprova tra qualche minuto.</string>
 	<string name="settings_donate">Dona a Mastodon</string>
 	<string name="settings_manage_donations">Gestisci le donazioni</string>
+	<string name="cant_load_image">Impossibile caricare l’immagine</string>
+	<string name="poll_see_results">Vedi i risultati</string>
+	<string name="poll_hide_results">Nascondi i risultati</string>
+	<plurals name="x_attachments">
+		<item quantity="one">%d allegato</item>
+		<item quantity="other">%d allegati</item>
+	</plurals>
+	<plurals name="user_and_x_more_favorited">
+		<item quantity="one">%1$s e %2 altro utente hanno aggiunto ai preferiti:</item>
+		<item quantity="other">%1$s e %2 altri utenti hanno aggiunto ai preferiti:</item>
+	</plurals>
+	<plurals name="user_and_x_more_boosted">
+		<item quantity="one">%1$s e %2 altro utente hanno condiviso:</item>
+		<item quantity="other">%1$s e %2 altri utenti hanno condiviso:</item>
+	</plurals>
+	<plurals name="poll_ended_x_voters">
+		<item quantity="one">%1$s ha condotto un sondaggio a cui hanno votato tu e %2 altro utente</item>
+		<item quantity="other">%1$s ha condotto un sondaggio a cui hanno votato tu e %2 altri utenti</item>
+	</plurals>
+	<string name="own_poll_ended">Il tuo sondaggio è terminato</string>
 </resources>
