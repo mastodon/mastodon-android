@@ -1,34 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:tools="http://schemas.android.com/tools"
 	android:orientation="horizontal"
 	android:layout_width="match_parent"
-	android:layout_height="64dp"
-	android:gravity="center_vertical"
-	android:paddingHorizontal="16dp">
+	android:layout_height="wrap_content"
+	android:paddingHorizontal="16dp"
+	android:paddingTop="12dp">
 
 	<ImageView
 		android:id="@+id/icon"
-		android:layout_width="28dp"
+		android:layout_width="40dp"
 		android:layout_height="28dp"
+		android:layout_alignParentTop="true"
+		android:layout_alignParentStart="true"
+		android:layout_marginEnd="8dp"
 		android:importantForAccessibility="no"
+		android:scaleType="center"
 		tools:tint="#0f0"
 		tools:src="@drawable/ic_repeat_24px"/>
-	
-	<ImageView
-		android:id="@+id/avatar"
-		android:layout_width="32dp"
-		android:layout_height="32dp"
-		android:layout_marginStart="8dp"/>
 
-	<TextView
+	<LinearLayout
+		android:id="@+id/avatars"
+		android:layout_width="match_parent"
+		android:layout_height="28dp"
+		android:layout_toEndOf="@id/icon"
+		android:layout_marginBottom="4dp"
+		android:orientation="horizontal">
+		<ImageView
+			android:id="@+id/avatar1"
+			android:layout_width="28dp"
+			android:layout_height="28dp"
+			android:layout_marginEnd="8dp"/>
+		<ImageView
+			android:id="@+id/avatar2"
+			android:layout_width="28dp"
+			android:layout_height="28dp"
+			android:layout_marginEnd="8dp"/>
+		<ImageView
+			android:id="@+id/avatar3"
+			android:layout_width="28dp"
+			android:layout_height="28dp"
+			android:layout_marginEnd="8dp"/>
+		<ImageView
+			android:id="@+id/avatar4"
+			android:layout_width="28dp"
+			android:layout_height="28dp"
+			android:layout_marginEnd="8dp"/>
+		<ImageView
+			android:id="@+id/avatar5"
+			android:layout_width="28dp"
+			android:layout_height="28dp"
+			android:layout_marginEnd="8dp"/>
+		<ImageView
+			android:id="@+id/avatar6"
+			android:layout_width="28dp"
+			android:layout_height="28dp"
+			android:layout_marginEnd="8dp"/>
+	</LinearLayout>
+
+	<org.joinmastodon.android.ui.views.LinkedTextView
 		android:id="@+id/text"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:layout_marginStart="8dp"
-		android:textAppearance="@style/m3_body_large"
+		android:layout_toEndOf="@id/icon"
+		android:layout_below="@id/avatars"
+		android:layout_alignWithParentIfMissing="true"
+		android:textAppearance="@style/m3_body_medium"
 		android:textColor="?colorM3OnSurface"
-		android:singleLine="true"
+		android:minHeight="20dp"
+		android:gravity="center_vertical"
 		tools:text="Notification text"/>
 
-</LinearLayout>
+</RelativeLayout>

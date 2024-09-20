@@ -455,6 +455,7 @@ public class AccountSessionManager{
 					.toString());
 			values.put("push_subscription", MastodonAPIController.gson.toJson(session.pushSubscription));
 			values.put("flags", session.getFlagsForDatabase());
+			values.put("push_id", session.pushAccountID);
 			db.update("accounts", values, "`id`=?", new String[]{id});
 		});
 	}

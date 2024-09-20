@@ -21,6 +21,8 @@ import org.joinmastodon.android.BuildConfig;
 import org.joinmastodon.android.E;
 import org.joinmastodon.android.PushNotificationReceiver;
 import org.joinmastodon.android.R;
+import org.joinmastodon.android.api.requests.notifications.GetNotificationsV1;
+import org.joinmastodon.android.api.requests.notifications.GetUnreadNotificationsCount;
 import org.joinmastodon.android.api.session.AccountSession;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.events.NotificationsMarkerUpdatedEvent;
@@ -29,7 +31,7 @@ import org.joinmastodon.android.fragments.discover.DiscoverFragment;
 import org.joinmastodon.android.fragments.onboarding.OnboardingFollowSuggestionsFragment;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.Notification;
-import org.joinmastodon.android.model.PaginatedResponse;
+import org.joinmastodon.android.model.NotificationType;
 import org.joinmastodon.android.ui.OutlineProviders;
 import org.joinmastodon.android.ui.sheets.AccountSwitcherSheet;
 import org.joinmastodon.android.ui.utils.UiUtils;
@@ -38,6 +40,7 @@ import org.joinmastodon.android.utils.ObjectIdComparator;
 import org.parceler.Parcels;
 
 import java.util.ArrayList;
+import java.util.EnumSet;
 import java.util.List;
 
 import androidx.annotation.IdRes;
@@ -288,37 +291,52 @@ public class HomeFragment extends AppKitFragment{
 	}
 
 	private void reloadNotificationsForUnreadCount(){
-		List<Notification>[] notifications=new List[]{null};
-		String[] marker={null};
+		if(AccountSessionManager.get(accountID).getInstanceInfo().getApiVersion()>=2){
+			new GetUnreadNotificationsCount()
+					.setCallback(new Callback<>(){
+						@Override
+						public void onSuccess(GetUnreadNotificationsCount.Response result){
+							updateUnreadNotificationsBadge(result.count, false);
+						}
 
-		AccountSessionManager.get(accountID).reloadNotificationsMarker(m->{
-			marker[0]=m;
-			if(notifications[0]!=null){
-				updateUnreadCount(notifications[0], marker[0]);
-			}
-		});
+						@Override
+						public void onError(ErrorResponse error){
 
-		AccountSessionManager.get(accountID).getCacheController().getNotifications(null, 40, false, true, new Callback<>(){
-			@Override
-			public void onSuccess(PaginatedResponse<List<Notification>> result){
-				notifications[0]=result.items;
-				if(marker[0]!=null)
-					updateUnreadCount(notifications[0], marker[0]);
-			}
+						}
+					})
+					.exec(accountID);
+		}else{
+			List<Notification>[] notifications=new List[]{null};
+			String[] marker={null};
+			AccountSessionManager.get(accountID).reloadNotificationsMarker(m->{
+				marker[0]=m;
+				if(notifications[0]!=null){
+					updateUnreadCountV1(notifications[0], marker[0]);
+				}
+			});
 
-			@Override
-			public void onError(ErrorResponse error){}
-		});
+			new GetNotificationsV1(null, 40, EnumSet.allOf(NotificationType.class))
+					.setCallback(new Callback<>(){
+						@Override
+						public void onSuccess(List<Notification> result){
+							notifications[0]=result;
+							if(marker[0]!=null)
+								updateUnreadCountV1(notifications[0], marker[0]);
+						}
+
+						@Override
+						public void onError(ErrorResponse error){}
+					}).exec(accountID);
+		}
 	}
 
 	@SuppressLint("DefaultLocale")
-	private void updateUnreadCount(List<Notification> notifications, String marker){
+	private void updateUnreadCountV1(List<Notification> notifications, String marker){
 		if(notifications.isEmpty() || ObjectIdComparator.INSTANCE.compare(notifications.get(0).id, marker)<=0){
-			notificationsBadge.setVisibility(View.GONE);
+			updateUnreadNotificationsBadge(0, false);
 		}else{
-			notificationsBadge.setVisibility(View.VISIBLE);
 			if(ObjectIdComparator.INSTANCE.compare(notifications.get(notifications.size()-1).id, marker)>0){
-				notificationsBadge.setText(String.format("%d+", notifications.size()));
+				updateUnreadNotificationsBadge(notifications.size(), true);
 			}else{
 				int count=0;
 				for(Notification n:notifications){
@@ -326,8 +344,17 @@ public class HomeFragment extends AppKitFragment{
 						break;
 					count++;
 				}
-				notificationsBadge.setText(String.format("%d", count));
+				updateUnreadNotificationsBadge(count, false);
 			}
+		}
+	}
+
+	private void updateUnreadNotificationsBadge(int count, boolean more){
+		if(count==0){
+			notificationsBadge.setVisibility(View.GONE);
+		}else{
+			notificationsBadge.setVisibility(View.VISIBLE);
+			notificationsBadge.setText(String.format(more ? "%d+" : "%d", count));
 		}
 	}
 

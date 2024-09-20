@@ -24,12 +24,12 @@ import org.joinmastodon.android.api.requests.notifications.SetNotificationsPolic
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.events.PollUpdatedEvent;
 import org.joinmastodon.android.events.RemoveAccountPostsEvent;
-import org.joinmastodon.android.model.Notification;
 import org.joinmastodon.android.model.NotificationsPolicy;
 import org.joinmastodon.android.model.PaginatedResponse;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.model.viewmodel.CheckableListItem;
 import org.joinmastodon.android.model.viewmodel.ListItem;
+import org.joinmastodon.android.model.viewmodel.NotificationViewModel;
 import org.joinmastodon.android.ui.M3AlertDialogBuilder;
 import org.joinmastodon.android.ui.OutlineProviders;
 import org.joinmastodon.android.ui.adapters.GenericListItemsAdapter;
@@ -64,6 +64,7 @@ public class NotificationsListFragment extends BaseNotificationsListFragment{
 	private ArrayList<ListItem<Void>> requestsItems=new ArrayList<>();
 	private GenericListItemsAdapter<Void> requestsRowAdapter=new GenericListItemsAdapter<>(requestsItems);
 	private NotificationsPolicy lastPolicy;
+	private boolean refreshAfterLoading;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState){
@@ -96,13 +97,17 @@ public class NotificationsListFragment extends BaseNotificationsListFragment{
 				.getAccount(accountID).getCacheController()
 				.getNotifications(offset>0 ? maxID : null, count, onlyMentions, refreshing && !reloadingFromCache, new SimpleCallback<>(this){
 					@Override
-					public void onSuccess(PaginatedResponse<List<Notification>> result){
+					public void onSuccess(PaginatedResponse<List<NotificationViewModel>> result){
 						if(getActivity()==null)
 							return;
-						onDataLoaded(result.items.stream().filter(n->n.type!=null).collect(Collectors.toList()), !result.items.isEmpty());
+						onDataLoaded(result.items, !result.items.isEmpty());
 						maxID=result.maxID;
 						endMark.setVisibility(result.items.isEmpty() ? View.VISIBLE : View.GONE);
 						reloadingFromCache=false;
+						if(refreshAfterLoading){
+							refreshAfterLoading=false;
+							refresh();
+						}
 					}
 				});
 	}
@@ -111,9 +116,11 @@ public class NotificationsListFragment extends BaseNotificationsListFragment{
 	protected void onShown(){
 		super.onShown();
 		unreadMarker=realUnreadMarker=AccountSessionManager.get(accountID).getLastKnownNotificationsMarker();
-		if(!dataLoading && canRefreshWithoutUpsettingUser()){
-			reloadingFromCache=true;
-			refresh();
+		if(canRefreshWithoutUpsettingUser()){
+			if(dataLoading)
+				refreshAfterLoading=true;
+			else
+				refresh();
 		}
 	}
 
@@ -158,7 +165,7 @@ public class NotificationsListFragment extends BaseNotificationsListFragment{
 				for(int i=0;i<parent.getChildCount();i++){
 					View child=parent.getChildAt(i);
 					if(parent.getChildViewHolder(child) instanceof StatusDisplayItem.Holder<?> holder){
-						String itemID=holder.getItemID();
+						String itemID=getNotificationByID(holder.getItemID()).notification.pageMaxId;
 						if(ObjectIdComparator.INSTANCE.compare(itemID, unreadMarker)>0){
 							parent.getDecoratedBoundsWithMargins(child, tmpRect);
 							c.drawRect(tmpRect, paint);
@@ -180,12 +187,12 @@ public class NotificationsListFragment extends BaseNotificationsListFragment{
 	public void onPollUpdated(PollUpdatedEvent ev){
 		if(!ev.accountID.equals(accountID))
 			return;
-		for(Notification ntf:data){
+		for(NotificationViewModel ntf:data){
 			if(ntf.status==null)
 				continue;
 			Status contentStatus=ntf.status.getContentStatus();
 			if(contentStatus.poll!=null && contentStatus.poll.id.equals(ev.poll.id)){
-				updatePoll(ntf.id, ntf.status, ev.poll);
+				updatePoll(ntf.getID(), ntf.status, ev.poll);
 			}
 		}
 	}
@@ -194,10 +201,10 @@ public class NotificationsListFragment extends BaseNotificationsListFragment{
 	public void onRemoveAccountPostsEvent(RemoveAccountPostsEvent ev){
 		if(!ev.accountID.equals(accountID) || ev.isUnfollow)
 			return;
-		List<Notification> toRemove=Stream.concat(data.stream(), preloadedData.stream())
-				.filter(n->n.account!=null && n.account.id.equals(ev.postsByAccountID))
+		List<NotificationViewModel> toRemove=Stream.concat(data.stream(), preloadedData.stream())
+				.filter(n->n.status!=null && n.status.account.id.equals(ev.postsByAccountID))
 				.collect(Collectors.toList());
-		for(Notification n:toRemove){
+		for(NotificationViewModel n:toRemove){
 			removeNotification(n);
 		}
 	}
@@ -253,7 +260,7 @@ public class NotificationsListFragment extends BaseNotificationsListFragment{
 	private void markAsRead(){
 		if(data.isEmpty())
 			return;
-		String id=data.get(0).id;
+		String id=data.get(0).notification.pageMaxId;
 		if(ObjectIdComparator.INSTANCE.compare(id, realUnreadMarker)>0){
 			new SaveMarkers(null, id).exec(accountID);
 			AccountSessionManager.get(accountID).setNotificationsMarker(id, true);
@@ -276,12 +283,13 @@ public class NotificationsListFragment extends BaseNotificationsListFragment{
 	}
 
 	@Override
-	public void onAppendItems(List<Notification> items){
+	public void onAppendItems(List<NotificationViewModel> items){
 		super.onAppendItems(items);
-		if(data.isEmpty() || data.get(0).id.equals(realUnreadMarker))
+		// TODO
+		if(data.isEmpty() || data.get(0).getID().equals(realUnreadMarker))
 			return;
-		for(Notification n:items){
-			if(ObjectIdComparator.INSTANCE.compare(n.id, realUnreadMarker)<=0){
+		for(NotificationViewModel n:items){
+			if(ObjectIdComparator.INSTANCE.compare(n.notification.pageMinId, realUnreadMarker)<=0){
 				markAsRead();
 				break;
 			}
@@ -296,7 +304,7 @@ public class NotificationsListFragment extends BaseNotificationsListFragment{
 			if(list.getChildViewHolder(list.getChildAt(i)) instanceof StatusDisplayItem.Holder<?> itemHolder){
 				String id=itemHolder.getItemID();
 				for(int j=0;j<data.size();j++){
-					if(data.get(j).id.equals(id))
+					if(data.get(j).getID().equals(id))
 						return j<itemsPerPage; // Can refresh the list without losing scroll position if it is within the first page
 				}
 			}

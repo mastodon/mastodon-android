@@ -31,6 +31,7 @@ import org.joinmastodon.android.model.FilterAction;
 import org.joinmastodon.android.model.FilterContext;
 import org.joinmastodon.android.model.FilterResult;
 import org.joinmastodon.android.model.FollowList;
+import org.joinmastodon.android.model.Instance;
 import org.joinmastodon.android.model.LegacyFilter;
 import org.joinmastodon.android.model.Preferences;
 import org.joinmastodon.android.model.PushSubscription;
@@ -349,5 +350,9 @@ public class AccountSession{
 
 	public int getDonationSeed(){
 		return Math.abs(getFullUsername().hashCode())%100;
+	}
+
+	public Instance getInstanceInfo(){
+		return AccountSessionManager.getInstance().getInstanceInfo(domain);
 	}
 }

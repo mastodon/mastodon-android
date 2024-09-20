@@ -23,6 +23,7 @@ import org.joinmastodon.android.api.session.AccountSession;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.Mention;
+import org.joinmastodon.android.model.NotificationType;
 import org.joinmastodon.android.model.PushNotification;
 import org.joinmastodon.android.model.StatusPrivacy;
 import org.joinmastodon.android.ui.utils.UiUtils;
@@ -183,7 +184,7 @@ public class PushNotificationReceiver extends BroadcastReceiver{
 			builder.setSubText(accountName);
 		}
 		String notificationTag=accountID+"_"+(notification==null ? 0 : notification.id);
-		if(notification!=null && (notification.type==org.joinmastodon.android.model.Notification.Type.MENTION)){
+		if(notification!=null && (notification.type==NotificationType.MENTION)){
 			ArrayList<String> mentions=new ArrayList<>();
 			String ownID=AccountSessionManager.getInstance().getAccount(accountID).self.id;
 			if(!notification.status.account.id.equals(ownID))

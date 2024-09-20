@@ -13,25 +13,22 @@ import android.widget.TextView;
 
 import org.joinmastodon.android.E;
 import org.joinmastodon.android.R;
-import org.joinmastodon.android.api.requests.notifications.GetNotifications;
 import org.joinmastodon.android.api.requests.notifications.RespondToNotificationRequest;
 import org.joinmastodon.android.events.NotificationRequestRespondedEvent;
 import org.joinmastodon.android.model.Account;
-import org.joinmastodon.android.model.Notification;
+import org.joinmastodon.android.model.NotificationType;
+import org.joinmastodon.android.model.viewmodel.NotificationViewModel;
 import org.joinmastodon.android.ui.Snackbar;
 import org.joinmastodon.android.ui.displayitems.StatusDisplayItem;
 import org.joinmastodon.android.ui.utils.UiUtils;
 import org.parceler.Parcels;
 
-import java.util.ArrayList;
-import java.util.EnumSet;
 import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import me.grishka.appkit.api.Callback;
 import me.grishka.appkit.api.ErrorResponse;
-import me.grishka.appkit.api.SimpleCallback;
 import me.grishka.appkit.utils.MergeRecyclerAdapter;
 import me.grishka.appkit.utils.SingleViewRecyclerAdapter;
 
@@ -56,16 +53,16 @@ public class AccountNotificationsListFragment extends BaseNotificationsListFragm
 	protected void doLoadData(int offset, int count){
 		if(!refreshing && endMark!=null)
 			endMark.setVisibility(View.GONE);
-		currentRequest=new GetNotifications(offset==0 ? null : maxID, count, EnumSet.allOf(Notification.Type.class), account.id)
-				.setCallback(new SimpleCallback<>(this){
-					@Override
-					public void onSuccess(List<Notification> result){
-						onDataLoaded(result, !result.isEmpty());
-						maxID=result.isEmpty() ? null : result.get(result.size()-1).id;
-						endMark.setVisibility(result.isEmpty() ? View.VISIBLE : View.GONE);
-					}
-				})
-				.exec(accountID);
+//		currentRequest=new GetNotificationsV2(offset==0 ? null : maxID, count, EnumSet.allOf(NotificationType.class), account.id)
+//				.setCallback(new SimpleCallback<>(this){
+//					@Override
+//					public void onSuccess(List<NotificationViewModel> result){
+//						onDataLoaded(result, !result.isEmpty());
+//						maxID=result.isEmpty() ? null : result.get(result.size()-1).id;
+//						endMark.setVisibility(result.isEmpty() ? View.VISIBLE : View.GONE);
+//					}
+//				})
+//				.exec(accountID);
 	}
 
 	@Override
@@ -153,8 +150,8 @@ public class AccountNotificationsListFragment extends BaseNotificationsListFragm
 	}
 
 	@Override
-	protected List<StatusDisplayItem> buildDisplayItems(Notification n){
-		if(n.type==Notification.Type.MENTION || n.type==Notification.Type.STATUS){
+	protected List<StatusDisplayItem> buildDisplayItems(NotificationViewModel n){
+		if(n.notification.type==NotificationType.MENTION || n.notification.type==NotificationType.STATUS){
 			return StatusDisplayItem.buildItems(this, n.status, accountID, n, knownAccounts, StatusDisplayItem.FLAG_MEDIA_FORCE_HIDDEN);
 		}
 		return super.buildDisplayItems(n);

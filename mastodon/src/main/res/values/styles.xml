@@ -56,10 +56,8 @@
 		<item name="colorM3SurfaceInverse">@color/m3_sys_dark_surface</item>
 		<item name="colorM3OnSurfaceInverse">@color/m3_sys_dark_on_surface</item>
 		<item name="colorWhite">#FFF</item>
-		<item name="colorFavorite">#8b5000</item>
-		<item name="colorBoost">#ab332a</item>
-		<item name="colorFollow">#4746e3</item>
-		<item name="colorPoll">#006d42</item>
+		<item name="colorFavorite">@color/ext_favorite_light</item>
+		<item name="colorBoost">@color/ext_boost_light</item>
 
 		<item name="android:statusBarColor">?colorM3Background</item>
 		<item name="android:navigationBarColor">@color/navigation_bar_bg_light</item>
@@ -126,10 +124,8 @@
 		<item name="colorM3SurfaceInverse">@color/m3_sys_light_surface</item>
 		<item name="colorM3OnSurfaceInverse">@color/m3_sys_light_on_surface</item>
 		<item name="colorWhite">#000</item>
-		<item name="colorFavorite">#ffb871</item>
-		<item name="colorBoost">#ffb4aa</item>
-		<item name="colorFollow">#c1c1ff</item>
-		<item name="colorPoll">#77daa1</item>
+		<item name="colorFavorite">@color/ext_favorite_dark</item>
+		<item name="colorBoost">@color/ext_boost_dark</item>
 
 		<item name="android:statusBarColor">?colorM3Background</item>
 		<item name="android:navigationBarColor">?colorM3Background</item>

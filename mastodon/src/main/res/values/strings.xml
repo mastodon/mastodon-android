@@ -16,9 +16,8 @@
 
 	<string name="user_followed_you">%s followed you</string>
 	<string name="user_sent_follow_request">%s sent you a follow request</string>
-	<string name="user_favorited">%s favorited your post</string>
-	<string name="notification_boosted">%s boosted your post</string>
-	<string name="poll_ended">See the results of a poll you voted in</string>
+	<string name="user_favorited">%s favorited:</string>
+	<string name="notification_boosted">%s boosted:</string>
 
 	<string name="share_toot_title">Share</string>
 	<string name="settings">Settings</string>
@@ -784,4 +783,17 @@
 		<item quantity="one">%d attachment</item>
 		<item quantity="other">%d attachments</item>
 	</plurals>
+	<plurals name="user_and_x_more_favorited">
+		<item quantity="one">%1$s and %2$,d other favorited:</item>
+		<item quantity="other">%1$s and %2$,d others favorited:</item>
+	</plurals>
+	<plurals name="user_and_x_more_boosted">
+		<item quantity="one">%1$s and %2$,d other boosted:</item>
+		<item quantity="other">%1$s and %2$,d others boosted:</item>
+	</plurals>
+	<plurals name="poll_ended_x_voters">
+		<item quantity="one">%1$s ran a poll that you and %2$,d other voted in</item>
+		<item quantity="other">%1$s ran a poll that you and %2$,d others voted in</item>
+	</plurals>
+	<string name="own_poll_ended">Your poll has ended</string>
 </resources>

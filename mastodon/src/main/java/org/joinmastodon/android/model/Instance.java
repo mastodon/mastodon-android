@@ -73,6 +73,10 @@ public abstract class Instance extends BaseModel{
 	public abstract int getVersion();
 	public abstract long getApiVersion(String name);
 
+	public long getApiVersion(){
+		return getApiVersion("mastodon");
+	}
+
 	@Parcel
 	public static class Rule{
 		public String id;

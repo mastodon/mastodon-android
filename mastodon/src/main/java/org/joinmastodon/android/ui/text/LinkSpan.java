@@ -12,7 +12,7 @@ import org.joinmastodon.android.ui.utils.UiUtils;
 
 public class LinkSpan extends CharacterStyle {
 
-	private int color=0xFF00FF00;
+	protected int color=0xFF00FF00;
 	private OnLinkClickListener listener;
 	private String link;
 	private Type type;
