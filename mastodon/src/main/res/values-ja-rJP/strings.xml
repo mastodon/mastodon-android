@@ -730,4 +730,6 @@
 	<string name="donation_server_error">申し訳ありません。エラーが発生し、寄付を処理できませんでした。\n\n数分後に再試行してください。</string>
 	<string name="settings_donate">Mastodon に寄付する</string>
 	<string name="settings_manage_donations">寄付を管理</string>
+	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
+	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
 </resources>
