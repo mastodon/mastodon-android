@@ -764,4 +764,6 @@
 	<string name="donation_server_error">Nous sommes désolés, une erreur est survenue et nous n\'avons pas pu traiter votre don.\n\nVeuillez réessayer dans quelques minutes.</string>
 	<string name="settings_donate">Faire un don à Mastodon</string>
 	<string name="settings_manage_donations">Gestion des dons</string>
+	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
+	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
 </resources>
