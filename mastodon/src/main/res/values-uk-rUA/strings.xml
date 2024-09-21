@@ -840,6 +840,51 @@
 	<string name="cant_load_image">Не вдалося завантажити зображення</string>
 	<string name="poll_see_results">Переглянути результати</string>
 	<string name="poll_hide_results">Приховати результати</string>
+	<plurals name="x_attachments">
+		<item quantity="one">%d вкладення</item>
+		<item quantity="few">%d вкладень</item>
+		<item quantity="many">%d вкладень</item>
+		<item quantity="other">%d вкладень</item>
+	</plurals>
+	<plurals name="user_and_x_more_favorited">
+		<item quantity="one">%1$s і ще %2$,d інші улюблені:</item>
+		<item quantity="few">%1$s і ще %2$,d інших улюблені:</item>
+		<item quantity="many">%1$s і ще %2$,d інші улюблені:</item>
+		<item quantity="other">%1$s і ще %2$,d інших улюблені:</item>
+	</plurals>
+	<plurals name="user_and_x_more_boosted">
+		<item quantity="one">%1$s і ще %2$,d інші поширено:</item>
+		<item quantity="few">%1$s і ще %2$,d інших поширено:</item>
+		<item quantity="many">%1$s і ще %2$,d інших поширено:</item>
+		<item quantity="other">%1$s і ще %2$,d інших поширено:</item>
+	</plurals>
+	<plurals name="poll_ended_x_voters">
+		<item quantity="one">%1$s провів опитування, у якому проголосували ви та ще %2$,d інші</item>
+		<item quantity="few">%1$s провів опитування, у якому проголосували ви та ще %2$,d інших</item>
+		<item quantity="many">%1$s провів опитування, у якому проголосували ви та ще %2$,d інших</item>
+		<item quantity="other">%1$s провів опитування, у якому проголосували ви та ще %2$,d інших</item>
+	</plurals>
+	<string name="own_poll_ended">Ваше опитування завершилося</string>
+	<string name="user_just_posted">%s щойно опубліковав</string>
+	<string name="user_edited_post">%s відредагував публікацію, з якою ви взаємодіяли</string>
+	<string name="relationship_severance_account_suspension">Адміністратор з %1$s призупинив %2$s, що означає, що ви більше не можете отримувати від нього оновлення чи взаємодіяти з ним.</string>
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_domain_block">Адміністратор з %1$s заблокував %2$s, у тому числі %3$,d ваших читачів і %4$s, на які ви підписалися.</string>
+	<plurals name="x_accounts">
+		<item quantity="one">%,d обліковий запис</item>
+		<item quantity="few">%,d облікових записів</item>
+		<item quantity="many">%,d облікових записів</item>
+		<item quantity="other">%,d облікових записів</item>
+	</plurals>
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_user_domain_block">Ви заблокували %1$s, видаливши %2$,d ваших читачів і %3$s, на які ви підписалися.</string>
+	<string name="relationship_severance_learn_more">Дізнатися більше</string>
+	<string name="moderation_warning_action_none">Ваш обліковий запис отримав попередження модерації.</string>
+	<string name="moderation_warning_action_disable">Ваш обліковий запис було вимкнено.</string>
+	<string name="moderation_warning_action_mark_statuses_as_sensitive">Деякі з ваших дописів були позначені як чутливі.</string>
+	<string name="moderation_warning_action_delete_statuses">Деякі з ваших дописів було видалено.</string>
+	<string name="moderation_warning_action_sensitive">Відтепер ваші дописи будуть позначені як чутливі.</string>
+	<string name="moderation_warning_action_silence">Ваш обліковий запис було обмежено.</string>
+	<string name="moderation_warning_action_suspend">Ваш обліковий запис було заблоковано.</string>
+	<string name="moderation_warning_learn_more">Дізнатися більше</string>
 </resources>
