@@ -29,6 +29,7 @@ public class InlineStatusStatusDisplayItem extends StatusDisplayItem{
 	private SpannableStringBuilder parsedName;
 	private SpannableStringBuilder parsedPostText;
 	private UrlImageLoaderRequest avaRequest;
+	public boolean removeTopPadding;
 
 	public InlineStatusStatusDisplayItem(String parentID, BaseStatusListFragment<?> parentFragment, Status status){
 		super(parentID, parentFragment);
@@ -85,7 +86,7 @@ public class InlineStatusStatusDisplayItem extends StatusDisplayItem{
 
 		@Override
 		public void onBind(InlineStatusStatusDisplayItem item){
-			itemView.setPaddingRelative(V.dp(item.fullWidth ? 16 : 64), itemView.getPaddingTop(), itemView.getPaddingEnd(), itemView.getPaddingBottom());
+			itemView.setPaddingRelative(V.dp(item.fullWidth ? 16 : 64), item.removeTopPadding ? 0 : V.dp(8), itemView.getPaddingEnd(), itemView.getPaddingBottom());
 			name.setText(item.parsedName);
 			username.setText(item.status.account.getDisplayUsername());
 			if(item.parsedPostText.length()==0){

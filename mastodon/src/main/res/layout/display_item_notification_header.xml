@@ -5,7 +5,8 @@
 	android:layout_width="match_parent"
 	android:layout_height="wrap_content"
 	android:paddingHorizontal="16dp"
-	android:paddingTop="12dp">
+	android:paddingTop="12dp"
+	android:clipToPadding="false">
 
 	<ImageView
 		android:id="@+id/icon"
@@ -65,6 +66,9 @@
 		android:layout_toEndOf="@id/icon"
 		android:layout_below="@id/avatars"
 		android:layout_alignWithParentIfMissing="true"
+		android:padding="8dp"
+		android:layout_marginStart="-8dp"
+		android:layout_marginTop="-8dp"
 		android:textAppearance="@style/m3_body_medium"
 		android:textColor="?colorM3OnSurface"
 		android:minHeight="20dp"
