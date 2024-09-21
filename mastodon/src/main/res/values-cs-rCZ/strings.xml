@@ -834,4 +834,6 @@
 	<string name="donation_success_subtitle">Brzy byste měli obdržet e-mail potvrzující váš příspěvek.</string>
 	<string name="donation_server_error">Je nám líto, došlo k chybě a nepodařilo se nám zpracovat váš příspěvek.\n\nZkuste to prosím znovu za pár minut.</string>
 	<string name="settings_donate">Podpořit Mastodon</string>
+	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
+	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
 </resources>
