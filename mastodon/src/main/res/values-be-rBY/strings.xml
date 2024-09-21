@@ -835,4 +835,6 @@
 	<string name="donation_server_error">Нам вельмі шкада, але адбылася памылка, і мы не змаглі апрацаваць ваша ахвяраванне.\n\nКалі ласка, паспрабуйце яшчэ некалькі хвілін.</string>
 	<string name="settings_donate">Ахвяруйце Mastodon</string>
 	<string name="settings_manage_donations">Кіраваць ахвяраваннямі</string>
+	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
+	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
 </resources>
