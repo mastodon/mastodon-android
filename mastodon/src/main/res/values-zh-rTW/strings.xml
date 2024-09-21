@@ -13,6 +13,8 @@
 	<string name="notifications">通知</string>
 	<string name="user_followed_you">%s 已跟隨您</string>
 	<string name="user_sent_follow_request">%s 已傳送跟隨請求給您</string>
+	<string name="user_favorited">%s 個已加入最愛：</string>
+	<string name="notification_boosted">%s 個已轉嘟：</string>
 	<string name="share_toot_title">分享</string>
 	<string name="settings">設定</string>
 	<string name="publish">發佈</string>
@@ -731,4 +733,19 @@
 	<string name="settings_donate">捐款給 Mastodon</string>
 	<string name="settings_manage_donations">管理捐款</string>
 	<string name="cant_load_image">無法載入圖片</string>
+	<string name="poll_see_results">檢視結果</string>
+	<string name="poll_hide_results">隱藏結果</string>
+	<plurals name="x_attachments">
+		<item quantity="other">%d 則附件</item>
+	</plurals>
+	<plurals name="user_and_x_more_favorited">
+		<item quantity="other">%1$s 與 %2$,d 個其他人已加入最愛：</item>
+	</plurals>
+	<plurals name="user_and_x_more_boosted">
+		<item quantity="other">%1$s 與 %2$,d 個其他人已加轉嘟：</item>
+	</plurals>
+	<plurals name="poll_ended_x_voters">
+		<item quantity="other">%1$s 舉行您與其他 %2$,d 個人參與之投票</item>
+	</plurals>
+	<string name="own_poll_ended">您的投票已結束</string>
 </resources>
