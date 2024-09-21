@@ -730,4 +730,6 @@
 	<string name="donation_server_error">Maafkan kami, kesalahan telah terjadi dan kami belum bisa memproses donasi anda.\n\nMohon ulang kembali beberapa menit lagi.</string>
 	<string name="settings_donate">Donasi ke Mastodon</string>
 	<string name="settings_manage_donations">Kelola donasi</string>
+	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
+	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
 </resources>
