@@ -2,9 +2,9 @@ package org.joinmastodon.android.ui.displayitems;
 
 import android.app.Activity;
 import android.content.res.ColorStateList;
-import android.text.SpannableString;
+import android.graphics.Typeface;
 import android.text.SpannableStringBuilder;
-import android.text.style.TypefaceSpan;
+import android.text.style.StyleSpan;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -59,7 +59,7 @@ public class NotificationWithButtonStatusDisplayItem extends StatusDisplayItem{
 			if(index==-1)
 				continue;
 			ssb.replace(index, index+placeholder.length(), e.getValue());
-			ssb.setSpan(new TypefaceSpan("sans-serif-medium"), index, index+e.getValue().length(), 0);
+			ssb.setSpan(new StyleSpan(Typeface.BOLD), index, index+e.getValue().length(), 0);
 		}
 		return ssb;
 	}
