@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:orientation="horizontal"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:paddingHorizontal="16dp"
+	android:paddingTop="12dp">
+
+	<ImageView
+		android:id="@+id/icon"
+		android:layout_width="40dp"
+		android:layout_height="28dp"
+		android:layout_alignParentTop="true"
+		android:layout_alignParentStart="true"
+		android:layout_marginEnd="8dp"
+		android:importantForAccessibility="no"
+		android:scaleType="center"
+		tools:tint="#0f0"
+		tools:src="@drawable/ic_repeat_24px"/>
+
+	<TextView
+		android:id="@+id/text"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_toEndOf="@id/icon"
+		android:layout_alignWithParentIfMissing="true"
+		android:textAppearance="@style/m3_body_medium"
+		android:textColor="?colorM3OnSurface"
+		android:minHeight="20dp"
+		android:gravity="center_vertical"
+		tools:text="Notification text"/>
+
+	<Button
+		android:id="@+id/button"
+		android:layout_width="wrap_content"
+		android:layout_height="28dp"
+		android:layout_below="@id/text"
+		android:layout_toEndOf="@id/icon"
+		android:layout_marginStart="-8dp"
+		android:layout_marginTop="4dp"
+		android:layout_marginBottom="8dp"
+		android:background="@drawable/bg_button_m3_text"
+		android:textColor="?colorM3Primary"
+		android:paddingHorizontal="8dp"
+		android:minWidth="0dp"
+		android:gravity="start|center_vertical"
+		tools:text="Button text"/>
+
+</RelativeLayout>

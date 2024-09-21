@@ -1,5 +1,8 @@
 package org.joinmastodon.android.model;
 
+import android.util.Log;
+
+import org.joinmastodon.android.api.ObjectValidationException;
 import org.joinmastodon.android.api.RequiredField;
 
 import java.time.Instant;
@@ -18,7 +21,23 @@ public class NotificationGroup extends BaseModel{
 	@RequiredField
 	public List<String> sampleAccountIds;
 	public String statusId;
-	// TODO report
-	// TODO event
+	public RelationshipSeveranceEvent event;
 	// TODO moderation_warning
+
+
+	@Override
+	public void postprocess() throws ObjectValidationException{
+		super.postprocess();
+		if(event!=null){
+			try{
+				event.postprocess();
+			}catch(ObjectValidationException x){
+				Log.w("Notification", x);
+				event=null;
+			}
+		}
+		if(type!=NotificationType.SEVERED_RELATIONSHIPS && sampleAccountIds.isEmpty()){
+			throw new ObjectValidationException("sample_account_ids must be present for type "+type);
+		}
+	}
 }

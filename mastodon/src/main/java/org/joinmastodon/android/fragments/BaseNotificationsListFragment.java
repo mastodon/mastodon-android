@@ -11,6 +11,7 @@ import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.model.viewmodel.NotificationViewModel;
 import org.joinmastodon.android.ui.displayitems.InlineStatusStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.NotificationHeaderStatusDisplayItem;
+import org.joinmastodon.android.ui.displayitems.NotificationWithButtonStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.ReblogOrReplyLineStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.StatusDisplayItem;
 import org.parceler.Parcels;
@@ -35,7 +36,10 @@ public abstract class BaseNotificationsListFragment extends BaseStatusListFragme
 			else
 				titleItem=null;
 		}else{
-			titleItem=new NotificationHeaderStatusDisplayItem(n.getID(), this, n, accountID);
+			if(n.notification.type==NotificationType.SEVERED_RELATIONSHIPS)
+				titleItem=new NotificationWithButtonStatusDisplayItem(n.getID(), this, n, accountID);
+			else
+				titleItem=new NotificationHeaderStatusDisplayItem(n.getID(), this, n, accountID);
 		}
 		if(n.status!=null){
 			if(titleItem!=null && n.notification.type!=NotificationType.STATUS){
