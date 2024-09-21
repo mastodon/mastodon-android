@@ -787,6 +787,14 @@ Quanto mais pessoas que você seguir, mas interessantes e ativas serão.</string
 		<item quantity="other">%1$s fez uma enquete que você e %2$,d outros votaram</item>
 	</plurals>
 	<string name="own_poll_ended">Sua enquete acabou</string>
+	<string name="user_just_posted">%s acabou de tootar</string>
+	<string name="user_edited_post">%s editou o toot que você interagiu</string>
+	<string name="relationship_severance_account_suspension">Um administrador de %1$s suspendeu %2$s, o que significa que você não pode mais receber atualizações deles ou interagir com eles.</string>
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_domain_block">Um administrador de %1$s bloqueou %2$s, incluindo %3$,d e os seguidores e %4$s você segue.</string>
+	<plurals name="x_accounts">
+		<item quantity="one">%,d conta</item>
+		<item quantity="other">%,d contas</item>
+	</plurals>
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
 </resources>
