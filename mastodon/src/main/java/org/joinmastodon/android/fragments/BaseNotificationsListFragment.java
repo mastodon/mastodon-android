@@ -11,9 +11,11 @@ import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.model.viewmodel.NotificationViewModel;
 import org.joinmastodon.android.ui.displayitems.InlineStatusStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.NotificationHeaderStatusDisplayItem;
+import org.joinmastodon.android.ui.displayitems.ReblogOrReplyLineStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.StatusDisplayItem;
 import org.parceler.Parcels;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import me.grishka.appkit.Nav;
@@ -24,21 +26,25 @@ public abstract class BaseNotificationsListFragment extends BaseStatusListFragme
 
 	@Override
 	protected List<StatusDisplayItem> buildDisplayItems(NotificationViewModel n){
-		NotificationHeaderStatusDisplayItem titleItem;
-		if(n.notification.type==NotificationType.MENTION || n.notification.type==NotificationType.STATUS){
+		StatusDisplayItem titleItem;
+		if(n.notification.type==NotificationType.MENTION){
 			titleItem=null;
+		}else if(n.notification.type==NotificationType.STATUS){
+			if(n.status!=null)
+				titleItem=new ReblogOrReplyLineStatusDisplayItem(n.getID(), this, getString(R.string.user_just_posted, n.status.account.displayName), n.status.account.emojis, R.drawable.ic_notifications_wght700fill1_20px);
+			else
+				titleItem=null;
 		}else{
 			titleItem=new NotificationHeaderStatusDisplayItem(n.getID(), this, n, accountID);
-			if(n.status!=null){
-				n.status.card=null;
-				n.status.spoilerText=null;
-			}
 		}
 		if(n.status!=null){
-			if(titleItem!=null){
+			if(titleItem!=null && n.notification.type!=NotificationType.STATUS){
 				return List.of(titleItem, new InlineStatusStatusDisplayItem(n.getID(), this, n.status));
 			}else{
-				return StatusDisplayItem.buildItems(this, n.status, accountID, n, knownAccounts, 0);
+				ArrayList<StatusDisplayItem> items=StatusDisplayItem.buildItems(this, n.status, accountID, n, knownAccounts, 0);
+				if(titleItem!=null)
+					items.add(0, titleItem);
+				return items;
 			}
 		}else if(titleItem!=null){
 			return List.of(titleItem);
