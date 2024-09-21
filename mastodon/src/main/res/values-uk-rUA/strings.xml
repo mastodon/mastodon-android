@@ -13,6 +13,8 @@
 	<string name="notifications">Сповіщення</string>
 	<string name="user_followed_you">%s підписався(-лася) на вас</string>
 	<string name="user_sent_follow_request">%s надсилає вам запит на підписку</string>
+	<string name="user_favorited">%s улюблені:</string>
+	<string name="notification_boosted">%s поширено:</string>
 	<string name="share_toot_title">Поділитися</string>
 	<string name="settings">Налаштування</string>
 	<string name="publish">Опублікувати</string>
@@ -835,4 +837,9 @@
 	<string name="donation_server_error">На жаль, сталася помилка, і ми не змогли обробити вашу пожертву.\n\nПовторіть спробу через кілька хвилин.</string>
 	<string name="settings_donate">Пожертвувати Mastodon</string>
 	<string name="settings_manage_donations">Керувати пожертвами</string>
+	<string name="cant_load_image">Не вдалося завантажити зображення</string>
+	<string name="poll_see_results">Переглянути результати</string>
+	<string name="poll_hide_results">Приховати результати</string>
+	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
+	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
 </resources>
