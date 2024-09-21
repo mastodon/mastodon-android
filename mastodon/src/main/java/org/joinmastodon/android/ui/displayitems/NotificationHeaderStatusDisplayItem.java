@@ -88,6 +88,7 @@ public class NotificationHeaderStatusDisplayItem extends StatusDisplayItem{
 					case FOLLOW_REQUEST -> R.string.user_sent_follow_request;
 					case REBLOG -> R.string.notification_boosted;
 					case FAVORITE -> R.string.user_favorited;
+					case UPDATE -> R.string.user_edited_post;
 					default -> throw new IllegalStateException("Unexpected value: "+notification.notification.type);
 				}, "{{name}}");
 			}
@@ -181,8 +182,7 @@ public class NotificationHeaderStatusDisplayItem extends StatusDisplayItem{
 		@Override
 		public void onBind(NotificationHeaderStatusDisplayItem item){
 			text.setText(item.text);
-//			avatar.setVisibility(item.notification.notification.type==NotificationType.POLL ? View.GONE : View.VISIBLE);
-			if(item.notification.notification.type==NotificationType.POLL){
+			if(item.notification.notification.type==NotificationType.POLL || item.notification.notification.type==NotificationType.UPDATE){
 				avatarsContainer.setVisibility(View.GONE);
 			}else{
 				avatarsContainer.setVisibility(View.VISIBLE);
@@ -200,12 +200,13 @@ public class NotificationHeaderStatusDisplayItem extends StatusDisplayItem{
 				case REBLOG -> R.drawable.ic_repeat_fill1_24px;
 				case FOLLOW, FOLLOW_REQUEST -> R.drawable.ic_person_add_fill1_24px;
 				case POLL -> R.drawable.ic_insert_chart_fill1_24px;
+				case UPDATE -> R.drawable.ic_edit_24px;
 				default -> throw new IllegalStateException("Unexpected value: "+item.notification.notification.type);
 			});
 			icon.setImageTintList(ColorStateList.valueOf(UiUtils.getThemeColor(item.parentFragment.getActivity(), switch(item.notification.notification.type){
 				case FAVORITE -> R.attr.colorFavorite;
 				case REBLOG -> R.attr.colorBoost;
-				case FOLLOW, FOLLOW_REQUEST -> R.attr.colorM3Primary;
+				case FOLLOW, FOLLOW_REQUEST, UPDATE -> R.attr.colorM3Primary;
 				default -> R.attr.colorM3Outline;
 			})));
 			itemView.setPadding(itemView.getPaddingLeft(), itemView.getPaddingTop(), itemView.getPaddingRight(), item.notification.status==null ? V.dp(12) : 0);

@@ -18,7 +18,9 @@ public enum NotificationType{
 	@SerializedName("poll")
 	POLL,
 	@SerializedName("status")
-	STATUS;
+	STATUS,
+	@SerializedName("update")
+	UPDATE;
 
 	public boolean canBeGrouped(){
 		return this==REBLOG || this==FAVORITE;
