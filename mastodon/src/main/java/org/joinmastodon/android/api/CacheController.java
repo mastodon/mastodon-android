@@ -282,6 +282,8 @@ public class CacheController{
 												group.mostRecentNotificationId=group.pageMaxId=group.pageMinId=n.id;
 												group.latestPageNotificationAt=n.createdAt;
 												group.sampleAccountIds=List.of(n.account.id);
+												group.event=n.event;
+												group.moderationWarning=n.moderationWarning;
 												if(n.status!=null)
 													group.statusId=n.status.id;
 												NotificationViewModel nvm=new NotificationViewModel();

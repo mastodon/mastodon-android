@@ -19,6 +19,7 @@ public class Notification extends BaseModel implements DisplayItemsParent{
 	public Account account;
 	public Status status;
 	public RelationshipSeveranceEvent event;
+	public AccountWarning moderationWarning;
 
 	@Override
 	public void postprocess() throws ObjectValidationException{
@@ -34,7 +35,9 @@ public class Notification extends BaseModel implements DisplayItemsParent{
 				event=null;
 			}
 		}
-		if(type!=NotificationType.SEVERED_RELATIONSHIPS && account==null){
+		if(moderationWarning!=null)
+			moderationWarning.postprocess();
+		if(type!=NotificationType.SEVERED_RELATIONSHIPS && type!=NotificationType.MODERATION_WARNING && account==null){
 			throw new ObjectValidationException("account must be present for type "+type);
 		}
 	}

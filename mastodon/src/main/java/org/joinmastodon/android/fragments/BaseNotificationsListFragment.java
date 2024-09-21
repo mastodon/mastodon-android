@@ -36,7 +36,7 @@ public abstract class BaseNotificationsListFragment extends BaseStatusListFragme
 			else
 				titleItem=null;
 		}else{
-			if(n.notification.type==NotificationType.SEVERED_RELATIONSHIPS)
+			if(n.notification.type==NotificationType.SEVERED_RELATIONSHIPS || n.notification.type==NotificationType.MODERATION_WARNING)
 				titleItem=new NotificationWithButtonStatusDisplayItem(n.getID(), this, n, accountID);
 			else
 				titleItem=new NotificationHeaderStatusDisplayItem(n.getID(), this, n, accountID);

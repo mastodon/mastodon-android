@@ -13,6 +13,7 @@ import android.widget.TextView;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.fragments.BaseStatusListFragment;
+import org.joinmastodon.android.model.AccountWarning;
 import org.joinmastodon.android.model.NotificationType;
 import org.joinmastodon.android.model.RelationshipSeveranceEvent;
 import org.joinmastodon.android.model.viewmodel.NotificationViewModel;
@@ -29,9 +30,9 @@ public class NotificationWithButtonStatusDisplayItem extends StatusDisplayItem{
 	public NotificationWithButtonStatusDisplayItem(String parentID, BaseStatusListFragment<?> parentFragment, NotificationViewModel notification, String accountID){
 		super(parentID, parentFragment);
 		this.notification=notification;
+		String localDomain=AccountSessionManager.get(accountID).domain;
 		if(notification.notification.type==NotificationType.SEVERED_RELATIONSHIPS){
 			RelationshipSeveranceEvent event=notification.notification.event;
-			String localDomain=AccountSessionManager.get(accountID).domain;
 			if(event!=null){
 				text=switch(event.type){
 					case ACCOUNT_SUSPENSION -> replacePlaceholdersWithBoldStrings(parentFragment.getString(R.string.relationship_severance_account_suspension,
@@ -48,6 +49,23 @@ public class NotificationWithButtonStatusDisplayItem extends StatusDisplayItem{
 			}
 			buttonText=parentFragment.getString(R.string.relationship_severance_learn_more);
 			buttonAction=()->UiUtils.launchWebBrowser(parentFragment.getActivity(), "https://"+localDomain+"/severed_relationships");
+		}else if(notification.notification.type==NotificationType.MODERATION_WARNING){
+			AccountWarning warning=notification.notification.moderationWarning;
+			if(warning!=null){
+				text=parentFragment.getString(switch(warning.action){
+					case NONE -> R.string.moderation_warning_action_none;
+					case DISABLE -> R.string.moderation_warning_action_disable;
+					case MARK_STATUSES_AS_SENSITIVE -> R.string.moderation_warning_action_mark_statuses_as_sensitive;
+					case DELETE_STATUSES -> R.string.moderation_warning_action_delete_statuses;
+					case SENSITIVE -> R.string.moderation_warning_action_sensitive;
+					case SILENCE -> R.string.moderation_warning_action_silence;
+					case SUSPEND -> R.string.moderation_warning_action_suspend;
+				});
+				buttonAction=()->UiUtils.launchWebBrowser(parentFragment.getActivity(), "https://"+localDomain+"/disputes/strikes/"+warning.id);
+			}else{
+				text="???";
+			}
+			buttonText=parentFragment.getString(R.string.moderation_warning_learn_more);
 		}
 	}
 
@@ -86,6 +104,7 @@ public class NotificationWithButtonStatusDisplayItem extends StatusDisplayItem{
 		public void onBind(NotificationWithButtonStatusDisplayItem item){
 			icon.setImageResource(switch(item.notification.notification.type){
 				case SEVERED_RELATIONSHIPS -> R.drawable.ic_heart_broken_fill1_24px;
+				case MODERATION_WARNING -> R.drawable.ic_gavel_24px;
 				default -> throw new IllegalStateException("Unexpected value: " + item.notification.notification.type);
 			});
 			icon.setImageTintList(ColorStateList.valueOf(UiUtils.getThemeColor(itemView.getContext(), R.attr.colorM3Outline)));

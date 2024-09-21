@@ -22,7 +22,7 @@ public class NotificationGroup extends BaseModel{
 	public List<String> sampleAccountIds;
 	public String statusId;
 	public RelationshipSeveranceEvent event;
-	// TODO moderation_warning
+	public AccountWarning moderationWarning;
 
 
 	@Override
@@ -36,7 +36,9 @@ public class NotificationGroup extends BaseModel{
 				event=null;
 			}
 		}
-		if(type!=NotificationType.SEVERED_RELATIONSHIPS && sampleAccountIds.isEmpty()){
+		if(moderationWarning!=null)
+			moderationWarning.postprocess();
+		if(type!=NotificationType.SEVERED_RELATIONSHIPS && type!=NotificationType.MODERATION_WARNING && sampleAccountIds.isEmpty()){
 			throw new ObjectValidationException("sample_account_ids must be present for type "+type);
 		}
 	}

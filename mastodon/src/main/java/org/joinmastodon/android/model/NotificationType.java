@@ -22,7 +22,9 @@ public enum NotificationType{
 	@SerializedName("update")
 	UPDATE,
 	@SerializedName("severed_relationships")
-	SEVERED_RELATIONSHIPS;
+	SEVERED_RELATIONSHIPS,
+	@SerializedName("moderation_warning")
+	MODERATION_WARNING;
 
 	public boolean canBeGrouped(){
 		return this==REBLOG || this==FAVORITE;

@@ -808,4 +808,12 @@
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
 	<string name="relationship_severance_user_domain_block">You have blocked %1$s, removing %2$,d of your followers and %3$s you follow.</string>
 	<string name="relationship_severance_learn_more">Learn more</string>
+	<string name="moderation_warning_action_none">Your account has received a moderation warning.</string>
+	<string name="moderation_warning_action_disable">Your account has been disabled.</string>
+	<string name="moderation_warning_action_mark_statuses_as_sensitive">Some of your posts have been marked as sensitive.</string>
+	<string name="moderation_warning_action_delete_statuses">Some of your posts have been removed.</string>
+	<string name="moderation_warning_action_sensitive">Your posts will be marked as sensitive from now on.</string>
+	<string name="moderation_warning_action_silence">Your account has been limited.</string>
+	<string name="moderation_warning_action_suspend">Your account has been suspended.</string>
+	<string name="moderation_warning_learn_more">Learn more</string>
 </resources>
