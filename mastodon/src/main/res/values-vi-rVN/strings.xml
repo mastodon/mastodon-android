@@ -13,6 +13,8 @@
 	<string name="notifications">Thông báo</string>
 	<string name="user_followed_you">%s theo dõi bạn</string>
 	<string name="user_sent_follow_request">%s yêu cầu theo dõi bạn</string>
+	<string name="user_favorited">%s đã thích:</string>
+	<string name="notification_boosted">%s vừa đăng lại:</string>
 	<string name="share_toot_title">Chia sẻ</string>
 	<string name="settings">Cài đặt</string>
 	<string name="publish">Đăng</string>
@@ -731,6 +733,8 @@ Bạn càng theo dõi nhiều người thì nó sẽ càng sôi động và thú
 	<string name="settings_donate">Quyên góp cho Mastodon</string>
 	<string name="settings_manage_donations">Quản lý đóng góp</string>
 	<string name="cant_load_image">Không thể tải ảnh</string>
+	<string name="poll_see_results">Xem kết quả</string>
+	<string name="poll_hide_results">Ẩn kết quả</string>
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
 </resources>
