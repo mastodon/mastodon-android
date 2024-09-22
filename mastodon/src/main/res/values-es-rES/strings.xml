@@ -13,6 +13,8 @@
 	<string name="notifications">Notificaciones</string>
 	<string name="user_followed_you">%s te ha seguido</string>
 	<string name="user_sent_follow_request">%s te envió una solicitud de seguimiento</string>
+	<string name="user_favorited">Añadido a favoritos por %s:</string>
+	<string name="notification_boosted">Impulsado por %s:</string>
 	<string name="share_toot_title">Compartir</string>
 	<string name="settings">Ajustes</string>
 	<string name="publish">Publicar</string>
@@ -95,7 +97,7 @@
 	<string name="action_vote">Votar</string>
 	<string name="delete">Eliminar</string>
 	<string name="confirm_delete_title">Eliminar publicación</string>
-	<string name="confirm_delete">¿Confirma que quiere eliminar esta publicación?</string>
+	<string name="confirm_delete">¿Estás seguro de que deseas eliminar esta publicación?</string>
 	<string name="deleting">Eliminando…</string>
 	<string name="notification_channel_audio_player">Reproducción de audio</string>
 	<string name="play">Reproducir</string>
@@ -113,9 +115,9 @@
 		<item quantity="other">%d personas están hablando</item>
 	</plurals>
 	<string name="report_title">Denunciar a %s</string>
-	<string name="report_choose_reason">¿Qué hay de malo en esta publicación?</string>
-	<string name="report_choose_reason_account">¿Qué hay de malo con %s?</string>
-	<string name="report_choose_reason_subtitle">Seleccione la mejor opción</string>
+	<string name="report_choose_reason">¿Cuál es el problema con esta publicación?</string>
+	<string name="report_choose_reason_account">¿Cuál es el problema con %s?</string>
+	<string name="report_choose_reason_subtitle">Selecciona la mejor opción</string>
 	<string name="report_reason_personal">No me gusta</string>
 	<string name="report_reason_personal_subtitle">No es algo que quieras ver</string>
 	<string name="report_reason_spam">Es spam</string>
@@ -766,6 +768,20 @@ Mientras más personas sigas, más activo e interesante será.</string>
 	<string name="settings_donate">Donar a Mastodon</string>
 	<string name="settings_manage_donations">Administrar donaciones</string>
 	<string name="cant_load_image">No se pudo cargar la imagen</string>
+	<string name="poll_see_results">Ver resultados</string>
+	<string name="poll_hide_results">Ocultar resultados</string>
+	<string name="own_poll_ended">Tu encuesta ha terminado</string>
+	<string name="user_just_posted">%s acaba de publicar</string>
+	<string name="user_edited_post">%s editó una publicación con la que interactuaste</string>
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_learn_more">Saber más</string>
+	<string name="moderation_warning_action_none">Tu cuenta ha recibido un aviso de moderación.</string>
+	<string name="moderation_warning_action_disable">Tu cuenta ha sido deshabilitada.</string>
+	<string name="moderation_warning_action_mark_statuses_as_sensitive">Algunas de tus publicaciones han sido marcadas como sensibles.</string>
+	<string name="moderation_warning_action_delete_statuses">Algunas de tus publicaciones han sido eliminadas.</string>
+	<string name="moderation_warning_action_sensitive">Tus publicaciones serán marcadas como sensibles a partir de ahora.</string>
+	<string name="moderation_warning_action_silence">Tu cuenta ha sido limitada.</string>
+	<string name="moderation_warning_action_suspend">Tu cuenta ha sido suspendida.</string>
+	<string name="moderation_warning_learn_more">Saber más</string>
 </resources>
