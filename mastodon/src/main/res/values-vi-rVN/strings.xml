@@ -14,7 +14,7 @@
 	<string name="user_followed_you">%s theo dõi bạn</string>
 	<string name="user_sent_follow_request">%s yêu cầu theo dõi bạn</string>
 	<string name="user_favorited">%s đã thích:</string>
-	<string name="notification_boosted">%s vừa đăng lại:</string>
+	<string name="notification_boosted">%s đăng lại:</string>
 	<string name="share_toot_title">Chia sẻ</string>
 	<string name="settings">Cài đặt</string>
 	<string name="publish">Đăng</string>
@@ -649,9 +649,9 @@ Bạn càng theo dõi nhiều người thì nó sẽ càng sôi động và thú
 	<string name="handle_title_own">Địa chỉ Mastodon của bạn</string>
 	<string name="handle_username_explanation_own">Danh tính duy nhất của bạn trên máy chủ này. Có thể có tên người dùng giống bạn trên các máy chủ khác.</string>
 	<string name="server">Máy chủ</string>
-	<string name="handle_server_explanation">Ngôi nhà kỹ thuật số, nơi lưu giữ tút của ai đó.</string>
+	<string name="handle_server_explanation">Nơi lưu trữ tút của người này.</string>
 	<string name="handle_explanation">Vì địa chỉ Mastodon cho biết một người là ai và họ ở đâu, nên bạn có thể tương tác với mọi người trên các nền tảng có &lt;a&gt;hỗ trợ ActivityPub&lt;/a&gt;.</string>
-	<string name="handle_server_explanation_own">Ngôi nhà kỹ thuật số, nơi lưu giữ tút của bạn. Không thích ở đây? Chuyển sang máy chủ khác và mang theo người theo dõi của bạn.</string>
+	<string name="handle_server_explanation_own">Nơi lưu trữ tút của bạn. Không thích ở đây? Chuyển sang máy chủ khác và giữ nguyên người theo dõi của bạn.</string>
 	<string name="handle_explanation_own">Vì địa chỉ Mastodon cho biết bạn là ai và bạn ở đâu, nên bạn có thể tương tác với mọi người trên các nền tảng có &lt;a&gt;hỗ trợ ActivityPub&lt;/a&gt;.</string>
 	<string name="what_is_activitypub_title">ActivityPub là gì?</string>
 	<string name="what_is_activitypub">ActivityPub giống như ngôn ngữ Mastodon giao tiếp với các mạng xã hội khác.\n\nNó giúp bạn kết nối và tương tác với mọi người không chỉ trên Mastodon mà còn trên các nền tảng khác nữa.</string>
@@ -735,6 +735,36 @@ Bạn càng theo dõi nhiều người thì nó sẽ càng sôi động và thú
 	<string name="cant_load_image">Không thể tải ảnh</string>
 	<string name="poll_see_results">Xem kết quả</string>
 	<string name="poll_hide_results">Ẩn kết quả</string>
+	<plurals name="x_attachments">
+		<item quantity="other">%d đính kèm</item>
+	</plurals>
+	<plurals name="user_and_x_more_favorited">
+		<item quantity="other">%1$s và %2$,d người khác đã thích:</item>
+	</plurals>
+	<plurals name="user_and_x_more_boosted">
+		<item quantity="other">%1$s và %2$,d người khác đã đăng lại:</item>
+	</plurals>
+	<plurals name="poll_ended_x_voters">
+		<item quantity="other">%1$s đã kết thúc bình chọn mà bạn %2$,d và người khác tham gia</item>
+	</plurals>
+	<string name="own_poll_ended">Cuộc bình chọn của bạn đã kết thúc</string>
+	<string name="user_just_posted">%s đăng tút mới</string>
+	<string name="user_edited_post">%s đã sửa một tút mà bạn có tương tác</string>
+	<string name="relationship_severance_account_suspension">Quản trị viên %1$s đã vô hiệu hóa %2$s, điều này có nghĩa là bạn không còn có thể nhận được cập nhật từ họ hoặc tương tác với họ nữa.</string>
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_domain_block">Quản trị viên %1$s đã chặn %2$s, nơi có %3$,d người theo dõi bạn và %4$s người bạn theo dõi.</string>
+	<plurals name="x_accounts">
+		<item quantity="other">%,d tài khoản</item>
+	</plurals>
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_user_domain_block">Bạn đã chặn %1$s, xóa %2$,d người theo dõi bạn và %3$s người bạn theo dõi.</string>
+	<string name="relationship_severance_learn_more">Tìm hiểu</string>
+	<string name="moderation_warning_action_none">Bạn vừa nhận một cảnh báo kiểm duyệt.</string>
+	<string name="moderation_warning_action_disable">Tài khoản của bạn đã bị vô hiệu hóa.</string>
+	<string name="moderation_warning_action_mark_statuses_as_sensitive">Vài tút bạn bị đánh dấu nhạy cảm.</string>
+	<string name="moderation_warning_action_delete_statuses">Một vài tút của bạn bị gỡ.</string>
+	<string name="moderation_warning_action_sensitive">Tút của bạn sẽ bị đánh dấu nhạy cảm kể từ bây giờ.</string>
+	<string name="moderation_warning_action_silence">Tài khoản của bạn đã bị hạn chế.</string>
+	<string name="moderation_warning_action_suspend">Tài khoản của bạn đã bị vô hiệu hóa.</string>
+	<string name="moderation_warning_learn_more">Tìm hiểu</string>
 </resources>
