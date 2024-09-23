@@ -789,6 +789,22 @@ Più persone segui, più sarà attivo e interessante.</string>
 	<string name="own_poll_ended">Il tuo sondaggio è terminato</string>
 	<string name="user_just_posted">%s ha appena pubblicato un post</string>
 	<string name="user_edited_post">%s ha modificato un post con cui hai interagito</string>
+	<string name="relationship_severance_account_suspension">Un amministratore da %1$s ha sospeso %2$s, il che significa che non puoi più ricevere aggiornamenti da essi o interagire con loro.</string>
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_domain_block">Un amministratore da %1$s ha bloccato %2$s, includendo %3$,d dei tuoi seguaci e %4$s che segui.</string>
+	<plurals name="x_accounts">
+		<item quantity="one">%,d account</item>
+		<item quantity="other">%,d account</item>
+	</plurals>
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_user_domain_block">Hai bloccato %1$s, rimuovendo %2$,d dei tuoi seguaci e %3$s che segui.</string>
+	<string name="relationship_severance_learn_more">Per saperne di più</string>
+	<string name="moderation_warning_action_none">Il tuo account ha ricevuto un avviso di moderazione.</string>
+	<string name="moderation_warning_action_disable">Il tuo account è stato disabilitato.</string>
+	<string name="moderation_warning_action_mark_statuses_as_sensitive">Alcuni dei tuoi post sono stati contrassegnati come sensibili.</string>
+	<string name="moderation_warning_action_delete_statuses">Alcuni dei tuoi post sono stati rimossi.</string>
+	<string name="moderation_warning_action_sensitive">I tuoi post, d\'ora in poi, saranno contrassegnati come sensibili.</string>
+	<string name="moderation_warning_action_silence">Il tuo account è stato limitato.</string>
+	<string name="moderation_warning_action_suspend">Il tuo account è stato sospeso.</string>
+	<string name="moderation_warning_learn_more">Per saperne di più</string>
 </resources>
