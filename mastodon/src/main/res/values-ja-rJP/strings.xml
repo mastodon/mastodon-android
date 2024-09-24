@@ -13,6 +13,8 @@
 	<string name="notifications">通知</string>
 	<string name="user_followed_you">%s さんにフォローされました</string>
 	<string name="user_sent_follow_request">%s さんがフォローリクエストを送信しました</string>
+	<string name="user_favorited">%s さんがお気に入りにしました:</string>
+	<string name="notification_boosted">%s さんがブーストしました:</string>
 	<string name="share_toot_title">共有</string>
 	<string name="settings">設定</string>
 	<string name="publish">公開</string>
@@ -730,6 +732,12 @@
 	<string name="donation_server_error">申し訳ありません。エラーが発生し、寄付を処理できませんでした。\n\n数分後に再試行してください。</string>
 	<string name="settings_donate">Mastodon に寄付する</string>
 	<string name="settings_manage_donations">寄付を管理</string>
+	<string name="cant_load_image">画像を読み込めませんでした</string>
+	<string name="poll_see_results">結果を表示</string>
+	<string name="poll_hide_results">結果を非表示</string>
+	<plurals name="x_attachments">
+		<item quantity="other">添付 %d 件</item>
+	</plurals>
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
 </resources>
