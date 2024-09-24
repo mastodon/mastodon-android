@@ -333,7 +333,7 @@
 	<string name="join_default_server">%s に登録</string>
 	<string name="pick_server">ほかのサーバーをさがす</string>
 	<string name="signup_or_login">または</string>
-	<string name="learn_more">詳しく学ぶ</string>
+	<string name="learn_more">詳細</string>
 	<string name="welcome_to_mastodon">Mastodon とは</string>
 	<string name="welcome_paragraph1">Mastodon は、いち企業の統制に依存しない非中央集権型のソーシャルネットワークです。たくさんの独立したサーバーが相互につながり合い、ひとつのネットワークを形成しています。</string>
 	<string name="what_are_servers">サーバーとは</string>
@@ -738,6 +738,33 @@
 	<plurals name="x_attachments">
 		<item quantity="other">添付 %d 件</item>
 	</plurals>
+	<plurals name="user_and_x_more_favorited">
+		<item quantity="other">%1$s さん他 %2$,d 人がお気に入りにしました:</item>
+	</plurals>
+	<plurals name="user_and_x_more_boosted">
+		<item quantity="other">%1$s さん他 %2$,d 人がブーストしました:</item>
+	</plurals>
+	<plurals name="poll_ended_x_voters">
+		<item quantity="other">%1$s さんのアンケートでの、あなたと %2$,d 人の投票先:</item>
+	</plurals>
+	<string name="own_poll_ended">アンケートが終了しました</string>
+	<string name="user_just_posted">%s さんが投稿しました</string>
+	<string name="user_edited_post">あなたとやり取りした投稿を %s さんが編集しました</string>
+	<string name="relationship_severance_account_suspension">%1$s の管理者が %2$s さんを停止したため、今後は新しい投稿を受信したりやり取りしたりできなくなりました。</string>
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_domain_block">%1$s の管理者が、あなたのフォロワー %3$,d 人とフォローしている%4$sがいる %2$s をブロックしました。</string>
+	<plurals name="x_accounts">
+		<item quantity="other">アカウント %,d 件</item>
+	</plurals>
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_user_domain_block">%1$s をブロックし、フォロワー %2$,d 人とフォローしている%3$sを削除しました。</string>
+	<string name="relationship_severance_learn_more">詳細</string>
+	<string name="moderation_warning_action_none">あなたのアカウントは管理者からの警告を受けています。</string>
+	<string name="moderation_warning_action_disable">あなたのアカウントは無効化されました。</string>
+	<string name="moderation_warning_action_mark_statuses_as_sensitive">あなたのいくつかの投稿が閲覧注意と判定されています。</string>
+	<string name="moderation_warning_action_delete_statuses">あなたのいくつかの投稿が削除されました。</string>
+	<string name="moderation_warning_action_sensitive">あなたの投稿はこれから閲覧注意としてマークされます。</string>
+	<string name="moderation_warning_action_silence">あなたのアカウントは制限されています。</string>
+	<string name="moderation_warning_action_suspend">あなたのアカウントは停止されています。</string>
+	<string name="moderation_warning_learn_more">詳細</string>
 </resources>
