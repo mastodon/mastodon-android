@@ -13,6 +13,8 @@
 	<string name="notifications">آگاهی‌ها</string>
 	<string name="user_followed_you">‫%s‬ پی‌گیرتان شد</string>
 	<string name="user_sent_follow_request">%s یک درخواست پی‌گیری برای شما ارسال کرد</string>
+	<string name="user_favorited">%s برگزید:</string>
+	<string name="notification_boosted">‫%s‬ تقویت کرد:</string>
 	<string name="share_toot_title">هم‌رسانی</string>
 	<string name="settings">تنظیمات</string>
 	<string name="publish">انتشار</string>
@@ -648,6 +650,7 @@
 	<string name="mute_user_confirm_title">کاربران خموش شود؟</string>
 	<string name="user_wont_know_muted">آنها نخواهند دانست که خموش شده‌اند.</string>
 	<string name="user_can_still_see_your_posts">آنها هنوز می‌توانند فرسته‌هایتان را ببینند، ولی فرسته‌هایشان را نمی‌بینید.</string>
+	<string name="you_wont_see_user_mentions">فرسته‌هایی که به او اشاره کرده‌اند را نخواهید دید.</string>
 	<string name="unmuted_user_x">خموشی %s رفع شد</string>
 	<string name="block_user_confirm_title">کاربر مسدود شود؟</string>
 	<string name="user_can_see_blocked">آنها می‌توانند ببینند که مسدود شده اند.</string>
@@ -658,16 +661,21 @@
 	<string name="block_user_x_instead">درعوض %s را مسدود کنید</string>
 	<string name="you_wont_see_server_posts">شما هیچ پستی از افراد این سرور نخواهید دید.</string>
 	<string name="server_followers_will_be_removed">دنبال کننده های شما در این سرور حذف خواهند شد.</string>
+	<string name="server_cant_mention_or_follow_you">هیچ‌کسی از این کارساز نمی‌تواند پیتان بگیرد.</string>
+	<string name="server_can_interact_with_older">افراد روی این کارساز می‌توانند با فرسته‌های قدیمیتان تعامل داشته باشند.</string>
 	<string name="unblocked_domain_x">مسدودیت دامنه %s رفع شد</string>
 	<string name="handle_help_title">شناسه چیست؟</string>
 	<string name="handle_title">شناسه آنها</string>
+	<string name="handle_username_explanation">شناسهٔ یکتایش در کارسازش. ممکن است کاربرانی با نام کاربری مشابه روی کارسازهای مختلف باشند.</string>
 	<string name="handle_title_own">شناسه شما</string>
 	<string name="handle_username_explanation_own">شناسه منحصر به فرد شما در این کارساز. امکان یافتن کاربرانی با نام کاربری مشابه در کارسازهای مختلف وجود دارد.</string>
 	<string name="server">کارساز</string>
 	<string name="handle_server_explanation">خانه دیجیتالی آنها، جایی که همه فرسته‌های آنها در آن زندگی می کنند.</string>
 	<string name="handle_explanation">از آنجایی که شناسه‌ها می‌گوید کسی کیست و کجاست، می‌توانید با افراد در سراسر وب اجتماعی &lt;a&gt;سکوهای قدرت گرفته از اکتیویتی پاپ&lt;/a&gt; تعامل داشته باشید.</string>
+	<string name="handle_server_explanation_own">خانهٔ رقمیتان. جایی که همهٔ فرسته‌هایتان می‌زیند. دوستش ندارید؟ در هر زمان کارسازتان را جابه‌جا کرده و پی‌گیرندگانتان را نیز بیاورید.</string>
 	<string name="handle_explanation_own">از آنجایی که شناسه شما می‌گوید شما کی هستید و کجا هستید، افراد می‌توانند در &lt;a&gt;سکوهای قدرت گرفته از اکتیویتی پاپ&lt;/a&gt; از وب اجتماعی با شما تعامل داشته باشند.</string>
 	<string name="what_is_activitypub_title">اکتیویتی پاپ چیست؟</string>
+	<string name="handle_copied">شناسه در بریده‌دان رونوشت شد.</string>
 	<string name="qr_code">کد QR</string>
 	<string name="scan_qr_code">اسکن کد QR</string>
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
@@ -720,13 +728,20 @@
 	<string name="donation_monthly">ماهانه</string>
 	<string name="donation_yearly">سالانه</string>
 	<string name="settings_donate">اعانه دادن به ماستودون</string>
+	<string name="settings_manage_donations">مدیریت اعانه‌ها</string>
+	<string name="cant_load_image">تصویر بار نشد</string>
 	<string name="poll_see_results">دیدن نتایج</string>
 	<string name="poll_hide_results">نهفتن نتایج</string>
 	<plurals name="x_attachments">
 		<item quantity="one">%d پیوست</item>
 		<item quantity="other">%d پیوست</item>
 	</plurals>
+	<string name="own_poll_ended">نظرسنجیتان پایان یافت</string>
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
+	<plurals name="x_accounts">
+		<item quantity="one">%,d حساب</item>
+		<item quantity="other">%,d حساب</item>
+	</plurals>
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
 	<string name="relationship_severance_learn_more">بیشتر بدانید</string>
 	<string name="moderation_warning_action_none">حسابتان هشداری مدیریتی گرفت.</string>
