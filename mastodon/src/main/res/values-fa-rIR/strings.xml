@@ -230,6 +230,7 @@
 	<string name="file_saved">پرونده ذخیره شد</string>
 	<string name="downloading">درحال بارگیری…</string>
 	<string name="no_app_to_handle_action">هیچ کاره‌ای برای رسیدگی به این اقدام وجود ندارد</string>
+	<string name="local_timeline">خوراک زنده</string>
 	<string name="trending_posts_info_banner">این‌ها فرسته‌هایی هستند که در سراسر ماستودون مورد توجه قرار می‌گیرند.</string>
 	<string name="trending_links_info_banner">این‌ها اخباری است که در ماستودون در مورد آنها صحبت می شود.</string>
 	<!-- %s is the server domain -->
@@ -645,6 +646,8 @@
 	<string name="this_invite_has_expired">این پیوند دعوت منقضی شده است.</string>
 	<string name="invite_link_pasted">پیوند از تخته‌گیره شما جای‌گذاری شد.</string>
 	<string name="mute_user_confirm_title">کاربران خموش شود؟</string>
+	<string name="user_wont_know_muted">آنها نخواهند دانست که خموش شده‌اند.</string>
+	<string name="user_can_still_see_your_posts">آنها هنوز می‌توانند فرسته‌هایتان را ببینند، ولی فرسته‌هایشان را نمی‌بینید.</string>
 	<string name="unmuted_user_x">خموشی %s رفع شد</string>
 	<string name="block_user_confirm_title">کاربر مسدود شود؟</string>
 	<string name="user_can_see_blocked">آنها می‌توانند ببینند که مسدود شده اند.</string>
@@ -713,7 +716,25 @@
 		<item quantity="one">%,d اعلان جدید</item>
 		<item quantity="other">%,d اعلان جدید</item>
 	</plurals>
+	<string name="donation_once">فقط یک بار</string>
+	<string name="donation_monthly">ماهانه</string>
+	<string name="donation_yearly">سالانه</string>
 	<string name="settings_donate">اعانه دادن به ماستودون</string>
+	<string name="poll_see_results">دیدن نتایج</string>
+	<string name="poll_hide_results">نهفتن نتایج</string>
+	<plurals name="x_attachments">
+		<item quantity="one">%d پیوست</item>
+		<item quantity="other">%d پیوست</item>
+	</plurals>
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_learn_more">بیشتر بدانید</string>
+	<string name="moderation_warning_action_none">حسابتان هشداری مدیریتی گرفت.</string>
+	<string name="moderation_warning_action_disable">حسابتان از کار افتاد.</string>
+	<string name="moderation_warning_action_mark_statuses_as_sensitive">برخی از فرسته‌هایتان به عنوان حسّاس علامت خوردند.</string>
+	<string name="moderation_warning_action_delete_statuses">برخی از فرسته‌هایتان برداشته شدند.</string>
+	<string name="moderation_warning_action_sensitive">فرسته‌هایتان از اکنون به عنوان حسّاس علامت خواهند خورد.</string>
+	<string name="moderation_warning_action_silence">حسابتان محدود شده.</string>
+	<string name="moderation_warning_action_suspend">حسابتان معلّق شده.</string>
+	<string name="moderation_warning_learn_more">بیشتر بدانید</string>
 </resources>
