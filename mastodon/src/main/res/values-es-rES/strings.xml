@@ -774,10 +774,18 @@ Mientras más personas sigas, más activo e interesante será.</string>
 		<item quantity="one">%d archivo adjunto</item>
 		<item quantity="other">%d archivos adjuntos</item>
 	</plurals>
+	<plurals name="poll_ended_x_voters">
+		<item quantity="one">%1$s realizó una encuesta en la que tú y %2$,d otros votaron</item>
+		<item quantity="other">%1$s realizó una encuesta en la que tú y %2$,d otros votaron</item>
+	</plurals>
 	<string name="own_poll_ended">Tu encuesta ha terminado</string>
 	<string name="user_just_posted">%s acaba de publicar</string>
 	<string name="user_edited_post">%s editó una publicación con la que interactuaste</string>
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
+	<plurals name="x_accounts">
+		<item quantity="one">%,d cuenta</item>
+		<item quantity="other">%,d cuentas</item>
+	</plurals>
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
 	<string name="relationship_severance_learn_more">Saber más</string>
 	<string name="moderation_warning_action_none">Tu cuenta ha recibido un aviso de moderación.</string>
