@@ -774,6 +774,14 @@ Mientras más personas sigas, más activo e interesante será.</string>
 		<item quantity="one">%d archivo adjunto</item>
 		<item quantity="other">%d archivos adjuntos</item>
 	</plurals>
+	<plurals name="user_and_x_more_favorited">
+		<item quantity="one">%1$s y %2$,d persona más marcaron como favorito:</item>
+		<item quantity="other">%1$s y %2$,d personas más marcaron como favorito:</item>
+	</plurals>
+	<plurals name="user_and_x_more_boosted">
+		<item quantity="one">%1$s y %2$,d persona más impulsaron:</item>
+		<item quantity="other">%1$s y %2$,d personas más impulsaron:</item>
+	</plurals>
 	<plurals name="poll_ended_x_voters">
 		<item quantity="one">%1$s realizó una encuesta en la que tú y %2$,d otros votaron</item>
 		<item quantity="other">%1$s realizó una encuesta en la que tú y %2$,d otros votaron</item>
