@@ -45,7 +45,7 @@
 	<string name="unmute_user">Atšaukti nutildymą %s</string>
 	<string name="block_user">Blokuoti %s</string>
 	<string name="unblock_user">Atblokuoti %s</string>
-	<string name="report_user">Pranešti %s</string>
+	<string name="report_user">Pranešti apie %s</string>
 	<string name="block_domain">Blokuoti %s</string>
 	<string name="unblock_domain">Atblokuoti %s</string>
 	<plurals name="x_posts">
@@ -182,7 +182,7 @@
 	<string name="confirm_email_didnt_get">Negavai nuorodos?</string>
 	<string name="resend">Siųsti dar kartą</string>
 	<string name="open_email_app">Atidaryti el. pašto programėlę</string>
-	<string name="resent_email">Patvirtinimo el. laiškas išsiųstas</string>
+	<string name="resent_email">Išsiųstas patvirtinimo el. laiškas</string>
 	<string name="compose_hint">Rašyk arba įklijuok tai, kas tau yra mintyse</string>
 	<string name="content_warning">Turinio įspėjimas</string>
 	<string name="save">Išsaugoti</string>
@@ -206,7 +206,7 @@
 		<item quantity="other">Negalima pridėti daugiau nei %d medijos priedų.</item>
 	</plurals>
 	<string name="media_attachment_unsupported_type">Failas %s yra nepalaikomo tipo.</string>
-	<string name="media_attachment_too_big">Failas %1$s viršija %2$s MB dydžio ribojimą.</string>
+	<string name="media_attachment_too_big">Failas %1$s viršija %2$s MB dydžio ribą.</string>
 	<string name="settings_theme">Išvaizda</string>
 	<string name="theme_auto">Naudoti įrenginio išvaizdą</string>
 	<string name="theme_light">Šviesi</string>
@@ -216,7 +216,7 @@
 	<string name="settings_custom_tabs">Atidaryti nuorodas per</string>
 	<string name="settings_notifications">Pranešimai</string>
 	<string name="settings_contribute">Prisidėti prie „Mastodon“</string>
-	<string name="settings_tos">Paslaugų teikimo sąlygos</string>
+	<string name="settings_tos">Paslaugų sąlygos</string>
 	<string name="settings_privacy_policy">Privatumo politika</string>
 	<string name="settings_clear_cache">Valyti medijos podėlį</string>
 	<string name="settings_app_version">„Mastodon“, skirta „Android“ v%1$s (%2$d)</string>
@@ -234,7 +234,7 @@
 	<string name="add_media">Pridėti mediją</string>
 	<string name="add_poll">Pridėti apklausą</string>
 	<string name="emoji">Jaustukas</string>
-	<string name="home_timeline">Pagrindinis laiko skalė</string>
+	<string name="home_timeline">Pagrindinė laiko skalė</string>
 	<string name="my_profile">Mano profilis</string>
 	<string name="media_viewer">Medijos žiūryklė</string>
 	<string name="follow_user">Sekti %s</string>
@@ -252,7 +252,7 @@
 	<string name="reorder">Pertvarkyti</string>
 	<string name="download">Atsisiųsti</string>
 	<string name="permission_required">Privalomas leidimas</string>
-	<string name="storage_permission_to_download">Norint išsaugoti šį failą, programėlei reikia prieigos prie tavo saugyklos.</string>
+	<string name="storage_permission_to_download">Kad išsaugotų šį failą, programėlei reikia prieigos prie saugyklos.</string>
 	<string name="open_settings">Atidaryti nustatymus</string>
 	<string name="error_saving_file">Klaida išsaugant failą.</string>
 	<string name="file_saved">Failas išsaugotas</string>
@@ -852,6 +852,39 @@ Kuo daugiau žmonių seki, tuo aktyvesnis ir įdomesnis jis bus.</string>
 		<item quantity="many">%1$s ir %2$,d kitos pamėgo:</item>
 		<item quantity="other">%1$s ir %2$,d kitų pamėgo:</item>
 	</plurals>
+	<plurals name="user_and_x_more_boosted">
+		<item quantity="one">%1$s ir %2$,d kitas pasidalino:</item>
+		<item quantity="few">%1$s ir %2$,d kiti pasidalino:</item>
+		<item quantity="many">%1$s ir %2$,d kitos pasidalino:</item>
+		<item quantity="other">%1$s ir %2$,d kitų pasidalino:</item>
+	</plurals>
+	<plurals name="poll_ended_x_voters">
+		<item quantity="one">%1$s surengė apklausą, kurioje balsavai tu ir %2$,d kitas</item>
+		<item quantity="few">%1$s surengė apklausą, kurioje balsavai tu ir %2$,d kiti</item>
+		<item quantity="many">%1$s surengė apklausą, kurioje balsavai tu ir %2$,d kitos</item>
+		<item quantity="other">%1$s surengė apklausą, kurioje balsavai tu ir %2$,d kitų</item>
+	</plurals>
+	<string name="own_poll_ended">Tavo apklausa baigėsi</string>
+	<string name="user_just_posted">%s ką tik paskelbė</string>
+	<string name="user_edited_post">%s redagavo įrašą, su kuriuo sąveikavai</string>
+	<string name="relationship_severance_account_suspension">%1$s administratorius (-ė) pristabdė %2$s, o tai reiškia, kad nebegali iš jų gauti naujienų ir su jais bendrauti.</string>
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_domain_block">Administratorius (-ė) iš %1$s užblokavo %2$s, įskaitant %3$,d tavo sekėjų ir %4$s, kuriuos seki.</string>
+	<plurals name="x_accounts">
+		<item quantity="one">%,d paskyra</item>
+		<item quantity="few">%,d paskyros</item>
+		<item quantity="many">%,d paskyros</item>
+		<item quantity="other">%,d paskyrų</item>
+	</plurals>
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_user_domain_block">Užblokavai %1$s. Pašalinama %2$,d tavo sekėjų ir %3$s, kuriuos seki.</string>
+	<string name="relationship_severance_learn_more">Sužinoti daugiau</string>
+	<string name="moderation_warning_action_none">Tavo paskyra gavo prižiūrėjimo įspėjimą.</string>
+	<string name="moderation_warning_action_disable">Tavo paskyra buvo išjungta.</string>
+	<string name="moderation_warning_action_mark_statuses_as_sensitive">Kai kurie tavo įrašai buvo pažymėti kaip jautrūs.</string>
+	<string name="moderation_warning_action_delete_statuses">Kai kurie tavo įrašai buvo pašalinti.</string>
+	<string name="moderation_warning_action_sensitive">Nuo šiol tavo įrašai bus pažymėti kaip jautrūs.</string>
+	<string name="moderation_warning_action_silence">Tavo paskyra buvo apribota.</string>
+	<string name="moderation_warning_action_suspend">Tavo paskyra buvo pristabdyta.</string>
+	<string name="moderation_warning_learn_more">Sužinoti daugiau</string>
 </resources>
