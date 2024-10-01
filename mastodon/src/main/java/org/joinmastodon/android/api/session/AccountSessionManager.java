@@ -127,6 +127,7 @@ public class AccountSessionManager{
 		AccountSession session=new AccountSession(token, self, app, instance.getDomain(), activationInfo==null, activationInfo);
 		sessions.put(session.getID(), session);
 		lastActiveAccountID=session.getID();
+		prefs.edit().putString("lastActiveAccount", lastActiveAccountID).apply();
 		runOnDbThread(db->{
 			ContentValues values=new ContentValues();
 			session.toContentValues(values);
