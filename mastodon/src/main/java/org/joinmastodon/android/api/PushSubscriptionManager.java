@@ -45,7 +45,6 @@ import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.KeyAgreement;
 import javax.crypto.Mac;
 import javax.crypto.NoSuchPaddingException;
-import javax.crypto.SecretKey;
 import javax.crypto.spec.GCMParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 
@@ -82,6 +81,7 @@ public class PushSubscriptionManager{
 	private static final String EXTRA_SENDER = "sender";
 	private static final String EXTRA_SCOPE = "scope";
 	private static final String KID_VALUE="|ID|1|"; // request ID?
+	private static final long TOKEN_REFRESH_INTERVAL=30*24*60*60*1000L;
 
 	private static String deviceToken;
 	private String accountID;
@@ -100,11 +100,12 @@ public class PushSubscriptionManager{
 	public static void tryRegisterFCM(){
 		deviceToken=getPrefs().getString("deviceToken", null);
 		int tokenVersion=getPrefs().getInt("version", 0);
-		if(!TextUtils.isEmpty(deviceToken) && tokenVersion==BuildConfig.VERSION_CODE){
+		long tokenLastRefreshed=getPrefs().getLong("lastRefresh", 0);
+		if(!TextUtils.isEmpty(deviceToken) && tokenVersion==BuildConfig.VERSION_CODE && System.currentTimeMillis()-tokenLastRefreshed<TOKEN_REFRESH_INTERVAL){
 			registerAllAccountsForPush(false);
 			return;
 		}
-		Log.i(TAG, "tryRegisterFCM: no token found or app was updated. Trying to get push token...");
+		Log.i(TAG, "tryRegisterFCM: no token found, token due for refresh, or app was updated. Trying to get push token...");
 		Intent intent = new Intent("com.google.iid.TOKEN_REQUEST");
 		intent.setPackage(GSF_PACKAGE);
 		intent.putExtra(EXTRA_APPLICATION_PENDING_INTENT,
@@ -384,7 +385,11 @@ public class PushSubscriptionManager{
 					deviceToken=intent.getStringExtra("registration_id");
 					if(deviceToken.startsWith(KID_VALUE))
 						deviceToken=deviceToken.substring(KID_VALUE.length()+1);
-					getPrefs().edit().putString("deviceToken", deviceToken).putInt("version", BuildConfig.VERSION_CODE).apply();
+					getPrefs().edit()
+							.putString("deviceToken", deviceToken)
+							.putInt("version", BuildConfig.VERSION_CODE)
+							.putLong("lastRefresh", System.currentTimeMillis())
+							.apply();
 					Log.i(TAG, "Successfully registered for FCM");
 					registerAllAccountsForPush(true);
 				}else{
