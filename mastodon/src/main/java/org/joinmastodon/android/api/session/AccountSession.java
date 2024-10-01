@@ -9,6 +9,7 @@ import android.util.Log;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 
 import org.joinmastodon.android.E;
@@ -30,7 +31,6 @@ import org.joinmastodon.android.model.Application;
 import org.joinmastodon.android.model.FilterAction;
 import org.joinmastodon.android.model.FilterContext;
 import org.joinmastodon.android.model.FilterResult;
-import org.joinmastodon.android.model.FollowList;
 import org.joinmastodon.android.model.Instance;
 import org.joinmastodon.android.model.LegacyFilter;
 import org.joinmastodon.android.model.Preferences;
@@ -57,21 +57,37 @@ public class AccountSession{
 	public static final int FLAG_ACTIVATED=1;
 	public static final int FLAG_NEED_UPDATE_PUSH_SETTINGS=1 << 1;
 
+	@SerializedName(value="token", alternate="a")
 	public Token token;
+	@SerializedName(value="self", alternate="b")
 	public Account self;
+	@SerializedName(value="domain", alternate="c")
 	public String domain;
+	@SerializedName(value="app", alternate="d")
 	public Application app;
+	@SerializedName(value="info_last_updated", alternate="e")
 	public long infoLastUpdated;
+	@SerializedName(value="activated", alternate="f")
 	public boolean activated=true;
+	@SerializedName(value="push_private_key", alternate="g")
 	public String pushPrivateKey;
+	@SerializedName(value="push_public_key", alternate="h")
 	public String pushPublicKey;
+	@SerializedName(value="push_auth_key", alternate="i")
 	public String pushAuthKey;
+	@SerializedName(value="push_subscription", alternate="j")
 	public PushSubscription pushSubscription;
+	@SerializedName(value="need_update_push_settings", alternate="k")
 	public boolean needUpdatePushSettings;
+	@SerializedName(value="filters_last_updated", alternate="l")
 	public long filtersLastUpdated;
+	@SerializedName(value="word_filters", alternate="m")
 	public List<LegacyFilter> wordFilters=new ArrayList<>();
+	@SerializedName(value="push_account_i_d", alternate="n")
 	public String pushAccountID;
+	@SerializedName(value="activation_info", alternate="o")
 	public AccountActivationInfo activationInfo;
+	@SerializedName(value="preferences", alternate="p")
 	public Preferences preferences;
 	private transient MastodonAPIController apiController;
 	private transient StatusInteractionController statusInteractionController;

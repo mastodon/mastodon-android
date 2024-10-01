@@ -19,6 +19,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.util.Log;
 
+import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
@@ -649,6 +650,7 @@ public class AccountSessionManager{
 							`last_updated` bigint,
 							`version` integer NOT NULL DEFAULT 1
 						)""");
+			maybeMigrateAccounts(db);
 		}
 
 		@Override
@@ -662,37 +664,7 @@ public class AccountSessionManager{
 							`emojis` text,
 							`last_updated` bigint
 						)""");
-
-				File accountsFile=new File(MastodonApp.context.getFilesDir(), "accounts.json");
-				if(accountsFile.exists()){
-					HashSet<String> domains=new HashSet<>();
-					try(FileInputStream in=new FileInputStream(accountsFile)){
-						JsonObject jobj=JsonParser.parseReader(new InputStreamReader(in, StandardCharsets.UTF_8)).getAsJsonObject();
-						ContentValues values=new ContentValues();
-						for(JsonElement jacc:jobj.getAsJsonArray("accounts")){
-							AccountSession session=MastodonAPIController.gson.fromJson(jacc, AccountSession.class);
-							domains.add(session.domain.toLowerCase());
-							session.toContentValues(values);
-							db.insertWithOnConflict("accounts", null, values, SQLiteDatabase.CONFLICT_REPLACE);
-						}
-					}catch(Exception x){
-						Log.e(TAG, "Error migrating accounts", x);
-						return;
-					}
-					accountsFile.delete();
-					for(String domain:domains){
-						File file=new File(MastodonApp.context.getFilesDir(), "instance_"+domain.replace('.', '_')+".json");
-						try(FileInputStream in=new FileInputStream(file)){
-							JsonObject jobj=JsonParser.parseReader(new InputStreamReader(in, StandardCharsets.UTF_8)).getAsJsonObject();
-
-							insertInstanceIntoDatabase(db, domain, MastodonAPIController.gson.fromJson(jobj.get("instance"), Instance.class),
-									MastodonAPIController.gson.fromJson(jobj.get("emojis"), new TypeToken<>(){}.getType()), jobj.get("last_updated").getAsLong());
-						}catch(Exception x){
-							Log.w(TAG, "Error reading instance info file for "+domain, x);
-						}
-						file.delete();
-					}
-				}
+				maybeMigrateAccounts(db);
 			}
 			if(oldVersion<3){
 				db.execSQL("ALTER TABLE `instances` ADD `version` integer NOT NULL DEFAULT 1");
@@ -716,6 +688,40 @@ public class AccountSessionManager{
 							`activation_info` text,
 							`preferences` text
 						)""");
+		}
+
+		private void maybeMigrateAccounts(SQLiteDatabase db){
+			File accountsFile=new File(MastodonApp.context.getFilesDir(), "accounts.json");
+			if(accountsFile.exists()){
+				HashSet<String> domains=new HashSet<>();
+				try(FileInputStream in=new FileInputStream(accountsFile)){
+					JsonObject jobj=JsonParser.parseReader(new InputStreamReader(in, StandardCharsets.UTF_8)).getAsJsonObject();
+					ContentValues values=new ContentValues();
+					JsonArray accounts=jobj.has("a") ? jobj.getAsJsonArray("a") : jobj.getAsJsonArray("accounts");
+					for(JsonElement jacc:accounts){
+						AccountSession session=MastodonAPIController.gson.fromJson(jacc, AccountSession.class);
+						domains.add(session.domain.toLowerCase());
+						session.toContentValues(values);
+						db.insertWithOnConflict("accounts", null, values, SQLiteDatabase.CONFLICT_REPLACE);
+					}
+				}catch(Exception x){
+					Log.e(TAG, "Error migrating accounts", x);
+					return;
+				}
+				accountsFile.delete();
+				for(String domain:domains){
+					File file=new File(MastodonApp.context.getFilesDir(), "instance_"+domain.replace('.', '_')+".json");
+					try(FileInputStream in=new FileInputStream(file)){
+						JsonObject jobj=JsonParser.parseReader(new InputStreamReader(in, StandardCharsets.UTF_8)).getAsJsonObject();
+
+						insertInstanceIntoDatabase(db, domain, MastodonAPIController.gson.fromJson(jobj.get("instance"), Instance.class),
+								MastodonAPIController.gson.fromJson(jobj.get("emojis"), new TypeToken<>(){}.getType()), jobj.get("last_updated").getAsLong());
+					}catch(Exception x){
+						Log.w(TAG, "Error reading instance info file for "+domain, x);
+					}
+					file.delete();
+				}
+			}
 		}
 	}
 }

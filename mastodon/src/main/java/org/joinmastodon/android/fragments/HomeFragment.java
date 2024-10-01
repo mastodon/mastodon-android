@@ -30,6 +30,7 @@ import org.joinmastodon.android.events.StatusDisplaySettingsChangedEvent;
 import org.joinmastodon.android.fragments.discover.DiscoverFragment;
 import org.joinmastodon.android.fragments.onboarding.OnboardingFollowSuggestionsFragment;
 import org.joinmastodon.android.model.Account;
+import org.joinmastodon.android.model.Instance;
 import org.joinmastodon.android.model.Notification;
 import org.joinmastodon.android.model.NotificationType;
 import org.joinmastodon.android.ui.OutlineProviders;
@@ -291,7 +292,10 @@ public class HomeFragment extends AppKitFragment{
 	}
 
 	private void reloadNotificationsForUnreadCount(){
-		if(AccountSessionManager.get(accountID).getInstanceInfo().getApiVersion()>=2){
+		Instance instance=AccountSessionManager.get(accountID).getInstanceInfo();
+		if(instance==null)
+			return;
+		if(instance.getApiVersion()>=2){
 			new GetUnreadNotificationsCount()
 					.setCallback(new Callback<>(){
 						@Override

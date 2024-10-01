@@ -35,7 +35,7 @@
 	*;
 }
 
--keepnames public class org.joinmastodon.android.api.session**{
+-keepnames public class org.joinmastodon.android.api.session.**{
 	*;
 }
 
