@@ -2,20 +2,17 @@
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
 	<string name="log_in">Logg inn</string>
 	<string name="next">Neste</string>
-	<string name="loading_instance">Henter serverinformasjon…</string>
+	<string name="loading_instance">Henter info om serveren…</string>
 	<string name="error">Feil</string>
-	<string name="not_a_mastodon_instance">Det ser ikke ut som %s er en server på Mastodon.</string>
+	<string name="not_a_mastodon_instance">Det virker ikke som %s er en Mastodon-server.</string>
 	<string name="ok">OK</string>
-	<string name="preparing_auth">Gjør klar for å godkjenne…</string>
-	<string name="finishing_auth">Snart ferdig med å godkjenne…</string>
+	<string name="preparing_auth">Begynner å autentisere…</string>
+	<string name="finishing_auth">Autentiserer ferdig…</string>
 	<string name="user_boosted">%s har boosta</string>
 	<string name="in_reply_to">svar til %s</string>
 	<string name="notifications">Varsler</string>
 	<string name="user_followed_you">%s har fulgt deg</string>
 	<string name="user_sent_follow_request">%s har sendt deg en følgeforespørsel</string>
-	<string name="user_favorited">%s har stjernemerket innlegget ditt</string>
-	<string name="notification_boosted">%s har boosta innlegget ditt</string>
-	<string name="poll_ended">Se resultatet av en avstemning du deltok i</string>
 	<string name="share_toot_title">Del</string>
 	<string name="settings">Innstillinger</string>
 	<string name="publish">Publiser</string>
@@ -233,7 +230,6 @@
 	<string name="file_saved">Fil lagret</string>
 	<string name="downloading">Laster ned…</string>
 	<string name="no_app_to_handle_action">Det er ingen app som kan håndtere denne handlingen</string>
-	<string name="local_timeline">Lokalt</string>
 	<string name="trending_posts_info_banner">Disse innleggene snakker folk om rundt om i Mastodon.</string>
 	<string name="trending_links_info_banner">Dette er nyhetshistoriene som snakkes om rundt om i Mastodon.</string>
 	<!-- %s is the server domain -->
@@ -713,4 +709,6 @@ Jo flere folk du følger, jo mer aktiv og interessant blir den.</string>
 		<item quantity="one">%,d nytt varsel</item>
 		<item quantity="other">%,d nye varsler</item>
 	</plurals>
+	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
+	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
 </resources>

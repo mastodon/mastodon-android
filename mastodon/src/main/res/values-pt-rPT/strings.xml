@@ -12,9 +12,6 @@
 	<string name="notifications">Notificações</string>
 	<string name="user_followed_you">%s começou a seguir-te</string>
 	<string name="user_sent_follow_request">%s pediu para lhe seguir</string>
-	<string name="user_favorited">%s assinalou a sua publicação como favorita</string>
-	<string name="notification_boosted">%s impulsionou a sua publicação</string>
-	<string name="poll_ended">Veja os resultados de uma votação em que votou</string>
 	<string name="share_toot_title">Partilhar</string>
 	<string name="settings">Configurações</string>
 	<string name="publish">Publicar</string>
@@ -342,4 +339,6 @@
 	<!-- %s is a time interval ("5 months") -->
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
 	<!-- %s is the username -->
+	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
+	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
 </resources>

@@ -11,8 +11,6 @@
 	<string name="notifications">შეტყობინებები</string>
 	<string name="user_followed_you">%s-მა გამოგიწერათ</string>
 	<string name="user_sent_follow_request">%s-მა გამოგიგზავნათ გამოწერის მოთხოვნა</string>
-	<string name="user_favorited">%s-მა რჩეულებში დაამატა თქვენი პოსტი</string>
-	<string name="poll_ended">იხილეთ გამოკითხვის შედეგები, რომელშიც ჩაერთეთ</string>
 	<string name="share_toot_title">გაზიარება</string>
 	<string name="settings">პარამეტრები</string>
 	<string name="publish">გამოქვეყნება</string>
@@ -297,4 +295,6 @@
 	<string name="disable_new_post_notifications">აღარ შემატყობინო, როდესაც %s დაპოსტავს</string>
 	<string name="new_post_notifications_enabled">თქვენ მიიღებთ შეტყობინებებს ახალი პოსტის შესახებ.</string>
 	<string name="new_post_notifications_disabled">თქვენ აღარ მიიღებთ შეტყობინებებს ახალი პოსტის შესახებ.</string>
+	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
+	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
 </resources>

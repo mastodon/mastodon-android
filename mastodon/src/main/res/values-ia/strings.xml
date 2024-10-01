@@ -13,9 +13,6 @@
 	<string name="notifications">Notificationes</string>
 	<string name="user_followed_you">%s te seque</string>
 	<string name="user_sent_follow_request">%s te ha inviate un requesta de sequimento</string>
-	<string name="user_favorited">%s ha marcate tu message como favorite</string>
-	<string name="notification_boosted">%s ha impulsate tu message</string>
-	<string name="poll_ended">Vider le resultatos de un sondage in que tu ha votate</string>
 	<string name="share_toot_title">Compartir</string>
 	<string name="settings">Parametros</string>
 	<string name="publish">Publicar</string>
@@ -233,7 +230,7 @@
 	<string name="file_saved">File salvate</string>
 	<string name="downloading">Discargante…</string>
 	<string name="no_app_to_handle_action">Il non ha app pro gerer iste action</string>
-	<string name="local_timeline">Local</string>
+	<string name="local_timeline">Fluxo in directo</string>
 	<string name="trending_posts_info_banner">Ecce le messages que gania in popularitate sur Mastodon.</string>
 	<string name="trending_links_info_banner">Ecce le actualitates le plus discutite sur Mastodon.</string>
 	<!-- %s is the server domain -->
@@ -698,7 +695,7 @@ Quanto plus personas tu seque, tanto plus active e interessante illo essera.</st
 	<string name="video_saved">Video salvate.</string>
 	<string name="view_file">Vider</string>
 	<string name="share_sheet_preview_profile">%s sur Mastodon</string>
-	<string name="share_sheet_preview_post" comment="share_sheet_preview_post&#10;%1$s is the username, %2$s is the post text">%1$s sur Mastodon: “%2$s”</string>
+	<string name="share_sheet_preview_post">%1$s sur Mastodon: “%2$s”</string>
 	<string name="copy_profile_link">Copiar ligamine a profilo</string>
 	<string name="in_app_browser">Navigator in app</string>
 	<string name="system_browser">Navigator de systema</string>
@@ -757,4 +754,11 @@ Quanto plus personas tu seque, tanto plus active e interessante illo essera.</st
 		<item quantity="one">%,d nove notification</item>
 		<item quantity="other">%,d nove notificationes</item>
 	</plurals>
+	<string name="dismiss">Clauder</string>
+	<string name="donation_once">Solmente un vice</string>
+	<string name="donation_success_title">Gratias per tu contribution!</string>
+	<string name="settings_donate">Donar a Mastodon</string>
+	<string name="settings_manage_donations">Gerer donationes</string>
+	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
+	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
 </resources>

@@ -13,9 +13,6 @@
 	<string name="notifications">Notifications</string>
 	<string name="user_followed_you">%s vous suit</string>
 	<string name="user_sent_follow_request">%s voudrait vous suivre</string>
-	<string name="user_favorited">%s a mis votre message en favori</string>
-	<string name="notification_boosted">%s a boosté votre message</string>
-	<string name="poll_ended">Voir les résultats d\'un sondage auquel vous avez voté</string>
 	<string name="share_toot_title">Partager</string>
 	<string name="settings">Paramètres</string>
 	<string name="publish">Pouet !</string>
@@ -233,7 +230,7 @@
 	<string name="file_saved">Fichier enregistré</string>
 	<string name="downloading">Téléchargement…</string>
 	<string name="no_app_to_handle_action">Aucune application ne permet de gérer cette action</string>
-	<string name="local_timeline">Local</string>
+	<string name="local_timeline">Flux en direct</string>
 	<string name="trending_posts_info_banner">Ce sont les messages qui gagnent en popularité sur Mastodon.</string>
 	<string name="trending_links_info_banner">Voici les actualités dont on parle sur Mastodon.</string>
 	<!-- %s is the server domain -->
@@ -307,14 +304,16 @@
 	<string name="instance_signup_closed">Ce serveur n\'accepte pas les nouvelles inscriptions.</string>
 	<string name="text_copied">Copié dans le presse-papier</string>
 	<string name="add_bookmark">Ajouter aux marque-pages</string>
-	<string name="remove_bookmark">Supprimer le signet</string>
+	<string name="remove_bookmark">Supprimer le marque-page</string>
 	<string name="bookmarks">Marque-pages</string>
 	<string name="your_favorites">Vos favoris</string>
 	<string name="login_title">Bienvenue à nouveau</string>
 	<string name="login_subtitle">Connectez-vous avec le serveur sur lequel vous avez créé votre compte.</string>
 	<string name="server_url">URL du serveur</string>
 	<string name="server_filter_any_language">N\'importe quelle langue</string>
+	<string name="server_filter_instant_signup">Inscription instantanée</string>
 	<string name="server_filter_manual_review">Approbation manuelle</string>
+	<string name="server_filter_any_signup_speed">Tout délai d’inscription</string>
 	<string name="server_filter_region_europe">Europe</string>
 	<string name="server_filter_region_north_america">Amérique du Nord</string>
 	<string name="server_filter_region_south_america">Amérique du Sud</string>
@@ -695,7 +694,7 @@
 	<string name="video_saved">Vidéo enregistrée.</string>
 	<string name="view_file">Afficher</string>
 	<string name="share_sheet_preview_profile">%s sur Mastodon</string>
-	<string name="share_sheet_preview_post" comment="share_sheet_preview_post&#10;%1$s is the username, %2$s is the post text">%1$s sur Mastodon : \"%2$s\"</string>
+	<string name="share_sheet_preview_post">%1$s sur Mastodon : \"%2$s\"</string>
 	<string name="copy_profile_link">Copier le lien vers le profil</string>
 	<string name="in_app_browser">Navigateur intégré</string>
 	<string name="system_browser">Navigateur système</string>
@@ -716,14 +715,55 @@
 	<string name="unmute_conversation">Ne plus masquer la conversation</string>
 	<string name="visibility_unlisted">Public calme</string>
 	<string name="filtered_notifications">Notifications filtrées</string>
+	<string name="filter_notifications">Filtrer les notifications provenant de …</string>
 	<string name="notification_filter_following">Personnes que vous ne suivez pas</string>
 	<string name="notification_filter_following_explanation">Jusqu\'à ce que vous les approuviez manuellement</string>
 	<string name="notification_filter_followers">Personnes qui ne vous suivent pas</string>
+	<string name="notification_filter_followers_explanation">Incluant les personnes qui vous suivent depuis moins de 3 jours</string>
 	<string name="notification_filter_new_accounts">Nouveaux comptes</string>
 	<string name="notification_filter_new_accounts_explanation">Créé au cours des 30 derniers jours</string>
 	<string name="notification_filter_mentions">Mentions privées non sollicitées</string>
+	<string name="notification_filter_mentions_explanation">Filtrées sauf si c\'est en réponse à l\'une de vos mentions ou si vous suivez l\'expéditeur·ice</string>
 	<string name="allow_notifications">Autoriser les notifications</string>
+	<string name="mute_notifications">Rejeter la requête de notification</string>
+	<plurals name="x_people_you_may_know">
+		<item quantity="one">%,d personne que vous connaissez peut-être</item>
+		<item quantity="other">%,d personnes que vous connaissez peut-être</item>
+	</plurals>
 	<string name="notifications_from_user">Notifications de %s</string>
+	<string name="notifications_muted">Les notifications de %s ont été rejetées.</string>
+	<string name="notifications_allowed">%s apparaîtra maintenant dans votre liste de notifications.</string>
 	<string name="visibility_subtitle_public">Tout le monde sur et en dehors de Mastodon</string>
 	<string name="visibility_subtitle_unlisted">Moins de fanfares algorithmiques</string>
+	<string name="visibility_subtitle_followers">Vos abonné·e·s uniquement</string>
+	<string name="visibility_subtitle_private">Toute personne mentionnée dans le message</string>
+	<string name="view_boosts">Afficher les partages</string>
+	<string name="view_favorites">Afficher les favoris</string>
+	<string name="undo_reblog">Annuler le partage</string>
+	<string name="undo_favorite">Annuler le favori</string>
+	<string name="could_not_reach_server">Impossible d\'établir une connexion avec le serveur. Vérifiez votre connexion et réessayer ?</string>
+	<string name="connection_timed_out">La requête a expiré. Vérifiez votre connexion et réessayer ?</string>
+	<string name="server_error">Quelque chose s\'est mal passé en essayant de communiquer avec votre serveur. Ce n\'est probablement pas votre faute. Réessayer ?</string>
+	<string name="not_found">Il se pourrait qu\'il ait été supprimé, ou peut-être qu\'il n\'a jamais existé.</string>
+	<string name="no_servers_found">Aucun serveur trouvé pour « %s »</string>
+	<string name="signup_username_taken">Ce nom d\'utilisateur est déjà utilisé. Essayez-en un autre ou &lt;a&gt;choisissez un autre serveur&lt;/a&gt;.</string>
+	<string name="signup_email_invalid">Cela ne semble pas être une adresse e-mail valide.</string>
+	<string name="signup_email_taken">L\'adresse de messagerie est déjà utilisée. Avez-vous &lt;a&gt;oublié votre mot de passe&lt;/a&gt; ?</string>
+	<plurals name="x_new_notifications">
+		<item quantity="one">%,d nouvelle notification</item>
+		<item quantity="other">%,d nouvelles notifications</item>
+	</plurals>
+	<string name="dismiss">Rejeter</string>
+	<string name="donation_once">Une seule fois uniquement</string>
+	<string name="donation_monthly">Mensuellement</string>
+	<string name="donation_yearly">Annuellement</string>
+	<string name="currency">Devise</string>
+	<string name="donation_success_share">Faites passer le mot</string>
+	<string name="donation_success_title">Merci pour votre contribution !</string>
+	<string name="donation_success_subtitle">Vous devriez recevoir un email de confirmation de votre don bientôt.</string>
+	<string name="donation_server_error">Nous sommes désolés, une erreur est survenue et nous n\'avons pas pu traiter votre don.\n\nVeuillez réessayer dans quelques minutes.</string>
+	<string name="settings_donate">Faire un don à Mastodon</string>
+	<string name="settings_manage_donations">Gestion des dons</string>
+	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
+	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
 </resources>

@@ -13,9 +13,6 @@
 	<string name="notifications">Уведомления</string>
 	<string name="user_followed_you">%s подписался(ась) на вас</string>
 	<string name="user_sent_follow_request">%s отправил(а) вам запрос на подписку</string>
-	<string name="user_favorited">%s добавил(а) в избранное ваш пост</string>
-	<string name="notification_boosted">%s продвинул(а) ваш пост</string>
-	<string name="poll_ended">Посмотреть результаты опроса, в котором вы проголосовали</string>
 	<string name="share_toot_title">Поделиться</string>
 	<string name="settings">Настройки</string>
 	<string name="publish">Опубликовать</string>
@@ -259,7 +256,7 @@
 	<string name="file_saved">Файл сохранён</string>
 	<string name="downloading">Скачивание…</string>
 	<string name="no_app_to_handle_action">Нет приложения для обработки этого действия</string>
-	<string name="local_timeline">Локальная</string>
+	<string name="local_timeline">Прямая трансляция</string>
 	<string name="trending_posts_info_banner">Эти посты набирают популярность в Mastodon.</string>
 	<string name="trending_links_info_banner">Это новости, о которых говорят в Mastodon.</string>
 	<!-- %s is the server domain -->
@@ -352,7 +349,9 @@
 	<string name="login_subtitle">Войдите на сервер, на котором вы создали свою учётную запись.</string>
 	<string name="server_url">Адрес сервера</string>
 	<string name="server_filter_any_language">Любой язык</string>
+	<string name="server_filter_instant_signup">Моментальная регистрация</string>
 	<string name="server_filter_manual_review">Ручная проверка</string>
+	<string name="server_filter_any_signup_speed">Любая скорость регистрации</string>
 	<string name="server_filter_region_europe">Европа</string>
 	<string name="server_filter_region_north_america">Северная Америка</string>
 	<string name="server_filter_region_south_america">Южная Америка</string>
@@ -700,7 +699,7 @@
 	<string name="non_mutual_text3">У каждого свой стиль общения. Будьте к этому готовы.</string>
 	<string name="make_profile_discoverable">Сделать мой профиль открытым</string>
 	<string name="discoverability">Открытость</string>
-	<string name="discoverability_help">Когда вы станете открыты для просмотра на Mastodon, ваши посты могут появляться в результатах поиска и в трендах.\n\nВаш профиль может быть предложен людям со схожими с вами интересами.\n\nОткажитесь скрывать свой профиль, если кто-то ищет вас по имени.</string>
+	<string name="discoverability_help">Когда вы станете открыты для просмотра на Mastodon, ваши посты могут появляться в результатах поиска и в трендах.\n\nВаш профиль может быть предложен людям со схожими с вами интересами.\n\nДаже в случае отказа ваш профиль будет виден, если кто-то ищет вас по имени.</string>
 	<string name="app_version_copied">Номер версии скопирован в буфер обмена</string>
 	<string name="onboarding_recommendations_intro">Вы сами формируете свою ленту.
 Чем больше людей на которых вы подписаны, тем активнее и интереснее она будет.</string>
@@ -762,7 +761,7 @@
 	<string name="video_saved">Видео сохранено.</string>
 	<string name="view_file">Просмотр</string>
 	<string name="share_sheet_preview_profile">%s на Mastodon</string>
-	<string name="share_sheet_preview_post" comment="share_sheet_preview_post&#10;%1$s is the username, %2$s is the post text">%1$s на Mastodon: “%2$s”</string>
+	<string name="share_sheet_preview_post">%1$s на Mastodon: “%2$s”</string>
 	<string name="copy_profile_link">Скопировать ссылку на профиль</string>
 	<string name="in_app_browser">Встроенный браузер</string>
 	<string name="system_browser">Системный браузер</string>
@@ -781,5 +780,62 @@
 	<string name="new_post_notifications_disabled">Вы больше не будете получать уведомления о новых постах.</string>
 	<string name="mute_conversation">Заглушить обсуждение</string>
 	<string name="unmute_conversation">Не игнорировать обсуждение</string>
+	<string name="visibility_unlisted">Тихая публика</string>
+	<string name="filtered_notifications">Отфильтрованные уведомления</string>
+	<string name="filter_notifications">Отфильтруйте уведомления от...</string>
+	<string name="notification_filter_following">Люди, за которыми вы не следите</string>
+	<string name="notification_filter_following_explanation">Пока вы не одобрите их вручную</string>
+	<string name="notification_filter_followers">Люди не следуют за вами</string>
+	<string name="notification_filter_followers_explanation">Включая людей, которые следят за вами менее 3 дней</string>
+	<string name="notification_filter_new_accounts">Новые аккаунты</string>
+	<string name="notification_filter_new_accounts_explanation">Создано в течение последних 30 дней</string>
+	<string name="notification_filter_mentions">Нежелательные частные упоминания</string>
+	<string name="notification_filter_mentions_explanation">Фильтруется, если только это не ответ на ваше собственное упоминание или если вы следите за отправителем</string>
+	<string name="allow_notifications">Разрешить уведомления</string>
+	<string name="mute_notifications">Отклонить запрос уведомления</string>
+	<plurals name="x_people_you_may_know">
+		<item quantity="one">%,d человек, которого вы можете знать</item>
+		<item quantity="few">%,d человек, которого вы можете знать</item>
+		<item quantity="many">%,d людей, которых вы можете знать</item>
+		<item quantity="other">%,d людей, которых вы можете знать</item>
+	</plurals>
+	<string name="notifications_from_user">Уведомления от %s</string>
+	<string name="notifications_muted">Уведомления от %s были отклонены.</string>
+	<string name="notifications_allowed">Теперь %s появится в списке ваших уведомлений.</string>
+	<string name="visibility_subtitle_public">Все, кто входит и выходит из состава Mastodon</string>
+	<string name="visibility_subtitle_unlisted">Меньше алгоритмических фанфар</string>
+	<string name="visibility_subtitle_followers">Только ваши последователи</string>
+	<string name="visibility_subtitle_private">Все, кто упоминался в посте</string>
+	<string name="view_boosts">Просматривать бонусы</string>
+	<string name="view_favorites">Посмотреть избранное</string>
+	<string name="undo_reblog">Отменить повышение</string>
+	<string name="undo_favorite">Отменить избранное</string>
+	<string name="could_not_reach_server">Не удалось связаться с сервером. Проверьте соединение и повторите попытку?</string>
+	<string name="connection_timed_out">Запрос был отложен. Проверьте соединение и повторите попытку?</string>
+	<string name="server_error">Что-то пошло не так в разговоре с вашим сервером. Скорее всего, это не ваша вина. Попробовать еще раз?</string>
 	<string name="not_found">Может, здесь ничего и не было.</string>
+	<string name="no_servers_found">Не найдено ни одного сервера для \"%s\"</string>
+	<string name="signup_username_taken">Это имя пользователя занято. Попробуйте другое или &lt;a&gt;выберите другой сервер&lt;/a&gt;.</string>
+	<string name="signup_email_invalid">Это не похоже на действительный адрес электронной почты.</string>
+	<string name="signup_email_taken">Адрес электронной почты уже используется. Вы &lt;a&gt;забыли свой пароль&lt;/a&gt;?</string>
+	<plurals name="x_new_notifications">
+		<item quantity="one">%,d новое уведомление</item>
+		<item quantity="few">%,d нового уведомления</item>
+		<item quantity="many">%,d новых уведомлений</item>
+		<item quantity="other">%,d новых уведомлений</item>
+	</plurals>
+	<string name="dismiss">Отклонить</string>
+	<string name="donation_once">Только раз</string>
+	<string name="donation_monthly">Ежемесячно</string>
+	<string name="donation_yearly">Ежегодно</string>
+	<string name="currency">Валюта</string>
+	<string name="donation_success_share">Распространите слово</string>
+	<string name="donation_success_title">Спасибо за ваш вклад!</string>
+	<string name="donation_success_subtitle">В ближайшее время вы получите электронное письмо с подтверждением вашего пожертвования.</string>
+	<string name="donation_server_error">Нам очень жаль, но произошла ошибка, и мы не смогли обработать ваше пожертвование.\n\nПожалуйста, повторите попытку через несколько минут.</string>
+	<string name="settings_donate">Пожертвовать Mastodon</string>
+	<string name="settings_manage_donations">Управление пожертвованиями</string>
+	<string name="cant_load_image">Не удалось загрузить изображение</string>
+	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
+	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
 </resources>

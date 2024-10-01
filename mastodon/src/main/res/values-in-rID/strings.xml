@@ -9,12 +9,10 @@
 	<string name="preparing_auth">Menyiapkan untuk autentikasi…</string>
 	<string name="finishing_auth">Menyelesaikan autentikasi…</string>
 	<string name="user_boosted">%s membagikan ulang</string>
+	<string name="in_reply_to">membalas ke %s</string>
 	<string name="notifications">Notifikasi</string>
 	<string name="user_followed_you">%s mengikuti Anda</string>
 	<string name="user_sent_follow_request">%s mengirim Anda permintaan pengikut</string>
-	<string name="user_favorited">%s memfavorit kiriman Anda</string>
-	<string name="notification_boosted">%s membagikan ulang kiriman Anda</string>
-	<string name="poll_ended">Lihat hasil dari japat yang Anda ikuti</string>
 	<string name="share_toot_title">Bagikan</string>
 	<string name="settings">Pengaturan</string>
 	<string name="publish">Terbitkan</string>
@@ -152,6 +150,8 @@
 	<string name="save">Simpan</string>
 	<string name="add_alt_text">Tambahkan teks alternatif</string>
 	<string name="visibility_public">Publik</string>
+	<string name="visibility_followers_only">Pengikut</string>
+	<string name="visibility_private">Orang tertentu</string>
 	<string name="recent_searches">Terbaru</string>
 	<string name="skip">Lewati</string>
 	<string name="notification_type_follow">Pengikut baru</string>
@@ -217,7 +217,7 @@
 	<string name="file_saved">Berkas disimpan</string>
 	<string name="downloading">Mengunduh…</string>
 	<string name="no_app_to_handle_action">Tidak ada aplikasi yang dapat menangani tindakan ini</string>
-	<string name="local_timeline">Lokal</string>
+	<string name="local_timeline">Feed yang sedang berlangsung</string>
 	<string name="trending_posts_info_banner">Ini adalah kiriman yang mendapatkan daya tarik di antara Mastodon.</string>
 	<string name="trending_links_info_banner">Ini adalah kisah berita yang sedang dibicarakan di Mastodon.</string>
 	<!-- %s is the server domain -->
@@ -285,13 +285,16 @@
 	<string name="instance_signup_closed">Server ini tidak menerima pendaftaran baru.</string>
 	<string name="text_copied">Disalin ke papan klip</string>
 	<string name="add_bookmark">Markah</string>
+	<string name="remove_bookmark">Hapus bookmark</string>
 	<string name="bookmarks">Markah</string>
 	<string name="your_favorites">Favorit Anda</string>
 	<string name="login_title">Selamat datang kembali</string>
 	<string name="login_subtitle">Masuk dengan server di mana Anda buat akun Anda.</string>
 	<string name="server_url">URL Server</string>
 	<string name="server_filter_any_language">Bahasa apa pun</string>
+	<string name="server_filter_instant_signup">Pendaftaran instan</string>
 	<string name="server_filter_manual_review">Peninjauan manual</string>
+	<string name="server_filter_any_signup_speed">Kecepatan pendaftaran apa pun</string>
 	<string name="server_filter_region_europe">Eropa</string>
 	<string name="server_filter_region_north_america">Amerika Utara</string>
 	<string name="server_filter_region_south_america">Amerika Selatan</string>
@@ -658,7 +661,7 @@
 	<string name="video_saved">Video disimpan.</string>
 	<string name="view_file">Tampilan</string>
 	<string name="share_sheet_preview_profile">%s di Mastodon</string>
-	<string name="share_sheet_preview_post" comment="share_sheet_preview_post&#10;%1$s is the username, %2$s is the post text">%1$s di Mastodon: “%2$s”</string>
+	<string name="share_sheet_preview_post">%1$s di Mastodon: “%2$s”</string>
 	<string name="copy_profile_link">Salin tautan ke profil</string>
 	<string name="in_app_browser">Peramban dalam aplikasi</string>
 	<string name="system_browser">Peramban sistem</string>
@@ -696,4 +699,37 @@
 	<string name="notifications_from_user">Notifikasi dari %s</string>
 	<string name="notifications_muted">Notifikasi dari %s telah diabaikan.</string>
 	<string name="notifications_allowed">%s sekarang akan muncul dalam daftar notifikasi Anda.</string>
+	<string name="visibility_subtitle_public">Orang di dalam dan di luar Mastodon</string>
+	<string name="visibility_subtitle_unlisted">Lebih sedikit algoritma fanfares</string>
+	<string name="visibility_subtitle_followers">Hanya pengikut anda</string>
+	<string name="visibility_subtitle_private">Orang yang disebut di dalam tautan</string>
+	<string name="view_boosts">Tampilkan pembagian ulang</string>
+	<string name="view_favorites">Tampilkan favorit</string>
+	<string name="undo_reblog">Undo pembagian ulang</string>
+	<string name="undo_favorite">Undo favorit</string>
+	<string name="could_not_reach_server">Tidak dapat menjangkau server. Pastikan anda terhubung dan coba lagi?</string>
+	<string name="connection_timed_out">Waktu habis. Pastikan and terhubung dan coba lagi?</string>
+	<string name="server_error">Sesuatu bermasalah saat berhubungan dengan server anda. Kemungkinan bukan dari anda. Coba lagi?</string>
+	<string name="not_found">Mungkin telah terhapus, atau tidak pernah ada sebelumnya.</string>
+	<string name="no_servers_found">Tidak ada server yang ditemukan untuk \"%s\"</string>
+	<string name="signup_username_taken">Username telah diambil. Silahkan buat yang baru atau &lt;a&gt;pilih server yang berbeda&lt;/a&gt;.</string>
+	<string name="signup_email_invalid">Tidak terlihat seperti alamat email yang benar.</string>
+	<string name="signup_email_taken">Alamat email sudah digunakan. Apakah anda &lt;a&gt;lupa password&lt;/a&gt;?</string>
+	<plurals name="x_new_notifications">
+		<item quantity="other">%,d notifikasi baru
+%,d notifikasi baru</item>
+	</plurals>
+	<string name="dismiss">Abaikan</string>
+	<string name="donation_once">Hanya sekali</string>
+	<string name="donation_monthly">Bulanan</string>
+	<string name="donation_yearly">Tahunan</string>
+	<string name="currency">Mata uang</string>
+	<string name="donation_success_share">Beritahukan ke orang lain</string>
+	<string name="donation_success_title">Terima kasih atas kontribusi anda!</string>
+	<string name="donation_success_subtitle">Anda akan menerima email konfirmasi atas donasi anda.</string>
+	<string name="donation_server_error">Maafkan kami, kesalahan telah terjadi dan kami belum bisa memproses donasi anda.\n\nMohon ulang kembali beberapa menit lagi.</string>
+	<string name="settings_donate">Donasi ke Mastodon</string>
+	<string name="settings_manage_donations">Kelola donasi</string>
+	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
+	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
 </resources>

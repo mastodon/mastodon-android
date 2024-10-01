@@ -13,9 +13,8 @@
 	<string name="notifications">การแจ้งเตือน</string>
 	<string name="user_followed_you">%s ได้ติดตามคุณ</string>
 	<string name="user_sent_follow_request">%s ได้ส่งคำขอติดตามถึงคุณ</string>
-	<string name="user_favorited">%s ได้ชื่นชอบโพสต์ของคุณ</string>
-	<string name="notification_boosted">%s ได้ดันโพสต์ของคุณ</string>
-	<string name="poll_ended">ดูผลลัพธ์ของการสำรวจความคิดเห็นที่คุณได้ลงคะแนน</string>
+	<string name="user_favorited">%s ได้ชื่นชอบ:</string>
+	<string name="notification_boosted">%s ได้ดัน:</string>
 	<string name="share_toot_title">แชร์</string>
 	<string name="settings">การตั้งค่า</string>
 	<string name="publish">เผยแพร่</string>
@@ -220,7 +219,7 @@
 	<string name="file_saved">บันทึกไฟล์แล้ว</string>
 	<string name="downloading">กำลังดาวน์โหลด…</string>
 	<string name="no_app_to_handle_action">ไม่มีแอปที่จะจัดการการกระทำนี้</string>
-	<string name="local_timeline">ในเซิร์ฟเวอร์</string>
+	<string name="local_timeline">ฟีดสด</string>
 	<string name="trending_posts_info_banner">นี่คือโพสต์ที่ได้รับความสนใจทั่วทั้ง Mastodon</string>
 	<string name="trending_links_info_banner">นี่คือเรื่องข่าวที่ได้รับการพูดถึงใน Mastodon</string>
 	<!-- %s is the server domain -->
@@ -665,7 +664,7 @@
 	<string name="video_saved">บันทึกวิดีโอแล้ว</string>
 	<string name="view_file">ดู</string>
 	<string name="share_sheet_preview_profile">%s ใน Mastodon</string>
-	<string name="share_sheet_preview_post" comment="share_sheet_preview_post&#10;%1$s is the username, %2$s is the post text">%1$s ใน Mastodon: “%2$s”</string>
+	<string name="share_sheet_preview_post">%1$s ใน Mastodon: “%2$s”</string>
 	<string name="copy_profile_link">คัดลอกลิงก์ไปยังโปรไฟล์</string>
 	<string name="in_app_browser">เบราว์เซอร์ในแอป</string>
 	<string name="system_browser">เบราว์เซอร์ของระบบ</string>
@@ -733,4 +732,39 @@
 	<string name="donation_server_error">เราขออภัย เกิดข้อผิดพลาดและเราไม่สามารถประมวลผลการบริจาคของคุณ\n\nโปรดลองใหม่ในไม่กี่นาที</string>
 	<string name="settings_donate">บริจาคให้ Mastodon</string>
 	<string name="settings_manage_donations">จัดการการบริจาค</string>
+	<string name="cant_load_image">ไม่สามารถโหลดภาพ</string>
+	<string name="poll_see_results">ดูผลลัพธ์</string>
+	<string name="poll_hide_results">ซ่อนผลลัพธ์</string>
+	<plurals name="x_attachments">
+		<item quantity="other">%d ไฟล์แนบ</item>
+	</plurals>
+	<plurals name="user_and_x_more_favorited">
+		<item quantity="other">%1$s และ %2$,d อื่น ๆ ได้ชื่นชอบ:</item>
+	</plurals>
+	<plurals name="user_and_x_more_boosted">
+		<item quantity="other">%1$s และ %2$,d อื่น ๆ ได้ดัน:</item>
+	</plurals>
+	<plurals name="poll_ended_x_voters">
+		<item quantity="other">%1$s ได้ทำการสำรวจความคิดเห็นที่คุณและ %2$,d อื่น ๆ ได้ลงคะแนน</item>
+	</plurals>
+	<string name="own_poll_ended">การสำรวจความคิดเห็นของคุณได้สิ้นสุดแล้ว</string>
+	<string name="user_just_posted">%s เพิ่งโพสต์</string>
+	<string name="user_edited_post">%s ได้แก้ไขโพสต์ที่คุณได้โต้ตอบด้วย</string>
+	<string name="relationship_severance_account_suspension">ผู้ดูแลจาก %1$s ได้ระงับ %2$s ซึ่งหมายความว่าคุณจะไม่สามารถรับการอัปเดตจากเขาหรือโต้ตอบกับเขาได้อีกต่อไป</string>
+	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_domain_block">ผู้ดูแลจาก %1$s ได้ปิดกั้น %2$s รวมถึง %3$,d ผู้ติดตามของคุณและ %4$sที่คุณติดตาม</string>
+	<plurals name="x_accounts">
+		<item quantity="other">%,d บัญชี</item>
+	</plurals>
+	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_user_domain_block">คุณได้ปิดกั้น %1$s เอา %2$,d ผู้ติดตามของคุณและ %3$sที่คุณติดตามออก</string>
+	<string name="relationship_severance_learn_more">เรียนรู้เพิ่มเติม</string>
+	<string name="moderation_warning_action_none">บัญชีของคุณได้รับคำเตือนการกลั่นกรอง</string>
+	<string name="moderation_warning_action_disable">ปิดใช้งานบัญชีของคุณแล้ว</string>
+	<string name="moderation_warning_action_mark_statuses_as_sensitive">ทำเครื่องหมายโพสต์บางส่วนของคุณว่าละเอียดอ่อนแล้ว</string>
+	<string name="moderation_warning_action_delete_statuses">เอาโพสต์บางส่วนของคุณออกแล้ว</string>
+	<string name="moderation_warning_action_sensitive">จะทำเครื่องหมายโพสต์ของคุณว่าละเอียดอ่อนนับจากนี้ไป</string>
+	<string name="moderation_warning_action_silence">จำกัดบัญชีของคุณแล้ว</string>
+	<string name="moderation_warning_action_suspend">ระงับบัญชีของคุณแล้ว</string>
+	<string name="moderation_warning_learn_more">เรียนรู้เพิ่มเติม</string>
 </resources>

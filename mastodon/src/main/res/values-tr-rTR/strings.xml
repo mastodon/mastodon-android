@@ -13,9 +13,6 @@
 	<string name="notifications">Bildirimler</string>
 	<string name="user_followed_you">%s seni takip etti</string>
 	<string name="user_sent_follow_request">%s size bir takip isteği gönderdi</string>
-	<string name="user_favorited">%s gönderinizi favorilere ekledi</string>
-	<string name="notification_boosted">%s gönderinizi yeniden paylaştı</string>
-	<string name="poll_ended">Oy verdiğiniz bir anketin sonuçlarını görün</string>
 	<string name="share_toot_title">Paylaş</string>
 	<string name="settings">Ayarlar</string>
 	<string name="publish">Yayınla</string>
@@ -233,7 +230,6 @@
 	<string name="file_saved">Dosya kaydedildi</string>
 	<string name="downloading">İndiriliyor…</string>
 	<string name="no_app_to_handle_action">Bu eylemi gerçekleştirebilecek bir uygulama bulunmuyor</string>
-	<string name="local_timeline">Yerel</string>
 	<string name="trending_posts_info_banner">Bunlar, Mastodon\'da ilgi gören gönderiler.</string>
 	<string name="trending_links_info_banner">Bunlar Mastodon\'da konuşulan haberler.</string>
 	<!-- %s is the server domain -->
@@ -696,7 +692,7 @@ Ne kadar çok kişiyi takip ederseniz, o kadar aktif ve ilginç olacaktır.</str
 	<string name="video_saved">Video kaydet seçeneğini.</string>
 	<string name="view_file">Görüntüle</string>
 	<string name="share_sheet_preview_profile">Mastodon\'da %s</string>
-	<string name="share_sheet_preview_post" comment="share_sheet_preview_post&#10;%1$s is the username, %2$s is the post text">%1$s Mastodon\'da: “%2$s”</string>
+	<string name="share_sheet_preview_post">%1$s Mastodon\'da: “%2$s”</string>
 	<string name="copy_profile_link">Bağlantıyı profile kopyala</string>
 	<string name="in_app_browser">Uygulama içi tarayıcı</string>
 	<string name="system_browser">Sistem tarayıcısı</string>
@@ -728,4 +724,6 @@ Ne kadar çok kişiyi takip ederseniz, o kadar aktif ve ilginç olacaktır.</str
 	<string name="notification_filter_mentions_explanation">Kendi değinmenize yanıt veya takip ettiğiniz kullanıcıdan değilse süzgeçlenir</string>
 	<string name="allow_notifications">Bildirimlere izin ver</string>
 	<string name="mute_notifications">Bildirim talebini reddet</string>
+	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
+	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
 </resources>

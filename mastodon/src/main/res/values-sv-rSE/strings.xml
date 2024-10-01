@@ -9,12 +9,10 @@
 	<string name="preparing_auth">Förbereder för autentisering…</string>
 	<string name="finishing_auth">Slutför autentisering…</string>
 	<string name="user_boosted">%s boostade</string>
+	<string name="in_reply_to">som svar på %s</string>
 	<string name="notifications">Aviseringar</string>
 	<string name="user_followed_you">%s följde dig</string>
 	<string name="user_sent_follow_request">%s skickade en förfrågan om att följa dig</string>
-	<string name="user_favorited">%s favoritmarkerade ditt inlägg</string>
-	<string name="notification_boosted">%s boostade ditt inlägg</string>
-	<string name="poll_ended">Se resultatet av en omröstning du röstade i</string>
 	<string name="share_toot_title">Dela</string>
 	<string name="settings">Inställningar</string>
 	<string name="publish">Publicera</string>
@@ -30,10 +28,13 @@
 		<item quantity="other">följer</item>
 	</plurals>
 	<string name="posts">Inlägg</string>
+	<string name="posts_and_replies">Inlägg och svar</string>
 	<string name="media">Media</string>
 	<string name="profile_about">Om</string>
 	<string name="button_follow">Följ</string>
 	<string name="button_following">Följer</string>
+	<string name="edit_profile">Redigera profil</string>
+	<string name="share_user">Dela profil via…</string>
 	<string name="mute_user">Tysta %s</string>
 	<string name="unmute_user">Avtysta %s</string>
 	<string name="block_user">Blockera %s</string>
@@ -140,13 +141,16 @@
 	<string name="report_personal_subtitle">Här är dina alternativ för att bestämma vad du ser på Mastodon:</string>
 	<string name="back">Tillbaka</string>
 	<string name="search_communities">Servernamn eller URL</string>
+	<string name="instance_rules_title">Serverregler</string>
 	<string name="instance_rules_subtitle">Genom att fortsätta, samtycker du till att följa följande regler som fastställts och verkställs av %s moderatorer.</string>
+	<string name="signup_title">Skapa konto</string>
 	<string name="display_name">Namn</string>
 	<string name="username">Användarnamn</string>
 	<string name="email">E-post</string>
 	<string name="password">Lösenord</string>
 	<string name="confirm_password">Bekräfta lösenord</string>
 	<string name="category_general">Allmänt</string>
+	<string name="confirm_email_title">Kontrollera din inkorg</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">Klicka på länken som vi har skickat till dig för att bekräfta %s. Vi väntar här.</string>
 	<string name="confirm_email_didnt_get">Fick du ingen länk?</string>
@@ -158,6 +162,8 @@
 	<string name="save">Spara</string>
 	<string name="add_alt_text">Lägg till alternativtext</string>
 	<string name="visibility_public">Offentlig</string>
+	<string name="visibility_followers_only">Följare</string>
+	<string name="visibility_private">Specifika personer</string>
 	<string name="recent_searches">Nyligen</string>
 	<string name="skip">Hoppa över</string>
 	<string name="notification_type_follow">Nya följare</string>
@@ -175,6 +181,7 @@
 	<string name="theme_dark">Mörkt</string>
 	<string name="settings_behavior">Beteende</string>
 	<string name="settings_gif">Spela animerade avatarer och emojis</string>
+	<string name="settings_custom_tabs">Öppna länkar i</string>
 	<string name="settings_notifications">Aviseringar</string>
 	<string name="settings_contribute">Bidra till Mastodon</string>
 	<string name="settings_tos">Användarvillkor</string>
@@ -217,7 +224,6 @@
 	<string name="file_saved">Filen sparad</string>
 	<string name="downloading">Laddar ner…</string>
 	<string name="no_app_to_handle_action">Det finns ingen app för att hantera denna åtgärd</string>
-	<string name="local_timeline">Lokal</string>
 	<string name="trending_posts_info_banner">Detta är de inlägg som engagerar på Mastodon.</string>
 	<string name="trending_links_info_banner">Det här är nyheterna som det talas om på Mastodon.</string>
 	<!-- %s is the server domain -->
@@ -225,6 +231,7 @@
 	<string name="recommended_accounts_info_banner">Du kanske gillar dessa konton baserat på andra konton du följer.</string>
 	<string name="see_new_posts">Nya inlägg</string>
 	<string name="load_missing_posts">Ladda saknade inlägg</string>
+	<string name="follow_back">Följ tillbaka</string>
 	<string name="button_follow_pending">Väntande</string>
 	<string name="follows_you">Följer dig</string>
 	<string name="manually_approves_followers">Godkänner följare manuellt</string>
@@ -285,6 +292,8 @@
 	<string name="text_copied">Kopierat till urklipp</string>
 	<string name="add_bookmark">Bokmärk</string>
 	<string name="bookmarks">Bokmärken</string>
+	<string name="your_favorites">Dina favoriter</string>
+	<string name="login_title">Välkommen tillbaka</string>
 	<string name="login_subtitle">Logga in på den server där du skapade ditt konto.</string>
 	<string name="server_url">Server-URL</string>
 	<string name="server_filter_region_europe">Europa</string>
@@ -416,6 +425,14 @@
 	<string name="settings_hide_sensitive_media">Dölj media markerad som känsligt</string>
 	<string name="settings_show_interaction_counts">Antal inläggsinteraktioner</string>
 	<string name="settings_show_emoji_in_names">Anpassad emoji i visningsnamn</string>
+	<plurals name="in_x_seconds">
+		<item quantity="one">om %d sekund</item>
+		<item quantity="other">om %d sekunder</item>
+	</plurals>
+	<plurals name="in_x_minutes">
+		<item quantity="one">om %d minut</item>
+		<item quantity="other">om %d minuter</item>
+	</plurals>
 	<plurals name="in_x_hours">
 		<item quantity="one">om %d timme</item>
 		<item quantity="other">om %d timmar</item>
@@ -541,8 +558,43 @@
 	</plurals>
 	<string name="more_than_two_years">mer än 2 år</string>
 	<string name="non_mutual_title3">Var öppen</string>
+	<string name="article_by_author">Av %s</string>
+	<string name="invalid_invite_link">Ogiltig inbjudningslänk</string>
+	<string name="use_invite_link">Använd inbjudningslänk</string>
+	<string name="block_user_confirm_title">Blockera användare?</string>
+	<string name="block_domain_confirm_title">Blockera domän?</string>
+	<string name="do_block_server">Blockera server</string>
 	<string name="server">Server</string>
 	<string name="what_is_activitypub_title">Vad är ActivityPub?</string>
+	<string name="qr_code">QR-kod</string>
+	<string name="scan_qr_code">Skanna QR-kod</string>
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
+	<string name="view_file">Visa</string>
+	<string name="share_sheet_preview_profile">%s på Mastodon</string>
+	<string name="share_sheet_preview_post">%1$s på Mastodon: “%2$s”</string>
+	<string name="copy_profile_link">Kopiera länk till profil</string>
+	<string name="add_muted_word_short">Lägg till ord</string>
+	<string name="tab_search">Utforska</string>
+	<string name="tab_profile">Profil</string>
 	<!-- %s is the username -->
+	<string name="notification_filter_following">Personer du inte följer</string>
+	<string name="notification_filter_new_accounts">Nya konton</string>
+	<string name="notification_filter_new_accounts_explanation">Skapad inom de senaste 30 dagarna</string>
+	<plurals name="x_people_you_may_know">
+		<item quantity="one">%,d person du kanske känner</item>
+		<item quantity="other">%,d personer du kanske känner</item>
+	</plurals>
+	<string name="visibility_subtitle_followers">Endast dina följare</string>
+	<string name="view_favorites">Visa favoriter</string>
+	<string name="currency">Valuta</string>
+	<string name="donation_success_title">Tack för ditt bidrag!</string>
+	<string name="donation_success_subtitle">Du kommer snart att få ett e-postmeddelande som bekräftar din donation.</string>
+	<string name="settings_donate">Donera till Mastodon</string>
+	<string name="settings_manage_donations">Hantera donationer</string>
+	<plurals name="x_attachments">
+		<item quantity="one">%d bilaga</item>
+		<item quantity="other">%d bilagor</item>
+	</plurals>
+	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
+	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
 </resources>

@@ -13,9 +13,6 @@
 	<string name="notifications">Powiadomienia</string>
 	<string name="user_followed_you">%s obserwuje Cię</string>
 	<string name="user_sent_follow_request">%s wysyła Tobie prośbę o obserwację</string>
-	<string name="user_favorited">%s lubi Twój post</string>
-	<string name="notification_boosted">%s podał(a/o) Twój wpis dalej</string>
-	<string name="poll_ended">Zobacz wyniki ankiety, w której oddałeś/aś głos</string>
 	<string name="share_toot_title">Udostępnij</string>
 	<string name="settings">Ustawienia</string>
 	<string name="publish">Publikuj</string>
@@ -257,7 +254,6 @@
 	<string name="file_saved">Zapisano plik</string>
 	<string name="downloading">Pobieranie…</string>
 	<string name="no_app_to_handle_action">Nie ma żadnej aplikacji do ukończenia tej akcji</string>
-	<string name="local_timeline">Lokalna oś czasu</string>
 	<string name="trending_posts_info_banner">To są posty zdobywające popularność w całej sieci Mastodona.</string>
 	<string name="trending_links_info_banner">To są wiadomości które są szerzej omawiane na całej sieci Mastodona.</string>
 	<!-- %s is the server domain -->
@@ -723,7 +719,7 @@ Im więcej ludzi obserwujesz, tym aktywniejsza i bardziej interesująca się sta
 	<string name="video_saved">Zapisano film.</string>
 	<string name="view_file">Zobacz</string>
 	<string name="share_sheet_preview_profile">%s na Mastodonie</string>
-	<string name="share_sheet_preview_post" comment="share_sheet_preview_post&#10;%1$s is the username, %2$s is the post text">%1$s na Mastodonie: „%2$s”</string>
+	<string name="share_sheet_preview_post">%1$s na Mastodonie: „%2$s”</string>
 	<string name="copy_profile_link">Skopiuj link do profilu</string>
 	<string name="in_app_browser">Przeglądarka w aplikacji</string>
 	<string name="system_browser">Systemowa przeglądarka</string>
@@ -756,4 +752,6 @@ Im więcej ludzi obserwujesz, tym aktywniejsza i bardziej interesująca się sta
 	<string name="notifications_from_user">Powiadomienia od %s</string>
 	<string name="notifications_muted">Powiadomienia od %s zostały odrzucone.</string>
 	<string name="notifications_allowed">%s pojawi się teraz na liście powiadomień.</string>
+	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
+	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
 </resources>

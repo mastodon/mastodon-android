@@ -10,8 +10,6 @@
 	<string name="finishing_auth">Finalitzant l\'autenticació…</string>
 	<string name="notifications">Notificacions</string>
 	<string name="user_followed_you">%s et segueix</string>
-	<string name="user_favorited">%s ha marcat com a favorita la teva publicació</string>
-	<string name="poll_ended">Veieu els resultats d\'una enquesta on heu votat</string>
 	<string name="share_toot_title">Comparteix</string>
 	<string name="settings">Configuració</string>
 	<string name="publish">Publica</string>
@@ -187,7 +185,6 @@
 	<string name="error_saving_file">Error en desar el fitxer</string>
 	<string name="file_saved">Fitxer desat</string>
 	<string name="downloading">S\'està baixant…</string>
-	<string name="local_timeline">Local</string>
 	<!-- %s is the server domain -->
 	<string name="load_missing_posts">Carrega les publicacions faltants</string>
 	<string name="button_follow_pending">Pendent</string>
@@ -295,4 +292,6 @@
 	<string name="tab_profile">Perfil</string>
 	<string name="pin_post">Fixa en el perfil</string>
 	<!-- %s is the username -->
+	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
+	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
 </resources>

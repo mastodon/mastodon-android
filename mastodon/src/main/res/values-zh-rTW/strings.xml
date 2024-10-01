@@ -13,9 +13,8 @@
 	<string name="notifications">通知</string>
 	<string name="user_followed_you">%s 已跟隨您</string>
 	<string name="user_sent_follow_request">%s 已傳送跟隨請求給您</string>
-	<string name="user_favorited">%s 已將您的嘟文加入最愛</string>
-	<string name="notification_boosted">%s 已轉嘟您的嘟文</string>
-	<string name="poll_ended">檢視您參與之一則投票結果</string>
+	<string name="user_favorited">%s 個已加入最愛：</string>
+	<string name="notification_boosted">%s 個已轉嘟：</string>
 	<string name="share_toot_title">分享</string>
 	<string name="settings">設定</string>
 	<string name="publish">發佈</string>
@@ -220,7 +219,7 @@
 	<string name="file_saved">儲存成功</string>
 	<string name="downloading">正在下載...</string>
 	<string name="no_app_to_handle_action">沒有可以處理這個動作的 app</string>
-	<string name="local_timeline">本站</string>
+	<string name="local_timeline">即時河道</string>
 	<string name="trending_posts_info_banner">這些嘟文正在 Mastodon 的各個角落受到注目。</string>
 	<string name="trending_links_info_banner">這些新聞故事正在 Mastodon 上被熱烈討論著。</string>
 	<!-- %s is the server domain -->
@@ -665,7 +664,7 @@
 	<string name="video_saved">影片已儲存。</string>
 	<string name="view_file">檢視</string>
 	<string name="share_sheet_preview_profile">%s 於 Mastodon</string>
-	<string name="share_sheet_preview_post" comment="share_sheet_preview_post&#10;%1$s is the username, %2$s is the post text">%1$s 於 Mastodon：「%2$s」</string>
+	<string name="share_sheet_preview_post">%1$s 於 Mastodon：「%2$s」</string>
 	<string name="copy_profile_link">複製個人檔案連結</string>
 	<string name="in_app_browser">應用程式內建瀏覽器</string>
 	<string name="system_browser">系統瀏覽器</string>
@@ -733,4 +732,39 @@
 	<string name="donation_server_error">很抱歉，發生錯誤且我們無法處理您的捐款。\n\n請稍候重試。</string>
 	<string name="settings_donate">捐款給 Mastodon</string>
 	<string name="settings_manage_donations">管理捐款</string>
+	<string name="cant_load_image">無法載入圖片</string>
+	<string name="poll_see_results">檢視結果</string>
+	<string name="poll_hide_results">隱藏結果</string>
+	<plurals name="x_attachments">
+		<item quantity="other">%d 則附件</item>
+	</plurals>
+	<plurals name="user_and_x_more_favorited">
+		<item quantity="other">%1$s 與 %2$,d 個其他人已加入最愛：</item>
+	</plurals>
+	<plurals name="user_and_x_more_boosted">
+		<item quantity="other">%1$s 與 %2$,d 個其他人已加轉嘟：</item>
+	</plurals>
+	<plurals name="poll_ended_x_voters">
+		<item quantity="other">%1$s 舉行您與其他 %2$,d 個人參與之投票</item>
+	</plurals>
+	<string name="own_poll_ended">您的投票已結束</string>
+	<string name="user_just_posted">%s 剛剛嘟文</string>
+	<string name="user_edited_post">%s 已編輯一則您曾互動過之嘟文</string>
+	<string name="relationship_severance_account_suspension">%1$s 之管理員已將 %2$s 停權，意味著您將不再收到來自他們的更新或與之互動。</string>
+	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_domain_block">%1$s 之管理員已將 %2$s 封鎖，包含 %3$,d 個您的跟隨者及 %4$s 個您所跟隨之帳號。</string>
+	<plurals name="x_accounts">
+		<item quantity="other">%,d 個帳號</item>
+	</plurals>
+	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_user_domain_block">您已封鎖 %1$s，將移除 %2$,d 個您的跟隨者及 %3$s 個您所跟隨之帳號。</string>
+	<string name="relationship_severance_learn_more">了解更多</string>
+	<string name="moderation_warning_action_none">您的帳號已收到管理員警告。</string>
+	<string name="moderation_warning_action_disable">您的帳號已被停用。</string>
+	<string name="moderation_warning_action_mark_statuses_as_sensitive">某些您的嘟文已被標記為敏感內容。</string>
+	<string name="moderation_warning_action_delete_statuses">某些您的嘟文已被刪除。</string>
+	<string name="moderation_warning_action_sensitive">即日起，您的嘟文將被標記為敏感內容。</string>
+	<string name="moderation_warning_action_silence">您的帳號已被限制。</string>
+	<string name="moderation_warning_action_suspend">您的帳號已被停權。</string>
+	<string name="moderation_warning_learn_more">了解更多</string>
 </resources>

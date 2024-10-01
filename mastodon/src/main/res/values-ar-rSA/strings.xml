@@ -12,9 +12,6 @@
 	<string name="notifications">الإشعارات</string>
 	<string name="user_followed_you">%s بَدَأ بِمُتابَعَتِك</string>
 	<string name="user_sent_follow_request">%s أرسَلَ طَلَبًا لِمُتابَعَتِك</string>
-	<string name="user_favorited">%s أعجَبه منشورك</string>
-	<string name="notification_boosted">قام %s بإعادة نشر منشورك</string>
-	<string name="poll_ended">الاطلاع على نتائج استطلاع الرأي الذي صوّت فيه</string>
 	<string name="share_toot_title">شارك</string>
 	<string name="settings">الإعدادات</string>
 	<string name="publish">نَشر</string>
@@ -273,7 +270,6 @@
 	<string name="file_saved">حُفظ الملف</string>
 	<string name="downloading">ينزّل…</string>
 	<string name="no_app_to_handle_action">لا يوجد تطبيق لمعالجة هذا الإجراء</string>
-	<string name="local_timeline">المحلي</string>
 	<string name="trending_posts_info_banner">هذه هي المشاركات التي تكتسب شعبية عبر ماستدون.</string>
 	<string name="trending_links_info_banner">هذه هي القصص الإخبارية التي يُتحدّث عنها على ماستدون.</string>
 	<!-- %s is the server domain -->
@@ -703,4 +699,6 @@
 	<!-- %s is a time interval ("5 months") -->
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
 	<!-- %s is the username -->
+	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
+	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
 </resources>

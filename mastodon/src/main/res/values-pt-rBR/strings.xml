@@ -13,9 +13,8 @@
 	<string name="notifications">Notificações</string>
 	<string name="user_followed_you">%s seguiu você</string>
 	<string name="user_sent_follow_request">%s enviou uma solicitação para seguir você</string>
-	<string name="user_favorited">%s gostou da sua publicação</string>
-	<string name="notification_boosted">%s impulsionou a sua publicação</string>
-	<string name="poll_ended">Veja os resultados de uma enquete em que você votou</string>
+	<string name="user_favorited">%s favoritado:</string>
+	<string name="notification_boosted">%s impulsionado:</string>
 	<string name="share_toot_title">Compartilhar</string>
 	<string name="settings">Configurações</string>
 	<string name="publish">Publicar</string>
@@ -233,7 +232,7 @@
 	<string name="file_saved">Arquivo salvo</string>
 	<string name="downloading">Baixando…</string>
 	<string name="no_app_to_handle_action">Não há um app para executar esta ação</string>
-	<string name="local_timeline">Local</string>
+	<string name="local_timeline">Feed ao vivo</string>
 	<string name="trending_posts_info_banner">Estas são as publicações que estão ganhando força no Mastodon.</string>
 	<string name="trending_links_info_banner">Estas são as notícias que estão sendo comentadas no Mastodon.</string>
 	<!-- %s is the server domain -->
@@ -314,7 +313,9 @@
 	<string name="login_subtitle">Faça login no servidor onde você criou sua conta.</string>
 	<string name="server_url">URL do servidor</string>
 	<string name="server_filter_any_language">Qualquer idioma</string>
+	<string name="server_filter_instant_signup">Inscrição imediata</string>
 	<string name="server_filter_manual_review">Revisão manual</string>
+	<string name="server_filter_any_signup_speed">Qualquer velocidade de cadastro</string>
 	<string name="server_filter_region_europe">Europa</string>
 	<string name="server_filter_region_north_america">América do Norte</string>
 	<string name="server_filter_region_south_america">América do Sul</string>
@@ -696,7 +697,7 @@ Quanto mais pessoas que você seguir, mas interessantes e ativas serão.</string
 	<string name="video_saved">Vídeo salvo.</string>
 	<string name="view_file">Visualizar</string>
 	<string name="share_sheet_preview_profile">%s no Mastodon</string>
-	<string name="share_sheet_preview_post" comment="share_sheet_preview_post&#10;%1$s is the username, %2$s is the post text">%1$s no Mastodon: “%2$s”</string>
+	<string name="share_sheet_preview_post">%1$s no Mastodon: “%2$s”</string>
 	<string name="copy_profile_link">Copiar link para o perfil</string>
 	<string name="in_app_browser">Navegador do aplicativo</string>
 	<string name="system_browser">Navegador do sistema</string>
@@ -755,4 +756,45 @@ Quanto mais pessoas que você seguir, mas interessantes e ativas serão.</string
 		<item quantity="one">%,d nova notificação</item>
 		<item quantity="other">%,d novas notificações</item>
 	</plurals>
+	<string name="dismiss">Demitir</string>
+	<string name="donation_once">Apenas uma vez</string>
+	<string name="donation_monthly">Mensalmente</string>
+	<string name="donation_yearly">Anualmente</string>
+	<string name="currency">Moeda</string>
+	<string name="donation_success_share">Espalhe a palavra</string>
+	<string name="donation_success_title">Obrigado pela sua contribuição!</string>
+	<string name="donation_success_subtitle">Você deve receber um e-mail confirmando sua doação em breve.</string>
+	<string name="donation_server_error">Nos desculpe, um erro ocorreu e nós não conseguimos processar a sua doação. \n\nPor favor tente novamente em alguns minutos.</string>
+	<string name="settings_donate">Doe para o Mastodon</string>
+	<string name="settings_manage_donations">Gerenciar doações</string>
+	<string name="cant_load_image">Não foi possível carregar a imagem</string>
+	<string name="poll_see_results">Ver resultados</string>
+	<string name="poll_hide_results">Ocultar resultados</string>
+	<plurals name="x_attachments">
+		<item quantity="one">%d anexo</item>
+		<item quantity="other">%d anexos</item>
+	</plurals>
+	<plurals name="user_and_x_more_favorited">
+		<item quantity="one">%1$s e %2$,d outro favoritou:</item>
+		<item quantity="other">%1$s e %2$,d outros favoritaram:</item>
+	</plurals>
+	<plurals name="user_and_x_more_boosted">
+		<item quantity="one">%1$s e %2$,d outro impulsionou:</item>
+		<item quantity="other">%1$s e %2$,d outros impulsionaram:</item>
+	</plurals>
+	<plurals name="poll_ended_x_voters">
+		<item quantity="one">%1$s fez uma enquete que você e %2$,d outro votou</item>
+		<item quantity="other">%1$s fez uma enquete que você e %2$,d outros votaram</item>
+	</plurals>
+	<string name="own_poll_ended">Sua enquete acabou</string>
+	<string name="user_just_posted">%s acabou de tootar</string>
+	<string name="user_edited_post">%s editou o toot que você interagiu</string>
+	<string name="relationship_severance_account_suspension">Um administrador de %1$s suspendeu %2$s, o que significa que você não pode mais receber atualizações deles ou interagir com eles.</string>
+	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_domain_block">Um administrador de %1$s bloqueou %2$s, incluindo %3$,d e os seguidores e %4$s você segue.</string>
+	<plurals name="x_accounts">
+		<item quantity="one">%,d conta</item>
+		<item quantity="other">%,d contas</item>
+	</plurals>
+	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
 </resources>

@@ -13,9 +13,6 @@
 	<string name="notifications">Meldingen</string>
 	<string name="user_followed_you">%s volgt jou nu</string>
 	<string name="user_sent_follow_request">%s wil jou graag volgen</string>
-	<string name="user_favorited">%s markeerde jouw bericht als favoriet</string>
-	<string name="notification_boosted">%s boostte jouw bericht</string>
-	<string name="poll_ended">Bekijk de resultaten van een poll waar je op hebt gestemd</string>
 	<string name="share_toot_title">Delen</string>
 	<string name="settings">Instellingen</string>
 	<string name="publish">Toot</string>
@@ -233,7 +230,7 @@
 	<string name="file_saved">Bestand opgeslagen</string>
 	<string name="downloading">Downloaden…</string>
 	<string name="no_app_to_handle_action">Kon geen app vinden om deze actie uit te voeren</string>
-	<string name="local_timeline">Lokaal</string>
+	<string name="local_timeline">Livefeed</string>
 	<string name="trending_posts_info_banner">Dit zijn berichten die populair zijn op Mastodon.</string>
 	<string name="trending_links_info_banner">Dit zijn de nieuwsverhalen waarover op Mastodon wordt gesproken.</string>
 	<!-- %s is the server domain -->
@@ -697,7 +694,7 @@
 	<string name="video_saved">Video opgeslagen.</string>
 	<string name="view_file">Weergeven</string>
 	<string name="share_sheet_preview_profile">%s op Mastodon</string>
-	<string name="share_sheet_preview_post" comment="share_sheet_preview_post&#10;%1$s is the username, %2$s is the post text">%1$s op Mastodon: “%2$s”</string>
+	<string name="share_sheet_preview_post">%1$s op Mastodon: “%2$s”</string>
 	<string name="copy_profile_link">Link naar profiel kopiëren</string>
 	<string name="in_app_browser">In-app-browser</string>
 	<string name="system_browser">Systeembrowser</string>
@@ -767,4 +764,6 @@
 	<string name="donation_server_error">Het spijt ons, er is een fout opgetreden en we zijn niet in staat om je donatie te verwerken.\n\nProbeer het over een paar minuten opnieuw.</string>
 	<string name="settings_donate">Aan Mastodon doneren</string>
 	<string name="settings_manage_donations">Donaties beheren</string>
+	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
+	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
 </resources>

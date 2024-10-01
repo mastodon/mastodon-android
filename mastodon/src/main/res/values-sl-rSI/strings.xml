@@ -13,9 +13,6 @@
 	<string name="notifications">Obvestila</string>
 	<string name="user_followed_you">%s vam sledi</string>
 	<string name="user_sent_follow_request">%s vam je poslal_a zahtevo za sledenje</string>
-	<string name="user_favorited">%s je vzljubil/a vašo objavo</string>
-	<string name="notification_boosted">%s je izpostavila/a vašo objavo</string>
-	<string name="poll_ended">Pokaži rezultate ankete, v kateri sem sodeloval_a</string>
 	<string name="share_toot_title">Deli</string>
 	<string name="settings">Nastavitve</string>
 	<string name="publish">Objavi</string>
@@ -259,7 +256,7 @@
 	<string name="file_saved">Datoteka shranjena</string>
 	<string name="downloading">Prejemanje …</string>
 	<string name="no_app_to_handle_action">Ni programa za ravnanje s tem dejanjem</string>
-	<string name="local_timeline">Krajevno</string>
+	<string name="local_timeline">Vir v živo</string>
 	<string name="trending_posts_info_banner">To so objave, ki plenijo pozornost po Mastodonu.</string>
 	<string name="trending_links_info_banner">To so novice, o katerih se govori na Mastodonu.</string>
 	<!-- %s is the server domain -->
@@ -764,7 +761,7 @@ Več osebam kot sledite, bolj dejaven in zanimiv bo.</string>
 	<string name="video_saved">Videoposnetek je shranjen.</string>
 	<string name="view_file">Pogled</string>
 	<string name="share_sheet_preview_profile">%s na Mastodonu</string>
-	<string name="share_sheet_preview_post" comment="share_sheet_preview_post&#10;%1$s is the username, %2$s is the post text">%1$s na Mastodonu: »%2$s«</string>
+	<string name="share_sheet_preview_post">%1$s na Mastodonu: »%2$s«</string>
 	<string name="copy_profile_link">Kopiraj povezavo do profila</string>
 	<string name="in_app_browser">Brskalnik v okviru programa</string>
 	<string name="system_browser">Sistemski brskalnik</string>
@@ -838,4 +835,6 @@ Več osebam kot sledite, bolj dejaven in zanimiv bo.</string>
 	<string name="donation_server_error">Oprostite, a prišlo je do napake in vaše donacije nismo mogli obdelati.\n\nPoskusite znova čez nekaj minut.</string>
 	<string name="settings_donate">Donirajte Mastodonu</string>
 	<string name="settings_manage_donations">Upravljanje donacij</string>
+	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
+	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
 </resources>
