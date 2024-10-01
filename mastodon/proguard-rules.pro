@@ -35,6 +35,10 @@
 	*;
 }
 
+-keepnames public class org.joinmastodon.android.api.session**{
+	*;
+}
+
 -keepclassmembers,allowobfuscation class * {
   @com.google.gson.annotations.SerializedName <fields>;
   @com.squareup.otto.Subscribe <methods>;
