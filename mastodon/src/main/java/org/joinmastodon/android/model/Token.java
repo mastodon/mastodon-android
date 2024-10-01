@@ -1,15 +1,15 @@
 package org.joinmastodon.android.model;
 
-import org.joinmastodon.android.api.AllFieldsAreRequired;
+import org.joinmastodon.android.api.RequiredField;
 
 /**
  * Represents an OAuth token used for authenticating with the API and performing actions.
  */
-@AllFieldsAreRequired
 public class Token extends BaseModel{
 	/**
 	 * An OAuth token to be used for authorization.
 	 */
+	@RequiredField
 	public String accessToken;
 	/**
 	 * The OAuth token type. Mastodon uses Bearer tokens.
