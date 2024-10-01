@@ -13,6 +13,8 @@
 	<string name="notifications">Pranešimai</string>
 	<string name="user_followed_you">%s seka tave</string>
 	<string name="user_sent_follow_request">%s išsiuntė tau sekimo prašymą</string>
+	<string name="user_favorited">%s pamėgo:</string>
+	<string name="notification_boosted">%s pasidalino:</string>
 	<string name="share_toot_title">Bendrinti</string>
 	<string name="settings">Nustatymai</string>
 	<string name="publish">Skelbti</string>
@@ -835,6 +837,21 @@ Kuo daugiau žmonių seki, tuo aktyvesnis ir įdomesnis jis bus.</string>
 	<string name="donation_server_error">Atsiprašome. Įvyko klaida ir negalėjome apdoroti tavo aukos.\n\nBandyk dar kartą po kelių minučių.</string>
 	<string name="settings_donate">Aukoti „Mastodon“</string>
 	<string name="settings_manage_donations">Tvarkyti aukas</string>
+	<string name="cant_load_image">Nepavyko įkelti vaizdo.</string>
+	<string name="poll_see_results">Žiūrėti rezultatus</string>
+	<string name="poll_hide_results">Slėpti rezultatus</string>
+	<plurals name="x_attachments">
+		<item quantity="one">%d priedas</item>
+		<item quantity="few">%d priedai</item>
+		<item quantity="many">%d priedo</item>
+		<item quantity="other">%d priedų</item>
+	</plurals>
+	<plurals name="user_and_x_more_favorited">
+		<item quantity="one">%1$s ir %2$,d kitas pamėgo:</item>
+		<item quantity="few">%1$s ir %2$,d kiti pamėgo:</item>
+		<item quantity="many">%1$s ir %2$,d kitos pamėgo:</item>
+		<item quantity="other">%1$s ir %2$,d kitų pamėgo:</item>
+	</plurals>
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
 </resources>
