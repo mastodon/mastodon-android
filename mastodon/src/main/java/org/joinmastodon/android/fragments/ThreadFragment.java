@@ -279,6 +279,8 @@ public class ThreadFragment extends StatusListFragment{
 					Status current=getStatusByID(currentID);
 					Status previous=findPreviousStatus(currentID);
 					Status next=findNextStatus(currentID);
+					if(current==null)
+						continue;
 
 					connectUp=previous!=null && previous.id.equals(current.inReplyToId);
 					connectToRoot=mainStatus.id.equals(current.inReplyToId);
