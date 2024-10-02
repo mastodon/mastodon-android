@@ -412,7 +412,7 @@
 	<string name="mark_all_notifications_read">Tümünü okundu olarak işaretle</string>
 	<string name="settings_display">Görünüm</string>
 	<string name="settings_filters">Süzgeçler</string>
-	<string name="settings_server_explanation">Genel bakış, kurallar, moderatörler</string>
+	<string name="settings_server_explanation">Genel bakış, kurallar, ler</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">%s Hakkında</string>
 	<string name="default_post_language">Varsayılan gönderi dili</string>
@@ -529,7 +529,7 @@
 		<item quantity="other">%d kelime silinsin mi?</item>
 	</plurals>
 	<plurals name="x_items_selected">
-		<item quantity="one">%d öğe seçildi</item>
+		<item quantity="one">%d seçildi</item>
 		<item quantity="other">%d seçildiler</item>
 	</plurals>
 	<string name="required_form_field_blank">Boş bırakılamaz</string>
@@ -684,31 +684,31 @@ Ne kadar çok kişiyi takip ederseniz, o kadar aktif ve ilginç olacaktır.</str
 	<string name="server">Sunucu</string>
 	<string name="handle_server_explanation">Tüm gönderilerinin bulunduğu dijital evleri.</string>
 	<string name="handle_explanation">Tanım bir kişinin kim olduğunu ve nerede olduğunu söylediği için, &lt;a&gt;Etkin destekli platformların&lt;/a&gt; sosyal ağındaki insanlarla etkileşime geçebilirsiniz.</string>
-	<string name="handle_server_explanation_own">Tüm gönderilerinizin yer aldığı dijital anasayfanız. Bunu beğenmediniz mi? İstediğiniz zaman sunucularınızı değiştirin ve takipçilerinizi de getirin.</string>
-	<string name="handle_explanation_own">Tanıtıcılar bir kişinin kim olduğunu ve nerede olduğunu söylediği için, &lt;a&gt;ActivityPub destekli platformların&lt;/a&gt; sosyal ağındaki insanlarla etkileşime geçebilirsiniz.</string>
-	<string name="what_is_activitypub_title">ActivityPub nedir?</string>
-	<string name="what_is_activitypub">ActivityPub, Mastodon\'un diğer sosyal ağlarla konuştuğu bir dil gibidir.\n\nSadece Mastodon\'da değil, farklı sosyal uygulamalarda da insanlarla bağlantı kurmanızı ve etkileşimde bulunmanızı sağlar.</string>
+	<string name="handle_server_explanation_own">Tüm yayının yer aldığı dijital eviniz. Bunu beğenmediniz mi? İstediğiniz zaman sunucularınızı değiştirin ve takipçilerinizi de, getirin.</string>
+	<string name="handle_explanation_own">Tanım bir kişinin kim olduğunu ve nerede olduğunu söylediği için, &lt;a&gt;Etnik destekli platformların&lt;/a&gt; sosyal ağındaki insanlarla etkileşime geçebilirsiniz.</string>
+	<string name="what_is_activitypub_title">Etkin nedir?</string>
+	<string name="what_is_activitypub">ActivityPub nedir?, Mastodon\'un diğer sosyal ağlarla konuştuğu bir dil gibidir.\n\nSadece Mastodon\'da değil, farklı sosyal uygulamalarda da insanlarla bağlantı kurmanızı ve etkileşimde bulunmanızı sağlar.</string>
 	<string name="handle_copied">Panoya kopyalanan tutamaç.</string>
-	<string name="qr_code">Karekod kodu</string>
-	<string name="scan_qr_code">Karekodunu tarayın</string>
+	<string name="qr_code">QR kod</string>
+	<string name="scan_qr_code">QR kodu tarayın</string>
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
 	<string name="saved">Kaydet</string>
-	<string name="image_saved">Görsel katdet.</string>
+	<string name="image_saved">Görsel kaydet.</string>
 	<string name="video_saved">Video kaydet seçeneğini.</string>
 	<string name="view_file">Görüntüle</string>
-	<string name="share_sheet_preview_profile">Mastodon\'da %s</string>
-	<string name="share_sheet_preview_post">%1$s Mastodon\'da: “%2$s”</string>
+	<string name="share_sheet_preview_profile">%s üzerinden</string>
+	<string name="share_sheet_preview_post">%1$s üzerinden: “%2$s”</string>
 	<string name="copy_profile_link">Bağlantıyı profile kopyala</string>
 	<string name="in_app_browser">Uygulama içi tarayıcı</string>
 	<string name="system_browser">Sistem tarayıcısı</string>
 	<string name="add_muted_word_short">Kelime ekle</string>
-	<string name="tab_home">Anasayfa</string>
+	<string name="tab_home">Ev</string>
 	<string name="tab_search">Keşfet</string>
 	<string name="tab_profile">Profil</string>
 	<string name="pin_post">Profile sabitle</string>
 	<string name="unpin_post">Profilden sabitlemeyi kaldır</string>
 	<string name="post_pinned">Gönderi sabitlendi</string>
-	<string name="post_unpinned">Gönderi sabitlenemedi</string>
+	<string name="post_unpinned">Gönderi sabitlenme hatası</string>
 	<!-- %s is the username -->
 	<string name="enable_new_post_notifications">Yayınlandığında %s bana bildir</string>
 	<string name="disable_new_post_notifications">%s Kişisinin gönderi bildirimlerini kapat</string>
@@ -718,21 +718,25 @@ Ne kadar çok kişiyi takip ederseniz, o kadar aktif ve ilginç olacaktır.</str
 	<string name="unmute_conversation">Konuşmanın sesini aç</string>
 	<string name="visibility_unlisted">Sessizce herkese açık</string>
 	<string name="filtered_notifications">Bildirimleri süzgeçle</string>
-	<string name="filter_notifications">Şundan bildirimleri süzgeçle…...</string>
+	<string name="filter_notifications">Gelen bildirimleri süzgeçle...</string>
 	<string name="notification_filter_following">Takip etmediğin kullanıcılar</string>
-	<string name="notification_filter_following_explanation">Onları manuel olarak onaylayana kadar</string>
+	<string name="notification_filter_following_explanation">Siz elle onaylayana kadar</string>
 	<string name="notification_filter_followers">Seni takip etmeyen kullanıcılar</string>
 	<string name="notification_filter_followers_explanation">Sizi 3 günden daha az süredir takip eden kullanıcılar dahil</string>
 	<string name="notification_filter_new_accounts">Yeni hesaplar</string>
 	<string name="notification_filter_new_accounts_explanation">Son 30 gün içinde oluşturuldu</string>
 	<string name="notification_filter_mentions">İstenmeyen özel değinmeler</string>
-	<string name="notification_filter_mentions_explanation">Kendi değinmenize yanıt veya takip ettiğiniz kullanıcıdan değilse süzgeçlenir</string>
+	<string name="notification_filter_mentions_explanation">Kendi yayınınıza yanıt olarak veya göndereni takip ediyorsanız süzgeç işlemi yapmaz</string>
 	<string name="allow_notifications">Bildirimlere izin ver</string>
 	<string name="mute_notifications">Bildirim talebini reddet</string>
+	<plurals name="x_people_you_may_know">
+		<item quantity="one">tanıyabi̇leceği̇ni̇z %,d insan</item>
+		<item quantity="other">tanıyor olabileceğiniz %,d insanlar</item>
+	</plurals>
 	<string name="notifications_from_user">%s Gelen bildirimler</string>
 	<string name="notifications_muted">%s gelen bildirimler reddedildi.</string>
 	<string name="notifications_allowed">%s artık bildirim listenizde görünecek.</string>
-	<string name="visibility_subtitle_public">Mastodon\'daki ve dışındaki herkes</string>
+	<string name="visibility_subtitle_public">Ağdaki herkes</string>
 	<string name="visibility_subtitle_unlisted">Daha az tantana</string>
 	<string name="visibility_subtitle_followers">Sadece senin takipçilerin</string>
 	<string name="visibility_subtitle_private">Yazıda adı geçen herkes</string>
@@ -748,6 +752,10 @@ Ne kadar çok kişiyi takip ederseniz, o kadar aktif ve ilginç olacaktır.</str
 	<string name="signup_username_taken">Bu kullanıcı adı alınmış. Farklı bir tane deneyin veya &lt;a&gt;farklı bir sunucu seçin&lt;/a&gt;.</string>
 	<string name="signup_email_invalid">Bu geçerli bir mail adresine benzemiyor.</string>
 	<string name="signup_email_taken">Mail adresi zaten kullanımda. Sen &lt;a&gt; parola unuttun &lt;/a&gt;?</string>
+	<plurals name="x_new_notifications">
+		<item quantity="one">%,d yeni bildirim</item>
+		<item quantity="other">%,d yeni bildirimler</item>
+	</plurals>
 	<string name="dismiss">Reddet</string>
 	<string name="donation_once">Sadece bir kez</string>
 	<string name="donation_monthly">Aylık</string>
@@ -762,12 +770,40 @@ Ne kadar çok kişiyi takip ederseniz, o kadar aktif ve ilginç olacaktır.</str
 	<string name="cant_load_image">Görsel yüklenemedi</string>
 	<string name="poll_see_results">Sonuçları görün</string>
 	<string name="poll_hide_results">Sonuçları gizle</string>
+	<plurals name="x_attachments">
+		<item quantity="one">%d ek</item>
+		<item quantity="other">%d ekler</item>
+	</plurals>
+	<plurals name="user_and_x_more_favorited">
+		<item quantity="one">%1$s ve %2$,d diğer favori:</item>
+		<item quantity="other">%1$s ve %2$,d diğer favoriler:</item>
+	</plurals>
+	<plurals name="user_and_x_more_boosted">
+		<item quantity="one">%1$s ve %2$,d diğer yükseltme:</item>
+		<item quantity="other">%1$s ve %2$,d diğer yükseltmeler:</item>
+	</plurals>
+	<plurals name="poll_ended_x_voters">
+		<item quantity="one">%1$s sizin ve %2$,d diğerinin oy verdiği bir anket düzenledi</item>
+		<item quantity="other">%1$s sizin ve %2$,d diğerinin oy verdiği bir anket düzenlediler</item>
+	</plurals>
 	<string name="own_poll_ended">Senin anketin sona erdi</string>
 	<string name="user_just_posted">%s birazdan gönderildi</string>
 	<string name="user_edited_post">%s etkileşimde bulunduğunuz bir gönderiyi düzenlediniz</string>
-	<string name="relationship_severance_account_suspension">1$s bir yönetici %2$s askıya aldı, bu da artık onlardan güncelleme alamayacağınız veya onlarla etkileşime geçemeyeceğiniz anlamına geliyor.</string>
+	<string name="relationship_severance_account_suspension">%1$s bir yönetici %2$s askıya aldı, bu da artık onlardan güncelleme alamayacağınız veya onlarla etkileşime geçemeyeceğiniz anlamına geliyor.</string>
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_domain_block">%1$s\'den bir yönetici, takipçilerin %3$,d\'si ve takip ettiğiniz %4$s dahil olmak üzere %2$s engelledi.</string>
+	<plurals name="x_accounts">
+		<item quantity="one">%,d hesap</item>
+		<item quantity="other">%,d hesaplar</item>
+	</plurals>
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_user_domain_block">%1$s engellediniz, takipçilerin %2$,d ve takip ettiğiniz %3$s kaldırdınız.</string>
+	<string name="relationship_severance_learn_more">Daha fazlası</string>
+	<string name="moderation_warning_action_none">Hesabınız bir uyarı aldı.</string>
+	<string name="moderation_warning_action_disable">Hesabınız devre dışı bırakıldı.</string>
+	<string name="moderation_warning_action_mark_statuses_as_sensitive">Bazı yayınlarınız hassas olarak işaretlendi.</string>
+	<string name="moderation_warning_action_delete_statuses">Bazı yayınlarınız kaldırıldı.</string>
+	<string name="moderation_warning_action_sensitive">Yayınlarınız bundan sonra hassas olarak işaretlenecektir.</string>
 	<string name="moderation_warning_action_silence">Hesabınız sınırlandırıldı.</string>
 	<string name="moderation_warning_action_suspend">Hesabınız askıya alındı.</string>
 	<string name="moderation_warning_learn_more">Daha fazlası</string>
