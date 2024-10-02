@@ -14,6 +14,7 @@
 	<string name="user_followed_you">%s seni takip etti</string>
 	<string name="user_sent_follow_request">%s size bir takip isteği gönderdi</string>
 	<string name="user_favorited">%s favoriler:</string>
+	<string name="notification_boosted">%s yükseltilen:</string>
 	<string name="share_toot_title">Paylaş</string>
 	<string name="settings">Ayarlar</string>
 	<string name="publish">Yayınla</string>
@@ -231,6 +232,7 @@
 	<string name="file_saved">Dosya kaydedildi</string>
 	<string name="downloading">İndiriliyor…</string>
 	<string name="no_app_to_handle_action">Bu eylemi gerçekleştirebilecek bir uygulama bulunmuyor</string>
+	<string name="local_timeline">Canlı yayın</string>
 	<string name="trending_posts_info_banner">Bunlar, Mastodon\'da ilgi gören gönderiler.</string>
 	<string name="trending_links_info_banner">Bunlar Mastodon\'da konuşulan haberler.</string>
 	<!-- %s is the server domain -->
@@ -311,7 +313,9 @@
 	<string name="login_subtitle">Hesabınızı oluşturduğunuz sunucuya giriş yapın.</string>
 	<string name="server_url">Sunucu bağlantısı</string>
 	<string name="server_filter_any_language">Herhangi bir dil</string>
+	<string name="server_filter_instant_signup">Anında kayıt</string>
 	<string name="server_filter_manual_review">Elle inceleme</string>
+	<string name="server_filter_any_signup_speed">Herhangi bir kayıt hızı</string>
 	<string name="server_filter_region_europe">Avrupa</string>
 	<string name="server_filter_region_north_america">Kuzey Amerika</string>
 	<string name="server_filter_region_south_america">Güney Amerika</string>
@@ -729,6 +733,18 @@ Ne kadar çok kişiyi takip ederseniz, o kadar aktif ve ilginç olacaktır.</str
 	<string name="notifications_muted">%s gelen bildirimler reddedildi.</string>
 	<string name="notifications_allowed">%s artık bildirim listenizde görünecek.</string>
 	<string name="visibility_subtitle_public">Mastodon\'daki ve dışındaki herkes</string>
+	<string name="visibility_subtitle_unlisted">Daha az tantana</string>
+	<string name="visibility_subtitle_followers">Sadece senin takipçilerin</string>
+	<string name="visibility_subtitle_private">Yazıda adı geçen herkes</string>
+	<string name="view_boosts">Destekleri görüntüle</string>
+	<string name="view_favorites">Favorileri görüntüle</string>
+	<string name="undo_reblog">Güçlendirmeyi geri al</string>
+	<string name="undo_favorite">Favoriyi geri al</string>
+	<string name="could_not_reach_server">Sunucuya ulaşılamadı. Bağlantınızı kontrol edin ve tekrar deneyin?</string>
+	<string name="connection_timed_out">İstek zaman aşımına uğradı. Bağlantınızı kontrol edin ve tekrar deneyin?</string>
+	<string name="donation_success_subtitle">Yakında size bağışınızı onaylayan bir onaylayan mail almış olmanız gerekir.</string>
+	<string name="donation_server_error">Üzgünüz, bir hata oluştu ve bağışınızı işleme koyamadık.\n\nLütfen birkaç dakika içinde tekrar deneyiniz.</string>
+	<string name="settings_donate">Mastodon Bağış yapın</string>
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
 </resources>
