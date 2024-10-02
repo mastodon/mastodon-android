@@ -13,6 +13,7 @@
 	<string name="notifications">Bildirimler</string>
 	<string name="user_followed_you">%s seni takip etti</string>
 	<string name="user_sent_follow_request">%s size bir takip isteği gönderdi</string>
+	<string name="user_favorited">%s favoriler:</string>
 	<string name="share_toot_title">Paylaş</string>
 	<string name="settings">Ayarlar</string>
 	<string name="publish">Yayınla</string>
@@ -724,6 +725,10 @@ Ne kadar çok kişiyi takip ederseniz, o kadar aktif ve ilginç olacaktır.</str
 	<string name="notification_filter_mentions_explanation">Kendi değinmenize yanıt veya takip ettiğiniz kullanıcıdan değilse süzgeçlenir</string>
 	<string name="allow_notifications">Bildirimlere izin ver</string>
 	<string name="mute_notifications">Bildirim talebini reddet</string>
+	<string name="notifications_from_user">%s Gelen bildirimler</string>
+	<string name="notifications_muted">%s gelen bildirimler reddedildi.</string>
+	<string name="notifications_allowed">%s artık bildirim listenizde görünecek.</string>
+	<string name="visibility_subtitle_public">Mastodon\'daki ve dışındaki herkes</string>
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
 </resources>
