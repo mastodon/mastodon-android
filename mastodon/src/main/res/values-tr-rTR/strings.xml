@@ -453,7 +453,7 @@
 	<string name="settings_show_cws">İçerik uyarılarını göster</string>
 	<string name="settings_hide_sensitive_media">Hassas olarak işaretlenen medyayı gizle</string>
 	<string name="settings_show_interaction_counts">Gönderi etkileşim sayısı</string>
-	<string name="settings_show_emoji_in_names">Görünen adlarda özel emoji</string>
+	<string name="settings_show_emoji_in_names">Görünen adlarda özel simge</string>
 	<plurals name="in_x_seconds">
 		<item quantity="one">%d saniye içinde</item>
 		<item quantity="other">%d saniye içinde</item>
@@ -506,19 +506,19 @@
 	<string name="selection_2_options">%1$s ve %2$s</string>
 	<string name="selection_3_options">%1$s, %2$s ve %3$s</string>
 	<string name="selection_4_or_more">%1$s, %2$s ve %3$d daha fazlası</string>
-	<string name="filter_context_home_lists">Anasayfa ve listeler</string>
+	<string name="filter_context_home_lists">Ev &amp; listeler</string>
 	<string name="filter_context_notifications">Bildirimler</string>
 	<string name="filter_context_public_timelines">Herkese açık zaman çizelgeleri</string>
 	<string name="filter_context_threads_replies">Konular &amp; cevaplar</string>
 	<string name="filter_context_profiles">Profiller</string>
 	<string name="settings_filter_title">Başlık</string>
 	<string name="settings_delete_filter_title">“%s” süzgeci silinsin mi?</string>
-	<string name="settings_delete_filter_confirmation">Bu süzgeç, tüm cihazlarınızdaki hesabınızdan silinecek.</string>
+	<string name="settings_delete_filter_confirmation">Bu süzgeç tüm cihaz hesabınızdan silinecektir.</string>
 	<string name="add_muted_word">Sessize alınacak kelime ekle</string>
 	<string name="edit_muted_word">Sessize alınmış kelimeyi düzenle</string>
 	<string name="add">Ekle</string>
 	<string name="filter_word_or_phrase">Kelime veya kelime grubu</string>
-	<string name="filter_add_word_help">Kelimeler büyük/küçük harfe duyarlı değildir ve yalnızca tam sözcüklerle eşleşir.\n\n\"Elma\" anahtar kelimesini filtrelerseniz, \"elma\" veya \"eLlMa\" içeren gönderileri gizler ancak \"elmacı\" içeren gönderileri gizlemez.</string>
+	<string name="filter_add_word_help">Kelimeler büyük-küçük harfe duyarlı değildir ve yalnızca tam kelimelerle eşleşir.\n\nIf anahtar kelimeyi süzgeç işleminde “Nar,” içeren gönderileri gizleyecektir. Ama “nar” “Tanesi” “Suyu.” değil</string>
 	<string name="settings_delete_filter_word">“%s” kelimesi silinsin mi?</string>
 	<string name="enter_selection_mode">Seç</string>
 	<string name="select_all">Tümünü seç</string>
@@ -530,7 +530,7 @@
 	</plurals>
 	<plurals name="x_items_selected">
 		<item quantity="one">%d öğe seçildi</item>
-		<item quantity="other">%d öğe seçildi</item>
+		<item quantity="other">%d seçildiler</item>
 	</plurals>
 	<string name="required_form_field_blank">Boş bırakılamaz</string>
 	<string name="filter_word_already_in_list">Zaten listede</string>
@@ -539,9 +539,9 @@
 	<string name="downloading_update">İndiriliyor (%d%%)</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
 	<string name="post_matches_filter_x">“%s” süzgeciyle eşleşiyor</string>
-	<string name="search_mastodon">Mastodon\'da ara</string>
+	<string name="search_mastodon">Ara</string>
 	<string name="clear_all">Tümünü temizle</string>
-	<string name="search_open_url">Bağlantıyı Mastodon\'da aç</string>
+	<string name="search_open_url">Bağlantıyı ağ içinde aç</string>
 	<string name="posts_matching_hashtag">“%s” içeren gönderiler</string>
 	<string name="search_go_to_account">Git %s</string>
 	<string name="posts_matching_string">“%s” içeren gönderiler</string>
@@ -556,9 +556,9 @@
 	<!-- %1$s is the language, %2$s is the name of the translation service -->
 	<string name="post_translated">%2$s kullanılarak %1$s dilinden çevrildi</string>
 	<string name="translation_show_original">Özgün içeriği göster</string>
-	<string name="translation_failed">Çeviri başarısız oldu. Yönetici bu sunucuda çevirileri etkinleştirmemiş olabilir veya bu sunucu çevirilerin henüz desteklenmediği eski bir Mastodon sürümünü çalıştırıyor olabilir.</string>
+	<string name="translation_failed">Çeviri başarısız oldu. Yönetici bu sunucuda çevirileri etkin olmayabilir veya bu sunucu çevirilerin henüz desteklenmediği eski bir sürümünü çalıştırıyor olabilir.</string>
 	<string name="settings_privacy">Gizlilik ve erişim</string>
-	<string name="settings_discoverable">Profil ve gönderileri keşif algoritmalarında kullan</string>
+	<string name="settings_discoverable">Keşif aracında profil ve gönderileri öne çıkar</string>
 	<string name="settings_indexable">Herkese açık gönderileri arama sonuçlarına ekle</string>
 	<plurals name="x_participants">
 		<item quantity="one">%d katılımcılar</item>
@@ -569,7 +569,7 @@
 		<item quantity="other">%,d bunları gönder</item>
 	</plurals>
 	<string name="error_playing_video">Video oynatılırken hata oluştu</string>
-	<string name="timeline_following">Anasayfa</string>
+	<string name="timeline_following">Ev</string>
 	<string name="lists">Listeler</string>
 	<string name="followed_hashtags">Takip edilen etiketler</string>
 	<string name="manage_lists">Listeleri yönetin</string>
@@ -582,7 +582,7 @@
 	<!-- %s is the name of the list -->
 	<string name="delete_list_confirm">Sil “%s”?</string>
 	<string name="list_exclusive">Takip edilen üyeleri gizle</string>
-	<string name="list_exclusive_subtitle">Birisi bu listede yer alıyorsa, gönderilerini iki kez görmekten kaçınmak için onu Takip Edenleri zaman akışınızdan gizleyin.</string>
+	<string name="list_exclusive_subtitle">Birisi bu listede yer alıyorsa, gönderilerini iki kez görmekten kaçınmak için onu Takip edenleri zaman akışta gizleyin.</string>
 	<string name="list_name">Liste ismi</string>
 	<string name="list_show_replies_to">Yanıtları göster</string>
 	<string name="list_replies_no_one">Hiç kimse</string>
@@ -592,7 +592,7 @@
 	<string name="remove">Kaldır</string>
 	<string name="add_list_member">Üye ekle</string>
 	<string name="search_among_people_you_follow">Takip ettiğiniz kişiler arasında arama yapın</string>
-	<string name="add_user_to_list">Listelere ekle/kaldır...</string>
+	<string name="add_user_to_list">Listelerden ekle/kaldır…</string>
 	<string name="add_user_to_list_title">Listeye ekle</string>
 	<!-- %s is a username -->
 	<string name="manage_user_lists">Listeleri yönet %s şurada görünür</string>
@@ -605,41 +605,41 @@
 	<string name="manage_accounts">Hesap ekleme veya değiştirme</string>
 	<plurals name="x_posts_recently">
 		<item quantity="one">%,d son zamanlardaki yayın</item>
-		<item quantity="other">%,d yakın zamanda gönderilerim</item>
+		<item quantity="other">%,d yakın zamanda yayınlarım</item>
 	</plurals>
 	<string name="create_list">Liste oluştur</string>
 	<string name="step_x_of_y">Step %1$d ile %2$d</string>
 	<string name="create">Oluştur</string>
 	<string name="manage_list_members">Liste üyelerini yönet</string>
-	<string name="list_no_members">Henüz üye yok.</string>
+	<string name="list_no_members">Henüz üye yok</string>
 	<string name="list_find_users">Eklenecek kullanıcıları bul</string>
-	<string name="reply_to_user"> %s Yanıtla</string>
+	<string name="reply_to_user">%s Yanıtla</string>
 	<string name="posted_at">%s tarafından gönderildi</string>
 	<string name="non_mutual_sheet_title">Merhaba, yeni bağlantı!</string>
 	<string name="non_mutual_sheet_text">Görünüşe göre henüz ortak bağlantınız olmayan birine yanıt vermek üzeresiniz. Harika bir ilk izlenim bırakınız.</string>
 	<string name="got_it">Anladım</string>
-	<string name="dont_remind_again">Bana tekrar hatırlatmayınız.</string>
+	<string name="dont_remind_again">Bana bir daha hatırlatma</string>
 	<!-- %s is a time interval ("5 months") -->
 	<string name="old_post_sheet_title">Bu gönderi %s eski</string>
-	<string name="old_post_sheet_text">Hâlâ yanıt verebilirsiniz, ancak konuyla ilgili olmayabilir.</string>
+	<string name="old_post_sheet_text">Hala yanıt verebilirsiniz, ancak artık konuyla ilgili olmayabilir.</string>
 	<plurals name="x_months">
 		<item quantity="one">%,d ay</item>
 		<item quantity="other">%,d aylar</item>
 	</plurals>
 	<string name="more_than_two_years">2 yıldan fazla süredir</string>
-	<string name="non_mutual_title1">Saygılı ve ilgili olunuz</string>
+	<string name="non_mutual_title1">Saygılı &amp; ilgili olunuz</string>
 	<string name="non_mutual_text1">Yanıtınızın nazik ve konuyla ilgili olduğundan emin olunuz.</string>
 	<string name="non_mutual_title2">Nezaketle sarıl</string>
 	<string name="non_mutual_text2">Olumlu bir yaklaşım her zaman takdir edilir.</string>
 	<string name="non_mutual_title3">Açık olunuz</string>
 	<string name="non_mutual_text3">Herkesin konuşma tarzı kendine özgüdür. Uyum sağlamaya hazır olunuz.</string>
-	<string name="make_profile_discoverable">Profilimi keşfedilebilir hale getiriniz</string>
-	<string name="discoverability">Keşfedebilirlik</string>
-	<string name="discoverability_help">Mastodon\'da keşfedilebilirliği tercih ettiğinizde, gönderileriniz arama sonuçlarında ve trendlerde görünebilir.\n\nProfiliniz sizinle benzer ilgi alanlarına sahip kişilere önerilebilir.\n\nBirisi sizi isminizle ararsa, devre dışı bırakma işlemi profilinizi gizlemez.</string>
+	<string name="make_profile_discoverable">Profil sayfamı keşfedilebilir hale getiriniz</string>
+	<string name="discoverability">Keşfet</string>
+	<string name="discoverability_help">Ağ da keşfet tercih ettiğinizde, yayınlarınız arama sonuçlarında ve trendlerde görünebilir.\n\nProfiliniz sizinle benzer ilgi alanlarına sahip kişilere önerilebilir.\n\nBirisi sizi isminizle ararsa, devre dışı bırakma işlemi profilinizi gizlemez.</string>
 	<string name="app_version_copied">Sürüm numarası panoya kopyalandı</string>
 	<string name="onboarding_recommendations_intro">Kendi ana akışınızı düzenlersiniz.
 Ne kadar çok kişiyi takip ederseniz, o kadar aktif ve ilginç olacaktır.</string>
-	<string name="onboarding_recommendations_title">Anasayfa akışınızı kişiselleştirin</string>
+	<string name="onboarding_recommendations_title">Ev akışınızı kişiselleştirin</string>
 	<string name="article_by_author">Yazan %s</string>
 	<string name="info">Bilgi</string>
 	<string name="button_reblogged">Yeniden paylaştı</string>
@@ -647,9 +647,9 @@ Ne kadar çok kişiyi takip ederseniz, o kadar aktif ve ilginç olacaktır.</str
 	<string name="bookmarked">Yer işareti</string>
 	<string name="join_server_x_with_invite">Davetiye ile %s \'ye katılınız</string>
 	<string name="expired_invite_link">Süresi dolmuş davet bağlantısı</string>
-	<string name="expired_clipboard_invite_link_alert">Panonuzdaki %1$s davet bağlantısının süresi doldu ve kaydolmak için kullanılamıyor.\n\nMevcut bir kullanıcıdan yeni bir bağlantı talep edebilir, %2$s, üzerinden kaydolabilir veya kaydolmak için başka bir sunucu seçebilirsiniz.</string>
+	<string name="expired_clipboard_invite_link_alert">Pano %1$s davet bağlantısının süresi doldu ve kaydolmak için kullanılamıyor.\n\nMevcut bir kullanıcıdan yeni bir bağlantı talep edebilir, %2$s, üzerinden kayıt olabilir veya kayıt olmak için başka bir sunucu seçebilirsiniz.</string>
 	<string name="invalid_invite_link">Geçersiz davet bağlantısı</string>
-	<string name="invalid_clipboard_invite_link_alert">Panonuzdaki %1$s davet bağlantısının süresi doldu ve kaydolmak için kullanılamıyor.\n\nMevcut bir kullanıcıdan yeni bir bağlantı talep edebilir, %2$s, üzerinden kaydolabilir veya kaydolmak için başka bir sunucu seçebilirsiniz.</string>
+	<string name="invalid_clipboard_invite_link_alert">Pano %1$s davet bağlantısının süresi doldu ve kaydolmak için kullanılamıyor.\n\nMevcut bir kullanıcıdan yeni bir bağlantı talep edebilir, %2$s, üzerinden kayıt olabilir veya kayıt olmak için başka bir sunucu seçebilirsiniz.</string>
 	<string name="use_invite_link">Davet bağlantısını kullan</string>
 	<string name="enter_invite_link">Davet bağlantısı gir</string>
 	<string name="this_invite_is_invalid">Bu davet bağlantısı geçerli değil.</string>
@@ -658,32 +658,32 @@ Ne kadar çok kişiyi takip ederseniz, o kadar aktif ve ilginç olacaktır.</str
 	<string name="need_invite_to_join_server">Katılmak %s için mevcut bir kullanıcıdan davet bağlantısı almanız gerekir.</string>
 	<string name="mute_user_confirm_title">Kullanıcıyı sustur?</string>
 	<string name="user_wont_know_muted">Susturulduklarını bilmeyecekler.</string>
-	<string name="user_can_still_see_your_posts">Onlar sizin gönderilerinizi görmeye devam edebilir, ancak siz onlarınkini göremezsiniz.</string>
+	<string name="user_can_still_see_your_posts">Onlar sizin yayınlarınızı görmeye devam edebilir, ancak siz onlarınkini göremezsiniz.</string>
 	<string name="you_wont_see_user_mentions">Onlardan bahseden gönderiler göremezsiniz.</string>
 	<string name="user_can_mention_and_follow_you">Sizden bahsedebilir ve sizi takip edebilirler, ancak siz onları göremezsiniz.</string>
 	<string name="unmuted_user_x">%s Sesini aç</string>
 	<string name="block_user_confirm_title">Kullanıcıyı Engelle?</string>
 	<string name="user_can_see_blocked">Engellendiklerini görebiliyorlar.</string>
-	<string name="user_cant_see_each_other_posts">Onlar sizin gönderilerinizi görmeye devam edebilir, ancak siz onlarınkini göremezsiniz.</string>
+	<string name="user_cant_see_each_other_posts">Onlar sizin yayınlarınızı görmeye devam edebilir, ancak siz onlarınkini göremezsiniz.</string>
 	<string name="user_cant_mention_or_follow_you">Sizden bahsedemez veya sizi takip edemezler.</string>
 	<string name="unblocked_user_x">%s İçin Engel Kaldırılsın</string>
 	<string name="block_domain_confirm_title">Alan adını engelle?</string>
 	<string name="do_block_server">Sunucuyu engelle</string>
-	<string name="block_user_x_instead">Bunun yerine %s\'yi engelle</string>
+	<string name="block_user_x_instead">Bunun yerine %s engelle</string>
 	<string name="users_cant_see_blocked">Bu sunucudaki kullanıcılardan gelen gönderileri veya bildirimleri göremezsiniz.</string>
 	<string name="you_wont_see_server_posts">Bu sunucudaki kullanıcılardan gelen gönderileri veya bildirimleri göremezsiniz.</string>
-	<string name="server_followers_will_be_removed">Bu sunucudaki takipçileriniz kaldırılacaktır.</string>
+	<string name="server_followers_will_be_removed">Bu sunucudaki takipçilerin kaldırılacaktır.</string>
 	<string name="server_cant_mention_or_follow_you">Bu sunucudan kimse sizi takip edemez.</string>
-	<string name="server_can_interact_with_older">Bu sunucudaki kişiler eski gönderileriniz ile etkileşime geçebilir.</string>
+	<string name="server_can_interact_with_older">Bu sunucudaki kişiler eski yayınlarınız ile etkileşime geçebilir.</string>
 	<string name="unblocked_domain_x">Engellenmemiş alan %s</string>
 	<string name="handle_help_title">Tanıtıcı nedir?</string>
-	<string name="handle_title"></string>
-	<string name="handle_username_explanation">Sunucularındaki benzersiz tanımlayıcıları. Aynı kullanıcı adına sahip kullanıcıları farklı sunucularda bulmak mümkündür.</string>
-	<string name="handle_title_own">Tanıtıcınız</string>
-	<string name="handle_username_explanation_own">Sunucularındaki benzersiz tanımlayıcıları. Aynı kullanıcı adına sahip kullanıcıları farklı sunucularda bulmak mümkündür.</string>
+	<string name="handle_title">Onların adı</string>
+	<string name="handle_username_explanation">Sunucularındaki benzersiz tanımlama. Aynı kullanıcı adına sahip kullanıcıları farklı sunucularda bulmak mümkündür.</string>
+	<string name="handle_title_own">Takma adınız</string>
+	<string name="handle_username_explanation_own">Sunucularındaki benzersiz tanımlama. Aynı kullanıcı adına sahip kullanıcıları farklı sunucularda bulmak mümkündür.</string>
 	<string name="server">Sunucu</string>
-	<string name="handle_server_explanation">Tüm paylaşımlarının yer aldığı dijital anasayfalar.</string>
-	<string name="handle_explanation">Tanıtıcılar bir kişinin kim olduğunu ve nerede olduğunu söylediği için, &lt;a&gt;ActivityPub destekli platformların&lt;/a&gt; sosyal ağındaki insanlarla etkileşime geçebilirsiniz.</string>
+	<string name="handle_server_explanation">Tüm gönderilerinin bulunduğu dijital evleri.</string>
+	<string name="handle_explanation">Tanım bir kişinin kim olduğunu ve nerede olduğunu söylediği için, &lt;a&gt;Etkin destekli platformların&lt;/a&gt; sosyal ağındaki insanlarla etkileşime geçebilirsiniz.</string>
 	<string name="handle_server_explanation_own">Tüm gönderilerinizin yer aldığı dijital anasayfanız. Bunu beğenmediniz mi? İstediğiniz zaman sunucularınızı değiştirin ve takipçilerinizi de getirin.</string>
 	<string name="handle_explanation_own">Tanıtıcılar bir kişinin kim olduğunu ve nerede olduğunu söylediği için, &lt;a&gt;ActivityPub destekli platformların&lt;/a&gt; sosyal ağındaki insanlarla etkileşime geçebilirsiniz.</string>
 	<string name="what_is_activitypub_title">ActivityPub nedir?</string>
