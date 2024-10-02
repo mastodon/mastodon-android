@@ -9,7 +9,7 @@
 	<string name="preparing_auth">Kimlik doğrulama için hazırlanıyor…</string>
 	<string name="finishing_auth">Kimlik doğrulama tamamlanıyor…</string>
 	<string name="user_boosted">%s yineledi</string>
-	<string name="in_reply_to">için  %s yanıt</string>
+	<string name="in_reply_to">%s yanıt olarak</string>
 	<string name="notifications">Bildirimler</string>
 	<string name="user_followed_you">%s seni takip etti</string>
 	<string name="user_sent_follow_request">%s size bir takip isteği gönderdi</string>
@@ -42,8 +42,8 @@
 	<string name="block_user">%s Engelle</string>
 	<string name="unblock_user">%s Engeli kaldır</string>
 	<string name="report_user">%s Raporla</string>
-	<string name="block_domain">%s kişisini engelle</string>
-	<string name="unblock_domain">%s kişisinin engelini kaldır</string>
+	<string name="block_domain">%s Kişisini engelle</string>
+	<string name="unblock_domain">%s Kişisinin engelini kaldır</string>
 	<plurals name="x_posts">
 		<item quantity="one">%,d gönderi</item>
 		<item quantity="other">%,d gönderi</item>
@@ -54,7 +54,7 @@
 	<string name="field_label">Etiket</string>
 	<string name="field_content">İçerik</string>
 	<string name="saving">Kaydediliyor…</string>
-	<string name="post_from_user">%s kullanıcına ait gönderi</string>
+	<string name="post_from_user">%s Gönderen</string>
 	<string name="poll_option_hint">Seçenek %d</string>
 	<plurals name="x_minutes">
 		<item quantity="one">%d dakika</item>
@@ -98,7 +98,7 @@
 	<string name="delete">Sil</string>
 	<string name="confirm_delete_title">Gönderiyi sil</string>
 	<string name="confirm_delete">Bu gönderiyi silmek istediğinizden emin misiniz?</string>
-	<string name="deleting">Siliniyor</string>
+	<string name="deleting">Siliniyor…</string>
 	<string name="notification_channel_audio_player">Ses çal</string>
 	<string name="play">Oynat</string>
 	<string name="pause">Durdur</string>
@@ -137,10 +137,10 @@
 	<string name="report_sent_subtitle">Biz bunu incelerken siz %s hesabına karşı önlem alabilirsiniz:</string>
 	<string name="unfollow_user">Takipten çık %s</string>
 	<string name="unfollow">Takipten çık</string>
-	<string name="mute_user_explain">Gönderilerini görmeyeceksiniz. Sizi takip etmeye devam edebilir ve gönderilerinizi görebilirler ama sessize alındığını anlamayacaktır.</string>
-	<string name="block_user_explain">Gönderilerini göremeyeceksiniz. Gönderilerinizi göremez veya sizi takip edemez. Engelli olduğunu anlayabilir.</string>
+	<string name="mute_user_explain">Onların gönderilerini göremezsiniz. Sizi takip etmeye ve yayınını görmeye devam edebilirler ve sessize alındıklarını bilmezler.</string>
+	<string name="block_user_explain">Onların gönderilerini göremezsiniz. Sizin yayınlarınızı göremezler veya sizi takip edemezler. Engellendiklerini anlayabilecekler.</string>
 	<string name="report_personal_title">Bunu görmek istemiyor musunuz?</string>
-	<string name="report_personal_subtitle">Mastodon\'da görebileceklerinizi kontrol etmek için seçenekleriniz şunlardır:</string>
+	<string name="report_personal_subtitle">Gördüklerinizi kontrol etmek için seçenekleriniz şunlardır:</string>
 	<string name="back">Geri</string>
 	<string name="search_communities">Sunucu adı veya bağlantısı</string>
 	<string name="instance_rules_title">Sunucu kuralları</string>
@@ -148,7 +148,7 @@
 	<string name="signup_title">Hesap oluştur</string>
 	<string name="display_name">Ad</string>
 	<string name="username">Kullanıcı adı</string>
-	<string name="email">E-Posta</string>
+	<string name="email">Posta</string>
 	<string name="password">Parola</string>
 	<string name="confirm_password">Parolayı doğrula</string>
 	<string name="category_general">Genel</string>
@@ -157,8 +157,8 @@
 	<string name="confirm_email_subtitle">%s adresini doğrulamak için size gönderdiğimiz bağlantıya dokunun. Hemen burada bekleyeceğiz.</string>
 	<string name="confirm_email_didnt_get">Bağlantı gelmedi mi?</string>
 	<string name="resend">Yeniden gönder</string>
-	<string name="open_email_app">E-Posta uygulamasını aç</string>
-	<string name="resent_email">Onay epostası gönderildi</string>
+	<string name="open_email_app">Mail uygulamasını aç</string>
+	<string name="resent_email">Onay mail gönderildi</string>
 	<string name="compose_hint">Aklınızdan geçenleri yazın veya yapıştırın</string>
 	<string name="content_warning">İçerik uyarısı</string>
 	<string name="save">Kaydet</string>
@@ -174,27 +174,27 @@
 	<string name="notification_type_mention">Bahsetmeler</string>
 	<string name="notification_type_poll">Anketler</string>
 	<string name="choose_account">Hesap seç</string>
-	<string name="err_not_logged_in">Lütfen önce Mastodonda oturum açın</string>
+	<string name="err_not_logged_in">Lütfen önce oturum açın</string>
 	<plurals name="cant_add_more_than_x_attachments">
 		<item quantity="one">%d adetten fazla medya ekleyemezsiniz</item>
 		<item quantity="other">%d adetten fazla medya ekleyemezsiniz</item>
 	</plurals>
 	<string name="media_attachment_unsupported_type">%s dosyası desteklenmeyen türde</string>
-	<string name="media_attachment_too_big">%1$s dosyası, %2$s MB\'lik boyut sınırını aşıyor</string>
+	<string name="media_attachment_too_big">%1$s dosyası, %2$s MB boyut sınırını aşıyor</string>
 	<string name="settings_theme">Görünüm</string>
 	<string name="theme_auto">Cihaz görünümünü kullan</string>
 	<string name="theme_light">Aydınlık</string>
 	<string name="theme_dark">Karanlık</string>
 	<string name="settings_behavior">Ayarlar</string>
-	<string name="settings_gif">Animasyonlu avatarları ve emojileri oynat</string>
+	<string name="settings_gif">Animasyonlu görsel ve simgeleri oynat</string>
 	<string name="settings_custom_tabs">Bağlantıyı aç</string>
 	<string name="settings_notifications">Bildirimler</string>
 	<string name="settings_contribute">Mastodon\'a katkıda bulunun</string>
 	<string name="settings_tos">Kullanım şartları</string>
 	<string name="settings_privacy_policy">Gizlilik politikası</string>
-	<string name="settings_clear_cache">Medya önbelleğini temizle</string>
-	<string name="settings_app_version">Android için Mastodon v%1$s (%2$d)</string>
-	<string name="media_cache_cleared">Medya önbelleği temizlendi</string>
+	<string name="settings_clear_cache">Temizle medya önbellek</string>
+	<string name="settings_app_version">Uygulama için %1$s (%2$d)</string>
+	<string name="media_cache_cleared">Medya önbellek temizlendi</string>
 	<string name="confirm_log_out">%s oturumu kapatılsın mı?</string>
 	<string name="sensitive_content_explain">Medya, gönderi sahibi tarafından hassas olarak işaretlendi.</string>
 	<string name="avatar_description">%s kullanıcısının profiline git</string>
@@ -207,12 +207,12 @@
 	<string name="media_no_description">Açıklamasız medya</string>
 	<string name="add_media">Medya ekle</string>
 	<string name="add_poll">Anket ekle</string>
-	<string name="emoji">Emoji</string>
-	<string name="home_timeline">Anasayfa</string>
+	<string name="emoji">Simge</string>
+	<string name="home_timeline">Ev akışı</string>
 	<string name="my_profile">Profilim</string>
 	<string name="media_viewer">Medya görüntüleyici</string>
-	<string name="follow_user">%s takip et</string>
-	<string name="unfollowed_user">%s takipden çıkıldı</string>
+	<string name="follow_user">%s Takip et</string>
+	<string name="unfollowed_user">%s Takip edilmiyor</string>
 	<string name="followed_user">Artık %s kullanıcısını takip ediyorsun</string>
 	<string name="following_user_requested">%s takip isteği gönderdi</string>
 	<string name="open_in_browser">Tarayıcıda aç</string>
@@ -221,7 +221,7 @@
 	<string name="signup_reason">Neden katılmak istiyorsunuz?</string>
 	<string name="signup_reason_note">Bu, başvurunuzu incelememize yardımcı olacaktır.</string>
 	<string name="clear">Temizle</string>
-	<string name="profile_header">Üstbaşlık görseli</string>
+	<string name="profile_header">Başlık görseli</string>
 	<string name="profile_picture">Profil fotoğrafı</string>
 	<string name="reorder">Sırala</string>
 	<string name="download">İndir</string>
@@ -233,10 +233,10 @@
 	<string name="downloading">İndiriliyor…</string>
 	<string name="no_app_to_handle_action">Bu eylemi gerçekleştirebilecek bir uygulama bulunmuyor</string>
 	<string name="local_timeline">Canlı yayın</string>
-	<string name="trending_posts_info_banner">Bunlar, Mastodon\'da ilgi gören gönderiler.</string>
-	<string name="trending_links_info_banner">Bunlar Mastodon\'da konuşulan haberler.</string>
+	<string name="trending_posts_info_banner">Bunlar, Ağda ilgi gören gönderiler.</string>
+	<string name="trending_links_info_banner">Bunlar Ağda konuşulan haberler.</string>
 	<!-- %s is the server domain -->
-	<string name="local_timeline_info_banner">Bunlar, sunucunuzdaki (%s) tüm kullanıcıların gönderileri.</string>
+	<string name="local_timeline_info_banner">Bunlar, ağlardaki (%s) tüm kullanıcıların gönderileri.</string>
 	<string name="recommended_accounts_info_banner">Takip ettiğiniz hesaplara göre bu hesapları beğenebilirsiniz.</string>
 	<string name="see_new_posts">Yeni gönderiler</string>
 	<string name="load_missing_posts">Daha fazlası</string>
@@ -300,16 +300,16 @@
 	<string name="download_update">İndir (%s)</string>
 	<string name="install_update">Kur</string>
 	<string name="privacy_policy_title">Gizlilik</string>
-	<string name="privacy_policy_subtitle">Mastodon uygulaması herhangi bir veri toplamasa da, kaydolduğunuz sunucunun farklı bir politikası olabilir.\n\nlf için politikayı kabul etmiyorsanız %s, geri dönüp farklı bir sunucu seçebilirsiniz.</string>
+	<string name="privacy_policy_subtitle">Ağ uygulaması herhangi bir veri toplamasa da, kayıt olduğunuz sunucunun farklı bir politikası olabilir.\n\n  için politikayı kabul etmiyorsanız, %s geri dönerek farklı bir sunucu tercih edebilirsiniz.</string>
 	<string name="i_agree">Kabul ediyorum</string>
 	<string name="empty_list">Bu liste boş</string>
 	<string name="instance_signup_closed">Bu sunucu yeni kayıtları kabul etmemektedir.</string>
 	<string name="text_copied">Panoya kopyalandı</string>
 	<string name="add_bookmark">Yer imlerine ekle</string>
-	<string name="remove_bookmark">Yerimini kaldır</string>
+	<string name="remove_bookmark">Yer imini kaldır</string>
 	<string name="bookmarks">Yer imleri</string>
 	<string name="your_favorites">Gözdeler</string>
-	<string name="login_title">Tekrar hoşgeldiniz</string>
+	<string name="login_title">Tekrar hoş geldiniz</string>
 	<string name="login_subtitle">Hesabınızı oluşturduğunuz sunucuya giriş yapın.</string>
 	<string name="server_url">Sunucu bağlantısı</string>
 	<string name="server_filter_any_language">Herhangi bir dil</string>
@@ -327,17 +327,17 @@
 	<string name="signup_passwords_dont_match">Parolalar eşleşmiyor</string>
 	<string name="profile_add_row">Satır ekle</string>
 	<string name="profile_setup">Profilini ayarla</string>
-	<string name="profile_setup_subtitle">Bunu istediğin zaman Profil sekmesinden tamamlayabilirsin.</string>
+	<string name="profile_setup_subtitle">Bunu istediğin zaman Profil sekmesinden tamamla.</string>
 	<string name="follow_all">Hepsini takip et</string>
 	<string name="server_rules_disagree">Reddet</string>
 	<string name="privacy_policy_explanation">Kısacası: Hiçbir şey toplamıyoruz veya işlemiyoruz.</string>
 	<!-- %s is server domain -->
-	<string name="server_policy_disagree">%s\'nı reddet</string>
+	<string name="server_policy_disagree">%s Katılmıyorum</string>
 	<string name="profile_bio">Hakkımda</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<string name="sending_follows">Hesaplar takip ediliyor…</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
-	<string name="signup_email_domain_blocked">%1$s, %2$s tarafından kayıt yapılmasına izin vermiyor. Farklı bir e-posta adresi deneyin veya &lt;a&gt;farklı bir sunucu seçin&lt;/a&gt;.</string>
+	<string name="signup_email_domain_blocked">%1$s, tarafından kayıt yapılmasına izin vermiyor. %2$s Farklı bir mail adresi deneyin veya &lt;a&gt;farklı bir sunucu seçin&lt;/a&gt;.</string>
 	<string name="spoiler_show">Yine de göster</string>
 	<string name="spoiler_hide">Yeniden gizle</string>
 	<string name="poll_multiple_choice">Bir ya da daha fazla seçim yapın</string>
@@ -353,10 +353,10 @@
 	<string name="pick_server">Başka sunucu seç</string>
 	<string name="signup_or_login">veya</string>
 	<string name="learn_more">Daha fazlası</string>
-	<string name="welcome_to_mastodon">Mastodon\'a hoş geldiniz</string>
-	<string name="welcome_paragraph1">Mastodon merkezi olmayan bir sosyal ağdır, yani onu tek bir şirket kontrol etmiyor. Hepsi birbirine bağlı, bağımsız olarak çalışan birçok sunucudan oluşur.</string>
+	<string name="welcome_to_mastodon">Hoş geldiniz</string>
+	<string name="welcome_paragraph1">Merkezi olmayan bir sosyal ağdır, yani onu tek bir şirket kontrol etmiyor. Hepsi birbirine bağlı, bağımsız olarak çalışan birçok sunucudan oluşur.</string>
 	<string name="what_are_servers">Sunucular nedir?</string>
-	<string name="welcome_paragraph2">Her Mastodon hesabı bir sunucuda barındırılır - her birinin kendi değerleri, kuralları ve yöneticileri vardır. Hangisini seçerseniz seçin, herhangi bir sunucudaki insanları takip edebilir ve onlarla etkileşime geçebilirsiniz.</string>
+	<string name="welcome_paragraph2">Her ağ hesabı bir sunucuda barındırılır - her birinin kendi değerleri, kuralları ve &amp; yöneticileri vardır. Hangisini seçerseniz seçin, herhangi bir sunucudaki insanları takip edebilir ve onlarla etkileşime geçebilirsiniz.</string>
 	<string name="opening_link">Bağlantı açılıyor…</string>
 	<string name="link_not_supported">Bu bağlantı uygulamada desteklenmiyor</string>
 	<string name="log_out_all_accounts">Tüm hesaplardan çıkış yap</string>
@@ -384,10 +384,10 @@
 	<string name="alt_text">Alternatif metin</string>
 	<string name="help">Yardım</string>
 	<string name="what_is_alt_text">Alternatif metin nedir?</string>
-	<string name="alt_text_help">Alternatif metin, görme bozukluğu olan, düşük bant genişliğine sahip bağlantıları olan veya ekstra bağlam arayan kişiler için görsel açıklamaları sağlar.\n\n Net, sade ve nesnel alternatif metin yazarak herkes için erişilebilirliği ve anlaşılabilirliği iyileştirebilirsiniz.\n\n<ul><li>Önemli öğeleri yakalayın</li>\n<li>Resimlerdeki metni özetleyin</li>\n<li>Düzenli cümle yapısı kullanın</li>\n<li>Gereksiz bilgilerden kaçının</li>\n<li>Karmaşık görsellerde (şemalar veya haritalar gibi) trendlere ve temel bulgulara odaklanın</li></ul></string>
+	<string name="alt_text_help">Alternatif metin, görme bozukluğu olan, düşük bant genişliğine sahip bağlantıları olan veya ekstra bağlam arayan kişiler için görsel açıklamaları sağlar.\n\n Net, sade ve nesnel alternatif metin yazarak herkes için erişilebilirliği ve anlaşılabilirliği iyileştirebilirsiniz.\n\n<ul><li>Önemlileri yakalayın</li>\n<li>Resimlerdeki metni özetleyin</li>\n<li>Düzenli cümle yapısı kullanın</li>\n<li>Gereksiz bilgilerden kaçının</li>\n<li>Karmaşık görsellerde (şemalar veya haritalar gibi) trendlere ve temel bulgulara odaklanın</li></ul></string>
 	<string name="edit_post">Gönderiyi düzenle</string>
 	<string name="no_verified_link">Doğrulanmamış bağlantı</string>
-	<string name="compose_autocomplete_emoji_empty">Emoji bul</string>
+	<string name="compose_autocomplete_emoji_empty">Simge bul</string>
 	<string name="compose_autocomplete_users_empty">Kimi aradığınızı bulun</string>
 	<string name="no_search_results">Bu arama terimleri için hiçbir şey bulunamadı</string>
 	<string name="language">Dil</string>
@@ -399,13 +399,13 @@
 	<string name="media_hidden">Medya gizlendi</string>
 	<string name="post_hidden">Gönderi gizlendi</string>
 	<string name="report_title_post">Gönderiyi bildir</string>
-	<string name="forward_report_explanation">Hesap başka bir sunucudan. Bu raporun anonimleştirilmiş bir kopyası oraya da gönderilsin mi?</string>
+	<string name="forward_report_explanation">Hesap başka bir sunucudan. Bu raporun anonim bir kopyası oraya da gönderilsin mi?</string>
 	<!-- %s is the server domain -->
 	<string name="forward_report_to_server">İlet %s</string>
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
 	<string name="reported">Bildirildi</string>
-	<string name="report_unfollow_explanation">Gönderilerini artık ana sayfa akışınızda görmemek için takibi bırakın.</string>
-	<string name="muted_user">sessize alındı %s</string>
+	<string name="report_unfollow_explanation">Gönderilerini artık ana sayfa akışında görmemek için takibi bırakın.</string>
+	<string name="muted_user">%s Sessize alındı</string>
 	<string name="report_sent_already_blocked">Bu kullanıcıyı zaten engellediniz. Biz raporunuzu incelerken yapmanız gereken başka bir şey yok.</string>
 	<string name="report_personal_already_blocked">Bu kullanıcıyı zaten engellediniz, yani yapmanız gereken başka bir şey yok.\n\nMastodon\'u herkes için güvenli bir yer olarak tutmaya yardımcı olduğunuz için teşekkürler!</string>
 	<string name="blocked_user">%s engellendi</string>
@@ -742,9 +742,33 @@ Ne kadar çok kişiyi takip ederseniz, o kadar aktif ve ilginç olacaktır.</str
 	<string name="undo_favorite">Favoriyi geri al</string>
 	<string name="could_not_reach_server">Sunucuya ulaşılamadı. Bağlantınızı kontrol edin ve tekrar deneyin?</string>
 	<string name="connection_timed_out">İstek zaman aşımına uğradı. Bağlantınızı kontrol edin ve tekrar deneyin?</string>
+	<string name="server_error">Sunucunuz ile konuşurken bir şeyler ters gitti. Muhtemelen senin hatan değildir. Tekrar deneyelim mi?</string>
+	<string name="not_found">Silinmiş ya da belki de hiç var olmamış olabilir.</string>
+	<string name="no_servers_found">\"%s\" için sunucu bulunamadı</string>
+	<string name="signup_username_taken">Bu kullanıcı adı alınmış. Farklı bir tane deneyin veya &lt;a&gt;farklı bir sunucu seçin&lt;/a&gt;.</string>
+	<string name="signup_email_invalid">Bu geçerli bir mail adresine benzemiyor.</string>
+	<string name="signup_email_taken">Mail adresi zaten kullanımda. Sen &lt;a&gt; parola unuttun &lt;/a&gt;?</string>
+	<string name="dismiss">Reddet</string>
+	<string name="donation_once">Sadece bir kez</string>
+	<string name="donation_monthly">Aylık</string>
+	<string name="donation_yearly">Yıllık</string>
+	<string name="currency">Para birimi</string>
+	<string name="donation_success_share">Kelimeyi yay</string>
+	<string name="donation_success_title">Katkılarınız için teşekkür ederiz!</string>
 	<string name="donation_success_subtitle">Yakında size bağışınızı onaylayan bir onaylayan mail almış olmanız gerekir.</string>
 	<string name="donation_server_error">Üzgünüz, bir hata oluştu ve bağışınızı işleme koyamadık.\n\nLütfen birkaç dakika içinde tekrar deneyiniz.</string>
-	<string name="settings_donate">Mastodon Bağış yapın</string>
+	<string name="settings_donate">Bağış yapınız</string>
+	<string name="settings_manage_donations">Bağışları yönetin</string>
+	<string name="cant_load_image">Görsel yüklenemedi</string>
+	<string name="poll_see_results">Sonuçları görün</string>
+	<string name="poll_hide_results">Sonuçları gizle</string>
+	<string name="own_poll_ended">Senin anketin sona erdi</string>
+	<string name="user_just_posted">%s birazdan gönderildi</string>
+	<string name="user_edited_post">%s etkileşimde bulunduğunuz bir gönderiyi düzenlediniz</string>
+	<string name="relationship_severance_account_suspension">1$s bir yönetici %2$s askıya aldı, bu da artık onlardan güncelleme alamayacağınız veya onlarla etkileşime geçemeyeceğiniz anlamına geliyor.</string>
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
+	<string name="moderation_warning_action_silence">Hesabınız sınırlandırıldı.</string>
+	<string name="moderation_warning_action_suspend">Hesabınız askıya alındı.</string>
+	<string name="moderation_warning_learn_more">Daha fazlası</string>
 </resources>
