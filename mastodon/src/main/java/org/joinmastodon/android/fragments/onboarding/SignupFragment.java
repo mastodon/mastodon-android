@@ -42,6 +42,7 @@ import org.jsoup.nodes.TextNode;
 import org.jsoup.select.NodeVisitor;
 import org.parceler.Parcels;
 
+import java.time.Instant;
 import java.time.ZoneId;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -237,6 +238,11 @@ public class SignupFragment extends ToolbarFragment{
 						fakeAccount.acct=fakeAccount.username=username;
 						fakeAccount.id="tmp"+System.currentTimeMillis();
 						fakeAccount.displayName=displayName.getText().toString();
+						fakeAccount.createdAt=Instant.now();
+						fakeAccount.username=username;
+						fakeAccount.acct=username;
+						fakeAccount.url="https://"+instance.getDomain()+"/@"+username;
+						fakeAccount.avatar=fakeAccount.avatarStatic=fakeAccount.headerStatic=fakeAccount.header=fakeAccount.note="";
 						AccountSessionManager.getInstance().addAccount(instance, result, fakeAccount, apiApplication, new AccountActivationInfo(email, System.currentTimeMillis()));
 						Bundle args=new Bundle();
 						args.putString("account", AccountSessionManager.getInstance().getLastActiveAccountID());

@@ -714,8 +714,7 @@ public class AccountSessionManager{
 					File file=new File(MastodonApp.context.getFilesDir(), "instance_"+domain.replace('.', '_')+".json");
 					try(FileInputStream in=new FileInputStream(file)){
 						JsonObject jobj=JsonParser.parseReader(new InputStreamReader(in, StandardCharsets.UTF_8)).getAsJsonObject();
-
-						insertInstanceIntoDatabase(db, domain, MastodonAPIController.gson.fromJson(jobj.get("instance"), Instance.class),
+						insertInstanceIntoDatabase(db, domain, MastodonAPIController.gson.fromJson(jobj.get(jobj.has("instance") ? "instance" : "a"), Instance.class),
 								MastodonAPIController.gson.fromJson(jobj.get("emojis"), new TypeToken<>(){}.getType()), jobj.get("last_updated").getAsLong());
 					}catch(Exception x){
 						Log.w(TAG, "Error reading instance info file for "+domain, x);

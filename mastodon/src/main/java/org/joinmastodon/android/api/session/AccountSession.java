@@ -119,9 +119,11 @@ public class AccountSession{
 		activated=(flags & FLAG_ACTIVATED)==FLAG_ACTIVATED;
 		needUpdatePushSettings=(flags & FLAG_NEED_UPDATE_PUSH_SETTINGS)==FLAG_NEED_UPDATE_PUSH_SETTINGS;
 		JsonObject pushKeys=JsonParser.parseString(values.getAsString("push_keys")).getAsJsonObject();
-		pushAuthKey=pushKeys.get("auth").getAsString();
-		pushPrivateKey=pushKeys.get("private").getAsString();
-		pushPublicKey=pushKeys.get("public").getAsString();
+		if(!pushKeys.get("auth").isJsonNull() && !pushKeys.get("private").isJsonNull() && !pushKeys.get("public").isJsonNull()){
+			pushAuthKey=pushKeys.get("auth").getAsString();
+			pushPrivateKey=pushKeys.get("private").getAsString();
+			pushPublicKey=pushKeys.get("public").getAsString();
+		}
 		pushSubscription=MastodonAPIController.gson.fromJson(values.getAsString("push_subscription"), PushSubscription.class);
 		JsonObject legacyFilters=JsonParser.parseString(values.getAsString("legacy_filters")).getAsJsonObject();
 		wordFilters=MastodonAPIController.gson.fromJson(legacyFilters.getAsJsonArray("filters"), new TypeToken<List<LegacyFilter>>(){}.getType());
