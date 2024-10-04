@@ -725,7 +725,7 @@
 	<string name="notification_filter_new_accounts">Nieuwe accounts</string>
 	<string name="notification_filter_new_accounts_explanation">In de afgelopen 30 dagen geregistreerd</string>
 	<string name="notification_filter_mentions">Ongevraagde privéberichten</string>
-	<string name="notification_filter_mentions_explanation">Onzichtbaar tenzij het een antwoord is op een privébericht van jou of wanneer je de afzender volgt</string>
+	<string name="notification_filter_mentions_explanation">Onzichtbaar tenzij het een reactie is op een privébericht van jou of wanneer je de afzender volgt</string>
 	<string name="allow_notifications">Meldingen toestaan</string>
 	<string name="mute_notifications">Meldingen afwijzen</string>
 	<plurals name="x_people_you_may_know">
@@ -786,8 +786,24 @@
 		<item quantity="other">%1$s hield een peiling, waaraan jij en %2$,d andere personen hebben meegedaan</item>
 	</plurals>
 	<string name="own_poll_ended">Jouw peiling is beëindigd</string>
+	<string name="user_just_posted">%s heeft zojuist een bericht geplaatst</string>
+	<string name="user_edited_post">%s bewerkte een bericht waarmee je interactie had</string>
+	<string name="relationship_severance_account_suspension">Een beheerder van %1$s heeft %2$s geschorst, wat betekent dat je geen updates meer van hen kunt ontvangen of met hen kunt communiceren.</string>
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_domain_block">Een beheerder van %1$s heeft %2$s geblokkeerd, inclusief %3$,d van jouw volgers en %4$s account(s) die je volgt.</string>
+	<plurals name="x_accounts">
+		<item quantity="one">%,d account</item>
+		<item quantity="other">%,d accounts</item>
+	</plurals>
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_user_domain_block">Je hebt %1$s geblokkeerd, waarmee je %2$,d van je volgers en %3$s account(s) die je volgt, bent verloren.</string>
 	<string name="relationship_severance_learn_more">Meer informatie</string>
+	<string name="moderation_warning_action_none">Jouw account heeft een moderatie-waarschuwing ontvangen.</string>
+	<string name="moderation_warning_action_disable">Jouw account is uitgeschakeld.</string>
+	<string name="moderation_warning_action_mark_statuses_as_sensitive">Sommige van je berichten zijn gemarkeerd als gevoelig.</string>
+	<string name="moderation_warning_action_delete_statuses">Sommige van je berichten zijn verwijderd.</string>
+	<string name="moderation_warning_action_sensitive">Je berichten worden vanaf nu als gevoelig gemarkeerd.</string>
+	<string name="moderation_warning_action_silence">Jouw account is beperkt.</string>
+	<string name="moderation_warning_action_suspend">Jouw account is opgeschort.</string>
 	<string name="moderation_warning_learn_more">Meer informatie</string>
 </resources>
