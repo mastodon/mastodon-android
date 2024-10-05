@@ -236,6 +236,8 @@ public class ThreadFragment extends StatusListFragment{
 	protected void drawDivider(View child, View bottomSibling, RecyclerView.ViewHolder holder, RecyclerView.ViewHolder siblingHolder, RecyclerView parent, Canvas c, Paint paint){
 		if(holder instanceof StatusDisplayItem.Holder<?> statusHolder && siblingHolder instanceof StatusDisplayItem.Holder<?> siblingStatusHolder){
 			Status siblingStatus=getStatusByID(siblingStatusHolder.getItemID());
+			if(siblingStatus==null)
+				return;
 			if(statusHolder.getItemID().equals(siblingStatus.inReplyToId) && siblingStatus!=mainStatus && !statusHolder.getItemID().equals(mainStatus.id))
 				return;
 		}
@@ -291,6 +293,7 @@ public class ThreadFragment extends StatusListFragment{
 					continue;
 
 				float lineX=V.dp(36);
+				paint.setAlpha(Math.round(255*child.getAlpha()));
 				c.save();
 				c.clipRect(child.getX(), child.getY(), child.getX()+child.getWidth(), child.getY()+child.getHeight());
 				if(holder instanceof HeaderStatusDisplayItem.Holder){
