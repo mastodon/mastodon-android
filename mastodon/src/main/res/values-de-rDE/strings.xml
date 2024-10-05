@@ -13,7 +13,7 @@
 	<string name="notifications">Benachrichtigungen</string>
 	<string name="user_followed_you">%s folgt dir jetzt</string>
 	<string name="user_sent_follow_request">%s hat dir eine Folgeanfrage gesendet</string>
-	<string name="user_favorited">%s als Favorit markiert:</string>
+	<string name="user_favorited">%s favorisierte:</string>
 	<string name="notification_boosted">%s teilte deinen Beitrag:</string>
 	<string name="share_toot_title">Teilen</string>
 	<string name="settings">Einstellungen</string>
@@ -769,7 +769,41 @@
 	<string name="cant_load_image">Bild konnte nicht geladen werden</string>
 	<string name="poll_see_results">Ergebnisse anzeigen</string>
 	<string name="poll_hide_results">Ergebnisse verstecken</string>
+	<plurals name="x_attachments">
+		<item quantity="one">%d Anhang</item>
+		<item quantity="other">%d Anhänge</item>
+	</plurals>
+	<plurals name="user_and_x_more_favorited">
+		<item quantity="one">%1$s und %2$,d weitere Person favorisierten:</item>
+		<item quantity="other">%1$s und %2$,d weitere Personen favorisierten:</item>
+	</plurals>
+	<plurals name="user_and_x_more_boosted">
+		<item quantity="one">%1$s und %2$,d weitere Person haben geteilt:</item>
+		<item quantity="other">%1$s und %2$,d weitere Personen haben geteilt:</item>
+	</plurals>
+	<plurals name="poll_ended_x_voters">
+		<item quantity="one">%1$s hat eine Umfrage durchgeführt, an der du und %2$,d weitere Person teilgenommen haben</item>
+		<item quantity="other">%1$s hat eine Umfrage durchgeführt, an der du und %2$,d weitere Personen teilgenommen haben</item>
+	</plurals>
 	<string name="own_poll_ended">Ihre Umfrage ist beendet</string>
+	<string name="user_just_posted">%s hat gerade gepostet</string>
+	<string name="user_edited_post">%s hat einen Beitrag bearbeitet, mit dem du interagiert hast</string>
+	<string name="relationship_severance_account_suspension">Ein Admin von %1$s hat %2$s gesperrt. Du wirst von diesem Profil keine Updates mehr erhalten und auch nicht mit ihm interagieren können.</string>
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_domain_block">Ein Admin von %1$s hat %2$s blockiert – darunter %3$,d deiner Follower und %4$s Konten, denen du folgst.</string>
+	<plurals name="x_accounts">
+		<item quantity="one">%,d Konto</item>
+		<item quantity="other">%,d Konten</item>
+	</plurals>
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_user_domain_block">Du hast %1$s blockiert. %2$,d deiner Follower und %3$s Konten, denen du folgst, wurden entfernt.</string>
+	<string name="relationship_severance_learn_more">Mehr erfahren</string>
+	<string name="moderation_warning_action_none">Dein Konto ist von den Moderator*innen verwarnt worden.</string>
+	<string name="moderation_warning_action_disable">Dein Konto wurde eingeschränkt.</string>
+	<string name="moderation_warning_action_mark_statuses_as_sensitive">Einige deiner Beiträge wurden mit einer Inhaltswarnung versehen.</string>
+	<string name="moderation_warning_action_delete_statuses">Einige deiner Beiträge sind entfernt worden.</string>
+	<string name="moderation_warning_action_sensitive">Deine zukünftigen Beiträge werden mit einer Inhaltswarnung versehen.</string>
+	<string name="moderation_warning_action_silence">Dein Konto wurde eingeschränkt.</string>
+	<string name="moderation_warning_action_suspend">Dein Konto wurde gesperrt.</string>
+	<string name="moderation_warning_learn_more">Mehr erfahren</string>
 </resources>
