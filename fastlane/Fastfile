@@ -28,7 +28,7 @@ platform :android do
       build_type: "release",
     )
     upload_to_play_store(
-      changes_not_sent_for_review: true,
+      release_status: "draft",
       skip_upload_images: true,
       skip_upload_screenshots: true
     )
