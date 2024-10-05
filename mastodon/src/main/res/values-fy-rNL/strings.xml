@@ -13,6 +13,8 @@
 	<string name="notifications">Meldingen</string>
 	<string name="user_followed_you">%s folget jo no</string>
 	<string name="user_sent_follow_request">%s wol jo graach folgje</string>
+	<string name="user_favorited">%s markearre as favoryt:</string>
+	<string name="notification_boosted">%s boostte:</string>
 	<string name="share_toot_title">Diele</string>
 	<string name="settings">Ynstellingen</string>
 	<string name="publish">Publisearje</string>
@@ -382,6 +384,12 @@
 	<string name="alt_text">Alternative tekst</string>
 	<string name="help">Help</string>
 	<string name="what_is_alt_text">Wat is alternative tekst?</string>
+	<string name="alt_text_help">Alt-tekst biedt ôfbyldingsbeskriuwingen foar minsken mei in fisuele beheining en ferbiningen mei in lege bânbreedte of foar minsken dy’t nei ekstra kontekst sykje.\n\nJo kinne de tagonklikheid en de begryplikheid foar elkenien ferbetterje troch dúdlik, koart en objektyf te skriuwen.\n\n<ul><li>Beskriuw wichtige eleminten</li>\n<li>Fetsje tekst yn ôfbyldingen gear</li>\n<li>Brûk in normale sinsbou</li>\n<li>Mij oertallige ynformaasje</li>\n<li>Fokusje op trends en wichtige befiningen yn komplekse bylden (lykas diagrammen of kaarten)</li></ul> \n</string>
+	<string name="edit_post">Berjocht bewurkje</string>
+	<string name="no_verified_link">Gjin ferifiearre keppeling</string>
+	<string name="compose_autocomplete_emoji_empty">Emoji trochsykje</string>
+	<string name="compose_autocomplete_users_empty">Fyn wa’t jo sykje</string>
+	<string name="no_search_results">Dizze syktermen leverje gjin resultaat op</string>
 	<string name="language">Taal</string>
 	<string name="language_default">Standert</string>
 	<string name="language_system">Systeem</string>
@@ -391,21 +399,78 @@
 	<string name="media_hidden">Media ferstoppe</string>
 	<string name="post_hidden">Berjocht ferstoppe</string>
 	<string name="report_title_post">Berjocht rapportearje</string>
+	<string name="forward_report_explanation">De account stiet op in oare server. Wolle jo dêr ek in anonimisearre kopy fan dit rapport nei ta stjoere?</string>
 	<!-- %s is the server domain -->
 	<string name="forward_report_to_server">Nei %s trochstjoere</string>
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
 	<string name="reported">Rapportearre</string>
+	<string name="report_unfollow_explanation">As jo harren berjochten net mear op jo starttiidline sjen wolle, moatte jo dizze persoan net mear folgje.</string>
 	<string name="muted_user">%s negearje</string>
+	<string name="report_sent_already_blocked">Jo hawwe dizze brûker al blokkearre, dus jo hoege neat mear te dwaan wylst wy jo rapport beoardiele.</string>
+	<string name="report_personal_already_blocked">Jo hawwe dizze brûker al blokkearre, dus der is neat oars dat jo hoege te dwaan.\n\nTank foar jo help om Mastodon foar elkenien feilich te hâlden!</string>
 	<string name="blocked_user">%s blokkearre</string>
 	<string name="mark_all_notifications_read">Alles as lêzen markearje</string>
 	<string name="settings_display">Werjefte</string>
 	<string name="settings_filters">Filters</string>
+	<string name="settings_server_explanation">Oersjoch, rigels, moderators</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">Oer %s</string>
 	<string name="default_post_language">Standert taal foar berjochten</string>
+	<string name="settings_alt_text_reminders">Alt-tekst-omtinken tafoegje</string>
+	<string name="settings_confirm_unfollow">Eardat jo ien ûntfolgje om befêstiging freegje</string>
+	<string name="settings_confirm_boost">Eardat jo in berjocht booste om befêstiging freegje</string>
+	<string name="settings_confirm_delete_post">Eardat jo in berjocht fuortsmite om befêstiging freegje</string>
+	<string name="pause_all_notifications">Alles pauzearje</string>
+	<string name="pause_notifications_off">Ut</string>
+	<string name="notifications_policy_anyone">Elkenien</string>
+	<string name="notifications_policy_followed">Minsken dy’t jo folgje</string>
+	<string name="notifications_policy_follower">Minsken dy’t josels folgje</string>
+	<string name="notifications_policy_no_one">Net ien</string>
+	<string name="settings_notifications_policy">Meldingen ûntfange fan</string>
+	<string name="notification_type_mentions_and_replies">Fermeldingen en reaksjes</string>
+	<string name="pause_all_notifications_title">Alle meldingen pauzearje</string>
+	<plurals name="x_weeks">
+		<item quantity="one">%d wike</item>
+		<item quantity="other">%d wiken</item>
+	</plurals>
 	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
+	<string name="date_at_time">%1$s om %2$s</string>
+	<string name="today">hjoed</string>
+	<string name="yesterday">juster</string>
+	<string name="tomorrow">moarn</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="pause_notifications_ends">Einiget om %s</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="pause_notifications_banner">Meldingen wurde om %s ferfette.</string>
+	<string name="resume_notifications_now">No ferfetsje</string>
+	<string name="open_system_notification_settings">Gean nei meldingsynstellingen</string>
+	<string name="about_server">Oer</string>
+	<string name="server_rules">Regels</string>
+	<string name="server_administrator">Behearder</string>
+	<string name="send_email_to_server_admin">Berjocht oan behearder</string>
+	<string name="notifications_disabled_in_system">Meldingen yn jo apparaatynstellingen ynskeakelje om oeral fernijingen sjen te kinnen.</string>
+	<string name="settings_even_more">Noch mear ynstellingen</string>
+	<string name="settings_show_cws">Ynhâldswarskôgingen toane</string>
+	<string name="settings_hide_sensitive_media">As gefoelich markearre media ferstopje</string>
+	<string name="settings_show_interaction_counts">Oantal berjochtynteraksjes</string>
+	<string name="settings_show_emoji_in_names">Oanpaste emoji yn werjeftenammen</string>
+	<plurals name="in_x_seconds">
+		<item quantity="one">yn %d sekonde</item>
+		<item quantity="other">yn %d sekonden</item>
+	</plurals>
+	<plurals name="in_x_minutes">
+		<item quantity="one">yn %d minút</item>
+		<item quantity="other">yn %d minuten</item>
+	</plurals>
+	<plurals name="in_x_hours">
+		<item quantity="one">yn %d oere</item>
+		<item quantity="other">yn %d oeren</item>
+	</plurals>
+	<plurals name="x_hours_ago">
+		<item quantity="one">%d oere lyn</item>
+		<item quantity="other">%d oeren lyn</item>
+	</plurals>
+	<string name="alt_text_reminder_title">Media sûnder alt-tekst</string>
 	<string name="count_one">Ien</string>
 	<string name="count_two">Twa</string>
 	<string name="count_three">Trije</string>
