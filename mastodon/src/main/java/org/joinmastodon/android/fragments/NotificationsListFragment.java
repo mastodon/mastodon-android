@@ -241,7 +241,7 @@ public class NotificationsListFragment extends BaseNotificationsListFragment{
 	public boolean onOptionsItemSelected(MenuItem item){
 		int id=item.getItemId();
 		if(id==R.id.mark_all_read){
-			markAsRead();
+			markAsRead(true);
 			resetUnreadBackground();
 		}else if(id==R.id.filters){
 			showFiltersAlert();
@@ -257,11 +257,11 @@ public class NotificationsListFragment extends BaseNotificationsListFragment{
 		return mergeAdapter;
 	}
 
-	private void markAsRead(){
+	private void markAsRead(boolean force){
 		if(data.isEmpty())
 			return;
 		String id=data.get(0).notification.pageMaxId;
-		if(ObjectIdComparator.INSTANCE.compare(id, realUnreadMarker)>0){
+		if(force || ObjectIdComparator.INSTANCE.compare(id, realUnreadMarker)>0){
 			new SaveMarkers(null, id).exec(accountID);
 			AccountSessionManager.get(accountID).setNotificationsMarker(id, true);
 			realUnreadMarker=id;
@@ -290,7 +290,7 @@ public class NotificationsListFragment extends BaseNotificationsListFragment{
 			return;
 		for(NotificationViewModel n:items){
 			if(ObjectIdComparator.INSTANCE.compare(n.notification.pageMinId, realUnreadMarker)<=0){
-				markAsRead();
+				markAsRead(false);
 				break;
 			}
 		}
