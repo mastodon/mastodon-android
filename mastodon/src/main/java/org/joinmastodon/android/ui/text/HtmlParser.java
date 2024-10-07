@@ -1,11 +1,14 @@
 package org.joinmastodon.android.ui.text;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.style.BackgroundColorSpan;
 import android.text.style.ForegroundColorSpan;
+import android.text.style.StrikethroughSpan;
+import android.text.style.StyleSpan;
 import android.widget.TextView;
 
 import com.twitter.twittertext.Regex;
@@ -131,6 +134,9 @@ public class HtmlParser{
 								openSpans.add(new SpanInfo(new InvisibleSpan(), ssb.length(), el));
 							}
 						}
+						case "b", "strong" -> openSpans.add(new SpanInfo(new StyleSpan(Typeface.BOLD), ssb.length(), el));
+						case "i", "em" -> openSpans.add(new SpanInfo(new StyleSpan(Typeface.ITALIC), ssb.length(), el));
+						case "s", "del" -> openSpans.add(new SpanInfo(new StrikethroughSpan(), ssb.length(), el));
 					}
 				}
 			}
