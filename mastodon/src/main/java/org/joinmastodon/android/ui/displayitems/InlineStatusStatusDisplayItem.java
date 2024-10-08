@@ -39,7 +39,7 @@ public class InlineStatusStatusDisplayItem extends StatusDisplayItem{
 		if(AccountSessionManager.get(parentFragment.getAccountID()).getLocalPreferences().customEmojiInNames)
 			HtmlParser.parseCustomEmoji(parsedName, status.account.emojis);
 
-		parsedPostText=HtmlParser.parse(status.content, status.emojis, status.mentions, status.tags, parentFragment.getAccountID(), status.getContentStatus());
+		parsedPostText=HtmlParser.parse(status.content, status.emojis, status.mentions, status.tags, parentFragment.getAccountID(), status.getContentStatus(), parentFragment.getActivity());
 		for(Object span:parsedPostText.getSpans(0, parsedPostText.length(), Object.class)){
 			if(!(span instanceof CustomEmojiSpan))
 				parsedPostText.removeSpan(span);

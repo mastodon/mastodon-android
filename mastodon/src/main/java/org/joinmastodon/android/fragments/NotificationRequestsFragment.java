@@ -80,7 +80,7 @@ public class NotificationRequestsFragment extends MastodonRecyclerFragment<Notif
 							accountViewModels.clear();
 						maxID=result.getNextPageMaxID();
 						for(NotificationRequest req:result){
-							accountViewModels.put(req.account.id, new AccountViewModel(req.account, accountID, false));
+							accountViewModels.put(req.account.id, new AccountViewModel(req.account, accountID, false, getActivity()));
 						}
 						onDataLoaded(result, !TextUtils.isEmpty(maxID));
 						endMark.setVisibility(TextUtils.isEmpty(maxID) ? View.VISIBLE : View.GONE);

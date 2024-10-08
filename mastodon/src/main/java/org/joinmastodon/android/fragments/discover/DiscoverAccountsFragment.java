@@ -31,7 +31,7 @@ public class DiscoverAccountsFragment extends BaseAccountListFragment implements
 				.setCallback(new SimpleCallback<>(this){
 					@Override
 					public void onSuccess(List<FollowSuggestion> result){
-						List<AccountViewModel> accounts=result.stream().map(fs->new AccountViewModel(fs.account, accountID)).collect(Collectors.toList());
+						List<AccountViewModel> accounts=result.stream().map(fs->new AccountViewModel(fs.account, accountID, getActivity())).collect(Collectors.toList());
 						onDataLoaded(accounts, false);
 						bannerHelper.onBannerBecameVisible();
 					}

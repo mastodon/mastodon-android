@@ -128,7 +128,7 @@ public class SettingsServerAboutFragment extends LoaderFragment{
 			hlp.leftMargin=hlp.rightMargin=V.dp(16);
 			scrollingLayout.addView(heading, hlp);
 
-			AccountViewModel model=new AccountViewModel(instance.getContactAccount(), accountID);
+			AccountViewModel model=new AccountViewModel(instance.getContactAccount(), accountID, getActivity());
 			AccountViewHolder holder=new AccountViewHolder(this, scrollingLayout, null);
 			holder.setStyle(AccountViewHolder.AccessoryType.NONE, false);
 			holder.bind(model);

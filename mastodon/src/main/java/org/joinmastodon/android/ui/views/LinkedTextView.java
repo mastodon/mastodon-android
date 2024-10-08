@@ -4,6 +4,10 @@ import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.CornerPathEffect;
+import android.graphics.Paint;
+import android.graphics.Path;
+import android.text.Layout;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.util.AttributeSet;
@@ -14,14 +18,22 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.widget.TextView;
 
+import org.joinmastodon.android.R;
 import org.joinmastodon.android.ui.text.ClickableLinksDelegate;
+import org.joinmastodon.android.ui.text.CodeBlockSpan;
 import org.joinmastodon.android.ui.text.DeleteWhenCopiedSpan;
+import org.joinmastodon.android.ui.text.MonospaceSpan;
+import org.joinmastodon.android.ui.utils.UiUtils;
+
+import me.grishka.appkit.utils.V;
 
 public class LinkedTextView extends TextView{
 
 	private ClickableLinksDelegate delegate=new ClickableLinksDelegate(this);
 	private boolean needInvalidate;
 	private ActionMode currentActionMode;
+	private Paint bgPaint=new Paint(Paint.ANTI_ALIAS_FLAG);
+	private Path tmpPath=new Path();
 
 	public LinkedTextView(Context context){
 		this(context, null);
@@ -56,6 +68,9 @@ public class LinkedTextView extends TextView{
 				currentActionMode=null;
 			}
 		});
+		bgPaint.setColor(UiUtils.getThemeColor(context, R.attr.colorM3TertiaryContainer));
+		bgPaint.setAlpha(20);
+		bgPaint.setPathEffect(new CornerPathEffect(V.dp(2)));
 	}
 
 	public boolean onTouchEvent(MotionEvent ev){
@@ -64,6 +79,22 @@ public class LinkedTextView extends TextView{
 	}
 
 	public void onDraw(Canvas c){
+		if(getText() instanceof Spanned spanned){
+			c.save();
+			c.translate(getTotalPaddingLeft(), getTotalPaddingTop());
+			Layout layout=getLayout();
+			MonospaceSpan[] monospaceSpans=spanned.getSpans(0, spanned.length(), MonospaceSpan.class);
+			for(MonospaceSpan span:monospaceSpans){
+				layout.getSelectionPath(spanned.getSpanStart(span), spanned.getSpanEnd(span), tmpPath);
+				c.drawPath(tmpPath, bgPaint);
+			}
+			CodeBlockSpan[] blockSpans=spanned.getSpans(0, spanned.length(), CodeBlockSpan.class);
+			for(CodeBlockSpan span:blockSpans){
+				c.drawRoundRect(V.dp(-4), layout.getLineTop(layout.getLineForOffset(spanned.getSpanStart(span)))-V.dp(8), layout.getWidth()+V.dp(4),
+						layout.getLineBottom(layout.getLineForOffset(spanned.getSpanEnd(span)))+V.dp(4), V.dp(2), V.dp(2), bgPaint);
+			}
+			c.restore();
+		}
 		super.onDraw(c);
 		delegate.onDraw(c);
 		if(needInvalidate)

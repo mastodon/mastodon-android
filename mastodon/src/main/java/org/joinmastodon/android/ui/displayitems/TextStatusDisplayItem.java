@@ -58,7 +58,7 @@ public class TextStatusDisplayItem extends StatusDisplayItem{
 
 	public void setTranslatedText(String text){
 		Status statusForContent=status.getContentStatus();
-		translatedText=HtmlParser.parse(text, statusForContent.emojis, statusForContent.mentions, statusForContent.tags, parentFragment.getAccountID(), statusForContent);
+		translatedText=HtmlParser.parse(text, statusForContent.emojis, statusForContent.mentions, statusForContent.tags, parentFragment.getAccountID(), statusForContent, parentFragment.getActivity());
 		translationEmojiHelper.setText(translatedText);
 	}
 

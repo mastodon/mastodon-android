@@ -44,7 +44,7 @@ public class AddNewListMembersFragment extends AccountSearchFragment{
 						@Override
 						public void onSuccess(HeaderPaginationList<Account> result){
 							setEmptyText("");
-							onDataLoaded(result.stream().map(a->new AccountViewModel(a, accountID)).collect(Collectors.toList()), result.nextPageUri!=null);
+							onDataLoaded(result.stream().map(a->new AccountViewModel(a, accountID, getActivity())).collect(Collectors.toList()), result.nextPageUri!=null);
 							maxID=result.getNextPageMaxID();
 						}
 					})

@@ -580,7 +580,7 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop{
 			domain=AccountSessionManager.get(accountID).domain;
 		usernameDomain.setText(domain);
 
-		CharSequence parsedBio=HtmlParser.parse(account.note, account.emojis, Collections.emptyList(), Collections.emptyList(), accountID, account);
+		CharSequence parsedBio=HtmlParser.parse(account.note, account.emojis, Collections.emptyList(), Collections.emptyList(), accountID, account, getActivity());
 		if(TextUtils.isEmpty(parsedBio)){
 			bio.setVisibility(View.GONE);
 		}else{
@@ -615,7 +615,7 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop{
 		fields.add(joined);
 
 		for(AccountField field:account.fields){
-			field.parsedValue=ssb=HtmlParser.parse(field.value, account.emojis, Collections.emptyList(), Collections.emptyList(), accountID, account);
+			field.parsedValue=ssb=HtmlParser.parse(field.value, account.emojis, Collections.emptyList(), Collections.emptyList(), accountID, account, getActivity());
 			field.valueEmojis=ssb.getSpans(0, ssb.length(), CustomEmojiSpan.class);
 			ssb=new SpannableStringBuilder(field.name);
 			HtmlParser.parseCustomEmoji(ssb, account.emojis);

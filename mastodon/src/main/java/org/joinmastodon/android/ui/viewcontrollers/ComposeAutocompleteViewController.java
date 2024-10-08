@@ -244,7 +244,7 @@ public class ComposeAutocompleteViewController{
 						if(mode!=Mode.USERS)
 							return;
 						List<AccountViewModel> oldList=users;
-						users=result.accounts.stream().map(a->new AccountViewModel(a, accountID)).collect(Collectors.toList());
+						users=result.accounts.stream().map(a->new AccountViewModel(a, accountID, activity)).collect(Collectors.toList());
 						if(isLoading){
 							isLoading=false;
 							if(users.size()>=LOADING_FAKE_USER_COUNT){

@@ -1,5 +1,6 @@
 package org.joinmastodon.android.model.viewmodel;
 
+import android.content.Context;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 
@@ -24,11 +25,11 @@ public class AccountViewModel{
 	public final CharSequence parsedName, parsedBio;
 	public final String verifiedLink;
 
-	public AccountViewModel(Account account, String accountID){
-		this(account, accountID, true);
+	public AccountViewModel(Account account, String accountID, Context context){
+		this(account, accountID, true, context);
 	}
 
-	public AccountViewModel(Account account, String accountID, boolean needBio){
+	public AccountViewModel(Account account, String accountID, boolean needBio, Context context){
 		this.account=account;
 		avaRequest=new UrlImageLoaderRequest(GlobalUserPreferences.playGifs ? account.avatar : account.avatarStatic, V.dp(50), V.dp(50));
 		emojiHelper=new CustomEmojiHelper();
@@ -38,7 +39,7 @@ public class AccountViewModel{
 			parsedName=account.displayName;
 		SpannableStringBuilder ssb=new SpannableStringBuilder(parsedName);
 		if(needBio){
-			parsedBio=HtmlParser.parse(account.note, account.emojis, Collections.emptyList(), Collections.emptyList(), accountID, account);
+			parsedBio=HtmlParser.parse(account.note, account.emojis, Collections.emptyList(), Collections.emptyList(), accountID, account, context);
 			ssb.append(parsedBio);
 		}else{
 			parsedBio=null;

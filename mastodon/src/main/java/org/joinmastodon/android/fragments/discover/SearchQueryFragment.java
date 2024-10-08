@@ -109,7 +109,7 @@ public class SearchQueryFragment extends MastodonRecyclerFragment<SearchResultVi
 					return;
 
 				onDataLoaded(results.stream().map(sr->{
-					SearchResultViewModel vm=new SearchResultViewModel(sr, accountID, true);
+					SearchResultViewModel vm=new SearchResultViewModel(sr, accountID, true, getActivity());
 					if(sr.type==SearchResult.Type.HASHTAG){
 						vm.hashtagItem.setOnClick(i->openHashtag(sr));
 					}
@@ -126,7 +126,7 @@ public class SearchQueryFragment extends MastodonRecyclerFragment<SearchResultVi
 							onDataLoaded(Stream.of(result.hashtags.stream().map(SearchResult::new), result.accounts.stream().map(SearchResult::new))
 									.flatMap(Function.identity())
 									.map(sr->{
-										SearchResultViewModel vm=new SearchResultViewModel(sr, accountID, false);
+										SearchResultViewModel vm=new SearchResultViewModel(sr, accountID, false, getActivity());
 										if(sr.type==SearchResult.Type.HASHTAG){
 											vm.hashtagItem.setOnClick(i->openHashtag(sr));
 										}

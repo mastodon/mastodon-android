@@ -84,7 +84,7 @@ public class CreateListAddMembersFragment extends BaseAccountListFragment implem
 					public void onSuccess(HeaderPaginationList<Account> result){
 						for(Account acc:result)
 							accountIDsInList.add(acc.id);
-						onDataLoaded(result.stream().map(a->new AccountViewModel(a, accountID)).collect(Collectors.toList()));
+						onDataLoaded(result.stream().map(a->new AccountViewModel(a, accountID, getActivity())).collect(Collectors.toList()));
 					}
 				})
 				.exec(accountID);

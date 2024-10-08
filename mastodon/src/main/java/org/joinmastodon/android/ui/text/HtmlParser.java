@@ -37,6 +37,7 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 import androidx.annotation.NonNull;
+import me.grishka.appkit.utils.V;
 
 public class HtmlParser{
 	private static final String TAG="HtmlParser";
@@ -72,7 +73,7 @@ public class HtmlParser{
 	 * @param emojis Custom emojis that are present in source as <code>:code:</code>
 	 * @return a spanned string
 	 */
-	public static SpannableStringBuilder parse(String source, List<Emoji> emojis, List<Mention> mentions, List<Hashtag> tags, String accountID, Object parentObject){
+	public static SpannableStringBuilder parse(String source, List<Emoji> emojis, List<Mention> mentions, List<Hashtag> tags, String accountID, Object parentObject, Context context){
 		class SpanInfo{
 			public Object span;
 			public int start;
@@ -95,10 +96,18 @@ public class HtmlParser{
 		Jsoup.parseBodyFragment(source).body().traverse(new NodeVisitor(){
 			private final ArrayList<SpanInfo> openSpans=new ArrayList<>();
 
+			private boolean isInsidePre(){
+				for(SpanInfo si:openSpans){
+					if(si.span instanceof CodeBlockSpan)
+						return true;
+				}
+				return false;
+			}
+
 			@Override
 			public void head(@NonNull Node node, int depth){
 				if(node instanceof TextNode textNode){
-					ssb.append(textNode.text());
+					ssb.append(isInsidePre() ? textNode.getWholeText().stripTrailing() : textNode.text());
 				}else if(node instanceof Element el){
 					switch(el.nodeName()){
 						case "a" -> {
@@ -137,6 +146,15 @@ public class HtmlParser{
 						case "b", "strong" -> openSpans.add(new SpanInfo(new StyleSpan(Typeface.BOLD), ssb.length(), el));
 						case "i", "em" -> openSpans.add(new SpanInfo(new StyleSpan(Typeface.ITALIC), ssb.length(), el));
 						case "s", "del" -> openSpans.add(new SpanInfo(new StrikethroughSpan(), ssb.length(), el));
+						case "code" -> {
+							if(!isInsidePre()){
+								openSpans.add(new SpanInfo(new MonospaceSpan(context), ssb.length(), el));
+								ssb.append(" ", new SpacerSpan(V.dp(4), 1), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+							}
+						}
+						case "pre" -> {
+							openSpans.add(new SpanInfo(new CodeBlockSpan(context), ssb.length(), el));
+						}
 					}
 				}
 			}
@@ -152,6 +170,9 @@ public class HtmlParser{
 					}else if(!openSpans.isEmpty()){
 						SpanInfo si=openSpans.get(openSpans.size()-1);
 						if(si.element==el){
+							if(si.span instanceof MonospaceSpan){
+								ssb.append(" ", new SpacerSpan(V.dp(4), 1), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+							}
 							ssb.setSpan(si.span, si.start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 							openSpans.remove(openSpans.size()-1);
 						}

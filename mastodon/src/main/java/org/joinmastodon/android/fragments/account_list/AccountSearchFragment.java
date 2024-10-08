@@ -61,7 +61,7 @@ public class AccountSearchFragment extends BaseAccountListFragment{
 
 	protected void onSuccess(List<Account> result){
 		setEmptyText(R.string.no_search_results);
-		onDataLoaded(result.stream().map(a->new AccountViewModel(a, accountID)).collect(Collectors.toList()), false);
+		onDataLoaded(result.stream().map(a->new AccountViewModel(a, accountID, getActivity())).collect(Collectors.toList()), false);
 	}
 
 	protected String getSearchViewPlaceholder(){

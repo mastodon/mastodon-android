@@ -190,7 +190,7 @@ public class ListMembersFragment extends PaginatedAccountListFragment implements
 	@Subscribe
 	public void onAccountAddedToList(AccountAddedToListEvent ev){
 		if(ev.accountID.equals(accountID) && ev.listID.equals(followList.id)){
-			data.add(new AccountViewModel(ev.account, accountID));
+			data.add(new AccountViewModel(ev.account, accountID, getActivity()));
 			list.getAdapter().notifyItemInserted(data.size()-1);
 		}
 	}
@@ -337,7 +337,7 @@ public class ListMembersFragment extends PaginatedAccountListFragment implements
 							onDone.run();
 						for(Account acc:accounts){
 							accountIDsInList.add(acc.id);
-							data.add(new AccountViewModel(acc, accountID));
+							data.add(new AccountViewModel(acc, accountID, getActivity()));
 						}
 						list.getAdapter().notifyItemRangeInserted(data.size()-accounts.size(), accounts.size());
 					}
