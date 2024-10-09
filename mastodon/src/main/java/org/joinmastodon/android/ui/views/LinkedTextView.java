@@ -68,8 +68,7 @@ public class LinkedTextView extends TextView{
 				currentActionMode=null;
 			}
 		});
-		bgPaint.setColor(UiUtils.getThemeColor(context, R.attr.colorM3TertiaryContainer));
-		bgPaint.setAlpha(20);
+		bgPaint.setColor(UiUtils.getThemeColor(context, R.attr.colorRichTextContainer));
 		bgPaint.setPathEffect(new CornerPathEffect(V.dp(2)));
 	}
 

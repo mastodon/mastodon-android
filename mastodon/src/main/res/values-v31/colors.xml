@@ -45,4 +45,11 @@
 	<color name="m3_sys_dark_on_surface_variant">@android:color/system_neutral2_200</color>
 	<color name="m3_sys_dark_outline">@android:color/system_neutral2_400</color>
 	<color name="m3_sys_dark_outline_variant">@android:color/system_neutral2_700</color>
+
+	<color name="ext_rich_text_text_light">@android:color/system_accent3_700</color>
+	<color name="ext_rich_text_container_light">@android:color/system_accent3_100</color>
+	<color name="ext_rich_text_decoration_light">@android:color/system_accent3_200</color>
+	<color name="ext_rich_text_text_dark">@android:color/system_accent3_200</color>
+	<color name="ext_rich_text_container_dark">@android:color/system_accent3_800</color>
+	<color name="ext_rich_text_decoration_dark">#0f0</color> <!-- it's "tertiary 35" but oh well -->
 </resources>

@@ -58,6 +58,9 @@
 		<item name="colorWhite">#FFF</item>
 		<item name="colorFavorite">@color/ext_favorite_light</item>
 		<item name="colorBoost">@color/ext_boost_light</item>
+		<item name="colorRichTextText">@color/ext_rich_text_text_light</item>
+		<item name="colorRichTextContainer">@color/ext_rich_text_container_light</item>
+		<item name="colorRichTextDecorations">@color/ext_rich_text_decoration_light</item>
 
 		<item name="android:statusBarColor">?colorM3Background</item>
 		<item name="android:navigationBarColor">@color/navigation_bar_bg_light</item>
@@ -126,6 +129,9 @@
 		<item name="colorWhite">#000</item>
 		<item name="colorFavorite">@color/ext_favorite_dark</item>
 		<item name="colorBoost">@color/ext_boost_dark</item>
+		<item name="colorRichTextText">@color/ext_rich_text_text_dark</item>
+		<item name="colorRichTextContainer">@color/ext_rich_text_container_dark</item>
+		<item name="colorRichTextDecorations">@color/ext_rich_text_decoration_dark</item>
 
 		<item name="android:statusBarColor">?colorM3Background</item>
 		<item name="android:navigationBarColor">?colorM3Background</item>

@@ -21,7 +21,7 @@ public abstract class BaseMonospaceSpan extends TypefaceSpan{
 	@Override
 	public void updateDrawState(@NonNull TextPaint paint){
 		super.updateDrawState(paint);
-		paint.setColor(UiUtils.getThemeColor(context, R.attr.colorM3Tertiary));
+		paint.setColor(UiUtils.getThemeColor(context, R.attr.colorRichTextText));
 		paint.setTextSize(paint.getTextSize()*0.9375f);
 		paint.baselineShift=V.dp(-1);
 	}

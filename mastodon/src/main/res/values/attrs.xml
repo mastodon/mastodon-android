@@ -33,6 +33,9 @@
 	<attr name="colorWhite" format="color"/>
 	<attr name="colorFavorite" format="color" />
 	<attr name="colorBoost" format="color" />
+	<attr name="colorRichTextText" format="color"/>
+	<attr name="colorRichTextContainer" format="color"/>
+	<attr name="colorRichTextDecorations" format="color"/>
 
 	<declare-styleable name="MaxWidthFrameLayout">
 		<attr name="android:maxWidth" format="dimension"/>
