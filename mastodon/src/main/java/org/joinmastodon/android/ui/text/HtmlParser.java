@@ -1,5 +1,6 @@
 package org.joinmastodon.android.ui.text;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Typeface;
 import android.text.SpannableStringBuilder;
@@ -104,10 +105,18 @@ public class HtmlParser{
 				return false;
 			}
 
+			@SuppressLint("DefaultLocale")
 			@Override
 			public void head(@NonNull Node node, int depth){
 				if(node instanceof TextNode textNode){
-					ssb.append(isInsidePre() ? textNode.getWholeText().stripTrailing() : textNode.text());
+					if(isInsidePre()){
+						ssb.append(textNode.getWholeText().stripTrailing());
+					}else{
+						String text=textNode.text();
+						if(ssb.length()==0 || ssb.charAt(ssb.length()-1)=='\n')
+							text=text.stripLeading();
+						ssb.append(text);
+					}
 				}else if(node instanceof Element el){
 					switch(el.nodeName()){
 						case "a" -> {
@@ -152,8 +161,29 @@ public class HtmlParser{
 								ssb.append(" ", new SpacerSpan(V.dp(4), 1), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 							}
 						}
-						case "pre" -> {
-							openSpans.add(new SpanInfo(new CodeBlockSpan(context), ssb.length(), el));
+						case "pre" -> openSpans.add(new SpanInfo(new CodeBlockSpan(context), ssb.length(), el));
+						case "li" -> {
+							Element parent=el.parent();
+							if(parent==null)
+								return;
+
+							if(ssb.length()>0 && ssb.charAt(ssb.length()-1)!='\n')
+								ssb.append('\n');
+							String markerText;
+							if("ol".equals(parent.nodeName())){
+								markerText=String.format("%d.", (parent.hasAttr("start") ? safeParseInt(parent.attr("start")) : 1)+el.elementSiblingIndex());
+							}else{
+								markerText="•";
+							}
+							openSpans.add(new SpanInfo(new ListItemMarkerSpan(markerText), ssb.length(), el));
+							StringBuilder copyableText=new StringBuilder();
+							for(SpanInfo si:openSpans){
+								if(si.span instanceof ListItemMarkerSpan ims){
+									copyableText.append(ims.text);
+								}
+							}
+							copyableText.append(' ');
+							ssb.append(copyableText.toString(), new InvisibleSpan(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 						}
 					}
 				}
@@ -162,18 +192,25 @@ public class HtmlParser{
 			@Override
 			public void tail(@NonNull Node node, int depth){
 				if(node instanceof Element el){
-					if("span".equals(el.nodeName()) && el.hasClass("ellipsis")){
+					String name=el.nodeName();
+					if("span".equals(name) && el.hasClass("ellipsis")){
 						ssb.append("…", new DeleteWhenCopiedSpan(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-					}else if("p".equals(el.nodeName())){
+					}else if("p".equals(name) || ("ol".equals(name) || "ul".equals(name))){
 						if(node.nextSibling()!=null)
 							ssb.append("\n\n");
-					}else if(!openSpans.isEmpty()){
+					}else if("pre".equals(name)){
+						if(node.nextSibling()!=null)
+							ssb.append("\n");
+					}
+					if(!openSpans.isEmpty()){
 						SpanInfo si=openSpans.get(openSpans.size()-1);
 						if(si.element==el){
-							if(si.span instanceof MonospaceSpan){
-								ssb.append(" ", new SpacerSpan(V.dp(4), 1), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+							if(si.span!=null){
+								if(si.span instanceof MonospaceSpan){
+									ssb.append(" ", new SpacerSpan(V.dp(4), 1), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+								}
+								ssb.setSpan(si.span, si.start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 							}
-							ssb.setSpan(si.span, si.start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 							openSpans.remove(openSpans.size()-1);
 						}
 					}
@@ -183,6 +220,14 @@ public class HtmlParser{
 		if(!emojis.isEmpty())
 			parseCustomEmoji(ssb, emojis);
 		return ssb;
+	}
+
+	private static int safeParseInt(String s){
+		try{
+			return Integer.parseInt(s);
+		}catch(NumberFormatException x){
+			return 0;
+		}
 	}
 
 	public static void parseCustomEmoji(SpannableStringBuilder ssb, List<Emoji> emojis){
