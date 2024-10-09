@@ -8,6 +8,8 @@ import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.style.BackgroundColorSpan;
 import android.text.style.ForegroundColorSpan;
+import android.text.style.LineHeightSpan;
+import android.text.style.RelativeSizeSpan;
 import android.text.style.StrikethroughSpan;
 import android.text.style.StyleSpan;
 import android.widget.TextView;
@@ -105,6 +107,14 @@ public class HtmlParser{
 				return false;
 			}
 
+			private boolean isInsideBlockquote(){
+				for(SpanInfo si:openSpans){
+					if(si.span instanceof BlockQuoteSpan)
+						return true;
+				}
+				return false;
+			}
+
 			@SuppressLint("DefaultLocale")
 			@Override
 			public void head(@NonNull Node node, int depth){
@@ -158,7 +168,7 @@ public class HtmlParser{
 						case "code" -> {
 							if(!isInsidePre()){
 								openSpans.add(new SpanInfo(new MonospaceSpan(context), ssb.length(), el));
-								ssb.append(" ", new SpacerSpan(V.dp(4), 1), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+								ssb.append(" ", new SpacerSpan(V.dp(4), 0), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 							}
 						}
 						case "pre" -> openSpans.add(new SpanInfo(new CodeBlockSpan(context), ssb.length(), el));
@@ -185,6 +195,11 @@ public class HtmlParser{
 							copyableText.append(' ');
 							ssb.append(copyableText.toString(), new InvisibleSpan(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 						}
+						case "blockquote" -> {
+							if(ssb.length()>0 && ssb.charAt(ssb.length()-1)!='\n')
+								ssb.append('\n');
+							openSpans.add(new SpanInfo(new BlockQuoteSpan(context, !isInsideBlockquote()), ssb.length(), el));
+						}
 					}
 				}
 			}
@@ -195,9 +210,11 @@ public class HtmlParser{
 					String name=el.nodeName();
 					if("span".equals(name) && el.hasClass("ellipsis")){
 						ssb.append("…", new DeleteWhenCopiedSpan(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-					}else if("p".equals(name) || ("ol".equals(name) || "ul".equals(name))){
-						if(node.nextSibling()!=null)
-							ssb.append("\n\n");
+					}else if("p".equals(name) || "ol".equals(name) || "ul".equals(name)){
+						if(node.nextSibling()!=null && "body".equals(node.parent().nodeName())){
+							ssb.append('\n');
+							ssb.append("\n", new SpacerSpan(1, V.dp(8)), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+						}
 					}else if("pre".equals(name)){
 						if(node.nextSibling()!=null)
 							ssb.append("\n");
@@ -207,7 +224,7 @@ public class HtmlParser{
 						if(si.element==el){
 							if(si.span!=null){
 								if(si.span instanceof MonospaceSpan){
-									ssb.append(" ", new SpacerSpan(V.dp(4), 1), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+									ssb.append(" ", new SpacerSpan(V.dp(4), 0), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 								}
 								ssb.setSpan(si.span, si.start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 							}

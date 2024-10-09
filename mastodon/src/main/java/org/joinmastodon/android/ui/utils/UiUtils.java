@@ -713,8 +713,8 @@ public class UiUtils{
 			item.setIcon(icon);
 			SpannableStringBuilder ssb=new SpannableStringBuilder(item.getTitle());
 			ssb.insert(0, " ");
-			ssb.setSpan(new SpacerSpan(V.dp(24), 1), 0, 1, 0);
-			ssb.append(" ", new SpacerSpan(V.dp(8), 1), 0);
+			ssb.setSpan(new SpacerSpan(V.dp(24), 0), 0, 1, 0);
+			ssb.append(" ", new SpacerSpan(V.dp(8), 0), 0);
 			item.setTitle(ssb);
 		}
 	}

@@ -17,7 +17,12 @@ public class SpacerSpan extends ReplacementSpan{
 
 	@Override
 	public int getSize(@NonNull Paint paint, CharSequence text, int start, int end, @Nullable Paint.FontMetricsInt fm){
-		// TODO height
+		if(fm!=null && height>0){
+			fm.ascent=-height;
+			fm.descent=0;
+			fm.top=fm.ascent;
+			fm.bottom=0;
+		}
 		return width;
 	}
 
