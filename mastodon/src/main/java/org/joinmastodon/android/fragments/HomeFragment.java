@@ -296,7 +296,7 @@ public class HomeFragment extends AppKitFragment{
 		if(instance==null)
 			return;
 		if(instance.getApiVersion()>=2){
-			new GetUnreadNotificationsCount()
+			new GetUnreadNotificationsCount(EnumSet.allOf(NotificationType.class), NotificationType.getGroupableTypes())
 					.setCallback(new Callback<>(){
 						@Override
 						public void onSuccess(GetUnreadNotificationsCount.Response result){
