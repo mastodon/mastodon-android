@@ -774,8 +774,14 @@ Zenbat eta jende gehiago jarraitu, orduan eta aktiboagoa eta interesgarriagoa iz
 		<item quantity="one">Erantsitako fitxategi %d</item>
 		<item quantity="other">%d erantsitako fitxategi</item>
 	</plurals>
+	<plurals name="poll_ended_x_voters">
+		<item quantity="one">%1$s erabiltzaileak inkesta bat egin zuen eta zuk eta beste erabiltzaile %2$,d bozkatu duzue</item>
+		<item quantity="other">%1$s erabiltzaileak inkesta bat egin zuen eta zuk eta beste %2$,d erabiltzailek bozkatu duzue</item>
+	</plurals>
 	<string name="own_poll_ended">Zure inkesta amaitu da</string>
 	<string name="user_just_posted">%s erabiltzaileak bidalketa egin berri du</string>
+	<string name="user_edited_post">%s(e)k interaktuatu zenuen argitalpen bat editatu du</string>
+	<string name="relationship_severance_account_suspension">%1$s zerbitzariko administratzaile batek %2$s bertan behera utzi du, hau da, ezin izango dituzu jaso hango eguneratzerik edo hangoekin elkarreragin.</string>
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
 	<plurals name="x_accounts">
 		<item quantity="one">kontu %,d</item>
