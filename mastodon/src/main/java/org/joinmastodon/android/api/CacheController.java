@@ -295,6 +295,15 @@ public class CacheController{
 											.collect(Collectors.toList());
 									PaginatedResponse<List<NotificationViewModel>> res=new PaginatedResponse<>(converted, result.isEmpty() ? null : result.get(result.size()-1).id);
 									callback.onSuccess(res);
+									if(!onlyMentions){
+										loadingNotifications=false;
+										synchronized(pendingNotificationsCallbacks){
+											for(Callback<PaginatedResponse<List<NotificationViewModel>>> cb:pendingNotificationsCallbacks){
+												cb.onSuccess(res);
+											}
+											pendingNotificationsCallbacks.clear();
+										}
+									}
 									databaseThread.postRunnable(()->putNotifications(converted.stream().map(nvm->nvm.notification).collect(Collectors.toList()), accounts, statuses, onlyMentions, maxID==null), 0);
 								}
 
