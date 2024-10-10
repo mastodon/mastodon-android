@@ -13,6 +13,8 @@
 	<string name="notifications">Notifikasi</string>
 	<string name="user_followed_you">%s mengikuti Anda</string>
 	<string name="user_sent_follow_request">%s mengirim Anda permintaan pengikut</string>
+	<string name="user_favorited">%s memfavorit:</string>
+	<string name="notification_boosted">%s membagikan ulang:</string>
 	<string name="share_toot_title">Bagikan</string>
 	<string name="settings">Pengaturan</string>
 	<string name="publish">Terbitkan</string>
@@ -730,6 +732,39 @@
 	<string name="donation_server_error">Maafkan kami, kesalahan telah terjadi dan kami belum bisa memproses donasi anda.\n\nMohon ulang kembali beberapa menit lagi.</string>
 	<string name="settings_donate">Donasi ke Mastodon</string>
 	<string name="settings_manage_donations">Kelola donasi</string>
+	<string name="cant_load_image">Tidak dapat memuat gambar</string>
+	<string name="poll_see_results">Lihat hasil</string>
+	<string name="poll_hide_results">Sembunyikan hasil</string>
+	<plurals name="x_attachments">
+		<item quantity="other">%d lampiran</item>
+	</plurals>
+	<plurals name="user_and_x_more_favorited">
+		<item quantity="other">%1$s dan %2$,d lainnya memfavorit:</item>
+	</plurals>
+	<plurals name="user_and_x_more_boosted">
+		<item quantity="other">%1$s dan %2$,d lainnya membagikan ulang:</item>
+	</plurals>
+	<plurals name="poll_ended_x_voters">
+		<item quantity="other">%1$s memulai japat yang Anda dan %2$,d lainnya beri suara</item>
+	</plurals>
+	<string name="own_poll_ended">Japat Anda telah berakhir</string>
+	<string name="user_just_posted">%s baru saja mengirim</string>
+	<string name="user_edited_post">%s menyunting kiriman yang Anda interaksi</string>
+	<string name="relationship_severance_account_suspension">Seorang admin dari %1$s telah menangguhkan %2$s, yang berarti Anda tidak dapat lagi menerima pembaruan atau berinteraksi.</string>
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_domain_block">Seorang admin dari %1$s telah memblokir %2$s, termasuk %3$,d dari pengikut Anda dan %4$s lain yang Anda ikuti.</string>
+	<plurals name="x_accounts">
+		<item quantity="other">%,d akun</item>
+	</plurals>
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_user_domain_block">Anda telah memblokir %1$s, menghapus %2$,d dari pengikut Anda dan %3$s lain yang Anda ikuti.</string>
+	<string name="relationship_severance_learn_more">Pelajari lebih lanjut</string>
+	<string name="moderation_warning_action_none">Akun Anda telah menerima peringatan moderasi.</string>
+	<string name="moderation_warning_action_disable">Akun Anda telah dinonaktifkan.</string>
+	<string name="moderation_warning_action_mark_statuses_as_sensitive">Beberapa kiriman Anda telah ditandai sebagai sensitif.</string>
+	<string name="moderation_warning_action_delete_statuses">Beberapa kiriman Anda telah dihapus.</string>
+	<string name="moderation_warning_action_sensitive">Kiriman Anda akan ditandai sebagai sensitif mulai dari sekarang.</string>
+	<string name="moderation_warning_action_silence">Akun Anda telah dibatasi.</string>
+	<string name="moderation_warning_action_suspend">Akun Anda telah ditangguhkan.</string>
+	<string name="moderation_warning_learn_more">Pelajari lebih lanjut</string>
 </resources>
