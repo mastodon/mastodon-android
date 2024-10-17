@@ -13,6 +13,7 @@
 	<string name="notifications">Tilkynningar</string>
 	<string name="user_followed_you">%s fylgist með þér</string>
 	<string name="user_sent_follow_request">%s sendi þér beiðni um að fylgjast með þér</string>
+	<string name="notification_boosted">%s endurbirti:</string>
 	<string name="share_toot_title">Deila</string>
 	<string name="settings">Stillingar</string>
 	<string name="publish">Birta</string>
@@ -766,6 +767,41 @@
 	<string name="settings_donate">Styrkja Mastodon</string>
 	<string name="settings_manage_donations">Sýsla með fjárframlög</string>
 	<string name="cant_load_image">Gat ekki hlaðið mynd inn</string>
+	<string name="poll_see_results">Skoða niðurstöður</string>
+	<string name="poll_hide_results">Fela niðurstöður</string>
+	<plurals name="x_attachments">
+		<item quantity="one">%d viðhengi</item>
+		<item quantity="other">%d viðhengi</item>
+	</plurals>
+	<plurals name="user_and_x_more_favorited">
+		<item quantity="one">%1$s og %2$,d í viðbót settu í eftirlæti:</item>
+		<item quantity="other">%1$s og %2$,d í viðbót settu í eftirlæti:</item>
+	</plurals>
+	<plurals name="user_and_x_more_boosted">
+		<item quantity="one">%1$s og %2$,d í viðbót endurbirtu:</item>
+		<item quantity="other">%1$s og %2$,d í viðbót endurbirtu:</item>
+	</plurals>
+	<plurals name="poll_ended_x_voters">
+		<item quantity="one">%1$s gerði könnun sem þú og %2$,d í viðbót tókuð þátt í</item>
+		<item quantity="other">%1$s gerði könnun sem þú og %2$,d í viðbót tókuð þátt í</item>
+	</plurals>
+	<string name="own_poll_ended">Könnuninni þinni er lokið</string>
+	<string name="user_just_posted">%s sendi inn rétt í þessu</string>
+	<string name="user_edited_post">%s breytti færslu sem þú áttir við</string>
+	<string name="relationship_severance_account_suspension">Stjórnandi á %1$s hefur fryst %2$s, sem þýðir að þú færð ekki lengur skilaboð frá viðkomandi né átt í samskiptum við viðkomandi.</string>
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
+	<plurals name="x_accounts">
+		<item quantity="one">%,d aðgangur</item>
+		<item quantity="other">%,d aðgangar</item>
+	</plurals>
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_learn_more">Kanna nánar</string>
+	<string name="moderation_warning_action_none">Aðgangurinn þinn hefur fengið aðvörun frá umsjónarmanni.</string>
+	<string name="moderation_warning_action_disable">Aðgangurinn þinn hefur verið gerður óvirkur.</string>
+	<string name="moderation_warning_action_mark_statuses_as_sensitive">Sumar færslurnar þínar hafa verið merktar sem viðkvæmt efni.</string>
+	<string name="moderation_warning_action_delete_statuses">Sumar færslurnar þínar hafa verið fjarlægðar.</string>
+	<string name="moderation_warning_action_sensitive">Færslur þínar verða héðan í frá merktar sem viðkvæmar.</string>
+	<string name="moderation_warning_action_silence">Notandaaðgangurinn þinn hefur verið takmarkaður.</string>
+	<string name="moderation_warning_action_suspend">Notandaaðgangurinn þinn hefur verið settur í frysti.</string>
+	<string name="moderation_warning_learn_more">Kanna nánar</string>
 </resources>
