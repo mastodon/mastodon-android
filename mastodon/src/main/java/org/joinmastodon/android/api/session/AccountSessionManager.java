@@ -124,6 +124,7 @@ public class AccountSessionManager{
 
 	public void addAccount(Instance instance, Token token, Account self, Application app, AccountActivationInfo activationInfo){
 		instances.put(instance.getDomain(), instance);
+		runOnDbThread(db->insertInstanceIntoDatabase(db, instance.getDomain(), instance, List.of(), 0));
 		AccountSession session=new AccountSession(token, self, app, instance.getDomain(), activationInfo==null, activationInfo);
 		sessions.put(session.getID(), session);
 		lastActiveAccountID=session.getID();
@@ -349,6 +350,7 @@ public class AccountSessionManager{
 					@Override
 					public void onSuccess(Instance instance){
 						instances.put(domain, instance);
+						runOnDbThread(db->insertInstanceIntoDatabase(db, domain, instance, List.of(), 0));
 						updateInstanceEmojis(instance, domain);
 					}
 
@@ -579,6 +581,12 @@ public class AccountSessionManager{
 
 	public void clearDismissedDonationCampaigns(){
 		runOnDbThread(db->db.delete("dismissed_donation_campaigns", null, null));
+	}
+
+	public void clearInstanceInfo(){
+		SQLiteDatabase db=getOrOpenDatabase();
+		db.delete("instances", null, null);
+		db.close();
 	}
 
 	private static void insertInstanceIntoDatabase(SQLiteDatabase db, String domain, Instance instance, List<Emoji> emojis, long lastUpdated){

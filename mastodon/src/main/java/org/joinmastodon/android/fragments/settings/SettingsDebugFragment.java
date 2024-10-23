@@ -37,7 +37,8 @@ public class SettingsDebugFragment extends BaseSettingsFragment<Void>{
 				new ListItem<>("Reset search info banners", null, this::onResetDiscoverBannersClick),
 				new ListItem<>("Reset pre-reply sheets", null, this::onResetPreReplySheetsClick),
 				new ListItem<>("Clear dismissed donation campaigns", null, this::onClearDismissedCampaignsClick),
-				donationsStagingItem=new CheckableListItem<>("Use staging environment for donations", "Restart app to apply", CheckableListItem.Style.SWITCH, getPrefs().getBoolean("donationsStaging", false), this::toggleCheckableItem)
+				donationsStagingItem=new CheckableListItem<>("Use staging environment for donations", "Restart app to apply", CheckableListItem.Style.SWITCH, getPrefs().getBoolean("donationsStaging", false), this::toggleCheckableItem),
+				new ListItem<>("Delete cached instance info", null, this::onDeleteInstanceInfoClick)
 		));
 		if(!GithubSelfUpdater.needSelfUpdating()){
 			resetUpdateItem.isEnabled=selfUpdateItem.isEnabled=false;
@@ -93,6 +94,11 @@ public class SettingsDebugFragment extends BaseSettingsFragment<Void>{
 	private void onClearDismissedCampaignsClick(ListItem<?> item){
 		AccountSessionManager.getInstance().clearDismissedDonationCampaigns();
 		Toast.makeText(getActivity(), "Dismissed campaigns cleared. Restart app to see your current campaign, if any", Toast.LENGTH_LONG).show();
+	}
+
+	private void onDeleteInstanceInfoClick(ListItem<?> item){
+		AccountSessionManager.getInstance().clearInstanceInfo();
+		Toast.makeText(getActivity(), "Instances removed from database", Toast.LENGTH_LONG).show();
 	}
 
 	private void restartUI(){

@@ -93,10 +93,12 @@ public class LinkCardHolder<T extends LinkCardHolder.LinkCardProvider> extends S
 			authorChip.setVisibility(View.VISIBLE);
 			authorBefore.setVisibility(View.VISIBLE);
 			String[] authorParts=itemView.getContext().getString(R.string.article_by_author, "{author}").split("\\{author\\}");
-			String before=authorParts[0].trim();
+			String before=authorParts.length>0 ? authorParts[0].trim() : "";
 			String after=authorParts.length>1 ? authorParts[1].trim() : "";
 			if(!TextUtils.isEmpty(before)){
 				authorBefore.setText(before);
+			}else{
+				authorBefore.setText("");
 			}
 			if(TextUtils.isEmpty(after)){
 				authorAfter.setVisibility(View.GONE);
