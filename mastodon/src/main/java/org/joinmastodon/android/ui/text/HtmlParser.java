@@ -8,8 +8,6 @@ import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.style.BackgroundColorSpan;
 import android.text.style.ForegroundColorSpan;
-import android.text.style.LineHeightSpan;
-import android.text.style.RelativeSizeSpan;
 import android.text.style.StrikethroughSpan;
 import android.text.style.StyleSpan;
 import android.widget.TextView;
@@ -98,6 +96,7 @@ public class HtmlParser{
 		final SpannableStringBuilder ssb=new SpannableStringBuilder();
 		Jsoup.parseBodyFragment(source).body().traverse(new NodeVisitor(){
 			private final ArrayList<SpanInfo> openSpans=new ArrayList<>();
+			private boolean lastElementWasBlock=false;
 
 			private boolean isInsidePre(){
 				for(SpanInfo si:openSpans){
@@ -119,6 +118,13 @@ public class HtmlParser{
 			@Override
 			public void head(@NonNull Node node, int depth){
 				if(node instanceof TextNode textNode){
+					if(lastElementWasBlock){
+						lastElementWasBlock=false;
+						if(!textNode.text().trim().isEmpty()){
+							ssb.append('\n');
+							ssb.append("\n", new SpacerSpan(1, V.dp(8)), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+						}
+					}
 					if(isInsidePre()){
 						ssb.append(textNode.getWholeText().stripTrailing());
 					}else{
@@ -128,6 +134,11 @@ public class HtmlParser{
 						ssb.append(text);
 					}
 				}else if(node instanceof Element el){
+					if(lastElementWasBlock || (el.isBlock() && !"li".equals(el.nodeName()) && !"ul".equals(el.nodeName()) && !"ol".equals(el.nodeName()) && ssb.length()>0 && ssb.charAt(ssb.length()-1)!='\n')){
+						lastElementWasBlock=false;
+						ssb.append('\n');
+						ssb.append("\n", new SpacerSpan(1, V.dp(8)), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+					}
 					switch(el.nodeName()){
 						case "a" -> {
 							Object linkObject=null;
@@ -208,16 +219,9 @@ public class HtmlParser{
 			public void tail(@NonNull Node node, int depth){
 				if(node instanceof Element el){
 					String name=el.nodeName();
+					lastElementWasBlock|=el.isBlock();
 					if("span".equals(name) && el.hasClass("ellipsis")){
 						ssb.append("…", new DeleteWhenCopiedSpan(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-					}else if("p".equals(name) || "ol".equals(name) || "ul".equals(name)){
-						if(node.nextSibling()!=null && "body".equals(node.parent().nodeName())){
-							ssb.append('\n');
-							ssb.append("\n", new SpacerSpan(1, V.dp(8)), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-						}
-					}else if("pre".equals(name)){
-						if(node.nextSibling()!=null)
-							ssb.append("\n");
 					}
 					if(!openSpans.isEmpty()){
 						SpanInfo si=openSpans.get(openSpans.size()-1);
@@ -234,6 +238,12 @@ public class HtmlParser{
 				}
 			}
 		});
+		int trailingTrimLength=0;
+		for(int i=ssb.length()-1;i>=0 && Character.isWhitespace(ssb.charAt(i));i--){
+			trailingTrimLength++;
+		}
+		if(trailingTrimLength>0)
+			ssb.replace(ssb.length()-trailingTrimLength, ssb.length(), "");
 		if(!emojis.isEmpty())
 			parseCustomEmoji(ssb, emojis);
 		return ssb;
