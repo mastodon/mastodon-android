@@ -774,6 +774,14 @@ Zenbat eta jende gehiago jarraitu, orduan eta aktiboagoa eta interesgarriagoa iz
 		<item quantity="one">Erantsitako fitxategi %d</item>
 		<item quantity="other">%d erantsitako fitxategi</item>
 	</plurals>
+	<plurals name="user_and_x_more_favorited">
+		<item quantity="one">%1$s eta erabiltzaile %2$,d gehiagok zure bidalketa gogoko dute:</item>
+		<item quantity="other">%1$s eta %2$,d erabiltzaile gehiagok zure bidalketa gogoko dute:</item>
+	</plurals>
+	<plurals name="user_and_x_more_boosted">
+		<item quantity="one">%1$s eta erabiltzaile %2$,d gehiagok bultzada eman diote zure bidalketari:</item>
+		<item quantity="other">%1$s eta %2$,d erabiltzaile gehiagok bultzada eman diote zure bidalketari:</item>
+	</plurals>
 	<plurals name="poll_ended_x_voters">
 		<item quantity="one">%1$s erabiltzaileak inkesta bat egin zuen eta zuk eta beste erabiltzaile %2$,d bozkatu duzue</item>
 		<item quantity="other">%1$s erabiltzaileak inkesta bat egin zuen eta zuk eta beste %2$,d erabiltzailek bozkatu duzue</item>
