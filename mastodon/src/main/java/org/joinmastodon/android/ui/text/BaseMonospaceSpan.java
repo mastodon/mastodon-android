@@ -5,6 +5,7 @@ import android.text.TextPaint;
 import android.text.style.TypefaceSpan;
 
 import org.joinmastodon.android.R;
+import org.joinmastodon.android.ui.ColorContrastMode;
 import org.joinmastodon.android.ui.utils.UiUtils;
 
 import androidx.annotation.NonNull;
@@ -21,7 +22,11 @@ public abstract class BaseMonospaceSpan extends TypefaceSpan{
 	@Override
 	public void updateDrawState(@NonNull TextPaint paint){
 		super.updateDrawState(paint);
-		paint.setColor(UiUtils.getThemeColor(context, R.attr.colorRichTextText));
+		if(!UiUtils.isDarkTheme() && UiUtils.getColorContrastMode(context)==ColorContrastMode.HIGH){
+
+		}else{
+			paint.setColor(UiUtils.getThemeColor(context, R.attr.colorRichTextText));
+		}
 		paint.setTextSize(paint.getTextSize()*0.9375f);
 		paint.baselineShift=V.dp(-1);
 	}

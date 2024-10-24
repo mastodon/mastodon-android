@@ -1,4 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<item name="overlay_ripple_alpha" format="float" type="dimen">0.12</item>
+
+	<!-- light theme -->
+	<color name="m3_sys_light_primary">@android:color/system_primary_light</color>
+	<color name="m3_sys_light_on_primary">@android:color/system_on_primary_light</color>
+	<color name="m3_sys_light_primary_container">@android:color/system_primary_container_light</color>
+	<color name="m3_sys_light_on_primary_container">@android:color/system_on_primary_container_light</color>
+	<color name="m3_sys_light_secondary">@android:color/system_secondary_light</color>
+	<color name="m3_sys_light_on_secondary">@android:color/system_on_secondary_light</color>
+	<color name="m3_sys_light_secondary_container">@android:color/system_secondary_container_light</color>
+	<color name="m3_sys_light_on_secondary_container">@android:color/system_on_secondary_container_light</color>
+	<color name="m3_sys_light_tertiary">@android:color/system_tertiary_light</color>
+	<color name="m3_sys_light_on_tertiary">@android:color/system_on_tertiary_light</color>
+	<color name="m3_sys_light_tertiary_container">@android:color/system_tertiary_container_light</color>
+	<color name="m3_sys_light_on_tertiary_container">@android:color/system_on_tertiary_container_light</color>
+	<color name="m3_sys_light_background">@android:color/system_background_light</color>
+	<color name="m3_sys_light_on_background">@android:color/system_on_background_light</color>
+	<color name="m3_sys_light_surface">@android:color/system_surface_light</color>
+	<color name="m3_sys_light_on_surface">@android:color/system_on_surface_light</color>
+	<color name="m3_sys_light_surface_variant">@android:color/system_surface_variant_light</color>
+	<color name="m3_sys_light_on_surface_variant">@android:color/system_on_surface_variant_light</color>
+	<color name="m3_sys_light_outline">@android:color/system_outline_light</color>
+	<color name="m3_sys_light_outline_variant">@android:color/system_outline_variant_light</color>
+	<color name="m3_sys_light_error">@android:color/system_error_light</color>
+	<color name="m3_sys_light_on_error">@android:color/system_on_error_light</color>
+	<color name="m3_sys_light_error_container">@android:color/system_error_container_light</color>
+	<color name="m3_sys_light_on_error_container">@android:color/system_on_error_container_light</color>
+
+	<color name="ext_rich_text_text_light_medium_contrast">@android:color/system_accent3_800</color>
+	<color name="ext_rich_text_container_light_medium_contrast">@android:color/system_accent3_100</color>
+	<color name="ext_rich_text_decoration_light_medium_contrast">@android:color/system_accent3_300</color>
+	<color name="ext_rich_text_text_light_high_contrast">@color/m3_sys_accent3_850</color>
+	<color name="ext_rich_text_container_light_high_contrast">@android:color/system_accent3_200</color>
+	<color name="ext_rich_text_decoration_light_high_contrast">@android:color/system_accent3_500</color>
+
+	<!-- dark theme -->
+	<color name="m3_sys_dark_primary">@android:color/system_primary_dark</color>
+	<color name="m3_sys_dark_on_primary">@android:color/system_on_primary_dark</color>
+	<color name="m3_sys_dark_primary_container">@android:color/system_primary_container_dark</color>
+	<color name="m3_sys_dark_on_primary_container">@android:color/system_on_primary_container_dark</color>
+	<color name="m3_sys_dark_secondary">@android:color/system_secondary_dark</color>
+	<color name="m3_sys_dark_on_secondary">@android:color/system_on_secondary_dark</color>
+	<color name="m3_sys_dark_secondary_container">@android:color/system_secondary_container_dark</color>
+	<color name="m3_sys_dark_on_secondary_container">@android:color/system_on_secondary_container_dark</color>
+	<color name="m3_sys_dark_tertiary">@android:color/system_tertiary_dark</color>
+	<color name="m3_sys_dark_on_tertiary">@android:color/system_on_tertiary_dark</color>
+	<color name="m3_sys_dark_tertiary_container">@android:color/system_tertiary_container_dark</color>
+	<color name="m3_sys_dark_on_tertiary_container">@android:color/system_on_tertiary_container_dark</color>
+	<color name="m3_sys_dark_background">@android:color/system_background_dark</color>
+	<color name="m3_sys_dark_on_background">@android:color/system_on_background_dark</color>
+	<color name="m3_sys_dark_surface">@android:color/system_surface_dark</color>
+	<color name="m3_sys_dark_on_surface">@android:color/system_on_surface_dark</color>
+	<color name="m3_sys_dark_surface_variant">@android:color/system_surface_variant_dark</color>
+	<color name="m3_sys_dark_on_surface_variant">@android:color/system_on_surface_variant_dark</color>
+	<color name="m3_sys_dark_outline">@android:color/system_outline_dark</color>
+	<color name="m3_sys_dark_outline_variant">@android:color/system_outline_variant_dark</color>
+	<color name="m3_sys_dark_error">@android:color/system_error_dark</color>
+	<color name="m3_sys_dark_on_error">@android:color/system_on_error_dark</color>
+	<color name="m3_sys_dark_error_container">@android:color/system_error_container_dark</color>
+	<color name="m3_sys_dark_on_error_container">@android:color/system_on_error_container_dark</color>
 </resources>

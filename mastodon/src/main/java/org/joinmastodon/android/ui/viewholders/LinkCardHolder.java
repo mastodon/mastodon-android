@@ -95,11 +95,7 @@ public class LinkCardHolder<T extends LinkCardHolder.LinkCardProvider> extends S
 			String[] authorParts=itemView.getContext().getString(R.string.article_by_author, "{author}").split("\\{author\\}");
 			String before=authorParts.length>0 ? authorParts[0].trim() : "";
 			String after=authorParts.length>1 ? authorParts[1].trim() : "";
-			if(!TextUtils.isEmpty(before)){
-				authorBefore.setText(before);
-			}else{
-				authorBefore.setText("");
-			}
+			authorBefore.setText(before);
 			if(TextUtils.isEmpty(after)){
 				authorAfter.setVisibility(View.GONE);
 			}else{

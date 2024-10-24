@@ -48,16 +48,28 @@
 		<item name="colorM3OutlineVariant">@color/m3_sys_light_outline_variant</item>
 		<item name="colorM3DisabledBackground">#1F1F1F1F</item>
 		<item name="colorM3PressedOverlay">@color/m3_sys_light_on_primary</item>
-		<item name="colorM3Error">#B3261E</item>
-		<item name="colorM3OnError">#FFF</item>
-		<item name="colorM3ErrorContainer">#F9DEDC</item>
-		<item name="colorM3OnErrorContainer">#410E0B</item>
+		<item name="colorM3Error">@color/m3_sys_light_error</item>
+		<item name="colorM3OnError">@color/m3_sys_light_on_error</item>
+		<item name="colorM3ErrorContainer">@color/m3_sys_light_error_container</item>
+		<item name="colorM3OnErrorContainer">@color/m3_sys_light_on_error_container</item>
 		<item name="colorM3PrimaryInverse">@color/m3_sys_dark_primary</item>
 		<item name="colorM3SurfaceInverse">@color/m3_sys_dark_surface</item>
 		<item name="colorM3OnSurfaceInverse">@color/m3_sys_dark_on_surface</item>
 		<item name="colorWhite">#FFF</item>
+
+		<!-- custom M3 color attrs -->
 		<item name="colorFavorite">@color/ext_favorite_light</item>
+		<item name="colorOnFavorite">@color/ext_on_favorite_light</item>
+		<item name="colorFavoriteContainer">@color/ext_favorite_container_light</item>
+		<item name="colorOnFavoriteContainer">@color/ext_on_favorite_container_light</item>
 		<item name="colorBoost">@color/ext_boost_light</item>
+		<item name="colorOnBoost">@color/ext_on_boost_light</item>
+		<item name="colorBoostContainer">@color/ext_boost_container_light</item>
+		<item name="colorOnBoostContainer">@color/ext_on_boost_container_light</item>
+		<item name="colorBookmark">@color/ext_bookmark_light</item>
+		<item name="colorOnBookmark">@color/ext_on_bookmark_light</item>
+		<item name="colorBookmarkContainer">@color/ext_bookmark_container_light</item>
+		<item name="colorOnBookmarkContainer">@color/ext_on_bookmark_container_light</item>
 		<item name="colorRichTextText">@color/ext_rich_text_text_light</item>
 		<item name="colorRichTextContainer">@color/ext_rich_text_container_light</item>
 		<item name="colorRichTextDecorations">@color/ext_rich_text_decoration_light</item>
@@ -119,16 +131,28 @@
 		<item name="colorM3OutlineVariant">@color/m3_sys_dark_outline_variant</item>
 		<item name="colorM3DisabledBackground">#1FE3E3E3</item>
 		<item name="colorM3PressedOverlay">@color/m3_sys_dark_primary</item>
-		<item name="colorM3Error">#F2B8B5</item>
-		<item name="colorM3OnError">#601410</item>
-		<item name="colorM3ErrorContainer">#8C1D18</item>
-		<item name="colorM3OnErrorContainer">#F9DEDC</item>
+		<item name="colorM3Error">@color/m3_sys_dark_error</item>
+		<item name="colorM3OnError">@color/m3_sys_dark_on_error</item>
+		<item name="colorM3ErrorContainer">@color/m3_sys_dark_error_container</item>
+		<item name="colorM3OnErrorContainer">@color/m3_sys_dark_on_error_container</item>
 		<item name="colorM3PrimaryInverse">@color/m3_sys_light_primary</item>
 		<item name="colorM3SurfaceInverse">@color/m3_sys_light_surface</item>
 		<item name="colorM3OnSurfaceInverse">@color/m3_sys_light_on_surface</item>
 		<item name="colorWhite">#000</item>
+
+		<!-- custom M3 color attrs -->
 		<item name="colorFavorite">@color/ext_favorite_dark</item>
+		<item name="colorOnFavorite">@color/ext_on_favorite_dark</item>
+		<item name="colorFavoriteContainer">@color/ext_favorite_container_dark</item>
+		<item name="colorOnFavoriteContainer">@color/ext_on_favorite_container_dark</item>
 		<item name="colorBoost">@color/ext_boost_dark</item>
+		<item name="colorOnBoost">@color/ext_on_boost_dark</item>
+		<item name="colorBoostContainer">@color/ext_boost_container_dark</item>
+		<item name="colorOnBoostContainer">@color/ext_on_boost_container_dark</item>
+		<item name="colorBookmark">@color/ext_bookmark_dark</item>
+		<item name="colorOnBookmark">@color/ext_on_bookmark_dark</item>
+		<item name="colorBookmarkContainer">@color/ext_bookmark_container_dark</item>
+		<item name="colorOnBookmarkContainer">@color/ext_on_bookmark_container_dark</item>
 		<item name="colorRichTextText">@color/ext_rich_text_text_dark</item>
 		<item name="colorRichTextContainer">@color/ext_rich_text_container_dark</item>
 		<item name="colorRichTextDecorations">@color/ext_rich_text_decoration_dark</item>
@@ -143,6 +167,48 @@
 		<item name="android:textAppearanceLargePopupMenu">@style/popup_menu_item_text</item>
 	</style>
 
+	<style name="Theme.Mastodon.Light.MediumContrast">
+		<item name="colorFavorite">@color/ext_favorite_light_medium_contrast</item>
+		<item name="colorOnFavorite">@color/ext_on_favorite_light_medium_contrast</item>
+		<item name="colorFavoriteContainer">@color/ext_favorite_container_light_medium_contrast</item>
+		<item name="colorOnFavoriteContainer">@color/ext_on_favorite_container_light_medium_contrast</item>
+		<item name="colorBoost">@color/ext_boost_light_medium_contrast</item>
+		<item name="colorOnBoost">@color/ext_on_boost_light_medium_contrast</item>
+		<item name="colorBoostContainer">@color/ext_boost_container_light_medium_contrast</item>
+		<item name="colorOnBoostContainer">@color/ext_on_boost_container_light_medium_contrast</item>
+		<item name="colorBookmark">@color/ext_bookmark_light_medium_contrast</item>
+		<item name="colorOnBookmark">@color/ext_on_bookmark_light_medium_contrast</item>
+		<item name="colorBookmarkContainer">@color/ext_bookmark_container_light_medium_contrast</item>
+		<item name="colorOnBookmarkContainer">@color/ext_on_bookmark_container_light_medium_contrast</item>
+		<item name="colorRichTextText">@color/ext_rich_text_text_light_medium_contrast</item>
+		<item name="colorRichTextContainer">@color/ext_rich_text_container_light_medium_contrast</item>
+		<item name="colorRichTextDecorations">@color/ext_rich_text_decoration_light_medium_contrast</item>
+	</style>
+
+	<style name="Theme.Mastodon.Light.HighContrast">
+		<item name="colorFavorite">@color/ext_favorite_light_high_contrast</item>
+		<item name="colorOnFavorite">@color/ext_on_favorite_light_high_contrast</item>
+		<item name="colorFavoriteContainer">@color/ext_favorite_container_light_high_contrast</item>
+		<item name="colorOnFavoriteContainer">@color/ext_on_favorite_container_light_high_contrast</item>
+		<item name="colorBoost">@color/ext_boost_light_high_contrast</item>
+		<item name="colorOnBoost">@color/ext_on_boost_light_high_contrast</item>
+		<item name="colorBoostContainer">@color/ext_boost_container_light_high_contrast</item>
+		<item name="colorOnBoostContainer">@color/ext_on_boost_container_light_high_contrast</item>
+		<item name="colorBookmark">@color/ext_bookmark_light_high_contrast</item>
+		<item name="colorOnBookmark">@color/ext_on_bookmark_light_high_contrast</item>
+		<item name="colorBookmarkContainer">@color/ext_bookmark_container_light_high_contrast</item>
+		<item name="colorOnBookmarkContainer">@color/ext_on_bookmark_container_light_high_contrast</item>
+		<item name="colorRichTextText">@color/ext_rich_text_text_light_high_contrast</item>
+		<item name="colorRichTextContainer">@color/ext_rich_text_container_light_high_contrast</item>
+		<item name="colorRichTextDecorations">@color/ext_rich_text_decoration_light_high_contrast</item>
+	</style>
+
+	<style name="Theme.Mastodon.Dark.MediumContrast">
+	</style>
+
+	<style name="Theme.Mastodon.Dark.HighContrast">
+	</style>
+
 	<style name="Theme.Mastodon.Dark.SplashFragment">
 		<item name="colorM3Primary">#563ACC</item>
 		<item name="colorM3OnPrimary">#FFF</item>
@@ -151,6 +217,8 @@
 	</style>
 
 	<style name="Theme.Mastodon.AutoLightDark" parent="Theme.Mastodon.Light"/>
+	<style name="Theme.Mastodon.AutoLightDark.MediumContrast" parent="Theme.Mastodon.Light.MediumContrast"/>
+	<style name="Theme.Mastodon.AutoLightDark.HighContrast" parent="Theme.Mastodon.Light.HighContrast"/>
 
 	<style name="Theme.Mastodon.Toolbar" parent="android:ThemeOverlay.Material.ActionBar">
 		<item name="android:colorPrimary">?colorM3Background</item>

@@ -31,6 +31,10 @@
 	<color name="m3_sys_light_on_surface_variant">#49454F</color>
 	<color name="m3_sys_light_outline">#79747E</color>
 	<color name="m3_sys_light_outline_variant">#CAC4D0</color>
+	<color name="m3_sys_light_error">#B3261E</color>
+	<color name="m3_sys_light_on_error">#FFF</color>
+	<color name="m3_sys_light_error_container">#F9DEDC</color>
+	<color name="m3_sys_light_on_error_container">#410E0B</color>
 
 	<!-- dark theme -->
 	<color name="m3_sys_dark_primary">#D0BCFF</color>
@@ -53,6 +57,10 @@
 	<color name="m3_sys_dark_on_surface_variant">#CAC4D0</color>
 	<color name="m3_sys_dark_outline">#938F99</color>
 	<color name="m3_sys_dark_outline_variant">#49454F</color>
+	<color name="m3_sys_dark_error">#F2B8B5</color>
+	<color name="m3_sys_dark_on_error">#601410</color>
+	<color name="m3_sys_dark_error_container">#8C1D18</color>
+	<color name="m3_sys_dark_on_error_container">#F9DEDC</color>
 
 	<!-- extended colors -->
 	<color name="ext_favorite_light">#E89A00</color>
@@ -107,6 +115,12 @@
 	<color name="ext_rich_text_text_light">#6C3646</color>
 	<color name="ext_rich_text_container_light">#FFD9E1</color>
 	<color name="ext_rich_text_decoration_light">#FDB2C5</color>
+	<color name="ext_rich_text_text_light_medium_contrast">#6C3646</color>
+	<color name="ext_rich_text_container_light_medium_contrast">#FFD9E1</color>
+	<color name="ext_rich_text_decoration_light_medium_contrast">#FDB2C5</color>
+	<color name="ext_rich_text_text_light_high_contrast">#6C3646</color>
+	<color name="ext_rich_text_container_light_high_contrast">#FFD9E1</color>
+	<color name="ext_rich_text_decoration_light_high_contrast">#FDB2C5</color>
 	<color name="ext_rich_text_text_dark">#FDB2C5</color>
 	<color name="ext_rich_text_container_dark">#512030</color>
 	<color name="ext_rich_text_decoration_dark">#7A4152</color>

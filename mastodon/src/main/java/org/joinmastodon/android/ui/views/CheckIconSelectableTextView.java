@@ -24,6 +24,10 @@ public class CheckIconSelectableTextView extends TextView{
 		super(context, attrs, defStyle);
 	}
 
+	protected int getCheckmarkColorAttribute(){
+		return R.attr.colorM3OnSurface;
+	}
+
 	@Override
 	protected void drawableStateChanged(){
 		super.drawableStateChanged();
@@ -32,7 +36,7 @@ public class CheckIconSelectableTextView extends TextView{
 		currentlySelected=isSelected();
 		Drawable start=currentlySelected ? getResources().getDrawable(R.drawable.ic_baseline_check_18, getContext().getTheme()).mutate() : null;
 		if(start!=null)
-			start.setTint(UiUtils.getThemeColor(getContext(), R.attr.colorM3OnSurface));
+			start.setTint(UiUtils.getThemeColor(getContext(), getCheckmarkColorAttribute()));
 		Drawable end=getCompoundDrawablesRelative()[2];
 		setCompoundDrawablesRelativeWithIntrinsicBounds(start, null, end, null);
 	}

@@ -35,6 +35,10 @@ public class FilterChipView extends CheckIconSelectableTextView{
 		updatePadding();
 	}
 
+	protected int getCheckmarkColorAttribute(){
+		return R.attr.colorM3OnSecondaryContainer;
+	}
+
 	private void updatePadding(){
 		int vertical=V.dp(6);
 		Drawable[] drawables=getCompoundDrawablesRelative();

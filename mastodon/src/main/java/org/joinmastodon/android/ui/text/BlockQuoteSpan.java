@@ -41,16 +41,7 @@ public class BlockQuoteSpan extends CharacterStyle implements LeadingMarginSpan{
 	@Override
 	public void drawLeadingMargin(@NonNull Canvas c, @NonNull Paint p, int x, int dir, int top, int baseline, int bottom, @NonNull CharSequence text, int start, int end, boolean first, @NonNull Layout layout){
 		if(text instanceof Spanned s && s.getSpanStart(this)==start){
-			int color;
-			if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.S && UiUtils.isDarkTheme()){
-				color=UiUtils.alphaBlendColors(
-						context.getColor(android.R.color.system_accent3_700),
-						context.getColor(android.R.color.system_accent3_800),
-						0.5f
-				);
-			}else{
-				color=UiUtils.getThemeColor(context, R.attr.colorRichTextDecorations);
-			}
+			int color=UiUtils.getThemeColor(context, R.attr.colorRichTextDecorations);
 			int level=s.getSpans(start, end, LeadingMarginSpan.class).length-1;
 			if(dir<0){ // RTL
 				if(level==0){

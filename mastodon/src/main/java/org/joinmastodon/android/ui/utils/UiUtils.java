@@ -2,6 +2,7 @@ package org.joinmastodon.android.ui.utils;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.UiModeManager;
 import android.content.ActivityNotFoundException;
 import android.content.ClipData;
 import android.content.ComponentName;
@@ -75,6 +76,7 @@ import org.joinmastodon.android.model.Hashtag;
 import org.joinmastodon.android.model.Relationship;
 import org.joinmastodon.android.model.SearchResults;
 import org.joinmastodon.android.model.Status;
+import org.joinmastodon.android.ui.ColorContrastMode;
 import org.joinmastodon.android.ui.M3AlertDialogBuilder;
 import org.joinmastodon.android.ui.Snackbar;
 import org.joinmastodon.android.ui.sheets.BlockAccountConfirmationSheet;
@@ -721,9 +723,21 @@ public class UiUtils{
 
 	public static void setUserPreferredTheme(Context context){
 		context.setTheme(switch(GlobalUserPreferences.theme){
-			case AUTO -> R.style.Theme_Mastodon_AutoLightDark;
-			case LIGHT -> R.style.Theme_Mastodon_Light;
-			case DARK -> R.style.Theme_Mastodon_Dark;
+			case AUTO -> switch(getColorContrastMode(context)){
+				case DEFAULT -> R.style.Theme_Mastodon_AutoLightDark;
+				case MEDIUM -> R.style.Theme_Mastodon_AutoLightDark_MediumContrast;
+				case HIGH -> R.style.Theme_Mastodon_AutoLightDark_HighContrast;
+			};
+			case LIGHT -> switch(getColorContrastMode(context)){
+				case DEFAULT -> R.style.Theme_Mastodon_Light;
+				case MEDIUM -> R.style.Theme_Mastodon_Light_MediumContrast;
+				case HIGH -> R.style.Theme_Mastodon_Light_HighContrast;
+			};
+			case DARK -> switch(getColorContrastMode(context)){
+				case DEFAULT -> R.style.Theme_Mastodon_Dark;
+				case MEDIUM -> R.style.Theme_Mastodon_Dark_MediumContrast;
+				case HIGH -> R.style.Theme_Mastodon_Dark_HighContrast;
+			};
 		});
 	}
 
@@ -1085,5 +1099,11 @@ public class UiUtils{
 			rv.scrollToPosition(topItem);
 			rv.scrollBy(0, -topItemOffset);
 		}
+	}
+
+	public static ColorContrastMode getColorContrastMode(Context context){
+		if(Build.VERSION.SDK_INT<Build.VERSION_CODES.UPSIDE_DOWN_CAKE)
+			return ColorContrastMode.DEFAULT;
+		return ColorContrastMode.fromContrastValue(context.getSystemService(UiModeManager.class).getContrast());
 	}
 }

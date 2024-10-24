@@ -243,7 +243,7 @@ public class SplashFragment extends AppKitFragment{
 
 	@Override
 	public boolean wantsLightNavigationBar(){
-		return true;
+		return false;
 	}
 
 	@Override
