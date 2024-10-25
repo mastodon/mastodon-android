@@ -290,7 +290,13 @@ public class ComposeFragment extends MastodonToolbarFragment implements ComposeE
 		languageBtn=view.findViewById(R.id.btn_language);
 		replyText=view.findViewById(R.id.reply_text);
 
-		mediaBtn.setOnClickListener(v->openFilePicker());
+		mediaBtn.setOnClickListener(v->openFilePicker(false));
+		if(UiUtils.isPhotoPickerAvailable()){
+			mediaBtn.setOnLongClickListener(v->{
+				openFilePicker(true);
+				return true;
+			});
+		}
 		pollBtn.setOnClickListener(v->togglePoll());
 		emojiBtn.setOnClickListener(v->emojiKeyboard.toggleKeyboardPopup(mainEditText));
 		spoilerBtn.setOnClickListener(v->toggleSpoiler());
@@ -887,9 +893,9 @@ public class ComposeFragment extends MastodonToolbarFragment implements ComposeE
 	 *
 	 * <p>For earlier versions use the built in docs ui via {@link Intent#ACTION_GET_CONTENT}
 	 */
-	private void openFilePicker(){
+	private void openFilePicker(boolean forceGetContent){
 		Intent intent;
-		boolean usePhotoPicker=UiUtils.isPhotoPickerAvailable();
+		boolean usePhotoPicker=!forceGetContent && UiUtils.isPhotoPickerAvailable();
 		if(usePhotoPicker){
 			intent=new Intent(MediaStore.ACTION_PICK_IMAGES);
 			if(mediaViewController.getMaxAttachments()-mediaViewController.getMediaAttachmentsCount()>1)
