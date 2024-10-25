@@ -72,6 +72,7 @@ public class AccountSwitcherSheet extends BottomSheet{
 		imgLoader=new ListImageLoaderWrapper(activity, list, list, null);
 		list.setClipToPadding(false);
 		list.setLayoutManager(new LinearLayoutManager(activity));
+		list.setOverScrollMode(View.OVER_SCROLL_IF_CONTENT_SCROLLS);
 
 		MergeRecyclerAdapter adapter=new MergeRecyclerAdapter();
 		View handle=new View(activity);
