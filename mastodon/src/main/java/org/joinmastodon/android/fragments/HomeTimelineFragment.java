@@ -61,6 +61,7 @@ import org.joinmastodon.android.ui.utils.DiscoverInfoBannerHelper;
 import org.joinmastodon.android.ui.viewcontrollers.HomeTimelineMenuController;
 import org.joinmastodon.android.ui.viewcontrollers.ToolbarDropdownMenuController;
 import org.joinmastodon.android.ui.views.FixedAspectRatioImageView;
+import org.joinmastodon.android.ui.views.NestedRecyclerScrollView;
 import org.joinmastodon.android.ui.views.NewPostsButtonContainer;
 import org.joinmastodon.android.updater.GithubSelfUpdater;
 import org.parceler.Parcels;
@@ -109,6 +110,7 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 	private BottomSheet donationSheet;
 
 	public HomeTimelineFragment(){
+		setLayout(R.layout.fragment_loader_hiding_toolbar);
 		setListLayoutId(R.layout.fragment_timeline);
 	}
 
@@ -277,6 +279,21 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 				if(newPostsBtnShown && list.getChildAdapterPosition(list.getChildAt(0))<=getMainAdapterOffset()){
 					hideNewPostsButton();
 				}
+			}
+		});
+		View bottomOverlays=view.findViewById(R.id.bottom_overlays);
+		NestedRecyclerScrollView scroller=view.findViewById(R.id.scroller);
+		scroller.setScrollableChildSupplier(()->list);
+		scroller.setTakePriorityOverChildViews(true);
+		scroller.setOnScrollChangeListener((v, scrollX, scrollY, oldScrollX, oldScrollY)->{
+			bottomOverlays.setTranslationY(scrollY-getToolbar().getHeight());
+		});
+		scroller.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener(){
+			@Override
+			public boolean onPreDraw(){
+				scroller.getViewTreeObserver().removeOnPreDrawListener(this);
+				bottomOverlays.setTranslationY(scroller.getScrollY()-getToolbar().getHeight());
+				return true;
 			}
 		});
 

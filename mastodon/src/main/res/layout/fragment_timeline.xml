@@ -20,19 +20,31 @@
 			android:layout_height="match_parent"
 			android:id="@+id/empty"/>
 
-		<ImageButton
-			android:id="@+id/fab"
-			android:layout_width="56dp"
-			android:layout_height="56dp"
-			android:layout_gravity="end|bottom"
-			android:layout_marginEnd="16dp"
-			android:layout_marginBottom="16dp"
-			android:background="@drawable/bg_fab"
-			android:tint="?colorM3Primary"
-			android:scaleType="center"
-			android:stateListAnimator="@animator/fab_shadow"
-			android:contentDescription="@string/new_post"
-			android:src="@drawable/ic_edit_24px"/>
+		<FrameLayout
+			android:id="@+id/bottom_overlays"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent">
+			<ImageButton
+				android:id="@+id/fab"
+				android:layout_width="56dp"
+				android:layout_height="56dp"
+				android:layout_gravity="end|bottom"
+				android:layout_marginEnd="16dp"
+				android:layout_marginBottom="16dp"
+				android:background="@drawable/bg_fab"
+				android:tint="?colorM3Primary"
+				android:scaleType="center"
+				android:stateListAnimator="@animator/fab_shadow"
+				android:contentDescription="@string/new_post"
+				android:src="@drawable/ic_edit_24px"/>
+
+			<ViewStub
+				android:id="@+id/donation_banner"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_gravity="bottom"
+				android:layout="@layout/donation_banner"/>
+		</FrameLayout>
 
 		<org.joinmastodon.android.ui.views.NewPostsButtonContainer
 			android:id="@+id/new_posts_btn_wrap"
@@ -57,13 +69,6 @@
 				android:stateListAnimator="@animator/squish"
 				android:text="@string/see_new_posts"/>
 		</org.joinmastodon.android.ui.views.NewPostsButtonContainer>
-
-		<ViewStub
-			android:id="@+id/donation_banner"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:layout_gravity="bottom"
-			android:layout="@layout/donation_banner"/>
 
 	</FrameLayout>
 </me.grishka.appkit.views.RecursiveSwipeRefreshLayout>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<me.grishka.appkit.views.FragmentRootLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:id="@+id/appkit_loader_root"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="?android:windowBackground"
+	android:orientation="vertical">
+
+	<org.joinmastodon.android.ui.views.NestedRecyclerScrollView
+		android:id="@+id/scroller"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:fillViewport="true">
+
+		<org.joinmastodon.android.ui.views.TopBarsScrollAwayLinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical">
+
+			<include layout="@layout/appkit_toolbar" />
+
+			<FrameLayout
+				android:id="@+id/appkit_loader_content"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent">
+
+				<include
+					android:id="@+id/loading"
+					layout="@layout/loading" />
+
+				<ViewStub
+					android:id="@+id/error"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:layout="?errorViewLayout"
+					android:visibility="gone" />
+
+				<View
+					android:id="@+id/content_stub"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent" />
+
+			</FrameLayout>
+		</org.joinmastodon.android.ui.views.TopBarsScrollAwayLinearLayout>
+	</org.joinmastodon.android.ui.views.NestedRecyclerScrollView>
+</me.grishka.appkit.views.FragmentRootLinearLayout>
