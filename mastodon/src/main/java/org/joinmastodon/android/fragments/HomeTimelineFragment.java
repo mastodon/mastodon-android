@@ -66,11 +66,13 @@ import org.joinmastodon.android.ui.views.NewPostsButtonContainer;
 import org.joinmastodon.android.updater.GithubSelfUpdater;
 import org.parceler.Parcels;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -428,6 +430,10 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 							result.get(result.size()-1).hasGapAfter=true;
 							toAdd=result;
 						}
+						if(!(toAdd instanceof ArrayList<?>))
+							toAdd=new ArrayList<>(toAdd);
+						Set<String> existingPostIDs=data.stream().map(s->s.id).collect(Collectors.toSet());
+						toAdd.removeIf(s->existingPostIDs.contains(s.id));
 						if(needCache)
 							AccountSessionManager.get(accountID).filterStatuses(toAdd, FilterContext.HOME);
 						if(!toAdd.isEmpty()){
