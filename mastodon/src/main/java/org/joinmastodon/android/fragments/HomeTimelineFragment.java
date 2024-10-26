@@ -463,16 +463,16 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 		dataLoading=true;
 		boolean needCache=listMode==ListMode.FOLLOWING;
 		boolean insertBelowGap=!gap.enteredFromTop;
-		String maxID, sinceID;
+		String maxID, minID;
 		if(gap.enteredFromTop){
 			maxID=item.getItemID();
-			sinceID=null;
+			minID=null;
 		}else{
 			maxID=null;
 			int gapPos=displayItems.indexOf(gap);
-			sinceID=displayItems.get(gapPos+1).parentID;
+			minID=displayItems.get(gapPos+1).parentID;
 		}
-		loadAdditionalPosts(maxID, null, 20, sinceID, new Callback<>(){
+		loadAdditionalPosts(maxID, minID, 20, minID, new Callback<>(){
 					@Override
 					public void onSuccess(List<Status> result){
 
