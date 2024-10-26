@@ -73,6 +73,7 @@ import java.util.Locale;
 import java.util.Set;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import me.grishka.appkit.Nav;
 import me.grishka.appkit.api.Callback;
@@ -274,11 +275,35 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 		newPostsBtnWrap.setOnHideButtonListener(this::hideNewPostsButton);
 		updateToolbarLogo();
 		list.addOnScrollListener(new RecyclerView.OnScrollListener(){
+			private HashSet<GapStatusDisplayItem> gaps=new HashSet<>();
+
 			@Override
 			public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy){
 				if(newPostsBtnShown && list.getChildAdapterPosition(list.getChildAt(0))<=getMainAdapterOffset()){
 					hideNewPostsButton();
 				}
+				for(StatusDisplayItem item:displayItems){
+					if(item instanceof GapStatusDisplayItem gap){
+						gaps.add(gap);
+					}
+				}
+				if(gaps.isEmpty())
+					return;
+				for(int i=0;i<list.getChildCount();i++){
+					View child=list.getChildAt(i);
+					if(list.getChildViewHolder(child) instanceof GapStatusDisplayItem.Holder holder){
+						GapStatusDisplayItem gap=holder.getItem();
+						if(!gap.visible){
+							gap.visible=true;
+							gap.enteredFromTop=child.getTop()<list.getHeight()/2;
+							gaps.remove(gap);
+						}
+					}
+				}
+				for(GapStatusDisplayItem gap:gaps){
+					gap.visible=false;
+				}
+				gaps.clear();
 			}
 		});
 		View bottomOverlays=view.findViewById(R.id.bottom_overlays);
@@ -425,13 +450,23 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 	public void onGapClick(GapStatusDisplayItem.Holder item){
 		if(dataLoading)
 			return;
-		item.getItem().loading=true;
+		GapStatusDisplayItem gap=item.getItem();
+		gap.loading=true;
 		V.setVisibilityAnimated(item.progress, View.VISIBLE);
 		V.setVisibilityAnimated(item.text, View.GONE);
-		GapStatusDisplayItem gap=item.getItem();
 		dataLoading=true;
 		boolean needCache=listMode==ListMode.FOLLOWING;
-		loadAdditionalPosts(item.getItemID(), null, 20, null, new Callback<>(){
+		boolean insertBelowGap=!gap.enteredFromTop;
+		String maxID, sinceID;
+		if(gap.enteredFromTop){
+			maxID=item.getItemID();
+			sinceID=null;
+		}else{
+			maxID=null;
+			int gapPos=displayItems.indexOf(gap);
+			sinceID=displayItems.get(gapPos+1).parentID;
+		}
+		loadAdditionalPosts(maxID, null, 20, sinceID, new Callback<>(){
 					@Override
 					public void onSuccess(List<Status> result){
 
@@ -449,9 +484,9 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 							if(gapStatus!=null){
 								gapStatus.hasGapAfter=false;
 								if(needCache)
-									AccountSessionManager.getInstance().getAccount(accountID).getCacheController().putHomeTimeline(Collections.singletonList(gapStatus), false);
+									AccountSessionManager.getInstance().getAccount(accountID).getCacheController().putHomeTimeline(List.of(gapStatus), false);
 							}
-						}else{
+						}else if(insertBelowGap){
 							Set<String> idsBelowGap=new HashSet<>();
 							boolean belowGap=false;
 							int gapPostIndex=0;
@@ -462,7 +497,7 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 									belowGap=true;
 									s.hasGapAfter=false;
 									if(needCache)
-										AccountSessionManager.getInstance().getAccount(accountID).getCacheController().putHomeTimeline(Collections.singletonList(s), false);
+										AccountSessionManager.getInstance().getAccount(accountID).getCacheController().putHomeTimeline(List.of(s), false);
 								}else{
 									gapPostIndex++;
 								}
@@ -480,8 +515,8 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 							}
 							if(needCache)
 								AccountSessionManager.get(accountID).filterStatuses(result, FilterContext.HOME);
-							List<StatusDisplayItem> targetList=displayItems.subList(gapPos, gapPos+1);
-							targetList.clear();
+							List<StatusDisplayItem> targetList=displayItems.subList(gapPos, gapPos+1); // Get a sub-list that contains the gap item
+							targetList.clear(); // remove the gap item
 							List<Status> insertedPosts=data.subList(gapPostIndex+1, gapPostIndex+1);
 							for(Status s:result){
 								if(idsBelowGap.contains(s.id))
@@ -498,6 +533,60 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 							}
 							if(needCache)
 								AccountSessionManager.getInstance().getAccount(accountID).getCacheController().putHomeTimeline(insertedPosts, false);
+						}else{
+							Set<String> idsAboveGap=new HashSet<>();
+							int gapPostIndex=0;
+							Status gapPost=null;
+							for(Status s:data){
+								if(s.id.equals(gap.parentID)){
+									gapPost=s;
+									break;
+								}else{
+									idsAboveGap.add(s.id);
+									gapPostIndex++;
+								}
+							}
+							if(gapPost==null)
+								return;
+							boolean needAdjustScroll=false;
+							int scrollTop=0;
+							for(int i=0;i<list.getChildCount();i++){
+								View child=list.getChildAt(i);
+								if(list.getChildViewHolder(child) instanceof GapStatusDisplayItem.Holder gapHolder && gapHolder.getItem()==gap){
+									needAdjustScroll=true;
+									scrollTop=child.getBottom()+1;
+									break;
+								}
+							}
+							List<StatusDisplayItem> targetList=displayItems.subList(gapPos+1, gapPos+1);
+							List<Status> insertedPosts=data.subList(gapPostIndex+1, gapPostIndex+1);
+							for(int i=result.size()-1;i>=0;i--){
+								Status s=result.get(i);
+								if(idsAboveGap.contains(s.id))
+									break;
+								targetList.addAll(0, buildDisplayItems(s));
+								insertedPosts.add(0, s);
+							}
+							boolean gapRemoved=false;
+							if(insertedPosts.size()<result.size()){ // There was an intersection, remove the gap
+								gapRemoved=true;
+								gapPost.hasGapAfter=false;
+								if(needCache)
+									AccountSessionManager.getInstance().getAccount(accountID).getCacheController().putHomeTimeline(List.of(gapPost), false);
+								displayItems.remove(gapPos);
+								adapter.notifyItemRemoved(getMainAdapterOffset()+gapPos);
+							}else{
+								gap.loading=false;
+								adapter.notifyItemChanged(getMainAdapterOffset()+gapPos);
+							}
+							if(!insertedPosts.isEmpty()){
+								if(needCache)
+									AccountSessionManager.getInstance().getAccount(accountID).getCacheController().putHomeTimeline(insertedPosts, false);
+								adapter.notifyItemRangeInserted(getMainAdapterOffset()+gapPos+(gapRemoved ? 0 : 1), targetList.size());
+								if(needAdjustScroll){
+									((LinearLayoutManager)list.getLayoutManager()).scrollToPositionWithOffset(getMainAdapterOffset()+gapPos+(gapRemoved ? 0 : 1)+targetList.size(), scrollTop);
+								}
+							}
 						}
 					}
 
