@@ -51,6 +51,7 @@ public class NewPostsButtonContainer extends FrameLayout{
 
 	@Override
 	public boolean onInterceptTouchEvent(MotionEvent ev){
+		getParent().requestDisallowInterceptTouchEvent(true);
 		if(gestureDetector.onTouchEvent(ev))
 			return true;
 		return super.onInterceptTouchEvent(ev);
