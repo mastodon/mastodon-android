@@ -350,11 +350,7 @@ public class ComposePollViewController{
 				pollOptionsView.removeView(view);
 				addPollOptionBtn.setEnabled(pollOptions.size()<maxPollOptions);
 				if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.R){
-					Vibrator vibrator=fragment.getActivity().getSystemService(Vibrator.class);
-					if(vibrator.areAllPrimitivesSupported(VibrationEffect.Composition.PRIMITIVE_QUICK_RISE)){
-						VibrationEffect effect=VibrationEffect.startComposition().addPrimitive(VibrationEffect.Composition.PRIMITIVE_QUICK_RISE).compose();
-						vibrator.vibrate(effect);
-					}
+					UiUtils.playVibrationEffectIfSupported(fragment.getActivity(), VibrationEffect.Composition.PRIMITIVE_QUICK_RISE);
 				}
 				return;
 			}

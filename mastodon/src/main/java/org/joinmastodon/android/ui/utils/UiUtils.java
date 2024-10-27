@@ -1,6 +1,7 @@
 package org.joinmastodon.android.ui.utils;
 
 import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.UiModeManager;
 import android.content.ActivityNotFoundException;
@@ -25,6 +26,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.SystemClock;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
 import android.os.ext.SdkExtensions;
 import android.provider.MediaStore;
 import android.provider.OpenableColumns;
@@ -1105,5 +1108,15 @@ public class UiUtils{
 		if(Build.VERSION.SDK_INT<Build.VERSION_CODES.UPSIDE_DOWN_CAKE)
 			return ColorContrastMode.DEFAULT;
 		return ColorContrastMode.fromContrastValue(context.getSystemService(UiModeManager.class).getContrast());
+	}
+
+	@TargetApi(Build.VERSION_CODES.R)
+	public static boolean playVibrationEffectIfSupported(Context context, int effect){
+		Vibrator vibrator=context.getSystemService(Vibrator.class);
+		if(vibrator.areAllPrimitivesSupported(effect)){
+			vibrator.vibrate(VibrationEffect.startComposition().addPrimitive(effect).compose());
+			return true;
+		}
+		return false;
 	}
 }

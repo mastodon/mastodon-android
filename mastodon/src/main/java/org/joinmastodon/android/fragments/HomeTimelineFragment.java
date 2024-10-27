@@ -9,7 +9,9 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.VibrationEffect;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.text.style.ForegroundColorSpan;
@@ -58,6 +60,7 @@ import org.joinmastodon.android.ui.displayitems.StatusDisplayItem;
 import org.joinmastodon.android.ui.sheets.DonationSheet;
 import org.joinmastodon.android.ui.sheets.DonationSuccessfulSheet;
 import org.joinmastodon.android.ui.utils.DiscoverInfoBannerHelper;
+import org.joinmastodon.android.ui.utils.UiUtils;
 import org.joinmastodon.android.ui.viewcontrollers.HomeTimelineMenuController;
 import org.joinmastodon.android.ui.viewcontrollers.ToolbarDropdownMenuController;
 import org.joinmastodon.android.ui.views.FixedAspectRatioImageView;
@@ -106,6 +109,11 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 	private DiscoverInfoBannerHelper localTimelineBannerHelper;
 	private View donationBanner;
 	private boolean donationBannerDismissing;
+	private NestedRecyclerScrollView scrollWrapper;
+
+	private String scrollBackItemID;
+	private int scrollBackItemOffset, scrollBackItemIndex;
+	private long scrollBackTime;
 
 	private String maxID;
 	private String lastSavedMarkerID;
@@ -323,6 +331,7 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 				return true;
 			}
 		});
+		scrollWrapper=scroller;
 
 		if(GithubSelfUpdater.needSelfUpdating()){
 			updateUpdateState(GithubSelfUpdater.getInstance().getState());
@@ -728,7 +737,7 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 	private void onNewPostsBtnClick(View v){
 		if(newPostsBtnShown){
 			hideNewPostsButton();
-			scrollToTop();
+			smoothScrollRecyclerViewToTop(list);
 		}
 	}
 
@@ -833,6 +842,67 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 				new DonationSuccessfulSheet(getActivity(), accountID, data.getStringExtra("postText")).showWithoutAnimation();
 			}
 		}
+	}
+
+	@Override
+	public void scrollToTop(){
+		if(list.getChildCount()==0)
+			return;
+		scrollWrapper.smoothScrollTo(0, 0);
+		View topChild=list.getLayoutManager().getChildAt(0);
+		if(list.getChildAdapterPosition(topChild)==0){
+			if(topChild.getTop()==list.getPaddingTop() && scrollBackItemID!=null && System.currentTimeMillis()-scrollBackTime<5*60_000){
+				int indexWithinPost=0;
+				for(int i=0;i<displayItems.size();i++){
+					StatusDisplayItem item=displayItems.get(i);
+					if(item.parentID.equals(scrollBackItemID)){
+						if(indexWithinPost==scrollBackItemIndex){
+							((LinearLayoutManager)list.getLayoutManager()).scrollToPositionWithOffset(i+getMainAdapterOffset(), scrollBackItemOffset);
+							list.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener(){
+								@Override
+								public boolean onPreDraw(){
+									list.getViewTreeObserver().removeOnPreDrawListener(this);
+									list.scrollBy(0, V.dp(-300));
+									list.smoothScrollBy(0, V.dp(300));
+									return true;
+								}
+							});
+							if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.S)
+								UiUtils.playVibrationEffectIfSupported(getActivity(), VibrationEffect.Composition.PRIMITIVE_THUD);
+							return;
+						}
+						indexWithinPost++;
+					}
+				}
+			}else{
+				smoothScrollRecyclerViewToTop(list);
+			}
+		}else if(list.getChildViewHolder(topChild) instanceof StatusDisplayItem.Holder<?> itemHolder){
+			int postIndex;
+			String id=itemHolder.getItemID();
+			for(postIndex=0;postIndex<data.size();postIndex++){
+				if(data.get(postIndex).id.equals(id))
+					break;
+			}
+			if(postIndex>1){
+				scrollBackItemID=id;
+				scrollBackItemIndex=0;
+				for(StatusDisplayItem item:displayItems){
+					if(item.parentID.equals(id)){
+						if(item==itemHolder.getItem())
+							break;
+						scrollBackItemIndex++;
+					}
+				}
+				scrollBackItemOffset=topChild.getTop();
+				scrollBackTime=System.currentTimeMillis();
+			}else{
+				scrollBackItemID=null;
+			}
+		}
+		smoothScrollRecyclerViewToTop(list);
+		if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.S)
+			UiUtils.playVibrationEffectIfSupported(getActivity(), VibrationEffect.Composition.PRIMITIVE_QUICK_RISE);
 	}
 
 	private String getCurrentListTitle(){
