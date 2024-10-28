@@ -79,9 +79,7 @@
 	</plurals>
 	<string name="poll_closed">已關閉</string>
 	<string name="do_mute">靜音</string>
-	<string name="do_unmute">取消靜音</string>
 	<string name="do_block">封鎖</string>
-	<string name="do_unblock">解除封鎖</string>
 	<string name="button_blocked">已封鎖</string>
 	<string name="action_vote">投票</string>
 	<string name="delete">刪除</string>
@@ -155,7 +153,6 @@
 	<string name="visibility_followers_only">跟隨者</string>
 	<string name="visibility_private">指定使用者</string>
 	<string name="recent_searches">最近的</string>
-	<string name="skip">跳過</string>
 	<string name="notification_type_follow">新的跟隨者</string>
 	<string name="notification_type_favorite">最愛</string>
 	<string name="notification_type_reblog">轉嘟</string>
@@ -216,7 +213,6 @@
 	<string name="storage_permission_to_download">這個 app 需要儲存空間的以儲存這個檔案。</string>
 	<string name="open_settings">開啟設定</string>
 	<string name="error_saving_file">儲存檔案時發生錯誤</string>
-	<string name="file_saved">儲存成功</string>
 	<string name="downloading">正在下載...</string>
 	<string name="no_app_to_handle_action">沒有可以處理這個動作的 app</string>
 	<string name="local_timeline">即時河道</string>
@@ -608,10 +604,8 @@
 若您跟隨越多人，首頁時間軸將越活躍且有趣。</string>
 	<string name="onboarding_recommendations_title">客製化您的首頁時間軸</string>
 	<string name="article_by_author">來自 %s</string>
-	<string name="info">關於</string>
 	<string name="button_reblogged">已轉嘟</string>
 	<string name="button_favorited">已加入最愛</string>
-	<string name="bookmarked">已加入書籤</string>
 	<string name="join_server_x_with_invite">透過邀請加入 %s</string>
 	<string name="expired_invite_link">已過期邀請連結</string>
 	<string name="expired_clipboard_invite_link_alert">您剪貼簿中 %1$s 之邀請連結已過期且無法用於註冊。\n\n您可以透過既有使用者請求新的連結，透過 %2$s 註冊，或者於其他伺服器註冊。</string>
