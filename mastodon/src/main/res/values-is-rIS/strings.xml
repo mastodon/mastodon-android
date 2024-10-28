@@ -785,11 +785,13 @@
 	<string name="user_edited_post">%s breytti færslu sem þú áttir við</string>
 	<string name="relationship_severance_account_suspension">Stjórnandi á %1$s hefur fryst %2$s, sem þýðir að þú færð ekki lengur skilaboð frá viðkomandi né átt í samskiptum við viðkomandi.</string>
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_domain_block">Stjórnandi á %1$s hefur lokað á %2$s, þar með talið á %3$,d fylgjendur þína og %4$s sem þú fylgist með.</string>
 	<plurals name="x_accounts">
 		<item quantity="one">%,d aðgangur</item>
 		<item quantity="other">%,d aðgangar</item>
 	</plurals>
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_user_domain_block">Þú hefur lokað á %1$s, og þar með fjarlægt %2$,d fylgjendur þína og %3$s sem þú fylgist með.</string>
 	<string name="relationship_severance_learn_more">Kanna nánar</string>
 	<string name="moderation_warning_action_none">Aðgangurinn þinn hefur fengið aðvörun frá umsjónarmanni.</string>
 	<string name="moderation_warning_action_disable">Aðgangurinn þinn hefur verið gerður óvirkur.</string>
@@ -799,4 +801,5 @@
 	<string name="moderation_warning_action_silence">Notandaaðgangurinn þinn hefur verið takmarkaður.</string>
 	<string name="moderation_warning_action_suspend">Notandaaðgangurinn þinn hefur verið settur í frysti.</string>
 	<string name="moderation_warning_learn_more">Kanna nánar</string>
+	<string name="text_show_more">Meira</string>
 </resources>
