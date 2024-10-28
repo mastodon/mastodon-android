@@ -88,9 +88,7 @@
 	</plurals>
 	<string name="poll_closed">Փակ</string>
 	<string name="do_mute">Լռեցնել</string>
-	<string name="do_unmute">Ապախլացնել</string>
 	<string name="do_block">Արգելափակել</string>
-	<string name="do_unblock">Արգելաբացել</string>
 	<string name="button_blocked">Արգելափակված</string>
 	<string name="action_vote">Քվեարկել</string>
 	<string name="delete">Ջնջել</string>
@@ -165,7 +163,6 @@
 	<string name="visibility_followers_only">Հետևորդներ</string>
 	<string name="visibility_private">Նշված մարդիկ</string>
 	<string name="recent_searches">Վերջին</string>
-	<string name="skip">Բաց թողնել</string>
 	<string name="notification_type_follow">Նոր հետևորդներ</string>
 	<string name="notification_type_favorite">Հավանումներ</string>
 	<string name="notification_type_reblog">Տարածումներ</string>
@@ -227,7 +224,6 @@
 	<string name="storage_permission_to_download">Ֆայլը պահպանելու համար ծրագրին պահանջվում է հիշողության թույլտվություն։</string>
 	<string name="open_settings">Բացել կարգավորումները</string>
 	<string name="error_saving_file">Չհաջողվեց պահպանել ֆայլը</string>
-	<string name="file_saved">Ֆայլը պահպանվել է</string>
 	<string name="downloading">Բեռնում․․․</string>
 	<string name="no_app_to_handle_action">Այս գործողությունը կատարող ծրագիր չկա</string>
 	<string name="local_timeline">Ուղիղ հոսք</string>
@@ -638,10 +634,8 @@
 	<string name="onboarding_recommendations_intro">Դուք եք կառավարում ձեր հիմնական հոսքը։ Ինչքան շատ մարդու հետևեք, այնքան այն ավելի ակտիվ և հետաքրքիր կդառնա։</string>
 	<string name="onboarding_recommendations_title">Խմբագրեք ձեր հիմնական հոսքը</string>
 	<string name="article_by_author">%s-ից</string>
-	<string name="info">Տեղեկություն</string>
 	<string name="button_reblogged">Տարածվել է</string>
 	<string name="button_favorited">Ընտրվել է</string>
-	<string name="bookmarked">Էջանիշը դրվել է</string>
 	<string name="join_server_x_with_invite">Միանալ %s-ին հրավերով</string>
 	<string name="expired_invite_link">Հղման ժամկետը անցել է</string>
 	<string name="expired_clipboard_invite_link_alert">%1$s-ի` ձեր սեղմատաղտակում գտնվող հրավերի հղման վավերության ժամկետը անցել է, և այն չի կարելի օգտագործել գրանցման համար։ \n\nԴուք կարող եք գրանցված օգտատիրոջից խնդրել նորը, գրանցվել %2$s-ի միջոցով, կամ ընտրել այլ սերվեր` գրանցվելու համար։</string>
