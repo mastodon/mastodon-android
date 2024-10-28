@@ -166,7 +166,7 @@ public class ComposeImageDescriptionFragment extends MastodonToolbarFragment{
 		fakeAttachment.meta.width=width;
 		fakeAttachment.meta.height=height;
 
-		photoViewer=new PhotoViewer(getActivity(), Collections.singletonList(fakeAttachment), 0, null, accountID, new PhotoViewer.Listener(){
+		photoViewer=new PhotoViewer(getActivity(), null, Collections.singletonList(fakeAttachment), 0, null, accountID, new PhotoViewer.Listener(){
 			@Override
 			public void setPhotoViewVisibility(int index, boolean visible){
 				image.setAlpha(visible ? 1f : 0f);

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <me.grishka.appkit.views.FragmentRootLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:tools="http://schemas.android.com/tools"
+	xmlns:aapt="http://schemas.android.com/aapt"
 	android:id="@+id/photo_viewer_overlay"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
@@ -13,66 +14,222 @@
 		<FrameLayout
 			android:id="@+id/toolbar_wrap"
 			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:layout_gravity="top"
-			android:background="#80000000">
+			android:layout_height="?android:actionBarSize"
+			android:layout_gravity="top">
 
-			<Toolbar
-				android:id="@+id/toolbar"
-				android:layout_width="match_parent"
-				android:layout_height="?android:attr/actionBarSize"
-				android:elevation="0dp"
-				android:navigationIcon="@drawable/ic_arrow_back"
-				android:navigationContentDescription="@string/back"
-				android:theme="@style/Theme.Mastodon.Toolbar.Profile"
-				android:background="@null"/>
+			<ImageButton
+				android:id="@+id/btn_back"
+				android:layout_width="48dp"
+				android:layout_height="48dp"
+				android:layout_gravity="center_vertical|start"
+				android:layout_marginStart="8dp"
+				android:src="@drawable/ic_close_20px"
+				android:tint="#fff"
+				android:background="@drawable/bg_photo_viewer_toolbar_button"
+				android:contentDescription="@string/back"/>
+
+			<ImageButton
+				android:id="@+id/btn_download"
+				android:layout_width="48dp"
+				android:layout_height="48dp"
+				android:layout_gravity="center_vertical|end"
+				android:layout_marginEnd="8dp"
+				android:src="@drawable/ic_download_20px"
+				android:tint="#fff"
+				android:background="@drawable/bg_photo_viewer_toolbar_button"
+				android:contentDescription="@string/download"/>
 
 		</FrameLayout>
 
-		<RelativeLayout
-			android:id="@+id/video_player_controls"
+		<LinearLayout
+			android:id="@+id/bottom_bar"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:layout_gravity="bottom"
-			android:background="#80000000">
+			android:orientation="vertical"
+			android:paddingTop="64dp"
+			android:background="@drawable/bg_photo_viewer_bottom"
+			android:clipChildren="false"
+			android:clipToPadding="false">
 
-			<SeekBar
-				android:id="@+id/seekbar"
+			<RelativeLayout
+				android:id="@+id/video_player_controls"
 				android:layout_width="match_parent"
-				android:layout_height="34dp"
+				android:layout_height="wrap_content">
+
+				<ImageButton
+					android:id="@+id/play_pause_btn"
+					android:layout_width="40dp"
+					android:layout_height="40dp"
+					android:layout_alignParentStart="true"
+					android:layout_marginStart="8dp"
+					android:src="@drawable/ic_pause_24"
+					android:tint="#fff"
+					android:contentDescription="@string/pause"
+					android:background="?android:selectableItemBackgroundBorderless"/>
+
+				<SeekBar
+					android:id="@+id/seekbar"
+					android:layout_width="match_parent"
+					android:layout_height="40dp"
+					android:layout_toEndOf="@id/play_pause_btn"
+					android:layout_marginEnd="12dp"
+					android:max="10000"
+					android:splitTrack="false"
+					android:layerType="hardware"
+					android:background="@null"
+					android:progressDrawable="@drawable/seekbar_video_player"/>
+
+				<TextView
+					android:id="@+id/time"
+					android:layout_width="wrap_content"
+					android:layout_height="24dp"
+					android:layout_alignStart="@id/seekbar"
+					android:layout_alignTop="@id/seekbar"
+					android:gravity="center_vertical"
+					android:textAppearance="@style/m3_title_medium"
+					android:textColor="#e6ffffff"
+					android:fontFeatureSettings="'tnum'"
+					android:textStyle="bold"
+					android:visibility="invisible"
+					tools:text="1:23 / 4:56"/>
+
+			</RelativeLayout>
+
+			<org.joinmastodon.android.ui.views.PhotoViewerAltTextView
+				android:id="@+id/alt_text"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginHorizontal="16dp"
+				android:textAppearance="@style/m3_body_medium"
+				android:textColor="#E6FFFFFF"
+				android:ellipsize="end"
+				tools:text="Alt text goes here"/>
+
+			<LinearLayout
+				android:id="@+id/post_actions"
+				android:orientation="horizontal"
+				android:layout_width="match_parent"
+				android:layout_height="36dp"
+				android:layout_marginBottom="-8dp"
 				android:layout_marginTop="8dp"
-				android:max="10000"
-				android:progressDrawable="@drawable/seekbar_video_player"
-				android:thumb="@drawable/seekbar_video_player_thumb"/>
+				android:paddingLeft="8dp"
+				android:paddingRight="8dp">
 
-			<ImageButton
-				android:id="@+id/play_pause_btn"
-				android:layout_width="40dp"
-				android:layout_height="40dp"
-				android:layout_below="@id/seekbar"
-				android:layout_alignParentStart="true"
-				android:layout_marginLeft="8dp"
-				android:layout_marginRight="8dp"
-				android:layout_marginBottom="8dp"
-				android:src="@drawable/ic_pause_24"
-				android:tint="#fff"
-				android:contentDescription="@string/pause"
-				android:background="?android:selectableItemBackgroundBorderless"/>
+				<FrameLayout
+					android:id="@+id/reply_btn"
+					android:layout_width="wrap_content"
+					android:layout_height="match_parent"
+					android:layout_marginEnd="8dp"
+					android:paddingHorizontal="8dp"
+					android:background="?android:actionBarItemBackground"
+					android:minWidth="64dp">
+					<TextView
+						android:id="@+id/reply"
+						android:layout_width="wrap_content"
+						android:layout_height="24dp"
+						android:layout_gravity="center|start"
+						android:drawableStart="@drawable/ic_reply_20px"
+						android:drawablePadding="6dp"
+						android:drawableTint="#80ffffff"
+						android:textColor="#80ffffff"
+						android:gravity="center_vertical"
+						android:textAppearance="@style/m3_label_medium"
+						android:duplicateParentState="true"
+						tools:text="123"/>
+				</FrameLayout>
 
-			<TextView
-				android:id="@+id/time"
-				android:layout_width="wrap_content"
-				android:layout_height="24dp"
-				android:layout_below="@id/seekbar"
-				android:layout_alignParentEnd="true"
-				android:layout_marginTop="16dp"
-				android:layout_marginEnd="16dp"
-				android:gravity="center_vertical"
-				android:textAppearance="@style/m3_body_large"
-				android:textColor="#fff"
-				tools:text="1:23 / 4:56"/>
+				<FrameLayout
+					android:id="@+id/boost_btn"
+					android:layout_width="wrap_content"
+					android:layout_height="match_parent"
+					android:layout_marginEnd="8dp"
+					android:paddingHorizontal="8dp"
+					android:background="?android:actionBarItemBackground"
+					android:minWidth="64dp">
+					<TextView
+						android:id="@+id/boost"
+						android:layout_width="wrap_content"
+						android:layout_height="24dp"
+						android:layout_gravity="center|start"
+						android:drawableStart="@drawable/ic_repeat_selector"
+						android:drawablePadding="6dp"
+						android:drawableTint="#80ffffff"
+						android:textColor="#80ffffff"
+						android:gravity="center_vertical"
+						android:textAppearance="@style/m3_label_medium"
+						android:duplicateParentState="true"
+						tools:text="123"/>
+				</FrameLayout>
 
-		</RelativeLayout>
+				<FrameLayout
+					android:id="@+id/favorite_btn"
+					android:layout_width="wrap_content"
+					android:layout_height="match_parent"
+					android:paddingHorizontal="8dp"
+					android:background="?android:actionBarItemBackground"
+					android:minWidth="64dp">
+					<TextView
+						android:id="@+id/favorite"
+						android:layout_width="wrap_content"
+						android:layout_height="24dp"
+						android:layout_gravity="center|start"
+						android:drawableStart="@drawable/ic_star_selector"
+						android:drawablePadding="6dp"
+						android:drawableTint="#80ffffff"
+						android:textColor="#80ffffff"
+						android:gravity="center_vertical"
+						android:textAppearance="@style/m3_label_medium"
+						android:duplicateParentState="true"
+						tools:text="123"/>
+				</FrameLayout>
+
+				<Space
+					android:layout_width="0px"
+					android:layout_height="1px"
+					android:layout_weight="1"/>
+
+				<FrameLayout
+					android:id="@+id/bookmark_btn"
+					android:layout_width="wrap_content"
+					android:layout_height="match_parent"
+					android:paddingHorizontal="8dp"
+					android:background="?android:actionBarItemBackground"
+					android:minWidth="34dp">
+					<ImageView
+						android:id="@+id/bookmark"
+						android:layout_width="wrap_content"
+						android:layout_height="24dp"
+						android:layout_gravity="center"
+						android:src="@drawable/ic_bookmark_20px_selector"
+						android:tint="#80ffffff"
+						android:tintMode="src_in"
+						android:duplicateParentState="true"
+						android:gravity="center_vertical"/>
+				</FrameLayout>
+
+				<FrameLayout
+					android:id="@+id/share_btn"
+					android:layout_width="wrap_content"
+					android:layout_height="match_parent"
+					android:paddingHorizontal="8dp"
+					android:background="?android:actionBarItemBackground"
+					android:minWidth="34dp">
+					<ImageView
+						android:id="@+id/share"
+						android:layout_width="wrap_content"
+						android:layout_height="24dp"
+						android:layout_gravity="center"
+						android:src="@drawable/ic_share_20px"
+						android:tint="#80ffffff"
+						android:tintMode="src_in"
+						android:contentDescription="@string/share_toot_title"
+						android:gravity="center_vertical"/>
+				</FrameLayout>
+
+			</LinearLayout>
+
+		</LinearLayout>
 
 	</FrameLayout>
 

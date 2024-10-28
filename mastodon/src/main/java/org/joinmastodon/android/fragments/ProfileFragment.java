@@ -1134,7 +1134,7 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop{
 			if(ava==null)
 				return;
 			int radius=V.dp(25);
-			currentPhotoViewer=new PhotoViewer(getActivity(), createFakeAttachments(account.avatar, ava), 0,
+			currentPhotoViewer=new PhotoViewer(getActivity(), null, createFakeAttachments(account.avatar, ava), 0,
 					null, accountID, new SingleImagePhotoViewerListener(avatar, avatarBorder, new int[]{radius, radius, radius, radius}, this, ()->currentPhotoViewer=null, ()->ava, null, null));
 		}
 	}
@@ -1148,7 +1148,7 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop{
 			Drawable drawable=cover.getDrawable();
 			if(drawable==null || drawable instanceof ColorDrawable || account.headerStatic.endsWith("/missing.png"))
 				return;
-			currentPhotoViewer=new PhotoViewer(getActivity(), createFakeAttachments(account.header, drawable), 0,
+			currentPhotoViewer=new PhotoViewer(getActivity(), null, createFakeAttachments(account.header, drawable), 0,
 					null, accountID, new SingleImagePhotoViewerListener(cover, cover, null, this, ()->currentPhotoViewer=null, ()->drawable, ()->avatarBorder.setTranslationZ(2), ()->avatarBorder.setTranslationZ(0)));
 		}
 	}

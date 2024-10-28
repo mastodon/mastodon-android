@@ -725,7 +725,11 @@ public class UiUtils{
 	}
 
 	public static void setUserPreferredTheme(Context context){
-		context.setTheme(switch(GlobalUserPreferences.theme){
+		context.setTheme(getThemeForUserPreference(context, GlobalUserPreferences.theme));
+	}
+
+	public static int getThemeForUserPreference(Context context, GlobalUserPreferences.ThemePreference pref){
+		return switch(pref){
 			case AUTO -> switch(getColorContrastMode(context)){
 				case DEFAULT -> R.style.Theme_Mastodon_AutoLightDark;
 				case MEDIUM -> R.style.Theme_Mastodon_AutoLightDark_MediumContrast;
@@ -741,7 +745,7 @@ public class UiUtils{
 				case MEDIUM -> R.style.Theme_Mastodon_Dark_MediumContrast;
 				case HIGH -> R.style.Theme_Mastodon_Dark_HighContrast;
 			};
-		});
+		};
 	}
 
 	public static boolean isDarkTheme(){

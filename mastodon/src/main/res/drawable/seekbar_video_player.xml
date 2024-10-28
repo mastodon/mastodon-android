@@ -1,27 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-	<item android:gravity="center_vertical">
+	<item android:gravity="center_vertical" android:left="-4dp" android:right="-4dp">
 		<shape>
-			<solid android:color="#69ffffff"/>
-			<corners android:radius="1dp"/>
-			<size android:height="2dp"/>
+			<solid android:color="#40ffffff"/>
+			<corners android:radius="16dp"/>
+			<size android:height="8dp"/>
 		</shape>
 	</item>
-	<item android:gravity="center_vertical" android:id="@android:id/secondaryProgress">
-		<clip>
-			<shape>
-				<solid android:color="#40ffffff"/>
-				<corners android:radius="1dp"/>
-				<size android:height="2dp"/>
-			</shape>
-		</clip>
+	<item android:gravity="center_vertical|end" android:width="4dp" android:height="4dp" android:end="-2dp">
+		<shape android:shape="oval">
+			<solid android:color="#fff"/>
+		</shape>
 	</item>
-	<item android:gravity="center_vertical" android:id="@android:id/progress">
+	<item android:gravity="center_vertical" android:id="@android:id/progress" android:left="-4dp" android:right="-4dp">
 		<clip>
 			<shape>
 				<solid android:color="#fff"/>
-				<corners android:radius="1dp"/>
-				<size android:height="2dp"/>
+				<corners android:radius="16dp"/>
+				<size android:height="8dp"/>
 			</shape>
 		</clip>
 	</item>

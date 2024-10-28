@@ -58,6 +58,12 @@ public class BlurHashDecoder{
 		return composeBitmap(width, height, numCompX, numCompY, colors, useCache);
 	}
 
+	public static int decodeToSingleColor(String hash){
+		if(hash.length()<6)
+			return 0;
+		return decode83(hash, 2, 6) & 0xFFFFFF;
+	}
+
 	private static int decode83(String str, int from, int to){
 		int result=0;
 		for(int i=from;i<to;i++){

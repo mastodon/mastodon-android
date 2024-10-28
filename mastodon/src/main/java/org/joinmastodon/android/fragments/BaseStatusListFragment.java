@@ -186,7 +186,7 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 	@Override
 	public void openPhotoViewer(String parentID, Status _status, int attachmentIndex, MediaGridStatusDisplayItem.Holder gridHolder){
 		final Status status=_status.getContentStatus();
-		currentPhotoViewer=new PhotoViewer(getActivity(), status.mediaAttachments, attachmentIndex, status, accountID, new PhotoViewer.Listener(){
+		currentPhotoViewer=new PhotoViewer(getActivity(), this, status.mediaAttachments, attachmentIndex, status, accountID, new PhotoViewer.Listener(){
 			private MediaAttachmentViewController transitioningHolder;
 
 			@Override
