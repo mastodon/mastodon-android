@@ -90,9 +90,7 @@
 	</plurals>
 	<string name="poll_closed">Beendet</string>
 	<string name="do_mute">Stummschalten</string>
-	<string name="do_unmute">Nicht mehr stummschalten</string>
 	<string name="do_block">Sperren</string>
-	<string name="do_unblock">Nicht mehr blockieren</string>
 	<string name="button_blocked">Blockiert</string>
 	<string name="action_vote">Abstimmen</string>
 	<string name="delete">Löschen</string>
@@ -167,7 +165,6 @@
 	<string name="visibility_followers_only">Folgende</string>
 	<string name="visibility_private">Bestimmte Personen</string>
 	<string name="recent_searches">Verlauf</string>
-	<string name="skip">Überspringen</string>
 	<string name="notification_type_follow">Neue Follower</string>
 	<string name="notification_type_favorite">Favoriten</string>
 	<string name="notification_type_reblog">Geteilte Beiträge</string>
@@ -229,7 +226,6 @@
 	<string name="storage_permission_to_download">Die App benötigt Zugriff auf den Speicher deines Geräts, um diese Datei zu speichern.</string>
 	<string name="open_settings">Einstellungen öffnen</string>
 	<string name="error_saving_file">Fehler beim Speichern der Datei</string>
-	<string name="file_saved">Datei gespeichert</string>
 	<string name="downloading">wird heruntergeladen …</string>
 	<string name="no_app_to_handle_action">Es gibt keine App, um diese Aktion auszuführen</string>
 	<string name="local_timeline">Live-Feed</string>
@@ -640,10 +636,8 @@
 	<string name="onboarding_recommendations_intro">Du bestimmst selbst über deine Startseite. Je mehr Leuten du folgst, umso aktiver und interessanter wird sie sein.</string>
 	<string name="onboarding_recommendations_title">Gestalte deine Startseite</string>
 	<string name="article_by_author">Von %s</string>
-	<string name="info">Info</string>
 	<string name="button_reblogged">Geteilt</string>
 	<string name="button_favorited">Favorisiert</string>
-	<string name="bookmarked">Gemerkt</string>
 	<string name="join_server_x_with_invite">%s mit Einladung beitreten</string>
 	<string name="expired_invite_link">Abgelaufener Einladungslink</string>
 	<string name="expired_clipboard_invite_link_alert">Der Einladungslink für %1$s in Ihrer Zwischenablage ist abgelaufen und kann nicht verwendet werden, um sich anzumelden.\n\nSie können einen neuen Link von einem existierenden Benutzer anfordern, Melden Sie sich über %2$s an, oder wählen Sie einen anderen Server, um sich anzumelden.</string>
