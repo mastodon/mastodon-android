@@ -88,9 +88,7 @@
 	</plurals>
 	<string name="poll_closed">Lukket</string>
 	<string name="do_mute">Skjul</string>
-	<string name="do_unmute">Slutt å skjule</string>
 	<string name="do_block">Blokker</string>
-	<string name="do_unblock">Opphev blokkering</string>
 	<string name="button_blocked">Blokkert</string>
 	<string name="action_vote">Stem</string>
 	<string name="delete">Slett</string>
@@ -165,7 +163,6 @@
 	<string name="visibility_followers_only">Følgere</string>
 	<string name="visibility_private">Utvalgte personer</string>
 	<string name="recent_searches">Nylige</string>
-	<string name="skip">Hopp over</string>
 	<string name="notification_type_follow">Nye følgere</string>
 	<string name="notification_type_favorite">Stjernemerker</string>
 	<string name="notification_type_reblog">Boostere</string>
@@ -227,7 +224,6 @@
 	<string name="storage_permission_to_download">Appen trenger tilgang til lagringen for å lagre denne filen.</string>
 	<string name="open_settings">Åpne innstillinger</string>
 	<string name="error_saving_file">Feil ved lagring av fil</string>
-	<string name="file_saved">Fil lagret</string>
 	<string name="downloading">Laster ned…</string>
 	<string name="no_app_to_handle_action">Det er ingen app som kan håndtere denne handlingen</string>
 	<string name="trending_posts_info_banner">Disse innleggene snakker folk om rundt om i Mastodon.</string>
@@ -638,10 +634,8 @@
 Jo flere folk du følger, jo mer aktiv og interessant blir den.</string>
 	<string name="onboarding_recommendations_title">Tilpass din hovedfeed</string>
 	<string name="article_by_author">Av %s</string>
-	<string name="info">Info</string>
 	<string name="button_reblogged">Boosta</string>
 	<string name="button_favorited">Lagt til som favoritt</string>
-	<string name="bookmarked">Lagt til som bokmerke</string>
 	<string name="join_server_x_with_invite">Bli med i %s via invitasjon</string>
 	<string name="expired_invite_link">Invitasjonen er utgått</string>
 	<string name="expired_clipboard_invite_link_alert">Invitasjonen til %1$s fra utklippstavlen din er utgått, og du kan ikke bruke den til å registrere deg.\n\nDu kan spørre en eksisterende bruker om en ny invitasjon, registrere deg via %2$s, eller velge en annen server å registrere deg via.</string>
