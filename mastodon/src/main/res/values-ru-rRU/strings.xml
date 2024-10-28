@@ -110,9 +110,7 @@
 	</plurals>
 	<string name="poll_closed">Завершён</string>
 	<string name="do_mute">Игнорировать</string>
-	<string name="do_unmute">Убрать из игнорируемых</string>
 	<string name="do_block">Заблокировать</string>
-	<string name="do_unblock">Разблокировать</string>
 	<string name="button_blocked">Заблокирован(а)</string>
 	<string name="action_vote">Проголосовать</string>
 	<string name="delete">Удалить</string>
@@ -189,7 +187,6 @@
 	<string name="visibility_followers_only">Читатели</string>
 	<string name="visibility_private">Определённые люди</string>
 	<string name="recent_searches">Недавние</string>
-	<string name="skip">Пропустить</string>
 	<string name="notification_type_follow">Новые подписчики</string>
 	<string name="notification_type_favorite">Избранное</string>
 	<string name="notification_type_reblog">Продвижения</string>
@@ -253,7 +250,6 @@
 	<string name="storage_permission_to_download">Чтобы сохранить этот файл, приложению нужен доступ к хранилищу.</string>
 	<string name="open_settings">Открыть настройки</string>
 	<string name="error_saving_file">Ошабка при сохранении файла</string>
-	<string name="file_saved">Файл сохранён</string>
 	<string name="downloading">Скачивание…</string>
 	<string name="no_app_to_handle_action">Нет приложения для обработки этого действия</string>
 	<string name="local_timeline">Прямая трансляция</string>
@@ -705,10 +701,8 @@
 Чем больше людей на которых вы подписаны, тем активнее и интереснее она будет.</string>
 	<string name="onboarding_recommendations_title">Персонализируйте свою ленту</string>
 	<string name="article_by_author">%s</string>
-	<string name="info">Информация</string>
 	<string name="button_reblogged">Продвинутые</string>
 	<string name="button_favorited">Избранные</string>
-	<string name="bookmarked">В закладках</string>
 	<string name="join_server_x_with_invite">Присоединяйтесь к %s по приглашению</string>
 	<string name="expired_invite_link">Срок действия пригласительной ссылки истёк</string>
 	<string name="expired_clipboard_invite_link_alert">Ссылка приглашения для %1$s в буфере обмена устарела и не может быть использована для регистрации.\n\nВы можете запросить новую ссылку у существующего пользователя. Зарегистрируйтесь через %2$s, или выберите другой сервер для регистрации.</string>
