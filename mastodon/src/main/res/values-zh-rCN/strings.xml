@@ -77,9 +77,7 @@
 	</plurals>
 	<string name="poll_closed">已关闭</string>
 	<string name="do_mute">隐藏</string>
-	<string name="do_unmute">取消隐藏</string>
 	<string name="do_block">屏蔽</string>
-	<string name="do_unblock">取消屏蔽</string>
 	<string name="button_blocked">已屏蔽</string>
 	<string name="action_vote">投票</string>
 	<string name="delete">删除</string>
@@ -153,7 +151,6 @@
 	<string name="visibility_followers_only">关注者</string>
 	<string name="visibility_private">特定的人</string>
 	<string name="recent_searches">最近</string>
-	<string name="skip">跳过</string>
 	<string name="notification_type_follow">新关注者</string>
 	<string name="notification_type_favorite">喜欢</string>
 	<string name="notification_type_reblog">转嘟</string>
@@ -214,7 +211,6 @@
 	<string name="storage_permission_to_download">应用程序需要存储权限才能保存文件。</string>
 	<string name="open_settings">打开「设置」</string>
 	<string name="error_saving_file">保存文件时出错</string>
-	<string name="file_saved">文件已保存</string>
 	<string name="downloading">正在下载…</string>
 	<string name="no_app_to_handle_action">没有可用于处理该操作的 app</string>
 	<string name="local_timeline">实时动态</string>
@@ -606,10 +602,8 @@
 你关注的人越多，它就会越活跃和有趣。</string>
 	<string name="onboarding_recommendations_title">个性化你的首页动态</string>
 	<string name="article_by_author">来自 %s</string>
-	<string name="info">信息</string>
 	<string name="button_reblogged">已转嘟</string>
 	<string name="button_favorited">已喜欢</string>
-	<string name="bookmarked">已收藏</string>
 	<string name="join_server_x_with_invite">通过邀请加入 %s</string>
 	<string name="expired_invite_link">邀请链接过期</string>
 	<string name="expired_clipboard_invite_link_alert">你的剪贴板中的 %1$s 邀请链接已过期，无法用于注册。\n\n你可以向现有用户请求新链接，通过 %2$s 进行注册，或选择其他服务器进行注册。</string>
