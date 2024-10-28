@@ -89,9 +89,7 @@
 	</plurals>
 	<string name="poll_closed">Κλειστό</string>
 	<string name="do_mute">Σίγαση</string>
-	<string name="do_unmute">Κατάργηση σίγασης</string>
 	<string name="do_block">Αποκλεισμός</string>
-	<string name="do_unblock">Άρση αποκλεισμού</string>
 	<string name="button_blocked">Αποκλείστηκε</string>
 	<string name="action_vote">Ψήφισε</string>
 	<string name="delete">Διαγραφή</string>
@@ -166,7 +164,6 @@
 	<string name="visibility_followers_only">Ακόλουθοι</string>
 	<string name="visibility_private">Συγκεκριμένα άτομα</string>
 	<string name="recent_searches">Πρόσφατα</string>
-	<string name="skip">Παράλειψη</string>
 	<string name="notification_type_follow">Νέοι ακόλουθοι</string>
 	<string name="notification_type_favorite">Αγαπημένα</string>
 	<string name="notification_type_reblog">Ενισχύσεις</string>
@@ -228,7 +225,6 @@
 	<string name="storage_permission_to_download">Η εφαρμογή χρειάζεται πρόσβαση στον αποθηκευτικό σου χώρο για να αποθηκεύσει αυτό το αρχείο.</string>
 	<string name="open_settings">Άνοιγμα ρυθμίσεων</string>
 	<string name="error_saving_file">Σφάλμα αποθήκευσης αρχείου</string>
-	<string name="file_saved">Το αρχείο αποθηκεύτηκε</string>
 	<string name="downloading">Λήψη…</string>
 	<string name="no_app_to_handle_action">Δεν υπάρχει εφαρμογή για να χειριστεί αυτήν την ενέργεια</string>
 	<string name="local_timeline">Ζωντανή ροή</string>
@@ -639,10 +635,8 @@
 	<string name="onboarding_recommendations_intro">Εσύ επιμελείσαι την Αρχική σου ροή. Όσο περισσότερους ανθρώπους ακολουθείς, τόσο πιο δραστήρια και ενδιαφέρουσα θα είναι.</string>
 	<string name="onboarding_recommendations_title">Προσάρμοσε την αρχική ροή σου</string>
 	<string name="article_by_author">Βάσει %s</string>
-	<string name="info">Πληροφορίες</string>
 	<string name="button_reblogged">Ενισχύθηκε</string>
 	<string name="button_favorited">Είναι αγαπημένο</string>
-	<string name="bookmarked">Σε σελιδοδείκτη</string>
 	<string name="join_server_x_with_invite">Συμμετοχή σε %s με πρόσκληση</string>
 	<string name="expired_invite_link">Λιγμένος σύνδεσμος πρόσκλησης</string>
 	<string name="expired_clipboard_invite_link_alert">Ο σύνδεσμος πρόσκλησης %1$s στο πρόχειρό σου έχει λήξει και δεν μπορεί να χρησιμοποιηθεί για εγγραφή.\n\nΜπορείς να αιτηθείς νέο σύνδεσμο από υφιστάμενο χρήστη, να εγγραφείς μέσω %2$s ή επέλεξε άλλον διακομιστή να εγγραφείς.</string>
