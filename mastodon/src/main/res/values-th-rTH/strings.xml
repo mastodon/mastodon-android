@@ -79,9 +79,7 @@
 	</plurals>
 	<string name="poll_closed">ปิดแล้ว</string>
 	<string name="do_mute">ซ่อน</string>
-	<string name="do_unmute">เลิกซ่อน</string>
 	<string name="do_block">ปิดกั้น</string>
-	<string name="do_unblock">เลิกปิดกั้น</string>
 	<string name="button_blocked">ปิดกั้นอยู่</string>
 	<string name="action_vote">ลงคะแนน</string>
 	<string name="delete">ลบ</string>
@@ -155,7 +153,6 @@
 	<string name="visibility_followers_only">ผู้ติดตาม</string>
 	<string name="visibility_private">ผู้คนที่เฉพาะเจาะจง</string>
 	<string name="recent_searches">รายการล่าสุด</string>
-	<string name="skip">ข้าม</string>
 	<string name="notification_type_follow">ผู้ติดตามใหม่</string>
 	<string name="notification_type_favorite">รายการโปรด</string>
 	<string name="notification_type_reblog">การดัน</string>
@@ -216,7 +213,6 @@
 	<string name="storage_permission_to_download">แอปจำเป็นต้องเข้าถึงที่เก็บข้อมูลของคุณเพื่อบันทึกไฟล์นี้</string>
 	<string name="open_settings">เปิดการตั้งค่า</string>
 	<string name="error_saving_file">เกิดข้อผิดพลาดในการบันทึกไฟล์</string>
-	<string name="file_saved">บันทึกไฟล์แล้ว</string>
 	<string name="downloading">กำลังดาวน์โหลด…</string>
 	<string name="no_app_to_handle_action">ไม่มีแอปที่จะจัดการการกระทำนี้</string>
 	<string name="local_timeline">ฟีดสด</string>
@@ -608,10 +604,8 @@
 ยิ่งคุณติดตามผู้คนมากเท่าไร ฟีดหน้าแรกก็จะยิ่งมีการใช้งานและน่าสนใจมากขึ้นเท่านั้น</string>
 	<string name="onboarding_recommendations_title">ปรับแต่งฟีดหน้าแรกของคุณ</string>
 	<string name="article_by_author">โดย %s</string>
-	<string name="info">ข้อมูล</string>
 	<string name="button_reblogged">ดันแล้ว</string>
 	<string name="button_favorited">ชื่นชอบแล้ว</string>
-	<string name="bookmarked">เพิ่มที่คั่นหน้าแล้ว</string>
 	<string name="join_server_x_with_invite">เข้าร่วม %s ด้วยคำเชิญ</string>
 	<string name="expired_invite_link">ลิงก์เชิญหมดอายุแล้ว</string>
 	<string name="expired_clipboard_invite_link_alert">ลิงก์เชิญสำหรับ %1$s ในคลิปบอร์ดของคุณหมดอายุแล้วและไม่สามารถใช้เพื่อลงทะเบียน\n\nคุณสามารถขอลิงก์ใหม่จากผู้ใช้ที่มีอยู่ ลงทะเบียนผ่าน %2$s หรือเลือกเซิร์ฟเวอร์อื่นเพื่อลงทะเบียนผ่าน</string>
