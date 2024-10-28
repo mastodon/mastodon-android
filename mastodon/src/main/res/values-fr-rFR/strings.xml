@@ -88,9 +88,7 @@
 	</plurals>
 	<string name="poll_closed">Fermé</string>
 	<string name="do_mute">Mettre en sourdine</string>
-	<string name="do_unmute">Ne plus masquer</string>
 	<string name="do_block">Bloquer</string>
-	<string name="do_unblock">Débloquer</string>
 	<string name="button_blocked">Bloqué</string>
 	<string name="action_vote">Voter</string>
 	<string name="delete">Supprimer</string>
@@ -165,7 +163,6 @@
 	<string name="visibility_followers_only">Abonné·e·s</string>
 	<string name="visibility_private">Personnes spécifiques</string>
 	<string name="recent_searches">Récents</string>
-	<string name="skip">Passer</string>
 	<string name="notification_type_follow">Nouveaux⋅elles abonné⋅e⋅s</string>
 	<string name="notification_type_favorite">Favoris</string>
 	<string name="notification_type_reblog">Partages</string>
@@ -227,7 +224,6 @@
 	<string name="storage_permission_to_download">L’application a besoin d’accéder à votre espace de stockage pour enregistrer ce fichier.</string>
 	<string name="open_settings">Ouvrir les paramètres</string>
 	<string name="error_saving_file">Erreur lors de l’enregistrement du fichier</string>
-	<string name="file_saved">Fichier enregistré</string>
 	<string name="downloading">Téléchargement…</string>
 	<string name="no_app_to_handle_action">Aucune application ne permet de gérer cette action</string>
 	<string name="local_timeline">Flux en direct</string>
@@ -638,10 +634,8 @@
 	<string name="onboarding_recommendations_intro">Vous organisez votre propre flux d\'accueil. Plus vous suivez de personnes, plus il sera actif et intéressant.</string>
 	<string name="onboarding_recommendations_title">Personnaliser votre flux principal</string>
 	<string name="article_by_author">Par %s</string>
-	<string name="info">Info</string>
 	<string name="button_reblogged">Boosté</string>
 	<string name="button_favorited">Ajouté au favoris</string>
-	<string name="bookmarked">Ajouté aux signets</string>
 	<string name="join_server_x_with_invite">Rejoindre %s avec invitation</string>
 	<string name="expired_invite_link">Lien d\'invitation expiré</string>
 	<string name="expired_clipboard_invite_link_alert">Le lien d\'invitation pour %1$s dans votre presse-papiers a expiré et ne peut pas être utilisé pour vous inscrire.\n\nVous pouvez demander un nouveau lien à un utilisateur existant, inscrivez-vous via %2$s, ou choisissez un autre serveur pour vous inscrire.</string>
