@@ -90,9 +90,7 @@
 	</plurals>
 	<string name="poll_closed">Lokið</string>
 	<string name="do_mute">Þagga niður</string>
-	<string name="do_unmute">Afþagga</string>
 	<string name="do_block">Útilokun</string>
-	<string name="do_unblock">Aflétta útilokun</string>
 	<string name="button_blocked">Útilokað</string>
 	<string name="action_vote">Greiða atkvæði</string>
 	<string name="delete">Eyða</string>
@@ -167,7 +165,6 @@
 	<string name="visibility_followers_only">Fylgjendur</string>
 	<string name="visibility_private">Tilteknir aðilar</string>
 	<string name="recent_searches">Nýlegt</string>
-	<string name="skip">Sleppa</string>
 	<string name="notification_type_follow">Nýir fylgjendur</string>
 	<string name="notification_type_favorite">Eftirlæti</string>
 	<string name="notification_type_reblog">Endurbirtingar</string>
@@ -229,7 +226,6 @@
 	<string name="storage_permission_to_download">Forritið þarf aðgang að geymslurýminu þínu til að vista þessa skrá.</string>
 	<string name="open_settings">Opna stillingar</string>
 	<string name="error_saving_file">Villa við að vista skrána</string>
-	<string name="file_saved">Skrá vistuð</string>
 	<string name="downloading">Sæki…</string>
 	<string name="no_app_to_handle_action">Ekkert forrit fannst sem getur meðhöndlað þessa aðgerð</string>
 	<string name="local_timeline">Bein streymi</string>
@@ -641,10 +637,8 @@
  Því fleira fólki sem þú fylgist með, því virkara og áhugaverðara verður það.</string>
 	<string name="onboarding_recommendations_title">Aðlagaðu heimastreymið þitt eftir þínu höfði</string>
 	<string name="article_by_author">Frá %s</string>
-	<string name="info">Upplýsingar</string>
 	<string name="button_reblogged">Endurbirt</string>
 	<string name="button_favorited">Sett í eftirlæti</string>
-	<string name="bookmarked">Bókamerkt</string>
 	<string name="join_server_x_with_invite">Taka þátt í %s með boðstengli</string>
 	<string name="expired_invite_link">Útrunninn boðstengill</string>
 	<string name="expired_clipboard_invite_link_alert">Boðstengillinn á klippispjaldinu þínu fyrir %1$s er útrunninn og því ekki hægt að nota hann til nýskráningar.\n\nÞú getur beðið um nýjan boðstengil frá fyrirliggjandi þátttakanda, nýskráð þig í gegnum %2$s, eða valið annan netþjón til að skrá þig á.</string>
