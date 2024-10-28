@@ -90,9 +90,7 @@
 	</plurals>
 	<string name="poll_closed">Kapandı</string>
 	<string name="do_mute">Sustur</string>
-	<string name="do_unmute">Susturmayı kaldır</string>
 	<string name="do_block">Engelle</string>
-	<string name="do_unblock">Engeli kaldır</string>
 	<string name="button_blocked">Engellendi</string>
 	<string name="action_vote">Oyla</string>
 	<string name="delete">Sil</string>
@@ -167,7 +165,6 @@
 	<string name="visibility_followers_only">Takipçiler</string>
 	<string name="visibility_private">Belirli kişiler</string>
 	<string name="recent_searches">Son aramalar</string>
-	<string name="skip">Atla</string>
 	<string name="notification_type_follow">Yeni takipçiler</string>
 	<string name="notification_type_favorite">Gözdeler</string>
 	<string name="notification_type_reblog">Yeniden Paylaşımlar</string>
@@ -229,7 +226,6 @@
 	<string name="storage_permission_to_download">Bu dosyayı kaydetmek için uygulamanın depolama alanınıza erişmesi gerekiyor.</string>
 	<string name="open_settings">Ayarları aç</string>
 	<string name="error_saving_file">Dosya kaydedilirken hata oluştu</string>
-	<string name="file_saved">Dosya kaydedildi</string>
 	<string name="downloading">İndiriliyor…</string>
 	<string name="no_app_to_handle_action">Bu eylemi gerçekleştirebilecek bir uygulama bulunmuyor</string>
 	<string name="local_timeline">Canlı yayın</string>
@@ -641,10 +637,8 @@
 Ne kadar çok kişiyi takip ederseniz, o kadar aktif ve ilginç olacaktır.</string>
 	<string name="onboarding_recommendations_title">Ev akışınızı kişiselleştirin</string>
 	<string name="article_by_author">Yazan %s</string>
-	<string name="info">Bilgi</string>
 	<string name="button_reblogged">Yeniden paylaştı</string>
 	<string name="button_favorited">Sık Kullanılanlar</string>
-	<string name="bookmarked">Yer işareti</string>
 	<string name="join_server_x_with_invite">Davetiye ile %s \'ye katılınız</string>
 	<string name="expired_invite_link">Süresi dolmuş davet bağlantısı</string>
 	<string name="expired_clipboard_invite_link_alert">Pano %1$s davet bağlantısının süresi doldu ve kaydolmak için kullanılamıyor.\n\nMevcut bir kullanıcıdan yeni bir bağlantı talep edebilir, %2$s, üzerinden kayıt olabilir veya kayıt olmak için başka bir sunucu seçebilirsiniz.</string>
