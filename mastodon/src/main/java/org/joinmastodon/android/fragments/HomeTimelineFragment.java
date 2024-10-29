@@ -33,10 +33,12 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.Toolbar;
 
 import com.squareup.otto.Subscribe;
 
+import org.joinmastodon.android.BuildConfig;
 import org.joinmastodon.android.E;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.MastodonAPIRequest;
@@ -350,6 +352,10 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 			state=updater.getState();
 		if(state!=GithubSelfUpdater.UpdateState.NO_UPDATE && state!=GithubSelfUpdater.UpdateState.CHECKING)
 			getToolbar().getMenu().findItem(R.id.settings).setIcon(R.drawable.ic_settings_updateready_24px);
+
+		if("debug".equals(BuildConfig.BUILD_TYPE)){
+			menu.add(0, 1, 0, "Make a gap");
+		}
 	}
 
 	@Override
@@ -362,6 +368,17 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 		}else if(id==R.id.edit_list){
 			args.putParcelable("list", Parcels.wrap(currentList));
 			Nav.go(getActivity(), EditListFragment.class, args);
+		}else if(id==1){
+			if(data.size()<35){
+				Toast.makeText(getActivity(), "Too few posts. Load at least 35", Toast.LENGTH_SHORT).show();
+				return true;
+			}
+			Status gapStatus=data.get(1);
+			gapStatus.hasGapAfter=true;
+			onStatusUpdated(gapStatus);
+			for(Status s:new ArrayList<>(data.subList(2, 32))){
+				removeStatus(s);
+			}
 		}
 		return true;
 	}
@@ -472,16 +489,16 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 		dataLoading=true;
 		boolean needCache=listMode==ListMode.FOLLOWING;
 		boolean insertBelowGap=!gap.enteredFromTop;
-		String maxID, sinceID;
+		String maxID, minID;
 		if(gap.enteredFromTop){
-			maxID=item.getItemID();
-			sinceID=null;
-		}else{
 			maxID=null;
 			int gapPos=displayItems.indexOf(gap);
-			sinceID=displayItems.get(gapPos+1).parentID;
+			minID=displayItems.get(gapPos+1).parentID;
+		}else{
+			maxID=item.getItemID();
+			minID=null;
 		}
-		loadAdditionalPosts(maxID, null, 20, sinceID, new Callback<>(){
+		loadAdditionalPosts(maxID, minID, 20, null, new Callback<>(){
 					@Override
 					public void onSuccess(List<Status> result){
 
@@ -582,6 +599,7 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 								targetList.addAll(0, buildDisplayItems(s));
 								insertedPosts.add(0, s);
 							}
+							int addedItemCount=targetList.size();
 							boolean gapRemoved=false;
 							if(insertedPosts.size()<result.size()){ // There was an intersection, remove the gap
 								gapRemoved=true;
@@ -597,9 +615,9 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 							if(!insertedPosts.isEmpty()){
 								if(needCache)
 									AccountSessionManager.getInstance().getAccount(accountID).getCacheController().putHomeTimeline(insertedPosts, false);
-								adapter.notifyItemRangeInserted(getMainAdapterOffset()+gapPos+(gapRemoved ? 0 : 1), targetList.size());
+								adapter.notifyItemRangeInserted(getMainAdapterOffset()+gapPos+(gapRemoved ? 0 : 1), addedItemCount);
 								if(needAdjustScroll){
-									((LinearLayoutManager)list.getLayoutManager()).scrollToPositionWithOffset(getMainAdapterOffset()+gapPos+(gapRemoved ? 0 : 1)+targetList.size(), scrollTop);
+									((LinearLayoutManager)list.getLayoutManager()).scrollToPositionWithOffset(getMainAdapterOffset()+gapPos+(gapRemoved ? 0 : 1)+addedItemCount, scrollTop);
 								}
 							}
 						}
