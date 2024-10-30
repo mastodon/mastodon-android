@@ -13,6 +13,8 @@
 	<string name="notifications">Brathan</string>
 	<string name="user_followed_you">Tha %s ’gad leantainn a-nis</string>
 	<string name="user_sent_follow_request">Chuir %s iarrtas leantainn thugad</string>
+	<string name="user_favorited">Is annsa le %s:</string>
+	<string name="notification_boosted">Bhrosnaich %s:</string>
 	<string name="share_toot_title">Co-roinn</string>
 	<string name="settings">Roghainnean</string>
 	<string name="publish">Foillsich</string>
@@ -828,6 +830,57 @@
 	<string name="donation_server_error">Tha sinn duilich ach thachair mearachd agus cha b’ urrainn dhuinn an tabhartas agad a phròiseasadh.\n\nFeuch ris a-rithist an ceann mionaid no dhà.</string>
 	<string name="settings_donate">Thoir tabhartas do Mhastodon</string>
 	<string name="settings_manage_donations">Stiùirich na tabhartasan</string>
+	<string name="cant_load_image">Cha b’ urrainn dhuinn an dealbh a luchdadh</string>
+	<string name="poll_see_results">Faic na toraidhean</string>
+	<string name="poll_hide_results">Falaich na toraidhean</string>
+	<plurals name="x_attachments">
+		<item quantity="one">%d cheanglachan</item>
+		<item quantity="two">%d cheanglachan</item>
+		<item quantity="few">%d ceanglachain</item>
+		<item quantity="other">%d ceanglachan</item>
+	</plurals>
+	<plurals name="user_and_x_more_favorited">
+		<item quantity="one">Is annsa le %1$s ’s %2$,d eile:</item>
+		<item quantity="two">Is annsa le %1$s ’s %2$,d eile:</item>
+		<item quantity="few">Is annsa le %1$s ’s %2$,d eile:</item>
+		<item quantity="other">Is annsa le %1$s ’s %2$,d eile:</item>
+	</plurals>
+	<plurals name="user_and_x_more_boosted">
+		<item quantity="one">Bhrosnaich %1$s ’s %2$,d eile:</item>
+		<item quantity="two">Bhrosnaich %1$s ’s %2$,d eile:</item>
+		<item quantity="few">Bhrosnaich %1$s ’s %2$,d eile:</item>
+		<item quantity="other">Bhrosnaich %1$s ’s %2$,d eile:</item>
+	</plurals>
+	<plurals name="poll_ended_x_voters">
+		<item quantity="one">Rinn %1$s cunntas-bheachd sa bhòt thu fhèin ’s %2$,d eile</item>
+		<item quantity="two">Rinn %1$s cunntas-bheachd sa bhòt thu fhèin ’s %2$,d eile</item>
+		<item quantity="few">Rinn %1$s cunntas-bheachd sa bhòt thu fhèin ’s %2$,d eile</item>
+		<item quantity="other">Rinn %1$s cunntas-bheachd sa bhòt thu fhèin ’s %2$,d eile</item>
+	</plurals>
+	<string name="own_poll_ended">Thàinig an cunntas-bheachd agad gu crìoch</string>
+	<string name="user_just_posted">Phostaich %s rud</string>
+	<string name="user_edited_post">Dheasaich %s post a dh’eadar-ghabh thu leis</string>
+	<string name="relationship_severance_account_suspension">Chuir rianaire aig %1$s %2$s à rèim agus is ciall dha sin nach fhaigh thu naidheachdan uapa ’s nach urrainn dhut conaltradh leotha.</string>
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_domain_block">Bhac rianaire aig %1$s %2$s, a’ gabhail a-staigh %3$,d dhen luchd-leantainn agad agus %4$s a tha thu fhèin a’ leantainn.</string>
+	<plurals name="x_accounts">
+		<item quantity="one">%,d chunntas</item>
+		<item quantity="two">%,d chunntas</item>
+		<item quantity="few">%,d cunntasan</item>
+		<item quantity="other">%,d cunntas</item>
+	</plurals>
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_user_domain_block">Bhac thu %1$s agus thug sin air falbh %2$,d dhen luchd-leantainn agad agus %3$s a tha thu fhèin a’ leantainn.</string>
+	<string name="relationship_severance_learn_more">Barrachd fiosrachaidh</string>
+	<string name="moderation_warning_action_none">Fhuair an cunntas agad rabhadh on mhaorsainneachd.</string>
+	<string name="moderation_warning_action_disable">Chaidh an cunntas agad a chur à comas.</string>
+	<string name="moderation_warning_action_mark_statuses_as_sensitive">Chaidh comharra a chur ri cuid dhe na postaichean agad gu bheil iad frionasach.</string>
+	<string name="moderation_warning_action_delete_statuses">Chaidh cuid dhe na postaichean agad a thoirt air falbh.</string>
+	<string name="moderation_warning_action_sensitive">Thèid comharra na frionasachd a chur ris na postaichean agad o seo a-mach.</string>
+	<string name="moderation_warning_action_silence">Chaidh an cunntas agad a chuingeachadh.</string>
+	<string name="moderation_warning_action_suspend">Chaidh an cunntas agad a chur à rèim.</string>
+	<string name="moderation_warning_learn_more">Barrachd fiosrachaidh</string>
+	<string name="text_show_more">Barrachd</string>
+	<string name="avatar_move_and_scale">Gluais is sgèilich</string>
+	<string name="confirm_avatar_crop">Tagh</string>
 </resources>
