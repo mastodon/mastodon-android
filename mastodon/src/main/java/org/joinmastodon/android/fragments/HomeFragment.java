@@ -3,6 +3,7 @@ package org.joinmastodon.android.fragments;
 import android.annotation.SuppressLint;
 import android.app.Fragment;
 import android.app.NotificationManager;
+import android.app.assist.AssistContent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -57,7 +58,7 @@ import me.grishka.appkit.imageloader.requests.UrlImageLoaderRequest;
 import me.grishka.appkit.utils.V;
 import me.grishka.appkit.views.FragmentRootLinearLayout;
 
-public class HomeFragment extends AppKitFragment{
+public class HomeFragment extends AppKitFragment implements AssistContentProviderFragment{
 	private FragmentRootLinearLayout content;
 	private HomeTimelineFragment homeTimelineFragment;
 	private NotificationsListFragment notificationsFragment;
@@ -378,5 +379,12 @@ public class HomeFragment extends AppKitFragment{
 			homeTimelineFragment.rebuildAllDisplayItems();
 		if(notificationsFragment.loaded)
 			notificationsFragment.rebuildAllDisplayItems();
+	}
+
+	@Override
+	public void onProvideAssistContent(AssistContent content){
+		if(fragmentForTab(currentTab) instanceof AssistContentProviderFragment provider){
+			provider.onProvideAssistContent(content);
+		}
 	}
 }

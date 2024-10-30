@@ -6,6 +6,7 @@ import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.app.Fragment;
+import android.app.assist.AssistContent;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Intent;
@@ -108,7 +109,7 @@ import me.grishka.appkit.utils.CubicBezierInterpolator;
 import me.grishka.appkit.utils.V;
 import me.grishka.appkit.views.FragmentRootLinearLayout;
 
-public class ProfileFragment extends LoaderFragment implements ScrollableToTop{
+public class ProfileFragment extends LoaderFragment implements ScrollableToTop, AssistContentProviderFragment{
 	private static final int AVATAR_RESULT=722;
 	private static final int COVER_RESULT=343;
 
@@ -1216,6 +1217,13 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop{
 
 	private boolean isActionButtonInView(){
 		return actionButton.getVisibility()==View.VISIBLE && actionButtonWrap.getTop()+actionButtonWrap.getHeight()>scrollView.getScrollY();
+	}
+
+	@Override
+	public void onProvideAssistContent(AssistContent content){
+		if(account!=null){
+			content.setWebUri(Uri.parse(account.url));
+		}
 	}
 
 	private class ProfilePagerAdapter extends RecyclerView.Adapter<SimpleViewHolder>{

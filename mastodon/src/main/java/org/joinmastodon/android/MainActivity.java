@@ -3,6 +3,7 @@ package org.joinmastodon.android;
 import android.Manifest;
 import android.app.Application;
 import android.app.Fragment;
+import android.app.assist.AssistContent;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -16,6 +17,7 @@ import org.joinmastodon.android.api.ObjectValidationException;
 import org.joinmastodon.android.api.requests.search.GetSearchResults;
 import org.joinmastodon.android.api.session.AccountSession;
 import org.joinmastodon.android.api.session.AccountSessionManager;
+import org.joinmastodon.android.fragments.AssistContentProviderFragment;
 import org.joinmastodon.android.fragments.ComposeFragment;
 import org.joinmastodon.android.fragments.HomeFragment;
 import org.joinmastodon.android.fragments.ProfileFragment;
@@ -228,5 +230,12 @@ public class MainActivity extends FragmentStackActivity{
 		if(fragmentContainers.isEmpty())
 			return null;
 		return getFragmentManager().findFragmentById(fragmentContainers.get(fragmentContainers.size()-1).getId());
+	}
+
+	@Override
+	public void onProvideAssistContent(AssistContent outContent){
+		if(getTopmostFragment() instanceof AssistContentProviderFragment provider){
+			provider.onProvideAssistContent(outContent);
+		}
 	}
 }

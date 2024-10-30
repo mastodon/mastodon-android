@@ -1,8 +1,10 @@
 package org.joinmastodon.android.fragments;
 
+import android.app.assist.AssistContent;
 import android.content.res.ColorStateList;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -46,7 +48,7 @@ import me.grishka.appkit.utils.MergeRecyclerAdapter;
 import me.grishka.appkit.utils.SingleViewRecyclerAdapter;
 import me.grishka.appkit.utils.V;
 
-public class ThreadFragment extends StatusListFragment{
+public class ThreadFragment extends StatusListFragment implements AssistContentProviderFragment{
 	private Status mainStatus;
 	private ImageView endMark;
 	private FrameLayout replyContainer;
@@ -258,6 +260,11 @@ public class ThreadFragment extends StatusListFragment{
 				return i<data.size()-1 ? data.get(i+1) : null;
 		}
 		return null;
+	}
+
+	@Override
+	public void onProvideAssistContent(AssistContent content){
+		content.setWebUri(Uri.parse(mainStatus.url));
 	}
 
 	private class ReplyLinesItemDecoration extends RecyclerView.ItemDecoration{
