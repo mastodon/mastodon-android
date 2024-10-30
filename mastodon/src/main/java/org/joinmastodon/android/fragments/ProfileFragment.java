@@ -763,6 +763,9 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop{
 					})
 					.wrapProgress(getActivity(), R.string.loading, false)
 					.exec(accountID);
+		}else if(id==R.id.copy_link){
+			getActivity().getSystemService(ClipboardManager.class).setPrimaryClip(ClipData.newPlainText(null, account.url));
+			UiUtils.maybeShowTextCopiedToast(getActivity());
 		}
 		return true;
 	}
