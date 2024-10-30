@@ -216,7 +216,7 @@ public class CustomEmojiPopupKeyboard extends PopupKeyboard{
 		}
 	}
 
-	private class EmojiViewHolder extends BindableViewHolder<Emoji> implements ImageLoaderViewHolder, UsableRecyclerView.Clickable{
+	private class EmojiViewHolder extends BindableViewHolder<Emoji> implements ImageLoaderViewHolder{
 		public int positionWithinCategory;
 		public EmojiViewHolder(){
 			super(new ImageView(activity));
@@ -226,6 +226,7 @@ public class CustomEmojiPopupKeyboard extends PopupKeyboard{
 			int pad=V.dp(12);
 			img.setPadding(pad, pad, pad, pad);
 			img.setBackgroundResource(R.drawable.bg_custom_emoji);
+			itemView.setOnClickListener(v->onClick());
 		}
 
 		@Override
@@ -247,8 +248,7 @@ public class CustomEmojiPopupKeyboard extends PopupKeyboard{
 			((ImageView)itemView).setImageDrawable(null);
 		}
 
-		@Override
-		public void onClick(){
+		private void onClick(){
 			listener.onEmojiSelected(item);
 		}
 	}
