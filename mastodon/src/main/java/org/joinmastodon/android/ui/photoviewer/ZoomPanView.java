@@ -46,6 +46,8 @@ public class ZoomPanView extends FrameLayout implements ScaleGestureDetector.OnS
 	private float lastScaleCenterX, lastScaleCenterY;
 	private boolean canScrollLeft, canScrollRight;
 	private ArrayList<SpringAnimation> runningTransformAnimations=new ArrayList<>(), runningTransitionAnimations=new ArrayList<>();
+	private boolean fill; // whether the image should fill the viewport at min scale
+	private boolean swipeToDismissEnabled=true;
 
 	private RectF tmpRect=new RectF(), tmpRect2=new RectF();
 	// the initial/final crop rect for open/close transitions, in child coordinates
@@ -116,14 +118,19 @@ public class ZoomPanView extends FrameLayout implements ScaleGestureDetector.OnS
 		if(child==null)
 			return;
 
-		int width=right-left;
-		int height=bottom-top;
+		int width=right-left-getPaddingLeft()-getPaddingRight();
+		int height=bottom-top-getPaddingTop()-getPaddingBottom();
 		if(width==0 || height==0 || child.getWidth()==0 || child.getWidth()==0){
 			matrix.reset();
 			return;
 		}
 
-		float scale=Math.min(width/(float)child.getWidth(), height/(float)child.getHeight());
+		float scale;
+		if(fill){
+			scale=Math.max(width/(float)child.getWidth(), height/(float)child.getHeight());
+		}else{
+			scale=Math.min(width/(float)child.getWidth(), height/(float)child.getHeight());
+		}
 		minScale=scale;
 		maxScale=Math.max(3f, height/(float)child.getHeight());
 		matrix.setScale(scale, scale);
@@ -323,14 +330,14 @@ public class ZoomPanView extends FrameLayout implements ScaleGestureDetector.OnS
 	private void updateLimits(float targetScale){
 		float scaledWidth=child.getWidth()*targetScale;
 		float scaledHeight=child.getHeight()*targetScale;
-		if(scaledWidth>getWidth()){
-			minTransX=(getWidth()-Math.round(scaledWidth))/2f;
+		if(scaledWidth>getInsetWidth()){
+			minTransX=(getInsetWidth()-Math.round(scaledWidth))/2f;
 			maxTransX=-minTransX;
 		}else{
 			minTransX=maxTransX=0f;
 		}
-		if(scaledHeight>getHeight()){
-			minTransY=(getHeight()-Math.round(scaledHeight))/2f;
+		if(scaledHeight>getInsetHeight()){
+			minTransY=(getInsetHeight()-Math.round(scaledHeight))/2f;
 			maxTransY=-minTransY;
 		}else{
 			minTransY=maxTransY=0f;
@@ -468,10 +475,10 @@ public class ZoomPanView extends FrameLayout implements ScaleGestureDetector.OnS
 	@Override
 	public boolean onScale(ScaleGestureDetector detector){
 		float factor=detector.getScaleFactor();
-		matrix.postScale(factor, factor, detector.getFocusX()-getWidth()/2f, detector.getFocusY()-getHeight()/2f);
+		matrix.postScale(factor, factor, detector.getFocusX()-getInsetWidth()/2f-getPaddingLeft(), detector.getFocusY()-getInsetHeight()/2f-getPaddingTop());
 		updateViewTransform(false);
-		lastScaleCenterX=detector.getFocusX()-getWidth()/2f;
-		lastScaleCenterY=detector.getFocusY()-getHeight()/2f;
+		lastScaleCenterX=detector.getFocusX()-getInsetWidth()/2f-getPaddingLeft();
+		lastScaleCenterY=detector.getFocusY()-getInsetHeight()/2f-getPaddingTop();
 		return true;
 	}
 
@@ -510,7 +517,7 @@ public class ZoomPanView extends FrameLayout implements ScaleGestureDetector.OnS
 					return false;
 				if(child.getScaleX()<maxScale){
 					float scale=maxScale/child.getScaleX();
-					matrix.postScale(scale, scale, e.getX()-getWidth()/2f, e.getY()-getHeight()/2f);
+					matrix.postScale(scale, scale, e.getX()-getInsetWidth()/2f-getPaddingLeft(), e.getY()-getInsetHeight()/2f-getPaddingTop());
 					matrix.getValues(matrixValues);
 					transX=matrixValues[Matrix.MTRANS_X];
 					transY=matrixValues[Matrix.MTRANS_Y];
@@ -554,7 +561,7 @@ public class ZoomPanView extends FrameLayout implements ScaleGestureDetector.OnS
 	public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY){
 		if(minTransY==maxTransY && minTransY==0f){
 			if(minTransX==maxTransX && minTransX==0f){
-				if(Math.abs(totalScrollY)>Math.abs(totalScrollX)){
+				if(Math.abs(totalScrollY)>Math.abs(totalScrollX) && swipeToDismissEnabled){
 					if(!swipingToDismiss){
 						swipingToDismiss=true;
 						matrix.postTranslate(-totalScrollX, 0);
@@ -627,6 +634,38 @@ public class ZoomPanView extends FrameLayout implements ScaleGestureDetector.OnS
 			matrix.postTranslate(-dx, -dy);
 			updateViewTransform(false);
 			postOnAnimation(scrollerUpdater);
+		}
+	}
+
+	public int getInsetWidth(){
+		return getWidth()-getPaddingLeft()-getPaddingRight();
+	}
+
+	public int getInsetHeight(){
+		return getHeight()-getPaddingTop()-getPaddingBottom();
+	}
+
+	public void setFill(boolean fill){
+		this.fill=fill;
+	}
+
+	public void endAllAnimations(){
+		if(!runningTransformAnimations.isEmpty()){
+			endTransformAnimations();
+		}else{
+			springBack();
+			endTransformAnimations();
+		}
+		updateViewTransform(false);
+	}
+
+	public void setSwipeToDismissEnabled(boolean swipeToDismissEnabled){
+		this.swipeToDismissEnabled=swipeToDismissEnabled;
+	}
+
+	private void endTransformAnimations(){
+		for(SpringAnimation anim:new ArrayList<>(runningTransformAnimations)){
+			anim.skipToEnd();
 		}
 	}
 

@@ -9,6 +9,7 @@ import android.app.Fragment;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
 import android.graphics.Outline;
@@ -66,6 +67,7 @@ import org.joinmastodon.android.ui.OutlineProviders;
 import org.joinmastodon.android.ui.SimpleViewHolder;
 import org.joinmastodon.android.ui.SingleImagePhotoViewerListener;
 import org.joinmastodon.android.ui.Snackbar;
+import org.joinmastodon.android.ui.photoviewer.AvatarCropper;
 import org.joinmastodon.android.ui.photoviewer.PhotoViewer;
 import org.joinmastodon.android.ui.sheets.DecentralizationExplainerSheet;
 import org.joinmastodon.android.ui.tabs.TabLayout;
@@ -554,8 +556,8 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop{
 		}
 		setTitle(account.displayName);
 		setSubtitle(getResources().getQuantityString(R.plurals.x_posts, (int)(account.statusesCount%1000), account.statusesCount));
-		ViewImageLoader.load(avatar, null, new UrlImageLoaderRequest(GlobalUserPreferences.playGifs ? account.avatar : account.avatarStatic, V.dp(100), V.dp(100)));
-		ViewImageLoader.load(cover, null, new UrlImageLoaderRequest(GlobalUserPreferences.playGifs ? account.header : account.headerStatic, 1000, 1000));
+		ViewImageLoader.loadWithoutAnimation(avatar, avatar.getDrawable(), new UrlImageLoaderRequest(GlobalUserPreferences.playGifs ? account.avatar : account.avatarStatic, V.dp(100), V.dp(100)));
+		ViewImageLoader.loadWithoutAnimation(cover, cover.getDrawable(), new UrlImageLoaderRequest(GlobalUserPreferences.playGifs ? account.header : account.headerStatic, 1000, 1000));
 		SpannableStringBuilder ssb=new SpannableStringBuilder(account.displayName);
 		if(AccountSessionManager.get(accountID).getLocalPreferences().customEmojiInNames)
 			HtmlParser.parseCustomEmoji(ssb, account.emojis);
@@ -1174,9 +1176,16 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop{
 	public void onActivityResult(int requestCode, int resultCode, Intent data){
 		if(resultCode==Activity.RESULT_OK){
 			if(requestCode==AVATAR_RESULT){
-				editNewAvatar=data.getData();
-				ViewImageLoader.loadWithoutAnimation(avatar, null, new UrlImageLoaderRequest(editNewAvatar, V.dp(100), V.dp(100)));
-				editDirty=true;
+				if(!isTablet){
+					getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+				}
+				int radius=V.dp(25);
+				new AvatarCropper(getActivity(), data.getData(), new SingleImagePhotoViewerListener(avatar, avatarBorder, new int[]{radius, radius, radius, radius}, this, ()->{}, null, null, null), (thumbnail, uri)->{
+					getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
+					avatar.setImageDrawable(thumbnail);
+					editNewAvatar=uri;
+					editDirty=true;
+				}, ()->getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED)).show();
 			}else if(requestCode==COVER_RESULT){
 				editNewCover=data.getData();
 				ViewImageLoader.loadWithoutAnimation(cover, null, new UrlImageLoaderRequest(editNewCover, V.dp(1000), V.dp(1000)));

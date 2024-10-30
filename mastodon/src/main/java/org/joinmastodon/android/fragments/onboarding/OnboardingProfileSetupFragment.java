@@ -2,6 +2,7 @@ package org.joinmastodon.android.fragments.onboarding;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -24,7 +25,9 @@ import org.joinmastodon.android.model.AccountField;
 import org.joinmastodon.android.model.viewmodel.CheckableListItem;
 import org.joinmastodon.android.ui.M3AlertDialogBuilder;
 import org.joinmastodon.android.ui.OutlineProviders;
+import org.joinmastodon.android.ui.SingleImagePhotoViewerListener;
 import org.joinmastodon.android.ui.adapters.GenericListItemsAdapter;
+import org.joinmastodon.android.ui.photoviewer.AvatarCropper;
 import org.joinmastodon.android.ui.utils.UiUtils;
 import org.joinmastodon.android.ui.viewholders.ListItemViewHolder;
 import org.joinmastodon.android.ui.views.ReorderableLinearLayout;
@@ -53,6 +56,7 @@ public class OnboardingProfileSetupFragment extends ToolbarFragment{
 	private Uri avatarUri, coverUri;
 	private LinearLayout scrollContent;
 	private CheckableListItem<Void> discoverableItem;
+	private View avaBorder;
 
 	private static final int AVATAR_RESULT=348;
 	private static final int COVER_RESULT=183;
@@ -80,6 +84,7 @@ public class OnboardingProfileSetupFragment extends ToolbarFragment{
 		bioEdit=view.findViewById(R.id.bio);
 		avaImage=view.findViewById(R.id.avatar);
 		coverImage=view.findViewById(R.id.header);
+		avaBorder=view.findViewById(R.id.avatar_border);
 
 		btn=view.findViewById(R.id.btn_next);
 		btn.setOnClickListener(v->onButtonClick());
@@ -152,20 +157,25 @@ public class OnboardingProfileSetupFragment extends ToolbarFragment{
 	public void onActivityResult(int requestCode, int resultCode, Intent data){
 		if(resultCode!=Activity.RESULT_OK)
 			return;
-		ImageView img;
 		Uri uri=data.getData();
 		int size;
 		if(requestCode==AVATAR_RESULT){
-			img=avaImage;
-			avatarUri=uri;
-			size=V.dp(100);
+			if(!isTablet){
+				getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+			}
+			int radius=V.dp(25);
+			new AvatarCropper(getActivity(), data.getData(), new SingleImagePhotoViewerListener(avaImage, avaBorder, new int[]{radius, radius, radius, radius}, this, ()->{}, null, null, null), (thumbnail, newUri)->{
+				getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
+				avaImage.setImageDrawable(thumbnail);
+				avaImage.setForeground(null);
+				avatarUri=newUri;
+			}, ()->getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED)).show();
 		}else{
-			img=coverImage;
 			coverUri=uri;
 			size=V.dp(1000);
+			ViewImageLoader.load(coverImage, null, new UrlImageLoaderRequest(uri, size, size));
+			coverImage.setForeground(null);
 		}
-		img.setForeground(null);
-		ViewImageLoader.load(img, null, new UrlImageLoaderRequest(uri, size, size));
 	}
 
 	private void showDiscoverabilityAlert(){

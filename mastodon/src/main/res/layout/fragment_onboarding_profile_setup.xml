@@ -39,6 +39,7 @@
 				android:background="?colorM3SecondaryContainer"/>
 
 			<FrameLayout
+				android:id="@+id/avatar_border"
 				android:layout_width="104dp"
 				android:layout_height="104dp"
 				android:layout_gravity="center_horizontal"

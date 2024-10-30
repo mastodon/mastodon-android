@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<org.joinmastodon.android.ui.views.WindowRootFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+
+	<org.joinmastodon.android.ui.photoviewer.ZoomPanView
+		android:id="@+id/zoom_pan_view"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:clipToPadding="false">
+		<ImageView
+			android:id="@+id/image"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:importantForAccessibility="no"/>
+	</org.joinmastodon.android.ui.photoviewer.ZoomPanView>
+
+	<me.grishka.appkit.views.FragmentRootLinearLayout
+		android:id="@+id/overlay"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:orientation="vertical">
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="?android:actionBarSize"
+			android:layout_gravity="top"
+			android:orientation="horizontal"
+			android:paddingEnd="56dp">
+
+			<ImageButton
+				android:id="@+id/btn_back"
+				android:layout_width="48dp"
+				android:layout_height="48dp"
+				android:layout_marginHorizontal="4dp"
+				android:layout_gravity="center_vertical"
+				android:background="?android:actionBarItemBackground"
+				android:tint="?colorM3OnSurfaceVariant"
+				android:src="@drawable/ic_baseline_close_24"
+				android:contentDescription="@string/back"/>
+
+			<TextView
+				android:layout_width="0dp"
+				android:layout_height="match_parent"
+				android:layout_weight="1"
+				android:gravity="center"
+				android:singleLine="true"
+				android:textSize="22dp"
+				android:textColor="?colorM3OnSurface"
+				android:text="@string/avatar_move_and_scale"/>
+
+		</LinearLayout>
+
+	</me.grishka.appkit.views.FragmentRootLinearLayout>
+
+	<FrameLayout
+		android:id="@+id/btn_confirm"
+		android:layout_width="wrap_content"
+		android:layout_height="40dp"
+		android:layout_gravity="bottom|center_horizontal"
+		android:minWidth="152dp"
+		android:paddingStart="16dp"
+		style="@style/Widget.Mastodon.M3.Button.Filled">
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="40dp"
+			android:layout_gravity="center_horizontal"
+			android:drawableStart="@drawable/ic_check_24px"
+			style="@style/Widget.Mastodon.M3.Button.Filled"
+			android:background="@null"
+			android:padding="0dp"
+			android:drawablePadding="7dp"
+			android:drawableTint="@color/button_text_m3_filled"
+			android:clickable="false"
+			android:focusable="false"
+			android:text="@string/confirm_avatar_crop"/>
+	</FrameLayout>
+
+</org.joinmastodon.android.ui.views.WindowRootFrameLayout>

@@ -77,6 +77,7 @@ import org.joinmastodon.android.ui.Snackbar;
 import org.joinmastodon.android.ui.drawables.VideoPlayerSeekBarThumbDrawable;
 import org.joinmastodon.android.ui.utils.BlurHashDecoder;
 import org.joinmastodon.android.ui.utils.UiUtils;
+import org.joinmastodon.android.ui.views.WindowRootFrameLayout;
 import org.parceler.Parcels;
 
 import java.io.File;
@@ -121,7 +122,7 @@ public class PhotoViewer implements ZoomPanView.Listener{
 	private String accountID;
 	private BaseStatusListFragment<?> parentFragment;
 
-	private FrameLayout windowView;
+	private WindowRootFrameLayout windowView;
 	private FragmentRootLinearLayout uiOverlay;
 	private ViewPager2 pager;
 	private ColorDrawable background=new ColorDrawable(0xff000000);
@@ -205,42 +206,38 @@ public class PhotoViewer implements ZoomPanView.Listener{
 
 		wm=activity.getWindowManager();
 
-		windowView=new FrameLayout(activity){
-			@Override
-			public boolean dispatchKeyEvent(KeyEvent event){
-				if(Build.VERSION.SDK_INT<Build.VERSION_CODES.TIRAMISU && event.getKeyCode()==KeyEvent.KEYCODE_BACK){
-					if(event.getAction()==KeyEvent.ACTION_DOWN){
-						onStartSwipeToDismissTransition(0f);
-					}
-					return true;
+		windowView=new WindowRootFrameLayout(activity);
+		windowView.setDispatchKeyEventListener((v, keyCode, event)->{
+			if(Build.VERSION.SDK_INT<Build.VERSION_CODES.TIRAMISU && event.getKeyCode()==KeyEvent.KEYCODE_BACK){
+				if(event.getAction()==KeyEvent.ACTION_DOWN){
+					onStartSwipeToDismissTransition(0f);
 				}
-				return false;
+				return true;
 			}
-
-			@Override
-			public WindowInsets dispatchApplyWindowInsets(WindowInsets insets){
-				int bottomInset=insets.getSystemWindowInsetBottom();
-				bottomBar.setPadding(bottomBar.getPaddingLeft(), bottomBar.getPaddingTop(), bottomBar.getPaddingRight(), bottomInset>0 ? Math.max(bottomInset+V.dp(8), V.dp(40)) : V.dp(12));
-				insets=insets.replaceSystemWindowInsets(insets.getSystemWindowInsetLeft(), insets.getSystemWindowInsetTop(), insets.getSystemWindowInsetRight(), 0);
-				if(Build.VERSION.SDK_INT>=29){
-					DisplayCutout cutout=insets.getDisplayCutout();
-					Insets tappable=insets.getTappableElementInsets();
-					if(cutout!=null){
-						// Make controls extend beneath the cutout, and replace insets to avoid cutout insets being filled with "navigation bar color"
-						int leftInset=Math.max(0, cutout.getSafeInsetLeft()-tappable.left);
-						int rightInset=Math.max(0, cutout.getSafeInsetRight()-tappable.right);
-						toolbarWrap.setPadding(leftInset, 0, rightInset, 0);
-						bottomBar.setPadding(leftInset, bottomBar.getPaddingTop(), rightInset, bottomBar.getPaddingBottom());
-					}else{
-						toolbarWrap.setPadding(0, 0, 0, 0);
-						bottomBar.setPadding(0, bottomBar.getPaddingTop(), 0, bottomBar.getPaddingBottom());
-					}
-					insets=insets.replaceSystemWindowInsets(tappable.left, tappable.top, tappable.right, bottomBar.getVisibility()==View.VISIBLE ? 0 : tappable.bottom);
+			return false;
+		});
+		windowView.setDispatchApplyWindowInsetsListener((v, insets)->{
+			int bottomInset=insets.getSystemWindowInsetBottom();
+			bottomBar.setPadding(bottomBar.getPaddingLeft(), bottomBar.getPaddingTop(), bottomBar.getPaddingRight(), bottomInset>0 ? Math.max(bottomInset+V.dp(8), V.dp(40)) : V.dp(12));
+			insets=insets.replaceSystemWindowInsets(insets.getSystemWindowInsetLeft(), insets.getSystemWindowInsetTop(), insets.getSystemWindowInsetRight(), 0);
+			if(Build.VERSION.SDK_INT>=29){
+				DisplayCutout cutout=insets.getDisplayCutout();
+				Insets tappable=insets.getTappableElementInsets();
+				if(cutout!=null){
+					// Make controls extend beneath the cutout, and replace insets to avoid cutout insets being filled with "navigation bar color"
+					int leftInset=Math.max(0, cutout.getSafeInsetLeft()-tappable.left);
+					int rightInset=Math.max(0, cutout.getSafeInsetRight()-tappable.right);
+					toolbarWrap.setPadding(leftInset, 0, rightInset, 0);
+					bottomBar.setPadding(leftInset, bottomBar.getPaddingTop(), rightInset, bottomBar.getPaddingBottom());
+				}else{
+					toolbarWrap.setPadding(0, 0, 0, 0);
+					bottomBar.setPadding(0, bottomBar.getPaddingTop(), 0, bottomBar.getPaddingBottom());
 				}
-				uiOverlay.dispatchApplyWindowInsets(insets);
-				return insets.consumeSystemWindowInsets();
+				insets=insets.replaceSystemWindowInsets(tappable.left, tappable.top, tappable.right, bottomBar.getVisibility()==View.VISIBLE ? 0 : tappable.bottom);
 			}
-		};
+			uiOverlay.dispatchApplyWindowInsets(insets);
+			return insets.consumeSystemWindowInsets();
+		});
 		windowView.setBackground(background);
 		background.setAlpha(0);
 		pager=new ViewPager2(activity);

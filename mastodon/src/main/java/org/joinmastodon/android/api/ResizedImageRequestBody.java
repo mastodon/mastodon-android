@@ -31,7 +31,7 @@ import okio.Source;
 public class ResizedImageRequestBody extends CountingRequestBody{
 	private File tempFile;
 	private Uri uri;
-	private String contentType;
+	private MediaType contentType;
 	private int maxSize;
 
 	public ResizedImageRequestBody(Uri uri, int maxSize, ProgressListener progressListener) throws IOException{
@@ -42,15 +42,16 @@ public class ResizedImageRequestBody extends CountingRequestBody{
 		opts.inJustDecodeBounds=true;
 		if("file".equals(uri.getScheme())){
 			BitmapFactory.decodeFile(uri.getPath(), opts);
-			contentType=UiUtils.getFileMediaType(new File(uri.getPath())).type();
+			contentType=UiUtils.getFileMediaType(new File(uri.getPath()));
 		}else{
 			try(InputStream in=MastodonApp.context.getContentResolver().openInputStream(uri)){
 				BitmapFactory.decodeStream(in, null, opts);
 			}
-			contentType=MastodonApp.context.getContentResolver().getType(uri);
+			String mime=MastodonApp.context.getContentResolver().getType(uri);
+			contentType=TextUtils.isEmpty(mime) ? null : MediaType.get(mime);
 		}
-		if(TextUtils.isEmpty(contentType))
-			contentType="image/jpeg";
+		if(contentType==null)
+			contentType=MediaType.get("image/jpeg");
 		if(needResize(opts.outWidth, opts.outHeight) || needCrop(opts.outWidth, opts.outHeight)){
 			Bitmap bitmap;
 			if(Build.VERSION.SDK_INT>=28){
@@ -136,7 +137,7 @@ public class ResizedImageRequestBody extends CountingRequestBody{
 					bitmap.compress(Bitmap.CompressFormat.PNG, 0, out);
 				}else{
 					bitmap.compress(Bitmap.CompressFormat.JPEG, 97, out);
-					contentType="image/jpeg";
+					contentType=MediaType.get("image/jpeg");
 				}
 			}
 			length=tempFile.length();
@@ -163,7 +164,7 @@ public class ResizedImageRequestBody extends CountingRequestBody{
 
 	@Override
 	public MediaType contentType(){
-		return MediaType.get(contentType);
+		return contentType;
 	}
 
 	@Override
