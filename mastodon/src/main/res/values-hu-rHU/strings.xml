@@ -88,9 +88,7 @@
 	</plurals>
 	<string name="poll_closed">Lezárva</string>
 	<string name="do_mute">Némítás</string>
-	<string name="do_unmute">Némítás feloldása</string>
 	<string name="do_block">Letiltás</string>
-	<string name="do_unblock">Tiltás feloldása</string>
 	<string name="button_blocked">Tiltva</string>
 	<string name="action_vote">Szavazás</string>
 	<string name="delete">Törlés</string>
@@ -165,7 +163,6 @@
 	<string name="visibility_followers_only">Követők</string>
 	<string name="visibility_private">Adott emberek</string>
 	<string name="recent_searches">Legutóbbiak</string>
-	<string name="skip">Átugrás</string>
 	<string name="notification_type_follow">Új követők</string>
 	<string name="notification_type_favorite">Kedvencek</string>
 	<string name="notification_type_reblog">Megtolások</string>
@@ -227,7 +224,6 @@
 	<string name="storage_permission_to_download">A fájl mentéséhez az alkalmazásnak hozzáférésre van szüksége a tárhelyedhez.</string>
 	<string name="open_settings">Beállítások megnyitása</string>
 	<string name="error_saving_file">Hiba a fájl mentése során</string>
-	<string name="file_saved">Fájl elmentve</string>
 	<string name="downloading">Letöltés…</string>
 	<string name="no_app_to_handle_action">Nincs olyan alkalmazás telepítve, amely ezt kezelni tudná ezt a műveletet</string>
 	<string name="trending_posts_info_banner">Ezek a felkapott bejegyzések Mastodonon.</string>
@@ -634,10 +630,8 @@
 Minél több embert követsz, annál aktívabb és érdekesebb lesz.</string>
 	<string name="onboarding_recommendations_title">Hírfolyam testreszabása</string>
 	<string name="article_by_author">Szerző: %s</string>
-	<string name="info">Információ</string>
 	<string name="button_reblogged">Megtolva</string>
 	<string name="button_favorited">Kedvenc</string>
-	<string name="bookmarked">Könyvjelzőkben</string>
 	<string name="join_server_x_with_invite">%s meghívóval csatlakozott</string>
 	<string name="expired_invite_link">Lejárt meghívó</string>
 	<string name="expired_clipboard_invite_link_alert">A(z) %1$s, vágólapon lévő meghívási hivatkozás lejárt, ezért nem használható a regisztrációhoz.\n\n\nKérhetsz új hivatkozást egy meglévő felhasználótól, regisztrálhatsz ezen keresztül: %2$s, vagy választhatsz egy másik kiszolgálót a regisztrációhoz.</string>

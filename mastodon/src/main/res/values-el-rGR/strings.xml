@@ -13,6 +13,7 @@
 	<string name="notifications">Ειδοποιήσεις</string>
 	<string name="user_followed_you">%s σε ακολούθησε</string>
 	<string name="user_sent_follow_request">%s σού έστειλε ένα αίτημα ακολούθησης</string>
+	<string name="notification_boosted">Ο χρήστης %s ενίσχυσε:</string>
 	<string name="share_toot_title">Κοινοποίηση</string>
 	<string name="settings">Ρυθμίσεις</string>
 	<string name="publish">Δημοσίευση</string>
@@ -88,9 +89,7 @@
 	</plurals>
 	<string name="poll_closed">Κλειστό</string>
 	<string name="do_mute">Σίγαση</string>
-	<string name="do_unmute">Κατάργηση σίγασης</string>
 	<string name="do_block">Αποκλεισμός</string>
-	<string name="do_unblock">Άρση αποκλεισμού</string>
 	<string name="button_blocked">Αποκλείστηκε</string>
 	<string name="action_vote">Ψήφισε</string>
 	<string name="delete">Διαγραφή</string>
@@ -165,7 +164,6 @@
 	<string name="visibility_followers_only">Ακόλουθοι</string>
 	<string name="visibility_private">Συγκεκριμένα άτομα</string>
 	<string name="recent_searches">Πρόσφατα</string>
-	<string name="skip">Παράλειψη</string>
 	<string name="notification_type_follow">Νέοι ακόλουθοι</string>
 	<string name="notification_type_favorite">Αγαπημένα</string>
 	<string name="notification_type_reblog">Ενισχύσεις</string>
@@ -227,7 +225,6 @@
 	<string name="storage_permission_to_download">Η εφαρμογή χρειάζεται πρόσβαση στον αποθηκευτικό σου χώρο για να αποθηκεύσει αυτό το αρχείο.</string>
 	<string name="open_settings">Άνοιγμα ρυθμίσεων</string>
 	<string name="error_saving_file">Σφάλμα αποθήκευσης αρχείου</string>
-	<string name="file_saved">Το αρχείο αποθηκεύτηκε</string>
 	<string name="downloading">Λήψη…</string>
 	<string name="no_app_to_handle_action">Δεν υπάρχει εφαρμογή για να χειριστεί αυτήν την ενέργεια</string>
 	<string name="local_timeline">Ζωντανή ροή</string>
@@ -638,10 +635,8 @@
 	<string name="onboarding_recommendations_intro">Εσύ επιμελείσαι την Αρχική σου ροή. Όσο περισσότερους ανθρώπους ακολουθείς, τόσο πιο δραστήρια και ενδιαφέρουσα θα είναι.</string>
 	<string name="onboarding_recommendations_title">Προσάρμοσε την αρχική ροή σου</string>
 	<string name="article_by_author">Βάσει %s</string>
-	<string name="info">Πληροφορίες</string>
 	<string name="button_reblogged">Ενισχύθηκε</string>
 	<string name="button_favorited">Είναι αγαπημένο</string>
-	<string name="bookmarked">Σε σελιδοδείκτη</string>
 	<string name="join_server_x_with_invite">Συμμετοχή σε %s με πρόσκληση</string>
 	<string name="expired_invite_link">Λιγμένος σύνδεσμος πρόσκλησης</string>
 	<string name="expired_clipboard_invite_link_alert">Ο σύνδεσμος πρόσκλησης %1$s στο πρόχειρό σου έχει λήξει και δεν μπορεί να χρησιμοποιηθεί για εγγραφή.\n\nΜπορείς να αιτηθείς νέο σύνδεσμο από υφιστάμενο χρήστη, να εγγραφείς μέσω %2$s ή επέλεξε άλλον διακομιστή να εγγραφείς.</string>
@@ -765,6 +760,22 @@
 	<string name="settings_donate">Συνείσφερε στο Mastodon</string>
 	<string name="settings_manage_donations">Διαχείριση δωρεών</string>
 	<string name="cant_load_image">Αδυναμία φόρτωσης εικόνας</string>
+	<string name="poll_see_results">Εμφάνιση αποτελεσμάτων</string>
+	<string name="poll_hide_results">Απόκρυψη αποτελεσμάτων</string>
+	<plurals name="x_attachments">
+		<item quantity="one">%d συνημμένο</item>
+		<item quantity="other">%d συνημμένα</item>
+	</plurals>
+	<string name="own_poll_ended">Η δημοσκόπησή σου έληξε</string>
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_learn_more">Μάθε περισσότερα</string>
+	<string name="moderation_warning_action_none">Ο λογαριασμός σου έχει λάβει προειδοποίηση συντονισμού.</string>
+	<string name="moderation_warning_action_disable">Ο λογαριασμός σου έχει απενεργοποιηθεί.</string>
+	<string name="moderation_warning_action_mark_statuses_as_sensitive">Μερικές από τις αναρτήσεις σου έχουν επισημανθεί ως ευαίσθητες.</string>
+	<string name="moderation_warning_action_delete_statuses">Ορισμένες από τις αναρτήσεις σου έχουν αφαιρεθεί.</string>
+	<string name="moderation_warning_action_sensitive">Οι αναρτήσεις σου θα επισημαίνονται ως ευαίσθητες από \'δω και στο εξής.</string>
+	<string name="moderation_warning_action_silence">Ο λογαριασμός σου έχει περιοριστεί.</string>
+	<string name="moderation_warning_action_suspend">Ο λογαριασμός σου έχει ανασταλεί.</string>
+	<string name="moderation_warning_learn_more">Μάθε περισσότερα</string>
 </resources>

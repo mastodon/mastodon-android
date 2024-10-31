@@ -112,9 +112,7 @@
 	</plurals>
 	<string name="poll_closed">Завершено</string>
 	<string name="do_mute">Заглушити</string>
-	<string name="do_unmute">Не глушити</string>
 	<string name="do_block">Заблокувати</string>
-	<string name="do_unblock">Розблокувати</string>
 	<string name="button_blocked">Заблоковано</string>
 	<string name="action_vote">Проголосувати</string>
 	<string name="delete">Видалити</string>
@@ -191,7 +189,6 @@
 	<string name="visibility_followers_only">Підписники</string>
 	<string name="visibility_private">Певні люди</string>
 	<string name="recent_searches">Нещодавні</string>
-	<string name="skip">Пропустити</string>
 	<string name="notification_type_follow">Нові підписники</string>
 	<string name="notification_type_favorite">Улюблені</string>
 	<string name="notification_type_reblog">Поширення</string>
@@ -255,7 +252,6 @@
 	<string name="storage_permission_to_download">Застосунку потрібен доступ до сховища, щоб зберегти цей файл.</string>
 	<string name="open_settings">Відкрити налаштування</string>
 	<string name="error_saving_file">Помилка збереження</string>
-	<string name="file_saved">Файл збережено</string>
 	<string name="downloading">Завантаження…</string>
 	<string name="no_app_to_handle_action">Немає потрібного застосунку для цієї дії</string>
 	<string name="local_timeline">Новини наживо</string>
@@ -707,10 +703,8 @@
 Чим більше ви підписуєтеся на людей, тим більш активною та цікавою буде ваша стрічка.</string>
 	<string name="onboarding_recommendations_title">Персоналізуйте домашню стрічку</string>
 	<string name="article_by_author">Від %s</string>
-	<string name="info">Інформація</string>
 	<string name="button_reblogged">Поширено</string>
 	<string name="button_favorited">Улюблено</string>
-	<string name="bookmarked">Додано в закладки</string>
 	<string name="join_server_x_with_invite">Приєднатися до %s за запрошенням</string>
 	<string name="expired_invite_link">Прострочене запрошувальне посилання</string>
 	<string name="expired_clipboard_invite_link_alert">Термін дії скопійованого запрошувального посилання для %1$s вийшов, більше не можна зареєструватись за його допомогою.\n\nВи можете попросити інших про нове посилання, зареєструватися через %2$s, або вибрати інший сервер.</string>

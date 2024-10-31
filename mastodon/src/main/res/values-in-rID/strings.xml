@@ -79,9 +79,7 @@
 	</plurals>
 	<string name="poll_closed">Ditutup</string>
 	<string name="do_mute">Bisukan</string>
-	<string name="do_unmute">Berhenti membisukan</string>
 	<string name="do_block">Blokir</string>
-	<string name="do_unblock">Berhenti memblokir</string>
 	<string name="button_blocked">Diblokir</string>
 	<string name="action_vote">Pilih</string>
 	<string name="delete">Hapus</string>
@@ -155,7 +153,6 @@
 	<string name="visibility_followers_only">Pengikut</string>
 	<string name="visibility_private">Orang tertentu</string>
 	<string name="recent_searches">Terbaru</string>
-	<string name="skip">Lewati</string>
 	<string name="notification_type_follow">Pengikut baru</string>
 	<string name="notification_type_favorite">Favorit</string>
 	<string name="notification_type_reblog">Pembagian ulang</string>
@@ -216,7 +213,6 @@
 	<string name="storage_permission_to_download">Aplikasi membutuhkan akses ke penyimpanan Anda untuk menyimpan berkas ini.</string>
 	<string name="open_settings">Buka pengaturan</string>
 	<string name="error_saving_file">Kesalahan saat menyimpan berkas</string>
-	<string name="file_saved">Berkas disimpan</string>
 	<string name="downloading">Mengunduh…</string>
 	<string name="no_app_to_handle_action">Tidak ada aplikasi yang dapat menangani tindakan ini</string>
 	<string name="local_timeline">Feed yang sedang berlangsung</string>
@@ -607,10 +603,8 @@
 	<string name="onboarding_recommendations_intro">Anda mengkurasikan umpan beranda Anda. Semakin banyak orang-orang yang Anda ikuti, semakin aktif dan menarik umpan beranda Anda.</string>
 	<string name="onboarding_recommendations_title">Sesuaikan umpan beranda Anda</string>
 	<string name="article_by_author">Oleh %s</string>
-	<string name="info">Info</string>
 	<string name="button_reblogged">Dibagikan ulang</string>
 	<string name="button_favorited">Difavorit</string>
-	<string name="bookmarked">Dimarkahi</string>
 	<string name="join_server_x_with_invite">Bergabung ke %s dengan undangan</string>
 	<string name="expired_invite_link">Tautan undangan kedaluwarsa</string>
 	<string name="expired_clipboard_invite_link_alert">Tautan undangan untuk %1$s dalam papan klip Anda telah kedaluwarsa dan tidak dapat digunakan untuk mendaftar.\n\nAnda dapat meminta tautan baru dari pengguna yang sudah ada, daftar melalui %2$s, atau pilih server lain untuk mendaftar.</string>

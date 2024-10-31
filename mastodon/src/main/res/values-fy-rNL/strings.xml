@@ -90,9 +90,7 @@
 	</plurals>
 	<string name="poll_closed">Sluten</string>
 	<string name="do_mute">Negearje</string>
-	<string name="do_unmute">Net mear negearje</string>
 	<string name="do_block">Blokkearje</string>
-	<string name="do_unblock">Deblokkearje</string>
 	<string name="button_blocked">Blokkearre</string>
 	<string name="action_vote">Stimme</string>
 	<string name="delete">Fuortsmite</string>
@@ -167,7 +165,6 @@
 	<string name="visibility_followers_only">Folgers</string>
 	<string name="visibility_private">Bepaalde minsken</string>
 	<string name="recent_searches">Resint socht</string>
-	<string name="skip">Oerslaan</string>
 	<string name="notification_type_follow">Nije folgers</string>
 	<string name="notification_type_favorite">Favoriten</string>
 	<string name="notification_type_reblog">Boosts</string>
@@ -229,7 +226,6 @@
 	<string name="storage_permission_to_download">De app hat tagong ta jo ûnthâld nedich om dit bestân te bewarjen.</string>
 	<string name="open_settings">Ynstellingen iepenje</string>
 	<string name="error_saving_file">Flater by it bewarjen fan it bestân</string>
-	<string name="file_saved">Bestân bewarre</string>
 	<string name="downloading">Downloade…</string>
 	<string name="no_app_to_handle_action">Koe gjin app fine om dizze aksje út te fieren</string>
 	<string name="local_timeline">Livefeed</string>
@@ -486,11 +482,64 @@
 	<string name="settings_filter_muted_words">Negearre wurden</string>
 	<string name="settings_filter_context">Negearre op</string>
 	<string name="settings_filter_show_cw">Mei ynhâldswarskôging toane</string>
+	<string name="filter_duration_forever">Foar altyd</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="settings_filter_ends">Einiget %s</string>
+	<plurals name="settings_x_muted_words">
+		<item quantity="one">%d negearre wurd of sin</item>
+		<item quantity="other">%d negearre wurden of sinnen</item>
+	</plurals>
+	<string name="selection_2_options">%1$s en %2$s</string>
+	<string name="selection_3_options">%1$s, %2$s en %3$s</string>
+	<string name="selection_4_or_more">%1$s, %2$s en %3$d mear</string>
+	<string name="filter_context_home_lists">Starttiidline en listen</string>
+	<string name="filter_context_notifications">Meldingen</string>
+	<string name="filter_context_public_timelines">Iepenbiere tiidlinen</string>
+	<string name="filter_context_threads_replies">Petearen en reaksjes</string>
+	<string name="filter_context_profiles">Profilen</string>
+	<string name="settings_filter_title">Titel</string>
+	<string name="settings_delete_filter_title">Filter ‘%s’ fuortsmite?</string>
+	<string name="settings_delete_filter_confirmation">Dit filter wurdt op al jo apparaten út jo account fuortsmiten.</string>
+	<string name="add_muted_word">Negearre wurd tafoegje</string>
+	<string name="edit_muted_word">Negearre wurd bewurkje</string>
+	<string name="add">Tafoegje</string>
+	<string name="filter_word_or_phrase">Wurd of sindiel</string>
+	<string name="enter_selection_mode">Selektearje</string>
+	<string name="select_all">Alles selektearje</string>
+	<string name="settings_filter_duration_title">Tiidsdoer filter</string>
+	<string name="filter_duration_custom">Oanpast</string>
+	<plurals name="settings_delete_x_filter_words">
+		<item quantity="one">%d wurd fuortsmite?</item>
+		<item quantity="other">%d wurden fuortsmite?</item>
+	</plurals>
+	<plurals name="x_items_selected">
+		<item quantity="one">%d selektearre</item>
+		<item quantity="other">%d selektearre</item>
+	</plurals>
+	<string name="required_form_field_blank">Mei net leech wêze</string>
+	<string name="filter_word_already_in_list">Al yn de list</string>
+	<string name="app_update_ready">App-fernijing foltôge</string>
+	<string name="app_update_version">Ferzje %s</string>
+	<string name="downloading_update">Downloade (%d%%)</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
+	<string name="post_matches_filter_x">Komt oerien mei filter ‘%s’</string>
+	<string name="search_mastodon">Mastodon trochsykje</string>
+	<string name="clear_all">Alles wiskje</string>
+	<string name="search_open_url">URL yn Mastodon iepenje</string>
+	<string name="posts_matching_hashtag">Berjochten mei ‘%s’</string>
+	<string name="search_go_to_account">Gean nei %s</string>
+	<string name="posts_matching_string">Berjochten mei ‘%s’</string>
+	<string name="accounts_matching_string">Persoanen mei ‘%s’</string>
 	<!-- Shown in the post header. Please keep it short -->
+	<string name="time_seconds_ago_short">%ds lyn</string>
+	<string name="time_minutes_ago_short">%dm lyn</string>
+	<string name="time_hours_ago_short">%dh lyn</string>
+	<string name="time_days_ago_short">%dd lyn</string>
 	<!-- %s is the name of the post language -->
+	<string name="translate_post">Fan it %s út oersette</string>
 	<!-- %1$s is the language, %2$s is the name of the translation service -->
+	<string name="post_translated">Fan it %1$s út oersetten mei %2$s</string>
+	<string name="translation_show_original">Orizjineel besjen</string>
 	<!-- Screen reader description for the menu on the home timeline screen -->
 	<!-- %s is the name of the list -->
 	<!-- %s is a username -->

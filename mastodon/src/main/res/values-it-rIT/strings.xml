@@ -90,9 +90,7 @@
 	</plurals>
 	<string name="poll_closed">Chiuso</string>
 	<string name="do_mute">Silenzia</string>
-	<string name="do_unmute">Riattiva</string>
 	<string name="do_block">Blocca</string>
-	<string name="do_unblock">Sblocca</string>
 	<string name="button_blocked">Bloccato</string>
 	<string name="action_vote">Vota</string>
 	<string name="delete">Elimina</string>
@@ -167,7 +165,6 @@
 	<string name="visibility_followers_only">Seguaci</string>
 	<string name="visibility_private">Persone specifiche</string>
 	<string name="recent_searches">Recenti</string>
-	<string name="skip">Salta</string>
 	<string name="notification_type_follow">Nuovi seguaci</string>
 	<string name="notification_type_favorite">Preferiti</string>
 	<string name="notification_type_reblog">Condivisioni</string>
@@ -229,7 +226,6 @@
 	<string name="storage_permission_to_download">L\'app ha bisogno di accedere alla memoria del dispositivo per salvare questo file.</string>
 	<string name="open_settings">Apri impostazioni</string>
 	<string name="error_saving_file">Errore durante il salvataggio del file</string>
-	<string name="file_saved">File salvato</string>
 	<string name="downloading">Scaricamento…</string>
 	<string name="no_app_to_handle_action">Non esiste un\'app per gestire questa azione</string>
 	<string name="local_timeline">Feed dal vivo</string>
@@ -641,10 +637,8 @@
 Più persone segui, più sarà attivo e interessante.</string>
 	<string name="onboarding_recommendations_title">Personalizza il tuo home feed</string>
 	<string name="article_by_author">Di %s</string>
-	<string name="info">Info</string>
 	<string name="button_reblogged">Condiviso</string>
 	<string name="button_favorited">Preferito</string>
-	<string name="bookmarked">Aggiunto ai segnalibri</string>
 	<string name="join_server_x_with_invite">Unisciti a %s con invito</string>
 	<string name="expired_invite_link">Collegamento d\'invito scaduto</string>
 	<string name="expired_clipboard_invite_link_alert">Il collegamento di invito per %1$s nei tuoi appunti è scaduto e non può essere utilizzato per registrarsi.\n\nPuoi richiedere un nuovo collegamento a un utente esistente, registrarti tramite %2$s o scegliere un altro server a cui registrarti.</string>
@@ -807,4 +801,5 @@ Più persone segui, più sarà attivo e interessante.</string>
 	<string name="moderation_warning_action_silence">Il tuo account è stato limitato.</string>
 	<string name="moderation_warning_action_suspend">Il tuo account è stato sospeso.</string>
 	<string name="moderation_warning_learn_more">Per saperne di più</string>
+	<string name="text_show_more">Altro</string>
 </resources>

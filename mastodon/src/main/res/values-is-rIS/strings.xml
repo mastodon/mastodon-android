@@ -13,6 +13,8 @@
 	<string name="notifications">Tilkynningar</string>
 	<string name="user_followed_you">%s fylgist með þér</string>
 	<string name="user_sent_follow_request">%s sendi þér beiðni um að fylgjast með þér</string>
+	<string name="user_favorited">%s setti í eftirlæti:</string>
+	<string name="notification_boosted">%s endurbirti:</string>
 	<string name="share_toot_title">Deila</string>
 	<string name="settings">Stillingar</string>
 	<string name="publish">Birta</string>
@@ -88,9 +90,7 @@
 	</plurals>
 	<string name="poll_closed">Lokið</string>
 	<string name="do_mute">Þagga niður</string>
-	<string name="do_unmute">Afþagga</string>
 	<string name="do_block">Útilokun</string>
-	<string name="do_unblock">Aflétta útilokun</string>
 	<string name="button_blocked">Útilokað</string>
 	<string name="action_vote">Greiða atkvæði</string>
 	<string name="delete">Eyða</string>
@@ -165,7 +165,6 @@
 	<string name="visibility_followers_only">Fylgjendur</string>
 	<string name="visibility_private">Tilteknir aðilar</string>
 	<string name="recent_searches">Nýlegt</string>
-	<string name="skip">Sleppa</string>
 	<string name="notification_type_follow">Nýir fylgjendur</string>
 	<string name="notification_type_favorite">Eftirlæti</string>
 	<string name="notification_type_reblog">Endurbirtingar</string>
@@ -227,7 +226,6 @@
 	<string name="storage_permission_to_download">Forritið þarf aðgang að geymslurýminu þínu til að vista þessa skrá.</string>
 	<string name="open_settings">Opna stillingar</string>
 	<string name="error_saving_file">Villa við að vista skrána</string>
-	<string name="file_saved">Skrá vistuð</string>
 	<string name="downloading">Sæki…</string>
 	<string name="no_app_to_handle_action">Ekkert forrit fannst sem getur meðhöndlað þessa aðgerð</string>
 	<string name="local_timeline">Bein streymi</string>
@@ -639,10 +637,8 @@
  Því fleira fólki sem þú fylgist með, því virkara og áhugaverðara verður það.</string>
 	<string name="onboarding_recommendations_title">Aðlagaðu heimastreymið þitt eftir þínu höfði</string>
 	<string name="article_by_author">Frá %s</string>
-	<string name="info">Upplýsingar</string>
 	<string name="button_reblogged">Endurbirt</string>
 	<string name="button_favorited">Sett í eftirlæti</string>
-	<string name="bookmarked">Bókamerkt</string>
 	<string name="join_server_x_with_invite">Taka þátt í %s með boðstengli</string>
 	<string name="expired_invite_link">Útrunninn boðstengill</string>
 	<string name="expired_clipboard_invite_link_alert">Boðstengillinn á klippispjaldinu þínu fyrir %1$s er útrunninn og því ekki hægt að nota hann til nýskráningar.\n\nÞú getur beðið um nýjan boðstengil frá fyrirliggjandi þátttakanda, nýskráð þig í gegnum %2$s, eða valið annan netþjón til að skrá þig á.</string>
@@ -766,6 +762,44 @@
 	<string name="settings_donate">Styrkja Mastodon</string>
 	<string name="settings_manage_donations">Sýsla með fjárframlög</string>
 	<string name="cant_load_image">Gat ekki hlaðið mynd inn</string>
+	<string name="poll_see_results">Skoða niðurstöður</string>
+	<string name="poll_hide_results">Fela niðurstöður</string>
+	<plurals name="x_attachments">
+		<item quantity="one">%d viðhengi</item>
+		<item quantity="other">%d viðhengi</item>
+	</plurals>
+	<plurals name="user_and_x_more_favorited">
+		<item quantity="one">%1$s og %2$,d í viðbót settu í eftirlæti:</item>
+		<item quantity="other">%1$s og %2$,d í viðbót settu í eftirlæti:</item>
+	</plurals>
+	<plurals name="user_and_x_more_boosted">
+		<item quantity="one">%1$s og %2$,d í viðbót endurbirtu:</item>
+		<item quantity="other">%1$s og %2$,d í viðbót endurbirtu:</item>
+	</plurals>
+	<plurals name="poll_ended_x_voters">
+		<item quantity="one">%1$s gerði könnun sem þú og %2$,d í viðbót tókuð þátt í</item>
+		<item quantity="other">%1$s gerði könnun sem þú og %2$,d í viðbót tókuð þátt í</item>
+	</plurals>
+	<string name="own_poll_ended">Könnuninni þinni er lokið</string>
+	<string name="user_just_posted">%s sendi inn rétt í þessu</string>
+	<string name="user_edited_post">%s breytti færslu sem þú áttir við</string>
+	<string name="relationship_severance_account_suspension">Stjórnandi á %1$s hefur fryst %2$s, sem þýðir að þú færð ekki lengur skilaboð frá viðkomandi né átt í samskiptum við viðkomandi.</string>
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_domain_block">Stjórnandi á %1$s hefur lokað á %2$s, þar með talið á %3$,d fylgjendur þína og %4$s sem þú fylgist með.</string>
+	<plurals name="x_accounts">
+		<item quantity="one">%,d aðgangur</item>
+		<item quantity="other">%,d aðgangar</item>
+	</plurals>
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_user_domain_block">Þú hefur lokað á %1$s, og þar með fjarlægt %2$,d fylgjendur þína og %3$s sem þú fylgist með.</string>
+	<string name="relationship_severance_learn_more">Kanna nánar</string>
+	<string name="moderation_warning_action_none">Aðgangurinn þinn hefur fengið aðvörun frá umsjónarmanni.</string>
+	<string name="moderation_warning_action_disable">Aðgangurinn þinn hefur verið gerður óvirkur.</string>
+	<string name="moderation_warning_action_mark_statuses_as_sensitive">Sumar færslurnar þínar hafa verið merktar sem viðkvæmt efni.</string>
+	<string name="moderation_warning_action_delete_statuses">Sumar færslurnar þínar hafa verið fjarlægðar.</string>
+	<string name="moderation_warning_action_sensitive">Færslur þínar verða héðan í frá merktar sem viðkvæmar.</string>
+	<string name="moderation_warning_action_silence">Notandaaðgangurinn þinn hefur verið takmarkaður.</string>
+	<string name="moderation_warning_action_suspend">Notandaaðgangurinn þinn hefur verið settur í frysti.</string>
+	<string name="moderation_warning_learn_more">Kanna nánar</string>
+	<string name="text_show_more">Meira</string>
 </resources>

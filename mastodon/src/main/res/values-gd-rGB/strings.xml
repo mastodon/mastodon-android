@@ -13,6 +13,8 @@
 	<string name="notifications">Brathan</string>
 	<string name="user_followed_you">Tha %s ’gad leantainn a-nis</string>
 	<string name="user_sent_follow_request">Chuir %s iarrtas leantainn thugad</string>
+	<string name="user_favorited">Is annsa le %s:</string>
+	<string name="notification_boosted">Bhrosnaich %s:</string>
 	<string name="share_toot_title">Co-roinn</string>
 	<string name="settings">Roghainnean</string>
 	<string name="publish">Foillsich</string>
@@ -110,9 +112,7 @@
 	</plurals>
 	<string name="poll_closed">Dùinte</string>
 	<string name="do_mute">Mùch</string>
-	<string name="do_unmute">Dì-mhùch</string>
 	<string name="do_block">Bac</string>
-	<string name="do_unblock">Dì-bhac</string>
 	<string name="button_blocked">’Ga bhacadh</string>
 	<string name="action_vote">Cuir bhòt</string>
 	<string name="delete">Sguab às</string>
@@ -189,7 +189,6 @@
 	<string name="visibility_followers_only">Luchd-leantainn</string>
 	<string name="visibility_private">Daoine àraidh</string>
 	<string name="recent_searches">O chionn goirid</string>
-	<string name="skip">Leum thairis air</string>
 	<string name="notification_type_follow">Luchd-leantainn ùr</string>
 	<string name="notification_type_favorite">Annsachdan</string>
 	<string name="notification_type_reblog">Brosnachaidhean</string>
@@ -253,7 +252,6 @@
 	<string name="storage_permission_to_download">Feumaidh an aplacaid inntrigeadh dhan stòras agad airson am faidhle seo a shàbhaladh.</string>
 	<string name="open_settings">Fosgail na roghainnean</string>
 	<string name="error_saving_file">Mearachd a’ sàbhaladh an fhaidhle</string>
-	<string name="file_saved">Chaidh am faidhle a shàbhaladh</string>
 	<string name="downloading">’Ga luchdadh a-nuas…</string>
 	<string name="no_app_to_handle_action">Chan eil aplacaid ann a làimhsicheas an gnìomh seo</string>
 	<string name="local_timeline">An inbhir bheò</string>
@@ -704,10 +702,8 @@
 	<string name="onboarding_recommendations_intro">Stiùirichidh tu fhèin na chì thu ’nad dhachaigh. Mar as motha an àireamh de dhaoine a leanas tu, ’s ann nas trainge is inntinniche a bhios e.</string>
 	<string name="onboarding_recommendations_title">Cuir dreach pearsanta air do dhachaigh</string>
 	<string name="article_by_author">Le %s</string>
-	<string name="info">Fiosrachadh</string>
 	<string name="button_reblogged">’Ga bhrosnachadh</string>
 	<string name="button_favorited">’Na annsachd</string>
-	<string name="bookmarked">’Na chomharra-lìn</string>
 	<string name="join_server_x_with_invite">Faigh ballrachd air %s le cuireadh</string>
 	<string name="expired_invite_link">Dh’fhalbh an ùine air ceangal a’ chuiridh</string>
 	<string name="expired_clipboard_invite_link_alert">Dh’fhalbh an ùine air ceangal a’ cuiridh airson %1$s a tha san stòr-bhòrd agad agus cha ghabh a chleachdadh airson clàradh.\n\n’S urrainn dhut ceangal ùr iarraidh o chleachdaiche a tha ann, clàradh le %2$s no frithealaiche eile far an clàraich thu a thaghadh.</string>
@@ -834,6 +830,57 @@
 	<string name="donation_server_error">Tha sinn duilich ach thachair mearachd agus cha b’ urrainn dhuinn an tabhartas agad a phròiseasadh.\n\nFeuch ris a-rithist an ceann mionaid no dhà.</string>
 	<string name="settings_donate">Thoir tabhartas do Mhastodon</string>
 	<string name="settings_manage_donations">Stiùirich na tabhartasan</string>
+	<string name="cant_load_image">Cha b’ urrainn dhuinn an dealbh a luchdadh</string>
+	<string name="poll_see_results">Faic na toraidhean</string>
+	<string name="poll_hide_results">Falaich na toraidhean</string>
+	<plurals name="x_attachments">
+		<item quantity="one">%d cheanglachan</item>
+		<item quantity="two">%d cheanglachan</item>
+		<item quantity="few">%d ceanglachain</item>
+		<item quantity="other">%d ceanglachan</item>
+	</plurals>
+	<plurals name="user_and_x_more_favorited">
+		<item quantity="one">Is annsa le %1$s ’s %2$,d eile:</item>
+		<item quantity="two">Is annsa le %1$s ’s %2$,d eile:</item>
+		<item quantity="few">Is annsa le %1$s ’s %2$,d eile:</item>
+		<item quantity="other">Is annsa le %1$s ’s %2$,d eile:</item>
+	</plurals>
+	<plurals name="user_and_x_more_boosted">
+		<item quantity="one">Bhrosnaich %1$s ’s %2$,d eile:</item>
+		<item quantity="two">Bhrosnaich %1$s ’s %2$,d eile:</item>
+		<item quantity="few">Bhrosnaich %1$s ’s %2$,d eile:</item>
+		<item quantity="other">Bhrosnaich %1$s ’s %2$,d eile:</item>
+	</plurals>
+	<plurals name="poll_ended_x_voters">
+		<item quantity="one">Rinn %1$s cunntas-bheachd sa bhòt thu fhèin ’s %2$,d eile</item>
+		<item quantity="two">Rinn %1$s cunntas-bheachd sa bhòt thu fhèin ’s %2$,d eile</item>
+		<item quantity="few">Rinn %1$s cunntas-bheachd sa bhòt thu fhèin ’s %2$,d eile</item>
+		<item quantity="other">Rinn %1$s cunntas-bheachd sa bhòt thu fhèin ’s %2$,d eile</item>
+	</plurals>
+	<string name="own_poll_ended">Thàinig an cunntas-bheachd agad gu crìoch</string>
+	<string name="user_just_posted">Phostaich %s rud</string>
+	<string name="user_edited_post">Dheasaich %s post a dh’eadar-ghabh thu leis</string>
+	<string name="relationship_severance_account_suspension">Chuir rianaire aig %1$s %2$s à rèim agus is ciall dha sin nach fhaigh thu naidheachdan uapa ’s nach urrainn dhut conaltradh leotha.</string>
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_domain_block">Bhac rianaire aig %1$s %2$s, a’ gabhail a-staigh %3$,d dhen luchd-leantainn agad agus %4$s a tha thu fhèin a’ leantainn.</string>
+	<plurals name="x_accounts">
+		<item quantity="one">%,d chunntas</item>
+		<item quantity="two">%,d chunntas</item>
+		<item quantity="few">%,d cunntasan</item>
+		<item quantity="other">%,d cunntas</item>
+	</plurals>
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_user_domain_block">Bhac thu %1$s agus thug sin air falbh %2$,d dhen luchd-leantainn agad agus %3$s a tha thu fhèin a’ leantainn.</string>
+	<string name="relationship_severance_learn_more">Barrachd fiosrachaidh</string>
+	<string name="moderation_warning_action_none">Fhuair an cunntas agad rabhadh on mhaorsainneachd.</string>
+	<string name="moderation_warning_action_disable">Chaidh an cunntas agad a chur à comas.</string>
+	<string name="moderation_warning_action_mark_statuses_as_sensitive">Chaidh comharra a chur ri cuid dhe na postaichean agad gu bheil iad frionasach.</string>
+	<string name="moderation_warning_action_delete_statuses">Chaidh cuid dhe na postaichean agad a thoirt air falbh.</string>
+	<string name="moderation_warning_action_sensitive">Thèid comharra na frionasachd a chur ris na postaichean agad o seo a-mach.</string>
+	<string name="moderation_warning_action_silence">Chaidh an cunntas agad a chuingeachadh.</string>
+	<string name="moderation_warning_action_suspend">Chaidh an cunntas agad a chur à rèim.</string>
+	<string name="moderation_warning_learn_more">Barrachd fiosrachaidh</string>
+	<string name="text_show_more">Barrachd</string>
+	<string name="avatar_move_and_scale">Gluais is sgèilich</string>
+	<string name="confirm_avatar_crop">Tagh</string>
 </resources>

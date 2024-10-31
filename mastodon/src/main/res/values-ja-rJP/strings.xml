@@ -79,9 +79,7 @@
 	</plurals>
 	<string name="poll_closed">終了しました</string>
 	<string name="do_mute">ミュート</string>
-	<string name="do_unmute">ミュート解除</string>
 	<string name="do_block">ブロック</string>
-	<string name="do_unblock">ブロック解除</string>
 	<string name="button_blocked">ブロック中</string>
 	<string name="action_vote">投票</string>
 	<string name="delete">削除</string>
@@ -155,7 +153,6 @@
 	<string name="visibility_followers_only">フォロワー</string>
 	<string name="visibility_private">特定の人</string>
 	<string name="recent_searches">最近</string>
-	<string name="skip">スキップ</string>
 	<string name="notification_type_follow">新しいフォロワー</string>
 	<string name="notification_type_favorite">お気に入り</string>
 	<string name="notification_type_reblog">ブースト</string>
@@ -216,7 +213,6 @@
 	<string name="storage_permission_to_download">このファイルを保存するには、ストレージへのアクセスが必要です。</string>
 	<string name="open_settings">設定を開く</string>
 	<string name="error_saving_file">ファイルの保存に失敗しました</string>
-	<string name="file_saved">ファイルを保存しました</string>
 	<string name="downloading">ダウンロード中…</string>
 	<string name="no_app_to_handle_action">この操作を処理するアプリがありません</string>
 	<string name="local_timeline">リアルタイムフィード</string>
@@ -608,10 +604,8 @@
 フォローを増やせば、タイムラインはより賑やかでおもしろいものになります。</string>
 	<string name="onboarding_recommendations_title">自分のホームタイムラインを作る</string>
 	<string name="article_by_author">%s から</string>
-	<string name="info">情報</string>
 	<string name="button_reblogged">ブーストしました</string>
 	<string name="button_favorited">お気に入りに登録しました</string>
-	<string name="bookmarked">ブックマークしました</string>
 	<string name="join_server_x_with_invite">%s に招待ありで参加する</string>
 	<string name="expired_invite_link">招待リンクが有効期限切れです</string>
 	<string name="expired_clipboard_invite_link_alert">クリップボードにある %1$s への招待リンクは有効期限切れのため、登録に使用できません。\n\n既存ユーザーに新しいリンクを貰うか、%2$s に登録するか、別のサーバーを選択して登録できます。</string>

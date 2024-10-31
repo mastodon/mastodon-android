@@ -110,9 +110,7 @@
 	</plurals>
 	<string name="poll_closed">Завершана</string>
 	<string name="do_mute">Ігнараваць</string>
-	<string name="do_unmute">Не ігнараваць</string>
 	<string name="do_block">Заблакіраваць</string>
-	<string name="do_unblock">Разблакіраваць</string>
 	<string name="button_blocked">Заблакіраваны</string>
 	<string name="action_vote">Прагаласаваць</string>
 	<string name="delete">Выдаліць</string>
@@ -189,7 +187,6 @@
 	<string name="visibility_followers_only">Падпісчыкам</string>
 	<string name="visibility_private">Канкрэтным людзям</string>
 	<string name="recent_searches">Нядаўняе</string>
-	<string name="skip">Прапусціць</string>
 	<string name="notification_type_follow">Новыя падпісчыкі</string>
 	<string name="notification_type_favorite">Абраныя</string>
 	<string name="notification_type_reblog">Пашырэнні</string>
@@ -253,7 +250,6 @@
 	<string name="storage_permission_to_download">Праграме патрэбны доступ да сховішча, каб захаваць гэты файл.</string>
 	<string name="open_settings">Адкрыць налады</string>
 	<string name="error_saving_file">Памылка пры захаванні файла</string>
-	<string name="file_saved">Файл захаваны</string>
 	<string name="downloading">Спампоўванне…</string>
 	<string name="no_app_to_handle_action">Няма патрэбнай праграмы для гэтага дзеяння</string>
 	<string name="local_timeline">Жывая стужка</string>
@@ -705,10 +701,8 @@
 Чым больш людзей на якіх вы падпісаны, тым больш актыўнай і цікавай яна будзе.</string>
 	<string name="onboarding_recommendations_title">Папулярна на Mastodon</string>
 	<string name="article_by_author">Ад %s</string>
-	<string name="info">Звесткі</string>
 	<string name="button_reblogged">Пашыраны</string>
 	<string name="button_favorited">Упадабанае</string>
-	<string name="bookmarked">У закладках</string>
 	<string name="join_server_x_with_invite">Далучайцеся да %s па запрашэнні</string>
 	<string name="expired_invite_link">Тэрмін дзеяння запрашальнай спасылкі скончыўся</string>
 	<string name="expired_clipboard_invite_link_alert">Спасылка запрашэння для %1$s у буферы абмену састарэла і не можа быць выкарыстана для рэгістрацыі.\n\nВы можаце запытаць новую спасылку ў існуючага карыстальніка. Зарэгіструйцеся праз %2$s, або абярыце іншы сервер для рэгістрацыі.</string>
@@ -837,4 +831,16 @@
 	<string name="settings_manage_donations">Кіраваць ахвяраваннямі</string>
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_learn_more">Даведацца больш</string>
+	<string name="moderation_warning_action_none">Ваш уліковы запіс атрымаў папярэджанне ад мадэратараў.</string>
+	<string name="moderation_warning_action_disable">Ваш уліковы запіс быў адключаны.</string>
+	<string name="moderation_warning_action_mark_statuses_as_sensitive">Некаторыя з вашых допісаў былі пазначаныя як далікатныя.</string>
+	<string name="moderation_warning_action_delete_statuses">Некаторыя вашыя допісы былі выдаленыя.</string>
+	<string name="moderation_warning_action_sensitive">З гэтага моманту вашыя допісы будуць пазначаныя як далікатныя.</string>
+	<string name="moderation_warning_action_silence">Ваш уліковы запіс быў абмежаваны.</string>
+	<string name="moderation_warning_action_suspend">Ваш уліковы запіс быў прыпынены.</string>
+	<string name="moderation_warning_learn_more">Даведацца больш</string>
+	<string name="text_show_more">Больш</string>
+	<string name="avatar_move_and_scale">Перасоўванне і маштабаванне</string>
+	<string name="confirm_avatar_crop">Выбраць</string>
 </resources>

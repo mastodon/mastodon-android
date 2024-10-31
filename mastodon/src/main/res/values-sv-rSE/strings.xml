@@ -88,9 +88,7 @@
 	</plurals>
 	<string name="poll_closed">Stängd</string>
 	<string name="do_mute">Tysta</string>
-	<string name="do_unmute">Avtysta</string>
 	<string name="do_block">Blockera</string>
-	<string name="do_unblock">Avblockera</string>
 	<string name="button_blocked">Blockerad</string>
 	<string name="action_vote">Rösta</string>
 	<string name="delete">Ta bort</string>
@@ -165,7 +163,6 @@
 	<string name="visibility_followers_only">Följare</string>
 	<string name="visibility_private">Specifika personer</string>
 	<string name="recent_searches">Nyligen</string>
-	<string name="skip">Hoppa över</string>
 	<string name="notification_type_follow">Nya följare</string>
 	<string name="notification_type_favorite">Favoriter</string>
 	<string name="notification_type_reblog">Boostar</string>
@@ -221,7 +218,6 @@
 	<string name="storage_permission_to_download">Appen behöver åtkomst till din lagring för att spara filen.</string>
 	<string name="open_settings">Öppna inställningarna</string>
 	<string name="error_saving_file">Fel vid sparande av fil</string>
-	<string name="file_saved">Filen sparad</string>
 	<string name="downloading">Laddar ner…</string>
 	<string name="no_app_to_handle_action">Det finns ingen app för att hantera denna åtgärd</string>
 	<string name="trending_posts_info_banner">Detta är de inlägg som engagerar på Mastodon.</string>
@@ -540,6 +536,7 @@
 	<string name="remove">Ta bort</string>
 	<string name="add_list_member">Lägg till medlem</string>
 	<string name="search_among_people_you_follow">Sök bland personer du följer</string>
+	<string name="add_user_to_list">Lägg till/ta bort från listor…</string>
 	<string name="add_user_to_list_title">Lägg till i lista</string>
 	<!-- %s is a username -->
 	<string name="remove_from_list">Ta bort från lista</string>
@@ -552,6 +549,7 @@
 	<string name="got_it">Jag förstår</string>
 	<string name="dont_remind_again">Påminn mig inte igen</string>
 	<!-- %s is a time interval ("5 months") -->
+	<string name="old_post_sheet_title">Detta inlägg är %s gammalt</string>
 	<plurals name="x_months">
 		<item quantity="one">%,d månad</item>
 		<item quantity="other">%,d månader</item>
@@ -574,6 +572,7 @@
 	<string name="share_sheet_preview_post">%1$s på Mastodon: “%2$s”</string>
 	<string name="copy_profile_link">Kopiera länk till profil</string>
 	<string name="add_muted_word_short">Lägg till ord</string>
+	<string name="tab_home">Hem</string>
 	<string name="tab_search">Utforska</string>
 	<string name="tab_profile">Profil</string>
 	<!-- %s is the username -->
@@ -591,10 +590,23 @@
 	<string name="donation_success_subtitle">Du kommer snart att få ett e-postmeddelande som bekräftar din donation.</string>
 	<string name="settings_donate">Donera till Mastodon</string>
 	<string name="settings_manage_donations">Hantera donationer</string>
+	<string name="poll_see_results">Visa resultat</string>
+	<string name="poll_hide_results">Dölj resultat</string>
 	<plurals name="x_attachments">
 		<item quantity="one">%d bilaga</item>
 		<item quantity="other">%d bilagor</item>
 	</plurals>
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
+	<plurals name="x_accounts">
+		<item quantity="one">%,d konto</item>
+		<item quantity="other">%,d konton</item>
+	</plurals>
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_learn_more">Läs mer</string>
+	<string name="moderation_warning_action_disable">Ditt konto har inaktiverats.</string>
+	<string name="moderation_warning_action_mark_statuses_as_sensitive">Några av dina inlägg har markerats som känsliga.</string>
+	<string name="moderation_warning_action_delete_statuses">Några av dina inlägg har tagits bort.</string>
+	<string name="moderation_warning_action_silence">Ditt konto har begränsats.</string>
+	<string name="moderation_warning_learn_more">Läs mer</string>
+	<string name="confirm_avatar_crop">Välj</string>
 </resources>
