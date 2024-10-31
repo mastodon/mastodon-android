@@ -814,4 +814,8 @@
 	<string name="avatar_move_and_scale">Move and scale</string>
 	<string name="confirm_avatar_crop">Choose</string>
 	<string name="settings_use_dynamic_colors">Use system dynamic color</string>
+	<plurals name="user_and_x_more_followed">
+		<item quantity="one">%1$s and %2$,d other followed you</item>
+		<item quantity="other">%1$s and %2$,d others followed you</item>
+	</plurals>
 </resources>

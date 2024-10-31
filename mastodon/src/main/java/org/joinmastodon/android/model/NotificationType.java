@@ -27,10 +27,10 @@ public enum NotificationType{
 	MODERATION_WARNING;
 
 	public boolean canBeGrouped(){
-		return this==REBLOG || this==FAVORITE;
+		return this==REBLOG || this==FAVORITE || this==FOLLOW;
 	}
 
 	public static EnumSet<NotificationType> getGroupableTypes(){
-		return EnumSet.of(FAVORITE, REBLOG);
+		return EnumSet.of(FAVORITE, REBLOG, FOLLOW);
 	}
 }

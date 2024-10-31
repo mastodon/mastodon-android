@@ -73,6 +73,7 @@ public class NotificationHeaderStatusDisplayItem extends StatusDisplayItem{
 				text=parentFragment.getResources().getQuantityString(switch(notification.notification.type){
 					case FAVORITE -> R.plurals.user_and_x_more_favorited;
 					case REBLOG -> R.plurals.user_and_x_more_boosted;
+					case FOLLOW -> R.plurals.user_and_x_more_followed;
 					default -> throw new IllegalStateException("Unexpected value: " + notification.notification.type);
 				}, notification.notification.notificationsCount-1, "{{name}}", notification.notification.notificationsCount-1);
 			}else if(notification.notification.type==NotificationType.POLL){
