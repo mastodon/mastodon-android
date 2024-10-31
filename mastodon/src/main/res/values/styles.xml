@@ -82,6 +82,7 @@
 		<item name="android:textColorPrimary">?colorM3OnSurface</item>
 		<item name="android:textColorSecondary">?colorM3OnSurfaceVariant</item>
 		<item name="android:textAppearanceLargePopupMenu">@style/popup_menu_item_text</item>
+		<item name="composePollStyleInactiveAlpha">1</item>
 	</style>
 
 	<style name="Theme.Mastodon.Dark" parent="Theme.AppKit">
@@ -105,6 +106,7 @@
 		<item name="android:switchStyle">@style/Widget.Mastodon.M3.Switch</item>
 		<item name="android:windowActionModeOverlay">true</item>
 		<item name="android:actionModeBackground">@color/m3_sys_dark_primary</item>
+		<item name="android:actionModeStyle">@style/Widget.Mastodon.Toolbar.ActionMode</item>
 		<item name="android:actionModeCloseDrawable">@drawable/ic_actionmode_close</item>
 		<item name="appkitEmptyTextAppearance">@style/empty_text</item>
 
@@ -165,6 +167,7 @@
 		<item name="android:textColorPrimary">?colorM3OnSurface</item>
 		<item name="android:textColorSecondary">?colorM3OnSurfaceVariant</item>
 		<item name="android:textAppearanceLargePopupMenu">@style/popup_menu_item_text</item>
+		<item name="composePollStyleInactiveAlpha">1</item>
 	</style>
 
 	<style name="Theme.Mastodon.Light.MediumContrast">
@@ -183,6 +186,8 @@
 		<item name="colorRichTextText">@color/ext_rich_text_text_light_medium_contrast</item>
 		<item name="colorRichTextContainer">@color/ext_rich_text_container_light_medium_contrast</item>
 		<item name="colorRichTextDecorations">@color/ext_rich_text_decoration_light_medium_contrast</item>
+
+		<item name="composePollStyleInactiveAlpha">0.6</item>
 	</style>
 
 	<style name="Theme.Mastodon.Light.HighContrast">
@@ -201,12 +206,16 @@
 		<item name="colorRichTextText">@color/ext_rich_text_text_light_high_contrast</item>
 		<item name="colorRichTextContainer">@color/ext_rich_text_container_light_high_contrast</item>
 		<item name="colorRichTextDecorations">@color/ext_rich_text_decoration_light_high_contrast</item>
+
+		<item name="composePollStyleInactiveAlpha">0.6</item>
 	</style>
 
 	<style name="Theme.Mastodon.Dark.MediumContrast">
+		<item name="composePollStyleInactiveAlpha">0.6</item>
 	</style>
 
 	<style name="Theme.Mastodon.Dark.HighContrast">
+		<item name="composePollStyleInactiveAlpha">0.6</item>
 	</style>
 
 	<style name="Theme.Mastodon.Dark.SplashFragment">

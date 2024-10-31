@@ -47,6 +47,8 @@
 	<attr name="colorRichTextContainer" format="color"/>
 	<attr name="colorRichTextDecorations" format="color"/>
 
+	<attr name="composePollStyleInactiveAlpha" format="float"/>
+
 	<declare-styleable name="MaxWidthFrameLayout">
 		<attr name="android:maxWidth" format="dimension"/>
 	</declare-styleable>
