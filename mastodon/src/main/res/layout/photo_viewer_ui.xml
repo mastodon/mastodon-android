@@ -122,7 +122,7 @@
 					android:layout_height="match_parent"
 					android:layout_marginEnd="8dp"
 					android:paddingHorizontal="8dp"
-					android:background="?android:actionBarItemBackground"
+					android:background="@drawable/bg_photo_viewer_action"
 					android:minWidth="64dp">
 					<TextView
 						android:id="@+id/reply"
@@ -145,7 +145,7 @@
 					android:layout_height="match_parent"
 					android:layout_marginEnd="8dp"
 					android:paddingHorizontal="8dp"
-					android:background="?android:actionBarItemBackground"
+					android:background="@drawable/bg_photo_viewer_action"
 					android:minWidth="64dp">
 					<TextView
 						android:id="@+id/boost"
@@ -167,7 +167,7 @@
 					android:layout_width="wrap_content"
 					android:layout_height="match_parent"
 					android:paddingHorizontal="8dp"
-					android:background="?android:actionBarItemBackground"
+					android:background="@drawable/bg_photo_viewer_action"
 					android:minWidth="64dp">
 					<TextView
 						android:id="@+id/favorite"
@@ -194,7 +194,7 @@
 					android:layout_width="wrap_content"
 					android:layout_height="match_parent"
 					android:paddingHorizontal="8dp"
-					android:background="?android:actionBarItemBackground"
+					android:background="@drawable/bg_photo_viewer_action_centered"
 					android:minWidth="34dp">
 					<ImageView
 						android:id="@+id/bookmark"
@@ -213,7 +213,7 @@
 					android:layout_width="wrap_content"
 					android:layout_height="match_parent"
 					android:paddingHorizontal="8dp"
-					android:background="?android:actionBarItemBackground"
+					android:background="@drawable/bg_photo_viewer_action_centered"
 					android:minWidth="34dp">
 					<ImageView
 						android:id="@+id/share"

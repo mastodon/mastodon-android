@@ -281,7 +281,7 @@ public class ListMembersFragment extends PaginatedAccountListFragment implements
 			@Override
 			public boolean onActionItemClicked(ActionMode mode, MenuItem item){
 				new M3AlertDialogBuilder(getActivity())
-						.setTitle(R.string.confirm_remove_list_members)
+						.setTitle(selectedAccounts.size()>1 ? R.string.confirm_remove_list_members : R.string.confirm_remove_list_member)
 						.setPositiveButton(R.string.remove, (dlg, which)->removeAccounts(new HashSet<>(selectedAccounts), null))
 						.setNegativeButton(R.string.cancel, null)
 						.show();

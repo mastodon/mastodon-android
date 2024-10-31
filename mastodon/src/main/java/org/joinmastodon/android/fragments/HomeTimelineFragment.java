@@ -894,6 +894,7 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 				}
 			}else{
 				smoothScrollRecyclerViewToTop(list);
+				return;
 			}
 		}else if(list.getChildViewHolder(topChild) instanceof StatusDisplayItem.Holder<?> itemHolder){
 			int postIndex;
