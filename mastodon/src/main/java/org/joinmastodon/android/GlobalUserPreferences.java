@@ -11,6 +11,7 @@ public class GlobalUserPreferences{
 	public static boolean useCustomTabs;
 	public static boolean altTextReminders, confirmUnfollow, confirmBoost, confirmDeletePost;
 	public static ThemePreference theme=ThemePreference.AUTO;
+	public static boolean useDynamicColors;
 
 	private static SharedPreferences getPrefs(){
 		return MastodonApp.context.getSharedPreferences("global", Context.MODE_PRIVATE);
@@ -29,6 +30,7 @@ public class GlobalUserPreferences{
 		confirmBoost=prefs.getBoolean("confirmBoost", false);
 		confirmDeletePost=prefs.getBoolean("confirmDeletePost", true);
 		theme=ThemePreference.values()[prefs.getInt("theme", 0)];
+		useDynamicColors=prefs.getBoolean("useDynamicColors", true);
 	}
 
 	public static void save(){
@@ -40,6 +42,7 @@ public class GlobalUserPreferences{
 				.putBoolean("confirmUnfollow", confirmUnfollow)
 				.putBoolean("confirmBoost", confirmBoost)
 				.putBoolean("confirmDeletePost", confirmDeletePost)
+				.putBoolean("useDynamicColors", useDynamicColors)
 				.apply();
 	}
 

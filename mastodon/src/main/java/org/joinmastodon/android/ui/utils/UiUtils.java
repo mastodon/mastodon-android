@@ -729,23 +729,43 @@ public class UiUtils{
 	}
 
 	public static int getThemeForUserPreference(Context context, GlobalUserPreferences.ThemePreference pref){
-		return switch(pref){
-			case AUTO -> switch(getColorContrastMode(context)){
-				case DEFAULT -> R.style.Theme_Mastodon_AutoLightDark;
-				case MEDIUM -> R.style.Theme_Mastodon_AutoLightDark_MediumContrast;
-				case HIGH -> R.style.Theme_Mastodon_AutoLightDark_HighContrast;
+		if(GlobalUserPreferences.useDynamicColors){
+			return switch(pref){
+				case AUTO -> switch(getColorContrastMode(context)){
+					case DEFAULT -> R.style.Theme_Mastodon_AutoLightDark;
+					case MEDIUM -> R.style.Theme_Mastodon_AutoLightDark_MediumContrast;
+					case HIGH -> R.style.Theme_Mastodon_AutoLightDark_HighContrast;
+				};
+				case LIGHT -> switch(getColorContrastMode(context)){
+					case DEFAULT -> R.style.Theme_Mastodon_Light;
+					case MEDIUM -> R.style.Theme_Mastodon_Light_MediumContrast;
+					case HIGH -> R.style.Theme_Mastodon_Light_HighContrast;
+				};
+				case DARK -> switch(getColorContrastMode(context)){
+					case DEFAULT -> R.style.Theme_Mastodon_Dark;
+					case MEDIUM -> R.style.Theme_Mastodon_Dark_MediumContrast;
+					case HIGH -> R.style.Theme_Mastodon_Dark_HighContrast;
+				};
 			};
-			case LIGHT -> switch(getColorContrastMode(context)){
-				case DEFAULT -> R.style.Theme_Mastodon_Light;
-				case MEDIUM -> R.style.Theme_Mastodon_Light_MediumContrast;
-				case HIGH -> R.style.Theme_Mastodon_Light_HighContrast;
+		}else{
+			return switch(pref){
+				case AUTO -> switch(getColorContrastMode(context)){
+					case DEFAULT -> R.style.Theme_Mastodon_AutoLightDark_Masterial;
+					case MEDIUM -> R.style.Theme_Mastodon_AutoLightDark_MediumContrast_Masterial;
+					case HIGH -> R.style.Theme_Mastodon_AutoLightDark_HighContrast_Masterial;
+				};
+				case LIGHT -> switch(getColorContrastMode(context)){
+					case DEFAULT -> R.style.Theme_Mastodon_Light_Masterial;
+					case MEDIUM -> R.style.Theme_Mastodon_Light_MediumContrast_Masterial;
+					case HIGH -> R.style.Theme_Mastodon_Light_HighContrast_Masterial;
+				};
+				case DARK -> switch(getColorContrastMode(context)){
+					case DEFAULT -> R.style.Theme_Mastodon_Dark_Masterial;
+					case MEDIUM -> R.style.Theme_Mastodon_Dark_MediumContrast_Masterial;
+					case HIGH -> R.style.Theme_Mastodon_Dark_HighContrast_Masterial;
+				};
 			};
-			case DARK -> switch(getColorContrastMode(context)){
-				case DEFAULT -> R.style.Theme_Mastodon_Dark;
-				case MEDIUM -> R.style.Theme_Mastodon_Dark_MediumContrast;
-				case HIGH -> R.style.Theme_Mastodon_Dark_HighContrast;
-			};
-		};
+		}
 	}
 
 	public static boolean isDarkTheme(){

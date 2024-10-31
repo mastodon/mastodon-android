@@ -218,6 +218,192 @@
 		<item name="composePollStyleInactiveAlpha">0.6</item>
 	</style>
 
+	<style name="Theme.Mastodon.Light.Masterial">
+		<item name="colorM3Primary">@color/masterialLight_primary</item>
+		<item name="colorM3OnPrimary">@color/masterialLight_onPrimary</item>
+		<item name="colorM3PrimaryContainer">@color/masterialLight_primaryContainer</item>
+		<item name="colorM3OnPrimaryContainer">@color/masterialLight_onPrimaryContainer</item>
+		<item name="colorM3Secondary">@color/masterialLight_secondary</item>
+		<item name="colorM3OnSecondary">@color/masterialLight_onSecondary</item>
+		<item name="colorM3SecondaryContainer">@color/masterialLight_secondaryContainer</item>
+		<item name="colorM3OnSecondaryContainer">@color/masterialLight_onSecondaryContainer</item>
+		<item name="colorM3Tertiary">@color/masterialLight_tertiary</item>
+		<item name="colorM3OnTertiary">@color/masterialLight_onTertiary</item>
+		<item name="colorM3TertiaryContainer">@color/masterialLight_tertiaryContainer</item>
+		<item name="colorM3OnTertiaryContainer">@color/masterialLight_onTertiaryContainer</item>
+		<item name="colorM3Background">@color/masterialLight_background</item>
+		<item name="colorM3OnBackground">@color/masterialLight_onBackground</item>
+		<item name="colorM3Surface">@color/masterialLight_surface</item>
+		<item name="colorM3OnSurface">@color/masterialLight_onSurface</item>
+		<item name="colorM3SurfaceVariant">@color/masterialLight_surfaceVariant</item>
+		<item name="colorM3OnSurfaceVariant">@color/masterialLight_onSurfaceVariant</item>
+		<item name="colorM3Outline">@color/masterialLight_outline</item>
+		<item name="colorM3OutlineVariant">@color/masterialLight_outlineVariant</item>
+		<item name="colorM3PressedOverlay">@color/masterialLight_onPrimary</item>
+		<item name="colorM3Error">@color/masterialLight_error</item>
+		<item name="colorM3OnError">@color/masterialLight_onError</item>
+		<item name="colorM3ErrorContainer">@color/masterialLight_errorContainer</item>
+		<item name="colorM3OnErrorContainer">@color/masterialLight_onErrorContainer</item>
+		<item name="colorM3PrimaryInverse">@color/masterialDark_primary</item>
+		<item name="colorM3SurfaceInverse">@color/masterialDark_surface</item>
+		<item name="colorM3OnSurfaceInverse">@color/masterialDark_onSurface</item>
+	</style>
+
+	<style name="Theme.Mastodon.Dark.Masterial">
+		<item name="colorM3Primary">@color/masterialDark_primary</item>
+		<item name="colorM3OnPrimary">@color/masterialDark_onPrimary</item>
+		<item name="colorM3PrimaryContainer">@color/masterialDark_primaryContainer</item>
+		<item name="colorM3OnPrimaryContainer">@color/masterialDark_onPrimaryContainer</item>
+		<item name="colorM3Secondary">@color/masterialDark_secondary</item>
+		<item name="colorM3OnSecondary">@color/masterialDark_onSecondary</item>
+		<item name="colorM3SecondaryContainer">@color/masterialDark_secondaryContainer</item>
+		<item name="colorM3OnSecondaryContainer">@color/masterialDark_onSecondaryContainer</item>
+		<item name="colorM3Tertiary">@color/masterialDark_tertiary</item>
+		<item name="colorM3OnTertiary">@color/masterialDark_onTertiary</item>
+		<item name="colorM3TertiaryContainer">@color/masterialDark_tertiaryContainer</item>
+		<item name="colorM3OnTertiaryContainer">@color/masterialDark_onTertiaryContainer</item>
+		<item name="colorM3Background">@color/masterialDark_background</item>
+		<item name="colorM3OnBackground">@color/masterialDark_onBackground</item>
+		<item name="colorM3Surface">@color/masterialDark_surface</item>
+		<item name="colorM3OnSurface">@color/masterialDark_onSurface</item>
+		<item name="colorM3SurfaceVariant">@color/masterialDark_surfaceVariant</item>
+		<item name="colorM3OnSurfaceVariant">@color/masterialDark_onSurfaceVariant</item>
+		<item name="colorM3Outline">@color/masterialDark_outline</item>
+		<item name="colorM3OutlineVariant">@color/masterialDark_outlineVariant</item>
+		<item name="colorM3PressedOverlay">@color/masterialDark_onPrimary</item>
+		<item name="colorM3Error">@color/masterialDark_error</item>
+		<item name="colorM3OnError">@color/masterialDark_onError</item>
+		<item name="colorM3ErrorContainer">@color/masterialDark_errorContainer</item>
+		<item name="colorM3OnErrorContainer">@color/masterialDark_onErrorContainer</item>
+		<item name="colorM3PrimaryInverse">@color/masterialLight_primary</item>
+		<item name="colorM3SurfaceInverse">@color/masterialLight_surface</item>
+		<item name="colorM3OnSurfaceInverse">@color/masterialLight_onSurface</item>
+	</style>
+
+	<style name="Theme.Mastodon.Light.MediumContrast.Masterial">
+		<item name="colorM3Primary">@color/masterialLight_primary_mediumContrast</item>
+		<item name="colorM3OnPrimary">@color/masterialLight_onPrimary_mediumContrast</item>
+		<item name="colorM3PrimaryContainer">@color/masterialLight_primaryContainer_mediumContrast</item>
+		<item name="colorM3OnPrimaryContainer">@color/masterialLight_onPrimaryContainer_mediumContrast</item>
+		<item name="colorM3Secondary">@color/masterialLight_secondary_mediumContrast</item>
+		<item name="colorM3OnSecondary">@color/masterialLight_onSecondary_mediumContrast</item>
+		<item name="colorM3SecondaryContainer">@color/masterialLight_secondaryContainer_mediumContrast</item>
+		<item name="colorM3OnSecondaryContainer">@color/masterialLight_onSecondaryContainer_mediumContrast</item>
+		<item name="colorM3Tertiary">@color/masterialLight_tertiary_mediumContrast</item>
+		<item name="colorM3OnTertiary">@color/masterialLight_onTertiary_mediumContrast</item>
+		<item name="colorM3TertiaryContainer">@color/masterialLight_tertiaryContainer_mediumContrast</item>
+		<item name="colorM3OnTertiaryContainer">@color/masterialLight_onTertiaryContainer_mediumContrast</item>
+		<item name="colorM3Background">@color/masterialLight_background_mediumContrast</item>
+		<item name="colorM3OnBackground">@color/masterialLight_onBackground_mediumContrast</item>
+		<item name="colorM3Surface">@color/masterialLight_surface_mediumContrast</item>
+		<item name="colorM3OnSurface">@color/masterialLight_onSurface_mediumContrast</item>
+		<item name="colorM3SurfaceVariant">@color/masterialLight_surfaceVariant_mediumContrast</item>
+		<item name="colorM3OnSurfaceVariant">@color/masterialLight_onSurfaceVariant_mediumContrast</item>
+		<item name="colorM3Outline">@color/masterialLight_outline_mediumContrast</item>
+		<item name="colorM3OutlineVariant">@color/masterialLight_outlineVariant_mediumContrast</item>
+		<item name="colorM3PressedOverlay">@color/masterialLight_onPrimary_mediumContrast</item>
+		<item name="colorM3Error">@color/masterialLight_error_mediumContrast</item>
+		<item name="colorM3OnError">@color/masterialLight_onError_mediumContrast</item>
+		<item name="colorM3ErrorContainer">@color/masterialLight_errorContainer_mediumContrast</item>
+		<item name="colorM3OnErrorContainer">@color/masterialLight_onErrorContainer_mediumContrast</item>
+		<item name="colorM3PrimaryInverse">@color/masterialDark_primary_mediumContrast</item>
+		<item name="colorM3SurfaceInverse">@color/masterialDark_surface_mediumContrast</item>
+		<item name="colorM3OnSurfaceInverse">@color/masterialDark_onSurface_mediumContrast</item>
+	</style>
+
+	<style name="Theme.Mastodon.Dark.MediumContrast.Masterial">
+		<item name="colorM3Primary">@color/masterialDark_primary_mediumContrast</item>
+		<item name="colorM3OnPrimary">@color/masterialDark_onPrimary_mediumContrast</item>
+		<item name="colorM3PrimaryContainer">@color/masterialDark_primaryContainer_mediumContrast</item>
+		<item name="colorM3OnPrimaryContainer">@color/masterialDark_onPrimaryContainer_mediumContrast</item>
+		<item name="colorM3Secondary">@color/masterialDark_secondary_mediumContrast</item>
+		<item name="colorM3OnSecondary">@color/masterialDark_onSecondary_mediumContrast</item>
+		<item name="colorM3SecondaryContainer">@color/masterialDark_secondaryContainer_mediumContrast</item>
+		<item name="colorM3OnSecondaryContainer">@color/masterialDark_onSecondaryContainer_mediumContrast</item>
+		<item name="colorM3Tertiary">@color/masterialDark_tertiary_mediumContrast</item>
+		<item name="colorM3OnTertiary">@color/masterialDark_onTertiary_mediumContrast</item>
+		<item name="colorM3TertiaryContainer">@color/masterialDark_tertiaryContainer_mediumContrast</item>
+		<item name="colorM3OnTertiaryContainer">@color/masterialDark_onTertiaryContainer_mediumContrast</item>
+		<item name="colorM3Background">@color/masterialDark_background_mediumContrast</item>
+		<item name="colorM3OnBackground">@color/masterialDark_onBackground_mediumContrast</item>
+		<item name="colorM3Surface">@color/masterialDark_surface_mediumContrast</item>
+		<item name="colorM3OnSurface">@color/masterialDark_onSurface_mediumContrast</item>
+		<item name="colorM3SurfaceVariant">@color/masterialDark_surfaceVariant_mediumContrast</item>
+		<item name="colorM3OnSurfaceVariant">@color/masterialDark_onSurfaceVariant_mediumContrast</item>
+		<item name="colorM3Outline">@color/masterialDark_outline_mediumContrast</item>
+		<item name="colorM3OutlineVariant">@color/masterialDark_outlineVariant_mediumContrast</item>
+		<item name="colorM3PressedOverlay">@color/masterialDark_onPrimary_mediumContrast</item>
+		<item name="colorM3Error">@color/masterialDark_error_mediumContrast</item>
+		<item name="colorM3OnError">@color/masterialDark_onError_mediumContrast</item>
+		<item name="colorM3ErrorContainer">@color/masterialDark_errorContainer_mediumContrast</item>
+		<item name="colorM3OnErrorContainer">@color/masterialDark_onErrorContainer_mediumContrast</item>
+		<item name="colorM3PrimaryInverse">@color/masterialLight_primary_mediumContrast</item>
+		<item name="colorM3SurfaceInverse">@color/masterialLight_surface_mediumContrast</item>
+		<item name="colorM3OnSurfaceInverse">@color/masterialLight_onSurface_mediumContrast</item>
+	</style>
+
+	<style name="Theme.Mastodon.Light.HighContrast.Masterial">
+		<item name="colorM3Primary">@color/masterialLight_primary_highContrast</item>
+		<item name="colorM3OnPrimary">@color/masterialLight_onPrimary_highContrast</item>
+		<item name="colorM3PrimaryContainer">@color/masterialLight_primaryContainer_highContrast</item>
+		<item name="colorM3OnPrimaryContainer">@color/masterialLight_onPrimaryContainer_highContrast</item>
+		<item name="colorM3Secondary">@color/masterialLight_secondary_highContrast</item>
+		<item name="colorM3OnSecondary">@color/masterialLight_onSecondary_highContrast</item>
+		<item name="colorM3SecondaryContainer">@color/masterialLight_secondaryContainer_highContrast</item>
+		<item name="colorM3OnSecondaryContainer">@color/masterialLight_onSecondaryContainer_highContrast</item>
+		<item name="colorM3Tertiary">@color/masterialLight_tertiary_highContrast</item>
+		<item name="colorM3OnTertiary">@color/masterialLight_onTertiary_highContrast</item>
+		<item name="colorM3TertiaryContainer">@color/masterialLight_tertiaryContainer_highContrast</item>
+		<item name="colorM3OnTertiaryContainer">@color/masterialLight_onTertiaryContainer_highContrast</item>
+		<item name="colorM3Background">@color/masterialLight_background_highContrast</item>
+		<item name="colorM3OnBackground">@color/masterialLight_onBackground_highContrast</item>
+		<item name="colorM3Surface">@color/masterialLight_surface_highContrast</item>
+		<item name="colorM3OnSurface">@color/masterialLight_onSurface_highContrast</item>
+		<item name="colorM3SurfaceVariant">@color/masterialLight_surfaceVariant_highContrast</item>
+		<item name="colorM3OnSurfaceVariant">@color/masterialLight_onSurfaceVariant_highContrast</item>
+		<item name="colorM3Outline">@color/masterialLight_outline_highContrast</item>
+		<item name="colorM3OutlineVariant">@color/masterialLight_outlineVariant_highContrast</item>
+		<item name="colorM3PressedOverlay">@color/masterialLight_onPrimary_highContrast</item>
+		<item name="colorM3Error">@color/masterialLight_error_highContrast</item>
+		<item name="colorM3OnError">@color/masterialLight_onError_highContrast</item>
+		<item name="colorM3ErrorContainer">@color/masterialLight_errorContainer_highContrast</item>
+		<item name="colorM3OnErrorContainer">@color/masterialLight_onErrorContainer_highContrast</item>
+		<item name="colorM3PrimaryInverse">@color/masterialDark_primary_highContrast</item>
+		<item name="colorM3SurfaceInverse">@color/masterialDark_surface_highContrast</item>
+		<item name="colorM3OnSurfaceInverse">@color/masterialDark_onSurface_highContrast</item>
+	</style>
+
+	<style name="Theme.Mastodon.Dark.HighContrast.Masterial">
+		<item name="colorM3Primary">@color/masterialDark_primary_highContrast</item>
+		<item name="colorM3OnPrimary">@color/masterialDark_onPrimary_highContrast</item>
+		<item name="colorM3PrimaryContainer">@color/masterialDark_primaryContainer_highContrast</item>
+		<item name="colorM3OnPrimaryContainer">@color/masterialDark_onPrimaryContainer_highContrast</item>
+		<item name="colorM3Secondary">@color/masterialDark_secondary_highContrast</item>
+		<item name="colorM3OnSecondary">@color/masterialDark_onSecondary_highContrast</item>
+		<item name="colorM3SecondaryContainer">@color/masterialDark_secondaryContainer_highContrast</item>
+		<item name="colorM3OnSecondaryContainer">@color/masterialDark_onSecondaryContainer_highContrast</item>
+		<item name="colorM3Tertiary">@color/masterialDark_tertiary_highContrast</item>
+		<item name="colorM3OnTertiary">@color/masterialDark_onTertiary_highContrast</item>
+		<item name="colorM3TertiaryContainer">@color/masterialDark_tertiaryContainer_highContrast</item>
+		<item name="colorM3OnTertiaryContainer">@color/masterialDark_onTertiaryContainer_highContrast</item>
+		<item name="colorM3Background">@color/masterialDark_background_highContrast</item>
+		<item name="colorM3OnBackground">@color/masterialDark_onBackground_highContrast</item>
+		<item name="colorM3Surface">@color/masterialDark_surface_highContrast</item>
+		<item name="colorM3OnSurface">@color/masterialDark_onSurface_highContrast</item>
+		<item name="colorM3SurfaceVariant">@color/masterialDark_surfaceVariant_highContrast</item>
+		<item name="colorM3OnSurfaceVariant">@color/masterialDark_onSurfaceVariant_highContrast</item>
+		<item name="colorM3Outline">@color/masterialDark_outline_highContrast</item>
+		<item name="colorM3OutlineVariant">@color/masterialDark_outlineVariant_highContrast</item>
+		<item name="colorM3PressedOverlay">@color/masterialDark_onPrimary_highContrast</item>
+		<item name="colorM3Error">@color/masterialDark_error_highContrast</item>
+		<item name="colorM3OnError">@color/masterialDark_onError_highContrast</item>
+		<item name="colorM3ErrorContainer">@color/masterialDark_errorContainer_highContrast</item>
+		<item name="colorM3OnErrorContainer">@color/masterialDark_onErrorContainer_highContrast</item>
+		<item name="colorM3PrimaryInverse">@color/masterialLight_primary_highContrast</item>
+		<item name="colorM3SurfaceInverse">@color/masterialLight_surface_highContrast</item>
+		<item name="colorM3OnSurfaceInverse">@color/masterialLight_onSurface_highContrast</item>
+	</style>
+
 	<style name="Theme.Mastodon.Dark.SplashFragment">
 		<item name="colorM3Primary">#563ACC</item>
 		<item name="colorM3OnPrimary">#FFF</item>
@@ -228,6 +414,9 @@
 	<style name="Theme.Mastodon.AutoLightDark" parent="Theme.Mastodon.Light"/>
 	<style name="Theme.Mastodon.AutoLightDark.MediumContrast" parent="Theme.Mastodon.Light.MediumContrast"/>
 	<style name="Theme.Mastodon.AutoLightDark.HighContrast" parent="Theme.Mastodon.Light.HighContrast"/>
+	<style name="Theme.Mastodon.AutoLightDark.Masterial" parent="Theme.Mastodon.Light.Masterial"/>
+	<style name="Theme.Mastodon.AutoLightDark.MediumContrast.Masterial" parent="Theme.Mastodon.Light.MediumContrast.Masterial"/>
+	<style name="Theme.Mastodon.AutoLightDark.HighContrast.Masterial" parent="Theme.Mastodon.Light.HighContrast.Masterial"/>
 
 	<style name="Theme.Mastodon.Toolbar" parent="android:ThemeOverlay.Material.ActionBar">
 		<item name="android:colorPrimary">?colorM3Background</item>

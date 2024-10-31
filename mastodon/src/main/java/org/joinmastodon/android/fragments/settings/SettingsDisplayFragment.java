@@ -21,6 +21,7 @@ import org.joinmastodon.android.model.viewmodel.CheckableListItem;
 import org.joinmastodon.android.model.viewmodel.ListItem;
 import org.joinmastodon.android.ui.M3AlertDialogBuilder;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.IntStream;
 
@@ -29,7 +30,7 @@ import me.grishka.appkit.FragmentStackActivity;
 public class SettingsDisplayFragment extends BaseSettingsFragment<Void>{
 	private ImageView themeTransitionWindowView;
 	private ListItem<Void> themeItem;
-	private CheckableListItem<Void> showCWsItem, hideSensitiveMediaItem, interactionCountsItem, emojiInNamesItem;
+	private CheckableListItem<Void> showCWsItem, hideSensitiveMediaItem, interactionCountsItem, emojiInNamesItem, dynamicColorsItem;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState){
@@ -37,13 +38,15 @@ public class SettingsDisplayFragment extends BaseSettingsFragment<Void>{
 		setTitle(R.string.settings_display);
 		AccountSession s=AccountSessionManager.get(accountID);
 		AccountLocalPreferences lp=s.getLocalPreferences();
-		onDataLoaded(List.of(
-				themeItem=new ListItem<>(R.string.settings_theme, getAppearanceValue(), R.drawable.ic_dark_mode_24px, this::onAppearanceClick),
-				showCWsItem=new CheckableListItem<>(R.string.settings_show_cws, 0, CheckableListItem.Style.SWITCH, lp.showCWs, R.drawable.ic_warning_24px, this::toggleCheckableItem),
-				hideSensitiveMediaItem=new CheckableListItem<>(R.string.settings_hide_sensitive_media, 0, CheckableListItem.Style.SWITCH, lp.hideSensitiveMedia, R.drawable.ic_no_adult_content_24px, this::toggleCheckableItem),
-				interactionCountsItem=new CheckableListItem<>(R.string.settings_show_interaction_counts, 0, CheckableListItem.Style.SWITCH, lp.showInteractionCounts, R.drawable.ic_social_leaderboard_24px, this::toggleCheckableItem),
-				emojiInNamesItem=new CheckableListItem<>(R.string.settings_show_emoji_in_names, 0, CheckableListItem.Style.SWITCH, lp.customEmojiInNames, R.drawable.ic_emoticon_24px, this::toggleCheckableItem)
-		));
+		List<ListItem<Void>> items=new ArrayList<>();
+		items.add(themeItem=new ListItem<>(R.string.settings_theme, getAppearanceValue(), R.drawable.ic_dark_mode_24px, this::onAppearanceClick));
+		if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.S)
+			items.add(dynamicColorsItem=new CheckableListItem<>(R.string.settings_use_dynamic_colors, 0, CheckableListItem.Style.SWITCH, GlobalUserPreferences.useDynamicColors, R.drawable.ic_palette_24px, this::onDynamicColorsClick));
+		items.add(showCWsItem=new CheckableListItem<>(R.string.settings_show_cws, 0, CheckableListItem.Style.SWITCH, lp.showCWs, R.drawable.ic_warning_24px, this::toggleCheckableItem));
+		items.add(hideSensitiveMediaItem=new CheckableListItem<>(R.string.settings_hide_sensitive_media, 0, CheckableListItem.Style.SWITCH, lp.hideSensitiveMedia, R.drawable.ic_no_adult_content_24px, this::toggleCheckableItem));
+		items.add(interactionCountsItem=new CheckableListItem<>(R.string.settings_show_interaction_counts, 0, CheckableListItem.Style.SWITCH, lp.showInteractionCounts, R.drawable.ic_social_leaderboard_24px, this::toggleCheckableItem));
+		items.add(emojiInNamesItem=new CheckableListItem<>(R.string.settings_show_emoji_in_names, 0, CheckableListItem.Style.SWITCH, lp.customEmojiInNames, R.drawable.ic_emoticon_24px, this::toggleCheckableItem));
+		onDataLoaded(items);
 	}
 
 	@Override
@@ -107,6 +110,14 @@ public class SettingsDisplayFragment extends BaseSettingsFragment<Void>{
 							dlg.dismiss();
 						})
 				.show();
+	}
+
+	private void onDynamicColorsClick(CheckableListItem<?> item){
+		item.toggle();
+		rebindItem(item);
+		GlobalUserPreferences.useDynamicColors=item.checked;
+		GlobalUserPreferences.save();
+		restartActivityToApplyNewTheme();
 	}
 
 	private void maybeApplyNewThemeRightNow(GlobalUserPreferences.ThemePreference prev){
