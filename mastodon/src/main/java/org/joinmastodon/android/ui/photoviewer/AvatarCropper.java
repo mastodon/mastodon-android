@@ -68,7 +68,7 @@ public class AvatarCropper implements ZoomPanView.Listener{
 
 	public AvatarCropper(Activity activity, Uri imageUri, PhotoViewer.Listener photoViewerListener, OnCropChosenListener cropChosenListener, Runnable onCancel){
 		this.activity=activity;
-		this.context=new ContextThemeWrapper(activity, UiUtils.getThemeForUserPreference(context, GlobalUserPreferences.ThemePreference.DARK));
+		this.context=new ContextThemeWrapper(activity, UiUtils.getThemeForUserPreference(activity, GlobalUserPreferences.ThemePreference.DARK));
 		originalUri=imageUri;
 		wm=context.getSystemService(WindowManager.class);
 		this.cropChosenListener=cropChosenListener;
