@@ -20,7 +20,7 @@
 		<item name="android:actionOverflowMenuStyle">@style/Widget.Mastodon.PopupMenu</item>
 		<item name="android:switchStyle">@style/Widget.Mastodon.M3.Switch</item>
 		<item name="android:windowActionModeOverlay">true</item>
-		<item name="android:actionModeBackground">@color/m3_sys_light_primary</item>
+		<item name="android:actionModeBackground">?colorM3Primary</item>
 		<item name="android:actionModeStyle">@style/Widget.Mastodon.Toolbar.ActionMode</item>
 		<item name="android:actionModeCloseDrawable">@drawable/ic_actionmode_close</item>
 		<item name="appkitEmptyTextAppearance">@style/empty_text</item>
@@ -105,7 +105,7 @@
 		<item name="android:actionOverflowMenuStyle">@style/Widget.Mastodon.PopupMenu</item>
 		<item name="android:switchStyle">@style/Widget.Mastodon.M3.Switch</item>
 		<item name="android:windowActionModeOverlay">true</item>
-		<item name="android:actionModeBackground">@color/m3_sys_dark_primary</item>
+		<item name="android:actionModeBackground">?colorM3Primary</item>
 		<item name="android:actionModeStyle">@style/Widget.Mastodon.Toolbar.ActionMode</item>
 		<item name="android:actionModeCloseDrawable">@drawable/ic_actionmode_close</item>
 		<item name="appkitEmptyTextAppearance">@style/empty_text</item>
