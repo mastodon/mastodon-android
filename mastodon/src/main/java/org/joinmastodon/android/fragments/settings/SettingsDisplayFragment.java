@@ -40,8 +40,13 @@ public class SettingsDisplayFragment extends BaseSettingsFragment<Void>{
 		AccountLocalPreferences lp=s.getLocalPreferences();
 		List<ListItem<Void>> items=new ArrayList<>();
 		items.add(themeItem=new ListItem<>(R.string.settings_theme, getAppearanceValue(), R.drawable.ic_dark_mode_24px, this::onAppearanceClick));
-		if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.S)
-			items.add(dynamicColorsItem=new CheckableListItem<>(R.string.settings_use_dynamic_colors, 0, CheckableListItem.Style.SWITCH, GlobalUserPreferences.useDynamicColors, R.drawable.ic_palette_24px, this::onDynamicColorsClick));
+		if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.S){
+			items.add(dynamicColorsItem=new CheckableListItem<>(R.string.settings_use_dynamic_colors, 0, CheckableListItem.Style.SWITCH, GlobalUserPreferences.useDynamicColors, R.drawable.ic_palette_24px, item->{
+				toggleCheckableItem(item);
+				setUseDynamicColors(item.checked);
+			}));
+			dynamicColorsItem.checkedChangeListener=this::setUseDynamicColors;
+		}
 		items.add(showCWsItem=new CheckableListItem<>(R.string.settings_show_cws, 0, CheckableListItem.Style.SWITCH, lp.showCWs, R.drawable.ic_warning_24px, this::toggleCheckableItem));
 		items.add(hideSensitiveMediaItem=new CheckableListItem<>(R.string.settings_hide_sensitive_media, 0, CheckableListItem.Style.SWITCH, lp.hideSensitiveMedia, R.drawable.ic_no_adult_content_24px, this::toggleCheckableItem));
 		items.add(interactionCountsItem=new CheckableListItem<>(R.string.settings_show_interaction_counts, 0, CheckableListItem.Style.SWITCH, lp.showInteractionCounts, R.drawable.ic_social_leaderboard_24px, this::toggleCheckableItem));
@@ -112,10 +117,9 @@ public class SettingsDisplayFragment extends BaseSettingsFragment<Void>{
 				.show();
 	}
 
-	private void onDynamicColorsClick(CheckableListItem<?> item){
-		item.toggle();
-		rebindItem(item);
-		GlobalUserPreferences.useDynamicColors=item.checked;
+	private void setUseDynamicColors(boolean useDynamicColors){
+		dynamicColorsItem.checked=useDynamicColors;
+		GlobalUserPreferences.useDynamicColors=useDynamicColors;
 		GlobalUserPreferences.save();
 		restartActivityToApplyNewTheme();
 	}

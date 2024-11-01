@@ -5,7 +5,7 @@
 		<item name="android:enforceNavigationBarContrast" tools:ignore="NewApi">false</item>
 		<item name="android:enforceStatusBarContrast" tools:ignore="NewApi">false</item>
 		<item name="android:splitMotionEvents">false</item>
-		<item name="android:windowBackground">@color/m3_sys_light_surface</item>
+		<item name="android:windowBackground">?colorM3Surface</item>
 		<item name="android:editTextStyle">@style/Widget.Mastodon.EditText</item>
 		<item name="android:spinnerStyle">@style/Widget.Mastodon.Spinner</item>
 		<item name="android:actionModeCloseButtonStyle">@style/action_mode_close</item>
@@ -90,7 +90,7 @@
 		<item name="android:enforceNavigationBarContrast" tools:ignore="NewApi">false</item>
 		<item name="android:enforceStatusBarContrast" tools:ignore="NewApi">false</item>
 		<item name="android:splitMotionEvents">false</item>
-		<item name="android:windowBackground">@color/m3_sys_dark_surface</item>
+		<item name="android:windowBackground">?colorM3Surface</item>
 		<item name="android:editTextStyle">@style/Widget.Mastodon.EditText</item>
 		<item name="android:spinnerStyle">@style/Widget.Mastodon.Spinner</item>
 		<item name="android:actionModeCloseButtonStyle">@style/action_mode_close</item>
