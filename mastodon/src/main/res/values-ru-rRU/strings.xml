@@ -184,7 +184,7 @@
 	<string name="save">Сохранить</string>
 	<string name="add_alt_text">Добавить альтернативный текст</string>
 	<string name="visibility_public">Публичный</string>
-	<string name="visibility_followers_only">Читатели</string>
+	<string name="visibility_followers_only">Подписчики</string>
 	<string name="visibility_private">Определённые люди</string>
 	<string name="recent_searches">Недавние</string>
 	<string name="notification_type_follow">Новые подписчики</string>
@@ -757,8 +757,8 @@
 	<string name="share_sheet_preview_profile">%s на Mastodon</string>
 	<string name="share_sheet_preview_post">%1$s на Mastodon: “%2$s”</string>
 	<string name="copy_profile_link">Скопировать ссылку на профиль</string>
-	<string name="in_app_browser">Встроенный браузер</string>
-	<string name="system_browser">Системный браузер</string>
+	<string name="in_app_browser">Встроенном браузере</string>
+	<string name="system_browser">Системном браузере</string>
 	<string name="add_muted_word_short">Добавить слово</string>
 	<string name="tab_home">Главная</string>
 	<string name="tab_search">Обзор</string>
@@ -774,7 +774,7 @@
 	<string name="new_post_notifications_disabled">Вы больше не будете получать уведомления о новых постах.</string>
 	<string name="mute_conversation">Заглушить обсуждение</string>
 	<string name="unmute_conversation">Не игнорировать обсуждение</string>
-	<string name="visibility_unlisted">Тихая публика</string>
+	<string name="visibility_unlisted">Тихий публичный</string>
 	<string name="filtered_notifications">Отфильтрованные уведомления</string>
 	<string name="filter_notifications">Отфильтруйте уведомления от...</string>
 	<string name="notification_filter_following">Люди, за которыми вы не следите</string>
@@ -796,10 +796,10 @@
 	<string name="notifications_from_user">Уведомления от %s</string>
 	<string name="notifications_muted">Уведомления от %s были отклонены.</string>
 	<string name="notifications_allowed">Теперь %s появится в списке ваших уведомлений.</string>
-	<string name="visibility_subtitle_public">Все, кто входит и выходит из состава Mastodon</string>
+	<string name="visibility_subtitle_public">Любой, находящийся на Mastodon и вне его</string>
 	<string name="visibility_subtitle_unlisted">Меньше алгоритмических фанфар</string>
-	<string name="visibility_subtitle_followers">Только ваши последователи</string>
-	<string name="visibility_subtitle_private">Все, кто упоминался в посте</string>
+	<string name="visibility_subtitle_followers">Только ваши подписчики</string>
+	<string name="visibility_subtitle_private">Все упомянутые в посте</string>
 	<string name="view_boosts">Просматривать бонусы</string>
 	<string name="view_favorites">Посмотреть избранное</string>
 	<string name="undo_reblog">Отменить повышение</string>
