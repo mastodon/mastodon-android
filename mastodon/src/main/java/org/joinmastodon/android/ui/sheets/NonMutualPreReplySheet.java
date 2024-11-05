@@ -11,8 +11,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import org.joinmastodon.android.GlobalUserPreferences;
 import org.joinmastodon.android.R;
-import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.ui.OutlineProviders;
 import org.joinmastodon.android.ui.text.HtmlParser;
@@ -57,7 +57,7 @@ public class NonMutualPreReplySheet extends PreReplySheet{
 		name.setEllipsize(TextUtils.TruncateAt.END);
 		name.setTextAppearance(R.style.m3_title_medium);
 		name.setTextColor(UiUtils.getThemeColor(context, R.attr.colorM3OnSurface));
-		if(AccountSessionManager.get(accountID).getLocalPreferences().customEmojiInNames){
+		if(GlobalUserPreferences.customEmojiInNames){
 			name.setText(HtmlParser.parseCustomEmoji(account.displayName, account.emojis));
 			UiUtils.loadCustomEmojiInTextView(name);
 		}else{

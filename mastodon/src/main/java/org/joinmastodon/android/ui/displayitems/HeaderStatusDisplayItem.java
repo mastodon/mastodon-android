@@ -75,7 +75,7 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 		this.accountID=accountID;
 		parsedName=new SpannableStringBuilder(user.displayName);
 		this.status=status;
-		if(AccountSessionManager.get(accountID).getLocalPreferences().customEmojiInNames)
+		if(GlobalUserPreferences.customEmojiInNames)
 			HtmlParser.parseCustomEmoji(parsedName, user.emojis);
 		emojiHelper.setText(parsedName);
 		if(status!=null){

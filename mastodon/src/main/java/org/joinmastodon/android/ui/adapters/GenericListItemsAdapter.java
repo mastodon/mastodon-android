@@ -5,17 +5,19 @@ import android.view.ViewGroup;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.model.viewmodel.AvatarPileListItem;
 import org.joinmastodon.android.model.viewmodel.ListItem;
+import org.joinmastodon.android.model.viewmodel.SettingsAccountListItem;
 import org.joinmastodon.android.ui.viewholders.AvatarPileListItemViewHolder;
 import org.joinmastodon.android.ui.viewholders.CheckboxOrRadioListItemViewHolder;
 import org.joinmastodon.android.ui.viewholders.ListItemViewHolder;
 import org.joinmastodon.android.ui.viewholders.OptionsListItemViewHolder;
+import org.joinmastodon.android.ui.viewholders.SectionHeaderListItemViewHolder;
+import org.joinmastodon.android.ui.viewholders.SettingsAccountListItemViewHolder;
 import org.joinmastodon.android.ui.viewholders.SimpleListItemViewHolder;
 import org.joinmastodon.android.ui.viewholders.SwitchListItemViewHolder;
 
 import java.util.List;
 
 import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
 import me.grishka.appkit.imageloader.ImageLoaderRecyclerAdapter;
 import me.grishka.appkit.imageloader.ListImageLoaderWrapper;
 import me.grishka.appkit.imageloader.requests.ImageLoaderRequest;
@@ -49,6 +51,10 @@ public class GenericListItemsAdapter<T> extends UsableRecyclerView.Adapter<ListI
 			return new OptionsListItemViewHolder(parent.getContext(), parent);
 		if(viewType==R.id.list_item_avatar_pile)
 			return new AvatarPileListItemViewHolder(parent.getContext(), parent);
+		if(viewType==R.id.list_item_settings_account)
+			return new SettingsAccountListItemViewHolder(parent.getContext(), parent);
+		if(viewType==R.id.list_item_section_header)
+			return new SectionHeaderListItemViewHolder(parent.getContext(), parent);
 
 		throw new IllegalArgumentException("Unexpected view type "+viewType);
 	}
@@ -74,6 +80,8 @@ public class GenericListItemsAdapter<T> extends UsableRecyclerView.Adapter<ListI
 		ListItem<?> item=items.get(position);
 		if(item instanceof AvatarPileListItem<?> avatarPileListItem)
 			return avatarPileListItem.avatars.size();
+		if(item instanceof SettingsAccountListItem<?>)
+			return 1;
 		return 0;
 	}
 
@@ -82,6 +90,8 @@ public class GenericListItemsAdapter<T> extends UsableRecyclerView.Adapter<ListI
 		ListItem<?> item=items.get(position);
 		if(item instanceof AvatarPileListItem<?> avatarPileListItem)
 			return avatarPileListItem.avatars.get(image);
+		if(item instanceof SettingsAccountListItem<?> accountItem)
+			return accountItem.avatar;
 		return null;
 	}
 }

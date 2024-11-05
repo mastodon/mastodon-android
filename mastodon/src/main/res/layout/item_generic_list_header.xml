@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:id="@+id/title"
+	android:layout_width="match_parent"
+	android:layout_height="36dp"
+	android:layout_marginTop="24dp"
+	android:paddingStart="16dp"
+	android:paddingEnd="24dp"
+	android:gravity="center_vertical"
+	android:singleLine="true"
+	android:ellipsize="end"
+	android:textAppearance="@style/m3_title_small"
+	android:textColor="?colorM3OnSurfaceVariant"
+	tools:text="Section header"/>

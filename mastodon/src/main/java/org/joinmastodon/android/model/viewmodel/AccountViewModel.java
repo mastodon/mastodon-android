@@ -5,7 +5,6 @@ import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 
 import org.joinmastodon.android.GlobalUserPreferences;
-import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.AccountField;
 import org.joinmastodon.android.ui.text.HtmlParser;
@@ -33,7 +32,7 @@ public class AccountViewModel{
 		this.account=account;
 		avaRequest=new UrlImageLoaderRequest(GlobalUserPreferences.playGifs ? account.avatar : account.avatarStatic, V.dp(50), V.dp(50));
 		emojiHelper=new CustomEmojiHelper();
-		if(AccountSessionManager.get(accountID).getLocalPreferences().customEmojiInNames)
+		if(GlobalUserPreferences.customEmojiInNames)
 			parsedName=HtmlParser.parseCustomEmoji(account.displayName, account.emojis);
 		else
 			parsedName=account.displayName;

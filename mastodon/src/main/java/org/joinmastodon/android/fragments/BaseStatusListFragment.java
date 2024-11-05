@@ -500,7 +500,7 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 			int itemCount=spoilerItem.contentItems.size();
 			displayItems.addAll(index+1, spoilerItem.contentItems);
 			if(spoilerItem.spoilerType==Status.SpoilerType.FILTER && spoilerItem.contentItems.get(0) instanceof SpoilerStatusDisplayItem nestedSpoiler
-					&& nestedSpoiler.spoilerType==Status.SpoilerType.CONTENT_WARNING && !AccountSessionManager.get(accountID).getLocalPreferences().showCWs){
+					&& nestedSpoiler.spoilerType==Status.SpoilerType.CONTENT_WARNING && !GlobalUserPreferences.showCWs){
 				status.revealedSpoilers.add(Status.SpoilerType.CONTENT_WARNING);
 				displayItems.addAll(index+1+itemCount, nestedSpoiler.contentItems);
 				itemCount+=nestedSpoiler.contentItems.size();

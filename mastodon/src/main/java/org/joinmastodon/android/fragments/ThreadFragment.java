@@ -68,7 +68,7 @@ public class ThreadFragment extends StatusListFragment implements AssistContentP
 			knownAccounts.put(inReplyToAccount.id, inReplyToAccount);
 		data.add(mainStatus);
 		onAppendItems(Collections.singletonList(mainStatus));
-		if(AccountSessionManager.get(accountID).getLocalPreferences().customEmojiInNames)
+		if(GlobalUserPreferences.customEmojiInNames)
 			setTitle(HtmlParser.parseCustomEmoji(getString(R.string.post_from_user, mainStatus.account.displayName), mainStatus.account.emojis));
 		else
 			setTitle(getString(R.string.post_from_user, mainStatus.account.displayName));

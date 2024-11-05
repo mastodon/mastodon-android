@@ -8,8 +8,8 @@ import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 
+import org.joinmastodon.android.GlobalUserPreferences;
 import org.joinmastodon.android.R;
-import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.fragments.BaseStatusListFragment;
 import org.joinmastodon.android.fragments.ThreadFragment;
 import org.joinmastodon.android.model.Account;
@@ -97,7 +97,7 @@ public abstract class StatusDisplayItem{
 		ArrayList<StatusDisplayItem> items=new ArrayList<>();
 		Status statusForContent=status.getContentStatus();
 		HeaderStatusDisplayItem header=null;
-		boolean hideCounts=!AccountSessionManager.get(accountID).getLocalPreferences().showInteractionCounts;
+		boolean hideCounts=!GlobalUserPreferences.showInteractionCounts;
 		if((flags & FLAG_NO_HEADER)==0){
 			if(status.reblog!=null){
 				items.add(new ReblogOrReplyLineStatusDisplayItem(parentID, fragment, fragment.getString(R.string.user_boosted, status.account.displayName), status.account.emojis, R.drawable.ic_repeat_wght700_20px));
@@ -134,7 +134,7 @@ public abstract class StatusDisplayItem{
 			SpoilerStatusDisplayItem spoilerItem=new SpoilerStatusDisplayItem(parentID, fragment, null, status, statusForContent, Type.SPOILER, Status.SpoilerType.CONTENT_WARNING);
 			contentItems.add(spoilerItem);
 			contentItems=spoilerItem.contentItems;
-			if(!AccountSessionManager.get(accountID).getLocalPreferences().showCWs && !filtered){
+			if(!GlobalUserPreferences.showCWs && !filtered){
 				status.revealedSpoilers.add(Status.SpoilerType.CONTENT_WARNING);
 				needAddCWItems=true;
 			}
@@ -158,7 +158,7 @@ public abstract class StatusDisplayItem{
 			if((flags & FLAG_MEDIA_FORCE_HIDDEN)!=0){
 				mediaGrid.sensitiveTitle=fragment.getString(R.string.media_hidden);
 				mediaGrid.sensitiveRevealed=false;
-			}else if(statusForContent.sensitive && !AccountSessionManager.get(accountID).getLocalPreferences().hideSensitiveMedia){
+			}else if(statusForContent.sensitive && !GlobalUserPreferences.hideSensitiveMedia){
 				mediaGrid.sensitiveRevealed=true;
 			}
 			contentItems.add(mediaGrid);

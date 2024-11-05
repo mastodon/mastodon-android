@@ -13,9 +13,6 @@ import org.joinmastodon.android.E;
 import org.joinmastodon.android.GlobalUserPreferences;
 import org.joinmastodon.android.MastodonApp;
 import org.joinmastodon.android.R;
-import org.joinmastodon.android.api.session.AccountLocalPreferences;
-import org.joinmastodon.android.api.session.AccountSession;
-import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.events.StatusDisplaySettingsChangedEvent;
 import org.joinmastodon.android.model.viewmodel.CheckableListItem;
 import org.joinmastodon.android.model.viewmodel.ListItem;
@@ -36,8 +33,6 @@ public class SettingsDisplayFragment extends BaseSettingsFragment<Void>{
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		setTitle(R.string.settings_display);
-		AccountSession s=AccountSessionManager.get(accountID);
-		AccountLocalPreferences lp=s.getLocalPreferences();
 		List<ListItem<Void>> items=new ArrayList<>();
 		items.add(themeItem=new ListItem<>(R.string.settings_theme, getAppearanceValue(), R.drawable.ic_dark_mode_24px, this::onAppearanceClick));
 		if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.S){
@@ -47,10 +42,10 @@ public class SettingsDisplayFragment extends BaseSettingsFragment<Void>{
 			}));
 			dynamicColorsItem.checkedChangeListener=this::setUseDynamicColors;
 		}
-		items.add(showCWsItem=new CheckableListItem<>(R.string.settings_show_cws, 0, CheckableListItem.Style.SWITCH, lp.showCWs, R.drawable.ic_warning_24px, this::toggleCheckableItem));
-		items.add(hideSensitiveMediaItem=new CheckableListItem<>(R.string.settings_hide_sensitive_media, 0, CheckableListItem.Style.SWITCH, lp.hideSensitiveMedia, R.drawable.ic_no_adult_content_24px, this::toggleCheckableItem));
-		items.add(interactionCountsItem=new CheckableListItem<>(R.string.settings_show_interaction_counts, 0, CheckableListItem.Style.SWITCH, lp.showInteractionCounts, R.drawable.ic_social_leaderboard_24px, this::toggleCheckableItem));
-		items.add(emojiInNamesItem=new CheckableListItem<>(R.string.settings_show_emoji_in_names, 0, CheckableListItem.Style.SWITCH, lp.customEmojiInNames, R.drawable.ic_emoticon_24px, this::toggleCheckableItem));
+		items.add(showCWsItem=new CheckableListItem<>(R.string.settings_show_cws, 0, CheckableListItem.Style.SWITCH, GlobalUserPreferences.showCWs, R.drawable.ic_warning_24px, this::toggleCheckableItem));
+		items.add(hideSensitiveMediaItem=new CheckableListItem<>(R.string.settings_hide_sensitive_media, 0, CheckableListItem.Style.SWITCH, GlobalUserPreferences.hideSensitiveMedia, R.drawable.ic_no_adult_content_24px, this::toggleCheckableItem));
+		items.add(interactionCountsItem=new CheckableListItem<>(R.string.settings_show_interaction_counts, 0, CheckableListItem.Style.SWITCH, GlobalUserPreferences.showInteractionCounts, R.drawable.ic_social_leaderboard_24px, this::toggleCheckableItem));
+		items.add(emojiInNamesItem=new CheckableListItem<>(R.string.settings_show_emoji_in_names, 0, CheckableListItem.Style.SWITCH, GlobalUserPreferences.customEmojiInNames, R.drawable.ic_emoticon_24px, this::toggleCheckableItem));
 		onDataLoaded(items);
 	}
 
@@ -70,13 +65,11 @@ public class SettingsDisplayFragment extends BaseSettingsFragment<Void>{
 	@Override
 	protected void onHidden(){
 		super.onHidden();
-		AccountSession s=AccountSessionManager.get(accountID);
-		AccountLocalPreferences lp=s.getLocalPreferences();
-		lp.showCWs=showCWsItem.checked;
-		lp.hideSensitiveMedia=hideSensitiveMediaItem.checked;
-		lp.showInteractionCounts=interactionCountsItem.checked;
-		lp.customEmojiInNames=emojiInNamesItem.checked;
-		lp.save();
+		GlobalUserPreferences.showCWs=showCWsItem.checked;
+		GlobalUserPreferences.hideSensitiveMedia=hideSensitiveMediaItem.checked;
+		GlobalUserPreferences.showInteractionCounts=interactionCountsItem.checked;
+		GlobalUserPreferences.customEmojiInNames=emojiInNamesItem.checked;
+		GlobalUserPreferences.save();
 		E.post(new StatusDisplaySettingsChangedEvent(accountID));
 	}
 

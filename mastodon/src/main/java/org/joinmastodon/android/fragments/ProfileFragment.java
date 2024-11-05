@@ -560,7 +560,7 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 		ViewImageLoader.loadWithoutAnimation(avatar, avatar.getDrawable(), new UrlImageLoaderRequest(GlobalUserPreferences.playGifs ? account.avatar : account.avatarStatic, V.dp(100), V.dp(100)));
 		ViewImageLoader.loadWithoutAnimation(cover, cover.getDrawable(), new UrlImageLoaderRequest(GlobalUserPreferences.playGifs ? account.header : account.headerStatic, 1000, 1000));
 		SpannableStringBuilder ssb=new SpannableStringBuilder(account.displayName);
-		if(AccountSessionManager.get(accountID).getLocalPreferences().customEmojiInNames)
+		if(GlobalUserPreferences.customEmojiInNames)
 			HtmlParser.parseCustomEmoji(ssb, account.emojis);
 		name.setText(ssb);
 		setTitle(ssb);

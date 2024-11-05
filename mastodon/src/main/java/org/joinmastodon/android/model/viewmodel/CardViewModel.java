@@ -4,7 +4,6 @@ import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 
 import org.joinmastodon.android.GlobalUserPreferences;
-import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.Card;
 import org.joinmastodon.android.ui.text.HtmlParser;
@@ -31,7 +30,7 @@ public class CardViewModel{
 
 		if(authorAccount!=null){
 			parsedAuthorName=new SpannableStringBuilder(authorAccount.displayName);
-			if(AccountSessionManager.get(accountID).getLocalPreferences().customEmojiInNames)
+			if(GlobalUserPreferences.customEmojiInNames)
 				HtmlParser.parseCustomEmoji(parsedAuthorName, authorAccount.emojis);
 			authorNameEmojiHelper.setText(parsedAuthorName);
 			authorAvaRequest=new UrlImageLoaderRequest(GlobalUserPreferences.playGifs ? authorAccount.avatar : authorAccount.avatarStatic, V.dp(50), V.dp(50));

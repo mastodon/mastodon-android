@@ -9,7 +9,6 @@ import android.widget.TextView;
 
 import org.joinmastodon.android.GlobalUserPreferences;
 import org.joinmastodon.android.R;
-import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.fragments.BaseStatusListFragment;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.OutlineProviders;
@@ -36,7 +35,7 @@ public class InlineStatusStatusDisplayItem extends StatusDisplayItem{
 		this.status=status;
 
 		parsedName=new SpannableStringBuilder(status.account.displayName);
-		if(AccountSessionManager.get(parentFragment.getAccountID()).getLocalPreferences().customEmojiInNames)
+		if(GlobalUserPreferences.customEmojiInNames)
 			HtmlParser.parseCustomEmoji(parsedName, status.account.emojis);
 
 		parsedPostText=HtmlParser.parse(status.content, status.emojis, status.mentions, status.tags, parentFragment.getAccountID(), status.getContentStatus(), parentFragment.getActivity());
