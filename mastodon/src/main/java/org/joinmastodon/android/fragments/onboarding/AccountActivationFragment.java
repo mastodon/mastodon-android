@@ -131,7 +131,7 @@ public class AccountActivationFragment extends ToolbarFragment{
 	private void onOpenEmailClick(View v){
 		try{
 			startActivity(Intent.makeMainSelectorActivity(Intent.ACTION_MAIN, Intent.CATEGORY_APP_EMAIL).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
-		}catch(ActivityNotFoundException x){
+		}catch(ActivityNotFoundException|IllegalArgumentException x){
 			Toast.makeText(getActivity(), R.string.no_app_to_handle_action, Toast.LENGTH_SHORT).show();
 		}
 	}

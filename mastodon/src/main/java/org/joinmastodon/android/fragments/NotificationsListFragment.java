@@ -165,7 +165,10 @@ public class NotificationsListFragment extends BaseNotificationsListFragment{
 				for(int i=0;i<parent.getChildCount();i++){
 					View child=parent.getChildAt(i);
 					if(parent.getChildViewHolder(child) instanceof StatusDisplayItem.Holder<?> holder){
-						String itemID=getNotificationByID(holder.getItemID()).notification.pageMaxId;
+						NotificationViewModel n=getNotificationByID(holder.getItemID());
+						if(n==null)
+							continue;
+						String itemID=n.notification.pageMaxId;
 						if(ObjectIdComparator.INSTANCE.compare(itemID, unreadMarker)>0){
 							parent.getDecoratedBoundsWithMargins(child, tmpRect);
 							c.drawRect(tmpRect, paint);

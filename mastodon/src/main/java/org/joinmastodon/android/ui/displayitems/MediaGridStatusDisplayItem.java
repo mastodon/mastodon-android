@@ -209,18 +209,22 @@ public class MediaGridStatusDisplayItem extends StatusDisplayItem{
 
 		@Override
 		public void setImage(int index, Drawable drawable){
-			controllers.get(index).setImage(drawable);
+			if(index<controllers.size())
+				controllers.get(index).setImage(drawable);
 		}
 
 		@Override
 		public void clearImage(int index){
-			controllers.get(index).clearImage();
+			if(index<controllers.size())
+				controllers.get(index).clearImage();
 		}
 
 		@Override
 		public void onImageLoadingFailed(int index, Throwable error){
-			controllers.get(index).showFailedOverlay();
-			thereAreFailedImages=true;
+			if(index<controllers.size()){
+				controllers.get(index).showFailedOverlay();
+				thereAreFailedImages=true;
+			}
 		}
 
 		private void onViewClick(View v){

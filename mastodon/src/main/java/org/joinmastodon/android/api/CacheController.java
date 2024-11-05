@@ -148,7 +148,7 @@ public class CacheController{
 				.map(ng->{
 					NotificationViewModel nvm=new NotificationViewModel();
 					nvm.notification=ng;
-					nvm.accounts=ng.sampleAccountIds.stream().map(accounts::get).collect(Collectors.toList());
+					nvm.accounts=ng.sampleAccountIds.stream().map(accounts::get).filter(Objects::nonNull).collect(Collectors.toList());
 					if(nvm.accounts.size()!=ng.sampleAccountIds.size())
 						return null;
 					if(ng.statusId!=null){
