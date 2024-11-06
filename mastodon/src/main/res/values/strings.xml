@@ -827,4 +827,14 @@
 		<item quantity="one">%1$s and %2$,d other followed you</item>
 		<item quantity="other">%1$s and %2$,d others followed you</item>
 	</plurals>
+	<string name="familiar_followers_one">Followed by %s</string>
+	<string name="familiar_followers_two">Followed by %s and %s</string>
+	<plurals name="familiar_followers_many">
+		<item quantity="one">Followed by %1$s, %2$s, and %3$,d other</item>
+		<item quantity="other">Followed by %1$s, %2$s, and %3$,d others</item>
+	</plurals>
+	<plurals name="x_followers_you_know">
+		<item quantity="one">%,d follower you know</item>
+		<item quantity="other">%,d followers you know</item>
+	</plurals>
 </resources>

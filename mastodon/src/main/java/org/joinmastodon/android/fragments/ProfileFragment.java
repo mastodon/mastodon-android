@@ -51,18 +51,22 @@ import android.widget.Toolbar;
 import org.joinmastodon.android.GlobalUserPreferences;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.requests.accounts.GetAccountByID;
+import org.joinmastodon.android.api.requests.accounts.GetAccountFamiliarFollowers;
 import org.joinmastodon.android.api.requests.accounts.GetAccountRelationships;
 import org.joinmastodon.android.api.requests.accounts.GetOwnAccount;
 import org.joinmastodon.android.api.requests.accounts.SetAccountFollowed;
 import org.joinmastodon.android.api.requests.accounts.UpdateAccountCredentials;
 import org.joinmastodon.android.api.session.AccountSessionManager;
+import org.joinmastodon.android.fragments.account_list.FamiliarFollowerListFragment;
 import org.joinmastodon.android.fragments.account_list.FollowerListFragment;
 import org.joinmastodon.android.fragments.account_list.FollowingListFragment;
 import org.joinmastodon.android.fragments.report.ReportReasonChoiceFragment;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.AccountField;
 import org.joinmastodon.android.model.Attachment;
+import org.joinmastodon.android.model.FamiliarFollowers;
 import org.joinmastodon.android.model.Relationship;
+import org.joinmastodon.android.model.viewmodel.AccountViewModel;
 import org.joinmastodon.android.ui.M3AlertDialogBuilder;
 import org.joinmastodon.android.ui.OutlineProviders;
 import org.joinmastodon.android.ui.SimpleViewHolder;
@@ -92,6 +96,8 @@ import java.time.format.FormatStyle;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -139,12 +145,16 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 	private ImageButton qrCodeButton;
 	private ProgressBar innerProgress;
 	private View actions;
+	private View familiarFollowersRow;
+	private ImageView[] familiarFollowersAvatars;
+	private TextView familiarFollowersLabel;
 
 	private Account account;
 	private String accountID;
 	private Relationship relationship;
 	private boolean isOwnProfile;
 	private ArrayList<AccountField> fields=new ArrayList<>();
+	private List<Account> familiarFollowers=List.of();
 
 	private boolean isInEditMode, editDirty;
 	private Uri editNewAvatar, editNewCover;
@@ -225,6 +235,13 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 		qrCodeButton=content.findViewById(R.id.qr_code);
 		innerProgress=content.findViewById(R.id.profile_progress);
 		actions=content.findViewById(R.id.profile_actions);
+		familiarFollowersRow=content.findViewById(R.id.familiar_followers);
+		familiarFollowersAvatars=new ImageView[]{
+				content.findViewById(R.id.familiar_followers_ava1),
+				content.findViewById(R.id.familiar_followers_ava2),
+				content.findViewById(R.id.familiar_followers_ava3),
+		};
+		familiarFollowersLabel=content.findViewById(R.id.familiar_followers_label);
 
 		avatar.setOutlineProvider(OutlineProviders.roundedRect(24));
 		avatar.setClipToOutline(true);
@@ -293,6 +310,7 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 		cover.setOnClickListener(this::onCoverClick);
 		refreshLayout.setOnRefreshListener(this);
 		fab.setOnClickListener(this::onFabClick);
+		familiarFollowersRow.setOnClickListener(this::onFamiliarFollowersClick);
 
 		if(savedInstanceState!=null){
 			featuredFragment=(ProfileFeaturedFragment) getChildFragmentManager().getFragment(savedInstanceState, "featured");
@@ -352,6 +370,7 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 			qf.setArguments(args);
 			qf.show(getChildFragmentManager(), "qrDialog");
 		});
+		familiarFollowersRow.setVisibility(View.GONE);
 
 		return sizeWrapper;
 	}
@@ -790,6 +809,25 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 					}
 				})
 				.exec(accountID);
+		new GetAccountFamiliarFollowers(Set.of(account.id))
+				.setCallback(new Callback<>(){
+					@Override
+					public void onSuccess(List<FamiliarFollowers> result){
+						for(FamiliarFollowers ff:result){
+							if(ff.id.equals(account.id)){
+								familiarFollowers=ff.accounts;
+								updateFamiliarFollowers();
+								break;
+							}
+						}
+					}
+
+					@Override
+					public void onError(ErrorResponse error){
+
+					}
+				})
+				.exec(accountID);
 	}
 
 	private void updateRelationship(){
@@ -798,6 +836,38 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 		UiUtils.setRelationshipToActionButtonM3(relationship, actionButton);
 		actionProgress.setIndeterminateTintList(actionButton.getTextColors());
 		followsYouView.setVisibility(relationship.followedBy ? View.VISIBLE : View.GONE);
+	}
+
+	private void updateFamiliarFollowers(){
+		if(!familiarFollowers.isEmpty()){
+			familiarFollowersRow.setVisibility(View.VISIBLE);
+			List<AccountViewModel> followers=familiarFollowers.stream().limit(3).map(a->new AccountViewModel(a, accountID, false, getActivity())).collect(Collectors.toList());
+			String template=switch(familiarFollowers.size()){
+				case 1 -> getString(R.string.familiar_followers_one, "{first}");
+				case 2 -> getString(R.string.familiar_followers_two, "{first}", "{second}");
+				default -> getResources().getQuantityString(R.plurals.familiar_followers_many, familiarFollowers.size()-2, "{first}", "{second}", familiarFollowers.size()-2);
+			};
+			SpannableStringBuilder ssb=new SpannableStringBuilder(template);
+			if(familiarFollowers.size()>1){
+				int index=template.indexOf("{second}");
+				ssb.replace(index, index+8, followers.get(1).parsedName);
+				template=template.replace("{second}", "#".repeat(followers.get(1).parsedName.length()));
+			}
+			int index=template.indexOf("{first}");
+			ssb.replace(index, index+7, followers.get(0).parsedName);
+			familiarFollowersLabel.setText(ssb);
+			UiUtils.loadCustomEmojiInTextView(familiarFollowersLabel);
+			if(familiarFollowers.size()<3)
+				familiarFollowersAvatars[2].setVisibility(View.GONE);
+			if(familiarFollowers.size()<2)
+				familiarFollowersAvatars[1].setVisibility(View.GONE);
+
+			int i=0;
+			for(AccountViewModel avm:followers){
+				ViewImageLoader.loadWithoutAnimation(familiarFollowersAvatars[i], getResources().getDrawable(R.drawable.image_placeholder, getActivity().getTheme()), avm.avaRequest);
+				i++;
+			}
+		}
 	}
 
 	private void onScrollChanged(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY){
@@ -1166,6 +1236,14 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 			args.putString("prefilledText", '@'+account.acct+' ');
 		}
 		Nav.go(getActivity(), ComposeFragment.class, args);
+	}
+
+	private void onFamiliarFollowersClick(View v){
+		Bundle args=new Bundle();
+		args.putString("account", accountID);
+		args.putParcelable("targetAccount", Parcels.wrap(account));
+		args.putInt("count", familiarFollowers.size());
+		Nav.go(getActivity(), FamiliarFollowerListFragment.class, args);
 	}
 
 	private void startImagePicker(int requestCode){

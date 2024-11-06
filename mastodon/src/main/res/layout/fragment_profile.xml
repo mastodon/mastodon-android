@@ -239,6 +239,62 @@
 					</LinearLayout>
 				</LinearLayout>
 
+				<LinearLayout
+					android:id="@+id/familiar_followers"
+					android:layout_width="match_parent"
+					android:layout_height="40dp"
+					android:layout_marginBottom="12dp"
+					android:paddingVertical="4dp"
+					android:paddingHorizontal="16dp"
+					android:clipToPadding="false"
+					android:orientation="horizontal"
+					android:background="?android:selectableItemBackground">
+
+					<LinearLayout
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:orientation="horizontal"
+						android:layout_marginVertical="-4dp"
+						android:paddingTop="4dp"
+						android:clipToPadding="false"
+						android:layerType="hardware">
+						<org.joinmastodon.android.ui.views.FamiliarFollowersImageView
+							android:id="@+id/familiar_followers_ava1"
+							android:layout_width="30dp"
+							android:layout_height="30dp"
+							android:rotation="-4"
+							tools:src="#f00"/>
+
+						<org.joinmastodon.android.ui.views.FamiliarFollowersImageView
+							android:id="@+id/familiar_followers_ava2"
+							android:layout_width="30dp"
+							android:layout_height="30dp"
+							android:layout_marginStart="-10dp"
+							android:rotation="2"
+							tools:src="#0f0"/>
+
+						<org.joinmastodon.android.ui.views.FamiliarFollowersImageView
+							android:id="@+id/familiar_followers_ava3"
+							android:layout_width="30dp"
+							android:layout_height="30dp"
+							android:layout_marginStart="-10dp"
+							android:rotation="-2"
+							tools:src="#00f"/>
+					</LinearLayout>
+
+					<TextView
+						android:id="@+id/familiar_followers_label"
+						android:layout_width="match_parent"
+						android:layout_height="match_parent"
+						android:layout_marginStart="10dp"
+						android:gravity="start|center_vertical"
+						android:textAppearance="@style/m3_body_small"
+						android:textColor="?colorM3OnSurfaceVariant"
+						android:maxLines="2"
+						android:ellipsize="end"
+						tools:text="Followed by blah and blah"/>
+
+				</LinearLayout>
 
 				<org.joinmastodon.android.ui.views.FloatingHintEditTextLayout
 					android:id="@+id/name_edit_wrap"
