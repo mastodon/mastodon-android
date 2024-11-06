@@ -41,21 +41,23 @@ public class PushSubscription extends BaseModel implements Cloneable{
 		public boolean reblog;
 		public boolean mention;
 		public boolean poll;
+		public boolean status;
 
 		public static Alerts ofAll(){
 			Alerts alerts=new Alerts();
-			alerts.follow=alerts.favourite=alerts.reblog=alerts.mention=alerts.poll=true;
+			alerts.follow=alerts.favourite=alerts.reblog=alerts.mention=alerts.poll=alerts.status=true;
 			return alerts;
 		}
 
 		@Override
 		public String toString(){
 			return "Alerts{"+
-					"follow="+follow+
-					", favourite="+favourite+
+					"favourite="+favourite+
+					", follow="+follow+
 					", reblog="+reblog+
 					", mention="+mention+
 					", poll="+poll+
+					", status="+status+
 					'}';
 		}
 

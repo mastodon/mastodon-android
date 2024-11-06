@@ -42,7 +42,7 @@ public class SettingsNotificationsFragment extends BaseSettingsFragment<Void>{
 	private TextView bannerText;
 	private Button bannerButton;
 
-	private CheckableListItem<Void> mentionsItem, boostsItem, favoritesItem, followersItem, pollsItem;
+	private CheckableListItem<Void> mentionsItem, boostsItem, favoritesItem, followersItem, pollsItem, statusesItem;
 	private List<CheckableListItem<Void>> typeItems;
 	private boolean needUpdateNotificationSettings;
 	private boolean notificationsAllowed=true;
@@ -62,7 +62,8 @@ public class SettingsNotificationsFragment extends BaseSettingsFragment<Void>{
 				boostsItem=new CheckableListItem<>(R.string.notification_type_reblog, 0, CheckableListItem.Style.CHECKBOX, pushSubscription.alerts.reblog, this::toggleCheckableItem),
 				favoritesItem=new CheckableListItem<>(R.string.notification_type_favorite, 0, CheckableListItem.Style.CHECKBOX, pushSubscription.alerts.favourite, this::toggleCheckableItem),
 				followersItem=new CheckableListItem<>(R.string.notification_type_follow, 0, CheckableListItem.Style.CHECKBOX, pushSubscription.alerts.follow, this::toggleCheckableItem),
-				pollsItem=new CheckableListItem<>(R.string.notification_type_poll, 0, CheckableListItem.Style.CHECKBOX, pushSubscription.alerts.poll, this::toggleCheckableItem)
+				pollsItem=new CheckableListItem<>(R.string.notification_type_poll, 0, CheckableListItem.Style.CHECKBOX, pushSubscription.alerts.poll, this::toggleCheckableItem),
+				statusesItem=new CheckableListItem<>(R.string.notification_type_status, 0, CheckableListItem.Style.CHECKBOX, pushSubscription.alerts.status, this::toggleCheckableItem)
 		));
 
 		typeItems=List.of(mentionsItem, boostsItem, favoritesItem, followersItem, pollsItem);
@@ -82,13 +83,15 @@ public class SettingsNotificationsFragment extends BaseSettingsFragment<Void>{
 				|| boostsItem.checked!=ps.alerts.reblog
 				|| favoritesItem.checked!=ps.alerts.favourite
 				|| followersItem.checked!=ps.alerts.follow
-				|| pollsItem.checked!=ps.alerts.poll;
+				|| pollsItem.checked!=ps.alerts.poll
+				|| statusesItem.checked!=ps.alerts.status;
 		if(needUpdateNotificationSettings && PushSubscriptionManager.arePushNotificationsAvailable()){
 			ps.alerts.mention=mentionsItem.checked;
 			ps.alerts.reblog=boostsItem.checked;
 			ps.alerts.favourite=favoritesItem.checked;
 			ps.alerts.follow=followersItem.checked;
 			ps.alerts.poll=pollsItem.checked;
+			ps.alerts.status=statusesItem.checked;
 			AccountSessionManager.getInstance().getAccount(accountID).getPushSubscriptionManager().updatePushSettings(pushSubscription);
 		}
 	}
