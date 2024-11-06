@@ -802,4 +802,30 @@
 	<string name="moderation_warning_action_suspend">Notandaaðgangurinn þinn hefur verið settur í frysti.</string>
 	<string name="moderation_warning_learn_more">Kanna nánar</string>
 	<string name="text_show_more">Meira</string>
+	<string name="avatar_move_and_scale">Færa og kvarða</string>
+	<string name="confirm_avatar_crop">Veldu</string>
+	<string name="settings_use_dynamic_colors">Nota breytilegan lit frá kerfinu</string>
+	<string name="settings_accounts">Aðgangar</string>
+	<string name="settings_add_account">Bæta við notandaaðgangi...</string>
+	<string name="settings_app_settings">Stillingar forrits</string>
+	<string name="account_settings">Stillingar aðgangs</string>
+	<string name="settings_about_this_server">Um þennan netþjón</string>
+	<string name="manage_account">Sýsla með notandaaðgang</string>
+	<string name="switch_to_this_account">Skipta yfir á þennan aðgang</string>
+	<string name="delete_account">Eyða notandaaðgangi</string>
+	<string name="notification_type_status">Nýjar færslur</string>
+	<plurals name="user_and_x_more_followed">
+		<item quantity="one">%1$s og %2$,d fór að fylgjast með þér</item>
+		<item quantity="other">%1$s og %2$,d fóru að fylgjast með þér</item>
+	</plurals>
+	<string name="familiar_followers_one">Fylgt af %s</string>
+	<string name="familiar_followers_two">Fylgt af %s og %s</string>
+	<plurals name="familiar_followers_many">
+		<item quantity="one">Fylgt af%1$s, %2$s, og %3$,d til viðbótar</item>
+		<item quantity="other">Fylgt af%1$s, %2$s, og %3$,d til viðbótar</item>
+	</plurals>
+	<plurals name="x_followers_you_know">
+		<item quantity="one">%,d fylgjandi sem þú þekkir</item>
+		<item quantity="other">%,d fylgjendur sem þú þekkir</item>
+	</plurals>
 </resources>
