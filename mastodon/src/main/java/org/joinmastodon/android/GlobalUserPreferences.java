@@ -36,6 +36,10 @@ public class GlobalUserPreferences{
 		confirmDeletePost=prefs.getBoolean("confirmDeletePost", true);
 		theme=ThemePreference.values()[prefs.getInt("theme", 0)];
 		useDynamicColors=prefs.getBoolean("useDynamicColors", true);
+		showInteractionCounts=prefs.getBoolean("interactionCounts", true);
+		customEmojiInNames=prefs.getBoolean("emojiInNames", true);
+		showCWs=prefs.getBoolean("showCWs", true);
+		hideSensitiveMedia=prefs.getBoolean("hideSensitive", true);
 		if(!prefs.getBoolean("perAccountMigrationDone", false)){
 			AccountSession account=AccountSessionManager.getInstance().getLastActiveAccount();
 			if(account!=null){
