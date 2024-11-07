@@ -129,6 +129,7 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 	private ProfileFeaturedFragment featuredFragment;
 	private AccountTimelineFragment timelineFragment;
 	private ProfileAboutFragment aboutFragment;
+	private SavedPostsTimelineFragment savedFragment;
 	private TabLayout tabbar;
 	private SwipeRefreshLayout refreshLayout;
 	private View followersBtn, followingBtn;
@@ -254,13 +255,14 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 			}
 		};
 
-		tabViews=new FrameLayout[3];
+		tabViews=new FrameLayout[4];
 		for(int i=0;i<tabViews.length;i++){
 			FrameLayout tabView=new FrameLayout(getActivity());
 			tabView.setId(switch(i){
 				case 0 -> R.id.profile_featured;
 				case 1 -> R.id.profile_timeline;
 				case 2 -> R.id.profile_about;
+				case 3 -> R.id.profile_saved;
 				default -> throw new IllegalStateException("Unexpected value: "+i);
 			});
 			tabView.setVisibility(View.GONE);
@@ -268,7 +270,7 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 			tabViews[i]=tabView;
 		}
 
-		pager.setOffscreenPageLimit(4);
+		pager.setOffscreenPageLimit(10);
 		pager.setAdapter(new ProfilePagerAdapter());
 		pager.getLayoutParams().height=getResources().getDisplayMetrics().heightPixels;
 
@@ -282,6 +284,7 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 			case 0 -> R.string.profile_featured;
 			case 1 -> R.string.profile_timeline;
 			case 2 -> R.string.profile_about;
+			case 3 -> R.string.profile_saved_posts;
 			default -> throw new IllegalStateException();
 		}));
 		tabbar.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener(){
@@ -316,6 +319,7 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 			featuredFragment=(ProfileFeaturedFragment) getChildFragmentManager().getFragment(savedInstanceState, "featured");
 			timelineFragment=(AccountTimelineFragment) getChildFragmentManager().getFragment(savedInstanceState, "timeline");
 			aboutFragment=(ProfileAboutFragment) getChildFragmentManager().getFragment(savedInstanceState, "about");
+			savedFragment=(SavedPostsTimelineFragment) getChildFragmentManager().getFragment(savedInstanceState, "saved");
 		}
 
 		if(loaded){
@@ -433,6 +437,9 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 			aboutFragment=new ProfileAboutFragment();
 			aboutFragment.setFields(fields);
 		}
+		if(savedFragment==null && isOwnProfile){
+			savedFragment=SavedPostsTimelineFragment.newInstance(accountID, account, false);
+		}
 		pager.getAdapter().notifyDataSetChanged();
 		pager.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener(){
 			@Override
@@ -508,6 +515,8 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 			getChildFragmentManager().putFragment(outState, "timeline", timelineFragment);
 		if(aboutFragment.isAdded())
 			getChildFragmentManager().putFragment(outState, "about", aboutFragment);
+		if(savedFragment!=null && savedFragment.isAdded())
+			getChildFragmentManager().putFragment(outState, "saved", savedFragment);
 	}
 
 	@Override
@@ -751,14 +760,6 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 					})
 					.wrapProgress(getActivity(), R.string.loading, false)
 					.exec(accountID);
-		}else if(id==R.id.bookmarks){
-			Bundle args=new Bundle();
-			args.putString("account", accountID);
-			Nav.go(getActivity(), BookmarkedStatusListFragment.class, args);
-		}else if(id==R.id.favorites){
-			Bundle args=new Bundle();
-			args.putString("account", accountID);
-			Nav.go(getActivity(), FavoritedStatusListFragment.class, args);
 		}else if(id==R.id.save){
 			if(isInEditMode)
 				saveAndExitEditMode();
@@ -930,6 +931,7 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 			case 0 -> featuredFragment;
 			case 1 -> timelineFragment;
 			case 2 -> aboutFragment;
+			case 3 -> savedFragment;
 			default -> throw new IllegalStateException();
 		};
 	}
@@ -993,7 +995,7 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 		pager.setUserInputEnabled(false);
 		actionButton.setText(R.string.save_changes);
 		pager.setCurrentItem(2);
-		for(int i=0;i<3;i++){
+		for(int i=0;i<4;i++){
 			tabbar.getTabAt(i).view.setEnabled(false);
 		}
 		Drawable overlay=getResources().getDrawable(R.drawable.edit_avatar_overlay).mutate();
@@ -1070,7 +1072,7 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 
 		invalidateOptionsMenu();
 		actionButton.setText(R.string.edit_profile);
-		for(int i=0;i<3;i++){
+		for(int i=0;i<4;i++){
 			tabbar.getTabAt(i).view.setEnabled(true);
 		}
 		pager.setUserInputEnabled(true);
@@ -1339,7 +1341,7 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 
 		@Override
 		public int getItemCount(){
-			return loaded ? 3 : 0;
+			return loaded ? (isOwnProfile ? 4 : 3) : 0;
 		}
 
 		@Override
