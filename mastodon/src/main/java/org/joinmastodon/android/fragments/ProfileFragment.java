@@ -402,6 +402,8 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 								timelineFragment.onRefresh();
 							if(featuredFragment.loaded)
 								featuredFragment.onRefresh();
+							if(savedFragment!=null && savedFragment.loaded)
+								savedFragment.onRefresh();
 						}
 						V.setVisibilityAnimated(fab, View.VISIBLE);
 					}
@@ -545,6 +547,8 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 		if(timelineFragment!=null && timelineFragment.isAdded() && childInsets!=null){
 			timelineFragment.onApplyWindowInsets(childInsets);
 			featuredFragment.onApplyWindowInsets(childInsets);
+			if(savedFragment!=null)
+				savedFragment.onApplyWindowInsets(childInsets);
 		}
 	}
 
@@ -673,6 +677,7 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 		if(onScrollListener!=null){
 			onScrollListener.setViews(getToolbar());
 		}
+		getToolbar().setTranslationZ(tabBarIsAtTop ? 0 : V.dp(3));
 	}
 
 	private CharSequence makeRedString(CharSequence s){
@@ -923,6 +928,9 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 			if(buttonInView==editSaveMenuItem.isVisible()){
 				editSaveMenuItem.setVisible(!buttonInView);
 			}
+		}
+		if((scrollY==0 && oldScrollY!=0) || (scrollY!=0 && oldScrollY==0)){
+			refreshLayout.setEnabled(scrollY==0);
 		}
 	}
 

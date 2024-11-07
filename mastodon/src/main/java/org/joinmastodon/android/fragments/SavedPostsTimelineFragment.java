@@ -3,6 +3,7 @@ package org.joinmastodon.android.fragments;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -122,8 +123,12 @@ public class SavedPostsTimelineFragment extends StatusListFragment{
 		ImageView icon=banner.findViewById(R.id.icon);
 		icon.setImageResource(R.drawable.ic_lock_24px);
 
+		// Prevents margins messing up things
+		FrameLayout bannerW=new FrameLayout(getActivity());
+		bannerW.addView(banner);
+
 		MergeRecyclerAdapter mergeAdapter=new MergeRecyclerAdapter();
-		mergeAdapter.addAdapter(new SingleViewRecyclerAdapter(banner));
+		mergeAdapter.addAdapter(new SingleViewRecyclerAdapter(bannerW));
 		mergeAdapter.addAdapter(new SingleViewRecyclerAdapter(filtersBar));
 		mergeAdapter.addAdapter(super.getAdapter());
 		return mergeAdapter;
