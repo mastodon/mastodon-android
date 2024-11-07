@@ -442,16 +442,18 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 		if(savedFragment==null && isOwnProfile){
 			savedFragment=SavedPostsTimelineFragment.newInstance(accountID, account, false);
 		}
-		pager.getAdapter().notifyDataSetChanged();
-		pager.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener(){
-			@Override
-			public boolean onPreDraw(){
-				pager.getViewTreeObserver().removeOnPreDrawListener(this);
-				pager.setCurrentItem(1, false);
-				tabbar.selectTab(tabbar.getTabAt(1));
-				return true;
-			}
-		});
+		if(!refreshing){
+			pager.getAdapter().notifyDataSetChanged();
+			pager.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener(){
+				@Override
+				public boolean onPreDraw(){
+					pager.getViewTreeObserver().removeOnPreDrawListener(this);
+					pager.setCurrentItem(1, false);
+					tabbar.selectTab(tabbar.getTabAt(1));
+					return true;
+				}
+			});
+		}
 		super.dataLoaded();
 	}
 
