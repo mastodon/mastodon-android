@@ -816,4 +816,12 @@ Più persone segui, più sarà attivo e interessante.</string>
 	<string name="familiar_followers_one">Seguito da %s</string>
 	<string name="familiar_followers_two">Seguito da %s e %s</string>
 	<string name="profile_saved_posts">Salvati</string>
+	<plurals name="familiar_followers_many">
+		<item quantity="one">Seguito da %1$s, %2$s e %3$,d altro</item>
+		<item quantity="other">Seguito da %1$s, %2$s e altri %3$,d</item>
+	</plurals>
+	<plurals name="x_followers_you_know">
+		<item quantity="one">%,d seguace che conosci</item>
+		<item quantity="other">%,d seguaci che conosci</item>
+	</plurals>
 </resources>
