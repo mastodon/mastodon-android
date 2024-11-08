@@ -42,7 +42,7 @@ public class DiscoverFragment extends AppKitFragment implements ScrollableToTop{
 	private static final int QUERY_RESULT=937;
 	private static final int SCAN_RESULT=456;
 
-	private TabLayout tabLayout;
+	private TabLayout tabLayout, searchTabLayout;
 	private ViewPager2 pager;
 	private FrameLayout[] tabViews;
 	private TabLayoutMediator tabLayoutMediator;
@@ -62,6 +62,7 @@ public class DiscoverFragment extends AppKitFragment implements ScrollableToTop{
 	private String currentQuery;
 	private Intent scannerIntent;
 	private Runnable searchExitCallback=this::exitSearch;
+	private SearchResult.Type searchFilter;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState){
@@ -79,6 +80,7 @@ public class DiscoverFragment extends AppKitFragment implements ScrollableToTop{
 		LinearLayout view=(LinearLayout) inflater.inflate(R.layout.fragment_discover, container, false);
 
 		tabLayout=view.findViewById(R.id.tabbar);
+		searchTabLayout=view.findViewById(R.id.search_tabbar);
 		pager=view.findViewById(R.id.pager);
 
 		tabViews=new FrameLayout[4];
@@ -205,6 +207,30 @@ public class DiscoverFragment extends AppKitFragment implements ScrollableToTop{
 		});
 		tabsDivider=view.findViewById(R.id.tabs_divider);
 
+		searchTabLayout.setTabTextColors(UiUtils.getThemeColor(getActivity(), R.attr.colorM3OnSurfaceVariant), UiUtils.getThemeColor(getActivity(), R.attr.colorM3Primary));
+		searchTabLayout.setTabTextSize(V.dp(14));
+		searchTabLayout.addTab(searchTabLayout.newTab().setText(R.string.posts));
+		searchTabLayout.addTab(searchTabLayout.newTab().setText(R.string.hashtags));
+		searchTabLayout.addTab(searchTabLayout.newTab().setText(R.string.search_people));
+		searchTabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener(){
+			@Override
+			public void onTabSelected(TabLayout.Tab tab){
+				searchFilter=switch(tab.getPosition()){
+					case 0 -> SearchResult.Type.STATUS;
+					case 1 -> SearchResult.Type.HASHTAG;
+					case 2 -> SearchResult.Type.ACCOUNT;
+					default -> throw new IllegalStateException("Unexpected value: " + tab.getPosition());
+				};
+				searchFragment.setQuery(currentQuery, searchFilter);
+			}
+
+			@Override
+			public void onTabUnselected(TabLayout.Tab tab){}
+
+			@Override
+			public void onTabReselected(TabLayout.Tab tab){}
+		});
+
 		return view;
 	}
 
@@ -227,11 +253,11 @@ public class DiscoverFragment extends AppKitFragment implements ScrollableToTop{
 			searchActive=true;
 			pager.setVisibility(View.GONE);
 			tabLayout.setVisibility(View.GONE);
+			searchTabLayout.setVisibility(View.VISIBLE);
 			searchView.setVisibility(View.VISIBLE);
 			searchBack.setImageResource(me.grishka.appkit.R.drawable.ic_arrow_back);
 			searchBack.setEnabled(true);
 			searchBack.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_YES);
-			tabsDivider.setVisibility(View.GONE);
 			addBackCallback(searchExitCallback);
 		}
 	}
@@ -242,12 +268,12 @@ public class DiscoverFragment extends AppKitFragment implements ScrollableToTop{
 		searchActive=false;
 		pager.setVisibility(View.VISIBLE);
 		tabLayout.setVisibility(View.VISIBLE);
+		searchTabLayout.setVisibility(View.GONE);
 		searchView.setVisibility(View.GONE);
 		searchText.setText(R.string.search_mastodon);
 		searchBack.setImageResource(R.drawable.ic_search_24px);
 		searchBack.setEnabled(false);
 		searchBack.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
-		tabsDivider.setVisibility(View.VISIBLE);
 		currentQuery=null;
 		removeBackCallback(searchExitCallback);
 	}
@@ -267,14 +293,14 @@ public class DiscoverFragment extends AppKitFragment implements ScrollableToTop{
 		if(reqCode==QUERY_RESULT && success){
 			enterSearch();
 			currentQuery=result.getString("query");
-			SearchResult.Type type;
 			if(result.containsKey("filter")){
-				type=SearchResult.Type.values()[result.getInt("filter")];
+				searchFilter=SearchResult.Type.values()[result.getInt("filter")];
 			}else{
-				type=null;
+				searchFilter=SearchResult.Type.STATUS;
 			}
-			searchFragment.setQuery(currentQuery, type);
+			searchFragment.setQuery(currentQuery, searchFilter);
 			searchText.setText(currentQuery);
+			updateSearchTabBar();
 		}
 	}
 
@@ -298,6 +324,17 @@ public class DiscoverFragment extends AppKitFragment implements ScrollableToTop{
 		}else{
 			BarcodeScanner.installScannerModule(getActivity(), ()->startActivityForResult(scannerIntent, SCAN_RESULT));
 		}
+	}
+
+	private void updateSearchTabBar(){
+		int tab=switch(searchFilter){
+			case STATUS -> 0;
+			case HASHTAG -> 1;
+			case ACCOUNT -> 2;
+		};
+		if(searchTabLayout.getSelectedTabPosition()==tab)
+			return;
+		searchTabLayout.selectTab(searchTabLayout.getTabAt(tab));
 	}
 
 	private class DiscoverPagerAdapter extends RecyclerView.Adapter<SimpleViewHolder>{

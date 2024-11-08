@@ -71,6 +71,20 @@
 			app:tabMode="auto"
 			android:background="?colorM3Surface"/>
 
+		<org.joinmastodon.android.ui.tabs.TabLayout
+			android:id="@+id/search_tabbar"
+			android:layout_width="match_parent"
+			android:layout_height="48dp"
+			app:tabGravity="fill"
+			app:tabIndicator="@drawable/tab_indicator_m3"
+			app:tabIndicatorAnimationMode="elastic"
+			app:tabIndicatorColor="?colorM3Primary"
+			app:tabIndicatorFullWidth="false"
+			app:tabMinWidth="0dp"
+			app:tabMode="fixed"
+			android:visibility="gone"
+			android:background="?colorM3Surface"/>
+
 		<View
 			android:id="@+id/tabs_divider"
 			android:layout_width="match_parent"
