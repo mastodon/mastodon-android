@@ -95,7 +95,10 @@ public class SearchQueryFragment extends MastodonRecyclerFragment<SearchResultVi
 		goToAccountItem=new ListItem<>("", null, R.drawable.ic_person_24px, this::onGoToAccountClick);
 		goToStatusSearchItem=new ListItem<>("", null, R.drawable.ic_search_24px, this::onGoToStatusSearchClick);
 		goToAccountSearchItem=new ListItem<>("", null, R.drawable.ic_group_24px, this::onGoToAccountSearchClick);
-		currentQuery=getArguments().getString("query");
+		if(savedInstanceState!=null)
+			currentQuery=savedInstanceState.getString("query");
+		else
+			currentQuery=getArguments().getString("query");
 
 		dataLoaded();
 		doLoadData(0, 0);
@@ -181,6 +184,9 @@ public class SearchQueryFragment extends MastodonRecyclerFragment<SearchResultVi
 		setNavigationBarColor(color);
 		if(currentQuery!=null){
 			searchViewHelper.setQuery(currentQuery);
+		}
+		if(savedInstanceState!=null || currentQuery!=null){
+			searchIcon.setAlpha(0);
 			searchIcon.setAlpha(0);
 		}
 		list.addItemDecoration(new DividerItemDecoration(getActivity(), R.attr.colorM3OutlineVariant, 1, 0, 0, vh->!isInRecentMode() && vh.getAbsoluteAdapterPosition()==topOptions.size()-1));
@@ -285,6 +291,12 @@ public class SearchQueryFragment extends MastodonRecyclerFragment<SearchResultVi
 		getActivity().getSystemService(InputMethodManager.class).hideSoftInputFromWindow(getActivity().getWindow().getDecorView().getWindowToken(), 0);
 	}
 
+	@Override
+	public void onSaveInstanceState(Bundle outState){
+		super.onSaveInstanceState(outState);
+		outState.putString("query", currentQuery);
+	}
+
 	@RequiresApi(api = Build.VERSION_CODES.S)
 	private float getScreenCornerRadius(WindowInsets insets, int pos){
 		RoundedCorner corner=insets.getRoundedCorner(pos);
@@ -296,6 +308,8 @@ public class SearchQueryFragment extends MastodonRecyclerFragment<SearchResultVi
 	private Animator createTransition(View prev, View container, boolean enter){
 		int[] loc={0, 0};
 		View searchBtn=prev.findViewById(R.id.search_wrap);
+		if(searchBtn==null || searchBtn.getWidth()==0 || searchBtn.getHeight()==0)
+			return null;
 		searchBtn.getLocationInWindow(loc);
 		int btnLeft=loc[0], btnTop=loc[1];
 		container.getLocationInWindow(loc);
@@ -323,21 +337,22 @@ public class SearchQueryFragment extends MastodonRecyclerFragment<SearchResultVi
 		ObjectAnimator boundsAnim;
 
 		Toolbar toolbar=getToolbar();
-		float toolbarTX=offX-toolbar.getX();
+		boolean isRTL=container.getLayoutDirection()==View.LAYOUT_DIRECTION_RTL;
+		float toolbarTX=isRTL ? (toolbar.getX()-offX) : (offX-toolbar.getX());
 		float toolbarTY=offY-toolbar.getY()+(searchBtn.getHeight()-toolbar.getHeight())/2f;
 		ArrayList<Animator> anims=new ArrayList<>();
+		int searchLayoutXOffset=isRTL ? V.dp(4) : V.dp(-4);
 		anims.add(boundsAnim=ObjectAnimator.ofFloat(outlineProvider, "boundsFraction", 0f, 1f));
 		anims.add(ObjectAnimator.ofFloat(outlineProvider, "radius", enter ? buttonRadius : screenRadius, enter ? screenRadius : buttonRadius));
 		anims.add(ObjectAnimator.ofFloat(toolbar, View.TRANSLATION_X, enter ? toolbarTX : 0, enter ? 0 : toolbarTX));
 		anims.add(ObjectAnimator.ofFloat(toolbar, View.TRANSLATION_Y, enter ? toolbarTY : 0, enter ? 0 : toolbarTY));
-		anims.add(ObjectAnimator.ofFloat(searchViewHelper.getSearchLayout(), View.TRANSLATION_X, enter ? V.dp(-4) : 0, enter ? 0 : V.dp(-4)));
+		anims.add(ObjectAnimator.ofFloat(searchViewHelper.getSearchLayout(), View.TRANSLATION_X, enter ? searchLayoutXOffset : 0, enter ? 0 : searchLayoutXOffset));
 		anims.add(ObjectAnimator.ofFloat(searchViewHelper.getDivider(), View.ALPHA, enter ? 0 : 1, enter ? 1 : 0));
 		View parentContent=prev.findViewById(R.id.discover_content);
 		View parentContentParent=(View) parentContent.getParent();
 		parentContentParent.setBackgroundColor(UiUtils.getThemeColor(getActivity(), R.attr.colorM3Surface));
 		if(enter){
 			anims.add(ObjectAnimator.ofFloat(contentWrap, View.TRANSLATION_Y, V.dp(-16), 0));
-		}else{
 		}
 		anims.add(ObjectAnimator.ofFloat(contentWrap, View.ALPHA, enter ? 0 : 1, enter ? 1 : 0));
 		for(Animator anim:anims){

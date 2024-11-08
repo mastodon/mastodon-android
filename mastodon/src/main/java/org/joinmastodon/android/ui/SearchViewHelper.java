@@ -67,6 +67,7 @@ public class SearchViewHelper{
 		searchEdit.setTextAppearance(R.style.m3_body_large);
 		searchEdit.setHintTextColor(UiUtils.getThemeColor(toolbarContext, R.attr.colorM3OnSurfaceVariant));
 		searchEdit.setTextColor(UiUtils.getThemeColor(toolbarContext, R.attr.colorM3OnSurface));
+		searchEdit.setTextAlignment(View.TEXT_ALIGNMENT_VIEW_START);
 		searchLayout.addView(searchEdit, new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.MATCH_PARENT, 1f));
 
 		clearSearchButton=new ImageButton(context);
