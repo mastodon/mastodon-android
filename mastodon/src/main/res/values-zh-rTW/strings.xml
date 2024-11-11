@@ -285,6 +285,7 @@
 	<string name="add_bookmark">書籤</string>
 	<string name="remove_bookmark">移除書籤</string>
 	<string name="bookmarks">書籤</string>
+	<string name="your_favorites">最愛</string>
 	<string name="login_title">歡迎回來</string>
 	<string name="login_subtitle">以您建立帳號之伺服器登入。</string>
 	<string name="server_url">伺服器 URL</string>
@@ -764,7 +765,27 @@
 	<string name="avatar_move_and_scale">移動與縮放</string>
 	<string name="confirm_avatar_crop">選擇</string>
 	<string name="settings_use_dynamic_colors">使用系統動態顏色</string>
+	<string name="settings_accounts">帳號</string>
+	<string name="settings_add_account">新增帳號...</string>
+	<string name="settings_app_settings">應用程式設定</string>
+	<string name="account_settings">帳號設定</string>
+	<string name="settings_about_this_server">關於此伺服器</string>
+	<string name="manage_account">管理帳號</string>
+	<string name="switch_to_this_account">切換至此帳號</string>
+	<string name="delete_account">刪除帳號</string>
+	<string name="notification_type_status">新嘟文</string>
 	<plurals name="user_and_x_more_followed">
 		<item quantity="other">%1$s 與 %2$,d 個其他人已跟隨您</item>
+	</plurals>
+	<string name="familiar_followers_one">被 %s 跟隨</string>
+	<string name="familiar_followers_two">被 %s 與 %s 跟隨</string>
+	<string name="profile_saved_posts">已儲存</string>
+	<string name="profile_saved_posts_explanation">您的已儲存嘟文僅為您所見。</string>
+	<string name="search_people">使用者</string>
+	<plurals name="familiar_followers_many">
+		<item quantity="other">被 %1$s、%2$s、與其他 %3$,d 名使用者跟隨</item>
+	</plurals>
+	<plurals name="x_followers_you_know">
+		<item quantity="other">%,d 名您認識的跟隨者</item>
 	</plurals>
 </resources>
