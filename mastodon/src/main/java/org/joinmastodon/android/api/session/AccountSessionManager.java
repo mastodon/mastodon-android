@@ -656,7 +656,6 @@ public class AccountSessionManager{
 	}
 
 	private static class DatabaseHelper extends SQLiteOpenHelper{
-
 		public DatabaseHelper(){
 			super(MastodonApp.context, "accounts.db", null, DB_VERSION);
 		}
