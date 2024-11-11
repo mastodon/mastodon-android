@@ -382,7 +382,7 @@ public class AccountSessionManager{
 	}
 
 	private void readInstanceInfo(SQLiteDatabase db, Set<String> domains){
-		try(Cursor cursor=db.query("instances", null, "`domain` IN ("+String.join(", ", Collections.nCopies(domains.size(), "?"))+")", domains.toArray(new String[0]), null, null, null)){
+		try(Cursor cursor=db.query("instances", new String[]{"domain", "instance_obj", "last_updated", "version"}, "`domain` IN ("+String.join(", ", Collections.nCopies(domains.size(), "?"))+")", domains.toArray(new String[0]), null, null, null)){
 			ContentValues values=new ContentValues();
 			while(cursor.moveToNext()){
 				DatabaseUtils.cursorRowToContentValues(cursor, values);
@@ -393,11 +393,28 @@ public class AccountSessionManager{
 					case 2 -> InstanceV2.class;
 					default -> throw new IllegalStateException("Unexpected value: " + version);
 				});
-				List<Emoji> emojis=MastodonAPIController.gson.fromJson(values.getAsString("emojis"), new TypeToken<List<Emoji>>(){}.getType());
+				//poor man's pagination / terrible performance
+				StringBuilder emojiString = new StringBuilder();
+				try(Cursor emojiCountCursor=db.rawQuery("select length(emojis) from instances where `domain` = ?", new String[]{domain})){
+					emojiCountCursor.moveToNext();
+					int totalEmostringLen = emojiCountCursor.getInt(0);
+					//max cursor size is 1MB, stay at 0.8MB to prevent crash
+					int pagesize = 800000;
+					for (int i = 0; i < (totalEmostringLen / 800000) + 1; i++){
+						try(Cursor emojiCursor=db.rawQuery("select substr(emojis,?, ?) from instances where `domain` = ?", new String[]{String.valueOf(i * pagesize), String.valueOf(pagesize),domain})){
+							emojiCursor.moveToNext();
+							emojiString.append(emojiCursor.getString(0));
+						}
+					}
+				}
+				List<Emoji> emojis=MastodonAPIController.gson.fromJson(emojiString.toString(), new TypeToken<List<Emoji>>(){}.getType());
 				instances.put(domain, instance);
 				customEmojis.put(domain, groupCustomEmojis(emojis));
 				instancesLastUpdated.put(domain, values.getAsLong("last_updated"));
 			}
+		} catch(Exception ex) {
+			Log.d(TAG, "readInstanceInfo failed", ex);
+			return;
 		}
 		if(!loadedInstances){
 			loadedInstances=true;
@@ -639,6 +656,7 @@ public class AccountSessionManager{
 	}
 
 	private static class DatabaseHelper extends SQLiteOpenHelper{
+
 		public DatabaseHelper(){
 			super(MastodonApp.context, "accounts.db", null, DB_VERSION);
 		}
