@@ -730,7 +730,6 @@
 	<string name="block_user_x_instead">Bac %s ’na àite</string>
 	<string name="users_cant_see_blocked">Chan fhaic thu postaichean no brathan o chleachdaichean a th’ air an fhrithealaiche seo.</string>
 	<string name="you_wont_see_server_posts">Chan fhaic thu post sam bith o chleachdaichean a th’ air an fhrithealaiche seo.</string>
-	<string name="server_followers_will_be_removed">Thèid an luchd-leantainn agad a th’ air an fhrithealaiche seo a thoirt air falbh.</string>
 	<string name="server_cant_mention_or_follow_you">Chan urrainn do neach sam bith a th’ air an fhrithealaiche seo do leantainn.</string>
 	<string name="server_can_interact_with_older">’S urrainn do dhaoine a th’ air an fhrithealaiche seo eadar-ghabhail leis na seann-phostaichean agad.</string>
 	<string name="unblocked_domain_x">Dhì-bhac thu an àrainn %s</string>
@@ -882,4 +881,7 @@
 	<string name="text_show_more">Barrachd</string>
 	<string name="avatar_move_and_scale">Gluais is sgèilich</string>
 	<string name="confirm_avatar_crop">Tagh</string>
+	<!-- appears when you're about to block a server -->
+	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
+	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
 </resources>
