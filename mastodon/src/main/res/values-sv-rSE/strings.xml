@@ -625,6 +625,7 @@
 	<string name="profile_saved_posts_explanation">Dina sparade inlägg är bara synliga för dig.</string>
 	<!-- appears when you're about to block a server -->
 	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
+	<string name="server_x_followers_and_following_will_be_removed">Du kommer att förlora %1$s och %2$s.</string>
 	<plurals name="will_lose_x_followers">
 		<item quantity="one">%,d följare</item>
 		<item quantity="other">%,d följare</item>
@@ -634,4 +635,5 @@
 		<item quantity="other">%,d personer du följer</item>
 	</plurals>
 	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
+	<string name="server_x_following_will_be_removed">Du kommer att förlora %s.</string>
 </resources>
