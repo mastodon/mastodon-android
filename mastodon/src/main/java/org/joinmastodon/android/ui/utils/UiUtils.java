@@ -501,7 +501,7 @@ public class UiUtils{
 							}
 						})
 						.exec(accountID);
-			}).show();
+			}, accountID).show();
 		}else{
 			new SetDomainBlocked(account.getDomain(), false)
 					.setCallback(new Callback<>(){
