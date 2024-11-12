@@ -222,7 +222,6 @@
 	<string name="local_timeline_info_banner">這些是來自您伺服器 (%s) 所有使用者之嘟文。</string>
 	<string name="recommended_accounts_info_banner">基於您所跟隨的其他人，您可能會喜歡這些帳號。</string>
 	<string name="see_new_posts">新嘟文</string>
-	<string name="load_missing_posts">讀取錯過的嘟文</string>
 	<string name="follow_back">跟隨回去</string>
 	<string name="button_follow_pending">等待中</string>
 	<string name="follows_you">已跟隨您</string>
@@ -788,6 +787,17 @@
 		<item quantity="other">%,d 名您認識的跟隨者</item>
 	</plurals>
 	<!-- appears when you're about to block a server -->
+	<plurals name="server_x_followers_will_be_removed">
+		<item quantity="other">您來自此伺服器之 %,d 名跟隨者將被移除。</item>
+	</plurals>
 	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
+	<string name="server_x_followers_and_following_will_be_removed">您將失去 %1$s 與 %2$s 。</string>
+	<plurals name="will_lose_x_followers">
+		<item quantity="other">%,d 個跟隨者</item>
+	</plurals>
+	<plurals name="will_lose_x_following">
+		<item quantity="other">您跟隨之 %,d 人</item>
+	</plurals>
 	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
+	<string name="server_x_following_will_be_removed">您將失去 %s 。</string>
 </resources>
