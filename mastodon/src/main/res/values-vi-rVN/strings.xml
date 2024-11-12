@@ -632,7 +632,6 @@ Bạn càng theo dõi nhiều người thì nó sẽ càng sôi động và thú
 	<string name="block_user_x_instead">Chỉ chặn %s</string>
 	<string name="users_cant_see_blocked">Bạn sẽ không thấy tút hoặc thông báo từ thành viên máy chủ này.</string>
 	<string name="you_wont_see_server_posts">Bạn sẽ không thấy tút từ thành viên máy chủ này.</string>
-	<string name="server_followers_will_be_removed">Những người theo dõi bạn ở máy chủ này sẽ bị xóa.</string>
 	<string name="server_cant_mention_or_follow_you">Không ai trên máy chủ này có thể theo dõi bạn.</string>
 	<string name="server_can_interact_with_older">Thành viên máy chủ này có thể tương tác với các tút cũ của bạn.</string>
 	<string name="unblocked_domain_x">Bỏ chặn máy chủ %s</string>
@@ -767,4 +766,7 @@ Bạn càng theo dõi nhiều người thì nó sẽ càng sôi động và thú
 	<plurals name="user_and_x_more_followed">
 		<item quantity="other">%1$s và %2$,d người khác đã theo dõi bạn</item>
 	</plurals>
+	<!-- appears when you're about to block a server -->
+	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
+	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
 </resources>
