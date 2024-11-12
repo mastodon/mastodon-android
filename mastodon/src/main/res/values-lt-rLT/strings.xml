@@ -732,7 +732,6 @@ Kuo daugiau žmonių seki, tuo aktyvesnis ir įdomesnis jis bus.</string>
 	<string name="block_user_x_instead">Blokuoti %s vietoj to</string>
 	<string name="users_cant_see_blocked">Nematysi naudotojų įrašų ar pranešimų šiame serveryje.</string>
 	<string name="you_wont_see_server_posts">Nematysi jokių naudotojų įrašų šiame serveryje.</string>
-	<string name="server_followers_will_be_removed">Tavo sekėjai iš šio serverio bus pašalinti.</string>
 	<string name="server_cant_mention_or_follow_you">Niekas iš šio serverio negali tavęs sekti.</string>
 	<string name="server_can_interact_with_older">Žmonės iš šio serverio gali bendrauti su tavo senomis įrašomis.</string>
 	<string name="unblocked_domain_x">Atblokuotas domenas %s</string>
@@ -902,4 +901,7 @@ Kuo daugiau žmonių seki, tuo aktyvesnis ir įdomesnis jis bus.</string>
 	</plurals>
 	<string name="profile_saved_posts">Išsaugota</string>
 	<string name="search_people">Žmonės</string>
+	<!-- appears when you're about to block a server -->
+	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
+	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
 </resources>
