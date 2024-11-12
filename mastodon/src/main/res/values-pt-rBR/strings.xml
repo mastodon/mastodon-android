@@ -665,7 +665,6 @@ Quanto mais pessoas que você seguir, mas interessantes e ativas serão.</string
 	<string name="block_user_x_instead">Bloquear %s em vez disso</string>
 	<string name="users_cant_see_blocked">Você não verá publicações ou notificações de usuários neste servidor.</string>
 	<string name="you_wont_see_server_posts">Você não verá nenhuma publicação de usuários neste servidor.</string>
-	<string name="server_followers_will_be_removed">Seus seguidores deste servidor serão removidos.</string>
 	<string name="server_cant_mention_or_follow_you">Ninguém deste servidor pode te seguir.</string>
 	<string name="server_can_interact_with_older">Pessoas deste servidor podem interagir com suas publicações antigas.</string>
 	<string name="unblocked_domain_x">Desbloquear domínio %s</string>
@@ -792,4 +791,7 @@ Quanto mais pessoas que você seguir, mas interessantes e ativas serão.</string
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
 	<string name="relationship_severance_user_domain_block">Você bloqueou %1$s, removendo %2$,d dos seus seguidores e %3$s que você segue.</string>
 	<string name="relationship_severance_learn_more">Saiba mais</string>
+	<!-- appears when you're about to block a server -->
+	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
+	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
 </resources>
