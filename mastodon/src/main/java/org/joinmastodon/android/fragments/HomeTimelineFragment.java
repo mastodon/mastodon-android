@@ -308,8 +308,9 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 						if(!gap.visible){
 							gap.visible=true;
 							gap.enteredFromTop=child.getTop()<list.getHeight()/2;
-							gaps.remove(gap);
+							holder.text.setText(gap.enteredFromTop ? R.string.load_missing_posts_above : R.string.load_missing_posts_below);
 						}
+						gaps.remove(gap);
 					}
 				}
 				for(GapStatusDisplayItem gap:gaps){

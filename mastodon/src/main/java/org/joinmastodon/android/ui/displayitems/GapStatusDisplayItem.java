@@ -40,6 +40,7 @@ public class GapStatusDisplayItem extends StatusDisplayItem{
 		public void onBind(GapStatusDisplayItem item){
 			text.setVisibility(item.loading ? View.GONE : View.VISIBLE);
 			progress.setVisibility(item.loading ? View.VISIBLE : View.GONE);
+			text.setText(item.enteredFromTop ? R.string.load_missing_posts_above : R.string.load_missing_posts_below);
 		}
 
 		@Override
