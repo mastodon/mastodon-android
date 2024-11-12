@@ -342,6 +342,7 @@
 	<string name="add_bookmark">Pridėti į žymės</string>
 	<string name="remove_bookmark">Pašalinti žymę</string>
 	<string name="bookmarks">Žymės</string>
+	<string name="your_favorites">Mėgstami</string>
 	<string name="login_title">Sveiki sugrįžę</string>
 	<string name="login_subtitle">Prisijunk prie serverio, kuriame susikūrei paskyrą.</string>
 	<string name="server_url">Serverio URL</string>
@@ -880,4 +881,25 @@ Kuo daugiau žmonių seki, tuo aktyvesnis ir įdomesnis jis bus.</string>
 	<string name="moderation_warning_action_silence">Tavo paskyra buvo apribota.</string>
 	<string name="moderation_warning_action_suspend">Tavo paskyra buvo pristabdyta.</string>
 	<string name="moderation_warning_learn_more">Sužinoti daugiau</string>
+	<string name="text_show_more">Daugiau</string>
+	<string name="avatar_move_and_scale">Perkelti ir keisti mastelį</string>
+	<string name="confirm_avatar_crop">Pasirinkti</string>
+	<string name="settings_use_dynamic_colors">Naudoti sistemos dinaminę spalvą</string>
+	<string name="settings_accounts">Paskyros</string>
+	<string name="settings_add_account">Pridėti paskyrą...</string>
+	<string name="settings_app_settings">Programėlės nustatymai</string>
+	<string name="account_settings">Paskyros nustatymai</string>
+	<string name="settings_about_this_server">Apie šį serverį</string>
+	<string name="manage_account">Tvarkyti paskyrą</string>
+	<string name="switch_to_this_account">Perjungti į šią paskyrą</string>
+	<string name="delete_account">Ištrinti paskyrą</string>
+	<string name="notification_type_status">Nauji įrašai</string>
+	<plurals name="user_and_x_more_followed">
+		<item quantity="one">%1$s ir %2$,d kitas seka jus</item>
+		<item quantity="few">%1$s ir %2$,d kiti seka jus</item>
+		<item quantity="many">%1$s ir %2$,d kitos seka jus</item>
+		<item quantity="other">%1$s ir %2$,d kitų seka jus</item>
+	</plurals>
+	<string name="profile_saved_posts">Išsaugota</string>
+	<string name="search_people">Žmonės</string>
 </resources>
