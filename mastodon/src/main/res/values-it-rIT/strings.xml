@@ -666,7 +666,6 @@ Più persone segui, più sarà attivo e interessante.</string>
 	<string name="block_user_x_instead">Blocca %s invece</string>
 	<string name="users_cant_see_blocked">Non vedrai post o notifiche dagli utenti su questo server.</string>
 	<string name="you_wont_see_server_posts">Non vedrai alcun post dagli utenti su questo server.</string>
-	<string name="server_followers_will_be_removed">I tuoi seguaci da questo server verranno rimossi.</string>
 	<string name="server_cant_mention_or_follow_you">Nessuno da questo server può seguirti.</string>
 	<string name="server_can_interact_with_older">Le persone da questo server possono interagire con i tuoi vecchi post.</string>
 	<string name="unblocked_domain_x">Dominio %s sbloccato</string>
@@ -831,4 +830,7 @@ Più persone segui, più sarà attivo e interessante.</string>
 		<item quantity="one">%,d seguace che conosci</item>
 		<item quantity="other">%,d seguaci che conosci</item>
 	</plurals>
+	<!-- appears when you're about to block a server -->
+	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
+	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
 </resources>
