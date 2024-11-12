@@ -664,7 +664,6 @@
 	<string name="block_user_x_instead">Stattdessen %s blockieren</string>
 	<string name="users_cant_see_blocked">Du wirst keine Beiträge oder Benachrichtigungen von Profilen auf diesem Server sehen.</string>
 	<string name="you_wont_see_server_posts">Du wirst keine Beiträge von Profilen auf jenem Server mehr sehen.</string>
-	<string name="server_followers_will_be_removed">Deine Follower von jenem Server werden entfernt werden.</string>
 	<string name="server_cant_mention_or_follow_you">Niemand von jenem Server kann dir mehr folgen.</string>
 	<string name="server_can_interact_with_older">Die Leute jenes Servers können mit deinen alten Beiträgen interagieren.</string>
 	<string name="unblocked_domain_x">Domain %s entblockt</string>
@@ -800,4 +799,7 @@
 	<string name="moderation_warning_action_suspend">Dein Konto wurde gesperrt.</string>
 	<string name="moderation_warning_learn_more">Mehr erfahren</string>
 	<string name="confirm_avatar_crop">Bestätigen</string>
+	<!-- appears when you're about to block a server -->
+	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
+	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
 </resources>
