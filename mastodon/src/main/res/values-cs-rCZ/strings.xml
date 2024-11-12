@@ -729,7 +729,6 @@
 	<string name="block_user_x_instead">Zablokovat místo toho %s</string>
 	<string name="users_cant_see_blocked">Neuvidíte příspěvky a upozornění od uživatelů na tomto serveru.</string>
 	<string name="you_wont_see_server_posts">Neuvidíte žádné příspěvky od uživatelů na tomto serveru.</string>
-	<string name="server_followers_will_be_removed">Vaši sledující z tohoto serveru budou odstraněni.</string>
 	<string name="server_cant_mention_or_follow_you">Nikdo z tohoto serveru vás nemůže sledovat.</string>
 	<string name="server_can_interact_with_older">Lidé z tohoto serveru mohou reagovat na vaše staré příspěvky.</string>
 	<string name="unblocked_domain_x">Odblokovat doménu %s</string>
@@ -829,4 +828,7 @@
 	<string name="settings_donate">Podpořit Mastodon</string>
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
+	<!-- appears when you're about to block a server -->
+	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
+	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
 </resources>
