@@ -729,7 +729,6 @@
 	<string name="block_user_x_instead">Замест гэтага заблакіруйце %s</string>
 	<string name="users_cant_see_blocked">Вы не ўбачыце допісаў і апавяшчэнняў ад карыстальнікаў на гэтым серверы.</string>
 	<string name="you_wont_see_server_posts">Вы не ўбачыце ніякіх допісаў ад карыстальнікаў гэтага сервера.</string>
-	<string name="server_followers_will_be_removed">Вашы падпісчыкі з гэтага сервера будуць выдаленыя.</string>
 	<string name="server_cant_mention_or_follow_you">Ніхто з гэтага сервера ня можа сачыць за вамі.</string>
 	<string name="server_can_interact_with_older">Людзі з гэтага сервера могуць узаемадзейнічаць з вашымі старымі допісамі.</string>
 	<string name="unblocked_domain_x">Разблакіраваны дамен %s</string>
@@ -842,4 +841,7 @@
 	<string name="text_show_more">Больш</string>
 	<string name="avatar_move_and_scale">Перасоўванне і маштабаванне</string>
 	<string name="confirm_avatar_crop">Выбраць</string>
+	<!-- appears when you're about to block a server -->
+	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
+	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
 </resources>
