@@ -814,6 +814,10 @@ Più persone segui, più sarà attivo e interessante.</string>
 	<string name="switch_to_this_account">Passa a questo account</string>
 	<string name="delete_account">Cancella l\'account</string>
 	<string name="notification_type_status">Nuovi post</string>
+	<plurals name="user_and_x_more_followed">
+		<item quantity="one">%1$s e %2$,d altro hanno iniziato a seguirti</item>
+		<item quantity="other">%1$s e altri %2$,d hanno iniziato a seguirti</item>
+	</plurals>
 	<string name="familiar_followers_one">Seguito da %s</string>
 	<string name="familiar_followers_two">Seguito da %s e %s</string>
 	<string name="profile_saved_posts">Salvati</string>
