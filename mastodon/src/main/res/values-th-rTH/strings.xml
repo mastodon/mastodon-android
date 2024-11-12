@@ -632,7 +632,6 @@
 	<string name="block_user_x_instead">ปิดกั้น %s แทน</string>
 	<string name="users_cant_see_blocked">คุณจะไม่เห็นโพสต์หรือการแจ้งเตือนจากผู้ใช้ในเซิร์ฟเวอร์นี้</string>
 	<string name="you_wont_see_server_posts">คุณจะไม่เห็นโพสต์ใด ๆ จากผู้ใช้ในเซิร์ฟเวอร์นี้</string>
-	<string name="server_followers_will_be_removed">จะเอาผู้ติดตามของคุณจากเซิร์ฟเวอร์นี้ออก</string>
 	<string name="server_cant_mention_or_follow_you">ไม่มีใครจากเซิร์ฟเวอร์นี้สามารถติดตามคุณ</string>
 	<string name="server_can_interact_with_older">ผู้คนจากเซิร์ฟเวอร์นี้สามารถโต้ตอบกับโพสต์เก่า ๆ ของคุณ</string>
 	<string name="unblocked_domain_x">เลิกปิดกั้นโดเมน %s แล้ว</string>
@@ -767,4 +766,7 @@
 	<plurals name="user_and_x_more_followed">
 		<item quantity="other">%1$s และ %2$,d อื่น ๆ ได้ติดตามคุณ</item>
 	</plurals>
+	<!-- appears when you're about to block a server -->
+	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
+	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
 </resources>
