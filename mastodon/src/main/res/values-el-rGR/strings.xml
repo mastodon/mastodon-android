@@ -663,7 +663,6 @@
 	<string name="block_user_x_instead">Αποκλεισμός %s αντ\' αυτού</string>
 	<string name="users_cant_see_blocked">Δεν θα βλέπεις αναρτήσεις ή ειδοποιήσεις από χρήστες σε αυτόν το διακομιστή.</string>
 	<string name="you_wont_see_server_posts">Δε θα βλέπεις καμία ανάρτηση από χρήστες σε αυτό το διακομιστή.</string>
-	<string name="server_followers_will_be_removed">Οι ακόλουθοί σου από αυτόν τον διακομιστή θα αφαιρεθούν.</string>
 	<string name="server_cant_mention_or_follow_you">Κανείς από αυτόν τον διακομιστή δεν μπορεί να σε ακολουθήσει.</string>
 	<string name="server_can_interact_with_older">Άτομα από αυτόν τον διακομιστή μπορούν να αλληλεπιδράσουν με τις παλιές αναρτήσεις σου.</string>
 	<string name="unblocked_domain_x">Άρση αποκλεισμού τομέα %s</string>
@@ -777,4 +776,7 @@
 	<string name="moderation_warning_action_silence">Ο λογαριασμός σου έχει περιοριστεί.</string>
 	<string name="moderation_warning_action_suspend">Ο λογαριασμός σου έχει ανασταλεί.</string>
 	<string name="moderation_warning_learn_more">Μάθε περισσότερα</string>
+	<!-- appears when you're about to block a server -->
+	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
+	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
 </resources>
