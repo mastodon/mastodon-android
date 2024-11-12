@@ -665,7 +665,6 @@ Ne kadar çok kişiyi takip ederseniz, o kadar aktif ve ilginç olacaktır.</str
 	<string name="block_user_x_instead">Bunun yerine %s engelle</string>
 	<string name="users_cant_see_blocked">Bu sunucudaki kullanıcılardan gelen gönderileri veya bildirimleri göremezsiniz.</string>
 	<string name="you_wont_see_server_posts">Bu sunucudaki kullanıcılardan gelen gönderileri veya bildirimleri göremezsiniz.</string>
-	<string name="server_followers_will_be_removed">Bu sunucudaki takipçilerin kaldırılacaktır.</string>
 	<string name="server_cant_mention_or_follow_you">Bu sunucudan kimse sizi takip edemez.</string>
 	<string name="server_can_interact_with_older">Bu sunucudaki kişiler eski yayınlarınız ile etkileşime geçebilir.</string>
 	<string name="unblocked_domain_x">Engellenmemiş alan %s</string>
@@ -800,4 +799,7 @@ Ne kadar çok kişiyi takip ederseniz, o kadar aktif ve ilginç olacaktır.</str
 	<string name="moderation_warning_action_silence">Hesabınız sınırlandırıldı.</string>
 	<string name="moderation_warning_action_suspend">Hesabınız askıya alındı.</string>
 	<string name="moderation_warning_learn_more">Daha fazlası</string>
+	<!-- appears when you're about to block a server -->
+	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
+	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
 </resources>
