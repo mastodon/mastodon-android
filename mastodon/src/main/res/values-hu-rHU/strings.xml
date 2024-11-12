@@ -658,7 +658,6 @@ Minél több embert követsz, annál aktívabb és érdekesebb lesz.</string>
 	<string name="block_user_x_instead">Helyette %s letiltása</string>
 	<string name="users_cant_see_blocked">Nem látsz majd bejegyzéseket vagy értesítéseket ennek a kiszolgálónak a felhasználóitól.</string>
 	<string name="you_wont_see_server_posts">Nem látsz majd bejegyzéseket ennek a kiszolgálónak a felhasználóitól.</string>
-	<string name="server_followers_will_be_removed">Az ezen a kiszolgálón lévő követőid el lesznek távolítva.</string>
 	<string name="server_cant_mention_or_follow_you">Erről a kiszolgálóról senki sem követhet.</string>
 	<string name="server_can_interact_with_older">Az ezen a kiszolgálón lévő emberek interakcióba léphetnek a régi bejegyzéseiddel.</string>
 	<string name="unblocked_domain_x">%s domain tiltása feloldva</string>
@@ -729,4 +728,7 @@ Minél több embert követsz, annál aktívabb és érdekesebb lesz.</string>
 	<string name="view_favorites">Kedvencek megtekintése</string>
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
+	<!-- appears when you're about to block a server -->
+	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
+	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
 </resources>
