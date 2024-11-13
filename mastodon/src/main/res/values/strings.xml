@@ -240,7 +240,6 @@
 	<string name="local_timeline_info_banner">These are all the posts from all users in your server (%s).</string>
 	<string name="recommended_accounts_info_banner">You might like these accounts based on others you follow.</string>
 	<string name="see_new_posts">New posts</string>
-	<string name="load_missing_posts">Load missing posts</string>
 	<string name="follow_back">Follow back</string>
 	<string name="button_follow_pending">Pending</string>
 	<string name="follows_you">Follows you</string>
@@ -675,7 +674,6 @@
 	<string name="block_user_x_instead">Block %s instead</string>
 	<string name="users_cant_see_blocked">You won’t see posts or notifications from users on this server.</string>
 	<string name="you_wont_see_server_posts">You won’t see any posts from users on this server.</string>
-	<string name="server_followers_will_be_removed">Your followers from this server will be removed.</string>
 	<string name="server_cant_mention_or_follow_you">Nobody from this server can follow you.</string>
 	<string name="server_can_interact_with_older">People from this server can interact with your old posts.</string>
 	<string name="unblocked_domain_x">Unblocked domain %s</string>
@@ -840,4 +838,23 @@
 		<item quantity="one">%,d follower you know</item>
 		<item quantity="other">%,d followers you know</item>
 	</plurals>
+	<!-- appears when you're about to block a server -->
+	<plurals name="server_x_followers_will_be_removed">
+		<item quantity="one">%,d follower from this server will be removed.</item>
+		<item quantity="other">%,d followers from this server will be removed.</item>
+	</plurals>
+	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
+	<string name="server_x_followers_and_following_will_be_removed">You will lose %1$s and %2$s.</string>
+	<plurals name="will_lose_x_followers">
+		<item quantity="one">%,d follower</item>
+		<item quantity="other">%,d followers</item>
+	</plurals>
+	<plurals name="will_lose_x_following">
+		<item quantity="one">%,d person you follow</item>
+		<item quantity="other">%,d people you follow</item>
+	</plurals>
+	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
+	<string name="server_x_following_will_be_removed">You will lose %s.</string>
+	<string name="load_missing_posts_above">Load missing posts above</string>
+	<string name="load_missing_posts_below">Load missing posts below</string>
 </resources>

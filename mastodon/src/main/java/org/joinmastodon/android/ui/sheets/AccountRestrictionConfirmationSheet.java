@@ -66,10 +66,10 @@ public abstract class AccountRestrictionConfirmationSheet extends BottomSheet{
 		});
 	}
 
-	protected void addRow(@DrawableRes int icon, CharSequence text){
+	protected TextView addRow(@DrawableRes int icon, CharSequence text){
 		TextView tv=new TextView(getContext());
 		tv.setTextAppearance(R.style.m3_body_large);
-		tv.setTextColor(UiUtils.getThemeColor(getContext(), R.attr.colorM3OnSurfaceVariant));
+		tv.setTextColor(UiUtils.getThemeColor(getContext(), R.attr.colorM3OnSurface));
 		tv.setCompoundDrawableTintList(ColorStateList.valueOf(UiUtils.getThemeColor(getContext(), R.attr.colorM3Primary)));
 		tv.setGravity(Gravity.START | Gravity.CENTER_VERTICAL);
 		tv.setText(text);
@@ -78,6 +78,7 @@ public abstract class AccountRestrictionConfirmationSheet extends BottomSheet{
 		tv.setCompoundDrawablesRelative(drawable, null, null, null);
 		tv.setCompoundDrawablePadding(V.dp(16));
 		contentWrap.addView(tv, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+		return tv;
 	}
 
 	protected void addRow(@DrawableRes int icon, @StringRes int text){
