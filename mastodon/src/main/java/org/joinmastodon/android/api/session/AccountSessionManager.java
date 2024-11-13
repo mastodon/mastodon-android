@@ -384,7 +384,7 @@ public class AccountSessionManager{
 	private void readInstanceInfo(SQLiteDatabase db, Set<String> domains){
 		for(String domain : domains){
 			final int maxEmojiLength=500000;
-			try(Cursor cursor=db.rawQuery("SELECT domain, instance_obj, substring(emojis,0,?) AS emojis, length(emojis) AS emojiLength, last_updated, version FROM instances WHERE `domain` = ?",
+			try(Cursor cursor=db.rawQuery("SELECT domain, instance_obj, substring(emojis,0,?) AS emojis, length(emojis) AS emoji_length, last_updated, version FROM instances WHERE `domain` = ?",
 					new String[]{String.valueOf(maxEmojiLength) , domain})) {
 				ContentValues values=new ContentValues();
 				while(cursor.moveToNext()){
@@ -398,7 +398,7 @@ public class AccountSessionManager{
 					StringBuilder emojiSB=new StringBuilder();
 					emojiSB.append(values.getAsString("emojis"));
 					//get emoji in chunks of 1MB if it didn't fit in the first query
-					int emojiStringLength=values.getAsInteger("emojiLength");
+					int emojiStringLength=values.getAsInteger("emoji_length");
 					if(emojiStringLength>maxEmojiLength){
 						final int pagesize=1000000;
 						for(int start=maxEmojiLength; start<emojiStringLength; start+=pagesize){
