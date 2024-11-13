@@ -382,7 +382,9 @@ public class AccountSessionManager{
 	}
 
 	private void readInstanceInfo(SQLiteDatabase db, Set<String> domains){
-		try(Cursor cursor=db.query("instances", new String[]{"domain", "instance_obj", "last_updated", "version"}, "`domain` IN ("+String.join(", ", Collections.nCopies(domains.size(), "?"))+")", domains.toArray(new String[0]), null, null, null)){
+		//limit emoji string to 0.5MB characters to stay under 1MB cursor limit
+		try(Cursor cursor=db.rawQuery("SELECT domain, instance_obj, substring(emojis,0,500000) AS emojis, length(emojis) AS emojiLength, last_updated, version FROM instances WHERE `domain` IN ("
+				+ String.join(", ", "?".repeat(domains.size())) + ")", domains.toArray(new String[0]))) {
 			ContentValues values=new ContentValues();
 			while(cursor.moveToNext()){
 				DatabaseUtils.cursorRowToContentValues(cursor, values);
@@ -393,21 +395,20 @@ public class AccountSessionManager{
 					case 2 -> InstanceV2.class;
 					default -> throw new IllegalStateException("Unexpected value: " + version);
 				});
-				//poor man's pagination / terrible performance
-				StringBuilder emojiString = new StringBuilder();
-				try(Cursor emojiCountCursor=db.rawQuery("select length(emojis) from instances where `domain` = ?", new String[]{domain})){
-					emojiCountCursor.moveToNext();
-					int totalEmostringLen = emojiCountCursor.getInt(0);
-					//max cursor size is 1MB, stay at 0.8MB to prevent crash
-					int pagesize = 800000;
-					for (int i = 0; i < (totalEmostringLen / 800000) + 1; i++){
-						try(Cursor emojiCursor=db.rawQuery("select substr(emojis,?, ?) from instances where `domain` = ?", new String[]{String.valueOf(i * pagesize), String.valueOf(pagesize),domain})){
+				StringBuilder emojiSB = new StringBuilder();
+				emojiSB.append(values.getAsString("emojis"));
+				//get emoji in chunks of 1MB if it didn't fit in the first query
+				int emojiStringLength = values.getAsInteger("emojiLength");
+				if(emojiStringLength > 500000){
+					int pagesize=1000000;
+					for(int start = 500000; start < emojiStringLength; start += pagesize){
+						try(Cursor emojiCursor=db.rawQuery("select substr(emojis,?, ?) from instances where `domain` = ?", new String[]{String.valueOf(start), String.valueOf(pagesize), domain})){
 							emojiCursor.moveToNext();
-							emojiString.append(emojiCursor.getString(0));
+							emojiSB.append(emojiCursor.getString(0));
 						}
 					}
 				}
-				List<Emoji> emojis=MastodonAPIController.gson.fromJson(emojiString.toString(), new TypeToken<List<Emoji>>(){}.getType());
+				List<Emoji> emojis=MastodonAPIController.gson.fromJson(emojiSB.toString(), new TypeToken<List<Emoji>>(){}.getType());
 				instances.put(domain, instance);
 				customEmojis.put(domain, groupCustomEmojis(emojis));
 				instancesLastUpdated.put(domain, values.getAsLong("last_updated"));
