@@ -208,6 +208,7 @@ public class ComposeAutocompleteViewController{
 					.filter(e -> !startsWithSearch.contains(e))
 					.filter(e -> e.shortcode.toLowerCase().contains(_text.toLowerCase())))
 					.map(WrappedEmoji::new)
+					.limit(50)
 					.collect(Collectors.toList());
 			emptyButtonAdapter.setVisible(emojis.isEmpty());
 			UiUtils.updateList(oldList, emojis, list, emojisAdapter, (e1, e2)->e1.emoji.shortcode.equals(e2.emoji.shortcode));
