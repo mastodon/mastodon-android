@@ -904,5 +904,14 @@ Kuo daugiau žmonių seki, tuo aktyvesnis ir įdomesnis jis bus.</string>
 	<string name="search_people">Žmonės</string>
 	<!-- appears when you're about to block a server -->
 	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
+	<plurals name="will_lose_x_followers">
+		<item quantity="one">%,d sekėjas</item>
+		<item quantity="few">%,d sekėjai</item>
+		<item quantity="many">%,d sekėjo</item>
+		<item quantity="other">%,d sekėjų</item>
+	</plurals>
 	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
+	<string name="server_x_following_will_be_removed">Prarasite %s.</string>
+	<string name="load_missing_posts_above">Įkelti trūkstamus įrašus aukščiau</string>
+	<string name="load_missing_posts_below">Įkelti trūkstamus įrašus žemiau</string>
 </resources>
