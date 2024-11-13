@@ -382,21 +382,40 @@ public class AccountSessionManager{
 	}
 
 	private void readInstanceInfo(SQLiteDatabase db, Set<String> domains){
-		try(Cursor cursor=db.query("instances", null, "`domain` IN ("+String.join(", ", Collections.nCopies(domains.size(), "?"))+")", domains.toArray(new String[0]), null, null, null)){
-			ContentValues values=new ContentValues();
-			while(cursor.moveToNext()){
-				DatabaseUtils.cursorRowToContentValues(cursor, values);
-				String domain=values.getAsString("domain");
-				int version=values.getAsInteger("version");
-				Instance instance=MastodonAPIController.gson.fromJson(values.getAsString("instance_obj"), switch(version){
-					case 1 -> InstanceV1.class;
-					case 2 -> InstanceV2.class;
-					default -> throw new IllegalStateException("Unexpected value: " + version);
-				});
-				List<Emoji> emojis=MastodonAPIController.gson.fromJson(values.getAsString("emojis"), new TypeToken<List<Emoji>>(){}.getType());
-				instances.put(domain, instance);
-				customEmojis.put(domain, groupCustomEmojis(emojis));
-				instancesLastUpdated.put(domain, values.getAsLong("last_updated"));
+		for(String domain : domains){
+			final int maxEmojiLength=500000;
+			try(Cursor cursor=db.rawQuery("SELECT domain, instance_obj, substring(emojis,0,?) AS emojis, length(emojis) AS emoji_length, last_updated, version FROM instances WHERE `domain` = ?",
+					new String[]{String.valueOf(maxEmojiLength) , domain})) {
+				ContentValues values=new ContentValues();
+				while(cursor.moveToNext()){
+					DatabaseUtils.cursorRowToContentValues(cursor, values);
+					int version=values.getAsInteger("version");
+					Instance instance=MastodonAPIController.gson.fromJson(values.getAsString("instance_obj"), switch(version){
+						case 1 -> InstanceV1.class;
+						case 2 -> InstanceV2.class;
+						default -> throw new IllegalStateException("Unexpected value: "+version);
+					});
+					StringBuilder emojiSB=new StringBuilder();
+					emojiSB.append(values.getAsString("emojis"));
+					//get emoji in chunks of 1MB if it didn't fit in the first query
+					int emojiStringLength=values.getAsInteger("emoji_length");
+					if(emojiStringLength>maxEmojiLength){
+						final int pagesize=1000000;
+						for(int start=maxEmojiLength; start<emojiStringLength; start+=pagesize){
+							try(Cursor emojiCursor=db.rawQuery("SELECT substr(emojis,?, ?) FROM instances WHERE `domain` = ?", new String[]{String.valueOf(start), String.valueOf(pagesize), domain})){
+								emojiCursor.moveToNext();
+								emojiSB.append(emojiCursor.getString(0));
+							}
+						}
+					}
+					List<Emoji> emojis=MastodonAPIController.gson.fromJson(emojiSB.toString(), new TypeToken<List<Emoji>>(){}.getType());
+					instances.put(domain, instance);
+					customEmojis.put(domain, groupCustomEmojis(emojis));
+					instancesLastUpdated.put(domain, values.getAsLong("last_updated"));
+				}
+			}catch(Exception ex){
+				Log.d(TAG, "readInstanceInfo failed", ex);
+				return;
 			}
 		}
 		if(!loadedInstances){
