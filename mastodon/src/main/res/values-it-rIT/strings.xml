@@ -830,6 +830,22 @@ Più persone segui, più sarà attivo e interessante.</string>
 		<item quantity="other">%,d seguaci che conosci</item>
 	</plurals>
 	<!-- appears when you're about to block a server -->
+	<plurals name="server_x_followers_will_be_removed">
+		<item quantity="one">%,d seguace sarà rimosso da questo server.</item>
+		<item quantity="other">%,d seguaci saranno rimossi da questo server.</item>
+	</plurals>
 	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
+	<string name="server_x_followers_and_following_will_be_removed">Perderai %1$s seguaci e %2$s persone che segui.</string>
+	<plurals name="will_lose_x_followers">
+		<item quantity="one">%,d seguace</item>
+		<item quantity="other">%,d seguaci</item>
+	</plurals>
+	<plurals name="will_lose_x_following">
+		<item quantity="one">%,d persona che segui</item>
+		<item quantity="other">%,d persone che segui</item>
+	</plurals>
 	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
+	<string name="server_x_following_will_be_removed">Perderai %s persone che segui.</string>
+	<string name="load_missing_posts_above">Carica i post mancanti sopra</string>
+	<string name="load_missing_posts_below">Carica i post mancanti sotto</string>
 </resources>
