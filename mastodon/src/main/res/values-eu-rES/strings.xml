@@ -235,7 +235,6 @@
 	<string name="local_timeline_info_banner">Hauek dira zure zerbitzariko (%s) erabiltzaile guztien mezuak.</string>
 	<string name="recommended_accounts_info_banner">Jarraitzen dituzun beste batzuetan oinarrituta, baliteke kontu hauek gustuko izatea.</string>
 	<string name="see_new_posts">Bidalketa berriak</string>
-	<string name="load_missing_posts">Falta diren bidalketak kargatu</string>
 	<string name="follow_back">Jarraitu bueltan</string>
 	<string name="button_follow_pending">Zain</string>
 	<string name="follows_you">Jarraitzen dizu</string>
@@ -304,7 +303,6 @@
 	<string name="add_bookmark">Laster-marka</string>
 	<string name="remove_bookmark">Kendu laster-marka</string>
 	<string name="bookmarks">Laster-markak</string>
-	<string name="your_favorites">Zure gogokoak</string>
 	<string name="login_title">Ongi etorri berriro ere</string>
 	<string name="login_subtitle">Hasi saioa kontua sortu zenuen zerbitzariarekin.</string>
 	<string name="server_url">Zerbitzariaren URLa</string>
@@ -666,7 +664,6 @@ Zenbat eta jende gehiago jarraitu, orduan eta aktiboagoa eta interesgarriagoa iz
 	<string name="block_user_x_instead">Blokeatu %s haren ordez</string>
 	<string name="users_cant_see_blocked">Ez dituzu zerbitzari honetako erabiltzaileen bidalketarik edota jakinarazpenik ikusiko.</string>
 	<string name="you_wont_see_server_posts">Ez dituzu zerbitzari honetako erabiltzaileen bidalketarik ikusiko.</string>
-	<string name="server_followers_will_be_removed">Zerbitzari honetako zure jarraitzaileak ezabatu egingo dira.</string>
 	<string name="server_cant_mention_or_follow_you">Zerbitzari honetako inork ezin zaitu jarraitu.</string>
 	<string name="server_can_interact_with_older">Zerbitzari honetako erabiltzaileek zure bidalketa zaharrekin elkarreragin dezakete.</string>
 	<string name="unblocked_domain_x">%s domeinua desblokeatu da</string>
@@ -799,4 +796,7 @@ Zenbat eta jende gehiago jarraitu, orduan eta aktiboagoa eta interesgarriagoa iz
 	<string name="moderation_warning_action_silence">Zure kontuari mugak jarri zaizkio.</string>
 	<string name="moderation_warning_action_suspend">Zure kontua behin-behinean egotzi da.</string>
 	<string name="moderation_warning_learn_more">Informazio gehiago</string>
+	<!-- appears when you're about to block a server -->
+	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
+	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
 </resources>

@@ -226,7 +226,6 @@
 	<string name="local_timeline_info_banner">Detta är alla inlägg från alla användare på din server (%s).</string>
 	<string name="recommended_accounts_info_banner">Du kanske gillar dessa konton baserat på andra konton du följer.</string>
 	<string name="see_new_posts">Nya inlägg</string>
-	<string name="load_missing_posts">Ladda saknade inlägg</string>
 	<string name="follow_back">Följ tillbaka</string>
 	<string name="button_follow_pending">Väntande</string>
 	<string name="follows_you">Följer dig</string>
@@ -287,11 +286,13 @@
 	<string name="instance_signup_closed">Denna server accepterar inte nyregistreringar.</string>
 	<string name="text_copied">Kopierat till urklipp</string>
 	<string name="add_bookmark">Bokmärk</string>
+	<string name="remove_bookmark">Ta bort bokmärke</string>
 	<string name="bookmarks">Bokmärken</string>
-	<string name="your_favorites">Dina favoriter</string>
+	<string name="your_favorites">Favoriter</string>
 	<string name="login_title">Välkommen tillbaka</string>
 	<string name="login_subtitle">Logga in på den server där du skapade ditt konto.</string>
 	<string name="server_url">Server-URL</string>
+	<string name="server_filter_manual_review">Manuell granskning</string>
 	<string name="server_filter_region_europe">Europa</string>
 	<string name="server_filter_region_north_america">Nordamerika</string>
 	<string name="server_filter_region_south_america">Sydamerika</string>
@@ -539,6 +540,7 @@
 	<string name="add_user_to_list">Lägg till/ta bort från listor…</string>
 	<string name="add_user_to_list_title">Lägg till i lista</string>
 	<!-- %s is a username -->
+	<string name="manage_user_lists">Hantera listorna %s visas på</string>
 	<string name="remove_from_list">Ta bort från lista</string>
 	<string name="confirm_remove_list_member">Ta bort medlem?</string>
 	<string name="create_list">Skapa lista</string>
@@ -546,6 +548,7 @@
 	<string name="create">Skapa</string>
 	<string name="manage_list_members">Hantera listmedlemmar</string>
 	<string name="list_no_members">Inga medlemmar än</string>
+	<string name="non_mutual_sheet_title">Hej, ny anslutning!</string>
 	<string name="got_it">Jag förstår</string>
 	<string name="dont_remind_again">Påminn mig inte igen</string>
 	<!-- %s is a time interval ("5 months") -->
@@ -559,7 +562,10 @@
 	<string name="article_by_author">Av %s</string>
 	<string name="invalid_invite_link">Ogiltig inbjudningslänk</string>
 	<string name="use_invite_link">Använd inbjudningslänk</string>
+	<string name="enter_invite_link">Ange inbjudningslänk</string>
 	<string name="block_user_confirm_title">Blockera användare?</string>
+	<string name="user_cant_see_each_other_posts">De kan inte se dina inlägg och du kommer inte att se deras.</string>
+	<string name="user_cant_mention_or_follow_you">De kan inte nämna eller följa dig.</string>
 	<string name="block_domain_confirm_title">Blockera domän?</string>
 	<string name="do_block_server">Blockera server</string>
 	<string name="server">Server</string>
@@ -585,6 +591,7 @@
 	</plurals>
 	<string name="visibility_subtitle_followers">Endast dina följare</string>
 	<string name="view_favorites">Visa favoriter</string>
+	<string name="donation_once">Bara en gång</string>
 	<string name="currency">Valuta</string>
 	<string name="donation_success_title">Tack för ditt bidrag!</string>
 	<string name="donation_success_subtitle">Du kommer snart att få ett e-postmeddelande som bekräftar din donation.</string>
@@ -609,4 +616,24 @@
 	<string name="moderation_warning_action_silence">Ditt konto har begränsats.</string>
 	<string name="moderation_warning_learn_more">Läs mer</string>
 	<string name="confirm_avatar_crop">Välj</string>
+	<string name="settings_accounts">Konton</string>
+	<string name="settings_add_account">Lägg till konto...</string>
+	<string name="account_settings">Kontoinställningar</string>
+	<string name="manage_account">Hantera konto</string>
+	<string name="delete_account">Radera konto</string>
+	<string name="notification_type_status">Nya inlägg</string>
+	<string name="profile_saved_posts_explanation">Dina sparade inlägg är bara synliga för dig.</string>
+	<!-- appears when you're about to block a server -->
+	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
+	<string name="server_x_followers_and_following_will_be_removed">Du kommer att förlora %1$s och %2$s.</string>
+	<plurals name="will_lose_x_followers">
+		<item quantity="one">%,d följare</item>
+		<item quantity="other">%,d följare</item>
+	</plurals>
+	<plurals name="will_lose_x_following">
+		<item quantity="one">%,d person du följer</item>
+		<item quantity="other">%,d personer du följer</item>
+	</plurals>
+	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
+	<string name="server_x_following_will_be_removed">Du kommer att förlora %s.</string>
 </resources>

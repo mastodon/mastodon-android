@@ -235,7 +235,6 @@
 	<string name="local_timeline_info_banner">Questi sono tutti i post di tutti gli utenti nel tuo server (%s).</string>
 	<string name="recommended_accounts_info_banner">Questi account potrebbero piacerti in base agli altri che segui.</string>
 	<string name="see_new_posts">Nuovi post</string>
-	<string name="load_missing_posts">Carica i post mancanti</string>
 	<string name="follow_back">Segui anche tu</string>
 	<string name="button_follow_pending">In attesa</string>
 	<string name="follows_you">Ha iniziato a seguirti</string>
@@ -304,7 +303,7 @@
 	<string name="add_bookmark">Segnalibro</string>
 	<string name="remove_bookmark">Rimuovi segnalibro</string>
 	<string name="bookmarks">Segnalibri</string>
-	<string name="your_favorites">I tuoi preferiti</string>
+	<string name="your_favorites">Preferiti</string>
 	<string name="login_title">Bentornato/a</string>
 	<string name="login_subtitle">Accedi con il server in cui hai creato il tuo account.</string>
 	<string name="server_url">URL del server</string>
@@ -666,7 +665,6 @@ Più persone segui, più sarà attivo e interessante.</string>
 	<string name="block_user_x_instead">Blocca %s invece</string>
 	<string name="users_cant_see_blocked">Non vedrai post o notifiche dagli utenti su questo server.</string>
 	<string name="you_wont_see_server_posts">Non vedrai alcun post dagli utenti su questo server.</string>
-	<string name="server_followers_will_be_removed">I tuoi seguaci da questo server verranno rimossi.</string>
 	<string name="server_cant_mention_or_follow_you">Nessuno da questo server può seguirti.</string>
 	<string name="server_can_interact_with_older">Le persone da questo server possono interagire con i tuoi vecchi post.</string>
 	<string name="unblocked_domain_x">Dominio %s sbloccato</string>
@@ -802,4 +800,52 @@ Più persone segui, più sarà attivo e interessante.</string>
 	<string name="moderation_warning_action_suspend">Il tuo account è stato sospeso.</string>
 	<string name="moderation_warning_learn_more">Per saperne di più</string>
 	<string name="text_show_more">Altro</string>
+	<string name="avatar_move_and_scale">Sposta e ridimensiona</string>
+	<string name="confirm_avatar_crop">Scegli</string>
+	<string name="settings_use_dynamic_colors">Utilizzare il colore dinamico del sistema</string>
+	<string name="settings_accounts">Account</string>
+	<string name="settings_add_account">Aggiungi account...</string>
+	<string name="settings_app_settings">Impostazioni dell\'app</string>
+	<string name="account_settings">Impostazioni dell\'account</string>
+	<string name="settings_about_this_server">Riguardo questo server</string>
+	<string name="manage_account">Gestisci l\'account</string>
+	<string name="switch_to_this_account">Passa a questo account</string>
+	<string name="delete_account">Cancella l\'account</string>
+	<string name="notification_type_status">Nuovi post</string>
+	<plurals name="user_and_x_more_followed">
+		<item quantity="one">%1$s e %2$,d altro hanno iniziato a seguirti</item>
+		<item quantity="other">%1$s e altri %2$,d hanno iniziato a seguirti</item>
+	</plurals>
+	<string name="familiar_followers_one">Seguito da %s</string>
+	<string name="familiar_followers_two">Seguito da %s e %s</string>
+	<string name="profile_saved_posts">Salvati</string>
+	<string name="profile_saved_posts_explanation">I tuoi post salvati sono visibili solo da te.</string>
+	<string name="search_people">Persone</string>
+	<plurals name="familiar_followers_many">
+		<item quantity="one">Seguito da %1$s, %2$s e %3$,d altro</item>
+		<item quantity="other">Seguito da %1$s, %2$s e altri %3$,d</item>
+	</plurals>
+	<plurals name="x_followers_you_know">
+		<item quantity="one">%,d seguace che conosci</item>
+		<item quantity="other">%,d seguaci che conosci</item>
+	</plurals>
+	<!-- appears when you're about to block a server -->
+	<plurals name="server_x_followers_will_be_removed">
+		<item quantity="one">%,d seguace sarà rimosso da questo server.</item>
+		<item quantity="other">%,d seguaci saranno rimossi da questo server.</item>
+	</plurals>
+	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
+	<string name="server_x_followers_and_following_will_be_removed">Perderai %1$s seguaci e %2$s persone che segui.</string>
+	<plurals name="will_lose_x_followers">
+		<item quantity="one">%,d seguace</item>
+		<item quantity="other">%,d seguaci</item>
+	</plurals>
+	<plurals name="will_lose_x_following">
+		<item quantity="one">%,d persona che segui</item>
+		<item quantity="other">%,d persone che segui</item>
+	</plurals>
+	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
+	<string name="server_x_following_will_be_removed">Perderai %s persone che segui.</string>
+	<string name="load_missing_posts_above">Carica i post mancanti sopra</string>
+	<string name="load_missing_posts_below">Carica i post mancanti sotto</string>
 </resources>

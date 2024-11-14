@@ -176,7 +176,6 @@
 	<string name="downloading">Asader…</string>
 	<!-- %s is the server domain -->
 	<string name="see_new_posts">Tisuffaɣ timaynutin</string>
-	<string name="load_missing_posts">Sali tisuffaɣ i iruḥen</string>
 	<string name="button_follow_pending">Yettraǧu</string>
 	<string name="follows_you">Yeṭṭafaṛ-ik·em-id</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
@@ -191,7 +190,6 @@
 	<string name="i_agree">Qebleɣ</string>
 	<string name="add_bookmark">Creḍ</string>
 	<string name="bookmarks">Ticraḍ</string>
-	<string name="your_favorites">Ismenyifen-ik·im</string>
 	<string name="login_title">Ansuf yes-k·m tikkelt niḍen</string>
 	<string name="server_filter_any_language">Yal tutlayt</string>
 	<string name="server_filter_region_europe">Turuft</string>
@@ -253,4 +251,7 @@
 	<!-- %s is the username -->
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
+	<!-- appears when you're about to block a server -->
+	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
+	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
 </resources>

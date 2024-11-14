@@ -222,7 +222,6 @@
 	<string name="local_timeline_info_banner">Ini adalah kiriman dari semua pengguna di server Anda (%s).</string>
 	<string name="recommended_accounts_info_banner">Anda mungkin suka akun berikut berdasarkan orang-orang yang Anda ikuti.</string>
 	<string name="see_new_posts">Kiriman baru</string>
-	<string name="load_missing_posts">Muat kiriman yang hilang</string>
 	<string name="follow_back">Ikuti balik</string>
 	<string name="button_follow_pending">Ditunda</string>
 	<string name="follows_you">Mengikuti Anda</string>
@@ -285,7 +284,6 @@
 	<string name="add_bookmark">Markah</string>
 	<string name="remove_bookmark">Hapus bookmark</string>
 	<string name="bookmarks">Markah</string>
-	<string name="your_favorites">Favorit Anda</string>
 	<string name="login_title">Selamat datang kembali</string>
 	<string name="login_subtitle">Masuk dengan server di mana Anda buat akun Anda.</string>
 	<string name="server_url">URL Server</string>
@@ -632,7 +630,6 @@
 	<string name="block_user_x_instead">Blokir %s saja</string>
 	<string name="users_cant_see_blocked">Anda tidak akan melihat kiriman atau notifikasi dari pengguna di server ini.</string>
 	<string name="you_wont_see_server_posts">Anda tidak akan melihat kiriman apa pun dari pengguna di server ini.</string>
-	<string name="server_followers_will_be_removed">Pengikut Anda dari server ini akan dihapus.</string>
 	<string name="server_cant_mention_or_follow_you">Tidak ada siapa pun dari server ini yang dapat mengikuti Anda.</string>
 	<string name="server_can_interact_with_older">Orang-orang dari server ini dapat berinteraksi dengan kiriman lama Anda.</string>
 	<string name="unblocked_domain_x">Domain %s dibuka pemblokirannya</string>
@@ -761,4 +758,7 @@
 	<string name="moderation_warning_action_silence">Akun Anda telah dibatasi.</string>
 	<string name="moderation_warning_action_suspend">Akun Anda telah ditangguhkan.</string>
 	<string name="moderation_warning_learn_more">Pelajari lebih lanjut</string>
+	<!-- appears when you're about to block a server -->
+	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
+	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
 </resources>

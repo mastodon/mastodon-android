@@ -235,7 +235,6 @@
 	<string name="local_timeline_info_banner">Estos son todos los mensajes de todos los usuarios de tu servidor (%s).</string>
 	<string name="recommended_accounts_info_banner">Es posible que te gusten estas cuentas basadas en otras que sigues.</string>
 	<string name="see_new_posts">Nuevas publicaciones</string>
-	<string name="load_missing_posts">Cargar publicaciones faltantes</string>
 	<string name="follow_back">Seguir también</string>
 	<string name="button_follow_pending">Pendiente</string>
 	<string name="follows_you">Te sigue</string>
@@ -304,7 +303,7 @@
 	<string name="add_bookmark">Añadir marcador</string>
 	<string name="remove_bookmark">Eliminar marcador</string>
 	<string name="bookmarks">Marcadores</string>
-	<string name="your_favorites">Tus favoritos</string>
+	<string name="your_favorites">Favoritos</string>
 	<string name="login_title">Bienvenido/da de nuevo</string>
 	<string name="login_subtitle">Inicia sesión con el servidor donde creaste tu cuenta.</string>
 	<string name="server_url">URL del servidor</string>
@@ -666,7 +665,6 @@ Mientras más personas sigas, más activo e interesante será.</string>
 	<string name="block_user_x_instead">Bloquear a %s en su lugar</string>
 	<string name="users_cant_see_blocked">No verás publicaciones ni notificaciones de usuarios en este servidor.</string>
 	<string name="you_wont_see_server_posts">No verás ninguna publicación de usuarios en este servidor.</string>
-	<string name="server_followers_will_be_removed">Tus seguidores de este servidor serán eliminados.</string>
 	<string name="server_cant_mention_or_follow_you">Nadie de este servidor puede seguirte.</string>
 	<string name="server_can_interact_with_older">Las personas de este servidor pueden interactuar con tus mensajes antiguos.</string>
 	<string name="unblocked_domain_x">El dominio %s ya no está bloqueado</string>
@@ -802,4 +800,36 @@ Mientras más personas sigas, más activo e interesante será.</string>
 	<string name="moderation_warning_action_suspend">Tu cuenta ha sido suspendida.</string>
 	<string name="moderation_warning_learn_more">Saber más</string>
 	<string name="text_show_more">Más</string>
+	<string name="avatar_move_and_scale">Mover y ajustar</string>
+	<string name="confirm_avatar_crop">Seleccionar</string>
+	<string name="settings_use_dynamic_colors">Usar color dinámico del sistema</string>
+	<string name="settings_accounts">Cuentas</string>
+	<string name="settings_add_account">Añadir cuenta...</string>
+	<string name="settings_app_settings">Ajustes de la aplicación</string>
+	<string name="account_settings">Ajustes de la cuenta</string>
+	<string name="settings_about_this_server">Acerca de este servidor</string>
+	<string name="manage_account">Administrar cuenta</string>
+	<string name="switch_to_this_account">Cambiar a esta cuenta</string>
+	<string name="delete_account">Eliminar cuenta</string>
+	<string name="notification_type_status">Nuevas publicaciones</string>
+	<plurals name="user_and_x_more_followed">
+		<item quantity="one">%1$s y %2$,d otro te siguieron</item>
+		<item quantity="other">%1$s y %2$,d otros te siguieron</item>
+	</plurals>
+	<string name="familiar_followers_one">Seguido por %s</string>
+	<string name="familiar_followers_two">Seguido por %s y %s</string>
+	<string name="profile_saved_posts">Guardado</string>
+	<string name="profile_saved_posts_explanation">Tus publicaciones guardadas solo son visibles para ti.</string>
+	<string name="search_people">Personas</string>
+	<plurals name="familiar_followers_many">
+		<item quantity="one">Seguido por %1$s, %2$s y %3$,d otro</item>
+		<item quantity="other">Seguido por %1$s, %2$s y %3$,d otros</item>
+	</plurals>
+	<plurals name="x_followers_you_know">
+		<item quantity="one">%,d seguidor que tú conoces</item>
+		<item quantity="other">%,d seguidores que tú conoces</item>
+	</plurals>
+	<!-- appears when you're about to block a server -->
+	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
+	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
 </resources>

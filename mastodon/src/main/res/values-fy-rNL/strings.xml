@@ -235,7 +235,6 @@
 	<string name="local_timeline_info_banner">Dit binne alle berjochten fan alle brûkers op jo server (%s).</string>
 	<string name="recommended_accounts_info_banner">Mooglik fine jo dizze accounts aardich op basis fan oare accounts dy’t jo folgje.</string>
 	<string name="see_new_posts">Nije berjochten</string>
-	<string name="load_missing_posts">Mear berjochten lade</string>
 	<string name="follow_back">Weromfolgje</string>
 	<string name="button_follow_pending">Yn ôfwachting</string>
 	<string name="follows_you">Folget jo</string>
@@ -304,7 +303,6 @@
 	<string name="add_bookmark">Blêdwizer tafoegje</string>
 	<string name="remove_bookmark">Blêdwizer fuortsmite</string>
 	<string name="bookmarks">Blêdwizers</string>
-	<string name="your_favorites">Jo favoriten</string>
 	<string name="login_title">Wolkom werom</string>
 	<string name="login_subtitle">Oanmelde by de server dêr’t jo jo account oanmakke hawwe.</string>
 	<string name="server_url">Server-URL</string>
@@ -548,4 +546,7 @@
 	<!-- %s is the username -->
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
+	<!-- appears when you're about to block a server -->
+	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
+	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
 </resources>
