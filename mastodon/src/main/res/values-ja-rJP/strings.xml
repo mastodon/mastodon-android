@@ -166,7 +166,7 @@
 	<string name="media_attachment_unsupported_type">ファイル %s は対応していないファイル形式です</string>
 	<string name="media_attachment_too_big">ファイル %1$s が上限の %2$s MB を超えています</string>
 	<string name="settings_theme">テーマ</string>
-	<string name="theme_auto">デバイスのテーマ</string>
+	<string name="theme_auto">端末のテーマ</string>
 	<string name="theme_light">ライト</string>
 	<string name="theme_dark">ダーク</string>
 	<string name="settings_behavior">動作</string>
@@ -183,7 +183,7 @@
 	<string name="sensitive_content_explain">投稿者が閲覧注意に設定しました。</string>
 	<string name="avatar_description">%s さんのプロフィールを見る</string>
 	<string name="more_options">その他のオプション</string>
-	<string name="new_post">新しい投稿</string>
+	<string name="new_post">新規投稿</string>
 	<string name="button_reply">返信</string>
 	<string name="button_reblog">ブースト</string>
 	<string name="button_favorite">お気に入り</string>
@@ -221,7 +221,7 @@
 	<!-- %s is the server domain -->
 	<string name="local_timeline_info_banner">あなたのサーバー (%s) の全ユーザーの全投稿です。</string>
 	<string name="recommended_accounts_info_banner">こちらは、あなたがフォローしている人に基づいた、おすすめのアカウントです。</string>
-	<string name="see_new_posts">新しい投稿</string>
+	<string name="see_new_posts">新着投稿</string>
 	<string name="follow_back">フォローバック</string>
 	<string name="button_follow_pending">保留</string>
 	<string name="follows_you">フォローされています</string>
@@ -762,11 +762,44 @@
 	<string name="text_show_more">もっと見る</string>
 	<string name="avatar_move_and_scale">移動と拡大/縮小</string>
 	<string name="confirm_avatar_crop">選択</string>
+	<string name="settings_use_dynamic_colors">Dynamic color を使用する</string>
 	<string name="settings_accounts">アカウント</string>
 	<string name="settings_add_account">アカウントを追加...</string>
 	<string name="settings_app_settings">アプリ設定</string>
 	<string name="account_settings">アカウント設定</string>
+	<string name="settings_about_this_server">このサーバーについて</string>
+	<string name="manage_account">アカウント管理</string>
+	<string name="switch_to_this_account">このアカウントに切り替える</string>
+	<string name="delete_account">アカウントを削除する</string>
+	<string name="notification_type_status">新着投稿</string>
+	<plurals name="user_and_x_more_followed">
+		<item quantity="other">%1$s さん他 %2$,d 人にフォローされています</item>
+	</plurals>
+	<string name="familiar_followers_one">%s さんにフォローされています</string>
+	<string name="familiar_followers_two">%s さんと %s さんにフォローされています</string>
+	<string name="profile_saved_posts">保存した投稿</string>
+	<string name="profile_saved_posts_explanation">保存した投稿はあなたのみ閲覧できます。</string>
+	<string name="search_people">人々</string>
+	<plurals name="familiar_followers_many">
+		<item quantity="other">%1$s さん、%2$s さん他 %3$,d 人にフォローされています</item>
+	</plurals>
+	<plurals name="x_followers_you_know">
+		<item quantity="other">あなたの知り合い %,d 人のフォロワー</item>
+	</plurals>
 	<!-- appears when you're about to block a server -->
+	<plurals name="server_x_followers_will_be_removed">
+		<item quantity="other">このサーバーの %,d 人のフォロワーが削除されます。</item>
+	</plurals>
 	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
+	<string name="server_x_followers_and_following_will_be_removed">%1$sと%2$sがいなくなります。</string>
+	<plurals name="will_lose_x_followers">
+		<item quantity="other">フォロワー %,d 人</item>
+	</plurals>
+	<plurals name="will_lose_x_following">
+		<item quantity="other">フォローしている %,d 人</item>
+	</plurals>
 	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
+	<string name="server_x_following_will_be_removed">%sがいなくなります。</string>
+	<string name="load_missing_posts_above">上の不足している投稿を読み込む</string>
+	<string name="load_missing_posts_below">下の不足している投稿を読み込む</string>
 </resources>
