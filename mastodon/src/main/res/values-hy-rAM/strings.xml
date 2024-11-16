@@ -13,6 +13,8 @@
 	<string name="notifications">Ծանուցումներ</string>
 	<string name="user_followed_you">%s սկսեց հետեւել ձեզ</string>
 	<string name="user_sent_follow_request">%s հետեւելու հարցում է ուղարկել</string>
+	<string name="user_favorited">%s-ը նախընտրեց`</string>
+	<string name="notification_boosted">%s-ը տարածեց`</string>
 	<string name="share_toot_title">Տարածել</string>
 	<string name="settings">Կարգավորումներ</string>
 	<string name="publish">Հրապարակել</string>
@@ -301,6 +303,7 @@
 	<string name="add_bookmark">Ավելացնել էջանիշ</string>
 	<string name="remove_bookmark">Հեռացնել էջանիշը</string>
 	<string name="bookmarks">Էջանիշեր</string>
+	<string name="your_favorites">Հավանածներ</string>
 	<string name="login_title">Բարի վերադարձ</string>
 	<string name="login_subtitle">Մուտք գործեք այն սպասարկչի միջոցով, որտեղ ստեղծել եք ձեր հաշիվը։</string>
 	<string name="server_url">Սպասարկչի հասցե</string>
@@ -685,7 +688,24 @@
 	<string name="video_saved">Տեսանյութը պահպանվել է։</string>
 	<string name="view_file">Դիտել</string>
 	<string name="share_sheet_preview_profile">%s-ը Մաստոդոնում</string>
+	<string name="share_sheet_preview_post">%1$s-ը Մաստոդոնում․ «%2$s»</string>
+	<string name="copy_profile_link">Պատճենել հաշվի հղումը</string>
+	<string name="in_app_browser">Ներքին զննիչ</string>
+	<string name="system_browser">Համակարգի զննիչ</string>
+	<string name="add_muted_word_short">Ավելացնել բառ</string>
+	<string name="tab_home">Գլխավոր</string>
+	<string name="tab_search">Բացահայտել</string>
+	<string name="tab_profile">Հաշիվ</string>
+	<string name="pin_post">Ամրացնել անձնական էջում</string>
+	<string name="unpin_post">Հանել անձնական էջին ամրացումը</string>
+	<string name="post_pinned">Գրառումն ամրացվել է</string>
+	<string name="post_unpinned">Գրառման ամրացումը հանվել է</string>
 	<!-- %s is the username -->
+	<string name="enable_new_post_notifications">Ծանուցել ինձ %s-ի գրառումների մասին</string>
+	<string name="disable_new_post_notifications">Անջատել %s-ի գրառումների մասին ծանուցումները</string>
+	<string name="new_post_notifications_enabled">Դուք կստանաք նոր գրառումների մասին ծանուցումներ։</string>
+	<string name="new_post_notifications_disabled">Դուք այլևս չեք ստանա նոր գրառումների մասին ծանուցումներ։</string>
+	<string name="mute_conversation">Լռեցնել խոսակցությունը</string>
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
 	<!-- appears when you're about to block a server -->
