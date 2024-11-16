@@ -13,6 +13,7 @@
 	<string name="notifications">Ειδοποιήσεις</string>
 	<string name="user_followed_you">%s σε ακολούθησε</string>
 	<string name="user_sent_follow_request">%s σού έστειλε ένα αίτημα ακολούθησης</string>
+	<string name="user_favorited">Ο χρήστης %s αγάπησε:</string>
 	<string name="notification_boosted">Ο χρήστης %s ενίσχυσε:</string>
 	<string name="share_toot_title">Κοινοποίηση</string>
 	<string name="settings">Ρυθμίσεις</string>
@@ -302,6 +303,7 @@
 	<string name="add_bookmark">Σελιδοδείκτης</string>
 	<string name="remove_bookmark">Αφαίρεση σελιδοδείκτη</string>
 	<string name="bookmarks">Σελιδοδείκτες</string>
+	<string name="your_favorites">Αγαπημένα</string>
 	<string name="login_title">Καλωσόρισες και πάλι</string>
 	<string name="login_subtitle">Συνδέσου με τον διακομιστή όπου δημιούργησες τον λογαριασμό σου.</string>
 	<string name="server_url">URL διακομιστή</string>
@@ -762,6 +764,14 @@
 	<plurals name="x_attachments">
 		<item quantity="one">%d συνημμένο</item>
 		<item quantity="other">%d συνημμένα</item>
+	</plurals>
+	<plurals name="user_and_x_more_favorited">
+		<item quantity="one">Οι %1$s και %2$,d ακόμη αγάπησαν:</item>
+		<item quantity="other">Οι %1$s και %2$,d ακόμη αγάπησαν:</item>
+	</plurals>
+	<plurals name="user_and_x_more_boosted">
+		<item quantity="one">Οι %1$s και %2$,d ακόμη ενίσχυσαν:</item>
+		<item quantity="other">Οι %1$s και %2$,d ακόμη ενίσχυσαν:</item>
 	</plurals>
 	<string name="own_poll_ended">Η δημοσκόπησή σου έληξε</string>
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
