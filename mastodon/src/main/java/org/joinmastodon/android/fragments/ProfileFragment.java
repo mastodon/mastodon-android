@@ -50,6 +50,7 @@ import android.widget.Toolbar;
 
 import org.joinmastodon.android.GlobalUserPreferences;
 import org.joinmastodon.android.R;
+import org.joinmastodon.android.api.MastodonAPIRequest;
 import org.joinmastodon.android.api.requests.accounts.GetAccountByID;
 import org.joinmastodon.android.api.requests.accounts.GetAccountFamiliarFollowers;
 import org.joinmastodon.android.api.requests.accounts.GetAccountRelationships;
@@ -95,6 +96,7 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -104,6 +106,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import androidx.viewpager2.widget.ViewPager2;
 import me.grishka.appkit.Nav;
+import me.grishka.appkit.api.APIRequest;
 import me.grishka.appkit.api.Callback;
 import me.grishka.appkit.api.ErrorResponse;
 import me.grishka.appkit.api.SimpleCallback;
@@ -172,6 +175,7 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 	private MenuItem editSaveMenuItem;
 	private boolean savingEdits;
 	private Runnable editModeBackCallback=this::onEditModeBackCallback;
+	private HashSet<APIRequest<?>> relationshipRequests=new HashSet<>();
 
 	@Override
 	public void onCreate(Bundle savedInstanceState){
@@ -198,6 +202,14 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 	public void onAttach(Activity activity){
 		super.onAttach(activity);
 		setHasOptionsMenu(true);
+	}
+
+	@Override
+	public void onDestroy(){
+		super.onDestroy();
+		for(APIRequest<?> req:relationshipRequests)
+			req.cancel();
+		relationshipRequests.clear();
 	}
 
 	@Override
@@ -801,10 +813,13 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 	}
 
 	private void loadRelationship(){
-		new GetAccountRelationships(Collections.singletonList(account.id))
-				.setCallback(new Callback<>(){
+		MastodonAPIRequest<List<Relationship>> relReq=new GetAccountRelationships(Collections.singletonList(account.id));
+		relReq.setCallback(new Callback<>(){
 					@Override
 					public void onSuccess(List<Relationship> result){
+						relationshipRequests.remove(relReq);
+						if(getActivity()==null)
+							return;
 						if(!result.isEmpty()){
 							relationship=result.get(0);
 							updateRelationship();
@@ -813,14 +828,17 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 
 					@Override
 					public void onError(ErrorResponse error){
-
+						relationshipRequests.remove(relReq);
 					}
 				})
 				.exec(accountID);
-		new GetAccountFamiliarFollowers(Set.of(account.id))
-				.setCallback(new Callback<>(){
+		MastodonAPIRequest<List<FamiliarFollowers>> followersReq=new GetAccountFamiliarFollowers(Set.of(account.id));
+		followersReq.setCallback(new Callback<>(){
 					@Override
 					public void onSuccess(List<FamiliarFollowers> result){
+						relationshipRequests.remove(followersReq);
+						if(getActivity()==null)
+							return;
 						for(FamiliarFollowers ff:result){
 							if(ff.id.equals(account.id)){
 								familiarFollowers=ff.accounts;
@@ -832,10 +850,12 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 
 					@Override
 					public void onError(ErrorResponse error){
-
+						relationshipRequests.remove(followersReq);
 					}
 				})
 				.exec(accountID);
+		relationshipRequests.add(relReq);
+		relationshipRequests.add(followersReq);
 	}
 
 	private void updateRelationship(){
