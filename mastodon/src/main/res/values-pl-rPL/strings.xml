@@ -256,7 +256,6 @@
 	<string name="local_timeline_info_banner">To są wszystkie posty od wszystkich użytkowników na Twoim serwerze (%s).</string>
 	<string name="recommended_accounts_info_banner">Może spodobają się Tobie te konta, bazując na tych, których już obserwujesz?</string>
 	<string name="see_new_posts">Zobacz nowe posty</string>
-	<string name="load_missing_posts">Załaduj brakujące wpisy</string>
 	<string name="follow_back">Obserwuj wzajemnie</string>
 	<string name="button_follow_pending">Oczekujące</string>
 	<string name="follows_you">Obserwuje cię</string>
@@ -336,7 +335,6 @@
 	<string name="text_copied">Skopiowano do schowka</string>
 	<string name="add_bookmark">Dodaj zakładkę</string>
 	<string name="bookmarks">Zakładki</string>
-	<string name="your_favorites">Twoje ulubione</string>
 	<string name="login_title">Witaj ponownie</string>
 	<string name="login_subtitle">Zaloguj się na serwer, na którym utworzyłeś swoje konto.</string>
 	<string name="server_url">Adres URL serwera</string>
@@ -688,7 +686,6 @@ Im więcej ludzi obserwujesz, tym aktywniejsza i bardziej interesująca się sta
 	<string name="block_user_x_instead">Zamiast tego blokuj %s</string>
 	<string name="users_cant_see_blocked">Nie zobaczysz postów ani powiadomień od użytkowników na tym serwerze.</string>
 	<string name="you_wont_see_server_posts">Nie zobaczysz postów od użytkowników na tym serwerze.</string>
-	<string name="server_followers_will_be_removed">Twoi obserwujący z tego serwera zostaną usunięci.</string>
 	<string name="server_cant_mention_or_follow_you">Nikt z tego serwera nie może Cię obserwować.</string>
 	<string name="server_can_interact_with_older">Ludzie z tego serwera mogą wchodzić w interakcje z Twoimi starymi wpisami.</string>
 	<string name="unblocked_domain_x">Odblokowano domenę %s</string>
@@ -748,4 +745,7 @@ Im więcej ludzi obserwujesz, tym aktywniejsza i bardziej interesująca się sta
 	<string name="notifications_allowed">%s pojawi się teraz na liście powiadomień.</string>
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
+	<!-- appears when you're about to block a server -->
+	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
+	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
 </resources>

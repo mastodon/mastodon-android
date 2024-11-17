@@ -234,7 +234,6 @@
 	<string name="local_timeline_info_banner">Αυτές είναι όλες οι αναρτήσεις από όλους τους χρήστες στο διακομιστή σου (%s).</string>
 	<string name="recommended_accounts_info_banner">Μπορεί να σού αρέσουν αυτοί οι λογαριασμοί με βάση άλλους που ακολουθείς.</string>
 	<string name="see_new_posts">Νέες αναρτήσεις</string>
-	<string name="load_missing_posts">Φόρτωση αναρτήσεων που λείπουν</string>
 	<string name="follow_back">Ακολούθησε και εσύ</string>
 	<string name="button_follow_pending">Εκκρεμεί</string>
 	<string name="follows_you">Σε ακολουθεί</string>
@@ -303,7 +302,6 @@
 	<string name="add_bookmark">Σελιδοδείκτης</string>
 	<string name="remove_bookmark">Αφαίρεση σελιδοδείκτη</string>
 	<string name="bookmarks">Σελιδοδείκτες</string>
-	<string name="your_favorites">Τα αγαπημένα σου</string>
 	<string name="login_title">Καλωσόρισες και πάλι</string>
 	<string name="login_subtitle">Συνδέσου με τον διακομιστή όπου δημιούργησες τον λογαριασμό σου.</string>
 	<string name="server_url">URL διακομιστή</string>
@@ -664,7 +662,6 @@
 	<string name="block_user_x_instead">Αποκλεισμός %s αντ\' αυτού</string>
 	<string name="users_cant_see_blocked">Δεν θα βλέπεις αναρτήσεις ή ειδοποιήσεις από χρήστες σε αυτόν το διακομιστή.</string>
 	<string name="you_wont_see_server_posts">Δε θα βλέπεις καμία ανάρτηση από χρήστες σε αυτό το διακομιστή.</string>
-	<string name="server_followers_will_be_removed">Οι ακόλουθοί σου από αυτόν τον διακομιστή θα αφαιρεθούν.</string>
 	<string name="server_cant_mention_or_follow_you">Κανείς από αυτόν τον διακομιστή δεν μπορεί να σε ακολουθήσει.</string>
 	<string name="server_can_interact_with_older">Άτομα από αυτόν τον διακομιστή μπορούν να αλληλεπιδράσουν με τις παλιές αναρτήσεις σου.</string>
 	<string name="unblocked_domain_x">Άρση αποκλεισμού τομέα %s</string>
@@ -778,4 +775,7 @@
 	<string name="moderation_warning_action_silence">Ο λογαριασμός σου έχει περιοριστεί.</string>
 	<string name="moderation_warning_action_suspend">Ο λογαριασμός σου έχει ανασταλεί.</string>
 	<string name="moderation_warning_learn_more">Μάθε περισσότερα</string>
+	<!-- appears when you're about to block a server -->
+	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
+	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
 </resources>

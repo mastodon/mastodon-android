@@ -222,7 +222,6 @@
 	<string name="local_timeline_info_banner">Đây là những tút từ người trên máy chủ của bạn (%s)</string>
 	<string name="recommended_accounts_info_banner">Có thể bạn quen những người này chăng?!</string>
 	<string name="see_new_posts">Những tút mới</string>
-	<string name="load_missing_posts">Tải tút chưa đọc</string>
 	<string name="follow_back">Theo dõi lại</string>
 	<string name="button_follow_pending">Đang chờ</string>
 	<string name="follows_you">Đang theo dõi bạn</string>
@@ -633,7 +632,6 @@ Bạn càng theo dõi nhiều người thì nó sẽ càng sôi động và thú
 	<string name="block_user_x_instead">Chỉ chặn %s</string>
 	<string name="users_cant_see_blocked">Bạn sẽ không thấy tút hoặc thông báo từ thành viên máy chủ này.</string>
 	<string name="you_wont_see_server_posts">Bạn sẽ không thấy tút từ thành viên máy chủ này.</string>
-	<string name="server_followers_will_be_removed">Những người theo dõi bạn ở máy chủ này sẽ bị xóa.</string>
 	<string name="server_cant_mention_or_follow_you">Không ai trên máy chủ này có thể theo dõi bạn.</string>
 	<string name="server_can_interact_with_older">Thành viên máy chủ này có thể tương tác với các tút cũ của bạn.</string>
 	<string name="unblocked_domain_x">Bỏ chặn máy chủ %s</string>
@@ -765,7 +763,43 @@ Bạn càng theo dõi nhiều người thì nó sẽ càng sôi động và thú
 	<string name="avatar_move_and_scale">Kéo và thu phóng</string>
 	<string name="confirm_avatar_crop">Chọn</string>
 	<string name="settings_use_dynamic_colors">Giống hệ thống</string>
+	<string name="settings_accounts">Tài khoản</string>
+	<string name="settings_add_account">Thêm tài khoản...</string>
+	<string name="settings_app_settings">Cài đặt ứng dụng</string>
+	<string name="account_settings">Cài đặt tài khoản</string>
+	<string name="settings_about_this_server">Về máy chủ này</string>
+	<string name="manage_account">Quản lý tài khoản</string>
+	<string name="switch_to_this_account">Chuyển sang tài khoản này</string>
+	<string name="delete_account">Xóa tài khoản</string>
+	<string name="notification_type_status">Những tút mới</string>
 	<plurals name="user_and_x_more_followed">
 		<item quantity="other">%1$s và %2$,d người khác đã theo dõi bạn</item>
 	</plurals>
+	<string name="familiar_followers_one">Theo dõi bởi %s</string>
+	<string name="familiar_followers_two">Theo dõi bởi %s và %s</string>
+	<string name="profile_saved_posts">Những tút đã lưu</string>
+	<string name="profile_saved_posts_explanation">Những tút bạn lưu chỉ hiển thị với bạn.</string>
+	<string name="search_people">Người</string>
+	<plurals name="familiar_followers_many">
+		<item quantity="other">Theo dõi bởi %1$s, %2$s, và %3$,d người khác</item>
+	</plurals>
+	<plurals name="x_followers_you_know">
+		<item quantity="other">%,d người theo dõi bạn biết</item>
+	</plurals>
+	<!-- appears when you're about to block a server -->
+	<plurals name="server_x_followers_will_be_removed">
+		<item quantity="other">%,d người theo dõi bạn ở máy chủ này sẽ bị xóa.</item>
+	</plurals>
+	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
+	<string name="server_x_followers_and_following_will_be_removed">Bạn sẽ mất %1$s và %2$s.</string>
+	<plurals name="will_lose_x_followers">
+		<item quantity="other">%,d người theo dõi</item>
+	</plurals>
+	<plurals name="will_lose_x_following">
+		<item quantity="other">%,d người bạn theo dõi</item>
+	</plurals>
+	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
+	<string name="server_x_following_will_be_removed">Bạn sẽ mất %s.</string>
+	<string name="load_missing_posts_above">Tải tút chưa đọc ở trên</string>
+	<string name="load_missing_posts_below">Tải tút chưa đọc ở dưới</string>
 </resources>

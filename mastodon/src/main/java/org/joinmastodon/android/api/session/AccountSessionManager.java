@@ -395,8 +395,14 @@ public class AccountSessionManager{
 						case 2 -> InstanceV2.class;
 						default -> throw new IllegalStateException("Unexpected value: "+version);
 					});
+					instances.put(domain, instance);
 					StringBuilder emojiSB=new StringBuilder();
-					emojiSB.append(values.getAsString("emojis"));
+					String emojiPart=values.getAsString("emojis");
+					if(emojiPart==null){
+						// not putting anything into instancesLastUpdated to force a reload
+						continue;
+					}
+					emojiSB.append(emojiPart);
 					//get emoji in chunks of 1MB if it didn't fit in the first query
 					int emojiStringLength=values.getAsInteger("emoji_length");
 					if(emojiStringLength>maxEmojiLength){
@@ -409,13 +415,12 @@ public class AccountSessionManager{
 						}
 					}
 					List<Emoji> emojis=MastodonAPIController.gson.fromJson(emojiSB.toString(), new TypeToken<List<Emoji>>(){}.getType());
-					instances.put(domain, instance);
 					customEmojis.put(domain, groupCustomEmojis(emojis));
 					instancesLastUpdated.put(domain, values.getAsLong("last_updated"));
 				}
 			}catch(Exception ex){
 				Log.d(TAG, "readInstanceInfo failed", ex);
-				return;
+				// instancesLastUpdated will not contain that domain, so instance data will be forced to be reloaded
 			}
 		}
 		if(!loadedInstances){

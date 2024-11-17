@@ -235,7 +235,6 @@
 	<string name="local_timeline_info_banner">این‌ها همه فرسته‌های همه کاربران در سرور شما (%s) هستند.</string>
 	<string name="recommended_accounts_info_banner">ممکن است این حساب‌ها را بر اساس حساب‌های دیگری که پی می‌گیرید بپسندید.</string>
 	<string name="see_new_posts">فرسته‌های جدید</string>
-	<string name="load_missing_posts">بارگذاری فرسته‌های گم شده</string>
 	<string name="follow_back">پیگیری متقابل</string>
 	<string name="button_follow_pending">منتظر</string>
 	<string name="follows_you">پی‌گیرتان است</string>
@@ -304,7 +303,6 @@
 	<string name="add_bookmark">نشانک</string>
 	<string name="remove_bookmark">برداشتن نشانک</string>
 	<string name="bookmarks">نشانک‌ها</string>
-	<string name="your_favorites">برگزیده‌های شما</string>
 	<string name="login_title">خوش برگشتید</string>
 	<string name="login_subtitle">با کارسازی که حساب خود را در آن ایجاد کردید وارد شوید.</string>
 	<string name="server_url">نشانی کارساز</string>
@@ -655,7 +653,6 @@
 	<string name="do_block_server">مسدود کردن کارساز</string>
 	<string name="block_user_x_instead">درعوض %s را مسدود کنید</string>
 	<string name="you_wont_see_server_posts">شما هیچ پستی از افراد این سرور نخواهید دید.</string>
-	<string name="server_followers_will_be_removed">دنبال کننده های شما در این سرور حذف خواهند شد.</string>
 	<string name="server_cant_mention_or_follow_you">هیچ‌کسی از این کارساز نمی‌تواند پیتان بگیرد.</string>
 	<string name="server_can_interact_with_older">افراد روی این کارساز می‌توانند با فرسته‌های قدیمیتان تعامل داشته باشند.</string>
 	<string name="unblocked_domain_x">مسدودیت دامنه %s رفع شد</string>
@@ -747,4 +744,7 @@
 	<string name="moderation_warning_action_silence">حسابتان محدود شده.</string>
 	<string name="moderation_warning_action_suspend">حسابتان معلّق شده.</string>
 	<string name="moderation_warning_learn_more">بیشتر بدانید</string>
+	<!-- appears when you're about to block a server -->
+	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
+	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
 </resources>

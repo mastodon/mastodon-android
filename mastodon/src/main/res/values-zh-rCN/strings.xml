@@ -220,7 +220,6 @@
 	<string name="local_timeline_info_banner">以下是来自你所在实例（%s）的所有嘟文。</string>
 	<string name="recommended_accounts_info_banner">基于你的关注，你或许也会喜欢这些账号。</string>
 	<string name="see_new_posts">新嘟文</string>
-	<string name="load_missing_posts">加载错过的嘟文</string>
 	<string name="follow_back">回关</string>
 	<string name="button_follow_pending">已发送关注请求</string>
 	<string name="follows_you">已关注你</string>
@@ -283,7 +282,6 @@
 	<string name="add_bookmark">收藏</string>
 	<string name="remove_bookmark">移除书签</string>
 	<string name="bookmarks">收藏</string>
-	<string name="your_favorites">你的喜欢</string>
 	<string name="login_title">欢迎回来</string>
 	<string name="login_subtitle">登陆到你创建账户的服务器。</string>
 	<string name="server_url">实例 URL</string>
@@ -631,7 +629,6 @@
 	<string name="block_user_x_instead">改为屏蔽 @%s</string>
 	<string name="users_cant_see_blocked">你将不会看到该实例上用户的嘟文或通知。</string>
 	<string name="you_wont_see_server_posts">你将不会看到该实例上用户的嘟文。</string>
-	<string name="server_followers_will_be_removed">你的所有位于该实例的关注者都将被移除。</string>
 	<string name="server_cant_mention_or_follow_you">该实例上将不会有人可以关注你。</string>
 	<string name="server_can_interact_with_older">来自该实例的用户可以与你之前的嘟文交互。</string>
 	<string name="unblocked_domain_x">已取消屏蔽实例 %s</string>
@@ -726,4 +723,7 @@
 	<string name="settings_manage_donations">管理捐赠</string>
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
+	<!-- appears when you're about to block a server -->
+	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
+	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
 </resources>

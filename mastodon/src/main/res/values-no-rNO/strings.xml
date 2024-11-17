@@ -232,7 +232,6 @@
 	<string name="local_timeline_info_banner">Dette er alle innlegg fra alle brukere på din server (%s).</string>
 	<string name="recommended_accounts_info_banner">Du liker kanskje disse kontoene basert på de andre du følger.</string>
 	<string name="see_new_posts">Nye innlegg</string>
-	<string name="load_missing_posts">Last inn manglende innlegg</string>
 	<string name="follow_back">Følg tilbake</string>
 	<string name="button_follow_pending">Ventende</string>
 	<string name="follows_you">Følger deg</string>
@@ -301,7 +300,6 @@
 	<string name="add_bookmark">Bokmerke</string>
 	<string name="remove_bookmark">Fjern bokmerke</string>
 	<string name="bookmarks">Bokmerker</string>
-	<string name="your_favorites">Dine favoritter</string>
 	<string name="login_title">Velkommen tilbake</string>
 	<string name="login_subtitle">Logg inn med serveren der du opprettet kontoen din.</string>
 	<string name="server_url">Server link</string>
@@ -705,4 +703,7 @@ Jo flere folk du følger, jo mer aktiv og interessant blir den.</string>
 	</plurals>
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
+	<!-- appears when you're about to block a server -->
+	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
+	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
 </resources>

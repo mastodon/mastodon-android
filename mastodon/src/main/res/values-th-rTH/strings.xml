@@ -222,7 +222,6 @@
 	<string name="local_timeline_info_banner">นี่คือโพสต์ทั้งหมดจากผู้ใช้ทั้งหมดในเซิร์ฟเวอร์ของคุณ (%s)</string>
 	<string name="recommended_accounts_info_banner">คุณอาจชอบบัญชีเหล่านี้โดยอิงตามผู้อื่นที่คุณติดตาม</string>
 	<string name="see_new_posts">โพสต์ใหม่</string>
-	<string name="load_missing_posts">โหลดโพสต์ที่ขาดหายไป</string>
 	<string name="follow_back">ติดตามกลับ</string>
 	<string name="button_follow_pending">รอดำเนินการ</string>
 	<string name="follows_you">ติดตามคุณ</string>
@@ -285,7 +284,6 @@
 	<string name="add_bookmark">เพิ่มที่คั่นหน้า</string>
 	<string name="remove_bookmark">เอาที่คั่นหน้าออก</string>
 	<string name="bookmarks">ที่คั่นหน้า</string>
-	<string name="your_favorites">รายการโปรดของคุณ</string>
 	<string name="login_title">ยินดีต้อนรับกลับมา</string>
 	<string name="login_subtitle">เข้าสู่ระบบด้วยเซิร์ฟเวอร์ที่ซึ่งคุณได้สร้างบัญชีของคุณ</string>
 	<string name="server_url">URL ของเซิร์ฟเวอร์</string>
@@ -633,7 +631,6 @@
 	<string name="block_user_x_instead">ปิดกั้น %s แทน</string>
 	<string name="users_cant_see_blocked">คุณจะไม่เห็นโพสต์หรือการแจ้งเตือนจากผู้ใช้ในเซิร์ฟเวอร์นี้</string>
 	<string name="you_wont_see_server_posts">คุณจะไม่เห็นโพสต์ใด ๆ จากผู้ใช้ในเซิร์ฟเวอร์นี้</string>
-	<string name="server_followers_will_be_removed">จะเอาผู้ติดตามของคุณจากเซิร์ฟเวอร์นี้ออก</string>
 	<string name="server_cant_mention_or_follow_you">ไม่มีใครจากเซิร์ฟเวอร์นี้สามารถติดตามคุณ</string>
 	<string name="server_can_interact_with_older">ผู้คนจากเซิร์ฟเวอร์นี้สามารถโต้ตอบกับโพสต์เก่า ๆ ของคุณ</string>
 	<string name="unblocked_domain_x">เลิกปิดกั้นโดเมน %s แล้ว</string>
@@ -761,4 +758,14 @@
 	<string name="moderation_warning_action_silence">จำกัดบัญชีของคุณแล้ว</string>
 	<string name="moderation_warning_action_suspend">ระงับบัญชีของคุณแล้ว</string>
 	<string name="moderation_warning_learn_more">เรียนรู้เพิ่มเติม</string>
+	<string name="text_show_more">เพิ่มเติม</string>
+	<string name="avatar_move_and_scale">ย้ายและปรับขนาด</string>
+	<string name="confirm_avatar_crop">เลือก</string>
+	<string name="settings_use_dynamic_colors">ใช้สีแบบไดนามิกของระบบ</string>
+	<plurals name="user_and_x_more_followed">
+		<item quantity="other">%1$s และ %2$,d อื่น ๆ ได้ติดตามคุณ</item>
+	</plurals>
+	<!-- appears when you're about to block a server -->
+	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
+	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
 </resources>

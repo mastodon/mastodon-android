@@ -235,7 +235,6 @@
 	<string name="local_timeline_info_banner">Dit zijn alle berichten van alle gebruikers op jouw server (%s).</string>
 	<string name="recommended_accounts_info_banner">Mogelijk vind je deze accounts leuk op basis van andere accounts die je volgt.</string>
 	<string name="see_new_posts">Nieuwe berichten</string>
-	<string name="load_missing_posts">Resterende berichten laden</string>
 	<string name="follow_back">Terugvolgen</string>
 	<string name="button_follow_pending">In afwachting</string>
 	<string name="follows_you">Volgt jou</string>
@@ -304,7 +303,6 @@
 	<string name="add_bookmark">Bladwijzer toevoegen</string>
 	<string name="remove_bookmark">Bladwijzer verwijderen</string>
 	<string name="bookmarks">Bladwijzers</string>
-	<string name="your_favorites">Jouw favorieten</string>
 	<string name="login_title">Welkom terug</string>
 	<string name="login_subtitle">Bij de server waar je je account hebt aangemaakt inloggen.</string>
 	<string name="server_url">Server-URL</string>
@@ -665,7 +663,6 @@
 	<string name="block_user_x_instead">In plaats hiervan %s blokkeren</string>
 	<string name="users_cant_see_blocked">Je ziet geen berichten of meldingen meer van gebruikers op deze server.</string>
 	<string name="you_wont_see_server_posts">Je ziet geen berichten meer van gebruikers op deze server.</string>
-	<string name="server_followers_will_be_removed">Jouw volgers van deze server worden ontvolgd.</string>
 	<string name="server_cant_mention_or_follow_you">Niemand op deze server kan jou volgen.</string>
 	<string name="server_can_interact_with_older">Mensen op deze server kunnen interactie hebben met jouw oude berichten.</string>
 	<string name="unblocked_domain_x">De server %s is gedeblokkeerd</string>
@@ -800,4 +797,7 @@
 	<string name="moderation_warning_action_silence">Jouw account is beperkt.</string>
 	<string name="moderation_warning_action_suspend">Jouw account is opgeschort.</string>
 	<string name="moderation_warning_learn_more">Meer informatie</string>
+	<!-- appears when you're about to block a server -->
+	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
+	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
 </resources>

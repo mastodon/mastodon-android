@@ -182,7 +182,6 @@
 	<string name="error_saving_file">Error en desar el fitxer</string>
 	<string name="downloading">S\'està baixant…</string>
 	<!-- %s is the server domain -->
-	<string name="load_missing_posts">Carrega les publicacions faltants</string>
 	<string name="button_follow_pending">Pendent</string>
 	<string name="follows_you">Et segueix</string>
 	<string name="manually_approves_followers">Aprova seguidors manualment</string>
@@ -290,4 +289,7 @@
 	<!-- %s is the username -->
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
+	<!-- appears when you're about to block a server -->
+	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
+	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
 </resources>
