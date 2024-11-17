@@ -13,6 +13,8 @@
 	<string name="notifications">通知</string>
 	<string name="user_followed_you">%s 关注了你</string>
 	<string name="user_sent_follow_request">%s 向你发送了关注请求</string>
+	<string name="user_favorited">%s 喜欢了:</string>
+	<string name="notification_boosted">%s 转嘟了:</string>
 	<string name="share_toot_title">分享</string>
 	<string name="settings">设置</string>
 	<string name="publish">发布</string>
@@ -282,6 +284,7 @@
 	<string name="add_bookmark">收藏</string>
 	<string name="remove_bookmark">移除书签</string>
 	<string name="bookmarks">收藏</string>
+	<string name="your_favorites">喜欢</string>
 	<string name="login_title">欢迎回来</string>
 	<string name="login_subtitle">登陆到你创建账户的服务器。</string>
 	<string name="server_url">实例 URL</string>
@@ -721,6 +724,12 @@
 	<string name="donation_server_error">我们很抱歉，发生了一个错误，我们无法处理您的捐赠。\n\n请几分钟后再试。</string>
 	<string name="settings_donate">捐助 Mastodon</string>
 	<string name="settings_manage_donations">管理捐赠</string>
+	<string name="cant_load_image">图片无法加载</string>
+	<string name="poll_see_results">查看结果</string>
+	<string name="poll_hide_results">隐藏结果</string>
+	<plurals name="x_attachments">
+		<item quantity="other">%d 个附件</item>
+	</plurals>
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
 	<!-- appears when you're about to block a server -->
