@@ -384,7 +384,7 @@ public class AccountSessionManager{
 	private void readInstanceInfo(SQLiteDatabase db, Set<String> domains){
 		for(String domain : domains){
 			final int maxEmojiLength=500000;
-			try(Cursor cursor=db.rawQuery("SELECT domain, instance_obj, substring(emojis,0,?) AS emojis, length(emojis) AS emoji_length, last_updated, version FROM instances WHERE `domain` = ?",
+			try(Cursor cursor=db.rawQuery("SELECT domain, instance_obj, substr(emojis,1,?) AS emojis, length(emojis) AS emoji_length, last_updated, version FROM instances WHERE `domain` = ?",
 					new String[]{String.valueOf(maxEmojiLength) , domain})) {
 				ContentValues values=new ContentValues();
 				while(cursor.moveToNext()){
@@ -407,7 +407,7 @@ public class AccountSessionManager{
 					int emojiStringLength=values.getAsInteger("emoji_length");
 					if(emojiStringLength>maxEmojiLength){
 						final int pagesize=1000000;
-						for(int start=maxEmojiLength; start<emojiStringLength; start+=pagesize){
+						for(int start=maxEmojiLength + 1; start<=emojiStringLength; start+=pagesize){
 							try(Cursor emojiCursor=db.rawQuery("SELECT substr(emojis,?, ?) FROM instances WHERE `domain` = ?", new String[]{String.valueOf(start), String.valueOf(pagesize), domain})){
 								emojiCursor.moveToNext();
 								emojiSB.append(emojiCursor.getString(0));
