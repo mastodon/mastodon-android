@@ -451,6 +451,8 @@ public class AccountSessionManager{
 		if(i!=null)
 			return i;
 		Log.e(TAG, "Instance info for "+domain+" was not found. This should normally never happen. Returning fake instance object");
+		if(BuildConfig.DEBUG)
+			throw new IllegalStateException("Instance info for "+domain+" missing");
 		InstanceV1 fake=new InstanceV1();
 		fake.uri=fake.title=domain;
 		fake.description=fake.version=fake.email="";
