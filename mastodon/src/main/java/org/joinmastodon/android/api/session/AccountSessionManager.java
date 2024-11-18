@@ -17,6 +17,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.graphics.drawable.Icon;
 import android.net.Uri;
 import android.os.Build;
+import android.text.TextUtils;
 import android.util.Log;
 
 import com.google.gson.JsonArray;
@@ -398,7 +399,7 @@ public class AccountSessionManager{
 					instances.put(domain, instance);
 					StringBuilder emojiSB=new StringBuilder();
 					String emojiPart=values.getAsString("emojis");
-					if(emojiPart==null){
+					if(TextUtils.isEmpty(emojiPart)){
 						// not putting anything into instancesLastUpdated to force a reload
 						continue;
 					}
@@ -446,7 +447,14 @@ public class AccountSessionManager{
 	}
 
 	public Instance getInstanceInfo(String domain){
-		return instances.get(domain);
+		Instance i=instances.get(domain);
+		if(i!=null)
+			return i;
+		Log.e(TAG, "Instance info for "+domain+" was not found. This should normally never happen. Returning fake instance object");
+		InstanceV1 fake=new InstanceV1();
+		fake.uri=fake.title=domain;
+		fake.description=fake.version=fake.email="";
+		return fake;
 	}
 
 	public void updateAccountInfo(String id, Account account){
