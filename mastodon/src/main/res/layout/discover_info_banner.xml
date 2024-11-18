@@ -24,6 +24,7 @@
 		android:id="@+id/banner_text"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
+		android:layout_gravity="center_vertical"
 		android:textAppearance="@style/m3_body_medium"
 		android:textColor="?colorM3OnSurface"
 		tools:text="@string/trending_posts_info_banner"/>
