@@ -709,6 +709,22 @@
 	<string name="unmute_conversation">Ապալռեցնել խոսակցությունը</string>
 	<string name="visibility_unlisted">Լուռ հրապարակային</string>
 	<string name="filtered_notifications">Զտված ծանուցումներ</string>
+	<plurals name="x_people_you_may_know">
+		<item quantity="one">%,d մարդ, որին դուք գուցե գիտեք</item>
+		<item quantity="other">%,d մարդ, որոնց դուք գուցե գիտեք</item>
+	</plurals>
+	<string name="notifications_from_user">%s-ից ծանուցումներ</string>
+	<string name="notifications_muted">%s-ից ծանուցումները ջնջվել են։</string>
+	<string name="visibility_subtitle_public">Բոլորը Մաստոդոնում և Մաստոդոնից դուրս</string>
+	<string name="visibility_subtitle_unlisted">Ավելի քիչ ալգորիթմական ճոխություն</string>
+	<string name="visibility_subtitle_followers">Միայն ձեր հետևորդները</string>
+	<string name="visibility_subtitle_private">Բոլորը, ովքեր նշված են գրառման մեջ</string>
+	<string name="view_boosts">Տեսնել տարածումները</string>
+	<string name="view_favorites">Տեսնել հավանումները</string>
+	<string name="donation_once">Մեկ անգամ</string>
+	<string name="donation_monthly">Ամսական</string>
+	<string name="donation_yearly">Տարեկան</string>
+	<string name="currency">Արժույթ</string>
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
 	<!-- appears when you're about to block a server -->
