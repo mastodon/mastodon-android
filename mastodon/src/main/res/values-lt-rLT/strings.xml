@@ -6,13 +6,13 @@
 	<string name="error">Klaida</string>
 	<string name="not_a_mastodon_instance">%s atrodo, kad nėra „Mastodon“ serveris.</string>
 	<string name="ok">Gerai</string>
-	<string name="preparing_auth">Ruošimas tapatybės nustatymui…</string>
+	<string name="preparing_auth">Ruošima tapatybės nustatymui…</string>
 	<string name="finishing_auth">Baigiamas tapatybės nustatymas…</string>
 	<string name="user_boosted">%s pasidalino</string>
 	<string name="in_reply_to">atsakant į %s</string>
 	<string name="notifications">Pranešimai</string>
-	<string name="user_followed_you">%s seka tave</string>
-	<string name="user_sent_follow_request">%s išsiuntė tau sekimo prašymą</string>
+	<string name="user_followed_you">%s seka jus</string>
+	<string name="user_sent_follow_request">%s išsiuntė jums sekimo prašymą</string>
 	<string name="user_favorited">%s pamėgo:</string>
 	<string name="notification_boosted">%s pasidalino:</string>
 	<string name="share_toot_title">Bendrinti</string>
@@ -127,7 +127,7 @@
 	<string name="search_hint">Paieška</string>
 	<string name="hashtags">Saitažodžiai</string>
 	<string name="news">Naujienos</string>
-	<string name="for_you">Tau</string>
+	<string name="for_you">Jums</string>
 	<string name="all_notifications">Viskas</string>
 	<string name="mentions">Paminėjimai</string>
 	<plurals name="x_people_talking">
@@ -901,14 +901,40 @@ Kuo daugiau žmonių seki, tuo aktyvesnis ir įdomesnis jis bus.</string>
 	<string name="familiar_followers_one">Sekama %s</string>
 	<string name="familiar_followers_two">Sekama %s ir %s</string>
 	<string name="profile_saved_posts">Išsaugota</string>
+	<string name="profile_saved_posts_explanation">Jūsų išsaugoti įrašai matomi tik jums.</string>
 	<string name="search_people">Žmonės</string>
+	<plurals name="familiar_followers_many">
+		<item quantity="one">Sekama %1$s, %2$s ir %3$,d kitas</item>
+		<item quantity="few">Sekama %1$s, %2$s ir %3$,d kiti</item>
+		<item quantity="many">Sekama %1$s, %2$s ir %3$,d kito</item>
+		<item quantity="other">Sekama %1$s, %2$s ir %3$,d kitų</item>
+	</plurals>
+	<plurals name="x_followers_you_know">
+		<item quantity="one">%,d sekėją, kuriuos žinote</item>
+		<item quantity="few">%,d sekėjus, kuriuos žinote</item>
+		<item quantity="many">%,d sekėjo, kuriuos žinote</item>
+		<item quantity="other">%,d sekėjų, kuriuos žinote</item>
+	</plurals>
 	<!-- appears when you're about to block a server -->
+	<plurals name="server_x_followers_will_be_removed">
+		<item quantity="one">%,d sekėjas iš šio serverio bus pašalintas.</item>
+		<item quantity="few">%,d sekėjai iš šio serverio bus pašalinti.</item>
+		<item quantity="many">%,d sekėjo iš šio serverio bus pašalinta.</item>
+		<item quantity="other">%,d sekėjų iš šio serverio bus pašalinta.</item>
+	</plurals>
 	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
+	<string name="server_x_followers_and_following_will_be_removed">Prarasite %1$s ir %2$s.</string>
 	<plurals name="will_lose_x_followers">
 		<item quantity="one">%,d sekėjas</item>
 		<item quantity="few">%,d sekėjai</item>
 		<item quantity="many">%,d sekėjo</item>
 		<item quantity="other">%,d sekėjų</item>
+	</plurals>
+	<plurals name="will_lose_x_following">
+		<item quantity="one">%,d asmenį, kuriuos sekate</item>
+		<item quantity="few">%,d asmenis, kuriuos sekate</item>
+		<item quantity="many">%,d asmens, kuriuos sekate</item>
+		<item quantity="other">%,d asmenų, kuriuos sekate</item>
 	</plurals>
 	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
 	<string name="server_x_following_will_be_removed">Prarasite %s.</string>
