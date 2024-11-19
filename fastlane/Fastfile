@@ -33,4 +33,15 @@ platform :android do
       skip_upload_screenshots: true
     )
   end
+  lane :beta do
+     gradle(
+      task: "bundle",
+      build_type: "release",
+    )
+    upload_to_play_store(
+      track: "beta",
+      skip_upload_images: true,
+      skip_upload_screenshots: true
+    )
+  end
 end

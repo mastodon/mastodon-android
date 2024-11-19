@@ -1,0 +1,46 @@
+name: Build and deploy
+ 
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          java-version: 21
+          distribution: temurin
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.3.0
+          bundler-cache: true
+
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Decode keystore
+        uses: timheuer/base64-to-file@v1
+        id: android_keystore
+        with:
+          fileName: "release.jks"
+          encodedString: ${{ secrets.KEYSTORE_FILE }}
+
+      - name: Prepare Gradle environment
+        run: |
+          echo "apply from: 'ci_signing.gradle'" >> mastodon/build.gradle
+          echo "sdk.dir=$ANDROID_SDK_ROOT" > local.properties
+
+      - name: Build and deploy beta to Google Play
+        run: bundle exec fastlane beta
+        env:
+          KEYSTORE_FILE: ${{ steps.android_keystore.outputs.filePath }}
+          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+          SUPPLY_JSON_KEY_DATA: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_KEY }}
+          SUPPLY_SKIP_UPLOAD_METADATA: true
+          SUPPLY_SKIP_UPLOAD_CHANGELOGS: true
