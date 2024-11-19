@@ -175,8 +175,8 @@ public class AccountActivationFragment extends ToolbarFragment{
 						currentRequest=null;
 						AccountSessionManager mgr=AccountSessionManager.getInstance();
 						AccountSession session=mgr.getAccount(accountID);
-						mgr.removeAccount(accountID);
 						mgr.addAccount(mgr.getInstanceInfo(session.domain), session.token, result, session.app, null);
+						mgr.removeAccount(accountID);
 						String newID=mgr.getLastActiveAccountID();
 						accountID=newID;
 						if((session.self.avatar!=null || session.self.displayName!=null) && !getArguments().getBoolean("debug")){

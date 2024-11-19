@@ -456,6 +456,7 @@ public class AccountSessionManager{
 		InstanceV1 fake=new InstanceV1();
 		fake.uri=fake.title=domain;
 		fake.description=fake.version=fake.email="";
+		updateInstanceInfo(domain);
 		return fake;
 	}
 
