@@ -36,7 +36,7 @@
 	<string name="button_follow">Folgen</string>
 	<string name="button_following">Folge ich</string>
 	<string name="edit_profile">Profil bearbeiten</string>
-	<string name="share_user">Profil teilen…</string>
+	<string name="share_user">Profil teilen …</string>
 	<string name="mute_user">%s stummschalten</string>
 	<string name="unmute_user">%s nicht mehr stummschalten</string>
 	<string name="block_user">%s sperren</string>
@@ -53,7 +53,7 @@
 	<string name="loading">Wird geladen …</string>
 	<string name="field_label">Beschriftung</string>
 	<string name="field_content">Inhalt</string>
-	<string name="saving">wird gespeichert …</string>
+	<string name="saving">Wird gespeichert …</string>
 	<string name="post_from_user">Beitrag von %s</string>
 	<string name="poll_option_hint">%d. Auswahl</string>
 	<plurals name="x_minutes">
@@ -96,7 +96,7 @@
 	<string name="delete">Löschen</string>
 	<string name="confirm_delete_title">Beitrag löschen</string>
 	<string name="confirm_delete">Bist du dir sicher, dass du diesen Beitrag löschen möchtest?</string>
-	<string name="deleting">Wird gelöscht…</string>
+	<string name="deleting">Wird gelöscht …</string>
 	<string name="notification_channel_audio_player">Audiowiedergabe</string>
 	<string name="play">Abspielen</string>
 	<string name="pause">Pausieren</string>
@@ -116,13 +116,13 @@
 	<string name="report_choose_reason">Was stimmt mit diesem Beitrag nicht?</string>
 	<string name="report_choose_reason_account">Was ist das Problem mit %s?</string>
 	<string name="report_choose_reason_subtitle">Bitte das Bestmögliche auswählen</string>
-	<string name="report_reason_personal">Mir gefällt das nicht</string>
-	<string name="report_reason_personal_subtitle">Das ist nichts, was du sehen möchtest</string>
+	<string name="report_reason_personal">Das gefällt mir nicht</string>
+	<string name="report_reason_personal_subtitle">Das ist etwas, das du nicht sehen möchtest</string>
 	<string name="report_reason_spam">Das ist Spam</string>
-	<string name="report_reason_spam_subtitle">Bösartige Links, vorgetäuschtes Verhalten oder wiederholtes Antworten</string>
+	<string name="report_reason_spam_subtitle">Bösartige Links, gefälschtes Engagement oder sich wiederholende Antworten</string>
 	<string name="report_reason_violation">Es verstößt gegen Serverregeln</string>
-	<string name="report_reason_violation_subtitle">Du bist dir bewusst, dass dies gegen die Serverregeln verstößt</string>
-	<string name="report_reason_other">Das ist was anderes</string>
+	<string name="report_reason_violation_subtitle">Du bist dir sicher, dass eine bestimmte Regel gebrochen wurde</string>
+	<string name="report_reason_other">Es ist etwas anderes</string>
 	<string name="report_reason_other_subtitle">Der Vorfall passt zu keiner dieser Kategorien</string>
 	<string name="report_choose_rule">Gegen welche Regeln wird verstoßen?</string>
 	<string name="report_choose_rule_subtitle">Alles Zutreffende auswählen</string>
@@ -130,7 +130,7 @@
 	<string name="report_choose_posts_subtitle">Alles Zutreffende auswählen</string>
 	<string name="report_comment_title">Gibt es weitere Anmerkungen, von denen wir wissen sollten?</string>
 	<string name="report_comment_hint">Ergänzende Hinweise</string>
-	<string name="sending_report">Meldung wird gesendet …</string>
+	<string name="sending_report">Meldung wird gesendet …</string>
 	<string name="report_sent_title">Danke für deine Meldung, wir werden uns damit beschäftigen.</string>
 	<string name="report_sent_subtitle">Während wir den Vorfall überprüfen, kannst du gegen %s weitere Maßnahmen ergreifen:</string>
 	<string name="unfollow_user">%s entfolgen</string>
@@ -157,7 +157,7 @@
 	<string name="resend">Erneut abschicken</string>
 	<string name="open_email_app">E-Mail-App öffnen</string>
 	<string name="resent_email">Bestätigungs-E-Mail gesendet</string>
-	<string name="compose_hint">Tippe oder füge ein, was dir am Herzen liegt</string>
+	<string name="compose_hint">Was liegt dir am Herzen?</string>
 	<string name="content_warning">Inhaltswarnung</string>
 	<string name="save">Speichern</string>
 	<string name="add_alt_text">Bildbeschreibung hinzufügen</string>
@@ -226,7 +226,7 @@
 	<string name="storage_permission_to_download">Die App benötigt Zugriff auf den Speicher deines Geräts, um diese Datei zu speichern.</string>
 	<string name="open_settings">Einstellungen öffnen</string>
 	<string name="error_saving_file">Fehler beim Speichern der Datei</string>
-	<string name="downloading">wird heruntergeladen …</string>
+	<string name="downloading">Wird heruntergeladen …</string>
 	<string name="no_app_to_handle_action">Es gibt keine App, um diese Aktion auszuführen</string>
 	<string name="local_timeline">Live-Feed</string>
 	<string name="trending_posts_info_banner">Dies sind Beiträge, die auf deinem Mastodon-Server gerade angesagt sind.</string>
@@ -330,7 +330,7 @@
 	<string name="server_policy_disagree">%s nicht zustimmen</string>
 	<string name="profile_bio">Über mich</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
-	<string name="sending_follows">Benutzer*innen wird gefolgt …</string>
+	<string name="sending_follows">Nutzer*innen wird gefolgt …</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
 	<string name="signup_email_domain_blocked">%1$s lässt keine Registrierungen von %2$s zu. Probiere einen anderen E-Mail-Anbieter oder &lt;a&gt;wähle einen anderen Server&lt;/a&gt;.</string>
 	<string name="spoiler_show">Trotzdem anzeigen</string>
@@ -351,8 +351,8 @@
 	<string name="welcome_to_mastodon">Willkommen auf Mastodon</string>
 	<string name="welcome_paragraph1">Mastodon ist ein dezentralisiertes, soziales Netzwerk. Das bedeutet, dass es nicht von einem einzigen Unternehmen kontrolliert wird. Das Netzwerk besteht aus unabhängig voneinander betriebenen Servern, die miteinander verbunden sind.</string>
 	<string name="what_are_servers">Was sind Server?</string>
-	<string name="welcome_paragraph2">Jedes Mastodon-Konto wird auf einem Server betrieben – jeder mit eigenen Werten, Regeln &amp; Administrator*innen. Du kannst trotzdem mit Personen interagieren, die ihr Konto auf einem anderen Server erstellt haben.</string>
-	<string name="opening_link">Link wird geöffnet…</string>
+	<string name="welcome_paragraph2">Jedes Mastodon-Konto wird auf einem Server betrieben – jeder mit eigenen Werten, Regeln und Administrator*innen. Du kannst trotzdem mit Personen interagieren, die ihr Konto auf einem anderen Server erstellt haben.</string>
+	<string name="opening_link">Link wird geöffnet …</string>
 	<string name="link_not_supported">Dieser Link wird in der App nicht unterstützt</string>
 	<string name="log_out_all_accounts">Von allen Konten abmelden</string>
 	<string name="confirm_log_out_all_accounts">Von allen Konten abmelden?</string>
@@ -501,10 +501,10 @@
 	<string name="selection_2_options">%1$s und %2$s</string>
 	<string name="selection_3_options">%1$s, %2$s, und %3$s</string>
 	<string name="selection_4_or_more">%1$s, %2$s und %3$d mehr</string>
-	<string name="filter_context_home_lists">Startseite &amp; Listen</string>
+	<string name="filter_context_home_lists">Startseite und Listen</string>
 	<string name="filter_context_notifications">Mitteilungen</string>
 	<string name="filter_context_public_timelines">Öffentliche Timelines</string>
-	<string name="filter_context_threads_replies">Threads &amp; Beiträge</string>
+	<string name="filter_context_threads_replies">Threads und Antworten</string>
 	<string name="filter_context_profiles">Profile</string>
 	<string name="settings_filter_title">Titel</string>
 	<string name="settings_delete_filter_title">Filter \"%s\" löschen?</string>
@@ -587,7 +587,7 @@
 	<string name="remove">Entfernen</string>
 	<string name="add_list_member">Mitglied hinzufügen</string>
 	<string name="search_among_people_you_follow">Suche nach Leuten, denen du folgst</string>
-	<string name="add_user_to_list">Zu Listen hinzufügen/entfernen…</string>
+	<string name="add_user_to_list">Zur Liste hzfg. / Aus Liste entf.</string>
 	<string name="add_user_to_list_title">Zur Liste hinzufügen</string>
 	<!-- %s is a username -->
 	<string name="manage_user_lists">Listen mit %s verwalten</string>
@@ -611,26 +611,26 @@
 	<string name="reply_to_user">Antwort an %s</string>
 	<string name="posted_at">Veröffentlicht um %s Uhr</string>
 	<string name="non_mutual_sheet_title">Hallo, neues Bindeglied!</string>
-	<string name="non_mutual_sheet_text">Es wirkt so, als ob Sie jemandem antworten, der Ihnen noch nicht folgt. Lassen Sie uns einen ersten guten Eindruck machen.</string>
+	<string name="non_mutual_sheet_text">Es scheint, als ob du einem Profil antworten möchtest, das dir noch nicht folgt. Lass uns einen guten Eindruck hinterlassen.</string>
 	<string name="got_it">Verstanden</string>
 	<string name="dont_remind_again">Nicht erneut erinnern</string>
 	<!-- %s is a time interval ("5 months") -->
 	<string name="old_post_sheet_title">Dieser Beitrag ist %s alt</string>
-	<string name="old_post_sheet_text">Sie können immer noch antworten, aber es ist möglicherweise nicht mehr relevant.</string>
+	<string name="old_post_sheet_text">Du kannst immer noch antworten, aber deine Antwort ist möglicherweise nicht länger relevant.</string>
 	<plurals name="x_months">
 		<item quantity="one">%,d Monat</item>
 		<item quantity="other">%,d Monate</item>
 	</plurals>
 	<string name="more_than_two_years">mehr als 2 Jahre</string>
-	<string name="non_mutual_title1">Bleiben Sie respektvoll &amp; relevant</string>
-	<string name="non_mutual_text1">Vergewissern Sie sich, dass Ihre Antwort höflich und relevant ist.</string>
+	<string name="non_mutual_title1">Bleibe respektvoll und sachbezogen</string>
+	<string name="non_mutual_text1">Deine Antwort sollte höflich sein und sich auf das Thema beziehen.</string>
 	<string name="non_mutual_title2">Sei nett zu anderen</string>
 	<string name="non_mutual_text2">Eine freundliche Ausdrucksweise wird immer gewürdigt.</string>
 	<string name="non_mutual_title3">Sei offen</string>
-	<string name="non_mutual_text3">Jedermanns Gesprächsstil ist einzigartig. Sei bereit, dich anzupassen.</string>
+	<string name="non_mutual_text3">Jeder Mensch hat seine eigene Art zu kommunizieren. Sei bereit, dich anzupassen.</string>
 	<string name="make_profile_discoverable">Mein Profil entdeckbar machen</string>
 	<string name="discoverability">Auffindbarkeit</string>
-	<string name="discoverability_help">Wenn Sie sich für die Auffindbarkeit auf Mastodon entscheiden, können Ihre Beiträge in Suchergebnissen und Trends erscheinen.\n\nIhr Profil kann Personen mit ähnlichen Interessen empfohlen werden.\n\nWidersprechen versteckt Ihr Profil nicht, wenn jemand nach Ihrem Namen sucht.</string>
+	<string name="discoverability_help">Wenn du dich dazu entscheidest, auf Mastodon entdeckt werden zu können, können deine Beiträge in Suchergebnissen und Trends erscheinen.\n\nDein Profil kann anderen mit ähnlichen Interessen vorgeschlagen werden.\n\nEntscheidest du dich dagegen, kannst du trotzdem über die Suche entdeckt werden, wenn jemand nach deinem Namen sucht.</string>
 	<string name="app_version_copied">Versionsnummer in die Zwischenablage kopiert</string>
 	<string name="onboarding_recommendations_intro">Du bestimmst selbst über deine Startseite. Je mehr Leuten du folgst, umso aktiver und interessanter wird sie sein.</string>
 	<string name="onboarding_recommendations_title">Gestalte deine Startseite</string>
@@ -709,7 +709,7 @@
 	<string name="unmute_conversation">Stummschaltung für Unterhaltung aufheben</string>
 	<string name="visibility_unlisted">Eingeschränkt öffentlich</string>
 	<string name="filtered_notifications">Gefilterte Benachrichtigungen</string>
-	<string name="filter_notifications">Benachrichtigungen herausfiltern von ...</string>
+	<string name="filter_notifications">Benachrichtigungen herausfiltern von …</string>
 	<string name="notification_filter_following">Profile, denen du nicht folgst</string>
 	<string name="notification_filter_following_explanation">Bis du sie händisch annimmst</string>
 	<string name="notification_filter_followers">Profilen, die mir nicht folgen</string>
