@@ -646,19 +646,19 @@
 	<string name="list_replies_members">Sąrašo nariams</string>
 	<string name="list_replies_anyone">Visiems, kuriuos seku</string>
 	<string name="confirm_remove_list_members">Pašalinti narius?</string>
-	<string name="remove">Pašalinti</string>
+	<string name="remove">Šalinti</string>
 	<string name="add_list_member">Pridėti narį</string>
 	<string name="search_among_people_you_follow">Ieškoti tarp sekamų žmonių</string>
-	<string name="add_user_to_list">Pridėti / pašalinti iš sąrašų…</string>
+	<string name="add_user_to_list">Pridėti / šalinti iš sąrašų…</string>
 	<string name="add_user_to_list_title">Pridėti į sąrašą</string>
 	<!-- %s is a username -->
 	<string name="manage_user_lists">Tvarkyti sąrašus, kuriuose pasirodo %s</string>
-	<string name="remove_from_list">Pašalinti iš sąrašo</string>
+	<string name="remove_from_list">Šalinti iš sąrašo</string>
 	<string name="confirm_remove_list_member">Pašalinti narį?</string>
-	<string name="no_followed_hashtags_title">Laikykis pomėgių sekant saitažodžius</string>
-	<string name="no_followed_hashtags_subtitle">Sekimai pasirodys čia.</string>
-	<string name="no_lists_title">Organizuok savo pagrindinį srautą su sąrašais</string>
-	<string name="no_lists_subtitle">Tavo pasirodys čia</string>
+	<string name="no_followed_hashtags_title">Laikykitės pomėgių sekdami saitažodžius</string>
+	<string name="no_followed_hashtags_subtitle">Sekimai pasirodys čia</string>
+	<string name="no_lists_title">Organizuokite savo pagrindinį srautą su sąrašais</string>
+	<string name="no_lists_subtitle">Jūsų pasirodys čia</string>
 	<string name="manage_accounts">Pridėti arba perjungti paskyras</string>
 	<plurals name="x_posts_recently">
 		<item quantity="one">%,d naujausias įrašas</item>
@@ -671,16 +671,16 @@
 	<string name="create">Kurti</string>
 	<string name="manage_list_members">Tvarkyti sąrašo narius</string>
 	<string name="list_no_members">Dar nėra narių.</string>
-	<string name="list_find_users">Rask naudotojų, kurių pridėti</string>
+	<string name="list_find_users">Raskite naudotojų, kurių pridėti</string>
 	<string name="reply_to_user">Atsakyti į %s</string>
 	<string name="posted_at">Paskelbta %s</string>
-	<string name="non_mutual_sheet_title">Labas, naujas ryšys!</string>
-	<string name="non_mutual_sheet_text">Atrodo, kad netrukus ketini atsakyti žmogui, kuris (-i) dar neturi bendro ryšio. Padarykime puikų pirmąjį įspūdį.</string>
+	<string name="non_mutual_sheet_title">Labas, naujas sąryšys!</string>
+	<string name="non_mutual_sheet_text">Atrodo, kad netrukus ketinate atsakyti kažkam, kuris dar neturi bendro sąryšio. Padarykime puikų pirmąjį įspūdį.</string>
 	<string name="got_it">Supratau</string>
 	<string name="dont_remind_again">Nepriminti man daugiau</string>
 	<!-- %s is a time interval ("5 months") -->
 	<string name="old_post_sheet_title">Šis įrašas %s senas</string>
-	<string name="old_post_sheet_text">Vis dar gali atsakyti, bet tai gali būti nebeaktualu.</string>
+	<string name="old_post_sheet_text">Vis dar galite atsakyti, bet tai gali būti nebeaktualu.</string>
 	<plurals name="x_months">
 		<item quantity="one">%,d mėnesis</item>
 		<item quantity="few">%,d mėnesiai</item>
@@ -688,18 +688,18 @@
 		<item quantity="other">%,d mėnesių</item>
 	</plurals>
 	<string name="more_than_two_years">daugiau nei 2 metai</string>
-	<string name="non_mutual_title1">Išlik pagarbiai ir aktualiai</string>
-	<string name="non_mutual_text1">Užtikrink, kad tavo atsakymas yra mandagus ir atitinka temą.</string>
-	<string name="non_mutual_title2">Priimk gerumą</string>
+	<string name="non_mutual_title1">Išlikite pagarbūs ir aktualūs</string>
+	<string name="non_mutual_text1">Užtikrinkite, kad jūsų atsakymas yra mandagus ir atitinka temą.</string>
+	<string name="non_mutual_title2">Priimkite gerumą</string>
 	<string name="non_mutual_text2">Pozityvus tonas visada vertinamas.</string>
-	<string name="non_mutual_title3">Būk atvirai</string>
-	<string name="non_mutual_text3">Kiekvieno pokalbio stilius unikalus. Pasiruošk prisitaikyti.</string>
+	<string name="non_mutual_title3">Būkite atviri</string>
+	<string name="non_mutual_text3">Kiekvieno pokalbio stilius unikalus. Pasiruoškite prisitaikyti.</string>
 	<string name="make_profile_discoverable">Padaryti mano profilį atrandamą</string>
 	<string name="discoverability">Atrandamumas</string>
-	<string name="discoverability_help">Kai pasirenki „Mastodon“ atrandamumą, tavo įrašai gali būti rodomi paieškos rezultatuose ir tendencijose.\n\nProfilis gali būti siūlomas žmonėms, kurių pomėgiai yra panašūs į tavo.\n\nAtsisakymas nepaslepia tavo profilis, jei kas nors ieškos pagal vardą.</string>
+	<string name="discoverability_help">Kai pasirenkate „Mastodon“ atrandamumą, jūsų įrašai gali būti rodomi paieškos rezultatuose ir tendencijose.\n\nProfilis gali būti siūlomas asmenims, kurių pomėgiai yra panašūs į jūsų.\n\nAtsisakymas nepaslepia profilį, jei kas nors ieškos pagal vardą.</string>
 	<string name="app_version_copied">Versijos numeris nukopijuotas į iškarpinę</string>
-	<string name="onboarding_recommendations_intro">Pats (-i) kuruoji savo pagrindinį srautą.
-Kuo daugiau žmonių seki, tuo aktyvesnis ir įdomesnis jis bus.</string>
+	<string name="onboarding_recommendations_intro">Patys kuruojate savo pagrindinį srautą.
+Kuo daugiau asmenų sekate, tuo aktyvesnis ir įdomesnis jis bus.</string>
 	<string name="onboarding_recommendations_title">Suasmeninti savo pagrindinį srautą</string>
 	<string name="article_by_author">Sukūrė %s</string>
 	<string name="button_reblogged">Pasidalinta</string>
