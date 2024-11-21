@@ -13,6 +13,8 @@
 	<string name="notifications">Notifications</string>
 	<string name="user_followed_you">%s vous suit</string>
 	<string name="user_sent_follow_request">%s voudrait vous suivre</string>
+	<string name="user_favorited">%s a mis en favori :</string>
+	<string name="notification_boosted">%s a boosté :</string>
 	<string name="share_toot_title">Partager</string>
 	<string name="settings">Paramètres</string>
 	<string name="publish">Pouet !</string>
@@ -756,8 +758,21 @@
 	<string name="donation_server_error">Nous sommes désolés, une erreur est survenue et nous n\'avons pas pu traiter votre don.\n\nVeuillez réessayer dans quelques minutes.</string>
 	<string name="settings_donate">Faire un don à Mastodon</string>
 	<string name="settings_manage_donations">Gestion des dons</string>
+	<string name="cant_load_image">Impossible de charger l\'image</string>
 	<string name="poll_see_results">Voir les résultats</string>
 	<string name="poll_hide_results">Masquer les résultats</string>
+	<plurals name="x_attachments">
+		<item quantity="one">%d pièce jointe</item>
+		<item quantity="other">%d pièces jointes</item>
+	</plurals>
+	<plurals name="user_and_x_more_favorited">
+		<item quantity="one">%1$s et %2$,d ont mis en favori :</item>
+		<item quantity="other">%1$s et %2$,d ont mis en favori :</item>
+	</plurals>
+	<plurals name="user_and_x_more_boosted">
+		<item quantity="one">%1$s et %2$,d autres ont boosté :</item>
+		<item quantity="other">%1$s et %2$,d autres ont boosté :</item>
+	</plurals>
 	<string name="own_poll_ended">Votre sondage est terminé</string>
 	<string name="user_just_posted">%s vient de publier</string>
 	<string name="user_edited_post">%s a modifié un message avec lequel vous avez interagi</string>
@@ -770,6 +785,13 @@
 	</plurals>
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
 	<string name="relationship_severance_learn_more">En savoir plus</string>
+	<string name="moderation_warning_action_none">Votre compte a reçu un avertissement de modération.</string>
+	<string name="moderation_warning_action_disable">Votre compte a été désactivé.</string>
+	<string name="moderation_warning_action_mark_statuses_as_sensitive">Certains de vos messages ont été marqués comme étant sensibles.</string>
+	<string name="moderation_warning_action_delete_statuses">Certains de vos messages ont été supprimés.</string>
+	<string name="moderation_warning_action_sensitive">Vos messages seront désormais marqués comme étant sensibles.</string>
+	<string name="moderation_warning_action_silence">Votre compte a été limité.</string>
+	<string name="moderation_warning_action_suspend">Votre compte a été suspendu.</string>
 	<string name="moderation_warning_learn_more">En savoir plus</string>
 	<string name="text_show_more">Plus</string>
 	<string name="avatar_move_and_scale">Déplacer et mettre à l\'échelle</string>
@@ -788,6 +810,10 @@
 	<string name="familiar_followers_two">Suivi·e par %s et %s</string>
 	<string name="profile_saved_posts">Enregistré</string>
 	<string name="search_people">Personnes</string>
+	<plurals name="x_followers_you_know">
+		<item quantity="one">%,d abonné·e que vous connaissez</item>
+		<item quantity="other">%,d abonné·e·s que vous connaissez</item>
+	</plurals>
 	<!-- appears when you're about to block a server -->
 	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
 	<string name="server_x_followers_and_following_will_be_removed">Vous allez perdre %1$s et %2$s.</string>
@@ -795,6 +821,12 @@
 		<item quantity="one">%,d abonné·e</item>
 		<item quantity="other">%,d abonné·e·s</item>
 	</plurals>
+	<plurals name="will_lose_x_following">
+		<item quantity="one">%,d personne que vous suivez</item>
+		<item quantity="other">%,d personnes que vous suivez</item>
+	</plurals>
 	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
 	<string name="server_x_following_will_be_removed">Vous allez perdre %s.</string>
+	<string name="load_missing_posts_above">Charger les messages manquants du dessus</string>
+	<string name="load_missing_posts_below">Charger les messages manquants ci-dessous</string>
 </resources>
