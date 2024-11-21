@@ -13,6 +13,8 @@
 	<string name="notifications">通知</string>
 	<string name="user_followed_you">%s 关注了你</string>
 	<string name="user_sent_follow_request">%s 向你发送了关注请求</string>
+	<string name="user_favorited">%s 喜欢了:</string>
+	<string name="notification_boosted">%s 转嘟了:</string>
 	<string name="share_toot_title">分享</string>
 	<string name="settings">设置</string>
 	<string name="publish">发布</string>
@@ -26,7 +28,7 @@
 		<item quantity="other">正在关注</item>
 	</plurals>
 	<string name="posts">嘟文</string>
-	<string name="posts_and_replies">嘟文和回复</string>
+	<string name="posts_and_replies">嘟文与回复</string>
 	<string name="media">媒体</string>
 	<string name="profile_about">关于</string>
 	<string name="button_follow">关注</string>
@@ -41,7 +43,7 @@
 	<string name="block_domain">屏蔽 %s</string>
 	<string name="unblock_domain">取消屏蔽 %s</string>
 	<plurals name="x_posts">
-		<item quantity="other">%d 条嘟文</item>
+		<item quantity="other">%,d 条嘟文</item>
 	</plurals>
 	<string name="profile_joined">加入于</string>
 	<string name="done">完成</string>
@@ -101,13 +103,13 @@
 	<string name="report_title">举报 %s</string>
 	<string name="report_choose_reason">这条嘟文有什么问题？</string>
 	<string name="report_choose_reason_account">%s 有什么问题？</string>
-	<string name="report_choose_reason_subtitle">选择最匹配的理由</string>
-	<string name="report_reason_personal">我不喜欢</string>
-	<string name="report_reason_personal_subtitle">这不是你想看到的东西</string>
-	<string name="report_reason_spam">这是垃圾信息</string>
+	<string name="report_choose_reason_subtitle">选择最符合情况的理由</string>
+	<string name="report_reason_personal">令人反感</string>
+	<string name="report_reason_personal_subtitle">这不是我想看到的东西</string>
+	<string name="report_reason_spam">垃圾信息</string>
 	<string name="report_reason_spam_subtitle">恶意链接、虚假互动或重复回复</string>
-	<string name="report_reason_violation">它违反了实例规则</string>
-	<string name="report_reason_violation_subtitle">你意识到它违反了特定的规则</string>
+	<string name="report_reason_violation">违反服务器规则</string>
+	<string name="report_reason_violation_subtitle">你清楚它违反了特定的规则</string>
 	<string name="report_reason_other">其他原因</string>
 	<string name="report_reason_other_subtitle">以上理由都不适用</string>
 	<string name="report_choose_rule">违反了哪些规则？</string>
@@ -119,7 +121,7 @@
 	<string name="sending_report">正在提交举报…</string>
 	<string name="report_sent_title">感谢举报，我们将会进行处理。</string>
 	<string name="report_sent_subtitle">在我们审阅该报告的同时，你可以对 %s 执行以下操作：</string>
-	<string name="unfollow_user">不再关注 %s</string>
+	<string name="unfollow_user">取消关注 %s</string>
 	<string name="unfollow">取消关注</string>
 	<string name="mute_user_explain">你将不再看到他们的嘟文。他们仍然可以关注你并查看你的嘟文，但不会知道自己已被静音。</string>
 	<string name="block_user_explain">你将无法看到他们的嘟文。他们也将无法看到你的嘟文或关注你。他们将能借此判断自己已被屏蔽。</string>
@@ -130,7 +132,7 @@
 	<string name="instance_rules_title">站点规则</string>
 	<string name="instance_rules_subtitle">继续操作即表示你同意遵守以下由 %s 的管理员设定并执行的规则。</string>
 	<string name="signup_title">创建账户</string>
-	<string name="display_name">名字</string>
+	<string name="display_name">昵称</string>
 	<string name="username">用户名</string>
 	<string name="email">邮箱</string>
 	<string name="password">密码</string>
@@ -143,12 +145,12 @@
 	<string name="resend">重新发送</string>
 	<string name="open_email_app">打开电子邮件应用</string>
 	<string name="resent_email">确认邮件已发送</string>
-	<string name="compose_hint">输入或粘贴你的想法</string>
+	<string name="compose_hint">写下你的想法</string>
 	<string name="content_warning">内容警告</string>
 	<string name="save">保存</string>
 	<string name="add_alt_text">添加替代文本</string>
 	<string name="visibility_public">公开</string>
-	<string name="visibility_followers_only">关注者</string>
+	<string name="visibility_followers_only">仅关注者</string>
 	<string name="visibility_private">特定的人</string>
 	<string name="recent_searches">最近</string>
 	<string name="notification_type_follow">新关注者</string>
@@ -176,7 +178,7 @@
 	<string name="settings_privacy_policy">隐私政策</string>
 	<string name="settings_clear_cache">清除媒体缓存</string>
 	<string name="settings_app_version">Mastodon for Android v%1$s (%2$d)</string>
-	<string name="media_cache_cleared">媒体缓存已清除</string>
+	<string name="media_cache_cleared">已清除媒体缓存</string>
 	<string name="confirm_log_out">登出 %s？</string>
 	<string name="sensitive_content_explain">作者将此媒体内容标记为敏感。</string>
 	<string name="avatar_description">前往 %s 的资料页</string>
@@ -186,7 +188,7 @@
 	<string name="button_reblog">转嘟</string>
 	<string name="button_favorite">喜欢</string>
 	<string name="button_share">分享</string>
-	<string name="media_no_description">没有描述的媒体</string>
+	<string name="media_no_description">没有描述文本的媒体</string>
 	<string name="add_media">添加媒体</string>
 	<string name="add_poll">发起投票</string>
 	<string name="emoji">表情</string>
@@ -195,7 +197,7 @@
 	<string name="media_viewer">媒体查看器</string>
 	<string name="follow_user">关注 %s</string>
 	<string name="unfollowed_user">取消关注 %s</string>
-	<string name="followed_user">你正在关注 %s</string>
+	<string name="followed_user">你已开始关注 %s</string>
 	<string name="following_user_requested">请求关注 %s</string>
 	<string name="open_in_browser">在浏览器中打开</string>
 	<string name="hide_boosts_from_user">隐藏转嘟</string>
@@ -207,12 +209,12 @@
 	<string name="profile_picture">头像</string>
 	<string name="reorder">重新排序</string>
 	<string name="download">下载</string>
-	<string name="permission_required">需要权限</string>
-	<string name="storage_permission_to_download">应用程序需要存储权限才能保存文件。</string>
-	<string name="open_settings">打开「设置」</string>
+	<string name="permission_required">需要授权</string>
+	<string name="storage_permission_to_download">此应用需要存储权限才可以保存文件。</string>
+	<string name="open_settings">打开设置</string>
 	<string name="error_saving_file">保存文件时出错</string>
 	<string name="downloading">正在下载…</string>
-	<string name="no_app_to_handle_action">没有可用于处理该操作的 app</string>
+	<string name="no_app_to_handle_action">没有可用于处理该操作的应用</string>
 	<string name="local_timeline">实时动态</string>
 	<string name="trending_posts_info_banner">这些嘟文正在 Mastodon 上获得关注。</string>
 	<string name="trending_links_info_banner">以下是 Mastodon 中正在热议的新鲜事。</string>
@@ -221,8 +223,8 @@
 	<string name="recommended_accounts_info_banner">基于你的关注，你或许也会喜欢这些账号。</string>
 	<string name="see_new_posts">新嘟文</string>
 	<string name="follow_back">回关</string>
-	<string name="button_follow_pending">已发送关注请求</string>
-	<string name="follows_you">已关注你</string>
+	<string name="button_follow_pending">已发送请求</string>
+	<string name="follows_you">关注了你</string>
 	<string name="manually_approves_followers">手动批准关注请求</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<plurals name="x_followers">
@@ -271,23 +273,24 @@
 	<string name="file_size_gb">%.2f GB</string>
 	<string name="upload_processing">正在处理…</string>
 	<!-- %s is file size -->
-	<string name="download_update">下载(%s)</string>
+	<string name="download_update">下载 (%s)</string>
 	<string name="install_update">安装</string>
 	<string name="privacy_policy_title">你的隐私</string>
 	<string name="privacy_policy_subtitle">尽管 Mastodon 客户端本身不采集任何数据，你注册的实例可能会有不同的隐私政策。\n\n如果你不同意 %s 的这些政策，请返回并选择其他实例。</string>
 	<string name="i_agree">我同意</string>
-	<string name="empty_list">还没有内容</string>
+	<string name="empty_list">此列表为空</string>
 	<string name="instance_signup_closed">此实例不接受新注册。</string>
-	<string name="text_copied">复制成功</string>
+	<string name="text_copied">已复制到剪贴板</string>
 	<string name="add_bookmark">收藏</string>
-	<string name="remove_bookmark">移除书签</string>
-	<string name="bookmarks">收藏</string>
+	<string name="remove_bookmark">取消收藏</string>
+	<string name="bookmarks">收藏夹</string>
+	<string name="your_favorites">喜欢</string>
 	<string name="login_title">欢迎回来</string>
 	<string name="login_subtitle">登陆到你创建账户的服务器。</string>
 	<string name="server_url">实例 URL</string>
 	<string name="server_filter_any_language">所有语言</string>
 	<string name="server_filter_instant_signup">免审核注册</string>
-	<string name="server_filter_manual_review">人工审核</string>
+	<string name="server_filter_manual_review">注册需手动审核</string>
 	<string name="server_filter_any_signup_speed">不限注册速度</string>
 	<string name="server_filter_region_europe">欧洲</string>
 	<string name="server_filter_region_north_america">北美洲</string>
@@ -295,13 +298,13 @@
 	<string name="server_filter_region_africa">非洲</string>
 	<string name="server_filter_region_asia">亚洲</string>
 	<string name="server_filter_region_oceania">大洋洲</string>
-	<string name="not_accepting_new_members">不接受新成员</string>
+	<string name="not_accepting_new_members">目前不接收新成员</string>
 	<string name="category_special_interests">特定领域</string>
 	<string name="signup_passwords_dont_match">密码不匹配</string>
 	<string name="profile_add_row">添加</string>
 	<string name="profile_setup">设置个人资料</string>
 	<string name="profile_setup_subtitle">你可以随时在个人资料选项卡中进行补充。</string>
-	<string name="follow_all">全部关注</string>
+	<string name="follow_all">一键关注</string>
 	<string name="server_rules_disagree">不同意</string>
 	<string name="privacy_policy_explanation">长话短说：我们不会收集、处理任何信息。</string>
 	<!-- %s is server domain -->
@@ -341,40 +344,40 @@
 	<string name="attachment_description_video">%s 视频</string>
 	<string name="attachment_description_audio">%s 音频</string>
 	<string name="attachment_description_unknown">%s 文件</string>
-	<string name="attachment_type_image">图像</string>
+	<string name="attachment_type_image">图片</string>
 	<string name="attachment_type_video">视频</string>
 	<string name="attachment_type_audio">音频</string>
 	<string name="attachment_type_gif">GIF</string>
 	<string name="attachment_type_unknown">文件</string>
-	<string name="attachment_x_percent_uploaded">%d%% 已上传</string>
+	<string name="attachment_x_percent_uploaded">已上传 %d%%</string>
 	<string name="add_poll_option">添加投票选项</string>
 	<string name="poll_length">投票时长</string>
-	<string name="poll_style">样式</string>
+	<string name="poll_style">类型</string>
 	<string name="compose_poll_single_choice">单选</string>
 	<string name="compose_poll_multiple_choice">多选</string>
 	<string name="delete_poll_option">删除投票选项</string>
-	<string name="poll_style_title">投票样式</string>
+	<string name="poll_style_title">投票类型</string>
 	<string name="alt_text">替代文本</string>
 	<string name="help">帮助</string>
-	<string name="what_is_alt_text">什么是替代文本</string>
+	<string name="what_is_alt_text">什么是替代文本？</string>
 	<string name="alt_text_help">替代文本能够为视障人士、低带宽用户或想要查看额外信息的人提供图像描述。\n\n简洁客观的替代文本能让所有人都更容易理解你要传达的信息。\n\n<ul><li>捕捉关键元素</li>\n<li>总结图像中的文字</li>\n<li>使用常规语句结构</li>\n<li>避免冗余信息</li>\n<li>重点描述复杂视图（图表、地图等）中的趋势或关键结论</li></ul></string>
 	<string name="edit_post">编辑嘟文</string>
 	<string name="no_verified_link">没有已验证的链接</string>
 	<string name="compose_autocomplete_emoji_empty">浏览 emoji</string>
-	<string name="compose_autocomplete_users_empty">查找你在找的人</string>
-	<string name="no_search_results">找不到任何与搜索词相关的内容</string>
+	<string name="compose_autocomplete_users_empty">输入你要搜索的用户</string>
+	<string name="no_search_results">找不到任何与此关键词相关的内容</string>
 	<string name="language">语言</string>
 	<string name="language_default">默认</string>
-	<string name="language_system">系统</string>
+	<string name="language_system">系统语言</string>
 	<string name="language_detecting">正在检测语言</string>
 	<string name="language_cant_detect">无法检测语言</string>
-	<string name="language_detected">检测到语言</string>
+	<string name="language_detected">检测到</string>
 	<string name="media_hidden">已隐藏媒体</string>
 	<string name="post_hidden">已隐藏嘟文</string>
 	<string name="report_title_post">举报嘟文</string>
 	<string name="forward_report_explanation">该用户来自另一个实例，是否要向该实例匿名发送此举报？</string>
 	<!-- %s is the server domain -->
-	<string name="forward_report_to_server">转发至 %s</string>
+	<string name="forward_report_to_server">转发举报到 %s</string>
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
 	<string name="reported">已举报</string>
 	<string name="report_unfollow_explanation">取消关注这些用户来避免在主页动态中看到更多此类嘟文。</string>
@@ -541,27 +544,27 @@
 	<string name="list_members">列表成员</string>
 	<string name="delete_list">删除列表</string>
 	<!-- %s is the name of the list -->
-	<string name="delete_list_confirm">删除 “%s”？</string>
-	<string name="list_exclusive">在关注中隐藏成员</string>
-	<string name="list_exclusive_subtitle">列表成员不显示在主页时间线上，以免重复看到嘟文</string>
-	<string name="list_name">列表名</string>
-	<string name="list_show_replies_to">显示回复</string>
+	<string name="delete_list_confirm">是否删除 “%s”？</string>
+	<string name="list_exclusive">在主页时间线中隐藏成员</string>
+	<string name="list_exclusive_subtitle">列表成员的嘟文将不会在你的主页时间线中显示，以免重复阅读。</string>
+	<string name="list_name">列表名称</string>
+	<string name="list_show_replies_to">回复显示范围</string>
 	<string name="list_replies_no_one">不显示</string>
 	<string name="list_replies_members">列表成员</string>
-	<string name="list_replies_anyone">我关注的任何人</string>
-	<string name="confirm_remove_list_members">移除成员？</string>
+	<string name="list_replies_anyone">我关注的所有人</string>
+	<string name="confirm_remove_list_members">是否移除该成员？</string>
 	<string name="remove">移除</string>
 	<string name="add_list_member">添加成员</string>
-	<string name="search_among_people_you_follow">在你关注的人中搜索</string>
-	<string name="add_user_to_list">从列表中添加/移除…</string>
+	<string name="search_among_people_you_follow">搜索你关注的人</string>
+	<string name="add_user_to_list">添加/移除列表…</string>
 	<string name="add_user_to_list_title">添加到列表</string>
 	<!-- %s is a username -->
 	<string name="manage_user_lists">管理包含 %s 的列表</string>
 	<string name="remove_from_list">从列表中移除</string>
-	<string name="confirm_remove_list_member">移除成员？</string>
+	<string name="confirm_remove_list_member">是否移除该成员？</string>
 	<string name="no_followed_hashtags_title">关注话题标签以保持对兴趣的追踪</string>
 	<string name="no_followed_hashtags_subtitle">关注的标签将出现在这里</string>
-	<string name="no_lists_title">用列表来管理您的主页动态</string>
+	<string name="no_lists_title">用列表管理您的主页动态</string>
 	<string name="no_lists_subtitle">你的列表将出现在这里</string>
 	<string name="manage_accounts">管理账户</string>
 	<plurals name="x_posts_recently">
@@ -721,9 +724,82 @@
 	<string name="donation_server_error">我们很抱歉，发生了一个错误，我们无法处理您的捐赠。\n\n请几分钟后再试。</string>
 	<string name="settings_donate">捐助 Mastodon</string>
 	<string name="settings_manage_donations">管理捐赠</string>
+	<string name="cant_load_image">图片无法加载</string>
+	<string name="poll_see_results">查看结果</string>
+	<string name="poll_hide_results">隐藏结果</string>
+	<plurals name="x_attachments">
+		<item quantity="other">%d 个附件</item>
+	</plurals>
+	<plurals name="user_and_x_more_favorited">
+		<item quantity="other">%1$s 与其它 %2$,d 人喜欢了:</item>
+	</plurals>
+	<plurals name="user_and_x_more_boosted">
+		<item quantity="other">%1$s 与其它 %2$,d 人转嘟了:</item>
+	</plurals>
+	<plurals name="poll_ended_x_voters">
+		<item quantity="other">%1$s 发起的投票已结束，你和其它 %2$,d 人参与</item>
+	</plurals>
+	<string name="own_poll_ended">你的投票已结束</string>
+	<string name="user_just_posted">%s 刚刚发嘟了</string>
+	<string name="user_edited_post">%s 编辑了一条你之前互动过的嘟文</string>
+	<string name="relationship_severance_account_suspension">来自 %1$s 的管理员封禁了 %2$s，这意味着你将无法再收到对方的更新或与其互动。</string>
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_domain_block">来自 %1$s 的一名管理员已经屏蔽了 %2$s，这包括关注你的 %3$,d 人和您关注的 %4$s 人。</string>
+	<plurals name="x_accounts">
+		<item quantity="other">%,d 个账户</item>
+	</plurals>
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_user_domain_block">你屏蔽了 %1$s，移除了 %2$,d 名关注你的用户和你关注的 %3$s 名用户。</string>
+	<string name="relationship_severance_learn_more">了解更多</string>
+	<string name="moderation_warning_action_none">你的账号收到了一条管理警告。</string>
+	<string name="moderation_warning_action_disable">你的账号已被禁用。</string>
+	<string name="moderation_warning_action_mark_statuses_as_sensitive">你的一些嘟文已被标记为敏感内容。</string>
+	<string name="moderation_warning_action_delete_statuses">你的一些嘟文已被移除。</string>
+	<string name="moderation_warning_action_sensitive">今后你的嘟文都会被标记为敏感内容。</string>
+	<string name="moderation_warning_action_silence">你的账号已被隐藏。</string>
+	<string name="moderation_warning_action_suspend">你的账号已被封禁。</string>
+	<string name="moderation_warning_learn_more">了解更多</string>
+	<string name="text_show_more">更多</string>
+	<string name="avatar_move_and_scale">移动与缩放</string>
+	<string name="confirm_avatar_crop">选择</string>
+	<string name="settings_use_dynamic_colors">使用系统动态颜色</string>
+	<string name="settings_accounts">账户</string>
+	<string name="settings_add_account">添加账户...</string>
+	<string name="settings_app_settings">应用设置</string>
+	<string name="account_settings">账户设置</string>
+	<string name="settings_about_this_server">关于此服务器</string>
+	<string name="manage_account">管理账户</string>
+	<string name="switch_to_this_account">切换到此账户</string>
+	<string name="delete_account">删除账户</string>
+	<string name="notification_type_status">新嘟文</string>
+	<plurals name="user_and_x_more_followed">
+		<item quantity="other">%1$s 和其它 %2$,d 人关注了你</item>
+	</plurals>
+	<string name="familiar_followers_one">%s 关注了此账号</string>
+	<string name="familiar_followers_two">%s 和 %s 关注了此账号</string>
+	<string name="profile_saved_posts">已保存</string>
+	<string name="profile_saved_posts_explanation">你保存的嘟文只对你可见。</string>
+	<string name="search_people">用户</string>
+	<plurals name="familiar_followers_many">
+		<item quantity="other">%1$s, %2$s 和其它 %3$,d 人关注了此账号</item>
+	</plurals>
+	<plurals name="x_followers_you_know">
+		<item quantity="other">%,d 名你认识的关注者</item>
+	</plurals>
 	<!-- appears when you're about to block a server -->
+	<plurals name="server_x_followers_will_be_removed">
+		<item quantity="other">来自该服务器的 %,d 名关注者将被移除。</item>
+	</plurals>
 	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
+	<string name="server_x_followers_and_following_will_be_removed">你将失去 %1$s 和 %2$s。</string>
+	<plurals name="will_lose_x_followers">
+		<item quantity="other">%,d 名关注者</item>
+	</plurals>
+	<plurals name="will_lose_x_following">
+		<item quantity="other">你关注的 %,d 人</item>
+	</plurals>
 	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
+	<string name="server_x_following_will_be_removed">你将会丢失 %s。</string>
+	<string name="load_missing_posts_above">加载更新嘟文</string>
+	<string name="load_missing_posts_below">加载更早嘟文</string>
 </resources>

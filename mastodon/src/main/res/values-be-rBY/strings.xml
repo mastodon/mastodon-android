@@ -339,6 +339,7 @@
 	<string name="add_bookmark">Закладка</string>
 	<string name="remove_bookmark">Выдаліць закладку</string>
 	<string name="bookmarks">Закладкі</string>
+	<string name="your_favorites">Упадабаныя</string>
 	<string name="login_title">З вяртаннем</string>
 	<string name="login_subtitle">Увайдзіце з дапамогай сервера, на якім вы стварылі свой уліковы запіс.</string>
 	<string name="server_url">URL-адрас сервера</string>
@@ -826,6 +827,11 @@
 	<string name="donation_server_error">Нам вельмі шкада, але адбылася памылка, і мы не змаглі апрацаваць ваша ахвяраванне.\n\nКалі ласка, паспрабуйце яшчэ некалькі хвілін.</string>
 	<string name="settings_donate">Ахвяруйце Mastodon</string>
 	<string name="settings_manage_donations">Кіраваць ахвяраваннямі</string>
+	<string name="poll_see_results">Паказаць вынікі</string>
+	<string name="poll_hide_results">Схаваць вынікі</string>
+	<string name="own_poll_ended">Ваша апытанне скончылася</string>
+	<string name="user_just_posted">Новы допіс ад %s</string>
+	<string name="relationship_severance_account_suspension">Адміністратар з %1$s прыпыніў працу %2$s, што азначае, што вы больш не можаце атрымліваць ад іх абнаўлення ці ўзаемадзейнічаць з імі.</string>
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
 	<string name="relationship_severance_learn_more">Даведацца больш</string>
@@ -840,6 +846,16 @@
 	<string name="text_show_more">Больш</string>
 	<string name="avatar_move_and_scale">Перасоўванне і маштабаванне</string>
 	<string name="confirm_avatar_crop">Выбраць</string>
+	<string name="settings_accounts">Уліковыя запісы</string>
+	<string name="settings_add_account">Дадаць уліковы запіс...</string>
+	<string name="settings_app_settings">Налады праграмы</string>
+	<string name="account_settings">Налады ўліковага запісу</string>
+	<string name="settings_about_this_server">Аб гэтым серверы</string>
+	<string name="manage_account">Кіраванне ўліковым запісам</string>
+	<string name="delete_account">Выдаліць уліковы запіс</string>
+	<string name="notification_type_status">Новыя допісы</string>
+	<string name="profile_saved_posts">Захаванае</string>
+	<string name="search_people">Людзі</string>
 	<!-- appears when you're about to block a server -->
 	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
 	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
