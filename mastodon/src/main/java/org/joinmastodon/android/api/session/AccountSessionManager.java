@@ -125,7 +125,7 @@ public class AccountSessionManager{
 
 	public void addAccount(Instance instance, Token token, Account self, Application app, AccountActivationInfo activationInfo){
 		instances.put(instance.getDomain(), instance);
-		runOnDbThread(db->insertInstanceIntoDatabase(db, instance.getDomain(), instance, List.of(), 0));
+		runOnDbThread(db->insertInstanceIntoDatabase(db, instance.getDomain(), instance, null, 0));
 		AccountSession session=new AccountSession(token, self, app, instance.getDomain(), activationInfo==null, activationInfo);
 		sessions.put(session.getID(), session);
 		lastActiveAccountID=session.getID();
@@ -351,7 +351,7 @@ public class AccountSessionManager{
 					@Override
 					public void onSuccess(Instance instance){
 						instances.put(domain, instance);
-						runOnDbThread(db->insertInstanceIntoDatabase(db, domain, instance, List.of(), 0));
+						runOnDbThread(db->insertInstanceIntoDatabase(db, domain, instance, null, 0));
 						updateInstanceEmojis(instance, domain);
 					}
 
@@ -628,7 +628,8 @@ public class AccountSessionManager{
 		ContentValues values=new ContentValues();
 		values.put("domain", domain);
 		values.put("instance_obj", MastodonAPIController.gson.toJson(instance));
-		values.put("emojis", MastodonAPIController.gson.toJson(emojis));
+		if(emojis!=null)
+			values.put("emojis", MastodonAPIController.gson.toJson(emojis));
 		values.put("last_updated", lastUpdated);
 		values.put("version", instance.getVersion());
 		db.insertWithOnConflict("instances", null, values, SQLiteDatabase.CONFLICT_REPLACE);

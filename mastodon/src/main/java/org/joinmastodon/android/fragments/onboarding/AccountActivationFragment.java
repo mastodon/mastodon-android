@@ -24,6 +24,7 @@ import org.joinmastodon.android.api.session.AccountSession;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.fragments.settings.SettingsMainFragment;
 import org.joinmastodon.android.model.Account;
+import org.joinmastodon.android.model.Instance;
 import org.joinmastodon.android.ui.sheets.AccountSwitcherSheet;
 import org.joinmastodon.android.ui.utils.UiUtils;
 
@@ -175,8 +176,9 @@ public class AccountActivationFragment extends ToolbarFragment{
 						currentRequest=null;
 						AccountSessionManager mgr=AccountSessionManager.getInstance();
 						AccountSession session=mgr.getAccount(accountID);
-						mgr.addAccount(mgr.getInstanceInfo(session.domain), session.token, result, session.app, null);
+						Instance instance=mgr.getInstanceInfo(session.domain);
 						mgr.removeAccount(accountID);
+						mgr.addAccount(instance, session.token, result, session.app, null);
 						String newID=mgr.getLastActiveAccountID();
 						accountID=newID;
 						if((session.self.avatar!=null || session.self.displayName!=null) && !getArguments().getBoolean("debug")){
