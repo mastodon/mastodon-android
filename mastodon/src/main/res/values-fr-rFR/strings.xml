@@ -301,6 +301,7 @@
 	<string name="add_bookmark">Ajouter aux marque-pages</string>
 	<string name="remove_bookmark">Supprimer le marque-page</string>
 	<string name="bookmarks">Marque-pages</string>
+	<string name="your_favorites">Favoris</string>
 	<string name="login_title">Bienvenue à nouveau</string>
 	<string name="login_subtitle">Connectez-vous avec le serveur sur lequel vous avez créé votre compte.</string>
 	<string name="server_url">URL du serveur</string>
@@ -755,9 +756,45 @@
 	<string name="donation_server_error">Nous sommes désolés, une erreur est survenue et nous n\'avons pas pu traiter votre don.\n\nVeuillez réessayer dans quelques minutes.</string>
 	<string name="settings_donate">Faire un don à Mastodon</string>
 	<string name="settings_manage_donations">Gestion des dons</string>
+	<string name="poll_see_results">Voir les résultats</string>
+	<string name="poll_hide_results">Masquer les résultats</string>
+	<string name="own_poll_ended">Votre sondage est terminé</string>
+	<string name="user_just_posted">%s vient de publier</string>
+	<string name="user_edited_post">%s a modifié un message avec lequel vous avez interagi</string>
+	<string name="relationship_severance_account_suspension">Un·e administrateur·rice de %1$s a suspendu %2$s, ce qui signifie que vous ne pourrez plus recevoir de mises à jour ou interagir avec eux.</string>
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_domain_block">Un·e administrateur·rice de %1$s a bloqué %2$s, y compris %3$,d de vos abonné·e·s et %4$s que vous suivez.</string>
+	<plurals name="x_accounts">
+		<item quantity="one">%,d compte</item>
+		<item quantity="other">%,d comptes</item>
+	</plurals>
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_learn_more">En savoir plus</string>
+	<string name="moderation_warning_learn_more">En savoir plus</string>
+	<string name="text_show_more">Plus</string>
+	<string name="avatar_move_and_scale">Déplacer et mettre à l\'échelle</string>
+	<string name="confirm_avatar_crop">Choisir</string>
+	<string name="settings_use_dynamic_colors">Utiliser la couleur dynamique du système</string>
+	<string name="settings_accounts">Comptes</string>
+	<string name="settings_add_account">Ajouter un compte...</string>
+	<string name="settings_app_settings">Paramètres de l\'application</string>
+	<string name="account_settings">Paramètres du compte</string>
+	<string name="settings_about_this_server">À propos de ce serveur</string>
+	<string name="manage_account">Gérer le compte</string>
+	<string name="switch_to_this_account">Basculer vers ce compte</string>
+	<string name="delete_account">Supprimer le compte</string>
+	<string name="notification_type_status">Nouveaux messages</string>
+	<string name="familiar_followers_one">Suivi·e par %s</string>
+	<string name="familiar_followers_two">Suivi·e par %s et %s</string>
+	<string name="profile_saved_posts">Enregistré</string>
+	<string name="search_people">Personnes</string>
 	<!-- appears when you're about to block a server -->
 	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
+	<string name="server_x_followers_and_following_will_be_removed">Vous allez perdre %1$s et %2$s.</string>
+	<plurals name="will_lose_x_followers">
+		<item quantity="one">%,d abonné·e</item>
+		<item quantity="other">%,d abonné·e·s</item>
+	</plurals>
 	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
+	<string name="server_x_following_will_be_removed">Vous allez perdre %s.</string>
 </resources>
