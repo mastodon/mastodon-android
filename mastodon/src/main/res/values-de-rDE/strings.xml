@@ -135,8 +135,8 @@
 	<string name="report_sent_subtitle">Während wir den Vorfall überprüfen, kannst du gegen %s weitere Maßnahmen ergreifen:</string>
 	<string name="unfollow_user">%s entfolgen</string>
 	<string name="unfollow">Entfolgen</string>
-	<string name="mute_user_explain">Du wirst die Beiträge vom Konto nicht mehr sehen. Das Konto kann dir immer noch folgen, und die Person hinter dem Konto wird deine Beiträge sehen können und nicht wissen, dass du sie stummgeschaltet hast.</string>
-	<string name="block_user_explain">Dir wird es nicht länger möglich sein, die Beiträge dieses Konto zu sehen. Das blockierte Profil wird nicht mehr in der Lage sein, deine Beiträge zu sehen oder dir zu folgen. Die Person hinter dem Konto wird mitbekommen, dass du ihr Konto blockiert hast.</string>
+	<string name="mute_user_explain">Du wirst keine Beiträge mehr von diesem Konto sehen. Das stummgeschaltete Konto wird dir weiterhin folgen und deine Beiträge sehen können. Die Person wird nicht mitbekommen, dass du sie stummgeschaltet hast.</string>
+	<string name="block_user_explain">Du wirst keine Beiträge mehr von diesem Konto sehen. Das blockierte Konto wird deine Beiträge nicht mehr sehen oder dir folgen können. Die Person könnte mitbekommen, dass du sie blockiert hast.</string>
 	<string name="report_personal_title">Du möchtest das nicht mehr sehen?</string>
 	<string name="report_personal_subtitle">Das sind deine Möglichkeiten zu bestimmen, was du auf Mastodon sehen möchtest:</string>
 	<string name="back">Zurück</string>
@@ -152,9 +152,9 @@
 	<string name="category_general">Allgemein</string>
 	<string name="confirm_email_title">Überprüfe dein E-Mail-Postfach</string>
 	<!-- %s is the email address -->
-	<string name="confirm_email_subtitle">Bitte klicke auf den Link, den wir an %s geschickt haben, um dich zu verifizieren. Wir warten bis dahin einfach hier.</string>
+	<string name="confirm_email_subtitle">Klicke auf den Bestätigungslink, den wir an %s gesendet haben, um die Adresse zu verifizieren. Wir warten hier solange auf dich.</string>
 	<string name="confirm_email_didnt_get">Kein Link angekommen?</string>
-	<string name="resend">Erneut abschicken</string>
+	<string name="resend">Erneut senden</string>
 	<string name="open_email_app">E-Mail-App öffnen</string>
 	<string name="resent_email">Bestätigungs-E-Mail gesendet</string>
 	<string name="compose_hint">Was liegt dir am Herzen?</string>
@@ -649,9 +649,9 @@
 	<string name="invite_link_pasted">Link aus der Zwischenablage eingefügt.</string>
 	<string name="need_invite_to_join_server">Du benötigst einen Einladungslink, um %s beizutreten.</string>
 	<string name="mute_user_confirm_title">Profil stummschalten?</string>
-	<string name="user_wont_know_muted">Derjenige wird von der Stummschaltung nichts mitbekommen.</string>
-	<string name="user_can_still_see_your_posts">Derjenige kann weiterhin deine Beiträge sehen, aber du nicht seine.</string>
-	<string name="you_wont_see_user_mentions">Du wirst keine Beiträge sehen, in denen derjenige erwähnt wird.</string>
+	<string name="user_wont_know_muted">Das Profil wird nicht erkennen können, dass du es stummgeschaltet hast.</string>
+	<string name="user_can_still_see_your_posts">Deine Beiträge können von diesem stummgeschalteten Profil weiterhin gesehen werden, aber du wirst dessen Beiträge nicht mehr sehen.</string>
+	<string name="you_wont_see_user_mentions">Du wirst keine Beiträge sehen, die dieses Profil erwähnen.</string>
 	<string name="user_can_mention_and_follow_you">Das Profil wird dich weiterhin erwähnen und dir folgen können, aber du wirst davon nichts sehen.</string>
 	<string name="unmuted_user_x">Stummschaltung von %s aufgehoben</string>
 	<string name="block_user_confirm_title">Profil blockieren?</string>
@@ -664,7 +664,7 @@
 	<string name="block_user_x_instead">Stattdessen %s blockieren</string>
 	<string name="users_cant_see_blocked">Du wirst keine Beiträge oder Benachrichtigungen von Profilen auf diesem Server sehen.</string>
 	<string name="you_wont_see_server_posts">Du wirst keine Beiträge von Profilen auf jenem Server mehr sehen.</string>
-	<string name="server_cant_mention_or_follow_you">Niemand von jenem Server kann dir mehr folgen.</string>
+	<string name="server_cant_mention_or_follow_you">Niemand von diesem Server wird dir folgen können.</string>
 	<string name="server_can_interact_with_older">Profile von diesem Server werden mit deinen älteren Beiträgen interagieren können.</string>
 	<string name="unblocked_domain_x">Domain %s entblockt</string>
 	<string name="handle_help_title">Woraus besteht eine Adresse?</string>
