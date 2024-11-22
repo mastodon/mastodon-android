@@ -115,7 +115,7 @@
 	<string name="report_title">%s melden</string>
 	<string name="report_choose_reason">Was stimmt mit diesem Beitrag nicht?</string>
 	<string name="report_choose_reason_account">Was ist das Problem mit %s?</string>
-	<string name="report_choose_reason_subtitle">Bitte das Bestmögliche auswählen</string>
+	<string name="report_choose_reason_subtitle">Wähle die passendste Kategorie</string>
 	<string name="report_reason_personal">Das gefällt mir nicht</string>
 	<string name="report_reason_personal_subtitle">Das ist etwas, das du nicht sehen möchtest</string>
 	<string name="report_reason_spam">Das ist Spam</string>
@@ -229,8 +229,8 @@
 	<string name="downloading">Wird heruntergeladen …</string>
 	<string name="no_app_to_handle_action">Es gibt keine App, um diese Aktion auszuführen</string>
 	<string name="local_timeline">Live-Feed</string>
-	<string name="trending_posts_info_banner">Dies sind Beiträge, die auf deinem Mastodon-Server gerade angesagt sind.</string>
-	<string name="trending_links_info_banner">Das sind die Nachrichten, über die auf Mastodon gesprochen werden.</string>
+	<string name="trending_posts_info_banner">Diese Beiträge sind auf deinem Mastodon-Server gerade beliebt.</string>
+	<string name="trending_links_info_banner">Diese Nachrichten sind auf Mastodon gerade im Gespräch.</string>
 	<!-- %s is the server domain -->
 	<string name="local_timeline_info_banner">Das sind alle Beiträge von sämtlichen Nutzer*innen auf deinem Server (%s).</string>
 	<string name="recommended_accounts_info_banner">Möglicherweise gefallen dir diese Konten – basierend auf Profilen, denen du folgst.</string>
@@ -407,7 +407,7 @@
 	<string name="mark_all_notifications_read">Alle als gelesen markieren</string>
 	<string name="settings_display">Darstellung</string>
 	<string name="settings_filters">Filter</string>
-	<string name="settings_server_explanation">Übersicht, Regeln, Moderatoren</string>
+	<string name="settings_server_explanation">Übersicht, Regeln, Moderator*innen</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">Über %s</string>
 	<string name="default_post_language">Standard-Beitragssprache</string>
@@ -655,8 +655,8 @@
 	<string name="user_can_mention_and_follow_you">Das Profil wird dich weiterhin erwähnen und dir folgen können, aber du wirst davon nichts sehen.</string>
 	<string name="unmuted_user_x">Stummschaltung von %s aufgehoben</string>
 	<string name="block_user_confirm_title">Profil blockieren?</string>
-	<string name="user_can_see_blocked">Es wird erkennbar sein, dass dieses Profil blockiert wurde.</string>
-	<string name="user_cant_see_each_other_posts">Derjenige kann deine Beiträge nicht sehen und du nicht seine.</string>
+	<string name="user_can_see_blocked">Das Profil wird erkennen können, dass du es blockiert hast.</string>
+	<string name="user_cant_see_each_other_posts">Deine Beiträge können nicht mehr angesehen werden und du wirst deren Beiträge nicht mehr sehen.</string>
 	<string name="user_cant_mention_or_follow_you">Das Profil wird dich nicht erwähnen oder dir folgen können.</string>
 	<string name="unblocked_user_x">Blockierung von %s aufgehoben</string>
 	<string name="block_domain_confirm_title">Domain sperren?</string>
