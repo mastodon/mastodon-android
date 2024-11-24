@@ -803,15 +803,15 @@ Kuo daugiau asmenų sekate, tuo aktyvesnis ir įdomesnis jis bus.</string>
 	<string name="view_boosts">Peržiūrėti pasidalinimus</string>
 	<string name="view_favorites">Peržiūrėti mėgstamus</string>
 	<string name="undo_reblog">Atšaukti pasidalinimą</string>
-	<string name="undo_favorite">Panaikinti mėgstamą</string>
+	<string name="undo_favorite">Naikinti mėgstamą</string>
 	<string name="could_not_reach_server">Nepavyko pasiekti serverio. Patikrinti ryšį ir bandyti dar kartą?</string>
 	<string name="connection_timed_out">Užklausai baigėsi laikas. Patikrinti ryšį ir bandyti dar kartą?</string>
-	<string name="server_error">Kažkas nepavyko susikalbėti su serveriu. Tikriausiai tai ne tavo kaltė. Bandyti dar kartą?</string>
+	<string name="server_error">Kažkas nepavyko susikalbėti su serveriu. Tikriausiai tai ne jūsų kaltė. Bandyti dar kartą?</string>
 	<string name="not_found">Jis galėjo būti ištrintas, o gal išvis niekada neegzistavo.</string>
 	<string name="no_servers_found">Nerasta serverių „%s“</string>
-	<string name="signup_username_taken">Šis naudotojo vardas paimtas. Išbandyk kitą arba &lt;a&gt;pasirink kitą serverį&lt;/a&gt;.</string>
+	<string name="signup_username_taken">Šis naudotojo vardas paimtas. Išbandykite kitą arba &lt;a&gt;pasirinkite kitą serverį&lt;/a&gt;.</string>
 	<string name="signup_email_invalid">Tai neatrodo kaip tinkamas el. pašto adresas.</string>
-	<string name="signup_email_taken">El. pašto adresas jau naudojamas. Ar &lt;a&gt;pamiršai savo slaptažodį&lt;/a&gt;?</string>
+	<string name="signup_email_taken">El. pašto adresas jau naudojamas. Ar &lt;a&gt;pamiršote savo slaptažodį&lt;/a&gt;?</string>
 	<plurals name="x_new_notifications">
 		<item quantity="one">%,d naujas pranešimas</item>
 		<item quantity="few">%,d nauji pranešimai</item>
@@ -820,13 +820,13 @@ Kuo daugiau asmenų sekate, tuo aktyvesnis ir įdomesnis jis bus.</string>
 	</plurals>
 	<string name="dismiss">Atmesti</string>
 	<string name="donation_once">Tik vieną kartą</string>
-	<string name="donation_monthly">Kas mėnesį</string>
-	<string name="donation_yearly">Kasmet</string>
+	<string name="donation_monthly">Mėnesinis</string>
+	<string name="donation_yearly">Metinis</string>
 	<string name="currency">Valiuta</string>
-	<string name="donation_success_share">Skleisk žodį</string>
-	<string name="donation_success_title">Ačiū už tavo prisidėjimą!</string>
-	<string name="donation_success_subtitle">Netrukus turėtum gauti auką patvirtinantį el. laišką.</string>
-	<string name="donation_server_error">Atsiprašome. Įvyko klaida ir negalėjome apdoroti tavo aukos.\n\nBandyk dar kartą po kelių minučių.</string>
+	<string name="donation_success_share">Skleiskite žodį</string>
+	<string name="donation_success_title">Dėkojame už jūsų prisidėjimą!</string>
+	<string name="donation_success_subtitle">Netrukus turėtumėte gauti auką patvirtinantį el. laišką.</string>
+	<string name="donation_server_error">Atsiprašome. Įvyko klaida ir negalėjome apdoroti jūsų aukos.\n\nBandykite dar kartą po kelių minučių.</string>
 	<string name="settings_donate">Aukoti „Mastodon“</string>
 	<string name="settings_manage_donations">Tvarkyti aukas</string>
 	<string name="cant_load_image">Nepavyko įkelti vaizdo.</string>
@@ -851,12 +851,12 @@ Kuo daugiau asmenų sekate, tuo aktyvesnis ir įdomesnis jis bus.</string>
 		<item quantity="other">%1$s ir %2$,d kitų pasidalino:</item>
 	</plurals>
 	<plurals name="poll_ended_x_voters">
-		<item quantity="one">%1$s surengė apklausą, kurioje balsavai tu ir %2$,d kitas</item>
-		<item quantity="few">%1$s surengė apklausą, kurioje balsavai tu ir %2$,d kiti</item>
-		<item quantity="many">%1$s surengė apklausą, kurioje balsavai tu ir %2$,d kitos</item>
-		<item quantity="other">%1$s surengė apklausą, kurioje balsavai tu ir %2$,d kitų</item>
+		<item quantity="one">%1$s surengė apklausą, kurioje balsavote jūs ir %2$,d kitas</item>
+		<item quantity="few">%1$s surengė apklausą, kurioje balsavote jūs ir %2$,d kiti</item>
+		<item quantity="many">%1$s surengė apklausą, kurioje balsavote jūs ir %2$,d kitos</item>
+		<item quantity="other">%1$s surengė apklausą, kurioje balsavote jūs ir %2$,d kitų</item>
 	</plurals>
-	<string name="own_poll_ended">Tavo apklausa baigėsi</string>
+	<string name="own_poll_ended">Jūsų apklausa baigėsi</string>
 	<string name="user_just_posted">%s ką tik paskelbė</string>
 	<string name="user_edited_post">%s redagavo įrašą, su kuriuo sąveikavai</string>
 	<string name="relationship_severance_account_suspension">%1$s administratorius (-ė) pristabdė %2$s, o tai reiškia, kad nebegali iš jų gauti naujienų ir su jais bendrauti.</string>
