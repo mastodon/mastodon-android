@@ -370,12 +370,12 @@
 	<string name="attachment_type_unknown">Datei</string>
 	<string name="attachment_x_percent_uploaded">%d%% hochgeladen</string>
 	<string name="add_poll_option">Umfrageoption hinzufügen</string>
-	<string name="poll_length">Umfragelänge</string>
-	<string name="poll_style">Stil</string>
-	<string name="compose_poll_single_choice">Wähle eins</string>
-	<string name="compose_poll_multiple_choice">Multiple Choice</string>
+	<string name="poll_length">Umfragedauer</string>
+	<string name="poll_style">Art</string>
+	<string name="compose_poll_single_choice">Einfachauswahl</string>
+	<string name="compose_poll_multiple_choice">Mehrfachauswahl</string>
 	<string name="delete_poll_option">Umfrageoption löschen</string>
-	<string name="poll_style_title">Umfragestil</string>
+	<string name="poll_style_title">Art der Umfrage</string>
 	<string name="alt_text">Alt-Text</string>
 	<string name="help">Hilfe</string>
 	<string name="what_is_alt_text">Was ist Alt-Text?</string>
@@ -576,9 +576,9 @@
 	<string name="delete_list">Liste löschen</string>
 	<!-- %s is the name of the list -->
 	<string name="delete_list_confirm">„%s“ löschen?</string>
-	<string name="list_exclusive">Mitglieder in „Folge ich“ ausblenden</string>
-	<string name="list_exclusive_subtitle">Wenn jemand in dieser Liste ist, sollen deren Beiträge nicht in der „Folge ich“-Timeline angezeigt werden.</string>
-	<string name="list_name">Listenname</string>
+	<string name="list_exclusive">Mitglieder auf der Startseite ausblenden</string>
+	<string name="list_exclusive_subtitle">Profile, die sich auf dieser Liste befinden, werden nicht auf deiner Startseite angezeigt, damit deren Beiträge nicht doppelt erscheinen.</string>
+	<string name="list_name">Titel der Liste</string>
 	<string name="list_show_replies_to">Mit Antworten von</string>
 	<string name="list_replies_no_one">Niemandem</string>
 	<string name="list_replies_members">Mitgliedern der Liste</string>
@@ -593,10 +593,10 @@
 	<string name="manage_user_lists">Listen mit %s verwalten</string>
 	<string name="remove_from_list">Aus Liste entfernen</string>
 	<string name="confirm_remove_list_member">Mitglied entfernen?</string>
-	<string name="no_followed_hashtags_title">Halte Interessen im Blick, indem du Hashtags folgst</string>
-	<string name="no_followed_hashtags_subtitle">Gefolge Hashtags erscheinen hier</string>
-	<string name="no_lists_title">Startseite mit Listen organisieren</string>
-	<string name="no_lists_subtitle">Deine werden hier erscheinen</string>
+	<string name="no_followed_hashtags_title">Behalte Interessen im Blick, indem du Hashtags folgst</string>
+	<string name="no_followed_hashtags_subtitle">Gefolgte Hashtags werden hier erscheinen</string>
+	<string name="no_lists_title">Organisiere deine Startseite mithilfe von Listen</string>
+	<string name="no_lists_subtitle">Zukünftige Listen werden hier erscheinen</string>
 	<string name="manage_accounts">Konten hinzufügen oder wechseln</string>
 	<plurals name="x_posts_recently">
 		<item quantity="one">%,d kürzlicher Beitrag</item>
@@ -668,7 +668,7 @@
 	<string name="server_can_interact_with_older">Profile von diesem Server werden mit deinen älteren Beiträgen interagieren können.</string>
 	<string name="unblocked_domain_x">Domain %s entblockt</string>
 	<string name="handle_help_title">Woraus besteht eine Adresse?</string>
-	<string name="handle_title">Ihr Handle</string>
+	<string name="handle_title">Deren Adresse</string>
 	<string name="handle_username_explanation">Deren eindeutigen Identität auf dem betreffenden Server. Es ist möglich, Profile mit dem gleichen Profilnamen auf verschiedenen Servern zu finden.</string>
 	<string name="handle_title_own">Deine Adresse</string>
 	<string name="handle_username_explanation_own">Deine eindeutige Identität auf diesem Server. Es ist möglich, Profile mit dem gleichen Profilnamen auf verschiedenen Servern zu finden.</string>
@@ -760,7 +760,7 @@
 	<string name="settings_manage_donations">Spenden verwalten</string>
 	<string name="cant_load_image">Bild konnte nicht geladen werden</string>
 	<string name="poll_see_results">Ergebnisse anzeigen</string>
-	<string name="poll_hide_results">Ergebnisse verstecken</string>
+	<string name="poll_hide_results">Ergebnisse ausblenden</string>
 	<plurals name="x_attachments">
 		<item quantity="one">%d Anhang</item>
 		<item quantity="other">%d Anhänge</item>
@@ -777,7 +777,7 @@
 		<item quantity="one">%1$s hat eine Umfrage durchgeführt, an der du und %2$,d weitere Person teilgenommen haben</item>
 		<item quantity="other">%1$s hat eine Umfrage durchgeführt, an der du und %2$,d weitere Personen teilgenommen haben</item>
 	</plurals>
-	<string name="own_poll_ended">Ihre Umfrage ist beendet</string>
+	<string name="own_poll_ended">Deine Umfrage ist beendet</string>
 	<string name="user_just_posted">%s veröffentlichte gerade</string>
 	<string name="user_edited_post">%s hat einen Beitrag bearbeitet, mit dem du interagiert hast</string>
 	<string name="relationship_severance_account_suspension">Ein Admin von %1$s hat %2$s gesperrt. Du wirst von diesem Profil keine Updates mehr erhalten und auch nicht mit ihm interagieren können.</string>
