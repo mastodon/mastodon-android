@@ -12,7 +12,7 @@
 	<string name="in_reply_to">als Antwort auf %s</string>
 	<string name="notifications">Benachrichtigungen</string>
 	<string name="user_followed_you">%s folgt dir jetzt</string>
-	<string name="user_sent_follow_request">%s hat dir eine Folgeanfrage gesendet</string>
+	<string name="user_sent_follow_request">%s möchte dir folgen</string>
 	<string name="user_favorited">%s favorisierte:</string>
 	<string name="notification_boosted">%s teilte deinen Beitrag:</string>
 	<string name="share_toot_title">Teilen</string>
@@ -320,7 +320,7 @@
 	<string name="not_accepting_new_members">Keine Aufnahme neuer Mitglieder</string>
 	<string name="category_special_interests">Besondere Interessen</string>
 	<string name="signup_passwords_dont_match">Passwörter stimmen nicht überein</string>
-	<string name="profile_add_row">Zeile hinzufügen</string>
+	<string name="profile_add_row">Zusatzfeld hinzufügen</string>
 	<string name="profile_setup">Profil einrichten</string>
 	<string name="profile_setup_subtitle">Du kannst dies jederzeit später auf dem Profil-Reiter vervollständigen.</string>
 	<string name="follow_all">Allen folgen</string>
@@ -334,7 +334,7 @@
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
 	<string name="signup_email_domain_blocked">%1$s lässt keine Registrierungen von %2$s zu. Probiere einen anderen E-Mail-Anbieter oder &lt;a&gt;wähle einen anderen Server&lt;/a&gt;.</string>
 	<string name="spoiler_show">Trotzdem anzeigen</string>
-	<string name="spoiler_hide">Wieder verstecken</string>
+	<string name="spoiler_hide">Wieder ausblenden</string>
 	<string name="poll_multiple_choice">Wähle ein/e oder mehrere aus</string>
 	<string name="save_changes">Änderungen speichern</string>
 	<string name="profile_featured">Empfohlen</string>
@@ -379,7 +379,7 @@
 	<string name="alt_text">Alt-Text</string>
 	<string name="help">Hilfe</string>
 	<string name="what_is_alt_text">Was ist Alt-Text?</string>
-	<string name="alt_text_help">Alternativtext bietet Bildbeschreibungen für Personen mit Sehbehinderungen oder mit Verbindungen niedriger Bandbreite und für alle, die zusätzlichen Kontext suchen.\n\nDu kannst die Zugänglichkeit und die Verständlichkeit für alle verbessern, indem du klaren, präzisen und objektiven Alt-Text schreibst.\n\n<ul><li>Wichtige Elemente erfassen</li>\n<li>Zusammenfassung des Textes in Bildern</li>\n<li>Reguläre Satzstrukturen nutzen</li>\n<li>Vermeide redundante Informationen</li>\n<li>Fokussiere dich auf Trends und Schlüsselfeststellungen in komplexen Darstellungen (wie Diagramme oder Karten)</li></ul></string>
+	<string name="alt_text_help">Alt-Text bietet Bildbeschreibungen für Personen mit einer Sehbehinderung, einer schlechten Internetverbindung und für alle, die zusätzlichen Kontext möchten.\n\nDu kannst die Zugänglichkeit und die Verständlichkeit für alle verbessern, indem du eine klare, genaue und objektive Bildbeschreibung hinzufügst.\n\n<ul><li>Erfasse wichtige Elemente</li>\n<li>Fasse Text in Bildern zusammen</li>\n<li>Verwende einen korrekten Satzbau</li>\n<li>Vermeide unwichtige Informationen</li>\n<li>Konzentriere dich bei komplexen Darstellungen (z. B. Diagramme oder Karten) auf Trends und wichtige Erkenntnisse</li></ul></string>
 	<string name="edit_post">Beitrag bearbeiten</string>
 	<string name="no_verified_link">Kein bestätigter Link</string>
 	<string name="compose_autocomplete_emoji_empty">Emoji durchsuchen</string>
@@ -465,14 +465,14 @@
 		<item quantity="one">vor %d Stunde</item>
 		<item quantity="other">vor %d Stunden</item>
 	</plurals>
-	<string name="alt_text_reminder_title">Vor fehlendem Alt-Text warnen</string>
+	<string name="alt_text_reminder_title">Fehlender Alt-Text</string>
 	<plurals name="alt_text_reminder_x_images">
-		<item quantity="one">%s deiner Bilder fehlt der Alt-Text. Wirklich senden?</item>
-		<item quantity="other">%s deiner Bilder fehlt der Alt-Text. Wirklich senden?</item>
+		<item quantity="one">%s deiner Bilder fehlt der Alt-Text. Trotzdem senden?</item>
+		<item quantity="other">%s deiner Bilder fehlt der Alt-Text. Trotzdem senden?</item>
 	</plurals>
 	<plurals name="alt_text_reminder_x_attachments">
-		<item quantity="one">%s deiner Medienanhänge fehlt der Alt-Text. Wirklich senden?</item>
-		<item quantity="other">%s deiner Medienanhänge fehlt der Alt-Text. Wirklich senden?</item>
+		<item quantity="one">%s deiner Medienanhänge fehlt der Alt-Text. Trotzdem senden?</item>
+		<item quantity="other">%s deiner Medienanhänge fehlt der Alt-Text. Trotzdem senden?</item>
 	</plurals>
 	<string name="count_one">Eins</string>
 	<string name="count_two">Zwei</string>
@@ -513,7 +513,7 @@
 	<string name="edit_muted_word">Stummgeschaltetes Wort bearbeiten</string>
 	<string name="add">Hinzufügen</string>
 	<string name="filter_word_or_phrase">Wort oder Phrase</string>
-	<string name="filter_add_word_help">Bei diesen Wörtern ist die Groß- und Kleinschreibung egal und es werden nur vollständige Wörter überprüft.\n\nWenn du das Stichwort „Apfel“ filterst, wird es Beiträge verstecken, die „apfel“ oder „aPfel“ enthalten, aber nicht „Anapapfel.“</string>
+	<string name="filter_add_word_help">Bei diesen Wörtern ist die Groß- und Kleinschreibung egal und es werden nur vollständige Wörter überprüft.\n\nWenn du das Schlagwort „Apfel“ filterst, werden Beiträge ausgeblendet, die „apfel“ oder „aPfEl“ enthalten, aber nicht „Granatapfel“.</string>
 	<string name="settings_delete_filter_word">Wort „%s“ löschen?</string>
 	<string name="enter_selection_mode">Auswählen</string>
 	<string name="select_all">Alles auswählen</string>
