@@ -135,8 +135,8 @@
 	<string name="report_sent_subtitle">Mientras revisamos esto, puedes tomar medidas contra %s:</string>
 	<string name="unfollow_user">Dejar de seguir a %s</string>
 	<string name="unfollow">Dejar de seguir</string>
-	<string name="mute_user_explain">No verás sus mensajes. Todavía pueden seguirte y ver tus mensajes y no sabrán que están silenciados.</string>
-	<string name="block_user_explain">No verás sus mensajes. No podrán ver tus publicaciones ni seguirte. Podrán decir que están bloqueados.</string>
+	<string name="mute_user_explain">No verás sus publicaciones. Todavía pueden seguirte y ver tus publicaciones y no sabrán que están silenciados.</string>
+	<string name="block_user_explain">No verás sus publicaciones. No podrán ver tus publicaciones ni seguirte. Podrán decir que están bloqueados.</string>
 	<string name="report_personal_title">¿No quiere ver esto?</string>
 	<string name="report_personal_subtitle">Aquí están tus opciones para controlar lo que ves en Mastodon:</string>
 	<string name="back">Atrás</string>
@@ -232,7 +232,7 @@
 	<string name="trending_posts_info_banner">Estas son las publicaciones que están ganando tracción a través de Mastodon.</string>
 	<string name="trending_links_info_banner">Estas son las noticias de las que se habla en Mastodon.</string>
 	<!-- %s is the server domain -->
-	<string name="local_timeline_info_banner">Estos son todos los mensajes de todos los usuarios de tu servidor (%s).</string>
+	<string name="local_timeline_info_banner">Estas son todas las publicaciones de todos los usuarios de tu servidor (%s).</string>
 	<string name="recommended_accounts_info_banner">Es posible que te gusten estas cuentas basadas en otras que sigues.</string>
 	<string name="see_new_posts">Nuevas publicaciones</string>
 	<string name="follow_back">Seguir también</string>
@@ -399,7 +399,7 @@
 	<string name="forward_report_to_server">Reenviar a %s</string>
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
 	<string name="reported">Reportado</string>
-	<string name="report_unfollow_explanation">Para no ver más sus publicaciones en tu feed de inicio, deja de seguirle.</string>
+	<string name="report_unfollow_explanation">Para no ver más sus publicaciones en tu página de inicio, deja de seguirle.</string>
 	<string name="muted_user">Silenciado %s</string>
 	<string name="report_sent_already_blocked">Ya has bloqueado a este usuario, así que no tienes nada más que hacer mientras revisamos tu informe.</string>
 	<string name="report_personal_already_blocked">Ya has bloqueado a este usuario, así que no tienes nada más que hacer.\n\n¡Gracias por ayudar a mantener Mastodon un lugar seguro para todos!</string>
@@ -414,7 +414,7 @@
 	<string name="settings_alt_text_reminders">Añadir recordatorios de texto alt</string>
 	<string name="settings_confirm_unfollow">Preguntar antes de dejar de seguir a alguien</string>
 	<string name="settings_confirm_boost">Preguntar antes de impulsar</string>
-	<string name="settings_confirm_delete_post">Preguntar antes de eliminar mensajes</string>
+	<string name="settings_confirm_delete_post">Preguntar antes de eliminar publicaciones</string>
 	<string name="pause_all_notifications">Pausar todo</string>
 	<string name="pause_notifications_off">Apagado</string>
 	<string name="notifications_policy_anyone">Cualquiera</string>
@@ -489,7 +489,7 @@
 	<string name="settings_filter_muted_words">Palabras silenciadas</string>
 	<string name="settings_filter_context">Silenciar de</string>
 	<string name="settings_filter_show_cw">Mostrar con advertencia de contenido</string>
-	<string name="settings_filter_show_cw_explanation">Sigue mostrando mensajes que coinciden con este filtro, pero detrás de una advertencia de contenido</string>
+	<string name="settings_filter_show_cw_explanation">Sigue mostrando publicaciones que coinciden con este filtro, pero detrás de una advertencia de contenido</string>
 	<string name="settings_delete_filter">Eliminar filtro</string>
 	<string name="filter_duration_forever">Siempre</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
@@ -666,7 +666,7 @@ Mientras más personas sigas, más activo e interesante será.</string>
 	<string name="users_cant_see_blocked">No verás publicaciones ni notificaciones de usuarios en este servidor.</string>
 	<string name="you_wont_see_server_posts">No verás ninguna publicación de usuarios en este servidor.</string>
 	<string name="server_cant_mention_or_follow_you">Nadie de este servidor puede seguirte.</string>
-	<string name="server_can_interact_with_older">Las personas de este servidor pueden interactuar con tus mensajes antiguos.</string>
+	<string name="server_can_interact_with_older">Las personas de este servidor pueden interactuar con tus publicaciones antiguas.</string>
 	<string name="unblocked_domain_x">El dominio %s ya no está bloqueado</string>
 	<string name="handle_help_title">¿En qué consiste el alias?</string>
 	<string name="handle_title">Su alias</string>
@@ -830,6 +830,22 @@ Mientras más personas sigas, más activo e interesante será.</string>
 		<item quantity="other">%,d seguidores que tú conoces</item>
 	</plurals>
 	<!-- appears when you're about to block a server -->
+	<plurals name="server_x_followers_will_be_removed">
+		<item quantity="one">%,d seguidor de este servidor será eliminado.</item>
+		<item quantity="other">%,d seguidores de este servidor serán eliminados.</item>
+	</plurals>
 	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
+	<string name="server_x_followers_and_following_will_be_removed">Perderás %1$s y %2$s.</string>
+	<plurals name="will_lose_x_followers">
+		<item quantity="one">%,d seguidor</item>
+		<item quantity="other">%,d seguidores</item>
+	</plurals>
+	<plurals name="will_lose_x_following">
+		<item quantity="one">%,d persona a la que sigues</item>
+		<item quantity="other">%,d personas a las que sigues</item>
+	</plurals>
 	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
+	<string name="server_x_following_will_be_removed">Perderás %s.</string>
+	<string name="load_missing_posts_above">Cargar las publicaciones de arriba que faltan</string>
+	<string name="load_missing_posts_below">Cargar las publicaciones de abajo que faltan</string>
 </resources>
