@@ -295,7 +295,7 @@
 	<string name="download_update">Ներբեռնել (%s)</string>
 	<string name="install_update">Տեղադրել</string>
 	<string name="privacy_policy_title">Ձեր գաղտնիությունը</string>
-	<string name="privacy_policy_subtitle">Չնայած նրան, որ Մաստոդոնի ծրագիրը չի պահպանում անձնական տվյալներ, սերվերը, որտեղ դուք գրանցվում եք, կարող է ունենալ այլ գաղտնիության քաղաքականություն։\n\nԵթե դուք համաձայն չեք %s-ի գաղտնիության քաղաքականության հետ, դուք կարող եք հետ գնալ եւ ընտրել ուրիշ սերվեր։</string>
+	<string name="privacy_policy_subtitle">Չնայած նրան, որ Մաստոդոնի ծրագիրը չի պահպանում անձնական տվյալներ` սերվերը, որտեղ դուք գրանցվում եք, կարող է ունենալ այլ գաղտնիության քաղաքականություն։\n\nԵթե դուք համաձայն չեք %s-ի գաղտնիության քաղաքականության հետ, դուք կարող եք հետ գնալ եւ ընտրել ուրիշ սերվեր։</string>
 	<string name="i_agree">Համաձայն եմ</string>
 	<string name="empty_list">Ցանկը դատարկ է</string>
 	<string name="instance_signup_closed">Սպասարկիչը գրանցումներ չի ընդունում։</string>
@@ -727,6 +727,15 @@
 	<string name="currency">Արժույթ</string>
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
+	<string name="moderation_warning_action_silence">Ձեր հաշիվը սահմանափակվել է։</string>
+	<string name="moderation_warning_action_suspend">Ձեր հաշիվն արգելափակվել է։</string>
+	<string name="moderation_warning_learn_more">Իմանալ ավելին</string>
+	<string name="text_show_more">Ավելին</string>
+	<string name="settings_use_dynamic_colors">Օգտագործել համակարգի դինամիկ գույնը</string>
+	<string name="settings_accounts">Հաշիվներ</string>
+	<string name="settings_add_account">Ավելացնել հաշիվ...</string>
+	<string name="settings_app_settings">Հավելվածի կարգավորումներ</string>
+	<string name="account_settings">Հաշվի կարգավորումներ</string>
 	<!-- appears when you're about to block a server -->
 	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
 	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
