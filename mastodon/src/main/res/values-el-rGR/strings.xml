@@ -773,7 +773,14 @@
 		<item quantity="one">Οι %1$s και %2$,d ακόμη ενίσχυσαν:</item>
 		<item quantity="other">Οι %1$s και %2$,d ακόμη ενίσχυσαν:</item>
 	</plurals>
+	<plurals name="poll_ended_x_voters">
+		<item quantity="one">Ο χρήστης %1$s έτρεξε μια δημοσκόπηση στην οποία εσύ και %2$,d ακόμη ψηφίσατε</item>
+		<item quantity="other">Ο χρήστης %1$s έτρεξε μια δημοσκόπηση στην οποία εσύ και %2$,d ακόμη ψηφίσατε</item>
+	</plurals>
 	<string name="own_poll_ended">Η δημοσκόπησή σου έληξε</string>
+	<string name="user_just_posted">Ο χρήστης %s μόλις ανάρτησε</string>
+	<string name="user_edited_post">Ο χρήστης %s επεξεργάστηκε μια ανάρτηση με την οποία αλληλεπίδρασες</string>
+	<string name="relationship_severance_account_suspension">Ένας διαχειριστής από το %1$s ανέστειλε τον λογαριασμό %2$s, πράγμα που σημαίνει ότι δεν μπορείς πλέον να λαμβάνεις ενημερώσεις ή να αλληλεπιδράς μαζί του.</string>
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
 	<string name="relationship_severance_learn_more">Μάθε περισσότερα</string>
