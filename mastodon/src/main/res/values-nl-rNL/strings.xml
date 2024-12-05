@@ -811,6 +811,15 @@
 	<string name="switch_to_this_account">Naar dit account overschakelen</string>
 	<string name="delete_account">Account verwijderen</string>
 	<string name="notification_type_status">Nieuwe berichten</string>
+	<plurals name="user_and_x_more_followed">
+		<item quantity="one">%1$s en %2$,d ander persoon volgen jou nu</item>
+		<item quantity="other">%1$s en %2$,d andere mensen volgen jou nu</item>
+	</plurals>
+	<string name="familiar_followers_one">Gevolgd door %s</string>
+	<string name="familiar_followers_two">Gevolgd door %s en %s</string>
+	<string name="profile_saved_posts">Opgeslagen</string>
+	<string name="profile_saved_posts_explanation">Jouw opgeslagen berichten zijn alleen zichtbaar voor jou.</string>
+	<string name="search_people">Mensen</string>
 	<!-- appears when you're about to block a server -->
 	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
 	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
