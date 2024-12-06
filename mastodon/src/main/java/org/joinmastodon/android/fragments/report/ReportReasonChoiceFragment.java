@@ -17,7 +17,6 @@ import com.squareup.otto.Subscribe;
 
 import org.joinmastodon.android.E;
 import org.joinmastodon.android.R;
-import org.joinmastodon.android.api.session.AccountSession;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.events.FinishReportFragmentsEvent;
 import org.joinmastodon.android.fragments.StatusListFragment;
@@ -95,8 +94,7 @@ public class ReportReasonChoiceFragment extends StatusListFragment{
 
 		items.add(new ChoiceItem(getString(R.string.report_reason_personal), getString(R.string.report_reason_personal_subtitle), ReportReason.PERSONAL.name()));
 		items.add(new ChoiceItem(getString(R.string.report_reason_spam), getString(R.string.report_reason_spam_subtitle), ReportReason.SPAM.name()));
-		AccountSession session=AccountSessionManager.getInstance().getAccount(accountID);
-		Instance inst=AccountSessionManager.getInstance().getInstanceInfo(session.domain, session.token);
+		Instance inst=AccountSessionManager.getInstance().getInstanceInfo(AccountSessionManager.getInstance().getAccount(accountID).domain);
 		if(inst!=null && inst.rules!=null && !inst.rules.isEmpty()){
 			items.add(new ChoiceItem(getString(R.string.report_reason_violation), getString(R.string.report_reason_violation_subtitle), ReportReason.VIOLATION.name()));
 		}

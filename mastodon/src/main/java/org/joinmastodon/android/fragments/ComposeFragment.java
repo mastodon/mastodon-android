@@ -191,7 +191,7 @@ public class ComposeFragment extends MastodonToolbarFragment implements ComposeE
 		self=session.self;
 		instanceDomain=session.domain;
 		customEmojis=AccountSessionManager.getInstance().getCustomEmojis(instanceDomain);
-		instance=AccountSessionManager.getInstance().getInstanceInfo(instanceDomain, session.token);
+		instance=AccountSessionManager.getInstance().getInstanceInfo(instanceDomain);
 		if(getArguments().containsKey("editStatus")){
 			editingStatus=Parcels.unwrap(getArguments().getParcelable("editStatus"));
 		}
@@ -200,7 +200,7 @@ public class ComposeFragment extends MastodonToolbarFragment implements ComposeE
 			return;
 		}
 		if(customEmojis.isEmpty()){
-			AccountSessionManager.getInstance().updateInstanceInfo(instanceDomain, session.token);
+			AccountSessionManager.getInstance().updateInstanceInfo(instanceDomain);
 		}
 
 		if(instance.maxTootChars>0)

@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 
 import org.joinmastodon.android.R;
-import org.joinmastodon.android.api.session.AccountSession;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.fragments.MastodonRecyclerFragment;
 import org.joinmastodon.android.model.Instance;
@@ -24,8 +23,7 @@ public class SettingsServerRulesFragment extends MastodonRecyclerFragment<Instan
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		accountID=getArguments().getString("account");
-		AccountSession session=AccountSessionManager.get(accountID);
-		Instance instance=AccountSessionManager.getInstance().getInstanceInfo(session.domain, session.token);
+		Instance instance=AccountSessionManager.getInstance().getInstanceInfo(AccountSessionManager.get(accountID).domain);
 		onDataLoaded(instance.rules);
 		setRefreshEnabled(false);
 	}
