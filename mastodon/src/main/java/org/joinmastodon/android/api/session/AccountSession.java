@@ -371,6 +371,6 @@ public class AccountSession{
 	}
 
 	public Instance getInstanceInfo(){
-		return AccountSessionManager.getInstance().getInstanceInfo(domain);
+		return AccountSessionManager.getInstance().getInstanceInfo(domain, token);
 	}
 }

@@ -6,6 +6,7 @@ import android.view.View;
 import com.squareup.otto.Subscribe;
 
 import org.joinmastodon.android.R;
+import org.joinmastodon.android.api.session.AccountSession;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.events.FinishReportFragmentsEvent;
 import org.joinmastodon.android.model.Instance;
@@ -22,7 +23,8 @@ public class ReportRuleChoiceFragment extends BaseReportChoiceFragment{
 	@Override
 	protected void populateItems(){
 		isMultipleChoice=true;
-		Instance inst=AccountSessionManager.getInstance().getInstanceInfo(AccountSessionManager.getInstance().getAccount(accountID).domain);
+		AccountSession session=AccountSessionManager.getInstance().getAccount(accountID);
+		Instance inst=AccountSessionManager.getInstance().getInstanceInfo(session.domain, session.token);
 		if(inst!=null && inst.rules!=null){
 			for(Instance.Rule rule:inst.rules){
 				items.add(new ChoiceItem(rule.text, null, rule.id));

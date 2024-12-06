@@ -24,6 +24,7 @@ import android.widget.Toast;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.MastodonAPIController;
 import org.joinmastodon.android.api.requests.instance.GetInstanceExtendedDescription;
+import org.joinmastodon.android.api.session.AccountSession;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.model.Instance;
 import org.joinmastodon.android.model.viewmodel.AccountViewModel;
@@ -60,7 +61,8 @@ public class SettingsServerAboutFragment extends LoaderFragment{
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		accountID=getArguments().getString("account");
-		instance=AccountSessionManager.getInstance().getInstanceInfo(AccountSessionManager.get(accountID).domain);
+		AccountSession session=AccountSessionManager.get(accountID);
+		instance=AccountSessionManager.getInstance().getInstanceInfo(session.domain, session.token);
 		loadData();
 	}
 

@@ -107,13 +107,13 @@ public class AccountSessionManager{
 	private AccountSessionManager(){
 		prefs=MastodonApp.context.getSharedPreferences("account_manager", Context.MODE_PRIVATE);
 		runWithDatabase(db->{
-			HashSet<String> domains=new HashSet<>();
+			HashMap<String, Token> domains=new HashMap<>();
 			try(Cursor cursor=db.query("accounts", null, null, null, null, null, null)){
 				ContentValues values=new ContentValues();
 				while(cursor.moveToNext()){
 					DatabaseUtils.cursorRowToContentValues(cursor, values);
 					AccountSession session=new AccountSession(values);
-					domains.add(session.domain.toLowerCase());
+					domains.put(session.domain.toLowerCase(), session.token);
 					sessions.put(session.getID(), session);
 				}
 			}
@@ -135,7 +135,7 @@ public class AccountSessionManager{
 			session.toContentValues(values);
 			db.insertWithOnConflict("accounts", null, values, SQLiteDatabase.CONFLICT_REPLACE);
 		});
-		updateInstanceEmojis(instance, instance.getDomain());
+		updateInstanceEmojis(instance, instance.getDomain(), token);
 		if(PushSubscriptionManager.arePushNotificationsAvailable()){
 			session.getPushSubscriptionManager().registerAccountForPush(null);
 		}
@@ -272,9 +272,9 @@ public class AccountSessionManager{
 
 	public void maybeUpdateLocalInfo(){
 		long now=System.currentTimeMillis();
-		HashSet<String> domains=new HashSet<>();
+		HashMap<String, Token> domains=new HashMap<>();
 		for(AccountSession session:sessions.values()){
-			domains.add(session.domain.toLowerCase());
+			domains.put(session.domain.toLowerCase(), session.token);
 			if(now-session.infoLastUpdated>24L*3600_000L){
 				updateSessionLocalInfo(session);
 			}
@@ -287,12 +287,12 @@ public class AccountSessionManager{
 		}
 	}
 
-	private void maybeUpdateInstanceInfo(Set<String> domains){
+	private void maybeUpdateInstanceInfo(HashMap<String, Token> domains){
 		long now=System.currentTimeMillis();
-		for(String domain:domains){
+		for(String domain:domains.keySet()){
 			Long lastUpdated=instancesLastUpdated.get(domain);
 			if(lastUpdated==null || now-lastUpdated>24L*3600_000L){
-				updateInstanceInfo(domain);
+				updateInstanceInfo(domain, domains.get(domain));
 			}
 		}
 	}
@@ -346,13 +346,13 @@ public class AccountSessionManager{
 				.exec(session.getID());
 	}
 
-	public void updateInstanceInfo(String domain){
+	public void updateInstanceInfo(String domain, Token token){
 		loadInstanceInfo(domain, new Callback<>(){
 					@Override
 					public void onSuccess(Instance instance){
 						instances.put(domain, instance);
 						runOnDbThread(db->insertInstanceIntoDatabase(db, domain, instance, null, 0));
-						updateInstanceEmojis(instance, domain);
+						updateInstanceEmojis(instance, domain, token);
 					}
 
 					@Override
@@ -362,7 +362,7 @@ public class AccountSessionManager{
 				});
 	}
 
-	private void updateInstanceEmojis(Instance instance, String domain){
+	private void updateInstanceEmojis(Instance instance, String domain, Token token){
 		new GetCustomEmojis()
 				.setCallback(new Callback<>(){
 					@Override
@@ -379,11 +379,11 @@ public class AccountSessionManager{
 
 					}
 				})
-				.execNoAuth(domain);
+				.exec(domain, token);
 	}
 
-	private void readInstanceInfo(SQLiteDatabase db, Set<String> domains){
-		for(String domain : domains){
+	private void readInstanceInfo(SQLiteDatabase db, HashMap<String, Token> domains){
+		for(String domain : domains.keySet()){
 			final int maxEmojiLength=500000;
 			try(Cursor cursor=db.rawQuery("SELECT domain, instance_obj, substr(emojis,1,?) AS emojis, length(emojis) AS emoji_length, last_updated, version FROM instances WHERE `domain` = ?",
 					new String[]{String.valueOf(maxEmojiLength) , domain})) {
@@ -446,7 +446,7 @@ public class AccountSessionManager{
 		return r==null ? Collections.emptyList() : r;
 	}
 
-	public Instance getInstanceInfo(String domain){
+	public Instance getInstanceInfo(String domain, Token token){
 		Instance i=instances.get(domain);
 		if(i!=null)
 			return i;
@@ -456,7 +456,7 @@ public class AccountSessionManager{
 		InstanceV1 fake=new InstanceV1();
 		fake.uri=fake.title=domain;
 		fake.description=fake.version=fake.email="";
-		updateInstanceInfo(domain);
+		updateInstanceInfo(domain, token);
 		return fake;
 	}
 
