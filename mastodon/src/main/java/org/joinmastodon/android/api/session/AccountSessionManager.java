@@ -363,7 +363,7 @@ public class AccountSessionManager{
 	}
 
 	private void updateInstanceEmojis(Instance instance, String domain){
-		new GetCustomEmojis()
+		GetCustomEmojis getCustomEmojisRequest=(GetCustomEmojis)new GetCustomEmojis()
 				.setCallback(new Callback<>(){
 					@Override
 					public void onSuccess(List<Emoji> result){
@@ -378,8 +378,12 @@ public class AccountSessionManager{
 					public void onError(ErrorResponse error){
 
 					}
-				})
-				.execNoAuth(domain);
+				});
+
+		sessions.values().stream().filter(session->session.domain.equals(domain)).findFirst().ifPresentOrElse(
+				(session)->getCustomEmojisRequest.exec(domain, session.token),
+				()->getCustomEmojisRequest.execNoAuth(domain)
+		);
 	}
 
 	private void readInstanceInfo(SQLiteDatabase db, Set<String> domains){
