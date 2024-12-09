@@ -773,9 +773,22 @@
 		<item quantity="one">Οι %1$s και %2$,d ακόμη ενίσχυσαν:</item>
 		<item quantity="other">Οι %1$s και %2$,d ακόμη ενίσχυσαν:</item>
 	</plurals>
+	<plurals name="poll_ended_x_voters">
+		<item quantity="one">Ο χρήστης %1$s έτρεξε μια δημοσκόπηση στην οποία εσύ και %2$,d ακόμη ψηφίσατε</item>
+		<item quantity="other">Ο χρήστης %1$s έτρεξε μια δημοσκόπηση στην οποία εσύ και %2$,d ακόμη ψηφίσατε</item>
+	</plurals>
 	<string name="own_poll_ended">Η δημοσκόπησή σου έληξε</string>
+	<string name="user_just_posted">Ο χρήστης %s μόλις ανάρτησε</string>
+	<string name="user_edited_post">Ο χρήστης %s επεξεργάστηκε μια ανάρτηση με την οποία αλληλεπίδρασες</string>
+	<string name="relationship_severance_account_suspension">Ένας διαχειριστής από το %1$s ανέστειλε τον λογαριασμό %2$s, πράγμα που σημαίνει ότι δεν μπορείς πλέον να λαμβάνεις ενημερώσεις ή να αλληλεπιδράς μαζί του.</string>
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_domain_block">Ένας διαχειριστής από το %1$s έχει αποκλείσει το %2$s, συμπεριλαμβανομένων %3$,d από τους ακολούθους σου και %4$s που ακολουθείς.</string>
+	<plurals name="x_accounts">
+		<item quantity="one">%,d λογαριασμός</item>
+		<item quantity="other">%,d λογαριασμοί</item>
+	</plurals>
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_user_domain_block">Έχετε αποκλείσει το %1$s, αφαιρώντας %2$,d από τους ακολούθους σου και %3$s άτομα που ακολουθείς.</string>
 	<string name="relationship_severance_learn_more">Μάθε περισσότερα</string>
 	<string name="moderation_warning_action_none">Ο λογαριασμός σου έχει λάβει προειδοποίηση συντονισμού.</string>
 	<string name="moderation_warning_action_disable">Ο λογαριασμός σου έχει απενεργοποιηθεί.</string>
@@ -785,7 +798,53 @@
 	<string name="moderation_warning_action_silence">Ο λογαριασμός σου έχει περιοριστεί.</string>
 	<string name="moderation_warning_action_suspend">Ο λογαριασμός σου έχει ανασταλεί.</string>
 	<string name="moderation_warning_learn_more">Μάθε περισσότερα</string>
+	<string name="text_show_more">Περισσότερα</string>
+	<string name="avatar_move_and_scale">Μετακίνηση και κλιμάκωση</string>
+	<string name="confirm_avatar_crop">Επιλογή</string>
+	<string name="settings_use_dynamic_colors">Χρήση δυναμικού χρώματος συστήματος</string>
+	<string name="settings_accounts">Λογαριασμοί</string>
+	<string name="settings_add_account">Προσθήκη λογαριασμού...</string>
+	<string name="settings_app_settings">Ρυθμίσεις εφαρμογής</string>
+	<string name="account_settings">Ρυθμίσεις λογαριασμού</string>
+	<string name="settings_about_this_server">Σχετικά μ\' αυτόν τον διακομιστή</string>
+	<string name="manage_account">Διαχείριση λογαριασμού</string>
+	<string name="switch_to_this_account">Εναλλαγή σε αυτόν τον λογαριασμό</string>
+	<string name="delete_account">Διαγραφή λογαριασμού</string>
+	<string name="notification_type_status">Νέες αναρτήσεις</string>
+	<plurals name="user_and_x_more_followed">
+		<item quantity="one">Οι %1$s και %2$,d ακόμη σε ακολούθησαν</item>
+		<item quantity="other">Οι %1$s και %2$,d ακόμη σε ακολούθησαν</item>
+	</plurals>
+	<string name="familiar_followers_one">Ακολουθείται από %s</string>
+	<string name="familiar_followers_two">Ακολουθείται από %s και %s</string>
+	<string name="profile_saved_posts">Αποθηκεύτηκε</string>
+	<string name="profile_saved_posts_explanation">Οι αποθηκευμένες αναρτήσεις σου είναι ορατές μόνο σε σένα.</string>
+	<string name="search_people">Άτομα</string>
+	<plurals name="familiar_followers_many">
+		<item quantity="one">Ακολουθείται από %1$s, %2$s, και %3$,d ακόμη</item>
+		<item quantity="other">Ακολουθείται από %1$s, %2$s, και %3$,d ακόμη</item>
+	</plurals>
+	<plurals name="x_followers_you_know">
+		<item quantity="one">%,d ακόλουθος που ξέρεις</item>
+		<item quantity="other">%,d ακόλουθοι ξέρεις</item>
+	</plurals>
 	<!-- appears when you're about to block a server -->
+	<plurals name="server_x_followers_will_be_removed">
+		<item quantity="one">%,d ακόλουθος απ\' αυτόν τον διακομιστή θα αφαιρεθεί.</item>
+		<item quantity="other">%,d ακόλουθοί σου απ\' αυτόν τον διακομιστή θα αφαιρεθούν.</item>
+	</plurals>
 	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
+	<string name="server_x_followers_and_following_will_be_removed">Θα χάσεις %1$s και %2$s.</string>
+	<plurals name="will_lose_x_followers">
+		<item quantity="one">%,d ακόλουθο</item>
+		<item quantity="other">%,d ακολούθους</item>
+	</plurals>
+	<plurals name="will_lose_x_following">
+		<item quantity="one">%,d άτομο που ακολουθείς</item>
+		<item quantity="other">%,d άτομα που ακολουθείς</item>
+	</plurals>
 	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
+	<string name="server_x_following_will_be_removed">Θα χάσεις %s.</string>
+	<string name="load_missing_posts_above">Φόρτωση αναρτήσεων που λείπουν παραπάνω</string>
+	<string name="load_missing_posts_below">Φόρτωση αναρτήσεων που λείπουν παρακάτω</string>
 </resources>
