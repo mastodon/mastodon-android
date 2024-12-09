@@ -773,6 +773,10 @@
 		<item quantity="one">%1$s et %2$,d autres ont boosté :</item>
 		<item quantity="other">%1$s et %2$,d autres ont boosté :</item>
 	</plurals>
+	<plurals name="poll_ended_x_voters">
+		<item quantity="one">%1$s a lancé un sondage auquel vous et %2$,d autre ont participé</item>
+		<item quantity="other">%1$s a lancé un sondage auquel vous et %2$,d autres ont participé</item>
+	</plurals>
 	<string name="own_poll_ended">Votre sondage est terminé</string>
 	<string name="user_just_posted">%s vient de publier</string>
 	<string name="user_edited_post">%s a modifié un message avec lequel vous avez interagi</string>
@@ -784,6 +788,7 @@
 		<item quantity="other">%,d comptes</item>
 	</plurals>
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_user_domain_block">Vous avez bloqué %1$s, ce qui a supprimé %2$,d de vos abonnés et %3$s que vous suivez.</string>
 	<string name="relationship_severance_learn_more">En savoir plus</string>
 	<string name="moderation_warning_action_none">Votre compte a reçu un avertissement de modération.</string>
 	<string name="moderation_warning_action_disable">Votre compte a été désactivé.</string>
@@ -806,15 +811,28 @@
 	<string name="switch_to_this_account">Basculer vers ce compte</string>
 	<string name="delete_account">Supprimer le compte</string>
 	<string name="notification_type_status">Nouveaux messages</string>
+	<plurals name="user_and_x_more_followed">
+		<item quantity="one">%1$s et %2$,d autre vous ont suivi</item>
+		<item quantity="other">%1$s et %2$,d autres vous ont suivi</item>
+	</plurals>
 	<string name="familiar_followers_one">Suivi·e par %s</string>
 	<string name="familiar_followers_two">Suivi·e par %s et %s</string>
 	<string name="profile_saved_posts">Enregistré</string>
+	<string name="profile_saved_posts_explanation">Vos publications enregistrées ne sont visibles que par vous.</string>
 	<string name="search_people">Personnes</string>
+	<plurals name="familiar_followers_many">
+		<item quantity="one">Suivi par %1$s, %2$s, et %3$,d autre</item>
+		<item quantity="other">Suivi par %1$s, %2$s, et %3$,d autres</item>
+	</plurals>
 	<plurals name="x_followers_you_know">
 		<item quantity="one">%,d abonné·e que vous connaissez</item>
 		<item quantity="other">%,d abonné·e·s que vous connaissez</item>
 	</plurals>
 	<!-- appears when you're about to block a server -->
+	<plurals name="server_x_followers_will_be_removed">
+		<item quantity="one">%,d abonné de ce serveur sera supprimé.</item>
+		<item quantity="other">%,d abonnés de ce serveur seront supprimés.</item>
+	</plurals>
 	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
 	<string name="server_x_followers_and_following_will_be_removed">Vous allez perdre %1$s et %2$s.</string>
 	<plurals name="will_lose_x_followers">
