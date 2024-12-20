@@ -13,8 +13,8 @@
 	<string name="notifications">Brathan</string>
 	<string name="user_followed_you">Tha %s ’gad leantainn a-nis</string>
 	<string name="user_sent_follow_request">Chuir %s iarrtas leantainn thugad</string>
-	<string name="user_favorited">Is annsa le %s:</string>
-	<string name="notification_boosted">Bhrosnaich %s:</string>
+	<string name="user_favorited">Is annsa le %s seo:</string>
+	<string name="notification_boosted">Bhrosnaich %s seo:</string>
 	<string name="share_toot_title">Co-roinn</string>
 	<string name="settings">Roghainnean</string>
 	<string name="publish">Foillsich</string>
@@ -341,6 +341,7 @@
 	<string name="add_bookmark">Cruthaich comharra-lìn</string>
 	<string name="remove_bookmark">Thoir an comharra-lìn air falbh</string>
 	<string name="bookmarks">Comharran-lìn</string>
+	<string name="your_favorites">Annsachdan</string>
 	<string name="login_title">Fàilte air ais</string>
 	<string name="login_subtitle">Clàraich a-steach leis an fhrithealaiche far an do chruthaich thu an cunntas agad.</string>
 	<string name="server_url">URL an fhrithealaiche</string>
@@ -880,7 +881,62 @@
 	<string name="text_show_more">Barrachd</string>
 	<string name="avatar_move_and_scale">Gluais is sgèilich</string>
 	<string name="confirm_avatar_crop">Tagh</string>
+	<string name="settings_use_dynamic_colors">Cleachd dath innsgineach an t-siostaim</string>
+	<string name="settings_accounts">Cunntasan</string>
+	<string name="settings_add_account">Cuir cunntas ris…</string>
+	<string name="settings_app_settings">Roghainnean na h-aplacaid</string>
+	<string name="account_settings">Roghainnean a’ chunntais</string>
+	<string name="settings_about_this_server">Mun fhrithealaiche seo</string>
+	<string name="manage_account">Stiùirich an cunntas</string>
+	<string name="switch_to_this_account">Geàrr leum dhan chunntas seo</string>
+	<string name="delete_account">Sguab às an cunntas</string>
+	<string name="notification_type_status">Postaichean ùra</string>
+	<plurals name="user_and_x_more_followed">
+		<item quantity="one">Lean %1$s ’s %2$,d eile thu</item>
+		<item quantity="two">Lean %1$s ’s %2$,d eile thu</item>
+		<item quantity="few">Lean %1$s ’s %2$,d eile thu</item>
+		<item quantity="other">Lean %1$s ’s %2$,d eile thu</item>
+	</plurals>
+	<string name="familiar_followers_one">’Ga leantainn le %s</string>
+	<string name="familiar_followers_two">’Ga leantainn le %s ’s %s</string>
+	<string name="profile_saved_posts">Air a shàbhaladh</string>
+	<string name="profile_saved_posts_explanation">Chan fhaic ach thu fhèin na postaichean a shàbhail thu.</string>
+	<string name="search_people">Daoine</string>
+	<plurals name="familiar_followers_many">
+		<item quantity="one">’Ga leantainn le %1$s, %2$s ’s %3$,d eile</item>
+		<item quantity="two">’Ga leantainn le %1$s, %2$s ’s %3$,d eile</item>
+		<item quantity="few">’Ga leantainn le %1$s, %2$s ’s %3$,d eile</item>
+		<item quantity="other">’Ga leantainn le %1$s, %2$s ’s %3$,d eile</item>
+	</plurals>
+	<plurals name="x_followers_you_know">
+		<item quantity="one">%,d neach-leantainn air a bheil thu eòlach</item>
+		<item quantity="two">%,d luchd-leantainn air a bheil thu eòlach</item>
+		<item quantity="few">%,d luchd-leantainn air a bheil thu eòlach</item>
+		<item quantity="other">%,d luchd-leantainn air a bheil thu eòlach</item>
+	</plurals>
 	<!-- appears when you're about to block a server -->
+	<plurals name="server_x_followers_will_be_removed">
+		<item quantity="one">Thèid %,d neach-leantainn a th’ air an fhrithealaiche seo a thoirt air falbh.</item>
+		<item quantity="two">Thèid %,d luchd-leantainn a th’ air an fhrithealaiche seo a thoirt air falbh.</item>
+		<item quantity="few">Thèid %,d luchd-leantainn a th’ air an fhrithealaiche seo a thoirt air falbh.</item>
+		<item quantity="other">Thèid %,d luchd-leantainn a th’ air an fhrithealaiche seo a thoirt air falbh.</item>
+	</plurals>
 	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
+	<string name="server_x_followers_and_following_will_be_removed">Caillidh tu %1$s ’s %2$s.</string>
+	<plurals name="will_lose_x_followers">
+		<item quantity="one">%,d neach-leantainn</item>
+		<item quantity="two">%,d luchd-leantainn</item>
+		<item quantity="few">%,d luchd-leantainn</item>
+		<item quantity="other">%,d luchd-leantainn</item>
+	</plurals>
+	<plurals name="will_lose_x_following">
+		<item quantity="one">%,d tha thu ’ga leantainn</item>
+		<item quantity="two">%,d tha thu ’gan leantainn</item>
+		<item quantity="few">%,d tha thu ’gan leantainn</item>
+		<item quantity="other">%,d tha thu ’gan leantainn</item>
+	</plurals>
 	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
+	<string name="server_x_following_will_be_removed">Caillidh tu %s.</string>
+	<string name="load_missing_posts_above">Luchdaich na postaichean a dhìth gu h-àrd</string>
+	<string name="load_missing_posts_below">Luchdaich na postaichean a dhìth gu h-ìosal</string>
 </resources>
