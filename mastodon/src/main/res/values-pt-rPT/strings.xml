@@ -236,7 +236,7 @@
 	<string name="server_filter_region_africa">África</string>
 	<string name="server_filter_region_asia">Ásia</string>
 	<string name="server_filter_region_oceania">Oceânia</string>
-	<string name="not_accepting_new_members">Não aceita novos membros de momento</string>
+	<string name="not_accepting_new_members">Não aceita novos membros neste momento</string>
 	<string name="signup_passwords_dont_match">As palavras-passe não coincidem</string>
 	<string name="profile_add_row">Adicionar linha</string>
 	<string name="profile_setup">Configuração do perfil</string>
@@ -252,11 +252,11 @@
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
 	<string name="signup_email_domain_blocked">%1$s não permite criação de contas de %2$s. Tente um serviço de email diferente ou &lt;a&gt;escolha outro servidor Mastodon&lt;/a&gt;.</string>
 	<string name="spoiler_show">Mostrar mesmo assim</string>
-	<string name="spoiler_hide">Ocultar de novo</string>
+	<string name="spoiler_hide">Ocultar novamente</string>
 	<string name="poll_multiple_choice">Escolha uma ou mais</string>
-	<string name="save_changes">Gravar alterações</string>
+	<string name="save_changes">Guardar alterações</string>
 	<string name="profile_featured">Em destaque</string>
-	<string name="profile_timeline">Timeline</string>
+	<string name="profile_timeline">Cronologia</string>
 	<string name="view_all">Ver tudo</string>
 	<string name="profile_endorsed_accounts">Contas</string>
 	<string name="verified_link">Endereço verificado</string>
@@ -292,12 +292,12 @@
 	<string name="poll_style">Estilo</string>
 	<string name="compose_poll_single_choice">Escolha uma opção</string>
 	<string name="compose_poll_multiple_choice">Escolha múltipla</string>
-	<string name="delete_poll_option">Remover opção de voto</string>
+	<string name="delete_poll_option">Remover opção da sondagem</string>
 	<string name="poll_style_title">Tipo de sondagem</string>
 	<string name="alt_text">Texto descritivo</string>
 	<string name="help">Ajuda</string>
 	<string name="what_is_alt_text">O que é texto descritivo?</string>
-	<string name="alt_text_help">O texto descritivo permite adicionar descrições às imagens para pessoas com dificuldades visuais, velocidade de internet lenta, ou para quem procura contexto adicional.\n\nPode melhorar a acessibilidade e compreensão para a comunidade, escrevendo texto descritivo conciso, claro e objetivo.\n\n<ul><li>Destaque elementos importantes</li>\n<li>Resuma texto em imagens</li>\n<li>Use estrutura de frase simples</li>\n<li>Evite informação redundante</li>\n<li>Concentre-se nas tendências e nas principais descobertas em recursos visuais complexos (como diagramas ou mapas)</li></ul></string>
+	<string name="alt_text_help">O texto descritivo permite adicionar descrições às imagens para pessoas com dificuldades visuais, velocidade de internet lenta, ou para quem procura contexto adicional.\n\nPode melhorar a acessibilidade e compreensão para a comunidade, escrevendo um texto descritivo conciso, claro e objetivo.\n\n<ul><li>Destaque elementos importantes</li>\n<li>Resuma texto em imagens</li>\n<li>Use uma estrutura de frase simples</li>\n<li>Evite informação redundante</li>\n<li>Concentre-se nas tendências e nas principais descobertas em recursos visuais complexos (como diagramas ou mapas)</li></ul></string>
 	<string name="edit_post">Editar publicação</string>
 	<string name="no_verified_link">Sem hiperligações validadas</string>
 	<string name="compose_autocomplete_emoji_empty">Procurar emoji</string>
@@ -317,7 +317,7 @@
 	<string name="forward_report_to_server">Reencaminhar para %s</string>
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
 	<string name="reported">Denunciada</string>
-	<string name="report_unfollow_explanation">Para não voltar a ver as publicações da conta na sua timeline, deixe de segui-la.</string>
+	<string name="report_unfollow_explanation">Para não voltar a ver as publicações da conta na sua cronologia, deixe de segui-la.</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
