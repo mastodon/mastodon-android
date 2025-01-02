@@ -783,11 +783,13 @@ Zenbat eta jende gehiago jarraitu, orduan eta aktiboagoa eta interesgarriagoa iz
 	<string name="user_edited_post">%s(e)k interaktuatu zenuen argitalpen bat editatu du</string>
 	<string name="relationship_severance_account_suspension">%1$s zerbitzariko administratzaile batek %2$s bertan behera utzi du, hau da, ezin izango dituzu jaso hango eguneratzerik edo hangoekin elkarreragin.</string>
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_domain_block">%1$s(e)ko administratzaile batek %2$s blokeatu du, zure %3$,d jarraitzaile eta jarraitzen duzun %4$s barne.</string>
 	<plurals name="x_accounts">
 		<item quantity="one">kontu %,d</item>
 		<item quantity="other">%,d kontu</item>
 	</plurals>
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_user_domain_block">%1$s blokeatu duzu, zure %2$,d jarraitzaile eta jarraitzaile duzun %3$s ezabatuz.</string>
 	<string name="relationship_severance_learn_more">Informazio gehiago</string>
 	<string name="moderation_warning_action_none">Zure kontuak moderazio-abisu bat jaso du.</string>
 	<string name="moderation_warning_action_disable">Zure kontua ezgaitu da.</string>
@@ -810,6 +812,10 @@ Zenbat eta jende gehiago jarraitu, orduan eta aktiboagoa eta interesgarriagoa iz
 	<string name="switch_to_this_account">Aldatu kontu honetara</string>
 	<string name="delete_account">Ezabatu kontua</string>
 	<string name="notification_type_status">Bidalketa berriak</string>
+	<plurals name="user_and_x_more_followed">
+		<item quantity="one">%1$s(e)k eta erabiltzaile %2$,d gehiagok jarraitzen dizute</item>
+		<item quantity="other">%1$s(e)k eta %2$,d erabiltzaile gehiagok jarraitzen dizute</item>
+	</plurals>
 	<string name="familiar_followers_one">%s(e)k jarraitua</string>
 	<string name="familiar_followers_two">%s(e)k eta %s(e)k jarraitua</string>
 	<string name="profile_saved_posts">Gordea</string>
@@ -829,11 +835,17 @@ Zenbat eta jende gehiago jarraitu, orduan eta aktiboagoa eta interesgarriagoa iz
 		<item quantity="other">Zerbitzari honetako %,d jarraitzaile ezabatuko dira.</item>
 	</plurals>
 	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
+	<string name="server_x_followers_and_following_will_be_removed">%1$s jarraitzaile eta jarraitzen dituzun %2$s pertsona galdutko dituzu.</string>
 	<plurals name="will_lose_x_followers">
 		<item quantity="one">Jarraitzaile %,d</item>
 		<item quantity="other">%,d jarraitzaile</item>
 	</plurals>
+	<plurals name="will_lose_x_following">
+		<item quantity="one">Jarraitzen duzun pertsona %,d</item>
+		<item quantity="other">Jarraitzen dituzun %,d pertsona</item>
+	</plurals>
 	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
+	<string name="server_x_following_will_be_removed">%s galduko duzu.</string>
 	<string name="load_missing_posts_above">Falta diren goiko bidalketak kargatu</string>
 	<string name="load_missing_posts_below">Falta diren beheko bidalketak kargatu</string>
 </resources>
