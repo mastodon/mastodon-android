@@ -153,6 +153,7 @@ public class UiUtils{
 			}
 			intent.setComponent(browserActivity);
 		}
+		intent.putExtra(Intent.EXTRA_REFERRER, Uri.parse("android-app://"+context.getPackageName()));
 		context.startActivity(intent);
 	}
 
