@@ -471,9 +471,14 @@ public class PhotoViewer implements ZoomPanView.Listener{
 
 	@Override
 	public void onDismissed(){
-		for(MediaPlayer player:players)
-			player.release();
 		if(!players.isEmpty()){
+			// MediaPlayer::release can block and cause an ANR sometimes, e.g. if called during DNS resolution, at least on some system versions.
+			// This allows it to take its time to time out.
+			new Thread(()->{
+				for(MediaPlayer player:players){
+					player.release();
+				}
+			}).start();
 			activity.getSystemService(AudioManager.class).abandonAudioFocus(audioFocusListener);
 		}
 		listener.setPhotoViewVisibility(pager.getCurrentItem(), true);

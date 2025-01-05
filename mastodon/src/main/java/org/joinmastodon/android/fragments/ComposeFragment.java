@@ -219,6 +219,9 @@ public class ComposeFragment extends MastodonToolbarFragment implements ComposeE
 	public void onDestroy(){
 		super.onDestroy();
 		mediaViewController.cancelAllUploads();
+		removeBackCallback(emojiKeyboardHider);
+		removeBackCallback(sendingBackButtonBlocker);
+		removeBackCallback(discardConfirmationCallback);
 	}
 
 	@Override

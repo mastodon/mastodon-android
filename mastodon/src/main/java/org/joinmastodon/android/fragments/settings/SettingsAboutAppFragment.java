@@ -23,6 +23,7 @@ import java.util.List;
 
 import androidx.recyclerview.widget.RecyclerView;
 import me.grishka.appkit.imageloader.ImageCache;
+import me.grishka.appkit.imageloader.disklrucache.DiskLruCache;
 import me.grishka.appkit.utils.MergeRecyclerAdapter;
 import me.grishka.appkit.utils.SingleViewRecyclerAdapter;
 import me.grishka.appkit.utils.V;
@@ -86,7 +87,8 @@ public class SettingsAboutAppFragment extends BaseSettingsFragment<Void>{
 	}
 
 	private void updateMediaCacheItem(){
-		long size=ImageCache.getInstance(getActivity()).getDiskCache().size();
+		DiskLruCache cache=ImageCache.getInstance(getActivity()).getDiskCache();
+		long size=cache==null ? 0 : cache.size();
 		mediaCacheItem.subtitle=UiUtils.formatFileSize(getActivity(), size, false);
 		mediaCacheItem.isEnabled=size>0;
 		rebindItem(mediaCacheItem);

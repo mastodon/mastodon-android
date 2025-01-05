@@ -215,7 +215,9 @@ public class AccountSessionManager{
 		});
 		if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.O){
 			NotificationManager nm=MastodonApp.context.getSystemService(NotificationManager.class);
-			nm.deleteNotificationChannelGroup(id);
+			try{
+				nm.deleteNotificationChannelGroup(id);
+			}catch(Exception ignore){}
 		}
 		maybeUpdateShortcuts();
 	}
