@@ -13,6 +13,7 @@
 	<string name="notifications">Notificationes</string>
 	<string name="user_followed_you">%s te seque</string>
 	<string name="user_sent_follow_request">%s te ha inviate un requesta de sequimento</string>
+	<string name="notification_boosted">%s impulsate:</string>
 	<string name="share_toot_title">Compartir</string>
 	<string name="settings">Parametros</string>
 	<string name="publish">Publicar</string>
@@ -750,8 +751,21 @@ Quanto plus personas tu seque, tanto plus active e interessante illo essera.</st
 	<string name="donation_success_title">Gratias per tu contribution!</string>
 	<string name="settings_donate">Donar a Mastodon</string>
 	<string name="settings_manage_donations">Gerer donationes</string>
+	<string name="poll_see_results">Vider le resultatos</string>
+	<string name="poll_hide_results">Celar le resultatos</string>
+	<string name="own_poll_ended">Tu sondage ha finite</string>
+	<string name="user_just_posted">%s ha justo ora publicate</string>
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_learn_more">Apprender plus</string>
+	<string name="moderation_warning_action_none">Tu conto ha recipite un advertimento de moderation.</string>
+	<string name="moderation_warning_action_disable">Tu conto ha essite disactivate.</string>
+	<string name="settings_app_settings">Parametros de application</string>
+	<string name="account_settings">Parametros de conto</string>
+	<string name="settings_about_this_server">A proposito de iste servitor</string>
+	<string name="manage_account">Gerer conto</string>
+	<string name="delete_account">Deler le conto</string>
+	<string name="notification_type_status">Nove messages</string>
 	<!-- appears when you're about to block a server -->
 	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
 	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->

@@ -389,7 +389,7 @@
 	<string name="welcome_to_mastodon">Sveiki atvykę į „Mastodon“</string>
 	<string name="welcome_paragraph1">„Mastodon“ – tai decentralizuotas socialinis tinklas ir tai reiškia, kad jo nevaldo nė viena įmonė. Jį sudaro daugybė nepriklausomai veikiančių serverių, sujungtų tarpusavyje.</string>
 	<string name="what_are_servers">Kas yra serveriai?</string>
-	<string name="welcome_paragraph2">Kiekviena „Mastodon“ paskyra talpinamas serveryje. Kiekvienas jų turi savo reikšmes, taisykles ir administratorius. Nesvarbu, kurį iš jų pasirinksite, galite sekti ir bendrauti su bet kuriame serveryje esančiais žmonėmis.</string>
+	<string name="welcome_paragraph2">Kiekviena „Mastodon“ paskyra talpinamas serveryje. Kiekvienas jų turi savo reikšmes, taisykles ir administratorius. Nesvarbu, kurį iš jų pasirinksite, galite sekti ir bendrauti su bet kuriame serveryje esančiais asmenimis.</string>
 	<string name="opening_link">Atveriama nuoroda…</string>
 	<string name="link_not_supported">Ši nuoroda programėlėje nepalaikoma.</string>
 	<string name="log_out_all_accounts">Atsijungti nuo visų paskyrų</string>
@@ -417,7 +417,7 @@
 	<string name="alt_text">Alternatyvus tekstas</string>
 	<string name="help">Žinynas</string>
 	<string name="what_is_alt_text">Kas yra alternatyvusis tekstas?</string>
-	<string name="alt_text_help">Alternatyvusis tekstas pateikia vaizdų aprašymus žmonėms su regos sutrikimais, turintiems mažo pralaidumo ryšį arba ieškantiems papildomo konteksto.\n\nGalite pagerinti prieinamumą ir suprantamumą visiems, jei parašysite aiškų, glaustą ir objektyvų alternatyvųjį tekstą.\n\n<ul><li>Užfiksuokite svarbiausius elementus.</li>\n<li>Apibendrinkite tekstą vaizduose.</li>\n<li>Naudokite įprasta sakinio struktūrą.</li>\n<li>Venkite nereikalingos informacijos.</li>\n<li>Sutelkite dėmesį į tendencijas ir pagrindines išvadas sudėtinguose vaizdiniuose (tokiuose kaip diagramos ar žemėlapiai).</li></ul></string>
+	<string name="alt_text_help">Alternatyvusis tekstas pateikia vaizdų aprašymus asmenims su regos sutrikimais, turintiems mažo pralaidumo ryšį arba ieškantiems papildomo konteksto.\n\nGalite pagerinti prieinamumą ir suprantamumą visiems, jei parašysite aiškų, glaustą ir objektyvų alternatyvųjį tekstą.\n\n<ul><li>Užfiksuokite svarbiausius elementus.</li>\n<li>Apibendrinkite tekstą vaizduose.</li>\n<li>Naudokite įprasta sakinio struktūrą.</li>\n<li>Venkite nereikalingos informacijos.</li>\n<li>Sutelkite dėmesį į tendencijas ir pagrindines išvadas sudėtinguose vaizdiniuose (tokiuose kaip diagramos ar žemėlapiai).</li></ul></string>
 	<string name="edit_post">Redaguoti įrašą</string>
 	<string name="no_verified_link">Nėra patvirtintos nuorodos</string>
 	<string name="compose_autocomplete_emoji_empty">Naršyti jaustuką</string>
@@ -456,8 +456,8 @@
 	<string name="pause_all_notifications">Pristabdyti viską</string>
 	<string name="pause_notifications_off">Išjungta</string>
 	<string name="notifications_policy_anyone">Bet kurių</string>
-	<string name="notifications_policy_followed">Žmonių, kurie seka</string>
-	<string name="notifications_policy_follower">Žmonių, kuriuos sekate</string>
+	<string name="notifications_policy_followed">Asmenų, kurie seka</string>
+	<string name="notifications_policy_follower">Asmenų, kuriuos sekate</string>
 	<string name="notifications_policy_no_one">Niekieno</string>
 	<string name="settings_notifications_policy">Gauti pranešimus iš</string>
 	<string name="notification_type_mentions_and_replies">Paminėjimai ir atsakymai</string>
@@ -598,7 +598,7 @@
 	<string name="posts_matching_hashtag">Įrašai su „%s“</string>
 	<string name="search_go_to_account">Eiti į %s</string>
 	<string name="posts_matching_string">Įrašai su „%s“</string>
-	<string name="accounts_matching_string">Žmonės su „%s“</string>
+	<string name="accounts_matching_string">Asmenys su „%s“</string>
 	<!-- Shown in the post header. Please keep it short -->
 	<string name="time_seconds_ago_short">prieš %d sek.</string>
 	<string name="time_minutes_ago_short">prieš %d min.</string>
@@ -648,7 +648,7 @@
 	<string name="confirm_remove_list_members">Pašalinti narius?</string>
 	<string name="remove">Šalinti</string>
 	<string name="add_list_member">Pridėti narį</string>
-	<string name="search_among_people_you_follow">Ieškoti tarp sekamų žmonių</string>
+	<string name="search_among_people_you_follow">Ieškokite tarp asmenų, kuriuos sekate</string>
 	<string name="add_user_to_list">Pridėti / šalinti iš sąrašų…</string>
 	<string name="add_user_to_list_title">Pridėti į sąrašą</string>
 	<!-- %s is a username -->
@@ -743,7 +743,7 @@ Kuo daugiau asmenų sekate, tuo aktyvesnis ir įdomesnis jis bus.</string>
 	<string name="handle_server_explanation">Jų skaitmeniniai namai, kuriuose saugomi visi jų įrašai.</string>
 	<string name="handle_explanation">Kadangi socialines medijos vardai pasako, kas ir kur jie yra, galima bendrauti su asmenimis visame socialiniame internete, kurį sudaro &lt;a&gt;„ActivityPub“ veikiančios platformos&lt;/a&gt;.</string>
 	<string name="handle_server_explanation_own">Jūsų skaitmeniniai namai, kuriuose saugomi visi įrašai. Nepatinka šis? Bet kada perkelkite serverius ir atsiveskite bei savo sekėjus.</string>
-	<string name="handle_explanation_own">Kadangi tavo socialinis medijos vardas pasako, kas ir kur esi, asmenys gali bendrauti su tavimi visame socialiniame internete, kurį sudaro &lt;a&gt;„ActivityPub“ veikiančios platformos&lt;/a&gt;.</string>
+	<string name="handle_explanation_own">Kadangi jūsų socialinis medijos vardas pasako, kas ir kur esate, asmenys gali bendrauti su jumis visame socialiniame internete, kurį sudaro &lt;a&gt;„ActivityPub“ veikiančios platformos&lt;/a&gt;.</string>
 	<string name="what_is_activitypub_title">Kas yra „ActivityPub“?</string>
 	<string name="what_is_activitypub">„ActivityPub“ – tai tarsi kalba, kuria „Mastodon“ kalba su kitais socialiniais tinklais.\n\nJi leidžia jums prisijungti ir bendrauti su asmenimis ne tik „Mastodon“ platformoje, bet ir įvairiose socialinėse programėlėse.</string>
 	<string name="handle_copied">Socialinis medijos vardas nukopijuotas į iškarpinę.</string>
@@ -778,7 +778,7 @@ Kuo daugiau asmenų sekate, tuo aktyvesnis ir įdomesnis jis bus.</string>
 	<string name="filtered_notifications">Filtruojami pranešimai</string>
 	<string name="filter_notifications">Filtruoti pranešimus iš...</string>
 	<string name="notification_filter_following">Asmenų, kuriuos nesekate</string>
-	<string name="notification_filter_following_explanation">Kol jų nepatvirtinsite rankiniu būdu</string>
+	<string name="notification_filter_following_explanation">Kol jų nepatvirtinsite rankiniu būdu.</string>
 	<string name="notification_filter_followers">Asmenų, kurie neseka</string>
 	<string name="notification_filter_followers_explanation">Įskaitant asmenis, kurie jus seka mažiau nei 3 dienas</string>
 	<string name="notification_filter_new_accounts">Naujų paskyrų</string>
@@ -803,15 +803,15 @@ Kuo daugiau asmenų sekate, tuo aktyvesnis ir įdomesnis jis bus.</string>
 	<string name="view_boosts">Peržiūrėti pasidalinimus</string>
 	<string name="view_favorites">Peržiūrėti mėgstamus</string>
 	<string name="undo_reblog">Atšaukti pasidalinimą</string>
-	<string name="undo_favorite">Panaikinti mėgstamą</string>
+	<string name="undo_favorite">Naikinti mėgstamą</string>
 	<string name="could_not_reach_server">Nepavyko pasiekti serverio. Patikrinti ryšį ir bandyti dar kartą?</string>
 	<string name="connection_timed_out">Užklausai baigėsi laikas. Patikrinti ryšį ir bandyti dar kartą?</string>
-	<string name="server_error">Kažkas nepavyko susikalbėti su serveriu. Tikriausiai tai ne tavo kaltė. Bandyti dar kartą?</string>
+	<string name="server_error">Kažkas nepavyko susikalbėti su serveriu. Tikriausiai tai ne jūsų kaltė. Bandyti dar kartą?</string>
 	<string name="not_found">Jis galėjo būti ištrintas, o gal išvis niekada neegzistavo.</string>
 	<string name="no_servers_found">Nerasta serverių „%s“</string>
-	<string name="signup_username_taken">Šis naudotojo vardas paimtas. Išbandyk kitą arba &lt;a&gt;pasirink kitą serverį&lt;/a&gt;.</string>
+	<string name="signup_username_taken">Šis naudotojo vardas paimtas. Išbandykite kitą arba &lt;a&gt;pasirinkite kitą serverį&lt;/a&gt;.</string>
 	<string name="signup_email_invalid">Tai neatrodo kaip tinkamas el. pašto adresas.</string>
-	<string name="signup_email_taken">El. pašto adresas jau naudojamas. Ar &lt;a&gt;pamiršai savo slaptažodį&lt;/a&gt;?</string>
+	<string name="signup_email_taken">El. pašto adresas jau naudojamas. Ar &lt;a&gt;pamiršote savo slaptažodį&lt;/a&gt;?</string>
 	<plurals name="x_new_notifications">
 		<item quantity="one">%,d naujas pranešimas</item>
 		<item quantity="few">%,d nauji pranešimai</item>
@@ -820,13 +820,13 @@ Kuo daugiau asmenų sekate, tuo aktyvesnis ir įdomesnis jis bus.</string>
 	</plurals>
 	<string name="dismiss">Atmesti</string>
 	<string name="donation_once">Tik vieną kartą</string>
-	<string name="donation_monthly">Kas mėnesį</string>
-	<string name="donation_yearly">Kasmet</string>
+	<string name="donation_monthly">Mėnesinis</string>
+	<string name="donation_yearly">Metinis</string>
 	<string name="currency">Valiuta</string>
-	<string name="donation_success_share">Skleisk žodį</string>
-	<string name="donation_success_title">Ačiū už tavo prisidėjimą!</string>
-	<string name="donation_success_subtitle">Netrukus turėtum gauti auką patvirtinantį el. laišką.</string>
-	<string name="donation_server_error">Atsiprašome. Įvyko klaida ir negalėjome apdoroti tavo aukos.\n\nBandyk dar kartą po kelių minučių.</string>
+	<string name="donation_success_share">Skleiskite žodį</string>
+	<string name="donation_success_title">Dėkojame už jūsų prisidėjimą!</string>
+	<string name="donation_success_subtitle">Netrukus turėtumėte gauti auką patvirtinantį el. laišką.</string>
+	<string name="donation_server_error">Atsiprašome. Įvyko klaida ir negalėjome apdoroti jūsų aukos.\n\nBandykite dar kartą po kelių minučių.</string>
 	<string name="settings_donate">Aukoti „Mastodon“</string>
 	<string name="settings_manage_donations">Tvarkyti aukas</string>
 	<string name="cant_load_image">Nepavyko įkelti vaizdo.</string>
@@ -851,17 +851,17 @@ Kuo daugiau asmenų sekate, tuo aktyvesnis ir įdomesnis jis bus.</string>
 		<item quantity="other">%1$s ir %2$,d kitų pasidalino:</item>
 	</plurals>
 	<plurals name="poll_ended_x_voters">
-		<item quantity="one">%1$s surengė apklausą, kurioje balsavai tu ir %2$,d kitas</item>
-		<item quantity="few">%1$s surengė apklausą, kurioje balsavai tu ir %2$,d kiti</item>
-		<item quantity="many">%1$s surengė apklausą, kurioje balsavai tu ir %2$,d kitos</item>
-		<item quantity="other">%1$s surengė apklausą, kurioje balsavai tu ir %2$,d kitų</item>
+		<item quantity="one">%1$s surengė apklausą, kurioje balsavote jūs ir %2$,d kitas</item>
+		<item quantity="few">%1$s surengė apklausą, kurioje balsavote jūs ir %2$,d kiti</item>
+		<item quantity="many">%1$s surengė apklausą, kurioje balsavote jūs ir %2$,d kitos</item>
+		<item quantity="other">%1$s surengė apklausą, kurioje balsavote jūs ir %2$,d kitų</item>
 	</plurals>
-	<string name="own_poll_ended">Tavo apklausa baigėsi</string>
+	<string name="own_poll_ended">Jūsų apklausa baigėsi</string>
 	<string name="user_just_posted">%s ką tik paskelbė</string>
-	<string name="user_edited_post">%s redagavo įrašą, su kuriuo sąveikavai</string>
-	<string name="relationship_severance_account_suspension">%1$s administratorius (-ė) pristabdė %2$s, o tai reiškia, kad nebegali iš jų gauti naujienų ir su jais bendrauti.</string>
+	<string name="user_edited_post">%s redagavo įrašą, su kuriuo sąveikavote</string>
+	<string name="relationship_severance_account_suspension">%1$s administratorius pristabdė %2$s, o tai reiškia, kad nebegalite iš jų gauti naujienų ir su jais bendrauti.</string>
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
-	<string name="relationship_severance_domain_block">Administratorius (-ė) iš %1$s užblokavo %2$s, įskaitant %3$,d tavo sekėjų ir %4$s, kuriuos seki.</string>
+	<string name="relationship_severance_domain_block">Administratorius iš %1$s užblokavo %2$s, įskaitant %3$,d jūsų sekėjų ir %4$s, kuriuos sekate.</string>
 	<plurals name="x_accounts">
 		<item quantity="one">%,d paskyra</item>
 		<item quantity="few">%,d paskyros</item>
@@ -869,15 +869,15 @@ Kuo daugiau asmenų sekate, tuo aktyvesnis ir įdomesnis jis bus.</string>
 		<item quantity="other">%,d paskyrų</item>
 	</plurals>
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
-	<string name="relationship_severance_user_domain_block">Užblokavai %1$s. Pašalinama %2$,d tavo sekėjų ir %3$s, kuriuos seki.</string>
+	<string name="relationship_severance_user_domain_block">Užblokavote %1$s. Pašalinama %2$,d jūsų sekėjų ir %3$s, kuriuos sekate.</string>
 	<string name="relationship_severance_learn_more">Sužinoti daugiau</string>
-	<string name="moderation_warning_action_none">Tavo paskyra gavo prižiūrėjimo įspėjimą.</string>
-	<string name="moderation_warning_action_disable">Tavo paskyra buvo išjungta.</string>
-	<string name="moderation_warning_action_mark_statuses_as_sensitive">Kai kurie tavo įrašai buvo pažymėti kaip jautrūs.</string>
-	<string name="moderation_warning_action_delete_statuses">Kai kurie tavo įrašai buvo pašalinti.</string>
-	<string name="moderation_warning_action_sensitive">Nuo šiol tavo įrašai bus pažymėti kaip jautrūs.</string>
-	<string name="moderation_warning_action_silence">Tavo paskyra buvo apribota.</string>
-	<string name="moderation_warning_action_suspend">Tavo paskyra buvo pristabdyta.</string>
+	<string name="moderation_warning_action_none">Jūsų paskyra gavo prižiūrėjimo įspėjimą.</string>
+	<string name="moderation_warning_action_disable">Jūsų paskyra buvo išjungta.</string>
+	<string name="moderation_warning_action_mark_statuses_as_sensitive">Kai kurie jūsų įrašai buvo pažymėti kaip jautrūs.</string>
+	<string name="moderation_warning_action_delete_statuses">Kai kurie jūsų įrašai buvo pašalinti.</string>
+	<string name="moderation_warning_action_sensitive">Nuo šiol jūsų įrašai bus pažymėti kaip jautrūs.</string>
+	<string name="moderation_warning_action_silence">Jūsų paskyra buvo apribota.</string>
+	<string name="moderation_warning_action_suspend">Jūsų paskyra buvo pristabdyta.</string>
 	<string name="moderation_warning_learn_more">Sužinoti daugiau</string>
 	<string name="text_show_more">Daugiau</string>
 	<string name="avatar_move_and_scale">Perkelti ir keisti mastelį</string>
@@ -902,7 +902,7 @@ Kuo daugiau asmenų sekate, tuo aktyvesnis ir įdomesnis jis bus.</string>
 	<string name="familiar_followers_two">Sekama %s ir %s</string>
 	<string name="profile_saved_posts">Išsaugota</string>
 	<string name="profile_saved_posts_explanation">Jūsų išsaugoti įrašai matomi tik jums.</string>
-	<string name="search_people">Žmonės</string>
+	<string name="search_people">Asmenys</string>
 	<plurals name="familiar_followers_many">
 		<item quantity="one">Sekama %1$s, %2$s ir %3$,d kitas</item>
 		<item quantity="few">Sekama %1$s, %2$s ir %3$,d kiti</item>
@@ -925,8 +925,8 @@ Kuo daugiau asmenų sekate, tuo aktyvesnis ir įdomesnis jis bus.</string>
 	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
 	<string name="server_x_followers_and_following_will_be_removed">Prarasite %1$s ir %2$s.</string>
 	<plurals name="will_lose_x_followers">
-		<item quantity="one">%,d sekėjas</item>
-		<item quantity="few">%,d sekėjai</item>
+		<item quantity="one">%,d sekėją</item>
+		<item quantity="few">%,d sekėjus</item>
 		<item quantity="many">%,d sekėjo</item>
 		<item quantity="other">%,d sekėjų</item>
 	</plurals>
