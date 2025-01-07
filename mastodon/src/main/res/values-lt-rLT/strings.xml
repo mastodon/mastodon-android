@@ -745,7 +745,7 @@ Kuo daugiau asmenų sekate, tuo aktyvesnis ir įdomesnis jis bus.</string>
 	<string name="handle_server_explanation_own">Jūsų skaitmeniniai namai, kuriuose saugomi visi įrašai. Nepatinka šis? Bet kada perkelkite serverius ir atsiveskite bei savo sekėjus.</string>
 	<string name="handle_explanation_own">Kadangi jūsų socialinis medijos vardas pasako, kas ir kur esate, asmenys gali bendrauti su jumis visame socialiniame internete, kurį sudaro &lt;a&gt;„ActivityPub“ veikiančios platformos&lt;/a&gt;.</string>
 	<string name="what_is_activitypub_title">Kas yra „ActivityPub“?</string>
-	<string name="what_is_activitypub">„ActivityPub“ – tai tarsi kalba, kuria „Mastodon“ kalba su kitais socialiniais tinklais.\n\nJi leidžia jums prisijungti ir bendrauti su asmenimis ne tik „Mastodon“ platformoje, bet ir įvairiose socialinėse programėlėse.</string>
+	<string name="what_is_activitypub">„ActivityPub“ – tai tarsi kalba, kuria „Mastodon“ kalba su kitais socialiniais tinklais.\n\nJi leidžia jums prisijungti ir bendrauti su asmenimis ne tik platformoje „Mastodon“, bet ir įvairiose socialinėse programėlėse.</string>
 	<string name="handle_copied">Socialinis medijos vardas nukopijuotas į iškarpinę.</string>
 	<string name="qr_code">QR kodas</string>
 	<string name="scan_qr_code">Skenuoti QR kodą</string>
@@ -858,8 +858,8 @@ Kuo daugiau asmenų sekate, tuo aktyvesnis ir įdomesnis jis bus.</string>
 	</plurals>
 	<string name="own_poll_ended">Jūsų apklausa baigėsi</string>
 	<string name="user_just_posted">%s ką tik paskelbė</string>
-	<string name="user_edited_post">%s redagavo įrašą, su kuriuo sąveikavote</string>
-	<string name="relationship_severance_account_suspension">%1$s administratorius pristabdė %2$s, o tai reiškia, kad nebegalite iš jų gauti naujienų ir su jais bendrauti.</string>
+	<string name="user_edited_post">%s redagavo įrašą, su kuriuo bendravote</string>
+	<string name="relationship_severance_account_suspension">Administratorius iš %1$s pristabdė %2$s, o tai reiškia, kad nebegalite iš jų gauti naujienų ir su jais bendrauti.</string>
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
 	<string name="relationship_severance_domain_block">Administratorius iš %1$s užblokavo %2$s, įskaitant %3$,d jūsų sekėjų ir %4$s, kuriuos sekate.</string>
 	<plurals name="x_accounts">
