@@ -689,7 +689,7 @@ public class ComposeMediaViewController{
 		public void setDescriptionToTitle(){
 			if(TextUtils.isEmpty(description)){
 				titleView.setText(R.string.add_alt_text);
-				titleView.setTextColor(UiUtils.getThemeColor(titleView.getContext(), R.attr.colorM3OnSurfaceVariant));
+				titleView.setTextColor(UiUtils.getThemeColor(titleView.getContext(), R.attr.colorM3Error));
 			}else{
 				titleView.setText(description);
 				titleView.setTextColor(UiUtils.getThemeColor(titleView.getContext(), R.attr.colorM3OnSurface));
