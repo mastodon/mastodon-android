@@ -507,7 +507,40 @@
 	<string name="view_file">Ver</string>
 	<string name="share_sheet_preview_profile">%s no Mastodon</string>
 	<string name="share_sheet_preview_post">%1$s no Mastodon: “%2$s”</string>
+	<string name="copy_profile_link">Copiar hiperligação do perfil</string>
+	<string name="in_app_browser">Navegador interno</string>
+	<string name="system_browser">Navegador do sistema</string>
+	<string name="add_muted_word_short">Adicionar palavra</string>
+	<string name="tab_home">Início</string>
+	<string name="tab_search">Explorar</string>
+	<string name="tab_profile">Perfil</string>
+	<string name="pin_post">Afixar no perfil</string>
+	<string name="unpin_post">Desafixar do perfil</string>
+	<string name="post_pinned">A publicação foi afixada</string>
+	<string name="post_unpinned">A publicação foi desafixada</string>
 	<!-- %s is the username -->
+	<string name="enable_new_post_notifications">Notificar-me das publicações de %s</string>
+	<string name="disable_new_post_notifications">Parar de me notificar das publicações de %s</string>
+	<string name="new_post_notifications_enabled">Receberás notificações de novas publicações.</string>
+	<string name="new_post_notifications_disabled">Não receberás notificações de novas publicações.</string>
+	<string name="filtered_notifications">Notificações filtradas</string>
+	<string name="filter_notifications">Filtrar notificações de...</string>
+	<string name="notification_filter_following">Pessoas que não segues</string>
+	<string name="notification_filter_following_explanation">Até que os aproves manualmente</string>
+	<string name="notification_filter_followers">Pessoas que não te seguem</string>
+	<string name="notification_filter_followers_explanation">Incluindo pessoas que te seguem há menos de 3 dias</string>
+	<string name="notification_filter_new_accounts">Novas contas</string>
+	<string name="notification_filter_new_accounts_explanation">Criadas nos últimos 30 dias</string>
+	<string name="notification_filter_mentions">Menções privadas não solicitadas</string>
+	<string name="notification_filter_mentions_explanation">Filtrado, a não ser que seja em resposta à tua própria menção ou se seguires o remetente</string>
+	<string name="settings_manage_donations">Gerir doações</string>
+	<string name="cant_load_image">Não foi possível carregar a imagem</string>
+	<string name="poll_see_results">Ver resultados</string>
+	<string name="poll_hide_results">Ocultar resultados</string>
+	<plurals name="x_attachments">
+		<item quantity="one">%d anexo</item>
+		<item quantity="other">%d anexos</item>
+	</plurals>
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
 	<!-- appears when you're about to block a server -->
