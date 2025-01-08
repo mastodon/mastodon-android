@@ -31,6 +31,7 @@
 	<string name="profile_about">Sobre</string>
 	<string name="button_follow">Seguir</string>
 	<string name="button_following">Seguindo</string>
+	<string name="edit_profile">Editar perfil</string>
 	<string name="mute_user">Ocultar %s</string>
 	<string name="unmute_user">Deixar de ocultar @%s</string>
 	<string name="block_user">Bloquear %s</string>
@@ -135,13 +136,16 @@
 	<string name="report_personal_subtitle">Aqui estão as suas opções para controlar o que vê no Mastodon:</string>
 	<string name="back">Voltar</string>
 	<string name="search_communities">Nome ou endereço do servidor</string>
+	<string name="instance_rules_title">Regras do servidor</string>
 	<string name="instance_rules_subtitle">Ao continuar, aceita seguir as seguintes regras definidas e aplicadas pelos moderadores de %s.</string>
+	<string name="signup_title">Criar conta</string>
 	<string name="display_name">Nome</string>
 	<string name="username">Nome de utilizador</string>
 	<string name="email">Email</string>
 	<string name="password">Palavra-passe</string>
 	<string name="confirm_password">Confirmar palavra-passe</string>
 	<string name="category_general">Geral</string>
+	<string name="confirm_email_title">Verifica a tua caixa de entrada</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">Clique na hiperligação que enviámos por email para verificar %s. Aguardaremos enquanto o faz.</string>
 	<string name="confirm_email_didnt_get">Não recebeu um email com uma hiperligação?</string>
@@ -151,8 +155,10 @@
 	<string name="compose_hint">Escreve ou cola aquilo em que estás a pensar</string>
 	<string name="content_warning">Aviso de conteúdo</string>
 	<string name="save">Guardar</string>
-	<string name="add_alt_text">Adicionar texto alternativo</string>
+	<string name="add_alt_text">Adicionar texto descritivo</string>
 	<string name="visibility_public">Público</string>
+	<string name="visibility_followers_only">Seguidores</string>
+	<string name="visibility_private">Pessoas específicas</string>
 	<string name="recent_searches">Recentes</string>
 	<string name="notification_type_follow">Novos seguidores</string>
 	<string name="notification_type_favorite">Favoritos</string>
@@ -161,6 +167,10 @@
 	<string name="notification_type_poll">Sondagens</string>
 	<string name="choose_account">Escolher conta</string>
 	<string name="err_not_logged_in">Inicia primeiro a sessão no Mastodon</string>
+	<plurals name="cant_add_more_than_x_attachments">
+		<item quantity="one">Não podes adicionar mais de %d anexo multimédia</item>
+		<item quantity="other">Não podes adicionar mais de %d anexos multimédia</item>
+	</plurals>
 	<string name="media_attachment_unsupported_type">O ficheiro %s é de um tipo não suportado</string>
 	<string name="media_attachment_too_big">O ficheiro %1$s excede o limite de tamanho de %2$s MB</string>
 	<string name="settings_theme">Aparência</string>
@@ -169,6 +179,7 @@
 	<string name="theme_dark">Escuro</string>
 	<string name="settings_behavior">Comportamento</string>
 	<string name="settings_gif">Reproduzir emojis e avatares animados</string>
+	<string name="settings_custom_tabs">Abrir hiperligações em</string>
 	<string name="settings_notifications">Notificações</string>
 	<string name="settings_contribute">Contribua para o Mastodon</string>
 	<string name="settings_tos">Termos de serviço</string>
@@ -184,11 +195,32 @@
 	<string name="button_reply">Responder</string>
 	<string name="button_reblog">Impulsionar</string>
 	<string name="button_favorite">Favoritar</string>
+	<string name="button_share">Partilhar</string>
+	<string name="media_no_description">Multimédia sem descrição</string>
+	<string name="add_media">Adicionar multimédia</string>
+	<string name="add_poll">Adicionar sondagem</string>
+	<string name="emoji">Emoji</string>
+	<string name="home_timeline">Cronologia inicial</string>
+	<string name="my_profile">Meu perfil</string>
+	<string name="media_viewer">Visualizador de multimédia</string>
+	<string name="follow_user">Seguir %s</string>
+	<string name="unfollowed_user">Deixaste de seguir %s</string>
+	<string name="followed_user">Estás a seguir %s</string>
+	<string name="following_user_requested">%s pedido para te seguir</string>
+	<string name="open_in_browser">Abrir no navegador</string>
+	<string name="clear">Limpar</string>
+	<string name="profile_header">Imagem de cabeçalho</string>
+	<string name="profile_picture">Imagem de perfil</string>
+	<string name="download">Descarregar</string>
+	<string name="permission_required">Permissão necessária</string>
 	<string name="storage_permission_to_download">A aplicação necessita de acesso ao seu armazenamento para guardar este ficheiro.</string>
 	<string name="open_settings">Abrir configurações</string>
 	<string name="error_saving_file">Erro ao guardar o ficheiro</string>
 	<string name="downloading">A descarregar…</string>
+	<string name="no_app_to_handle_action">Não há uma aplicação para executar esta ação</string>
 	<!-- %s is the server domain -->
+	<string name="see_new_posts">Novas publicações</string>
+	<string name="follow_back">Seguir também</string>
 	<string name="button_follow_pending">Pendente</string>
 	<string name="follows_you">Segue-te</string>
 	<string name="manually_approves_followers">Aprova manualmente os seguidores</string>
@@ -198,8 +230,8 @@
 		<item quantity="other">%,d seguidores</item>
 	</plurals>
 	<plurals name="x_following">
-		<item quantity="one">%,d a seguir</item>
-		<item quantity="other">%,d a seguir</item>
+		<item quantity="one">seguindo %,d</item>
+		<item quantity="other">seguindo %,d</item>
 	</plurals>
 	<plurals name="x_favorites">
 		<item quantity="one">%,d favorito</item>
@@ -222,14 +254,18 @@
 	<string name="edit_poll_added">Sondagem adicionada</string>
 	<string name="edit_poll_edited">Sondagem editada</string>
 	<string name="edit_poll_removed">Sondagem removida</string>
+	<string name="edit_media_added">Multimédia adicionada</string>
+	<string name="edit_media_removed">Multimédia removida</string>
+	<string name="edit_media_reordered">Multimédia reordenada</string>
+	<string name="edit_marked_sensitive">Marcada como sensível</string>
 	<!-- %s is file size -->
 	<string name="empty_list">A lista está vazia</string>
 	<string name="instance_signup_closed">Este servidor não aceita novos registos.</string>
 	<string name="text_copied">Copiado para a área de transferência</string>
 	<string name="add_bookmark">Guardar nos marcadores</string>
 	<string name="bookmarks">Marcadores</string>
-	<string name="login_subtitle">Entre com o servidor onde criou a sua conta.</string>
-	<string name="server_url">Endereço do Servidor</string>
+	<string name="login_subtitle">Inicie sessão no servidor onde criou a sua conta.</string>
+	<string name="server_url">URL do servidor</string>
 	<string name="server_filter_region_europe">Europa</string>
 	<string name="server_filter_region_north_america">América do Norte</string>
 	<string name="server_filter_region_south_america">América do Sul</string>
@@ -241,7 +277,7 @@
 	<string name="profile_add_row">Adicionar linha</string>
 	<string name="profile_setup">Configuração do perfil</string>
 	<string name="profile_setup_subtitle">Pode completar isto mais tarde, no separador Perfil.</string>
-	<string name="follow_all">Seguir tudo</string>
+	<string name="follow_all">Seguir todos</string>
 	<string name="server_rules_disagree">Não aceitar</string>
 	<string name="privacy_policy_explanation">Resumindo: não recolhemos ou processamos quaisquer dados.</string>
 	<!-- %s is server domain -->
@@ -304,7 +340,7 @@
 	<string name="compose_autocomplete_users_empty">Encontre quem procura</string>
 	<string name="no_search_results">Sem resultados para os termos pesquisados</string>
 	<string name="language">Idioma</string>
-	<string name="language_default">Pré-definida</string>
+	<string name="language_default">Predefinido</string>
 	<string name="language_system">Sistema</string>
 	<string name="language_detecting">A detetar idioma</string>
 	<string name="language_cant_detect">Incapaz de detetar idioma</string>
