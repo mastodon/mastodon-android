@@ -709,23 +709,44 @@
 	<string name="unmute_conversation">Ապալռեցնել խոսակցությունը</string>
 	<string name="visibility_unlisted">Լուռ հրապարակային</string>
 	<string name="filtered_notifications">Զտված ծանուցումներ</string>
+	<string name="filter_notifications">Զտել ծանուցումները`</string>
+	<string name="notification_filter_following">Մարդկանցից, որոնց դուք չեք հետեւում</string>
+	<string name="notification_filter_following_explanation">Մինչև դուք անձամբ դրանք չհաստատեք</string>
+	<string name="notification_filter_followers">Մարդկանցից, որոնք ձեզ չեն հետեւում</string>
+	<string name="notification_filter_followers_explanation">Ներառում է այն մարդկանց, որոնք ձեզ 3 օրից քիչ են հետևում</string>
+	<string name="notification_filter_new_accounts">Նոր հաշիվներից</string>
+	<string name="notification_filter_new_accounts_explanation">Հաշիվներից, որոնք ստեղծվել են վերջին 30 օրվա ընթացքում</string>
+	<string name="notification_filter_mentions">Չպահանջված անձնական նշումներից</string>
+	<string name="notification_filter_mentions_explanation">Զտվում է, եթե այն ի պատասխան ձեր նշման չի գրվել, և եթե դուք ուղարկողին չեք հետևում</string>
+	<string name="allow_notifications">Թույլատրել ծանուցումները`</string>
+	<string name="mute_notifications">Մերժել ծանուցման հարցումը</string>
 	<plurals name="x_people_you_may_know">
 		<item quantity="one">%,d մարդ, որին դուք գուցե գիտեք</item>
 		<item quantity="other">%,d մարդ, որոնց դուք գուցե գիտեք</item>
 	</plurals>
 	<string name="notifications_from_user">%s-ից ծանուցումներ</string>
 	<string name="notifications_muted">%s-ից ծանուցումները ջնջվել են։</string>
+	<string name="notifications_allowed">%s-ը այժմ կհայտնվի ձեր ծանուցումների ցանկում։</string>
 	<string name="visibility_subtitle_public">Բոլորը Մաստոդոնում և Մաստոդոնից դուրս</string>
 	<string name="visibility_subtitle_unlisted">Ավելի քիչ ալգորիթմական ճոխություն</string>
 	<string name="visibility_subtitle_followers">Միայն ձեր հետևորդները</string>
 	<string name="visibility_subtitle_private">Բոլորը, ովքեր նշված են գրառման մեջ</string>
 	<string name="view_boosts">Տեսնել տարածումները</string>
 	<string name="view_favorites">Տեսնել հավանումները</string>
+	<string name="undo_reblog">Չեղարկել տարածումը</string>
+	<string name="undo_favorite">Չեղարկել նախընտրումը</string>
+	<string name="could_not_reach_server">Սպասարկչին միանալը ձախողվեց։ Ստուգեք ձեր կապը եւ փորձեք նորից։</string>
+	<string name="connection_timed_out">Հարցման ժամկետը սապռվել է։ Ստուգեք ձեր կապը եւ փորձեք նորից։</string>
+	<string name="server_error">Ձեր սպասարկչի հետ շփվելուց ինչ-որ բան ձախողվեց։ Խնդիրը հավանաբար ձեր կողմից չի։ Փորձե՞լ նորից։</string>
+	<string name="no_servers_found">«%s»-ով հանգույց չի գտնվել</string>
+	<string name="signup_username_taken">Այս օգտանունն արդեն զբաղված է։ Փորձեք ուրիշը կամ &lt;a&gt;ընտրեք ուրիշ հանգույց&lt;/a&gt;։</string>
 	<string name="donation_once">Մեկ անգամ</string>
 	<string name="donation_monthly">Ամսական</string>
 	<string name="donation_yearly">Տարեկան</string>
 	<string name="currency">Արժույթ</string>
+	<string name="donation_server_error">Ցավոք սրտի, խնդիր է առաջացել, եւ մենք չենք կարողացել մշակել ձեր նվիրատվությունը։\n\nԽնդրում ենք մի քանի րոպե հետո կրկին փորձել։</string>
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_domain_block">%1$s-ի ադմինիստրատորներից մեկն արգելափակել է %2$s-ը, ներառյալ` %3$,d հետեւորդ եւ %4$s հաշիվ, որոնց դուք հետեւում եք։</string>
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
 	<string name="moderation_warning_action_silence">Ձեր հաշիվը սահմանափակվել է։</string>
 	<string name="moderation_warning_action_suspend">Ձեր հաշիվն արգելափակվել է։</string>
@@ -736,6 +757,7 @@
 	<string name="settings_add_account">Ավելացնել հաշիվ...</string>
 	<string name="settings_app_settings">Հավելվածի կարգավորումներ</string>
 	<string name="account_settings">Հաշվի կարգավորումներ</string>
+	<string name="settings_about_this_server">Այս հանգույցի մասին</string>
 	<!-- appears when you're about to block a server -->
 	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
 	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
