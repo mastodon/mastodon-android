@@ -475,8 +475,38 @@
 	<string name="add_user_to_list">Adicionar ou remover das listas…</string>
 	<string name="add_user_to_list_title">Adicionar à lista</string>
 	<!-- %s is a username -->
+	<string name="manage_user_lists">Gerir as listas em que %s aparece</string>
+	<string name="remove_from_list">Remover da lista</string>
+	<string name="confirm_remove_list_member">Remover membro?</string>
+	<string name="no_followed_hashtags_title">Mantenha-se a par dos interesses seguindo as etiquetas</string>
+	<string name="no_followed_hashtags_subtitle">Os seguidores aparecerão aqui</string>
+	<string name="no_lists_title">Organize a sua cronologia inicial com listas</string>
+	<string name="no_lists_subtitle">As tuas aparecerão aqui</string>
+	<string name="manage_accounts">Adicionar ou mudar de conta</string>
+	<plurals name="x_posts_recently">
+		<item quantity="one">%,d publicação recente</item>
+		<item quantity="other">%,d publicações recentes</item>
+	</plurals>
+	<string name="create_list">Criar lista</string>
+	<string name="step_x_of_y">Passo %1$d de %2$d</string>
+	<string name="create">Criar</string>
+	<string name="manage_list_members">Gerir membros da lista</string>
+	<string name="list_no_members">Ainda não existem membros</string>
+	<string name="list_find_users">Encontrar utilizadores para adicionar</string>
+	<string name="reply_to_user">Responder a %s</string>
+	<string name="posted_at">Publicado em %s</string>
+	<string name="non_mutual_sheet_title">Olá, nova conexão!</string>
+	<string name="non_mutual_sheet_text">Parece que estás prestes a responder a alguém que ainda não é uma conexão mútua. Vamos causar uma ótima primeira impressão.</string>
 	<!-- %s is a time interval ("5 months") -->
+	<string name="qr_code">Código QR</string>
+	<string name="scan_qr_code">Ler código QR</string>
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
+	<string name="saved">Guardado</string>
+	<string name="image_saved">Imagem guardada.</string>
+	<string name="video_saved">Vídeo guardado.</string>
+	<string name="view_file">Ver</string>
+	<string name="share_sheet_preview_profile">%s no Mastodon</string>
+	<string name="share_sheet_preview_post">%1$s no Mastodon: “%2$s”</string>
 	<!-- %s is the username -->
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
