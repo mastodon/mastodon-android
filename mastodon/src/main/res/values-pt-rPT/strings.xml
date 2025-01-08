@@ -183,18 +183,18 @@
 	<string name="new_post">Nova publicação</string>
 	<string name="button_reply">Responder</string>
 	<string name="button_reblog">Impulsionar</string>
-	<string name="button_favorite">Gostar</string>
-	<string name="storage_permission_to_download">O aplicativo precisa de ter acesso ao seu armazenamento para salvar este arquivo.</string>
-	<string name="open_settings">Abrir definições</string>
-	<string name="error_saving_file">Erro ao salvar o arquivo</string>
-	<string name="downloading">A transferir…</string>
+	<string name="button_favorite">Favoritar</string>
+	<string name="storage_permission_to_download">A aplicação necessita de acesso ao seu armazenamento para guardar este ficheiro.</string>
+	<string name="open_settings">Abrir configurações</string>
+	<string name="error_saving_file">Erro ao guardar o ficheiro</string>
+	<string name="downloading">A descarregar…</string>
 	<!-- %s is the server domain -->
 	<string name="button_follow_pending">Pendente</string>
 	<string name="follows_you">Segue-te</string>
-	<string name="manually_approves_followers">Aprova manualmente seguidores</string>
+	<string name="manually_approves_followers">Aprova manualmente os seguidores</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<plurals name="x_followers">
-		<item quantity="one">%,d um seguidor</item>
+		<item quantity="one">%,d seguidor</item>
 		<item quantity="other">%,d seguidores</item>
 	</plurals>
 	<plurals name="x_following">
