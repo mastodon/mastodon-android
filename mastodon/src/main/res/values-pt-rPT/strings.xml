@@ -355,17 +355,125 @@
 	<string name="reported">Denunciada</string>
 	<string name="report_unfollow_explanation">Para não voltar a ver as publicações da conta na sua cronologia, deixe de segui-la.</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
+	<string name="settings_alt_text_reminders">Adicionar lembretes de texto descritivo</string>
+	<string name="settings_confirm_unfollow">Perguntar antes de deixar de seguir alguém</string>
+	<string name="settings_confirm_boost">Perguntar antes de impulsionar um publicação</string>
+	<string name="settings_confirm_delete_post">Perguntar antes de eliminar publicações</string>
+	<string name="pause_all_notifications">Pausar tudo</string>
+	<string name="pause_notifications_off">Desativado</string>
+	<string name="notifications_policy_anyone">Qualquer um</string>
+	<string name="notifications_policy_followed">Pessoas que te seguem</string>
+	<string name="notifications_policy_follower">Pessoas que segues</string>
+	<string name="notifications_policy_no_one">Ninguém</string>
+	<string name="settings_notifications_policy">Obter notificações de</string>
+	<string name="notification_type_mentions_and_replies">Menções e respostas</string>
+	<string name="pause_all_notifications_title">Pausar todas as notificações</string>
+	<plurals name="x_weeks">
+		<item quantity="one">%d semana</item>
+		<item quantity="other">%d semanas</item>
+	</plurals>
 	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
+	<string name="date_at_time">%1$s às %2$s</string>
+	<string name="today">hoje</string>
+	<string name="yesterday">ontem</string>
+	<string name="tomorrow">amanhã</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="pause_notifications_ends">Termina %s</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="pause_notifications_banner">As notificações serão retomadas %s.</string>
+	<string name="resume_notifications_now">Retomar agora</string>
+	<string name="open_system_notification_settings">Ir para as configurações de notificação</string>
+	<string name="about_server">Sobre</string>
+	<string name="server_rules">Regras</string>
+	<string name="server_administrator">Administrador</string>
+	<string name="send_email_to_server_admin">Contactar administrador</string>
+	<string name="notifications_disabled_in_system">Ativa as notificações nas configurações do dispositivo para veres as atualizações de qualquer lugar.</string>
+	<string name="settings_even_more">Ainda mais configurações</string>
+	<string name="settings_show_cws">Mostrar avisos de conteúdo</string>
+	<string name="settings_hide_sensitive_media">Desfocar multimédia marcada como sensível</string>
+	<string name="settings_show_interaction_counts">Contador de interações com uma publicação</string>
+	<string name="settings_show_emoji_in_names">Emojis personalizados em nomes</string>
+	<plurals name="in_x_seconds">
+		<item quantity="one">em %d segundo</item>
+		<item quantity="other">em %d segundos</item>
+	</plurals>
+	<plurals name="in_x_minutes">
+		<item quantity="one">em %d minuto</item>
+		<item quantity="other">em %d minutos</item>
+	</plurals>
+	<plurals name="in_x_hours">
+		<item quantity="one">em %d hora</item>
+		<item quantity="other">em %d horas</item>
+	</plurals>
+	<plurals name="x_hours_ago">
+		<item quantity="one">%d hora atrás</item>
+		<item quantity="other">%d horas atrás</item>
+	</plurals>
+	<string name="alt_text_reminder_title">Falta o texto descritivo na multimédia</string>
+	<plurals name="alt_text_reminder_x_images">
+		<item quantity="one">%s das tuas imagens não tem texto descritivo. Publicar mesmo assim?</item>
+		<item quantity="other">%s das tuas imagens não têm texto descritivo. Publicar mesmo assim?</item>
+	</plurals>
+	<plurals name="alt_text_reminder_x_attachments">
+		<item quantity="one">%s dos teus anexos multimédia não tem texto descritivo. Publicar mesmo assim?</item>
+		<item quantity="other">%s dos teus anexos multimédia não têm texto descritivo. Publicar mesmo assim?</item>
+	</plurals>
+	<string name="count_one">Um</string>
+	<string name="count_two">Dois</string>
+	<string name="count_three">Três</string>
+	<string name="count_four">Quatro</string>
+	<string name="alt_text_reminder_post_anyway">Publicar</string>
 	<!-- %s is the username -->
+	<string name="unfollow_confirmation">Deixar de seguir %s?</string>
+	<string name="filter_active">Ativo</string>
+	<string name="filter_inactive">Inativo</string>
+	<string name="settings_add_filter">Adicionar filtro</string>
+	<string name="settings_edit_filter">Editar filtro</string>
+	<string name="settings_filter_duration">Duração</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<!-- Shown like a content warning, %s is the name of the filter -->
 	<!-- Shown in the post header. Please keep it short -->
 	<!-- %s is the name of the post language -->
 	<!-- %1$s is the language, %2$s is the name of the translation service -->
+	<string name="translation_show_original">Mostrar original</string>
+	<string name="translation_failed">A tradução falhou. Talvez o administrador não tenha ativado as traduções neste servidor ou este servidor esteja a executar uma versão mais antiga do Mastodon onde as traduções ainda não são suportadas.</string>
+	<string name="settings_privacy">Privacidade e alcance</string>
+	<string name="settings_discoverable">Destacar perfil e publicações nos algoritmos de descoberta</string>
+	<string name="settings_indexable">Incluir publicações públicas nos resultados de pesquisas</string>
+	<plurals name="x_participants">
+		<item quantity="one">%,d participante</item>
+		<item quantity="other">%,d participantes</item>
+	</plurals>
+	<plurals name="x_posts_today">
+		<item quantity="one">%,d publicação hoje</item>
+		<item quantity="other">%,d publicações hoje</item>
+	</plurals>
+	<string name="error_playing_video">Erro ao reproduzir o vídeo</string>
+	<string name="timeline_following">Início</string>
+	<string name="lists">Listas</string>
+	<string name="followed_hashtags">Etiquetas seguidas</string>
+	<string name="manage_lists">Gerir listas</string>
+	<string name="manage_hashtags">Gerir etiquetas</string>
 	<!-- Screen reader description for the menu on the home timeline screen -->
+	<string name="dropdown_menu">Menu suspenso</string>
+	<string name="edit_list">Editar lista</string>
+	<string name="list_members">Membros da lista</string>
+	<string name="delete_list">Eliminar lista</string>
 	<!-- %s is the name of the list -->
+	<string name="delete_list_confirm">Eliminar “%s”?</string>
+	<string name="list_exclusive">Ocultar membros na lista de seguidos</string>
+	<string name="list_exclusive_subtitle">Se alguém estiver nesta lista, oculta-o na cronologia da tua página inicial para evitar veres as publicações dessa pessoa duas vezes.</string>
+	<string name="list_name">Nome da lista</string>
+	<string name="list_show_replies_to">Mostrar respostas a</string>
+	<string name="list_replies_no_one">Ninguém</string>
+	<string name="list_replies_members">Membros da lista</string>
+	<string name="list_replies_anyone">Qualquer um que eu siga</string>
+	<string name="confirm_remove_list_members">Remover membros?</string>
+	<string name="remove">Remover</string>
+	<string name="add_list_member">Adicionar membro</string>
+	<string name="search_among_people_you_follow">Pesquisar entre as pessoas que segues</string>
+	<string name="add_user_to_list">Adicionar ou remover das listas…</string>
+	<string name="add_user_to_list_title">Adicionar à lista</string>
 	<!-- %s is a username -->
 	<!-- %s is a time interval ("5 months") -->
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
