@@ -258,14 +258,30 @@
 	<string name="edit_media_removed">Multimédia removida</string>
 	<string name="edit_media_reordered">Multimédia reordenada</string>
 	<string name="edit_marked_sensitive">Marcada como sensível</string>
+	<string name="file_size_kb">%.2f kB</string>
+	<string name="file_size_mb">%.2f MB</string>
+	<string name="file_size_gb">%.2f GB</string>
+	<string name="upload_processing">A processar…</string>
 	<!-- %s is file size -->
+	<string name="download_update">Descarregar (%s)</string>
+	<string name="install_update">Instalar</string>
+	<string name="privacy_policy_title">Tua privacidade</string>
+	<string name="privacy_policy_subtitle">Embora a aplicação Mastodon não recolha quaisquer dados, o servidor através do qual te inscreves pode ter uma política diferente.\n\nSe não concordares com a política para %s, podes voltar atrás e escolher um servidor diferente.</string>
+	<string name="i_agree">Concordo</string>
 	<string name="empty_list">A lista está vazia</string>
 	<string name="instance_signup_closed">Este servidor não aceita novos registos.</string>
 	<string name="text_copied">Copiado para a área de transferência</string>
 	<string name="add_bookmark">Guardar nos marcadores</string>
+	<string name="remove_bookmark">Remover dos marcadores</string>
 	<string name="bookmarks">Marcadores</string>
+	<string name="your_favorites">Favoritos</string>
+	<string name="login_title">Bem-vindo de volta</string>
 	<string name="login_subtitle">Inicie sessão no servidor onde criou a sua conta.</string>
 	<string name="server_url">URL do servidor</string>
+	<string name="server_filter_any_language">Qualquer idioma</string>
+	<string name="server_filter_instant_signup">Inscrição instantânea</string>
+	<string name="server_filter_manual_review">Revisão manual</string>
+	<string name="server_filter_any_signup_speed">Qualquer velocidade de inscrição</string>
 	<string name="server_filter_region_europe">Europa</string>
 	<string name="server_filter_region_north_america">América do Norte</string>
 	<string name="server_filter_region_south_america">América do Sul</string>
@@ -273,6 +289,7 @@
 	<string name="server_filter_region_asia">Ásia</string>
 	<string name="server_filter_region_oceania">Oceânia</string>
 	<string name="not_accepting_new_members">Não aceita novos membros neste momento</string>
+	<string name="category_special_interests">Interesses especiais</string>
 	<string name="signup_passwords_dont_match">As palavras-passe não coincidem</string>
 	<string name="profile_add_row">Adicionar linha</string>
 	<string name="profile_setup">Configuração do perfil</string>
@@ -355,6 +372,7 @@
 	<string name="reported">Denunciada</string>
 	<string name="report_unfollow_explanation">Para não voltar a ver as publicações da conta na sua cronologia, deixe de segui-la.</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
+	<string name="about_app">Sobre %s</string>
 	<string name="settings_alt_text_reminders">Adicionar lembretes de texto descritivo</string>
 	<string name="settings_confirm_unfollow">Perguntar antes de deixar de seguir alguém</string>
 	<string name="settings_confirm_boost">Perguntar antes de impulsionar um publicação</string>
@@ -431,10 +449,44 @@
 	<string name="settings_edit_filter">Editar filtro</string>
 	<string name="settings_filter_duration">Duração</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="selection_2_options">%1$s e %2$s</string>
+	<string name="selection_3_options">%1$s, %2$s e %3$s</string>
+	<string name="selection_4_or_more">%1$s, %2$s e %3$d mais</string>
+	<string name="filter_context_home_lists">Início e listas</string>
+	<string name="filter_context_notifications">Notificações</string>
+	<string name="filter_context_public_timelines">Cronologias públicas</string>
+	<string name="filter_context_threads_replies">Tópicos e respostas</string>
+	<string name="filter_context_profiles">Perfis</string>
+	<string name="settings_filter_title">Título</string>
+	<string name="settings_delete_filter_title">Eliminar o filtro “%s”?</string>
+	<string name="add">Adicionar</string>
+	<string name="filter_word_or_phrase">Palavra ou frase</string>
+	<string name="enter_selection_mode">Selecionar</string>
+	<string name="select_all">Seleccionar tudo</string>
+	<string name="settings_filter_duration_title">Duração do filtro</string>
+	<string name="filter_duration_custom">Personalizado</string>
+	<string name="required_form_field_blank">Não pode ficar em branco</string>
+	<string name="filter_word_already_in_list">Já na lista</string>
+	<string name="app_update_ready">Atualização da aplicação pronta</string>
+	<string name="app_update_version">Versão %s</string>
+	<string name="downloading_update">A descarregar (%d%%)</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
+	<string name="post_matches_filter_x">Corresponde ao filtro “%s”</string>
+	<string name="clear_all">Limpar tudo</string>
+	<string name="search_open_url">Abrir URL no Mastodon</string>
+	<string name="posts_matching_hashtag">Publicações com “%s”</string>
+	<string name="search_go_to_account">Ir para %s</string>
+	<string name="posts_matching_string">Publicações com “%s”</string>
+	<string name="accounts_matching_string">Pessoas com “%s”</string>
 	<!-- Shown in the post header. Please keep it short -->
+	<string name="time_seconds_ago_short">%ds atrás</string>
+	<string name="time_minutes_ago_short">%dm atrás</string>
+	<string name="time_hours_ago_short">%dh atrás</string>
+	<string name="time_days_ago_short">%dd atrás</string>
 	<!-- %s is the name of the post language -->
+	<string name="translate_post">Traduzir de %s</string>
 	<!-- %1$s is the language, %2$s is the name of the translation service -->
+	<string name="post_translated">Traduzido de %1$s usando %2$s</string>
 	<string name="translation_show_original">Mostrar original</string>
 	<string name="translation_failed">A tradução falhou. Talvez o administrador não tenha ativado as traduções neste servidor ou este servidor esteja a executar uma versão mais antiga do Mastodon onde as traduções ainda não são suportadas.</string>
 	<string name="settings_privacy">Privacidade e alcance</string>
@@ -497,7 +549,27 @@
 	<string name="posted_at">Publicado em %s</string>
 	<string name="non_mutual_sheet_title">Olá, nova conexão!</string>
 	<string name="non_mutual_sheet_text">Parece que estás prestes a responder a alguém que ainda não é uma conexão mútua. Vamos causar uma ótima primeira impressão.</string>
+	<string name="got_it">Compreendi</string>
+	<string name="dont_remind_again">Não me voltar a lembrar</string>
 	<!-- %s is a time interval ("5 months") -->
+	<string name="old_post_sheet_title">Esta publicação tem %s</string>
+	<string name="old_post_sheet_text">Ainda podes responder, mas pode já não ser relevante.</string>
+	<plurals name="x_months">
+		<item quantity="one">%,d mês</item>
+		<item quantity="other">%,d meses</item>
+	</plurals>
+	<string name="more_than_two_years">mais de 2 anos</string>
+	<string name="non_mutual_title1">Sê respeitoso e relevante</string>
+	<string name="non_mutual_text1">Assegura-te que a tua resposta é cortês e tem a ver com o tema.</string>
+	<string name="non_mutual_title2">Abraça a simpatia</string>
+	<string name="non_mutual_text2">Um tom positivo é sempre apreciado.</string>
+	<string name="non_mutual_title3">Sê aberto</string>
+	<string name="non_mutual_text3">O estilo de conversação de cada pessoa é único. Prepara-te para te adaptares.</string>
+	<string name="make_profile_discoverable">Permitir que o meu perfil seja descoberto</string>
+	<string name="app_version_copied">Número de versão copiado para a área de transferência</string>
+	<string name="onboarding_recommendations_title">Personaliza a cronologia na tua página inicial</string>
+	<string name="article_by_author">Por %s</string>
+	<string name="server">Servidor</string>
 	<string name="qr_code">Código QR</string>
 	<string name="scan_qr_code">Ler código QR</string>
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
@@ -541,8 +613,25 @@
 		<item quantity="one">%d anexo</item>
 		<item quantity="other">%d anexos</item>
 	</plurals>
+	<string name="own_poll_ended">A tua sondagem terminou</string>
+	<string name="user_just_posted">%s acabou de publicar</string>
+	<string name="user_edited_post">%s editou uma publicação com a qual interagiste</string>
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_learn_more">Saber mais</string>
+	<string name="moderation_warning_learn_more">Saber mais</string>
+	<string name="text_show_more">Mais</string>
+	<string name="confirm_avatar_crop">Escolher</string>
+	<string name="settings_use_dynamic_colors">Usar cor dinâmica do sistema</string>
+	<string name="settings_accounts">Contas</string>
+	<string name="settings_add_account">Adicionar conta...</string>
+	<string name="settings_about_this_server">Sobre esta instância</string>
+	<string name="manage_account">Gerir conta</string>
+	<string name="switch_to_this_account">Mudar para esta conta</string>
+	<string name="delete_account">Eliminar conta</string>
+	<string name="notification_type_status">Novas publicações</string>
+	<string name="profile_saved_posts">Guardado</string>
+	<string name="search_people">Pessoas</string>
 	<!-- appears when you're about to block a server -->
 	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
 	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
