@@ -610,6 +610,33 @@
 		<item quantity="other">%,d pessoas que talvez conheças</item>
 	</plurals>
 	<string name="notifications_from_user">Notificações de %s</string>
+	<string name="notifications_muted">As notificações de %s foram descartadas.</string>
+	<string name="notifications_allowed">%s agora aparecerá na tua lista de notificações.</string>
+	<string name="visibility_subtitle_public">Qualquer um dentro ou fora do Mastodon</string>
+	<string name="visibility_subtitle_unlisted">Menos notificações e recomendações do algoritmo</string>
+	<string name="visibility_subtitle_followers">Apenas os teus seguidores</string>
+	<string name="visibility_subtitle_private">Todos os mencionados na publicação</string>
+	<string name="view_favorites">Ver favoritos</string>
+	<string name="undo_favorite">Desfazer favorito</string>
+	<string name="could_not_reach_server">Não foi possível contactar o servidor. Verifique a sua ligação e tente novamente?</string>
+	<string name="connection_timed_out">O pedido expirou. Verifique a sua ligação e tente novamente?</string>
+	<string name="server_error">Algo correu mal ao falar com o seu servidor. Provavelmente a culpa não é sua. Tentar de novo?</string>
+	<string name="not_found">Pode ter sido eliminado ou talvez nunca tenha existido.</string>
+	<string name="no_servers_found">Não foram encontrados servidores para “%s”</string>
+	<string name="signup_username_taken">Este nome de utilizador está ocupado. Tenta um diferente ou &lt;a&gt;escolhe um servidor diferente&lt;/a&gt;.</string>
+	<string name="signup_email_invalid">Esse não parece ser um endereço e-mail válido.</string>
+	<string name="signup_email_taken">O e-mail já está a ser utilizado. &lt;a&gt;Esqueceu-se da sua palavra-passe&lt;/a&gt;?</string>
+	<plurals name="x_new_notifications">
+		<item quantity="one">%,d nova notificação</item>
+		<item quantity="other">%,d novas notificações</item>
+	</plurals>
+	<string name="dismiss">Descartar</string>
+	<string name="donation_once">Apenas uma vez</string>
+	<string name="donation_monthly">Mensalmente</string>
+	<string name="donation_yearly">Anualmente</string>
+	<string name="currency">Moeda</string>
+	<string name="donation_success_share">Passe a palavra</string>
+	<string name="donation_success_title">Obrigado pela sua contribuição!</string>
 	<string name="settings_manage_donations">Gerir doações</string>
 	<string name="cant_load_image">Não foi possível carregar a imagem</string>
 	<string name="poll_see_results">Ver resultados</string>
