@@ -605,6 +605,11 @@
 	<string name="notification_filter_new_accounts_explanation">Criadas nos últimos 30 dias</string>
 	<string name="notification_filter_mentions">Menções privadas não solicitadas</string>
 	<string name="notification_filter_mentions_explanation">Filtrado, a não ser que seja em resposta à tua própria menção ou se seguires o remetente</string>
+	<plurals name="x_people_you_may_know">
+		<item quantity="one">%,d pessoa que talvez conheças</item>
+		<item quantity="other">%,d pessoas que talvez conheças</item>
+	</plurals>
+	<string name="notifications_from_user">Notificações de %s</string>
 	<string name="settings_manage_donations">Gerir doações</string>
 	<string name="cant_load_image">Não foi possível carregar a imagem</string>
 	<string name="poll_see_results">Ver resultados</string>
