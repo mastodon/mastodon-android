@@ -264,6 +264,10 @@
 		<item quantity="one">Há %d segundo</item>
 		<item quantity="other">Há %d segundos</item>
 	</plurals>
+	<plurals name="x_minutes_ago">
+		<item quantity="one">Há %d minuto</item>
+		<item quantity="other">Há %d minutos</item>
+	</plurals>
 	<string name="edited_timestamp">editado %s</string>
 	<string name="edit_original_post">Publicação original</string>
 	<string name="edit_text_edited">Texto editado</string>
@@ -628,11 +632,55 @@
 	<string name="discoverability">Descoberta</string>
 	<string name="discoverability_help">Quando optas pela possibilidade de ser descoberto no Mastodon, as tuas mensagens podem aparecer nos resultados de pesquisa e nas tendências.\n\nO teu perfil pode ser sugerido a pessoas com interesses semelhantes aos teus.\n\nNão ativar esta opção não oculta o teu perfil se alguém te procurar pelo nome.</string>
 	<string name="app_version_copied">Número de versão copiado para a área de transferência</string>
+	<string name="onboarding_recommendations_intro">Tu organizas a tua própria cronologia inicial.
+Quanto mais pessoas seguires, mais ativa e interessante será a cronologia.</string>
 	<string name="onboarding_recommendations_title">Personaliza a cronologia na tua página inicial</string>
 	<string name="article_by_author">Por %s</string>
 	<string name="button_reblogged">Impulsionado</string>
 	<string name="button_favorited">Adicionado aos favoritos</string>
+	<string name="join_server_x_with_invite">Aderir a %s com convite</string>
+	<string name="expired_invite_link">Hiperligação de convite expirada</string>
+	<string name="expired_clipboard_invite_link_alert">A hiperligação de convite para %1$s na tua área de transferência expirou e não pode ser utilizada para te inscreveres.\n\nPodes solicitar uma nova hiperligação a um utilizador existente, inscreveres-te através de %2$s ou escolher outro servidor.</string>
+	<string name="invalid_invite_link">Hiperligação de convite inválida</string>
+	<string name="invalid_clipboard_invite_link_alert">A hiperligação de convite para %1$s na tua área de transferência não é válida e não pode ser utilizada para te inscreveres.\n\nPodes solicitar uma nova hiperligação a um utilizador existente, inscreveres-te através de %2$s ou escolher outro servidor.</string>
+	<string name="use_invite_link">Usar hiperligação de convite</string>
+	<string name="enter_invite_link">Introduz a hiperligação de convite</string>
+	<string name="this_invite_is_invalid">Esta hiperligação de convite não é válida.</string>
+	<string name="this_invite_has_expired">Esta hiperligação de convite expirou.</string>
+	<string name="invite_link_pasted">Hiperligação colada da área de transferência.</string>
+	<string name="need_invite_to_join_server">Para se inscreveres em %s, precisas de uma hiperligação de convite de um utilizador existente.</string>
+	<string name="mute_user_confirm_title">Ocultar utilizador?</string>
+	<string name="user_wont_know_muted">Ele não saberá que o ocultaste.</string>
+	<string name="user_can_still_see_your_posts">Não verás as publicações dele e ele não poderá ver as tuas publicações.</string>
+	<string name="you_wont_see_user_mentions">Não verás publicações que mencionem este utilizador.</string>
+	<string name="user_can_mention_and_follow_you">Ele pode mencionar-te e seguir-te, mas não o verás.</string>
+	<string name="unmuted_user_x">Deixar de ocultar %s</string>
+	<string name="block_user_confirm_title">Bloquear utilizador?</string>
+	<string name="user_can_see_blocked">Ele pode ver que o bloqueaste.</string>
+	<string name="user_cant_see_each_other_posts">Não verás as publicações dele e ele não poderá ver as tuas publicações.</string>
+	<string name="user_cant_mention_or_follow_you">Ele não te pode mencionar nem seguir.</string>
+	<string name="unblocked_user_x">%s desbloqueado</string>
+	<string name="block_domain_confirm_title">Bloquear o domínio?</string>
+	<string name="do_block_server">Bloquear servidor</string>
+	<string name="block_user_x_instead">Em vez disso, bloquear %s</string>
+	<string name="users_cant_see_blocked">Não verás publicações ou notificações de utilizadores neste servidor.</string>
+	<string name="you_wont_see_server_posts">Não verás quaisquer publicações de utilizadores deste servidor.</string>
+	<string name="server_cant_mention_or_follow_you">Ninguém deste servidor pode seguir-te.</string>
+	<string name="server_can_interact_with_older">As pessoas deste servidor podem interagir com as tuas publicações antigas.</string>
+	<string name="unblocked_domain_x">Domínio %s desbloqueado</string>
+	<string name="handle_help_title">Em que consiste um identificador?</string>
+	<string name="handle_title">O identificador dele</string>
+	<string name="handle_username_explanation">O identificador único dele no seu servidor. É possível encontrar utilizadores com o mesmo nome de utilizador em servidores diferentes.</string>
+	<string name="handle_title_own">O teu identificador</string>
+	<string name="handle_username_explanation_own">O teu identificador único neste servidor. É possível encontrares utilizadores com o mesmo nome de utilizador em diferentes servidores.</string>
 	<string name="server">Servidor</string>
+	<string name="handle_server_explanation">A casa digital deste utilizador, onde se encontram todas as suas publicações.</string>
+	<string name="handle_explanation">Uma vez que os identificadores dizem quem é alguém e onde está, podes interagir com as pessoas através da rede social de &lt;a&gt;plataformas que suportam ActivityPub&lt;/a&gt;.</string>
+	<string name="handle_server_explanation_own">A tua casa digital, onde se encontram todas as tuas publicações. Não gostas deste? Muda de servidor a qualquer momento e leva também os teus seguidores.</string>
+	<string name="handle_explanation_own">Uma vez que o teu identificador indica quem és e onde estás, as pessoas podem interagir contigo através da rede social de &lt;a&gt;plataformas que suportam ActivityPub&lt;/a&gt;.</string>
+	<string name="what_is_activitypub_title">Qual é o ActivityPub?</string>
+	<string name="what_is_activitypub">O ActivityPub é como a linguagem que o Mastodon fala com outras redes sociais.\n\nPermite que te ligues e interajas com pessoas não só no Mastodon, mas também em diferentes aplicações sociais.</string>
+	<string name="handle_copied">Identificador copiado para área de transferência.</string>
 	<string name="qr_code">Código QR</string>
 	<string name="scan_qr_code">Ler código QR</string>
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
@@ -658,6 +706,9 @@
 	<string name="disable_new_post_notifications">Parar de me notificar das publicações de %s</string>
 	<string name="new_post_notifications_enabled">Receberás notificações de novas publicações.</string>
 	<string name="new_post_notifications_disabled">Não receberás notificações de novas publicações.</string>
+	<string name="mute_conversation">Ocultar conversa</string>
+	<string name="unmute_conversation">Desocultar esta conversa</string>
+	<string name="visibility_unlisted">Público silencioso</string>
 	<string name="filtered_notifications">Notificações filtradas</string>
 	<string name="filter_notifications">Filtrar notificações de...</string>
 	<string name="notification_filter_following">Pessoas que não segues</string>
@@ -668,6 +719,7 @@
 	<string name="notification_filter_new_accounts_explanation">Criadas nos últimos 30 dias</string>
 	<string name="notification_filter_mentions">Menções privadas não solicitadas</string>
 	<string name="notification_filter_mentions_explanation">Filtrado, a não ser que seja em resposta à tua própria menção ou se seguires o remetente</string>
+	<string name="allow_notifications">Permitir notificações</string>
 	<string name="mute_notifications">Rejeitar pedido de notificação</string>
 	<plurals name="x_people_you_may_know">
 		<item quantity="one">%,d pessoa que talvez conheças</item>
