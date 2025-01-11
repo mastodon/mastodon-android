@@ -115,29 +115,29 @@
 	<string name="report_title">Denunciar %s</string>
 	<string name="report_choose_reason">O que há de errado com esta publicação?</string>
 	<string name="report_choose_reason_account">O que há de errado com %s?</string>
-	<string name="report_choose_reason_subtitle">Escolha a melhor correspondência</string>
+	<string name="report_choose_reason_subtitle">Escolhe o mais adequado</string>
 	<string name="report_reason_personal">Não gostei</string>
 	<string name="report_reason_personal_subtitle">Não é algo que deseje ver</string>
-	<string name="report_reason_spam">É spam</string>
+	<string name="report_reason_spam">É publicidade indesejada / spam</string>
 	<string name="report_reason_spam_subtitle">Hiperligações maliciosas, contactos falsos ou respostas repetitivas</string>
 	<string name="report_reason_violation">Viola as regras do servidor</string>
-	<string name="report_reason_violation_subtitle">Está ciente de que infringe regras específicas</string>
+	<string name="report_reason_violation_subtitle">Infringe regras específicas</string>
 	<string name="report_reason_other">É outra coisa</string>
 	<string name="report_reason_other_subtitle">O problema não se encaixa nas outras categorias</string>
 	<string name="report_choose_rule">Que regras estão a ser violadas?</string>
-	<string name="report_choose_rule_subtitle">Selecione tudo o que se aplicar</string>
+	<string name="report_choose_rule_subtitle">Seleciona tudo o que se aplicar</string>
 	<string name="report_choose_posts">Existe alguma publicação que suporte esta denúncia?</string>
-	<string name="report_choose_posts_subtitle">Selecione tudo o que se aplicar</string>
-	<string name="report_comment_title">Há algo mais que pensa que devemos saber?</string>
+	<string name="report_choose_posts_subtitle">Seleciona tudo o que se aplicar</string>
+	<string name="report_comment_title">Há mais alguma coisa que devamos saber?</string>
 	<string name="report_comment_hint">Comentários adicionais</string>
 	<string name="sending_report">A enviar a denúncia…</string>
-	<string name="report_sent_title">Obrigado por denunciar. Iremos analisar.</string>
-	<string name="report_sent_subtitle">Enquanto revemos a sua denúncia, pode tomar medidas em relação a %s:</string>
+	<string name="report_sent_title">Obrigado por nos informares, vamos analisar a situação.</string>
+	<string name="report_sent_subtitle">Enquanto revemos a tua denúncia, podes tomar medidas em relação a %s:</string>
 	<string name="unfollow_user">Deixar de seguir %s</string>
 	<string name="unfollow">Deixar de seguir</string>
 	<string name="mute_user_explain">Não verás as publicações dele. Ele não poderá ver as tuas publicações nem seguir-te. Ele não saberá que o ocultaste.</string>
 	<string name="block_user_explain">Não verás as publicações dele. Ele não poderá ver as tuas publicações nem seguir-te. Ele saberá que foi bloqueado por ti.</string>
-	<string name="report_personal_title">Não quer ver isto?</string>
+	<string name="report_personal_title">Não queres ver isto?</string>
 	<string name="report_personal_subtitle">Aqui estão as suas opções para controlar o que vê no Mastodon:</string>
 	<string name="back">Voltar</string>
 	<string name="search_communities">Nome ou endereço do servidor</string>
@@ -294,7 +294,7 @@
 	<!-- %s is file size -->
 	<string name="download_update">Descarregar (%s)</string>
 	<string name="install_update">Instalar</string>
-	<string name="privacy_policy_title">Tua privacidade</string>
+	<string name="privacy_policy_title">A tua privacidade</string>
 	<string name="privacy_policy_subtitle">Embora a aplicação Mastodon não recolha quaisquer dados, o servidor através do qual te inscreves pode ter uma política diferente.\n\nSe não concordares com a política de %s, podes voltar atrás e escolher um servidor diferente.</string>
 	<string name="i_agree">Concordo</string>
 	<string name="empty_list">A lista está vazia</string>
@@ -399,7 +399,7 @@
 	<string name="forward_report_to_server">Reencaminhar para %s</string>
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
 	<string name="reported">Denunciada</string>
-	<string name="report_unfollow_explanation">Para não voltar a ver as publicações da conta na sua cronologia, deixe de segui-la.</string>
+	<string name="report_unfollow_explanation">Para não voltares a ver as publicações da conta na tua cronologia, deixa de segui-la.</string>
 	<string name="muted_user">%s ocultado</string>
 	<string name="report_sent_already_blocked">Já bloqueaste este utilizador, por isso não precisas de fazer mais nada enquanto analisamos o teu relatório.</string>
 	<string name="report_personal_already_blocked">Já bloqueaste este utilizador, por isso não precisas de fazer mais nada.\n\nObrigado por ajudares a manter o Mastodon um lugar seguro para todos!</string>
@@ -595,7 +595,7 @@
 	<string name="confirm_remove_list_member">Remover membro?</string>
 	<string name="no_followed_hashtags_title">Mantenha-se a par dos interesses seguindo as etiquetas</string>
 	<string name="no_followed_hashtags_subtitle">Os seguidores aparecerão aqui</string>
-	<string name="no_lists_title">Organize a sua cronologia inicial com listas</string>
+	<string name="no_lists_title">Organiza a tua cronologia inicial com listas</string>
 	<string name="no_lists_subtitle">As tuas aparecerão aqui</string>
 	<string name="manage_accounts">Adicionar ou mudar de conta</string>
 	<plurals name="x_posts_recently">
