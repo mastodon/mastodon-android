@@ -353,7 +353,7 @@
 	<string name="add_poll_option">Thêm tùy chọn</string>
 	<string name="poll_length">Thời hạn bình chọn</string>
 	<string name="poll_style">Loại</string>
-	<string name="compose_poll_single_choice">Chọn một</string>
+	<string name="compose_poll_single_choice">Một lựa chọn</string>
 	<string name="compose_poll_multiple_choice">Nhiều lựa chọn</string>
 	<string name="delete_poll_option">Xóa lựa chọn</string>
 	<string name="poll_style_title">Loại bình chọn</string>
@@ -505,12 +505,12 @@
 	<string name="downloading_update">Đang tải (%d%%)</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
 	<string name="post_matches_filter_x">Khớp bộ lọc “%s”</string>
-	<string name="search_mastodon">Tìm kiếm Mastodon</string>
+	<string name="search_mastodon">Tìm kiếm trên Mastodon</string>
 	<string name="clear_all">Xóa tất cả</string>
 	<string name="search_open_url">Mở liên kết trong Mastodon</string>
 	<string name="posts_matching_hashtag">Tút có chứa “%s”</string>
 	<string name="search_go_to_account">Đi đến %s</string>
-	<string name="posts_matching_string">Tút có chứa “%s”</string>
+	<string name="posts_matching_string">Tút nhắc đến “%s”</string>
 	<string name="accounts_matching_string">Người tên “%s”</string>
 	<!-- Shown in the post header. Please keep it short -->
 	<string name="time_seconds_ago_short">%ds</string>
@@ -637,9 +637,9 @@ Bạn càng theo dõi nhiều người thì nó sẽ càng sôi động và thú
 	<string name="unblocked_domain_x">Bỏ chặn máy chủ %s</string>
 	<string name="handle_help_title">Địa chỉ Mastodon là gì?</string>
 	<string name="handle_title">Địa chỉ Mastodon của người này</string>
-	<string name="handle_username_explanation">Danh tính duy nhất của một người trên máy chủ của họ. Có thể có tên người dùng giống nhau trên các máy chủ khác nhau.</string>
+	<string name="handle_username_explanation">Độc nhất trên máy chủ này. Những máy chủ khác có thể cũng có tên người dùng giống vậy.</string>
 	<string name="handle_title_own">Địa chỉ Mastodon của bạn</string>
-	<string name="handle_username_explanation_own">Danh tính duy nhất của bạn trên máy chủ này. Có thể có tên người dùng giống bạn trên các máy chủ khác.</string>
+	<string name="handle_username_explanation_own">Chỉ riêng bạn trên máy chủ này. Những máy chủ khác có thể cũng có tên người dùng giống vậy.</string>
 	<string name="server">Máy chủ</string>
 	<string name="handle_server_explanation">Nơi lưu trữ tút của người này.</string>
 	<string name="handle_explanation">Vì địa chỉ Mastodon cho biết một người là ai và họ ở đâu, nên bạn có thể tương tác với mọi người trên các nền tảng có &lt;a&gt;hỗ trợ ActivityPub&lt;/a&gt;.</string>
