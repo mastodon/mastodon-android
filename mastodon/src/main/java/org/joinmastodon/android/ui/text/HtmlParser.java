@@ -148,7 +148,7 @@ public class HtmlParser{
 							String text=el.text();
 							boolean startsWithHash=text.startsWith("#");
 							Node previous=el.previousSibling();
-							if(startsWithHash || previous != null && previous.text().startsWith("#")){
+							if(startsWithHash || previous != null && previous.text().endsWith("#")){
 								String tag=startsWithHash ? text.substring(1) : text;
 								linkType=LinkSpan.Type.HASHTAG;
 								href=tag;
