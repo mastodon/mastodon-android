@@ -3,21 +3,28 @@ package org.joinmastodon.android.ui.displayitems;
 import android.app.Activity;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
+import android.os.Bundle;
 import android.text.SpannableStringBuilder;
+import android.text.TextUtils;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import org.joinmastodon.android.GlobalUserPreferences;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.fragments.BaseStatusListFragment;
-import org.joinmastodon.android.model.Emoji;
+import org.joinmastodon.android.fragments.ProfileFragment;
+import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.ui.text.HtmlParser;
+import org.joinmastodon.android.ui.text.LinkSpan;
+import org.joinmastodon.android.ui.text.NonColoredLinkSpan;
 import org.joinmastodon.android.ui.utils.CustomEmojiHelper;
 import org.joinmastodon.android.ui.utils.UiUtils;
+import org.parceler.Parcels;
 
-import java.util.List;
+import java.util.regex.Pattern;
 
 import androidx.annotation.DrawableRes;
+import me.grishka.appkit.Nav;
 import me.grishka.appkit.imageloader.ImageLoaderViewHolder;
 import me.grishka.appkit.imageloader.requests.ImageLoaderRequest;
 import me.grishka.appkit.utils.V;
@@ -28,13 +35,37 @@ public class ReblogOrReplyLineStatusDisplayItem extends StatusDisplayItem{
 	private int icon;
 	private CustomEmojiHelper emojiHelper=new CustomEmojiHelper();
 
-	public ReblogOrReplyLineStatusDisplayItem(String parentID, BaseStatusListFragment parentFragment, CharSequence text, List<Emoji> emojis, @DrawableRes int icon){
+	public ReblogOrReplyLineStatusDisplayItem(String parentID, BaseStatusListFragment parentFragment, CharSequence text, Account account, @DrawableRes int icon){
 		super(parentID, parentFragment);
-		SpannableStringBuilder ssb=new SpannableStringBuilder(text);
-		if(GlobalUserPreferences.customEmojiInNames)
-			HtmlParser.parseCustomEmoji(ssb, emojis);
-		this.text=ssb;
-		emojiHelper.setText(ssb);
+		if(account!=null){
+			SpannableStringBuilder parsedName=new SpannableStringBuilder(account.displayName);
+			if(GlobalUserPreferences.customEmojiInNames)
+				HtmlParser.parseCustomEmoji(parsedName, account.emojis);
+			emojiHelper.setText(parsedName);
+
+			SpannableStringBuilder ssb=new SpannableStringBuilder();
+			String[] parts=String.format(text.toString(), "{{name}}").split(Pattern.quote("{{name}}"), 2);
+			if(parts.length>1 && !TextUtils.isEmpty(parts[0]))
+				ssb.append(parts[0]);
+
+			ssb.append(parsedName, new NonColoredLinkSpan(null, s->{
+				Bundle args=new Bundle();
+				args.putString("account", parentFragment.getAccountID());
+				args.putParcelable("profileAccount", Parcels.wrap(account));
+				Nav.go(parentFragment.getActivity(), ProfileFragment.class, args);
+			}, LinkSpan.Type.CUSTOM, null, null, null), 0);
+
+			if(parts.length==1){
+				ssb.append(' ');
+				ssb.append(parts[0]);
+			}else if(!TextUtils.isEmpty(parts[1])){
+				ssb.append(parts[1]);
+			}
+
+			this.text=ssb;
+		}else{
+			this.text=text;
+		}
 		this.icon=icon;
 	}
 

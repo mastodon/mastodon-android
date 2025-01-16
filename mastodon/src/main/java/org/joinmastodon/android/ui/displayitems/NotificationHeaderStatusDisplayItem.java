@@ -5,7 +5,6 @@ import android.content.res.ColorStateList;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.SpannableStringBuilder;
-import android.text.TextPaint;
 import android.text.TextUtils;
 import android.text.style.TypefaceSpan;
 import android.view.View;
@@ -24,6 +23,7 @@ import org.joinmastodon.android.model.viewmodel.NotificationViewModel;
 import org.joinmastodon.android.ui.OutlineProviders;
 import org.joinmastodon.android.ui.text.HtmlParser;
 import org.joinmastodon.android.ui.text.LinkSpan;
+import org.joinmastodon.android.ui.text.NonColoredLinkSpan;
 import org.joinmastodon.android.ui.utils.CustomEmojiHelper;
 import org.joinmastodon.android.ui.utils.UiUtils;
 import org.parceler.Parcels;
@@ -65,7 +65,8 @@ public class NotificationHeaderStatusDisplayItem extends StatusDisplayItem{
 		}else{
 			Account account=notification.accounts.get(0);
 			SpannableStringBuilder parsedName=new SpannableStringBuilder(account.displayName);
-			HtmlParser.parseCustomEmoji(parsedName, account.emojis);
+			if(GlobalUserPreferences.customEmojiInNames)
+				HtmlParser.parseCustomEmoji(parsedName, account.emojis);
 			emojiHelper.setText(parsedName);
 
 			String text;
@@ -218,17 +219,6 @@ public class NotificationHeaderStatusDisplayItem extends StatusDisplayItem{
 			args.putString("account", item.accountID);
 			args.putParcelable("profileAccount", Parcels.wrap(item.notification.accounts.get((Integer)v.getTag())));
 			Nav.go(item.parentFragment.getActivity(), ProfileFragment.class, args);
-		}
-	}
-
-	private static class NonColoredLinkSpan extends LinkSpan{
-		public NonColoredLinkSpan(String link, OnLinkClickListener listener, Type type, String accountID, Object linkObject, Object parentObject){
-			super(link, listener, type, accountID, linkObject, parentObject);
-		}
-
-		@Override
-		public void updateDrawState(TextPaint tp){
-			color=tp.getColor();
 		}
 	}
 }

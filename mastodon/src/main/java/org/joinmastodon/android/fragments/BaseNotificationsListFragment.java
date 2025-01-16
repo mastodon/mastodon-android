@@ -32,7 +32,7 @@ public abstract class BaseNotificationsListFragment extends BaseStatusListFragme
 			titleItem=null;
 		}else if(n.notification.type==NotificationType.STATUS){
 			if(n.status!=null)
-				titleItem=new ReblogOrReplyLineStatusDisplayItem(n.getID(), this, getString(R.string.user_just_posted, n.status.account.displayName), n.status.account.emojis, R.drawable.ic_notifications_wght700fill1_20px);
+				titleItem=new ReblogOrReplyLineStatusDisplayItem(n.getID(), this, getString(R.string.user_just_posted), n.status.account, R.drawable.ic_notifications_wght700fill1_20px);
 			else
 				titleItem=null;
 		}else{

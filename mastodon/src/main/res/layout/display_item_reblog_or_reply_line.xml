@@ -7,7 +7,7 @@
 	android:paddingTop="12dp"
 	android:layout_marginBottom="-8dp">
 
-	<TextView
+	<org.joinmastodon.android.ui.views.LinkedTextView
 		android:id="@+id/text"
 		android:layout_width="match_parent"
 		android:layout_height="16dp"
