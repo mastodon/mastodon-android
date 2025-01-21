@@ -72,7 +72,8 @@
 		android:textAppearance="@style/m3_body_medium"
 		android:textColor="?colorM3OnSurface"
 		android:minHeight="20dp"
-		android:gravity="center_vertical"
+		android:gravity="start|center_vertical"
+		android:textAlignment="viewStart"
 		tools:text="Notification text"/>
 
 </RelativeLayout>
