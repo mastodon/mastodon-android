@@ -611,6 +611,7 @@
 	<string name="reply_to_user">در پاسخ به %s</string>
 	<string name="posted_at">فرستاده‌شده در %s</string>
 	<string name="non_mutual_sheet_title">سلام، اتصال جدید!</string>
+	<string name="non_mutual_sheet_text">به نظر می رسد شما در شرف پاسخگویی به کسی هستید که هنوز ارتباط متقابلی ندارد. بیایید یک تأثیر اولیه عالی بگذاریم.</string>
 	<string name="got_it">فهمیدم</string>
 	<string name="dont_remind_again">ديگر يادآوری نكن</string>
 	<!-- %s is a time interval ("5 months") -->
@@ -621,11 +622,15 @@
 		<item quantity="other">%,d ماه</item>
 	</plurals>
 	<string name="more_than_two_years">بیش از ۲ سال</string>
+	<string name="non_mutual_title1">محترمانه و مرتبط بمانید</string>
+	<string name="non_mutual_text1">اطمینان حاصل کنید که پاسخ شما مودبانه و مرتبط با موضوع است.</string>
 	<string name="non_mutual_title2">مهربانی را در آغوش بگیر</string>
 	<string name="non_mutual_text2">لحن مثبت همیشه قدردانی میشود.</string>
 	<string name="non_mutual_title3">باز باش</string>
+	<string name="non_mutual_text3">سبک مکالمه هر کسی منحصر به فرد است. آماده سازگاری باشید.</string>
 	<string name="make_profile_discoverable">نمایه من را قابل کشف کن</string>
 	<string name="discoverability">قابلیت کشف</string>
+	<string name="discoverability_help">هنگامی که قابلیت کشف را در ماستودون انتخاب می کنید، پست های شما ممکن است در نتایج جستجو و پرطرفدار ظاهر شوند.\n\nنمایه شما ممکن است به افرادی با علایق مشابه شما پیشنهاد شود.\n\nاگر کسی شما را با نام جستجو کند، انصراف، نمایه شما را پنهان نمی کند.</string>
 	<string name="app_version_copied">شماره نسخه به تخته‌گیره رونوشت شد</string>
 	<string name="onboarding_recommendations_intro">شما خوراک خانه خود را مدیریت می‌کنید.
 هرچه افراد بیشتری را پی‌گیری کنید، فعال‌تر و جالب‌تر خواهد بود.</string>
@@ -635,12 +640,15 @@
 	<string name="button_favorited">برگزیده‌ شد</string>
 	<string name="join_server_x_with_invite">پیوستن به %s با دعوت</string>
 	<string name="expired_invite_link">منقضی کردن پیوند دعوت</string>
+	<string name="expired_clipboard_invite_link_alert">پیوند دعوت برای %1$s در کلیپ بورد شما منقضی شده است و نمی توان از آن برای ثبت نام استفاده کرد.\n\nمی توانید یک پیوند جدید از یک کاربر موجود درخواست کنید، از طریق %2$s ثبت نام کنید، یا سرور دیگری را برای ثبت نام انتخاب کنید.</string>
 	<string name="invalid_invite_link">باطل کردن لینک دعوت</string>
+	<string name="invalid_clipboard_invite_link_alert">پیوند دعوت برای %1$s در کلیپ بورد شما معتبر نیست و نمی توان از آن برای ثبت نام استفاده کرد.\n\nمی توانید یک پیوند جدید از یک کاربر موجود درخواست کنید، از طریق %2$s ثبت نام کنید، یا سرور دیگری را برای ثبت نام انتخاب کنید.</string>
 	<string name="use_invite_link">استفاده از پیوند دعوت</string>
 	<string name="enter_invite_link">واردکردن پیوند دعوت</string>
 	<string name="this_invite_is_invalid">این پیوند دعوت معتبر نیست.</string>
 	<string name="this_invite_has_expired">این پیوند دعوت منقضی شده است.</string>
 	<string name="invite_link_pasted">پیوند از تخته‌گیره شما جای‌گذاری شد.</string>
+	<string name="need_invite_to_join_server">برای پیوستن به %s، به پیوند دعوت از یک کاربر موجود نیاز دارید.</string>
 	<string name="mute_user_confirm_title">کاربران خموش شود؟</string>
 	<string name="user_wont_know_muted">آنها نخواهند دانست که خموش شده‌اند.</string>
 	<string name="user_can_still_see_your_posts">آنها هنوز می‌توانند فرسته‌هایتان را ببینند، ولی فرسته‌هایشان را نمی‌بینید.</string>
@@ -649,11 +657,13 @@
 	<string name="unmuted_user_x">خموشی %s رفع شد</string>
 	<string name="block_user_confirm_title">کاربر مسدود شود؟</string>
 	<string name="user_can_see_blocked">آنها می‌توانند ببینند که مسدود شده اند.</string>
+	<string name="user_cant_see_each_other_posts">آنها نمی توانند پست های شما را ببینند و شما پست های آنها را نخواهید دید.</string>
 	<string name="user_cant_mention_or_follow_you">آنها نمی‌توانند شما را ذکر کنند یا پی‌گیریتان کنند.</string>
 	<string name="unblocked_user_x">مسدودیت %s رفع شد</string>
 	<string name="block_domain_confirm_title">دامنه مسدود شود؟</string>
 	<string name="do_block_server">مسدود کردن کارساز</string>
 	<string name="block_user_x_instead">درعوض %s را مسدود کنید</string>
+	<string name="users_cant_see_blocked">شما پست ها یا اعلان های کاربران را در این سرور نخواهید دید.</string>
 	<string name="you_wont_see_server_posts">شما هیچ پستی از افراد این سرور نخواهید دید.</string>
 	<string name="server_cant_mention_or_follow_you">هیچ‌کسی از این کارساز نمی‌تواند پیتان بگیرد.</string>
 	<string name="server_can_interact_with_older">افراد روی این کارساز می‌توانند با فرسته‌های قدیمیتان تعامل داشته باشند.</string>
@@ -669,6 +679,7 @@
 	<string name="handle_server_explanation_own">خانهٔ رقمیتان. جایی که همهٔ فرسته‌هایتان می‌زیند. دوستش ندارید؟ در هر زمان کارسازتان را جابه‌جا کرده و پی‌گیرندگانتان را نیز بیاورید.</string>
 	<string name="handle_explanation_own">از آنجایی که شناسه شما می‌گوید شما کی هستید و کجا هستید، افراد می‌توانند در &lt;a&gt;سکوهای قدرت گرفته از اکتیویتی پاپ&lt;/a&gt; از وب اجتماعی با شما تعامل داشته باشند.</string>
 	<string name="what_is_activitypub_title">اکتیویتی پاپ چیست؟</string>
+	<string name="what_is_activitypub">اکتیویتی‌پاب مانند زبانی است که ماستودون با سایر شبکه های اجتماعی صحبت می کند.\n\nاین به شما امکان می دهد نه تنها در ماستودون، بلکه در برنامه های اجتماعی مختلف نیز با افراد ارتباط برقرار کرده و با آنها تعامل داشته باشید.</string>
 	<string name="handle_copied">شناسه در بریده‌دان رونوشت شد.</string>
 	<string name="qr_code">کد QR</string>
 	<string name="scan_qr_code">اسکن کد QR</string>
@@ -692,6 +703,7 @@
 	<string name="post_unpinned">سنجاق فرسته برداشته شد</string>
 	<!-- %s is the username -->
 	<string name="enable_new_post_notifications">هنگامی که %s فرسته می‌فرستد مرا آگاه کن</string>
+	<string name="disable_new_post_notifications">وقتی %s پست می‌کند، به من اطلاع ندهید</string>
 	<string name="new_post_notifications_enabled">برای فرسته‌های جدید آگاهی دریافت خواهید کرد.</string>
 	<string name="new_post_notifications_disabled">دیگر برای فرسته‌های جدید آگاهی دریافت نخواهید کرد.</string>
 	<string name="mute_conversation">خموشاندن گفت‌وگو</string>
@@ -700,11 +712,22 @@
 	<string name="filtered_notifications">آگاهی‌های پالایه شده</string>
 	<string name="filter_notifications">پالایه کردن آگاهی‌ها از...</string>
 	<string name="notification_filter_following">کسانی که شما پی نمی‌گیرید</string>
+	<string name="notification_filter_following_explanation">تا زمانی که آنها را به صورت دستی تأیید کنید</string>
 	<string name="notification_filter_followers">کسانی که شما را دنبال نمی‌کنند</string>
+	<string name="notification_filter_followers_explanation">از جمله افرادی که کمتر از 3 روز شما را دنبال کرده اند</string>
 	<string name="notification_filter_new_accounts">حساب‌های جدید</string>
+	<string name="notification_filter_new_accounts_explanation">ایجاد شده در 30 روز گذشته</string>
+	<string name="notification_filter_mentions">ذکر خصوصی ناخواسته</string>
+	<string name="notification_filter_mentions_explanation">فیلتر شده مگر اینکه در پاسخ به ذکر خود شما باشد یا فرستنده را دنبال کنید</string>
 	<string name="allow_notifications">اجازه دادن به آگاهی‌ها</string>
 	<string name="mute_notifications">رد درخواست آگاهی</string>
+	<plurals name="x_people_you_may_know">
+		<item quantity="one">%,d فردی که ممکن است بشناسید</item>
+		<item quantity="other">%,d افرادی که ممکن است بشناسید</item>
+	</plurals>
 	<string name="notifications_from_user">آگاهی‌ها از %s</string>
+	<string name="notifications_muted">اعلان‌های %s رد شده است.</string>
+	<string name="notifications_allowed">%s اکنون در لیست اعلانات شما ظاهر می شود.</string>
 	<string name="visibility_subtitle_public">هرکسی در و بیرون از ماستودون</string>
 	<string name="visibility_subtitle_unlisted">سروصدای الگوریتمی کم‌تر</string>
 	<string name="visibility_subtitle_followers">تنها پی‌گیرندگانتان</string>
@@ -713,14 +736,27 @@
 	<string name="view_favorites">دیدن برگزیده‌ها</string>
 	<string name="undo_reblog">لغو تقویت</string>
 	<string name="undo_favorite">لغو برگزیدگی</string>
+	<string name="could_not_reach_server">دسترسی به سرور امکان‌پذیر نیست. اتصال خود را بررسی کنید و دوباره امتحان کنید؟</string>
+	<string name="connection_timed_out">زمان درخواست تمام شد. اتصال خود را بررسی کنید و دوباره امتحان کنید؟</string>
+	<string name="server_error">هنگام صحبت با سرور شما مشکلی پیش آمد. احتمالا تقصیر شما نیست دوباره امتحان کنید؟</string>
+	<string name="not_found">ممکن است حذف شده باشد، یا شاید اصلا وجود نداشته باشد.</string>
+	<string name="no_servers_found">هیچ سروری برای «%s» یافت نشد</string>
+	<string name="signup_username_taken">این نام کاربری گرفته شده است. یکی دیگر را امتحان کنید یا &lt;a&gt;سرور دیگری انتخاب کنید&lt;/a&gt;.</string>
+	<string name="signup_email_invalid">به نظر نمی رسد یک آدرس ایمیل معتبر باشد.</string>
 	<string name="signup_email_taken">آدرس رایانامه درحال حاضر درحال استفاده است. آیا شما &lt;a&gt;گذرواژه خود را فراموش کرده‌اید&lt;/a&gt;؟</string>
 	<plurals name="x_new_notifications">
 		<item quantity="one">%,d اعلان جدید</item>
 		<item quantity="other">%,d اعلان جدید</item>
 	</plurals>
+	<string name="dismiss">رد کردن</string>
 	<string name="donation_once">فقط یک بار</string>
 	<string name="donation_monthly">ماهانه</string>
 	<string name="donation_yearly">سالانه</string>
+	<string name="currency">ارز</string>
+	<string name="donation_success_share">این خبر را پخش کنید</string>
+	<string name="donation_success_title">از مشارکت شما متشکریم!</string>
+	<string name="donation_success_subtitle">باید به زودی ایمیلی مبنی بر تایید اهدای خود دریافت کنید.</string>
+	<string name="donation_server_error">متأسفیم، خطایی روی داد و ما نتوانستیم کمک مالی شما را پردازش کنیم.\n\nلطفاً چند دقیقه دیگر دوباره امتحان کنید.</string>
 	<string name="settings_donate">اعانه دادن به ماستودون</string>
 	<string name="settings_manage_donations">مدیریت اعانه‌ها</string>
 	<string name="cant_load_image">تصویر بار نشد</string>
@@ -730,13 +766,30 @@
 		<item quantity="one">%d پیوست</item>
 		<item quantity="other">%d پیوست</item>
 	</plurals>
+	<plurals name="user_and_x_more_favorited">
+		<item quantity="one">%1$s و %2$,d فرد دیگر پسندیدند:</item>
+		<item quantity="other">%1$s و %2$,d فرد دیگر پسندیدند:</item>
+	</plurals>
+	<plurals name="user_and_x_more_boosted">
+		<item quantity="one">%1$s و %2$,d فرد دیگر تقویت کردند:</item>
+		<item quantity="other">%1$s و %2$,d فرد دیگر تقویت کردند:</item>
+	</plurals>
+	<plurals name="poll_ended_x_voters">
+		<item quantity="one">%1$s یک نظرسنجی انجام داد که شما و %2$,d نفر دیگر به آن رأی دادید</item>
+		<item quantity="other">%1$s یک نظرسنجی انجام داد که شما و %2$,d نفر دیگر به آن رأی دادید</item>
+	</plurals>
 	<string name="own_poll_ended">نظرسنجیتان پایان یافت</string>
+	<string name="user_just_posted">%s به تازگی پست کرد</string>
+	<string name="user_edited_post">%s پستی را که با آن تعامل داشتید ویرایش کرد</string>
+	<string name="relationship_severance_account_suspension">یک سرپرست از %1$s %2$s را به حالت تعلیق درآورده است، به این معنی که دیگر نمی‌توانید به‌روزرسانی‌ها را از آنها دریافت کنید یا با آنها تعامل داشته باشید.</string>
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_domain_block">یک سرپرست از %1$s %2$s را مسدود کرده است، از جمله %3$,d از دنبال کنندگان شما و %4$s که دنبال می کنید.</string>
 	<plurals name="x_accounts">
 		<item quantity="one">%,d حساب</item>
 		<item quantity="other">%,d حساب</item>
 	</plurals>
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_user_domain_block">شما %1$s را مسدود کرده‌اید، %2$,d از دنبال‌کنندگان خود و %3$s را که دنبال می‌کنید حذف کرده‌اید.</string>
 	<string name="relationship_severance_learn_more">بیشتر بدانید</string>
 	<string name="moderation_warning_action_none">حسابتان هشداری مدیریتی گرفت.</string>
 	<string name="moderation_warning_action_disable">حسابتان از کار افتاد.</string>
@@ -746,7 +799,53 @@
 	<string name="moderation_warning_action_silence">حسابتان محدود شده.</string>
 	<string name="moderation_warning_action_suspend">حسابتان معلّق شده.</string>
 	<string name="moderation_warning_learn_more">بیشتر بدانید</string>
+	<string name="text_show_more">بیشتر</string>
+	<string name="avatar_move_and_scale">حرکت و مقیاس</string>
+	<string name="confirm_avatar_crop">انتخاب کنید</string>
+	<string name="settings_use_dynamic_colors">از رنگ پویا سیستم استفاده کنید</string>
+	<string name="settings_accounts">حساب ها</string>
+	<string name="settings_add_account">افزودن حساب...</string>
+	<string name="settings_app_settings">تنظیمات برنامه</string>
+	<string name="account_settings">تنظیمات حساب</string>
+	<string name="settings_about_this_server">درباره این سرور</string>
+	<string name="manage_account">مدیریت حساب</string>
+	<string name="switch_to_this_account">به این حساب تغییر دهید</string>
+	<string name="delete_account">حذف حساب</string>
+	<string name="notification_type_status">پست های جدید</string>
+	<plurals name="user_and_x_more_followed">
+		<item quantity="one">%1$s و %2$,d نفر دیگر شما را دنبال کردند</item>
+		<item quantity="other">%1$s و %2$,d نفر دیگر شما را دنبال کردند</item>
+	</plurals>
+	<string name="familiar_followers_one">دنبال شده توسط %s</string>
+	<string name="familiar_followers_two">دنبال شده توسط %s و %s</string>
+	<string name="profile_saved_posts">ذخیره شد</string>
+	<string name="profile_saved_posts_explanation">پست های ذخیره شده شما فقط برای شما قابل مشاهده است.</string>
+	<string name="search_people">افراد</string>
+	<plurals name="familiar_followers_many">
+		<item quantity="one">دنبال شده توسط %1$s، %2$s، و %3$,d نفر دیگر</item>
+		<item quantity="other">دنبال شده توسط %1$s، %2$s، و %3$,d نفر دیگر</item>
+	</plurals>
+	<plurals name="x_followers_you_know">
+		<item quantity="one">%,d دنبال کننده ای که می شناسید</item>
+		<item quantity="other">%,d دنبال کننده ای که می شناسید</item>
+	</plurals>
 	<!-- appears when you're about to block a server -->
+	<plurals name="server_x_followers_will_be_removed">
+		<item quantity="one">%,d دنبال کننده از این سرور حذف خواهد شد.</item>
+		<item quantity="other">%,d دنبال کننده از این سرور حذف خواهد شد.</item>
+	</plurals>
 	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
+	<string name="server_x_followers_and_following_will_be_removed">%1$s و %2$s را از دست خواهید داد.</string>
+	<plurals name="will_lose_x_followers">
+		<item quantity="one">%,d دنبال کننده</item>
+		<item quantity="other">%,d دنبال کننده</item>
+	</plurals>
+	<plurals name="will_lose_x_following">
+		<item quantity="one">%,d فردی که دنبال می کنید</item>
+		<item quantity="other">%,d فردی که دنبال می کنید</item>
+	</plurals>
 	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
+	<string name="server_x_following_will_be_removed">%s را از دست خواهید داد.</string>
+	<string name="load_missing_posts_above">بارگذاری پست های گم شده در بالا</string>
+	<string name="load_missing_posts_below">بارگذاری پست های گم شده در پایین</string>
 </resources>
