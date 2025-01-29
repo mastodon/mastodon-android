@@ -339,6 +339,7 @@
 	<string name="add_bookmark">Přidat do záložek</string>
 	<string name="remove_bookmark">Odstranit záložku</string>
 	<string name="bookmarks">Záložky</string>
+	<string name="your_favorites">Oblíbené</string>
 	<string name="login_title">Vítej zpět</string>
 	<string name="login_subtitle">Přihlaste se pomocí serveru, kde jste vytvořili svůj účet.</string>
 	<string name="server_url">URL serveru</string>
@@ -825,9 +826,43 @@
 	<string name="donation_success_subtitle">Brzy byste měli obdržet e-mail potvrzující váš příspěvek.</string>
 	<string name="donation_server_error">Je nám líto, došlo k chybě a nepodařilo se nám zpracovat váš příspěvek.\n\nZkuste to prosím znovu za pár minut.</string>
 	<string name="settings_donate">Podpořit Mastodon</string>
+	<string name="settings_manage_donations">Spravovat dary</string>
+	<string name="cant_load_image">Obrázek nelze načíst</string>
+	<string name="poll_see_results">Zobrazit výsledky</string>
+	<string name="poll_hide_results">Schovat výsledky</string>
+	<string name="own_poll_ended">Vaše anketa skončila</string>
+	<string name="user_just_posted">%s právě přidal příspěvek</string>
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_learn_more">Zjistit více</string>
+	<string name="moderation_warning_action_none">Váš účet obdržel varování od moderátorů.</string>
+	<string name="moderation_warning_action_disable">Váš účet byl zablokován.</string>
+	<string name="moderation_warning_action_mark_statuses_as_sensitive">Některé z vašich příspěvků byly označeny jako citlivé.</string>
+	<string name="moderation_warning_action_delete_statuses">Některé z vašich příspěvků byly odstraněny.</string>
+	<string name="moderation_warning_action_sensitive">Vaše příspěvky budou od nynějška označeny jako citlivé.</string>
+	<string name="moderation_warning_action_silence">Váš účet byl omezen.</string>
+	<string name="moderation_warning_action_suspend">Váš účet byl pozastaven.</string>
+	<string name="moderation_warning_learn_more">Zjistit více</string>
+	<string name="text_show_more">Více</string>
+	<string name="avatar_move_and_scale">Přesunout a změnit velikost</string>
+	<string name="confirm_avatar_crop">Zvolit</string>
+	<string name="settings_use_dynamic_colors">Použít dynamickou barvu systému</string>
+	<string name="settings_accounts">Účty</string>
+	<string name="settings_add_account">Přidat účet...</string>
+	<string name="settings_app_settings">Nastavení aplikace</string>
+	<string name="account_settings">Nastavení účtu</string>
+	<string name="settings_about_this_server">O tomto serveru</string>
+	<string name="manage_account">Spravovat účet</string>
+	<string name="switch_to_this_account">Přepnout na tento účet</string>
+	<string name="delete_account">Odebrat účet</string>
+	<string name="notification_type_status">Nové příspěvky</string>
+	<string name="profile_saved_posts">Uloženo</string>
+	<string name="profile_saved_posts_explanation">Uložené příspěvky jsou viditelné pouze pro vás.</string>
+	<string name="search_people">Lidé</string>
 	<!-- appears when you're about to block a server -->
 	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
 	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
+	<string name="server_x_following_will_be_removed">Ztratíte %s.</string>
+	<string name="load_missing_posts_above">Načíst chybějící příspěvky výše</string>
+	<string name="load_missing_posts_below">Načíst chybějící příspěvky níže</string>
 </resources>
