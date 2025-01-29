@@ -788,6 +788,7 @@
 		<item quantity="other">%,d հաշիվ</item>
 	</plurals>
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_user_domain_block">Դուք արգելափակել եք %1$s-ն` հեռացնելով %2$,d հետեւորդ եւ %3$s-ին, ում դուք հետեւում եք։</string>
 	<string name="relationship_severance_learn_more">Ավելին</string>
 	<string name="moderation_warning_action_none">Ձեր հաշիվն ստացել է մոդերացիայի զգուշացում։</string>
 	<string name="moderation_warning_action_disable">Ձեր հաշիվը կասեցվել է։</string>
@@ -798,12 +799,17 @@
 	<string name="moderation_warning_action_suspend">Ձեր հաշիվն արգելափակվել է։</string>
 	<string name="moderation_warning_learn_more">Իմանալ ավելին</string>
 	<string name="text_show_more">Ավելին</string>
+	<string name="avatar_move_and_scale">Տեղափոխել և փոխել չափը</string>
+	<string name="confirm_avatar_crop">Ընտրել</string>
 	<string name="settings_use_dynamic_colors">Օգտագործել համակարգի դինամիկ գույնը</string>
 	<string name="settings_accounts">Հաշիվներ</string>
 	<string name="settings_add_account">Ավելացնել հաշիվ...</string>
 	<string name="settings_app_settings">Հավելվածի կարգավորումներ</string>
 	<string name="account_settings">Հաշվի կարգավորումներ</string>
 	<string name="settings_about_this_server">Այս հանգույցի մասին</string>
+	<string name="manage_account">Կարգավորել հաշիվը</string>
+	<string name="delete_account">Ջնջել հաշիվը</string>
+	<string name="notification_type_status">Նոր գրառումներ</string>
 	<plurals name="user_and_x_more_followed">
 		<item quantity="one">%1$s-ն ու եւս %2$,d-ը ձեզ հետեւեց</item>
 		<item quantity="other">%1$s-ն ու եւս %2$,d-ը ձեզ հետեւեցին</item>
@@ -813,6 +819,14 @@
 	<string name="profile_saved_posts">Պահպանված</string>
 	<string name="profile_saved_posts_explanation">Պահպանված գրառումները հասանելի են միայն ձեզ։</string>
 	<string name="search_people">Մարդիկ</string>
+	<plurals name="familiar_followers_many">
+		<item quantity="one">%1$s-ը, %2$s-ն ու եւս %3$,d-ը նրան հետևում են</item>
+		<item quantity="other">%1$s-ը, %2$s-ն ու եւս %3$,d-ը նրան հետևում են</item>
+	</plurals>
+	<plurals name="x_followers_you_know">
+		<item quantity="one">%,d հետեւորդ, որին դուք գիտեք</item>
+		<item quantity="other">%,d հետեւորդ, որոնց դուք գիտեք</item>
+	</plurals>
 	<!-- appears when you're about to block a server -->
 	<plurals name="server_x_followers_will_be_removed">
 		<item quantity="one">Կհեռացվի այս հանգույցից %,d հետևորդ։</item>
@@ -820,6 +834,16 @@
 	</plurals>
 	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
 	<string name="server_x_followers_and_following_will_be_removed">Դուք կկորցնեք %1$s եւ %2$s:</string>
+	<plurals name="will_lose_x_followers">
+		<item quantity="one">%,d հետեւորդ</item>
+		<item quantity="other">%,d հետեւորդ</item>
+	</plurals>
+	<plurals name="will_lose_x_following">
+		<item quantity="one">%,d մարդ, որին դուք հետեւում եք</item>
+		<item quantity="other">%,d մարդ, որոնց դուք հետեւում եք</item>
+	</plurals>
 	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
 	<string name="server_x_following_will_be_removed">Դուք կկորցնեք %s։</string>
+	<string name="load_missing_posts_above">Բեռնել վերեւից պակասող գրառումները</string>
+	<string name="load_missing_posts_below">Բեռնել ներքեւից պակասող գրառումները</string>
 </resources>
