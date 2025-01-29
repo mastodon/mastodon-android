@@ -778,9 +778,22 @@
 		<item quantity="other">%1$s-ը հարցում էր անցկացրել, որին քվեարկել եք դուք եւ եւս %2$,d-ը</item>
 	</plurals>
 	<string name="own_poll_ended">Ձեր հարցումն ավարտվել է</string>
+	<string name="user_just_posted">%s-ը հենց նոր գրառում արեց</string>
+	<string name="user_edited_post">%s-ը խմբագրել է գրառում, որի հետ դուք փոխազդել եք</string>
+	<string name="relationship_severance_account_suspension">%1$sա-ի ադմինիստրատորներից մեկն արգելափակել է %2$s-ը, ինչի պատճառով դուք այլեւս չեք կարող նրանցից թարմացումներ ստանալ կամ նրանց հետ փոխազդել։</string>
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
 	<string name="relationship_severance_domain_block">%1$s-ի ադմինիստրատորներից մեկն արգելափակել է %2$s-ը, ներառյալ` %3$,d հետեւորդ եւ %4$s հաշիվ, որոնց դուք հետեւում եք։</string>
+	<plurals name="x_accounts">
+		<item quantity="one">%,d հաշիվ</item>
+		<item quantity="other">%,d հաշիվ</item>
+	</plurals>
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_learn_more">Ավելին</string>
+	<string name="moderation_warning_action_none">Ձեր հաշիվն ստացել է մոդերացիայի զգուշացում։</string>
+	<string name="moderation_warning_action_disable">Ձեր հաշիվը կասեցվել է։</string>
+	<string name="moderation_warning_action_mark_statuses_as_sensitive">Ձեր որոշ գրառումներ նշվել են` որպես զգայուն։</string>
+	<string name="moderation_warning_action_delete_statuses">Ձեր որոշ գրառումներ հեռացվել են։</string>
+	<string name="moderation_warning_action_sensitive">Այսուհետ ձեր բոլոր գրառումները կնշվեն` որպես զգայուն։</string>
 	<string name="moderation_warning_action_silence">Ձեր հաշիվը սահմանափակվել է։</string>
 	<string name="moderation_warning_action_suspend">Ձեր հաշիվն արգելափակվել է։</string>
 	<string name="moderation_warning_learn_more">Իմանալ ավելին</string>
@@ -791,6 +804,14 @@
 	<string name="settings_app_settings">Հավելվածի կարգավորումներ</string>
 	<string name="account_settings">Հաշվի կարգավորումներ</string>
 	<string name="settings_about_this_server">Այս հանգույցի մասին</string>
+	<plurals name="user_and_x_more_followed">
+		<item quantity="one">%1$s-ն ու եւս %2$,d-ը ձեզ հետեւեց</item>
+		<item quantity="other">%1$s-ն ու եւս %2$,d-ը ձեզ հետեւեցին</item>
+	</plurals>
+	<string name="familiar_followers_one">%s-ը հետեւում է</string>
+	<string name="familiar_followers_two">%s-ն ու %s-ը հետեւում են</string>
+	<string name="profile_saved_posts">Պահպանված</string>
+	<string name="profile_saved_posts_explanation">Պահպանված գրառումները հասանելի են միայն ձեզ։</string>
 	<string name="search_people">Մարդիկ</string>
 	<!-- appears when you're about to block a server -->
 	<plurals name="server_x_followers_will_be_removed">
