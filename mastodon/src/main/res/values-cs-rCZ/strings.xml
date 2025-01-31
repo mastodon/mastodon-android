@@ -851,9 +851,18 @@
 		<item quantity="many">%1$s a %2$,d dalších boostnulo:</item>
 		<item quantity="other">%1$s a %2$,d dalších boostnulo:</item>
 	</plurals>
+	<plurals name="poll_ended_x_voters">
+		<item quantity="one">%1$s spustil*a anketu, ve které jste vy a další %2$,d hlasoval</item>
+		<item quantity="few">%1$s spustil*a anketu, ve které jste vy a další %2$,d hlasovali</item>
+		<item quantity="many">%1$s spustil*a anketu, ve které jste vy a dalších %2$,d hlasovalo</item>
+		<item quantity="other">%1$s spustil*a anketu, ve které jste vy a dalších %2$,d hlasovalo</item>
+	</plurals>
 	<string name="own_poll_ended">Vaše anketa skončila</string>
 	<string name="user_just_posted">%s právě přidal příspěvek</string>
+	<string name="user_edited_post">%s upravil*a příspěvek, se kterým jste interagovali</string>
+	<string name="relationship_severance_account_suspension">Administrátor z %1$s pozastavil %2$s, což znamená, že již od nich nemůžete přijímat aktualizace nebo s nimi interagovat.</string>
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_domain_block">Administrátor z %1$s zablokoval %2$s, včetně %3$,d vašich sledujících a %4$s vámi sledovaných.</string>
 	<plurals name="x_accounts">
 		<item quantity="one">%,d účet</item>
 		<item quantity="few">%,d účty</item>
@@ -891,9 +900,16 @@
 		<item quantity="other">%1$s a %2$,d dalších vás sleduje</item>
 	</plurals>
 	<string name="familiar_followers_one">Sledován*a %s</string>
+	<string name="familiar_followers_two">Sledován %s a %s</string>
 	<string name="profile_saved_posts">Uloženo</string>
 	<string name="profile_saved_posts_explanation">Uložené příspěvky jsou viditelné pouze pro vás.</string>
 	<string name="search_people">Lidé</string>
+	<plurals name="familiar_followers_many">
+		<item quantity="one">Sledován %1$s, %2$s, a %3$,d dalším</item>
+		<item quantity="few">Sledován %1$s, %2$s, a %3$,d dalšími</item>
+		<item quantity="many">Sledován %1$s, %2$s, a %3$,d dalšími</item>
+		<item quantity="other">Sledován %1$s, %2$s, a %3$,d dalšími</item>
+	</plurals>
 	<plurals name="x_followers_you_know">
 		<item quantity="one">%,d sledující, kterého*ou znáte</item>
 		<item quantity="few">%,d sledující, které znáte</item>
@@ -901,7 +917,14 @@
 		<item quantity="other">%,d sledujících, které znáte</item>
 	</plurals>
 	<!-- appears when you're about to block a server -->
+	<plurals name="server_x_followers_will_be_removed">
+		<item quantity="one">%,d sledující z tohoto serveru bude odstraněn.</item>
+		<item quantity="few">%,d sledující z tohoto serveru budou odstraněni.</item>
+		<item quantity="many">%,d sledujících z tohoto serveru bude odstraněno.</item>
+		<item quantity="other">%,d sledujících z tohoto serveru bude odstraněno.</item>
+	</plurals>
 	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
+	<string name="server_x_followers_and_following_will_be_removed">Ztratíte %1$s a %2$s.</string>
 	<plurals name="will_lose_x_followers">
 		<item quantity="one">%,d sledující</item>
 		<item quantity="few">%,d sledující</item>
