@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:orientation="horizontal"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:layout_marginTop="-8dp"
+	android:paddingStart="64dp"
+	android:paddingEnd="24dp"
+	android:paddingBottom="8dp">
+
+	<Button
+		android:id="@+id/notification_approve"
+		android:layout_width="0dp"
+		android:layout_weight="1"
+		android:layout_height="32dp"
+		android:layout_marginTop="4dp"
+		android:layout_marginBottom="8dp"
+		android:minWidth="0dp"
+		android:drawableStart="@drawable/ic_check_20px"
+		android:drawableTint="@color/button_text_m3_filled"
+		android:textAlignment="center"
+		android:text="@string/confirm"
+		style="@style/Widget.Mastodon.M3.Button.Filled" />
+	<Button
+		android:id="@+id/notification_decline"
+		android:layout_width="0dp"
+		android:layout_weight="1"
+		android:layout_height="32dp"
+		android:layout_marginTop="4dp"
+		android:layout_marginBottom="8dp"
+		android:layout_marginStart="8dp"
+		android:minWidth="0dp"
+		android:drawableStart="@drawable/ic_block_20px"
+		android:drawableTint="@color/button_text_m3_filled_secondary"
+		android:textAlignment="center"
+		android:text="@string/delete"
+		style="@style/Widget.Mastodon.M3.Button.Filled.Secondary" />
+
+</LinearLayout>

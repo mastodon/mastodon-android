@@ -759,6 +759,19 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 		imgLoader.retryFailedRequests();
 	}
 
+	public void removeDisplayItem(StatusDisplayItem item){
+		int index=displayItems.indexOf(item);
+		if(index==-1)
+			return;
+		displayItems.remove(index);
+		adapter.notifyItemRemoved(index);
+	}
+
+	@Override
+	public void refresh(){
+		super.refresh();
+	}
+
 	protected class DisplayItemsAdapter extends UsableRecyclerView.Adapter<BindableViewHolder<StatusDisplayItem>> implements ImageLoaderRecyclerAdapter{
 
 		public DisplayItemsAdapter(){

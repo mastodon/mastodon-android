@@ -9,20 +9,16 @@ import android.text.TextUtils;
 import android.text.style.TypefaceSpan;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.joinmastodon.android.GlobalUserPreferences;
 import org.joinmastodon.android.R;
-import org.joinmastodon.android.api.requests.accounts.AcceptFollowRequest;
-import org.joinmastodon.android.api.requests.accounts.RejectFollowRequest;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.fragments.BaseStatusListFragment;
 import org.joinmastodon.android.fragments.ProfileFragment;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.NotificationType;
-import org.joinmastodon.android.model.Relationship;
 import org.joinmastodon.android.model.viewmodel.NotificationViewModel;
 import org.joinmastodon.android.ui.OutlineProviders;
 import org.joinmastodon.android.ui.text.HtmlParser;
@@ -37,8 +33,6 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 import me.grishka.appkit.Nav;
-import me.grishka.appkit.api.ErrorResponse;
-import me.grishka.appkit.api.SimpleCallback;
 import me.grishka.appkit.imageloader.ImageLoaderViewHolder;
 import me.grishka.appkit.imageloader.requests.ImageLoaderRequest;
 import me.grishka.appkit.imageloader.requests.UrlImageLoaderRequest;
@@ -187,68 +181,9 @@ public class NotificationHeaderStatusDisplayItem extends StatusDisplayItem{
 				ImageLoaderViewHolder.super.clearImage(index);
 		}
 
-		private void acceptFollowRequest(View v){
-			var parentFragment = this.getItem().parentFragment;
-			var acceptButton = findViewById(R.id.notification_approve);
-
-			acceptButton.setEnabled(false);
-
-			new AcceptFollowRequest(this.getItem().notification.accounts.get(0).id)
-					.setCallback(new SimpleCallback<>(this.getItem().parentFragment){
-						@Override
-						public void onSuccess(Relationship result){
-							parentFragment.reload();
-						}
-						@Override
-						public void onError(ErrorResponse error){
-							super.onError(error);
-							acceptButton.setEnabled(true);
-						}
-					}).exec(parentFragment.getAccountID());
-		}
-
-		private void rejectFollowRequest(View v){
-			var parentFragment = this.getItem().parentFragment;
-			var rejectButton = findViewById(R.id.notification_decline);
-
-			rejectButton.setEnabled(false);
-
-			new RejectFollowRequest(this.getItem().notification.accounts.get(0).id)
-					.setCallback(new SimpleCallback<>(this.getItem().parentFragment){
-						@Override
-						public void onSuccess(Relationship result){
-							parentFragment.reload();
-						}
-						@Override
-						public void onError(ErrorResponse error) {
-							super.onError(error);
-							rejectButton.setEnabled(true);
-						}
-					}).exec(parentFragment.getAccountID());
-		}
-
 		@Override
 		public void onBind(NotificationHeaderStatusDisplayItem item){
 			text.setText(item.text);
-
-			var actionsView = findViewById(R.id.notification_actions);
-			Button approveButton = findViewById(R.id.notification_approve);
-			Button declineButton = findViewById(R.id.notification_decline);
-
-			if (item.notification.notification.type == NotificationType.FOLLOW_REQUEST) {
-				actionsView.setVisibility(View.VISIBLE);
-				approveButton.setOnClickListener(this::acceptFollowRequest);
-				approveButton.setEnabled(true);
-				approveButton.setText(R.string.confirm);
-
-				declineButton.setOnClickListener(this::rejectFollowRequest);
-				declineButton.setEnabled(true);
-				declineButton.setText(R.string.delete);
-			} else {
-				actionsView.setVisibility(View.GONE);
-				approveButton.setOnClickListener(null);
-				declineButton.setOnClickListener(null);
-			}
 
 			if(item.notification.notification.type==NotificationType.POLL || item.notification.notification.type==NotificationType.UPDATE){
 				avatarsContainer.setVisibility(View.GONE);

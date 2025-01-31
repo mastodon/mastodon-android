@@ -9,6 +9,7 @@ import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.NotificationType;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.model.viewmodel.NotificationViewModel;
+import org.joinmastodon.android.ui.displayitems.FollowRequestActionsDisplayItem;
 import org.joinmastodon.android.ui.displayitems.InlineStatusStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.NotificationHeaderStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.NotificationWithButtonStatusDisplayItem;
@@ -53,6 +54,8 @@ public abstract class BaseNotificationsListFragment extends BaseStatusListFragme
 				return items;
 			}
 		}else if(titleItem!=null){
+			if(n.notification.type==NotificationType.FOLLOW_REQUEST)
+				return List.of(titleItem, new FollowRequestActionsDisplayItem(n.getID(), this, n));
 			return List.of(titleItem);
 		}else{
 			return List.of();
@@ -96,7 +99,7 @@ public abstract class BaseNotificationsListFragment extends BaseStatusListFragme
 		return null;
 	}
 
-	protected void removeNotification(NotificationViewModel n){
+	public void removeNotification(NotificationViewModel n){
 		data.remove(n);
 		preloadedData.remove(n);
 		int index=-1;

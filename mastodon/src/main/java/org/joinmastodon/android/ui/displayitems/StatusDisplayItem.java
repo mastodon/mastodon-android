@@ -82,6 +82,7 @@ public abstract class StatusDisplayItem{
 			case NOTIFICATION_HEADER -> new NotificationHeaderStatusDisplayItem.Holder(activity, parent);
 			case INLINE_STATUS -> new InlineStatusStatusDisplayItem.Holder(activity, parent);
 			case NOTIFICATION_WITH_BUTTON -> new NotificationWithButtonStatusDisplayItem.Holder(activity, parent);
+			case FOLLOW_REQUEST_ACTIONS -> new FollowRequestActionsDisplayItem.Holder(activity, parent);
 		};
 	}
 
@@ -228,7 +229,8 @@ public abstract class StatusDisplayItem{
 		NOTIFICATION_HEADER,
 		FILTER_SPOILER,
 		INLINE_STATUS,
-		NOTIFICATION_WITH_BUTTON
+		NOTIFICATION_WITH_BUTTON,
+		FOLLOW_REQUEST_ACTIONS
 	}
 
 	public static abstract class Holder<T> extends BindableViewHolder<T> implements UsableRecyclerView.DisableableClickable{

@@ -75,44 +75,4 @@
 		android:gravity="start|center_vertical"
 		android:textAlignment="viewStart"
 		tools:text="Notification text"/>
-
-	<LinearLayout
-		android:id="@+id/notification_actions"
-		android:layout_alignStart="@id/text"
-		android:layout_alignEnd="@id/text"
-		android:layout_alignParentEnd="true"
-		android:layout_below="@id/text"
-		android:layout_width="fill_parent"
-		android:layout_height="wrap_content"
-		android:orientation="horizontal">
-		<Button
-			android:id="@+id/notification_approve"
-			android:layout_width="0dp"
-			android:layout_weight="1"
-			android:layout_height="32dp"
-			android:layout_marginTop="4dp"
-			android:layout_marginBottom="8dp"
-			android:minWidth="0dp"
-			android:drawableStart="@drawable/ic_check_20px"
-			android:drawableTint="@color/button_text_m3_filled"
-			android:textAlignment="center"
-			tools:text="Yes"
-			style="@style/Widget.Mastodon.M3.Button.Filled"
-			/>
-		<Button
-			android:id="@+id/notification_decline"
-			android:layout_width="0dp"
-			android:layout_weight="1"
-			android:layout_height="32dp"
-			android:layout_marginTop="4dp"
-			android:layout_marginBottom="8dp"
-			android:layout_marginStart="8dp"
-			android:minWidth="0dp"
-			android:drawableStart="@drawable/ic_block_20px"
-			android:drawableTint="@color/button_text_m3_filled_secondary"
-			android:textAlignment="center"
-			tools:text="No"
-			style="@style/Widget.Mastodon.M3.Button.Filled.Secondary"
-			/>
-	</LinearLayout>
 </RelativeLayout>
