@@ -347,7 +347,9 @@
 	<string name="login_subtitle">Zaloguj się na serwer, na którym utworzyłeś swoje konto.</string>
 	<string name="server_url">Adres URL serwera</string>
 	<string name="server_filter_any_language">Dowolny język</string>
+	<string name="server_filter_instant_signup">Natychmiastowa rejestracja</string>
 	<string name="server_filter_manual_review">Ręczne sprawdzenie</string>
+	<string name="server_filter_any_signup_speed">Dowolna szybkość rejestracji</string>
 	<string name="server_filter_region_europe">Europa</string>
 	<string name="server_filter_region_north_america">Ameryka Północna</string>
 	<string name="server_filter_region_south_america">Ameryka Południowa</string>
@@ -446,9 +448,9 @@
 	<string name="settings_filters">Filtry</string>
 	<string name="settings_server_explanation">Przegląd, zasady, moderacja</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
-	<string name="about_app">O %s</string>
+	<string name="about_app">O %sie</string>
 	<string name="default_post_language">Domyślny język wpisu</string>
-	<string name="settings_alt_text_reminders">Dodaj opis przypomnienia</string>
+	<string name="settings_alt_text_reminders">Przypomnienia o dodaniu opisu obrazów</string>
 	<string name="settings_confirm_unfollow">Zapytaj przed usunięciem obserwacji</string>
 	<string name="settings_confirm_boost">Zapytaj przed podbijaniem</string>
 	<string name="settings_confirm_delete_post">Zapytaj przed usunięciem wpisów</string>
@@ -737,6 +739,7 @@ Im więcej ludzi obserwujesz, tym aktywniejsza i bardziej interesująca się sta
 	<string name="new_post_notifications_disabled">Nie będziesz już otrzymywać powiadomień o nowych wpisach.</string>
 	<string name="mute_conversation">Wycisz konwersację</string>
 	<string name="unmute_conversation">Cofnij wyciszenie konwersacji</string>
+	<string name="visibility_unlisted">Cicho publicznie</string>
 	<string name="filtered_notifications">Filtrowane powiadomienia</string>
 	<string name="filter_notifications">Odfiltruj powiadomienia od...</string>
 	<string name="notification_filter_following">Osoby, których nie obserwujesz</string>
@@ -746,14 +749,82 @@ Im więcej ludzi obserwujesz, tym aktywniejsza i bardziej interesująca się sta
 	<string name="notification_filter_new_accounts">Nowe konta</string>
 	<string name="notification_filter_new_accounts_explanation">Utworzone w ciągu ostatnich 30 dni</string>
 	<string name="notification_filter_mentions">Nieproszone prywatne wzmianki</string>
+	<string name="notification_filter_mentions_explanation">Odfiltrowane, chyba że są odpowiedzią na twoją własną wzmiankę, lub obserwujesz wysyłającego</string>
 	<string name="allow_notifications">Zezwalaj na powiadomienia</string>
 	<string name="mute_notifications">Odrzuć żądanie powiadomienia</string>
 	<string name="notifications_from_user">Powiadomienia od %s</string>
 	<string name="notifications_muted">Powiadomienia od %s zostały odrzucone.</string>
 	<string name="notifications_allowed">%s pojawi się teraz na liście powiadomień.</string>
+	<string name="visibility_subtitle_public">Wszyscy na i poza Mastodonem</string>
+	<string name="visibility_subtitle_unlisted">Z wyłączeniem funkcji odkrywania</string>
+	<string name="visibility_subtitle_followers">Tylko dla osób, które Cię obserwują</string>
+	<string name="visibility_subtitle_private">Tylko wspomniane osoby</string>
+	<string name="view_boosts">Zobacz podbicia</string>
+	<string name="view_favorites">Zobacz polubienia</string>
+	<string name="undo_reblog">Cofnij podbicie</string>
+	<string name="undo_favorite">Cofnij ulubienie</string>
+	<string name="could_not_reach_server">Nie udało się połączyć z serwerem. Sprawdź połączenie i spróbuj ponownie?</string>
+	<string name="connection_timed_out">Upłynął limit czasu żądania. Sprawdź swoje połączenie i spróbuj ponownie?</string>
+	<string name="server_error">Coś poszło nie tak z Twoim serwerem. Raczej nie jest to twoja wina. Spróbować ponownie?</string>
+	<string name="not_found">Może zostało to usunięte, a może nigdy nie istniało.</string>
+	<string name="no_servers_found">Nie znaleziono serwerów dla \"%s\"</string>
+	<string name="signup_username_taken">Ten login jest już zajęty. Spróbuj innego, albo &lt;a&gt;wybierz inny serwer&lt;/a&gt;.</string>
+	<string name="signup_email_invalid">To nie wygląda na adres e-mail.</string>
+	<string name="signup_email_taken">Ten adres e-mail jest już w użyciu. Potrzebujesz &lt;a&gt;przypomnienia hasła&lt;/a&gt;?</string>
+	<string name="dismiss">Odrzuć</string>
+	<string name="donation_once">Jednorazowo</string>
+	<string name="donation_monthly">Miesięcznie</string>
+	<string name="donation_yearly">Rocznie</string>
+	<string name="currency">Waluta</string>
+	<string name="donation_success_share">Powiedz innym</string>
+	<string name="donation_success_title">Dziękujemy za Twój wkład!</string>
+	<string name="donation_success_subtitle">Niedługo powinien przyjść e-mail z potwierdzeniem Twojej darowizny.</string>
+	<string name="donation_server_error">Przepraszamy, wystąpił błąd i nie byliśmy w stanie obsłużyć Twojej darowizny.\n\nSpróbuj ponownie za kilka minut.</string>
+	<string name="settings_donate">Wspomóż Mastodon</string>
+	<string name="settings_manage_donations">Zarządzaj darowiznami</string>
+	<string name="cant_load_image">Nie udało się załadować obrazu</string>
+	<string name="poll_see_results">Pokaż wyniki</string>
+	<string name="poll_hide_results">Ukryj wyniki</string>
+	<string name="own_poll_ended">Twoje głosowanie zakończyło się</string>
+	<string name="user_just_posted">Świeżo od %s</string>
+	<string name="user_edited_post">Post %s, który miał Twoją reakcję został zmodyfikowany</string>
+	<string name="relationship_severance_account_suspension">Administracja %1$s zawiesiła %2$s, więc nie będziesz już otrzymywać wpisów, ani móc wchodzić interakcje ze znajdującymi się tam kontami.</string>
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_domain_block">Administracja %1$s zablokowała %2$s, w tym %3$,d kont obserwujących Cię i %4$s, które obserwujesz.</string>
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_user_domain_block">Zablokowano %1$s, usuwając %2$,d obserwujących i %3$s obserwowanych.</string>
+	<string name="relationship_severance_learn_more">Dowiedz się więcej</string>
+	<string name="moderation_warning_action_none">Twoje konto otrzymało ostrzeżenie moderacyjne.</string>
+	<string name="moderation_warning_action_disable">Twoje konto zostało wyłączone.</string>
+	<string name="moderation_warning_action_mark_statuses_as_sensitive">Niektóre Twoje wpisy zostały oznaczone jako wrażliwe.</string>
+	<string name="moderation_warning_action_delete_statuses">Niektóre Twoje wpisy zostały usunięte.</string>
+	<string name="moderation_warning_action_sensitive">Twoje wpisy będą od teraz oznaczane jako wrażliwe.</string>
+	<string name="moderation_warning_action_silence">Na Twoje konto nałożono ograniczenia.</string>
+	<string name="moderation_warning_action_suspend">Twoje konto zostało zawieszone.</string>
+	<string name="moderation_warning_learn_more">Dowiedz się więcej</string>
+	<string name="text_show_more">Więcej</string>
+	<string name="avatar_move_and_scale">Przesuń i zmień wielkość</string>
+	<string name="confirm_avatar_crop">Wybierz</string>
+	<string name="settings_use_dynamic_colors">Używaj dynamicznego koloru systemu</string>
+	<string name="settings_accounts">Konta</string>
+	<string name="settings_add_account">Dodaj konto...</string>
+	<string name="settings_app_settings">Ustawienia aplikacji</string>
+	<string name="account_settings">Ustawienia konta</string>
+	<string name="settings_about_this_server">O tym serwerze</string>
+	<string name="manage_account">Zarządzaj kontem</string>
+	<string name="switch_to_this_account">Przełącz na to konto</string>
+	<string name="delete_account">Usuń konto</string>
+	<string name="notification_type_status">Nowe wpisy</string>
+	<string name="familiar_followers_one">%s obserwuje</string>
+	<string name="familiar_followers_two">%s i %s obserwują</string>
+	<string name="profile_saved_posts">Zapisane</string>
+	<string name="profile_saved_posts_explanation">Zapisane wpisy są widoczne tylko dla Ciebie.</string>
+	<string name="search_people">Ludzie</string>
 	<!-- appears when you're about to block a server -->
 	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
+	<string name="server_x_followers_and_following_will_be_removed">Stracisz %1$s obserwujących i %2$s obserwowanych.</string>
 	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
+	<string name="server_x_following_will_be_removed">Stracisz %s obserwujących.</string>
+	<string name="load_missing_posts_above">Załaduj brakujące wpisy powyżej</string>
+	<string name="load_missing_posts_below">Załaduj brakujące wpisy poniżej</string>
 </resources>
