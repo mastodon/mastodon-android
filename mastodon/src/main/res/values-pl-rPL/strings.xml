@@ -13,6 +13,8 @@
 	<string name="notifications">Powiadomienia</string>
 	<string name="user_followed_you">%s obserwuje Cię</string>
 	<string name="user_sent_follow_request">%s wysyła Tobie prośbę o obserwację</string>
+	<string name="user_favorited">tyczny</string>
+	<string name="notification_boosted">%s podbija:</string>
 	<string name="share_toot_title">Udostępnij</string>
 	<string name="settings">Ustawienia</string>
 	<string name="publish">Publikuj</string>
@@ -113,6 +115,7 @@
 	<string name="do_block">Zablokuj</string>
 	<string name="button_blocked">Zablokowano</string>
 	<string name="action_vote">Zagłosuj</string>
+	<string name="confirm">Potwierdź</string>
 	<string name="delete">Usuń</string>
 	<string name="confirm_delete_title">Usuń post</string>
 	<string name="confirm_delete">Czy na pewno chcesz usunąć ten wpis?</string>
@@ -184,6 +187,8 @@
 	<string name="save">Zapisz</string>
 	<string name="add_alt_text">Dodaj tekst alternatywny</string>
 	<string name="visibility_public">Publiczny</string>
+	<string name="visibility_followers_only">Obserwujący</string>
+	<string name="visibility_private">Konkretne osoby</string>
 	<string name="recent_searches">Ostatnie</string>
 	<string name="notification_type_follow">Nowi obserwujący</string>
 	<string name="notification_type_favorite">Polubienia</string>
@@ -250,6 +255,7 @@
 	<string name="error_saving_file">Błąd podczas zapisywania pliku</string>
 	<string name="downloading">Pobieranie…</string>
 	<string name="no_app_to_handle_action">Nie ma żadnej aplikacji do ukończenia tej akcji</string>
+	<string name="local_timeline">Na żywo</string>
 	<string name="trending_posts_info_banner">To są posty zdobywające popularność w całej sieci Mastodona.</string>
 	<string name="trending_links_info_banner">To są wiadomości które są szerzej omawiane na całej sieci Mastodona.</string>
 	<!-- %s is the server domain -->
@@ -334,7 +340,9 @@
 	<string name="instance_signup_closed">Ten serwer nie akceptuje nowych rejestracji.</string>
 	<string name="text_copied">Skopiowano do schowka</string>
 	<string name="add_bookmark">Dodaj zakładkę</string>
+	<string name="remove_bookmark">Usuń zakładkę</string>
 	<string name="bookmarks">Zakładki</string>
+	<string name="your_favorites">Ulubione</string>
 	<string name="login_title">Witaj ponownie</string>
 	<string name="login_subtitle">Zaloguj się na serwer, na którym utworzyłeś swoje konto.</string>
 	<string name="server_url">Adres URL serwera</string>
@@ -647,7 +655,7 @@
 	<string name="non_mutual_text1">Upewnij się, że Twoja odpowiedź jest uprzejma i na temat.</string>
 	<string name="non_mutual_title2">Otwórz się na życzliwość</string>
 	<string name="non_mutual_text2">Pozytywny ton jest zawsze mile widziany.</string>
-	<string name="non_mutual_title3">Bądź plastyczny</string>
+	<string name="non_mutual_title3">Podchodź z otwartością</string>
 	<string name="non_mutual_text3">Każdy ma swój unikalny styl prowadzenia rozmowy. Dostosuj się, jeśli trzeba.</string>
 	<string name="make_profile_discoverable">Spraw, by mój profil mógł być wyszukiwalny</string>
 	<string name="discoverability">Wyszukiwalność</string>
