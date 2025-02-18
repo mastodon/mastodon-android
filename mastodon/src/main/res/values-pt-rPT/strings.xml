@@ -9,9 +9,12 @@
 	<string name="preparing_auth">A preparar a autenticação…</string>
 	<string name="finishing_auth">A finalizar a autenticação…</string>
 	<string name="user_boosted">%s reforçou</string>
+	<string name="in_reply_to">responder a %s</string>
 	<string name="notifications">Notificações</string>
 	<string name="user_followed_you">%s começou a seguir-te</string>
-	<string name="user_sent_follow_request">%s pediu para lhe seguir</string>
+	<string name="user_sent_follow_request">%s pediu para te seguir</string>
+	<string name="user_favorited">Adicionado aos favoritos por %s:</string>
+	<string name="notification_boosted">Impulsado por %s:</string>
 	<string name="share_toot_title">Partilhar</string>
 	<string name="settings">Configurações</string>
 	<string name="publish">Publicar</string>
@@ -23,16 +26,19 @@
 		<item quantity="other">seguidores</item>
 	</plurals>
 	<plurals name="following">
-		<item quantity="one">a seguir</item>
-		<item quantity="other">a seguir</item>
+		<item quantity="one">seguindo</item>
+		<item quantity="other">seguindo</item>
 	</plurals>
 	<string name="posts">Publicações</string>
+	<string name="posts_and_replies">Publicações e respostas</string>
 	<string name="media">Multimédia</string>
 	<string name="profile_about">Sobre</string>
 	<string name="button_follow">Seguir</string>
-	<string name="button_following">A seguir</string>
-	<string name="mute_user">Silenciar %s</string>
-	<string name="unmute_user">Deixar de silenciar @%s</string>
+	<string name="button_following">Seguindo</string>
+	<string name="edit_profile">Editar perfil</string>
+	<string name="share_user">Partilhar perfil via…</string>
+	<string name="mute_user">Ocultar %s</string>
+	<string name="unmute_user">Deixar de ocultar @%s</string>
 	<string name="block_user">Bloquear %s</string>
 	<string name="unblock_user">Desbloquear @%s</string>
 	<string name="report_user">Denunciar %s</string>
@@ -47,7 +53,7 @@
 	<string name="loading">A carregar…</string>
 	<string name="field_label">Etiqueta</string>
 	<string name="field_content">Conteúdo</string>
-	<string name="saving">A salvar…</string>
+	<string name="saving">A guardar…</string>
 	<string name="post_from_user">Publicação de %s</string>
 	<string name="poll_option_hint">Opção %d</string>
 	<plurals name="x_minutes">
@@ -83,12 +89,13 @@
 		<item quantity="other">%,d votos</item>
 	</plurals>
 	<string name="poll_closed">Fechado</string>
-	<string name="do_mute">Silenciar</string>
+	<string name="do_mute">Ocultar</string>
 	<string name="do_block">Bloquear</string>
 	<string name="button_blocked">Bloqueado</string>
 	<string name="action_vote">Votar</string>
+	<string name="confirm">Confirmar</string>
 	<string name="delete">Eliminar</string>
-	<string name="confirm_delete_title">Apagar publicação</string>
+	<string name="confirm_delete_title">Eliminar publicação</string>
 	<string name="confirm_delete">Tem a certeza que deseja eliminar esta publicação?</string>
 	<string name="deleting">A eliminar…</string>
 	<string name="notification_channel_audio_player">Reprodução de áudio</string>
@@ -97,9 +104,9 @@
 	<string name="log_out">Terminar sessão</string>
 	<string name="add_account">Adicionar conta</string>
 	<string name="search_hint">Pesquisar</string>
-	<string name="hashtags">Hashtags</string>
-	<string name="news">Novidades</string>
-	<string name="for_you">Para si</string>
+	<string name="hashtags">#Etiquetas</string>
+	<string name="news">Notícias</string>
+	<string name="for_you">Para ti</string>
 	<string name="all_notifications">Tudo</string>
 	<string name="mentions">Menções</string>
 	<plurals name="x_people_talking">
@@ -109,50 +116,55 @@
 	<string name="report_title">Denunciar %s</string>
 	<string name="report_choose_reason">O que há de errado com esta publicação?</string>
 	<string name="report_choose_reason_account">O que há de errado com %s?</string>
-	<string name="report_choose_reason_subtitle">Escolha a melhor correspondência</string>
+	<string name="report_choose_reason_subtitle">Escolhe o mais adequado</string>
 	<string name="report_reason_personal">Não gostei</string>
 	<string name="report_reason_personal_subtitle">Não é algo que deseje ver</string>
-	<string name="report_reason_spam">É spam</string>
-	<string name="report_reason_spam_subtitle">Links maliciosos, contactos falsos, ou respostas repetitivas</string>
+	<string name="report_reason_spam">É publicidade indesejada / spam</string>
+	<string name="report_reason_spam_subtitle">Hiperligações maliciosas, contactos falsos ou respostas repetitivas</string>
 	<string name="report_reason_violation">Viola as regras do servidor</string>
-	<string name="report_reason_violation_subtitle">Está ciente de que infringe regras específicas</string>
+	<string name="report_reason_violation_subtitle">Infringe regras específicas</string>
 	<string name="report_reason_other">É outra coisa</string>
 	<string name="report_reason_other_subtitle">O problema não se encaixa nas outras categorias</string>
 	<string name="report_choose_rule">Que regras estão a ser violadas?</string>
-	<string name="report_choose_rule_subtitle">Selecione tudo o que se aplicar</string>
+	<string name="report_choose_rule_subtitle">Seleciona tudo o que se aplicar</string>
 	<string name="report_choose_posts">Existe alguma publicação que suporte esta denúncia?</string>
-	<string name="report_choose_posts_subtitle">Selecione tudo o que se aplicar</string>
-	<string name="report_comment_title">Há algo mais que pensa que devemos saber?</string>
+	<string name="report_choose_posts_subtitle">Seleciona tudo o que se aplicar</string>
+	<string name="report_comment_title">Há mais alguma coisa que devamos saber?</string>
 	<string name="report_comment_hint">Comentários adicionais</string>
-	<string name="sending_report">A enviar denuncia…</string>
-	<string name="report_sent_title">Obrigado por denunciar. Iremos analisar.</string>
-	<string name="report_sent_subtitle">Enquanto revemos a sua denúncia, pode tomar medidas em relação a %s:</string>
+	<string name="sending_report">A enviar a denúncia…</string>
+	<string name="report_sent_title">Obrigado por nos informares, vamos analisar a situação.</string>
+	<string name="report_sent_subtitle">Enquanto revemos a tua denúncia, podes tomar medidas em relação a %s:</string>
 	<string name="unfollow_user">Deixar de seguir %s</string>
 	<string name="unfollow">Deixar de seguir</string>
-	<string name="mute_user_explain">Não irá ver as publicações destas contas. Elas continuam a poder seguir a sua conta e ver as suas publicações, mas não saberão que estão silenciadas.</string>
-	<string name="block_user_explain">Não irá ver as publicações destas contas. Elas não conseguirão seguir a sua conta ou ver as suas publicações, mas saberão que estão bloqueadas.</string>
-	<string name="report_personal_title">Não quer ver isto?</string>
+	<string name="mute_user_explain">Não verás as publicações dele. Ele não poderá ver as tuas publicações nem seguir-te. Ele não saberá que o ocultaste.</string>
+	<string name="block_user_explain">Não verás as publicações dele. Ele não poderá ver as tuas publicações nem seguir-te. Ele saberá que foi bloqueado por ti.</string>
+	<string name="report_personal_title">Não queres ver isto?</string>
 	<string name="report_personal_subtitle">Aqui estão as suas opções para controlar o que vê no Mastodon:</string>
 	<string name="back">Voltar</string>
 	<string name="search_communities">Nome ou endereço do servidor</string>
+	<string name="instance_rules_title">Regras do servidor</string>
 	<string name="instance_rules_subtitle">Ao continuar, aceita seguir as seguintes regras definidas e aplicadas pelos moderadores de %s.</string>
+	<string name="signup_title">Criar conta</string>
 	<string name="display_name">Nome</string>
 	<string name="username">Nome de utilizador</string>
 	<string name="email">Email</string>
 	<string name="password">Palavra-passe</string>
 	<string name="confirm_password">Confirmar palavra-passe</string>
 	<string name="category_general">Geral</string>
+	<string name="confirm_email_title">Verifica a tua caixa de entrada</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">Clique na hiperligação que enviámos por email para verificar %s. Aguardaremos enquanto o faz.</string>
 	<string name="confirm_email_didnt_get">Não recebeu um email com uma hiperligação?</string>
 	<string name="resend">Reenviar</string>
 	<string name="open_email_app">Abrir aplicação de e-mail</string>
 	<string name="resent_email">E-mail de confirmação enviado</string>
-	<string name="compose_hint">Escreva ou cole aquilo em que pensa</string>
+	<string name="compose_hint">Escreve ou cola aquilo em que estás a pensar</string>
 	<string name="content_warning">Aviso de conteúdo</string>
-	<string name="save">Salvar</string>
-	<string name="add_alt_text">Adicionar texto alternativo</string>
+	<string name="save">Guardar</string>
+	<string name="add_alt_text">Adicionar texto descritivo</string>
 	<string name="visibility_public">Público</string>
+	<string name="visibility_followers_only">Seguidores</string>
+	<string name="visibility_private">Pessoas específicas</string>
 	<string name="recent_searches">Recentes</string>
 	<string name="notification_type_follow">Novos seguidores</string>
 	<string name="notification_type_favorite">Favoritos</string>
@@ -160,15 +172,20 @@
 	<string name="notification_type_mention">Menções</string>
 	<string name="notification_type_poll">Sondagens</string>
 	<string name="choose_account">Escolher conta</string>
-	<string name="err_not_logged_in">Por favor, faça login no Mastodon primeiro</string>
-	<string name="media_attachment_unsupported_type">Arquivo %s é de um tipo não suportado</string>
-	<string name="media_attachment_too_big">O arquivo %1$s excede o limite de tamanho de %2$s MB</string>
-	<string name="settings_theme">Tema</string>
+	<string name="err_not_logged_in">Inicia primeiro a sessão no Mastodon</string>
+	<plurals name="cant_add_more_than_x_attachments">
+		<item quantity="one">Não podes adicionar mais de %d anexo multimédia</item>
+		<item quantity="other">Não podes adicionar mais de %d anexos multimédia</item>
+	</plurals>
+	<string name="media_attachment_unsupported_type">O ficheiro %s é de um tipo não suportado</string>
+	<string name="media_attachment_too_big">O ficheiro %1$s excede o limite de tamanho de %2$s MB</string>
+	<string name="settings_theme">Aparência</string>
 	<string name="theme_auto">Usar tema do dispositivo</string>
 	<string name="theme_light">Claro</string>
 	<string name="theme_dark">Escuro</string>
 	<string name="settings_behavior">Comportamento</string>
 	<string name="settings_gif">Reproduzir emojis e avatares animados</string>
+	<string name="settings_custom_tabs">Abrir hiperligações em</string>
 	<string name="settings_notifications">Notificações</string>
 	<string name="settings_contribute">Contribua para o Mastodon</string>
 	<string name="settings_tos">Termos de serviço</string>
@@ -183,27 +200,62 @@
 	<string name="new_post">Nova publicação</string>
 	<string name="button_reply">Responder</string>
 	<string name="button_reblog">Impulsionar</string>
-	<string name="button_favorite">Gostar</string>
-	<string name="storage_permission_to_download">O aplicativo precisa de ter acesso ao seu armazenamento para salvar este arquivo.</string>
-	<string name="open_settings">Abrir definições</string>
-	<string name="error_saving_file">Erro ao salvar o arquivo</string>
-	<string name="downloading">A transferir…</string>
+	<string name="button_favorite">Favoritar</string>
+	<string name="button_share">Partilhar</string>
+	<string name="media_no_description">Multimédia sem descrição</string>
+	<string name="add_media">Adicionar multimédia</string>
+	<string name="add_poll">Adicionar sondagem</string>
+	<string name="emoji">Emoji</string>
+	<string name="home_timeline">Cronologia inicial</string>
+	<string name="my_profile">Meu perfil</string>
+	<string name="media_viewer">Visualizador de multimédia</string>
+	<string name="follow_user">Seguir %s</string>
+	<string name="unfollowed_user">Deixaste de seguir %s</string>
+	<string name="followed_user">Estás a seguir %s</string>
+	<string name="following_user_requested">%s pedido para te seguir</string>
+	<string name="open_in_browser">Abrir no navegador</string>
+	<string name="hide_boosts_from_user">Ocultar impulsos</string>
+	<string name="show_boosts_from_user">Mostrar impulsos</string>
+	<string name="signup_reason">Porque é que queres aderir?</string>
+	<string name="signup_reason_note">Isto ajudar-nos-á a analisar o teu pedido.</string>
+	<string name="clear">Limpar</string>
+	<string name="profile_header">Imagem de cabeçalho</string>
+	<string name="profile_picture">Imagem de perfil</string>
+	<string name="reorder">Reordenar</string>
+	<string name="download">Descarregar</string>
+	<string name="permission_required">Permissão necessária</string>
+	<string name="storage_permission_to_download">A aplicação necessita de acesso ao seu armazenamento para guardar este ficheiro.</string>
+	<string name="open_settings">Abrir configurações</string>
+	<string name="error_saving_file">Erro ao guardar o ficheiro</string>
+	<string name="downloading">A descarregar…</string>
+	<string name="no_app_to_handle_action">Não há uma aplicação para executar esta ação</string>
+	<string name="local_timeline">Cronologias em tempo real</string>
+	<string name="trending_posts_info_banner">Estas são as publicações a ganhar visibilidade no Mastodon.</string>
+	<string name="trending_links_info_banner">Estas são as notícias que estão a ser faladas no Mastodon.</string>
 	<!-- %s is the server domain -->
+	<string name="local_timeline_info_banner">Estas são todas as publicações de todos os utilizadores no teu servidor (%s).</string>
+	<string name="recommended_accounts_info_banner">Poderás gostar destas contas com base noutras que segues.</string>
+	<string name="see_new_posts">Novas publicações</string>
+	<string name="follow_back">Seguir também</string>
 	<string name="button_follow_pending">Pendente</string>
 	<string name="follows_you">Segue-te</string>
-	<string name="manually_approves_followers">Aprova manualmente seguidores</string>
+	<string name="manually_approves_followers">Aprova manualmente os seguidores</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<plurals name="x_followers">
-		<item quantity="one">%,d um seguidor</item>
+		<item quantity="one">%,d seguidor</item>
 		<item quantity="other">%,d seguidores</item>
 	</plurals>
 	<plurals name="x_following">
-		<item quantity="one">%,d a seguir</item>
-		<item quantity="other">%,d a seguir</item>
+		<item quantity="one">seguindo %,d</item>
+		<item quantity="other">seguindo %,d</item>
 	</plurals>
 	<plurals name="x_favorites">
 		<item quantity="one">%,d favorito</item>
 		<item quantity="other">%,d favoritos</item>
+	</plurals>
+	<plurals name="x_reblogs">
+		<item quantity="one">%,d impulso</item>
+		<item quantity="other">%,d impulsos</item>
 	</plurals>
 	<string name="time_now">agora</string>
 	<string name="edit_history">Editar histórico</string>
@@ -212,6 +264,10 @@
 	<plurals name="x_seconds_ago">
 		<item quantity="one">Há %d segundo</item>
 		<item quantity="other">Há %d segundos</item>
+	</plurals>
+	<plurals name="x_minutes_ago">
+		<item quantity="one">Há %d minuto</item>
+		<item quantity="other">Há %d minutos</item>
 	</plurals>
 	<string name="edited_timestamp">editado %s</string>
 	<string name="edit_original_post">Publicação original</string>
@@ -222,14 +278,40 @@
 	<string name="edit_poll_added">Sondagem adicionada</string>
 	<string name="edit_poll_edited">Sondagem editada</string>
 	<string name="edit_poll_removed">Sondagem removida</string>
+	<string name="edit_media_added">Multimédia adicionada</string>
+	<string name="edit_media_removed">Multimédia removida</string>
+	<string name="edit_media_reordered">Multimédia reordenada</string>
+	<string name="edit_marked_sensitive">Marcada como sensível</string>
+	<string name="edit_marked_not_sensitive">Marcada como não sensível</string>
+	<string name="edit_multiple_changed">Publicação editada</string>
+	<string name="edit">Editar</string>
+	<string name="discard_changes">Descartar alterações?</string>
+	<string name="upload_failed">Erro de carregamento</string>
+	<string name="file_size_bytes">%d bytes</string>
+	<string name="file_size_kb">%.2f kB</string>
+	<string name="file_size_mb">%.2f MB</string>
+	<string name="file_size_gb">%.2f GB</string>
+	<string name="upload_processing">A processar…</string>
 	<!-- %s is file size -->
+	<string name="download_update">Descarregar (%s)</string>
+	<string name="install_update">Instalar</string>
+	<string name="privacy_policy_title">A tua privacidade</string>
+	<string name="privacy_policy_subtitle">Embora a aplicação Mastodon não recolha quaisquer dados, o servidor através do qual te inscreves pode ter uma política diferente.\n\nSe não concordares com a política de %s, podes voltar atrás e escolher um servidor diferente.</string>
+	<string name="i_agree">Concordo</string>
 	<string name="empty_list">A lista está vazia</string>
 	<string name="instance_signup_closed">Este servidor não aceita novos registos.</string>
 	<string name="text_copied">Copiado para a área de transferência</string>
 	<string name="add_bookmark">Guardar nos marcadores</string>
+	<string name="remove_bookmark">Remover dos marcadores</string>
 	<string name="bookmarks">Marcadores</string>
-	<string name="login_subtitle">Entre com o servidor onde criou a sua conta.</string>
-	<string name="server_url">Endereço do Servidor</string>
+	<string name="your_favorites">Favoritos</string>
+	<string name="login_title">Bem-vindo de volta</string>
+	<string name="login_subtitle">Inicia a sessão no servidor onde criaste a tua conta.</string>
+	<string name="server_url">URL do servidor</string>
+	<string name="server_filter_any_language">Qualquer idioma</string>
+	<string name="server_filter_instant_signup">Inscrição instantânea</string>
+	<string name="server_filter_manual_review">Revisão manual</string>
+	<string name="server_filter_any_signup_speed">Qualquer velocidade de inscrição</string>
 	<string name="server_filter_region_europe">Europa</string>
 	<string name="server_filter_region_north_america">América do Norte</string>
 	<string name="server_filter_region_south_america">América do Sul</string>
@@ -237,11 +319,12 @@
 	<string name="server_filter_region_asia">Ásia</string>
 	<string name="server_filter_region_oceania">Oceânia</string>
 	<string name="not_accepting_new_members">Não aceita novos membros neste momento</string>
+	<string name="category_special_interests">Interesses especiais</string>
 	<string name="signup_passwords_dont_match">As palavras-passe não coincidem</string>
 	<string name="profile_add_row">Adicionar linha</string>
 	<string name="profile_setup">Configuração do perfil</string>
 	<string name="profile_setup_subtitle">Pode completar isto mais tarde, no separador Perfil.</string>
-	<string name="follow_all">Seguir tudo</string>
+	<string name="follow_all">Seguir todos</string>
 	<string name="server_rules_disagree">Não aceitar</string>
 	<string name="privacy_policy_explanation">Resumindo: não recolhemos ou processamos quaisquer dados.</string>
 	<!-- %s is server domain -->
@@ -304,7 +387,7 @@
 	<string name="compose_autocomplete_users_empty">Encontre quem procura</string>
 	<string name="no_search_results">Sem resultados para os termos pesquisados</string>
 	<string name="language">Idioma</string>
-	<string name="language_default">Pré-definida</string>
+	<string name="language_default">Predefinido</string>
 	<string name="language_system">Sistema</string>
 	<string name="language_detecting">A detetar idioma</string>
 	<string name="language_cant_detect">Incapaz de detetar idioma</string>
@@ -317,26 +400,453 @@
 	<string name="forward_report_to_server">Reencaminhar para %s</string>
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
 	<string name="reported">Denunciada</string>
-	<string name="report_unfollow_explanation">Para não voltar a ver as publicações da conta na sua cronologia, deixe de segui-la.</string>
+	<string name="report_unfollow_explanation">Para não voltares a ver as publicações da conta na tua cronologia, deixa de segui-la.</string>
+	<string name="muted_user">%s ocultado</string>
+	<string name="report_sent_already_blocked">Já bloqueaste este utilizador, por isso não precisas de fazer mais nada enquanto analisamos o teu relatório.</string>
+	<string name="report_personal_already_blocked">Já bloqueaste este utilizador, por isso não precisas de fazer mais nada.\n\nObrigado por ajudares a manter o Mastodon um lugar seguro para todos!</string>
+	<string name="blocked_user">%s bloqueado</string>
+	<string name="mark_all_notifications_read">Marcar tudo como lido</string>
+	<string name="settings_display">Visualização</string>
+	<string name="settings_filters">Filtros</string>
+	<string name="settings_server_explanation">Visão geral, regras, moderadores</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
+	<string name="about_app">Sobre %s</string>
+	<string name="default_post_language">Idioma padrão de publicação</string>
+	<string name="settings_alt_text_reminders">Adicionar lembretes de texto descritivo</string>
+	<string name="settings_confirm_unfollow">Perguntar antes de deixar de seguir alguém</string>
+	<string name="settings_confirm_boost">Perguntar antes de impulsionar um publicação</string>
+	<string name="settings_confirm_delete_post">Perguntar antes de eliminar publicações</string>
+	<string name="pause_all_notifications">Pausar tudo</string>
+	<string name="pause_notifications_off">Desativado</string>
+	<string name="notifications_policy_anyone">Qualquer um</string>
+	<string name="notifications_policy_followed">Pessoas que te seguem</string>
+	<string name="notifications_policy_follower">Pessoas que segues</string>
+	<string name="notifications_policy_no_one">Ninguém</string>
+	<string name="settings_notifications_policy">Obter notificações de</string>
+	<string name="notification_type_mentions_and_replies">Menções e respostas</string>
+	<string name="pause_all_notifications_title">Pausar todas as notificações</string>
+	<plurals name="x_weeks">
+		<item quantity="one">%d semana</item>
+		<item quantity="other">%d semanas</item>
+	</plurals>
 	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
+	<string name="date_at_time">%1$s às %2$s</string>
+	<string name="today">hoje</string>
+	<string name="yesterday">ontem</string>
+	<string name="tomorrow">amanhã</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="pause_notifications_ends">Termina %s</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="pause_notifications_banner">As notificações serão retomadas %s.</string>
+	<string name="resume_notifications_now">Retomar agora</string>
+	<string name="open_system_notification_settings">Ir para as configurações de notificação</string>
+	<string name="about_server">Sobre</string>
+	<string name="server_rules">Regras</string>
+	<string name="server_administrator">Administrador</string>
+	<string name="send_email_to_server_admin">Contactar administrador</string>
+	<string name="notifications_disabled_in_system">Ativa as notificações nas configurações do dispositivo para veres as atualizações de qualquer lugar.</string>
+	<string name="settings_even_more">Ainda mais configurações</string>
+	<string name="settings_show_cws">Mostrar avisos de conteúdo</string>
+	<string name="settings_hide_sensitive_media">Desfocar multimédia marcada como sensível</string>
+	<string name="settings_show_interaction_counts">Contador de interações com uma publicação</string>
+	<string name="settings_show_emoji_in_names">Emojis personalizados em nomes</string>
+	<plurals name="in_x_seconds">
+		<item quantity="one">em %d segundo</item>
+		<item quantity="other">em %d segundos</item>
+	</plurals>
+	<plurals name="in_x_minutes">
+		<item quantity="one">em %d minuto</item>
+		<item quantity="other">em %d minutos</item>
+	</plurals>
+	<plurals name="in_x_hours">
+		<item quantity="one">em %d hora</item>
+		<item quantity="other">em %d horas</item>
+	</plurals>
+	<plurals name="x_hours_ago">
+		<item quantity="one">%d hora atrás</item>
+		<item quantity="other">%d horas atrás</item>
+	</plurals>
+	<string name="alt_text_reminder_title">Falta o texto descritivo na multimédia</string>
+	<plurals name="alt_text_reminder_x_images">
+		<item quantity="one">%s das tuas imagens não tem texto descritivo. Publicar mesmo assim?</item>
+		<item quantity="other">%s das tuas imagens não têm texto descritivo. Publicar mesmo assim?</item>
+	</plurals>
+	<plurals name="alt_text_reminder_x_attachments">
+		<item quantity="one">%s dos teus anexos multimédia não tem texto descritivo. Publicar mesmo assim?</item>
+		<item quantity="other">%s dos teus anexos multimédia não têm texto descritivo. Publicar mesmo assim?</item>
+	</plurals>
+	<string name="count_one">Um</string>
+	<string name="count_two">Dois</string>
+	<string name="count_three">Três</string>
+	<string name="count_four">Quatro</string>
+	<string name="alt_text_reminder_post_anyway">Publicar</string>
 	<!-- %s is the username -->
+	<string name="unfollow_confirmation">Deixar de seguir %s?</string>
+	<string name="filter_active">Ativo</string>
+	<string name="filter_inactive">Inativo</string>
+	<string name="settings_add_filter">Adicionar filtro</string>
+	<string name="settings_edit_filter">Editar filtro</string>
+	<string name="settings_filter_duration">Duração</string>
+	<string name="settings_filter_muted_words">Palavras ocultadas</string>
+	<string name="settings_filter_context">Ocultar de</string>
+	<string name="settings_filter_show_cw">Mostrar com aviso de conteúdo</string>
+	<string name="settings_filter_show_cw_explanation">Continua a mostrar mensagens que correspondem a este filtro, mas com um aviso de conteúdo</string>
+	<string name="settings_delete_filter">Eliminar filtro</string>
+	<string name="filter_duration_forever">Para sempre</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="settings_filter_ends">Termina %s</string>
+	<plurals name="settings_x_muted_words">
+		<item quantity="one">%d palavra ou frase ocultada</item>
+		<item quantity="other">%d palavras ou frases ocultadas</item>
+	</plurals>
+	<string name="selection_2_options">%1$s e %2$s</string>
+	<string name="selection_3_options">%1$s, %2$s e %3$s</string>
+	<string name="selection_4_or_more">%1$s, %2$s e %3$d mais</string>
+	<string name="filter_context_home_lists">Início e listas</string>
+	<string name="filter_context_notifications">Notificações</string>
+	<string name="filter_context_public_timelines">Cronologias públicas</string>
+	<string name="filter_context_threads_replies">Tópicos e respostas</string>
+	<string name="filter_context_profiles">Perfis</string>
+	<string name="settings_filter_title">Título</string>
+	<string name="settings_delete_filter_title">Eliminar o filtro “%s”?</string>
+	<string name="settings_delete_filter_confirmation">Este filtro será eliminado da tua conta em todos os teus dispositivos.</string>
+	<string name="add_muted_word">Adicionar palavra ocultada</string>
+	<string name="edit_muted_word">Editar palavra ocultada</string>
+	<string name="add">Adicionar</string>
+	<string name="filter_word_or_phrase">Palavra ou frase</string>
+	<string name="filter_add_word_help">As palavras não diferenciam maiúsculas de minúsculas e correspondem apenas a palavras completas.\n\nSe filtrares a palavra-chave “Maçã”, serão ocultadas as publicações que contenham “maçã” ou “mAÇã”, mas não “ananás”.</string>
+	<string name="settings_delete_filter_word">Eliminar a palavra “%s”?</string>
+	<string name="enter_selection_mode">Selecionar</string>
+	<string name="select_all">Seleccionar tudo</string>
+	<string name="settings_filter_duration_title">Duração do filtro</string>
+	<string name="filter_duration_custom">Personalizado</string>
+	<plurals name="settings_delete_x_filter_words">
+		<item quantity="one">Eliminar %d palavra?</item>
+		<item quantity="other">Eliminar %d palavras?</item>
+	</plurals>
+	<plurals name="x_items_selected">
+		<item quantity="one">%d selecionado</item>
+		<item quantity="other">%d selecionados</item>
+	</plurals>
+	<string name="required_form_field_blank">Não pode ficar em branco</string>
+	<string name="filter_word_already_in_list">Já na lista</string>
+	<string name="app_update_ready">Atualização da aplicação pronta</string>
+	<string name="app_update_version">Versão %s</string>
+	<string name="downloading_update">A descarregar (%d%%)</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
+	<string name="post_matches_filter_x">Corresponde ao filtro “%s”</string>
+	<string name="search_mastodon">Pesquisar Mastodon</string>
+	<string name="clear_all">Limpar tudo</string>
+	<string name="search_open_url">Abrir URL no Mastodon</string>
+	<string name="posts_matching_hashtag">Publicações com “%s”</string>
+	<string name="search_go_to_account">Ir para %s</string>
+	<string name="posts_matching_string">Publicações com “%s”</string>
+	<string name="accounts_matching_string">Pessoas com “%s”</string>
 	<!-- Shown in the post header. Please keep it short -->
+	<string name="time_seconds_ago_short">%ds atrás</string>
+	<string name="time_minutes_ago_short">%dm atrás</string>
+	<string name="time_hours_ago_short">%dh atrás</string>
+	<string name="time_days_ago_short">%dd atrás</string>
 	<!-- %s is the name of the post language -->
+	<string name="translate_post">Traduzir de %s</string>
 	<!-- %1$s is the language, %2$s is the name of the translation service -->
+	<string name="post_translated">Traduzido de %1$s usando %2$s</string>
+	<string name="translation_show_original">Mostrar original</string>
+	<string name="translation_failed">A tradução falhou. Talvez o administrador não tenha ativado as traduções neste servidor ou este servidor esteja a executar uma versão mais antiga do Mastodon onde as traduções ainda não são suportadas.</string>
+	<string name="settings_privacy">Privacidade e alcance</string>
+	<string name="settings_discoverable">Destacar perfil e publicações nos algoritmos de descoberta</string>
+	<string name="settings_indexable">Incluir publicações públicas nos resultados de pesquisas</string>
+	<plurals name="x_participants">
+		<item quantity="one">%,d participante</item>
+		<item quantity="other">%,d participantes</item>
+	</plurals>
+	<plurals name="x_posts_today">
+		<item quantity="one">%,d publicação hoje</item>
+		<item quantity="other">%,d publicações hoje</item>
+	</plurals>
+	<string name="error_playing_video">Erro ao reproduzir o vídeo</string>
+	<string name="timeline_following">Início</string>
+	<string name="lists">Listas</string>
+	<string name="followed_hashtags">Etiquetas seguidas</string>
+	<string name="manage_lists">Gerir listas</string>
+	<string name="manage_hashtags">Gerir etiquetas</string>
 	<!-- Screen reader description for the menu on the home timeline screen -->
+	<string name="dropdown_menu">Menu suspenso</string>
+	<string name="edit_list">Editar lista</string>
+	<string name="list_members">Membros da lista</string>
+	<string name="delete_list">Eliminar lista</string>
 	<!-- %s is the name of the list -->
+	<string name="delete_list_confirm">Eliminar “%s”?</string>
+	<string name="list_exclusive">Ocultar membros na lista de seguidos</string>
+	<string name="list_exclusive_subtitle">Se alguém estiver nesta lista, oculta-o na cronologia da tua página inicial para evitar veres as publicações dessa pessoa duas vezes.</string>
+	<string name="list_name">Nome da lista</string>
+	<string name="list_show_replies_to">Mostrar respostas a</string>
+	<string name="list_replies_no_one">Ninguém</string>
+	<string name="list_replies_members">Membros da lista</string>
+	<string name="list_replies_anyone">Qualquer um que eu siga</string>
+	<string name="confirm_remove_list_members">Remover membros?</string>
+	<string name="remove">Remover</string>
+	<string name="add_list_member">Adicionar membro</string>
+	<string name="search_among_people_you_follow">Pesquisar entre as pessoas que segues</string>
+	<string name="add_user_to_list">Adicionar ou remover das listas…</string>
+	<string name="add_user_to_list_title">Adicionar à lista</string>
 	<!-- %s is a username -->
+	<string name="manage_user_lists">Gerir as listas em que %s aparece</string>
+	<string name="remove_from_list">Remover da lista</string>
+	<string name="confirm_remove_list_member">Remover membro?</string>
+	<string name="no_followed_hashtags_title">Mantenha-se a par dos interesses seguindo as etiquetas</string>
+	<string name="no_followed_hashtags_subtitle">Os seguidores aparecerão aqui</string>
+	<string name="no_lists_title">Organiza a tua cronologia inicial com listas</string>
+	<string name="no_lists_subtitle">As tuas aparecerão aqui</string>
+	<string name="manage_accounts">Adicionar ou mudar de conta</string>
+	<plurals name="x_posts_recently">
+		<item quantity="one">%,d publicação recente</item>
+		<item quantity="other">%,d publicações recentes</item>
+	</plurals>
+	<string name="create_list">Criar lista</string>
+	<string name="step_x_of_y">Passo %1$d de %2$d</string>
+	<string name="create">Criar</string>
+	<string name="manage_list_members">Gerir membros da lista</string>
+	<string name="list_no_members">Ainda não existem membros</string>
+	<string name="list_find_users">Encontrar utilizadores para adicionar</string>
+	<string name="reply_to_user">Responder a %s</string>
+	<string name="posted_at">Publicado em %s</string>
+	<string name="non_mutual_sheet_title">Olá, nova conexão!</string>
+	<string name="non_mutual_sheet_text">Parece que estás prestes a responder a alguém que ainda não é uma conexão mútua. Vamos causar uma ótima primeira impressão.</string>
+	<string name="got_it">Compreendi</string>
+	<string name="dont_remind_again">Não me voltar a lembrar</string>
 	<!-- %s is a time interval ("5 months") -->
+	<string name="old_post_sheet_title">Esta publicação tem %s</string>
+	<string name="old_post_sheet_text">Ainda podes responder, mas pode já não ser relevante.</string>
+	<plurals name="x_months">
+		<item quantity="one">%,d mês</item>
+		<item quantity="other">%,d meses</item>
+	</plurals>
+	<string name="more_than_two_years">mais de 2 anos</string>
+	<string name="non_mutual_title1">Sê respeitoso e relevante</string>
+	<string name="non_mutual_text1">Assegura-te que a tua resposta é cortês e tem a ver com o tema.</string>
+	<string name="non_mutual_title2">Abraça a simpatia</string>
+	<string name="non_mutual_text2">Um tom positivo é sempre apreciado.</string>
+	<string name="non_mutual_title3">Sê aberto</string>
+	<string name="non_mutual_text3">O estilo de conversação de cada pessoa é único. Prepara-te para te adaptares.</string>
+	<string name="make_profile_discoverable">Permitir que o meu perfil seja descoberto</string>
+	<string name="discoverability">Descoberta</string>
+	<string name="discoverability_help">Quando optas pela possibilidade de ser descoberto no Mastodon, as tuas mensagens podem aparecer nos resultados de pesquisa e nas tendências.\n\nO teu perfil pode ser sugerido a pessoas com interesses semelhantes aos teus.\n\nNão ativar esta opção não oculta o teu perfil se alguém te procurar pelo nome.</string>
+	<string name="app_version_copied">Número de versão copiado para a área de transferência</string>
+	<string name="onboarding_recommendations_intro">Tu organizas a tua própria cronologia inicial.
+Quanto mais pessoas seguires, mais ativa e interessante será a cronologia.</string>
+	<string name="onboarding_recommendations_title">Personaliza a cronologia na tua página inicial</string>
+	<string name="article_by_author">Por %s</string>
+	<string name="button_reblogged">Impulsionado</string>
+	<string name="button_favorited">Adicionado aos favoritos</string>
+	<string name="join_server_x_with_invite">Aderir a %s com convite</string>
+	<string name="expired_invite_link">Hiperligação de convite expirada</string>
+	<string name="expired_clipboard_invite_link_alert">A hiperligação de convite para %1$s na tua área de transferência expirou e não pode ser utilizada para te inscreveres.\n\nPodes solicitar uma nova hiperligação a um utilizador existente, inscreveres-te através de %2$s ou escolher outro servidor.</string>
+	<string name="invalid_invite_link">Hiperligação de convite inválida</string>
+	<string name="invalid_clipboard_invite_link_alert">A hiperligação de convite para %1$s na tua área de transferência não é válida e não pode ser utilizada para te inscreveres.\n\nPodes solicitar uma nova hiperligação a um utilizador existente, inscreveres-te através de %2$s ou escolher outro servidor.</string>
+	<string name="use_invite_link">Usar hiperligação de convite</string>
+	<string name="enter_invite_link">Introduz a hiperligação de convite</string>
+	<string name="this_invite_is_invalid">Esta hiperligação de convite não é válida.</string>
+	<string name="this_invite_has_expired">Esta hiperligação de convite expirou.</string>
+	<string name="invite_link_pasted">Hiperligação colada da área de transferência.</string>
+	<string name="need_invite_to_join_server">Para se inscreveres em %s, precisas de uma hiperligação de convite de um utilizador existente.</string>
+	<string name="mute_user_confirm_title">Ocultar utilizador?</string>
+	<string name="user_wont_know_muted">Ele não saberá que o ocultaste.</string>
+	<string name="user_can_still_see_your_posts">Não verás as publicações dele e ele não poderá ver as tuas publicações.</string>
+	<string name="you_wont_see_user_mentions">Não verás publicações que mencionem este utilizador.</string>
+	<string name="user_can_mention_and_follow_you">Ele pode mencionar-te e seguir-te, mas não o verás.</string>
+	<string name="unmuted_user_x">Deixar de ocultar %s</string>
+	<string name="block_user_confirm_title">Bloquear utilizador?</string>
+	<string name="user_can_see_blocked">Ele pode ver que o bloqueaste.</string>
+	<string name="user_cant_see_each_other_posts">Não verás as publicações dele e ele não poderá ver as tuas publicações.</string>
+	<string name="user_cant_mention_or_follow_you">Ele não te pode mencionar nem seguir.</string>
+	<string name="unblocked_user_x">%s desbloqueado</string>
+	<string name="block_domain_confirm_title">Bloquear o domínio?</string>
+	<string name="do_block_server">Bloquear servidor</string>
+	<string name="block_user_x_instead">Em vez disso, bloquear %s</string>
+	<string name="users_cant_see_blocked">Não verás publicações ou notificações de utilizadores neste servidor.</string>
+	<string name="you_wont_see_server_posts">Não verás quaisquer publicações de utilizadores deste servidor.</string>
+	<string name="server_cant_mention_or_follow_you">Ninguém deste servidor pode seguir-te.</string>
+	<string name="server_can_interact_with_older">As pessoas deste servidor podem interagir com as tuas publicações antigas.</string>
+	<string name="unblocked_domain_x">Domínio %s desbloqueado</string>
+	<string name="handle_help_title">Em que consiste um identificador?</string>
+	<string name="handle_title">O identificador dele</string>
+	<string name="handle_username_explanation">O identificador único dele no seu servidor. É possível encontrar utilizadores com o mesmo nome de utilizador em servidores diferentes.</string>
+	<string name="handle_title_own">O teu identificador</string>
+	<string name="handle_username_explanation_own">O teu identificador único neste servidor. É possível encontrares utilizadores com o mesmo nome de utilizador em diferentes servidores.</string>
+	<string name="server">Servidor</string>
+	<string name="handle_server_explanation">A casa digital deste utilizador, onde se encontram todas as suas publicações.</string>
+	<string name="handle_explanation">Uma vez que os identificadores dizem quem é alguém e onde está, podes interagir com as pessoas através da rede social de &lt;a&gt;plataformas que suportam ActivityPub&lt;/a&gt;.</string>
+	<string name="handle_server_explanation_own">A tua casa digital, onde se encontram todas as tuas publicações. Não gostas deste? Muda de servidor a qualquer momento e leva também os teus seguidores.</string>
+	<string name="handle_explanation_own">Uma vez que o teu identificador indica quem és e onde estás, as pessoas podem interagir contigo através da rede social de &lt;a&gt;plataformas que suportam ActivityPub&lt;/a&gt;.</string>
+	<string name="what_is_activitypub_title">Qual é o ActivityPub?</string>
+	<string name="what_is_activitypub">O ActivityPub é como a linguagem que o Mastodon fala com outras redes sociais.\n\nPermite que te ligues e interajas com pessoas não só no Mastodon, mas também em diferentes aplicações sociais.</string>
+	<string name="handle_copied">Identificador copiado para área de transferência.</string>
+	<string name="qr_code">Código QR</string>
+	<string name="scan_qr_code">Ler código QR</string>
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
+	<string name="saved">Guardado</string>
+	<string name="image_saved">Imagem guardada.</string>
+	<string name="video_saved">Vídeo guardado.</string>
+	<string name="view_file">Ver</string>
+	<string name="share_sheet_preview_profile">%s no Mastodon</string>
+	<string name="share_sheet_preview_post">%1$s no Mastodon: “%2$s”</string>
+	<string name="copy_profile_link">Copiar hiperligação do perfil</string>
+	<string name="in_app_browser">Navegador interno</string>
+	<string name="system_browser">Navegador do sistema</string>
+	<string name="add_muted_word_short">Adicionar palavra</string>
+	<string name="tab_home">Início</string>
+	<string name="tab_search">Explorar</string>
+	<string name="tab_profile">Perfil</string>
+	<string name="pin_post">Afixar no perfil</string>
+	<string name="unpin_post">Desafixar do perfil</string>
+	<string name="post_pinned">A publicação foi afixada</string>
+	<string name="post_unpinned">A publicação foi desafixada</string>
 	<!-- %s is the username -->
+	<string name="enable_new_post_notifications">Notificar-me das publicações de %s</string>
+	<string name="disable_new_post_notifications">Parar de me notificar das publicações de %s</string>
+	<string name="new_post_notifications_enabled">Receberás notificações de novas publicações.</string>
+	<string name="new_post_notifications_disabled">Não receberás notificações de novas publicações.</string>
+	<string name="mute_conversation">Ocultar conversa</string>
+	<string name="unmute_conversation">Desocultar esta conversa</string>
+	<string name="visibility_unlisted">Público silencioso</string>
+	<string name="filtered_notifications">Notificações filtradas</string>
+	<string name="filter_notifications">Filtrar notificações de...</string>
+	<string name="notification_filter_following">Pessoas que não segues</string>
+	<string name="notification_filter_following_explanation">Até que os aproves manualmente</string>
+	<string name="notification_filter_followers">Pessoas que não te seguem</string>
+	<string name="notification_filter_followers_explanation">Incluindo pessoas que te seguem há menos de 3 dias</string>
+	<string name="notification_filter_new_accounts">Novas contas</string>
+	<string name="notification_filter_new_accounts_explanation">Criadas nos últimos 30 dias</string>
+	<string name="notification_filter_mentions">Menções privadas não solicitadas</string>
+	<string name="notification_filter_mentions_explanation">Filtrado, a não ser que seja em resposta à tua própria menção ou se seguires o remetente</string>
+	<string name="allow_notifications">Permitir notificações</string>
+	<string name="mute_notifications">Rejeitar pedido de notificação</string>
+	<plurals name="x_people_you_may_know">
+		<item quantity="one">%,d pessoa que talvez conheças</item>
+		<item quantity="other">%,d pessoas que talvez conheças</item>
+	</plurals>
+	<string name="notifications_from_user">Notificações de %s</string>
+	<string name="notifications_muted">As notificações de %s foram descartadas.</string>
+	<string name="notifications_allowed">%s agora aparecerá na tua lista de notificações.</string>
+	<string name="visibility_subtitle_public">Qualquer um dentro ou fora do Mastodon</string>
+	<string name="visibility_subtitle_unlisted">Menos notificações e recomendações do algoritmo</string>
+	<string name="visibility_subtitle_followers">Apenas os teus seguidores</string>
+	<string name="visibility_subtitle_private">Todos os mencionados na publicação</string>
+	<string name="view_boosts">Mostrar impulsos</string>
+	<string name="view_favorites">Ver favoritos</string>
+	<string name="undo_reblog">Desfazer impulso</string>
+	<string name="undo_favorite">Desfazer favorito</string>
+	<string name="could_not_reach_server">Não foi possível contactar o servidor. Verifique a sua ligação e tente novamente?</string>
+	<string name="connection_timed_out">O pedido expirou. Verifique a sua ligação e tente novamente?</string>
+	<string name="server_error">Algo correu mal ao falar com o seu servidor. Provavelmente a culpa não é sua. Tentar de novo?</string>
+	<string name="not_found">Pode ter sido eliminado ou talvez nunca tenha existido.</string>
+	<string name="no_servers_found">Não foram encontrados servidores para “%s”</string>
+	<string name="signup_username_taken">Este nome de utilizador está ocupado. Tenta um diferente ou &lt;a&gt;escolhe um servidor diferente&lt;/a&gt;.</string>
+	<string name="signup_email_invalid">Esse não parece ser um endereço e-mail válido.</string>
+	<string name="signup_email_taken">O e-mail já está a ser utilizado. &lt;a&gt;Esqueceu-se da sua palavra-passe&lt;/a&gt;?</string>
+	<plurals name="x_new_notifications">
+		<item quantity="one">%,d nova notificação</item>
+		<item quantity="other">%,d novas notificações</item>
+	</plurals>
+	<string name="dismiss">Descartar</string>
+	<string name="donation_once">Apenas uma vez</string>
+	<string name="donation_monthly">Mensalmente</string>
+	<string name="donation_yearly">Anualmente</string>
+	<string name="currency">Moeda</string>
+	<string name="donation_success_share">Passe a palavra</string>
+	<string name="donation_success_title">Obrigado pela sua contribuição!</string>
+	<string name="donation_success_subtitle">Em breve, receberá um e-mail a confirmar o seu donativo.</string>
+	<string name="donation_server_error">Lamentamos, mas ocorreu um erro e não foi possível processar o seu donativo.\n\nPor favor, tente novamente dentro de alguns minutos.</string>
+	<string name="settings_donate">Doar para o Mastodon</string>
+	<string name="settings_manage_donations">Gerir doações</string>
+	<string name="cant_load_image">Não foi possível carregar a imagem</string>
+	<string name="poll_see_results">Ver resultados</string>
+	<string name="poll_hide_results">Ocultar resultados</string>
+	<plurals name="x_attachments">
+		<item quantity="one">%d anexo</item>
+		<item quantity="other">%d anexos</item>
+	</plurals>
+	<plurals name="user_and_x_more_favorited">
+		<item quantity="one">%1$s e %2$,d outra pessoa marcaram como favorito:</item>
+		<item quantity="other">%1$s e %2$,d outras pessoas marcaram como favorito:</item>
+	</plurals>
+	<plurals name="user_and_x_more_boosted">
+		<item quantity="one">%1$s e %2$,d outra pessoa impulsionaram:</item>
+		<item quantity="other">%1$s e %2$,d outras pessoas impulsionaram:</item>
+	</plurals>
+	<plurals name="poll_ended_x_voters">
+		<item quantity="one">%1$s fez uma sondagem em que tu e %2$,d outro votaram</item>
+		<item quantity="other">%1$s fez uma sondagem em que tu e %2$,d outros votaram</item>
+	</plurals>
+	<string name="own_poll_ended">A tua sondagem terminou</string>
+	<string name="user_just_posted">%s acabou de publicar</string>
+	<string name="user_edited_post">%s editou uma publicação com a qual interagiste</string>
+	<string name="relationship_severance_account_suspension">Um administrador de %1$s suspendeu %2$s, o que significa que já não podes receber atualizações dele ou interagir com ele.</string>
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_domain_block">Um administrador de %1$s bloqueou %2$s, incluindo %3$,d dos teus seguidores e %4$s que segues.</string>
+	<plurals name="x_accounts">
+		<item quantity="one">%,d conta</item>
+		<item quantity="other">%,d contas</item>
+	</plurals>
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_user_domain_block">Bloqueaste %1$s, removendo %2$,d dos teus seguidores e %3$s que segues.</string>
+	<string name="relationship_severance_learn_more">Saber mais</string>
+	<string name="moderation_warning_action_none">A tua conta recebeu um aviso de moderação.</string>
+	<string name="moderation_warning_action_disable">A tua conta foi desativada.</string>
+	<string name="moderation_warning_action_mark_statuses_as_sensitive">Algumas das tuas publicações foram assinaladas como sensíveis.</string>
+	<string name="moderation_warning_action_delete_statuses">Algumas das tuas publicações foram removidas.</string>
+	<string name="moderation_warning_action_sensitive">As tuas publicações serão, a partir de agora, assinaladas como sensíveis.</string>
+	<string name="moderation_warning_action_silence">A tua conta foi limitada.</string>
+	<string name="moderation_warning_action_suspend">A tua conta foi suspensa.</string>
+	<string name="moderation_warning_learn_more">Saber mais</string>
+	<string name="text_show_more">Mais</string>
+	<string name="avatar_move_and_scale">Mover e escalar</string>
+	<string name="confirm_avatar_crop">Escolher</string>
+	<string name="settings_use_dynamic_colors">Usar cor dinâmica do sistema</string>
+	<string name="settings_accounts">Contas</string>
+	<string name="settings_add_account">Adicionar conta...</string>
+	<string name="settings_app_settings">Definições da aplicação</string>
+	<string name="account_settings">Definições da conta</string>
+	<string name="settings_about_this_server">Sobre esta instância</string>
+	<string name="manage_account">Gerir conta</string>
+	<string name="switch_to_this_account">Mudar para esta conta</string>
+	<string name="delete_account">Eliminar conta</string>
+	<string name="notification_type_status">Novas publicações</string>
+	<plurals name="user_and_x_more_followed">
+		<item quantity="one">%1$s e %2$,d outros começaram a seguir-te</item>
+		<item quantity="other">%1$s e %2$,d outro começaram a seguir-te</item>
+	</plurals>
+	<string name="familiar_followers_one">Seguido por %s</string>
+	<string name="familiar_followers_two">Seguido por %s e %s</string>
+	<string name="profile_saved_posts">Guardado</string>
+	<string name="profile_saved_posts_explanation">As publicações guardadas só são visíveis para ti.</string>
+	<string name="search_people">Pessoas</string>
+	<plurals name="familiar_followers_many">
+		<item quantity="one">Seguido por %1$s, %2$s e %3$,d outro</item>
+		<item quantity="other">Seguido por %1$s, %2$s e %3$,d outros</item>
+	</plurals>
+	<plurals name="x_followers_you_know">
+		<item quantity="one">%,d seguidor que conheces</item>
+		<item quantity="other">%,d seguidores que conheces</item>
+	</plurals>
 	<!-- appears when you're about to block a server -->
+	<plurals name="server_x_followers_will_be_removed">
+		<item quantity="one">%,d seguidor deste servidor será removido.</item>
+		<item quantity="other">%,d seguidores deste servidor serão removidos.</item>
+	</plurals>
 	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
+	<string name="server_x_followers_and_following_will_be_removed">Irás perder %1$s e %2$s.</string>
+	<plurals name="will_lose_x_followers">
+		<item quantity="one">%,d seguidor</item>
+		<item quantity="other">%,d seguidores</item>
+	</plurals>
+	<plurals name="will_lose_x_following">
+		<item quantity="one">%,d pessoa que segues</item>
+		<item quantity="other">%,d pessoas que segues</item>
+	</plurals>
 	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
+	<string name="server_x_following_will_be_removed">Irás perder %s.</string>
+	<string name="load_missing_posts_above">Carregar publicações de cima que faltam</string>
+	<string name="load_missing_posts_below">Carregar publicações de baixo que faltam</string>
 </resources>
