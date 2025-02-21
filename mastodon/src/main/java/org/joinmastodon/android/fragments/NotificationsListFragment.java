@@ -3,10 +3,12 @@ package org.joinmastodon.android.fragments;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.app.NotificationManager;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.os.Bundle;
+import android.service.notification.StatusBarNotification;
 import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -121,6 +123,16 @@ public class NotificationsListFragment extends BaseNotificationsListFragment{
 				refreshAfterLoading=true;
 			else
 				refresh();
+		}
+
+		NotificationManager nm=getActivity().getSystemService(NotificationManager.class);
+		StatusBarNotification[] activeNotifications=nm.getActiveNotifications();
+		String tagPrefix=accountID+"_";
+		for(StatusBarNotification sbn:activeNotifications){
+			String tag=sbn.getTag();
+			if(tag!=null && tag.startsWith(tagPrefix)){
+				nm.cancel(tag, sbn.getId());
+			}
 		}
 	}
 
