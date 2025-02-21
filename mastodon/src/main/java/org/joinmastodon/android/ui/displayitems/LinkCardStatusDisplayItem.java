@@ -56,7 +56,7 @@ public class LinkCardStatusDisplayItem extends StatusDisplayItem implements Link
 		@Override
 		public void onBind(LinkCardStatusDisplayItem item){
 			super.onBind(item);
-			itemView.setPaddingRelative(V.dp(item.fullWidth ? 16 : 64), itemView.getPaddingTop(), itemView.getPaddingEnd(), itemView.getPaddingBottom());
+			itemView.setPaddingRelative(V.dp(item.fullWidth ? 16 : 64), item.status.poll==null ? 0 : V.dp(12), itemView.getPaddingEnd(), itemView.getPaddingBottom());
 		}
 	}
 }
