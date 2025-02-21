@@ -440,6 +440,8 @@ public class SignupFragment extends ToolbarFragment{
 			return;
 		if(!password.getText().toString().equals(passwordConfirm.getText().toString())){
 			passwordConfirmWrap.setErrorState(getString(R.string.signup_passwords_dont_match));
+		}else if(password.length()<8){
+			passwordConfirmWrap.setErrorState(getString(R.string.signup_password_too_short));
 		}
 	}
 
