@@ -172,7 +172,7 @@ public abstract class StatusDisplayItem{
 		if(statusForContent.poll!=null){
 			buildPollItems(parentID, fragment, statusForContent.poll, status, contentItems);
 		}
-		if(statusForContent.card!=null && statusForContent.mediaAttachments.isEmpty() && TextUtils.isEmpty(statusForContent.spoilerText)){
+		if(statusForContent.card!=null && statusForContent.mediaAttachments.isEmpty() && TextUtils.isEmpty(statusForContent.spoilerText) && statusForContent.poll==null){
 			contentItems.add(new LinkCardStatusDisplayItem(parentID, fragment, statusForContent));
 		}
 		if(needAddCWItems){
