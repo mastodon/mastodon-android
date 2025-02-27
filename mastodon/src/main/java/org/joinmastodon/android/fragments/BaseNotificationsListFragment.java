@@ -5,9 +5,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 
 import org.joinmastodon.android.R;
+import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.NotificationType;
 import org.joinmastodon.android.model.Status;
+import org.joinmastodon.android.model.StatusPrivacy;
 import org.joinmastodon.android.model.viewmodel.NotificationViewModel;
 import org.joinmastodon.android.ui.displayitems.FollowRequestActionsDisplayItem;
 import org.joinmastodon.android.ui.displayitems.InlineStatusStatusDisplayItem;
@@ -30,7 +32,13 @@ public abstract class BaseNotificationsListFragment extends BaseStatusListFragme
 	protected List<StatusDisplayItem> buildDisplayItems(NotificationViewModel n){
 		StatusDisplayItem titleItem;
 		if(n.notification.type==NotificationType.MENTION){
-			titleItem=null;
+			boolean replyToSelf=AccountSessionManager.get(accountID).self.id.equals(n.status.inReplyToAccountId);
+			int icon=replyToSelf ? R.drawable.ic_reply_wght700_20px : R.drawable.ic_alternate_email_wght700fill1_20px;
+			if(n.status.visibility==StatusPrivacy.DIRECT){
+				titleItem=new ReblogOrReplyLineStatusDisplayItem(n.getID(), this, getString(replyToSelf ? R.string.private_reply : R.string.private_mention), null, icon);
+			}else{
+				titleItem=new ReblogOrReplyLineStatusDisplayItem(n.getID(), this, getString(replyToSelf ? R.string.post_header_reply : R.string.post_header_mention), null, icon);
+			}
 		}else if(n.notification.type==NotificationType.STATUS){
 			if(n.status!=null)
 				titleItem=new ReblogOrReplyLineStatusDisplayItem(n.getID(), this, getString(R.string.user_just_posted), n.status.account, R.drawable.ic_notifications_wght700fill1_20px);
@@ -43,12 +51,12 @@ public abstract class BaseNotificationsListFragment extends BaseStatusListFragme
 				titleItem=new NotificationHeaderStatusDisplayItem(n.getID(), this, n, accountID);
 		}
 		if(n.status!=null){
-			if(titleItem!=null && n.notification.type!=NotificationType.STATUS){
+			if(titleItem!=null && n.notification.type!=NotificationType.STATUS && n.notification.type!=NotificationType.MENTION){
 				InlineStatusStatusDisplayItem inlineItem=new InlineStatusStatusDisplayItem(n.getID(), this, n.status);
 				inlineItem.removeTopPadding=true;
 				return List.of(titleItem, inlineItem);
 			}else{
-				ArrayList<StatusDisplayItem> items=StatusDisplayItem.buildItems(this, n.status, accountID, n, knownAccounts, 0);
+				ArrayList<StatusDisplayItem> items=StatusDisplayItem.buildItems(this, n.status, accountID, n, knownAccounts, titleItem!=null ? StatusDisplayItem.FLAG_NO_IN_REPLY_TO : 0);
 				if(titleItem!=null)
 					items.add(0, titleItem);
 				return items;
