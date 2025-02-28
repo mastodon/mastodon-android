@@ -1011,30 +1011,32 @@ public class UiUtils{
 		Intent intent=new Intent(Intent.ACTION_SEND);
 		intent.setType("text/plain");
 		Account account;
-		String url;
+		String text;
 		String previewTitle;
 
 		if(obj instanceof Account acc){
 			account=acc;
-			url=acc.url;
+			text=acc.url;
 			previewTitle=context.getString(R.string.share_sheet_preview_profile, account.displayName);
 		}else if(obj instanceof Status st){
 			account=st.account;
-			url=st.url;
 			String postText=st.getStrippedText();
 			if(TextUtils.isEmpty(postText)){
 				previewTitle=context.getString(R.string.share_sheet_preview_profile, account.displayName);
+				text=st.url;
 			}else{
 				if(postText.length()>100)
 					postText=postText.substring(0, 100)+"...";
 				previewTitle=context.getString(R.string.share_sheet_preview_post, account.displayName, postText);
+				text=context.getString(R.string.share_sheet_post, account.displayName, postText, st.url);
 			}
 		}else{
 			throw new IllegalArgumentException("Unsupported share object type");
 		}
 
-		intent.putExtra(Intent.EXTRA_TEXT, url);
+		intent.putExtra(Intent.EXTRA_TEXT, text);
 		intent.putExtra(Intent.EXTRA_TITLE, previewTitle);
+		intent.putExtra(Intent.EXTRA_SUBJECT, previewTitle);
 		ImageCache cache=ImageCache.getInstance(context);
 		try{
 			File ava=cache.getFile(new UrlImageLoaderRequest(account.avatarStatic));
