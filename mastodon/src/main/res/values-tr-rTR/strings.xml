@@ -93,6 +93,7 @@
 	<string name="do_block">Engelle</string>
 	<string name="button_blocked">Engellendi</string>
 	<string name="action_vote">Oyla</string>
+	<string name="confirm">Onayla</string>
 	<string name="delete">Sil</string>
 	<string name="confirm_delete_title">Gönderiyi sil</string>
 	<string name="confirm_delete">Bu gönderiyi silmek istediğinizden emin misiniz?</string>
@@ -303,6 +304,7 @@
 	<string name="add_bookmark">Yer imlerine ekle</string>
 	<string name="remove_bookmark">Yer imini kaldır</string>
 	<string name="bookmarks">Yer imleri</string>
+	<string name="your_favorites">Favoriler</string>
 	<string name="login_title">Tekrar hoş geldiniz</string>
 	<string name="login_subtitle">Hesabınızı oluşturduğunuz sunucuya giriş yapın.</string>
 	<string name="server_url">Sunucu bağlantısı</string>
@@ -798,7 +800,25 @@ Ne kadar çok kişiyi takip ederseniz, o kadar aktif ve ilginç olacaktır.</str
 	<string name="moderation_warning_action_silence">Hesabınız sınırlandırıldı.</string>
 	<string name="moderation_warning_action_suspend">Hesabınız askıya alındı.</string>
 	<string name="moderation_warning_learn_more">Daha fazlası</string>
+	<string name="text_show_more">Daha</string>
+	<string name="avatar_move_and_scale">Taşı ve boyutlandır</string>
+	<string name="confirm_avatar_crop">Seç</string>
+	<string name="settings_use_dynamic_colors">Sistem dinamik rengi kullan</string>
+	<string name="settings_accounts">Hesaplar</string>
+	<string name="settings_add_account">Hesap ekle...</string>
+	<string name="settings_app_settings">Uygulama ayarları</string>
+	<string name="account_settings">Hesap ayarları</string>
+	<string name="settings_about_this_server">Bu sunucu hakkında</string>
+	<string name="manage_account">Hesabı yönetin</string>
+	<string name="switch_to_this_account">Bu hesaba geç</string>
+	<string name="delete_account">Hesabı sil</string>
+	<string name="notification_type_status">Yeni gönderiler</string>
+	<string name="profile_saved_posts">Kaydedildi</string>
+	<string name="search_people">Kullanıcılar</string>
 	<!-- appears when you're about to block a server -->
 	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
 	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
+	<string name="load_missing_posts_above">Yukarıdaki eksik gönderileri yükleyin</string>
+	<string name="load_missing_posts_below">Aşağıdaki eksik gönderileri yükleyin</string>
+	<string name="signup_password_too_short">Parola en az 8 karakter olmalıdır.</string>
 </resources>

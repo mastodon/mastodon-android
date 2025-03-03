@@ -8,11 +8,13 @@
 	<string name="ok">OK</string>
 	<string name="preparing_auth">Příprava na autentizaci…</string>
 	<string name="finishing_auth">Dokončení autentizace…</string>
-	<string name="user_boosted">%s boostnul(a)</string>
+	<string name="user_boosted">%s boostnul*a</string>
 	<string name="in_reply_to">v odpovědi na %s</string>
 	<string name="notifications">Upozornění</string>
 	<string name="user_followed_you">%s vás sleduje</string>
 	<string name="user_sent_follow_request">%s vám poslal(a) žádost o sledování</string>
+	<string name="user_favorited">%s si oblíbil*a:</string>
+	<string name="notification_boosted">%s boostnul*a:</string>
 	<string name="share_toot_title">Sdílet</string>
 	<string name="settings">Nastavení</string>
 	<string name="publish">Zveřejnit</string>
@@ -113,6 +115,7 @@
 	<string name="do_block">Blokovat</string>
 	<string name="button_blocked">Blokovaný</string>
 	<string name="action_vote">Hlasovat</string>
+	<string name="confirm">Potvrdit</string>
 	<string name="delete">Smazat</string>
 	<string name="confirm_delete_title">Smazat příspěvek</string>
 	<string name="confirm_delete">Opravdu chcete smazat tento příspěvek?</string>
@@ -339,6 +342,7 @@
 	<string name="add_bookmark">Přidat do záložek</string>
 	<string name="remove_bookmark">Odstranit záložku</string>
 	<string name="bookmarks">Záložky</string>
+	<string name="your_favorites">Oblíbené</string>
 	<string name="login_title">Vítej zpět</string>
 	<string name="login_subtitle">Přihlaste se pomocí serveru, kde jste vytvořili svůj účet.</string>
 	<string name="server_url">URL serveru</string>
@@ -825,9 +829,121 @@
 	<string name="donation_success_subtitle">Brzy byste měli obdržet e-mail potvrzující váš příspěvek.</string>
 	<string name="donation_server_error">Je nám líto, došlo k chybě a nepodařilo se nám zpracovat váš příspěvek.\n\nZkuste to prosím znovu za pár minut.</string>
 	<string name="settings_donate">Podpořit Mastodon</string>
+	<string name="settings_manage_donations">Spravovat dary</string>
+	<string name="cant_load_image">Obrázek nelze načíst</string>
+	<string name="poll_see_results">Zobrazit výsledky</string>
+	<string name="poll_hide_results">Schovat výsledky</string>
+	<plurals name="x_attachments">
+		<item quantity="one">%d příloha</item>
+		<item quantity="few">%d přílohy</item>
+		<item quantity="many">%d příloh</item>
+		<item quantity="other">%d příloh</item>
+	</plurals>
+	<plurals name="user_and_x_more_favorited">
+		<item quantity="one">%1$s a %2$,d další si oblíbil:</item>
+		<item quantity="few">%1$s a %2$,d další si oblíbili:</item>
+		<item quantity="many">%1$s a %2$,d dalších si oblíbilo:</item>
+		<item quantity="other">%1$s a %2$,d dalších si oblíbilo:</item>
+	</plurals>
+	<plurals name="user_and_x_more_boosted">
+		<item quantity="one">%1$s a %2$,d další boostnul:</item>
+		<item quantity="few">%1$s a %2$,d další boostnuli:</item>
+		<item quantity="many">%1$s a %2$,d dalších boostnulo:</item>
+		<item quantity="other">%1$s a %2$,d dalších boostnulo:</item>
+	</plurals>
+	<plurals name="poll_ended_x_voters">
+		<item quantity="one">%1$s spustil*a anketu, ve které jste vy a další %2$,d hlasoval</item>
+		<item quantity="few">%1$s spustil*a anketu, ve které jste vy a další %2$,d hlasovali</item>
+		<item quantity="many">%1$s spustil*a anketu, ve které jste vy a dalších %2$,d hlasovalo</item>
+		<item quantity="other">%1$s spustil*a anketu, ve které jste vy a dalších %2$,d hlasovalo</item>
+	</plurals>
+	<string name="own_poll_ended">Vaše anketa skončila</string>
+	<string name="user_just_posted">%s právě přidal příspěvek</string>
+	<string name="user_edited_post">%s upravil*a příspěvek, se kterým jste interagovali</string>
+	<string name="relationship_severance_account_suspension">Administrátor z %1$s pozastavil %2$s, což znamená, že již od nich nemůžete přijímat aktualizace nebo s nimi interagovat.</string>
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_domain_block">Administrátor z %1$s zablokoval %2$s, včetně %3$,d vašich sledujících a %4$s vámi sledovaných.</string>
+	<plurals name="x_accounts">
+		<item quantity="one">%,d účet</item>
+		<item quantity="few">%,d účty</item>
+		<item quantity="many">%,d účtů</item>
+		<item quantity="other">%,d účtů</item>
+	</plurals>
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_user_domain_block">Zablokovali jste %1$s, odstranili jste %2$,d vašich sledovatelů a %3$s sledovaných.</string>
+	<string name="relationship_severance_learn_more">Zjistit více</string>
+	<string name="moderation_warning_action_none">Váš účet obdržel varování od moderátorů.</string>
+	<string name="moderation_warning_action_disable">Váš účet byl zablokován.</string>
+	<string name="moderation_warning_action_mark_statuses_as_sensitive">Některé z vašich příspěvků byly označeny jako citlivé.</string>
+	<string name="moderation_warning_action_delete_statuses">Některé z vašich příspěvků byly odstraněny.</string>
+	<string name="moderation_warning_action_sensitive">Vaše příspěvky budou od nynějška označeny jako citlivé.</string>
+	<string name="moderation_warning_action_silence">Váš účet byl omezen.</string>
+	<string name="moderation_warning_action_suspend">Váš účet byl pozastaven.</string>
+	<string name="moderation_warning_learn_more">Zjistit více</string>
+	<string name="text_show_more">Více</string>
+	<string name="avatar_move_and_scale">Přesunout a změnit velikost</string>
+	<string name="confirm_avatar_crop">Zvolit</string>
+	<string name="settings_use_dynamic_colors">Použít dynamickou barvu systému</string>
+	<string name="settings_accounts">Účty</string>
+	<string name="settings_add_account">Přidat účet...</string>
+	<string name="settings_app_settings">Nastavení aplikace</string>
+	<string name="account_settings">Nastavení účtu</string>
+	<string name="settings_about_this_server">O tomto serveru</string>
+	<string name="manage_account">Spravovat účet</string>
+	<string name="switch_to_this_account">Přepnout na tento účet</string>
+	<string name="delete_account">Odebrat účet</string>
+	<string name="notification_type_status">Nové příspěvky</string>
+	<plurals name="user_and_x_more_followed">
+		<item quantity="one">%1$s a %2$,d další vás sleduje</item>
+		<item quantity="few">%1$s a %2$,d další vás sledují</item>
+		<item quantity="many">%1$s a %2$,d dalších vás sleduje</item>
+		<item quantity="other">%1$s a %2$,d dalších vás sleduje</item>
+	</plurals>
+	<string name="familiar_followers_one">Sledován*a %s</string>
+	<string name="familiar_followers_two">Sledován %s a %s</string>
+	<string name="profile_saved_posts">Uloženo</string>
+	<string name="profile_saved_posts_explanation">Uložené příspěvky jsou viditelné pouze pro vás.</string>
+	<string name="search_people">Lidé</string>
+	<plurals name="familiar_followers_many">
+		<item quantity="one">Sledován %1$s, %2$s, a %3$,d dalším</item>
+		<item quantity="few">Sledován %1$s, %2$s, a %3$,d dalšími</item>
+		<item quantity="many">Sledován %1$s, %2$s, a %3$,d dalšími</item>
+		<item quantity="other">Sledován %1$s, %2$s, a %3$,d dalšími</item>
+	</plurals>
+	<plurals name="x_followers_you_know">
+		<item quantity="one">%,d sledující, kterého*ou znáte</item>
+		<item quantity="few">%,d sledující, které znáte</item>
+		<item quantity="many">%,d sledujících, které znáte</item>
+		<item quantity="other">%,d sledujících, které znáte</item>
+	</plurals>
 	<!-- appears when you're about to block a server -->
+	<plurals name="server_x_followers_will_be_removed">
+		<item quantity="one">%,d sledující z tohoto serveru bude odstraněn.</item>
+		<item quantity="few">%,d sledující z tohoto serveru budou odstraněni.</item>
+		<item quantity="many">%,d sledujících z tohoto serveru bude odstraněno.</item>
+		<item quantity="other">%,d sledujících z tohoto serveru bude odstraněno.</item>
+	</plurals>
 	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
+	<string name="server_x_followers_and_following_will_be_removed">Ztratíte %1$s a %2$s.</string>
+	<plurals name="will_lose_x_followers">
+		<item quantity="one">%,d sledující</item>
+		<item quantity="few">%,d sledující</item>
+		<item quantity="many">%,d sledujících</item>
+		<item quantity="other">%,d sledujících</item>
+	</plurals>
+	<plurals name="will_lose_x_following">
+		<item quantity="one">%,d osoba, kterou sledujete</item>
+		<item quantity="few">%,d osoby, které sledujete</item>
+		<item quantity="many">%,d osob, které sledujete</item>
+		<item quantity="other">%,d osob, které sledujete</item>
+	</plurals>
 	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
+	<string name="server_x_following_will_be_removed">Ztratíte %s.</string>
+	<string name="load_missing_posts_above">Načíst chybějící příspěvky výše</string>
+	<string name="load_missing_posts_below">Načíst chybějící příspěvky níže</string>
+	<string name="signup_password_too_short">Heslo musí mít minimálně 8 znaků.</string>
+	<string name="private_reply">Soukromá odpověď</string>
+	<string name="private_mention">Soukromá zmínka</string>
+	<string name="post_header_reply">Odpověď</string>
+	<string name="post_header_mention">Zmínka</string>
 </resources>

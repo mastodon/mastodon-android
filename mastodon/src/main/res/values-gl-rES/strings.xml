@@ -9,9 +9,12 @@
 	<string name="preparing_auth">Preparándose para a autenticación…</string>
 	<string name="finishing_auth">Rematando coa autenticación…</string>
 	<string name="user_boosted">%s promoveu</string>
+	<string name="in_reply_to">como resposta a %s</string>
 	<string name="notifications">Notificacións</string>
 	<string name="user_followed_you">%s comezou a seguirte</string>
 	<string name="user_sent_follow_request">%s enviouche unha solicitude de seguimento</string>
+	<string name="user_favorited">%s favoreceu:</string>
+	<string name="notification_boosted">%s promoveu:</string>
 	<string name="share_toot_title">Compartir</string>
 	<string name="settings">Axustes</string>
 	<string name="publish">Publicar</string>
@@ -27,10 +30,13 @@
 		<item quantity="other">seguindo</item>
 	</plurals>
 	<string name="posts">Publicacións</string>
+	<string name="posts_and_replies">Publicacións e respostas</string>
 	<string name="media">Multimedia</string>
 	<string name="profile_about">Acerca de</string>
 	<string name="button_follow">Seguir</string>
 	<string name="button_following">Seguindo</string>
+	<string name="edit_profile">Editar perfil</string>
+	<string name="share_user">Compartir perfil en…</string>
 	<string name="mute_user">Acalar a %s</string>
 	<string name="unmute_user">Deixar de acalar a @%s</string>
 	<string name="block_user">Bloquear a %s</string>
@@ -87,6 +93,7 @@
 	<string name="do_block">Bloquear</string>
 	<string name="button_blocked">Bloqueado</string>
 	<string name="action_vote">Votar</string>
+	<string name="confirm">Confirmar</string>
 	<string name="delete">Eliminar</string>
 	<string name="confirm_delete_title">Eliminar publicación</string>
 	<string name="confirm_delete">Tes a certeza de querer eliminar esta publicación?</string>
@@ -135,13 +142,16 @@
 	<string name="report_personal_subtitle">Aquí tes unhas opcións para controlar o que ves en Mastodon:</string>
 	<string name="back">Volver</string>
 	<string name="search_communities">Nome do servidor ou URL</string>
+	<string name="instance_rules_title">Regras do servidor</string>
 	<string name="instance_rules_subtitle">Se continúas, aceptas seguir as regras fixadas polas moderadoras de %s.</string>
+	<string name="signup_title">Crear conta</string>
 	<string name="display_name">Nome</string>
 	<string name="username">Nome de usuaria</string>
 	<string name="email">Email</string>
 	<string name="password">Contrasinal</string>
 	<string name="confirm_password">Confirmar contrasinal</string>
 	<string name="category_general">Xeral</string>
+	<string name="confirm_email_title">Mira na caixa de correo</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">Preme na ligazón que che enviamos para verificar a %s. Agardamos por ti.</string>
 	<string name="confirm_email_didnt_get">Non recibiches unha ligazón?</string>
@@ -153,6 +163,8 @@
 	<string name="save">Gardar</string>
 	<string name="add_alt_text">Engadir texto descritivo</string>
 	<string name="visibility_public">Público</string>
+	<string name="visibility_followers_only">Seguidoras</string>
+	<string name="visibility_private">Persoas mencionadas</string>
 	<string name="recent_searches">Recentes</string>
 	<string name="notification_type_follow">Novas seguidoras</string>
 	<string name="notification_type_favorite">Favoritas</string>
@@ -173,6 +185,7 @@
 	<string name="theme_dark">Escuro</string>
 	<string name="settings_behavior">Comportamento</string>
 	<string name="settings_gif">Reproducir avatares e emoji animados</string>
+	<string name="settings_custom_tabs">Abrir ligazóns en</string>
 	<string name="settings_notifications">Notificacións</string>
 	<string name="settings_contribute">Colaborar con Mastodon</string>
 	<string name="settings_tos">Termos do servizo</string>
@@ -201,6 +214,8 @@
 	<string name="followed_user">Estás a seguir a %s</string>
 	<string name="following_user_requested">Solicitaches seguir a %s</string>
 	<string name="open_in_browser">Abrir nun navegador</string>
+	<string name="hide_boosts_from_user">Agochar promocións</string>
+	<string name="show_boosts_from_user">Mostrar promocións</string>
 	<string name="signup_reason">Por qué queres unirte?</string>
 	<string name="signup_reason_note">Esto axudaranos a revisar a tua solicitude.</string>
 	<string name="clear">Limpar</string>
@@ -214,12 +229,14 @@
 	<string name="error_saving_file">Produciuse un erro ao gardar o ficheiro</string>
 	<string name="downloading">Descargando…</string>
 	<string name="no_app_to_handle_action">Non hai apps para esta acción</string>
+	<string name="local_timeline">O que acontece</string>
 	<string name="trending_posts_info_banner">Estas son as publicacións en voga en Mastodon.</string>
 	<string name="trending_links_info_banner">Estas son as novas historias das que se está a falar en Mastodon.</string>
 	<!-- %s is the server domain -->
 	<string name="local_timeline_info_banner">Estas son as publicacións das usuarias do teu servidor (%s).</string>
 	<string name="recommended_accounts_info_banner">Poderían interesarche estas contas en función doutras que segues.</string>
 	<string name="see_new_posts">Novas publicacións</string>
+	<string name="follow_back">Seguir tamén</string>
 	<string name="button_follow_pending">Pendente</string>
 	<string name="follows_you">Séguete</string>
 	<string name="manually_approves_followers">Aprobar manualmente os seguimentos</string>
@@ -278,11 +295,14 @@
 	<!-- %s is file size -->
 	<string name="download_update">Descargar (%s)</string>
 	<string name="install_update">Instalar</string>
+	<string name="privacy_policy_title">A túa privacidade</string>
 	<string name="privacy_policy_subtitle">Aínda que a aplicación de Mastodon non recolle ningún dato, o servidor no que te rexistres pode ter unha política diferente.\n\nSe non estás de acordo coa política de %s, podes volver atrás e elixir outro servidor.</string>
+	<string name="i_agree">Acepto</string>
 	<string name="empty_list">A lista está baleira</string>
 	<string name="instance_signup_closed">O servidor non acepta novos rexistros.</string>
 	<string name="text_copied">Copiado ao portapapeis</string>
 	<string name="add_bookmark">Marcar</string>
+	<string name="remove_bookmark">Eliminar marcador</string>
 	<string name="bookmarks">Marcadores</string>
 	<string name="login_subtitle">Accede co servidor onde creaches a conta.</string>
 	<string name="server_url">URL do servidor</string>

@@ -78,6 +78,7 @@
 	<string name="do_block">Sewḥel</string>
 	<string name="button_blocked">Yettusewḥel</string>
 	<string name="action_vote">Fren</string>
+	<string name="confirm">Sentem</string>
 	<string name="delete">Kkes</string>
 	<string name="confirm_delete">Tebɣiḍ s tidet ad tekkseḍ tasuffeɣt-agi?</string>
 	<string name="deleting">Tukksa…</string>
@@ -211,6 +212,13 @@
 	<string name="learn_more">Issin ugar</string>
 	<string name="welcome_to_mastodon">Ansuf ɣer Mastodon</string>
 	<!-- %s is formatted file size ("467 KB image") -->
+	<string name="attachment_type_image">Tugna</string>
+	<string name="attachment_type_video">Tavidyutt</string>
+	<string name="attachment_type_audio">Ameslaw</string>
+	<string name="attachment_type_gif">GIF</string>
+	<string name="attachment_type_unknown">Afaylu</string>
+	<string name="compose_poll_single_choice">Fren yiwen</string>
+	<string name="help">Tallelt</string>
 	<string name="language_detecting">Tifinagh tawurmant n tutlayt</string>
 	<!-- %s is the server domain -->
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
@@ -226,6 +234,7 @@
 	<string name="server_administrator">Anedbal</string>
 	<string name="count_one">Yiwen</string>
 	<string name="count_two">Sin</string>
+	<string name="alt_text_reminder_post_anyway">Suffeɣ</string>
 	<!-- %s is the username -->
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<string name="settings_filter_title">Azwel</string>
@@ -234,23 +243,50 @@
 	<string name="select_all">Fren-iten akk</string>
 	<string name="app_update_version">Lqem %s</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
+	<string name="search_mastodon">Nadi deg Mastodon</string>
 	<!-- Shown in the post header. Please keep it short -->
 	<!-- %s is the name of the post language -->
 	<!-- %1$s is the language, %2$s is the name of the translation service -->
+	<string name="timeline_following">Agejdan</string>
+	<string name="lists">Tibdarin</string>
 	<!-- Screen reader description for the menu on the home timeline screen -->
+	<string name="edit_list">Ẓreg tabdart</string>
+	<string name="delete_list">Kkes tabdart</string>
 	<!-- %s is the name of the list -->
+	<string name="list_replies_no_one">Ula yiwen</string>
 	<string name="remove">Kkes</string>
+	<string name="add_user_to_list_title">Rnu ɣer tebdart</string>
 	<!-- %s is a username -->
+	<string name="create_list">Snulfu-d tabdart</string>
 	<string name="create">Snulfu</string>
 	<!-- %s is a time interval ("5 months") -->
+	<string name="article_by_author">S-ɣur %s</string>
 	<string name="server">Aqeddac</string>
+	<string name="qr_code">Tangalt QR</string>
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
+	<string name="saved">Yettwasekles</string>
+	<string name="view_file">Wali</string>
 	<string name="add_muted_word_short">Rnu awal</string>
+	<string name="tab_home">Agejdan</string>
+	<string name="tab_search">Snirem</string>
 	<string name="tab_profile">Amaɣnu</string>
 	<string name="pin_post">Senteḍ-itt ɣef umaɣnu</string>
 	<!-- %s is the username -->
+	<string name="donation_once">Tikkelt kan</string>
+	<string name="poll_see_results">Wali igmaḍ</string>
+	<string name="poll_hide_results">Ffer igmaḍ</string>
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_learn_more">Issin ugar</string>
+	<string name="moderation_warning_learn_more">Issin ugar</string>
+	<string name="text_show_more">Ugar</string>
+	<string name="confirm_avatar_crop">Fren</string>
+	<string name="settings_accounts">Imiḍanen</string>
+	<string name="settings_add_account">Rnu amiḍan...</string>
+	<string name="settings_app_settings">Iɣewwaṛen n wesnas</string>
+	<string name="account_settings">Iɣewwaṛen n umiḍan</string>
+	<string name="settings_about_this_server">Ɣef uqeddac-a</string>
+	<string name="delete_account">Kkes amiḍan</string>
 	<!-- appears when you're about to block a server -->
 	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
 	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
