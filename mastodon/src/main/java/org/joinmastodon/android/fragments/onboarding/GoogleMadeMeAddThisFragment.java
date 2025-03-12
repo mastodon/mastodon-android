@@ -22,6 +22,7 @@ import org.parceler.Parcels;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
 
@@ -48,7 +49,7 @@ public class GoogleMadeMeAddThisFragment extends ToolbarFragment{
 	private View buttonBar;
 	private Instance instance;
 	private ArrayList<Item> items=new ArrayList<>();
-	private Call currentRequest;
+	private final List<Call> currentRequests=new ArrayList<>();
 	private ItemsAdapter itemsAdapter;
 	private ElevationOnScrollListener onScrollListener;
 
@@ -77,9 +78,10 @@ public class GoogleMadeMeAddThisFragment extends ToolbarFragment{
 	@Override
 	public void onDestroy(){
 		super.onDestroy();
-		if(currentRequest!=null){
-			currentRequest.cancel();
-			currentRequest=null;
+		synchronized(currentRequests){
+			for(Call req:currentRequests){
+				MastodonAPIController.runInBackground(req::cancel);
+			}
 		}
 	}
 
@@ -154,16 +156,23 @@ public class GoogleMadeMeAddThisFragment extends ToolbarFragment{
 				.url(url)
 				.addHeader("Accept-Language", Locale.getDefault().toLanguageTag())
 				.build();
-		currentRequest=MastodonAPIController.getHttpClient().newCall(req);
-		currentRequest.enqueue(new Callback(){
+		Call call=MastodonAPIController.getHttpClient().newCall(req);
+		synchronized(currentRequests){
+			currentRequests.add(call);
+		}
+		call.enqueue(new Callback(){
 			@Override
 			public void onFailure(@NonNull Call call, @NonNull IOException e){
-				currentRequest=null;
+				synchronized(currentRequests){
+					currentRequests.remove(call);
+				}
 			}
 
 			@Override
 			public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException{
-				currentRequest=null;
+				synchronized(currentRequests){
+					currentRequests.remove(call);
+				}
 				try(ResponseBody body=response.body()){
 					if(!response.isSuccessful())
 						return;
