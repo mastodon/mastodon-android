@@ -68,7 +68,10 @@ public class GoogleMadeMeAddThisFragment extends ToolbarFragment{
 		instance=Parcels.unwrap(getArguments().getParcelable("instance"));
 
 		items.add(new Item("Mastodon for Android Privacy Policy", getString(R.string.privacy_policy_explanation), "joinmastodon.org", "https://joinmastodon.org/android/privacy", "https://joinmastodon.org/favicon-32x32.png"));
-		loadServerPrivacyPolicy();
+		loadServerDocument(instance.configuration.urls!=null && instance.configuration.urls.privacyPolicy!=null ? instance.configuration.urls.privacyPolicy : ("https://"+instance.getDomain()+"/terms"), 1);
+		if(instance.configuration.urls!=null && instance.configuration.urls.termsOfService!=null){
+			loadServerDocument(instance.configuration.urls.termsOfService, 2);
+		}
 	}
 
 	@Override
@@ -146,9 +149,9 @@ public class GoogleMadeMeAddThisFragment extends ToolbarFragment{
 		super.onApplyWindowInsets(UiUtils.applyBottomInsetToFixedView(buttonBar, insets));
 	}
 
-	private void loadServerPrivacyPolicy(){
+	private void loadServerDocument(String url, int orderInList){
 		Request req=new Request.Builder()
-				.url("https://"+instance.getDomain()+"/terms")
+				.url(url)
 				.addHeader("Accept-Language", Locale.getDefault().toLanguageTag())
 				.build();
 		currentRequest=MastodonAPIController.getHttpClient().newCall(req);
@@ -169,8 +172,9 @@ public class GoogleMadeMeAddThisFragment extends ToolbarFragment{
 					Activity activity=getActivity();
 					if(activity!=null){
 						activity.runOnUiThread(()->{
-							items.add(item);
-							itemsAdapter.notifyItemInserted(items.size()-1);
+							int index=Math.min(orderInList, items.size());
+							items.add(index, item);
+							itemsAdapter.notifyItemInserted(index);
 						});
 					}
 				}

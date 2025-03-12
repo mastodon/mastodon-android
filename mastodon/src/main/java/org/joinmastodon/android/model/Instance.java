@@ -90,6 +90,7 @@ public abstract class Instance extends BaseModel{
 		public StatusesConfiguration statuses;
 		public MediaAttachmentsConfiguration mediaAttachments;
 		public PollsConfiguration polls;
+		public URLsConfiguration urls;
 	}
 
 	@Parcel
@@ -115,5 +116,14 @@ public abstract class Instance extends BaseModel{
 		public int maxCharactersPerOption;
 		public int minExpiration;
 		public int maxExpiration;
+	}
+
+	@Parcel
+	public static class URLsConfiguration{
+		public String streaming;
+		public String status;
+		public String about;
+		public String privacyPolicy;
+		public String termsOfService;
 	}
 }
