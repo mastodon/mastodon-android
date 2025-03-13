@@ -94,6 +94,7 @@ public class ReportReasonChoiceFragment extends StatusListFragment{
 
 		items.add(new ChoiceItem(getString(R.string.report_reason_personal), getString(R.string.report_reason_personal_subtitle), ReportReason.PERSONAL.name()));
 		items.add(new ChoiceItem(getString(R.string.report_reason_spam), getString(R.string.report_reason_spam_subtitle), ReportReason.SPAM.name()));
+		items.add(new ChoiceItem(getString(R.string.report_reason_legal), getString(R.string.report_reason_legal_subtitle), ReportReason.LEGAL.name()));
 		Instance inst=AccountSessionManager.getInstance().getInstanceInfo(AccountSessionManager.getInstance().getAccount(accountID).domain);
 		if(inst!=null && inst.rules!=null && !inst.rules.isEmpty()){
 			items.add(new ChoiceItem(getString(R.string.report_reason_violation), getString(R.string.report_reason_violation_subtitle), ReportReason.VIOLATION.name()));
@@ -115,7 +116,7 @@ public class ReportReasonChoiceFragment extends StatusListFragment{
 				Nav.go(getActivity(), ReportDoneFragment.class, args);
 				content.postDelayed(()->Nav.finish(this), 500);
 			}
-			case SPAM, OTHER -> Nav.go(getActivity(), ReportAddPostsChoiceFragment.class, args);
+			case SPAM, LEGAL, OTHER -> Nav.go(getActivity(), ReportAddPostsChoiceFragment.class, args);
 			case VIOLATION -> Nav.go(getActivity(), ReportRuleChoiceFragment.class, args);
 		}
 	}

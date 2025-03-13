@@ -6,6 +6,8 @@ public enum ReportReason{
 	PERSONAL,
 	@SerializedName("spam")
 	SPAM,
+	@SerializedName("legal")
+	LEGAL,
 	@SerializedName("violation")
 	VIOLATION,
 	@SerializedName("other")
