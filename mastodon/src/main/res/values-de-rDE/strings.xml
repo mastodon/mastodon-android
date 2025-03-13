@@ -93,6 +93,7 @@
 	<string name="do_block">Sperren</string>
 	<string name="button_blocked">Blockiert</string>
 	<string name="action_vote">Abstimmen</string>
+	<string name="confirm">Bestätigen</string>
 	<string name="delete">Löschen</string>
 	<string name="confirm_delete_title">Beitrag löschen</string>
 	<string name="confirm_delete">Möchtest du diesen Beitrag wirklich löschen?</string>
@@ -379,7 +380,7 @@
 	<string name="alt_text">Alt-Text</string>
 	<string name="help">Hilfe</string>
 	<string name="what_is_alt_text">Was ist Alt-Text?</string>
-	<string name="alt_text_help">Alt-Text bietet Bildbeschreibungen für Personen mit einer Sehbehinderung, einer schlechten Internetverbindung und für alle, die zusätzlichen Kontext möchten.\n\nDu kannst die Zugänglichkeit und die Verständlichkeit für alle verbessern, indem du eine klare, genaue und objektive Bildbeschreibung hinzufügst.\n\n<ul><li>Erfasse wichtige Elemente</li>\n<li>Fasse Text in Bildern zusammen</li>\n<li>Verwende einen korrekten Satzbau</li>\n<li>Vermeide unwichtige Informationen</li>\n<li>Konzentriere dich bei komplexen Darstellungen (z. B. Diagramme oder Karten) auf Trends und wichtige Erkenntnisse</li></ul></string>
+	<string name="alt_text_help">Alt-Text bietet Bildbeschreibungen für Personen mit einer Sehschwäche, einer schlechten Internetverbindung und für alle, die zusätzlichen Kontext möchten.\n\nDu kannst die Zugänglichkeit und die Verständlichkeit für alle verbessern, indem du eine klare, genaue und objektive Bildbeschreibung hinzufügst.\n\n<ul><li>Erfasse wichtige Elemente</li>\n<li>Fasse Text in Bildern zusammen</li>\n<li>Verwende einen korrekten Satzbau</li>\n<li>Vermeide unwichtige Informationen</li>\n<li>Konzentriere dich bei komplexen Darstellungen (z. B. Diagramme oder Karten) auf Trends und wichtige Erkenntnisse</li></ul></string>
 	<string name="edit_post">Beitrag bearbeiten</string>
 	<string name="no_verified_link">Kein bestätigter Link</string>
 	<string name="compose_autocomplete_emoji_empty">Emoji durchsuchen</string>
@@ -847,4 +848,9 @@
 	<string name="server_x_following_will_be_removed">Du wirst %s entfolgen.</string>
 	<string name="load_missing_posts_above">Fehlende Beiträge hierüber laden</string>
 	<string name="load_missing_posts_below">Fehlende Beiträge hierunter laden</string>
+	<string name="signup_password_too_short">Das Passwort muss mindestens 8 Zeichen lang sein.</string>
+	<string name="private_reply">Private Antwort</string>
+	<string name="private_mention">Private Erwähnung</string>
+	<string name="post_header_reply">Antwort</string>
+	<string name="post_header_mention">Erwähnung</string>
 </resources>

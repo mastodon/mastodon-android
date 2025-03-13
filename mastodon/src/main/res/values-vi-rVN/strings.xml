@@ -11,7 +11,7 @@
 	<string name="user_boosted">%s đăng lại</string>
 	<string name="in_reply_to">trả lời đến %s</string>
 	<string name="notifications">Thông báo</string>
-	<string name="user_followed_you">%s theo dõi bạn</string>
+	<string name="user_followed_you">%s đã theo dõi bạn</string>
 	<string name="user_sent_follow_request">%s yêu cầu theo dõi bạn</string>
 	<string name="user_favorited">%s đã thích:</string>
 	<string name="notification_boosted">%s đăng lại:</string>
@@ -82,6 +82,7 @@
 	<string name="do_block">Chặn</string>
 	<string name="button_blocked">Đã chặn</string>
 	<string name="action_vote">Bình chọn</string>
+	<string name="confirm">Xác nhận</string>
 	<string name="delete">Xóa</string>
 	<string name="confirm_delete_title">Xóa tút</string>
 	<string name="confirm_delete">Bạn có chắc muốn xóa tút này không?</string>
@@ -353,7 +354,7 @@
 	<string name="add_poll_option">Thêm tùy chọn</string>
 	<string name="poll_length">Thời hạn bình chọn</string>
 	<string name="poll_style">Loại</string>
-	<string name="compose_poll_single_choice">Chọn một</string>
+	<string name="compose_poll_single_choice">Một lựa chọn</string>
 	<string name="compose_poll_multiple_choice">Nhiều lựa chọn</string>
 	<string name="delete_poll_option">Xóa lựa chọn</string>
 	<string name="poll_style_title">Loại bình chọn</string>
@@ -505,12 +506,12 @@
 	<string name="downloading_update">Đang tải (%d%%)</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
 	<string name="post_matches_filter_x">Khớp bộ lọc “%s”</string>
-	<string name="search_mastodon">Tìm kiếm Mastodon</string>
+	<string name="search_mastodon">Tìm kiếm trên Mastodon</string>
 	<string name="clear_all">Xóa tất cả</string>
 	<string name="search_open_url">Mở liên kết trong Mastodon</string>
-	<string name="posts_matching_hashtag">Tút có chứa “%s”</string>
-	<string name="search_go_to_account">Đi đến %s</string>
-	<string name="posts_matching_string">Tút có chứa “%s”</string>
+	<string name="posts_matching_hashtag">Hashtag “%s”</string>
+	<string name="search_go_to_account">Xem trang %s</string>
+	<string name="posts_matching_string">Tút nhắc đến “%s”</string>
 	<string name="accounts_matching_string">Người tên “%s”</string>
 	<!-- Shown in the post header. Please keep it short -->
 	<string name="time_seconds_ago_short">%ds</string>
@@ -637,9 +638,9 @@ Bạn càng theo dõi nhiều người thì nó sẽ càng sôi động và thú
 	<string name="unblocked_domain_x">Bỏ chặn máy chủ %s</string>
 	<string name="handle_help_title">Địa chỉ Mastodon là gì?</string>
 	<string name="handle_title">Địa chỉ Mastodon của người này</string>
-	<string name="handle_username_explanation">Danh tính duy nhất của một người trên máy chủ của họ. Có thể có tên người dùng giống nhau trên các máy chủ khác nhau.</string>
+	<string name="handle_username_explanation">Độc nhất trên máy chủ này. Những máy chủ khác có thể cũng có tên người dùng giống vậy.</string>
 	<string name="handle_title_own">Địa chỉ Mastodon của bạn</string>
-	<string name="handle_username_explanation_own">Danh tính duy nhất của bạn trên máy chủ này. Có thể có tên người dùng giống bạn trên các máy chủ khác.</string>
+	<string name="handle_username_explanation_own">Chỉ riêng bạn trên máy chủ này. Những máy chủ khác có thể cũng có tên người dùng giống vậy.</string>
 	<string name="server">Máy chủ</string>
 	<string name="handle_server_explanation">Nơi lưu trữ tút của người này.</string>
 	<string name="handle_explanation">Vì địa chỉ Mastodon cho biết một người là ai và họ ở đâu, nên bạn có thể tương tác với mọi người trên các nền tảng có &lt;a&gt;hỗ trợ ActivityPub&lt;/a&gt;.</string>
@@ -677,15 +678,15 @@ Bạn càng theo dõi nhiều người thì nó sẽ càng sôi động và thú
 	<string name="unmute_conversation">Tiếp tục quan tâm</string>
 	<string name="visibility_unlisted">Hạn chế</string>
 	<string name="filtered_notifications">Thông báo đã lọc</string>
-	<string name="filter_notifications">Lọc ra thông báo từ...</string>
+	<string name="filter_notifications">Quản lý thông báo từ…</string>
 	<string name="notification_filter_following">Những người bạn không theo dõi</string>
 	<string name="notification_filter_following_explanation">Cho tới khi bạn duyệt họ</string>
 	<string name="notification_filter_followers">Những người không theo dõi bạn</string>
-	<string name="notification_filter_followers_explanation">Bao gồm những người theo dõi bạn ít hơn 3 ngày</string>
+	<string name="notification_filter_followers_explanation">Bao gồm những người đã theo dõi bạn ít hơn 3 ngày</string>
 	<string name="notification_filter_new_accounts">Tài khoản mới</string>
-	<string name="notification_filter_new_accounts_explanation">Tạo trong vòng 30 ngày gần đây</string>
-	<string name="notification_filter_mentions">Lượt nhắc riêng tư không được yêu cầu</string>
-	<string name="notification_filter_mentions_explanation">Được lọc trừ khi nó trả lời lượt nhắc từ bạn hoặc nếu bạn theo dõi người gửi</string>
+	<string name="notification_filter_new_accounts_explanation">Đã tạo trong vòng 30 ngày</string>
+	<string name="notification_filter_mentions">Lượt nhắn riêng không mong muốn</string>
+	<string name="notification_filter_mentions_explanation">Trừ khi nó trả lời lượt nhắc từ bạn hoặc nếu bạn có theo dõi người gửi</string>
 	<string name="allow_notifications">Cho phép gửi thông báo</string>
 	<string name="mute_notifications">Bỏ qua yêu cầu thông báo</string>
 	<plurals name="x_people_you_may_know">
@@ -764,7 +765,7 @@ Bạn càng theo dõi nhiều người thì nó sẽ càng sôi động và thú
 	<string name="confirm_avatar_crop">Chọn</string>
 	<string name="settings_use_dynamic_colors">Giống hệ thống</string>
 	<string name="settings_accounts">Tài khoản</string>
-	<string name="settings_add_account">Thêm tài khoản...</string>
+	<string name="settings_add_account">Thêm tài khoản</string>
 	<string name="settings_app_settings">Cài đặt ứng dụng</string>
 	<string name="account_settings">Cài đặt tài khoản</string>
 	<string name="settings_about_this_server">Về máy chủ này</string>
@@ -777,7 +778,7 @@ Bạn càng theo dõi nhiều người thì nó sẽ càng sôi động và thú
 	</plurals>
 	<string name="familiar_followers_one">Theo dõi bởi %s</string>
 	<string name="familiar_followers_two">Theo dõi bởi %s và %s</string>
-	<string name="profile_saved_posts">Những tút đã lưu</string>
+	<string name="profile_saved_posts">Đã lưu</string>
 	<string name="profile_saved_posts_explanation">Những tút bạn lưu chỉ hiển thị với bạn.</string>
 	<string name="search_people">Người</string>
 	<plurals name="familiar_followers_many">
@@ -802,4 +803,9 @@ Bạn càng theo dõi nhiều người thì nó sẽ càng sôi động và thú
 	<string name="server_x_following_will_be_removed">Bạn sẽ mất %s.</string>
 	<string name="load_missing_posts_above">Tải tút chưa đọc ở trên</string>
 	<string name="load_missing_posts_below">Tải tút chưa đọc ở dưới</string>
+	<string name="signup_password_too_short">Mật khẩu tối thiểu 8 ký tự.</string>
+	<string name="private_reply">Trả lời riêng</string>
+	<string name="private_mention">Nhắn riêng</string>
+	<string name="post_header_reply">Trả lời</string>
+	<string name="post_header_mention">Lượt nhắc</string>
 </resources>

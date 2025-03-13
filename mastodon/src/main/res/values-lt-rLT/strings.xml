@@ -81,28 +81,28 @@
 		<item quantity="other">%d dienų</item>
 	</plurals>
 	<plurals name="x_seconds_left">
-		<item quantity="one">liko %d sekundė</item>
-		<item quantity="few">liko %d sekundės</item>
-		<item quantity="many">liko %d sekundes</item>
-		<item quantity="other">liko %d sekundžių</item>
+		<item quantity="one">Liko %d sekundė</item>
+		<item quantity="few">Liko %d sekundės</item>
+		<item quantity="many">Liko %d sekundes</item>
+		<item quantity="other">Liko %d sekundžių</item>
 	</plurals>
 	<plurals name="x_minutes_left">
-		<item quantity="one">liko %d minutė</item>
-		<item quantity="few">liko %d minutės</item>
-		<item quantity="many">liko %d minutes</item>
-		<item quantity="other">liko %d minučių</item>
+		<item quantity="one">Liko %d minutė</item>
+		<item quantity="few">Liko %d minutės</item>
+		<item quantity="many">Liko %d minutes</item>
+		<item quantity="other">Liko %d minučių</item>
 	</plurals>
 	<plurals name="x_hours_left">
-		<item quantity="one">liko %d valanda</item>
-		<item quantity="few">liko %d valandos</item>
-		<item quantity="many">liko %d valandos</item>
-		<item quantity="other">liko %d valandų</item>
+		<item quantity="one">Liko %d valanda</item>
+		<item quantity="few">Liko %d valandos</item>
+		<item quantity="many">Liko %d valandos</item>
+		<item quantity="other">Liko %d valandų</item>
 	</plurals>
 	<plurals name="x_days_left">
-		<item quantity="one">liko %d diena</item>
-		<item quantity="few">liko %d dienos</item>
-		<item quantity="many">liko %d dienos</item>
-		<item quantity="other">liko %d dienų</item>
+		<item quantity="one">Liko %d diena</item>
+		<item quantity="few">Liko %d dienos</item>
+		<item quantity="many">Liko %d dienos</item>
+		<item quantity="other">Liko %d dienų</item>
 	</plurals>
 	<plurals name="x_votes">
 		<item quantity="one">%,d balsas</item>
@@ -115,15 +115,16 @@
 	<string name="do_block">Blokuoti</string>
 	<string name="button_blocked">Užblokuota</string>
 	<string name="action_vote">Balsuoti</string>
+	<string name="confirm">Patvirtinti</string>
 	<string name="delete">Ištrinti</string>
 	<string name="confirm_delete_title">Ištrinti įrašą</string>
-	<string name="confirm_delete">Ar tikrai nori ištrinti šį įrašą?</string>
+	<string name="confirm_delete">Ar tikrai norite ištrinti šį įrašą?</string>
 	<string name="deleting">Ištrinama…</string>
 	<string name="notification_channel_audio_player">Garso įrašo perklausa</string>
 	<string name="play">Leisti</string>
 	<string name="pause">Pristabdyti</string>
 	<string name="log_out">Atsijungti</string>
-	<string name="add_account">Pridėti paskyrą</string>
+	<string name="add_account">Įtraukti paskyrą</string>
 	<string name="search_hint">Paieška</string>
 	<string name="hashtags">Saitažodžiai</string>
 	<string name="news">Naujienos</string>
@@ -186,7 +187,7 @@
 	<string name="save">Išsaugoti</string>
 	<string name="add_alt_text">Pridėti alternatyvųjį tekstą</string>
 	<string name="visibility_public">Vieša</string>
-	<string name="visibility_followers_only">Sekėjams</string>
+	<string name="visibility_followers_only">Sekėjai</string>
 	<string name="visibility_private">Konkretiems asmenims</string>
 	<string name="recent_searches">Naujausiai</string>
 	<string name="notification_type_follow">Nauji sekėjai</string>
@@ -217,7 +218,7 @@
 	<string name="settings_privacy_policy">Privatumo politika</string>
 	<string name="settings_clear_cache">Valyti medijos podėlį</string>
 	<string name="settings_app_version">„Mastodon“, skirta „Android“ v%1$s (%2$d)</string>
-	<string name="media_cache_cleared">Išvalyta medijos podėlis</string>
+	<string name="media_cache_cleared">Medijos podėlis išvalyta</string>
 	<string name="confirm_log_out">Atsijungti iš %s?</string>
 	<string name="sensitive_content_explain">Autorius šią mediją pažymėjo kaip jautrią.</string>
 	<string name="avatar_description">Eiti į %s profilį</string>
@@ -227,7 +228,7 @@
 	<string name="button_reblog">Pasidalinti</string>
 	<string name="button_favorite">Pamėgti</string>
 	<string name="button_share">Bendrinti</string>
-	<string name="media_no_description">Medija be aprašymo</string>
+	<string name="media_no_description">Medija be aprašo</string>
 	<string name="add_media">Pridėti mediją</string>
 	<string name="add_poll">Pridėti apklausą</string>
 	<string name="emoji">Jaustukas</string>
@@ -308,19 +309,19 @@
 	</plurals>
 	<string name="edited_timestamp">redaguota %s</string>
 	<string name="edit_original_post">Originalus įrašas</string>
-	<string name="edit_text_edited">Redaguotas tekstas</string>
-	<string name="edit_spoiler_added">Pridėtas turinio įspėjimas</string>
-	<string name="edit_spoiler_edited">Redaguotas turinio įspėjimas</string>
-	<string name="edit_spoiler_removed">Pašalintas turinio įspėjimas</string>
-	<string name="edit_poll_added">Pridėta apklausa</string>
-	<string name="edit_poll_edited">Redaguota apklausa</string>
-	<string name="edit_poll_removed">Pašalinta apklausa</string>
-	<string name="edit_media_added">Pridėta medija</string>
-	<string name="edit_media_removed">Pašalinta medija</string>
-	<string name="edit_media_reordered">Pertvarkyta medija</string>
+	<string name="edit_text_edited">Tekstas redaguotas</string>
+	<string name="edit_spoiler_added">Turinio įspėjimas pridėtas</string>
+	<string name="edit_spoiler_edited">Turinio įspėjimas redaguotas</string>
+	<string name="edit_spoiler_removed">Turinio įspėjimas pašalintas</string>
+	<string name="edit_poll_added">Apklausa pridėta</string>
+	<string name="edit_poll_edited">Apklausa redaguota</string>
+	<string name="edit_poll_removed">Apklausa pašalinta</string>
+	<string name="edit_media_added">Medija pridėta</string>
+	<string name="edit_media_removed">Medija pridėta</string>
+	<string name="edit_media_reordered">Medija pertvarkyta</string>
 	<string name="edit_marked_sensitive">Pažymėta kaip jautrią</string>
 	<string name="edit_marked_not_sensitive">Pažymėta kaip nejautrią</string>
-	<string name="edit_multiple_changed">Redaguotas įrašas</string>
+	<string name="edit_multiple_changed">Įrašas redaguotas</string>
 	<string name="edit">Redaguoti</string>
 	<string name="discard_changes">Atmesti pakeitimus?</string>
 	<string name="upload_failed">Įkėlimas nepavyko.</string>
@@ -338,12 +339,12 @@
 	<string name="empty_list">Šis sąrašas tuščias.</string>
 	<string name="instance_signup_closed">Šis serveris nepriima naujų registracijų.</string>
 	<string name="text_copied">Nukopijuota į iškarpinę</string>
-	<string name="add_bookmark">Pridėti į žymės</string>
+	<string name="add_bookmark">Pridėti prie žymių</string>
 	<string name="remove_bookmark">Šalinti žymę</string>
 	<string name="bookmarks">Žymės</string>
 	<string name="your_favorites">Mėgstami</string>
 	<string name="login_title">Sveiki sugrįžę</string>
-	<string name="login_subtitle">Prisijunkite prie serverio, kuriame susikūrei paskyrą.</string>
+	<string name="login_subtitle">Prisijunkite prie serverio, kuriame susikūrėte paskyrą.</string>
 	<string name="server_url">Serverio URL</string>
 	<string name="server_filter_any_language">Bet kokia kalba</string>
 	<string name="server_filter_instant_signup">Momentinė registracija</string>
@@ -360,7 +361,7 @@
 	<string name="signup_passwords_dont_match">Slaptažodžiai nesutampa.</string>
 	<string name="profile_add_row">Pridėti eilutę</string>
 	<string name="profile_setup">Profilio sąranka</string>
-	<string name="profile_setup_subtitle">Tai visada galite užbaigti vėliau Profilio skirtuke.</string>
+	<string name="profile_setup_subtitle">Tai visada galite užbaigti vėliau Profilio kortelėje.</string>
 	<string name="follow_all">Sekti viską</string>
 	<string name="server_rules_disagree">Nesutinku</string>
 	<string name="privacy_policy_explanation">PL;N: mes nieko nerenkame ir neapdorojame.</string>
@@ -429,8 +430,8 @@
 	<string name="language_detecting">Aptinkama kalba</string>
 	<string name="language_cant_detect">Nepavyko aptikti kalbos.</string>
 	<string name="language_detected">Aptikta</string>
-	<string name="media_hidden">Paslėpta medija</string>
-	<string name="post_hidden">Paslėptas įrašas</string>
+	<string name="media_hidden">Medija paslėpta</string>
+	<string name="post_hidden">Įrašas paslėpta</string>
 	<string name="report_title_post">Pranešti apie įrašą</string>
 	<string name="forward_report_explanation">Paskyra yra iš kito serverio. Siųsti anoniminę šios ataskaitos kopiją ir ten?</string>
 	<!-- %s is the server domain -->
@@ -449,8 +450,8 @@
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">Apie „%s“</string>
 	<string name="default_post_language">Numatytoji įrašo kalba</string>
-	<string name="settings_alt_text_reminders">Pridėti alternatyvųjį teksto priminimus</string>
-	<string name="settings_confirm_unfollow">Klausti prieš atšaukiant sekimą kažkam</string>
+	<string name="settings_alt_text_reminders">Pridėti alternatyvių teksto priminimus</string>
+	<string name="settings_confirm_unfollow">Klausti prieš nebesekant kažkokio</string>
 	<string name="settings_confirm_boost">Klausti prieš pasidalinat</string>
 	<string name="settings_confirm_delete_post">Klausti prieš ištrinant įrašus</string>
 	<string name="pause_all_notifications">Pristabdyti viską</string>
@@ -476,7 +477,7 @@
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<string name="pause_notifications_ends">Baigiasi %s</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
-	<string name="pause_notifications_banner">Pranešimai bus atnaujinti %s.</string>
+	<string name="pause_notifications_banner">Pranešimai bus tęsiami %s.</string>
 	<string name="resume_notifications_now">Tęsti dabar</string>
 	<string name="open_system_notification_settings">Eiti į pranešimų nustatymus</string>
 	<string name="about_server">Apie</string>
@@ -745,7 +746,7 @@ Kuo daugiau asmenų sekate, tuo aktyvesnis ir įdomesnis jis bus.</string>
 	<string name="handle_server_explanation_own">Jūsų skaitmeniniai namai, kuriuose saugomi visi įrašai. Nepatinka šis? Bet kada perkelkite serverius ir atsiveskite bei savo sekėjus.</string>
 	<string name="handle_explanation_own">Kadangi jūsų socialinis medijos vardas pasako, kas ir kur esate, asmenys gali bendrauti su jumis visame socialiniame internete, kurį sudaro &lt;a&gt;„ActivityPub“ veikiančios platformos&lt;/a&gt;.</string>
 	<string name="what_is_activitypub_title">Kas yra „ActivityPub“?</string>
-	<string name="what_is_activitypub">„ActivityPub“ – tai tarsi kalba, kuria „Mastodon“ kalba su kitais socialiniais tinklais.\n\nJi leidžia jums prisijungti ir bendrauti su asmenimis ne tik „Mastodon“ platformoje, bet ir įvairiose socialinėse programėlėse.</string>
+	<string name="what_is_activitypub">„ActivityPub“ – tai tarsi kalba, kuria „Mastodon“ kalba su kitais socialiniais tinklais.\n\nJi leidžia jums prisijungti ir bendrauti su asmenimis ne tik platformoje „Mastodon“, bet ir įvairiose socialinėse programėlėse.</string>
 	<string name="handle_copied">Socialinis medijos vardas nukopijuotas į iškarpinę.</string>
 	<string name="qr_code">QR kodas</string>
 	<string name="scan_qr_code">Skenuoti QR kodą</string>
@@ -858,8 +859,8 @@ Kuo daugiau asmenų sekate, tuo aktyvesnis ir įdomesnis jis bus.</string>
 	</plurals>
 	<string name="own_poll_ended">Jūsų apklausa baigėsi</string>
 	<string name="user_just_posted">%s ką tik paskelbė</string>
-	<string name="user_edited_post">%s redagavo įrašą, su kuriuo sąveikavote</string>
-	<string name="relationship_severance_account_suspension">%1$s administratorius pristabdė %2$s, o tai reiškia, kad nebegalite iš jų gauti naujienų ir su jais bendrauti.</string>
+	<string name="user_edited_post">%s redagavo įrašą, su kuriuo bendravote</string>
+	<string name="relationship_severance_account_suspension">Administratorius iš %1$s pristabdė %2$s, o tai reiškia, kad nebegalite iš jų gauti naujienų ir su jais bendrauti.</string>
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
 	<string name="relationship_severance_domain_block">Administratorius iš %1$s užblokavo %2$s, įskaitant %3$,d jūsų sekėjų ir %4$s, kuriuos sekate.</string>
 	<plurals name="x_accounts">
@@ -940,4 +941,5 @@ Kuo daugiau asmenų sekate, tuo aktyvesnis ir įdomesnis jis bus.</string>
 	<string name="server_x_following_will_be_removed">Prarasite %s.</string>
 	<string name="load_missing_posts_above">Įkelti trūkstamus įrašus aukščiau</string>
 	<string name="load_missing_posts_below">Įkelti trūkstamus įrašus žemiau</string>
+	<string name="signup_password_too_short">Slaptažodis turi būti ne mažiau kaip 8 simbolių.</string>
 </resources>
