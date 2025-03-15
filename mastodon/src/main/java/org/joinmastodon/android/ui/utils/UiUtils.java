@@ -140,9 +140,14 @@ public class UiUtils{
 			intent=new Intent(Intent.ACTION_VIEW);
 		}
 		intent.setData(Uri.parse(url));
+		intent.putExtra(Intent.EXTRA_REFERRER, Uri.parse("android-app://"+context.getPackageName()));
 		ComponentName handler=intent.resolveActivity(context.getPackageManager());
 		if(handler==null){
-			Toast.makeText(context, R.string.no_app_to_handle_action, Toast.LENGTH_SHORT).show();
+			try{
+				context.startActivity(intent);
+			}catch(ActivityNotFoundException x){
+				Toast.makeText(context, R.string.no_app_to_handle_action, Toast.LENGTH_SHORT).show();
+			}
 			return;
 		}
 		if(handler.getPackageName().equals(context.getPackageName())){ // Oops. Let's prevent the app from opening itself.
@@ -153,7 +158,6 @@ public class UiUtils{
 			}
 			intent.setComponent(browserActivity);
 		}
-		intent.putExtra(Intent.EXTRA_REFERRER, Uri.parse("android-app://"+context.getPackageName()));
 		context.startActivity(intent);
 	}
 
