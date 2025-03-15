@@ -185,7 +185,11 @@ public class GithubSelfUpdaterImpl extends GithubSelfUpdater{
 		if(state==UpdateState.DOWNLOADING)
 			throw new IllegalStateException();
 		DownloadManager dm=MastodonApp.context.getSystemService(DownloadManager.class);
-		MastodonApp.context.registerReceiver(downloadCompletionReceiver, new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
+		if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.TIRAMISU){
+			MastodonApp.context.registerReceiver(downloadCompletionReceiver, new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE), Context.RECEIVER_EXPORTED);
+		}else{
+			MastodonApp.context.registerReceiver(downloadCompletionReceiver, new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
+		}
 		downloadID=dm.enqueue(
 				new DownloadManager.Request(Uri.parse(getPrefs().getString("apkURL", null)))
 						.setDestinationUri(Uri.fromFile(getUpdateApkFile()))
