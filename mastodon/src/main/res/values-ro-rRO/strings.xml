@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
-	<string name="log_in">Conectează-te</string>
+	<string name="log_in">Autentificare</string>
 	<string name="next">Înainte</string>
 	<string name="loading_instance">Se preiau informații despre server…</string>
 	<string name="error">Eroare</string>
@@ -8,6 +8,7 @@
 	<string name="ok">OK</string>
 	<string name="preparing_auth">Se pregătește autentificarea…</string>
 	<string name="finishing_auth">Finalizare autentificare…</string>
+	<string name="user_boosted">%s amplificat</string>
 	<string name="notifications">Notificări</string>
 	<string name="share_toot_title">Distribuie</string>
 	<string name="settings">Setări</string>
@@ -19,6 +20,11 @@
 		<item quantity="one">urmăritor</item>
 		<item quantity="few">urmăritori</item>
 		<item quantity="other">de urmăritori</item>
+	</plurals>
+	<plurals name="following">
+		<item quantity="one">urmărit</item>
+		<item quantity="few">urmăriți</item>
+		<item quantity="other">urmăriți</item>
 	</plurals>
 	<string name="posts">Postări</string>
 	<string name="posts_and_replies">Postări și răspunsuri</string>
@@ -41,12 +47,65 @@
 		<item quantity="other">%,d de postări</item>
 	</plurals>
 	<string name="profile_joined">S-a alăturat</string>
+	<plurals name="x_minutes">
+		<item quantity="one">%d minut</item>
+		<item quantity="few">%d minute</item>
+		<item quantity="other">%d de minute</item>
+	</plurals>
+	<plurals name="x_hours">
+		<item quantity="one">%d oră</item>
+		<item quantity="few">%d ore</item>
+		<item quantity="other">%d de ore</item>
+	</plurals>
+	<plurals name="x_days">
+		<item quantity="one">%d zi</item>
+		<item quantity="few">%d zile</item>
+		<item quantity="other">%d de zile</item>
+	</plurals>
+	<plurals name="x_seconds_left">
+		<item quantity="one">%d secundă rămasă</item>
+		<item quantity="few">%d secunde rămase</item>
+		<item quantity="other">%d de secunde rămase</item>
+	</plurals>
+	<plurals name="x_minutes_left">
+		<item quantity="one">%d minut rămas</item>
+		<item quantity="few">%d minute rămase</item>
+		<item quantity="other">%d de minute rămase</item>
+	</plurals>
+	<plurals name="x_hours_left">
+		<item quantity="one">%d oră rămasă</item>
+		<item quantity="few">%d ore rămase</item>
+		<item quantity="other">%d de ore rămase</item>
+	</plurals>
+	<plurals name="x_days_left">
+		<item quantity="one">%d zi rămasă</item>
+		<item quantity="few">%d zile rămase</item>
+		<item quantity="other">%d de zile rămase</item>
+	</plurals>
+	<plurals name="x_votes">
+		<item quantity="one">%,d vot</item>
+		<item quantity="few">%,d voturi</item>
+		<item quantity="other">%,d de voturi</item>
+	</plurals>
+	<string name="poll_closed">Închis</string>
+	<string name="delete">Ștergeți</string>
+	<string name="confirm_delete_title">Șterge postarea</string>
+	<string name="confirm_delete">Sunteți sigur că doriți să ștergeți această postare?</string>
+	<string name="deleting">Se șterge…</string>
+	<string name="log_out">Deconectare</string>
+	<string name="news">Noutăți</string>
+	<string name="for_you">Pentru tine</string>
+	<string name="mentions">Menționări</string>
+	<string name="sending_report">Se trimite raportul…</string>
 	<!-- %s is the email address -->
+	<string name="notification_type_favorite">Favorite</string>
+	<string name="notification_type_reblog">Amplificări</string>
 	<!-- %s is the server domain -->
 	<string name="see_new_posts">Postări noi</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<!-- %s is file size -->
 	<string name="empty_list">Această listă este goală</string>
+	<string name="your_favorites">Favorite</string>
 	<!-- %s is server domain -->
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
