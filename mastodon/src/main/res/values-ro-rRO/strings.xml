@@ -2,7 +2,9 @@
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
 	<string name="log_in">Conectează-te</string>
 	<string name="next">Înainte</string>
+	<string name="loading_instance">Se preiau informații despre server…</string>
 	<string name="error">Eroare</string>
+	<string name="not_a_mastodon_instance">%s nu pare a fi un server Mastodon.</string>
 	<string name="ok">OK</string>
 	<string name="preparing_auth">Se pregătește autentificarea…</string>
 	<string name="finishing_auth">Finalizare autentificare…</string>
@@ -13,11 +15,19 @@
 	<string name="discard_draft">Renunțați la ciornă?</string>
 	<string name="discard">Renunță</string>
 	<string name="cancel">Anulează</string>
+	<plurals name="followers">
+		<item quantity="one">urmăritor</item>
+		<item quantity="few">urmăritori</item>
+		<item quantity="other">de urmăritori</item>
+	</plurals>
 	<string name="posts">Postări</string>
+	<string name="posts_and_replies">Postări și răspunsuri</string>
 	<string name="media">Media</string>
 	<string name="profile_about">Despre</string>
 	<string name="button_follow">Urmărește</string>
 	<string name="button_following">Urmăriți</string>
+	<string name="edit_profile">Modifică profilul</string>
+	<string name="share_user">Distribuie profilul prin…</string>
 	<string name="mute_user">Amuțește %s</string>
 	<string name="unmute_user">Demutizează %s</string>
 	<string name="block_user">Blochează %s</string>
@@ -25,13 +35,23 @@
 	<string name="report_user">Raportează %s</string>
 	<string name="block_domain">Blochează %s</string>
 	<string name="unblock_domain">Deblochează %s</string>
+	<plurals name="x_posts">
+		<item quantity="one">%,d postare</item>
+		<item quantity="few">%,d postări</item>
+		<item quantity="other">%,d de postări</item>
+	</plurals>
+	<string name="profile_joined">S-a alăturat</string>
 	<!-- %s is the email address -->
 	<!-- %s is the server domain -->
+	<string name="see_new_posts">Postări noi</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<!-- %s is file size -->
+	<string name="empty_list">Această listă este goală</string>
 	<!-- %s is server domain -->
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<string name="profile_featured">Evidențiat</string>
+	<string name="profile_timeline">Cronologie</string>
 	<!-- %s is formatted file size ("467 KB image") -->
 	<!-- %s is the server domain -->
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
@@ -45,14 +65,19 @@
 	<!-- Shown in the post header. Please keep it short -->
 	<!-- %s is the name of the post language -->
 	<!-- %1$s is the language, %2$s is the name of the translation service -->
+	<string name="timeline_following">Acasă</string>
 	<!-- Screen reader description for the menu on the home timeline screen -->
 	<!-- %s is the name of the list -->
 	<!-- %s is a username -->
 	<!-- %s is a time interval ("5 months") -->
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
+	<string name="tab_search">Explorează</string>
+	<string name="tab_profile">Profil</string>
 	<!-- %s is the username -->
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
+	<string name="profile_saved_posts">Salvat</string>
+	<string name="profile_saved_posts_explanation">Mesajele salvate sunt vizibile doar pentru tine.</string>
 	<!-- appears when you're about to block a server -->
 	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
 	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
