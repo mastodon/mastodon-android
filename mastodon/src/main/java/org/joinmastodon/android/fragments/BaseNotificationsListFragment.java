@@ -31,7 +31,7 @@ public abstract class BaseNotificationsListFragment extends BaseStatusListFragme
 	@Override
 	protected List<StatusDisplayItem> buildDisplayItems(NotificationViewModel n){
 		StatusDisplayItem titleItem;
-		if(n.notification.type==NotificationType.MENTION){
+		if(n.notification.type==NotificationType.MENTION && n.status!=null){
 			boolean replyToSelf=AccountSessionManager.get(accountID).self.id.equals(n.status.inReplyToAccountId);
 			int icon=replyToSelf ? R.drawable.ic_reply_wght700_20px : R.drawable.ic_alternate_email_wght700fill1_20px;
 			if(n.status.visibility==StatusPrivacy.DIRECT){
