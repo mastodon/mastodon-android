@@ -849,4 +849,6 @@
 	<string name="load_missing_posts_above">Φόρτωση αναρτήσεων που λείπουν παραπάνω</string>
 	<string name="load_missing_posts_below">Φόρτωση αναρτήσεων που λείπουν παρακάτω</string>
 	<string name="signup_password_too_short">Ο κωδικός πρόσβασης πρέπει να είναι τουλάχιστον 8 χαρακτήρες.</string>
+	<!-- %s is `at_least_x_years_old`. Some languages, unlike English, may require the word "years" here. -->
+	<!-- Substituted into `date_of_birth_explanation` -->
 </resources>
