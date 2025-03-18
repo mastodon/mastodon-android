@@ -28,8 +28,8 @@
 		android:layout_height="wrap_content"
 		android:layout_marginHorizontal="-4dp"
 		android:layout_marginVertical="-4dp"
-		android:layout_alignLeft="@id/avatar"
-		android:layout_alignRight="@id/time_and_username"
+		android:layout_alignStart="@id/avatar"
+		android:layout_alignEnd="@id/time_and_username"
 		android:layout_alignTop="@id/avatar"
 		android:layout_alignBottom="@id/avatar"
 		android:background="@drawable/bg_status_header"/>
