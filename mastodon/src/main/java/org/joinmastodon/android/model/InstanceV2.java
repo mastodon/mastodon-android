@@ -83,6 +83,7 @@ public class InstanceV2 extends Instance{
 		public boolean approvalRequired;
 		public String message;
 		public String url;
+		public int minAge;
 	}
 
 	@Parcel

@@ -39,7 +39,7 @@ import me.grishka.appkit.utils.CubicBezierInterpolator;
 import me.grishka.appkit.utils.CustomViewHelper;
 
 public class FloatingHintEditTextLayout extends FrameLayout implements CustomViewHelper{
-	private EditText edit;
+	private TextView edit;
 	private View firstChild;
 	private TextView label;
 	private int labelTextSize;
@@ -51,6 +51,7 @@ public class FloatingHintEditTextLayout extends FrameLayout implements CustomVie
 	private ColorStateList labelColors, origHintColors;
 	private boolean errorState;
 	private TextView errorView;
+	private boolean usingErrorTextAsDescription;
 
 	public FloatingHintEditTextLayout(Context context){
 		this(context, null);
@@ -75,7 +76,7 @@ public class FloatingHintEditTextLayout extends FrameLayout implements CustomVie
 		super.onFinishInflate();
 		if(getChildCount()>0){
 			firstChild=getChildAt(0);
-			if(firstChild instanceof EditText et)
+			if(firstChild instanceof TextView et)
 				edit=et;
 		}else{
 			throw new IllegalStateException("Must contain at least one child view");
@@ -133,7 +134,11 @@ public class FloatingHintEditTextLayout extends FrameLayout implements CustomVie
 
 	private void onTextChanged(Editable text){
 		if(errorState){
-			errorView.setVisibility(View.GONE);
+			if(!usingErrorTextAsDescription){
+				errorView.setVisibility(View.GONE);
+			}else{
+				errorView.setTextColor(UiUtils.getThemeColor(getContext(), R.attr.colorM3OnSurfaceVariant));
+			}
 			errorState=false;
 			setForeground(getResources().getDrawable(R.drawable.bg_m3_outlined_text_field, getContext().getTheme()));
 			refreshDrawableState();
@@ -265,6 +270,15 @@ public class FloatingHintEditTextLayout extends FrameLayout implements CustomVie
 		label.setTextColor(UiUtils.getThemeColor(getContext(), R.attr.colorM3Error));
 		errorView.setVisibility(VISIBLE);
 		errorView.setText(error);
+		if(usingErrorTextAsDescription)
+			errorView.setTextColor(UiUtils.getThemeColor(getContext(), R.attr.colorM3Error));
+	}
+
+	public void setErrorTextAsDescription(CharSequence text){
+		errorView.setVisibility(VISIBLE);
+		errorView.setText(text);
+		errorView.setTextColor(UiUtils.getThemeColor(getContext(), R.attr.colorM3OnSurfaceVariant));
+		usingErrorTextAsDescription=true;
 	}
 
 	@Override

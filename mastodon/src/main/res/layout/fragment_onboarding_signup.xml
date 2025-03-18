@@ -19,6 +19,52 @@
 			android:clipChildren="false">
 
 			<org.joinmastodon.android.ui.views.FloatingHintEditTextLayout
+				android:id="@+id/bdate_wrap"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:minHeight="80dp"
+				android:paddingTop="4dp"
+				app:labelTextColor="@color/m3_outlined_text_field_label"
+				android:foreground="@drawable/bg_m3_outlined_text_field">
+
+				<TextView
+					android:id="@+id/bdate"
+					android:layout_width="match_parent"
+					android:layout_height="56dp"
+					android:layout_marginStart="56dp"
+					android:layout_marginEnd="24dp"
+					android:layout_marginTop="8dp"
+					style="@style/Widget.Mastodon.M3.EditText"
+					android:focusableInTouchMode="false"
+					android:padding="16dp"
+					android:background="@null"
+					android:elevation="0dp"
+					android:autofillHints="name"
+					android:singleLine="true"
+					android:hint="@string/date_of_birth"/>
+
+				<View
+					android:layout_width="24dp"
+					android:layout_height="24dp"
+					android:layout_gravity="start|top"
+					android:layout_marginStart="16dp"
+					android:layout_marginTop="12dp"
+					android:backgroundTint="?colorM3OnSurfaceVariant"
+					android:background="@drawable/ic_cake_24px"/>
+				
+				<View
+					android:id="@+id/bdate_calendar_icon"
+					android:layout_width="24dp"
+					android:layout_height="24dp"
+					android:layout_marginEnd="36dp"
+					android:layout_marginTop="24dp"
+					android:layout_gravity="top|end"
+					android:background="@drawable/ic_today_24px"
+					android:backgroundTint="?colorM3OnSurfaceVariant"/>
+
+			</org.joinmastodon.android.ui.views.FloatingHintEditTextLayout>
+
+			<org.joinmastodon.android.ui.views.FloatingHintEditTextLayout
 				android:id="@+id/display_name_wrap"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"

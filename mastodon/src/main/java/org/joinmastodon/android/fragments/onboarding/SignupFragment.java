@@ -1,5 +1,6 @@
 package org.joinmastodon.android.fragments.onboarding;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.os.Build;
 import android.os.Bundle;
@@ -16,6 +17,7 @@ import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.view.WindowInsets;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -29,7 +31,9 @@ import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.Application;
 import org.joinmastodon.android.model.Instance;
+import org.joinmastodon.android.model.InstanceV2;
 import org.joinmastodon.android.model.Token;
+import org.joinmastodon.android.ui.M3AlertDialogBuilder;
 import org.joinmastodon.android.ui.text.LinkSpan;
 import org.joinmastodon.android.ui.utils.SimpleTextWatcher;
 import org.joinmastodon.android.ui.utils.UiUtils;
@@ -43,7 +47,10 @@ import org.jsoup.select.NodeVisitor;
 import org.parceler.Parcels;
 
 import java.time.Instant;
+import java.time.LocalDate;
 import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
@@ -69,7 +76,9 @@ public class SignupFragment extends ToolbarFragment{
 	private Instance instance;
 
 	private EditText displayName, username, email, password, passwordConfirm, reason;
-	private FloatingHintEditTextLayout displayNameWrap, usernameWrap, emailWrap, passwordWrap, passwordConfirmWrap, reasonWrap;
+	private FloatingHintEditTextLayout displayNameWrap, usernameWrap, emailWrap, passwordWrap, passwordConfirmWrap, reasonWrap, bdateWrap;
+	private TextView bdate;
+	private View bdateIcon;
 	private TextView reasonExplain;
 	private Button btn;
 	private View buttonBar;
@@ -79,9 +88,11 @@ public class SignupFragment extends ToolbarFragment{
 	private Token apiToken;
 	private boolean submitAfterGettingToken;
 	private ProgressDialog progressDialog;
-	private HashSet<EditText> errorFields=new HashSet<>();
+	private HashSet<TextView> errorFields=new HashSet<>();
 	private ElevationOnScrollListener onScrollListener;
 	private Set<String> serverSupportedTimezones, serverSupportedLocales;
+	private LocalDate birthDate;
+	private boolean birthDateRequired;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState){
@@ -92,6 +103,8 @@ public class SignupFragment extends ToolbarFragment{
 		setTitle(R.string.signup_title);
 		serverSupportedTimezones=Arrays.stream(getResources().getStringArray(R.array.server_supported_timezones)).collect(Collectors.toSet());
 		serverSupportedLocales=Arrays.stream(getResources().getStringArray(R.array.server_supported_locales)).collect(Collectors.toSet());
+
+		birthDateRequired=instance instanceof InstanceV2 v2 && v2.registrations.minAge>0;
 	}
 
 	@Nullable
@@ -108,6 +121,7 @@ public class SignupFragment extends ToolbarFragment{
 		passwordConfirm=view.findViewById(R.id.password_confirm);
 		reason=view.findViewById(R.id.reason);
 		reasonExplain=view.findViewById(R.id.reason_explain);
+		bdate=view.findViewById(R.id.bdate);
 
 		displayNameWrap=view.findViewById(R.id.display_name_wrap);
 		usernameWrap=view.findViewById(R.id.username_wrap);
@@ -115,6 +129,9 @@ public class SignupFragment extends ToolbarFragment{
 		passwordWrap=view.findViewById(R.id.password_wrap);
 		passwordConfirmWrap=view.findViewById(R.id.password_confirm_wrap);
 		reasonWrap=view.findViewById(R.id.reason_wrap);
+		bdateWrap=view.findViewById(R.id.bdate_wrap);
+
+		bdateIcon=view.findViewById(R.id.bdate_calendar_icon);
 
 		domain.setText('@'+instance.getDomain());
 
@@ -137,12 +154,14 @@ public class SignupFragment extends ToolbarFragment{
 		password.addTextChangedListener(buttonStateUpdater);
 		passwordConfirm.addTextChangedListener(buttonStateUpdater);
 		reason.addTextChangedListener(buttonStateUpdater);
+		bdate.addTextChangedListener(buttonStateUpdater);
 
 		username.addTextChangedListener(new ErrorClearingListener(username));
 		email.addTextChangedListener(new ErrorClearingListener(email));
 		password.addTextChangedListener(new ErrorClearingListener(password));
 		passwordConfirm.addTextChangedListener(new ErrorClearingListener(passwordConfirm));
 		reason.addTextChangedListener(new ErrorClearingListener(reason));
+		bdate.addTextChangedListener(new ErrorClearingListener(bdate));
 
 		if(!instance.isApprovalRequired()){
 			reason.setVisibility(View.GONE);
@@ -152,6 +171,31 @@ public class SignupFragment extends ToolbarFragment{
 		password.setOnFocusChangeListener(this::onPasswordFieldFocusChange);
 		passwordConfirm.setOnFocusChangeListener(this::onPasswordFieldFocusChange);
 		email.setOnFocusChangeListener(this::onEmailFieldFocusChange);
+
+		bdate.setOnClickListener(v->{
+			AlertDialog alert=new M3AlertDialogBuilder(getActivity())
+					.setTitle(R.string.date_of_birth)
+					.setView(R.layout.alert_birth_date)
+					.setPositiveButton(R.string.ok, (dlg, which)->{
+						DatePicker picker=((AlertDialog)dlg).findViewById(R.id.picker);
+						birthDate=LocalDate.of(picker.getYear(), picker.getMonth()+1, picker.getDayOfMonth());
+						bdate.setText(DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG).format(birthDate));
+					})
+					.setNegativeButton(R.string.cancel, null)
+					.create();
+			DatePicker picker=alert.findViewById(R.id.picker);
+			picker.setMaxDate(System.currentTimeMillis());
+			if(birthDate!=null){
+				picker.updateDate(birthDate.getYear(), birthDate.getMonthValue()-1, birthDate.getDayOfMonth());
+			}
+			alert.show();
+		});
+
+		if(instance instanceof InstanceV2 v2 && v2.registrations.minAge>0){
+			bdateWrap.setErrorTextAsDescription(getString(R.string.date_of_birth_explanation, getResources().getQuantityString(R.plurals.at_least_x_years_old, v2.registrations.minAge, v2.registrations.minAge)));
+		}else{
+			bdateWrap.setVisibility(View.GONE);
+		}
 
 		return view;
 	}
@@ -196,7 +240,7 @@ public class SignupFragment extends ToolbarFragment{
 	private void actuallySubmit(){
 		String username=this.username.getText().toString().trim();
 		String email=this.email.getText().toString().trim();
-		for(EditText edit:errorFields){
+		for(TextView edit:errorFields){
 			edit.setError(null);
 		}
 		errorFields.clear();
@@ -229,7 +273,7 @@ public class SignupFragment extends ToolbarFragment{
 
 		String inviteCode=getArguments().getString("inviteCode");
 
-		new RegisterAccount(username, email, password.getText().toString(), locale, reason.getText().toString(), timezone, inviteCode)
+		new RegisterAccount(username, email, password.getText().toString(), locale, reason.getText().toString(), timezone, inviteCode, birthDate==null ? null : birthDate.toString())
 				.setCallback(new Callback<>(){
 					@Override
 					public void onSuccess(Token result){
@@ -278,6 +322,8 @@ public class SignupFragment extends ToolbarFragment{
 									getFieldWrapByName(fieldName).setErrorState(getErrorDescription(errors.get(0), fieldName));
 								}
 								errorFields.add(field);
+								if(field==bdate)
+									bdateIcon.setVisibility(View.INVISIBLE);
 								if(first){
 									first=false;
 									field.requestFocus();
@@ -334,6 +380,13 @@ public class SignupFragment extends ToolbarFragment{
 				case "ERR_TAKEN" -> makeLinkInErrorMessage(getString(R.string.signup_username_taken), this::onGoBackLinkClick);
 				default -> error.description;
 			};
+			case "date_of_birth" -> switch(error.error){
+				case "ERR_BELOW_LIMIT" -> {
+					InstanceV2 v2=((InstanceV2) instance);
+					yield getString(R.string.date_of_birth_explanation, getResources().getQuantityString(R.plurals.at_least_x_years_old, v2.registrations.minAge, v2.registrations.minAge));
+				}
+				default -> error.description;
+			};
 			default -> error.description;
 		};
 	}
@@ -370,7 +423,7 @@ public class SignupFragment extends ToolbarFragment{
 	private void updateButtonState(){
 		btn.setEnabled(username.length()>0 && email.length()>0 && emailRegex.matcher(email.getText()).find()
 				&& password.length()>=8 && passwordConfirm.length()>=8 && password.getText().toString().equals(passwordConfirm.getText().toString())
-				&& (!instance.isApprovalRequired() || reason.length()>0));
+				&& (!instance.isApprovalRequired() || reason.length()>0) && (!birthDateRequired || birthDate!=null));
 	}
 
 	private void createAppAndGetToken(){
@@ -452,9 +505,9 @@ public class SignupFragment extends ToolbarFragment{
 	}
 
 	private class ErrorClearingListener implements TextWatcher{
-		public final EditText editText;
+		public final TextView editText;
 
-		private ErrorClearingListener(EditText editText){
+		private ErrorClearingListener(TextView editText){
 			this.editText=editText;
 		}
 
@@ -473,6 +526,11 @@ public class SignupFragment extends ToolbarFragment{
 			if(errorFields.contains(editText)){
 				errorFields.remove(editText);
 				editText.setError(null);
+				bdateIcon.setVisibility(View.VISIBLE);
+				if(editText==bdate){
+					InstanceV2 v2=((InstanceV2) instance);
+					bdateWrap.setErrorTextAsDescription(getString(R.string.date_of_birth_explanation, getResources().getQuantityString(R.plurals.at_least_x_years_old, v2.registrations.minAge, v2.registrations.minAge)));
+				}
 			}
 		}
 	}
