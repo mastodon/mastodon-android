@@ -164,6 +164,8 @@ public class ToolbarDropdownMenuController{
 				set.addListener(new AnimatorListenerAdapter(){
 					@Override
 					public void onAnimationEnd(Animator animation){
+						if(windowView==null)
+							return;
 						bottomView.setClipBounds(null);
 						bottomView.setTranslationX(0);
 						bottomView.setAlpha(1f);

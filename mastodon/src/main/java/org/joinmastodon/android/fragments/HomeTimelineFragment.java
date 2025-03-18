@@ -494,7 +494,15 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 		if(gap.enteredFromTop){
 			maxID=null;
 			int gapPos=displayItems.indexOf(gap);
-			minID=displayItems.get(gapPos+1).parentID;
+			if(displayItems.size()==gapPos){ // The gap is the last item in the list somehow
+				if(!preloader.isMoreAvailable()){ // Can't load any more posts anyway, just remove the gap then
+					displayItems.remove(gapPos);
+					adapter.notifyItemRemoved(gapPos);
+				}
+				return;
+			}else{
+				minID=displayItems.get(gapPos+1).parentID;
+			}
 		}else{
 			maxID=item.getItemID();
 			minID=null;

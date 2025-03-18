@@ -48,6 +48,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toolbar;
 
+import org.joinmastodon.android.BuildConfig;
 import org.joinmastodon.android.GlobalUserPreferences;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.MastodonAPIRequest;
@@ -1101,8 +1102,12 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 	private void exitEditMode(){
 		if(savingEdits)
 			return;
-		if(!isInEditMode)
-			throw new IllegalStateException();
+		if(!isInEditMode){
+			if(BuildConfig.DEBUG)
+				throw new IllegalStateException();
+			else
+				return;
+		}
 		isInEditMode=false;
 		removeBackCallback(editModeBackCallback);
 
