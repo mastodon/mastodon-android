@@ -854,4 +854,14 @@
 	<string name="private_mention">Einkaspjall</string>
 	<string name="post_header_reply">Svar</string>
 	<string name="post_header_mention">Minnst á</string>
+	<string name="report_reason_legal">Það er ólöglegt</string>
+	<string name="report_reason_legal_subtitle">Þú hefur trú um að það brjóti í bága við landslög þar sem vefþjónnin er hýstur</string>
+	<string name="date_of_birth">Fæðingardagur</string>
+	<!-- %s is `at_least_x_years_old`. Some languages, unlike English, may require the word "years" here. -->
+	<string name="date_of_birth_explanation">Við verðum að ganga úr skugga um að þú hafir náð %s aldri til að nota Mastodon. Við munum ekki geyma þessar upplýsingar eftir nýskráningu.</string>
+	<!-- Substituted into `date_of_birth_explanation` -->
+	<plurals name="at_least_x_years_old">
+		<item quantity="one">%d</item>
+		<item quantity="other">%d</item>
+	</plurals>
 </resources>
