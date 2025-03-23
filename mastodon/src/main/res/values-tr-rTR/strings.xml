@@ -821,4 +821,6 @@ Ne kadar çok kişiyi takip ederseniz, o kadar aktif ve ilginç olacaktır.</str
 	<string name="load_missing_posts_above">Yukarıdaki eksik gönderileri yükleyin</string>
 	<string name="load_missing_posts_below">Aşağıdaki eksik gönderileri yükleyin</string>
 	<string name="signup_password_too_short">Parola en az 8 karakter olmalıdır.</string>
+	<!-- %s is `at_least_x_years_old`. Some languages, unlike English, may require the word "years" here. -->
+	<!-- Substituted into `date_of_birth_explanation` -->
 </resources>

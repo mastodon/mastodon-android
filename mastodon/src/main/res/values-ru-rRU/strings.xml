@@ -113,6 +113,7 @@
 	<string name="do_block">Заблокировать</string>
 	<string name="button_blocked">Заблокирован(а)</string>
 	<string name="action_vote">Проголосовать</string>
+	<string name="confirm">Подтвердить</string>
 	<string name="delete">Удалить</string>
 	<string name="confirm_delete_title">Удалить пост</string>
 	<string name="confirm_delete">Вы уверены, что хотите удалить этот пост?</string>
@@ -339,6 +340,7 @@
 	<string name="add_bookmark">Закладка</string>
 	<string name="remove_bookmark">Удалить закладку</string>
 	<string name="bookmarks">Закладки</string>
+	<string name="your_favorites">Избранное</string>
 	<string name="login_title">С возвращением</string>
 	<string name="login_subtitle">Войдите на сервер, на котором вы создали свой аккаунт.</string>
 	<string name="server_url">Адрес сервера</string>
@@ -386,7 +388,7 @@
 	<string name="welcome_to_mastodon">Добро пожаловать в Mastodon</string>
 	<string name="welcome_paragraph1">Mastodon - это децентрализованная социальная сеть, то есть ни одна компания не контролирует ее. Она состоит из множества независимо управляемых серверов, соединенных вместе.</string>
 	<string name="what_are_servers">Что такое сервер?</string>
-	<string name="welcome_paragraph2">Каждый аккаунт Mastodon размещается на сервере - каждый со своими ценностями, правилами и администраторами. Независимо от того, какой сервер вы выберете, вы можете следить и взаимодействовать с людьми на любом сервере.</string>
+	<string name="welcome_paragraph2">Каждый аккаунт Mastodon размещается на сервере - каждый со своими ценностями, правилами и администраторами. Независимо от того, какой сервер вы выберете, вы можете подписываться и взаимодействовать с людьми на любом сервере.</string>
 	<string name="opening_link">Открытие ссылки…</string>
 	<string name="link_not_supported">Эта ссылка не поддерживается в приложении</string>
 	<string name="log_out_all_accounts">Выйти из всех аккаунтов</string>
@@ -716,12 +718,12 @@
 	<string name="user_wont_know_muted">Они не будут знать, что их заглушили.</string>
 	<string name="user_can_still_see_your_posts">Они будут видеть ваши посты, но вы не будете видеть их посты от них.</string>
 	<string name="you_wont_see_user_mentions">Вы не будете видеть посты с их упоминаниями.</string>
-	<string name="user_can_mention_and_follow_you">Они могут упоминать вас и следить за вами, но вы их не увидите.</string>
+	<string name="user_can_mention_and_follow_you">Они могут упоминать вас и подписываться на вас, но вы их не увидите.</string>
 	<string name="unmuted_user_x">Убрать %s из заглушенных</string>
 	<string name="block_user_confirm_title">Заблокировать пользователя?</string>
 	<string name="user_can_see_blocked">Они могут видеть, что они заблокированы.</string>
 	<string name="user_cant_see_each_other_posts">Они не видят ваших, и вы не увидите их посты.</string>
-	<string name="user_cant_mention_or_follow_you">Они не могут упоминать и следить за вами.</string>
+	<string name="user_cant_mention_or_follow_you">Они не могут упоминать и подписываться на вас.</string>
 	<string name="unblocked_user_x">Разблокирован %s</string>
 	<string name="block_domain_confirm_title">Заблокировать домен?</string>
 	<string name="do_block_server">Блокировать сервер</string>
@@ -773,15 +775,15 @@
 	<string name="unmute_conversation">Не игнорировать обсуждение</string>
 	<string name="visibility_unlisted">Тихий публичный</string>
 	<string name="filtered_notifications">Отфильтрованные уведомления</string>
-	<string name="filter_notifications">Отфильтруйте уведомления от...</string>
-	<string name="notification_filter_following">Люди, за которыми вы не следите</string>
+	<string name="filter_notifications">Фильтровать уведомления от…</string>
+	<string name="notification_filter_following">Тех, на кого вы не подписаны</string>
 	<string name="notification_filter_following_explanation">Пока вы не одобрите их вручную</string>
-	<string name="notification_filter_followers">Люди не следуют за вами</string>
-	<string name="notification_filter_followers_explanation">Включая людей, которые следят за вами менее 3 дней</string>
-	<string name="notification_filter_new_accounts">Новые аккаунты</string>
-	<string name="notification_filter_new_accounts_explanation">Создано в течение последних 30 дней</string>
-	<string name="notification_filter_mentions">Нежелательные частные упоминания</string>
-	<string name="notification_filter_mentions_explanation">Фильтруется, если только это не ответ на ваше собственное упоминание или если вы следите за отправителем</string>
+	<string name="notification_filter_followers">Тех, кто не подписан на вас</string>
+	<string name="notification_filter_followers_explanation">Включая тех, кто подписан на вас менее 3 дней</string>
+	<string name="notification_filter_new_accounts">Новых аккаунтов</string>
+	<string name="notification_filter_new_accounts_explanation">Созданные в течение последних 30 дней</string>
+	<string name="notification_filter_mentions">Непрошенные личные упоминания</string>
+	<string name="notification_filter_mentions_explanation">Фильтруются, если только это не ответ на ваше собственное упоминание, или если вы подписаны на отправителя</string>
 	<string name="allow_notifications">Разрешить уведомления</string>
 	<string name="mute_notifications">Отклонить запрос уведомления</string>
 	<plurals name="x_people_you_may_know">
@@ -874,9 +876,17 @@
 	<string name="profile_saved_posts">Сохранено</string>
 	<string name="profile_saved_posts_explanation">Сохраненные посты видны только вам.</string>
 	<string name="search_people">Люди</string>
+	<plurals name="x_followers_you_know">
+		<item quantity="one">%,d знакомый подписчик</item>
+		<item quantity="few">%,d знакомых подписчика</item>
+		<item quantity="many">%,d знакомых подписчиков</item>
+		<item quantity="other">%,d знакомых подписчиков</item>
+	</plurals>
 	<!-- appears when you're about to block a server -->
 	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
 	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
 	<string name="load_missing_posts_above">Загрузить недостающие посты выше</string>
 	<string name="load_missing_posts_below">Загрузить недостающие посты ниже</string>
+	<!-- %s is `at_least_x_years_old`. Some languages, unlike English, may require the word "years" here. -->
+	<!-- Substituted into `date_of_birth_explanation` -->
 </resources>
