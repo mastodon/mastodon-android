@@ -34,6 +34,7 @@ import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.CacheController;
 import org.joinmastodon.android.api.DatabaseRunnable;
 import org.joinmastodon.android.api.MastodonAPIController;
+import org.joinmastodon.android.api.MastodonAPIRequest;
 import org.joinmastodon.android.api.MastodonErrorResponse;
 import org.joinmastodon.android.api.PushSubscriptionManager;
 import org.joinmastodon.android.api.WrapperRequest;
@@ -641,9 +642,18 @@ public class AccountSessionManager{
 		db.insertWithOnConflict("instances", null, values, SQLiteDatabase.CONFLICT_REPLACE);
 	}
 
+	private static AccountSession findAnySessionForDomain(String domain){
+		for(AccountSession session:getInstance().sessions.values()){
+			if(domain.equalsIgnoreCase(session.domain))
+				return session;
+		}
+		return null;
+	}
+
 	public static APIRequest<Instance> loadInstanceInfo(String domain, Callback<Instance> callback){
 		final WrapperRequest<Instance> wrapper=new WrapperRequest<>();
-		wrapper.wrappedRequest=new GetInstanceV2()
+		AccountSession session=findAnySessionForDomain(domain);
+		MastodonAPIRequest<?> req=new GetInstanceV2()
 				.setCallback(new Callback<>(){
 					@Override
 					public void onSuccess(InstanceV2 result){
@@ -655,7 +665,7 @@ public class AccountSessionManager{
 					public void onError(ErrorResponse error){
 						if(error instanceof MastodonErrorResponse mr && mr.httpStatus==404){
 							// Mastodon pre-4.0 or a non-Mastodon server altogether. Let's try /api/v1/instance
-							wrapper.wrappedRequest=new GetInstanceV1()
+							MastodonAPIRequest<?> fallbackReq=new GetInstanceV1()
 									.setCallback(new Callback<>(){
 										@Override
 										public void onSuccess(InstanceV1 result){
@@ -668,15 +678,23 @@ public class AccountSessionManager{
 											wrapper.wrappedRequest=null;
 											callback.onError(error);
 										}
-									})
-									.execNoAuth(domain);
+									});
+							wrapper.wrappedRequest=fallbackReq;
+							if(session!=null)
+								fallbackReq.exec(session.getID());
+							else
+								fallbackReq.execNoAuth(domain);
 						}else{
 							wrapper.wrappedRequest=null;
 							callback.onError(error);
 						}
 					}
-				})
-				.execNoAuth(domain);
+				});
+		wrapper.wrappedRequest=req;
+		if(session!=null)
+			req.exec(session.getID());
+		else
+			req.execNoAuth(domain);
 		return wrapper;
 	}
 
