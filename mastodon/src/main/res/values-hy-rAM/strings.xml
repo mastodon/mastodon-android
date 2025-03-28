@@ -711,9 +711,9 @@
 	<string name="visibility_unlisted">Լուռ հրապարակային</string>
 	<string name="filtered_notifications">Զտված ծանուցումներ</string>
 	<string name="filter_notifications">Զտել ծանուցումները`</string>
-	<string name="notification_filter_following">Մարդկանցից, որոնց դուք չեք հետեւում</string>
-	<string name="notification_filter_following_explanation">Մինչև դուք անձամբ դրանք չհաստատեք</string>
-	<string name="notification_filter_followers">Մարդկանցից, որոնք ձեզ չեն հետեւում</string>
+	<string name="notification_filter_following">Նրանցից, ում դուք չեք հետեւում</string>
+	<string name="notification_filter_following_explanation">Մինչև դուք անձամբ նրանց չհաստատեք</string>
+	<string name="notification_filter_followers">Ձեզ չհետեւողներից</string>
 	<string name="notification_filter_followers_explanation">Ներառում է այն մարդկանց, որոնք ձեզ 3 օրից քիչ են հետևում</string>
 	<string name="notification_filter_new_accounts">Նոր հաշիվներից</string>
 	<string name="notification_filter_new_accounts_explanation">Հաշիվներից, որոնք ստեղծվել են վերջին 30 օրվա ընթացքում</string>
@@ -722,8 +722,8 @@
 	<string name="allow_notifications">Թույլատրել ծանուցումները`</string>
 	<string name="mute_notifications">Մերժել ծանուցման հարցումը</string>
 	<plurals name="x_people_you_may_know">
-		<item quantity="one">%,d մարդ, որին դուք գուցե գիտեք</item>
-		<item quantity="other">%,d մարդ, որոնց դուք գուցե գիտեք</item>
+		<item quantity="one">%,d մարդ, ում դուք գուցե գիտեք</item>
+		<item quantity="other">%,d մարդ, ում դուք գուցե գիտեք</item>
 	</plurals>
 	<string name="notifications_from_user">%s-ից ծանուցումներ</string>
 	<string name="notifications_muted">%s-ից ծանուցումները ջնջվել են։</string>
