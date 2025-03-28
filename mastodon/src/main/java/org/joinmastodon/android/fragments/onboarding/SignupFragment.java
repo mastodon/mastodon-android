@@ -163,7 +163,7 @@ public class SignupFragment extends ToolbarFragment{
 		reason.addTextChangedListener(new ErrorClearingListener(reason));
 		bdate.addTextChangedListener(new ErrorClearingListener(bdate));
 
-		if(!instance.isApprovalRequired()){
+		if(!instance.isSignupReasonRequired()){
 			reason.setVisibility(View.GONE);
 			reasonExplain.setVisibility(View.GONE);
 		}
@@ -423,7 +423,7 @@ public class SignupFragment extends ToolbarFragment{
 	private void updateButtonState(){
 		btn.setEnabled(username.length()>0 && email.length()>0 && emailRegex.matcher(email.getText()).find()
 				&& password.length()>=8 && passwordConfirm.length()>=8 && password.getText().toString().equals(passwordConfirm.getText().toString())
-				&& (!instance.isApprovalRequired() || reason.length()>0) && (!birthDateRequired || birthDate!=null));
+				&& (!instance.isSignupReasonRequired() || reason.length()>0) && (!birthDateRequired || birthDate!=null));
 	}
 
 	private void createAppAndGetToken(){

@@ -37,8 +37,8 @@ public class InstanceV2 extends Instance{
 	}
 
 	@Override
-	public boolean isApprovalRequired(){
-		return registrations.approvalRequired;
+	public boolean isSignupReasonRequired(){
+		return registrations.approvalRequired && registrations.reasonRequired;
 	}
 
 	@Override
@@ -84,6 +84,7 @@ public class InstanceV2 extends Instance{
 		public String message;
 		public String url;
 		public int minAge;
+		public boolean reasonRequired=true;
 	}
 
 	@Parcel

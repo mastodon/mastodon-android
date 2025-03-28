@@ -75,7 +75,7 @@ public class InstanceV1 extends Instance{
 	}
 
 	@Override
-	public boolean isApprovalRequired(){
+	public boolean isSignupReasonRequired(){
 		return approvalRequired;
 	}
 

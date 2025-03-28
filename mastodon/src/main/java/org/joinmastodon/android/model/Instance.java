@@ -67,7 +67,7 @@ public abstract class Instance extends BaseModel{
 	public abstract Account getContactAccount();
 	public abstract String getContactEmail();
 	public abstract boolean areRegistrationsOpen();
-	public abstract boolean isApprovalRequired();
+	public abstract boolean isSignupReasonRequired();
 	public abstract boolean areInvitesEnabled();
 	public abstract String getThumbnailURL();
 	public abstract int getVersion();
