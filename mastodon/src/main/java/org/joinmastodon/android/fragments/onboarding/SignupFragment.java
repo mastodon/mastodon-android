@@ -300,7 +300,7 @@ public class SignupFragment extends ToolbarFragment{
 							boolean first=true;
 							boolean anyFieldsSkipped=false;
 							for(String fieldName:fieldErrors.keySet()){
-								EditText field=getFieldByName(fieldName);
+								TextView field=getFieldByName(fieldName);
 								if(field==null){
 									anyFieldsSkipped=true;
 									continue;
@@ -391,12 +391,13 @@ public class SignupFragment extends ToolbarFragment{
 		};
 	}
 
-	private EditText getFieldByName(String name){
+	private TextView getFieldByName(String name){
 		return switch(name){
 			case "email" -> email;
 			case "username" -> username;
 			case "password" -> password;
 			case "reason" -> reason;
+			case "date_of_birth" -> bdate;
 			default -> null;
 		};
 	}
@@ -407,6 +408,7 @@ public class SignupFragment extends ToolbarFragment{
 			case "username" -> usernameWrap;
 			case "password" -> passwordWrap;
 			case "reason" -> reasonWrap;
+			case "date_of_birth" -> bdateWrap;
 			default -> null;
 		};
 	}
