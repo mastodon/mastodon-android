@@ -1,6 +1,9 @@
 package org.joinmastodon.android.api;
 
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
@@ -22,6 +25,9 @@ import java.io.IOException;
 import java.io.Reader;
 import java.time.Instant;
 import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -55,6 +61,7 @@ public class MastodonAPIController{
 			.readTimeout(60, TimeUnit.SECONDS)
 			.cache(new Cache(new File(MastodonApp.context.getCacheDir(), "http"), 10*1024*1024))
 			.build();
+	private static Handler uiThreadHandler=new Handler(Looper.getMainLooper());
 
 	private static final CacheControl NO_CACHE_WHATSOEVER=new CacheControl.Builder().noCache().noStore().build();
 
@@ -131,6 +138,23 @@ public class MastodonAPIController{
 							Log.d(TAG, logTag(session)+hreq+" received response: "+response);
 						synchronized(req){
 							req.okhttpCall=null;
+						}
+						if(BuildConfig.DEBUG){
+							String deprecationHeader=response.header("Deprecation");
+							if(deprecationHeader!=null && deprecationHeader.startsWith("@")){
+								try{
+									Instant date=Instant.ofEpochSecond(Long.parseLong(deprecationHeader.substring(1)));
+									String msg=hreq.url().encodedPath();
+									if(date.isAfter(Instant.now()))
+										msg+=" will be deprecated on ";
+									else
+										msg+=" is deprecated as of ";
+									msg+=date.atZone(ZoneId.systemDefault()).format(DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM));
+									Log.w(TAG, logTag(session)+msg);
+									final String finalMsg=msg;
+									uiThreadHandler.post(()->Toast.makeText(MastodonApp.context, finalMsg, Toast.LENGTH_SHORT).show());
+								}catch(NumberFormatException ignored){}
+							}
 						}
 						try(ResponseBody body=response.body()){
 							Reader reader=body.charStream();
