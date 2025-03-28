@@ -199,36 +199,7 @@ abstract class InstanceCatalogFragment extends BaseRecyclerFragment<CatalogInsta
 			public void onSuccess(Instance result){
 				loadingInstanceRequest=null;
 				loadingInstanceDomain=null;
-				if(result instanceof InstanceV1 v1)
-					v1.uri=domain; // needed for instances that use domain redirection
-				else if(result instanceof InstanceV2 v2)
-					v2.domain=domain;
-				instancesCache.put(domain, result);
-				if(instanceProgressDialog!=null || onError!=null)
-					proceedWithAuthOrSignup(result);
-				if(instanceProgressDialog!=null){
-					instanceProgressDialog.dismiss();
-					instanceProgressDialog=null;
-				}
-				if(Objects.equals(domain, currentSearchQuery) || Objects.equals(currentSearchQuery, redirects.get(domain)) || Objects.equals(currentSearchQuery, redirectsInverse.get(domain))){
-					boolean found=false;
-					for(CatalogInstance ci:filteredData){
-						if(ci.domain.equals(domain) && ci!=fakeInstance){
-							found=true;
-							break;
-						}
-					}
-					if(!found){
-						CatalogInstance ci=result.toCatalogInstance();
-						if(filteredData.size()==1 && filteredData.get(0)==fakeInstance){
-							filteredData.set(0, ci);
-							adapter.notifyItemChanged(0);
-						}else{
-							filteredData.add(0, ci);
-							adapter.notifyItemInserted(0);
-						}
-					}
-				}
+				onInstanceLoadSuccess(domain, result, onError);
 			}
 
 			@Override
@@ -239,10 +210,19 @@ abstract class InstanceCatalogFragment extends BaseRecyclerFragment<CatalogInsta
 					return;
 				}
 				loadingInstanceDomain=null;
-				if(onError!=null)
+				if(onError!=null){
 					onError.accept(error);
-				else
+				}else if(error instanceof MastodonErrorResponse me && me.httpStatus==401 && "This method requires an authenticated user".equals(me.error) && shouldAllowLimitedFederationInstances()){
+					InstanceV1 instance=new InstanceV1();
+					instance.title=domain;
+					instance.description="";
+					instance.version="unknown";
+					instance.uri=domain;
+					instance.email="";
+					onInstanceLoadSuccess(domain, instance, onError);
+				}else{
 					showInstanceInfoLoadError(domain, error);
+				}
 				if(fakeInstance!=null && getActivity()!=null){
 					fakeInstance.description=getString(R.string.error);
 					if(filteredData.size()>0 && filteredData.get(0)==fakeInstance){
@@ -253,6 +233,39 @@ abstract class InstanceCatalogFragment extends BaseRecyclerFragment<CatalogInsta
 				}
 			}
 		});
+	}
+
+	private void onInstanceLoadSuccess(String domain, Instance result, Consumer<Object> onError){
+		if(result instanceof InstanceV1 v1)
+			v1.uri=domain; // needed for instances that use domain redirection
+		else if(result instanceof InstanceV2 v2)
+			v2.domain=domain;
+		instancesCache.put(domain, result);
+		if(instanceProgressDialog!=null || onError!=null)
+			proceedWithAuthOrSignup(result);
+		if(instanceProgressDialog!=null){
+			instanceProgressDialog.dismiss();
+			instanceProgressDialog=null;
+		}
+		if(Objects.equals(domain, currentSearchQuery) || Objects.equals(currentSearchQuery, redirects.get(domain)) || Objects.equals(currentSearchQuery, redirectsInverse.get(domain))){
+			boolean found=false;
+			for(CatalogInstance ci:filteredData){
+				if(ci.domain.equals(domain) && ci!=fakeInstance){
+					found=true;
+					break;
+				}
+			}
+			if(!found){
+				CatalogInstance ci=result.toCatalogInstance();
+				if(filteredData.size()==1 && filteredData.get(0)==fakeInstance){
+					filteredData.set(0, ci);
+					adapter.notifyItemChanged(0);
+				}else{
+					filteredData.add(0, ci);
+					adapter.notifyItemInserted(0);
+				}
+			}
+		}
 	}
 
 	private void cancelLoadingInstanceInfo(){
@@ -393,5 +406,9 @@ abstract class InstanceCatalogFragment extends BaseRecyclerFragment<CatalogInsta
 				loadInstanceInfo(domain, false);
 			}
 		}
+	}
+
+	protected boolean shouldAllowLimitedFederationInstances(){
+		return false;
 	}
 }

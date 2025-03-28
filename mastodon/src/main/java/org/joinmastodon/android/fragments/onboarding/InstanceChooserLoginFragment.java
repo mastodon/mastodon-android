@@ -189,6 +189,11 @@ public class InstanceChooserLoginFragment extends InstanceCatalogFragment{
 		((UsableRecyclerView)list).setDrawSelectorOnTop(true);
 	}
 
+	@Override
+	protected boolean shouldAllowLimitedFederationInstances(){
+		return true;
+	}
+
 	private class InstancesAdapter extends UsableRecyclerView.Adapter<InstanceViewHolder>{
 		public InstancesAdapter(){
 			super(imgLoader);
