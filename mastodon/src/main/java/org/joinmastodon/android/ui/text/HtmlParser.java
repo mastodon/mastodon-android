@@ -348,8 +348,8 @@ public class HtmlParser{
 		int fgColor=UiUtils.getThemeColor(context, R.attr.colorM3Error);
 		int bgColor=UiUtils.getThemeColor(context, R.attr.colorM3ErrorContainer);
 		for(FilterResult filter:filters){
-			if(!filter.filter.isActive())
-				continue;;
+			if(!filter.filter.isActive() || filter.keywordMatches==null)
+				continue;
 			for(String word:filter.keywordMatches){
 				Matcher matcher=Pattern.compile("\\b"+Pattern.quote(word)+"\\b", Pattern.CASE_INSENSITIVE).matcher(text);
 				while(matcher.find()){
