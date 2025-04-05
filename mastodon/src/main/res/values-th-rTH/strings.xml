@@ -82,6 +82,7 @@
 	<string name="do_block">ปิดกั้น</string>
 	<string name="button_blocked">ปิดกั้นอยู่</string>
 	<string name="action_vote">ลงคะแนน</string>
+	<string name="confirm">ยืนยัน</string>
 	<string name="delete">ลบ</string>
 	<string name="confirm_delete_title">ลบโพสต์</string>
 	<string name="confirm_delete">คุณแน่ใจหรือไม่ว่าต้องการลบโพสต์นี้?</string>
@@ -802,6 +803,17 @@
 	<string name="server_x_following_will_be_removed">คุณจะสูญเสีย %s</string>
 	<string name="load_missing_posts_above">โหลดโพสต์ที่ขาดหายไปด้านบน</string>
 	<string name="load_missing_posts_below">โหลดโพสต์ที่ขาดหายไปด้านล่าง</string>
+	<string name="signup_password_too_short">รหัสผ่านต้องมีอย่างน้อย 8 ตัวอักษร</string>
+	<string name="private_reply">การตอบกลับแบบส่วนตัว</string>
+	<string name="private_mention">การกล่าวถึงแบบส่วนตัว</string>
+	<string name="post_header_reply">การตอบกลับ</string>
+	<string name="post_header_mention">การกล่าวถึง</string>
+	<string name="report_reason_legal">โพสต์ผิดกฎหมาย</string>
+	<string name="report_reason_legal_subtitle">คุณเชื่อว่าโพสต์ละเมิดกฎหมายของประเทศของคุณหรือของเซิร์ฟเวอร์</string>
+	<string name="date_of_birth">วันเกิด</string>
 	<!-- %s is `at_least_x_years_old`. Some languages, unlike English, may require the word "years" here. -->
 	<!-- Substituted into `date_of_birth_explanation` -->
+	<plurals name="at_least_x_years_old">
+		<item quantity="other">%d</item>
+	</plurals>
 </resources>
