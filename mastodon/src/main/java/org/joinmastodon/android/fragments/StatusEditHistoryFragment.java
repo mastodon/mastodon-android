@@ -55,7 +55,7 @@ public class StatusEditHistoryFragment extends StatusListFragment{
 	@Override
 	protected List<StatusDisplayItem> buildDisplayItems(Status s){
 		List<StatusDisplayItem> items=new ArrayList<>();
-		InlineStatusStatusDisplayItem inlineItem=new InlineStatusStatusDisplayItem(s.getID(), this, s);
+		InlineStatusStatusDisplayItem inlineItem=new InlineStatusStatusDisplayItem(s.getID(), this, s, accountID);
 		inlineItem.fullWidth=true;
 		items.add(inlineItem);
 		int idx=data.indexOf(s);

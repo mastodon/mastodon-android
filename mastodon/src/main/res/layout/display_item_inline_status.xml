@@ -13,12 +13,27 @@
 		android:padding="8dp"
 		android:background="@drawable/bg_inline_status">
 
+		<org.joinmastodon.android.ui.views.LinkedTextView
+			android:id="@+id/header"
+			android:layout_width="match_parent"
+			android:layout_height="16dp"
+			android:layout_marginBottom="4dp"
+			android:textAppearance="@style/m3_label_medium"
+			android:drawableTint="?colorM3Outline"
+			android:textColor="?colorM3Outline"
+			android:drawablePadding="8dp"
+			android:gravity="center_vertical"
+			android:singleLine="true"
+			android:ellipsize="end"
+			tools:text="in reply to Name"/>
+
 		<ImageView
 			android:id="@+id/ava"
 			android:layout_width="16dp"
 			android:layout_height="16dp"
 			android:layout_marginVertical="2dp"
 			android:importantForAccessibility="no"
+			android:layout_below="@id/header"
 			tools:src="#0f0"/>
 		
 		<TextView
@@ -27,6 +42,7 @@
 			android:layout_height="20dp"
 			android:layout_toEndOf="@id/ava"
 			android:layout_marginStart="4dp"
+			android:layout_below="@id/header"
 			android:textAppearance="@style/m3_title_small"
 			android:textColor="?colorM3OnSurface"
 			android:singleLine="true"
@@ -40,6 +56,7 @@
 			android:layout_height="20dp"
 			android:layout_toEndOf="@id/name"
 			android:layout_marginStart="4dp"
+			android:layout_below="@id/header"
 			android:textAppearance="@style/m3_body_medium"
 			android:textColor="?colorM3Outline"
 			android:singleLine="true"

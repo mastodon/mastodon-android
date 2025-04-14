@@ -81,4 +81,8 @@
 		<attr name="cornerRadius" format="dimension"/>
 		<attr name="roundBottomCorners" format="boolean"/>
 	</declare-styleable>
+
+	<declare-styleable name="TopBarsScrollAwayLinearLayout">
+		<attr name="topBarsCount" format="integer"/>
+	</declare-styleable>
 </resources>

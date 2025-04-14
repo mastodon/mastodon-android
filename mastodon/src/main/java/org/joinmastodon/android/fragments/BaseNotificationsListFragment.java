@@ -56,7 +56,7 @@ public abstract class BaseNotificationsListFragment extends BaseStatusListFragme
 		}
 		if(n.status!=null){
 			if(titleItem!=null && n.notification.type!=NotificationType.STATUS && n.notification.type!=NotificationType.MENTION){
-				InlineStatusStatusDisplayItem inlineItem=new InlineStatusStatusDisplayItem(n.getID(), this, n.status);
+				InlineStatusStatusDisplayItem inlineItem=new InlineStatusStatusDisplayItem(n.getID(), this, n.status, accountID);
 				inlineItem.removeTopPadding=true;
 				return List.of(titleItem, inlineItem);
 			}else{

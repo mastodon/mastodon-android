@@ -1,8 +1,11 @@
 package org.joinmastodon.android.ui.displayitems;
 
+import android.app.Fragment;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.text.SpannableStringBuilder;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -22,31 +25,46 @@ import me.grishka.appkit.imageloader.requests.ImageLoaderRequest;
 import me.grishka.appkit.imageloader.requests.UrlImageLoaderRequest;
 import me.grishka.appkit.utils.V;
 
+// Note: also used in ComposeFragment outside of a list
 public class InlineStatusStatusDisplayItem extends StatusDisplayItem{
 	public final Status status;
 	private CustomEmojiHelper emojiHelper=new CustomEmojiHelper();
 	private SpannableStringBuilder parsedName;
 	private SpannableStringBuilder parsedPostText;
+	private SpannableStringBuilder parsedHeaderText;
 	private UrlImageLoaderRequest avaRequest;
 	public boolean removeTopPadding;
+	private int headerIcon;
 
-	public InlineStatusStatusDisplayItem(String parentID, BaseStatusListFragment<?> parentFragment, Status status){
-		super(parentID, parentFragment);
+	public InlineStatusStatusDisplayItem(String parentID, Fragment parentFragment, Status status, String accountID){
+		this(parentID, parentFragment, status, accountID, 0, null);
+	}
+
+	public InlineStatusStatusDisplayItem(String parentID, Fragment parentFragment, Status status, String accountID, int headerIcon, String headerText){
+		super(parentID, parentFragment instanceof BaseStatusListFragment<?> slf ? slf : null);
 		this.status=status;
 
 		parsedName=new SpannableStringBuilder(status.account.displayName);
-		if(GlobalUserPreferences.customEmojiInNames)
+		if(headerText!=null)
+			parsedHeaderText=new SpannableStringBuilder(headerText);
+		if(GlobalUserPreferences.customEmojiInNames){
 			HtmlParser.parseCustomEmoji(parsedName, status.account.emojis);
+			if(parsedHeaderText!=null)
+				HtmlParser.parseCustomEmoji(parsedHeaderText, status.account.emojis);
+		}
 
-		parsedPostText=HtmlParser.parse(status.content, status.emojis, status.mentions, status.tags, parentFragment.getAccountID(), status.getContentStatus(), parentFragment.getActivity());
+		parsedPostText=HtmlParser.parse(status.content, status.emojis, status.mentions, status.tags, accountID, status.getContentStatus(), parentFragment.getActivity());
 		for(Object span:parsedPostText.getSpans(0, parsedPostText.length(), Object.class)){
 			if(!(span instanceof CustomEmojiSpan))
 				parsedPostText.removeSpan(span);
 		}
 
 		SpannableStringBuilder ssb=new SpannableStringBuilder(parsedName);
+		if(parsedHeaderText!=null)
+			ssb.append(parsedHeaderText);
 		ssb.append(parsedPostText);
 		emojiHelper.setText(ssb);
+		this.headerIcon=headerIcon;
 
 		avaRequest=new UrlImageLoaderRequest(GlobalUserPreferences.playGifs ? status.account.avatar : status.account.avatarStatic, V.dp(50), V.dp(50));
 	}
@@ -69,7 +87,7 @@ public class InlineStatusStatusDisplayItem extends StatusDisplayItem{
 	}
 
 	public static class Holder extends StatusDisplayItem.Holder<InlineStatusStatusDisplayItem> implements ImageLoaderViewHolder{
-		private final TextView name, username, text;
+		private final TextView name, username, text, header;
 		private final ImageView ava;
 
 		public Holder(Context context, ViewGroup parent){
@@ -78,6 +96,7 @@ public class InlineStatusStatusDisplayItem extends StatusDisplayItem{
 			username=findViewById(R.id.username);
 			text=findViewById(R.id.text);
 			ava=findViewById(R.id.ava);
+			header=findViewById(R.id.header);
 
 			ava.setOutlineProvider(OutlineProviders.roundedRect(4));
 			ava.setClipToOutline(true);
@@ -98,6 +117,17 @@ public class InlineStatusStatusDisplayItem extends StatusDisplayItem{
 				text.setTextColor(UiUtils.getThemeColor(itemView.getContext(), R.attr.colorM3OnSurfaceVariant));
 				text.setCompoundDrawables(null, null, null, null);
 				text.setText(item.parsedPostText);
+			}
+			if(item.parsedHeaderText!=null){
+				header.setVisibility(View.VISIBLE);
+				header.setText(item.parsedHeaderText);
+				Drawable icon=itemView.getContext().getDrawable(item.headerIcon);
+				icon.setBounds(0, 0, V.dp(16), V.dp(16));
+				header.setCompoundDrawablesRelative(icon, null, null, null);
+				if(Build.VERSION.SDK_INT<Build.VERSION_CODES.N)
+					UiUtils.fixCompoundDrawableTintOnAndroid6(header);
+			}else{
+				header.setVisibility(View.GONE);
 			}
 		}
 
