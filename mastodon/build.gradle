@@ -8,7 +8,7 @@ android {
 		generateLocaleConfig = true
 	}
 
-	compileSdk 34
+	compileSdk 35
 	defaultConfig {
 		applicationId "org.joinmastodon.android"
 		minSdk 23
