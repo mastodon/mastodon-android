@@ -31,13 +31,17 @@ public abstract class BaseNotificationsListFragment extends BaseStatusListFragme
 	@Override
 	protected List<StatusDisplayItem> buildDisplayItems(NotificationViewModel n){
 		StatusDisplayItem titleItem;
-		if(n.notification.type==NotificationType.MENTION && n.status!=null){
-			boolean replyToSelf=AccountSessionManager.get(accountID).self.id.equals(n.status.inReplyToAccountId);
-			int icon=replyToSelf ? R.drawable.ic_reply_wght700_20px : R.drawable.ic_alternate_email_wght700fill1_20px;
-			if(n.status.visibility==StatusPrivacy.DIRECT){
-				titleItem=new ReblogOrReplyLineStatusDisplayItem(n.getID(), this, getString(replyToSelf ? R.string.private_reply : R.string.private_mention), null, icon);
+		if(n.notification.type==NotificationType.MENTION){
+			if(n.status!=null){
+				boolean replyToSelf=AccountSessionManager.get(accountID).self.id.equals(n.status.inReplyToAccountId);
+				int icon=replyToSelf ? R.drawable.ic_reply_wght700_20px : R.drawable.ic_alternate_email_wght700fill1_20px;
+				if(n.status.visibility==StatusPrivacy.DIRECT){
+					titleItem=new ReblogOrReplyLineStatusDisplayItem(n.getID(), this, getString(replyToSelf ? R.string.private_reply : R.string.private_mention), null, icon);
+				}else{
+					titleItem=new ReblogOrReplyLineStatusDisplayItem(n.getID(), this, getString(replyToSelf ? R.string.post_header_reply : R.string.post_header_mention), null, icon);
+				}
 			}else{
-				titleItem=new ReblogOrReplyLineStatusDisplayItem(n.getID(), this, getString(replyToSelf ? R.string.post_header_reply : R.string.post_header_mention), null, icon);
+				titleItem=null;
 			}
 		}else if(n.notification.type==NotificationType.STATUS){
 			if(n.status!=null)
