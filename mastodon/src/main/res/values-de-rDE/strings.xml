@@ -9,7 +9,7 @@
 	<string name="preparing_auth">Authentisierung wird vorbereitet …</string>
 	<string name="finishing_auth">Authentisierung wird abgeschlossen …</string>
 	<string name="user_boosted">%s teilte</string>
-	<string name="in_reply_to">als Antwort auf %s</string>
+	<string name="in_reply_to">Antwort an %s</string>
 	<string name="notifications">Benachrichtigungen</string>
 	<string name="user_followed_you">%s folgt dir jetzt</string>
 	<string name="user_sent_follow_request">%s möchte dir folgen</string>
@@ -194,7 +194,7 @@
 	<string name="settings_app_version">Mastodon für Android v%1$s (%2$d)</string>
 	<string name="media_cache_cleared">Medien-Cache geleert</string>
 	<string name="confirm_log_out">Von %s abmelden?</string>
-	<string name="sensitive_content_explain">Autor*in hat den Inhalt mit einer Inhaltswarnung versehen.</string>
+	<string name="sensitive_content_explain">Inhaltswarnung</string>
 	<string name="avatar_description">Profil von %s aufrufen</string>
 	<string name="more_options">Weitere Einstellungen</string>
 	<string name="new_post">Neuer Beitrag</string>
@@ -293,7 +293,7 @@
 	<string name="file_size_gb">%.2f GB</string>
 	<string name="upload_processing">Wird verarbeitet …</string>
 	<!-- %s is file size -->
-	<string name="download_update">(%s) herunterladen</string>
+	<string name="download_update">Herunterladen (%s)</string>
 	<string name="install_update">Installieren</string>
 	<string name="privacy_policy_title">Deine Privatsphäre</string>
 	<string name="privacy_policy_subtitle">Auch wenn die Mastodon-App keine Daten sammelt, kann der Server, über den du dich registrierst, eine andere Richtlinie haben.\n\nWenn du mit der Richtlinie für %s nicht einverstanden bist, kannst du zurückkehren und einen anderen Server wählen.</string>
@@ -334,8 +334,8 @@
 	<string name="sending_follows">Nutzer*innen wird gefolgt …</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
 	<string name="signup_email_domain_blocked">%1$s lässt keine Registrierungen von %2$s zu. Probiere einen anderen E-Mail-Anbieter oder &lt;a&gt;wähle einen anderen Server&lt;/a&gt;.</string>
-	<string name="spoiler_show">Trotzdem anzeigen</string>
-	<string name="spoiler_hide">Wieder ausblenden</string>
+	<string name="spoiler_show">Beitrag anzeigen</string>
+	<string name="spoiler_hide">Beitrag ausblenden</string>
 	<string name="poll_multiple_choice">Wähle ein/e oder mehrere aus</string>
 	<string name="save_changes">Änderungen speichern</string>
 	<string name="profile_featured">Empfohlen</string>
@@ -855,6 +855,12 @@
 	<string name="post_header_mention">Erwähnung</string>
 	<string name="report_reason_legal">Das ist rechtswidrig</string>
 	<string name="report_reason_legal_subtitle">Du glaubst, dass es gegen die Gesetze deines Landes oder des Landes des Servers verstößt</string>
+	<string name="date_of_birth">Geburtsdatum</string>
 	<!-- %s is `at_least_x_years_old`. Some languages, unlike English, may require the word "years" here. -->
+	<string name="date_of_birth_explanation">Wir müssen sicherstellen, dass du mindestens %s alt bist, um Mastodon verwenden zu können. Das Alter wird nicht gespeichert.</string>
 	<!-- Substituted into `date_of_birth_explanation` -->
+	<plurals name="at_least_x_years_old">
+		<item quantity="one">%d Jahr</item>
+		<item quantity="other">%d Jahre</item>
+	</plurals>
 </resources>

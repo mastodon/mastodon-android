@@ -93,6 +93,7 @@
 	<string name="do_block">Արգելափակել</string>
 	<string name="button_blocked">Արգելափակված</string>
 	<string name="action_vote">Քվեարկել</string>
+	<string name="confirm">Հաստատել</string>
 	<string name="delete">Ջնջել</string>
 	<string name="confirm_delete_title">Ջնջել գրառումը</string>
 	<string name="confirm_delete">Վստա՞հ եք, որ ուզում եք ջնջել այս գրառումը։</string>
@@ -710,9 +711,9 @@
 	<string name="visibility_unlisted">Լուռ հրապարակային</string>
 	<string name="filtered_notifications">Զտված ծանուցումներ</string>
 	<string name="filter_notifications">Զտել ծանուցումները`</string>
-	<string name="notification_filter_following">Մարդկանցից, որոնց դուք չեք հետեւում</string>
-	<string name="notification_filter_following_explanation">Մինչև դուք անձամբ դրանք չհաստատեք</string>
-	<string name="notification_filter_followers">Մարդկանցից, որոնք ձեզ չեն հետեւում</string>
+	<string name="notification_filter_following">Նրանցից, ում դուք չեք հետեւում</string>
+	<string name="notification_filter_following_explanation">Մինչև դուք անձամբ նրանց չհաստատեք</string>
+	<string name="notification_filter_followers">Ձեզ չհետեւողներից</string>
 	<string name="notification_filter_followers_explanation">Ներառում է այն մարդկանց, որոնք ձեզ 3 օրից քիչ են հետևում</string>
 	<string name="notification_filter_new_accounts">Նոր հաշիվներից</string>
 	<string name="notification_filter_new_accounts_explanation">Հաշիվներից, որոնք ստեղծվել են վերջին 30 օրվա ընթացքում</string>
@@ -721,8 +722,8 @@
 	<string name="allow_notifications">Թույլատրել ծանուցումները`</string>
 	<string name="mute_notifications">Մերժել ծանուցման հարցումը</string>
 	<plurals name="x_people_you_may_know">
-		<item quantity="one">%,d մարդ, որին դուք գուցե գիտեք</item>
-		<item quantity="other">%,d մարդ, որոնց դուք գուցե գիտեք</item>
+		<item quantity="one">%,d մարդ, ում դուք գուցե գիտեք</item>
+		<item quantity="other">%,d մարդ, ում դուք գուցե գիտեք</item>
 	</plurals>
 	<string name="notifications_from_user">%s-ից ծանուցումներ</string>
 	<string name="notifications_muted">%s-ից ծանուցումները ջնջվել են։</string>
@@ -808,6 +809,7 @@
 	<string name="account_settings">Հաշվի կարգավորումներ</string>
 	<string name="settings_about_this_server">Այս հանգույցի մասին</string>
 	<string name="manage_account">Կարգավորել հաշիվը</string>
+	<string name="switch_to_this_account">Անցնել այս հաշվին</string>
 	<string name="delete_account">Ջնջել հաշիվը</string>
 	<string name="notification_type_status">Նոր գրառումներ</string>
 	<plurals name="user_and_x_more_followed">
@@ -846,6 +848,19 @@
 	<string name="server_x_following_will_be_removed">Դուք կկորցնեք %s։</string>
 	<string name="load_missing_posts_above">Բեռնել վերեւից պակասող գրառումները</string>
 	<string name="load_missing_posts_below">Բեռնել ներքեւից պակասող գրառումները</string>
+	<string name="signup_password_too_short">Գաղտնաբառը պետք է պարունակի առնվազն 8 նիշ:</string>
+	<string name="private_reply">Գաղտնի պատասխան</string>
+	<string name="private_mention">Գաղտնի հիշատակում</string>
+	<string name="post_header_reply">Պատասխանել</string>
+	<string name="post_header_mention">Հիշատակել</string>
+	<string name="report_reason_legal">Սա ապօրինի է</string>
+	<string name="report_reason_legal_subtitle">Դուք կարծում եք, որ սա խախտում է ձեր հանգույցի երկրի օրենքները</string>
+	<string name="date_of_birth">Ծննդյան ամսաթիվ</string>
 	<!-- %s is `at_least_x_years_old`. Some languages, unlike English, may require the word "years" here. -->
+	<string name="date_of_birth_explanation">Մաստոդոնն օգտագործելու համար մենք պետք է համոզվենք, որ դուք առնվազն %s տարեկան եք։ Սա գրանցումից հետո չի պահպանվի։</string>
 	<!-- Substituted into `date_of_birth_explanation` -->
+	<plurals name="at_least_x_years_old">
+		<item quantity="one">%d</item>
+		<item quantity="other">%d</item>
+	</plurals>
 </resources>

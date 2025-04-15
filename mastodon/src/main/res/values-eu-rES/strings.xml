@@ -850,6 +850,18 @@ Zenbat eta jende gehiago jarraitu, orduan eta aktiboagoa eta interesgarriagoa iz
 	<string name="load_missing_posts_above">Falta diren goiko bidalketak kargatu</string>
 	<string name="load_missing_posts_below">Falta diren beheko bidalketak kargatu</string>
 	<string name="signup_password_too_short">Pasahitzak gutxienez 8 karaktere izan behar ditu.</string>
+	<string name="private_reply">Erantzun pribatua</string>
+	<string name="private_mention">Aipamen pribatua</string>
+	<string name="post_header_reply">Erantzuna</string>
+	<string name="post_header_mention">Aipamena</string>
+	<string name="report_reason_legal">Ilegala da</string>
+	<string name="report_reason_legal_subtitle">Uste duzu zure herrialdeko eta zerbitzariko legedia hausten duela</string>
+	<string name="date_of_birth">Jaiotze-data</string>
 	<!-- %s is `at_least_x_years_old`. Some languages, unlike English, may require the word "years" here. -->
+	<string name="date_of_birth_explanation">Mastodon erabili ahal izateko gutxienez %s urte dituzula ziurtatu behar dugu. Datu hau ez da gordeko erregistroa egin ondoren.</string>
 	<!-- Substituted into `date_of_birth_explanation` -->
+	<plurals name="at_least_x_years_old">
+		<item quantity="one">%d</item>
+		<item quantity="other">%d</item>
+	</plurals>
 </resources>

@@ -26,6 +26,7 @@
 	<string name="profile_about">Ɣef</string>
 	<string name="button_follow">Ḍfeṛ</string>
 	<string name="button_following">Aḍfar</string>
+	<string name="edit_profile">Ẓreg amaɣnu</string>
 	<string name="mute_user">Sgugem %s</string>
 	<string name="unmute_user">Kkes asgugem i %s</string>
 	<string name="block_user">Sewḥel %s</string>
@@ -99,9 +100,11 @@
 	<string name="report_title">Cetki ɣef %s</string>
 	<string name="report_choose_reason_subtitle">Fren amṣada akk igerrzen</string>
 	<string name="report_reason_personal_subtitle">D ayen akk ur bɣiɣ ara ad waliɣ</string>
+	<string name="report_reason_spam">D aspam</string>
 	<string name="report_reason_spam_subtitle">Yir iseɣwan, yir agman d tririyin i d-yettuɣalen</string>
 	<string name="report_reason_violation">Truẓi n yilugan n uqeddac</string>
 	<string name="report_reason_violation_subtitle">Teẓriḍ y•tettruẓu kra n yilugan</string>
+	<string name="report_reason_other">D ayen nniḍen</string>
 	<string name="report_reason_other_subtitle">Ugur ur yemṣada ara akk d taggayin-nniḍen</string>
 	<string name="report_choose_rule">Acu n yilugan i yettwarẓan?</string>
 	<string name="report_choose_rule_subtitle">Fren akk tifrat ara yettusnasen</string>
@@ -136,6 +139,8 @@
 	<string name="err_not_logged_in">Ttxil-k·m qqen qbel ɣer Mastodon</string>
 	<string name="media_attachment_unsupported_type">Anaw n ufaylu %s ur yettusefrak ara</string>
 	<string name="media_attachment_too_big">Afaylu %1$s iɛedda talast n teɣzi n %2$s MAṬ</string>
+	<string name="settings_theme">Udem</string>
+	<string name="theme_auto">Seqdec udem n yibenk</string>
 	<string name="theme_light">Aceɛlal</string>
 	<string name="theme_dark">Aberkan</string>
 	<string name="settings_behavior">Tiddin</string>
@@ -152,6 +157,7 @@
 	<string name="more_options">Ugar n yiɣewwaren</string>
 	<string name="new_post">Tasuffeɣt tamaynut</string>
 	<string name="button_reply">Err</string>
+	<string name="button_reblog">Zuzer</string>
 	<string name="button_favorite">Amenyaf</string>
 	<string name="button_share">Bḍu</string>
 	<string name="media_no_description">Amidyat s war aglam</string>
@@ -192,6 +198,7 @@
 	<string name="add_bookmark">Creḍ</string>
 	<string name="bookmarks">Ticraḍ</string>
 	<string name="login_title">Ansuf yes-k·m tikkelt niḍen</string>
+	<string name="server_url">URL n uqeddac</string>
 	<string name="server_filter_any_language">Yal tutlayt</string>
 	<string name="server_filter_region_europe">Turuft</string>
 	<string name="server_filter_region_north_america">Tamrikt n ugafa</string>
@@ -219,10 +226,16 @@
 	<string name="attachment_type_unknown">Afaylu</string>
 	<string name="compose_poll_single_choice">Fren yiwen</string>
 	<string name="help">Tallelt</string>
+	<string name="language">Tutlayt</string>
+	<string name="language_default">Amezwaru</string>
+	<string name="language_system">Anagraw</string>
 	<string name="language_detecting">Tifinagh tawurmant n tutlayt</string>
 	<!-- %s is the server domain -->
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
+	<string name="about_app">Ɣef %s</string>
+	<string name="default_post_language">Tutlayt tamezwarut n tira</string>
+	<string name="notifications_policy_anyone">Yal yiwen</string>
 	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
 	<string name="today">ass-a</string>
 	<string name="yesterday">iḍelli</string>
@@ -234,6 +247,8 @@
 	<string name="server_administrator">Anedbal</string>
 	<string name="count_one">Yiwen</string>
 	<string name="count_two">Sin</string>
+	<string name="count_three">Kraḍ</string>
+	<string name="count_four">Ukkuẓ</string>
 	<string name="alt_text_reminder_post_anyway">Suffeɣ</string>
 	<!-- %s is the username -->
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
@@ -273,6 +288,7 @@
 	<string name="pin_post">Senteḍ-itt ɣef umaɣnu</string>
 	<!-- %s is the username -->
 	<string name="donation_once">Tikkelt kan</string>
+	<string name="settings_donate">Mudd tawsa i Mastodon</string>
 	<string name="poll_see_results">Wali igmaḍ</string>
 	<string name="poll_hide_results">Ffer igmaḍ</string>
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
@@ -287,6 +303,7 @@
 	<string name="account_settings">Iɣewwaṛen n umiḍan</string>
 	<string name="settings_about_this_server">Ɣef uqeddac-a</string>
 	<string name="delete_account">Kkes amiḍan</string>
+	<string name="notification_type_status">Tisuffaɣ timaynutin</string>
 	<!-- appears when you're about to block a server -->
 	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
 	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
