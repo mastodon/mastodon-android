@@ -12,6 +12,9 @@
 	<string name="in_reply_to">בתגובה ל־%s</string>
 	<string name="notifications">עדכונים</string>
 	<string name="user_followed_you">%s עקבו אחריך</string>
+	<string name="user_sent_follow_request">%s שלח לך בקשת מעקב</string>
+	<string name="user_favorited">%s מועדפים:</string>
+	<string name="notification_boosted">%s בוסט:</string>
 	<string name="share_toot_title">שיתוף</string>
 	<string name="settings">הגדרות</string>
 	<string name="publish">פרסם</string>
@@ -31,10 +34,13 @@
 		<item quantity="other">עוקבים</item>
 	</plurals>
 	<string name="posts">רשומות</string>
+	<string name="posts_and_replies">הודעות ותגובות</string>
 	<string name="media">מדיה</string>
 	<string name="profile_about">אודות</string>
 	<string name="button_follow">לעקוב</string>
 	<string name="button_following">עוקב</string>
+	<string name="edit_profile">עריכת פרופיל</string>
+	<string name="share_user">שתף פרופיל באמצעות…</string>
 	<string name="mute_user">השתק את %s</string>
 	<string name="unmute_user">הפסק השתקה של %s</string>
 	<string name="block_user">חסום את %s</string>
@@ -51,7 +57,82 @@
 	<string name="profile_joined">מצורף</string>
 	<string name="done">בוצע</string>
 	<string name="loading">טוען…</string>
+	<string name="field_label">תווית</string>
+	<string name="field_content">תוכן</string>
+	<string name="saving">שומר…</string>
+	<string name="post_from_user">פוסט מ%s</string>
+	<string name="poll_option_hint">אפשרות %d</string>
+	<plurals name="x_minutes">
+		<item quantity="one">דקה %d</item>
+		<item quantity="two">%d דקות</item>
+		<item quantity="many">%d דקות</item>
+		<item quantity="other">%d דקות</item>
+	</plurals>
+	<plurals name="x_hours">
+		<item quantity="one">%d שעה</item>
+		<item quantity="two">%d שעות</item>
+		<item quantity="many">%d שעות</item>
+		<item quantity="other">%d שעות</item>
+	</plurals>
+	<plurals name="x_days">
+		<item quantity="one">יום %d</item>
+		<item quantity="two">%d ימים</item>
+		<item quantity="many">%d ימים</item>
+		<item quantity="other">%d ימים</item>
+	</plurals>
+	<plurals name="x_seconds_left">
+		<item quantity="one">שניה %d נותרה</item>
+		<item quantity="two">נותרו %d שניות</item>
+		<item quantity="many">נותרו %d שניות</item>
+		<item quantity="other">נותרו %d שניות</item>
+	</plurals>
+	<plurals name="x_minutes_left">
+		<item quantity="one">נותרה דקה %d</item>
+		<item quantity="two">%d דקות נותרו</item>
+		<item quantity="many">%d דקות נותרו</item>
+		<item quantity="other">%d דקות נותרו</item>
+	</plurals>
+	<plurals name="x_hours_left">
+		<item quantity="one">נותרה שעה %d</item>
+		<item quantity="two">%d שעות נותרו</item>
+		<item quantity="many">%d שעות נותרו</item>
+		<item quantity="other">%d שעות נותרו</item>
+	</plurals>
+	<plurals name="x_days_left">
+		<item quantity="one">יום %d נותר</item>
+		<item quantity="two">נותרו %d ימים</item>
+		<item quantity="many">נותרו %d ימים</item>
+		<item quantity="other">נותרו %d ימים</item>
+	</plurals>
+	<plurals name="x_votes">
+		<item quantity="one">הצבעה %,d</item>
+		<item quantity="two">%,d הצבעות</item>
+		<item quantity="many">%,d הצבעות</item>
+		<item quantity="other">%,d הצבעות</item>
+	</plurals>
+	<string name="poll_closed">סגור</string>
+	<string name="do_mute">השתקה</string>
+	<string name="do_block">חסימה</string>
+	<string name="button_blocked">חסום</string>
+	<string name="action_vote">הצבעה</string>
+	<string name="confirm">אישור</string>
+	<string name="delete">מחק</string>
+	<string name="confirm_delete_title">מחיקת פוסט</string>
+	<string name="confirm_delete">האם אתה בטווח שברצונך למחוק את הפוסט הזה?</string>
+	<string name="deleting">מוחק…</string>
+	<string name="notification_channel_audio_player">נגינת שמע</string>
+	<string name="play">נגן</string>
+	<string name="pause">השהה</string>
+	<string name="log_out">התנתק</string>
+	<string name="add_account">הוסף חשבון</string>
+	<string name="search_hint">חיפוש</string>
+	<string name="hashtags">האשטאגים</string>
+	<string name="news">חדשות</string>
+	<string name="for_you">עבורך</string>
+	<string name="all_notifications">הכל</string>
+	<string name="mentions">אזכורים</string>
 	<string name="report_title">דווח על %s</string>
+	<string name="report_choose_reason">מה הבעיה בפוסט הזה?</string>
 	<string name="report_choose_reason_subtitle">בחרו את האפשרות המתאימה ביותר</string>
 	<string name="report_reason_personal_subtitle">זה לא משהו שאתם רוצים לראות</string>
 	<string name="report_reason_spam_subtitle">קישורים מסוכנים, התערבות מזוייפת, או תגובות חוזרות ונשנות</string>
