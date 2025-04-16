@@ -2,11 +2,16 @@
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
 	<string name="log_in">התחברו</string>
 	<string name="next">הבא</string>
+	<string name="loading_instance">מאחזר מידע שרת…</string>
 	<string name="error">שגיאה</string>
+	<string name="not_a_mastodon_instance">נראה ש-%s אינו שרת מאסטודון.</string>
 	<string name="ok">אוקיי</string>
 	<string name="preparing_auth">מתכונן לאימות…</string>
 	<string name="finishing_auth">מסיים אימות…</string>
+	<string name="user_boosted">%s בוסט</string>
+	<string name="in_reply_to">בתגובה ל־%s</string>
 	<string name="notifications">עדכונים</string>
+	<string name="user_followed_you">%s עקבו אחריך</string>
 	<string name="share_toot_title">שיתוף</string>
 	<string name="settings">הגדרות</string>
 	<string name="publish">פרסם</string>
