@@ -131,17 +131,51 @@
 	<string name="for_you">עבורך</string>
 	<string name="all_notifications">הכל</string>
 	<string name="mentions">אזכורים</string>
+	<plurals name="x_people_talking">
+		<item quantity="one">אדם %d מדבר</item>
+		<item quantity="two">%d אנשים מדברים</item>
+		<item quantity="many">%d אנשים מדברים</item>
+		<item quantity="other">%d אנשים מדברים</item>
+	</plurals>
 	<string name="report_title">דווח על %s</string>
 	<string name="report_choose_reason">מה הבעיה בפוסט הזה?</string>
+	<string name="report_choose_reason_account">מה השתבש עם %s?</string>
 	<string name="report_choose_reason_subtitle">בחרו את האפשרות המתאימה ביותר</string>
+	<string name="report_reason_personal">לא אהבתי את זה</string>
 	<string name="report_reason_personal_subtitle">זה לא משהו שאתם רוצים לראות</string>
+	<string name="report_reason_spam">זה ספאם</string>
 	<string name="report_reason_spam_subtitle">קישורים מסוכנים, התערבות מזוייפת, או תגובות חוזרות ונשנות</string>
 	<string name="report_reason_violation">זה עובר על חוקי שרת</string>
 	<string name="report_reason_violation_subtitle">רתם מודעים לכך שזה עובר על חוקים ספציפיים</string>
+	<string name="report_reason_other">זה משהו אחר</string>
 	<string name="report_reason_other_subtitle">הבעיה לא מתאימה לקטגוריות האחרות</string>
 	<string name="report_choose_rule">אילו חוקים נשברים כאן?</string>
 	<string name="report_choose_rule_subtitle">בחרו את כל מה שרלוונטי</string>
+	<string name="report_choose_posts">האם ישנן הודעות התומכות בדיווח זה?</string>
+	<string name="report_choose_posts_subtitle">בחר את כל מה שרלוונטי</string>
+	<string name="report_comment_title">האם יש דבר נוסף שלדעתך חשוב שנדע?</string>
+	<string name="report_comment_hint">הערות נוספות</string>
+	<string name="sending_report">שולח דיווח…</string>
+	<string name="report_sent_title">תודה על הדיווח, נבדוק את העניין.</string>
+	<string name="report_sent_subtitle">בזמן שאנו בוחנים את הדיווח, ניתן לפעול כנגד @%s:</string>
+	<string name="unfollow_user">בטל מעקב %s</string>
+	<string name="unfollow">בטל מעקב</string>
+	<string name="mute_user_explain">לא ניתן יהיה לראות את ההודעות. הם עדיין יוכלו לעקוב אחריך ולראות את ההודעות שלך ולא ידעו שהם מושתקים.</string>
+	<string name="block_user_explain">לא ניתן יהיה לראות את ההודעות שלהם. הם לא יוכלו לראות את ההודעות שלך או לעקוב אחריך. הם יוכלו לדעת שהם חסומים.</string>
+	<string name="report_personal_title">לא מעוניין לראות את זה?</string>
+	<string name="report_personal_subtitle">הנה כמה אפשרויות לשליטה בתצוגת מסטודון:</string>
+	<string name="back">חזרה</string>
+	<string name="search_communities">שם שרת או קישור</string>
+	<string name="instance_rules_title">כללי שרת</string>
+	<string name="instance_rules_subtitle">על ידי המשך, אתה מסכים לציית לכללים הבאים שנקבעו ויאכפו על ידי מנהלי %s.</string>
+	<string name="signup_title">צור חשבון</string>
+	<string name="display_name">שם</string>
+	<string name="username">שם משתמש</string>
+	<string name="email">דוא״ל</string>
+	<string name="password">סיסמא</string>
+	<string name="confirm_password">אימות סיסמא</string>
 	<string name="category_general">כללי</string>
+	<string name="confirm_email_title">בדוק את תיבת הדואר שלך</string>
 	<!-- %s is the email address -->
 	<!-- %s is the server domain -->
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
