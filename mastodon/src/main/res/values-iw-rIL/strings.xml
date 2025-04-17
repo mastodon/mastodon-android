@@ -177,6 +177,43 @@
 	<string name="category_general">כללי</string>
 	<string name="confirm_email_title">בדוק את תיבת הדואר שלך</string>
 	<!-- %s is the email address -->
+	<string name="confirm_email_subtitle">הקש על הקישור ששלחנו לך כדי לאמת את %s. נחכה ממש כאן.</string>
+	<string name="confirm_email_didnt_get">לא קיבלת קישור?</string>
+	<string name="resend">שלח מחדש</string>
+	<string name="open_email_app">פתח יישום דוא\"ל</string>
+	<string name="resent_email">מייל אימות נשלח</string>
+	<string name="compose_hint">הקלד או הדבק מה שעולה בדעתך</string>
+	<string name="content_warning">אזהרת תוכן</string>
+	<string name="save">שמור</string>
+	<string name="add_alt_text">הוסף מלל חלופי</string>
+	<string name="visibility_public">ציבורי</string>
+	<string name="visibility_followers_only">עוקבים</string>
+	<string name="visibility_private">אנשים מסוימים</string>
+	<string name="recent_searches">לאחרונה</string>
+	<string name="notification_type_follow">עוקבים חדשים</string>
+	<string name="notification_type_favorite">מועדפים</string>
+	<string name="notification_type_reblog">בוסטיים</string>
+	<string name="notification_type_mention">אזכורים</string>
+	<string name="notification_type_poll">סקרים</string>
+	<string name="choose_account">בחר חשבון</string>
+	<string name="err_not_logged_in">אנא התחבר למסטודון תחילה</string>
+	<string name="media_attachment_unsupported_type">הקובץ %s הוא מסוג שאינו נתמך</string>
+	<string name="media_attachment_too_big">הקובץ %1$s חורג ממגבלת הגודל של %2$s MB</string>
+	<string name="settings_theme">תצוגה</string>
+	<string name="theme_auto">השתמש בתצוגת המכשיר</string>
+	<string name="theme_light">בהיר</string>
+	<string name="theme_dark">כהה</string>
+	<string name="settings_behavior">התנהגות</string>
+	<string name="settings_gif">הפעל אווטרים מונפשים ואימוג\'י</string>
+	<string name="settings_custom_tabs">פתח קישורים ב</string>
+	<string name="settings_notifications">התראות</string>
+	<string name="settings_contribute">תרום למסטודן</string>
+	<string name="settings_tos">תנאי שימוש</string>
+	<string name="settings_privacy_policy">מדיניות פרטיות</string>
+	<string name="settings_clear_cache">נקה מטמון מדיה</string>
+	<string name="settings_app_version">מסטודן לאנדרואיד v%1$s (%2$d)</string>
+	<string name="media_cache_cleared">מטמון מדיה נוקה</string>
+	<string name="confirm_log_out">התנתק מ %s?</string>
 	<!-- %s is the server domain -->
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<!-- %s is file size -->
