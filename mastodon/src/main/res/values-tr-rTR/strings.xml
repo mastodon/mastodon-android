@@ -813,14 +813,55 @@ Ne kadar çok kişiyi takip ederseniz, o kadar aktif ve ilginç olacaktır.</str
 	<string name="switch_to_this_account">Bu hesaba geç</string>
 	<string name="delete_account">Hesabı sil</string>
 	<string name="notification_type_status">Yeni gönderiler</string>
+	<plurals name="user_and_x_more_followed">
+		<item quantity="one">%1$s ve %2$,d diğer kullanıcı sizi takip etti</item>
+		<item quantity="other">%1$s ve %2$,d diğer kullanıcı sizi takip etti</item>
+	</plurals>
+	<string name="familiar_followers_one">%s takip ediyor</string>
+	<string name="familiar_followers_two">%s ve %s takip ediyor</string>
 	<string name="profile_saved_posts">Kaydedildi</string>
+	<string name="profile_saved_posts_explanation">Kaydettiğiniz gönderileri sadece siz görebilirsiniz.</string>
 	<string name="search_people">Kullanıcılar</string>
+	<plurals name="familiar_followers_many">
+		<item quantity="one">%1$s, %2$s, ve %3$,d diğer kullanıcı takip ediyor</item>
+		<item quantity="other">%1$s, %2$s, ve %3$,d diğer kullanıcı takip ediyor</item>
+	</plurals>
+	<plurals name="x_followers_you_know">
+		<item quantity="one">Tanıdığınız %,d takipçi</item>
+		<item quantity="other">Tanıdığınız %,d takipçi</item>
+	</plurals>
 	<!-- appears when you're about to block a server -->
+	<plurals name="server_x_followers_will_be_removed">
+		<item quantity="one">Bu sunucudaki %,d takipçi kaldırılacaktır.</item>
+		<item quantity="other">Bu sunucudaki %,d takipçi kaldırılacaktır.</item>
+	</plurals>
 	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
+	<string name="server_x_followers_and_following_will_be_removed">%1$s ve %2$s kaybolacaktır.</string>
+	<plurals name="will_lose_x_followers">
+		<item quantity="one">%,d takipçi</item>
+		<item quantity="other">%,d takipçi</item>
+	</plurals>
+	<plurals name="will_lose_x_following">
+		<item quantity="one">takip ettiğiniz %,d kişi</item>
+		<item quantity="other">takip ettiğiniz %,d kişi</item>
+	</plurals>
 	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
+	<string name="server_x_following_will_be_removed">%s kaybolacaktır.</string>
 	<string name="load_missing_posts_above">Yukarıdaki eksik gönderileri yükleyin</string>
 	<string name="load_missing_posts_below">Aşağıdaki eksik gönderileri yükleyin</string>
 	<string name="signup_password_too_short">Parola en az 8 karakter olmalıdır.</string>
+	<string name="private_reply">Özel yanıt</string>
+	<string name="private_mention">Özel bahsetme</string>
+	<string name="post_header_reply">Yanıt</string>
+	<string name="post_header_mention">Bahsetme</string>
+	<string name="report_reason_legal">Bu yasalara aykırı</string>
+	<string name="report_reason_legal_subtitle">Ülkenizdeki veya sunucunun bulunduğu ülkedeki yasaları ihlal ettiğini düşünüyorsunuz</string>
+	<string name="date_of_birth">Doğum tarihi</string>
 	<!-- %s is `at_least_x_years_old`. Some languages, unlike English, may require the word "years" here. -->
+	<string name="date_of_birth_explanation">Mastodon\'u kullanmak için için en az %s yaşında olduğunuzdan emin olmamız gerekiyor. Bu bilgi kaydolduktan sonra saklanmayacaktır.</string>
 	<!-- Substituted into `date_of_birth_explanation` -->
+	<plurals name="at_least_x_years_old">
+		<item quantity="one">%d</item>
+		<item quantity="other">%d</item>
+	</plurals>
 </resources>
