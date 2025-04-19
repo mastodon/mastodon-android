@@ -8,7 +8,7 @@
 	<string name="ok">Tamam</string>
 	<string name="preparing_auth">Kimlik doğrulama için hazırlanıyor…</string>
 	<string name="finishing_auth">Kimlik doğrulama tamamlanıyor…</string>
-	<string name="user_boosted">%s yineledi</string>
+	<string name="user_boosted">%s yeniden paylaştı</string>
 	<string name="in_reply_to">%s yanıt olarak</string>
 	<string name="notifications">Bildirimler</string>
 	<string name="user_followed_you">%s seni takip etti</string>
@@ -23,7 +23,7 @@
 	<string name="cancel">İptal et</string>
 	<plurals name="followers">
 		<item quantity="one">takipçi</item>
-		<item quantity="other">takipçiler</item>
+		<item quantity="other">takipçi</item>
 	</plurals>
 	<plurals name="following">
 		<item quantity="one">takip</item>
@@ -37,13 +37,13 @@
 	<string name="button_following">Takip ediliyor</string>
 	<string name="edit_profile">Profili düzenle</string>
 	<string name="share_user">Profili şu yolla paylaş…</string>
-	<string name="mute_user">%s Sustur</string>
-	<string name="unmute_user">%s Sesini aç</string>
-	<string name="block_user">%s Engelle</string>
-	<string name="unblock_user">%s Engeli kaldır</string>
-	<string name="report_user">%s Raporla</string>
-	<string name="block_domain">%s Kişisini engelle</string>
-	<string name="unblock_domain">%s Kişisinin engelini kaldır</string>
+	<string name="mute_user">%s kullanıcısını sustur</string>
+	<string name="unmute_user">%s kullanıcısını susturmasını kaldır</string>
+	<string name="block_user">%s kullanıcısını engelle</string>
+	<string name="unblock_user">%s kullanıcısının engelini kaldır</string>
+	<string name="report_user">%s kullanıcısını şikayet et</string>
+	<string name="block_domain">%s alan adını engelle</string>
+	<string name="unblock_domain">%s alan adının engelini kaldır</string>
 	<plurals name="x_posts">
 		<item quantity="one">%,d gönderi</item>
 		<item quantity="other">%,d gönderi</item>
@@ -54,35 +54,35 @@
 	<string name="field_label">Etiket</string>
 	<string name="field_content">İçerik</string>
 	<string name="saving">Kaydediliyor…</string>
-	<string name="post_from_user">%s Gönderen</string>
+	<string name="post_from_user">%s kullanıcısının gönderisi</string>
 	<string name="poll_option_hint">Seçenek %d</string>
 	<plurals name="x_minutes">
 		<item quantity="one">%d dakika</item>
-		<item quantity="other">%d dakikalar</item>
+		<item quantity="other">%d dakika</item>
 	</plurals>
 	<plurals name="x_hours">
 		<item quantity="one">%d saat</item>
-		<item quantity="other">%d saatler</item>
+		<item quantity="other">%d saat</item>
 	</plurals>
 	<plurals name="x_days">
 		<item quantity="one">%d gün</item>
-		<item quantity="other">%d günler</item>
+		<item quantity="other">%d gün</item>
 	</plurals>
 	<plurals name="x_seconds_left">
 		<item quantity="one">%d saniye kaldı</item>
-		<item quantity="other">%d saniyeler kaldı</item>
+		<item quantity="other">%d saniye kaldı</item>
 	</plurals>
 	<plurals name="x_minutes_left">
 		<item quantity="one">%d dakika kaldı</item>
-		<item quantity="other">%d dakikalar kaldı</item>
+		<item quantity="other">%d dakika kaldı</item>
 	</plurals>
 	<plurals name="x_hours_left">
 		<item quantity="one">%d saat kaldı</item>
-		<item quantity="other">%d saatler kaldı</item>
+		<item quantity="other">%d saat kaldı</item>
 	</plurals>
 	<plurals name="x_days_left">
 		<item quantity="one">%d gün kaldı</item>
-		<item quantity="other">%d günler kaldı</item>
+		<item quantity="other">%d gün kaldı</item>
 	</plurals>
 	<plurals name="x_votes">
 		<item quantity="one">%,d oy</item>
@@ -110,8 +110,8 @@
 	<string name="all_notifications">Tümü</string>
 	<string name="mentions">Bahsetmeler</string>
 	<plurals name="x_people_talking">
-		<item quantity="one">%d kişi bahsetti</item>
-		<item quantity="other">%d kişi bahsetti</item>
+		<item quantity="one">%d kişi bahsediyor</item>
+		<item quantity="other">%d kişi bahsediyor</item>
 	</plurals>
 	<string name="report_title">%s Raporla</string>
 	<string name="report_choose_reason">Bu gönderi ile ilgili sorun nedir?</string>
@@ -122,7 +122,7 @@
 	<string name="report_reason_spam">İstenmeyen</string>
 	<string name="report_reason_spam_subtitle">Kötü amaçlı bağlantılar, sahte etkileşim veya tekrarlayan yanıtlar</string>
 	<string name="report_reason_violation">Sunucu kurallarını ihlal ediyor</string>
-	<string name="report_reason_violation_subtitle">Belirli kuralları ihlal ettiğinin farkında ol</string>
+	<string name="report_reason_violation_subtitle">Belirli kuralları çiğnediğinin farkındasınız</string>
 	<string name="report_reason_other">Başka bir şey</string>
 	<string name="report_reason_other_subtitle">Sorun bunlardan biri değil</string>
 	<string name="report_choose_rule">Hangi kurallar ihlal ediliyor?</string>
