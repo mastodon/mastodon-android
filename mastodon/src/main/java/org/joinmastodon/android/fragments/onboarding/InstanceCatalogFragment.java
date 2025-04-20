@@ -158,6 +158,8 @@ abstract class InstanceCatalogFragment extends BaseRecyclerFragment<CatalogInsta
 		if(TextUtils.isEmpty(_domain) || _domain.indexOf('.')==-1)
 			return;
 		String domain=normalizeInstanceDomain(_domain);
+		if(domain==null)
+			return;
 		Instance cachedInstance=instancesCache.get(domain);
 		if(cachedInstance!=null){
 			for(CatalogInstance ci : filteredData){

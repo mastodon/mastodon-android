@@ -1102,6 +1102,8 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 	private void exitEditMode(){
 		if(savingEdits)
 			return;
+		if(getActivity()==null)
+			return;
 		if(!isInEditMode){
 			if(BuildConfig.DEBUG)
 				throw new IllegalStateException();
