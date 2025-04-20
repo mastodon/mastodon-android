@@ -3,6 +3,7 @@ package org.joinmastodon.android.ui.views;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
+import android.view.View;
 import android.widget.LinearLayout;
 
 import org.joinmastodon.android.R;
@@ -27,11 +28,16 @@ public class TopBarsScrollAwayLinearLayout extends LinearLayout{
 
 	@Override
 	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec){
-		super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+		if(getOrientation()!=VERTICAL)
+			throw new IllegalStateException("This LinearLayout only supports vertical orientation");
 		int topBarsHeight=0;
 		int count=topBarsCount==-1 ? (getChildCount()-1) : topBarsCount;
 		for(int i=0;i<count;i++){
-			topBarsHeight+=getChildAt(i).getMeasuredHeight();
+			View child=getChildAt(i);
+			measureChildWithMargins(child, widthMeasureSpec, 0, heightMeasureSpec, 0);
+			topBarsHeight+=child.getMeasuredHeight();
+			if(child.getLayoutParams() instanceof MarginLayoutParams mlp)
+				topBarsHeight+=mlp.topMargin+mlp.bottomMargin;
 		}
 		super.onMeasure(widthMeasureSpec, (MeasureSpec.getSize(heightMeasureSpec)+topBarsHeight) | MeasureSpec.EXACTLY);
 	}
