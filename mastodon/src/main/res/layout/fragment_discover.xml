@@ -15,8 +15,7 @@
 		<org.joinmastodon.android.ui.views.TopBarsScrollAwayLinearLayout
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:orientation="vertical"
-			app:topBarsCount="1">
+			android:orientation="vertical">
 
 			<FrameLayout
 				android:layout_width="match_parent"
