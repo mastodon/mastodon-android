@@ -19,6 +19,7 @@ import android.content.res.ColorStateList;
 import android.graphics.Insets;
 import android.graphics.Paint;
 import android.graphics.PixelFormat;
+import android.graphics.Point;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
@@ -40,6 +41,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.util.Property;
 import android.view.ContextThemeWrapper;
+import android.view.Display;
 import android.view.DisplayCutout;
 import android.view.Gravity;
 import android.view.KeyEvent;
@@ -153,6 +155,7 @@ public class PhotoViewer implements ZoomPanView.Listener{
 	private long videoInitialPositionTime;
 	private long lastDownloadID;
 	private boolean receiverRegistered;
+	private int maxImageDimensions;
 
 	private static final Property<FragmentRootLinearLayout, Integer> STATUS_BAR_COLOR_PROPERTY=new Property<>(Integer.class, "Fdsafdsa"){
 		@Override
@@ -205,6 +208,15 @@ public class PhotoViewer implements ZoomPanView.Listener{
 		}
 
 		wm=activity.getWindowManager();
+
+		Point displaySize=new Point();
+		Display display;
+		if(Build.VERSION.SDK_INT<Build.VERSION_CODES.R)
+			display=wm.getDefaultDisplay();
+		else
+			display=activity.getDisplay();
+		display.getRealSize(displaySize);
+		maxImageDimensions=Math.max(4096, Math.max(displaySize.x, displaySize.y)*2);
 
 		windowView=new WindowRootFrameLayout(activity);
 		windowView.setDispatchKeyEventListener((v, keyCode, event)->{
@@ -1036,7 +1048,7 @@ public class PhotoViewer implements ZoomPanView.Listener{
 				params.width=1920;
 				params.height=1080;
 			}
-			ViewImageLoader.load(this, currentDrawable, new UrlImageLoaderRequest(item.url), false);
+			ViewImageLoader.load(this, currentDrawable, new UrlImageLoaderRequest(item.url, maxImageDimensions, maxImageDimensions), false);
 		}
 
 		@Override
