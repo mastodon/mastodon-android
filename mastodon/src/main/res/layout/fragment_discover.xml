@@ -6,103 +6,118 @@
 	android:layout_width="match_parent"
 	android:layout_height="match_parent">
 
-	<FrameLayout
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:background="?colorM3Surface">
-		<LinearLayout
-			android:id="@+id/search_wrap"
-			android:layout_width="match_parent"
-			android:layout_height="56dp"
-			android:layout_margin="16dp"
-			android:orientation="horizontal"
-			android:background="@drawable/bg_m3_surface3">
-
-			<ImageButton
-				android:id="@+id/search_back"
-				android:layout_width="40dp"
-				android:layout_height="40dp"
-				android:layout_margin="8dp"
-				android:contentDescription="@string/back"
-				android:background="@drawable/bg_round_ripple"
-				android:tint="?colorM3OnSurfaceVariant"
-				android:src="@drawable/ic_search_24px"/>
-
-			<TextView
-				android:id="@+id/search_text"
-				android:layout_width="0dp"
-				android:layout_height="match_parent"
-				android:layout_weight="1"
-				android:gravity="center_vertical|start"
-				android:textAlignment="viewStart"
-				android:singleLine="true"
-				android:textColor="?colorM3OnSurfaceVariant"
-				android:textAppearance="@style/m3_body_large"
-				android:text="@string/search_mastodon"/>
-
-			<ImageButton
-				android:id="@+id/search_scan_qr"
-				android:layout_width="40dp"
-				android:layout_height="40dp"
-				android:layout_margin="8dp"
-				android:contentDescription="@string/scan_qr_code"
-				android:background="@drawable/bg_round_ripple"
-				android:tint="?colorM3OnSurfaceVariant"
-				android:src="@drawable/ic_qr_code_scanner_24px"/>
-
-		</LinearLayout>
-	</FrameLayout>
-
-	<LinearLayout
-		android:id="@+id/discover_content"
+	<org.joinmastodon.android.ui.views.NestedRecyclerScrollView
+		android:id="@+id/scroller"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
-		android:orientation="vertical">
-		<org.joinmastodon.android.ui.tabs.TabLayout
-			android:id="@+id/tabbar"
-			android:layout_width="match_parent"
-			android:layout_height="48dp"
-			app:tabGravity="start"
-			app:tabIndicator="@drawable/tab_indicator_m3"
-			app:tabIndicatorAnimationMode="elastic"
-			app:tabIndicatorColor="?colorM3Primary"
-			app:tabIndicatorFullWidth="false"
-			app:tabMinWidth="90dp"
-			app:tabMode="auto"
-			android:background="?colorM3Surface"/>
+		android:fillViewport="true">
 
-		<org.joinmastodon.android.ui.tabs.TabLayout
-			android:id="@+id/search_tabbar"
+		<org.joinmastodon.android.ui.views.TopBarsScrollAwayLinearLayout
 			android:layout_width="match_parent"
-			android:layout_height="48dp"
-			app:tabGravity="fill"
-			app:tabIndicator="@drawable/tab_indicator_m3"
-			app:tabIndicatorAnimationMode="elastic"
-			app:tabIndicatorColor="?colorM3Primary"
-			app:tabIndicatorFullWidth="false"
-			app:tabMinWidth="0dp"
-			app:tabMode="fixed"
-			android:visibility="gone"
-			android:background="?colorM3Surface"/>
+			android:layout_height="wrap_content"
+			android:orientation="vertical"
+			app:topBarsCount="1">
 
-		<View
-			android:id="@+id/tabs_divider"
-			android:layout_width="match_parent"
-			android:layout_height="1dp"
-			android:background="?colorM3SurfaceVariant"/>
+			<FrameLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:background="?colorM3Surface">
+				<LinearLayout
+					android:id="@+id/search_wrap"
+					android:layout_width="match_parent"
+					android:layout_height="56dp"
+					android:layout_margin="16dp"
+					android:orientation="horizontal"
+					android:background="@drawable/bg_m3_surface3">
 
-		<androidx.viewpager2.widget.ViewPager2
-			android:id="@+id/pager"
-			android:layout_width="match_parent"
-			android:layout_height="0dp"
-			android:layout_weight="1"/>
+					<ImageButton
+						android:id="@+id/search_back"
+						android:layout_width="40dp"
+						android:layout_height="40dp"
+						android:layout_margin="8dp"
+						android:contentDescription="@string/back"
+						android:background="@drawable/bg_round_ripple"
+						android:tint="?colorM3OnSurfaceVariant"
+						android:src="@drawable/ic_search_24px"/>
 
-		<FrameLayout
-			android:id="@+id/search_fragment"
-			android:layout_width="match_parent"
-			android:layout_height="0dp"
-			android:layout_weight="1"
-			android:visibility="gone"/>
-	</LinearLayout>
+					<TextView
+						android:id="@+id/search_text"
+						android:layout_width="0dp"
+						android:layout_height="match_parent"
+						android:layout_weight="1"
+						android:gravity="center_vertical|start"
+						android:textAlignment="viewStart"
+						android:singleLine="true"
+						android:textColor="?colorM3OnSurfaceVariant"
+						android:textAppearance="@style/m3_body_large"
+						android:text="@string/search_mastodon"/>
+
+					<ImageButton
+						android:id="@+id/search_scan_qr"
+						android:layout_width="40dp"
+						android:layout_height="40dp"
+						android:layout_margin="8dp"
+						android:contentDescription="@string/scan_qr_code"
+						android:background="@drawable/bg_round_ripple"
+						android:tint="?colorM3OnSurfaceVariant"
+						android:src="@drawable/ic_qr_code_scanner_24px"/>
+
+				</LinearLayout>
+			</FrameLayout>
+
+			<LinearLayout
+				android:id="@+id/discover_content"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:orientation="vertical">
+				<org.joinmastodon.android.ui.tabs.TabLayout
+					android:id="@+id/tabbar"
+					android:layout_width="match_parent"
+					android:layout_height="48dp"
+					app:tabGravity="start"
+					app:tabIndicator="@drawable/tab_indicator_m3"
+					app:tabIndicatorAnimationMode="elastic"
+					app:tabIndicatorColor="?colorM3Primary"
+					app:tabIndicatorFullWidth="false"
+					app:tabMinWidth="90dp"
+					app:tabMode="auto"
+					android:background="?colorM3Surface"/>
+
+				<org.joinmastodon.android.ui.tabs.TabLayout
+					android:id="@+id/search_tabbar"
+					android:layout_width="match_parent"
+					android:layout_height="48dp"
+					app:tabGravity="fill"
+					app:tabIndicator="@drawable/tab_indicator_m3"
+					app:tabIndicatorAnimationMode="elastic"
+					app:tabIndicatorColor="?colorM3Primary"
+					app:tabIndicatorFullWidth="false"
+					app:tabMinWidth="0dp"
+					app:tabMode="fixed"
+					android:visibility="gone"
+					android:background="?colorM3Surface"/>
+
+				<View
+					android:id="@+id/tabs_divider"
+					android:layout_width="match_parent"
+					android:layout_height="1dp"
+					android:background="?colorM3SurfaceVariant"/>
+
+				<androidx.viewpager2.widget.ViewPager2
+					android:id="@+id/pager"
+					android:layout_width="match_parent"
+					android:layout_height="0dp"
+					android:layout_weight="1"/>
+
+				<FrameLayout
+					android:id="@+id/search_fragment"
+					android:layout_width="match_parent"
+					android:layout_height="0dp"
+					android:layout_weight="1"
+					android:visibility="gone"/>
+			</LinearLayout>
+
+		</org.joinmastodon.android.ui.views.TopBarsScrollAwayLinearLayout>
+	</org.joinmastodon.android.ui.views.NestedRecyclerScrollView>
 
 </me.grishka.appkit.views.FragmentRootLinearLayout>
