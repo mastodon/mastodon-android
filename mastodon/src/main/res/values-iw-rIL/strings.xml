@@ -257,8 +257,34 @@
 	<string name="no_app_to_handle_action">אין אפליקציה לטיפול בפעולה הזו</string>
 	<string name="local_timeline">פיד עדכני</string>
 	<string name="trending_posts_info_banner">אלו הפוסטים שצוברים צפיות ברחבי Mastodon.</string>
+	<string name="trending_links_info_banner">אלו הם כתבות החדשות המדוברות בMastodon.</string>
 	<!-- %s is the server domain -->
+	<string name="local_timeline_info_banner">אלו הם כל הפוסטים מכל המשתמשים בשרת שלך (%s).</string>
+	<string name="recommended_accounts_info_banner">ייתכן שתאהב את החשבונות האלה על סמך חשבונות אחרים שאתה עוקב אחריהם.</string>
+	<string name="see_new_posts">פוסט חדש</string>
+	<string name="follow_back">עקוב בחזרה</string>
+	<string name="button_follow_pending">בהמתנה</string>
+	<string name="follows_you">עוקב אחריך</string>
+	<string name="manually_approves_followers">אשר עוקבים באופן ידני</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
+	<plurals name="x_followers">
+		<item quantity="one">עוקב %,d</item>
+		<item quantity="two">%,d עוקבים</item>
+		<item quantity="many">%,d עוקבים</item>
+		<item quantity="other">%,d עוקבים</item>
+	</plurals>
+	<plurals name="x_following">
+		<item quantity="one">%,d במעקב</item>
+		<item quantity="two">%,d במעקב</item>
+		<item quantity="many">%,d במעקב</item>
+		<item quantity="other">%,d במעקב</item>
+	</plurals>
+	<plurals name="x_favorites">
+		<item quantity="one">%,d מועדף</item>
+		<item quantity="two">%,d מועדפים</item>
+		<item quantity="many">%,d מועדפים</item>
+		<item quantity="other">%,d מועדפים</item>
+	</plurals>
 	<!-- %s is file size -->
 	<!-- %s is server domain -->
 	<!-- Shown in a progress dialog when you tap "follow all" -->
