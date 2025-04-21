@@ -285,7 +285,55 @@
 		<item quantity="many">%,d מועדפים</item>
 		<item quantity="other">%,d מועדפים</item>
 	</plurals>
+	<plurals name="x_reblogs">
+		<item quantity="one">%,d בוסט</item>
+		<item quantity="two">%,d בוסטים</item>
+		<item quantity="many">%,d בוסטים</item>
+		<item quantity="other">%,d בוסטים</item>
+	</plurals>
+	<string name="time_now">כעת</string>
+	<string name="edit_history">היסטוריית עריכה</string>
+	<string name="last_edit_at_x">עריכה אחרונה: %s</string>
+	<string name="time_just_now">ממש עכשיו</string>
+	<plurals name="x_seconds_ago">
+		<item quantity="one">לפני שנייה</item>
+		<item quantity="two">לפני %d שניות</item>
+		<item quantity="many">לפני %d שניות</item>
+		<item quantity="other">לפני %d שניות</item>
+	</plurals>
+	<plurals name="x_minutes_ago">
+		<item quantity="one">לפני דקה</item>
+		<item quantity="two">לפני %d דקות</item>
+		<item quantity="many">לפני %d דקות</item>
+		<item quantity="other">לפני %d דקות</item>
+	</plurals>
+	<string name="edited_timestamp">נערך ב-%s</string>
+	<string name="edit_original_post">הודעה מקורית</string>
+	<string name="edit_text_edited">טקסט נערך</string>
+	<string name="edit_spoiler_added">אזהרת תוכן נוספה</string>
+	<string name="edit_spoiler_edited">אזהרת תוכן נערכה</string>
+	<string name="edit_spoiler_removed">אזהרת תוכן הוסרה</string>
+	<string name="edit">עריכה</string>
+	<string name="discard_changes">לבטל שינויים?</string>
+	<string name="upload_failed">ההעלאה נכשלה</string>
+	<string name="file_size_bytes">%d בתים</string>
+	<string name="file_size_kb">%.2f ק\"ב</string>
+	<string name="file_size_mb">%.2f מ\"ב</string>
+	<string name="file_size_gb">%.2f ג\"ב</string>
+	<string name="upload_processing">מעבד…</string>
 	<!-- %s is file size -->
+	<string name="download_update">הורדה (%s)</string>
+	<string name="install_update">התקן</string>
+	<string name="privacy_policy_title">הפרטיות שלך</string>
+	<string name="add_bookmark">סימניה</string>
+	<string name="remove_bookmark">הסר סימניה</string>
+	<string name="bookmarks">סימניות</string>
+	<string name="your_favorites">מועדפים</string>
+	<string name="login_title">ברוך שובך</string>
+	<string name="login_subtitle">התחבר עם השרת שבו יצרת את החשבון שלך.</string>
+	<string name="server_url">כתובת URL של השרת</string>
+	<string name="server_filter_any_language">כל שפה</string>
+	<string name="server_filter_instant_signup">הרשמה מיידית</string>
 	<!-- %s is server domain -->
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
