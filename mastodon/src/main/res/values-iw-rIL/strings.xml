@@ -197,6 +197,12 @@
 	<string name="notification_type_poll">סקרים</string>
 	<string name="choose_account">בחר חשבון</string>
 	<string name="err_not_logged_in">אנא התחבר למסטודון תחילה</string>
+	<plurals name="cant_add_more_than_x_attachments">
+		<item quantity="one">אינך יכול להוסיף יותר מקובץ %d מצורף של מדיה</item>
+		<item quantity="two">אינך יכול להוסיף יותר מ-%d קבצי מדיה מצורפים</item>
+		<item quantity="many">אינך יכול להוסיף יותר מ-%d קבצי מדיה מצורפים</item>
+		<item quantity="other">אינך יכול להוסיף יותר מ-%d קבצי מדיה מצורפים</item>
+	</plurals>
 	<string name="media_attachment_unsupported_type">הקובץ %s הוא מסוג שאינו נתמך</string>
 	<string name="media_attachment_too_big">הקובץ %1$s חורג ממגבלת הגודל של %2$s MB</string>
 	<string name="settings_theme">תצוגה</string>
@@ -214,6 +220,43 @@
 	<string name="settings_app_version">מסטודן לאנדרואיד v%1$s (%2$d)</string>
 	<string name="media_cache_cleared">מטמון מדיה נוקה</string>
 	<string name="confirm_log_out">התנתק מ %s?</string>
+	<string name="sensitive_content_explain">היוצר סימן את המדיה הזו כרגישה.</string>
+	<string name="avatar_description">עבור אל הפרופיל של %s</string>
+	<string name="more_options">אפשרויות נוספות</string>
+	<string name="new_post">פוסט חדש</string>
+	<string name="button_reply">תגובה</string>
+	<string name="button_reblog">בוסט</string>
+	<string name="button_favorite">מועדף</string>
+	<string name="button_share">שיתוף</string>
+	<string name="media_no_description">מדיה ללא תיאור</string>
+	<string name="add_media">הוספת מדיה</string>
+	<string name="add_poll">הוספת סקר</string>
+	<string name="emoji">אימוג\'י</string>
+	<string name="home_timeline">ציר זמן הבית</string>
+	<string name="my_profile">הפרופיל שלי</string>
+	<string name="media_viewer">מציג מדיה</string>
+	<string name="follow_user">לעקוב אחרי %s</string>
+	<string name="unfollowed_user">בטל מעקב %s</string>
+	<string name="followed_user">אתה עוקב כעת אחרי %s</string>
+	<string name="following_user_requested">בקשה לעקוב אחרי %s</string>
+	<string name="open_in_browser">פתח בדפדפן</string>
+	<string name="hide_boosts_from_user">הסתר בוסטים</string>
+	<string name="show_boosts_from_user">הצג בוסטים</string>
+	<string name="signup_reason">למה אתה רוצה להצטרף?</string>
+	<string name="signup_reason_note">זה יעזור לנו בסקירת הבקשה שלך.</string>
+	<string name="clear">נקה</string>
+	<string name="profile_header">כותרת תמונה</string>
+	<string name="profile_picture">תמונת פרופיל</string>
+	<string name="reorder">סדר מחדש</string>
+	<string name="download">הורדה</string>
+	<string name="permission_required">נדרשת הרשאה</string>
+	<string name="storage_permission_to_download">האפליקציה זקוקה לגישה לאחסון שלך כדי לשמור את הקובץ הזה.</string>
+	<string name="open_settings">פתח הגדרות</string>
+	<string name="error_saving_file">שגיאה בשמירת הקובץ</string>
+	<string name="downloading">מוריד…</string>
+	<string name="no_app_to_handle_action">אין אפליקציה לטיפול בפעולה הזו</string>
+	<string name="local_timeline">פיד עדכני</string>
+	<string name="trending_posts_info_banner">אלו הפוסטים שצוברים צפיות ברחבי Mastodon.</string>
 	<!-- %s is the server domain -->
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<!-- %s is file size -->
