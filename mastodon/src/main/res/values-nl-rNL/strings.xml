@@ -821,9 +821,34 @@
 	<string name="profile_saved_posts">Opgeslagen</string>
 	<string name="profile_saved_posts_explanation">Jouw opgeslagen berichten zijn alleen zichtbaar voor jou.</string>
 	<string name="search_people">Mensen</string>
+	<plurals name="familiar_followers_many">
+		<item quantity="one">Gevolgd door %1$s, %2$s en %3$,d ander persoon</item>
+		<item quantity="other">Gevolgd door %1$s, %2$s en %3$,d anderen</item>
+	</plurals>
+	<plurals name="x_followers_you_know">
+		<item quantity="one">%,d volger die jij ook volgt</item>
+		<item quantity="other">%,d volgers die jij ook volgt</item>
+	</plurals>
 	<!-- appears when you're about to block a server -->
+	<plurals name="server_x_followers_will_be_removed">
+		<item quantity="one">%,d volger van deze server wordt verwijderd.</item>
+		<item quantity="other">%,d volgers van deze server worden verwijderd.</item>
+	</plurals>
 	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
+	<string name="server_x_followers_and_following_will_be_removed">Je verliest %1$s en %2$s.</string>
+	<plurals name="will_lose_x_followers">
+		<item quantity="one">%,d volger</item>
+		<item quantity="other">%,d volgers</item>
+	</plurals>
+	<plurals name="will_lose_x_following">
+		<item quantity="one">%,d account die jij volgt</item>
+		<item quantity="other">%,d accounts die jij volgt</item>
+	</plurals>
 	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
+	<string name="server_x_following_will_be_removed">Je verliest %s.</string>
+	<string name="load_missing_posts_above">Missende berichten hierboven laden</string>
+	<string name="load_missing_posts_below">Missende berichten hieronder laden</string>
+	<string name="signup_password_too_short">Het wachtwoord dient tenminste 8 tekens te bevatten.</string>
 	<string name="private_reply">Privéreactie</string>
 	<string name="private_mention">Privébericht</string>
 	<string name="post_header_reply">Reactie</string>
@@ -832,6 +857,7 @@
 	<string name="report_reason_legal_subtitle">Je meent dat het de wet van jouw land of dat van de serverlocatie schendt</string>
 	<string name="date_of_birth">Geboortedatum</string>
 	<!-- %s is `at_least_x_years_old`. Some languages, unlike English, may require the word "years" here. -->
+	<string name="date_of_birth_explanation">We moeten ervoor zorgen dat je tenminste %s bent om Mastodon te gebruiken. Dit wordt na het registreren niet opgeslagen.</string>
 	<!-- Substituted into `date_of_birth_explanation` -->
 	<plurals name="at_least_x_years_old">
 		<item quantity="one">%d</item>
