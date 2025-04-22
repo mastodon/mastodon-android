@@ -93,6 +93,7 @@
 	<string name="do_block">Blokkeren</string>
 	<string name="button_blocked">Geblokkeerd</string>
 	<string name="action_vote">Stemmen</string>
+	<string name="confirm">Bevestigen</string>
 	<string name="delete">Verwijderen</string>
 	<string name="confirm_delete_title">Bericht verwijderen</string>
 	<string name="confirm_delete">Weet je zeker dat je dit bericht wilt verwijderen?</string>
@@ -823,6 +824,17 @@
 	<!-- appears when you're about to block a server -->
 	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
 	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
+	<string name="private_reply">Privéreactie</string>
+	<string name="private_mention">Privébericht</string>
+	<string name="post_header_reply">Reactie</string>
+	<string name="post_header_mention">Vermelding</string>
+	<string name="report_reason_legal">Het is wettelijk niet toegestaan</string>
+	<string name="report_reason_legal_subtitle">Je meent dat het de wet van jouw land of dat van de serverlocatie schendt</string>
+	<string name="date_of_birth">Geboortedatum</string>
 	<!-- %s is `at_least_x_years_old`. Some languages, unlike English, may require the word "years" here. -->
 	<!-- Substituted into `date_of_birth_explanation` -->
+	<plurals name="at_least_x_years_old">
+		<item quantity="one">%d</item>
+		<item quantity="other">%d</item>
+	</plurals>
 </resources>
