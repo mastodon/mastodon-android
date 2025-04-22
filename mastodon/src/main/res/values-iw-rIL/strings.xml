@@ -313,6 +313,15 @@
 	<string name="edit_spoiler_added">אזהרת תוכן נוספה</string>
 	<string name="edit_spoiler_edited">אזהרת תוכן נערכה</string>
 	<string name="edit_spoiler_removed">אזהרת תוכן הוסרה</string>
+	<string name="edit_poll_added">סקר נוסף</string>
+	<string name="edit_poll_edited">סקר נערך</string>
+	<string name="edit_poll_removed">הסקר הוסר</string>
+	<string name="edit_media_added">מדיה נוספה</string>
+	<string name="edit_media_removed">מדיה הוסרה</string>
+	<string name="edit_media_reordered">מדיה סודרה מחדש</string>
+	<string name="edit_marked_sensitive">סומן כרגיש</string>
+	<string name="edit_marked_not_sensitive">בוטל סימון כרגיש</string>
+	<string name="edit_multiple_changed">הפוסט נערך</string>
 	<string name="edit">עריכה</string>
 	<string name="discard_changes">לבטל שינויים?</string>
 	<string name="upload_failed">ההעלאה נכשלה</string>
@@ -325,6 +334,11 @@
 	<string name="download_update">הורדה (%s)</string>
 	<string name="install_update">התקן</string>
 	<string name="privacy_policy_title">הפרטיות שלך</string>
+	<string name="privacy_policy_subtitle">למרות שאפליקציית Mastodon אינה אוספת נתונים, ייתכן שלשרת שנרשמת דרכו יש מדיניות שונה.\n\nאם אינך מסכים עם המדיניות עבור %s, תוכל לחזור ולבחור שרת אחר.</string>
+	<string name="i_agree">אני מסכים</string>
+	<string name="empty_list">רשימה זו ריקה</string>
+	<string name="instance_signup_closed">שרת זה אינו מקבל נרשמים חדשים.</string>
+	<string name="text_copied">הועתק ללוח</string>
 	<string name="add_bookmark">סימניה</string>
 	<string name="remove_bookmark">הסר סימניה</string>
 	<string name="bookmarks">סימניות</string>
@@ -334,6 +348,7 @@
 	<string name="server_url">כתובת URL של השרת</string>
 	<string name="server_filter_any_language">כל שפה</string>
 	<string name="server_filter_instant_signup">הרשמה מיידית</string>
+	<string name="server_filter_manual_review">סקירה ידנית</string>
 	<!-- %s is server domain -->
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
