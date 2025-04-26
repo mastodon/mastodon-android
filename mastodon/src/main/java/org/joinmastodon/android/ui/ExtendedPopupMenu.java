@@ -9,6 +9,7 @@ import org.joinmastodon.android.R;
 import org.joinmastodon.android.model.viewmodel.ListItem;
 import org.joinmastodon.android.ui.adapters.GenericListItemsAdapter;
 import org.joinmastodon.android.ui.viewholders.ListItemViewHolder;
+import org.joinmastodon.android.ui.viewholders.SectionHeaderListItemViewHolder;
 
 import java.util.List;
 
@@ -53,8 +54,12 @@ public class ExtendedPopupMenu extends PopupWindow{
 			ListItemViewHolder<?> holder=super.onCreateViewHolder(parent, viewType);
 			int padH=V.dp(12), padV=V.dp(8);
 			holder.itemView.setPadding(padH, padV, padH, padV);
-			View icon=holder.itemView.findViewById(R.id.icon);
-			((ViewGroup.MarginLayoutParams)icon.getLayoutParams()).setMarginEnd(padH);
+			if(holder instanceof SectionHeaderListItemViewHolder shh){
+				shh.setPopupMenuStyle();
+			}else{
+				View icon=holder.itemView.findViewById(R.id.icon);
+				((ViewGroup.MarginLayoutParams)icon.getLayoutParams()).setMarginEnd(padH);
+			}
 			return holder;
 		}
 	}

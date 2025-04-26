@@ -19,4 +19,10 @@ public class SectionHeaderListItemViewHolder extends ListItemViewHolder<SectionH
 		else
 			title.setText(item.title);
 	}
+
+	public void setPopupMenuStyle(){
+		title.setSingleLine(false);
+		title.setMaxLines(2);
+		((ViewGroup.MarginLayoutParams)itemView.getLayoutParams()).topMargin=0;
+	}
 }

@@ -8,17 +8,23 @@ import android.graphics.Canvas;
 import android.graphics.CornerPathEffect;
 import android.graphics.Paint;
 import android.graphics.Path;
-import android.os.Build;
 import android.text.Layout;
+import android.text.SpannableString;
 import android.text.Spanned;
 import android.view.GestureDetector;
+import android.view.Gravity;
+import android.view.HapticFeedbackConstants;
 import android.view.MotionEvent;
 import android.view.SoundEffectConstants;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import org.joinmastodon.android.R;
+import org.joinmastodon.android.model.viewmodel.ListItem;
+import org.joinmastodon.android.model.viewmodel.SectionHeaderListItem;
+import org.joinmastodon.android.ui.ExtendedPopupMenu;
 import org.joinmastodon.android.ui.utils.UiUtils;
+
+import java.util.List;
 
 import androidx.annotation.NonNull;
 import me.grishka.appkit.utils.CustomViewHelper;
@@ -125,14 +131,28 @@ public class ClickableLinksDelegate implements CustomViewHelper{
 
 		@Override
 		public void onLongPress(@NonNull MotionEvent event) {
-			//if target is not a link, don't copy
-			if (selectedSpan == null) return;
-			if (selectedSpan.getType() != LinkSpan.Type.URL) return;
-			//copy link text to clipboard
-			ClipboardManager clipboard = (ClipboardManager) view.getContext().getSystemService(Context.CLIPBOARD_SERVICE);
-			clipboard.setPrimaryClip(ClipData.newPlainText("", selectedSpan.getLink()));
-			UiUtils.maybeShowTextCopiedToast(view.getContext());
-			//reset view
+			if(selectedSpan==null || selectedSpan.getType()!=LinkSpan.Type.URL)
+				return;
+			view.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS);
+
+			LinkSpan span=selectedSpan;
+			final ExtendedPopupMenu[] _menu={null};
+			ExtendedPopupMenu menu=new ExtendedPopupMenu(view.getContext(), List.of(
+					new SectionHeaderListItem(selectedSpan.getLink().replaceAll("([,.:/? ])", "$1\u2060")),
+					new ListItem<>(R.string.open_link, 0, item->{
+						span.onClick(view.getContext());
+						_menu[0].dismiss();
+					}),
+					new ListItem<>(R.string.copy, 0, item->{
+						ClipboardManager clipboard=(ClipboardManager) view.getContext().getSystemService(Context.CLIPBOARD_SERVICE);
+						clipboard.setPrimaryClip(ClipData.newPlainText("", span.getLink()));
+						UiUtils.maybeShowTextCopiedToast(view.getContext());
+						_menu[0].dismiss();
+					})
+			));
+			_menu[0]=menu;
+			menu.showAsDropDown(view, Math.round(event.getX()), Math.round(event.getY())-view.getHeight(), Gravity.TOP | Gravity.LEFT);
+
 			resetAndInvalidate();
 		}
 	}
