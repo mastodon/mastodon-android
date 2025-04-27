@@ -855,9 +855,15 @@ Mientras más personas sigas, más activo e interesante será.</string>
 	<string name="post_header_reply">Respuesta</string>
 	<string name="post_header_mention">Mención</string>
 	<string name="report_reason_legal">Es ilegal</string>
+	<string name="report_reason_legal_subtitle">Crees que viola la ley de tu país o el país del servidor</string>
 	<string name="date_of_birth">Fecha de nacimiento</string>
 	<!-- %s is `at_least_x_years_old`. Some languages, unlike English, may require the word "years" here. -->
 	<string name="date_of_birth_explanation">Tenemos que asegurarnos de que al menos tienes %s años para usar Mastodon. Esto no se guadará después del registro.</string>
 	<string name="open_link">Abrir</string>
+	<string name="copy">Copiar</string>
 	<!-- Substituted into `date_of_birth_explanation` -->
+	<plurals name="at_least_x_years_old">
+		<item quantity="one">%d</item>
+		<item quantity="other">%d</item>
+	</plurals>
 </resources>
