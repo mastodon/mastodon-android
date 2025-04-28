@@ -34,6 +34,8 @@ public class TopBarsScrollAwayLinearLayout extends LinearLayout{
 		int count=topBarsCount==-1 ? (getChildCount()-1) : topBarsCount;
 		for(int i=0;i<count;i++){
 			View child=getChildAt(i);
+			if(child.getVisibility()==GONE)
+				continue;
 			measureChildWithMargins(child, widthMeasureSpec, 0, heightMeasureSpec, 0);
 			topBarsHeight+=child.getMeasuredHeight();
 			if(child.getLayoutParams() instanceof MarginLayoutParams mlp)

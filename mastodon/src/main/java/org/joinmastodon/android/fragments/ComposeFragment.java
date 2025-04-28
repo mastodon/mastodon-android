@@ -45,6 +45,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.twitter.twittertext.TwitterTextEmojiRegex;
@@ -87,6 +88,8 @@ import org.joinmastodon.android.ui.viewcontrollers.ComposeLanguageAlertViewContr
 import org.joinmastodon.android.ui.viewcontrollers.ComposeMediaViewController;
 import org.joinmastodon.android.ui.viewcontrollers.ComposePollViewController;
 import org.joinmastodon.android.ui.views.ComposeEditText;
+import org.joinmastodon.android.ui.views.CustomScrollView;
+import org.joinmastodon.android.ui.views.NestedRecyclerScrollView;
 import org.joinmastodon.android.ui.views.SizeListenerLinearLayout;
 import org.joinmastodon.android.ui.views.TopBarsScrollAwayLinearLayout;
 import org.joinmastodon.android.utils.ViewImageLoaderHolderTarget;
@@ -390,6 +393,10 @@ public class ComposeFragment extends MastodonToolbarFragment implements ComposeE
 
 		pollViewController.setView(view, savedInstanceState);
 		mediaViewController.setView(view, savedInstanceState);
+
+		NestedRecyclerScrollView outerScroller=view.findViewById(R.id.outer_scroller);
+		CustomScrollView innerScroller=view.findViewById(R.id.inner_scroller);
+		outerScroller.setScrollableChildSupplier(()->innerScroller);
 
 		creatingView=false;
 
