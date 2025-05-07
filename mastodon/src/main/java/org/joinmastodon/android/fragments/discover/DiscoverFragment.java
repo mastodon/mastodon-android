@@ -233,7 +233,10 @@ public class DiscoverFragment extends AppKitFragment implements ScrollableToTop{
 		});
 
 		NestedRecyclerScrollView scroller=view.findViewById(R.id.scroller);
-		scroller.setScrollableChildSupplier(()->getFragmentForPage(tabLayout.getSelectedTabPosition()).getView().findViewById(R.id.list));
+		scroller.setScrollableChildSupplier(()->{
+			View fragmentView=getFragmentForPage(tabLayout.getSelectedTabPosition()).getView();
+			return fragmentView==null ? null : fragmentView.findViewById(R.id.list);
+		});
 		scroller.setTakePriorityOverChildViews(true);
 
 		return view;
