@@ -131,31 +131,38 @@ public class PushSubscriptionManager{
 		MastodonAPIController.runInBackground(()->{
 			Log.d(TAG, "registerAccountForPush: started for "+accountID);
 			String encodedPublicKey, encodedAuthKey, pushAccountID;
-			try{
-				KeyPairGenerator generator=KeyPairGenerator.getInstance("EC");
-				ECGenParameterSpec spec=new ECGenParameterSpec(EC_CURVE_NAME);
-				generator.initialize(spec);
-				KeyPair keyPair=generator.generateKeyPair();
-				publicKey=keyPair.getPublic();
-				privateKey=keyPair.getPrivate();
-				encodedPublicKey=Base64.encodeToString(serializeRawPublicKey(publicKey), Base64.URL_SAFE | Base64.NO_WRAP | Base64.NO_PADDING);
-				authKey=new byte[16];
-				SecureRandom secureRandom=new SecureRandom();
-				secureRandom.nextBytes(authKey);
-				byte[] randomAccountID=new byte[16];
-				secureRandom.nextBytes(randomAccountID);
-				AccountSession session=AccountSessionManager.getInstance().tryGetAccount(accountID);
-				if(session==null)
-					return;
-				session.pushPrivateKey=Base64.encodeToString(privateKey.getEncoded(), Base64.URL_SAFE | Base64.NO_WRAP | Base64.NO_PADDING);
-				session.pushPublicKey=Base64.encodeToString(publicKey.getEncoded(), Base64.URL_SAFE | Base64.NO_WRAP | Base64.NO_PADDING);
-				session.pushAuthKey=encodedAuthKey=Base64.encodeToString(authKey, Base64.URL_SAFE | Base64.NO_WRAP | Base64.NO_PADDING);
-				session.pushAccountID=pushAccountID=Base64.encodeToString(randomAccountID, Base64.URL_SAFE | Base64.NO_WRAP | Base64.NO_PADDING);
-				AccountSessionManager.getInstance().writeAccountPushSettings(accountID);
-			}catch(NoSuchAlgorithmException|InvalidAlgorithmParameterException e){
-				Log.e(TAG, "registerAccountForPush: error generating encryption key", e);
+			AccountSession session=AccountSessionManager.getInstance().tryGetAccount(accountID);
+			if(session==null)
 				return;
+			if(session.hasPushCredentials()){
+				if(!loadKeys(session))
+					return;
+				encodedAuthKey=session.pushAuthKey;
+				pushAccountID=session.pushAccountID;
+			}else{
+				try{
+					KeyPairGenerator generator=KeyPairGenerator.getInstance("EC");
+					ECGenParameterSpec spec=new ECGenParameterSpec(EC_CURVE_NAME);
+					generator.initialize(spec);
+					KeyPair keyPair=generator.generateKeyPair();
+					publicKey=keyPair.getPublic();
+					privateKey=keyPair.getPrivate();
+					authKey=new byte[16];
+					SecureRandom secureRandom=new SecureRandom();
+					secureRandom.nextBytes(authKey);
+					byte[] randomAccountID=new byte[16];
+					secureRandom.nextBytes(randomAccountID);
+					session.pushPrivateKey=Base64.encodeToString(privateKey.getEncoded(), Base64.URL_SAFE | Base64.NO_WRAP | Base64.NO_PADDING);
+					session.pushPublicKey=Base64.encodeToString(publicKey.getEncoded(), Base64.URL_SAFE | Base64.NO_WRAP | Base64.NO_PADDING);
+					session.pushAuthKey=encodedAuthKey=Base64.encodeToString(authKey, Base64.URL_SAFE | Base64.NO_WRAP | Base64.NO_PADDING);
+					session.pushAccountID=pushAccountID=Base64.encodeToString(randomAccountID, Base64.URL_SAFE | Base64.NO_WRAP | Base64.NO_PADDING);
+					AccountSessionManager.getInstance().writeAccountPushSettings(accountID);
+				}catch(NoSuchAlgorithmException|InvalidAlgorithmParameterException e){
+					Log.e(TAG, "registerAccountForPush: error generating encryption key", e);
+					return;
+				}
 			}
+			encodedPublicKey=Base64.encodeToString(serializeRawPublicKey(publicKey), Base64.URL_SAFE | Base64.NO_WRAP | Base64.NO_PADDING);
 			new RegisterForPushNotifications(deviceToken,
 					encodedPublicKey,
 					encodedAuthKey,
@@ -177,7 +184,8 @@ public class PushSubscriptionManager{
 
 						@Override
 						public void onError(ErrorResponse error){
-
+							session.needReRegisterForPush=true;
+							AccountSessionManager.getInstance().writeAccountPushSettings(accountID);
 						}
 					})
 					.exec(accountID);
@@ -214,6 +222,19 @@ public class PushSubscriptionManager{
 					}
 				})
 				.exec(accountID);
+	}
+
+	private boolean loadKeys(AccountSession session){
+		try{
+			KeyFactory kf=KeyFactory.getInstance("EC");
+			privateKey=kf.generatePrivate(new PKCS8EncodedKeySpec(Base64.decode(session.pushPrivateKey, Base64.URL_SAFE)));
+			publicKey=kf.generatePublic(new X509EncodedKeySpec(Base64.decode(session.pushPublicKey, Base64.URL_SAFE)));
+			authKey=Base64.decode(session.pushAuthKey, Base64.URL_SAFE);
+			return true;
+		}catch(NoSuchAlgorithmException|InvalidKeySpecException x){
+			Log.e(TAG, "Error loading private key", x);
+			return false;
+		}
 	}
 
 	private PublicKey deserializeRawPublicKey(byte[] rawBytes){
@@ -282,15 +303,8 @@ public class PushSubscriptionManager{
 		byte[] salt=decode85(s);
 		PublicKey serverKey=deserializeRawPublicKey(serverKeyBytes);
 		if(privateKey==null){
-			try{
-				KeyFactory kf=KeyFactory.getInstance("EC");
-				privateKey=kf.generatePrivate(new PKCS8EncodedKeySpec(Base64.decode(AccountSessionManager.getInstance().getAccount(accountID).pushPrivateKey, Base64.URL_SAFE)));
-				publicKey=kf.generatePublic(new X509EncodedKeySpec(Base64.decode(AccountSessionManager.getInstance().getAccount(accountID).pushPublicKey, Base64.URL_SAFE)));
-				authKey=Base64.decode(AccountSessionManager.getInstance().getAccount(accountID).pushAuthKey, Base64.URL_SAFE);
-			}catch(NoSuchAlgorithmException|InvalidKeySpecException x){
-				Log.e(TAG, "decryptNotification: error loading private key", x);
+			if(!loadKeys(AccountSessionManager.getInstance().getAccount(accountID)))
 				return null;
-			}
 		}
 		byte[] sharedSecret;
 		try{
@@ -370,7 +384,7 @@ public class PushSubscriptionManager{
 		if(!arePushNotificationsAvailable())
 			return;
 		for(AccountSession session:AccountSessionManager.getInstance().getLoggedInAccounts()){
-			if(session.pushSubscription==null || forceReRegister)
+			if(session.pushSubscription==null || forceReRegister || session.needReRegisterForPush)
 				session.getPushSubscriptionManager().registerAccountForPush(session.pushSubscription);
 			else if(session.needUpdatePushSettings)
 				session.getPushSubscriptionManager().updatePushSettings(session.pushSubscription);

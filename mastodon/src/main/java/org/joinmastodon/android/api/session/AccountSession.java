@@ -56,6 +56,7 @@ public class AccountSession{
 
 	public static final int FLAG_ACTIVATED=1;
 	public static final int FLAG_NEED_UPDATE_PUSH_SETTINGS=1 << 1;
+	public static final int FLAG_NEED_RE_REGISTER_PUSH=1 << 2;
 
 	@SerializedName(value="token", alternate="a")
 	public Token token;
@@ -89,6 +90,7 @@ public class AccountSession{
 	public AccountActivationInfo activationInfo;
 	@SerializedName(value="preferences", alternate="p")
 	public Preferences preferences;
+	public boolean needReRegisterForPush;
 	private transient MastodonAPIController apiController;
 	private transient StatusInteractionController statusInteractionController;
 	private transient CacheController cacheController;
@@ -118,6 +120,7 @@ public class AccountSession{
 		long flags=values.getAsLong("flags");
 		activated=(flags & FLAG_ACTIVATED)==FLAG_ACTIVATED;
 		needUpdatePushSettings=(flags & FLAG_NEED_UPDATE_PUSH_SETTINGS)==FLAG_NEED_UPDATE_PUSH_SETTINGS;
+		needReRegisterForPush=(flags & FLAG_NEED_RE_REGISTER_PUSH)==FLAG_NEED_RE_REGISTER_PUSH;
 		JsonObject pushKeys=JsonParser.parseString(values.getAsString("push_keys")).getAsJsonObject();
 		if(!pushKeys.get("auth").isJsonNull() && !pushKeys.get("private").isJsonNull() && !pushKeys.get("public").isJsonNull()){
 			pushAuthKey=pushKeys.get("auth").getAsString();
@@ -164,6 +167,8 @@ public class AccountSession{
 			flags|=FLAG_ACTIVATED;
 		if(needUpdatePushSettings)
 			flags|=FLAG_NEED_UPDATE_PUSH_SETTINGS;
+		if(needReRegisterForPush)
+			flags|=FLAG_NEED_RE_REGISTER_PUSH;
 		return flags;
 	}
 
@@ -372,5 +377,9 @@ public class AccountSession{
 
 	public Instance getInstanceInfo(){
 		return AccountSessionManager.getInstance().getInstanceInfo(domain);
+	}
+
+	public boolean hasPushCredentials(){
+		return pushAccountID!=null && pushAuthKey!=null && pushPrivateKey!=null && pushPublicKey!=null;
 	}
 }
