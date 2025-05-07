@@ -163,6 +163,8 @@ public class PushSubscriptionManager{
 				}
 			}
 			encodedPublicKey=Base64.encodeToString(serializeRawPublicKey(publicKey), Base64.URL_SAFE | Base64.NO_WRAP | Base64.NO_PADDING);
+			session.needReRegisterForPush=true;
+			AccountSessionManager.getInstance().writeAccountPushSettings(accountID);
 			new RegisterForPushNotifications(deviceToken,
 					encodedPublicKey,
 					encodedAuthKey,
@@ -177,6 +179,7 @@ public class PushSubscriptionManager{
 								if(session==null)
 									return;
 								session.pushSubscription=result;
+								session.needReRegisterForPush=false;
 								AccountSessionManager.getInstance().writeAccountPushSettings(accountID);
 								Log.d(TAG, "Successfully registered "+accountID+" for push notifications");
 							});
@@ -184,8 +187,6 @@ public class PushSubscriptionManager{
 
 						@Override
 						public void onError(ErrorResponse error){
-							session.needReRegisterForPush=true;
-							AccountSessionManager.getInstance().writeAccountPushSettings(accountID);
 						}
 					})
 					.exec(accountID);
