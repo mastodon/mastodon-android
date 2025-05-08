@@ -57,7 +57,7 @@
 	<string name="profile_joined">Prisijungė</string>
 	<string name="done">Atlikta</string>
 	<string name="loading">Įkeliama…</string>
-	<string name="field_label">Etiketė</string>
+	<string name="field_label">Žyma</string>
 	<string name="field_content">Turinys</string>
 	<string name="saving">Išsaugoma…</string>
 	<string name="post_from_user">Įrašas iš %s</string>
@@ -954,4 +954,10 @@ Kuo daugiau asmenų sekate, tuo aktyvesnis ir įdomesnis jis bus.</string>
 	<string name="open_link">Atverti</string>
 	<string name="copy">Kopijuoti</string>
 	<!-- Substituted into `date_of_birth_explanation` -->
+	<plurals name="at_least_x_years_old">
+		<item quantity="one">%d m.</item>
+		<item quantity="few">%d m.</item>
+		<item quantity="many">%d m.</item>
+		<item quantity="other">%d m.</item>
+	</plurals>
 </resources>
