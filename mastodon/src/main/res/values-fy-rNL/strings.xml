@@ -467,6 +467,14 @@
 		<item quantity="other">%d oeren lyn</item>
 	</plurals>
 	<string name="alt_text_reminder_title">Media sûnder alt-tekst</string>
+	<plurals name="alt_text_reminder_x_images">
+		<item quantity="one">%s fan jo ôfbyldingen mist alt-tekst. Dochs pleatse?</item>
+		<item quantity="other">%s fan jo ôfbyldingen misse alt-tekst. Dochs pleatse?</item>
+	</plurals>
+	<plurals name="alt_text_reminder_x_attachments">
+		<item quantity="one">%s fan jo mediabylagen mist alt-tekst. Dochs pleatse?</item>
+		<item quantity="other">%s fan jo mediabylagen misse alt-tekst. Dochs pleatse?</item>
+	</plurals>
 	<string name="count_one">Ien</string>
 	<string name="count_two">Twa</string>
 	<string name="count_three">Trije</string>
@@ -482,6 +490,8 @@
 	<string name="settings_filter_muted_words">Negearre wurden</string>
 	<string name="settings_filter_context">Negearre op</string>
 	<string name="settings_filter_show_cw">Mei ynhâldswarskôging toane</string>
+	<string name="settings_filter_show_cw_explanation">Berjochten dy’t mei dit filter oerienkomme, mar efter in ynhâldswarskôging sitte dochs toane</string>
+	<string name="settings_delete_filter">Filter fuortsmite</string>
 	<string name="filter_duration_forever">Foar altyd</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<string name="settings_filter_ends">Einiget %s</string>
@@ -504,6 +514,8 @@
 	<string name="edit_muted_word">Negearre wurd bewurkje</string>
 	<string name="add">Tafoegje</string>
 	<string name="filter_word_or_phrase">Wurd of sindiel</string>
+	<string name="filter_add_word_help">Wurden binne net haadlettergefoelich en komme allinnich oerien mei folsleine wurden.\n\nWannear’t jo op de term ‘Appel’ filterje, wurde berjochten dy’t ‘appel’ of ‘aPpEl’ befetsje ferstoppe, mar ‘sinaasappel’ net.</string>
+	<string name="settings_delete_filter_word">‘%s’ fuortsmite?</string>
 	<string name="enter_selection_mode">Selektearje</string>
 	<string name="select_all">Alles selektearje</string>
 	<string name="settings_filter_duration_title">Tiidsdoer filter</string>
