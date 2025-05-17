@@ -349,17 +349,127 @@
 	<string name="server_filter_any_language">כל שפה</string>
 	<string name="server_filter_instant_signup">הרשמה מיידית</string>
 	<string name="server_filter_manual_review">סקירה ידנית</string>
+	<string name="server_filter_any_signup_speed">כל מהירות הרשמה</string>
+	<string name="server_filter_region_europe">אירופה</string>
+	<string name="server_filter_region_north_america">צפון אמריקה</string>
+	<string name="server_filter_region_south_america">דרום אמריקה</string>
+	<string name="server_filter_region_africa">אפריקה</string>
+	<string name="server_filter_region_asia">אסיה</string>
+	<string name="server_filter_region_oceania">אוקיאניה</string>
+	<string name="not_accepting_new_members">לא מקבל חברים חדשים</string>
+	<string name="category_special_interests">תחומי עניין מיוחדים</string>
+	<string name="signup_passwords_dont_match">הסיסמאות אינן תואמות</string>
+	<string name="profile_add_row">הוסף שורה</string>
+	<string name="profile_setup">הגדרת פרופיל</string>
+	<string name="profile_setup_subtitle">תוכל להשלים זאת לאחר מכן בלשונית פרופיל.</string>
+	<string name="follow_all">עקוב אחרי כולם</string>
+	<string name="server_rules_disagree">לא מסכים</string>
+	<string name="privacy_policy_explanation">בקיצור: אנחנו לא אוספים או מעבדים שום דבר.</string>
 	<!-- %s is server domain -->
+	<string name="server_policy_disagree">לא מסכים עם %s</string>
+	<string name="profile_bio">אודות</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
+	<string name="sending_follows">המשתמשים שאתה עוקב אחרים…</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<string name="signup_email_domain_blocked">%1$s לא מאפשר הרשמות מ-%2$s. נסה שרת אחר או &lt;a&gt;בחר שרת אחר&lt;/a&gt;.</string>
+	<string name="spoiler_show">הצג בכל זאת</string>
+	<string name="spoiler_hide">הסתר מחדש</string>
+	<string name="poll_multiple_choice">בחר אחד או יותר</string>
+	<string name="save_changes">שמור שינויים</string>
+	<string name="profile_featured">מומלץ</string>
+	<string name="profile_timeline">ציר זמן</string>
+	<string name="view_all">הצג הכל</string>
+	<string name="profile_endorsed_accounts">חשבונות</string>
+	<string name="verified_link">לינק אימות</string>
+	<string name="show">הצג</string>
+	<string name="hide">הסתר</string>
+	<string name="join_default_server">הצטרף %s</string>
+	<string name="pick_server">בחר שרת אחר</string>
+	<string name="signup_or_login">או</string>
+	<string name="learn_more">מידע נוסף</string>
+	<string name="welcome_to_mastodon">ברוכים הבאים למסטודון</string>
+	<string name="welcome_paragraph1">מסטודון היא רשת חברתית מבוזרת, כלומר אף חברה אחת אינה שולטת בה. היא מורכבת משרתים רבים המנוהלים באופן עצמאי, כולם מחוברים יחד.</string>
+	<string name="what_are_servers">מה זה שרת?</string>
+	<string name="welcome_paragraph2">כל חשבון Mastodon מאוחסן בשרת - לכל אחד ערכים, כללים &amp; מנהלים משלו. לא משנה איזה מהם תבחרו, תוכלו לעקוב ולקיים אינטראקציה עם אנשים בכל שרת.</string>
+	<string name="opening_link">פותח קישור…</string>
+	<string name="link_not_supported">קישור זה אינו נתמך באפליקציה</string>
+	<string name="log_out_all_accounts">התנתקות מכל החשבונות</string>
+	<string name="confirm_log_out_all_accounts">להתנתק מכל החשבונות?</string>
+	<string name="retry">נסה שוב</string>
+	<string name="post_failed">שליחת פוסט נכשלה</string>
 	<!-- %s is formatted file size ("467 KB image") -->
+	<string name="attachment_description_image">תמונה %s</string>
+	<string name="attachment_description_video">סרטון %s</string>
+	<string name="attachment_description_audio">%s אודיו</string>
+	<string name="attachment_description_unknown">קובץ %s</string>
+	<string name="attachment_type_image">תמונה</string>
+	<string name="attachment_type_video">וידאו</string>
+	<string name="attachment_type_audio">אודיו</string>
+	<string name="attachment_type_gif">GIF</string>
+	<string name="attachment_type_unknown">קובץ</string>
+	<string name="attachment_x_percent_uploaded">%d%% הועלה</string>
+	<string name="add_poll_option">כל אפשרויות הסקר</string>
+	<string name="poll_length">אורך הסקר</string>
+	<string name="poll_style">סגנון</string>
+	<string name="compose_poll_single_choice">בחר אחד</string>
+	<string name="compose_poll_multiple_choice">בחירה מרובה</string>
+	<string name="delete_poll_option">מחק אפשרויות סקר</string>
+	<string name="poll_style_title">סגנון סקר</string>
+	<string name="alt_text">טקסט חלופי</string>
+	<string name="help">עזרה</string>
+	<string name="what_is_alt_text">מהו טקסט חלופי?</string>
+	<string name="alt_text_help">טקסט חלופי מספק תיאורי תמונות לאנשים עם לקויות ראייה, חיבורים בעלי רוחב פס נמוך, או כאלה המחפשים הקשר נוסף.\n\nניתן לשפר את הנגישות וההבנה עבור כולם על ידי כתיבת טקסט חלופי ברור, תמציתי ואובייקטיבי.\n\n<ul><li>לכידת אלמנטים חשובים</li>\n<li>סיכום טקסט בתמונות</li>\n<li>השתמש במבנה משפטים רגיל</li>\n<li>הימנעות ממידע מיותר</li>\n<li>התמקדות במגמות ובממצאים מרכזיים בוויזואליה מורכבת (כמו דיאגרמות או מפות)</li></ul></string>
+	<string name="edit_post">עריכת פוסט</string>
+	<string name="no_verified_link">אין קישור מאומת</string>
+	<string name="compose_autocomplete_emoji_empty">עיון באימוגי</string>
+	<string name="compose_autocomplete_users_empty">מצא את מי שאתה מחפש</string>
+	<string name="no_search_results">לא נמצא דבר עבור תנאי חיפוש אלה</string>
+	<string name="language">שפה</string>
+	<string name="language_default">ברירת מחדל</string>
+	<string name="language_system">מערכת</string>
+	<string name="language_detecting">זיהוי שפה</string>
+	<string name="language_cant_detect">לא הצלחנו לזהות שפה</string>
+	<string name="language_detected">זוהה</string>
+	<string name="media_hidden">מדיה מוסתרת</string>
+	<string name="post_hidden">פוסטים מוסתרים</string>
+	<string name="report_title_post">דווח על פוסט</string>
+	<string name="forward_report_explanation">החשבון הוא משרת אחר. האם לשלוח לשם גם עותק אנונימי של הדוח הזה?</string>
 	<!-- %s is the server domain -->
+	<string name="forward_report_to_server">העבר אל %s</string>
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
+	<string name="reported">דווח</string>
+	<string name="report_unfollow_explanation">כדי לא לראות יותר את הפוסטים שלהם בפיד הבית שלך, הפסק לעקוב אחריהם.</string>
+	<string name="muted_user">השתק את %s</string>
+	<string name="report_sent_already_blocked">כבר חסמת את המשתמש הזה, כך שאין לך מה לעשות בזמן שאנחנו בודקים את הדיווח שלך.</string>
+	<string name="report_personal_already_blocked">כבר חסמת את המשתמש הזה, אז אין לך עוד מה לעשות.\n\nתודה שעזרת לשמור על Mastodon כמקום בטוח לכולם!</string>
+	<string name="blocked_user">חסום %s</string>
+	<string name="mark_all_notifications_read">סמן הכל כנקרא</string>
+	<string name="settings_display">הצג</string>
+	<string name="settings_filters">פילטרים</string>
+	<string name="settings_server_explanation">סקירה כללית, חוקים, מנהלים</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
+	<string name="about_app">‮אודות ‭%s</string>
+	<string name="default_post_language">שפת פוסטים ברירת מחדל</string>
+	<string name="settings_alt_text_reminders">הוסף תזכורות טקסט חלופי</string>
+	<string name="settings_confirm_unfollow">שאל לפני שאתה מפסיק לעקוב אחר מישהו</string>
 	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="count_one">אחד</string>
+	<string name="count_two">שתיים</string>
+	<string name="count_three">שלוש</string>
+	<string name="count_four">ארבע</string>
+	<string name="alt_text_reminder_post_anyway">פוסט</string>
 	<!-- %s is the username -->
+	<string name="unfollow_confirmation">בטל מעקב %s?</string>
+	<string name="filter_active">פעיל</string>
+	<string name="filter_inactive">לא פעיל</string>
+	<string name="settings_add_filter">הוסף מסנן</string>
+	<string name="settings_edit_filter">ערןך מסנן</string>
+	<string name="settings_filter_duration">משך</string>
+	<string name="settings_filter_muted_words">מילים מושתקות</string>
+	<string name="settings_filter_context">השתקה מ</string>
+	<string name="settings_filter_show_cw">הצג עם אזהרת תוכן</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<!-- Shown like a content warning, %s is the name of the filter -->
 	<!-- Shown in the post header. Please keep it short -->
