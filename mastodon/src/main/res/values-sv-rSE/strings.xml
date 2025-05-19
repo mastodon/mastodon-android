@@ -13,6 +13,7 @@
 	<string name="notifications">Aviseringar</string>
 	<string name="user_followed_you">%s följde dig</string>
 	<string name="user_sent_follow_request">%s skickade en förfrågan om att följa dig</string>
+	<string name="notification_boosted">%s förstärktes:</string>
 	<string name="share_toot_title">Dela</string>
 	<string name="settings">Inställningar</string>
 	<string name="publish">Publicera</string>
@@ -209,6 +210,7 @@
 	<string name="following_user_requested">Begär att följa %s</string>
 	<string name="open_in_browser">Öppna i webbläsare</string>
 	<string name="hide_boosts_from_user">Dölj förstärkningar</string>
+	<string name="show_boosts_from_user">Visa förstärkningar</string>
 	<string name="signup_reason">Varför vill du gå med?</string>
 	<string name="signup_reason_note">Detta kommer hjälpa oss att granska din ansökan.</string>
 	<string name="clear">Rensa</string>
@@ -284,6 +286,7 @@
 	<!-- %s is file size -->
 	<string name="download_update">Ladda ner (%s)</string>
 	<string name="install_update">Installera</string>
+	<string name="privacy_policy_title">Din integritet</string>
 	<string name="privacy_policy_subtitle">Även om Mastodon-appen inte samlar in några data, kan servern du registrerar dig genom ha en annan policy.\n\nOm du inte håller med policyn för %skan du gå tillbaka och välja en annan server.</string>
 	<string name="i_agree">Jag godkänner</string>
 	<string name="empty_list">Den här listan är tom</string>
@@ -296,6 +299,8 @@
 	<string name="login_title">Välkommen tillbaka</string>
 	<string name="login_subtitle">Logga in på den server där du skapade ditt konto.</string>
 	<string name="server_url">Server-URL</string>
+	<string name="server_filter_any_language">Alla språk</string>
+	<string name="server_filter_instant_signup">Omedelbar registrering</string>
 	<string name="server_filter_manual_review">Manuell granskning</string>
 	<string name="server_filter_region_europe">Europa</string>
 	<string name="server_filter_region_north_america">Nordamerika</string>
@@ -547,23 +552,31 @@
 	<string name="manage_user_lists">Hantera listorna %s visas på</string>
 	<string name="remove_from_list">Ta bort från lista</string>
 	<string name="confirm_remove_list_member">Ta bort medlem?</string>
+	<string name="no_lists_title">Organisera ditt hemflöde med listor</string>
+	<string name="manage_accounts">Lägg till eller byt konto</string>
 	<string name="create_list">Skapa lista</string>
 	<string name="step_x_of_y">Steg %1$d av %2$d</string>
 	<string name="create">Skapa</string>
 	<string name="manage_list_members">Hantera listmedlemmar</string>
 	<string name="list_no_members">Inga medlemmar än</string>
+	<string name="list_find_users">Hitta användare att lägga till</string>
 	<string name="non_mutual_sheet_title">Hej, ny anslutning!</string>
 	<string name="got_it">Jag förstår</string>
 	<string name="dont_remind_again">Påminn mig inte igen</string>
 	<!-- %s is a time interval ("5 months") -->
 	<string name="old_post_sheet_title">Detta inlägg är %s gammalt</string>
+	<string name="old_post_sheet_text">Du kan fortfarande svara, men det kanske inte längre är relevant.</string>
 	<plurals name="x_months">
 		<item quantity="one">%,d månad</item>
 		<item quantity="other">%,d månader</item>
 	</plurals>
 	<string name="more_than_two_years">mer än 2 år</string>
+	<string name="non_mutual_title1">Håll dig respektfull &amp; relevant</string>
+	<string name="non_mutual_title2">Omfamna vänlighet</string>
+	<string name="non_mutual_text2">En positiv ton är alltid uppskattad.</string>
 	<string name="non_mutual_title3">Var öppen</string>
 	<string name="make_profile_discoverable">Gör min profil upptäckningsbar</string>
+	<string name="app_version_copied">Versionsnummer kopierat till urklipp</string>
 	<string name="onboarding_recommendations_title">Anpassa ditt hemflöde</string>
 	<string name="article_by_author">Av %s</string>
 	<string name="button_reblogged">Förstärkte</string>
@@ -613,6 +626,8 @@
 	<string name="view_favorites">Visa favoriter</string>
 	<string name="undo_reblog">Ånga förstärkning</string>
 	<string name="donation_once">Bara en gång</string>
+	<string name="donation_monthly">Månadsvis</string>
+	<string name="donation_yearly">Årlig</string>
 	<string name="currency">Valuta</string>
 	<string name="donation_success_title">Tack för ditt bidrag!</string>
 	<string name="donation_success_subtitle">Du kommer snart att få ett e-postmeddelande som bekräftar din donation.</string>
@@ -639,10 +654,12 @@
 	<string name="confirm_avatar_crop">Välj</string>
 	<string name="settings_accounts">Konton</string>
 	<string name="settings_add_account">Lägg till konto...</string>
+	<string name="settings_app_settings">Appinställningar</string>
 	<string name="account_settings">Kontoinställningar</string>
 	<string name="manage_account">Hantera konto</string>
 	<string name="delete_account">Radera konto</string>
 	<string name="notification_type_status">Nya inlägg</string>
+	<string name="profile_saved_posts">Sparad</string>
 	<string name="profile_saved_posts_explanation">Dina sparade inlägg är bara synliga för dig.</string>
 	<!-- appears when you're about to block a server -->
 	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
@@ -657,6 +674,9 @@
 	</plurals>
 	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
 	<string name="server_x_following_will_be_removed">Du kommer att förlora %s.</string>
+	<string name="post_header_reply">Svara</string>
+	<string name="post_header_mention">Nämn</string>
+	<string name="report_reason_legal">Det är olagligt</string>
 	<!-- %s is `at_least_x_years_old`. Some languages, unlike English, may require the word "years" here. -->
 	<!-- Substituted into `date_of_birth_explanation` -->
 </resources>
