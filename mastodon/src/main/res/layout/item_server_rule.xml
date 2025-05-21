@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:tools="http://schemas.android.com/tools"
 	android:orientation="horizontal"
 	android:layout_width="match_parent"
@@ -27,10 +27,27 @@
 		android:id="@+id/text"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:layout_gravity="top"
+		android:layout_toEndOf="@id/number"
+		android:minHeight="24dp"
+		android:gravity="center_vertical|start"
 		android:textAppearance="@style/m3_body_large"
 		android:textSize="16sp"
 		android:textColor="?colorM3OnSurface"
+		android:textAlignment="viewStart"
 		tools:text="No discrimination, including (but not limited to) racism, sexism, homophobia or transphobia."/>
 
-</LinearLayout>
+	<org.joinmastodon.android.ui.views.LinkedTextView
+		android:id="@+id/hint"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_toEndOf="@id/number"
+		android:layout_below="@id/text"
+		android:minHeight="20dp"
+		android:gravity="center_vertical|start"
+		android:textAppearance="@style/m3_body_medium"
+		android:textSize="14sp"
+		android:textColor="?colorM3OnSurfaceVariant"
+		android:textAlignment="viewStart"
+		tools:text="No discrimination, including (but not limited to) racism, sexism, homophobia or transphobia."/>
+
+</RelativeLayout>

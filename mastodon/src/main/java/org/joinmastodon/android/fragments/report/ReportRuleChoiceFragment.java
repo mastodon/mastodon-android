@@ -25,7 +25,7 @@ public class ReportRuleChoiceFragment extends BaseReportChoiceFragment{
 		Instance inst=AccountSessionManager.getInstance().getInstanceInfo(AccountSessionManager.getInstance().getAccount(accountID).domain);
 		if(inst!=null && inst.rules!=null){
 			for(Instance.Rule rule:inst.rules){
-				items.add(new ChoiceItem(rule.text, null, rule.id));
+				items.add(new ChoiceItem(rule.getTranslatedText(), rule.getTranslatedHint(), rule.id));
 			}
 		}
 	}
