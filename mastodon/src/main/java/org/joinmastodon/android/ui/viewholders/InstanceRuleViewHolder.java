@@ -11,8 +11,9 @@ import org.joinmastodon.android.model.Instance;
 import org.joinmastodon.android.ui.text.HtmlParser;
 
 import me.grishka.appkit.utils.BindableViewHolder;
+import me.grishka.appkit.views.UsableRecyclerView;
 
-public class InstanceRuleViewHolder extends BindableViewHolder<Instance.Rule>{
+public class InstanceRuleViewHolder extends BindableViewHolder<Instance.Rule> implements UsableRecyclerView.DisableableClickable{
 	private final TextView text, number, hint;
 	private int position;
 
@@ -44,5 +45,17 @@ public class InstanceRuleViewHolder extends BindableViewHolder<Instance.Rule>{
 			hint.setVisibility(View.VISIBLE);
 			hint.setText(item.parsedHint);
 		}
+		hint.setMaxLines(item.hintExpanded ? Integer.MAX_VALUE : 2);
+	}
+
+	@Override
+	public boolean isEnabled(){
+		return hint.getVisibility()==View.VISIBLE;
+	}
+
+	@Override
+	public void onClick(){
+		item.hintExpanded=!item.hintExpanded;
+		hint.setMaxLines(item.hintExpanded ? Integer.MAX_VALUE : 2);
 	}
 }

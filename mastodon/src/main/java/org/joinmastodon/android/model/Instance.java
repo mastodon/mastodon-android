@@ -88,6 +88,7 @@ public abstract class Instance extends BaseModel{
 
 		public transient CharSequence parsedText;
 		public transient CharSequence parsedHint;
+		public transient boolean hintExpanded;
 
 		private Translation findTranslationForCurrentLocale(){
 			if(translations==null || translations.isEmpty())
