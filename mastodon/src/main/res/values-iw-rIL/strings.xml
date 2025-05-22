@@ -452,9 +452,44 @@
 	<string name="default_post_language">שפת פוסטים ברירת מחדל</string>
 	<string name="settings_alt_text_reminders">הוסף תזכורות טקסט חלופי</string>
 	<string name="settings_confirm_unfollow">שאל לפני שאתה מפסיק לעקוב אחר מישהו</string>
+	<string name="settings_confirm_boost">שאל לפני בוסט</string>
+	<string name="settings_confirm_delete_post">שאל לפני מחיקת פוסטים</string>
+	<string name="pause_all_notifications">השהה הכל</string>
+	<string name="pause_notifications_off">כיבוי</string>
+	<string name="notifications_policy_anyone">כולם</string>
+	<string name="notifications_policy_followed">אנשים שעוקבים אחריך</string>
+	<string name="notifications_policy_follower">אנשים שאתה עוקב אחריהם</string>
+	<string name="notifications_policy_no_one">אף אחד</string>
+	<string name="settings_notifications_policy">קבל התראות מ</string>
+	<string name="notification_type_mentions_and_replies">אזכורים ותגובות</string>
+	<string name="pause_all_notifications_title">השהה את כל ההתראות</string>
+	<plurals name="x_weeks">
+		<item quantity="one">שבוע %d</item>
+		<item quantity="two">%d שבועות</item>
+		<item quantity="many">%d שבועות</item>
+		<item quantity="other">%d שבועות</item>
+	</plurals>
 	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
+	<string name="date_at_time">%1$s ב %2$s</string>
+	<string name="today">היום</string>
+	<string name="yesterday">אתמול</string>
+	<string name="tomorrow">מחר</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="pause_notifications_ends">מסתיים %s</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="pause_notifications_banner">ההתראות יחודשו ב-%s.</string>
+	<string name="resume_notifications_now">המשך כעת</string>
+	<string name="open_system_notification_settings">עבור אל הגדרות התראה</string>
+	<string name="about_server">אודות</string>
+	<string name="server_rules">כללים</string>
+	<string name="server_administrator">מנהל</string>
+	<string name="send_email_to_server_admin">שלח הודעה למנהל</string>
+	<string name="notifications_disabled_in_system">הפעל התראות מהגדרות המכשיר שלך כדי לראות עדכונים מכל מקום.</string>
+	<string name="settings_even_more">עוד יותר הגדרות</string>
+	<string name="settings_show_cws">הצג אזהרת תוכן</string>
+	<string name="settings_hide_sensitive_media">הסתרת מדיה המסומנת כרגישה</string>
+	<string name="settings_show_interaction_counts">ספירת אינטראקציות בפוסטים</string>
+	<string name="settings_show_emoji_in_names">אמוג\'י מותאם אישית בשמות תצוגה</string>
 	<string name="count_one">אחד</string>
 	<string name="count_two">שתיים</string>
 	<string name="count_three">שלוש</string>
