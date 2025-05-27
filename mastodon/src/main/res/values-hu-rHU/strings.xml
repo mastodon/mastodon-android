@@ -16,7 +16,7 @@
 	<string name="share_toot_title">Megosztás</string>
 	<string name="settings">Beállítások</string>
 	<string name="publish">Közzététel</string>
-	<string name="discard_draft">Elveti a piszkozatot?</string>
+	<string name="discard_draft">Elveted a piszkozatot?</string>
 	<string name="discard">Elvetés</string>
 	<string name="cancel">Mégse</string>
 	<plurals name="followers">
@@ -280,7 +280,7 @@
 	<string name="edit_marked_sensitive">Érzékenynek jelölve</string>
 	<string name="edit_marked_not_sensitive">Nem érzékenynek jelölve</string>
 	<string name="edit_multiple_changed">Bejegyzés módosítva</string>
-	<string name="edit">Módosítás</string>
+	<string name="edit">Szerkesztés</string>
 	<string name="discard_changes">Módosítások elvetése?</string>
 	<string name="upload_failed">Sikertelen feltöltés</string>
 	<string name="file_size_bytes">%d bájt</string>
@@ -301,7 +301,7 @@
 	<string name="remove_bookmark">Könyvjelző eltávolítása</string>
 	<string name="bookmarks">Könyvjelzők</string>
 	<string name="login_title">Üdv újra itt</string>
-	<string name="login_subtitle">Azon a kiszolgálón jelentkezzen be, ahol a fiókját létrehozta.</string>
+	<string name="login_subtitle">Azon a kiszolgálón jelentkezz be, ahol a fiókodat létrehoztad.</string>
 	<string name="server_url">Kiszolgáló webcíme</string>
 	<string name="server_filter_any_language">Bármely nyelv</string>
 	<string name="server_filter_manual_review">Kézi jóváhagyás</string>
@@ -318,7 +318,7 @@
 	<string name="profile_setup">Profilbeállítás</string>
 	<string name="profile_setup_subtitle">Ezt később is bármikor kitöltheted a Profil lapon.</string>
 	<string name="follow_all">Összes követése</string>
-	<string name="server_rules_disagree">Nem értek egyet vele</string>
+	<string name="server_rules_disagree">Nem fogadom el</string>
 	<string name="privacy_policy_explanation">Röviden: Nem gyűjtünk és nem dolgozunk fel semmit.</string>
 	<!-- %s is server domain -->
 	<string name="server_policy_disagree">Nem egyezek bele a(z) %s szabályzatába</string>
@@ -405,7 +405,7 @@
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">A %s névjegye</string>
 	<string name="default_post_language">Bejegyzések alapértelmezett nyelve</string>
-	<string name="settings_alt_text_reminders">Alt szöveges emlékeztetők</string>
+	<string name="settings_alt_text_reminders">Helyettesítő szöveg emlékeztetőjének hozzáadása</string>
 	<string name="settings_confirm_unfollow">Rákérdezés a követés megszüntetése előtt</string>
 	<string name="settings_confirm_boost">Rákérdezés megtolás előtt</string>
 	<string name="settings_confirm_delete_post">Rákérdezés a bejegyzések törlése előtt</string>
@@ -560,12 +560,12 @@
 	<string name="error_playing_video">Hiba a videó lejátszásakor</string>
 	<string name="timeline_following">Főoldal</string>
 	<string name="lists">Listák</string>
-	<string name="followed_hashtags">Követett címkék (hashtag)</string>
+	<string name="followed_hashtags">Követett hashtagek</string>
 	<string name="manage_lists">Listák kezelése</string>
-	<string name="manage_hashtags">Címkék kezelése</string>
+	<string name="manage_hashtags">Hashtagek kezelése</string>
 	<!-- Screen reader description for the menu on the home timeline screen -->
 	<string name="dropdown_menu">Legördülő menü</string>
-	<string name="edit_list">Lista módosítása</string>
+	<string name="edit_list">Lista szerkesztése</string>
 	<string name="list_members">Lista tagjai</string>
 	<string name="delete_list">Lista törlése</string>
 	<!-- %s is the name of the list -->
@@ -582,7 +582,7 @@
 	<string name="add_list_member">Tag hozzáadása</string>
 	<string name="search_among_people_you_follow">Keresés a követett személyek között</string>
 	<string name="add_user_to_list">Hozzáadás/eltávolítás listákról…</string>
-	<string name="add_user_to_list_title">Hozzáadás listához</string>
+	<string name="add_user_to_list_title">Hozzáadás a listához</string>
 	<!-- %s is a username -->
 	<string name="manage_user_lists">Listák kezelése, melyen %s szerepel</string>
 	<string name="remove_from_list">Eltávolítás a listából</string>
@@ -620,13 +620,13 @@
 	<string name="non_mutual_title2">Legyél kedves</string>
 	<string name="non_mutual_text2">A pozitív hangnemet mindig értékelik.</string>
 	<string name="non_mutual_title3">Legyél nyitott</string>
-	<string name="non_mutual_text3">Mindenki beszélgetési stílusa egyedi. Készüljön fel az alkalmazkodásra.</string>
+	<string name="non_mutual_text3">Mindenki beszélgetési stílusa egyedi. Készülj fel az alkalmazkodásra.</string>
 	<string name="make_profile_discoverable">Legyen felfedezhető a profilom</string>
 	<string name="discoverability">Felfedezhetőség</string>
 	<string name="app_version_copied">Verziószám a vágólapra másolva</string>
 	<string name="onboarding_recommendations_intro">Te válogatod össze a kezdőlapodat.
 Minél több embert követsz, annál aktívabb és érdekesebb lesz.</string>
-	<string name="onboarding_recommendations_title">Hírfolyam testreszabása</string>
+	<string name="onboarding_recommendations_title">Kezdőlapi hírfolyam testreszabása</string>
 	<string name="article_by_author">Szerző: %s</string>
 	<string name="button_reblogged">Megtolva</string>
 	<string name="button_favorited">Kedvenc</string>
