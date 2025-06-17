@@ -113,6 +113,7 @@
 	<string name="do_block">Заблакіраваць</string>
 	<string name="button_blocked">Заблакіраваны</string>
 	<string name="action_vote">Прагаласаваць</string>
+	<string name="confirm">Пацвердзіць</string>
 	<string name="delete">Выдаліць</string>
 	<string name="confirm_delete_title">Выдаліць допіс</string>
 	<string name="confirm_delete">Вы ўпэўненыя, што хочаце выдаліць гэты допіс?</string>
@@ -859,10 +860,25 @@
 	<!-- appears when you're about to block a server -->
 	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
 	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
+	<string name="load_missing_posts_above">Загрузіць адсутныя допісы вышэй</string>
+	<string name="load_missing_posts_below">Загрузіць адсутныя допісы ніжэй</string>
+	<string name="signup_password_too_short">Пароль павінен быць не менш за 8 сімвалаў.</string>
 	<string name="private_reply">Асабісты адказ</string>
 	<string name="private_mention">Асабістае згадванне</string>
 	<string name="post_header_reply">Адказ</string>
 	<string name="post_header_mention">Згадванне</string>
+	<string name="report_reason_legal">Гэта незаконна</string>
+	<string name="report_reason_legal_subtitle">Вы лічыце, што гэта парушае заканадаўства вашай краіны або краіны сервера</string>
+	<string name="date_of_birth">Дата нараджэння</string>
 	<!-- %s is `at_least_x_years_old`. Some languages, unlike English, may require the word "years" here. -->
+	<string name="date_of_birth_explanation">Мы павінны пераканацца, што вам не менш за %s, каб каб карыстацца Mastodon.. Пасля рэгістрацыі гэта не будзе захавана.</string>
+	<string name="open_link">Адкрыць</string>
+	<string name="copy">Скапіраваць</string>
 	<!-- Substituted into `date_of_birth_explanation` -->
+	<plurals name="at_least_x_years_old">
+		<item quantity="one">%d</item>
+		<item quantity="few">%d</item>
+		<item quantity="many">%d</item>
+		<item quantity="other">%d</item>
+	</plurals>
 </resources>
