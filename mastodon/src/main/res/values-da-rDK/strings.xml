@@ -781,9 +781,21 @@ Jo flere folk, man følger, jo mere aktivt og interessant vil det være.</string
 	<string name="manage_account">Administrer konto</string>
 	<string name="switch_to_this_account">Skift til denne konto</string>
 	<string name="delete_account">Slet konto</string>
+	<string name="profile_saved_posts">Gemt</string>
+	<string name="search_people">Personer</string>
 	<!-- appears when you're about to block a server -->
 	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
 	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
+	<string name="private_reply">Privat svar</string>
+	<string name="private_mention">Privat omtale</string>
+	<string name="post_header_reply">Svar</string>
+	<string name="post_header_mention">Omtale</string>
+	<string name="report_reason_legal">Det er ulovligt</string>
+	<string name="report_reason_legal_subtitle">Du mener, at det er i strid med lovgivningen i dit eller serverens land</string>
+	<string name="date_of_birth">Fødselsdato</string>
 	<!-- %s is `at_least_x_years_old`. Some languages, unlike English, may require the word "years" here. -->
+	<string name="date_of_birth_explanation">Vi skal sikre, at du mindst er %s for at bruge Mastodon. Dette bliver ikke gemt efter tilmeldingen.</string>
+	<string name="open_link">Åbn</string>
+	<string name="copy">Kopiér</string>
 	<!-- Substituted into `date_of_birth_explanation` -->
 </resources>
