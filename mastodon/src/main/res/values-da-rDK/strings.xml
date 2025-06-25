@@ -8,13 +8,13 @@
 	<string name="ok">OK</string>
 	<string name="preparing_auth">Forbereder godkendelse…</string>
 	<string name="finishing_auth">Afslutter godkendelse…</string>
-	<string name="user_boosted">%s boostede</string>
+	<string name="user_boosted">%s fremhævede</string>
 	<string name="in_reply_to">som svar til %s</string>
 	<string name="notifications">Notifikationer</string>
 	<string name="user_followed_you">%s begyndte at følge dig</string>
 	<string name="user_sent_follow_request">%s har sendt dig en følgeanmodning</string>
 	<string name="user_favorited">%s favoritmarkeringer:</string>
-	<string name="notification_boosted">%s boostede:</string>
+	<string name="notification_boosted">%s fremhævede:</string>
 	<string name="share_toot_title">Del</string>
 	<string name="settings">Indstillinger</string>
 	<string name="publish">Publicér</string>
@@ -168,7 +168,7 @@
 	<string name="recent_searches">Nylige</string>
 	<string name="notification_type_follow">Nye Følgere</string>
 	<string name="notification_type_favorite">Favoritmarkeringer</string>
-	<string name="notification_type_reblog">Boosts</string>
+	<string name="notification_type_reblog">Fremhævninger</string>
 	<string name="notification_type_mention">Omtaler</string>
 	<string name="notification_type_poll">Afstemninger</string>
 	<string name="choose_account">Vælg konto</string>
@@ -199,7 +199,7 @@
 	<string name="more_options">Flere muligheder</string>
 	<string name="new_post">Nyt indlæg</string>
 	<string name="button_reply">Svar</string>
-	<string name="button_reblog">Boost</string>
+	<string name="button_reblog">Fremhæv</string>
 	<string name="button_favorite">Gør til favorit</string>
 	<string name="button_share">Del</string>
 	<string name="media_no_description">Medier uden beskrivelse</string>
@@ -214,8 +214,8 @@
 	<string name="followed_user">Du følger nu %s</string>
 	<string name="following_user_requested">Anmodede om at følge %s</string>
 	<string name="open_in_browser">Åbn i browser</string>
-	<string name="hide_boosts_from_user">Skjul boosts</string>
-	<string name="show_boosts_from_user">Vis boosts</string>
+	<string name="hide_boosts_from_user">Skjul fremhævninger</string>
+	<string name="show_boosts_from_user">Vis fremhævninger</string>
 	<string name="signup_reason">Hvorfor ønsker du at tilmelde dig?</string>
 	<string name="signup_reason_note">Dette hjælper os med at vurdere din ansøgning.</string>
 	<string name="clear">Ryd</string>
@@ -254,8 +254,8 @@
 		<item quantity="other">%,d favoritmarkeringer</item>
 	</plurals>
 	<plurals name="x_reblogs">
-		<item quantity="one">%,d boost</item>
-		<item quantity="other">%,d boosts</item>
+		<item quantity="one">%,d fremhævning</item>
+		<item quantity="other">%,d fremhævninger</item>
 	</plurals>
 	<string name="time_now">nu</string>
 	<string name="edit_history">Rediger historik</string>
@@ -414,7 +414,7 @@
 	<string name="default_post_language">Standard indlægssprog</string>
 	<string name="settings_alt_text_reminders">Tilføj alt tekst påmindelser</string>
 	<string name="settings_confirm_unfollow">Spørg før ophør med at følge nogen</string>
-	<string name="settings_confirm_boost">Spørg før boosting</string>
+	<string name="settings_confirm_boost">Spørg før fremhævning</string>
 	<string name="settings_confirm_delete_post">Spørg før sletning af indlæg</string>
 	<string name="pause_all_notifications">Pausér alle</string>
 	<string name="pause_notifications_off">Fra</string>
@@ -637,7 +637,7 @@
 Jo flere folk, man følger, jo mere aktivt og interessant vil det være.</string>
 	<string name="onboarding_recommendations_title">Personliggør hjemme-feedet</string>
 	<string name="article_by_author">Af %s</string>
-	<string name="button_reblogged">Boostet</string>
+	<string name="button_reblogged">Fremhævet</string>
 	<string name="button_favorited">Gjort til favorit</string>
 	<string name="join_server_x_with_invite">Tilmeld %s med invitation</string>
 	<string name="expired_invite_link">Udløbet invitationslink</string>
@@ -733,9 +733,9 @@ Jo flere folk, man følger, jo mere aktivt og interessant vil det være.</string
 	<string name="visibility_subtitle_unlisted">Færre algoritmiske fanfarer</string>
 	<string name="visibility_subtitle_followers">Kun egne følgere</string>
 	<string name="visibility_subtitle_private">Alle omtalt i indlægget</string>
-	<string name="view_boosts">Vis boosts</string>
+	<string name="view_boosts">Vis fremhævninger</string>
 	<string name="view_favorites">Vis favoritter</string>
-	<string name="undo_reblog">Fortryd boost</string>
+	<string name="undo_reblog">Fortryd fremhævning</string>
 	<string name="undo_favorite">Fortryd favorit</string>
 	<string name="could_not_reach_server">Serveren kunne ikke kontaktes. Tjek forbindelsen og forsøg igen?</string>
 	<string name="connection_timed_out">Anmodningen fik timeout. Tjek forbindelsen og forsøg igen?</string>
@@ -772,8 +772,8 @@ Jo flere folk, man følger, jo mere aktivt og interessant vil det være.</string
 		<item quantity="other">%1$s og %2$,d andre favoriserede:</item>
 	</plurals>
 	<plurals name="user_and_x_more_boosted">
-		<item quantity="one">%1$s og %2$,d anden boostede:</item>
-		<item quantity="other">%1$s og %2$,d andre boostede:</item>
+		<item quantity="one">%1$s og %2$,d anden fremhævede:</item>
+		<item quantity="other">%1$s og %2$,d andre fremhævede:</item>
 	</plurals>
 	<plurals name="poll_ended_x_voters">
 		<item quantity="one">%1$s gennemførte en afstemning, som du og %2$,d anden stemte i</item>
