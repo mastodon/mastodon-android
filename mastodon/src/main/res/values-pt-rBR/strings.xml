@@ -93,6 +93,7 @@
 	<string name="do_block">Bloquear</string>
 	<string name="button_blocked">Bloqueado</string>
 	<string name="action_vote">Votar</string>
+	<string name="confirm">Confirmar</string>
 	<string name="delete">Excluir</string>
 	<string name="confirm_delete_title">Excluir publicação</string>
 	<string name="confirm_delete">Você tem certeza de que deseja excluir esta publicação?</string>
@@ -303,6 +304,7 @@
 	<string name="add_bookmark">Salvar</string>
 	<string name="remove_bookmark">Remover favorito</string>
 	<string name="bookmarks">Salvos</string>
+	<string name="your_favorites">Favoritos</string>
 	<string name="login_title">Bem-vindo de volta</string>
 	<string name="login_subtitle">Faça login no servidor onde você criou sua conta.</string>
 	<string name="server_url">URL do servidor</string>
@@ -790,6 +792,10 @@ Quanto mais pessoas que você seguir, mas interessantes e ativas serão.</string
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
 	<string name="relationship_severance_user_domain_block">Você bloqueou %1$s, removendo %2$,d dos seus seguidores e %3$s que você segue.</string>
 	<string name="relationship_severance_learn_more">Saiba mais</string>
+	<string name="moderation_warning_learn_more">Saiba mais</string>
+	<string name="text_show_more">Mais</string>
+	<string name="settings_accounts">Contas</string>
+	<string name="settings_add_account">Adicionar conta...</string>
 	<!-- appears when you're about to block a server -->
 	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
 	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
