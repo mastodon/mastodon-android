@@ -4,22 +4,23 @@
 	<string name="next">Næste</string>
 	<string name="loading_instance">Henter serverinfo…</string>
 	<string name="error">Fejl</string>
-	<string name="not_a_mastodon_instance">%s lader ikke til at være en Mastodon-server.</string>
+	<string name="not_a_mastodon_instance">%s er vist ikke en Mastodon-server.</string>
 	<string name="ok">OK</string>
 	<string name="preparing_auth">Forbereder godkendelse…</string>
 	<string name="finishing_auth">Afslutter godkendelse…</string>
-	<string name="user_boosted">%s fremhævede</string>
+	<string name="user_boosted">%s boostede</string>
 	<string name="in_reply_to">som svar til %s</string>
 	<string name="notifications">Notifikationer</string>
 	<string name="user_followed_you">%s begyndte at følge dig</string>
 	<string name="user_sent_follow_request">%s har sendt dig en følgeanmodning</string>
 	<string name="user_favorited">%s favoritmarkeringer:</string>
+	<string name="notification_boosted">%s boostede:</string>
 	<string name="share_toot_title">Del</string>
 	<string name="settings">Indstillinger</string>
 	<string name="publish">Publicér</string>
 	<string name="discard_draft">Kassér kladde?</string>
 	<string name="discard">Kassér</string>
-	<string name="cancel">Afbryd</string>
+	<string name="cancel">Annullér</string>
 	<plurals name="followers">
 		<item quantity="one">følger</item>
 		<item quantity="other">følgere</item>
@@ -157,7 +158,7 @@
 	<string name="resend">Send igen</string>
 	<string name="open_email_app">Åbn e-mail app</string>
 	<string name="resent_email">Bekræftelsesmail sendt</string>
-	<string name="compose_hint">Angiv eller indsæt, hvad du tænker på</string>
+	<string name="compose_hint">Skriv eller indsæt, hvad du har på hjerte</string>
 	<string name="content_warning">Indholdsadvarsel</string>
 	<string name="save">Gem</string>
 	<string name="add_alt_text">Tilføj alternativ tekst</string>
@@ -167,7 +168,7 @@
 	<string name="recent_searches">Nylige</string>
 	<string name="notification_type_follow">Nye Følgere</string>
 	<string name="notification_type_favorite">Favoritmarkeringer</string>
-	<string name="notification_type_reblog">Fremhævninger</string>
+	<string name="notification_type_reblog">Boosts</string>
 	<string name="notification_type_mention">Omtaler</string>
 	<string name="notification_type_poll">Afstemninger</string>
 	<string name="choose_account">Vælg konto</string>
@@ -198,7 +199,7 @@
 	<string name="more_options">Flere muligheder</string>
 	<string name="new_post">Nyt indlæg</string>
 	<string name="button_reply">Svar</string>
-	<string name="button_reblog">Fremhæv</string>
+	<string name="button_reblog">Boost</string>
 	<string name="button_favorite">Gør til favorit</string>
 	<string name="button_share">Del</string>
 	<string name="media_no_description">Medier uden beskrivelse</string>
@@ -253,8 +254,8 @@
 		<item quantity="other">%,d favoritmarkeringer</item>
 	</plurals>
 	<plurals name="x_reblogs">
-		<item quantity="one">%,d fremhævning</item>
-		<item quantity="other">%,d fremhævninger</item>
+		<item quantity="one">%,d boost</item>
+		<item quantity="other">%,d boosts</item>
 	</plurals>
 	<string name="time_now">nu</string>
 	<string name="edit_history">Rediger historik</string>
@@ -380,7 +381,7 @@
 	<string name="help">Hjælp</string>
 	<string name="what_is_alt_text">Hvad er alt tekst?</string>
 	<string name="alt_text_help">Alt tekst vil sige billedbeskrivelser til personer med synshandikap, forbindelser med lav båndbredde eller dem, som søger ekstra kontekst.\n\nMan kan forbedre tilgængelighed og forståelse for alle ved at skrive klar, kortfattet og objektiv alt-tekst.\n\n<ul><li>Fang vigtige elementer</li>\n<li>Opsummér tekst i billeder</li>\n<li>Brug regulær sætningsstruktur</li>\n<li>Undgå overflødig information</li>\n<li>Fokus på tendenser og vigtige fund i kompleks grafik (såsom diagrammer/kort)</li></ul></string>
-	<string name="edit_post">Redigere opslag</string>
+	<string name="edit_post">Redigér indlæg</string>
 	<string name="no_verified_link">Intet bekræftet link</string>
 	<string name="compose_autocomplete_emoji_empty">Gennemse emoji</string>
 	<string name="compose_autocomplete_users_empty">Find den, man leder efter</string>
@@ -762,17 +763,47 @@ Jo flere folk, man følger, jo mere aktivt og interessant vil det være.</string
 	<string name="cant_load_image">Kunne ikke indlæse billede</string>
 	<string name="poll_see_results">Se resultater</string>
 	<string name="poll_hide_results">Skjul resultater</string>
+	<plurals name="x_attachments">
+		<item quantity="one">%d vedhæftning</item>
+		<item quantity="other">%d vedhæftninger</item>
+	</plurals>
+	<plurals name="user_and_x_more_favorited">
+		<item quantity="one">%1$s og %2$,d anden favoriserede:</item>
+		<item quantity="other">%1$s og %2$,d andre favoriserede:</item>
+	</plurals>
+	<plurals name="user_and_x_more_boosted">
+		<item quantity="one">%1$s og %2$,d anden boostede:</item>
+		<item quantity="other">%1$s og %2$,d andre boostede:</item>
+	</plurals>
+	<plurals name="poll_ended_x_voters">
+		<item quantity="one">%1$s gennemførte en afstemning, som du og %2$,d anden stemte i</item>
+		<item quantity="other">%1$s gennemførte en afstemning, som du og %2$,d andre stemte i</item>
+	</plurals>
+	<string name="own_poll_ended">Din afstemning er afsluttet</string>
+	<string name="user_just_posted">%s har netop lavet et indlæg</string>
+	<string name="user_edited_post">%s redigerede et indlæg, du interagerede med</string>
+	<string name="relationship_severance_account_suspension">En admin fra %1$s har suspenderet %2$s, så du kan ikke længere få opdateringer fra eller interagere med dem.</string>
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_domain_block">En admin fra %1$s har blokeret %2$s, herunder %3$,d af dine følgere og %4$s du følger.</string>
 	<plurals name="x_accounts">
 		<item quantity="one">%,d konto</item>
 		<item quantity="other">%,d konti</item>
 	</plurals>
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_user_domain_block">Du har blokeret %1$s, hvilket fjerner %2$,d af dine følgere og %3$s du følger.</string>
 	<string name="relationship_severance_learn_more">Få mere at vide</string>
+	<string name="moderation_warning_action_none">Din konto har fået en moderationsadvarsel.</string>
 	<string name="moderation_warning_action_disable">Din konto er blevet deaktiveret.</string>
+	<string name="moderation_warning_action_mark_statuses_as_sensitive">Nogle af dine indlæg er blevet markeret som følsomme.</string>
+	<string name="moderation_warning_action_delete_statuses">Nogle af dine indlæg er blevet fjernet.</string>
+	<string name="moderation_warning_action_sensitive">Dine indlæg markeres fra nu af som følsomme.</string>
 	<string name="moderation_warning_action_silence">Din konto er blevet begrænset.</string>
+	<string name="moderation_warning_action_suspend">Din konto er blevet suspenderet.</string>
 	<string name="moderation_warning_learn_more">Få mere at vide</string>
+	<string name="text_show_more">Mere</string>
+	<string name="avatar_move_and_scale">Flyt og skalér</string>
 	<string name="confirm_avatar_crop">Vælg</string>
+	<string name="settings_use_dynamic_colors">Brug systemets dynamiske farve</string>
 	<string name="settings_accounts">Konti</string>
 	<string name="settings_add_account">Tilføj konto...</string>
 	<string name="settings_app_settings">App-indstillinger</string>
@@ -781,11 +812,44 @@ Jo flere folk, man følger, jo mere aktivt og interessant vil det være.</string
 	<string name="manage_account">Administrer konto</string>
 	<string name="switch_to_this_account">Skift til denne konto</string>
 	<string name="delete_account">Slet konto</string>
+	<string name="notification_type_status">Nye indlæg</string>
+	<plurals name="user_and_x_more_followed">
+		<item quantity="one">%1$s og %2$,d anden følger dig</item>
+		<item quantity="other">%1$s og %2$,d andre følger dig</item>
+	</plurals>
+	<string name="familiar_followers_one">Følges af %s</string>
+	<string name="familiar_followers_two">Følges af %s og %s</string>
 	<string name="profile_saved_posts">Gemt</string>
+	<string name="profile_saved_posts_explanation">Dine gemte indlæg er kun synlige for dig.</string>
 	<string name="search_people">Personer</string>
+	<plurals name="familiar_followers_many">
+		<item quantity="one">Følges af %1$s, %2$s, og %3$,d anden</item>
+		<item quantity="other">Følges af %1$s, %2$s, og %3$,d andre</item>
+	</plurals>
+	<plurals name="x_followers_you_know">
+		<item quantity="one">%,d følger du kender</item>
+		<item quantity="other">%,d følgere du kender</item>
+	</plurals>
 	<!-- appears when you're about to block a server -->
+	<plurals name="server_x_followers_will_be_removed">
+		<item quantity="one">%,d følger fra denne server vil blive fjernet.</item>
+		<item quantity="other">%,d følgere fra denne server vil blive fjernet.</item>
+	</plurals>
 	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
+	<string name="server_x_followers_and_following_will_be_removed">Du vil miste %1$s og %2$s.</string>
+	<plurals name="will_lose_x_followers">
+		<item quantity="one">%,d følger</item>
+		<item quantity="other">%,d følgere</item>
+	</plurals>
+	<plurals name="will_lose_x_following">
+		<item quantity="one">%,d person du følger</item>
+		<item quantity="other">%,d personer du følger</item>
+	</plurals>
 	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
+	<string name="server_x_following_will_be_removed">Du vil miste %s.</string>
+	<string name="load_missing_posts_above">Indlæs manglende indlæg ovenfor</string>
+	<string name="load_missing_posts_below">Indlæs manglende indlæg nedenfor</string>
+	<string name="signup_password_too_short">Adgangskoden skal være på mindst 8 tegn.</string>
 	<string name="private_reply">Privat svar</string>
 	<string name="private_mention">Privat omtale</string>
 	<string name="post_header_reply">Svar</string>
@@ -798,4 +862,8 @@ Jo flere folk, man følger, jo mere aktivt og interessant vil det være.</string
 	<string name="open_link">Åbn</string>
 	<string name="copy">Kopiér</string>
 	<!-- Substituted into `date_of_birth_explanation` -->
+	<plurals name="at_least_x_years_old">
+		<item quantity="one">%d</item>
+		<item quantity="other">%d</item>
+	</plurals>
 </resources>
