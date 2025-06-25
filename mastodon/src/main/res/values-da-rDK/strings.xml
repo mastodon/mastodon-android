@@ -89,7 +89,7 @@
 		<item quantity="other">%,d stemmer</item>
 	</plurals>
 	<string name="poll_closed">Lukket</string>
-	<string name="do_mute">Tavsgør</string>
+	<string name="do_mute">Gør tavs</string>
 	<string name="do_block">Blokér</string>
 	<string name="button_blocked">Blokeret</string>
 	<string name="action_vote">Stem</string>
@@ -164,7 +164,7 @@
 	<string name="add_alt_text">Tilføj alternativ tekst</string>
 	<string name="visibility_public">Offentlig</string>
 	<string name="visibility_followers_only">Følgere</string>
-	<string name="visibility_private">Bestemte folk</string>
+	<string name="visibility_private">Bestemte personer</string>
 	<string name="recent_searches">Nylige</string>
 	<string name="notification_type_follow">Nye Følgere</string>
 	<string name="notification_type_favorite">Favoritmarkeringer</string>
@@ -541,7 +541,7 @@
 	<string name="posts_matching_hashtag">Indlæg med “%s”</string>
 	<string name="search_go_to_account">Gå til %s</string>
 	<string name="posts_matching_string">Indlæg med “%s”</string>
-	<string name="accounts_matching_string">Folk med “%s”</string>
+	<string name="accounts_matching_string">Personer med “%s”</string>
 	<!-- Shown in the post header. Please keep it short -->
 	<string name="time_seconds_ago_short">%ds siden</string>
 	<string name="time_minutes_ago_short">%dm siden</string>
@@ -587,7 +587,7 @@
 	<string name="confirm_remove_list_members">Fjern medlemmer?</string>
 	<string name="remove">Fjern</string>
 	<string name="add_list_member">Tilføj nogen som medlem</string>
-	<string name="search_among_people_you_follow">Søg blandt folk, som følges</string>
+	<string name="search_among_people_you_follow">Søg blandt personer, som du følger</string>
 	<string name="add_user_to_list">Tilføj/fjern fra lister…</string>
 	<string name="add_user_to_list_title">Føj til liste</string>
 	<!-- %s is a username -->
@@ -712,9 +712,9 @@ Jo flere folk, man følger, jo mere aktivt og interessant vil det være.</string
 	<string name="visibility_unlisted">Stille offentlighed</string>
 	<string name="filtered_notifications">Filtrerede notifikationer</string>
 	<string name="filter_notifications">Bortfiltrér notifikationer fra...</string>
-	<string name="notification_filter_following">Folk, man ikke følger</string>
+	<string name="notification_filter_following">Personer, du ikke følger</string>
 	<string name="notification_filter_following_explanation">Indtil man manuelt godkender dem</string>
-	<string name="notification_filter_followers">Folk, man ikke følges af</string>
+	<string name="notification_filter_followers">Personer, du ikke følges af</string>
 	<string name="notification_filter_followers_explanation">Herunder personer, man er blevet fulgt af i mindre end 3 dage</string>
 	<string name="notification_filter_new_accounts">Ny konti</string>
 	<string name="notification_filter_new_accounts_explanation">Oprettet inden for de seneste 30 dage</string>
