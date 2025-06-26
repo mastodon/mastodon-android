@@ -13,7 +13,7 @@
 	<string name="notifications">Notifikationer</string>
 	<string name="user_followed_you">%s begyndte at følge dig</string>
 	<string name="user_sent_follow_request">%s har sendt dig en følgeanmodning</string>
-	<string name="user_favorited">%s favoritmarkeringer:</string>
+	<string name="user_favorited">%s favoritmarkerede:</string>
 	<string name="notification_boosted">%s fremhævede:</string>
 	<string name="share_toot_title">Del</string>
 	<string name="settings">Indstillinger</string>
@@ -250,8 +250,8 @@
 		<item quantity="other">%,d følgere</item>
 	</plurals>
 	<plurals name="x_favorites">
-		<item quantity="one">%,d favoritmarkering</item>
-		<item quantity="other">%,d favoritmarkeringer</item>
+		<item quantity="one">%,d favorit</item>
+		<item quantity="other">%,d favoritter</item>
 	</plurals>
 	<plurals name="x_reblogs">
 		<item quantity="one">%,d fremhævning</item>
@@ -768,8 +768,8 @@ Jo flere folk, man følger, jo mere aktivt og interessant vil det være.</string
 		<item quantity="other">%d vedhæftninger</item>
 	</plurals>
 	<plurals name="user_and_x_more_favorited">
-		<item quantity="one">%1$s og %2$,d anden favoriserede:</item>
-		<item quantity="other">%1$s og %2$,d andre favoriserede:</item>
+		<item quantity="one">%1$s og %2$,d anden favoritmarkerede:</item>
+		<item quantity="other">%1$s og %2$,d andre favoritmarkerede:</item>
 	</plurals>
 	<plurals name="user_and_x_more_boosted">
 		<item quantity="one">%1$s og %2$,d anden fremhævede:</item>
