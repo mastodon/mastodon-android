@@ -514,7 +514,7 @@
 		<item quantity="many">prieš %d valandos</item>
 		<item quantity="other">prieš %d valandų</item>
 	</plurals>
-	<string name="alt_text_reminder_title">Medijoje trūksta alternatyvaus teksto</string>
+	<string name="alt_text_reminder_title">Medijos trūksta alternatyvaus teksto</string>
 	<plurals name="alt_text_reminder_x_images">
 		<item quantity="one">%s iš vaizdų trūksta alternatyvaus teksto. Skelbti vis tiek?</item>
 		<item quantity="few">%s iš vaizdų trūksta alternatyvių tekstų. Skelbti vis tiek?</item>
@@ -826,7 +826,7 @@ Kuo daugiau žmonių sekate, tuo aktyvesnis ir įdomesnis jis bus.</string>
 	<string name="currency">Valiuta</string>
 	<string name="donation_success_share">Skleiskite žodį</string>
 	<string name="donation_success_title">Dėkojame už jūsų prisidėjimą!</string>
-	<string name="donation_success_subtitle">Netrukus turėtumėte gauti auką patvirtinantį el. laišką.</string>
+	<string name="donation_success_subtitle">Netrukus turėtumėte gauti el. laišką, patvirtinantį auką.</string>
 	<string name="donation_server_error">Atsiprašome. Įvyko klaida ir negalėjome apdoroti jūsų aukos.\n\nPakartokite po kelių minučių.</string>
 	<string name="settings_donate">Aukoti „Mastodon“</string>
 	<string name="settings_manage_donations">Tvarkyti aukas</string>
@@ -901,7 +901,7 @@ Kuo daugiau žmonių sekate, tuo aktyvesnis ir įdomesnis jis bus.</string>
 	</plurals>
 	<string name="familiar_followers_one">Sekama %s</string>
 	<string name="familiar_followers_two">Sekama %s ir %s</string>
-	<string name="profile_saved_posts">Išsaugota</string>
+	<string name="profile_saved_posts">Išsaugoti</string>
 	<string name="profile_saved_posts_explanation">Jūsų išsaugoti įrašai matomi tik jums.</string>
 	<string name="search_people">Žmonės</string>
 	<plurals name="familiar_followers_many">
@@ -947,7 +947,7 @@ Kuo daugiau žmonių sekate, tuo aktyvesnis ir įdomesnis jis bus.</string>
 	<string name="post_header_reply">Atsakymas</string>
 	<string name="post_header_mention">Paminėjimas</string>
 	<string name="report_reason_legal">Tai neteisėta</string>
-	<string name="report_reason_legal_subtitle">Manai, kad tai pažeidžia tavo arba serverio šalies įstatymus</string>
+	<string name="report_reason_legal_subtitle">Manote, kad tai pažeidžia tavo arba serverio šalies įstatymus</string>
 	<string name="date_of_birth">Gimimo data</string>
 	<!-- %s is `at_least_x_years_old`. Some languages, unlike English, may require the word "years" here. -->
 	<string name="date_of_birth_explanation">Turime įsitikinti, kad esate bent %s norint naudoti „Mastodon“. Tai nebus išsaugota po registracijos.</string>
