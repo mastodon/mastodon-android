@@ -185,7 +185,7 @@
 	<string name="theme_dark">Mørk</string>
 	<string name="settings_behavior">Adfærd</string>
 	<string name="settings_gif">Afspil animerede avatarer og emojier</string>
-	<string name="settings_custom_tabs">Åbn link i</string>
+	<string name="settings_custom_tabs">Åbn links i</string>
 	<string name="settings_notifications">Notifikationer</string>
 	<string name="settings_contribute">Bidrag til Mastodon</string>
 	<string name="settings_tos">Tjenestevilkår</string>
@@ -229,7 +229,7 @@
 	<string name="error_saving_file">Fejl under lagring af fil</string>
 	<string name="downloading">Downloader…</string>
 	<string name="no_app_to_handle_action">Ingen app til at håndtere denne handling</string>
-	<string name="local_timeline">Realtids-feed</string>
+	<string name="local_timeline">Live feed</string>
 	<string name="trending_posts_info_banner">Her er de indlæg, som vinder indpas på tværs af Mastodon.</string>
 	<string name="trending_links_info_banner">Her er de nyheder, der bliver talt om på Mastodon.</string>
 	<!-- %s is the server domain -->
@@ -406,14 +406,14 @@
 	<string name="report_personal_already_blocked">Du har allerede blokeret denne bruger, så der er ikke mere, du skal gøre.\n\nTak, fordi du hjælper med at gøre Mastodon til et sikkert sted for alle!</string>
 	<string name="blocked_user">Blokeret %s</string>
 	<string name="mark_all_notifications_read">Markér alle som læst</string>
-	<string name="settings_display">Vis</string>
+	<string name="settings_display">Skærm</string>
 	<string name="settings_filters">Filtre</string>
 	<string name="settings_server_explanation">Oversigt, regler, moderatorer</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">Om %s</string>
 	<string name="default_post_language">Standard indlægssprog</string>
 	<string name="settings_alt_text_reminders">Tilføj alt tekst påmindelser</string>
-	<string name="settings_confirm_unfollow">Spørg før ophør med at følge nogen</string>
+	<string name="settings_confirm_unfollow">Spørg, før du stopper med at følge nogen</string>
 	<string name="settings_confirm_boost">Spørg før fremhævning</string>
 	<string name="settings_confirm_delete_post">Spørg før sletning af indlæg</string>
 	<string name="pause_all_notifications">Pausér alle</string>
@@ -448,7 +448,7 @@
 	<string name="settings_even_more">Endnu flere indstillinger</string>
 	<string name="settings_show_cws">Vis indholdsadvarsler</string>
 	<string name="settings_hide_sensitive_media">Skjul medier med sensitiv-markering</string>
-	<string name="settings_show_interaction_counts">Indlægsinteraktionstæller</string>
+	<string name="settings_show_interaction_counts">Interaktionstæller for indlæg</string>
 	<string name="settings_show_emoji_in_names">Tilpasset emoji i visningsnavne</string>
 	<plurals name="in_x_seconds">
 		<item quantity="one">om %d sekund</item>
