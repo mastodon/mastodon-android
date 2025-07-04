@@ -37,7 +37,7 @@
 	<string name="button_following">Følger</string>
 	<string name="edit_profile">Redigér profil</string>
 	<string name="share_user">Del profil via…</string>
-	<string name="mute_user">Gør tavs %s</string>
+	<string name="mute_user">Skjul %s</string>
 	<string name="unmute_user">Vis %s igen</string>
 	<string name="block_user">Blokér %s</string>
 	<string name="unblock_user">Afblokér %s</string>
@@ -89,7 +89,7 @@
 		<item quantity="other">%,d stemmer</item>
 	</plurals>
 	<string name="poll_closed">Lukket</string>
-	<string name="do_mute">Gør tavs</string>
+	<string name="do_mute">Skjul</string>
 	<string name="do_block">Blokér</string>
 	<string name="button_blocked">Blokeret</string>
 	<string name="action_vote">Stem</string>
@@ -136,7 +136,7 @@
 	<string name="report_sent_subtitle">Mens vi gennemgår anmeldelsen, kan du tage skridt mod %s:</string>
 	<string name="unfollow_user">Følg ikke længere %s</string>
 	<string name="unfollow">Følg ikke længere</string>
-	<string name="mute_user_explain">Du vil ikke se indlæg fra vedkommende, der dog stadig kan se dine indlæg og følge dig, men ikke være bekendt med tavsgørelsen.</string>
+	<string name="mute_user_explain">Du vil ikke se vedkommendes indlæg. Vedkommende kan stadig se dine indlæg og følge dig. Vedkommende vil ikke kunne se, at de er blevet skjult.</string>
 	<string name="block_user_explain">Du vil ikke se indlæg fra vedkommende, der hverken kan se dine indlæg eller følge dig, men vil være bekendt med blokeringen.</string>
 	<string name="report_personal_title">Ønsker du ikke at se dette?</string>
 	<string name="report_personal_subtitle">Her er mulighederne for at styre, hvad du ser på Mastodon:</string>
@@ -401,7 +401,7 @@
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
 	<string name="reported">Anmeldt</string>
 	<string name="report_unfollow_explanation">For ikke længere at se vedkommendes indlæg i hjemmefeedet, ophør med at følge.</string>
-	<string name="muted_user">Tavsgjorde %s</string>
+	<string name="muted_user">Skjulte %s</string>
 	<string name="report_sent_already_blocked">Du har allerede blokeret denne bruger, så der er ikke mere, du skal gøre, mens vi gennemgår din anmeldelse.</string>
 	<string name="report_personal_already_blocked">Du har allerede blokeret denne bruger, så der er ikke mere, du skal gøre.\n\nTak, fordi du hjælper med at gøre Mastodon til et sikkert sted for alle!</string>
 	<string name="blocked_user">Blokeret %s</string>
@@ -488,7 +488,7 @@
 	<string name="settings_edit_filter">Redigér filter</string>
 	<string name="settings_filter_duration">Varighed</string>
 	<string name="settings_filter_muted_words">Tavsgjorte (skjulte) ord</string>
-	<string name="settings_filter_context">Tavsgør fra</string>
+	<string name="settings_filter_context">Skjul fra</string>
 	<string name="settings_filter_show_cw">Vis med indholdsadvarsel</string>
 	<string name="settings_filter_show_cw_explanation">Viser stadig indlæg matchende dette filter, men bag en indholdsadvarsel</string>
 	<string name="settings_delete_filter">Slet filter</string>
@@ -496,8 +496,8 @@
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<string name="settings_filter_ends">Slutter %s</string>
 	<plurals name="settings_x_muted_words">
-		<item quantity="one">%d tavsgjort (skjult) ord/sætning</item>
-		<item quantity="other">%d tavsgjorte (skjulte) ord/sætninger</item>
+		<item quantity="one">%d skjult ord eller sætning</item>
+		<item quantity="other">%d skjulte ord eller sætninger</item>
 	</plurals>
 	<string name="selection_2_options">%1$s og %2$s</string>
 	<string name="selection_3_options">%1$s, %2$s og %3$s</string>
