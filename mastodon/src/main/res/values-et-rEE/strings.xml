@@ -1,5 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+	<string name="log_in">Logi sisse</string>
+	<string name="next">Edasi</string>
+	<string name="loading_instance">Laadin serveri teavet…</string>
+	<string name="error">Viga</string>
+	<string name="not_a_mastodon_instance">%s ei tundu olema Mastodoni server.</string>
+	<string name="ok">Sobib</string>
+	<string name="preparing_auth">Valmistun autentimiseks…</string>
+	<string name="finishing_auth">Lõpetan autentimiset…</string>
+	<string name="share_toot_title">Jaga</string>
+	<string name="settings">Seadistused</string>
+	<string name="publish">Postita</string>
+	<string name="discard_draft">Kas loobud kavandist?</string>
+	<string name="discard">Loobu</string>
+	<string name="cancel">Katkesta</string>
+	<plurals name="followers">
+		<item quantity="one">jälgija</item>
+		<item quantity="other">jälgijat</item>
+	</plurals>
+	<string name="profile_about">Rakenduse teave</string>
+	<string name="button_follow">Jälgi</string>
+	<string name="profile_joined">Liitumise aeg</string>
+	<string name="done">Valmis</string>
+	<string name="loading">Laadib…</string>
+	<string name="field_label">Silt</string>
+	<string name="field_content">Sisu</string>
+	<string name="saving">Salvestan…</string>
+	<string name="post_from_user">Postitus kasutajalt %s</string>
 	<!-- %s is the email address -->
 	<!-- %s is the server domain -->
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
