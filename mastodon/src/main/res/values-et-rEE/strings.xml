@@ -119,6 +119,12 @@
 	<string name="report_comment_hint">Täiendavad kommentaarid</string>
 	<string name="sending_report">Saadan teavitust…</string>
 	<string name="report_sent_title">Täname teavitamise eest, uurime seda.</string>
+	<string name="report_sent_subtitle">Kuniks me seda üle vaatame, võid %s vastu toimida alljärgnevalt:</string>
+	<string name="unfollow_user">Lõpeta %s kasutaja jälgimine</string>
+	<string name="unfollow">Lõpeta jälgimine</string>
+	<string name="mute_user_explain">Sa ei näe tema postitusi. Ta võib ikka sind jälgida ja su postitusi näha. Ta ei saa teada, et ta on summutatud.</string>
+	<string name="block_user_explain">Sa ei näe tema postitusi. Tema ei saa näha sinu postitusi ega sind jälgida. Talle on näha, et ta on blokeeritud.</string>
+	<string name="report_personal_title">Sa ei taha seda näha?</string>
 	<string name="report_personal_subtitle">Järgnevate valikute abil saad hallata seda, mida Mastodonis näed:</string>
 	<string name="back">Tagasi</string>
 	<string name="search_communities">Serveri nimi või võrguaadress</string>
@@ -191,6 +197,25 @@
 		<item quantity="one">%,d jälgija</item>
 		<item quantity="other">%,d jälgijat</item>
 	</plurals>
+	<plurals name="x_minutes_ago">
+		<item quantity="one">%d minut tagasi</item>
+		<item quantity="other">%d minutit tagasi</item>
+	</plurals>
+	<string name="edited_timestamp">muudetud %s</string>
+	<string name="edit_original_post">Algne postitus</string>
+	<string name="edit_text_edited">Tekst on muudetud</string>
+	<string name="edit_spoiler_added">Sisuhoiatus on lisatud</string>
+	<string name="edit_spoiler_edited">Sisuhoiatus on muudetud</string>
+	<string name="edit_spoiler_removed">Sisuhoiatus on eemaldatud</string>
+	<string name="edit_poll_added">Küsitlus on lisatud</string>
+	<string name="edit_poll_edited">Küsitlus on muudetud</string>
+	<string name="edit_poll_removed">Küsitlus on eemaldatud</string>
+	<string name="edit_media_added">Meedium on lisatud</string>
+	<string name="edit_media_removed">Meedium on eemaldatud</string>
+	<string name="edit_media_reordered">Meediumi järjekord on muudetud</string>
+	<string name="edit_marked_sensitive">Märgitud delikaatseks</string>
+	<string name="edit_marked_not_sensitive">Märgitud mittedelikaatseks</string>
+	<string name="edit_multiple_changed">Postitus on muudetud</string>
 	<string name="edit">Muuda</string>
 	<string name="discard_changes">Kas loobud muudatustest?</string>
 	<string name="upload_failed">Üleslaadimine ei õnnestunud</string>
