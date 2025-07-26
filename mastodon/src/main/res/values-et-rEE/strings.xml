@@ -42,6 +42,42 @@
 	<string name="field_content">Sisu</string>
 	<string name="saving">Salvestan…</string>
 	<string name="post_from_user">Postitus kasutajalt %s</string>
+	<plurals name="x_minutes">
+		<item quantity="one">%d minut</item>
+		<item quantity="other">%d minutit</item>
+	</plurals>
+	<plurals name="x_hours">
+		<item quantity="one">%d tund</item>
+		<item quantity="other">%d tundi</item>
+	</plurals>
+	<plurals name="x_days">
+		<item quantity="one">%d päev</item>
+		<item quantity="other">%d päeva</item>
+	</plurals>
+	<plurals name="x_seconds_left">
+		<item quantity="one">Jäänud on %d sekund</item>
+		<item quantity="other">Jäänud on %d sekundit</item>
+	</plurals>
+	<plurals name="x_minutes_left">
+		<item quantity="one">Jäänud on %d minut</item>
+		<item quantity="other">Jäänud on %d minutit</item>
+	</plurals>
+	<plurals name="x_hours_left">
+		<item quantity="one">Jäänud on %d tund</item>
+		<item quantity="other">Jäänud on %d tundi</item>
+	</plurals>
+	<plurals name="x_days_left">
+		<item quantity="one">Jäänud on %d päev</item>
+		<item quantity="other">Jäänud on %d päeva</item>
+	</plurals>
+	<plurals name="x_votes">
+		<item quantity="one">%,d hääl</item>
+		<item quantity="other">%,d häält</item>
+	</plurals>
+	<string name="poll_closed">Suletud</string>
+	<string name="do_mute">Summuta</string>
+	<string name="do_block">Blokeeri</string>
+	<string name="button_blocked">Blokeeritud</string>
 	<string name="action_vote">Hääleta</string>
 	<string name="confirm">Kinnita</string>
 	<string name="delete">Kustuta</string>
