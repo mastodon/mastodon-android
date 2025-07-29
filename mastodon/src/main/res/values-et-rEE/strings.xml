@@ -35,6 +35,17 @@
 	<string name="profile_about">Rakenduse teave</string>
 	<string name="button_follow">Jälgi</string>
 	<string name="edit_profile">Muuda profiili</string>
+	<string name="mute_user">Summuta %s</string>
+	<string name="unmute_user">Lõpeta %s kasutaja summutamine</string>
+	<string name="block_user">Blokeeri %s</string>
+	<string name="unblock_user">Lõpeta %s kasutaja blokeerimine</string>
+	<string name="report_user">Teata kasutajast %s</string>
+	<string name="block_domain">Blokeeri %s</string>
+	<string name="unblock_domain">Lõpeta %s kasutaja blokeerimine</string>
+	<plurals name="x_posts">
+		<item quantity="one">%,d postitus</item>
+		<item quantity="other">%,d postitust</item>
+	</plurals>
 	<string name="profile_joined">Liitumise aeg</string>
 	<string name="done">Valmis</string>
 	<string name="loading">Laadib…</string>
@@ -146,6 +157,11 @@
 	<string name="compose_hint">Sisesta või aseta lõikelaualt sisu, millest tahad rääkida</string>
 	<string name="content_warning">Sisuhoiatus</string>
 	<string name="save">Salvesta</string>
+	<string name="add_alt_text">Lisa selgitustekst</string>
+	<string name="visibility_public">Avalik</string>
+	<string name="visibility_followers_only">Jälgijad</string>
+	<string name="visibility_private">Konkreetsed kasutajad</string>
+	<string name="recent_searches">Hiljutised</string>
 	<string name="notification_type_follow">Uued jälgijad</string>
 	<string name="notification_type_favorite">Lemmikud</string>
 	<string name="notification_type_reblog">Hooandmised</string>
@@ -153,6 +169,12 @@
 	<string name="notification_type_poll">Küsitlused</string>
 	<string name="choose_account">Vali kasutajakonto</string>
 	<string name="err_not_logged_in">Esmalt palun logi Mastodoni võrku</string>
+	<plurals name="cant_add_more_than_x_attachments">
+		<item quantity="one">Sa ei saa lisada enam kui %d meediafaili</item>
+		<item quantity="other">Sa ei saa lisada enam kui %d meediafaili</item>
+	</plurals>
+	<string name="media_attachment_unsupported_type">%s failitüüp pole toetatud</string>
+	<string name="media_attachment_too_big">%1$s faili suurus ületab %2$s MB ülempiiri</string>
 	<string name="settings_theme">Välimus</string>
 	<string name="theme_auto">Kasuta seadme välimust</string>
 	<string name="theme_light">Hele välimus</string>
@@ -166,9 +188,14 @@
 	<string name="settings_privacy_policy">Privaatsusreeglid</string>
 	<string name="settings_clear_cache">Tühjenda meediafailide vahemälu</string>
 	<string name="settings_app_version">Mastodon Androidi jaoks: versioon %1$s (%2$d)</string>
+	<string name="media_cache_cleared">Puhverdatud meediafailid on kustutatud</string>
+	<string name="confirm_log_out">Kas soovid %s serverist välja logida?</string>
+	<string name="sensitive_content_explain">Autor on märkinud selle meedia delikaatseks.</string>
+	<string name="avatar_description">Ava %s kasutaja profiil</string>
 	<string name="more_options">Lisavalikud</string>
 	<string name="new_post">Uus postitus</string>
 	<string name="button_reply">Vasta</string>
+	<string name="button_reblog">Anna hoogu</string>
 	<string name="button_favorite">Märgi lemmikuks</string>
 	<string name="button_share">Jaga</string>
 	<string name="media_no_description">Ilma kirjelduseta meedium</string>
@@ -177,6 +204,7 @@
 	<string name="emoji">Emoji</string>
 	<string name="home_timeline">Koduserveri ajajoon</string>
 	<string name="my_profile">Minu profiil</string>
+	<string name="media_viewer">Meediakuvaja</string>
 	<string name="follow_user">Jälgi kasutajat %s</string>
 	<string name="unfollowed_user">Lõpeta kasutaja %s jälgimine</string>
 	<string name="followed_user">Sa jälgid nüüd kasutajat %s</string>
@@ -206,6 +234,13 @@
 	<plurals name="x_followers">
 		<item quantity="one">%,d jälgija</item>
 		<item quantity="other">%,d jälgijat</item>
+	</plurals>
+	<string name="edit_history">Muudatuste ajalugu</string>
+	<string name="last_edit_at_x">Viimane muudatus: %s</string>
+	<string name="time_just_now">just praegu</string>
+	<plurals name="x_seconds_ago">
+		<item quantity="one">%d sekund tagasi</item>
+		<item quantity="other">%d sekundit tagasi</item>
 	</plurals>
 	<plurals name="x_minutes_ago">
 		<item quantity="one">%d minut tagasi</item>
@@ -238,10 +273,52 @@
 	<string name="download_update">Laadi alla (%s)</string>
 	<string name="install_update">Paigalda</string>
 	<string name="privacy_policy_title">Sinu privaatsus</string>
+	<string name="text_copied">Kopeeritud lõikelauale</string>
+	<string name="add_bookmark">Järjehoidja</string>
+	<string name="remove_bookmark">Eemalda järjehoidja</string>
+	<string name="bookmarks">Järjehoidjad</string>
+	<string name="your_favorites">Lemmikud</string>
+	<string name="login_title">Tere tulemast tagasi</string>
+	<string name="login_subtitle">Logi sisse selle koduserveriga, kuhu sa oma kasutajakonto lisasid.</string>
+	<string name="server_url">Koduserveri võrguaadress</string>
+	<string name="server_filter_any_language">Mis tahes keel</string>
+	<string name="server_filter_instant_signup">Kohene liitumine</string>
+	<string name="server_filter_region_europe">Euroopa</string>
+	<string name="server_filter_region_north_america">Põhja-Ameerika</string>
+	<string name="server_filter_region_south_america">Lõuna-Ameerika</string>
+	<string name="server_filter_region_africa">Aafrika</string>
+	<string name="server_filter_region_asia">Aasia</string>
+	<string name="server_filter_region_oceania">Okeaania</string>
+	<string name="not_accepting_new_members">Ei võta vastu uusi liikmeid</string>
+	<string name="category_special_interests">Erihuvid</string>
+	<string name="signup_passwords_dont_match">Salasõnad ei kattu</string>
+	<string name="profile_add_row">Lisa rida</string>
+	<string name="profile_setup">Profiili seadistamine</string>
+	<string name="profile_setup_subtitle">Saad seda alati hiljem täita profiili vahekaardilt.</string>
+	<string name="follow_all">Jälgi kõiki</string>
+	<string name="server_rules_disagree">Ei nõustu</string>
+	<string name="privacy_policy_explanation">TL;DR: Me ei kogu andmeid ega töötle midagi.</string>
 	<!-- %s is server domain -->
+	<string name="server_policy_disagree">Ei nõustu %s serveri reeglitega</string>
+	<string name="profile_bio">Elulugu</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<string name="welcome_to_mastodon">Tere tulemast Mastodoni</string>
 	<!-- %s is formatted file size ("467 KB image") -->
+	<string name="attachment_type_image">Pilt</string>
+	<string name="attachment_type_video">Video</string>
+	<string name="attachment_type_audio">Helifail</string>
+	<string name="attachment_type_gif">GIF-fail</string>
+	<string name="attachment_type_unknown">Fail</string>
+	<string name="add_poll_option">Lisa küsitluse valik</string>
+	<string name="poll_length">Küsitluse pikkus</string>
+	<string name="poll_style">Stiil</string>
+	<string name="compose_poll_single_choice">Vali üks</string>
+	<string name="compose_poll_multiple_choice">Mitu vastust</string>
+	<string name="delete_poll_option">Kustuta küsitluse valik</string>
+	<string name="poll_style_title">Küsitluse stiil</string>
+	<string name="alt_text">Selgitustekst</string>
+	<string name="help">Abiteave</string>
 	<!-- %s is the server domain -->
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
