@@ -319,8 +319,25 @@
 	<string name="poll_style_title">Küsitluse stiil</string>
 	<string name="alt_text">Selgitustekst</string>
 	<string name="help">Abiteave</string>
+	<string name="what_is_alt_text">Mis on selgitustekst?</string>
+	<string name="alt_text_help">Selgitustekst ehk alt-tekst pakub pildi kirjeldust nägemispuudega inimeste jaoks või neile, kel on aeglane internet või neile, kes otsivad lisaselgitust.\n\nSaad parandada hõlbustamist ja mõistmist kõigi jaoks, koostades selge, lühida ja objektiivse selgitusteksti.\n\n<ul> <li>Lisa tähtsad elemendid</li>\n<li>Tee pildil olevast tekstist kokkuvõte</li>\n<li>Kasuta tavapärast lauseehitust</li>\n<li>Väldi ebaolulist teavet</li>\n<li>Keskendu keerukate vaadete puhul (näiteks diagrammid ja kaardid) puhul trendidele ja põhiseostele</li> </ul></string>
+	<string name="edit_post">Muuda postitust</string>
+	<string name="no_verified_link">Link pole kontrollitud</string>
+	<string name="compose_autocomplete_emoji_empty">Sirvi emojisid</string>
+	<string name="language">Keel</string>
+	<string name="language_default">Vaikimisi keel</string>
+	<string name="language_system">Süsteemi keel</string>
+	<string name="language_detecting">Tuvastan keelt</string>
+	<string name="language_cant_detect">Keele tuvastamine ei õnnestu</string>
+	<string name="language_detected">Tuvastatud</string>
+	<string name="media_hidden">Meedia on peidetud</string>
+	<string name="post_hidden">Postitus on peidetud</string>
+	<string name="report_title_post">Teata sobimatust postitusest</string>
+	<string name="forward_report_explanation">See kasutajakonto on teisest koduserverist. Kas saadan anonümiseeritud koopia sellest teatest sinna ka?</string>
 	<!-- %s is the server domain -->
+	<string name="forward_report_to_server">Edasta ka %s serverile</string>
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
+	<string name="reported">Teavitatud</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
