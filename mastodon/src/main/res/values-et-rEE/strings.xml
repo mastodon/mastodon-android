@@ -327,6 +327,9 @@
 	<string name="post_failed">Postitamine ei õnnestunud</string>
 	<!-- %s is formatted file size ("467 KB image") -->
 	<string name="attachment_description_image">%s pilt</string>
+	<string name="attachment_description_video">%s video</string>
+	<string name="attachment_description_audio">%s helifail</string>
+	<string name="attachment_description_unknown">%s fail</string>
 	<string name="attachment_type_image">Pilt</string>
 	<string name="attachment_type_video">Video</string>
 	<string name="attachment_type_audio">Helifail</string>
@@ -361,26 +364,90 @@
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
 	<string name="reported">Teavitatud</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
+	<string name="default_post_language">Postituse vaikimisi keel</string>
+	<string name="notification_type_mentions_and_replies">Mainimised ja vastused</string>
+	<string name="pause_all_notifications_title">Peata kõik teavitused</string>
+	<plurals name="x_weeks">
+		<item quantity="one">%d nädal</item>
+		<item quantity="other">%d nädalat</item>
+	</plurals>
 	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
+	<string name="date_at_time">%1$s kell %2$s</string>
+	<string name="today">täna</string>
+	<string name="yesterday">eile</string>
+	<string name="tomorrow">homme</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="pause_notifications_ends">Lõppeb %s</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="pause_notifications_banner">Teavitused jätkuvad %s.</string>
+	<string name="resume_notifications_now">Jätka kohe</string>
+	<string name="open_system_notification_settings">Ava teavituste seadistused</string>
+	<string name="about_server">Rakenduse teave</string>
+	<string name="server_rules">Reeglid</string>
+	<string name="alt_text_reminder_post_anyway">Postita</string>
 	<!-- %s is the username -->
+	<string name="filter_active">Aktiivne</string>
+	<string name="filter_inactive">Mitteaktiivne</string>
+	<string name="settings_add_filter">Lisa filter</string>
+	<string name="settings_edit_filter">Muuda filtrit</string>
+	<string name="settings_filter_duration">Kestus</string>
+	<string name="settings_filter_muted_words">Summutatud sõnad</string>
+	<string name="settings_filter_show_cw">Näita koos sisuhoiatusega</string>
+	<string name="settings_delete_filter">Kustuta filter</string>
+	<string name="filter_duration_forever">Igavesti</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="settings_filter_ends">Lõppeb %s</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
 	<!-- Shown in the post header. Please keep it short -->
 	<!-- %s is the name of the post language -->
 	<!-- %1$s is the language, %2$s is the name of the translation service -->
+	<string name="timeline_following">Avaleht</string>
+	<string name="lists">Loendid</string>
+	<string name="followed_hashtags">Jälgitavad märksõnad</string>
+	<string name="manage_lists">Halda loendeid</string>
+	<string name="manage_hashtags">Halda teemaviiteid</string>
 	<!-- Screen reader description for the menu on the home timeline screen -->
+	<string name="dropdown_menu">Rippmenüü</string>
+	<string name="edit_list">Muuda loendeid</string>
+	<string name="list_members">Loendi liikmed</string>
+	<string name="delete_list">Kustuta loend</string>
 	<!-- %s is the name of the list -->
+	<string name="add_user_to_list_title">Lisa loendisse</string>
 	<!-- %s is a username -->
 	<!-- %s is a time interval ("5 months") -->
+	<string name="qr_code">QR-kood</string>
+	<string name="scan_qr_code">Skaneeri QR-koodi</string>
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
+	<string name="saved">Salvestatud</string>
+	<string name="image_saved">Pilt on salvestatud.</string>
+	<string name="video_saved">Video on salvestatud.</string>
 	<!-- %s is the username -->
+	<string name="signup_email_taken">E-posti aadress on juba kasutusel. Kas sa &lt;a&gt;unustasid oma salasõna&lt;/a&gt;?</string>
+	<string name="currency">Valuuta</string>
+	<string name="cant_load_image">Pildi laadimine ei õnnestunud</string>
+	<string name="poll_see_results">Vaata tulemusi</string>
+	<string name="poll_hide_results">Peida tulemused</string>
+	<plurals name="x_attachments">
+		<item quantity="one">%d manus</item>
+		<item quantity="other">%d manust</item>
+	</plurals>
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
+	<string name="moderation_warning_learn_more">Lisateave</string>
+	<string name="confirm_avatar_crop">Vali</string>
+	<string name="settings_use_dynamic_colors">Kasuta dünaamilisi värve</string>
+	<string name="settings_accounts">Kasutajakontod</string>
+	<string name="settings_add_account">Lisa kasutajakonto...</string>
+	<string name="settings_app_settings">Rakenduste seadistused</string>
+	<string name="account_settings">Kasutajakonto seadistused</string>
+	<string name="settings_about_this_server">Teave koduserveri kohta</string>
+	<string name="manage_account">Halda kasutajakontot</string>
+	<string name="delete_account">Kustuta kasutajakonto</string>
+	<string name="notification_type_status">Uued postitused</string>
 	<!-- appears when you're about to block a server -->
 	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
 	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
+	<string name="signup_password_too_short">Salasõna pikkus peab olema vähemalt 8 tähemärki.</string>
 	<!-- %s is `at_least_x_years_old`. Some languages, unlike English, may require the word "years" here. -->
 	<!-- Substituted into `date_of_birth_explanation` -->
 </resources>
