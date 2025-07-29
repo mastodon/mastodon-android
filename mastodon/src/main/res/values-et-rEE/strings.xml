@@ -35,6 +35,7 @@
 	<string name="profile_about">Rakenduse teave</string>
 	<string name="button_follow">Jälgi</string>
 	<string name="edit_profile">Muuda profiili</string>
+	<string name="share_user">Jaga profiili kasutades…</string>
 	<string name="mute_user">Summuta %s</string>
 	<string name="unmute_user">Lõpeta %s kasutaja summutamine</string>
 	<string name="block_user">Blokeeri %s</string>
@@ -53,6 +54,7 @@
 	<string name="field_content">Sisu</string>
 	<string name="saving">Salvestan…</string>
 	<string name="post_from_user">Postitus kasutajalt %s</string>
+	<string name="poll_option_hint">Valik %d</string>
 	<plurals name="x_minutes">
 		<item quantity="one">%d minut</item>
 		<item quantity="other">%d minutit</item>
@@ -273,6 +275,8 @@
 	<string name="download_update">Laadi alla (%s)</string>
 	<string name="install_update">Paigalda</string>
 	<string name="privacy_policy_title">Sinu privaatsus</string>
+	<string name="empty_list">See loend on tühi</string>
+	<string name="instance_signup_closed">Koduserver hetkel ei võimalda uuteel kasutajatel registreeruda.</string>
 	<string name="text_copied">Kopeeritud lõikelauale</string>
 	<string name="add_bookmark">Järjehoidja</string>
 	<string name="remove_bookmark">Eemalda järjehoidja</string>
@@ -303,8 +307,26 @@
 	<string name="profile_bio">Elulugu</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<string name="spoiler_show">Näita ikkagi</string>
+	<string name="spoiler_hide">Peida uuesti</string>
+	<string name="poll_multiple_choice">Vali üks või enam</string>
+	<string name="save_changes">Salvesta muudatused</string>
+	<string name="profile_featured">Esiletõstetud</string>
+	<string name="profile_timeline">Ajajoon</string>
+	<string name="view_all">Vaata kõiki</string>
+	<string name="profile_endorsed_accounts">Kasutajakontod</string>
+	<string name="verified_link">Kontrollitud link</string>
+	<string name="show">Näita</string>
+	<string name="hide">Peida</string>
+	<string name="join_default_server">Liitu: %s</string>
+	<string name="pick_server">Vali mõni muu server</string>
+	<string name="signup_or_login">või</string>
+	<string name="learn_more">Lisateave</string>
 	<string name="welcome_to_mastodon">Tere tulemast Mastodoni</string>
+	<string name="retry">Proovi uuesti</string>
+	<string name="post_failed">Postitamine ei õnnestunud</string>
 	<!-- %s is formatted file size ("467 KB image") -->
+	<string name="attachment_description_image">%s pilt</string>
 	<string name="attachment_type_image">Pilt</string>
 	<string name="attachment_type_video">Video</string>
 	<string name="attachment_type_audio">Helifail</string>
