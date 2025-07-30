@@ -363,8 +363,24 @@
 	<string name="forward_report_to_server">Edasta ka %s serverile</string>
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
 	<string name="reported">Teavitatud</string>
+	<string name="mark_all_notifications_read">Märgi kõik loetuks</string>
+	<string name="settings_display">Ekraanivaade</string>
+	<string name="settings_filters">Filtrid</string>
+	<string name="settings_server_explanation">Ülevaade, reeglid, moderaatorid</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
+	<string name="about_app">Rakenduse teave: %s</string>
 	<string name="default_post_language">Postituse vaikimisi keel</string>
+	<string name="settings_alt_text_reminders">Lisa selgitusteksti meeldetuletusi</string>
+	<string name="settings_confirm_unfollow">Küsi kinnitust enne jälgimise lõpetamist</string>
+	<string name="settings_confirm_boost">Küsi kinnitust enne hooandmist</string>
+	<string name="settings_confirm_delete_post">Küsi kinnitust enne postituse kustutamist</string>
+	<string name="pause_all_notifications">Peata kõik</string>
+	<string name="pause_notifications_off">Pole kasutusel</string>
+	<string name="notifications_policy_anyone">Kellelt iganes</string>
+	<string name="notifications_policy_followed">Neilt, kes sind jälgivad</string>
+	<string name="notifications_policy_follower">Neilt, keda sina jälgid</string>
+	<string name="notifications_policy_no_one">Mitte kelleltki</string>
+	<string name="settings_notifications_policy">Saa teavitusi alljärgnevalt</string>
 	<string name="notification_type_mentions_and_replies">Mainimised ja vastused</string>
 	<string name="pause_all_notifications_title">Peata kõik teavitused</string>
 	<plurals name="x_weeks">
@@ -384,8 +400,11 @@
 	<string name="open_system_notification_settings">Ava teavituste seadistused</string>
 	<string name="about_server">Rakenduse teave</string>
 	<string name="server_rules">Reeglid</string>
+	<string name="count_three">Kolm</string>
+	<string name="count_four">Neli</string>
 	<string name="alt_text_reminder_post_anyway">Postita</string>
 	<!-- %s is the username -->
+	<string name="unfollow_confirmation">Kas lõpetad %s kasutaja jälgimine?</string>
 	<string name="filter_active">Aktiivne</string>
 	<string name="filter_inactive">Mitteaktiivne</string>
 	<string name="settings_add_filter">Lisa filter</string>
@@ -397,6 +416,20 @@
 	<string name="filter_duration_forever">Igavesti</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<string name="settings_filter_ends">Lõppeb %s</string>
+	<string name="selection_2_options">%1$s ja %2$s</string>
+	<string name="selection_3_options">%1$s, %2$s ja %3$s</string>
+	<string name="selection_4_or_more">%1$s, %2$s ja veel %3$d kasutajat</string>
+	<string name="filter_context_notifications">Teavitused</string>
+	<string name="filter_context_public_timelines">Avalikud ajajooned</string>
+	<string name="filter_context_threads_replies">Jutulõngad ja vastused</string>
+	<string name="filter_context_profiles">Profiilid</string>
+	<string name="settings_filter_title">Pealkiri</string>
+	<string name="settings_delete_filter_title">Kas kustutad „%s“ filtri?</string>
+	<string name="settings_delete_filter_confirmation">See filter kustutatke sinu kasutajakontolt sinu kõikidest seadmetest.</string>
+	<string name="add_muted_word">Lisa summutatud sõna</string>
+	<string name="edit_muted_word">Muuda summutatud sõna</string>
+	<string name="add">Lisa</string>
+	<string name="filter_word_or_phrase">Sõna või fraas</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
 	<!-- Shown in the post header. Please keep it short -->
 	<!-- %s is the name of the post language -->
@@ -414,6 +447,7 @@
 	<!-- %s is the name of the list -->
 	<string name="add_user_to_list_title">Lisa loendisse</string>
 	<!-- %s is a username -->
+	<string name="list_find_users">Otsi kasutajaid, keda lisada</string>
 	<!-- %s is a time interval ("5 months") -->
 	<string name="qr_code">QR-kood</string>
 	<string name="scan_qr_code">Skaneeri QR-koodi</string>
@@ -421,7 +455,26 @@
 	<string name="saved">Salvestatud</string>
 	<string name="image_saved">Pilt on salvestatud.</string>
 	<string name="video_saved">Video on salvestatud.</string>
+	<string name="add_muted_word_short">Lisa sõna</string>
+	<string name="tab_home">Avaleht</string>
+	<string name="tab_search">Avasta</string>
+	<string name="tab_profile">Profiil</string>
+	<string name="pin_post">Tõsta profiilis esile</string>
+	<string name="unpin_post">Lõpeta profiilis esiletõstmine</string>
+	<string name="post_pinned">Postitus on profiilis esiletõstetud</string>
+	<string name="post_unpinned">Postitus enam pole profiilis esiletõstetud</string>
 	<!-- %s is the username -->
+	<string name="new_post_notifications_enabled">Sa saad uute postituste teavitusi.</string>
+	<string name="new_post_notifications_disabled">Sa enam ei saa uute postituste teavitusi.</string>
+	<string name="mute_conversation">Summuta vestlus</string>
+	<string name="unmute_conversation">Lõpeta vestluse summutamine</string>
+	<string name="notifications_allowed">%s on nüüd nähtav sinu teavituste loendis.</string>
+	<string name="visibility_subtitle_public">Nii kasutajad kui mittekasutajad</string>
+	<string name="visibility_subtitle_unlisted">Vähem algoritmilisi teavitusi</string>
+	<string name="visibility_subtitle_followers">Ainult jälgijad</string>
+	<string name="visibility_subtitle_private">Kõik, kes on postituses mainitud</string>
+	<string name="view_boosts">Vaata hooandmisi</string>
+	<string name="view_favorites">Vaata lemmikuid</string>
 	<string name="signup_email_taken">E-posti aadress on juba kasutusel. Kas sa &lt;a&gt;unustasid oma salasõna&lt;/a&gt;?</string>
 	<string name="currency">Valuuta</string>
 	<string name="cant_load_image">Pildi laadimine ei õnnestunud</string>
@@ -447,7 +500,19 @@
 	<!-- appears when you're about to block a server -->
 	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
 	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
+	<string name="load_missing_posts_above">Laadi uuemaid puuduvaid postitusi</string>
+	<string name="load_missing_posts_below">Laadi vanemaid puuduvaid postitusi</string>
 	<string name="signup_password_too_short">Salasõna pikkus peab olema vähemalt 8 tähemärki.</string>
+	<string name="private_reply">Privaatne vastus</string>
+	<string name="private_mention">Privaatne mainimine</string>
+	<string name="post_header_reply">Vasta</string>
+	<string name="post_header_mention">Maini</string>
+	<string name="report_reason_legal">See on ebaseaduslik</string>
+	<string name="report_reason_legal_subtitle">Sa usud, et see rikub sinu või koduserveri asukohamaa seadust</string>
+	<string name="date_of_birth">Sünnikuupäev</string>
 	<!-- %s is `at_least_x_years_old`. Some languages, unlike English, may require the word "years" here. -->
+	<string name="date_of_birth_explanation">Mastodoni kasutamiseks me peame tagama, et sa oled vähemalt %s aastat vana. Peale liitumist neid andmeid ei salvestata.</string>
+	<string name="open_link">Ava</string>
+	<string name="copy">Kopeeri</string>
 	<!-- Substituted into `date_of_birth_explanation` -->
 </resources>
