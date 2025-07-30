@@ -137,8 +137,8 @@ public abstract class StatusDisplayItem{
 			contentItems=spoilerItem.contentItems;
 			if(!GlobalUserPreferences.showCWs && !filtered){
 				status.revealedSpoilers.add(Status.SpoilerType.CONTENT_WARNING);
-				needAddCWItems=true;
 			}
+			needAddCWItems=status.revealedSpoilers.contains(Status.SpoilerType.CONTENT_WARNING);
 		}
 
 		if(!TextUtils.isEmpty(statusForContent.content)){
