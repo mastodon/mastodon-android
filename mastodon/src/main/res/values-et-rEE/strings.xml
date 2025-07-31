@@ -34,6 +34,7 @@
 	<string name="media">Meedium</string>
 	<string name="profile_about">Rakenduse teave</string>
 	<string name="button_follow">Jälgi</string>
+	<string name="button_following">Jälgitavat</string>
 	<string name="edit_profile">Muuda profiili</string>
 	<string name="share_user">Jaga profiili kasutades…</string>
 	<string name="mute_user">Summuta %s</string>
@@ -142,6 +143,7 @@
 	<string name="back">Tagasi</string>
 	<string name="search_communities">Serveri nimi või võrguaadress</string>
 	<string name="instance_rules_title">Serveri reeglid</string>
+	<string name="instance_rules_subtitle">Jätkates nõustud sa järgima %s serveri moderaatorite poolt koostatud ja jõustatud reegleid.</string>
 	<string name="signup_title">Loo kasutajakonto</string>
 	<string name="display_name">Nimi</string>
 	<string name="username">Kasutajanimi</string>
@@ -210,6 +212,7 @@
 	<string name="follow_user">Jälgi kasutajat %s</string>
 	<string name="unfollowed_user">Lõpeta kasutaja %s jälgimine</string>
 	<string name="followed_user">Sa jälgid nüüd kasutajat %s</string>
+	<string name="following_user_requested">%s soovib sind jälgida</string>
 	<string name="open_in_browser">Ava veebibrauseris</string>
 	<string name="hide_boosts_from_user">Peida hooandmised</string>
 	<string name="show_boosts_from_user">Näita hooandmisi</string>
@@ -218,6 +221,7 @@
 	<string name="clear">Tühjenda</string>
 	<string name="profile_header">Päisepilt</string>
 	<string name="profile_picture">Profiilipilt</string>
+	<string name="reorder">Telli uuesti</string>
 	<string name="download">Laadi alla</string>
 	<string name="permission_required">Õigused on vajalikud</string>
 	<string name="storage_permission_to_download">Selle faili salvestamiseks vajab rakendus õigust andmeruumile ligipääsemiseks.</string>
@@ -226,7 +230,11 @@
 	<string name="downloading">Laadin alla…</string>
 	<string name="no_app_to_handle_action">Selle tegevuse jaoks puudub vajalik rakendus</string>
 	<string name="local_timeline">Postitused reaalajas</string>
+	<string name="trending_posts_info_banner">Need postitused on äratanud huvi kõikjal Mastodoni võrgus.</string>
+	<string name="trending_links_info_banner">Neist uudislugudest räägitakse kõikjal Mastodoni võrgus.</string>
 	<!-- %s is the server domain -->
+	<string name="local_timeline_info_banner">Need on sinu koduserveri kõikide kasutajate kõik postitused (%s).</string>
+	<string name="recommended_accounts_info_banner">Arvestades neid, keda sa juba jälgid, võivad järgnevad kasutajakontod sulle huvi pakkuda.</string>
 	<string name="see_new_posts">Uued postitused</string>
 	<string name="follow_back">Jälgi vastu</string>
 	<string name="button_follow_pending">Ootel</string>
@@ -237,6 +245,19 @@
 		<item quantity="one">%,d jälgija</item>
 		<item quantity="other">%,d jälgijat</item>
 	</plurals>
+	<plurals name="x_following">
+		<item quantity="one">%,d jälgija</item>
+		<item quantity="other">%,d jälgijat</item>
+	</plurals>
+	<plurals name="x_favorites">
+		<item quantity="one">%,d lemmik</item>
+		<item quantity="other">%,d lemmikut</item>
+	</plurals>
+	<plurals name="x_reblogs">
+		<item quantity="one">%,d hooandmine</item>
+		<item quantity="other">%,d hooandmist</item>
+	</plurals>
+	<string name="time_now">praegu</string>
 	<string name="edit_history">Muudatuste ajalugu</string>
 	<string name="last_edit_at_x">Viimane muudatus: %s</string>
 	<string name="time_just_now">just praegu</string>
@@ -275,6 +296,8 @@
 	<string name="download_update">Laadi alla (%s)</string>
 	<string name="install_update">Paigalda</string>
 	<string name="privacy_policy_title">Sinu privaatsus</string>
+	<string name="privacy_policy_subtitle">Kuigi Mastodoni rakendus ei kogu mingeid andmeid, siis sinu kasutatavas koduserveris võivad kehtida muud reeglid.\n\nKui sulle %s koduserveri reeglid ei sobi, siis saad sa valiida mõne muu koduserveri.</string>
+	<string name="i_agree">Ma nõustun</string>
 	<string name="empty_list">See loend on tühi</string>
 	<string name="instance_signup_closed">Koduserver hetkel ei võimalda uuteel kasutajatel registreeruda.</string>
 	<string name="text_copied">Kopeeritud lõikelauale</string>
@@ -287,6 +310,8 @@
 	<string name="server_url">Koduserveri võrguaadress</string>
 	<string name="server_filter_any_language">Mis tahes keel</string>
 	<string name="server_filter_instant_signup">Kohene liitumine</string>
+	<string name="server_filter_manual_review">Käsitsi ülevaatamine</string>
+	<string name="server_filter_any_signup_speed">Ükspuha missugune liitumise kiirus</string>
 	<string name="server_filter_region_europe">Euroopa</string>
 	<string name="server_filter_region_north_america">Põhja-Ameerika</string>
 	<string name="server_filter_region_south_america">Lõuna-Ameerika</string>
@@ -306,7 +331,9 @@
 	<string name="server_policy_disagree">Ei nõustu %s serveri reeglitega</string>
 	<string name="profile_bio">Elulugu</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
+	<string name="sending_follows">Alustan kasutajate jälgimist…</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<string name="signup_email_domain_blocked">%1$s koduserver ei luba liitumisi %2$s domeenist. Proovi kasutada muud e-posti aadressi või &lt;a&gt;vali muu koduserver&lt;/a&gt;.</string>
 	<string name="spoiler_show">Näita ikkagi</string>
 	<string name="spoiler_hide">Peida uuesti</string>
 	<string name="poll_multiple_choice">Vali üks või enam</string>
@@ -323,6 +350,13 @@
 	<string name="signup_or_login">või</string>
 	<string name="learn_more">Lisateave</string>
 	<string name="welcome_to_mastodon">Tere tulemast Mastodoni</string>
+	<string name="welcome_paragraph1">Mastodon on hajutatud sotsiaalvõrgustik, mis tähendab, et seda ei kontrolli üks ja ainus organisatsioon või äriühing. Võrgustikus tegutsevad omavahel ühendatud paljud erinevad koduserverid.</string>
+	<string name="what_are_servers">Mis on koduserverid?</string>
+	<string name="welcome_paragraph2">Iga Mastodoni konto asub mõnes serveris - neist igal ühel on omad reeglid, väärtusd ja haldajad. Pole vahet mis serverit sa kasutad - sa võid jälgida kasutajaid kõikidest teistest koduservereist ning nendega suhelda.</string>
+	<string name="opening_link">Avan linki…</string>
+	<string name="link_not_supported">Selle lingi avamine pole rakenduses toetatud</string>
+	<string name="log_out_all_accounts">Logi kõikidest kasutajakontodest välja</string>
+	<string name="confirm_log_out_all_accounts">Kas soovid kõikidest kasutajakontodest välja logida?</string>
 	<string name="retry">Proovi uuesti</string>
 	<string name="post_failed">Postitamine ei õnnestunud</string>
 	<!-- %s is formatted file size ("467 KB image") -->
@@ -335,6 +369,7 @@
 	<string name="attachment_type_audio">Helifail</string>
 	<string name="attachment_type_gif">GIF-fail</string>
 	<string name="attachment_type_unknown">Fail</string>
+	<string name="attachment_x_percent_uploaded">Üleslaaditud: %d%%</string>
 	<string name="add_poll_option">Lisa küsitluse valik</string>
 	<string name="poll_length">Küsitluse pikkus</string>
 	<string name="poll_style">Stiil</string>
