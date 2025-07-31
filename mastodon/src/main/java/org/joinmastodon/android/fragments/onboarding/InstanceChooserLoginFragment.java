@@ -15,6 +15,7 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toolbar;
 
+import org.joinmastodon.android.BuildConfig;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.requests.catalog.GetCatalogInstances;
 import org.joinmastodon.android.api.session.AccountSessionManager;
@@ -82,6 +83,15 @@ public class InstanceChooserLoginFragment extends InstanceCatalogFragment{
 				if(inst.normalizedDomain.equals("mastodon.social") || inst.normalizedDomain.equals("mastodon.online")){
 					filteredData.add(inst);
 				}
+			}
+			if(BuildConfig.DEBUG){
+				CatalogInstance staging=new CatalogInstance();
+				staging.domain=staging.normalizedDomain="staging.mastodon.social";
+				staging.version="4.4";
+				staging.description="Mastodon staging instance";
+				staging.languages=List.of("en");
+				staging.categories=List.of("general");
+				filteredData.add(staging);
 			}
 		}
 		UiUtils.updateList(prevData, filteredData, list, adapter, Objects::equals);
