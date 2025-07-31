@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:clipToPadding="false">
+
+	<View
+		android:id="@+id/clickable_thing"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_alignStart="@id/avatar"
+		android:layout_alignTop="@id/avatar"
+		android:layout_alignEnd="@id/time_and_username"
+		android:layout_alignBottom="@id/avatar"
+		android:layout_marginHorizontal="-4dp"
+		android:layout_marginVertical="-4dp"
+		android:background="@drawable/bg_status_header" />
+
+	<ImageView
+		android:id="@+id/avatar"
+		android:layout_width="32dp"
+		android:layout_height="32dp"
+		android:layout_alignParentStart="true"
+		android:layout_alignParentTop="true"
+		android:layout_marginEnd="8dp"
+		android:layout_marginStart="16dp"
+		android:layout_marginTop="12dp"
+		android:layout_marginBottom="4dp"
+		android:importantForAccessibility="no" />
+
+	<TextView
+		android:id="@+id/name"
+		android:layout_width="match_parent"
+		android:layout_height="20dp"
+		android:layout_toEndOf="@id/avatar"
+		android:layout_alignTop="@id/avatar"
+		android:layout_marginVertical="-3dp"
+		android:layout_marginEnd="16dp"
+		android:ellipsize="end"
+		android:gravity="start|center_vertical"
+		android:singleLine="true"
+		android:textAlignment="viewStart"
+		android:textAppearance="@style/m3_label_large"
+		android:textColor="?colorM3OnSurface"
+		tools:text="Eugen" />
+
+	<TextView
+		android:id="@+id/time_and_username"
+		android:layout_width="match_parent"
+		android:layout_height="18dp"
+		android:layout_below="@id/name"
+		android:layout_toEndOf="@id/avatar"
+		android:layout_marginEnd="16dp"
+		android:ellipsize="end"
+		android:gravity="center_vertical|start"
+		android:singleLine="true"
+		android:textAlignment="viewStart"
+		android:textAppearance="@style/m3_label_medium"
+		android:textColor="?colorM3Outline"
+		tools:text="9h ago · \@Gargron@mastodon.social" />
+
+</RelativeLayout>

@@ -56,6 +56,7 @@ public class Status extends BaseModel implements DisplayItemsParent{
 	public String language;
 	public String text;
 	public List<FilterResult> filtered;
+	public Quote quote;
 
 	public boolean favourited;
 	public boolean reblogged;
@@ -95,6 +96,8 @@ public class Status extends BaseModel implements DisplayItemsParent{
 			for(FilterResult fr:filtered)
 				fr.postprocess();
 		}
+		if(quote!=null)
+			quote.postprocess();
 
 		if(!sensitive && (reblog==null || !reblog.sensitive) && TextUtils.isEmpty(spoilerText)){
 			revealedSpoilers.add(SpoilerType.CONTENT_WARNING);

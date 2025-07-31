@@ -89,17 +89,23 @@ public abstract class BaseNotificationsListFragment extends BaseStatusListFragme
 		NotificationViewModel n=getNotificationByID(id);
 		if(n.status!=null){
 			Status status=n.status;
-			Bundle args=new Bundle();
-			args.putString("account", accountID);
-			args.putParcelable("status", Parcels.wrap(status.clone()));
-			if(status.inReplyToAccountId!=null && knownAccounts.containsKey(status.inReplyToAccountId))
-				args.putParcelable("inReplyToAccount", Parcels.wrap(knownAccounts.get(status.inReplyToAccountId)));
-			Nav.go(getActivity(), ThreadFragment.class, args);
+			navigateToStatus(status);
 		}else{
 			Bundle args=new Bundle();
 			args.putString("account", accountID);
 			args.putParcelable("profileAccount", Parcels.wrap(n.accounts.get(0)));
 			Nav.go(getActivity(), ProfileFragment.class, args);
+		}
+	}
+
+	@Override
+	public void onItemClick(String id, boolean quote){
+		NotificationViewModel n=getNotificationByID(id);
+		if(n.status!=null){
+			Status status=n.status;
+			navigateToStatus(quote ? status.quote.quotedStatus : status);
+		}else{
+			super.onItemClick(id, quote);
 		}
 	}
 

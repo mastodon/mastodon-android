@@ -30,7 +30,7 @@ public class SpoilerStatusDisplayItem extends StatusDisplayItem{
 	private final CharSequence parsedTitle;
 	private CharSequence translatedTitle;
 	private final CustomEmojiHelper emojiHelper;
-	private final Type type;
+	public final Type type;
 
 	public SpoilerStatusDisplayItem(String parentID, BaseStatusListFragment parentFragment, String title, Status status, Status statusForContent, Type type, Status.SpoilerType spoilerType){
 		super(parentID, parentFragment);

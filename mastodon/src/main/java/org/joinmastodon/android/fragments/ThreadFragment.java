@@ -81,13 +81,13 @@ public class ThreadFragment extends StatusListFragment implements AssistContentP
 			for(StatusDisplayItem item:items){
 				item.fullWidth=true;
 				if(item instanceof TextStatusDisplayItem text)
-					text.textSelectable=true;
+					text.textSelectable=!item.isQuote;
 				else if(item instanceof FooterStatusDisplayItem footer)
 					footer.hideCounts=true;
 				else if(item instanceof SpoilerStatusDisplayItem spoiler){
 					for(StatusDisplayItem subItem:spoiler.contentItems){
 						if(subItem instanceof TextStatusDisplayItem text)
-							text.textSelectable=true;
+							text.textSelectable=!subItem.isQuote;
 					}
 				}
 			}
@@ -178,8 +178,8 @@ public class ThreadFragment extends StatusListFragment implements AssistContentP
 	}
 
 	@Override
-	public boolean isItemEnabled(String id){
-		return !id.equals(mainStatus.id);
+	public boolean isItemEnabled(StatusDisplayItem item){
+		return item.isQuote || !item.parentID.equals(mainStatus.id);
 	}
 
 	@Override

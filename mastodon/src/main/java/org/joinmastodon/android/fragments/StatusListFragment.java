@@ -55,12 +55,15 @@ public abstract class StatusListFragment extends BaseStatusListFragment<Status>{
 		Status status=getContentStatusByID(id);
 		if(status==null)
 			return;
-		Bundle args=new Bundle();
-		args.putString("account", accountID);
-		args.putParcelable("status", Parcels.wrap(status.clone()));
-		if(status.inReplyToAccountId!=null && knownAccounts.containsKey(status.inReplyToAccountId))
-			args.putParcelable("inReplyToAccount", Parcels.wrap(knownAccounts.get(status.inReplyToAccountId)));
-		Nav.go(getActivity(), ThreadFragment.class, args);
+		navigateToStatus(status);
+	}
+
+	@Override
+	public void onItemClick(String id, boolean quote){
+		Status status=getContentStatusByID(id);
+		if(status==null)
+			return;
+		navigateToStatus(quote ? status.quote.quotedStatus : status);
 	}
 
 	protected void onStatusCreated(Status status){}

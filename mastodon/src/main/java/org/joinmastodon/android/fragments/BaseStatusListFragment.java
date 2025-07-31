@@ -2,6 +2,7 @@ package org.joinmastodon.android.fragments;
 
 import android.app.Activity;
 import android.content.res.Configuration;
+import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
@@ -47,6 +48,7 @@ import org.joinmastodon.android.ui.utils.MediaAttachmentViewController;
 import org.joinmastodon.android.ui.utils.UiUtils;
 import org.joinmastodon.android.ui.views.MediaGridLayout;
 import org.joinmastodon.android.utils.TypedObjectPool;
+import org.parceler.Parcels;
 
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
@@ -64,6 +66,7 @@ import androidx.dynamicanimation.animation.DynamicAnimation;
 import androidx.dynamicanimation.animation.SpringAnimation;
 import androidx.dynamicanimation.animation.SpringForce;
 import androidx.recyclerview.widget.RecyclerView;
+import me.grishka.appkit.Nav;
 import me.grishka.appkit.api.Callback;
 import me.grishka.appkit.api.ErrorResponse;
 import me.grishka.appkit.imageloader.ImageLoaderRecyclerAdapter;
@@ -287,10 +290,19 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 			}
 		});
 		list.addItemDecoration(new StatusListItemDecoration());
+		TypedArray ta=getContext().obtainStyledAttributes(new int[]{android.R.attr.selectableItemBackground});
+		Drawable defaultSelector=ta.getDrawable(0);
+		ta.recycle();
+		Drawable roundedSelector=getResources().getDrawable(R.drawable.bg_list_item_rounded, getActivity().getTheme());
+
 		((UsableRecyclerView)list).setSelectorBoundsProvider(new UsableRecyclerView.SelectorBoundsProvider(){
 			private Rect tmpRect=new Rect();
+
 			@Override
-			public void getSelectorBounds(View view, Rect outRect){
+			public void getSelectorBounds(View view, Rect outRect){}
+
+			@Override
+			public void getSelectorBounds(View view, float x, float y, Rect outRect){
 				if(((UsableRecyclerView) list).isIncludeMarginsInItemHitbox()){
 					list.getDecoratedBoundsWithMargins(view, outRect);
 				}else{
@@ -302,20 +314,62 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 						outRect.setEmpty();
 						return;
 					}
-					String id=((StatusDisplayItem.Holder<?>) holder).getItemID();
-					for(int i=0;i<list.getChildCount();i++){
-						View child=list.getChildAt(i);
-						holder=list.getChildViewHolder(child);
-						if(holder instanceof StatusDisplayItem.Holder<?> sih2){
-							String otherID=sih2.getItemID();
-							if(otherID.equals(id)){
-								list.getDecoratedBoundsWithMargins(child, tmpRect);
-								outRect.left=Math.min(outRect.left, tmpRect.left);
-								outRect.top=Math.min(outRect.top, tmpRect.top);
-								outRect.right=Math.max(outRect.right, tmpRect.right);
-								outRect.bottom=Math.max(outRect.bottom, tmpRect.bottom);
+					StatusDisplayItem item=(StatusDisplayItem) sih.getItem();
+					String id=sih.getItemID();
+					int quoteLeft, quoteRight;
+					if(item.fullWidth){
+						quoteLeft=V.dp(16);
+						quoteRight=list.getWidth()-V.dp(16);
+					}else if(view.getLayoutDirection()==View.LAYOUT_DIRECTION_RTL){
+						quoteLeft=V.dp(16);
+						quoteRight=list.getWidth()-V.dp(48+16);
+					}else{
+						quoteLeft=V.dp(48+16);
+						quoteRight=list.getWidth()-V.dp(16);
+					}
+					if(item.isQuote && x<quoteRight && x>quoteLeft){
+						outRect.left=quoteLeft;
+						outRect.right=quoteRight;
+						boolean wasInsideQuote=false;
+						for(int i=0;i<list.getChildCount();i++){
+							View child=list.getChildAt(i);
+							holder=list.getChildViewHolder(child);
+							if(holder instanceof StatusDisplayItem.Holder<?> sih2){
+								String otherID=sih2.getItemID();
+								if(otherID.equals(id)){
+									StatusDisplayItem item2=(StatusDisplayItem) sih2.getItem();
+									if(item2.isQuote){
+										wasInsideQuote=true;
+										list.getDecoratedBoundsWithMargins(child, tmpRect);
+										outRect.top=Math.min(outRect.top, child.getTop());
+										outRect.bottom=Math.max(outRect.bottom, child.getBottom());
+									}else if(wasInsideQuote && item2.getType()==StatusDisplayItem.Type.EXTENDED_FOOTER){
+										outRect.bottom=child.getTop();
+										break;
+									}else if(wasInsideQuote){
+										outRect.bottom=child.getTop()-V.dp(8);
+										break;
+									}
+								}
 							}
 						}
+						((UsableRecyclerView)list).setSelector(roundedSelector);
+					}else{
+						for(int i=0;i<list.getChildCount();i++){
+							View child=list.getChildAt(i);
+							holder=list.getChildViewHolder(child);
+							if(holder instanceof StatusDisplayItem.Holder<?> sih2){
+								String otherID=sih2.getItemID();
+								if(otherID.equals(id)){
+									list.getDecoratedBoundsWithMargins(child, tmpRect);
+									outRect.left=Math.min(outRect.left, tmpRect.left);
+									outRect.top=Math.min(outRect.top, tmpRect.top);
+									outRect.right=Math.max(outRect.right, tmpRect.right);
+									outRect.bottom=Math.max(outRect.bottom, tmpRect.bottom);
+								}
+							}
+						}
+						((UsableRecyclerView)list).setSelector(defaultSelector);
 					}
 				}
 			}
@@ -363,6 +417,19 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 	}
 
 	public abstract void onItemClick(String id);
+
+	public void onItemClick(String id, boolean quote){
+		onItemClick(id);
+	}
+
+	public void navigateToStatus(Status status){
+		Bundle args=new Bundle();
+		args.putString("account", accountID);
+		args.putParcelable("status", Parcels.wrap(status.clone()));
+		if(status.inReplyToAccountId!=null && knownAccounts.containsKey(status.inReplyToAccountId))
+			args.putParcelable("inReplyToAccount", Parcels.wrap(knownAccounts.get(status.inReplyToAccountId)));
+		Nav.go(getActivity(), ThreadFragment.class, args);
+	}
 
 	protected void updatePoll(String itemID, Status status, Poll poll){
 		if(status.poll!=poll)
@@ -493,8 +560,22 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 		else
 			status.revealedSpoilers.add(spoilerItem.spoilerType);
 
-		holder.rebind();
+		if(status.quote!=null && status.quote.quotedStatus!=null && !status.quote.quotedStatus.revealedSpoilers.isEmpty()){
+			for(StatusDisplayItem item:displayItems){
+				if(item.parentID.equals(spoilerItem.parentID) && item.isQuote && item instanceof SpoilerStatusDisplayItem quoteSpoilerItem
+						&& status.quote.quotedStatus.revealedSpoilers.contains(quoteSpoilerItem.spoilerType)){
+					status.quote.quotedStatus.revealedSpoilers.remove(quoteSpoilerItem.spoilerType);
+					toggleSpoiler(status.quote.quotedStatus, quoteSpoilerItem);
+					break;
+				}
+			}
+		}
 
+		holder.rebind();
+		toggleSpoiler(status, spoilerItem);
+	}
+
+	private void toggleSpoiler(Status status, SpoilerStatusDisplayItem spoilerItem){
 		int index=displayItems.indexOf(spoilerItem);
 		if(status.revealedSpoilers.contains(spoilerItem.spoilerType)){
 			int itemCount=spoilerItem.contentItems.size();
@@ -604,7 +685,7 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 
 	}
 
-	public boolean isItemEnabled(String id){
+	public boolean isItemEnabled(StatusDisplayItem item){
 		return true;
 	}
 
@@ -815,6 +896,8 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 
 	private class StatusListItemDecoration extends RecyclerView.ItemDecoration{
 		private Paint dividerPaint=new Paint();
+		private Drawable quoteBorder=getResources().getDrawable(R.drawable.bg_inline_status, getActivity().getTheme()).mutate();
+		private ArrayList<StatusDisplayItem.Holder<?>> itemsTopToBottom=new ArrayList<>();
 
 		{
 			dividerPaint.setColor(UiUtils.getThemeColor(getActivity(), R.attr.colorM3OutlineVariant));
@@ -824,13 +907,85 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 
 		@Override
 		public void onDraw(@NonNull Canvas c, @NonNull RecyclerView parent, @NonNull RecyclerView.State state){
-			for(int i=0;i<parent.getChildCount()-1;i++){
+			itemsTopToBottom.clear();
+			for(int i=0;i<parent.getChildCount();i++){
 				View child=parent.getChildAt(i);
-				View bottomSibling=parent.getChildAt(i+1);
 				RecyclerView.ViewHolder holder=parent.getChildViewHolder(child);
-				RecyclerView.ViewHolder siblingHolder=parent.getChildViewHolder(bottomSibling);
-				if(needDrawDivider(holder, siblingHolder)){
-					drawDivider(child, bottomSibling, holder, siblingHolder, parent, c, dividerPaint);
+				if(i<parent.getChildCount()-1){
+					View bottomSibling=parent.getChildAt(i+1);
+					RecyclerView.ViewHolder siblingHolder=parent.getChildViewHolder(bottomSibling);
+					if(needDrawDivider(holder, siblingHolder)){
+						drawDivider(child, bottomSibling, holder, siblingHolder, parent, c, dividerPaint);
+					}
+				}
+
+				if(holder instanceof StatusDisplayItem.Holder<?> ih){
+					itemsTopToBottom.add(ih);
+				}
+			}
+			itemsTopToBottom.sort((v1, v2)->Float.compare(v1.itemView.getY(), v2.itemView.getY()));
+
+			boolean insideQuote=false;
+			int quoteTop=0;
+			StatusDisplayItem.Holder<?> quoteStartHolder=null;
+			boolean isRTL=parent.getLayoutDirection()==View.LAYOUT_DIRECTION_RTL;
+			for(StatusDisplayItem.Holder<?> vh:itemsTopToBottom){
+				StatusDisplayItem item=(StatusDisplayItem) vh.getItem();
+				if(item.isQuote){
+					if(!insideQuote){
+						insideQuote=true;
+						quoteStartHolder=vh;
+						quoteTop=Math.round(vh.itemView.getY());
+						if(item.getType()!=StatusDisplayItem.Type.HEADER_COMPACT)
+							quoteTop-=V.dp(16);
+					}
+				}else if(insideQuote){
+					insideQuote=false;
+					StatusDisplayItem firstItem=(StatusDisplayItem) quoteStartHolder.getItem();
+					quoteBorder.setAlpha(Math.round(quoteStartHolder.itemView.getAlpha()*255));
+					int bottom=Math.round(vh.itemView.getY());
+					if(item.getType()!=StatusDisplayItem.Type.EXTENDED_FOOTER)
+						bottom-=V.dp(8);
+					if(isRTL)
+						quoteBorder.setBounds(V.dp(16), quoteTop, parent.getWidth()-V.dp(firstItem.fullWidth ? 16 : 48+16), bottom);
+					else
+						quoteBorder.setBounds(firstItem.fullWidth ? V.dp(16) : V.dp(48+16), quoteTop, parent.getWidth()-V.dp(16), bottom);
+					quoteBorder.draw(c);
+				}
+			}
+			if(insideQuote){
+				StatusDisplayItem firstItem=(StatusDisplayItem) quoteStartHolder.getItem();
+				quoteBorder.setAlpha(Math.round(quoteStartHolder.itemView.getAlpha()*255));
+				if(isRTL)
+					quoteBorder.setBounds(V.dp(16), quoteTop, parent.getWidth()-V.dp(firstItem.fullWidth ? 16 : 48+16), parent.getHeight()+V.dp(16));
+				else
+					quoteBorder.setBounds(firstItem.fullWidth ? V.dp(16) : V.dp(48+16), quoteTop, parent.getWidth()-V.dp(16), parent.getHeight()+V.dp(16));
+				quoteBorder.draw(c);
+			}
+		}
+
+		@Override
+		public void getItemOffsets(@NonNull Rect outRect, @NonNull View view, @NonNull RecyclerView parent, @NonNull RecyclerView.State state){
+			RecyclerView.ViewHolder holder=parent.getChildViewHolder(view);
+			if(holder instanceof StatusDisplayItem.Holder<?> ih && ih.getItem() instanceof StatusDisplayItem item){
+				if(item.isQuote){
+					outRect.left=outRect.right=V.dp(12);
+					if(item.getType()==StatusDisplayItem.Type.HEADER_COMPACT){
+						outRect.top=V.dp(8);
+					}
+				}else if(item.getType()==StatusDisplayItem.Type.FOOTER){
+					// Apply this as the top offset to the footer to avoid breaking spoiler transitions
+					int itemIndex=ih.getAbsoluteAdapterPosition()-getMainAdapterOffset();
+					if(itemIndex>0){
+						StatusDisplayItem topSibling=displayItems.get(itemIndex-1);
+						if(topSibling.isQuote){
+							outRect.top=V.dp(switch(topSibling.getType()){
+								case TEXT, CARD_COMPACT, CARD_LARGE -> 12;
+								case MEDIA_GRID, AUDIO -> 14;
+								default -> 20;
+							});
+						}
+					}
 				}
 			}
 		}

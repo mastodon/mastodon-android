@@ -95,7 +95,9 @@ public class HtmlParser{
 
 		source=source.replaceAll("[\u2028\u2029]", "<br>");
 		final SpannableStringBuilder ssb=new SpannableStringBuilder();
-		Jsoup.parseBodyFragment(source).body().traverse(new NodeVisitor(){
+		Element body=Jsoup.parseBodyFragment(source).body();
+		body.select(".quote-inline").remove();
+		body.traverse(new NodeVisitor(){
 			private final ArrayList<SpanInfo> openSpans=new ArrayList<>();
 			private boolean lastElementWasBlock=false;
 

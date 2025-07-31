@@ -20,14 +20,15 @@
 	<LinearLayout
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:orientation="horizontal">
+		android:orientation="horizontal"
+		android:divider="@drawable/empty_8dp"
+		android:showDividers="middle">
 		<Button
 			android:id="@+id/vote_btn"
 			android:layout_width="0dp"
 			android:layout_height="wrap_content"
 			android:layout_weight="1"
 			android:enabled="false"
-			android:layout_marginEnd="8dp"
 			style="@style/Widget.Mastodon.M3.Button.Filled"
 			android:text="@string/action_vote"/>
 		<Button

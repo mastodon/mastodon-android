@@ -17,6 +17,7 @@ import org.joinmastodon.android.model.Attachment;
 import org.joinmastodon.android.model.DisplayItemsParent;
 import org.joinmastodon.android.model.FilterResult;
 import org.joinmastodon.android.model.Poll;
+import org.joinmastodon.android.model.Quote;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.PhotoLayoutHelper;
 import org.joinmastodon.android.ui.text.HtmlParser;
@@ -30,12 +31,14 @@ import java.util.stream.Collectors;
 
 import me.grishka.appkit.imageloader.requests.ImageLoaderRequest;
 import me.grishka.appkit.utils.BindableViewHolder;
+import me.grishka.appkit.utils.V;
 import me.grishka.appkit.views.UsableRecyclerView;
 
 public abstract class StatusDisplayItem{
 	public final String parentID;
 	public final BaseStatusListFragment<?> parentFragment;
 	public boolean fullWidth; // aka "highlighted"
+	public boolean isQuote;
 	public int index;
 
 	public static final int FLAG_FULL_WIDTH=1;
@@ -44,6 +47,7 @@ public abstract class StatusDisplayItem{
 	public static final int FLAG_MEDIA_FORCE_HIDDEN=1 << 3;
 	public static final int FLAG_NO_HEADER=1 << 4;
 	public static final int FLAG_NO_IN_REPLY_TO=1 << 5;
+	public static final int FLAG_COMPACT_HEADER=1 << 6;
 
 	public StatusDisplayItem(String parentID, BaseStatusListFragment<?> parentFragment){
 		this.parentID=parentID;
@@ -64,6 +68,7 @@ public abstract class StatusDisplayItem{
 		return switch(type){
 			case HEADER -> new HeaderStatusDisplayItem.Holder(activity, parent);
 			case HEADER_CHECKABLE -> new CheckableHeaderStatusDisplayItem.Holder(activity, parent);
+			case HEADER_COMPACT -> new CompactHeaderStatusDisplayItem.Holder(activity, parent);
 			case REBLOG_OR_REPLY_LINE -> new ReblogOrReplyLineStatusDisplayItem.Holder(activity, parent);
 			case TEXT -> new TextStatusDisplayItem.Holder(activity, parent);
 			case AUDIO -> new AudioStatusDisplayItem.Holder(activity, parent);
@@ -97,7 +102,7 @@ public abstract class StatusDisplayItem{
 		String parentID=parentObject.getID();
 		ArrayList<StatusDisplayItem> items=new ArrayList<>();
 		Status statusForContent=status.getContentStatus();
-		HeaderStatusDisplayItem header=null;
+		StatusDisplayItem header=null;
 		boolean hideCounts=!GlobalUserPreferences.showInteractionCounts;
 		if((flags & FLAG_NO_HEADER)==0){
 			if(status.reblog!=null){
@@ -108,6 +113,8 @@ public abstract class StatusDisplayItem{
 			}
 			if((flags & FLAG_CHECKABLE)!=0)
 				items.add(header=new CheckableHeaderStatusDisplayItem(parentID, statusForContent.account, statusForContent.createdAt, fragment, accountID, statusForContent, null));
+			else if((flags & FLAG_COMPACT_HEADER)!=0)
+				items.add(header=new CompactHeaderStatusDisplayItem(parentID, statusForContent.account, statusForContent.createdAt, fragment, accountID, statusForContent));
 			else
 				items.add(header=new HeaderStatusDisplayItem(parentID, statusForContent.account, statusForContent.createdAt, fragment, accountID, statusForContent, null));
 		}
@@ -148,8 +155,8 @@ public abstract class StatusDisplayItem{
 			}
 			TextStatusDisplayItem text=new TextStatusDisplayItem(parentID, parsedText, fragment, statusForContent);
 			contentItems.add(text);
-		}else if(header!=null){
-			header.needBottomPadding=true;
+		}else if(header instanceof HeaderStatusDisplayItem hsdi){
+			hsdi.needBottomPadding=true;
 		}
 
 		List<Attachment> imageAttachments=statusForContent.mediaAttachments.stream().filter(att->att.type.isImage()).collect(Collectors.toList());
@@ -174,6 +181,20 @@ public abstract class StatusDisplayItem{
 		}
 		if(statusForContent.card!=null && statusForContent.mediaAttachments.isEmpty() && TextUtils.isEmpty(statusForContent.spoilerText)){
 			contentItems.add(new LinkCardStatusDisplayItem(parentID, fragment, statusForContent));
+		}
+		if(statusForContent.quote!=null){
+			if(statusForContent.quote.state==Quote.State.ACCEPTED && statusForContent.quote.quotedStatus!=null){
+				ArrayList<StatusDisplayItem> quoteItems=buildItems(fragment, statusForContent.quote.quotedStatus, accountID, parentObject, knownAccounts, FLAG_NO_FOOTER | FLAG_NO_IN_REPLY_TO | FLAG_COMPACT_HEADER);
+				for(StatusDisplayItem item:quoteItems){
+					item.isQuote=true;
+					if(item instanceof SpoilerStatusDisplayItem spoiler){
+						for(StatusDisplayItem subItem:spoiler.contentItems){
+							subItem.isQuote=true;
+						}
+					}
+				}
+				contentItems.addAll(quoteItems);
+			}
 		}
 		if(needAddCWItems){
 			cwParentItems.addAll(contentItems);
@@ -230,7 +251,8 @@ public abstract class StatusDisplayItem{
 		FILTER_SPOILER,
 		INLINE_STATUS,
 		NOTIFICATION_WITH_BUTTON,
-		FOLLOW_REQUEST_ACTIONS
+		FOLLOW_REQUEST_ACTIONS,
+		HEADER_COMPACT
 	}
 
 	public static abstract class Holder<T> extends BindableViewHolder<T> implements UsableRecyclerView.DisableableClickable{
@@ -253,8 +275,30 @@ public abstract class StatusDisplayItem{
 		}
 
 		@Override
+		public void onClick(float x, float y){
+			if(item instanceof StatusDisplayItem sdi && sdi.isQuote){
+				int quoteLeft, quoteRight;
+				if(sdi.fullWidth){
+					quoteLeft=V.dp(16);
+					quoteRight=itemView.getWidth()-V.dp(16);
+				}else if(itemView.getLayoutDirection()==View.LAYOUT_DIRECTION_RTL){
+					quoteLeft=V.dp(16);
+					quoteRight=itemView.getWidth()-V.dp(48+16);
+				}else{
+					quoteLeft=V.dp(48+16);
+					quoteRight=itemView.getWidth()-V.dp(16);
+				}
+				if(x<quoteRight && x>quoteLeft){
+					sdi.parentFragment.onItemClick(sdi.parentID, true);
+					return;
+				}
+			}
+			UsableRecyclerView.DisableableClickable.super.onClick(x, y);
+		}
+
+		@Override
 		public boolean isEnabled(){
-			return item instanceof StatusDisplayItem sdi && sdi.parentFragment.isItemEnabled(sdi.parentID);
+			return item instanceof StatusDisplayItem sdi && sdi.parentFragment.isItemEnabled(sdi);
 		}
 	}
 }

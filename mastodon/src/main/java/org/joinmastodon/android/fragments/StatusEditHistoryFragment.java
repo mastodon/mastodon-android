@@ -148,7 +148,7 @@ public class StatusEditHistoryFragment extends StatusListFragment{
 	}
 
 	@Override
-	public boolean isItemEnabled(String id){
+	public boolean isItemEnabled(StatusDisplayItem item){
 		return false;
 	}
 }
