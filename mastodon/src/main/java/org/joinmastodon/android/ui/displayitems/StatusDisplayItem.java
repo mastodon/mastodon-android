@@ -88,6 +88,7 @@ public abstract class StatusDisplayItem{
 			case INLINE_STATUS -> new InlineStatusStatusDisplayItem.Holder(activity, parent);
 			case NOTIFICATION_WITH_BUTTON -> new NotificationWithButtonStatusDisplayItem.Holder(activity, parent);
 			case FOLLOW_REQUEST_ACTIONS -> new FollowRequestActionsDisplayItem.Holder(activity, parent);
+			case QUOTE_ERROR -> new QuoteErrorStatusDisplayItem.Holder(activity, parent);
 		};
 	}
 
@@ -183,17 +184,23 @@ public abstract class StatusDisplayItem{
 			contentItems.add(new LinkCardStatusDisplayItem(parentID, fragment, statusForContent));
 		}
 		if(statusForContent.quote!=null){
-			if(statusForContent.quote.state==Quote.State.ACCEPTED && statusForContent.quote.quotedStatus!=null){
-				ArrayList<StatusDisplayItem> quoteItems=buildItems(fragment, statusForContent.quote.quotedStatus, accountID, parentObject, knownAccounts, FLAG_NO_FOOTER | FLAG_NO_IN_REPLY_TO | FLAG_COMPACT_HEADER);
-				for(StatusDisplayItem item:quoteItems){
-					item.isQuote=true;
-					if(item instanceof SpoilerStatusDisplayItem spoiler){
-						for(StatusDisplayItem subItem:spoiler.contentItems){
-							subItem.isQuote=true;
+			if(statusForContent.quote.state==Quote.State.ACCEPTED){
+				if(statusForContent.quote.quotedStatus!=null){
+					ArrayList<StatusDisplayItem> quoteItems=buildItems(fragment, statusForContent.quote.quotedStatus, accountID, parentObject, knownAccounts, FLAG_NO_FOOTER | FLAG_NO_IN_REPLY_TO | FLAG_COMPACT_HEADER);
+					for(StatusDisplayItem item:quoteItems){
+						item.isQuote=true;
+						if(item instanceof SpoilerStatusDisplayItem spoiler){
+							for(StatusDisplayItem subItem:spoiler.contentItems){
+								subItem.isQuote=true;
+							}
 						}
 					}
+					contentItems.addAll(quoteItems);
+				}else if(statusForContent.quote.quotedStatusId!=null){
+					// TODO
 				}
-				contentItems.addAll(quoteItems);
+			}else{
+				contentItems.add(new QuoteErrorStatusDisplayItem(parentID, fragment, statusForContent.quote.state));
 			}
 		}
 		if(needAddCWItems){
@@ -252,7 +259,8 @@ public abstract class StatusDisplayItem{
 		INLINE_STATUS,
 		NOTIFICATION_WITH_BUTTON,
 		FOLLOW_REQUEST_ACTIONS,
-		HEADER_COMPACT
+		HEADER_COMPACT,
+		QUOTE_ERROR
 	}
 
 	public static abstract class Holder<T> extends BindableViewHolder<T> implements UsableRecyclerView.DisableableClickable{
