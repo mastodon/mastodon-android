@@ -593,6 +593,7 @@
 	<string name="use_invite_link">Kasuta kutselinki</string>
 	<string name="enter_invite_link">Sisesta kutselink</string>
 	<string name="this_invite_is_invalid">See kutselink pole kehtiv.</string>
+	<string name="this_invite_has_expired">See kutselink on aegunud.</string>
 	<string name="invite_link_pasted">Link on asetatud sinu lõikelaualt.</string>
 	<string name="need_invite_to_join_server">Liitumaks %s serveriga vajad sa kutset olemasolevalt kasutajalt.</string>
 	<string name="mute_user_confirm_title">Kas summutad kasutaja?</string>
@@ -655,6 +656,12 @@
 	<string name="notification_filter_mentions">Soovimatud privaatsed mainimised</string>
 	<string name="notification_filter_mentions_explanation">Filtreeritud, kui see pole vastus sinupoolt mainimisele või kui jälgid saatjat</string>
 	<string name="allow_notifications">Luba teavitused</string>
+	<plurals name="x_people_you_may_know">
+		<item quantity="one">%,d kasutaja, keda sa võid teada</item>
+		<item quantity="other">%,d kasutajat, keda sa võid teada</item>
+	</plurals>
+	<string name="notifications_from_user">Teavitus kasutajalt %s</string>
+	<string name="notifications_muted">Teavitus kasutajalt %s on suletud.</string>
 	<string name="notifications_allowed">%s on nüüd nähtav sinu teavituste loendis.</string>
 	<string name="visibility_subtitle_public">Nii kasutajad kui mittekasutajad</string>
 	<string name="visibility_subtitle_unlisted">Vähem algoritmilisi teavitusi</string>
@@ -662,6 +669,10 @@
 	<string name="visibility_subtitle_private">Kõik, kes on postituses mainitud</string>
 	<string name="view_boosts">Vaata hooandmisi</string>
 	<string name="view_favorites">Vaata lemmikuid</string>
+	<string name="undo_reblog">Võta hooandmine tagasi</string>
+	<string name="undo_favorite">Eemalda lemmikute seast</string>
+	<string name="could_not_reach_server">Server pole leitav. Kas kontrollid nutiseadme internetiühendust ja proovid uuesti?</string>
+	<string name="connection_timed_out">Päring aegus. Kas kontrollid nutiseadme internetiühendust ja proovid uuesti?</string>
 	<string name="signup_email_taken">E-posti aadress on juba kasutusel. Kas sa &lt;a&gt;unustasid oma salasõna&lt;/a&gt;?</string>
 	<plurals name="x_new_notifications">
 		<item quantity="one">%,d uus teavitus</item>
