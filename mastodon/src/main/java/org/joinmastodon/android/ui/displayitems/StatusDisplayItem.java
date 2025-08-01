@@ -47,7 +47,7 @@ public abstract class StatusDisplayItem{
 	public static final int FLAG_MEDIA_FORCE_HIDDEN=1 << 3;
 	public static final int FLAG_NO_HEADER=1 << 4;
 	public static final int FLAG_NO_IN_REPLY_TO=1 << 5;
-	public static final int FLAG_COMPACT_HEADER=1 << 6;
+	public static final int FLAG_IS_QUOTE=1 << 6;
 
 	public StatusDisplayItem(String parentID, BaseStatusListFragment<?> parentFragment){
 		this.parentID=parentID;
@@ -89,6 +89,7 @@ public abstract class StatusDisplayItem{
 			case NOTIFICATION_WITH_BUTTON -> new NotificationWithButtonStatusDisplayItem.Holder(activity, parent);
 			case FOLLOW_REQUEST_ACTIONS -> new FollowRequestActionsDisplayItem.Holder(activity, parent);
 			case QUOTE_ERROR -> new QuoteErrorStatusDisplayItem.Holder(activity, parent);
+			case NESTED_QUOTE -> new NestedQuoteStatusDisplayItem.Holder(activity, parent);
 		};
 	}
 
@@ -114,7 +115,7 @@ public abstract class StatusDisplayItem{
 			}
 			if((flags & FLAG_CHECKABLE)!=0)
 				items.add(header=new CheckableHeaderStatusDisplayItem(parentID, statusForContent.account, statusForContent.createdAt, fragment, accountID, statusForContent, null));
-			else if((flags & FLAG_COMPACT_HEADER)!=0)
+			else if((flags &FLAG_IS_QUOTE)!=0)
 				items.add(header=new CompactHeaderStatusDisplayItem(parentID, statusForContent.account, statusForContent.createdAt, fragment, accountID, statusForContent));
 			else
 				items.add(header=new HeaderStatusDisplayItem(parentID, statusForContent.account, statusForContent.createdAt, fragment, accountID, statusForContent, null));
@@ -185,8 +186,8 @@ public abstract class StatusDisplayItem{
 		}
 		if(statusForContent.quote!=null){
 			if(statusForContent.quote.state==Quote.State.ACCEPTED){
-				if(statusForContent.quote.quotedStatus!=null){
-					ArrayList<StatusDisplayItem> quoteItems=buildItems(fragment, statusForContent.quote.quotedStatus, accountID, parentObject, knownAccounts, FLAG_NO_FOOTER | FLAG_NO_IN_REPLY_TO | FLAG_COMPACT_HEADER);
+				if(statusForContent.quote.quotedStatus!=null && (flags & FLAG_IS_QUOTE)==0){
+					ArrayList<StatusDisplayItem> quoteItems=buildItems(fragment, statusForContent.quote.quotedStatus, accountID, parentObject, knownAccounts, FLAG_NO_FOOTER | FLAG_NO_IN_REPLY_TO |FLAG_IS_QUOTE);
 					for(StatusDisplayItem item:quoteItems){
 						item.isQuote=true;
 						if(item instanceof SpoilerStatusDisplayItem spoiler){
@@ -196,9 +197,16 @@ public abstract class StatusDisplayItem{
 						}
 					}
 					contentItems.addAll(quoteItems);
-				}else if(statusForContent.quote.quotedStatusId!=null){
-					// TODO
+				}else if((flags & FLAG_IS_QUOTE)!=0){
+					String statusID;
+					if(statusForContent.quote.quotedStatus!=null)
+						statusID=statusForContent.quote.quotedStatus.id;
+					else
+						statusID=statusForContent.quote.quotedStatusId;
+					contentItems.add(new NestedQuoteStatusDisplayItem(parentID, fragment, statusID, statusForContent.quote));
 				}
+			}else if((flags & FLAG_IS_QUOTE)!=0){
+				contentItems.add(new NestedQuoteStatusDisplayItem(parentID, fragment, null, statusForContent.quote));
 			}else{
 				contentItems.add(new QuoteErrorStatusDisplayItem(parentID, fragment, statusForContent.quote.state));
 			}
@@ -260,7 +268,8 @@ public abstract class StatusDisplayItem{
 		NOTIFICATION_WITH_BUTTON,
 		FOLLOW_REQUEST_ACTIONS,
 		HEADER_COMPACT,
-		QUOTE_ERROR
+		QUOTE_ERROR,
+		NESTED_QUOTE
 	}
 
 	public static abstract class Holder<T> extends BindableViewHolder<T> implements UsableRecyclerView.DisableableClickable{

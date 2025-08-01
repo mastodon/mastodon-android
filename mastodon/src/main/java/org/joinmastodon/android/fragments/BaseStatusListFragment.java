@@ -9,6 +9,7 @@ import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowInsets;
@@ -19,6 +20,8 @@ import org.joinmastodon.android.GlobalUserPreferences;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.requests.accounts.GetAccountRelationships;
 import org.joinmastodon.android.api.requests.polls.SubmitPollVote;
+import org.joinmastodon.android.api.requests.statuses.GetStatusByID;
+import org.joinmastodon.android.api.requests.statuses.GetStatusesByIDs;
 import org.joinmastodon.android.api.requests.statuses.TranslateStatus;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.events.PollUpdatedEvent;
@@ -35,6 +38,7 @@ import org.joinmastodon.android.ui.displayitems.AccountStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.GapStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.HashtagStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.MediaGridStatusDisplayItem;
+import org.joinmastodon.android.ui.displayitems.NestedQuoteStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.PollFooterStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.PollOptionStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.SpoilerStatusDisplayItem;
@@ -54,6 +58,7 @@ import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
@@ -67,6 +72,7 @@ import androidx.dynamicanimation.animation.SpringAnimation;
 import androidx.dynamicanimation.animation.SpringForce;
 import androidx.recyclerview.widget.RecyclerView;
 import me.grishka.appkit.Nav;
+import me.grishka.appkit.api.APIRequest;
 import me.grishka.appkit.api.Callback;
 import me.grishka.appkit.api.ErrorResponse;
 import me.grishka.appkit.imageloader.ImageLoaderRecyclerAdapter;
@@ -86,6 +92,8 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 	protected HashMap<String, Relationship> relationships=new HashMap<>();
 	protected Rect tmpRect=new Rect();
 	protected TypedObjectPool<MediaGridStatusDisplayItem.GridItemType, MediaAttachmentViewController> attachmentViewsPool=new TypedObjectPool<>(this::makeNewMediaAttachmentView);
+	protected HashMap<String, Status> knownStatuses=new HashMap<>();
+	protected HashSet<APIRequest<?>> requestsToCancelWhenListClears=new HashSet<>();
 	private SpringAnimation listShakeAnimation;
 
 	public BaseStatusListFragment(){
@@ -116,8 +124,11 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 		for(T s:items){
 			addAccountToKnown(s);
 		}
+		postprocessNewlyLoadedStatuses(items);
 		for(T s:items){
-			displayItems.addAll(buildDisplayItems(s));
+			List<StatusDisplayItem> newItems=buildDisplayItems(s);
+			populateNestedQuotes(newItems);
+			displayItems.addAll(newItems);
 		}
 		loadRelationships(items.stream().map(DisplayItemsParent::getAccountID).filter(Objects::nonNull).collect(Collectors.toSet()));
 	}
@@ -126,6 +137,11 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 	public void onClearItems(){
 		super.onClearItems();
 		displayItems.clear();
+		knownStatuses.clear();
+		for(APIRequest<?> req:requestsToCancelWhenListClears){
+			req.cancel();
+		}
+		requestsToCancelWhenListClears.clear();
 	}
 
 	protected void prependItems(List<T> items, boolean notify){
@@ -134,14 +150,74 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 		for(T s:items){
 			addAccountToKnown(s);
 		}
+		postprocessNewlyLoadedStatuses(items);
 		for(T s:items){
 			List<StatusDisplayItem> toAdd=buildDisplayItems(s);
+			populateNestedQuotes(toAdd);
 			displayItems.addAll(offset, toAdd);
 			offset+=toAdd.size();
 		}
 		if(notify)
 			adapter.notifyItemRangeInserted(0, offset);
 		loadRelationships(items.stream().map(DisplayItemsParent::getAccountID).filter(Objects::nonNull).collect(Collectors.toSet()));
+	}
+
+	protected void postprocessNewlyLoadedStatuses(List<T> items){
+		for(T item:items){
+			Status status=asStatus(item);
+			if(status!=null){
+				knownStatuses.put(status.id, status);
+				if(status.quote!=null && status.quote.quotedStatus!=null)
+					knownStatuses.put(status.quote.quotedStatus.id, status.quote.quotedStatus);
+			}
+		}
+	}
+
+	protected void populateNestedQuotes(List<StatusDisplayItem> items){
+		HashSet<String> needExtraStatuses=new HashSet<>();
+		ArrayList<StatusDisplayItem> itemsWithMissingStatuses=new ArrayList<>();
+		populateNestedQuotes(items, needExtraStatuses, itemsWithMissingStatuses);
+		if(!needExtraStatuses.isEmpty()){
+			APIRequest<?>[] req=new APIRequest[1];
+			req[0]=new GetStatusesByIDs(needExtraStatuses)
+					.setCallback(new Callback<>(){
+						@Override
+						public void onSuccess(List<Status> result){
+							requestsToCancelWhenListClears.remove(req[0]);
+							for(Status s:result){
+								knownStatuses.put(s.id, s);
+							}
+							populateNestedQuotes(itemsWithMissingStatuses, null, null);
+						}
+
+						@Override
+						public void onError(ErrorResponse error){
+							requestsToCancelWhenListClears.remove(req[0]);
+						}
+					})
+					.exec(accountID);
+			requestsToCancelWhenListClears.add(req[0]);
+		}
+	}
+
+	private void populateNestedQuotes(List<StatusDisplayItem> items, Set<String> needExtraStatuses, List<StatusDisplayItem> itemsWithMissingStatuses){
+		for(StatusDisplayItem item:items){
+			if(item instanceof NestedQuoteStatusDisplayItem nq && nq.status==null && nq.statusID!=null){
+				Status status=knownStatuses.get(nq.statusID);
+				if(status!=null){
+					nq.status=status;
+					nq.quote.quotedStatus=status;
+					StatusDisplayItem.Holder<NestedQuoteStatusDisplayItem> holder=findHolderForItem(nq);
+					if(holder!=null)
+						holder.rebind();
+				}else if(needExtraStatuses!=null){
+					needExtraStatuses.add(nq.statusID);
+					itemsWithMissingStatuses.add(nq);
+				}
+			}else if(item instanceof SpoilerStatusDisplayItem spoiler){
+				populateNestedQuotes(spoiler.contentItems, needExtraStatuses, itemsWithMissingStatuses);
+			}
+		}
 	}
 
 	protected String getMaxID(){
@@ -155,6 +231,7 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 
 	protected abstract List<StatusDisplayItem> buildDisplayItems(T s);
 	protected abstract void addAccountToKnown(T s);
+	protected abstract Status asStatus(T s);
 
 	@Override
 	protected void onHidden(){
@@ -343,9 +420,6 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 										list.getDecoratedBoundsWithMargins(child, tmpRect);
 										outRect.top=Math.min(outRect.top, child.getTop());
 										outRect.bottom=Math.max(outRect.bottom, child.getBottom());
-									}else if(wasInsideQuote && item2.getType()==StatusDisplayItem.Type.EXTENDED_FOOTER){
-										outRect.bottom=child.getTop();
-										break;
 									}else if(wasInsideQuote){
 										outRect.bottom=child.getTop()-V.dp(8);
 										break;
@@ -637,6 +711,10 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 				.exec(accountID);
 	}
 
+	protected void loadExtraStatuses(Set<String> ids){
+
+	}
+
 	protected void onRelationshipsLoaded(){}
 
 	@Nullable
@@ -666,6 +744,19 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 				holders.add(type.cast(holder));
 		}
 		return holders;
+	}
+
+	/** @noinspection unchecked*/
+	@Nullable
+	protected <I extends StatusDisplayItem> StatusDisplayItem.Holder<I> findHolderForItem(I item){
+		if(list==null)
+			return null;
+		for(int i=0;i<list.getChildCount();i++){
+			RecyclerView.ViewHolder holder=list.getChildViewHolder(list.getChildAt(i));
+			if(holder instanceof StatusDisplayItem.Holder<?> itemHolder && itemHolder.getItem()==item)
+				return (StatusDisplayItem.Holder<I>) itemHolder;
+		}
+		return null;
 	}
 
 	@Override
@@ -862,7 +953,7 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 		@NonNull
 		@Override
 		public BindableViewHolder<StatusDisplayItem> onCreateViewHolder(@NonNull ViewGroup parent, int viewType){
-			BindableViewHolder<StatusDisplayItem> holder=(BindableViewHolder<StatusDisplayItem>) StatusDisplayItem.createViewHolder(StatusDisplayItem.Type.values()[viewType & (~0x80000000)], getActivity(), parent, BaseStatusListFragment.this);
+			BindableViewHolder<StatusDisplayItem> holder=(BindableViewHolder<StatusDisplayItem>) StatusDisplayItem.createViewHolder(org.joinmastodon.android.ui.displayitems.StatusDisplayItem.Type.values()[viewType & (~0x80000000)], getActivity(), parent, BaseStatusListFragment.this);
 			onModifyItemViewHolder(holder);
 			return holder;
 		}
@@ -944,7 +1035,7 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 					StatusDisplayItem firstItem=(StatusDisplayItem) quoteStartHolder.getItem();
 					quoteBorder.setAlpha(Math.round(quoteStartHolder.itemView.getAlpha()*255));
 					int bottom=Math.round(vh.itemView.getY());
-					if(item.getType()!=StatusDisplayItem.Type.EXTENDED_FOOTER)
+//					if(item.getType()!=StatusDisplayItem.Type.EXTENDED_FOOTER)
 						bottom-=V.dp(8);
 					if(isRTL)
 						quoteBorder.setBounds(V.dp(16), quoteTop, parent.getWidth()-V.dp(firstItem.fullWidth ? 16 : 48+16), bottom);
@@ -973,7 +1064,7 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 					if(item.getType()==StatusDisplayItem.Type.HEADER_COMPACT){
 						outRect.top=V.dp(8);
 					}
-				}else if(item.getType()==StatusDisplayItem.Type.FOOTER){
+				}else if((item.getType()==StatusDisplayItem.Type.FOOTER && !item.fullWidth) || item.getType()==StatusDisplayItem.Type.EXTENDED_FOOTER){
 					// Apply this as the top offset to the footer to avoid breaking spoiler transitions
 					int itemIndex=ih.getAbsoluteAdapterPosition()-getMainAdapterOffset();
 					if(itemIndex>0){

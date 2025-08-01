@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:paddingHorizontal="16dp"
+	android:paddingTop="8dp"
+	android:clipToPadding="false">
+
+	<TextView
+		android:id="@+id/text"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:paddingVertical="8dp"
+		android:paddingHorizontal="12dp"
+		android:background="@drawable/bg_m3_surface2"
+		android:textAppearance="@style/m3_body_medium"
+		android:textColor="?colorM3Outline"
+		tools:text="Quoted a post by @grishka"/>
+
+</FrameLayout>

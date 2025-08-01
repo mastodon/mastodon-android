@@ -109,6 +109,11 @@ public abstract class BaseNotificationsListFragment extends BaseStatusListFragme
 		}
 	}
 
+	@Override
+	protected Status asStatus(NotificationViewModel s){
+		return s.status;
+	}
+
 	protected NotificationViewModel getNotificationByID(String id){
 		for(NotificationViewModel n:data){
 			if(n.getID().equals(id))

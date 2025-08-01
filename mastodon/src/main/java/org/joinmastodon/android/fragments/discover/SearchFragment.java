@@ -79,6 +79,11 @@ public class SearchFragment extends BaseStatusListFragment<SearchResult>{
 	}
 
 	@Override
+	protected Status asStatus(SearchResult s){
+		return s.type==SearchResult.Type.STATUS ? s.status : null;
+	}
+
+	@Override
 	public void onItemClick(String id){
 		SearchResult res=getResultByID(id);
 		if(res==null)

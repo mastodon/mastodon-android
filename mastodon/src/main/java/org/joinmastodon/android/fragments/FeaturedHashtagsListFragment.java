@@ -8,6 +8,7 @@ import android.view.View;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.Hashtag;
+import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.displayitems.HashtagStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.StatusDisplayItem;
 import org.parceler.Parcels;
@@ -58,5 +59,10 @@ public class FeaturedHashtagsListFragment extends BaseStatusListFragment<Hashtag
 	@Override
 	protected void drawDivider(View child, View bottomSibling, RecyclerView.ViewHolder holder, RecyclerView.ViewHolder siblingHolder, RecyclerView parent, Canvas c, Paint paint){
 		// no-op
+	}
+
+	@Override
+	protected Status asStatus(Hashtag s){
+		return null;
 	}
 }
