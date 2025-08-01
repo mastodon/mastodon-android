@@ -437,7 +437,11 @@
 	<string name="open_system_notification_settings">Ava teavituste seadistused</string>
 	<string name="about_server">Rakenduse teave</string>
 	<string name="server_rules">Reeglid</string>
+	<string name="notifications_disabled_in_system">Lülita teavitused oma nutiseadme seadistustest sisse ja näed võimast teavet kõikidelt saatjatelt.</string>
+	<string name="settings_even_more">Veel rohkem seadistusi</string>
 	<string name="settings_show_cws">Näita sisuhoiatusi</string>
+	<string name="settings_hide_sensitive_media">Peida delikaatseks märgitud meedia</string>
+	<string name="settings_show_interaction_counts">Postita suhestumise statistika</string>
 	<plurals name="in_x_seconds">
 		<item quantity="one">%d sekundi pärast</item>
 		<item quantity="other">%d sekundi pärast</item>
@@ -473,6 +477,10 @@
 	<string name="filter_duration_forever">Igavesti</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<string name="settings_filter_ends">Lõppeb %s</string>
+	<plurals name="settings_x_muted_words">
+		<item quantity="one">%d summutas sõna või fraasi</item>
+		<item quantity="other">%d summutas sõnad või fraasid</item>
+	</plurals>
 	<string name="selection_2_options">%1$s ja %2$s</string>
 	<string name="selection_3_options">%1$s, %2$s ja %3$s</string>
 	<string name="selection_4_or_more">%1$s, %2$s ja veel %3$d kasutajat</string>
@@ -488,6 +496,7 @@
 	<string name="edit_muted_word">Muuda summutatud sõna</string>
 	<string name="add">Lisa</string>
 	<string name="filter_word_or_phrase">Sõna või fraas</string>
+	<string name="settings_delete_filter_word">Kas kustutad „%s“ märksõna?</string>
 	<string name="enter_selection_mode">Vali</string>
 	<string name="select_all">Vali kõik</string>
 	<string name="required_form_field_blank">Ei või olla täitmata</string>
@@ -519,6 +528,10 @@
 	<plurals name="x_participants">
 		<item quantity="one">%,d osaleja</item>
 		<item quantity="other">%,d osalejat</item>
+	</plurals>
+	<plurals name="x_posts_today">
+		<item quantity="one">Täna on olnud %,d postitus</item>
+		<item quantity="other">Täna on olnud %,d postitust</item>
 	</plurals>
 	<string name="error_playing_video">Video esitamisel tekkis viga</string>
 	<string name="timeline_following">Avaleht</string>
@@ -562,6 +575,7 @@
 	<string name="block_domain_confirm_title">Kas blokeerid domeeni?</string>
 	<string name="do_block_server">Blokeeri server</string>
 	<string name="block_user_x_instead">Selle asemel blokeeri @%s</string>
+	<string name="server_can_interact_with_older">Selle serveri kasutajad saavad suhestuda sinu vanade postitustega.</string>
 	<string name="server">Server</string>
 	<string name="handle_server_explanation">Sinu digitaalne kodu, kus on kõik sinu postitused.</string>
 	<string name="handle_explanation">Kuna kasutajatunnus ütleb, kes ta on ja kuidas ta on leitav, saad suhelda inimestega üle &lt;a&gt;ActivityPub-poolt toetatud sotsiaalvõrkude platvormide&lt;/a&gt;.</string>
@@ -654,6 +668,7 @@
 	<string name="own_poll_ended">Sinu küsitlus on lõppenud</string>
 	<string name="user_just_posted">%s postitas äsja</string>
 	<string name="user_edited_post">%s muutis postitust, millega sa olid suhestunud</string>
+	<string name="relationship_severance_account_suspension">%1$s serveri peakasutaja on peatanud %2$s kasutaja tegevuse, mis tähendab, et sa ei saa enam temalt uuendusi või suhelda temaga.</string>
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
 	<plurals name="x_accounts">
 		<item quantity="one">%,d kasutajakonto</item>
