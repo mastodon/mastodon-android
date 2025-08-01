@@ -103,7 +103,7 @@ public class NotificationActionHandlerService extends Service{
 					.setCallback(new Callback<>(){
 						@Override
 						public void onSuccess(Status result){
-							E.post(new StatusCountersUpdatedEvent(result));
+							E.post(new StatusCountersUpdatedEvent(result, StatusCountersUpdatedEvent.CounterType.FAVORITES));
 							runningRequestCount--;
 							maybeStopSelf();
 						}
@@ -138,7 +138,7 @@ public class NotificationActionHandlerService extends Service{
 					.setCallback(new Callback<>(){
 						@Override
 						public void onSuccess(Status result){
-							E.post(new StatusCountersUpdatedEvent(result));
+							E.post(new StatusCountersUpdatedEvent(result, StatusCountersUpdatedEvent.CounterType.REBLOGS));
 							runningRequestCount--;
 							maybeStopSelf();
 						}

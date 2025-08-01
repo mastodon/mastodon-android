@@ -157,12 +157,18 @@ public class Status extends BaseModel implements DisplayItemsParent{
 	}
 
 	public void update(StatusCountersUpdatedEvent ev){
-		favouritesCount=ev.favorites;
-		reblogsCount=ev.reblogs;
-		repliesCount=ev.replies;
-		favourited=ev.favorited;
-		reblogged=ev.reblogged;
-		bookmarked=ev.bookmarked;
+		switch(ev.type){
+			case FAVORITES -> {
+				favouritesCount=ev.favorites;
+				favourited=ev.favorited;
+			}
+			case REBLOGS -> {
+				reblogsCount=ev.reblogs;
+				reblogged=ev.reblogged;
+			}
+			case REPLIES -> repliesCount=ev.replies;
+			case BOOKMARKS -> bookmarked=ev.bookmarked;
+		}
 	}
 
 	public Status getContentStatus(){

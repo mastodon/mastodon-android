@@ -38,7 +38,7 @@ public class StatusInteractionController{
 					@Override
 					public void onSuccess(Status result){
 						runningFavoriteRequests.remove(status.id);
-						E.post(new StatusCountersUpdatedEvent(result));
+						E.post(new StatusCountersUpdatedEvent(result, StatusCountersUpdatedEvent.CounterType.FAVORITES));
 					}
 
 					@Override
@@ -50,7 +50,7 @@ public class StatusInteractionController{
 							status.favouritesCount--;
 						else
 							status.favouritesCount++;
-						E.post(new StatusCountersUpdatedEvent(status));
+						E.post(new StatusCountersUpdatedEvent(status, StatusCountersUpdatedEvent.CounterType.FAVORITES));
 					}
 				})
 				.exec(accountID);
@@ -60,7 +60,7 @@ public class StatusInteractionController{
 			status.favouritesCount++;
 		else
 			status.favouritesCount--;
-		E.post(new StatusCountersUpdatedEvent(status));
+		E.post(new StatusCountersUpdatedEvent(status, StatusCountersUpdatedEvent.CounterType.FAVORITES));
 	}
 
 	public void setReblogged(Status status, boolean reblogged){
@@ -76,7 +76,7 @@ public class StatusInteractionController{
 					@Override
 					public void onSuccess(Status result){
 						runningReblogRequests.remove(status.id);
-						E.post(new StatusCountersUpdatedEvent(result));
+						E.post(new StatusCountersUpdatedEvent(result, StatusCountersUpdatedEvent.CounterType.REBLOGS));
 					}
 
 					@Override
@@ -88,7 +88,7 @@ public class StatusInteractionController{
 							status.reblogsCount--;
 						else
 							status.reblogsCount++;
-						E.post(new StatusCountersUpdatedEvent(status));
+						E.post(new StatusCountersUpdatedEvent(status, StatusCountersUpdatedEvent.CounterType.REBLOGS));
 					}
 				})
 				.exec(accountID);
@@ -98,7 +98,7 @@ public class StatusInteractionController{
 			status.reblogsCount++;
 		else
 			status.reblogsCount--;
-		E.post(new StatusCountersUpdatedEvent(status));
+		E.post(new StatusCountersUpdatedEvent(status, StatusCountersUpdatedEvent.CounterType.REBLOGS));
 	}
 
 	public void setBookmarked(Status status, boolean bookmarked){
@@ -114,7 +114,7 @@ public class StatusInteractionController{
 					@Override
 					public void onSuccess(Status result){
 						runningBookmarkRequests.remove(status.id);
-						E.post(new StatusCountersUpdatedEvent(result));
+						E.post(new StatusCountersUpdatedEvent(result, StatusCountersUpdatedEvent.CounterType.BOOKMARKS));
 					}
 
 					@Override
@@ -122,12 +122,12 @@ public class StatusInteractionController{
 						runningBookmarkRequests.remove(status.id);
 						error.showToast(MastodonApp.context);
 						status.bookmarked=!bookmarked;
-						E.post(new StatusCountersUpdatedEvent(status));
+						E.post(new StatusCountersUpdatedEvent(status, StatusCountersUpdatedEvent.CounterType.BOOKMARKS));
 					}
 				})
 				.exec(accountID);
 		runningBookmarkRequests.put(status.id, req);
 		status.bookmarked=bookmarked;
-		E.post(new StatusCountersUpdatedEvent(status));
+		E.post(new StatusCountersUpdatedEvent(status, StatusCountersUpdatedEvent.CounterType.BOOKMARKS));
 	}
 }

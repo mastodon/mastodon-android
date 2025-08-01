@@ -801,7 +801,7 @@ public class ComposeFragment extends MastodonToolbarFragment implements ComposeE
 					E.post(new StatusCreatedEvent(result, accountID));
 					if(replyTo!=null){
 						replyTo.repliesCount++;
-						E.post(new StatusCountersUpdatedEvent(replyTo));
+						E.post(new StatusCountersUpdatedEvent(replyTo, StatusCountersUpdatedEvent.CounterType.REPLIES));
 					}
 				}else{
 					E.post(new StatusUpdatedEvent(result));

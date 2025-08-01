@@ -665,11 +665,7 @@ public class PhotoViewer implements ZoomPanView.Listener{
 	@Subscribe
 	public void onStatusCountersUpdated(StatusCountersUpdatedEvent ev){
 		if(status!=null && ev.id.equals(status.id)){
-			status.reblogsCount=ev.reblogs;
-			status.favouritesCount=ev.favorites;
-			status.reblogged=ev.reblogged;
-			status.favourited=ev.favorited;
-			status.bookmarked=ev.bookmarked;
+			status.update(ev);
 			updatePostActions();
 		}
 	}
