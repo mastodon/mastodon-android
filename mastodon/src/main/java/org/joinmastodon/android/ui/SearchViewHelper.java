@@ -27,7 +27,9 @@ public class SearchViewHelper{
 	private View divider;
 	private String currentQuery;
 	private Consumer<String> listener;
+	private boolean debouncing;
 	private Runnable debouncer=()->{
+		debouncing=false;
 		currentQuery=searchEdit.getText().toString();
 		if(listener!=null){
 			listener.accept(currentQuery);
@@ -47,6 +49,7 @@ public class SearchViewHelper{
 		searchEdit.setBackground(null);
 		searchEdit.addTextChangedListener(new SimpleTextWatcher(e->{
 			searchEdit.removeCallbacks(debouncer);
+			debouncing=true;
 			searchEdit.postDelayed(debouncer, 500);
 			boolean newIsEmpty=e.length()==0;
 			if(isEmpty!=newIsEmpty){
@@ -117,10 +120,15 @@ public class SearchViewHelper{
 		currentQuery=q;
 		searchEdit.setText(currentQuery);
 		searchEdit.setSelection(searchEdit.length());
+		debouncing=false;
 		searchEdit.removeCallbacks(debouncer);
 	}
 
 	public String getQuery(){
+		if(debouncing){
+			searchEdit.removeCallbacks(debouncer);
+			debouncer.run();
+		}
 		return currentQuery;
 	}
 
