@@ -267,6 +267,15 @@ public class ThreadFragment extends StatusListFragment implements AssistContentP
 		content.setWebUri(Uri.parse(mainStatus.url));
 	}
 
+	@Override
+	public void navigateToStatus(Status status){
+		if(status.id.equals(mainStatus.id)){
+			shakeListView();
+			return;
+		}
+		super.navigateToStatus(status);
+	}
+
 	private class ReplyLinesItemDecoration extends RecyclerView.ItemDecoration{
 		private Paint paint=new Paint(Paint.ANTI_ALIAS_FLAG);
 
