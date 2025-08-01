@@ -48,6 +48,7 @@ public class ZoomPanView extends FrameLayout implements ScaleGestureDetector.OnS
 	private ArrayList<SpringAnimation> runningTransformAnimations=new ArrayList<>(), runningTransitionAnimations=new ArrayList<>();
 	private boolean fill; // whether the image should fill the viewport at min scale
 	private boolean swipeToDismissEnabled=true;
+	private float scaleFactorAtPrevGestureStep;
 
 	private RectF tmpRect=new RectF(), tmpRect2=new RectF();
 	// the initial/final crop rect for open/close transitions, in child coordinates
@@ -474,16 +475,20 @@ public class ZoomPanView extends FrameLayout implements ScaleGestureDetector.OnS
 
 	@Override
 	public boolean onScale(ScaleGestureDetector detector){
-		float factor=detector.getScaleFactor();
+		float factor=Math.max(Math.min(detector.getScaleFactor(), maxScale/scaleFactorAtPrevGestureStep*5f), minScale/scaleFactorAtPrevGestureStep/5f);
 		matrix.postScale(factor, factor, detector.getFocusX()-getInsetWidth()/2f-getPaddingLeft(), detector.getFocusY()-getInsetHeight()/2f-getPaddingTop());
 		updateViewTransform(false);
 		lastScaleCenterX=detector.getFocusX()-getInsetWidth()/2f-getPaddingLeft();
 		lastScaleCenterY=detector.getFocusY()-getInsetHeight()/2f-getPaddingTop();
+		matrix.getValues(matrixValues);
+		scaleFactorAtPrevGestureStep=matrixValues[Matrix.MSCALE_X];
 		return true;
 	}
 
 	@Override
 	public boolean onScaleBegin(ScaleGestureDetector detector){
+		matrix.getValues(matrixValues);
+		scaleFactorAtPrevGestureStep=matrixValues[Matrix.MSCALE_X];
 		requestDisallowInterceptTouchEvent(true);
 		scaling=true;
 		wasScaling=true;
