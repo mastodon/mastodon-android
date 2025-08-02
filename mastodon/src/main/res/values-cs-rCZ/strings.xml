@@ -960,5 +960,10 @@
 		<item quantity="many">%d let</item>
 		<item quantity="other">%d let</item>
 	</plurals>
+	<string name="quote_post_unavailable">Příspěvek není dostupný</string>
+	<string name="quote_post_pending">Příspěvek čeká na schválení</string>
+	<string name="quote_post_pending_title">Příspěvek čeká na schválení? Buďte klidní</string>
+	<string name="quote_post_pending_explanation">Zobrazení citátů sdílených napříč Fediversem může chvíli trvat, protože různé servery používají různé protokoly.</string>
 	<!-- %s is a username, i.e. @Gargron -->
+	<string name="nested_quote">Citovali příspěvek od @%s</string>
 </resources>
