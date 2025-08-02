@@ -400,6 +400,11 @@
 	<string name="forward_report_to_server">Edasta ka %s serverile</string>
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
 	<string name="reported">Teavitatud</string>
+	<string name="report_unfollow_explanation">Kui sa ei soovi tema postitusi oma ajajoonel näha, siis lõpeta tema jälgimine.</string>
+	<string name="muted_user">%s kasutaja on summutatud</string>
+	<string name="report_sent_already_blocked">Sa oled selle kasutaja juba blokeerinud ning seni kuni me teavitusega tegeleme, ei saa sa enam midagi muud teha.</string>
+	<string name="report_personal_already_blocked">Sa oled selle kasutaja juba blokeerinud ning midagi muud sa enam ei pea tegema.\n\nTänud, et koos hoiame Mastodoni turvalisena kõigi jaoks!</string>
+	<string name="blocked_user">%s kasutaja on blokeeritud</string>
 	<string name="mark_all_notifications_read">Märgi kõik loetuks</string>
 	<string name="settings_display">Ekraanivaade</string>
 	<string name="settings_filters">Filtrid</string>
@@ -437,11 +442,14 @@
 	<string name="open_system_notification_settings">Ava teavituste seadistused</string>
 	<string name="about_server">Rakenduse teave</string>
 	<string name="server_rules">Reeglid</string>
+	<string name="server_administrator">Peakasutaja</string>
+	<string name="send_email_to_server_admin">Saada sõnum peakasutajale</string>
 	<string name="notifications_disabled_in_system">Lülita teavitused oma nutiseadme seadistustest sisse ja näed võimast teavet kõikidelt saatjatelt.</string>
 	<string name="settings_even_more">Veel rohkem seadistusi</string>
 	<string name="settings_show_cws">Näita sisuhoiatusi</string>
 	<string name="settings_hide_sensitive_media">Peida delikaatseks märgitud meedia</string>
 	<string name="settings_show_interaction_counts">Postita suhestumise statistika</string>
+	<string name="settings_show_emoji_in_names">Omavalitud emojid kuvatavates nimedes</string>
 	<plurals name="in_x_seconds">
 		<item quantity="one">%d sekundi pärast</item>
 		<item quantity="other">%d sekundi pärast</item>
@@ -459,6 +467,14 @@
 		<item quantity="other">%d tundi tagasi</item>
 	</plurals>
 	<string name="alt_text_reminder_title">Meediafaili puudub selgitustekst</string>
+	<plurals name="alt_text_reminder_x_images">
+		<item quantity="one">%s-l sinu lisatud pildil puudub selgitustekst. Kas jätkad postitamisega?</item>
+		<item quantity="other">%s-l sinu lisatud pildil puuduvad selgitustekstid. Kas jätkad postitamisega?</item>
+	</plurals>
+	<plurals name="alt_text_reminder_x_attachments">
+		<item quantity="one">%s-l sinu lisatud meediamanusel puudub selgitustekst. Kas jätkad postitamisega?</item>
+		<item quantity="other">%s-l sinu lisatud meediamanusel puuduvad selgitustekstid. Kas jätkad postitamisega?</item>
+	</plurals>
 	<string name="count_one">Üks</string>
 	<string name="count_two">Kaks</string>
 	<string name="count_three">Kolm</string>
@@ -571,6 +587,8 @@
 	<string name="list_no_members">Pole veel liikmeid</string>
 	<string name="list_find_users">Otsi kasutajaid, keda lisada</string>
 	<string name="reply_to_user">Vasta kasutajale %s</string>
+	<string name="non_mutual_sheet_title">Tere tulemast uus suhtluspartner!</string>
+	<string name="non_mutual_sheet_text">Tundub, et oled vastamas kasutajale, kellega sa pole veel seotud. On väga hea, kui esimene mulje jääb suurepärane.</string>
 	<string name="got_it">Sain aru</string>
 	<string name="dont_remind_again">Ära tuleta enam meelde</string>
 	<!-- %s is a time interval ("5 months") -->
@@ -581,6 +599,12 @@
 		<item quantity="other">%,d kuud</item>
 	</plurals>
 	<string name="more_than_two_years">enam kui 2 aastat</string>
+	<string name="non_mutual_title1">Jää lugupidavaks ja asjakohaseks</string>
+	<string name="non_mutual_text1">Vasta viisakalt ja teemakohaselt.</string>
+	<string name="non_mutual_title2">Tegtutse lahkelt</string>
+	<string name="non_mutual_text2">Positiivne toon on alati hinnatud.</string>
+	<string name="non_mutual_title3">Jää avatuks</string>
+	<string name="non_mutual_text3">Igalühel on oma vestlusstiil. Ole valmis sellega kohanema.</string>
 	<string name="make_profile_discoverable">Muuda minu profiil leitavaks</string>
 	<string name="discoverability">Leitavus</string>
 	<string name="app_version_copied">Versiooninumber on kopeeritud lõikelauale</string>
@@ -718,6 +742,7 @@
 		<item quantity="other">%,d kasutajakontot</item>
 	</plurals>
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_user_domain_block">Sa oled blokeerinud %1$s domeeni, järgnevaga eemaldatakse sinu %2$,d jälgijat ja %3$s jälgitavat.</string>
 	<string name="relationship_severance_learn_more">Lisateave</string>
 	<string name="moderation_warning_action_none">Su kasutajakonto on saanud moderaatoritelt hoiatuse.</string>
 	<string name="moderation_warning_action_disable">Su kasutajakontokonto on keelatud.</string>
