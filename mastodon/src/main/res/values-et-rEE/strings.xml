@@ -515,6 +515,15 @@
 	<string name="settings_delete_filter_word">Kas kustutad „%s“ märksõna?</string>
 	<string name="enter_selection_mode">Vali</string>
 	<string name="select_all">Vali kõik</string>
+	<string name="filter_duration_custom">Kohandatud</string>
+	<plurals name="settings_delete_x_filter_words">
+		<item quantity="one">Kas kustutad %d sõna?</item>
+		<item quantity="other">Kas kustutad %d sõna?</item>
+	</plurals>
+	<plurals name="x_items_selected">
+		<item quantity="one">%d valitud</item>
+		<item quantity="other">%d valitud</item>
+	</plurals>
 	<string name="required_form_field_blank">Ei või olla täitmata</string>
 	<string name="filter_word_already_in_list">On juba loendis</string>
 	<string name="app_update_ready">Rakendus uuendus on valmis</string>
@@ -541,6 +550,8 @@
 	<string name="translation_show_original">Näita algteksti</string>
 	<string name="translation_failed">Tõlkimine ei õnnestunud. Võibolla pole serveri peakasutaja võtnud tõlketeenust kasutusele või selle serveri tarkvara on vana ning tõlkimine pole veel toetatud.</string>
 	<string name="settings_privacy">Privaatsus ja ulatus</string>
+	<string name="settings_discoverable">Tõsta postitused ja profiil avastamise algoritmides esile</string>
+	<string name="settings_indexable">Kaasa avalikud postitused otsingutulemustesse</string>
 	<plurals name="x_participants">
 		<item quantity="one">%,d osaleja</item>
 		<item quantity="other">%,d osalejat</item>
@@ -738,12 +749,13 @@
 	<string name="user_edited_post">%s muutis postitust, millega sa olid suhestunud</string>
 	<string name="relationship_severance_account_suspension">%1$s serveri peakasutaja on peatanud %2$s kasutaja tegevuse, mis tähendab, et sa ei saa enam temalt uuendusi või suhelda temaga.</string>
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_domain_block">%1$s serveri haldaja on blokeerinud %2$s domeeni, järgnevaga eemaldatakse sinu %3$,d jälgijat ja %4$s, keda sa jälgid.</string>
 	<plurals name="x_accounts">
 		<item quantity="one">%,d kasutajakonto</item>
 		<item quantity="other">%,d kasutajakontot</item>
 	</plurals>
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
-	<string name="relationship_severance_user_domain_block">Sa oled blokeerinud %1$s domeeni, järgnevaga eemaldatakse sinu %2$,d jälgijat ja %3$s, mida sa jälgid.</string>
+	<string name="relationship_severance_user_domain_block">Sa oled blokeerinud %1$s domeeni, järgnevaga eemaldatakse sinu %2$,d jälgijat ja %3$s, keda sa jälgid.</string>
 	<string name="relationship_severance_learn_more">Lisateave</string>
 	<string name="moderation_warning_action_none">Su kasutajakonto on saanud moderaatoritelt hoiatuse.</string>
 	<string name="moderation_warning_action_disable">Su kasutajakontokonto on keelatud.</string>
