@@ -573,6 +573,7 @@
 	<string name="delete_list">Kustuta loend</string>
 	<!-- %s is the name of the list -->
 	<string name="delete_list_confirm">Kas kustutad „%s“ loendi?</string>
+	<string name="list_exclusive">Peida jälgitavad liikmed</string>
 	<string name="list_exclusive_subtitle">Kui keegi on selles loendis, peida ta jälgimiste ajajoonelt, vältimaks tema postituste kaks korda nägemist.</string>
 	<string name="list_name">Loendi nimi</string>
 	<string name="list_show_replies_to">Näita vastuseid nendele</string>
@@ -591,6 +592,13 @@
 	<string name="confirm_remove_list_member">Kas eemaldad liikme?</string>
 	<string name="no_followed_hashtags_title">Jälgi sind huvitavaid valdkondi teemaviidete abil</string>
 	<string name="no_followed_hashtags_subtitle">Jälgimised on nähtavad siin</string>
+	<string name="no_lists_title">Halda oma ajajoont loenditena</string>
+	<string name="no_lists_subtitle">Sinu oma saab oleva nähtav siin</string>
+	<string name="manage_accounts">Lisa kasutajakontosid või vaheta neid</string>
+	<plurals name="x_posts_recently">
+		<item quantity="one">%,d hiljutine postitus</item>
+		<item quantity="other">%,d hiljutist postitust</item>
+	</plurals>
 	<string name="create_list">Koosta loend</string>
 	<string name="step_x_of_y">Samm %1$d / %2$d</string>
 	<string name="create">Loo</string>
@@ -598,6 +606,7 @@
 	<string name="list_no_members">Pole veel liikmeid</string>
 	<string name="list_find_users">Otsi kasutajaid, keda lisada</string>
 	<string name="reply_to_user">Vasta kasutajale %s</string>
+	<string name="posted_at">Postitatud %s</string>
 	<string name="non_mutual_sheet_title">Tere tulemast uus suhtluspartner!</string>
 	<string name="non_mutual_sheet_text">Tundub, et oled vastamas kasutajale, kellega sa pole veel seotud. On väga hea, kui esimene mulje jääb suurepärane.</string>
 	<string name="got_it">Sain aru</string>
@@ -618,6 +627,7 @@
 	<string name="non_mutual_text3">Igalühel on oma vestlusstiil. Ole valmis sellega kohanema.</string>
 	<string name="make_profile_discoverable">Muuda minu profiil leitavaks</string>
 	<string name="discoverability">Leitavus</string>
+	<string name="discoverability_help">Kui sa kasutad Mastodonis avastatavust, siis sinu postitused võivad tulla välja otsingutest ning olla populaarsust koguvate postituste seas.\n\nSinu profiili võidakse soovitada neile, kellel on sinuga samad huvid.\n\nKui sa sellest valikust loobud, siis see ei peida sinu profiili - nimekohase otsinguga on ta igal juhul leitav.</string>
 	<string name="app_version_copied">Versiooninumber on kopeeritud lõikelauale</string>
 	<string name="article_by_author">Autorilt %s</string>
 	<string name="button_reblogged">Andis hoogu</string>
