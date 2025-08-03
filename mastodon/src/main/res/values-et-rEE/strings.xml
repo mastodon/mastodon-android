@@ -488,7 +488,9 @@
 	<string name="settings_edit_filter">Muuda filtrit</string>
 	<string name="settings_filter_duration">Kestus</string>
 	<string name="settings_filter_muted_words">Summutatud sõnad</string>
+	<string name="settings_filter_context">Suumuta järgnevaid</string>
 	<string name="settings_filter_show_cw">Näita koos sisuhoiatusega</string>
+	<string name="settings_filter_show_cw_explanation">Selle valikuga on filtrile vastavad postitused näha, kuid on peidetud sisuhoiatuse taha</string>
 	<string name="settings_delete_filter">Kustuta filter</string>
 	<string name="filter_duration_forever">Igavesti</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
@@ -512,9 +514,11 @@
 	<string name="edit_muted_word">Muuda summutatud sõna</string>
 	<string name="add">Lisa</string>
 	<string name="filter_word_or_phrase">Sõna või fraas</string>
+	<string name="filter_add_word_help">Sõnad on tõstutundlikud ning filter arvestab vaid täissõnu.\n\nKui lisad filtrisse „Supp“, siis see peidab postitused, kus leidub „supp“ või „sUpP“, aga mitte „kapsasupp“.</string>
 	<string name="settings_delete_filter_word">Kas kustutad „%s“ märksõna?</string>
 	<string name="enter_selection_mode">Vali</string>
 	<string name="select_all">Vali kõik</string>
+	<string name="settings_filter_duration_title">Filtri mõju</string>
 	<string name="filter_duration_custom">Kohandatud</string>
 	<plurals name="settings_delete_x_filter_words">
 		<item quantity="one">Kas kustutad %d sõna?</item>
@@ -629,12 +633,17 @@
 	<string name="discoverability">Leitavus</string>
 	<string name="discoverability_help">Kui sa kasutad Mastodonis avastatavust, siis sinu postitused võivad tulla välja otsingutest ning olla populaarsust koguvate postituste seas.\n\nSinu profiili võidakse soovitada neile, kellel on sinuga samad huvid.\n\nKui sa sellest valikust loobud, siis see ei peida sinu profiili - nimekohase otsinguga on ta igal juhul leitav.</string>
 	<string name="app_version_copied">Versiooninumber on kopeeritud lõikelauale</string>
+	<string name="onboarding_recommendations_intro">Sa ise saad hallata oma ajajoont.
+Mida rohkem inimesi sa tead, seda aktiivsem ja huvitavam ta saab olema.</string>
+	<string name="onboarding_recommendations_title">Muuda oma avalehe ajajoon isikupäraseks</string>
 	<string name="article_by_author">Autorilt %s</string>
 	<string name="button_reblogged">Andis hoogu</string>
 	<string name="button_favorited">Märkis lemmikuks</string>
 	<string name="join_server_x_with_invite">Liitu %s serveriga kutse alusel</string>
 	<string name="expired_invite_link">Aegunud kutselink</string>
+	<string name="expired_clipboard_invite_link_alert">Lõikelaual asuv %1$s kutselink on aegunud ning pole enam liitumiseks kasutatav.\n\nSa võid olemasolevalt kasutajalt paluda uut kutselinki, liituda %2$s teenuse vahendusel või valida liitumiseks muu koduserveri.</string>
 	<string name="invalid_invite_link">Vigane kutselink</string>
+	<string name="invalid_clipboard_invite_link_alert">Lõikelaual asuv %1$s kutselink ei ole korrektne ning pole liitumiseks kasutatav.\n\nSa võid olemasolevalt kasutajalt paluda uut kutselinki, liituda %2$s teenuse vahendusel või valida liitumiseks muu koduserveri.</string>
 	<string name="use_invite_link">Kasuta kutselinki</string>
 	<string name="enter_invite_link">Sisesta kutselink</string>
 	<string name="this_invite_is_invalid">See kutselink pole kehtiv.</string>
@@ -646,15 +655,25 @@
 	<string name="user_can_still_see_your_posts">Ta näeb jätkuvalt sinu postitusi, kuid sa ei näe tema omi.</string>
 	<string name="you_wont_see_user_mentions">Sa ei näe postitusi, mis teda mainivad.</string>
 	<string name="user_can_mention_and_follow_you">Ta saab sind mainida ja sind jälgida, kuid sa ei näe teda.</string>
+	<string name="unmuted_user_x">%s summutamine on lõppenud</string>
 	<string name="block_user_confirm_title">Kas blokeerid kasutaja?</string>
 	<string name="user_can_see_blocked">Ta näeb, et ta on blokeeritud.</string>
 	<string name="user_cant_see_each_other_posts">Ta ei näe sinu postitusi ja sa ei näe tema omi.</string>
 	<string name="user_cant_mention_or_follow_you">Ta ei saa sin mainida ega jälgida.</string>
+	<string name="unblocked_user_x">%s blokeerimine on lõppenud</string>
 	<string name="block_domain_confirm_title">Kas blokeerid domeeni?</string>
 	<string name="do_block_server">Blokeeri server</string>
 	<string name="block_user_x_instead">Selle asemel blokeeri @%s</string>
+	<string name="users_cant_see_blocked">Sa ei näe selle serveri kasutajate postitusi ega teavitusi.</string>
+	<string name="you_wont_see_server_posts">Sa ei näe ühtegi selle serveri kasutajate postitust.</string>
+	<string name="server_cant_mention_or_follow_you">Sellest serverist ei saa keegi sind jälgida.</string>
 	<string name="server_can_interact_with_older">Selle serveri kasutajad saavad suhestuda sinu vanade postitustega.</string>
 	<string name="unblocked_domain_x">%s domeeni blokeering on eemaldatud</string>
+	<string name="handle_help_title">Mis on kasutajatunnus?</string>
+	<string name="handle_title">Tema kasutajatunnus</string>
+	<string name="handle_username_explanation">Tema unikaalne tunnus tema koduserveris. On võimalik, et mingites teistes serverites on sama kasutajanimega kasutajaid.</string>
+	<string name="handle_title_own">Sinu kasutajatunnus</string>
+	<string name="handle_username_explanation_own">Sinu unikaalne tunnus siin koduserveris. On võimalik, et mingites teistes serverites on sama kasutajanimega kasutajaid.</string>
 	<string name="server">Server</string>
 	<string name="handle_server_explanation">Sinu digitaalne kodu, kus on kõik sinu postitused.</string>
 	<string name="handle_explanation">Kuna kasutajatunnus ütleb, kes ta on ja kuidas ta on leitav, saad suhelda inimestega üle &lt;a&gt;ActivityPub-poolt toetatud sotsiaalvõrkude platvormide&lt;/a&gt;.</string>
@@ -719,6 +738,8 @@
 	<string name="undo_favorite">Eemalda lemmikute seast</string>
 	<string name="could_not_reach_server">Server pole leitav. Kas kontrollid nutiseadme internetiühendust ja proovid uuesti?</string>
 	<string name="connection_timed_out">Päring aegus. Kas kontrollid nutiseadme internetiühendust ja proovid uuesti?</string>
+	<string name="signup_username_taken">See kasutajanimi on juba olemas. Proovi kasutada muud kasutajanime või &lt;a&gt;vali muu koduserver&lt;/a&gt;.</string>
+	<string name="signup_email_invalid">See ei tundu olema korrektne e-posti aadress.</string>
 	<string name="signup_email_taken">E-posti aadress on juba kasutusel. Kas sa &lt;a&gt;unustasid oma salasõna&lt;/a&gt;?</string>
 	<plurals name="x_new_notifications">
 		<item quantity="one">%,d uus teavitus</item>
