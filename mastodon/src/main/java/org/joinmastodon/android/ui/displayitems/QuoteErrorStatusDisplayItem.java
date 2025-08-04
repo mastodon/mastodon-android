@@ -9,7 +9,7 @@ import android.widget.TextView;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.fragments.BaseStatusListFragment;
 import org.joinmastodon.android.model.Quote;
-import org.joinmastodon.android.ui.M3AlertDialogBuilder;
+import org.joinmastodon.android.ui.RichTooltip;
 
 import me.grishka.appkit.utils.V;
 
@@ -35,11 +35,10 @@ public class QuoteErrorStatusDisplayItem extends StatusDisplayItem{
 			text=findViewById(R.id.text);
 			learnMore=findViewById(R.id.btn_learn_more);
 			learnMore.setOnClickListener(v->{
-				new M3AlertDialogBuilder(v.getContext())
-						.setTitle(R.string.quote_post_pending_title)
+				new RichTooltip(v.getContext())
 						.setMessage(R.string.quote_post_pending_explanation)
-						.setPositiveButton(R.string.got_it, null)
-						.show();
+						.addButton(R.string.got_it, null)
+						.show(v);
 			});
 		}
 

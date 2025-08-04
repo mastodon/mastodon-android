@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content">
+
+	<LinearLayout
+		android:id="@+id/content_wrap"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:background="@drawable/bg_m3_surface2"
+		android:layout_margin="8dp"
+		android:clipToPadding="false"
+		android:orientation="vertical"
+		android:paddingHorizontal="16dp"
+		android:paddingTop="12dp"
+		android:paddingBottom="8dp"
+		android:elevation="3dp">
+
+		<TextView
+			android:id="@+id/title"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginBottom="4dp"
+			android:textAppearance="@style/m3_title_small"
+			android:textColor="?colorM3OnSurfaceVariant"
+			tools:text="Title" />
+
+		<TextView
+			android:id="@+id/content"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textAppearance="@style/m3_body_medium"
+			android:textColor="?colorM3OnSurfaceVariant"
+			tools:text="Message" />
+
+		<LinearLayout
+			android:id="@+id/button_bar"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="-8dp"
+			android:layout_marginTop="12dp"
+			android:layout_marginEnd="-8dp"
+			android:divider="@drawable/empty_8dp"
+			android:orientation="horizontal"
+			android:showDividers="middle">
+
+			<Button
+				android:id="@+id/button1"
+				style="@style/Widget.Mastodon.M3.Button.Text"
+				android:layout_width="wrap_content"
+				android:layout_height="40dp"
+				android:minWidth="0dp"
+				android:paddingHorizontal="12dp"
+				tools:text="Button 1" />
+
+			<Button
+				android:id="@+id/button2"
+				style="@style/Widget.Mastodon.M3.Button.Text"
+				android:layout_width="wrap_content"
+				android:layout_height="40dp"
+				android:minWidth="0dp"
+				android:paddingHorizontal="12dp"
+				tools:text="Button 2" />
+
+		</LinearLayout>
+
+	</LinearLayout>
+
+</FrameLayout>

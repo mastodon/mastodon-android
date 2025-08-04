@@ -5,8 +5,7 @@
 	android:layout_height="wrap_content"
 	android:paddingHorizontal="16dp"
 	android:paddingBottom="12dp"
-	android:paddingTop="8dp"
-	android:clipToPadding="false">
+	android:paddingTop="8dp">
 
 	<LinearLayout
 		android:layout_width="match_parent"
@@ -17,6 +16,7 @@
 		android:gravity="center_vertical|start"
 		android:divider="@drawable/empty_8dp"
 		android:showDividers="middle"
+		android:clipToPadding="false"
 		android:background="@drawable/bg_inline_status">
 
 		<TextView
