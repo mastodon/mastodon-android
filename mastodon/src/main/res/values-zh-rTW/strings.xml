@@ -819,5 +819,9 @@
 	<plurals name="at_least_x_years_old">
 		<item quantity="other">%d</item>
 	</plurals>
+	<string name="quote_post_unavailable">無法取得該嘟文</string>
+	<string name="quote_post_pending">嘟文正在發送中</string>
+	<string name="quote_post_pending_explanation">您能於 Mastodon 控制是否允許引用您的嘟文。此嘟文正在等待原始作者核准。</string>
 	<!-- %s is a username, i.e. @Gargron -->
+	<string name="nested_quote">已引用 %s 之嘟文</string>
 </resources>
