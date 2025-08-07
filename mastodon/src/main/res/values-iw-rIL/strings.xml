@@ -265,10 +265,10 @@
 	<string name="follow_back">עקוב בחזרה</string>
 	<string name="button_follow_pending">בהמתנה</string>
 	<string name="follows_you">עוקב אחריך</string>
-	<string name="manually_approves_followers">אשר עוקבים באופן ידני</string>
+	<string name="manually_approves_followers">אישור עוקבים באופן ידני</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<plurals name="x_followers">
-		<item quantity="one">עוקב %,d</item>
+		<item quantity="one">עוקב/ת אחד</item>
 		<item quantity="two">%,d עוקבים</item>
 		<item quantity="many">%,d עוקבים</item>
 		<item quantity="other">%,d עוקבים</item>
@@ -359,23 +359,23 @@
 	<string name="not_accepting_new_members">לא מקבל חברים חדשים</string>
 	<string name="category_special_interests">תחומי עניין מיוחדים</string>
 	<string name="signup_passwords_dont_match">הסיסמאות אינן תואמות</string>
-	<string name="profile_add_row">הוסף שורה</string>
+	<string name="profile_add_row">הוספת שורה</string>
 	<string name="profile_setup">הגדרת פרופיל</string>
-	<string name="profile_setup_subtitle">תוכל להשלים זאת לאחר מכן בלשונית פרופיל.</string>
-	<string name="follow_all">עקוב אחרי כולם</string>
-	<string name="server_rules_disagree">לא מסכים</string>
+	<string name="profile_setup_subtitle">ניתן להשלים זאת לאחר מכן בלשונית פרופיל.</string>
+	<string name="follow_all">לעקוב אחרי כולם</string>
+	<string name="server_rules_disagree">לא מסכימ.ה</string>
 	<string name="privacy_policy_explanation">בקיצור: אנחנו לא אוספים או מעבדים שום דבר.</string>
 	<!-- %s is server domain -->
 	<string name="server_policy_disagree">לא מסכים עם %s</string>
 	<string name="profile_bio">אודות</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
-	<string name="sending_follows">המשתמשים שאתה עוקב אחרים…</string>
+	<string name="sending_follows">מוסיף לך נעקבים…</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
 	<string name="signup_email_domain_blocked">%1$s לא מאפשר הרשמות מ-%2$s. נסה שרת אחר או &lt;a&gt;בחר שרת אחר&lt;/a&gt;.</string>
 	<string name="spoiler_show">הצג בכל זאת</string>
 	<string name="spoiler_hide">הסתר מחדש</string>
-	<string name="poll_multiple_choice">בחר אחד או יותר</string>
-	<string name="save_changes">שמור שינויים</string>
+	<string name="poll_multiple_choice">בחרו אחד או יותר</string>
+	<string name="save_changes">שמירת שינויים</string>
 	<string name="profile_featured">מומלץ</string>
 	<string name="profile_timeline">ציר זמן</string>
 	<string name="view_all">הצג הכל</string>
@@ -383,8 +383,8 @@
 	<string name="verified_link">לינק אימות</string>
 	<string name="show">הצג</string>
 	<string name="hide">הסתר</string>
-	<string name="join_default_server">הצטרף %s</string>
-	<string name="pick_server">בחר שרת אחר</string>
+	<string name="join_default_server">הצטרף אל %s</string>
+	<string name="pick_server">בחרו שרת אחר</string>
 	<string name="signup_or_login">או</string>
 	<string name="learn_more">מידע נוסף</string>
 	<string name="welcome_to_mastodon">ברוכים הבאים למסטודון</string>
@@ -392,15 +392,15 @@
 	<string name="what_are_servers">מה זה שרת?</string>
 	<string name="welcome_paragraph2">כל חשבון Mastodon מאוחסן בשרת - לכל אחד ערכים, כללים &amp; מנהלים משלו. לא משנה איזה מהם תבחרו, תוכלו לעקוב ולקיים אינטראקציה עם אנשים בכל שרת.</string>
 	<string name="opening_link">פותח קישור…</string>
-	<string name="link_not_supported">קישור זה אינו נתמך באפליקציה</string>
+	<string name="link_not_supported">קישור זה אינו נתמך ביישומון</string>
 	<string name="log_out_all_accounts">התנתקות מכל החשבונות</string>
 	<string name="confirm_log_out_all_accounts">להתנתק מכל החשבונות?</string>
 	<string name="retry">נסה שוב</string>
-	<string name="post_failed">שליחת פוסט נכשלה</string>
+	<string name="post_failed">שליחת הודעה נכשלה</string>
 	<!-- %s is formatted file size ("467 KB image") -->
-	<string name="attachment_description_image">תמונה %s</string>
-	<string name="attachment_description_video">סרטון %s</string>
-	<string name="attachment_description_audio">%s אודיו</string>
+	<string name="attachment_description_image">תמונה בגודל %s</string>
+	<string name="attachment_description_video">סרטון בגודל %s</string>
+	<string name="attachment_description_audio">אודיו בגודל %s</string>
 	<string name="attachment_description_unknown">קובץ %s</string>
 	<string name="attachment_type_image">תמונה</string>
 	<string name="attachment_type_video">וידאו</string>
