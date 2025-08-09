@@ -859,9 +859,16 @@ Più persone segui, più sarà attivo e interessante.</string>
 	<string name="date_of_birth">Data di nascita</string>
 	<!-- %s is `at_least_x_years_old`. Some languages, unlike English, may require the word "years" here. -->
 	<string name="date_of_birth_explanation">Dobbiamo verificare che tu abbia almeno %s anni per usare Mastodon. Non archivieremo questa informazione.</string>
+	<string name="open_link">Apri</string>
+	<string name="copy">Copia</string>
 	<!-- Substituted into `date_of_birth_explanation` -->
 	<plurals name="at_least_x_years_old">
 		<item quantity="one">%d anno</item>
 		<item quantity="other">%d anni</item>
 	</plurals>
+	<string name="quote_post_unavailable">Post non disponibile</string>
+	<string name="quote_post_pending">Post in attesa</string>
+	<string name="quote_post_pending_explanation">Su Mastodon, puoi controllare se qualcuno può citarti. Questo post è in attesa dell\'approvazione dell\'autore originale.</string>
+	<!-- %s is a username, i.e. @Gargron -->
+	<string name="nested_quote">Citato un post di %s</string>
 </resources>

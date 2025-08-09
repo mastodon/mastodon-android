@@ -858,9 +858,16 @@
 	<string name="date_of_birth">Ημερομηνία γέννησης</string>
 	<!-- %s is `at_least_x_years_old`. Some languages, unlike English, may require the word "years" here. -->
 	<string name="date_of_birth_explanation">Πρέπει να βεβαιωθούμε ότι είσαι τουλάχιστον %s για να συμμετάσχεις στο Mastodon. Αυτό δεν θα αποθηκευτεί μετά την εγγραφή.</string>
+	<string name="open_link">Άνοιγμα</string>
+	<string name="copy">Αντιγραφή</string>
 	<!-- Substituted into `date_of_birth_explanation` -->
 	<plurals name="at_least_x_years_old">
 		<item quantity="one">%d</item>
 		<item quantity="other">%d</item>
 	</plurals>
+	<string name="quote_post_unavailable">Ανάρτηση μη διαθέσιμη</string>
+	<string name="quote_post_pending">Ανάρτηση σε αναμονή</string>
+	<string name="quote_post_pending_explanation">Στο Mastodon, μπορείς να ελέγξεις αν κάποιος μπορεί να σε αναφέρει. Αυτή η ανάρτηση εκκρεμεί ενώ λαμβάνουμε την έγκριση του αρχικού συγγραφέα.</string>
+	<!-- %s is a username, i.e. @Gargron -->
+	<string name="nested_quote">Παράθεση ανάρτησης από %s</string>
 </resources>

@@ -866,4 +866,9 @@ Mientras más personas sigas, más activo e interesante será.</string>
 		<item quantity="one">%d</item>
 		<item quantity="other">%d</item>
 	</plurals>
+	<string name="quote_post_unavailable">Publicación no disponible</string>
+	<string name="quote_post_pending">Publicación pendiente</string>
+	<string name="quote_post_pending_explanation">En Mastodon, puedes controlar quién te puede citar. Esta publicación es pendiente mientras esperamos la aprobación del autor original.</string>
+	<!-- %s is a username, i.e. @Gargron -->
+	<string name="nested_quote">Citado una publicación de %s</string>
 </resources>

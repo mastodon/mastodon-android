@@ -265,10 +265,10 @@
 	<string name="follow_back">עקוב בחזרה</string>
 	<string name="button_follow_pending">בהמתנה</string>
 	<string name="follows_you">עוקב אחריך</string>
-	<string name="manually_approves_followers">אשר עוקבים באופן ידני</string>
+	<string name="manually_approves_followers">אישור עוקבים באופן ידני</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<plurals name="x_followers">
-		<item quantity="one">עוקב %,d</item>
+		<item quantity="one">עוקב/ת אחד</item>
 		<item quantity="two">%,d עוקבים</item>
 		<item quantity="many">%,d עוקבים</item>
 		<item quantity="other">%,d עוקבים</item>
@@ -349,33 +349,352 @@
 	<string name="server_filter_any_language">כל שפה</string>
 	<string name="server_filter_instant_signup">הרשמה מיידית</string>
 	<string name="server_filter_manual_review">סקירה ידנית</string>
+	<string name="server_filter_any_signup_speed">כל מהירות הרשמה</string>
+	<string name="server_filter_region_europe">אירופה</string>
+	<string name="server_filter_region_north_america">צפון אמריקה</string>
+	<string name="server_filter_region_south_america">דרום אמריקה</string>
+	<string name="server_filter_region_africa">אפריקה</string>
+	<string name="server_filter_region_asia">אסיה</string>
+	<string name="server_filter_region_oceania">אוקיאניה</string>
+	<string name="not_accepting_new_members">לא מקבל חברים חדשים</string>
+	<string name="category_special_interests">תחומי עניין מיוחדים</string>
+	<string name="signup_passwords_dont_match">הסיסמאות אינן תואמות</string>
+	<string name="profile_add_row">הוספת שורה</string>
+	<string name="profile_setup">הגדרת פרופיל</string>
+	<string name="profile_setup_subtitle">ניתן להשלים זאת לאחר מכן בלשונית פרופיל.</string>
+	<string name="follow_all">לעקוב אחרי כולם</string>
+	<string name="server_rules_disagree">לא מסכימ.ה</string>
+	<string name="privacy_policy_explanation">בקיצור: אנחנו לא אוספים או מעבדים שום דבר.</string>
 	<!-- %s is server domain -->
+	<string name="server_policy_disagree">לא מסכים עם %s</string>
+	<string name="profile_bio">אודות</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
+	<string name="sending_follows">מוסיף לך נעקבים…</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<string name="signup_email_domain_blocked">%1$s לא מאפשר הרשמות מ-%2$s. נסה שרת אחר או &lt;a&gt;בחר שרת אחר&lt;/a&gt;.</string>
+	<string name="spoiler_show">הצג בכל זאת</string>
+	<string name="spoiler_hide">הסתר מחדש</string>
+	<string name="poll_multiple_choice">בחרו אחד או יותר</string>
+	<string name="save_changes">שמירת שינויים</string>
+	<string name="profile_featured">מומלץ</string>
+	<string name="profile_timeline">ציר זמן</string>
+	<string name="view_all">הצג הכל</string>
+	<string name="profile_endorsed_accounts">חשבונות</string>
+	<string name="verified_link">לינק אימות</string>
+	<string name="show">הצג</string>
+	<string name="hide">הסתר</string>
+	<string name="join_default_server">הצטרף אל %s</string>
+	<string name="pick_server">בחרו שרת אחר</string>
+	<string name="signup_or_login">או</string>
+	<string name="learn_more">מידע נוסף</string>
+	<string name="welcome_to_mastodon">ברוכים הבאים למסטודון</string>
+	<string name="welcome_paragraph1">מסטודון היא רשת חברתית מבוזרת, כלומר אף חברה אחת אינה שולטת בה. היא מורכבת משרתים רבים המנוהלים באופן עצמאי, כולם מחוברים יחד.</string>
+	<string name="what_are_servers">מה זה שרת?</string>
+	<string name="welcome_paragraph2">כל חשבון Mastodon מאוחסן בשרת - לכל אחד ערכים, כללים &amp; מנהלים משלו. לא משנה איזה מהם תבחרו, תוכלו לעקוב ולקיים אינטראקציה עם אנשים בכל שרת.</string>
+	<string name="opening_link">פותח קישור…</string>
+	<string name="link_not_supported">קישור זה אינו נתמך ביישומון</string>
+	<string name="log_out_all_accounts">התנתקות מכל החשבונות</string>
+	<string name="confirm_log_out_all_accounts">להתנתק מכל החשבונות?</string>
+	<string name="retry">נסה שוב</string>
+	<string name="post_failed">שליחת הודעה נכשלה</string>
 	<!-- %s is formatted file size ("467 KB image") -->
+	<string name="attachment_description_image">תמונה בגודל %s</string>
+	<string name="attachment_description_video">סרטון בגודל %s</string>
+	<string name="attachment_description_audio">אודיו בגודל %s</string>
+	<string name="attachment_description_unknown">קובץ %s</string>
+	<string name="attachment_type_image">תמונה</string>
+	<string name="attachment_type_video">וידאו</string>
+	<string name="attachment_type_audio">אודיו</string>
+	<string name="attachment_type_gif">GIF</string>
+	<string name="attachment_type_unknown">קובץ</string>
+	<string name="attachment_x_percent_uploaded">%d%% הועלה</string>
+	<string name="add_poll_option">כל אפשרויות הסקר</string>
+	<string name="poll_length">אורך הסקר</string>
+	<string name="poll_style">סגנון</string>
+	<string name="compose_poll_single_choice">נא לבחור</string>
+	<string name="compose_poll_multiple_choice">בחירה מרובה</string>
+	<string name="delete_poll_option">מחיקת אפשרויות סקר</string>
+	<string name="poll_style_title">סגנון סקר</string>
+	<string name="alt_text">טקסט חלופי</string>
+	<string name="help">עזרה</string>
+	<string name="what_is_alt_text">מהו טקסט חלופי?</string>
+	<string name="alt_text_help">טקסט חלופי מספק תיאורי תמונות לאנשים עם לקויות ראייה, חיבורים בעלי רוחב פס נמוך, או כאלה המחפשים הקשר נוסף.\n\nניתן לשפר את הנגישות וההבנה עבור כולם על ידי כתיבת טקסט חלופי ברור, תמציתי ואובייקטיבי.\n\n<ul><li>לכידת אלמנטים חשובים</li>\n<li>סיכום טקסט בתמונות</li>\n<li>השתמש במבנה משפטים רגיל</li>\n<li>הימנעות ממידע מיותר</li>\n<li>התמקדות במגמות ובממצאים מרכזיים בוויזואליה מורכבת (כמו דיאגרמות או מפות)</li></ul></string>
+	<string name="edit_post">עריכת הודעה</string>
+	<string name="no_verified_link">אין קישור מאומת</string>
+	<string name="compose_autocomplete_emoji_empty">עיון באימוגי</string>
+	<string name="compose_autocomplete_users_empty">מצאו את מי שחפשתם</string>
+	<string name="no_search_results">לא נמצא דבר עבור תנאי חיפוש אלה</string>
+	<string name="language">שפה</string>
+	<string name="language_default">ברירת מחדל</string>
+	<string name="language_system">מערכת</string>
+	<string name="language_detecting">זיהוי שפה</string>
+	<string name="language_cant_detect">לא הצלחנו לזהות שפה</string>
+	<string name="language_detected">זוהה</string>
+	<string name="media_hidden">מדיה מוסתרת</string>
+	<string name="post_hidden">פוסטים מוסתרים</string>
+	<string name="report_title_post">דווח על פוסט</string>
+	<string name="forward_report_explanation">החשבון הוא משרת אחר. האם לשלוח לשם גם עותק אנונימי של הדוח הזה?</string>
 	<!-- %s is the server domain -->
+	<string name="forward_report_to_server">העבר אל %s</string>
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
+	<string name="reported">דווח</string>
+	<string name="report_unfollow_explanation">כדי לא לראות יותר את הפוסטים שלהם בפיד הבית שלך, הפסיקו לעקוב אחריהם.</string>
+	<string name="muted_user">%s הושתקו</string>
+	<string name="report_sent_already_blocked">כבר חסמת את המשתמש הזה, כך שאין לך מה לעשות בזמן שאנחנו בודקים את הדיווח שלך.</string>
+	<string name="report_personal_already_blocked">כבר חסמת את המשתמש הזה, אז אין לך עוד מה לעשות.\n\nתודה שעזרת לשמור על Mastodon כמקום בטוח לכולם!</string>
+	<string name="blocked_user">%s חסומים</string>
+	<string name="mark_all_notifications_read">סמן הכל כנקרא</string>
+	<string name="settings_display">הצג</string>
+	<string name="settings_filters">פילטרים</string>
+	<string name="settings_server_explanation">סקירה כללית, חוקים, מנהלים</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
+	<string name="about_app">‮אודות ‭%s</string>
+	<string name="default_post_language">שפת פוסטים ברירת מחדל</string>
+	<string name="settings_alt_text_reminders">הוסף תזכורות טקסט חלופי</string>
+	<string name="settings_confirm_unfollow">שאלו אותי לפני הפסקת מעקב אחר מישהו</string>
+	<string name="settings_confirm_boost">שאלו לפני הידהוד</string>
+	<string name="settings_confirm_delete_post">שאלו לפני מחיקת הודעות</string>
+	<string name="pause_all_notifications">השהה הכל</string>
+	<string name="pause_notifications_off">כיבוי</string>
+	<string name="notifications_policy_anyone">כולם</string>
+	<string name="notifications_policy_followed">אנשים שעוקבים אחריך</string>
+	<string name="notifications_policy_follower">אנשים שעקבת אחריהם</string>
+	<string name="notifications_policy_no_one">אף אחד</string>
+	<string name="settings_notifications_policy">קבלת התראות מ-</string>
+	<string name="notification_type_mentions_and_replies">אזכורים ותגובות</string>
+	<string name="pause_all_notifications_title">השהיית כל ההתראות</string>
+	<plurals name="x_weeks">
+		<item quantity="one">שבוע %d</item>
+		<item quantity="two">%d שבועות</item>
+		<item quantity="many">%d שבועות</item>
+		<item quantity="other">%d שבועות</item>
+	</plurals>
 	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
+	<string name="date_at_time">%1$s ב %2$s</string>
+	<string name="today">היום</string>
+	<string name="yesterday">אתמול</string>
+	<string name="tomorrow">מחר</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="pause_notifications_ends">מסתיים %s</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="pause_notifications_banner">ההתראות יחודשו ב-%s.</string>
+	<string name="resume_notifications_now">המשך כעת</string>
+	<string name="open_system_notification_settings">מעבר אל הגדרות התראה</string>
+	<string name="about_server">אודות</string>
+	<string name="server_rules">כללים</string>
+	<string name="server_administrator">מנהל מערכת</string>
+	<string name="send_email_to_server_admin">שליחת הודעה למנהל</string>
+	<string name="notifications_disabled_in_system">הפעלת התראות מהגדרות המכשיר שלך כדי לראות עדכונים מכל מקום.</string>
+	<string name="settings_even_more">עוד יותר הגדרות</string>
+	<string name="settings_show_cws">הצג אזהרת תוכן</string>
+	<string name="settings_hide_sensitive_media">הסתרת מדיה המסומנת כרגישה</string>
+	<string name="settings_show_interaction_counts">ספירת אינטראקציות בפוסטים</string>
+	<string name="settings_show_emoji_in_names">אמוג\'י מותאם אישית בשמות תצוגה</string>
+	<plurals name="in_x_seconds">
+		<item quantity="one">בעוד שניה %d</item>
+		<item quantity="two">בעוד %d שניות</item>
+		<item quantity="many">בעוד %d שניות</item>
+		<item quantity="other">בעוד %d שניות</item>
+	</plurals>
+	<plurals name="in_x_minutes">
+		<item quantity="one">בעוד דקה %d</item>
+		<item quantity="two">בעוד %d דקות</item>
+		<item quantity="many">בעוד %d דקות</item>
+		<item quantity="other">בעוד %d דקות</item>
+	</plurals>
+	<plurals name="in_x_hours">
+		<item quantity="one">בעוד שעה %d</item>
+		<item quantity="two">בעוד %d שעות</item>
+		<item quantity="many">בעוד %d שעות</item>
+		<item quantity="other">בעוד %d שעות</item>
+	</plurals>
+	<plurals name="x_hours_ago">
+		<item quantity="one">לפני שעה %d</item>
+		<item quantity="two">לפני %d שעות</item>
+		<item quantity="many">לפני %d שעות</item>
+		<item quantity="other">לפני %d שעות</item>
+	</plurals>
+	<string name="alt_text_reminder_title">טקסט חלופי חסר במדיה</string>
+	<string name="count_one">אחד</string>
+	<string name="count_two">שתיים</string>
+	<string name="count_three">שלוש</string>
+	<string name="count_four">ארבע</string>
+	<string name="alt_text_reminder_post_anyway">פוסט</string>
 	<!-- %s is the username -->
+	<string name="unfollow_confirmation">בטול מעקב אחרי %s?</string>
+	<string name="filter_active">פעיל</string>
+	<string name="filter_inactive">לא פעיל</string>
+	<string name="settings_add_filter">הוספת סנן</string>
+	<string name="settings_edit_filter">עריכת סנן</string>
+	<string name="settings_filter_duration">משך</string>
+	<string name="settings_filter_muted_words">מילים מושתקות</string>
+	<string name="settings_filter_context">השתקה מ-</string>
+	<string name="settings_filter_show_cw">הצג עם אזהרת תוכן</string>
+	<string name="settings_filter_show_cw_explanation">יוצגו פוסטים שתואמים את למסנן זה, אך לאחר אזהרת תוכן</string>
+	<string name="settings_delete_filter">מחיקת סנן</string>
+	<string name="filter_duration_forever">תמיד</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="settings_filter_ends">מסתיים ב- %s</string>
+	<string name="filter_context_notifications">התראות</string>
+	<string name="filter_context_public_timelines">פידים ציבוריים</string>
+	<string name="filter_context_profiles">פרופילים</string>
+	<string name="settings_filter_title">כותרת</string>
+	<string name="settings_delete_filter_confirmation">סנן זה יימחק מחשבונך בכל המכשירים שלך.</string>
+	<string name="add_muted_word">הוספת מילה מושתקת</string>
+	<string name="edit_muted_word">עריכת מילה מושתקת</string>
+	<string name="add">הוספה</string>
+	<string name="filter_word_or_phrase">מילה או ביטוי</string>
+	<string name="filter_add_word_help">מילים אינן תלויות באותיות גדולות ומתאים למילים מלאות בלבד.\n\nאם תסננו את מילת המפתח \"תפוח\", היא תסתיר פוסטים המכילים \"תפוח\" אך לא \"תפוחים\".\n\nבאנגלית אם תסננו “Apple”, יחסמו גם “apple” או “aPpLe” אבל לא “pineapple”.</string>
+	<string name="settings_delete_filter_word">למחוק את המילה \"%s\"?</string>
+	<string name="enter_selection_mode">בחירה</string>
+	<string name="select_all">לבחור הכל</string>
+	<string name="settings_filter_duration_title">משך הסינון</string>
+	<string name="filter_duration_custom">מותאם</string>
+	<string name="required_form_field_blank">לא יכול להיות ריק</string>
+	<string name="filter_word_already_in_list">כבר נמצא ברשימה</string>
+	<string name="app_update_ready">עדכון היישום מוכן</string>
+	<string name="app_update_version">גרסה %s</string>
+	<string name="downloading_update">מוריד (%d%%)</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
+	<string name="post_matches_filter_x">תואם לסנן “%s”</string>
+	<string name="search_mastodon">חיפוש Mastodon</string>
+	<string name="clear_all">נקה הכל</string>
+	<string name="search_open_url">פתיחת כתובת URL ב- Mastodon</string>
+	<string name="posts_matching_hashtag">הודעות עם \"%s\"</string>
+	<string name="search_go_to_account">עבור אל %s</string>
+	<string name="posts_matching_string">הודעות עם \"%s\"</string>
+	<string name="accounts_matching_string">אנשים עם “%s”</string>
 	<!-- Shown in the post header. Please keep it short -->
+	<string name="time_seconds_ago_short">לפני %d שניות</string>
+	<string name="time_minutes_ago_short">לפני %d דקות</string>
+	<string name="time_hours_ago_short">לפני %d שעות</string>
+	<string name="time_days_ago_short">לפני %d ימים</string>
 	<!-- %s is the name of the post language -->
+	<string name="translate_post">תורגם מ- %s</string>
 	<!-- %1$s is the language, %2$s is the name of the translation service -->
+	<string name="post_translated">תורגם מ-%1$s באמצעות %2$s</string>
+	<string name="translation_show_original">הצגת מקור</string>
+	<string name="translation_failed">התרגום נכשל. ייתכן שהמנהל לא הפעיל תרגומים בשרת זה או שבשרת זה מפעילים גרסה ישנה יותר של Mastodon שבה תרגומים עדיין אינם נתמכים.</string>
+	<string name="settings_privacy">פרטיות ומידת חשיפה</string>
+	<string name="settings_discoverable">הצגת פרופיל והודעות במסך התגליות</string>
+	<string name="settings_indexable">כלול פוסטים ציבוריים בתוצאות החיפוש</string>
+	<string name="error_playing_video">שגיאה בהפעלת הסרטון</string>
+	<string name="timeline_following">בית</string>
+	<string name="lists">רשימות</string>
+	<string name="followed_hashtags">התגיות שהחשבון שלך עוקב אחריהן</string>
+	<string name="manage_lists">ניהול רשימות</string>
+	<string name="manage_hashtags">ניהול תגיות</string>
 	<!-- Screen reader description for the menu on the home timeline screen -->
+	<string name="dropdown_menu">תפריט נפתח</string>
+	<string name="edit_list">עריכת רשימה</string>
+	<string name="list_members">רשימת חברים</string>
+	<string name="delete_list">מחיקת רשימה</string>
 	<!-- %s is the name of the list -->
+	<string name="delete_list_confirm">למחוק את \"%s\"?</string>
+	<string name="list_exclusive">הסתר חברים במעקב</string>
+	<string name="list_exclusive_subtitle">אם מישהו נמצא ברשימה הזו, הסתירו אותו בציר הזמן של המעקב שלכם כדי להימנע מלראות את הפוסטים שלו פעמיים.</string>
+	<string name="list_name">שם הרשימה</string>
+	<string name="list_show_replies_to">הצג תגובות ל</string>
+	<string name="list_replies_no_one">אף אחד</string>
+	<string name="list_replies_members">משתמשים ברשימה</string>
+	<string name="list_replies_anyone">כל מי שאני עוקב אחריו</string>
+	<string name="confirm_remove_list_members">להסיר חברים?</string>
+	<string name="remove">הסרה</string>
+	<string name="add_list_member">הוספת חבר</string>
+	<string name="search_among_people_you_follow">חיפוש בין הנעקבים שלך</string>
+	<string name="add_user_to_list">הוספה/הסרה מהרשימות…</string>
+	<string name="add_user_to_list_title">הוספה לרשימה</string>
 	<!-- %s is a username -->
+	<string name="manage_user_lists">בחירת הרשימות שבהן מופיעים %s</string>
+	<string name="remove_from_list">הסרה מהרשימה</string>
+	<string name="confirm_remove_list_member">להסיר חבר?</string>
+	<string name="no_followed_hashtags_title">הישארו מעודכנים בתחומי העניין שלכם על ידי מעקב לפי תגיות</string>
+	<string name="no_followed_hashtags_subtitle">עוקבים יופיעו כאן</string>
+	<string name="no_lists_title">ארגון פיד הבית בעזרת רשימות</string>
+	<string name="no_lists_subtitle">שלך יופיע כאן</string>
+	<string name="manage_accounts">הוספת או החלפת חשבונות</string>
+	<string name="create">יצירה</string>
+	<string name="manage_list_members">נהל רשימת חברים</string>
+	<string name="list_no_members">עדיין אין חברים</string>
+	<string name="list_find_users">חיפוש משתמשים להוספה</string>
+	<string name="reply_to_user">תגובה ל-%s</string>
+	<string name="posted_at">פורסם ב-%s</string>
+	<string name="non_mutual_sheet_title">שלום, התחברות חדשה!</string>
+	<string name="non_mutual_sheet_text">נראה שזו תשובה למישהו שעדיין לא דיברת איתו. בואו נעשה רושם ראשוני טוב.</string>
+	<string name="got_it">הבנתי</string>
+	<string name="dont_remind_again">אל תזכיר לי שוב</string>
 	<!-- %s is a time interval ("5 months") -->
+	<string name="more_than_two_years">יותר משנתיים</string>
+	<string name="non_mutual_title1">שמרו על כבוד ורלוונטיות</string>
+	<string name="non_mutual_text1">וודאו שתשובתכם מנומסת ורלוונטית לנושא.</string>
+	<string name="non_mutual_title2">היו אדיבים</string>
+	<string name="non_mutual_text2">טון חיובי תמיד מוערך.</string>
+	<string name="non_mutual_title3">היו פתוחים</string>
+	<string name="non_mutual_text3">סגנון השיחה של כל אחד הוא ייחודי. היו מוכנים להסתגל.</string>
+	<string name="make_profile_discoverable">הפוך את הפרופיל שלי לגלוי</string>
+	<string name="discoverability">חשיפה</string>
+	<string name="discoverability_help">בבחירה באפשרות של גילוי ב-Mastodon, הפוסטים שלך עשויים להופיע בתוצאות חיפוש ובמגמות.\n\nהפרופיל שלך עשוי להיות מוצע לאנשים עם תחומי עניין דומים לשלך.\n\nביטול הסכמה אינו מסתיר את הפרופיל שלך אם מישהו מחפש אותך לפי שמך.</string>
+	<string name="app_version_copied">מספר הגרסה הועתק</string>
+	<string name="onboarding_recommendations_intro">פיד הבית שלך נאצר בידיך.
+ככל שתעקבו אחרי יותר אנשים, כך הוא יהיה פעיל ומעניין יותר.</string>
+	<string name="onboarding_recommendations_title">התאמה אישית של פיד הבית שלך</string>
+	<string name="article_by_author">על ידי %s</string>
+	<string name="button_reblogged">הדהודים</string>
+	<string name="button_favorited">חיבובים</string>
+	<string name="join_server_x_with_invite">הצטרפות ל-%s עם הזמנה</string>
+	<string name="expired_invite_link">פג תוקף קישור ההזמנה</string>
+	<string name="expired_clipboard_invite_link_alert">קישור ההזמנה ל-%1$sבלוח שלך פג תוקף ולא ניתן להשתמש בו להרשמה.\n\nניתן לבקש קישור חדש ממשתמש קיים, להירשם דרך %2$s, או לבחור שרת אחר להרשמה.</string>
+	<string name="invalid_invite_link">קישור הזמנה לא חוקי</string>
+	<string name="invalid_clipboard_invite_link_alert">קישור ההזמנה ל-%1$s בלוח שלך אינו חוקי ולא ניתן להשתמש בו להרשמה.\n\nניתן לבקש קישור חדש ממשתמש קיים, להירשם דרך %2$s, או לבחור שרת אחר להרשמה.</string>
+	<string name="use_invite_link">להשתמש בקישור הזמנה</string>
+	<string name="enter_invite_link">הזנת קישור הזמנה</string>
+	<string name="this_invite_is_invalid">קישור הזמנה זה אינו תקף.</string>
+	<string name="this_invite_has_expired">פג תוקף קישור ההזמנה הזה.</string>
+	<string name="invite_link_pasted">קישור הודבק מהלוח שלך.</string>
+	<string name="block_user_confirm_title">לחסום משתמש?</string>
+	<string name="user_can_see_blocked">הם יכולים לראות שהם חסומים.</string>
+	<string name="user_cant_see_each_other_posts">הם לא יוכלו לראות את הפוסטים שלך ולא תראו את שלהם.</string>
+	<string name="user_cant_mention_or_follow_you">הם לא יוכלו להזכיר אותך או לעקוב אחריך.</string>
+	<string name="do_block_server">חסימת שרת</string>
+	<string name="block_user_x_instead">לחסום את @%s במקום שרת שלם</string>
+	<string name="users_cant_see_blocked">לא תוכלו לראות הודעות ממשתמשים על שרת זה.</string>
+	<string name="you_wont_see_server_posts">לא תראו פוסטים ממשתמשים בשרת הזה.</string>
+	<string name="server_cant_mention_or_follow_you">אף אחד מהשרת הזה לא יכול לעקוב אחריך.</string>
+	<string name="server_can_interact_with_older">אנשים מהשרת הזה יכולים לקיים אינטראקציה עם הפוסטים הישנים שלך.</string>
+	<string name="server">שרת</string>
+	<string name="handle_server_explanation">הבית הדיגיטלי שלהם, שבו נמצאים כל הפוסטים שלהם.</string>
+	<string name="handle_explanation">מאחר וכינויים מספרים על מישהו ומה מיקומו, ניתן להיות בקשר עם אנשים לרוחבה של הרשת החברתית של &lt;a&gt;פלטפורמות המופעלות על ידי ActivityPub&lt;/a&gt;.</string>
+	<string name="what_is_activitypub_title">מה זה ActivityPub?</string>
+	<string name="what_is_activitypub">ActivityPub דומה לשפה Mastodon מדברת עם רשתות חברתיות אחרות.\n\nזה מאפשר לך להתחבר ולקיים אינטראקציה עם אנשים לא רק Mastodon, אלא גם באפליקציות חברתיות שונות.</string>
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
+	<string name="tab_home">בית</string>
+	<string name="tab_profile">פרופיל</string>
+	<string name="pin_post">הצמדה לפרופיל</string>
+	<string name="unpin_post">ביטול הצמדה לפרופיל</string>
+	<string name="post_pinned">ההודעה הוצמדה</string>
+	<string name="post_unpinned">בוטלה הצמדת ההודעה</string>
 	<!-- %s is the username -->
+	<string name="enable_new_post_notifications">שלח לי התראות כאשר %s מפרסמים</string>
+	<string name="dismiss">לבטל</string>
+	<string name="donation_once">רק הפעם</string>
+	<string name="donation_monthly">חודשי</string>
+	<string name="donation_yearly">שנתי</string>
+	<string name="currency">מטבע</string>
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
+	<string name="profile_saved_posts">נשמר</string>
+	<string name="profile_saved_posts_explanation">הפוסטים השמורים שלך מוצגים רק לך.</string>
+	<string name="search_people">אנשים</string>
 	<!-- appears when you're about to block a server -->
 	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
 	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
+	<string name="load_missing_posts_above">טען הודעות חסרות למעלה</string>
+	<string name="load_missing_posts_below">טען הודעות חסרות מתחת</string>
+	<string name="signup_password_too_short">הסיסמה צריכה להכיל לפחות 8 תווים.</string>
+	<string name="private_reply">תשובה בפרטי</string>
+	<string name="private_mention">אזכור פרטי</string>
+	<string name="post_header_reply">תגובה</string>
 	<!-- %s is `at_least_x_years_old`. Some languages, unlike English, may require the word "years" here. -->
 	<!-- Substituted into `date_of_birth_explanation` -->
+	<!-- %s is a username, i.e. @Gargron -->
 </resources>
