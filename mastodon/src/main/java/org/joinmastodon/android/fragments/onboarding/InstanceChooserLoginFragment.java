@@ -132,6 +132,7 @@ public class InstanceChooserLoginFragment extends InstanceCatalogFragment{
 		Toolbar toolbar=getToolbar();
 		toolbar.setElevation(0);
 		toolbar.setBackground(null);
+		toolbar.setNavigationContentDescription(R.string.back);
 		if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.N){
 			toolbar.setContentInsetStartWithNavigation(V.dp(80));
 		}
