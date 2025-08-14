@@ -105,6 +105,9 @@ public class ClickableLinksDelegate implements CustomViewHelper{
 				for(LinkSpan span:spans){
 					int start=s.getSpanStart(span);
 					int end=s.getSpanEnd(span);
+					int startLine=l.getLineForOffset(start);
+					if(l.getLineEnd(startLine)-1==start)
+						start++;
 					if(start<=position && end>position){
 						selectedSpan=span;
 						hlPath=new Path();

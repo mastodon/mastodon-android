@@ -84,7 +84,15 @@ public class LinkedTextView extends TextView{
 			Layout layout=getLayout();
 			MonospaceSpan[] monospaceSpans=spanned.getSpans(0, spanned.length(), MonospaceSpan.class);
 			for(MonospaceSpan span:monospaceSpans){
-				layout.getSelectionPath(spanned.getSpanStart(span), spanned.getSpanEnd(span), tmpPath);
+				int start=spanned.getSpanStart(span);
+				int end=spanned.getSpanEnd(span);
+				int startLine=layout.getLineForOffset(start);
+
+				// Because text rendering in Android sucks, do this to handle spans that come immediately after a line break caused by word wrapping.
+				// Otherwise, in addition to the correct part, the background will also be incorrectly drawn as a trailing thing on the previous line
+				if(layout.getLineEnd(startLine)-1==start)
+					start++;
+				layout.getSelectionPath(start, end, tmpPath);
 				c.drawPath(tmpPath, bgPaint);
 			}
 			CodeBlockSpan[] blockSpans=spanned.getSpans(0, spanned.length(), CodeBlockSpan.class);
