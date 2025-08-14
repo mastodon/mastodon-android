@@ -4,7 +4,7 @@
 	<string name="next">Næste</string>
 	<string name="loading_instance">Henter serverinfo…</string>
 	<string name="error">Fejl</string>
-	<string name="not_a_mastodon_instance">%s lader ikke til at være en Mastodon-server.</string>
+	<string name="not_a_mastodon_instance">%s er vist ikke en Mastodon-server.</string>
 	<string name="ok">OK</string>
 	<string name="preparing_auth">Forbereder godkendelse…</string>
 	<string name="finishing_auth">Afslutter godkendelse…</string>
@@ -13,12 +13,14 @@
 	<string name="notifications">Notifikationer</string>
 	<string name="user_followed_you">%s begyndte at følge dig</string>
 	<string name="user_sent_follow_request">%s har sendt dig en følgeanmodning</string>
+	<string name="user_favorited">%s favoritmarkerede:</string>
+	<string name="notification_boosted">%s fremhævede:</string>
 	<string name="share_toot_title">Del</string>
 	<string name="settings">Indstillinger</string>
 	<string name="publish">Publicér</string>
 	<string name="discard_draft">Kassér kladde?</string>
 	<string name="discard">Kassér</string>
-	<string name="cancel">Afbryd</string>
+	<string name="cancel">Annullér</string>
 	<plurals name="followers">
 		<item quantity="one">følger</item>
 		<item quantity="other">følgere</item>
@@ -35,7 +37,7 @@
 	<string name="button_following">Følger</string>
 	<string name="edit_profile">Redigér profil</string>
 	<string name="share_user">Del profil via…</string>
-	<string name="mute_user">Gør tavs %s</string>
+	<string name="mute_user">Skjul %s</string>
 	<string name="unmute_user">Vis %s igen</string>
 	<string name="block_user">Blokér %s</string>
 	<string name="unblock_user">Afblokér %s</string>
@@ -87,10 +89,11 @@
 		<item quantity="other">%,d stemmer</item>
 	</plurals>
 	<string name="poll_closed">Lukket</string>
-	<string name="do_mute">Tavsgør</string>
+	<string name="do_mute">Skjul</string>
 	<string name="do_block">Blokér</string>
 	<string name="button_blocked">Blokeret</string>
 	<string name="action_vote">Stem</string>
+	<string name="confirm">Bekræft</string>
 	<string name="delete">Slet</string>
 	<string name="confirm_delete_title">Slet indlæg</string>
 	<string name="confirm_delete">Sikker på, at dette indlæg skal slettes?</string>
@@ -133,7 +136,7 @@
 	<string name="report_sent_subtitle">Mens vi gennemgår anmeldelsen, kan du tage skridt mod %s:</string>
 	<string name="unfollow_user">Følg ikke længere %s</string>
 	<string name="unfollow">Følg ikke længere</string>
-	<string name="mute_user_explain">Du vil ikke se indlæg fra vedkommende, der dog stadig kan se dine indlæg og følge dig, men ikke være bekendt med tavsgørelsen.</string>
+	<string name="mute_user_explain">Du vil ikke se vedkommendes indlæg. Vedkommende kan stadig se dine indlæg og følge dig. Vedkommende vil ikke kunne se, at de er blevet skjult.</string>
 	<string name="block_user_explain">Du vil ikke se indlæg fra vedkommende, der hverken kan se dine indlæg eller følge dig, men vil være bekendt med blokeringen.</string>
 	<string name="report_personal_title">Ønsker du ikke at se dette?</string>
 	<string name="report_personal_subtitle">Her er mulighederne for at styre, hvad du ser på Mastodon:</string>
@@ -148,20 +151,20 @@
 	<string name="password">Adgangskode</string>
 	<string name="confirm_password">Bekræft adgangskode</string>
 	<string name="category_general">Generelt</string>
-	<string name="confirm_email_title">Tjek indbakken</string>
+	<string name="confirm_email_title">Tjek din indbakke</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">Tryk på det modtage link for at bekræfte %s. Vi venter her så længe.</string>
 	<string name="confirm_email_didnt_get">Modtog intet link?</string>
 	<string name="resend">Send igen</string>
 	<string name="open_email_app">Åbn e-mail app</string>
 	<string name="resent_email">Bekræftelsesmail sendt</string>
-	<string name="compose_hint">Angiv eller indsæt, hvad du tænker på</string>
+	<string name="compose_hint">Skriv eller indsæt, hvad du har på hjerte</string>
 	<string name="content_warning">Indholdsadvarsel</string>
 	<string name="save">Gem</string>
 	<string name="add_alt_text">Tilføj alternativ tekst</string>
 	<string name="visibility_public">Offentlig</string>
 	<string name="visibility_followers_only">Følgere</string>
-	<string name="visibility_private">Bestemte folk</string>
+	<string name="visibility_private">Bestemte personer</string>
 	<string name="recent_searches">Nylige</string>
 	<string name="notification_type_follow">Nye Følgere</string>
 	<string name="notification_type_favorite">Favoritmarkeringer</string>
@@ -182,7 +185,7 @@
 	<string name="theme_dark">Mørk</string>
 	<string name="settings_behavior">Adfærd</string>
 	<string name="settings_gif">Afspil animerede avatarer og emojier</string>
-	<string name="settings_custom_tabs">Åbn link i</string>
+	<string name="settings_custom_tabs">Åbn links i</string>
 	<string name="settings_notifications">Notifikationer</string>
 	<string name="settings_contribute">Bidrag til Mastodon</string>
 	<string name="settings_tos">Tjenestevilkår</string>
@@ -197,7 +200,7 @@
 	<string name="new_post">Nyt indlæg</string>
 	<string name="button_reply">Svar</string>
 	<string name="button_reblog">Fremhæv</string>
-	<string name="button_favorite">Gør til favorit</string>
+	<string name="button_favorite">Markér som favorit</string>
 	<string name="button_share">Del</string>
 	<string name="media_no_description">Medier uden beskrivelse</string>
 	<string name="add_media">Tilføj medier</string>
@@ -211,8 +214,8 @@
 	<string name="followed_user">Du følger nu %s</string>
 	<string name="following_user_requested">Anmodede om at følge %s</string>
 	<string name="open_in_browser">Åbn i browser</string>
-	<string name="hide_boosts_from_user">Skjul boosts</string>
-	<string name="show_boosts_from_user">Vis boosts</string>
+	<string name="hide_boosts_from_user">Skjul fremhævninger</string>
+	<string name="show_boosts_from_user">Vis fremhævninger</string>
 	<string name="signup_reason">Hvorfor ønsker du at tilmelde dig?</string>
 	<string name="signup_reason_note">Dette hjælper os med at vurdere din ansøgning.</string>
 	<string name="clear">Ryd</string>
@@ -226,7 +229,7 @@
 	<string name="error_saving_file">Fejl under lagring af fil</string>
 	<string name="downloading">Downloader…</string>
 	<string name="no_app_to_handle_action">Ingen app til at håndtere denne handling</string>
-	<string name="local_timeline">Realtids-feed</string>
+	<string name="local_timeline">Live feed</string>
 	<string name="trending_posts_info_banner">Her er de indlæg, som vinder indpas på tværs af Mastodon.</string>
 	<string name="trending_links_info_banner">Her er de nyheder, der bliver talt om på Mastodon.</string>
 	<!-- %s is the server domain -->
@@ -247,8 +250,8 @@
 		<item quantity="other">%,d følgere</item>
 	</plurals>
 	<plurals name="x_favorites">
-		<item quantity="one">%,d favoritmarkering</item>
-		<item quantity="other">%,d favoritmarkeringer</item>
+		<item quantity="one">%,d favorit</item>
+		<item quantity="other">%,d favoritter</item>
 	</plurals>
 	<plurals name="x_reblogs">
 		<item quantity="one">%,d fremhævning</item>
@@ -301,6 +304,7 @@
 	<string name="add_bookmark">Bogmærk</string>
 	<string name="remove_bookmark">Fjern bogmærke</string>
 	<string name="bookmarks">Bogmærker</string>
+	<string name="your_favorites">Favoritter</string>
 	<string name="login_title">Velkommen tilbage</string>
 	<string name="login_subtitle">Log ind med serveren, på hvilken din konto blev oprettet.</string>
 	<string name="server_url">Server-URL</string>
@@ -331,7 +335,7 @@
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
 	<string name="signup_email_domain_blocked">%1$s tillader ikke tilmeldinger fra %2$s. Prøv en anden eller &lt;a&gt;vælg en anden server&lt;/a&gt;.</string>
 	<string name="spoiler_show">Vis alligevel</string>
-	<string name="spoiler_hide">Genskjul</string>
+	<string name="spoiler_hide">Skjul igen</string>
 	<string name="poll_multiple_choice">Vælg en eller flere</string>
 	<string name="save_changes">Gem ændringer</string>
 	<string name="profile_featured">Fremhævet</string>
@@ -377,10 +381,10 @@
 	<string name="help">Hjælp</string>
 	<string name="what_is_alt_text">Hvad er alt tekst?</string>
 	<string name="alt_text_help">Alt tekst vil sige billedbeskrivelser til personer med synshandikap, forbindelser med lav båndbredde eller dem, som søger ekstra kontekst.\n\nMan kan forbedre tilgængelighed og forståelse for alle ved at skrive klar, kortfattet og objektiv alt-tekst.\n\n<ul><li>Fang vigtige elementer</li>\n<li>Opsummér tekst i billeder</li>\n<li>Brug regulær sætningsstruktur</li>\n<li>Undgå overflødig information</li>\n<li>Fokus på tendenser og vigtige fund i kompleks grafik (såsom diagrammer/kort)</li></ul></string>
-	<string name="edit_post">Redigere opslag</string>
+	<string name="edit_post">Redigér indlæg</string>
 	<string name="no_verified_link">Intet bekræftet link</string>
 	<string name="compose_autocomplete_emoji_empty">Gennemse emoji</string>
-	<string name="compose_autocomplete_users_empty">Find den, man leder efter</string>
+	<string name="compose_autocomplete_users_empty">Find den, du leder efter</string>
 	<string name="no_search_results">Ingen resultater for disse søgeord</string>
 	<string name="language">Sprog</string>
 	<string name="language_default">Standard</string>
@@ -397,24 +401,24 @@
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
 	<string name="reported">Anmeldt</string>
 	<string name="report_unfollow_explanation">For ikke længere at se vedkommendes indlæg i hjemmefeedet, ophør med at følge.</string>
-	<string name="muted_user">Tavsgjorde %s</string>
-	<string name="report_sent_already_blocked">Denne bruger er allerede blokeret, så man behøver ikke gøre andet, mens vi gennemgår anmeldelsen.</string>
-	<string name="report_personal_already_blocked">Denne bruger er allerede blokeret, så man behøver ikke gøre andet.\n\nTak for at hjælpen med at holde Mastodon sikkert for alle!</string>
+	<string name="muted_user">Skjulte %s</string>
+	<string name="report_sent_already_blocked">Du har allerede blokeret denne bruger, så der er ikke mere, du skal gøre, mens vi gennemgår din anmeldelse.</string>
+	<string name="report_personal_already_blocked">Du har allerede blokeret denne bruger, så der er ikke mere, du skal gøre.\n\nTak, fordi du hjælper med at gøre Mastodon til et sikkert sted for alle!</string>
 	<string name="blocked_user">Blokeret %s</string>
 	<string name="mark_all_notifications_read">Markér alle som læst</string>
-	<string name="settings_display">Vis</string>
+	<string name="settings_display">Skærm</string>
 	<string name="settings_filters">Filtre</string>
 	<string name="settings_server_explanation">Oversigt, regler, moderatorer</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">Om %s</string>
 	<string name="default_post_language">Standard indlægssprog</string>
-	<string name="settings_alt_text_reminders">Tilføj alt tekst påmindelser</string>
-	<string name="settings_confirm_unfollow">Spørg før ophør med at følge nogen</string>
-	<string name="settings_confirm_boost">Spørg før boosting</string>
+	<string name="settings_alt_text_reminders">Mind om at tilføje alt-tekst</string>
+	<string name="settings_confirm_unfollow">Spørg, før du stopper med at følge nogen</string>
+	<string name="settings_confirm_boost">Spørg før fremhævning</string>
 	<string name="settings_confirm_delete_post">Spørg før sletning af indlæg</string>
 	<string name="pause_all_notifications">Pausér alle</string>
 	<string name="pause_notifications_off">Fra</string>
-	<string name="notifications_policy_anyone">Enhver</string>
+	<string name="notifications_policy_anyone">Alle</string>
 	<string name="notifications_policy_followed">Personer, som er følgere</string>
 	<string name="notifications_policy_follower">Personer, som følges</string>
 	<string name="notifications_policy_no_one">Ingen</string>
@@ -440,11 +444,11 @@
 	<string name="server_rules">Regler</string>
 	<string name="server_administrator">Administrator</string>
 	<string name="send_email_to_server_admin">Send besked til admin</string>
-	<string name="notifications_disabled_in_system">Slå notifikationer til fra enhedsindstillingerne for at se opdateringer, uanset hvor man er.</string>
+	<string name="notifications_disabled_in_system">Slå notifikationer til i enhedens indstillinger, så du kan se opdateringer hvor som helst.</string>
 	<string name="settings_even_more">Endnu flere indstillinger</string>
 	<string name="settings_show_cws">Vis indholdsadvarsler</string>
 	<string name="settings_hide_sensitive_media">Skjul medier med sensitiv-markering</string>
-	<string name="settings_show_interaction_counts">Indlægsinteraktionstæller</string>
+	<string name="settings_show_interaction_counts">Interaktionstæller for indlæg</string>
 	<string name="settings_show_emoji_in_names">Tilpasset emoji i visningsnavne</string>
 	<plurals name="in_x_seconds">
 		<item quantity="one">om %d sekund</item>
@@ -462,14 +466,14 @@
 		<item quantity="one">%d time siden</item>
 		<item quantity="other">%d timer siden</item>
 	</plurals>
-	<string name="alt_text_reminder_title">Medie mangler alt tekst</string>
+	<string name="alt_text_reminder_title">Medie mangler alt-tekst</string>
 	<plurals name="alt_text_reminder_x_images">
-		<item quantity="one">%s af billederne mangler alt tekst. Post alligevel?</item>
-		<item quantity="other">%s af billederne mangler alt tekst. Post alligevel?</item>
+		<item quantity="one">%s af billederne mangler alt-tekst. Slå op alligevel?</item>
+		<item quantity="other">%s af billederne mangler alt-tekst. Slå op alligevel?</item>
 	</plurals>
 	<plurals name="alt_text_reminder_x_attachments">
-		<item quantity="one">%s af vedhæftningerne mangler alt tekst. Post alligevel?</item>
-		<item quantity="other">%s af vedhæftningerne mangler alt tekst. Post alligevel?</item>
+		<item quantity="one">%s af vedhæftningerne mangler alt-tekst. Slå op alligevel?</item>
+		<item quantity="other">%s af vedhæftningerne mangler alt-tekst. Slå op alligevel?</item>
 	</plurals>
 	<string name="count_one">En</string>
 	<string name="count_two">To</string>
@@ -483,8 +487,8 @@
 	<string name="settings_add_filter">Tilføj filter</string>
 	<string name="settings_edit_filter">Redigér filter</string>
 	<string name="settings_filter_duration">Varighed</string>
-	<string name="settings_filter_muted_words">Tavsgjorte (skjulte) ord</string>
-	<string name="settings_filter_context">Tavsgør fra</string>
+	<string name="settings_filter_muted_words">Skjulte ord</string>
+	<string name="settings_filter_context">Skjul fra</string>
 	<string name="settings_filter_show_cw">Vis med indholdsadvarsel</string>
 	<string name="settings_filter_show_cw_explanation">Viser stadig indlæg matchende dette filter, men bag en indholdsadvarsel</string>
 	<string name="settings_delete_filter">Slet filter</string>
@@ -492,8 +496,8 @@
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<string name="settings_filter_ends">Slutter %s</string>
 	<plurals name="settings_x_muted_words">
-		<item quantity="one">%d tavsgjort (skjult) ord/sætning</item>
-		<item quantity="other">%d tavsgjorte (skjulte) ord/sætninger</item>
+		<item quantity="one">%d skjult ord eller sætning</item>
+		<item quantity="other">%d skjulte ord eller sætninger</item>
 	</plurals>
 	<string name="selection_2_options">%1$s og %2$s</string>
 	<string name="selection_3_options">%1$s, %2$s og %3$s</string>
@@ -506,8 +510,8 @@
 	<string name="settings_filter_title">Titel</string>
 	<string name="settings_delete_filter_title">Slet filter “%s”?</string>
 	<string name="settings_delete_filter_confirmation">Dette filter slettes fra din konto på alle enheder.</string>
-	<string name="add_muted_word">Tilføj tavsgjort (skjult) ord</string>
-	<string name="edit_muted_word">Redigér tavsgjort (skjult) ord</string>
+	<string name="add_muted_word">Tilføj skjult ord</string>
+	<string name="edit_muted_word">Redigér skjult ord</string>
 	<string name="add">Tilføj</string>
 	<string name="filter_word_or_phrase">Ord/sætning</string>
 	<string name="filter_add_word_help">Ord er versalfølsomme og matcher kun fulde ord.\n\nFiltreres nøgleordet “Apple,” vil det skjule indlæg indeholdende “apple” eller “aPpLe”, men ikke “pineapple”.</string>
@@ -537,7 +541,7 @@
 	<string name="posts_matching_hashtag">Indlæg med “%s”</string>
 	<string name="search_go_to_account">Gå til %s</string>
 	<string name="posts_matching_string">Indlæg med “%s”</string>
-	<string name="accounts_matching_string">Folk med “%s”</string>
+	<string name="accounts_matching_string">Personer med “%s”</string>
 	<!-- Shown in the post header. Please keep it short -->
 	<string name="time_seconds_ago_short">%ds siden</string>
 	<string name="time_minutes_ago_short">%dm siden</string>
@@ -563,9 +567,9 @@
 	<string name="error_playing_video">Videoafspilningsfejl</string>
 	<string name="timeline_following">Hjem</string>
 	<string name="lists">Lister</string>
-	<string name="followed_hashtags">Hashtag, som følges</string>
+	<string name="followed_hashtags">Hashtags, som følges</string>
 	<string name="manage_lists">Håndtér lister</string>
-	<string name="manage_hashtags">Håndtér hashtags</string>
+	<string name="manage_hashtags">Administrer hashtags</string>
 	<!-- Screen reader description for the menu on the home timeline screen -->
 	<string name="dropdown_menu">Rullemenu</string>
 	<string name="edit_list">Redigér liste</string>
@@ -574,23 +578,23 @@
 	<!-- %s is the name of the list -->
 	<string name="delete_list_confirm">Slet “%s”?</string>
 	<string name="list_exclusive">Skjul medlemmer i Følger</string>
-	<string name="list_exclusive_subtitle">Hvis nogen er på denne liste, skjul vedkommende i Følger-tidslinjen for at undgå at se vedkommendes indlæg to gange.</string>
+	<string name="list_exclusive_subtitle">Hvis nogen er på denne liste, så skjul dem på din Følger-tidslinje for at undgå at se deres indlæg to gange.</string>
 	<string name="list_name">Listenavn</string>
 	<string name="list_show_replies_to">Vis svar til</string>
 	<string name="list_replies_no_one">Ingen</string>
 	<string name="list_replies_members">Listemedlemmer</string>
-	<string name="list_replies_anyone">Enhver, man følger</string>
+	<string name="list_replies_anyone">Enhver, jeg følger</string>
 	<string name="confirm_remove_list_members">Fjern medlemmer?</string>
 	<string name="remove">Fjern</string>
 	<string name="add_list_member">Tilføj nogen som medlem</string>
-	<string name="search_among_people_you_follow">Søg blandt folk, som følges</string>
+	<string name="search_among_people_you_follow">Søg blandt personer, som du følger</string>
 	<string name="add_user_to_list">Tilføj/fjern fra lister…</string>
 	<string name="add_user_to_list_title">Føj til liste</string>
 	<!-- %s is a username -->
-	<string name="manage_user_lists">Håndtér listerne %s vises på</string>
+	<string name="manage_user_lists">Administrer listerne %s vises på</string>
 	<string name="remove_from_list">Fjern fra liste</string>
 	<string name="confirm_remove_list_member">Fjern medlem?</string>
-	<string name="no_followed_hashtags_title">Vær i tråd med interesser ved at følge hashtags</string>
+	<string name="no_followed_hashtags_title">Følg med i interesser ved at følge hashtags</string>
 	<string name="no_followed_hashtags_subtitle">Dem som følges vises her</string>
 	<string name="no_lists_title">Organiser hjemme-feed med Lister</string>
 	<string name="no_lists_subtitle">Egne lister vises her</string>
@@ -602,13 +606,13 @@
 	<string name="create_list">Opret liste</string>
 	<string name="step_x_of_y">Trin %1$d af %2$d</string>
 	<string name="create">Opret</string>
-	<string name="manage_list_members">Håndtér listemedlemmer</string>
+	<string name="manage_list_members">Administrer listemedlemmer</string>
 	<string name="list_no_members">Ingen medlemmer endnu</string>
 	<string name="list_find_users">Find brugere at tilføje</string>
 	<string name="reply_to_user">Besvar %s</string>
 	<string name="posted_at">Opslået %s</string>
 	<string name="non_mutual_sheet_title">Hej, ny forbindelse!</string>
-	<string name="non_mutual_sheet_text">Det ser ud til, at man er ved at svare en person, der endnu ikke er en gensidig forbindelse. Lad os gøre et godt første indtryk.</string>
+	<string name="non_mutual_sheet_text">Det ser ud til, at du er ved at svare en person, som endnu ikke er en gensidig forbindelse. Lad os gøre et godt førstehåndsindtryk.</string>
 	<string name="got_it">Forstået</string>
 	<string name="dont_remind_again">Påmind ikke igen</string>
 	<!-- %s is a time interval ("5 months") -->
@@ -624,16 +628,16 @@
 	<string name="non_mutual_title2">Omfavn venlighed</string>
 	<string name="non_mutual_text2">En positiv tone værdsættes altid.</string>
 	<string name="non_mutual_title3">Vær åben</string>
-	<string name="non_mutual_text3">Folks samtalestil er unik. Vær klar til at tilpasse.</string>
+	<string name="non_mutual_text3">Alles samtalestil er unik. Vær klar til at tilpasse dig.</string>
 	<string name="make_profile_discoverable">Gør profilen synlig</string>
 	<string name="discoverability">Opdagelighed</string>
-	<string name="discoverability_help">Når opdagelighed tilvælges på Mastodon, kan ens indlæg vises i søgeresultater og tendenser.\n\nMan kan få sin profil foreslået til personer med sammenfaldende interesser.\n\nFravalg skjuler ikke ens profil, hvis man bliver søgt efter ved navn.</string>
+	<string name="discoverability_help">Når du vælger tilvælger opdagelighed på Mastodon, kan dine indlæg blive vist i søgeresultater og trender.\n\nDin profil kan blive foreslået til personer med samme interesser som dig.\n\nFravalg skjuler ikke din profil, hvis nogen søger efter dig med dit navn.</string>
 	<string name="app_version_copied">Versionsnummer kopieret til udklipsholder</string>
-	<string name="onboarding_recommendations_intro">Man kan kurere sit eget hjemme-feed.
-Jo flere folk, man følger, jo mere aktivt og interessant vil det være.</string>
-	<string name="onboarding_recommendations_title">Personliggør hjemme-feedet</string>
+	<string name="onboarding_recommendations_intro">Du kuraterer dit eget hjem-feed.
+Jo flere du følger, jo mere aktiv og interessant bliver det.</string>
+	<string name="onboarding_recommendations_title">Personliggør hjem-feedet</string>
 	<string name="article_by_author">Af %s</string>
-	<string name="button_reblogged">Boostet</string>
+	<string name="button_reblogged">Fremhævet</string>
 	<string name="button_favorited">Gjort til favorit</string>
 	<string name="join_server_x_with_invite">Tilmeld %s med invitation</string>
 	<string name="expired_invite_link">Udløbet invitationslink</string>
@@ -646,12 +650,12 @@ Jo flere folk, man følger, jo mere aktivt og interessant vil det være.</string
 	<string name="this_invite_has_expired">Invitationslinket er udløbet.</string>
 	<string name="invite_link_pasted">Link indsat fra udklipsholderen.</string>
 	<string name="need_invite_to_join_server">Bruge et invitationslink fra en eksisterende bruger for tilmelding til %s.</string>
-	<string name="mute_user_confirm_title">Tavsgør bruger?</string>
-	<string name="user_wont_know_muted">Vedkommende ser ikke den aktive tavsgørelse.</string>
+	<string name="mute_user_confirm_title">Skjul bruger?</string>
+	<string name="user_wont_know_muted">Vedkommende ser ikke, at de er blevet skjult.</string>
 	<string name="user_can_still_see_your_posts">Vedkommende kan stadig se dine indlæg, med vedkommendes vise ikke.</string>
 	<string name="you_wont_see_user_mentions">Indlæg, som nævner vedkommende, vises ikke.</string>
 	<string name="user_can_mention_and_follow_you">Vedkommende kan nævne og følge dig, men vil ikke blive vist.</string>
-	<string name="unmuted_user_x">Tavsgørelsen af %s ophævet</string>
+	<string name="unmuted_user_x">Viser %s igen</string>
 	<string name="block_user_confirm_title">Blokér bruger?</string>
 	<string name="user_can_see_blocked">Vedkommende kan se den aktive blokering.</string>
 	<string name="user_cant_see_each_other_posts">Vedkommende kan ikke se dine indlæg, og du vil ikke se vedkommendes.</string>
@@ -672,9 +676,9 @@ Jo flere folk, man følger, jo mere aktivt og interessant vil det være.</string
 	<string name="handle_username_explanation_own">Din entydige identifikator på denne server. Det er muligt at finde brugere med samme brugernavn på forskellige servere.</string>
 	<string name="server">Server</string>
 	<string name="handle_server_explanation">Vedkommendes digitale hjem, hvor alle vedkommendes indlæg findes.</string>
-	<string name="handle_explanation">Da et handle fortæller, hvem nogen er, og hvor de er, kan man interagere med folk på tværs af det sociale net af &lt;a&gt;ActivityPub-drevne platforme&lt;/a&gt;.</string>
-	<string name="handle_server_explanation_own">Dit digitale hjem, hvor alle dine indlæg findes. Synes ikke om denne? Flyt servere når som helst og bring tilhængerne med også.</string>
-	<string name="handle_explanation_own">Da et handle fortæller, hvem man er, og hvor man er, kan folk man interagere med én på tværs af det sociale net af &lt;a&gt;ActivityPub-drevne platforme&lt;/a&gt;.</string>
+	<string name="handle_explanation">Da et handle fortæller, hvem nogen er, og hvor de er, kan du interagere med folk på tværs af det sociale net af &lt;a&gt;ActivityPub-drevne platforme&lt;/a&gt;.</string>
+	<string name="handle_server_explanation_own">Dit digitale hjem, hvor alle dine indlæg bor. Kan du ikke lide den her? Du kan til enhver tid skifte server og tage dine følgere med.</string>
+	<string name="handle_explanation_own">Fordi dit handle siger, hvem du er, og hvor du er, kan folk interagere med dig på tværs af det sociale net af &lt;a&gt;ActivityPub-drevne platforme&lt;/a&gt;.</string>
 	<string name="what_is_activitypub_title">Hvad betyder ActivityPub?</string>
 	<string name="what_is_activitypub">ActivityPub er som det sprog, Mastodon taler med andre sociale netværk.\n\nDet lader folk forbinde og interagere med hinanden ikke kun på Mastodon, men også på tværs af forskellige sociale apps.</string>
 	<string name="handle_copied">Handle kopieret til udklipsholder.</string>
@@ -701,17 +705,17 @@ Jo flere folk, man følger, jo mere aktivt og interessant vil det være.</string
 	<!-- %s is the username -->
 	<string name="enable_new_post_notifications">Advisér, når %s lægger op</string>
 	<string name="disable_new_post_notifications">Advisér ikke længere, når %s lægger op</string>
-	<string name="new_post_notifications_enabled">Der notificeres ved nye indlæg.</string>
+	<string name="new_post_notifications_enabled">Du får notifikationer om nye indlæg.</string>
 	<string name="new_post_notifications_disabled">Der notificeres ikke længere ved nye indlæg.</string>
-	<string name="mute_conversation">Gør samtale tavs</string>
-	<string name="unmute_conversation">Ophæv tavsgørelse af samtale</string>
-	<string name="visibility_unlisted">Stille offentlighed</string>
+	<string name="mute_conversation">Skjul samtale</string>
+	<string name="unmute_conversation">Vis samtale igen</string>
+	<string name="visibility_unlisted">Offentlig (stille)</string>
 	<string name="filtered_notifications">Filtrerede notifikationer</string>
 	<string name="filter_notifications">Bortfiltrér notifikationer fra...</string>
-	<string name="notification_filter_following">Folk, man ikke følger</string>
-	<string name="notification_filter_following_explanation">Indtil man manuelt godkender dem</string>
-	<string name="notification_filter_followers">Folk, man ikke følges af</string>
-	<string name="notification_filter_followers_explanation">Herunder personer, man er blevet fulgt af i mindre end 3 dage</string>
+	<string name="notification_filter_following">Personer, du ikke følger</string>
+	<string name="notification_filter_following_explanation">Indtil du manuelt godkender dem</string>
+	<string name="notification_filter_followers">Personer, du ikke følges af</string>
+	<string name="notification_filter_followers_explanation">Herunder personer, der har fulgt dig i mindre end 3 dage</string>
 	<string name="notification_filter_new_accounts">Ny konti</string>
 	<string name="notification_filter_new_accounts_explanation">Oprettet inden for de seneste 30 dage</string>
 	<string name="notification_filter_mentions">Uopfordrede private omtaler</string>
@@ -719,19 +723,19 @@ Jo flere folk, man følger, jo mere aktivt og interessant vil det være.</string
 	<string name="allow_notifications">Tillad notifikationer</string>
 	<string name="mute_notifications">Afvis notifikationsanmodning</string>
 	<plurals name="x_people_you_may_know">
-		<item quantity="one">%,d person, man måske kender</item>
-		<item quantity="other">%,d personer, man måske kender</item>
+		<item quantity="one">%,d person, du måske kender</item>
+		<item quantity="other">%,d personer, du måske kender</item>
 	</plurals>
 	<string name="notifications_from_user">Notifikationer fra %s</string>
 	<string name="notifications_muted">Notifikationer fra %s er blevet afvist.</string>
 	<string name="notifications_allowed">%s vises nu i på notifikationslisten.</string>
 	<string name="visibility_subtitle_public">Alle på og udenfor Mastodon</string>
 	<string name="visibility_subtitle_unlisted">Færre algoritmiske fanfarer</string>
-	<string name="visibility_subtitle_followers">Kun egne følgere</string>
+	<string name="visibility_subtitle_followers">Kun dine følgere</string>
 	<string name="visibility_subtitle_private">Alle omtalt i indlægget</string>
-	<string name="view_boosts">Vis boosts</string>
+	<string name="view_boosts">Vis fremhævninger</string>
 	<string name="view_favorites">Vis favoritter</string>
-	<string name="undo_reblog">Fortryd boost</string>
+	<string name="undo_reblog">Fortryd fremhævning</string>
 	<string name="undo_favorite">Fortryd favorit</string>
 	<string name="could_not_reach_server">Serveren kunne ikke kontaktes. Tjek forbindelsen og forsøg igen?</string>
 	<string name="connection_timed_out">Anmodningen fik timeout. Tjek forbindelsen og forsøg igen?</string>
@@ -739,7 +743,7 @@ Jo flere folk, man følger, jo mere aktivt og interessant vil det være.</string
 	<string name="not_found">Der har muligvis aldrig været noget her.</string>
 	<string name="no_servers_found">Ingen servere fundet for “%s”</string>
 	<string name="signup_username_taken">Dette brugernavn er taget. Prøv et andet eller &lt;a&gt;vælg en anden server&lt;/a&gt;.</string>
-	<string name="signup_email_invalid">Ugyldig e-mailadresse.</string>
+	<string name="signup_email_invalid">Det ligner ikke en gyldig e-mailadresse.</string>
 	<string name="signup_email_taken">E-mailadressen bruges allerede. Glemt &lt;a&gt;adgangskoden&lt;/a&gt;, måske?</string>
 	<plurals name="x_new_notifications">
 		<item quantity="one">%,d ny notifikation</item>
@@ -756,11 +760,115 @@ Jo flere folk, man følger, jo mere aktivt og interessant vil det være.</string
 	<string name="donation_server_error">Vi beklager. Der opstod en fejl, der forhindrede behandling af donationen.\n\nForsøg igen om et par minutter.</string>
 	<string name="settings_donate">Donér til Mastodon</string>
 	<string name="settings_manage_donations">Håndtér donationer</string>
+	<string name="cant_load_image">Kunne ikke indlæse billede</string>
+	<string name="poll_see_results">Se resultater</string>
+	<string name="poll_hide_results">Skjul resultater</string>
+	<plurals name="x_attachments">
+		<item quantity="one">%d vedhæftning</item>
+		<item quantity="other">%d vedhæftninger</item>
+	</plurals>
+	<plurals name="user_and_x_more_favorited">
+		<item quantity="one">%1$s og %2$,d anden favoritmarkerede:</item>
+		<item quantity="other">%1$s og %2$,d andre favoritmarkerede:</item>
+	</plurals>
+	<plurals name="user_and_x_more_boosted">
+		<item quantity="one">%1$s og %2$,d anden fremhævede:</item>
+		<item quantity="other">%1$s og %2$,d andre fremhævede:</item>
+	</plurals>
+	<plurals name="poll_ended_x_voters">
+		<item quantity="one">%1$s gennemførte en afstemning, som du og %2$,d anden stemte i</item>
+		<item quantity="other">%1$s gennemførte en afstemning, som du og %2$,d andre stemte i</item>
+	</plurals>
+	<string name="own_poll_ended">Din afstemning er afsluttet</string>
+	<string name="user_just_posted">%s har netop lavet et indlæg</string>
+	<string name="user_edited_post">%s redigerede et indlæg, du interagerede med</string>
+	<string name="relationship_severance_account_suspension">En admin fra %1$s har suspenderet %2$s, så du kan ikke længere få opdateringer fra eller interagere med dem.</string>
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_domain_block">En admin fra %1$s har blokeret %2$s, herunder %3$,d af dine følgere og %4$s du følger.</string>
+	<plurals name="x_accounts">
+		<item quantity="one">%,d konto</item>
+		<item quantity="other">%,d konti</item>
+	</plurals>
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_user_domain_block">Du har blokeret %1$s, hvilket fjerner %2$,d af dine følgere og %3$s du følger.</string>
+	<string name="relationship_severance_learn_more">Få mere at vide</string>
+	<string name="moderation_warning_action_none">Din konto har fået en moderationsadvarsel.</string>
+	<string name="moderation_warning_action_disable">Din konto er blevet deaktiveret.</string>
+	<string name="moderation_warning_action_mark_statuses_as_sensitive">Nogle af dine indlæg er blevet markeret som følsomme.</string>
+	<string name="moderation_warning_action_delete_statuses">Nogle af dine indlæg er blevet fjernet.</string>
+	<string name="moderation_warning_action_sensitive">Dine indlæg markeres fra nu af som følsomme.</string>
+	<string name="moderation_warning_action_silence">Din konto er blevet begrænset.</string>
+	<string name="moderation_warning_action_suspend">Din konto er blevet suspenderet.</string>
+	<string name="moderation_warning_learn_more">Få mere at vide</string>
+	<string name="text_show_more">Mere</string>
+	<string name="avatar_move_and_scale">Flyt og skalér</string>
+	<string name="confirm_avatar_crop">Vælg</string>
+	<string name="settings_use_dynamic_colors">Brug systemets dynamiske farve</string>
+	<string name="settings_accounts">Konti</string>
+	<string name="settings_add_account">Tilføj konto...</string>
+	<string name="settings_app_settings">App-indstillinger</string>
+	<string name="account_settings">Kontoindstillinger</string>
+	<string name="settings_about_this_server">Om denne server</string>
+	<string name="manage_account">Administrer konto</string>
+	<string name="switch_to_this_account">Skift til denne konto</string>
+	<string name="delete_account">Slet konto</string>
+	<string name="notification_type_status">Nye indlæg</string>
+	<plurals name="user_and_x_more_followed">
+		<item quantity="one">%1$s og %2$,d anden følger dig</item>
+		<item quantity="other">%1$s og %2$,d andre følger dig</item>
+	</plurals>
+	<string name="familiar_followers_one">Følges af %s</string>
+	<string name="familiar_followers_two">Følges af %s og %s</string>
+	<string name="profile_saved_posts">Gemt</string>
+	<string name="profile_saved_posts_explanation">Dine gemte indlæg er kun synlige for dig.</string>
+	<string name="search_people">Personer</string>
+	<plurals name="familiar_followers_many">
+		<item quantity="one">Følges af %1$s, %2$s, og %3$,d anden</item>
+		<item quantity="other">Følges af %1$s, %2$s, og %3$,d andre</item>
+	</plurals>
+	<plurals name="x_followers_you_know">
+		<item quantity="one">%,d følger du kender</item>
+		<item quantity="other">%,d følgere du kender</item>
+	</plurals>
 	<!-- appears when you're about to block a server -->
+	<plurals name="server_x_followers_will_be_removed">
+		<item quantity="one">%,d følger fra denne server vil blive fjernet.</item>
+		<item quantity="other">%,d følgere fra denne server vil blive fjernet.</item>
+	</plurals>
 	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
+	<string name="server_x_followers_and_following_will_be_removed">Du vil miste %1$s og %2$s.</string>
+	<plurals name="will_lose_x_followers">
+		<item quantity="one">%,d følger</item>
+		<item quantity="other">%,d følgere</item>
+	</plurals>
+	<plurals name="will_lose_x_following">
+		<item quantity="one">%,d person du følger</item>
+		<item quantity="other">%,d personer du følger</item>
+	</plurals>
 	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
+	<string name="server_x_following_will_be_removed">Du vil miste %s.</string>
+	<string name="load_missing_posts_above">Indlæs manglende indlæg ovenfor</string>
+	<string name="load_missing_posts_below">Indlæs manglende indlæg nedenfor</string>
+	<string name="signup_password_too_short">Adgangskoden skal være på mindst 8 tegn.</string>
+	<string name="private_reply">Privat svar</string>
+	<string name="private_mention">Privat omtale</string>
+	<string name="post_header_reply">Svar</string>
+	<string name="post_header_mention">Omtale</string>
+	<string name="report_reason_legal">Det er ulovligt</string>
+	<string name="report_reason_legal_subtitle">Du mener, at det er i strid med lovgivningen i dit eller serverens land</string>
+	<string name="date_of_birth">Fødselsdato</string>
 	<!-- %s is `at_least_x_years_old`. Some languages, unlike English, may require the word "years" here. -->
+	<string name="date_of_birth_explanation">Vi skal sikre, at du mindst er %s for at bruge Mastodon. Dette bliver ikke gemt efter tilmeldingen.</string>
+	<string name="open_link">Åbn</string>
+	<string name="copy">Kopiér</string>
 	<!-- Substituted into `date_of_birth_explanation` -->
+	<plurals name="at_least_x_years_old">
+		<item quantity="one">%d</item>
+		<item quantity="other">%d</item>
+	</plurals>
+	<string name="quote_post_unavailable">Indlæg utilgængeligt</string>
+	<string name="quote_post_pending">Afventende indlæg</string>
+	<string name="quote_post_pending_explanation">På Mastodon kan du kontrollere, om nogen kan citere dig. Dette indlæg afventer, mens vi får den oprindelige forfatters godkendelse.</string>
+	<!-- %s is a username, i.e. @Gargron -->
+	<string name="nested_quote">Citerede et indlæg af %s</string>
 </resources>

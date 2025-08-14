@@ -13,6 +13,8 @@
 	<string name="notifications">Апавяшчэнні</string>
 	<string name="user_followed_you">%s падпісаўся(-лась) на вас</string>
 	<string name="user_sent_follow_request">%s адправіў(-ла) вам запыт на падпіску</string>
+	<string name="user_favorited">%s упадабаў(-ла):</string>
+	<string name="notification_boosted">%s пашырыў(-ла):</string>
 	<string name="share_toot_title">Абагуліць</string>
 	<string name="settings">Налады</string>
 	<string name="publish">Апублікаваць</string>
@@ -26,10 +28,10 @@
 		<item quantity="other">падпісчыкаў</item>
 	</plurals>
 	<plurals name="following">
-		<item quantity="one">падпісаны</item>
-		<item quantity="few">падпісаны</item>
-		<item quantity="many">падпісаны</item>
-		<item quantity="other">падпісаны</item>
+		<item quantity="one">падпіска</item>
+		<item quantity="few">падпіскі</item>
+		<item quantity="many">падпісак</item>
+		<item quantity="other">падпіскі</item>
 	</plurals>
 	<string name="posts">Допісы</string>
 	<string name="posts_and_replies">Допісы і адказы</string>
@@ -113,6 +115,7 @@
 	<string name="do_block">Заблакіраваць</string>
 	<string name="button_blocked">Заблакіраваны</string>
 	<string name="action_vote">Прагаласаваць</string>
+	<string name="confirm">Пацвердзіць</string>
 	<string name="delete">Выдаліць</string>
 	<string name="confirm_delete_title">Выдаліць допіс</string>
 	<string name="confirm_delete">Вы ўпэўненыя, што хочаце выдаліць гэты допіс?</string>
@@ -139,7 +142,7 @@
 	<string name="report_choose_reason_account">Што не так з %s?</string>
 	<string name="report_choose_reason_subtitle">Выберыце найлепшы варыянт</string>
 	<string name="report_reason_personal">Мне не падабаецца</string>
-	<string name="report_reason_personal_subtitle">Гэта не тое, што вы хочаце бачыць</string>
+	<string name="report_reason_personal_subtitle">Гэта не тое, што Вы хочаце бачыць</string>
 	<string name="report_reason_spam">Гэта спам</string>
 	<string name="report_reason_spam_subtitle">Шкодныя спасылкі, фальшывыя ўзаемадзеянні або адказы, што паўтараюцца</string>
 	<string name="report_reason_violation">Гэта парушае правілы сервера</string>
@@ -153,14 +156,14 @@
 	<string name="report_comment_title">Што-небудзь яшчэ, што мы павінны ведаць?</string>
 	<string name="report_comment_hint">Дадатковыя каментарыі</string>
 	<string name="sending_report">Адпраўка скаргі…</string>
-	<string name="report_sent_title">Дзякуй за вашу скаргу, мы яе разгледзім.</string>
-	<string name="report_sent_subtitle">Пакуль мы разглядаем яе, вы можаце прыняць меры супраць %s:</string>
+	<string name="report_sent_title">Дзякуй за Вашу скаргу, мы яе разгледзім.</string>
+	<string name="report_sent_subtitle">Пакуль мы разглядаем яе, Вы можаце прыняць меры супраць %s:</string>
 	<string name="unfollow_user">Адпісацца ад %s</string>
 	<string name="unfollow">Адпісацца</string>
-	<string name="mute_user_explain">Вы не будзеце бачыць допісы гэтага карыстальніка. Ён усё яшчэ зможа сачыць за вамі і бачыць вашы допісы, не ведаючы, што яго ігнаруюць.</string>
-	<string name="block_user_explain">Вы перастанеце бачыць допісы гэтага карыстальніка. Ён не зможа сачыць за вамі і бачыць вашы допісы. Ён зможа зразумець, што яго заблакіравалі.</string>
+	<string name="mute_user_explain">Вы не будзеце бачыць допісы гэтага карыстальніка. Ён усё яшчэ зможа сачыць за Вамі і бачыць Вашы допісы, не ведаючы, што яго ігнаруюць.</string>
+	<string name="block_user_explain">Вы перастанеце бачыць допісы гэтага карыстальніка. Ён не зможа сачыць за Вамі і бачыць Вашы допісы. Ён зможа зразумець, што яго заблакіравалі.</string>
 	<string name="report_personal_title">Не хочаце бачыць гэта?</string>
-	<string name="report_personal_subtitle">Вось вашыя варыянты кантролю над тым, што вы бачыце в Mastodon:</string>
+	<string name="report_personal_subtitle">Вось Вашыя варыянты кантролю над тым, што Вы бачыце ў Mastodon:</string>
 	<string name="back">Назад</string>
 	<string name="search_communities">Назва сервера або URL</string>
 	<string name="instance_rules_title">Правілы сервера</string>
@@ -195,10 +198,10 @@
 	<string name="choose_account">Выберыце ўліковы запіс</string>
 	<string name="err_not_logged_in">Спачатку ўвайдзіце ў Mastodon</string>
 	<plurals name="cant_add_more_than_x_attachments">
-		<item quantity="one">Вы не можаце дадаць больш за %d далучэнне</item>
-		<item quantity="few">Вы не можаце дадаць больш за %d далучэнняў</item>
-		<item quantity="many">Вы не можаце дадаць больш за %d далучэнняў</item>
-		<item quantity="other">Вы не можаце дадаць больш за %d далучэнняў</item>
+		<item quantity="one">Вы не можаце дадаць больш за %d медыя ўлажэнне</item>
+		<item quantity="few">Вы не можаце дадаць больш за %d медыя ўлажэнні</item>
+		<item quantity="many">Вы не можаце дадаць больш за %d медыя ўлажэнняў</item>
+		<item quantity="other">Вы не можаце дадаць больш за %d медыя ўлажэнні</item>
 	</plurals>
 	<string name="media_attachment_unsupported_type">Тып файла %s не падтрымліваецца</string>
 	<string name="media_attachment_too_big">Памер файла %1$s перавышае абмежаванне ў %2$s МБ</string>
@@ -223,7 +226,7 @@
 	<string name="new_post">Новы допіс</string>
 	<string name="button_reply">Адказаць</string>
 	<string name="button_reblog">Пашырыць</string>
-	<string name="button_favorite">Абранае</string>
+	<string name="button_favorite">Упадабаць</string>
 	<string name="button_share">Абагуліць</string>
 	<string name="media_no_description">Медыя без апісання</string>
 	<string name="add_media">Дадаць медыя</string>
@@ -235,7 +238,7 @@
 	<string name="follow_user">Падпісацца на %s</string>
 	<string name="unfollowed_user">Адпісацца ад %s</string>
 	<string name="followed_user">Цяпер вы падпісаны на %s</string>
-	<string name="following_user_requested">Запытана падпісацца на %s</string>
+	<string name="following_user_requested">Запыт падпісацца на %s</string>
 	<string name="open_in_browser">Адкрыць у браўзеры</string>
 	<string name="hide_boosts_from_user">Схаваць пашырэнні</string>
 	<string name="show_boosts_from_user">Паказаць пашырэнні</string>
@@ -261,7 +264,7 @@
 	<string name="see_new_posts">Новыя допісы</string>
 	<string name="follow_back">Падпісацца ў адказ</string>
 	<string name="button_follow_pending">Чакаюць</string>
-	<string name="follows_you">Падпісаны(-а) на вас</string>
+	<string name="follows_you">Падпісаны(-ая) на вас</string>
 	<string name="manually_approves_followers">Уручную пацвярджае падпісчыкаў</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<plurals name="x_followers">
@@ -277,10 +280,10 @@
 		<item quantity="other">%,d падпісак</item>
 	</plurals>
 	<plurals name="x_favorites">
-		<item quantity="one">%,d абраны</item>
-		<item quantity="few">%,d абраныя</item>
-		<item quantity="many">%,d абраных</item>
-		<item quantity="other">%,d абраных</item>
+		<item quantity="one">%,d упадабанае</item>
+		<item quantity="few">%,d упадабаных</item>
+		<item quantity="many">%,d упадабаных</item>
+		<item quantity="other">%,d упадабаных</item>
 	</plurals>
 	<plurals name="x_reblogs">
 		<item quantity="one">%,d пашырэнне</item>
@@ -306,19 +309,19 @@
 	</plurals>
 	<string name="edited_timestamp">адрэдагавана %s</string>
 	<string name="edit_original_post">Зыходны допіс</string>
-	<string name="edit_text_edited">Тэкст адрэдагавана</string>
-	<string name="edit_spoiler_added">Папярэджанне аб змесціве дададзена</string>
-	<string name="edit_spoiler_edited">Папярэджанне аб змесціве адрэдагавана</string>
-	<string name="edit_spoiler_removed">Папярэджанне аб змесціве выдалена</string>
-	<string name="edit_poll_added">Апытанне дададзена</string>
-	<string name="edit_poll_edited">Апытанне адрэдагавана</string>
-	<string name="edit_poll_removed">Апытанне выдалена</string>
-	<string name="edit_media_added">Медыя дададзены</string>
-	<string name="edit_media_removed">Медыя выдалены</string>
-	<string name="edit_media_reordered">Медыя пераўпарадкаваны</string>
-	<string name="edit_marked_sensitive">Пазначаны як далікатны</string>
+	<string name="edit_text_edited">Тэкст адрэдагаваны</string>
+	<string name="edit_spoiler_added">Папярэджанне аб змесціве дададзенае</string>
+	<string name="edit_spoiler_edited">Папярэджанне аб змесціве адрэдагаванае</string>
+	<string name="edit_spoiler_removed">Папярэджанне аб змесціве выдаленае</string>
+	<string name="edit_poll_added">Апытанне дададзенае</string>
+	<string name="edit_poll_edited">Апытанне адрэдагаванае</string>
+	<string name="edit_poll_removed">Апытанне выдаленае</string>
+	<string name="edit_media_added">Медыя дададзенае</string>
+	<string name="edit_media_removed">Медыя выдаленае</string>
+	<string name="edit_media_reordered">Медыя пераўпарадкаванае</string>
+	<string name="edit_marked_sensitive">Пазначаны як адчувальны</string>
 	<string name="edit_marked_not_sensitive">Пазначаны як неадчувальны</string>
-	<string name="edit_multiple_changed">Допіс адрэдагавана</string>
+	<string name="edit_multiple_changed">Допіс адрэдагаваны</string>
 	<string name="edit">Рэдагаваць</string>
 	<string name="discard_changes">Скасаваць змены?</string>
 	<string name="upload_failed">Не ўдалося запампаваць</string>
@@ -333,7 +336,7 @@
 	<string name="privacy_policy_title">Ваша прыватнасць</string>
 	<string name="privacy_policy_subtitle">Нягледзячы на ​​тое, што праграма Mastodon не збірае даных, сервер, на якім вы рэгіструецеся, можа мець іншую палітыку.\n\nКалі вы адмовіцеся ад палітыкі %s, вы можаце вярнуцца і выбраць іншы сервер.</string>
 	<string name="i_agree">Прыняць</string>
-	<string name="empty_list">Гэты ліст пусты</string>
+	<string name="empty_list">Гэты спіс пусты</string>
 	<string name="instance_signup_closed">Гэты сервер не прымае новыя рэгістрацыі.</string>
 	<string name="text_copied">Скапіявана ў буфер абмену</string>
 	<string name="add_bookmark">Закладка</string>
@@ -361,7 +364,7 @@
 	<string name="profile_setup_subtitle">Вы можаце завяршыць гэта пазней на ўкладцы Профіль.</string>
 	<string name="follow_all">Падпісацца на ўсіх</string>
 	<string name="server_rules_disagree">Не згодны</string>
-	<string name="privacy_policy_explanation">Мы нічога не збіраем і не апрацоўваем.</string>
+	<string name="privacy_policy_explanation">Коратка кажучы: мы нічога не збіраем і не апрацоўваем.</string>
 	<!-- %s is server domain -->
 	<string name="server_policy_disagree">Не згодны з %s</string>
 	<string name="profile_bio">Пра мяне</string>
@@ -385,7 +388,7 @@
 	<string name="signup_or_login">або</string>
 	<string name="learn_more">Даведацца больш</string>
 	<string name="welcome_to_mastodon">Вітаем у Mastodon</string>
-	<string name="welcome_paragraph1">Mastodon - гэта дэцэнтралізаваная сацыяльная сетка, што азначае, што ні адна кампанія не кантралюе яе. Яна складаецца з мноства незалежна працуючых сервераў, злучаных разам.</string>
+	<string name="welcome_paragraph1">Mastodon - гэта дэцэнтралізаваная сацыяльная сетка, што азначае, што аніводная кампанія не кантралюе яе. Яна складаецца з мноства незалежна працуючых сервераў, злучаных разам.</string>
 	<string name="what_are_servers">Што такое серверы?</string>
 	<string name="welcome_paragraph2">Кожны ўліковы запіс Mastodon размяшчаецца на серверы - кожны са сваімі каштоўнасцямі, правіламі, &amp; адміністратарамі. Незалежна ад таго, які сервер вы вылучыце, вы можаце сачыць і ўзаемадзейнічаць з людзьмі на любым серверы.</string>
 	<string name="opening_link">Адкрыццё спасылкі…</string>
@@ -422,10 +425,10 @@
 	<string name="compose_autocomplete_users_empty">Знайдзіце тых, каго шукаеце</string>
 	<string name="no_search_results">Нічога не знойдзена па гэтым запыце</string>
 	<string name="language">Мова</string>
-	<string name="language_default">Перадвызначана</string>
-	<string name="language_system">Сістэма</string>
-	<string name="language_detecting">Вызначэнне мовы</string>
-	<string name="language_cant_detect">Не ўдалося вызначыць мову</string>
+	<string name="language_default">Прадвызначаная</string>
+	<string name="language_system">Сістэмная</string>
+	<string name="language_detecting">Выяўленне мовы</string>
+	<string name="language_cant_detect">Не ўдалося выявіць мову</string>
 	<string name="language_detected">Выяўлена</string>
 	<string name="media_hidden">Медыя схавана</string>
 	<string name="post_hidden">Допіс схаваны</string>
@@ -437,7 +440,7 @@
 	<string name="reported">Паведамлена</string>
 	<string name="report_unfollow_explanation">Каб больш не бачыць іх допісы ў вашай стужцы, адмяніце падпіску на іх.</string>
 	<string name="muted_user">Ігнараваць %s</string>
-	<string name="report_sent_already_blocked">Вы ўжо заблакіравалі гэтага карыстальніка, таму вам больш нічога не трэба рабіць, пакуль мы разглядаем ваша данясенне.</string>
+	<string name="report_sent_already_blocked">Вы ўжо заблакіравалі гэтага карыстальніка, таму Вам больш нічога не трэба рабіць, пакуль мы разглядаем Вашу скаргу.</string>
 	<string name="report_personal_already_blocked">Вы ўжо заблакіравалі гэтага карыстальніка, таму больш нічога рабіць не трэба.\n\nДзякуй, што дапамагаеце захаваць Mastodon бяспечным месцам для ўсіх!</string>
 	<string name="blocked_user">Заблакіраваць %s</string>
 	<string name="mark_all_notifications_read">Адзначыць усё як прачытанае</string>
@@ -446,16 +449,16 @@
 	<string name="settings_server_explanation">Агульныя звесткі, правілы, мадэратары</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">Аб %s</string>
-	<string name="default_post_language">Прадвызначана мова допісаў</string>
-	<string name="settings_alt_text_reminders">Даданне напамінаў пра тэкст alt</string>
-	<string name="settings_confirm_unfollow">Спытайце, перш чым адпісацца ад каго-небудзь</string>
-	<string name="settings_confirm_boost">Спытаць перад пашырэннем</string>
-	<string name="settings_confirm_delete_post">Спытаць перад выдаленнем допісаў</string>
+	<string name="default_post_language">Прадвызначаная мова допісаў</string>
+	<string name="settings_alt_text_reminders">Дадаванне напамінаў пра альтэрнатыўны тэкст</string>
+	<string name="settings_confirm_unfollow">Пытацца, перш чым адпісацца ад каго-небудзь</string>
+	<string name="settings_confirm_boost">Пытацца перад пашырэннем</string>
+	<string name="settings_confirm_delete_post">Пытацца перад выдаленнем допісаў</string>
 	<string name="pause_all_notifications">Прыпыніць усе</string>
 	<string name="pause_notifications_off">Выкл.</string>
 	<string name="notifications_policy_anyone">Кожны</string>
-	<string name="notifications_policy_followed">Людзі, якія падпісаны на вас</string>
-	<string name="notifications_policy_follower">Людзі, на якіх вы падпісаны</string>
+	<string name="notifications_policy_followed">Людзі, якія падпісаныя на Вас</string>
+	<string name="notifications_policy_follower">Людзі, на якіх Вы падпісаныя</string>
 	<string name="notifications_policy_no_one">Ніхто</string>
 	<string name="settings_notifications_policy">Атрымліваць апавяшчэнні ад</string>
 	<string name="notification_type_mentions_and_replies">Згадванні і адказы</string>
@@ -481,12 +484,12 @@
 	<string name="server_rules">Правілы</string>
 	<string name="server_administrator">Адміністратар</string>
 	<string name="send_email_to_server_admin">Напісаць адміністратару</string>
-	<string name="notifications_disabled_in_system">Уключыце апавяшчэння ў наладах прылады, каб бачыць абнаўлення адкуль згодна.</string>
+	<string name="notifications_disabled_in_system">Уключыце апавяшчэнні ў наладах прылады, каб бачыць абнаўленні адусюль.</string>
 	<string name="settings_even_more">Яшчэ больш налад</string>
 	<string name="settings_show_cws">Паказваць папярэджанні аб змесце</string>
 	<string name="settings_hide_sensitive_media">Хаваць медыя пазначаныя як далікатныя</string>
 	<string name="settings_show_interaction_counts">Паказваць колькасць узаемадзеянняў пад допісамі</string>
-	<string name="settings_show_emoji_in_names">Карыстальніцкія emoji у імёнах</string>
+	<string name="settings_show_emoji_in_names">Карыстальніцкія эмодзі ў імёнах</string>
 	<plurals name="in_x_seconds">
 		<item quantity="one">праз %d секунду</item>
 		<item quantity="few">праз %d секунды</item>
@@ -519,10 +522,10 @@
 		<item quantity="other">%s выявы не маюць альтэрнатыўны тэкст. Усё роўна апублікаваць?</item>
 	</plurals>
 	<plurals name="alt_text_reminder_x_attachments">
-		<item quantity="one">%s медыя далучэнні не маюць альтэрнатыўны тэкст. Усё роўна апублікаваць?</item>
-		<item quantity="few">%s медыя далучэнні не маюць альтэрнатыўны тэкст. Усё роўна апублікаваць?</item>
-		<item quantity="many">%s медыя далучэнні не маюць альтэрнатыўны тэкст. Усё роўна апублікаваць?</item>
-		<item quantity="other">%s медыя далучэнні не маюць альтэрнатыўны тэкст. Усё роўна апублікаваць?</item>
+		<item quantity="one">%s медыя ўлажэнне не мае альтэрнатыўны тэкст. Усё роўна апублікаваць?</item>
+		<item quantity="few">%s медыя ўлажэнні не маюць альтэрнатыўны тэкст. Усё роўна апублікаваць?</item>
+		<item quantity="many">%s медыя ўлажэнняў не маюць альтэрнатыўны тэкст. Усё роўна апублікаваць?</item>
+		<item quantity="other">%s медыя ўлажэнні не маюць альтэрнатыўны тэкст. Усё роўна апублікаваць?</item>
 	</plurals>
 	<string name="count_one">Адзін</string>
 	<string name="count_two">Два</string>
@@ -545,14 +548,14 @@
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<string name="settings_filter_ends">Скончыцца %s</string>
 	<plurals name="settings_x_muted_words">
-		<item quantity="one">%d заглушанае слова ці фраза</item>
-		<item quantity="few">%d заглушаных слоў ці фраз</item>
-		<item quantity="many">%d заглушаных слоў ці фраз</item>
-		<item quantity="other">%d заглушаных слоў ці фраз</item>
+		<item quantity="one">%d ігнараванае слова ці фраза</item>
+		<item quantity="few">%d ігнараваныя словы ці фразы</item>
+		<item quantity="many">%d ігнараваных слоў ці фраз</item>
+		<item quantity="other">%d ігнараваныя словы ці фразы</item>
 	</plurals>
 	<string name="selection_2_options">%1$s і %2$s</string>
 	<string name="selection_3_options">%1$s, %2$s і %3$s</string>
-	<string name="selection_4_or_more">%1$s, %2$s і %3$d больш</string>
+	<string name="selection_4_or_more">%1$s, %2$s і яшчэ %3$d</string>
 	<string name="filter_context_home_lists">Галоўная &amp; спісы</string>
 	<string name="filter_context_notifications">Апавяшчэнні</string>
 	<string name="filter_context_public_timelines">Публічныя стужкі</string>
@@ -561,11 +564,11 @@
 	<string name="settings_filter_title">Загаловак</string>
 	<string name="settings_delete_filter_title">Выдаліць фільтр \"%s\"?</string>
 	<string name="settings_delete_filter_confirmation">Гэты фільтр будзе выдалены з уліковага запісу на ўсіх вашых прыладах.</string>
-	<string name="add_muted_word">Дадаць слова да ігнаруемых</string>
+	<string name="add_muted_word">Дадаць слова да ігнараваных</string>
 	<string name="edit_muted_word">Рэдагаваць ігнараванае слова</string>
 	<string name="add">Дадаць</string>
 	<string name="filter_word_or_phrase">Слова або фраза</string>
-	<string name="filter_add_word_help">Словы адчувальныя да рэгістра і павінны супадаць з поўным словам.\n\nКалі адфільтраваць слова «яблык», будуць схаваны паведамленні са словам «яблык» або «ЯбЛыК», але не, напрыклад, «яблычны».</string>
+	<string name="filter_add_word_help">Словы неадчувальныя да рэгістра і супадаюць толькі з поўным словам.\n\nНапрыклад, калі адфільтраваць слова «Груша», будуць схаваныя паведамленні са словам «груша» або «ГрУшА», але не «грушавы».</string>
 	<string name="settings_delete_filter_word">Выдаліць слова \"%s\"?</string>
 	<string name="enter_selection_mode">Выбраць</string>
 	<string name="select_all">Выбраць усё</string>
@@ -574,7 +577,7 @@
 	<plurals name="settings_delete_x_filter_words">
 		<item quantity="one">Выдаліць %d слова?</item>
 		<item quantity="few">Выдаліць %d словы?</item>
-		<item quantity="many">Выдаліць %d словаў?</item>
+		<item quantity="many">Выдаліць %d слоў?</item>
 		<item quantity="other">Выдаліць %d слова?</item>
 	</plurals>
 	<plurals name="x_items_selected">
@@ -613,24 +616,24 @@
 	<string name="settings_indexable">Індэксаваць публічныя допісы ў пошукавых сістэмах</string>
 	<plurals name="x_participants">
 		<item quantity="one">%,d удзельнік</item>
-		<item quantity="few">%,d удзельнікаў</item>
+		<item quantity="few">%,d удзельнікі</item>
 		<item quantity="many">%,d удзельнікаў</item>
 		<item quantity="other">%,d удзельнікі</item>
 	</plurals>
 	<plurals name="x_posts_today">
 		<item quantity="one">%,d допіс сёння</item>
-		<item quantity="few">%,d допісаў сёння</item>
+		<item quantity="few">%,d допісы сёння</item>
 		<item quantity="many">%,d допісаў сёння</item>
 		<item quantity="other">%,d допісы сёння</item>
 	</plurals>
 	<string name="error_playing_video">Памылка прайгравання відэа</string>
 	<string name="timeline_following">Галоўная</string>
 	<string name="lists">Спісы</string>
-	<string name="followed_hashtags">Адсочваныя хэштэгі</string>
+	<string name="followed_hashtags">Падпіскі на хэштэгі</string>
 	<string name="manage_lists">Кіраванне спісамі</string>
 	<string name="manage_hashtags">Кіраванне хэштэгамі</string>
 	<!-- Screen reader description for the menu on the home timeline screen -->
-	<string name="dropdown_menu">Раскрываючаеся меню</string>
+	<string name="dropdown_menu">Разгортваемае меню</string>
 	<string name="edit_list">Рэдагаваць спіс</string>
 	<string name="list_members">Спіс удзельнікаў</string>
 	<string name="delete_list">Выдаліць спіс</string>
@@ -646,7 +649,7 @@
 	<string name="confirm_remove_list_members">Выдаліць удзельнікаў?</string>
 	<string name="remove">Выдаліць</string>
 	<string name="add_list_member">Дадаць удзельніка</string>
-	<string name="search_among_people_you_follow">Шукайце сярод людзей, на якіх Вы падпісаны</string>
+	<string name="search_among_people_you_follow">Шукайце сярод людзей, на якіх Вы падпісаныя</string>
 	<string name="add_user_to_list">Дадаць/выдаліць са спісаў…</string>
 	<string name="add_user_to_list_title">Дадаць да спісу</string>
 	<!-- %s is a username -->
@@ -657,23 +660,23 @@
 	<string name="no_followed_hashtags_subtitle">Тут з\'явяцца хэштэгі</string>
 	<string name="no_lists_title">Арганізуйце сваю стужку з дапамогай спісаў</string>
 	<string name="no_lists_subtitle">Ваш з\'явіцца тут</string>
-	<string name="manage_accounts">Дадаць або пераключыць уліковыя запісы</string>
+	<string name="manage_accounts">Дадаць або пераключыць уліковы запіс</string>
 	<plurals name="x_posts_recently">
 		<item quantity="one">%,d нядаўні допіс</item>
 		<item quantity="few">%,d нядаўніх допісаў</item>
 		<item quantity="many">%,d нядаўніх допісаў</item>
 		<item quantity="other">%,d нядаўнія допісы</item>
 	</plurals>
-	<string name="create_list">Ствараць спiс</string>
+	<string name="create_list">Стварыць спіс</string>
 	<string name="step_x_of_y">Крок %1$d з %2$d</string>
 	<string name="create">Стварыць</string>
 	<string name="manage_list_members">Кіраванне ўдзельнікамі спісу</string>
 	<string name="list_no_members">Пакуль няма ўдзельнікаў</string>
-	<string name="list_find_users">Знайдзіце карыстальнікаў для дадання</string>
+	<string name="list_find_users">Знайдзіце карыстальнікаў для дадавання</string>
 	<string name="reply_to_user">Адказаць %s</string>
 	<string name="posted_at">Допіс у %s</string>
-	<string name="non_mutual_sheet_title">Прывітанне, новы кантакт!</string>
-	<string name="non_mutual_sheet_text">Падобна, вы збіраецеся адказаць камусьці, з кім у вас пакуль не было кантакту. Давайце зробім добрае першае ўражанне.</string>
+	<string name="non_mutual_sheet_title">Вітаю, новы кантакт!</string>
+	<string name="non_mutual_sheet_text">Выглядае, што Вы збіраецеся адказаць камусьці, з кім у Вас пакуль не было кантакту. Давайце зробім добрае першае ўражанне.</string>
 	<string name="got_it">Добра</string>
 	<string name="dont_remind_again">Больш не нагадваць</string>
 	<!-- %s is a time interval ("5 months") -->
@@ -685,51 +688,51 @@
 		<item quantity="many">%,d месяцаў</item>
 		<item quantity="other">%,d месяцаў</item>
 	</plurals>
-	<string name="more_than_two_years">больш чым за 2 гады</string>
+	<string name="more_than_two_years">больш за 2 гады</string>
 	<string name="non_mutual_title1">Заставайцеся ўважлівымі &amp; дарэчнымі</string>
 	<string name="non_mutual_text1">Пераканайцеся, што ваш адказ ветлівы і па тэме.</string>
-	<string name="non_mutual_title2">Прыміце дабрыню</string>
+	<string name="non_mutual_title2">Дзяліцеся дабрынёй</string>
 	<string name="non_mutual_text2">Пазітыўны тон заўсёды вітаецца.</string>
-	<string name="non_mutual_title3">Будзьце адкрыты</string>
+	<string name="non_mutual_title3">Будзьце адкрытымі</string>
 	<string name="non_mutual_text3">У кожнага свой стыль зносін. Будзьце да гэтага гатовыя.</string>
 	<string name="make_profile_discoverable">Зрабіць мой профіль бачным</string>
 	<string name="discoverability">Адкрытасць</string>
-	<string name="discoverability_help">Калі вы станеце адчыненыя для прагляду на Mastodon, вашы допісы могуць з\'яўляцца ў выніках пошуку і ў трэндах. \n\nВаш профіль можа быць прапанаваны людзям з падобнымі з вамі інтарэсамі.\n\nАдмовіцеся хаваць свой профіль, калі нехта шукае вас па імені.</string>
+	<string name="discoverability_help">Калі Вы станеце адкрытымі для прагляду на Mastodon, Вашы допісы могуць з\'яўляцца ў выніках пошуку і ў трэндах. \n\nВаш профіль можа быць прапанаваны людзям з падобнымі з вамі інтарэсамі.\n\nАдмова не схавае Ваш профіль, калі нехта будзе шукаць вас па імені.</string>
 	<string name="app_version_copied">Нумар версіі скапіяваны ў буфер абмену</string>
 	<string name="onboarding_recommendations_intro">Вы самі фармуеце сваю стужку.
-Чым больш людзей на якіх вы падпісаны, тым больш актыўнай і цікавай яна будзе.</string>
+Чым больш людзей, на якіх Вы падпісаныя, тым больш актыўнай і цікавай яна будзе.</string>
 	<string name="onboarding_recommendations_title">Папулярна на Mastodon</string>
 	<string name="article_by_author">Ад %s</string>
 	<string name="button_reblogged">Пашыраны</string>
 	<string name="button_favorited">Упадабанае</string>
 	<string name="join_server_x_with_invite">Далучайцеся да %s па запрашэнні</string>
 	<string name="expired_invite_link">Тэрмін дзеяння запрашальнай спасылкі скончыўся</string>
-	<string name="expired_clipboard_invite_link_alert">Спасылка запрашэння для %1$s у буферы абмену састарэла і не можа быць выкарыстана для рэгістрацыі.\n\nВы можаце запытаць новую спасылку ў існуючага карыстальніка. Зарэгіструйцеся праз %2$s, або абярыце іншы сервер для рэгістрацыі.</string>
+	<string name="expired_clipboard_invite_link_alert">Спасылка запрашэння для %1$s у буферы абмену састарэла і не можа быць выкарыстанай для рэгістрацыі.\n\nВы можаце запытаць новую спасылку ў існуючага карыстальніка. Зарэгіструйцеся праз %2$s, або абярыце іншы сервер для рэгістрацыі.</string>
 	<string name="invalid_invite_link">Несапраўдная спасылка для запрашэння</string>
-	<string name="invalid_clipboard_invite_link_alert">Спасылка запрашэння для %1$s у буферы абмену састарэла і не можа быць выкарыстана для рэгістрацыі.\n\nВы можаце запытаць новую спасылку ў існуючага карыстальніка. Зарэгіструйцеся праз %2$s, або абярыце іншы сервер для рэгістрацыі.</string>
+	<string name="invalid_clipboard_invite_link_alert">Спасылка запрашэння для %1$s у буферы абмену несапраўдная і не можа быць выкарыстанай для рэгістрацыі.\n\nВы можаце запытаць новую спасылку ў існуючага карыстальніка. Зарэгіструйцеся праз %2$s, або абярыце іншы сервер для рэгістрацыі.</string>
 	<string name="use_invite_link">Выкарыстаць запрашальную спасылку</string>
 	<string name="enter_invite_link">Увядзіце запрашальную спасылку</string>
 	<string name="this_invite_is_invalid">Гэтая запрашальная спасылка несапраўдная.</string>
 	<string name="this_invite_has_expired">Тэрмін дзеяння гэтай запрашальнай спасылкі скончыўся.</string>
 	<string name="invite_link_pasted">Спасылка ўстаўлена з буфера абмену.</string>
-	<string name="need_invite_to_join_server">Каб далучыцца да %s, вам патрэбна запрашальная спасылка ад існуючага карыстальніка.</string>
+	<string name="need_invite_to_join_server">Каб далучыцца да %s, вам патрэбная запрашальная спасылка ад існуючага карыстальніка.</string>
 	<string name="mute_user_confirm_title">Ігнараваць карыстальніка?</string>
-	<string name="user_wont_know_muted">Яны не будуць ведаць, што іх заглушылі.</string>
-	<string name="user_can_still_see_your_posts">Яны па-ранейшаму будуць бачыць вашыя допісы, але вы не будзеце бачыць іх.</string>
+	<string name="user_wont_know_muted">Яны не будуць ведаць, што іх ігнаруюць.</string>
+	<string name="user_can_still_see_your_posts">Яны па-ранейшаму будуць бачыць Вашыя допісы, але Вы не будзеце бачыць іхныя.</string>
 	<string name="you_wont_see_user_mentions">Вы не ўбачыце паведамленняў з іх згадваннем.</string>
-	<string name="user_can_mention_and_follow_you">Яны могуць згадваць вас і сачыць за вамі, але вы гэтага не ўбачыце.</string>
+	<string name="user_can_mention_and_follow_you">Яны могуць згадваць Вас і сачыць за Вамі, але Вы гэтага не ўбачыце.</string>
 	<string name="unmuted_user_x">Не ігнараваць %s</string>
 	<string name="block_user_confirm_title">Заблакіраваць карыстальніка?</string>
 	<string name="user_can_see_blocked">Яны ўбачаць, што іх заблакіравалі.</string>
-	<string name="user_cant_see_each_other_posts">Яны не бачаць вашых допісаў, а вы - іх.</string>
-	<string name="user_cant_mention_or_follow_you">Яны не могуць згадваць або сачыць за вамі.</string>
+	<string name="user_cant_see_each_other_posts">Яны не бачаць Вашых допісаў, а Вы - іхных.</string>
+	<string name="user_cant_mention_or_follow_you">Яны не могуць згадваць або падпісацца на Вас.</string>
 	<string name="unblocked_user_x">Разблакіраваць %s</string>
 	<string name="block_domain_confirm_title">Заблакіраваць дамен?</string>
-	<string name="do_block_server">Блакіраванне сервера</string>
-	<string name="block_user_x_instead">Замест гэтага заблакіруйце %s</string>
+	<string name="do_block_server">Заблакіраваць сервер</string>
+	<string name="block_user_x_instead">Заблакіраваць %s замест гэтага</string>
 	<string name="users_cant_see_blocked">Вы не ўбачыце допісаў і апавяшчэнняў ад карыстальнікаў на гэтым серверы.</string>
 	<string name="you_wont_see_server_posts">Вы не ўбачыце ніякіх допісаў ад карыстальнікаў гэтага сервера.</string>
-	<string name="server_cant_mention_or_follow_you">Ніхто з гэтага сервера ня можа сачыць за вамі.</string>
+	<string name="server_cant_mention_or_follow_you">Ніхто з гэтага сервера не можа сачыць за вамі.</string>
 	<string name="server_can_interact_with_older">Людзі з гэтага сервера могуць узаемадзейнічаць з вашымі старымі допісамі.</string>
 	<string name="unblocked_domain_x">Разблакіраваны дамен %s</string>
 	<string name="handle_help_title">Што такое ідэнтыфікатар карыстальніка?</string>
@@ -750,7 +753,7 @@
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
 	<string name="saved">Захавана</string>
 	<string name="image_saved">Выява захаваная.</string>
-	<string name="video_saved">Відэа захавана.</string>
+	<string name="video_saved">Відэа захаванае.</string>
 	<string name="view_file">Паглядзець</string>
 	<string name="share_sheet_preview_profile">%s у Mastodon</string>
 	<string name="share_sheet_preview_post">%1$s у Mastodon “%2$s”</string>
@@ -764,10 +767,10 @@
 	<string name="pin_post">Замацаваць у профілі</string>
 	<string name="unpin_post">Адмацаваць ад профілю</string>
 	<string name="post_pinned">Допіс быў замацаваны</string>
-	<string name="post_unpinned">Допіс была адмацаваны</string>
+	<string name="post_unpinned">Допіс быў адмацаваны</string>
 	<!-- %s is the username -->
 	<string name="enable_new_post_notifications">Апавяшчаць мяне пра допісы %s</string>
-	<string name="disable_new_post_notifications">Не паведамляць мне пра допісы %s</string>
+	<string name="disable_new_post_notifications">Больш не апавяшчаць мяне пра допісы %s</string>
 	<string name="new_post_notifications_enabled">Вы будзеце атрымліваць апавяшчэнні аб новых допісах.</string>
 	<string name="new_post_notifications_disabled">Вы больш не будзеце атрымліваць апавяшчэнні аб новых допісах.</string>
 	<string name="mute_conversation">Ігнараваць размову</string>
@@ -775,19 +778,19 @@
 	<string name="visibility_unlisted">Ціхі публічны</string>
 	<string name="filtered_notifications">Адфільтраваныя апавяшчэнні</string>
 	<string name="filter_notifications">Адфільтроўваць апавяшчэнні ад...</string>
-	<string name="notification_filter_following">Людзі, на якіх вы не падпісаны</string>
-	<string name="notification_filter_following_explanation">Пакуль вы не пацвердзіце іх уручную</string>
-	<string name="notification_filter_followers">Людзі, якія не падпісаны на вас</string>
-	<string name="notification_filter_followers_explanation">Уключаючы людзей, якія падпісаны на вас менш за 3 дні</string>
+	<string name="notification_filter_following">Людзі, на якіх Вы не падпісаныя</string>
+	<string name="notification_filter_following_explanation">Пакуль Вы не пацвердзіце іх уручную</string>
+	<string name="notification_filter_followers">Людзі, якія не падпісаныя на Вас</string>
+	<string name="notification_filter_followers_explanation">Уключаючы людзей, якія падпісаныя на Вас менш за 3 дні</string>
 	<string name="notification_filter_new_accounts">Новыя ўліковыя запісы</string>
-	<string name="notification_filter_new_accounts_explanation">Створана за апошнія 30 дзён</string>
-	<string name="notification_filter_mentions">Непажаданыя асаблівыя згадванні</string>
-	<string name="notification_filter_mentions_explanation">Фільтруецца за выключэннем адказу на вашае згадванне ці калі вы падпісаны на адпраўніка</string>
+	<string name="notification_filter_new_accounts_explanation">Створаныя за апошнія 30 дзён</string>
+	<string name="notification_filter_mentions">Непажаданыя асабістыя згадванні</string>
+	<string name="notification_filter_mentions_explanation">Фільтруецца за выключэннем адказу на Вашае згадванне ці калі Вы падпісаныя на адпраўніка</string>
 	<string name="allow_notifications">Дазволіць апавяшчэнні</string>
 	<string name="mute_notifications">Адхіліць запыт на апавяшчэнне</string>
 	<plurals name="x_people_you_may_know">
 		<item quantity="one">%,d чалавек, якога вы можаце ведаць</item>
-		<item quantity="few">%,d чалавека, якога вы можаце ведаць</item>
+		<item quantity="few">%,d чалавекі, якіх вы можаце ведаць</item>
 		<item quantity="many">%,d людзей, якіх вы можаце ведаць</item>
 		<item quantity="other">%,d людзей, якіх вы можаце ведаць</item>
 	</plurals>
@@ -796,18 +799,18 @@
 	<string name="notifications_allowed">Цяпер %s з\'явіцца ў вашым спісе апавяшчэнняў.</string>
 	<string name="visibility_subtitle_public">Усе, хто ёсць і каго няма ў Mastodon</string>
 	<string name="visibility_subtitle_unlisted">Менш фанфар ад алгарытмаў</string>
-	<string name="visibility_subtitle_followers">Паказваць толькі падпісчыкам</string>
+	<string name="visibility_subtitle_followers">Толькі падпісчыкі</string>
 	<string name="visibility_subtitle_private">Усе згаданыя ў допісе</string>
 	<string name="view_boosts">Праглядзець пашырэнні</string>
-	<string name="view_favorites">Праглядзець абранае</string>
+	<string name="view_favorites">Праглядзець упадабанае</string>
 	<string name="undo_reblog">Адмяніць пашырэнне</string>
-	<string name="undo_favorite">Адмяніць абранне</string>
+	<string name="undo_favorite">Адмяніць упадабанае</string>
 	<string name="could_not_reach_server">Не ўдалося звязацца з серверам. Праверце злучэнне і паспрабуйце яшчэ раз.</string>
 	<string name="connection_timed_out">Запыт быў перапынены. Праверце злучэнне і паспрабуйце яшчэ раз.</string>
-	<string name="server_error">Нешта пайшло не так у сувязі з вашым серверам. Хутчэй за ўсё, гэта не ваша віна. Паспрабаваць яшчэ раз?</string>
-	<string name="not_found">Ён мог быць выдалены, а можа, яго ўвогуле не існавала.</string>
+	<string name="server_error">Нешта пайшло не так у злучэнні з Вашым серверам. Хутчэй за ўсё, гэта не Ваша віна. Паспрабаваць яшчэ раз?</string>
+	<string name="not_found">Ён мог быць выдалены ці, магчыма, яго ўвогуле ніколі не існавала.</string>
 	<string name="no_servers_found">Не знойдзена ніводнага сервера для “%s”</string>
-	<string name="signup_username_taken">Гэтае імя карыстальніка занята. Паспрабуйце іншае ці &lt;a&gt;выберыце іншы сервер&lt;/a&gt;.</string>
+	<string name="signup_username_taken">Гэтае імя карыстальніка занятае. Паспрабуйце іншае ці &lt;a&gt;выберыце іншы сервер&lt;/a&gt;.</string>
 	<string name="signup_email_invalid">Гэта не падобна на сапраўдны адрас электроннай пошты.</string>
 	<string name="signup_email_taken">Адрас электроннай пошты ўжо выкарыстоўваецца. Вы &lt;a&gt;забылі свой пароль&lt;/a&gt;?</string>
 	<plurals name="x_new_notifications">
@@ -818,51 +821,148 @@
 	</plurals>
 	<string name="dismiss">Адхіліць</string>
 	<string name="donation_once">Толькі адзін раз</string>
-	<string name="donation_monthly">Месячная</string>
-	<string name="donation_yearly">Штогод</string>
+	<string name="donation_monthly">Штомесяц</string>
+	<string name="donation_yearly">Штогадовая</string>
 	<string name="currency">Валюта</string>
-	<string name="donation_success_share">Распаўсюдзьце інфармацыю</string>
-	<string name="donation_success_title">Дзякуй за ваш унёсак!</string>
-	<string name="donation_success_subtitle">У бліжэйшы час вы атрымаеце электронны ліст з пацвярджэннем вашага ахвяравання.</string>
-	<string name="donation_server_error">Нам вельмі шкада, але адбылася памылка, і мы не змаглі апрацаваць ваша ахвяраванне.\n\nКалі ласка, паспрабуйце яшчэ некалькі хвілін.</string>
+	<string name="donation_success_share">Падзяліцеся гэтым</string>
+	<string name="donation_success_title">Дзякуй за Ваш унёсак!</string>
+	<string name="donation_success_subtitle">У бліжэйшы час Вы атрымаеце электронны ліст з пацвярджэннем Вашага ахвяравання.</string>
+	<string name="donation_server_error">Нам вельмі шкада, але адбылася памылка, і мы не змаглі апрацаваць Вашае ахвяраванне.\n\nКалі ласка, паспрабуйце яшчэ некалькі хвілін.</string>
 	<string name="settings_donate">Ахвяруйце Mastodon</string>
 	<string name="settings_manage_donations">Кіраваць ахвяраваннямі</string>
+	<string name="cant_load_image">Немагчыма загрузіць відарыс</string>
 	<string name="poll_see_results">Паказаць вынікі</string>
 	<string name="poll_hide_results">Схаваць вынікі</string>
+	<plurals name="x_attachments">
+		<item quantity="one">%d улажэнне</item>
+		<item quantity="few">%d улажэнні</item>
+		<item quantity="many">%d улажэнняў</item>
+		<item quantity="other">%d улажэнні</item>
+	</plurals>
+	<plurals name="user_and_x_more_favorited">
+		<item quantity="one">%1$s і %2$,d іншы(-ая) ўпадабалі:</item>
+		<item quantity="few">%1$s і %2$,d іншыя ўпадабалі:</item>
+		<item quantity="many">%1$s і %2$,d іншых упадабалі:</item>
+		<item quantity="other">%1$s і %2$,d іншых упадабалі:</item>
+	</plurals>
+	<plurals name="user_and_x_more_boosted">
+		<item quantity="one">%1$s і %2$,d іншы(-ая) пашырылі:</item>
+		<item quantity="few">%1$s і %2$,d іншыя пашырылі:</item>
+		<item quantity="many">%1$s і %2$,d іншых пашырылі:</item>
+		<item quantity="other">%1$s і %2$,d іншых пашырылі:</item>
+	</plurals>
+	<plurals name="poll_ended_x_voters">
+		<item quantity="one">%1$s правёў(-ла) апытанне, дзе Вы і %2$,d іншы(-ая) прагаласавалі</item>
+		<item quantity="few">%1$s правёў(-ла) апытанне, дзе Вы і %2$,d іншых прагаласавалі</item>
+		<item quantity="many">%1$s правёў(-ла) апытанне, дзе Вы і %2$,d іншых прагаласавалі</item>
+		<item quantity="other">%1$s правёў(-ла) апытанне, дзе Вы і %2$,d іншых прагаласавалі</item>
+	</plurals>
 	<string name="own_poll_ended">Ваша апытанне скончылася</string>
 	<string name="user_just_posted">Новы допіс ад %s</string>
-	<string name="relationship_severance_account_suspension">Адміністратар з %1$s прыпыніў працу %2$s, што азначае, што вы больш не можаце атрымліваць ад іх абнаўлення ці ўзаемадзейнічаць з імі.</string>
+	<string name="user_edited_post">%s змяніў(-ла) допіс, з якім Вы ўзаемадзейнічалі</string>
+	<string name="relationship_severance_account_suspension">Адміністратар з %1$s прыпыніў працу %2$s, што азначае, што Вы больш не можаце атрымліваць ад іх абнаўленні ці ўзаемадзейнічаць з імі.</string>
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_domain_block">Адміністрацыя з %1$s заблакіравала %2$s, у тым ліку %3$,d Вашых падпісчыкаў і %4$s людзей, на якіх Вы падпісаныя.</string>
+	<plurals name="x_accounts">
+		<item quantity="one">%,d уліковы запіс</item>
+		<item quantity="few">%,d уліковыя запісы</item>
+		<item quantity="many">%,d уліковых запісаў</item>
+		<item quantity="other">%,d уліковыя запісы</item>
+	</plurals>
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_user_domain_block">Вы заблакіравалі %1$s, выдаліўшы %2$,d сваіх падпісчыкаў і %3$s людзей, на якіх Вы падпісаныя.</string>
 	<string name="relationship_severance_learn_more">Даведацца больш</string>
 	<string name="moderation_warning_action_none">Ваш уліковы запіс атрымаў папярэджанне ад мадэратараў.</string>
 	<string name="moderation_warning_action_disable">Ваш уліковы запіс быў адключаны.</string>
-	<string name="moderation_warning_action_mark_statuses_as_sensitive">Некаторыя з вашых допісаў былі пазначаныя як далікатныя.</string>
-	<string name="moderation_warning_action_delete_statuses">Некаторыя вашыя допісы былі выдаленыя.</string>
-	<string name="moderation_warning_action_sensitive">З гэтага моманту вашыя допісы будуць пазначаныя як далікатныя.</string>
+	<string name="moderation_warning_action_mark_statuses_as_sensitive">Некаторыя з Вашых допісаў былі пазначаныя як далікатныя.</string>
+	<string name="moderation_warning_action_delete_statuses">Некаторыя Вашыя допісы былі выдаленыя.</string>
+	<string name="moderation_warning_action_sensitive">З гэтага моманту Вашыя допісы будуць пазначаныя як далікатныя.</string>
 	<string name="moderation_warning_action_silence">Ваш уліковы запіс быў абмежаваны.</string>
 	<string name="moderation_warning_action_suspend">Ваш уліковы запіс быў прыпынены.</string>
 	<string name="moderation_warning_learn_more">Даведацца больш</string>
 	<string name="text_show_more">Больш</string>
 	<string name="avatar_move_and_scale">Перасоўванне і маштабаванне</string>
 	<string name="confirm_avatar_crop">Выбраць</string>
+	<string name="settings_use_dynamic_colors">Выкарыстоўваць сістэмны дынамічны колер</string>
 	<string name="settings_accounts">Уліковыя запісы</string>
 	<string name="settings_add_account">Дадаць уліковы запіс...</string>
 	<string name="settings_app_settings">Налады праграмы</string>
 	<string name="account_settings">Налады ўліковага запісу</string>
 	<string name="settings_about_this_server">Аб гэтым серверы</string>
 	<string name="manage_account">Кіраванне ўліковым запісам</string>
+	<string name="switch_to_this_account">Пераключыцца на гэты ўліковы запіс</string>
 	<string name="delete_account">Выдаліць уліковы запіс</string>
 	<string name="notification_type_status">Новыя допісы</string>
+	<plurals name="user_and_x_more_followed">
+		<item quantity="one">%1$s і %2$,d іншы(-ая) падпісаліся на Вас</item>
+		<item quantity="few">%1$s і %2$,d іншых падпісаліся на Вас</item>
+		<item quantity="many">%1$s і %2$,d іншых падпісаліся на Вас</item>
+		<item quantity="other">%1$s і %2$,d іншых падпісаліся на Вас</item>
+	</plurals>
+	<string name="familiar_followers_one">Падпісаны(-ая) %s</string>
+	<string name="familiar_followers_two">Падпісаныя %s і %s</string>
 	<string name="profile_saved_posts">Захаванае</string>
+	<string name="profile_saved_posts_explanation">Вашыя захаваныя допісы бачныя толькі Вам.</string>
 	<string name="search_people">Людзі</string>
+	<plurals name="familiar_followers_many">
+		<item quantity="one">Падпісаныя %1$s, %2$s і %3$,d іншы(-ая)</item>
+		<item quantity="few">Падпісаныя %1$s, %2$s і %3$,d іншых</item>
+		<item quantity="many">Падпісаныя %1$s, %2$s і %3$,d іншых</item>
+		<item quantity="other">Падпісаныя %1$s, %2$s і %3$,d іншых</item>
+	</plurals>
+	<plurals name="x_followers_you_know">
+		<item quantity="one">%,d падпісчык, якога Вы ведаеце</item>
+		<item quantity="few">%,d падпісчыкі, якіх Вы ведаеце</item>
+		<item quantity="many">%,d падпісчыкаў, якіх Вы ведаеце</item>
+		<item quantity="other">%,d падпісчыкі, якіх Вы ведаеце</item>
+	</plurals>
 	<!-- appears when you're about to block a server -->
+	<plurals name="server_x_followers_will_be_removed">
+		<item quantity="one">%,d падпісчык з гэтага сервера будзе выдалены.</item>
+		<item quantity="few">%,d падпісчыкі з гэтага сервера будуць выдаленыя.</item>
+		<item quantity="many">%,d падпісчыкаў з гэтага сервера будуць выдаленыя.</item>
+		<item quantity="other">%,d падпісчыкі з гэтага сервера будуць выдаленыя.</item>
+	</plurals>
 	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
+	<string name="server_x_followers_and_following_will_be_removed">Вы страціце %1$s і %2$s.</string>
+	<plurals name="will_lose_x_followers">
+		<item quantity="one">%,d падпісчык</item>
+		<item quantity="few">%,d падпісчыкі</item>
+		<item quantity="many">%,d падпісчыкаў</item>
+		<item quantity="other">%,d падпісчыкі</item>
+	</plurals>
+	<plurals name="will_lose_x_following">
+		<item quantity="one">%,d чалавек, на якога Вы падпісаныя</item>
+		<item quantity="few">%,d чалавекі, на якіх Вы падпісаныя</item>
+		<item quantity="many">%,d людзей, на якіх Вы падпісаныя</item>
+		<item quantity="other">%,d чалавекі, на якіх Вы падпісаныя</item>
+	</plurals>
 	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
+	<string name="server_x_following_will_be_removed">Вы страціце %s.</string>
+	<string name="load_missing_posts_above">Загрузіць адсутныя допісы вышэй</string>
+	<string name="load_missing_posts_below">Загрузіць адсутныя допісы ніжэй</string>
+	<string name="signup_password_too_short">Пароль павінен быць не менш за 8 сімвалаў.</string>
 	<string name="private_reply">Асабісты адказ</string>
 	<string name="private_mention">Асабістае згадванне</string>
 	<string name="post_header_reply">Адказ</string>
 	<string name="post_header_mention">Згадванне</string>
+	<string name="report_reason_legal">Гэта незаконна</string>
+	<string name="report_reason_legal_subtitle">Вы лічыце, што гэта парушае заканадаўства вашай краіны або краіны сервера</string>
+	<string name="date_of_birth">Дата нараджэння</string>
 	<!-- %s is `at_least_x_years_old`. Some languages, unlike English, may require the word "years" here. -->
+	<string name="date_of_birth_explanation">Мы павінны пераканацца, што вам не менш за %s, каб каб карыстацца Mastodon.. Пасля рэгістрацыі гэта не будзе захавана.</string>
+	<string name="open_link">Адкрыць</string>
+	<string name="copy">Скапіраваць</string>
 	<!-- Substituted into `date_of_birth_explanation` -->
+	<plurals name="at_least_x_years_old">
+		<item quantity="one">%d</item>
+		<item quantity="few">%d</item>
+		<item quantity="many">%d</item>
+		<item quantity="other">%d</item>
+	</plurals>
+	<string name="quote_post_unavailable">Допіс недаступны</string>
+	<string name="quote_post_pending">Допіс чакае ўхвалення</string>
+	<string name="quote_post_pending_explanation">На Mastodon Вы можаце кантраляваць, хто можа цытаваць Вас. Гэты допіс будзе чакаць ухвалення, пакуль аўтар арыгінала не дасць дазвол.</string>
+	<!-- %s is a username, i.e. @Gargron -->
+	<string name="nested_quote">Цытаваў(-ла) допіс %s</string>
 </resources>
