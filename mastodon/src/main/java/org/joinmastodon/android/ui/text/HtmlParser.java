@@ -3,6 +3,7 @@ package org.joinmastodon.android.ui.text;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Typeface;
+import android.text.Html;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextUtils;
@@ -182,7 +183,7 @@ public class HtmlParser{
 						case "code" -> {
 							if(!isInsidePre()){
 								openSpans.add(new SpanInfo(new MonospaceSpan(context), ssb.length(), el));
-								ssb.append(" ", new SpacerSpan(V.dp(4), 0), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+								ssb.append(" ", new SpacerSpan(V.dp(4), 0), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 							}
 						}
 						case "pre" -> openSpans.add(new SpanInfo(new CodeBlockSpan(context), ssb.length(), el));
@@ -231,7 +232,7 @@ public class HtmlParser{
 						if(si.element==el){
 							if(si.span!=null){
 								if(si.span instanceof MonospaceSpan){
-									ssb.append(" ", new SpacerSpan(V.dp(4), 0), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+									ssb.append(" ", new SpacerSpan(V.dp(4), 0), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 								}
 								ssb.setSpan(si.span, si.start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 							}
