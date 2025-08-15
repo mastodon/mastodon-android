@@ -268,7 +268,7 @@
 	<!-- %s is a username -->
 	<!-- %s is a time interval ("5 months") -->
 	<string name="do_block_server">სერვერის დაბლოკვა</string>
-	<string name="users_cant_see_blocked">You won’t see posts or notifications from users on this server.</string>
+	<string name="users_cant_see_blocked">ამ სერვერზე მომხმარებლებისგან პოსტებსა და შეტყობინებებს ვერ ნახავთ.</string>
 	<string name="server">სერვერი</string>
 	<string name="qr_code">QR code</string>
 	<string name="scan_qr_code">QR კოდის დასკანერება</string>
@@ -291,12 +291,112 @@
 	<string name="disable_new_post_notifications">აღარ შემატყობინო, როდესაც %s დაპოსტავს</string>
 	<string name="new_post_notifications_enabled">თქვენ მიიღებთ შეტყობინებებს ახალი პოსტის შესახებ.</string>
 	<string name="new_post_notifications_disabled">თქვენ აღარ მიიღებთ შეტყობინებებს ახალი პოსტის შესახებ.</string>
+	<plurals name="x_new_notifications">
+		<item quantity="one">%,d ახალი შეტყობინება</item>
+		<item quantity="other">%,d ახალი შეტყობინება</item>
+	</plurals>
+	<string name="dismiss">გაუქმება</string>
+	<string name="donation_once">ერთხელ</string>
+	<string name="donation_monthly">ყოველთვიურად</string>
+	<string name="donation_yearly">ყოველწლიურად</string>
+	<string name="currency">ვალუტა</string>
+	<string name="donation_success_title">გმადლობთ თქვენი წვლილისთვის!</string>
+	<string name="donation_success_subtitle">მალე უნდა მიიღოთ თქვენი შემოწირულობის დამადასტურებელი ელფოსტა.</string>
+	<string name="donation_server_error">ბოდიშს გიხდით, შეცდომა მოხდა და თქვენი შემოწირულობის დამუშავება ვერ შევძელით.\n\nგთხოვთ, რამდენიმე წუთში ხელახლა სცადოთ.</string>
+	<string name="settings_donate">Mastodon-ისთვის თანხის შემოწირვა</string>
+	<string name="settings_manage_donations">დონაციების მართვა</string>
+	<string name="cant_load_image">სურათის ჩატვირთვა ვერ მოხერხდა</string>
+	<string name="poll_see_results">შედეგების გამოჩენა</string>
+	<string name="poll_hide_results">შედეგების დამალვა</string>
+	<plurals name="x_attachments">
+		<item quantity="one">%d ფაილი</item>
+		<item quantity="other">%d ფაილი</item>
+	</plurals>
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
+	<plurals name="x_accounts">
+		<item quantity="one">%,d ანგარიში</item>
+		<item quantity="other">%,d ანგარიში</item>
+	</plurals>
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_user_domain_block">თქვენ დაბლოკეთ %1$s, რითაც წაშალეთ თქვენი %2$,d გამომწერი და %3$s თქვენი გამოწერილი.</string>
+	<string name="relationship_severance_learn_more">გაიგეთ მეტი</string>
+	<string name="moderation_warning_action_none">თქვენს ანგარიშს მოდერაციის გაფრთხილება მიეცა.</string>
+	<string name="moderation_warning_action_disable">თქვენი ანგარიში გათიშულია.</string>
+	<string name="moderation_warning_action_mark_statuses_as_sensitive">თქვენი ზოგიერთი პოსტი მოინიშნა როგორც სენსიტიური.</string>
+	<string name="moderation_warning_action_delete_statuses">თქვენი ზოგიერთი პოსტი წაიშალა.</string>
+	<string name="moderation_warning_action_sensitive">თქვენი პოსტები ამიერიდან მონიშნული იქნება როგორც სენსიტიური.</string>
+	<string name="moderation_warning_action_silence">თქვენი ანგარიში შეზღუდულია.</string>
+	<string name="moderation_warning_action_suspend">თქვენი ანგარიში შეჩერებულია.</string>
+	<string name="moderation_warning_learn_more">გაიგეთ მეტი</string>
+	<string name="text_show_more">მეტი</string>
+	<string name="avatar_move_and_scale">გადაადგილება და მასშტაბირება</string>
+	<string name="confirm_avatar_crop">არჩევა</string>
+	<string name="settings_use_dynamic_colors">სისტემის დინამიური ფერის გამოყენება</string>
+	<string name="settings_accounts">ანგარიშები</string>
+	<string name="settings_add_account">ანგარიშის დამატება...</string>
+	<string name="settings_app_settings">აპლიკაციის პარამეტრები</string>
+	<string name="account_settings">ანგარიშის პარამეტრები</string>
+	<string name="settings_about_this_server">ამ სერვერის შესახებ</string>
+	<string name="manage_account">ანგარიშის მართვა</string>
+	<string name="switch_to_this_account">ამ ანგარიშზე გადასვლა</string>
+	<string name="delete_account">ანგარიშის წაშლა</string>
+	<string name="notification_type_status">ახალი პოსტები</string>
+	<plurals name="user_and_x_more_followed">
+		<item quantity="one">%1$s-მ და %2$,d სხვამ გამოგიწერათ</item>
+		<item quantity="other">%1$s-მ და %2$,d სხვამ გამოგიწერათ</item>
+	</plurals>
+	<string name="familiar_followers_one">გამოწერილი ჰყავს %s-ს</string>
+	<string name="familiar_followers_two">გამოწერილი ჰყავს %s-ს და %s-ს</string>
+	<string name="profile_saved_posts">შენახული</string>
+	<string name="profile_saved_posts_explanation">თქვენს მიერ შენახული პოსტები მხოლოდ თქვენთვისაა ხილული.</string>
+	<string name="search_people">ხალხი</string>
+	<plurals name="familiar_followers_many">
+		<item quantity="one">გამოწერილი ჰყავს %1$s-ს, %2$s-ს, და %3$,d სხვას</item>
+		<item quantity="other">გამოწერილი ჰყავს %1$s-ს, %2$s-ს, და %3$,d სხვას</item>
+	</plurals>
+	<plurals name="x_followers_you_know">
+		<item quantity="one">%,d გამომწერი, რომელიც იცით</item>
+		<item quantity="other">%,d გამომწერი, რომელიც იცით</item>
+	</plurals>
 	<!-- appears when you're about to block a server -->
+	<plurals name="server_x_followers_will_be_removed">
+		<item quantity="one">ამ სერვერიდან %,d გამომწერი წაიშლება.</item>
+		<item quantity="other">ამ სერვერიდან %,d გამომწერი წაიშლება.</item>
+	</plurals>
 	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
+	<string name="server_x_followers_and_following_will_be_removed">თქვენ დაკარგავთ %1$s-ს და %2$s-ს.</string>
+	<plurals name="will_lose_x_followers">
+		<item quantity="one">%,d გამომწერი</item>
+		<item quantity="other">%,d გამომწერი</item>
+	</plurals>
+	<plurals name="will_lose_x_following">
+		<item quantity="one">%,d პიროვნება, რომელსაც თვალს ადევნებთ</item>
+		<item quantity="other">%,d ადამიანი, რომელსაც თვალს ადევნებთ</item>
+	</plurals>
 	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
+	<string name="server_x_following_will_be_removed">თქვენ დაკარგავთ %s-ს.</string>
+	<string name="load_missing_posts_above">დაკარგული პოსტების ჩატვირთვა ზემოთ</string>
+	<string name="load_missing_posts_below">დაკარგული პოსტების ჩატვირთვა ქვემოთ</string>
+	<string name="signup_password_too_short">პაროლი უნდა იყოს მინიმუმ 8 სიმბოლო.</string>
+	<string name="private_reply">კონფიდენციალური პასუხის გაცემა</string>
+	<string name="private_mention">კონფიდენციალური მონიშვნა</string>
+	<string name="post_header_reply">პასუხის გაცემა</string>
+	<string name="post_header_mention">მონიშვნა</string>
+	<string name="report_reason_legal">არალეგალურია</string>
+	<string name="report_reason_legal_subtitle">თქვენ თვლით, რომ ეს არღვევს თქვენი ან სერვერის ქვეყნის კანონს</string>
+	<string name="date_of_birth">დაბადების თარიღი</string>
 	<!-- %s is `at_least_x_years_old`. Some languages, unlike English, may require the word "years" here. -->
+	<string name="date_of_birth_explanation">ჩვენ უნდა დავრწმუნდეთ, რომ თქვენ მინიმუმ %s-ს ხართ Mastodon-ის გამოსაყენებლად. ეს მონაცემი რეგისტრაციის შემდეგ არ შეინახება.</string>
+	<string name="open_link">გახსნა</string>
+	<string name="copy">დაკოპირება</string>
 	<!-- Substituted into `date_of_birth_explanation` -->
+	<plurals name="at_least_x_years_old">
+		<item quantity="one">%d</item>
+		<item quantity="other">%d</item>
+	</plurals>
+	<string name="quote_post_unavailable">პოსტი არ არის ხელმისაწვდომი</string>
+	<string name="quote_post_pending">პოსტი განხილვაშია</string>
+	<string name="quote_post_pending_explanation">Mastodon-ზე შეგიძლიათ აკონტროლოთ, შეუძლია თუ არა ვინმეს თქვენი ციტირება. ეს პოსტი განხილვის პროცესშია, სანამ ორიგინალი ავტორისგან დამტკიცებას არ მივიღებთ.</string>
 	<!-- %s is a username, i.e. @Gargron -->
+	<string name="nested_quote">ციტირებულია %s-ის პოსტი</string>
 </resources>
