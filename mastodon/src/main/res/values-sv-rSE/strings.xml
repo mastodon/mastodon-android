@@ -248,6 +248,10 @@
 		<item quantity="one">%,d favorit</item>
 		<item quantity="other">%,d favoriter</item>
 	</plurals>
+	<plurals name="x_reblogs">
+		<item quantity="one">%,d boost</item>
+		<item quantity="other">%,d boostar</item>
+	</plurals>
 	<string name="time_now">nu</string>
 	<string name="edit_history">Redigera historik</string>
 	<string name="last_edit_at_x">Senaste redigering %s</string>
@@ -465,6 +469,10 @@
 	<string name="settings_delete_filter">Radera filter</string>
 	<string name="filter_duration_forever">För alltid</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<plurals name="settings_x_muted_words">
+		<item quantity="one">%d tystat ord eller fras</item>
+		<item quantity="other">%d tystade ord eller fraser</item>
+	</plurals>
 	<string name="selection_2_options">%1$s och %2$s</string>
 	<string name="selection_3_options">%1$s, %2$s och %3$s</string>
 	<string name="filter_context_home_lists">Hem &amp; listor</string>
@@ -487,6 +495,10 @@
 	<plurals name="settings_delete_x_filter_words">
 		<item quantity="one">Radera %d ord?</item>
 		<item quantity="other">Radera %d ord?</item>
+	</plurals>
+	<plurals name="x_items_selected">
+		<item quantity="one">%d vald</item>
+		<item quantity="other">%d valda</item>
 	</plurals>
 	<string name="required_form_field_blank">Får inte vara tomt</string>
 	<string name="filter_word_already_in_list">Redan finns i listan</string>
@@ -656,12 +668,18 @@
 	<string name="settings_add_account">Lägg till konto...</string>
 	<string name="settings_app_settings">Appinställningar</string>
 	<string name="account_settings">Kontoinställningar</string>
+	<string name="settings_about_this_server">Om denna server</string>
 	<string name="manage_account">Hantera konto</string>
+	<string name="switch_to_this_account">Byt till detta konto</string>
 	<string name="delete_account">Radera konto</string>
 	<string name="notification_type_status">Nya inlägg</string>
 	<string name="profile_saved_posts">Sparad</string>
 	<string name="profile_saved_posts_explanation">Dina sparade inlägg är bara synliga för dig.</string>
 	<!-- appears when you're about to block a server -->
+	<plurals name="server_x_followers_will_be_removed">
+		<item quantity="one">%,d följare från denna server kommer tas bort.</item>
+		<item quantity="other">%,d följare från denna server kommer tas bort.</item>
+	</plurals>
 	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
 	<string name="server_x_followers_and_following_will_be_removed">Du kommer att förlora %1$s och %2$s.</string>
 	<plurals name="will_lose_x_followers">
