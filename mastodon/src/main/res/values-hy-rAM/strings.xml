@@ -858,10 +858,16 @@
 	<string name="date_of_birth">Ծննդյան ամսաթիվ</string>
 	<!-- %s is `at_least_x_years_old`. Some languages, unlike English, may require the word "years" here. -->
 	<string name="date_of_birth_explanation">Մաստոդոնն օգտագործելու համար մենք պետք է համոզվենք, որ դուք առնվազն %s տարեկան եք։ Սա գրանցումից հետո չի պահպանվի։</string>
+	<string name="open_link">Բացել</string>
+	<string name="copy">Պատճենել</string>
 	<!-- Substituted into `date_of_birth_explanation` -->
 	<plurals name="at_least_x_years_old">
 		<item quantity="one">%d</item>
 		<item quantity="other">%d</item>
 	</plurals>
+	<string name="quote_post_unavailable">Գրառումը հասանելի չի</string>
+	<string name="quote_post_pending">Գրառումը սպասվում է</string>
+	<string name="quote_post_pending_explanation">Մաստոդոնում դուք կարող եք կառավարել, թե ով կարող է ձեզ մեջբերել։ Այս գրառումը կհրապարակվի, երբ մենք սկզբնական հեղինակից թույլտվություն կստանանք։</string>
 	<!-- %s is a username, i.e. @Gargron -->
+	<string name="nested_quote">Մեջբերել է %s֊ի գրառումը</string>
 </resources>
