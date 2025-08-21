@@ -13,6 +13,7 @@
 	<string name="notifications">Aviseringar</string>
 	<string name="user_followed_you">%s följde dig</string>
 	<string name="user_sent_follow_request">%s skickade en förfrågan om att följa dig</string>
+	<string name="user_favorited">%s favoritmarkerade:</string>
 	<string name="notification_boosted">%s förstärktes:</string>
 	<string name="share_toot_title">Dela</string>
 	<string name="settings">Inställningar</string>
@@ -172,6 +173,10 @@
 	<string name="notification_type_poll">Omröstningar</string>
 	<string name="choose_account">Välj konto</string>
 	<string name="err_not_logged_in">Logga in på Mastodon först</string>
+	<plurals name="cant_add_more_than_x_attachments">
+		<item quantity="one">Du kan inte lägga till fler än %d mediabilaga</item>
+		<item quantity="other">Du kan inte lägga till fler än %d mediabilagor</item>
+	</plurals>
 	<string name="media_attachment_unsupported_type">Filen %s är av en typ som inte stöds</string>
 	<string name="media_attachment_too_big">Filen %1$s överskrider storleksgränsen på %2$s MB</string>
 	<string name="settings_theme">Utseende</string>
@@ -544,7 +549,7 @@
 	<!-- Screen reader description for the menu on the home timeline screen -->
 	<string name="dropdown_menu">Nedrullningsmeny</string>
 	<string name="edit_list">Redigera lista</string>
-	<string name="list_members">Lista medlemmar</string>
+	<string name="list_members">Listmedlemmar</string>
 	<string name="delete_list">Ta bort lista</string>
 	<!-- %s is the name of the list -->
 	<string name="delete_list_confirm">Ta bort “%s”?</string>
@@ -605,6 +610,7 @@
 	<string name="user_wont_know_muted">De kommer inte att veta att de blivit tystade.</string>
 	<string name="you_wont_see_user_mentions">Du kommer inte se inlägg som nämner dem.</string>
 	<string name="block_user_confirm_title">Blockera användare?</string>
+	<string name="user_can_see_blocked">Hen kan se att hen är blockerad.</string>
 	<string name="user_cant_see_each_other_posts">De kan inte se dina inlägg och du kommer inte att se deras.</string>
 	<string name="user_cant_mention_or_follow_you">De kan inte nämna eller följa dig.</string>
 	<string name="block_domain_confirm_title">Blockera domän?</string>
@@ -633,6 +639,7 @@
 		<item quantity="one">%,d person du kanske känner</item>
 		<item quantity="other">%,d personer du kanske känner</item>
 	</plurals>
+	<string name="visibility_subtitle_public">Alla på och utanför Mastodon</string>
 	<string name="visibility_subtitle_followers">Endast dina följare</string>
 	<string name="view_boosts">Visa förstärkningar</string>
 	<string name="view_favorites">Visa favoriter</string>
