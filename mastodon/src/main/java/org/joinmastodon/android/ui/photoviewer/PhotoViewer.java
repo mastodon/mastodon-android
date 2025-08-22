@@ -50,7 +50,6 @@ import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
-import android.view.WindowInsets;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
@@ -216,7 +215,7 @@ public class PhotoViewer implements ZoomPanView.Listener{
 		else
 			display=activity.getDisplay();
 		display.getRealSize(displaySize);
-		maxImageDimensions=Math.max(4096, Math.max(displaySize.x, displaySize.y)*2);
+		maxImageDimensions=Math.max(4096, Math.max(displaySize.x, displaySize.y));
 
 		windowView=new WindowRootFrameLayout(activity);
 		windowView.setDispatchKeyEventListener((v, keyCode, event)->{

@@ -2,6 +2,7 @@ package org.joinmastodon.android.api.session;
 
 import android.app.Activity;
 import android.app.NotificationManager;
+import android.content.ActivityNotFoundException;
 import android.content.ComponentName;
 import android.content.ContentValues;
 import android.content.Context;
@@ -19,6 +20,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.text.TextUtils;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -245,11 +247,15 @@ public class AccountSessionManager{
 								.appendQueryParameter("scope", SCOPE)
 								.build();
 
-						new CustomTabsIntent.Builder()
-								.setShareState(CustomTabsIntent.SHARE_STATE_OFF)
-								.setShowTitle(true)
-								.build()
-								.launchUrl(activity, uri);
+						try{
+							new CustomTabsIntent.Builder()
+									.setShareState(CustomTabsIntent.SHARE_STATE_OFF)
+									.setShowTitle(true)
+									.build()
+									.launchUrl(activity, uri);
+						}catch(ActivityNotFoundException x){
+							Toast.makeText(activity, R.string.no_app_to_handle_action, Toast.LENGTH_SHORT).show();
+						}
 					}
 
 					@Override

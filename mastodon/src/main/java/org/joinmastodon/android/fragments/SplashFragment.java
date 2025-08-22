@@ -19,13 +19,11 @@ import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.MastodonErrorResponse;
 import org.joinmastodon.android.api.requests.accounts.CheckInviteLink;
 import org.joinmastodon.android.api.requests.catalog.GetCatalogDefaultInstances;
-import org.joinmastodon.android.api.requests.instance.GetInstanceV1;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.fragments.onboarding.InstanceCatalogSignupFragment;
 import org.joinmastodon.android.fragments.onboarding.InstanceChooserLoginFragment;
 import org.joinmastodon.android.fragments.onboarding.InstanceRulesFragment;
 import org.joinmastodon.android.model.Instance;
-import org.joinmastodon.android.model.InstanceV1;
 import org.joinmastodon.android.model.catalog.CatalogDefaultInstance;
 import org.joinmastodon.android.ui.InterpolatingMotionEffect;
 import org.joinmastodon.android.ui.M3AlertDialogBuilder;
@@ -66,6 +64,7 @@ public class SplashFragment extends AppKitFragment{
 	@Override
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
+		setRetainInstance(true);
 		motionEffect=new InterpolatingMotionEffect(MastodonApp.context);
 	}
 
@@ -148,7 +147,8 @@ public class SplashFragment extends AppKitFragment{
 						public void onError(ErrorResponse error){
 							if(getActivity()==null)
 								return;
-							instanceLoadingProgress.dismiss();
+							if(instanceLoadingProgress!=null)
+								instanceLoadingProgress.dismiss();
 							instanceLoadingProgress=null;
 							if(error instanceof MastodonErrorResponse mer){
 								switch(mer.httpStatus){
@@ -179,7 +179,8 @@ public class SplashFragment extends AppKitFragment{
 					public void onSuccess(Instance result){
 						if(getActivity()==null)
 							return;
-						instanceLoadingProgress.dismiss();
+						if(instanceLoadingProgress!=null)
+							instanceLoadingProgress.dismiss();
 						instanceLoadingProgress=null;
 						if(!result.areRegistrationsOpen() && TextUtils.isEmpty(inviteCode)){
 							new M3AlertDialogBuilder(getActivity())
@@ -200,7 +201,8 @@ public class SplashFragment extends AppKitFragment{
 					public void onError(ErrorResponse error){
 						if(getActivity()==null)
 							return;
-						instanceLoadingProgress.dismiss();
+						if(instanceLoadingProgress!=null)
+							instanceLoadingProgress.dismiss();
 						instanceLoadingProgress=null;
 						error.showToast(getActivity());
 					}
