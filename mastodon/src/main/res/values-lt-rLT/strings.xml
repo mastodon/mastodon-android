@@ -180,7 +180,7 @@
 	<string name="confirm_email_subtitle">Palieskite nuorodą, kurią atsiuntėme, kad patvirtintumėte %s. Lauksime čia.</string>
 	<string name="confirm_email_didnt_get">Negavote nuorodos?</string>
 	<string name="resend">Siųsti dar kartą</string>
-	<string name="open_email_app">Atverti el. pašto programėlę</string>
+	<string name="open_email_app">Atverti el. pašto programą</string>
 	<string name="resent_email">Išsiųstas patvirtinimo el. laiškas</string>
 	<string name="compose_hint">Rašykite arba įklijuokite tai, kas jums yra mintyse</string>
 	<string name="content_warning">Turinio įspėjimas</string>
@@ -250,11 +250,11 @@
 	<string name="reorder">Pertvarkyti</string>
 	<string name="download">Atsisiųsti</string>
 	<string name="permission_required">Leidimas privalomas</string>
-	<string name="storage_permission_to_download">Kad išsaugotų šį failą, programėlei reikia prieigos prie saugyklos.</string>
+	<string name="storage_permission_to_download">Kad išsaugotų šį failą, programai reikia prieigos prie saugyklos.</string>
 	<string name="open_settings">Atverti nustatymus</string>
 	<string name="error_saving_file">Klaida išsaugant failą.</string>
 	<string name="downloading">Atsisiunčiama…</string>
-	<string name="no_app_to_handle_action">Nėra programėlės šiam veiksmui atlikti.</string>
+	<string name="no_app_to_handle_action">Nėra programai šiam veiksmui atlikti.</string>
 	<string name="local_timeline">Tiesioginis srautas</string>
 	<string name="trending_posts_info_banner">Tai – įrašai, sulaukiantys didžiausio susidomėjimo per „Mastodon“.</string>
 	<string name="trending_links_info_banner">Tai – naujienos, apie kurias kalbama „Mastodon“ platformoje.</string>
@@ -334,7 +334,7 @@
 	<string name="download_update">Atsisiųsti (%s)</string>
 	<string name="install_update">Degti</string>
 	<string name="privacy_policy_title">Jūsų privatumas</string>
-	<string name="privacy_policy_subtitle">Nors „Mastodon“ programėlė nerenka jokių duomenų, serveris, per kurį užsiregistruojate, gali turėti kitokią politiką.\n\nJei nesutinkate su %s politika, galite grįžti ir pasirinkti kitą serverį.</string>
+	<string name="privacy_policy_subtitle">Nors „Mastodon“ programa nerenka jokių duomenų, serveris, per kurį užsiregistruojate, gali turėti kitokią politiką.\n\nJei nesutinkate su %s politika, galite grįžti ir pasirinkti kitą serverį.</string>
 	<string name="i_agree">Sutinku</string>
 	<string name="empty_list">Šis sąrašas tuščias.</string>
 	<string name="instance_signup_closed">Šis serveris nepriima naujų registracijų.</string>
@@ -392,7 +392,7 @@
 	<string name="what_are_servers">Kas yra serveriai?</string>
 	<string name="welcome_paragraph2">Kiekviena „Mastodon“ paskyra talpinama serveryje. Kiekvienas jų turi savo reikšmes, taisykles ir administratorius. Nesvarbu, kurį iš jų pasirinksite, galite sekti ir bendrauti su bet kuriame serveryje esančiais žmonėmis.</string>
 	<string name="opening_link">Atveriama nuoroda…</string>
-	<string name="link_not_supported">Ši nuoroda programėlėje nepalaikoma.</string>
+	<string name="link_not_supported">Ši nuoroda programoje nepalaikoma.</string>
 	<string name="log_out_all_accounts">Atsijungti nuo visų paskyrų</string>
 	<string name="confirm_log_out_all_accounts">Atsijungti nuo visų paskyrų?</string>
 	<string name="retry">Kartoti</string>
@@ -588,7 +588,7 @@
 	</plurals>
 	<string name="required_form_field_blank">Negali būti tuščias.</string>
 	<string name="filter_word_already_in_list">Jau yra sąraše.</string>
-	<string name="app_update_ready">Parengtas programėlės naujinimas</string>
+	<string name="app_update_ready">Programos naujinimas parengtas</string>
 	<string name="app_update_version">Versija %s</string>
 	<string name="downloading_update">Atsiunčiama (%d%%)</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
@@ -746,7 +746,7 @@ Kuo daugiau žmonių sekate, tuo aktyvesnis ir įdomesnis jis bus.</string>
 	<string name="handle_server_explanation_own">Jūsų skaitmeniniai namai, kuriuose saugomi jūsų visi įrašai. Nepatinka šis? Bet kada perkelkite serverius ir atsiveskite bei savo sekėjus.</string>
 	<string name="handle_explanation_own">Kadangi jūsų socialinis medijos vardas pasako, kas ir kur esate, žmonės gali bendrauti su jumis visame socialiniame internete, kurį sudaro &lt;a&gt;„ActivityPub“ veikiančios platformos&lt;/a&gt;.</string>
 	<string name="what_is_activitypub_title">Kas yra „ActivityPub“?</string>
-	<string name="what_is_activitypub">„ActivityPub“ – tai tarsi kalba, kuria „Mastodon“ kalba su kitais socialiniais tinklais.\n\nJi leidžia jums prisijungti ir bendrauti su asmenimis ne tik platformoje „Mastodon“, bet ir įvairiose socialinėse programėlėse.</string>
+	<string name="what_is_activitypub">„ActivityPub“ – tai tarsi kalba, kuria „Mastodon“ kalba su kitais socialiniais tinklais.\n\nJi leidžia jums prisijungti ir bendrauti su asmenimis ne tik platformoje „Mastodon“, bet ir įvairiose socialinėse programuose.</string>
 	<string name="handle_copied">Socialinis medijos vardas nukopijuotas į iškarpinę.</string>
 	<string name="qr_code">QR kodas</string>
 	<string name="scan_qr_code">Skenuoti QR kodą</string>
@@ -758,7 +758,7 @@ Kuo daugiau žmonių sekate, tuo aktyvesnis ir įdomesnis jis bus.</string>
 	<string name="share_sheet_preview_profile">%s, platformoje „Mastodon“</string>
 	<string name="share_sheet_preview_post">%1$s, platformoje „Mastodon“: %2$s</string>
 	<string name="copy_profile_link">Kopijuoti nuorodą į profilį</string>
-	<string name="in_app_browser">Programėlės naršyklę</string>
+	<string name="in_app_browser">Programos naršyklę</string>
 	<string name="system_browser">Sistemos naršyklę</string>
 	<string name="add_muted_word_short">Įtraukti žodį</string>
 	<string name="tab_home">Pagrindinis</string>
@@ -886,7 +886,7 @@ Kuo daugiau žmonių sekate, tuo aktyvesnis ir įdomesnis jis bus.</string>
 	<string name="settings_use_dynamic_colors">Naudoti sistemos dinaminę spalvą</string>
 	<string name="settings_accounts">Paskyros</string>
 	<string name="settings_add_account">Įtraukti paskyrą...</string>
-	<string name="settings_app_settings">Programėlės nustatymai</string>
+	<string name="settings_app_settings">Programos nustatymai</string>
 	<string name="account_settings">Paskyros nustatymai</string>
 	<string name="settings_about_this_server">Apie šį serverį</string>
 	<string name="manage_account">Tvarkyti paskyrą</string>
@@ -960,5 +960,9 @@ Kuo daugiau žmonių sekate, tuo aktyvesnis ir įdomesnis jis bus.</string>
 		<item quantity="many">%d m.</item>
 		<item quantity="other">%d m.</item>
 	</plurals>
+	<string name="quote_post_unavailable">Įrašas nepasiekiamas</string>
+	<string name="quote_post_pending">Įrašas laukiamas</string>
+	<string name="quote_post_pending_explanation">Platformoje „Mastodon“ galite valdyti, ar kas nors gali jus cituoti. Šis įrašas yra laukiamas, kol gausime originalaus autoriaus patvirtinimą.</string>
 	<!-- %s is a username, i.e. @Gargron -->
+	<string name="nested_quote">Įrašą citavo %s</string>
 </resources>
