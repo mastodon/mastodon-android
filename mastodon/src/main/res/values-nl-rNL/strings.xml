@@ -865,5 +865,9 @@
 		<item quantity="one">%d</item>
 		<item quantity="other">%d</item>
 	</plurals>
+	<string name="quote_post_unavailable">Bericht niet beschikbaar</string>
+	<string name="quote_post_pending">Bericht in afwachting</string>
+	<string name="quote_post_pending_explanation">Op Mastodon kun je bepalen wie jou mag citeren. Dit bericht is in afwachting van de goedkeuring van de oorspronkelijke auteur.</string>
 	<!-- %s is a username, i.e. @Gargron -->
+	<string name="nested_quote">Citeerde een bericht van %s</string>
 </resources>
