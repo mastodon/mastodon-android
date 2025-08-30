@@ -370,6 +370,18 @@
  <li>일반적인 문장 구조 사용하기</li>
  <li>중복 정보 피하기</li>
  <li>복잡한 시각 자료(도표나 지도 등)에서는 추세와 주요 발견에 집중하기</li></ul></string>
+	<string name="edit_post">게시물 편집</string>
+	<string name="no_verified_link">인증된 링크가 없습니다</string>
+	<string name="compose_autocomplete_emoji_empty">이모지 찾아보기</string>
+	<string name="compose_autocomplete_users_empty">찾고자 하는 대상을 찾아보세요</string>
+	<string name="no_search_results">검색어에 대한 결과를 찾을 수 없습니다</string>
+	<string name="language">언어</string>
+	<string name="language_default">기본값</string>
+	<string name="language_system">시스템</string>
+	<string name="language_detecting">언어 감지</string>
+	<string name="language_cant_detect">언어를 감지할 수 없습니다</string>
+	<string name="language_detected">감지된</string>
+	<string name="media_hidden">숨겨진 미디어</string>
 	<string name="post_hidden">숨겨진 게시물</string>
 	<string name="report_title_post">게시물 신고</string>
 	<string name="forward_report_explanation">이 계정은 다른 서버에 있습니다. 익명화 된 사본을 해당 서버에도 전송할까요?</string>
@@ -379,19 +391,110 @@
 	<string name="reported">신고됨</string>
 	<string name="report_unfollow_explanation">홈 피드에서 더 이상 해당 유저들의 게시물을 보고 싶지 않으면, 언팔로우하세요.</string>
 	<string name="muted_user">뮤트한-음소거한 %s</string>
-	<string name="report_sent_already_blocked">이미 이 사용자를 차단했으므로, 신고를 검토하는 동안 추가로 무언가를 하셔야 할 필요가 없습니다.</string>
+	<string name="report_sent_already_blocked">이미 이 사용자를 차단했으므로, 신고를 검토하는 동안 더 이상 무언가를 하지 않으셔도 됩니다.</string>
+	<string name="report_personal_already_blocked">이미 이 사용자를 차단했으므로, 더 이상 무언가를 하지 않으셔도 됩니다.\n\n마스토돈을 모두를 위한 안전한 공간으로 만드는 데 도움을 주셔서 감사합니다!</string>
 	<string name="blocked_user">차단한 %s</string>
 	<string name="mark_all_notifications_read">모두 읽은 상태로 표시</string>
+	<string name="settings_display">디스플레이</string>
+	<string name="settings_filters">필터</string>
+	<string name="settings_server_explanation">미리보기, 규칙,</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">%s에 대해</string>
+	<string name="settings_confirm_unfollow">누군가를 언팔로우할 때 묻기</string>
+	<string name="settings_confirm_boost">부스트 전에 묻기</string>
+	<string name="settings_confirm_delete_post">게시물 삭제 전 묻기</string>
+	<string name="pause_all_notifications">모두 일시 중지</string>
+	<string name="pause_notifications_off">끄기</string>
+	<string name="notifications_policy_anyone">누구나</string>
+	<string name="notifications_policy_followed">나를 팔로우하는 사람들</string>
+	<string name="notifications_policy_follower">내가 팔로우하는 사람들</string>
+	<string name="notifications_policy_no_one">알림 받지않기</string>
+	<string name="settings_notifications_policy">알림 받기</string>
+	<string name="notification_type_mentions_and_replies">언급과 답장</string>
+	<string name="pause_all_notifications_title">모든 알림 일시 중단</string>
+	<plurals name="x_weeks">
+		<item quantity="other">%d 주</item>
+	</plurals>
 	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
 	<string name="date_at_time">%1$s %2$s에</string>
 	<string name="today">오늘</string>
+	<string name="yesterday">어제</string>
+	<string name="tomorrow">내일</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="pause_notifications_ends">%s에 종료</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="pause_notifications_banner">%s에 알림이 다시 시작됩니다.</string>
+	<string name="resume_notifications_now">지금 재개</string>
+	<string name="open_system_notification_settings">알림 설정으로 이동</string>
+	<string name="about_server">에 대해</string>
+	<string name="server_rules">규칙</string>
+	<string name="server_administrator">관리자</string>
+	<string name="send_email_to_server_admin">관리자에게 메세지 보내기</string>
+	<string name="notifications_disabled_in_system">어디에서든 업데이트를 확인할 수 있도록 기기 설정에서 알림 켜기</string>
+	<string name="settings_even_more">추가 설정</string>
+	<string name="settings_show_cws">열람 주의 표시</string>
+	<string name="settings_hide_sensitive_media">민감하다고 표시된 미디어를 숨기기</string>
+	<plurals name="alt_text_reminder_x_attachments">
+		<item quantity="other">이미지 %s개에 대체 텍스트를 입력하지 않았습니다.그대로 포스트 하시겠습니까?</item>
+	</plurals>
+	<string name="count_one">1개</string>
+	<string name="count_two">2개</string>
+	<string name="count_three">3</string>
+	<string name="count_four">4개</string>
+	<string name="alt_text_reminder_post_anyway">게시</string>
 	<!-- %s is the username -->
+	<string name="unfollow_confirmation">%s 님을 언팔로우 할까요?</string>
+	<string name="filter_active">활성 사용자</string>
+	<string name="filter_inactive">비활성 사용자</string>
+	<string name="settings_add_filter">필터 추가</string>
+	<string name="settings_edit_filter">필터 편집</string>
+	<string name="settings_filter_duration">기간</string>
+	<string name="settings_filter_muted_words">뮤트된 단어</string>
+	<string name="settings_filter_context">를 뮤트</string>
+	<string name="settings_filter_show_cw">내용 경고 표시</string>
+	<string name="settings_filter_show_cw_explanation">이 필터에 해당하는 게시물은 계속 표시하지만, 내용 경고 뒤에 숨겨서 보여줌</string>
+	<string name="settings_delete_filter">필터 삭제</string>
+	<string name="filter_duration_forever">무기한</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="settings_filter_ends">종료: %s</string>
+	<plurals name="settings_x_muted_words">
+		<item quantity="other">%d 뮤트된 단어 또는 문구</item>
+	</plurals>
+	<string name="selection_2_options">%1$s과 %2$s</string>
+	<string name="selection_3_options">%1$s, %2$s, 및 %3$s</string>
+	<string name="selection_4_or_more">%1$s, %2$s 및 %3$d개 더보기</string>
+	<string name="filter_context_home_lists">홈 &amp; 리스트</string>
+	<string name="filter_context_notifications">알림</string>
+	<string name="filter_context_public_timelines">공개 타임라인</string>
+	<string name="filter_context_threads_replies">스레드 &amp; 답글</string>
+	<string name="filter_context_profiles">프로필</string>
+	<string name="settings_filter_title">제목</string>
+	<string name="settings_delete_filter_title">\"%s\" 필터를 삭제하시겠습니까?</string>
+	<string name="settings_delete_filter_confirmation">이 필터는 귀하의 모든 기기의 계정에서 삭제됩니다.</string>
+	<string name="add_muted_word">뮤트할 단어 추가</string>
+	<string name="edit_muted_word">뮤트된 단어 편집</string>
+	<string name="add">추가</string>
+	<string name="filter_word_or_phrase">단어 또는 어구</string>
+	<string name="filter_add_word_help">단어는 대소문자를 구분하지 않으며, 전체 단어 단위로만 일치합니다.\n\n예를 들어 필터에 \'Apple\'이라는 키워드를 설정하면 \'apple\'이나 \'aPpLe\'가 포함된 게시물은 숨기지만 \'pineapple\'이 포함된 게시물은 숨기지 않습니다.</string>
+	<string name="settings_delete_filter_word">\"%s\" 단어를 삭제하시겠습니까?</string>
+	<string name="enter_selection_mode">선택</string>
+	<string name="select_all">전체 선택</string>
+	<string name="settings_filter_duration_title">필터 기간</string>
+	<string name="filter_duration_custom">사용자 지정</string>
+	<plurals name="settings_delete_x_filter_words">
+		<item quantity="other">%d 단어를 삭제하시겠습니까?</item>
+	</plurals>
+	<plurals name="x_items_selected">
+		<item quantity="other">%d개 선택됨</item>
+	</plurals>
+	<string name="required_form_field_blank">비워둘 수 없습니다</string>
+	<string name="filter_word_already_in_list">이미 목록에 있음</string>
+	<string name="app_update_ready">새로운 업데이트가 있습니다.</string>
+	<string name="app_update_version">버전 %s</string>
+	<string name="downloading_update">다운로드 중…(%d%%)</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
+	<string name="post_matches_filter_x">“%s” 필터와 일치함</string>
+	<string name="search_mastodon">Mastodon에서 찾아보기</string>
 	<!-- Shown in the post header. Please keep it short -->
 	<!-- %s is the name of the post language -->
 	<!-- %1$s is the language, %2$s is the name of the translation service -->
@@ -399,6 +502,7 @@
 	<!-- %s is the name of the list -->
 	<!-- %s is a username -->
 	<!-- %s is a time interval ("5 months") -->
+	<string name="user_cant_mention_or_follow_you">해당 사용자는 귀하를 멘션하거나 팔로우 할 수 없습니다.</string>
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
 	<!-- %s is the username -->
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
