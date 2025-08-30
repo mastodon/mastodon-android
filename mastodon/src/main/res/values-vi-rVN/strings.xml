@@ -819,5 +819,9 @@ Bạn càng theo dõi nhiều người thì nó sẽ càng sôi động và thú
 	<plurals name="at_least_x_years_old">
 		<item quantity="other">%d</item>
 	</plurals>
+	<string name="quote_post_unavailable">Tút không khả dụng</string>
+	<string name="quote_post_pending">Tút đang chờ duyệt</string>
+	<string name="quote_post_pending_explanation">Trên Mastodon, bạn có thể kiểm soát việc ai đó có thể trích dẫn tút của bạn hay không. Tút này đang chờ phê duyệt từ tác giả gốc.</string>
 	<!-- %s is a username, i.e. @Gargron -->
+	<string name="nested_quote">Trích dẫn từ tút của @%s</string>
 </resources>

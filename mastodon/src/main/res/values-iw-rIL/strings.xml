@@ -535,10 +535,16 @@
 	<string name="filter_duration_forever">תמיד</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<string name="settings_filter_ends">מסתיים ב- %s</string>
+	<string name="selection_2_options">%1$s ו־%2$s</string>
+	<string name="selection_3_options">%1$s, %2$s, ו־%3$s</string>
+	<string name="selection_4_or_more">%1$s, %2$s, ו־%3$d נוספים</string>
+	<string name="filter_context_home_lists">בית ורשימות</string>
 	<string name="filter_context_notifications">התראות</string>
 	<string name="filter_context_public_timelines">פידים ציבוריים</string>
+	<string name="filter_context_threads_replies">שרשורים ותגובות</string>
 	<string name="filter_context_profiles">פרופילים</string>
 	<string name="settings_filter_title">כותרת</string>
+	<string name="settings_delete_filter_title">למחוק את סנן \"%s\"?</string>
 	<string name="settings_delete_filter_confirmation">סנן זה יימחק מחשבונך בכל המכשירים שלך.</string>
 	<string name="add_muted_word">הוספת מילה מושתקת</string>
 	<string name="edit_muted_word">עריכת מילה מושתקת</string>
@@ -613,6 +619,7 @@
 	<string name="no_lists_title">ארגון פיד הבית בעזרת רשימות</string>
 	<string name="no_lists_subtitle">שלך יופיע כאן</string>
 	<string name="manage_accounts">הוספת או החלפת חשבונות</string>
+	<string name="create_list">יצירת רשימה</string>
 	<string name="create">יצירה</string>
 	<string name="manage_list_members">נהל רשימת חברים</string>
 	<string name="list_no_members">עדיין אין חברים</string>
@@ -624,6 +631,8 @@
 	<string name="got_it">הבנתי</string>
 	<string name="dont_remind_again">אל תזכיר לי שוב</string>
 	<!-- %s is a time interval ("5 months") -->
+	<string name="old_post_sheet_title">ההודעה בת %s</string>
+	<string name="old_post_sheet_text">ניתן לענות, אבל התגובה עלולה להיות כבר לא רלוונטית.</string>
 	<string name="more_than_two_years">יותר משנתיים</string>
 	<string name="non_mutual_title1">שמרו על כבוד ורלוונטיות</string>
 	<string name="non_mutual_text1">וודאו שתשובתכם מנומסת ורלוונטית לנושא.</string>
