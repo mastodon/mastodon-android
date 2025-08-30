@@ -495,12 +495,17 @@
 	<!-- Shown like a content warning, %s is the name of the filter -->
 	<string name="post_matches_filter_x">“%s” 필터와 일치함</string>
 	<string name="search_mastodon">Mastodon에서 찾아보기</string>
+	<string name="accounts_matching_string">“%s”가 포함된 사람들</string>
 	<!-- Shown in the post header. Please keep it short -->
 	<!-- %s is the name of the post language -->
 	<!-- %1$s is the language, %2$s is the name of the translation service -->
 	<string name="translation_failed">번역에 실패했습니다. 관리자가 이 서버에 번역 기능을 활성화시키지 않았거나 이 서버가 번역 기능을 지원하지 않는 Mastodon의 오래된 버전을 사용하는 것일 수 있습니다.</string>
+	<string name="settings_privacy">프라이버시와 노출 범위</string>
 	<!-- Screen reader description for the menu on the home timeline screen -->
 	<!-- %s is the name of the list -->
+	<string name="list_exclusive">팔로우 중인 구성원 숨기기</string>
+	<string name="list_exclusive_subtitle">이 목록에 있는 사람이면, 팔로우 중인 타임라인에서 그 사람을 숨겨서 게시물을 두 번 보는 것을 방지하세요.</string>
+	<string name="list_replies_members">목록의 구성원</string>
 	<!-- %s is a username -->
 	<!-- %s is a time interval ("5 months") -->
 	<string name="this_invite_is_invalid">이 초대 링크는 유효하지 않습니다.</string>
