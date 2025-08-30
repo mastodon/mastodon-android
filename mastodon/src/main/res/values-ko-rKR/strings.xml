@@ -180,9 +180,13 @@
 	<string name="settings_clear_cache">미디어 캐시 지우기</string>
 	<string name="settings_app_version">안드로이드용 마스토돈 v%1$s (%2$d)</string>
 	<string name="media_cache_cleared">미디어 캐시 지워짐</string>
+	<string name="confirm_log_out">%s 로그아웃?</string>
+	<string name="sensitive_content_explain">작성자가 미디어를 민감하다고 설정했습니다. </string>
+	<string name="avatar_description">%s 님의 프로필로 이동</string>
 	<string name="more_options">추가 옵션</string>
 	<string name="new_post">새 게시물</string>
 	<string name="button_reply">답장</string>
+	<string name="button_reblog">부스트</string>
 	<string name="button_favorite">좋아요</string>
 	<string name="button_share">공유</string>
 	<string name="media_no_description">설명이 없는 미디어</string>
@@ -197,6 +201,8 @@
 	<string name="followed_user">이제 %s 님을 팔로우 합니다</string>
 	<string name="following_user_requested">%s 님 팔로우를 요청합니다</string>
 	<string name="open_in_browser">브라우저에서 열기</string>
+	<string name="hide_boosts_from_user">부스트 숨기기</string>
+	<string name="show_boosts_from_user">부스트 표시</string>
 	<string name="signup_reason">가입하려는 이유가 무엇인가요?</string>
 	<string name="signup_reason_note">이 정보는 우리가 심사를 하는 데에 참고할 수 있습니다.</string>
 	<string name="clear">모두 지우기</string>
@@ -209,8 +215,15 @@
 	<string name="open_settings">설정 열기</string>
 	<string name="error_saving_file">파일 저장 오류</string>
 	<string name="downloading">다운로드 중…</string>
+	<string name="no_app_to_handle_action">이 동작을 처리할 앱이 없습니다</string>
+	<string name="local_timeline">실시간 피드</string>
+	<string name="trending_posts_info_banner">당신이 속한 마스토돈 서버에서 관심을 끌고 있는 게시물들입니다.</string>
+	<string name="trending_links_info_banner">당신이 속한 마스토돈 서버에서 관심을 끌고 있는 뉴스 스토리들입니다.</string>
 	<!-- %s is the server domain -->
 	<string name="local_timeline_info_banner">이것들은 해당 서버(%s)에 있는 모든 사용자가 작성한 전체 게시물입니다.</string>
+	<string name="recommended_accounts_info_banner">다른 사용자가 팔로우하는 계정을 기준으로, 이런 계정들도 좋아할 수 있습니다.</string>
+	<string name="see_new_posts">새 게시물</string>
+	<string name="follow_back">맞팔로우</string>
 	<string name="button_follow_pending">대기 중</string>
 	<string name="follows_you">나를 팔로우합니다</string>
 	<string name="manually_approves_followers">수동으로 팔로워 승인</string>
@@ -223,6 +236,9 @@
 	</plurals>
 	<plurals name="x_favorites">
 		<item quantity="other">%,d개의 좋아요</item>
+	</plurals>
+	<plurals name="x_reblogs">
+		<item quantity="other">%,d 님이 부스트했습니다</item>
 	</plurals>
 	<string name="time_now">방금</string>
 	<string name="edit_history">수정 내역</string>
@@ -260,14 +276,22 @@
 	<!-- %s is file size -->
 	<string name="download_update">다운로드 (%s)</string>
 	<string name="install_update">설치</string>
+	<string name="privacy_policy_title">귀하의 개인정보</string>
 	<string name="privacy_policy_subtitle">마스토돈 앱은 아무런 정보도 수집하지 않지만, 당신이 가입하는 서버는 다른 정책을 가질 수 있습니다.\n\n만약 %s의 정책에 동의하지 않는다면, 뒤로 돌아가서 다른 서버를 고를 수 있습니다.</string>
+	<string name="i_agree">동의합니다</string>
 	<string name="empty_list">리스트에 아무 것도 없습니다</string>
 	<string name="instance_signup_closed">이 서버는 가입이 막혀 있는 상태입니다.</string>
 	<string name="text_copied">클립보드에 복사됨</string>
 	<string name="add_bookmark">보관</string>
+	<string name="remove_bookmark">북마크 삭제</string>
 	<string name="bookmarks">보관함</string>
+	<string name="your_favorites">즐겨찾기</string>
+	<string name="login_title">돌아오신 것을 환영합니다</string>
 	<string name="login_subtitle">계정을 생성한 서버에 로그인하세요.</string>
 	<string name="server_url">서버 URL</string>
+	<string name="server_filter_any_language">모든 언어</string>
+	<string name="server_filter_instant_signup">즉시 가입</string>
+	<string name="server_filter_manual_review">수동 검토</string>
 	<string name="server_filter_any_signup_speed">모든 가입 속도-어떠한 가입 속도</string>
 	<string name="server_filter_region_europe">유럽</string>
 	<string name="server_filter_region_north_america">북아메리카</string>
@@ -276,20 +300,93 @@
 	<string name="server_filter_region_asia">아시아</string>
 	<string name="server_filter_region_oceania">오세아니아</string>
 	<string name="not_accepting_new_members">새로운 가입을 받지 않습니다</string>
+	<string name="category_special_interests">특별한 관심사</string>
+	<string name="signup_passwords_dont_match">비밀번호가 일치하지 않습니다.</string>
 	<string name="profile_add_row">열 추가</string>
 	<string name="profile_setup">프로필 설정</string>
 	<string name="profile_setup_subtitle">나중에 언제든지 프로필 탭에서 완성할 수 있습니다.</string>
 	<string name="follow_all">모두 팔로우</string>
 	<string name="server_rules_disagree">동의 안 함</string>
+	<string name="privacy_policy_explanation">요약: 우리는 어떤 정보도 수집하거나 처리하지 않습니다.</string>
 	<!-- %s is server domain -->
 	<string name="server_policy_disagree">%s에 대해 비동의</string>
+	<string name="profile_bio">자기소개</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
+	<string name="sending_follows">팔로우 중인 사용자…</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<string name="signup_email_domain_blocked">%1$s은 %2$s에서의 가입을 허용하지 않습니다. 다른 것을 시도하거나 &lt;a&gt;다른 서버를 선택하세요&lt;/a&gt;.</string>
+	<string name="spoiler_show">무시하고 표시</string>
+	<string name="spoiler_hide">다시 숨기기</string>
+	<string name="poll_multiple_choice">한 개 혹은 여러 개를 선택하세요</string>
+	<string name="save_changes">변경사항 저장</string>
+	<string name="profile_featured">추천</string>
+	<string name="profile_timeline">타임라인</string>
+	<string name="view_all">모두 보기</string>
+	<string name="profile_endorsed_accounts">계정</string>
+	<string name="verified_link">인증된 링크</string>
+	<string name="show">표시</string>
+	<string name="hide">숨기기</string>
+	<string name="join_default_server">%s에 가입하기</string>
+	<string name="pick_server">다른 서버 선택하기</string>
+	<string name="signup_or_login">또는</string>
+	<string name="learn_more">더 알아보기</string>
+	<string name="welcome_to_mastodon">Mastodon에 오신 것을 환영합니다</string>
+	<string name="welcome_paragraph1">Mastodon은 분산형 소셜 네트워크로, 어떤 단일 회사도 이를 통제하지 않으며, 모두 서로 연결된 여러 개의 독립적으로 운영되는 서버로 구성되어 있습니다.</string>
+	<string name="what_are_servers">서버란 무엇인가요?</string>
+	<string name="welcome_paragraph2">모든 Mastodon 계정은 서버에 호스팅되며, 각각 고유한 가치, 규칙 및 &amp;관리자가 있습니다. 어떤 서버를 선택하든, 모든 서버의 사람들을 팔로우하고 상호 작용할 수 있습니다.</string>
+	<string name="opening_link">링크 열기...</string>
+	<string name="link_not_supported">이 링크는 앱에서 지원하지 않습니다.</string>
+	<string name="log_out_all_accounts">모든 계정 로그아웃하기</string>
+	<string name="confirm_log_out_all_accounts">모든 계정에서 로그아웃하시겠습니까?</string>
+	<string name="retry">재시도</string>
+	<string name="post_failed">게시물 작성 실패</string>
 	<!-- %s is formatted file size ("467 KB image") -->
+	<string name="attachment_description_image">%s장의 이미지</string>
+	<string name="attachment_description_video">%s 개의 동영상</string>
+	<string name="attachment_description_audio">%s 개의 오디오</string>
+	<string name="attachment_description_unknown">%s개의 파일</string>
+	<string name="attachment_type_image">이미지</string>
+	<string name="attachment_type_video">동영상</string>
+	<string name="attachment_type_audio">오디오</string>
+	<string name="attachment_type_gif">GIF</string>
+	<string name="attachment_type_unknown">파일</string>
+	<string name="attachment_x_percent_uploaded">%d%% 업로드됨</string>
+	<string name="add_poll_option">투표 옵션 추가</string>
+	<string name="poll_length">설문 길이</string>
+	<string name="poll_style">스타일</string>
+	<string name="compose_poll_single_choice">선택해 주세요</string>
+	<string name="compose_poll_multiple_choice">다중 선택</string>
+	<string name="delete_poll_option">투표 옵션 삭제</string>
+	<string name="poll_style_title">설문 스타일</string>
+	<string name="alt_text">대체 텍스트</string>
+	<string name="help">도움말</string>
+	<string name="what_is_alt_text">대체 텍스트란 무엇인가요?</string>
+	<string name="alt_text_help">Alt 텍스트는 시각 장애인, 저대역 연결 사용자 또는 추가 문맥이 필요한 사람들을 위해 이미지 설명을 제공합니다.
+
+\n\n모두를 위한 접근성과 이해를 향상시키려면 명확하고 간결하며 객관적인 Alt 텍스트를 작성하세요.\n\n
+
+<ul> <li>중요한 요소 포착하기</li>
+ <li>이미지 내 텍스트 요약하기</li>
+ <li>일반적인 문장 구조 사용하기</li>
+ <li>중복 정보 피하기</li>
+ <li>복잡한 시각 자료(도표나 지도 등)에서는 추세와 주요 발견에 집중하기</li></ul></string>
+	<string name="post_hidden">숨겨진 게시물</string>
+	<string name="report_title_post">게시물 신고</string>
+	<string name="forward_report_explanation">이 계정은 다른 서버에 있습니다. 익명화 된 사본을 해당 서버에도 전송할까요?</string>
 	<!-- %s is the server domain -->
+	<string name="forward_report_to_server">%s에 전달</string>
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
+	<string name="reported">신고됨</string>
+	<string name="report_unfollow_explanation">홈 피드에서 더 이상 해당 유저들의 게시물을 보고 싶지 않으면, 언팔로우하세요.</string>
+	<string name="muted_user">뮤트한-음소거한 %s</string>
+	<string name="report_sent_already_blocked">이미 이 사용자를 차단했으므로, 신고를 검토하는 동안 추가로 무언가를 하셔야 할 필요가 없습니다.</string>
+	<string name="blocked_user">차단한 %s</string>
+	<string name="mark_all_notifications_read">모두 읽은 상태로 표시</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
+	<string name="about_app">%s에 대해</string>
 	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
+	<string name="date_at_time">%1$s %2$s에</string>
+	<string name="today">오늘</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<!-- %s is the username -->
