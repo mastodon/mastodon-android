@@ -400,6 +400,8 @@
 	<string name="settings_server_explanation">미리보기, 규칙,</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">%s에 대해</string>
+	<string name="default_post_language">기본 지정 게시 언어</string>
+	<string name="settings_alt_text_reminders">대체 텍스트 리마인더 추가</string>
 	<string name="settings_confirm_unfollow">누군가를 언팔로우할 때 묻기</string>
 	<string name="settings_confirm_boost">부스트 전에 묻기</string>
 	<string name="settings_confirm_delete_post">게시물 삭제 전 묻기</string>
@@ -435,6 +437,23 @@
 	<string name="settings_show_cws">열람 주의 표시</string>
 	<string name="settings_hide_sensitive_media">민감하다고 표시된 미디어를 숨기기</string>
 	<string name="settings_show_interaction_counts">게시물 상호작용 수</string>
+	<string name="settings_show_emoji_in_names">표시 이름에 사용자 지정 이모지 추가</string>
+	<plurals name="in_x_seconds">
+		<item quantity="other">%d초 안에</item>
+	</plurals>
+	<plurals name="in_x_minutes">
+		<item quantity="other">%d분 안에</item>
+	</plurals>
+	<plurals name="in_x_hours">
+		<item quantity="other">%d시간 안에</item>
+	</plurals>
+	<plurals name="x_hours_ago">
+		<item quantity="other">%d 시간 전</item>
+	</plurals>
+	<string name="alt_text_reminder_title">미디어에 대체 텍스트가 없습니다</string>
+	<plurals name="alt_text_reminder_x_images">
+		<item quantity="other">이미지 %s개에 대체 텍스트를 입력하지 않았습니다.그대로 포스트 하시겠습니까?</item>
+	</plurals>
 	<plurals name="alt_text_reminder_x_attachments">
 		<item quantity="other">이미지 %s개에 대체 텍스트를 입력하지 않았습니다.그대로 포스트 하시겠습니까?</item>
 	</plurals>
@@ -496,26 +515,86 @@
 	<!-- Shown like a content warning, %s is the name of the filter -->
 	<string name="post_matches_filter_x">“%s” 필터와 일치함</string>
 	<string name="search_mastodon">Mastodon에서 찾아보기</string>
+	<string name="clear_all">모두 지우기</string>
+	<string name="search_open_url">마스토돈에서 URL 열기</string>
+	<string name="posts_matching_hashtag">“%s가 포함된 게시물들</string>
+	<string name="search_go_to_account">%s로 이동</string>
+	<string name="posts_matching_string">“%s”가 포함된 게시물들</string>
 	<string name="accounts_matching_string">“%s”가 포함된 사람들</string>
 	<!-- Shown in the post header. Please keep it short -->
+	<string name="time_seconds_ago_short">%d 초 전</string>
+	<string name="time_minutes_ago_short">%d 분 전</string>
+	<string name="time_hours_ago_short">%d 시간 전</string>
+	<string name="time_days_ago_short">%d 일 전</string>
 	<!-- %s is the name of the post language -->
+	<string name="translate_post">%s에서 번역됨</string>
 	<!-- %1$s is the language, %2$s is the name of the translation service -->
+	<string name="post_translated">%1$s에서 %2$s를 사용해 번역됨</string>
+	<string name="translation_show_original">원본 보기</string>
 	<string name="translation_failed">번역에 실패했습니다. 관리자가 이 서버에 번역 기능을 활성화시키지 않았거나 이 서버가 번역 기능을 지원하지 않는 Mastodon의 오래된 버전을 사용하는 것일 수 있습니다.</string>
 	<string name="settings_privacy">프라이버시와 노출 범위</string>
+	<string name="settings_discoverable">탐색 알고리즘에서 프로필과 게시물 우선 노출</string>
+	<string name="settings_indexable">공개 게시물을 검색 결과에 포함시키기</string>
+	<plurals name="x_participants">
+		<item quantity="other">%,d명의 참여자</item>
+	</plurals>
+	<plurals name="x_posts_today">
+		<item quantity="other">오늘 게시한 %,d명</item>
+	</plurals>
+	<string name="error_playing_video">비디오 재생 오류 발생</string>
+	<string name="timeline_following">홈</string>
+	<string name="lists">목록</string>
+	<string name="followed_hashtags">팔로우 중인 해시태그</string>
+	<string name="manage_lists">목록 관리</string>
+	<string name="manage_hashtags">해시태그 관리</string>
 	<!-- Screen reader description for the menu on the home timeline screen -->
+	<string name="dropdown_menu">드롭다운 메뉴</string>
+	<string name="edit_list">목록 관리</string>
+	<string name="list_members">리스트 구성원</string>
+	<string name="delete_list">리스트 삭제</string>
 	<!-- %s is the name of the list -->
+	<string name="delete_list_confirm">\"%s\" 삭제</string>
 	<string name="list_exclusive">팔로우 중인 구성원 숨기기</string>
 	<string name="list_exclusive_subtitle">이 목록에 있는 사람이면, 팔로우 중인 타임라인에서 그 사람을 숨겨서 게시물을 두 번 보는 것을 방지하세요.</string>
+	<string name="list_name">목록 이름</string>
+	<string name="list_show_replies_to">답장을 표시할 대상:</string>
+	<string name="list_replies_no_one">없음</string>
 	<string name="list_replies_members">목록의 구성원</string>
+	<string name="list_replies_anyone">내가 팔로우 하는 사람</string>
+	<string name="confirm_remove_list_members">구성원을 제거하시겠습니까?</string>
+	<string name="remove">제거</string>
+	<string name="add_list_member">구성원 추가</string>
+	<string name="search_among_people_you_follow">팔로우 중인 사람들 중에서 찾기</string>
+	<string name="add_user_to_list">목록에서 추가 또는 제거</string>
+	<string name="add_user_to_list_title">목록에 추가</string>
 	<!-- %s is a username -->
 	<string name="manage_user_lists">%s 가 표시되는 목록 관리하기</string>
+	<string name="remove_from_list">목록에서 제거</string>
+	<string name="confirm_remove_list_member">구성원을 제거하시겠습니까?</string>
 	<string name="no_followed_hashtags_title">해시태그를 팔로우해서 관심사 따라잡기</string>
 	<string name="no_lists_subtitle">여기에 귀하의 제목이 나타납니다</string>
+	<string name="manage_accounts">계정 추가 또는 전환</string>
 	<plurals name="x_posts_recently">
 		<item quantity="other">%,d 개 최신 게시물</item>
 	</plurals>
+	<string name="create_list">목록 만들기</string>
+	<string name="step_x_of_y">%2$d개 중 %1$d번째 단계</string>
+	<string name="create">만들기</string>
+	<string name="manage_list_members">리스트 구성원 관리</string>
+	<string name="list_no_members">아직 구성원이 없습니다</string>
+	<string name="list_find_users">추가할 사용자 검색</string>
+	<string name="reply_to_user">%s님에게 답장하기</string>
+	<string name="got_it">알겠습니다</string>
+	<string name="dont_remind_again">다시 알리지 않습니다</string>
 	<!-- %s is a time interval ("5 months") -->
+	<string name="make_profile_discoverable">내 프로필을 발견 가능하도록 설정</string>
 	<string name="discoverability">발견 용이성</string>
+	<string name="onboarding_recommendations_title">내게 맞는 홈 피드 꾸미기</string>
+	<string name="article_by_author">%s에 의해</string>
+	<string name="button_reblogged">부스트된</string>
+	<string name="button_favorited">즐겨찾기된</string>
+	<string name="join_server_x_with_invite">%s 참여를 위해 초대하기</string>
+	<string name="expired_invite_link">만료된 초대 링크</string>
 	<string name="this_invite_is_invalid">이 초대 링크는 유효하지 않습니다.</string>
 	<string name="this_invite_has_expired">이 초대 링크는 만료되었습니다.</string>
 	<string name="invite_link_pasted">클립보드에서</string>
@@ -567,8 +646,19 @@
 	<string name="add_muted_word_short">단어 추가</string>
 	<string name="tab_home">홈</string>
 	<string name="tab_search">둘러보기</string>
+	<string name="tab_profile">프로필</string>
+	<string name="pin_post">프로필에 고정</string>
+	<string name="unpin_post">프로필에서 고정 해제</string>
 	<!-- %s is the username -->
+	<string name="enable_new_post_notifications">%s 의 게시물 알림 켜기</string>
+	<string name="disable_new_post_notifications">%s 의 게시물 알림 끄기</string>
 	<string name="filtered_notifications">필터링된 알림</string>
+	<string name="view_favorites">즐겨찾기 보기</string>
+	<string name="undo_reblog">부스트 실행 취소</string>
+	<string name="could_not_reach_server">서버에 도달할 수 없습니다. 연결을 확인하고 재시도해주시겠어요?</string>
+	<plurals name="x_new_notifications">
+		<item quantity="other">%,d 개의 새로운 알림</item>
+	</plurals>
 	<string name="settings_donate">마스토돈에 기부하기</string>
 	<string name="settings_manage_donations">기부 관리하기</string>
 	<string name="cant_load_image">이미지를 불러올 수 없습니다</string>
@@ -587,8 +677,13 @@
 	</plurals>
 	<string name="familiar_followers_one">%s 님이 팔로우함</string>
 	<string name="familiar_followers_two">%s, %s 님이 팔로우함</string>
+	<string name="profile_saved_posts">저장됨</string>
+	<string name="search_people">사람</string>
 	<!-- appears when you're about to block a server -->
 	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
+	<plurals name="will_lose_x_followers">
+		<item quantity="other">%,d명의 팔로워</item>
+	</plurals>
 	<plurals name="will_lose_x_following">
 		<item quantity="other">%,d명의 귀하를 팔로우하는 사람들</item>
 	</plurals>
