@@ -508,6 +508,12 @@
 	<string name="list_exclusive_subtitle">이 목록에 있는 사람이면, 팔로우 중인 타임라인에서 그 사람을 숨겨서 게시물을 두 번 보는 것을 방지하세요.</string>
 	<string name="list_replies_members">목록의 구성원</string>
 	<!-- %s is a username -->
+	<string name="manage_user_lists">%s 가 표시되는 목록 관리하기</string>
+	<string name="no_followed_hashtags_title">해시태그를 팔로우해서 관심사 따라잡기</string>
+	<string name="no_lists_subtitle">여기에 귀하의 제목이 나타납니다</string>
+	<plurals name="x_posts_recently">
+		<item quantity="other">%,d 개 최신 게시물</item>
+	</plurals>
 	<!-- %s is a time interval ("5 months") -->
 	<string name="discoverability">발견 용이성</string>
 	<string name="this_invite_is_invalid">이 초대 링크는 유효하지 않습니다.</string>
