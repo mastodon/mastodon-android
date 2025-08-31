@@ -655,10 +655,18 @@
 	<string name="filtered_notifications">필터링된 알림</string>
 	<string name="view_favorites">즐겨찾기 보기</string>
 	<string name="undo_reblog">부스트 실행 취소</string>
+	<string name="undo_favorite">즐겨찾기 실행 취소</string>
 	<string name="could_not_reach_server">서버에 도달할 수 없습니다. 연결을 확인하고 재시도해주시겠어요?</string>
+	<string name="connection_timed_out">\?</string>
+	<string name="server_error">서버와의 통신에 문제가 발생하였습니다. 회원님의 잘못은 아닐 것입니다. 재시도해주시겠어요?</string>
 	<plurals name="x_new_notifications">
 		<item quantity="other">%,d 개의 새로운 알림</item>
 	</plurals>
+	<string name="dismiss">무시</string>
+	<string name="donation_once">한 번만</string>
+	<string name="donation_monthly">매월</string>
+	<string name="donation_yearly">매년</string>
+	<string name="currency">통화</string>
 	<string name="settings_donate">마스토돈에 기부하기</string>
 	<string name="settings_manage_donations">기부 관리하기</string>
 	<string name="cant_load_image">이미지를 불러올 수 없습니다</string>
