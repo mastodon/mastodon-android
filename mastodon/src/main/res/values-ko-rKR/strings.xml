@@ -573,6 +573,7 @@
 	<string name="confirm_remove_list_member">구성원을 제거하시겠습니까?</string>
 	<string name="no_followed_hashtags_title">해시태그를 팔로우해서 관심사 따라잡기</string>
 	<string name="no_followed_hashtags_subtitle">팔로우중인 사람들이 여기 나타날 것입니다</string>
+	<string name="no_lists_title">목록으로 홈 피드를 관리하세요</string>
 	<string name="no_lists_subtitle">여기에 당신의 제목이 나타납니다</string>
 	<string name="manage_accounts">계정 추가 또는 전환</string>
 	<plurals name="x_posts_recently">
@@ -585,17 +586,28 @@
 	<string name="list_no_members">아직 구성원이 없습니다</string>
 	<string name="list_find_users">추가할 사용자 검색</string>
 	<string name="reply_to_user">%s님에게 답장하기</string>
+	<string name="posted_at">%s가 게시한</string>
+	<string name="non_mutual_sheet_title">안녕하세요, 새로운 연결!</string>
+	<string name="non_mutual_sheet_text">아직 모르는 누군가에게 답변하시려는 것처럼 보입니다. 먼저 좋은 첫인상을 남겨 보세요.</string>
 	<string name="got_it">알겠습니다</string>
 	<string name="dont_remind_again">다시 알리지 않습니다</string>
 	<!-- %s is a time interval ("5 months") -->
 	<string name="old_post_sheet_title">이 게시물은 %s 전</string>
-	<string name="non_mutual_title1">존중하고 &amp; 관련있도록 하세요</string>
+	<string name="old_post_sheet_text">여전히 답변할 수 있지만, 더는 관련은 없을 것입니다.</string>
+	<plurals name="x_months">
+		<item quantity="other">%,d 달</item>
+	</plurals>
+	<string name="more_than_two_years">2년 이상</string>
+	<string name="non_mutual_title1">존중하고 &amp; 관련이 있도록 하세요</string>
+	<string name="non_mutual_text1">답변이 정중하고 주제에 맞도록 하세요</string>
 	<string name="non_mutual_title2">친절함을 받아들이세요</string>
 	<string name="non_mutual_text2">긍정적인 톤은 항상 환영합니다.</string>
+	<string name="non_mutual_title3">열려있으세요</string>
 	<string name="non_mutual_text3">모든 사람들의 대화 스타일은 고유합니다. 적응할 준비를 해주세요.</string>
 	<string name="make_profile_discoverable">내 프로필을 발견 가능하도록 설정</string>
 	<string name="discoverability">발견 용이성</string>
 	<string name="discoverability_help">마스토돈에서 발견 가능성-쉽게 발견될 수 있는 정도-을 선택한다면, 당신이 작성한 게시물은 아마도 검색 결과와 트렌드에 나타날 것입니다.\n\n당신의 프로필은 유사한 관심사를 가진 사람들에게 추천될 것입니다.\n\n이 옵션을 선택하지 않더라도 누군가 당신의 이름을 검색했을 때 프로필이 숨겨지지는 않습니다.</string>
+	<string name="app_version_copied">버전 정보가 클립보드에 복사되었습니다.</string>
 	<string name="onboarding_recommendations_intro">홈 피드를 직접 큐레이팅합니다.
 더 많은 사람을 팔로우할수록, 홈 피드가 더 활발해지고 흥미로워질 거에요.</string>
 	<string name="onboarding_recommendations_title">내게 맞는 홈 피드 꾸미기</string>
@@ -607,6 +619,8 @@
 	<string name="expired_clipboard_invite_link_alert">클립보드에 있는 %1$s 에 대한 초대 링크가 만료되어 등록할 수 없습니다.\n\n기존 사용자로부터 새로운 링크를 요청하거나 %2$s 를 통해 등록을 요청할 수 있고, 또는 가입할 수 있는 다른 서버를 선택할 수도 있습니다.</string>
 	<string name="invalid_invite_link">유효하지 않은 초대 링크</string>
 	<string name="invalid_clipboard_invite_link_alert">클립보드에 있는 %1$s 에 대한 초대 링크가 유효하지 않아 등록할 수 없습니다.\n\n기존 사용자로부터 새로운 링크를 요청하거나 %2$s 를 통해 등록을 요청할 수 있고, 또는 가입할 수 있는 다른 서버를 선택할 수도 있습니다.</string>
+	<string name="use_invite_link">초대 링크 사용하기</string>
+	<string name="enter_invite_link">초대 링크 입력하기</string>
 	<string name="this_invite_is_invalid">이 초대 링크는 유효하지 않습니다.</string>
 	<string name="this_invite_has_expired">이 초대 링크는 만료되었습니다.</string>
 	<string name="invite_link_pasted">클립보드에서</string>
@@ -661,19 +675,38 @@
 	<string name="tab_profile">프로필</string>
 	<string name="pin_post">프로필에 고정</string>
 	<string name="unpin_post">프로필에서 고정 해제</string>
+	<string name="post_pinned">게시물이 고정되었습니다.</string>
+	<string name="post_unpinned">게시물 고정이 해제되었습니다.</string>
 	<!-- %s is the username -->
 	<string name="enable_new_post_notifications">%s 의 게시물 알림 켜기</string>
 	<string name="disable_new_post_notifications">%s 의 게시물 알림 끄기</string>
+	<string name="new_post_notifications_enabled">새로운 게시물에 대한 알림을 받을 것입니다.</string>
 	<string name="new_post_notifications_disabled">새로운 게시물에 대한 알림을 받지 않게 될 것입니다.</string>
+	<string name="mute_conversation">대화 뮤트하기</string>
+	<string name="unmute_conversation">대화 뮤트 해제하기</string>
+	<string name="visibility_unlisted">제한적 공개</string>
 	<string name="filtered_notifications">필터링된 알림</string>
 	<string name="filter_notifications">알림 제외 조건...</string>
+	<string name="notification_filter_following">내가 팔로우하지 않는 사람들</string>
+	<string name="notification_filter_following_explanation">내가 직접 승인하지 않는 한</string>
+	<string name="notification_filter_followers">나를 팔로우하지 않는 사람들</string>
+	<string name="notification_filter_followers_explanation">나를 팔로우한 지 3일 이하인 사람 포함</string>
+	<string name="notification_filter_new_accounts">새로운 계정</string>
+	<string name="notification_filter_new_accounts_explanation">지난 30일 사이에 가입함</string>
+	<string name="notification_filter_mentions">요청하지 않은 개인 멘션</string>
 	<string name="notification_filter_mentions_explanation">내가 남긴 멘션에 단 답글이거나 내가 팔로우한 것이 아닌 이상 필터링됩니다</string>
+	<string name="allow_notifications">알림 허용</string>
+	<string name="mute_notifications">알림 요청 해제</string>
 	<plurals name="x_people_you_may_know">
 		<item quantity="other">%,d 명의 알 수도 있는 사람</item>
 	</plurals>
+	<string name="notifications_from_user">%s 로부터의 알림</string>
+	<string name="notifications_muted">%s 로부터의 알림이 해제되었습니다.</string>
+	<string name="notifications_allowed">%s 가 이제 알림 목록에 나타날 것입니다.</string>
 	<string name="visibility_subtitle_public"></string>
 	<string name="visibility_subtitle_unlisted">알고리즘에 의한 노출 감소</string>
 	<string name="visibility_subtitle_followers">오직 팔로우 중인 사람들에게만</string>
+	<string name="visibility_subtitle_private">게시물에 반응한 사람들에게만</string>
 	<string name="view_boosts">부스터 보기</string>
 	<string name="view_favorites">즐겨찾기 보기</string>
 	<string name="undo_reblog">부스트 실행 취소</string>
@@ -694,7 +727,9 @@
 	<string name="donation_monthly">매월</string>
 	<string name="donation_yearly">매년</string>
 	<string name="currency">통화</string>
+	<string name="donation_success_share">소식을 퍼뜨리세요</string>
 	<string name="donation_success_title">당신의 기여에 감사드립니다!</string>
+	<string name="donation_success_subtitle">곧 기부를 확정하는 이메일을 받으실 겁니다.</string>
 	<string name="donation_server_error">죄송합니다, 에러가 발생해 기부 요청을 처리할 수 없었습니다.\n\n몇 분 내로 다시 시도를 부탁드립니다.</string>
 	<string name="settings_donate">마스토돈에 기부하기</string>
 	<string name="settings_manage_donations">기부 관리하기</string>
@@ -710,18 +745,62 @@
 	<plurals name="user_and_x_more_boosted">
 		<item quantity="other">%1$s 및 %2$,d 외 부스트함:</item>
 	</plurals>
+	<plurals name="poll_ended_x_voters">
+		<item quantity="other">%1$s 님이 당신과 %2$,d 및 다른 사람들이 투표에 참여한 여론 조사를 실시했습니다</item>
+	</plurals>
 	<string name="own_poll_ended">당신의 투표가 종료되었습니다</string>
+	<string name="user_just_posted">%s 가 방금 게시함</string>
+	<string name="user_edited_post">%s 님이 당신이 참여한 게시글을 편집했습니다.</string>
+	<string name="relationship_severance_account_suspension">%1$s의 관리자가 %2$s를 정지시켰기 때문에 그들과 더이상 상호작용 할 수 없고 업데이트 정보를 받을 수 없습니다.</string>
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_domain_block">%1$s의 관리자가 %2$s를 차단했습니다. 이 중에는 당신의 팔로워 %3$,d명과 당신이 팔로우하는 %4$s명도 포함되어 있습니다.</string>
+	<plurals name="x_accounts">
+		<item quantity="other">계정</item>
+	</plurals>
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_user_domain_block">당신은 %1$s 명을 차단하였습니다. 당신의 팔로워 중 %2$,d 명과 당신의 팔로우 중인 %3$s 명이 차단됩니다.</string>
+	<string name="relationship_severance_learn_more">더 학습하기</string>
+	<string name="moderation_warning_action_none">당신의 계정은 중재 경고를 받았습니다.</string>
+	<string name="moderation_warning_action_disable">당신의 계정이 비활성화되었습니다.</string>
+	<string name="moderation_warning_action_mark_statuses_as_sensitive">당신의 게시물 몇 개가 민감한 것으로 표시되었습니다.</string>
+	<string name="moderation_warning_action_delete_statuses">당신의 게시물 몇 개가 삭제되었습니다.</string>
+	<string name="moderation_warning_action_sensitive">당신의 게시물은 이제부터 민감하다고 표시됩니다.</string>
+	<string name="moderation_warning_action_silence">당신의 계정이 제한되었습니다.</string>
+	<string name="moderation_warning_action_suspend">당신의 계정이 정지되었습니다.</string>
+	<string name="moderation_warning_learn_more">더 학습하기</string>
+	<string name="text_show_more">더보기</string>
+	<string name="avatar_move_and_scale">이동 및 확장</string>
+	<string name="confirm_avatar_crop">선택</string>
+	<string name="settings_use_dynamic_colors">시스템 동적 색상 적용</string>
+	<string name="settings_accounts">계정</string>
+	<string name="settings_add_account">계정 추가...</string>
+	<string name="settings_app_settings">앱 설정</string>
+	<string name="account_settings">계정 설정</string>
+	<string name="settings_about_this_server">이 서버에 대해서</string>
+	<string name="manage_account">계정 관리</string>
+	<string name="switch_to_this_account">이 계정으로 전환</string>
+	<string name="delete_account">계정 삭제</string>
+	<string name="notification_type_status">새로운 게시물</string>
 	<plurals name="user_and_x_more_followed">
 		<item quantity="other">%1$s 및 %2$,d 개의 다른 즐겨찾기</item>
 	</plurals>
 	<string name="familiar_followers_one">%s 님이 팔로우함</string>
 	<string name="familiar_followers_two">%s, %s 님이 팔로우함</string>
 	<string name="profile_saved_posts">저장됨</string>
+	<string name="profile_saved_posts_explanation">당신이 저장한 게시물은 오직 당신에게만 보입니다.</string>
 	<string name="search_people">사람</string>
+	<plurals name="familiar_followers_many">
+		<item quantity="other">%1$s, %2$s, 그리고 그 외 %3$,d명이 팔로우했습니다</item>
+	</plurals>
+	<plurals name="x_followers_you_know">
+		<item quantity="other">당신이 알고 있는 %,d 명의 팔로워</item>
+	</plurals>
 	<!-- appears when you're about to block a server -->
+	<plurals name="server_x_followers_will_be_removed">
+		<item quantity="other">이 서버의 %,d 명의 팔로워가 삭제될 것입니다.</item>
+	</plurals>
 	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
+	<string name="server_x_followers_and_following_will_be_removed">%1$s 과 %2$s 을 잃게 됩니다.</string>
 	<plurals name="will_lose_x_followers">
 		<item quantity="other">%,d명의 팔로워</item>
 	</plurals>
@@ -729,7 +808,28 @@
 		<item quantity="other">%,d명의 당신를 팔로우하는 사람들</item>
 	</plurals>
 	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
+	<string name="server_x_following_will_be_removed">%s 을 잃게 됩니다.</string>
+	<string name="load_missing_posts_above">위에서 놓친 게시물 불러오기</string>
+	<string name="load_missing_posts_below">아래에서 놓친 게시물 불러오기</string>
+	<string name="signup_password_too_short">비밀번호는 최소 8자 이상이어야 합니다</string>
+	<string name="private_reply">개인 답변</string>
+	<string name="private_mention">개인 멘션</string>
+	<string name="post_header_reply">답장</string>
+	<string name="post_header_mention">멘션</string>
+	<string name="report_reason_legal">불법입니다</string>
+	<string name="report_reason_legal_subtitle">당신은 본인 혹은 서버가 속한 국가의 법률을 위반한다고 생각합니다.</string>
+	<string name="date_of_birth">생년월일</string>
 	<!-- %s is `at_least_x_years_old`. Some languages, unlike English, may require the word "years" here. -->
+	<string name="date_of_birth_explanation">마스토돈을 이용하려면 최소한 만 %s세 이상이어야 합니다. 이 정보는 가입 후에는 저장되지 않습니다.</string>
+	<string name="open_link">열기</string>
+	<string name="copy">복사</string>
 	<!-- Substituted into `date_of_birth_explanation` -->
+	<plurals name="at_least_x_years_old">
+		<item quantity="other">%d</item>
+	</plurals>
+	<string name="quote_post_unavailable">게시물 사용 불가</string>
+	<string name="quote_post_pending">게시 대기중</string>
+	<string name="quote_post_pending_explanation">\"마스토돈에서는 누군가가 당신의 글을 인용할 수 있는지를 제어할 수 있습니다. 이 게시물은 원 작성자의 승인을 기다리는 중입니다.</string>
 	<!-- %s is a username, i.e. @Gargron -->
+	<string name="nested_quote">%s 님에 의해 인용된 게시물</string>
 </resources>
