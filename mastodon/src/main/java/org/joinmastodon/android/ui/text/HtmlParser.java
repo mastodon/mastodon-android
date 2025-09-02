@@ -20,6 +20,7 @@ import org.joinmastodon.android.model.Emoji;
 import org.joinmastodon.android.model.FilterResult;
 import org.joinmastodon.android.model.Hashtag;
 import org.joinmastodon.android.model.Mention;
+import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.utils.UiUtils;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -97,7 +98,8 @@ public class HtmlParser{
 		source=source.replaceAll("[\u2028\u2029]", "<br>");
 		final SpannableStringBuilder ssb=new SpannableStringBuilder();
 		Element body=Jsoup.parseBodyFragment(source).body();
-		body.select(".quote-inline").remove();
+		if(parentObject instanceof Status status && status.quote!=null)
+			body.select(".quote-inline").remove();
 		body.traverse(new NodeVisitor(){
 			private final ArrayList<SpanInfo> openSpans=new ArrayList<>();
 			private boolean lastElementWasBlock=false;
