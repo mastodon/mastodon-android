@@ -595,6 +595,7 @@
 	<string name="non_mutual_text3">모든 사람들의 대화 스타일은 고유합니다. 적응할 준비를 해주세요.</string>
 	<string name="make_profile_discoverable">내 프로필을 발견 가능하도록 설정</string>
 	<string name="discoverability">발견 용이성</string>
+	<string name="discoverability_help">마스토돈에서 발견 가능성-쉽게 발견될 수 있는 정도-을 선택한다면, 당신이 작성한 게시물은 아마도 검색 결과와 트렌드에 나타날 것입니다.\n\n당신의 프로필은 유사한 관심사를 가진 사람들에게 추천될 것입니다.\n\n이 옵션을 선택하지 않더라도 누군가 당신의 이름을 검색했을 때 프로필이 숨겨지지는 않습니다.</string>
 	<string name="onboarding_recommendations_intro">홈 피드를 직접 큐레이팅합니다.
 더 많은 사람을 팔로우할수록, 홈 피드가 더 활발해지고 흥미로워질 거에요.</string>
 	<string name="onboarding_recommendations_title">내게 맞는 홈 피드 꾸미기</string>
@@ -605,6 +606,7 @@
 	<string name="expired_invite_link">만료된 초대 링크</string>
 	<string name="expired_clipboard_invite_link_alert">클립보드에 있는 %1$s 에 대한 초대 링크가 만료되어 등록할 수 없습니다.\n\n기존 사용자로부터 새로운 링크를 요청하거나 %2$s 를 통해 등록을 요청할 수 있고, 또는 가입할 수 있는 다른 서버를 선택할 수도 있습니다.</string>
 	<string name="invalid_invite_link">유효하지 않은 초대 링크</string>
+	<string name="invalid_clipboard_invite_link_alert">클립보드에 있는 %1$s 에 대한 초대 링크가 유효하지 않아 등록할 수 없습니다.\n\n기존 사용자로부터 새로운 링크를 요청하거나 %2$s 를 통해 등록을 요청할 수 있고, 또는 가입할 수 있는 다른 서버를 선택할 수도 있습니다.</string>
 	<string name="this_invite_is_invalid">이 초대 링크는 유효하지 않습니다.</string>
 	<string name="this_invite_has_expired">이 초대 링크는 만료되었습니다.</string>
 	<string name="invite_link_pasted">클립보드에서</string>
@@ -662,7 +664,15 @@
 	<!-- %s is the username -->
 	<string name="enable_new_post_notifications">%s 의 게시물 알림 켜기</string>
 	<string name="disable_new_post_notifications">%s 의 게시물 알림 끄기</string>
+	<string name="new_post_notifications_disabled">새로운 게시물에 대한 알림을 받지 않게 될 것입니다.</string>
 	<string name="filtered_notifications">필터링된 알림</string>
+	<string name="filter_notifications">알림 제외 조건...</string>
+	<string name="notification_filter_mentions_explanation">내가 남긴 멘션에 단 답글이거나 내가 팔로우한 것이 아닌 이상 필터링됩니다</string>
+	<plurals name="x_people_you_may_know">
+		<item quantity="other">%,d 명의 알 수도 있는 사람</item>
+	</plurals>
+	<string name="visibility_subtitle_public"></string>
+	<string name="visibility_subtitle_unlisted">알고리즘에 의한 노출 감소</string>
 	<string name="view_boosts">부스터 보기</string>
 	<string name="view_favorites">즐겨찾기 보기</string>
 	<string name="undo_reblog">부스트 실행 취소</string>
@@ -671,6 +681,8 @@
 	<string name="connection_timed_out">\?</string>
 	<string name="server_error">서버와의 통신에 문제가 발생하였습니다. 회원님의 잘못은 아닐 것입니다. 재시도해주시겠어요?</string>
 	<string name="not_found">삭제되었거나 아마도 원래 존재하지 않았던 것 같습니다.</string>
+	<string name="no_servers_found">“%s” 서버를 찾을 수 없습니다</string>
+	<string name="signup_username_taken">이 사용자 이미 사용 중입니다. 다른 것을 시도하거나 &lt;a&gt;다른 서버를 선택하세요&lt;/a&gt;.</string>
 	<string name="signup_email_invalid">유효한 이메일 주소처럼 보이지 않습니다.</string>
 	<string name="signup_email_taken">이미 사용 중인 이메일 주소입니다. 혹시 &lt;a&gt;&lt;a&gt;비밀번호를 잊으셨나요&lt;/a&gt;&lt;/a&gt;?</string>
 	<plurals name="x_new_notifications">
@@ -697,6 +709,7 @@
 	<plurals name="user_and_x_more_boosted">
 		<item quantity="other">%1$s 및 %2$,d 외 부스트함:</item>
 	</plurals>
+	<string name="own_poll_ended">당신의 투표가 종료되었습니다</string>
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
 	<plurals name="user_and_x_more_followed">
