@@ -45,6 +45,7 @@ public class Status extends BaseModel implements DisplayItemsParent{
 	public long reblogsCount;
 	public long favouritesCount;
 	public long repliesCount;
+	public long quotesCount;
 	public Instant editedAt;
 
 	public String url;
@@ -57,6 +58,7 @@ public class Status extends BaseModel implements DisplayItemsParent{
 	public String text;
 	public List<FilterResult> filtered;
 	public Quote quote;
+	public QuoteApproval quoteApproval;
 
 	public boolean favourited;
 	public boolean reblogged;
@@ -98,6 +100,8 @@ public class Status extends BaseModel implements DisplayItemsParent{
 		}
 		if(quote!=null)
 			quote.postprocess();
+		if(quoteApproval!=null)
+			quoteApproval.postprocess();
 
 		if(!sensitive && (reblog==null || !reblog.sensitive) && TextUtils.isEmpty(spoilerText)){
 			revealedSpoilers.add(SpoilerType.CONTENT_WARNING);
@@ -123,6 +127,7 @@ public class Status extends BaseModel implements DisplayItemsParent{
 				", reblogsCount="+reblogsCount+
 				", favouritesCount="+favouritesCount+
 				", repliesCount="+repliesCount+
+				", quotesCount="+quotesCount+
 				", editedAt="+editedAt+
 				", url='"+url+'\''+
 				", inReplyToId='"+inReplyToId+'\''+
@@ -133,6 +138,8 @@ public class Status extends BaseModel implements DisplayItemsParent{
 				", language='"+language+'\''+
 				", text='"+text+'\''+
 				", filtered="+filtered+
+				", quote="+quote+
+				", quoteApproval="+quoteApproval+
 				", favourited="+favourited+
 				", reblogged="+reblogged+
 				", muted="+muted+

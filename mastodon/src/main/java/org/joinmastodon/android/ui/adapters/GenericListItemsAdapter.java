@@ -94,4 +94,8 @@ public class GenericListItemsAdapter<T> extends UsableRecyclerView.Adapter<ListI
 			return accountItem.avatar;
 		return null;
 	}
+
+	public ListItem<T> getItem(int position){
+		return items.get(position);
+	}
 }

@@ -57,6 +57,7 @@
 		<attr name="editTextOffsetY" format="dimension"/>
 		<attr name="android:labelTextSize" format="dimension"/>
 		<attr name="labelTextColor" format="color"/>
+		<attr name="android:hint" format="string"/>
 	</declare-styleable>
 
 	<declare-styleable name="NestedRecyclerScrollView">

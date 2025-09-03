@@ -3,6 +3,7 @@ package org.joinmastodon.android.api.requests.statuses;
 import org.joinmastodon.android.api.MastodonAPIRequest;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.model.StatusPrivacy;
+import org.joinmastodon.android.model.StatusQuotePolicy;
 
 import java.time.Instant;
 import java.util.ArrayList;
@@ -26,6 +27,7 @@ public class CreateStatus extends MastodonAPIRequest<Status>{
 		public StatusPrivacy visibility;
 		public Instant scheduledAt;
 		public String language;
+		public StatusQuotePolicy quoteApprovalPolicy;
 
 		public static class Poll{
 			public ArrayList<String> options=new ArrayList<>();

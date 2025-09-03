@@ -169,7 +169,7 @@
 	<string name="add_alt_text">Add alt text</string>
 	<string name="visibility_public">Public</string>
 	<string name="visibility_followers_only">Followers</string>
-	<string name="visibility_private">Specific people</string>
+	<string name="visibility_private">Private mention</string>
 	<string name="recent_searches">Recents</string>
 	<string name="notification_type_follow">New followers</string>
 	<string name="notification_type_favorite">Favorites</string>
@@ -880,4 +880,20 @@
 	<string name="quote_post_pending_explanation">On Mastodon, you can control whether someone can quote you. This post is pending while we’re getting the original author’s approval.</string>
 	<!-- %s is a username, i.e. @Gargron -->
 	<string name="nested_quote">Quoted a post by %s</string>
+	<string name="compose_visibility_public_anyone">Public, anyone can quote</string>
+	<string name="compose_visibility_public_limited">Public, quotes limited</string>
+	<string name="compose_visibility_public_disabled">Public, quotes disabled</string>
+	<string name="compose_visibility_unlisted_anyone">Quiet public, anyone can quote</string>
+	<string name="compose_visibility_unlisted_limited">Quiet public, quotes limited</string>
+	<string name="compose_visibility_unlisted_disabled">Quiet public, quotes disabled</string>
+	<string name="compose_visibility_title">Visibility and interaction</string>
+	<string name="compose_visibility_explanation"><![CDATA[Control who can interact with this post. Global settings can be found under Preferences > Other.]]></string>
+	<string name="compose_visibility">Visibility</string>
+	<string name="compose_quote_policy">Who can quote</string>
+	<string name="quote_policy_public">Anyone</string>
+	<string name="quote_policy_followers">Followers only</string>
+	<string name="quote_policy_nobody">Just me</string>
+	<string name="quote_policy_for_unlisted_explanation">When people quote you, their post will also be hidden from trending timelines.</string>
+	<string name="quote_policy_for_private_explanation">Follower-only posts authored on Mastodon can\'t be quoted by others.</string>
+	<string name="quote_policy_for_direct_explanation">Private mentions authored on Mastodon can\'t be quoted by others.</string>
 </resources>

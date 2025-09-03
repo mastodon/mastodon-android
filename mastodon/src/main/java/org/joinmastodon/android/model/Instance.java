@@ -79,6 +79,10 @@ public abstract class Instance extends BaseModel{
 		return getApiVersion("mastodon");
 	}
 
+	public boolean supportsQuotePostAuthoring(){
+		return getApiVersion()>=7;
+	}
+
 	@Parcel
 	public static class Rule{
 		public String id;

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<org.joinmastodon.android.ui.views.CustomScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:background="@drawable/bg_bottom_sheet"
+	android:outlineProvider="background"
+	android:elevation="1dp">
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="vertical"
+		android:paddingHorizontal="16dp">
+
+		<View
+			android:id="@+id/handle"
+			android:layout_width="match_parent"
+			android:layout_height="36dp"
+			android:background="@drawable/bg_bottom_sheet_handle"/>
+
+		<TextView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="24dp"
+			android:textAppearance="@style/m3_headline_small"
+			android:text="@string/compose_visibility_title"/>
+
+		<TextView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="16dp"
+			android:textAppearance="@style/m3_body_medium"
+			android:text="@string/compose_visibility_explanation"/>
+
+		<org.joinmastodon.android.ui.views.FloatingHintEditTextLayout
+			android:id="@+id/visibility_spinner_wrap"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="16dp"
+			android:paddingTop="4dp"
+			android:paddingBottom="12dp"
+			app:labelTextColor="@color/m3_outlined_text_field_label"
+			android:foreground="@drawable/bg_m3_outlined_text_field"
+			android:hint="@string/compose_visibility">
+
+			<Spinner
+				android:id="@+id/visibility_spinner"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="8dp"
+				android:elevation="0dp"/>
+
+		</org.joinmastodon.android.ui.views.FloatingHintEditTextLayout>
+
+		<org.joinmastodon.android.ui.views.FloatingHintEditTextLayout
+			android:id="@+id/quote_policy_spinner_wrap"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="16dp"
+			android:paddingTop="4dp"
+			android:paddingBottom="12dp"
+			app:labelTextColor="@color/m3_outlined_text_field_label"
+			android:foreground="@drawable/bg_m3_outlined_text_field"
+			android:hint="@string/compose_quote_policy">
+
+			<Spinner
+				android:id="@+id/quote_policy_spinner"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="8dp"
+				android:elevation="0dp"/>
+
+		</org.joinmastodon.android.ui.views.FloatingHintEditTextLayout>
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="88dp"
+			android:orientation="horizontal"
+			android:paddingHorizontal="8dp"
+			android:gravity="center_vertical|end">
+
+			<Button
+				android:id="@+id/cancel"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				style="@style/Widget.Mastodon.M3.Button.Text"
+				android:minWidth="0dp"
+				android:paddingHorizontal="16dp"
+				android:text="@string/cancel"/>
+
+			<Button
+				android:id="@+id/save"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				style="@style/Widget.Mastodon.M3.Button.Text"
+				android:minWidth="0dp"
+				android:paddingHorizontal="16dp"
+				android:text="@string/save"/>
+
+		</LinearLayout>
+
+	</LinearLayout>
+</org.joinmastodon.android.ui.views.CustomScrollView>

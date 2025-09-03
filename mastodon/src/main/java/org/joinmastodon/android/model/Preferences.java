@@ -35,4 +35,6 @@ public class Preferences extends BaseModel {
      */
     @SerializedName("reading:expand:spoilers")
     public boolean readingExpandSpoilers;
+	@SerializedName("posting:default:quote_policy")
+	public StatusQuotePolicy postingDefaultQuotePolicy;
 }

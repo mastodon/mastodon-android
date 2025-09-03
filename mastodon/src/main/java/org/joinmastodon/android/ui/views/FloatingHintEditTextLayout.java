@@ -17,6 +17,7 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.InsetDrawable;
 import android.os.Build;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -52,6 +53,7 @@ public class FloatingHintEditTextLayout extends FrameLayout implements CustomVie
 	private boolean errorState;
 	private TextView errorView;
 	private boolean usingErrorTextAsDescription;
+	private CharSequence hintToSet;
 
 	public FloatingHintEditTextLayout(Context context){
 		this(context, null);
@@ -67,6 +69,7 @@ public class FloatingHintEditTextLayout extends FrameLayout implements CustomVie
 		labelTextSize=ta.getDimensionPixelSize(R.styleable.FloatingHintEditTextLayout_android_labelTextSize, dp(12));
 		offsetY=ta.getDimensionPixelOffset(R.styleable.FloatingHintEditTextLayout_editTextOffsetY, 0);
 		labelColors=ta.getColorStateList(R.styleable.FloatingHintEditTextLayout_labelTextColor);
+		hintToSet=ta.getText(R.styleable.FloatingHintEditTextLayout_android_hint);
 		ta.recycle();
 		setAddStatesFromChildren(true);
 	}
@@ -114,6 +117,9 @@ public class FloatingHintEditTextLayout extends FrameLayout implements CustomVie
 		errorView.setPadding(dp(16), dp(4), dp(16), 0);
 		errorView.setVisibility(View.GONE);
 		addView(errorView);
+
+		if(hintToSet!=null)
+			setHint(hintToSet);
 	}
 
 	public void updateHint(){
@@ -275,6 +281,11 @@ public class FloatingHintEditTextLayout extends FrameLayout implements CustomVie
 	}
 
 	public void setErrorTextAsDescription(CharSequence text){
+		if(TextUtils.isEmpty(text)){
+			errorView.setVisibility(View.GONE);
+			usingErrorTextAsDescription=false;
+			return;
+		}
 		errorView.setVisibility(VISIBLE);
 		errorView.setText(text);
 		errorView.setTextColor(UiUtils.getThemeColor(getContext(), R.attr.colorM3OnSurfaceVariant));
