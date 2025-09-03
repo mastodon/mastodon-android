@@ -36,7 +36,7 @@ public class ComposerVisibilitySheet extends BottomSheet{
 	private StatusQuotePolicy userSelectedPolicy;
 	private final Listener listener;
 
-	public ComposerVisibilitySheet(@NonNull Context context, StatusPrivacy defaultVisibility, StatusQuotePolicy defaultPolicy, Listener listener){
+	public ComposerVisibilitySheet(@NonNull Context context, StatusPrivacy defaultVisibility, StatusQuotePolicy defaultPolicy, boolean canChangeVisibility, Listener listener){
 		super(context);
 		View content=context.getSystemService(LayoutInflater.class).inflate(R.layout.sheet_compose_visibility, null);
 		setContentView(content);
@@ -64,6 +64,12 @@ public class ComposerVisibilitySheet extends BottomSheet{
 		llp.setMarginStart(llp.getMarginStart()+V.dp(16));
 		visibilitySpinner.setSelection(defaultVisibility.ordinal());
 
+		if(!canChangeVisibility){
+			visibilitySpinner.setEnabled(false);
+			visibilitySpinnerLayout.setAlpha(0.5f);
+			visibilitySpinnerLayout.setErrorTextAsDescription(context.getString(R.string.edit_visibility_explanation));
+		}
+
 		quotePolicySpinnerLayout=findViewById(R.id.quote_policy_spinner_wrap);
 		quotePolicySpinner=findViewById(R.id.quote_policy_spinner);
 		ArrayAdapter<String> quotePolicyAdapter=new ArrayAdapter<>(context, R.layout.item_spinner, List.of(
@@ -88,8 +94,9 @@ public class ComposerVisibilitySheet extends BottomSheet{
 		});
 
 		saveBtn.setOnClickListener(v->{
-			listener.onSelected(items.get(visibilitySpinner.getSelectedItemPosition()).parentObject, StatusQuotePolicy.values()[quotePolicySpinner.getSelectedItemPosition()]);
-			dismiss();
+			if(listener.onSelected(this, items.get(visibilitySpinner.getSelectedItemPosition()).parentObject, StatusQuotePolicy.values()[quotePolicySpinner.getSelectedItemPosition()])){
+				dismiss();
+			}
 		});
 
 		updateQuotePolicyForVisibility(defaultVisibility); // Also sets initial value to quotePolicySpinner
@@ -133,6 +140,6 @@ public class ComposerVisibilitySheet extends BottomSheet{
 	}
 
 	public interface Listener{
-		void onSelected(StatusPrivacy visibility, StatusQuotePolicy policy);
+		boolean onSelected(ComposerVisibilitySheet sheet, StatusPrivacy visibility, StatusQuotePolicy policy);
 	}
 }

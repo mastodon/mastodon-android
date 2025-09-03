@@ -24,6 +24,7 @@ import org.joinmastodon.android.GlobalUserPreferences;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.requests.statuses.GetStatusSourceText;
 import org.joinmastodon.android.api.requests.statuses.SetStatusConversationMuted;
+import org.joinmastodon.android.api.requests.statuses.SetStatusInteractionPolicies;
 import org.joinmastodon.android.api.requests.statuses.SetStatusPinned;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.fragments.AddAccountToListsFragment;
@@ -36,8 +37,10 @@ import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.Attachment;
 import org.joinmastodon.android.model.Relationship;
 import org.joinmastodon.android.model.Status;
+import org.joinmastodon.android.model.StatusPrivacy;
 import org.joinmastodon.android.ui.OutlineProviders;
 import org.joinmastodon.android.ui.Snackbar;
+import org.joinmastodon.android.ui.sheets.ComposerVisibilitySheet;
 import org.joinmastodon.android.ui.text.HtmlParser;
 import org.joinmastodon.android.ui.utils.CustomEmojiHelper;
 import org.joinmastodon.android.ui.utils.UiUtils;
@@ -244,6 +247,26 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 							})
 							.wrapProgress(activity, R.string.loading, true)
 							.exec(item.accountID);
+				}else if(id==R.id.change_quote_policy){
+					ComposerVisibilitySheet sheet=new ComposerVisibilitySheet(activity, item.status.visibility, item.status.quoteApproval.toQuotePolicy(), false, (s, visibility, policy)->{
+						new SetStatusInteractionPolicies(item.status.id, policy)
+								.setCallback(new Callback<>(){
+									@Override
+									public void onSuccess(Status result){
+										item.status.quoteApproval=result.quoteApproval;
+										s.dismiss();
+									}
+
+									@Override
+									public void onError(ErrorResponse error){
+										error.showToast(activity);
+									}
+								})
+								.wrapProgress(activity, R.string.loading, true)
+								.exec(item.accountID);
+						return false;
+					});
+					sheet.show();
 				}
 				return true;
 			});
@@ -323,6 +346,7 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 			}
 			menu.findItem(R.id.edit).setVisible(item.status!=null && isOwnPost);
 			menu.findItem(R.id.delete).setVisible(item.status!=null && isOwnPost);
+			menu.findItem(R.id.change_quote_policy).setVisible(item.status!=null && isOwnPost && item.status.quoteApproval!=null && (item.status.visibility==StatusPrivacy.PUBLIC || item.status.visibility==StatusPrivacy.UNLISTED));
 			menu.findItem(R.id.open_in_browser).setVisible(item.status!=null);
 			MenuItem mute=menu.findItem(R.id.mute);
 			MenuItem block=menu.findItem(R.id.block);
