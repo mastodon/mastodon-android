@@ -188,6 +188,7 @@
 	<string name="add_alt_text">Přidat alternativní text</string>
 	<string name="visibility_public">Veřejné</string>
 	<string name="visibility_followers_only">Sledující</string>
+	<string name="visibility_private">Soukromá zmínka</string>
 	<string name="recent_searches">Nedávné</string>
 	<string name="notification_type_follow">Noví sledující</string>
 	<string name="notification_type_favorite">Oblíbené</string>
@@ -964,4 +965,24 @@
 	<string name="quote_post_pending_explanation">Na Mastodonu můžete kontrolovat, zda vás někdo může citovat. Tento příspěvek čeká na schválení od původního autora.</string>
 	<!-- %s is a username, i.e. @Gargron -->
 	<string name="nested_quote">Citovali příspěvek od @%s</string>
+	<string name="compose_visibility_public_anyone">Veřejné, kdokoliv může citovat</string>
+	<string name="compose_visibility_public_limited">Veřejné, citace omezeny</string>
+	<string name="compose_visibility_public_disabled">Veřejné, citace zakázány</string>
+	<string name="compose_visibility_unlisted_limited">Tiše veřejné, citace omezeny</string>
+	<string name="compose_visibility_unlisted_disabled">Tiše veřejné, citace zakázány</string>
+	<string name="compose_visibility_title">Viditelnost a interakce</string>
+	<string name="compose_visibility_explanation"><![CDATA[Kontrolujte, kdo může interagovat s tímto příspěvkem. Globální nastavení můžete najít pod Nastavení > Ostatní.]]></string>
+	<string name="compose_visibility">Viditelnost</string>
+	<string name="compose_quote_policy">Kdo může citovat</string>
+	<string name="quote_policy_public">Kdokoliv</string>
+	<string name="quote_policy_followers">Pouze sledující</string>
+	<string name="quote_policy_nobody">Jen já</string>
+	<string name="quote_policy_for_unlisted_explanation">Když vás lidé citují, jejich příspěvek bude v časové ose populárních příspěvků také skryt.</string>
+	<string name="quote_policy_for_private_explanation">Příspěvky pouze pro sledující, které jsou vytvořeny na Mastodonu, nemohou být citovány ostatními.</string>
+	<string name="quote_policy_for_direct_explanation">Soukromé zmínky, které jsou vytvořeny na Mastodonu, nemohou být citovány ostatními.</string>
+	<string name="change_quote_policy">Změňte, kdo může citovat</string>
+	<string name="edit_visibility_explanation">Publikované příspěvky nemohou změnit svou viditelnost.</string>
+	<string name="user_quoted_post">%s citovali váš příspěvek:</string>
+	<string name="user_edited_quoted_post">%s upravili příspěvek, který jste citovali</string>
+	<string name="notification_type_quote">Citace</string>
 </resources>
