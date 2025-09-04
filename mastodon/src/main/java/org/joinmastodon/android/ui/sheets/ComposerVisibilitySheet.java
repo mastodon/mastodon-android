@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.view.accessibility.AccessibilityNodeInfo;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -16,6 +17,7 @@ import org.joinmastodon.android.R;
 import org.joinmastodon.android.model.StatusPrivacy;
 import org.joinmastodon.android.model.StatusQuotePolicy;
 import org.joinmastodon.android.model.viewmodel.ListItem;
+import org.joinmastodon.android.ui.HintTextAccessibilityDelegate;
 import org.joinmastodon.android.ui.adapters.GenericListItemsAdapter;
 import org.joinmastodon.android.ui.adapters.SpinnerListItemsAdapter;
 import org.joinmastodon.android.ui.utils.UiUtils;
@@ -107,6 +109,9 @@ public class ComposerVisibilitySheet extends BottomSheet{
 		});
 
 		updateQuotePolicyForVisibility(defaultVisibility); // Also sets initial value to quotePolicySpinner
+
+		visibilitySpinner.setAccessibilityDelegate(new HintTextAccessibilityDelegate(R.string.compose_visibility));
+		quotePolicySpinner.setAccessibilityDelegate(new HintTextAccessibilityDelegate(R.string.compose_quote_policy));
 	}
 
 	@Override
