@@ -91,6 +91,7 @@ public class NotificationHeaderStatusDisplayItem extends StatusDisplayItem{
 					case REBLOG -> R.string.notification_boosted;
 					case FAVORITE -> R.string.user_favorited;
 					case UPDATE -> R.string.user_edited_post;
+					case QUOTED_UPDATE -> R.string.user_edited_quoted_post;
 					default -> throw new IllegalStateException("Unexpected value: "+notification.notification.type);
 				}, "{{name}}");
 			}
@@ -203,7 +204,7 @@ public class NotificationHeaderStatusDisplayItem extends StatusDisplayItem{
 				case REBLOG -> R.drawable.ic_repeat_fill1_24px;
 				case FOLLOW, FOLLOW_REQUEST -> R.drawable.ic_person_add_fill1_24px;
 				case POLL -> R.drawable.ic_insert_chart_fill1_24px;
-				case UPDATE -> R.drawable.ic_edit_24px;
+				case UPDATE, QUOTED_UPDATE -> R.drawable.ic_edit_24px;
 				default -> throw new IllegalStateException("Unexpected value: "+item.notification.notification.type);
 			});
 			icon.setImageTintList(ColorStateList.valueOf(UiUtils.getThemeColor(item.parentFragment.getActivity(), switch(item.notification.notification.type){

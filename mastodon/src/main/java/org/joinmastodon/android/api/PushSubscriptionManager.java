@@ -105,6 +105,14 @@ public class PushSubscriptionManager{
 			registerAllAccountsForPush(false);
 			return;
 		}
+		if(tokenVersion<145){ // Quote notifications added
+			for(AccountSession session:AccountSessionManager.getInstance().getLoggedInAccounts()){
+				if(session.pushSubscription!=null){
+					session.pushSubscription.alerts.quote=session.pushSubscription.alerts.mention;
+					AccountSessionManager.getInstance().writeAccountPushSettings(session.getID());
+				}
+			}
+		}
 		Log.i(TAG, "tryRegisterFCM: no token found, token due for refresh, or app was updated. Trying to get push token...");
 		Intent intent = new Intent("com.google.iid.TOKEN_REQUEST");
 		intent.setPackage(GSF_PACKAGE);

@@ -48,6 +48,11 @@ public abstract class BaseNotificationsListFragment extends BaseStatusListFragme
 				titleItem=new ReblogOrReplyLineStatusDisplayItem(n.getID(), this, getString(R.string.user_just_posted), n.status.account, R.drawable.ic_notifications_wght700fill1_20px);
 			else
 				titleItem=null;
+		}else if(n.notification.type==NotificationType.QUOTE){
+			if(n.status!=null)
+				titleItem=new ReblogOrReplyLineStatusDisplayItem(n.getID(), this, getString(R.string.user_quoted_post), n.status.account, R.drawable.ic_format_quote_wght700fill1_20px);
+			else
+				titleItem=null;
 		}else{
 			if(n.notification.type==NotificationType.SEVERED_RELATIONSHIPS || n.notification.type==NotificationType.MODERATION_WARNING)
 				titleItem=new NotificationWithButtonStatusDisplayItem(n.getID(), this, n, accountID);
@@ -55,7 +60,7 @@ public abstract class BaseNotificationsListFragment extends BaseStatusListFragme
 				titleItem=new NotificationHeaderStatusDisplayItem(n.getID(), this, n, accountID);
 		}
 		if(n.status!=null){
-			if(titleItem!=null && n.notification.type!=NotificationType.STATUS && n.notification.type!=NotificationType.MENTION){
+			if(titleItem!=null && n.notification.type!=NotificationType.STATUS && n.notification.type!=NotificationType.MENTION && n.notification.type!=NotificationType.QUOTE){
 				InlineStatusStatusDisplayItem inlineItem=new InlineStatusStatusDisplayItem(n.getID(), this, n.status, accountID);
 				inlineItem.removeTopPadding=true;
 				return List.of(titleItem, inlineItem);

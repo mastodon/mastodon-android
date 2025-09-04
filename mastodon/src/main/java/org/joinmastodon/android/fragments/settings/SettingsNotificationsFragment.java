@@ -42,7 +42,7 @@ public class SettingsNotificationsFragment extends BaseSettingsFragment<Void>{
 	private TextView bannerText;
 	private Button bannerButton;
 
-	private CheckableListItem<Void> mentionsItem, boostsItem, favoritesItem, followersItem, pollsItem, statusesItem;
+	private CheckableListItem<Void> mentionsItem, boostsItem, favoritesItem, followersItem, pollsItem, statusesItem, quotesItem;
 	private List<CheckableListItem<Void>> typeItems;
 	private boolean needUpdateNotificationSettings;
 	private boolean notificationsAllowed=true;
@@ -63,10 +63,11 @@ public class SettingsNotificationsFragment extends BaseSettingsFragment<Void>{
 				favoritesItem=new CheckableListItem<>(R.string.notification_type_favorite, 0, CheckableListItem.Style.CHECKBOX, pushSubscription.alerts.favourite, this::toggleCheckableItem),
 				followersItem=new CheckableListItem<>(R.string.notification_type_follow, 0, CheckableListItem.Style.CHECKBOX, pushSubscription.alerts.follow, this::toggleCheckableItem),
 				pollsItem=new CheckableListItem<>(R.string.notification_type_poll, 0, CheckableListItem.Style.CHECKBOX, pushSubscription.alerts.poll, this::toggleCheckableItem),
-				statusesItem=new CheckableListItem<>(R.string.notification_type_status, 0, CheckableListItem.Style.CHECKBOX, pushSubscription.alerts.status, this::toggleCheckableItem)
+				statusesItem=new CheckableListItem<>(R.string.notification_type_status, 0, CheckableListItem.Style.CHECKBOX, pushSubscription.alerts.status, this::toggleCheckableItem),
+				quotesItem=new CheckableListItem<>(R.string.notification_type_quote, 0, CheckableListItem.Style.CHECKBOX, pushSubscription.alerts.quote, this::toggleCheckableItem)
 		));
 
-		typeItems=List.of(mentionsItem, boostsItem, favoritesItem, followersItem, pollsItem);
+		typeItems=List.of(mentionsItem, boostsItem, favoritesItem, followersItem, pollsItem, statusesItem, quotesItem);
 		pauseItem.checkedChangeListener=checked->onPauseNotificationsClick(true);
 		updatePolicyItem(null);
 		updatePauseItem();
@@ -84,7 +85,8 @@ public class SettingsNotificationsFragment extends BaseSettingsFragment<Void>{
 				|| favoritesItem.checked!=ps.alerts.favourite
 				|| followersItem.checked!=ps.alerts.follow
 				|| pollsItem.checked!=ps.alerts.poll
-				|| statusesItem.checked!=ps.alerts.status;
+				|| statusesItem.checked!=ps.alerts.status
+				|| quotesItem.checked!=ps.alerts.quote;
 		if(needUpdateNotificationSettings && PushSubscriptionManager.arePushNotificationsAvailable()){
 			ps.alerts.mention=mentionsItem.checked;
 			ps.alerts.reblog=boostsItem.checked;
@@ -92,6 +94,7 @@ public class SettingsNotificationsFragment extends BaseSettingsFragment<Void>{
 			ps.alerts.follow=followersItem.checked;
 			ps.alerts.poll=pollsItem.checked;
 			ps.alerts.status=statusesItem.checked;
+			ps.alerts.quote=quotesItem.checked;
 			AccountSessionManager.getInstance().getAccount(accountID).getPushSubscriptionManager().updatePushSettings(pushSubscription);
 		}
 	}
