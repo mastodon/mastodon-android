@@ -164,6 +164,7 @@
 	<string name="add_alt_text">Tilføj alternativ tekst</string>
 	<string name="visibility_public">Offentlig</string>
 	<string name="visibility_followers_only">Følgere</string>
+	<string name="visibility_private">Privat omtale</string>
 	<string name="recent_searches">Nylige</string>
 	<string name="notification_type_follow">Nye Følgere</string>
 	<string name="notification_type_favorite">Favoritmarkeringer</string>
@@ -870,4 +871,22 @@ Jo flere du følger, jo mere aktiv og interessant bliver det.</string>
 	<string name="quote_post_pending_explanation">På Mastodon kan du kontrollere, om nogen kan citere dig. Dette indlæg afventer, mens vi får den oprindelige forfatters godkendelse.</string>
 	<!-- %s is a username, i.e. @Gargron -->
 	<string name="nested_quote">Citerede et indlæg af %s</string>
+	<string name="compose_visibility_public_anyone">Offentlig, alle kan citere</string>
+	<string name="compose_visibility_public_limited">Offentlig, citater begrænset</string>
+	<string name="compose_visibility_public_disabled">Offentlig, citater deaktiveret</string>
+	<string name="compose_visibility_unlisted_anyone">Offentlig (stille), alle kan citere</string>
+	<string name="compose_visibility_unlisted_limited">Offentlig (stille), citater begrænset</string>
+	<string name="compose_visibility_unlisted_disabled">Offentlig (stille), citater deaktiveret</string>
+	<string name="compose_visibility_title">Synlighed og interaktion</string>
+	<string name="compose_visibility_explanation"><![CDATA[Styr, hvem der kan interagere med dette indlæg. Globale indstillinger findes under Præferencer > Andet.]]></string>
+	<string name="compose_visibility">Synlighed</string>
+	<string name="compose_quote_policy">Hvem kan citere</string>
+	<string name="quote_policy_public">Alle</string>
+	<string name="quote_policy_followers">Kun følgere</string>
+	<string name="quote_policy_nobody">Kun mig</string>
+	<string name="quote_policy_for_unlisted_explanation">Når folk citerer dig, vil deres indlæg også blive skjult fra trendtidslinjer.</string>
+	<string name="quote_policy_for_private_explanation">Kun-følger indlæg forfattet på Mastodon kan ikke citeres af andre.</string>
+	<string name="quote_policy_for_direct_explanation">Private omtaler forfattet på Mastodon kan ikke citeres af andre.</string>
+	<string name="change_quote_policy">Ændr hvem der kan citere</string>
+	<string name="edit_visibility_explanation">Publicerede indlægs synlighed kan ikke ændres.</string>
 </resources>
