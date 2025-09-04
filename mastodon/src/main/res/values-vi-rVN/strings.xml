@@ -152,6 +152,7 @@
 	<string name="add_alt_text">Thêm văn bản thay thế</string>
 	<string name="visibility_public">Công khai</string>
 	<string name="visibility_followers_only">Người theo dõi</string>
+	<string name="visibility_private">Nhắn riêng</string>
 	<string name="recent_searches">Gần đây</string>
 	<string name="notification_type_follow">Người theo dõi mới</string>
 	<string name="notification_type_favorite">Lượt thích</string>
@@ -823,4 +824,6 @@ Bạn càng theo dõi nhiều người thì nó sẽ càng sôi động và thú
 	<string name="quote_post_pending_explanation">Trên Mastodon, bạn có thể kiểm soát việc ai đó có thể trích dẫn tút của bạn hay không. Tút này đang chờ phê duyệt từ tác giả gốc.</string>
 	<!-- %s is a username, i.e. @Gargron -->
 	<string name="nested_quote">Trích dẫn từ tút của @%s</string>
+	<string name="compose_visibility_public_anyone">Công khai, mọi người có thể trích dẫn</string>
+	<string name="compose_visibility_public_limited">Công khai, hạn chế trích dẫn</string>
 </resources>
