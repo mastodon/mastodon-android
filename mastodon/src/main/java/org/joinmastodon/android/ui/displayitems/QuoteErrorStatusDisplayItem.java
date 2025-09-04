@@ -7,7 +7,6 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import org.joinmastodon.android.R;
-import org.joinmastodon.android.fragments.BaseStatusListFragment;
 import org.joinmastodon.android.model.Quote;
 import org.joinmastodon.android.ui.RichTooltip;
 
@@ -16,8 +15,8 @@ import me.grishka.appkit.utils.V;
 public class QuoteErrorStatusDisplayItem extends StatusDisplayItem{
 	private final Quote.State state;
 
-	public QuoteErrorStatusDisplayItem(String parentID, BaseStatusListFragment<?> parentFragment, Quote.State state){
-		super(parentID, parentFragment);
+	public QuoteErrorStatusDisplayItem(String parentID, Callbacks callbacks, Context context, Quote.State state){
+		super(parentID, callbacks, context);
 		this.state=state;
 	}
 

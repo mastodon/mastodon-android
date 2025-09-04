@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.ClipData;
 import android.content.ClipboardManager;
+import android.content.Context;
 import android.graphics.drawable.Animatable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
@@ -28,7 +29,6 @@ import org.joinmastodon.android.api.requests.statuses.SetStatusInteractionPolici
 import org.joinmastodon.android.api.requests.statuses.SetStatusPinned;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.fragments.AddAccountToListsFragment;
-import org.joinmastodon.android.fragments.BaseStatusListFragment;
 import org.joinmastodon.android.fragments.ComposeFragment;
 import org.joinmastodon.android.fragments.NotificationsListFragment;
 import org.joinmastodon.android.fragments.ProfileFragment;
@@ -70,8 +70,8 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 	boolean needBottomPadding;
 	private String extraText;
 
-	public HeaderStatusDisplayItem(String parentID, Account user, Instant createdAt, BaseStatusListFragment parentFragment, String accountID, Status status, String extraText){
-		super(parentID, parentFragment);
+	public HeaderStatusDisplayItem(String parentID, Account user, Instant createdAt, Callbacks callbacks, Context context, String accountID, Status status, String extraText){
+		super(parentID, callbacks, context);
 		this.user=user;
 		this.createdAt=createdAt;
 		avaRequest=new UrlImageLoaderRequest(GlobalUserPreferences.playGifs ? user.avatar : user.avatarStatic, V.dp(50), V.dp(50));
@@ -143,14 +143,14 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 				optionsMenu.getMenu().setGroupDividerEnabled(true);
 			optionsMenu.setOnMenuItemClickListener(menuItem->{
 				Account account=item.user;
-				Relationship relationship=item.parentFragment.getRelationship(account.id);
+				Relationship relationship=item.callbacks.getRelationship(account.id);
 				int id=menuItem.getItemId();
 				if(id==R.id.edit){
 					final Bundle args=new Bundle();
-					args.putString("account", item.parentFragment.getAccountID());
+					args.putString("account", item.accountID);
 					args.putParcelable("editStatus", Parcels.wrap(item.status));
 					if(TextUtils.isEmpty(item.status.content) && TextUtils.isEmpty(item.status.spoilerText)){
-						Nav.go(item.parentFragment.getActivity(), ComposeFragment.class, args);
+						Nav.go((Activity) item.context, ComposeFragment.class, args);
 					}else{
 						new GetStatusSourceText(item.status.id)
 								.setCallback(new Callback<>(){
@@ -158,30 +158,30 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 									public void onSuccess(GetStatusSourceText.Response result){
 										args.putString("sourceText", result.text);
 										args.putString("sourceSpoiler", result.spoilerText);
-										Nav.go(item.parentFragment.getActivity(), ComposeFragment.class, args);
+										Nav.go((Activity) item.context, ComposeFragment.class, args);
 									}
 
 									@Override
 									public void onError(ErrorResponse error){
-										error.showToast(item.parentFragment.getActivity());
+										error.showToast(item.context);
 									}
 								})
-								.wrapProgress(item.parentFragment.getActivity(), R.string.loading, true)
-								.exec(item.parentFragment.getAccountID());
+								.wrapProgress((Activity) item.context, R.string.loading, true)
+								.exec(item.accountID);
 					}
 				}else if(id==R.id.delete){
-					UiUtils.confirmDeletePost(item.parentFragment.getActivity(), item.parentFragment.getAccountID(), item.status, s->{});
+					UiUtils.confirmDeletePost((Activity) item.context, item.accountID, item.status, s->{});
 				}else if(id==R.id.mute){
-					UiUtils.confirmToggleMuteUser(item.parentFragment.getActivity(), item.parentFragment.getAccountID(), account, relationship!=null && relationship.muting, r->{});
+					UiUtils.confirmToggleMuteUser((Activity) item.context, item.accountID, account, relationship!=null && relationship.muting, r->{});
 				}else if(id==R.id.block){
-					UiUtils.confirmToggleBlockUser(item.parentFragment.getActivity(), item.parentFragment.getAccountID(), account, relationship!=null && relationship.blocking, r->{});
+					UiUtils.confirmToggleBlockUser((Activity) item.context, item.accountID, account, relationship!=null && relationship.blocking, r->{});
 				}else if(id==R.id.report){
 					Bundle args=new Bundle();
-					args.putString("account", item.parentFragment.getAccountID());
+					args.putString("account", item.accountID);
 					args.putParcelable("status", Parcels.wrap(item.status));
 					args.putParcelable("reportAccount", Parcels.wrap(item.status.account));
 					args.putParcelable("relationship", Parcels.wrap(relationship));
-					Nav.go(item.parentFragment.getActivity(), ReportReasonChoiceFragment.class, args);
+					Nav.go((Activity) item.context, ReportReasonChoiceFragment.class, args);
 				}else if(id==R.id.open_in_browser){
 					UiUtils.launchWebBrowser(activity, item.status.url);
 				}else if(id==R.id.follow){
@@ -190,13 +190,13 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 					ProgressDialog progress=new ProgressDialog(activity);
 					progress.setCancelable(false);
 					progress.setMessage(activity.getString(R.string.loading));
-					UiUtils.performAccountAction(activity, account, item.parentFragment.getAccountID(), relationship, null, visible->{
+					UiUtils.performAccountAction(activity, account, item.accountID, relationship, null, visible->{
 						if(visible)
 							progress.show();
 						else
 							progress.dismiss();
 					}, rel->{
-						item.parentFragment.putRelationship(account.id, rel);
+						item.callbacks.putRelationship(account.id, rel);
 						Toast.makeText(activity, activity.getString(rel.following ? R.string.followed_user : rel.requested ? R.string.following_user_requested : R.string.unfollowed_user, account.getDisplayUsername()), Toast.LENGTH_SHORT).show();
 					});
 				}else if(id==R.id.bookmark){
@@ -204,10 +204,10 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 				}else if(id==R.id.share){
 					UiUtils.openSystemShareSheet(activity, item.status);
 				}else if(id==R.id.translate){
-					item.parentFragment.togglePostTranslation(item.status, item.parentID);
+					item.callbacks.togglePostTranslation(item.status, item.parentID);
 				}else if(id==R.id.add_to_list){
 					Bundle args=new Bundle();
-					args.putString("account", item.parentFragment.getAccountID());
+					args.putString("account", item.accountID);
 					args.putParcelable("targetAccount", Parcels.wrap(account));
 					Nav.go(activity, AddAccountToListsFragment.class, args);
 				}else if(id==R.id.copy_link){
@@ -248,7 +248,8 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 							.wrapProgress(activity, R.string.loading, true)
 							.exec(item.accountID);
 				}else if(id==R.id.change_quote_policy){
-					ComposerVisibilitySheet sheet=new ComposerVisibilitySheet(activity, item.status.visibility, item.status.quoteApproval.toQuotePolicy(), false, (s, visibility, policy)->{
+					ComposerVisibilitySheet sheet=new ComposerVisibilitySheet(activity, item.status.visibility, item.status.quoteApproval.toQuotePolicy(),
+							false, StatusPrivacy.PUBLIC, (s, visibility, policy)->{
 						new SetStatusInteractionPolicies(item.status.id, policy)
 								.setCallback(new Callback<>(){
 									@Override
@@ -280,7 +281,7 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 			if(item.status==null || item.status.editedAt==null)
 				time=UiUtils.formatRelativeTimestamp(itemView.getContext(), item.createdAt);
 			else
-				time=item.parentFragment.getString(R.string.edited_timestamp, UiUtils.formatRelativeTimestamp(itemView.getContext(), item.status.editedAt));
+				time=item.context.getString(R.string.edited_timestamp, UiUtils.formatRelativeTimestamp(itemView.getContext(), item.status.editedAt));
 
 			timeAndUsername.setText(time+" · @"+item.user.acct);
 			itemView.setPadding(itemView.getPaddingLeft(), itemView.getPaddingTop(), itemView.getPaddingRight(), item.needBottomPadding ? V.dp(6) : V.dp(4));
@@ -291,7 +292,7 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 				extraText.setText(item.extraText);
 			}
 			if(clickableThing!=null){
-				clickableThing.setContentDescription(item.parentFragment.getString(R.string.avatar_description, item.user.acct));
+				clickableThing.setContentDescription(item.context.getString(R.string.avatar_description, item.user.acct));
 			}
 		}
 
@@ -320,7 +321,7 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 			Bundle args=new Bundle();
 			args.putString("account", item.accountID);
 			args.putParcelable("profileAccount", Parcels.wrap(item.user));
-			Nav.go(item.parentFragment.getActivity(), ProfileFragment.class, args);
+			Nav.go((Activity) item.context, ProfileFragment.class, args);
 		}
 
 		private void onMoreClick(View v){
@@ -329,12 +330,12 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 		}
 
 		private void updateOptionsMenu(){
-			if(item.parentFragment.getActivity()==null)
+			if(item.context==null)
 				return;
 			Account account=item.user;
-			Relationship relationship=item.parentFragment.getRelationship(account.id);
+			Relationship relationship=item.callbacks.getRelationship(account.id);
 			Menu menu=optionsMenu.getMenu();
-			boolean isOwnPost=AccountSessionManager.getInstance().isSelf(item.parentFragment.getAccountID(), account);
+			boolean isOwnPost=AccountSessionManager.getInstance().isSelf(item.accountID, account);
 			boolean canTranslate=item.status!=null && item.status.getContentStatus().isEligibleForTranslation();
 			MenuItem translate=menu.findItem(R.id.translate);
 			translate.setVisible(canTranslate);
@@ -342,7 +343,7 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 				if(item.status.translationState==Status.TranslationState.SHOWN)
 					translate.setTitle(R.string.translation_show_original);
 				else
-					translate.setTitle(item.parentFragment.getString(R.string.translate_post, Locale.forLanguageTag(item.status.getContentStatus().language).getDisplayLanguage()));
+					translate.setTitle(item.context.getString(R.string.translate_post, Locale.forLanguageTag(item.status.getContentStatus().language).getDisplayLanguage()));
 			}
 			menu.findItem(R.id.edit).setVisible(item.status!=null && isOwnPost);
 			menu.findItem(R.id.delete).setVisible(item.status!=null && isOwnPost);
@@ -376,13 +377,13 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 				block.setVisible(true);
 				report.setVisible(true);
 				follow.setVisible(relationship==null || relationship.following || (!relationship.blocking && !relationship.blockedBy && !relationship.domainBlocking && !relationship.muting));
-				mute.setTitle(item.parentFragment.getString(relationship!=null && relationship.muting ? R.string.unmute_user : R.string.mute_user, account.displayName));
-				block.setTitle(item.parentFragment.getString(relationship!=null && relationship.blocking ? R.string.unblock_user : R.string.block_user, account.displayName));
-				report.setTitle(item.parentFragment.getString(R.string.report_user, account.displayName));
-				follow.setTitle(item.parentFragment.getString(relationship!=null && relationship.following ? R.string.unfollow_user : R.string.follow_user, account.displayName));
+				mute.setTitle(item.context.getString(relationship!=null && relationship.muting ? R.string.unmute_user : R.string.mute_user, account.displayName));
+				block.setTitle(item.context.getString(relationship!=null && relationship.blocking ? R.string.unblock_user : R.string.block_user, account.displayName));
+				report.setTitle(item.context.getString(R.string.report_user, account.displayName));
+				follow.setTitle(item.context.getString(relationship!=null && relationship.following ? R.string.unfollow_user : R.string.follow_user, account.displayName));
 			}
 			if(item.status.muted!=null){
-				muteConversation.setVisible(isOwnPost || item.parentFragment instanceof NotificationsListFragment);
+				muteConversation.setVisible(isOwnPost || item.callbacks instanceof NotificationsListFragment);
 				muteConversation.setTitle(item.status.muted ? R.string.unmute_conversation : R.string.mute_conversation);
 			}else{
 				muteConversation.setVisible(false);

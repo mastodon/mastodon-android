@@ -1,6 +1,5 @@
 package org.joinmastodon.android.ui.displayitems;
 
-import android.app.Fragment;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
@@ -12,7 +11,6 @@ import android.widget.TextView;
 
 import org.joinmastodon.android.GlobalUserPreferences;
 import org.joinmastodon.android.R;
-import org.joinmastodon.android.fragments.BaseStatusListFragment;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.OutlineProviders;
 import org.joinmastodon.android.ui.text.CustomEmojiSpan;
@@ -36,12 +34,12 @@ public class InlineStatusStatusDisplayItem extends StatusDisplayItem{
 	public boolean removeTopPadding;
 	private int headerIcon;
 
-	public InlineStatusStatusDisplayItem(String parentID, Fragment parentFragment, Status status, String accountID){
-		this(parentID, parentFragment, status, accountID, 0, null);
+	public InlineStatusStatusDisplayItem(String parentID, Callbacks callbacks, Context context, Status status, String accountID){
+		this(parentID, callbacks, context, status, accountID, 0, null);
 	}
 
-	public InlineStatusStatusDisplayItem(String parentID, Fragment parentFragment, Status status, String accountID, int headerIcon, String headerText){
-		super(parentID, parentFragment instanceof BaseStatusListFragment<?> slf ? slf : null);
+	public InlineStatusStatusDisplayItem(String parentID, Callbacks callbacks, Context context, Status status, String accountID, int headerIcon, String headerText){
+		super(parentID, callbacks, context);
 		this.status=status;
 
 		parsedName=new SpannableStringBuilder(status.account.displayName);
@@ -53,7 +51,7 @@ public class InlineStatusStatusDisplayItem extends StatusDisplayItem{
 				HtmlParser.parseCustomEmoji(parsedHeaderText, status.account.emojis);
 		}
 
-		parsedPostText=HtmlParser.parse(status.content, status.emojis, status.mentions, status.tags, accountID, status.getContentStatus(), parentFragment.getActivity());
+		parsedPostText=HtmlParser.parse(status.content, status.emojis, status.mentions, status.tags, accountID, status.getContentStatus(), context);
 		for(Object span:parsedPostText.getSpans(0, parsedPostText.length(), Object.class)){
 			if(!(span instanceof CustomEmojiSpan))
 				parsedPostText.removeSpan(span);

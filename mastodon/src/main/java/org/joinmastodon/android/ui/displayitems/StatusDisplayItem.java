@@ -18,10 +18,14 @@ import org.joinmastodon.android.model.DisplayItemsParent;
 import org.joinmastodon.android.model.FilterResult;
 import org.joinmastodon.android.model.Poll;
 import org.joinmastodon.android.model.Quote;
+import org.joinmastodon.android.model.Relationship;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.PhotoLayoutHelper;
+import org.joinmastodon.android.ui.photoviewer.PhotoViewerHost;
 import org.joinmastodon.android.ui.text.HtmlParser;
+import org.joinmastodon.android.ui.utils.MediaAttachmentViewController;
 import org.joinmastodon.android.ui.viewholders.AccountViewHolder;
+import org.joinmastodon.android.utils.TypedObjectPool;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,7 +40,8 @@ import me.grishka.appkit.views.UsableRecyclerView;
 
 public abstract class StatusDisplayItem{
 	public final String parentID;
-	public final BaseStatusListFragment<?> parentFragment;
+	public final Callbacks callbacks;
+	public Context context;
 	public boolean fullWidth; // aka "highlighted"
 	public boolean isQuote;
 	public int index;
@@ -49,9 +54,10 @@ public abstract class StatusDisplayItem{
 	public static final int FLAG_NO_IN_REPLY_TO=1 << 5;
 	public static final int FLAG_IS_QUOTE=1 << 6;
 
-	public StatusDisplayItem(String parentID, BaseStatusListFragment<?> parentFragment){
+	public StatusDisplayItem(String parentID, Callbacks callbacks, Context context){
 		this.parentID=parentID;
-		this.parentFragment=parentFragment;
+		this.callbacks=callbacks;
+		this.context=context;
 	}
 
 	public abstract Type getType();
@@ -97,10 +103,12 @@ public abstract class StatusDisplayItem{
 		int flags=0;
 		if(!addFooter)
 			flags|=FLAG_NO_FOOTER;
-		return buildItems(fragment, status, accountID, parentObject, knownAccounts, flags);
+		return buildItems(fragment, fragment.getActivity(), status, accountID, parentObject, knownAccounts, flags);
 	}
 
-	public static ArrayList<StatusDisplayItem> buildItems(BaseStatusListFragment<?> fragment, Status status, String accountID, DisplayItemsParent parentObject, Map<String, Account> knownAccounts, int flags){
+	public static ArrayList<StatusDisplayItem> buildItems(Callbacks callbacks, Context context, Status status, String accountID, DisplayItemsParent parentObject, Map<String, Account> knownAccounts, int flags){
+		if(callbacks==null)
+			callbacks=new NoOpCallbacks(context);
 		String parentID=parentObject.getID();
 		ArrayList<StatusDisplayItem> items=new ArrayList<>();
 		Status statusForContent=status.getContentStatus();
@@ -108,17 +116,17 @@ public abstract class StatusDisplayItem{
 		boolean hideCounts=!GlobalUserPreferences.showInteractionCounts;
 		if((flags & FLAG_NO_HEADER)==0){
 			if(status.reblog!=null){
-				items.add(new ReblogOrReplyLineStatusDisplayItem(parentID, fragment, fragment.getString(R.string.user_boosted), status.account, R.drawable.ic_repeat_wght700_20px));
+				items.add(new ReblogOrReplyLineStatusDisplayItem(parentID, callbacks, context, context.getString(R.string.user_boosted), status.account, R.drawable.ic_repeat_wght700_20px, accountID));
 			}else if(status.inReplyToAccountId!=null && knownAccounts.containsKey(status.inReplyToAccountId) && (flags & FLAG_NO_IN_REPLY_TO)==0){
 				Account account=Objects.requireNonNull(knownAccounts.get(status.inReplyToAccountId));
-				items.add(new ReblogOrReplyLineStatusDisplayItem(parentID, fragment, fragment.getString(R.string.in_reply_to), account, R.drawable.ic_reply_wght700_20px));
+				items.add(new ReblogOrReplyLineStatusDisplayItem(parentID, callbacks, context, context.getString(R.string.in_reply_to), account, R.drawable.ic_reply_wght700_20px, accountID));
 			}
 			if((flags & FLAG_CHECKABLE)!=0)
-				items.add(header=new CheckableHeaderStatusDisplayItem(parentID, statusForContent.account, statusForContent.createdAt, fragment, accountID, statusForContent, null));
+				items.add(header=new CheckableHeaderStatusDisplayItem(parentID, statusForContent.account, statusForContent.createdAt, callbacks, context, accountID, statusForContent, null));
 			else if((flags &FLAG_IS_QUOTE)!=0)
-				items.add(header=new CompactHeaderStatusDisplayItem(parentID, statusForContent.account, statusForContent.createdAt, fragment, accountID, statusForContent));
+				items.add(header=new CompactHeaderStatusDisplayItem(parentID, statusForContent.account, statusForContent.createdAt, callbacks, context, accountID, statusForContent));
 			else
-				items.add(header=new HeaderStatusDisplayItem(parentID, statusForContent.account, statusForContent.createdAt, fragment, accountID, statusForContent, null));
+				items.add(header=new HeaderStatusDisplayItem(parentID, statusForContent.account, statusForContent.createdAt, callbacks, context, accountID, statusForContent, null));
 		}
 
 		boolean filtered=false;
@@ -135,13 +143,13 @@ public abstract class StatusDisplayItem{
 		ArrayList<StatusDisplayItem> cwParentItems=items;
 		boolean needAddCWItems=false;
 		if(filtered){
-			SpoilerStatusDisplayItem spoilerItem=new SpoilerStatusDisplayItem(parentID, fragment, fragment.getString(R.string.post_matches_filter_x, status.filtered.get(0).filter.title), status, statusForContent, Type.FILTER_SPOILER, Status.SpoilerType.FILTER);
+			SpoilerStatusDisplayItem spoilerItem=new SpoilerStatusDisplayItem(parentID, callbacks, context, context.getString(R.string.post_matches_filter_x, status.filtered.get(0).filter.title), status, statusForContent, Type.FILTER_SPOILER, Status.SpoilerType.FILTER);
 			contentItems.add(spoilerItem);
 			contentItems=spoilerItem.contentItems;
 			cwParentItems=contentItems;
 		}
 		if(!TextUtils.isEmpty(statusForContent.spoilerText)){
-			SpoilerStatusDisplayItem spoilerItem=new SpoilerStatusDisplayItem(parentID, fragment, null, status, statusForContent, Type.SPOILER, Status.SpoilerType.CONTENT_WARNING);
+			SpoilerStatusDisplayItem spoilerItem=new SpoilerStatusDisplayItem(parentID, callbacks, context, null, status, statusForContent, Type.SPOILER, Status.SpoilerType.CONTENT_WARNING);
 			contentItems.add(spoilerItem);
 			contentItems=spoilerItem.contentItems;
 			if(!GlobalUserPreferences.showCWs && !filtered){
@@ -151,11 +159,11 @@ public abstract class StatusDisplayItem{
 		}
 
 		if(!TextUtils.isEmpty(statusForContent.content)){
-			SpannableStringBuilder parsedText=HtmlParser.parse(statusForContent.content, statusForContent.emojis, statusForContent.mentions, statusForContent.tags, accountID, statusForContent, fragment.getActivity());
+			SpannableStringBuilder parsedText=HtmlParser.parse(statusForContent.content, statusForContent.emojis, statusForContent.mentions, statusForContent.tags, accountID, statusForContent, context);
 			if(filtered){
-				HtmlParser.applyFilterHighlights(fragment.getActivity(), parsedText, status.filtered);
+				HtmlParser.applyFilterHighlights(context, parsedText, status.filtered);
 			}
-			TextStatusDisplayItem text=new TextStatusDisplayItem(parentID, parsedText, fragment, statusForContent);
+			TextStatusDisplayItem text=new TextStatusDisplayItem(parentID, parsedText, callbacks, context, statusForContent, accountID);
 			contentItems.add(text);
 		}else if(header instanceof HeaderStatusDisplayItem hsdi){
 			hsdi.needBottomPadding=true;
@@ -164,9 +172,9 @@ public abstract class StatusDisplayItem{
 		List<Attachment> imageAttachments=statusForContent.mediaAttachments.stream().filter(att->att.type.isImage()).collect(Collectors.toList());
 		if(!imageAttachments.isEmpty()){
 			PhotoLayoutHelper.TiledLayoutResult layout=PhotoLayoutHelper.processThumbs(imageAttachments);
-			MediaGridStatusDisplayItem mediaGrid=new MediaGridStatusDisplayItem(parentID, fragment, layout, imageAttachments, statusForContent);
+			MediaGridStatusDisplayItem mediaGrid=new MediaGridStatusDisplayItem(parentID, callbacks, context, layout, imageAttachments, statusForContent);
 			if((flags & FLAG_MEDIA_FORCE_HIDDEN)!=0){
-				mediaGrid.sensitiveTitle=fragment.getString(R.string.media_hidden);
+				mediaGrid.sensitiveTitle=context.getString(R.string.media_hidden);
 				mediaGrid.sensitiveRevealed=false;
 			}else if(statusForContent.sensitive && !GlobalUserPreferences.hideSensitiveMedia){
 				mediaGrid.sensitiveRevealed=true;
@@ -175,19 +183,19 @@ public abstract class StatusDisplayItem{
 		}
 		for(Attachment att:statusForContent.mediaAttachments){
 			if(att.type==Attachment.Type.AUDIO){
-				contentItems.add(new AudioStatusDisplayItem(parentID, fragment, statusForContent, att));
+				contentItems.add(new AudioStatusDisplayItem(parentID, callbacks, context, statusForContent, att));
 			}
 		}
 		if(statusForContent.poll!=null){
-			buildPollItems(parentID, fragment, statusForContent.poll, status, contentItems);
+			buildPollItems(parentID, callbacks, context, statusForContent.poll, status, contentItems);
 		}
 		if(statusForContent.card!=null && statusForContent.mediaAttachments.isEmpty() && TextUtils.isEmpty(statusForContent.spoilerText)){
-			contentItems.add(new LinkCardStatusDisplayItem(parentID, fragment, statusForContent));
+			contentItems.add(new LinkCardStatusDisplayItem(parentID, callbacks, context, statusForContent, accountID));
 		}
 		if(statusForContent.quote!=null){
 			if(statusForContent.quote.state==Quote.State.ACCEPTED){
 				if(statusForContent.quote.quotedStatus!=null && (flags & FLAG_IS_QUOTE)==0){
-					ArrayList<StatusDisplayItem> quoteItems=buildItems(fragment, statusForContent.quote.quotedStatus, accountID, parentObject, knownAccounts, FLAG_NO_FOOTER | FLAG_NO_IN_REPLY_TO |FLAG_IS_QUOTE);
+					ArrayList<StatusDisplayItem> quoteItems=buildItems(callbacks, context, statusForContent.quote.quotedStatus, accountID, parentObject, knownAccounts, FLAG_NO_FOOTER | FLAG_NO_IN_REPLY_TO |FLAG_IS_QUOTE);
 					for(StatusDisplayItem item:quoteItems){
 						item.isQuote=true;
 						if(item instanceof SpoilerStatusDisplayItem spoiler){
@@ -203,23 +211,23 @@ public abstract class StatusDisplayItem{
 						statusID=statusForContent.quote.quotedStatus.id;
 					else
 						statusID=statusForContent.quote.quotedStatusId;
-					contentItems.add(new NestedQuoteStatusDisplayItem(parentID, fragment, statusID, statusForContent.quote));
+					contentItems.add(new NestedQuoteStatusDisplayItem(parentID, callbacks, context, statusID, statusForContent.quote));
 				}
 			}else if((flags & FLAG_IS_QUOTE)!=0){
-				contentItems.add(new NestedQuoteStatusDisplayItem(parentID, fragment, null, statusForContent.quote));
+				contentItems.add(new NestedQuoteStatusDisplayItem(parentID, callbacks, context, null, statusForContent.quote));
 			}else{
-				contentItems.add(new QuoteErrorStatusDisplayItem(parentID, fragment, statusForContent.quote.state));
+				contentItems.add(new QuoteErrorStatusDisplayItem(parentID, callbacks, context, statusForContent.quote.state));
 			}
 		}
 		if(needAddCWItems){
 			cwParentItems.addAll(contentItems);
 		}
 		if((flags & FLAG_NO_FOOTER)==0){
-			FooterStatusDisplayItem footer=new FooterStatusDisplayItem(parentID, fragment, statusForContent, accountID);
+			FooterStatusDisplayItem footer=new FooterStatusDisplayItem(parentID, callbacks, context, statusForContent, accountID);
 			footer.hideCounts=hideCounts;
 			items.add(footer);
-			if(status.hasGapAfter && !(fragment instanceof ThreadFragment))
-				items.add(new GapStatusDisplayItem(parentID, fragment));
+			if(status.hasGapAfter && !(callbacks instanceof ThreadFragment))
+				items.add(new GapStatusDisplayItem(parentID, callbacks, context));
 		}
 		int i=1;
 		boolean fullWidth=(flags & FLAG_FULL_WIDTH)!=0;
@@ -235,13 +243,13 @@ public abstract class StatusDisplayItem{
 		return items;
 	}
 
-	public static void buildPollItems(String parentID, BaseStatusListFragment<?> fragment, Poll poll, Status status, List<StatusDisplayItem> items){
+	public static void buildPollItems(String parentID, Callbacks callbacks, Context context, Poll poll, Status status, List<StatusDisplayItem> items){
 		int i=0;
 		for(Poll.Option opt:poll.options){
-			items.add(new PollOptionStatusDisplayItem(parentID, poll, i, fragment, status));
+			items.add(new PollOptionStatusDisplayItem(parentID, poll, i, callbacks, context, status));
 			i++;
 		}
-		items.add(new PollFooterStatusDisplayItem(parentID, fragment, poll, status));
+		items.add(new PollFooterStatusDisplayItem(parentID, callbacks, context, poll, status));
 	}
 
 	public enum Type{
@@ -288,7 +296,7 @@ public abstract class StatusDisplayItem{
 		@Override
 		public void onClick(){
 			if(item instanceof StatusDisplayItem sdi)
-				sdi.parentFragment.onItemClick(sdi.parentID);
+				sdi.callbacks.onItemClick(sdi.parentID);
 		}
 
 		@Override
@@ -306,7 +314,7 @@ public abstract class StatusDisplayItem{
 					quoteRight=itemView.getWidth()-V.dp(16);
 				}
 				if(x<quoteRight && x>quoteLeft){
-					sdi.parentFragment.onItemClick(sdi.parentID, true);
+					sdi.callbacks.onItemClick(sdi.parentID, true);
 					return;
 				}
 			}
@@ -315,7 +323,108 @@ public abstract class StatusDisplayItem{
 
 		@Override
 		public boolean isEnabled(){
-			return item instanceof StatusDisplayItem sdi && sdi.parentFragment.isItemEnabled(sdi);
+			return item instanceof StatusDisplayItem sdi && sdi.callbacks.isItemEnabled(sdi);
+		}
+	}
+
+	public interface Callbacks extends PhotoViewerHost{
+		void onItemClick(String parentID);
+		void onItemClick(String parentID, boolean quote);
+		boolean isItemEnabled(StatusDisplayItem item);
+		TypedObjectPool<MediaGridStatusDisplayItem.GridItemType, MediaAttachmentViewController> getAttachmentViewsPool();
+		void retryFailedImages();
+		void onPollOptionClick(PollOptionStatusDisplayItem.Holder holder);
+		void onPollToggleResultsClick(PollFooterStatusDisplayItem.Holder holder);
+		void onPollVoteButtonClick(PollFooterStatusDisplayItem.Holder holder);
+		void onRevealSpoilerClick(SpoilerStatusDisplayItem.Holder holder);
+		void onGapClick(GapStatusDisplayItem.Holder item);
+		Relationship getRelationship(String id);
+		void putRelationship(String id, Relationship rel);
+		void togglePostTranslation(Status status, String itemID);
+		void maybeShowPreReplySheet(Status status, Runnable proceed);
+	}
+
+	public static class NoOpCallbacks implements Callbacks{
+		private Context context;
+		private TypedObjectPool<MediaGridStatusDisplayItem.GridItemType, MediaAttachmentViewController> attachmentViewsPool=new TypedObjectPool<>(type->new MediaAttachmentViewController(context, type));
+
+		public NoOpCallbacks(Context context){
+			this.context=context;
+		}
+
+		@Override
+		public void onItemClick(String parentID){
+
+		}
+
+		@Override
+		public void onItemClick(String parentID, boolean quote){
+
+		}
+
+		@Override
+		public boolean isItemEnabled(StatusDisplayItem item){
+			return false;
+		}
+
+		@Override
+		public TypedObjectPool<MediaGridStatusDisplayItem.GridItemType, MediaAttachmentViewController> getAttachmentViewsPool(){
+			return attachmentViewsPool;
+		}
+
+		@Override
+		public void retryFailedImages(){
+
+		}
+
+		@Override
+		public void onPollOptionClick(PollOptionStatusDisplayItem.Holder holder){
+
+		}
+
+		@Override
+		public void onPollToggleResultsClick(PollFooterStatusDisplayItem.Holder holder){
+
+		}
+
+		@Override
+		public void onPollVoteButtonClick(PollFooterStatusDisplayItem.Holder holder){
+
+		}
+
+		@Override
+		public void onRevealSpoilerClick(SpoilerStatusDisplayItem.Holder holder){
+
+		}
+
+		@Override
+		public void onGapClick(GapStatusDisplayItem.Holder item){
+
+		}
+
+		@Override
+		public Relationship getRelationship(String id){
+			return null;
+		}
+
+		@Override
+		public void putRelationship(String id, Relationship rel){
+
+		}
+
+		@Override
+		public void togglePostTranslation(Status status, String itemID){
+
+		}
+
+		@Override
+		public void maybeShowPreReplySheet(Status status, Runnable proceed){
+
+		}
+
+		@Override
+		public void openPhotoViewer(String parentID, Status status, int attachmentIndex, MediaGridStatusDisplayItem.Holder gridHolder){
+
 		}
 	}
 }

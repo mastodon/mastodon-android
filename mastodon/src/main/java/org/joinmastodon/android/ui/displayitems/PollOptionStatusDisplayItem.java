@@ -1,6 +1,7 @@
 package org.joinmastodon.android.ui.displayitems;
 
 import android.app.Activity;
+import android.content.Context;
 import android.graphics.LinearGradient;
 import android.graphics.Matrix;
 import android.graphics.Shader;
@@ -13,7 +14,6 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 
 import org.joinmastodon.android.R;
-import org.joinmastodon.android.fragments.BaseStatusListFragment;
 import org.joinmastodon.android.model.Poll;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.text.HtmlParser;
@@ -40,8 +40,8 @@ public class PollOptionStatusDisplayItem extends StatusDisplayItem{
 	public final Status status;
 
 
-	public PollOptionStatusDisplayItem(String parentID, Poll poll, int optionIndex, BaseStatusListFragment parentFragment, Status status){
-		super(parentID, parentFragment);
+	public PollOptionStatusDisplayItem(String parentID, Poll poll, int optionIndex, Callbacks callbacks, Context context, Status status){
+		super(parentID, callbacks, context);
 		this.optionIndex=optionIndex;
 		option=poll.options.get(optionIndex);
 		this.poll=poll;
@@ -170,7 +170,7 @@ public class PollOptionStatusDisplayItem extends StatusDisplayItem{
 		}
 
 		private void onButtonClick(View v){
-			item.parentFragment.onPollOptionClick(this);
+			item.callbacks.onPollOptionClick(this);
 		}
 	}
 }

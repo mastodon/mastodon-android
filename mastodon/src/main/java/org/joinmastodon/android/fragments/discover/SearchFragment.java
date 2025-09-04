@@ -61,8 +61,8 @@ public class SearchFragment extends BaseStatusListFragment<SearchResult>{
 	@Override
 	protected List<StatusDisplayItem> buildDisplayItems(SearchResult s){
 		return switch(s.type){
-			case ACCOUNT -> Collections.singletonList(new AccountStatusDisplayItem(s.id, this, s.account));
-			case HASHTAG -> Collections.singletonList(new HashtagStatusDisplayItem(s.id, this, s.hashtag));
+			case ACCOUNT -> Collections.singletonList(new AccountStatusDisplayItem(s.id, this, getActivity(), s.account, accountID));
+			case HASHTAG -> Collections.singletonList(new HashtagStatusDisplayItem(s.id, this, getActivity(), s.hashtag));
 			case STATUS -> StatusDisplayItem.buildItems(this, s.status, accountID, s, knownAccounts, true);
 		};
 	}

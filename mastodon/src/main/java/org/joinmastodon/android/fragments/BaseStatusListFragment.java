@@ -83,7 +83,7 @@ import me.grishka.appkit.utils.MergeRecyclerAdapter;
 import me.grishka.appkit.utils.V;
 import me.grishka.appkit.views.UsableRecyclerView;
 
-public abstract class BaseStatusListFragment<T extends DisplayItemsParent> extends MastodonRecyclerFragment<T> implements PhotoViewerHost, ScrollableToTop{
+public abstract class BaseStatusListFragment<T extends DisplayItemsParent> extends MastodonRecyclerFragment<T> implements PhotoViewerHost, ScrollableToTop, StatusDisplayItem.Callbacks{
 	protected ArrayList<StatusDisplayItem> displayItems=new ArrayList<>();
 	protected DisplayItemsAdapter adapter;
 	protected String accountID;
@@ -116,6 +116,9 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 	public void onAttach(Activity activity){
 		super.onAttach(activity);
 		accountID=getArguments().getString("account");
+		for(StatusDisplayItem item:displayItems){
+			item.context=activity;
+		}
 	}
 
 	@Override
@@ -490,8 +493,10 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 		return false;
 	}
 
+	@Override
 	public abstract void onItemClick(String id);
 
+	@Override
 	public void onItemClick(String id, boolean quote){
 		onItemClick(id);
 	}
@@ -526,7 +531,7 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 		List<StatusDisplayItem> pollItems=displayItems.subList(firstOptionIndex, footerIndex+1);
 		int prevSize=pollItems.size();
 		pollItems.clear();
-		StatusDisplayItem.buildPollItems(itemID, this, poll, status, pollItems);
+		StatusDisplayItem.buildPollItems(itemID, this, getActivity(), poll, status, pollItems);
 		if(prevSize!=pollItems.size()){
 			adapter.notifyItemRangeRemoved(firstOptionIndex, prevSize);
 			adapter.notifyItemRangeInserted(firstOptionIndex, pollItems.size());

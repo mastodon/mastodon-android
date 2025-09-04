@@ -1,12 +1,12 @@
 package org.joinmastodon.android.ui.displayitems;
 
 import android.app.Activity;
+import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 
 import org.joinmastodon.android.R;
-import org.joinmastodon.android.fragments.BaseStatusListFragment;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.views.CheckableRelativeLayout;
@@ -15,8 +15,8 @@ import java.time.Instant;
 import java.util.function.Predicate;
 
 public class CheckableHeaderStatusDisplayItem extends HeaderStatusDisplayItem{
-	public CheckableHeaderStatusDisplayItem(String parentID, Account user, Instant createdAt, BaseStatusListFragment parentFragment, String accountID, Status status, String extraText){
-		super(parentID, user, createdAt, parentFragment, accountID, status, extraText);
+	public CheckableHeaderStatusDisplayItem(String parentID, Account user, Instant createdAt, Callbacks callbacks, Context context, String accountID, Status status, String extraText){
+		super(parentID, user, createdAt, callbacks, context, accountID, status, extraText);
 	}
 
 	@Override

@@ -2,6 +2,7 @@ package org.joinmastodon.android.ui.displayitems;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Context;
 import android.graphics.drawable.Animatable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -13,7 +14,6 @@ import android.widget.TextView;
 
 import org.joinmastodon.android.GlobalUserPreferences;
 import org.joinmastodon.android.R;
-import org.joinmastodon.android.fragments.BaseStatusListFragment;
 import org.joinmastodon.android.fragments.ProfileFragment;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.Status;
@@ -40,8 +40,8 @@ public class CompactHeaderStatusDisplayItem extends StatusDisplayItem{
 	private SpannableStringBuilder parsedName;
 	public final Status status;
 
-	public CompactHeaderStatusDisplayItem(String parentID, Account user, Instant createdAt, BaseStatusListFragment parentFragment, String accountID, Status status){
-		super(parentID, parentFragment);
+	public CompactHeaderStatusDisplayItem(String parentID, Account user, Instant createdAt, Callbacks callbacks, Context context, String accountID, Status status){
+		super(parentID, callbacks, context);
 		this.user=user;
 		this.createdAt=createdAt;
 		avaRequest=new UrlImageLoaderRequest(GlobalUserPreferences.playGifs ? user.avatar : user.avatarStatic, V.dp(50), V.dp(50));
@@ -96,12 +96,12 @@ public class CompactHeaderStatusDisplayItem extends StatusDisplayItem{
 			if(item.status==null || item.status.editedAt==null)
 				time=UiUtils.formatRelativeTimestamp(itemView.getContext(), item.createdAt);
 			else
-				time=item.parentFragment.getString(R.string.edited_timestamp, UiUtils.formatRelativeTimestamp(itemView.getContext(), item.status.editedAt));
+				time=item.context.getString(R.string.edited_timestamp, UiUtils.formatRelativeTimestamp(itemView.getContext(), item.status.editedAt));
 
 			timeAndUsername.setText(time+" · @"+item.user.acct);
 //			itemView.setPadding(itemView.getPaddingLeft(), itemView.getPaddingTop(), itemView.getPaddingRight(), item.needBottomPadding ? V.dp(6) : V.dp(4));
 			if(clickableThing!=null){
-				clickableThing.setContentDescription(item.parentFragment.getString(R.string.avatar_description, item.user.acct));
+				clickableThing.setContentDescription(item.context.getString(R.string.avatar_description, item.user.acct));
 			}
 			itemView.setPaddingRelative(V.dp(item.fullWidth ? 0 : 48), 0, 0, 0);
 		}
@@ -131,7 +131,7 @@ public class CompactHeaderStatusDisplayItem extends StatusDisplayItem{
 			Bundle args=new Bundle();
 			args.putString("account", item.accountID);
 			args.putParcelable("profileAccount", Parcels.wrap(item.user));
-			Nav.go(item.parentFragment.getActivity(), ProfileFragment.class, args);
+			Nav.go((Activity) item.context, ProfileFragment.class, args);
 		}
 	}
 }

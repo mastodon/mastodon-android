@@ -36,43 +36,43 @@ public abstract class BaseNotificationsListFragment extends BaseStatusListFragme
 				boolean replyToSelf=AccountSessionManager.get(accountID).self.id.equals(n.status.inReplyToAccountId);
 				int icon=replyToSelf ? R.drawable.ic_reply_wght700_20px : R.drawable.ic_alternate_email_wght700fill1_20px;
 				if(n.status.visibility==StatusPrivacy.DIRECT){
-					titleItem=new ReblogOrReplyLineStatusDisplayItem(n.getID(), this, getString(replyToSelf ? R.string.private_reply : R.string.private_mention), null, icon);
+					titleItem=new ReblogOrReplyLineStatusDisplayItem(n.getID(), this, getActivity(), getString(replyToSelf ? R.string.private_reply : R.string.private_mention), null, icon, accountID);
 				}else{
-					titleItem=new ReblogOrReplyLineStatusDisplayItem(n.getID(), this, getString(replyToSelf ? R.string.post_header_reply : R.string.post_header_mention), null, icon);
+					titleItem=new ReblogOrReplyLineStatusDisplayItem(n.getID(), this, getActivity(), getString(replyToSelf ? R.string.post_header_reply : R.string.post_header_mention), null, icon, accountID);
 				}
 			}else{
 				titleItem=null;
 			}
 		}else if(n.notification.type==NotificationType.STATUS){
 			if(n.status!=null)
-				titleItem=new ReblogOrReplyLineStatusDisplayItem(n.getID(), this, getString(R.string.user_just_posted), n.status.account, R.drawable.ic_notifications_wght700fill1_20px);
+				titleItem=new ReblogOrReplyLineStatusDisplayItem(n.getID(), this, getActivity(), getString(R.string.user_just_posted), n.status.account, R.drawable.ic_notifications_wght700fill1_20px, accountID);
 			else
 				titleItem=null;
 		}else if(n.notification.type==NotificationType.QUOTE){
 			if(n.status!=null)
-				titleItem=new ReblogOrReplyLineStatusDisplayItem(n.getID(), this, getString(R.string.user_quoted_post), n.status.account, R.drawable.ic_format_quote_wght700fill1_20px);
+				titleItem=new ReblogOrReplyLineStatusDisplayItem(n.getID(), this, getActivity(), getString(R.string.user_quoted_post), n.status.account, R.drawable.ic_format_quote_wght700fill1_20px, accountID);
 			else
 				titleItem=null;
 		}else{
 			if(n.notification.type==NotificationType.SEVERED_RELATIONSHIPS || n.notification.type==NotificationType.MODERATION_WARNING)
-				titleItem=new NotificationWithButtonStatusDisplayItem(n.getID(), this, n, accountID);
+				titleItem=new NotificationWithButtonStatusDisplayItem(n.getID(), this, getActivity(), n, accountID);
 			else
-				titleItem=new NotificationHeaderStatusDisplayItem(n.getID(), this, n, accountID);
+				titleItem=new NotificationHeaderStatusDisplayItem(n.getID(), this, getActivity(), n, accountID);
 		}
 		if(n.status!=null){
 			if(titleItem!=null && n.notification.type!=NotificationType.STATUS && n.notification.type!=NotificationType.MENTION && n.notification.type!=NotificationType.QUOTE){
-				InlineStatusStatusDisplayItem inlineItem=new InlineStatusStatusDisplayItem(n.getID(), this, n.status, accountID);
+				InlineStatusStatusDisplayItem inlineItem=new InlineStatusStatusDisplayItem(n.getID(), this, getActivity(), n.status, accountID);
 				inlineItem.removeTopPadding=true;
 				return List.of(titleItem, inlineItem);
 			}else{
-				ArrayList<StatusDisplayItem> items=StatusDisplayItem.buildItems(this, n.status, accountID, n, knownAccounts, titleItem!=null ? StatusDisplayItem.FLAG_NO_IN_REPLY_TO : 0);
+				ArrayList<StatusDisplayItem> items=StatusDisplayItem.buildItems(this, getActivity(), n.status, accountID, n, knownAccounts, titleItem!=null ? StatusDisplayItem.FLAG_NO_IN_REPLY_TO : 0);
 				if(titleItem!=null)
 					items.add(0, titleItem);
 				return items;
 			}
 		}else if(titleItem!=null){
 			if(n.notification.type==NotificationType.FOLLOW_REQUEST)
-				return List.of(titleItem, new FollowRequestActionsDisplayItem(n.getID(), this, n));
+				return List.of(titleItem, new FollowRequestActionsDisplayItem(n.getID(), this, getActivity(), n));
 			return List.of(titleItem);
 		}else{
 			return List.of();

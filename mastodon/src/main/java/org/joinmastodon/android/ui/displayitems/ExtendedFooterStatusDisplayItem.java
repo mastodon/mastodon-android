@@ -1,6 +1,7 @@
 package org.joinmastodon.android.ui.displayitems;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.Typeface;
 import android.os.Build;
@@ -13,10 +14,8 @@ import android.text.style.TypefaceSpan;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import org.joinmastodon.android.R;
-import org.joinmastodon.android.fragments.BaseStatusListFragment;
 import org.joinmastodon.android.fragments.StatusEditHistoryFragment;
 import org.joinmastodon.android.fragments.ThreadFragment;
 import org.joinmastodon.android.fragments.account_list.StatusFavoritesListFragment;
@@ -37,18 +36,19 @@ import java.util.Locale;
 import androidx.annotation.PluralsRes;
 import androidx.annotation.StringRes;
 import me.grishka.appkit.Nav;
-import me.grishka.appkit.utils.V;
 
 public class ExtendedFooterStatusDisplayItem extends StatusDisplayItem{
 	public final Status status;
+	private final String accountID;
 
 	private static final DateTimeFormatter TIME_FORMATTER=DateTimeFormatter.ofLocalizedTime(FormatStyle.SHORT);
 	private static final DateTimeFormatter TIME_FORMATTER_LONG=DateTimeFormatter.ofLocalizedTime(FormatStyle.MEDIUM);
 	private static final DateTimeFormatter DATE_FORMATTER=DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM);
 
-	public ExtendedFooterStatusDisplayItem(String parentID, BaseStatusListFragment parentFragment, Status status){
-		super(parentID, parentFragment);
+	public ExtendedFooterStatusDisplayItem(String parentID, Callbacks callbacks, Context context, Status status, String accountID){
+		super(parentID, callbacks, context);
 		this.status=status;
+		this.accountID=accountID;
 	}
 
 	@Override
@@ -114,7 +114,7 @@ public class ExtendedFooterStatusDisplayItem extends StatusDisplayItem{
 		}
 
 		private SpannableStringBuilder getFormattedPlural(@PluralsRes int res, long quantity){
-			String str=item.parentFragment.getResources().getQuantityString(res, (int)quantity, quantity);
+			String str=item.context.getResources().getQuantityString(res, (int)quantity, quantity);
 			String formattedNumber=String.format(Locale.getDefault(), "%,d", quantity);
 			int index=str.indexOf(formattedNumber);
 			SpannableStringBuilder ssb=new SpannableStringBuilder(str);
@@ -133,8 +133,8 @@ public class ExtendedFooterStatusDisplayItem extends StatusDisplayItem{
 		}
 
 		private SpannableStringBuilder getFormattedSubstitutedString(@StringRes int res, String substitution){
-			String str=item.parentFragment.getString(res, substitution);
-			int index=item.parentFragment.getString(res).indexOf("%s");
+			String str=item.context.getString(res, substitution);
+			int index=item.context.getString(res).indexOf("%s");
 			SpannableStringBuilder ssb=new SpannableStringBuilder(str);
 			if(index>=0){
 				ForegroundColorSpan colorSpan=new ForegroundColorSpan(UiUtils.getThemeColor(itemView.getContext(), R.attr.colorM3OnSurfaceVariant));
@@ -152,21 +152,21 @@ public class ExtendedFooterStatusDisplayItem extends StatusDisplayItem{
 
 		private void startAccountListFragment(Class<? extends StatusRelatedAccountListFragment> cls){
 			Bundle args=new Bundle();
-			args.putString("account", item.parentFragment.getAccountID());
+			args.putString("account", item.accountID);
 			args.putParcelable("status", Parcels.wrap(item.status));
-			Nav.go(item.parentFragment.getActivity(), cls, args);
+			Nav.go((Activity) item.context, cls, args);
 		}
 
 		private void startEditHistoryFragment(){
 			Bundle args=new Bundle();
-			args.putString("account", item.parentFragment.getAccountID());
+			args.putString("account", item.accountID);
 			args.putString("id", item.status.id);
-			Nav.go(item.parentFragment.getActivity(), StatusEditHistoryFragment.class, args);
+			Nav.go((Activity) item.context, StatusEditHistoryFragment.class, args);
 		}
 
 		private void showTimeSnackbar(){
 			int bottomOffset=0;
-			if(item.parentFragment instanceof ThreadFragment tf){
+			if(item.callbacks instanceof ThreadFragment tf){
 				bottomOffset=tf.getSnackbarOffset();
 			}
 			new Snackbar.Builder(itemView.getContext())

@@ -76,12 +76,14 @@ public class ThreadFragment extends StatusListFragment implements AssistContentP
 
 	@Override
 	protected List<StatusDisplayItem> buildDisplayItems(Status s){
-		List<StatusDisplayItem> items=StatusDisplayItem.buildItems(this, s, accountID, s, knownAccounts, StatusDisplayItem.FLAG_NO_IN_REPLY_TO);
+		List<StatusDisplayItem> items=StatusDisplayItem.buildItems(this, getActivity(), s, accountID, s, knownAccounts, StatusDisplayItem.FLAG_NO_IN_REPLY_TO);
 		if(s.id.equals(mainStatus.id)){
 			for(StatusDisplayItem item:items){
 				item.fullWidth=true;
-				if(item instanceof TextStatusDisplayItem text)
+				if(item instanceof TextStatusDisplayItem text){
 					text.textSelectable=!item.isQuote;
+					text.largerFont=true;
+				}
 				else if(item instanceof FooterStatusDisplayItem footer)
 					footer.hideCounts=true;
 				else if(item instanceof SpoilerStatusDisplayItem spoiler){
@@ -91,7 +93,7 @@ public class ThreadFragment extends StatusListFragment implements AssistContentP
 					}
 				}
 			}
-			items.add(items.size()-1, new ExtendedFooterStatusDisplayItem(s.id, this, s.getContentStatus()));
+			items.add(items.size()-1, new ExtendedFooterStatusDisplayItem(s.id, this, getActivity(), s.getContentStatus(), accountID));
 		}
 		return items;
 	}

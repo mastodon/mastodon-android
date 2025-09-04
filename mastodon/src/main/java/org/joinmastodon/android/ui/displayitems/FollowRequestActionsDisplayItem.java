@@ -1,6 +1,7 @@
 package org.joinmastodon.android.ui.displayitems;
 
 import android.app.Activity;
+import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -18,8 +19,8 @@ import me.grishka.appkit.api.SimpleCallback;
 public class FollowRequestActionsDisplayItem extends StatusDisplayItem{
 	public final NotificationViewModel notification;
 
-	public FollowRequestActionsDisplayItem(String parentID, BaseStatusListFragment<?> parentFragment, NotificationViewModel notification){
-		super(parentID, parentFragment);
+	public FollowRequestActionsDisplayItem(String parentID, Callbacks callbacks, Context context, NotificationViewModel notification){
+		super(parentID, callbacks, context);
 		this.notification=notification;
 	}
 
@@ -46,10 +47,10 @@ public class FollowRequestActionsDisplayItem extends StatusDisplayItem{
 		}
 
 		private void acceptFollowRequest(View v){
-			BaseStatusListFragment<?> parentFragment=this.getItem().parentFragment;
+			BaseStatusListFragment<?> parentFragment=(BaseStatusListFragment<?>) this.getItem().callbacks;
 
 			new AcceptFollowRequest(this.getItem().notification.accounts.get(0).id)
-					.setCallback(new SimpleCallback<>(this.getItem().parentFragment){
+					.setCallback(new SimpleCallback<>(parentFragment){
 						@Override
 						public void onSuccess(Relationship result){
 							parentFragment.removeDisplayItem(item);
@@ -61,10 +62,10 @@ public class FollowRequestActionsDisplayItem extends StatusDisplayItem{
 		}
 
 		private void rejectFollowRequest(View v){
-			BaseStatusListFragment<?> parentFragment=this.getItem().parentFragment;
+			BaseStatusListFragment<?> parentFragment=(BaseStatusListFragment<?>) this.getItem().callbacks;
 
 			new RejectFollowRequest(this.getItem().notification.accounts.get(0).id)
-					.setCallback(new SimpleCallback<>(this.getItem().parentFragment){
+					.setCallback(new SimpleCallback<>(parentFragment){
 						@Override
 						public void onSuccess(Relationship result){
 							BaseNotificationsListFragment fragment=(BaseNotificationsListFragment) parentFragment;

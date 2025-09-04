@@ -18,7 +18,6 @@ import android.widget.TextView;
 
 import org.joinmastodon.android.AudioPlayerService;
 import org.joinmastodon.android.R;
-import org.joinmastodon.android.fragments.BaseStatusListFragment;
 import org.joinmastodon.android.model.Attachment;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.OutlineProviders;
@@ -36,8 +35,8 @@ public class AudioStatusDisplayItem extends StatusDisplayItem{
 	public final Attachment attachment;
 	private final ImageLoaderRequest imageRequest;
 
-	public AudioStatusDisplayItem(String parentID, BaseStatusListFragment parentFragment, Status status, Attachment attachment){
-		super(parentID, parentFragment);
+	public AudioStatusDisplayItem(String parentID, Callbacks callbacks, Context context, Status status, Attachment attachment){
+		super(parentID, callbacks, context);
 		this.status=status;
 		this.attachment=attachment;
 		imageRequest=new UrlImageLoaderRequest(TextUtils.isEmpty(attachment.previewUrl) ? status.account.avatarStatic : attachment.previewUrl, V.dp(100), V.dp(100));
@@ -218,7 +217,7 @@ public class AudioStatusDisplayItem extends StatusDisplayItem{
 
 		private void setPlayButtonPlaying(boolean playing, boolean animated){
 			playPauseBtn.setImageResource(playing ? R.drawable.ic_pause_48px : R.drawable.ic_play_arrow_48px);
-			playPauseBtn.setContentDescription(item.parentFragment.getString(playing ? R.string.pause : R.string.play));
+			playPauseBtn.setContentDescription(item.context.getString(playing ? R.string.pause : R.string.play));
 			if(playing)
 				bgDrawable.startAnimation();
 			else

@@ -36,7 +36,7 @@ public class FeaturedHashtagsListFragment extends BaseStatusListFragment<Hashtag
 
 	@Override
 	protected List<StatusDisplayItem> buildDisplayItems(Hashtag s){
-		return Collections.singletonList(new HashtagStatusDisplayItem(s.name, this, s));
+		return Collections.singletonList(new HashtagStatusDisplayItem(s.name, this, getActivity(), s));
 	}
 
 	@Override

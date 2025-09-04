@@ -55,7 +55,7 @@ public class StatusEditHistoryFragment extends StatusListFragment{
 	@Override
 	protected List<StatusDisplayItem> buildDisplayItems(Status s){
 		List<StatusDisplayItem> items=new ArrayList<>();
-		InlineStatusStatusDisplayItem inlineItem=new InlineStatusStatusDisplayItem(s.getID(), this, s, accountID);
+		InlineStatusStatusDisplayItem inlineItem=new InlineStatusStatusDisplayItem(s.getID(), this, getActivity(), s, accountID);
 		inlineItem.fullWidth=true;
 		items.add(inlineItem);
 		int idx=data.indexOf(s);
@@ -142,7 +142,7 @@ public class StatusEditHistoryFragment extends StatusListFragment{
 					action=getString(R.string.edit_multiple_changed);
 				}
 			}
-			items.add(0, new ReblogOrReplyLineStatusDisplayItem(s.id, this, action+" · "+date, null, 0));
+			items.add(0, new ReblogOrReplyLineStatusDisplayItem(s.id, this, getActivity(), action+" · "+date, null, 0, accountID));
 		}
 		return items;
 	}

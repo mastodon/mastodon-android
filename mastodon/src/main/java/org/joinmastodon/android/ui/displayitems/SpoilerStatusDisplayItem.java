@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import org.joinmastodon.android.R;
-import org.joinmastodon.android.fragments.BaseStatusListFragment;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.OutlineProviders;
 import org.joinmastodon.android.ui.drawables.SpoilerStripesDrawable;
@@ -32,8 +31,8 @@ public class SpoilerStatusDisplayItem extends StatusDisplayItem{
 	private final CustomEmojiHelper emojiHelper;
 	public final Type type;
 
-	public SpoilerStatusDisplayItem(String parentID, BaseStatusListFragment parentFragment, String title, Status status, Status statusForContent, Type type, Status.SpoilerType spoilerType){
-		super(parentID, parentFragment);
+	public SpoilerStatusDisplayItem(String parentID, Callbacks callbacks, Context context, String title, Status status, Status statusForContent, Type type, Status.SpoilerType spoilerType){
+		super(parentID, callbacks, context);
 		this.status=status;
 		this.type=type;
 		this.spoilerType=spoilerType;
@@ -84,7 +83,7 @@ public class SpoilerStatusDisplayItem extends StatusDisplayItem{
 				spoilerBg.setDrawableByLayerId(R.id.right_drawable, new TiledDrawable(texture));
 			}
 			button.setBackground(spoilerBg);
-			button.setOnClickListener(v->item.parentFragment.onRevealSpoilerClick(this));
+			button.setOnClickListener(v->item.callbacks.onRevealSpoilerClick(this));
 		}
 
 		@Override

@@ -6,15 +6,14 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import org.joinmastodon.android.R;
-import org.joinmastodon.android.fragments.BaseStatusListFragment;
 import org.joinmastodon.android.model.Hashtag;
 import org.joinmastodon.android.ui.views.HashtagChartView;
 
 public class HashtagStatusDisplayItem extends StatusDisplayItem{
 	public final Hashtag tag;
 
-	public HashtagStatusDisplayItem(String parentID, BaseStatusListFragment parentFragment, Hashtag tag){
-		super(parentID, parentFragment);
+	public HashtagStatusDisplayItem(String parentID, Callbacks callbacks, Context context, Hashtag tag){
+		super(parentID, callbacks, context);
 		this.tag=tag;
 	}
 

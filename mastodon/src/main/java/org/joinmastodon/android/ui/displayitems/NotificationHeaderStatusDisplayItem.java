@@ -1,6 +1,7 @@
 package org.joinmastodon.android.ui.displayitems;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.res.ColorStateList;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -15,7 +16,6 @@ import android.widget.TextView;
 import org.joinmastodon.android.GlobalUserPreferences;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.session.AccountSessionManager;
-import org.joinmastodon.android.fragments.BaseStatusListFragment;
 import org.joinmastodon.android.fragments.ProfileFragment;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.NotificationType;
@@ -46,8 +46,8 @@ public class NotificationHeaderStatusDisplayItem extends StatusDisplayItem{
 	private List<Account> accounts;
 	private List<ImageLoaderRequest> avaRequests;
 
-	public NotificationHeaderStatusDisplayItem(String parentID, BaseStatusListFragment parentFragment, NotificationViewModel notification, String accountID){
-		super(parentID, parentFragment);
+	public NotificationHeaderStatusDisplayItem(String parentID, Callbacks callbacks, Context context, NotificationViewModel notification, String accountID){
+		super(parentID, callbacks, context);
 		this.notification=notification;
 		this.accountID=accountID;
 
@@ -61,7 +61,7 @@ public class NotificationHeaderStatusDisplayItem extends StatusDisplayItem{
 				.collect(Collectors.toList());
 
 		if(notification.notification.type==NotificationType.POLL && AccountSessionManager.getInstance().isSelf(accountID, notification.accounts.get(0))){
-			text=parentFragment.getString(R.string.own_poll_ended);
+			text=context.getString(R.string.own_poll_ended);
 		}else{
 			Account account=notification.accounts.get(0);
 			SpannableStringBuilder parsedName=new SpannableStringBuilder(account.displayName);
@@ -71,7 +71,7 @@ public class NotificationHeaderStatusDisplayItem extends StatusDisplayItem{
 
 			String text;
 			if(accounts.size()>1 && notification.notification.type.canBeGrouped()){
-				text=parentFragment.getResources().getQuantityString(switch(notification.notification.type){
+				text=context.getResources().getQuantityString(switch(notification.notification.type){
 					case FAVORITE -> R.plurals.user_and_x_more_favorited;
 					case REBLOG -> R.plurals.user_and_x_more_boosted;
 					case FOLLOW -> R.plurals.user_and_x_more_followed;
@@ -82,10 +82,10 @@ public class NotificationHeaderStatusDisplayItem extends StatusDisplayItem{
 					text="???";
 				}else{
 					int count=notification.status.poll.votersCount-1;
-					text=parentFragment.getResources().getQuantityString(R.plurals.poll_ended_x_voters, count, "{{name}}", count);
+					text=context.getResources().getQuantityString(R.plurals.poll_ended_x_voters, count, "{{name}}", count);
 				}
 			}else{
-				text=parentFragment.getString(switch(notification.notification.type){
+				text=context.getString(switch(notification.notification.type){
 					case FOLLOW -> R.string.user_followed_you;
 					case FOLLOW_REQUEST -> R.string.user_sent_follow_request;
 					case REBLOG -> R.string.notification_boosted;
@@ -104,7 +104,7 @@ public class NotificationHeaderStatusDisplayItem extends StatusDisplayItem{
 				Bundle args=new Bundle();
 				args.putString("account", accountID);
 				args.putParcelable("profileAccount", Parcels.wrap(account));
-				Nav.go(parentFragment.getActivity(), ProfileFragment.class, args);
+				Nav.go((Activity) context, ProfileFragment.class, args);
 			}, LinkSpan.Type.CUSTOM, null, null, null), formattedText.length()-parsedName.length(), formattedText.length(), 0);
 			if(parts.length==1){
 				formattedText.append(' ');
@@ -195,7 +195,7 @@ public class NotificationHeaderStatusDisplayItem extends StatusDisplayItem{
 						avatars[i].setVisibility(View.GONE);
 					}else{
 						avatars[i].setVisibility(View.VISIBLE);
-						avatars[i].setContentDescription(item.parentFragment.getString(R.string.avatar_description, item.notification.accounts.get(i).acct));
+						avatars[i].setContentDescription(item.context.getString(R.string.avatar_description, item.notification.accounts.get(i).acct));
 					}
 				}
 			}
@@ -207,7 +207,7 @@ public class NotificationHeaderStatusDisplayItem extends StatusDisplayItem{
 				case UPDATE, QUOTED_UPDATE -> R.drawable.ic_edit_24px;
 				default -> throw new IllegalStateException("Unexpected value: "+item.notification.notification.type);
 			});
-			icon.setImageTintList(ColorStateList.valueOf(UiUtils.getThemeColor(item.parentFragment.getActivity(), switch(item.notification.notification.type){
+			icon.setImageTintList(ColorStateList.valueOf(UiUtils.getThemeColor(item.context, switch(item.notification.notification.type){
 				case FAVORITE -> R.attr.colorFavorite;
 				case REBLOG -> R.attr.colorBoost;
 				case FOLLOW, FOLLOW_REQUEST, UPDATE -> R.attr.colorM3Primary;
@@ -220,7 +220,7 @@ public class NotificationHeaderStatusDisplayItem extends StatusDisplayItem{
 			Bundle args=new Bundle();
 			args.putString("account", item.accountID);
 			args.putParcelable("profileAccount", Parcels.wrap(item.notification.accounts.get((Integer)v.getTag())));
-			Nav.go(item.parentFragment.getActivity(), ProfileFragment.class, args);
+			Nav.go((Activity) item.context, ProfileFragment.class, args);
 		}
 	}
 }

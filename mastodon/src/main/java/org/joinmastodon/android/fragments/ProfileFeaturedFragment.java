@@ -49,13 +49,13 @@ public class ProfileFeaturedFragment extends BaseStatusListFragment<SearchResult
 	@Override
 	protected List<StatusDisplayItem> buildDisplayItems(SearchResult s){
 		ArrayList<StatusDisplayItem> items=switch(s.type){
-			case ACCOUNT -> new ArrayList<>(Collections.singletonList(new AccountStatusDisplayItem(s.id, this, s.account)));
-			case HASHTAG -> new ArrayList<>(Collections.singletonList(new HashtagStatusDisplayItem(s.id, this, s.hashtag)));
+			case ACCOUNT -> new ArrayList<>(Collections.singletonList(new AccountStatusDisplayItem(s.id, this, getActivity(), s.account, accountID)));
+			case HASHTAG -> new ArrayList<>(Collections.singletonList(new HashtagStatusDisplayItem(s.id, this, getActivity(), s.hashtag)));
 			case STATUS -> StatusDisplayItem.buildItems(this, s.status, accountID, s, knownAccounts, true);
 		};
 
 		if(s.firstInSection){
-			items.add(0, new SectionHeaderStatusDisplayItem(this, getString(switch(s.type){
+			items.add(0, new SectionHeaderStatusDisplayItem(this, getActivity(), getString(switch(s.type){
 				case ACCOUNT -> R.string.profile_endorsed_accounts;
 				case HASHTAG -> R.string.hashtags;
 				case STATUS -> R.string.posts;

@@ -152,7 +152,7 @@ public class AccountNotificationsListFragment extends BaseNotificationsListFragm
 	@Override
 	protected List<StatusDisplayItem> buildDisplayItems(NotificationViewModel n){
 		if(n.notification.type==NotificationType.MENTION || n.notification.type==NotificationType.STATUS || n.notification.type==NotificationType.QUOTE){
-			return StatusDisplayItem.buildItems(this, n.status, accountID, n, knownAccounts, StatusDisplayItem.FLAG_MEDIA_FORCE_HIDDEN);
+			return StatusDisplayItem.buildItems(this, getActivity(), n.status, accountID, n, knownAccounts, StatusDisplayItem.FLAG_MEDIA_FORCE_HIDDEN);
 		}
 		return super.buildDisplayItems(n);
 	}

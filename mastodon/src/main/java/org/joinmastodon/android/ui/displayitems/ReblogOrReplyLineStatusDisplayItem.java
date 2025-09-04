@@ -1,6 +1,7 @@
 package org.joinmastodon.android.ui.displayitems;
 
 import android.app.Activity;
+import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
@@ -11,7 +12,6 @@ import android.widget.TextView;
 
 import org.joinmastodon.android.GlobalUserPreferences;
 import org.joinmastodon.android.R;
-import org.joinmastodon.android.fragments.BaseStatusListFragment;
 import org.joinmastodon.android.fragments.ProfileFragment;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.ui.text.HtmlParser;
@@ -35,8 +35,8 @@ public class ReblogOrReplyLineStatusDisplayItem extends StatusDisplayItem{
 	private int icon;
 	private CustomEmojiHelper emojiHelper=new CustomEmojiHelper();
 
-	public ReblogOrReplyLineStatusDisplayItem(String parentID, BaseStatusListFragment parentFragment, CharSequence text, Account account, @DrawableRes int icon){
-		super(parentID, parentFragment);
+	public ReblogOrReplyLineStatusDisplayItem(String parentID, Callbacks callbacks, Context context, CharSequence text, Account account, @DrawableRes int icon, String accountID){
+		super(parentID, callbacks, context);
 		if(account!=null){
 			SpannableStringBuilder parsedName=new SpannableStringBuilder(account.displayName);
 			if(GlobalUserPreferences.customEmojiInNames)
@@ -50,9 +50,9 @@ public class ReblogOrReplyLineStatusDisplayItem extends StatusDisplayItem{
 
 			ssb.append(parsedName, new NonColoredLinkSpan(null, s->{
 				Bundle args=new Bundle();
-				args.putString("account", parentFragment.getAccountID());
+				args.putString("account", accountID);
 				args.putParcelable("profileAccount", Parcels.wrap(account));
-				Nav.go(parentFragment.getActivity(), ProfileFragment.class, args);
+				Nav.go((Activity) context, ProfileFragment.class, args);
 			}, LinkSpan.Type.CUSTOM, null, null, null), 0);
 
 			if(parts.length==1){

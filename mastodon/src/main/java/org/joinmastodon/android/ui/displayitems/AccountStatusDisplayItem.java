@@ -1,8 +1,8 @@
 package org.joinmastodon.android.ui.displayitems;
 
+import android.content.Context;
 import android.graphics.drawable.Drawable;
 
-import org.joinmastodon.android.fragments.BaseStatusListFragment;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.viewmodel.AccountViewModel;
 import org.joinmastodon.android.ui.viewholders.AccountViewHolder;
@@ -13,9 +13,9 @@ import me.grishka.appkit.imageloader.requests.ImageLoaderRequest;
 public class AccountStatusDisplayItem extends StatusDisplayItem{
 	public final AccountViewModel account;
 
-	public AccountStatusDisplayItem(String parentID, BaseStatusListFragment parentFragment, Account account){
-		super(parentID, parentFragment);
-		this.account=new AccountViewModel(account, parentFragment.getAccountID(), parentFragment.getActivity());
+	public AccountStatusDisplayItem(String parentID, Callbacks callbacks, Context context, Account account, String accountID){
+		super(parentID, callbacks, context);
+		this.account=new AccountViewModel(account, accountID, context);
 	}
 
 	@Override

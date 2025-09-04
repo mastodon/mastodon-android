@@ -7,14 +7,13 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import org.joinmastodon.android.R;
-import org.joinmastodon.android.fragments.BaseStatusListFragment;
 
 public class SectionHeaderStatusDisplayItem extends StatusDisplayItem{
 	public final String title, buttonText;
 	public final Runnable onButtonClick;
 
-	public SectionHeaderStatusDisplayItem(BaseStatusListFragment parentFragment, String title, String buttonText, Runnable onButtonClick){
-		super("", parentFragment);
+	public SectionHeaderStatusDisplayItem(Callbacks callbacks, Context context, String title, String buttonText, Runnable onButtonClick){
+		super("", callbacks, context);
 		this.title=title;
 		this.buttonText=buttonText;
 		this.onButtonClick=onButtonClick;

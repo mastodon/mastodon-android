@@ -5,7 +5,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import org.joinmastodon.android.R;
-import org.joinmastodon.android.fragments.BaseStatusListFragment;
 import org.joinmastodon.android.model.Quote;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.OutlineProviders;
@@ -17,10 +16,11 @@ public class NestedQuoteStatusDisplayItem extends StatusDisplayItem{
 	public final String statusID;
 	public final Quote quote;
 
-	public NestedQuoteStatusDisplayItem(String parentID, BaseStatusListFragment<?> parentFragment, String statusID, Quote quote){
-		super(parentID, parentFragment);
+	public NestedQuoteStatusDisplayItem(String parentID, Callbacks callbacks, Context context, String statusID, Quote quote){
+		super(parentID, callbacks, context);
 		this.statusID=statusID;
 		this.quote=quote;
+		status=quote.quotedStatus;
 	}
 
 	@Override

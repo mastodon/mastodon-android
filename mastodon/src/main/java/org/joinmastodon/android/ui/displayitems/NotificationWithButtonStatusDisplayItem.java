@@ -1,6 +1,7 @@
 package org.joinmastodon.android.ui.displayitems;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.res.ColorStateList;
 import android.graphics.Typeface;
 import android.text.SpannableStringBuilder;
@@ -12,7 +13,6 @@ import android.widget.TextView;
 
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.session.AccountSessionManager;
-import org.joinmastodon.android.fragments.BaseStatusListFragment;
 import org.joinmastodon.android.model.AccountWarning;
 import org.joinmastodon.android.model.NotificationType;
 import org.joinmastodon.android.model.RelationshipSeveranceEvent;
@@ -27,32 +27,32 @@ public class NotificationWithButtonStatusDisplayItem extends StatusDisplayItem{
 	private String buttonText;
 	private Runnable buttonAction;
 
-	public NotificationWithButtonStatusDisplayItem(String parentID, BaseStatusListFragment<?> parentFragment, NotificationViewModel notification, String accountID){
-		super(parentID, parentFragment);
+	public NotificationWithButtonStatusDisplayItem(String parentID, Callbacks callbacks, Context context, NotificationViewModel notification, String accountID){
+		super(parentID, callbacks, context);
 		this.notification=notification;
 		String localDomain=AccountSessionManager.get(accountID).domain;
 		if(notification.notification.type==NotificationType.SEVERED_RELATIONSHIPS){
 			RelationshipSeveranceEvent event=notification.notification.event;
 			if(event!=null){
 				text=switch(event.type){
-					case ACCOUNT_SUSPENSION -> replacePlaceholdersWithBoldStrings(parentFragment.getString(R.string.relationship_severance_account_suspension,
+					case ACCOUNT_SUSPENSION -> replacePlaceholdersWithBoldStrings(context.getString(R.string.relationship_severance_account_suspension,
 									"{{localDomain}}", "{{target}}"), Map.of("localDomain", localDomain, "target", event.targetName));
-					case DOMAIN_BLOCK -> replacePlaceholdersWithBoldStrings(parentFragment.getString(R.string.relationship_severance_domain_block,
-									"{{localDomain}}", "{{target}}", event.followersCount, parentFragment.getResources().getQuantityString(R.plurals.x_accounts, event.followingCount, event.followingCount)),
+					case DOMAIN_BLOCK -> replacePlaceholdersWithBoldStrings(context.getString(R.string.relationship_severance_domain_block,
+									"{{localDomain}}", "{{target}}", event.followersCount, context.getResources().getQuantityString(R.plurals.x_accounts, event.followingCount, event.followingCount)),
 									Map.of("localDomain", localDomain, "target", event.targetName));
-					case USER_DOMAIN_BLOCK -> replacePlaceholdersWithBoldStrings(parentFragment.getString(R.string.relationship_severance_user_domain_block,
-									"{{target}}", event.followersCount, parentFragment.getResources().getQuantityString(R.plurals.x_accounts, event.followingCount, event.followingCount)),
+					case USER_DOMAIN_BLOCK -> replacePlaceholdersWithBoldStrings(context.getString(R.string.relationship_severance_user_domain_block,
+									"{{target}}", event.followersCount, context.getResources().getQuantityString(R.plurals.x_accounts, event.followingCount, event.followingCount)),
 									Map.of("target", event.targetName));
 				};
 			}else{
 				text="???";
 			}
-			buttonText=parentFragment.getString(R.string.relationship_severance_learn_more);
-			buttonAction=()->UiUtils.launchWebBrowser(parentFragment.getActivity(), "https://"+localDomain+"/severed_relationships");
+			buttonText=context.getString(R.string.relationship_severance_learn_more);
+			buttonAction=()->UiUtils.launchWebBrowser(context, "https://"+localDomain+"/severed_relationships");
 		}else if(notification.notification.type==NotificationType.MODERATION_WARNING){
 			AccountWarning warning=notification.notification.moderationWarning;
 			if(warning!=null){
-				text=parentFragment.getString(switch(warning.action){
+				text=context.getString(switch(warning.action){
 					case NONE -> R.string.moderation_warning_action_none;
 					case DISABLE -> R.string.moderation_warning_action_disable;
 					case MARK_STATUSES_AS_SENSITIVE -> R.string.moderation_warning_action_mark_statuses_as_sensitive;
@@ -61,11 +61,11 @@ public class NotificationWithButtonStatusDisplayItem extends StatusDisplayItem{
 					case SILENCE -> R.string.moderation_warning_action_silence;
 					case SUSPEND -> R.string.moderation_warning_action_suspend;
 				});
-				buttonAction=()->UiUtils.launchWebBrowser(parentFragment.getActivity(), "https://"+localDomain+"/disputes/strikes/"+warning.id);
+				buttonAction=()->UiUtils.launchWebBrowser(context, "https://"+localDomain+"/disputes/strikes/"+warning.id);
 			}else{
 				text="???";
 			}
-			buttonText=parentFragment.getString(R.string.moderation_warning_learn_more);
+			buttonText=context.getString(R.string.moderation_warning_learn_more);
 		}
 	}
 

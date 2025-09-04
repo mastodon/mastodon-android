@@ -1,6 +1,7 @@
 package org.joinmastodon.android.ui.displayitems;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
@@ -18,13 +19,16 @@ import android.widget.TextView;
 import org.joinmastodon.android.GlobalUserPreferences;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.session.AccountSessionManager;
-import org.joinmastodon.android.fragments.BaseStatusListFragment;
 import org.joinmastodon.android.fragments.ComposeFragment;
 import org.joinmastodon.android.fragments.account_list.StatusFavoritesListFragment;
 import org.joinmastodon.android.fragments.account_list.StatusReblogsListFragment;
 import org.joinmastodon.android.fragments.account_list.StatusRelatedAccountListFragment;
+import org.joinmastodon.android.model.Instance;
+import org.joinmastodon.android.model.QuoteApproval;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.model.StatusPrivacy;
+import org.joinmastodon.android.model.viewmodel.ListItem;
+import org.joinmastodon.android.ui.sheets.ListItemsSheet;
 import org.joinmastodon.android.ui.utils.UiUtils;
 import org.parceler.Parcels;
 
@@ -36,8 +40,8 @@ public class FooterStatusDisplayItem extends StatusDisplayItem{
 	private final String accountID;
 	public boolean hideCounts;
 
-	public FooterStatusDisplayItem(String parentID, BaseStatusListFragment parentFragment, Status status, String accountID){
-		super(parentID, parentFragment);
+	public FooterStatusDisplayItem(String parentID, Callbacks callbacks, Context context, Status status, String accountID){
+		super(parentID, callbacks, context);
 		this.status=status;
 		this.accountID=accountID;
 	}
@@ -60,7 +64,7 @@ public class FooterStatusDisplayItem extends StatusDisplayItem{
 			public void onInitializeAccessibilityNodeInfo(View host, AccessibilityNodeInfo info){
 				super.onInitializeAccessibilityNodeInfo(host, info);
 				info.setClassName(Button.class.getName());
-				info.setText(item.parentFragment.getString(descriptionForId(host.getId())));
+				info.setText(item.context.getString(descriptionForId(host.getId())));
 			}
 		};
 
@@ -154,25 +158,48 @@ public class FooterStatusDisplayItem extends StatusDisplayItem{
 		}
 
 		private void onReplyClick(View v){
-			item.parentFragment.maybeShowPreReplySheet(item.status, ()->{
+			item.callbacks.maybeShowPreReplySheet(item.status, ()->{
 				Bundle args=new Bundle();
 				args.putString("account", item.accountID);
 				args.putParcelable("replyTo", Parcels.wrap(item.status));
-				Nav.go(item.parentFragment.getActivity(), ComposeFragment.class, args);
+				Nav.go((Activity) item.context, ComposeFragment.class, args);
 			});
 		}
 
 		private void onBoostClick(View v){
-			if(GlobalUserPreferences.confirmBoost){
-				PopupMenu menu=new PopupMenu(itemView.getContext(), boost);
-				menu.getMenu().add(R.string.button_reblog);
-				menu.setOnMenuItemClickListener(item->{
+			Instance instance=AccountSessionManager.get(item.accountID).getInstanceInfo();
+			if(instance.supportsQuotePostAuthoring()){
+				ListItemsSheet sheet=new ListItemsSheet(itemView.getContext());
+				sheet.add(new ListItem<>(item.status.reblogged ? R.string.undo_reblog : R.string.button_reblog, 0, R.drawable.ic_repeat_24px, o->{
 					doBoost();
-					return true;
-				});
-				menu.show();
+					sheet.dismiss();
+				}));
+				if(item.status.quoteApproval==null || item.status.quoteApproval.currentUser==QuoteApproval.CurrentUserPolicy.UNKNOWN || item.status.quoteApproval.currentUser==QuoteApproval.CurrentUserPolicy.DENIED){
+					sheet.add(new ListItem<>(R.string.create_quote,
+							item.status.quoteApproval!=null && item.status.quoteApproval.automatic.contains(QuoteApproval.Policy.FOLLOWERS) ? R.string.cannot_quote_post_followers_only : R.string.cannot_quote_post,
+							R.drawable.ic_format_quote_off_fill1_24px, null));
+				}else{
+					sheet.add(new ListItem<>(R.string.create_quote, 0, R.drawable.ic_format_quote_fill1_24px, o->{
+						sheet.dismiss();
+						Bundle args=new Bundle();
+						args.putString("account", item.accountID);
+						args.putParcelable("quote", Parcels.wrap(item.status));
+						Nav.go((Activity) item.context, ComposeFragment.class, args);
+					}));
+				}
+				sheet.show();
 			}else{
-				doBoost();
+				if(GlobalUserPreferences.confirmBoost){
+					PopupMenu menu=new PopupMenu(itemView.getContext(), boost);
+					menu.getMenu().add(R.string.button_reblog);
+					menu.setOnMenuItemClickListener(item->{
+						doBoost();
+						return true;
+					});
+					menu.show();
+				}else{
+					doBoost();
+				}
 			}
 		}
 
@@ -226,9 +253,9 @@ public class FooterStatusDisplayItem extends StatusDisplayItem{
 
 		private void startAccountListFragment(Class<? extends StatusRelatedAccountListFragment> cls){
 			Bundle args=new Bundle();
-			args.putString("account", item.parentFragment.getAccountID());
+			args.putString("account", item.accountID);
 			args.putParcelable("status", Parcels.wrap(item.status));
-			Nav.go(item.parentFragment.getActivity(), cls, args);
+			Nav.go((Activity) item.context, cls, args);
 		}
 
 		private int descriptionForId(int id){

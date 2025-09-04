@@ -1,6 +1,7 @@
 package org.joinmastodon.android.ui.displayitems;
 
 import android.app.Activity;
+import android.content.Context;
 import android.graphics.drawable.Animatable;
 import android.graphics.drawable.Drawable;
 import android.util.TypedValue;
@@ -12,7 +13,6 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import org.joinmastodon.android.R;
-import org.joinmastodon.android.fragments.BaseStatusListFragment;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.text.HtmlParser;
 import org.joinmastodon.android.ui.utils.CustomEmojiHelper;
@@ -32,12 +32,15 @@ public class TextStatusDisplayItem extends StatusDisplayItem{
 	private CharSequence translatedText;
 	private CustomEmojiHelper translationEmojiHelper=new CustomEmojiHelper();
 	public boolean textSelectable;
+	public boolean largerFont;
 	public final Status status;
+	private final String accountID;
 
-	public TextStatusDisplayItem(String parentID, CharSequence text, BaseStatusListFragment parentFragment, Status status){
-		super(parentID, parentFragment);
+	public TextStatusDisplayItem(String parentID, CharSequence text, Callbacks callbacks, Context context, Status status, String accountID){
+		super(parentID, callbacks, context);
 		this.text=text;
 		this.status=status;
+		this.accountID=accountID;
 		emojiHelper.setText(text);
 	}
 
@@ -58,7 +61,7 @@ public class TextStatusDisplayItem extends StatusDisplayItem{
 
 	public void setTranslatedText(String text){
 		Status statusForContent=status.getContentStatus();
-		translatedText=HtmlParser.parse(text, statusForContent.emojis, statusForContent.mentions, statusForContent.tags, parentFragment.getAccountID(), statusForContent, parentFragment.getActivity());
+		translatedText=HtmlParser.parse(text, statusForContent.emojis, statusForContent.mentions, statusForContent.tags, accountID, statusForContent, context);
 		translationEmojiHelper.setText(translatedText);
 	}
 
@@ -95,7 +98,7 @@ public class TextStatusDisplayItem extends StatusDisplayItem{
 			itemView.setClickable(false);
 			itemView.setPaddingRelative(V.dp(item.fullWidth ? 0 : 48), 0, 0, 0);
 			text.setTextColor(UiUtils.getThemeColor(text.getContext(), R.attr.colorM3OnSurface));
-			text.setTextSize(TypedValue.COMPLEX_UNIT_SP, item.fullWidth ? 18 : 16);
+			text.setTextSize(TypedValue.COMPLEX_UNIT_SP, item.largerFont ? 18 : 16);
 			updateTranslation(false);
 		}
 
@@ -135,7 +138,7 @@ public class TextStatusDisplayItem extends StatusDisplayItem{
 					translationInfo=findViewById(R.id.translation_info_text);
 					translationShowOriginal=findViewById(R.id.translation_show_original);
 					translationProgress=findViewById(R.id.translation_progress);
-					translationShowOriginal.setOnClickListener(v->item.parentFragment.togglePostTranslation(item.status, item.parentID));
+					translationShowOriginal.setOnClickListener(v->item.callbacks.togglePostTranslation(item.status, item.parentID));
 				}else{
 					translationFooter.setVisibility(View.VISIBLE);
 				}

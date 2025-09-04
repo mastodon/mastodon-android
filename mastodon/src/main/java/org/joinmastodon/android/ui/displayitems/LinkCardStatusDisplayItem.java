@@ -1,9 +1,9 @@
 package org.joinmastodon.android.ui.displayitems;
 
 import android.app.Activity;
+import android.content.Context;
 import android.view.ViewGroup;
 
-import org.joinmastodon.android.fragments.BaseStatusListFragment;
 import org.joinmastodon.android.model.Card;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.model.viewmodel.CardViewModel;
@@ -16,11 +16,11 @@ public class LinkCardStatusDisplayItem extends StatusDisplayItem implements Link
 	private final Status status;
 	private final CardViewModel cardViewModel;
 
-	public LinkCardStatusDisplayItem(String parentID, BaseStatusListFragment parentFragment, Status status){
-		super(parentID, parentFragment);
+	public LinkCardStatusDisplayItem(String parentID, Callbacks callbacks, Context context, Status status, String accountID){
+		super(parentID, callbacks, context);
 		this.status=status;
 		int size=shouldUseLargeCard() ? 1000 : 192;
-		cardViewModel=new CardViewModel(status.card, size, size, status, parentFragment.getAccountID());
+		cardViewModel=new CardViewModel(status.card, size, size, status, accountID);
 	}
 
 	private boolean shouldUseLargeCard(){

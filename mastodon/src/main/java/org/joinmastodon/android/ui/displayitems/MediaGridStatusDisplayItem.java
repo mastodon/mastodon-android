@@ -1,6 +1,7 @@
 package org.joinmastodon.android.ui.displayitems;
 
 import android.app.Activity;
+import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
@@ -13,7 +14,6 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import org.joinmastodon.android.R;
-import org.joinmastodon.android.fragments.BaseStatusListFragment;
 import org.joinmastodon.android.model.Attachment;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.model.Translation;
@@ -21,7 +21,6 @@ import org.joinmastodon.android.ui.OutlineProviders;
 import org.joinmastodon.android.ui.PhotoLayoutHelper;
 import org.joinmastodon.android.ui.drawables.SpoilerStripesDrawable;
 import org.joinmastodon.android.ui.photoviewer.AltTextSheet;
-import org.joinmastodon.android.ui.photoviewer.PhotoViewerHost;
 import org.joinmastodon.android.ui.utils.MediaAttachmentViewController;
 import org.joinmastodon.android.ui.views.FrameLayoutThatOnlyMeasuresFirstChild;
 import org.joinmastodon.android.ui.views.MaxWidthFrameLayout;
@@ -53,10 +52,10 @@ public class MediaGridStatusDisplayItem extends StatusDisplayItem{
 	public boolean sensitiveRevealed;
 	public String sensitiveTitle;
 
-	public MediaGridStatusDisplayItem(String parentID, BaseStatusListFragment<?> parentFragment, PhotoLayoutHelper.TiledLayoutResult tiledLayout, List<Attachment> attachments, Status status){
-		super(parentID, parentFragment);
+	public MediaGridStatusDisplayItem(String parentID, Callbacks callbacks, Context context, PhotoLayoutHelper.TiledLayoutResult tiledLayout, List<Attachment> attachments, Status status){
+		super(parentID, callbacks, context);
 		this.tiledLayout=tiledLayout;
-		this.viewPool=parentFragment.getAttachmentViewsPool();
+		this.viewPool=callbacks.getAttachmentViewsPool();
 		this.attachments=attachments;
 		this.status=status;
 		sensitiveRevealed=!status.sensitive;
@@ -229,14 +228,14 @@ public class MediaGridStatusDisplayItem extends StatusDisplayItem{
 
 		private void onViewClick(View v){
 			int index=(Integer)v.getTag();
-			((PhotoViewerHost) item.parentFragment).openPhotoViewer(item.parentID, item.status, index, this);
+			item.callbacks.openPhotoViewer(item.parentID, item.status, index, this);
 			if(thereAreFailedImages){
 				for(MediaAttachmentViewController controller:controllers){
 					if(controller.isFailedOverlayShown()){
 						controller.clearImage();
 					}
 				}
-				item.parentFragment.retryFailedImages();
+				item.callbacks.retryFailedImages();
 			}
 		}
 
