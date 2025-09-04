@@ -9,11 +9,13 @@ import android.app.AlertDialog;
 import android.content.ClipData;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.graphics.Insets;
 import android.graphics.PixelFormat;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
 import android.icu.text.BreakIterator;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.text.Editable;
@@ -33,6 +35,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowInsets;
 import android.view.WindowManager;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.view.inputmethod.InputConnection;
@@ -185,8 +188,9 @@ public class ComposeFragment extends MastodonToolbarFragment implements ComposeE
 
 	private Runnable emojiKeyboardHider;
 	private Runnable sendingBackButtonBlocker=()->{};
-	private Runnable discardConfirmationCallback=this::confirmDiscardDraftAndFinish;
+	private Runnable discardConfirmationCallback=this::confirmDiscardDraftBackCallback;
 	private boolean prevHadDraft;
+	private boolean keyboardVisible;
 
 	public ComposeFragment(){
 		super(R.layout.toolbar_fragment_with_progressbar);
@@ -938,6 +942,25 @@ public class ComposeFragment extends MastodonToolbarFragment implements ComposeE
 			e.replace(start, end, '@'+acc.acct+' ');
 			finishAutocomplete();
 		}
+	}
+
+	@Override
+	public void onApplyWindowInsets(WindowInsets insets){
+		if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.R){
+			Insets imeInsets=insets.getInsets(WindowInsets.Type.ime());
+			keyboardVisible=imeInsets.left>0 || imeInsets.top>0 || imeInsets.right>0 || imeInsets.bottom>0;
+		}
+		super.onApplyWindowInsets(insets);
+	}
+
+	private void confirmDiscardDraftBackCallback(){
+		// If the back callback was set with the keyboard active, it will be invoked first.
+		// So, dismiss the keyboard first, because of course that's what the user expects.
+		if(keyboardVisible){
+			getActivity().getSystemService(InputMethodManager.class).hideSoftInputFromWindow(contentView.getWindowToken(), 0);
+			return;
+		}
+		confirmDiscardDraftAndFinish();
 	}
 
 	private void confirmDiscardDraftAndFinish(){
