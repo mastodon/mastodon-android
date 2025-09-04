@@ -334,6 +334,28 @@
 							android:paddingHorizontal="16dp"/>
 					</org.joinmastodon.android.ui.views.HorizontalScrollViewThatRespectsMatchParent>
 
+					<FrameLayout
+						android:id="@+id/quoted_post_wrap"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:layout_marginHorizontal="16dp"
+						android:layout_marginBottom="16dp"
+						android:visibility="gone"
+						tools:visibility="visible"
+						android:background="@drawable/bg_inline_status">
+
+						<ImageButton
+							android:id="@+id/quote_post_remove"
+							android:layout_width="48dp"
+							android:layout_height="48dp"
+							android:layout_gravity="top|end"
+							android:background="@drawable/bg_quote_post_remove"
+							android:src="@drawable/ic_close_20px"
+							android:tint="?colorM3OnSurfaceInverse"
+							android:contentDescription="@string/cancel_quote"/>
+
+					</FrameLayout>
+
 				</LinearLayout>
 			</org.joinmastodon.android.ui.views.CustomScrollView>
 

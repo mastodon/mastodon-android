@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<org.joinmastodon.android.ui.views.NestedRecyclerScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:background="@drawable/bg_bottom_sheet"
+	android:outlineProvider="background"
+	android:elevation="1dp">
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="vertical"
+		android:paddingBottom="16dp">
+
+		<View
+			android:id="@+id/handle"
+			android:layout_width="match_parent"
+			android:layout_height="36dp"
+			android:layout_marginBottom="8dp"
+			android:background="@drawable/bg_bottom_sheet_handle"/>
+
+		<me.grishka.appkit.views.UsableRecyclerView
+			android:id="@+id/list"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"/>
+
+	</LinearLayout>
+
+</org.joinmastodon.android.ui.views.NestedRecyclerScrollView>

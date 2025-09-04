@@ -36,7 +36,7 @@ public class ComposerVisibilitySheet extends BottomSheet{
 	private StatusQuotePolicy userSelectedPolicy;
 	private final Listener listener;
 
-	public ComposerVisibilitySheet(@NonNull Context context, StatusPrivacy defaultVisibility, StatusQuotePolicy defaultPolicy, boolean canChangeVisibility, Listener listener){
+	public ComposerVisibilitySheet(@NonNull Context context, StatusPrivacy defaultVisibility, StatusQuotePolicy defaultPolicy, boolean canChangeVisibility, StatusPrivacy maxVisibility, Listener listener){
 		super(context);
 		View content=context.getSystemService(LayoutInflater.class).inflate(R.layout.sheet_compose_visibility, null);
 		setContentView(content);
@@ -53,8 +53,10 @@ public class ComposerVisibilitySheet extends BottomSheet{
 		visibilitySpinnerLayout=findViewById(R.id.visibility_spinner_wrap);
 		visibilitySpinner=findViewById(R.id.visibility_spinner);
 		ArrayList<ListItem<StatusPrivacy>> items=new ArrayList<>();
-		items.add(new ListItem<>(R.string.visibility_public, R.string.visibility_subtitle_public, R.drawable.ic_public_24px, StatusPrivacy.PUBLIC, null));
-		items.add(new ListItem<>(R.string.visibility_unlisted, R.string.visibility_subtitle_unlisted, R.drawable.ic_clear_night_24px, StatusPrivacy.UNLISTED, null));
+		if(!maxVisibility.isLessVisibleThan(StatusPrivacy.PUBLIC))
+			items.add(new ListItem<>(R.string.visibility_public, R.string.visibility_subtitle_public, R.drawable.ic_public_24px, StatusPrivacy.PUBLIC, null));
+		if(!maxVisibility.isLessVisibleThan(StatusPrivacy.UNLISTED))
+			items.add(new ListItem<>(R.string.visibility_unlisted, R.string.visibility_subtitle_unlisted, R.drawable.ic_clear_night_24px, StatusPrivacy.UNLISTED, null));
 		items.add(new ListItem<>(R.string.visibility_followers_only, R.string.visibility_subtitle_followers, R.drawable.ic_lock_24px, StatusPrivacy.PRIVATE, null));
 		items.add(new ListItem<>(R.string.visibility_private, R.string.visibility_subtitle_private, R.drawable.ic_alternate_email_24px, StatusPrivacy.DIRECT, null));
 		for(ListItem<?> item:items)
@@ -62,7 +64,12 @@ public class ComposerVisibilitySheet extends BottomSheet{
 		visibilitySpinner.setAdapter(new SpinnerListItemsAdapter<>(new GenericListItemsAdapter<>(items)));
 		ViewGroup.MarginLayoutParams llp=(ViewGroup.MarginLayoutParams)visibilitySpinnerLayout.getLabel().getLayoutParams();
 		llp.setMarginStart(llp.getMarginStart()+V.dp(16));
-		visibilitySpinner.setSelection(defaultVisibility.ordinal());
+		for(int i=0;i<items.size();i++){
+			if(items.get(i).parentObject==defaultVisibility){
+				visibilitySpinner.setSelection(i);
+				break;
+			}
+		}
 
 		if(!canChangeVisibility){
 			visibilitySpinner.setEnabled(false);

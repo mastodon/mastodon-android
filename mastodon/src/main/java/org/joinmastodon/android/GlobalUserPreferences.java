@@ -100,6 +100,14 @@ public class GlobalUserPreferences{
 		getPreReplyPrefs().edit().clear().apply();
 	}
 
+	public static boolean alertSeen(String key){
+		return getPreReplyPrefs().getBoolean("alertSeen_"+key, false);
+	}
+
+	public static void setAlertSeen(String key){
+		getPreReplyPrefs().edit().putBoolean("alertSeen_"+key, true).apply();
+	}
+
 	public enum ThemePreference{
 		AUTO,
 		LIGHT,

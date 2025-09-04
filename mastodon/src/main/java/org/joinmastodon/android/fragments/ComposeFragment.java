@@ -75,6 +75,7 @@ import org.joinmastodon.android.ui.M3AlertDialogBuilder;
 import org.joinmastodon.android.ui.OutlineProviders;
 import org.joinmastodon.android.ui.PopupKeyboard;
 import org.joinmastodon.android.ui.displayitems.InlineStatusStatusDisplayItem;
+import org.joinmastodon.android.ui.displayitems.StatusDisplayItem;
 import org.joinmastodon.android.ui.drawables.SpoilerStripesDrawable;
 import org.joinmastodon.android.ui.sheets.ComposerVisibilitySheet;
 import org.joinmastodon.android.ui.text.ComposeAutocompleteSpan;
@@ -90,12 +91,14 @@ import org.joinmastodon.android.ui.views.ComposeEditText;
 import org.joinmastodon.android.ui.views.CustomScrollView;
 import org.joinmastodon.android.ui.views.NestedRecyclerScrollView;
 import org.joinmastodon.android.ui.views.SizeListenerLinearLayout;
+import org.joinmastodon.android.ui.views.StatusView;
 import org.joinmastodon.android.ui.views.TopBarsScrollAwayLinearLayout;
 import org.joinmastodon.android.utils.ViewImageLoaderHolderTarget;
 import org.parceler.Parcels;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 import java.util.function.Consumer;
 import java.util.regex.Matcher;
@@ -146,10 +149,12 @@ public class ComposeFragment extends MastodonToolbarFragment implements ComposeE
 	private TextView visibilityText1, visibilityText2, visibilityCurrentText;
 	private LinearLayout bottomBar;
 	private View autocompleteDivider;
+	private FrameLayout quotedPostWrap;
 
 	private List<EmojiCategory> customEmojis;
 	private CustomEmojiPopupKeyboard emojiKeyboard;
 	private Status replyTo;
+	private Status quotedStatus;
 	private String initialText;
 	private String uuid;
 	private EditText spoilerEdit;
@@ -219,6 +224,9 @@ public class ComposeFragment extends MastodonToolbarFragment implements ComposeE
 		setTitle(editingStatus==null ? R.string.new_post : R.string.edit_post);
 		if(savedInstanceState!=null)
 			postLang=Parcels.unwrap(savedInstanceState.getParcelable("postLang"));
+
+		if(getArguments().containsKey("quote"))
+			quotedStatus=Parcels.unwrap(getArguments().getParcelable("quote"));
 	}
 
 	@Override
@@ -292,6 +300,7 @@ public class ComposeFragment extends MastodonToolbarFragment implements ComposeE
 		visibilityCurrentText=visibilityText1;
 		languageBtn=view.findViewById(R.id.btn_language);
 		replyWrap=view.findViewById(R.id.reply_wrap);
+		quotedPostWrap=view.findViewById(R.id.quoted_post_wrap);
 
 		mediaBtn.setOnClickListener(v->openFilePicker(false));
 		if(UiUtils.isPhotoPickerAvailable()){
@@ -396,6 +405,15 @@ public class ComposeFragment extends MastodonToolbarFragment implements ComposeE
 		NestedRecyclerScrollView outerScroller=view.findViewById(R.id.outer_scroller);
 		CustomScrollView innerScroller=view.findViewById(R.id.inner_scroller);
 		outerScroller.setScrollableChildSupplier(()->innerScroller);
+
+		view.findViewById(R.id.quote_post_remove).setOnClickListener(v->{
+			if(quotedStatus!=null){
+				quotedStatus=null;
+				quotedPostWrap.setVisibility(View.GONE);
+				updateMediaPollStates();
+				mainEditText.setHint(R.string.compose_hint);
+			}
+		});
 
 		creatingView=false;
 
@@ -564,8 +582,29 @@ public class ComposeFragment extends MastodonToolbarFragment implements ComposeE
 			}
 		}else{
 			replyWrap.setVisibility(View.GONE);
-//			mainLayout.setTopBarsCount(0);
 		}
+
+		if(quotedStatus!=null){
+			quotedPostWrap.setVisibility(View.VISIBLE);
+			StatusView sv=new StatusView(getActivity(), this);
+			sv.addItems(StatusDisplayItem.buildItems(null, getActivity(), quotedStatus, accountID, quotedStatus, Map.of(), StatusDisplayItem.FLAG_NO_FOOTER | StatusDisplayItem.FLAG_IS_QUOTE | StatusDisplayItem.FLAG_FULL_WIDTH));
+			LinearLayout.LayoutParams headerLP=(LinearLayout.LayoutParams) sv.getChildAt(0).getLayoutParams();
+			headerLP.setMarginEnd(V.dp(48-16));
+			headerLP.setMarginStart(V.dp(-4));
+			quotedPostWrap.addView(sv);
+			mainEditText.setHint(R.string.compose_hint_quote);
+			if(savedInstanceState==null && quotedStatus.visibility==StatusPrivacy.UNLISTED && !GlobalUserPreferences.alertSeen("quoteUnlisted")){
+				view.postDelayed(()->{
+					new M3AlertDialogBuilder(getActivity())
+							.setTitle(R.string.unlisted_quote_alert_title)
+							.setMessage(R.string.unlisted_quote_alert)
+							.setPositiveButton(R.string.dismiss, (dlg, which)->{})
+							.setNegativeButton(R.string.dont_remind_again, (dlg, which)->GlobalUserPreferences.setAlertSeen("quoteUnlisted"))
+							.show();
+				}, 200);
+			}
+		}
+
 		if(savedInstanceState==null){
 			if(editingStatus!=null){
 				initialText=getArguments().getString("sourceText", "");
@@ -788,6 +827,8 @@ public class ComposeFragment extends MastodonToolbarFragment implements ComposeE
 		}
 		if(statusQuotePolicy!=null && instance.supportsQuotePostAuthoring())
 			req.quoteApprovalPolicy=statusQuotePolicy;
+		if(quotedStatus!=null)
+			req.quotedStatusId=quotedStatus.id;
 		if(uuid==null)
 			uuid=UUID.randomUUID().toString();
 
@@ -966,8 +1007,8 @@ public class ComposeFragment extends MastodonToolbarFragment implements ComposeE
 
 	public void updateMediaPollStates(){
 		pollBtn.setSelected(pollViewController.isShown());
-		mediaBtn.setEnabled(!pollViewController.isShown() && mediaViewController.canAddMoreAttachments());
-		pollBtn.setEnabled(mediaViewController.isEmpty());
+		mediaBtn.setEnabled(!pollViewController.isShown() && mediaViewController.canAddMoreAttachments() && quotedStatus==null);
+		pollBtn.setEnabled(mediaViewController.isEmpty() && quotedStatus==null);
 	}
 
 	private void togglePoll(){
@@ -993,7 +1034,8 @@ public class ComposeFragment extends MastodonToolbarFragment implements ComposeE
 
 	private void onVisibilityClick(View v){
 		if(instance.supportsQuotePostAuthoring()){
-			ComposerVisibilitySheet sheet=new ComposerVisibilitySheet(getActivity(), statusVisibility, statusQuotePolicy, true, (s, visibility, policy)->{
+			ComposerVisibilitySheet sheet=new ComposerVisibilitySheet(getActivity(), statusVisibility, statusQuotePolicy,
+					true, quotedStatus==null ? StatusPrivacy.PUBLIC : quotedStatus.visibility, (s, visibility, policy)->{
 				if(statusVisibility!=visibility || statusQuotePolicy!=policy){
 					statusVisibility=visibility;
 					statusQuotePolicy=policy;
@@ -1041,6 +1083,10 @@ public class ComposeFragment extends MastodonToolbarFragment implements ComposeE
 	}
 
 	private void applyPreferencesForPostVisibility(Preferences prefs, Bundle savedInstanceState){
+		if(quotedStatus!=null && quotedStatus.visibility==StatusPrivacy.UNLISTED){
+			statusVisibility=StatusPrivacy.UNLISTED;
+		}
+
 		// Only override the reply visibility if our preference is more private
 		if(prefs.postingDefaultVisibility.isLessVisibleThan(statusVisibility)){
 			statusVisibility=prefs.postingDefaultVisibility;
