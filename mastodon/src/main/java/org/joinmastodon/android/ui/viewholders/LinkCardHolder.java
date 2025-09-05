@@ -64,8 +64,10 @@ public class LinkCardHolder<T extends LinkCardHolder.LinkCardProvider> extends S
 		inner.setClipToOutline(true);
 		if(!isLarge){
 			photo.setOutlineProvider(OutlineProviders.roundedRect(4));
-			photo.setClipToOutline(true);
+		}else{
+			photo.setOutlineProvider(OutlineProviders.topRoundedRect(7));
 		}
+		photo.setClipToOutline(true);
 		authorAva.setOutlineProvider(OutlineProviders.roundedRect(3));
 		authorAva.setClipToOutline(true);
 		authorChip.setOnClickListener(this::onAuthorChipClick);
