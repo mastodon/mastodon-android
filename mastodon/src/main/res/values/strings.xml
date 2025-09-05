@@ -417,7 +417,7 @@
 	<string name="settings_server_explanation">Overview, rules, moderators</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">About %s</string>
-	<string name="default_post_language">Default post language</string>
+	<string name="default_post_language">Posting language</string>
 	<string name="settings_alt_text_reminders">Add alt text reminders</string>
 	<string name="settings_confirm_unfollow">Ask before unfollowing someone</string>
 	<string name="settings_confirm_boost">Ask before boosting</string>
@@ -908,4 +908,6 @@
 	<string name="cancel_quote">Cancel quote</string>
 	<string name="unlisted_quote_alert_title">Quoting quiet public posts</string>
 	<string name="unlisted_quote_alert">When quoting a quiet public post, your post will be hidden from trending timelines.</string>
+	<string name="settings_posting_defaults">Posting defaults</string>
+	<string name="default_post_visibiltiy">Posting visibility</string>
 </resources>

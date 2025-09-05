@@ -1,7 +1,6 @@
 package org.joinmastodon.android.fragments.settings;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,7 +14,6 @@ import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.requests.catalog.GetDonationCampaigns;
 import org.joinmastodon.android.api.session.AccountSession;
 import org.joinmastodon.android.api.session.AccountSessionManager;
-import org.joinmastodon.android.model.Preferences;
 import org.joinmastodon.android.model.donations.DonationCampaign;
 import org.joinmastodon.android.model.viewmodel.ListItem;
 import org.joinmastodon.android.model.viewmodel.SectionHeaderListItem;
@@ -23,7 +21,6 @@ import org.joinmastodon.android.ui.M3AlertDialogBuilder;
 import org.joinmastodon.android.ui.sheets.DonationSheet;
 import org.joinmastodon.android.ui.sheets.DonationSuccessfulSheet;
 import org.joinmastodon.android.ui.utils.UiUtils;
-import org.joinmastodon.android.ui.viewcontrollers.ComposeLanguageAlertViewController;
 
 import java.util.ArrayList;
 import java.util.Locale;
@@ -36,24 +33,17 @@ import me.grishka.appkit.api.ErrorResponse;
 import me.grishka.appkit.utils.CubicBezierInterpolator;
 import me.grishka.appkit.utils.MergeRecyclerAdapter;
 import me.grishka.appkit.utils.SingleViewRecyclerAdapter;
-import me.grishka.appkit.utils.V;
 
 public class SettingsAccountFragment extends BaseSettingsFragment<Void>{
 	private static final int DONATION_RESULT=433;
 	private DonationSheet donationSheet;
 	private boolean loggedOut;
-	private ListItem<Void> languageItem;
-	private Locale postLanguage;
-	private ComposeLanguageAlertViewController.SelectedOption newPostLanguage;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		AccountSession account=AccountSessionManager.get(accountID);
 		setTitle(account.getFullUsername());
-		if(account.preferences!=null && account.preferences.postingDefaultLanguage!=null){
-			postLanguage=Locale.forLanguageTag(account.preferences.postingDefaultLanguage);
-		}
 
 		ArrayList<ListItem<Void>> items=new ArrayList<>();
 		items.add(new SectionHeaderListItem(R.string.account_settings));
@@ -61,7 +51,7 @@ public class SettingsAccountFragment extends BaseSettingsFragment<Void>{
 		items.add(new ListItem<>(R.string.settings_privacy, 0, R.drawable.ic_privacy_tip_24px, this::onPrivacyClick));
 		items.add(new ListItem<>(R.string.settings_filters, 0, R.drawable.ic_filter_alt_24px, this::onFiltersClick));
 		items.add(new ListItem<>(R.string.settings_notifications, 0, R.drawable.ic_notifications_24px, this::onNotificationsClick));
-		items.add(languageItem=new ListItem<>(getString(R.string.default_post_language), postLanguage!=null ? postLanguage.getDisplayName(Locale.getDefault()) : null, R.drawable.ic_language_24px, this::onDefaultLanguageClick));
+		items.add(new ListItem<>(R.string.settings_posting_defaults, 0, R.drawable.ic_edit_square_24px, this::onPostingDefaultsClick));
 
 		items.add(new SectionHeaderListItem(account.domain));
 		items.add(new ListItem<>(getString(R.string.settings_about_this_server), getString(R.string.settings_server_explanation), R.drawable.ic_dns_24px, this::onServerClick));
@@ -88,21 +78,6 @@ public class SettingsAccountFragment extends BaseSettingsFragment<Void>{
 			if(resultCode==Activity.RESULT_OK){
 				new DonationSuccessfulSheet(getActivity(), accountID, data.getStringExtra("postText")).showWithoutAnimation();
 			}
-		}
-	}
-
-	@Override
-	protected void onHidden(){
-		super.onHidden();
-		if(!loggedOut){
-			if(newPostLanguage!=null){
-				AccountSession s=AccountSessionManager.get(accountID);
-				if(s.preferences==null)
-					s.preferences=new Preferences();
-				s.preferences.postingDefaultLanguage=newPostLanguage.locale.toLanguageTag();
-				s.savePreferencesLater();
-			}
-			AccountSessionManager.get(accountID).savePreferencesIfPending();
 		}
 	}
 
@@ -159,21 +134,8 @@ public class SettingsAccountFragment extends BaseSettingsFragment<Void>{
 		Nav.go(getActivity(), SettingsNotificationsFragment.class, makeFragmentArgs());
 	}
 
-	private void onDefaultLanguageClick(ListItem<?> item){
-		ComposeLanguageAlertViewController vc=new ComposeLanguageAlertViewController(getActivity(), null, newPostLanguage==null ? new ComposeLanguageAlertViewController.SelectedOption(-1, postLanguage, null) : newPostLanguage, null);
-		AlertDialog dlg=new M3AlertDialogBuilder(getActivity())
-				.setTitle(R.string.default_post_language)
-				.setView(vc.getView())
-				.setPositiveButton(R.string.cancel, null)
-				.show();
-		vc.setSelectionListener(opt->{
-			if(!opt.locale.equals(postLanguage)){
-				newPostLanguage=opt;
-				languageItem.subtitle=newPostLanguage.locale.getDisplayLanguage(Locale.getDefault());
-				rebindItem(languageItem);
-			}
-			dlg.dismiss();
-		});
+	private void onPostingDefaultsClick(ListItem<?> item_){
+		Nav.go(getActivity(), SettingsPostingDefaultsFragment.class, makeFragmentArgs());
 	}
 
 	private void onServerClick(ListItem<?> item_){
