@@ -449,6 +449,7 @@
 	<string name="settings_server_explanation">Přehled, pravidla, moderátoři</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">O aplikaci %s</string>
+	<string name="default_post_language">Jazyk příspěvků</string>
 	<string name="settings_alt_text_reminders">Přidat připomínky alternativního textu</string>
 	<string name="settings_confirm_unfollow">Zeptat se před tím, než někoho přestanete sledovat</string>
 	<string name="settings_confirm_boost">Zeptat se před boostováním</string>
@@ -985,4 +986,13 @@
 	<string name="user_quoted_post">%s citovali váš příspěvek:</string>
 	<string name="user_edited_quoted_post">%s upravili příspěvek, který jste citovali</string>
 	<string name="notification_type_quote">Citace</string>
+	<string name="create_quote">Citovat</string>
+	<string name="cannot_quote_post">Tento příspěvek nemůže být citován</string>
+	<string name="cannot_quote_post_followers_only">Pouze sledující mohou citovat tento příspěvek</string>
+	<string name="compose_hint_quote">Přidejte něco do konverzace</string>
+	<string name="cancel_quote">Zrušit citování</string>
+	<string name="unlisted_quote_alert_title">Citování ztišených veřejných příspěvků</string>
+	<string name="unlisted_quote_alert">Při citování ztišeného veřejného příspěvku, váš příspěvek bude skrytý z os populárních příspěvků.</string>
+	<string name="settings_posting_defaults">Výchozí nastavení příspěvků</string>
+	<string name="default_post_visibility">Viditelnost příspěvků</string>
 </resources>
