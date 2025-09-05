@@ -16,7 +16,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import org.joinmastodon.android.R;
+import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.fragments.StatusEditHistoryFragment;
+import org.joinmastodon.android.fragments.StatusQuotesFragment;
 import org.joinmastodon.android.fragments.ThreadFragment;
 import org.joinmastodon.android.fragments.account_list.StatusFavoritesListFragment;
 import org.joinmastodon.android.fragments.account_list.StatusReblogsListFragment;
@@ -58,12 +60,13 @@ public class ExtendedFooterStatusDisplayItem extends StatusDisplayItem{
 
 	public static class Holder extends StatusDisplayItem.Holder<ExtendedFooterStatusDisplayItem>{
 		private final TextView time, date, app, dateAppSeparator;
-		private final TextView favorites, reblogs, editHistory;
+		private final TextView favorites, reblogs, quotes, editHistory;
 
 		public Holder(Context context, ViewGroup parent){
 			super(context, R.layout.display_item_extended_footer, parent);
 			reblogs=findViewById(R.id.reblogs);
 			favorites=findViewById(R.id.favorites);
+			quotes=findViewById(R.id.quotes);
 			editHistory=findViewById(R.id.edit_history);
 			time=findViewById(R.id.time);
 			date=findViewById(R.id.date);
@@ -72,6 +75,7 @@ public class ExtendedFooterStatusDisplayItem extends StatusDisplayItem{
 
 			reblogs.setOnClickListener(v->startAccountListFragment(StatusReblogsListFragment.class));
 			favorites.setOnClickListener(v->startAccountListFragment(StatusFavoritesListFragment.class));
+			quotes.setOnClickListener(v->startQuotesFragment());
 			editHistory.setOnClickListener(v->startEditHistoryFragment());
 			time.setOnClickListener(v->showTimeSnackbar());
 			app.setOnClickListener(v->UiUtils.launchWebBrowser(context, item.status.application.website));
@@ -83,6 +87,12 @@ public class ExtendedFooterStatusDisplayItem extends StatusDisplayItem{
 			Status s=item.status;
 			favorites.setText(getFormattedPlural(R.plurals.x_favorites, item.status.favouritesCount));
 			reblogs.setText(getFormattedPlural(R.plurals.x_reblogs, item.status.reblogsCount));
+			if(AccountSessionManager.get(item.accountID).getInstanceInfo().supportsQuotePostAuthoring()){
+				quotes.setVisibility(View.VISIBLE);
+				quotes.setText(getFormattedPlural(R.plurals.x_quotes, item.status.quotesCount));
+			}else{
+				quotes.setVisibility(View.GONE);
+			}
 			if(s.editedAt!=null){
 				editHistory.setVisibility(View.VISIBLE);
 				ZonedDateTime dt=s.editedAt.atZone(ZoneId.systemDefault());
@@ -162,6 +172,13 @@ public class ExtendedFooterStatusDisplayItem extends StatusDisplayItem{
 			args.putString("account", item.accountID);
 			args.putString("id", item.status.id);
 			Nav.go((Activity) item.context, StatusEditHistoryFragment.class, args);
+		}
+
+		private void startQuotesFragment(){
+			Bundle args=new Bundle();
+			args.putString("account", item.accountID);
+			args.putParcelable("status", Parcels.wrap(item.status));
+			Nav.go((Activity) item.context, StatusQuotesFragment.class, args);
 		}
 
 		private void showTimeSnackbar(){

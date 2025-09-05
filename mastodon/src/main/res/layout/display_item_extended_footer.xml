@@ -116,6 +116,22 @@
 			tools:text="123 boosts"/>
 
 		<TextView
+			android:id="@+id/quotes"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textAppearance="@style/m3_label_large"
+			android:textColor="?colorM3Outline"
+			android:background="@drawable/bg_button_borderless_rounded"
+			android:backgroundTint="?colorM3Outline"
+			android:singleLine="true"
+			android:ellipsize="end"
+			android:paddingVertical="4dp"
+			android:paddingHorizontal="8dp"
+			android:layout_marginVertical="-4dp"
+			android:layout_marginHorizontal="-8dp"
+			tools:text="123 quotes"/>
+
+		<TextView
 			android:id="@+id/favorites"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
