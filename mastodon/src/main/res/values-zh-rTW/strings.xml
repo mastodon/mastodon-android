@@ -152,6 +152,7 @@
 	<string name="add_alt_text">新增說明文字</string>
 	<string name="visibility_public">公開</string>
 	<string name="visibility_followers_only">跟隨者</string>
+	<string name="visibility_private">私訊</string>
 	<string name="recent_searches">最近的</string>
 	<string name="notification_type_follow">新的跟隨者</string>
 	<string name="notification_type_favorite">最愛</string>
@@ -823,4 +824,22 @@
 	<string name="quote_post_pending_explanation">您能於 Mastodon 控制是否允許引用您的嘟文。此嘟文正在等待原始作者核准。</string>
 	<!-- %s is a username, i.e. @Gargron -->
 	<string name="nested_quote">已引用 %s 之嘟文</string>
+	<string name="compose_visibility_public_anyone">公開，任何人皆可引用</string>
+	<string name="compose_visibility_public_limited">公開，限制引用</string>
+	<string name="compose_visibility_public_disabled">公開，停用引用</string>
+	<string name="compose_visibility_unlisted_anyone">不於公開時間軸顯示，任何人皆可引用</string>
+	<string name="compose_visibility_unlisted_limited">不於公開時間軸顯示，限制引用</string>
+	<string name="compose_visibility_unlisted_disabled">不於公開時間軸顯示，停用引用</string>
+	<string name="compose_visibility_title">可見性與互動</string>
+	<string name="compose_visibility_explanation"><![CDATA[控制誰能與此嘟文互動。可於偏好設定 > 其他下找到全域設定。]]></string>
+	<string name="compose_visibility">可見性</string>
+	<string name="compose_quote_policy">誰能引用此嘟文</string>
+	<string name="quote_policy_public">所有人</string>
+	<string name="quote_policy_followers">僅限跟隨者</string>
+	<string name="quote_policy_nobody">僅有我</string>
+	<string name="quote_policy_for_unlisted_explanation">當其他人引用您時，他們的嘟文也會自熱門時間軸隱藏。</string>
+	<string name="quote_policy_for_private_explanation">Mastodon 上發佈之僅限跟隨者嘟文無法被其他使用者引用。</string>
+	<string name="quote_policy_for_direct_explanation">Mastodon 上發佈之私人提及嘟文無法被其他使用者引用。</string>
+	<string name="change_quote_policy">變更可以引用的人</string>
+	<string name="edit_visibility_explanation">無法變更已發佈的嘟文之可見性。</string>
 </resources>
