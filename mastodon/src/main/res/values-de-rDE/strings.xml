@@ -164,6 +164,7 @@
 	<string name="add_alt_text">Bildbeschreibung hinzufügen</string>
 	<string name="visibility_public">Öffentlich</string>
 	<string name="visibility_followers_only">Follower</string>
+	<string name="visibility_private">Private Erwähnung</string>
 	<string name="recent_searches">Verlauf</string>
 	<string name="notification_type_follow">Neue Follower</string>
 	<string name="notification_type_favorite">Favoriten</string>
@@ -410,7 +411,6 @@
 	<string name="settings_server_explanation">Übersicht, Regeln, Moderator*innen</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">Über %s</string>
-	<string name="default_post_language">Standard-Beitragssprache</string>
 	<string name="settings_alt_text_reminders">Erinnerung für Alt-Text anzeigen</string>
 	<string name="settings_confirm_unfollow">Vor dem Entfolgen bestätigen</string>
 	<string name="settings_confirm_boost">Vor dem Teilen bestätigen</string>
@@ -869,4 +869,24 @@
 	<string name="quote_post_pending_explanation">Auf Mastodon kannst du bestimmen, ob du zitiert werden darfst. Wir warten auf die Genehmigung des ursprünglichen Profils – solange steht deine Beitragsveröffentlichung noch aus.</string>
 	<!-- %s is a username, i.e. @Gargron -->
 	<string name="nested_quote">Einen Beitrag von %s zitiert</string>
+	<string name="compose_visibility_public_anyone"> Öffentlich – alle dürfen zitieren</string>
+	<string name="compose_visibility_unlisted_anyone"> Öffentlich (still) – alle dürfen zitieren</string>
+	<string name="compose_visibility_title">Sichtbarkeit und Interaktion</string>
+	<string name="compose_visibility_explanation"><![CDATA[Bestimme, wer mit diesem Beitrag interagieren darf. Allgemeingültige Einstellungen findest du unter Einstellungen > Erweitert.]]></string>
+	<string name="compose_visibility">Sichtbarkeit</string>
+	<string name="compose_quote_policy">Wer zitieren darf</string>
+	<string name="quote_policy_public">Alle</string>
+	<string name="quote_policy_followers">Nur Follower</string>
+	<string name="quote_policy_nobody">Nur von mir</string>
+	<string name="quote_policy_for_unlisted_explanation">Sollten dich andere zitieren, werden ihre zitierten Beiträge ebenfalls nicht in den Trends und öffentlichen Timelines angezeigt.</string>
+	<string name="quote_policy_for_private_explanation">Beiträge, die nur für deine Follower bestimmt sind und auf Mastodon verfasst wurden, können nicht von anderen zitiert werden.</string>
+	<string name="quote_policy_for_direct_explanation">Private Erwähnungen, die auf Mastodon verfasst wurden, können nicht von anderen zitiert werden.</string>
+	<string name="change_quote_policy">Ändern, wer zitieren darf</string>
+	<string name="edit_visibility_explanation">Die Sichtbarkeit bereits veröffentlichter Beiträge kann nachträglich nicht mehr geändert werden.</string>
+	<string name="user_quoted_post">%s zitierte deinen Beitrag:</string>
+	<string name="user_edited_quoted_post">%s bearbeitete einen von dir zitierten Beitrag</string>
+	<string name="notification_type_quote">Zitate</string>
+	<string name="create_quote">Zitieren</string>
+	<string name="cannot_quote_post">Dieser Beitrag kann nicht zitiert werden</string>
+	<string name="cannot_quote_post_followers_only">Nur Follower können diesen Beitrag zitieren</string>
 </resources>
