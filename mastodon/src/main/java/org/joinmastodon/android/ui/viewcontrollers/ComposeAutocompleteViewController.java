@@ -227,9 +227,24 @@ public class ComposeAutocompleteViewController{
 
 	public void reset(){
 		mode=null;
-		users.clear();
-		emojis.clear();
-		hashtags.clear();
+
+		if(!users.isEmpty()){
+			int count=users.size();
+			users.clear();
+			usersAdapter.notifyItemRangeRemoved(0, count);
+		}
+
+		if(!emojis.isEmpty()){
+			int count=emojis.size();
+			emojis.clear();
+			emojisAdapter.notifyItemRangeRemoved(0, count);
+		}
+
+		if(!hashtags.isEmpty()){
+			int count=hashtags.size();
+			hashtags.clear();
+			hashtagsAdapter.notifyItemRangeRemoved(0, count);
+		}
 	}
 
 	public Mode getMode(){
