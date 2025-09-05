@@ -164,6 +164,7 @@
 	<string name="add_alt_text">Aggiungi testo alt</string>
 	<string name="visibility_public">Pubblico</string>
 	<string name="visibility_followers_only">Seguaci</string>
+	<string name="visibility_private">Menzione privata</string>
 	<string name="recent_searches">Recenti</string>
 	<string name="notification_type_follow">Nuovi seguaci</string>
 	<string name="notification_type_favorite">Preferiti</string>
@@ -410,6 +411,7 @@
 	<string name="settings_server_explanation">Panoramica, regole, moderatori</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">Info su %s</string>
+	<string name="default_post_language">Lingua del post</string>
 	<string name="settings_alt_text_reminders">Aggiungi promemoria di testo alternativo</string>
 	<string name="settings_confirm_unfollow">Chiedi prima di smettere di seguire qualcuno</string>
 	<string name="settings_confirm_boost">Chiedi prima di condividere</string>
@@ -869,4 +871,40 @@ Più persone segui, più sarà attivo e interessante.</string>
 	<string name="quote_post_pending_explanation">Su Mastodon, puoi controllare se qualcuno può citarti. Questo post è in attesa dell\'approvazione dell\'autore originale.</string>
 	<!-- %s is a username, i.e. @Gargron -->
 	<string name="nested_quote">Citato un post di %s</string>
+	<string name="compose_visibility_public_anyone">Pubblico, chiunque può citare</string>
+	<string name="compose_visibility_public_limited">Pubblico, citazioni limitate</string>
+	<string name="compose_visibility_public_disabled">Pubblico, citazioni disabilitate</string>
+	<string name="compose_visibility_unlisted_anyone">Pubblico silenzioso, chiunque può citare</string>
+	<string name="compose_visibility_unlisted_limited">Pubblico silenzioso, citazioni limitate</string>
+	<string name="compose_visibility_unlisted_disabled">Pubblico silenzioso, citazioni disabilitate</string>
+	<string name="compose_visibility_title">Visibilità e interazione</string>
+	<string name="compose_visibility_explanation"><![CDATA[Controlla chi può interagire con questo post. Le impostazioni globali si trovano in Preferenze > Altro.]]></string>
+	<string name="compose_visibility">Visibilità</string>
+	<string name="compose_quote_policy">Chi può citare</string>
+	<string name="quote_policy_public">Chiunque</string>
+	<string name="quote_policy_followers">Solo i seguaci</string>
+	<string name="quote_policy_nobody">Solo io</string>
+	<string name="quote_policy_for_unlisted_explanation">Quando le persone ti citano, il loro post verrà nascosto anche dalle timeline di tendenza.</string>
+	<string name="quote_policy_for_private_explanation">I post scritti e riservati ai seguaci su Mastodon non possono essere citati da altri.</string>
+	<string name="quote_policy_for_direct_explanation">Le menzioni private scritte su Mastodon non possono essere citate da altri.</string>
+	<string name="change_quote_policy">Cambia chi può citare</string>
+	<string name="edit_visibility_explanation">La visibilità dei post pubblicati non può essere modificata.</string>
+	<string name="user_quoted_post">%s ha citato il tuo post:</string>
+	<string name="user_edited_quoted_post">%s ha modificato un post che hai citato</string>
+	<string name="notification_type_quote">Citazioni</string>
+	<string name="create_quote">Cita</string>
+	<string name="cannot_quote_post">Questo post non può essere citato</string>
+	<string name="cannot_quote_post_followers_only">Solo i seguaci possono citare questo post</string>
+	<string name="compose_hint_quote">Aggiungi qualcosa alla conversazione</string>
+	<string name="cancel_quote">Annulla la citazione</string>
+	<string name="unlisted_quote_alert_title">Citazione di post pubblici silenziosi</string>
+	<string name="unlisted_quote_alert">Quando si cita un post pubblico silenzioso, il tuo post sarà nascosto dalle timeline di tendenza.</string>
+	<string name="settings_posting_defaults">Valori predefiniti di pubblicazione</string>
+	<string name="default_post_visibility">Visibilità di pubblicazione</string>
+	<string name="create_quote_manual_approval">Richiesta di citazione</string>
+	<string name="create_quote_manual_approval_subtitle">L\'autore esaminerà manualmente</string>
+	<plurals name="x_quotes">
+		<item quantity="one">%,d citazione</item>
+		<item quantity="other">%,d citazioni</item>
+	</plurals>
 </resources>
