@@ -1,7 +1,6 @@
 package org.joinmastodon.android.fragments.settings;
 
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,7 +44,7 @@ public class SettingsPostingDefaultsFragment extends BaseSettingsFragment<Void>{
 				quotePolicy=account.preferences.postingDefaultQuotePolicy;
 		}
 		ArrayList<ListItem<Void>> items=new ArrayList<>();
-		items.add(visibilityItem=new ListItem<>(getString(R.string.default_post_visibiltiy), getVisibilitySubtitle(), R.drawable.ic_visibility_24px, this::onVisibilityClick));
+		items.add(visibilityItem=new ListItem<>(getString(R.string.default_post_visibility), getVisibilitySubtitle(), R.drawable.ic_visibility_24px, this::onVisibilityClick));
 		if(account.getInstanceInfo().supportsQuotePostAuthoring())
 			items.add(quotePolicyItem=new ListItem<>(getString(R.string.compose_quote_policy), getQuotePolicySubtitle(), R.drawable.ic_format_quote_fill1_24px, this::onQuotePolicyClick));
 		items.add(languageItem=new ListItem<>(getString(R.string.default_post_language), postLanguage!=null ? postLanguage.getDisplayName(Locale.getDefault()) : null, R.drawable.ic_language_24px, this::onDefaultLanguageClick));
@@ -127,7 +126,7 @@ public class SettingsPostingDefaultsFragment extends BaseSettingsFragment<Void>{
 			}
 		};
 		new M3AlertDialogBuilder(getActivity())
-				.setTitle(R.string.default_post_visibiltiy)
+				.setTitle(R.string.default_post_visibility)
 				.setSingleChoiceItems(adapter, (newVisibility==null ? visibility : newVisibility).ordinal(), (dialog, which)->{
 					newVisibility=StatusPrivacy.values()[which];
 					visibilityItem.subtitle=getVisibilitySubtitle();
