@@ -995,4 +995,12 @@
 	<string name="unlisted_quote_alert">Při citování ztišeného veřejného příspěvku, váš příspěvek bude skrytý z os populárních příspěvků.</string>
 	<string name="settings_posting_defaults">Výchozí nastavení příspěvků</string>
 	<string name="default_post_visibility">Viditelnost příspěvků</string>
+	<string name="create_quote_manual_approval">Požádat o možnost citovat</string>
+	<string name="create_quote_manual_approval_subtitle">Autor provede manuální kontrolu</string>
+	<plurals name="x_quotes">
+		<item quantity="one">%,d citace</item>
+		<item quantity="few">%,d citace</item>
+		<item quantity="many">%,d citací</item>
+		<item quantity="other">%,d citací</item>
+	</plurals>
 </resources>
