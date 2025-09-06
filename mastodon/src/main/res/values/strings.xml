@@ -887,7 +887,8 @@
 	<string name="compose_visibility_unlisted_limited">Quiet public, quotes limited</string>
 	<string name="compose_visibility_unlisted_disabled">Quiet public, quotes disabled</string>
 	<string name="compose_visibility_title">Visibility and interaction</string>
-	<string name="compose_visibility_explanation"><![CDATA[Control who can interact with this post. Global settings can be found under Preferences > Other.]]></string>
+	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
+	<string name="compose_visibility_explanation"><![CDATA[Control who can interact with this post. Global settings can be found under Settings > %s > Posting defaults.]]></string>
 	<string name="compose_visibility">Visibility</string>
 	<string name="compose_quote_policy">Who can quote</string>
 	<string name="quote_policy_public">Anyone</string>

@@ -12,8 +12,10 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import org.joinmastodon.android.R;
+import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.model.StatusPrivacy;
 import org.joinmastodon.android.model.StatusQuotePolicy;
 import org.joinmastodon.android.model.viewmodel.ListItem;
@@ -38,12 +40,15 @@ public class ComposerVisibilitySheet extends BottomSheet{
 	private StatusQuotePolicy userSelectedPolicy;
 	private final Listener listener;
 
-	public ComposerVisibilitySheet(@NonNull Context context, StatusPrivacy defaultVisibility, StatusQuotePolicy defaultPolicy, boolean canChangeVisibility, StatusPrivacy maxVisibility, Listener listener){
+	public ComposerVisibilitySheet(@NonNull Context context, StatusPrivacy defaultVisibility, StatusQuotePolicy defaultPolicy, boolean canChangeVisibility, StatusPrivacy maxVisibility, String accountID, Listener listener){
 		super(context);
 		View content=context.getSystemService(LayoutInflater.class).inflate(R.layout.sheet_compose_visibility, null);
 		setContentView(content);
 		setNavigationBarBackground(new ColorDrawable(UiUtils.alphaBlendColors(UiUtils.getThemeColor(context, R.attr.colorM3Surface),
 				UiUtils.getThemeColor(context, R.attr.colorM3Primary), 0.05f)), !UiUtils.isDarkTheme());
+
+		TextView subtitle=findViewById(R.id.subtitle);
+		subtitle.setText(context.getString(R.string.compose_visibility_explanation, AccountSessionManager.get(accountID).getFullUsername()));
 
 		Button cancelBtn=findViewById(R.id.cancel);
 		Button saveBtn=findViewById(R.id.save);

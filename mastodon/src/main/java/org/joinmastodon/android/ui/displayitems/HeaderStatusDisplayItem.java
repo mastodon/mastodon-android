@@ -249,7 +249,7 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 							.exec(item.accountID);
 				}else if(id==R.id.change_quote_policy){
 					ComposerVisibilitySheet sheet=new ComposerVisibilitySheet(activity, item.status.visibility, item.status.quoteApproval.toQuotePolicy(),
-							false, StatusPrivacy.PUBLIC, (s, visibility, policy)->{
+							false, StatusPrivacy.PUBLIC, item.accountID, (s, visibility, policy)->{
 						new SetStatusInteractionPolicies(item.status.id, policy)
 								.setCallback(new Callback<>(){
 									@Override

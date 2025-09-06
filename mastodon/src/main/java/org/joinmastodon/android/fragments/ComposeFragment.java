@@ -1058,7 +1058,7 @@ public class ComposeFragment extends MastodonToolbarFragment implements ComposeE
 	private void onVisibilityClick(View v){
 		if(instance.supportsQuotePostAuthoring()){
 			ComposerVisibilitySheet sheet=new ComposerVisibilitySheet(getActivity(), statusVisibility, statusQuotePolicy,
-					true, quotedStatus==null ? StatusPrivacy.PUBLIC : quotedStatus.visibility, (s, visibility, policy)->{
+					true, quotedStatus==null ? StatusPrivacy.PUBLIC : quotedStatus.visibility, accountID, (s, visibility, policy)->{
 				if(statusVisibility!=visibility || statusQuotePolicy!=policy){
 					statusVisibility=visibility;
 					statusQuotePolicy=policy;

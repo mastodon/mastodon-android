@@ -27,11 +27,12 @@
 			android:text="@string/compose_visibility_title"/>
 
 		<TextView
+			android:id="@+id/subtitle"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:layout_marginTop="16dp"
 			android:textAppearance="@style/m3_body_medium"
-			android:text="@string/compose_visibility_explanation"/>
+			tools:text="@string/compose_visibility_explanation"/>
 
 		<org.joinmastodon.android.ui.views.FloatingHintEditTextLayout
 			android:id="@+id/visibility_spinner_wrap"
