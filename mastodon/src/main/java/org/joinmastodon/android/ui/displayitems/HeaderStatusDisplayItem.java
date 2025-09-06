@@ -21,13 +21,16 @@ import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.joinmastodon.android.E;
 import org.joinmastodon.android.GlobalUserPreferences;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.requests.statuses.GetStatusSourceText;
+import org.joinmastodon.android.api.requests.statuses.RevokeStatusQuote;
 import org.joinmastodon.android.api.requests.statuses.SetStatusConversationMuted;
 import org.joinmastodon.android.api.requests.statuses.SetStatusInteractionPolicies;
 import org.joinmastodon.android.api.requests.statuses.SetStatusPinned;
 import org.joinmastodon.android.api.session.AccountSessionManager;
+import org.joinmastodon.android.events.StatusUpdatedEvent;
 import org.joinmastodon.android.fragments.AddAccountToListsFragment;
 import org.joinmastodon.android.fragments.ComposeFragment;
 import org.joinmastodon.android.fragments.NotificationsListFragment;
@@ -35,9 +38,11 @@ import org.joinmastodon.android.fragments.ProfileFragment;
 import org.joinmastodon.android.fragments.report.ReportReasonChoiceFragment;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.Attachment;
+import org.joinmastodon.android.model.Quote;
 import org.joinmastodon.android.model.Relationship;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.model.StatusPrivacy;
+import org.joinmastodon.android.ui.M3AlertDialogBuilder;
 import org.joinmastodon.android.ui.OutlineProviders;
 import org.joinmastodon.android.ui.Snackbar;
 import org.joinmastodon.android.ui.sheets.ComposerVisibilitySheet;
@@ -268,6 +273,29 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 						return false;
 					});
 					sheet.show();
+				}else if(id==R.id.remove_quote){
+					new M3AlertDialogBuilder(activity)
+							.setTitle(R.string.remove_quote_confirm_title)
+							.setMessage(R.string.remove_quote_confirm)
+							.setPositiveButton(R.string.remove_quote_button, (dlg, which)->{
+								new RevokeStatusQuote(item.status.quote.quotedStatus.id, item.status.id)
+										.setCallback(new Callback<>(){
+											@Override
+											public void onSuccess(Status result){
+												item.status.quote=result.quote;
+												E.post(new StatusUpdatedEvent(item.status));
+											}
+
+											@Override
+											public void onError(ErrorResponse error){
+												error.showToast(activity);
+											}
+										})
+										.wrapProgress(activity, R.string.loading, true)
+										.exec(item.accountID);
+							})
+							.setNegativeButton(R.string.cancel, null)
+							.show();
 				}
 				return true;
 			});
@@ -356,6 +384,7 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 			MenuItem bookmark=menu.findItem(R.id.bookmark);
 			MenuItem pin=menu.findItem(R.id.pin);
 			MenuItem muteConversation=menu.findItem(R.id.mute_conversation);
+			MenuItem removeQuote=menu.findItem(R.id.remove_quote);
 			if(item.status!=null){
 				bookmark.setVisible(true);
 				bookmark.setTitle(item.status.bookmarked ? R.string.remove_bookmark : R.string.add_bookmark);
@@ -366,21 +395,33 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 			}else{
 				bookmark.setVisible(false);
 				pin.setVisible(false);
+				removeQuote.setVisible(false);
 			}
 			if(isOwnPost){
 				mute.setVisible(false);
 				block.setVisible(false);
 				report.setVisible(false);
 				follow.setVisible(false);
+				removeQuote.setVisible(false);
 			}else{
 				mute.setVisible(true);
 				block.setVisible(true);
 				report.setVisible(true);
+
+				String truncatedName=account.displayName.length()>20 ? (account.displayName.substring(0, 15)+"…") : account.displayName;
+
 				follow.setVisible(relationship==null || relationship.following || (!relationship.blocking && !relationship.blockedBy && !relationship.domainBlocking && !relationship.muting));
-				mute.setTitle(item.context.getString(relationship!=null && relationship.muting ? R.string.unmute_user : R.string.mute_user, account.displayName));
-				block.setTitle(item.context.getString(relationship!=null && relationship.blocking ? R.string.unblock_user : R.string.block_user, account.displayName));
-				report.setTitle(item.context.getString(R.string.report_user, account.displayName));
-				follow.setTitle(item.context.getString(relationship!=null && relationship.following ? R.string.unfollow_user : R.string.follow_user, account.displayName));
+				mute.setTitle(item.context.getString(relationship!=null && relationship.muting ? R.string.unmute_user : R.string.mute_user, truncatedName));
+				block.setTitle(item.context.getString(relationship!=null && relationship.blocking ? R.string.unblock_user : R.string.block_user, truncatedName));
+				report.setTitle(item.context.getString(R.string.report_user, truncatedName));
+				follow.setTitle(item.context.getString(relationship!=null && relationship.following ? R.string.unfollow_user : R.string.follow_user, truncatedName));
+
+				if(item.status.quote!=null && item.status.quote.quotedStatus!=null && AccountSessionManager.getInstance().isSelf(item.accountID, item.status.quote.quotedStatus.account)){
+					removeQuote.setVisible(true);
+					removeQuote.setTitle(item.context.getString(R.string.remove_quote, truncatedName));
+				}else{
+					removeQuote.setVisible(false);
+				}
 			}
 			if(item.status.muted!=null){
 				muteConversation.setVisible(isOwnPost || item.callbacks instanceof NotificationsListFragment);

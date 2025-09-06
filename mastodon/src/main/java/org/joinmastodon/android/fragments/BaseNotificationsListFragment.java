@@ -4,8 +4,12 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 
+import com.squareup.otto.Subscribe;
+
+import org.joinmastodon.android.E;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.session.AccountSessionManager;
+import org.joinmastodon.android.events.StatusUpdatedEvent;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.NotificationType;
 import org.joinmastodon.android.model.Status;
@@ -27,6 +31,19 @@ import me.grishka.appkit.Nav;
 public abstract class BaseNotificationsListFragment extends BaseStatusListFragment<NotificationViewModel>{
 	protected String maxID;
 	protected View endMark;
+	private EventListener eventListener=new EventListener();
+
+	@Override
+	public void onCreate(Bundle savedInstanceState){
+		super.onCreate(savedInstanceState);
+		E.register(eventListener);
+	}
+
+	@Override
+	public void onDestroy(){
+		super.onDestroy();
+		E.unregister(eventListener);
+	}
 
 	@Override
 	protected List<StatusDisplayItem> buildDisplayItems(NotificationViewModel n){
@@ -154,5 +171,61 @@ public abstract class BaseNotificationsListFragment extends BaseStatusListFragme
 		endMark=v.findViewById(R.id.end_mark);
 		endMark.setVisibility(View.GONE);
 		return v;
+	}
+
+	public class EventListener{
+		@Subscribe
+		public void onStatusUpdated(StatusUpdatedEvent ev){
+			Status status=ev.status;
+
+			ArrayList<NotificationViewModel> statusesForDisplayItems=new ArrayList<>();
+			for(int i=0;i<data.size();i++){
+				NotificationViewModel nvm=data.get(i);
+				if(nvm.status==null)
+					continue;
+				Status s=nvm.status;
+				if(s.id.equals(status.id)){
+					nvm.status=status;
+					statusesForDisplayItems.add(nvm);
+				}
+			}
+			for(int i=0;i<preloadedData.size();i++){
+				NotificationViewModel nvm=preloadedData.get(i);
+				if(nvm.status!=null && nvm.status.id.equals(status.id)){
+					nvm.status=status;
+				}
+			}
+
+			if(statusesForDisplayItems.isEmpty())
+				return;
+
+			for(NotificationViewModel s:statusesForDisplayItems){
+				int i=0;
+				for(StatusDisplayItem item:displayItems){
+					if(item.parentID.equals(s.getID())){
+						int start=i;
+						for(;i<displayItems.size();i++){
+							if(!displayItems.get(i).parentID.equals(s.getID()))
+								break;
+						}
+						List<StatusDisplayItem> postItems=displayItems.subList(start, i);
+						postItems.clear();
+						postItems.addAll(buildDisplayItems(s));
+						int oldSize=i-start, newSize=postItems.size();
+						if(oldSize==newSize){
+							adapter.notifyItemRangeChanged(start, newSize);
+						}else if(oldSize<newSize){
+							adapter.notifyItemRangeChanged(start, oldSize);
+							adapter.notifyItemRangeInserted(start+oldSize, newSize-oldSize);
+						}else{
+							adapter.notifyItemRangeChanged(start, newSize);
+							adapter.notifyItemRangeRemoved(start+newSize, oldSize-newSize);
+						}
+						break;
+					}
+					i++;
+				}
+			}
+		}
 	}
 }
