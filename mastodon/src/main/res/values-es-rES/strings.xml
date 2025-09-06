@@ -164,7 +164,6 @@
 	<string name="add_alt_text">Añadir texto alternativo</string>
 	<string name="visibility_public">Público</string>
 	<string name="visibility_followers_only">Seguidores</string>
-	<string name="visibility_private">Personas específicas</string>
 	<string name="recent_searches">Recientes</string>
 	<string name="notification_type_follow">Nuevos seguidores</string>
 	<string name="notification_type_favorite">Favoritos</string>
@@ -411,7 +410,6 @@
 	<string name="settings_server_explanation">Resumen, reglas, moderadores</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">Acerca de %s</string>
-	<string name="default_post_language">Idioma predeterminado de la publicación</string>
 	<string name="settings_alt_text_reminders">Añadir recordatorios de texto alternativo</string>
 	<string name="settings_confirm_unfollow">Preguntar antes de dejar de seguir a alguien</string>
 	<string name="settings_confirm_boost">Preguntar antes de impulsar</string>
@@ -871,4 +869,5 @@ Mientras más personas sigas, más activo e interesante será.</string>
 	<string name="quote_post_pending_explanation">En Mastodon, puedes controlar quién te puede citar. Esta publicación es pendiente mientras esperamos la aprobación del autor original.</string>
 	<!-- %s is a username, i.e. @Gargron -->
 	<string name="nested_quote">Citado una publicación de %s</string>
+	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
 </resources>

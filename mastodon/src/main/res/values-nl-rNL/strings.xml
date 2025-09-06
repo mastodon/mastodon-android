@@ -164,7 +164,6 @@
 	<string name="add_alt_text">Alt-tekst toevoegen</string>
 	<string name="visibility_public">Openbaar</string>
 	<string name="visibility_followers_only">Volgers</string>
-	<string name="visibility_private">Privébericht</string>
 	<string name="recent_searches">Recent gezocht</string>
 	<string name="notification_type_follow">Nieuwe volgers</string>
 	<string name="notification_type_favorite">Favorieten</string>
@@ -411,7 +410,6 @@
 	<string name="settings_server_explanation">Overzicht, regels, moderators</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">Over %s</string>
-	<string name="default_post_language">Standaardtaal voor berichten</string>
 	<string name="settings_alt_text_reminders">Alt-tekst-herinneringen toevoegen</string>
 	<string name="settings_confirm_unfollow">Voordat je iemand ontvolgt om bevestiging vragen</string>
 	<string name="settings_confirm_boost">Voordat je een bericht boost om bevestiging vragen</string>
@@ -865,5 +863,10 @@
 		<item quantity="one">%d</item>
 		<item quantity="other">%d</item>
 	</plurals>
+	<string name="quote_post_unavailable">Bericht niet beschikbaar</string>
+	<string name="quote_post_pending">Bericht in afwachting</string>
+	<string name="quote_post_pending_explanation">Op Mastodon kun je bepalen wie jou mag citeren. Dit bericht is in afwachting van de goedkeuring van de oorspronkelijke auteur.</string>
 	<!-- %s is a username, i.e. @Gargron -->
+	<string name="nested_quote">Citeerde een bericht van %s</string>
+	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
 </resources>

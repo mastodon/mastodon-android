@@ -164,7 +164,6 @@
 	<string name="add_alt_text">Lisa selgitustekst</string>
 	<string name="visibility_public">Avalik</string>
 	<string name="visibility_followers_only">Jälgijad</string>
-	<string name="visibility_private">Konkreetsed kasutajad</string>
 	<string name="recent_searches">Hiljutised</string>
 	<string name="notification_type_follow">Uued jälgijad</string>
 	<string name="notification_type_favorite">Lemmikud</string>
@@ -411,7 +410,6 @@
 	<string name="settings_server_explanation">Ülevaade, reeglid, moderaatorid</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">Rakenduse teave: %s</string>
-	<string name="default_post_language">Postituse vaikimisi keel</string>
 	<string name="settings_alt_text_reminders">Lisa selgitusteksti meeldetuletusi</string>
 	<string name="settings_confirm_unfollow">Küsi kinnitust enne jälgimise lõpetamist</string>
 	<string name="settings_confirm_boost">Küsi kinnitust enne hooandmist</string>
@@ -871,4 +869,5 @@ Mida rohkem inimesi sa tead, seda aktiivsem ja huvitavam ta saab olema.</string>
 	<string name="quote_post_pending_explanation">Mastodonis saad sa kontrollida seda, kes võib sind tsiteerida. See postitus on seni ootel, kuni pole algse autori kinnitust tsiteerimisele.</string>
 	<!-- %s is a username, i.e. @Gargron -->
 	<string name="nested_quote">Tsiteeris kasutaja %s postitust</string>
+	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
 </resources>
