@@ -973,6 +973,7 @@
 	<string name="compose_visibility_unlisted_disabled">Tiše veřejné, citace zakázány</string>
 	<string name="compose_visibility_title">Viditelnost a interakce</string>
 	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
+	<string name="compose_visibility_explanation"><![CDATA[Kontrolujte, kdo může interagovat s tímto příspěvkem. Globální nastavení můžete najít pod Nastavení > %s > Výchozí nastavení příspěvků.]]></string>
 	<string name="compose_visibility">Viditelnost</string>
 	<string name="compose_quote_policy">Kdo může citovat</string>
 	<string name="quote_policy_public">Kdokoliv</string>
@@ -1003,4 +1004,8 @@
 		<item quantity="many">%,d citací</item>
 		<item quantity="other">%,d citací</item>
 	</plurals>
+	<string name="remove_quote">Odstranit můj příspěvek z příspěvku %s</string>
+	<string name="remove_quote_confirm_title">Odstranit příspěvek?</string>
+	<string name="remove_quote_confirm">Tuto akci nelze vrátit zpět.</string>
+	<string name="remove_quote_button">Odstranit příspěvek</string>
 </resources>
