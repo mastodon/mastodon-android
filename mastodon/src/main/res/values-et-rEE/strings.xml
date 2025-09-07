@@ -32,7 +32,7 @@
 	<string name="posts">Postitused</string>
 	<string name="posts_and_replies">Postitused ja vastused</string>
 	<string name="media">Meedium</string>
-	<string name="profile_about">Rakenduse teave</string>
+	<string name="profile_about">Profiilist</string>
 	<string name="button_follow">Jälgi</string>
 	<string name="button_following">Jälgitavat</string>
 	<string name="edit_profile">Muuda profiili</string>
@@ -409,7 +409,7 @@
 	<string name="settings_filters">Filtrid</string>
 	<string name="settings_server_explanation">Ülevaade, reeglid, moderaatorid</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
-	<string name="about_app">Rakenduse teave: %s</string>
+	<string name="about_app">Teave %s kohta</string>
 	<string name="settings_alt_text_reminders">Lisa selgitusteksti meeldetuletusi</string>
 	<string name="settings_confirm_unfollow">Küsi kinnitust enne jälgimise lõpetamist</string>
 	<string name="settings_confirm_boost">Küsi kinnitust enne hooandmist</string>
@@ -438,7 +438,7 @@
 	<string name="pause_notifications_banner">Teavitused jätkuvad %s.</string>
 	<string name="resume_notifications_now">Jätka kohe</string>
 	<string name="open_system_notification_settings">Ava teavituste seadistused</string>
-	<string name="about_server">Rakenduse teave</string>
+	<string name="about_server">Serveri teave</string>
 	<string name="server_rules">Reeglid</string>
 	<string name="server_administrator">Peakasutaja</string>
 	<string name="send_email_to_server_admin">Saada sõnum peakasutajale</string>
@@ -610,7 +610,7 @@
 	<string name="reply_to_user">Vasta kasutajale %s</string>
 	<string name="posted_at">Postitatud %s</string>
 	<string name="non_mutual_sheet_title">Tere tulemast uus suhtluspartner!</string>
-	<string name="non_mutual_sheet_text">Tundub, et oled vastamas kasutajale, kellega sa pole veel seotud. On väga hea, kui esimene mulje jääb suurepärane.</string>
+	<string name="non_mutual_sheet_text">Tundub, et oled vastamas kasutajale, kellega sa pole veel seotud. Ära unusta, et esmamulje on tähtis.</string>
 	<string name="got_it">Sain aru</string>
 	<string name="dont_remind_again">Ära tuleta enam meelde</string>
 	<!-- %s is a time interval ("5 months") -->
@@ -830,8 +830,8 @@ Mida rohkem inimesi sa tead, seda aktiivsem ja huvitavam ta saab olema.</string>
 	</plurals>
 	<!-- appears when you're about to block a server -->
 	<plurals name="server_x_followers_will_be_removed">
-		<item quantity="one">Eemaldatakse %,d jälgija sellest serverist.</item>
-		<item quantity="other">Eemaldatakse %,d jälgijat sellest serverist.</item>
+		<item quantity="one">%,d jälgija eemaldamine antud serverist.</item>
+		<item quantity="other">%,d jälgija eemaldamine antud serverist.</item>
 	</plurals>
 	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
 	<string name="server_x_followers_and_following_will_be_removed">Sa kaotad %1$s ja %2$s.</string>
