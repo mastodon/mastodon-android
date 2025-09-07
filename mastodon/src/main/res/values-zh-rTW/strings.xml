@@ -392,6 +392,7 @@
 	<string name="settings_server_explanation">概要、規則、管理員</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">關於 %s</string>
+	<string name="default_post_language">嘟文語言</string>
 	<string name="settings_alt_text_reminders">加上 ALT 說明文字提醒</string>
 	<string name="settings_confirm_unfollow">取消跟隨某人前先詢問我</string>
 	<string name="settings_confirm_boost">轉嘟前先詢問我</string>
@@ -831,6 +832,7 @@
 	<string name="compose_visibility_unlisted_disabled">不於公開時間軸顯示，停用引用</string>
 	<string name="compose_visibility_title">可見性與互動</string>
 	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
+	<string name="compose_visibility_explanation"><![CDATA[控制誰能與此嘟文互動。可於偏好設定 > %s > 嘟文預設值下找到全域設定。]]></string>
 	<string name="compose_visibility">可見性</string>
 	<string name="compose_quote_policy">誰能引用此嘟文</string>
 	<string name="quote_policy_public">所有人</string>
@@ -851,4 +853,15 @@
 	<string name="cancel_quote">取消引用嘟文</string>
 	<string name="unlisted_quote_alert_title">引用不於公開時間軸顯示之嘟文</string>
 	<string name="unlisted_quote_alert">當引用不於公開時間軸顯示之嘟文時，您的嘟文將自熱門時間軸隱藏。</string>
+	<string name="settings_posting_defaults">嘟文預設值</string>
+	<string name="default_post_visibility">嘟文可見性</string>
+	<string name="create_quote_manual_approval">要求引用嘟文</string>
+	<string name="create_quote_manual_approval_subtitle">嘟文作者將人工審閱</string>
+	<plurals name="x_quotes">
+		<item quantity="other">%,d 則引用</item>
+	</plurals>
+	<string name="remove_quote">將我的嘟文自 %s 之嘟文中移除</string>
+	<string name="remove_quote_confirm_title">您是否確定移除嘟文？</string>
+	<string name="remove_quote_confirm">此動作無法復原。</string>
+	<string name="remove_quote_button">移除嘟文</string>
 </resources>
