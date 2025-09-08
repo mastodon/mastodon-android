@@ -164,6 +164,7 @@
 	<string name="add_alt_text">Añadir texto alternativo</string>
 	<string name="visibility_public">Público</string>
 	<string name="visibility_followers_only">Seguidores</string>
+	<string name="visibility_private">Mención privada</string>
 	<string name="recent_searches">Recientes</string>
 	<string name="notification_type_follow">Nuevos seguidores</string>
 	<string name="notification_type_favorite">Favoritos</string>
@@ -410,6 +411,7 @@
 	<string name="settings_server_explanation">Resumen, reglas, moderadores</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">Acerca de %s</string>
+	<string name="default_post_language">Idioma de la publicación</string>
 	<string name="settings_alt_text_reminders">Añadir recordatorios de texto alternativo</string>
 	<string name="settings_confirm_unfollow">Preguntar antes de dejar de seguir a alguien</string>
 	<string name="settings_confirm_boost">Preguntar antes de impulsar</string>
@@ -869,5 +871,41 @@ Mientras más personas sigas, más activo e interesante será.</string>
 	<string name="quote_post_pending_explanation">En Mastodon, puedes controlar quién te puede citar. Esta publicación es pendiente mientras esperamos la aprobación del autor original.</string>
 	<!-- %s is a username, i.e. @Gargron -->
 	<string name="nested_quote">Citado una publicación de %s</string>
+	<string name="compose_visibility_public_anyone">Pública, cualquiera puede citar</string>
+	<string name="compose_visibility_public_limited">Pública, citas limitadas</string>
+	<string name="compose_visibility_public_disabled">Pública, citas deshabilitadas</string>
+	<string name="compose_visibility_unlisted_anyone">Pública, pero silenciosa, cualquiera puede citar</string>
+	<string name="compose_visibility_unlisted_limited">Pública, pero silenciosa, citas limitadas</string>
+	<string name="compose_visibility_unlisted_disabled">Pública, pero silenciosa, citas deshabilitadas</string>
+	<string name="compose_visibility_title">Visibilidad e interacciones</string>
 	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
+	<string name="compose_visibility">Visibilidad</string>
+	<string name="compose_quote_policy">Quién puede citar</string>
+	<string name="quote_policy_public">Cualquiera</string>
+	<string name="quote_policy_followers">Solo seguidores</string>
+	<string name="quote_policy_nobody">Solo yo</string>
+	<string name="quote_policy_for_unlisted_explanation">Cuando las personas te citen, su publicación también se ocultará en las cronologías públicas.</string>
+	<string name="quote_policy_for_private_explanation">Las publicaciones solo para seguidores hechas en Mastodon no pueden ser citadas por otros usuarios.</string>
+	<string name="quote_policy_for_direct_explanation">Las menciones privadas publicadas en Mastodon no pueden ser citadas por otros usuarios.</string>
+	<string name="change_quote_policy">Cambia quién puede citarte</string>
+	<string name="edit_visibility_explanation">Una vez publicada, las publicaciones no pueden cambiar su visibilidad.</string>
+	<string name="user_quoted_post">%s citó tu publicación:</string>
+	<string name="user_edited_quoted_post">%s editó una publicación que citaste</string>
+	<string name="notification_type_quote">Citas</string>
+	<string name="create_quote">Cita</string>
+	<string name="cannot_quote_post">No se puede citar esta publicación</string>
+	<string name="cannot_quote_post_followers_only">Solo los seguidores pueden citar esta publicación</string>
+	<string name="compose_hint_quote">Agregar algo a la conversación</string>
+	<string name="cancel_quote">Cancelar cita</string>
+	<string name="default_post_visibility">Visibilidad de publicación</string>
+	<string name="create_quote_manual_approval">Solicitud de citación</string>
+	<string name="create_quote_manual_approval_subtitle">El autor lo revisará manualmente</string>
+	<plurals name="x_quotes">
+		<item quantity="one">%,d cita</item>
+		<item quantity="other">%,d citas</item>
+	</plurals>
+	<string name="remove_quote">Eliminar mi publicación de la cita de %s</string>
+	<string name="remove_quote_confirm_title">¿Deseas eliminar la publicación?</string>
+	<string name="remove_quote_confirm">Esta acción no se puede deshacer.</string>
+	<string name="remove_quote_button">Eliminar publicación</string>
 </resources>
