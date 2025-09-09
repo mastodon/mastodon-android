@@ -851,6 +851,24 @@
 	<string name="quote_policy_for_direct_explanation">마스토돈에서 작성된 비공개 멘션은 다른 사용자가 인용할 수 없습니다.</string>
 	<string name="change_quote_policy">인용 가능한 사용자 변경</string>
 	<string name="edit_visibility_explanation">게시된 게시물은 공개 범위를 변경할 수 없습니다.</string>
+	<string name="user_quoted_post">%s가 당신의 게시물을 인용했습니다:</string>
+	<string name="user_edited_quoted_post">%s가 당신이 인용한 게시물을 편집했습니다.</string>
+	<string name="notification_type_quote">인용</string>
+	<string name="create_quote">인용하기</string>
+	<string name="cannot_quote_post">이 게시물은 인용될 수 없습니다.</string>
+	<string name="cannot_quote_post_followers_only">오직 팔로워만 이 게시물을 인용할 수 있습니다.</string>
+	<string name="compose_hint_quote">대화에 무언가를 추가하세요</string>
+	<string name="cancel_quote">인용 취소</string>
+	<string name="unlisted_quote_alert_title">조용한 공개 게시물 인용하기</string>
+	<string name="unlisted_quote_alert">조용한 공개 게시물을 인용할 때, 당신의 게시물은 트렌딩 타임라인에서 숨겨질 것입니다.</string>
+	<string name="settings_posting_defaults">게시 기본값</string>
+	<string name="default_post_visibility">게시 범위</string>
+	<string name="create_quote_manual_approval">인용 요청</string>
+	<string name="create_quote_manual_approval_subtitle">작성자가 수동으로 검토할 것입니다.</string>
+	<plurals name="x_quotes">
+		<item quantity="other">%,d 인용함</item>
+	</plurals>
+	<string name="remove_quote">%s의 게시물에서 나의 게시물을 제거합니다</string>
 	<string name="remove_quote_confirm_title">게시물을 삭제하시겠습니까?</string>
 	<string name="remove_quote_confirm">이 작업은 되돌릴 수 없습니다.</string>
 	<string name="remove_quote_button">게시물 삭제</string>
