@@ -832,7 +832,25 @@
 	<string name="quote_post_pending_explanation">\"마스토돈에서는 누군가가 당신의 글을 인용할 수 있는지를 제어할 수 있습니다. 이 게시물은 원 작성자의 승인을 기다리는 중입니다.</string>
 	<!-- %s is a username, i.e. @Gargron -->
 	<string name="nested_quote">%s 님에 의해 인용된 게시물</string>
+	<string name="compose_visibility_public_anyone">공개, 누구나 인용 가능</string>
+	<string name="compose_visibility_public_limited">공개, 인용 제한</string>
+	<string name="compose_visibility_public_disabled">공개, 인용 비활성화</string>
+	<string name="compose_visibility_unlisted_anyone">조용한 공개, 누구나 인용 가능</string>
+	<string name="compose_visibility_unlisted_limited">조용한 공개, 인용 제한</string>
+	<string name="compose_visibility_unlisted_disabled">조용한 공개, 인용 비활성화</string>
+	<string name="compose_visibility_title">공개 범위 및 상호작용</string>
 	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
+	<string name="compose_visibility_explanation"><![CDATA[이 게시물과 상호작용할 수 있는 사람을 관리합니다. 전역 설정은 설정 > %s > 게시 기본값에서 확인할 수 있습니다.]]></string>
+	<string name="compose_visibility">공개 범위</string>
+	<string name="compose_quote_policy">공개 범위</string>
+	<string name="quote_policy_public">모든 사용자</string>
+	<string name="quote_policy_followers">팔로워만</string>
+	<string name="quote_policy_nobody">본인만</string>
+	<string name="quote_policy_for_unlisted_explanation">다른 사용자가 회원님을 인용할 때, 해당 게시물은 트렌딩 타임라인에서 숨겨집니다.</string>
+	<string name="quote_policy_for_private_explanation">마스토돈에서 작성된 팔로워 전용 게시물은 다른 사용자가 인용할 수 없습니다.</string>
+	<string name="quote_policy_for_direct_explanation">마스토돈에서 작성된 비공개 멘션은 다른 사용자가 인용할 수 없습니다.</string>
+	<string name="change_quote_policy">인용 가능한 사용자 변경</string>
+	<string name="edit_visibility_explanation">게시된 게시물은 공개 범위를 변경할 수 없습니다.</string>
 	<string name="remove_quote_confirm_title">게시물을 삭제하시겠습니까?</string>
 	<string name="remove_quote_confirm">이 작업은 되돌릴 수 없습니다.</string>
 	<string name="remove_quote_button">게시물 삭제</string>
