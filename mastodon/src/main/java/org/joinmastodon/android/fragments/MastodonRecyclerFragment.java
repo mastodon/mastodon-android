@@ -5,6 +5,9 @@ import android.view.View;
 import android.widget.Toolbar;
 
 import org.joinmastodon.android.R;
+import org.joinmastodon.android.api.MastodonErrorResponse;
+import org.joinmastodon.android.api.session.AccountSession;
+import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.ui.BetterItemAnimator;
 import org.joinmastodon.android.ui.utils.UiUtils;
 import org.joinmastodon.android.utils.ElevationOnScrollListener;
@@ -13,11 +16,13 @@ import java.util.Collections;
 import java.util.List;
 
 import androidx.annotation.CallSuper;
+import me.grishka.appkit.api.ErrorResponse;
 import me.grishka.appkit.fragments.BaseRecyclerFragment;
 import me.grishka.appkit.views.FragmentRootLinearLayout;
 
 public abstract class MastodonRecyclerFragment<T> extends BaseRecyclerFragment<T>{
 	protected ElevationOnScrollListener elevationOnScrollListener;
+	protected boolean doReauthOnErrorRetry;
 
 	public MastodonRecyclerFragment(int perPage){
 		super(perPage);
@@ -64,5 +69,25 @@ public abstract class MastodonRecyclerFragment<T> extends BaseRecyclerFragment<T
 
 	protected boolean wantsElevationOnScrollEffect(){
 		return true;
+	}
+
+	@Override
+	public void onError(ErrorResponse error){
+		if(!refreshing && data.isEmpty() && error instanceof MastodonErrorResponse mer && mer.httpStatus==401){
+			doReauthOnErrorRetry=true;
+		}
+		super.onError(error);
+	}
+
+	@Override
+	protected void onErrorRetryClick(){
+		if(doReauthOnErrorRetry){
+			doReauthOnErrorRetry=false;
+			String accountID=getArguments().getString("account");
+			AccountSession session=AccountSessionManager.get(accountID);
+			AccountSessionManager.getInstance().authenticate(getActivity(), session.getInstanceInfo(), session.app);
+			return;
+		}
+		super.onErrorRetryClick();
 	}
 }

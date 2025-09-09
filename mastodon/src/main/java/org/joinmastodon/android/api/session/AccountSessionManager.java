@@ -236,26 +236,7 @@ public class AccountSessionManager{
 				.setCallback(new Callback<>(){
 					@Override
 					public void onSuccess(Application result){
-						authenticatingApp=result;
-						Uri uri=new Uri.Builder()
-								.scheme("https")
-								.authority(instance.getDomain())
-								.path("/oauth/authorize")
-								.appendQueryParameter("response_type", "code")
-								.appendQueryParameter("client_id", result.clientId)
-								.appendQueryParameter("redirect_uri", REDIRECT_URI)
-								.appendQueryParameter("scope", SCOPE)
-								.build();
-
-						try{
-							new CustomTabsIntent.Builder()
-									.setShareState(CustomTabsIntent.SHARE_STATE_OFF)
-									.setShowTitle(true)
-									.build()
-									.launchUrl(activity, uri);
-						}catch(ActivityNotFoundException x){
-							Toast.makeText(activity, R.string.no_app_to_handle_action, Toast.LENGTH_SHORT).show();
-						}
+						authenticate(activity, instance, result);
 					}
 
 					@Override
@@ -265,6 +246,30 @@ public class AccountSessionManager{
 				})
 				.wrapProgress(activity, R.string.preparing_auth, false)
 				.execNoAuth(instance.getDomain());
+	}
+
+	public void authenticate(Activity activity, Instance instance, Application clientApp){
+		authenticatingInstance=instance;
+		authenticatingApp=clientApp;
+		Uri uri=new Uri.Builder()
+				.scheme("https")
+				.authority(instance.getDomain())
+				.path("/oauth/authorize")
+				.appendQueryParameter("response_type", "code")
+				.appendQueryParameter("client_id", clientApp.clientId)
+				.appendQueryParameter("redirect_uri", REDIRECT_URI)
+				.appendQueryParameter("scope", SCOPE)
+				.build();
+
+		try{
+			new CustomTabsIntent.Builder()
+					.setShareState(CustomTabsIntent.SHARE_STATE_OFF)
+					.setShowTitle(true)
+					.build()
+					.launchUrl(activity, uri);
+		}catch(ActivityNotFoundException x){
+			Toast.makeText(activity, R.string.no_app_to_handle_action, Toast.LENGTH_SHORT).show();
+		}
 	}
 
 	public boolean isSelf(String id, Account other){
