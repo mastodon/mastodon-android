@@ -152,6 +152,7 @@
 	<string name="add_alt_text">대체 텍스트 추가</string>
 	<string name="visibility_public">공개</string>
 	<string name="visibility_followers_only">팔로워</string>
+	<string name="visibility_private">개인 멘션</string>
 	<string name="recent_searches">최근앱</string>
 	<string name="notification_type_follow">새 팔로워</string>
 	<string name="notification_type_favorite">좋아함</string>
@@ -399,6 +400,7 @@
 	<string name="settings_server_explanation">미리보기, 규칙,</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">%s에 대해</string>
+	<string name="default_post_language">게시 언어</string>
 	<string name="settings_alt_text_reminders">대체 텍스트 리마인더 추가</string>
 	<string name="settings_confirm_unfollow">누군가를 언팔로우할 때 묻기</string>
 	<string name="settings_confirm_boost">부스트 전에 묻기</string>
@@ -831,4 +833,7 @@
 	<!-- %s is a username, i.e. @Gargron -->
 	<string name="nested_quote">%s 님에 의해 인용된 게시물</string>
 	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
+	<string name="remove_quote_confirm_title">게시물을 삭제하시겠습니까?</string>
+	<string name="remove_quote_confirm">이 작업은 되돌릴 수 없습니다.</string>
+	<string name="remove_quote_button">게시물 삭제</string>
 </resources>
