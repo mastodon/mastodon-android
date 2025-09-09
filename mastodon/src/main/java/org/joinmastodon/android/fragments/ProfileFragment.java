@@ -434,6 +434,9 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 			return;
 		refreshing=true;
 		doLoadData();
+		if(isOwnProfile){
+			AccountSessionManager.get(accountID).updateAccountInfo();
+		}
 	}
 
 	@Override
