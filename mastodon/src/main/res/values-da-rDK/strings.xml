@@ -903,4 +903,13 @@ Jo flere du følger, jo mere aktiv og interessant bliver det.</string>
 	<string name="settings_posting_defaults">Standarder for indlæg</string>
 	<string name="default_post_visibility">Synlighed af indlæg</string>
 	<string name="create_quote_manual_approval">Anmod om citering</string>
+	<string name="create_quote_manual_approval_subtitle">Forfatteren vil manuelt gennemgå</string>
+	<plurals name="x_quotes">
+		<item quantity="one">%,d citat</item>
+		<item quantity="other">%,d citater</item>
+	</plurals>
+	<string name="remove_quote">Fjern mit indlæg fra %s\'s indlæg</string>
+	<string name="remove_quote_confirm_title">Fjern indlæg?</string>
+	<string name="remove_quote_confirm">Denne handling kan ikke fortrydes.</string>
+	<string name="remove_quote_button">Fjern indlæg</string>
 </resources>
