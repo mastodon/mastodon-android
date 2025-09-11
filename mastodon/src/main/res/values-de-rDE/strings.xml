@@ -411,6 +411,7 @@
 	<string name="settings_server_explanation">Übersicht, Regeln, Moderator*innen</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">Über %s</string>
+	<string name="default_post_language">Beitragssprache</string>
 	<string name="settings_alt_text_reminders">Erinnerung für Alt-Text anzeigen</string>
 	<string name="settings_confirm_unfollow">Vor dem Entfolgen bestätigen</string>
 	<string name="settings_confirm_boost">Vor dem Teilen bestätigen</string>
@@ -728,6 +729,7 @@
 	<string name="notifications_muted">Benachrichtigungen von %s wurden verworfen.</string>
 	<string name="notifications_allowed">%s wird nun in deiner Benachrichtigungsliste erscheinen.</string>
 	<string name="visibility_subtitle_public">Alle in und außerhalb von Mastodon</string>
+	<string name="visibility_subtitle_unlisted">Wird nicht in den Suchergebnissen, Trends oder öffentlichen Timelines von Mastodon angezeigt</string>
 	<string name="visibility_subtitle_followers">Nur für deine Follower</string>
 	<string name="visibility_subtitle_private">Alle in diesem Beitrag erwähnten Profile</string>
 	<string name="view_boosts">Geteilte Beiträge anzeigen</string>
@@ -867,12 +869,16 @@
 	<string name="quote_post_pending">Beitragsveröffentlichung ausstehend</string>
 	<string name="quote_post_pending_explanation">Auf Mastodon kannst du bestimmen, ob du zitiert werden darfst. Wir warten auf die Genehmigung des ursprünglichen Profils – solange steht deine Beitragsveröffentlichung noch aus.</string>
 	<!-- %s is a username, i.e. @Gargron -->
-	<string name="nested_quote">Einen Beitrag von %s zitiert</string>
+	<string name="nested_quote">Zitierte einen Beitrag von %s</string>
 	<string name="compose_visibility_public_anyone"> Öffentlich – alle dürfen zitieren</string>
-	<string name="compose_visibility_public_limited"></string>
+	<string name="compose_visibility_public_limited">Öffentlich – eingeschränktes Zitieren</string>
+	<string name="compose_visibility_public_disabled">Öffentlich – niemand darf zitieren</string>
 	<string name="compose_visibility_unlisted_anyone"> Öffentlich (still) – alle dürfen zitieren</string>
+	<string name="compose_visibility_unlisted_limited">Öffentlich (still) – eingeschränktes Zitieren</string>
+	<string name="compose_visibility_unlisted_disabled">Öffentlich (still) – niemand darf</string>
 	<string name="compose_visibility_title">Sichtbarkeit und Interaktion</string>
 	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
+	<string name="compose_visibility_explanation"><![CDATA[Bestimme, wer mit diesem Beitrag interagieren darf. Allgemeingültige Einstellungen findest du unter Einstellungen > %s > Standardeinstellungen für Beiträge.]]></string>
 	<string name="compose_visibility">Sichtbarkeit</string>
 	<string name="compose_quote_policy">Wer zitieren darf</string>
 	<string name="quote_policy_public">Alle</string>
@@ -889,4 +895,20 @@
 	<string name="create_quote">Zitieren</string>
 	<string name="cannot_quote_post">Dieser Beitrag kann nicht zitiert werden</string>
 	<string name="cannot_quote_post_followers_only">Nur Follower können diesen Beitrag zitieren</string>
+	<string name="compose_hint_quote">Trage etwas zur Unterhaltung bei</string>
+	<string name="cancel_quote">Zitat abbrechen</string>
+	<string name="unlisted_quote_alert_title">Zitieren eines Beitrags mit der Sichtbarkeit „Öffentlich (still)“</string>
+	<string name="unlisted_quote_alert">Beim Zitieren eines Beitrags mit der Sichtbarkeit „Öffentlich (still)“ wird dein zitierter Beitrag ebenfalls nicht in den Trends und öffentlichen Timelines angezeigt.</string>
+	<string name="settings_posting_defaults">Standardeinstellungen für Beiträge</string>
+	<string name="default_post_visibility">Beitragssichtbarkeit</string>
+	<string name="create_quote_manual_approval">Anfrage zum Zitieren</string>
+	<string name="create_quote_manual_approval_subtitle">Zitierte*r überprüft manuell</string>
+	<plurals name="x_quotes">
+		<item quantity="one">%,d Mal zitiert</item>
+		<item quantity="other">%,d Mal zitiert</item>
+	</plurals>
+	<string name="remove_quote">Meinen zitierten Beitrag aus dem Beitrag von %s entfernen</string>
+	<string name="remove_quote_confirm_title">Beitrag entfernen?</string>
+	<string name="remove_quote_confirm">Diese Aktion kann nicht rückgängig gemacht werden.</string>
+	<string name="remove_quote_button">Beitrag entfernen</string>
 </resources>
