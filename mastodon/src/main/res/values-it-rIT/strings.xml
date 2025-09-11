@@ -730,6 +730,7 @@ Più persone segui, più sarà attivo e interessante.</string>
 	<string name="notifications_muted">Le notifiche da %s sono state respinte.</string>
 	<string name="notifications_allowed">%s apparirà ora nella tua lista di notifiche.</string>
 	<string name="visibility_subtitle_public">Tutti, dentro e fuori Mastodon</string>
+	<string name="visibility_subtitle_unlisted">Nascosto dai risultati di ricerca di Mastodon, dalle tendenze e dalle timeline pubbliche</string>
 	<string name="visibility_subtitle_followers">Solo i tuoi seguaci</string>
 	<string name="visibility_subtitle_private">Tutti quelli menzionati nel post</string>
 	<string name="view_boosts">Visualizza potenziamenti</string>
@@ -878,6 +879,7 @@ Più persone segui, più sarà attivo e interessante.</string>
 	<string name="compose_visibility_unlisted_disabled">Pubblico silenzioso, citazioni disabilitate</string>
 	<string name="compose_visibility_title">Visibilità e interazione</string>
 	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
+	<string name="compose_visibility_explanation"><![CDATA[Controlla chi può interagire con questo post. Le impostazioni globali si trovano in Impostazioni > %s > Pubblicazione predefinita.]]></string>
 	<string name="compose_visibility">Visibilità</string>
 	<string name="compose_quote_policy">Chi può citare</string>
 	<string name="quote_policy_public">Chiunque</string>
@@ -906,4 +908,8 @@ Più persone segui, più sarà attivo e interessante.</string>
 		<item quantity="one">%,d citazione</item>
 		<item quantity="other">%,d citazioni</item>
 	</plurals>
+	<string name="remove_quote">Rimuovere il mio post da quello di @%s</string>
+	<string name="remove_quote_confirm_title">Rimuovere il post?</string>
+	<string name="remove_quote_confirm">Questa azione non può essere annullata.</string>
+	<string name="remove_quote_button">Rimuovere il post</string>
 </resources>
