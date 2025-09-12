@@ -729,7 +729,8 @@ Zenbat eta jende gehiago jarraitu, orduan eta aktiboagoa eta interesgarriagoa iz
 	<string name="notifications_from_user">%s erabiltzailearen jakinarazpenak</string>
 	<string name="notifications_muted">%s(r)en jakinarazpenak baztertu dira.</string>
 	<string name="notifications_allowed">%s jakinarazpen-zerrendan agertuko da orain.</string>
-	<string name="visibility_subtitle_public">Mastodonen dagoen edo ez dagoen edonor</string>
+	<string name="visibility_subtitle_public">Mundu guztia Mastodonen barruan eta kanpoan</string>
+	<string name="visibility_subtitle_unlisted">Ezkutatu Mastodon bilaketaren emaitzetatik, joeretatik, eta denbora-lerro publikoetatik</string>
 	<string name="visibility_subtitle_followers">Soilik jarraitzaileak</string>
 	<string name="visibility_subtitle_private">Argitalpen honetan aipatutako denak</string>
 	<string name="view_boosts">Ikusi bultzadak</string>
@@ -867,11 +868,48 @@ Zenbat eta jende gehiago jarraitu, orduan eta aktiboagoa eta interesgarriagoa iz
 	</plurals>
 	<string name="quote_post_unavailable">Bidalketa ez dago eskuragarri</string>
 	<string name="quote_post_pending">Bidalketa zain dago</string>
+	<string name="quote_post_pending_explanation">Mastodonen, norbaitek aipa zaitzakeen kontrola dezakezu. Bidalketa hau argitaratzeke dago idazlearen oniritzia jaso bitartean.</string>
 	<!-- %s is a username, i.e. @Gargron -->
+	<string name="nested_quote">%s-(r)en bidalketan aipatua</string>
+	<string name="compose_visibility_public_anyone">Publikoa, edonork aipa dezake</string>
+	<string name="compose_visibility_public_limited">Publikoa, aipu mugatuak</string>
+	<string name="compose_visibility_public_disabled">Publikoa, aipuak desgaituta</string>
+	<string name="compose_visibility_unlisted_anyone">Deiadar urrikoa, edonork aipa dezake</string>
+	<string name="compose_visibility_unlisted_limited">Deiadar urrikoa, aipu mugatuak</string>
+	<string name="compose_visibility_unlisted_disabled">Deiadar urrikoa, aipuak desgaituta</string>
+	<string name="compose_visibility_title">Ikusgarritasuna eta elkarreraginak</string>
 	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
+	<string name="compose_visibility_explanation"><![CDATA[Kontrolatu nork elkarreragin dezakeen zure bidalketekin. Ezarpen orokorrak Ezarpenak > %s > Bidalketarako lehenetsitakoak atalean aurki daitezke.]]></string>
 	<string name="compose_visibility">Ikusgaitasuna</string>
+	<string name="compose_quote_policy">Nork aipa dezake</string>
 	<string name="quote_policy_public">Edozein</string>
 	<string name="quote_policy_followers">Jarraitzaileak soilik</string>
+	<string name="quote_policy_nobody">Nik bakarrik</string>
+	<string name="quote_policy_for_unlisted_explanation">Jendeak aipatzen zaituenean, bere bidalketa ere denbora-lerro publikoetatik ezkutatuko da.</string>
+	<string name="quote_policy_for_private_explanation">Jarraitzaileentzat soilik sortutako bidalketak Mastodonen ezin dituzte beste batzuek aipatu.</string>
+	<string name="quote_policy_for_direct_explanation">Mastodonen argitaratutako aipamen pribatuak ezin dituzte beste erabiltzaileek aipatu.</string>
+	<string name="change_quote_policy">Aldatu nork aipa zaitzakeen</string>
+	<string name="edit_visibility_explanation">Argitaratutako mezuek ezin dute ikusgarritasuna aldatu.</string>
+	<string name="user_quoted_post">%s(e)k zure bidalketa aipatu du:</string>
+	<string name="user_edited_quoted_post">%s(e)k aipatu duzun post bat editatu du</string>
+	<string name="notification_type_quote">Aipuak</string>
+	<string name="create_quote">Aipua</string>
+	<string name="cannot_quote_post">Bidalketa honi ezin zaio aipurik egin</string>
+	<string name="cannot_quote_post_followers_only">Jarraitzaileek soilik aipatu dezakete bidalketa hau</string>
+	<string name="compose_hint_quote">Gehitu zerbait elkarrizketari</string>
+	<string name="cancel_quote">Aipua utzi</string>
+	<string name="unlisted_quote_alert_title">Deiadar urriko bidalketa publikoak</string>
+	<string name="unlisted_quote_alert">Deiadar urriko bidalketa bat aipatzen duzunean, zure bidalketa joeretatik ezkutatuko da.</string>
+	<string name="settings_posting_defaults">Bidalketarako lehenetsitakoak</string>
+	<string name="default_post_visibility">Bidalketarako ikusgarritasuna</string>
+	<string name="create_quote_manual_approval">Aipu eskaera</string>
+	<string name="create_quote_manual_approval_subtitle">Egileak eskuz berrikusiko du</string>
+	<plurals name="x_quotes">
+		<item quantity="one">Aipu %,d</item>
+		<item quantity="other">%,d aipu</item>
+	</plurals>
+	<string name="remove_quote">Ezabatu nire argitalpena %s-(r)en aiputik</string>
 	<string name="remove_quote_confirm_title">Ezabatu bidalketa?</string>
+	<string name="remove_quote_confirm">Ekintza hau ezin da desegin.</string>
 	<string name="remove_quote_button">Ezabatu bidalketa</string>
 </resources>
