@@ -164,6 +164,7 @@
 	<string name="add_alt_text">Gehitu ordezko testua</string>
 	<string name="visibility_public">Publikoa</string>
 	<string name="visibility_followers_only">Jarraitzaileak</string>
+	<string name="visibility_private">Aipamen pribatua</string>
 	<string name="recent_searches">Azkenaldikoak</string>
 	<string name="notification_type_follow">Jarraitzaile berriak</string>
 	<string name="notification_type_favorite">Gogokoak</string>
@@ -410,6 +411,7 @@
 	<string name="settings_server_explanation">Laburpena, arauak, moderatzaileak</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">%s(r)i buruz</string>
+	<string name="default_post_language">Argitalpenen hizkuntza</string>
 	<string name="settings_alt_text_reminders">Gehitu alt testu gogorarazleak</string>
 	<string name="settings_confirm_unfollow">Galdetu norbaiti jarraitzeari utzi aurretik</string>
 	<string name="settings_confirm_boost">Galdetu bultzatu aurretik</string>
@@ -863,6 +865,13 @@ Zenbat eta jende gehiago jarraitu, orduan eta aktiboagoa eta interesgarriagoa iz
 		<item quantity="one">%d</item>
 		<item quantity="other">%d</item>
 	</plurals>
+	<string name="quote_post_unavailable">Bidalketa ez dago eskuragarri</string>
+	<string name="quote_post_pending">Bidalketa zain dago</string>
 	<!-- %s is a username, i.e. @Gargron -->
 	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
+	<string name="compose_visibility">Ikusgaitasuna</string>
+	<string name="quote_policy_public">Edozein</string>
+	<string name="quote_policy_followers">Jarraitzaileak soilik</string>
+	<string name="remove_quote_confirm_title">Ezabatu bidalketa?</string>
+	<string name="remove_quote_button">Ezabatu bidalketa</string>
 </resources>
