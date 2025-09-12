@@ -164,7 +164,6 @@
 	<string name="add_alt_text">Bæta við hjálpartexta</string>
 	<string name="visibility_public">Opinbert</string>
 	<string name="visibility_followers_only">Fylgjendur</string>
-	<string name="visibility_private">Tilteknir aðilar</string>
 	<string name="recent_searches">Nýlegt</string>
 	<string name="notification_type_follow">Nýir fylgjendur</string>
 	<string name="notification_type_favorite">Eftirlæti</string>
@@ -411,7 +410,6 @@
 	<string name="settings_server_explanation">Yfirlit, reglur, umsjónarmenn</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">Um %s</string>
-	<string name="default_post_language">Sjálfgefið tungumál færslu</string>
 	<string name="settings_alt_text_reminders">Bæta við áminningum vegna hjálpartexta</string>
 	<string name="settings_confirm_unfollow">Spyrja áður en hætt er að fylgjast með einhverjum</string>
 	<string name="settings_confirm_boost">Spyrja áður en endurbirting fer fram</string>
@@ -730,7 +728,6 @@
 	<string name="notifications_muted">Tilkynningum frá %s hefur verið hafnað.</string>
 	<string name="notifications_allowed">%s mun núna birtast í tilkynningalistanum þínum.</string>
 	<string name="visibility_subtitle_public">Allir á Mastodon og víðar</string>
-	<string name="visibility_subtitle_unlisted">Minni stælar í reikniritum</string>
 	<string name="visibility_subtitle_followers">Einungis þeir sem fylgjast með þér</string>
 	<string name="visibility_subtitle_private">Allir sem minnst er á í færslunni</string>
 	<string name="view_boosts">Skoða endurbirtingar</string>
@@ -870,4 +867,5 @@
 	<string name="quote_post_pending">Færsla í bið</string>
 	<!-- %s is a username, i.e. @Gargron -->
 	<string name="nested_quote">Vitnaði í færslu frá %s</string>
+	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
 </resources>

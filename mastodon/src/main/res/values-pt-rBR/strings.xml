@@ -164,7 +164,6 @@
 	<string name="add_alt_text">Adicionar texto alternativo</string>
 	<string name="visibility_public">Público</string>
 	<string name="visibility_followers_only">Seguidores</string>
-	<string name="visibility_private">Pessoas específicas</string>
 	<string name="recent_searches">Recente</string>
 	<string name="notification_type_follow">Novos seguidores</string>
 	<string name="notification_type_favorite">Favoritos</string>
@@ -411,7 +410,6 @@
 	<string name="settings_server_explanation">Visão geral, regras, moderadores</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">Sobre %s</string>
-	<string name="default_post_language">Idioma padrão de publicação</string>
 	<string name="settings_alt_text_reminders">Adicionar lembretes de texto alternativo</string>
 	<string name="settings_confirm_unfollow">Perguntar antes de deixar de seguir alguém</string>
 	<string name="settings_confirm_boost">Perguntar antes de impulsionar</string>
@@ -730,7 +728,6 @@ Quanto mais pessoas que você seguir, mas interessantes e ativas serão.</string
 	<string name="notifications_muted">As notificações de %s foram dispensadas.</string>
 	<string name="notifications_allowed">%s agora aparecerá na sua lista de notificações.</string>
 	<string name="visibility_subtitle_public">Qualquer um dentro ou fora do Mastodon</string>
-	<string name="visibility_subtitle_unlisted">Menos notificações e recomendações do algoritmo</string>
 	<string name="visibility_subtitle_followers">Mostrar somente seus seguidores</string>
 	<string name="visibility_subtitle_private">Todos mencionados na postagem</string>
 	<string name="view_boosts">Visualizar impulsos</string>
@@ -802,4 +799,5 @@ Quanto mais pessoas que você seguir, mas interessantes e ativas serão.</string
 	<!-- %s is `at_least_x_years_old`. Some languages, unlike English, may require the word "years" here. -->
 	<!-- Substituted into `date_of_birth_explanation` -->
 	<!-- %s is a username, i.e. @Gargron -->
+	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
 </resources>
