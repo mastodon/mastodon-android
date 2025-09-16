@@ -28,6 +28,8 @@ public class QuoteApproval extends BaseModel{
 		PUBLIC,
 		@SerializedName("followers")
 		FOLLOWERS,
+		@SerializedName("following")
+		FOLLOWING,
 		@SerializedName("unsupported_policy")
 		UNSUPPORTED_POLICY
 	}
