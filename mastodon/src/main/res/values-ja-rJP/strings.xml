@@ -827,5 +827,11 @@
 	<string name="compose_visibility_public_anyone">公開、誰でも引用可能</string>
 	<string name="compose_visibility_public_limited">公開、引用は制限</string>
 	<string name="compose_visibility_public_disabled">公開、引用不可</string>
+	<string name="compose_visibility_unlisted_anyone">ひかえめな公開、誰でも引用可能</string>
+	<string name="compose_visibility_unlisted_limited">ひかえめな公開、引用は制限</string>
+	<string name="compose_visibility_unlisted_disabled">ひかえめな公開、引用不可</string>
+	<string name="compose_visibility_title">公開範囲とインタラクション</string>
 	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
+	<string name="compose_visibility_explanation"><![CDATA[この投稿に反応できる人をコントロールします。共通の設定は、設定 > %s > 投稿のデフォルト から確認できます。]]></string>
+	<string name="settings_posting_defaults">投稿のデフォルト</string>
 </resources>
