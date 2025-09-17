@@ -152,6 +152,7 @@
 	<string name="add_alt_text">代替テキストを追加</string>
 	<string name="visibility_public">公開</string>
 	<string name="visibility_followers_only">フォロワー</string>
+	<string name="visibility_private">非公開のメンション</string>
 	<string name="recent_searches">最近</string>
 	<string name="notification_type_follow">新しいフォロワー</string>
 	<string name="notification_type_favorite">お気に入り</string>
@@ -391,6 +392,7 @@
 	<string name="settings_server_explanation">概要、ルール、モデレーター</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">%s について</string>
+	<string name="default_post_language">投稿する言語</string>
 	<string name="settings_alt_text_reminders">代替テキストのリマインダーを追加する</string>
 	<string name="settings_confirm_unfollow">フォローを解除する前に確認する</string>
 	<string name="settings_confirm_boost">ブーストする前に確認する</string>
@@ -694,6 +696,7 @@
 	<string name="notifications_muted">%s さんからの通知は無視されました。</string>
 	<string name="notifications_allowed">%s さんはあなたの通知リストに登録されました。</string>
 	<string name="visibility_subtitle_public">Mastodon 以外も含むすべての人</string>
+	<string name="visibility_subtitle_unlisted">Mastodon の検索結果、トレンド、公開タイムラインには表示しない</string>
 	<string name="visibility_subtitle_followers">フォロワーのみ</string>
 	<string name="visibility_subtitle_private">投稿でメンションした相手のみ</string>
 	<string name="view_boosts">ブーストを確認</string>
@@ -821,5 +824,8 @@
 	<string name="quote_post_pending_explanation">Mastodon では、引用できるかを元の投稿者がコントロールできます。この投稿は元の投稿者の承認が得られるまで保留されます。</string>
 	<!-- %s is a username, i.e. @Gargron -->
 	<string name="nested_quote">%s の投稿を引用</string>
+	<string name="compose_visibility_public_anyone">公開、誰でも引用可能</string>
+	<string name="compose_visibility_public_limited">公開、引用は制限</string>
+	<string name="compose_visibility_public_disabled">公開、引用不可</string>
 	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
 </resources>
