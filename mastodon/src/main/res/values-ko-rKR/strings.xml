@@ -4,10 +4,17 @@
 	<string name="next">다음</string>
 	<string name="loading_instance">서버 정보 받아오는 중...</string>
 	<string name="error">오류</string>
+	<string name="not_a_mastodon_instance">%s는 마스토돈 서버인 것 같지 않습니다.</string>
 	<string name="ok">확인</string>
 	<string name="preparing_auth">인증 준비 중…</string>
 	<string name="finishing_auth">인증을 끝마치는 중…</string>
+	<string name="user_boosted">%s 님이 부스트했습니다</string>
+	<string name="in_reply_to">%s 님에게 답장</string>
 	<string name="notifications">알림</string>
+	<string name="user_followed_you">%s 님이 나를 팔로우했습니다</string>
+	<string name="user_sent_follow_request">%s 님이 나에게 팔로우 요청을 보냄</string>
+	<string name="user_favorited">%s 개의 즐겨찾기:</string>
+	<string name="notification_boosted">%s 님이 부스트했습니다:</string>
 	<string name="share_toot_title">공유</string>
 	<string name="settings">설정</string>
 	<string name="publish">게시</string>
@@ -21,10 +28,13 @@
 		<item quantity="other">팔로잉</item>
 	</plurals>
 	<string name="posts">게시물</string>
+	<string name="posts_and_replies">게시물과 답장</string>
 	<string name="media">미디어</string>
 	<string name="profile_about">정보</string>
 	<string name="button_follow">팔로우</string>
 	<string name="button_following">팔로잉</string>
+	<string name="edit_profile">프로필 편집</string>
+	<string name="share_user">프로필 공유하기 를 통해…</string>
 	<string name="mute_user">%s 뮤트</string>
 	<string name="unmute_user">%s 뮤트 해제</string>
 	<string name="block_user">%s 차단</string>
@@ -64,32 +74,44 @@
 	<plurals name="x_days_left">
 		<item quantity="other">%d일 남았습니다</item>
 	</plurals>
+	<plurals name="x_votes">
+		<item quantity="other">%,d 투표</item>
+	</plurals>
 	<string name="poll_closed">마감됨</string>
 	<string name="do_mute">뮤트</string>
 	<string name="do_block">차단</string>
 	<string name="button_blocked">차단됨</string>
 	<string name="action_vote">투표</string>
+	<string name="confirm">확정</string>
 	<string name="delete">삭제</string>
+	<string name="confirm_delete_title">게시물삭제</string>
 	<string name="confirm_delete">정말로 이 게시물을 삭제하시겠습니까?</string>
 	<string name="deleting">삭제 중…</string>
 	<string name="notification_channel_audio_player">오디오 재생</string>
 	<string name="play">재생</string>
 	<string name="pause">일시정지</string>
+	<string name="log_out">로그아웃</string>
 	<string name="add_account">계정 추가</string>
 	<string name="search_hint">검색</string>
 	<string name="hashtags">해시태그</string>
 	<string name="news">소식</string>
 	<string name="for_you">추천</string>
+	<string name="all_notifications">모든 것</string>
 	<string name="mentions">멘션</string>
 	<plurals name="x_people_talking">
 		<item quantity="other">%d명이 말하고 있음</item>
 	</plurals>
 	<string name="report_title">%s 신고</string>
+	<string name="report_choose_reason">이 게시물에 어떤 문제가 있나요?</string>
+	<string name="report_choose_reason_account">%s에 어떠한 문제라도 있나요?</string>
 	<string name="report_choose_reason_subtitle">가장 알맞은 것을 선택하세요</string>
+	<string name="report_reason_personal">마음에 안 듭니다</string>
 	<string name="report_reason_personal_subtitle">내가 보기 싫은 종류에 속합니다</string>
+	<string name="report_reason_spam">스팸입니다</string>
 	<string name="report_reason_spam_subtitle">악성 링크, 반응 스팸, 또는 반복적인 답장</string>
 	<string name="report_reason_violation">서버 규칙을 위반합니다</string>
 	<string name="report_reason_violation_subtitle">특정 규칙을 위반합니다</string>
+	<string name="report_reason_other">다른 문제가 있습니다</string>
 	<string name="report_reason_other_subtitle">이슈가 다른 분류에 속하지 않습니다</string>
 	<string name="report_choose_rule">어떤 규칙을 위반했나요?</string>
 	<string name="report_choose_rule_subtitle">해당하는 사항을 모두 선택하세요</string>
@@ -98,37 +120,59 @@
 	<string name="report_comment_title">우리가 더 알아야 할 내용이 있나요?</string>
 	<string name="report_comment_hint">추가 의견</string>
 	<string name="sending_report">신고 보내는 중...</string>
+	<string name="report_sent_title">신고해주셔서 감사합니다. 저희 중재팀이 확인할 예정입니다.</string>
+	<string name="report_sent_subtitle">서버의 저희 중재자들이 이것을 검토하는 동안, 당신은 %s에 대한 행동을 취할 수 있습니다:</string>
 	<string name="unfollow_user">%s 팔로우 해제</string>
 	<string name="unfollow">팔로우 해제</string>
+	<string name="mute_user_explain">당신은 해당 계정의 게시물을 보지 않게 됩니다. 해당 계정은 여전히 당신을 팔로우 하거나 당신의 게시물을 볼 수 있으며 해당 계정은 자신이 뮤트 되었는지 알지 못합니다.</string>
+	<string name="block_user_explain">당신은 해당 계정의 게시물을 보지 않게 됩니다. 해당 계정은 당신의 게시물을 보거나 팔로우 할 수 없습니다. 해당 계정은 자신이 차단되었다는 사실을 알 수 있습니다.</string>
+	<string name="report_personal_title">이런 것을 보지 않길 원하나요?</string>
+	<string name="report_personal_subtitle">마스토돈에서 나에게 보이는 것을 조절하기 위한 몇 가지 선택사항들이 존재합니다:</string>
 	<string name="back">뒤로 가기</string>
 	<string name="search_communities">서버이름 혹은 URL</string>
+	<string name="instance_rules_title">서버 규칙</string>
 	<string name="instance_rules_subtitle">계속 진행하는 것으로 %s의 중재자들에 의해 정해지고 관리되는 규칙들에 동의하는 것으로 간주합니다.</string>
+	<string name="signup_title">계정 만들기</string>
 	<string name="display_name">이름</string>
 	<string name="username">사용자명</string>
 	<string name="email">이메일</string>
 	<string name="password">암호</string>
 	<string name="confirm_password">암호 확인</string>
 	<string name="category_general">일반</string>
+	<string name="confirm_email_title">수신함 확인하기</string>
 	<!-- %s is the email address -->
+	<string name="confirm_email_subtitle">%s에 인증하기 위해 우리가 보낸 링크를 누르세요. 여기서 기다리겠습니다.</string>
+	<string name="confirm_email_didnt_get">\?</string>
 	<string name="resend">재전송</string>
 	<string name="open_email_app">이메일 앱 열기</string>
 	<string name="resent_email">확인용 이메일이 보내졌습니다</string>
+	<string name="compose_hint">당신의 생각을 입력하거나 붙여넣으세요</string>
 	<string name="content_warning">열람 주의</string>
 	<string name="save">저장</string>
 	<string name="add_alt_text">대체 텍스트 추가</string>
 	<string name="visibility_public">공개</string>
+	<string name="visibility_followers_only">팔로워</string>
+	<string name="visibility_private">개인 멘션</string>
+	<string name="recent_searches">최근앱</string>
 	<string name="notification_type_follow">새 팔로워</string>
 	<string name="notification_type_favorite">좋아함</string>
+	<string name="notification_type_reblog">부스트</string>
 	<string name="notification_type_mention">멘션</string>
 	<string name="notification_type_poll">투표</string>
 	<string name="choose_account">계정 선택</string>
 	<string name="err_not_logged_in">먼저 마스토돈에 로그인해야 합니다</string>
+	<plurals name="cant_add_more_than_x_attachments">
+		<item quantity="other">%d개의 미디어를 초과해서 첨부할 수 없습니다</item>
+	</plurals>
 	<string name="media_attachment_unsupported_type">%s 파일은 지원되지 않는 타입입니다</string>
 	<string name="media_attachment_too_big">%1$s 파일은 업로드 제한인 %2$s MB를 초과합니다</string>
+	<string name="settings_theme">테마-화면 스타일</string>
+	<string name="theme_auto">기기 모드에 맞춰 자동 적용</string>
 	<string name="theme_light">밝음</string>
 	<string name="theme_dark">어두움</string>
 	<string name="settings_behavior">동작</string>
 	<string name="settings_gif">아바타와 에모지의 애니메이션을 재생</string>
+	<string name="settings_custom_tabs">링크 열기</string>
 	<string name="settings_notifications">알림</string>
 	<string name="settings_contribute">마스토돈에 기여</string>
 	<string name="settings_tos">이용 약관</string>
@@ -136,9 +180,13 @@
 	<string name="settings_clear_cache">미디어 캐시 지우기</string>
 	<string name="settings_app_version">안드로이드용 마스토돈 v%1$s (%2$d)</string>
 	<string name="media_cache_cleared">미디어 캐시 지워짐</string>
+	<string name="confirm_log_out">%s 로그아웃?</string>
+	<string name="sensitive_content_explain">작성자가 미디어를 민감하다고 설정했습니다. </string>
+	<string name="avatar_description">%s 님의 프로필로 이동</string>
 	<string name="more_options">추가 옵션</string>
 	<string name="new_post">새 게시물</string>
 	<string name="button_reply">답장</string>
+	<string name="button_reblog">부스트</string>
 	<string name="button_favorite">좋아요</string>
 	<string name="button_share">공유</string>
 	<string name="media_no_description">설명이 없는 미디어</string>
@@ -150,7 +198,11 @@
 	<string name="media_viewer">미디어 뷰어</string>
 	<string name="follow_user">%s 팔로우</string>
 	<string name="unfollowed_user">%s 님을 팔로우 해제했습니다</string>
+	<string name="followed_user">이제 %s 님을 팔로우 합니다</string>
+	<string name="following_user_requested">%s 님 팔로우를 요청합니다</string>
 	<string name="open_in_browser">브라우저에서 열기</string>
+	<string name="hide_boosts_from_user">부스트 숨기기</string>
+	<string name="show_boosts_from_user">부스트 표시</string>
 	<string name="signup_reason">가입하려는 이유가 무엇인가요?</string>
 	<string name="signup_reason_note">이 정보는 우리가 심사를 하는 데에 참고할 수 있습니다.</string>
 	<string name="clear">모두 지우기</string>
@@ -163,7 +215,15 @@
 	<string name="open_settings">설정 열기</string>
 	<string name="error_saving_file">파일 저장 오류</string>
 	<string name="downloading">다운로드 중…</string>
+	<string name="no_app_to_handle_action">이 동작을 처리할 앱이 없습니다</string>
+	<string name="local_timeline">실시간 피드</string>
+	<string name="trending_posts_info_banner">당신이 속한 마스토돈 서버에서 관심을 끌고 있는 게시물들입니다.</string>
+	<string name="trending_links_info_banner">당신이 속한 마스토돈 서버에서 관심을 끌고 있는 뉴스 스토리들입니다.</string>
 	<!-- %s is the server domain -->
+	<string name="local_timeline_info_banner">이것들은 해당 서버(%s)에 있는 모든 사용자가 작성한 전체 게시물입니다.</string>
+	<string name="recommended_accounts_info_banner">다른 사용자가 팔로우하는 계정을 기준으로, 이런 계정들도 좋아할 수 있습니다.</string>
+	<string name="see_new_posts">새 게시물</string>
+	<string name="follow_back">맞팔로우</string>
 	<string name="button_follow_pending">대기 중</string>
 	<string name="follows_you">나를 팔로우합니다</string>
 	<string name="manually_approves_followers">수동으로 팔로워 승인</string>
@@ -176,6 +236,9 @@
 	</plurals>
 	<plurals name="x_favorites">
 		<item quantity="other">%,d개의 좋아요</item>
+	</plurals>
+	<plurals name="x_reblogs">
+		<item quantity="other">%,d 님이 부스트했습니다</item>
 	</plurals>
 	<string name="time_now">방금</string>
 	<string name="edit_history">수정 내역</string>
@@ -213,14 +276,23 @@
 	<!-- %s is file size -->
 	<string name="download_update">다운로드 (%s)</string>
 	<string name="install_update">설치</string>
+	<string name="privacy_policy_title">당신의 개인정보</string>
 	<string name="privacy_policy_subtitle">마스토돈 앱은 아무런 정보도 수집하지 않지만, 당신이 가입하는 서버는 다른 정책을 가질 수 있습니다.\n\n만약 %s의 정책에 동의하지 않는다면, 뒤로 돌아가서 다른 서버를 고를 수 있습니다.</string>
+	<string name="i_agree">동의합니다</string>
 	<string name="empty_list">리스트에 아무 것도 없습니다</string>
 	<string name="instance_signup_closed">이 서버는 가입이 막혀 있는 상태입니다.</string>
 	<string name="text_copied">클립보드에 복사됨</string>
 	<string name="add_bookmark">보관</string>
+	<string name="remove_bookmark">북마크 삭제</string>
 	<string name="bookmarks">보관함</string>
+	<string name="your_favorites">즐겨찾기</string>
+	<string name="login_title">돌아오신 것을 환영합니다</string>
 	<string name="login_subtitle">계정을 생성한 서버에 로그인하세요.</string>
 	<string name="server_url">서버 URL</string>
+	<string name="server_filter_any_language">모든 언어</string>
+	<string name="server_filter_instant_signup">즉시 가입</string>
+	<string name="server_filter_manual_review">수동 검토</string>
+	<string name="server_filter_any_signup_speed">모든 가입 속도-어떠한 가입 속도</string>
 	<string name="server_filter_region_europe">유럽</string>
 	<string name="server_filter_region_north_america">북아메리카</string>
 	<string name="server_filter_region_south_america">남아메리카</string>
@@ -228,40 +300,575 @@
 	<string name="server_filter_region_asia">아시아</string>
 	<string name="server_filter_region_oceania">오세아니아</string>
 	<string name="not_accepting_new_members">새로운 가입을 받지 않습니다</string>
+	<string name="category_special_interests">특별한 관심사</string>
+	<string name="signup_passwords_dont_match">비밀번호가 일치하지 않습니다.</string>
 	<string name="profile_add_row">열 추가</string>
 	<string name="profile_setup">프로필 설정</string>
 	<string name="profile_setup_subtitle">나중에 언제든지 프로필 탭에서 완성할 수 있습니다.</string>
 	<string name="follow_all">모두 팔로우</string>
 	<string name="server_rules_disagree">동의 안 함</string>
+	<string name="privacy_policy_explanation">요약: 우리는 어떤 정보도 수집하거나 처리하지 않습니다.</string>
 	<!-- %s is server domain -->
 	<string name="server_policy_disagree">%s에 대해 비동의</string>
+	<string name="profile_bio">자기소개</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
+	<string name="sending_follows">팔로우 중인 사용자…</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<string name="signup_email_domain_blocked">%1$s은 %2$s에서의 가입을 허용하지 않습니다. 다른 것을 시도하거나 &lt;a&gt;다른 서버를 선택하세요&lt;/a&gt;.</string>
+	<string name="spoiler_show">무시하고 표시</string>
+	<string name="spoiler_hide">다시 숨기기</string>
+	<string name="poll_multiple_choice">한 개 혹은 여러 개를 선택하세요</string>
+	<string name="save_changes">변경사항 저장</string>
+	<string name="profile_featured">추천</string>
+	<string name="profile_timeline">타임라인</string>
+	<string name="view_all">모두 보기</string>
+	<string name="profile_endorsed_accounts">계정</string>
+	<string name="verified_link">인증된 링크</string>
+	<string name="show">표시</string>
+	<string name="hide">숨기기</string>
+	<string name="join_default_server">%s에 가입하기</string>
+	<string name="pick_server">다른 서버 선택하기</string>
+	<string name="signup_or_login">또는</string>
+	<string name="learn_more">더 알아보기</string>
+	<string name="welcome_to_mastodon">Mastodon에 오신 것을 환영합니다</string>
+	<string name="welcome_paragraph1">Mastodon은 분산형 소셜 네트워크로, 어떤 단일 회사도 이를 통제하지 않으며, 모두 서로 연결된 여러 개의 독립적으로 운영되는 서버로 구성되어 있습니다.</string>
+	<string name="what_are_servers">서버란 무엇인가요?</string>
+	<string name="welcome_paragraph2">모든 Mastodon 계정은 서버에 호스팅되며, 각각 고유한 가치, 규칙 및 &amp;관리자가 있습니다. 어떤 서버를 선택하든, 모든 서버의 사람들을 팔로우하고 상호 작용할 수 있습니다.</string>
+	<string name="opening_link">링크 열기...</string>
+	<string name="link_not_supported">이 링크는 앱에서 지원하지 않습니다.</string>
+	<string name="log_out_all_accounts">모든 계정 로그아웃하기</string>
+	<string name="confirm_log_out_all_accounts">모든 계정에서 로그아웃하시겠습니까?</string>
+	<string name="retry">재시도</string>
+	<string name="post_failed">게시물 작성 실패</string>
 	<!-- %s is formatted file size ("467 KB image") -->
+	<string name="attachment_description_image">%s장의 이미지</string>
+	<string name="attachment_description_video">%s 개의 동영상</string>
+	<string name="attachment_description_audio">%s 개의 오디오</string>
+	<string name="attachment_description_unknown">%s개의 파일</string>
+	<string name="attachment_type_image">이미지</string>
+	<string name="attachment_type_video">동영상</string>
+	<string name="attachment_type_audio">오디오</string>
+	<string name="attachment_type_gif">GIF</string>
+	<string name="attachment_type_unknown">파일</string>
+	<string name="attachment_x_percent_uploaded">%d%% 업로드됨</string>
+	<string name="add_poll_option">투표 옵션 추가</string>
+	<string name="poll_length">설문 길이</string>
+	<string name="poll_style">스타일</string>
+	<string name="compose_poll_single_choice">선택해 주세요</string>
+	<string name="compose_poll_multiple_choice">다중 선택</string>
+	<string name="delete_poll_option">투표 옵션 삭제</string>
+	<string name="poll_style_title">설문 스타일</string>
+	<string name="alt_text">대체 텍스트</string>
+	<string name="help">도움말</string>
+	<string name="what_is_alt_text">대체 텍스트란 무엇인가요?</string>
+	<string name="alt_text_help">Alt 텍스트는 시각 장애인, 저대역 연결 사용자 또는 추가 문맥이 필요한 사람들을 위해 이미지 설명을 제공합니다.
+
+\n\n모두를 위한 접근성과 이해를 향상시키려면 명확하고 간결하며 객관적인 Alt 텍스트를 작성하세요.\n\n
+
+<ul> <li>중요한 요소 포착하기</li>
+ <li>이미지 내 텍스트 요약하기</li>
+ <li>일반적인 문장 구조 사용하기</li>
+ <li>중복 정보 피하기</li>
+ <li>복잡한 시각 자료(도표나 지도 등)에서는 추세와 주요 발견에 집중하기</li></ul></string>
+	<string name="edit_post">게시물 편집</string>
+	<string name="no_verified_link">인증된 링크가 없습니다</string>
+	<string name="compose_autocomplete_emoji_empty">이모지 찾아보기</string>
+	<string name="compose_autocomplete_users_empty">찾고자 하는 대상을 찾아보세요</string>
+	<string name="no_search_results">검색어에 대한 결과를 찾을 수 없습니다</string>
+	<string name="language">언어</string>
+	<string name="language_default">기본값</string>
+	<string name="language_system">시스템</string>
+	<string name="language_detecting">언어 감지</string>
+	<string name="language_cant_detect">언어를 감지할 수 없습니다</string>
+	<string name="language_detected">감지된</string>
+	<string name="media_hidden">숨겨진 미디어</string>
+	<string name="post_hidden">숨겨진 게시물</string>
+	<string name="report_title_post">게시물 신고</string>
+	<string name="forward_report_explanation">이 계정은 다른 서버에 있습니다. 익명화 된 사본을 해당 서버에도 전송할까요?</string>
 	<!-- %s is the server domain -->
+	<string name="forward_report_to_server">%s에 전달</string>
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
+	<string name="reported">신고됨</string>
+	<string name="report_unfollow_explanation">홈 피드에서 더 이상 해당 유저들의 게시물을 보고 싶지 않으면, 언팔로우하세요.</string>
+	<string name="muted_user">뮤트한-음소거한 %s</string>
+	<string name="report_sent_already_blocked">이미 이 사용자를 차단했으므로, 신고를 검토하는 동안 더 이상 무언가를 하지 않으셔도 됩니다.</string>
+	<string name="report_personal_already_blocked">이미 이 사용자를 차단했으므로, 더 이상 무언가를 하지 않으셔도 됩니다.\n\n마스토돈을 모두를 위한 안전한 공간으로 만드는 데 도움을 주셔서 감사합니다!</string>
+	<string name="blocked_user">차단한 %s</string>
+	<string name="mark_all_notifications_read">모두 읽은 상태로 표시</string>
+	<string name="settings_display">디스플레이</string>
+	<string name="settings_filters">필터</string>
+	<string name="settings_server_explanation">미리보기, 규칙,</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
+	<string name="about_app">%s에 대해</string>
+	<string name="default_post_language">게시 언어</string>
+	<string name="settings_alt_text_reminders">대체 텍스트 리마인더 추가</string>
+	<string name="settings_confirm_unfollow">누군가를 언팔로우할 때 묻기</string>
+	<string name="settings_confirm_boost">부스트 전에 묻기</string>
+	<string name="settings_confirm_delete_post">게시물 삭제 전 묻기</string>
+	<string name="pause_all_notifications">모두 일시 중지</string>
+	<string name="pause_notifications_off">끄기</string>
+	<string name="notifications_policy_anyone">누구나</string>
+	<string name="notifications_policy_followed">나를 팔로우하는 사람들</string>
+	<string name="notifications_policy_follower">내가 팔로우하는 사람들</string>
+	<string name="notifications_policy_no_one">알림 받지않기</string>
+	<string name="settings_notifications_policy">알림 받기</string>
+	<string name="notification_type_mentions_and_replies">언급과 답장</string>
+	<string name="pause_all_notifications_title">모든 알림 일시 중단</string>
+	<plurals name="x_weeks">
+		<item quantity="other">%d 주</item>
+	</plurals>
 	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
+	<string name="date_at_time">%1$s %2$s에</string>
+	<string name="today">오늘</string>
+	<string name="yesterday">어제</string>
+	<string name="tomorrow">내일</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="pause_notifications_ends">%s에 종료</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="pause_notifications_banner">%s에 알림이 다시 시작됩니다.</string>
+	<string name="resume_notifications_now">지금 재개</string>
+	<string name="open_system_notification_settings">알림 설정으로 이동</string>
+	<string name="about_server">에 대해</string>
+	<string name="server_rules">규칙</string>
+	<string name="server_administrator">관리자</string>
+	<string name="send_email_to_server_admin">관리자에게 메세지 보내기</string>
+	<string name="notifications_disabled_in_system">어디에서든 업데이트를 확인할 수 있도록 기기 설정에서 알림 켜기</string>
+	<string name="settings_even_more">추가 설정</string>
+	<string name="settings_show_cws">열람 주의 표시</string>
+	<string name="settings_hide_sensitive_media">민감하다고 표시된 미디어를 숨기기</string>
+	<string name="settings_show_interaction_counts">게시물 상호작용 수</string>
+	<string name="settings_show_emoji_in_names">표시 이름에 사용자 지정 이모지 추가</string>
+	<plurals name="in_x_seconds">
+		<item quantity="other">%d초 안에</item>
+	</plurals>
+	<plurals name="in_x_minutes">
+		<item quantity="other">%d분 안에</item>
+	</plurals>
+	<plurals name="in_x_hours">
+		<item quantity="other">%d시간 안에</item>
+	</plurals>
+	<plurals name="x_hours_ago">
+		<item quantity="other">%d 시간 전</item>
+	</plurals>
+	<string name="alt_text_reminder_title">미디어에 대체 텍스트가 없습니다</string>
+	<plurals name="alt_text_reminder_x_images">
+		<item quantity="other">이미지 %s개에 대체 텍스트를 입력하지 않았습니다.그대로 포스트 하시겠습니까?</item>
+	</plurals>
+	<plurals name="alt_text_reminder_x_attachments">
+		<item quantity="other">이미지 %s개에 대체 텍스트를 입력하지 않았습니다.그대로 포스트 하시겠습니까?</item>
+	</plurals>
+	<string name="count_one">1개</string>
+	<string name="count_two">2개</string>
+	<string name="count_three">3</string>
+	<string name="count_four">4개</string>
+	<string name="alt_text_reminder_post_anyway">게시</string>
 	<!-- %s is the username -->
+	<string name="unfollow_confirmation">%s 님을 언팔로우 할까요?</string>
+	<string name="filter_active">활성 사용자</string>
+	<string name="filter_inactive">비활성 사용자</string>
+	<string name="settings_add_filter">필터 추가</string>
+	<string name="settings_edit_filter">필터 편집</string>
+	<string name="settings_filter_duration">기간</string>
+	<string name="settings_filter_muted_words">뮤트된 단어</string>
+	<string name="settings_filter_context">를 뮤트</string>
+	<string name="settings_filter_show_cw">내용 경고 표시</string>
+	<string name="settings_filter_show_cw_explanation">이 필터에 해당하는 게시물은 계속 표시하지만, 내용 경고 뒤에 숨겨서 보여줌</string>
+	<string name="settings_delete_filter">필터 삭제</string>
+	<string name="filter_duration_forever">무기한</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="settings_filter_ends">종료: %s</string>
+	<plurals name="settings_x_muted_words">
+		<item quantity="other">%d 뮤트된 단어 또는 문구</item>
+	</plurals>
+	<string name="selection_2_options">%1$s과 %2$s</string>
+	<string name="selection_3_options">%1$s, %2$s, 및 %3$s</string>
+	<string name="selection_4_or_more">%1$s, %2$s 및 %3$d개 더보기</string>
+	<string name="filter_context_home_lists">홈 &amp; 리스트</string>
+	<string name="filter_context_notifications">알림</string>
+	<string name="filter_context_public_timelines">공개 타임라인</string>
+	<string name="filter_context_threads_replies">스레드 &amp; 답글</string>
+	<string name="filter_context_profiles">프로필</string>
+	<string name="settings_filter_title">제목</string>
+	<string name="settings_delete_filter_title">\"%s\" 필터를 삭제하시겠습니까?</string>
+	<string name="settings_delete_filter_confirmation">이 필터는 당신의 모든 기기의 계정에서 삭제됩니다.</string>
+	<string name="add_muted_word">뮤트할 단어 추가</string>
+	<string name="edit_muted_word">뮤트된 단어 편집</string>
+	<string name="add">추가</string>
+	<string name="filter_word_or_phrase">단어 또는 어구</string>
+	<string name="filter_add_word_help">단어는 대소문자를 구분하지 않으며, 전체 단어 단위로만 일치합니다.\n\n예를 들어 필터에 \'Apple\'이라는 키워드를 설정하면 \'apple\'이나 \'aPpLe\'가 포함된 게시물은 숨기지만 \'pineapple\'이 포함된 게시물은 숨기지 않습니다.</string>
+	<string name="settings_delete_filter_word">\"%s\" 단어를 삭제하시겠습니까?</string>
+	<string name="enter_selection_mode">선택</string>
+	<string name="select_all">전체 선택</string>
+	<string name="settings_filter_duration_title">필터 기간</string>
+	<string name="filter_duration_custom">사용자 지정</string>
+	<plurals name="settings_delete_x_filter_words">
+		<item quantity="other">%d 단어를 삭제하시겠습니까?</item>
+	</plurals>
+	<plurals name="x_items_selected">
+		<item quantity="other">%d개 선택됨</item>
+	</plurals>
+	<string name="required_form_field_blank">비워둘 수 없습니다</string>
+	<string name="filter_word_already_in_list">이미 목록에 있음</string>
+	<string name="app_update_ready">새로운 업데이트가 있습니다.</string>
+	<string name="app_update_version">버전 %s</string>
+	<string name="downloading_update">다운로드 중…(%d%%)</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
+	<string name="post_matches_filter_x">“%s” 필터와 일치함</string>
+	<string name="search_mastodon">Mastodon에서 찾아보기</string>
+	<string name="clear_all">모두 지우기</string>
+	<string name="search_open_url">마스토돈에서 URL 열기</string>
+	<string name="posts_matching_hashtag">“%s가 포함된 게시물들</string>
+	<string name="search_go_to_account">%s로 이동</string>
+	<string name="posts_matching_string">“%s”가 포함된 게시물들</string>
+	<string name="accounts_matching_string">“%s”가 포함된 사람들</string>
 	<!-- Shown in the post header. Please keep it short -->
+	<string name="time_seconds_ago_short">%d 초 전</string>
+	<string name="time_minutes_ago_short">%d 분 전</string>
+	<string name="time_hours_ago_short">%d 시간 전</string>
+	<string name="time_days_ago_short">%d 일 전</string>
 	<!-- %s is the name of the post language -->
+	<string name="translate_post">%s에서 번역됨</string>
 	<!-- %1$s is the language, %2$s is the name of the translation service -->
+	<string name="post_translated">%1$s에서 %2$s를 사용해 번역됨</string>
+	<string name="translation_show_original">원본 보기</string>
+	<string name="translation_failed">번역에 실패했습니다. 관리자가 이 서버에 번역 기능을 활성화시키지 않았거나 이 서버가 번역 기능을 지원하지 않는 Mastodon의 오래된 버전을 사용하는 것일 수 있습니다.</string>
+	<string name="settings_privacy">프라이버시와 노출 범위</string>
+	<string name="settings_discoverable">탐색 알고리즘에서 프로필과 게시물 우선 노출</string>
+	<string name="settings_indexable">공개 게시물을 검색 결과에 포함시키기</string>
+	<plurals name="x_participants">
+		<item quantity="other">%,d명의 참여자</item>
+	</plurals>
+	<plurals name="x_posts_today">
+		<item quantity="other">오늘 게시한 %,d명</item>
+	</plurals>
+	<string name="error_playing_video">비디오 재생 오류 발생</string>
+	<string name="timeline_following">홈</string>
+	<string name="lists">목록</string>
+	<string name="followed_hashtags">팔로우 중인 해시태그</string>
+	<string name="manage_lists">목록 관리</string>
+	<string name="manage_hashtags">해시태그 관리</string>
 	<!-- Screen reader description for the menu on the home timeline screen -->
+	<string name="dropdown_menu">드롭다운 메뉴</string>
+	<string name="edit_list">목록 관리</string>
+	<string name="list_members">리스트 구성원</string>
+	<string name="delete_list">리스트 삭제</string>
 	<!-- %s is the name of the list -->
+	<string name="delete_list_confirm">\"%s\" 삭제</string>
+	<string name="list_exclusive">팔로우 중인 구성원 숨기기</string>
+	<string name="list_exclusive_subtitle">이 목록에 있는 사람이면, 팔로우 중인 타임라인에서 그 사람을 숨겨서 게시물을 두 번 보는 것을 방지하세요.</string>
+	<string name="list_name">목록 이름</string>
+	<string name="list_show_replies_to">답장을 표시할 대상:</string>
+	<string name="list_replies_no_one">없음</string>
+	<string name="list_replies_members">목록의 구성원</string>
+	<string name="list_replies_anyone">내가 팔로우 하는 사람</string>
+	<string name="confirm_remove_list_members">구성원을 제거하시겠습니까?</string>
+	<string name="remove">제거</string>
+	<string name="add_list_member">구성원 추가</string>
+	<string name="search_among_people_you_follow">팔로우 중인 사람들 중에서 찾기</string>
+	<string name="add_user_to_list">목록에서 추가 또는 제거</string>
+	<string name="add_user_to_list_title">목록에 추가</string>
 	<!-- %s is a username -->
+	<string name="manage_user_lists">%s 가 표시되는 목록 관리하기</string>
+	<string name="remove_from_list">목록에서 제거</string>
+	<string name="confirm_remove_list_member">구성원을 제거하시겠습니까?</string>
+	<string name="no_followed_hashtags_title">해시태그를 팔로우해서 관심사 따라잡기</string>
+	<string name="no_followed_hashtags_subtitle">팔로우중인 사람들이 여기 나타날 것입니다</string>
+	<string name="no_lists_title">목록으로 홈 피드를 관리하세요</string>
+	<string name="no_lists_subtitle">여기에 당신의 제목이 나타납니다</string>
+	<string name="manage_accounts">계정 추가 또는 전환</string>
+	<plurals name="x_posts_recently">
+		<item quantity="other">%,d 개 최신 게시물</item>
+	</plurals>
+	<string name="create_list">목록 만들기</string>
+	<string name="step_x_of_y">%2$d개 중 %1$d번째 단계</string>
+	<string name="create">만들기</string>
+	<string name="manage_list_members">리스트 구성원 관리</string>
+	<string name="list_no_members">아직 구성원이 없습니다</string>
+	<string name="list_find_users">추가할 사용자 검색</string>
+	<string name="reply_to_user">%s님에게 답장하기</string>
+	<string name="posted_at">%s가 게시한</string>
+	<string name="non_mutual_sheet_title">안녕하세요, 새로운 연결!</string>
+	<string name="non_mutual_sheet_text">아직 모르는 누군가에게 답변하시려는 것처럼 보입니다. 먼저 좋은 첫인상을 남겨 보세요.</string>
+	<string name="got_it">알겠습니다</string>
+	<string name="dont_remind_again">다시 알리지 않습니다</string>
 	<!-- %s is a time interval ("5 months") -->
+	<string name="old_post_sheet_title">이 게시물은 %s 전</string>
+	<string name="old_post_sheet_text">여전히 답변할 수 있지만, 더는 관련은 없을 것입니다.</string>
+	<plurals name="x_months">
+		<item quantity="other">%,d 달</item>
+	</plurals>
+	<string name="more_than_two_years">2년 이상</string>
+	<string name="non_mutual_title1">존중하고 &amp; 관련이 있도록 하세요</string>
+	<string name="non_mutual_text1">답변이 정중하고 주제에 맞도록 하세요</string>
+	<string name="non_mutual_title2">친절함을 받아들이세요</string>
+	<string name="non_mutual_text2">긍정적인 톤은 항상 환영합니다.</string>
+	<string name="non_mutual_title3">열려있으세요</string>
+	<string name="non_mutual_text3">모든 사람들의 대화 스타일은 고유합니다. 적응할 준비를 해주세요.</string>
+	<string name="make_profile_discoverable">내 프로필을 발견 가능하도록 설정</string>
+	<string name="discoverability">발견 용이성</string>
+	<string name="discoverability_help">마스토돈에서 발견 가능성-쉽게 발견될 수 있는 정도-을 선택한다면, 당신이 작성한 게시물은 아마도 검색 결과와 트렌드에 나타날 것입니다.\n\n당신의 프로필은 유사한 관심사를 가진 사람들에게 추천될 것입니다.\n\n이 옵션을 선택하지 않더라도 누군가 당신의 이름을 검색했을 때 프로필이 숨겨지지는 않습니다.</string>
+	<string name="app_version_copied">버전 정보가 클립보드에 복사되었습니다.</string>
+	<string name="onboarding_recommendations_intro">홈 피드를 직접 큐레이팅합니다.
+더 많은 사람을 팔로우할수록, 홈 피드가 더 활발해지고 흥미로워질 거에요.</string>
+	<string name="onboarding_recommendations_title">내게 맞는 홈 피드 꾸미기</string>
+	<string name="article_by_author">%s에 의해</string>
+	<string name="button_reblogged">부스트된</string>
+	<string name="button_favorited">즐겨찾기된</string>
+	<string name="join_server_x_with_invite">%s 참여를 위해 초대하기</string>
+	<string name="expired_invite_link">만료된 초대 링크</string>
+	<string name="expired_clipboard_invite_link_alert">클립보드에 있는 %1$s 에 대한 초대 링크가 만료되어 등록할 수 없습니다.\n\n기존 사용자로부터 새로운 링크를 요청하거나 %2$s 를 통해 등록을 요청할 수 있고, 또는 가입할 수 있는 다른 서버를 선택할 수도 있습니다.</string>
+	<string name="invalid_invite_link">유효하지 않은 초대 링크</string>
+	<string name="invalid_clipboard_invite_link_alert">클립보드에 있는 %1$s 에 대한 초대 링크가 유효하지 않아 등록할 수 없습니다.\n\n기존 사용자로부터 새로운 링크를 요청하거나 %2$s 를 통해 등록을 요청할 수 있고, 또는 가입할 수 있는 다른 서버를 선택할 수도 있습니다.</string>
+	<string name="use_invite_link">초대 링크 사용하기</string>
+	<string name="enter_invite_link">초대 링크 입력하기</string>
+	<string name="this_invite_is_invalid">이 초대 링크는 유효하지 않습니다.</string>
+	<string name="this_invite_has_expired">이 초대 링크는 만료되었습니다.</string>
+	<string name="invite_link_pasted">클립보드에서</string>
+	<string name="need_invite_to_join_server">클립보드에서 링크가 붙여넣어졌습니다.</string>
+	<string name="mute_user_confirm_title">사용자를 뮤트할까요?</string>
+	<string name="user_wont_know_muted">해당 사용자는 뮤트되었다는 사실을 모를 것입니다.</string>
+	<string name="user_can_still_see_your_posts">해당 사용자는 당신가 작성한 게시물을 볼 수는 있지만, 당신는 해당 사용자가 작성한 게시물을 보지 않게 됩니다.</string>
+	<string name="you_wont_see_user_mentions">당신는 해당 사용자를 멘션하는 게시물을 더는 보지 않게 됩니다.</string>
+	<string name="user_can_mention_and_follow_you">해당 사용자가 당신를 멘션하거나 팔로우 할 수 있습니다만 당신에게 보이지 않을 것입니다.</string>
+	<string name="unmuted_user_x">%s 뮤트 해제</string>
+	<string name="block_user_confirm_title">사용자를 차단할까요?</string>
+	<string name="user_can_see_blocked">해당 사용자는 자신이 차단 당했다는 사실을 확인할 수 있습니다.</string>
+	<string name="user_cant_see_each_other_posts">해당 사용자는 당신가 작성한 게시물을 볼 수 없고 당신도 해당 사용자가 작성한 게시물을 보지 않게 됩니다.</string>
+	<string name="user_cant_mention_or_follow_you">해당 사용자는 당신를 멘션하거나 팔로우 할 수 없습니다.</string>
+	<string name="unblocked_user_x">%s 차단 해제</string>
+	<string name="block_domain_confirm_title">도메인을 차단할까요?</string>
+	<string name="do_block_server">서버 차단</string>
+	<string name="block_user_x_instead">대신 @%s를 차단</string>
+	<string name="users_cant_see_blocked">당신는 이 서버 사용자의 게시물이나 알림을 보지 않게 됩니다.</string>
+	<string name="you_wont_see_server_posts">당신는 이 서버 사용자의 어떠한 게시물도 보지 않게 됩니다.</string>
+	<string name="server_cant_mention_or_follow_you">이 서버의 누구도 당신를 팔로우 할 수 없습니다.</string>
+	<string name="server_can_interact_with_older">이 서버에 있는 사람들이 당신의 예전 게시물에 상호작용할 수는 있습니다.</string>
+	<string name="unblocked_domain_x">도메인 %s 차단 해제</string>
+	<string name="handle_help_title">핸들이란 무엇인가요?</string>
+	<string name="handle_title">해당 사용자의 핸들</string>
+	<string name="handle_username_explanation">해당 사용자의 서버에서 유일한 식별자입니다. 다른 서버에서 같은 이름을 가진 사용자를 찾을 수도 있습니다.</string>
+	<string name="handle_title_own">당신의 핸들</string>
+	<string name="handle_username_explanation_own">이 서버에서 유일한 당신의 식별자입니다. 다른 서버에서 같은 이름을 가진 사용자를 찾을 수도 있습니다.</string>
+	<string name="server">서버</string>
+	<string name="handle_server_explanation">해당 사용자의 모든 게시물이 있는 디지털 홈입니다.</string>
+	<string name="handle_explanation">핸들은 해당 사용자가 누구이고 어디에 있는지를 나타내기 때문에 &lt;a&gt;액티비티펍을 사용하는 플랫폼&lt;/a&gt;들의 소셜 웹을 넘나들며 사람들과 상호작용 할 수 있습니다;.</string>
+	<string name="handle_server_explanation_own">당신의 게시물들이 있는 디지털 홈입니다. 마음에 들지 않나요? 팔로워를 데리고 언제든지 다른 서버로 이동할 수도 있습니다.</string>
+	<string name="handle_explanation_own">당신의 핸들은 당신가 누구인지 그리고 어디에 있는지를 나타내기 때문에 사람들은 &lt;a&gt;액티비티펍&lt;/a&gt;을 통해 소셜 웹을 넘나들며 당신와 상호작용 할 수 있습니다;.</string>
+	<string name="what_is_activitypub_title">액티비티펍이란 무엇인가요?</string>
+	<string name="what_is_activitypub">ActivityPub은 마스토돈이 다른 소셜 네트워크와 소통하는 데 사용하는 언어와 같습니다.\n\n이를 통해 마스토돈뿐만 아니라 다양한 소셜 앱에서도 사람들과 연결하고 상호 작용할 수 있습니다.</string>
+	<string name="handle_copied">핸들이 클립보드에 복사되었습니다.</string>
+	<string name="qr_code">QR 코드</string>
+	<string name="scan_qr_code">QR 코드 스캔</string>
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
+	<string name="saved">저장됨</string>
+	<string name="image_saved">이미지 저장됨</string>
+	<string name="video_saved">비디오 저장됨</string>
+	<string name="view_file">보기</string>
+	<string name="share_sheet_preview_profile">마스토돈에 %s</string>
+	<string name="share_sheet_preview_post">%1$s 마스토돈에 %2$s</string>
+	<string name="copy_profile_link">프로필 링크 복사</string>
+	<string name="in_app_browser">앱내 브라우저 </string>
+	<string name="system_browser">시스템 브라우저</string>
+	<string name="add_muted_word_short">단어 추가</string>
+	<string name="tab_home">홈</string>
+	<string name="tab_search">둘러보기</string>
+	<string name="tab_profile">프로필</string>
+	<string name="pin_post">프로필에 고정</string>
+	<string name="unpin_post">프로필에서 고정 해제</string>
+	<string name="post_pinned">게시물이 고정되었습니다.</string>
+	<string name="post_unpinned">게시물 고정이 해제되었습니다.</string>
 	<!-- %s is the username -->
+	<string name="enable_new_post_notifications">%s 의 게시물 알림 켜기</string>
+	<string name="disable_new_post_notifications">%s 의 게시물 알림 끄기</string>
+	<string name="new_post_notifications_enabled">새로운 게시물에 대한 알림을 받을 것입니다.</string>
+	<string name="new_post_notifications_disabled">새로운 게시물에 대한 알림을 받지 않게 될 것입니다.</string>
+	<string name="mute_conversation">대화 뮤트하기</string>
+	<string name="unmute_conversation">대화 뮤트 해제하기</string>
+	<string name="visibility_unlisted">제한적 공개</string>
+	<string name="filtered_notifications">필터링된 알림</string>
+	<string name="filter_notifications">알림 제외 조건...</string>
+	<string name="notification_filter_following">내가 팔로우하지 않는 사람들</string>
+	<string name="notification_filter_following_explanation">내가 직접 승인하지 않는 한</string>
+	<string name="notification_filter_followers">나를 팔로우하지 않는 사람들</string>
+	<string name="notification_filter_followers_explanation">나를 팔로우한 지 3일 이하인 사람 포함</string>
+	<string name="notification_filter_new_accounts">새로운 계정</string>
+	<string name="notification_filter_new_accounts_explanation">지난 30일 사이에 가입함</string>
+	<string name="notification_filter_mentions">요청하지 않은 개인 멘션</string>
+	<string name="notification_filter_mentions_explanation">내가 남긴 멘션에 단 답글이거나 내가 팔로우한 것이 아닌 이상 필터링됩니다</string>
+	<string name="allow_notifications">알림 허용</string>
+	<string name="mute_notifications">알림 요청 해제</string>
+	<plurals name="x_people_you_may_know">
+		<item quantity="other">%,d 명의 알 수도 있는 사람</item>
+	</plurals>
+	<string name="notifications_from_user">%s 로부터의 알림</string>
+	<string name="notifications_muted">%s 로부터의 알림이 해제되었습니다.</string>
+	<string name="notifications_allowed">%s 가 이제 알림 목록에 나타날 것입니다.</string>
+	<string name="visibility_subtitle_public"></string>
+	<string name="visibility_subtitle_unlisted">마스토돈 검색 결과, 트렌딩, 공개 타임라인에서 숨김</string>
+	<string name="visibility_subtitle_followers">오직 팔로우 중인 사람들에게만</string>
+	<string name="visibility_subtitle_private">게시물에 반응한 사람들에게만</string>
+	<string name="view_boosts">부스터 보기</string>
+	<string name="view_favorites">즐겨찾기 보기</string>
+	<string name="undo_reblog">부스트 실행 취소</string>
+	<string name="undo_favorite">즐겨찾기 실행 취소</string>
+	<string name="could_not_reach_server">서버에 도달할 수 없습니다. 연결을 확인하고 재시도해주시겠어요?</string>
+	<string name="connection_timed_out">\?</string>
+	<string name="server_error">서버와의 통신에 문제가 발생하였습니다. 회원님의 잘못은 아닐 것입니다. 재시도해주시겠어요?</string>
+	<string name="not_found">삭제되었거나 아마도 원래 존재하지 않았던 것 같습니다.</string>
+	<string name="no_servers_found">“%s” 서버를 찾을 수 없습니다</string>
+	<string name="signup_username_taken">이 사용자 이미 사용 중입니다. 다른 것을 시도하거나 &lt;a&gt;다른 서버를 선택하세요&lt;/a&gt;.</string>
+	<string name="signup_email_invalid">유효한 이메일 주소처럼 보이지 않습니다.</string>
+	<string name="signup_email_taken">이미 사용 중인 이메일 주소입니다. 혹시 &lt;a&gt;&lt;a&gt;비밀번호를 잊으셨나요&lt;/a&gt;&lt;/a&gt;?</string>
+	<plurals name="x_new_notifications">
+		<item quantity="other">%,d 개의 새로운 알림</item>
+	</plurals>
+	<string name="dismiss">무시</string>
+	<string name="donation_once">한 번만</string>
+	<string name="donation_monthly">매월</string>
+	<string name="donation_yearly">매년</string>
+	<string name="currency">통화</string>
+	<string name="donation_success_share">소식을 퍼뜨리세요</string>
+	<string name="donation_success_title">당신의 기여에 감사드립니다!</string>
+	<string name="donation_success_subtitle">곧 기부를 확정하는 이메일을 받으실 겁니다.</string>
+	<string name="donation_server_error">죄송합니다, 에러가 발생해 기부 요청을 처리할 수 없었습니다.\n\n몇 분 내로 다시 시도를 부탁드립니다.</string>
+	<string name="settings_donate">마스토돈에 기부하기</string>
+	<string name="settings_manage_donations">기부 관리하기</string>
+	<string name="cant_load_image">이미지를 불러올 수 없습니다</string>
+	<string name="poll_see_results">결과 보기</string>
+	<string name="poll_hide_results">결과 숨기기</string>
+	<plurals name="x_attachments">
+		<item quantity="other">첨부파일 %d 개</item>
+	</plurals>
+	<plurals name="user_and_x_more_favorited">
+		<item quantity="other">%1$s 및 %2$,d 개 다른 즐겨찾기</item>
+	</plurals>
+	<plurals name="user_and_x_more_boosted">
+		<item quantity="other">%1$s 및 %2$,d 외 부스트함:</item>
+	</plurals>
+	<plurals name="poll_ended_x_voters">
+		<item quantity="other">%1$s 님이 당신과 %2$,d 및 다른 사람들이 투표에 참여한 여론 조사를 실시했습니다</item>
+	</plurals>
+	<string name="own_poll_ended">당신의 투표가 종료되었습니다</string>
+	<string name="user_just_posted">%s 가 방금 게시함</string>
+	<string name="user_edited_post">%s 님이 당신이 참여한 게시글을 편집했습니다.</string>
+	<string name="relationship_severance_account_suspension">%1$s의 관리자가 %2$s를 정지시켰기 때문에 그들과 더이상 상호작용 할 수 없고 업데이트 정보를 받을 수 없습니다.</string>
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_domain_block">%1$s의 관리자가 %2$s를 차단했습니다. 이 중에는 당신의 팔로워 %3$,d명과 당신이 팔로우하는 %4$s명도 포함되어 있습니다.</string>
+	<plurals name="x_accounts">
+		<item quantity="other">계정</item>
+	</plurals>
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_user_domain_block">당신은 %1$s 명을 차단하였습니다. 당신의 팔로워 중 %2$,d 명과 당신의 팔로우 중인 %3$s 명이 차단됩니다.</string>
+	<string name="relationship_severance_learn_more">더 학습하기</string>
+	<string name="moderation_warning_action_none">당신의 계정은 중재 경고를 받았습니다.</string>
+	<string name="moderation_warning_action_disable">당신의 계정이 비활성화되었습니다.</string>
+	<string name="moderation_warning_action_mark_statuses_as_sensitive">당신의 게시물 몇 개가 민감한 것으로 표시되었습니다.</string>
+	<string name="moderation_warning_action_delete_statuses">당신의 게시물 몇 개가 삭제되었습니다.</string>
+	<string name="moderation_warning_action_sensitive">당신의 게시물은 이제부터 민감하다고 표시됩니다.</string>
+	<string name="moderation_warning_action_silence">당신의 계정이 제한되었습니다.</string>
+	<string name="moderation_warning_action_suspend">당신의 계정이 정지되었습니다.</string>
+	<string name="moderation_warning_learn_more">더 학습하기</string>
+	<string name="text_show_more">더보기</string>
+	<string name="avatar_move_and_scale">이동 및 확장</string>
+	<string name="confirm_avatar_crop">선택</string>
+	<string name="settings_use_dynamic_colors">시스템 동적 색상 적용</string>
+	<string name="settings_accounts">계정</string>
+	<string name="settings_add_account">계정 추가...</string>
+	<string name="settings_app_settings">앱 설정</string>
+	<string name="account_settings">계정 설정</string>
+	<string name="settings_about_this_server">이 서버에 대해서</string>
+	<string name="manage_account">계정 관리</string>
+	<string name="switch_to_this_account">이 계정으로 전환</string>
+	<string name="delete_account">계정 삭제</string>
+	<string name="notification_type_status">새로운 게시물</string>
+	<plurals name="user_and_x_more_followed">
+		<item quantity="other">%1$s 및 %2$,d 개의 다른 즐겨찾기</item>
+	</plurals>
+	<string name="familiar_followers_one">%s 님이 팔로우함</string>
+	<string name="familiar_followers_two">%s, %s 님이 팔로우함</string>
+	<string name="profile_saved_posts">저장됨</string>
+	<string name="profile_saved_posts_explanation">당신이 저장한 게시물은 오직 당신에게만 보입니다.</string>
+	<string name="search_people">사람</string>
+	<plurals name="familiar_followers_many">
+		<item quantity="other">%1$s, %2$s, 그리고 그 외 %3$,d명이 팔로우했습니다</item>
+	</plurals>
+	<plurals name="x_followers_you_know">
+		<item quantity="other">당신이 알고 있는 %,d 명의 팔로워</item>
+	</plurals>
 	<!-- appears when you're about to block a server -->
+	<plurals name="server_x_followers_will_be_removed">
+		<item quantity="other">이 서버의 %,d 명의 팔로워가 삭제될 것입니다.</item>
+	</plurals>
 	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
+	<string name="server_x_followers_and_following_will_be_removed">%1$s 과 %2$s 을 잃게 됩니다.</string>
+	<plurals name="will_lose_x_followers">
+		<item quantity="other">%,d명의 팔로워</item>
+	</plurals>
+	<plurals name="will_lose_x_following">
+		<item quantity="other">%,d명의 당신를 팔로우하는 사람들</item>
+	</plurals>
 	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
+	<string name="server_x_following_will_be_removed">%s 을 잃게 됩니다.</string>
+	<string name="load_missing_posts_above">위에서 놓친 게시물 불러오기</string>
+	<string name="load_missing_posts_below">아래에서 놓친 게시물 불러오기</string>
+	<string name="signup_password_too_short">비밀번호는 최소 8자 이상이어야 합니다</string>
+	<string name="private_reply">개인 답변</string>
+	<string name="private_mention">개인 멘션</string>
+	<string name="post_header_reply">답장</string>
+	<string name="post_header_mention">멘션</string>
+	<string name="report_reason_legal">불법입니다</string>
+	<string name="report_reason_legal_subtitle">당신은 본인 혹은 서버가 속한 국가의 법률을 위반한다고 생각합니다.</string>
+	<string name="date_of_birth">생년월일</string>
 	<!-- %s is `at_least_x_years_old`. Some languages, unlike English, may require the word "years" here. -->
+	<string name="date_of_birth_explanation">마스토돈을 이용하려면 최소한 만 %s세 이상이어야 합니다. 이 정보는 가입 후에는 저장되지 않습니다.</string>
+	<string name="open_link">열기</string>
+	<string name="copy">복사</string>
 	<!-- Substituted into `date_of_birth_explanation` -->
+	<plurals name="at_least_x_years_old">
+		<item quantity="other">%d</item>
+	</plurals>
+	<string name="quote_post_unavailable">게시물 사용 불가</string>
+	<string name="quote_post_pending">게시 대기중</string>
+	<string name="quote_post_pending_explanation">\"마스토돈에서는 누군가가 당신의 글을 인용할 수 있는지를 제어할 수 있습니다. 이 게시물은 원 작성자의 승인을 기다리는 중입니다.</string>
 	<!-- %s is a username, i.e. @Gargron -->
+	<string name="nested_quote">%s 님에 의해 인용된 게시물</string>
+	<string name="compose_visibility_public_anyone">공개, 누구나 인용 가능</string>
+	<string name="compose_visibility_public_limited">공개, 인용 제한</string>
+	<string name="compose_visibility_public_disabled">공개, 인용 비활성화</string>
+	<string name="compose_visibility_unlisted_anyone">조용한 공개, 누구나 인용 가능</string>
+	<string name="compose_visibility_unlisted_limited">조용한 공개, 인용 제한</string>
+	<string name="compose_visibility_unlisted_disabled">조용한 공개, 인용 비활성화</string>
+	<string name="compose_visibility_title">공개 범위 및 상호작용</string>
+	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
+	<string name="compose_visibility_explanation"><![CDATA[이 게시물과 상호작용할 수 있는 사람을 관리합니다. 전역 설정은 설정 > %s > 게시 기본값에서 확인할 수 있습니다.]]></string>
+	<string name="compose_visibility">공개 범위</string>
+	<string name="compose_quote_policy">공개 범위</string>
+	<string name="quote_policy_public">모든 사용자</string>
+	<string name="quote_policy_followers">팔로워만</string>
+	<string name="quote_policy_nobody">본인만</string>
+	<string name="quote_policy_for_unlisted_explanation">다른 사용자가 회원님을 인용할 때, 해당 게시물은 트렌딩 타임라인에서 숨겨집니다.</string>
+	<string name="quote_policy_for_private_explanation">마스토돈에서 작성된 팔로워 전용 게시물은 다른 사용자가 인용할 수 없습니다.</string>
+	<string name="quote_policy_for_direct_explanation">마스토돈에서 작성된 비공개 멘션은 다른 사용자가 인용할 수 없습니다.</string>
+	<string name="change_quote_policy">인용 가능한 사용자 변경</string>
+	<string name="edit_visibility_explanation">게시된 게시물은 공개 범위를 변경할 수 없습니다.</string>
+	<string name="user_quoted_post">%s가 당신의 게시물을 인용했습니다:</string>
+	<string name="user_edited_quoted_post">%s가 당신이 인용한 게시물을 편집했습니다.</string>
+	<string name="notification_type_quote">인용</string>
+	<string name="create_quote">인용하기</string>
+	<string name="cannot_quote_post_followers_only">오직 팔로워만 이 게시물을 인용할 수 있습니다.</string>
+	<string name="compose_hint_quote">대화에 무언가를 추가하세요</string>
+	<string name="cancel_quote">인용 취소</string>
+	<string name="unlisted_quote_alert_title">조용한 공개 게시물 인용하기</string>
+	<string name="unlisted_quote_alert">조용한 공개 게시물을 인용할 때, 당신의 게시물은 트렌딩 타임라인에서 숨겨질 것입니다.</string>
+	<string name="settings_posting_defaults">게시 기본값</string>
+	<string name="default_post_visibility">게시 범위</string>
+	<string name="create_quote_manual_approval">인용 요청</string>
+	<string name="create_quote_manual_approval_subtitle">작성자가 수동으로 검토할 것입니다.</string>
+	<plurals name="x_quotes">
+		<item quantity="other">%,d 인용함</item>
+	</plurals>
+	<string name="remove_quote">%s의 게시물에서 나의 게시물을 제거합니다</string>
+	<string name="remove_quote_confirm_title">게시물을 삭제하시겠습니까?</string>
+	<string name="remove_quote_confirm">이 작업은 되돌릴 수 없습니다.</string>
+	<string name="remove_quote_button">게시물 삭제</string>
 </resources>
