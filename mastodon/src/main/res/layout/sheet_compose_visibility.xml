@@ -24,6 +24,7 @@
 			android:layout_height="wrap_content"
 			android:layout_marginTop="24dp"
 			android:textAppearance="@style/m3_headline_small"
+			android:textColor="?colorM3OnSurface"
 			android:text="@string/compose_visibility_title"/>
 
 		<TextView
@@ -32,6 +33,7 @@
 			android:layout_height="wrap_content"
 			android:layout_marginTop="16dp"
 			android:textAppearance="@style/m3_body_medium"
+			android:textColor="?colorM3OnSurfaceVariant"
 			tools:text="@string/compose_visibility_explanation"/>
 
 		<org.joinmastodon.android.ui.views.FloatingHintEditTextLayout
