@@ -48,6 +48,7 @@ public class SettingsPostingDefaultsFragment extends BaseSettingsFragment<Void>{
 		if(account.getInstanceInfo().supportsQuotePostAuthoring())
 			items.add(quotePolicyItem=new ListItem<>(getString(R.string.compose_quote_policy), getQuotePolicySubtitle(), R.drawable.ic_format_quote_fill1_24px, this::onQuotePolicyClick));
 		items.add(languageItem=new ListItem<>(getString(R.string.default_post_language), postLanguage!=null ? postLanguage.getDisplayName(Locale.getDefault()) : null, R.drawable.ic_language_24px, this::onDefaultLanguageClick));
+		updateQuotePolicyItem(visibility);
 		onDataLoaded(items);
 	}
 
@@ -131,14 +132,18 @@ public class SettingsPostingDefaultsFragment extends BaseSettingsFragment<Void>{
 					newVisibility=StatusPrivacy.values()[which];
 					visibilityItem.subtitle=getVisibilitySubtitle();
 					rebindItem(visibilityItem);
+					updateQuotePolicyItem(newVisibility);
 					dialog.dismiss();
 				})
 				.show();
 	}
 
 	private void onQuotePolicyClick(ListItem<?> item){
-		new M3AlertDialogBuilder(getActivity())
-				.setTitle(R.string.compose_quote_policy)
+		M3AlertDialogBuilder alert=new M3AlertDialogBuilder(getActivity());
+		if((newVisibility==null ? visibility : newVisibility)==StatusPrivacy.UNLISTED){
+			alert.setSupportingText(R.string.quote_policy_for_unlisted_explanation);
+		}
+		alert.setTitle(R.string.compose_quote_policy)
 				.setSingleChoiceItems(new String[]{
 						getString(R.string.quote_policy_public),
 						getString(R.string.quote_policy_followers),
@@ -150,5 +155,18 @@ public class SettingsPostingDefaultsFragment extends BaseSettingsFragment<Void>{
 					dialog.dismiss();
 				})
 				.show();
+	}
+
+	private void updateQuotePolicyItem(StatusPrivacy visibility){
+		if(quotePolicyItem==null)
+			return;
+		if(visibility==StatusPrivacy.PRIVATE){
+			quotePolicyItem.isEnabled=false;
+			quotePolicyItem.subtitle=getString(R.string.quote_policy_for_private_explanation);
+		}else{
+			quotePolicyItem.isEnabled=true;
+			quotePolicyItem.subtitle=getQuotePolicySubtitle();
+		}
+		rebindItem(quotePolicyItem);
 	}
 }
