@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.joinmastodon.android.R;
@@ -15,6 +16,7 @@ import org.joinmastodon.android.model.StatusPrivacy;
 import org.joinmastodon.android.model.StatusQuotePolicy;
 import org.joinmastodon.android.model.viewmodel.ListItem;
 import org.joinmastodon.android.ui.M3AlertDialogBuilder;
+import org.joinmastodon.android.ui.utils.HideableSingleViewRecyclerAdapter;
 import org.joinmastodon.android.ui.viewcontrollers.ComposeLanguageAlertViewController;
 
 import java.util.ArrayList;
@@ -22,6 +24,9 @@ import java.util.Locale;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.RecyclerView;
+import me.grishka.appkit.utils.MergeRecyclerAdapter;
+import me.grishka.appkit.utils.SingleViewRecyclerAdapter;
 
 public class SettingsPostingDefaultsFragment extends BaseSettingsFragment<Void>{
 	private ListItem<Void> languageItem, visibilityItem, quotePolicyItem;
@@ -71,6 +76,29 @@ public class SettingsPostingDefaultsFragment extends BaseSettingsFragment<Void>{
 			s.savePreferencesLater();
 		}
 		AccountSessionManager.get(accountID).savePreferencesIfPending();
+	}
+
+	@Override
+	protected RecyclerView.Adapter<?> getAdapter(){
+		View banner=getActivity().getLayoutInflater().inflate(R.layout.item_settings_banner, list, false);
+		TextView bannerText=banner.findViewById(R.id.text);
+		ImageView bannerIcon=banner.findViewById(R.id.icon);
+		SingleViewRecyclerAdapter bannerAdapter=new SingleViewRecyclerAdapter(banner);
+		banner.findViewById(R.id.button).setVisibility(View.GONE);
+		banner.findViewById(R.id.button2).setVisibility(View.GONE);
+		banner.findViewById(R.id.title).setVisibility(View.GONE);
+		bannerText.setText(R.string.settings_posting_defaults_explanation);
+		bannerIcon.setImageResource(R.drawable.ic_info_24px);
+
+		MergeRecyclerAdapter mergeAdapter=new MergeRecyclerAdapter();
+		mergeAdapter.addAdapter(bannerAdapter);
+		mergeAdapter.addAdapter(super.getAdapter());
+		return mergeAdapter;
+	}
+
+	@Override
+	protected int indexOfItemsAdapter(){
+		return 1;
 	}
 
 	private String getVisibilitySubtitle(){
