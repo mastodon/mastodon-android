@@ -84,8 +84,7 @@
 		<item name="android:textAppearanceLargePopupMenu">@style/popup_menu_item_text</item>
 		<item name="composePollStyleInactiveAlpha">1</item>
 
-		<!-- For debugging purposes so TextViews missing textColor will be immediately noticeable -->
-		<item name="android:textColor">#0f0</item>
+		<item name="android:textColor">?colorM3OnSurface</item>
 	</style>
 
 	<style name="Theme.Mastodon.Dark" parent="Theme.AppKit">
@@ -172,8 +171,7 @@
 		<item name="android:textAppearanceLargePopupMenu">@style/popup_menu_item_text</item>
 		<item name="composePollStyleInactiveAlpha">1</item>
 
-		<!-- For debugging purposes so TextViews missing textColor will be immediately noticeable -->
-		<item name="android:textColor">#0f0</item>
+		<item name="android:textColor">?colorM3OnSurface</item>
 	</style>
 
 	<style name="Theme.Mastodon.Light.MediumContrast">
