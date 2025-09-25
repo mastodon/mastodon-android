@@ -665,8 +665,55 @@ Canta máis xente sigas, máis activo e interesante será.</string>
 	<string name="do_block_server">Bloquear servidor</string>
 	<string name="block_user_x_instead">Prefiro bloquear a %s</string>
 	<string name="users_cant_see_blocked">Non verás publicacións ou notificacións das usuarias deste servidor.</string>
+	<string name="you_wont_see_server_posts">Non vas ver as publicacións das usuarias deste servidor.</string>
+	<string name="server_cant_mention_or_follow_you">Ninguén deste servidor pode seguirte.</string>
+	<string name="server_can_interact_with_older">As persoas deste servidor poden interactuar coas túas publicacións antigas.</string>
+	<string name="unblocked_domain_x">Dominio %s desbloqueado</string>
+	<string name="handle_help_title">As partes do alcume?</string>
+	<string name="handle_title">O seu alcume</string>
+	<string name="handle_username_explanation">O seu identificador único no seu servidor. É posible atopar usuarias co mesmo nome de usuaria en diferentes servidores.</string>
+	<string name="handle_title_own">O teu alcume</string>
+	<string name="handle_username_explanation_own">O teu identificador único neste servidor. É posible que atopes usuarias co mesmo nome de usuaria en outros servidores.</string>
+	<string name="server">Servidor</string>
+	<string name="handle_server_explanation">O seu fogar dixital, onde están as súas publicacións.</string>
+	<string name="handle_explanation">O alcume dinos quen é esa persoa e onde está, para que poidas interactuar con ela en toda a web social das &lt;a&gt;plataformas ActivityPub&lt;/a&gt;.</string>
+	<string name="handle_server_explanation_own">O teu fogar dixital, onde están as túas publicacións. Non é do teu agrado? Podes cambiar de servidor cando queiras levando as túas seguidoras contigo.</string>
+	<string name="handle_explanation_own">Como o teu alcume informa de quen es e onde estás, as persoas poden interactuar contigo desde toda a web social das &lt;a&gt;plataformas ActivityPub&lt;/a&gt;.</string>
+	<string name="what_is_activitypub_title">Que é ActivityPub?</string>
+	<string name="what_is_activitypub">ActivityPub é o xeito en que Mastodon fala con outras redes sociais.\n\nPermite que te conectes e interactúes con persoas non só en Mastodon, se non tamén con outras aplicacións sociais.</string>
+	<string name="handle_copied">Copiouse o alcume ao portapapeis.</string>
+	<string name="qr_code">Código QR</string>
+	<string name="scan_qr_code">Escanear código QR</string>
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
+	<string name="saved">Gardado</string>
+	<string name="image_saved">Imaxe gardada.</string>
+	<string name="video_saved">Vídeo gardado.</string>
+	<string name="view_file">Ver</string>
+	<string name="share_sheet_preview_profile">%s en Mastodon</string>
+	<string name="share_sheet_preview_post">%1$s en Mastodon: \"%2$s\"</string>
 	<!-- %s is the username -->
+	<plurals name="x_new_notifications">
+		<item quantity="one">%,d nova notificación</item>
+		<item quantity="other">%,d novas notificacións</item>
+	</plurals>
+	<string name="dismiss">Desbotar</string>
+	<string name="donation_once">Só unha vez</string>
+	<string name="donation_monthly">Mensual</string>
+	<string name="donation_yearly">Anual</string>
+	<string name="currency">Moeda</string>
+	<string name="donation_success_share">Difunde este proxecto</string>
+	<string name="donation_success_title">Grazas pola túa doazón!</string>
+	<string name="donation_success_subtitle">Deberías recibir axiña un correo coa confirmación da doazón.</string>
+	<string name="donation_server_error">Lamentamos dicir que houbo un fallo e non puidemos xestionar a túa doazón.\n\nPor favor, inténtao nuns minutos.</string>
+	<string name="settings_donate">Doar a Mastodon</string>
+	<string name="settings_manage_donations">Xestionar doazóns</string>
+	<string name="cant_load_image">Non se puido cargar a imaxe</string>
+	<string name="poll_see_results">Ver resultados</string>
+	<string name="poll_hide_results">Ocultar resultados</string>
+	<plurals name="x_attachments">
+		<item quantity="one">%d anexo</item>
+		<item quantity="other">%d anexos</item>
+	</plurals>
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
 	<!-- appears when you're about to block a server -->
