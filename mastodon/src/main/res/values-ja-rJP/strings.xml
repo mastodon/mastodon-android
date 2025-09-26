@@ -577,7 +577,7 @@
 	<string name="manage_list_members">リストのメンバーを管理</string>
 	<string name="list_no_members">まだメンバーがいません</string>
 	<string name="list_find_users">追加したいユーザーを探す</string>
-	<string name="reply_to_user">%s に返信</string>
+	<string name="reply_to_user">%s さんに返信します</string>
 	<string name="posted_at">%s に投稿しました</string>
 	<string name="non_mutual_sheet_title">新しい関係を始めよう！</string>
 	<string name="non_mutual_sheet_text">相互フォローでない誰かに返信しようとしているようです。素晴らしい第一印象を与えましょう。</string>
@@ -838,5 +838,12 @@
 	<string name="quote_policy_public">誰でも</string>
 	<string name="quote_policy_followers">フォロワーのみ</string>
 	<string name="quote_policy_nobody">自分のみ</string>
+	<string name="notification_type_quote">引用</string>
+	<string name="create_quote">引用</string>
+	<string name="cannot_quote_post">この投稿は引用できません</string>
+	<string name="cannot_quote_post_followers_only">この投稿はフォロワーに限り引用できます</string>
+	<string name="compose_hint_quote">会話に何かを追加します</string>
+	<string name="cancel_quote">引用をキャンセル</string>
+	<string name="unlisted_quote_alert_title">ひかえめな公開の投稿を引用中</string>
 	<string name="settings_posting_defaults">投稿のデフォルト</string>
 </resources>
