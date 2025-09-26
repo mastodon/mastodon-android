@@ -152,7 +152,7 @@
 	<string name="add_alt_text">Thêm văn bản thay thế</string>
 	<string name="visibility_public">Công khai</string>
 	<string name="visibility_followers_only">Người theo dõi</string>
-	<string name="visibility_private">Người cụ thể</string>
+	<string name="visibility_private">Nhắn riêng</string>
 	<string name="recent_searches">Gần đây</string>
 	<string name="notification_type_follow">Người theo dõi mới</string>
 	<string name="notification_type_favorite">Lượt thích</string>
@@ -392,7 +392,7 @@
 	<string name="settings_server_explanation">Tổng quan, nội quy, kiểm duyệt</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">Về %s</string>
-	<string name="default_post_language">Ngôn ngữ đăng mặc định</string>
+	<string name="default_post_language">Ngôn ngữ tút</string>
 	<string name="settings_alt_text_reminders">Nhắc thêm văn bản thay thế</string>
 	<string name="settings_confirm_unfollow">Hỏi trước khi bỏ theo dõi</string>
 	<string name="settings_confirm_boost">Hỏi trước khi đăng lại</string>
@@ -696,7 +696,7 @@ Bạn càng theo dõi nhiều người thì nó sẽ càng sôi động và thú
 	<string name="notifications_muted">Thông báo từ %s đã bị bỏ qua.</string>
 	<string name="notifications_allowed">%s sẽ xuất hiện trong danh sách thông báo của bạn.</string>
 	<string name="visibility_subtitle_public">Bất cứ ai</string>
-	<string name="visibility_subtitle_unlisted">Ít hướng thuật toán hơn</string>
+	<string name="visibility_subtitle_unlisted">Ẩn khỏi kết quả tìm kiếm, xu hướng và dòng thời gian công khai của Mastodon</string>
 	<string name="visibility_subtitle_followers">Chỉ người theo dõi</string>
 	<string name="visibility_subtitle_private">Những người được nhắc trong tút</string>
 	<string name="view_boosts">Xem lượt đăng lại</string>
@@ -819,5 +819,50 @@ Bạn càng theo dõi nhiều người thì nó sẽ càng sôi động và thú
 	<plurals name="at_least_x_years_old">
 		<item quantity="other">%d</item>
 	</plurals>
+	<string name="quote_post_unavailable">Tút không khả dụng</string>
+	<string name="quote_post_pending">Tút đang chờ duyệt</string>
+	<string name="quote_post_pending_explanation">Trên Mastodon, bạn có thể kiểm soát việc ai đó có thể trích dẫn tút của bạn hay không. Tút này đang chờ phê duyệt từ tác giả gốc.</string>
 	<!-- %s is a username, i.e. @Gargron -->
+	<string name="nested_quote">Trích dẫn từ tút của @%s</string>
+	<string name="compose_visibility_public_anyone">Công khai, mọi người có thể trích dẫn</string>
+	<string name="compose_visibility_public_limited">Công khai, hạn chế trích dẫn</string>
+	<string name="compose_visibility_public_disabled">Công khai, tắt trích dẫn</string>
+	<string name="compose_visibility_unlisted_anyone">Hạn chế, mọi người có thể trích dẫn</string>
+	<string name="compose_visibility_unlisted_limited">Hạn chế, hạn chế trích dẫn</string>
+	<string name="compose_visibility_unlisted_disabled">Hạn chế, tắt trích dẫn</string>
+	<string name="compose_visibility_title">Hiển thị và tương tác</string>
+	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
+	<string name="compose_visibility_explanation"><![CDATA[Kiểm soát những ai có thể tương tác với tút này. Cài đặt chung trong Thiết lập > %s > Mặc định tút.]]></string>
+	<string name="compose_visibility">Hiển thị</string>
+	<string name="compose_quote_policy">Ai có thể trích dẫn</string>
+	<string name="quote_policy_public">Bất cứ ai</string>
+	<string name="quote_policy_followers">Chỉ người theo dõi</string>
+	<string name="quote_policy_nobody">Chỉ tôi</string>
+	<string name="quote_policy_for_unlisted_explanation">Khi ai đó trích dẫn bạn, tút của họ cũng sẽ bị ẩn khỏi bảng tin công khai.</string>
+	<string name="quote_policy_for_private_explanation">Tút chỉ dành cho người theo dõi trên Mastodon không thể được người khác trích dẫn.</string>
+	<string name="quote_policy_for_direct_explanation">Nhắn riêng trên Mastodon không thể được người khác trích dẫn.</string>
+	<string name="change_quote_policy">Thay đổi người có thể trích dẫn</string>
+	<string name="edit_visibility_explanation">Không thể thay đổi kiểu hiển thị của tút đã đăng.</string>
+	<string name="user_quoted_post">%s đã trích dẫn tút của bạn:</string>
+	<string name="user_edited_quoted_post">%s đã chỉnh sửa tút mà bạn trích dẫn</string>
+	<string name="notification_type_quote">Trích dẫn</string>
+	<string name="create_quote">Trích dẫn</string>
+	<string name="cannot_quote_post">Bạn không được phép trích dẫn tút này</string>
+	<string name="cannot_quote_post_followers_only">Chỉ người theo dõi có thể trích dẫn tút này</string>
+	<string name="compose_hint_quote">Bổ sung gì đó</string>
+	<string name="cancel_quote">Bỏ trích dẫn</string>
+	<string name="unlisted_quote_alert_title">Trích dẫn những tút hạn chế</string>
+	<string name="unlisted_quote_alert">Khi trích dẫn một tút hạn chế, tút của bạn sẽ bị ẩn khỏi dòng thời gian thịnh hành.</string>
+	<string name="settings_posting_defaults">Mặc định cho tút</string>
+	<string name="default_post_visibility">Kiểu tút</string>
+	<string name="create_quote_manual_approval">Yêu cầu trích dẫn</string>
+	<string name="create_quote_manual_approval_subtitle">Người đăng sẽ duyệt thủ công</string>
+	<plurals name="x_quotes">
+		<item quantity="other">%,d trích dẫn</item>
+	</plurals>
+	<string name="remove_quote">Gỡ tút của tôi khỏi trích dẫn của @%s</string>
+	<string name="remove_quote_confirm_title">Gỡ tút?</string>
+	<string name="remove_quote_confirm">Hành động này không thể hoàn tác.</string>
+	<string name="remove_quote_button">Gỡ tút</string>
+	<string name="settings_posting_defaults_explanation">Các thiết lập này sẽ được sử dụng làm mặc định khi bạn tạo tút mới, nhưng bạn có thể chỉnh sửa cho từng tút khi soạn thảo.</string>
 </resources>

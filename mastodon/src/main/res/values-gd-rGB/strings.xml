@@ -188,7 +188,6 @@
 	<string name="add_alt_text">Cuir roghainn teacsa ris</string>
 	<string name="visibility_public">Poblach</string>
 	<string name="visibility_followers_only">Luchd-leantainn</string>
-	<string name="visibility_private">Daoine àraidh</string>
 	<string name="recent_searches">O chionn goirid</string>
 	<string name="notification_type_follow">Luchd-leantainn ùr</string>
 	<string name="notification_type_favorite">Annsachdan</string>
@@ -449,7 +448,6 @@
 	<string name="settings_server_explanation">Foir-shealladh, riaghailtean, maoir</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">Mu %s</string>
-	<string name="default_post_language">Cànan bunaiteach nam post</string>
 	<string name="settings_alt_text_reminders">Cuir cuimhneachaidhean air roghainn teacsa ris</string>
 	<string name="settings_confirm_unfollow">Faighnich dhiom mus sguir mi de chuideigin a leantainn</string>
 	<string name="settings_confirm_boost">Faighnich dhiom mus dèan mi brosnachadh</string>
@@ -797,7 +795,6 @@
 	<string name="notifications_muted">Chaidh na brathan o %s a leigeil seachad.</string>
 	<string name="notifications_allowed">Nochdaidh %s ann an liosta nam brathan agad a-nis.</string>
 	<string name="visibility_subtitle_public">Duine sam bith taobh a-staigh no a-muigh Mhastodon</string>
-	<string name="visibility_subtitle_unlisted">Ìre bheag an algairim</string>
 	<string name="visibility_subtitle_followers">An luchd-leantainn agad a-mhàin</string>
 	<string name="visibility_subtitle_private">A h-uile duine air a bheil iomradh sa phost</string>
 	<string name="view_boosts">Seall na brosnachaidhean</string>
@@ -960,4 +957,5 @@
 		<item quantity="other">%d bliadhna</item>
 	</plurals>
 	<!-- %s is a username, i.e. @Gargron -->
+	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
 </resources>

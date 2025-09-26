@@ -186,7 +186,6 @@
 	<string name="add_alt_text">Добавить альтернативный текст</string>
 	<string name="visibility_public">Публичный</string>
 	<string name="visibility_followers_only">Подписчики</string>
-	<string name="visibility_private">Определённые люди</string>
 	<string name="recent_searches">Недавние</string>
 	<string name="notification_type_follow">Новые подписчики</string>
 	<string name="notification_type_favorite">Избранное</string>
@@ -447,7 +446,6 @@
 	<string name="settings_server_explanation">Обзор, правила, модераторы</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">О %s</string>
-	<string name="default_post_language">Язык постов по умолчанию</string>
 	<string name="settings_alt_text_reminders">Напоминать об альтернативном тексте</string>
 	<string name="settings_confirm_unfollow">Подтверждать отписку</string>
 	<string name="settings_confirm_boost">Подтверждать продвижение</string>
@@ -796,7 +794,6 @@
 	<string name="notifications_muted">Уведомления от %s были отклонены.</string>
 	<string name="notifications_allowed">Теперь %s появится в списке ваших уведомлений.</string>
 	<string name="visibility_subtitle_public">Любой, находящийся на Mastodon и вне его</string>
-	<string name="visibility_subtitle_unlisted">Меньше алгоритмических фанфар</string>
 	<string name="visibility_subtitle_followers">Только ваши подписчики</string>
 	<string name="visibility_subtitle_private">Все упомянутые в посте</string>
 	<string name="view_boosts">Просматривать бонусы</string>
@@ -890,4 +887,5 @@
 	<!-- %s is `at_least_x_years_old`. Some languages, unlike English, may require the word "years" here. -->
 	<!-- Substituted into `date_of_birth_explanation` -->
 	<!-- %s is a username, i.e. @Gargron -->
+	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
 </resources>
