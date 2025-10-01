@@ -164,7 +164,7 @@
 	<string name="add_alt_text">Bæta við hjálpartexta</string>
 	<string name="visibility_public">Opinbert</string>
 	<string name="visibility_followers_only">Fylgjendur</string>
-	<string name="visibility_private">Tilteknir aðilar</string>
+	<string name="visibility_private">Einkaspjall</string>
 	<string name="recent_searches">Nýlegt</string>
 	<string name="notification_type_follow">Nýir fylgjendur</string>
 	<string name="notification_type_favorite">Eftirlæti</string>
@@ -411,7 +411,7 @@
 	<string name="settings_server_explanation">Yfirlit, reglur, umsjónarmenn</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">Um %s</string>
-	<string name="default_post_language">Sjálfgefið tungumál færslu</string>
+	<string name="default_post_language">Tungumál sem skrifað er á</string>
 	<string name="settings_alt_text_reminders">Bæta við áminningum vegna hjálpartexta</string>
 	<string name="settings_confirm_unfollow">Spyrja áður en hætt er að fylgjast með einhverjum</string>
 	<string name="settings_confirm_boost">Spyrja áður en endurbirting fer fram</string>
@@ -730,7 +730,7 @@
 	<string name="notifications_muted">Tilkynningum frá %s hefur verið hafnað.</string>
 	<string name="notifications_allowed">%s mun núna birtast í tilkynningalistanum þínum.</string>
 	<string name="visibility_subtitle_public">Allir á Mastodon og víðar</string>
-	<string name="visibility_subtitle_unlisted">Minni stælar í reikniritum</string>
+	<string name="visibility_subtitle_unlisted">Falið frá leitarniðurstöðum Mastodon, vinsældalistum og opinberum tímalínum</string>
 	<string name="visibility_subtitle_followers">Einungis þeir sem fylgjast með þér</string>
 	<string name="visibility_subtitle_private">Allir sem minnst er á í færslunni</string>
 	<string name="view_boosts">Skoða endurbirtingar</string>
@@ -868,6 +868,49 @@
 	</plurals>
 	<string name="quote_post_unavailable">Færsla ekki tiltæk</string>
 	<string name="quote_post_pending">Færsla í bið</string>
+	<string name="quote_post_pending_explanation">Á Mastodon geturðu stjórnað því hvort aðrir geti vitnað í þig. Þessi færsla bíður eftir samþykki upprunalegs höfundar.</string>
 	<!-- %s is a username, i.e. @Gargron -->
 	<string name="nested_quote">Vitnaði í færslu frá %s</string>
+	<string name="compose_visibility_public_anyone">Opinbert, hver sem er getur vitnað í</string>
+	<string name="compose_visibility_public_limited">Opinbert, takmörkun á tilvitnunum</string>
+	<string name="compose_visibility_public_disabled">Opinbert, tilvitnanir óvirkar</string>
+	<string name="compose_visibility_unlisted_anyone">Hljóðlátt opinbert, hver sem er getur vitnað í</string>
+	<string name="compose_visibility_unlisted_limited">Hljóðlátt opinbert, takmörkun á tilvitnunum</string>
+	<string name="compose_visibility_unlisted_disabled">Hljóðlátt opinbert, tilvitnanir óvirkar</string>
+	<string name="compose_visibility_title">Sýnileiki og gagnvirkni</string>
+	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
+	<string name="compose_visibility_explanation"><![CDATA[Stýrðu því hverjir geta átt við þessa færslu. Víðværar stillingar má sjá í Stillingar > %s > Sjálfgefin gildi við gerð færslna.]]></string>
+	<string name="compose_visibility">Sýnileiki</string>
+	<string name="compose_quote_policy">Hverjir geta gert tilvitnanir</string>
+	<string name="quote_policy_public">Hver sem er</string>
+	<string name="quote_policy_followers">Einungis fylgjendur</string>
+	<string name="quote_policy_nobody">Bara ég</string>
+	<string name="quote_policy_for_unlisted_explanation">Þegar fólk vitnar í þig verða færslurnar þeirr einnig faldar á vinsældatímalínum.</string>
+	<string name="quote_policy_for_private_explanation">Ekki er hægt að vitna í færslur einungis til fylgjenda sem skrifaðar eru á Mastodon.</string>
+	<string name="quote_policy_for_direct_explanation">Ekki er hægt að vitna í einkaspjall sem skrifað er á Mastodon.</string>
+	<string name="change_quote_policy">Breyttu því hver getur tilvitnað</string>
+	<string name="edit_visibility_explanation">Ekki er hægt að breyta sýnileika birtra færslna.</string>
+	<string name="user_quoted_post">%s vitnaði í færsluna þína:</string>
+	<string name="user_edited_quoted_post">%s breytti færslu sem þú vitnaðir í</string>
+	<string name="notification_type_quote">Tilvitnanir</string>
+	<string name="create_quote">Tilvitnun</string>
+	<string name="cannot_quote_post">Þú hefur ekki heimild til að vitna í þessa færslu</string>
+	<string name="cannot_quote_post_followers_only">Einungis fylgjendur geta vitnað í þessa færslu</string>
+	<string name="compose_hint_quote">Bættu einhverju við samtalið</string>
+	<string name="cancel_quote">Hætta við tilvitnun</string>
+	<string name="unlisted_quote_alert_title">Vitnað í hljóðlátar opinberar færslur</string>
+	<string name="unlisted_quote_alert">Þegar þú vitnar í hljóðláta opinbera færslu, verður færslan þín ekki birt á vinsældatímalínum.</string>
+	<string name="settings_posting_defaults">Sjálfgefin gildi við gerð færslna</string>
+	<string name="default_post_visibility">Sýnileiki færslna</string>
+	<string name="create_quote_manual_approval">Beiðni um tilvitnun</string>
+	<string name="create_quote_manual_approval_subtitle">Höfundur mun yfirfara handvirkt</string>
+	<plurals name="x_quotes">
+		<item quantity="one">%,d tilvitnun</item>
+		<item quantity="other">%,d tilvitnanir</item>
+	</plurals>
+	<string name="remove_quote">Fjarlægja færsluna mína úr færslu frá %s</string>
+	<string name="remove_quote_confirm_title">Fjarlægja færslu?</string>
+	<string name="remove_quote_confirm">Þessa aðgerð er ekki hægt að afturkalla.</string>
+	<string name="remove_quote_button">Fjarlægja færslu</string>
+	<string name="settings_posting_defaults_explanation">Þessar stillingar verða notaðar sjálfgefið þegar útbúnar eru nýjar færslur, en hægt er að breyta þeim í ritlinum fyrir hverja og eina færslu.</string>
 </resources>

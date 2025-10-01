@@ -9,7 +9,7 @@
 	<string name="preparing_auth">Падрыхтоўка да аўтэнтыфікацыі…</string>
 	<string name="finishing_auth">Завяршэнне аўтэнтыфікацыі…</string>
 	<string name="user_boosted">%s пашырыў(-ла)</string>
-	<string name="in_reply_to">у адказ на %s</string>
+	<string name="in_reply_to">у адказ %s</string>
 	<string name="notifications">Апавяшчэнні</string>
 	<string name="user_followed_you">%s падпісаўся(-лась) на вас</string>
 	<string name="user_sent_follow_request">%s адправіў(-ла) вам запыт на падпіску</string>
@@ -54,7 +54,7 @@
 		<item quantity="many">%,d допісаў</item>
 		<item quantity="other">%,d допісаў</item>
 	</plurals>
-	<string name="profile_joined">Далучыўся</string>
+	<string name="profile_joined">Далучыў(-ла)ся</string>
 	<string name="done">Гатова</string>
 	<string name="loading">Загрузка…</string>
 	<string name="field_label">Метка</string>
@@ -188,7 +188,7 @@
 	<string name="add_alt_text">Дадаць альтэрнатыўны тэкст</string>
 	<string name="visibility_public">Публічны</string>
 	<string name="visibility_followers_only">Падпісчыкам</string>
-	<string name="visibility_private">Канкрэтным людзям</string>
+	<string name="visibility_private">Прыватнае згадванне</string>
 	<string name="recent_searches">Нядаўняе</string>
 	<string name="notification_type_follow">Новыя падпісчыкі</string>
 	<string name="notification_type_favorite">Абраныя</string>
@@ -449,7 +449,7 @@
 	<string name="settings_server_explanation">Агульныя звесткі, правілы, мадэратары</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">Аб %s</string>
-	<string name="default_post_language">Прадвызначаная мова допісаў</string>
+	<string name="default_post_language">Мова допісу</string>
 	<string name="settings_alt_text_reminders">Дадаванне напамінаў пра альтэрнатыўны тэкст</string>
 	<string name="settings_confirm_unfollow">Пытацца, перш чым адпісацца ад каго-небудзь</string>
 	<string name="settings_confirm_boost">Пытацца перад пашырэннем</string>
@@ -798,7 +798,7 @@
 	<string name="notifications_muted">Апавяшчэнні ад %s былі адключаныя.</string>
 	<string name="notifications_allowed">Цяпер %s з\'явіцца ў вашым спісе апавяшчэнняў.</string>
 	<string name="visibility_subtitle_public">Усе, хто ёсць і каго няма ў Mastodon</string>
-	<string name="visibility_subtitle_unlisted">Менш фанфар ад алгарытмаў</string>
+	<string name="visibility_subtitle_unlisted">Схаваны ад вынікаў пошуку Mastodon, трэндавага і публічных стужак</string>
 	<string name="visibility_subtitle_followers">Толькі падпісчыкі</string>
 	<string name="visibility_subtitle_private">Усе згаданыя ў допісе</string>
 	<string name="view_boosts">Праглядзець пашырэнні</string>
@@ -965,4 +965,48 @@
 	<string name="quote_post_pending_explanation">На Mastodon Вы можаце кантраляваць, хто можа цытаваць Вас. Гэты допіс будзе чакаць ухвалення, пакуль аўтар арыгінала не дасць дазвол.</string>
 	<!-- %s is a username, i.e. @Gargron -->
 	<string name="nested_quote">Цытаваў(-ла) допіс %s</string>
+	<string name="compose_visibility_public_anyone">Публічны, усе могуць цытаваць</string>
+	<string name="compose_visibility_public_limited">Публічны, абмежаванае цытаванне</string>
+	<string name="compose_visibility_public_disabled">Публічны, цытаванне адключанае</string>
+	<string name="compose_visibility_unlisted_anyone">Ціхі публічны, усе могуць цытаваць</string>
+	<string name="compose_visibility_unlisted_limited">Ціхі публічны, абмежаванае цытаванне</string>
+	<string name="compose_visibility_unlisted_disabled">Ціхі публічны, цытаванне адключанае</string>
+	<string name="compose_visibility_title">Бачнасць і ўзаемадзеянне</string>
+	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
+	<string name="compose_visibility_explanation"><![CDATA[Кантралюйце, хто можа ўзаемадзейнічаць з гэтым допісам. Вы таксама можаце ўжыць налады для ўсіх будучых допісаў, перайшоўшы ў Налады > %s > Публікаваць па змаўчанні.]]></string>
+	<string name="compose_visibility">Бачнасць</string>
+	<string name="compose_quote_policy">Хто можа цытаваць</string>
+	<string name="quote_policy_public">Усе</string>
+	<string name="quote_policy_followers">Толькі падпісчыкі</string>
+	<string name="quote_policy_nobody">Толькі я</string>
+	<string name="quote_policy_for_unlisted_explanation">Калі людзі будуць цытаваць Вас, іх допіс таксама будзе схаваны ад трэндавых стужак.</string>
+	<string name="quote_policy_for_private_explanation">Допісы для падпісчыкаў, створаныя на Mastodon, нельга цытаваць іншым людзям.</string>
+	<string name="quote_policy_for_direct_explanation">Прыватныя згадванні, створаныя на Mastodon, нельга цытаваць іншым людзям.</string>
+	<string name="change_quote_policy">Змяніць, хто можа цытаваць</string>
+	<string name="edit_visibility_explanation">Апублікаваныя допісы не могуць змяняць сваю бачнасць.</string>
+	<string name="user_quoted_post">%s цытаваў(-ла) Ваш допіс:</string>
+	<string name="user_edited_quoted_post">%s адрэдагаваў(-ла) допіс, які Вы цытавалі</string>
+	<string name="notification_type_quote">Цытаты</string>
+	<string name="create_quote">Цытаваць</string>
+	<string name="cannot_quote_post">Вы не маеце дазвол цытаваць гэты допіс</string>
+	<string name="cannot_quote_post_followers_only">Толькі падпісчыкі могуць цытаваць гэты допіс</string>
+	<string name="compose_hint_quote">Дадайце штосьці ад сябе</string>
+	<string name="cancel_quote">Адмяніць цытаванне</string>
+	<string name="unlisted_quote_alert_title">Цытаванне ціхага публічнага допісу</string>
+	<string name="unlisted_quote_alert">Калі Вы працытуеце ціхі публічны допіс, Ваш допіс будзе схаваны ад трэндавых стужак.</string>
+	<string name="settings_posting_defaults">Публікаваць па змаўчанні</string>
+	<string name="default_post_visibility">Бачнасць допісаў</string>
+	<string name="create_quote_manual_approval">Запыт на цытаванне</string>
+	<string name="create_quote_manual_approval_subtitle">Аўтар асабіста разгледзіць запыт</string>
+	<plurals name="x_quotes">
+		<item quantity="one">%,d% цытата</item>
+		<item quantity="few">%,d цытаты</item>
+		<item quantity="many">%,d цытат</item>
+		<item quantity="other">%,d цытаты</item>
+	</plurals>
+	<string name="remove_quote">Выдаліць мой допіс з допісу %s</string>
+	<string name="remove_quote_confirm_title">Выдаліць допіс?</string>
+	<string name="remove_quote_confirm">Гэтае дзеянне немагчыма скасаваць.</string>
+	<string name="remove_quote_button">Выдаліць допіс</string>
+	<string name="settings_posting_defaults_explanation">Гэтыя налады будуць ужывацца па змаўчанні, калі Вы будзеце ствараць новыя допісы, але Вы зможаце змяняць іх для кожнага допісу ў акне для напісання.</string>
 </resources>

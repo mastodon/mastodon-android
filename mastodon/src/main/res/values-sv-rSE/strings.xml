@@ -8,11 +8,12 @@
 	<string name="ok">OK</string>
 	<string name="preparing_auth">Förbereder för autentisering…</string>
 	<string name="finishing_auth">Slutför autentisering…</string>
-	<string name="user_boosted">%s förstärk</string>
+	<string name="user_boosted">%s förstärkte</string>
 	<string name="in_reply_to">som svar på %s</string>
 	<string name="notifications">Aviseringar</string>
 	<string name="user_followed_you">%s följde dig</string>
 	<string name="user_sent_follow_request">%s skickade en förfrågan om att följa dig</string>
+	<string name="user_favorited">%s favoritmarkerade:</string>
 	<string name="notification_boosted">%s förstärktes:</string>
 	<string name="share_toot_title">Dela</string>
 	<string name="settings">Inställningar</string>
@@ -163,7 +164,6 @@
 	<string name="add_alt_text">Lägg till alternativtext</string>
 	<string name="visibility_public">Offentlig</string>
 	<string name="visibility_followers_only">Följare</string>
-	<string name="visibility_private">Specifika personer</string>
 	<string name="recent_searches">Nyligen</string>
 	<string name="notification_type_follow">Nya följare</string>
 	<string name="notification_type_favorite">Favoriter</string>
@@ -172,6 +172,10 @@
 	<string name="notification_type_poll">Omröstningar</string>
 	<string name="choose_account">Välj konto</string>
 	<string name="err_not_logged_in">Logga in på Mastodon först</string>
+	<plurals name="cant_add_more_than_x_attachments">
+		<item quantity="one">Du kan inte lägga till fler än %d mediabilaga</item>
+		<item quantity="other">Du kan inte lägga till fler än %d mediabilagor</item>
+	</plurals>
 	<string name="media_attachment_unsupported_type">Filen %s är av en typ som inte stöds</string>
 	<string name="media_attachment_too_big">Filen %1$s överskrider storleksgränsen på %2$s MB</string>
 	<string name="settings_theme">Utseende</string>
@@ -247,6 +251,10 @@
 	<plurals name="x_favorites">
 		<item quantity="one">%,d favorit</item>
 		<item quantity="other">%,d favoriter</item>
+	</plurals>
+	<plurals name="x_reblogs">
+		<item quantity="one">%,d boost</item>
+		<item quantity="other">%,d boostar</item>
 	</plurals>
 	<string name="time_now">nu</string>
 	<string name="edit_history">Redigera historik</string>
@@ -395,7 +403,6 @@
 	<string name="settings_server_explanation">Översikt, regler och moderatorer</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">Om %s</string>
-	<string name="default_post_language">Standardspråk för inlägg</string>
 	<string name="settings_alt_text_reminders">Lägg till alt-textpåminnelser</string>
 	<string name="settings_confirm_unfollow">Fråga innan du avföljer någon</string>
 	<string name="settings_confirm_boost">Fråga innan du förstärker</string>
@@ -465,6 +472,10 @@
 	<string name="settings_delete_filter">Radera filter</string>
 	<string name="filter_duration_forever">För alltid</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<plurals name="settings_x_muted_words">
+		<item quantity="one">%d tystat ord eller fras</item>
+		<item quantity="other">%d tystade ord eller fraser</item>
+	</plurals>
 	<string name="selection_2_options">%1$s och %2$s</string>
 	<string name="selection_3_options">%1$s, %2$s och %3$s</string>
 	<string name="filter_context_home_lists">Hem &amp; listor</string>
@@ -487,6 +498,10 @@
 	<plurals name="settings_delete_x_filter_words">
 		<item quantity="one">Radera %d ord?</item>
 		<item quantity="other">Radera %d ord?</item>
+	</plurals>
+	<plurals name="x_items_selected">
+		<item quantity="one">%d vald</item>
+		<item quantity="other">%d valda</item>
 	</plurals>
 	<string name="required_form_field_blank">Får inte vara tomt</string>
 	<string name="filter_word_already_in_list">Redan finns i listan</string>
@@ -532,7 +547,7 @@
 	<!-- Screen reader description for the menu on the home timeline screen -->
 	<string name="dropdown_menu">Nedrullningsmeny</string>
 	<string name="edit_list">Redigera lista</string>
-	<string name="list_members">Lista medlemmar</string>
+	<string name="list_members">Listmedlemmar</string>
 	<string name="delete_list">Ta bort lista</string>
 	<!-- %s is the name of the list -->
 	<string name="delete_list_confirm">Ta bort “%s”?</string>
@@ -593,6 +608,7 @@
 	<string name="user_wont_know_muted">De kommer inte att veta att de blivit tystade.</string>
 	<string name="you_wont_see_user_mentions">Du kommer inte se inlägg som nämner dem.</string>
 	<string name="block_user_confirm_title">Blockera användare?</string>
+	<string name="user_can_see_blocked">Hen kan se att hen är blockerad.</string>
 	<string name="user_cant_see_each_other_posts">De kan inte se dina inlägg och du kommer inte att se deras.</string>
 	<string name="user_cant_mention_or_follow_you">De kan inte nämna eller följa dig.</string>
 	<string name="block_domain_confirm_title">Blockera domän?</string>
@@ -621,6 +637,7 @@
 		<item quantity="one">%,d person du kanske känner</item>
 		<item quantity="other">%,d personer du kanske känner</item>
 	</plurals>
+	<string name="visibility_subtitle_public">Alla på och utanför Mastodon</string>
 	<string name="visibility_subtitle_followers">Endast dina följare</string>
 	<string name="view_boosts">Visa förstärkningar</string>
 	<string name="view_favorites">Visa favoriter</string>
@@ -656,12 +673,18 @@
 	<string name="settings_add_account">Lägg till konto...</string>
 	<string name="settings_app_settings">Appinställningar</string>
 	<string name="account_settings">Kontoinställningar</string>
+	<string name="settings_about_this_server">Om denna server</string>
 	<string name="manage_account">Hantera konto</string>
+	<string name="switch_to_this_account">Byt till detta konto</string>
 	<string name="delete_account">Radera konto</string>
 	<string name="notification_type_status">Nya inlägg</string>
 	<string name="profile_saved_posts">Sparad</string>
 	<string name="profile_saved_posts_explanation">Dina sparade inlägg är bara synliga för dig.</string>
 	<!-- appears when you're about to block a server -->
+	<plurals name="server_x_followers_will_be_removed">
+		<item quantity="one">%,d följare från denna server kommer tas bort.</item>
+		<item quantity="other">%,d följare från denna server kommer tas bort.</item>
+	</plurals>
 	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
 	<string name="server_x_followers_and_following_will_be_removed">Du kommer att förlora %1$s och %2$s.</string>
 	<plurals name="will_lose_x_followers">
@@ -680,4 +703,5 @@
 	<!-- %s is `at_least_x_years_old`. Some languages, unlike English, may require the word "years" here. -->
 	<!-- Substituted into `date_of_birth_explanation` -->
 	<!-- %s is a username, i.e. @Gargron -->
+	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
 </resources>

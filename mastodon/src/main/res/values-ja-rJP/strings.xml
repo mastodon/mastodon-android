@@ -152,7 +152,7 @@
 	<string name="add_alt_text">代替テキストを追加</string>
 	<string name="visibility_public">公開</string>
 	<string name="visibility_followers_only">フォロワー</string>
-	<string name="visibility_private">特定の人</string>
+	<string name="visibility_private">非公開のメンション</string>
 	<string name="recent_searches">最近</string>
 	<string name="notification_type_follow">新しいフォロワー</string>
 	<string name="notification_type_favorite">お気に入り</string>
@@ -392,7 +392,7 @@
 	<string name="settings_server_explanation">概要、ルール、モデレーター</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">%s について</string>
-	<string name="default_post_language">デフォルトの投稿言語</string>
+	<string name="default_post_language">投稿する言語</string>
 	<string name="settings_alt_text_reminders">代替テキストのリマインダーを追加する</string>
 	<string name="settings_confirm_unfollow">フォローを解除する前に確認する</string>
 	<string name="settings_confirm_boost">ブーストする前に確認する</string>
@@ -577,7 +577,7 @@
 	<string name="manage_list_members">リストのメンバーを管理</string>
 	<string name="list_no_members">まだメンバーがいません</string>
 	<string name="list_find_users">追加したいユーザーを探す</string>
-	<string name="reply_to_user">%s に返信</string>
+	<string name="reply_to_user">%s さんに返信します</string>
 	<string name="posted_at">%s に投稿しました</string>
 	<string name="non_mutual_sheet_title">新しい関係を始めよう！</string>
 	<string name="non_mutual_sheet_text">相互フォローでない誰かに返信しようとしているようです。素晴らしい第一印象を与えましょう。</string>
@@ -696,7 +696,7 @@
 	<string name="notifications_muted">%s さんからの通知は無視されました。</string>
 	<string name="notifications_allowed">%s さんはあなたの通知リストに登録されました。</string>
 	<string name="visibility_subtitle_public">Mastodon 以外も含むすべての人</string>
-	<string name="visibility_subtitle_unlisted">より表示機会の少ない公開</string>
+	<string name="visibility_subtitle_unlisted">Mastodon の検索結果、トレンド、公開タイムラインには表示しない</string>
 	<string name="visibility_subtitle_followers">フォロワーのみ</string>
 	<string name="visibility_subtitle_private">投稿でメンションした相手のみ</string>
 	<string name="view_boosts">ブーストを確認</string>
@@ -819,5 +819,33 @@
 	<plurals name="at_least_x_years_old">
 		<item quantity="other">%d</item>
 	</plurals>
+	<string name="quote_post_unavailable">投稿不可</string>
+	<string name="quote_post_pending">承認待ちの投稿</string>
+	<string name="quote_post_pending_explanation">Mastodon では、引用できるかを元の投稿者がコントロールできます。この投稿は元の投稿者の承認が得られるまで保留されます。</string>
 	<!-- %s is a username, i.e. @Gargron -->
+	<string name="nested_quote">%s の投稿を引用</string>
+	<string name="compose_visibility_public_anyone">公開、誰でも引用可能</string>
+	<string name="compose_visibility_public_limited">公開、引用は制限</string>
+	<string name="compose_visibility_public_disabled">公開、引用不可</string>
+	<string name="compose_visibility_unlisted_anyone">ひかえめな公開、誰でも引用可能</string>
+	<string name="compose_visibility_unlisted_limited">ひかえめな公開、引用は制限</string>
+	<string name="compose_visibility_unlisted_disabled">ひかえめな公開、引用不可</string>
+	<string name="compose_visibility_title">公開範囲とインタラクション</string>
+	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
+	<string name="compose_visibility_explanation"><![CDATA[この投稿に反応できる人をコントロールします。共通の設定は、設定 > %s > 投稿のデフォルト から確認できます。]]></string>
+	<string name="compose_visibility">公開範囲</string>
+	<string name="compose_quote_policy">引用できるユーザー</string>
+	<string name="quote_policy_public">誰でも</string>
+	<string name="quote_policy_followers">フォロワーのみ</string>
+	<string name="quote_policy_nobody">自分のみ</string>
+	<string name="quote_policy_for_unlisted_explanation">誰かがあなたを引用すると、その投稿もトレンドから非表示になります。</string>
+	<string name="quote_policy_for_private_explanation">Mastodon で作成されたフォロワーのみの投稿は他人から引用できません。</string>
+	<string name="notification_type_quote">引用</string>
+	<string name="create_quote">引用</string>
+	<string name="cannot_quote_post">この投稿は引用できません</string>
+	<string name="cannot_quote_post_followers_only">この投稿はフォロワーに限り引用できます</string>
+	<string name="compose_hint_quote">会話に何かを追加します</string>
+	<string name="cancel_quote">引用をキャンセル</string>
+	<string name="unlisted_quote_alert_title">ひかえめな公開の投稿を引用中</string>
+	<string name="settings_posting_defaults">投稿のデフォルト</string>
 </resources>

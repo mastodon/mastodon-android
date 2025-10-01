@@ -411,7 +411,7 @@
 	<string name="settings_server_explanation">Overzicht, regels, moderators</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">Over %s</string>
-	<string name="default_post_language">Standaardtaal voor berichten</string>
+	<string name="default_post_language">Taal van jouw berichten</string>
 	<string name="settings_alt_text_reminders">Alt-tekst-herinneringen toevoegen</string>
 	<string name="settings_confirm_unfollow">Voordat je iemand ontvolgt om bevestiging vragen</string>
 	<string name="settings_confirm_boost">Voordat je een bericht boost om bevestiging vragen</string>
@@ -729,7 +729,7 @@
 	<string name="notifications_muted">Meldingen van %s zijn afgewezen.</string>
 	<string name="notifications_allowed">%s verschijnt vanaf nu onder jouw meldingen.</string>
 	<string name="visibility_subtitle_public">Iedereen op Mastodon en daarbuiten</string>
-	<string name="visibility_subtitle_unlisted">Voor iedereen zichtbaar, maar niet onder trends, hashtags en op openbare tijdlijnen</string>
+	<string name="visibility_subtitle_unlisted">Niet zichtbaar in de zoekresultaten van Mastodon, onder trends, hashtags en op openbare tijdlijnen</string>
 	<string name="visibility_subtitle_followers">Alleen jouw volgers</string>
 	<string name="visibility_subtitle_private">Alleen voor mensen die specifiek in het bericht worden vermeld</string>
 	<string name="view_boosts">Boosts bekijken</string>
@@ -865,5 +865,36 @@
 		<item quantity="one">%d</item>
 		<item quantity="other">%d</item>
 	</plurals>
+	<string name="quote_post_unavailable">Bericht niet beschikbaar</string>
+	<string name="quote_post_pending">Bericht in afwachting</string>
+	<string name="quote_post_pending_explanation">Op Mastodon kun je bepalen wie jou mag citeren. Dit bericht is in afwachting van de goedkeuring van de oorspronkelijke auteur.</string>
 	<!-- %s is a username, i.e. @Gargron -->
+	<string name="nested_quote">Citeerde een bericht van %s</string>
+	<string name="compose_visibility_public_anyone">Openbaar, iedereen mag citeren</string>
+	<string name="compose_visibility_public_limited">Openbaar, citeren beperkt</string>
+	<string name="compose_visibility_public_disabled">Openbaar, citeren uitgeschakeld</string>
+	<string name="compose_visibility_unlisted_anyone">Minder openbaar, iedereen mag citeren</string>
+	<string name="compose_visibility_unlisted_limited">Minder openbaar, citeren beperkt</string>
+	<string name="compose_visibility_unlisted_disabled">Minder openbaar, citeren uitgeschakeld</string>
+	<string name="compose_visibility_title">Zichtbaarheid en interactie</string>
+	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
+	<string name="compose_visibility_explanation"><![CDATA[Bepaal wie wat met dit bericht mag doen. De globale instellingen vind je onder Voorkeuren > %s > Standaardinstellingen voor berichten.]]></string>
+	<string name="compose_visibility">Zichtbaarheid</string>
+	<string name="compose_quote_policy">Wie mag jou citeren</string>
+	<string name="quote_policy_public">Iedereen</string>
+	<string name="quote_policy_followers">Alleen volgers</string>
+	<string name="quote_policy_nobody">Alleen ik</string>
+	<string name="quote_policy_for_unlisted_explanation">Wanneer mensen jou citeren, verschijnt hun bericht ook niet onder trends.</string>
+	<string name="quote_policy_for_private_explanation">Berichten aan alleen volgers afkomstig van Mastodon kunnen niet door anderen worden geciteerd.</string>
+	<string name="quote_policy_for_direct_explanation">Privéberichten afkomstig van Mastodon kunnen niet door anderen worden geciteerd.</string>
+	<string name="change_quote_policy">Wijzig wie jou mag citeren</string>
+	<string name="edit_visibility_explanation">Het is niet mogelijk om de zichtbaarheid van al geplaatste berichten te wijzigen.</string>
+	<string name="user_quoted_post">%s heeft jouw bericht geciteerd:</string>
+	<string name="user_edited_quoted_post">%s bewerkte een door jou geciteerd bericht</string>
+	<string name="notification_type_quote">Citaten</string>
+	<string name="create_quote">Citeren</string>
+	<string name="cannot_quote_post">Je bent niet gemachtigd om dit bericht te citeren</string>
+	<string name="cannot_quote_post_followers_only">Alleen volgers mogen dit bericht citeren</string>
+	<string name="settings_posting_defaults">Instellingen voor berichten</string>
+	<string name="default_post_visibility">Zichtbaarheid van nieuwe berichten</string>
 </resources>

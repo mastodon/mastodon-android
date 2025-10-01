@@ -164,7 +164,6 @@
 	<string name="add_alt_text">Alternatif metin ekle</string>
 	<string name="visibility_public">Herkese açık</string>
 	<string name="visibility_followers_only">Takipçiler</string>
-	<string name="visibility_private">Belirli kişiler</string>
 	<string name="recent_searches">Son aramalar</string>
 	<string name="notification_type_follow">Yeni takipçiler</string>
 	<string name="notification_type_favorite">Gözdeler</string>
@@ -411,7 +410,6 @@
 	<string name="settings_server_explanation">Genel bakış, kurallar, ler</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">%s Hakkında</string>
-	<string name="default_post_language">Varsayılan gönderi dili</string>
 	<string name="settings_alt_text_reminders">Alternatif metin hatırlatıcıları ekleyin</string>
 	<string name="settings_confirm_unfollow">Birini takibi bırakmadan önce sor</string>
 	<string name="settings_confirm_boost">Yeniden paylaşmadan önce sor</string>
@@ -730,7 +728,6 @@ Ne kadar çok kişiyi takip ederseniz, o kadar aktif ve ilginç olacaktır.</str
 	<string name="notifications_muted">%s gelen bildirimler reddedildi.</string>
 	<string name="notifications_allowed">%s artık bildirim listenizde görünecek.</string>
 	<string name="visibility_subtitle_public">Ağdaki herkes</string>
-	<string name="visibility_subtitle_unlisted">Daha az tantana</string>
 	<string name="visibility_subtitle_followers">Sadece senin takipçilerin</string>
 	<string name="visibility_subtitle_private">Yazıda adı geçen herkes</string>
 	<string name="view_boosts">Destekleri görüntüle</string>
@@ -871,4 +868,5 @@ Ne kadar çok kişiyi takip ederseniz, o kadar aktif ve ilginç olacaktır.</str
 	<string name="quote_post_pending_explanation">Mastodon\'da, birinin sizi alıntılayıp alıntılayamayacağını kontrol edebilirsiniz. Bu gönderi, orijinal yazarın onayını alma sürecinde beklemede.</string>
 	<!-- %s is a username, i.e. @Gargron -->
 	<string name="nested_quote">\@%s adlı kullanıcının bir gönderisini alıntıladı</string>
+	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
 </resources>

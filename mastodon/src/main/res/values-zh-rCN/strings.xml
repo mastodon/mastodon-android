@@ -151,7 +151,6 @@
 	<string name="add_alt_text">添加替代文本</string>
 	<string name="visibility_public">公开</string>
 	<string name="visibility_followers_only">仅关注者</string>
-	<string name="visibility_private">特定的人</string>
 	<string name="recent_searches">最近</string>
 	<string name="notification_type_follow">新关注者</string>
 	<string name="notification_type_favorite">喜欢</string>
@@ -391,7 +390,6 @@
 	<string name="settings_server_explanation">概览、规则与管理员</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">关于 %s</string>
-	<string name="default_post_language">默认发嘟语言</string>
 	<string name="settings_alt_text_reminders">提醒我添加替代文本</string>
 	<string name="settings_confirm_unfollow">取消关注前询问我</string>
 	<string name="settings_confirm_boost">转嘟前询问我</string>
@@ -695,7 +693,6 @@
 	<string name="notifications_muted">来自 %s 的通知已被忽略。</string>
 	<string name="notifications_allowed">%s 现在将出现在你的通知列表中。</string>
 	<string name="visibility_subtitle_public">所有人（无论是否注册了 Mastodon）</string>
-	<string name="visibility_subtitle_unlisted">减少算法影响</string>
 	<string name="visibility_subtitle_followers">仅限您的关注者</string>
 	<string name="visibility_subtitle_private">帖子中提到的每个人</string>
 	<string name="view_boosts">显示转嘟</string>
@@ -805,4 +802,5 @@
 	<!-- %s is `at_least_x_years_old`. Some languages, unlike English, may require the word "years" here. -->
 	<!-- Substituted into `date_of_birth_explanation` -->
 	<!-- %s is a username, i.e. @Gargron -->
+	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
 </resources>

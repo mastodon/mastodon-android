@@ -32,7 +32,7 @@
 	<string name="posts">Postitused</string>
 	<string name="posts_and_replies">Postitused ja vastused</string>
 	<string name="media">Meedium</string>
-	<string name="profile_about">Rakenduse teave</string>
+	<string name="profile_about">Profiilist</string>
 	<string name="button_follow">Jälgi</string>
 	<string name="button_following">Jälgitavat</string>
 	<string name="edit_profile">Muuda profiili</string>
@@ -164,7 +164,7 @@
 	<string name="add_alt_text">Lisa selgitustekst</string>
 	<string name="visibility_public">Avalik</string>
 	<string name="visibility_followers_only">Jälgijad</string>
-	<string name="visibility_private">Konkreetsed kasutajad</string>
+	<string name="visibility_private">Privaatne mainimine</string>
 	<string name="recent_searches">Hiljutised</string>
 	<string name="notification_type_follow">Uued jälgijad</string>
 	<string name="notification_type_favorite">Lemmikud</string>
@@ -410,8 +410,8 @@
 	<string name="settings_filters">Filtrid</string>
 	<string name="settings_server_explanation">Ülevaade, reeglid, moderaatorid</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
-	<string name="about_app">Rakenduse teave: %s</string>
-	<string name="default_post_language">Postituse vaikimisi keel</string>
+	<string name="about_app">Teave %s kohta</string>
+	<string name="default_post_language">Postituse keel</string>
 	<string name="settings_alt_text_reminders">Lisa selgitusteksti meeldetuletusi</string>
 	<string name="settings_confirm_unfollow">Küsi kinnitust enne jälgimise lõpetamist</string>
 	<string name="settings_confirm_boost">Küsi kinnitust enne hooandmist</string>
@@ -440,7 +440,7 @@
 	<string name="pause_notifications_banner">Teavitused jätkuvad %s.</string>
 	<string name="resume_notifications_now">Jätka kohe</string>
 	<string name="open_system_notification_settings">Ava teavituste seadistused</string>
-	<string name="about_server">Rakenduse teave</string>
+	<string name="about_server">Serveri teave</string>
 	<string name="server_rules">Reeglid</string>
 	<string name="server_administrator">Peakasutaja</string>
 	<string name="send_email_to_server_admin">Saada sõnum peakasutajale</string>
@@ -612,7 +612,7 @@
 	<string name="reply_to_user">Vasta kasutajale %s</string>
 	<string name="posted_at">Postitatud %s</string>
 	<string name="non_mutual_sheet_title">Tere tulemast uus suhtluspartner!</string>
-	<string name="non_mutual_sheet_text">Tundub, et oled vastamas kasutajale, kellega sa pole veel seotud. On väga hea, kui esimene mulje jääb suurepärane.</string>
+	<string name="non_mutual_sheet_text">Tundub, et oled vastamas kasutajale, kellega sa pole veel seotud. Ära unusta, et esmamulje on tähtis.</string>
 	<string name="got_it">Sain aru</string>
 	<string name="dont_remind_again">Ära tuleta enam meelde</string>
 	<!-- %s is a time interval ("5 months") -->
@@ -730,7 +730,7 @@ Mida rohkem inimesi sa tead, seda aktiivsem ja huvitavam ta saab olema.</string>
 	<string name="notifications_muted">Teavitus kasutajalt %s on suletud.</string>
 	<string name="notifications_allowed">%s on nüüd nähtav sinu teavituste loendis.</string>
 	<string name="visibility_subtitle_public">Nii kasutajad kui mittekasutajad</string>
-	<string name="visibility_subtitle_unlisted">Vähem algoritmilisi teavitusi</string>
+	<string name="visibility_subtitle_unlisted">Peidetud Mastodoni otsingutulemustest, pupulaarsust koguva sisu voost ja avalikult ajajoonelt</string>
 	<string name="visibility_subtitle_followers">Ainult jälgijad</string>
 	<string name="visibility_subtitle_private">Kõik, kes on postituses mainitud</string>
 	<string name="view_boosts">Vaata hooandmisi</string>
@@ -832,8 +832,8 @@ Mida rohkem inimesi sa tead, seda aktiivsem ja huvitavam ta saab olema.</string>
 	</plurals>
 	<!-- appears when you're about to block a server -->
 	<plurals name="server_x_followers_will_be_removed">
-		<item quantity="one">Eemaldatakse %,d jälgija sellest serverist.</item>
-		<item quantity="other">Eemaldatakse %,d jälgijat sellest serverist.</item>
+		<item quantity="one">%,d jälgija eemaldamine antud serverist.</item>
+		<item quantity="other">%,d jälgija eemaldamine antud serverist.</item>
 	</plurals>
 	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
 	<string name="server_x_followers_and_following_will_be_removed">Sa kaotad %1$s ja %2$s.</string>
@@ -871,4 +871,46 @@ Mida rohkem inimesi sa tead, seda aktiivsem ja huvitavam ta saab olema.</string>
 	<string name="quote_post_pending_explanation">Mastodonis saad sa kontrollida seda, kes võib sind tsiteerida. See postitus on seni ootel, kuni pole algse autori kinnitust tsiteerimisele.</string>
 	<!-- %s is a username, i.e. @Gargron -->
 	<string name="nested_quote">Tsiteeris kasutaja %s postitust</string>
+	<string name="compose_visibility_public_anyone">Avalik, kõik võivad tsiteerida</string>
+	<string name="compose_visibility_public_limited">Avalik, tsiteerimine on piiratud</string>
+	<string name="compose_visibility_public_disabled">Avalik, tsiteerimine on keelatud</string>
+	<string name="compose_visibility_unlisted_anyone">Vaikne, aga avalik, kõik võivad tsiteerida</string>
+	<string name="compose_visibility_unlisted_limited">Vaikne, aga avalik, tsiteerimine on piiratud</string>
+	<string name="compose_visibility_unlisted_disabled">Vaikne, aga avalik, tsiteerimine on keelatud</string>
+	<string name="compose_visibility_title">Nähtavus ja suhestumine</string>
+	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
+	<string name="compose_visibility_explanation"><![CDATA[Halda seda, kes võivad antud postitusega suhestuda. Üldised eelistused leiduvad siin: Seadistused > %s > Postituste vaikeseadistused.]]></string>
+	<string name="compose_visibility">Nähtavus</string>
+	<string name="compose_quote_policy">Kes võivad tsiteerida</string>
+	<string name="quote_policy_public">Kõik</string>
+	<string name="quote_policy_followers">Ainult jälgijad</string>
+	<string name="quote_policy_nobody">Ainult mina</string>
+	<string name="quote_policy_for_unlisted_explanation">Kui teised kasutajad sind tsiteerivad, siis nende postitused peidetakse ajajoonelt, mis näitavad populaarsust koguvaid postitusi.</string>
+	<string name="quote_policy_for_private_explanation">Ainult jälgijatele mõeldud Mastodoni postitusi ei saa teiste poolt tsiteerida.</string>
+	<string name="quote_policy_for_direct_explanation">Ainult mainituile mõeldud Mastodoni postitusi ei saa teiste poolt tsiteerida.</string>
+	<string name="change_quote_policy">Muuda seda, kes võivad tsiteerida</string>
+	<string name="edit_visibility_explanation">Avaldatud postitused ei saa muuta oma nähtavust.</string>
+	<string name="user_quoted_post">%s tsiteeris sinu postitust:</string>
+	<string name="user_edited_quoted_post">%s on muutnud sinu poolt tsiteeritud postitust</string>
+	<string name="notification_type_quote">Tsitaadid</string>
+	<string name="create_quote">Tsiteeri</string>
+	<string name="cannot_quote_post">Sul pole õigust seda postitust tsiteerida</string>
+	<string name="cannot_quote_post_followers_only">Vaid jälgijad saavad seda postitust tsiteerida</string>
+	<string name="compose_hint_quote">Lisa vestlusele omapoolne panus</string>
+	<string name="cancel_quote">Katkesta tsiteerimine</string>
+	<string name="unlisted_quote_alert_title">Vaikse, aga avaliku postituse tsiteerimine</string>
+	<string name="unlisted_quote_alert">Vaikse, aga avaliku postituse tsiteerimisel sinu postitus on peidetud populaarsust koguvatel ajajoontel.</string>
+	<string name="settings_posting_defaults">Postitamise vaikeseadistused</string>
+	<string name="default_post_visibility">Postituse nähtavus</string>
+	<string name="create_quote_manual_approval">Küsi võimalust tsiteerida</string>
+	<string name="create_quote_manual_approval_subtitle">Autor vaatab selle üle</string>
+	<plurals name="x_quotes">
+		<item quantity="one">%,d tsitaat</item>
+		<item quantity="other">%,d tsitaati</item>
+	</plurals>
+	<string name="remove_quote">Eemalda minu tsitaat postituses, mille tegi %s</string>
+	<string name="remove_quote_confirm_title">Kas eemaldame postituse?</string>
+	<string name="remove_quote_confirm">Seda tegevust ei saa tagasi pöörata.</string>
+	<string name="remove_quote_button">Eemalda postitus</string>
+	<string name="settings_posting_defaults_explanation">Järgnevad seadistused on uute postituste koostamisel kasutusel vaikimisi valikutena, kuid neid saad posituse kirjutamisel ka muuta.</string>
 </resources>

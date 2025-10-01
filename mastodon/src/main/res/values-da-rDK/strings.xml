@@ -164,7 +164,7 @@
 	<string name="add_alt_text">Tilføj alternativ tekst</string>
 	<string name="visibility_public">Offentlig</string>
 	<string name="visibility_followers_only">Følgere</string>
-	<string name="visibility_private">Bestemte personer</string>
+	<string name="visibility_private">Privat omtale</string>
 	<string name="recent_searches">Nylige</string>
 	<string name="notification_type_follow">Nye Følgere</string>
 	<string name="notification_type_favorite">Favoritmarkeringer</string>
@@ -411,7 +411,7 @@
 	<string name="settings_server_explanation">Oversigt, regler, moderatorer</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">Om %s</string>
-	<string name="default_post_language">Standard indlægssprog</string>
+	<string name="default_post_language">Sprog for indlæg</string>
 	<string name="settings_alt_text_reminders">Mind om at tilføje alt-tekst</string>
 	<string name="settings_confirm_unfollow">Spørg, før du stopper med at følge nogen</string>
 	<string name="settings_confirm_boost">Spørg før fremhævning</string>
@@ -730,7 +730,7 @@ Jo flere du følger, jo mere aktiv og interessant bliver det.</string>
 	<string name="notifications_muted">Notifikationer fra %s er blevet afvist.</string>
 	<string name="notifications_allowed">%s vises nu i på notifikationslisten.</string>
 	<string name="visibility_subtitle_public">Alle på og udenfor Mastodon</string>
-	<string name="visibility_subtitle_unlisted">Færre algoritmiske fanfarer</string>
+	<string name="visibility_subtitle_unlisted">Skjult fra Mastodons søgeresultater, trender og offentlige tidslinjer</string>
 	<string name="visibility_subtitle_followers">Kun dine følgere</string>
 	<string name="visibility_subtitle_private">Alle omtalt i indlægget</string>
 	<string name="view_boosts">Vis fremhævninger</string>
@@ -871,4 +871,46 @@ Jo flere du følger, jo mere aktiv og interessant bliver det.</string>
 	<string name="quote_post_pending_explanation">På Mastodon kan du kontrollere, om nogen kan citere dig. Dette indlæg afventer, mens vi får den oprindelige forfatters godkendelse.</string>
 	<!-- %s is a username, i.e. @Gargron -->
 	<string name="nested_quote">Citerede et indlæg af %s</string>
+	<string name="compose_visibility_public_anyone">Offentlig, alle kan citere</string>
+	<string name="compose_visibility_public_limited">Offentlig, citater begrænset</string>
+	<string name="compose_visibility_public_disabled">Offentlig, citater deaktiveret</string>
+	<string name="compose_visibility_unlisted_anyone">Offentlig (stille), alle kan citere</string>
+	<string name="compose_visibility_unlisted_limited">Offentlig (stille), citater begrænset</string>
+	<string name="compose_visibility_unlisted_disabled">Offentlig (stille), citater deaktiveret</string>
+	<string name="compose_visibility_title">Synlighed og interaktion</string>
+	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
+	<string name="compose_visibility_explanation"><![CDATA[Styr, hvem der kan interagere med dette indlæg. Globale indstillinger kan findes under Indstillinger > %s > Standarder for indlæg.]]></string>
+	<string name="compose_visibility">Synlighed</string>
+	<string name="compose_quote_policy">Hvem kan citere</string>
+	<string name="quote_policy_public">Alle</string>
+	<string name="quote_policy_followers">Kun følgere</string>
+	<string name="quote_policy_nobody">Kun mig</string>
+	<string name="quote_policy_for_unlisted_explanation">Når folk citerer dig, vil deres indlæg også blive skjult fra trendtidslinjer.</string>
+	<string name="quote_policy_for_private_explanation">Kun-følger indlæg forfattet på Mastodon kan ikke citeres af andre.</string>
+	<string name="quote_policy_for_direct_explanation">Private omtaler forfattet på Mastodon kan ikke citeres af andre.</string>
+	<string name="change_quote_policy">Ændr hvem der kan citere</string>
+	<string name="edit_visibility_explanation">Publicerede indlægs synlighed kan ikke ændres.</string>
+	<string name="user_quoted_post">%s citerede dit indlæg:</string>
+	<string name="user_edited_quoted_post">%s redigerede et indlæg, du har citeret</string>
+	<string name="notification_type_quote">Citater</string>
+	<string name="create_quote">Citér</string>
+	<string name="cannot_quote_post">Du har ikke tilladelse til at citere dette indlæg</string>
+	<string name="cannot_quote_post_followers_only">Kun følgere kan citere dette indlæg</string>
+	<string name="compose_hint_quote">Tilføj noget til samtalen</string>
+	<string name="cancel_quote">Annullér citat</string>
+	<string name="unlisted_quote_alert_title">Citering af stille offentlige indlæg</string>
+	<string name="unlisted_quote_alert">Når du citerer et stille offentligt indlæg, vil dit indlæg blive skjult fra trendtidslinjer.</string>
+	<string name="settings_posting_defaults">Standarder for indlæg</string>
+	<string name="default_post_visibility">Synlighed af indlæg</string>
+	<string name="create_quote_manual_approval">Anmod om citering</string>
+	<string name="create_quote_manual_approval_subtitle">Forfatteren vil manuelt gennemgå</string>
+	<plurals name="x_quotes">
+		<item quantity="one">%,d citat</item>
+		<item quantity="other">%,d citater</item>
+	</plurals>
+	<string name="remove_quote">Fjern mit indlæg fra %s\'s indlæg</string>
+	<string name="remove_quote_confirm_title">Fjern indlæg?</string>
+	<string name="remove_quote_confirm">Denne handling kan ikke fortrydes.</string>
+	<string name="remove_quote_button">Fjern indlæg</string>
+	<string name="settings_posting_defaults_explanation">Disse indstillinger vil blive brugt som standard, når du opretter nye indlæg, men du kan redigere dem for hvert enkelt indlæg i redigeringsværktøjet.</string>
 </resources>

@@ -152,7 +152,6 @@
 	<string name="add_alt_text">เพิ่มข้อความแสดงแทน</string>
 	<string name="visibility_public">สาธารณะ</string>
 	<string name="visibility_followers_only">ผู้ติดตาม</string>
-	<string name="visibility_private">ผู้คนที่เฉพาะเจาะจง</string>
 	<string name="recent_searches">รายการล่าสุด</string>
 	<string name="notification_type_follow">ผู้ติดตามใหม่</string>
 	<string name="notification_type_favorite">รายการโปรด</string>
@@ -392,7 +391,6 @@
 	<string name="settings_server_explanation">ภาพรวม, กฎ, ผู้กลั่นกรอง</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">เกี่ยวกับ %s</string>
-	<string name="default_post_language">ภาษาของโพสต์เริ่มต้น</string>
 	<string name="settings_alt_text_reminders">เพิ่มการเตือนความจำข้อความแสดงแทน</string>
 	<string name="settings_confirm_unfollow">ถามก่อนที่จะเลิกติดตามใครสักคน</string>
 	<string name="settings_confirm_boost">ถามก่อนที่จะดัน</string>
@@ -696,7 +694,6 @@
 	<string name="notifications_muted">ปิดการแจ้งเตือนจาก %s แล้ว</string>
 	<string name="notifications_allowed">ตอนนี้ %s จะปรากฏในรายการการแจ้งเตือนของคุณ</string>
 	<string name="visibility_subtitle_public">ทุกคนที่อยู่ในและนอก Mastodon</string>
-	<string name="visibility_subtitle_unlisted">การประโคมอัลกอริทึมที่น้อยลง</string>
 	<string name="visibility_subtitle_followers">เฉพาะผู้ติดตามของคุณเท่านั้น</string>
 	<string name="visibility_subtitle_private">ทุกคนที่กล่าวถึงในโพสต์</string>
 	<string name="view_boosts">ดูการดัน</string>
@@ -819,4 +816,5 @@
 		<item quantity="other">%d</item>
 	</plurals>
 	<!-- %s is a username, i.e. @Gargron -->
+	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
 </resources>

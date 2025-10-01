@@ -164,7 +164,6 @@
 	<string name="add_alt_text">Ajouter un texte alternatif</string>
 	<string name="visibility_public">Public</string>
 	<string name="visibility_followers_only">Abonné·e·s</string>
-	<string name="visibility_private">Personnes spécifiques</string>
 	<string name="recent_searches">Récents</string>
 	<string name="notification_type_follow">Nouveaux⋅elles abonné⋅e⋅s</string>
 	<string name="notification_type_favorite">Favoris</string>
@@ -411,7 +410,6 @@
 	<string name="settings_server_explanation">Aperçu, règles, modérateur·rice·s</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">A propos de %s</string>
-	<string name="default_post_language">Langue de publication par défaut</string>
 	<string name="settings_alt_text_reminders">Ajouter des rappels de texte alternatif</string>
 	<string name="settings_confirm_unfollow">Demander confirmation avant de se désabonner d\'un compte</string>
 	<string name="settings_confirm_boost">Demander avant de booster</string>
@@ -625,7 +623,7 @@
 	<string name="more_than_two_years">plus de 2 ans</string>
 	<string name="non_mutual_title1">Soyez respectueux &amp; pertinent</string>
 	<string name="non_mutual_text1">Assurez-vous que votre réponse est courtoise et en ligne avec le sujet.</string>
-	<string name="non_mutual_title2">Soyer gentil</string>
+	<string name="non_mutual_title2">Soyez gentil</string>
 	<string name="non_mutual_text2">Un ton positif est toujours apprécié.</string>
 	<string name="non_mutual_title3">Soyez ouvert</string>
 	<string name="non_mutual_text3">Chaque personne s\'exprime différemment. Soyez prêts à vous adapter.</string>
@@ -729,7 +727,6 @@
 	<string name="notifications_muted">Les notifications de %s ont été rejetées.</string>
 	<string name="notifications_allowed">%s apparaîtra maintenant dans votre liste de notifications.</string>
 	<string name="visibility_subtitle_public">Tout le monde sur et en dehors de Mastodon</string>
-	<string name="visibility_subtitle_unlisted">Moins de fanfares algorithmiques</string>
 	<string name="visibility_subtitle_followers">Vos abonné·e·s uniquement</string>
 	<string name="visibility_subtitle_private">Toute personne mentionnée dans le message</string>
 	<string name="view_boosts">Afficher les partages</string>
@@ -857,8 +854,19 @@
 	<string name="report_reason_legal_subtitle">Vous pensez que cela viole la loi de votre pays ou celui du serveur</string>
 	<string name="date_of_birth">Date de naissance </string>
 	<!-- %s is `at_least_x_years_old`. Some languages, unlike English, may require the word "years" here. -->
+	<string name="date_of_birth_explanation">Nous devons nous assurer que vous avez au moins %s ans pour utiliser Mastodon. Cela ne sera pas conservé après l\'inscription.</string>
 	<string name="open_link">Ouvrir</string>
 	<string name="copy">Copier</string>
 	<!-- Substituted into `date_of_birth_explanation` -->
+	<plurals name="at_least_x_years_old">
+		<item quantity="one">%d an</item>
+		<item quantity="other">%d ans</item>
+	</plurals>
+	<string name="quote_post_unavailable">Publication indisponible</string>
+	<string name="quote_post_pending">Publication en attente</string>
+	<string name="quote_post_pending_explanation">Sur Mastodon, vous pouvez contrôler si quelqu\'un peut vous citer. Ce message est en attente le temps que nous recevions l\'approbation de l\'auteur original.</string>
 	<!-- %s is a username, i.e. @Gargron -->
+	<string name="nested_quote">a cité un message de %s</string>
+	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
+	<string name="compose_visibility">Visibilité</string>
 </resources>

@@ -4,7 +4,7 @@
 	<string name="next">Další</string>
 	<string name="loading_instance">Načítání informací o serveru…</string>
 	<string name="error">Chyba</string>
-	<string name="not_a_mastodon_instance">Zdá se, že %s není serverem Mastodonu.</string>
+	<string name="not_a_mastodon_instance">Zdá se, že %s není Mastodon server.</string>
 	<string name="ok">OK</string>
 	<string name="preparing_auth">Příprava na autentizaci…</string>
 	<string name="finishing_auth">Dokončení autentizace…</string>
@@ -188,7 +188,7 @@
 	<string name="add_alt_text">Přidat alternativní text</string>
 	<string name="visibility_public">Veřejné</string>
 	<string name="visibility_followers_only">Sledující</string>
-	<string name="visibility_private">Vybraní lidé</string>
+	<string name="visibility_private">Soukromá zmínka</string>
 	<string name="recent_searches">Nedávné</string>
 	<string name="notification_type_follow">Noví sledující</string>
 	<string name="notification_type_favorite">Oblíbené</string>
@@ -449,7 +449,7 @@
 	<string name="settings_server_explanation">Přehled, pravidla, moderátoři</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">O aplikaci %s</string>
-	<string name="default_post_language">Výchozí jazyk pro příspěvky</string>
+	<string name="default_post_language">Jazyk příspěvků</string>
 	<string name="settings_alt_text_reminders">Přidat připomínky alternativního textu</string>
 	<string name="settings_confirm_unfollow">Zeptat se před tím, než někoho přestanete sledovat</string>
 	<string name="settings_confirm_boost">Zeptat se před boostováním</string>
@@ -798,7 +798,7 @@
 	<string name="notifications_muted">Oznámení od %s byla zamítnuta.</string>
 	<string name="notifications_allowed">%s se nyní zobrazí ve vašem seznamu oznámení.</string>
 	<string name="visibility_subtitle_public">Kdokoliv na Mastodonu i mimo něj</string>
-	<string name="visibility_subtitle_unlisted">Méně algoritmických vzruchů</string>
+	<string name="visibility_subtitle_unlisted">Skryté z výsledků vyhledávání na Mastodonu, trendujících příspěvků a veřejné časové osy</string>
 	<string name="visibility_subtitle_followers">Jen vaši sledující</string>
 	<string name="visibility_subtitle_private">Všichni zmínění v příspěvku</string>
 	<string name="view_boosts">Zobrazit boosty</string>
@@ -965,4 +965,48 @@
 	<string name="quote_post_pending_explanation">Na Mastodonu můžete kontrolovat, zda vás někdo může citovat. Tento příspěvek čeká na schválení od původního autora.</string>
 	<!-- %s is a username, i.e. @Gargron -->
 	<string name="nested_quote">Citovali příspěvek od @%s</string>
+	<string name="compose_visibility_public_anyone">Veřejné, kdokoliv může citovat</string>
+	<string name="compose_visibility_public_limited">Veřejné, citace omezeny</string>
+	<string name="compose_visibility_public_disabled">Veřejné, citace zakázány</string>
+	<string name="compose_visibility_unlisted_anyone">Tiše veřejné, kdokoliv může citovat</string>
+	<string name="compose_visibility_unlisted_limited">Tiše veřejné, citace omezeny</string>
+	<string name="compose_visibility_unlisted_disabled">Tiše veřejné, citace zakázány</string>
+	<string name="compose_visibility_title">Viditelnost a interakce</string>
+	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
+	<string name="compose_visibility_explanation"><![CDATA[Kontrolujte, kdo může interagovat s tímto příspěvkem. Globální nastavení můžete najít pod Nastavení > %s > Výchozí nastavení příspěvků.]]></string>
+	<string name="compose_visibility">Viditelnost</string>
+	<string name="compose_quote_policy">Kdo může citovat</string>
+	<string name="quote_policy_public">Kdokoliv</string>
+	<string name="quote_policy_followers">Pouze sledující</string>
+	<string name="quote_policy_nobody">Jen já</string>
+	<string name="quote_policy_for_unlisted_explanation">Když vás lidé citují, jejich příspěvek bude v časové ose populárních příspěvků také skryt.</string>
+	<string name="quote_policy_for_private_explanation">Příspěvky pouze pro sledující, které jsou vytvořeny na Mastodonu, nemohou být citovány ostatními.</string>
+	<string name="quote_policy_for_direct_explanation">Soukromé zmínky, které jsou vytvořeny na Mastodonu, nemohou být citovány ostatními.</string>
+	<string name="change_quote_policy">Změňte, kdo může citovat</string>
+	<string name="edit_visibility_explanation">Publikované příspěvky nemohou změnit svou viditelnost.</string>
+	<string name="user_quoted_post">%s citovali váš příspěvek:</string>
+	<string name="user_edited_quoted_post">%s upravili příspěvek, který jste citovali</string>
+	<string name="notification_type_quote">Citace</string>
+	<string name="create_quote">Citovat</string>
+	<string name="cannot_quote_post">Nemáte oprávnění citovat tento příspěvek</string>
+	<string name="cannot_quote_post_followers_only">Pouze sledující mohou citovat tento příspěvek</string>
+	<string name="compose_hint_quote">Přidejte něco do konverzace</string>
+	<string name="cancel_quote">Zrušit citování</string>
+	<string name="unlisted_quote_alert_title">Citování ztišených veřejných příspěvků</string>
+	<string name="unlisted_quote_alert">Při citování ztišeného veřejného příspěvku, váš příspěvek bude skrytý z os populárních příspěvků.</string>
+	<string name="settings_posting_defaults">Výchozí nastavení příspěvků</string>
+	<string name="default_post_visibility">Viditelnost příspěvků</string>
+	<string name="create_quote_manual_approval">Požádat o možnost citovat</string>
+	<string name="create_quote_manual_approval_subtitle">Autor provede manuální kontrolu</string>
+	<plurals name="x_quotes">
+		<item quantity="one">%,d citace</item>
+		<item quantity="few">%,d citace</item>
+		<item quantity="many">%,d citací</item>
+		<item quantity="other">%,d citací</item>
+	</plurals>
+	<string name="remove_quote">Odstranit můj příspěvek z příspěvku %s</string>
+	<string name="remove_quote_confirm_title">Odstranit příspěvek?</string>
+	<string name="remove_quote_confirm">Tuto akci nelze vrátit zpět.</string>
+	<string name="remove_quote_button">Odstranit příspěvek</string>
+	<string name="settings_posting_defaults_explanation">Tato nastavení budou použita jako výchozí při vytváření nových příspěvků, ale v editoru je můžete upravit pro každý příspěvek zvlášť.</string>
 </resources>

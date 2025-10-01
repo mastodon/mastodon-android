@@ -164,7 +164,6 @@
 	<string name="add_alt_text">Helyettesítő szöveg hozzáadása</string>
 	<string name="visibility_public">Nyilvános</string>
 	<string name="visibility_followers_only">Követők</string>
-	<string name="visibility_private">Adott emberek</string>
 	<string name="recent_searches">Legutóbbiak</string>
 	<string name="notification_type_follow">Új követők</string>
 	<string name="notification_type_favorite">Kedvencek</string>
@@ -411,7 +410,6 @@
 	<string name="settings_server_explanation">Áttekintés, szabályok, moderátorok</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">A %s névjegye</string>
-	<string name="default_post_language">Bejegyzések alapértelmezett nyelve</string>
 	<string name="settings_alt_text_reminders">Helyettesítő szöveg emlékeztetőjének hozzáadása</string>
 	<string name="settings_confirm_unfollow">Rákérdezés a követés megszüntetése előtt</string>
 	<string name="settings_confirm_boost">Rákérdezés megtolás előtt</string>
@@ -729,7 +727,6 @@ Minél több embert követsz, annál aktívabb és érdekesebb lesz.</string>
 	<string name="notifications_muted">%s értesítései el lettek vetve.</string>
 	<string name="notifications_allowed">%s most már meg fog jelenni az értesítési listában.</string>
 	<string name="visibility_subtitle_public">Bárki a Mastodonon és azon kívül</string>
-	<string name="visibility_subtitle_unlisted">Kevesebb algoritmikus fanfár</string>
 	<string name="visibility_subtitle_followers">Csak a követőid</string>
 	<string name="visibility_subtitle_private">Mindenki, akit a bejegyzés említ</string>
 	<string name="view_boosts">Megtolások megtekintése</string>
@@ -865,4 +862,5 @@ Minél több embert követsz, annál aktívabb és érdekesebb lesz.</string>
 		<item quantity="other">%d</item>
 	</plurals>
 	<!-- %s is a username, i.e. @Gargron -->
+	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
 </resources>

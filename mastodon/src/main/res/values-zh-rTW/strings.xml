@@ -152,7 +152,7 @@
 	<string name="add_alt_text">新增說明文字</string>
 	<string name="visibility_public">公開</string>
 	<string name="visibility_followers_only">跟隨者</string>
-	<string name="visibility_private">指定使用者</string>
+	<string name="visibility_private">私訊</string>
 	<string name="recent_searches">最近的</string>
 	<string name="notification_type_follow">新的跟隨者</string>
 	<string name="notification_type_favorite">最愛</string>
@@ -392,7 +392,7 @@
 	<string name="settings_server_explanation">概要、規則、管理員</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">關於 %s</string>
-	<string name="default_post_language">預設嘟文語言</string>
+	<string name="default_post_language">嘟文語言</string>
 	<string name="settings_alt_text_reminders">加上 ALT 說明文字提醒</string>
 	<string name="settings_confirm_unfollow">取消跟隨某人前先詢問我</string>
 	<string name="settings_confirm_boost">轉嘟前先詢問我</string>
@@ -696,7 +696,7 @@
 	<string name="notifications_muted">已關閉來自 %s 之推播通知請求。</string>
 	<string name="notifications_allowed">%s 將不再出現於您的通知列表。</string>
 	<string name="visibility_subtitle_public">所有人 (無論在 Mastodon 上與否)</string>
-	<string name="visibility_subtitle_unlisted">悄然無聲</string>
+	<string name="visibility_subtitle_unlisted">不顯示於 Mastodon 之搜尋結果、熱門趨勢、及公開時間軸上</string>
 	<string name="visibility_subtitle_followers">只有跟隨您之使用者能看到</string>
 	<string name="visibility_subtitle_private">此嘟文提及之所有人</string>
 	<string name="view_boosts">檢視轉嘟</string>
@@ -824,4 +824,45 @@
 	<string name="quote_post_pending_explanation">您能於 Mastodon 控制是否允許引用您的嘟文。此嘟文正在等待原始作者核准。</string>
 	<!-- %s is a username, i.e. @Gargron -->
 	<string name="nested_quote">已引用 %s 之嘟文</string>
+	<string name="compose_visibility_public_anyone">公開，任何人皆可引用</string>
+	<string name="compose_visibility_public_limited">公開，限制引用</string>
+	<string name="compose_visibility_public_disabled">公開，停用引用</string>
+	<string name="compose_visibility_unlisted_anyone">不於公開時間軸顯示，任何人皆可引用</string>
+	<string name="compose_visibility_unlisted_limited">不於公開時間軸顯示，限制引用</string>
+	<string name="compose_visibility_unlisted_disabled">不於公開時間軸顯示，停用引用</string>
+	<string name="compose_visibility_title">可見性與互動</string>
+	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
+	<string name="compose_visibility_explanation"><![CDATA[控制誰能與此嘟文互動。可於偏好設定 > %s > 嘟文預設值下找到全域設定。]]></string>
+	<string name="compose_visibility">可見性</string>
+	<string name="compose_quote_policy">誰能引用此嘟文</string>
+	<string name="quote_policy_public">所有人</string>
+	<string name="quote_policy_followers">僅限跟隨者</string>
+	<string name="quote_policy_nobody">僅有我</string>
+	<string name="quote_policy_for_unlisted_explanation">當其他人引用您時，他們的嘟文也會自熱門時間軸隱藏。</string>
+	<string name="quote_policy_for_private_explanation">Mastodon 上發佈之僅限跟隨者嘟文無法被其他使用者引用。</string>
+	<string name="quote_policy_for_direct_explanation">Mastodon 上發佈之私人提及嘟文無法被其他使用者引用。</string>
+	<string name="change_quote_policy">變更可以引用的人</string>
+	<string name="edit_visibility_explanation">無法變更已發佈的嘟文之可見性。</string>
+	<string name="user_quoted_post">%s 已引用您的嘟文：</string>
+	<string name="user_edited_quoted_post">%s 已編輯一則您曾引用之嘟文</string>
+	<string name="notification_type_quote">引用嘟文</string>
+	<string name="create_quote">引用嘟文</string>
+	<string name="cannot_quote_post">您不被允許引用此嘟文</string>
+	<string name="cannot_quote_post_followers_only">只有跟隨者能引用此嘟文</string>
+	<string name="compose_hint_quote">添加一些內容至此對話中</string>
+	<string name="cancel_quote">取消引用嘟文</string>
+	<string name="unlisted_quote_alert_title">引用不於公開時間軸顯示之嘟文</string>
+	<string name="unlisted_quote_alert">當引用不於公開時間軸顯示之嘟文時，您的嘟文將自熱門時間軸隱藏。</string>
+	<string name="settings_posting_defaults">嘟文預設值</string>
+	<string name="default_post_visibility">嘟文可見性</string>
+	<string name="create_quote_manual_approval">要求引用嘟文</string>
+	<string name="create_quote_manual_approval_subtitle">嘟文作者將人工審閱</string>
+	<plurals name="x_quotes">
+		<item quantity="other">%,d 則引用</item>
+	</plurals>
+	<string name="remove_quote">將我的嘟文自 %s 之嘟文中移除</string>
+	<string name="remove_quote_confirm_title">您是否確定移除嘟文？</string>
+	<string name="remove_quote_confirm">此動作無法復原。</string>
+	<string name="remove_quote_button">移除嘟文</string>
+	<string name="settings_posting_defaults_explanation">這些設定將作為您建立新嘟文時之預設值，但您能於編輯器中編輯個別嘟文之設定。</string>
 </resources>

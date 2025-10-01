@@ -164,7 +164,7 @@
 	<string name="add_alt_text">Προσθήκη εναλλακτικού κειμένου</string>
 	<string name="visibility_public">Δημόσιο</string>
 	<string name="visibility_followers_only">Ακόλουθοι</string>
-	<string name="visibility_private">Συγκεκριμένα άτομα</string>
+	<string name="visibility_private">Ιδιωτική επισήμανση</string>
 	<string name="recent_searches">Πρόσφατα</string>
 	<string name="notification_type_follow">Νέοι ακόλουθοι</string>
 	<string name="notification_type_favorite">Αγαπημένα</string>
@@ -411,7 +411,7 @@
 	<string name="settings_server_explanation">Επισκόπηση, κανόνες, συντονιστές</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">Σχετικά με το %s</string>
-	<string name="default_post_language">Προεπιλεγμένη γλώσσα ανάρτησης</string>
+	<string name="default_post_language">Γλώσσα ανάρτησης</string>
 	<string name="settings_alt_text_reminders">Προσθήκη υπενθυμίσεων για εναλλακτικό κείμενο</string>
 	<string name="settings_confirm_unfollow">Ερώτηση πριν την άρση ακολούθησης κάποιου</string>
 	<string name="settings_confirm_boost">Ερώτηση πριν την ενίσχυση</string>
@@ -729,7 +729,7 @@
 	<string name="notifications_muted">Οι ειδοποιήσεις από %s έχουν απορριφθεί.</string>
 	<string name="notifications_allowed">%s θα εμφανιστεί τώρα στη λίστα ειδοποιήσεών σου.</string>
 	<string name="visibility_subtitle_public">Όλοι εντός και εκτός του Mastodon</string>
-	<string name="visibility_subtitle_unlisted">Λιγότερα αλγοριθμικά κόλπα</string>
+	<string name="visibility_subtitle_unlisted">Κρυμμένο από τα αποτελέσματα αναζήτησης Mastodon, τις τάσεις και τις δημόσιες ροές</string>
 	<string name="visibility_subtitle_followers">Μόνο οι ακόλουθοί σου</string>
 	<string name="visibility_subtitle_private">Όλοι όσοι αναφέρθηκαν στην ανάρτηση</string>
 	<string name="view_boosts">Εμφάνιση ενισχύσεων</string>
@@ -870,4 +870,19 @@
 	<string name="quote_post_pending_explanation">Στο Mastodon, μπορείς να ελέγξεις αν κάποιος μπορεί να σε αναφέρει. Αυτή η ανάρτηση εκκρεμεί ενώ λαμβάνουμε την έγκριση του αρχικού συγγραφέα.</string>
 	<!-- %s is a username, i.e. @Gargron -->
 	<string name="nested_quote">Παράθεση ανάρτησης από %s</string>
+	<string name="compose_visibility_public_anyone">Δημόσιο, οποιοσδήποτε μπορεί να παραθέσει</string>
+	<string name="compose_visibility_public_limited">Δημόσιο, παραθέσεις περιορισμένες</string>
+	<string name="compose_visibility_public_disabled">Δημόσιο, παραθέσεις απενεργοποιημένες</string>
+	<string name="compose_visibility_unlisted_anyone">Αθόρυβο δημόσιο, οποιοσδήποτε μπορεί να παραθέσει</string>
+	<string name="compose_visibility_unlisted_limited">Αθόρυβο δημόσιο, παραθέσεις περιορισμένες</string>
+	<string name="compose_visibility_unlisted_disabled">Αθόρυβο δημόσιο, παραθέσεις απενεργοποιημένες</string>
+	<string name="compose_visibility_title">Ορατότητα και αλληλεπίδραση</string>
+	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
+	<string name="compose_visibility_explanation"><![CDATA[Έλεγξε ποιος μπορεί να αλληλεπιδράσει μ' αυτή την ανάρτηση. Οι καθολικές ρυθμίσεις μπορούν να βρεθούν στο Ρυθμίσεις > %s > Προεπιλογές ανάρτησης.]]></string>
+	<string name="compose_visibility">Ορατότητα</string>
+	<string name="compose_quote_policy">Ποιος μπορεί να παραθέσει</string>
+	<string name="quote_policy_public">Οποιοσδήποτε</string>
+	<string name="quote_policy_followers">Μόνο ακόλουθοι</string>
+	<string name="quote_policy_nobody">Μόνο εγώ</string>
+	<string name="quote_policy_for_unlisted_explanation">Όταν ένα άτομο σε παραθέτει, η ανάρτησή του θα είναι επίσης κρυμμένη από τις δημοφιλείς ροές.</string>
 </resources>

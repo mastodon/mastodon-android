@@ -198,7 +198,6 @@
 	<string name="add_alt_text">Ychwanegu testun amgen</string>
 	<string name="visibility_public">Cyhoeddus</string>
 	<string name="visibility_followers_only">Dilynwyr</string>
-	<string name="visibility_private">Pobl benodol</string>
 	<string name="recent_searches">Diweddar</string>
 	<string name="notification_type_follow">Dilynwyr newydd</string>
 	<string name="notification_type_favorite">Ffefrynnau</string>
@@ -419,7 +418,6 @@
 	<string name="settings_server_explanation">Trosolwg, rheolau, cymedrolwyr</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">Ynglŷn â %s</string>
-	<string name="default_post_language">Iaith bostio ddiofyn</string>
 	<string name="settings_alt_text_reminders">Atgofion ychwanegu testun amgen</string>
 	<string name="settings_confirm_unfollow">Gofyn cyn dad-ddilyn rhywun</string>
 	<string name="settings_confirm_boost">Gofyn cyn hybu</string>
@@ -664,4 +662,5 @@
 	<!-- %s is `at_least_x_years_old`. Some languages, unlike English, may require the word "years" here. -->
 	<!-- Substituted into `date_of_birth_explanation` -->
 	<!-- %s is a username, i.e. @Gargron -->
+	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
 </resources>

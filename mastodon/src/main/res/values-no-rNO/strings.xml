@@ -161,7 +161,6 @@
 	<string name="add_alt_text">Legg til alternativ tekst</string>
 	<string name="visibility_public">Offentlig</string>
 	<string name="visibility_followers_only">Følgere</string>
-	<string name="visibility_private">Utvalgte personer</string>
 	<string name="recent_searches">Nylige</string>
 	<string name="notification_type_follow">Nye følgere</string>
 	<string name="notification_type_favorite">Stjernemerker</string>
@@ -406,7 +405,6 @@
 	<string name="settings_server_explanation">Oversikt, regler og moderatorer</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">Om %s</string>
-	<string name="default_post_language">Standard innleggsspråk</string>
 	<string name="settings_alt_text_reminders">Legg til alternativ tekst påminnelse</string>
 	<string name="settings_confirm_unfollow">Spør før du slutter å følge noen</string>
 	<string name="settings_confirm_boost">Spør før fremheving</string>
@@ -709,4 +707,5 @@ Jo flere folk du følger, jo mer aktiv og interessant blir den.</string>
 	<!-- %s is `at_least_x_years_old`. Some languages, unlike English, may require the word "years" here. -->
 	<!-- Substituted into `date_of_birth_explanation` -->
 	<!-- %s is a username, i.e. @Gargron -->
+	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
 </resources>

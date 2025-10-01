@@ -187,7 +187,6 @@
 	<string name="add_alt_text">Dodaj tekst alternatywny</string>
 	<string name="visibility_public">Publiczny</string>
 	<string name="visibility_followers_only">Obserwujący</string>
-	<string name="visibility_private">Konkretne osoby</string>
 	<string name="recent_searches">Ostatnie</string>
 	<string name="notification_type_follow">Nowi obserwujący</string>
 	<string name="notification_type_favorite">Polubienia</string>
@@ -448,7 +447,6 @@
 	<string name="settings_server_explanation">Przegląd, zasady, moderacja</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">O %sie</string>
-	<string name="default_post_language">Domyślny język wpisu</string>
 	<string name="settings_alt_text_reminders">Przypomnienia o dodaniu opisu obrazów</string>
 	<string name="settings_confirm_unfollow">Zapytaj przed usunięciem obserwacji</string>
 	<string name="settings_confirm_boost">Zapytaj przed podbijaniem</string>
@@ -755,7 +753,6 @@ Im więcej ludzi obserwujesz, tym aktywniejsza i bardziej interesująca się sta
 	<string name="notifications_muted">Powiadomienia od %s zostały odrzucone.</string>
 	<string name="notifications_allowed">%s pojawi się teraz na liście powiadomień.</string>
 	<string name="visibility_subtitle_public">Wszyscy na i poza Mastodonem</string>
-	<string name="visibility_subtitle_unlisted">Z wyłączeniem funkcji odkrywania</string>
 	<string name="visibility_subtitle_followers">Tylko dla osób, które Cię obserwują</string>
 	<string name="visibility_subtitle_private">Tylko wspomniane osoby</string>
 	<string name="view_boosts">Zobacz podbicia</string>
@@ -829,4 +826,5 @@ Im więcej ludzi obserwujesz, tym aktywniejsza i bardziej interesująca się sta
 	<!-- %s is `at_least_x_years_old`. Some languages, unlike English, may require the word "years" here. -->
 	<!-- Substituted into `date_of_birth_explanation` -->
 	<!-- %s is a username, i.e. @Gargron -->
+	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
 </resources>

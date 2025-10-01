@@ -221,7 +221,6 @@
 	<string name="settings_filters">ფილტრები</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">%s-ის შესახებ</string>
-	<string name="default_post_language">პოსტის ნაგულისხმევი ენა</string>
 	<plurals name="x_weeks">
 		<item quantity="one">%d კვირა</item>
 		<item quantity="other">%d კვირა</item>
@@ -399,4 +398,5 @@
 	<string name="quote_post_pending_explanation">Mastodon-ზე შეგიძლიათ აკონტროლოთ, შეუძლია თუ არა ვინმეს თქვენი ციტირება. ეს პოსტი განხილვის პროცესშია, სანამ ორიგინალი ავტორისგან დამტკიცებას არ მივიღებთ.</string>
 	<!-- %s is a username, i.e. @Gargron -->
 	<string name="nested_quote">ციტირებულია %s-ის პოსტი</string>
+	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
 </resources>

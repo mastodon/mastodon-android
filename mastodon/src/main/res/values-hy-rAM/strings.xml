@@ -164,7 +164,6 @@
 	<string name="add_alt_text">Ավելացնել բացատրություն</string>
 	<string name="visibility_public">Հրապարակային</string>
 	<string name="visibility_followers_only">Հետևորդներ</string>
-	<string name="visibility_private">Նշված մարդիկ</string>
 	<string name="recent_searches">Վերջին</string>
 	<string name="notification_type_follow">Նոր հետևորդներ</string>
 	<string name="notification_type_favorite">Հավանումներ</string>
@@ -411,7 +410,6 @@
 	<string name="settings_server_explanation">Կանոններ, մոդերատորներ</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">%s-ի մասին</string>
-	<string name="default_post_language">Գրառման լռելյայն լեզու</string>
 	<string name="settings_alt_text_reminders">Ավելացնել բացատրության մասին հիշեցումներ</string>
 	<string name="settings_confirm_unfollow">Հարցնել` մեկին ապահետեւելուց առաջ</string>
 	<string name="settings_confirm_boost">Հարցնել տարածելուց առաջ</string>
@@ -729,7 +727,6 @@
 	<string name="notifications_muted">%s-ից ծանուցումները ջնջվել են։</string>
 	<string name="notifications_allowed">%s-ը այժմ կհայտնվի ձեր ծանուցումների ցանկում։</string>
 	<string name="visibility_subtitle_public">Բոլորը Մաստոդոնում և Մաստոդոնից դուրս</string>
-	<string name="visibility_subtitle_unlisted">Ավելի քիչ ալգորիթմական ճոխություն</string>
 	<string name="visibility_subtitle_followers">Միայն ձեր հետևորդները</string>
 	<string name="visibility_subtitle_private">Բոլորը, ովքեր նշված են գրառման մեջ</string>
 	<string name="view_boosts">Տեսնել տարածումները</string>
@@ -858,10 +855,17 @@
 	<string name="date_of_birth">Ծննդյան ամսաթիվ</string>
 	<!-- %s is `at_least_x_years_old`. Some languages, unlike English, may require the word "years" here. -->
 	<string name="date_of_birth_explanation">Մաստոդոնն օգտագործելու համար մենք պետք է համոզվենք, որ դուք առնվազն %s տարեկան եք։ Սա գրանցումից հետո չի պահպանվի։</string>
+	<string name="open_link">Բացել</string>
+	<string name="copy">Պատճենել</string>
 	<!-- Substituted into `date_of_birth_explanation` -->
 	<plurals name="at_least_x_years_old">
 		<item quantity="one">%d</item>
 		<item quantity="other">%d</item>
 	</plurals>
+	<string name="quote_post_unavailable">Գրառումը հասանելի չի</string>
+	<string name="quote_post_pending">Գրառումը սպասվում է</string>
+	<string name="quote_post_pending_explanation">Մաստոդոնում դուք կարող եք կառավարել, թե ով կարող է ձեզ մեջբերել։ Այս գրառումը կհրապարակվի, երբ մենք սկզբնական հեղինակից թույլտվություն կստանանք։</string>
 	<!-- %s is a username, i.e. @Gargron -->
+	<string name="nested_quote">Մեջբերել է %s֊ի գրառումը</string>
+	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
 </resources>
