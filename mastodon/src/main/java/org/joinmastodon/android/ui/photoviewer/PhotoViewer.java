@@ -1134,7 +1134,7 @@ public class PhotoViewer implements ZoomPanView.Listener{
 		@Override
 		public void onSurfaceTextureUpdated(@NonNull SurfaceTexture surface){
 			// A new frame of video was rendered. Clear the thumbnail or paused frame, if any, to avoid overdraw and free up some memory.
-			if(player.isPlaying() && wrap.getBackground()!=null){
+			if(playerReady && player.isPlaying() && wrap.getBackground()!=null){
 				wrap.setBackground(null);
 			}
 		}
