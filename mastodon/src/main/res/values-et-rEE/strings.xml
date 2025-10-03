@@ -7,7 +7,7 @@
 	<string name="not_a_mastodon_instance">%s ei tundu olema Mastodoni server.</string>
 	<string name="ok">Sobib</string>
 	<string name="preparing_auth">Valmistun autentimiseks…</string>
-	<string name="finishing_auth">Lõpetan autentimiset…</string>
+	<string name="finishing_auth">Lõpetan autentimist…</string>
 	<string name="user_boosted">%s andis hoogu</string>
 	<string name="in_reply_to">vastuseks kasutajale %s</string>
 	<string name="notifications">Teavitused</string>
@@ -32,9 +32,9 @@
 	<string name="posts">Postitused</string>
 	<string name="posts_and_replies">Postitused ja vastused</string>
 	<string name="media">Meedium</string>
-	<string name="profile_about">Profiilist</string>
+	<string name="profile_about">Profiili teave</string>
 	<string name="button_follow">Jälgi</string>
-	<string name="button_following">Jälgitavat</string>
+	<string name="button_following">Sa jälgid</string>
 	<string name="edit_profile">Muuda profiili</string>
 	<string name="share_user">Jaga profiili kasutades…</string>
 	<string name="mute_user">Summuta %s</string>
@@ -96,7 +96,7 @@
 	<string name="confirm">Kinnita</string>
 	<string name="delete">Kustuta</string>
 	<string name="confirm_delete_title">Kustuta postitus</string>
-	<string name="confirm_delete">Kas oled kindel, et soovid postituse kustutada?</string>
+	<string name="confirm_delete">Kas oled kindel, et soovid selle postituse kustutada?</string>
 	<string name="deleting">Kustutan…</string>
 	<string name="notification_channel_audio_player">Heli taasesitus</string>
 	<string name="play">Esita</string>
@@ -210,7 +210,7 @@
 	<string name="my_profile">Minu profiil</string>
 	<string name="media_viewer">Meediakuvaja</string>
 	<string name="follow_user">Jälgi kasutajat %s</string>
-	<string name="unfollowed_user">Lõpeta kasutaja %s jälgimine</string>
+	<string name="unfollowed_user">Lõpetasin kasutaja %s jälgimise</string>
 	<string name="followed_user">Sa jälgid nüüd kasutajat %s</string>
 	<string name="following_user_requested">%s soovib sind jälgida</string>
 	<string name="open_in_browser">Ava veebibrauseris</string>
@@ -481,7 +481,7 @@
 	<string name="count_four">Neli</string>
 	<string name="alt_text_reminder_post_anyway">Postita</string>
 	<!-- %s is the username -->
-	<string name="unfollow_confirmation">Kas lõpetad %s kasutaja jälgimine?</string>
+	<string name="unfollow_confirmation">Kas lõpetad %s kasutaja jälgimise?</string>
 	<string name="filter_active">Aktiivne</string>
 	<string name="filter_inactive">Mitteaktiivne</string>
 	<string name="settings_add_filter">Lisa filter</string>
@@ -879,7 +879,7 @@ Mida rohkem inimesi sa tead, seda aktiivsem ja huvitavam ta saab olema.</string>
 	<string name="compose_visibility_unlisted_disabled">Vaikne, aga avalik, tsiteerimine on keelatud</string>
 	<string name="compose_visibility_title">Nähtavus ja suhestumine</string>
 	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
-	<string name="compose_visibility_explanation"><![CDATA[Halda seda, kes võivad antud postitusega suhestuda. Üldised eelistused leiduvad siin: Seadistused > %s > Postituste vaikeseadistused.]]></string>
+	<string name="compose_visibility_explanation">Halda seda, kes võivad antud postitusega suhestuda. Üldised eelistused leiduvad siin: Seadistused &gt; %s &gt; Postituste vaikeseadistused.</string>
 	<string name="compose_visibility">Nähtavus</string>
 	<string name="compose_quote_policy">Kes võivad tsiteerida</string>
 	<string name="quote_policy_public">Kõik</string>
