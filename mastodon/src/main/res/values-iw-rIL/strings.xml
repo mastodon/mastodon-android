@@ -344,7 +344,7 @@
 	<string name="bookmarks">סימניות</string>
 	<string name="your_favorites">חיבובים</string>
 	<string name="login_title">ברוך שובך</string>
-	<string name="login_subtitle">התחבר עם השרת שבו יצרת את החשבון שלך.</string>
+	<string name="login_subtitle">התאמתו מול השרת שבו יצרתם את החשבון שלכם.</string>
 	<string name="server_url">כתובת URL של השרת</string>
 	<string name="server_filter_any_language">כל שפה</string>
 	<string name="server_filter_instant_signup">הרשמה מיידית</string>
@@ -691,20 +691,114 @@
 	<string name="currency">מטבע</string>
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_learn_more">מידע נוסף</string>
+	<string name="moderation_warning_action_none">חשבונך קיבל אזהרה מצוות ניהול התוכן.</string>
+	<string name="moderation_warning_action_disable">חשבונך הושבת.</string>
+	<string name="moderation_warning_action_mark_statuses_as_sensitive">חלק מהודעותיך סומנו כרגישות.</string>
+	<string name="moderation_warning_action_delete_statuses">חלק מהודעותיך הוסרו.</string>
+	<string name="moderation_warning_action_sensitive">הודעותיך יסומנו כרגישות מעתה ואילך.</string>
+	<string name="moderation_warning_action_silence">חשבונך הוגבל.</string>
+	<string name="moderation_warning_action_suspend">חשבונך הושעה.</string>
+	<string name="moderation_warning_learn_more">מידע נוסף</string>
+	<string name="text_show_more">עוד</string>
+	<string name="avatar_move_and_scale">העבירו והתאימו את הגודל</string>
+	<string name="confirm_avatar_crop">בחירה</string>
+	<string name="settings_accounts">חשבונות</string>
+	<string name="settings_add_account">הוספת חשבון...</string>
+	<string name="settings_app_settings">הגדרות היישומון</string>
+	<string name="account_settings">הגדרות חשבון</string>
+	<string name="settings_about_this_server">אודות שרת זה</string>
+	<string name="manage_account">ניהול החשבון</string>
+	<string name="switch_to_this_account">מעבר לחשבון זה</string>
+	<string name="delete_account">מחיקת חשבון</string>
+	<string name="notification_type_status">הודעות חדשות</string>
+	<string name="familiar_followers_one">החשבון נעקב על ידי %s</string>
+	<string name="familiar_followers_two">החשבון נעקב על ידי %s ו־%s</string>
 	<string name="profile_saved_posts">נשמר</string>
 	<string name="profile_saved_posts_explanation">ההודעות השמורות שלך מוצגות רק לך.</string>
 	<string name="search_people">אנשים</string>
 	<!-- appears when you're about to block a server -->
 	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
+	<plurals name="will_lose_x_followers">
+		<item quantity="one">עוקב/ת אחד</item>
+		<item quantity="two">שני עוקבים</item>
+		<item quantity="many">%,d עוקבים</item>
+		<item quantity="other">%,d עוקבים</item>
+	</plurals>
+	<plurals name="will_lose_x_following">
+		<item quantity="one">נעקב.ת אחד/אחת</item>
+		<item quantity="two">%,d נעקבים</item>
+		<item quantity="many">%,d נעקבים</item>
+		<item quantity="other">%,d נעקבים</item>
+	</plurals>
 	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
+	<string name="server_x_following_will_be_removed">תאבדו %s.</string>
 	<string name="load_missing_posts_above">טען הודעות חסרות למעלה</string>
 	<string name="load_missing_posts_below">טען הודעות חסרות מתחת</string>
 	<string name="signup_password_too_short">הסיסמה צריכה להכיל לפחות 8 תווים.</string>
 	<string name="private_reply">תשובה בפרטי</string>
 	<string name="private_mention">אזכור פרטי</string>
 	<string name="post_header_reply">תגובה</string>
+	<string name="post_header_mention">אזכור</string>
+	<string name="report_reason_legal">זה בלתי חוקי</string>
+	<string name="report_reason_legal_subtitle">לדידך מתקיימת פה עבירה על חוקי מדינתך או מדינת השרת המארח</string>
+	<string name="date_of_birth">תאריך לידה</string>
 	<!-- %s is `at_least_x_years_old`. Some languages, unlike English, may require the word "years" here. -->
+	<string name="date_of_birth_explanation">עלינו לוודא שגילך לפחות %s כדי להשתמש במסטודון. המידע לא ישמר אחרי ההרשמה.</string>
+	<string name="open_link">פתיחה</string>
+	<string name="copy">העתקה</string>
 	<!-- Substituted into `date_of_birth_explanation` -->
+	<plurals name="at_least_x_years_old">
+		<item quantity="one">%d</item>
+		<item quantity="two">%d</item>
+		<item quantity="many">%d</item>
+		<item quantity="other">%d</item>
+	</plurals>
+	<string name="quote_post_unavailable">ההודעה לא זמינה</string>
+	<string name="quote_post_pending">ההודעה בהמתנה לאישור</string>
+	<string name="quote_post_pending_explanation">ברשת מסטודון, ניתן להגביל את האפשרות לצטט הודעות. ההודעה הזו ממתינה עד שהמחבר.ת של ההודעה המקורית יאשרו לך את הציטוט.</string>
 	<!-- %s is a username, i.e. @Gargron -->
+	<string name="nested_quote">ההודעה צוטטה על ידי @%s</string>
+	<string name="compose_visibility_public_anyone">ציבורי, הציטוט מותר לכל</string>
+	<string name="compose_visibility_unlisted_anyone">ציבורי שקט, הציטוט מותר לכל</string>
+	<string name="compose_visibility_unlisted_limited">ציבורי שקט, הציטוט מוגבל</string>
+	<string name="compose_visibility_unlisted_disabled">ציבורי שקט, הציטוט חסום</string>
+	<string name="compose_visibility_title">חשיפה והידוּד (אינטראקציה)</string>
 	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
+	<string name="compose_visibility_explanation">שליטה בהרשאה להידוּד (תגובות וציטוטים) עם הודעה זו. הגדרות ברירת המחדל ניתן למצוא תחת &gt; העדפות %s&gt; ברירות מחדל בפרסום.</string>
+	<string name="compose_visibility">ניראות</string>
+	<string name="compose_quote_policy">למי מותר לצטט</string>
+	<string name="quote_policy_public">כולם</string>
+	<string name="quote_policy_followers">עוקבים בלבד</string>
+	<string name="quote_policy_nobody">רק אני</string>
+	<string name="quote_policy_for_unlisted_explanation">כאשר אחרים מצטטים אותך, ההודעות שלהם יוסתרו גם מ\"נושאים חמים\".</string>
+	<string name="quote_policy_for_private_explanation">הודעות לעוקבים־בלבד שנוצרו במסטודון חסומות מציטוט על ידי אחרים.</string>
+	<string name="quote_policy_for_direct_explanation">איזכורים פרטיים שנוצרו במסטודון חסומים מציטוט על ידי אחרים.</string>
+	<string name="change_quote_policy">הגדרת הרשאה לציטוט הודעותיך</string>
+	<string name="edit_visibility_explanation">לא ניתן לשנות את דרגת החשיפה של הודעות שפורסמו.</string>
+	<string name="user_quoted_post">%s ציטט.ה את הודעתך:</string>
+	<string name="user_edited_quoted_post">%s ערך הודעה שהשתמשת בה בציטוט</string>
+	<string name="notification_type_quote">ציטוטים</string>
+	<string name="create_quote">ציטוט</string>
+	<string name="cannot_quote_post">אין לך הרשאה לצטט את ההודעה הזו</string>
+	<string name="cannot_quote_post_followers_only">רק עוקביך יוכלו לצטט את ההודעה</string>
+	<string name="compose_hint_quote">הוסיפו משהו לשיחה</string>
+	<string name="cancel_quote">ביטול הודעת ציטוט</string>
+	<string name="unlisted_quote_alert_title">ציטוט הודעות ציבוריות שקטות</string>
+	<string name="unlisted_quote_alert">כשמצטטים הודעה ציבורית שקטה, גם ההודעה המצטטת תוסתר מחלון הנושאים החמים.</string>
+	<string name="settings_posting_defaults">ברירות מחדל בפרסום</string>
+	<string name="default_post_visibility">ניראות ההודעה</string>
+	<string name="create_quote_manual_approval">הגשת בקשה להרשות ציטוט</string>
+	<string name="create_quote_manual_approval_subtitle">מחבר.ת ההודעה יחזרו אליך אחרי בדיקה</string>
+	<plurals name="x_quotes">
+		<item quantity="one">ציטוט אחד</item>
+		<item quantity="two">ציטוטיים</item>
+		<item quantity="many">%,d ציטוטים</item>
+		<item quantity="other">%,d ציטוטים</item>
+	</plurals>
+	<string name="remove_quote">הסירו את הודעתי מההודעה של %s</string>
+	<string name="remove_quote_confirm_title">הסרת הודעה?</string>
+	<string name="remove_quote_confirm">פעולה זו אינה הפיכה.</string>
+	<string name="remove_quote_button">הסרת הודעה</string>
+	<string name="settings_posting_defaults_explanation">העדפות אלו ישמשו כברירות המחדל כשתצרו הודעה חדשה, ברם תוכלו לבחור אחרת בכל חיבור הודעה בעתיד.</string>
 </resources>
