@@ -832,6 +832,7 @@
 	<string name="compose_visibility_unlisted_disabled">ひかえめな公開、引用不可</string>
 	<string name="compose_visibility_title">公開範囲とインタラクション</string>
 	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
+	<string name="compose_visibility_explanation">この投稿に反応できる人をコントロールします。共通の設定は、設定 &gt; %s &gt; 投稿のデフォルト から確認できます。</string>
 	<string name="compose_visibility">公開範囲</string>
 	<string name="compose_quote_policy">引用できるユーザー</string>
 	<string name="quote_policy_public">誰でも</string>
@@ -839,6 +840,11 @@
 	<string name="quote_policy_nobody">自分のみ</string>
 	<string name="quote_policy_for_unlisted_explanation">誰かがあなたを引用すると、その投稿もトレンドから非表示になります。</string>
 	<string name="quote_policy_for_private_explanation">Mastodon で作成されたフォロワーのみの投稿は他人から引用できません。</string>
+	<string name="quote_policy_for_direct_explanation">Mastodon で作成された非公開の返信は他人から引用できません。</string>
+	<string name="change_quote_policy">引用できるユーザーを変更</string>
+	<string name="edit_visibility_explanation">投稿後に公開範囲を変更することはできません。</string>
+	<string name="user_quoted_post">%sさんがあなたの投稿を引用しました:</string>
+	<string name="user_edited_quoted_post">%s さんがあなたを引用した投稿を編集しました</string>
 	<string name="notification_type_quote">引用</string>
 	<string name="create_quote">引用</string>
 	<string name="cannot_quote_post">この投稿は引用できません</string>
@@ -846,5 +852,17 @@
 	<string name="compose_hint_quote">会話に何かを追加します</string>
 	<string name="cancel_quote">引用をキャンセル</string>
 	<string name="unlisted_quote_alert_title">ひかえめな公開の投稿を引用中</string>
+	<string name="unlisted_quote_alert">ひかえめな公開の投稿を引用すると、あなたの投稿もタイムラインから非表示になります。</string>
 	<string name="settings_posting_defaults">投稿のデフォルト</string>
+	<string name="default_post_visibility">投稿の公開範囲</string>
+	<string name="create_quote_manual_approval">引用をリクエスト</string>
+	<string name="create_quote_manual_approval_subtitle">投稿者が手動で承認します</string>
+	<plurals name="x_quotes">
+		<item quantity="other">引用 %,d 件</item>
+	</plurals>
+	<string name="remove_quote">%s さんの投稿から自分の投稿を削除</string>
+	<string name="remove_quote_confirm_title">投稿を削除しますか？</string>
+	<string name="remove_quote_confirm">この操作は元に戻せません。</string>
+	<string name="remove_quote_button">投稿を削除</string>
+	<string name="settings_posting_defaults_explanation">以下の設定は投稿を新規作成するときにデフォルトとして使用されますが、作成画面で投稿ごとに変更できます。</string>
 </resources>
