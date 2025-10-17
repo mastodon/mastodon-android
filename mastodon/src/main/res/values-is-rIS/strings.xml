@@ -205,7 +205,7 @@
 	<string name="media_no_description">Myndefni án lýsingar</string>
 	<string name="add_media">Bæta við myndefni</string>
 	<string name="add_poll">Bæta við könnun</string>
-	<string name="emoji">Tjáningartákn</string>
+	<string name="emoji">Lyndistákn</string>
 	<string name="home_timeline">Eigin tímalína</string>
 	<string name="my_profile">Notandasniðið mitt</string>
 	<string name="media_viewer">Skoðari fyrir myndefni</string>
@@ -383,7 +383,7 @@
 	<string name="alt_text_help">Hjálpartexti eða ALT-myndatexti inniheldur lýsingu á myndefni fyrir fólk með ýmsar gerðir sjónskerðingar, fyrir tengingar með litla bandbreidd, eða til að gefa nánara samhengi fyrir myndefni.\n\nÞú getur með þessu bætt almennt aðgengi og aukið skilning á efni sem þú birtir með því að skrifa skýran, skorinortan og hlutlægan alt-texta til vara.\n\n<ul><li>Lýstu mikilvægum atriðum</li>\n<li>Hafðu yfirlit með þeim texta sem sést í myndum</li>\n<li>Notaðu eðlilega setningaskipan</li>\n<li>Forðastu óþarfar upplýsingar</li>\n<li>Leggðu áherslu á aðalatriði í flóknu myndefni (eins og línuritum eða landakortum)</li></ul></string>
 	<string name="edit_post">Breyta færslu</string>
 	<string name="no_verified_link">Enginn staðfestur tengill</string>
-	<string name="compose_autocomplete_emoji_empty">Skoða tjáningartákn</string>
+	<string name="compose_autocomplete_emoji_empty">Skoða lyndistákn</string>
 	<string name="compose_autocomplete_users_empty">Finndu þá sem þú leitar að</string>
 	<string name="no_search_results">Gat ekki fundið neitt sem samsvarar þessum leitarorðum</string>
 	<string name="language">Tungumál</string>
@@ -449,7 +449,7 @@
 	<string name="settings_show_cws">Birta viðvaranir vegna efnis</string>
 	<string name="settings_hide_sensitive_media">Hylja myndefni sem merkt er viðkvæmt</string>
 	<string name="settings_show_interaction_counts">Fjöldi gagnverkana færslu</string>
-	<string name="settings_show_emoji_in_names">Sérsniðin tjáningartákn í brtingarnöfnum</string>
+	<string name="settings_show_emoji_in_names">Sérsniðin lyndistákn í brtingarnöfnum</string>
 	<plurals name="in_x_seconds">
 		<item quantity="one">eftir %d sekúndu</item>
 		<item quantity="other">eftir %d sekúndur</item>
@@ -879,6 +879,7 @@
 	<string name="compose_visibility_unlisted_disabled">Hljóðlátt opinbert, tilvitnanir óvirkar</string>
 	<string name="compose_visibility_title">Sýnileiki og gagnvirkni</string>
 	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
+	<string name="compose_visibility_explanation">Stýrðu því hverjir geta átt við þessa færslu. Víðværar stillingar má sjá í Stillingar &gt; %s &gt; Sjálfgefin gildi við gerð færslna.</string>
 	<string name="compose_visibility">Sýnileiki</string>
 	<string name="compose_quote_policy">Hverjir geta gert tilvitnanir</string>
 	<string name="quote_policy_public">Hver sem er</string>
