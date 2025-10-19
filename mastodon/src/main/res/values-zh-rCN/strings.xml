@@ -82,6 +82,7 @@
 	<string name="do_block">屏蔽</string>
 	<string name="button_blocked">已屏蔽</string>
 	<string name="action_vote">投票</string>
+	<string name="confirm">确认</string>
 	<string name="delete">删除</string>
 	<string name="confirm_delete_title">删除嘟文</string>
 	<string name="confirm_delete">确定要删除这条嘟文吗？</string>
@@ -151,6 +152,7 @@
 	<string name="add_alt_text">添加替代文本</string>
 	<string name="visibility_public">公开</string>
 	<string name="visibility_followers_only">仅关注者</string>
+	<string name="visibility_private">私下提及</string>
 	<string name="recent_searches">最近</string>
 	<string name="notification_type_follow">新关注者</string>
 	<string name="notification_type_favorite">喜欢</string>
@@ -390,6 +392,7 @@
 	<string name="settings_server_explanation">概览、规则与管理员</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">关于 %s</string>
+	<string name="default_post_language">嘟文语言</string>
 	<string name="settings_alt_text_reminders">提醒我添加替代文本</string>
 	<string name="settings_confirm_unfollow">取消关注前询问我</string>
 	<string name="settings_confirm_boost">转嘟前询问我</string>
@@ -693,6 +696,7 @@
 	<string name="notifications_muted">来自 %s 的通知已被忽略。</string>
 	<string name="notifications_allowed">%s 现在将出现在你的通知列表中。</string>
 	<string name="visibility_subtitle_public">所有人（无论是否注册了 Mastodon）</string>
+	<string name="visibility_subtitle_unlisted">从 Mastodon 搜索结果、热门和公共时间线中隐藏</string>
 	<string name="visibility_subtitle_followers">仅限您的关注者</string>
 	<string name="visibility_subtitle_private">帖子中提到的每个人</string>
 	<string name="view_boosts">显示转嘟</string>
@@ -799,8 +803,66 @@
 	<string name="server_x_following_will_be_removed">你将会丢失 %s。</string>
 	<string name="load_missing_posts_above">加载更新嘟文</string>
 	<string name="load_missing_posts_below">加载更早嘟文</string>
+	<string name="signup_password_too_short">密码至少应该包含 8 个字符。</string>
+	<string name="private_reply">私下回复</string>
+	<string name="private_mention">私下提及</string>
+	<string name="post_header_reply">回复</string>
+	<string name="post_header_mention">提及</string>
+	<string name="report_reason_legal">它违反了法律</string>
+	<string name="report_reason_legal_subtitle">你认为它违反了你或该实例所在国家的法律</string>
+	<string name="date_of_birth">出生日期</string>
 	<!-- %s is `at_least_x_years_old`. Some languages, unlike English, may require the word "years" here. -->
+	<string name="date_of_birth_explanation">要使用 Mastodon，我们必须确保你至少已经 %s 岁。该信息在注册后不会保留。</string>
+	<string name="open_link">打开</string>
+	<string name="copy">复制</string>
 	<!-- Substituted into `date_of_birth_explanation` -->
+	<plurals name="at_least_x_years_old">
+		<item quantity="other">%d</item>
+	</plurals>
+	<string name="quote_post_unavailable">嘟文不可用</string>
+	<string name="quote_post_pending">待发布嘟文</string>
+	<string name="quote_post_pending_explanation">在 Mastodon，谁能引用你的嘟文由你掌控。在原作者同意前，该嘟文将处于待发布状态。</string>
 	<!-- %s is a username, i.e. @Gargron -->
+	<string name="nested_quote">引用了一则 %s 的嘟文</string>
+	<string name="compose_visibility_public_anyone">公开，任何人都可以引用</string>
+	<string name="compose_visibility_public_limited">公开，限制引用</string>
+	<string name="compose_visibility_public_disabled">公开，禁止引用</string>
+	<string name="compose_visibility_unlisted_anyone">悄悄公开，任何人都可以引用</string>
+	<string name="compose_visibility_unlisted_limited">悄悄公开，限制引用</string>
+	<string name="compose_visibility_unlisted_disabled">悄悄公开，禁止引用</string>
+	<string name="compose_visibility_title">可见性和互动</string>
 	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
+	<string name="compose_visibility_explanation">控制那些人可以与该嘟文互动。在设置 &gt;%s&gt; 默认发嘟设置中还可以找到全局设置。</string>
+	<string name="compose_visibility">可见性</string>
+	<string name="compose_quote_policy">谁能引用</string>
+	<string name="quote_policy_public">任何人</string>
+	<string name="quote_policy_followers">仅关注者</string>
+	<string name="quote_policy_nobody">仅自己</string>
+	<string name="quote_policy_for_unlisted_explanation">当其他人引用时，对应嘟文也将从热门时间线中隐藏。</string>
+	<string name="quote_policy_for_private_explanation">经 Mastodon 验证的仅关注嘟文，无法被其他人引用。</string>
+	<string name="quote_policy_for_direct_explanation">经 Mastodon 验证的私下提及，无法被其他人引用。</string>
+	<string name="change_quote_policy">设置谁可以引用</string>
+	<string name="edit_visibility_explanation">已发布嘟文无法修改可见性。</string>
+	<string name="user_quoted_post">%s 引用了你的嘟文：</string>
+	<string name="user_edited_quoted_post">%s 编辑了你引用的一则嘟文</string>
+	<string name="notification_type_quote">引用</string>
+	<string name="create_quote">引用</string>
+	<string name="cannot_quote_post">你没有引用该嘟文的权限</string>
+	<string name="cannot_quote_post_followers_only">引用该嘟文前需要先关注</string>
+	<string name="compose_hint_quote">向对话中添加信息</string>
+	<string name="cancel_quote">取消引用</string>
+	<string name="unlisted_quote_alert_title">引用悄悄公开的嘟文</string>
+	<string name="unlisted_quote_alert">当你引用悄悄公开的嘟文时，你的嘟文会从热门时间线上隐藏。</string>
+	<string name="settings_posting_defaults">默认发嘟设置</string>
+	<string name="default_post_visibility">嘟文发布可见性</string>
+	<string name="create_quote_manual_approval">请求引用</string>
+	<string name="create_quote_manual_approval_subtitle">作者将手动审核</string>
+	<plurals name="x_quotes">
+		<item quantity="other">%,d 则引用</item>
+	</plurals>
+	<string name="remove_quote">从 %s 的嘟文中移除我的内容</string>
+	<string name="remove_quote_confirm_title">移除嘟文？</string>
+	<string name="remove_quote_confirm">该操作无法撤销。</string>
+	<string name="remove_quote_button">移除嘟文</string>
+	<string name="settings_posting_defaults_explanation">这些设置会在你撰写新嘟文时作为默认值应用，但发布时你也可以在编辑器内手动调整设置。</string>
 </resources>
