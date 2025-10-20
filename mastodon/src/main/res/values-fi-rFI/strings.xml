@@ -32,6 +32,7 @@
 	<string name="profile_about">Tietoja</string>
 	<string name="button_follow">Seuraa</string>
 	<string name="button_following">Seurataan</string>
+	<string name="edit_profile">Muokkaa profiilia</string>
 	<string name="mute_user">Mykistä %s</string>
 	<string name="unmute_user">Poista mykistys tililtä %s</string>
 	<string name="block_user">Estä %s</string>
@@ -137,6 +138,7 @@
 	<string name="back">Takaisin</string>
 	<string name="search_communities">Palvelimen nimi tai URL-osoite</string>
 	<string name="instance_rules_subtitle">Jatkamalla sitoudut noudattamaan seuraavia sääntöjä, jotka %s moderaattorit ovat asettaneet ja valvoneet.</string>
+	<string name="signup_title">Luo tili</string>
 	<string name="display_name">Nimi</string>
 	<string name="username">Käyttäjätunnus</string>
 	<string name="email">Sähköposti</string>
@@ -285,6 +287,7 @@
 	<string name="text_copied">Kopioitu leikepöydälle</string>
 	<string name="add_bookmark">Kirjanmerkki</string>
 	<string name="bookmarks">Kirjanmerkit</string>
+	<string name="your_favorites">Suosikit</string>
 	<string name="login_subtitle">Kirjaudu sisään palvelimella, jossa olet luonut tilisi.</string>
 	<string name="server_url">Palvelimen URL-osoite</string>
 	<string name="server_filter_region_europe">Eurooppa</string>
@@ -582,7 +585,15 @@
 	<string name="list_no_members">Ei vielä jäseniä</string>
 	<string name="list_find_users">Etsi lisättäviä käyttäjiä</string>
 	<!-- %s is a time interval ("5 months") -->
+	<string name="qr_code">QR-koodi</string>
+	<string name="scan_qr_code">Skannaa QR-koodi</string>
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
+	<string name="saved">Tallennettu</string>
+	<string name="image_saved">Kuva tallennettu.</string>
+	<string name="video_saved">Video tallennettu.</string>
+	<string name="tab_home">Koti</string>
+	<string name="tab_search">Selaa</string>
+	<string name="tab_profile">Profiili</string>
 	<!-- %s is the username -->
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
