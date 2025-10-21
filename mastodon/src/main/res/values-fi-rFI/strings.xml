@@ -609,7 +609,10 @@
 	<string name="manage_list_members">Hallitse listan jäseniä</string>
 	<string name="list_no_members">Ei vielä jäseniä</string>
 	<string name="list_find_users">Etsi lisättäviä käyttäjiä</string>
+	<string name="reply_to_user">Vastaa käyttäjälle %s</string>
 	<string name="posted_at">Julkaistu %s</string>
+	<string name="non_mutual_sheet_title">Hei, uusi yhteys!</string>
+	<string name="non_mutual_sheet_text">Vaikuttaa siltä, että olet vastaamassa henkilölle, johon sinulla ei vielä ole molemminpuoleista yhteyttä. Luo hyvä ensivaikutelma.</string>
 	<string name="got_it">Selvä</string>
 	<string name="dont_remind_again">Älä muistuta uudelleen</string>
 	<!-- %s is a time interval ("5 months") -->
@@ -620,17 +623,24 @@
 		<item quantity="other">%,d kuukautta</item>
 	</plurals>
 	<string name="more_than_two_years">yli kaksi vuotta</string>
+	<string name="non_mutual_title1">Ole kohtelias &amp; ajankohtainen</string>
+	<string name="non_mutual_text1">Varmista, että vastauksesi on kohtelias ja pysyy aiheessa.</string>
+	<string name="non_mutual_title2">Ole ystävällinen</string>
 	<string name="non_mutual_text2">Positiivinen sävy on aina tervetullut.</string>
 	<string name="non_mutual_title3">Ole avoin</string>
 	<string name="non_mutual_text3">Jokaisen keskustelutyyli on omanlainen. Ole valmis mukautumaan.</string>
 	<string name="make_profile_discoverable">Aseta profiilini löydettäväksi</string>
 	<string name="discoverability">Löydettävyys</string>
+	<string name="discoverability_help">Kun hyväksyt profiilisi löydettävyyden mastodonissa, postauksesi saattavat näkyä hakutuloksissa ja trendaavissa postauksissa.\n\nProfiiliasi saatetaan suositella ihmisille, joilla on samankaltaisia kiinnostuksenkohteita.\n\nTästä kieltäytyminen ei piilota profiiliasi, jos joku hakee sitä nimeltä.</string>
 	<string name="app_version_copied">Versionumero kopioitu leikepöydälle</string>
+	<string name="onboarding_recommendations_intro">Ylläpidät itse kotisivun syötettäsi. Mitä useampaa henkilöä seuraat, sitä aktiivisempi ja kiinnostavampi siitä tulee.</string>
 	<string name="onboarding_recommendations_title">Mukauta kotisyötettäsi</string>
+	<string name="article_by_author">Tehnyt %s</string>
 	<string name="button_reblogged">Tehostettu</string>
 	<string name="button_favorited">Lisätty suosikiksi</string>
 	<string name="join_server_x_with_invite">Liity palvelimelle %s kutsulla</string>
 	<string name="expired_invite_link">Vanhentunut kutsulinkki</string>
+	<string name="expired_clipboard_invite_link_alert">Leikepöydälläsi olevan %1$s:n kutsulinkki on vanhentunut eikä sitä voi käyttää rekisteröitymiseen.\n\nVoit pyytää uuden linkin olemassa olevalta käyttäjältä, kirjautua sisään %2$s:n kautta tai valitse toinen palvelin rekisteröitymiseen.</string>
 	<string name="invalid_invite_link">Virheellinen kutsulinkki</string>
 	<string name="use_invite_link">Käytä kutsulinkkiä</string>
 	<string name="enter_invite_link">Kirjoita kutsulinkki</string>
