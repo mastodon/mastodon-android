@@ -282,7 +282,7 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 			@Override
 			public boolean startPhotoViewTransition(int index, @NonNull Rect outRect, @NonNull int[] outCornerRadius){
 				MediaAttachmentViewController holder=findPhotoViewHolder(index);
-				if(holder!=null){
+				if(holder!=null && list!=null){
 					transitioningHolder=holder;
 					View view=transitioningHolder.photo;
 					int[] pos={0, 0};

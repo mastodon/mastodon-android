@@ -167,6 +167,8 @@ abstract class InstanceCatalogFragment extends BaseRecyclerFragment<CatalogInsta
 					return;
 			}
 			CatalogInstance ci=cachedInstance.toCatalogInstance();
+			if(TextUtils.isEmpty(ci.domain))
+				return;
 			filteredData.add(0, ci);
 			adapter.notifyItemInserted(0);
 			return;
@@ -259,6 +261,8 @@ abstract class InstanceCatalogFragment extends BaseRecyclerFragment<CatalogInsta
 			}
 			if(!found){
 				CatalogInstance ci=result.toCatalogInstance();
+				if(TextUtils.isEmpty(ci.domain))
+					return;
 				if(filteredData.size()==1 && filteredData.get(0)==fakeInstance){
 					filteredData.set(0, ci);
 					adapter.notifyItemChanged(0);

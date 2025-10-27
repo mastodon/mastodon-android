@@ -1064,6 +1064,7 @@ public class PhotoViewer implements ZoomPanView.Listener{
 		public MediaPlayer player;
 		private Surface surface;
 		private boolean playerReady;
+		private boolean playerStarted;
 		private boolean keepingScreenOn;
 		private ProgressBar progressBar;
 
@@ -1134,13 +1135,14 @@ public class PhotoViewer implements ZoomPanView.Listener{
 		@Override
 		public void onSurfaceTextureUpdated(@NonNull SurfaceTexture surface){
 			// A new frame of video was rendered. Clear the thumbnail or paused frame, if any, to avoid overdraw and free up some memory.
-			if(playerReady && player.isPlaying() && wrap.getBackground()!=null){
+			if(playerReady && playerStarted && wrap.getBackground()!=null){
 				wrap.setBackground(null);
 			}
 		}
 
 		private void startPlayer(){
 			player.setSurface(surface);
+			playerStarted=true;
 			if(item.type==Attachment.Type.VIDEO){
 				incKeepScreenOn();
 				keepingScreenOn=true;
@@ -1166,6 +1168,7 @@ public class PhotoViewer implements ZoomPanView.Listener{
 
 		public void prepareAndStartPlayer(){
 			playerReady=false;
+			playerStarted=false;
 			player=new MediaPlayer();
 			players.add(player);
 			player.setOnPreparedListener(this);
@@ -1189,6 +1192,7 @@ public class PhotoViewer implements ZoomPanView.Listener{
 
 		public void reset(){
 			playerReady=false;
+			playerStarted=false;
 			player.release();
 			players.remove(player);
 			player=null;

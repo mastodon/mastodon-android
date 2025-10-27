@@ -9,7 +9,7 @@ import org.parceler.Parcel;
 @Parcel
 public class Quote extends BaseModel{
 	@RequiredField
-	public State state;
+	public State state=State.UNAUTHORIZED;
 	public Status quotedStatus;
 	public String quotedStatusId;
 
