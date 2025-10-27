@@ -840,7 +840,6 @@
 	<string name="compose_visibility_unlisted_disabled">조용한 공개, 인용 비활성화</string>
 	<string name="compose_visibility_title">공개 범위 및 상호작용</string>
 	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
-	<string name="compose_visibility_explanation"><![CDATA[이 게시물과 상호작용할 수 있는 사람을 관리합니다. 전역 설정은 설정 > %s > 게시 기본값에서 확인할 수 있습니다.]]></string>
 	<string name="compose_visibility">공개 범위</string>
 	<string name="compose_quote_policy">공개 범위</string>
 	<string name="quote_policy_public">모든 사용자</string>
@@ -871,4 +870,5 @@
 	<string name="remove_quote_confirm_title">게시물을 삭제하시겠습니까?</string>
 	<string name="remove_quote_confirm">이 작업은 되돌릴 수 없습니다.</string>
 	<string name="remove_quote_button">게시물 삭제</string>
+	<string name="settings_posting_defaults_explanation">이러한 설정은 게시물을 올릴 때 기본값으로 사용될 것이지만, 작성기 내에서 게시물별로 편집할 수 있습니다.</string>
 </resources>

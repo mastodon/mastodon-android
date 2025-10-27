@@ -235,7 +235,7 @@
 	<!-- %s is the server domain -->
 	<string name="local_timeline_info_banner">Dit zijn alle berichten van alle gebruikers op jouw server (%s).</string>
 	<string name="recommended_accounts_info_banner">Mogelijk vind je deze accounts leuk op basis van andere accounts die je volgt.</string>
-	<string name="see_new_posts">Nieuwe berichten</string>
+	<string name="see_new_posts">Jouw nieuwe berichten</string>
 	<string name="follow_back">Terugvolgen</string>
 	<string name="button_follow_pending">In afwachting</string>
 	<string name="follows_you">Volgt jou</string>
@@ -411,7 +411,7 @@
 	<string name="settings_server_explanation">Overzicht, regels, moderators</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">Over %s</string>
-	<string name="default_post_language">Taal van jouw berichten</string>
+	<string name="default_post_language">Taal</string>
 	<string name="settings_alt_text_reminders">Alt-tekst-herinneringen toevoegen</string>
 	<string name="settings_confirm_unfollow">Voordat je iemand ontvolgt om bevestiging vragen</string>
 	<string name="settings_confirm_boost">Voordat je een bericht boost om bevestiging vragen</string>
@@ -878,7 +878,7 @@
 	<string name="compose_visibility_unlisted_disabled">Minder openbaar, citeren uitgeschakeld</string>
 	<string name="compose_visibility_title">Zichtbaarheid en interactie</string>
 	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
-	<string name="compose_visibility_explanation"><![CDATA[Bepaal wie wat met dit bericht mag doen. De globale instellingen vind je onder Voorkeuren > %s > Standaardinstellingen voor berichten.]]></string>
+	<string name="compose_visibility_explanation">Bepaal wie wat met dit bericht mag doen. De globale instellingen vind je onder Voorkeuren &gt; %s &gt; Instellingen voor berichten.</string>
 	<string name="compose_visibility">Zichtbaarheid</string>
 	<string name="compose_quote_policy">Wie mag jou citeren</string>
 	<string name="quote_policy_public">Iedereen</string>
@@ -895,6 +895,21 @@
 	<string name="create_quote">Citeren</string>
 	<string name="cannot_quote_post">Je bent niet gemachtigd om dit bericht te citeren</string>
 	<string name="cannot_quote_post_followers_only">Alleen volgers mogen dit bericht citeren</string>
-	<string name="settings_posting_defaults">Instellingen voor berichten</string>
-	<string name="default_post_visibility">Zichtbaarheid van nieuwe berichten</string>
+	<string name="compose_hint_quote">Voeg iets toe aan het gesprek</string>
+	<string name="cancel_quote">Citeren annuleren</string>
+	<string name="unlisted_quote_alert_title">Berichten die minder openbaar zijn citeren</string>
+	<string name="unlisted_quote_alert">Wanneer je een minder openbaar bericht citeert, verschijnt jouw bericht niet onder trends.</string>
+	<string name="settings_posting_defaults">Nieuwe berichten</string>
+	<string name="default_post_visibility">Zichtbaarheid</string>
+	<string name="create_quote_manual_approval">Verzoek om te citeren</string>
+	<string name="create_quote_manual_approval_subtitle">De auteur gaat het handmatig beoordelen</string>
+	<plurals name="x_quotes">
+		<item quantity="one">%,d citaat</item>
+		<item quantity="other">%,d citaten</item>
+	</plurals>
+	<string name="remove_quote">Mijn bericht uit het bericht van %s verwijderen</string>
+	<string name="remove_quote_confirm_title">Bericht verwijderen?</string>
+	<string name="remove_quote_confirm">Deze actie kan niet ongedaan worden gemaakt.</string>
+	<string name="remove_quote_button">Bericht verwijderen</string>
+	<string name="settings_posting_defaults_explanation">Deze instellingen worden als standaard gebruikt wanneer je nieuwe berichten aanmaakt, maar je kunt ze per bericht aanpassen.</string>
 </resources>

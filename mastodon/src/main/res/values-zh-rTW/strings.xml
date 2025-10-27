@@ -820,8 +820,8 @@
 		<item quantity="other">%d</item>
 	</plurals>
 	<string name="quote_post_unavailable">無法取得該嘟文</string>
-	<string name="quote_post_pending">嘟文正在發送中</string>
-	<string name="quote_post_pending_explanation">您能於 Mastodon 控制是否允許引用您的嘟文。此嘟文正在等待原始作者核准。</string>
+	<string name="quote_post_pending">嘟文正在等候審核中</string>
+	<string name="quote_post_pending_explanation">您能於 Mastodon 控制是否允許引用您的嘟文。此嘟文正在等待原始作者審核。</string>
 	<!-- %s is a username, i.e. @Gargron -->
 	<string name="nested_quote">已引用 %s 之嘟文</string>
 	<string name="compose_visibility_public_anyone">公開，任何人皆可引用</string>
@@ -832,7 +832,7 @@
 	<string name="compose_visibility_unlisted_disabled">不於公開時間軸顯示，停用引用</string>
 	<string name="compose_visibility_title">可見性與互動</string>
 	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
-	<string name="compose_visibility_explanation"><![CDATA[控制誰能與此嘟文互動。可於偏好設定 > %s > 嘟文預設值下找到全域設定。]]></string>
+	<string name="compose_visibility_explanation">控制誰能與此嘟文互動。可於偏好設定 &gt; %s &gt; 嘟文預設值下找到全域設定。</string>
 	<string name="compose_visibility">可見性</string>
 	<string name="compose_quote_policy">誰能引用此嘟文</string>
 	<string name="quote_policy_public">所有人</string>

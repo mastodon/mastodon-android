@@ -885,4 +885,31 @@
 	<string name="quote_policy_followers">Μόνο ακόλουθοι</string>
 	<string name="quote_policy_nobody">Μόνο εγώ</string>
 	<string name="quote_policy_for_unlisted_explanation">Όταν ένα άτομο σε παραθέτει, η ανάρτησή του θα είναι επίσης κρυμμένη από τις δημοφιλείς ροές.</string>
+	<string name="quote_policy_for_private_explanation">Αναρτήσεις μόνο για ακολούθους που έχουν συνταχθεί στο Mastodon, δεν μπορούν να γίνουν παράθεση από άλλους.</string>
+	<string name="quote_policy_for_direct_explanation">Ιδιωτικές αναφορές που έχουν συνταχθεί στο Mastodon δεν μπορούν να γίνουν παράθεση από άλλους.</string>
+	<string name="change_quote_policy">Άλλαξε ποιος μπορεί να κάνει παράθεση</string>
+	<string name="edit_visibility_explanation">Δημοσιευμένες αναρτήσεις δεν μπορούν να αλλάξουν την ορατότητά τους.</string>
+	<string name="user_quoted_post">%s έκανε παράθεση την ανάρτησή σου:</string>
+	<string name="user_edited_quoted_post">%s επεξεργάστηκε μια ανάρτηση που αναφέρθηκες</string>
+	<string name="notification_type_quote">Παραθέσεις</string>
+	<string name="create_quote">Παράθεση</string>
+	<string name="cannot_quote_post">Δεν επιτρέπεται να παραθέσεις αυτή την ανάρτηση</string>
+	<string name="cannot_quote_post_followers_only">Μόνο οι ακόλουθοι μπορούν να παραθέσουν αυτή την ανάρτηση</string>
+	<string name="compose_hint_quote">Πρόσθεσε κάτι στη συνομιλία</string>
+	<string name="cancel_quote">Ακύρωση παράθεσης</string>
+	<string name="unlisted_quote_alert_title">Παράθεση ήσυχων δημόσιων αναρτήσεων</string>
+	<string name="unlisted_quote_alert">Όταν παραθέτεις μια ήσυχη δημόσια ανάρτηση, η ανάρτηση σου θα είναι κρυμμένη από τις δημοφιλείς ροές.</string>
+	<string name="settings_posting_defaults">Προεπιλογές ανάρτησης</string>
+	<string name="default_post_visibility">Ορατότητα αναρτήσεων</string>
+	<string name="create_quote_manual_approval">Αίτημα για παράθεση</string>
+	<string name="create_quote_manual_approval_subtitle">Ο συντάκτης εξετάσει χειροκίνητα</string>
+	<plurals name="x_quotes">
+		<item quantity="one">%,d παράθεση</item>
+		<item quantity="other">%,d παραθέσεις</item>
+	</plurals>
+	<string name="remove_quote">Κατάργηση της ανάρτησής μου από την ανάρτηση του χρήστη %s</string>
+	<string name="remove_quote_confirm_title">Αφαίρεση ανάρτησης;</string>
+	<string name="remove_quote_confirm">Αυτή η ενέργεια δεν μπορεί να αναιρεθεί.</string>
+	<string name="remove_quote_button">Αφαίρεση ανάρτησης</string>
+	<string name="settings_posting_defaults_explanation">Αυτές οι ρυθμίσεις θα χρησιμοποιηθούν ως προεπιλογές όταν δημιουργείς νέες αναρτήσεις, αλλά μπορείς να τις επεξεργαστείς ανά ανάρτηση εντός του συνθέτη.</string>
 </resources>

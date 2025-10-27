@@ -13,6 +13,8 @@
 	<string name="notifications">Ilmoitukset</string>
 	<string name="user_followed_you">%s seurasi sinua</string>
 	<string name="user_sent_follow_request">%s lähetti sinulle seurauspyynnön</string>
+	<string name="user_favorited">%s lisäsi suosikiksi:</string>
+	<string name="notification_boosted">%s tehosti:</string>
 	<string name="share_toot_title">Jaa</string>
 	<string name="settings">Asetukset</string>
 	<string name="publish">Julkaise</string>
@@ -28,10 +30,13 @@
 		<item quantity="other">seurataan</item>
 	</plurals>
 	<string name="posts">Julkaisut</string>
+	<string name="posts_and_replies">Julkaisut ja vastaukset</string>
 	<string name="media">Media</string>
 	<string name="profile_about">Tietoja</string>
 	<string name="button_follow">Seuraa</string>
 	<string name="button_following">Seurataan</string>
+	<string name="edit_profile">Muokkaa profiilia</string>
+	<string name="share_user">Jaa profiili…</string>
 	<string name="mute_user">Mykistä %s</string>
 	<string name="unmute_user">Poista mykistys tililtä %s</string>
 	<string name="block_user">Estä %s</string>
@@ -88,6 +93,7 @@
 	<string name="do_block">Estä</string>
 	<string name="button_blocked">Estetty</string>
 	<string name="action_vote">Äänestä</string>
+	<string name="confirm">Vahvista</string>
 	<string name="delete">Poista</string>
 	<string name="confirm_delete_title">Poista julkaisu</string>
 	<string name="confirm_delete">Haluatko varmasti poistaa tämän julkaisun?</string>
@@ -136,13 +142,16 @@
 	<string name="report_personal_subtitle">Tässä on vaihtoehtosi hallita näkemääsi Mastodonissa:</string>
 	<string name="back">Takaisin</string>
 	<string name="search_communities">Palvelimen nimi tai URL-osoite</string>
+	<string name="instance_rules_title">Palvelimen säännöt</string>
 	<string name="instance_rules_subtitle">Jatkamalla sitoudut noudattamaan seuraavia sääntöjä, jotka %s moderaattorit ovat asettaneet ja valvoneet.</string>
+	<string name="signup_title">Luo tili</string>
 	<string name="display_name">Nimi</string>
 	<string name="username">Käyttäjätunnus</string>
 	<string name="email">Sähköposti</string>
 	<string name="password">Salasana</string>
 	<string name="confirm_password">Vahvista salasana</string>
 	<string name="category_general">Yleinen</string>
+	<string name="confirm_email_title">Tarkista sähköpostilaatikkosi</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">Napauta lähettämäämme linkkiä vahvistaaksesi tunnuksen %s. Odotamme täällä.</string>
 	<string name="confirm_email_didnt_get">Etkö saanut linkkiä?</string>
@@ -154,6 +163,8 @@
 	<string name="save">Tallenna</string>
 	<string name="add_alt_text">Lisää selitys</string>
 	<string name="visibility_public">Julkinen</string>
+	<string name="visibility_followers_only">Seuraajat</string>
+	<string name="visibility_private">Yksityismaininta</string>
 	<string name="recent_searches">Viimeisimmät</string>
 	<string name="notification_type_follow">Uudet seuraajat</string>
 	<string name="notification_type_favorite">Suosikit</string>
@@ -174,6 +185,7 @@
 	<string name="theme_dark">Tumma</string>
 	<string name="settings_behavior">Toiminnot</string>
 	<string name="settings_gif">Toista animoidut käyttäjäkuvat ja emojit</string>
+	<string name="settings_custom_tabs">Avaa linkit käyttäen</string>
 	<string name="settings_notifications">Ilmoitukset</string>
 	<string name="settings_contribute">Osallistu Mastodoniin</string>
 	<string name="settings_tos">Käyttöehdot</string>
@@ -202,6 +214,8 @@
 	<string name="followed_user">Seuraat nyt käyttäjää %s</string>
 	<string name="following_user_requested">Käyttäjän %s seuraamista pyydetty</string>
 	<string name="open_in_browser">Avaa selaimessa</string>
+	<string name="hide_boosts_from_user">Piilota tehostukset</string>
+	<string name="show_boosts_from_user">Näytä tehostukset</string>
 	<string name="signup_reason">Miksi haluat liittyä?</string>
 	<string name="signup_reason_note">Tämä auttaa meitä arvioimaan hakemustasi.</string>
 	<string name="clear">Tyhjennä</string>
@@ -215,12 +229,14 @@
 	<string name="error_saving_file">Virhe tallennettaessa tiedostoa</string>
 	<string name="downloading">Ladataan…</string>
 	<string name="no_app_to_handle_action">Tätä toimintoa käsittelevää sovellusta ei ole</string>
+	<string name="local_timeline">Livesyöte</string>
 	<string name="trending_posts_info_banner">Nämä julkaisut ovat saamassa vetoa eri puolilla Mastodonia.</string>
 	<string name="trending_links_info_banner">Näistä uutisista puhutaan Mastodonissa.</string>
 	<!-- %s is the server domain -->
 	<string name="local_timeline_info_banner">Nämä ovat julkaisut kaikilta palvelimesi (%s) käyttäjiltä.</string>
 	<string name="recommended_accounts_info_banner">Muiden seuraamiesi perusteella saattaisit pitää näistä tileistä.</string>
 	<string name="see_new_posts">Uudet julkaisut</string>
+	<string name="follow_back">Seuraa takaisin</string>
 	<string name="button_follow_pending">Pyydetty</string>
 	<string name="follows_you">Seuraa sinua</string>
 	<string name="manually_approves_followers">Hyväksyy seuraajat käsin</string>
@@ -279,14 +295,23 @@
 	<!-- %s is file size -->
 	<string name="download_update">Lataa (%s)</string>
 	<string name="install_update">Asenna</string>
+	<string name="privacy_policy_title">Yksityisyytesi</string>
 	<string name="privacy_policy_subtitle">Vaikka Mastodon-sovellus ei kerää mitään tietoja, palvelimella, jonka olet rekisteröitynyt, voi olla eri käytäntö.\n\nJos olet eri mieltä käytännöstä %s, voit palata ja valita eri palvelin.</string>
+	<string name="i_agree">Hyväksyn</string>
 	<string name="empty_list">Luettelo on tyhjä</string>
 	<string name="instance_signup_closed">Tämä palvelin ei hyväksy uusia rekisteröintejä.</string>
 	<string name="text_copied">Kopioitu leikepöydälle</string>
 	<string name="add_bookmark">Kirjanmerkki</string>
+	<string name="remove_bookmark">Poista kirjanmerkki</string>
 	<string name="bookmarks">Kirjanmerkit</string>
+	<string name="your_favorites">Suosikit</string>
+	<string name="login_title">Tervetuloa takaisin</string>
 	<string name="login_subtitle">Kirjaudu sisään palvelimella, jossa olet luonut tilisi.</string>
 	<string name="server_url">Palvelimen URL-osoite</string>
+	<string name="server_filter_any_language">Millä tahansa kielellä</string>
+	<string name="server_filter_instant_signup">Välitön rekisteröityminen</string>
+	<string name="server_filter_manual_review">Manuaalinen hyväksyntä</string>
+	<string name="server_filter_any_signup_speed">Mikä tahansa rekisteröintinopeus</string>
 	<string name="server_filter_region_europe">Eurooppa</string>
 	<string name="server_filter_region_north_america">Pohjois-Amerikka</string>
 	<string name="server_filter_region_south_america">Etelä-Amerikka</string>
@@ -294,6 +319,7 @@
 	<string name="server_filter_region_asia">Aasia</string>
 	<string name="server_filter_region_oceania">Oseania</string>
 	<string name="not_accepting_new_members">Ei hyväksy uusia jäseniä</string>
+	<string name="category_special_interests">Erityiset kiinnostuksen kohteet</string>
 	<string name="signup_passwords_dont_match">Salasanat eivät täsmää</string>
 	<string name="profile_add_row">Lisää rivi</string>
 	<string name="profile_setup">Profiilin asetukset</string>
@@ -385,12 +411,13 @@
 	<string name="settings_server_explanation">Yleiskatsaus, säännöt, valvojat</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">Tietoa: %s</string>
+	<string name="default_post_language">Julkaisun kieli</string>
 	<string name="settings_alt_text_reminders">Lisää muistutus kuvaselityksestä</string>
 	<string name="settings_confirm_unfollow">Kysy ennen kuin käyttäjän seuraaminen lopetetaan</string>
 	<string name="settings_confirm_boost">Kysy ennen tehostusta</string>
 	<string name="settings_confirm_delete_post">Kysy ennen julkaisujen poistamista</string>
 	<string name="pause_all_notifications">Keskeytä kaikki</string>
-	<string name="pause_notifications_off">Pois Päältä</string>
+	<string name="pause_notifications_off">Pois päältä</string>
 	<string name="notifications_policy_anyone">Kuka tahansa</string>
 	<string name="notifications_policy_followed">Seuraajasi</string>
 	<string name="notifications_policy_follower">Seuraamasi henkilöt</string>
@@ -561,6 +588,7 @@
 	<string name="remove">Poista</string>
 	<string name="add_list_member">Lisää jäsen</string>
 	<string name="search_among_people_you_follow">Etsi seuraamistasi henkilöistä</string>
+	<string name="add_user_to_list">Lisää/poista listoista…</string>
 	<string name="add_user_to_list_title">Lisää listalle</string>
 	<!-- %s is a username -->
 	<string name="manage_user_lists">Hallitse listoja joissa %s on mukana</string>
@@ -581,16 +609,262 @@
 	<string name="manage_list_members">Hallitse listan jäseniä</string>
 	<string name="list_no_members">Ei vielä jäseniä</string>
 	<string name="list_find_users">Etsi lisättäviä käyttäjiä</string>
+	<string name="reply_to_user">Vastaa käyttäjälle %s</string>
+	<string name="posted_at">Julkaistu %s</string>
+	<string name="non_mutual_sheet_title">Hei, uusi yhteys!</string>
+	<string name="non_mutual_sheet_text">Vaikuttaa siltä, että olet vastaamassa henkilölle, johon sinulla ei vielä ole molemminpuoleista yhteyttä. Luo hyvä ensivaikutelma.</string>
+	<string name="got_it">Selvä</string>
+	<string name="dont_remind_again">Älä muistuta uudelleen</string>
 	<!-- %s is a time interval ("5 months") -->
+	<string name="old_post_sheet_title">Tämä julkaisu on %s vanha</string>
+	<string name="old_post_sheet_text">Voit silti vastata, mutta se ei ehkä ole enää ajankohtaista.</string>
+	<plurals name="x_months">
+		<item quantity="one">%,d kuukauden</item>
+		<item quantity="other">%,d kuukautta</item>
+	</plurals>
+	<string name="more_than_two_years">yli kaksi vuotta</string>
+	<string name="non_mutual_title1">Ole kohtelias &amp; ajankohtainen</string>
+	<string name="non_mutual_text1">Varmista, että vastauksesi on kohtelias ja pysyy aiheessa.</string>
+	<string name="non_mutual_title2">Ole ystävällinen</string>
+	<string name="non_mutual_text2">Positiivinen sävy on aina tervetullut.</string>
+	<string name="non_mutual_title3">Ole avoin</string>
+	<string name="non_mutual_text3">Jokaisen keskustelutyyli on omanlainen. Ole valmis mukautumaan.</string>
+	<string name="make_profile_discoverable">Aseta profiilini löydettäväksi</string>
+	<string name="discoverability">Löydettävyys</string>
+	<string name="discoverability_help">Kun hyväksyt profiilisi löydettävyyden mastodonissa, postauksesi saattavat näkyä hakutuloksissa ja trendaavissa postauksissa.\n\nProfiiliasi saatetaan suositella ihmisille, joilla on samankaltaisia kiinnostuksenkohteita.\n\nTästä kieltäytyminen ei piilota profiiliasi, jos joku hakee sitä nimeltä.</string>
+	<string name="app_version_copied">Versionumero kopioitu leikepöydälle</string>
+	<string name="onboarding_recommendations_intro">Ylläpidät itse kotisivun syötettäsi. Mitä useampaa henkilöä seuraat, sitä aktiivisempi ja kiinnostavampi siitä tulee.</string>
+	<string name="onboarding_recommendations_title">Mukauta kotisyötettäsi</string>
+	<string name="article_by_author">Tehnyt %s</string>
+	<string name="button_reblogged">Tehostettu</string>
+	<string name="button_favorited">Lisätty suosikiksi</string>
+	<string name="join_server_x_with_invite">Liity palvelimelle %s kutsulla</string>
+	<string name="expired_invite_link">Vanhentunut kutsulinkki</string>
+	<string name="expired_clipboard_invite_link_alert">Leikepöydälläsi olevan %1$s:n kutsulinkki on vanhentunut eikä sitä voi käyttää rekisteröitymiseen.\n\nVoit pyytää uuden linkin olemassa olevalta käyttäjältä, kirjautua sisään %2$s:n kautta tai valitse toinen palvelin rekisteröitymiseen.</string>
+	<string name="invalid_invite_link">Virheellinen kutsulinkki</string>
+	<string name="use_invite_link">Käytä kutsulinkkiä</string>
+	<string name="enter_invite_link">Kirjoita kutsulinkki</string>
+	<string name="this_invite_is_invalid">Tämä kutsulinkki ei ole kelvollinen.</string>
+	<string name="this_invite_has_expired">Tämä kutsulinkki on vanhentunut.</string>
+	<string name="invite_link_pasted">Linkki liitetty leikepöydältä.</string>
+	<string name="need_invite_to_join_server">Jotta voit liittyä palvelimelle %s, tarvitset kutsulinkin olemassa olevalta käyttäjältä.</string>
+	<string name="mute_user_confirm_title">Mykistetäänkö käyttäjä?</string>
+	<string name="user_wont_know_muted">Hän ei saa tietää tulleensa mykistetyksi.</string>
+	<string name="user_can_still_see_your_posts">Hän voi yhä nähdä julkaisusi, mutta sinä et näe hänen.</string>
+	<string name="you_wont_see_user_mentions">Et näe enää julkaisuja, joissa hänet mainitaan.</string>
+	<string name="user_can_mention_and_follow_you">Hän voi mainita sinut ja seurata sinua, mutta sinä et näe häntä.</string>
+	<string name="unmuted_user_x">Poistettu käyttäjän %s mykistys</string>
+	<string name="block_user_confirm_title">Estetäänkö käyttäjä?</string>
+	<string name="user_can_see_blocked">Hän voi nähdä, että hänet on estetty.</string>
+	<string name="user_cant_see_each_other_posts">Hän ei voi enää nähdä julkaisujasi, etkä sinä voi nähdä hänen.</string>
+	<string name="user_cant_mention_or_follow_you">Hän ei voi enää mainita eikä seurata sinua.</string>
+	<string name="unblocked_user_x">Poistettu käyttäjän %s esto</string>
+	<string name="block_domain_confirm_title">Estetäänkö verkkotunnus?</string>
+	<string name="do_block_server">Estä palvelin</string>
+	<string name="block_user_x_instead">Estä sen sijaan %s</string>
+	<string name="users_cant_see_blocked">Et enää näe julkaisuja etkä ilmoituksia tämän palvelimen käyttäjiltä.</string>
+	<string name="you_wont_see_server_posts">Et näe mitään tämän palvelimen käyttäjien julkaisuja.</string>
+	<string name="server_cant_mention_or_follow_you">Kukaan tältä palvelimelta ei voi seurata sinua.</string>
+	<string name="server_can_interact_with_older">Tämän palvelimen käyttäjät eivät voi olla vuorovaikutuksessa vanhojen julkaisujesi kanssa.</string>
+	<string name="unblocked_domain_x">Poistettu verkkotunnuksen %s esto</string>
+	<string name="handle_help_title">Mitä käyttäjätunnuksessa on?</string>
+	<string name="handle_title">Hänen käyttäjätunnuksensa</string>
+	<string name="handle_username_explanation">Hänen yksilöllinen tunnisteensa omalla palvelimellaan. Eri palvelimilta on mahdollista löytää käyttäjiä, joilla on sama käyttäjänimi.</string>
+	<string name="handle_title_own">Käyttäjätunnuksesi</string>
+	<string name="handle_username_explanation_own">Yksilöllinen tunnisteesi tällä palvelimella. Eri palvelimilta on mahdollista löytää käyttäjiä, joilla on sama käyttäjänimi.</string>
+	<string name="server">Palvelin</string>
+	<string name="handle_server_explanation">Hänen digitaalinen kotinsa, jossa kaikki hänen julkaisunsa sijaitsevat.</string>
+	<string name="handle_explanation">Koska käyttäjätunnukset kertovat, kuka ja missä joku on, voit olla vuorovaikutuksessa käyttäjien kanssa kaikkialla sosiaalisessa verkossa, joka koostuu &lt;a&gt;ActivityPub-pohjaisista alustoista&lt;/a&gt;.</string>
+	<string name="handle_server_explanation_own">Digitaalinen kotisi, jossa kaikki julkaisusi sijaitsevat. Etkö pidä tästä? Siirry palvelimelta toiselle milloin tahansa ja tuo myös seuraajasi mukanasi.</string>
+	<string name="handle_explanation_own">Koska käyttäjätunnuksesi kertoo, kuka ja missä olet, käyttäjät voivat olla vaikutuksessa kanssasi kaikkialla sosiaalisessa verkossa, joka koostuu &lt;a&gt;ActivityPub-pohjaisista alustoista&lt;/a&gt;.</string>
+	<string name="what_is_activitypub_title">Mikä ActivityPub on?</string>
+	<string name="what_is_activitypub">ActivityPub on kuin kieli, jota Mastodon puhuu muiden sosiaalisten verkkojen kanssa.\n\nSen avulla voit muodostaa yhteyden ja olla vuorovaikutuksessa ihmisten kanssa ei vain Mastodonissa, vaan myös eri sosiaalisissa sovelluksissa.</string>
+	<string name="handle_copied">Käyttäjätunnus kopioitu leikepöydälle.</string>
+	<string name="qr_code">QR-koodi</string>
+	<string name="scan_qr_code">Skannaa QR-koodi</string>
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
+	<string name="saved">Tallennettu</string>
+	<string name="image_saved">Kuva tallennettu.</string>
+	<string name="video_saved">Video tallennettu.</string>
+	<string name="view_file">Näytä</string>
+	<string name="share_sheet_preview_profile">%s Mastodonissa</string>
+	<string name="share_sheet_preview_post">%1$s Mastodonissa: “%2$s”</string>
+	<string name="copy_profile_link">Kopioi linkki profiiliin</string>
+	<string name="in_app_browser">Sovelluksen sisäinen selain</string>
+	<string name="system_browser">Järjestelmän selain</string>
+	<string name="add_muted_word_short">Lisää sana</string>
+	<string name="tab_home">Koti</string>
+	<string name="tab_search">Selaa</string>
+	<string name="tab_profile">Profiili</string>
+	<string name="pin_post">Kiinnitä profiiliin</string>
+	<string name="unpin_post">Irrota profiilista</string>
+	<string name="post_pinned">Julkaisu on kiinnitetty</string>
 	<!-- %s is the username -->
+	<string name="enable_new_post_notifications">Ilmoita minulle, kun %s julkaisee</string>
+	<string name="disable_new_post_notifications">Lopeta minulle ilmoittaminen, kun %s julkaisee</string>
+	<string name="new_post_notifications_enabled">Saat ilmoituksia uusista julkaisuista.</string>
+	<string name="new_post_notifications_disabled">Et enää saa ilmoituksia uusista julkaisuista.</string>
+	<string name="mute_conversation">Mykistä keskustelu</string>
+	<string name="unmute_conversation">Poista keskustelun mykistys</string>
+	<string name="visibility_unlisted">Vaivihkaa julkinen</string>
+	<string name="filtered_notifications">Suodatetut ilmoitukset</string>
+	<string name="filter_notifications">Suodata ilmoitukset pois...</string>
+	<string name="notification_filter_following">Käyttäjät, joita et seuraa</string>
+	<string name="notification_filter_following_explanation">Kunnes hyväksyt heidät manuaalisesti</string>
+	<string name="notification_filter_followers">Käyttäjät, jotka eivät seuraa sinua</string>
+	<string name="notification_filter_followers_explanation">Mukaan lukien henkilöt, jotka ovat seuranneet sinua alle 3 päivää</string>
+	<string name="notification_filter_new_accounts">Uudet tilit</string>
+	<string name="notification_filter_new_accounts_explanation">Luotu viimeisten 30 päivän aikana</string>
+	<string name="allow_notifications">Salli ilmoitukset</string>
+	<string name="mute_notifications">Hylkää ilmoituspyyntö</string>
+	<string name="notifications_from_user">Ilmoitukset käyttäjältä %s</string>
+	<string name="notifications_allowed">%s ilmestyy nyt ilmoituslistallesi.</string>
+	<string name="visibility_subtitle_public">Kuka tahansa Mastodonissa ja sen ulkopuolella</string>
+	<string name="visibility_subtitle_unlisted">Piilotettu Mastodonin hakutuloksista, trendeistä ja julkisilta aikajanoilta</string>
+	<string name="visibility_subtitle_followers">Vain seuraajasi</string>
+	<string name="visibility_subtitle_private">Kaikki tässä julkaisussa mainitut</string>
+	<string name="view_boosts">Näytä tehostukset</string>
+	<string name="view_favorites">Näytä suosikit</string>
+	<string name="undo_reblog">Kumoa tehostus</string>
+	<string name="undo_favorite">Kumoa suosikiksi asettaminen</string>
+	<string name="could_not_reach_server">Palvelimeen ei saatu yhteyttä. Tarkista verkkoyhteys ja yritä uudelleen.</string>
+	<string name="connection_timed_out">Pyyntö aikakatkaistiin. Tarkista verkkoyhteys ja yritä uudelleen.</string>
+	<string name="server_error">Jokin meni pieleen palvelimen kanssa keskusteltaessa. Se ei luultavasti ole sinun vikasi. Yritetäänkö uudelleen?</string>
+	<string name="not_found">Se saattaa olla poistettu, tai ehkä sitä ei koskaan ollut olemassakaan.</string>
+	<string name="signup_username_taken">Tämä käyttäjänimi on jo käytössä. Kokeile valita eri käyttäjänimi tai &lt;a&gt;valitse eri palvelin&lt;/a&gt;.</string>
+	<string name="signup_email_invalid">Tämä ei vaikuta kelvolliselta sähköpostiosoitteelta.</string>
+	<string name="signup_email_taken">Tämä sähköpostiosoite on jo käytössä. &lt;a&gt;Unohditko salasanasi&lt;/a&gt;?</string>
+	<plurals name="x_new_notifications">
+		<item quantity="one">%,d uusi ilmoitus</item>
+		<item quantity="other">%,d uutta ilmoitusta</item>
+	</plurals>
+	<string name="dismiss">Hylkää</string>
+	<string name="donation_once">Vain kerran</string>
+	<string name="donation_monthly">Kuukausittain</string>
+	<string name="donation_yearly">Vuosittain</string>
+	<string name="currency">Valuutta</string>
+	<string name="donation_success_share">Levitä sanaa</string>
+	<string name="donation_success_title">Kiitos panoksestasi!</string>
+	<string name="donation_success_subtitle">Sinun pitäisi saada pian sähköpostiviesti, joka vahvistaa lahjoituksesi.</string>
+	<string name="settings_donate">Lahjoita Mastodonille</string>
+	<string name="settings_manage_donations">Hallitse lahjoituksia</string>
+	<string name="cant_load_image">Kuvaa ei voitu ladata</string>
+	<string name="poll_see_results">Näytä tulokset</string>
+	<string name="poll_hide_results">Piilota tulokset</string>
+	<plurals name="x_attachments">
+		<item quantity="one">%d liite</item>
+		<item quantity="other">%d liitettä</item>
+	</plurals>
+	<plurals name="user_and_x_more_favorited">
+		<item quantity="one">%1$s ja %2$,d yksi muu asetti suosikiksi:</item>
+		<item quantity="other">%1$s ja %2$,d muuta asetti suosikiksi:</item>
+	</plurals>
+	<plurals name="user_and_x_more_boosted">
+		<item quantity="one">%1$s ja %2$,d muu tehosti:</item>
+		<item quantity="other">%1$s ja %2$,d muuta tehosti:</item>
+	</plurals>
+	<string name="own_poll_ended">Äänestyksesi on päättynyt</string>
+	<string name="user_just_posted">%s julkaisi juuri</string>
+	<string name="user_edited_post">%s muokkasi julkaisua, jonka kanssa olet ollut vuorovaikutuksessa</string>
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
+	<plurals name="x_accounts">
+		<item quantity="one">%,d tili</item>
+		<item quantity="other">%,d tiliä</item>
+	</plurals>
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_learn_more">Lue lisää</string>
+	<string name="moderation_warning_action_none">Tilisi on saanut moderointivaroituksen.</string>
+	<string name="moderation_warning_action_disable">Tilisi on poistettu käytöstä.</string>
+	<string name="moderation_warning_action_mark_statuses_as_sensitive">Julkaisujasi on merkitty arkaluonteisiksi.</string>
+	<string name="moderation_warning_action_delete_statuses">Julkaisujasi on poistettu.</string>
+	<string name="moderation_warning_action_sensitive">Tästä lähtien julkaisusi merkitään arkaluonteisiksi.</string>
+	<string name="moderation_warning_action_silence">Tiliäsi on rajoitettu.</string>
+	<string name="moderation_warning_action_suspend">Tilisi on jäädytetty.</string>
+	<string name="moderation_warning_learn_more">Lue lisää</string>
+	<string name="text_show_more">Lisää</string>
+	<string name="avatar_move_and_scale">Siirrä ja skaalaa</string>
+	<string name="confirm_avatar_crop">Valitse</string>
+	<string name="settings_use_dynamic_colors">Käytä järjestelmän dynaamista väriä</string>
+	<string name="settings_accounts">Tilit</string>
+	<string name="settings_add_account">Lisää tili...</string>
+	<string name="settings_app_settings">Sovelluksen asetukset</string>
+	<string name="account_settings">Tilin asetukset</string>
+	<string name="settings_about_this_server">Tietoa tästä palvelimesta</string>
+	<string name="manage_account">Hallitse tiliä</string>
+	<string name="switch_to_this_account">Vaihda tähän tiliin</string>
+	<string name="delete_account">Poista tili</string>
+	<string name="notification_type_status">Uudet julkaisut</string>
+	<plurals name="user_and_x_more_followed">
+		<item quantity="one">%1$s ja %2$,d yksi muu seurasi sinua</item>
+		<item quantity="other">%1$s ja %2$,d muuta seurasi sinua</item>
+	</plurals>
+	<string name="profile_saved_posts">Tallennettu</string>
+	<string name="profile_saved_posts_explanation">Tallennetut julkaisut näkyvät vain sinulle.</string>
+	<string name="search_people">Käyttäjät</string>
 	<!-- appears when you're about to block a server -->
+	<plurals name="server_x_followers_will_be_removed">
+		<item quantity="one">%,d seuraaja tältä palvelimelta poistetaan.</item>
+		<item quantity="other">%,d seuraajaa tältä palvelimelta poistetaan.</item>
+	</plurals>
 	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
+	<plurals name="will_lose_x_followers">
+		<item quantity="one">%,d seuraaja</item>
+		<item quantity="other">%,d seuraajaa</item>
+	</plurals>
 	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
+	<string name="signup_password_too_short">Salasanassa pitää olla vähintään 8 merkkiä.</string>
+	<string name="private_reply">Yksityinen vastaus</string>
+	<string name="private_mention">Yksityismaininta</string>
+	<string name="post_header_reply">Vastaus</string>
+	<string name="post_header_mention">Maininta</string>
+	<string name="report_reason_legal">Se on laitonta</string>
+	<string name="report_reason_legal_subtitle">Katsot sisällön rikkovan maasi tai palvelimen kotimaan lakeja</string>
+	<string name="date_of_birth">Syntymäpäivä</string>
 	<!-- %s is `at_least_x_years_old`. Some languages, unlike English, may require the word "years" here. -->
+	<string name="date_of_birth_explanation">Meidän on varmistettava, että olet vähintään %s, jotta voit käyttää Mastodonia. Emme tallenna tätä.</string>
+	<string name="open_link">Avaa</string>
+	<string name="copy">Kopioi</string>
 	<!-- Substituted into `date_of_birth_explanation` -->
+	<string name="quote_post_unavailable">Julkaisu ei saatavilla</string>
+	<string name="quote_post_pending">Julkaisu odottaa</string>
+	<string name="quote_post_pending_explanation">Mastodonissa voit hallita, voiko joku lainata sinua. Tämä julkaisu on vireillä siihen asti, että saamme alkuperäisen tekijän hyväksynnän.</string>
 	<!-- %s is a username, i.e. @Gargron -->
+	<string name="compose_visibility_public_anyone">Julkinen, kuka vain voi lainata</string>
+	<string name="compose_visibility_public_limited">Julkinen, lainauksia rajoitettu</string>
+	<string name="compose_visibility_public_disabled">Julkinen, lainaukset estetty</string>
+	<string name="compose_visibility_title">Näkyvyys ja vuorovaikutus</string>
 	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
+	<string name="compose_visibility">Näkyvyys</string>
+	<string name="compose_quote_policy">Kuka voi lainata</string>
+	<string name="quote_policy_public">Kuka tahansa</string>
+	<string name="quote_policy_followers">Vain seuraajat</string>
+	<string name="quote_policy_nobody">Vain minä</string>
+	<string name="quote_policy_for_unlisted_explanation">Kun ihmiset lainaavat sinua, heidän julkaisunsa piilotetaan suosittujen julkaisujen aikajanoilta.</string>
+	<string name="quote_policy_for_private_explanation">Muut eivät voi lainata Mastodonissa kirjoitettuja, vain seuraajille tarkoitettuja julkaisuja.</string>
+	<string name="quote_policy_for_direct_explanation">Muut eivät voi lainata Mastodonissa kirjoitettuja yksityismainintoja.</string>
+	<string name="change_quote_policy">Vaihda, kuka voi lainata</string>
+	<string name="edit_visibility_explanation">Lähetettyjen julkaisujen näkyvyyttä ei voi vaihtaa.</string>
+	<string name="user_quoted_post">%s lainasi julkaisuasi:</string>
+	<string name="user_edited_quoted_post">%s muokkasi lainaamaasi julkaisua</string>
+	<string name="notification_type_quote">Lainaukset</string>
+	<string name="create_quote">Lainaa</string>
+	<string name="cannot_quote_post">Sinulla ei ole oikeutta lainata tätä julkaisua</string>
+	<string name="cannot_quote_post_followers_only">Vain seuraajat voivat lainata tätä julkaisua</string>
+	<string name="compose_hint_quote">Lisää jotain keskusteluun</string>
+	<string name="cancel_quote">Peruuta lainaus</string>
+	<string name="unlisted_quote_alert_title">Lainataan vaivihkaa julkista julkaisua</string>
+	<string name="unlisted_quote_alert">Kun lainaat vaivihkaa julkisia julkaisuja, oma julkaisusi piilotetaan suosittujen julkaisujen aikajanoilta.</string>
+	<string name="settings_posting_defaults">Julkaisun oletukset</string>
+	<string name="default_post_visibility">Julkaisun näkyvyys</string>
+	<string name="create_quote_manual_approval">Pyydä lupaa lainata</string>
+	<string name="create_quote_manual_approval_subtitle">Tekijä arvioi pyynnön manuaalisesti</string>
+	<plurals name="x_quotes">
+		<item quantity="one">%,d lainaus</item>
+		<item quantity="other">%,d lainausta</item>
+	</plurals>
+	<string name="remove_quote">Poista julkaisuni käyttäjän %s julkaisusta</string>
+	<string name="remove_quote_confirm_title">Poistetaanko julkaisu?</string>
+	<string name="remove_quote_confirm">Tätä toimea ei voi peruuttaa.</string>
+	<string name="remove_quote_button">Poista julkaisu</string>
+	<string name="settings_posting_defaults_explanation">Näitä asetuksia käytetään oletuksina, kun luot uusia julkaisuja, mutta voit muokata niitä julkaisukohtaisesti luontikentässä.</string>
 </resources>
