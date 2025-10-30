@@ -16,6 +16,7 @@ import org.joinmastodon.android.R;
 import org.joinmastodon.android.events.StatusDisplaySettingsChangedEvent;
 import org.joinmastodon.android.model.viewmodel.CheckableListItem;
 import org.joinmastodon.android.model.viewmodel.ListItem;
+import org.joinmastodon.android.ui.FuriganaHelper;
 import org.joinmastodon.android.ui.M3AlertDialogBuilder;
 
 import java.util.ArrayList;
@@ -28,6 +29,7 @@ public class SettingsDisplayFragment extends BaseSettingsFragment<Void>{
 	private ImageView themeTransitionWindowView;
 	private ListItem<Void> themeItem;
 	private CheckableListItem<Void> showCWsItem, hideSensitiveMediaItem, interactionCountsItem, emojiInNamesItem, dynamicColorsItem;
+	private CheckableListItem<Void> showFuriganaItem, convertKanaItem;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState){
@@ -46,6 +48,25 @@ public class SettingsDisplayFragment extends BaseSettingsFragment<Void>{
 		items.add(hideSensitiveMediaItem=new CheckableListItem<>(R.string.settings_hide_sensitive_media, 0, CheckableListItem.Style.SWITCH, GlobalUserPreferences.hideSensitiveMedia, R.drawable.ic_no_adult_content_24px, this::toggleCheckableItem));
 		items.add(interactionCountsItem=new CheckableListItem<>(R.string.settings_show_interaction_counts, 0, CheckableListItem.Style.SWITCH, GlobalUserPreferences.showInteractionCounts, R.drawable.ic_social_leaderboard_24px, this::toggleCheckableItem));
 		items.add(emojiInNamesItem=new CheckableListItem<>(R.string.settings_show_emoji_in_names, 0, CheckableListItem.Style.SWITCH, GlobalUserPreferences.customEmojiInNames, R.drawable.ic_emoticon_24px, this::toggleCheckableItem));
+		items.add(showFuriganaItem = new CheckableListItem<>(
+				R.string.settings_show_furigana, 0, CheckableListItem.Style.SWITCH,
+				GlobalUserPreferences.showFurigana,
+				R.drawable.ic_furigana_24px,
+				item -> {
+					toggleCheckableItem(item);
+					GlobalUserPreferences.showFurigana = item.checked;
+				}
+		));
+		items.add(convertKanaItem = new CheckableListItem<>(
+				R.string.settings_convert_kana_to_hiragana, 0, CheckableListItem.Style.SWITCH,
+				GlobalUserPreferences.convertKanaToHiragana,
+				R.drawable.ic_hiragana_24px,
+				item -> {
+					toggleCheckableItem(item);
+					GlobalUserPreferences.convertKanaToHiragana = item.checked;
+				}
+		));
+
 		onDataLoaded(items);
 	}
 
@@ -65,12 +86,22 @@ public class SettingsDisplayFragment extends BaseSettingsFragment<Void>{
 	@Override
 	protected void onHidden(){
 		super.onHidden();
+		Boolean needRedraw = false;
+		if (convertKanaItem.checked != GlobalUserPreferences.convertKanaToHiragana) {
+			needRedraw = true;
+		}
 		GlobalUserPreferences.showCWs=showCWsItem.checked;
 		GlobalUserPreferences.hideSensitiveMedia=hideSensitiveMediaItem.checked;
 		GlobalUserPreferences.showInteractionCounts=interactionCountsItem.checked;
 		GlobalUserPreferences.customEmojiInNames=emojiInNamesItem.checked;
+		GlobalUserPreferences.showFurigana=showFuriganaItem.checked;
+		GlobalUserPreferences.convertKanaToHiragana=convertKanaItem.checked;
 		GlobalUserPreferences.save();
 		E.post(new StatusDisplaySettingsChangedEvent(accountID));
+		if (needRedraw){
+			FuriganaHelper.clearCache();
+
+		}
 	}
 
 	private int getAppearanceValue(){

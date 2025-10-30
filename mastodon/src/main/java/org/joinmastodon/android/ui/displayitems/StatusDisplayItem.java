@@ -1,13 +1,17 @@
 package org.joinmastodon.android.ui.displayitems;
 
+import static org.joinmastodon.android.ui.FuriganaHelper.annotateKanjiWithFurigana;
+
 import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 
+import org.joinmastodon.android.BuildConfig;
 import org.joinmastodon.android.GlobalUserPreferences;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.fragments.BaseStatusListFragment;
@@ -28,6 +32,7 @@ import org.joinmastodon.android.ui.viewholders.AccountViewHolder;
 import org.joinmastodon.android.utils.TypedObjectPool;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -160,10 +165,11 @@ public abstract class StatusDisplayItem{
 
 		if(!TextUtils.isEmpty(statusForContent.content)){
 			SpannableStringBuilder parsedText=HtmlParser.parse(statusForContent.content, statusForContent.emojis, statusForContent.mentions, statusForContent.tags, accountID, statusForContent, context);
+			SpannableStringBuilder annotated = annotateKanjiWithFurigana(context, parsedText, statusForContent.language);
 			if(filtered){
-				HtmlParser.applyFilterHighlights(context, parsedText, status.filtered);
+				HtmlParser.applyFilterHighlights(context, annotated, status.filtered);
 			}
-			TextStatusDisplayItem text=new TextStatusDisplayItem(parentID, parsedText, callbacks, context, statusForContent, accountID);
+			TextStatusDisplayItem text=new TextStatusDisplayItem(parentID, annotated, callbacks, context, statusForContent, accountID);
 			contentItems.add(text);
 		}else if(header instanceof HeaderStatusDisplayItem hsdi){
 			hsdi.needBottomPadding=true;

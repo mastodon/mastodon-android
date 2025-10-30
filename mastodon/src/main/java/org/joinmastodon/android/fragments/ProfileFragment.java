@@ -69,6 +69,7 @@ import org.joinmastodon.android.model.Attachment;
 import org.joinmastodon.android.model.FamiliarFollowers;
 import org.joinmastodon.android.model.Relationship;
 import org.joinmastodon.android.model.viewmodel.AccountViewModel;
+import org.joinmastodon.android.ui.FuriganaHelper;
 import org.joinmastodon.android.ui.M3AlertDialogBuilder;
 import org.joinmastodon.android.ui.OutlineProviders;
 import org.joinmastodon.android.ui.SimpleViewHolder;
@@ -642,7 +643,8 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 			bio.setVisibility(View.GONE);
 		}else{
 			bio.setVisibility(View.VISIBLE);
-			bio.setText(parsedBio);
+			SpannableStringBuilder annotated = FuriganaHelper.annotateKanjiWithFurigana(getContext(), parsedBio, "");
+			bio.setText(annotated);
 		}
 		followersCount.setText(UiUtils.abbreviateNumber(account.followersCount));
 		followingCount.setText(UiUtils.abbreviateNumber(account.followingCount));

@@ -18,6 +18,9 @@ public class GlobalUserPreferences{
 	public static boolean showCWs;
 	public static boolean hideSensitiveMedia;
 
+	public static boolean showFurigana;
+	public static boolean convertKanaToHiragana;
+
 	private static SharedPreferences getPrefs(){
 		return MastodonApp.context.getSharedPreferences("global", Context.MODE_PRIVATE);
 	}
@@ -53,6 +56,8 @@ public class GlobalUserPreferences{
 			// Also applies to new app installs
 			prefs.edit().putBoolean("perAccountMigrationDone", true).apply();
 		}
+		showFurigana=prefs.getBoolean("showFurigana", false);
+		convertKanaToHiragana=prefs.getBoolean("convertKanaToHiragana", true);
 	}
 
 	public static void save(){
@@ -69,6 +74,8 @@ public class GlobalUserPreferences{
 				.putBoolean("emojiInNames", customEmojiInNames)
 				.putBoolean("showCWs", showCWs)
 				.putBoolean("hideSensitive", hideSensitiveMedia)
+				.putBoolean("showFurigana", showFurigana)
+				.putBoolean("convertKanaToHiragana", convertKanaToHiragana)
 				.apply();
 	}
 
