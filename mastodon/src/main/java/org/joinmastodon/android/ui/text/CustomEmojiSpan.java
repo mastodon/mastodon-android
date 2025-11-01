@@ -48,12 +48,13 @@ public class CustomEmojiSpan extends ReplacementSpan{
 			drawable.setBounds(0, 0, dw, dh);
 		}
 
-		float scale = size / (float) dh;
+		float scaleX = size / (float) dw;
+		float scaleY = size / (float) dh;
 		float transY = y - size * 0.9f;
 
 		canvas.save();
 		canvas.translate(x, transY);
-		canvas.scale(scale, scale);
+		canvas.scale(scaleX, scaleY);
 		drawable.draw(canvas);
 		canvas.restore();
 	}

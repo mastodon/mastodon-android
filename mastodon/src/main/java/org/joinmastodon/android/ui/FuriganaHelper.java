@@ -78,6 +78,11 @@ public class FuriganaHelper {
 			String reading = token.getReading();
 
 			if (reading != null && containsKanji(surface)) {
+				if (surface.contains("〇")) {
+					offset += surface.length();
+					continue;
+				}
+
 				if (useHiragana) reading = katakanaToHiragana(reading);
 
 				List<FuriganaSplitter.Part> parts = FuriganaSplitter.splitSurfaceReading(surface, reading);
@@ -86,25 +91,12 @@ public class FuriganaHelper {
 					if (start >= 0) {
 						int end = start + part.text.length();
 
-						boolean insideLink = false;
-						if (input instanceof Spanned spanned) {
-							LinkSpan[] linkSpans = spanned.getSpans(start, end, LinkSpan.class);
-							for (LinkSpan ls : linkSpans) {
-								int lsStart = spanned.getSpanStart(ls);
-								int lsEnd = spanned.getSpanEnd(ls);
-								if (lsStart < end && lsEnd > start) {
-									insideLink = true;
-									break;
-								}
+						if (part.furigana != null && !part.furigana.isEmpty()) {
+							FuriganaSpan fs = new FuriganaSpan(part.furigana, 0.8f);
+							if (input instanceof Spanned spanned){
+								fs.captureVisualsFrom(spanned, start, end, context);
 							}
-						}
-
-						if (!insideLink && part.furigana != null && !part.furigana.isEmpty()) {
-							ssb.setSpan(
-									new FuriganaSpan(part.furigana, 0.8f),
-									start, end,
-									Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
-							);
+							ssb.setSpan(fs, start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 						}
 
 						offset = end;
