@@ -170,46 +170,62 @@ public class FuriganaHelper {
 			}
 		}
 
-		public static List<Part> splitSurfaceReading(String surface, String readingKatakana) {
+		public static List<Part> splitSurfaceReading(String surface, String reading) {
 			List<Part> parts = new ArrayList<>();
-			if (surface == null || surface.isEmpty() || readingKatakana == null || readingKatakana.isEmpty()) {
+			if (surface == null || surface.isEmpty() || reading == null || reading.isEmpty()) {
 				parts.add(new Part(surface, null));
 				return parts;
 			}
 
 			int sLen = surface.length();
-			int rLen = readingKatakana.length();
-			int sPos = 0;
-			int rPos = 0;
+			int rLen = reading.length();
 
-			while (sPos < sLen && isKana(surface.charAt(sPos))) {
-				parts.add(new Part("" + surface.charAt(sPos), null));
-				sPos++;
-				rPos++;
+			int firstKanji = -1, lastKanji = -1;
+			for (int i = 0; i < sLen; i++) {
+				if (isKanji(surface.charAt(i))) {
+					if (firstKanji == -1) firstKanji = i;
+					lastKanji = i;
+				}
+			}
+			if (firstKanji == -1) {
+				parts.add(new Part(surface, null));
+				return parts;
 			}
 
-			int kanjiStart = sPos;
-			while (sPos < sLen) {
-				char c = surface.charAt(sPos);
-				if (isKanji(c)) sPos++;
+			int prefixKanaCount = 0;
+			for (int i = 0; i < firstKanji; i++) {
+				if (isKana(surface.charAt(i))) prefixKanaCount++;
+			}
+
+			int tailKanaCount = 0;
+			for (int i = sLen - 1; i > lastKanji; i--) {
+				if (isKana(surface.charAt(i))) tailKanaCount++;
 				else break;
 			}
 
-			if (kanjiStart < sPos) {
-				int furiganaEnd = rLen;
-				int tail = sLen - sPos;
-				if (tail > 0) furiganaEnd -= tail;
-				if (furiganaEnd > rPos) {
-					String furigana = readingKatakana.substring(rPos, furiganaEnd);
-					parts.add(new Part(surface.substring(kanjiStart, sPos), furigana));
-					rPos = furiganaEnd;
-				} else {
-					parts.add(new Part(surface.substring(kanjiStart, sPos), null));
-				}
+			int readStart = Math.min(prefixKanaCount, rLen);
+			int readEnd = Math.max(readStart, rLen - tailKanaCount);
+
+			String coreReading = "";
+			if (readStart < readEnd) {
+				coreReading = reading.substring(readStart, readEnd);
+			} else {
+				coreReading = "";
 			}
 
-			if (sPos < sLen) {
-				parts.add(new Part(surface.substring(sPos), null));
+			if (firstKanji > 0) {
+				parts.add(new Part(surface.substring(0, firstKanji), null));
+			}
+
+			String kanjiBlock = surface.substring(firstKanji, lastKanji + 1);
+			if (coreReading != null && !coreReading.isEmpty()) {
+				parts.add(new Part(kanjiBlock, coreReading));
+			} else {
+				parts.add(new Part(kanjiBlock, null));
+			}
+
+			if (lastKanji < sLen - 1) {
+				parts.add(new Part(surface.substring(lastKanji + 1), null));
 			}
 
 			return parts;
