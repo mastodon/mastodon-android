@@ -23,6 +23,7 @@ android {
 			minifyEnabled true
 			shrinkResources true
 			proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+			signingConfig signingConfigs.debug
 		}
 		debug{
 			debuggable true
@@ -78,6 +79,26 @@ android {
 		includeInBundle false
 	}
 	namespace 'org.joinmastodon.android'
+	packaging {
+        resources {
+            excludes += [
+                "META-INF/CONTRIBUTORS.md",
+                "META-INF/LICENSE.md",
+                "META-INF/LICENSE.txt",
+                "META-INF/NOTICE.txt",
+                "META-INF/NOTICE.md"
+            ]
+        }
+    }
+	    packagingOptions {
+        resources {
+            pickFirsts += [
+                "com/atilika/kuromoji/ipadic/**",
+                "com/atilika/kuromoji/core/**"
+            ]
+        }
+    }
+
 }
 
 dependencies {
@@ -98,6 +119,7 @@ dependencies {
 	implementation 'com.google.zxing:core:3.5.3'
 	implementation 'org.microg:safe-parcel:1.5.0'
 	implementation 'org.parceler:parceler-api:1.1.12'
+	implementation 'com.atilika.kuromoji:kuromoji-ipadic:0.9.0'
 	annotationProcessor 'org.parceler:parceler:1.1.12'
 	coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.0.3'
 

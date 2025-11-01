@@ -1,5 +1,7 @@
 package org.joinmastodon.android.ui.displayitems;
 
+import static org.joinmastodon.android.ui.FuriganaHelper.annotateKanjiWithFurigana;
+
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
@@ -37,7 +39,9 @@ public class SpoilerStatusDisplayItem extends StatusDisplayItem{
 		this.type=type;
 		this.spoilerType=spoilerType;
 		if(TextUtils.isEmpty(title)){
-			parsedTitle=HtmlParser.parseCustomEmoji(statusForContent.spoilerText, statusForContent.emojis);
+			CharSequence parsedTitle1;
+			parsedTitle1=HtmlParser.parseCustomEmoji(statusForContent.spoilerText, statusForContent.emojis);
+			parsedTitle = annotateKanjiWithFurigana(context, parsedTitle1, statusForContent.language);
 			emojiHelper=new CustomEmojiHelper();
 			emojiHelper.setText(parsedTitle);
 		}else{

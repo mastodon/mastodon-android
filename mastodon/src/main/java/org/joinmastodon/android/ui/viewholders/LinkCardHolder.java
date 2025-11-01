@@ -6,6 +6,7 @@ import android.content.res.ColorStateList;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,7 @@ import org.joinmastodon.android.R;
 import org.joinmastodon.android.fragments.ProfileFragment;
 import org.joinmastodon.android.model.Card;
 import org.joinmastodon.android.model.viewmodel.CardViewModel;
+import org.joinmastodon.android.ui.FuriganaHelper;
 import org.joinmastodon.android.ui.OutlineProviders;
 import org.joinmastodon.android.ui.displayitems.StatusDisplayItem;
 import org.joinmastodon.android.ui.drawables.BlurhashCrossfadeDrawable;
@@ -81,9 +83,11 @@ public class LinkCardHolder<T extends LinkCardHolder.LinkCardProvider> extends S
 	public void onBind(T item){
 		CardViewModel cardVM=item.getCard();
 		Card card=cardVM.card;
-		title.setText(card.title);
+		SpannableStringBuilder annotated = FuriganaHelper.annotateKanjiWithFurigana(this.activity, card.title, "");
+		title.setText(annotated);
 		if(description!=null){
-			description.setText(card.description);
+			SpannableStringBuilder annotated_d = FuriganaHelper.annotateKanjiWithFurigana(this.activity, card.description, "");
+			description.setText(annotated_d);
 			description.setVisibility(TextUtils.isEmpty(card.description) ? View.GONE : View.VISIBLE);
 		}
 		String cardDomain=HtmlParser.normalizeDomain(Objects.requireNonNull(Uri.parse(card.url).getHost()));

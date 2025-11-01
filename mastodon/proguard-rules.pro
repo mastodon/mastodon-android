@@ -62,3 +62,8 @@
 -keep class * extends org.microg.safeparcel.AutoSafeParcelable{
 	*;
 }
+
+-keep class com.atilika.kuromoji.** { *; }
+-keep class org.joinmastodon.android.ui.k.** { *; }
+
+-keepattributes SourceFile,LineNumberTable,RuntimeVisibleAnnotations,RuntimeVisibleTypeAnnotations,RuntimeInvisibleAnnotations

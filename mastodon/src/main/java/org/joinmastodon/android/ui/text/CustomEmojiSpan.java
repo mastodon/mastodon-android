@@ -28,27 +28,35 @@ public class CustomEmojiSpan extends ReplacementSpan{
 	}
 
 	@Override
-	public void draw(@NonNull Canvas canvas, CharSequence text, int start, int end, float x, int top, int y, int bottom, @NonNull Paint paint){
-		int size=Math.round(paint.descent()-paint.ascent());
-		if(drawable==null){
-			int alpha=paint.getAlpha();
+	public void draw(@NonNull Canvas canvas, CharSequence text, int start, int end,
+					 float x, int top, int y, int bottom, @NonNull Paint paint) {
+		int size = Math.round(paint.descent() - paint.ascent());
+
+		if (drawable == null) {
+			int alpha = paint.getAlpha();
 			paint.setAlpha(alpha >> 1);
-			canvas.drawRoundRect(x, top, x+size, top+size, V.dp(2), V.dp(2), paint);
+			canvas.drawRoundRect(x, y - size, x + size, y, V.dp(2), V.dp(2), paint);
 			paint.setAlpha(alpha);
-		}else{
-			// AnimatedImageDrawable doesn't like when its bounds don't start at (0, 0)
-			Rect bounds=drawable.getBounds();
-			int dw=drawable.getIntrinsicWidth();
-			int dh=drawable.getIntrinsicHeight();
-			if(bounds.left!=0 || bounds.top!=0 || bounds.right!=dw || bounds.left!=dh){
-				drawable.setBounds(0, 0, dw, dh);
-			}
-			canvas.save();
-			canvas.translate(x, top);
-			canvas.scale(size/(float)dw, size/(float)dh, 0f, 0f);
-			drawable.draw(canvas);
-			canvas.restore();
+			return;
 		}
+
+		int dw = drawable.getIntrinsicWidth();
+		int dh = drawable.getIntrinsicHeight();
+
+		Rect bounds = drawable.getBounds();
+		if (bounds.left != 0 || bounds.top != 0 || bounds.right != dw || bounds.bottom != dh) {
+			drawable.setBounds(0, 0, dw, dh);
+		}
+
+		float scaleX = size / (float) dw;
+		float scaleY = size / (float) dh;
+		float transY = y - size * 0.9f;
+
+		canvas.save();
+		canvas.translate(x, transY);
+		canvas.scale(scaleX, scaleY);
+		drawable.draw(canvas);
+		canvas.restore();
 	}
 
 	public void setDrawable(Drawable drawable){
