@@ -642,6 +642,7 @@
 	<string name="expired_invite_link">Vanhentunut kutsulinkki</string>
 	<string name="expired_clipboard_invite_link_alert">Leikepöydälläsi olevan %1$s:n kutsulinkki on vanhentunut eikä sitä voi käyttää rekisteröitymiseen.\n\nVoit pyytää uuden linkin olemassa olevalta käyttäjältä, kirjautua sisään %2$s:n kautta tai valitse toinen palvelin rekisteröitymiseen.</string>
 	<string name="invalid_invite_link">Virheellinen kutsulinkki</string>
+	<string name="invalid_clipboard_invite_link_alert">%1$s:n kutsulinkki leikepöydälläsi ei ole kelvollinen eikä sitä voi käyttää liittymiseen.\n\nVoit pyytää uutta linkkiä olemassa olevalta käyttäjältä, kirjautua %2$s:n kautta tai valita toinen palvelin kirjautumiseen.</string>
 	<string name="use_invite_link">Käytä kutsulinkkiä</string>
 	<string name="enter_invite_link">Kirjoita kutsulinkki</string>
 	<string name="this_invite_is_invalid">Tämä kutsulinkki ei ole kelvollinen.</string>
@@ -699,6 +700,7 @@
 	<string name="pin_post">Kiinnitä profiiliin</string>
 	<string name="unpin_post">Irrota profiilista</string>
 	<string name="post_pinned">Julkaisu on kiinnitetty</string>
+	<string name="post_unpinned">Julkaisun kiinnitys on poistettu</string>
 	<!-- %s is the username -->
 	<string name="enable_new_post_notifications">Ilmoita minulle, kun %s julkaisee</string>
 	<string name="disable_new_post_notifications">Lopeta minulle ilmoittaminen, kun %s julkaisee</string>
@@ -715,8 +717,14 @@
 	<string name="notification_filter_followers_explanation">Mukaan lukien henkilöt, jotka ovat seuranneet sinua alle 3 päivää</string>
 	<string name="notification_filter_new_accounts">Uudet tilit</string>
 	<string name="notification_filter_new_accounts_explanation">Luotu viimeisten 30 päivän aikana</string>
+	<string name="notification_filter_mentions">Tuntemattomien yksityiset maininnat</string>
+	<string name="notification_filter_mentions_explanation">Suodatettu, ellei se ole vastaus omaan mainintaasi tai seuraat lähettäjää</string>
 	<string name="allow_notifications">Salli ilmoitukset</string>
 	<string name="mute_notifications">Hylkää ilmoituspyyntö</string>
+	<plurals name="x_people_you_may_know">
+		<item quantity="one">%,d henkilö, jonka saatat tuntea</item>
+		<item quantity="other">%,d ihmistä, jotka saatat tuntea</item>
+	</plurals>
 	<string name="notifications_from_user">Ilmoitukset käyttäjältä %s</string>
 	<string name="notifications_allowed">%s ilmestyy nyt ilmoituslistallesi.</string>
 	<string name="visibility_subtitle_public">Kuka tahansa Mastodonissa ja sen ulkopuolella</string>
