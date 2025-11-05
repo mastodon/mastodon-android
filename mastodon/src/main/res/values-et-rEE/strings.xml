@@ -111,7 +111,7 @@
 	<string name="mentions">Mainimised</string>
 	<plurals name="x_people_talking">
 		<item quantity="one">%d inimene suhtleb</item>
-		<item quantity="other">%d inimest suhtlevad</item>
+		<item quantity="other">%d inimest suhtlevad sel teemal</item>
 	</plurals>
 	<string name="report_title">Teata kasutajast %s</string>
 	<string name="report_choose_reason">Mis on sellel postitusel viga?</string>
@@ -181,7 +181,7 @@
 	<string name="media_attachment_too_big">%1$s faili suurus ületab %2$s MB ülempiiri</string>
 	<string name="settings_theme">Välimus</string>
 	<string name="theme_auto">Kasuta seadme välimust</string>
-	<string name="theme_light">Hele välimus</string>
+	<string name="theme_light">Hele kujundus</string>
 	<string name="theme_dark">Tume kujundus</string>
 	<string name="settings_behavior">Käitumine</string>
 	<string name="settings_gif">Esita animeeritud tunnuspilte ja emojisid</string>
@@ -757,7 +757,7 @@ Mida rohkem inimesi sa tead, seda aktiivsem ja huvitavam ta saab olema.</string>
 	<string name="donation_success_share">Räägi meist</string>
 	<string name="donation_success_title">Täname sind sinu toetuse eest!</string>
 	<string name="donation_success_subtitle">Üsna pea peaksid saama toetuse kohta kinnituskirja.</string>
-	<string name="donation_server_error">Peame vabandama, tekkis viga ja meil pole võimali sinu toetust töödelda.\n\nPalun proovi uuesti mõne minuti pärast.</string>
+	<string name="donation_server_error">Peame vabandama, tekkis viga ja meil pole võimalik sinu toetust töödelda.\n\nPalun proovi uuesti mõne minuti pärast.</string>
 	<string name="settings_donate">Toeta Mastodoni</string>
 	<string name="settings_manage_donations">Halda toetusi</string>
 	<string name="cant_load_image">Pildi laadimine ei õnnestunud</string>
