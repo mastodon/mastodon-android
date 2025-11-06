@@ -1,5 +1,7 @@
 package org.joinmastodon.android.model;
 
+import com.google.gson.annotations.SerializedName;
+
 import org.joinmastodon.android.api.ObjectValidationException;
 import org.joinmastodon.android.api.RequiredField;
 import org.joinmastodon.android.model.catalog.CatalogInstance;
@@ -127,6 +129,7 @@ public abstract class Instance extends BaseModel{
 		public MediaAttachmentsConfiguration mediaAttachments;
 		public PollsConfiguration polls;
 		public URLsConfiguration urls;
+		public TimelineAccessConfiguration timelineAccess;
 	}
 
 	@Parcel
@@ -161,5 +164,27 @@ public abstract class Instance extends BaseModel{
 		public String about;
 		public String privacyPolicy;
 		public String termsOfService;
+	}
+
+	@Parcel
+	public static class TimelineAccessConfiguration{
+		public TimelineAccessConfigurationItem liveFeeds;
+		public TimelineAccessConfigurationItem hashtagFeeds;
+		public TimelineAccessConfigurationItem trendingLinkFeeds;
+	}
+
+	@Parcel
+	public static class TimelineAccessConfigurationItem{
+		public TimelineAccessValue local;
+		public TimelineAccessValue remote;
+	}
+
+	public enum TimelineAccessValue{
+		@SerializedName("public")
+		PUBLIC,
+		@SerializedName("authenticated")
+		AUTHENTICATED,
+		@SerializedName("disabled")
+		DISABLED
 	}
 }

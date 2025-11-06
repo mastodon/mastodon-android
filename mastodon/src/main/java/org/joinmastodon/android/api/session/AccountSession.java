@@ -35,6 +35,7 @@ import org.joinmastodon.android.model.Instance;
 import org.joinmastodon.android.model.LegacyFilter;
 import org.joinmastodon.android.model.Preferences;
 import org.joinmastodon.android.model.PushSubscription;
+import org.joinmastodon.android.model.Role;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.model.TimelineMarkers;
 import org.joinmastodon.android.model.Token;
@@ -381,5 +382,13 @@ public class AccountSession{
 
 	public boolean hasPushCredentials(){
 		return pushAccountID!=null && pushAuthKey!=null && pushPrivateKey!=null && pushPublicKey!=null;
+	}
+
+	public boolean canAccessLocalTimeline(){
+		if(self.source!=null && self.source.role!=null && ((self.source.role.permissions & Role.PERMISSION_VIEW_LIVE_AND_TOPIC_FEEDS)!=0 || (self.source.role.permissions & Role.PERMISSION_ADMINISTRATOR)!=0))
+			return true;
+		Instance instance=getInstanceInfo();
+		return instance==null || instance.configuration==null || instance.configuration.timelineAccess==null
+				|| instance.configuration.timelineAccess.liveFeeds==null || instance.configuration.timelineAccess.liveFeeds.local!=Instance.TimelineAccessValue.DISABLED;
 	}
 }

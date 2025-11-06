@@ -193,7 +193,7 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 				currentList=list;
 				reload();
 			}
-		});
+		}, AccountSessionManager.get(accountID).canAccessLocalTimeline());
 		setHasOptionsMenu(true);
 		loadData();
 		AccountSessionManager.get(accountID).getCacheController().getLists(new Callback<>(){

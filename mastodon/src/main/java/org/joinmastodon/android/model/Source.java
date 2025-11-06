@@ -39,12 +39,20 @@ public class Source extends BaseModel{
 	public int followRequestCount;
 	public Boolean indexable;
 	public boolean hideCollections;
+	public Role role;
 
 	@Override
 	public void postprocess() throws ObjectValidationException{
 		super.postprocess();
 		for(AccountField f:fields)
 			f.postprocess();
+		if(role!=null){
+			try{
+				role.postprocess();
+			}catch(ObjectValidationException x){
+				role=null;
+			}
+		}
 	}
 
 	@Override
