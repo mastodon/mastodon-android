@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.view.accessibility.AccessibilityNodeInfo;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -40,7 +39,8 @@ public class ComposerVisibilitySheet extends BottomSheet{
 	private StatusQuotePolicy userSelectedPolicy;
 	private final Listener listener;
 
-	public ComposerVisibilitySheet(@NonNull Context context, StatusPrivacy defaultVisibility, StatusQuotePolicy defaultPolicy, boolean canChangeVisibility, StatusPrivacy maxVisibility, String accountID, Listener listener){
+	public ComposerVisibilitySheet(@NonNull Context context, StatusPrivacy defaultVisibility, StatusQuotePolicy defaultPolicy, boolean canChangeVisibility,
+								   boolean showQuoteWarning, StatusPrivacy maxVisibility, String accountID, Listener listener){
 		super(context);
 		View content=context.getSystemService(LayoutInflater.class).inflate(R.layout.sheet_compose_visibility, null);
 		setContentView(content);
@@ -95,10 +95,27 @@ public class ComposerVisibilitySheet extends BottomSheet{
 		llp=(ViewGroup.MarginLayoutParams)quotePolicySpinnerLayout.getLabel().getLayoutParams();
 		llp.setMarginStart(llp.getMarginStart()+V.dp(16));
 
+		View banner=findViewById(R.id.banner);
+		banner.setVisibility(View.GONE);
+		if(showQuoteWarning){
+			banner.findViewById(R.id.icon).setVisibility(View.GONE);
+			banner.findViewById(R.id.button).setVisibility(View.GONE);
+			banner.findViewById(R.id.button2).setVisibility(View.GONE);
+			TextView title=banner.findViewById(R.id.title);
+			TextView text=banner.findViewById(R.id.text);
+			title.setText(R.string.cant_quote_in_private_title);
+			title.setSingleLine(false);
+			title.getLayoutParams().height=ViewGroup.LayoutParams.WRAP_CONTENT;
+			text.setText(R.string.cant_quote_in_private);
+		}
+
 		visibilitySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
 			@Override
 			public void onItemSelected(AdapterView<?> parent, View view, int position, long id){
-				updateQuotePolicyForVisibility(items.get(position).parentObject);
+				StatusPrivacy privacy=items.get(position).parentObject;
+				updateQuotePolicyForVisibility(privacy);
+				if(showQuoteWarning)
+					banner.setVisibility(privacy==StatusPrivacy.DIRECT ? View.VISIBLE : View.GONE);
 			}
 
 			@Override

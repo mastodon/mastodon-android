@@ -38,7 +38,6 @@ import org.joinmastodon.android.fragments.ProfileFragment;
 import org.joinmastodon.android.fragments.report.ReportReasonChoiceFragment;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.Attachment;
-import org.joinmastodon.android.model.Quote;
 import org.joinmastodon.android.model.Relationship;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.model.StatusPrivacy;
@@ -254,7 +253,7 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 							.exec(item.accountID);
 				}else if(id==R.id.change_quote_policy){
 					ComposerVisibilitySheet sheet=new ComposerVisibilitySheet(activity, item.status.visibility, item.status.quoteApproval.toQuotePolicy(),
-							false, StatusPrivacy.PUBLIC, item.accountID, (s, visibility, policy)->{
+							false, false, StatusPrivacy.PUBLIC, item.accountID, (s, visibility, policy)->{
 						new SetStatusInteractionPolicies(item.status.id, policy)
 								.setCallback(new Callback<>(){
 									@Override

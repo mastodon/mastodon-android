@@ -79,14 +79,17 @@ import org.joinmastodon.android.model.Hashtag;
 import org.joinmastodon.android.model.Relationship;
 import org.joinmastodon.android.model.SearchResults;
 import org.joinmastodon.android.model.Status;
+import org.joinmastodon.android.model.viewmodel.ListItem;
 import org.joinmastodon.android.ui.ColorContrastMode;
 import org.joinmastodon.android.ui.M3AlertDialogBuilder;
 import org.joinmastodon.android.ui.Snackbar;
+import org.joinmastodon.android.ui.adapters.GenericListItemsAdapter;
 import org.joinmastodon.android.ui.sheets.BlockAccountConfirmationSheet;
 import org.joinmastodon.android.ui.sheets.BlockDomainConfirmationSheet;
 import org.joinmastodon.android.ui.sheets.MuteAccountConfirmationSheet;
 import org.joinmastodon.android.ui.text.CustomEmojiSpan;
 import org.joinmastodon.android.ui.text.SpacerSpan;
+import org.joinmastodon.android.ui.viewholders.ListItemViewHolder;
 import org.parceler.Parcels;
 
 import java.io.File;
@@ -1148,5 +1151,14 @@ public class UiUtils{
 			return true;
 		}
 		return false;
+	}
+
+	public static View makeListItemView(ListItem<?> item, ViewGroup parentView){
+		GenericListItemsAdapter<?> fakeAdapter=new GenericListItemsAdapter<>(List.of(item));
+		ListItemViewHolder<?> holder=fakeAdapter.onCreateViewHolder(parentView, fakeAdapter.getItemViewType(0));
+		fakeAdapter.bindViewHolder(holder, 0);
+		holder.itemView.setBackground(UiUtils.getThemeDrawable(parentView.getContext(), android.R.attr.selectableItemBackground));
+		holder.itemView.setOnClickListener(v->holder.onClick());
+		return holder.itemView;
 	}
 }

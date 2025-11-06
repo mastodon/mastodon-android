@@ -85,7 +85,7 @@ public class AccountTimelineFragment extends StatusListFragment{
 	}
 
 	protected void onStatusCreated(Status status){
-		if(!AccountSessionManager.getInstance().isSelf(accountID, status.account))
+		if(!AccountSessionManager.getInstance().isSelf(accountID, user) || !AccountSessionManager.getInstance().isSelf(accountID, status.account))
 			return;
 		if(filter==GetAccountStatuses.Filter.DEFAULT){
 			// Keep replies to self, discard all other replies

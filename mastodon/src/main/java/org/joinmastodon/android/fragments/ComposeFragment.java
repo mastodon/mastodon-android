@@ -7,6 +7,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.ClipData;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Insets;
@@ -40,6 +41,7 @@ import android.view.WindowManager;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.view.inputmethod.InputConnection;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
@@ -71,6 +73,7 @@ import org.joinmastodon.android.model.Preferences;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.model.StatusPrivacy;
 import org.joinmastodon.android.model.StatusQuotePolicy;
+import org.joinmastodon.android.model.viewmodel.CheckableListItem;
 import org.joinmastodon.android.model.viewmodel.ListItem;
 import org.joinmastodon.android.ui.CustomEmojiPopupKeyboard;
 import org.joinmastodon.android.ui.ExtendedPopupMenu;
@@ -81,6 +84,7 @@ import org.joinmastodon.android.ui.displayitems.InlineStatusStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.StatusDisplayItem;
 import org.joinmastodon.android.ui.drawables.SpoilerStripesDrawable;
 import org.joinmastodon.android.ui.sheets.ComposerVisibilitySheet;
+import org.joinmastodon.android.ui.sheets.ListItemsSheet;
 import org.joinmastodon.android.ui.text.ComposeAutocompleteSpan;
 import org.joinmastodon.android.ui.text.ComposeHashtagOrMentionSpan;
 import org.joinmastodon.android.ui.text.HtmlParser;
@@ -411,17 +415,21 @@ public class ComposeFragment extends MastodonToolbarFragment implements ComposeE
 		outerScroller.setScrollableChildSupplier(()->innerScroller);
 
 		view.findViewById(R.id.quote_post_remove).setOnClickListener(v->{
-			if(quotedStatus!=null){
-				quotedStatus=null;
-				quotedPostWrap.setVisibility(View.GONE);
-				updateMediaPollStates();
-				mainEditText.setHint(R.string.compose_hint);
-			}
+			removeQuote();
 		});
 
 		creatingView=false;
 
 		return view;
+	}
+
+	private void removeQuote(){
+		if(quotedStatus!=null){
+			quotedStatus=null;
+			quotedPostWrap.setVisibility(View.GONE);
+			updateMediaPollStates();
+			mainEditText.setHint(R.string.compose_hint);
+		}
 	}
 
 	@Override
@@ -786,21 +794,39 @@ public class ComposeFragment extends MastodonToolbarFragment implements ComposeE
 	}
 
 	private void publish(){
-		sendingOverlay=new View(getActivity());
-		WindowManager.LayoutParams overlayParams=new WindowManager.LayoutParams();
-		overlayParams.type=WindowManager.LayoutParams.TYPE_APPLICATION_PANEL;
-		overlayParams.flags=WindowManager.LayoutParams.FLAG_LAYOUT_INSET_DECOR | WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS | WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM;
-		overlayParams.width=overlayParams.height=WindowManager.LayoutParams.MATCH_PARENT;
-		overlayParams.format=PixelFormat.TRANSLUCENT;
-		overlayParams.softInputMode=WindowManager.LayoutParams.SOFT_INPUT_STATE_UNCHANGED;
-		overlayParams.token=mainEditText.getWindowToken();
-		wm.addView(sendingOverlay, overlayParams);
-		addBackCallback(sendingBackButtonBlocker);
+		Runnable publishAction=()->{
+			sendingOverlay=new View(getActivity());
+			WindowManager.LayoutParams overlayParams=new WindowManager.LayoutParams();
+			overlayParams.type=WindowManager.LayoutParams.TYPE_APPLICATION_PANEL;
+			overlayParams.flags=WindowManager.LayoutParams.FLAG_LAYOUT_INSET_DECOR | WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS | WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM;
+			overlayParams.width=overlayParams.height=WindowManager.LayoutParams.MATCH_PARENT;
+			overlayParams.format=PixelFormat.TRANSLUCENT;
+			overlayParams.softInputMode=WindowManager.LayoutParams.SOFT_INPUT_STATE_UNCHANGED;
+			overlayParams.token=mainEditText.getWindowToken();
+			wm.addView(sendingOverlay, overlayParams);
+			addBackCallback(sendingBackButtonBlocker);
 
-		publishButton.setEnabled(false);
-		V.setVisibilityAnimated(sendProgress, View.VISIBLE);
+			publishButton.setEnabled(false);
+			V.setVisibilityAnimated(sendProgress, View.VISIBLE);
 
-		mediaViewController.saveAltTextsBeforePublishing(this::actuallyPublish, this::handlePublishError);
+			mediaViewController.saveAltTextsBeforePublishing(this::actuallyPublish, this::handlePublishError);
+		};
+		if(quotedStatus!=null && !AccountSessionManager.getInstance().isSelf(accountID, quotedStatus.account) && statusVisibility==StatusPrivacy.PRIVATE && !GlobalUserPreferences.alertSeen("quoteFollowersOnly")){
+			new M3AlertDialogBuilder(getActivity())
+					.setCheckboxText(R.string.quote_followers_only_dont_show_again)
+					.setTitle(R.string.quote_followers_only_confirm_title)
+					.setMessage(R.string.quote_followers_only_confirm)
+					.setPositiveButton(R.string.quote_followers_only_publish, (dlg, which)->{
+						CheckBox cb=((AlertDialog)dlg).findViewById(R.id.checkbox);
+						if(cb!=null && cb.isChecked())
+							GlobalUserPreferences.setAlertSeen("quoteFollowersOnly");
+						publishAction.run();
+					})
+					.setNegativeButton(R.string.quote_followers_only_cancel, null)
+					.show();
+		}else{
+			publishAction.run();
+		}
 	}
 
 	private void actuallyPublish(){
@@ -1058,11 +1084,15 @@ public class ComposeFragment extends MastodonToolbarFragment implements ComposeE
 	private void onVisibilityClick(View v){
 		if(instance.supportsQuotePostAuthoring()){
 			ComposerVisibilitySheet sheet=new ComposerVisibilitySheet(getActivity(), statusVisibility, statusQuotePolicy,
-					true, quotedStatus==null ? StatusPrivacy.PUBLIC : quotedStatus.visibility, accountID, (s, visibility, policy)->{
+					true, quotedStatus!=null, quotedStatus==null ? StatusPrivacy.PUBLIC : quotedStatus.visibility, accountID, (s, visibility, policy)->{
 				if(statusVisibility!=visibility || statusQuotePolicy!=policy){
 					statusVisibility=visibility;
 					statusQuotePolicy=policy;
 					updateVisibilityButton(true);
+					if(quotedStatus!=null && visibility==StatusPrivacy.DIRECT){
+						mainEditText.append("\n\n"+quotedStatus.url);
+						removeQuote();
+					}
 				}
 				return true;
 			});
