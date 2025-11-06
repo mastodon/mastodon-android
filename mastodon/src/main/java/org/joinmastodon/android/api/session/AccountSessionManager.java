@@ -47,6 +47,7 @@ import org.joinmastodon.android.api.requests.instance.GetCustomEmojis;
 import org.joinmastodon.android.api.requests.instance.GetInstanceV1;
 import org.joinmastodon.android.api.requests.instance.GetInstanceV2;
 import org.joinmastodon.android.api.requests.oauth.CreateOAuthApp;
+import org.joinmastodon.android.events.AccountLoggedOutEvent;
 import org.joinmastodon.android.events.EmojiUpdatedEvent;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.Application;
@@ -223,6 +224,7 @@ public class AccountSessionManager{
 			}catch(Exception ignore){}
 		}
 		maybeUpdateShortcuts();
+		E.post(new AccountLoggedOutEvent(id));
 	}
 
 	@NonNull

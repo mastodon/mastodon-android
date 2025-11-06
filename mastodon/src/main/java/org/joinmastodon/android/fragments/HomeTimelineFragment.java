@@ -467,7 +467,7 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 							prependItems(toAdd, true);
 							showNewPostsButton();
 							if(needCache)
-								AccountSessionManager.getInstance().getAccount(accountID).getCacheController().putHomeTimeline(toAdd, false);
+								AccountSessionManager.getInstance().getAccount(accountID).getCacheController().putHomeTimeline(new ArrayList<>(toAdd), false);
 						}
 					}
 
@@ -573,7 +573,7 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 								adapter.notifyItemRangeInserted(getMainAdapterOffset()+gapPos+1, targetList.size()-1);
 							}
 							if(needCache)
-								AccountSessionManager.getInstance().getAccount(accountID).getCacheController().putHomeTimeline(insertedPosts, false);
+								AccountSessionManager.getInstance().getAccount(accountID).getCacheController().putHomeTimeline(new ArrayList<>(insertedPosts), false);
 						}else{
 							Set<String> idsAboveGap=new HashSet<>();
 							int gapPostIndex=0;
@@ -623,7 +623,7 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 							}
 							if(!insertedPosts.isEmpty()){
 								if(needCache)
-									AccountSessionManager.getInstance().getAccount(accountID).getCacheController().putHomeTimeline(insertedPosts, false);
+									AccountSessionManager.getInstance().getAccount(accountID).getCacheController().putHomeTimeline(new ArrayList<>(insertedPosts), false);
 								adapter.notifyItemRangeInserted(getMainAdapterOffset()+gapPos+(gapRemoved ? 0 : 1), addedItemCount);
 								if(needAdjustScroll){
 									((LinearLayoutManager)list.getLayoutManager()).scrollToPositionWithOffset(getMainAdapterOffset()+gapPos+(gapRemoved ? 0 : 1)+addedItemCount, scrollTop);

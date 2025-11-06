@@ -15,6 +15,7 @@ import org.joinmastodon.android.GlobalUserPreferences;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.session.AccountSession;
 import org.joinmastodon.android.api.session.AccountSessionManager;
+import org.joinmastodon.android.events.AccountLoggedOutEvent;
 import org.joinmastodon.android.events.SelfUpdateStateChangedEvent;
 import org.joinmastodon.android.fragments.SplashFragment;
 import org.joinmastodon.android.model.viewmodel.ListItem;
@@ -39,6 +40,7 @@ public class SettingsMainFragment extends BaseSettingsFragment<Object>{
 	private HideableSingleViewRecyclerAdapter bannerAdapter;
 	private Button updateButton1, updateButton2;
 	private TextView updateText;
+	private ArrayList<ListItem<?>> items=new ArrayList<>();
 	private Runnable updateDownloadProgressUpdater=new Runnable(){
 		@Override
 		public void run(){
@@ -54,7 +56,6 @@ public class SettingsMainFragment extends BaseSettingsFragment<Object>{
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		setTitle(R.string.settings);
-		ArrayList<ListItem<?>> items=new ArrayList<>();
 		items.add(new SectionHeaderListItem(R.string.settings_accounts));
 		for(AccountSession session:AccountSessionManager.getInstance().getLoggedInAccounts()){
 			ImageLoaderRequest req;
@@ -168,6 +169,17 @@ public class SettingsMainFragment extends BaseSettingsFragment<Object>{
 	@Subscribe
 	public void onSelfUpdateStateChanged(SelfUpdateStateChangedEvent ev){
 		updateUpdateBanner();
+	}
+
+	@Subscribe
+	public void onAccountLoggedOut(AccountLoggedOutEvent ev){
+		for(int i=0;i<items.size();i++){
+			if(items.get(i) instanceof SettingsAccountListItem<?> item && item.parentObject instanceof AccountSession as && as.getID().equals(ev.id)){
+				items.remove(i);
+				itemsAdapter.notifyItemRemoved(i);
+				break;
+			}
+		}
 	}
 
 	private void updateUpdateBanner(){

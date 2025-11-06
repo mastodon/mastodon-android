@@ -136,8 +136,10 @@ public class Snackbar{
 		anim.addListener(new AnimatorListenerAdapter(){
 			@Override
 			public void onAnimationEnd(Animator animation){
-				WindowManager wm=context.getSystemService(WindowManager.class);
-				wm.removeView(windowView);
+				if(windowView.isAttachedToWindow()){
+					WindowManager wm=context.getSystemService(WindowManager.class);
+					wm.removeView(windowView);
+				}
 			}
 		});
 		anim.start();
