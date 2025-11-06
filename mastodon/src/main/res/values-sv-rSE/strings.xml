@@ -425,6 +425,7 @@
 	<string name="yesterday">igår</string>
 	<string name="tomorrow">i morgon</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="pause_notifications_ends">Slutar %s</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<string name="pause_notifications_banner">Aviseringar kommer att återupptas %s.</string>
 	<string name="resume_notifications_now">Återuppta nu</string>
@@ -472,6 +473,7 @@
 	<string name="settings_delete_filter">Radera filter</string>
 	<string name="filter_duration_forever">För alltid</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="settings_filter_ends">Slutar %s</string>
 	<plurals name="settings_x_muted_words">
 		<item quantity="one">%d tystat ord eller fras</item>
 		<item quantity="other">%d tystade ord eller fraser</item>
@@ -575,6 +577,7 @@
 	<string name="manage_list_members">Hantera listmedlemmar</string>
 	<string name="list_no_members">Inga medlemmar än</string>
 	<string name="list_find_users">Hitta användare att lägga till</string>
+	<string name="reply_to_user">Svara till %s</string>
 	<string name="non_mutual_sheet_title">Hej, ny anslutning!</string>
 	<string name="got_it">Jag förstår</string>
 	<string name="dont_remind_again">Påminn mig inte igen</string>
@@ -618,6 +621,7 @@
 	<string name="qr_code">QR-kod</string>
 	<string name="scan_qr_code">Skanna QR-kod</string>
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
+	<string name="saved">Sparad</string>
 	<string name="image_saved">Bild sparad.</string>
 	<string name="video_saved">Video sparad.</string>
 	<string name="view_file">Visa</string>
@@ -642,6 +646,7 @@
 	<string name="view_boosts">Visa förstärkningar</string>
 	<string name="view_favorites">Visa favoriter</string>
 	<string name="undo_reblog">Ånga förstärkning</string>
+	<string name="undo_favorite">Ångra favorit</string>
 	<string name="donation_once">Bara en gång</string>
 	<string name="donation_monthly">Månadsvis</string>
 	<string name="donation_yearly">Årlig</string>
@@ -650,6 +655,7 @@
 	<string name="donation_success_subtitle">Du kommer snart att få ett e-postmeddelande som bekräftar din donation.</string>
 	<string name="settings_donate">Donera till Mastodon</string>
 	<string name="settings_manage_donations">Hantera donationer</string>
+	<string name="cant_load_image">Kunde inte ladda bild</string>
 	<string name="poll_see_results">Visa resultat</string>
 	<string name="poll_hide_results">Dölj resultat</string>
 	<plurals name="x_attachments">
@@ -668,6 +674,7 @@
 	<string name="moderation_warning_action_delete_statuses">Några av dina inlägg har tagits bort.</string>
 	<string name="moderation_warning_action_silence">Ditt konto har begränsats.</string>
 	<string name="moderation_warning_learn_more">Läs mer</string>
+	<string name="text_show_more">Mer</string>
 	<string name="confirm_avatar_crop">Välj</string>
 	<string name="settings_accounts">Konton</string>
 	<string name="settings_add_account">Lägg till konto...</string>
@@ -680,6 +687,7 @@
 	<string name="notification_type_status">Nya inlägg</string>
 	<string name="profile_saved_posts">Sparad</string>
 	<string name="profile_saved_posts_explanation">Dina sparade inlägg är bara synliga för dig.</string>
+	<string name="search_people">Personer</string>
 	<!-- appears when you're about to block a server -->
 	<plurals name="server_x_followers_will_be_removed">
 		<item quantity="one">%,d följare från denna server kommer tas bort.</item>
@@ -697,11 +705,26 @@
 	</plurals>
 	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
 	<string name="server_x_following_will_be_removed">Du kommer att förlora %s.</string>
+	<string name="private_reply">Privat svar</string>
 	<string name="post_header_reply">Svara</string>
 	<string name="post_header_mention">Nämn</string>
 	<string name="report_reason_legal">Det är olagligt</string>
+	<string name="date_of_birth">Födelsedatum</string>
 	<!-- %s is `at_least_x_years_old`. Some languages, unlike English, may require the word "years" here. -->
+	<string name="open_link">Öppna</string>
+	<string name="copy">Kopiera</string>
 	<!-- Substituted into `date_of_birth_explanation` -->
+	<plurals name="at_least_x_years_old">
+		<item quantity="one">%d</item>
+		<item quantity="other">%d</item>
+	</plurals>
 	<!-- %s is a username, i.e. @Gargron -->
 	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
+	<string name="compose_visibility">Synlighet</string>
+	<string name="quote_policy_followers">Endast följare</string>
+	<string name="quote_policy_nobody">Bara jag</string>
+	<string name="remove_quote_confirm_title">Ta bort inlägg?</string>
+	<string name="remove_quote_button">Ta bort inlägg</string>
+	<string name="quote_followers_only_publish">Publicera inlägg</string>
+	<string name="quote_followers_only_cancel">Tillbaka till redigering</string>
 </resources>
