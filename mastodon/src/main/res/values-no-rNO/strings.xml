@@ -13,6 +13,8 @@
 	<string name="notifications">Varsler</string>
 	<string name="user_followed_you">%s har fulgt deg</string>
 	<string name="user_sent_follow_request">%s har sendt deg en følgeforespørsel</string>
+	<string name="user_favorited">%s favoritter:</string>
+	<string name="notification_boosted">Fremhevet av %s:</string>
 	<string name="share_toot_title">Del</string>
 	<string name="settings">Innstillinger</string>
 	<string name="publish">Publiser</string>
@@ -91,6 +93,7 @@
 	<string name="do_block">Blokker</string>
 	<string name="button_blocked">Blokkert</string>
 	<string name="action_vote">Stem</string>
+	<string name="confirm">Bekreft</string>
 	<string name="delete">Slett</string>
 	<string name="confirm_delete_title">Slett innlegg</string>
 	<string name="confirm_delete">Er du sikker på at du vil slette innlegget?</string>
@@ -161,6 +164,7 @@
 	<string name="add_alt_text">Legg til alternativ tekst</string>
 	<string name="visibility_public">Offentlig</string>
 	<string name="visibility_followers_only">Følgere</string>
+	<string name="visibility_private">Privat omtale</string>
 	<string name="recent_searches">Nylige</string>
 	<string name="notification_type_follow">Nye følgere</string>
 	<string name="notification_type_favorite">Stjernemerker</string>
@@ -225,6 +229,7 @@
 	<string name="error_saving_file">Feil ved lagring av fil</string>
 	<string name="downloading">Laster ned…</string>
 	<string name="no_app_to_handle_action">Det er ingen app som kan håndtere denne handlingen</string>
+	<string name="local_timeline">Tidslinjer</string>
 	<string name="trending_posts_info_banner">Disse innleggene snakker folk om rundt om i Mastodon.</string>
 	<string name="trending_links_info_banner">Dette er nyhetshistoriene som snakkes om rundt om i Mastodon.</string>
 	<!-- %s is the server domain -->
@@ -299,6 +304,7 @@
 	<string name="add_bookmark">Bokmerke</string>
 	<string name="remove_bookmark">Fjern bokmerke</string>
 	<string name="bookmarks">Bokmerker</string>
+	<string name="your_favorites">Favoritter</string>
 	<string name="login_title">Velkommen tilbake</string>
 	<string name="login_subtitle">Logg inn med serveren der du opprettet kontoen din.</string>
 	<string name="server_url">Server link</string>
@@ -405,6 +411,7 @@
 	<string name="settings_server_explanation">Oversikt, regler og moderatorer</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">Om %s</string>
+	<string name="default_post_language">Innleggsspråk</string>
 	<string name="settings_alt_text_reminders">Legg til alternativ tekst påminnelse</string>
 	<string name="settings_confirm_unfollow">Spør før du slutter å følge noen</string>
 	<string name="settings_confirm_boost">Spør før fremheving</string>
@@ -654,6 +661,7 @@ Jo flere folk du følger, jo mer aktiv og interessant blir den.</string>
 	<string name="user_cant_see_each_other_posts">De kan ikke se dine innlegg og du kommer ikke til å se deres.</string>
 	<string name="user_cant_mention_or_follow_you">De kan ikke nevne eller følge deg.</string>
 	<string name="unblocked_user_x">Blokkerer ikke lenger %s</string>
+	<string name="block_domain_confirm_title">Blokker domenet?</string>
 	<string name="do_block_server">Blokker server</string>
 	<string name="block_user_x_instead">Blokker %s i stedet</string>
 	<string name="server_cant_mention_or_follow_you">Ingen i denne serveren kan følge deg.</string>
