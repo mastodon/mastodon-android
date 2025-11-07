@@ -317,6 +317,7 @@
 	<string name="server_filter_region_asia">Asien</string>
 	<string name="server_filter_region_oceania">Oceanien</string>
 	<string name="not_accepting_new_members">Accepterar inte nya medlemmar</string>
+	<string name="category_special_interests">Specialintressen</string>
 	<string name="signup_passwords_dont_match">Lösenorden matchar inte</string>
 	<string name="profile_add_row">Lägg till rad</string>
 	<string name="profile_setup">Konfiguration av profil</string>
@@ -594,6 +595,7 @@
 	<string name="non_mutual_text2">En positiv ton är alltid uppskattad.</string>
 	<string name="non_mutual_title3">Var öppen</string>
 	<string name="make_profile_discoverable">Gör min profil upptäckningsbar</string>
+	<string name="discoverability">Upptäckbarhet</string>
 	<string name="app_version_copied">Versionsnummer kopierat till urklipp</string>
 	<string name="onboarding_recommendations_title">Anpassa ditt hemflöde</string>
 	<string name="article_by_author">Av %s</string>
@@ -616,6 +618,7 @@
 	<string name="user_cant_mention_or_follow_you">De kan inte nämna eller följa dig.</string>
 	<string name="block_domain_confirm_title">Blockera domän?</string>
 	<string name="do_block_server">Blockera server</string>
+	<string name="block_user_x_instead">Blockera %s istället</string>
 	<string name="server">Server</string>
 	<string name="what_is_activitypub_title">Vad är ActivityPub?</string>
 	<string name="qr_code">QR-kod</string>
@@ -651,6 +654,7 @@
 	<string name="donation_monthly">Månadsvis</string>
 	<string name="donation_yearly">Årlig</string>
 	<string name="currency">Valuta</string>
+	<string name="donation_success_share">Sprid ordet</string>
 	<string name="donation_success_title">Tack för ditt bidrag!</string>
 	<string name="donation_success_subtitle">Du kommer snart att få ett e-postmeddelande som bekräftar din donation.</string>
 	<string name="settings_donate">Donera till Mastodon</string>
@@ -675,6 +679,7 @@
 	<string name="moderation_warning_action_silence">Ditt konto har begränsats.</string>
 	<string name="moderation_warning_learn_more">Läs mer</string>
 	<string name="text_show_more">Mer</string>
+	<string name="avatar_move_and_scale">Flytta och skala</string>
 	<string name="confirm_avatar_crop">Välj</string>
 	<string name="settings_accounts">Konton</string>
 	<string name="settings_add_account">Lägg till konto...</string>
@@ -719,6 +724,7 @@
 		<item quantity="other">%d</item>
 	</plurals>
 	<!-- %s is a username, i.e. @Gargron -->
+	<string name="compose_visibility_title">Synlighet och interaktion</string>
 	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
 	<string name="compose_visibility">Synlighet</string>
 	<string name="quote_policy_followers">Endast följare</string>
