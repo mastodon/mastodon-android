@@ -752,7 +752,7 @@ public class PhotoViewer implements ZoomPanView.Listener{
 			ContentValues values=new ContentValues();
 //			values.put(MediaStore.Downloads.DOWNLOAD_URI, att.url);
 			values.put(MediaStore.MediaColumns.DISPLAY_NAME, fileName);
-			values.put(MediaStore.MediaColumns.RELATIVE_PATH, Environment.DIRECTORY_DOWNLOADS);
+			values.put(MediaStore.MediaColumns.RELATIVE_PATH, Environment.DIRECTORY_DOWNLOADS + "/" + activity.getApplicationInfo().loadLabel(activity.getPackageManager()));
 			String mime=mimeTypeForFileName(fileName);
 			if(mime!=null)
 				values.put(MediaStore.MediaColumns.MIME_TYPE, mime);
@@ -760,7 +760,7 @@ public class PhotoViewer implements ZoomPanView.Listener{
 			Uri itemUri=cr.insert(MediaStore.Files.getContentUri(MediaStore.VOLUME_EXTERNAL_PRIMARY), values);
 			return cr.openOutputStream(itemUri);
 		}else{
-			return new FileOutputStream(new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), fileName));
+			return new FileOutputStream(new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), activity.getApplicationInfo().loadLabel(activity.getPackageManager()) + "/" + fileName));
 		}
 	}
 
@@ -787,7 +787,7 @@ public class PhotoViewer implements ZoomPanView.Listener{
 						});
 						if(Build.VERSION.SDK_INT<29){
 							String fileName=Uri.parse(att.url).getLastPathSegment();
-							File dstFile=new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), fileName);
+							File dstFile=new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), activity.getApplicationInfo().loadLabel(activity.getPackageManager()) + "/" + fileName);
 							MediaScannerConnection.scanFile(activity, new String[]{dstFile.getAbsolutePath()}, new String[]{mimeTypeForFileName(fileName)}, null);
 						}
 					}catch(IOException x){
@@ -815,7 +815,7 @@ public class PhotoViewer implements ZoomPanView.Listener{
 		DownloadManager.Request req=new DownloadManager.Request(uri);
 		req.allowScanningByMediaScanner();
 		req.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
-		req.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, uri.getLastPathSegment());
+		req.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, activity.getApplicationInfo().loadLabel(activity.getPackageManager()) + "/" + uri.getLastPathSegment());
 		if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.TIRAMISU)
 			activity.registerReceiver(downloadCompletedReceiver, new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE), Context.RECEIVER_EXPORTED);
 		else
