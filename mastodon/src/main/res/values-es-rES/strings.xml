@@ -730,6 +730,7 @@ Mientras más personas sigas, más activo e interesante será.</string>
 	<string name="notifications_muted">Las notificaciones de %s han sido descartadas.</string>
 	<string name="notifications_allowed">Ahora aparecerá %s en tu lista de notificaciones.</string>
 	<string name="visibility_subtitle_public">Todo el mundo dentro y fuera de Mastodon</string>
+	<string name="visibility_subtitle_unlisted">Oculto de los resultados de búsquedas, tendencias y cronologías públicas de Mastodon</string>
 	<string name="visibility_subtitle_followers">Solo tus seguidores</string>
 	<string name="visibility_subtitle_private">Todo el mundo mencionado en la publicación</string>
 	<string name="view_boosts">Mostrar impulsos</string>
@@ -892,9 +893,12 @@ Mientras más personas sigas, más activo e interesante será.</string>
 	<string name="user_edited_quoted_post">%s editó una publicación que citaste</string>
 	<string name="notification_type_quote">Citas</string>
 	<string name="create_quote">Cita</string>
+	<string name="cannot_quote_post">No tienes permiso para citar esta publicación</string>
 	<string name="cannot_quote_post_followers_only">Solo los seguidores pueden citar esta publicación</string>
 	<string name="compose_hint_quote">Agregar algo a la conversación</string>
 	<string name="cancel_quote">Cancelar cita</string>
+	<string name="unlisted_quote_alert_title">Citar publicaciones públicas silenciosas</string>
+	<string name="unlisted_quote_alert">Cuando cites una publicación pública silenciosa, tu publicación se ocultará de las cronologías de tendencias.</string>
 	<string name="default_post_visibility">Visibilidad de publicación</string>
 	<string name="create_quote_manual_approval">Solicitud de citación</string>
 	<string name="create_quote_manual_approval_subtitle">El autor lo revisará manualmente</string>
@@ -906,4 +910,12 @@ Mientras más personas sigas, más activo e interesante será.</string>
 	<string name="remove_quote_confirm_title">¿Deseas eliminar la publicación?</string>
 	<string name="remove_quote_confirm">Esta acción no se puede deshacer.</string>
 	<string name="remove_quote_button">Eliminar publicación</string>
+	<string name="settings_posting_defaults_explanation">Esta configuración se usará como predeterminada cuando crees nuevas publicaciones, pero puedes modificarla al escribir una publicación.</string>
+	<string name="cant_quote_in_private_title">No se pueden incluir citas en menciones privadas</string>
+	<string name="cant_quote_in_private">Si guardas la configuración actual, la cita incrustada se convertirá en un enlace.</string>
+	<string name="quote_followers_only_confirm_title">¿Compartir con seguidores y usuarios mencionados?</string>
+	<string name="quote_followers_only_confirm">La persona a la que estás citando y otras mencionadas serán notificadas y podrán ver tu publicación, incluso si no te siguen.</string>
+	<string name="quote_followers_only_publish">Publicar</string>
+	<string name="quote_followers_only_cancel">Volver a editar</string>
+	<string name="quote_followers_only_dont_show_again">No volver a mostrar este mensaje otra vez</string>
 </resources>
