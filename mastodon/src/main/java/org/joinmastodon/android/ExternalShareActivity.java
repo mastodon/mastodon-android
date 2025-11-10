@@ -52,6 +52,13 @@ public class ExternalShareActivity extends FragmentStackActivity{
 
 		Intent intent=getIntent();
 		String text=intent.getStringExtra(Intent.EXTRA_TEXT);
+		String subject=intent.getStringExtra(Intent.EXTRA_SUBJECT);
+		if(!TextUtils.isEmpty(subject)){
+			if(!TextUtils.isEmpty(text))
+				text=subject+"\n"+text;
+			else
+				text=subject;
+		}
 		List<Uri> mediaUris;
 		if(Intent.ACTION_SEND.equals(intent.getAction())){
 			Uri singleUri=intent.getParcelableExtra(Intent.EXTRA_STREAM);
